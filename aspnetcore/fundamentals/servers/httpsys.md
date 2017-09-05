@@ -11,18 +11,18 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 4173a2ef539859031674fb613b25031e3b343c67
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: cff6f171432febac5ec3e7adf9cf77953e0ece2d
+ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core の HTTP.sys web サーバーの実装
 
 によって[Tom Dykstra](http://github.com/tdykstra)と[Chris Ross](https://github.com/Tratcher)
 
 > [!NOTE]
-> このトピックには、のみを ASP.NET Core 2.0 以降が適用されます。 以前のバージョンの ASP.NET Core、HTTP.sys が名前付き[WebListener](WebListener.md)です。
+> このトピックには、のみを ASP.NET Core 2.0 以降が適用されます。 以前のバージョンの ASP.NET Core、HTTP.sys が名前付き[WebListener](xref:fundamentals/servers/weblistener)です。
 
 HTTP.sys は、 [ASP.NET core web server](index.md) Windows だけで実行されています。 に基づいて構築されて、 [Http.Sys カーネル モード ドライバー](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)です。 HTTP.sys は、代わりに[Kestrel](kestrel.md) Kestel しない一部の機能を提供します。 **HTTP.sys と互換性がないと IIS または IIS Express では使用できません、 [ASP.NET Core モジュール](aspnet-core-module.md)です。**
 
@@ -80,7 +80,7 @@ HTTP.sys をお勧めの内部の展開では使用できない Kestrel、Window
 
 * 呼び出す、`UseHttpSys`拡張メソッドを`WebHostBuilder`で、`Main`いずれかを指定してメソッド[HTTP.sys オプション](https://github.com/aspnet/HttpSysServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.HttpSys/HttpSysOptions.cs)する必要がある、次の例で示すように。
 
-  [!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Main&highlight=11-19)]
+  [!code-csharp[](httpsys/sample/Program.cs?name=snippet_Main&highlight=11-19)]
 
 ### <a name="configure-httpsys-options"></a>HTTP.sys のオプションを構成します。
 
@@ -90,7 +90,7 @@ HTTP.sys の設定および構成できる制限のいくつか示します。
 
 次のコードを含むアプリケーション全体の同時実行の開いている TCP 接続の最大数を設定することができます*Program.cs*:
 
-[!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Options&highlight=5)]
+[!code-csharp[](httpsys/sample/Program.cs?name=snippet_Options&highlight=5)]
 
 接続の最大数は、既定で無制限 (null) です。
 
@@ -107,7 +107,7 @@ public IActionResult MyActionMethod()
 
 全体のアプリケーションでは、すべての要求の制約を構成する方法を示す例を次に示します。
 
-[!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Options&highlight=6)]
+[!code-csharp[](httpsys/sample/Program.cs?name=snippet_Options&highlight=6)]
 
 内の特定の要求に設定を上書きできます*Startup.cs*:
 
@@ -121,7 +121,7 @@ public IActionResult MyActionMethod()
 
 既定では ASP.NET Core にバインド`http://localhost:5000`です。 URL プレフィックスとポートを構成するのに使用することができます、`UseUrls`の拡張メソッドで、`urls`コマンドライン引数では、ASPNETCORE_URLS 環境変数、または`UrlPrefixes`プロパティ[HttpSysOptions](https://github.com/aspnet/HttpSysServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.HttpSys/HttpSysOptions.cs)です。 次のコード例では`UrlPrefixes`します。
 
-[!code-csharp[](HttpSys/sample/Program.cs?name=snippet_Main&highlight=17)]
+[!code-csharp[](httpsys/sample/Program.cs?name=snippet_Main&highlight=17)]
 
 利点`UrlPrefixes`が正しくフォーマットされているプレフィックスを追加しようとする場合にすぐに、エラー メッセージを取得することができます。 利点`UseUrls`(とは共有`urls`と ASPNETCORE_URLS) は Kestrel と HTTP.sys の間でより簡単に切り替えることができます。
 

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e5c97ce868e281310aa75c16e73298e2aaa0d9d
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 30e00e2a442225bbe04be0d343f7048efe484477
+ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>ASP.NET Core でのログ記録の概要
 
@@ -283,7 +283,7 @@ System.Exception: Item not found exception.
 
 構成データは、プロバイダーと次の例のように、カテゴリによって最小のログ レベルを指定します。
 
-[!code-json[](logging/sample2/AppSettings.json)]
+[!code-json[](logging/sample2/appsettings.json)]
 
 この JSON では、デバッグ プロバイダーの 1 つ、4 つのコンソール プロバイダーとすべてのプロバイダーに適用される 1 つ、6 つのフィルター規則を作成します。 これらの規則を 1 つだけかは、後ほどが各プロバイダーの選択が表示されるときに、`ILogger`オブジェクトを作成します。
 
