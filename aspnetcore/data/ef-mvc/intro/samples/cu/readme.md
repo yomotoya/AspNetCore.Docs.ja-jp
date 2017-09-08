@@ -1,0 +1,1 @@
+このプロジェクトがのスニペットを提供するために使用される[EF MVC コア チュートリアル シリーズ](https://docs.microsoft.com/aspnet/core/data/ef-mvc/intro)です。 次のチュートリアルでは、によって組み込まれているサンプル プロジェクトでは、https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final でです。
