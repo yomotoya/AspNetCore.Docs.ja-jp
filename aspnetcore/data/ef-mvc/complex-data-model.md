@@ -11,11 +11,11 @@ ms.assetid: 0dd63913-a041-48b6-96a4-3aeaedbdf5d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: ad34a86c90c06dcddeeba7a0deba95f8057b4513
-ms.sourcegitcommit: def90564eff4adfeed0a8e511e4c201b040e9a5e
+ms.openlocfilehash: 7d216bc07d0a8d739f0cecbc5b571b6144c13e61
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>EF コア ASP.NET Core MVC のチュートリアル (10 の 5) に、複雑なデータ モデルを作成します。
 
@@ -215,7 +215,7 @@ public int InstructorID { get; set; }
 
 使用することも、`Key`エンティティが、独自のプライマリ キーを持っていて classnameID または ID 以外何か、プロパティの名前を指定の属性
 
-既定では、列はリレーションシップ用のため、EF はデータベースによって生成された非としてキーを扱います。
+既定では、リレーションシップの列があるために、EF はデータベースによって生成された非としてキーを扱います。
 
 ### <a name="the-instructor-navigation-property"></a>講師ナビゲーション プロパティ
 

@@ -11,11 +11,11 @@ ms.assetid: 71fec30f-8ea7-4ca8-96e3-d2e26c5be44e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: d04b740f1ded3fb41ef1c3edd0adad276d8fcef0
-ms.sourcegitcommit: d7e0df365a6112240b5560212759b1e3525850a2
+ms.openlocfilehash: a3badbfe365a99593b38fc3846a9984824438f16
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>読み取りに関連したデータの ASP.NET Core MVC のチュートリアル (10 の 6) の EF コア
 
@@ -91,7 +91,7 @@ CoursesController と同じオプションを使用して、Course エンティ�
 
 ## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>コースおよびまで登録数を示す講習においてインストラクター ページを作成します。
 
-このセクションでは、インストラクター ページを表示するためにコント ローラーと Instructor エンティティのビューを作成します。
+このセクションでは、講習においてインストラクター ページを表示するためにコント ローラーと Instructor エンティティのビューを作成します。
 
 ![講習においてインストラクター インデックス ページ](read-related-data/_static/instructors-index.png)
 
@@ -167,7 +167,7 @@ EF 読み取り/書き込みアクションの次の図に示すように、イ�
 
 *Views/Instructors/Index.cshtml*、テンプレート コードを次のコードに置き換えます。 変更が強調表示されます。
 
-[!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=1-64&highlight=1,3-7,18-19,41-54,56)]
+[!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=1-64&highlight=1,3-7,15-19,24,26-31,41-54,56)]
 
 既存のコードに、次の変更を加えた。
 

@@ -11,11 +11,11 @@ ms.assetid: 6e1cd570-40f1-4b24-8b6e-7d2d27758f18
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: b99a58d77d4f1751753ae576ade4bd6dd981fbbf
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 855f060a6404dedff310b288ada9738689069ceb
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>作成、読み取り、更新、および削除の ASP.NET Core MVC のチュートリアル (10 の 2) と EF コア
 
@@ -40,7 +40,7 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 
 ## <a name="customize-the-details-page"></a>[詳細] ページをカスタマイズします。
 
-スキャフォールディング コード受講者インデックス ページを省略して、`Enrollments`プロパティ、そのプロパティには、コレクションが格納されているためです。 **詳細**ページを HTML テーブルで、コレクションの内容を表示します。
+スキャフォールディング コード受講者インデックス ページを省略して、`Enrollments`プロパティ、そのプロパティには、コレクションが格納されているためです。 **詳細** ページで、HTML テーブルのコレクションの内容を表示します。
 
 *Controllers/StudentsController.cs*、詳細については、アクション メソッドの表示は、 `SingleOrDefaultAsync` 、1 つを取得する方法を`Student`エンティティです。 呼び出すコードを追加`Include`です。 `ThenInclude`、および`AsNoTracking`メソッドは、次の強調表示されたコードに示すようにします。
 
@@ -96,7 +96,7 @@ http://localhost:1230/Instructor/Index?id=1&CourseID=2021
 
 ### <a name="add-enrollments-to-the-details-view"></a>詳細ビューに登録を追加します。
 
-開いている*Views/Students/Details.cshtml*です。 使用して、各フィールドが表示される`DisplayNameFor`と`DisplayFor`ヘルパーに渡し、次の例で示すようにします。
+開いている*Views/Students/Details.cshtml*です。 使用して、各フィールドが表示される`DisplayNameFor`と`DisplayFor`ヘルパーを次の例で示すようにします。
 
 [!code-html[](intro/samples/cu/Views/Students/Details.cshtml?range=13-18&highlight=2,5)]
 
