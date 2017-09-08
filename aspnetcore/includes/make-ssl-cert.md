@@ -1,0 +1,8 @@
+<span data-ttu-id="da0d1-101">Windows での自己署名入りの SSL 証明書を生成するためには、PowerShell コマンドレットを使用することができます[New-selfsignedcertificate](https://technet.microsoft.com/library/hh848633)です。</span><span class="sxs-lookup"><span data-stu-id="da0d1-101">For generating self-signed SSL certificates on Windows, you can use the PowerShell cmdlet [New-SelfSignedCertificate](https://technet.microsoft.com/library/hh848633).</span></span> <span data-ttu-id="da0d1-102">自己署名証明書を生成するための簡略化するサード パーティのツールもあります。</span><span class="sxs-lookup"><span data-stu-id="da0d1-102">There are also third-party tools that make it easier for you to generate self-signed certificates:</span></span>
+
+* [<span data-ttu-id="da0d1-103">SelfCert</span><span class="sxs-lookup"><span data-stu-id="da0d1-103">SelfCert</span></span>](https://www.pluralsight.com/blog/software-development/selfcert-create-a-self-signed-certificate-interactively-gui-or-programmatically-in-net)
+* [<span data-ttu-id="da0d1-104">Makecert の UI</span><span class="sxs-lookup"><span data-stu-id="da0d1-104">Makecert UI</span></span>](http://makecertui.codeplex.com/)
+
+<span data-ttu-id="da0d1-105">MacOS および Linux で使用して自己署名証明書を作成できます[OpenSSL](https://www.openssl.org/)です。</span><span class="sxs-lookup"><span data-stu-id="da0d1-105">On macOS and Linux you can create a self-signed certificate using [OpenSSL](https://www.openssl.org/).</span></span>
+
+<span data-ttu-id="da0d1-106">詳細については、次を参照してください。[開発の HTTPS を設定](xref:security/https)です。</span><span class="sxs-lookup"><span data-stu-id="da0d1-106">For more information, see [Setting up HTTPS for development](xref:security/https).</span></span>
