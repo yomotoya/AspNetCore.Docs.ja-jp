@@ -1,8 +1,8 @@
 ---
-title: "グローバリゼーションとローカリゼーション"
+title: "グローバリゼーションとローカリゼーション ASP.NET Core"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "コンテンツをさまざまな言語およびカルチャにローカライズするため、ASP.NET Core がミドルウェアとサービスを提供する方法について説明します。"
+keywords: "ASP.NET Core、ローカリゼーション、カルチャ、言語、リソース ファイル、グローバリゼーション、国際化、ロケール"
 ms.author: riande
 manager: wpickett
 ms.date: 01/14/2017
@@ -11,13 +11,13 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 70f11cc9de8e885745e7d08cb98ac68e3cc8ef95
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: c6c9db21a95131a3d7920054e32004791b499c11
+ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
-# <a name="globalization-and-localization"></a>グローバリゼーションとローカリゼーション
+# <a name="globalization-and-localization-in-aspnet-core"></a>グローバリゼーションとローカリゼーション ASP.NET Core
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Damien Bowden](https://twitter.com/damien_bod)、 [Bart Calixto](https://twitter.com/bartmax)、 [Nadeem Afana](https://twitter.com/NadeemAfana)、および[Hisham Bin Ateya](https://twitter.com/hishambinateya)
 
@@ -190,7 +190,7 @@ Visual Studio で、ファイル名にカルチャせず、リソース ファ�
 
 ローカリゼーションがで構成されている、`ConfigureServices`メソッド。
 
-[!code-csharp[Main](localization/sample/Startup.cs?range=45-49)]
+[!code-csharp[Main](localization/sample/Program.cs?name=snippet1)]
 
 * `AddLocalization`ローカリゼーション サービスをサービス コンテナーに追加します。 上記のコードは、「リソース」のリソース パスを設定します。
 
@@ -200,9 +200,9 @@ Visual Studio で、ファイル名にカルチャせず、リソース ファ�
 
 ### <a name="localization-middleware"></a>ローカリゼーション ミドルウェア
 
-要求時に、現在のカルチャは、ローカリゼーションで設定[ミドルウェア](middleware.md)です。 ローカライズ ミドルウェアが有効になっている、`Configure`メソッドの*Startup.cs*ファイル。 要求のカルチャをチェックするすべてのミドルウェアの前に、ローカリゼーション ミドルウェアを構成する必要があります、注意してください (たとえば、 `app.UseMvc()`)。
+要求時に、現在のカルチャは、ローカリゼーションで設定[ミドルウェア](middleware.md)です。 ローカライズ ミドルウェアが有効になっている、`Configure`メソッドの*Program.cs*ファイル。 要求のカルチャをチェックするすべてのミドルウェアの前に、ローカリゼーション ミドルウェアを構成する必要があります、注意してください (たとえば、 `app.UseMvcWithDefaultRoute()`)。
 
-[!code-csharp[Main](localization/sample/Startup.cs?highlight=13-35&range=123-159)]
+[!code-csharp[Main](localization/sample/Program.cs?name=snippet2)]
 
 `UseRequestLocalization`初期化、`RequestLocalizationOptions`オブジェクト。 すべての要求リストの`RequestCultureProvider`で、`RequestLocalizationOptions`が列挙され、要求のカルチャが正常に決定できる最初のプロバイダーが使用されます。 既定のプロバイダーに由来、`RequestLocalizationOptions`クラス。
 
@@ -259,25 +259,27 @@ Cookie の形式が`c=%LANGCODE%|uic=%LANGCODE%`ここで、`c`は`Culture`と`u
 お客様は、データベース内の言語とカルチャを格納できるようにするとします。 ユーザーの姓名を検索するプロバイダーを記述することもできます。 次のコードは、カスタム プロバイダーを追加する方法を示しています。
 
 ```csharp
+private const string enUSCulture = "en-US";
+
 services.Configure<RequestLocalizationOptions>(options =>
-   {
-       var supportedCultures = new[]
-       {
-           new CultureInfo("en-US"),
-           new CultureInfo("fr")
-       };
+{
+    var supportedCultures = new[]
+    {
+        new CultureInfo(enUSCulture),
+        new CultureInfo("fr")
+    };
 
-       options.DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US");
-       options.SupportedCultures = supportedCultures;
-       options.SupportedUICultures = supportedCultures;
+    options.DefaultRequestCulture = new RequestCulture(culture: enUSCulture, uiCulture: enUSCulture);
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
 
-       options.RequestCultureProviders.Insert(0, new CustomRequestCultureProvider(async context =>
-       {
-         // My custom request culture logic
-         return new ProviderCultureResult("en");
-       }));
-   });
-   ```
+    options.RequestCultureProviders.Insert(0, new CustomRequestCultureProvider(async context =>
+    {
+        // My custom request culture logic
+        return new ProviderCultureResult("en");
+    }));
+});
+```
 
 使用して`RequestLocalizationOptions`を追加またはローカライズのプロバイダーを削除します。
 
@@ -289,7 +291,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 *Views/Shared/_SelectLanguagePartial.cshtml*にファイルが追加、`footer`できるすべてのビューに使用できるようにレイアウト ファイルのセクション。
 
-[!code-HTML[Main](localization/sample/Views/Shared/_Layout.cshtml?range=48-61&highlight=10)]
+[!code-HTML[Main](localization/sample/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
 
 `SetLanguage`メソッドはカルチャ cookie を設定します。
 
@@ -317,7 +319,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 * 特定のカルチャ: 指定された言語と地域を持つカルチャ。 (例"EN-US"、"EN-GB"、"es CL") の
 * ロケール: ロケールとは、カルチャと同じです。
 
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の技術情報
 
 * [Localization.StarterWeb プロジェクト](https://github.com/aspnet/entropy)アーティクルで使用します。
 * [Visual Studio でのリソース ファイル](https://msdn.microsoft.com/library/xbx3z216(v=vs.110).aspx#VSResFiles)

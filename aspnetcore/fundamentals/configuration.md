@@ -11,11 +11,11 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: dae7ac6e377d2c17bc8f86e5b6da98107366cc73
-ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
+ms.openlocfilehash: 39e76b14af85de34b8443bf4e04d18d13ad2aa90
+ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/08/2017
 ---
 <a name=fundamentals-configuration></a>
 
@@ -41,11 +41,11 @@ ms.lasthandoff: 09/05/2017
 
 次のコンソール アプリケーションは、JSON の構成プロバイダーを使用します。
 
-[!code-csharp[Main](configuration/sample/src/ConfigJson/Program.cs)]
+[!code-csharp[Main](configuration/sample/ConfigJson/Program.cs)]
 
 アプリでは、読み取りし、次の構成設定を表示します。
 
-[!code-json[Main](configuration/sample/src/ConfigJson/appsettings.json)]
+[!code-json[Main](configuration/sample/ConfigJson/appsettings.json)]
 
 構成は、ノードが、コロンで区切られた名前と値のペアの階層リストで構成されます。 値を取得するには、アクセス、`Configuration`インデクサーに対して、対応する項目のキー。
 
@@ -63,13 +63,11 @@ Console.Write($"{Configuration["wizards:0:Name"]}, ");
 
 上記のサンプルでは、構成のインデクサーを使用して値を読み取ります。 外部アクセス構成を`Startup`を使用して、[オプション パターン](xref:fundamentals/configuration#options-config-objects)です。 *オプション パターン*この記事で後述します。
 
-通常をさまざまな環境、開発、テストおよび運用環境などの別の構成設定があります。 次の強調表示されたコードでは、3 つのソースに 2 つの構成プロバイダーを追加します。
+通常をさまざまな環境、開発、テスト、および運用環境などの別の構成設定があります。 `CreateDefaultBuilder` ASP.NET Core 2.x アプリケーションでも拡張メソッド (またはを使用して`AddJsonFile`と`AddEnvironmentVariables`ASP.NET Core 1.x アプリ内で直接) JSON ファイルおよびシステム構成ソースを読み取るための構成プロバイダーを追加します。
 
-1. JSON プロバイダー、読み取り*される appsettings.json*
-2. JSON プロバイダー、読み取り*appsettings\< 。EnvironmentName > .json*
-3. 環境変数プロバイダー
-
-[!code-csharp[Main](configuration/sample/src/WebConfigBind/Startup.cs?name=snippet2&highlight=7-9)]
+* *される appsettings.json*
+* * appsettings です。\<EnvironmentName > .json
+* 環境変数
 
 参照してください[AddJsonFile](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.jsonconfigurationextensions)パラメーターの説明。 `reloadOnChange`ASP.NET Core 1.1 以降のみサポートされます。 
 
@@ -96,21 +94,21 @@ Console.Write($"{Configuration["wizards:0:Name"]}, ");
 
 オプション クラスは非抽象である必要がありますパブリック パラメーターなしのコンス トラクターを使用します。 例:
 
-[!code-csharp[Main](configuration/sample/src/UsingOptions/Models/MyOptions.cs)]
+[!code-csharp[Main](configuration/sample/UsingOptions/Models/MyOptions.cs)]
 
 <a name=options-example></a>
 
 次のコードでは、JSON の構成プロバイダーは有効です。 `MyOptions`クラスをサービス コンテナーに追加および構成にバインドします。
 
-[!code-csharp[Main](configuration/sample/src/UsingOptions/Startup.cs?name=snippet1&highlight=8,20-22)]
+[!code-csharp[Main](configuration/sample/UsingOptions/Startup.cs?name=snippet1&highlight=8,20-21)]
 
 次[コント ローラー](../mvc/controllers/index.md)使用[コンス トラクター依存性の注入](xref:fundamentals/dependency-injection#what-is-dependency-injection)で[ `IOptions<TOptions>` ](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.options.ioptions-1)設定にアクセスします。
 
-[!code-csharp[Main](configuration/sample/src/UsingOptions/Controllers/HomeController.cs?name=snippet1)]
+[!code-csharp[Main](configuration/sample/UsingOptions/Controllers/HomeController.cs?name=snippet1)]
 
 次の*される appsettings.json*ファイル。
 
-[!code-json[Main](configuration/sample/src/UsingOptions/appsettings1.json)]
+[!code-json[Main](configuration/sample/UsingOptions/appsettings1.json)]
 
 `HomeController.Index`メソッドを返します。`option1 = value1_from_json, option2 = 2`です。
 
@@ -118,7 +116,7 @@ Console.Write($"{Configuration["wizards:0:Name"]}, ");
 
 次のコードでは、1 秒あたり`IConfigureOptions<TOptions>`サービスは、サービス コンテナーに追加します。 使用してバインディングを構成するデリゲートを使用して、`MyOptions`です。
 
-[!code-csharp[Main](configuration/sample/src/UsingOptions/Startup2.cs?name=snippet1&highlight=9-13)]
+[!code-csharp[Main](configuration/sample/UsingOptions/Startup2.cs?name=snippet1&highlight=9-13)]
 
 複数の構成プロバイダーを追加することができます。 NuGet パッケージの構成プロバイダーを利用できます。 登録されている順序で適用されます。
 
@@ -130,23 +128,27 @@ Console.Write($"{Configuration["wizards:0:Name"]}, ");
 
 次のコードでは、3 つ目の`IConfigureOptions<TOptions>`サービスは、サービス コンテナーに追加します。 バインドされている`MySubOptions`セクションに`subsection`の*される appsettings.json*ファイル。
 
-[!code-csharp[Main](configuration/sample/src/UsingOptions/Startup3.cs?name=snippet1&highlight=16-17)]
+[!code-csharp[Main](configuration/sample/UsingOptions/Startup3.cs?name=snippet1&highlight=16-17)]
 
 注: この拡張メソッドが必要です、 `Microsoft.Extensions.Options.ConfigurationExtensions` NuGet パッケージです。
 
 以下を使用して*される appsettings.json*ファイル。
 
-[!code-json[Main](configuration/sample/src/UsingOptions/appsettings.json)]
+[!code-json[Main](configuration/sample/UsingOptions/appsettings.json)]
 
 `MySubOptions`クラス。
 
-[!code-csharp[Main](configuration/sample/src/UsingOptions/Models/MySubOptions.cs)]
+[!code-csharp[Main](configuration/sample/UsingOptions/Models/MySubOptions.cs?name=snippet1)]
 
 次の`Controller`:
 
-[!code-csharp[Main](configuration/sample/src/UsingOptions/Controllers/HomeController2.cs?name=snippet1)]
+[!code-csharp[Main](configuration/sample/UsingOptions/Controllers/HomeController2.cs?name=snippet1)]
 
 `subOption1 = subvalue1_from_json, subOption2 = 200`返されます。
+
+ビューのモデルでのオプションを指定したり挿入したりできます`IOptions<TOptions>`ビューに直接。
+
+[!code-html[Main](configuration/sample/UsingOptions/Views/Home/Index.cshtml?highlight=3-4,16-17,20-21)]
 
 <a name=in-memory-provider></a>
 
@@ -174,27 +176,27 @@ Console.Write($"{Configuration["wizards:0:Name"]}, ");
 
 次の例では、メモリ内のプロバイダーを使用して、クラスにバインドする方法を示します。
 
-[!code-csharp[Main](configuration/sample/src/InMemory/Program.cs)]
+[!code-csharp[Main](configuration/sample/InMemory/Program.cs)]
 
 構成値は、文字列として返されますが、バインド、オブジェクトの作成を有効にします。 バインディングでは、POCO オブジェクトやオブジェクトも全体のグラフを取得することができます。 次の例は、バインドする方法を示しています。`MyWindow`および ASP.NET Core MVC アプリのオプションのパターンを使用します。
 
-[!code-csharp[Main](configuration/sample/src/WebConfigBind/MyWindow.cs)]
+[!code-csharp[Main](configuration/sample/WebConfigBind/MyWindow.cs)]
 
-[!code-json[Main](configuration/sample/src/WebConfigBind/appsettings.json)]
+[!code-json[Main](configuration/sample/WebConfigBind/appsettings.json)]
 
-カスタム クラスをバインド`ConfigureServices`で、`Startup`クラス。
+カスタム クラスをバインド`ConfigureServices`ホストを作成するときに。
 
-[!code-csharp[Main](configuration/sample/src/WebConfigBind/Startup.cs?name=snippet1&highlight=3,4)]
+[!code-csharp[Main](configuration/sample/WebConfigBind/Program.cs?name=snippet1&highlight=3-4)]
 
 設定を表示、 `HomeController`:
 
-[!code-csharp[Main](configuration/sample/src/WebConfigBind/Controllers/HomeController.cs)]
+[!code-csharp[Main](configuration/sample/WebConfigBind/Controllers/HomeController.cs)]
 
 ### <a name="getvalue"></a>GetValue
 
 次の例は、 [GetValue<T> ](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationbinder#Microsoft_Extensions_Configuration_ConfigurationBinder_GetValue_Microsoft_Extensions_Configuration_IConfiguration_System_Type_System_String_System_Object_)拡張メソッド。
 
-[!code-csharp[Main](configuration/sample/src/InMemoryGetValue/Program.cs?highlight=27-29)]
+[!code-csharp[Main](configuration/sample/InMemoryGetValue/Program.cs?highlight=27-29)]
 
 ConfigurationBinder の`GetValue<T>`メソッドでは、既定値 (このサンプルでは 80) を指定することができます。 `GetValue<T>`単純なシナリオでは、セクション全体にバインドされません。 `GetValue<T>`スカラー値を取得`GetSection(key).Value`特定の種類に変換します。
 
@@ -202,11 +204,11 @@ ConfigurationBinder の`GetValue<T>`メソッドでは、既定値 (このサン
 
 クラス内の各オブジェクトを再帰的にバインドをできます。 次の検討`AppOptions`クラス。
 
-[!code-csharp[Main](configuration/sample/src/ObjectGraph/AppOptions.cs)]
+[!code-csharp[Main](configuration/sample/ObjectGraph/AppOptions.cs)]
 
 次の例にバインド、`AppOptions`クラス。
 
-[!code-csharp[Main](configuration/sample/src/ObjectGraph/Program.cs?highlight=15-16)]
+[!code-csharp[Main](configuration/sample/ObjectGraph/Program.cs?highlight=15-16)]
 
 **ASP.NET Core 1.1**以上使用できると`Get<T>`、セクション全体と連携します。 `Get<T>`使用するよりも多くのも、`Bind`です。 次のコードは、使用する方法を示しています。`Get<T>`と上のサンプル。
 
@@ -216,7 +218,7 @@ var appConfig = config.GetSection("App").Get<AppOptions>();
 
 以下を使用して*される appsettings.json*ファイル。
 
-[!code-json[Main](configuration/sample/src/ObjectGraph/appsettings.json)]
+[!code-json[Main](configuration/sample/ObjectGraph/appsettings.json)]
 
 プログラムは、表示`Height 11`です。
 
@@ -255,35 +257,35 @@ public void CanBindObjectTree()
 
 定義、`ConfigurationValue`データベースの構成値を格納するためのエンティティ。
 
-[!code-csharp[Main](configuration/sample/src/CustomConfigurationProvider/ConfigurationValue.cs)]
+[!code-csharp[Main](configuration/sample/CustomConfigurationProvider/ConfigurationValue.cs)]
 
 追加、`ConfigurationContext`を保存し、構成された値にアクセスします。
 
-[!code-csharp[Main](configuration/sample/src/CustomConfigurationProvider/ConfigurationContext.cs?name=snippet1)]
+[!code-csharp[Main](configuration/sample/CustomConfigurationProvider/ConfigurationContext.cs?name=snippet1)]
 
 実装するクラスを作成する[IConfigurationSource](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.iconfigurationsource):
 
-[!code-csharp[Main](configuration/sample/src/CustomConfigurationProvider/EntityFrameworkConfigurationSource.cs?highlight=7)]
+[!code-csharp[Main](configuration/sample/CustomConfigurationProvider/EntityFrameworkConfigurationSource.cs?highlight=7)]
 
 継承することで、カスタム構成プロバイダーを作成する[ConfigurationProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationprovider)です。  構成プロバイダーは、空であるときに、データベースを初期化します。
 
-[!code-csharp[Main](configuration/sample/src/CustomConfigurationProvider/EntityFrameworkConfigurationProvider.cs?highlight=9,18-31,38-39)]
+[!code-csharp[Main](configuration/sample/CustomConfigurationProvider/EntityFrameworkConfigurationProvider.cs?highlight=9,18-31,38-39)]
 
 サンプルを実行する、強調表示されているデータベースからの値 ("value_from_ef_1"および"value_from_ef_2") が表示されます。
 
 追加することができます、`EFConfigSource`構成ソースを追加するための拡張メソッド。
 
-[!code-csharp[Main](configuration/sample/src/CustomConfigurationProvider/EntityFrameworkExtensions.cs?highlight=12)]
+[!code-csharp[Main](configuration/sample/CustomConfigurationProvider/EntityFrameworkExtensions.cs?highlight=12)]
 
 次のコードは、ユーザー設定を使用する方法を示しています`EFConfigProvider`:。
 
-[!code-csharp[Main](configuration/sample/src/CustomConfigurationProvider/Program.cs?highlight=20-25)]
+[!code-csharp[Main](configuration/sample/CustomConfigurationProvider/Program.cs?highlight=21-26)]
 
 サンプルを追加、カスタム注`EFConfigProvider`JSON プロバイダーの後にそのため、データベースから設定設定を上書きするから、*される appsettings.json*ファイル。
 
 以下を使用して*される appsettings.json*ファイル。
 
-[!code-json[Main](configuration/sample/src/CustomConfigurationProvider/appsettings.json)]
+[!code-json[Main](configuration/sample/CustomConfigurationProvider/appsettings.json)]
 
 次のものが表示されます。
 
@@ -297,7 +299,7 @@ key3=value_from_json_3
 
 次の例では、コマンドライン構成プロバイダーが最終有効にします。
 
-[!code-csharp[Main](configuration/sample/src/CommandLine/Program.cs)]
+[!code-csharp[Main](configuration/sample/CommandLine/Program.cs)]
 
 構成設定を渡すには、次を使用します。
 
