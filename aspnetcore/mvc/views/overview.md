@@ -2,7 +2,7 @@
 title: "ビューの概要"
 author: ardalis
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 318d8832dadadd6946c7ffe58f9d89aaf68f54fc
-ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
+ms.openlocfilehash: 7abfa7ef855eb95e1a27ba6a699dd923c9e4d7c0
+ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="rendering-html-with-views-in-aspnet-core-mvc"></a>ASP.NET Core MVC でビューを使用して HTML をレンダリング
 
@@ -76,7 +76,7 @@ ASP.NET Core MVC ビューは*.cshtml*既定で格納されているファイル
 >[!TIP]
 > 次の規則だけを返すことをお勧め`View()`可能であればより柔軟で簡単にコードをリファクタリングのためのアクションからです。
 
-ビュー名の代わりに、ビューのファイル パスを指定できます。 アプリケーションのルートで始まる絶対パスを使用した場合 (必要に応じて開始され、「/」または"~/") では、 *.cshtml*拡張機能は、ファイルのパスの一部として指定する必要があります。 たとえば、`return View("Views/Home/About.cshtml");` のように指定します。 内でコント ローラー固有のディレクトリから相対パスを使用する代わりに、*ビュー*ビューを別のディレクトリを指定するディレクトリ。 例:`return View("../Manage/Index");`内、*ホーム*コント ローラー。 同様に、現在のコント ローラーに固有のディレクトリをスキャンできます:`return View("./About");`です。 相対パスを使用しないことに注意してください、 *.cshtml*拡張機能です。 前述のように、コント ローラー、アクション、および保守容易性とわかりやすくするためのビューの間の関係を反映するようにビューのファイル構造を整理するためのベスト プラクティスに従います。
+ビュー名の代わりに、ビューのファイル パスを指定できます。 アプリケーションのルートで始まる絶対パスを使用した場合 (必要に応じて開始され、「/」または"~/") では、 *.cshtml*拡張機能は、ファイルのパスの一部として指定する必要があります (たとえば、 `return View("Views/Home/About.cshtml");`)。 内でコント ローラー固有のディレクトリから相対パスを使用する代わりに、*ビュー*ビューを別のディレクトリを指定するディレクトリ (たとえば、`return View("../Manage/Index");`内、 `HomeController`)。 同様に、現在のコント ローラーに固有のディレクトリを走査することができます (たとえば、 `return View("./About");`)。 相対パスを使用しないことに注意してください、 *.cshtml*拡張機能です。 前述のように、コント ローラー、アクション、および保守容易性とわかりやすくするためのビューの間の関係を反映するようにビューのファイル構造を整理するためのベスト プラクティスに従います。
 
 > [!NOTE]
 > [部分ビュー](partial.md)と[コンポーネントを表示](view-components.md)似ています (ただしと一致しない) の検出メカニズムを使用します。

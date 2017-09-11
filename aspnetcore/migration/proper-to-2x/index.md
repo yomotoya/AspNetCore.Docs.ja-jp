@@ -11,11 +11,11 @@ ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 6e32ee64970bac5d7f09207e570f543477745b60
-ms.sourcegitcommit: 8cafdd1dd409d5070d227100ba0e094c779ac47b
+ms.openlocfilehash: b9170878e4797c729a94caa47c045c3ca3a3d9b8
+ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>ASP.NET から ASP.NET Core 2.0 への移行
 
@@ -26,7 +26,6 @@ ms.lasthandoff: 08/28/2017
 ## <a name="prerequisites"></a>必須コンポーネント
 
 * [.NET Core 2.0.0 SDK](https://dot.net/core) 以降。
-* **ASP.NET および Web 開発**ワークロードを含む [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) バージョン 15.3 以降。
 
 ## <a name="target-frameworks"></a>ターゲット フレームワーク
 ASP.NET Core 2.0 プロジェクトを使うと、開発者は、.NET Core と .NET Framework のどちらか一方または両方を対象にして柔軟に開発できます。 最も適切なターゲット フレームワークの決定については、「[サーバー アプリ用 .NET Core と .NET Framework の選択](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server)」をご覧ください。

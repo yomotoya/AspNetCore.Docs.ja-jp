@@ -11,11 +11,11 @@ ms.assetid: 1fb6fdc2-e199-4469-9012-b909d1913422
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: af3b2174c73583832868d2062e6c7ab4689a1229
-ms.sourcegitcommit: 9d3f27a1ee5b7014fb40e4f2ec9b2a9cd744751c
+ms.openlocfilehash: 0285b40cfacb79745d3a6488401677130f55a95b
+ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>ASP.NET Core MVC web Api でカスタム フォーマッタ
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 08/31/2017
 
 ASP.NET Core MVC には、JSON、XML、またはプレーン テキスト形式を使用してで web Api のデータ交換の組み込みサポートがあります。 この記事では、カスタム フォーマッタを作成することで追加の形式のサポートを追加する方法を示します。
 
-[GitHub からサンプルのダウンロードを表示または](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/Sample)です。
+[GitHub からサンプルのダウンロードを表示または](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample)です。
 
 ## <a name="when-to-use-custom-formatters"></a>カスタム フォーマッタを使用する場合
 
@@ -100,7 +100,7 @@ ASP.NET Core MVC には、JSON、XML、またはプレーン テキスト形式�
 
 ## <a name="next-steps"></a>次のステップ
 
-参照してください、[サンプル アプリケーション](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/Sample)を実装する単純な vCard 入力と出力のフォーマッタ。  アプリケーションは、次の例のように見える Vcard を読み書き。
+参照してください、[サンプル アプリケーション](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample)を実装する単純な vCard 入力と出力のフォーマッタ。  アプリケーションは、次の例のように見える Vcard を読み書き。
 
 ```
 BEGIN:VCARD
