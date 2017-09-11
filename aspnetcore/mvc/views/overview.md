@@ -11,11 +11,11 @@ ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: a93ee8165be52e33c2e7da4d3fee2c8225864db9
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 318d8832dadadd6946c7ffe58f9d89aaf68f54fc
+ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="rendering-html-with-views-in-aspnet-core-mvc"></a>ASP.NET Core MVC でビューを使用して HTML をレンダリング
 
@@ -39,7 +39,7 @@ ASP.NET Core MVC ビューは*.cshtml*既定で格納されているファイル
 
 ## <a name="creating-a-view"></a>ビューを作成します。
 
-コント ローラーに固有のビューを作成するのには*ビュー/[ControllerName]*フォルダーです。 コント ローラー間で共有されるビューについてに、 */ビュー/共有*フォルダーです。 ファイルの表示を関連付けられたコント ローラー アクションの場合と同じ名前し、追加、 *.cshtml*ファイル拡張子。 例については、ビューを作成する、*に関する*アクションを*ホーム*コント ローラーを作成、 *About.cshtml*ファイルで、   */ビュー/ホーム*フォルダーです。
+コント ローラーに固有のビューを作成するのには*ビュー/[ControllerName]*フォルダーです。 コント ローラー間で共有されるビューについてに、 */ビュー/共有*フォルダーです。 ファイルの表示を関連付けられたコント ローラー アクションの場合と同じ名前し、追加、 *.cshtml*ファイル拡張子。 例については、ビューを作成する、*に関する*アクションを*ホーム*コント ローラーを作成、 *About.cshtml*ファイルで、  * /ビュー/ホーム*フォルダーです。
 
 サンプル ファイルの表示 (*About.cshtml*)。
 
@@ -69,14 +69,14 @@ ASP.NET Core MVC ビューは*.cshtml*既定で格納されているファイル
 
 アクションが返されるときに、`View`メソッドでは、次のように`return View();`アクション名は、ビュー名として使用します。 たとえば、これは、"Index"という名前のアクション メソッドから呼び出された、なります"Index"の表示名を渡すことに相当します。 メソッドに、ビュー名を明示的に渡すことができます (`return View("SomeView");`)。 このような場合の両方で一致するビューでのファイルの検索を参照してください。
 
-   1. ビュー/<ControllerName>/<ViewName>.cshtml
+   1. ビュー/\<ControllerName >/\<ViewName > .cshtml
 
-   2. ビュー/共有/<ViewName>.cshtml
+   2. ビュー/共有/\<ViewName > .cshtml
 
 >[!TIP]
 > 次の規則だけを返すことをお勧め`View()`可能であればより柔軟で簡単にコードをリファクタリングのためのアクションからです。
 
-ビュー名の代わりに、ビューのファイル パスを指定できます。 ここで、 *.cshtml*拡張機能は、ファイルのパスの一部として指定する必要があります。 アプリケーション ルートに対する相対パスでなければなりません (先頭に使用できます必要に応じて「/」または"~/") です。 例: `return View("Views/Home/About.cshtml");`
+ビュー名の代わりに、ビューのファイル パスを指定できます。 アプリケーションのルートで始まる絶対パスを使用した場合 (必要に応じて開始され、「/」または"~/") では、 *.cshtml*拡張機能は、ファイルのパスの一部として指定する必要があります。 たとえば、`return View("Views/Home/About.cshtml");` のように指定します。 内でコント ローラー固有のディレクトリから相対パスを使用する代わりに、*ビュー*ビューを別のディレクトリを指定するディレクトリ。 例:`return View("../Manage/Index");`内、*ホーム*コント ローラー。 同様に、現在のコント ローラーに固有のディレクトリをスキャンできます:`return View("./About");`です。 相対パスを使用しないことに注意してください、 *.cshtml*拡張機能です。 前述のように、コント ローラー、アクション、および保守容易性とわかりやすくするためのビューの間の関係を反映するようにビューのファイル構造を整理するためのベスト プラクティスに従います。
 
 > [!NOTE]
 > [部分ビュー](partial.md)と[コンポーネントを表示](view-components.md)似ています (ただしと一致しない) の検出メカニズムを使用します。
