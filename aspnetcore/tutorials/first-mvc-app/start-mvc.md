@@ -1,0 +1,120 @@
+---
+title: "ASP.NET Core MVC と Visual Studio の概要"
+author: rick-anderson
+description: "ASP.NET Core MVC と Visual Studio の概要"
+keywords: ASP.NET Core, MVC
+ms.author: riande
+manager: wpickett
+ms.date: 08/07/2017
+ms.topic: get-started-article
+ms.technology: aspnet
+ms.prod: asp.net-core
+uid: tutorials/first-mvc-app/start-mvc
+ms.openlocfilehash: 9636e0e51e506d294ffb50a21165195c9d04fe20
+ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 08/25/2017
+---
+# <a name="getting-started-with-aspnet-core-mvc-and-visual-studio"></a>ASP.NET Core MVC と Visual Studio の概要
+
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
+
+このチュートリアルでは、[Visual Studio 2017](https://www.visualstudio.com/) を使用した、ASP.NET Core MVC Web アプリの構築の基礎について説明します。 [!INCLUDE[consider RP](../../includes/razor.md)]
+
+このチュートリアルには 3 つのバージョンがあります。
+
+* macOS: [Visual Studio for Mac を使用して ASP.NET Core MVC アプリを作成する](xref:tutorials/first-mvc-app-mac/start-mvc)
+* Windows: [Visual Studio を使用して ASP.NET Core MVC アプリを作成する](xref:tutorials/first-mvc-app/start-mvc)
+* macOS、Linux、Windows: [Visual Studio Code を使用して ASP.NET Core MVC アプリを作成する](xref:tutorials/first-mvc-app-xplat/start-mvc)
+
+このチュートリアルの Visual Studio 2015 バージョンについては、[VS 2015 バージョンの ASP.NET Core ドキュメント (PDF 形式)](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf) を参照してください。
+
+## <a name="install-visual-studio-and-net-core"></a>Visual Studio と .NET Core のインストール
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+[!INCLUDE[install 2.0](../../includes/install2.0.md)]
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+Visual Studio Community 2017 をインストールします。 コミュニティ ダウンロードを選択します。 Visual Studio 2017 をインストールしている場合は、この手順をスキップします。
+
+* [Visual Studio 2017 ホーム ページのインストーラー](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+
+インストーラーを実行し、次のワークロードを選択します。
+
+* **ASP.NET と Web 開発** (**[Web & Cloud]\(Web とクラウド\)** の下)
+* **.NET Core クロスプラットフォームの開発** (**[他のツールセット]** の下)
+
+![**ASP.NET と Web の開発ツール** (**[Web & Cloud]\(Web とクラウド\)** の下)](start-mvc/_static/web_workload.png)
+
+![**.NET Core クロスクロスプラットフォームの開発** (**[他のツールセット]** の下)](start-mvc/_static/x_plat_wl.png)
+
+---
+
+## <a name="create-a-web-app"></a>Web アプリの作成
+
+Visual Studio で **[ファイル]、[新規作成]、[プロジェクト]** の順に選択します。
+
+![[ファイル] > [新規] > [プロジェクト]](start-mvc/_static/alt_new_project.png)
+
+**[新しいプロジェクト]** ダイアログで次のように設定します。
+
+* 左側のウィンドウで、**[.NET Core]** をタップします。
+* 中央のウィンドウで、**[ASP.NET Core Web Application (.NET Core)]** をタップします。
+* プロジェクトに "MvcMovie" と名前を付けます (コードをコピーするときに名前空間が一致するようにするために、プロジェクトに "MvcMovie" と名前を付けることが重要です)。
+* **[OK]** をタップします
+
+![[新しいプロジェクト] ダイアログ、左ウィンドウの .NET Core、ASP.NET Core Web ](start-mvc/_static/new_project2.png)
+
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+**[ASP.NET Core Web Application (.NET Core) - MvcMovie]** ダイアログを次のように設定します。
+
+* バージョン セレクター ドロップダウン ボックスで、**[ASP.NET Core 2.-]** を選択します
+* **[Web Application(Model-View-Controller)]** を選択します
+* **[OK]** をタップします。
+
+![[新しいプロジェクト] ダイアログ、左ウィンドウの .NET Core、ASP.NET Core Web ](start-mvc/_static/new_project22.png)
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+**[ASP.NET Core Web Application (.NET Core) - MvcMovie]** ダイアログを次のように設定します。
+
+* バージョン セレクター ドロップダウン ボックスで、**[ASP.NET Core 1.1]** をタップします
+* **[Web アプリケーション]** をタップします
+* 既定の **[No Authentication]\(認証なし\)** のままにします
+* **[OK]** をタップします。
+
+![新しい ASP.NET Core Web アプリ](start-mvc/_static/p3.png)
+
+---
+
+Visual Studio は、作成した MVC プロジェクトの既定のテンプレートを使用しました。 プロジェクト名を入力し、いくつかのオプションを選択すると、すぐに作業アプリができあがります。 これは単純なスターター プロジェクトなので、ここから始めることをお勧めします。
+
+**F5** キーをタップしてデバッグ モードでアプリを実行します。非デバッグ モードで実行する場合は **Ctrl + F5** キーを押します。
+<!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
+![実行中のアプリ](start-mvc/_static/1.png)
+
+* Visual Studio で [IIS Express](http://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) が開始され、アプリが実行されます。 アドレス バーには、`example.com` などではなく、`localhost:port#` が表示されます。 これは、`localhost` がローカル コンピューターの標準のホスト名であるためです。 Visual Studio が Web プロジェクトを作成する場合は、Web サーバーにランダム ポートが使用されます。 上の図で、ポート番号は 5000 です。 アプリを実行する際には、別のポート番号が表示されます。
+* **Ctrl + F5** キー (非デバッグ モード) でアプリを起動することで、コードの変更、ファイルの保存、ブラウザーの更新、およびコード変更の確認を行うことができます。 多くの開発者は、すばやくアプリを起動し、変更を確認できる非デバッグ モードの使用を好みます。
+* **[デバッグ]** メニュー項目から、デバッグ モードまたは非デバッグ モードでアプリを起動できます。
+
+![[デバッグ] メニュー](start-mvc/_static/debug_menu.png)
+
+* **[IIS Express]** ボタンをタップしてアプリをデバッグできます
+
+![IIS Express](start-mvc/_static/iis_express.png)
+
+既定のテンプレートには、作業用の **[Home]、[About]**、**[Contact]** のリンクがあります。 上のブラウザーの画像には、これらのリンクが表示されていません。 ブラウザーのサイズによっては、ナビゲーション アイコンをクリックしてリンクを表示する必要がある場合があります。
+
+![右上のナビゲーション アイコン](start-mvc/_static/2.png)
+
+デバッグ モードで実行した場合は、**Shift + F5** キーをタップしてデバッグを停止します。
+
+このチュートリアルの次のパートでは、MVC について説明し、コードの作成を開始します。
+
+>[!div class="step-by-step"]
+[次へ](adding-controller.md)  
