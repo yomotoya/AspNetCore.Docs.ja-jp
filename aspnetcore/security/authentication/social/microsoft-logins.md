@@ -2,7 +2,7 @@
 title: "外部ログインの Microsoft アカウントの設定"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 08/24/2017
@@ -11,11 +11,11 @@ ms.assetid: 66DB4B94-C78C-4005-BA03-3D982B87C268
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: cc2d119ae2f7cf06ed0ea4b8a91fd8fa15804468
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: 70cbeea15199498c592307dccc125e60206dadbf
+ms.sourcegitcommit: b02db6da115e55140da91b67355aaf56aae1703f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="configuring-microsoft-account-authentication"></a>Microsoft アカウントの認証を構成します。
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 09/08/2017
 
 * このチュートリアルの目的で、消去、**セットアップのガイド付き**チェック ボックスをオンします。
 
-* タップ**作成**を引き続き、**登録**ページ。
+* タップ**を作成する**を続行するのには、**登録**ページです。 提供、**名**の値をメモし、**アプリケーション Id**、として使用する`ClientId`のチュートリアルの後。
 
 ![[登録] ページ](index/_static/MicrosoftDevAppReg.png)
 
@@ -78,7 +78,7 @@ Microsoft のような機密設定をリンク`Application ID`と`Password`、�
 
    `dotnet add package Microsoft.AspNetCore.Authentication.MicrosoftAccount`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Microsoft アカウントのサービスを追加、`ConfigureServices`メソッド*Startup.cs*ファイル。
 
