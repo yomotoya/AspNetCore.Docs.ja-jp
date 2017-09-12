@@ -11,43 +11,43 @@ ms.assetid: 5ac13589-3837-4b4d-8abe-81f843942120
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/compatibility/replacing-machinekey
-ms.openlocfilehash: b7f260bd5d548588a51095537c9c1b1802553c54
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 29229b9507ece6aff8278b0ad66169c9e4e7498b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
-# <a name="replacing-machinekey-in-aspnet"></a><span data-ttu-id="bdee1-104">置き換える`<machineKey>`asp.net</span><span class="sxs-lookup"><span data-stu-id="bdee1-104">Replacing `<machineKey>` in ASP.NET</span></span>
+# <a name="replacing-machinekey-in-aspnet"></a><span data-ttu-id="5f9e0-104">置き換える`<machineKey>`asp.net</span><span class="sxs-lookup"><span data-stu-id="5f9e0-104">Replacing `<machineKey>` in ASP.NET</span></span>
 
 <a name=compatibility-replacing-machinekey></a>
 
-<span data-ttu-id="bdee1-105">実装、 `<machineKey>` ASP.NET 内の要素[交換](http://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx)です。</span><span class="sxs-lookup"><span data-stu-id="bdee1-105">The implementation of the `<machineKey>` element in ASP.NET [is replaceable](http://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx).</span></span> <span data-ttu-id="bdee1-106">これにより、ほとんどの呼び出しを ASP.NET 暗号化ルーチン、新しいデータ保護システムを含む、交換用のデータ保護メカニズムを経由してルーティングされます。</span><span class="sxs-lookup"><span data-stu-id="bdee1-106">This allows most calls to ASP.NET cryptographic routines to be routed through a replacement data protection mechanism, including the new data protection system.</span></span>
+<span data-ttu-id="5f9e0-105">実装、 `<machineKey>` ASP.NET 内の要素[交換](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/)です。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-105">The implementation of the `<machineKey>` element in ASP.NET [is replaceable](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/).</span></span> <span data-ttu-id="5f9e0-106">これにより、ほとんどの呼び出しを ASP.NET 暗号化ルーチン、新しいデータ保護システムを含む、交換用のデータ保護メカニズムを経由してルーティングされます。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-106">This allows most calls to ASP.NET cryptographic routines to be routed through a replacement data protection mechanism, including the new data protection system.</span></span>
 
-## <a name="package-installation"></a><span data-ttu-id="bdee1-107">パッケージのインストール</span><span class="sxs-lookup"><span data-stu-id="bdee1-107">Package installation</span></span>
+## <a name="package-installation"></a><span data-ttu-id="5f9e0-107">パッケージのインストール</span><span class="sxs-lookup"><span data-stu-id="5f9e0-107">Package installation</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="bdee1-108">新しいデータ保護システムには、.NET 4.5.1 を対象とする既存の ASP.NET アプリケーションにインストールされている以上のみを指定できます。</span><span class="sxs-lookup"><span data-stu-id="bdee1-108">The new data protection system can only be installed into an existing ASP.NET application targeting .NET 4.5.1 or higher.</span></span> <span data-ttu-id="bdee1-109">インストールをアプリケーションが .NET 4.5 を対象とする場合は失敗または削減します。</span><span class="sxs-lookup"><span data-stu-id="bdee1-109">Installation will fail if the application targets .NET 4.5 or lower.</span></span>
+> <span data-ttu-id="5f9e0-108">新しいデータ保護システムには、.NET 4.5.1 を対象とする既存の ASP.NET アプリケーションにインストールされている以上のみを指定できます。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-108">The new data protection system can only be installed into an existing ASP.NET application targeting .NET 4.5.1 or higher.</span></span> <span data-ttu-id="5f9e0-109">インストールをアプリケーションが .NET 4.5 を対象とする場合は失敗または削減します。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-109">Installation will fail if the application targets .NET 4.5 or lower.</span></span>
 
-<span data-ttu-id="bdee1-110">既存の ASP.NET 4.5.1+ プロジェクトに新しいデータ保護システムをインストールするには、Microsoft.AspNetCore.DataProtection.SystemWeb パッケージをインストールします。</span><span class="sxs-lookup"><span data-stu-id="bdee1-110">To install the new data protection system into an existing ASP.NET 4.5.1+ project, install the package Microsoft.AspNetCore.DataProtection.SystemWeb.</span></span> <span data-ttu-id="bdee1-111">データ保護システムを使用して、これがインスタンス化され、[既定の構成](../configuration/default-settings.md#data-protection-default-settings)設定します。</span><span class="sxs-lookup"><span data-stu-id="bdee1-111">This will instantiate the data protection system using the [default configuration](../configuration/default-settings.md#data-protection-default-settings) settings.</span></span>
+<span data-ttu-id="5f9e0-110">既存の ASP.NET 4.5.1+ プロジェクトに新しいデータ保護システムをインストールするには、Microsoft.AspNetCore.DataProtection.SystemWeb パッケージをインストールします。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-110">To install the new data protection system into an existing ASP.NET 4.5.1+ project, install the package Microsoft.AspNetCore.DataProtection.SystemWeb.</span></span> <span data-ttu-id="5f9e0-111">データ保護システムを使用して、これがインスタンス化され、[既定の構成](../configuration/default-settings.md#data-protection-default-settings)設定します。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-111">This will instantiate the data protection system using the [default configuration](../configuration/default-settings.md#data-protection-default-settings) settings.</span></span>
 
-<span data-ttu-id="bdee1-112">行が挿入、パッケージをインストールするときに*Web.config*のために使用する ASP.NET に指示[暗号化操作を最も](http://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx)(フォーム認証、ビューステートへの呼び出しなど)MachineKey.Protect です。</span><span class="sxs-lookup"><span data-stu-id="bdee1-112">When you install the package, it inserts a line into *Web.config* that tells ASP.NET to use it for [most cryptographic operations](http://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx), including forms authentication, view state, and calls to MachineKey.Protect.</span></span> <span data-ttu-id="bdee1-113">挿入される行は次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="bdee1-113">The line that's inserted reads as follows.</span></span>
+<span data-ttu-id="5f9e0-112">行が挿入、パッケージをインストールするときに*Web.config*のために使用する ASP.NET に指示[暗号化操作を最も](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/)(フォーム認証、ビューステートへの呼び出しなど)MachineKey.Protect です。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-112">When you install the package, it inserts a line into *Web.config* that tells ASP.NET to use it for [most cryptographic operations](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/), including forms authentication, view state, and calls to MachineKey.Protect.</span></span> <span data-ttu-id="5f9e0-113">挿入される行は次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-113">The line that's inserted reads as follows.</span></span>
 
 ```xml
 <machineKey compatibilityMode="Framework45" dataProtectorType="..." />
 ```
 
 >[!TIP]
-> <span data-ttu-id="bdee1-114">かどうか、新しいデータ保護システムはアクティブのようにフィールドを調べることによってわかります`__VIEWSTATE`、次の例のように"CfDJ8"から始まる必要があります。</span><span class="sxs-lookup"><span data-stu-id="bdee1-114">You can tell if the new data protection system is active by inspecting fields like `__VIEWSTATE`, which should begin with "CfDJ8" as in the example below.</span></span> <span data-ttu-id="bdee1-115">"CfDJ8"は、データ保護システムによって保護されているペイロードを識別するマジック"09 F0 C9 F0"ヘッダーの base64 表現です。</span><span class="sxs-lookup"><span data-stu-id="bdee1-115">"CfDJ8" is the base64 representation of the magic "09 F0 C9 F0" header that identifies a payload protected by the data protection system.</span></span>
+> <span data-ttu-id="5f9e0-114">かどうか、新しいデータ保護システムはアクティブのようにフィールドを調べることによってわかります`__VIEWSTATE`、次の例のように"CfDJ8"から始まる必要があります。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-114">You can tell if the new data protection system is active by inspecting fields like `__VIEWSTATE`, which should begin with "CfDJ8" as in the example below.</span></span> <span data-ttu-id="5f9e0-115">"CfDJ8"は、データ保護システムによって保護されているペイロードを識別するマジック"09 F0 C9 F0"ヘッダーの base64 表現です。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-115">"CfDJ8" is the base64 representation of the magic "09 F0 C9 F0" header that identifies a payload protected by the data protection system.</span></span>
 
 ```html
 <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="CfDJ8AWPr2EQPTBGs3L2GCZOpk..." />
 ```
 
-## <a name="package-configuration"></a><span data-ttu-id="bdee1-116">パッケージの構成</span><span class="sxs-lookup"><span data-stu-id="bdee1-116">Package configuration</span></span>
+## <a name="package-configuration"></a><span data-ttu-id="5f9e0-116">パッケージの構成</span><span class="sxs-lookup"><span data-stu-id="5f9e0-116">Package configuration</span></span>
 
-<span data-ttu-id="bdee1-117">データ保護システムは既定の 0 のセットアップの構成でインスタンス化されます。</span><span class="sxs-lookup"><span data-stu-id="bdee1-117">The data protection system is instantiated with a default zero-setup configuration.</span></span> <span data-ttu-id="bdee1-118">ただし、既定では、キーは、ローカル ファイル システムに永続化、ために、ファームに配置するアプリケーションにとってこの機能しません。</span><span class="sxs-lookup"><span data-stu-id="bdee1-118">However, since by default keys are persisted to the local file system, this won't work for applications which are deployed in a farm.</span></span> <span data-ttu-id="bdee1-119">これを解決するには、型にどのサブクラス DataProtectionStartup を作成して構成を指定でき、その ConfigureServices メソッドをオーバーライドします。</span><span class="sxs-lookup"><span data-stu-id="bdee1-119">To resolve this, you can provide configuration by creating a type which subclasses DataProtectionStartup and overrides its ConfigureServices method.</span></span>
+<span data-ttu-id="5f9e0-117">データ保護システムは既定の 0 のセットアップの構成でインスタンス化されます。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-117">The data protection system is instantiated with a default zero-setup configuration.</span></span> <span data-ttu-id="5f9e0-118">ただし、既定では、キーは、ローカル ファイル システムに永続化、ために、ファームに配置するアプリケーションにとってこの機能しません。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-118">However, since by default keys are persisted to the local file system, this won't work for applications which are deployed in a farm.</span></span> <span data-ttu-id="5f9e0-119">これを解決するには、型にどのサブクラス DataProtectionStartup を作成して構成を指定でき、その ConfigureServices メソッドをオーバーライドします。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-119">To resolve this, you can provide configuration by creating a type which subclasses DataProtectionStartup and overrides its ConfigureServices method.</span></span>
 
-<span data-ttu-id="bdee1-120">キーが永続化し、残りの部分で暗号化する方法の両方を構成するカスタム データ保護のスタートアップの種類の例を次に示します。</span><span class="sxs-lookup"><span data-stu-id="bdee1-120">Below is an example of a custom data protection startup type which configured both where keys are persisted and how they're encrypted at rest.</span></span> <span data-ttu-id="bdee1-121">独自のアプリケーション名を提供することで、既定のアプリの分離ポリシーをオーバーライドします。</span><span class="sxs-lookup"><span data-stu-id="bdee1-121">It also overrides the default app isolation policy by providing its own application name.</span></span>
+<span data-ttu-id="5f9e0-120">キーが永続化し、残りの部分で暗号化する方法の両方を構成するカスタム データ保護のスタートアップの種類の例を次に示します。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-120">Below is an example of a custom data protection startup type which configured both where keys are persisted and how they're encrypted at rest.</span></span> <span data-ttu-id="5f9e0-121">独自のアプリケーション名を提供することで、既定のアプリの分離ポリシーをオーバーライドします。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-121">It also overrides the default app isolation policy by providing its own application name.</span></span>
 
 ```csharp
 using System;
@@ -72,9 +72,9 @@ namespace DataProtectionDemo
 ```
 
 >[!TIP]
-> <span data-ttu-id="bdee1-122">使用することも`<machineKey applicationName="my-app" ... />`SetApplicationName を明示的に呼び出す代わりにします。</span><span class="sxs-lookup"><span data-stu-id="bdee1-122">You can also use `<machineKey applicationName="my-app" ... />` in place of an explicit call to SetApplicationName.</span></span> <span data-ttu-id="bdee1-123">これは、開発者はアプリケーション名の設定を構成したいすべてが場合 DataProtectionStartup 派生型を作成しないようにする便利なメカニズムです。</span><span class="sxs-lookup"><span data-stu-id="bdee1-123">This is a convenience mechanism to avoid forcing the developer to create a DataProtectionStartup-derived type if all they wanted to configure was setting the application name.</span></span>
+> <span data-ttu-id="5f9e0-122">使用することも`<machineKey applicationName="my-app" ... />`SetApplicationName を明示的に呼び出す代わりにします。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-122">You can also use `<machineKey applicationName="my-app" ... />` in place of an explicit call to SetApplicationName.</span></span> <span data-ttu-id="5f9e0-123">これは、開発者はアプリケーション名の設定を構成したいすべてが場合 DataProtectionStartup 派生型を作成しないようにする便利なメカニズムです。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-123">This is a convenience mechanism to avoid forcing the developer to create a DataProtectionStartup-derived type if all they wanted to configure was setting the application name.</span></span>
 
-<span data-ttu-id="bdee1-124">このカスタム構成を有効にする Web.config に戻ってを探して、 `<appSettings>` config ファイルに追加されたパッケージをインストールする要素。</span><span class="sxs-lookup"><span data-stu-id="bdee1-124">To enable this custom configuration, go back to Web.config and look for the `<appSettings>` element that the package install added to the config file.</span></span> <span data-ttu-id="bdee1-125">次のマークアップのようになります。</span><span class="sxs-lookup"><span data-stu-id="bdee1-125">It will look like the following markup:</span></span>
+<span data-ttu-id="5f9e0-124">このカスタム構成を有効にする Web.config に戻ってを探して、 `<appSettings>` config ファイルに追加されたパッケージをインストールする要素。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-124">To enable this custom configuration, go back to Web.config and look for the `<appSettings>` element that the package install added to the config file.</span></span> <span data-ttu-id="5f9e0-125">次のマークアップのようになります。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-125">It will look like the following markup:</span></span>
 
 ```xml
 <appSettings>
@@ -87,11 +87,11 @@ namespace DataProtectionDemo
 </appSettings>
 ```
 
-<span data-ttu-id="bdee1-126">作成した DataProtectionStartup から派生した型のアセンブリ修飾名を空白の値を入力します。</span><span class="sxs-lookup"><span data-stu-id="bdee1-126">Fill in the blank value with the assembly-qualified name of the DataProtectionStartup-derived type you just created.</span></span> <span data-ttu-id="bdee1-127">ようになりますこのアプリケーションの名前が DataProtectionDemo の場合はの下。</span><span class="sxs-lookup"><span data-stu-id="bdee1-127">If the name of the application is DataProtectionDemo, this would look like the below.</span></span>
+<span data-ttu-id="5f9e0-126">作成した DataProtectionStartup から派生した型のアセンブリ修飾名を空白の値を入力します。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-126">Fill in the blank value with the assembly-qualified name of the DataProtectionStartup-derived type you just created.</span></span> <span data-ttu-id="5f9e0-127">ようになりますこのアプリケーションの名前が DataProtectionDemo の場合はの下。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-127">If the name of the application is DataProtectionDemo, this would look like the below.</span></span>
 
 ```xml
 <add key="aspnet:dataProtectionStartupType"
      value="DataProtectionDemo.MyDataProtectionStartup, DataProtectionDemo" />
 ```
 
-<span data-ttu-id="bdee1-128">新しく構成されたデータ保護システムは、アプリケーション内部で使用する準備ができました。</span><span class="sxs-lookup"><span data-stu-id="bdee1-128">The newly-configured data protection system is now ready for use inside the application.</span></span>
+<span data-ttu-id="5f9e0-128">新しく構成されたデータ保護システムは、アプリケーション内部で使用する準備ができました。</span><span class="sxs-lookup"><span data-stu-id="5f9e0-128">The newly-configured data protection system is now ready for use inside the application.</span></span>
