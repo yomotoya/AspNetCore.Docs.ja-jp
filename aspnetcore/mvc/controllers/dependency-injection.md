@@ -2,7 +2,7 @@
 title: "コント ローラーに依存関係の挿入"
 author: ardalis
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 371fb0f721797e4d8f7a26858ae0a709cb5cd39e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: b83bd4a24ccf7e90e9df06d6a8e229a2d5c6699a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>コント ローラーに依存関係の挿入
 
 <a name=dependency-injection-controllers></a>
 
-によって[Steve Smith](http://ardalis.com)
+によって[Steve Smith](https://ardalis.com/)
 
 ASP.NET Core の MVC コント ローラーには、そのコンス トラクターを使用して明示的にその依存関係を要求する必要があります。 場合によっては、個々 のコント ローラーのアクションは、サービスを必要があり、ことはできません、コント ローラー レベルを要求する合理的です。 この場合、アクション メソッドのパラメーターとしてサービスを挿入することもできます。
 
@@ -29,7 +29,7 @@ ASP.NET Core の MVC コント ローラーには、そのコンス トラクタ
 
 ## <a name="dependency-injection"></a>依存関係の挿入
 
-依存関係の挿入がこれに続く手法、[依存関係の逆転原則](http://deviq.com/dependency-inversion-principle)、疎結合モジュールで構成されるアプリケーションにすることができます。 ASP.NET Core はの組み込みサポート[依存性の注入](../../fundamentals/dependency-injection.md)を簡単にアプリケーションをテストし、維持します。
+依存関係の挿入がこれに続く手法、[依存関係の逆転原則](http://deviq.com/dependency-inversion-principle/)、疎結合モジュールで構成されるアプリケーションにすることができます。 ASP.NET Core はの組み込みサポート[依存性の注入](../../fundamentals/dependency-injection.md)を簡単にアプリケーションをテストし、維持します。
 
 ## <a name="constructor-injection"></a>コンス トラクター インジェクション
 
@@ -70,7 +70,7 @@ Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceP
 ![サーバーの応答メッセージ](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> 参照してください[テスト コント ローラー ロジック](testing.md)の依存関係を明示的に要求する方法について[http://deviq.com/explicit-dependencies-principle](http://deviq.com/explicit-dependencies-principle)コント ローラーに簡単にコードをテストします。
+> 参照してください[テスト コント ローラー ロジック](testing.md)の依存関係を明示的に要求する方法について[http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/)コント ローラーに簡単にコードをテストします。
 
 ASP.NET Core の組み込みの依存関係の挿入は、サービスを要求するクラスの 1 つのコンス トラクターのみを含めることがサポートされます。 複数のコンス トラクターを使っている場合、例外を示すを取得する可能性があります。
 

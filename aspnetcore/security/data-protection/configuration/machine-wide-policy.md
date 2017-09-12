@@ -2,7 +2,7 @@
 title: "マシン全体のポリシー"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 285ae47d-e0bf-4b03-b0a8-2b1fb18bc3a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 513726e209401d158ac98d5874942765751ac07d
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7ada940acfbb7fb0887fd7c0cd722bf62f211248
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="machine-wide-policy"></a>マシン全体のポリシー
 
@@ -77,4 +77,4 @@ EncryptionType が"Managed"場合、システムは、信頼性の機密性、�
 EncryptionType がその他の値 (null 以外/空) の場合、データ保護システム起動時に例外がスローされます。
 
 >[!WARNING]
-> 型名 (EncryptionAlgorithmType、ValidationAlgorithmType、KeyEscrowSinks) は、既定のポリシー設定を構成するときに、型が、アプリケーションで使用できる場合があります。 実際には、これは、アプリケーションのデスクトップ CLR で実行されている場合、アセンブリをこれらの型を含む必要がある GACed ことを意味します。 実行されている ASP.NET Core アプリケーション[.NET Core](https://microsoft.com/net/core)、これらの型を含むパッケージをインストールする必要があります。
+> 型名 (EncryptionAlgorithmType、ValidationAlgorithmType、KeyEscrowSinks) は、既定のポリシー設定を構成するときに、型が、アプリケーションで使用できる場合があります。 実際には、これは、アプリケーションのデスクトップ CLR で実行されている場合、アセンブリをこれらの型を含む必要がある GACed ことを意味します。 実行されている ASP.NET Core アプリケーション[.NET Core](https://www.microsoft.com/net/core)、これらの型を含むパッケージをインストールする必要があります。

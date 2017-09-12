@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd69e008a81abc4f6785d93b89823c03e1a7df83
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: c3f7792d7458013f837a48ca2caa459f35658f02
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core でのフォームにタグ ヘルパーの使用の概要
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 08/11/2017
 
 * HTML を生成[\<フォーム >](https://www.w3.org/TR/html401/interact/forms.html) `action` MVC コント ローラーのアクションまたは名前付きのルートの属性の値
 
-* 非表示を生成[要求の検証トークン](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)クロスサイト リクエスト フォージェリを防ぐために (を使用すると、 `[ValidateAntiForgeryToken]` HTTP Post のアクション メソッドの属性)
+* 非表示を生成[要求の検証トークン](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)クロスサイト リクエスト フォージェリを防ぐために (を使用すると、 `[ValidateAntiForgeryToken]` HTTP Post のアクション メソッドの属性)
 
 * 提供、`asp-route-<Parameter Name>`属性に、ここで`<Parameter Name>`がルートの値に追加します。 `routeValues`パラメーター`Html.BeginForm`と`Html.BeginRouteForm`同様の機能を提供します。
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 08/11/2017
     </form>
    ```
 
-MVC ランタイムによって生成、`action`フォーム タグ ヘルパーの属性から値を属性`asp-controller`と`asp-action`です。 フォーム タグ ヘルパー生成も非表示[要求の検証トークン](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)クロスサイト リクエスト フォージェリを防ぐために (を使用すると、 `[ValidateAntiForgeryToken]` HTTP Post のアクション メソッドの属性)。 フォーム タグ ヘルパーがこのサービスを提供、クロスサイト リクエスト フォージェリから純粋な HTML フォームを保護するは困難です。
+MVC ランタイムによって生成、`action`フォーム タグ ヘルパーの属性から値を属性`asp-controller`と`asp-action`です。 フォーム タグ ヘルパー生成も非表示[要求の検証トークン](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)クロスサイト リクエスト フォージェリを防ぐために (を使用すると、 `[ValidateAntiForgeryToken]` HTTP Post のアクション メソッドの属性)。 フォーム タグ ヘルパーがこのサービスを提供、クロスサイト リクエスト フォージェリから純粋な HTML フォームを保護するは困難です。
 
 ### <a name="using-a-named-route"></a>名前付きのルートを使用します。
 
@@ -61,7 +61,7 @@ MVC ランタイムによって生成、`action`フォーム タグ ヘルパー
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
-内のビューの多くは、*ビュー/アカウント*フォルダー (で新しい web アプリを作成するときに生成される*個々 のユーザー アカウント*) が含まれて、 [asp ルート-returnurl](http://docs.asp.net/en/latest/mvc/views/working-with-forms.html#the-form-tag-helper)属性。
+内のビューの多くは、*ビュー/アカウント*フォルダー (で新しい web アプリを作成するときに生成される*個々 のユーザー アカウント*) が含まれて、 [asp ルート-returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms)属性。
 
 <!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "none", "highlight_args": {"hl_lines": [2]}} -->
 
@@ -88,11 +88,11 @@ MVC ランタイムによって生成、`action`フォーム タグ ヘルパー
 
 * 生成、`id`と`name`で指定された式の名前の HTML 属性、`asp-for`属性。 `asp-for="Property1.Property2"` は `m => m.Property1.Property2` と同じです。 式の名前は、の使用目的は、`asp-for`属性の値。 参照してください、[式名](#expression-names)詳細についてはします。
 
-* HTML を設定`type`モデルの種類に基づいて値の属性と[データ注釈](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)モデル プロパティに適用される属性
+* HTML を設定`type`モデルの種類に基づいて値の属性と[データ注釈](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)モデル プロパティに適用される属性
 
 * HTML は上書きされません`type`属性値のいずれかを指定します。
 
-* 生成[HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)から属性を検証[データ注釈](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)モデルのプロパティに適用される属性
+* 生成[HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)から属性を検証[データ注釈](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)モデルのプロパティに適用される属性
 
 * 重複する HTML ヘルパー機能を持つ`Html.TextBoxFor`と`Html.EditorFor`です。 参照してください、**入力タグ ヘルパーの HTML ヘルパー代替**詳細セクションです。
 
@@ -121,7 +121,7 @@ Type expected
 |Single、Double|種類 ="number"|
 
 
-次の表に、いくつかの一般的な[データ注釈](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)を (すべての検証属性が表示されている) 特定の入力の種類にマップする入力タグ ヘルパー属性。
+次の表に、いくつかの一般的な[データ注釈](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)を (すべての検証属性が表示されている) 特定の入力の種類にマップする入力タグ ヘルパー属性。
 
 
 |属性|入力の型|
@@ -260,7 +260,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 `Textarea Tag Helper`タグ ヘルパーは、入力タグ ヘルパーに似ています。
 
-* 生成、`id`と`name`属性、およびデータの検証属性をモデルから、 [ \<textarea >](http://www.w3.org/wiki/HTML/Elements/textarea)要素。
+* 生成、`id`と`name`属性、およびデータの検証属性をモデルから、 [ \<textarea >](https://www.w3.org/wiki/HTML/Elements/textarea)要素。
 
 * 厳密な型指定を提供します。
 
@@ -324,7 +324,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 ### <a name="the-validation-message-tag-helper"></a>検証メッセージ タグ ヘルパー
 
-* 追加、 [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"`属性を[span](https://developer.mozilla.org/docs/Web/HTML/Element/span)要素は、指定したモデルのプロパティの入力フィールドの検証エラー メッセージをアタッチします。   クライアント側の検証エラーが発生したときに[jQuery](https://jquery.com/)のエラー メッセージを表示、`<span>`要素。
+* 追加、 [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"`属性を[span](https://developer.mozilla.org/docs/Web/HTML/Element/span)要素は、指定したモデルのプロパティの入力フィールドの検証エラー メッセージをアタッチします。 クライアント側の検証エラーが発生したときに[jQuery](https://jquery.com/)のエラー メッセージを表示、`<span>`要素。
 
 * 検証では、サーバー上の場所も受け取ります。 クライアント上で JavaScript が無効になる場合があり、いくつかの検証は、サーバー側でのみ実行できます。
 
@@ -594,12 +594,12 @@ HTML を追加する[\<オプション >](https://www.w3.org/wiki/HTML/Elements/
 
 * [HTML フォーム要素](https://www.w3.org/TR/html401/interact/forms.html)
 
-* [検証トークンの要求](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
+* [検証トークンの要求](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
 
-* [モデル バインディング](../models/model-binding.md)
+* [モデル バインド](../models/model-binding.md)
 
 * [モデルの検証](../models/validation.md)
 
-* [データ注釈](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)
+* [データ注釈](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)
 
 * [このドキュメントのスニペットをコード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample)です。

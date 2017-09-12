@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f16af1184a29b891a9aab0b38ab833836c326c44
-ms.sourcegitcommit: e6a8f171f26fab1b2195a2d7f14e7d258a2e690e
+ms.openlocfilehash: 97013d06273c0993b74cdacfa16cb0d655c73667
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>ASP.NET Core、サンプルとチュートリアルのタグ ヘルパーの作成
 
-によって[Rick Anderson](https://twitter.com/RickAndMSFT)
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample)
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 08/23/2017
 
 **注:**
 
-* タグ ヘルパーのクラスおよびプロパティを pascal で名前に変換されます、 [kebab ケースを下げる](http://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101#12273101)です。 そのため、使用する、`MailTo`属性を使用する`<email mail-to="value"/>`と同等です。
+* タグ ヘルパーのクラスおよびプロパティを pascal で名前に変換されます、 [kebab ケースを下げる](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101)です。 そのため、使用する、`MailTo`属性を使用する`<email mail-to="value"/>`と同等です。
 
 * 最後の行は、最低限の機能のタグ ヘルパーの完了したコンテンツを設定します。
 
@@ -193,7 +193,7 @@ ms.lasthandoff: 08/23/2017
     
     **注:**
     
-    * 前述のように、タグ ヘルパーにより、c# を pascal クラス名とプロパティのでにタグ ヘルパー [kebab ケースを下げる](http://c2.com/cgi/wiki?KebabCase)です。 そのため、使用する、 `WebsiteInformationTagHelper` Razor での記述`<website-information />`です。
+    * 前述のように、タグ ヘルパーにより、c# を pascal クラス名とプロパティのでにタグ ヘルパー [kebab ケースを下げる](http://wiki.c2.com/?KebabCase)です。 そのため、使用する、 `WebsiteInformationTagHelper` Razor での記述`<website-information />`です。
     
     * ターゲット要素に明示的に識別しない、`[HtmlTargetElement]`属性、そのため、既定の`website-information`の対象となります。 場合は、次の属性 (kebab ケースではありませんが、クラス名と一致することに注意) が適用されます。
     
@@ -209,7 +209,7 @@ ms.lasthandoff: 08/23/2017
     
     * 自己終了要素のコンテンツがあるありません。 この例では、Razor マークアップでは、自己終了タグですがタグ ヘルパーの作成は、[セクション](http://www.w3.org/TR/html5/sections.html#the-section-element)要素 (自己終了ではないと、対応するには、内のコンテンツを記述する、`section`要素)。 そのため、設定する必要があります`TagMode`に`StartTagAndEndTag`出力に書き込みます。 行の設定をコメントする代わりに、`TagMode`と終了タグのマークアップを記述します。 (例マークアップがこのチュートリアルの後半で提供されています。)
     
-    * `$` (ドル記号) で、次の行を使用して、[補間文字列](https://msdn.microsoft.com/library/Dn961160.aspx):
+    * `$` (ドル記号) で、次の行を使用して、[補間文字列](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings):
     
     ```cshtml
     $@"<ul><li><strong>Version:</strong> {Info.Version}</li>
@@ -226,7 +226,7 @@ ms.lasthandoff: 08/23/2017
     > 
     >Razor、`info`属性は、文字列ではなく、クラスと c# コードを記述します。 しなくても、任意の文字列ではないタグ ヘルパー属性を記述する必要があります、`@`文字です。
     
-5.  アプリを実行し、バージョン情報を表示する web サイトの情報に移動します。
+5.  アプリを実行し、[バージョン情報を表示する web サイトの情報に移動します。
 
     >[!NOTE]
     >終了タグで、次のマークアップを使用してでは、行を削除する`TagMode.StartTagAndEndTag`タグ ヘルパーで。
@@ -272,11 +272,11 @@ ms.lasthandoff: 08/23/2017
 4.  アプリを実行して、ホーム ページに移動します。 条件付きでマークアップ`div`はレンダリングされません。 クエリ文字列の追加`?approved=true`URL に (たとえば、 `http://localhost:1235/Home/Index?approved=true`)。 `approved`true に設定され、条件付きマークアップが表示されます。
 
 >[!NOTE]
->使用して、 [nameof](https://msdn.microsoft.com/library/dn986596.aspx)演算子を太字タグ ヘルパーで行ったように文字列を指定するのではなく、対象の属性を指定します。
+>使用して、 [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof)演算子を太字タグ ヘルパーで行ったように文字列を指定するのではなく、対象の属性を指定します。
 >
 >[!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zConditionTagHelperCopy.cs?highlight=1,2,5&range=5-18)]
 >
->[Nameof](https://msdn.microsoft.com/library/dn986596.aspx)演算子は、コードを保護する必要があります、これまでリファクタリングを行うこと (名前を変更する可能性があります`RedCondition`)。
+>[Nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof)演算子は、コードを保護する必要があります、これまでリファクタリングを行うこと (名前を変更する可能性があります`RedCondition`)。
 
 ### <a name="avoiding-tag-helper-conflicts"></a>タグ ヘルパーの競合を避ける
 
@@ -289,7 +289,7 @@ ms.lasthandoff: 08/23/2017
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=7-19)]
 
     >[!NOTE]
-    >`AutoLinkerHttpTagHelper`クラス ターゲット`p`要素および使用[Regex](https://msdn.microsoft.com/library/system.text.regularexpressions.regex.aspx)アンカーを作成します。
+    >`AutoLinkerHttpTagHelper`クラス ターゲット`p`要素および使用[Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)アンカーを作成します。
 
 2.  末尾に次のマークアップを追加、 *Views/Home/Contact.cshtml*ファイル。
 

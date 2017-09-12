@@ -2,7 +2,7 @@
 title: "HTTP ハンドラーと ASP.NET Core ミドルウェアにモジュールを移行します。"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: tdykstra
 manager: wpickett
 ms.date: 12/07/2016
@@ -11,17 +11,17 @@ ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: f99c2751138ac789e7105ff256ce7254e280463e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: e14664133abf010b80374036e4855fdff71d1d5f
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>HTTP ハンドラーと ASP.NET Core ミドルウェアにモジュールを移行します。 
 
 によって[Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
-この記事は、既存の ASP.NET を移行する方法を示しています。 [HTTP モジュールとハンドラー](https://msdn.microsoft.com/library/bb398986.aspx)を ASP.NET Core[ミドルウェア](../fundamentals/middleware.md)です。
+この記事は、既存の ASP.NET を移行する方法を示しています。 [HTTP モジュールとハンドラー system.webserver](https://docs.microsoft.com/iis/configuration/system.webserver/)を ASP.NET Core[ミドルウェア](../fundamentals/middleware.md)です。
 
 ## <a name="modules-and-handlers-revisited"></a>モジュールとハンドラーが見直され
 
@@ -31,15 +31,15 @@ ASP.NET Core ミドルウェアを前に、最初に要約 HTTP モジュール�
 
 **ハンドラーは次のとおりです。**
 
-   * 実装するクラス[IHttpHandler](https://msdn.microsoft.com/library/system.web.ihttphandler.aspx)
+   * 実装するクラス[IHttpHandler](https://docs.microsoft.com/dotnet/api/system.web.ihttphandler)
 
    * など、指定されたファイル名または拡張機能で要求を処理するために使用*レポート*
 
-   * [構成されている](https://msdn.microsoft.com/library/46c5ddfy.aspx)で*Web.config*
+   * [構成されている](https://docs.microsoft.com//iis/configuration/system.webserver/handlers/)で*Web.config*
 
 **モジュールは次のとおりです。**
 
-   * 実装するクラス[IHttpModule](https://msdn.microsoft.com/library/system.web.ihttpmodule.aspx)
+   * 実装するクラス[IHttpModule](https://docs.microsoft.com/dotnet/api/system.web.ihttpmodule)
 
    * 要求ごとに呼び出されます
 
@@ -47,11 +47,11 @@ ASP.NET Core ミドルウェアを前に、最初に要約 HTTP モジュール�
 
    * HTTP 応答に追加したり、独自に作成できません。
 
-   * [構成されている](https://msdn.microsoft.com/library/ms227673.aspx)で*Web.config*
+   * [構成されている](https://docs.microsoft.com//iis/configuration/system.webserver/modules/)で*Web.config*
 
 **モジュールが受信要求を処理する順序は、によって決定されます。**
 
-   1. [アプリケーションのライフ サイクル](https://msdn.microsoft.com/library/ms227673.aspx)、ASP.NET によって発生した一連のイベントである: [BeginRequest](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx)、 [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx), などです。各モジュールには、1 つまたは複数のイベントのハンドラーを作成できます。
+   1. [アプリケーションのライフ サイクル](https://msdn.microsoft.com/library/ms227673.aspx)、ASP.NET によって発生した一連のイベントである: [BeginRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.beginrequest)、 [AuthenticateRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.authenticaterequest), などです。各モジュールには、1 つまたは複数のイベントのハンドラーを作成できます。
 
    2. 同一のイベントで構成されている順序*Web.config*です。
 
@@ -167,7 +167,7 @@ ASP.NET Core のプロジェクトで次のようなミドルウェアをこの�
 
 ## <a name="loading-middleware-options-using-the-options-pattern"></a>読み込みオプションのパターンを使用してミドルウェアのオプション
 
-一部のモジュールとハンドラーに格納されている構成オプションがあります*Web.config*です。 ただし、ASP.NET Core で新しい構成モデルが使用の代わりに*Web.config*です。
+一部のモジュールとハンドラーに格納されている構成オプションがあります*Web.config*です。ただし、ASP.NET Core で新しい構成モデルが使用の代わりに*Web.config*です。
 
 新しい[構成システム](../fundamentals/configuration.md)これを解決するオプションが表示されます。
 
@@ -245,7 +245,7 @@ ASP.NET Core のプロジェクトで次のようなミドルウェアをこの�
 public async Task Invoke(HttpContext context)
 ```
 
-`HttpContext`ASP.NET Core で大幅に変更されました。 このセクションでは、の最も一般的に使用されるプロパティに変換する方法を示しています。 [System.Web.HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)を新しい`Microsoft.AspNetCore.Http.HttpContext`です。
+`HttpContext`ASP.NET Core で大幅に変更されました。 このセクションでは、の最も一般的に使用されるプロパティに変換する方法を示しています。 [System.Web.HttpContext](https://docs.microsoft.com/dotnet/api/system.web.httpcontext)を新しい`Microsoft.AspNetCore.Http.HttpContext`です。
 
 ### <a name="httpcontext"></a>HttpContext
 
@@ -382,7 +382,7 @@ public async Task Invoke(HttpContext httpContext)
 
 ## <a name="additional-resources"></a>その他のリソース
 
-* [HTTP ハンドラーと HTTP モジュールの概要](https://msdn.microsoft.com/library/bb398986.aspx)
+* [HTTP ハンドラーと HTTP モジュールの概要](https://docs.microsoft.com/iis/configuration/system.webserver/)
 
 * [構成](../fundamentals/configuration.md)
 

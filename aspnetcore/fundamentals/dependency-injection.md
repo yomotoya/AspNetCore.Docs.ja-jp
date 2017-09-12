@@ -12,17 +12,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2e191a7395110cde7ab5b2f19b6154c96fb496e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 4d0302439fbc777c72f00c37a8c852fc0d46300e
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>ASP.NET Core の依存関係の挿入の概要
 
 <a name=fundamentals-dependency-injection></a>
 
-によって[Steve Smith](http://ardalis.com)と[Scott Addie](https://scottaddie.com)
+によって[Steve Smith](https://ardalis.com/)と[Scott Addie](https://scottaddie.com)
 
 ASP.NET Core は、まったく新たに設計をサポートし、依存関係の挿入を活用します。 ASP.NET Core アプリケーションは、スタートアップ クラス内のメソッドを挿入することによってサービスを組み込みフレームワークを利用でき、挿入もアプリケーション サービスを構成することができます。 ASP.NET Core によって提供される既定のサービス コンテナーは、最小限の機能が設定され、その他のコンテナーを置き換えるものではありませんを提供します。
 
@@ -39,7 +39,7 @@ DI を使用する、システムの設計時に、コンス トラクター (�
 ASP.NET Core に簡単なビルトイン コンテナーが含まれています (によって表される、`IServiceProvider`インターフェイス) 既定では、コンス トラクターの挿入をサポートして、ASP.NET により、特定のサービスが DI を介して使用できます。 ASP です。NET のコンテナーとして管理されます。 その型を指す*services*です。 この記事の残りの部分全体にわたって*services*は ASP.NET Core IoC コンテナーで管理されている型を参照してください。 組み込みのコンテナーのサービスを構成する、`ConfigureServices`で、アプリケーションの`Startup`クラスです。
 
 > [!NOTE]
-> Martin ファウラー上の広範な資料が書き込ま[逆転のコントロール コンテナーとの依存関係挿入パターン](http://www.martinfowler.com/articles/injection.html)です。 最適な説明も Microsoft Patterns and Practices[依存性の注入](https://msdn.microsoft.com/library/dn178469(v=pandp.30).aspx)です。
+> Martin ファウラー上の広範な資料が書き込ま[逆転のコントロール コンテナーとの依存関係挿入パターン](https://www.martinfowler.com/articles/injection.html)です。 最適な説明も Microsoft Patterns and Practices[依存性の注入](https://msdn.microsoft.com/library/hh323705.aspx)です。
 
 > [!NOTE]
 > この記事では、すべての ASP.NET アプリケーションに適用される、依存関係の挿入がについて説明します。 MVC コント ローラー内の依存関係の挿入は、「[依存関係挿入とコント ローラー](../mvc/controllers/dependency-injection.md)です。
@@ -177,7 +177,7 @@ ASP.NET サービスは、次の有効期間で構成できます。
 
 [!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Services/OperationService.cs)]
 
-内でのアプリケーションに個別の個々 の要求間およびオブジェクトの有効期間を示すためには、サンプルが含まれています、`OperationsController`各種類の要求を`IOperation`型だけでなく、`OperationService`です。 `Index`すべてのコント ローラーのおよびサービスのアクションで、表示`OperationId`値。
+内でのアプリケーションに個別の個々 の要求間およびオブジェクトの有効期間を示すためには、サンプルが含まれています、`OperationsController`各種類の要求を`IOperation`型だけでなく、`OperationService`です。 `Index`すべてのコント ローラーのおよびサービスのアクションで、[表示`OperationId`値。
 
 [!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Controllers/OperationsController.cs)]
 
@@ -210,7 +210,7 @@ ASP.NET 内で使用可能なサービスを要求`HttpContext`を通じて公�
 
 ## <a name="designing-your-services-for-dependency-injection"></a>依存関係の挿入で、サービスの設計
 
-共同作業者を取得する依存関係の挿入を使用するサービスを設計する必要があります。 つまり、ステートフルな静的メソッドの呼び出しは使用しない (と呼ばれるコード匂いが発生する[静的窓](http://deviq.com/static-cling/)) と、サービス内の依存クラスを直接インスタンス化します。 やすくなり、語句を注意してください[は、New はグルー](http://ardalis.com/new-is-glue)型のインスタンスを作成するか、依存関係の挿入を使用して要求するかを選択するときに、します。 に従って、[実線の基本原則のオブジェクト指向設計](http://deviq.com/solid/)クラスが必然的に小さく、十分に考慮された、簡単にテストする傾向があります。
+共同作業者を取得する依存関係の挿入を使用するサービスを設計する必要があります。 つまり、ステートフルな静的メソッドの呼び出しは使用しない (と呼ばれるコード匂いが発生する[静的窓](http://deviq.com/static-cling/)) と、サービス内の依存クラスを直接インスタンス化します。 やすくなり、語句を注意してください[は、New はグルー](https://ardalis.com/new-is-glue)型のインスタンスを作成するか、依存関係の挿入を使用して要求するかを選択するときに、します。 に従って、[実線の基本原則のオブジェクト指向設計](http://deviq.com/solid/)クラスが必然的に小さく、十分に考慮された、簡単にテストする傾向があります。
 
 場合、クラスが多すぎる依存関係が挿入されていることになる傾向がありますを検索しますか。 これは、クラスが多すぎる、実行しようとし、SRP - に違反する可能性がありますが、サインインでは、通常、[単一責任の原則](http://deviq.com/single-responsibility-principle/)です。 新しいクラスにその負荷の一部を移動することによって、クラスをリファクタリングすることができるかどうかを参照してください。 注意してください、`Controller`クラス必要があるに重点を置いて UI の問題、これらに適切なクラスにビジネス ルールとデータ アクセスの実装の詳細を保持する必要がありますので[に関する注意事項を区切る](http://deviq.com/separation-of-concerns/)です。
 
@@ -245,7 +245,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="replacing-the-default-services-container"></a>既定のサービス コンテナーを置き換える
 
-フレームワークと上に構築されたほとんどのコンシューマー アプリケーションの基本的なニーズに対応するものでは、組み込みのサービス コンテナー。 ただし、開発者は、推奨されるコンテナーで組み込みのコンテナーを置き換えることができます。 `ConfigureServices`メソッドは通常を返します`void`を返すシグネチャが変更された場合、 `IServiceProvider`、別のコンテナーを構成し、返されます。 多くの IOC コンテナーは .NET を使用できます。 この例では、 [Autofac](http://autofac.org/)パッケージを使用します。
+フレームワークと上に構築されたほとんどのコンシューマー アプリケーションの基本的なニーズに対応するものでは、組み込みのサービス コンテナー。 ただし、開発者は、推奨されるコンテナーで組み込みのコンテナーを置き換えることができます。 `ConfigureServices`メソッドは通常を返します`void`を返すシグネチャが変更された場合、 `IServiceProvider`、別のコンテナーを構成し、返されます。 多くの IOC コンテナーは .NET を使用できます。 この例では、 [Autofac](https://autofac.org/)パッケージを使用します。
 
 最初に、適切なコンテナーのパッケージをインストールします。
 
@@ -317,8 +317,8 @@ public class DefaultModule : Module
 
 * [依存関係の挿入 (MSDN) での ASP.NET Core でクリーンなコードの記述](https://msdn.microsoft.com/magazine/mt703433.aspx)
 
-* [コンテナー管理アプリケーションの設計、前段階: が属しているコンテナーしますか。](http://blogs.msdn.com/b/nblumhardt/archive/2008/12/27/container-managed-application-design-prelude-where-does-the-container-belong.aspx)
+* [コンテナー管理アプリケーションの設計、前段階: が属しているコンテナーしますか。](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
 
 * [明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)
 
-* [コントロール コンテナーとの依存関係挿入パターンの反転](http://www.martinfowler.com/articles/injection.html)(ファウラー)
+* [コントロール コンテナーとの依存関係挿入パターンの反転](https://www.martinfowler.com/articles/injection.html)(ファウラー)

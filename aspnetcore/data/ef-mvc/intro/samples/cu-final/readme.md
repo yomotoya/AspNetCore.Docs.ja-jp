@@ -4,7 +4,7 @@ Contoso 大学では、ASP.NET Core MVC web アプリケーションに Entity F
 
 ## <a name="build-it-from-scratch"></a>ゼロから作成します。
 
-アプリケーションをビルドするには次の手順に従って、[一連のチュートリアル](https://docs.asp.net/en/latest/data/ef-mvc/intro.html)です。
+アプリケーションをビルドするには次の手順に従って、[一連のチュートリアル](https://docs.microsoft.com/aspnet/core/data/ef-mvc/intro)です。
 
 ## <a name="download-it"></a>ダウンロードします。
 

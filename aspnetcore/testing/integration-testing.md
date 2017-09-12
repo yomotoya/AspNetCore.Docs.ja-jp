@@ -11,15 +11,15 @@ ms.assetid: 40d534f2-89b3-4b09-9c2c-3494bf9991c9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/integration-testing
-ms.openlocfilehash: d30af6edc31fbce2ebb77c57be3fd78231c54b50
-ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
+ms.openlocfilehash: 02018299c9bd1d194c2c70c14f518786e803d572
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="integration-testing-in-aspnet-core"></a>ASP.NET Core でのテストの統合
 
-によって[Steve Smith](http://ardalis.com)
+によって[Steve Smith](https://ardalis.com/)
 
 統合テストにより、一緒にアセンブルときに、アプリケーションのコンポーネントが正しく動作します。 ASP.NET Core サポート統合が単体テスト フレームワークと、ネットワークのオーバーヘッドが要求を処理するために使用する組み込みのテストの web ホストを使用してテストします。
 
@@ -130,10 +130,10 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 このリファクタリング後、web アプリケーションも動作する前とに、、統合テストにすべて合格ため確実に把握しています。
 
 > [!NOTE]
-> リファクタリングを完了して、テストに合格した後、ソース管理に変更をコミットすることをお勧めします。 場合は、テスト駆動開発を練習するとき[、赤、緑-リファクター サイクルへのコミットの追加を検討してください](http://ardalis.com/rgrc-is-the-new-red-green-refactor-for-test-first-development)です。
+> リファクタリングを完了して、テストに合格した後、ソース管理に変更をコミットすることをお勧めします。 場合は、テスト駆動開発を練習するとき[、赤、緑-リファクター サイクルへのコミットの追加を検討してください](https://ardalis.com/rgrc-is-the-new-red-green-refactor-for-test-first-development)です。
 
 ## <a name="resources"></a>リソース
 
 * [単体テスト](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 * [ミドルウェア](xref:fundamentals/middleware)
-* [テスト コント ローラー](xref:mvc/controllers/testing)
+* [コントローラーのテスト](xref:mvc/controllers/testing)

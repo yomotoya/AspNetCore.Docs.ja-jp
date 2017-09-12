@@ -2,7 +2,7 @@
 title: "ASP.NET Core での Grunt の使用"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 471112e9-2c33-454b-96fc-32916102ce73
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
-ms.openlocfilehash: df20c3a31fce81ab039ef2f63bf38ed9943c7c6c
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 8ae50514ce24c7f9e3bb1e347d5d860e1de43c5f
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="using-grunt-in-aspnet-core"></a>ASP.NET Core での Grunt の使用 
 
-によって[ノエル ライス](http://blog.falafel.com/author/noel-rice/)
+によって[ノエル ライス](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)
 
 Grunt は、スクリプトの縮小、TypeScript のコンパイルをコード品質の「柔らかい」ツール、CSS 前プロセッサ、およびクライアントの開発をサポートするために行う必要がある反復的な面倒だけに関するを自動化する JavaScript タスク ランナーです。 Grunt は ASP.NET プロジェクト テンプレートが既定で Gulp を使用しても、完全に Visual Studio で、サポート (を参照してください[Gulp を使用して](using-gulp.md))。
 
@@ -294,4 +294,4 @@ Grunt は、ほとんどのクライアント ビルド タスクの自動化に
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-   * [Gulp を使用します。](using-gulp.md)
+   * [Gulp の使用](using-gulp.md)

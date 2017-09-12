@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/index
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99fbe0e02be27a0fbbb7ff65bc15713aab58c003
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 5d8ca35b0e2e4b6e9b1ec745a3a7cf7c3983c461
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="aspnet-core-fundamentals-overview"></a>ASP.NET Core の基礎の概要
 
@@ -101,7 +101,7 @@ ASP.NET Core で [OWIN](http://owin.org) ベースのミドルウェアを使用
 
 ## <a name="servers"></a>サーバー
 
-ASP.NET Core ホスティング モデルは、要求を直接リッスンするのではなく、HTTP サーバー実装を介して要求をアプリケーションに転送します。 転送された要求は、インターフェイスを介してアクセス可能な一連の機能オブジェクトとしてラップされます。 アプリケーションはこのセットを `HttpContext` に構成します。 ASP.NET Core には、[Kestrel](xref:fundamentals/servers/kestrel) と呼ばれる、マネージド クロスプラットフォーム Web サーバーが含まれています。 Kestrel は通常、[IIS](https://iis.net) や [nginx](http://nginx.org) などの実稼働 Web サーバーの背後で実行されます。
+ASP.NET Core ホスティング モデルは、要求を直接リッスンするのではなく、HTTP サーバー実装を介して要求をアプリケーションに転送します。 転送された要求は、インターフェイスを介してアクセス可能な一連の機能オブジェクトとしてラップされます。 アプリケーションはこのセットを `HttpContext` に構成します。 ASP.NET Core には、[Kestrel](xref:fundamentals/servers/kestrel) と呼ばれる、マネージド クロスプラットフォーム Web サーバーが含まれています。 Kestrel は通常、[IIS](https://www.iis.net/) や [nginx](http://nginx.org) などの実稼働 Web サーバーの背後で実行されます。
 
 詳細については、[サーバー](xref:fundamentals/servers/index)と[ホスティング](xref:fundamentals/hosting)に関するページを参照してください。
 

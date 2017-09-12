@@ -11,11 +11,11 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: b79d86358a8f1552118fac508c4cc02cf674f169
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 5705e9f879af4be3fe338716a4310bf9f0530039
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>ASP.NET core 圧縮ミドルウェアの応答
 
@@ -78,7 +78,7 @@ IIS、Apache、またはミドルウェアのパフォーマンス可能性は�
 ## <a name="configuration"></a>構成
 次のコードと応答の圧縮のミドルウェアを有効にする方法を示しています、および既定の MIME の種類の既定 gzip 圧縮を使用します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](response-compression/samples/2.x/StartupBasic.cs?name=snippet1&highlight=4,8)]
 
@@ -112,7 +112,7 @@ Gzip 圧縮プロバイダーの既定値は、最速の圧縮レベル (`Compre
 | `CompressionLevel.Optimal`       | 応答を最適に圧縮する、場合でも、圧縮を完了に時間がかかります。                |
 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=3,8-11)]
 
@@ -135,7 +135,7 @@ Gzip 圧縮プロバイダーの既定値は、最速の圧縮レベル (`Compre
 
 置き換えるか、応答の圧縮のミドルウェアのオプションで MIME の種類を追加することができます。 そのワイルドカード MIME に注意してくださいなどの型`text/*`はサポートされていません。 サンプル アプリの MIME の種類を追加する`image/svg+xml`と圧縮および ASP.NET Core バナー イメージの機能 (*banner.svg*)。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=5)]
 
@@ -150,7 +150,7 @@ Gzip 圧縮プロバイダーの既定値は、最速の圧縮レベル (`Compre
 
 サンプル アプリを使用して、クライアント要求を送信すると、`Accept-Encoding: mycustomcompression`ヘッダー。 ミドルウェアがカスタム圧縮の実装を使用し、応答を返し、`Content-Encoding: mycustomcompression`ヘッダー。 クライアントは、カスタムの圧縮の実装が機能するためにはカスタム エンコーディングを圧縮解除できる必要があります。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=4)]
 
@@ -169,7 +169,7 @@ Gzip 圧縮プロバイダーの既定値は、最速の圧縮レベル (`Compre
 ![Fiddler の Accept-encoding ヘッダーで要求の結果と mycustomcompression の値を示すウィンドウです。 Vary と Content-encoding ヘッダーは、応答に追加されます。](response-compression/_static/request-custom-compression.png)
 
 ## <a name="compression-with-secure-protocol"></a>セキュリティで保護されたプロトコルと圧縮
-セキュリティで保護された接続上で圧縮された応答を制御することができます、`EnableForHttps`オプションは、既定で無効にします。 動的に生成されたページの圧縮を使用してが問題につながるセキュリティなど、 [CRIME](https://en.wikipedia.org/wiki/CRIME_(security_exploit))と[侵害](https://en.wikipedia.org/wiki/BREACH_(security_exploit))攻撃です。
+セキュリティで保護された接続上で圧縮された応答を制御することができます、`EnableForHttps`オプションは、既定で無効にします。 動的に生成されたページの圧縮を使用してが問題につながるセキュリティなど、 [CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit))と[侵害](https://wikipedia.org/wiki/BREACH_(security_exploit))攻撃です。
 
 ## <a name="adding-the-vary-header"></a>Vary ヘッダーを追加します。
 基づいている場合の応答の圧縮、`Accept-Encoding`ヘッダー、可能性のある複数の圧縮バージョン応答と圧縮されていないバージョンがあります。 複数のバージョンが存在しを保存するか、クライアントとプロキシのキャッシュを指示するために、`Vary`ヘッダーを追加、`Accept-Encoding`値。 ASP.NET Core で 1.x では、追加、`Vary`を応答にヘッダーを手動で行います。 ASP.NET Core で 2.x、ミドルウェアを追加、`Vary`ヘッダー応答が圧縮されるときに自動的にします。

@@ -11,15 +11,15 @@ ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: 6baeb472770daf1d54b2d9ea894fc710f4f40780
-ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
+ms.openlocfilehash: b96a70a2446cab7b1af9bd689469584868980595
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="filters"></a>フィルター
 
-によって[Tom Dykstra](https://github.com/tdykstra/)と[Steve Smith](http://ardalis.com)
+によって[Tom Dykstra](https://github.com/tdykstra/)と[Steve Smith](https://ardalis.com/)
 
 *フィルター* ASP.NET Core MVC で使用すると、要求処理パイプラインの特定の段階の前後にコードを実行します。
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 09/08/2017
 
 ### <a name="default-order-of-execution"></a>実行の既定の順序
 
-パイプラインの特定のステージの複数のフィルターがある場合は、スコープはフィルターの実行の既定の順序を決定します。  グローバル フィルターは、さらにメソッドのフィルターを囲むクラスのフィルターを囲みます。 これとも呼ば「ロシア人形」入れ子のように前のスコープを囲むスコープ増加するたびに、[入れ子人形](https://en.wikipedia.org/wiki/Matryoshka_doll)です。 通常、順序を明示的に判別することがなく、目的のオーバーライド動作を取得します。
+パイプラインの特定のステージの複数のフィルターがある場合は、スコープはフィルターの実行の既定の順序を決定します。  グローバル フィルターは、さらにメソッドのフィルターを囲むクラスのフィルターを囲みます。 これとも呼ば「ロシア人形」入れ子のように前のスコープを囲むスコープ増加するたびに、[入れ子人形](https://wikipedia.org/wiki/Matryoshka_doll)です。 通常、順序を明示的に判別することがなく、目的のオーバーライド動作を取得します。
 
 この入れ子の結果として、*後*フィルターのコードは逆の順序で実行される、*する前に*コード。 シーケンスは、次のようになります。
 

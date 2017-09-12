@@ -10,7 +10,7 @@
   dotnet ef database update
   ```
   
-  [.NET core](http://go.microsoft.com/fwlink/?LinkID=517853) .NET のクロスプラット フォーム実装です。 これらのコマンドの次のとおりです。
+  [.NET core](https://docs.microsoft.com/dotnet/core/tools/index) .NET のクロスプラット フォーム実装です。 これらのコマンドの次のとおりです。
 
   * `dotnet restore`: に指定された NuGet パッケージのダウンロード、 *.csproj*ファイル。
   * `dotnet ef migrations add Initial`Entity Framework .NET Core CLI 移行コマンドを実行し、最初の移行を作成します。 「追加」の後にパラメーターは、移行に割り当てられる名前です。 ここで名前を付ける移行「初期」初期データベースの移行になっているためです。 この操作を作成、*データ/移行/\<日付と時刻 > _Initial.cs* 、移行に追加するコマンドを含むファイル、*ムービー*データベースにテーブルです。

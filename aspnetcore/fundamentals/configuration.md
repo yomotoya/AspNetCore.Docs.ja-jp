@@ -11,17 +11,17 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: 39e76b14af85de34b8443bf4e04d18d13ad2aa90
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: a14bc7fbcdac9acddfdab4fcd6e40385ca48bcc4
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 <a name=fundamentals-configuration></a>
 
   # <a name="configuration-in-aspnet-core"></a>ASP.NET Core の構成
 
-[Rick Anderson](https://twitter.com/RickAndMSFT)、[マーク Michaelis](http://intellitect.com/author/mark-michaelis/)、 [Steve Smith](http://ardalis.com)、および[Daniel Roth](https://github.com/danroth27)
+[Rick Anderson](https://twitter.com/RickAndMSFT)、[マーク Michaelis](http://intellitect.com/author/mark-michaelis/)、 [Steve Smith](https://ardalis.com/)、および[Daniel Roth](https://github.com/danroth27)
 
 構成 API は、名前と値のペアの一覧で、アプリケーションを構成する方法を提供します。 構成は実行時に複数のソースから読み取られます。 名前と値のペアは、複数レベルの階層化することができます。 構成プロバイダーがあります。
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 09/08/2017
 * [Azure Key Vault](xref:security/key-vault-configuration)
 * カスタム プロバイダーをインストールまたは作成します。
 
-各構成値は、文字列のキーにマップされます。 カスタム設定を逆シリアル化する組み込みのバインディング サポートは[POCO](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)オブジェクト (シンプルな .NET クラスのプロパティを持つ)。
+各構成値は、文字列のキーにマップされます。 カスタム設定を逆シリアル化する組み込みのバインディング サポートは[POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object)オブジェクト (シンプルな .NET クラスのプロパティを持つ)。
 
 [サンプル コードを表示またはダウンロードする](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample)
 
@@ -65,7 +65,7 @@ Console.Write($"{Configuration["wizards:0:Name"]}, ");
 
 通常をさまざまな環境、開発、テスト、および運用環境などの別の構成設定があります。 `CreateDefaultBuilder` ASP.NET Core 2.x アプリケーションでも拡張メソッド (またはを使用して`AddJsonFile`と`AddEnvironmentVariables`ASP.NET Core 1.x アプリ内で直接) JSON ファイルおよびシステム構成ソースを読み取るための構成プロバイダーを追加します。
 
-* *される appsettings.json*
+* *appsettings.json*
 * * appsettings です。\<EnvironmentName > .json
 * 環境変数
 
@@ -355,7 +355,7 @@ A *web.config* IIS または IIS Express でアプリをホストしている場
 
 ### <a name="additional-resources"></a>その他の技術情報
 
-* [複数の環境での作業](environments.md)
-* [アプリ シークレットは、開発中の安全な格納場所](../security/app-secrets.md)
-* [依存関係の挿入](dependency-injection.md)
-* [Azure Key Vault の構成プロバイダー](xref:security/key-vault-configuration)
+* [複数の環境の使用](environments.md)
+* [開発中のアプリ シークレットの安全な保存](../security/app-secrets.md)
+* [依存性の注入](dependency-injection.md)
+* [Azure Key Vault 構成プロバイダー](xref:security/key-vault-configuration)

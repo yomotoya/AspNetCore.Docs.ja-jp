@@ -12,16 +12,16 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/angular
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50d2e76c472e67c26238abee4f7b0ed64cd043ab
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 2c7929976f0c9f8284ab397b1a87d576bcdd15b0
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="using-angularjs-for-single-page-applications-spas-with-aspnet-core"></a>AngularJS を使用して ASP.NET Core を使用する単一ページ アプリケーション (SPAs)
 
 
-によって[Venkata Koppaka](http://blog.falafel.com/author/venkata-koppaka/)と[Scott Addie](https://scottaddie.com)
+によって[Venkata Koppaka](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)と[Scott Addie](https://scottaddie.com)
 
 この記事では、AngularJS を使用して SPA スタイルの ASP.NET アプリケーションをビルドする方法を学習します。
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="what-is-angularjs"></a>AngularJS とは何ですか。
 
-[AngularJS](http://angularjs.org/)シングル ページ アプリケーション (SPAs) 操作に使用される一般的な Google からの最新の JavaScript フレームワークがします。 AngularJS MIT ライセンスの下でソースに、AngularJS の開発の進行状況を後に[、GitHub リポジトリ](https://github.com/angular/angular.js)です。 ライブラリは HTML の形の角かっこを使用しているために、角速度と呼ばれます。
+[AngularJS](https://angularjs.org/)シングル ページ アプリケーション (SPAs) 操作に使用される一般的な Google からの最新の JavaScript フレームワークがします。 AngularJS MIT ライセンスの下でソースに、AngularJS の開発の進行状況を後に[、GitHub リポジトリ](https://github.com/angular/angular.js)です。 ライブラリは HTML の形の角かっこを使用しているために、角速度と呼ばれます。
 
-AngularJS は jQuery などの DOM 操作ライブラリではありませんが、jQLite と呼ばれる jQuery のサブセットを使用しています。 AngularJS は、HTML タグを追加できますされる宣言型の HTML 属性に、主に基づいています。 使用して、ブラウザーに AngularJS を試みることができます、[コード学校 web サイト](https://www.codeschool.com/courses/shaping-up-with-angular-js)または[W3Schools web サイト](https://www.w3schools.com/angular/)です。
+AngularJS は jQuery などの DOM 操作ライブラリではありませんが、jQLite と呼ばれる jQuery のサブセットを使用しています。 AngularJS は、HTML タグを追加できますされる宣言型の HTML 属性に、主に基づいています。 使用して、ブラウザーに AngularJS を試みることができます、[コード学校 web サイト](https://www.codeschool.com/courses/shaping-up-with-angularjs)または[W3Schools web サイト](https://www.w3schools.com/angular/)です。
 
 この記事では、角の見出しで ノートのいくつかの AngularJS について説明します。
 
@@ -393,4 +393,4 @@ AngularJS 組み込みのイベント ハンドラーのディレクティブの
 
 * [Angular Docs](https://docs.angularjs.org)
 
-* [Angular 2 情報](http://angular.io)
+* [Angular 2 情報](https://angular.io/)

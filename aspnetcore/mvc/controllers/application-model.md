@@ -11,15 +11,15 @@ ms.assetid: 4eb7e52f-5665-41a4-a3e3-e348d07337f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 18046389becd17135ff831e71e700244d48552d3
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 1a5d461809afeef0f485fd3a665250631d855b36
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="working-with-the-application-model"></a>アプリケーション モデルの操作
 
-によって[Steve Smith](http://ardalis.com)
+によって[Steve Smith](https://ardalis.com/)
 
 ASP.NET Core MVC 定義、*アプリケーション モデル*MVC アプリのコンポーネントを表すです。 読み取りおよび MVC 要素の動作を変更するには、このモデルを操作できます。 既定では、MVC はクラスは、コント ローラーであると見なされます、これらのクラスにする方法は、アクション、およびパラメーターとルーティングの動作方法を決定する特定の規則に従います。 ニーズに合わせて、アプリケーションの独自の規則を作成し、グローバル、または属性として適用するには、この動作をカスタマイズすることができます。
 
@@ -70,13 +70,13 @@ ASP.NET Core MVC によって定義された、プロバイダーのパターン
 
 いくつかの組み込みのビヘイビアーはによって実装される、`DefaultApplicationModelProvider`です。 このプロバイダーは、構築するため、 [ `ControllerModel`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel)を参照する順番[ `ActionModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel)、 [ `PropertyModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel)、および[`ParameterModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel)インスタンス。 `DefaultApplicationModelProvider`クラスは、内部のフレームワーク実装の詳細は、今後変更したりできます。 
 
-`AuthorizationApplicationModelProvider`に関連付けられている動作を適用する役割が、`AuthorizeFilter`と`AllowAnonymousFilter`属性。 [これらの属性の詳細について](https://docs.microsoft.com/aspnet/core/security/authorization/simple)です。
+`AuthorizationApplicationModelProvider`に関連付けられている動作を適用する役割が、`AuthorizeFilter`と`AllowAnonymousFilter`属性。 [これらの属性の詳細について](xref:security/authorization/simple)です。
 
-`CorsApplicationModelProvider`に関連付けられている動作を実装、`IEnableCorsAttribute`と`IDisableCorsAttribute`、および`DisableCorsAuthorizationFilter`です。 [詳細については、CORS](https://docs.microsoft.com/aspnet/core/security/cors)です。
+`CorsApplicationModelProvider`に関連付けられている動作を実装、`IEnableCorsAttribute`と`IDisableCorsAttribute`、および`DisableCorsAuthorizationFilter`です。 [詳細については、CORS](xref:security/cors)です。
 
 ## <a name="conventions"></a>規則
 
-アプリケーション モデルでは、モデル全体またはプロバイダーをオーバーライドするよりもモデルの動作をカスタマイズする簡単な方法を提供する規則の抽象化を定義します。 これらの抽象化は、アプリの動作を変更することをお勧めします。 規則のカスタマイズを動的に適用するコードを記述するための手段です。 中に[フィルター](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters)フレームワークの動作を変更する手段を提供のカスタマイズでは、アプリ全体が一緒にワイヤード方法を制御できます。
+アプリケーション モデルでは、モデル全体またはプロバイダーをオーバーライドするよりもモデルの動作をカスタマイズする簡単な方法を提供する規則の抽象化を定義します。 これらの抽象化は、アプリの動作を変更することをお勧めします。 規則のカスタマイズを動的に適用するコードを記述するための手段です。 中に[フィルター](xref:mvc/controllers/filters)フレームワークの動作を変更する手段を提供のカスタマイズでは、アプリ全体が一緒にワイヤード方法を制御できます。
 
 次の規則を使用できます。
 
@@ -85,7 +85,7 @@ ASP.NET Core MVC によって定義された、プロバイダーのパターン
 * [`IActionModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iactionmodelconvention)
 * [`IParameterModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iparametermodelconvention)
 
-MVC のオプションを追加することによって、または実装することで、規則が適用される`Attribute`s とコント ローラー、アクション、またはアクションのパラメーターに適用する (に似て[ `Filters` ](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters))。 フィルターとは異なり規則は各要求の一部ではなく、アプリの起動時にのみ実行されます。
+MVC のオプションを追加することによって、または実装することで、規則が適用される`Attribute`s とコント ローラー、アクション、またはアクションのパラメーターに適用する (に似て[ `Filters` ](xref:mvc/controllers/filters))。 フィルターとは異なり規則は各要求の一部ではなく、アプリの起動時にのみ実行されます。
 
 ### <a name="sample-modifying-the-applicationmodel"></a>例: ApplicationModel を変更します。
 
@@ -159,7 +159,7 @@ MVC が追加されたときに、オプションとしてアプリケーショ�
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=6)]
 
 > [!TIP]
-> 規則を追加することができます、[ミドルウェア](https://docs.microsoft.com/aspnet/core/fundamentals/middleware)にアクセスして`MvcOptions`を使用します。`services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
+> 規則を追加することができます、[ミドルウェア](xref:fundamentals/middleware)にアクセスして`MvcOptions`を使用します。`services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
 
 このサンプルでは、コント ローラーが、名前に"Namespace"を持つ属性のルーティングを使用していないルートにこの規則が適用されます。 次のコント ローラーは、この規則を示しています。
 
@@ -170,7 +170,7 @@ MVC が追加されたときに、オプションとしてアプリケーショ�
 ASP.NET Core MVC は、ASP.NET Web API 2 から異なる一連の規則を使用します。 カスタム規則を使用して、Web API アプリのものと一致するように、ASP.NET Core MVC アプリの動作を変更できます。 Microsoft が付属しています、 [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim/)特にこの目的のためです。
 
 > [!NOTE]
-> 詳細については[ASP.NET Web API からの移行](https://docs.microsoft.com/aspnet/core/migration/webapi))。
+> 詳細については[ASP.NET Web API からの移行](xref:migration/webapi)です。
 
 Web API の互換性 Shim を使用するのには、パッケージをプロジェクトに追加して、MVC を呼び出すことによって、規則を追加する必要があります`AddWebApiConventions`で`Startup`:
 
@@ -199,7 +199,7 @@ Shim によって提供される規則は、それらに適用された特定の
 
 ### <a name="routes"></a>ルート
 
-`UseWebApiRoutesAttribute`コントロールかどうか、`WebApiApplicationModelConvention`コント ローラーの規則を適用します。 サポートを追加するこの規則が使用される有効な場合、[領域](https://docs.microsoft.com/aspnet/core/mvc/controllers/areas)ルートにします。
+`UseWebApiRoutesAttribute`コントロールかどうか、`WebApiApplicationModelConvention`コント ローラーの規則を適用します。 サポートを追加するこの規則が使用される有効な場合、[領域](xref:mvc/controllers/areas)ルートにします。
 
 互換パッケージが含まれています、規則のセットだけでなく、`System.Web.Http.ApiController`基底クラスを Web API によって提供されるものを置き換えます。 これにより、Web API および継承用に記述された、コント ローラーからその`ApiController`ASP.NET Core MVC での実行中に、設計どおりに動作します。 この基本コント ローラー クラスはすべての装飾、`UseWebApi*`上記の属性です。 `ApiController`プロパティ、メソッド、および Web API で検出されると互換性のある結果の型を公開します。
 

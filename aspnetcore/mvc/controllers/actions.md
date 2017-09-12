@@ -11,15 +11,15 @@ ms.assetid: 9da9eb52-8583-4069-af91-155ba3529d7f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
-ms.openlocfilehash: b7d6341c0312b3f5f122acfb2ee01210151b33bb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 5dc6c7dc70027bb79875f389d535119a2543b873
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC のコント ローラーと要求の処理
 
-によって[Steve Smith](http://ardalis.com)と[Scott Addie](https://github.com/scottaddie)
+によって[Steve Smith](https://ardalis.com/)と[Scott Addie](https://github.com/scottaddie)
 
 コント ローラー、アクション、およびアクションの結果は、開発者が ASP.NET Core MVC を使用してアプリを構築する方法の基本的な部分です。
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/11/2017
 
 コント ローラー クラスが関連付けられていない必要があります`[NonController]`属性。
 
-コント ローラーが従う必要があります、[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle)です。 この原則を実装するのにはいくつかの方法はあります。 複数のコント ローラーのアクションは、同じサービスを必要とする場合は、使用を検討して[コンス トラクター インジェクション](xref:mvc/controllers/dependency-injection#constructor-injection)をこれらの依存関係を要求します。 サービスは、1 つのアクション メソッドのみが必要な場合は、使用を検討して[アクション インジェクション](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)を依存関係を要求します。
+コント ローラーが従う必要があります、[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)です。 この原則を実装するのにはいくつかの方法はあります。 複数のコント ローラーのアクションは、同じサービスを必要とする場合は、使用を検討して[コンス トラクター インジェクション](xref:mvc/controllers/dependency-injection#constructor-injection)をこれらの依存関係を要求します。 サービスは、1 つのアクション メソッドのみが必要な場合は、使用を検討して[アクション インジェクション](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)を依存関係を要求します。
 
 内で、 **M**odel -**V**ビュー -**C**ontroller パターンでは、コント ローラーは、要求の初期の処理と、モデルのインスタンス化を行います。 一般に、ビジネスの意思決定は、モデル内で実行してください。
 
@@ -104,6 +104,6 @@ ms.lasthandoff: 08/11/2017
 
 エラー処理と応答のキャッシュは多くの場合、横断的関心事です。
    * [エラー処理](xref:mvc/controllers/filters#exception-filters)
-   * [応答のキャッシュ](xref:performance/caching/response)
+   * [応答キャッシュ](xref:performance/caching/response)
 
 フィルターまたはカスタムを使用して処理できる多くの横断的関心事[ミドルウェア](xref:fundamentals/middleware)です。

@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: b8ef101458e0a6e6284624693689181646ced051
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: 949733119b4e3a4b8716f2bcc1f631949d5049bc
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>ASP.NET Core MVC と Visual Studio (10 の 1) を使用して Entity Framework Core の概要
 
@@ -31,7 +31,7 @@ EF の最新バージョンであるが EF のすべての機能がない、EF �
 
 > [!NOTE]
 > * このチュートリアルの ASP.NET Core の 1.1 バージョンを参照してください、 [VS 2017 Update 2 のバージョンを PDF 形式では、このチュートリアルの](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/efmvc/intro/_static/efmvc1.1.pdf)します。
-> * このチュートリアルの Visual Studio 2015 バージョンを参照してください、 [VS 2015 バージョンの PDF 形式での ASP.NET Core ドキュメント](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf)です。
+> * このチュートリアルの Visual Studio 2015 バージョンについては、[VS 2015 バージョンの ASP.NET Core ドキュメント (PDF 形式)](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf) を参照してください。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -39,7 +39,7 @@ EF の最新バージョンであるが EF のすべての機能がない、EF �
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
-問題を解決できない場合に発生した場合、コードを比較することでのソリューションを見つけることは通常、[完成したプロジェクト](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)です。 一般的なエラーとそれらを解決する方法の一覧は、次を参照してください。[系列の最後のチュートリアルの「トラブルシューティング](advanced.md#common-errors)です。 必要なものがない場合は、StackOverflow.com に質問を投稿することができます[ASP.NET Core](http://stackoverflow.com/questions/tagged/asp.net-core)または[EF コア](http://stackoverflow.com/questions/tagged/entity-framework-core)です。
+問題を解決できない場合に発生した場合、コードを比較することでのソリューションを見つけることは通常、[完成したプロジェクト](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)です。 一般的なエラーとそれらを解決する方法の一覧は、次を参照してください。[系列の最後のチュートリアルの「トラブルシューティング](advanced.md#common-errors)です。 必要なものがない場合は、StackOverflow.com に質問を投稿することができます[ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core)または[EF コア](https://stackoverflow.com/questions/tagged/entity-framework-core)です。
 
 > [!TIP] 
 > これは、一連の 10 のチュートリアルでは、それぞれは、前のチュートリアルの処理に基づいています。  各チュートリアルが正常に完了した後、プロジェクトのコピーを保存することを検討してください。  問題に遭遇した場合は、前のチュートリアルの一連の先頭に戻るとではなく、経由で開始できます。
@@ -168,7 +168,7 @@ Entity Framework がという名前が場合に、外部キーのプロパティ
 
 ## <a name="create-the-database-context"></a>データベース コンテキストを作成します。
 
-指定されたデータ モデルの Entity Framework 機能を調整するのメイン クラスは、データベース コンテキスト クラスです。 派生することによってこのクラスを作成する、`Microsoft.EntityFrameworkCore.DbContext`クラスです。 コードでは、データ モデルのエンティティが含まれているを指定します。 特定の Entity Framework の動作をカスタマイズすることもできます。 クラスの名前は、このプロジェクトで`SchoolContext`です。
+指定されたデータ モデルの Entity Framework 機能を調整するのメイン クラスは、データベース コンテキスト クラスです。 このクラスは、`Microsoft.EntityFrameworkCore.DbContext` クラスから派生させて作成します。 コードでは、データ モデルのエンティティが含まれているを指定します。 特定の Entity Framework の動作をカスタマイズすることもできます。 クラスの名前は、このプロジェクトで`SchoolContext`です。
 
 プロジェクト フォルダー内には、という名前のフォルダーを作成*データ*です。
 
@@ -176,7 +176,7 @@ Entity Framework がという名前が場合に、外部キーのプロパティ
 
 [!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
 
-このコードを作成、`DbSet`各エンティティ セットのプロパティです。 Entity Framework の用語で、エンティティ セットは、通常は、データベース テーブルに対応しています、エンティティをテーブル内の行に対応しています。
+このコードを作成、`DbSet`各エンティティ セットのプロパティです。 Entity Framework の用語では、エンティティ セットは通常はデータベース テーブルに対応し、エンティティはテーブルの行に対応します。
 
 省略した可能性がありますが、`DbSet<Enrollment>`と`DbSet<Course>`ステートメントと同じように動作します。 Entity Framework はそれらを含める暗黙的に、`Student`エンティティ参照、`Enrollment`エンティティと`Enrollment`エンティティ参照、`Course`エンティティです。
 
@@ -330,7 +330,7 @@ SSOX、クリックして**(localdb) \MSSQLLocalDB > データベース**、内�
 
 * ID または classnameID という名前はエンティティのプロパティは、主キー プロパティとして認識されます。
 
-* という名前が場合、プロパティが外部キーのプロパティとして解釈されます *<navigation property name> <primary key property name>*  (たとえば、`StudentID`の`Student`以降のナビゲーション プロパティ、`Student`エンティティの主キーとは`ID`). 外部キー プロパティは単にも呼ばれます *<primary key property name>*  (たとえば、`EnrollmentID`ので、`Enrollment`エンティティの主キーが`EnrollmentID`)。
+* という名前が場合、プロパティが外部キーのプロパティとして解釈されます* <navigation property name> <primary key property name> * (たとえば、`StudentID`の`Student`以降のナビゲーション プロパティ、`Student`エンティティの主キーとは`ID`). 外部キー プロパティは単にも呼ばれます* <primary key property name> * (たとえば、`EnrollmentID`ので、`Enrollment`エンティティの主キーが`EnrollmentID`)。
 
 従来の動作をオーバーライドできます。 たとえば、このチュートリアルで既に説明したとおり、テーブル名を明示的に指定することができます。 列名を設定してでわかる foreign key、または主キーとして任意のプロパティを設定し、[後のチュートリアル](complex-data-model.md)このシリーズのです。
 

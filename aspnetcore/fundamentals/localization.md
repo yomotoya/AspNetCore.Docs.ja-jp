@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: c6c9db21a95131a3d7920054e32004791b499c11
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: 2a760343566d2c2be591983e20830b5207a2199b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>グローバリゼーションとローカリゼーション ASP.NET Core
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/08/2017
 
 ASP.NET Core 多言語 web サイトを作成すると、多数の対象者に到達するようにサイトが許可されます。 ASP.NET Core は、さまざまな言語およびカルチャにローカライズするためのサービスとミドルウェアを提供します。
 
-国際化では、[グローバリゼーション](https://msdn.microsoft.com/library/aa292081(v=vs.71).aspx)と[ローカリゼーション](https://msdn.microsoft.com/library/aa292137(v=vs.71).aspx)です。 グローバリゼーションとは異なるカルチャをサポートするアプリを設計するプロセスです。 グローバリゼーションでは、入力、表示、および定義済みの一連の特定の地理的領域に関連する言語のスクリプトの出力のサポートを追加します。
+国際化では、[グローバリゼーション](https://docs.microsoft.com/dotnet/api/system.globalization)と[ローカリゼーション](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization)です。 グローバリゼーションとは異なるカルチャをサポートするアプリを設計するプロセスです。 グローバリゼーションでは、入力、表示、および定義済みの一連の特定の地理的領域に関連する言語のスクリプトの出力のサポートを追加します。
 
 ローカリゼーションとは、グローバライズされたアプリ、特定のカルチャとロケールに、ローカライズの可能性が既に処理に対応させるプロセス。  詳細については、次を参照してください。**グローバリゼーションおよびローカリゼーションの条項**このドキュメントの末尾近くです。
 
@@ -37,7 +37,7 @@ ASP.NET Core 多言語 web サイトを作成すると、多数の対象者に�
 
 ## <a name="make-the-apps-content-localizable"></a>アプリのコンテンツをローカライズできるようにします
 
-ASP.NET Core で導入された`IStringLocalizer`と`IStringLocalizer<T>`ローカライズされたアプリの開発時に、生産性を向上させるために設計されています。 `IStringLocalizer`使用して、 [ResourceManager](https://msdn.microsoft.com/library/system.resources.resourcemanager(v=vs.110).aspx)と[ResourceReader](https://msdn.microsoft.com/library/system.resources.resourcereader(v=vs.110).aspx)を実行時にカルチャ固有のリソースを提供します。 シンプルなインターフェイスが、インデクサー、および`IEnumerable`ローカライズされた文字列を返すためです。 `IStringLocalizer`リソース ファイルに既定の言語識別文字列を格納するには不要です。 開発の早い段階でリソース ファイルを作成する必要はなく、ローカリゼーションの対象となるアプリを開発できます。 次のコードでは、ローカライズ文字列「タイトルは」をラップする方法を示します。
+ASP.NET Core で導入された`IStringLocalizer`と`IStringLocalizer<T>`ローカライズされたアプリの開発時に、生産性を向上させるために設計されています。 `IStringLocalizer`使用して、 [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager)と[ResourceReader](https://docs.microsoft.com/dotnet/api/system.resources.resourcereader)を実行時にカルチャ固有のリソースを提供します。 シンプルなインターフェイスが、インデクサー、および`IEnumerable`ローカライズされた文字列を返すためです。 `IStringLocalizer`リソース ファイルに既定の言語識別文字列を格納するには不要です。 開発の早い段階でリソース ファイルを作成する必要はなく、ローカリゼーションの対象となるアプリを開発できます。 次のコードでは、ローカライズ文字列「タイトルは」をラップする方法を示します。
 
 [!code-csharp[Main](localization/sample/Controllers/AboutController.cs)]
 
@@ -65,7 +65,7 @@ ASP.NET Core で導入された`IStringLocalizer`と`IStringLocalizer<T>`ロー�
 
 ## <a name="view-localization"></a>ビューのローカライズ
 
-`IViewLocalizer`サービス提供のローカライズされた文字列、[ビュー](http://docs.asp.net/projects/mvc/en/latest/views/index.html)です。 `ViewLocalizer`クラスは、このインターフェイスを実装し、ビューのファイル パスからリソースの場所を検索します。 次のコードは、の既定の実装を使用する方法を示しています`IViewLocalizer`:。
+`IViewLocalizer`サービス提供のローカライズされた文字列、[ビュー](https://docs.microsoft.com/aspnet/core)です。 `ViewLocalizer`クラスは、このインターフェイスを実装し、ビューのファイル パスからリソースの場所を検索します。 次のコードは、の既定の実装を使用する方法を示しています`IViewLocalizer`:。
 
 [!code-HTML[Main](localization/sample/Views/Home/About.cshtml)]
 
@@ -124,7 +124,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="supportedcultures-and-supporteduicultures"></a>SupportedCultures と SupportedUICultures
 
-ASP.NET Core では、2 つのカルチャ値を指定できます。`SupportedCultures`と`SupportedUICultures`です。 [CultureInfo](https://msdn.microsoft.com/library/system.globalization.cultureinfo(v=vs.110).aspx)オブジェクトに対する`SupportedCultures`日付、時刻、数、および通貨の書式設定など、カルチャに依存する関数の結果を決定します。 `SupportedCultures`テキスト、大文字と小文字の表記規則、および文字列比較の並べ替え順序を決定します。 参照してください[CultureInfo.CurrentCulture](https://msdn.microsoft.com/library/system.globalization.cultureinfo.currentculture%28v=vs.110%29.aspx)サーバーがカルチャを取得する方法の詳細。 `SupportedUICultures`を決定し、これは文字列 (から*.resx*ファイル) を検索、 [ResourceManager](https://msdn.microsoft.com/library/system.resources.resourcemanager(v=vs.110).aspx)です。 `ResourceManager`によって決定されるカルチャ固有の文字列を単に検索`CurrentUICulture`です。 .NET のすべてのスレッドが`CurrentCulture`と`CurrentUICulture`オブジェクト。 ASP.NET Core は、カルチャに依存する関数を表示するときに、これらの値を検査します。 たとえば、現在のスレッドのカルチャが"EN-US"(英語、米国) に設定されている`DateTime.Now.ToLongDateString()`場合は、「木曜日、2016 年 2 月 18日」が表示されます`CurrentCulture`設定されている"ES-ES"(スペイン語、スペイン) に出力になります"jueves、18 de febrero de 2016" です。
+ASP.NET Core では、2 つのカルチャ値を指定できます。`SupportedCultures`と`SupportedUICultures`です。 [CultureInfo](https://docs.microsoft.com/dotnet/api/system.globalization.cultureinfo)オブジェクトに対する`SupportedCultures`日付、時刻、数、および通貨の書式設定など、カルチャに依存する関数の結果を決定します。 `SupportedCultures`テキスト、大文字と小文字の表記規則、および文字列比較の並べ替え順序を決定します。 参照してください[CultureInfo.CurrentCulture](https://docs.microsoft.com/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture)サーバーがカルチャを取得する方法の詳細。 `SupportedUICultures`を決定し、これは文字列 (から*.resx*ファイル) を検索、 [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager)です。 `ResourceManager`によって決定されるカルチャ固有の文字列を単に検索`CurrentUICulture`です。 .NET のすべてのスレッドが`CurrentCulture`と`CurrentUICulture`オブジェクト。 ASP.NET Core は、カルチャに依存する関数を表示するときに、これらの値を検査します。 たとえば、現在のスレッドのカルチャが"EN-US"(英語、米国) に設定されている`DateTime.Now.ToLongDateString()`場合は、「木曜日、2016 年 2 月 18日」が表示されます`CurrentCulture`設定されている"ES-ES"(スペイン語、スペイン) に出力になります"jueves、18 de febrero de 2016" です。
 
 ## <a name="working-with-resource-files"></a>リソース ファイルの操作
 
@@ -214,7 +214,7 @@ Visual Studio で、ファイル名にカルチャせず、リソース ファ�
 
 ### <a name="querystringrequestcultureprovider"></a>QueryStringRequestCultureProvider
 
-いくつかのアプリでは、クエリ文字列を使用して設定は、[カルチャおよび UI カルチャ](https://msdn.microsoft.com/library/system.globalization.cultureinfo.aspx#Current)です。 をクッキーまたは Accept-language ヘッダーのアプローチを使用するアプリの URL にクエリ文字列を追加することはデバッグおよびコードのテストに役立ちます。 既定では、`QueryStringRequestCultureProvider`の最初のローカリゼーション プロバイダーとして登録されて、 `RequestCultureProvider`  ボックスの一覧です。 クエリ文字列パラメーターを渡す`culture`と`ui-culture`です。 次の例では、特定のカルチャ (言語および地域) をスペイン語/メキシコに設定します。
+いくつかのアプリでは、クエリ文字列を使用して設定は、[カルチャおよび UI カルチャ](https://msdn.microsoft.com/library/system.globalization.cultureinfo.aspx)です。 をクッキーまたは Accept-language ヘッダーのアプローチを使用するアプリの URL にクエリ文字列を追加することはデバッグおよびコードのテストに役立ちます。 既定では、`QueryStringRequestCultureProvider`の最初のローカリゼーション プロバイダーとして登録されて、 `RequestCultureProvider`  ボックスの一覧です。 クエリ文字列パラメーターを渡す`culture`と`ui-culture`です。 次の例では、特定のカルチャ (言語および地域) をスペイン語/メキシコに設定します。
 
    `http://localhost:5000/?culture=es-MX&ui-culture=es-MX`
 
@@ -303,7 +303,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 アプリをローカライズするプロセスは、最新のソフトウェアの開発でよく使用される、関連する文字セットの基本的な理解とそれらに関連した問題の理解にも必要です。 すべてのコンピューターは、数値 (コード) としてテキストを格納、さまざまなシステムは別の番号を使用して、同じテキストを格納します。 ローカリゼーション処理は、特定のカルチャとロケールのアプリのユーザー インターフェイス (UI) の変換を指します。
 
-[ローカライズ化](https://msdn.microsoft.com/library/aa292135(v=vs.71).aspx)は、グローバライズされたアプリのローカライズ可能を確認するための中間プロセスです。
+[ローカライズ化](https://docs.microsoft.com/dotnet/standard/globalization-localization/localizability-review)は、グローバライズされたアプリのローカライズ可能を確認するための中間プロセスです。
 
 [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt)カルチャ名の書式を設定"<languagecode2>-< country/regioncode2 >"ここで、<languagecode2>言語コードは、< country/regioncode2 > となりです。 たとえば、`es-CL`スペイン語 (チリ) 用`en-US`英語 (米国) の場合と`en-AU`英語 (オーストラリア) 用です。 [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) ISO 639 言語に関連付けられている 2 文字の小文字のカルチャ コードと国または地域に関連付けられている 2 文字の大文字となり、ISO 3166 の組み合わせです。  参照してください[言語カルチャ名](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx)です。
 
@@ -322,5 +322,5 @@ services.Configure<RequestLocalizationOptions>(options =>
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [Localization.StarterWeb プロジェクト](https://github.com/aspnet/entropy)アーティクルで使用します。
-* [Visual Studio でのリソース ファイル](https://msdn.microsoft.com/library/xbx3z216(v=vs.110).aspx#VSResFiles)
-* [.Resx ファイル内のリソース](https://msdn.microsoft.com/library/xbx3z216(v=vs.110).aspx#ResourcesFiles)
+* [Visual Studio でのリソース ファイル](https://docs.microsoft.com/cpp/windows/resource-files-visual-studio)
+* [.Resx ファイル内のリソース](https://docs.microsoft.com/dotnet/framework/resources/working-with-resx-files-programmatically)

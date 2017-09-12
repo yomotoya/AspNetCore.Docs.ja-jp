@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/error-handling
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5898892c63e978adfabf9939394fef4ea1848d49
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 96a4fed19887a7a9eba08ec70296147f22e41569
+ms.sourcegitcommit: 368aabde4de3728a8e5a8c016a2ec61f9c0854bf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>ASP.NET Core でのエラー処理の概要
 
-によって[Steve Smith](http://ardalis.com)と[Tom Dykstra](https://github.com/tdykstra/)
+によって[Steve Smith](https://ardalis.com/)と[Tom Dykstra](https://github.com/tdykstra/)
 
 この記事では、ASP.NET Core アプリケーションでエラーを処理する一般的な appoaches について説明します。
 
@@ -45,7 +45,7 @@ Put`UseDeveloperExceptionPage`など、例外をキャッチするすべての�
 
 ![クエリ文字列パラメーター](error-handling/_static/developer-exception-page-query.png)
 
-この要求は、クッキーがありませんでしたが、サポートしていた場合に表示される、 **Cookie**タブです。 最後のタブが渡されましたが、ヘッダーを表示できます。
+この要求は、クッキーがありませんでしたが、サポートしていた場合に表示される、 **Cookie**タブです。最後のタブが渡されましたが、ヘッダーを表示できます。
 
 ![ヘッダー](error-handling/_static/developer-exception-page-headers.png)
 
@@ -111,13 +111,13 @@ if (statusCodePagesFeature != null)
 
 ## <a name="server-exception-handling"></a>サーバーの例外処理
 
-アプリでは、ロジックを処理する例外に加え、[サーバー](servers/index.md)アプリをホストするいると、いくつかの例外処理が実行されます。 ヘッダーが送信される前に、サーバーが例外をキャッチする場合は、本文なしで 500 内部サーバー エラー応答を送信します。 ヘッダーの送信後に、例外をキャッチした場合は、接続を閉じます。 アプリでは処理されない要求は、サーバーによって処理され、サーバーの例外によって発生する例外が処理される処理します。 任意のカスタム エラー ページまたは例外処理のミドルウェアまたはアプリ用に構成したフィルターは、この動作は影響しません。
+アプリでは、ロジックを処理する例外に加え、[サーバー](servers/index.md)アプリをホストしているいくつかの例外処理を実行します。 サーバーは、ヘッダーが送信される前に、例外をキャッチ、サーバーは本文なしで 500 内部サーバー エラー応答を送信します。 サーバーは、ヘッダーが送信された後に例外をキャッチ、サーバーは接続を閉じます。 アプリによって処理されない要求は、サーバーによって処理されます。 サーバーの例外によって発生する例外が処理される処理します。 いずれかの構成のカスタム エラー ページまたは例外処理のミドルウェアまたはフィルターはこの動作に影響しません。
 
 ## <a name="startup-exception-handling"></a>スタートアップ例外処理
 
-ホスト レイヤーだけでは、アプリの起動中に発生する例外を処理できます。 サーバーの動作はアプリの起動中に発生する例外の影響を与えることができます。 呼び出す前に、例外が発生した場合など、 `KestrelServerOptions.UseHttps`、ホスティング レイヤーは、例外をキャッチ、サーバーを開始して、非 SSL ポートでエラー ページが表示されます。 その行の実行後に例外が発生した場合、エラー ページが代わりに HTTPS 経由で処理されます。
+ホスト レイヤーだけでは、アプリの起動中に発生する例外を処理できます。 実行できます[エラーへの応答での起動中に、ホストの動作を構成する](hosting.md#detailed-errors)を使用して`captureStartupErrors`と`detailedErrors`キー。
 
-実行できます[の起動中にエラーへの応答でのホストの動作方法を構成する](hosting.md#configuring-a-host)を使用して`CaptureStartupErrors`と`detailedErrors`キー。
+ホスト アドレスとポートをバインドした後にエラーが発生する場合、ホストしていることができます、キャプチャしたスタートアップ エラーのエラー ページだけ表示されます。 任意のバインディングは、何らかの理由で失敗した場合、ホスト層 dotnet プロセスのクラッシュ、重大な例外をログに記録し、エラー ページは表示されません。
 
 ## <a name="aspnet-mvc-error-handling"></a>ASP.NET MVC のエラー処理
 

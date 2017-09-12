@@ -11,15 +11,15 @@ ms.assetid: dd4135ec-2b15-410c-b3fb-3d12eed4a1ac
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: d5b2bd0200082000aeaf8015cfff9c8c1ec1bdd9
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: e8a464e75dea3a0ec08c13a11888884e6bb6a4c7
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>ASP.NET Core でのテスト コント ローラー ロジック
 
-によって[Steve Smith](http://ardalis.com)
+によって[Steve Smith](https://ardalis.com/)
 
 ASP.NET MVC アプリケーション内のコント ローラーは、ユーザー インターフェイスの問題に焦点を当てており、小規模にする必要があります。 UI 以外の問題に対処する大規模なコント ローラーは、テストや保守が困難です。
 
@@ -47,7 +47,7 @@ ASP.NET MVC アプリケーション内のコント ローラーは、ユーザ�
 単体テストする必要がありますカスタム フィルターやルートなどを記述している場合、特定のコント ローラー アクションで、テストの一部ではなく、します。 これらは、分離環境でテストしてください。
 
 > [!TIP]
-> [作成し、Visual Studio での単体テストの実行](https://www.visualstudio.com/get-started/code/create-and-run-unit-tests-vs)です。
+> [作成し、Visual Studio での単体テストの実行](https://www.visualstudio.com/docs/code/create-and-run-unit-tests-vs)です。
 
 単体テストを示すためには、次のコント ローラーを確認します。 ブレーンストーミング セッションの一覧を表示し、新しいブレーンストーミングを投稿して作成されるセッションを許可します。
 

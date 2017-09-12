@@ -11,17 +11,17 @@ ms.assetid: dba74f39-58cd-4dee-a061-6d15f7346959
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/index
-ms.openlocfilehash: 1e6d0836f0da751fe433273b9a6896fcf259b69d
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 17124f1ef181a4f1572d9375ae8cd27ce8845016
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core での Web サーバーの実装
 
-作成者: [Tom Dykstra](http://github.com/tdykstra)、[Steve Smith](http://ardalis.com)、[Stephen Halter](https://twitter.com/halter73)、[Chris Ross](https://github.com/Tratcher)
+作成者: [Tom Dykstra](https://github.com/tdykstra)、[Steve Smith](https://ardalis.com/)、[Stephen Halter](https://twitter.com/halter73)、[Chris Ross](https://github.com/Tratcher)
 
-ASP.NET Core アプリケーションは、インプロセス HTTP サーバー実装を使用して実行されます。 サーバー実装では HTTP 要求をリッスンし、`HttpContext` に構成された[要求機能](https://docs.asp.net/en/latest/fundamentals/request-features.html)のセットとしてアプリケーションに公開します。
+ASP.NET Core アプリケーションは、インプロセス HTTP サーバー実装を使用して実行されます。 サーバー実装では HTTP 要求をリッスンし、`HttpContext` に構成された[要求機能](https://docs.microsoft.com/aspnet/core/fundamentals/request-features)のセットとしてアプリケーションに公開します。
 
 ASP.NET Core には次の 2 つのサーバー実装が用意されています。
 
@@ -115,13 +115,13 @@ Kestrel でサポートされない WebListener の機能が必要な場合は�
 
 ## <a name="notes-about-aspnet-core-server-infrastructure"></a>ASP.NET Core サーバー インフラストラクチャに関する注意事項
 
-`Startup` クラスの `Configure` メソッドで使用可能な [`IApplicationBuilder`](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Builder/IApplicationBuilder/index.html#Microsoft.AspNetCore.Builder.IApplicationBuilder.md) は、[`IFeatureCollection`](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Http/Features/IFeatureCollection/index.html#Microsoft.AspNetCore.Http.Features.IFeatureCollection.md) 型の `ServerFeatures` プロパティを公開します。 Kestrel と WebListener はどちらも [`IServerAddressesFeature`](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Hosting/Server/Features/IServerAddressesFeature/index.html#Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature.md) という 1 つの機能しか公開しませんが、異なるサーバー実装では追加の機能が公開される可能性があります。
+`Startup` クラスの `Configure` メソッドで使用可能な [`IApplicationBuilder`](https://docs.microsoft.com/aspnet/core/api) は、[`IFeatureCollection`](https://docs.microsoft.com/aspnet/core/api) 型の `ServerFeatures` プロパティを公開します。 Kestrel と WebListener はどちらも [`IServerAddressesFeature`](https://docs.microsoft.com/aspnet/core/api) という 1 つの機能しか公開しませんが、異なるサーバー実装では追加の機能が公開される可能性があります。
 
 `IServerAddressesFeature` を使用すれば、実行時にサーバー実装がバインドされたポートを見つけることができます。
 
 ## <a name="custom-servers"></a>カスタム サーバー
 
-組み込みサーバーがニーズに合わない場合は、カスタム サーバー実装を作成できます。 [Nowin](https://github.com/Bobris/Nowin) ベースの [IServer](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.aspnetcore.hosting.server.iserver) 実装の作成方法については、[Open Web Interface for .NET (OWIN) のガイド](../owin.md)を参照してください。 アプリケーションで必要な機能インターフェイスのみを実装するのは自由です。ただし、少なくとも [IHttpRequestFeature](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.aspnetcore.http.features.ihttprequestfeature) と [IHttpResponseFeature](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpresponsefeature) をサポートする必要があります。
+組み込みサーバーがニーズに合わない場合は、カスタム サーバー実装を作成できます。 [Nowin](https://github.com/Bobris/Nowin) ベースの [IServer](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.server.iserver) 実装の作成方法については、[Open Web Interface for .NET (OWIN) のガイド](../owin.md)を参照してください。 アプリケーションで必要な機能インターフェイスのみを実装するのは自由です。ただし、少なくとも [IHttpRequestFeature](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.ihttprequestfeature) と [IHttpResponseFeature](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpresponsefeature) をサポートする必要があります。
 
 ## <a name="next-steps"></a>次のステップ
 

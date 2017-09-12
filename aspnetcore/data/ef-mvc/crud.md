@@ -11,11 +11,11 @@ ms.assetid: 6e1cd570-40f1-4b24-8b6e-7d2d27758f18
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 855f060a6404dedff310b288ada9738689069ceb
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: 87aa7e63b1a08e457c5fdcbc052bfa039b8d2175
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>作成、読み取り、更新、および削除の ASP.NET Core MVC のチュートリアル (10 の 2) と EF コア
 
@@ -122,7 +122,7 @@ http://localhost:1230/Instructor/Index?id=1&CourseID=2021
 
 削除する`ID`から、`Bind`属性の ID が SQL Server は、行が挿入されると自動的に設定されますが、主キーの値であるためです。 ユーザーからの入力は、ID 値を設定しません。
 
-以外の場合、`Bind`属性、try-catch ブロックがスキャフォールディング コードに加えたのみ変更します。 派生した例外`DbUpdateException`は、変更の保存中にキャッチされ、汎用的なエラー メッセージが表示されます。 `DbUpdateException`例外は場合もありますが原因でプログラミング エラーではなく、アプリケーションを外部の何かため、ユーザーが再試行することをお勧めします。 このサンプルでは実装されていませんが実稼働品質アプリケーションは、例外を記録します。 詳細については、次を参照してください。、**について理解を深めるログ**」の「[監視と遠隔測定 (実際のクラウド アプリのビルドと Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)です。
+以外の場合、`Bind`属性、try-catch ブロックがスキャフォールディング コードに加えたのみ変更します。 派生した例外`DbUpdateException`は、変更の保存中にキャッチされ、汎用的なエラー メッセージが表示されます。 `DbUpdateException`例外は場合もありますが原因でプログラミング エラーではなく、アプリケーションを外部の何かため、ユーザーが再試行することをお勧めします。 このサンプルでは実装されていませんが実稼働品質アプリケーションは、例外を記録します。 詳細については、次を参照してください。、**について理解を深めるログ**」の「[監視と遠隔測定 (実際のクラウド アプリのビルドと Azure)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)です。
 
 `ValidateAntiForgeryToken`属性、クロスサイト リクエスト フォージェリ (CSRF) 攻撃の防止に役立ちます。 トークンは自動的に挿入され別に表示、 [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper)フォームがユーザーによって送信されるときに含まれるとします。 トークンを検証、`ValidateAntiForgeryToken`属性。 CSRF の詳細については、次を参照してください。[対策要求の偽造](../../security/anti-request-forgery.md)です。
 
@@ -274,7 +274,7 @@ HttpPost を置き換える`Delete`アクション メソッド (名前付き`De
 
 データベース接続を保持するリソースを解放するには、コンテキスト インスタンス破棄する必要ができるだけ早くが完了したこととします。 組み込みの ASP.NET Core[依存性の注入](../../fundamentals/dependency-injection.md)をそのタスクの行われます。
 
-*Startup.cs*を呼び出す、 [AddDbContext 拡張メソッド](https://github.com/aspnet/EntityFramework/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs)をプロビジョニング、 `DbContext` ASP.NET DI コンテナー内のクラスです。 メソッドでは、サービスの有効期間を設定`Scoped`既定です。 `Scoped`コンテキスト オブジェクトの有効期間は、web 要求の存続期間と一致することを意味し、`Dispose`メソッドは、web 要求の最後に自動的に呼び出されます。
+*Startup.cs*を呼び出す、 [AddDbContext 拡張メソッド](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs)をプロビジョニング、 `DbContext` ASP.NET DI コンテナー内のクラスです。 メソッドでは、サービスの有効期間を設定`Scoped`既定です。 `Scoped`コンテキスト オブジェクトの有効期間は、web 要求の存続期間と一致することを意味し、`Dispose`メソッドは、web 要求の最後に自動的に呼び出されます。
 
 ## <a name="handling-transactions"></a>トランザクションの処理
 

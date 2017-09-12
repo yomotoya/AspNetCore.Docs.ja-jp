@@ -11,11 +11,11 @@ ms.assetid: fda0c2a8-1743-4505-be1a-7f8ceeef8647
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/yeoman
-ms.openlocfilehash: 3a7cd83becc570d2f73014b356977fedb16f29bb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 61561b55774faf375090c92b574a64f1a12f9647
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-building-projects-with-yeoman-in-aspnet-core"></a>ASP.NET Core で Yeoman とプロジェクトのビルドの概要
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 08/11/2017
 
 ### <a name="prerequisites"></a>必須コンポーネント
 
-Node.js と npm Yeoman に必要です。 ダウンロード[Node.js](https://nodejs.org/en/)です。 インストーラーが含まれています[Node.js](https://nodejs.org/en/)と[npm](https://www.npmjs.com/)です。 Bower ものブートス トラップのような UI フレームワークのインストールに必要です。
+Node.js と npm Yeoman に必要です。 ダウンロード[Node.js](https://nodejs.org/)です。 インストーラーが含まれています[Node.js](https://nodejs.org/)と[npm](https://www.npmjs.com/)です。 Bower ものブートス トラップのような UI フレームワークのインストールに必要です。
 
 Yeoman と Bower をインストールするには、次のコマンドを実行します。
 
@@ -135,7 +135,7 @@ Web ブラウザーを開きに移動`http://localhost:5000`です。
 
 ## <a name="adding-to-your-project-with-sub-generators"></a>Sub ジェネレーターで、プロジェクトに追加します。
 
-Yeoman を使用して[ジェネレーターを sub](https://www.github.com/omnisharp/generator-aspnet#sub-generators)、いずれかを追加することができます、`nuget.config`または`web.config`プロジェクトを作成した後です。 たとえば、ファイルを作成するディレクトリから次のコマンドを実行します。
+Yeoman を使用して[ジェネレーターを sub](https://github.com/omnisharp/generator-aspnet)、いずれかを追加することができます、`nuget.config`または`web.config`プロジェクトを作成した後です。 たとえば、ファイルを作成するディレクトリから次のコマンドを実行します。
 
 ```console
 yo aspnet:nugetconfig
@@ -156,4 +156,4 @@ yo aspnet:nugetconfig
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [サーバー (Kestrel と WebListener)](xref:fundamentals/servers/index)
-* [基礎:](xref:fundamentals/index)
+* [基礎](xref:fundamentals/index)

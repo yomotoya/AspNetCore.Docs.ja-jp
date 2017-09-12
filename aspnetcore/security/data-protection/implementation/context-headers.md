@@ -2,7 +2,7 @@
 title: "コンテキスト ヘッダー"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 16da0a4f78875ee26fa9ca7c9920b8dafd0ce417
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7befd983f6a45839868639708ec5cf45bf2df35f
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="context-headers"></a>コンテキスト ヘッダー
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="background-and-theory"></a>背景と理論的には
 
-データ保護システムでは、「キー」は、認証済み暗号化サービスを提供できるオブジェクトを意味します。 各キーは一意の id (GUID) によって識別され、それが伴うことアルゴリズム情報および entropic マテリアルです。 これは、こと各キーが一意のエントロピを実行がシステムを実施できないことも開発者キー リング内の既存のキーのアルゴリズム情報を変更することにより、キーのリングを手動で変更可能性がありますを考慮する必要があります。 このような場合のセキュリティ要件を実現するために、データ保護システムがの概念[暗号化方式の指定](http://research.microsoft.com/apps/pubs/default.aspx?id=121045)、これにより、複数の暗号化アルゴリズムの間で安全に entropic 1 つの値を使用しています。
+データ保護システムでは、「キー」は、認証済み暗号化サービスを提供できるオブジェクトを意味します。 各キーは一意の id (GUID) によって識別され、それが伴うことアルゴリズム情報および entropic マテリアルです。 これは、こと各キーが一意のエントロピを実行がシステムを実施できないことも開発者キー リング内の既存のキーのアルゴリズム情報を変更することにより、キーのリングを手動で変更可能性がありますを考慮する必要があります。 このような場合のセキュリティ要件を実現するために、データ保護システムがの概念[暗号化方式の指定](https://www.microsoft.com/research/publication/cryptographic-agility-and-its-relation-to-circular-encryption/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D121045)、これにより、複数の暗号化アルゴリズムの間で安全に entropic 1 つの値を使用しています。
 
 暗号化方式の指定をサポートするほとんどのシステムでは、ペイロードの内側のアルゴリズムについていくつかの識別情報を含めることによってようにします。 アルゴリズムの OID は、これに適した候補では、通常です。 ただし、発生しましました問題の 1 つは、同じアルゴリズムを指定する複数の方法があること"AES"(CNG) と、マネージ Aes、AesManaged、AesCryptoServiceProvider、AesCng、および (指定した特定のパラメーター) RijndaelManaged クラスは、実際にすべて同じです。操作を実行し正しい OID をこれらすべてのマッピングを維持するために必要があります。 開発者は、カスタム アルゴリズム (または AES の別の実装) を提供する場合は、その OID を連絡する必要があります。 この余分な登録ステップでは、システム構成が特に苦痛を伴う作業します。
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 08/11/2017
 
 理想的にはすべてゼロのベクトル K_E および K_H 渡します可能性があります。 ただし、基になるアルゴリズムがすべてゼロ ベクターのような単純型または反復可能なパターンを使用してを除外する (特に DES、3 des) の操作を実行する前に弱いキーの有無を確認するような状況を回避します。
 
-代わりに、NIST SP800 108 KDF カウンター モードで使用 (を参照してください[NIST SP800 108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf)秒、します。 5.1) 長さ 0 キー、ラベル、およびコンテキストおよび基になる PRF として HMACSHA512 を使用します。 派生お |K_E |+ |K_H |出力のバイトし、結果に分解 K_E と K_H 自体です。 数学的に、これはように表されます。
+代わりに、NIST SP800 108 KDF カウンター モードで使用 (を参照してください[NIST SP800 108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf)、秒 5.1) 長さ 0 キー、ラベル、およびコンテキストおよび基になる PRF として HMACSHA512 を使用します。 派生お |K_E |+ |K_H |出力のバイトし、結果に分解 K_E と K_H 自体です。 数学的に、これはように表されます。
 
 (K_E | |K_H) = SP800_108_CTR (prf = HMACSHA512、key =""、ラベル =""、コンテキスト ="")
 

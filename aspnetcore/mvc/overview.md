@@ -2,7 +2,7 @@
 title: "ASP.NET Core MVC の概要"
 author: ardalis
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 3e95ccd8aeda54a050cd656ea0c831fd928f53a2
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 67394b066c18a149a97b957d6478ba8301ea8147
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC の概要
 
-によって[Steve Smith](http://ardalis.com)
+によって[Steve Smith](https://ardalis.com/)
 
 ASP.NET Core MVC は、web アプリを構築するための豊富なフレームワークと、モデル ビュー コント ローラーを使用して Api デザイン パターンです。
 
@@ -69,7 +69,7 @@ ASP.NET Core MVC、次のとおりです。
 
 * [ルーティング](#routing)
 * [モデル バインディング](#model-binding)
-* [モデルの検証](#model-validation)
+* [モデル検証](#model-validation)
 * [依存関係の挿入](../fundamentals/dependency-injection.md)
 * [フィルター](#filters)
 * [領域](#areas)
@@ -153,7 +153,7 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 }
 ```
 
-フレームワークでは、クライアントとサーバーの両方の要求データの検証を処理します。 モデルの種類に対して指定された検証ロジックは控えめな注釈としてレンダリングされるビューに追加され、と共にブラウザーに適用される[jQuery 検証](http://jqueryvalidation.org/)です。
+フレームワークでは、クライアントとサーバーの両方の要求データの検証を処理します。 モデルの種類に対して指定された検証ロジックは控えめな注釈としてレンダリングされるビューに追加され、と共にブラウザーに適用される[jQuery 検証](https://jqueryvalidation.org/)です。
 
 ### <a name="dependency-injection"></a>依存関係の挿入
 

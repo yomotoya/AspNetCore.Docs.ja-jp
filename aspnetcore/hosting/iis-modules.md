@@ -11,11 +11,11 @@ ms.assetid: 492b3a7e-04c5-461b-b96a-38ecee5c64bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/iis-modules
-ms.openlocfilehash: 4d9d3d863e62373716ecd81b9e1880145a127e9b
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 353cd4c18cb2708f2dece5ba2b5271f452379d52
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>ASP.NET Core で IIS のモジュールの使用
 
@@ -36,12 +36,12 @@ ASP.NET Core アプリケーションは、リバース プロキシの構成で
 **既定のドキュメント**<br>`DefaultDocumentModule` | いいえ | [既定のファイルのミドルウェア](xref:fundamentals/static-files#serving-a-default-document)
 **ダイジェスト認証**<br>`DigestAuthenticationModule` | はい | 
 **ディレクトリの参照**<br>`DirectoryListingModule` | いいえ | [ディレクトリ参照ミドルウェア](xref:fundamentals/static-files#enabling-directory-browsing)
-**動的な圧縮**<br>`DynamicCompressionModule` | はい | [応答の圧縮のミドルウェア](xref:performance/response-compression)
+**動的な圧縮**<br>`DynamicCompressionModule` | はい | [応答圧縮ミドルウェア](xref:performance/response-compression)
 **トレース**<br>`FailedRequestsTracingModule` | はい | [ASP.NET Core のログ記録](xref:fundamentals/logging#the-tracesource-provider)
-**ファイルのキャッシュ**<br>`FileCacheModule` | いいえ | [キャッシュのミドルウェアの応答](xref:performance/caching/middleware)
-**HTTP キャッシュ**<br>`HttpCacheModule` | いいえ | [キャッシュのミドルウェアの応答](xref:performance/caching/middleware)
-**HTTP ログ**<br>`HttpLoggingModule` | はい | [ASP.NET Core のログ記録](xref:fundamentals/logging)<br>実装: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging)、 [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging)、 [NLog](https://github.com/NLog/NLog.Extensions.Logging)、 [Serilog](https://github.com/serilog/serilog-framework-logging)
-**HTTP リダイレクト**<br>`HttpRedirectionModule` | はい | [URL 書き換えミドルウェア](xref:fundamentals/url-rewriting)
+**ファイルのキャッシュ**<br>`FileCacheModule` | いいえ | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
+**HTTP キャッシュ**<br>`HttpCacheModule` | いいえ | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
+**HTTP ログ**<br>`HttpLoggingModule` | はい | [ASP.NET Core のログ記録](xref:fundamentals/logging)<br>実装: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging)、 [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging)、 [NLog](https://github.com/NLog/NLog.Extensions.Logging)、 [Serilog](https://github.com/serilog/serilog-extensions-logging)
+**HTTP リダイレクト**<br>`HttpRedirectionModule` | はい | [ミドルウェアの URL リライト](xref:fundamentals/url-rewriting)
 **IIS クライアント証明書マッピング認証**<br>`IISCertificateMappingAuthenticationModule` | はい | 
 **IP およびドメインの制限**<br>`IpRestrictionModule` | はい | 
 **ISAPI フィルター**<br>`IsapiFilterModule` | はい | [ミドルウェア](xref:fundamentals/middleware)
@@ -49,9 +49,9 @@ ASP.NET Core アプリケーションは、リバース プロキシの構成で
 **プロトコルのサポート**<br>`ProtocolSupportModule` | はい | 
 **要求のフィルタリング**<br>`RequestFilteringModule` | はい | [URL 書き換えミドルウェア`IRule`](xref:fundamentals/url-rewriting#irule-based-rule)
 **要求監視**<br>`RequestMonitorModule` | はい | 
-**URL 書き換え**<br>`RewriteModule` | Yes† | [URL 書き換えミドルウェア](xref:fundamentals/url-rewriting)
+**URL 書き換え**<br>`RewriteModule` | Yes† | [ミドルウェアの URL リライト](xref:fundamentals/url-rewriting)
 **サーバー側インクルード**<br>`ServerSideIncludeModule` | いいえ | 
-**静的な圧縮**<br>`StaticCompressionModule` | いいえ | [応答の圧縮のミドルウェア](xref:performance/response-compression)
+**静的な圧縮**<br>`StaticCompressionModule` | いいえ | [応答圧縮ミドルウェア](xref:performance/response-compression)
 **静的コンテンツ**<br>`StaticFileModule` | いいえ | [静的ファイル ミドルウェア](xref:fundamentals/static-files)
 **トークンのキャッシュ**<br>`TokenCacheModule` | はい | 
 **URI のキャッシュ**<br>`UriCacheModule` | はい | 
@@ -67,13 +67,13 @@ AnonymousIdentification | いいえ |
 DefaultAuthentication | いいえ | 
 FileAuthorization | いいえ | 
 FormsAuthentication | いいえ | [Cookie 認証ミドルウェア](xref:security/authentication/cookie)
-OutputCache | いいえ | [キャッシュのミドルウェアの応答](xref:performance/caching/middleware)
+OutputCache | いいえ | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
 Profile | いいえ | 
 RoleManager | いいえ | 
 ScriptModule 4.0 | いいえ | 
 セッション | いいえ | [セッションのミドルウェア](xref:fundamentals/app-state)
 UrlAuthorization | いいえ | 
-UrlMappingsModule | いいえ | [URL 書き換えミドルウェア](xref:fundamentals/url-rewriting)
+UrlMappingsModule | いいえ | [ミドルウェアの URL リライト](xref:fundamentals/url-rewriting)
 UrlRoutingModule 4.0 | いいえ | [ASP.NET Core の Id](xref:security/authentication/identity)
 WindowsAuthentication | いいえ | 
 
@@ -84,7 +84,7 @@ IIS マネージャーを使用して設定を構成すると、直接変更す�
 アプリケーションを無効にするにはサーバー レベルで構成されている IIS モジュールがあれば、監視できるように追加されると、 *web.config*ファイル。 モジュールをそのまま残す (使用可能な場合)、構成の設定を使用して、非アクティブか、アプリからモジュールを削除します。
 
 ### <a name="module-deactivation"></a>モジュールの非アクティブ化
-多くのモジュールには、削除せずに、アプリケーションからそれらを無効にできる構成設定が用意されています。 これは、モジュールを非アクティブ化する最も簡単なと最も簡単な方法です。 たとえば、IIS URL Rewrite Module を無効にするを使用する場合、`<httpRedirect>`次に示すようにします。 モジュールの構成設定を無効にする方法の詳細については、以下のリンク、*子要素*のセクション[IIS `<system.webServer>`](https://www.iis.net/configreference/system.webserver)です。
+多くのモジュールには、削除せずに、アプリケーションからそれらを無効にできる構成設定が用意されています。 これは、モジュールを非アクティブ化する最も簡単なと最も簡単な方法です。 たとえば、IIS URL Rewrite Module を無効にするを使用する場合、`<httpRedirect>`次に示すようにします。 モジュールの構成設定を無効にする方法の詳細については、以下のリンク、*子要素*のセクション[IIS `<system.webServer>`](https://docs.microsoft.com/iis/configuration/system.webServer/)です。
 
 ```xml
 <configuration>
@@ -99,9 +99,9 @@ IIS マネージャーを使用して設定を構成すると、直接変更す�
 
 1. サーバー レベルのモジュールのロックを解除します。 IIS サーバー、IIS マネージャーの **接続**サイドバーです。 開く、**モジュール**で、 **IIS**領域。 リスト内のモジュールをクリックします。 **アクション**、右側のサイド バーをクリックして**Unlock**です。 多くのモジュールを削除してから計画する際のロックを解除*web.config*以降。
 
-2. せず、アプリケーションを配置、 `<modules>` 」の「 *web.config*です。 使用したアプリを展開する場合、 *web.config*を含む、`<modules>`セクションがロックを解除セクション最初、IIS マネージャーで、Configuration Manager せずセクションのロック解除しようとしたときに例外がスローされます。 そのため、せず、アプリケーションを展開、`<modules>`セクションです。
+2. せず、アプリケーションを配置、 `<modules>` 」の「 *web.config*です。使用したアプリを展開する場合、 *web.config*を含む、`<modules>`セクションがロックを解除セクション最初、IIS マネージャーで、Configuration Manager せずセクションのロック解除しようとしたときに例外がスローされます。 そのため、せず、アプリケーションを展開、`<modules>`セクションです。
 
-3. ロックを解除、`<modules>`のセクション*web.config*です。 **接続**をサイド バーに web サイトをクリックして**サイト**です。 **管理**領域で、開く、**構成エディター**です。 ナビゲーション コントロールを使用して、`system.webServer/modules`セクションです。 **アクション**をクリックして、右側のサイドバー **Unlock**セクションです。
+3. ロックを解除、`<modules>`のセクション*web.config*です。**接続**をサイド バーに web サイトをクリックして**サイト**です。 **管理**領域で、開く、**構成エディター**です。 ナビゲーション コントロールを使用して、`system.webServer/modules`セクションです。 **アクション**をクリックして、右側のサイドバー **Unlock**セクションです。
 
 4. この時点では、ことができますを追加する、`<modules>`セクション、 *web.config*ファイルと、`<remove>`アプリケーションからモジュールを削除する要素。 複数を追加する`<remove>`複数のモジュールを削除する要素。 忘れずを加えた場合*web.config*それらを直ちにでするプロジェクトをローカル サーバーに変更します。 こうすると、モジュールを削除すると、サーバー上の他のアプリを使用してモジュールの使用は影響しません。
 
@@ -150,6 +150,6 @@ ASP.NET Core アプリケーションを実行するために必要なだけモ�
 
 ## <a name="resources"></a>リソース
 * [IIS に発行します。](xref:publishing/iis)
-* [IIS のモジュールの概要](https://www.iis.net/learn/get-started/introduction-to-iis/iis-modules-overview)
+* [IIS のモジュールの概要](https://docs.microsoft.com/iis/get-started/introduction-to-iis/iis-modules-overview)
 * [IIS 7.0 ロール、およびモジュールをカスタマイズします。](https://technet.microsoft.com/library/cc627313.aspx)
-* [IIS`<system.webServer>`](https://www.iis.net/configreference/system.webserver)
+* [IIS`<system.webServer>`](https://docs.microsoft.com/iis/configuration/system.webServer/)

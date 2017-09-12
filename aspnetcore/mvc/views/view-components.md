@@ -11,15 +11,15 @@ ms.assetid: ab4705b7-59d7-4f31-bc97-ea7f292fe926
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 68efa1f313c73e2aee3e0e3c2fcb9eba0e12a62f
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 07a2aca731b8017450a1b0da00ddef25306c122e
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="view-components"></a>コンポーネントの表示
 
-によって[Rick Anderson](https://twitter.com/RickAndMSFT)
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample)
 
@@ -103,7 +103,7 @@ ASP.NET Core 1.1 以降、としてビュー コンポーネントを呼び出�
 
 [!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
-タグ ヘルパーのクラスとメソッドを pascal でパラメーターに変換された、 [kebab ケースを下げる](http://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101#12273101)です。 ビュー コンポーネントを呼び出すタグ ヘルパーを使用して、`<vc></vc>`要素。 ビューのコンポーネントの指定は次のとおりです。
+タグ ヘルパーのクラスとメソッドを pascal でパラメーターに変換された、 [kebab ケースを下げる](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101)です。 ビュー コンポーネントを呼び出すタグ ヘルパーを使用して、`<vc></vc>`要素。 ビューのコンポーネントの指定は次のとおりです。
 
 ```html
 <vc:[view-component-name]
@@ -250,4 +250,4 @@ PVC ビューは表示されず場合、は、優先度が 4 以上のビュー 
 
 ## <a name="additional-resources"></a>その他のリソース
 
-* [ビューに依存関係の挿入](dependency-injection.md)
+* [ビューへの依存性の注入](dependency-injection.md)

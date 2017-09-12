@@ -2,7 +2,7 @@
 title: "ASP.NET Core で Facebook 外部ログインのセットアップ"
 author: rick-anderson
 description: "ASP.NET Core で Facebook 外部ログインのセットアップ"
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 8/1/2017
@@ -11,11 +11,11 @@ ms.assetid: 8c65179b-688c-4af1-8f5e-1862920cda95
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 9554d66712f93df6d2c50503b60162757986e707
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: da019ad3fd6cefa23b8331c98cc36e50ac9c1105
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="configuring-facebook-authentication"></a>Facebook 認証を構成します。
 
@@ -23,11 +23,11 @@ ms.lasthandoff: 08/25/2017
 
 によって[Valeriy Novytskyy](https://github.com/01binary)と[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このチュートリアルで作成されたサンプルの ASP.NET Core 2.0 プロジェクトを使用して自分の Facebook アカウントでサインインするユーザーを有効にする方法を示します、[前のページ](index.md)です。 まず、次の Facebook アプリケーションの ID を作成することで、[公式手順](https://developers.facebook.com/docs/apps/register)です。
+このチュートリアルで作成されたサンプルの ASP.NET Core 2.0 プロジェクトを使用して自分の Facebook アカウントでサインインするユーザーを有効にする方法を示します、[前のページ](index.md)です。 まず、次の Facebook アプリケーションの ID を作成することで、[公式手順](https://www.facebook.com/unsupportedbrowser)です。
 
 ## <a name="create-the-app-in-facebook"></a>Facebook でのアプリを作成します。
 
-*  移動し、[開発者のための Facebook](https://developers.facebook.com/apps)ページし、サインインします。 既に Facebook アカウントを持っていない場合は使用して、 **Facebook にサインアップする**作成するのにはログイン ページにリンクします。
+*  移動し、[開発者のための Facebook](https://www.facebook.com/unsupportedbrowser)ページし、サインインします。 既に Facebook アカウントを持っていない場合は使用して、 **Facebook にサインアップする**作成するのにはログイン ページにリンクします。
 
 * タップして、**のアプリの作成**新しいアプリ ID を作成する右上隅のボタン
 
@@ -74,7 +74,7 @@ Facebook などの機密設定をリンク`App ID`と`App Secret`、アプリケ
 
    `dotnet add package Microsoft.AspNetCore.Authentication.Facebook`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Facebook のサービスを追加、`ConfigureServices`メソッドで、 *Startup.cs*ファイル。
 

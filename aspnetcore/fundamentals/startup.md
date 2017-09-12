@@ -10,15 +10,15 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: 16969386c55ae2fd2ab574c1799a765e74f59278
-ms.sourcegitcommit: 4147d2d29ea50e7e9b87879c572ac2a9fb51798c
+ms.openlocfilehash: 69af91de6d2c48af58bc10a32d8857af18a41b6a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core でのアプリケーションの起動
 
-によって[Steve Smith](http://ardalis.com)と[Tom Dykstra](https://github.com/tdykstra/)
+によって[Steve Smith](https://ardalis.com/)と[Tom Dykstra](https://github.com/tdykstra/)
 
 `Startup`クラスは、サービスとアプリケーションの要求パイプラインを構成します。 
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 08/15/2017
 
 ASP.NET Core アプリを必要とする`Startup`クラスです。 慣例により、`Startup`クラスが「開始」をという名前です。 スタートアップ クラス名を指定する、`Main`プログラムの[WebHostBuilderExtensions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions) [ `UseStartup<TStartup>` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions#Microsoft_AspNetCore_Hosting_WebHostBuilderExtensions_UseStartup__1_Microsoft_AspNetCore_Hosting_IWebHostBuilder_)メソッドです。 参照してください[ホスティング](xref:fundamentals/hosting)について詳しく学習する`WebHostBuilder`、前に実行される`Startup`です。
 
-独立したを定義することができます`Startup`クラスのさまざまな環境、および適切ないずれかが実行時に選択されます。 指定した場合`startupAssembly`で、 [WebHost 構成](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/hosting?tabs=aspnetcore2x#configuring-a-host)オプション をホストしているか、またはそのスタートアップ アセンブリの読み込みおよび検索、`Startup`または`Startup[Environment]`型です。 クラスを名前サフィックスと一致する現在の環境は優先順位を付けるために、アプリを実行、*開発*環境では、両方が含まれると、`Startup`と`StartupDevelopment`クラス、`StartupDevelopment`クラスになります使用されます。 参照してください[FindStartupType](https://github.com/aspnet/Hosting/blob/rel/1.1.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs)で`StartupLoader`と[複数の環境で作業](environments.md#startup-conventions)です。
+独立したを定義することができます`Startup`クラスのさまざまな環境、および適切ないずれかが実行時に選択されます。 指定した場合`startupAssembly`で、 [WebHost 構成](https://docs.microsoft.com/aspnet/core/fundamentals/hosting?tabs=aspnetcore2x#configuring-a-host)オプション をホストしているか、またはそのスタートアップ アセンブリの読み込みおよび検索、`Startup`または`Startup[Environment]`型です。 クラスを名前サフィックスと一致する現在の環境は優先順位を付けるために、アプリを実行、*開発*環境では、両方が含まれると、`Startup`と`StartupDevelopment`クラス、`StartupDevelopment`クラスになります使用されます。 参照してください[FindStartupType](https://github.com/aspnet/Hosting/blob/rel/1.1.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs)で`StartupLoader`と[複数の環境で作業](environments.md#startup-conventions)です。
 
 またを定義し、固定`Startup`呼び出すことにより、環境に関係なく使用されるクラス`UseStartup<TStartup>`です。 この方法をお勧めします。
 
@@ -38,9 +38,9 @@ ASP.NET Core アプリを必要とする`Startup`クラスです。 慣例によ
 
 ## <a name="the-configureservices-method"></a>ConfigureServices メソッド
 
-[ConfigureServices](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_)メソッドは省略可能です。 が、このオプションを使用すると、関数が呼び出される前に、 `Configure` web ホストでのメソッドです。 Web ホストが前にいくつかのサービスを構成することがあります``Startup``メソッドが呼び出される (を参照してください[ホスト](xref:fundamentals/hosting))。 慣例により、[構成オプション](xref:fundamentals/configuration)はこのメソッドで設定します。
+[ConfigureServices](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_)メソッドは省略可能です。 が、このオプションを使用すると、関数が呼び出される前に、 `Configure` web ホストでのメソッドです。 Web ホストが前にいくつかのサービスを構成することがあります``Startup``メソッドが呼び出される (を参照してください[ホスト](xref:fundamentals/hosting))。 慣例により、[構成オプション](xref:fundamentals/configuration)はこのメソッドで設定します。
 
-大量のセットアップが必要な機能がある`Add[Service]`拡張メソッド[IServiceCollection](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.extensions.dependencyinjection.iservicecollection)です。 既定の web サイト テンプレートからこの例は、Entity Framework、Id、および MVC 用のサービスを使用するアプリを構成します。
+大量のセットアップが必要な機能がある`Add[Service]`拡張メソッド[IServiceCollection](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.iservicecollection)です。 既定の web サイト テンプレートからこの例は、Entity Framework、Id、および MVC 用のサービスを使用するアプリを構成します。
 
 [!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
 
@@ -74,7 +74,7 @@ ASP.NET Core 依存関係の挿入は、アプリケーションの起動中に�
 
 ## <a name="additional-resources"></a>その他のリソース
 
-* [複数の環境での作業](xref:fundamentals/environments)
+* [複数の環境の使用](xref:fundamentals/environments)
 * [ミドルウェア](xref:fundamentals/middleware)
-* [ログ記録](xref:fundamentals/logging)
+* [ログ](xref:fundamentals/logging)
 * [構成](xref:fundamentals/configuration)

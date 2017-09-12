@@ -2,7 +2,7 @@
 title: "ASP.NET Core Knockout.js MVVM フレームワーク"
 author: ardalis
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: b20e3b23-1c51-47bf-adac-91b5048567e0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/knockout
-ms.openlocfilehash: 87b4fdc86f6bb870ae0a8cc85688a549fd0740ac
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: d1c5cbd430587b757bb550f8f04355e67f04eb54
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="knockoutjs-mvvm-framework-in-aspnet-core"></a>ASP.NET Core Knockout.js MVVM フレームワーク
 
-によって[Steve Smith](http://ardalis.com)
+によって[Steve Smith](https://ardalis.com/)
 
 Knockout は、複雑なデータに基づくユーザー インターフェイスの作成を簡略化する一般的な JavaScript ライブラリです。 これは、単独で、または jQuery などその他のライブラリに使用できます。 その主な目的は、UI に変更が加えられた、モデルが更新されるとするように、JavaScript オブジェクトとして定義されている基になるデータ モデルに UI 要素をバインドして、その逆です。 Knockout には、web アプリケーションのクライアント側の動作でモデル View-viewmodel (MVVM) パターンの使用が容易になります。 Knockout の MVVM 実装を使用するときに 1 つについて説明する必要があります、2 つの主要な概念は、観測可能なオブジェクトとバインドされます。
 
@@ -140,7 +140,7 @@ var viewModel = {
 ko.applyBindings(viewModel);
 ```
 
-まだしていないこの twitter エイリアスの正しい URL に移動する twitterUrl 更新されましたおこの時点で: twitter.com でが指してだけのことに注意してください。 また、新しい Knockout 関数を使用することに注意してください`computed`twitterUrl 用です。 これは、監視可能な関数が変更された場合、UI 要素を通知します。 ただし、viewModel であるその他のプロパティにアクセスするため、独自のステートメントの各プロパティはできるように、viewModel は作成する方法を変更する必要があります。
+まだしていないこの twitter エイリアスの正しい URL に移動する twitterUrl 更新されましたおこの時点で: twitter.com でが指してだけのことに注意してください。また、新しい Knockout 関数を使用することに注意してください`computed`twitterUrl 用です。 これは、監視可能な関数が変更された場合、UI 要素を通知します。 ただし、viewModel であるその他のプロパティにアクセスするため、独自のステートメントの各プロパティはできるように、viewModel は作成する方法を変更する必要があります。
 
 改訂 viewModel 宣言を次に示します。 これで、関数として宣言されています。 各プロパティが独自ステートメントであるようになりましたが、セミコロンで終わることを確認します。 TwitterAlias プロパティの値にアクセスする必要があるため、その参照には、() が含まれています。 を実行することを確認します。
 

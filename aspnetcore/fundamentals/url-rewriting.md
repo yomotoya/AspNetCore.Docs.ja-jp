@@ -11,11 +11,11 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 735c53ab8a01d995c4945a95705ee9adb2fcdf02
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 05a92c4eee6b26e49831c11e1251aedba87ed717
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL の ASP.NET Core のミドルウェアの書き換え
 
@@ -62,7 +62,7 @@ URL 書き換えミドルウェアの機能を調べることができます、 
 ## <a name="extension-and-options"></a>拡張機能とオプション
 URL 書き換えを確立しのインスタンスを作成することでルールをリダイレクト、`RewriteOptions`クラスでは、ルールの各拡張メソッド。 ようにした場合に処理された順序で複数のルールを連結します。 `RewriteOptions`と要求パイプラインに追加されるように、URL 書き換えミドルウェアに渡される`app.UseRewriter(options);`です。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1)]
 
@@ -75,7 +75,7 @@ URL 書き換えを確立しのインスタンスを作成することでルー�
 ### <a name="url-redirect"></a>URL リダイレクト
 使用して`AddRedirect`要求をリダイレクトします。 最初のパラメーターには、着信 URL のパスに一致する正規表現が含まれています。 2 番目のパラメーターは、置換文字列です。 3 番目のパラメーターでは、存在する場合は、ステータス コードを指定します。 ステータス コードを指定しない場合、既定値 302 (検出)、リソースが一時的に移動または置き換えることを示すです。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=5)]
 
@@ -122,7 +122,7 @@ app.UseRewriter(options);
 ### <a name="url-rewrite"></a>URL 書き換え
 使用して`AddRewrite`Url の書き換えの規則を作成します。 最初のパラメーターには、着信 URL パスに一致する正規表現が含まれています。 2 番目のパラメーターは、置換文字列です。 3 番目のパラメーターでは、`skipRemainingRules: {true|false}`ミドルウェアに示す現在のルールが適用されている場合は、追加の書き換えルールをスキップするかどうかを指定します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=6)]
 
@@ -146,7 +146,7 @@ app.UseRewriter(options);
 | `/my-cool-redirect-rule/1234/5678` | はい   |
 | `/anotherredirect-rule/1234/5678`  | はい   |
 
-書き換えルール`^rewrite-rule/(\d+)/(\d+)`、のみで開始される場合、パスと一致する`rewrite-rule/`です。 書き換えルールの下と上のリダイレクト ルール間の一致の違いに注意してください。
+書き換えルール`^rewrite-rule/(\d+)/(\d+)`、のみで開始される場合、[パスと一致する`rewrite-rule/`です。 書き換えルールの下と上のリダイレクト ルール間の一致の違いに注意してください。
 
 | パス                              | 一致したもの |
 | --------------------------------- | :---: |
@@ -166,7 +166,7 @@ app.UseRewriter(options);
 ### <a name="apache-modrewrite"></a>Apache mod_rewrite
 Apache mod_rewrite ルールを適用`AddApacheModRewrite`です。 アプリの規則ファイルが展開されていることを確認します。 詳細と mod_rewrite 規則の例については、次を参照してください。 [Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/)です。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 A`StreamReader`からルールの読み取りに使用される、 *ApacheModRewrite.txt*ルール ファイルです。
 
@@ -221,9 +221,9 @@ A`StreamReader`からルールの読み取りに使用される、 *ApacheModRew
 * TIME_YEAR
 
 ### <a name="iis-url-rewrite-module-rules"></a>IIS URL Rewrite モジュール ルール
-IIS URL Rewrite モジュールに適用される規則を使用する`AddIISUrlRewrite`です。 アプリの規則ファイルが展開されていることを確認します。 使用するミドルウェアを直接しない、 *web.config*ファイルの Windows Server IIS で実行されているときにします。 外部で IIS にこれらの規則を保存するか、 *web.config* IIS Rewrite モジュールと競合しないようにします。 詳細と IIS URL Rewrite モジュールの規則の例については、次を参照してください。 [Url Rewrite モジュール 2.0 の使用](https://www.iis.net/learn/extensions/url-rewrite-module/using-url-rewrite-module-20)と[URL 書き換えモジュール構成の参照](https://www.iis.net/learn/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)です。
+IIS URL Rewrite モジュールに適用される規則を使用する`AddIISUrlRewrite`です。 アプリの規則ファイルが展開されていることを確認します。 使用するミドルウェアを直接しない、 *web.config*ファイルの Windows Server IIS で実行されているときにします。 外部で IIS にこれらの規則を保存するか、 *web.config* IIS Rewrite モジュールと競合しないようにします。 詳細と IIS URL Rewrite モジュールの規則の例については、次を参照してください。 [Url Rewrite モジュール 2.0 の使用](https://docs.microsoft.com/iis/extensions/url-rewrite-module/using-url-rewrite-module-20)と[URL 書き換えモジュール構成の参照](https://docs.microsoft.com/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)です。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 A`StreamReader`からルールの読み取りに使用される、 *IISUrlRewrite.xml*ルール ファイルです。
 
@@ -249,7 +249,7 @@ A`StreamReader`からルールの読み取りに使用される、 *IISUrlRewrit
 
 #### <a name="unsupported-features"></a>サポートされていない機能
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 リリース ミドルウェアと ASP.NET Core 2.x IIS URL Rewrite モジュール機能をサポートしていません。
 * 送信の規則
@@ -305,7 +305,7 @@ A`StreamReader`からルールの読み取りに使用される、 *IISUrlRewrit
 | `RuleResult.EndResponse`             | 規則の適用を停止し、応答を送信                       |
 | `RuleResult.SkipRemainingRules`      | ルールの適用を停止し、次のミドルウェアにコンテキストを送信 |
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=9)]
 
@@ -317,7 +317,7 @@ A`StreamReader`からルールの読み取りに使用される、 *IISUrlRewrit
 
 サンプル アプリで終了するパスの要求をリダイレクトするメソッドに示します*.xml*です。 要求を行う場合`/file.xml`にリダイレクトされます`/xmlfiles/file.xml`です。 ステータス コードが 301 (完全な移動) に設定されます。 リダイレクトは、応答のステータス コード明示的に設定する必要があります。それ以外の場合は 200 (OK) のステータス コードが返され、リダイレクトはクライアントで発生しません。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/RewriteRules.cs?name=snippet1)]
 
@@ -334,7 +334,7 @@ A`StreamReader`からルールの読み取りに使用される、 *IISUrlRewrit
 ### <a name="irule-based-rule"></a>IRule ベースのルール
 使用して`Add(IRule)`から派生したクラスに、独自の規則ロジックを実装する`IRule`です。 使用して、`IRule`メソッド ベースのルールのアプローチを使用する場合より高い柔軟性が実現します。 派生クラスでのパラメーターに渡すことができます、コンス トラクターを含めることがあります、`ApplyRule`メソッドです。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=10-11)]
 
@@ -346,7 +346,7 @@ A`StreamReader`からルールの読み取りに使用される、 *IISUrlRewrit
 
 用のサンプル アプリケーションでは、パラメーターの値、`extension`と`newPath`をいくつかの条件を満たすためにチェックされます。 `extension` 、値を格納する必要があります値を指定する必要があります*.png*、 *.jpg*、または*.gif*です。 場合、`newPath`が有効でない、`ArgumentException`がスローされます。 要求を行う場合*image.png*にリダイレクトされます`/png-images/image.png`です。 要求を行う場合*image.jpg*にリダイレクトされます`/jpg-images/image.jpg`です。 ステータス コードが 301 (完全な移動) に設定され、`context.Result`規則の処理を停止し、応答の送信に設定されています。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/RewriteRules.cs?name=snippet2)]
 
@@ -381,8 +381,8 @@ A`StreamReader`からルールの読み取りに使用される、 *IISUrlRewrit
 * [.NET の正規表現](/dotnet/articles/standard/base-types/regular-expressions)
 * [正規表現言語 - クイック リファレンス](/dotnet/articles/standard/base-types/quick-ref)
 * [Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/)
-* [(IIS) の Url 書き換えモジュール 2.0 を使用してください。](https://www.iis.net/learn/extensions/url-rewrite-module/using-url-rewrite-module-20)
-* [URL 書き換えモジュール構成のリファレンス](https://www.iis.net/learn/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)
+* [(IIS) の Url 書き換えモジュール 2.0 を使用してください。](https://docs.microsoft.com/iis/extensions/url-rewrite-module/using-url-rewrite-module-20)
+* [URL 書き換えモジュール構成のリファレンス](https://docs.microsoft.com/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)
 * [IIS URL 書き換えモジュール フォーラム](https://forums.iis.net/1152.aspx)
 * [単純な URL 構造を保持します。](https://support.google.com/webmasters/answer/76329?hl=en)
 * [10 URL 書き換えヒントし、テクニック](http://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/)

@@ -11,15 +11,15 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: bcd225875cfe2a544581c331231c704094780ea3
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 93e8b99e7fbac88aabd347c077d923214ba7aebe
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET Core の WebListener web サーバーの実装
 
-によって[Tom Dykstra](http://github.com/tdykstra)と[Chris Ross](https://github.com/Tratcher)
+によって[Tom Dykstra](https://github.com/tdykstra)と[Chris Ross](https://github.com/Tratcher)
 
 > [!NOTE]
 > このトピックは ASP.NET Core にのみ 1.x です。 ASP.NET Core 2.0 では、WebListener の名前[HTTP.sys](httpsys.md)です。
@@ -48,13 +48,13 @@ WebListener には、次の機能がサポートされています。
 
 WebListener は、IIS を使用して、サーバーをインターネットに直接公開する必要がある展開に役立ちます。
 
-![Weblistener がインターネットに直接通信します。](weblistener/_static/weblistener-to-internet.png)
+![インターネットと直接通信する Weblistener](weblistener/_static/weblistener-to-internet.png)
 
 Http.Sys で用意されているので WebListener は攻撃から保護するため、リバース プロキシ サーバーを必要としません。 Http.Sys は、さまざまな種類の攻撃から保護し、堅牢性、セキュリティ、および多機能な web サーバーのスケーラビリティを提供する成熟したテクノロジです。 Http.Sys の上部に HTTP リスナーとして IIS 自体が実行されます。 
 
 WebListener も内部環境に適して Kestrel を使用して取得できない場合、提供される機能のいずれかの操作を必要なとき。
 
-![Weblistener が内部ネットワークに直接通信します。](weblistener/_static/weblistener-to-internal.png)
+![内部ネットワークと直接通信する Weblistener](weblistener/_static/weblistener-to-internal.png)
 
 ## <a name="how-to-use-weblistener"></a>WebListener を使用する方法
 
@@ -62,7 +62,7 @@ WebListener も内部環境に適して Kestrel を使用して取得できな�
 
 ### <a name="configure-windows-server"></a>Windows Server を構成します。
 
-* など、アプリケーションが必要な .NET のバージョンをインストール[.NET Core](https://go.microsoft.com/fwlink/?LinkID=827524)または .NET Framework 4.5.1。
+* など、アプリケーションが必要な .NET のバージョンをインストール[.NET Core](https://download.microsoft.com/download/0/A/3/0A372822-205D-4A86-BFA7-084D2CBE9EDF/DotNetCore.1.0.1-SDK.1.0.0.Preview2-003133-x64.exe)または .NET Framework 4.5.1。
 
 * WebListener へのバインドし、SSL 証明書を設定する URL プレフィックスを事前登録します。
 
@@ -80,7 +80,7 @@ WebListener も内部環境に適して Kestrel を使用して取得できな�
 
 * NuGet パッケージのインストール[Microsoft.AspNetCore.Server.WebListener](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.WebListener/)です。 これもインストール[Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/)依存関係として。
 
-* 呼び出す、 [ `UseWebListener` ](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Hosting/WebHostBuilderKestrelExtensions/index.html#Microsoft.AspNetCore.Hosting.WebHostBuilderWebListenerExtensions.UseWebListener.md)拡張メソッドを[WebHostBuilder](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Hosting/WebHostBuilder/index.html#Microsoft.AspNetCore.Hosting.WebHostBuilder.md)で、`Main`任意 WebListener を指定して、メソッド[オプション](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs)と[設定](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs)する必要がある、次の例で示すようにします。
+* 呼び出す、 [ `UseWebListener` ](https://docs.microsoft.com/aspnet/core/api)拡張メソッドを[WebHostBuilder](https://docs.microsoft.com/aspnet/core/api)で、`Main`任意 WebListener を指定して、メソッド[オプション](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs)と[設定](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs)する必要がある、次の例で示すようにします。
 
   [!code-csharp[](weblistener/sample/Program.cs?name=snippet_Main&highlight=13-17)]
 
@@ -152,14 +152,14 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={000000
 
 公式のリファレンス ドキュメントを次に示します。
 
-* [ハイパー テキスト用の Netsh コマンドは転送プロトコル (HTTP)](http://technet.microsoft.com/library/cc725882.aspx)
+* [ハイパー テキスト用の Netsh コマンドは転送プロトコル (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
 * [UrlPrefix 文字列](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
 次のリソースは、いくつかのシナリオの詳細な手順を提供します。 参照している記事`HttpListener`に均等に適用`WebListener`Http.Sys に基づいて、両方は、します。
 
-* [方法: SSL 証明書でポートを構成します。](http://msdn.microsoft.com/library/ms733791.aspx)
+* [方法: SSL 証明書でポートを構成します。](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
 * [HTTPS 通信 - HttpListener ベースのホストとクライアント証明書を](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html)これは、サード パーティ製のブログとがかなり古いいてもが有用な情報です。
-* [方法: チュートリアルを使用して HttpListener または Http サーバー アンマネージ コード (C++) SSL 単純なサーバーとして](http://blogs.msdn.com/b/jpsanders/archive/2009/09/29/walkthrough-using-httplistener-as-an-ssl-simple-server.aspx)有用な情報で以前のブログをすぎますがこれです。
+* [方法: チュートリアルを使用して HttpListener または Http サーバー アンマネージ コード (C++) SSL 単純なサーバーとして](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/)有用な情報で以前のブログをすぎますがこれです。
 * [SSL を使用して .NET Core WebListener を設定する方法は?](https://blogs.msdn.microsoft.com/timomta/2016/11/04/how-do-i-set-up-a-net-core-weblistener-with-ssl/)
 
 Netsh.exe コマンド ラインよりも簡単に使用できる一部のサード パーティ製ツールを次に示します。 によって提供されるか、Microsoft によって承認されているこれらがありません。 ツールは既定では、管理者として実行ため netsh.exe 自体には、管理者特権が必要です。
@@ -167,7 +167,7 @@ Netsh.exe コマンド ラインよりも簡単に使用できる一部のサー
 * [http.sys Manager](http://httpsysmanager.codeplex.com/) UI の一覧を提供し、予約をプレフィックスおよび証明書信頼リストの SSL 証明書とオプションを構成します。 
 * [HttpConfig](http://www.stevestechspot.com/ABetterHttpcfg.aspx)一覧または SSL 証明書と URL プレフィックスを構成することができます。 UI http.sys Manager よりもより洗練されたは、他のいくつかの構成オプションを公開するが、それ以外の場合と同様の機能を提供します。 新しい証明書信頼リスト (CTL) を作成することはできませんが、既存のテーブルを割り当てることができます。
 
-自己署名 SSL 証明書を生成するのには、マイクロソフトは、コマンド ライン ツールを提供しています: [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968)し、PowerShell コマンドレット[New-selfsignedcertificate](https://technet.microsoft.com/library/hh848633)です。 自己署名 SSL 証明書を生成するための簡略化するサード パーティの UI ツールもあります。
+自己署名 SSL 証明書を生成するのには、マイクロソフトは、コマンド ライン ツールを提供しています: [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968)し、PowerShell コマンドレット[New-selfsignedcertificate](https://technet.microsoft.com/itpro/powershell/windows/pki/new-selfsignedcertificate)です。 自己署名 SSL 証明書を生成するための簡略化するサード パーティの UI ツールもあります。
 
 * [SelfCert](https://www.pluralsight.com/blog/software-development/selfcert-create-a-self-signed-certificate-interactively-gui-or-programmatically-in-net)
 * [Makecert の UI](http://makecertui.codeplex.com/)

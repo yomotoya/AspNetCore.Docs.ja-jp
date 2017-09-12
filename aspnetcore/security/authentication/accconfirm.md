@@ -10,21 +10,21 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: aaed75c78a99e59954add959a76a2fd68ea5f3fc
-ms.sourcegitcommit: f2fb0b45284e4f8c4a9c422bec790aede7c1f0ac
+ms.openlocfilehash: 2f99a5d3db84c3fd3f7ebcb8bccd9a4b8bc8e2b8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>アカウントの確認と ASP.NET Core でのパスワードの回復
 
-によって[Rick Anderson](https://twitter.com/RickAndMSFT)
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 このチュートリアルでは、電子メールの確認とパスワードのリセットと ASP.NET Core アプリケーションをビルドする方法を示します。
 
 ## <a name="create-a-new-aspnet-core-project"></a>新しい ASP.NET Core プロジェクトを作成します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 この手順は、Windows 上の Visual Studio に適用されます。 CLI 手順については、次のセクションを参照してください。
 
@@ -62,7 +62,7 @@ dotnet new mvc --auth Individual
 
 ## <a name="test-new-user-registration"></a>テストの新規ユーザーの登録
 
-アプリを実行する、選択、**登録**リンク、およびユーザーを登録します。 Entity Framework Core 移行を実行する手順に従います。 この時点では、電子メールにのみ、検証、 [[EmailAddress]](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx)属性。 登録を送信した後、アプリにログインします。 、このチュートリアルで後ほどお変更この電子メールが検証されるまで新規ユーザーがログインできないようにします。
+アプリを実行する、選択、**登録**リンク、およびユーザーを登録します。 Entity Framework Core 移行を実行する手順に従います。 この時点では、電子メールにのみ、検証、 [[EmailAddress]](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute)属性。 登録を送信した後、アプリにログインします。 、このチュートリアルで後ほどお変更この電子メールが検証されるまで新規ユーザーがログインできないようにします。
 
 ## <a name="view-the-identity-database"></a>ユーザー データベースを表示します。
 
@@ -96,7 +96,7 @@ dotnet new mvc --auth Individual
 
 更新`ConfigureServices`確認電子メールを要求します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Startup.cs?name=snippet1&highlight=6-9)]
 
@@ -145,7 +145,7 @@ Windows では、シークレット マネージャーが、キーと値のペ�
 
 追加`AuthMessageSenderOptions`サービス コンテナーの最後に、`ConfigureServices`メソッドで、 *Startup.cs*ファイル。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Startup.cs?name=snippet1&highlight=18)]
 
@@ -166,7 +166,7 @@ Windows では、シークレット マネージャーが、キーと値のペ�
 
 #### <a name="configure-sendgrid"></a>SendGrid を構成します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 * コードを追加*Services/EmailSender.cs* SendGrid を構成するには、次のようにします。
 
@@ -184,7 +184,7 @@ Windows では、シークレット マネージャーが、キーと値のペ�
 
 テンプレートは、アカウントの確認とパスワードの回復用コードを持っています。 検索、`[HttpPost] Register`メソッドで、 *AccountController.cs*ファイル。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 新しく登録されたユーザーが次の行をコメント アウトして自動ログオンされているようにします。
 
@@ -239,7 +239,7 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 
 ![ナビゲーション バー](accconfirm/_static/x.png)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 管理 ページが表示され、**プロファイル**タブを選択します。 **電子メール**電子メールを示すチェック ボックスが確認されているかを示します。 
 

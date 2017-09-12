@@ -11,15 +11,15 @@ ms.assetid: ebc98159-a028-4a94-b06c-43981c79c6be
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 78cc9cd846f9b0963dbba9069c86ca295f7a32e4
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 3d42fd0657bcfb4b0fdab699bbcb572e5736688c
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="file-uploads-in-aspnet-core"></a>ASP.NET Core でのファイルのアップロード
 
-によって[Steve Smith](http://ardalis.com)
+によって[Steve Smith](https://ardalis.com/)
 
 ASP.NET MVC アクションは、単純なモデル サイズの小さいファイルのバインドまたはよりも大きなファイルのストリーミングを使用して 1 つまたは複数のファイルのアップロードをサポートします。
 
@@ -75,7 +75,7 @@ public interface IFormFile
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
-使用してアップロードされたファイル、`IFormFile`手法は、バッファー内のメモリまたは web サーバー上のディスクに処理される前にします。 アクション メソッドの内部、`IFormFile`内容はストリームとしてアクセスします。 ローカル ファイル システムだけでなくファイルにストリーミングできる[Azure Blob ストレージ](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs)または[Entity Framework](https://docs.microsoft.com/ef/core/index)です。
+使用してアップロードされたファイル、`IFormFile`手法は、バッファー内のメモリまたは web サーバー上のディスクに処理される前にします。 アクション メソッドの内部、`IFormFile`内容はストリームとしてアクセスします。 ローカル ファイル システムだけでなくファイルにストリーミングできる[Azure Blob ストレージ](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)または[Entity Framework](https://docs.microsoft.com/ef/core/index)です。
 
 Entity Framework を使用してデータベースにバイナリ ファイルのデータを保存して、型のプロパティを定義`byte[]`エンティティで。
 
@@ -197,7 +197,7 @@ The request filtering module is configured to deny a request that exceeds the re
 </system.webServer>
 ```
 
-この設定は、IIS にのみ適用されます。 動作は、Kestrel でホストしているときに、既定では発生しません。 詳細については、次を参照してください。[要求制限\<requestLimits\>](https://www.iis.net/configreference/system.webserver/security/requestfiltering/requestlimits)です。
+この設定は、IIS にのみ適用されます。 動作は、Kestrel でホストしているときに、既定では発生しません。 詳細については、次を参照してください。[要求制限\<requestLimits\>](https://docs.microsoft.com/iis/configuration/system.webServer/security/requestFiltering/requestLimits/)です。
 
 ### <a name="null-reference-exception-with-iformfile"></a>IFormFile を使用して null 参照例外
 

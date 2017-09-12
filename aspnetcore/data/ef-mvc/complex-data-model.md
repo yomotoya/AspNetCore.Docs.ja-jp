@@ -11,11 +11,11 @@ ms.assetid: 0dd63913-a041-48b6-96a4-3aeaedbdf5d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 7d216bc07d0a8d739f0cecbc5b571b6144c13e61
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: a9e255040c300bc5ce55a356e17e6912dbaeaf88
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>EF コア ASP.NET Core MVC のチュートリアル (10 の 5) に、複雑なデータ モデルを作成します。
 
@@ -374,7 +374,7 @@ Student とコースのエンティティ間に多対多のリレーションシ
 
 外部キーがない null 許容、まとめて一意にテーブルの各行を識別する、独立したプライマリ キーの必要はありません。 *InstructorID*と*CourseID*プロパティは複合主キーとして機能する必要があります。 EF に複合主キーを識別する唯一の方法を使用して、 *fluent API* (属性を使用して、そのことはできません)。 次のセクションで、複合主キーを構成する方法が表示されます。
 
-複合キーにより、複数の行、1 つのコースおよび講師が 1 つに対して複数の行を保持できますが、することは いる同じインストラクターとコースに複数の行。 `Enrollment`結合エンティティは、この種の重複も有効であるために自身のプライマリ キーを定義します。 このような重複を防ぐためには、外部のキー フィールドで一意のインデックスを追加または構成することが`Enrollment`に複合主キーのような`CourseAssignment`します。 詳細については、次を参照してください。[インデックス](https://docs.efproject.net/en/latest/modeling/indexes.html)です。
+複合キーにより、複数の行、1 つのコースおよび講師が 1 つに対して複数の行を保持できますが、することは いる同じインストラクターとコースに複数の行。 `Enrollment`結合エンティティは、この種の重複も有効であるために自身のプライマリ キーを定義します。 このような重複を防ぐためには、外部のキー フィールドで一意のインデックスを追加または構成することが`Enrollment`に複合主キーのような`CourseAssignment`します。 詳細については、次を参照してください。[インデックス](https://docs.microsoft.com/ef/core/modeling/indexes)です。
 
 ## <a name="update-the-database-context"></a>データベース コンテキストを更新します。
 

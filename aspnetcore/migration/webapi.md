@@ -2,7 +2,7 @@
 title: "ASP.NET Web API からの移行"
 author: ardalis
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 4f0564b4-ed4e-4e1e-9755-c1144d21a0ef
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/webapi
-ms.openlocfilehash: 55125e711a8b04f5a363ba965ab2223da02aab78
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 2dd2d40aef3803ad2f75504920a1174fee5c2444
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="migrating-from-aspnet-web-api"></a>ASP.NET Web API からの移行
 
-によって[Steve Smith](http://ardalis.com)と[Scott Addie](https://scottaddie.com)
+によって[Steve Smith](https://ardalis.com/)と[Scott Addie](https://scottaddie.com)
 
 Web Api は、さまざまなブラウザーやモバイル デバイスを含む、クライアントに到達する HTTP サービスです。 ASP.NET Core MVC には、1 つ、一貫性のある web アプリケーションの構築方法を提供する Web Api を構築するためのサポートが含まれています。 この記事では、ASP.NET Web API から ASP.NET Core MVC に Web API の実装を移行するために必要な手順について説明します。
 
@@ -27,7 +27,7 @@ Web Api は、さまざまなブラウザーやモバイル デバイスを含�
 
 ## <a name="review-aspnet-web-api-project"></a>レビュー ASP.NET Web API プロジェクト
 
-この記事は、サンプル プロジェクトを使用して*ProductsApp*アーティクルで作成された[ASP.NET Web API の使用を開始する](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)を基盤とします。 そのプロジェクトで単純な ASP.NET Web API プロジェクトが次のように構成します。
+この記事は、サンプル プロジェクトを使用して*ProductsApp*アーティクルで作成された[ASP.NET Web API の使用を開始する](https://docs.microsoft.com/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)を基盤とします。 そのプロジェクトで単純な ASP.NET Web API プロジェクトが次のように構成します。
 
 *Global.asax.cs*への呼び出しが行われた`WebApiConfig.Register`:
 
@@ -38,7 +38,7 @@ Web Api は、さまざまなブラウザーやモバイル デバイスを含�
 [!code-csharp[Main](../migration/webapi/sample/ProductsApp/App_Start/WebApiConfig.cs?highlight=15,16,17,18,19,20)]
 
 
-このクラスを構成[属性がルーティング](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)は実際には、プロジェクトで使用されていますが、します。 また、ASP.NET Web API によって使用される、ルーティング テーブルを構成します。 ASP.NET Web API が形式と一致する Url を期待するこの例では、 */api/{controller}/{id}*で*{id}*される省略可能です。
+このクラスを構成[属性がルーティング](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)は実際には、プロジェクトで使用されていますが、します。 また、ASP.NET Web API によって使用される、ルーティング テーブルを構成します。 ASP.NET Web API が形式と一致する Url を期待するこの例では、 */api/{controller}/{id}*で*{id}*される省略可能です。
 
 *ProductsApp*プロジェクトに含まれる 1 つだけ単純なコント ローラーから継承される`ApiController`と 2 つのメソッドを公開します。
 

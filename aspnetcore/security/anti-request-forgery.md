@@ -9,15 +9,15 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/anti-request-forgery
-ms.openlocfilehash: 466453bff68f3e0da8b90924edb13095c7548db5
-ms.sourcegitcommit: 4f075f2c22c5a4b5345ffa759be4365824110788
+ms.openlocfilehash: 3c0f90dd9894c362c0d7fef5d1f1da076991605c
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET Core でクロスサイト リクエスト フォージェリ (XSRF/CSRF) 攻撃の防止
 
-[Steve Smith](http://ardalis.com/)、 [Fiyaz Hasan](https://twitter.com/FiyazBinHasan)、および[Rick Anderson](https://twitter.com/RickAndMSFT)
+[Steve Smith](https://ardalis.com/)、 [Fiyaz Hasan](https://twitter.com/FiyazBinHasan)、および[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-attack-does-anti-forgery-prevent"></a>偽造はどのような攻撃を防止しますか。
 
@@ -354,7 +354,7 @@ Cookie を使用すると、認証 cookie、フォーム認証チケットのコ
 
 ### <a name="user-tokens"></a>ユーザー トークン
 
-トークン ベースの認証は、サーバーにセッションを格納しません。 代わりログオンしているときにトークン (antiforgery トークンされません) 発行されました。 このトークンは、トークンを検証するために必要なすべてのデータを保持します。 形式で、ユーザーの情報も含まれています。[クレーム](https://msdn.microsoft.com/library/ff359101.aspx)です。 ユーザーは、認証を必要とするサーバーのリソースにアクセスする場合、トークンはベアラー {トークン} の形式で追加の承認ヘッダーを持つサーバーに送信されます。 これにより、アプリケーションを後続の要求では、要求でトークンを渡さサーバー側の検証のためステートレスです。 このトークンが*暗号化*; むしろ*エンコード*です。 サーバー側では、トークン内の未加工の情報にアクセスするトークンをデコードすることができます。 トークンを以降の要求を送信するには、ことができますか、保存するブラウザーのローカル記憶域またはでクッキー。 トークンが、ローカル ストレージに格納されているが、トークンが、cookie に格納されている場合、問題がある場合に XSRF の脆弱性について心配する必要はありません。
+トークン ベースの認証は、サーバーにセッションを格納しません。 代わりログオンしているときにトークン (antiforgery トークンされません) 発行されました。 このトークンは、トークンを検証するために必要なすべてのデータを保持します。 形式で、ユーザーの情報も含まれています。[クレーム](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model)です。 ユーザーは、認証を必要とするサーバーのリソースにアクセスする場合、トークンはベアラー {トークン} の形式で追加の承認ヘッダーを持つサーバーに送信されます。 これにより、アプリケーションを後続の要求では、要求でトークンを渡さサーバー側の検証のためステートレスです。 このトークンが*暗号化*; むしろ*エンコード*です。 サーバー側では、トークン内の未加工の情報にアクセスするトークンをデコードすることができます。 トークンを以降の要求を送信するには、ことができますか、保存するブラウザーのローカル記憶域またはでクッキー。 トークンが、ローカル ストレージに格納されているが、トークンが、cookie に格納されている場合、問題がある場合に XSRF の脆弱性について心配する必要はありません。
 
 ### <a name="multiple-applications-are-hosted-in-one-domain"></a>複数のアプリケーションが 1 つのドメインでホストされています。
 

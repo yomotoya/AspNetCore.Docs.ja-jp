@@ -11,11 +11,11 @@ ms.assetid: 5de0c8f7-50ce-4e2c-b3d4-a1bd9fdfcff5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/aspnet-core-module
-ms.openlocfilehash: a676b695160b7219bd13f3915e291b722eef47c8
-ms.sourcegitcommit: 8f5277871eff86134ebf68d3737196cfd4a62c2c
+ms.openlocfilehash: 44fc8bd647ad869dd029d8ca4ced782962d71020
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core モジュール構成の参照
 
@@ -98,7 +98,7 @@ ASP.NET Core モジュールによりで指定されたプロセスの環境変�
 
 ## <a name="start-up-error-page"></a>スタートアップ エラー ページ
 
-バックエンド プロセスまたはバックエンドの処理が開始されるが、構成されたポートでリッスンに失敗するを起動する ASP.NET Core モジュールが失敗した場合は、HTTP 502.5 ステータス コード ページが表示されます。 このページを抑制して、既定の IIS 502 ステータス コード ページを元に戻すを使用して、`disableStartUpErrorPage`属性。 カスタム エラー メッセージを構成する方法については、次を参照してください。 [HTTP エラー `<httpErrors>`](https://www.iis.net/configreference/system.webserver/httperrors)です。
+バックエンド プロセスまたはバックエンドの処理が開始されるが、構成されたポートでリッスンに失敗するを起動する ASP.NET Core モジュールが失敗した場合は、HTTP 502.5 ステータス コード ページが表示されます。 このページを抑制して、既定の IIS 502 ステータス コード ページを元に戻すを使用して、`disableStartUpErrorPage`属性。 カスタム エラー メッセージを構成する方法については、次を参照してください。 [HTTP エラー `<httpErrors>`](https://docs.microsoft.com/iis/configuration/system.webServer/httpErrors/)です。
 
 ![502 状態 ページ](aspnet-core-module/_static/ANCM-502_5.png)
 

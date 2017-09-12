@@ -11,17 +11,17 @@ ms.assetid: 0e0fedcd-a7b4-4479-8ae0-36eab0229d7e
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: fundamentals/websockets
-ms.openlocfilehash: daa36d117749868e4bb9311a941b7751d7b64744
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: a5914ad0d1056db993fcbfa1f00dd3422fcc4b6e
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-websockets-in-aspnet-core"></a>Websocket の ASP.NET Core の概要
 
 によって[Tom Dykstra](https://github.com/tdykstra)と[Andrew スタントン-看護師](https://github.com/anurse)
 
-この記事では、ASP.NET Core で Websocket を開始する方法について説明します。 [WebSocket](https://en.wikipedia.org/wiki/WebSocket) TCP 接続を永続的な双方向の通信チャネルをできるようにするプロトコルします。 チャット、株価情報、ゲームなどのアプリケーションの使用は、web アプリケーションでのリアルタイムの機能を使用する任意の場所。
+この記事では、ASP.NET Core で Websocket を開始する方法について説明します。 [WebSocket](https://wikipedia.org/wiki/WebSocket) TCP 接続を永続的な双方向の通信チャネルをできるようにするプロトコルします。 チャット、株価情報、ゲームなどのアプリケーションの使用は、web アプリケーションでのリアルタイムの機能を使用する任意の場所。
 
 [表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample)です。 参照してください、[次の手順](#next-steps)詳細についてはします。
 

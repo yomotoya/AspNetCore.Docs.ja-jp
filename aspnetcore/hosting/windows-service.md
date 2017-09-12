@@ -11,17 +11,17 @@ ms.assetid: d9a65066-d7cb-47df-b046-64629c4d2c6f
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/windows-service
-ms.openlocfilehash: 1b3cdc18ded89ebdf7b7afa9f43af9669748eff4
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 33a4eca48a04f9b29c60a446f4191d39d21e7e7d
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="host-an-aspnet-core-app-in-a-windows-service"></a>Windows サービスでの ASP.NET Core アプリをホストします。
 
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-IIS を使用しない場合は、Windows 上の ASP.NET Core アプリケーションをホストするための推奨方法がで実行するには、 [Windows サービス](https://msdn.microsoft.com/library/d56de412)です。 このようにして自動的に開始できますが再起動し、クラッシュの後にログインするユーザーが待機することがなく。
+IIS を使用しない場合は、Windows 上の ASP.NET Core アプリケーションをホストするための推奨方法がで実行するには、 [Windows サービス](https://docs.microsoft.com/dotnet/framework/windows-services/introduction-to-windows-service-applications)です。 このようにして自動的に開始できますが再起動し、クラッシュの後にログインするユーザーが待機することがなく。
 
 [表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/hosting/windows-service/sample)を参照してください、[次の手順](#next-steps)それを実行する方法についてのセクションでします。
 
@@ -33,7 +33,7 @@ IIS を使用しない場合は、Windows 上の ASP.NET Core アプリケーシ
 
   Visual Studio で、プロジェクトを作成するときに使用して、 **ASP.NET Core アプリケーション (.NET Framework)**テンプレート。
 
-* アプリは、要求を取得する (内部ネットワーク) からだけでなく、インターネットからは場合は、使用する必要があります、 [WebListener](xref:fundamentals/servers/weblistener) web サーバーではなくより[Kestrel](xref:fundamentals/servers/kestrel)です。  Kestrel は、IIS とエッジ展開するために使用する必要があります。  詳細については、次を参照してください。 [Kestrel をリバース プロキシで使用する場合](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)です。
+* アプリは、要求を取得する (内部ネットワーク) からだけでなく、インターネットからは場合は、使用する必要があります、 [WebListener](xref:fundamentals/servers/weblistener) web サーバーではなくより[Kestrel](xref:fundamentals/servers/kestrel)です。  Kestrel は、IIS とエッジ展開するために使用する必要があります。  詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
 
 ## <a name="getting-started"></a>作業の開始
 
@@ -121,5 +121,5 @@ IIS を使用しない場合は、Windows 上の ASP.NET Core アプリケーシ
 
 この記事は、既に発行されたソースを利用して記述されています。 最も古いとそれらの最も役に立つ以下のとおりです。
 
-* [Windows サービスとしての ASP.NET Core のホスト](http://stackoverflow.com/questions/37346383/hosting-asp-net-core-as-windows-service/37464074#37464074)
-* [Windows サービスで、ASP.NET Core をホストする方法](http://dotnetthoughts.net/how-to-host-your-aspnet-core-in-a-windows-service/)
+* [Windows サービスとしての ASP.NET Core のホスト](https://stackoverflow.com/questions/37346383/hosting-asp-net-core-as-windows-service/37464074)
+* [Windows サービスで、ASP.NET Core をホストする方法](https://dotnetthoughts.net/how-to-host-your-aspnet-core-in-a-windows-service/)

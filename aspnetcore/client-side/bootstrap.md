@@ -2,7 +2,7 @@
 title: "ブートス トラップで美しい、応答性の高いサイトの構築"
 author: ardalis
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: bd27832c-2877-4b7b-9337-e009361d845f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bootstrap
-ms.openlocfilehash: ff734c884a60d51a1703f6444cf6d2d49e9bffb0
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fc00bcce24d586865bf6a1d3f2f7e782a2f1c703
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>ブートス トラップで美しい、応答性の高いサイトの構築
 
 <a name=bootstrap-index></a>
 
-によって[Steve Smith](http://ardalis.com)
+によって[Steve Smith](https://ardalis.com/)
 
 ブートス トラップは、現在の応答性の高い web アプリケーションを開発するための最も一般的なの web フレームワークです。 フロント エンドのデザインおよび開発またはエキスパートの初心者をしているかどうかは、さまざまな機能と、web サイトを持つユーザーのエクスペリエンスを向上できる利点を提供します。 ブートス トラップは、CSS および JavaScript のファイルのセットとしては展開され、デスクトップにタブレットへ電話から効率的に、web サイトまたはアプリケーションのスケールを支援するよう設計されています。
 

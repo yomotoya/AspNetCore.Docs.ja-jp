@@ -11,15 +11,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b1de37d93f5dca2d6b6be24c429b5971692e17e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 53a31ed8ca6ff24a19a33a56c3a896aa58cbb62a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパーの概要 
 
-によって[Rick Anderson](https://twitter.com/RickAndMSFT)
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-are-tag-helpers"></a>タグ ヘルパーは?
 
@@ -151,7 +151,7 @@ IntelliSense 入力候補では、キーを入力します タブを選択した
 
 ![イメージ](intro/_static/labelaspfor2.png)
 
-Visual Studio を入力することができます*CompleteWord*ショートカット (ctrl キーを押しながら space キーは、[既定](https://msdn.microsoft.com/library/da5kh0wa.aspx)) 二重引用符の内側 ("")、実行され、今すぐ、C# の場合は、c# のクラスにする場合と同じようにします。 IntelliSense は、ページのモデルのすべてのメソッドとプロパティを表示します。 メソッドとプロパティが使用可能なプロパティの型があるため`ModelExpression`です。 次の図では編集して、`Register`ビュー、ため、`RegisterViewModel`は使用できます。
+Visual Studio を入力することができます*CompleteWord*ショートカット (ctrl キーを押しながら space キーは、[既定](https://docs.microsoft.com/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio)二重引用符の内側 ("")、実行され、今すぐ、C# の場合は、c# のクラスにする場合と同じようにします。 IntelliSense は、ページのモデルのすべてのメソッドとプロパティを表示します。 メソッドとプロパティが使用可能なプロパティの型があるため`ModelExpression`です。 次の図では編集して、`Register`ビュー、ため、`RegisterViewModel`は使用できます。
 
 ![イメージ](intro/_static/intellemail.png)
 
@@ -169,7 +169,7 @@ Razor ビューでの HTML 要素にタグ ヘルパーのアタッチ中に[HTM
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
-で (`@`) 記号は、これは、コードの先頭を Razor に指示します。 次の 2 つのパラメーター ("FirstName"と"名:")、文字列のためは[IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx)ヘルプことはできません。 最後の引数。
+で (`@`) 記号は、これは、コードの先頭を Razor に指示します。 次の 2 つのパラメーター ("FirstName"と"名:")、文字列のためは[IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense)ヘルプことはできません。 最後の引数。
 
 ```html
 new {@class="caption"}
@@ -245,7 +245,7 @@ Visual Studio エディターでは、作成できます。**すべて**の Visu
 
 * Web サーバー コントロールでは、型コンバーターを使用して、文字列をオブジェクトに変換します。 タグ ヘルパーで作業するネイティブ C# の場合、入力は、変換する必要はありません。
 
-* Web サーバー コントロールを使用して[System.ComponentModel](https://msdn.microsoft.com/library/system.componentmodel%28v=vs.110%29.aspx)コンポーネントやコントロールの実行時およびデザイン時の動作を実装します。 `System.ComponentModel`基本クラスとインターフェイス、属性と型コンバーターの実装、ソース、データへのバインド、およびコンポーネントのライセンスが含まれます。 タグ ヘルパーは、通常から派生するコントラストを`TagHelper`、および`TagHelper`基底クラスのみに 2 つのメソッドを公開する`Process`と`ProcessAsync`です。
+* Web サーバー コントロールを使用して[System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel)コンポーネントやコントロールの実行時およびデザイン時の動作を実装します。 `System.ComponentModel`基本クラスとインターフェイス、属性と型コンバーターの実装、ソース、データへのバインド、およびコンポーネントのライセンスが含まれます。 タグ ヘルパーは、通常から派生するコントラストを`TagHelper`、および`TagHelper`基底クラスのみに 2 つのメソッドを公開する`Process`と`ProcessAsync`です。
 
 ## <a name="customizing-the-tag-helper-element-font"></a>タグ ヘルパー要素のフォントのカスタマイズ
 

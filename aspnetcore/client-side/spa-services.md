@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 300e90912a03980d1dcde2edaf34677d80cab136
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 0dbe5e3567bb4feea7e56cff3dcf75be5df88310
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>ASP.NET Core での単一ページ アプリケーションを作成するため JavaScriptServices を使用します。
 
@@ -33,9 +33,9 @@ ms.lasthandoff: 08/11/2017
 JavaScriptServices は、ASP.NET Core 用のクライアント側のテクノロジのコレクションです。 その目的は SPAs を構築するための開発者の推奨されるサーバー側のプラットフォームとして ASP.NET Core を配置します。
 
 次の 3 つの個別の NuGet パッケージの JavaScriptServices で構成されます。
-* [Microsoft.AspNetCore.NodeServices](http://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
-* [Microsoft.AspNetCore.SpaServices](http://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) (SpaServices)
-* [Microsoft.AspNetCore.SpaTemplates](http://www.nuget.org/packages/Microsoft.AspNetCore.SpaTemplates/) (SpaTemplates)
+* [Microsoft.AspNetCore.NodeServices](https://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
+* [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) (SpaServices)
+* [Microsoft.AspNetCore.SpaTemplates](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaTemplates/) (SpaTemplates)
 
 これらのパッケージは役立つ場合します。
 * サーバーでの JavaScript を実行します。
@@ -75,7 +75,7 @@ SpaServices を操作するには次のようにインストールします。
 * [.NET core SDK](https://www.microsoft.com/net/download/core) 1.0 (またはそれ以降)
     * Visual Studio 2017 を選択してインストールする Windows の場合は、この**.NET Core クロスプラット フォーム開発**ワークロード。
 
-* [Microsoft.AspNetCore.SpaServices](http://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) NuGet パッケージ
+* [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) NuGet パッケージ
 
 <a name="server-prerendering"></a>
 
@@ -87,7 +87,7 @@ ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって�
 
 ### <a name="prerequisites"></a>必須コンポーネント
 
-次をインストールします。
+以下をインストールします。
 * [aspnet 事前](https://www.npmjs.com/package/aspnet-prerendering)npm パッケージ。
 
     ```console
@@ -144,7 +144,7 @@ ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって�
 
 ### <a name="prerequisites"></a>必須コンポーネント
 
-次をインストールします。
+以下をインストールします。
 * [aspnet webpack](https://www.npmjs.com/package/aspnet-webpack) npm パッケージ。
 
     ```console
@@ -171,7 +171,7 @@ Webpack を考えてみてください[ホット モジュールの交換](https
 
 ### <a name="prerequisites"></a>必須コンポーネント
 
-次をインストールします。
+以下をインストールします。
 * [webpack ホット ミドルウェア](https://www.npmjs.com/package/webpack-hot-middleware)npm パッケージ。
 
     ```console
@@ -208,7 +208,7 @@ app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
 
 ### <a name="prerequisites"></a>必須コンポーネント
 
-次をインストールします。
+以下をインストールします。
 * クライアント側ルーティング npm パッケージです。 例として角の使用。
 
     ```console

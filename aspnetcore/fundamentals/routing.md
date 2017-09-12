@@ -2,7 +2,7 @@
 title: "ASP.NET Core でのルーティング"
 author: ardalis
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 98756e2c5b336aabcf5155d929160b616baaf2ee
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 431b837dc93abdf305b77615409883fd54b99455
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core でのルーティング
 
-によって[Ryan Nowak](https://github.com/rynowak)、 [Steve Smith](http://ardalis.com)、および[Rick Anderson](https://twitter.com/RickAndMSFT)
+によって[Ryan Nowak](https://github.com/rynowak)、 [Steve Smith](https://ardalis.com/)、および[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ルーティング機能は、受信要求をルート ハンドラーにマップします。 ルートが ASP.NET アプリケーションで定義されているし、アプリの起動時に構成されています。 ルート、要求に含まれている URL から値を抽出できます必要に応じて、要求の処理のため、これらの値を使用し、ことができます。 ASP.NET アプリケーションからのルート情報を使用して、ルーティング機能もルート ハンドラーにマップする Url を生成することができます。 そのため、ルーティング URL、またはハンドラーのルート情報に基づいて指定されたルート ハンドラーに対応する URL に基づくルート ハンドラーを見つけることができます。
 
@@ -325,9 +325,9 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
 
 ## <a name="regular-expressions"></a>正規表現 
 
-ASP.NET Core framework 追加`RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant`正規表現のコンス トラクターにします。 参照してください[RegexOptions 列挙体](https://msdn.microsoft.com/library/system.text.regularexpressions.regexoptions(v=vs.110).aspx)これらのメンバーの詳細についてはします。
+ASP.NET Core framework 追加`RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant`正規表現のコンス トラクターにします。 参照してください[RegexOptions 列挙体](https://docs.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions)これらのメンバーの詳細についてはします。
 
-正規表現は、区切り記号およびルーティングと c# 言語で使用されるようなトークンを使用します。 正規表現のトークンをエスケープする必要があります。 たとえば、正規表現を使用する`^\d{3}-\d{2}-\d{4}$`にルーティングする必要があるが、`\`としてに入力した文字`\\`エスケープするために c# ソース ファイルで、`\`エスケープ文字の文字列 (を使用しない限り、[逐語的文字列リテラル](https://msdn.microsoft.com/library/aa691090(v=vs.71).aspx))。 `{` 、 `}` 、' [' と ']' 文字は、ルーティング パラメーター区切り記号の文字をエスケープするためにそれら 2 つ入力してエスケープする必要があります。  次の表は、正規表現とエスケープされたバージョンを示します。
+正規表現は、区切り記号およびルーティングと c# 言語で使用されるようなトークンを使用します。 正規表現のトークンをエスケープする必要があります。 たとえば、正規表現を使用する`^\d{3}-\d{2}-\d{4}$`にルーティングする必要があるが、`\`としてに入力した文字`\\`エスケープするために c# ソース ファイルで、`\`エスケープ文字の文字列 (を使用しない限り、[逐語的文字列リテラル](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string)です。 `{` 、 `}` 、' [' と ']' 文字は、ルーティング パラメーター区切り記号の文字をエスケープするためにそれら 2 つ入力してエスケープする必要があります。  次の表は、正規表現とエスケープされたバージョンを示します。
 
 | 式               | メモ |
 | ----------------- | ------------ | 
@@ -347,7 +347,7 @@ ASP.NET Core framework 追加`RegexOptions.IgnoreCase | RegexOptions.Compiled | 
 | `^[a-z]{2}$` |  hello | Ｘ | 参照してください`^`と`$`上 |
 | `^[a-z]{2}$` |  123abc456 | Ｘ | 参照してください`^`と`$`上 |
 
-参照してください[.NET Framework 正規表現](https://msdn.microsoft.com/library/hs600312(v=vs.110).aspx)正規表現の構文についての詳細。
+参照してください[.NET Framework 正規表現](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)正規表現の構文についての詳細。
 
 既知の使用可能な値のセットへのパラメーターを制限するには、正規表現を使用します。 たとえば`{action:regex(^(list|get|create)$)}`とのみ一致する、`action`に値をルーティング`list`、 `get`、または`create`です。 制約のディクショナリの文字列に渡された場合"^ (リスト | get | を作成) $"と同じです。 いずれかの既知の制限が一致しない制約ディクショナリ (テンプレート内のインラインではありません) に渡される制約は、正規表現としても扱われます。
 

@@ -11,15 +11,15 @@ ms.assetid: ebd98159-a028-4a94-b06c-43981c79c6be
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 8dae9cf1597ae2bddf2943af4a7ab9d50620825b
-ms.sourcegitcommit: 26166785ad181a8519cb008800d71d96499b0499
+ms.openlocfilehash: 2b95073bc0972908d0c0b2158a036e4374c7df4d
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="custom-model-binding"></a>カスタム モデル バインディング
 
-によって[Steve Smith](http://ardalis.com)
+によって[Steve Smith](https://ardalis.com/)
 
 モデル バインディングでは、モデルの種類 (渡されるとメソッドの引数として) ではなく HTTP 要求よりもを直接操作するコント ローラーのアクションを許可します。 入力方向の要求データとアプリケーションのモデル間のマッピングは、モデル バインダーによって処理されます。 開発者は、カスタム モデル バインダー (ただし、通常、独自のプロバイダーを記述する必要はありません) を実装することによって、組み込みのモデル バインディング機能を拡張できます。
 
@@ -137,4 +137,4 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 カスタム モデル バインダー。
 - ステータス コードを設定するか、結果を返すにしないでください (たとえば、404 Not Found)。 モデル バインドに失敗した場合、[アクション フィルター](xref:mvc/controllers/filters)自体アクション メソッド内のロジックは、エラーを処理する必要がありますか。
 - コードの繰り返しとアクション メソッドから横断的関心事を排除する最も便利です。
-- 通常、カスタムの型を文字列に変換には使用できません、 [ `TypeConverter` ](https://msdn.microsoft.com/library/ayybcxe5.aspx)は通常より良いオプション。
+- 通常、カスタムの型を文字列に変換には使用できません、 [ `TypeConverter` ](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter)は通常より良いオプション。

@@ -2,7 +2,7 @@
 title: "モデル バインディング"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 930ea062ffb914cbd4f1500308b813167c1f601b
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 597d4058a410e0b5991b1d5a74c9fc7bfe8171b8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="model-binding"></a>モデル バインディング
 
-によって[Rachel Appel](http://github.com/rachelappel)
+によって[Rachel Appel](https://github.com/rachelappel)
 
 ## <a name="introduction-to-model-binding"></a>モデル バインディングの概要
 
@@ -103,7 +103,7 @@ MVC には、別のソースにその既定のモデル バインディング動
 > ある多くてで修飾されたアクション パラメーターを 1 つ`[FromBody]`です。 ASP.NET Core MVC の実行時では、フォーマッタに要求ストリームを読み取る責任を委任します。 要求ストリームは、パラメーターの読み取りは後、は一般に他のバインド用にもう一度要求ストリームを読み取る`[FromBody]`パラメーター。
 
 > [!NOTE]
-> `JsonInputFormatter`は、既定のフォーマッタとに基づいて[Json.NET](http://www.newtonsoft.com/json)です。
+> `JsonInputFormatter`は、既定のフォーマッタとに基づいて[Json.NET](https://www.newtonsoft.com/json)です。
 
 ASP.NET 選択に基づいて入力フォーマッタ、[コンテンツの種類](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html)ヘッダーおよびパラメーターの型には、それ以外の場合を指定して適用する属性がない限り、します。 XML を使用するか、または別の形式をする必要があります構成で、 *Startup.cs*への参照を取得するファイルの最初が`Microsoft.AspNetCore.Mvc.Formatters.Xml`NuGet を使用します。 スタートアップ コードは、次のようになります。
 

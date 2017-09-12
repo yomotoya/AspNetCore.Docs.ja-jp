@@ -11,17 +11,17 @@ ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: 84c357ebbf28dffc4382f6c648921210e72ac854
-ms.sourcegitcommit: 26166785ad181a8519cb008800d71d96499b0499
+ms.openlocfilehash: 80e27c94b3c60a181c45f8e006126a7e7dd3d425
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core ミドルウェアの基本事項
 
 <a name=fundamentals-middleware></a>
 
-によって[Rick Anderson](https://twitter.com/RickAndMSFT)と[Steve Smith](http://ardalis.com)
+によって[Rick Anderson](https://twitter.com/RickAndMSFT)と[Steve Smith](https://ardalis.com/)
 
 [サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)
 
@@ -168,12 +168,12 @@ ASP.NET Core は、次のミドルウェア コンポーネントに付属しま
 | ----- | ------- |
 | [認証](xref:security/authentication/identity) | 認証のサポートを提供します。 |
 | [CORS](xref:security/cors) | クロス オリジン リソース共有を構成します。 |
-| [応答のキャッシュ](xref:performance/caching/middleware) | 応答のキャッシュのサポートを提供します。 |
+| [応答キャッシュ](xref:performance/caching/middleware) | 応答のキャッシュのサポートを提供します。 |
 | [応答の圧縮](xref:performance/response-compression) | 応答の圧縮のサポートを提供します。 |
 | [ルーティング](xref:fundamentals/routing) | 定義し、要求のルートを制約します。 |
 | [セッション](xref:fundamentals/app-state) | ユーザー セッションを管理するためのサポートを提供します。 |
 | [静的ファイル](xref:fundamentals/static-files) | 静的ファイルとディレクトリの参照を提供しているは、サポートを提供します。 |
-| [URL 書き換えミドルウェア](xref:fundamentals/url-rewriting) | Url の書き換えと、要求をリダイレクトするサポートを提供します。 |
+| [ミドルウェアの URL リライト](xref:fundamentals/url-rewriting) | Url の書き換えと、要求をリダイレクトするサポートを提供します。 |
 
 <a name=middleware-writing-middleware></a>
 
@@ -228,6 +228,6 @@ public class MyMiddleware
 ## <a name="resources"></a>リソース
 
 * [このドキュメントで使用するサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)
-* [ミドルウェアを移行する HTTP モジュール](../migration/http-modules.md)
+* [ミドルウェアへの HTTP モジュールの移行](../migration/http-modules.md)
 * [アプリケーションの起動](startup.md)
 * [要求機能](request-features.md)

@@ -11,11 +11,11 @@ ms.assetid: 016cc836-4c43-45a4-b9a7-9efaf53350df
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/entity-framework-6
-ms.openlocfilehash: e186568e27c067e29985b8a286e26b87c3186ac4
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fdc24ed9b6b2d412b09871302b5478da4d81ec28
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-and-entity-framework-6"></a>ASP.NET Core と Entity Framework 6 の概要
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="overview"></a>概要
 
-Entity Framework 6 を使用するのには、Entity Framework 6 では .NET Core はサポートされていないも、プロジェクトは .NET フレームワークに対してコンパイルにします。 クロスプラット フォームの機能が必要な場合にアップグレードする必要があります。 [Entity Framework Core](https://docs.efproject.net)です。
+Entity Framework 6 を使用するのには、Entity Framework 6 では .NET Core はサポートされていないも、プロジェクトは .NET フレームワークに対してコンパイルにします。 クロスプラット フォームの機能が必要な場合にアップグレードする必要があります。 [Entity Framework Core](https://docs.microsoft.com/ef/)です。
 
 ASP.NET Core アプリケーションで Entity Framework 6 を使用することをお勧め EF6 コンテキストには、プロジェクトを対象とする完全なフレームワークのクラス ライブラリでモデル クラス。 ASP.NET Core プロジェクトから、クラス ライブラリへの参照を追加します。 このサンプルを参照してください[EF6 および ASP.NET Core プロジェクトと Visual Studio ソリューション](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/)です。
 

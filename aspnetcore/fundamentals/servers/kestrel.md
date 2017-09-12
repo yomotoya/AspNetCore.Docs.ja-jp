@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/kestrel
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 451a548403c8fa0ed2befeb6969a3ee28fe34790
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: baf1a979e4f18cbc7818f78b866e6cb6958efccf
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core の Kestrel web サーバーの実装の概要
 
-によって[Tom Dykstra](http://github.com/tdykstra)、 [Chris Ross](https://github.com/Tratcher)、および[Stephen Halter](https://twitter.com/halter73)
+によって[Tom Dykstra](https://github.com/tdykstra)、 [Chris Ross](https://github.com/Tratcher)、および[Stephen Halter](https://twitter.com/halter73)
 
 Kestrel はクロスプラット フォーム[ASP.NET core web server](index.md)に基づいて[libuv](https://github.com/libuv/libuv)プラットフォーム間の非同期 I/O ライブラリです。 Kestrel は、既定では ASP.NET Core プロジェクト テンプレートに含まれている web サーバーです。 
 
@@ -32,7 +32,7 @@ Kestrel には、次の機能がサポートされています。
 
 すべてのプラットフォームと .NET Core をサポートするバージョンでは、kestrel をサポートします。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [表示または 2.x のサンプル コードをダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/sample2)
 
@@ -44,27 +44,27 @@ Kestrel には、次の機能がサポートされています。
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>リバース プロキシで Kestrel を使用する場合
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Kestrel を使用するには、単独またはで、*リバース プロキシ サーバー*IIS、Nginx、Apache などです。 リバース プロキシ サーバーでは、インターネットから HTTP 要求を受け取り、いくつかの予備処理後に Kestrel に転送します。
+Kestrel を単独で使用することも、IIS、Nginx、または Apache などの*リバース プロキシ サーバー*と併用することもできます。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。
 
-![Kestrel がリバース プロキシ サーバーを使用せず、インターネットに直接通信します。](kestrel/_static/kestrel-to-internet2.png)
+![リバース プロキシ サーバーなしでインターネットと直接通信する Kestrel](kestrel/_static/kestrel-to-internet2.png)
 
-![Kestrel が IIS、Nginx、Apache などのリバース プロキシ サーバー経由でインターネットといない直接通信します。](kestrel/_static/kestrel-to-internet.png)
+![IIS、Nginx、または Apache などのリバース プロキシ サーバーを介してインターネットと間接的に通信する Kestrel](kestrel/_static/kestrel-to-internet.png)
 
-いずれかの構成&mdash;リバース プロキシ サーバーの有無&mdash;Kestrel が内部ネットワークにのみ公開される場合にも使用できます。
+いずれの構成 &mdash; リバース プロキシ サーバーがある場合とない場合 &mdash; も、Kestrel が内部ネットワークにのみ公開される場合にも使用できます。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-アプリケーションが内部ネットワークからのみ要求を受け入れる場合は、単独で Kestrel を使用することができます。
+アプリケーションが内部ネットワークからの要求のみを受け入れる場合は、Kestrel を単独で使用することができます。
 
-![Kestrel が内部ネットワークに直接通信します。](kestrel/_static/kestrel-to-internal.png)
+![内部ネットワークと直接通信する Kestrel](kestrel/_static/kestrel-to-internal.png)
 
-インターネット アプリケーションを公開する場合は、IIS、Nginx、またはとして Apache を使用する必要があります、*リバース プロキシ サーバー*です。 リバース プロキシ サーバーでは、インターネットから HTTP 要求を受け取り、いくつかの予備処理後に Kestrel に転送します。
+アプリケーションをインターネットに公開する場合は、*リバース プロキシ サーバー*として IIS、Nginx、または Apache を使用する必要があります。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。
 
-![Kestrel が IIS、Nginx、Apache などのリバース プロキシ サーバー経由でインターネットといない直接通信します。](kestrel/_static/kestrel-to-internet.png)
+![IIS、Nginx、または Apache などのリバース プロキシ サーバーを介してインターネットと間接的に通信する Kestrel](kestrel/_static/kestrel-to-internet.png)
 
-リバース プロキシは、セキュリティ上の理由のエッジの展開 (インターネットからのトラフィックに対して公開) 必要があります。 1.x バージョン Kestrel の攻撃に対する防御の完全な補数がありません。 これが含まれていますが、適切なタイムアウト、サイズの制限、および同時接続の制限に限定されません。
+リバース プロキシは、セキュリティ上の理由のエッジの展開 (インターネットからのトラフィックに対して公開) 必要があります。 1.x バージョンの Kestrel には、攻撃に対する防御の全装備が十分ではありません。 これが含まれていますが、適切なタイムアウト、サイズの制限、および同時接続の制限に限定されません。
 
 ---
 
@@ -79,7 +79,7 @@ Kestrel を使用するには、単独またはで、*リバース プロキシ 
 
 ## <a name="how-to-use-kestrel-in-aspnet-core-apps"></a>ASP.NET Core アプリケーションで Kestrel を使用する方法
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/)にパッケージが含まれる、 [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage)です。
 
@@ -103,13 +103,13 @@ Kestrel オプションを構成する必要がある場合は、呼び出す`Us
 
 ### <a name="kestrel-options"></a>Kestrel オプション
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Kestrel web サーバーには、インターネットに接続された環境で特に便利な制約の構成オプションがあります。 次に設定できる値の範囲を示します。
 
-- 最大クライアント接続
-- 最大要求本文のサイズ
-- 最小の要求本文データ レート
+- クライアントの最大接続数
+- 要求本文の最大サイズ
+- 要求本文の最小レート
 
 これらの制約と内の他に設定する、`Limits`のプロパティ、 [KestrelServerOptions](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerOptions.cs)クラスです。 `Limits`プロパティのインスタンスを保持する、 [KestrelServerLimits](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerLimits.cs)クラスです。 
 
@@ -174,7 +174,7 @@ Kestrel オプションについては、次を参照してください。 [Kest
 
 ### <a name="endpoint-configuration"></a>エンドポイントの構成
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 既定では ASP.NET Core にバインド`http://localhost:5000`です。 URL プレフィックスと Kestrel を呼び出すことによってリッスン用のポートを構成する`Listen`または`ListenUnixSocket`メソッド`KestrelServerOptions`です。 (`UseUrls`、`urls`コマンドラインの引数とも作業 ASPNETCORE_URLS 環境変数は、説明した制限がある[この記事で後述](#useurls-limitations))。
 
@@ -223,7 +223,7 @@ IIS の URL のバインディングがいずれかを呼び出して設定す�
 
 呼び出す場合`UseUrls`か使用して、`urls`コマンドライン引数または ASPNETCORE_URLS 環境変数、URL プレフィックス可能で、次の形式のいずれか。 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 HTTP URL プレフィックスのみが無効です。Kestrel が SSL をサポートしていないを使用してバインディングを URL を構成するときに`UseUrls`です。
 
@@ -347,7 +347,7 @@ var host = new WebHostBuilder()
 
 詳細については、次のリソースを参照してください。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 * [2.x 用のサンプル アプリケーション](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/sample2)
 * [Kestrel ソース コード](https://github.com/aspnet/KestrelHttpServer)

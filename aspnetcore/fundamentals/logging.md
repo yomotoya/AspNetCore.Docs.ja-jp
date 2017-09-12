@@ -12,19 +12,19 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15abe93d881aed3b6950a859dc9445ec50ee9bb5
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: b9a4ae6e7d9b2fa998b91e643e63657239d4866b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>ASP.NET Core でのログ記録の概要
 
-によって[Steve Smith](http://ardalis.com)と[Tom Dykstra](https://github.com/tdykstra)
+によって[Steve Smith](https://ardalis.com/)と[Tom Dykstra](https://github.com/tdykstra)
 
 ASP.NET Core は、さまざまなログ プロバイダーと連携するログ記録 API をサポートします。 組み込みのプロバイダーを使用する 1 つまたは複数の送信先にログを送信してとサード パーティ製のログ記録のフレームワークにプラグインできます。 この記事では、コードで組み込みのログ記録 API とプロバイダーを使用する方法を示します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2)
 
@@ -50,7 +50,7 @@ ASP.NET Core メソッドは提供しません async ロガーのログ記録は
 
 ## <a name="how-to-add-providers"></a>プロバイダーを追加する方法
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ログ プロバイダーが使用して作成したメッセージを取得、`ILogger`オブジェクトで表示されるかに保存します。 たとえば、コンソール プロバイダーでは、コンソールで、メッセージが表示され、Azure アプリのサービス プロバイダーが Azure blob ストレージに格納できます。
 
@@ -244,7 +244,7 @@ _logger.LogInformation("Parameter values: {p2}, {p1}", p1, p2);
 Parameter values: parm1, parm2
 ```
 
-ログ フレームワークはメッセージのログ プロバイダーを実装するを可能にするには、この方法で書式設定[セマンティック ログ記録、構造化されたログ記録とも呼ばれる](http://programmers.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)です。 引数そのものが形式のメッセージ文字列だけでなく、ログ システムに渡されるために、ログ プロバイダーは、メッセージ文字列だけでなくフィールドとしてパラメーターの値を格納できます。 たとえば、誘導している場合、ログが Azure テーブル ストレージに出力し、ロガー メソッドの呼び出しが次のよう。
+ログ フレームワークはメッセージのログ プロバイダーを実装するを可能にするには、この方法で書式設定[セマンティック ログ記録、構造化されたログ記録とも呼ばれる](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)です。 引数そのものが形式のメッセージ文字列だけでなく、ログ システムに渡されるために、ログ プロバイダーは、メッセージ文字列だけでなくフィールドとしてパラメーターの値を格納できます。 たとえば、誘導している場合、ログが Azure テーブル ストレージに出力し、ロガー メソッドの呼び出しが次のよう。
 
 ```csharp
 _logger.LogInformation("Getting item {ID} at {RequestTime}", id, DateTime.Now);
@@ -269,7 +269,7 @@ System.Exception: Item not found exception.
 
 ## <a name="log-filtering"></a>ログのフィルター選択
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 特定のプロバイダーとカテゴリまたはすべてのプロバイダーまたはすべてのカテゴリでは、最小のログ レベルを指定することができます。  最小レベルの下の任意のログはいない表示または保存されている取得しないように、そのプロバイダーに渡されます。 
 
@@ -381,7 +381,7 @@ System.Exception: Item not found exception.
 
 次のコードは、コンソールのプロバイダーのスコープを有効にします。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 *Program.cs*:
 
@@ -422,7 +422,7 @@ ASP.NET Core には、次のプロバイダーが付属します。
 
 [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console)プロバイダーのパッケージは、コンソールにログ出力を送信します。 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddConsole()
@@ -448,7 +448,7 @@ loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 
 [!code-json[](logging/sample//appsettings.json)]
 
-説明するようデバッグ レベルでログに記録する一方で、アプリ制限 framework ログ警告が表示設定、[ログ フィルター](#log-filtering)セクションです。 詳細については、次を参照してください。[構成](configuration.md)です。
+説明するようデバッグ レベルでログに記録する一方で、アプリ制限 framework ログ警告が表示設定、[ログ フィルター](#log-filtering)セクションです。 詳細については、[構成](configuration.md)に関するページを参照してください。
 
 ---
 
@@ -459,7 +459,7 @@ loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 
 Linux では、このプロバイダーはログを書き込む*/var/log/message*です。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddDebug()
@@ -480,7 +480,7 @@ loggerFactory.AddDebug()
 
 ASP.NET Core 1.1.0 を対象とするアプリの高い、または、 [Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource)プロバイダーのパッケージは、イベントのトレースを実装できます。 Windows では、使用して[ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803)です。 プロバイダーは、クロスプラット フォームが存在しないイベント for Linux または macOS まだ収集および表示するツールです。 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddEventSourceLogger()
@@ -514,7 +514,7 @@ Nano Server でのイベントのキャプチャには、いくつか追加の�
   New-EtwTraceSession -Name "MyAppTrace" -LocalFilePath C:\trace.etl
   ```
 
-* ETW プロバイダーを追加[CLR](https://msdn.microsoft.com/library/ff357718)、ASP.NET Core および必要に応じて他のユーザーです。 GUID は、ASP.NET Core プロバイダー`3ac73b97-af73-50e9-0822-5da4367920d0`です。 
+* ETW プロバイダーを追加[CLR](https://docs.microsoft.com/dotnet/framework/performance/clr-etw-providers)、ASP.NET Core および必要に応じて他のユーザーです。 GUID は、ASP.NET Core プロバイダー`3ac73b97-af73-50e9-0822-5da4367920d0`です。 
 
   ```powershell
   Add-EtwTraceProvider -Guid "{e13c0d23-ccbc-4e12-931b-d9cc2eee27e4}" -SessionName MyAppTrace
@@ -536,7 +536,7 @@ Nano Server でのイベントのキャプチャには、いくつか追加の�
 
 [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog)プロバイダーのパッケージは、Windows イベント ログにログ出力を送信します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddEventLog()
@@ -555,9 +555,9 @@ loggerFactory.AddEventLog()
 <a id="tracesource"></a>
 ### <a name="the-tracesource-provider"></a>TraceSource プロバイダー
 
-[Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource)プロバイダーのパッケージを使用して、 [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx)ライブラリとプロバイダー。
+[Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource)プロバイダーのパッケージを使用して、 [System.Diagnostics.TraceSource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracesource)ライブラリとプロバイダー。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 logging.AddTraceSource(sourceSwitchName);
@@ -573,7 +573,7 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 
 [AddTraceSource オーバー ロード](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.tracesourcefactoryextensions)ソース スイッチと、トレース リスナーを渡すことができます。
 
-このプロバイダーを使用するのには、アプリケーションは、.NET Framework (ではなく .NET Core) で実行するがします。 このプロバイダーでのさまざまなにメッセージをルーティングする[リスナー](https://msdn.microsoft.com/library/4y5y10s7)など、 [TextWriterTraceListener](https://msdn.microsoft.com/library/system.diagnostics.textwritertracelistener)サンプル アプリケーションで使用します。
+このプロバイダーを使用するのには、アプリケーションは、.NET Framework (ではなく .NET Core) で実行するがします。 このプロバイダーでのさまざまなにメッセージをルーティングする[リスナー](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/trace-listeners)など、 [TextWriterTraceListener](https://docs.microsoft.com/dotnet/api/system.diagnostics.textwritertracelistenerr)サンプル アプリケーションで使用します。
 
 次の例では、構成、`TraceSource`ログに記録するプロバイダー`Warning`とコンソール ウィンドウに高いメッセージです。
 
@@ -584,7 +584,7 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 
 [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices)プロバイダーのパッケージは、Azure App Service アプリのファイル システム内とテキスト ファイルにログを書き込みます[blob ストレージ](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage)Azure ストレージ アカウントにします。 プロバイダーは、ASP.NET Core 1.1.0 を対象とするアプリに対してのみ使用可能な以上です。 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 > [!NOTE]
 > ASP.NET Core 2.0 はプレビュー段階です。  Azure App Service に配置されたときに、最新のプレビュー リリースで作成されたアプリは実行されない可能性があります。 Azure App Service が 2.0 を実行する ASP.NET Core 2.0 が解放されると、アプリ、および Azure App Service をここに記載されているプロバイダーは機能します。
@@ -621,9 +621,9 @@ ASP.NET Core で動作する一部のサード パーティ製のログ記録フ
 
 * [NLog](https://github.com/NLog/NLog.Extensions.Logging) -NLog ライブラリのプロバイダー
 
-* [Serilog](https://github.com/serilog/serilog-framework-logging) -Serilog ライブラリのプロバイダー
+* [Serilog](https://github.com/serilog/serilog-extensions-logging) -Serilog ライブラリのプロバイダー
 
-一部のサード パーティ製のフレームワークが実行できる[セマンティック ログ記録、構造化されたログ記録とも呼ばれる](http://programmers.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)です。
+一部のサード パーティ製のフレームワークが実行できる[セマンティック ログ記録、構造化されたログ記録とも呼ばれる](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)です。
 
 組み込みのプロバイダーのいずれかを使用してに似ていますが、サード パーティ製のフレームワークを使用します。 NuGet パッケージをプロジェクトに追加し、上の拡張メソッドを呼び出す`ILoggerFactory`です。 詳細については、各 framework のドキュメントを参照してください。
 

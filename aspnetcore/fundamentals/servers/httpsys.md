@@ -11,15 +11,15 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: cff6f171432febac5ec3e7adf9cf77953e0ece2d
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: 5ffe6b5d55d88cbcfa62dfacf1e6e896f1304e39
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core の HTTP.sys web サーバーの実装
 
-によって[Tom Dykstra](http://github.com/tdykstra)と[Chris Ross](https://github.com/Tratcher)
+によって[Tom Dykstra](https://github.com/tdykstra)と[Chris Ross](https://github.com/Tratcher)
 
 > [!NOTE]
 > このトピックには、のみを ASP.NET Core 2.0 以降が適用されます。 以前のバージョンの ASP.NET Core、HTTP.sys が名前付き[WebListener](xref:fundamentals/servers/weblistener)です。
@@ -46,13 +46,13 @@ HTTP.sys は、次の機能をサポートします。
 
 HTTP.sys は、IIS を使用して、サーバーをインターネットに直接公開する必要がある展開に役立ちます。
 
-![HTTP.sys がインターネットに直接通信します。](httpsys/_static/httpsys-to-internet.png)
+![インターネットと直接通信する HTTP.sys](httpsys/_static/httpsys-to-internet.png)
 
 Http.Sys で用意されているので HTTP.sys は、攻撃に対する保護のため、リバース プロキシ サーバーを必要としません。 Http.Sys は、さまざまな種類の攻撃から保護し、堅牢性、セキュリティ、および多機能な web サーバーのスケーラビリティを提供する成熟したテクノロジです。 Http.Sys の上部に HTTP リスナーとして IIS 自体が実行されます。 
 
 HTTP.sys をお勧めの内部の展開では使用できない Kestrel、Windows 認証などの機能を必要とするときにします。
 
-![HTTP.sys が内部ネットワークに直接通信します。](httpsys/_static/httpsys-to-internal.png)
+![内部ネットワークと直接通信する HTTP.sys](httpsys/_static/httpsys-to-internal.png)
 
 ## <a name="how-to-use-httpsys"></a>HTTP.sys を使用する方法
 
@@ -161,14 +161,14 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={000000
 
 ここでは、リファレンス ドキュメントを*netsh.exe*:
 
-* [ハイパー テキスト用の Netsh コマンドは転送プロトコル (HTTP)](http://technet.microsoft.com/library/cc725882.aspx)
+* [ハイパー テキスト用の Netsh コマンドは転送プロトコル (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
 * [UrlPrefix 文字列](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
 次のリソースは、いくつかのシナリオの詳細な手順を提供します。 HttpListener を参照している記事は、Http.Sys に基づいている両方に、HTTP.sys に同じように適用します。
 
-* [方法: SSL 証明書でポートを構成します。](http://msdn.microsoft.com/library/ms733791.aspx)
+* [方法: SSL 証明書でポートを構成します。](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
 * [HTTPS 通信 - HttpListener ベースのホストとクライアント証明書を](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html)これは、サード パーティ製のブログとがかなり古いいてもが有用な情報です。
-* [方法: チュートリアルを使用して HttpListener または Http サーバー アンマネージ コード (C++) SSL 単純なサーバーとして](http://blogs.msdn.com/b/jpsanders/archive/2009/09/29/walkthrough-using-httplistener-as-an-ssl-simple-server.aspx)有用な情報で以前のブログをすぎますがこれです。
+* [方法: チュートリアルを使用して HttpListener または Http サーバー アンマネージ コード (C++) SSL 単純なサーバーとして](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/)有用な情報で以前のブログをすぎますがこれです。
 
 ここより簡単に使用できる一部のサード パーティ製ツール、 *netsh.exe*コマンドライン。 によって提供されるか、Microsoft によって承認されているこれらがありません。 ツールは、実行管理者として既定では、ので*netsh.exe*自体には、管理者特権が必要です。
 
@@ -181,6 +181,6 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={000000
 
 詳細については、次のリソースを参照してください。
 
-* [この記事のサンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/HttpSys/sample)
+* [この記事のサンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample)
 * [HTTP.sys のソース コード](https://github.com/aspnet/HttpSysServer/)
 * [ホスティング](xref:fundamentals/hosting)

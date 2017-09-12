@@ -11,11 +11,11 @@ ms.assetid: 1fb6fdc2-e199-4469-9012-b909d1913422
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: 0285b40cfacb79745d3a6488401677130f55a95b
-ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
+ms.openlocfilehash: 792e007232c751d3db9dc5e50adbedfb2bb1a7ae
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>ASP.NET Core MVC web Api でカスタム フォーマッタ
 
@@ -29,7 +29,7 @@ ASP.NET Core MVC には、JSON、XML、またはプレーン テキスト形式�
 
 カスタム フォーマッタを使用すると、[コンテンツ ネゴシエーション](xref:mvc/models/formatting)組み込みフォーマッタ (JSON、XML、およびプレーン テキスト) でサポートされていないコンテンツの種類をサポートするために処理します。
 
-たとえば、一部の web API のクライアントを処理できる場合、 [Protobuf](https://github.com/google/protobuf)より効率的になっているために、それらのクライアントで Protobuf を使用するとする可能性があります形式です。  連絡先の名前とアドレスを送信する web API をすることもできます[vCard](https://en.wikipedia.org/wiki/VCard)形式、連絡先データをやり取りするための一般的に使用される形式です。 この記事の付属のサンプル アプリでは、単純な vCard フォーマッタを実装します。
+たとえば、一部の web API のクライアントを処理できる場合、 [Protobuf](https://github.com/google/protobuf)より効率的になっているために、それらのクライアントで Protobuf を使用するとする可能性があります形式です。  連絡先の名前とアドレスを送信する web API をすることもできます[vCard](https://wikipedia.org/wiki/VCard)形式、連絡先データをやり取りするための一般的に使用される形式です。 この記事の付属のサンプル アプリでは、単純な vCard フォーマッタを実装します。
 
 ## <a name="overview-of-how-to-use-a-custom-formatter"></a>カスタム フォーマッタを使用する方法の概要
 
