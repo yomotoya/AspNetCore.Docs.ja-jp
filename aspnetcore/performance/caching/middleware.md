@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: 7790f38dda61eabd3cbbc6088ad455c07289b739
-ms.sourcegitcommit: 70089de5bfd8ecd161261aa95faf07a4e1534cf8
+ms.openlocfilehash: 4013619f738b3b8b58e45d9dfd205e7b75e056b4
+ms.sourcegitcommit: 029dd7fbc0793e84b9ed91f2b45624bbc187fb32
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>応答の ASP.NET Core のミドルウェアのキャッシュ
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/23/2017
 ## <a name="configuration"></a>構成
 `ConfigureServices`ミドルウェアをサービスのコレクションに追加します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](middleware/samples/2.x/Program.cs?name=snippet1&highlight=4)]
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 08/23/2017
 
 ミドルウェアを使用するアプリの構成、`UseResponseCaching`要求処理パイプラインにミドルウェアが追加される拡張メソッド。 サンプル アプリを追加、 [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2)を 10 秒間キャッシュ可能な応答をキャッシュする応答ヘッダー。 サンプルでは送信、 [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4)をキャッシュされた応答の場合にのみを処理するミドルウェアを構成するヘッダー、 [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4)後続の要求のヘッダーの元の要求と一致します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](middleware/samples/2.x/Program.cs?name=snippet1&highlight=8)]
 
@@ -125,7 +125,7 @@ if (responseCachingFeature != null)
 * `Set-Cookie`ヘッダーを表示することはできません。
 * `Vary`ヘッダーのパラメーターが有効であり、等しくないにする必要があります`*`です。
 * `Content-Length`ヘッダーの値 (場合に設定)、応答本文のサイズに一致する必要があります。
-* `HttpSendFileFeature`は使用されません。
+* [IHttpSendFileFeature](/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature)は使用されません。
 * 応答で指定された古いすることはできません、`Expires`ヘッダーと`max-age`と`s-maxage`ディレクティブをキャッシュします。
 * 応答バッファー処理が完了すると、応答のサイズが、構成されたより小さくなるか既定の`SizeLimit`します。
 * 応答がキャッシュによるとする必要があります、 [RFC 7234](https://tools.ietf.org/html/rfc7234)仕様です。 たとえば、`no-store`ディレクティブが要求または応答のヘッダー フィールドに存在する必要があります。 参照してください*セクション 3: キャッシュに格納する応答*の[RFC 7234](https://tools.ietf.org/html/rfc7234)詳細についてはします。
