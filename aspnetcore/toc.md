@@ -163,8 +163,7 @@
 ## [ブラウザー リンクの使用](xref:client-side/using-browserlink)
 
 # [モバイル](xref:mobile/index)
-
-# [ネイティブ モバイル アプリケーションのバックエンド サービスの作成](xref:mobile/native-mobile-backend)
+## [ネイティブ モバイル アプリケーションのバックエンド サービスの作成](xref:mobile/native-mobile-backend)
 
 # [ホスティングと配置](xref:publishing/index)
 ## [IIS による Windows 上のホスト](xref:publishing/iis)
