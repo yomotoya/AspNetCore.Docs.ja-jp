@@ -2,7 +2,7 @@
 title: "クロス オリジン要求 (CORS) を有効にします。"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 05/17/2017
@@ -11,11 +11,11 @@ ms.assetid: f9d95e88-4d7e-4d0c-a8e1-47de1128d505
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: 44936c6db8a003a61091ec9a7fd3be5786d89b5b
-ms.sourcegitcommit: 8cafdd1dd409d5070d227100ba0e094c779ac47b
+ms.openlocfilehash: e441ce1c50139a5b33865eec8e8d99764258730d
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>クロス オリジン要求 (CORS) を有効にします。
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 08/28/2017
 
 ブラウザーのセキュリティは、web ページが別のドメインに AJAX 要求を行うことを防止します。 この制限が呼び出された、*同一生成元ポリシー*、悪意のあるサイトが別のサイトから機密データを読み取ることを防ぎます。 ただし、場合もあります可能性がある、web API へのクロス オリジン要求を行う他のサイトを使用できます。
 
-[クロス オリジン リソース共有](http://www.w3.org/TR/cors/)(CORS) は、W3C 標準により、同じオリジンのポリシーを緩和するサーバーです。 CORS を使用して、サーバー明示的に許可できますいくつかのクロス オリジン要求中に、他のユーザーを拒否します。 CORS などがより安全なと以前の手法より柔軟な[JSONP](http://en.wikipedia.org/wiki/JSONP)です。 このトピックでは、ASP.NET Core アプリケーションで CORS を有効にする方法を示します。
+[クロス オリジン リソース共有](http://www.w3.org/TR/cors/)(CORS) は、W3C 標準により、同じオリジンのポリシーを緩和するサーバーです。 CORS を使用して、サーバー明示的に許可できますいくつかのクロス オリジン要求中に、他のユーザーを拒否します。 CORS などがより安全なと以前の手法より柔軟な[JSONP](https://wikipedia.org/wiki/JSONP)です。 このトピックでは、ASP.NET Core アプリケーションで CORS を有効にする方法を示します。
 
 ## <a name="what-is-same-origin"></a>「同じ発生元」とは何ですか。
 
@@ -58,7 +58,7 @@ Startup.cs の CORS サービスを追加します。
 
 ## <a name="enabling-cors-with-middleware"></a>ミドルウェアで CORS を有効にします。
 
-有効にする、アプリケーション全体の CORS では、要求パイプラインを使用して、CORS ミドルウェアを追加、`UseCors`拡張メソッド。 CORS ミドルウェアが (ex クロス オリジン要求をサポートするアプリで定義されたエンドポイントを付ける必要がありますに注意してください。 呼び出しの前に`UseMvc`)。
+有効にする、アプリケーション全体の CORS では、要求パイプラインを使用して、CORS ミドルウェアを追加、`UseCors`拡張メソッド。 CORS ミドルウェアが (ex クロス オリジン要求をサポートするアプリで定義されたエンドポイントを付ける必要がありますに注意してください。。 呼び出しの前に`UseMvc`)。
 
 クロス オリジン ポリシーを指定するには、CORS ミドルウェアを使用して、追加するときに、`CorsPolicyBuilder`クラスです。 これには、2 つの方法があります。 1 つは、ラムダで UseCors を呼び出すには。
 
@@ -240,7 +240,7 @@ User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6
 Host: myservice.azurewebsites.net
 ```
 
-サーバーは、要求を許可している場合は、アクセス コントロール-を許可する-オリジン ヘッダーを設定します。 このヘッダーの値は、Origin ヘッダーと一致するか、ワイルドカード文字は、"*"、すべてのオリジンを許可されていることを意味します。
+サーバーは、要求を許可している場合は、アクセス コントロール-を許可する-オリジン ヘッダーを設定します。 このヘッダーの値は、Origin ヘッダーと一致するか、ワイルドカード文字は、"*"、すべてのオリジンを許可されていることを意味します。。
 
 ```
 HTTP/1.1 200 OK

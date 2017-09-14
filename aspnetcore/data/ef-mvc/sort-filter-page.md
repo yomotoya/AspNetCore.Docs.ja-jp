@@ -10,11 +10,11 @@ ms.assetid: e6c1ff3c-5673-43bf-9c2d-077f6ada1f29
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: bc2896d0eeda7e84cef06ee3f235e637bfe04318
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: 9de39ce59633036c0dd850a7552bd3f4806c5431
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>並べ替え、フィルター、ページング、およびグループ化 - ASP.NET Core MVC のチュートリアル (10 の 3) と EF コア
 
@@ -94,7 +94,7 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 
 [!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
-このコードを使用して、 `<form>` [タグ ヘルパー](https://docs.asp.net/en/latest/mvc/views/tag-helpers/intro.html)検索テキスト ボックスとボタンを追加します。 既定では、`<form>`タグ ヘルパーが、パラメーターとして渡される HTTP メッセージの本文では、URL ではなくクエリ文字列は、投稿にフォーム データを送信します。 HTTP GET を指定すると、フォームのデータに渡されます URL クエリ文字列としてユーザーの URL をブックマークすることができます。 アクションが、更新プログラムにならない場合に、W3C のガイドラインをお勧めしますが使用するを取得します。
+このコードを使用して、 `<form>` [タグ ヘルパー](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/intro)検索テキスト ボックスとボタンを追加します。 既定では、`<form>`タグ ヘルパーが、パラメーターとして渡される HTTP メッセージの本文では、URL ではなくクエリ文字列は、投稿にフォーム データを送信します。 HTTP GET を指定すると、フォームのデータに渡されます URL クエリ文字列としてユーザーの URL をブックマークすることができます。 アクションが、更新プログラムにならない場合に、W3C のガイドラインをお勧めしますが使用するを取得します。
 
 ページの実行、検索文字列を入力し、検索フィルターが機能していることを確認する をクリックします。
 

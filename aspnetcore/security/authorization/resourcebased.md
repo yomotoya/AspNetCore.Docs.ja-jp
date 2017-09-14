@@ -2,7 +2,7 @@
 title: "リソース ベースの承認"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 0902ba17-5304-4a12-a2d4-e0904569e988
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 2f799588ba4aca4664e1679e4c34657e7ca121fb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7f7df52bf51a81558818836450997281a21b5839
+ms.sourcegitcommit: f303a457644ed034a49aa89edecb4e79d9028cb1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="resource-based-authorization"></a>リソース ベースの承認
 
@@ -52,7 +52,7 @@ Task<bool> AuthorizeAsync(ClaimsPrincipal user,
 
 <a name=security-authorization-resource-based-imperative></a>
 
-サービスの負荷を操作内でリソースを呼び出すを呼び出す、`AuthorizeAsync`オーバー ロードする必要があります。 次に例を示します。
+サービスを呼び出すには、読み込む、アクション内でリソースを呼び出す、`AuthorizeAsync`オーバー ロードする必要があります。 例:
 
 ```csharp
 public async Task<IActionResult> Edit(Guid documentId)
@@ -77,12 +77,12 @@ public async Task<IActionResult> Edit(Guid documentId)
 
 ## <a name="writing-a-resource-based-handler"></a>リソース ベースのハンドラーの記述
 
-リソース ベースの承認のハンドラーの記述に大きな違いはなく[plain 要件ハンドラーの記述](policies.md#security-authorization-policies-based-authorization-handler)です。 要件を作成して前に、要件とも、リソースの種類を指定する、要件のハンドラーを実装します。 たとえば、ドキュメント リソースを受け入れることがハンドラーを示しています。
+リソース ベースの承認のハンドラーの記述に大きな違いはなく[plain 要件ハンドラーの記述](policies.md#security-authorization-policies-based-authorization-handler)です。 要件を作成して前に、要件とも、リソースの種類を指定する、要件のハンドラーを実装します。 たとえば、ドキュメント リソースを受け入れることがハンドラーは示しています。
 
 ```csharp
 public class DocumentAuthorizationHandler : AuthorizationHandler<MyRequirement, Document>
 {
-    public override Task HandleRequirementAsync(AuthorizationHandlerContext context,
+    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
                                                 MyRequirement requirement,
                                                 Document resource)
     {
@@ -93,7 +93,7 @@ public class DocumentAuthorizationHandler : AuthorizationHandler<MyRequirement, 
 }
 ```
 
-忘れずに、ハンドラーを登録する必要があります、`ConfigureServices`メソッドです。
+忘れずに、ハンドラーを登録する必要があります、`ConfigureServices`メソッド。
 
 ```csharp
 services.AddSingleton<IAuthorizationHandler, DocumentAuthorizationHandler>();
@@ -101,7 +101,7 @@ services.AddSingleton<IAuthorizationHandler, DocumentAuthorizationHandler>();
 
 ### <a name="operational-requirements"></a>運用上の要件
 
-読み取り、書き込み、更新、削除などの操作に基づく決定を行う場合を使って、`OperationAuthorizationRequirement`クラス内で、`Microsoft.AspNetCore.Authorization.Infrastructure`名前空間。 この要件をあらかじめ作成されているクラスを使用すると、操作ごとに個別のクラスを作成する代わりに、パラメーター化された操作名を持つ 1 つのハンドラーを記述できます。 使用する、いくつかの操作名を指定します。
+読み取り、書き込み、更新、削除などの操作に基づく決定を行う場合を使って、`OperationAuthorizationRequirement`クラス内で、`Microsoft.AspNetCore.Authorization.Infrastructure`名前空間。 この要件をあらかじめ作成されているクラスを使用すると、操作ごとに個別のクラスを作成する代わりに、パラメーター化された操作名を持つ 1 つのハンドラーを記述できます。 これを使用するには、いくつかの操作名を提供します。
 
 ```csharp
 public static class Operations
@@ -117,7 +117,7 @@ public static class Operations
 }
 ```
 
-ハンドラーでしたして実装する次のように、仮定を使用して`Document`リソースとしてクラス
+ハンドラーでしたして実装する次のように、仮定を使用して`Document`クラス リソースとして。
 
 ```csharp
 public class DocumentAuthorizationHandler :
@@ -137,7 +137,7 @@ public class DocumentAuthorizationHandler :
 
 ハンドラーが動作を確認できます`OperationAuthorizationRequirement`です。 ハンドラー内のコードは、その評価を行うときに、アカウントに指定された要件の Name プロパティを受け取る必要があります。
 
-呼び出すときに、操作を指定する必要があります。 運用リソース ハンドラーを呼び出して`AuthorizeAsync`アクションにします。 次に例を示します。
+呼び出すときに、操作を指定する必要があります。 運用リソース ハンドラーを呼び出して`AuthorizeAsync`アクションにします。 例:
 
 ```csharp
 if (await _authorizationService.AuthorizeAsync(User, document, Operations.Read))

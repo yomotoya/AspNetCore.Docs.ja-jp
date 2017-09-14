@@ -11,11 +11,11 @@ ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a022
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/DistributedCacheTagHelper
-ms.openlocfilehash: b6e0beca0833b1dbe0843e8f8848b976726cc7b0
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 2b260624fb2d85ab1a2625511397bcb4a85b6e77
+ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="distributed-cache-tag-helper"></a>分散キャッシュ タグ ヘルパー
 
@@ -52,14 +52,14 @@ ms.lasthandoff: 08/11/2017
 ```cshtml
 <distributed-cache name="my-distributed-cache-unique-key-101">
     Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</distributed-cache>
 ```
 
 ## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a>キャッシュ タグ ヘルパー IDistributedCache 実装の分散
 
 2 つの実装がある`IDistributedCache`ASP.NET Core に組み込まれています。  いずれかに基づきます**Sql Server** 、もう一方に基づいて**Redis**です。 これらの実装の詳細については、名前付き「での作業を分散キャッシュ」の下で参照されているリソースで確認できます。 どちらの実装では、インスタンスの設定が関係`IDistributedCache`ASP.NET Core で**startup.cs**です。
 
-あるタグの属性具体的に関連付けられたの特定の実装を使用して`IDistributedCache`です。
+具体的にはの特定の実装を使用してに関連付けられているタグの属性がない`IDistributedCache`です。
 
 
 

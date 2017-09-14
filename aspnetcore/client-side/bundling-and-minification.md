@@ -11,11 +11,11 @@ ms.assetid: d54230f9-8e5f-4861-a29c-1d3a14e0b0d9
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 810d89798330aeb1c387ec85eb05b1f4efde167a
-ms.sourcegitcommit: 275a5381b6172b4f0b5fcd1d252aff03d3dae166
+ms.openlocfilehash: d8512bdd49b61019f22a49900bdd65086d821a6b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="bundling-and-minification-in-aspnet-core"></a>バンドルと ASP.NET Core の縮小
 
@@ -91,8 +91,8 @@ MVC プロジェクト テンプレートでは、`bundleconfig.json`構成フ�
 * 縮小 - 出力の縮小オプションを入力します。 **省略可能な**、*既定 -`minify: { enabled: true }`*
   * 出力ファイルの種類ごとの構成オプションのとおりです。
     * [CSS の縮小化](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
-    * [JavaScript の縮小化](https://github.com/madskristensen/BundlerMinifier/wiki/jsminifier)
-    * [HTML の縮小化](https://github.com/madskristensen/BundlerMinifier/wiki/htmlminifier)
+    * [JavaScript の縮小化](https://github.com/madskristensen/BundlerMinifier/wiki)
+    * [HTML の縮小化](https://github.com/madskristensen/BundlerMinifier/wiki)
 * includeInProject - 生成されたファイルをプロジェクト ファイルに追加します。 **省略可能な**、*既定 - false*
 * ソースマップ - は、バンドルしたファイルのソース マップを生成します。 **省略可能な**、*既定 - false*
 
@@ -228,7 +228,7 @@ Visual Studio 2015 のプロジェクトのビルド時に Gulp を有効にす�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [Gulp を使用します。](using-gulp.md)
-* [Grunt を使用します。](using-grunt.md)
-* [複数の環境での作業](../fundamentals/environments.md)
+* [Gulp の使用](using-gulp.md)
+* [Grunt の使用](using-grunt.md)
+* [複数の環境の使用](../fundamentals/environments.md)
 * [タグ ヘルパー](../mvc/views/tag-helpers/index.md)
