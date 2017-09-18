@@ -1,20 +1,20 @@
 ---
-title: "アプリ シークレットは、ASP.NET Core での開発中の安全な格納場所"
+title: "アプリ シークレットは、ASP.NET Core での開発時の安全な格納場所"
 author: rick-anderson
 description: "開発中に機密情報を安全に格納する方法を示します"
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 7/14/2017
+ms.date: 09/15/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: 56214c2fbdca84591c5c1a6b7f2451f33ee64ef0
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: e112cc5ef9cba5aff6470ce4b9b1091a3c2b2600
+ms.sourcegitcommit: f1271b218d7dfdc806ec8f411c81f3750130463d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>アプリ シークレットは、ASP.NET Core での開発時の安全な格納場所
 
@@ -42,36 +42,19 @@ ms.lasthandoff: 09/12/2017
 >[!WARNING]
 > シークレット マネージャー ツールは、格納された機密情報は暗号化されず、信頼できるストアとして扱うことはできません。 これは、開発目的でのみです。 キーと値は、ユーザーのプロファイル ディレクトリに JSON 構成ファイルに格納されます。
 
-### <a name="visual-studio-2017-installing-the-secret-manager-tool"></a>Visual Studio 2017: シークレット マネージャー ツールをインストールします。
+## <a name="installing-the-secret-manager-tool"></a>シークレット マネージャー ツールをインストールします。
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ソリューション エクスプ ローラーでプロジェクトを右クリックし **編集\<project_name\>.csproj**コンテキスト メニュー。 強調表示された行を追加、 *.csproj*ファイル、および関連付けられている NuGet パッケージを復元する保存します。
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets.csproj?highlight=21)]
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
-ソリューション エクスプ ローラーでプロジェクトを右クリックし **管理ユーザーの機密情報**コンテキスト メニュー。 このジェスチャが新しく追加`UserSecretsId`内のノード、`PropertyGroup`の*.csproj*ファイル。 これを開くことも、`secrets.json`ファイル テキスト エディターでします。
+ソリューション エクスプ ローラーでプロジェクトを再度右クリックし、選択**管理ユーザーの機密情報**コンテキスト メニュー。 このジェスチャが新しく追加`UserSecretsId`内のノード、`PropertyGroup`の*.csproj*次の例に示すように、ファイル。
 
-`secrets.json` に次のコードを追加します。
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
-```json
-{
-    "MySecret": "ValueOfMySecret"
-}
-```
-
-### <a name="visual-studio-2015-installing-the-secret-manager-tool"></a>Visual Studio 2015: シークレット マネージャー ツールをインストールします。
-
-プロジェクトの`project.json`ファイル。 参照を追加`Microsoft.Extensions.SecretManager.Tools`内で、`tools`プロパティ、および関連付けられている NuGet パッケージを復元する保存。
-
-```json
-"tools": {
-    "Microsoft.Extensions.SecretManager.Tools": "1.0.0-preview2-final",
-    "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview2-final"
-},
-```
-
-ソリューション エクスプ ローラーでプロジェクトを右クリックし **管理ユーザーの機密情報**コンテキスト メニュー。 このジェスチャが新しく追加`userSecretsId`プロパティを`project.json`です。 これを開くことも、`secrets.json`ファイル テキスト エディターでします。
-
-`secrets.json` に次のコードを追加します。
+保存、変更された*.csproj*ファイルも開きます、`secrets.json`ファイル テキスト エディターでします。 内容を置き換える、`secrets.json`を次のコード ファイル。
 
 ```json
 {
@@ -79,11 +62,11 @@ ms.lasthandoff: 09/12/2017
 }
 ```
 
-### <a name="visual-studio-code-or-command-line-installing-the-secret-manager-tool"></a>Visual Studio Code またはコマンド ライン: シークレット マネージャー ツールをインストールします。
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-追加`Microsoft.Extensions.SecretManager.Tools`を*.csproj*ファイル実行して`dotnet restore`です。
+追加`Microsoft.Extensions.SecretManager.Tools`を*.csproj*ファイル実行して`dotnet restore`です。 同じ手順を使用するのコマンドラインを使用して、シークレット マネージャー ツールをインストールします。
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets.csproj?highlight=21)]
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
 次のコマンドを実行して、シークレット マネージャー ツールをテストします。
 
@@ -100,7 +83,7 @@ dotnet user-secrets -h
 
 追加、`UserSecretsId`に、プロジェクトの*.csproj*ファイル。
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets.csproj?range=7-9&highlight=2)]
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
 シークレット マネージャー ツールを使用すると、機密情報を設定します。 たとえば、コマンド ウィンドウで、プロジェクト ディレクトリから、次のように入力します。
 
@@ -115,6 +98,8 @@ dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\w
 ```
 
 シークレット マネージャー ツールを使用して、一覧を削除し、アプリのシークレットをオフにすることができますも。
+
+-----
 
 ## <a name="accessing-user-secrets-via-configuration"></a>構成を使用してユーザーの機密情報にアクセスします。
 

@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 949733119b4e3a4b8716f2bcc1f631949d5049bc
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 6bde59ddbf153ada36034765b390892ec2ed5997
+ms.sourcegitcommit: 98ecb0f1bae4886507b090c84ecd99ff1e5c46ed
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/17/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>ASP.NET Core MVC と Visual Studio (10 の 1) を使用して Entity Framework Core の概要
 
@@ -30,7 +30,7 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 EF の最新バージョンであるが EF のすべての機能がない、EF コア 2.0 6.x です。 EF との間を選択する方法については 6.x と EF コアを参照してください。 [EF コア vs です。EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/)です。 EF を選択した場合、6.x を参照してください[このチュートリアル シリーズの以前のバージョン](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)します。
 
 > [!NOTE]
-> * このチュートリアルの ASP.NET Core の 1.1 バージョンを参照してください、 [VS 2017 Update 2 のバージョンを PDF 形式では、このチュートリアルの](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/efmvc/intro/_static/efmvc1.1.pdf)します。
+> * このチュートリアルの ASP.NET Core の 1.1 バージョンを参照してください、 [VS 2017 Update 2 のバージョンを PDF 形式では、このチュートリアルの](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf)します。
 > * このチュートリアルの Visual Studio 2015 バージョンについては、[VS 2015 バージョンの ASP.NET Core ドキュメント (PDF 形式)](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf) を参照してください。
 
 ## <a name="prerequisites"></a>必須コンポーネント
@@ -80,7 +80,7 @@ Visual Studio を開き、新しい ASP.NET Core c# web という名前のプロ
 
 * [OK] をクリックします。 ****
 
-  ![新しい ASP.NET プロジェクト ダイアログ ボックス](intro/_static/new-aspnet.png)
+  ![[新しい ASP.NET プロジェクト] ダイアログ](intro/_static/new-aspnet.png)
 
 ## <a name="set-up-the-site-style"></a>サイトのスタイルを設定します。
 
@@ -204,7 +204,7 @@ ASP.NET Core を実装する[依存性の注入](../../fundamentals/dependency-i
 
 ### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-接続文字列では、SQL Server LocalDB データベースを指定します。 LocalDB は、SQL Server Express データベース エンジンの簡易バージョンがあり、アプリケーションの開発では、実稼働環境を使用しないものです。 LocalDB は、要求時に開始され、ユーザー モードで実行されるため、複雑な構成はありません。 既定では、LocalDB が作成されます*.mdf*データベース内のファイル、`C:/Users/<user>`ディレクトリ。
+接続文字列では、SQL Server LocalDB データベースを指定します。 LocalDB は、SQL Server Express データベース エンジンの簡易バージョンがあり、アプリケーションの開発では、実稼働環境を使用しないものです。 LocalDB は要求時に開始され、ユーザー モードで実行されるため、複雑な構成はありません。 既定では、LocalDB が作成されます*.mdf*データベース内のファイル、`C:/Users/<user>`ディレクトリ。
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>データベースにテスト データを初期化するコードを追加します。
 
@@ -242,7 +242,7 @@ CRUD アクション メソッドとビューの自動作成は、スキャフ�
 
 * 右クリックし、**コント ローラー**フォルダー**ソリューション エクスプ ローラー**選択**追加 > スキャフォールディングされた新しい項目**です。
 
-* **MVC 依存関係の追加**ダイアログで、**最小の依存関係**を選択して**追加**です。
+* **[MVC 依存関係の追加]** ダイアログで、**[最小の依存関係]**、**[追加]** の順に選択します。
 
   ![依存関係を追加します。](intro/_static/add-depend.png)
 

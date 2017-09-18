@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 2f99a5d3db84c3fd3f7ebcb8bccd9a4b8bc8e2b8
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 8fe21b1a1ccb93c124dbd12a540b195400d45ef6
+ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>アカウントの確認と ASP.NET Core でのパスワードの回復
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 09/12/2017
 
 このチュートリアルでは、電子メールの確認とパスワードのリセットと ASP.NET Core アプリケーションをビルドする方法を示します。
 
-## <a name="create-a-new-aspnet-core-project"></a>新しい ASP.NET Core プロジェクトを作成します。
+## <a name="create-a-new-aspnet-core-project"></a>新しい .NET Core プロジェクトを作成する
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -117,7 +117,7 @@ config.SignIn.RequireConfirmedEmail = true;
 
 このチュートリアルでは、SendGrid を使用して電子メールを送信します。 SendGrid アカウントと電子メールを送信するキーが必要です。 その他の電子メール プロバイダーを使用することができます。 ASP.NET Core 2.x が含まれています`System.Net.Mail`、アプリから電子メールを送信することができます。 SendGrid または別の電子メール サービスを使用して電子メールを送信することをお勧めします。
 
-[オプション パターン](xref:fundamentals/configuration#options-config-objects)ユーザー アカウントとキーの設定にアクセスするために使用します。 詳細については、次を参照してください。[構成](xref:fundamentals/configuration#fundamentals-configuration)です。
+[オプション パターン](xref:fundamentals/configuration#options-config-objects)ユーザー アカウントとキーの設定にアクセスするために使用します。 詳細については、次を参照してください。[構成](xref:fundamentals/configuration)です。
 
 セキュリティで保護された電子メールのキーを取得するクラスを作成します。 このサンプルで、`AuthMessageSenderOptions`でクラスを作成、 *Services/AuthMessageSenderOptions.cs*ファイル。
 

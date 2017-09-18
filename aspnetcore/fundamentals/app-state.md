@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/app-state
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b451bde1e3180d12781d55113638cc1a99182c8
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 409444e99cfa49f30812c6130120391a8f477839
+ms.sourcegitcommit: 50608ec8ae49897d8bf11d5f6dc511da30862bfa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>ASP.NET Core でのセッションおよびアプリケーションの状態の概要
 
@@ -96,7 +96,15 @@ Cookie は、多くの場合、既知のユーザーのコンテンツをカス�
 
 次のコードでは、メモリ内のセッション プロバイダーを設定する方法を示します。
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+[!code-csharp[Main](app-state/sample/src/WebAppSessionDotNetCore2.0App/Startup.cs?highlight=11-19,24)]
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
 [!code-csharp[Main](app-state/sample/src/WebAppSession/Startup.cs?highlight=11-19,24)]
+
+---
 
 セッションを参照する`HttpContext`がインストールされ構成されているとします。
 
@@ -116,7 +124,15 @@ ASP.NET Core の既定のセッション プロバイダーが、基になるか
 
 セッションの既定値をオーバーライドする`SessionOptions`:
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+[!code-csharp[Main](app-state/sample/src/WebAppSessionDotNetCore2.0App/StartupCopy.cs?name=snippet1&highlight=8-12)]
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
 [!code-csharp[Main](app-state/sample/src/WebAppSession/StartupCopy.cs?name=snippet1&highlight=8-12)]
+
+---
 
 サーバーを使用して、`IdleTimeout`セッションできる期間アイドル状態の内容を破棄する前に決定するプロパティです。 このプロパティは、cookie の有効期限の独立しました。 セッションのミドルウェア (読み取りまたはに書き込まれます) を通過する各要求では、タイムアウト値をリセットします。
 
@@ -230,4 +246,5 @@ public class MyController : Controller
 ### <a name="additional-resources"></a>その他のリソース
 
 
-* [このドキュメントで使用するサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSession)
+* [ASP.NET Core 1.x: このドキュメントで使用されるコードのサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSession)
+* [ASP.NET Core 2.x: このドキュメントで使用されるコードのサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSessionDotNetCore2.0App)
