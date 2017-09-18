@@ -11,11 +11,11 @@ ms.assetid: 1d18b589-1638-4dc6-1638-fb0f41998d78
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/start-mvc
-ms.openlocfilehash: 82ce5bbc695b190759ac2c05cdceebb5f7854eb7
-ms.sourcegitcommit: e6a8f171f26fab1b2195a2d7f14e7d258a2e690e
+ms.openlocfilehash: cfce91271ca21dd800fb68a14389606ce6d835f5
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc--on-mac-linux-or-windows"></a>Mac、Linux、Windows の ASP.NET Core MVC の概要
 
@@ -31,11 +31,11 @@ ms.lasthandoff: 08/23/2017
 
 ## <a name="install-vs-code-and-net-core"></a>VS Code と .NET Core のインストール
 
-このチュートリアルには、[.NET Core 2.0.0 SDK](https://dot.net/core) 以降が必要です。 ASP.NET Core 1.1 バージョンについては、[この PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf) をご覧ください。
+このチュートリアルには、[.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 以降が必要です。 ASP.NET Core 1.1 バージョンについては、[この PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf) をご覧ください。
 
 以下をインストールします。
 
-* [.NET Core 2.0.0 SDK](https://dot.net/core) 以降。
+* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 以降。
 * [Visual Studio Code](https://code.visualstudio.com)
 * VS Code [C# 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
 
@@ -75,9 +75,9 @@ VS Code で [Kestrel](xref:fundamentals/servers/kestrel) Web サーバーが起�
 - [統合ターミナル](https://code.visualstudio.com/docs/editor/integrated-terminal)
 - [ショートカット キー](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
 
-  - [Mac ショートカット キー](https://go.microsoft.com/fwlink/?linkid=832143)
-  - [Linux ショートカット キー](https://go.microsoft.com/fwlink/?linkid=832144)
-  - [Windows ショートカット キー](https://go.microsoft.com/fwlink/?linkid=832145)
+  - [Mac ショートカット キー](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+  - [Linux ショートカット キー](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+  - [Windows ショートカット キー](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
 >[!div class="step-by-step"]
 [次 - コントローラーの追加](adding-controller.md)

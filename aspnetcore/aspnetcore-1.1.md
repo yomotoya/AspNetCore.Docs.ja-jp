@@ -11,18 +11,18 @@ ms.assetid: 062f8353-d1bc-4e99-a821-c1d1bb162c47
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-1.1
-ms.openlocfilehash: 7fdb00bc64cb20bd0e658b3a81814059404476d2
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 6b1c6648a55e966f448a383440b2b4f0d8e5afa1
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>ASP.NET Core 1.1 の新機能
 
 ASP.NET Core 1.1 には次の新機能があります。
 
-- [URL リライト ミドルウェア](https://docs.microsoft.com/aspnet/core/fundamentals/url-rewriting)
-- [応答キャッシュ ミドルウェア](https://docs.microsoft.com/aspnet/core/performance/caching/middleware)
+- [URL リライト ミドルウェア](xref:fundamentals/url-rewriting)
+- [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
 - [タグ ヘルパーとしてのビュー コンポーネント](xref:mvc/views/view-components#invoking-a-view-component-as-a-tag-helper)
 - [MVC フィルターとしてのミドルウェア](xref:mvc/controllers/filters#using-middleware-in-the-filter-pipeline)
 - [Cookie ベースの TempData プロバイダー](xref:fundamentals/app-state#cookie-based-tempdata-provider )

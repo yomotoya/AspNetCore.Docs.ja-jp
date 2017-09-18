@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-web-api
-ms.openlocfilehash: c57c73c6f9c60874ef88749b838ed1cc1d353ead
-ms.sourcegitcommit: 7fef13045e98d716c589a2982613dad261694a65
+ms.openlocfilehash: 4aab61c7ee4498b33a4ea8bbec6033ce9828e2af
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/12/2017
 ---
 #<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>ASP.NET Core と Visual Studio for Windows で Web API を作成する
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/31/2017
 
 [!INCLUDE[install 2.0](../includes/install2.0.md)]
 
-ASP.NET Core 1.1 バージョンについては、[この PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/_static/_webAPI.pdf) をご覧ください。
+ASP.NET Core 1.1 バージョンについては、[この PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-web-api/_static/_webAPI.pdf) をご覧ください。
 
 ## <a name="create-the-project"></a>プロジェクトの作成
 
@@ -68,7 +68,7 @@ Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動し
 
 `TodoItem` クラスを追加します。 *Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順にクリックします。 クラスに `TodoItem` という名前を付け、**[追加]** を選択します。
 
-生成されたコードを次のコードに変更します。
+生成されたコードを次のコードに置き換えます。
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
@@ -80,7 +80,7 @@ Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動し
 
 `TodoContext` クラスを追加します。 *Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順にクリックします。 クラスに `TodoContext` という名前を付け、**[追加]** を選択します。
 
-生成されたコードを次のコードに変更します。
+生成されたコードを次のコードに置き換えます。
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 

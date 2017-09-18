@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 9636e0e51e506d294ffb50a21165195c9d04fe20
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 283a3869300b83235197951cbbee92a82532c6e3
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio"></a>ASP.NET Core MVC と Visual Studio の概要
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 08/25/2017
 
 Visual Studio Community 2017 をインストールします。 コミュニティ ダウンロードを選択します。 Visual Studio 2017 をインストールしている場合は、この手順をスキップします。
 
-* [Visual Studio 2017 ホーム ページのインストーラー](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Visual Studio 2017 ホーム ページのインストーラー](https://www.visualstudio.com/)
 
 インストーラーを実行し、次のワークロードを選択します。
 
@@ -98,7 +98,7 @@ Visual Studio は、作成した MVC プロジェクトの既定のテンプレ�
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
 ![実行中のアプリ](start-mvc/_static/1.png)
 
-* Visual Studio で [IIS Express](http://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) が開始され、アプリが実行されます。 アドレス バーには、`example.com` などではなく、`localhost:port#` が表示されます。 これは、`localhost` がローカル コンピューターの標準のホスト名であるためです。 Visual Studio が Web プロジェクトを作成する場合は、Web サーバーにランダム ポートが使用されます。 上の図で、ポート番号は 5000 です。 アプリを実行する際には、別のポート番号が表示されます。
+* Visual Studio で [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) が開始され、アプリが実行されます。 アドレス バーには、`example.com` などではなく、`localhost:port#` が表示されます。 これは、`localhost` がローカル コンピューターの標準のホスト名であるためです。 Visual Studio が Web プロジェクトを作成する場合は、Web サーバーにランダム ポートが使用されます。 上の図で、ポート番号は 5000 です。 アプリを実行する際には、別のポート番号が表示されます。
 * **Ctrl + F5** キー (非デバッグ モード) でアプリを起動することで、コードの変更、ファイルの保存、ブラウザーの更新、およびコード変更の確認を行うことができます。 多くの開発者は、すばやくアプリを起動し、変更を確認できる非デバッグ モードの使用を好みます。
 * **[デバッグ]** メニュー項目から、デバッグ モードまたは非デバッグ モードでアプリを起動できます。
 

@@ -11,15 +11,15 @@ ms.assetid: fa9b0cb7-afb3-4361-9e7e-33afffeaca0c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/apache-proxy
-ms.openlocfilehash: 831e2fa148e52f6447e9065f5949785627d5e248
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 9dc22ea20a6ae2e2477f9e6db95ddabecc038dcb
+ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-linux-with-apache-and-deploy-to-it"></a>Apache 搭載の Linux で ASP.NET Core をホストするための環境をセットアップし、その環境に展開する
 
-作成者: [Shayne Boyer](https://www.github.com/spboyer)
+作成者: [Shayne Boyer](https://github.com/spboyer)
 
 Apache は非常に一般的な HTTP サーバーです。nginx と同様に、プロキシとして構成して HTTP トラフィックをリダイレクトすることができます。 このガイドでは、CentOS 7 上で Apache をセットアップしてリバース プロキシとして使用し、着信接続を受け入れ、Kestrel 上で実行されている ASP.NET Core にリダイレクトする方法について説明します。 そのために、*mod_proxy* 拡張機能などの関連する Apache モジュールを使用します。
 
@@ -134,7 +134,8 @@ Apache を再起動します。
     WorkingDirectory=/var/aspnetcore/hellomvc
     ExecStart=/usr/local/bin/dotnet /var/aspnetcore/hellomvc/hellomvc.dll
     Restart=always
-    RestartSec=10                                          # Restart service after 10 seconds if dotnet service crashes
+    # Restart service after 10 seconds if dotnet service crashes
+    RestartSec=10
     SyslogIdentifier=dotnet-example
     User=apache
     Environment=ASPNETCORE_ENVIRONMENT=Production 

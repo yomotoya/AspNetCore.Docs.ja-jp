@@ -3,7 +3,7 @@
 上のコードでは以下の操作が行われます。
 
 * 空のコントローラー クラスを定義します。 次のセクションでは、API を実装するメソッドを追加します。
-* コンストラクターでは、[依存性の注入](xref:fundamentals/dependency-injection)を使ってデータベース コンテキスト (`TodoContext `) がコントローラーに挿入されています。 データベース コンテキストは、コントローラーの各 [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) メソッドで使用されます。
+* コンストラクターでは、[依存性の注入](xref:fundamentals/dependency-injection)を使ってデータベース コンテキスト (`TodoContext `) がコントローラーに挿入されています。 データベース コンテキストは、コントローラーの各 [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) メソッドで使用されます。
 * アイテムが存在しない場合は、コンストラクターがメモリ内データベースにアイテムを追加します。
 
 ## <a name="getting-to-do-items"></a>To Do アイテムの取得

@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/razor-pages-start
-ms.openlocfilehash: caadc3fcb3bb71abe0773aed4f6ff60a043e3a02
-ms.sourcegitcommit: d9ec19e5452af83648074db5d96c0a0f4f9e7f9a
+ms.openlocfilehash: 56ff18589d189b0d2760c761c58b5b030d02940b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core-with-visual-studio-for-mac"></a>Visual Studio for Mac を使用する ASP.NET Core の Razor ページの概要
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 08/29/2017
 
 以下をインストールします。
 
-* [.NET Core 2.0.0 SDK](https://dot.net/core) 以降
+* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 以降
 * [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ## <a name="create-a-razor-web-app"></a>Razor Web アプリの作成
@@ -53,7 +53,7 @@ Visual Studio から、**[ファイル]、[開く]** の順に選択し、*Razor
 
 ### <a name="launch-the-app"></a>アプリの起動
 
-Visual Studio で、**[実行]、[デバッグなしで開始]** の順に選択してアプリを起動します。 Visual Studio は [IIS Express](http://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) を開始し、ブラウザーを起動して、`http://localhost:5000` に移動します。
+Visual Studio で、**[実行]、[デバッグなしで開始]** の順に選択してアプリを起動します。 Visual Studio は [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) を開始し、ブラウザーを起動して、`http://localhost:5000` に移動します。
 
 次のチュートリアルでは、プロジェクトにモデルを追加します。
 

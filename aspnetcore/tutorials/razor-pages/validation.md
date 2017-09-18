@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 734dad7778eba41780f9d3ac0685879687288d47
-ms.sourcegitcommit: 8f5277871eff86134ebf68d3737196cfd4a62c2c
+ms.openlocfilehash: ed1ad71b6b1395bce1dd287e86e499e23446f190
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Razor ページに検証を追加する
 
@@ -24,13 +24,13 @@ ms.lasthandoff: 08/13/2017
 
 ## <a name="validation"></a>検証
 
-ソフトウェア開発には、[DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself) ("**D**on't **R**epeat **Y**ourself" (繰り返しを避けること)) という重要な理念があります。 Razor ページでは、機能を一度規定したら、アプリ全体に反映する開発を推奨しています。 DRY によって、アプリのコード量を減らすことができます。 DRY を実施すると、コードのエラーが発生する可能性が低くなり、テストと保守が簡単になります。
+ソフトウェア開発には、[DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("**D**on't **R**epeat **Y**ourself" (繰り返しを避けること)) という重要な理念があります。 Razor ページでは、機能を一度規定したら、アプリ全体に反映する開発を推奨しています。 DRY によって、アプリのコード量を減らすことができます。 DRY を実施すると、コードのエラーが発生する可能性が低くなり、テストと保守が簡単になります。
 
 Razor ページと Entity Framework が提供している検証のサポートは、DRY 原則の好例です。 検証規則は、1 つの場所 (モデル クラス内) で宣言的に規定され、アプリの任意の場所で適用されます。
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>検証規則をムービー モデルを追加する
 
-*Movie.cs* ファイルを開きます。 [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) には、クラスまたはプロパティに宣言的に適用される組み込みの検証属性セットがあります。 また、DataAnnotations には、検証設定を支援し、検証を行わない `DataType` のような書式設定属性もあります。
+*Movie.cs* ファイルを開きます。 [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) には、クラスまたはプロパティに宣言的に適用される組み込みの検証属性セットがあります。 また、DataAnnotations には、検証設定を支援し、検証を行わない `DataType` のような書式設定属性もあります。
 
 `Required`、`StringLength`、`RegularExpression`、および `Range` 検証属性を利用するように `Movie` クラスを更新します。
 
@@ -49,7 +49,7 @@ ASP.NET Core で検証規則を自動的に適用すると、アプリをより�
 ![複数 jQuery クライアント側検証エラーが表示されたムービー ビュー フォーム](validation/_static/val.png)
 
 > [!NOTE]
-> `Price` フィールドに小数点またはコンマを入力することはできない場合があります。 小数点にコンマ (",") を使用し、英語 (米国) 以外の日付形式を使用する英語以外のロケールの [jQuery 検証](http://jqueryvalidation.org/)をサポートするには、アプリをグローバル化する手順を行う必要があります。 詳しくは、「[その他の技術情報](#additional-resources)」を参照してください。 ここでは、単に 10 のような整数を入力します。
+> `Price` フィールドに小数点またはコンマを入力することはできない場合があります。 小数点にコンマ (",") を使用し、英語 (米国) 以外の日付形式を使用する英語以外のロケールの [jQuery 検証](https://jqueryvalidation.org/)をサポートするには、アプリをグローバル化する手順を行う必要があります。 詳しくは、「[その他の技術情報](#additional-resources)」を参照してください。 ここでは、単に 10 のような整数を入力します。
 
 無効な値を含む各フィールドに、検証エラー メッセージが自動的に表示されることがわかります。 エラーは、(JavaScript と jQuery を使用している) クライアント側とサーバー側 (ユーザーが JavaScript を無効にしている場合) の両方に適用されます。
 
@@ -83,7 +83,7 @@ ASP.NET Core で検証規則を自動的に適用すると、アプリをより�
 
 [!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
-[入力タグ ヘルパー](xref:mvc/views/working-with-forms)は [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) 属性を使用し、クライアント側で jQuery 検証に必要な HTML 属性を生成します。 [検証タグ ヘルパー](xref:mvc/views/working-with-forms#the-validation-tag-helpers)には検証エラーが表示されます。 詳しくは、[検証に関する記事](xref:mvc/models/validation)をご覧ください。
+[入力タグ ヘルパー](xref:mvc/views/working-with-forms)は [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) 属性を使用し、クライアント側で jQuery 検証に必要な HTML 属性を生成します。 [検証タグ ヘルパー](xref:mvc/views/working-with-forms#the-validation-tag-helpers)には検証エラーが表示されます。 詳しくは、[検証に関する記事](xref:mvc/models/validation)をご覧ください。
 
 [Create] ページと [Edit] ページ内に検証規則はありません。 検証規則とエラー文字列は、`Movie` クラスでのみ指定されています。 これらの検証規則は、`Movie` モデルを編集する Razor ページに自動的に適用されます。
 

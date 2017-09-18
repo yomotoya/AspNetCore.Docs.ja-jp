@@ -11,11 +11,11 @@ ms.assetid: 50922cf1-ca58-4006-9236-99b7ff2dd0cf
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/nano-server
-ms.openlocfilehash: affd5bb36f33aab5cdff6904016b628794462d97
-ms.sourcegitcommit: 26166785ad181a8519cb008800d71d96499b0499
+ms.openlocfilehash: 39e9dea5b3cbd43f41f8a9bceb5d5f8eb6adb16d
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="aspnet-core-with-iis-on-nano-server"></a>Nano Server の ASP.NET Core と IIS
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 09/01/2017
 
 ## <a name="introduction"></a>はじめに
 
-Nano Server は Windows Server 2016 のインストール オプションです。フットプリントが小さく、セキュリティに優れています。また、Server Core やフル サーバーに比べてサービス提供機能に優れています。 詳細については、公式の [Nano Server 文書](https://technet.microsoft.com/library/mt126167.aspx)をご覧ください。180 日間の評価版をダウンロードできるリンクも記載されています。 
+Nano Server は Windows Server 2016 のインストール オプションです。フットプリントが小さく、セキュリティに優れています。また、Server Core やフル サーバーに比べてサービス提供機能に優れています。 詳細については、公式の [Nano Server 文書](https://docs.microsoft.com/windows-server/get-started/getting-started-with-nano-server)をご覧ください。180 日間の評価版をダウンロードできるリンクも記載されています。 
 
 Nano Server は 3 つの簡単な方法でお試しいただけます。 MS アカウントでサインインするとき:
 
@@ -106,7 +106,7 @@ IIS が正しく設定されていることを簡単に確認するには、URL 
 
 ## <a name="installing-the-aspnet-core-module-ancm"></a>ASP.NET Core Module (ANCM) のインストール
 
-ASP.NET Core Module は IIS 7.5+ モジュールです。ASP.NET Core HTTP リスナーのプロセス管理を担当し、管理対象のプロセスに要求を送信します。 現時点では、ASP.NET Core Module for IIS は手動でインストールします。 (Nano ではない) 通常のコンピューターに [.NET Core Windows Server Hosting バンドル](https://aka.ms/dotnetcore.2.0.0-windowshosting)をインストールする必要があります。 通常のコンピューターにバンドルをインストールしたら、先に作成したファイル共有に次のファイルをコピーする必要があります。
+ASP.NET Core Module は IIS 7.5+ モジュールです。ASP.NET Core HTTP リスナーのプロセス管理を担当し、管理対象のプロセスに要求を送信します。 現時点では、ASP.NET Core Module for IIS は手動でインストールします。 (Nano ではない) 通常のコンピューターに [.NET Core Windows Server Hosting バンドル](https://download.microsoft.com/download/B/1/D/B1D7D5BF-3920-47AA-94BD-7A6E48822F18/DotNetCore.2.0.0-WindowsHosting.exe)をインストールする必要があります。 通常のコンピューターにバンドルをインストールしたら、先に作成したファイル共有に次のファイルをコピーする必要があります。
 
 (Nano ではない) 通常のサーバーで、次のコピー コマンドを実行します。
 

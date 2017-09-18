@@ -11,18 +11,18 @@ ms.assetid: 73543e9d-d9d5-47d6-9664-17a9beea6cd3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: getting-started
-ms.openlocfilehash: f7852f0dddb0585089f5ccd8f4c865f5b87b049b
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: c81e1328fda6d1652ab937bd580be2342924d241
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core"></a>ASP.NET Core の概要
 
 > [!NOTE]
 > ここで説明する手順は最新バージョンの ASP.NET Core 用です。 以前のバージョンの概要については、 [このチュートリアルの 1.1 バージョン](xref:getting-started-1.1)を参照してください。
 
-1. [.NET Core](https://microsoft.com/net/core/) をインストールします。
+1. [.NET Core](https://www.microsoft.com/net/core/) をインストールします。
 
 2. 新しい .NET Core プロジェクトを作成します。
 

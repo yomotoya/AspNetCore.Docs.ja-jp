@@ -11,11 +11,11 @@ ms.assetid: 830b4bf5-dd14-423e-9f59-764a6f13a8f6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: abe088f2c9df94135209ce71540e6b345186ee70
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 17687e38aae066bdab4663268a2af54f20a6ad75
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>Linux、macOS、Windows で ASP.NET Core MVC と Visual Studio Code を利用して Web API を作成する
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/11/2017
 ## <a name="set-up-your-development-environment"></a>開発環境を構える
 
 次をダウンロードし、インストールします。
-- [.NET Core](https://microsoft.com/net/core)
+- [.NET Core](https://www.microsoft.com/net/core)
 - [Visual Studio Code](https://code.visualstudio.com)
 - Visual Studio Code [C# 拡張](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 
@@ -85,7 +85,7 @@ VS Code の使用に関するヒントが必要であれば、「[Visual Studio 
 
 `TodoItem` が作成されるとき、データベースは `Id` を生成します。
 
-## <a name="create-the-database-context"></a>データベース コンテキストを作成する
+## <a name="create-the-database-context"></a>データベース コンテキストの作成
 
 *データベース コンテキスト*は、所与のデータ モデルに対し、Entity Framework 機能を調整するメイン クラスです。 このクラスは、`Microsoft.EntityFrameworkCore.DbContext` クラスから派生させて作成します。
 
@@ -114,9 +114,9 @@ VS Code で、F5 を押してアプリを起動します。 http://localhost:500
 - [統合ターミナル](https://code.visualstudio.com/docs/editor/integrated-terminal)
 - [ショートカット キー](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
 
-  - [Mac ショートカット キー](https://go.microsoft.com/fwlink/?linkid=832143)
-  - [Linux ショートカット キー](https://go.microsoft.com/fwlink/?linkid=832144)
-  - [Windows ショートカット キー](https://go.microsoft.com/fwlink/?linkid=832145)
+  - [Mac ショートカット キー](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+  - [Linux ショートカット キー](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+  - [Windows ショートカット キー](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
 [!INCLUDE[next steps](../includes/webApi/next.md)]
 

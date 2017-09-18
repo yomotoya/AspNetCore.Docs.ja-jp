@@ -6,7 +6,7 @@
 
 [!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-これは、[`[HttpPost]`](https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/HttpPostAttribute/index.html) 属性で示される HTTP POST メソッドです。 [`[FromBody]`](https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/FromBodyAttribute/index.html) 属性は、HTTP 要求の本文から To Do アイテムの値を取得するよう MVC に指示します。
+これは、HTTP POST メソッドです。[`[HttpPost]`](https://docs.microsoft.com/aspnet/core/api) 属性を使用します。 MVC は、[`[FromBody]`](https://docs.microsoft.com/aspnet/core/api) 属性により、HTTP 要求の本文から to-do 項目の値を取得するよう指示されます。
 
 `CreatedAtRoute` メソッドは、サーバーに新しいリソースを作成する HTTP POST メソッドの標準の応答である 201 の応答を返します。 `CreatedAtRoute` では、応答に場所ヘッダーも追加されます。 場所ヘッダーでは、新しく作成された To Do アイテムの URI を指定します。 「[10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)」 (10.2.2 201 生成) を参照してください。
 
@@ -18,7 +18,7 @@
 * **[Body]** ラジオ ボタンを選択します。
 * **[raw]** ラジオ ボタンを選択します。
 * 型を JSON に設定します。
-* キー/値エディターで、次のような To do アイテムを入力します。 
+* キー/値エディターで次のような To do 項目を追加します。 
 
 ```json
 {

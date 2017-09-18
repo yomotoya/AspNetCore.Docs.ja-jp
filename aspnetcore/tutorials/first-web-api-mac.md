@@ -1,21 +1,20 @@
 ---
 title: "ASP.NET Core と Visual Studio for Mac で Web API を作成する"
-author: rick-anderson
 description: "ASP.NET Core MVC と Visual Studio for Mac で Web API を作成する"
-keywords: "ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, サービス, HTTP サービス"
+author: rick-anderson
 ms.author: riande
-manager: wpickett
-ms.date: 5/24/2017
+ms.date: 09/15/2017
 ms.topic: get-started-article
-ms.assetid: 830b4af5-ed14-1638-7734-764a6f13a8f6
-ms.technology: aspnet
 ms.prod: asp.net-core
-uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 08619d3b4ab2d6fdb04794dcbafac0b696dd8504
-ms.sourcegitcommit: 3273675dad5ac3e1dc1c589938b73db3f7d6660a
+helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
+ms.technology: aspnet
+keywords: "ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, サービス, HTTP サービス"
+manager: wpickett
+ms.openlocfilehash: 82e5c936ab9c59a6ebac1397c2ca35e4379d94c2
+ms.sourcegitcommit: ddefc78270bd9b5ae0b1bd8de6c45f6977e7dceb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>ASP.NET Core MVC と Visual Studio for Mac で Web API を作成する
 
@@ -127,15 +126,15 @@ Visual Studio で、**[実行]、[デバッグありで開始]** の順に選択
 
 ## <a name="implement-the-other-crud-operations"></a>その他の CRUD 操作の実装
 
-コントローラーに、`Create`、`Update`、および `Delete` メソッドを追加します。 これらはテーマのバリエーションなので、コードを示し、主な違いのみを強調表示します。 プロジェクトは、コードの追加または変更後にビルドします。
+コントローラーに、`Create`、`Update`、および `Delete` メソッドを追加します。 これらはテーマのバリエーションなので、単にコードを示し、主な違いを強調します。 プロジェクトは、コードの追加または変更後にビルドします。
 
 ### <a name="create"></a>作成
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-これは、HTTP POST メソッドです。[`[HttpPost]`](https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/HttpPostAttribute/index.html) 属性を使用します。 MVC は、[`[FromBody]`](https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/FromBodyAttribute/index.html) 属性により、HTTP 要求の本文から to-do 項目の値を取得するよう指示されます。
+これは、HTTP POST メソッドです。[`[HttpPost]`](https://docs.microsoft.com/aspnet/core/api) 属性を使用します。 MVC は、[`[FromBody]`](https://docs.microsoft.com/aspnet/core/api) 属性により、HTTP 要求の本文から to-do 項目の値を取得するよう指示されます。
 
-`CreatedAtRoute` メソッドは、サーバーに新しいリソースを作成する HTTP POST メソッドの標準の応答である 201 の応答を返します。 `CreatedAtRoute` では、応答に場所ヘッダーも追加されます。 場所ヘッダーは、新しく作成された to-do 項目の URI を指定します。 「[10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)」 (10.2.2 201 作成) を参照してください。
+`CreatedAtRoute` メソッドは、サーバーに新しいリソースを作成する HTTP POST メソッドの標準の応答である 201 の応答を返します。 `CreatedAtRoute` では、応答に場所ヘッダーも追加されます。 場所ヘッダーでは、新しく作成された To Do アイテムの URI を指定します。 「[10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)」 (10.2.2 201 生成) を参照してください。
 
 ### <a name="use-postman-to-send-a-create-request"></a>Postman を使用した作成要求の送信
 
@@ -144,10 +143,10 @@ Visual Studio で、**[実行]、[デバッグありで開始]** の順に選択
 
 ![Postman のコンソール](first-web-api/_static/pmc.png)
 
-* HTTP メソッド名を `POST` に設定します
-* **Body** ラジオ ボタンを選択します
-* **raw** ラジオ ボタンを選択します
-* 型を JSON に設定します
+* HTTP メソッド名を `POST` に設定します。
+* **[Body]** ラジオ ボタンを選択します。
+* **[raw]** ラジオ ボタンを選択します。
+* 型を JSON に設定します。
 * キー/値エディターで次のような To do 項目を追加します。
 
 ```json
@@ -157,13 +156,13 @@ Visual Studio で、**[実行]、[デバッグありで開始]** の順に選択
 }
 ```
 
-* **[Send]\(送信\)** を選択します
+* **[Send]** を選択します。
 
-* 次のように、下のウィンドウの [Headers]\(ヘッダー\) タブを選択して、**[Location]\(場所\)** ヘッダーをコピーします
+* 次のように、下のウィンドウの [Headers] タブを選択して、**[Location]** ヘッダーをコピーします。
 
-![Postman コンソールの [Headers]\(ヘッダー\) タブ](first-web-api/_static/pmget.png)
+![Postman コンソールの [Headers] タブ](first-web-api/_static/pmget.png)
 
-[Location]\(場所\) ヘッダーの URI を使用して、作成したリソースにアクセスできます。 `GetById` メソッドによって、`"GetTodo"` という名前のルートが作成されたことを思い出してください。
+[Location] ヘッダーの URI を使用して、作成したリソースにアクセスできます。 `GetById` メソッドによって、`"GetTodo"` という名前のルートが作成されたことを思い出してください。
 
 ```csharp
 [HttpGet("{id}", Name = "GetTodo")]
@@ -174,7 +173,7 @@ public IActionResult GetById(string id)
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
 
-`Update` は `Create` と似ていますが、HTTP PUT を使用します。 応答は [204 (No Content)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) です。 HTTP 仕様では、PUT 要求は、デルタのみでなく更新されたエンティティ全体をクライアントに要求します。 部分的な更新をサポートするには、HTTP PATCH を使用します。
+`Update` は `Create` と似ていますが、HTTP PUT を使用します。 応答は [204 (No Content)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) となります。 HTTP 仕様に従って、PUT 要求では、デルタのみでなく、更新されたエンティティ全体を送信するようクライアントに求めます。 部分的な更新をサポートするには、HTTP PATCH を使用します。
 
 ```json
 {
@@ -190,14 +189,14 @@ public IActionResult GetById(string id)
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Delete)]
 
-応答は [204 (No Content)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) です。
+応答は [204 (No Content)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) となります。
 
 ![204 (No Content) の応答を示す Postman コンソール](first-web-api/_static/pmd.png)
 
 ## <a name="next-steps"></a>次のステップ
 
 * [コントローラー アクションへのルーティング](xref:mvc/controllers/routing)
-* API の展開方法の詳細については、「[Publishing and Deployment](../publishing/index.md)」 (発行および配置) を参照してください。
+* API の配置については、[発行および配置](../publishing/index.md)に関するページを参照してください。
 * [サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample)
 * [Postman](https://www.getpostman.com/)
-* [Fiddler](http://www.fiddler2.com/fiddler2/)
+* [Fiddler](https://www.telerik.com/download/fiddler)

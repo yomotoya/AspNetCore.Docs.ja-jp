@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: aa39de71addb2499af6d322db6da0ec635c54970
-ms.sourcegitcommit: d9ec19e5452af83648074db5d96c0a0f4f9e7f9a
+ms.openlocfilehash: 096a60dae171ac5dbfa935be4c16e0903d8f5bb3
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core-with-visual-studio-code"></a>Visual Studio Code を使用する ASP.NET Core の Razor ページの概要
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 08/29/2017
 
 以下をインストールします。
 
-* [.NET Core 2.0.0 SDK](https://dot.net/core) 以降
+* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 以降
 * [Visual Studio Code](https://code.visualstudio.com)
 * VS Code [C# 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
 

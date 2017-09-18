@@ -6,7 +6,7 @@
 
   ![ジャンル、価格、リリース日、タイトルのフィールドを持つビューを作成します。](../../tutorials/first-mvc-app/adding-model/_static/movies.png)
 
-* `Price` フィールドに小数点またはコンマを入力することはできない場合があります。 小数点にコンマ (",") を使用し、英語 (米国) 以外の日付形式を使用する英語以外のロケールの [jQuery 検証](http://jqueryvalidation.org/)をサポートするには、アプリをグローバル化する手順を行う必要があります。 詳細については、https://github.com/aspnet/Docs/issues/4076 および [その他のリソース](#additional-resources)を参照してください。 ここでは、単に 10 のような整数を入力します。
+* `Price` フィールドに小数点またはコンマを入力することはできない場合があります。 小数点にコンマ (",") を使用し、英語 (米国) 以外の日付形式を使用する英語以外のロケールの [jQuery 検証](https://jqueryvalidation.org/)をサポートするには、アプリをグローバル化する手順を行う必要があります。 詳細については、https://github.com/aspnet/Docs/issues/4076 および [その他のリソース](#additional-resources)を参照してください。 ここでは、単に 10 のような整数を入力します。
 
 <a name="displayformatdatelocal"></a>
 
