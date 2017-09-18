@@ -1,11 +1,20 @@
 ---
-title: "Id を構成します。"
+title: "ASP.NET Core Id を構成します。"
+author: AdrienTorris
+description: "ASP.NET Core Id で、既定値を把握し、カスタム値を使用するさまざまな Id プロパティを構成します。"
+keywords: "ASP.NET Core、Identity、認証、セキュリティ"
+ms.author: scaddie
+manager: wpickett
+ms.date: 09/18/2017
+ms.topic: article
+ms.technology: aspnet
+ms.prod: asp.net-core
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 7ccd89360a8c7f5c8c6dfac76df42898e18a116a
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 629fcc2941b2d2fda9604a3eac04be3d0f5294b2
+ms.sourcegitcommit: ddefc78270bd9b5ae0b1bd8de6c45f6977e7dceb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="configure-identity"></a>Id を構成します。
 
