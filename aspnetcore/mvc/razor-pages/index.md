@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: e9678279db85ec03616e693b9772c6ee71c4fef8
-ms.sourcegitcommit: d2f705f7a8ef2c1a940f590e4de188621fd48d2a
+ms.openlocfilehash: 72ab979c6c718544955ae5734903ec936fc5afbc
+ms.sourcegitcommit: 195b2b331434f74334c5c5b7dfeba62d744a1e38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 
@@ -327,7 +327,7 @@ public string Message { get; set; }
 
 上記のコードは、*名前付きハンドラー メソッド*を使用しています。 名前付きハンドラー メソッドは、名前の `On<HTTP Verb>` の後および `Async` の前 (ある場合) のテキストを取得して作成されます。 前の例では、ページ メソッドは OnPost**JoinList**Async と OnPost**JoinListUC**Async です。 *OnPost* と *Async* を削除すると、ハンドラー名は `JoinList` と `JoinListUC` になります。
 
-[!code-cshtml[main](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml?highlight=12-13)]
+[!code-cshtml[main](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml?range=12-13)]
 
 上記のコードを使用すると、`OnPostJoinListAsync` に送信される URL パスは `http://localhost:5000/Customers/CreateFATH?handler=JoinList` になります。 `OnPostJoinListUCAsync` に送信される URL パスは `http://localhost:5000/Customers/CreateFATH?handler=JoinListUC` です。
 
