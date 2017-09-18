@@ -5,22 +5,22 @@ description: "ASP.NET Core の組み込みタグ ヘルパー"
 keywords: "ASP.NET Core,タグ ヘルパー"
 ms.author: riande
 manager: wpickett
-ms.date: 7/11/2017
+ms.date: 09/13/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 3f47cc571eff0c522aaf6543de58f158835384d4
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: e7c8c64283ca3740698300689b10497f984cfd3e
+ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>ASP.NET Core の組み込みタグ ヘルパー
 
 著者: [Peter Kellner](http://peterkellner.net) 
 
-ASP.NET Core フレームワークには、堅牢なコードの作成の生産性を上げるのに役立つ多くのタグ ヘルパーが含まれています。 このセクションでは、すべての組み込みタグ ヘルパーの概要を説明します。
+ASP.NET Core には、生産性を向上させる組み込みタグ ヘルパーが多数含まれます。 このセクションでは、組み込みタグ ヘルパーの概要を説明します。
 
 > [!NOTE]
 > 説明されていない組み込みタグ ヘルパーがありますが、これらは [Razor](xref:mvc/views/razor) ビュー エンジンによって内部的に使われているためです。 これには、Web サイトのルート パスに展開される ~ 文字のタグ ヘルパーが含まれます。
@@ -37,13 +37,13 @@ ASP.NET Core フレームワークには、堅牢なコードの作成の生産�
 
 [comment]: **[FormActionTagHelper](xref:mvc/views/tag-helpers/builtin-th/FormActionTagHelper)**
 
-[comment]: **[FormTagTagHelper](xref:mvc/views/tag-helpers/builtin-th/FormTagHelper)**
+**[フォーム タグ ヘルパー](xref:mvc/views/working-with-forms#the-form-tag-helper)**
 
 **[イメージ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/ImageTagHelper)**
 
-[comment]: **[InputTagHelper](xref:mvc/views/tag-helpers/builtin-th/InputTagHelper)**
+**[入力タグ ヘルパー](xref:mvc/views/working-with-forms#the-input-tag-helper)**
 
-[comment]: **[LabelTagHelper](xref:mvc/views/tag-helpers/builtin-th/LabelTagHelper)**
+**[ラベル タグ ヘルパー](xref:mvc/views/working-with-forms#the-label-tag-helper)**
 
 [comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/LinkTagHelper)**
 
@@ -51,21 +51,15 @@ ASP.NET Core フレームワークには、堅牢なコードの作成の生産�
 
 [comment]: **[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/ScriptTagTagHelper)**
 
-[comment]: **[SelectTagHelper](xref:mvc/views/tag-helpers/builtin-th/SelectTagTagHelper)**
+**[選択タグ ヘルパー](xref:mvc/views/working-with-forms#the-select-tag-helper)**
 
-[comment]: **[TextAreaTagHelper](xref:mvc/views/tag-helpers/builtin-th/TextAreaTagHelper)**
+**[Textarea タグ ヘルパー](xref:mvc/views/working-with-forms#the-textarea-tag-helper)**
 
-[comment]: **[ValidationMessageTagHelper](xref:mvc/views/tag-helpers/builtin-th/ValidationMessageTagHelper)**
+**[検証メッセージ タグ ヘルパー](xref:mvc/views/working-with-forms#the-validation-message-tag-helper)**
 
-[comment]: **[ValidationSummaryTagHelper](xref:mvc/views/tag-helpers/builtin-th/ValidationSummaryTagHelper)**  
-  
-  
-<!--
+**[検証概要タグ ヘルパー](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)**
 
-## Additional Resources
+## <a name="additional-resources"></a>その他の技術情報
 
-REQUIRED These must be xref links, not relative, that is ../../
-* [Client-Side Development](../../../client-side/index.md)
-
-* [Tag Helpers](xref:mvc/views/tag-helpers/intro)
--->
+* [クライアント側の開発](xref:client-side/index)
+* [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)

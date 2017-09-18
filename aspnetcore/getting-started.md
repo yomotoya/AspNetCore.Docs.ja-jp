@@ -5,17 +5,17 @@ description: "ASP.NET Core を使用して単純な Hello World アプリを作�
 keywords: "ASP.NET Core,チュートリアル,概要"
 ms.author: riande
 manager: wpickett
-ms.date: 08/07/2017
+ms.date: 08/30/2017
 ms.topic: get-started-article
 ms.assetid: 73543e9d-d9d5-47d6-9664-17a9beea6cd3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: getting-started
-ms.openlocfilehash: 3399df3958093da9117b013736b1cb370fd6beb2
-ms.sourcegitcommit: 297ee5d2f3b3b24eb8a2c4a25195c9e2973cb91b
+ms.openlocfilehash: f7852f0dddb0585089f5ccd8f4c865f5b87b049b
+ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="getting-started-with-aspnet-core"></a>ASP.NET Core の概要
 
@@ -28,21 +28,26 @@ ms.lasthandoff: 08/14/2017
 
    macOS と Linux では、ターミナル ウィンドウを開きます。 Windows では、コマンド プロンプトを開きます。
 
-   ```terminal
-   mkdir aspnetcoreapp
-   cd aspnetcoreapp
-   dotnet new web
-   ```
+    ```terminal
+    dotnet new razor -o aspnetcoreapp
+    ```
     
 4. アプリを実行します。
 
-   必要に応じて、まず `dotnet run` コマンドでアプリをビルドします。
+    次のコマンドを使用してアプリを実行します。
 
-   ```terminal
-   dotnet run
-   ```
+    ```terminal
+    cd aspnetcoreapp
+    dotnet run
+    ```
 
-5. `http://localhost:5000` を参照します
+5. [http://localhost:5000](http://localhost:5000) に移動します。
+
+6. *Pages/About.cshtml* を開き、"Hello, world! サーバー上の時刻は @DateTime.Now です" というメッセージが表示されるようにページを修正します。
+
+    [!code-html[Main](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+
+7. [http://localhost:5000/About](http://localhost:5000/About) を表示し、変更内容を確認します。
 
 ### <a name="next-steps"></a>次のステップ
 

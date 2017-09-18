@@ -11,11 +11,11 @@ ms.assetid: 563ffb3f-d369-4aa5-bf0a-7300b4e7832c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 30e0d07bdfbd16a475e03c1a21cdd10220bd1630
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 2ddcbfc30a839ed8dd72a632644bf73dcea777ac
+ms.sourcegitcommit: b02db6da115e55140da91b67355aaf56aae1703f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="developing-aspnet-core-apps-using-dotnet-watch"></a>dotnet watch を使用した ASP.NET Core アプリの開発
 
@@ -52,7 +52,7 @@ Web ブラウザーで `http://localhost:5000/api/math/sum?a=4&b=5` に移動す
 - `Microsoft.DotNet.Watcher.Tools` を *.csproj* ファイルに追加します。
  ```xml
  <ItemGroup>
-   <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
+   <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
  </ItemGroup> 
  ```
 
