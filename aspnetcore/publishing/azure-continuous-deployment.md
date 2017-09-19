@@ -11,11 +11,11 @@ ms.assetid: 2707c7a8-2350-4304-9856-fda58e5c0a16
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/azure-continuous-deployment
-ms.openlocfilehash: b576ef6bce3b211afe7465f33dfe62c25dac1f62
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: a9efad38b1c75bd3a186b4ec85861357ecf744b9
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Visual Studio と Git による ASP.NET Core 向け Azure への継続的配置
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 08/11/2017
 「[Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)」 (VSTS と継続的配置で Azure Web アプリをビルドし、公開する) も併せてご覧ください。Visual Studio Team Services を利用した、[Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/) の継続的配信 (CD) ワークフローの構成方法を紹介しています。 チーム サービスの Azure 継続的配信は、Azure App Service にアプリの更新プログラムを公開するための堅牢な配置パイプラインを簡単に設定できるようにします。 Azure ポータルで、このパイプラインのビルド、テスト実行、ステージング スロットへの展開、運用への展開を構成できます。
 
 > [!NOTE]
-> このチュートリアルを完了するには、Microsoft Azure アカウントが必要です。 アカウントをお持ち出ない場合、[MSDN サブスクライバー特典を有効にする](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)か、[無料試用版にサインアップ](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)できます。
+> このチュートリアルを完了するには、Microsoft Azure アカウントが必要です。 アカウントをお持ち出ない場合、[MSDN サブスクライバー特典を有効にする](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)か、[無料試用版にサインアップ](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)できます。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -34,9 +34,9 @@ ms.lasthandoff: 08/11/2017
 
 * [Visual Studio](https://www.visualstudio.com)
 
-* [ASP.NET Core](http://go.microsoft.com/fwlink/?LinkId=627627) (ランタイムとツール)
+* [ASP.NET Core](https://download.microsoft.com/download/F/6/E/F6ECBBCC-B02F-424E-8E03-D47E9FA631B7/DotNetCore.1.0.1-VS2015Tools.Preview2.0.3.exe) (ランタイムとツール)
 
-* [Git](http://git-scm.com/downloads) for Windows
+* [Git](https://git-scm.com/downloads) for Windows
 
 ## <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core Web アプリを作成する
 
