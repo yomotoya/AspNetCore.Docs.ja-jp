@@ -5,18 +5,18 @@ description: "ASP.NET Core のタグ ヘルパーの作成方法を説明しま�
 keywords: "ASP.NET Core、タグ ヘルパー"
 ms.author: riande
 manager: wpickett
-ms.date: 6/14/2017
+ms.date: 06/14/2017
 ms.topic: article
 ms.assetid: 4f16d978-5695-4abf-a785-fdaabf3bbcb9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97013d06273c0993b74cdacfa16cb0d655c73667
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 1a5222da1380c2fe768b287bfa1a49b300c02f2b
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>ASP.NET Core、サンプルとチュートリアルのタグ ヘルパーの作成
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 09/12/2017
     public class Email : TagHelper
     ```
 
-2.  させる、 `EmailTagHelper` 、すべての Razor ビューに使用可能なクラスを追加、`addTagHelper`ディレクティブを*Views/_ViewImports.cshtml*ファイル: [!code-html[メイン](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
+2.  させる、 `EmailTagHelper` 、すべての Razor ビューに使用可能なクラスを追加、`addTagHelper`ディレクティブを*Views/_ViewImports.cshtml*ファイル。[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
     
     上記のコードは、使用可能なアセンブリ内のすべてのタグ ヘルパーを指定するのにワイルドカードの構文を使用します。 後の最初の文字列`@addTagHelper`を読み込むタグ ヘルパーを指定します (使用する"*"すべてのタグ ヘルパーの)、2 番目の文字列"AuthoringTagHelpers"アセンブリを指定するのには、タグ ヘルパーとします。 また、ワイルドカードの構文を使用して ASP.NET Core MVC タグ ヘルパーの 2 番目の行がもたらすことに注意してください (これらのヘルパーは、後ほど[タグ ヘルパーの概要](intro.md))。`@addTagHelper`タグ ヘルパーの Razor ビューを使用できるようにするディレクティブ。 また、次に示すように、タグ ヘルパーの完全修飾名 (FQN) を指定できます。
     
@@ -108,7 +108,7 @@ ms.lasthandoff: 09/12/2017
 
 属性コレクションに現在存在しない限り、その方法は、属性"href"できます。 使用することも、`output.Attributes.Add`タグ ヘルパー属性をタグの属性のコレクションの末尾に追加します。
 
-1.  内のマークアップを更新、 *Views/Home/Contact.cshtml*のこれらの変更されたファイル: [!code-html[メイン](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
+1.  内のマークアップを更新、 *Views/Home/Contact.cshtml*のこれらの変更されたファイル。[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
 
 2.  アプリケーションを実行し、適切なリンクが生成されることを確認します。
     
@@ -183,7 +183,7 @@ ms.lasthandoff: 09/12/2017
 
 1.  追加、*モデル*フォルダーです。
 
-2.  次の追加`WebsiteContext`クラスを*モデル*フォルダー。
+2.  次の `WebsiteContext` クラスを *Models* フォルダーに追加します。
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Models/WebsiteContext.cs)]
 
@@ -226,7 +226,7 @@ ms.lasthandoff: 09/12/2017
     > 
     >Razor、`info`属性は、文字列ではなく、クラスと c# コードを記述します。 しなくても、任意の文字列ではないタグ ヘルパー属性を記述する必要があります、`@`文字です。
     
-5.  アプリを実行し、[バージョン情報を表示する web サイトの情報に移動します。
+5.  アプリを実行し、バージョン情報を表示する web サイトの情報に移動します。
 
     >[!NOTE]
     >終了タグで、次のマークアップを使用してでは、行を削除する`TagMode.StartTagAndEndTag`タグ ヘルパーで。

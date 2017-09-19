@@ -5,16 +5,16 @@ description: "Razor 構文を詳細します。"
 keywords: "ASP.NET Core、Razor"
 ms.author: riande
 manager: wpickett
-ms.date: 07/4/2017
+ms.date: 07/04/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 7648bc2ac7b9efd1653725cda749d6cd271bae77
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fff2f98592473a9baf6a2d4e360fec3026b7210d
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET Core の razor 構文
 
@@ -36,7 +36,7 @@ Razor の既定の言語は、HTML です。 Razor から HTML をレンダリ�
 
 ## <a name="razor-syntax"></a>Razor 構文
 
-Razor (C#) をサポートしを使用して、 `@` HTML を c# から移行する記号。 Razor では、c# 式を評価し、それらを HTML 出力でレンダリングします。 Razor は、c# や Razor 固有のマークアップに HTML から移行できます。 ときに、`@`シンボルが続く、 [Razor 予約キーワード](#razor-reserved-keywords)Razor 固有のマークアップに遷移、遷移プレーンな C# の場合にそれ以外の場合。
+Razor (C#) をサポートしを使用して、 `@` HTML を c# から移行する記号。 Razor では、c# 式を評価し、それらを HTML 出力でレンダリングします。 Razor では、HTML から C# または Razor 固有のマークアップに移行できます。 ときに、`@`シンボルが続く、 [Razor 予約キーワード](#razor-reserved-keywords)Razor 固有のマークアップに遷移、遷移プレーンな C# の場合にそれ以外の場合。
 
 <a name=escape-at-label></a>
 
@@ -494,7 +494,7 @@ Razor ページを公開、`Model`モデルにアクセスするためのプロ�
 
 渡されたときに"[Rick@contoso.com](mailto:Rick@contoso.com)"モデル。
 
-   参照してください[レイアウト](layout.md)詳細についてはします。
+   詳細については、「[Layout](layout.md)」 (レイアウト) を参照してください。
 
 ### `@inject`
 

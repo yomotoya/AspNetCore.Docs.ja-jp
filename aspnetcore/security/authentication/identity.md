@@ -5,17 +5,17 @@ description: "ASP.NET Core アプリケーションの Id を使用してくだ�
 keywords: "ASP.NET Core、Identity、承認、セキュリティ"
 ms.author: riande
 manager: wpickett
-ms.date: 7/7/2017
+ms.date: 07/07/2017
 ms.topic: article
 ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 5a76cac1d64718b9dece3a3201db06c8192fb6f3
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 0c17daa96bc69dc0b8393811a4dfe0e5dc4a1884
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core での Id の概要
 
@@ -161,4 +161,4 @@ ASP.NET Core アプリケーションで Id システムを使用するには、
 * [認証と ID の移行](xref:migration/identity)
 * [アカウントの確認とパスワードの回復](xref:security/authentication/accconfirm)
 * [SMS での 2 要素認証](xref:security/authentication/2fa)
-* [Facebook、Google、他の外部プロバイダーを使用する認証の有効化](xref:security/authentication/social/index)
+* [Facebook、Google、および他の外部プロバイダーを使用する認証の有効化](xref:security/authentication/social/index)
