@@ -11,11 +11,11 @@ ms.assetid: 78571e4a-a143-452d-9cf2-0860f85972e6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 14ce45f0cd15b2de39f722767df076d2c0313787
-ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
+ms.openlocfilehash: 0c0ec1c7c1408b0460c594a47a3e5738cd170d5f
+ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/11/2017
 
 ## <a name="set-up-the-development-environment"></a>開発環境を設定する
 
-* [.NET Core + Visual Studio ツール](http://go.microsoft.com/fwlink/?LinkID=798306)をインストールします。
+* 最新の [Azure SDK for Visual Studio](https://www.visualstudio.com/vs/azure-tools/) をインストールします。 Visual Studio をまだインストールしていない場合は、この SDK でインストールされます。
 
 * [Azure アカウント](https://portal.azure.com/)を確認します。 [無料の Azure アカウントを開く](https://azure.microsoft.com/pricing/free-trial/)か、[Visual Studio サブスクライバー向けの特典をアクティブ化する](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)ことができます。
 
@@ -95,7 +95,7 @@ Web ページを閉じて Visual Studio に戻り、**[デバッグ]** メニュ
 
 * アプリに一意の名前を付けます。 
 
-* MSDN サブスクリプションを選択します。
+* サブスクリプションを選択します。
 
 * リソース グループの **[新規作成]** を選択し、新しいリソース グループの名前を入力します。
 

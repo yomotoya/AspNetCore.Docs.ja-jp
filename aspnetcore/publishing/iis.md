@@ -11,11 +11,11 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: 351f3519643bc88fc3dd1c4fbac1c144c6837523
-ms.sourcegitcommit: 0a70706a3814d2684f3ff96095d1e8291d559cc7
+ms.openlocfilehash: 48e67add785fc1d7e79c659565afb1ec68c1defb
+ms.sourcegitcommit: f531d90646b9d261c5fbbffcecd6ded9185ae292
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-windows-with-iis-and-deploy-to-it"></a>IIS を使用している Windows に ASP.NET Core 用ホスティング環境をセットアップし、その環境に展開する
 
@@ -66,22 +66,38 @@ ms.lasthandoff: 08/22/2017
 
 ## <a name="install-web-deploy-when-publishing-with-visual-studio"></a>Visual Studio で発行する場合の Web 配置のインストール
 
-Visual Studio の Web 配置を使用してアプリケーションを展開する場合は、ホスティング システムに最新バージョンの Web 配置をインストールします。 Web 配置をインストールするには、[Web Platform Installer (WebPI)](https://www.microsoft.com/web/downloads/platform.aspx) を使用するか、[Microsoft ダウンロード センター](https://www.microsoft.com/search/result.aspx?q=webdeploy&form=dlc)からインストーラーを取得することができます。 WebPI を使用することをお勧めします。 WebPI は、スタンドアロンのセットアップとホスティング プロバイダー向けの構成を提供します。
+Visual Studio の Web 配置を使用してアプリケーションを展開する場合は、ホスティング システムに最新バージョンの Web 配置をインストールします。 Web 配置をインストールするには、[Web Platform Installer (WebPI)](https://www.microsoft.com/web/downloads/platform.aspx) を使用するか、[Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=43717)からインストーラーを取得することができます。 WebPI を使用することをお勧めします。 WebPI は、スタンドアロンのセットアップとホスティング プロバイダー向けの構成を提供します。
 
 ## <a name="application-configuration"></a>アプリケーション構成
 
 ### <a name="enabling-the-iisintegration-components"></a>IISIntegration コンポーネントを有効にする
 
-アプリケーションの依存関係に *Microsoft.AspNetCore.Server.IISIntegration* パッケージへの依存関係を含めます。 *.UseIISIntegration()* 拡張メソッドを *WebHostBuilder()*に追加して、IIS 統合ミドルウェアをアプリケーションに組み込みます。 *.UseIISIntegration()* を呼び出すコードはコードの移植性に影響しません。
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+一般的な *Program.cs* は [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) を呼び出してホストの設定を開始します。 `CreateDefaultBuilder` は [Kestrel](xref:fundamentals/servers/kestrel) を Web サーバーとして構成し、ベース パスとポートを [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)に構成することで、IIS 統合を有効にします。
+
+```csharp
+public static IWebHost BuildWebHost(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        ...
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+アプリケーションの依存関係に [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) パッケージへの依存関係を含めます。 *UseIISIntegration* 拡張メソッドを *WebHostBuilder* に追加して、IIS 統合ミドルウェアをアプリケーションに組み込みます。
 
 ```csharp
 var host = new WebHostBuilder()
     .UseKestrel()
-    .UseContentRoot(Directory.GetCurrentDirectory())
     .UseIISIntegration()
-    .UseStartup<Startup>()
-    .Build();
+    ...
 ```
+
+`UseKestrel` と `UseIISIntegration` の両方が必要です。 *UseIISIntegration()* を呼び出すコードはコードの移植性に影響しません。 アプリが IIS の背後で実行されていない場合 (たとえば、アプリが Kestrel で直接実行されている場合)、`UseIISIntegration` は機能しません。
+
+---
+
+ホスティングの詳細については、「[Hosting in ASP.NET Core](xref:fundamentals/hosting)」(ASP.NET Core でのホスティング) を参照してください。
 
 ### <a name="setting-iisoptions-for-the-iisintegration-service"></a>IISIntegration サービスの IISOptions を設定する
 
@@ -154,7 +170,7 @@ Web 配置に使用する発行プロファイルの作成方法については�
 ![[発行] ダイアログ ページ](iis/_static/pub-dialog.png)
 
 ### <a name="web-deploy-outside-of-visual-studio"></a>Visual Studio 外部での Web 配置
-Visual Studio の外部で、コマンド ラインから Web 配置を使用することもできます。 詳細については、[Web 配置ツール](https://technet.microsoft.com/library/dd568996(WS.10).aspx)に関するページを参照してください。
+Visual Studio の外部で、コマンド ラインから Web 配置を使用することもできます。 詳細については、[Web 配置ツール](https://docs.microsoft.com/iis/publish/using-web-deploy/use-the-web-deployment-tool)に関するページを参照してください。
 
 ### <a name="alternatives-to-web-deploy"></a>Web 配置の代替手段
 Web 配置を使用しないか、Visual Studio を使用しない場合は、複数の方法のいずれかを使用して、Xcopy、Robocopy、PowerShell などのホスティング システムにアプリケーションを移行できます。 Visual Studio ユーザーは、[発行サンプル](https://github.com/aspnet/vsweb-publish/blob/master/samples/samples.md)を利用できます。
@@ -185,12 +201,12 @@ IIS でのデータ保護を構成するには、次のいずれかの方法を�
 
 * [powershell スクリプト](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1)を実行し、適切なレジストリ エントリ (たとえば `.\Provision-AutoGenKeys.ps1 DefaultAppPool`) を作成します。 これによりキーはレジストリに格納され、DPAPI を使用して、コンピューター全体に適用するキーによって保護されます。
 * ユーザー プロファイルを読み込むための IIS アプリケーション プールを構成します。 この設定は、アプリケーション プールの **[詳細設定]** の **[プロセス モデル]** セクションにあります。 **[ユーザー プロファイルの読み込み]** を `True` に設定します。 これによりキーはユーザー プロファイル ディレクトリに格納され、DPAPI を使用して、アプリ プールで使うユーザー アカウントに固有のキーによって保護されます。
-* [ファイル システムをキー リング ストアとして使用](https://docs.microsoft.com/aspnet/core/security/data-protection/configuration/overview)するようにアプリケーション コードを調整します。 X509 証明書を使用してキー リングを保護し、それが信頼された証明書であることを確認します。 たとえば、証明書が自己署名証明書である場合は、信頼されたルート ストアに配置する必要があります。
+* [ファイル システムをキー リング ストアとして使用](xref:security/data-protection/configuration/overview)するようにアプリケーション コードを調整します。 X509 証明書を使用してキー リングを保護し、それが信頼された証明書であることを確認します。 たとえば、証明書が自己署名証明書である場合は、信頼されたルート ストアに配置する必要があります。
 
 Web ファームで IIS を使用する場合:
 
 * すべてのコンピューターがアクセスできるファイル共有を使用します。
-* X509 証明書を各コンピューターに配置します。  [コード内にデータ保護](https://docs.asp.net/en/latest/security/data-protection/configuration/overview.html)を構成します。
+* X509 証明書を各コンピューターに配置します。  [コード内にデータ保護](https://docs.microsoft.com/aspnet/core/security/data-protection/configuration/overview)を構成します。
 
 ### <a name="1-create-a-data-protection-registry-hive"></a>1.データ保護のレジストリ ハイブを作成する
 
@@ -244,7 +260,7 @@ ASP.NET Core アプリの下に ASP.NET Core 以外のサブアプリをホス�
 
 ## <a name="configuration-of-iis-with-webconfig"></a>web.config による IIS の構成
 
-リバース プロキシ構成に適用される IIS 機能については、*web.config*の `<system.webServer>` セクションも、IIS の構成に影響します。 たとえば、IIS が動的な圧縮を使用するようにシステム レベルで構成されている場合でも、アプリの *web.config* ファイルで `<urlCompression>` 要素を使用して、アプリに対してその設定を無効にすることができます。 詳細については、[`<system.webServer>` の構成リファレンス](https://www.iis.net/configreference/system.webserver)、「[ASP.NET Core Module Configuration Reference](xref:hosting/aspnet-core-module)」 (ASP.NET Core モジュールの構成リファレンス)、「[Using IIS Modules with ASP.NET Core](xref:hosting/iis-modules)」 (ASP.NET Core での IIS モジュールの使用) を参照してください。 分離されたアプリケーション プール (IIS 10.0 以降でサポートされています) で実行する個別アプリに対して環境変数を設定する必要がある場合は、IIS のリファレンス ドキュメントで、[環境変数\<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) のトピックにある *AppCmd.exe コマンド*のセクションを参照してください。
+リバース プロキシ構成に適用される IIS 機能については、*web.config*の `<system.webServer>` セクションも、IIS の構成に影響します。 たとえば、IIS が動的な圧縮を使用するようにシステム レベルで構成されている場合でも、アプリの *web.config* ファイルで `<urlCompression>` 要素を使用して、アプリに対してその設定を無効にすることができます。 詳細については、[`<system.webServer>` の構成リファレンス](https://docs.microsoft.com/iis/configuration/system.webServer/)、「[ASP.NET Core Module Configuration Reference](xref:hosting/aspnet-core-module)」 (ASP.NET Core モジュールの構成リファレンス)、「[Using IIS Modules with ASP.NET Core](xref:hosting/iis-modules)」 (ASP.NET Core での IIS モジュールの使用) を参照してください。 分離されたアプリケーション プール (IIS 10.0 以降でサポートされています) で実行する個別アプリに対して環境変数を設定する必要がある場合は、IIS のリファレンス ドキュメントで、[環境変数\<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) のトピックにある *AppCmd.exe コマンド*のセクションを参照してください。
 
 ## <a name="configuration-sections-of-webconfig"></a>web.config の構成のセクション
 
@@ -509,6 +525,6 @@ Kestrel が IIS の背後で正常に開始される一方、ローカルで正�
 
 * [ASP.NET Core の概要](../index.md)
 
-* [Microsoft IIS 公式サイト](http://www.iis.net/)
+* [Microsoft IIS 公式サイト](https://www.iis.net/)
 
-* [Microsoft TechNet ライブラリ: Windows Server](https://technet.microsoft.com/library/bb625087.aspx)
+* [Microsoft TechNet ライブラリ: Windows Server](https://docs.microsoft.com/windows-server/windows-server-versions)
