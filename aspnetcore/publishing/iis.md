@@ -11,11 +11,11 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: 48e67add785fc1d7e79c659565afb1ec68c1defb
-ms.sourcegitcommit: f531d90646b9d261c5fbbffcecd6ded9185ae292
+ms.openlocfilehash: 8ffadc1dede4053faa129a3b224aace901e70e14
+ms.sourcegitcommit: ad01283f299d346cf757c4f4744c48634dc27e73
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-windows-with-iis-and-deploy-to-it"></a>IIS を使用している Windows に ASP.NET Core 用ホスティング環境をセットアップし、その環境に展開する
 
@@ -99,21 +99,22 @@ var host = new WebHostBuilder()
 
 ホスティングの詳細については、「[Hosting in ASP.NET Core](xref:fundamentals/hosting)」(ASP.NET Core でのホスティング) を参照してください。
 
-### <a name="setting-iisoptions-for-the-iisintegration-service"></a>IISIntegration サービスの IISOptions を設定する
+### <a name="iis-options"></a>IIS のオプション
 
 *IISIntegration* サービスのオプションを構成するには、*IISOptions* のサービス構成を *ConfigureServices*に含めます。
 
 ```csharp
-services.Configure<IISOptions>(options => {
-  ...
+services.Configure<IISOptions>(options => 
+{
+    ...
 });
 ```
 
-| オプション | 設定|
-| --- | --- | 
-| AutomaticAuthentication | true の場合、認証ミドルウェアは要求ユーザーの到着を変更し、一般的なチャレンジに対応します。 false の場合、認証ミドルウェアは theAuthenticationScheme によって明示的に指示された場合にのみ、ID を提供し、チャレンジに応答します。 |
-| ForwardClientCertificate | true の場合、`MS-ASPNETCORE-CLIENTCERT` 要求ヘッダーが指定されていると、`ITLSConnectionFeature` が設定されます。 |
-| ForwardWindowsAuthentication | true の場合、認証ミドルウェアはプラットフォーム ハンドラーの Windows 認証を使用して認証しようとします。 false の場合、認証ミドルウェアは追加されません。 |
+| オプション                         | 既定値 | 設定 |
+| ------------------------------ | ------- | ------- |
+| `AutomaticAuthentication`      | `true`  | `true` の場合、認証ミドルウェアが `HttpContext.User` を設定し、一般的な課題に応答します。 `false` の場合、認証ミドルウェアは ID (`HttpContext.User`) を提供するだけで、`AuthenticationScheme` によって明示的に要求されたときに課題に応答します。 `AutomaticAuthentication` を機能させるためには、IIS で Windows 認証を有効にする必要があります。 |
+| `AuthenticationDisplayName`    | `null`  | ログイン ページでユーザーに表示名が表示されるように設定します。 |
+| `ForwardClientCertificate`     | `true`  | `true` の場合、`MS-ASPNETCORE-CLIENTCERT` 要求ヘッダーが指定されていると、`HttpContext.Connection.ClientCertificate` が設定されます。 |
 
 ### <a name="webconfig"></a>web.config
 
@@ -449,7 +450,7 @@ Kestrel が IIS の背後で正常に開始される一方、ローカルで正�
 
 * Kestrel でアプリケーションをローカルに実行できることを確認します。 プロセスのエラーは、アプリケーション内の問題の結果である可能性があります。 詳細については、「[トラブルシューティングのヒント](#troubleshooting-tips)」を参照してください。
 
-* *web.config* で `<aspNetCore>`要素の *arguments* 属性を調べ、次のいずれかになっていることを確認します。(a) フレームワークに依存する展開の場合は *.\my_applciation.dll*、または (b) 自己完結型の展開の場合は、未指定の空の文字列 (*arguments=""*) か、アプリケーションの引数のリスト (*arguments="arg1, arg2, ..."*)。
+* *web.config* で `<aspNetCore>` 要素の *arguments* 属性を調べ、次のいずれかになっていることを確認します。(a) フレームワークに依存する展開の場合は *.\my_applciation.dll*、または (b) 自己完結型の展開の場合は、未指定の空の文字列 (*arguments=""*) か、アプリケーションの引数のリスト (*arguments="arg1, arg2, ..."*)。
 
 ### <a name="missing-net-framework-version"></a>.NET Framework バージョンの欠落
 
