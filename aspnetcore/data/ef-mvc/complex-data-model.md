@@ -11,11 +11,11 @@ ms.assetid: 0dd63913-a041-48b6-96a4-3aeaedbdf5d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: a9e255040c300bc5ce55a356e17e6912dbaeaf88
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: dde50f766dc9842089cbb0561b8bd6e2d8e7c34f
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>EF コア ASP.NET Core MVC のチュートリアル (10 の 5) に、複雑なデータ モデルを作成します。
 
@@ -41,27 +41,27 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-`DataType`属性を使用してデータベースの組み込み型よりも特定のデータ型を指定します。 ここでのみが必要を追跡する、日付、日付と時刻がありません。 `DataType`日付、時刻、PhoneNumber、通貨、EmailAddress などの多くのデータ型の列挙体を提供します。 `DataType`属性も自動的に機能を提供する型固有のアプリケーションを有効にすることができます。 たとえば、`mailto:`のリンクを作成できます`DataType.EmailAddress`、日付選択を指定することができます、 `DataType.Date` HTML5 をサポートするブラウザーでします。 `DataType`属性は、HTML 5 を出力`data-`HTML 5 ブラウザーを理解することができます (データと読みます dash) の属性です。 `DataType`属性は、いずれかの検証を渡さないようにします。
+`DataType` 属性は、データベースの組み込み型よりも具体的なデータ型を指定するために使用されます。 ここでのみが必要を追跡する、日付、日付と時刻がありません。 `DataType`日付、時刻、PhoneNumber、通貨、EmailAddress などの多くのデータ型の列挙体を提供します。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 たとえば、`mailto:` リンクを `DataType.EmailAddress` に作成したり、HTML5 をサポートするブラウザーで `DataType.Date` に日付セレクターを提供したりできます。 `DataType`属性は、HTML 5 を出力`data-`HTML 5 ブラウザーを理解することができます (データと読みます dash) の属性です。 `DataType`属性は、いずれかの検証を渡さないようにします。
 
-`DataType.Date`表示される日付の形式を指定しません。 既定では、サーバーの CultureInfo に基づく既定の形式に従ってデータ フィールドが表示されます。
+`DataType.Date` は、表示される日付の書式を指定しません。 既定では、サーバーの CultureInfo に基づく既定の形式に従ってデータ フィールドが表示されます。
 
-`DisplayFormat`属性を使用して、日付の書式を明示的に指定します。
+`DisplayFormat` 属性は、日付の書式を明示的に指定するために使用されます。
 
 ```csharp
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-`ApplyFormatInEditMode`設定では、書式設定も適用されることを編集するためのテキスト ボックスが表示されたら、値を指定します。 (たくない一部のフィールドなどの通貨値の可能性がありますしないこと、テキスト ボックス内の通貨記号を編集するためです。)
+`ApplyFormatInEditMode` の設定では、編集用にテキスト ボックスに値を表示するときにも適用する必要がある書式設定を指定します  (たくない一部のフィールドなどの通貨値の可能性がありますしないこと、テキスト ボックス内の通貨記号を編集するためです。)
 
 使用することができます、`DisplayFormat`自体が、属性が使用することをお勧めでは一般に、`DataType`も属性します。 `DataType`属性を画面に表示する方法ではなく、データのセマンティクスを伝達し、次の利点を得られないことを示します`DisplayFormat`:
 
 * ブラウザーが HTML5 機能を有効にすることができます (たとえば、予定表コントロールでは、ロケールに応じた通貨記号、電子メールへのリンクを表示する、いくつかのクライアント側入力検証などです。)。
 
-* 既定では、ブラウザーは、ロケールに基づく正しい形式を使用してデータを表示します。
+* ブラウザーの既定では、ロケールに基づいて正しい書式を使ってデータがレンダリングされます。
 
 詳細については、次を参照してください。、 [\<入力 > タグ ヘルパーのドキュメント](../../mvc/views/working-with-forms.md#the-input-tag-helper)です。
 
-受講者インデックス ページを再度実行し、登録の日付の時刻が表示されていないことに注意してください。 学生のモデルを使用する任意のビューの場合は true。 同じになります。
+アプリを実行する、受講者インデックス ページに移動し、登録の日付の時刻が表示されていないことに注意してください。 学生のモデルを使用する任意のビューの場合は true。 同じになります。
 
 ![受講者時刻なしの日付が表示されたページをインデックスします。](complex-data-model/_static/dates-no-times.png)
 
@@ -97,7 +97,7 @@ dotnet ef database update
 
 移行ファイル名にプレフィックスのタイムスタンプは、Entity Framework によって、移行を並べ替えに使用されます。 データベースの更新コマンドを実行する前に複数の移行を作成することができ、移行のすべてが作成された順序で適用されます、します。
 
-作成 ページを実行し、50 文字以下のいずれかの名前を入力します。 作成 をクリックすると、クライアント側の検証は、エラー メッセージを示します。
+アプリを実行する、選択、**受講者** タブで、をクリックして**新規作成**、50 文字以下のいずれかの名前を入力します。 クリックすると、**作成**クライアント側の検証エラー メッセージが表示されます。
 
 ![学生のインデックス文字列の長さエラーを示すページ](complex-data-model/_static/string-length-errors.png)
 
@@ -483,11 +483,11 @@ dotnet ef database update
 
 アプリケーションを実行、`DbInitializer.Initialize`メソッドを実行し、新しいデータベースを設定します。
 
-以前に行ったよう、SSOX でデータベースを開き、展開、**テーブル**ノードをすべてのテーブルが作成されたことを確認します。 (以前の状態から開く SSOX があるを場合更新 をクリックします。)
+以前に行ったよう、SSOX でデータベースを開き、展開、**テーブル**ノードをすべてのテーブルが作成されたことを確認します。 (以前の状態から開く SSOX まだの場合にをクリックして、**更新**ボタンをクリックします)。
 
 ![SSOX 内のテーブル](complex-data-model/_static/ssox-tables.png)
 
-データベースのシードを設定する初期化子のコードをトリガーするアプリケーションを実行します。
+データベースのシードを設定する初期化子のコードをトリガーするアプリを実行します。
 
 右クリックし、 **CourseAssignment**テーブルを選択して**ビュー データ**にデータが入っていることを確認します。
 

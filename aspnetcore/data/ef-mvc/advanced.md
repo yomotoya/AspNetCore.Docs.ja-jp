@@ -11,11 +11,11 @@ ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 210f8e8b91c2487e5c4b73fdeb6ff0d5aa35c0c5
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 70434d1c814af2a96493027c6a2ad87845cd5cae
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>高度なトピックの EF コア ASP.NET Core MVC のチュートリアル (10 10 の)
 
@@ -61,7 +61,7 @@ Entity Framework を使用する利点の 1 つは、コードのデータを格
 
 [!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
 
-バージョン情報 ページを実行します。 以前と同じ、同じデータが表示されます。
+アプリを実行してバージョン情報 ページに移動します。 以前と同じ、同じデータが表示されます。
 
 ![ページについて](advanced/_static/about.png)
 
@@ -109,7 +109,7 @@ Contoso 大学管理者がすべてのコースのクレジットの数の変更
 
 開いている*StudentsController.cs*し、、`Details`メソッドにブレークポイントを設定する、`if (student == null)`ステートメントです。
 
-デバッグ モードでアプリケーションを実行し、受講者についての詳細 ページに移動します。
+デバッグ モードでアプリを実行して、受講者についての詳細 ページに移動します。
 
 移動して、**出力**デバッグを表示するウィンドウは次の出力、およびクエリを参照してください。
 

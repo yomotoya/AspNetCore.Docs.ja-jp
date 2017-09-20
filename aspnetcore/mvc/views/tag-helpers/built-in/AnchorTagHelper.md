@@ -2,7 +2,7 @@
 title: "アンカー タグ ヘルパー |Microsoft ドキュメント"
 author: pkellner
 description: "アンカー タグ ヘルパーを使用する方法を示しています。"
-keywords: "ASP.NET Core、タグ ヘルパー"
+keywords: "ASP.NET Core,タグ ヘルパー"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
@@ -11,15 +11,15 @@ ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a011
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/AnchorTagHelper
-ms.openlocfilehash: f08e6a5288076d56b55843f1872bcfa8104f3923
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fdb91836699b4dd334499cffa6c4c3961c5c020f
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="anchor-tag-helper"></a>アンカー タグ ヘルパー
 
-によって[Peter Kellner](http://peterkellner.net) 
+著者: [Peter Kellner](http://peterkellner.net) 
 
 アンカー タグ ヘルパーの強化 HTML アンカー (`<a ... ></a>`) 新しい属性を追加してタグ。 生成されたリンク (上、`href`タグ)、新しい属性を使用して作成します。 その URL には、https などの省略可能なプロトコルを含めることができます。
 
@@ -207,11 +207,11 @@ app.UseMvc(routes =>
 
     * *ブログ*
 
-      * *コント ローラー*
+      * *コントローラー*
 
         * *HomeController.cs*
 
-      * *表示モード*
+      * *ビュー*
 
         * *ホーム*
 
@@ -219,7 +219,7 @@ app.UseMvc(routes =>
           
           * *AboutBlog.cshtml*
           
-  * *コント ローラー*
+  * *コントローラー*
   
 
         

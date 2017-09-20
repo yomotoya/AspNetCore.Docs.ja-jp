@@ -10,11 +10,11 @@ ms.assetid: e6c1ff3c-5673-43bf-9c2d-077f6ada1f29
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 9de39ce59633036c0dd850a7552bd3f4806c5431
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 149af0ce88d55527a42ba3b88d40047a61d510c9
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>並べ替え、フィルター、ページング、およびグループ化 - ASP.NET Core MVC のチュートリアル (10 の 3) と EF コア
 
@@ -67,7 +67,7 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 
 このコード内の情報を使用して`ViewData`適切なクエリでハイパーリンクを設定するプロパティの文字列値です。
 
-ページを実行し、をクリックして、**姓**と**登録日**を並べ替えることを確認する列見出しが動作します。
+アプリを実行する、選択、**受講者**タブをクリックし、をクリックして、**姓**と**登録日**を並べ替えることを確認する列見出しが動作します。
 
 ![受講者名の順にページをインデックスします。](sort-filter-page/_static/name-order.png)
 
@@ -94,9 +94,9 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 
 [!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
-このコードを使用して、 `<form>` [タグ ヘルパー](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/intro)検索テキスト ボックスとボタンを追加します。 既定では、`<form>`タグ ヘルパーが、パラメーターとして渡される HTTP メッセージの本文では、URL ではなくクエリ文字列は、投稿にフォーム データを送信します。 HTTP GET を指定すると、フォームのデータに渡されます URL クエリ文字列としてユーザーの URL をブックマークすることができます。 アクションが、更新プログラムにならない場合に、W3C のガイドラインをお勧めしますが使用するを取得します。
+このコードを使用して、 `<form>` [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)検索テキスト ボックスとボタンを追加します。 既定では、`<form>`タグ ヘルパーが、パラメーターとして渡される HTTP メッセージの本文では、URL ではなくクエリ文字列は、投稿にフォーム データを送信します。 HTTP GET を指定すると、フォームのデータに渡されます URL クエリ文字列としてユーザーの URL をブックマークすることができます。 アクションが、更新プログラムにならない場合に、W3C のガイドラインをお勧めしますが使用するを取得します。
 
-ページの実行、検索文字列を入力し、検索フィルターが機能していることを確認する をクリックします。
+アプリを実行する、選択、**受講者** タブで、検索文字列を入力し、検索フィルターが機能していることを確認する をクリックします。
 
 ![フィルター処理の受講者インデックス ページ](sort-filter-page/_static/filtering.png)
 
@@ -193,7 +193,7 @@ return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pa
 </a>
 ```
 
-ページを実行します。
+アプリを実行して、受講者のページに移動します。
 
 ![受講者とページングのリンクのページをインデックスします。](sort-filter-page/_static/paging.png)
 
@@ -241,7 +241,7 @@ LINQ ステートメントの登録日で学生エンティティをグループ
 
 [!code-html[](intro/samples/cu/Views/Home/About.cshtml)]
 
-アプリケーションを実行し、をクリックして、**に関する**リンクします。 登録の日付ごとの生徒の数は、テーブルに表示されます。
+アプリを実行してバージョン情報 ページに移動します。 登録の日付ごとの生徒の数は、テーブルに表示されます。
 
 ![ページについて](sort-filter-page/_static/about.png)
 

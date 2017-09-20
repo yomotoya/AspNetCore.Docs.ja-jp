@@ -2,7 +2,7 @@
 title: "キャッシュ タグ ヘルパーの分散 |Microsoft ドキュメント"
 author: pkellner
 description: "キャッシュ タグ ヘルパーを使用する方法を示しています。"
-keywords: "ASP.NET Core、タグ ヘルパー"
+keywords: "ASP.NET Core,タグ ヘルパー"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
@@ -12,14 +12,14 @@ ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/DistributedCacheTagHelper
 ms.openlocfilehash: 2b260624fb2d85ab1a2625511397bcb4a85b6e77
-ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="distributed-cache-tag-helper"></a>分散キャッシュ タグ ヘルパー
 
-によって[Peter Kellner](http://peterkellner.net) 
+著者: [Peter Kellner](http://peterkellner.net) 
 
 
 分散キャッシュ タグ ヘルパーは、分散キャッシュ ソースにそのコンテンツをキャッシュすることによって、ASP.NET Core アプリケーションのパフォーマンスを大幅に改善する機能を提供します。

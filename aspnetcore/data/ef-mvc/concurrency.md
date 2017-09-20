@@ -11,11 +11,11 @@ ms.assetid: 15e79e15-bda5-441d-80c7-8032a2628605
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: f44a4f842180b4001eb1428316c24fd9cacc39db
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: fc6b218034183a9153c1ef22c99d920a942d2d09
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>同時実行の競合の ASP.NET Core MVC のチュートリアル (10 の 8) に EF コアの処理
 
@@ -184,9 +184,7 @@ _context.Entry(departmentToUpdate).Property("RowVersion").OriginalValue = rowVer
 
 ## <a name="test-concurrency-conflicts-in-the-edit-page"></a>[編集] ページでの同時実行の競合をテストします。
 
-サイトを実行し、[部門インデックス ページに移動するのには、部門] をクリックします。
-
-右クリックし、**編集**ハイパーリンクをクリックし、英語部門**新しいタブで開く**、をクリックして、**編集**英語部門のハイパーリンクのです。 2 つのブラウザー タブでは、同じ情報が表示されます。
+アプリを実行して、部門インデックス ページに移動します。 右クリックし、**編集**ハイパーリンクをクリックし、英語部門**新しいタブで開く**、をクリックして、**編集**英語部門のハイパーリンクのです。 2 つのブラウザー タブでは、同じ情報が表示されます。
 
 最初のブラウザー タブ内のフィールドを変更し、クリックして**保存**です。
 
@@ -255,7 +253,7 @@ public async Task<IActionResult> Delete(Department department)
 
 * 隠しフィールドを追加、`RowVersion`プロパティです。
 
-部門のインデックス ページを実行します。 右クリックして、**削除**ハイパーリンクをクリックし、英語部門**新しいタブで開く**、最初のタブをクリックして、**編集**英語部門のハイパーリンクのです。
+アプリを実行して、部門インデックス ページに移動します。 右クリックし、**削除**ハイパーリンクをクリックし、英語部門**新しいタブで開く**、最初のタブをクリックして、**編集**英語部門のハイパーリンクのです。
 
 最初のウィンドウで、値のいずれかを変更し、クリックして**保存**:
 

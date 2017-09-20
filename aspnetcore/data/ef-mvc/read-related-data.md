@@ -11,11 +11,11 @@ ms.assetid: 71fec30f-8ea7-4ca8-96e3-d2e26c5be44e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: a3badbfe365a99593b38fc3846a9984824438f16
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: e818411f2cc568afdfd0612a6367dc3e257d0dd7
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>読み取りに関連したデータの ASP.NET Core MVC のチュートリアル (10 の 6) の EF コア
 
@@ -85,7 +85,7 @@ CoursesController と同じオプションを使用して、Course エンティ�
   @Html.DisplayFor(modelItem => item.Department.Name)
   ```
 
-部門名の一覧を表示するには、ページ (Contoso 大学のホーム ページのコース タブを選択する) を実行します。
+アプリの実行を選択して、**コース**部署名を使用してリストを表示するタブです。
 
 ![インデックス ページのコース](read-related-data/_static/courses-index.png)
 
@@ -203,7 +203,7 @@ EF 読み取り/書き込みアクションの次の図に示すように、イ�
   <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
   ```
 
-アプリケーションを実行し、インストラクター タブを選択します。関連 OfficeAssignment エンティティが存在しない場合は、関連 OfficeAssignment エンティティと空のテーブル セルの Location プロパティを表示します。
+アプリの実行を選択して、**講習においてインストラクター**タブです。関連 OfficeAssignment エンティティが存在しない場合は、関連 OfficeAssignment エンティティと空のテーブル セルの Location プロパティを表示します。
 
 ![講習においてインストラクター インデックス ページが何も選択](read-related-data/_static/instructors-index-no-selection.png)
 
@@ -213,7 +213,7 @@ EF 読み取り/書き込みアクションの次の図に示すように、イ�
 
 このコードを読み取り、`Courses`コースの一覧を表示するビューのモデルのプロパティです。 用意されています、**選択**ハイパーリンクを選択したコースの ID を送信する、`Index`アクション メソッド。
 
-ページを実行し、インストラクターを選択します。 これで、選択したインストラクターに割り当てられているコースを表示するグリッドが表示し、する各コースに割り当てられている部署の名前を参照してください。
+ページを更新し、インストラクターを選択します。 これで、選択したインストラクターに割り当てられているコースを表示するグリッドが表示し、する各コースに割り当てられている部署の名前を参照してください。
 
 ![講習においてインストラクター インデックス ページ講師が選択されています。](read-related-data/_static/instructors-index-instructor-selected.png)
 
@@ -223,7 +223,7 @@ EF 読み取り/書き込みアクションの次の図に示すように、イ�
 
 このコードは、受講者コースに登録済みの一覧を表示するために、ビュー モデルの登録プロパティを読み取ります。
 
-ページを実行し、インストラクターを選択します。 登録済みの受講者との成績の一覧を表示するコースを選択します。
+ページをもう一度更新し、インストラクターを選択します。 登録済みの受講者との成績の一覧を表示するコースを選択します。
 
 ![講習においてインストラクター インデックス ページ インストラクターと選択したコース](read-related-data/_static/instructors-index.png)
 
@@ -237,7 +237,7 @@ EF 読み取り/書き込みアクションの次の図に示すように、イ�
 
 新しいコードを削除、 *ThenInclude*インストラクター エンティティを取得するコードから登録データのメソッドを呼び出します。 インストラクターとコースが選択されている場合、強調表示されたコードは、選択したコースの登録のエンティティと各登録のための学生エンティティを取得します。
 
-講師インデックス ページを今すぐ実行して表示されますなし ページで、表示される内容に違いが、データの取得方法を変更しました。
+今すぐ講習においてインストラクター インデックス ページに移動して、アプリが表示されますなし ページで、表示される内容に違いが、データの取得方法を変更した実行します。
 
 ## <a name="summary"></a>概要
 

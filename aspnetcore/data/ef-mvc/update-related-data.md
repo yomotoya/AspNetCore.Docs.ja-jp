@@ -11,11 +11,11 @@ ms.assetid: 67bd162b-bfb7-4750-9e7f-705228b5288c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 655fefc0f9d884300bea670795c39a7a9aa10bb8
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: 981a099630008eaf11599b17c4d4d5d6e86b8b90
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>関連するデータの EF コア ASP.NET Core MVC のチュートリアル (10 の 7) での更新
 
@@ -91,14 +91,14 @@ HttpGet`Edit`メソッドは編集されているコースに既に割り当て�
 
 ### <a name="test-the-course-pages"></a>コース ページをテストします。
 
-実行、**作成**ページ (コース インデックス ページを表示し、をクリックして**新規作成**) と新しいコースのデータを入力します。
+アプリを実行する、選択、**コース** タブで、をクリックして**新規作成**、新しいコースのデータを入力。
 
 ![コースの作成 ページ](update-related-data/_static/course-create.png)
 
 
               **[作成]**をクリックします。 一覧に追加された新しいコース コース インデックス ページが表示されます。 インデックス ページの一覧で、部門名を示すリレーションシップが正常に確立されているナビゲーション プロパティに由来します。
 
-実行、**編集**ページ (をクリックして**編集**コース インデックス ページ内のコースに)。
+をクリックして**編集**コース インデックス ページ内のコースをします。
 
 ![コースの編集 ページ](update-related-data/_static/course-edit.png)
 
@@ -160,7 +160,7 @@ HttpGet`Edit`メソッドは編集されているコースに既に割り当て�
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=30-34)]
 
-ページの実行 (選択、**講習においてインストラクター**  タブをクリックして**編集**インストラクターに)。 変更、**オフィス** をクリック**保存**です。
+アプリを実行する、選択、**講習においてインストラクター**  タブをクリックして**編集**インストラクターにします。 変更、**オフィス** をクリック**保存**です。
 
 ![講師の編集 ページ](update-related-data/_static/instructor-edit-office.png)
 
@@ -228,7 +228,7 @@ UI コースを変更することができるインストラクターに割り�
 
 チェック ボックスが最初に表示されると、適合インストラクターに割り当てられているコースのチェックが属性、選択を (それらのチェックが表示される) にあります。
 
-インストラクター インデックス ページを実行し、をクリックして**編集**、インストラクターを表示するには**編集**ページ。
+アプリを実行する、選択、**講習においてインストラクター**タブをクリックし、をクリックして**編集**を表示するには、あるインストラクターに、**編集**ページ。
 
 ![コースをインストラクターの編集 ページ](update-related-data/_static/instructor-edit-courses.png)
 
@@ -288,7 +288,7 @@ public ICollection<CourseAssignment> CourseAssignments
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Create.cshtml?range=29-61)]
 
-テストを実行して、**作成**ページと、インストラクターを追加します。 
+アプリケーションを実行して、インストラクターを作成してテストします。 
 
 ## <a name="handling-transactions"></a>トランザクションの処理
 

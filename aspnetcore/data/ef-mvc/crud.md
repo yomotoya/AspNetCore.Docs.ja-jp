@@ -11,11 +11,11 @@ ms.assetid: 6e1cd570-40f1-4b24-8b6e-7d2d27758f18
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 87aa7e63b1a08e457c5fdcbc052bfa039b8d2175
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 3393bb90d170cfc572d2307ec18f1a8e25bdce59
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>作成、読み取り、更新、および削除の ASP.NET Core MVC のチュートリアル (10 の 2) と EF コア
 
@@ -108,7 +108,7 @@ http://localhost:1230/Instructor/Index?id=1&CourseID=2021
 
 このコードは、内のエンティティをループ処理、`Enrollments`ナビゲーション プロパティ。 各登録の場合は、コースのタイトルとグレードが表示されます。 格納されているコース エンティティからコース タイトルが取得される、`Course`登録エンティティのナビゲーション プロパティ。
 
-アプリケーションの実行で、選択、**受講者**タブをクリックし、をクリックして、**詳細**受講者をリンクします。 選択した受講者コースとグレードの一覧を参照してください。
+アプリを実行する、選択、**受講者**タブをクリックし、をクリックして、**詳細**受講者をリンクします。 選択した受講者コースとグレードの一覧を参照してください。
 
 ![学生の詳細 ページ](crud/_static/student-details.png)
 
@@ -156,7 +156,7 @@ public class Student
 
 内のコード*Views/Students/Create.cshtml*を使用して`label`、 `input`、および`span`の検証メッセージ タグ ヘルパーの各フィールドにします。
 
-選択して、ページの実行、**受講者** タブをクリックして**新規作成**です。
+アプリを実行する、選択、**受講者**タブをクリックし、をクリックして**新規作成**です。
 
 名前と日付を入力します。 お使いのブラウザーを実行できる場合は、無効な日付を入力してください。 (一部のブラウザーを強制する日付の選択を使用します。)をクリックして**作成**エラー メッセージを表示します。
 
@@ -222,7 +222,7 @@ Web アプリで、`DbContext`エンティティと、ページが表示され�
 
 ### <a name="test-the-edit-page"></a>テストの編集 ページ
 
-アプリケーションの実行を選択して、**受講者** タブのをクリックして、**編集**ハイパーリンクです。
+アプリを実行する、選択、**受講者** タブのをクリックして、**編集**ハイパーリンクです。
 
 ![[編集] ページの受講者](crud/_static/student-edit.png)
 
@@ -264,7 +264,7 @@ HttpPost を置き換える`Delete`アクション メソッド (名前付き`De
 
 [!code-html[](intro/samples/cu/Views/Students/Delete.cshtml?range=7-9&highlight=2)]
 
-選択して、ページの実行、**受講者** タブをクリックし、**削除**ハイパーリンク。
+アプリを実行する、選択、**受講者**タブをクリックし、をクリックして、**削除**ハイパーリンク。
 
 ![削除の確認 ページ](crud/_static/student-delete.png)
 

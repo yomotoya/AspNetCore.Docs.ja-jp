@@ -11,11 +11,11 @@ ms.assetid: 41dc0db7-6f17-453e-aba6-633430609c74
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 3c86dea145d2d4dec10c77e008f511cfe67975f9
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: 6102b426cb5aff78fedb9389df229cd8100e4f36
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>継承の ASP.NET Core MVC のチュートリアル (10 の 9) と EF コア
 
@@ -131,7 +131,7 @@ dotnet ef database update
 
 ## <a name="test-with-inheritance-implemented"></a>継承の実装をテストします。
 
-サイトを実行して、さまざまなページを再試行してください。 前に、と同じに動作します。
+アプリを実行して、さまざまなページを再試行してください。 前に、と同じに動作します。
 
 **SQL Server オブジェクト エクスプ ローラー**、展開**データ接続/SchoolContext**し**テーブル**、Student テーブルとインストラクター テーブルに置換されたことを確認して、Person テーブル。 Person テーブル デザイナーを開くし、Student テーブルとインストラクター テーブルに存在するために使用される列のすべてがあるを参照してください。
 
