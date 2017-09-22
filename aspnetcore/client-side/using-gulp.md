@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-gulp
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd617a99ad348c545cbf50f6aa461ca8f456d3a8
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: d2a2971a46d9d45a8fda5ac56073af608a0ede2b
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>ASP.NET Core で Gulp を使用の概要 
 
@@ -305,7 +305,7 @@ Gulp 使用すると、ステージングと運用環境のクライアント側
 
     Web アプリのプロパティ シートが表示されます。
 
-3.  クリックして、**デバッグ**タブです。
+3.  **[デバッグ]** タブをクリックします。
 
 4.  値を設定、**ホスティング環境:**環境変数を`Production`です。
 

@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 8f8612fd9c92370d9b0a86572dca654a6a034916
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: b66ef7e3626effff1c66c37a86865699fa8866f9
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="working-with-multiple-environments"></a>複数の環境での作業
 
@@ -100,7 +100,7 @@ $Env:ASPNETCORE_ENVIRONMENT = "Development"
 
 **IIS アプリケーション プール単位**
 
-分離アプリケーション プール (IIS 10.0 以降でサポート) で実行されている個々 のアプリの環境変数を参照してくださいを設定する必要がある場合、 *AppCmd.exe コマンド*のセクションで、[環境変数\<environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) IIS」リファレンス ドキュメント。
+分離されたアプリケーション プール (IIS 10.0 以降でサポートされています) で実行する個別アプリに対して環境変数を設定する必要がある場合は、IIS のリファレンス ドキュメントで、[環境変数\<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) のトピックにある *AppCmd.exe コマンド*のセクションを参照してください。
 
 ### <a name="macos"></a>MacOS
 MacOS の現在の環境を設定する場合に実行できます行で、アプリケーションを実行しています。
@@ -160,4 +160,4 @@ ASP.NET Core では、さまざまな機能と開発者はさまざまな環境�
 
 * [構成](configuration.md)
 
-* [タグ ヘルパーの概要](../mvc/views/tag-helpers/intro.md)
+* [Tag Helpers の概要](../mvc/views/tag-helpers/intro.md)

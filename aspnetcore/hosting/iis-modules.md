@@ -11,11 +11,11 @@ ms.assetid: 492b3a7e-04c5-461b-b96a-38ecee5c64bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/iis-modules
-ms.openlocfilehash: 353cd4c18cb2708f2dece5ba2b5271f452379d52
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 97c5fb6db6fe2a1dbae5529c11479413fd4814fb
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>ASP.NET Core で IIS のモジュールの使用
 
@@ -41,7 +41,7 @@ ASP.NET Core アプリケーションは、リバース プロキシの構成で
 **ファイルのキャッシュ**<br>`FileCacheModule` | いいえ | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
 **HTTP キャッシュ**<br>`HttpCacheModule` | いいえ | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
 **HTTP ログ**<br>`HttpLoggingModule` | はい | [ASP.NET Core のログ記録](xref:fundamentals/logging)<br>実装: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging)、 [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging)、 [NLog](https://github.com/NLog/NLog.Extensions.Logging)、 [Serilog](https://github.com/serilog/serilog-extensions-logging)
-**HTTP リダイレクト**<br>`HttpRedirectionModule` | はい | [ミドルウェアの URL リライト](xref:fundamentals/url-rewriting)
+**HTTP リダイレクト**<br>`HttpRedirectionModule` | はい | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting)
 **IIS クライアント証明書マッピング認証**<br>`IISCertificateMappingAuthenticationModule` | はい | 
 **IP およびドメインの制限**<br>`IpRestrictionModule` | はい | 
 **ISAPI フィルター**<br>`IsapiFilterModule` | はい | [ミドルウェア](xref:fundamentals/middleware)
@@ -49,7 +49,7 @@ ASP.NET Core アプリケーションは、リバース プロキシの構成で
 **プロトコルのサポート**<br>`ProtocolSupportModule` | はい | 
 **要求のフィルタリング**<br>`RequestFilteringModule` | はい | [URL 書き換えミドルウェア`IRule`](xref:fundamentals/url-rewriting#irule-based-rule)
 **要求監視**<br>`RequestMonitorModule` | はい | 
-**URL 書き換え**<br>`RewriteModule` | Yes† | [ミドルウェアの URL リライト](xref:fundamentals/url-rewriting)
+**URL 書き換え**<br>`RewriteModule` | Yes† | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting)
 **サーバー側インクルード**<br>`ServerSideIncludeModule` | いいえ | 
 **静的な圧縮**<br>`StaticCompressionModule` | いいえ | [応答圧縮ミドルウェア](xref:performance/response-compression)
 **静的コンテンツ**<br>`StaticFileModule` | いいえ | [静的ファイル ミドルウェア](xref:fundamentals/static-files)
@@ -73,7 +73,7 @@ RoleManager | いいえ |
 ScriptModule 4.0 | いいえ | 
 セッション | いいえ | [セッションのミドルウェア](xref:fundamentals/app-state)
 UrlAuthorization | いいえ | 
-UrlMappingsModule | いいえ | [ミドルウェアの URL リライト](xref:fundamentals/url-rewriting)
+UrlMappingsModule | いいえ | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting)
 UrlRoutingModule 4.0 | いいえ | [ASP.NET Core の Id](xref:security/authentication/identity)
 WindowsAuthentication | いいえ | 
 

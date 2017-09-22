@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: 72b6098b2a71957da338ef36beff4808201773f4
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 2c94daafec8d3b4051bd3091478521ab12a434bd
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Azure Key Vault の構成プロバイダー
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 09/12/2017
 ## <a name="package"></a>Package
 使用するには、プロバイダーへの参照を追加、 [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/)パッケージです。
 
-## <a name="application-configuration"></a>アプリケーションの構成
+## <a name="application-configuration"></a>アプリケーション構成
 使用してプロバイダーを調べることができます、[アプリのサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples)です。 Key vault を確立し、資格情報コンテナー内の機密情報を作成すると、サンプル アプリでは、安全にシークレットの値の構成に読み込んで web ページに表示します。
 
 プロバイダーを追加、`ConfigurationBuilder`で、`AddAzureKeyVault`拡張機能です。 アプリでは、サンプル、拡張機能はから読み込まれた 3 つの構成値を使用して、*される appsettings.json*ファイル。
@@ -52,7 +52,7 @@ ms.lasthandoff: 09/12/2017
 | `ClientId`     | Azure Active Directory アプリ Id  | 627e911e-43cc-61d4-992e-12db9c81b413         |
 | `ClientSecret` | Azure Active Directory アプリ キー | g58K3dtg59o1Pa + e59v2Tx829w6VxTB2yv9sv/101di = |
 
-[!code-csharp[プログラム](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1&highlight=2,7-10)]
+[!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1&highlight=2,7-10)]
 
 ## <a name="creating-key-vault-secrets-and-loading-configuration-values-basic-sample"></a>シークレットの資格情報コンテナーを作成および構成値 (basic サンプル) の読み込み
 1. Key vault の作成し、ガイダンスに従って、アプリケーションの Azure Active Directory (Azure AD) を設定[Azure Key Vault の使用開始](https://azure.microsoft.com/documentation/articles/key-vault-get-started/)です。
@@ -83,7 +83,7 @@ ms.lasthandoff: 09/12/2017
 
 Key vault にシークレットを作成する 2 つ目のサンプル アプリを使用して`5000-AppSecret`(key vault のシークレット名で許可されていない期間) を表すバージョン 5.0.0.0 のアプリのアプリのシークレット。 シークレットを作成する別のバージョン、5.1.0.0、`5100-AppSecret`です。 各アプリのバージョンを読み込みます独自秘密の値としてその構成`AppSecret`、機密情報が読み込まれるバージョンを削除します。 サンプルの実装を次に示します。
 
-[!code-csharp[構成ビルダー](key-vault-configuration/samples/key-name-prefix-sample/2.x/Program.cs?name=snippet1&highlight=12)]
+[!code-csharp[Configuration builder](key-vault-configuration/samples/key-name-prefix-sample/2.x/Program.cs?name=snippet1&highlight=12)]
 
 [!code-csharp[PrefixKeyVaultSecretManager](key-vault-configuration/samples/key-name-prefix-sample/2.x/Startup.cs?name=snippet1)]
 

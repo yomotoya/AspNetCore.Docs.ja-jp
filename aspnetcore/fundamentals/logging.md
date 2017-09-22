@@ -2,7 +2,7 @@
 title: "ASP.NET Core でのログ記録"
 author: ardalis
 description: "ASP.NET Core のログ記録フレームワークが導入されています。 いくつかの一般的なサード パーティ プロバイダーへのリンクと各組み込みのログ プロバイダーのセクションが含まれています。"
-keywords: "ASP.NET Core、ログ、ログ プロバイダー、Microsoft.Extensions.Logging ILogger、iloggerfactory を提供、LogLevel、WithFilter、TraceSource、EventLog EventSource、スコープします。"
+keywords: "ASP.NET Core、ログ記録、ログ記録 providers,Microsoft.Extensions.Logging,ILogger,ILoggerFactory,LogLevel,WithFilter,TraceSource,EventLog,EventSource,scopes"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 10/14/2016
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9a4ae6e7d9b2fa998b91e643e63657239d4866b
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: ca81f01fe1c5026514eafedf852b4bc8f3b6fd21
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>ASP.NET Core でのログ記録の概要
 

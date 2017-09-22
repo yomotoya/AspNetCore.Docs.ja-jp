@@ -11,11 +11,11 @@ ms.assetid: ab4705b7-59d7-4f31-bc97-ea7f292fe926
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 07a2aca731b8017450a1b0da00ddef25306c122e
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: bb8a889c66ec9ca0c0aec7b4a4184d7c19858d78
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="view-components"></a>コンポーネントの表示
 
@@ -172,7 +172,7 @@ ASP.NET Core 1.1 以降、としてビュー コンポーネントを呼び出�
 
 * 作成、*ビュー、共有、コンポーネント/PriorityList*フォルダーです。 このフォルダー名がビュー コンポーネント クラスの名前またはサフィックス マイナス クラスの名前に一致する必要があります (規約の後に使用すると、 *ViewComponent*クラス名にサフィックス)。 使用した場合、`ViewComponent`属性、クラス名は、属性の指定に一致する必要があります。
 
-* 作成、 *Views/Shared/Components/PriorityList/Default.cshtml* Razor ビュー: [!code-html[メイン](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
+* 作成、 *Views/Shared/Components/PriorityList/Default.cshtml* Razor ビュー。[!code-html[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
     
    Razor ビューの一覧を受け取る`TodoItem`し、それらを表示します。 場合のビュー コンポーネント`InvokeAsync`メソッド (サンプルのように、)、ビューの名前に合格しなかった*既定*規則によって、ビュー名に使用します。 、このチュートリアルで後ほど説明するビューの名前を渡す方法です。 特定のコント ローラーの既定のスタイルを上書きするには、コント ローラーに固有のビュー フォルダーにビューを追加 (たとえば*Views/Todo/Components/PriorityList/Default.cshtml)*です。
     

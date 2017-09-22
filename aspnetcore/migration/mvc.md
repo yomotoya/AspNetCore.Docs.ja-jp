@@ -2,7 +2,7 @@
 title: "ASP.NET MVC から ASP.NET Core MVC への移行"
 author: ardalis
 description: 
-keywords: "ASP.NET Core、MVC での移行"
+keywords: "ASP.NET Core,MVC,移行"
 ms.author: riande
 manager: wpickett
 ms.date: 03/07/2017
@@ -11,11 +11,11 @@ ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/mvc
-ms.openlocfilehash: 2bd689626e867e0ea82fbebdf92447a6029aa35b
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 385ab7dfea5b92687a427bdfe9558462227113b1
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>ASP.NET MVC から ASP.NET Core MVC への移行
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 09/12/2017
 
 * 追加、 **MVC コント ローラー クラス**名前を持つ*HomeController.cs*を*コント ローラー*フォルダーです。
 
-![新しい項目 ダイアログ ボックスを追加します。](mvc/_static/add_mvc_ctl.png)
+![[新しい項目の追加] ダイアログ](mvc/_static/add_mvc_ctl.png)
 
 * 追加、*ビュー*フォルダーです。
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 09/12/2017
 
 * 追加、 *Index.cshtml* MVC ビュー ページを*ビュー/ホーム*フォルダーです。
 
-![新しい項目 ダイアログ ボックスを追加します。](mvc/_static/view.png)
+![[新しい項目の追加] ダイアログ](mvc/_static/view.png)
 
 プロジェクトの構造を次に示します。
 
@@ -166,7 +166,7 @@ ASP.NET MVC の以前のバージョンでは、静的コンテンツは、web �
 
    * 置き換える`@Styles.Render("~/Content/css")`で、`<link>`読み込み要素*bootstrap.css* (下記参照)。
 
-   * 削除`@Scripts.Render("~/bundles/modernizr")`です。
+   * `@Scripts.Render("~/bundles/modernizr")` を削除します。
 
    * コメント アウト、`@Html.Partial("_LoginPartial")`行 (では、行を囲む`@*...*@`)。 今後のチュートリアルでを返します。
 

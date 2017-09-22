@@ -11,11 +11,11 @@ ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: 80e27c94b3c60a181c45f8e006126a7e7dd3d425
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: cb39d74b9293b3ab341beba08d2f0af90261ca5f
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core ミドルウェアの基本事項
 
@@ -173,7 +173,7 @@ ASP.NET Core は、次のミドルウェア コンポーネントに付属しま
 | [ルーティング](xref:fundamentals/routing) | 定義し、要求のルートを制約します。 |
 | [セッション](xref:fundamentals/app-state) | ユーザー セッションを管理するためのサポートを提供します。 |
 | [静的ファイル](xref:fundamentals/static-files) | 静的ファイルとディレクトリの参照を提供しているは、サポートを提供します。 |
-| [ミドルウェアの URL リライト](xref:fundamentals/url-rewriting) | Url の書き換えと、要求をリダイレクトするサポートを提供します。 |
+| [URL リライト ミドルウェア](xref:fundamentals/url-rewriting) | Url の書き換えと、要求をリダイレクトするサポートを提供します。 |
 
 <a name=middleware-writing-middleware></a>
 

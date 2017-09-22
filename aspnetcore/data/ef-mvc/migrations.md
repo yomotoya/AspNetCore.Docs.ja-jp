@@ -2,7 +2,7 @@
 title: "ASP.NET MVC を持つコアを EF コアな移行 - 4 10"
 author: tdykstra
 description: "このチュートリアルでは、ASP.NET Core MVC アプリケーションでデータ モデルの変更を管理するための EF 中核となる移行機能の使用を開始します。"
-keywords: "ASP.NET Core、Entity Framework Core での移行"
+keywords: "ASP.NET Core,Entity Framework Core,移行"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
@@ -11,11 +11,11 @@ ms.assetid: 81f6c9c2-a819-4f3a-97a4-4b0503b56c26
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 4d81099d1ab97a8a49d96657153a54aa96dd6bf8
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 638bef0cda14f53a326c66c6a5da3f3c1bb762c6
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>移行 - ASP.NET Core MVC のチュートリアル (10 の 4) と EF コア
 
@@ -31,11 +31,11 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 
 データベースのデータ モデルとの同期を維持するには、このメソッドは、実稼働環境にアプリケーションを配置するまでに適切に動作します。 アプリケーションが、保持して、毎回すべてが失われるしたくないデータを格納するは、通常実稼働環境で実行されている場合は、新しい列を追加するなど変更を加えます。 EF コア移行機能を新しいデータベースを作成する代わりにデータベース スキーマを更新する EF を有効にしてこの問題を解決します。
 
-## <a name="entity-framework-core-nuget-packages-for-migrations"></a>Entity Framework Core NuGet パッケージの管理を移行するため
+## <a name="entity-framework-core-nuget-packages-for-migrations"></a>移行用の Entity Framework Core NuGet パッケージ
 
 移行を使用して作業を行うこともできます、 **Package Manager Console** (PMC) またはコマンド ライン インターフェイス (CLI)。  これらのチュートリアルでは、CLI コマンドを使用する方法を示します。 PMC に関するについては、「[このチュートリアルの最後の](#pmc)します。
 
-コマンド ライン インターフェイス (CLI) の EF ツールがで提供される[Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet)です。 このパッケージをインストールする追加して、`DotNetCliToolReference`内のコレクション、 *.csproj*ファイルを示すようにします。 **注:**を編集して、このパッケージをインストールする必要がある、 *.csproj*ファイルです。 使用することはできません、`install-package`コマンドまたはパッケージ マネージャー GUI します。 編集することができます、 *.csproj*でプロジェクト名を右クリックしてファイル**ソリューション エクスプ ローラー**を選択して**編集 ContosoUniversity.csproj**です。
+コマンド ライン インターフェイス (CLI) の EF ツールが [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet) で提供されています。 このパッケージをインストールする追加して、`DotNetCliToolReference`内のコレクション、 *.csproj*ファイルを示すようにします。 **注:** *.csproj* ファイルを編集して、このパッケージをインストールする必要があります。`install-package` コマンドやパッケージ マネージャー GUI を使用することはできません。 編集することができます、 *.csproj*でプロジェクト名を右クリックしてファイル**ソリューション エクスプ ローラー**を選択して**編集 ContosoUniversity.csproj**です。
 
 [!code-xml[](intro/samples/cu/ContosoUniversity.csproj?range=12-15&highlight=2)]
   
@@ -68,7 +68,7 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 
   ![開いているコマンド ウィンドウ](migrations/_static/open-command-window.png)
 
-コマンド ウィンドウで、次のコマンドを入力します。
+コマンド ウィンドウで次のコマンドを入力します。
 
 ```console
 dotnet ef migrations add InitialCreate
