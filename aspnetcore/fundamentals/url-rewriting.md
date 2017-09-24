@@ -11,15 +11,15 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 05a92c4eee6b26e49831c11e1251aedba87ed717
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 44c78a6304eacc70cdee9bb0d9407376017abcac
+ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/24/2017
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL の ASP.NET Core のミドルウェアの書き換え
 
-によって[Luke Latham](https://github.com/GuardRex)と[Mikael メンギストゥ](https://github.com/mikaelm12)
+によって[Luke Latham](https://github.com/guardrex)と[Mikael メンギストゥ](https://github.com/mikaelm12)
 
 [サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/)
 
@@ -146,7 +146,7 @@ app.UseRewriter(options);
 | `/my-cool-redirect-rule/1234/5678` | はい   |
 | `/anotherredirect-rule/1234/5678`  | はい   |
 
-書き換えルール`^rewrite-rule/(\d+)/(\d+)`、のみで開始される場合、[パスと一致する`rewrite-rule/`です。 書き換えルールの下と上のリダイレクト ルール間の一致の違いに注意してください。
+書き換えルール`^rewrite-rule/(\d+)/(\d+)`、のみで開始される場合、パスと一致する`rewrite-rule/`です。 書き換えルールの下と上のリダイレクト ルール間の一致の違いに注意してください。
 
 | パス                              | 一致したもの |
 | --------------------------------- | :---: |

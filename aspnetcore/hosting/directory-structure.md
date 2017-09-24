@@ -11,15 +11,15 @@ ms.assetid: e55eb131-d42e-4bf6-b130-fd626082243c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/directory-structure
-ms.openlocfilehash: 9ec635b596520e3d19f4040758dd59c1cbca97f4
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: f406d866bb1c8ac2d4371c8ddf669fc08af0fada
+ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/24/2017
 ---
 # <a name="directory-structure-of-published-aspnet-core-apps"></a>発行された ASP.NET Core アプリケーションのディレクトリ構造
 
-によって[Luke Latham](https://github.com/GuardRex)
+によって[Luke Latham](https://github.com/guardrex)
 
 ASP.NET Core、アプリケーションのディレクトリで*発行*、アプリケーション ファイル、構成ファイル、静的なアセット、パッケージ、および (自己完結型のアプリ) のランタイムで構成されます。 これは、以前のバージョンの ASP.NET、web のルート ディレクトリ内全体のアプリケーションが存在する場所と同じディレクトリ構造です。
 
