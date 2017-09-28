@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: 39b65f8af8304fabc6cf8d9a27992043f1e381a0
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 290d752ea5f177348ff3e749cc125e946ae6e763
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="updating-the-generated-pages"></a>生成されたページの更新
 
@@ -34,7 +34,6 @@ ms.lasthandoff: 09/12/2017
 
   ![コンテキスト メニューに **[クイック アクションとリファクタリング]** が表示されます。](da1/qa.png)
 
-
 `using System.ComponentModel.DataAnnotations;` を選択します。
 
   ![一覧の一番上にある System.ComponentModel.DataAnnotations を使用する](da1/da.png)
@@ -47,9 +46,9 @@ Pages/Movies を参照し、**[編集]** リンクをポイントしてターゲ
 
 ![[編集] リンクがマウスでポイントされ、リンク URL として http://localhost:1234/Movies/Edit/5 が表示されている状態のブラウザー ウィンドウ](da1/edit7.png)
 
-**[編集]**、**[詳細]**、および **[削除]** の各リンクは、*Pages/Movies/Index.cshtml* ファイルで[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper)によって生成されます。
+**[編集]**、**[詳細]**、および **[削除]** の各リンクは、*Pages/Movies/Index.cshtml* ファイルで[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)によって生成されます。
 
-[!code-cshtml[Main](razor-pages-start\snapshot_sample\RazorPagesMovie\Pages\Movie\Index.cshtml?highlight=16-18&range=32-)]
+[!code-cshtml[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=16-18&range=32-)]
 
 [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)を使うと、Razor ファイルでの HTML 要素の作成とレンダリングに、サーバー側コードを組み込むことができます。 上のコードでは、`AnchorTagHelper` は動的に Razor ページからの HTML `href` 属性値 (ルートは相対)、`asp-page`、およびルート ID (`asp-route-id`) を生成します。 詳細については、「[ページの URL の生成](xref:mvc/razor-pages/index#url-generation-for-pages)」を参照してください。
 
@@ -61,7 +60,6 @@ Pages/Movies を参照し、**[編集]** リンクをポイントしてターゲ
   <a href="/Movies/Details?id=1">Details</a> |
   <a href="/Movies/Delete?id=1">Delete</a>
 </td>
-
 ```
 
 動的に生成されたリンクは、クエリ文字列を含むムービー ID を渡します (例: `http://localhost:5000/Movies/Details?id=2`)。 
@@ -86,7 +84,7 @@ Pages/Movies を参照し、**[編集]** リンクをポイントしてターゲ
 
 *Pages/Movies/Edit.cshtml.cs* ファイルで `OnPostAsync` メソッドを更新します。 次の強調表示されたコードは変更点を示しています。
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movie/Edit.cshtml.cs?name=snippet1&highlight=17-24)]
+[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet1&highlight=16-23)]
 
 上のコードでは、最初の同時クライアントがムービーを削除し、2 番目の同時クライアントがムービーに変更を投稿した場合にのみ、同時実行制御の例外を検出します。
 
@@ -101,7 +99,7 @@ Pages/Movies を参照し、**[編集]** リンクをポイントしてターゲ
 
 ### <a name="posting-and-binding-review"></a>レビューの投稿とバインディング
 
-*Pages/Movies/Edit.cshtml.cs* ファイルを確認します。[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movie/Edit.cshtml.cs?name=snippet2)]
+*Pages/Movies/Edit.cshtml.cs* ファイルを確認します。[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
 
 HTTP GET 要求が Movies/Edit ページに対して行われた場合 (例: `http://localhost:5000/Movies/Edit/2`):
 
@@ -113,10 +111,10 @@ Movies/Edit ページが投稿された場合:
 
 * ページのフォーム値は `Movie` プロパティにバインドされます。 `[BindProperty]` 属性により、[モデル バインド](xref:mvc/models/model-binding)が有効になります。
 
-```csharp
-[BindProperty]
-public Movie Movie { get; set; }
-```
+  ```csharp
+  [BindProperty]
+  public Movie Movie { get; set; }
+  ```
 
 * モデル状態にエラーがある (たとえば、`ReleaseDate` を日付に変換できない) 場合、フォームは送信された値で再度投稿されます。
 * モデル エラーがない場合、ムービーは保存されます。
