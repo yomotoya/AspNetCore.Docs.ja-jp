@@ -4,7 +4,7 @@
 
 このチュートリアルでは、`Movies` テーブルに新しいフィールドを追加します。 ここでは、スキーマを変更する (新しいフィールドを追加する) 際にデータベースをドロップし、新しいデータベースを作成します。 このワークフローは、保存する実稼働データがない開発の早い段階に適しています。
 
-アプリが配置され、保存する必要があるデータが存在する状態で、スキーマを変更する必要がある場合は DB をドロップすることはできません。 Entity Framework [Code First Migrations](http://docs.efproject.net/en/latest/platforms/aspnetcore/new-db.html) では、スキーマを更新し、データを失うことなくデータベースを移行できます。 Migrations は SQL Server でよく使用される機能ですが、SQLlite では多くの移行スキーマ操作がサポートされないため、実行できるのはごく簡単な移行のみとなります。 詳細については、[SQLite の制限事項](https://docs.microsoft.com/ef/core/providers/sqlite/limitations)に関するページを参照してください。
+アプリが配置され、保存する必要があるデータが存在する状態で、スキーマを変更する必要がある場合は DB をドロップすることはできません。 Entity Framework [Code First Migrations](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) では、スキーマを更新し、データを失うことなくデータベースを移行できます。 Migrations は SQL Server でよく使用される機能ですが、SQLlite では多くの移行スキーマ操作がサポートされないため、実行できるのはごく簡単な移行のみとなります。 詳細については、[SQLite の制限事項](https://docs.microsoft.com/ef/core/providers/sqlite/limitations)に関するページを参照してください。
 
 ## <a name="adding-a-rating-property-to-the-movie-model"></a>ムービー モデルへの評価プロパティの追加
 

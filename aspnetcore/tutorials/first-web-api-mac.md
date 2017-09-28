@@ -6,15 +6,16 @@ ms.author: riande
 ms.date: 09/15/2017
 ms.topic: get-started-article
 ms.prod: asp.net-core
+uid: tutorials/first-web-api-mac
 helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
 ms.technology: aspnet
 keywords: "ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, サービス, HTTP サービス"
 manager: wpickett
-ms.openlocfilehash: 82e5c936ab9c59a6ebac1397c2ca35e4379d94c2
-ms.sourcegitcommit: ddefc78270bd9b5ae0b1bd8de6c45f6977e7dceb
+ms.openlocfilehash: 6835cdefcc001452a3ffc8f4fd6a2f55f7274692
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>ASP.NET Core MVC と Visual Studio for Mac で Web API を作成する
 
@@ -132,7 +133,7 @@ Visual Studio で、**[実行]、[デバッグありで開始]** の順に選択
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-これは、HTTP POST メソッドです。[`[HttpPost]`](https://docs.microsoft.com/aspnet/core/api) 属性を使用します。 MVC は、[`[FromBody]`](https://docs.microsoft.com/aspnet/core/api) 属性により、HTTP 要求の本文から to-do 項目の値を取得するよう指示されます。
+これは、HTTP POST メソッドです。[`[HttpPost]`](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute) 属性を使用します。 MVC は、[`[FromBody]`](/aspnet/core/api/microsoft.aspnetcore.mvc.frombodyattribute) 属性により、HTTP 要求の本文から to-do 項目の値を取得するよう指示されます。
 
 `CreatedAtRoute` メソッドは、サーバーに新しいリソースを作成する HTTP POST メソッドの標準の応答である 201 の応答を返します。 `CreatedAtRoute` では、応答に場所ヘッダーも追加されます。 場所ヘッダーでは、新しく作成された To Do アイテムの URI を指定します。 「[10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)」 (10.2.2 201 生成) を参照してください。
 

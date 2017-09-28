@@ -5,16 +5,16 @@ description: "ASP.NET Core MVC と Visual Studio for Windows で Web API を構�
 keywords: "ASP.NET Core、WebAPI、Web API、REST、HTTP、Service、HTTP サービス"
 ms.author: riande
 manager: wpickett
-ms.date: 8/15/2017
+ms.date: 08/15/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-web-api
-ms.openlocfilehash: 4aab61c7ee4498b33a4ea8bbec6033ce9828e2af
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 617b11cd7652e393c06446c62138802e4a4e90df
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 #<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>ASP.NET Core と Visual Studio for Windows で Web API を作成する
 
@@ -68,7 +68,7 @@ Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動し
 
 `TodoItem` クラスを追加します。 *Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順にクリックします。 クラスに `TodoItem` という名前を付け、**[追加]** を選択します。
 
-生成されたコードを次のコードに置き換えます。
+生成されたコードを次のコードに変更します。
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
@@ -80,7 +80,7 @@ Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動し
 
 `TodoContext` クラスを追加します。 *Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順にクリックします。 クラスに `TodoContext` という名前を付け、**[追加]** を選択します。
 
-生成されたコードを次のコードに置き換えます。
+生成されたコードを次のコードに変更します。
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 

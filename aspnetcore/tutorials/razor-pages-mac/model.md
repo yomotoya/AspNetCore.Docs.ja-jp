@@ -5,16 +5,16 @@ description: "Visual Studio for Mac を使用する ASP.NET Core での Razor �
 keywords: "ASP.NET Core,Razor ページ,Razor,MVC,モデル"
 ms.author: riande
 manager: wpickett
-ms.date: 8/27/2017
+ms.date: 08/27/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/model
-ms.openlocfilehash: b234eb93fbca1f4c83712990712b86e9941968fd
-ms.sourcegitcommit: d9ec19e5452af83648074db5d96c0a0f4f9e7f9a
+ms.openlocfilehash: d000da06face3080cf81de4dc15a2596f2bfa7ea
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-for-mac"></a>Visual Studio for Mac を使用する ASP.NET Core での Razor ページ アプリへのモデルの追加
 

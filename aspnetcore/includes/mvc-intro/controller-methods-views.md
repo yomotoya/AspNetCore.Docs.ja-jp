@@ -1,5 +1,5 @@
 
-[DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) については、次のチュートリアルで説明します。 [Display](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayattribute.aspx) 属性は、フィールドの名前として表示する内容 (ここでは、"ReleaseDate" ではなく、"Release Date") を指定します。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) 属性はデータ型 (Date) を指定するため、フィールドに格納される時刻情報は表示されません。
+[DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) については、次のチュートリアルで説明します。 [Display](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) 属性は、フィールドの名前として表示する内容 (ここでは、"ReleaseDate" ではなく、"Release Date") を指定します。 [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) 属性はデータ型 (Date) を指定するため、フィールドに格納される時刻情報は表示されません。
 
 `Movies` コントローラーを表示し、**[編集]** リンクをマウスでポイントしてターゲットの URL を確認します。
 
@@ -35,7 +35,7 @@ ASP.NET Core は、`http://localhost:1234/Movies/Edit/4` を、`Movies` コン�
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
-`[Bind]` 属性は、[オーバーポスティング攻撃](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost)を防ぐための 1 つの方法です。 変更する `[Bind]` 属性にだけプロパティを含める必要があります。 詳しくは、[オーバーポスティング攻撃からのコントローラーの保護に関する記事](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost)をご覧ください。 [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) は、オーバーポスティング攻撃を防ぐもう 1 つの方法を提供します。
+`[Bind]` 属性は、[オーバーポスティング攻撃](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost)を防ぐための 1 つの方法です。 変更する `[Bind]` 属性にだけプロパティを含める必要があります。 詳しくは、[オーバーポスティング攻撃からのコントローラーの保護に関する記事](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)をご覧ください。 [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) は、オーバーポスティング攻撃を防ぐもう 1 つの方法を提供します。
 
 2 番目の `Edit` アクション メソッドの前に `[HttpPost]` 属性が付いていることに注意してください。
 
@@ -89,7 +89,7 @@ Movie コントローラーのすべての `HttpGet` メソッドは、同様の
 * [Tag Helpers の概要](xref:mvc/views/tag-helpers/intro)
 * [タグ ヘルパーの作成](xref:mvc/views/tag-helpers/authoring)
 * [リクエスト フォージェリの対策](xref:security/anti-request-forgery)
-* [オーバーポスティング攻撃](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost)からのコントローラーの保護
+* [オーバーポスティング攻撃](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)からのコントローラーの保護
 * [ViewModel](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [フォーム タグ ヘルパー](xref:mvc/views/working-with-forms)
 * [入力タグ ヘルパー](xref:mvc/views/working-with-forms)

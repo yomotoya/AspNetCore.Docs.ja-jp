@@ -6,7 +6,7 @@
 
 HTTP エンドポイントは、Web アプリケーション内のターゲット設定可能な URL (`http://localhost:1234/HelloWorld` など) であり、使われているプロトコル (`HTTP`)、Web サーバーの (TCP ポートを含む) ネットワーク上の場所 (`localhost:1234`)、ターゲットの URI (`HelloWorld`) を組み合わせたものです。
 
-1 番目のコメントは、これが [HTTP GET](http://www.w3schools.com/tags/ref_httpmethods.asp) メソッドであり、ベース URL に "/HelloWorld/" を追加することによって呼び出されることを示しています。 2 番目のコメントは、URL に "/HelloWorld/Welcome/" を追加することによって呼び出される [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) メソッドを示しています。 このチュートリアルではこの後、スキャフォールディング エンジンを使って `HTTP POST` メソッドを生成します。
+1 番目のコメントは、これが [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) メソッドであり、ベース URL に "/HelloWorld/" を追加することによって呼び出されることを示しています。 2 番目のコメントは、URL に "/HelloWorld/Welcome/" を追加することによって呼び出される [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) メソッドを示しています。 このチュートリアルではこの後、スキャフォールディング エンジンを使って `HTTP POST` メソッドを生成します。
 
 非デバッグ モードでアプリを実行し、アドレス バーのパスに "HelloWorld" を追加します。 `Index` メソッドが文字列を返します。
 
@@ -46,7 +46,7 @@ URL からコントローラーにいくつかのパラメーター情報を渡�
 
 !["Hello Rick, NumTimes is: 4" というアプリケーションの応答が表示されているブラウザー ウィンドウ](../../tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
-上の図では、URL セグメント (`Parameters`) は使われておらず、`name` および `numTimes` パラメーターは[クエリ文字列](http://en.wikipedia.org/wiki/Query_string)として渡されています。 上の URL の `?` (疑問符) は区切り記号であり、後にクエリ文字列が続きます。 `&` 文字は、クエリ文字列を区切ります。
+上の図では、URL セグメント (`Parameters`) は使われておらず、`name` および `numTimes` パラメーターは[クエリ文字列](https://wikipedia.org/wiki/Query_string)として渡されています。 上の URL の `?` (疑問符) は区切り記号であり、後にクエリ文字列が続きます。 `&` 文字は、クエリ文字列を区切ります。
 
 `Welcome` メソッドを次のコードで置き換えます。
 

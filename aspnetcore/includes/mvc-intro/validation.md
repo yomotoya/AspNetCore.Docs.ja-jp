@@ -6,7 +6,7 @@
 
 ## <a name="keeping-things-dry"></a>DRY に維持する
 
-MVC の設計の基本思想の 1 つは [DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself) ("Don't Repeat Yourself") です。 ASP.NET MVC では、機能や動作を 1 回だけを指定し、アプリ内のすべての場所にそれを反映することが奨励されます。 このようにすることで、記述する必要のあるコードの量が減り、作成したコードはエラーが発生しにくく、テストがしやすく、保守が容易になります。
+MVC の設計の基本思想の 1 つは [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("Don't Repeat Yourself") です。 ASP.NET MVC では、機能や動作を 1 回だけを指定し、アプリ内のすべての場所にそれを反映することが奨励されます。 このようにすることで、記述する必要のあるコードの量が減り、作成したコードはエラーが発生しにくく、テストがしやすく、保守が容易になります。
 
 MVC と Entity Framework Core Code First が提供している検証のサポートは、動作している DRY 原則の好例です。 検証規則は、1 つの場所 (モデル クラス内) で宣言的に指定でき、アプリのすべての場所で適用されます。
 
@@ -31,13 +31,13 @@ ASP.NET で検証規則を自動的に適用すると、アプリをより堅牢
 ![複数の jQuery クライアント側検証エラーのあるムービー ビュー フォーム](../../tutorials/first-mvc-app/validation/_static/val.png)
 
 > [!NOTE]
-> `Price` フィールドに小数点またはコンマを入力することはできない場合があります。 小数点にコンマ (",") を使い、英語 (米国) 以外の日付形式を使う英語以外のロケールの [jQuery 検証](http://jqueryvalidation.org/)をサポートするには、アプリをグローバル化する手順を行う必要があります。 詳しくは、「[その他の技術情報](#additional-resources)」を参照してください。 ここでは、単に 10 のような整数を入力します。
+> `Price` フィールドに小数点またはコンマを入力することはできない場合があります。 小数点にコンマ (",") を使い、英語 (米国) 以外の日付形式を使う英語以外のロケールの [jQuery 検証](https://jqueryvalidation.org/)をサポートするには、アプリをグローバル化する手順を行う必要があります。 詳しくは、「[その他の技術情報](#additional-resources)」を参照してください。 ここでは、単に 10 のような整数を入力します。
 
 無効な値を含む各フィールドに、適切な検証エラー メッセージが自動的に表示されることがわかります。 エラーは、(JavaScript と jQuery を使用している) クライアント側とサーバー側 (ユーザーが JavaScript を無効にしている場合) の両方に適用されます。
 
 重要な利点は、この検証 UI を有効にするために、`MoviesController` クラスまたは *Create.cshtml* ビューのコードを 1 行も変更する必要がないことです。 このチュートリアルで前に作成したコントローラーとビューにより、`Movie` モデル クラスのプロパティで検証属性を使って指定した検証規則が自動的に取得されます。 `Edit` アクション メソッドを使って検証をテストします。同じ検証が適用されます。
 
-クライアント側の検証エラーがなくなるまで、フォーム データはサーバーに送信されません。 このことは、[Fiddler ツール](http://www.telerik.com/fiddler) または [F12 開発者ツール](https://dev.windows.com/microsoft-edge/platform/documentation/f12-devtools-guide/)を使って `HTTP Post` メソッドにブレークポイントを設定することにより確認できます。
+クライアント側の検証エラーがなくなるまで、フォーム データはサーバーに送信されません。 このことは、[Fiddler ツール](http://www.telerik.com/fiddler) または [F12 開発者ツール](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)を使って `HTTP Post` メソッドにブレークポイントを設定することにより確認できます。
 
 ## <a name="how-validation-works"></a>検証の動作方法
 
@@ -65,7 +65,7 @@ JavaScript を無効にした後、無効なデータを送信して、デバッ
 
 [!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Views/Movies/CreateRatingBrevity.cshtml)]
 
-[入力タグ ヘルパー](xref:mvc/views/working-with-forms)は [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) 属性を使い、クライアント側での jQuery 検証に必要な HTML 属性を生成します。 [検証タグ ヘルパー](xref:mvc/views/working-with-forms#the-validation-tag-helpers)には検証エラーが表示されます。 詳しくは、[検証に関する記事](xref:mvc/models/validation)をご覧ください。
+[入力タグ ヘルパー](xref:mvc/views/working-with-forms)は [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) 属性を使い、クライアント側での jQuery 検証に必要な HTML 属性を生成します。 [検証タグ ヘルパー](xref:mvc/views/working-with-forms#the-validation-tag-helpers)には検証エラーが表示されます。 詳しくは、[検証に関する記事](xref:mvc/models/validation)をご覧ください。
 
 この方法の非常によい点は、コントローラーも `Create` ビュー テンプレートも、適用される実際の検証規則や、表示される特定のエラー メッセージについて、何も知らないことです。 検証規則とエラー文字列は、`Movie` クラスでのみ指定されています。 同じ検証規則が、`Edit` ビューおよびモデルを編集する他のユーザー作成のビュー テンプレートに、自動的に適用されます。
 

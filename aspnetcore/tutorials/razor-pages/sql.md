@@ -5,16 +5,16 @@ description: "SQL Server LocalDB と ASP.NET Core の使用について説明し
 keywords: "ASP.NET Core,Razor ページ,Razor,MVC, SQL, LocalDB"
 ms.author: riande
 manager: wpickett
-ms.date: 8/7/2017
+ms.date: 08/07/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 173bdcca80a599ec2d87ff4158614727b35f984a
-ms.sourcegitcommit: d02d90b6272372178723ff932e8a9b9566afedb8
+ms.openlocfilehash: 852bd2dff96c951f55a9b142d8e15b6ec5856921
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="working-with-sql-server-localdb-and-aspnet-core"></a>SQL Server LocalDB と ASP.NET Core の使用
 

@@ -1,21 +1,21 @@
 ---
 title: "ASP.NET Core と VS Code で Web API を作成する"
-author: rick-anderson
 description: "macOS、Linux、Windows で ASP.NET Core MVC と Visual Studio Code を利用して Web API を構築する"
-keywords: "ASP.NET Core、WebAPI、Web API、REST、Mac、Linux、HTTP、サービス、HTTP サービス、VS Code"
+author: rick-anderson
 ms.author: riande
-manager: wpickett
-ms.date: 5/24/2017
+ms.date: 09/22/2017
 ms.topic: get-started-article
-ms.assetid: 830b4bf5-dd14-423e-9f59-764a6f13a8f6
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+keywords: "ASP.NET Core, WebAPI, Web API, REST, Mac, Linux, HTTP, サービス, HTTP サービス, VS Code"
+manager: wpickett
+ms.assetid: 830b4bf5-dd14-423e-9f59-764a6f13a8f6
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 17687e38aae066bdab4663268a2af54f20a6ad75
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: e09943b2f810d04456a65589976aa07065a9f010
+ms.sourcegitcommit: e6bcd56a4b11e20ff55df004971f9ed384937342
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>Linux、macOS、Windows で ASP.NET Core MVC と Visual Studio Code を利用して Web API を作成する
 

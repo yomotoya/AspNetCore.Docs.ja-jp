@@ -5,16 +5,16 @@ description: "Entity Framework Core を使用した Razor ページへの新し�
 keywords: "ASP.NET Core,Entity Framework Core,移行"
 ms.author: riande
 manager: wpickett
-ms.date: 8/7/2017
+ms.date: 08/07/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 1b5f4297d4812fbbd60fb8b94446da205cd6bb55
-ms.sourcegitcommit: f303a457644ed034a49aa89edecb4e79d9028cb1
+ms.openlocfilehash: b45642e39eb46631bb8034f4747222fb1bc0a83b
+ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/24/2017
 ---
 # <a name="adding-a-new-field-to-a-razor-page"></a>Razor ページへの新しいフィールドの追加
 
@@ -44,7 +44,7 @@ EF Code First を利用してデータベースを自動作成すると、Code F
 
 次に、`Rating` フィールドがある *Create.cshtml* のコードを示します。
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?highlight=31-35)]
+[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?highlight=36-40)]
 
 [編集] ページに、`Rating` フィールドを追加します。
 
@@ -66,7 +66,7 @@ DB を更新して新しいフィールドが含まれるようになるまで�
 
 新しい列に値を提供するように、`SeedData` クラスを更新します。 下に変更のサンプルがありますが、`new Movie` ブロックごとにこの変更を行ってください。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
 
 [完成した SeedData.cs ファイル](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs)を参照してください。
 
