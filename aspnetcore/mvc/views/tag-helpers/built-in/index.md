@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: e7c8c64283ca3740698300689b10497f984cfd3e
-ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
+ms.openlocfilehash: dd732822a715df19c0ee4b6accad3455ad6537da
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>ASP.NET Core の組み込みタグ ヘルパー
 
@@ -27,29 +27,29 @@ ASP.NET Core には、生産性を向上させる組み込みタグ ヘルパー
 
 ## <a name="built-in-aspnet-core-tag-helpers"></a>組み込み ASP.NET Core タグ ヘルパー
 
-**[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper)**
+**[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)**
 
-**[キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/CacheTagHelper)**
+**[キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
 
-**[分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/DistributedCacheTagHelper)**
+**[分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
 
-**[環境タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/EnvironmentTagHelper)**
+**[環境タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)**
 
-[comment]: **[FormActionTagHelper](xref:mvc/views/tag-helpers/builtin-th/FormActionTagHelper)**
+[comment]: **[FormActionTagHelper](xref:mvc/views/tag-helpers/builtin-th/form-action-tag-helper)**
 
 **[フォーム タグ ヘルパー](xref:mvc/views/working-with-forms#the-form-tag-helper)**
 
-**[イメージ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/ImageTagHelper)**
+**[イメージ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/image-tag-helper)**
 
 **[入力タグ ヘルパー](xref:mvc/views/working-with-forms#the-input-tag-helper)**
 
 **[ラベル タグ ヘルパー](xref:mvc/views/working-with-forms#the-label-tag-helper)**
 
-[comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/LinkTagHelper)**
+[comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/link-tag-helper)**
 
-[comment]: **[OptionTagHelper](xref:mvc/views/tag-helpers/builtin-th/OptionTagHelper)**
+[comment]: **[OptionTagHelper](xref:mvc/views/tag-helpers/builtin-th/option-tag-helper)**
 
-[comment]: **[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/ScriptTagTagHelper)**
+[comment]: **[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/script-tag-helper)**
 
 **[選択タグ ヘルパー](xref:mvc/views/working-with-forms#the-select-tag-helper)**
 

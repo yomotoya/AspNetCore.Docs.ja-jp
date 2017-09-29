@@ -11,11 +11,11 @@ ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe012345
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: aa22d072a6ef0ff105d67c2bfc5c335511d6c0cd
-ms.sourcegitcommit: aa6951e0c2e62209bf7c25e3b3138f04eb92898d
+ms.openlocfilehash: f173d03f55a1ce52222a75c023f9e8a20d5c60dc
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="security"></a>セキュリティ
 
@@ -27,10 +27,10 @@ ms.lasthandoff: 08/18/2017
     *   [SMS での 2 要素認証](authentication/2fa.md) 
     *   [ASP.NET Core Identity なしでの Cookie 認証の使用](authentication/cookie.md)
     *   [Azure Active Directory](authentication/azure-active-directory/index.md)
-        *   [ASP.NET Core Web アプリへの Azure AD の統合](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
-        *   [Azure AD を使用した WPF アプリケーションからの ASP.NET Core Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore)
+        *   [ASP.NET Core Web アプリへの Azure AD の統合](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
+        *   [Azure AD を使用した WPF アプリケーションからの ASP.NET Core Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
         *   [Azure AD を使用した ASP.NET Core Web アプリケーションでの Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
-        *   [ASP.NET Core Web アプリでの Azure AD B2C](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c/)
+        *   [ASP.NET Core Web アプリでの Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
     *   [IdentityServer4 での ASP.NET Core アプリのセキュリティ保護](https://identityserver4.readthedocs.io)
 *   [承認](authorization/index.md)
     *   [はじめに](authorization/introduction.md)
@@ -79,7 +79,6 @@ ms.lasthandoff: 08/18/2017
 *   [開発中のアプリ シークレットの安全な保存](app-secrets.md)
 *   [Azure Key Vault 構成プロバイダー](key-vault-configuration.md)
 *   [SSL の適用](enforcing-ssl.md)
-*   [開発用の HTTPS の設定](https.md)
 *   [リクエスト フォージェリの対策](anti-request-forgery.md)
 *   [オープン リダイレクト攻撃の防止](preventing-open-redirects.md)
 *   [クロスサイト スクリプティングの防止](cross-site-scripting.md)
