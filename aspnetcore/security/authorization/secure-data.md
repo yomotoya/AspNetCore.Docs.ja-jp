@@ -10,11 +10,11 @@ ms.assetid: abeb2f8e-dfbf-4398-a04c-338a613a65bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: 54a737f140a8434035e5fc5abfefa458fdb69321
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 036ff9a682dc17ead991c85a9d5dd9c4b6a7d0c7
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成します。
 
@@ -107,7 +107,7 @@ dotnet ef database update
 
 [!code-csharp[Main](secure-data/samples/final/Startup.cs?name=snippet_SSL&highlight=1)]
 
-Visual Studio を使用している場合は、次を参照してください。 [SSL または HTTPS の IIS Express をセットアップ](xref:security/enforcing-ssl#set-up-iis-express-for-sslhttps)です。 HTTP 要求を HTTPS にリダイレクトするを参照してください。 [URL 書き換えミドルウェア](xref:fundamentals/url-rewriting)です。 Visual Studio のコードを使用してまたはローカルのプラットフォームでテストする場合は、テスト証明書を SSL の含まれていません。
+HTTP 要求を HTTPS にリダイレクトするを参照してください。 [URL 書き換えミドルウェア](xref:fundamentals/url-rewriting)です。 Visual Studio のコードを使用してまたはローカルのプラットフォームでテストする場合は、テスト証明書を SSL の含まれていません。
 
 - 設定`"LocalTest:skipSSL": true`で、*される appsettings.json*ファイル。
 

@@ -11,11 +11,11 @@ ms.assetid: 3b6a32f2-5af9-4ede-9b7f-17ab300526d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 7b2b35b1519badbc8b8fbddab97a0c6336926185
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: be1cd9f4fe41f1a79669975cb6a89439cdd9e5c7
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="creating-backend-services-for-native-mobile-applications"></a>ネイティブなモバイル アプリケーションのバックエンド サービスを作成します。
 
@@ -46,8 +46,6 @@ ToDoRest アプリには、一覧表示する、追加、削除、および作�
 ![項目のダイアログ ボックスを編集します。](native-mobile-backend/_static/todo-android-edit-item.png)
 
 このサンプルは、既定では読み取り専用の操作を許可するように developer.xamarin.com でホストされているバックエンド サービスを使用して構成されます。 お使いのコンピューターで実行されている次のセクションで作成された ASP.NET Core アプリケーションに対してを自分でテストするには、アプリを更新する必要があります`RestUrl`定数。 移動し、`ToDoREST`プロジェクトから開き、 *Constants.cs*ファイル。 置換、`RestUrl`マシンの ip アドレスを含む URL を使用してアドレス (localhost または 127.0.0.1、コンピューターからではなく、デバイス エミュレーターからこのアドレスが使用されるため)。 ポート番号も (5000) が含まれます。 デバイスで、サービスが動作するかをテストするために、アクティブなファイアウォールがこのポートへのアクセスをブロックしていないことを確認します。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "csharp"} -->
 
 ```csharp
 // URL of REST service (Xamarin ReadOnly Service)

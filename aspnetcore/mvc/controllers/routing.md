@@ -2,7 +2,7 @@
 title: "コント ローラー アクションへのルーティング"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 03/14/2017
@@ -11,11 +11,11 @@ ms.assetid: 26250a4d-bf62-4d45-8549-26801cf956e9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/routing
-ms.openlocfilehash: da67124ffc874c4f83fff077c6429e9f3e571587
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 5a0b5399f7441035cb1231a009681ca22b07ab4e
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="routing-to-controller-actions"></a>コント ローラー アクションへのルーティング
 
@@ -103,8 +103,6 @@ app.UseMvc(routes =>
 
 `UseMvc`および`UseMvcWithDefaultRoute`のインスタンスに追加`RouterMiddleware`ミドルウェア パイプラインにします。 MVC は、ミドルウェアと直接やり取りしませんし、要求を処理するルーティングを使用します。 MVC がのインスタンスを使用して、ルートに接続されている`MvcRouteHandler`です。 内のコード`UseMvc`は、次に似ています。
 
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
-
 ```csharp
 var routes = new RouteBuilder(app);
 
@@ -125,8 +123,6 @@ app.UseRouter(routes.Build());
 ## <a name="conventional-routing"></a>従来のルーティング
 
 `default`ルート。
-
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
 
 ```csharp
 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
@@ -152,15 +148,13 @@ routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
 内の複数のルートを追加する`UseMvc`に呼び出しを追加して`MapRoute`です。 これにより、複数の規則を定義したりするなど、特定の操作専用従来のルートを追加します。
 
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
-
 ```csharp
 app.UseMvc(routes =>
 {
    routes.MapRoute("blog", "blog/{*article}",
             defaults: new { controller = "Blog", action = "Article" });
    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
-}
+});
 ```
 
 `blog`ルートここでは、*専用従来ルート*、従来のルーティング システムを使用しますが、特定の操作は専用のことを意味します。 `controller`と`action`パラメーターとしてルート テンプレートに表示されていない、既定値を持てるおよびためこのルートは、アクションにマップする常に`BlogController.Article`です。
@@ -177,8 +171,6 @@ app.UseMvc(routes =>
 ### <a name="disambiguating-actions"></a>アクションの明確化
 
 2 つのアクションは、ルーティングで一致すると、MVC 必要がありますあいまいさを解消、例外をスローするか、または '最高' 候補を選択します。 例:
-
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
 
 ```csharp
 public class ProductsController : Controller
@@ -284,8 +276,6 @@ public class MyDemoController : Controller
 
 属性がルーティングすることもできますの使用、`Http[Verb]`など属性`HttpPostAttribute`です。 ルート テンプレートを受け入れるすべてこれらの属性のことができます。 この例では、同じルート テンプレートに一致する 2 つのアクションを示します。
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 [HttpGet("/products")]
 public IActionResult ListProducts()
@@ -339,8 +329,6 @@ public class ProductsApiController : Controller
 ### <a name="combining-routes"></a>結合ルート
 
 属性がルーティング小さい反復的なコント ローラーのルート属性は、個々 のアクションでのルート属性と結合されます。 コント ローラーで定義されたルート テンプレートの前は、アクションのルート テンプレートに付加されます。 コント ローラーのルート属性を配置すると、**すべて**コント ローラーのアクションは、属性のルーティングを使用します。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 [Route("products")]
@@ -432,8 +420,6 @@ public class ProductsController : MyBaseController
 
 属性の操作と同じに到達する複数のルートを定義するルーティングをサポートします。 動作を模倣するためには、これの最も一般的な使用法、*従来型の既定のルート*次の例で示すようにします。
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 [Route("[controller]")]
 public class ProductsController : Controller
@@ -445,8 +431,6 @@ public class ProductsController : Controller
 ```
 
 コント ローラーに複数のルート属性を適用するには、それぞれ 1 つがアクション メソッドのルート属性の各に結合を意味します。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 [Route("Store")]
@@ -460,8 +444,6 @@ public class ProductsController : Controller
 ```
 
 ときに複数のルート属性 (実装する`IActionConstraint`) は、各アクションの制約がルート テンプレートを定義する属性を使用して結合し、アクションに配置されます。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 [Route("api/[controller]")]
@@ -630,8 +612,6 @@ public Task<IActionResult> Edit(int id, Customer customer)
 
 ルート定義と呼ばれる特殊なを使用できる従来のルーティング、*専用従来ルート*です。 次の例ではルートの名前`blog`専用従来ルートです。
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 app.UseMvc(routes =>
 {
@@ -687,8 +667,6 @@ app.UseMvc(routes =>
 場合、ルートの値の領域内で操作を実行するときに`area`として使用できる、*アンビエント値*の URL の生成に使用するルーティングします。 つまり、既定では領域機能する*付箋*URL 生成の次の例に示すようにします。
 
 [!code-csharp[Main](routing/sample/AreasRouting/Startup.cs?name=snippet3)]
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {"linenostart": 1}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#", "source": "/Users/shirhatti/src/Docs/aspnet/mvc/controllers/routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs"} -->
 
 [!code-csharp[Main](routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs)]
 

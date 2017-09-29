@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: 07626ae7f40dc6f704d69d71cb7f95d318e6f503
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: f07b0cb44542b7da140d519e883c67901d6327e2
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>応答の ASP.NET Core のミドルウェアのキャッシュ
 
@@ -105,6 +105,17 @@ if (responseCachingFeature != null)
 | 日付 | キャッシュから提供するときに、`Date`元の応答で指定されていない場合、ミドルウェアによってヘッダーが設定されています。 |
 | コンテンツの長さ | キャッシュから提供するときに、`Content-Length`元の応答で指定されていない場合、ミドルウェアによってヘッダーが設定されています。 |
 | 経過時間 | `Age`元の応答で送信されるヘッダーは無視されます。 ミドルウェアは、キャッシュされた応答を提供するときに、新しい値を計算します。 |
+
+## <a name="caching-respects-request-cache-control-directives"></a>要求キャッシュ制御ディレクティブを尊重キャッシュ
+
+ミドルウェアがの規則を尊重、[仕様の HTTP 1.1 キャッシュ](https://tools.ietf.org/html/rfc7234#section-5.2)です。 規則に従う、有効なキャッシュを必要と`Cache-Control`クライアントによって送信されたヘッダー。 仕様では、下にあるクライアントが要求を行うことができます、`no-cache`ヘッダーの値と要求ごとに、新しい応答を生成するようにサーバーを強制します。 現時点ではありませんこのキャッシュ動作制御の開発者ミドルウェアが、公式のキャッシュの仕様に準拠しているため、ミドルウェアを使用する場合。
+
+[ミドルウェアは将来拡張](https://github.com/aspnet/ResponseCaching/issues/96)キャッシュのシナリオのミドルウェアの構成を許可する場所要求`Cache-Control`するキャッシュされた応答が機能するように決定する際に、ヘッダーを無視する必要があります。 キャッシュ動作をより詳細に制御をシークする場合は、ASP.NET Core のキャッシュの他の機能を探索します。 次のトピックを参照してください。
+
+* [ASP.NET Core でのメモリ内キャッシュの概要](xref:performance/caching/memory)
+* [分散キャッシュの使用](xref:performance/caching/distributed)
+* [ASP.NET Core MVC でのタグ ヘルパーをキャッシュします。](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 キャッシュの動作が期待どおりでない場合は、応答がキャッシュを備え、確認するには、要求の受信ヘッダーおよび応答の送信ヘッダーがキャッシュから提供されていることを確認します。 有効にする[ログ](xref:fundamentals/logging)をデバッグするときに役立つことができます。 ミドルウェアは、キャッシュの動作および応答がキャッシュから取得されたときを記録します。

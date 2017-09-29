@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/model
-ms.openlocfilehash: d000da06face3080cf81de4dc15a2596f2bfa7ea
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 648ecd3a782fa489b727982ce5f7a2087539bf38
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-for-mac"></a>Visual Studio for Mac を使用する ASP.NET Core での Razor ページ アプリへのモデルの追加
 
@@ -47,15 +47,15 @@ ms.lasthandoff: 09/19/2017
 
 *.csproj* ファイルを編集するには、次を実行します。
 
-* **[ファイル]、[開く]** を選択して、*.csproj* ファイルを選択します。
+* **[ファイル]**、**[開く]** を選択して、*.csproj* ファイルを選択します。
 * **[オプション]** を選択します。
 * **[Open with](\次で開く\)** を **[ソース コード エディター]** に変更します。
 
 ![csproj ファイルの編集](model/csproj.png)
 
-次は、更新された *csproj* ファイルのコードです。
+`Microsoft.EntityFrameworkCore.Tools.DotNet` ツール参照の 2 つ目の **\<ItemGroup >** への追加
 
-[!code-xml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/RazorPagesMovie.cli.csproj?highlight=10)]
+[!code-xml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_cli_sample/RazorPagesMovie/RazorPagesMovie.cli.csproj?range=12-16&highlight=4)]
 
 [!INCLUDE[model3](../../includes/RP/model3.md)]
 [!INCLUDE[model 4x](../../includes/RP/model4x.md)]

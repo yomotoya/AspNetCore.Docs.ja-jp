@@ -1,6 +1,6 @@
 ---
 title: "ASP.NET Core MVC でのモデルの検証"
-author: rick-anderson
+author: rachelappel
 description: "ASP.NET Core MVC でのモデルの検証について説明します。"
 keywords: "ASP.NET Core、MVC での検証"
 ms.author: riande
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0874d3b677cee2859da9eb85b0573811abbed12a
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: efbc68e898cadd06d61fa69914fe08f3a12ba802
+ms.sourcegitcommit: 8b5733f1cd5d2c2b6d432bf82fcd4be2d2d6b2a3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのモデル検証の概要
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 09/22/2017
 
 以下は、注釈付き`Movie`ムービーやテレビ番組に関する情報を格納するアプリケーションからモデル。 ほとんどのプロパティが必要ないくつかの文字列プロパティの長さの要件があります。 さらのために数値の範囲の制限がある、`Price`プロパティを 0 から $999.99、カスタム検証属性と共ににします。
 
-[!code-csharp[Main](validation/sample/Movie.cs?range=6-31)]
+[!code-csharp[Main](validation/sample/Movie.cs?range=6-29)]
 
 モデル全体を読むだけで、コードを保守しやすいように、このアプリのデータについてのルールが表示されます。 いくつかの一般的な組み込みの検証属性を次に示します。
 
@@ -61,6 +61,18 @@ ms.lasthandoff: 09/22/2017
 MVC から派生した任意の属性をサポートしている`ValidationAttribute`検証のためです。 多くの便利な検証属性は含まれて、 [System.ComponentModel.DataAnnotations](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations)名前空間。
 
 組み込みの属性が用意されてより多くの機能が必要になる可能性があります。 派生することによってカスタム検証属性を作成する場合、それらの時間`ValidationAttribute`を実装する、モデルの変更または`IValidatableObject`です。
+
+## <a name="notes-on-the-use-of-the-required-attribute"></a>必須の属性の使用に関する注意事項
+
+Null 許容でない[値の型](/dotnet/csharp/language-reference/keywords/value-types)(など`decimal`、 `int`、 `float`、および`DateTime`) が本質的に必須で、必要はありません、`Required`属性。 アプリ マークされている null 非許容の型のサーバー側の検証チェックを実行しない`Required`です。
+
+MVC モデル バインディングは、検証と検証の属性を持つ関係はありませんは、不足値または null 非許容の型の空白文字を含むフォーム フィールドの送信を却下します。 ない場合、`BindRequired`属性モデル バインディング ターゲット プロパティに null 非許容の型の場合、フォーム フィールドが存在しないデータの欠落が無視受信フォーム データからです。
+
+[BindRequired 属性](/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute)(も参照してください[属性を持つモデル バインディング動作をカスタマイズする](xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes)) フォームのデータが完全なことを確認すると便利です。 プロパティに適用する場合、モデル バインド システムには、そのプロパティの値が必要です。 型に適用する場合、モデル バインド システムのすべての型のプロパティの値が必要です。
+
+使用すると、 [Nullable\<T > 型](/dotnet/csharp/programming-guide/nullable-types/)(たとえば、`decimal?`または`System.Nullable<decimal>`) とマークして`Required`プロパティが、標準の null 許容型 (の場合と同様に、サーバー側の検証チェックが実行されます。例では、 `string`)。
+
+クライアント側の検証がマークされているモデル プロパティに対応するフォーム フィールドの値が必要です`Required`とマークしていない型の null 非許容のプロパティの`Required`します。 `Required`クライアント側の検証エラー メッセージを制御するために使用します。
 
 ## <a name="model-state"></a>モデルの状態
 
@@ -104,15 +116,15 @@ MVC は引き続きに達するまでフィールドの検証エラー (既定�
 
 次のように動作するクライアント側の検証のために、適切な JavaScript のスクリプト参照では、ビューが必要です。
 
-[!code-html[Main](validation/sample/Views/Shared/_Layout.cshtml?range=37)]
+[!code-cshtml[Main](validation/sample/Views/Shared/_Layout.cshtml?range=37)]
 
-[!code-html[Main](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
+[!code-cshtml[Main](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
 
 MVC では、モデルのプロパティからの型のメタデータの他の検証属性を使用してデータを検証し、JavaScript を使用してエラー メッセージを表示します。 MVC を使用してモデルからのフォーム要素を表示するために使用すると[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)または[HTML ヘルパー](xref:mvc/views/overview)は HTML 5、追加[データ属性](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes)として、検証を必要のあるフォーム要素で次に示します。 MVC の生成、`data-`組み込みとカスタムの両方の属性の属性です。 次に示すように、関連するタグ ヘルパーを使用して、クライアントで検証エラーを表示できます。
 
-[!code-html[Main](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
+[!code-cshtml[Main](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
 
-上記のタグ ヘルパーは、以下の HTML を表示します。 注意して、 `data-` html 属性の出力の検証属性に対応している、`ReleaseDate`プロパティです。 `data-val-required`下の属性には、[リリース日] フィールドに、ユーザーを満たさないし、同時にそのメッセージが表示する場合に表示するエラー メッセージが含まれています。`<span>`要素。
+上記のタグ ヘルパーは、以下の HTML を表示します。 注意して、 `data-` html 属性の出力の検証属性に対応している、`ReleaseDate`プロパティです。 `data-val-required`下の属性には、[リリース日] フィールドに、ユーザーを満たさないし、同時にそのメッセージが表示する場合に表示するエラー メッセージが含まれています。  **\<span >**要素。
 
 ```html
 <form action="/Movies/Create" method="post">
@@ -147,11 +159,11 @@ MVC は、.NET データ型に基づく可能性のあるオーバーライド�
 
 ```html
 <input class="form-control" type="datetime"
-data-val="true"
-data-val-classicmovie="Classic movies must have a release year earlier than 1960."
-data-val-classicmovie-year="1960"
-data-val-required="The ReleaseDate field is required."
-id="ReleaseDate" name="ReleaseDate" value="" />
+    data-val="true"
+    data-val-classicmovie="Classic movies must have a release year earlier than 1960."
+    data-val-classicmovie-year="1960"
+    data-val-required="The ReleaseDate field is required."
+    id="ReleaseDate" name="ReleaseDate" value="" />
 ```
 
 控えめな検証でデータを使用して、`data-`エラー メッセージを表示する属性。 ただし、jQuery のルールが把握して、jQuery を追加するまでメッセージ`validator`オブジェクト。 これは、という名前のメソッドを追加する次の例に示されて`classicmovie`jQuery にカスタムのクライアント検証コードを含む`validator`オブジェクト。

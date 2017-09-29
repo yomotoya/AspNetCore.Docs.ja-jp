@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: 009df1416c822018d6e88912cc77e525c7349c34
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 94db2ff530b5de7fe357cfb591d09b984cb248f9
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core でのアプリケーションの起動
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 09/22/2017
 
 ## <a name="the-startup-class"></a>スタートアップ クラス
 
-ASP.NET Core アプリを必要とする`Startup`クラスです。 慣例により、`Startup`クラスが「開始」をという名前です。 スタートアップ クラス名を指定する、`Main`プログラムの[WebHostBuilderExtensions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions) [ `UseStartup<TStartup>` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions#Microsoft_AspNetCore_Hosting_WebHostBuilderExtensions_UseStartup__1_Microsoft_AspNetCore_Hosting_IWebHostBuilder_)メソッドです。 参照してください[ホスティング](xref:fundamentals/hosting)について詳しく学習する`WebHostBuilder`、前に実行される`Startup`です。
+ASP.NET Core アプリケーションが必要な`Startup`というクラス`Startup`慣例です。 スタートアップ クラス名を指定する、`Main`プログラムの[WebHostBuilderExtensions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions) [ `UseStartup<TStartup>` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions#Microsoft_AspNetCore_Hosting_WebHostBuilderExtensions_UseStartup__1_Microsoft_AspNetCore_Hosting_IWebHostBuilder_)メソッドです。 参照してください[ホスティング](xref:fundamentals/hosting)について詳しく学習する`WebHostBuilder`、前に実行される`Startup`です。
 
 独立したを定義することができます`Startup`クラスのさまざまな環境、および適切ないずれかが実行時に選択されます。 指定した場合`startupAssembly`で、 [WebHost 構成](https://docs.microsoft.com/aspnet/core/fundamentals/hosting?tabs=aspnetcore2x#configuring-a-host)オプション をホストしているか、またはそのスタートアップ アセンブリの読み込みおよび検索、`Startup`または`Startup[Environment]`型です。 クラスを名前サフィックスと一致する現在の環境は優先順位を付けるために、アプリを実行、*開発*環境では、両方が含まれると、`Startup`と`StartupDevelopment`クラス、`StartupDevelopment`クラスになります使用されます。 参照してください[FindStartupType](https://github.com/aspnet/Hosting/blob/rel/1.1.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs)で`StartupLoader`と[複数の環境で作業](environments.md#startup-conventions)です。
 

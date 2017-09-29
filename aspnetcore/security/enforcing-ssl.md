@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/enforcing-ssl
-ms.openlocfilehash: e8e7d4a69fd681534fb313ff113805bfd6a6d44e
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 6f2755a606000717ca8a57f045b1ef613c7f14f6
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="enforcing-ssl-in-an-aspnet-core-app"></a>ASP.NET Core アプリケーションで SSL を適用します。
 
@@ -40,7 +40,3 @@ ms.lasthandoff: 09/22/2017
 参照してください[URL 書き換えミドルウェア](xref:fundamentals/url-rewriting)詳細についてはします。
 
 HTTPS をグローバルに必要とする (`options.Filters.Add(new RequireHttpsAttribute());`) は、セキュリティのベスト プラクティスです。 適用する、`[RequireHttps]`属性をすべてのコント ローラーがグローバルに HTTPS を必要とすると、セキュリティで保護されたと見なされない。 保証できない場合、アプリに追加された新しいコント ローラーを忘れずに適用、`[RequireHttps]`属性。
-
-## <a name="set-up-iis-express-for-sslhttps"></a>SSL または HTTPS の IIS Express を設定します。
-
-参照してください[ASP.NET Core での開発の HTTPS を設定](xref:security/https#iisxpress)です。

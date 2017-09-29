@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/owin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9edacb494c38d7812f9e3826ab9277cd1dffd675
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: cd32d6929f16a619ad2cc8c7752a0373cbdff034
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>開くには .NET (OWIN) 用 Web インターフェイスの概要
 
@@ -55,15 +55,11 @@ public Task OwinHello(IDictionary<string, object> environment)
 
     return responseStream.WriteAsync(responseBytes, 0, responseBytes.Length);
 }
-
-
 ```
 
 サンプルの署名を返します、`Task`を受け入れると、 `IDictionary<string, object>` OWIN による要求どおりです。
 
 次のコードを追加する方法を示しています、 `OwinHello` (前に示した) での ASP.NET パイプラインにミドルウェア、`UseOwin`拡張メソッド。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {"linenostart": 1}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#", "source": "/Users/shirhatti/src/Docs/aspnet/fundamentals/owin/sample/src/OwinSample/Startup.cs"} -->
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -73,8 +69,6 @@ public void Configure(IApplicationBuilder app)
         pipeline(next => OwinHello);
     });
 }
-
-
 ```
 
 OWIN パイプライン内で実行するには、その他のアクションを構成することができます。
@@ -84,8 +78,6 @@ OWIN パイプライン内で実行するには、その他のアクションを
 
 > [!NOTE]
 > 複数回呼び出す`UseOwin`をパフォーマンス上の理由からお勧めします。 OWIN コンポーネントは、一緒にグループ化する場合、最適動作します。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 app.UseOwin(pipeline =>
@@ -112,8 +104,6 @@ OWIN ベースのサーバーには、ASP.NET アプリケーションをホス�
 `Start`構成して、サーバーは、ここでは、一連の IServerAddressesFeature から解析されたアドレスを設定する fluent API 呼び出しを担当します。 なお fluent 構成の`_builder`変数は、要求で処理することを指定します、`appFunc`メソッドで定義しました。 これは、`Func`は着信要求を処理する要求のたびに呼び出されます。
 
 追加しても、`IWebHostBuilder`を追加して Nowin サーバーを構成するが簡単に拡張します。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {"hl_lines": [11], "linenostart": 1}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#", "source": "/Users/shirhatti/src/Docs/aspnet/fundamentals/owin/sample/src/NowinSample/NowinWebHostBuilderExtensions.cs"} -->
 
 ```csharp
 using System;
@@ -147,8 +137,6 @@ namespace Microsoft.AspNetCore.Hosting
 ```
 
 こうすると、そのために必要なこのカスタムのサーバー拡張機能の呼び出しを使用した ASP.NET アプリケーションを実行する*Program.cs*:
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {"hl_lines": [15], "linenostart": 1}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#", "source": "/Users/shirhatti/src/Docs/aspnet/fundamentals/owin/sample/src/NowinSample/Program.cs"} -->
 
 ```csharp
 
@@ -184,8 +172,6 @@ namespace NowinSample
 ## <a name="run-aspnet-core-on-an-owin-based-server-and-use-its-websockets-support"></a>OWIN ベースのサーバーで ASP.NET Core を実行し、Websocket のサポートを使用
 
 OWIN ベースのサーバーの機能の別の例で利用できる ASP.NET Core は、Websocket などの機能にアクセスします。 前の例で使用される .NET OWIN web サーバーには、ASP.NET Core アプリケーションによって利用されるように組み込まれており、Web ソケットのサポートがいます。 次の例では、Web ソケットをサポートし、Websocket 経由でサーバーに送信されるすべてのものでエコー バックする単純な web アプリを示します。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {"hl_lines": [7, 9, 10], "linenostart": 1}, "backrefs": [], "dupnames": [], "linenos": true, "classes": [], "xml:space": "preserve", "language": "c#", "source": "/Users/shirhatti/src/Docs/aspnet/fundamentals/owin/sample/src/NowinWebSockets/Startup.cs"} -->
 
 ```csharp
 public class Startup
@@ -240,8 +226,6 @@ public class Startup
 ## <a name="owin-environment"></a>OWIN 環境
 
 使用する OWIN 環境を構築することができます、`HttpContext`です。
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 

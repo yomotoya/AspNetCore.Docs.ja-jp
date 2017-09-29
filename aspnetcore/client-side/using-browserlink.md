@@ -1,24 +1,24 @@
 ---
 title: "ASP.NET Core のブラウザー リンク"
 author: ncarandini
-description: "1 つまたは複数の web ブラウザーを備えた開発環境をリンクしている Visual Studio の機能"
+description: "Browser Link は、Visual Studio の機能に 1 つまたは複数の web ブラウザーで、開発環境をリンクする方法について説明します。"
 keywords: "ASP.NET Core、browser link を CSS 同期"
 ms.author: riande
 manager: wpickett
-ms.date: 12/28/2016
+ms.date: 09/22/2017
 ms.topic: article
 ms.assetid: 11813d4c-3f8a-445a-b23b-e4a57d001abc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 211dd5d03e6b8414e0b2ed3234d8970c92f72452
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 67ddc58e38962bd876050739a2a1447be4f589bb
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
-# <a name="introduction-to-browser-link-in-aspnet-core"></a>ASP.NET Core で Browser Link の概要 
+# <a name="browser-link-in-aspnet-core"></a>ASP.NET Core のブラウザー リンク 
 
 によって[Nicolò Carandini](https://github.com/ncarandini)、 [Mike Wasson](https://github.com/MikeWasson)、および[Tom Dykstra](https://github.com/tdykstra)
 
@@ -26,42 +26,49 @@ ms.lasthandoff: 09/22/2017
 
 ## <a name="browser-link-setup"></a>ブラウザー リンクのセットアップ
 
-ASP.NET Core **Web アプリケーション**Visual Studio 2015 のプロジェクト テンプレートと、以降のブラウザー リンクに必要なすべてのものが含まれています。
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Browser Link を ASP.NET Core を使用して作成したプロジェクトに追加する**空**または**Web API**テンプレート、これらの手順に従います。
+ASP.NET Core 2.x **Web アプリケーション**、**空**、および**Web API**テンプレート プロジェクトを使用して、 [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/)パッケージ リファレンスを含むメタパッケージ[Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/)です。 したがってを使用して、`Microsoft.AspNetCore.All`メタパッケージ Browser Link を使用できるようにする追加の操作は必要ありません。
 
-1. 追加、 *Microsoft.VisualStudio.Web.BrowserLink.Loader*パッケージ 
-2. 構成コードを追加、 *Startup.cs*ファイル。
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-### <a name="add-the-package"></a>パッケージを追加します。
+ASP.NET Core 1.x **Web アプリケーション**プロジェクト テンプレートは、のパッケージの参照を持つ、 [Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/)パッケージです。 **空**または**Web API**テンプレート プロジェクトでは、パッケージの参照を追加する必要があります`Microsoft.VisualStudio.Web.BrowserLink`です。
 
-開くには、パッケージを追加する最も簡単な方法は、これは、Visual Studio の機能であるため、**パッケージ マネージャー コンソール**(**ビュー > その他のウィンドウ > パッケージ マネージャー コンソール**) し、次のコマンドを実行します。
+これは、Visual Studio の機能では、最も簡単な方法にパッケージを追加するため、**空**または**Web API**プロジェクト テンプレートを開くには、 **Package Manager Console** (**ビュー** > **その他のウィンドウ** > **Package Manager Console**) し、次のコマンドを実行します。
 
 ```console
-install-package Microsoft.VisualStudio.Web.BrowserLink.Loader
+install-package Microsoft.VisualStudio.Web.BrowserLink
 ```
 
-また、使用することができます**NuGet Package Manager**です。  プロジェクト名を右クリックして**ソリューション エクスプ ローラー**を選択して**NuGet パッケージの管理**です。 
+また、使用することができます**NuGet Package Manager**です。 プロジェクト名を右クリックして**ソリューション エクスプ ローラー**選択**NuGet パッケージの管理**:
 
 ![開いている NuGet パッケージ マネージャー](using-browserlink/_static/open-nuget-package-manager.png)
 
-検索し、パッケージをインストールします。
+検索して、パッケージをインストールします。
 
 ![パッケージで NuGet パッケージ マネージャーを追加します。](using-browserlink/_static/add-package-with-nuget-package-manager.png)
 
-### <a name="add-configuration-code"></a>構成コードを追加します。
+---
 
-開く、 *Startup.cs*ファイル、し、、`Configure`メソッドは、次のコードを追加します。
+### <a name="configuration"></a>構成
+
+`Configure`のメソッド、 *Startup.cs*ファイル。
 
 ```csharp
 app.UseBrowserLink();
 ```
 
-内のコードは通常、`if`ブロックを次に示すように、開発環境でのみ Browser Link を有効にします。
+内のコードは、通常、`if`ブロックを次に示すように、開発環境で Browser Link をのみ有効にします。
 
-[!code-csharp[Main](./using-browserlink/sample/BrowserLinkSample/src/BrowserLinkSample/Startup.cs?highlight=1,4&range=40-44)]
+```csharp
+if (env.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+    app.UseBrowserLink();
+}
+```
 
-詳細については、「[Working with multiple environments](../fundamentals/environments.md)」 (複数の環境の使用) を参照してください。
+詳細については、「[Working with multiple environments](xref:fundamentals/environments)」 (複数の環境の使用) を参照してください。
 
 ## <a name="how-to-use-browser-link"></a>Browser Link を使用する方法
 
@@ -71,10 +78,10 @@ Visual Studio の横にブラウザー リンク ツール バー コントロ�
 
 ブラウザー リンク ツール バー コントロールで、次の操作を実行できます。
 
-- 複数のブラウザーで web アプリケーションを一度に更新します。
-- 開く、**ブラウザー リンク ダッシュ ボード**
-- 有効または無効に**ブラウザー リンク**
-- 有効にするにまたは、CSS 自動同期を無効にします。
+* 複数のブラウザーで web アプリケーションを一度にを更新します。
+* 開く、**ブラウザー リンク ダッシュ ボード**です。
+* 有効または無効に**Browser Link**です。 注: ブラウザー リンクは、Visual Studio 2017 (15.3) で既定では無効です。
+* 有効にするにまたは、CSS 自動同期を無効にします。
 
 > [!NOTE]
 > Visual Studio プラグインによって、最も顕著な*Web 拡張機能パック 2015*と*Web 拡張機能パック 2017*ブラウザー リンク拡張機能を提供、ASP でいくつかの追加の機能は機能しません。NET Core プロジェクト。
@@ -85,11 +92,11 @@ Visual Studio の横にブラウザー リンク ツール バー コントロ�
 
 ![F5 キーを押してドロップダウン メニュー](using-browserlink/_static/debug-target-dropdown-menu.png)
 
-一度に複数のブラウザーを開き、選択**を参照しています.**同一のドロップダウン リストからです。  ブラウザーを選択して CTRL キーを押しながらクリックして**参照**:
+一度に複数のブラウザーを開き、選択**を参照しています.**同一のドロップダウン リストからです。 ブラウザーを選択して CTRL キーを押しながらクリックして**参照**:
 
 ![一度に多くのブラウザーを開く](using-browserlink/_static/open-many-browsers-at-once.png)
 
-Visual Studio を開いて、インデックスが表示された表示サンプル スクリーン ショットと 2 つの開いているブラウザーを次に示します。
+Visual Studio を開いて、インデックスが表示された表示スクリーン ショットと 2 つの開いているブラウザーを次に示します。
 
 ![例を次の 2 つのブラウザーとの同期します。](using-browserlink/_static/sync-with-two-browsers-example.png)
 
@@ -109,11 +116,11 @@ Browser Link のドロップダウン メニューを開いているブラウザ
 
 ![ダッシュ ボード browserslink 開く](using-browserlink/_static/open-browserlink-dashboard.png)
 
-クリックして非デバッグ セッションを開始するにはブラウザーが接続されていない場合、_ブラウザーで表示_リンク。
+ブラウザーが接続されていない場合を選択して非デバッグ セッションを開始することができます、*ブラウザーで表示*リンク。
 
 ![browserlink ダッシュ ボードいいえ接続](using-browserlink/_static/browserlink-dashboard-no-connections.png)
 
-それ以外の場合、各ブラウザーで表示されているページへのパスと、接続されているブラウザーのとおりです。
+それ以外の場合、接続されているブラウザーは、各ブラウザーで表示されているページへのパスで示されています。
 
 ![browserlink-ダッシュ ボードの 2 つの接続](using-browserlink/_static/browserlink-dashboard-two-connections.png)
 
@@ -121,7 +128,7 @@ Browser Link のドロップダウン メニューを開いているブラウザ
 
 ### <a name="enable-or-disable-browser-link"></a>有効にするにまたは Browser Link を無効にします。
 
-再度有効にするブラウザー リンクが無効にした後ときに、それらを再接続するようにブラウザーを更新する必要があります。
+これを無効にした後 Browser Link を再度有効に再接続するようにブラウザーを更新する必要があります。
 
 ### <a name="enable-or-disable-css-auto-sync"></a>有効にするにまたは、CSS 自動同期を無効にします。
 
@@ -143,4 +150,4 @@ Browser Link では、SignalR を使用して、Visual Studio とブラウザー
 
 ソース ファイルは変更されません。 ミドルウェア コンポーネントは、スクリプト参照を動的に挿入します。 
 
-ブラウザー側のコードは、すべての JavaScript であるために、任意のブラウザー プラグインを必要とせず、SignalR をサポートするすべてのブラウザーで機能します。
+ブラウザー側のコードは、すべての JavaScript であるために、ブラウザーのプラグインを必要とせず、SignalR がサポートされているすべてのブラウザーで機能します。

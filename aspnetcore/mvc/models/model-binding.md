@@ -11,11 +11,11 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 597d4058a410e0b5991b1d5a74c9fc7bfe8171b8
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 92085829d2a37a2aa6080aeb34a5e14be95e02d8
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="model-binding"></a>モデル バインディング
 
@@ -32,8 +32,6 @@ HTTP 要求を受信すると、MVC コント ローラーの特定のアクシ�
 `http://contoso.com/movies/edit/2`
 
 ルート テンプレートは、次のように見えるため`{controller=Home}/{action=Index}/{id?}`、`movies/edit/2`にルーティング、`Movies`コント ローラーとその`Edit`アクション メソッド。 呼ばれるオプションのパラメーターも受け入れます`id`です。 アクション メソッドのコードは、次のようになります。
-
-<!-- literal_block {"ids": [], "linenos": true, "xml:space": "preserve", "language": "csharp"} -->
 
 ```csharp
 public IActionResult Edit(int? id)
@@ -71,7 +69,7 @@ The link works but generates an error when building with DocFX
 
 * `IFormFile`、 `IEnumerable<IFormFile>`: HTTP 要求の一部である 1 つまたは複数のアップロードされたファイルです。
 
-* `CancelationToken`: 非同期コント ローラーでアクティビティをキャンセルするために使用します。
+* `CancellationToken`: 非同期コント ローラーでアクティビティをキャンセルするために使用します。
 
 これらの型は、クラス型またはプロパティをアクション パラメーターにバインドできます。
 
@@ -107,15 +105,13 @@ MVC には、別のソースにその既定のモデル バインディング動
 
 ASP.NET 選択に基づいて入力フォーマッタ、[コンテンツの種類](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html)ヘッダーおよびパラメーターの型には、それ以外の場合を指定して適用する属性がない限り、します。 XML を使用するか、または別の形式をする必要があります構成で、 *Startup.cs*への参照を取得するファイルの最初が`Microsoft.AspNetCore.Mvc.Formatters.Xml`NuGet を使用します。 スタートアップ コードは、次のようになります。
 
-<!-- literal_block {"ids": [], "linenos": true, "xml:space": "preserve", "language": "csharp"} -->
-
 ```csharp
 public void ConfigureServices(IServiceCollection services)
-   {
-       services.AddMvc()
-          .AddXmlSerializerFormatters();
+{
+    services.AddMvc()
+        .AddXmlSerializerFormatters();
    }
-   ```
+```
 
 内のコード、 *Startup.cs*ファイルが含まれています、`ConfigureServices`メソッドを`services`ASP.NET アプリのサービスの構築に使用できる引数。 サンプルでは、MVC は、このアプリに提供するサービスとして XML フォーマッタを追加おされます。 `options`に渡される引数、`AddMvc`メソッドでは、追加およびアプリの起動時に、MVC のフィルター、フォーマッタ、およびその他のシステム オプションを管理することができます。 適用し、`Consumes`属性をコント ローラー クラスまたは希望の形式を使用するアクション メソッド。
 

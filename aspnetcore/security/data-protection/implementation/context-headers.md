@@ -11,11 +11,11 @@ ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 5688ff2c36907231f88d45cef4ae1b1c60ab44ab
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: a47d2f91e6764bf6760ea559f1e2753e966753e3
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="context-headers"></a>コンテキスト ヘッダー
 
@@ -63,14 +63,12 @@ ms.lasthandoff: 09/19/2017
 
 まず、(K_E | |K_H) = SP800_108_CTR (prf = HMACSHA512、キー =""、ラベル =""、コンテキスト ="")、|K_E |= 192 ビットおよび |K_H |指定したアルゴリズムごとの 256 ビットを = です。 これは、ため、K_E に = 5BB6.21DD と K_H = A04A.次の例で 00A9:
 
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
-
 ```
 5B B6 C9 83 13 78 22 1D 8E 10 73 CA CF 65 8E B0
-   61 62 42 71 CB 83 21 DD A0 4A 05 00 5B AB C0 A2
-   49 6F A5 61 E3 E2 49 87 AA 63 55 CD 74 0A DA C4
-   B7 92 3D BF 59 90 00 A9
-   ```
+61 62 42 71 CB 83 21 DD A0 4A 05 00 5B AB C0 A2
+49 6F A5 61 E3 E2 49 87 AA 63 55 CD 74 0A DA C4
+B7 92 3D BF 59 90 00 A9
+```
 
 次に、コンピューティング Enc_CBC (K_E、IV、"") CBC 192 AES IV を指定された = 0 * と上と K_E です。
 
@@ -82,15 +80,13 @@ ms.lasthandoff: 09/19/2017
 
 これには、以下の内容を含むヘッダーが生成されます。
 
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
-
 ```
 00 00 00 00 00 18 00 00 00 10 00 00 00 20 00 00
-   00 20 F4 74 B1 87 2B 3B 53 E4 72 1D E1 9C 08 41
-   DB 6F D4 79 11 84 B9 96 09 2E E1 20 2F 36 E8 60
-   8F A8 FB D9 8A BD FF 54 02 F2 64 B1 D7 21 15 36
-   22 0C
-   ```
+00 20 F4 74 B1 87 2B 3B 53 E4 72 1D E1 9C 08 41
+DB 6F D4 79 11 84 B9 96 09 2E E1 20 2F 36 E8 60
+8F A8 FB D9 8A BD FF 54 02 F2 64 B1 D7 21 15 36
+22 0C
+```
 
 このコンテキスト ヘッダーは、認証済み暗号化アルゴリズムのペア (CBC 192、AES で暗号化 + HMACSHA256 検証) のサムプリントです。 コンポーネントの説明に従って[上](xref:security/data-protection/implementation/context-headers#data-protection-implementation-context-headers-cbc-components)は。
 
@@ -115,13 +111,11 @@ ms.lasthandoff: 09/19/2017
 
 まず、(K_E | |K_H) = SP800_108_CTR (prf = HMACSHA512、キー =""、ラベル =""、コンテキスト ="")、|K_E |= 192 ビットおよび |K_H |指定したアルゴリズムごとの 160 ビットを = です。 これは、ため、K_E に = A219.E2BB と K_H = DC4A.次の例で B464:
 
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
-
 ```
 A2 19 60 2F 83 A9 13 EA B0 61 3A 39 B8 A6 7E 22
-   61 D9 F8 6C 10 51 E2 BB DC 4A 00 D7 03 A2 48 3E
-   D1 F7 5A 34 EB 28 3E D7 D4 67 B4 64
-   ```
+61 D9 F8 6C 10 51 E2 BB DC 4A 00 D7 03 A2 48 3E
+D1 F7 5A 34 EB 28 3E D7 D4 67 B4 64
+```
 
 次に、コンピューティング Enc_CBC (K_E、IV、"") CBC 192 3 des IV を指定された = 0 * と上と K_E です。
 
@@ -133,13 +127,11 @@ A2 19 60 2F 83 A9 13 EA B0 61 3A 39 B8 A6 7E 22
 
 これにより、認証の拇印である完全コンテキスト ヘッダーが生成されます。 暗号化アルゴリズムの組み合わせ (3 des 192-CBC 暗号化 + HMACSHA1 検証)、次に示します。
 
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
-
 ```
 00 00 00 00 00 18 00 00 00 08 00 00 00 14 00 00
-   00 14 AB B1 00 F8 1E 53 E1 0E 76 EB 18 9B 35 CF
-   03 46 1D DF 87 7C D9 F4 B1 B4 D6 3A 75 55
-   ```
+00 14 AB B1 00 F8 1E 53 E1 0E 76 EB 18 9B 35 CF
+03 46 1D DF 87 7C D9 F4 B1 B4 D6 3A 75 55
+```
 
 コンポーネントが次のように分割します。
 
@@ -189,13 +181,11 @@ Enc_GCM の認証タグを次に、コンピューティング (K_E、nonce、""
 
 これには、以下の内容を含むヘッダーが生成されます。
 
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
-
 ```
 00 01 00 00 00 20 00 00 00 0C 00 00 00 10 00 00
-   00 10 E7 DC CE 66 DF 85 5A 32 3A 6B B7 BD 7A 59
-   BE 45
-   ```
+00 10 E7 DC CE 66 DF 85 5A 32 3A 6B B7 BD 7A 59
+BE 45
+```
 
 コンポーネントが次のように分割します。
 

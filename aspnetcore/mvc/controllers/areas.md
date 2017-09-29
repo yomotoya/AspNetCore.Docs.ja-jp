@@ -11,11 +11,11 @@ ms.assetid: 5e16d5e8-5696-4cb2-8ec7-d36be305c922
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/areas
-ms.openlocfilehash: 0f388ba090ada11a0ac7937606cbcd5a89d6263e
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 3096d6404ff9c7e34eefcfb1990e7bf1ccab27ba
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="areas"></a>区分
 
@@ -105,8 +105,6 @@ services.Configure<RazorViewEngineOptions>(options =>
 
 フォルダー階層を定義したら、各コント ローラーが領域に関連付けられている MVC に指示する必要があります。 コント ローラー名を修飾すれば、`[Area]`属性。
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [4]}} -->
-
 ```csharp
 ...
    namespace MyStore.Areas.Products.Controllers
@@ -130,8 +128,6 @@ services.Configure<RazorViewEngineOptions>(options =>
    ```
 
 新しく作成された分野で動作するルート定義を設定します。 [コント ローラー アクションへのルーティング](routing.md)属性ルートと従来のルートを使用するなどの route 定義を作成する方法について詳細にアーティクルが入ります。 この例では、従来のルートを使用します。 開く、 *Startup.cs*ファイルし、追加することによって変更、`areaRoute`下記の route 定義をという名前です。
-
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [4, 5, 6]}} -->
 
 ```csharp
 ...

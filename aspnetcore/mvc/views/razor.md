@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 066fe3b2486c63bd4de2ccb865ad432a67846d77
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 0e65f0e9f672f9f93256ebc039ea0db2e4ef5ae0
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET Core の razor 構文
 
@@ -30,7 +30,7 @@ Razor の既定の言語は、HTML です。 Razor から HTML をレンダリ�
 
 ```html
 <p>Hello World</p>
-   ```
+```
 
 変更されることが表示される`<p>Hello World</p>`サーバーでします。
 
@@ -42,15 +42,15 @@ Razor (C#) をサポートしを使用して、 `@` HTML を c# から移行す�
 
 HTML を含む`@`シンボルは、1 秒あたりにエスケープする必要があります`@`シンボル。 例:
 
-```html
+```cshtml
 <p>@@Username</p>
-   ```
+```
 
 次の HTML を表示します。
 
-```html
+```cshtml
 <p>@Username</p>
-   ```
+```
 
 <a name=razor-email-ref></a>
 
@@ -91,16 +91,14 @@ Razor の明示的な式から成る、@ バランスの取れたかっこ記号
 
 ```html
 <p>Last week: 7/7/2016 4:39:52 PM - TimeSpan.FromDays(7)</p>
-   ```
+```
 
 Expression の結果の文字列を連結するのに明示的な式を使用することができます。
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "none", "highlight_args": {"hl_lines": [5]}} -->
-
-```none
+```cshtml
 @{
     var joe = new Person("Joe", 33);
- }
+}
 
 <p>Age@(joe.Age)</p>
 ```
@@ -113,15 +111,15 @@ Expression の結果の文字列を連結するのに明示的な式を使用す
 
 文字列に評価される c# 式は、HTML エンコードです。 C# 式の評価が`IHtmlContent`経由で直接レンダリング*IHtmlContent.WriteTo*です。 C# 式の評価がない*IHtmlContent*を文字列に変換 (によって*ToString*) し、レンダリングされる前にエンコードします。 たとえば、次の Razor マークアップ。
 
-```html
+```cshtml
 @("<span>Hello World</span>")
-   ```
+```
 
 これに HTML を表示します。
 
 ```html
 &lt;span&gt;Hello World&lt;/span&gt;
-   ```
+```
 
 ブラウザーは、としてレンダリングします。
 
@@ -134,15 +132,15 @@ Expression の結果の文字列を連結するのに明示的な式を使用す
 
 次の Razor マークアップ。
 
-```html
+```cshtml
 @Html.Raw("<span>Hello World</span>")
-   ```
+```
 
 これに HTML を表示します。
 
 ```html
 <span>Hello World</span>
-   ```
+```
 
 <a name=razor-code-blocks-label></a>
 
@@ -162,7 +160,7 @@ Razor コード ブロックが始まる`@`で囲まれたと`{}`です。 式�
 
 ```html
 <p>The rendered result: Hello World</p>
-   ```
+```
 
 <a name=implicit-transitions-label></a>
 
@@ -170,7 +168,7 @@ Razor コード ブロックが始まる`@`で囲まれたと`{}`です。 式�
 
 既定の言語コード ブロックでは、C# の場合が、HTML に移行することができます。 コード ブロック内の HTML は HTML 表示に戻す移行します。
 
-```none
+```cshtml
 @{
     var inCSharp = true;
     <p>Now in HTML, was in C# @inCSharp</p>
@@ -183,9 +181,7 @@ Razor コード ブロックが始まる`@`で囲まれたと`{}`です。 式�
 
 HTML を描画するコード ブロックのサブ セクションを定義するのには、Razor で表示する文字を囲みます`<text>`タグ。
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "none", "highlight_args": {"hl_lines": [4]}} -->
-
-```none
+```cshtml
 @for (var i = 0; i < people.Length; i++)
 {
     var person = people[i];
@@ -201,9 +197,7 @@ HTML を描画するコード ブロックのサブ セクションを定義す�
 
 コード ブロックの内部 HTML として残りの行全体を表示を使用して、`@:`構文。
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "none", "highlight_args": {"hl_lines": [4]}} -->
-
-```none
+```cshtml
 @for (var i = 0; i < people.Length; i++)
 {
     var person = people[i];
@@ -223,7 +217,7 @@ HTML を描画するコード ブロックのサブ セクションを定義す�
 
 `@if`ファミリ制御コードが実行されます。
 
-```none
+```cshtml
 @if (value % 2 == 0)
 {
     <p>The value was even</p>
@@ -232,7 +226,7 @@ HTML を描画するコード ブロックのサブ セクションを定義す�
 
 `else`および`else if`を必要としない、`@`シンボル。
 
-```none
+```cshtml
 @if (value % 2 == 0)
 {
     <p>The value was even</p>
@@ -249,7 +243,7 @@ else
 
 次のようにスイッチ ステートメントを使用することができます。
 
-```none
+```cshtml
 @switch (value)
 {
     case 1:
@@ -268,7 +262,7 @@ else
 
 コントロール ステートメントのループで template 宣言された HTML をレンダリングすることができます。 たとえば、ユーザーの一覧を表示するためにします。
 
-```none
+```cshtml
 @{
     var people = new Person[]
     {
@@ -282,7 +276,7 @@ else
 
 `@for`
 
-```none
+```cshtml
 @for (var i = 0; i < people.Length; i++)
 {
     var person = people[i];
@@ -293,7 +287,7 @@ else
 
 `@foreach`
 
-```none
+```cshtml
 @foreach (var person in people)
 {
     <p>Name: @person.Name</p>
@@ -303,7 +297,7 @@ else
 
 `@while`
 
-```none
+```cshtml
 @{ var i = 0; }
 @while (i < people.Length)
 {
@@ -317,7 +311,7 @@ else
 
 `@do while`
 
-```none
+```cshtml
 @{ var i = 0; }
 @do
 {
@@ -333,7 +327,7 @@ else
 
 C# を使用して、オブジェクトが破棄されることを確認するステートメントを使用します。 Razor で追加のコンテンツを含む HTML ヘルパーの作成をこれと同じメカニズムを使用できます。 インスタンスとフォーム タグをレンダリングする HTML ヘルパーを利用できます、`@using`ステートメント。
 
-```none
+```cshtml
 @using (Html.BeginForm())
 {
     <div>
@@ -356,7 +350,7 @@ C# を使用して、オブジェクトが破棄されることを確認する�
 
 Razor では、クリティカル セクション lock ステートメントを保護する機能があります。
 
-```none
+```cshtml
 @lock (SomeLock)
 {
     // Do critical section work
@@ -367,7 +361,7 @@ Razor では、クリティカル セクション lock ステートメントを�
 
 Razor では、c# と HTML のコメントをサポートします。 次のマークアップ。
 
-```none
+```cshtml
 @{
     /* C# comment. */
     // Another C# comment.
@@ -377,14 +371,14 @@ Razor では、c# と HTML のコメントをサポートします。 次のマ�
 
 サーバーによってレンダリングされます。
 
-```none
+```cshtml
 <!-- HTML comment -->
 ```
 
 Razor コメントは、ページが表示される前に、サーバーによって削除されます。 Razor を使用して`@*  *@`コメントを区切るためにします。 次のコードがコメント アウト、ため、サーバーにすべてのマークアップは表示されません。
 
-```none
- @*
+```cshtml
+@*
  @{
      /* C# comment. */
      // Another C# comment.
@@ -431,33 +425,33 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 
 `@model`ディレクティブは、Razor ページに渡されたモデルの種類を指定します。 このツールでは、次の構文が使用されます。
 
-```none
+```cshtml
 @model TypeNameOfModel
-   ```
+```
 
 たとえば、個々 のユーザー アカウントを持つ ASP.NET Core MVC アプリを作成する場合、 *Views/Account/Login.cshtml* Razor ビューには、次のモデルの宣言が含まれています。
 
-```csharp
+```cshtml
 @model LoginViewModel
-   ```
+```
 
 クラスの例で生成されるクラスを継承から`RazorPage<dynamic>`です。 追加することによって、`@model`新機能は、継承を制御します。 次に例を示します。
 
-```csharp
+```cshtml
 @model LoginViewModel
-   ```
+```
 
 次のクラスが生成されます。
 
 ```csharp
 public class _Views_Account_Login_cshtml : RazorPage<LoginViewModel>
-   ```
+```
 
 Razor ページを公開、`Model`モデルにアクセスするためのプロパティ ページに渡されます。
 
-```html
+```cshtml
 <div>The Login Email: @Model.Email</div>
-   ```
+```
 
 `@model`ディレクティブは、このプロパティの型を指定 (指定することによって、`T`で`RazorPage<T>`からページに対して生成されたクラスが派生する)。 指定しない場合は、`@model`ディレクティブ、`Model`型プロパティである`dynamic`です。 モデルの値は、コント ローラーからビューに渡されます。 参照してください[モデルを厳密に型指定と@modelキーワード](../../tutorials/first-mvc-app/adding-model.md#strongly-typed-models-keyword-label)詳細についてはします。
 
@@ -465,9 +459,9 @@ Razor ページを公開、`Model`モデルにアクセスするためのプロ�
 
 `@inherits`ディレクティブは、Razor ページを継承するクラスを完全に制御を提供します。
 
-```none
+```cshtml
 @inherits TypeNameOfClassToInheritFrom
-   ```
+```
 
 インスタンスが発生しました。 次のカスタム Razor ページの種類とします。
 
@@ -487,7 +481,7 @@ Razor ページを公開、`Model`モデルにアクセスするためのプロ�
 
 この HTML マークアップを生成します。
 
-```none
+```cshtml
 <div>The Login Email: Rick@contoso.com</div>
 <div>Custom text: Hello World</div>
 ```
@@ -506,9 +500,9 @@ Razor ページを公開、`Model`モデルにアクセスするためのプロ�
 
 `@functions`ディレクティブでは、Razor ページに関数レベルのコンテンツを追加することができます。 構文は次のとおりです。
 
-```none
+```cshtml
 @functions { // C# Code }
-   ```
+```
 
 例:
 
@@ -516,9 +510,9 @@ Razor ページを公開、`Model`モデルにアクセスするためのプロ�
 
 次の HTML マークアップを生成します。
 
-```none
+```cshtml
 <div>From method: Hello</div>
-   ```
+```
 
 生成された Razor c# のようになります。
 

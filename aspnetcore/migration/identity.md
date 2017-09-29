@@ -11,11 +11,11 @@ ms.assetid: 0db145cb-41a5-448a-b889-72e2d789ad7f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/identity
-ms.openlocfilehash: b5a9bab4399714c481d4f38eeeaeba19d8bdd5b2
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: ed96266f06eb473fa3c3e1cc81b2b58fcd89f29e
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="migrating-authentication-and-identity"></a>移行の認証と Id
 
@@ -52,8 +52,6 @@ public void ConfigureServices(IServiceCollection services)
 この時点では、ASP.NET MVC プロジェクトから移行していないまだ上記のコードで参照されている 2 つの種類があります:`ApplicationDbContext`と`ApplicationUser`です。 新しい*モデル*ASP.NET Core フォルダー プロジェクト、およびこれらの型に対応する 2 つのクラスを追加します。 見つかります ASP.NET MVC のバージョンでこれらのクラスの`/Models/IdentityModels.cs`がより明確であるため移行対象のプロジェクト内のクラスごとに 1 ファイルが使用されます。
 
 ApplicationUser.cs:
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -93,8 +91,6 @@ ASP.NET Core MVC スターター Web プロジェクトは、多くのカスタ�
 
 これらのファイルの場所で、Startup.cs ファイルにできるを使用して更新することでコンパイルするステートメント。
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 using Microsoft.Framework.ConfigurationModel;
 using Microsoft.AspNetCore.Hosting;
@@ -110,9 +106,7 @@ Id サービスを使用するアプリケーションおよび Entity Framework
 
 _Layout.cshtml; の更新します。コメントを解除、@Html.Partial行。
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "none"} -->
-
-```none
+```cshtml
       <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
     </ul>
     @*@Html.Partial("_LoginPartial")*@
@@ -124,9 +118,7 @@ _Layout.cshtml; の更新します。コメントを解除、@Html.Partial行。
 
 次のコードで _LoginPartial.cshtml を更新 (すべての内容を置き換えます)。
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
-```csharp
+```cshtml
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 

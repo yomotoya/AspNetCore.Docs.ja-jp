@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 2a760343566d2c2be591983e20830b5207a2199b
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 85a192bf0b2eb245ecdaaa8ffa1c8dd2f43b45b0
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>グローバリゼーションとローカリゼーション ASP.NET Core
 
@@ -39,41 +39,41 @@ ASP.NET Core 多言語 web サイトを作成すると、多数の対象者に�
 
 ASP.NET Core で導入された`IStringLocalizer`と`IStringLocalizer<T>`ローカライズされたアプリの開発時に、生産性を向上させるために設計されています。 `IStringLocalizer`使用して、 [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager)と[ResourceReader](https://docs.microsoft.com/dotnet/api/system.resources.resourcereader)を実行時にカルチャ固有のリソースを提供します。 シンプルなインターフェイスが、インデクサー、および`IEnumerable`ローカライズされた文字列を返すためです。 `IStringLocalizer`リソース ファイルに既定の言語識別文字列を格納するには不要です。 開発の早い段階でリソース ファイルを作成する必要はなく、ローカリゼーションの対象となるアプリを開発できます。 次のコードでは、ローカライズ文字列「タイトルは」をラップする方法を示します。
 
-[!code-csharp[Main](localization/sample/Controllers/AboutController.cs)]
+[!code-csharp[Main](localization/sample/Localization/Controllers/AboutController.cs)]
 
 上記のコードで、`IStringLocalizer<T>`実装に由来[依存性の注入](dependency-injection.md)です。 「タイトルは」のローカライズされた値が見つからないかどうかは、インデクサーのキーが返されます、つまり、文字列「タイトルは」です。 アプリで、既定の言語のリテラル文字列をそのままし、ローカライザーにラップされるよう、アプリの開発に専念することができます。 既定の言語でアプリを開発し、既定のリソース ファイルを作成しなくても、ローカリゼーション手順用に準備します。 または、従来のアプローチを使用し、既定の言語文字列を取得するキーを指定できます。 多くの開発者にとって新しいワークフローの既定の言語がない*.resx*ファイルと、文字列リテラルをラップすることだけがアプリをローカライズするオーバーヘッドを削減できます。 他の開発者には、そのやすく長い文字列リテラルを操作およびローカライズされた文字列を更新しやすくように従来の作業の流れを選びます。
 
 使用して、 `IHtmlLocalizer<T>` HTML を格納しているリソースの実装です。 `IHtmlLocalizer`HTML では、リソース文字列はリソース文字列ではなくでフォーマットされている引数をエンコードします。 サンプルでは、次の値のみ強調表示されます`name`パラメーターは、HTML エンコードします。
 
-[!code-csharp[Main](../fundamentals/localization/sample/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
+[!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
 注: 一般的にだけをローカライズするテキストと HTML ではありません。
 
 最下位のレベルを取得できます`IStringLocalizerFactory`不在[依存性の注入](dependency-injection.md):
 
-[!code-csharp[Main](localization/sample/Controllers/TestController.cs?start=9&end=26&highlight=7-13)]
+[!code-csharp[Main](localization/sample/Localization/Controllers/TestController.cs?start=9&end=26&highlight=7-13)]
 
 上記のコードを示します、2 つのファクトリの各メソッドを作成します。
 
 領域で、コント ローラーによって、ローカライズされた文字列をパーティション分割または 1 つのコンテナーを持つことができます。 サンプル アプリで、ダミーという名前のクラス`SharedResource`共有リソースのために使用します。
 
-[!code-csharp[Main](localization/sample/Resources/SharedResource.cs)]
+[!code-csharp[Main](localization/sample/Localization/Resources/SharedResource.cs)]
 
 一部の開発者が使用して、`Startup`グローバルまたは共有の文字列を格納するクラス。  以下のサンプルで、`InfoController`と`SharedResource`ローカライザーが使用されます。
 
-[!code-csharp[Main](localization/sample/Controllers/InfoController.cs?range=9-26)]
+[!code-csharp[Main](localization/sample/Localization/Controllers/InfoController.cs?range=9-26)]
 
 ## <a name="view-localization"></a>ビューのローカライズ
 
 `IViewLocalizer`サービス提供のローカライズされた文字列、[ビュー](https://docs.microsoft.com/aspnet/core)です。 `ViewLocalizer`クラスは、このインターフェイスを実装し、ビューのファイル パスからリソースの場所を検索します。 次のコードは、の既定の実装を使用する方法を示しています`IViewLocalizer`:。
 
-[!code-HTML[Main](localization/sample/Views/Home/About.cshtml)]
+[!code-HTML[Main](localization/sample/Localization/Views/Home/About.cshtml)]
 
 既定の実装`IViewLocalizer`ビューのファイルの名前に基づいてリソース ファイルを検索します。 共有のグローバル リソース ファイルを使用するオプションはありません。 `ViewLocalizer`実装を使用してローカライザー `IHtmlLocalizer`Razor しない HTML のため、ローカライズされた文字列をエンコードします。 リソース文字列をパラメーター化できると`IViewLocalizer`HTML エンコードされますが、パラメーター、リソース文字列ではありません。 次の Razor マークアップを考慮してください。
 
-```HTML
+```cshtml
 @Localizer["<i>Hello</i> <b>{0}!</b>", UserManager.GetUserName(User)]
-   ```
+```
 
 フランス語のリソース ファイルに次が可能性があります。
 
@@ -89,7 +89,7 @@ ASP.NET Core で導入された`IStringLocalizer`と`IStringLocalizer<T>`ロー�
 
 ビュー内の共有リソース ファイルを使用するのには、挿入`IHtmlLocalizer<T>`:
 
-[!code-HTML[Main](../fundamentals/localization/sample/Views/Test/About.cshtml?highlight=5,12)]
+[!code-HTML[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
 
 ## <a name="dataannotations-localization"></a>DataAnnotations ローカリゼーション
 
@@ -98,7 +98,7 @@ DataAnnotations エラー メッセージとローカライズ`IStringLocalizer<
 * Resources/ViewModels.Account.RegisterViewModel.fr.resx
 * Resources/ViewModels/Account/RegisterViewModel.fr.resx
 
-[!code-csharp[Main](localization/sample/ViewModels/Account/RegisterViewModel.cs?start=9&end=26)]
+[!code-csharp[Main](localization/sample/Localization/ViewModels/Account/RegisterViewModel.cs?start=9&end=26)]
 
 ASP.NET Core MVC 1.1.0 および以上、非検証属性のローカライズされています。 ASP.NET Core MVC 1.0 は**いない**の非検証属性のローカライズされた文字列を検索します。
 
@@ -107,7 +107,7 @@ ASP.NET Core MVC 1.1.0 および以上、非検証属性のローカライズさ
 
 次のコードは、複数のクラスに検証属性の 1 つのリソース文字列を使用する方法を示しています。
 
-```
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc()
@@ -136,7 +136,7 @@ ASP.NET Core では、2 つのカルチャ値を指定できます。`SupportedC
 
 2. **検索には、テンプレートがインストールされている**ボックスで、「リソース」を入力し、ファイルの名前します。
 
-    ![新しい項目 ダイアログ ボックスを追加します。](localization/_static/res.png)
+    ![[新しい項目の追加] ダイアログ](localization/_static/res.png)
 
 3. キーの値 (ネイティブの文字列) で入力、**名前**列と翻訳された文字列を**値**列です。
 
@@ -190,7 +190,7 @@ Visual Studio で、ファイル名にカルチャせず、リソース ファ�
 
 ローカリゼーションがで構成されている、`ConfigureServices`メソッド。
 
-[!code-csharp[Main](localization/sample/Program.cs?name=snippet1)]
+[!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet1)]
 
 * `AddLocalization`ローカリゼーション サービスをサービス コンテナーに追加します。 上記のコードは、「リソース」のリソース パスを設定します。
 
@@ -202,7 +202,7 @@ Visual Studio で、ファイル名にカルチャせず、リソース ファ�
 
 要求時に、現在のカルチャは、ローカリゼーションで設定[ミドルウェア](middleware.md)です。 ローカライズ ミドルウェアが有効になっている、`Configure`メソッドの*Program.cs*ファイル。 要求のカルチャをチェックするすべてのミドルウェアの前に、ローカリゼーション ミドルウェアを構成する必要があります、注意してください (たとえば、 `app.UseMvcWithDefaultRoute()`)。
 
-[!code-csharp[Main](localization/sample/Program.cs?name=snippet2)]
+[!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet2)]
 
 `UseRequestLocalization`初期化、`RequestLocalizationOptions`オブジェクト。 すべての要求リストの`RequestCultureProvider`で、`RequestLocalizationOptions`が列挙され、要求のカルチャが正常に決定できる最初のプロバイダーが使用されます。 既定のプロバイダーに由来、`RequestLocalizationOptions`クラス。
 
@@ -287,15 +287,15 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 このサンプル**Localization.StarterWeb**プロジェクトでは、 [GitHub](https://github.com/aspnet/entropy)を設定するための UI が含まれています、`Culture`です。 *Views/Shared/_SelectLanguagePartial.cshtml*ファイルでは、サポートされているカルチャの一覧から、カルチャを選択することができます。
 
-[!code-HTML[Main](localization/sample/Views/Shared/_SelectLanguagePartial.cshtml)]
+[!code-HTML[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 
 *Views/Shared/_SelectLanguagePartial.cshtml*にファイルが追加、`footer`できるすべてのビューに使用できるようにレイアウト ファイルのセクション。
 
-[!code-HTML[Main](localization/sample/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
+[!code-HTML[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
 
 `SetLanguage`メソッドはカルチャ cookie を設定します。
 
-[!code-csharp[Main](localization/sample/Controllers/HomeController.cs?range=57-67)]
+[!code-csharp[Main](localization/sample/Localization/Controllers/HomeController.cs?range=57-67)]
 
 接続することはできません、 *_SelectLanguagePartial.cshtml*このプロジェクトのサンプル コードにします。 **Localization.StarterWeb**プロジェクトでは、 [GitHub](https://github.com/aspnet/entropy)フローするコードが含ま、`RequestLocalizationOptions`を通じて部分 Razor を[依存性の注入](dependency-injection.md)コンテナーです。
 

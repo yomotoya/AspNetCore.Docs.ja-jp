@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET Core MVC の概要"
 author: ardalis
-description: 
+description: "ASP.NET Core MVC web アプリケーションを構築するための豊富なフレームワークおよび方法モデル ビュー コント ローラーを使用して Api デザイン パターンについて説明します。"
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 67394b066c18a149a97b957d6478ba8301ea8147
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 2492b6aa4602dbbf3b9cd3dca00d40690c640cab
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC の概要
 
@@ -92,8 +92,6 @@ routes.MapRoute(name: "Default", template: "{controller=Home}/{action=Index}/{id
 
 *属性のルーティング*コント ローラーとアクションは、アプリケーションのルートを定義する属性で修飾することによって、ルーティング情報を指定することができます。 これは、コント ローラーと関連付けられているアクションの横にある、route 定義を配置していることを意味します。
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [1, 4]}} -->
-
 ```csharp
 [Route("api/[controller]")]
 public class ProductsController : Controller
@@ -118,8 +116,6 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 
 ASP.NET Core MVC をサポートしている[検証](models/validation.md)データ注釈検証属性を持つモデル オブジェクトを修飾します。 検証属性の値は、サーバーに送信される前に、クライアント側で確認されますだけでなくコント ローラー アクションの前に、サーバー上と呼びます。
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [4, 5, 8, 9]}} -->
-
 ```csharp
 using System.ComponentModel.DataAnnotations;
 public class LoginViewModel
@@ -138,8 +134,6 @@ public class LoginViewModel
 ```
 
 コント ローラーのアクション:
-
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [3]}} -->
 
 ```csharp
 public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
@@ -161,17 +155,15 @@ ASP.NET Core はの組み込みサポート[依存性の注入 (DI)](../fundamen
 
 アプリケーションで使用できるも[ファイル ビュー内の依存性の注入](views/dependency-injection.md)を使用して、`@inject`ディレクティブ。
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [1]}} -->
-
-```html
+```cshtml
 @inject SomeService ServiceName
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>@ServiceName.GetTitle</title>
+    <title>@ServiceName.GetTitle</title>
 </head>
 <body>
-  <h1>@ServiceName.GetTitle</h1>
+    <h1>@ServiceName.GetTitle</h1>
 </body>
 </html>
 ```
@@ -185,7 +177,6 @@ ASP.NET Core はの組み込みサポート[依存性の注入 (DI)](../fundamen
 [Authorize]
    public class AccountController : Controller
    {
-
 ```
 
 ### <a name="areas"></a>区分
@@ -224,7 +215,7 @@ MVC の razor ビューできる厳密に型指定、モデルに基づく。 �
 
 たとえば、次のビューが型のモデルを定義`IEnumerable<Product>`:
 
-```html
+```cshtml
 @model IEnumerable<Product>
 <ul>
     @foreach (Product p in Model)
@@ -240,9 +231,7 @@ MVC の razor ビューできる厳密に型指定、モデルに基づく。 �
 
 これは、フォーム、リンク、読み込みの資産および詳細 - およびさらに高いで利用できるパブリックの GitHub リポジトリとして NuGet パッケージの作成などの一般的なタスクの多くの組み込みタグ ヘルパー。 タグ ヘルパーは、C# の場合は、作成し、要素名、属性名、または親タグに基づく HTML 要素を対象にします。 たとえば、あらかじめ登録された LinkTagHelper をへのリンクの作成に使用することができます、`Login`のアクション、 `AccountsController`:
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [3]}} -->
-
-```html
+```cshtml
 <p>
     Thank you for confirming your email.
     Please <a asp-controller="Account" asp-action="Login">Click here to Log in</a>.
@@ -251,9 +240,7 @@ MVC の razor ビューできる厳密に型指定、モデルに基づく。 �
 
 `EnvironmentTagHelper`開発、ステージング、運用環境など、ランタイム環境に基づきます (たとえば、生または縮小された) ビュー内の別のスクリプトを含めるために使用できます。
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [1, 3, 4, 9]}} -->
-
-```html
+```cshtml
 <environment names="Development">
     <script src="~/lib/jquery/dist/jquery.js"></script>
 </environment>

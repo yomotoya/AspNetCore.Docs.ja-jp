@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fe774a1ae02ab5ea168c19045fcc8664c0273a6
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: ff6fee6eee539fc77b6c6180a816daa760202848
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core でのフォームにタグ ヘルパーの使用の概要
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 09/22/2017
      <!-- Input and Submit elements -->
      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
     </form>
-   ```
+```
 
 MVC ランタイムによって生成、`action`フォーム タグ ヘルパーの属性から値を属性`asp-controller`と`asp-action`です。 フォーム タグ ヘルパー生成も非表示[要求の検証トークン](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)クロスサイト リクエスト フォージェリを防ぐために (を使用すると、 `[ValidateAntiForgeryToken]` HTTP Post のアクション メソッドの属性)。 フォーム タグ ヘルパーがこのサービスを提供、クロスサイト リクエスト フォージェリから純粋な HTML フォームを保護するは困難です。
 
@@ -63,13 +63,11 @@ MVC ランタイムによって生成、`action`フォーム タグ ヘルパー
 
 内のビューの多くは、*ビュー/アカウント*フォルダー (で新しい web アプリを作成するときに生成される*個々 のユーザー アカウント*) が含まれて、 [asp ルート-returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms)属性。
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "none", "highlight_args": {"hl_lines": [2]}} -->
-
-```none
+```cshtml
 <form asp-controller="Account" asp-action="Login"
      asp-route-returnurl="@ViewData["ReturnUrl"]"
      method="post" class="form-horizontal" role="form">
-   ```
+```
 
 >[!NOTE]
 >組み込みのテンプレートと`returnUrl`承認済みのリソースにアクセスしようとしていますが、ことがなく認証、承認されたときに、自動的に設定されるだけです。 未承認のアクセスを試みると、セキュリティ ミドルウェアにリダイレクトする、ログイン ページで、`returnUrl`を設定します。
@@ -82,7 +80,7 @@ MVC ランタイムによって生成、`action`フォーム タグ ヘルパー
 
 ```HTML
 <input asp-for="<Expression Name>" />
-   ```
+```
 
 入力タグ ヘルパー。
 
@@ -157,7 +155,7 @@ Type expected
        <button type="submit">Register</button>
      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
    </form>
-   ```
+```
 
 データの注釈に適用される、`Email`と`Password`プロパティは、モデルのメタデータを生成します。 入力タグ ヘルパーは、モデルのメタデータを消費し、生成[HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*`属性 (を参照してください[モデルの検証](../models/validation.md))。 これらの属性では、入力フィールドにアタッチする検証コントロールについて説明します。 これにより、控えめな HTML5 および[jQuery](https://jquery.com/)検証します。 控えめな属性の形式である`data-val-rule="Error Message"`ここで、ルールは、検証規則の名前 (など`data-val-required`、 `data-val-email`、 `data-val-maxlength`, などです)。エラー メッセージは、属性で提供されるの値として表示されます、`data-val-rule`属性。 また、フォームの属性がある`data-val-ruleName-argumentName="argumentValue"`など、そのルールに関する追加情報を提供する`data-val-maxlength-max="1024"`です。
 
@@ -209,7 +207,7 @@ Type expected
 
 ```HTML
 <input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="" />
-   ```
+```
 
 ### <a name="expression-names-and-collections"></a>式の名前とコレクション
 
@@ -225,7 +223,7 @@ public IActionResult Edit(int id, int colorIndex)
        ViewData["Index"] = colorIndex;
        return View(GetPerson(id));
    }
-   ```
+```
 
 次の Razor は、特定のアクセス方法を示しています。`Color`要素。
 
@@ -274,8 +272,6 @@ public IActionResult Edit(int id, int colorIndex)
 
 次の HTML が生成されます。
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "HTML", "highlight_args": {"hl_lines": [2, 3, 4, 5, 6, 7, 8]}} -->
-
 ```HTML
 <form method="post" action="/Demo/RegisterTextArea">
   <textarea data-val="true"
@@ -314,7 +310,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 ```HTML
 <label for="Email">Email Address</label>
-   ```
+```
 
 生成されたラベル タグ ヘルパーの`for`"Email"は、id の属性値に関連付けられている、`<input>`要素。 タグ ヘルパーの一貫性のある生成`id`と`for`要素が正しく関連付けられている可能性があるようにします。 このサンプルではキャプションを起源、`Display`属性。 モデルが含まれていなかった場合、`Display`属性、キャプションは、式のプロパティの名前になります。
 
@@ -334,7 +330,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 ```HTML
 <span asp-validation-for="Email"></span>
-   ```
+```
 
 検証メッセージ タグ ヘルパーは、次の HTML を生成します。
 
@@ -382,8 +378,6 @@ public IActionResult Edit(int id, int colorIndex)
 
 生成された HTML (モデルが有効な場合):
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "HTML", "highlight_args": {"hl_lines": [2, 3, 8, 9, 12, 13]}} -->
-
 ```HTML
 <form action="/DemoReg/Register" method="post">
   <div class="validation-summary-valid" data-valmsg-summary="true">
@@ -427,13 +421,11 @@ HTTP POST`Index`メソッドは、選択範囲を表示します。
 
 `Index`ビュー。
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
+[!code-cshtml[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
 
 これには、("CA"選択) で、次の HTML が生成されます。
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "HTML", "highlight_args": {"hl_lines": [2, 3, 4, 5, 6]}} -->
-
-```HTML
+```html
 <form method="post" action="/">
      <select id="Country" name="Country">
        <option value="MX">Mexico</option>
@@ -443,7 +435,7 @@ HTTP POST`Index`メソッドは、選択範囲を表示します。
        <br /><button type="submit">Register</button>
      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
    </form>
-   ```
+```
 
 > [!NOTE]
 > 使用しないで`ViewBag`または`ViewData`選択タグ ヘルパーとします。 ビュー モデルは、MVC のメタデータを提供することをより堅牢になり、通常それほど大きな問題です。
@@ -472,8 +464,6 @@ HTTP POST`Index`メソッドは、選択範囲を表示します。
 
 次の HTML が生成されます。
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "HTML", "highlight_args": {"hl_lines": [4, 5]}} -->
-
 ```HTML
   <form method="post" action="/Home/IndexEnum">
          <select data-val="true" data-val-required="The EnumCountry field is required."
@@ -488,7 +478,7 @@ HTTP POST`Index`メソッドは、選択範囲を表示します。
          <br /><button type="submit">Register</button>
          <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
     </form>
-   ```
+```
 
 ### <a name="option-group"></a>オプション グループ
 
@@ -503,8 +493,6 @@ HTML [ \<optgroup >](https://www.w3.org/wiki/HTML/Elements/optgroup)ビュー �
 ![オプション グループの例](working-with-forms/_static/grp.png)
 
 生成される HTML。
-
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "HTML", "highlight_args": {"hl_lines": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}} -->
 
 ```HTML
  <form method="post" action="/Home/IndexGroup">
@@ -536,8 +524,6 @@ HTML [ \<optgroup >](https://www.w3.org/wiki/HTML/Elements/optgroup)ビュー �
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexMultiSelect.cshtml?highlight=4)]
 
 次の HTML を生成します。
-
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "HTML", "highlight_args": {"hl_lines": [3]}} -->
 
 ```HTML
 <form method="post" action="/Home/IndexMultiSelect">
@@ -572,8 +558,6 @@ HTML を追加する[\<オプション >](https://www.w3.org/wiki/HTML/Elements/
 [!code-HTML[Main](working-with-forms/sample/final/Views/Home/IndexOption.cshtml)]
 
 正しい`<option>`要素が選択されます (含まれて、`selected="selected"`属性) によっては、現在`Country`値。
-
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "HTML", "highlight_args": {"hl_lines": [5]}} -->
 
 ```HTML
  <form method="post" action="/Home/IndexEmpty">

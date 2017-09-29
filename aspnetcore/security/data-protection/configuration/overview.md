@@ -2,7 +2,7 @@
 title: "データ保護を構成します。"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 0e4881a3-a94d-4e35-9c1c-f025d65dcff0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 39fab796c24456d61a6a103c4a3f7a8722b4718c
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 9361dcec89a0f35067181523cc56637d629614ff
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="configuring-data-protection"></a>データ保護を構成します。
 
@@ -67,8 +67,6 @@ public void ConfigureServices(IServiceCollection services)
 
 <a name=data-protection-code-sample-application-name></a>
 
-<!-- literal_block {"ids": ["data-protection-code-sample-application-name"], "linenos": false, "names": ["data-protection-code-sample-application-name"], "xml:space": "preserve", "language": "csharp"} -->
-
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -113,7 +111,7 @@ ASP.NET Core ホストによって、データ保護システムが指定した�
 
 データ保護スタックは、新しく生成されたキーで使用される既定のアルゴリズムを変更できます。 これを行う最も簡単な方法はからを呼び出す UseCryptographicAlgorithms 構成コールバックとしてでは、次の例です。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 services.AddDataProtection()
@@ -150,7 +148,7 @@ UseCryptographicAlgorithms を呼び出すことにより、開発者は (あら
 
 ### <a name="specifying-custom-managed-algorithms"></a>カスタムの管理されているアルゴリズムを指定します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 カスタム マネージ アルゴリズムを指定するには、実装の種類を示す ManagedAuthenticatedEncryptorConfiguration インスタンスを作成します。
 
@@ -199,7 +197,7 @@ serviceCollection.AddDataProtection()
 
 ### <a name="specifying-custom-windows-cng-algorithms"></a>カスタムの Windows CNG アルゴリズムを指定します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 CBC モードの暗号化 + HMAC 検証を使用して、カスタム Windows CNG アルゴリズムを指定するには、アルゴリズムの情報を含む CngCbcAuthenticatedEncryptorConfiguration インスタンスを作成します。
 
@@ -246,7 +244,7 @@ services.AddDataProtection()
 > [!NOTE]
 > 対称ブロック暗号アルゴリズムが必要 ≥ 128 ビットのキーの長さと ≥ の 64 ビットのブロック サイズを PKCS #7 パディング CBC モードの暗号化をサポートする必要があります。 ハッシュ アルゴリズムのダイジェストのサイズが必要 > = 128 ビットと BCRYPT_ALG_HANDLE_HMAC_FLAG フラグで開かれるをサポートする必要があります。 \*プロバイダーのプロパティは、指定したアルゴリズムの既定のプロバイダーを使用するのには、null に設定できます。 参照してください、[アンロード](https://msdn.microsoft.com/library/windows/desktop/aa375479(v=vs.85).aspx)詳細についてはドキュメントです。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x のコア](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Galois/カウンター モードの暗号化と検証を使用して、カスタム Windows CNG アルゴリズムを指定するには、アルゴリズム情報を含む CngGcmAuthenticatedEncryptorConfiguration インスタンスを作成します。
 
@@ -291,5 +289,5 @@ services.AddDataProtection()
 
 ### <a name="see-also"></a>関連項目
 
-* [非 DI 対応したシナリオ](non-di-scenarios.md)
-* [マシン全体のポリシー](machine-wide-policy.md)
+* [DI に対応しないシナリオ](non-di-scenarios.md)
+* [コンピューター全体のポリシー](machine-wide-policy.md)

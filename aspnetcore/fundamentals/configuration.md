@@ -11,15 +11,15 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: 7d591259587766a932a14bb030c76274101d16ac
-ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
+ms.openlocfilehash: 379030df4ca91a38fce251aeaab9c5dfaf11e915
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core の構成
 
-[Rick Anderson](https://twitter.com/RickAndMSFT)、[マーク Michaelis](http://intellitect.com/author/mark-michaelis/)、 [Steve Smith](https://ardalis.com/)、および[Daniel Roth](https://github.com/danroth27)
+[Rick Anderson](https://twitter.com/RickAndMSFT)、[マーク Michaelis](http://intellitect.com/author/mark-michaelis/)、 [Steve Smith](https://ardalis.com/)、 [Daniel Roth](https://github.com/danroth27)、および[Luke Latham](https://github.com/guardrex)
 
 構成 API は、名前と値のペアの一覧で、アプリケーションを構成する方法を提供します。 構成は実行時に複数のソースから読み取られます。 名前と値のペアは、複数レベルの階層化することができます。 構成プロバイダーがあります。
 
@@ -295,55 +295,187 @@ key3=value_from_json_3
 
 ## <a name="commandline-configuration-provider"></a>コマンドライン構成プロバイダー
 
-次の例では、コマンドライン構成プロバイダーが最終有効にします。
+[コマンドライン構成プロバイダー](/aspnet/core/api/microsoft.extensions.configuration.commandline.commandlineconfigurationprovider)実行時に構成のキー/値ペアのコマンドライン引数を受け取ります。
 
-[!code-csharp[Main](configuration/sample/CommandLine/Program.cs)]
+[表示またはダウンロードするコマンドラインのサンプルの構成](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample/CommandLine)
+
+### <a name="setting-up-the-provider"></a>プロバイダーを設定します。
+
+# <a name="basic-configurationtabbasicconfiguration"></a>[基本構成](#tab/basicconfiguration)
+
+コマンドライン構成をアクティブに呼び出して、`AddCommandLine`拡張メソッドのインスタンスを[ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder):
+
+[!code-csharp[Main](configuration/sample_snapshot/CommandLine/Program.cs?highlight=18,21)]
+
+コードを実行するには、次の出力が表示されます。
+
+```console
+MachineName: MairaPC
+Left: 1980
+```
+
+値を変更するコマンド ラインでキーと値のペアの引数を渡す`Profile:MachineName`と`App:MainWindow:Left`:
+
+```console
+dotnet run Profile:MachineName=BartPC App:MainWindow:Left=1979
+```
+
+コンソール ウィンドウが表示されます。
+
+```console
+MachineName: BartPC
+Left: 1979
+```
+
+コマンドライン構成とその他の構成プロバイダーによって提供される構成を上書きするには、呼び出す`AddCommandLine`の最後に`ConfigurationBuilder`:
+
+[!code-csharp[Main](configuration/sample_snapshot/CommandLine/Program2.cs?range=11-16&highlight=1,5)]
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+ASP.NET Core 2.x アプリケーションの一般的な便利な静的メソッドを使用して`CreateDefaultBuilder`ホストを作成します。
+
+[!code-csharp[Main](configuration/sample_snapshot/Program.cs?highlight=12)]
+
+`CreateDefaultBuilder`オプションの構成を読み込む*される appsettings.json*、 *appsettings {。環境} .json*、[ユーザー シークレット](xref:security/app-secrets)(で、`Development`環境)、環境変数とコマンドライン引数。 コマンドライン構成プロバイダーは、最後に呼び出されます。 最後に、プロバイダーを呼び出すことにより、構成セットを他の構成プロバイダーをオーバーライドする実行時に渡されるコマンドライン引数が以前に呼び出されます。
+
+注意してください*appsettings*ファイル`reloadOnChange`を有効にします。 構成値が一致する場合にコマンドライン引数がオーバーライドされる、 *appsettings*アプリが開始した後にファイルが変更されました。
+
+> [!NOTE]
+> 使用する代わりに、`CreateDefaultBuilder`メソッドを使用してホストを作成する[WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)と構成を手動で構築および[ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) ASP.NET Core ではサポートされて 2.x です。 詳細については、ASP.NET Core 1.x タブを参照してください。
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+作成、 [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder)を呼び出すと、`AddCommandLine`コマンドライン構成プロバイダーを使用する方法です。 最後に、プロバイダーを呼び出すことにより、構成セットを他の構成プロバイダーをオーバーライドする実行時に渡されるコマンドライン引数が以前に呼び出されます。 構成の適用[WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)で、`UseConfiguration`メソッド。
+
+[!code-csharp[Main](configuration/sample_snapshot/CommandLine/Program2.cs?highlight=11,15,19)]
+
+---
+
+### <a name="arguments"></a>引数
+
+コマンドラインで渡される引数は、次の表に示すように 2 つの形式のいずれかに従う必要があります。
+
+| 引数の形式                                                     | 例        |
+| ------------------------------------------------------------------- | :------------: |
+| 1 つの引数: キー値のペアは等号で区切られた (`=`) | `key1=value`   |
+| 2 つの引数の順序: キー値の組み合わせをスペースで区切って    | `/key1 value1` |
+
+**1 つの引数**
+
+値は、等号を従う必要があります (`=`)。 値を null にすることができます (たとえば、 `mykey=`)。
+
+キーは、プレフィックスがあります。
+
+| キーのプレフィックス               | 例         |
+| ------------------------ | :-------------: |
+| プレフィックスなし                | `key1=value1`   |
+| 単一のダッシュ (`-`) & #8224 です。 | `-key2=value2`  |
+| 2 個のダッシュ (`--`)        | `--key3=value3` |
+| スラッシュ (`/`)      | `/key4=value4`  |
+
+& #8224 です。単一 dash プレフィックスを持つキー (`-`) で指定する必要があります[マッピングを切り替える](#switch-mappings)、以下に説明します。
+
+コマンドの例:
+
+```console
+dotnet run key1=value1 -key2=value2 --key3=value3 /key4=value4
+```
+
+メモ: 場合`-key1`に存在しない、[マッピングを切り替える](#switch-mappings)構成プロバイダーに指定された、`FormatException`がスローされます。
+
+**2 つの引数の順序**
+
+値は null にすることはできません、スペースで区切られたキーに従う必要があります。
+
+キーには、プレフィックスが必要です。
+
+| キーのプレフィックス               | 例         |
+| ------------------------ | :-------------: |
+| 単一のダッシュ (`-`) & #8224 です。 | `-key1 value1`  |
+| 2 個のダッシュ (`--`)        | `--key2 value2` |
+| スラッシュ (`/`)      | `/key3 value3`  |
+
+& #8224 です。単一 dash プレフィックスを持つキー (`-`) で指定する必要があります[マッピングを切り替える](#switch-mappings)、以下に説明します。
+
+コマンドの例:
+
+```console
+dotnet run -key1 value1 --key2 value2 /key3 value3
+```
+
+メモ: 場合`-key1`に存在しない、[マッピングを切り替える](#switch-mappings)構成プロバイダーに指定された、`FormatException`がスローされます。
+
+### <a name="duplicate-keys"></a>重複するキー
+
+重複するキーを指定しない場合は、最後のキー/値ペアが使用されます。
+
+### <a name="switch-mappings"></a>スイッチのマッピング
+
+構成を手動で構築するとき`ConfigurationBuilder`、必要に応じて、スイッチのマッピングのディクショナリを指定することができます、`AddCommandLine`メソッドです。 スイッチのマッピングを使用すると、キー名の交換ロジックを提供できます。
+
+スイッチのマッピングのディクショナリを使用すると、コマンドライン引数によって提供されるキーに一致するキーのディクショナリがチェックされます。 コマンド ライン キーがディクショナリ内で見つかった場合、ディクショナリの値 (キーの交換) は、構成設定に渡されます。 スイッチ マッピングは任意のコマンド ライン キー ダッシュを 1 つ付いて (`-`)。
+
+マッピングのディクショナリ キーの規則が切り替わります。
+
+* スイッチがダッシュで開始する必要があります (`-`) または 2 つの破線 (`--`)。
+* スイッチのマッピングのディクショナリでは、重複するキーを含めることはできません。
+
+次の例で、`GetSwitchMappings`メソッドにより、1 つのダッシュを使用する、コマンドライン引数 (`-`) プレフィックスをキーし、サブキーの先頭のプレフィックスを回避します。
+
+[!code-csharp[Main](configuration/sample/CommandLine/Program.cs?highlight=10-19,32)]
+
+コマンドライン引数を指定せず、辞書が渡された`AddInMemoryCollection`構成値を設定します。 次のコマンドを使用して、アプリを実行します。
+
+```console
+dotnet run
+```
+
+コンソール ウィンドウが表示されます。
+
+```console
+MachineName: RickPC
+Left: 1980
+```
 
 構成設定を渡すには、次を使用します。
 
 ```console
-dotnet run /Profile:MachineName=Bob /App:MainWindow:Left=1234
+dotnet run /Profile:MachineName=DahliaPC /App:MainWindow:Left=1984
 ```
 
-これが表示されます。
+コンソール ウィンドウが表示されます。
 
 ```console
-Hello Bob
-Left 1234
+MachineName: DahliaPC
+Left: 1984
 ```
 
-`GetSwitchMappings`メソッドでは、使用できます。`-`なく`/`先頭のサブキーのプレフィックスを取り除きます。 例:
+スイッチのマッピングのディクショナリを作成した後、次の表に示すようにデータが含まれています。
+
+| キー            | 値                 |
+| -------------- | --------------------- |
+| `-MachineName` | `Profile:MachineName` |
+| `-Left`        | `App:MainWindow:Left` |
+
+ディクショナリを使用して、キーの切り替えを示すためには、次のコマンドを実行します。
 
 ```console
-dotnet run -MachineName=Bob -Left=7734
+dotnet run -MachineName=ChadPC -Left=1988
 ```
 
-表示します。
+コマンド ライン キーが交換されます。 コンソール ウィンドウに表示の構成値`Profile:MachineName`と`App:MainWindow:Left`:
 
 ```console
-Hello Bob
-Left 7734
+MachineName: ChadPC
+Left: 1988
 ```
-
-コマンドライン引数には、値 (null を指定できます) を含める必要があります。 例:
-
-```console
-dotnet run /Profile:MachineName=
-```
-
-[Ok] が、
-
-```console
-dotnet run /Profile:MachineName
-```
-
-例外が発生します。 コマンド ライン スイッチのプレフィックスの - または--がない対応するスイッチのマッピングを指定する場合、例外がスローされます。
 
 ## <a name="the-webconfig-file"></a>Web.config ファイル
 
 A *web.config* IIS または IIS Express でアプリをホストしている場合は、ファイルが必要です。 *web.config*アプリを起動するように IIS で AspNetCoreModule をオンにします。 設定*web.config*アプリを起動し、その他の IIS の設定とモジュールを構成するために IIS の AspNetCoreModule を有効にします。 Visual Studio を使用して削除すると*web.config*、Visual Studio は、新しく作成します。
 
-### <a name="additional-notes"></a>補足メモ
+## <a name="additional-notes"></a>補足メモ
 
 * 依存関係の挿入 (DI) が設定されていないまで後`ConfigureServices`が呼び出されます。
 * 構成システムでは DI に注意してください。
@@ -351,9 +483,10 @@ A *web.config* IIS または IIS Express でアプリをホストしている場
   * `IConfigurationRoot`ルート ノードに使用します。 再読み込みをトリガーできます。
   * `IConfigurationSection`構成値のセクションを表します。 `GetSection`と`GetChildren`を返し、`IConfigurationSection`です。
 
-### <a name="additional-resources"></a>その他の技術情報
+## <a name="additional-resources"></a>その他の技術情報
 
 * [複数の環境の使用](environments.md)
 * [開発中のアプリ シークレットの安全な保存](../security/app-secrets.md)
+* [ASP.NET Core でのホスティング](xref:fundamentals/hosting)
 * [依存性の注入](dependency-injection.md)
 * [Azure Key Vault 構成プロバイダー](xref:security/key-vault-configuration)
