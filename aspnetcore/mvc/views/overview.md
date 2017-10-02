@@ -1,233 +1,341 @@
 ---
-title: "ビューの概要"
+title: "ASP.NET Core MVC ビュー"
 author: ardalis
-description: 
-keywords: ASP.NET Core,
+description: "ビューが、アプリのデータの表示と ASP.NET Core MVC でのユーザーとの対話を処理する方法について説明します。"
+keywords: "ASP.NET Core、表示、MVC、razor、viewmodel、viewdata、viewbag"
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 09/26/2017
 ms.topic: article
 ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 3b33c13f2385d3b07ba9b6f0bc0fd560abc3735c
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: f40feb0466854080cc749a83c546ce857d850902
+ms.sourcegitcommit: e4a1df2a5a85f299322548809e547a79b380bb92
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/29/2017
 ---
-# <a name="rendering-html-with-views-in-aspnet-core-mvc"></a><span data-ttu-id="7dd0c-103">ASP.NET Core MVC でビューを使用して HTML をレンダリング</span><span class="sxs-lookup"><span data-stu-id="7dd0c-103">Rendering HTML with views in ASP.NET Core MVC</span></span>
+# <a name="views-in-aspnet-core-mvc"></a><span data-ttu-id="57716-104">ASP.NET Core MVC ビュー</span><span class="sxs-lookup"><span data-stu-id="57716-104">Views in ASP.NET Core MVC</span></span>
 
-<span data-ttu-id="7dd0c-104">によって[Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="7dd0c-104">By [Steve Smith](https://ardalis.com/)</span></span>
+<span data-ttu-id="57716-105">によって[Steve Smith](https://ardalis.com/)と[Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="57716-105">By [Steve Smith](https://ardalis.com/) and [Luke Latham](https://github.com/guardrex)</span></span>
 
-<span data-ttu-id="7dd0c-105">ASP.NET Core MVC コント ローラーを使用して書式設定された結果を返すことができます*ビュー*です。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-105">ASP.NET Core MVC controllers can return formatted results using *views*.</span></span>
+<span data-ttu-id="57716-106">**M**odel -**V**ビュー -**C**ontroller (MVC) パターン、*ビュー*アプリのデータのプレゼンテーションとユーザーの操作を処理します。</span><span class="sxs-lookup"><span data-stu-id="57716-106">In the **M**odel-**V**iew-**C**ontroller (MVC) pattern, the *view* handles the app's data presentation and user interaction.</span></span> <span data-ttu-id="57716-107">ビューは、HTML テンプレートが埋め込まれて[Razor マークアップ](xref:mvc/views/razor)です。</span><span class="sxs-lookup"><span data-stu-id="57716-107">A view is an HTML template with embedded [Razor markup](xref:mvc/views/razor).</span></span> <span data-ttu-id="57716-108">Razor のマークアップは、クライアントに送信される web ページを生成するために HTML マークアップが対話するコードです。</span><span class="sxs-lookup"><span data-stu-id="57716-108">Razor markup is code that interacts with HTML markup to produce a webpage that's sent to the client.</span></span>
 
-## <a name="what-are-views"></a><span data-ttu-id="7dd0c-106">ビューとは</span><span class="sxs-lookup"><span data-stu-id="7dd0c-106">What are Views?</span></span>
+<span data-ttu-id="57716-109">ASP.NET Core MVC ビューは*.cshtml*ファイルを使用する、 [c# プログラミング言語](/dotnet/csharp/)Razor マークアップでします。</span><span class="sxs-lookup"><span data-stu-id="57716-109">In ASP.NET Core MVC, views are *.cshtml* files that use the [C# programming language](/dotnet/csharp/) in Razor markup.</span></span> <span data-ttu-id="57716-110">通常、ファイルの表示はフォルダーの各アプリの名前にグループ化[コント ローラー](xref:mvc/controllers/actions)です。</span><span class="sxs-lookup"><span data-stu-id="57716-110">Usually, view files are grouped into folders named for each of the app's [controllers](xref:mvc/controllers/actions).</span></span> <span data-ttu-id="57716-111">フォルダーが格納されているので、*ビュー*アプリのルートにあるフォルダー。</span><span class="sxs-lookup"><span data-stu-id="57716-111">The folders are stored in a in a *Views* folder at the root of the app:</span></span>
 
-<span data-ttu-id="7dd0c-107">モデル ビュー コント ローラー (MVC) パターンでは、*ビュー*アプリでのユーザーの操作のプレゼンテーションの詳細情報をカプセル化します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-107">In the Model-View-Controller (MVC) pattern, the *view* encapsulates the presentation details of the user's interaction with the app.</span></span> <span data-ttu-id="7dd0c-108">ビューは、埋め込みコードをクライアントに送信するコンテンツを生成する HTML テンプレートです。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-108">Views are HTML templates with embedded code that generate content to send to the client.</span></span> <span data-ttu-id="7dd0c-109">ビューを使用して[Razor 構文](razor.md)、これにより、最小限のコードまたは手続きに HTML と対話するコードです。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-109">Views use [Razor syntax](razor.md), which allows code to interact with HTML with minimal code or ceremony.</span></span>
+![Visual Studio のソリューション エクスプ ローラーで、views フォルダーは About.cshtml、Contact.cshtml、および Index.cshtml ファイルを表示するのには開放の [ホーム] フォルダーで開く](overview/_static/views_solution_explorer.png)
 
-<span data-ttu-id="7dd0c-110">ASP.NET Core MVC ビューは*.cshtml*既定で格納されているファイル、*ビュー*アプリケーション内のフォルダーです。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-110">ASP.NET Core MVC views are *.cshtml* files stored by default in a *Views* folder within the application.</span></span> <span data-ttu-id="7dd0c-111">通常、各コント ローラーは、特定のコント ローラー アクションのビューは、独自のフォルダーがあります。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-111">Typically, each controller will have its own folder, in which are views for specific controller actions.</span></span>
+<span data-ttu-id="57716-113">*ホーム*コント ローラーがによって表される、*ホーム*内のフォルダー、*ビュー*フォルダーです。</span><span class="sxs-lookup"><span data-stu-id="57716-113">The *Home* controller is represented by a *Home* folder inside the *Views* folder.</span></span> <span data-ttu-id="57716-114">*ホーム*フォルダーには用のビューが含まれています、*に関する*、*連絡先*、および*インデックス*(ホーム ページ) の web ページ。</span><span class="sxs-lookup"><span data-stu-id="57716-114">The *Home* folder contains the views for the *About*, *Contact*, and *Index* (homepage) webpages.</span></span> <span data-ttu-id="57716-115">ユーザーがこれらの 3 つ web サイト、コント ローラー アクションのいずれかを要求するときに、*ホーム*コント ローラーは、3 つのビューのどちらを使用してビルドし、ユーザーに web ページを返すを決定します。</span><span class="sxs-lookup"><span data-stu-id="57716-115">When a user requests one of these three webpages, controller actions in the *Home* controller determine which of the three views is used to build and return a webpage to the user.</span></span>
 
-![ソリューション エクスプ ローラー ビュー フォルダー](overview/_static/views_solution_explorer.png)
+<span data-ttu-id="57716-116">使用して[レイアウト](xref:mvc/views/layout)を一貫性のある web ページのセクションを提供し、コードの繰り返しを削減します。</span><span class="sxs-lookup"><span data-stu-id="57716-116">Use [layouts](xref:mvc/views/layout) to provide consistent webpage sections and reduce code repetition.</span></span> <span data-ttu-id="57716-117">多くの場合、レイアウトには、ヘッダー、ナビゲーションとメニューの要素、およびフッターが含まれています。</span><span class="sxs-lookup"><span data-stu-id="57716-117">Layouts often contain the header, navigation and menu elements, and the footer.</span></span> <span data-ttu-id="57716-118">ヘッダーとフッター多くのメタデータ要素とスクリプトとスタイルの資産へのリンクの定型的なマークアップを通常含まれます。</span><span class="sxs-lookup"><span data-stu-id="57716-118">The header and footer usually contain boilerplate markup for many metadata elements and links to script and style assets.</span></span> <span data-ttu-id="57716-119">レイアウトでは、ビューでは、この定型的なマークアップを回避できます。</span><span class="sxs-lookup"><span data-stu-id="57716-119">Layouts help you avoid this boilerplate markup in your views.</span></span>
 
-<span data-ttu-id="7dd0c-113">アクションに固有のビューだけでなく[部分ビュー](partial.md)、[レイアウト、およびその他の特殊なビュー ファイル](layout.md)繰り返しが削減され、アプリのビューの中で再利用できるようにするために使用できます。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-113">In addition to action-specific views, [partial views](partial.md), [layouts, and other special view files](layout.md) can be used to help reduce repetition and allow for reuse within the app's views.</span></span>
+<span data-ttu-id="57716-120">[部分ビュー](xref:mvc/views/partial)ビューの再利用可能な部分を管理することにより、コードの重複を削減します。</span><span class="sxs-lookup"><span data-stu-id="57716-120">[Partial views](xref:mvc/views/partial) reduce code duplication by managing reusable parts of views.</span></span> <span data-ttu-id="57716-121">たとえば、部分ビューは、いくつかのビューに表示されているブログ web サイトで、作成者略歴に役立ちます。</span><span class="sxs-lookup"><span data-stu-id="57716-121">For example, a partial view is useful for an author biography on a blog website that appears in several views.</span></span> <span data-ttu-id="57716-122">作成者略歴は、通常のビューのコンテンツを必要し、しない web ページのコンテンツを生成するために実行するコードです。</span><span class="sxs-lookup"><span data-stu-id="57716-122">An author biography is ordinary view content and doesn't require code to execute in order to produce the content for the webpage.</span></span> <span data-ttu-id="57716-123">作成者略歴コンテンツは単独で、モデル バインディングによってビューに表示する部分ビューを使用して、この種類のコンテンツは、最適です。</span><span class="sxs-lookup"><span data-stu-id="57716-123">Author biography content is available to the view by model binding alone, so using a partial view for this type of content is ideal.</span></span>
 
-## <a name="benefits-of-using-views"></a><span data-ttu-id="7dd0c-114">ビューを使用する利点</span><span class="sxs-lookup"><span data-stu-id="7dd0c-114">Benefits of Using Views</span></span>
+<span data-ttu-id="57716-124">[コンポーネントの表示](xref:mvc/views/view-components)部分のようなビューは、コードの繰り返しを削減することができる点で、web ページを表示するために、サーバーで実行するコードを必要とするコンテンツの表示に適していますがします。</span><span class="sxs-lookup"><span data-stu-id="57716-124">[View components](xref:mvc/views/view-components) are similar to partial views in that they allow you to reduce repetitive code, but they're appropriate for view content that requires code to run on the server in order to render the webpage.</span></span> <span data-ttu-id="57716-125">ビューのコンポーネントは、描画された内容は、ショッピング カートの web サイトのように、データベースとの対話を必要とする場合に便利です。</span><span class="sxs-lookup"><span data-stu-id="57716-125">View components are useful when the rendered content requires database interaction, such as for a website shopping cart.</span></span> <span data-ttu-id="57716-126">コンポーネントの表示は web ページの出力を生成するためにモデル バインディングに制限されます。</span><span class="sxs-lookup"><span data-stu-id="57716-126">View components aren't limited to model binding in order to produce webpage output.</span></span>
 
-<span data-ttu-id="7dd0c-115">ビューを提供[関心の分離](http://deviq.com/separation-of-concerns/)MVC アプリでユーザー インターフェイスのビジネス ロジックから個別にレベル マークアップをカプセル化します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-115">Views provide [separation of concerns](http://deviq.com/separation-of-concerns/) within an MVC app, encapsulating user interface level markup separately from business logic.</span></span> <span data-ttu-id="7dd0c-116">ASP.NET MVC ビューを使用して[Razor 構文](razor.md)HTML マークアップとサーバー側ロジック簡単に切り替えることです。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-116">ASP.NET MVC views use [Razor syntax](razor.md) to make switching between HTML markup and server side logic painless.</span></span> <span data-ttu-id="7dd0c-117">使用してビューの間でのアプリのユーザー インターフェイスの一般的な反復的な側面を簡単に再利用する[レイアウトと共有ディレクティブ](layout.md)または[部分ビュー](partial.md)です。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-117">Common, repetitive aspects of the app's user interface can easily be reused between views using [layout and shared directives](layout.md) or [partial views](partial.md).</span></span>
+## <a name="benefits-of-using-views"></a><span data-ttu-id="57716-127">ビューを使用する利点</span><span class="sxs-lookup"><span data-stu-id="57716-127">Benefits of using views</span></span>
 
-## <a name="creating-a-view"></a><span data-ttu-id="7dd0c-118">ビューを作成します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-118">Creating a View</span></span>
+<span data-ttu-id="57716-128">ビューを確立するために、 [ **S**eparation **o**f **C**oncerns (SoC) デザイン](http://deviq.com/separation-of-concerns/)からユーザー インターフェイスのマークアップを分離することにより、MVC アプリケーション内でアプリの他の部分です。</span><span class="sxs-lookup"><span data-stu-id="57716-128">Views help to establish a [**S**eparation **o**f **C**oncerns (SoC) design](http://deviq.com/separation-of-concerns/) within an MVC app by separating the user interface markup from other parts of the app.</span></span> <span data-ttu-id="57716-129">次の SoC 設計により、アプリ モジュール、いくつかの利点を提供します。</span><span class="sxs-lookup"><span data-stu-id="57716-129">Following SoC design makes your app modular, which provides several benefits:</span></span>
 
-<span data-ttu-id="7dd0c-119">コント ローラーに固有のビューを作成するのには*ビュー/[ControllerName]*フォルダーです。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-119">Views that are specific to a controller are created in the *Views/[ControllerName]* folder.</span></span> <span data-ttu-id="7dd0c-120">コント ローラー間で共有されるビューについてに、 */ビュー/共有*フォルダーです。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-120">Views that are shared among controllers are placed in the */Views/Shared* folder.</span></span> <span data-ttu-id="7dd0c-121">ファイルの表示を関連付けられたコント ローラー アクションの場合と同じ名前し、追加、 *.cshtml*ファイル拡張子。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-121">Name the view file the same as its associated controller action, and add the *.cshtml* file extension.</span></span> <span data-ttu-id="7dd0c-122">例については、ビューを作成する、*に関する*アクションを*ホーム*コント ローラーを作成、 *About.cshtml*ファイルで、  * /ビュー/ホーム*フォルダーです。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-122">For example, to create a view for the *About* action on the *Home* controller, you would create the *About.cshtml* file in the */Views/Home* folder.</span></span>
+* <span data-ttu-id="57716-130">アプリより適切に編成されていますのでを維持するために簡単です。</span><span class="sxs-lookup"><span data-stu-id="57716-130">The app is easier to maintain because it's better organized.</span></span> <span data-ttu-id="57716-131">ビューは、アプリの機能によって一般にグループ化されます。</span><span class="sxs-lookup"><span data-stu-id="57716-131">Views are generally grouped by app feature.</span></span> <span data-ttu-id="57716-132">これにより、機能を使用する場合は、関連するビューを見つけやすくします。</span><span class="sxs-lookup"><span data-stu-id="57716-132">This makes it easier to find related views when working on a feature.</span></span>
+* <span data-ttu-id="57716-133">アプリの一部が密接に結び付いていません。</span><span class="sxs-lookup"><span data-stu-id="57716-133">The parts of the app aren't tightly coupled.</span></span> <span data-ttu-id="57716-134">構築し、ビジネス ロジックとデータ アクセス コンポーネントから個別に、アプリのビューを更新できます。</span><span class="sxs-lookup"><span data-stu-id="57716-134">You can build and update the app's views separately from the business logic and data access components.</span></span> <span data-ttu-id="57716-135">必ずしも、アプリの他の部分を更新することがなく、アプリのビューを変更できます。</span><span class="sxs-lookup"><span data-stu-id="57716-135">You can modify the views of the app without necessarily having to update other parts of the app.</span></span>
+* <span data-ttu-id="57716-136">個別の単位は、ビューがあるために、ユーザー インターフェイスがアプリの一部をテストする簡単です。</span><span class="sxs-lookup"><span data-stu-id="57716-136">It's easier to test the user interface parts of the app because the views are separate units.</span></span>
+* <span data-ttu-id="57716-137">効率的な整理、により可能性は低くなりますユーザー インターフェイスの繰り返しセクションでは誤ってを学習します。</span><span class="sxs-lookup"><span data-stu-id="57716-137">Due to better organization, it's less likely that you'll accidently repeat sections of the user interface.</span></span>
 
-<span data-ttu-id="7dd0c-123">サンプル ファイルの表示 (*About.cshtml*)。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-123">A sample view file (*About.cshtml*):</span></span>
+## <a name="creating-a-view"></a><span data-ttu-id="57716-138">ビューを作成します。</span><span class="sxs-lookup"><span data-stu-id="57716-138">Creating a view</span></span>
 
-<span data-ttu-id="7dd0c-124">[!code-html[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]</span><span class="sxs-lookup"><span data-stu-id="7dd0c-124">[!code-html[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]</span></span>
+<span data-ttu-id="57716-139">コント ローラーに固有のビューを作成するのには*ビュー/[ControllerName]*フォルダーです。</span><span class="sxs-lookup"><span data-stu-id="57716-139">Views that are specific to a controller are created in the *Views/[ControllerName]* folder.</span></span> <span data-ttu-id="57716-140">コント ローラー間で共有されるビューについてに、 *Views/shared*フォルダーです。</span><span class="sxs-lookup"><span data-stu-id="57716-140">Views that are shared among controllers are placed in the *Views/Shared* folder.</span></span> <span data-ttu-id="57716-141">ビューを作成するには、新しいファイルを追加し、関連付けられたコント ローラー アクションのと同じ名前を付けます、 *.cshtml*ファイル拡張子。</span><span class="sxs-lookup"><span data-stu-id="57716-141">To create a view, add a new file and give it the same name as its associated controller action with the *.cshtml* file extension.</span></span> <span data-ttu-id="57716-142">ビューを作成する、*に関する*アクションで、*ホーム*コント ローラーで、作成、 *About.cshtml*ファイルで、*ビュー/ホーム*フォルダー。</span><span class="sxs-lookup"><span data-stu-id="57716-142">To create a view for the *About* action in the *Home* controller, create an *About.cshtml* file in the *Views/Home* folder:</span></span>
 
-<span data-ttu-id="7dd0c-125">*Razor*でコードが示される、`@`シンボル。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-125">*Razor* code is denoted by the `@` symbol.</span></span> <span data-ttu-id="7dd0c-126">(C#) ステートメントが Razor コード ブロックは中かっこで off に設定内で実行されます (`{` `}`)、"About"の割り当てなどに、`ViewData["Title"]`上に示す要素。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-126">C# statements are run within Razor code blocks set off by curly braces (`{` `}`), such as the assignment of "About" to the `ViewData["Title"]` element shown above.</span></span> <span data-ttu-id="7dd0c-127">Razor を使用してで値を単に参照によって HTML 内の値を表示すること、 `@` symbol, 内で示すように、`<h2>`と`<h3>`要素上です。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-127">Razor can be used to display values within HTML by simply referencing the value with the `@` symbol, as shown within the `<h2>` and `<h3>` elements above.</span></span>
+[!code-cshtml[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
-<span data-ttu-id="7dd0c-128">このビューは、担当するは、出力の部分だけについて説明します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-128">This view focuses on just the portion of the output for which it is responsible.</span></span> <span data-ttu-id="7dd0c-129">ページのレイアウトの残りの部分と、ビューの他の一般的な側面は、他の場所で指定されます。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-129">The rest of the page's layout, and other common aspects of the view, are specified elsewhere.</span></span> <span data-ttu-id="7dd0c-130">詳細については[レイアウトと共有のビュー ロジック](layout.md)です。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-130">Learn more about [layout and shared view logic](layout.md).</span></span>
+<span data-ttu-id="57716-143">*Razor*マークアップが始まり、`@`シンボル。</span><span class="sxs-lookup"><span data-stu-id="57716-143">*Razor* markup starts with the `@` symbol.</span></span> <span data-ttu-id="57716-144">内のコードを配置する (C#) で実行 (C#) ステートメント[Razor コードのブロック](xref:mvc/views/razor#razor-code-blocks)中かっこで off に設定 (`{ ... }`)。</span><span class="sxs-lookup"><span data-stu-id="57716-144">Run C# statements by placing C# code within [Razor code blocks](xref:mvc/views/razor#razor-code-blocks) set off by curly braces (`{ ... }`).</span></span> <span data-ttu-id="57716-145">たとえばに"About"の割り当てを参照してください`ViewData["Title"]`上に示したです。</span><span class="sxs-lookup"><span data-stu-id="57716-145">For example, see the assignment of "About" to `ViewData["Title"]` shown above.</span></span> <span data-ttu-id="57716-146">HTML 内の値を表示するには単に値が参照することによって、`@`シンボル。</span><span class="sxs-lookup"><span data-stu-id="57716-146">You can display values within HTML by simply referencing the value with the `@` symbol.</span></span> <span data-ttu-id="57716-147">内容を参照してください、`<h2>`と`<h3>`要素上です。</span><span class="sxs-lookup"><span data-stu-id="57716-147">See the contents of the `<h2>` and `<h3>` elements above.</span></span>
 
-## <a name="how-do-controllers-specify-views"></a><span data-ttu-id="7dd0c-131">コント ローラーを指定してビューを操作する方法</span><span class="sxs-lookup"><span data-stu-id="7dd0c-131">How do Controllers Specify Views?</span></span>
+<span data-ttu-id="57716-148">前に示したコンテンツの表示は、ユーザーに表示される web ページ全体の一部のみです。</span><span class="sxs-lookup"><span data-stu-id="57716-148">The view content shown above is only part of the entire webpage that's rendered to the user.</span></span> <span data-ttu-id="57716-149">ページのレイアウトの残りの部分とビューの他の一般的な側面は、他のビュー ファイルに指定されます。</span><span class="sxs-lookup"><span data-stu-id="57716-149">The rest of the page's layout and other common aspects of the view are specified in other view files.</span></span> <span data-ttu-id="57716-150">詳細については、次を参照してください。、[レイアウト トピック](xref:mvc/views/layout)です。</span><span class="sxs-lookup"><span data-stu-id="57716-150">To learn more, see the [Layout topic](xref:mvc/views/layout).</span></span>
 
-<span data-ttu-id="7dd0c-132">ビューは通常の操作から返される、`ViewResult`です。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-132">Views are typically returned from actions as a `ViewResult`.</span></span> <span data-ttu-id="7dd0c-133">アクション メソッドが作成して返すことができます、`ViewResult`を直接がより一般的なコント ローラーから継承している場合`Controller`、単に使用する、`View`ヘルパー メソッドを次の例として示します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-133">Your action method can create and return a `ViewResult` directly, but more commonly if your controller inherits from `Controller`, you'll simply use the `View` helper method, as this example demonstrates:</span></span>
+## <a name="how-controllers-specify-views"></a><span data-ttu-id="57716-151">コント ローラーがビューを指定する方法</span><span class="sxs-lookup"><span data-stu-id="57716-151">How controllers specify views</span></span>
 
-<span data-ttu-id="7dd0c-134">*HomeController.cs*</span><span class="sxs-lookup"><span data-stu-id="7dd0c-134">*HomeController.cs*</span></span>
+<span data-ttu-id="57716-152">ビューは通常の操作から返される、 [ViewResult](/aspnet/core/api/microsoft.aspnetcore.mvc.viewresult)の型である[ActionResult](/aspnet/core/api/microsoft.aspnetcore.mvc.actionresult)です。</span><span class="sxs-lookup"><span data-stu-id="57716-152">Views are typically returned from actions as a [ViewResult](/aspnet/core/api/microsoft.aspnetcore.mvc.viewresult), which is a type of [ActionResult](/aspnet/core/api/microsoft.aspnetcore.mvc.actionresult).</span></span> <span data-ttu-id="57716-153">アクション メソッドが作成して返すことができます、`ViewResult`を直接一般的に実行されていないことができます。</span><span class="sxs-lookup"><span data-stu-id="57716-153">Your action method can create and return a `ViewResult` directly, but that isn't commonly done.</span></span> <span data-ttu-id="57716-154">ほとんどのコント ローラーが継承ため[コント ローラー](/aspnet/core/api/microsoft.aspnetcore.mvc.controller)、単に使用する、`View`を返すヘルパー メソッド、 `ViewResult`:</span><span class="sxs-lookup"><span data-stu-id="57716-154">Since most controllers inherit from [Controller](/aspnet/core/api/microsoft.aspnetcore.mvc.controller), you simply use the `View` helper method to return the `ViewResult`:</span></span>
 
-<span data-ttu-id="7dd0c-135">[!code-csharp[Main](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]</span><span class="sxs-lookup"><span data-stu-id="7dd0c-135">[!code-csharp[Main](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]</span></span>
+<span data-ttu-id="57716-155">*HomeController.cs*</span><span class="sxs-lookup"><span data-stu-id="57716-155">*HomeController.cs*</span></span>
 
-<span data-ttu-id="7dd0c-136">`View`ヘルパー メソッドが返すビュー容易にするためアプリ開発者にとっていくつかのオーバー ロードします。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-136">The `View` helper method has several overloads to make returning views easier for app developers.</span></span> <span data-ttu-id="7dd0c-137">ビューに渡すモデル オブジェクトと同様に戻るには、ビューを指定することができます。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-137">You can optionally specify a view to return, as well as a model object to pass to the view.</span></span>
+[!code-csharp[Main](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
 
-<span data-ttu-id="7dd0c-138">この操作から制御が戻るとき、 *About.cshtml*上に表示されるビューが表示されます。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-138">When this action returns, the *About.cshtml* view shown above is rendered:</span></span>
+<span data-ttu-id="57716-156">この操作から制御が戻るとき、 *About.cshtml*最後のセクションに表示されているビューは、次の web ページとして表示されます。</span><span class="sxs-lookup"><span data-stu-id="57716-156">When this action returns, the *About.cshtml* view shown in the last section is rendered as the following webpage:</span></span>
 
-![ページについて](overview/_static/about-page.png)
+![Edge ブラウザーでレンダリングされるページについて](overview/_static/about-page.png)
 
-### <a name="view-discovery"></a><span data-ttu-id="7dd0c-140">ビューの検出</span><span class="sxs-lookup"><span data-stu-id="7dd0c-140">View Discovery</span></span>
+<span data-ttu-id="57716-158">`View`ヘルパー メソッドが複数のオーバー ロードします。</span><span class="sxs-lookup"><span data-stu-id="57716-158">The `View` helper method has several overloads.</span></span> <span data-ttu-id="57716-159">必要に応じて指定できます。</span><span class="sxs-lookup"><span data-stu-id="57716-159">You can optionally specify:</span></span>
 
-<span data-ttu-id="7dd0c-141">アクションは、ビューを返します、ときに、プロセスを呼び出す*ビュー検出*行われます。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-141">When an action returns a view, a process called *view discovery* takes place.</span></span> <span data-ttu-id="7dd0c-142">このプロセスでは、どのビュー ファイルを使用してを決定します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-142">This process determines which view file will be used.</span></span> <span data-ttu-id="7dd0c-143">ランタイムはコント ローラーに固有のビューはまず、し、検索に一致するビューの名前の検索、特定のビュー ファイルが指定されていない限り、 *Shared*フォルダーです。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-143">Unless a specific view file is specified, the runtime looks for a controller-specific view first, then looks for matching view name in the *Shared* folder.</span></span>
+* <span data-ttu-id="57716-160">返される明示的なビュー。</span><span class="sxs-lookup"><span data-stu-id="57716-160">An explicit view to return:</span></span>
 
-<span data-ttu-id="7dd0c-144">アクションが返されるときに、`View`メソッドでは、次のように`return View();`アクション名は、ビュー名として使用します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-144">When an action returns the `View` method, like so `return View();`, the action name is used as the view name.</span></span> <span data-ttu-id="7dd0c-145">たとえば、これは、"Index"という名前のアクション メソッドから呼び出された、なります"Index"の表示名を渡すことに相当します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-145">For example, if this were called from an action method named "Index", it would be equivalent to passing in a view name of "Index".</span></span> <span data-ttu-id="7dd0c-146">メソッドに、ビュー名を明示的に渡すことができます (`return View("SomeView");`)。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-146">A view name can be explicitly passed to the method (`return View("SomeView");`).</span></span> <span data-ttu-id="7dd0c-147">このような場合の両方で一致するビューでのファイルの検索を参照してください。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-147">In both of these cases, view discovery searches for a matching view file in:</span></span>
+  ```csharp
+  return View("Orders");
+  ```
+* <span data-ttu-id="57716-161">A[モデル](xref:mvc/models/model-binding)に渡す、ビュー。</span><span class="sxs-lookup"><span data-stu-id="57716-161">A [model](xref:mvc/models/model-binding) to pass to the the view:</span></span>
 
-   1. <span data-ttu-id="7dd0c-148">ビュー/\<ControllerName >/\<ViewName > .cshtml</span><span class="sxs-lookup"><span data-stu-id="7dd0c-148">Views/\<ControllerName>/\<ViewName>.cshtml</span></span>
+  ```csharp
+  return View(Orders);
+  ```
+* <span data-ttu-id="57716-162">ビューとモデルの両方で:</span><span class="sxs-lookup"><span data-stu-id="57716-162">Both a view and a model:</span></span>
 
-   2. <span data-ttu-id="7dd0c-149">ビュー/共有/\<ViewName > .cshtml</span><span class="sxs-lookup"><span data-stu-id="7dd0c-149">Views/Shared/\<ViewName>.cshtml</span></span>
+  ```csharp
+  return View("Orders", Orders);
+  ```
 
->[!TIP]
-> <span data-ttu-id="7dd0c-150">次の規則だけを返すことをお勧め`View()`可能であればより柔軟で簡単にコードをリファクタリングのためのアクションからです。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-150">We recommend following the convention of simply returning `View()` from actions when possible, as it results in more flexible, easier to refactor code.</span></span>
+### <a name="view-discovery"></a><span data-ttu-id="57716-163">ビューの検出</span><span class="sxs-lookup"><span data-stu-id="57716-163">View discovery</span></span>
 
-<span data-ttu-id="7dd0c-151">ビュー名の代わりに、ビューのファイル パスを指定できます。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-151">A view file path can be provided instead of a view name.</span></span> <span data-ttu-id="7dd0c-152">アプリケーションのルートで始まる絶対パスを使用した場合 (必要に応じて開始され、「/」または"~/") では、 *.cshtml*拡張機能は、ファイルのパスの一部として指定する必要があります (たとえば、 `return View("Views/Home/About.cshtml");`)。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-152">If using an absolute path starting at the application root (optionally starting with "/" or "~/"), the *.cshtml* extension must be specified as part of the file path (for example, `return View("Views/Home/About.cshtml");`).</span></span> <span data-ttu-id="7dd0c-153">内でコント ローラー固有のディレクトリから相対パスを使用する代わりに、*ビュー*ビューを別のディレクトリを指定するディレクトリ (たとえば、`return View("../Manage/Index");`内、 `HomeController`)。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-153">Alternatively, you can use a relative path from the controller-specific directory within the *Views* directory to specify views in different directories (for example, `return View("../Manage/Index");` inside the `HomeController`).</span></span> <span data-ttu-id="7dd0c-154">同様に、現在のコント ローラーに固有のディレクトリを走査することができます (たとえば、 `return View("./About");`)。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-154">Similarly, you can traverse the current controller-specific directory (for example, `return View("./About");`).</span></span> <span data-ttu-id="7dd0c-155">相対パスを使用しないことに注意してください、 *.cshtml*拡張機能です。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-155">Note that relative paths don't use the *.cshtml* extension.</span></span> <span data-ttu-id="7dd0c-156">前述のように、コント ローラー、アクション、および保守容易性とわかりやすくするためのビューの間の関係を反映するようにビューのファイル構造を整理するためのベスト プラクティスに従います。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-156">As previously mentioned, follow the best practice of organizing the file structure for views to reflect the relationships among controllers, actions, and views for maintainability and clarity.</span></span>
+<span data-ttu-id="57716-164">アクションは、ビューを返します、ときに、プロセスを呼び出す*ビュー検出*行われます。</span><span class="sxs-lookup"><span data-stu-id="57716-164">When an action returns a view, a process called *view discovery* takes place.</span></span> <span data-ttu-id="57716-165">このプロセスでは、ビュー名に基づいて、どのファイルの表示が使用されるを決定します。</span><span class="sxs-lookup"><span data-stu-id="57716-165">This process determines which view file is used based on the view name.</span></span> 
 
-> [!NOTE]
-> <span data-ttu-id="7dd0c-157">[部分ビュー](partial.md)と[コンポーネントを表示](view-components.md)似ています (ただしと一致しない) の検出メカニズムを使用します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-157">[Partial views](partial.md) and [view components](view-components.md) use similar (but not identical) discovery mechanisms.</span></span>
+<span data-ttu-id="57716-166">アクションが返されるときに、`View`メソッド (`return View();`) ビューが指定されていないと、アクション名は、ビュー名として使用します。</span><span class="sxs-lookup"><span data-stu-id="57716-166">When an action returns the `View` method (`return View();`) and a view isn't specified, the action name is used as the view name.</span></span> <span data-ttu-id="57716-167">たとえば、*に関する*`ActionResult`という名前のビュー ファイルを検索するコント ローラーのメソッド名が使用される*About.cshtml*です。</span><span class="sxs-lookup"><span data-stu-id="57716-167">For example, the *About* `ActionResult` method name of the controller is used to search for a view file named *About.cshtml*.</span></span> <span data-ttu-id="57716-168">ランタイムが最初に、検索、*ビュー/[ControllerName]*ビューのフォルダーです。</span><span class="sxs-lookup"><span data-stu-id="57716-168">First, the runtime looks in the *Views/[ControllerName]* folder for the view.</span></span> <span data-ttu-id="57716-169">検索に一致するビューがありますが見つからない場合は、 *Shared*ビューのフォルダーです。</span><span class="sxs-lookup"><span data-stu-id="57716-169">If it doesn't find a matching view there, it searches the *Shared* folder for the view.</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="7dd0c-158">ビューが配置されているアプリ内でカスタムを使用してに関する既定の規則をカスタマイズする`IViewLocationExpander`です。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-158">You can customize the default convention regarding where views are located within the app by using a custom `IViewLocationExpander`.</span></span>
+<span data-ttu-id="57716-170">暗黙的に返す場合にかかわらず、`ViewResult`で`return View();`にビューの名前を明示的に渡すことも、`View`メソッドを`return View("<ViewName>");`です。</span><span class="sxs-lookup"><span data-stu-id="57716-170">It doesn't matter if you implicitly return the `ViewResult` with `return View();` or explicitly pass the view name to the `View` method with `return View("<ViewName>");`.</span></span> <span data-ttu-id="57716-171">どちらの場合は、ビューの検出は、この順序で一致するビュー ファイルを検索します。</span><span class="sxs-lookup"><span data-stu-id="57716-171">In both cases, view discovery searches for a matching view file in this order:</span></span>
 
->[!TIP]
-> <span data-ttu-id="7dd0c-159">ビューの名前は、基になるファイル システムによって大文字小文字を区別可能性があります。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-159">View names may be case sensitive depending on the underlying file system.</span></span> <span data-ttu-id="7dd0c-160">オペレーティング システム間で互換性のため、常に大文字小文字をコント ローラーとアクション名と関連するビューのフォルダーとファイル名の間です。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-160">For compatibility across operating systems, always match case between controller and action names and associated view folders and filenames.</span></span>
+   1. <span data-ttu-id="57716-172">*ビュー/\[ControllerName]\[ViewName] .cshtml*</span><span class="sxs-lookup"><span data-stu-id="57716-172">*Views/\[ControllerName]\[ViewName].cshtml*</span></span>
+   1. <span data-ttu-id="57716-173">*ビュー/共有/\[ViewName] .cshtml*</span><span class="sxs-lookup"><span data-stu-id="57716-173">*Views/Shared/\[ViewName].cshtml*</span></span>
 
-## <a name="passing-data-to-views"></a><span data-ttu-id="7dd0c-161">ビューにデータを渡す</span><span class="sxs-lookup"><span data-stu-id="7dd0c-161">Passing Data to Views</span></span>
+<span data-ttu-id="57716-174">ビュー名の代わりに、ビューのファイル パスを指定できます。</span><span class="sxs-lookup"><span data-stu-id="57716-174">A view file path can be provided instead of a view name.</span></span> <span data-ttu-id="57716-175">アプリのルートから始まる絶対パスを使用した場合 (必要に応じて開始され、「/」または"~/") では、 *.cshtml*拡張機能を指定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="57716-175">If using an absolute path starting at the app root (optionally starting with "/" or "~/"), the *.cshtml* extension must be specified:</span></span>
 
-<span data-ttu-id="7dd0c-162">いくつかのメカニズムを使用して、ビューにデータを渡すことができます。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-162">You can pass data to views using several mechanisms.</span></span> <span data-ttu-id="7dd0c-163">最も堅牢な方法は、指定する、*モデル*ビュー内の型 (一般に呼ば、 *viewmodel*、ビジネス ドメイン モデルの種類を区別するために)、ビューにこの型のインスタンスを渡すとアクション。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-163">The most robust approach is to specify a *model* type in the view (commonly referred to as a *viewmodel*, to distinguish it from business domain model types), and then pass an instance of this type to the view from the action.</span></span> <span data-ttu-id="7dd0c-164">モデルまたはモデルの表示を使用してデータをビューに渡すことをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-164">We recommend you use a model or view model to pass data to a view.</span></span> <span data-ttu-id="7dd0c-165">これにより、厳密な型チェックを活用するために表示できます。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-165">This allows the view to take advantage of strong type checking.</span></span> <span data-ttu-id="7dd0c-166">使用してビューのモデルを指定することができます、`@model`ディレクティブ。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-166">You can specify a model for a view using the `@model` directive:</span></span>
+```csharp
+return View("Views/Home/About.cshtml");
+```
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [1]}} -->
+<span data-ttu-id="57716-176">相対パスを使用することがなく異なるディレクトリにビューを指定する、 *.cshtml*拡張機能です。</span><span class="sxs-lookup"><span data-stu-id="57716-176">You can also use a relative path to specify views in different directories without the *.cshtml* extension.</span></span> <span data-ttu-id="57716-177">内部、 `HomeController`、返すことができます、*インデックス*の表示、*管理*相対パスを持つビュー。</span><span class="sxs-lookup"><span data-stu-id="57716-177">Inside the `HomeController`, you can return the *Index* view of your *Manage* views with a relative path:</span></span>
 
-```html
+```csharp
+return View("../Manage/Index");
+```
+
+<span data-ttu-id="57716-178">同様に、現在のコント ローラーに固有のディレクトリでを指定することができます、"./"プレフィックス。</span><span class="sxs-lookup"><span data-stu-id="57716-178">Similarly, you can indicate the current controller-specific directory with the "./" prefix:</span></span>
+
+```csharp
+return View("./About");
+```
+
+<span data-ttu-id="57716-179">[部分ビュー](xref:mvc/views/partial)と[コンポーネントを表示](xref:mvc/views/view-components)似ています (ただしと一致しない) の検出メカニズムを使用します。</span><span class="sxs-lookup"><span data-stu-id="57716-179">[Partial views](xref:mvc/views/partial) and [view components](xref:mvc/views/view-components) use similar (but not identical) discovery mechanisms.</span></span>
+
+<span data-ttu-id="57716-180">どのビューは、アプリ内にあるを使用して、カスタムの既定の規則をカスタマイズする[IViewLocationExpander](/aspnet/core/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander)です。</span><span class="sxs-lookup"><span data-stu-id="57716-180">You can customize the default convention for how views are located within the app by using a custom [IViewLocationExpander](/aspnet/core/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander).</span></span>
+
+<span data-ttu-id="57716-181">ビューの検出は、ファイル名でファイルの表示を検出することに依存しています。</span><span class="sxs-lookup"><span data-stu-id="57716-181">View discovery relies on finding view files by file name.</span></span> <span data-ttu-id="57716-182">基になるファイル システムが大文字と小文字の場合は、ビューの名前はおそらく大文字小文字を区別です。</span><span class="sxs-lookup"><span data-stu-id="57716-182">If the underlying file system is case sensitive, view names are probably case sensitive.</span></span> <span data-ttu-id="57716-183">オペレーティング システム間で互換性のため、コント ローラーとアクション名および関連するビューのフォルダーとファイル名の間のケースに一致します。</span><span class="sxs-lookup"><span data-stu-id="57716-183">For compatibility across operating systems, match case between controller and action names and associated view folders and file names.</span></span> <span data-ttu-id="57716-184">ファイルの表示を区別するファイル システムの操作中に検出できないエラーが発生した場合は、要求されたビュー ファイルと実際のビューのファイル名の大文字と小文字が一致していることを確認します。</span><span class="sxs-lookup"><span data-stu-id="57716-184">If you encounter an error that a view file can't be found while working with a case-sensitive file system, confirm that the casing matches between the requested view file and the actual view file name.</span></span>
+
+<span data-ttu-id="57716-185">コント ローラー、アクション、および保守容易性とわかりやすくするためのビューの間の関係を反映するように、ビューのファイル構造を整理するためのベスト プラクティスに従ってください。</span><span class="sxs-lookup"><span data-stu-id="57716-185">Follow the best practice of organizing the file structure for your views to reflect the relationships among controllers, actions, and views for maintainability and clarity.</span></span>
+
+## <a name="passing-data-to-views"></a><span data-ttu-id="57716-186">ビューにデータを渡す</span><span class="sxs-lookup"><span data-stu-id="57716-186">Passing data to views</span></span>
+
+<span data-ttu-id="57716-187">いくつかのアプローチを使用して、ビューにデータを渡すことができます。</span><span class="sxs-lookup"><span data-stu-id="57716-187">You can pass data to views using several approaches.</span></span> <span data-ttu-id="57716-188">最も堅牢な方法は、指定する、[モデル](xref:mvc/models/model-binding)ビュー内の型。</span><span class="sxs-lookup"><span data-stu-id="57716-188">The most robust approach is to specify a [model](xref:mvc/models/model-binding) type in the view.</span></span> <span data-ttu-id="57716-189">このモデルと呼ばれる一般的な*viewmodel*です。</span><span class="sxs-lookup"><span data-stu-id="57716-189">This model is commonly referred to as a *viewmodel*.</span></span> <span data-ttu-id="57716-190">Viewmodel 型のインスタンスは、アクションからビューに渡します。</span><span class="sxs-lookup"><span data-stu-id="57716-190">You pass an instance of the viewmodel type to the view from the action.</span></span>
+
+<span data-ttu-id="57716-191">により、利用するためにビューをビューにデータを渡して、viewmodel を使用して*強力な*型チェックします。</span><span class="sxs-lookup"><span data-stu-id="57716-191">Using a viewmodel to pass data to a view allows the view to take advantage of *strong* type checking.</span></span> <span data-ttu-id="57716-192">*厳密な型指定*(または*厳密に型指定された*) すべての変数および定数では、明示的に定義された型 (たとえば、 `string`、 `int`、または`DateTime`)。</span><span class="sxs-lookup"><span data-stu-id="57716-192">*Strong typing* (or *strongly-typed*) means that every variable and constant has an explicitly defined type (for example, `string`, `int`, or `DateTime`).</span></span> <span data-ttu-id="57716-193">ビューで使用される型の妥当性は、コンパイル時にチェックされます。</span><span class="sxs-lookup"><span data-stu-id="57716-193">The validity of types used in a view is checked at compile time.</span></span>
+
+<span data-ttu-id="57716-194">Tooling など[Visual Studio](https://www.visualstudio.com/vs/)または[Visual Studio Code](https://code.visualstudio.com/)、(モデルのプロパティ) のメンバーを一覧表示することもエラーも減少高速のコードを記述するのに役立つ、ビューにそれらを追加するときにします。</span><span class="sxs-lookup"><span data-stu-id="57716-194">Tooling, such as [Visual Studio](https://www.visualstudio.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/), can also list members (properties of a model) while you're adding them to a view, which helps you write code faster with fewer errors.</span></span> <span data-ttu-id="57716-195">この機能が呼び出されます[IntelliSense](/visualstudio/ide/using-intellisense)で Microsoft のツールです。</span><span class="sxs-lookup"><span data-stu-id="57716-195">This feature is called [IntelliSense](/visualstudio/ide/using-intellisense) in Microsoft tools.</span></span>
+
+<span data-ttu-id="57716-196">使用してモデルを指定して、`@model`ディレクティブです。</span><span class="sxs-lookup"><span data-stu-id="57716-196">Specify a model using the `@model` directive.</span></span> <span data-ttu-id="57716-197">使用してモデルを使用して`@Model`:</span><span class="sxs-lookup"><span data-stu-id="57716-197">Use the model with `@Model`:</span></span>
+
+```cshtml
 @model WebApplication1.ViewModels.Address
-   <h2>Contact</h2>
-   <address>
-       @Model.Street<br />
-       @Model.City, @Model.State @Model.PostalCode<br />
-       <abbr title="Phone">P:</abbr>
-       425.555.0100
-   </address>
-   ```
 
-<span data-ttu-id="7dd0c-167">ビューに送信されるインスタンスを使用して、厳密に型指定された方法でアクセスできるビューのモデルを指定すると、`@Model`上記のようにします。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-167">Once a model has been specified for a view, the instance sent to the view can be accessed in a strongly-typed manner using `@Model` as shown above.</span></span> <span data-ttu-id="7dd0c-168">ビューにモデルの種類のインスタンスを提供するには、コント ローラーは、それをパラメーターとして渡します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-168">To provide an instance of the model type to the view, the controller passes it as a parameter:</span></span>
+<h2>Contact</h2>
+<address>
+    @Model.Street<br>
+    @Model.City, @Model.State @Model.PostalCode<br>
+    <abbr title="Phone">P:</abbr> 425.555.0100
+</address>
+```
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [13]}} -->
+<span data-ttu-id="57716-198">ビューにモデルを提供するには、コント ローラーは、それをパラメーターとして渡します。</span><span class="sxs-lookup"><span data-stu-id="57716-198">To provide the model to the view, the controller passes it as a parameter:</span></span>
 
 ```csharp
 public IActionResult Contact()
-   {
-       ViewData["Message"] = "Your contact page.";
+{
+    ViewData["Message"] = "Your contact page.";
 
-       var viewModel = new Address()
-       {
-           Name = "Microsoft",
-           Street = "One Microsoft Way",
-           City = "Redmond",
-           State = "WA",
-           PostalCode = "98052-6399"
-       };
-       return View(viewModel);
-   }
-   ```
+    var viewModel = new Address()
+    {
+        Name = "Microsoft",
+        Street = "One Microsoft Way",
+        City = "Redmond",
+        State = "WA",
+        PostalCode = "98052-6399"
+    };
 
-<span data-ttu-id="7dd0c-169">ビュー モデルとしてを指定できる型に制限はありません。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-169">There are no restrictions on the types that can be provided to a view as a model.</span></span> <span data-ttu-id="7dd0c-170">ビジネス ロジックは、アプリで他の場所でカプセル化できますように POCO Plain Old CLR Object () でほとんどまたはまったく動作では、モデルの表示を渡すことをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-170">We recommend passing Plain Old CLR Object (POCO) view models with little or no behavior, so that business logic can be encapsulated elsewhere in the app.</span></span> <span data-ttu-id="7dd0c-171">このアプローチの例は、*アドレス*viewmodel 上記の例で使用します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-171">An example of this approach is the *Address* viewmodel used in the example above:</span></span>
+    return View(viewModel);
+}
+```
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [13]}} -->
+<span data-ttu-id="57716-199">ビューを提供できるモデルの種類に制限はありません。</span><span class="sxs-lookup"><span data-stu-id="57716-199">There are no restrictions on the model types that you can provide to a view.</span></span> <span data-ttu-id="57716-200">使用することをお勧め**P**lain **O**%ld **C**LR **O**オブジェクト (POCO) viewmodels ほとんどまたはまったく動作 (メソッド) を定義します。</span><span class="sxs-lookup"><span data-stu-id="57716-200">We recommend using **P**lain **O**ld **C**LR **O**bject (POCO) viewmodels with little or no behavior (methods) defined.</span></span> <span data-ttu-id="57716-201">通常、viewmodel クラスは、いずれかに格納されて、*モデル*フォルダーまたは個別の*ViewModels*アプリのルートにあるフォルダーです。</span><span class="sxs-lookup"><span data-stu-id="57716-201">Usually, viewmodel classes are either stored in the *Models* folder or a separate *ViewModels* folder at the root of the app.</span></span> <span data-ttu-id="57716-202">*アドレス*viewmodel 上記の例で使用される、という名前のファイルに格納されている POCO viewmodel *Address.cs*:</span><span class="sxs-lookup"><span data-stu-id="57716-202">The *Address* viewmodel used in the example above is a POCO viewmodel stored in a file named *Address.cs*:</span></span>
 
 ```csharp
 namespace WebApplication1.ViewModels
-   {
-       public class Address
-       {
-           public string Name { get; set; }
-           public string Street { get; set; }
-           public string City { get; set; }
-           public string State { get; set; }
-           public string PostalCode { get; set; }
-       }
-   }
-   ```
+{
+    public class Address
+    {
+        public string Name { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string PostalCode { get; set; }
+    }
+}
+```
 
 > [!NOTE]
-> <span data-ttu-id="7dd0c-172">同じクラスを使用して、ビジネス モデルの種類と、表示の種類のモデルを何もできません。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-172">Nothing prevents you from using the same classes as your business model types and your display model types.</span></span> <span data-ttu-id="7dd0c-173">ただし、分離しておくことに、ドメインまたは永続化モデルと無関係に変更するためにビューは、によってセキュリティ上の利点も提供できます (モデルを使用して、アプリにユーザーを送信する[モデル バインディング](../models/model-binding.md))。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-173">However, keeping them separate allows your views to vary independently from your domain or persistence model, and can offer some security benefits as well (for models that users will send to the app using [model binding](../models/model-binding.md)).</span></span>
+> <span data-ttu-id="57716-203">Viewmodel 型やビジネス モデルの種類の両方を同じクラスを使用して何もできません。</span><span class="sxs-lookup"><span data-stu-id="57716-203">Nothing prevents you from using the same classes for both your viewmodel types and your business model types.</span></span> <span data-ttu-id="57716-204">ただし、別のモデルを使用してでは、ビューとは異なるいない個別にビジネス ロジックとデータ、アプリのアクセスの部分です。</span><span class="sxs-lookup"><span data-stu-id="57716-204">However, using separate models allows your views to vary independently from the business logic and data access parts of your app.</span></span> <span data-ttu-id="57716-205">モデルと viewmodels の分離はセキュリティ上の利点をモデルで使用する場合にも[モデル バインディング](xref:mvc/models/model-binding)と[検証](xref:mvc/models/validation)ユーザーがアプリに送信されるデータにします。</span><span class="sxs-lookup"><span data-stu-id="57716-205">Separation of models and viewmodels also offers security benefits when models use [model binding](xref:mvc/models/model-binding) and [validation](xref:mvc/models/validation) for data sent to the app by the user.</span></span>
 
-### <a name="loosely-typed-data"></a><span data-ttu-id="7dd0c-174">弱く型指定されたデータ</span><span class="sxs-lookup"><span data-stu-id="7dd0c-174">Loosely Typed Data</span></span>
+### <a name="weakly-typed-data-viewdata-and-viewbag"></a><span data-ttu-id="57716-206">弱い型指定のデータ (ViewData と ViewBag)</span><span class="sxs-lookup"><span data-stu-id="57716-206">Weakly-typed data (ViewData and ViewBag)</span></span>
 
-<span data-ttu-id="7dd0c-175">厳密に型指定されたビューは、以外のすべてのビューにデータの弱い型指定されたコレクションへのアクセスがあります。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-175">In addition to strongly typed views, all views have access to a loosely typed collection of data.</span></span> <span data-ttu-id="7dd0c-176">この同じコレクションは、いずれかで参照できる、`ViewData`または`ViewBag`コント ローラーとビューのプロパティです。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-176">This same collection can be referenced through either the `ViewData` or `ViewBag` properties on controllers and views.</span></span> <span data-ttu-id="7dd0c-177">`ViewBag`プロパティはラッパー`ViewData`コレクションを動的ビューを提供します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-177">The `ViewBag` property is a wrapper around `ViewData` that provides a dynamic view over that collection.</span></span> <span data-ttu-id="7dd0c-178">別のコレクションではありません。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-178">It is not a separate collection.</span></span>
+<span data-ttu-id="57716-207">ビューへのアクセスのある、厳密に型指定されたビューだけでなく、*弱い型指定*(とも呼ばれる*弱い型指定*) データのコレクション。</span><span class="sxs-lookup"><span data-stu-id="57716-207">In addition to strongly-typed views, views have access to a *weakly-typed* (also called *loosely-typed*) collection of data.</span></span> <span data-ttu-id="57716-208">厳密な型とは異なり*弱い型*(または*型が失われる*) 使用するデータの型を明示的に宣言しないことを意味します。</span><span class="sxs-lookup"><span data-stu-id="57716-208">Unlike strong types, *weak types* (or *loose types*) means that you don't explicitly declare the type of data you're using.</span></span> <span data-ttu-id="57716-209">少量のコント ローラーとビューとの間のデータを渡すため、厳密に型指定されたデータのコレクションを使用できます。</span><span class="sxs-lookup"><span data-stu-id="57716-209">You can use the collection of weakly-typed data for passing small amounts of data in and out of controllers and views.</span></span>
 
-<span data-ttu-id="7dd0c-179">`ViewData`ディクショナリ オブジェクトを通じてアクセス`string`キー。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-179">`ViewData` is a dictionary object accessed through `string` keys.</span></span> <span data-ttu-id="7dd0c-180">格納し、内のオブジェクトを取得でき、それらを抽出する場合は、特定の型にキャストする必要があります。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-180">You can store and retrieve objects in it, and you'll need to cast them to a specific type when you extract them.</span></span> <span data-ttu-id="7dd0c-181">使用することができます`ViewData`ビューに、ビュー (部分ビュー、およびレイアウト) 内や、コント ローラーからデータを渡す。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-181">You can use `ViewData` to pass data from a controller to views, as well as within views (and partial views and layouts).</span></span> <span data-ttu-id="7dd0c-182">文字列データの格納され、キャストがなくても、直接使用されることができます。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-182">String data can be stored and used directly, without the need for a cast.</span></span>
+| <span data-ttu-id="57716-210">間でデータを渡すことをしています.</span><span class="sxs-lookup"><span data-stu-id="57716-210">Passing data between a ...</span></span>                        | <span data-ttu-id="57716-211">例</span><span class="sxs-lookup"><span data-stu-id="57716-211">Example</span></span>                                                                        |
+| ------------------------------------------------- | ------------------------------------------------------------------------------ |
+| <span data-ttu-id="57716-212">コント ローラーとビュー</span><span class="sxs-lookup"><span data-stu-id="57716-212">Controller and a view</span></span>                             | <span data-ttu-id="57716-213">ドロップダウン リストをデータを作成します。</span><span class="sxs-lookup"><span data-stu-id="57716-213">Populating a dropdown list with data.</span></span>                                          |
+| <span data-ttu-id="57716-214">ビューと[[レイアウト] ビュー](xref:mvc/views/layout)</span><span class="sxs-lookup"><span data-stu-id="57716-214">View and a [layout view](xref:mvc/views/layout)</span></span>   | <span data-ttu-id="57716-215">設定、 **\<タイトル >**ビュー ファイルから、レイアウト ビューの要素の内容。</span><span class="sxs-lookup"><span data-stu-id="57716-215">Setting the **\<title>** element content in the layout view from a view file.</span></span>  |
+| <span data-ttu-id="57716-216">[部分ビュー](xref:mvc/views/partial)とビュー</span><span class="sxs-lookup"><span data-stu-id="57716-216">[Partial view](xref:mvc/views/partial) and a view</span></span> | <span data-ttu-id="57716-217">ユーザーが要求した web ページに基づいてデータを表示するウィジェット。</span><span class="sxs-lookup"><span data-stu-id="57716-217">A widget that displays data based on the webpage that the user requested.</span></span>      |
 
-<span data-ttu-id="7dd0c-183">いくつかの値を設定`ViewData`アクションで。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-183">Set some values for `ViewData` in an action:</span></span>
+<span data-ttu-id="57716-218">このコレクションは、いずれかで参照できる、`ViewData`または`ViewBag`コント ローラーとビューのプロパティです。</span><span class="sxs-lookup"><span data-stu-id="57716-218">This collection can be referenced through either the `ViewData` or `ViewBag` properties on controllers and views.</span></span> <span data-ttu-id="57716-219">`ViewData`プロパティは、弱い型指定のオブジェクトのディクショナリ。</span><span class="sxs-lookup"><span data-stu-id="57716-219">The `ViewData` property is a dictionary of weakly-typed objects.</span></span> <span data-ttu-id="57716-220">`ViewBag`プロパティはラッパー `ViewData` 、基になるの動的なプロパティを提供する`ViewData`コレクション。</span><span class="sxs-lookup"><span data-stu-id="57716-220">The `ViewBag` property is a wrapper around `ViewData` that provides dynamic properties for the underlying `ViewData` collection.</span></span>
+
+<span data-ttu-id="57716-221">`ViewData`および`ViewBag`は実行時に動的に解決されます。</span><span class="sxs-lookup"><span data-stu-id="57716-221">`ViewData` and `ViewBag` are dynamically resolved at runtime.</span></span> <span data-ttu-id="57716-222">コンパイル時の型チェック見て、どちらも通常よりエラーを起こしやすい、viewmodel を使用するよりもです。</span><span class="sxs-lookup"><span data-stu-id="57716-222">Since they don't offer compile-time type checking, both are generally more error-prone than using a viewmodel.</span></span> <span data-ttu-id="57716-223">そのため、一部の開発者が最小限に抑えるまたはまったく使用しないたい`ViewData`と`ViewBag`です。</span><span class="sxs-lookup"><span data-stu-id="57716-223">For that reason, some developers prefer to minimally or never use `ViewData` and `ViewBag`.</span></span>
+
+<span data-ttu-id="57716-224">**ViewData**</span><span class="sxs-lookup"><span data-stu-id="57716-224">**ViewData**</span></span>
+
+<span data-ttu-id="57716-225">`ViewData`[ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary)を介してアクセスするオブジェクト`string`キー。</span><span class="sxs-lookup"><span data-stu-id="57716-225">`ViewData` is a [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) object accessed through `string` keys.</span></span> <span data-ttu-id="57716-226">その他のキャストする必要がありますが、文字列データを格納し、キャストの必要性なしで直接使用`ViewData`オブジェクトの値を特定の型に抽出するときにします。</span><span class="sxs-lookup"><span data-stu-id="57716-226">String data can be stored and used directly without the need for a cast, but you must cast other `ViewData` object values to specific types when you extract them.</span></span> <span data-ttu-id="57716-227">使用することができます`ViewData`およびなどのビュー内でビューをビューには、コント ローラーからデータを渡す[部分ビュー](xref:mvc/views/partial)と[レイアウト](xref:mvc/views/layout)です。</span><span class="sxs-lookup"><span data-stu-id="57716-227">You can use `ViewData` to pass data from controllers to views and within views, including [partial views](xref:mvc/views/partial) and [layouts](xref:mvc/views/layout).</span></span>
+
+<span data-ttu-id="57716-228">するとあいさつ文とアドレスを使用して、値を設定する例を次に示します`ViewData`アクションで。</span><span class="sxs-lookup"><span data-stu-id="57716-228">The following is an example that sets values for a greeting and an address using `ViewData` in an action:</span></span>
 
 ```csharp
 public IActionResult SomeAction()
-   {
-       ViewData["Greeting"] = "Hello";
-       ViewData["Address"]  = new Address()
-       {
-           Name = "Steve",
-           Street = "123 Main St",
-           City = "Hudson",
-           State = "OH",
-           PostalCode = "44236"
-       };
+{
+    ViewData["Greeting"] = "Hello";
+    ViewData["Address"]  = new Address()
+    {
+        Name = "Steve",
+        Street = "123 Main St",
+        City = "Hudson",
+        State = "OH",
+        PostalCode = "44236"
+    };
 
-       return View();
-   }
-   ```
+    return View();
+}
+```
 
-<span data-ttu-id="7dd0c-184">ビューでデータを操作します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-184">Work with the data in a view:</span></span>
+<span data-ttu-id="57716-229">ビューでデータを操作します。</span><span class="sxs-lookup"><span data-stu-id="57716-229">Work with the data in a view:</span></span>
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [3, 6]}} -->
-
-```html
+```cshtml
 @{
-       // Requires cast
-       var address = ViewData["Address"] as Address;
-   }
+    // Since Address isn't a string, it requires a cast.
+    var address = ViewData["Address"] as Address;
+}
 
-   @ViewData["Greeting"] World!
+@ViewData["Greeting"] World!
 
-   <address>
-       @address.Name<br />
-       @address.Street<br />
-       @address.City, @address.State @address.PostalCode
-   </address>
-   ```
+<address>
+    @address.Name<br>
+    @address.Street<br>
+    @address.City, @address.State @address.PostalCode
+</address>
+```
 
-<span data-ttu-id="7dd0c-185">`ViewBag`オブジェクトに格納されているオブジェクトへの動的アクセスを提供する`ViewData`です。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-185">The `ViewBag` objects provides dynamic access to the objects stored in `ViewData`.</span></span> <span data-ttu-id="7dd0c-186">簡単にキャストする必要がないため、操作を指定できます。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-186">This can be more convenient to work with, since it doesn't require casting.</span></span> <span data-ttu-id="7dd0c-187">使用して、上記と同じ例`ViewBag`厳密に型指定ではなく`address`ビュー内のインスタンス。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-187">The same example as above, using `ViewBag` instead of a strongly typed `address` instance in the view:</span></span>
+<span data-ttu-id="57716-230">**ViewBag**</span><span class="sxs-lookup"><span data-stu-id="57716-230">**ViewBag**</span></span>
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [1, 4, 5, 6]}} -->
+<span data-ttu-id="57716-231">`ViewBag`[DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata)に格納されているオブジェクトへの動的アクセスを提供するオブジェクト`ViewData`です。</span><span class="sxs-lookup"><span data-stu-id="57716-231">`ViewBag` is a [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) object that provides dynamic access to the objects stored in `ViewData`.</span></span> <span data-ttu-id="57716-232">`ViewBag`簡単にキャストする必要がないため、操作を指定できます。</span><span class="sxs-lookup"><span data-stu-id="57716-232">`ViewBag` can be more convenient to work with, since it doesn't require casting.</span></span> <span data-ttu-id="57716-233">次の例は、使用する方法を示しています。`ViewBag`を使用するのと同じ結果に`ViewData`上。</span><span class="sxs-lookup"><span data-stu-id="57716-233">The following example shows how to use `ViewBag` with the same result as using `ViewData` above:</span></span>
 
-```html
+```csharp
+public IActionResult SomeAction()
+{
+    ViewBag.Greeting = "Hello";
+    ViewBag.Address  = new Address()
+    {
+        Name = "Steve",
+        Street = "123 Main St",
+        City = "Hudson",
+        State = "OH",
+        PostalCode = "44236"
+    };
+
+    return View();
+}
+```
+
+```cshtml
 @ViewBag.Greeting World!
 
-   <address>
-       @ViewBag.Address.Name<br />
-       @ViewBag.Address.Street<br />
-       @ViewBag.Address.City, @ViewBag.Address.State @ViewBag.Address.PostalCode
-   </address>
-   ```
+<address>
+    @ViewBag.Address.Name<br>
+    @ViewBag.Address.Street<br>
+    @ViewBag.Address.City, @ViewBag.Address.State @ViewBag.Address.PostalCode
+</address>
+```
 
-> [!NOTE]
-> <span data-ttu-id="7dd0c-188">いずれも、同じ基になるを参照するので`ViewData`コレクションすることができますを混在させるし、の間で一致`ViewData`と`ViewBag`便利な場合、値を読み書きするときにします。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-188">Since both refer to the same underlying `ViewData` collection, you can mix and match between `ViewData` and `ViewBag` when reading and writing values, if convenient.</span></span>
+<span data-ttu-id="57716-234">**ViewBag、ViewData を同時に使用します。**</span><span class="sxs-lookup"><span data-stu-id="57716-234">**Using ViewData and ViewBag simultaneously**</span></span>
 
-### <a name="dynamic-views"></a><span data-ttu-id="7dd0c-189">動的ビュー</span><span class="sxs-lookup"><span data-stu-id="7dd0c-189">Dynamic Views</span></span>
+<span data-ttu-id="57716-235">`ViewData`と`ViewBag`同じ基になるを参照してください`ViewData`コレクション、両方を使用することができます`ViewData`と`ViewBag`を混在させるし、値を読み書きするときにそれらの間に一致します。</span><span class="sxs-lookup"><span data-stu-id="57716-235">Since `ViewData` and `ViewBag` refer to the same underlying `ViewData` collection, you can use both `ViewData` and `ViewBag` and mix and match between them when reading and writing values.</span></span>
 
-<span data-ttu-id="7dd0c-190">ビューがモデルの型を宣言しませんが、渡されたモデルのインスタンスは、このインスタンスを動的に参照できます。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-190">Views that do not declare a model type but have a model instance passed to them can reference this instance dynamically.</span></span> <span data-ttu-id="7dd0c-191">場合のインスタンスなど、`Address`宣言していないので、ビューに渡される、`@model`ビューが示すように動的にインスタンスのプロパティを参照してもよい。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-191">For example, if an instance of `Address` is passed to a view that doesn't declare an `@model`, the view would still be able to refer to the instance's properties dynamically as shown:</span></span>
+<span data-ttu-id="57716-236">設定を使用して、タイトル`ViewBag`を使用して、および`ViewData`の上部にある、 *About.cshtml*ビュー。</span><span class="sxs-lookup"><span data-stu-id="57716-236">Set the title using `ViewBag` and the description using `ViewData` at the top of an *About.cshtml* view:</span></span>
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "html", "highlight_args": {"hl_lines": [13, 16, 17, 18]}} -->
+```cshtml
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "About Contoso";
+    ViewData["Description"] = "Let us tell you about Contoso's philosophy and mission.";
+}
+```
+
+<span data-ttu-id="57716-237">プロパティを読み取るがの使用を反転`ViewData`と`ViewBag`です。</span><span class="sxs-lookup"><span data-stu-id="57716-237">Read the properties but reverse the use of `ViewData` and `ViewBag`.</span></span> <span data-ttu-id="57716-238">*_Layout.cshtml*ファイルを使用して、タイトルを入手してください`ViewData`しを使用して、取得する`ViewBag`:</span><span class="sxs-lookup"><span data-stu-id="57716-238">In the *_Layout.cshtml* file, obtain the title using `ViewData` and obtain the description using `ViewBag`:</span></span>
+
+```cshtml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"]</title>
+    <meta name="description" content="@ViewBag.Description">
+    ...
+```
+
+<span data-ttu-id="57716-239">文字列でのキャストを必要としないことに注意してください`ViewData`です。</span><span class="sxs-lookup"><span data-stu-id="57716-239">Remember that strings don't require a cast for `ViewData`.</span></span> <span data-ttu-id="57716-240">使用することができます`@ViewData["Title"]`キャストなし。</span><span class="sxs-lookup"><span data-stu-id="57716-240">You can use `@ViewData["Title"]` without casting.</span></span>
+
+<span data-ttu-id="57716-241">両方を使用して`ViewData`と`ViewBag`に混在させると、読み取りと書き込みのプロパティに一致すると、同じ時間動作します。</span><span class="sxs-lookup"><span data-stu-id="57716-241">Using both `ViewData` and `ViewBag` at the same time works, as does mixing and matching reading and writing the properties.</span></span> <span data-ttu-id="57716-242">次のマークアップがレンダリングされます。</span><span class="sxs-lookup"><span data-stu-id="57716-242">The following markup is rendered:</span></span>
 
 ```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About Contoso</title>
+    <meta name="description" content="Let us tell you about Contoso's philosophy and mission.">
+    ...
+```
+
+<span data-ttu-id="57716-243">**ViewBag、ViewData の違いの概要**</span><span class="sxs-lookup"><span data-stu-id="57716-243">**Summary of the differences between ViewData and ViewBag**</span></span>
+
+* `ViewData`
+  * <span data-ttu-id="57716-244">派生した[ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary)など、役に立ちます辞書プロパティがあるため、 `ContainsKey`、 `Add`、 `Remove`、および`Clear`です。</span><span class="sxs-lookup"><span data-stu-id="57716-244">Derives from [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary), so it has dictionary properties that can be useful, such as `ContainsKey`, `Add`, `Remove`, and `Clear`.</span></span>
+  * <span data-ttu-id="57716-245">ディクショナリ内のキーは、空白が許可されているために、文字列、です。</span><span class="sxs-lookup"><span data-stu-id="57716-245">Keys in the dictionary are strings, so whitespace is allowed.</span></span> <span data-ttu-id="57716-246">例 : `ViewData["Some Key With Whitespace"]`</span><span class="sxs-lookup"><span data-stu-id="57716-246">Example: `ViewData["Some Key With Whitespace"]`</span></span>
+  * <span data-ttu-id="57716-247">任意の型以外の場合、`string`を使用するビューでキャストする必要があります`ViewData`です。</span><span class="sxs-lookup"><span data-stu-id="57716-247">Any type other than a `string` must be cast in the view to use `ViewData`.</span></span>
+* `ViewBag`
+  * <span data-ttu-id="57716-248">派生した[DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata)が、ドット表記を使用して動的なプロパティの作成を許可するため、(`@ViewBag.SomeKey = <value or object>`)、キャストは必要ありません。</span><span class="sxs-lookup"><span data-stu-id="57716-248">Derives from [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata), so it allows the creation of dynamic properties using dot notation (`@ViewBag.SomeKey = <value or object>`), and no casting is required.</span></span> <span data-ttu-id="57716-249">構文`ViewBag`コント ローラーとビューを追加する方が手軽になります。</span><span class="sxs-lookup"><span data-stu-id="57716-249">The syntax of `ViewBag` makes it quicker to add to controllers and views.</span></span>
+  * <span data-ttu-id="57716-250">Null 値をチェックする方が簡単です。</span><span class="sxs-lookup"><span data-stu-id="57716-250">Simpler to check for null values.</span></span> <span data-ttu-id="57716-251">例 : `@ViewBag.Person?.Name`</span><span class="sxs-lookup"><span data-stu-id="57716-251">Example: `@ViewBag.Person?.Name`</span></span>
+
+<span data-ttu-id="57716-252">**ViewBag、ViewData、またはを使用する場合**</span><span class="sxs-lookup"><span data-stu-id="57716-252">**When to use ViewData or ViewBag**</span></span>
+
+<span data-ttu-id="57716-253">両方`ViewData`と`ViewBag`少量のコント ローラーとビューの間でデータを渡すための有効なアプローチでは同じようにします。</span><span class="sxs-lookup"><span data-stu-id="57716-253">Both `ViewData` and `ViewBag` are equally valid approaches for passing small amounts of data among controllers and views.</span></span> <span data-ttu-id="57716-254">うち (またはその両方) を使用する 1 つはまたは個人用の設定は、組織のユーザー設定を選択します。</span><span class="sxs-lookup"><span data-stu-id="57716-254">The choice of which one to use (or both) comes down to personal preference or the preference of your organization.</span></span> <span data-ttu-id="57716-255">一般に、開発者は、どちらか一方の使用をで一貫しています。</span><span class="sxs-lookup"><span data-stu-id="57716-255">Generally, developers are consistent in their use of one or the other.</span></span> <span data-ttu-id="57716-256">使用する`ViewData`everywhere を使用または`ViewBag`everywhere が残っているを混在させるし、それらが一致します。</span><span class="sxs-lookup"><span data-stu-id="57716-256">They either use `ViewData` everywhere or use `ViewBag` everywhere, but you're welcome to mix and match them.</span></span> <span data-ttu-id="57716-257">両方がので実行時に動的に解決されるとランタイム エラーの原因が発生しやすく、慎重に使用します。</span><span class="sxs-lookup"><span data-stu-id="57716-257">Since both are dynamically resolved at runtime and thus prone to causing runtime errors, use them carefully.</span></span> <span data-ttu-id="57716-258">開発者によって完全回避します。</span><span class="sxs-lookup"><span data-stu-id="57716-258">Some developers avoid them completely.</span></span>
+
+### <a name="dynamic-views"></a><span data-ttu-id="57716-259">動的ビュー</span><span class="sxs-lookup"><span data-stu-id="57716-259">Dynamic views</span></span>
+
+<span data-ttu-id="57716-260">使用して、モデルは宣言しないでビュー型`@model`に渡されたモデルのインスタンスがあるが (たとえば、 `return View(Address);`) 動的にインスタンスのプロパティを参照できます。</span><span class="sxs-lookup"><span data-stu-id="57716-260">Views that don't declare a model type using `@model` but that have a model instance passed to them (for example, `return View(Address);`) can reference the instance's properties dynamically:</span></span>
+
+```cshtml
 <address>
-       @Model.Street<br />
-       @Model.City, @Model.State @Model.PostalCode<br />
-       <abbr title="Phone">P:</abbr>
-       425.555.0100
-   </address>
-   ```
+    @Model.Street<br>
+    @Model.City, @Model.State @Model.PostalCode<br>
+    <abbr title="Phone">P:</abbr> 425.555.0100
+</address>
+```
 
-<span data-ttu-id="7dd0c-192">この機能は、いくつかの柔軟性を提供できますが、IntelliSense でもコンパイル保護は提供しません。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-192">This feature can offer some flexibility, but does not offer any compilation protection or IntelliSense.</span></span> <span data-ttu-id="7dd0c-193">プロパティが存在しない場合、ページは実行時に失敗します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-193">If the property doesn't exist, the page will fail at runtime.</span></span>
+<span data-ttu-id="57716-261">この機能は、柔軟性を提供していますが、コンパイルの保護や IntelliSense は提供していません。</span><span class="sxs-lookup"><span data-stu-id="57716-261">This feature offers flexibility but doesn't offer compilation protection or IntelliSense.</span></span> <span data-ttu-id="57716-262">プロパティが存在しない場合は、実行時に web ページの生成が失敗します。</span><span class="sxs-lookup"><span data-stu-id="57716-262">If the property doesn't exist, webpage generation fails at runtime.</span></span>
 
-## <a name="more-view-features"></a><span data-ttu-id="7dd0c-194">詳細ビュー</span><span class="sxs-lookup"><span data-stu-id="7dd0c-194">More View Features</span></span>
+## <a name="more-view-features"></a><span data-ttu-id="57716-263">詳細ビュー</span><span class="sxs-lookup"><span data-stu-id="57716-263">More view features</span></span>
 
-<span data-ttu-id="7dd0c-195">[タグ ヘルパー](tag-helpers/intro.md)簡単にカスタム コードまたはビューの中でヘルパーを使用する必要がある、既存の HTML タグをサーバー側の動作を追加します。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-195">[Tag helpers](tag-helpers/intro.md) make it easy to add server-side behavior to existing HTML tags, avoiding the need to use custom code or helpers within views.</span></span> <span data-ttu-id="7dd0c-196">タグ ヘルパーは、編集して、さまざまなツールで表示するビューのマークアップを許可するのには、馴染みがないエディターでは無視されますが、HTML 要素に属性として適用されます。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-196">Tag helpers are applied as attributes to HTML elements, which are ignored by editors that aren't familiar with them, allowing view markup to be edited and rendered in a variety of tools.</span></span> <span data-ttu-id="7dd0c-197">タグ ヘルパーは、多くの用途し、具体的には行うことができます[フォームを使用する](working-with-forms.md)はるかに簡単です。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-197">Tag helpers have many uses, and in particular can make [working with forms](working-with-forms.md) much easier.</span></span>
+<span data-ttu-id="57716-264">[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)容易に既存の HTML タグにサーバー側の動作を追加します。</span><span class="sxs-lookup"><span data-stu-id="57716-264">[Tag Helpers](xref:mvc/views/tag-helpers/intro) make it easy to add server-side behavior to existing HTML tags.</span></span> <span data-ttu-id="57716-265">タグ ヘルパーを使用するには、カスタム コードや、ビューの中でヘルパーを記述する必要が回避できます。</span><span class="sxs-lookup"><span data-stu-id="57716-265">Using Tag Helpers avoids the need to write custom code or helpers within your views.</span></span> <span data-ttu-id="57716-266">タグ ヘルパーは、HTML 要素に属性として適用され、処理できないエディターでは無視されます。</span><span class="sxs-lookup"><span data-stu-id="57716-266">Tag helpers are applied as attributes to HTML elements and are ignored by editors that can't process them.</span></span> <span data-ttu-id="57716-267">これにより、さまざまなツールのビューのマークアップを表示して編集できます。</span><span class="sxs-lookup"><span data-stu-id="57716-267">This allows you to edit and render view markup in a variety of tools.</span></span>
 
-<span data-ttu-id="7dd0c-198">カスタムの HTML マークアップを生成する行うには多くの組み込み HTML ヘルパーおよびで (場合によっては、独自のデータ要件) のより複雑な UI ロジックをカプセル化できます[ビュー コンポーネント](view-components.md)です。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-198">Generating custom HTML markup can be achieved with many built-in HTML Helpers, and more complex UI logic (potentially with its own data requirements) can be encapsulated in [View Components](view-components.md).</span></span> <span data-ttu-id="7dd0c-199">ビュー コンポーネントは、同じコント ローラーとビューを提供して、関心の分離を提供され、共通の UI 要素で使用されるデータを扱うアクションおよびビューは、する必要があります。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-199">View components provide the same separation of concerns that controllers and views offer, and can eliminate the need for actions and views to deal with data used by common UI elements.</span></span>
+<span data-ttu-id="57716-268">カスタムの HTML マークアップを生成するは、多くの組み込み HTML ヘルパーを実現できます。</span><span class="sxs-lookup"><span data-stu-id="57716-268">Generating custom HTML markup can be achieved with many built-in HTML Helpers.</span></span> <span data-ttu-id="57716-269">複雑なユーザー インターフェイス ロジックで処理できる[ビュー コンポーネント](xref:mvc/views/view-components)です。</span><span class="sxs-lookup"><span data-stu-id="57716-269">More complex user interface logic can be handled by [View Components](xref:mvc/views/view-components).</span></span> <span data-ttu-id="57716-270">ビューのコンポーネントは、同じ SoC そのコント ローラーを提供し、ビューを提供します。</span><span class="sxs-lookup"><span data-stu-id="57716-270">View components provide the same SoC that controllers and views offer.</span></span> <span data-ttu-id="57716-271">アクションおよび一般的なユーザー インターフェイス要素で使用されるデータを処理するビューの必要をなくしことができます。</span><span class="sxs-lookup"><span data-stu-id="57716-271">They can eliminate the need for actions and views that deal with data used by common user interface elements.</span></span>
 
-<span data-ttu-id="7dd0c-200">ASP.NET Core の他の多くの側面と同様にサポートをビュー[依存性の注入](../../fundamentals/dependency-injection.md)、するサービスを許可する[ビューに挿入される](dependency-injection.md)です。</span><span class="sxs-lookup"><span data-stu-id="7dd0c-200">Like many other aspects of ASP.NET Core, views support [dependency injection](../../fundamentals/dependency-injection.md), allowing services to be [injected into views](dependency-injection.md).</span></span>
+<span data-ttu-id="57716-272">ASP.NET Core の他の多くの側面と同様にサポートをビュー[依存性の注入](xref:fundamentals/dependency-injection)、するサービスを許可する[ビューに挿入される](xref:mvc/views/dependency-injection)です。</span><span class="sxs-lookup"><span data-stu-id="57716-272">Like many other aspects of ASP.NET Core, views support [dependency injection](xref:fundamentals/dependency-injection), allowing services to be [injected into views](xref:mvc/views/dependency-injection).</span></span>
