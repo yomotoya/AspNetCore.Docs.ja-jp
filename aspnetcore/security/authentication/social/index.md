@@ -11,11 +11,11 @@ ms.assetid: eda7ee17-f38c-462e-8d1d-63f459901cf3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/social/index
-ms.openlocfilehash: b561dcee5435dfc34cfa0b9b15babf75ca8f3508
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 56036000535156b4b5814dde2a0145dcdfff28c3
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="enabling-authentication-using-facebook-google-and-other-external-providers"></a>Facebook、Google などの外部プロバイダーを使用して認証を有効にする
 
@@ -53,9 +53,7 @@ OAuth 2.0 では、HTTPS プロトコル経由での認証に SSL を使用す�
 
 注: 上の図のようにプロジェクト ウィザードの **[認証の変更]** ダイアログで **[個人のユーザー アカウント]** オプションを選択している場合、ASP.NET Core 2.x 用の **[Web アプリケーション]** または **[Web API]** プロジェクト テンプレートを使用して作成されたプロジェクトは、SSL を有効にし、https URL を使用して起動するように自動的に構成されます。
 
-* SSL を手動で有効にする方法については、「[Setting up HTTPS for development in ASP.NET Core](xref:security/https)」(ASP.NET Core で開発用に HTTPS をセットアップする) トピックの手順を参照してください。
-
-* 次に、「[Enforcing SSL in an ASP.NET Core app](xref:security/enforcing-ssl)」(ASP.NET Core アプリケーションで SSL を強制する) トピックの手順に従ってサイトで SSL を必須にします。
+* [「ASP.NET Core アプリケーションで SSL を適用します」](xref:security/enforcing-ssl)トピックの手順に従ってサイトで SSL を必須にします。
 
 ## <a name="use-secretmanager-to-store-tokens-assigned-by-login-providers"></a>SecretManager を使用して、ログイン プロバイダーから割り当てられたトークンを格納する
 

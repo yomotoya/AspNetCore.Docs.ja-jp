@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 72ab979c6c718544955ae5734903ec936fc5afbc
-ms.sourcegitcommit: 195b2b331434f74334c5c5b7dfeba62d744a1e38
+ms.openlocfilehash: 3112faa38bb9702f6856097e315c413f0974010d
+ms.sourcegitcommit: 3ba32b2b6425ed94604cb0f681db0d5bb5f8ad58
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 
@@ -157,11 +157,9 @@ Razor ページ機能は、Web ブラウザーで使用される一般的なパ�
 
 *Index.cshtml* ファイルには、各連絡先の編集リンクを作成するために次のマークアップが含まれています。
 
-```cshtml
-<a asp-page="./Edit" asp-route-id="@contact.Id">edit</a>
-```
+[!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper)は [asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper#route) 属性を使用して編集ページへのリンクを生成しました。 リンクには、連絡先 ID とともにルート データが含まれています。 たとえば、`http://localhost:5000/Edit/1` のようにします。
+[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)は [asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#route) 属性を使用して編集ページへのリンクを生成しました。 リンクには、連絡先 ID とともにルート データが含まれています。 たとえば、`http://localhost:5000/Edit/1` のようにします。
 
 *Pages/Edit.cshtml* ファイル:
 
@@ -172,6 +170,34 @@ Razor ページ機能は、Web ブラウザーで使用される一般的なパ�
 *Pages/Edit.cshtml.cs* ファイル:
 
 [!code-cs[main](index/sample/RazorPagesContacts/Pages/Edit.cshtml.cs)]
+
+*Index.cshtml* ファイルには、各顧客の連絡先の削除ボタンを作成するマークアップも含まれています。
+
+[!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=22-23)]
+
+HTML で削除ボタンがレンダリングされる場合、その `formaction` には次のパラメーターが含まれています。
+
+* `asp-route-id` 属性によって指定された顧客の連絡先 ID。
+* `asp-page-handler` 属性によって指定された `handler`。
+
+顧客の連絡先 ID `1` でレンダリングされた削除ボタンの例を示します。
+
+```html
+<button type="submit" formaction="/?id=1&amp;handler=delete">delete</button>
+```
+
+ボタンが選択されると、フォームの `POST` 要求がサーバーに送信されます。 慣例により、ハンドラー メソッドの名前はスキーム `OnPost[handler]Async` に従った `handler` パラメーターの値に基づいて選択されます。
+
+この例では `handler` が `delete` であるため、`OnPostDeleteAsync` ハンドラー メソッドを使用して `POST` 要求が処理されます。 `asp-page-handler` が `remove` などの別の値に設定されている場合、名前が `OnPostRemoveAsync` のページ ハンドラー メソッドが選択されます。
+
+[!code-cs[main](index/sample/RazorPagesContacts/Pages/Index.cshtml.cs?range=26-37)]
+
+`OnPostDeleteAsync` メソッド:
+
+* クエリ文字列から `id` を受け入れます。
+* `FindAsync` を使用してデータベースから顧客の連絡先を照会します。
+* 顧客の連絡先が見つかった場合、その連絡先は顧客の連絡先の一覧から削除されています。 データベースが更新されます。
+* ルート インデックス ページ (`/Index`) にリダイレクトされるように、`RedirectToPage` を呼び出します。
 
 <a name="xsrf"></a>
 
