@@ -1,7 +1,7 @@
 ---
-title: "複数の環境での作業"
+title: "ASP.NET Core での複数の環境での作業"
 author: ardalis
-description: 
+description: "ASP.NET Core が複数の環境間でのアプリの動作を制御するためのサポートを提供する方法について説明します。"
 keywords: "ASP.NET Core、環境の設定、ASPNETCORE_ENVIRONMENT"
 ms.author: riande
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: b66ef7e3626effff1c66c37a86865699fa8866f9
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 054b3e9f1e2bcfe1e4a75eca4d9dc6326ee6e44f
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="working-with-multiple-environments"></a>複数の環境での作業
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/22/2017
 
 ASP.NET Core は、開発、ステージング、運用環境など、複数の環境間でのアプリの動作を制御するためのサポートを提供します。 環境変数は、その環境用に構成するアプリを許可する、ランタイム環境を示すために使用されます。
 
-[サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample)
+[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="development-staging-production"></a>開発、ステージング、実稼働環境
 
@@ -88,7 +88,7 @@ set ASPNETCORE_ENVIRONMENT=Development
 $Env:ASPNETCORE_ENVIRONMENT = "Development"
 ```
 
-これらのコマンドは、現在のウィンドウに対してのみ有効になります。 ウィンドウが閉じられたときに、ASPNETCORE_ENVIRONMENT 設定は、既定の設定またはコンピューターの値に戻ります。 Windows を開いたとき、値をグローバルに設定するために、**コントロール パネルの ** > **システム** > **システムの詳細設定**を追加または編集、 `ASPNETCORE_ENVIRONMENT`値。
+これらのコマンドは、現在のウィンドウに対してのみ有効になります。 ウィンドウが閉じられたときに、ASPNETCORE_ENVIRONMENT 設定は、既定の設定またはコンピューターの値に戻ります。 Windows を開いたとき、値をグローバルに設定するために、**コントロール パネルの**  > **システム** > **システムの詳細設定**を追加または編集、 `ASPNETCORE_ENVIRONMENT`値。
 
 ![システムの詳細プロパティ](environments/_static/systemsetting_environment.png)
 

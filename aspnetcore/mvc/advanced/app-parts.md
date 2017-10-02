@@ -11,15 +11,15 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899963613a98
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 77d3a58d58493bf1b0b760ab9037d2778ba23441
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: a260675e7461105d4f6a0c61fd13971663c268f2
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="application-parts-in-aspnet-core"></a>ASP.NET Core でのアプリケーション部分
 
-[サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample)
+[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
 
 *アプリケーション パーツ*MVC のコント ローラー、コンポーネントの表示と同様に機能元となる、アプリケーションのリソースを抽象化は、またはタグ ヘルパーを検出することがあります。 アプリケーション パーツの 1 つの例は、アセンブリ参照と公開型およびコンパイルの参照をカプセル化するの AssemblyPart です。 *機能のプロバイダー* ASP.NET Core MVC アプリの機能を設定するアプリケーション部分と連携します。 アプリケーション パーツの主なユース ケースが検出 (または読み込みを回避する) にアプリケーションを構成できるようにするアセンブリから MVC 機能します。
 

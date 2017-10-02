@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET Core ミドルウェア"
 author: rick-anderson
-description: "ミドルウェアと要求パイプラインについて説明します。"
+description: "ASP.NET Core ミドルウェアと要求パイプラインについて説明します。"
 keywords: "ASP.NET Core、パイプライン、デリゲートのミドルウェア"
 ms.author: riande
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: 881cabdbb7814b36d97a977b30389506b99d16b9
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 3cd15c7e8ed4956e1d451f3bd5935fc175999d1f
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core ミドルウェアの基本事項
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/28/2017
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)と[Steve Smith](https://ardalis.com/)
 
-[サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)
+[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-is-middleware"></a>ミドルウェアは、新機能
 

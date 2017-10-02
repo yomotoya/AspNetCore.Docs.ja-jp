@@ -11,17 +11,17 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: ab004c038b82888aa57d5e25fcb69a06deec8411
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 7aea4db44764d5d8f47520adb6599e651e0e9000
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>ASP.NET core 圧縮ミドルウェアの応答
 
 によって[Luke Latham](https://github.com/guardrex)
 
-[サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples)
+[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
 
 ネットワーク帯域幅は、限られたリソースです。 通常の応答のサイズを小さくする、アプリの応答性を大幅に多くの場合、増加します。 ペイロードのサイズを小さく 1 つの方法では、圧縮、アプリの応答です。
 

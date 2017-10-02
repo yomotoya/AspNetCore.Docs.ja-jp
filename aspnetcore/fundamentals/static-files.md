@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET Core での静的ファイルの操作"
 author: rick-anderson
-description: "ASP.NET Core 上の静的ファイルの操作"
+description: "ASP.NET Core の静的ファイルを操作する方法を説明します。"
 keywords: "ASP.NET Core、静的なファイル、HTML、CSS、JavaScript の静的なアセット"
 ms.author: riande
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/static-files
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69a4542c9b2a0d7091d05d42029e68384b760dd7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: e099c4767958f153134e0fb6b3de8132ab1ead82
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="working-with-static-files-in-aspnet-core"></a>ASP.NET Core での静的ファイルの操作
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 09/28/2017
 
 HTML、CSS、画像、および、JavaScript などの静的ファイルは、ASP.NET Core アプリケーションが直接クライアントに使用できる資産です。
 
-[サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/sample)
+[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="serving-static-files"></a>静的ファイルの提供
 

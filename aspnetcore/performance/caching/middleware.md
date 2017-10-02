@@ -10,17 +10,17 @@ ms.topic: article
 ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: f07b0cb44542b7da140d519e883c67901d6327e2
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: bc3350a7ef15c5c38aa072bab15cbddc7d0ee0fa
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>応答の ASP.NET Core のミドルウェアのキャッシュ
 
 によって[Luke Latham](https://github.com/guardrex)と[John Luo](https://github.com/JunTaoLuo)
 
-[サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples)
+[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
 
 このドキュメントでは、ASP.NET Core アプリケーションの応答のキャッシュ ミドルウェアを構成する方法の詳細を説明します。 ミドルウェアは、応答がキャッシュ可能な場合、ストア応答、およびキャッシュからの応答の機能を決定します。 HTTP キャッシュの概要について、`ResponseCache`属性は、「[応答のキャッシュ](response.md)です。
 

@@ -1,7 +1,7 @@
 ---
 title: "For .NET (OWIN) の Web インターフェイスを開く"
 author: ardalis
-description: "開くには .NET (OWIN) 用 Web インターフェイスの概要です。"
+description: "ASP.NET Core のサポートについて Open Web Interface の .NET (OWIN)、これにより web サーバーから切り離すことが可能に web アプリを検出します。"
 keywords: "ASP.NET Core、.NET では、OWIN の開いている Web インターフェイス"
 ms.author: riande
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/owin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cd32d6929f16a619ad2cc8c7752a0373cbdff034
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: e111a451bcc741f3e77f7ce756356cc1b57a5b52
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>開くには .NET (OWIN) 用 Web インターフェイスの概要
 
@@ -32,7 +32,7 @@ OWIN は、2 つのフレームワークに一緒に使用するさまざまな�
 
 注: これらのアダプターを使用して、パフォーマンス コストが付属します。 ASP.NET Core コンポーネントのみを使用するアプリケーションでは、Owin パッケージまたはアダプターは使用しないでください。
 
-[サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample)
+[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="running-owin-middleware-in-the-aspnet-pipeline"></a>ASP.NET パイプラインで実行中の OWIN ミドルウェア
 

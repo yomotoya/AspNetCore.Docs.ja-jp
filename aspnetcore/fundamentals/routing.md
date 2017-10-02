@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET Core でのルーティング"
 author: ardalis
-description: 
+description: "ASP.NET Core ルーティング機能が、受信要求をルート ハンドラーにマップするために対応する方法を検出します。"
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 469c30cf66d28e82519d5eff7f2fc82d490827b7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 8bce642576b6b2f9326425d30ef95168da8f47e5
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core でのルーティング
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 09/28/2017
 >[!IMPORTANT]
 > このドキュメントでは、ルーティング低レベルの ASP.NET Core について説明します。 ASP.NET Core MVC ルーティングを参照してください[コント ローラー アクションへのルーティング](../mvc/controllers/routing.md)
 
-[サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample)
+[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>ルーティングの基礎
 

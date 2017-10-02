@@ -1,7 +1,7 @@
 ---
 title: "URL の ASP.NET Core のミドルウェアの書き換え"
 author: guardrex
-description: "URL 書き換えおよび ASP.NET Core アプリケーションで URL 書き換えミドルウェアを使用する方法について記載されたリダイレクトの概要です。"
+description: "URL 書き換えおよび ASP.NET Core アプリケーションの URL 書き換えミドルウェアにリダイレクトすることについて説明します。"
 keywords: "ASP.NET Core、URL 書き換え、URL 書き換え URL をリダイレクトする、URL リダイレクト、ミドルウェア apache_mod"
 ms.author: riande
 manager: wpickett
@@ -11,17 +11,17 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 44c78a6304eacc70cdee9bb0d9407376017abcac
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 0a4024edf13651e2ed7e0f87e554e8ba8d895619
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL の ASP.NET Core のミドルウェアの書き換え
 
 によって[Luke Latham](https://github.com/guardrex)と[Mikael メンギストゥ](https://github.com/mikaelm12)
 
-[サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/)
+[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
 
 URL の書き換えは 1 つまたは複数の事前定義された規則に基づいて、Url 要求を変更することです。 URL 書き換え、場所とアドレスが緊密にリンクされていないように、リソースの場所とその住所間の抽象化を作成します。 URL 書き換えが役に立ちますいくつかのシナリオはあります。
 * 移動またはそれらのリソースの安定したロケーターを維持しながら、サーバー リソースを一時的または永続的に交換

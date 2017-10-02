@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET Core でのエラー処理"
 author: ardalis
-description: "ASP.NET Core アプリケーションのエラーを処理する方法について説明します"
+description: "ASP.NET Core アプリケーションのエラーを処理する方法を検出します。"
 keywords: "ASP.NET Core、エラー処理、例外処理"
 ms.author: tdykstra
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/error-handling
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93f0724dbe98316e2b5a0af0ac1760c3aac2f1d0
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: de2ba0ff9ad17c198c06b510ecfb49f808721bdf
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>ASP.NET Core でのエラー処理の概要
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 09/22/2017
 
 この記事では、ASP.NET Core アプリケーションでエラーを処理する一般的な appoaches について説明します。
 
-[サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/sample)
+[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="the-developer-exception-page"></a>開発者の例外ページ
 

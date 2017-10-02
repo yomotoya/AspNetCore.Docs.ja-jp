@@ -5,16 +5,16 @@ description:
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 08/03/2017
+ms.date: 09/03/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: index
-ms.openlocfilehash: 10831719630bc638ce2f7424f53548518868d433
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 748c8c0b9dd0e6eab0d7347bbf89ed80c10bdb54
+ms.sourcegitcommit: e4a1df2a5a85f299322548809e547a79b380bb92
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core の概要
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 08/11/2017
 
 ASP.NET Core は、インターネットに接続された最新のクラウド ベース アプリケーションを構築するための、クロス プラットフォームで高パフォーマンスの[オープン ソース](https://github.com/aspnet/home) フレームワークです。 ASP.NET Core では次のことができます。
 
-* Web アプリ、Web サービス、IoT アプリ、モバイル バックエンドを構築する。
+* Web アプリ、Web サービス、[IoT](https://www.microsoft.com/en-us/internet-of-things/) アプリ、モバイル バックエンドを構築する。
 * Windows、macOS、Linux で好みの開発ツールを使う。
 * クラウドまたはオンプレミスに展開する。
 * [.NET Core または .NET Framework](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server) 上で実行する。
@@ -44,7 +44,7 @@ ASP.NET Core の利点は次のとおりです。
 * Windows、macOS、Linux でビルドおよび実行する機能。
 * オープン ソースでコミュニティ重視。
 
-ASP.NET Core は、[NuGet](https://nuget.org) パッケージとして完全に提供されます。 これにより、必要な NuGet パッケージだけを含むようにアプリを最適化できます。 小さいアプリ領域の利点には、セキュリティの強化、サービスの削減、パフォーマンスの向上などがあります。
+ASP.NET Core は、[NuGet](https://www.nuget.org/) パッケージとして完全に提供されます。 これにより、必要な NuGet パッケージだけを含むようにアプリを最適化できます。 小さいアプリ領域の利点には、セキュリティの強化、サービスの削減、パフォーマンスの向上などがあります。
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>ASP.NET Core MVC を使って Web API と Web UI を構築する
 

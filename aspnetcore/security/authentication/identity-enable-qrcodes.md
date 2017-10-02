@@ -5,20 +5,20 @@ description: "ASP.NET Core でのアプリの認証子の QR コード生成を�
 keywords: "ASP.NET Core、MVC、QR コードの生成、認証システム、2 fa"
 ms.author: riande
 manager: wpickett
-ms.date: 07/24/2017
+ms.date: 09/24/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: fcadf9ca0ad66bb0fd56efc248fc7534965b48b3
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 36a3dc542f3321c5e6ebaa078efd8bde3f50948f
+ms.sourcegitcommit: e4a1df2a5a85f299322548809e547a79b380bb92
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="enabling-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>ASP.NET Core でのアプリの認証子の QR コード生成を有効にします。
 
-注: このトピックの対象は ASP.NET Core Razor ページで 2.x です。
+注: このトピックの対象は ASP.NET Core 2.x
 
 ASP.NET Core は、個別の認証の認証システム アプリケーションのサポートに付属します。 使用して、時間ベース ワンタイム パスワード アルゴリズム (TOTP)、2 要素認証 (2 fa) 認証アプリとは、2 fa の approch をお勧め業界です。 2 fa TOTP を使用してを SMS 2 fa をお勧めします。 認証アプリでは、ユーザー名とパスワードを確認した後どのユーザーが入力する必要があります、6 ~ 8 桁のコードを提供します。 通常、認証アプリがスマート フォンにインストールされます。
 
@@ -30,7 +30,7 @@ ASP.NET Core web アプリ テンプレートでは、認証のサポートは�
 
 * ダウンロード、 [qrcode.js javascript ライブラリ](https://davidshimjs.github.io/qrcodejs/)を`wwwroot\lib`プロジェクトのフォルダーにします。
 
-* *Pages\Account\Manage\EnableAuthenticator.cshtml*ファイル、検索、`Scripts`ファイルの最後のセクション。
+* *Pages\Account\Manage\EnableAuthenticator.cshtml* (Razor ページ) または*Views\Account\Manage\EnableAuthenticator.cshtml* (MVC)、検索、`Scripts`ファイルの最後のセクション。
 
 ```cshtml
 @section Scripts {
@@ -89,3 +89,7 @@ QR コードを正しく書式設定された URL はで使用します。
 * `data-url`プロパティに、`qrCodeData`要素。 
 
 使用して`@Html.Raw`ビューのモデル プロパティにアクセスする (それ以外の場合、url のアンパサンドは倍精度浮動小数点でエンコードされたおよび QR コードのラベル パラメーターは無視されます)。
+
+## <a name="totp-client-and-server-time-skew"></a>TOTP クライアントとサーバー時間のずれ
+
+TOTP 認証は、正確な時間のあるサーバーと認証子の両方のデバイスに依存します。 トークンの寿命は 30 秒です。 TOTP 2 fa ログインが失敗した場合は、サーバーの時刻が、精度は、可能であれば正確な NTP サービスに同期されることを確認します。

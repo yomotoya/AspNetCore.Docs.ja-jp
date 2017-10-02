@@ -11,11 +11,11 @@ ms.assetid: d9a65066-d7cb-47df-b046-64629c4d2c6f
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/windows-service
-ms.openlocfilehash: 5b54c77ff9e019b1d550aa687923077a3e9ba5c2
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: ca3b98f0b0405fcd5751cb7d9bc7a40257739084
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="host-an-aspnet-core-app-in-a-windows-service"></a>Windows サービスでの ASP.NET Core アプリをホストします。
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/22/2017
 
 IIS を使用しない場合は、Windows 上の ASP.NET Core アプリケーションをホストするための推奨方法がで実行するには、 [Windows サービス](https://docs.microsoft.com/dotnet/framework/windows-services/introduction-to-windows-service-applications)です。 このようにして自動的に開始できますが再起動し、クラッシュの後にログインするユーザーが待機することがなく。
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/hosting/windows-service/sample)を参照してください、[次の手順](#next-steps)それを実行する方法についてのセクションでします。
+[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/hosting/windows-service/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))。 参照してください、[次の手順](#next-steps)それを実行する方法についてのセクションでします。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 

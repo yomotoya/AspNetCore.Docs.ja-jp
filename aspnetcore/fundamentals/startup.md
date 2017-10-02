@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET Core でのアプリケーションの起動"
 author: ardalis
-description: "ASP.NET Core でスタートアップ クラスをについて説明します。"
+description: "ASP.NET Core でスタートアップ クラスがサービスとアプリケーションの要求パイプラインを構成する方法を検出します。"
 keywords: "ASP.NET Core、スタートアップ時に、構成する方法、ConfigureServices メソッド"
 ms.author: tdykstra
 manager: wpickett
@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: 94db2ff530b5de7fe357cfb591d09b984cb248f9
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: bba0eafe3917fa850b3a07df8df6448409f4062d
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core でのアプリケーションの起動
 
 によって[Steve Smith](https://ardalis.com/)と[Tom Dykstra](https://github.com/tdykstra/)
 
-`Startup`クラスは、サービスとアプリケーションの要求パイプラインを構成します。 
+`Startup`クラスは、サービスとアプリケーションの要求パイプラインを構成します。
 
 ## <a name="the-startup-class"></a>スタートアップ クラス
 

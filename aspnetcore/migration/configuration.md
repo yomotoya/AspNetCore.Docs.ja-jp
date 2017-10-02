@@ -11,11 +11,11 @@ ms.assetid: 8468d859-ff32-4a92-9e62-08c4a9e36594
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/configuration
-ms.openlocfilehash: 62660f7e58467a69f540966df188747b6fde57fe
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 4cf2227db22fbfd7f0c6239dad0d0a470c35d28c
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="migrating-configuration"></a>構成を移行します。
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/12/2017
 
 開始前の記事で[ASP.NET Core MVC に ASP.NET MVC プロジェクトを移行する](mvc.md)です。 この記事では、構成を移行します。
 
-[サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/configuration/samples)
+[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/configuration/samples)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="setup-configuration"></a>セットアップの構成
 

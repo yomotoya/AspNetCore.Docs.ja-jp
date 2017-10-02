@@ -11,11 +11,11 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: f6b454da838308adddaaddb84073722f647af379
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 4c632f521cf314bcf8c84f40c52a580a26a5ceee
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>コント ローラーに依存関係の挿入
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 09/28/2017
 
 ASP.NET Core の MVC コント ローラーには、そのコンス トラクターを使用して明示的にその依存関係を要求する必要があります。 場合によっては、個々 のコント ローラーのアクションは、サービスを必要があり、ことはできません、コント ローラー レベルを要求する合理的です。 この場合、アクション メソッドのパラメーターとしてサービスを挿入することもできます。
 
-[サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample)
+[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="dependency-injection"></a>依存関係の挿入
 
