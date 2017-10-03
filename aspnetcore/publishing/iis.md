@@ -11,13 +11,13 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: f506fc880e50aa2fdc772fd29b905dfad02cda2b
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 75fc1edec9050a4690a39d37307f2f95f5d534a5
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 09/28/2017
 ---
-# <a name="set-up-a-hosting-environment-for-aspnet-core-on-windows-with-iis-and-deploy-to-it"></a>IIS を使用している Windows に ASP.NET Core 用ホスティング環境をセットアップし、その環境に展開する
+# <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
 執筆者: [Luke Latham](https://github.com/guardrex)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -26,12 +26,11 @@ ms.lasthandoff: 09/24/2017
 次のオペレーティング システムがサポートされています。
 
 * Windows 7 およびそれ以降
-
 * Windows Server 2008 R2 およびそれ以降&#8224;
 
 &#8224;概念的には、このドキュメントで説明する IIS 構成は、Nano Server IIS で ASP.NET Core アプリケーションをホストする場合にも当てはまりますが、詳細な手順については「[ASP.NET Core with IIS on Nano Server](xref:tutorials/nano-server)」 (IIS を使用した Nano Server での ASP.NET Core) を参照してください。
 
-[WebListener サーバー](xref:fundamentals/servers/weblistener)は、IIS を使用したリバース プロキシ構成では動作しません。 [Kestrel サーバー](xref:fundamentals/servers/kestrel)を使用する必要があります。
+[HTTP.sys サーバー](xref:fundamentals/servers/httpsys) (以前の名称は [WebListener](xref:fundamentals/servers/weblistener)) が、IIS を含むリバース プロキシ構成で動作しません。 [Kestrel サーバー](xref:fundamentals/servers/kestrel)を使用する必要があります。
 
 ## <a name="iis-configuration"></a>IIS 構成
 
@@ -39,7 +38,7 @@ ms.lasthandoff: 09/24/2017
 
 ### <a name="windows-desktop-operating-systems"></a>Windows デスクトップ オペレーティング システム
 
-**[コントロール パネル] > [プログラム] > [プログラムと機能] > [Windows の機能の有効化または無効化]** (画面の左側) に移動します。 **[インターネット インフォメーション サービス]** と **[Web 管理ツール]** のグループを開きます。 **[IIS 管理コンソール]** チェック ボックスをオンにします。 **[World Wide Web サービス]** チェック ボックスをオンにします。 **[World Wide Web サービス]** の既定の機能をそのまま使用するか、ニーズに合わせて IIS 機能をカスタマイズします。
+**[コントロール パネル]** > **[プログラム]** > **[プログラムと機能]** > **[Windows の機能の有効化または無効化]** (画面の左側) に移動します。 **[インターネット インフォメーション サービス]** と **[Web 管理ツール]** のグループを開きます。 **[IIS 管理コンソール]** チェック ボックスをオンにします。 **[World Wide Web サービス]** チェック ボックスをオンにします。 **[World Wide Web サービス]** の既定の機能をそのまま使用するか、ニーズに合わせて IIS 機能をカスタマイズします。
 
 ![[Windows の機能] で [IIS 管理コンソール] と [World Wide Web サービス] を選択します。](iis/_static/windows-features-win10.png)
 
@@ -57,7 +56,7 @@ ms.lasthandoff: 09/24/2017
 
 ## <a name="install-the-net-core-windows-server-hosting-bundle"></a>.NET Core Windows Server ホスティング バンドルのインストール
 
-1. ホスティング システムに [.NET Core Windows Server ホスティング バンドル](https://aka.ms/dotnetcore.2.0.0-windowshosting)をインストールします。 このバンドルをインストールすることで、.NET Core ランタイム、.NET Core ライブラリ、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がインストールされます。 このモジュールは、IIS と Kestrel サーバーの間にリバース プロキシを作成します。 注: システムにインターネット接続が設定されていない場合は、.NET Core Windows Server ホスティング モジュールをインストールする前に、*[Microsoft Visual C++ 2015 再頒布可能パッケージ](https://www.microsoft.com/download/details.aspx?id=53840)*を入手してインストールしてください。
+1. ホスティング システムに [.NET Core Windows Server ホスティング バンドル](https://aka.ms/dotnetcore.2.0.0-windowshosting)をインストールします。 このバンドルをインストールすることで、.NET Core ランタイム、.NET Core ライブラリ、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がインストールされます。 このモジュールは、IIS と Kestrel サーバーの間にリバース プロキシを作成します。 システムにインターネット接続が設定されていない場合は、.NET Core Windows Server ホスティング バンドルをインストールする前に、[Microsoft Visual C++ 2015 再頒布可能パッケージ](https://www.microsoft.com/download/details.aspx?id=53840)を入手してインストールしてください。
 
 2. システムを再起動するか、コマンド プロンプトから **net stop was /y** の後に続けて **net start w3svc** を実行して、システム PATH への変更を適用します。
 
@@ -66,7 +65,7 @@ ms.lasthandoff: 09/24/2017
 
 ## <a name="install-web-deploy-when-publishing-with-visual-studio"></a>Visual Studio で発行する場合の Web 配置のインストール
 
-Visual Studio の Web 配置を使用してアプリケーションを展開する場合は、ホスティング システムに最新バージョンの Web 配置をインストールします。 Web 配置をインストールするには、[Web Platform Installer (WebPI)](https://www.microsoft.com/web/downloads/platform.aspx) を使用するか、[Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=43717)からインストーラーを取得することができます。 WebPI を使用することをお勧めします。 WebPI は、スタンドアロンのセットアップとホスティング プロバイダー向けの構成を提供します。
+[Visual Studio](https://www.visualstudio.com/vs/) の [Web 配置](/iis/publish/using-web-deploy/introduction-to-web-deploy)を使用してアプリケーションを展開する場合は、ホスティング システムに最新バージョンの Web 配置をインストールします。 Web 配置をインストールするには、[Web Platform Installer (WebPI)](https://www.microsoft.com/web/downloads/platform.aspx) を使用するか、[Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=43717)からインストーラーを取得することができます。 WebPI を使用することをお勧めします。 WebPI は、スタンドアロンのセットアップとホスティング プロバイダー向けの構成を提供します。
 
 ## <a name="application-configuration"></a>アプリケーション構成
 
@@ -84,7 +83,7 @@ public static IWebHost BuildWebHost(string[] args) =>
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-アプリケーションの依存関係に [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) パッケージへの依存関係を含めます。 *UseIISIntegration* 拡張メソッドを *WebHostBuilder* に追加して、IIS 統合ミドルウェアをアプリケーションに組み込みます。
+アプリの依存関係に [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) パッケージへの依存関係を含めます。 *UseIISIntegration* 拡張メソッドを *WebHostBuilder* に追加して、IIS 統合ミドルウェアをアプリに組み込みます。
 
 ```csharp
 var host = new WebHostBuilder()
@@ -118,7 +117,7 @@ services.Configure<IISOptions>(options =>
 
 ### <a name="webconfig"></a>web.config
 
-*web.config* ファイルでは、ASP.NET Core モジュールを構成し、その他の IIS 構成を指定します。 *web.config* の作成、変換、発行は `Microsoft.NET.Sdk.Web` によって処理されます。この SDK は、*.csproj* ファイル (`<Project Sdk="Microsoft.NET.Sdk.Web">`) の先頭でプロジェクトの SDK を設定した場合に組み込まれます。 MSBuild のターゲットによって *web.config* ファイルが変換されないようにするため、`true` に設定した **\<IsTransformWebConfigDisabled>** プロパティをプロジェクト ファイルに追加します。
+*web.config* ファイルでは、ASP.NET Core モジュールを構成し、その他の IIS 構成を指定します。 *web.config* の作成、変換、発行は `Microsoft.NET.Sdk.Web` によって処理されます。この SDK は、プロジェクト (*.csproj*) ファイル (`<Project Sdk="Microsoft.NET.Sdk.Web">`) の先頭でプロジェクトの SDK を設定した場合に組み込まれます。 MSBuild のターゲットによって *web.config* ファイルが変換されないようにするため、`true` に設定した **\<IsTransformWebConfigDisabled>** プロパティをプロジェクト ファイルに追加します。
 
 ```xml
 <PropertyGroup>
@@ -126,15 +125,22 @@ services.Configure<IISOptions>(options =>
 </PropertyGroup>
 ```
 
-プロジェクトに *web.config* ファイルが存在せず、*dotnet publish* または Visual Studio の公開機能を使用して発行する場合、ファイルは発行された出力内に自動的に作成されます。 プロジェクトにこのファイルが含まれている場合、そのファイルは ASP.NET Core モジュールを構成するための正しい *processPath* と *arguments* を使用して変換され、発行された出力に移行されます。 ファイルに含めた IIS 構成の設定は、変換後も変わりません。
+プロジェクトに *web.config* ファイルが存在せず、*dotnet publish* または Visual Studio の公開機能を使用して発行する場合、ファイルは[発行された出力](xref:hosting/directory-structure)内に自動的に作成されます。 プロジェクトに *web.config* ファイルが含まれている場合、そのファイルは [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)を構成するための正しい *processPath* と *arguments* を使用して変換され、発行された出力に移行されます。 ファイルに含めた IIS 構成の設定は、変換後も変わりません。
 
 ## <a name="create-the-iis-website"></a>IIS Web サイトを作成する
 
-1. ターゲットの IIS システムで、「[ディレクトリ構造](xref:hosting/directory-structure)」で説明されている、アプリケーションの公開フォルダーとファイルを格納するためのフォルダーを作成します。
+1. [ディレクトリ構造](xref:hosting/directory-structure)に関するページで説明されている、アプリの公開フォルダーとファイルを格納するためのフォルダーを、ターゲットの IIS システムで作成します。
 
-2. 作成したフォルダー内に、アプリケーション ログを保存するための *logs* フォルダーを作成します (ログ作成を有効にする場合)。 ペイロードに *logs* フォルダーを含めてアプリケーションを配置する場合は、このステップをスキップすることができます。
+2. 作成したフォルダー内に、stdout ログを保存するための *logs* フォルダーを作成します (起動問題の解決のためにログ作成を有効にする場合)。 ペイロードに *logs* フォルダーを含めてアプリケーションを配置する場合は、このステップをスキップすることができます。 [フォルダーの自動作成には未解決の問題](https://github.com/aspnet/AspNetCoreModule/issues/30)があります。 MSBuild で *log* フォルダーを自動作成するには、プロジェクト ファイルに次の `Target` を追加します。
 
-3. **IIS マネージャー**で新しい Web サイトを作成します。 **[サイト名]** を指定し、**[物理パス]** には作成したアプリケーションの配置フォルダーを設定します。 **[バインド]** の構成を指定して Web サイトを作成します。
+   ```xml
+   <Target Name="CreateLogsFolder" AfterTargets="AfterPublish">
+     <MakeDir Directories="$(PublishDir)logs" Condition="!Exists('$(PublishDir)logs')" />
+     <MakeDir Directories="$(PublishUrl)logs" Condition="!Exists('$(PublishUrl)logs')" />
+   </Target>
+   ```
+
+3. **IIS マネージャー**で新しい Web サイトを作成します。 **[サイト名]** を指定し、**[物理パス]** には作成したアプリの配置フォルダーを設定します。 **[バインド]** の構成を指定して Web サイトを作成します。
 
 4. アプリケーション プールを **[マネージ コードなし]** に設定します。 ASP.NET Core は、別個のプロセスで実行され、ランタイムを管理します。
 
@@ -146,7 +152,7 @@ services.Configure<IISOptions>(options =>
 
    ![[Web サイトの追加] のステップでサイト名、物理パス、ホスト名を指定します。](iis/_static/add-website-ws2016.png)
 
-7. **[アプリケーション プール]** パネルで、**[アプリケーション プールの編集]** ウィンドウを開きます。そのためには、Web サイトのアプリケーション プール上で右クリックし、ポップアップ メニューから **[基本設定]** を選択します。
+7. **[アプリケーション プール]** パネルで、**[アプリケーション プールの編集]** ウィンドウを開きます。そのためには、Web サイトのアプリ プール上で右クリックし、ポップアップ メニューから **[基本設定]** を選択します。
 
    ![アプリケーション プールのコンテキスト メニューから [基本設定] を選択します。](iis/_static/apppools-basic-settings-ws2016.png)
 
@@ -158,10 +164,10 @@ services.Configure<IISOptions>(options =>
 
 9. プロセス モデル ID に適切なアクセス許可があることを確認します。
 
-    アプリケーション プールの既定の ID (**[プロセス モデル]** > **[ID]**) を **ApplicationPoolIdentity** から別の ID に変更した場合は、アプリケーションのフォルダー、データベース、その他の必要なリソースにアクセスするために要求されるアクセス許可が新しい ID に設定されていることを確認します。
+   アプリ プールの既定の ID (**[プロセス モデル]** > **[ID]**) を **ApplicationPoolIdentity** から別の ID に変更した場合は、アプリのフォルダー、データベース、その他の必要なリソースにアクセスするために要求されるアクセス許可が新しい ID に設定されていることを確認します。
    
 ## <a name="deploy-the-application"></a>アプリケーションを展開する
-ターゲット IIS システム上に作成したフォルダーにアプリケーションを展開します。 Web 配置は、推奨される展開のメカニズムです。 Web 配置に代わる方法は次のとおりです。
+ターゲット IIS システム上に作成したフォルダーにアプリケーションを展開します。 [Web 配置](/iis/publish/using-web-deploy/introduction-to-web-deploy)は、推奨される展開のメカニズムです。 Web 配置に代わる方法は次のとおりです。
 
 配置用に発行したアプリが実行されていないことを確認します。 アプリが実行中は、*publish* フォルダー内のファイルがロックされます。 ロックされているファイルはコピーできないため、配置は行われません。
 
@@ -171,7 +177,7 @@ Web 配置に使用する発行プロファイルの作成方法については�
 ![[発行] ダイアログ ページ](iis/_static/pub-dialog.png)
 
 ### <a name="web-deploy-outside-of-visual-studio"></a>Visual Studio 外部での Web 配置
-Visual Studio の外部で、コマンド ラインから Web 配置を使用することもできます。 詳細については、[Web 配置ツール](https://docs.microsoft.com/iis/publish/using-web-deploy/use-the-web-deployment-tool)に関するページを参照してください。
+Visual Studio の外部で、コマンド ラインから [Web 配置](/iis/publish/using-web-deploy/introduction-to-web-deploy)を使用することもできます。 詳細については、[Web 配置ツール](/iis/publish/using-web-deploy/use-the-web-deployment-tool)に関するページを参照してください。
 
 ### <a name="alternatives-to-web-deploy"></a>Web 配置の代替手段
 Web 配置を使用しないか、Visual Studio を使用しない場合は、複数の方法のいずれかを使用して、Xcopy、Robocopy、PowerShell などのホスティング システムにアプリケーションを移行できます。 Visual Studio ユーザーは、[発行サンプル](https://github.com/aspnet/vsweb-publish/blob/master/samples/samples.md)を利用できます。
@@ -179,8 +185,8 @@ Web 配置を使用しないか、Visual Studio を使用しない場合は、�
 ## <a name="browse-the-website"></a>Web サイトを閲覧する
 ![Microsoft Edge ブラウザーに IIS のスタートアップ ページが読み込まれています。](iis/_static/browsewebsite.png)
    
->[!WARNING]
-> .NET Core アプリケーションは、IIS と Kestrel サーバー間のリバース プロキシによってホストされます。 リバース プロキシを作成するためには、展開されるアプリケーションのコンテンツ ルート パス (通常は、アプリ ベース パス) に *web.config* ファイルが存在する必要があります。これは IIS に対して指定される Web サイトの物理パスです。 アプリの物理パスには、*my_application.runtimeconfig.json*、*my_application.xml* (XML ドキュメントのコメント)、*my_application.deps.json*などのサブフォルダーを含め、機密性の高いファイルが存在します。 Kestrel に対するリバース プロキシを作成するためには *web.config* ファイルが必要であり、そのため IIS は機密性の高いこれらのファイルやその他のファイルを処理できません。 **したがって、*web.config* ファイルを誤って名前変更したり展開から削除したりしないようにすることが重要です。**
+> [!WARNING]
+> .NET Core アプリは、IIS と Kestrel サーバー間のリバース プロキシによってホストされます。 リバース プロキシを作成するためには、展開されるアプリケーションのコンテンツ ルート パス (通常は、アプリ ベース パス) に *web.config* ファイルが存在する必要があります。これは IIS に対して指定される Web サイトの物理パスです。 アプリの物理パスには、*my_application.runtimeconfig.json*、*my_application.xml* (XML ドキュメントのコメント)、*my_application.deps.json*などのサブフォルダーを含め、機密性の高いファイルが存在します。 Kestrel に対するリバース プロキシを作成するためには *web.config* ファイルが必要であり、そのため IIS は機密性の高いこれらのファイルやその他のファイルを処理できません。 **したがって、*web.config* ファイルを誤って名前変更したり展開から削除したりしないようにすることが重要です。**
 
 ## <a name="data-protection"></a>データの保護
 
@@ -196,33 +202,34 @@ ASP.NET Core アプリケーションは、次の場合にキーリングをメ�
 * キーリングで保護されていたデータは保護されなくなります。
 
 > [!WARNING]
-> データ保護は、認証で使用されるものを含め、いくつかの ASP.NET ミドルウェアによって使用されます。 独自のコードからデータ保護 API を明示的に呼び出さない場合でも、配置スクリプトを使用して、または独自コード内にデータ保護を構成する必要があります。 データ保護を構成しない場合、既定でキーはメモリ内に保持され、アプリが再起動すると破棄されます。 再起動すると、Cookie 認証によって作成された Cookie は無効になり、ユーザーは再度ログインする必要があります。
+> データ保護は、認証で使用されるものを含め、いくつかの ASP.NET ミドルウェアによって使用されます。 独自のコードからデータ保護 API を呼び出さない場合でも、配置スクリプトを使用して、またはコード内にデータ保護を構成する必要があります。 データ保護を構成しない場合、既定でキーはメモリ内に保持され、アプリが再起動すると破棄されます。 再起動すると、Cookie 認証ミドルウェアによって作成された Cookie は無効になり、ユーザーは再度ログインする必要があります。
 
 IIS でのデータ保護を構成するには、次のいずれかの方法を使用する必要があります。
 
 * [powershell スクリプト](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1)を実行し、適切なレジストリ エントリ (たとえば `.\Provision-AutoGenKeys.ps1 DefaultAppPool`) を作成します。 これによりキーはレジストリに格納され、DPAPI を使用して、コンピューター全体に適用するキーによって保護されます。
 * ユーザー プロファイルを読み込むための IIS アプリケーション プールを構成します。 この設定は、アプリケーション プールの **[詳細設定]** の **[プロセス モデル]** セクションにあります。 **[ユーザー プロファイルの読み込み]** を `True` に設定します。 これによりキーはユーザー プロファイル ディレクトリに格納され、DPAPI を使用して、アプリ プールで使うユーザー アカウントに固有のキーによって保護されます。
-* [ファイル システムをキー リング ストアとして使用](xref:security/data-protection/configuration/overview)するようにアプリケーション コードを調整します。 X509 証明書を使用してキー リングを保護し、それが信頼された証明書であることを確認します。 たとえば、証明書が自己署名証明書である場合は、信頼されたルート ストアに配置する必要があります。
+* [ファイル システムをキー リング ストアとして使用](xref:security/data-protection/configuration/overview)するようにアプリ コードを調整します。 X509 証明書を使用してキー リングを保護し、それが信頼された証明書であることを確認します。 証明書が自己署名証明書である場合は、信頼されたルート ストアに配置する必要があります。
 
 Web ファームで IIS を使用する場合:
 
 * すべてのコンピューターがアクセスできるファイル共有を使用します。
-* X509 証明書を各コンピューターに配置します。  [コード内にデータ保護](https://docs.microsoft.com/aspnet/core/security/data-protection/configuration/overview)を構成します。
+* X509 証明書を各コンピューターに配置します。 [コード内にデータ保護](https://docs.microsoft.com/aspnet/core/security/data-protection/configuration/overview)を構成します。
 
 ### <a name="1-create-a-data-protection-registry-hive"></a>1.データ保護のレジストリ ハイブを作成する
 
-ASP.NET アプリケーションで使用されるデータ保護キーは、アプリケーション外部のレジストリ ハイブに格納されます。 特定のアプリケーションのキーを保持するには、アプリケーションのアプリケーション プール用のレジストリ ハイブを作成する必要があります。
+ASP.NET アプリケーションで使用されるデータ保護キーは、アプリケーション外部のレジストリ ハイブに格納されます。 特定のアプリケーションのキーを保持するには、アプリケーションのアプリ プール用のレジストリ ハイブを作成する必要があります。
 
-IIS のスタンドアロン インストールの場合、ASP.NET Core アプリケーションで使用するアプリケーション プールごとに、[データ保護の PowerShell スクリプト Provision-AutoGenKeys.ps1](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1) を使用できます。 このスクリプトは、HKLM レジストリに特別なレジストリ キーを作成します。そのキーは、ワーカー プロセス アカウントに対してのみ、ACL に追加されます。 キーは DPAPI を使用して保存時に暗号化されます。
+IIS のスタンドアロン インストールの場合、ASP.NET Core アプリで使用するアプリ プールごとに、[データ保護の PowerShell スクリプト Provision-AutoGenKeys.ps1](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1) を使用できます。 このスクリプトは、HKLM レジストリに特別なレジストリ キーを作成します。そのキーは、ワーカー プロセス アカウントに対してのみ、ACL に追加されます。 キーは DPAPI を使用して保存時に暗号化されます。
 
-Web ファームのシナリオでは、UNC パスを使用してデータ保護キー リングを格納するようにアプリケーションを構成できます。 既定では、データ保護キーは暗号化されません。 このような共有のファイル アクセス許可は、アプリケーションを実行する Windows アカウントに限定されている必要があります。 また、X509 証明書を使用して保存時のキーを保護するように選択することもできます。 ユーザーが証明書をアップロードして各自の信頼された証明書ストアに配置できるメカニズムを検討し、ユーザーのアプリケーションが実行されるすべてのコンピューターでそのメカニズムが使用できることを確認するようお勧めします。 詳細については、「[データ保護の構成](xref:security/data-protection/configuration/overview#data-protection-configuring)」を参照してください。
+Web ファームのシナリオでは、UNC パスを使用してデータ保護キー リングを格納するようにアプリを構成できます。 既定では、データ保護キーは暗号化されません。 このような共有のファイル アクセス許可は、アプリを実行する Windows アカウントに限定されている必要があります。 また、X509 証明書を使用して保存時のキーを保護するように選択することもできます。 ユーザーが証明書をアップデートできるメカニズムを検討している場合、ユーザーの信頼できる証明書ストアに証明書を配置し、ユーザーのアプリが実行されるすべてのコンピューターで証明書を利用できるようにします。 詳細については、「[データ保護の構成](xref:security/data-protection/configuration/overview#data-protection-configuring)」を参照してください。
 
 ### <a name="2-configure-the-iis-application-pool-to-load-the-user-profile"></a>2.ユーザー プロファイルを読み込むように IIS アプリケーション プールを構成する
-この設定は、アプリケーション プールの [詳細設定] の [プロセス モデル] セクションにあります。 [ユーザー プロファイルの読み込み] を True に設定します。 これによりキーはユーザー プロファイル ディレクトリに格納され、DPAPI を使用して、アプリ プールで使うユーザー アカウントに固有のキーによって保護されます。
+
+この設定は、アプリ プールの **[詳細設定]** の **[プロセス モデル]** セクションにあります。 [ユーザー プロファイルの読み込み] を `True` に設定します。 これによりキーはユーザー プロファイル ディレクトリに格納され、DPAPI を使用して、アプリ プールで使うユーザー アカウントに固有のキーによって保護されます。
 
 ### <a name="3-machine-wide-policy-for-data-protection"></a>3.コンピューター全体に適用するデータ保護ポリシー
 
-データ保護システムでは、データ保護 API を使用するすべてのアプリケーションに対して、[コンピューター全体に適用する既定のポリシー](xref:security/data-protection/configuration/machine-wide-policy#data-protection-configuration-machinewidepolicy)を設定するためのサポートは限定的です。 詳細については、[データ保護](xref:security/data-protection/index)に関するドキュメントを参照してください。
+データ保護システムでは、データ保護 API を使用するすべてのアプリに対して、[コンピューター全体に適用する既定のポリシー](xref:security/data-protection/configuration/machine-wide-policy#data-protection-configuration-machinewidepolicy)を設定するためのサポートは限定的です。 詳細については、[データ保護](xref:security/data-protection/index)に関するドキュメントを参照してください。
 
 ## <a name="configuration-of-sub-applications"></a>サブアプリケーションの構成
 
@@ -233,9 +240,9 @@ Web ファームのシナリオでは、UNC パスを使用してデータ保護
 <configuration>
   <system.webServer>
     <aspNetCore processPath="dotnet" 
-        arguments=".\MyApp.dll" 
-        stdoutLogEnabled="false" 
-        stdoutLogFile=".\logs\stdout" />
+      arguments=".\MyApp.dll" 
+      stdoutLogEnabled="false" 
+      stdoutLogFile=".\logs\stdout" />
   </system.webServer>
 </configuration>
 ```
@@ -250,9 +257,9 @@ ASP.NET Core アプリの下に ASP.NET Core 以外のサブアプリをホス�
       <remove name="aspNetCore"/>
     </handlers>
     <aspNetCore processPath="dotnet" 
-        arguments=".\MyApp.dll" 
-        stdoutLogEnabled="false" 
-        stdoutLogFile=".\logs\stdout" />
+      arguments=".\MyApp.dll" 
+      stdoutLogEnabled="false" 
+      stdoutLogFile=".\logs\stdout" />
   </system.webServer>
 </configuration>
 ```
@@ -261,7 +268,7 @@ ASP.NET Core アプリの下に ASP.NET Core 以外のサブアプリをホス�
 
 ## <a name="configuration-of-iis-with-webconfig"></a>web.config による IIS の構成
 
-リバース プロキシ構成に適用される IIS 機能については、*web.config*の `<system.webServer>` セクションも、IIS の構成に影響します。 たとえば、IIS が動的な圧縮を使用するようにシステム レベルで構成されている場合でも、アプリの *web.config* ファイルで `<urlCompression>` 要素を使用して、アプリに対してその設定を無効にすることができます。 詳細については、[`<system.webServer>` の構成リファレンス](https://docs.microsoft.com/iis/configuration/system.webServer/)、「[ASP.NET Core Module Configuration Reference](xref:hosting/aspnet-core-module)」 (ASP.NET Core モジュールの構成リファレンス)、「[Using IIS Modules with ASP.NET Core](xref:hosting/iis-modules)」 (ASP.NET Core での IIS モジュールの使用) を参照してください。 分離されたアプリケーション プール (IIS 10.0 以降でサポートされています) で実行する個別アプリに対して環境変数を設定する必要がある場合は、IIS のリファレンス ドキュメントで、[環境変数\<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) のトピックにある *AppCmd.exe コマンド*のセクションを参照してください。
+リバース プロキシ構成に適用される IIS 機能については、*web.config*の `<system.webServer>` セクションも、IIS の構成に影響します。 たとえば、IIS が動的な圧縮を使用するようにシステム レベルで構成されている場合でも、アプリの *web.config* ファイルで `<urlCompression>` 要素を使用して、アプリに対してその設定を無効にすることができます。 詳細については、[`<system.webServer>` の構成リファレンス](https://docs.microsoft.com/iis/configuration/system.webServer/)、「[ASP.NET Core モジュール構成の参照](xref:hosting/aspnet-core-module)」および「[ASP.NET Core で IIS のモジュールの使用](xref:hosting/iis-modules)」を参照してください。 分離されたアプリケーション プール (IIS 10.0 以降でサポートされています) で実行する個別アプリに対して環境変数を設定する必要がある場合は、IIS のリファレンス ドキュメントで、[環境変数\<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) のトピックにある *AppCmd.exe コマンド*のセクションを参照してください。
 
 ## <a name="configuration-sections-of-webconfig"></a>web.config の構成のセクション
 
@@ -269,17 +276,17 @@ ASP.NET Core アプリの下に ASP.NET Core 以外のサブアプリをホス�
 
 ## <a name="application-pools"></a>アプリケーション プール
 
-1 つのシステムで複数の Web サイトをホストする場合は、アプリをそれぞれ専用のアプリケーション プールで実行して、アプリケーションを相互に分離する必要があります。 これは、IIS の **[Web サイトの追加]** ダイアログの既定の設定です。 **[サイト名]** を指定すると、入力したテキストが自動的に **[アプリケーション プール]** テキストボックスに設定されます。 Web サイトを追加するときに、そのサイト名を使用して新しいアプリケーション プールが作成されます。
+1 つのシステムで複数の Web サイトをホストする場合は、アプリをそれぞれ専用のアプリケーション プールで実行して、アプリを相互に分離する必要があります。 これは、IIS の **[Web サイトの追加]** ダイアログの既定の設定です。 **[サイト名]** を指定すると、入力したテキストが自動的に **[アプリケーション プール]** テキストボックスに設定されます。 Web サイトを追加するときに、そのサイト名を使用して新しいアプリケーション プールが作成されます。
 
 ## <a name="application-pool-identity"></a>アプリケーション プール ID
 
-アプリケーション プール ID アカウントを使用すると、ドメインやローカル アカウントを作成して管理する必要なく、一意のアカウントでアプリケーションを実行できます。 IIS 8.0 以降の IIS 管理者ワーカー プロセス (WAS) は、新しいアプリケーション プールの名前で仮想アカウントを作成し、既定によってアプリケーション プールのワーカー プロセスをこのアカウントで実行します。 IIS 管理コンソールにあるアプリケーション プールの [詳細設定] で、次の画像に示すように、ID が **ApplicationPoolIdentity** を使用するように設定されていることを確認します。
+アプリケーション プール ID アカウントを使用すると、ドメインやローカル アカウントを作成して管理する必要なく、一意のアカウントでアプリケーションを実行できます。 IIS 8.0 以降の IIS 管理者ワーカー プロセス (WAS) は、新しいアプリケーション プールの名前で仮想アカウントを作成し、既定によってアプリ プールのワーカー プロセスをこのアカウントで実行します。 IIS 管理コンソールにあるアプリ プールの **[詳細設定]** で、次の画像に示すように、**ID** が **ApplicationPoolIdentity** を使用するように設定されていることを確認します。
 
 ![アプリケーション プールの [詳細設定] ダイアログ](iis/_static/apppool-identity.png)
 
-IIS 管理プロセスは、Windows セキュリティ システムでのアプリケーション プールの名前を使用して、セキュリティで保護された識別子を作成します。 この ID を使用してリソースを保護することができます。ただし、この ID は実際のユーザー アカウントではなく、Windows ユーザーの管理コンソールに表示されません。
+IIS 管理プロセスは、Windows セキュリティ システムでのアプリ プールの名前を使用して、セキュリティで保護された識別子を作成します。 この ID を使用してリソースを保護することができます。ただし、この ID は実際のユーザー アカウントではなく、Windows ユーザーの管理コンソールに表示されません。
 
-アプリケーションに対する IIS ワーカー プロセスのアクセス許可を昇格させる必要がある場合は、アプリケーションを含むディレクトリのアクセス制御リスト (ACL) を変更する必要があります。
+アプリに対する IIS ワーカー プロセスのアクセス許可を昇格させる必要がある場合は、アプリケーションを含むディレクトリのアクセス制御リスト (ACL) を変更する必要があります。
 
 1. エクスプローラーを開き、そのディレクトリに移動します。
 
@@ -305,22 +312,26 @@ ICACLS C:\sites\MyWebApp /grant "IIS AppPool\DefaultAppPool":F
 
 ## <a name="troubleshooting-tips"></a>トラブルシューティングのヒント
 
-IIS の点かいに関する問題を診断するには、ブラウザーの出力を調査し、システムの**アプリケーション** ログを**イベント ビューアー**で確認して、`stdout` のログ記録を有効にします。 **ASP.NET Core モジュール**のログは、*web.config*で `<aspNetCore>`要素の *stdoutLogFile* 属性に指定したパスにあります。この属性の値で指定されたパスにあるすべてのフォルダーが、展開環境に存在する必要があります。 また、*stdoutLogEnabled="true"*を設定する必要があります。 `Microsoft.NET.Sdk.Web` SDK を使用して *web.config* ファイルを作成するアプリケーションでは、既定により *stdoutLogEnabled* が *false* に設定されるため、`stdout` のログ記録を有効にするには、*web.config* ファイルを手動で作成するか、ファイルを編集する必要があります。
+IIS 展開の問題を診断する方法:
 
-一般的なエラーのいくつかは、*startupTimeLimit* (既定値: 120 秒) と *startupRetryCount* (既定値: 2) が経過するまで、ブラウザー、アプリケーション ログ、ASP.NET Core モジュールのログに表示されません。 したがって、モジュールがアプリケーションのプロセスを開始できなかったと判断する前に、完全に 6 分が経過するまで待ってください。
+* ブラウザーの出力を調べます。
+* **イベント ビューアー**でシステムの**アプリケーション** ログを調べます。
+* `stdout` ログを有効にします。 **ASP.NET Core モジュール**のログは、*web.config*で `<aspNetCore>`要素の *stdoutLogFile* 属性に指定したパスにあります。この属性の値で指定されたパスにあるすべてのフォルダーが、展開環境に存在する必要があります。 また、*stdoutLogEnabled="true"*を設定する必要があります。 `Microsoft.NET.Sdk.Web` SDK を使用して *web.config* ファイルを作成するアプリでは、既定により *stdoutLogEnabled* が *false* に設定されるため、`stdout` のログ記録を有効にするには、*web.config* ファイルを手動で作成するか、ファイルを編集する必要があります。
 
-アプリケーションが正常に動作しているかどうかを決定する 1 つの簡単な方法は、アプリケーションを Kestrel で直接実行することです。 アプリケーションがフレームワークに依存する展開として発行された場合は、展開フォルダー (アプリケーションの IIS 物理パス) の **dotnet my_application.dll** を実行します。 アプリケーションが自己完結型の展開として発行された場合は、展開フォルダーにあるアプリケーションの実行可能ファイル (**my_application.exe**) をコマンド プロンプトから直接実行します。 Kestrel が既定のポート 5000 でリッスンしている場合は、`http://localhost:5000/` でアプリケーションを閲覧できます。 アプリケーションが通常は Kestrel エンドポイント アドレスで応答する場合、問題は IIS、ASP.NET Core モジュール、Kestrel の構成に関連している可能性が高く、アプリケーション自体に関連する可能性は低くなります。
+一般的なエラーのいくつかは、*startupTimeLimit* (既定値: 120 秒) と *startupRetryCount* (既定値: 2) が経過するまで、ブラウザー、アプリケーション ログ、ASP.NET Core モジュールのログに表示されません。 したがって、モジュールがアプリのプロセスを開始できなかったと判断する前に、完全に 6 分が経過するまで待ってください。
 
-Kestrel サーバーに対する IIS リバース プロキシが正常に動作しているかどうかを確認する 1 つの方法は、[静的ファイル ミドルウェア](xref:fundamentals/static-files)を使用して、*wwwroot* にあるアプリケーションの静的ファイルのスタイルシート、スクリプト、または画像に対する簡単な静的ファイル要求を実行することです。 アプリケーションの静的ファイルを取得できたにもかかわらず、MVC ビューおよびその他のエンドポイントでエラーになる場合は、問題が IIS、ASP.NET Core モジュール、Kestrel 構成に関連している可能性は低く、アプリケーション自体に関連している可能性が高くなります (たとえば、MVC ルーティングや内部サーバー エラー 500)。
+アプリが正常に動作しているかどうかを決定する 1 つの簡単な方法は、アプリを Kestrel で直接実行することです。 アプリがフレームワークに依存する展開 (FDD) として発行された場合は、展開フォルダー (アプリの IIS 物理パス) の `dotnet my_application.dll` を実行します。 アプリが自己完結型の展開 (SCD) として発行された場合は、展開フォルダーにあるアプリケーションの実行可能ファイル (`my_application.exe`) をコマンド プロンプトから直接実行します。 Kestrel が既定のポート 5000 でリッスンしている場合は、`http://localhost:5000/` でアプリを閲覧できます。 アプリが通常は Kestrel エンドポイント アドレスで応答する場合、問題は IIS、ASP.NET Core モジュール、Kestrel の構成に関連している可能性が高く、アプリ自体に関連する可能性は低くなります。
+
+Kestrel サーバーに対する IIS リバース プロキシが正常に動作しているかどうかを確認する 1 つの方法は、[静的ファイル ミドルウェア](xref:fundamentals/static-files)を使用して、*wwwroot* にあるアプリの静的ファイルのスタイルシート、スクリプト、または画像に対する簡単な静的ファイル要求を実行することです。 アプリの静的ファイルを取得できたにもかかわらず、MVC ビューおよびその他のエンドポイントでエラーになる場合は、問題が IIS、ASP.NET Core モジュール、Kestrel 構成に関連している可能性は低く、アプリ自体に関連している可能性が高くなります (たとえば、MVC ルーティングや内部サーバー エラー 500)。
 
 Kestrel が IIS の背後で正常に開始される一方、ローカルで正常に実行できたアプリをシステムで実行できない場合は、*web.config* に、`ASPNETCORE_ENVIRONMENT` を `Development` に設定する環境変数を一時的に追加することができます。 これにより、アプリの起動時に環境をオーバーライドしない限り、アプリをシステムで実行するときに[開発者例外ページ](xref:fundamentals/error-handling)を表示できます。 `ASPNETCORE_ENVIRONMENT` の環境変数をこのように設定する方法は、インターネットに公開されないステージング システムやテスト用システムについてのみ推奨される方法です。 目的が完了したら、必ず *web.config* ファイルから環境変数を削除してください。 *web.config* を使用してリバース プロキシ用の環境変数を設定する方法の詳細については、「[environmentVariables child element of aspNetCore](xref:hosting/aspnet-core-module#setting-environment-variables)」を参照してください。
 
-ほとんどの場合、アプリケーションのログ記録を有効にすると、アプリケーションまたはリバース プロキシに関する問題のトラブルシューティングに役立ちます。 詳細については、[ログ記録](xref:fundamentals/logging)に関する説明を参照してください。
+ほとんどの場合、アプリケーションのログ記録を有効にすると、アプリまたはリバース プロキシに関する問題のトラブルシューティングに役立ちます。 詳細については、[ログ記録](xref:fundamentals/logging)に関する説明を参照してください。
 
 最後に紹介するトラブルシューティングのヒントは、開発用コンピューター上の .NET Core SDK またはアプリ内のパッケージ バージョンのいずれかをアップグレード後に実行が失敗するアプリに関するものです。 場合によっては、パッケージに統一性がないと、メジャー アップグレード実行時にアプリが破壊されることがあります。 このような問題の大部分は、次の方法で解決できます。まず、プロジェクトの `bin` フォルダーと `obj` フォルダーを削除し、`%UserProfile%\.nuget\packages\` と `%LocalAppData%\Nuget\v3-cache` にあるパッケージのキャッシュをクリアします。その後、プロジェクトを復元し、システムで以前の展開が完全に削除されたことを確認してから、アプリを再展開します。
 
->[!TIP]
-> パッケージのキャッシュをクリアする便利な方法として、[NuGet.org](https://www.nuget.org/) から `NuGet.exe` ツールを入手し、システム PATH に追加して、コマンド プロンプトから `nuget locals all -clear` を実行します。
+> [!TIP]
+> パッケージのキャッシュをクリアする便利な方法として、[NuGet.org](https://www.nuget.org/) から *NuGet.exe* ツールを入手し、システム PATH に追加して、コマンド プロンプトから `nuget locals all -clear` を実行します。 *NuGet.exe* を入手せず、コマンド プロンプトから `dotnet nuget locals all --clear` コマンドを実行することもできます。
 
 ## <a name="common-errors"></a>一般的なエラー
 
@@ -336,7 +347,7 @@ Kestrel が IIS の背後で正常に開始される一方、ローカルで正�
 
 トラブルシューティング:
 
-* サーバー ホスティング バンドルのインストール時にインストーラーがインターネットにアクセスできない場合、インストーラーは *Microsoft Visual C++ 2015 再頒布可能パッケージ*を取得できず、この例外が発生します。 インストーラーは [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)から入手できます。 インストーラーが失敗した場合、フレームワークに依存する展開をホストするために必要な .NET Core ランタイムを受け取れない可能性があります。 フレームワークに依存する展開をホストする場合は、[プログラムと機能] でランタイムがインストールされていることを確認してください。 ランタイム インストーラーは [.NET ダウンロード](https://www.microsoft.com/net/download/core)のページから入手できます。 ランタイムのインストール後、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
+* サーバー ホスティング バンドルのインストール時にインストーラーがインターネットにアクセスできない場合、インストーラーは *Microsoft Visual C++ 2015 再頒布可能パッケージ*を取得できず、この例外が発生します。 インストーラーは [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)から入手できます。 インストーラーが失敗した場合、フレームワークに依存する展開 (FDD) をホストするために必要な .NET Core ランタイムを受け取れない可能性があります。 FDD をホストする場合は、[プログラムと機能] でランタイムがインストールされていることを確認してください。 ランタイム インストーラーは [.NET ダウンロード](https://www.microsoft.com/net/download/core)のページから入手できます。 ランタイムのインストール後、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
 
 ### <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>OS のアップグレードによって 32 ビット ASP.NET Core モジュールが削除された
 
@@ -410,7 +421,7 @@ Kestrel が IIS の背後で正常に開始される一方、ローカルで正�
 
 * **[プログラムと機能]** をチェックし、**Microsoft ASP.NET Core モジュール**がインストールされていることを確認します。 インストールされているプログラムの一覧に **Microsoft ASP.NET Core モジュール**が表示されない場合は、モジュールをインストールします。 「[.NET Core Windows Server ホスティング バンドルのインストール](#install-the-net-core-windows-server-hosting-bundle)」を参照してください。
 
-* **[アプリケーション プール] > [プロセス モデル] > [ID]** が **ApplicationPoolIdentity** に設定されていることを確認します。または、アプリケーションの展開フォルダーにアクセスするための正しいアクセス許可がカスタム ID に設定されていることを確認します。
+* **[アプリケーション プール]**、**[プロセス モデル]**、**[ID]** が **ApplicationPoolIdentity** に設定されていることを確認します。または、アプリの展開フォルダーにアクセスするための正しいアクセス許可がカスタム ID に設定されていることを確認します。
 
 ### <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>processPath の誤り、PATH 変数の欠如、ホスティング バンドルが未インストール、システムまたは IIS が再起動されていない、VC++ 再頒布可能パッケージが未インストール、dotnet.exe アクセス違反
 
@@ -424,19 +435,19 @@ Kestrel が IIS の背後で正常に開始される一方、ローカルで正�
 
 * Kestrel でアプリケーションをローカルに実行できることを確認します。 プロセスのエラーは、アプリケーション内の問題の結果である可能性があります。 詳細については、「[トラブルシューティングのヒント](#troubleshooting-tips)」を参照してください。
 
-* *web.config* で `<aspNetCore>` 要素の *processPath* 属性を調べ、フレームワークに依存する展開を示す *dotnet*、または自己完結型の展開を示す *.\my_application.exe* になっていることを確認します。
+* *web.config* で `<aspNetCore>` 要素の *processPath* 属性を調べ、フレームワークに依存する展開 (FDD) を示す *dotnet*、または自己完結型の展開 (SCD) を示す *.\my_application.exe* になっていることを確認します。
 
-* フレームワークに依存する展開の場合、PATH 設定で *dotnet.exe* にアクセスできていない可能性があります。 *C:\Program Files\dotnet\* がシステムの PATH 設定に含まれていることを確認します。
+* FDD の場合、PATH 設定で *dotnet.exe* にアクセスできていない可能性があります。 *C:\Program Files\dotnet\* がシステムの PATH 設定に含まれていることを確認します。
 
-* フレームワークに依存する展開では、アプリケーション プールのユーザー ID で *dotnet.exe* にアクセスできていない可能性があります。 AppPool ユーザー ID に、*C:\Program Files\dotnet* ディレクトリへのアクセス許可が設定されていることを確認します。 *C:\Program Files\dotnet* とアプリケーション ディレクトリに、AppPool ユーザー ID に対する拒否ルールが構成されていないことを確認します。
+* FDD では、アプリケーション プールのユーザー ID で *dotnet.exe* にアクセスできていない可能性があります。 AppPool ユーザー ID に、*C:\Program Files\dotnet* ディレクトリへのアクセス許可が設定されていることを確認します。 *C:\Program Files\dotnet* とアプリケーション ディレクトリに、AppPool ユーザー ID に対する拒否ルールが構成されていないことを確認します。
 
-* フレームワークに依存する展開を配置し、IIS を再起動せずに .NET Core をインストールした可能性があります。 サーバーを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
+* FDD を配置し、IIS を再起動せずに .NET Core をインストールした可能性があります。 サーバーを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
 
-* ホスト システム .NET Core ランタイムをインストールせずに、フレームワークに依存する展開を配置した可能性があります。 フレームワークに依存する展開を配置しようとしていて、.NET Core ランタイムをインストールしていない場合は、**.NET Core Windows Server ホスティング バンドル インストーラー**をシステムで実行します。 「[.NET Core Windows Server ホスティング バンドルのインストール](#install-the-net-core-windows-server-hosting-bundle)」を参照してください。 インターネットに接続せずに、.NET Core ランタイムをシステムにインストールする場合は、[.NET ダウンロード](https://www.microsoft.com/net/download/core)のページからランタイムを入手し、ホスティング バンドル インストーラーを実行して ASP.NET Core モジュールをインストールします。 インストールを完了するために、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
+* ホスト システム .NET Core ランタイムをインストールせずに、FDD を配置した可能性があります。 FDD を配置しようとしていて、.NET Core ランタイムをインストールしていない場合は、**.NET Core Windows Server ホスティング バンドル インストーラー**をシステムで実行します。 「[.NET Core Windows Server ホスティング バンドルのインストール](#install-the-net-core-windows-server-hosting-bundle)」を参照してください。 インターネットに接続せずに、.NET Core ランタイムをシステムにインストールする場合は、[.NET ダウンロード](https://www.microsoft.com/net/download/core)のページからランタイムを入手し、ホスティング バンドル インストーラーを実行して ASP.NET Core モジュールをインストールします。 インストールを完了するために、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
 
-* フレームワークに依存する展開を配置し、システムまたは IIS を再起動せずに .NET Core をインストールした可能性があります。 システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
+* FDD を配置し、システム/IIS を再起動せずに .NET Core をインストールした可能性があります。 システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
 
-* フレームワークに依存する展開を配置し、*Microsoft Visual C++ 2015 再頒布可能パッケージ (x64)* がシステムにインストールされていない可能性があります。 インストーラーは [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)から入手できます。
+* FDD を配置し、*Microsoft Visual C++ 2015 再頒布可能パッケージ (x64)* がシステムにインストールされていない可能性があります。 インストーラーは [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)から入手できます。
 
 ### <a name="incorrect-arguments-of-aspnetcore-element"></a>\<aspNetCore\> 要素の引数の誤り
 
@@ -450,7 +461,7 @@ Kestrel が IIS の背後で正常に開始される一方、ローカルで正�
 
 * Kestrel でアプリケーションをローカルに実行できることを確認します。 プロセスのエラーは、アプリケーション内の問題の結果である可能性があります。 詳細については、「[トラブルシューティングのヒント](#troubleshooting-tips)」を参照してください。
 
-* *web.config* で `<aspNetCore>` 要素の *arguments* 属性を調べ、次のいずれかになっていることを確認します。(a) フレームワークに依存する展開の場合は *.\my_applciation.dll*、または (b) 自己完結型の展開の場合は、未指定の空の文字列 (*arguments=""*) か、アプリケーションの引数のリスト (*arguments="arg1, arg2, ..."*)。
+* *web.config* で `<aspNetCore>` 要素の *arguments* 属性を調べ、次のいずれかになっていることを確認します。(a) フレームワークに依存する展開 (FDD) の場合は *.\my_applciation.dll*、または (b) 自己完結型の展開 (SCD) の場合は、未指定の空の文字列 (*arguments=""*) か、アプリの引数のリスト (*arguments="arg1, arg2, ..."*)。
 
 ### <a name="missing-net-framework-version"></a>.NET Framework バージョンの欠落
 
@@ -464,7 +475,7 @@ Kestrel が IIS の背後で正常に開始される一方、ローカルで正�
 
 * システムにない .NET Framework のバージョンをインストールします。
 
-* フレームワークに依存する展開では、正しいランタイムがシステムにインストールされていることを確認します。 たとえば、プロジェクトを 1.0 から 1.1 にアップグレードしてからホスティング システムに展開し、この例外を受け取った場合は、ホスティング システムに 1.1 のフレームワークをインストールします。
+* フレームワークに依存する展開 (FDD) では、正しいランタイムがシステムにインストールされていることを確認します。 プロジェクトを 1.1 から 2.0 にアップグレードしてからホスティング システムに展開し、この例外を受け取った場合は、ホスティング システムに 2.0 のフレームワークをインストールします。
 
 ### <a name="stopped-application-pool"></a>アプリケーション プールの停止
 
@@ -488,9 +499,9 @@ Kestrel が IIS の背後で正常に開始される一方、ローカルで正�
 
 トラブルシューティング
 
-* Kestrel でアプリケーションをローカルに実行できることを確認します。 プロセスのエラーは、アプリケーション内の問題の結果である可能性があります。 詳細については、「[トラブルシューティングのヒント](#troubleshooting-tips)」を参照してください。
+* Kestrel でアプリをローカルに実行できることを確認します。 プロセスのエラーは、アプリ内の問題の結果である可能性があります。 詳細については、「[トラブルシューティングのヒント](#troubleshooting-tips)」を参照してください。
 
-* アプリケーションの *WebHostBuilder()*で *.UseIISIntegration()* メソッドを呼び出して、IIS 統合ミドルウェアを正しく参照していることを確認します。
+* アプリケーションの *WebHostBuilder()* (ASP.NET Core 1.x) で *.UseIISIntegration()* メソッドを呼び出して IIS 統合ミドルウェアを正しく参照していることを、あるいは `CreateDefaultBuilder` メソッド (ASP.NET Core 2.x) を使用していることを確認します。 詳細については、「[ASP.NET Core でのホスティング](xref:fundamentals/hosting)」を参照してください。
 
 ### <a name="sub-application-includes-a-handlers-section"></a>サブアプリケーションに \<handlers\> セクションが含まれている
 
@@ -502,7 +513,7 @@ Kestrel が IIS の背後で正常に開始される一方、ローカルで正�
 
 トラブルシューティング
 
-* サブアプリケーションの *web.config* ファイルに `<handlers>` セクションが含まれていないことを確認します。
+* サブアプリの *web.config* ファイルに `<handlers>` セクションが含まれていないことを確認します。
 
 ### <a name="application-configuration-general-issue"></a>アプリケーション構成の一般的な問題
 
@@ -514,18 +525,13 @@ Kestrel が IIS の背後で正常に開始される一方、ローカルで正�
 
 トラブルシューティング
 
-* この一般例外はプロセスを開始できなかったことを示し、ほとんどの場合はアプリケーション構成の問題が原因です。 [ディレクトリ構造](xref:hosting/directory-structure)に関する説明を参照して、アプリケーションの展開済みファイルとフォルダーが適切であること、アプリケーションの構成ファイルが存在し、そのファイルにアプリと環境に応じた正しい設定が含まれていることを確認します。 詳細については、「[トラブルシューティングのヒント](#troubleshooting-tips)」を参照してください。
+* この一般例外はプロセスを開始できなかったことを示し、ほとんどの場合はアプリケーション構成の問題が原因です。 [ディレクトリ構造](xref:hosting/directory-structure)に関する説明を参照して、アプリの展開済みファイルとフォルダーが適切であること、アプリの構成ファイルが存在し、そのファイルにアプリと環境に応じた正しい設定が含まれていることを確認します。 詳細については、「[トラブルシューティングのヒント](#troubleshooting-tips)」を参照してください。
 
 ## <a name="resources"></a>リソース
 
 * [ASP.NET Core モジュールの概要](xref:fundamentals/servers/aspnet-core-module)
-
 * [ASP.NET Core モジュール構成リファレンス](xref:hosting/aspnet-core-module)
-
 * [IIS モジュールと ASP.NET Core の使用](xref:hosting/iis-modules)
-
 * [ASP.NET Core の概要](../index.md)
-
 * [Microsoft IIS 公式サイト](https://www.iis.net/)
-
 * [Microsoft TechNet ライブラリ: Windows Server](https://docs.microsoft.com/windows-server/windows-server-versions)
