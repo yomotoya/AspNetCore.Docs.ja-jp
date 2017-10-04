@@ -11,11 +11,11 @@ ms.assetid: 71fec30f-8ea7-4ca8-96e3-d2e26c5be44e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 37613d974fdf1766b187cdd05efc926ecc6a351b
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 778ef976fdbef70684ca26b0c7c548ffcc83ee00
+ms.sourcegitcommit: e45f8912ce32b4071bf7e83b8f8315cd8bba3520
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>読み取りに関連したデータの ASP.NET Core MVC のチュートリアル (10 の 6) の EF コア
 
@@ -184,7 +184,7 @@ EF 読み取り/書き込みアクションの次の図に示すように、イ�
   }
   ```
 
-* 追加、**コース**コースを表示する列が各インストラクターを学習します。 参照してください[行の明示的な移行`@:`](xref:mvc/views/razor#explicit-line-transition-with-label)この razor 構文の詳細についてです。
+* 追加、**コース**コースを表示する列が各インストラクターを学習します。 参照してください[行の明示的な移行`@:`](xref:mvc/views/razor#explicit-line-transition-with-)この razor 構文の詳細についてです。
 
 * 動的に追加するコードを追加しました`class="success"`を`tr`選択した講師の要素。 これは、ブートス トラップのクラスを使用して、選択した行の背景色を設定します。
 
