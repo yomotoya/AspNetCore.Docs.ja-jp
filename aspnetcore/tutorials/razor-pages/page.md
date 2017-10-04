@@ -10,8 +10,8 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 3fd155c5e9a119717243a4bafff776fcbd06fab5
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 211d5fd3b8a736799155c2ab1c1cf92993e63fc3
+ms.sourcegitcommit: 3ba32b2b6425ed94604cb0f681db0d5bb5f8ad58
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/28/2017
@@ -20,7 +20,7 @@ ms.lasthandoff: 09/28/2017
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このチュートリアルでは、[前のチュートリアル](xref:tutorials/razor-pages/page)でスキャフォールディングによって作成された Razor ページについて説明します。 
+このチュートリアルでは、前のチュートリアルの[モデルの追加](xref:tutorials/razor-pages/model#scaffold-the-movie-model)に関するトピックで、スキャフォールディングによって作成された Razor ページについて説明します。 
 
 サンプルを[表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie)します。
 
@@ -144,5 +144,5 @@ Visual Studio に、タグ ヘルパーで使用される独特なフォント�
 次のチュートリアルでは、SQL Server LocalDB とデータベースのシード処理について説明します。
 
 >[!div class="step-by-step"]
-[前: モデルの追加](xref:tutorials/razor-pages/modelz)
+[前: モデルの追加](xref:tutorials/razor-pages/model)
 [次: SQL Server LocalDB](xref:tutorials/razor-pages/sql)
