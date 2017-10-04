@@ -1,140 +1,216 @@
 ---
 title: "ASP.NET Core の基礎"
 author: rick-anderson
-description: "この記事では、ASP.NET Core アプリケーションを構築する場合に理解しておく必要がある基本概念の概要を示します。"
+description: "ASP.NET Core アプリケーションの構築に関する基本概念について説明します。"
 keywords: "ASP.NET Core,基礎,概要"
 ms.author: riande
 manager: wpickett
-ms.date: 08/18/2017
+ms.date: 09/30/2017
 ms.topic: get-started-article
 ms.assetid: a19b7836-63e4-44e8-8250-50d426dd1070
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/index
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d8ca35b0e2e4b6e9b1ec745a3a7cf7c3983c461
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: e707bb92b2d8b1776ae2970001f1699248580e5f
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/01/2017
 ---
-# <a name="aspnet-core-fundamentals-overview"></a><span data-ttu-id="e5eaa-104">ASP.NET Core の基礎の概要</span><span class="sxs-lookup"><span data-stu-id="e5eaa-104">ASP.NET Core fundamentals overview</span></span>
+# <a name="aspnet-core-fundamentals"></a>ASP.NET Core の基礎
 
-<span data-ttu-id="e5eaa-105">ASP.NET Core アプリケーションは、以下の `Main` メソッドで Web サーバーを作成するコンソール アプリです。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-105">An ASP.NET Core application is a console app that creates a web server in its `Main` method:</span></span>
+ASP.NET Core アプリケーションは、以下の `Main` メソッドで Web サーバーを作成するコンソール アプリです。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="e5eaa-106">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="e5eaa-106">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-<span data-ttu-id="e5eaa-107">[!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program2x.cs)]</span><span class="sxs-lookup"><span data-stu-id="e5eaa-107">[!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program2x.cs)]</span></span>
+[!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program2x.cs)]
 
-<span data-ttu-id="e5eaa-108">`Main` メソッドは、Web アプリケーション ホストを作成するビルダー パターンに従う、`WebHost.CreateDefaultBuilder` を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-108">The `Main` method invokes `WebHost.CreateDefaultBuilder`, which follows the builder pattern to create a web application host.</span></span> <span data-ttu-id="e5eaa-109">ビルダーには、Web サーバー (`UseKestrel` など) とスタートアップ クラス (`UseStartup`) を定義するメソッドがあります。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-109">The builder has methods that define the web server (for example, `UseKestrel`) and the startup class (`UseStartup`).</span></span> <span data-ttu-id="e5eaa-110">前の例では、[Kestrel](xref:fundamentals/servers/kestrel) Web サーバーが自動的に割り当てられます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-110">In the preceding example, a [Kestrel](xref:fundamentals/servers/kestrel) web server is automatically allocated.</span></span> <span data-ttu-id="e5eaa-111">ASP.NET Core の Web ホストは、IIS (使用可能な場合) で実行を試みます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-111">ASP.NET Core's web host will attempt to run on IIS, if it is available.</span></span> <span data-ttu-id="e5eaa-112">[HTTP.sys](xref:fundamentals/servers/httpsys) などの他の Web サーバーは、適切な拡張メソッドを呼び出して使用することができます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-112">Other web servers, such as [HTTP.sys](xref:fundamentals/servers/httpsys), can be used by invoking the appropriate extension method.</span></span> <span data-ttu-id="e5eaa-113">`UseStartup` については、次のセクションで詳しく説明します。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-113">`UseStartup` is explained further in the next section.</span></span>
+`Main` メソッドは、Web アプリケーション ホストを作成するビルダー パターンに従う、`WebHost.CreateDefaultBuilder` を呼び出します。 ビルダーには、Web サーバー (`UseKestrel` など) とスタートアップ クラス (`UseStartup`) を定義するメソッドがあります。 前の例では、[Kestrel](xref:fundamentals/servers/kestrel) Web サーバーが自動的に割り当てられます。 ASP.NET Core の Web ホストは、IIS (使用可能な場合) で実行を試みます。 [HTTP.sys](xref:fundamentals/servers/httpsys) などの他の Web サーバーは、適切な拡張メソッドを呼び出して使用することができます。 `UseStartup` については、次のセクションで詳しく説明します。
 
-<span data-ttu-id="e5eaa-114">`IWebHostBuilder` (`WebHost.CreateDefaultBuilder` 呼び出しの戻り値の型) では、省略可能な多くのメソッドが提供されます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-114">`IWebHostBuilder`, the return type of the `WebHost.CreateDefaultBuilder` invocation, provides many optional methods.</span></span> <span data-ttu-id="e5eaa-115">これらのメソッドの一部には、HTTP.sys でアプリケーションをホストするための `UseHttpSys` と、ルート コンテンツ ディレクトリを指定するための `UseContentRoot` が含まれています。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-115">Some of these methods include `UseHttpSys` for hosting the application in HTTP.sys, and `UseContentRoot` for specifying the root content directory.</span></span> <span data-ttu-id="e5eaa-116">`Build` および `Run` メソッドは、アプリケーションをホストし、HTTP 要求のリッスンを開始する `IWebHost` オブジェクトをビルドします。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-116">The `Build` and `Run` methods build the `IWebHost` object that will host the application and begin listening for HTTP requests.</span></span>
+`IWebHostBuilder` (`WebHost.CreateDefaultBuilder` 呼び出しの戻り値の型) では、省略可能な多くのメソッドが提供されます。 これらのメソッドの一部には、HTTP.sys でアプリをホストするための `UseHttpSys` と、ルート コンテンツ ディレクトリを指定するための `UseContentRoot` が含まれています。 `Build` および `Run` メソッドは、アプリをホストし、HTTP 要求のリッスンを開始する `IWebHost` オブジェクトをビルドします。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="e5eaa-117">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="e5eaa-117">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-<span data-ttu-id="e5eaa-118">[!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program.cs)]</span><span class="sxs-lookup"><span data-stu-id="e5eaa-118">[!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program.cs)]</span></span>
+[!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program.cs)]
 
-<span data-ttu-id="e5eaa-119">`Main` メソッドは、Web アプリケーション ホストを作成するビルダー パターンに従う、`WebHostBuilder` を使用します。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-119">The `Main` method uses `WebHostBuilder`, which follows the builder pattern to create a web application host.</span></span> <span data-ttu-id="e5eaa-120">ビルダーには、Web サーバー (`UseKestrel` など) とスタートアップ クラス (`UseStartup`) を定義するメソッドがあります。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-120">The builder has methods that define the web server (for example, `UseKestrel`) and the startup class (`UseStartup`).</span></span> <span data-ttu-id="e5eaa-121">前の例では、[Kestrel](xref:fundamentals/servers/kestrel) Web サーバーが使用されています。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-121">In the preceding example, the [Kestrel](xref:fundamentals/servers/kestrel) web server is used.</span></span> <span data-ttu-id="e5eaa-122">[WebListener](xref:fundamentals/servers/weblistener) などの他の Web サーバーは、適切な拡張メソッドを呼び出して使用することができます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-122">Other web servers, such as [WebListener](xref:fundamentals/servers/weblistener), can be used by invoking the appropriate extension method.</span></span> <span data-ttu-id="e5eaa-123">`UseStartup` については、次のセクションで詳しく説明します。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-123">`UseStartup` is explained further in the next section.</span></span>
+`Main` メソッドは、Web アプリケーション ホストを作成するビルダー パターンに従う、`WebHostBuilder` を使用します。 ビルダーには、Web サーバー (`UseKestrel` など) とスタートアップ クラス (`UseStartup`) を定義するメソッドがあります。 前の例では、[Kestrel](xref:fundamentals/servers/kestrel) Web サーバーが使用されています。 [WebListener](xref:fundamentals/servers/weblistener) などの他の Web サーバーは、適切な拡張メソッドを呼び出して使用することができます。 `UseStartup` については、次のセクションで詳しく説明します。
 
-<span data-ttu-id="e5eaa-124">`WebHostBuilder` では、IIS および IIS Express でホストするための `UseIISIntegration` と、ルート コンテンツ ディレクトリを指定するための `UseContentRoot` を含む、省略可能な多くのメソッドが提供されます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-124">`WebHostBuilder` provides many optional methods, including `UseIISIntegration` for hosting in IIS and IIS Express, and `UseContentRoot` for specifying the root content directory.</span></span> <span data-ttu-id="e5eaa-125">`Build` および `Run` メソッドは、アプリケーションをホストし、HTTP 要求のリッスンを開始する `IWebHost` オブジェクトをビルドします。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-125">The `Build` and `Run` methods build the `IWebHost` object that will host the application and begin listening for HTTP requests.</span></span>
-
----
-
-## <a name="startup"></a><span data-ttu-id="e5eaa-126">スタートアップ</span><span class="sxs-lookup"><span data-stu-id="e5eaa-126">Startup</span></span>
-
-<span data-ttu-id="e5eaa-127">`WebHostBuilder` の `UseStartup` メソッドは、アプリの `Startup` クラスを指定します。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-127">The `UseStartup` method on `WebHostBuilder` specifies the `Startup` class for your app:</span></span>
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="e5eaa-128">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="e5eaa-128">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
-
-<span data-ttu-id="e5eaa-129">[!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program2x.cs?highlight=10&range=6-17)]</span><span class="sxs-lookup"><span data-stu-id="e5eaa-129">[!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program2x.cs?highlight=10&range=6-17)]</span></span>
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="e5eaa-130">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="e5eaa-130">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
-
-<span data-ttu-id="e5eaa-131">[!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program.cs?highlight=7&range=6-17)]</span><span class="sxs-lookup"><span data-stu-id="e5eaa-131">[!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program.cs?highlight=7&range=6-17)]</span></span>
+`WebHostBuilder` では、IIS および IIS Express でホストするための `UseIISIntegration` と、ルート コンテンツ ディレクトリを指定するための `UseContentRoot` を含む、省略可能な多くのメソッドが提供されます。 `Build` および `Run` メソッドは、アプリをホストし、HTTP 要求のリッスンを開始する `IWebHost` オブジェクトをビルドします。
 
 ---
 
-<span data-ttu-id="e5eaa-132">`Startup` クラスでは、要求処理パイプラインを定義し、アプリケーションで必要なサービスが構成されます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-132">The `Startup` class is where you define the request handling pipeline and where any services needed by the application are configured.</span></span> <span data-ttu-id="e5eaa-133">`Startup` クラスはパブリックであり、次のメソッドを含む必要があります。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-133">The `Startup` class must be public and contain the following methods:</span></span>
+## <a name="startup"></a>スタートアップ
+
+`WebHostBuilder` の `UseStartup` メソッドは、アプリの `Startup` クラスを指定します。
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+[!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program2x.cs?highlight=10&range=6-17)]
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+[!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program.cs?highlight=7&range=6-17)]
+
+---
+
+`Startup` クラスでは、要求処理パイプラインを定義し、アプリで必要なサービスが構成されます。 `Startup` クラスはパブリックであり、次のメソッドを含む必要があります。
 
 ```csharp
 public class Startup
 {
-    // This method gets called by the runtime. Use this method to add services to the container.
+    // This method gets called by the runtime. Use this method
+    // to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
     }
 
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    // This method gets called by the runtime. Use this method
+    // to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app)
     {
     }
 }
 ```
 
-* <span data-ttu-id="e5eaa-134">`ConfigureServices` は、アプリケーションで使用される[サービス](#services) (ASP.NET Core MVC、Entity Framework Core、Identity など) を定義します。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-134">`ConfigureServices` defines the [Services](#services) used by your application (such as ASP.NET Core MVC, Entity Framework Core, Identity, etc.).</span></span>
+`ConfigureServices` は、アプリで使用される[サービス](#dependency-injection-services) (ASP.NET Core MVC、Entity Framework Core、Identity など) を定義します。 `Configure` は、要求パイプラインの[ミドルウェア](xref:fundamentals/middleware)を定義します。
 
-* <span data-ttu-id="e5eaa-135">`Configure` は、要求パイプラインで[ミドルウェア](xref:fundamentals/middleware)を定義します。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-135">`Configure` defines the [middleware](xref:fundamentals/middleware) in the request pipeline.</span></span>
+詳細については、[アプリケーションの起動](xref:fundamentals/startup)に関するページを参照してください。
 
-<span data-ttu-id="e5eaa-136">詳細については、[アプリケーションの起動](xref:fundamentals/startup)に関するページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-136">For more information, see [Application startup](xref:fundamentals/startup).</span></span>
+## <a name="content-root"></a>コンテンツ ルート
 
-## <a name="services"></a><span data-ttu-id="e5eaa-137">サービス</span><span class="sxs-lookup"><span data-stu-id="e5eaa-137">Services</span></span>
+コンテンツ ルートは、ビュー、[Razor ページ](xref:mvc/razor-pages/index)、および静的資産など、アプリで使用されるコンテンツへの基本パスです。 既定では、コンテンツ ルートは、アプリをホストする実行可能ファイルのアプリケーション基本パスと同じです。
 
-<span data-ttu-id="e5eaa-138">サービスは、アプリケーションでの一般的な使用を想定されているコンポーネントです。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-138">A service is a component that is intended for common consumption in an application.</span></span> <span data-ttu-id="e5eaa-139">サービスは[依存性の注入](xref:fundamentals/dependency-injection) (DI) を介して使用できます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-139">Services are made available through [dependency injection](xref:fundamentals/dependency-injection) (DI).</span></span> <span data-ttu-id="e5eaa-140">ASP.NET Core には、既定で[コンストラクターの挿入](xref:mvc/controllers/dependency-injection#constructor-injection)をサポートする、ネイティブの制御の反転 (IoC) コンテナーが含まれます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-140">ASP.NET Core includes a native inversion of control (IoC) container that supports [constructor injection](xref:mvc/controllers/dependency-injection#constructor-injection) by default.</span></span> <span data-ttu-id="e5eaa-141">ネイティブ コンテナーは任意のコンテナーに置き換えることができます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-141">The native container can be replaced with your container of choice.</span></span> <span data-ttu-id="e5eaa-142">その疎結合の利点に加え、DI はアプリケーション全体でサービスを使用できるようにします。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-142">In addition to its loose coupling benefit, DI makes services available throughout your application.</span></span> <span data-ttu-id="e5eaa-143">たとえば、[ログ](xref:fundamentals/logging)はアプリケーション全体で使用できます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-143">For example, [logging](xref:fundamentals/logging) is available throughout your application.</span></span>
+## <a name="web-root"></a>Web ルート
 
-<span data-ttu-id="e5eaa-144">詳細については、[依存性の注入](xref:fundamentals/dependency-injection)に関するページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-144">For more information, see [Dependency injection](xref:fundamentals/dependency-injection).</span></span>
+アプリの Web ルートは、CSS、JavaScript、イメージ ファイルなどのパブリックな静的なリソースを含むプロジェクトのディレクトリです。
 
-## <a name="middleware"></a><span data-ttu-id="e5eaa-145">ミドルウェア</span><span class="sxs-lookup"><span data-stu-id="e5eaa-145">Middleware</span></span>
+## <a name="dependency-injection-services"></a>依存性の注入 (サービス)
 
-<span data-ttu-id="e5eaa-146">ASP.NET Core では、[ミドルウェア](xref:fundamentals/middleware)を使用して要求パイプラインを構成します。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-146">In ASP.NET Core, you compose your request pipeline using [Middleware](xref:fundamentals/middleware).</span></span> <span data-ttu-id="e5eaa-147">ASP.NET Core ミドルウェアは `HttpContext` で非同期ロジックを実行してから、シーケンス内の次のミドルウェアを呼び出すか、直接要求を終了します。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-147">ASP.NET Core middleware performs asynchronous logic on an `HttpContext` and then either invokes the next middleware in the sequence or terminates the request directly.</span></span> <span data-ttu-id="e5eaa-148">"XYZ" と呼ばれるミドルウェア コンポーネントは、`Configure` メソッドで `UseXYZ` 拡張メソッドを呼び出して追加されます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-148">A middleware component called "XYZ" is added by invoking a `UseXYZ` extension method in the `Configure` method.</span></span>
+サービスは、アプリでの一般的な使用を想定されているコンポーネントです。 サービスは[依存性の注入 (DI)](xref:fundamentals/dependency-injection) を介して使用できます。 ASP.NET Core には、既定で[コンストラクターの挿入](xref:mvc/controllers/dependency-injection#constructor-injection)をサポートする、ネイティブの制御の反転 (**I**nversion **o**f **C**ontrol、IoC) コンテナーが含まれます。 必要に応じて、既定のネイティブ コンテナーを置き換えることができます。 その疎結合の利点に加え、DI はアプリ全体でサービス ([ログ](xref:fundamentals/logging)など) を使用できるようにします。
 
-<span data-ttu-id="e5eaa-149">ASP.NET Core には、豊富な組み込みミドルウェアのセットが付属しています。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-149">ASP.NET Core comes with a rich set of built-in middleware:</span></span>
+詳細については、[依存性の注入](xref:fundamentals/dependency-injection)に関するページを参照してください。
 
-* [<span data-ttu-id="e5eaa-150">静的ファイル</span><span class="sxs-lookup"><span data-stu-id="e5eaa-150">Static files</span></span>](xref:fundamentals/static-files)
+## <a name="middleware"></a>ミドルウェア
 
-* [<span data-ttu-id="e5eaa-151">ルーティング</span><span class="sxs-lookup"><span data-stu-id="e5eaa-151">Routing</span></span>](xref:fundamentals/routing)
+ASP.NET Core では、[ミドルウェア](xref:fundamentals/middleware)を使用して要求パイプラインを構成します。 ASP.NET Core ミドルウェアは `HttpContext` で非同期ロジックを実行してから、シーケンス内の次のミドルウェアを呼び出すか、直接要求を終了します。 "XYZ" と呼ばれるミドルウェア コンポーネントは、`Configure` メソッドで `UseXYZ` 拡張メソッドを呼び出して追加されます。
 
-* [<span data-ttu-id="e5eaa-152">認証</span><span class="sxs-lookup"><span data-stu-id="e5eaa-152">Authentication</span></span>](xref:security/authentication/index)
+ASP.NET Core には、豊富な組み込みミドルウェアのセットが付属しています。
 
-<span data-ttu-id="e5eaa-153">ASP.NET Core で [OWIN](http://owin.org) ベースのミドルウェアを使用することができます。また、独自のカスタム ミドルウェアを作成することもできます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-153">You can use any [OWIN](http://owin.org)-based middleware with ASP.NET Core, and you can write your own custom middleware.</span></span>
+* [静的ファイル](xref:fundamentals/static-files)
+* [ルーティング](xref:fundamentals/routing)
+* [認証](xref:security/authentication/index)
+* [応答圧縮ミドルウェア](xref:performance/response-compression)
+* [URL リライト ミドルウェア](xref:fundamentals/url-rewriting)
 
-<span data-ttu-id="e5eaa-154">詳細については、[ミドルウェア](xref:fundamentals/middleware)と [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin) に関するページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-154">For more information, see [Middleware](xref:fundamentals/middleware) and [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin).</span></span>
+ASP.NET Core アプリで [OWIN](http://owin.org) ベースのミドルウェアを使用することができます。また、独自のカスタム ミドルウェアを作成することもできます。
 
-## <a name="servers"></a><span data-ttu-id="e5eaa-155">サーバー</span><span class="sxs-lookup"><span data-stu-id="e5eaa-155">Servers</span></span>
+詳細については、[ミドルウェア](xref:fundamentals/middleware)と [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin) に関するページを参照してください。
 
-<span data-ttu-id="e5eaa-156">ASP.NET Core ホスティング モデルは、要求を直接リッスンするのではなく、HTTP サーバー実装を介して要求をアプリケーションに転送します。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-156">The ASP.NET Core hosting model does not directly listen for requests; rather, it relies on an HTTP server implementation to forward the request to the application.</span></span> <span data-ttu-id="e5eaa-157">転送された要求は、インターフェイスを介してアクセス可能な一連の機能オブジェクトとしてラップされます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-157">The forwarded request is wrapped as a set of feature objects that you can access through interfaces.</span></span> <span data-ttu-id="e5eaa-158">アプリケーションはこのセットを `HttpContext` に構成します。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-158">The application composes this set into an `HttpContext`.</span></span> <span data-ttu-id="e5eaa-159">ASP.NET Core には、[Kestrel](xref:fundamentals/servers/kestrel) と呼ばれる、マネージド クロスプラットフォーム Web サーバーが含まれています。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-159">ASP.NET Core includes a managed, cross-platform web server, called [Kestrel](xref:fundamentals/servers/kestrel).</span></span> <span data-ttu-id="e5eaa-160">Kestrel は通常、[IIS](https://www.iis.net/) や [nginx](http://nginx.org) などの実稼働 Web サーバーの背後で実行されます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-160">Kestrel is typically run behind a production web server like [IIS](https://www.iis.net/) or [nginx](http://nginx.org).</span></span>
+## <a name="environments"></a>環境
 
-<span data-ttu-id="e5eaa-161">詳細については、[サーバー](xref:fundamentals/servers/index)と[ホスティング](xref:fundamentals/hosting)に関するページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-161">For more information, see [Servers](xref:fundamentals/servers/index) and [Hosting](xref:fundamentals/hosting).</span></span>
+"開発" や "実稼働" などの環境は ASP.NET Core におけるファースト クラスの概念であり、環境変数を使用して設定できます。
 
-## <a name="content-root"></a><span data-ttu-id="e5eaa-162">コンテンツ ルート</span><span class="sxs-lookup"><span data-stu-id="e5eaa-162">Content root</span></span>
+詳細については、「[Working with multiple environments](xref:fundamentals/environments)」 (複数の環境の使用) を参照してください。
 
-<span data-ttu-id="e5eaa-163">コンテンツ ルートは、ビュー、[Razor ページ](xref:mvc/razor-pages/index)、および静的資産など、アプリで使用されるコンテンツへの基本パスです。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-163">The content root is the base path to any content used by the app, such as views, [Razor Pages](xref:mvc/razor-pages/index), and static assets.</span></span> <span data-ttu-id="e5eaa-164">既定では、コンテンツ ルートは、アプリケーションをホストする実行可能ファイルのアプリケーション基本パスと同じです。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-164">By default, the content root is the same as application base path for the executable hosting the application.</span></span> <span data-ttu-id="e5eaa-165">コンテンツ ルートの別の場所は `WebHostBuilder` で指定されます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-165">An alternative location for content root is specified with `WebHostBuilder`.</span></span>
+## <a name="configuration"></a>構成
 
-## <a name="web-root"></a><span data-ttu-id="e5eaa-166">Web ルート</span><span class="sxs-lookup"><span data-stu-id="e5eaa-166">Web root</span></span>
+ASP.NET Core は、名前と値のペアに基づく構成モデルを使用します。 この構成モデルは `System.Configuration` または *web.config* には基づきません。構成は、構成プロバイダーの順序付けされたセットから設定を取得します。 組み込みの構成プロバイダーではさまざまなファイル形式 (XML、JSON、INI) と環境変数がサポートされ、これにより環境ベースの構成が可能になります。 独自のカスタム構成プロバイダーを作成することもできます。
 
-<span data-ttu-id="e5eaa-167">アプリケーションの Web ルートは、CSS、JavaScript、およびイメージ ファイルなどのパブリックな静的なリソースを含むプロジェクトのディレクトリです。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-167">The web root of an application is the directory in the project containing public, static resources like CSS, JavaScript, and image files.</span></span> <span data-ttu-id="e5eaa-168">既定では、静的ファイル ミドルウェアは、Web ルート ディレクトリとそのサブディレクトリからのファイルのみを提供します。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-168">By default, the static files middleware will only serve files from the web root directory and its sub-directories.</span></span> <span data-ttu-id="e5eaa-169">詳細については、[静的ファイルの使用](xref:fundamentals/static-files)に関するページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-169">See [working with static files](xref:fundamentals/static-files) for more info.</span></span> <span data-ttu-id="e5eaa-170">Web ルート パスは既定で */wwwroot* に設定されますが、`WebHostBuilder` を使用して別の場所を指定できます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-170">The web root path defaults to */wwwroot*, but you can specify a different location using the `WebHostBuilder`.</span></span>
+詳細については、[構成](xref:fundamentals/configuration)に関するページを参照してください。
 
-## <a name="configuration"></a><span data-ttu-id="e5eaa-171">構成</span><span class="sxs-lookup"><span data-stu-id="e5eaa-171">Configuration</span></span>
+## <a name="logging"></a>ログの記録
 
-<span data-ttu-id="e5eaa-172">ASP.NET Core は、単純な名前と値のペアを処理するために新しい構成モデルを使用します。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-172">ASP.NET Core uses a new configuration model for handling simple name-value pairs.</span></span> <span data-ttu-id="e5eaa-173">この新しい構成モデルは `System.Configuration` や *web.config* に基づくものではなく、構成プロバイダーの順序付けされたセットから取得します。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-173">The new configuration model is not based on `System.Configuration` or *web.config*; rather, it pulls from an ordered set of configuration providers.</span></span> <span data-ttu-id="e5eaa-174">組み込みの構成プロバイダーではさまざまなファイル形式 (XML、JSON、INI) と環境変数がサポートされ、これにより環境ベースの構成が可能になります。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-174">The built-in configuration providers support a variety of file formats (XML, JSON, INI) and environment variables to enable environment-based configuration.</span></span> <span data-ttu-id="e5eaa-175">独自のカスタム構成プロバイダーを作成することもできます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-175">You can also write your own custom configuration providers.</span></span>
+ASP.NET Core は、さまざまなログ プロバイダーと連携するログ API をサポートします。 組み込みプロバイダーは、1 つまたは複数の送信先へのログの送信をサポートします。 サード パーティ製のログ記録フレームワークを使用できます。
 
-<span data-ttu-id="e5eaa-176">詳細については、[構成](xref:fundamentals/configuration)に関するページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-176">For more information, see [Configuration](xref:fundamentals/configuration).</span></span>
+[ログ](xref:fundamentals/logging)
 
-## <a name="environments"></a><span data-ttu-id="e5eaa-177">環境</span><span class="sxs-lookup"><span data-stu-id="e5eaa-177">Environments</span></span>
+## <a name="error-handling"></a>エラー処理
 
-<span data-ttu-id="e5eaa-178">"開発" や "実稼働" などの環境は ASP.NET Core におけるファースト クラスの概念であり、環境変数を使用して設定できます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-178">Environments, like "Development" and "Production", are a first-class notion in ASP.NET Core and can be set using environment variables.</span></span>
+ASP.NET Core には、開発者の例外ページ、カスタム エラー ページ、静的ステータス コード ページ、起動時の例外処理を含む、アプリのエラー処理の機能が組み込まれています。
 
-<span data-ttu-id="e5eaa-179">詳細については、「[Working with multiple environments](xref:fundamentals/environments)」 (複数の環境の使用) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-179">For more information, see [Working with Multiple Environments](xref:fundamentals/environments).</span></span>
+詳細については、[エラー処理](xref:fundamentals/error-handling)に関するページを参照してください。
 
-## <a name="net-core-vs-net-framework-runtime"></a><span data-ttu-id="e5eaa-180">.NET Core と .NET Framework ランタイム</span><span class="sxs-lookup"><span data-stu-id="e5eaa-180">.NET Core vs. .NET Framework runtime</span></span>
+## <a name="routing"></a>ルーティング
 
-<span data-ttu-id="e5eaa-181">ASP.NET Core アプリケーションは、.NET Core または .NET Framework ランタイムを対象にすることができます。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-181">An ASP.NET Core application can target the .NET Core or .NET Framework runtime.</span></span> <span data-ttu-id="e5eaa-182">詳細については、「[サーバー アプリ用 .NET Core と .NET Framework の選択](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-182">For more information, see [Choosing between .NET Core and .NET Framework](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server).</span></span>
+ASP.NET Core は、ルート ハンドラーにアプリ要求をルーティングする機能を提供します。
 
-## <a name="additional-information"></a><span data-ttu-id="e5eaa-183">追加情報</span><span class="sxs-lookup"><span data-stu-id="e5eaa-183">Additional information</span></span>
+詳細については、[ルーティング](xref:fundamentals/routing)に関するページを参照してください。
 
-<span data-ttu-id="e5eaa-184">次のトピックも参照してください。</span><span class="sxs-lookup"><span data-stu-id="e5eaa-184">See also the following topics:</span></span>
+## <a name="file-providers"></a>ファイル プロバイダー
 
-- [<span data-ttu-id="e5eaa-185">エラー処理</span><span class="sxs-lookup"><span data-stu-id="e5eaa-185">Error Handling</span></span>](xref:fundamentals/error-handling)
-- [<span data-ttu-id="e5eaa-186">ファイル プロバイダー</span><span class="sxs-lookup"><span data-stu-id="e5eaa-186">File Providers</span></span>](xref:fundamentals/file-providers)
-- [<span data-ttu-id="e5eaa-187">グローバライズとローカライズ</span><span class="sxs-lookup"><span data-stu-id="e5eaa-187">Globalization and localization</span></span>](xref:fundamentals/localization)
-- [<span data-ttu-id="e5eaa-188">ログ</span><span class="sxs-lookup"><span data-stu-id="e5eaa-188">Logging</span></span>](xref:fundamentals/logging)
-- [<span data-ttu-id="e5eaa-189">アプリケーション状態の管理</span><span class="sxs-lookup"><span data-stu-id="e5eaa-189">Managing Application State</span></span>](xref:fundamentals/app-state)
+ASP.NET Core は、プラットフォーム間でファイルを操作するための共通のインターフェイスを提供するファイル プロバイダーの使用により、ファイル システムへのアクセスを抽象化します。
+
+詳細については、[ファイル プロバイダー](xref:fundamentals/file-providers)に関するページを参照してください。
+
+## <a name="static-files"></a>静的ファイル
+
+静的ファイルのミドルウェアは、HTML、CSS、画像、JavaScript などの静的ファイルを処理します。
+
+詳細については、[静的ファイルの使用](xref:fundamentals/static-files)に関するページを参照してください。
+
+## <a name="hosting"></a>ホスト
+
+ASP.NET Core アプリは、アプリの起動と有効期間の管理を担当する*ホスト*を構成して起動します。
+
+詳細については、[ホスティング](xref:fundamentals/hosting)に関するページを参照してください。
+
+## <a name="session-and-application-state"></a>セッションとアプリケーションの状態
+
+セッション状態は ASP.NET Core の機能で、これを使用することでユーザーが Web アプリを参照中にユーザー データを保存して格納することができます。
+
+詳細については、[セッションとアプリケーション状態](xref:fundamentals/app-state)に関するページを参照してください。
+
+## <a name="servers"></a>サーバー
+
+ASP.NET Core のホスティング モデルは、直接要求をリッスンしません。 ホスティング モデルは HTTP サーバー実装に依存して要求をアプリに転送します。 転送された要求は、インターフェイスを介してアクセス可能な一連の機能オブジェクトとしてラップされます。 ASP.NET Core には、[Kestrel](xref:fundamentals/servers/kestrel) と呼ばれる、マネージド クロスプラットフォーム Web サーバーが含まれています。 Kestrel は多くの場合、[IIS](https://www.iis.net/) や [nginx](http://nginx.org) などの実稼働 Web サーバーの背後で実行されます。 Kestrel は、エッジ サーバーとして実行することができます。
+
+詳細については、[サーバー](xref:fundamentals/servers/index)に関するページと、次のトピックを参照してください。
+
+* [Kestrel](xref:fundamentals/servers/kestrel)
+* [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)
+* [HTTP.sys](xref:fundamentals/servers/httpsys) (旧称 [WebListener](xref:fundamentals/servers/weblistener))
+
+## <a name="globalization-and-localization"></a>グローバリゼーションとローカリゼーション
+
+ASP.NET Core で多言語の Web サイトを作成すると、より幅広い対象者がサイトにアクセスできるようになります。 ASP.NET Core は、さまざまな言語と文化にローカライズするためのサービスとミドルウェアを提供します。
+
+詳細については、[グローバリゼーションとローカリゼーション](xref:fundamentals/localization)に関するページを参照してください。
+
+## <a name="request-features"></a>要求機能
+
+HTTP の要求と応答に関連する Web サーバーの実装の詳細が、インターフェイスで定義されています。 これらのインターフェイスは、サーバーの実装とミドルウェアがアプリのホスティングのパイプラインを作成および変更するために使用します。
+
+詳細については、 [要求機能](xref:fundamentals/request-features)に関するページを参照してください。
+
+## <a name="open-web-interface-for-net-owin"></a>Open Web Interface for .NET (OWIN)
+
+ASP.NET Core は、Open Web Interface for .NET (OWIN) をサポートします。 OWIN により、Web アプリを Web サーバーから切り離すことが可能になります。
+
+詳細については、[Open Web Interface for .NET (OWIN)](xref:fundamentals/owin)に関するページを参照してください。
+
+## <a name="websockets"></a>WebSocket
+
+[WebSocket](https://wikipedia.org/wiki/WebSocket) は TCP 接続を使用した双方向の永続的通信チャネルを有効にするプロトコルです。 チャット、株価情報、ゲームなどのアプリ、さらに Web アプリでのリアルタイムな機能が必要とされるあらゆる場所で使用されます。 ASP.NET Core は、Web ソケットの機能をサポートします。
+
+詳細については、[WebSockets](xref:fundamentals/websockets) に関するページを参照してください。
+
+## <a name="microsoftaspnetcoreall-metapackage"></a>Microsoft.AspNetCore.All メタパッケージ
+
+ASP.NET Core の [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) メタパッケージには、次のものが含まれます。
+
+* ASP.NET Core チームでサポートされるすべてのパッケージ。
+* Entity Framework Core でサポートされるすべてのパッケージ。 
+* ASP.NET Core および Entity Framework Core で使用される内部およびサードパーティの依存関係。
+
+詳細については、 [Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)に関するページを参照してください。
+
+## <a name="net-core-vs-net-framework-runtime"></a>.NET Core と .NET Framework ランタイム
+
+ASP.NET Core アプリは、.NET Core または .NET Framework ランタイムを対象にすることができます。
+
+詳細については、「[サーバー アプリ用 .NET Core と .NET Framework の選択](/dotnet/articles/standard/choosing-core-framework-server)」を参照してください。
+
+## <a name="choose-between-aspnet-core-and-aspnet"></a>ASP.NET Core と ASP.NET の選択
+
+ASP.NET Core と ASP.NET の選択の詳細については、「[ ASP.NET と ASP.NET Core の選択](xref:fundamentals/choose-between-aspnet-and-aspnetcore)」を参照してください。
