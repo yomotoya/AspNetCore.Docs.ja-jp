@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 054b3e9f1e2bcfe1e4a75eca4d9dc6326ee6e44f
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 2a92c50085e70b4a505913c86348ba5fe54f6d13
+ms.sourcegitcommit: 67811da1278c75cb10994602c13bd5adec3f0907
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="working-with-multiple-environments"></a>複数の環境での作業
 
@@ -23,11 +23,11 @@ ms.lasthandoff: 10/01/2017
 
 ASP.NET Core は、開発、ステージング、運用環境など、複数の環境間でのアプリの動作を制御するためのサポートを提供します。 環境変数は、その環境用に構成するアプリを許可する、ランタイム環境を示すために使用されます。
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="development-staging-production"></a>開発、ステージング、実稼働環境
 
-ASP.NET Core を参照して、特定[環境変数](https://github.com/aspnet/Home/wiki)、`ASPNETCORE_ENVIRONMENT`にで、アプリケーションが実行されている環境について説明します。 この変数を設定する任意の値が、通常使用される 3 つの値: `Development`、 `Staging`、および`Production`です。 これらのサンプルで使用される値と ASP.NET Core で提供されるテンプレートが表示されます。
+ASP.NET Core は、特定の環境変数を参照`ASPNETCORE_ENVIRONMENT`にで、アプリケーションが実行されている環境について説明します。 この変数を設定する任意の値が、通常使用される 3 つの値: `Development`、 `Staging`、および`Production`です。 これらのサンプルで使用される値と ASP.NET Core で提供されるテンプレートが表示されます。
 
 現在の環境設定を検出できますプログラムから、アプリケーション内で。 環境を使用してさらに、[タグ ヘルパー](../mvc/views/tag-helpers/index.md)に含める特定のセクションで、[ビュー](../mvc/views/index.md)現在アプリケーション環境に基づきます。
 

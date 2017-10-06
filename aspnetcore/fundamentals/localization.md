@@ -11,17 +11,17 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 85a192bf0b2eb245ecdaaa8ffa1c8dd2f43b45b0
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 9ff2fb92c81719c7278d70b5df5387f1244195bf
+ms.sourcegitcommit: e7f01a649f240b6b57118c53314ab82f7f36f2eb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>グローバリゼーションとローカリゼーション ASP.NET Core
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Damien Bowden](https://twitter.com/damien_bod)、 [Bart Calixto](https://twitter.com/bartmax)、 [Nadeem Afana](https://twitter.com/NadeemAfana)、および[Hisham Bin Ateya](https://twitter.com/hishambinateya)
 
-ASP.NET Core 多言語 web サイトを作成すると、多数の対象者に到達するようにサイトが許可されます。 ASP.NET Core は、さまざまな言語およびカルチャにローカライズするためのサービスとミドルウェアを提供します。
+ASP.NET Core 多言語 web サイトを作成すると、多数の対象者に到達するようにサイトが許可されます。 ASP.NET Core は、さまざまな言語と文化にローカライズするためのサービスとミドルウェアを提供します。
 
 国際化では、[グローバリゼーション](https://docs.microsoft.com/dotnet/api/system.globalization)と[ローカリゼーション](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization)です。 グローバリゼーションとは異なるカルチャをサポートするアプリを設計するプロセスです。 グローバリゼーションでは、入力、表示、および定義済みの一連の特定の地理的領域に関連する言語のスクリプトの出力のサポートを追加します。
 
@@ -43,7 +43,7 @@ ASP.NET Core で導入された`IStringLocalizer`と`IStringLocalizer<T>`ロー�
 
 上記のコードで、`IStringLocalizer<T>`実装に由来[依存性の注入](dependency-injection.md)です。 「タイトルは」のローカライズされた値が見つからないかどうかは、インデクサーのキーが返されます、つまり、文字列「タイトルは」です。 アプリで、既定の言語のリテラル文字列をそのままし、ローカライザーにラップされるよう、アプリの開発に専念することができます。 既定の言語でアプリを開発し、既定のリソース ファイルを作成しなくても、ローカリゼーション手順用に準備します。 または、従来のアプローチを使用し、既定の言語文字列を取得するキーを指定できます。 多くの開発者にとって新しいワークフローの既定の言語がない*.resx*ファイルと、文字列リテラルをラップすることだけがアプリをローカライズするオーバーヘッドを削減できます。 他の開発者には、そのやすく長い文字列リテラルを操作およびローカライズされた文字列を更新しやすくように従来の作業の流れを選びます。
 
-使用して、 `IHtmlLocalizer<T>` HTML を格納しているリソースの実装です。 `IHtmlLocalizer`HTML では、リソース文字列はリソース文字列ではなくでフォーマットされている引数をエンコードします。 サンプルでは、次の値のみ強調表示されます`name`パラメーターは、HTML エンコードします。
+使用して、 `IHtmlLocalizer<T>` HTML を格納しているリソースの実装です。 `IHtmlLocalizer`HTML エンコードされたリソース文字列で書式設定される引数が、HTML ではありませんは、リソース文字列そのものをエンコードします。 サンプルでは、次の値のみ強調表示されます`name`パラメーターは、HTML エンコードします。
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
@@ -317,6 +317,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 * カルチャ: は、言語および、必要に応じて、領域です。
 * ニュートラル カルチャ: 指定した言語が地域ではないカルチャ。 (たとえば"en"、"es")
 * 特定のカルチャ: 指定された言語と地域を持つカルチャ。 (例"EN-US"、"EN-GB"、"es CL") の
+* カルチャの親: を含む特定のカルチャ ニュートラル カルチャです。 (たとえば、"en"は"EN-US"と"EN-GB"の親カルチャ)
 * ロケール: ロケールとは、カルチャと同じです。
 
 ## <a name="additional-resources"></a>その他の技術情報
