@@ -11,11 +11,11 @@ ms.assetid: 0377a02d-8fda-47a5-929a-24a16e1d2c93
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/web-publishing-vs
-ms.openlocfilehash: 8a2584363cbf418281cc0e2d796debe57fab846f
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: f010f9d90165ce4d6718fe1440e600985f21a01d
+ms.sourcegitcommit: f33fb9d648a611bb7b2b96291dd2176b230a9a43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="create-publish-profiles-for-visual-studio-and-msbuild-to-deploy-aspnet-core-apps"></a>ASP.NET Core アプリを展開するために、Visual Studio および MSBuild 用の発行プロファイルを作成する
 
@@ -202,7 +202,36 @@ Visual Studio で発行プロファイルを作成すると、*Properties/Publis
 
 ASP.NET Core で Web アプリを発行する方法の概要については、「[Publishing and Deployment](index.md)」(発行と配置) を参照してください。 [Publishing and Deployment](index.md) は、https://github.com/aspnet/websdk のオープン ソース プロジェクトです。
 
-現在、`dotnet publish` に発行プロファイルを使用する機能はありません。 発行プロファイルを使用するには、`dotnet build` を使用します。 `dotnet build` はプロジェクトの MSBuild を呼び出します。 代わりに、`msbuild` を直接呼び出します。
+ `dotnet publish` は Msdeploy のフォルダーを使用することができ、[KUDU](https://github.com/projectkudu/kudu/wiki) は次のプロファイルを発行します。
+ 
+フォルダー (クロスプラット フォームで機能) `dotnet publish WebApplication.csproj /p:PublishProfile=<FolderProfileName>`
+
+Msdeploy (msdeploy はクロスプラットフォームではないため、これは現在 Windows のみで機能します): `dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployProfileName> /p:Password=<DeploymentPassword>`
+
+Msdeploy パッケージ (msdeploy はクロスプラットフォームではないため、これは現在 Windows のみで機能します): `dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployPackageProfileName>`
+
+上記の例で、`deployonbuild` を `dotnet publish` に**渡さない**ようにしてください。
+
+詳細については、「[Microsoft.NET.Sdk.Publish](https://github.com/aspnet/websdk#microsoftnetsdkpublish)」を参照してください
+
+`dotnet publish` は、任意のプラットフォームから Azure に発行する KUDU API をサポートしています。 Visual Studio の発行は、KUDU API をサポートしていますが、Azure へのクロスプラットフォームの発行は websdk がサポートしています。
+
+次の内容の発行プロファイルを *[Properties/PublishProfiles]* フォルダーに追加します。
+
+```xml
+<Project>
+<PropertyGroup>
+                <PublishProtocol>Kudu</PublishProtocol>
+                <PublishSiteName>nodewebapp</PublishSiteName>
+                <UserName>username</UserName>
+                <Password>password</Password>
+</PropertyGroup>
+</Project>
+```
+
+次のコマンドを実行すると発行するコンテンツが圧縮され、KUDU API を使用して Azure に発行されます。
+
+`dotnet publish /p:PublishProfile=Azure /p:Configuration=Release`
 
 発行プロファイルを使用する場合、次の MSBuild プロパティを設定します。
 

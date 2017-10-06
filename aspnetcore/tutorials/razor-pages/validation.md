@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 9a822457d1581a70d59c553eb28133815f395d7d
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 302e3077e8cf1cc3b145fcb4ba2ff677023d1524
+ms.sourcegitcommit: c9658c0db446f7cb2e443f62b00cf773bed545fa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 09/30/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Razor ページに検証を追加する
 
@@ -36,7 +36,12 @@ Razor ページと Entity Framework が提供している検証のサポート�
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
-検証属性で、モデルのプロパティに適用されている動作を指定します。 `Required` および `MinimumLength` 属性は、プロパティに値が必要であることを示します。ただし、検証制約を満たすためにユーザーが空白を入力することは禁止されていません。 `RegularExpression` 属性は、入力できる文字を制限するために使用されます。 上記のコードで、`Genre` と `Rating` は、文字のみを使用する必要があります (空白、数字、特殊文字は使用できません)。 `Range` 属性は、指定した範囲内に値を制限します。 `StringLength` 属性は文字列の最大長を設定します。必要に応じて、最短長も設定できます。 [[値の型]](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (`decimal`、`int`、`float`、`DateTime` など) は本来は必須ではなく、`[Required]` 属性を必要としていません。
+検証属性で、モデルのプロパティに適用されている動作を指定します。
+
+* `Required` と `MinimumLength` の属性は、プロパティに値が必要なことを示します。 ただし、ユーザーが空白を入力することで null 許容型の妥当性制約を満たすことはできます。 null 非許容の[値の型](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (`decimal`、`int`、`float`、`DateTime` など) は本質的に必須ではなく、`Required` 属性を必要としません。
+* `RegularExpression` 属性は、ユーザーが入力できる文字を制限します。 上記のコードで、`Genre` と `Rating` は、文字のみを使用する必要があります (空白、数字、特殊文字は使用できません)。
+* `Range` 属性は、指定した範囲に値を制限します。
+* `StringLength` 属性は文字列の最大長を設定します。必要に応じて、最短長も設定できます。 
 
 ASP.NET Core で検証規則を自動的に適用すると、アプリをより堅牢にすることができます。 モデルに自動検証を適用すると、新しいコードを追加したときに適用を思い出す必要がないので、アプリの保護に役立ちます。
 
@@ -127,6 +132,10 @@ public DateTime ReleaseDate { get; set; }
 次のコードは、1 行で複数の属性を組み合わせる例です。
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+
+### <a name="publish-to-azure"></a>Azure に発行する
+
+このアプリを Azure に発行する方法については、「[Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する](xref:tutorials/publish-to-azure-webapp-using-vs)」をご覧ください。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
