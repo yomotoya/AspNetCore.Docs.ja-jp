@@ -209,6 +209,7 @@
 #### [Azure AD を使用した WPF アプリケーションからの ASP.NET Core Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 #### [Azure AD を使用した ASP.NET Core Web アプリケーションでの Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
 ### [IdentityServer4 での ASP.NET Core アプリのセキュリティ保護](https://identityserver4.readthedocs.io/)
+### [Azure App Service 認証 (Easy Auth) での ASP.NET Core アプリのセキュリティ保護](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)
 ## [承認](xref:security/authorization/index)
 ### [はじめに](xref:security/authorization/introduction)
 ### [承認によって保護されたユーザー データでのアプリの作成](xref:security/authorization/secure-data)
