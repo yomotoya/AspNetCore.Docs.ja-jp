@@ -68,7 +68,7 @@
 ## [モバイル アプリのバックエンド サービスの作成](mobile/native-mobile-backend.md)
 ## [Web API の構築](mvc/web-api/index.md)
 ## [Web API の作成](xref:tutorials/first-web-api-mac)
-### [Swagger を使用する ASP.NET Web API のヘルプ ページ](tutorials/web-api-help-pages-using-swagger.md)
+### [Swagger を使用する ASP.NET Core Web API のヘルプ ページ](tutorials/web-api-help-pages-using-swagger.md)
 ### [ネイティブ モバイル アプリケーションのバックエンド サービスの作成](mobile/native-mobile-backend.md)
 
 # [ASP.NET Core の基礎の概要](fundamentals/index.md)
@@ -279,7 +279,7 @@
 ## [ASP.NET Core 1.x から 2.0 へ](xref:migration/1x-to-2x/index)
 ### [認証と ID](xref:migration/1x-to-2x/identity-2x)
 
-# [API リファレンス](/aspnet/core/api/)
+# [API リファレンス](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0)
 
 # [2.0 リリース ノート](aspnetcore-2.0.md)
 ## [1.1 リリース ノート](aspnetcore-1.1.md)

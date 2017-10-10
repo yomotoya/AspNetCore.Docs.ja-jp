@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/index
-ms.openlocfilehash: b3ea7688eefa69171fd1179de42497c98cf9302e
-ms.sourcegitcommit: 4d9c6d47bded895f3d9a35e9550e31ae213c083c
+ms.openlocfilehash: 4962361aa0fc8a61cfc771ed3123a3bafdbe6100
+ms.sourcegitcommit: fe25b8163e9e4115915b3293936e9da646fff84f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core チュートリアル
 
@@ -41,7 +41,7 @@ ASP.NET Core アプリケーションの開発に関する以下のステップ 
 * [ASP.NET Core と Visual Studio for Mac で Web API を作成する](xref:tutorials/first-web-api-mac)
 * [ASP.NET Core と Visual Studio for Windows で Web API を作成する](first-web-api.md)
 * [ASP.NET Core と Visual Studio Code で Web API を作成する](web-api-vsc.md)
-* [Swagger を使用する ASP.NET Web API のヘルプ ページ](web-api-help-pages-using-swagger.md)
+* [Swagger を使用する ASP.NET Core Web API のヘルプ ページ](web-api-help-pages-using-swagger.md)
 * [ネイティブ モバイル アプリケーションのバックエンド Web サービスの作成](../mobile/native-mobile-backend.md)
 
 ## <a name="working-with-data"></a>データの操作
