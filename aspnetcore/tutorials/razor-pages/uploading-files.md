@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 5a3dc302186c7fd0a5730bc2c7599676fb543ba7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 3c5841f8c623f09530b60cc9997281dcb8e3c4f6
+ms.sourcegitcommit: 94b7e0f95b92c98b182a93d2b3dc0287e5f97976
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>SP.NET Core で Razor ページにファイルをアップロードする
 
@@ -42,11 +42,9 @@ ms.lasthandoff: 09/28/2017
 
 ## <a name="update-the-moviecontext"></a>MovieContext を更新する
 
-スケジュールの `MovieContext` (*Models/MovieContext.cs*) で `DbSet` を指定し、`DbSet` プロパティに単数形のデータベース テーブル名 (`Schedule`) を設定する行を `OnModelCreating` メソッドに追加します。
+このスケジュールは、`MovieContext` (*Models/MovieContext.cs*) で `DbSet` を指定します。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13,18)]
-
-注: `OnModelCreating` をオーバーライドして単数形のテーブル名を使用しない場合、Entity Framework では、複数形のデータベース テーブル名が使用されるものと想定されます (`Movies` や `Schedules` など)。 テーブル名を複数形にするかどうかについては、開発者の間で意見が分かれるでしょう。 `MovieContext` とデータベースを同じように構成します。 いずれの場所でも、単数形か複数形のデータベース テーブル名を使用します。
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13)]
 
 ## <a name="add-the-schedule-table-to-the-database"></a>Schedule テーブルをデータベースに追加する
 
@@ -97,7 +95,7 @@ Update-Database
 
 [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet3)]
 
-フォームがサーバーに投稿されると、`ModelState` がチェックされます。 無効な場合、`Schedules` が再ビルドされます。ページがレンダリングされ、ページ検証に失敗した理由を伝える検証メッセージが表示されます。 有効な場合、`FileUpload` プロパティが *OnPostAsync* で使用され、バージョンが 2 つあるスケジュール ファイルがアップロードされ、データを保存するための新しい `Schedule` オブジェクトが作成されます。 スケジュールがデータベースに保存されます。
+フォームがサーバーに投稿されると、`ModelState` がチェックされます。 無効な場合、`Schedule` が再ビルドされます。ページがレンダリングされ、ページ検証に失敗した理由を伝える検証メッセージが表示されます。 有効な場合、`FileUpload` プロパティが *OnPostAsync* で使用され、バージョンが 2 つあるスケジュール ファイルがアップロードされ、データを保存するための新しい `Schedule` オブジェクトが作成されます。 スケジュールがデータベースに保存されます。
 
 [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet4)]
 

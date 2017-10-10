@@ -5,27 +5,25 @@ description:
 keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 09/01/2017
+ms.date: 10/05/2017
 ms.topic: get-started-article
 ms.assetid: 78571e4a-a143-452d-9cf2-0860f85972e6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 0c0ec1c7c1408b0460c594a47a3e5738cd170d5f
-ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
+ms.openlocfilehash: df22852d2daddb2a3faef8404d0d250a6a1697a5
+ms.sourcegitcommit: e987c950caae7af9c4ece8a82228caa364e0a5df
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/05/2017
 ---
 # <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する
 
 [Rick Anderson](https://twitter.com/RickAndMSFT)、[Cesar Blum Silveira](https://github.com/cesarbs)、[Rachel Appel](https://twitter.com/rachelappel)
 
-## <a name="set-up-the-development-environment"></a>開発環境を設定する
+## <a name="set-up"></a>設定
 
-* 最新の [Azure SDK for Visual Studio](https://www.visualstudio.com/vs/azure-tools/) をインストールします。 Visual Studio をまだインストールしていない場合は、この SDK でインストールされます。
-
-* [Azure アカウント](https://portal.azure.com/)を確認します。 [無料の Azure アカウントを開く](https://azure.microsoft.com/pricing/free-trial/)か、[Visual Studio サブスクライバー向けの特典をアクティブ化する](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)ことができます。
+* Azure アカウントをお持ちでない場合は、[Azure 無料アカウント](https://aka.ms/K5y5yh)を開きます。 
 
 ## <a name="create-a-web-app"></a>Web アプリの作成
 
@@ -186,8 +184,4 @@ Visual Studio が **[App Service の作成]** ダイアログに戻ります。
 
 ### <a name="next-steps"></a>次のステップ
 
-* [ASP.NET Core MVC と Visual Studio の概要](first-mvc-app/start-mvc.md)
-
-* [ASP.NET Core の概要](../index.md)
-
-* [ASP.NET Core の基礎の概要](../fundamentals/index.md)
+* [Visual Studio と Git による Azure への継続的配置](../publishing/azure-continuous-deployment.md)
