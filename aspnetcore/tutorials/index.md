@@ -10,68 +10,68 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/index
-ms.openlocfilehash: b3ea7688eefa69171fd1179de42497c98cf9302e
-ms.sourcegitcommit: 4d9c6d47bded895f3d9a35e9550e31ae213c083c
+ms.openlocfilehash: 4962361aa0fc8a61cfc771ed3123a3bafdbe6100
+ms.sourcegitcommit: fe25b8163e9e4115915b3293936e9da646fff84f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 10/09/2017
 ---
-# <a name="aspnet-core-tutorials"></a><span data-ttu-id="857e5-104">ASP.NET Core チュートリアル</span><span class="sxs-lookup"><span data-stu-id="857e5-104">ASP.NET Core tutorials</span></span>
+# <a name="aspnet-core-tutorials"></a>ASP.NET Core チュートリアル
 
-<span data-ttu-id="857e5-105">ASP.NET Core アプリケーションの開発に関する以下のステップ バイ ステップ ガイドが用意されています。</span><span class="sxs-lookup"><span data-stu-id="857e5-105">The following step-by-step guides for developing ASP.NET Core applications are available:</span></span>
+ASP.NET Core アプリケーションの開発に関する以下のステップ バイ ステップ ガイドが用意されています。
 
-## <a name="building-web-applications"></a><span data-ttu-id="857e5-106">Web アプリケーションの構築</span><span class="sxs-lookup"><span data-stu-id="857e5-106">Building web applications</span></span>
+## <a name="building-web-applications"></a>Web アプリケーションの構築
 
-<span data-ttu-id="857e5-107">[Razor ページ](xref:mvc/razor-pages/index)は、ASP.NET Core 2.0 で Web UI を作成するための推奨される方法です。</span><span class="sxs-lookup"><span data-stu-id="857e5-107">[Razor Pages](xref:mvc/razor-pages/index) is the recommended approach to create a Web UI with ASP.NET Core 2.0.</span></span>
+[Razor ページ](xref:mvc/razor-pages/index)は、ASP.NET Core 2.0 で Web UI を作成するための推奨される方法です。
 
-* [<span data-ttu-id="857e5-108">ASP.NET Core での Razor ページの概要</span><span class="sxs-lookup"><span data-stu-id="857e5-108">Introduction to Razor Pages in ASP.NET Core</span></span>](xref:mvc/razor-pages/index)
-* [<span data-ttu-id="857e5-109">Windows で ASP.NET Core を使用して Razor ページ Web アプリを作成する</span><span class="sxs-lookup"><span data-stu-id="857e5-109">Create a Razor Pages web app with ASP.NET Core on Windows</span></span>](xref:tutorials/razor-pages/index)
-* [<span data-ttu-id="857e5-110">Mac で ASP.NET Core を使用して Razor ページ Web アプリを作成する</span><span class="sxs-lookup"><span data-stu-id="857e5-110">Create a Razor Pages web app with ASP.NET Core on Mac</span></span>](xref:tutorials/razor-pages-mac/index)  
-* [<span data-ttu-id="857e5-111">VS Code で ASP.NET Core を使用して Razor ページ Web アプリを作成する</span><span class="sxs-lookup"><span data-stu-id="857e5-111">Create a Razor Pages web app with ASP.NET Core with VS Code</span></span>](xref:tutorials/razor-pages-vsc/index) 
-* [<span data-ttu-id="857e5-112">Windows で Visual Studio を使用して ASP.NET Core MVC Web アプリを作成する</span><span class="sxs-lookup"><span data-stu-id="857e5-112">Create an ASP.NET Core MVC web app with Visual Studio on Windows</span></span>](first-mvc-app/index.md)
-* [<span data-ttu-id="857e5-113">Mac で Visual Studio を使用して ASP.NET Core MVC Web アプリを作成する</span><span class="sxs-lookup"><span data-stu-id="857e5-113">Create an ASP.NET Core MVC web app with Visual Studio on Mac</span></span>](first-mvc-app-mac/index.md)
-* [<span data-ttu-id="857e5-114">Mac または Linux で Visual Studio Code を使用して ASP.NET Core MVC Web アプリを作成する</span><span class="sxs-lookup"><span data-stu-id="857e5-114">Create an ASP.NET Core MVC web app with Visual Studio Code on Mac or Linux </span></span>](first-mvc-app-xplat/index.md)
-* [<span data-ttu-id="857e5-115">Visual Studio を使用した ASP.NET Core と Entity Framework Core の概要</span><span class="sxs-lookup"><span data-stu-id="857e5-115">Getting started with ASP.NET Core and Entity Framework Core using Visual Studio</span></span>](../data/ef-mvc/index.md)
-* [<span data-ttu-id="857e5-116">Yeoman でのプロジェクトの構築</span><span class="sxs-lookup"><span data-stu-id="857e5-116">Building projects with Yeoman</span></span>](../client-side/yeoman.md)
-* [<span data-ttu-id="857e5-117">タグ ヘルパーの作成</span><span class="sxs-lookup"><span data-stu-id="857e5-117">Authoring Tag Helpers</span></span>](../mvc/views/tag-helpers/authoring.md)
-* [<span data-ttu-id="857e5-118">単純なビュー コンポーネントの作成</span><span class="sxs-lookup"><span data-stu-id="857e5-118">Creating a simple view component</span></span>](../mvc/views/view-components.md#walkthrough-creating-a-simple-view-component)
-* [<span data-ttu-id="857e5-119">dotnet watch を使用した ASP.NET Core アプリケーションの開発</span><span class="sxs-lookup"><span data-stu-id="857e5-119">Developing ASP.NET Core applications using dotnet watch</span></span>](dotnet-watch.md)
+* [ASP.NET Core での Razor ページの概要](xref:mvc/razor-pages/index)
+* [Windows で ASP.NET Core を使用して Razor ページ Web アプリを作成する](xref:tutorials/razor-pages/index)
+* [Mac で ASP.NET Core を使用して Razor ページ Web アプリを作成する](xref:tutorials/razor-pages-mac/index)  
+* [VS Code で ASP.NET Core を使用して Razor ページ Web アプリを作成する](xref:tutorials/razor-pages-vsc/index) 
+* [Windows で Visual Studio を使用して ASP.NET Core MVC Web アプリを作成する](first-mvc-app/index.md)
+* [Mac で Visual Studio を使用して ASP.NET Core MVC Web アプリを作成する](first-mvc-app-mac/index.md)
+* [Mac または Linux で Visual Studio Code を使用して ASP.NET Core MVC Web アプリを作成する](first-mvc-app-xplat/index.md)
+* [Visual Studio を使用した ASP.NET Core と Entity Framework Core の概要](../data/ef-mvc/index.md)
+* [Yeoman でのプロジェクトの構築](../client-side/yeoman.md)
+* [タグ ヘルパーの作成](../mvc/views/tag-helpers/authoring.md)
+* [単純なビュー コンポーネントの作成](../mvc/views/view-components.md#walkthrough-creating-a-simple-view-component)
+* [dotnet watch を使用した ASP.NET Core アプリケーションの開発](dotnet-watch.md)
 
-## <a name="building-web-apis"></a><span data-ttu-id="857e5-120">Web API の構築</span><span class="sxs-lookup"><span data-stu-id="857e5-120">Building web APIs</span></span>
-* [<span data-ttu-id="857e5-121">ASP.NET Core と Visual Studio for Mac で Web API を作成する</span><span class="sxs-lookup"><span data-stu-id="857e5-121">Create a Web API with ASP.NET Core and Visual Studio for Mac</span></span>](xref:tutorials/first-web-api-mac)
-* [<span data-ttu-id="857e5-122">ASP.NET Core と Visual Studio for Windows で Web API を作成する</span><span class="sxs-lookup"><span data-stu-id="857e5-122">Create a Web API with ASP.NET Core and Visual Studio for Windows</span></span>](first-web-api.md)
-* [<span data-ttu-id="857e5-123">ASP.NET Core と Visual Studio Code で Web API を作成する</span><span class="sxs-lookup"><span data-stu-id="857e5-123">Create a Web API with ASP.NET Core and Visual Studio Code</span></span>](web-api-vsc.md)
-* [<span data-ttu-id="857e5-124">Swagger を使用する ASP.NET Web API のヘルプ ページ</span><span class="sxs-lookup"><span data-stu-id="857e5-124">ASP.NET Web API Help Pages using Swagger</span></span>](web-api-help-pages-using-swagger.md)
-* [<span data-ttu-id="857e5-125">ネイティブ モバイル アプリケーションのバックエンド Web サービスの作成</span><span class="sxs-lookup"><span data-stu-id="857e5-125">Creating backend web services for native mobile applications</span></span>](../mobile/native-mobile-backend.md)
+## <a name="building-web-apis"></a>Web API の構築
+* [ASP.NET Core と Visual Studio for Mac で Web API を作成する](xref:tutorials/first-web-api-mac)
+* [ASP.NET Core と Visual Studio for Windows で Web API を作成する](first-web-api.md)
+* [ASP.NET Core と Visual Studio Code で Web API を作成する](web-api-vsc.md)
+* [Swagger を使用する ASP.NET Core Web API のヘルプ ページ](web-api-help-pages-using-swagger.md)
+* [ネイティブ モバイル アプリケーションのバックエンド Web サービスの作成](../mobile/native-mobile-backend.md)
 
-## <a name="working-with-data"></a><span data-ttu-id="857e5-126">データの操作</span><span class="sxs-lookup"><span data-stu-id="857e5-126">Working with data</span></span>
-* [<span data-ttu-id="857e5-127">Visual Studio を使用した ASP.NET Core と Entity Framework Core の概要</span><span class="sxs-lookup"><span data-stu-id="857e5-127">Getting started with ASP.NET Core and Entity Framework Core using Visual Studio</span></span>](../data/ef-mvc/index.md)
-* [<span data-ttu-id="857e5-128">ASP.NET Core と EF Core - 新しいデータベース</span><span class="sxs-lookup"><span data-stu-id="857e5-128">ASP.NET Core with EF Core - new database</span></span>](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
-* [<span data-ttu-id="857e5-129">ASP.NET Core と EF Core - 既存のデータベース</span><span class="sxs-lookup"><span data-stu-id="857e5-129">ASP.NET Core with EF Core - existing database</span></span>](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
+## <a name="working-with-data"></a>データの操作
+* [Visual Studio を使用した ASP.NET Core と Entity Framework Core の概要](../data/ef-mvc/index.md)
+* [ASP.NET Core と EF Core - 新しいデータベース](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
+* [ASP.NET Core と EF Core - 既存のデータベース](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
 
-## <a name="authentication-and-authorization"></a><span data-ttu-id="857e5-130">認証と承認</span><span class="sxs-lookup"><span data-stu-id="857e5-130">Authentication and authorization</span></span>
-* [<span data-ttu-id="857e5-131">Facebook、Google、他の外部プロバイダーを使用する認証の有効化</span><span class="sxs-lookup"><span data-stu-id="857e5-131">Enabling authentication using Facebook, Google and other external providers</span></span>](../security/authentication/social/index.md)
-* [<span data-ttu-id="857e5-132">アカウントの確認とパスワードの回復</span><span class="sxs-lookup"><span data-stu-id="857e5-132">Account Confirmation and Password Recovery</span></span>](../security/authentication/accconfirm.md)
-* [<span data-ttu-id="857e5-133">SMS での 2 要素認証</span><span class="sxs-lookup"><span data-stu-id="857e5-133">Two-factor authentication with SMS</span></span>](../security/authentication/2fa.md)
+## <a name="authentication-and-authorization"></a>認証と承認
+* [Facebook、Google、他の外部プロバイダーを使用する認証の有効化](../security/authentication/social/index.md)
+* [アカウントの確認とパスワードの回復](../security/authentication/accconfirm.md)
+* [SMS での 2 要素認証](../security/authentication/2fa.md)
 
-## <a name="client-side-development"></a><span data-ttu-id="857e5-134">クライアント側の開発</span><span class="sxs-lookup"><span data-stu-id="857e5-134">Client-side development</span></span>
-* [<span data-ttu-id="857e5-135">Gulp の使用</span><span class="sxs-lookup"><span data-stu-id="857e5-135">Using Gulp</span></span>](../client-side/using-gulp.md)
-* [<span data-ttu-id="857e5-136">Grunt の使用</span><span class="sxs-lookup"><span data-stu-id="857e5-136">Using Grunt</span></span>](../client-side/using-grunt.md)
-* [<span data-ttu-id="857e5-137">Bower でのクライアント側パッケージの管理</span><span class="sxs-lookup"><span data-stu-id="857e5-137">Manage client-side packages with Bower</span></span>](../client-side/bower.md)
-* [<span data-ttu-id="857e5-138">Bootstrap による美しくて応答性のよい Web サイトの構築</span><span class="sxs-lookup"><span data-stu-id="857e5-138">Building beautiful, responsive sites with Bootstrap</span></span>](../client-side/bootstrap.md)
+## <a name="client-side-development"></a>クライアント側の開発
+* [Gulp の使用](../client-side/using-gulp.md)
+* [Grunt の使用](../client-side/using-grunt.md)
+* [Bower でのクライアント側パッケージの管理](../client-side/bower.md)
+* [Bootstrap による美しくて応答性のよい Web サイトの構築](../client-side/bootstrap.md)
 
-## <a name="testing"></a><span data-ttu-id="857e5-139">テスト中</span><span class="sxs-lookup"><span data-stu-id="857e5-139">Testing</span></span>
-* [<span data-ttu-id="857e5-140">dotnet テストを使用した .NET Core での単体テスト</span><span class="sxs-lookup"><span data-stu-id="857e5-140">Unit Testing in .NET Core using dotnet test</span></span>](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
+## <a name="testing"></a>テスト中
+* [dotnet テストを使用した .NET Core での単体テスト](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-## <a name="publishing-and-deployment"></a><span data-ttu-id="857e5-141">発行と配置</span><span class="sxs-lookup"><span data-stu-id="857e5-141">Publishing and deployment</span></span>
-* [<span data-ttu-id="857e5-142">Visual Studio を使用して Azure に ASP.NET Core Web アプリを配置する</span><span class="sxs-lookup"><span data-stu-id="857e5-142">Deploy an ASP.NET Core web app to Azure using Visual Studio</span></span>](publish-to-azure-webapp-using-vs.md)
-* [<span data-ttu-id="857e5-143">継続的配置による Azure Web アプリへの発行</span><span class="sxs-lookup"><span data-stu-id="857e5-143">Publishing to an Azure Web App with Continuous Deployment</span></span>](../publishing/azure-continuous-deployment.md)
-* [<span data-ttu-id="857e5-144">リモート Docker ホストに ASP.NET コンテナーを配置する</span><span class="sxs-lookup"><span data-stu-id="857e5-144">Deploy an ASP.NET container to a remote Docker host</span></span>](https://docs.microsoft.com/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
-* [<span data-ttu-id="857e5-145">Nano Server での ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="857e5-145">ASP.NET Core on Nano Server</span></span>](nano-server.md)
-* [<span data-ttu-id="857e5-146">ASP.NET Core と Azure Service Fabric</span><span class="sxs-lookup"><span data-stu-id="857e5-146">ASP.NET Core and Azure Service Fabric</span></span>](https://docs.microsoft.com/azure/service-fabric/service-fabric-add-a-web-frontend)
+## <a name="publishing-and-deployment"></a>発行と配置
+* [Visual Studio を使用して Azure に ASP.NET Core Web アプリを配置する](publish-to-azure-webapp-using-vs.md)
+* [継続的配置による Azure Web アプリへの発行](../publishing/azure-continuous-deployment.md)
+* [リモート Docker ホストに ASP.NET コンテナーを配置する](https://docs.microsoft.com/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
+* [Nano Server での ASP.NET Core](nano-server.md)
+* [ASP.NET Core と Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-add-a-web-frontend)
 
 <a name="download"></a> 
-## <a name="how-to-download-a-sample"></a><span data-ttu-id="857e5-147">サンプルをダウンロードする方法</span><span class="sxs-lookup"><span data-stu-id="857e5-147">How to download a sample</span></span>
-1. <span data-ttu-id="857e5-148">[ASP.NET リポジトリの zip ファイルをダウンロード](https://codeload.github.com/aspnet/Docs/zip/master)します。</span><span class="sxs-lookup"><span data-stu-id="857e5-148">[Download the ASP.NET repository zip file](https://codeload.github.com/aspnet/Docs/zip/master).</span></span>
-1. <span data-ttu-id="857e5-149">*Docs-master.zip* ファイルを解凍します。</span><span class="sxs-lookup"><span data-stu-id="857e5-149">Unzip the *Docs-master.zip* file.</span></span>
-1. <span data-ttu-id="857e5-150">サンプル リンクの URL を使って、サンプル ディレクトリに移動します。</span><span class="sxs-lookup"><span data-stu-id="857e5-150">Use the URL in the sample link to help you navigate to the sample directory.</span></span> 
+## <a name="how-to-download-a-sample"></a>サンプルをダウンロードする方法
+1. [ASP.NET リポジトリの zip ファイルをダウンロード](https://codeload.github.com/aspnet/Docs/zip/master)します。
+1. *Docs-master.zip* ファイルを解凍します。
+1. サンプル リンクの URL を使って、サンプル ディレクトリに移動します。 
