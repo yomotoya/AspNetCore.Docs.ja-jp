@@ -5,18 +5,18 @@ description: "要求間で維持アプリケーションとユーザー (セッ�
 keywords: "アプリケーションの状態、セッション状態、クエリ文字列での ASP.NET Core の投稿します。"
 ms.author: riande
 manager: wpickett
-ms.date: 06/08/2017
+ms.date: 10/08/2017
 ms.topic: article
 ms.assetid: 18cda488-0769-4cb9-82f6-4c6685f2045d
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/app-state
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c639d3b0d896b927bb2b70658032fc1bd8e87191
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: f9c1d10101d23e105c4a8af41d851f69b1b6a175
+ms.sourcegitcommit: 9c27fa0f0c57ad611aa43f63afb9b9c9571d4a94
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>ASP.NET Core でのセッションおよびアプリケーションの状態の概要
 
@@ -26,7 +26,7 @@ HTTP は、ステートレス プロトコルです。 Web サーバーでは、
 
 ## <a name="session-state"></a>セッションの状態
 
-セッション状態は、保存し、ユーザーが web アプリを参照中にユーザー データの格納に使用できる ASP.NET Core の機能です。 サーバー上のディクショナリまたはハッシュ テーブルで構成される、セッション状態は、ブラウザーからの要求間でデータを保持します。 セッション データは、キャッシュによってバックアップされます。
+セッション状態は ASP.NET Core の機能で、これを使用することでユーザーが Web アプリを参照中にユーザー データを保存して格納することができます。 サーバー上のディクショナリまたはハッシュ テーブルで構成される、セッション状態は、ブラウザーからの要求間でデータを保持します。 セッション データは、キャッシュによってバックアップされます。
 
 ASP.NET Core は、クライアントには各要求を使用してサーバーに送信されたセッション ID が含まれた cookie を提供することにより、セッション状態を維持します。 サーバーは、セッション データをフェッチするのにセッション ID を使用します。 セッション cookie はブラウザーに固有であるためのブラウザーでセッションを共有することはできません。 ブラウザー セッションの終了時にのみ、セッション cookie が削除されます。 期限切れのセッションの cookie を受信すると、同じセッションの cookie を使用する新しいセッションが作成されます。 
 
@@ -37,38 +37,60 @@ ASP.NET Core は、クライアントには各要求を使用してサーバー�
 
 メモリ内のセッション プロバイダーは、ローカル サーバー上のセッション データを格納します。 サーバー ファームで web アプリを実行する場合は、特定のサーバーには、各セッションを関連付けるにスティッキー セッションを使用する必要があります。 Windows Azure Web サイトのプラットフォームでは、スティッキー セッション アプリケーション要求ルーティング処理 (ARR) が既定値です。 ただし、スティッキー セッションはスケーラビリティに影響を与えるし、web アプリの更新プログラムが複雑になることができます。 良いオプションは、Redis を使用する、またはスティッキー セッションを必要としないが、SQL Server の分散をキャッシュします。 詳細については、次を参照してください。[分散キャッシュを使用して作業](xref:performance/caching/distributed)です。 サービス プロバイダーの設定の詳細については、「[構成セッション](#configuring-session)この記事で後述します。
 
-このセクションの残りの部分では、ユーザー データを格納するためのオプションについて説明します。
 
 <a name="temp"></a>
-### <a name="tempdata"></a>TempData
+## <a name="tempdata"></a>TempData
 
-ASP.NET Core MVC を公開、 [TempData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller#Microsoft_AspNetCore_Mvc_Controller_TempData)プロパティを[コント ローラー](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller)です。 このプロパティは、読み取られるまでデータを格納します。 `Keep` メソッドと `Peek` メソッドは、削除せずにデータを確認するために使用できます。 `TempData`1 つの要求より多くのデータが必要なときにこのプロパティの値はリダイレクト、特に便利です。 `TempData`セッション状態の上に作成されています。 
+ASP.NET Core MVC を公開、 [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData)プロパティを[コント ローラー](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0)です。 このプロパティは、読み取られるまでデータを格納します。 `Keep` メソッドと `Peek` メソッドは、削除せずにデータを確認するために使用できます。 `TempData`1 つの要求より多くのデータが必要なときにこのプロパティの値はリダイレクト、特に便利です。 `TempData`プロバイダーで実装 TempData、たとえば、cookie またはセッション状態のいずれかを使用します。
 
-## <a name="cookie-based-tempdata-provider"></a>Cookie ベース TempData プロバイダー 
+### <a name="tempdata-providers"></a>TempData プロバイダー
 
-ASP.NET Core 1.1 以降では、cookie にユーザーの TempData を格納するのに、クッキー ベース TempData プロバイダーを使用できます。 Cookie ベースの TempData プロバイダーを有効にするには登録、`CookieTempDataProvider`サービス`ConfigureServices`:
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+ASP.NET Core 2.0 以降では、既定で TempData を cookie に格納する、クッキー ベース TempData プロバイダーが使用します。
+
+Cookie のデータがでエンコードされた、 [Base64UrlTextEncoder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder?view=aspnetcore-2.0)です。 Cookie が暗号化されており、チャンク、ため、1 つの cookie のサイズ制限については、ASP.NET Core 1.x は適用されません。 Cookie のデータが圧縮されていないため、暗号化されたデータの圧縮が問題につながるセキュリティなど、 [CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit))と[侵害](https://wikipedia.org/wiki/BREACH_(security_exploit))攻撃です。 Cookie ベースの TempData プロバイダーの詳細については、次を参照してください。 [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs)です。
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+ASP.NET Core 1.0 および 1.1 では、セッション状態 TempData プロバイダーは既定値です。
+
+--------------
+
+### <a name="choosing-a-tempdata-provider"></a>TempData プロバイダーを選択します。
+
+など、いくつかの考慮事項を伴う TempData プロバイダーを選択します。
+
+1. アプリケーションが既には、他の目的でセッション状態を使用しますか。 場合は、セッション状態 TempData プロバイダーを使用しても (データのサイズ) とは別のアプリケーションに追加のコストはありません。
+2. アプリケーションを使用して TempData だけなので、慎重、比較的少量のデータ (最大 500 バイト) のですか。 Cookie TempData プロバイダーは TempData を実行する各要求にわずかな費用を追加します。 場合、 それ以外の場合は、セッション状態 TempData プロバイダーを TempData がなくなるまで、大量の各要求でデータのラウンド トリップを回避すると役に立つことができます。
+3. Web ファーム (複数のサーバー) でアプリケーションを実行しますか。 場合は、追加の構成が cookie TempData プロバイダーを使用する必要はありません。
+
+> [!NOTE]
+> ほとんどの web クライアント (web ブラウザーなど) は、各 cookie や cookie の合計数の最大サイズに制限を適用します。 そのため、cookie TempData プロバイダーを使用する場合は、アプリは、これらの制限を超えるされませんを確認します。 暗号化のオーバーヘッドが少なくて済むに対する課金およびチャンキングは、データの合計サイズを検討してください。
+
+アプリケーションの TempData プロバイダーを構成するには、登録 TempData プロバイダー実装`ConfigureServices`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddMvc();
-    // Add CookieTempDataProvider after AddMvc and include ViewFeatures.
-    // using Microsoft.AspNetCore.Mvc.ViewFeatures;
-    services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
+    services
+        .AddMvc()
+        .AddSessionStateTempDataProvider();
+
+    // The Session State TempData Provider requires adding the session state service
+    services.AddSession();
 }
 ```
 
-Cookie のデータがでエンコードされた、 [Base64UrlTextEncoder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.authentication.base64urltextencoder)です。 Cookie が暗号化されており、チャンク、ため、1 つの cookie サイズの制限は適用されません。 Cookie のデータが圧縮されていないため、暗号化されたデータの圧縮が問題につながるセキュリティなど、 [CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit))と[侵害](https://wikipedia.org/wiki/BREACH_(security_exploit))攻撃です。 Cookie ベースの TempData プロバイダーの詳細については、次を参照してください。 [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs)です。
-
-### <a name="query-strings"></a>クエリ文字列
+## <a name="query-strings"></a>クエリ文字列
 
 新しい要求のクエリ文字列に追加して 1 つの要求からで、限られた量のデータを渡すことができます。 これは、電子メールやソーシャル ネットワークを介して共有する埋め込みの状態を持つリンクを許可する永続的な方法で状態をキャプチャするために役立ちます。 ただし、このためを使用しないでクエリ文字列機密性の高いデータ。 簡単に共有されているだけでなくクエリ文字列にデータを含めることができます作成の営業案件[クロスサイト リクエスト フォージェリ (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))攻撃は、ユーザーが認証中に悪意のあるサイトにアクセスするを騙してことができます。 攻撃者は、アプリからユーザー データを盗む、またはユーザーの代理として、悪意のあるアクションを実行します。 保持されているアプリケーションまたはセッション状態は、CSRF 攻撃から保護する必要があります。 CSRF 攻撃の詳細については、次を参照してください。 [ASP.NET Core で防止サイト間で要求の偽造防止 (XSRF/CSRF) 攻撃](../security/anti-request-forgery.md)です。
 
-### <a name="post-data-and-hidden-fields"></a>Post データと非表示フィールド
+## <a name="post-data-and-hidden-fields"></a>Post データと非表示フィールド
 
 データは、隠しフォーム フィールドに保存されているし、次の要求にポストされたことができます。 これは、複数ページのフォームで共通です。 ただし、クライアントは、データを改ざんする可能性があります、ため、サーバー必要があります常に再検証します。 
 
-### <a name="cookies"></a>クッキー
+## <a name="cookies"></a>クッキー
 
 Cookie は、web アプリケーションでユーザーに固有のデータを格納する方法を提供します。 要求ごとに cookie が送信されるため、サイズを最小限に抑える必要があります。 理想的には、識別子のみは、サーバーに格納されている実際のデータを cookie に保存する必要があります。 ほとんどのブラウザーは、cookie を 4096 バイトに制限します。 さらに、限定された数の cookie のみが各ドメインで使用できます。  
 
@@ -76,17 +98,18 @@ Cookie は、web アプリケーションでユーザーに固有のデータを
 
 Cookie は、多くの場合、既知のユーザーのコンテンツをカスタマイズするパーソナル化の使用します。 ユーザーを識別のみほとんどの場合で認証されていないため、cookie にユーザー名、アカウント名、または (GUID) などの一意のユーザー ID を格納することによって通常 cookie を保護できます。 サイトのユーザーのパーソナル化インフラストラクチャにアクセスするのに、cookie を使用できます。
 
-### <a name="httpcontextitems"></a>HttpContext.Items
+## <a name="httpcontextitems"></a>HttpContext.Items
 
 `Items`コレクションが格納されるデータに適した場所に必要な 1 つ特定の要求を処理中にのみです。 コレクションの内容は、各要求の後に破棄されます。 `Items`コレクションを最適な使用のコンポーネントまたはミドルウェア手段としてを通信時に、要求でさまざまなポイントで動作があり、パラメーターを渡す直接的な方法はありません。 詳細については、次を参照してください。 [HttpContext.Items 扱う](#working-with-httpcontextitems)、この記事で後述します。
 
-### <a name="cache"></a>キャッシュ
+## <a name="cache"></a>キャッシュ
 
 キャッシュは、格納およびデータを取得する効率的な方法です。 時間と他の考慮事項に基づいて、キャッシュされた項目の有効期間を制御できます。 詳細については[キャッシュ](../performance/caching/index.md)です。
 
 <a name=session></a>
+## <a name="working-with-session-state"></a>セッション状態の操作
 
-## <a name="configuring-session"></a>セッションの構成
+### <a name="configuring-session"></a>セッションの構成
 
 `Microsoft.AspNetCore.Session`パッケージは、セッション状態を管理するためのミドルウェアを提供します。 セッションのミドルウェアを有効にする`Startup`含める必要があります。
 
@@ -138,7 +161,7 @@ ASP.NET Core の既定のセッション プロバイダーが、基になるか
 
 `Session`は*ロックしない*両方で、最後の 1 つのセッションの内容の変更を試みる次の 2 つの要求が 1 つをオーバーライドする場合、します。 `Session`として実装された、*一貫性のあるセッション*、つまり、すべての内容が一緒に格納されます。 セッション (異なるキー) のさまざまな部分を変更している 2 つの要求が互いに影響することがありますもします。
 
-## <a name="setting-and-getting-session-values"></a>設定またはセッションの値を取得します。
+### <a name="setting-and-getting-session-values"></a>設定またはセッションの値を取得します。
 
 セッションを介してへのアクセス、`Session`プロパティ`HttpContext`です。 このプロパティは、 [ISession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession)実装します。
 
