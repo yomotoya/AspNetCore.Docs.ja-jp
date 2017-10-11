@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a93dae3edec73f1b5254aa60662834ca83de62fd
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: f3c38a1730e43586f37cd773bb8daa418736952f
+ms.sourcegitcommit: b3d46df910fb679edb8dd47234db6b4da604eedb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/10/2017
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>ASP.NET Core での単一ページ アプリケーションを作成するため JavaScriptServices を使用します。
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 10/01/2017
 
 単一ページ アプリケーション (SPA) は、その固有の機能豊富なユーザー エクスペリエンスのための web アプリケーションの一般的な型です。 クライアント側 SPA フレームワークまたはライブラリを統合するよう[角](https://angular.io/)または[反応](https://facebook.github.io/react/)、ASP.NET Core を困難になる可能性と同じようにサーバー側フレームワークでします。 [JavaScriptServices](https://github.com/aspnet/JavaScriptServices)を統合プロセスで摩擦を減らすために開発されました。 異なるクライアント/サーバー テクノロジ スタックとの間のシームレスな操作を可能になります。
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 <a name="what-is-js-services"></a>
 
@@ -167,7 +167,7 @@ ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって�
 
 ## <a name="hot-module-replacement"></a>ホット モジュールの交換
 
-Webpack を考えてみてください[ホット モジュールの交換](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html)(HMR) 機能の発展として[Webpack デベロッパー ミドルウェア](#webpack-dev-middleware)です。 HMR で利点ではすべて同じしますが、変更をコンパイルした後、ページのコンテンツを自動的に更新することでさらに、開発ワークフローを合理化します。 現在のインメモリ状態と SPA のデバッグ セッションに影響するブラウザーの更新でこれを混同しないでください。 Webpack デベロッパー ミドルウェア サービスとため、変更は、ブラウザーの間のライブ リンクがある ~ 単に別の禁止された単語 ~ ブラウザーにプッシュします。
+Webpack を考えてみてください[ホット モジュールの交換](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html)(HMR) 機能の発展として[Webpack デベロッパー ミドルウェア](#webpack-dev-middleware)です。 HMR で利点ではすべて同じしますが、変更をコンパイルした後、ページのコンテンツを自動的に更新することでさらに、開発ワークフローを合理化します。 現在のインメモリ状態と SPA のデバッグ セッションに影響するブラウザーの更新でこれを混同しないでください。 Webpack デベロッパー ミドルウェア サービスと、ブラウザーに変更をプッシュすることを意味すると、ブラウザーの間のライブ リンクがあります。
 
 ### <a name="prerequisites"></a>必須コンポーネント
 

@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 36a3dc542f3321c5e6ebaa078efd8bde3f50948f
-ms.sourcegitcommit: e4a1df2a5a85f299322548809e547a79b380bb92
+ms.openlocfilehash: 01bb5597033fef7e1cb08e980c81d37d88ed253e
+ms.sourcegitcommit: ab91aad2680efc4eb5c0642746e2b981db7f81b8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 10/10/2017
 ---
 # <a name="enabling-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>ASP.NET Core でのアプリの認証子の QR コード生成を有効にします。
 
 注: このトピックの対象は ASP.NET Core 2.x
 
-ASP.NET Core は、個別の認証の認証システム アプリケーションのサポートに付属します。 使用して、時間ベース ワンタイム パスワード アルゴリズム (TOTP)、2 要素認証 (2 fa) 認証アプリとは、2 fa の approch をお勧め業界です。 2 fa TOTP を使用してを SMS 2 fa をお勧めします。 認証アプリでは、ユーザー名とパスワードを確認した後どのユーザーが入力する必要があります、6 ~ 8 桁のコードを提供します。 通常、認証アプリがスマート フォンにインストールされます。
+ASP.NET Core は、個別の認証の認証システム アプリケーションのサポートに付属します。 使用して、時間ベース ワンタイム パスワード アルゴリズム (TOTP)、2 要素認証 (2 fa) 認証アプリとは、2 fa のアプローチをお勧め業界です。 2 fa TOTP を使用してを SMS 2 fa をお勧めします。 認証アプリでは、ユーザー名とパスワードを確認した後どのユーザーが入力する必要があります、6 ~ 8 桁のコードを提供します。 通常、認証アプリがスマート フォンにインストールされます。
 
 ASP.NET Core web アプリ テンプレートでは、認証のサポートは、QRCode 生成のサポートを提供しません。 QRCode ジェネレーター 2 fa のセットアップが容易になります。 このドキュメントのガイドの追加方法[QR コード](https://wikipedia.org/wiki/QR_code)2 fa の構成 ページを生成します。
 
@@ -30,7 +30,7 @@ ASP.NET Core web アプリ テンプレートでは、認証のサポートは�
 
 * ダウンロード、 [qrcode.js javascript ライブラリ](https://davidshimjs.github.io/qrcodejs/)を`wwwroot\lib`プロジェクトのフォルダーにします。
 
-* *Pages\Account\Manage\EnableAuthenticator.cshtml* (Razor ページ) または*Views\Account\Manage\EnableAuthenticator.cshtml* (MVC)、検索、`Scripts`ファイルの最後のセクション。
+* *Pages\Account\Manage\EnableAuthenticator.cshtml* (Razor ページ) または*Views\Manage\EnableAuthenticator.cshtml* (MVC)、検索、`Scripts`ファイルの最後のセクション。
 
 ```cshtml
 @section Scripts {
@@ -62,7 +62,7 @@ ASP.NET Core web アプリ テンプレートでは、認証のサポートは�
 
 ## <a name="change-the-site-name-in-the-qr-code"></a>QR コード内で、サイト名を変更します。
 
-QR コード内で、サイト名は、最初に、プロジェクトの作成時に選択したプロジェクト名から取得されます。 探して変更することができます、`GenerateQrCodeUri(string email, string unformattedKey)`メソッドで、 *EnableAuthenticator.cshtml.cs*ファイル。 
+QR コード内で、サイト名は、最初に、プロジェクトの作成時に選択したプロジェクト名から取得されます。 探して変更することができます、`GenerateQrCodeUri(string email, string unformattedKey)`メソッドで、 *Pages\Account\Manage\EnableAuthenticator.cshtml.cs* (Razor ページ) ファイルまたは*Controllers\AccountController.cs* (MVC) ファイル。 
 
 テンプレートから既定のコードは次のようになります。
 
