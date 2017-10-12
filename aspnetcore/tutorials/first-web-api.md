@@ -52,7 +52,7 @@ Visual Studio で、**[ファイル]** メニュー、**[新規]** > **[プロ�
 
 ### <a name="launch-the-app"></a>アプリの起動
 
-Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動します。 Visual Studio でブラウザーが起動し、`http://localhost:port/api/values` にアクセスします。*ポート*はランダムに選択されたポート番号になります。 Chrome、Edge、Firefox には次が表示されます。
+Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動します。 Visual Studio でブラウザーが起動し、`http://localhost:port/api/values` にアクセスします。*ポート*はランダムに選択されたポート番号になります。 Chrome、Microsoft Edge、Firefox には次が表示されます。
 
 ```
 ["value1","value2"]
@@ -98,7 +98,7 @@ Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動し
   
 ### <a name="launch-the-app"></a>アプリの起動
 
-Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動します。 Visual Studio でブラウザーが起動し、`http://localhost:port/api/values` にアクセスします。*ポート*はランダムに選択されたポート番号になります。 Chrome、Edge、Firefox を使用している場合、データが表示されます。 IE を使用している場合、*values.json* ファイルを開くか保存するように求められます。 `http://localhost:port/api/todo` を先ほど作成した `Todo` コントローラーに移動します。
+Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動します。 Visual Studio でブラウザーが起動し、`http://localhost:port/api/values` にアクセスします。*ポート*はランダムに選択されたポート番号になります。 Chrome、Microsoft Edge、Firefox を使用している場合、データが表示されます。 IE を使用している場合、*values.json* ファイルを開くか保存するように求められます。 `http://localhost:port/api/todo` を先ほど作成した `Todo` コントローラーに移動します。
 
 [!INCLUDE[last part of web API](../includes/webApi/end.md)]
 

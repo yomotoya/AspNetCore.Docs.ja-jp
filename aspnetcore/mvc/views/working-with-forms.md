@@ -174,7 +174,7 @@ Type expected
 
 ### <a name="expression-names"></a>式の名前
 
-`asp-for`属性値は、`ModelExpression`ラムダ式の右側にあるとします。 したがって、`asp-for="Property1"`なります`m => m.Property1`は生成されたコード内でプレフィックスする必要はありません`Model`です。 使用することができます、"@"文字の前に移動して、インライン式、 `m.`:
+`asp-for`属性値は、`ModelExpression`ラムダ式の右側にあるとします。 したがって、`asp-for="Property1"`なります`m => m.Property1`は生成されたコード内でプレフィックスする必要はありません`Model`です。 使用することができます、 « @ » 文字の前に移動して、インライン式、 `m.`:
 
 ```HTML
 @{
