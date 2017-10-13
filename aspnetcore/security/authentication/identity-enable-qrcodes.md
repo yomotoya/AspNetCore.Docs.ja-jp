@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 01bb5597033fef7e1cb08e980c81d37d88ed253e
-ms.sourcegitcommit: ab91aad2680efc4eb5c0642746e2b981db7f81b8
+ms.openlocfilehash: a3029e68164dd91d1bc43704c5e96bd591bcae05
+ms.sourcegitcommit: a73fb5161fbdbee1d2e8474205e9840a134ee2ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="enabling-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>ASP.NET Core でのアプリの認証子の QR コード生成を有効にします。
 
@@ -62,7 +62,7 @@ ASP.NET Core web アプリ テンプレートでは、認証のサポートは�
 
 ## <a name="change-the-site-name-in-the-qr-code"></a>QR コード内で、サイト名を変更します。
 
-QR コード内で、サイト名は、最初に、プロジェクトの作成時に選択したプロジェクト名から取得されます。 探して変更することができます、`GenerateQrCodeUri(string email, string unformattedKey)`メソッドで、 *Pages\Account\Manage\EnableAuthenticator.cshtml.cs* (Razor ページ) ファイルまたは*Controllers\AccountController.cs* (MVC) ファイル。 
+QR コード内で、サイト名は、最初に、プロジェクトの作成時に選択したプロジェクト名から取得されます。 探して変更することができます、`GenerateQrCodeUri(string email, string unformattedKey)`メソッドで、 *Pages\Account\Manage\EnableAuthenticator.cshtml.cs* (Razor ページ) ファイルまたは*Controllers\ManageController.cs* (MVC) ファイル。 
 
 テンプレートから既定のコードは次のようになります。
 
