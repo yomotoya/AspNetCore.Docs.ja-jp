@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 2a92c50085e70b4a505913c86348ba5fe54f6d13
-ms.sourcegitcommit: 67811da1278c75cb10994602c13bd5adec3f0907
+ms.openlocfilehash: becdfa647acb6483b39f5421ab881c4817f31c40
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="working-with-multiple-environments"></a>複数の環境での作業
 
@@ -50,7 +50,7 @@ IIS Express のプロファイルを次に示します。
 プロジェクトのプロファイルに加えられた変更は反映されません使用される web サーバーが再起動されるまで (具体的には、Kestrel 再起動する必要がその環境に加えられた変更が検出する前に)。
 
 >[!WARNING]
-> 環境変数に格納*launchSettings.json*任意の方法でセキュリティ保護されていないと、1 つを使用する場合に、プロジェクトのソース コード リポジトリの一部になります。 **このファイルに資格情報またはその他の機密データを保存しないでください。** このようなデータを格納する場所を必要がある場合、*シークレット Manager*ツール」に記載[アプリ シークレットは、開発中の安全な保管](../security/app-secrets.md#security-app-secrets)です。
+> 環境変数に格納*launchSettings.json*任意の方法でセキュリティ保護されていないと、1 つを使用する場合に、プロジェクトのソース コード リポジトリの一部になります。 **このファイルに資格情報またはその他の機密データを保存しないでください。** このようなデータを格納する場所を必要がある場合、*シークレット Manager*ツール」に記載[アプリ シークレットは、開発中の安全な保管](xref:security/app-secrets)です。
 
 ### <a name="staging"></a>ステージング
 

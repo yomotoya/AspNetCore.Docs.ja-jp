@@ -11,11 +11,11 @@ ms.assetid: 2bdcbf95-8d9d-4537-a4a0-a5ee439dcb62
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/cookie
-ms.openlocfilehash: e5c53a7044edb56e065b2dc1536343fdaf9fb007
-ms.sourcegitcommit: 7d8f4e3443a2989a64343f8fec83e6a4c4ed2f97
+ms.openlocfilehash: ea9c93e34a3242b5b3716404228edb8902baf625
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="using-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core Identity なしで認証に Cookie を使用します。
 
@@ -76,7 +76,7 @@ ASP.NET Core 1.x 提供 cookie[ミドルウェア](../../fundamentals/middleware
 
 * `AccessDeniedPath`-これは、ユーザーがリソースにアクセスしようとしています。 いずれかを渡さない場合に要求がリダイレクトする相対パス[承認ポリシー](xref:security/authorization/policies#security-authorization-policies-based)をそのリソース用です。
 
-* `AuthenticationScheme`-これは、特定の cookie 認証スキームを認識する値です。 これは、cookie 認証の複数のインスタンスがあるし、する場合に役立ちます[の承認を 1 つのインスタンスを制限する](xref:security/authorization/limitingidentitybyscheme#security-authorization-limiting-by-scheme)です。
+* `AuthenticationScheme`-これは、特定の cookie 認証スキームを認識する値です。 これは、cookie 認証とアプリの必要性を複数のインスタンスがある場合に便利です[の承認を 1 つのインスタンスを制限する](xref:security/authorization/limitingidentitybyscheme)です。
 
 * `AutomaticAuthenticate`-このフラグは ASP.NET Core のみに関連 1.x です。 Cookie 認証の要求ごとに実行、および検証し、作成された任意のシリアル化されたプリンシパルを再構築しようとしています。 ことを示します。
 

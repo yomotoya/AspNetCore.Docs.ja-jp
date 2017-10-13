@@ -2,7 +2,7 @@
 title: "ASP.NET Core で目的の文字列"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: 9d18c287-e0e6-4541-b09c-7fed45c902d9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
-ms.openlocfilehash: dd87d8bcaf0056b322908e9a3ef75678f603e1e6
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: b25af7c1f4dd3c63734290e6ac82e2e30a030c61
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="purpose-hierarchy-and-multi-tenancy-in-aspnet-core"></a>目的の階層と ASP.NET Core におけるマルチ テナント機能
 
 IDataProtector も暗黙的に、IDataProtectionProvider であるために、目的に連結することができます。 この意味プロバイダー。CreateProtector (["purpose1"、"purpose2"]) は、プロバイダーと同じです。CreateProtector("purpose1") です。CreateProtector("purpose2") です。
 
-これにより、データ保護システムを通じていくつか興味深い階層リレーションシップです。 先ほどの例の[Contoso.Messaging.SecureMessage](purpose-strings.md#data-protection-contoso-purpose)、SecureMessage コンポーネントは、プロバイダーを呼び出すことができます。CreateProtector("Contoso.Messaging.SecureMessage") したらアップ フロントとプライベート _myProvider フィールドに結果をキャッシュします。 _MyProvider.CreateProtector への呼び出しを使用して、将来の保護機能を作成し、ことができます ("ユーザー: ユーザー名")、これらの保護機能が個々 のメッセージを保護するため使用されます。
+これにより、データ保護システムを通じていくつか興味深い階層リレーションシップです。 先ほどの例の[Contoso.Messaging.SecureMessage](purpose-strings.md#data-protection-contoso-purpose)、SecureMessage コンポーネントは、プロバイダーを呼び出すことができます。アップ フロントしたら CreateProtector("Contoso.Messaging.SecureMessage") とキャッシュ プライベートに結果`_myProvide`フィールドです。 呼び出しを使用して、将来の保護機能を作成し、できます`_myProvider.CreateProtector("User: username")`、個々 のメッセージをセキュリティで保護するこれらの保護機能に使用されるとします。
 
 これを反転もできます。 独自の認証および状態管理システム (CMS 必然的に) 複数のテナント、および各テナントを構成できますホストの 1 つの論理アプリケーションを検討してください。 包括的なアプリケーションが 1 つのマスター プロバイダーとプロバイダーを呼び出します。CreateProtector (以下"Tenant 1") とプロバイダー。CreateProtector ("Tenant 2") に、データ保護システムの分離された独自スライスを各テナントに付与します。 テナントは独自のニーズに基づく独自個々 の保護機能を派生し、でしたとどの程度厳密に関係なく、作成はできません衝突の保護機能、他のテナントでシステムで。 視覚的に下として表されます。
 

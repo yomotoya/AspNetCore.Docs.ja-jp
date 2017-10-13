@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 9ff2fb92c81719c7278d70b5df5387f1244195bf
-ms.sourcegitcommit: e7f01a649f240b6b57118c53314ab82f7f36f2eb
+ms.openlocfilehash: b64af625dd280b40e3c743af9415e3a67155fe6e
+ms.sourcegitcommit: e9bd53f53c0ba148343cd2057c714a7c72ee81e9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>グローバリゼーションとローカリゼーション ASP.NET Core
 
@@ -47,7 +47,7 @@ ASP.NET Core で導入された`IStringLocalizer`と`IStringLocalizer<T>`ロー�
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
-注: 一般的にだけをローカライズするテキストと HTML ではありません。
+**注:**のみテキストと HTML ではないをローカライズする場合、通常します。
 
 最下位のレベルを取得できます`IStringLocalizerFactory`不在[依存性の注入](dependency-injection.md):
 
@@ -59,7 +59,7 @@ ASP.NET Core で導入された`IStringLocalizer`と`IStringLocalizer<T>`ロー�
 
 [!code-csharp[Main](localization/sample/Localization/Resources/SharedResource.cs)]
 
-一部の開発者が使用して、`Startup`グローバルまたは共有の文字列を格納するクラス。  以下のサンプルで、`InfoController`と`SharedResource`ローカライザーが使用されます。
+一部の開発者が使用して、`Startup`グローバルまたは共有の文字列を格納するクラス。 以下のサンプルで、`InfoController`と`SharedResource`ローカライザーが使用されます。
 
 [!code-csharp[Main](localization/sample/Localization/Controllers/InfoController.cs?range=9-26)]
 
@@ -67,7 +67,7 @@ ASP.NET Core で導入された`IStringLocalizer`と`IStringLocalizer<T>`ロー�
 
 `IViewLocalizer`サービス提供のローカライズされた文字列、[ビュー](https://docs.microsoft.com/aspnet/core)です。 `ViewLocalizer`クラスは、このインターフェイスを実装し、ビューのファイル パスからリソースの場所を検索します。 次のコードは、の既定の実装を使用する方法を示しています`IViewLocalizer`:。
 
-[!code-HTML[Main](localization/sample/Localization/Views/Home/About.cshtml)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Home/About.cshtml)]
 
 既定の実装`IViewLocalizer`ビューのファイルの名前に基づいてリソース ファイルを検索します。 共有のグローバル リソース ファイルを使用するオプションはありません。 `ViewLocalizer`実装を使用してローカライザー `IHtmlLocalizer`Razor しない HTML のため、ローカライズされた文字列をエンコードします。 リソース文字列をパラメーター化できると`IViewLocalizer`HTML エンコードされますが、パラメーター、リソース文字列ではありません。 次の Razor マークアップを考慮してください。
 
@@ -83,13 +83,11 @@ ASP.NET Core で導入された`IStringLocalizer`と`IStringLocalizer<T>`ロー�
 
 描画のビューには、リソース ファイルから HTML マークアップが含まれます。
 
-メモ:
-- ローカライズのビューには、"Localization.AspNetCore.TagHelpers"NuGet パッケージが必要です。
-- 一般にだけをローカライズするテキストと HTML ではありません。
+**注:**のみテキストと HTML ではないをローカライズする場合、通常します。
 
 ビュー内の共有リソース ファイルを使用するのには、挿入`IHtmlLocalizer<T>`:
 
-[!code-HTML[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
+[!code-cshtml[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
 
 ## <a name="dataannotations-localization"></a>DataAnnotations ローカリゼーション
 
@@ -287,11 +285,11 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 このサンプル**Localization.StarterWeb**プロジェクトでは、 [GitHub](https://github.com/aspnet/entropy)を設定するための UI が含まれています、`Culture`です。 *Views/Shared/_SelectLanguagePartial.cshtml*ファイルでは、サポートされているカルチャの一覧から、カルチャを選択することができます。
 
-[!code-HTML[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 
 *Views/Shared/_SelectLanguagePartial.cshtml*にファイルが追加、`footer`できるすべてのビューに使用できるようにレイアウト ファイルのセクション。
 
-[!code-HTML[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
 
 `SetLanguage`メソッドはカルチャ cookie を設定します。
 
