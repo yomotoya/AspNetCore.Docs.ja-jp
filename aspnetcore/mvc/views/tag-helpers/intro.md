@@ -11,11 +11,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06644b8359fb5ccc2e61a17a4c6e20e354d5ceef
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 78004aa370cac8b297fd7ede534260c83965ae79
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパーの概要 
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 09/28/2017
 
 タグ ヘルパーのスコープがの組み合わせによって制御される`@addTagHelper`、 `@removeTagHelper`、および"!"オプトアウト文字です。
 
-<a name=add-helper-label></a>
+<a name="add-helper-label"></a>
 
 ### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper`タグ ヘルパーを使用可能します。
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 09/28/2017
 
 前述のように、追加、`@addTagHelper`ディレクティブを*Views/_ViewImports.cshtml*ファイル タグ ヘルパーに使用可能ですべてのファイルの表示、*ビュー*ディレクトリとサブディレクトリです。 使用することができます、`@addTagHelper`ディレクティブでこれらのビューにタグ ヘルパーの公開にオプトインする場合に特定のビューはファイルです。
 
-<a name=remove-razor-directives-label></a>
+<a name="remove-razor-directives-label"></a>
 
 ### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper`タグ ヘルパーを削除します。
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 09/28/2017
 
 開始タグと終了タグにタグ ヘルパーのオプトアウト文字を適用する必要があります。 (Visual Studio エディターに自動的にオプトアウトに文字を追加、終了タグ開始タグに追加する場合)。 オプトアウト文字を追加した後、要素とタグ ヘルパー属性は印象的なフォントで表示されません。
 
-<a name=prefix-razor-directives-label></a>
+<a name="prefix-razor-directives-label"></a>
 
 ### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>使用して`@tagHelperPrefix`タグ ヘルパーの使用状況を明示するには
 
@@ -127,7 +127,7 @@ HTML の作成を検討`<label>`要素。 入力するとすぐに`<l`Visual Stu
 
 ![イメージ](intro/_static/label.png)
 
-アイコンは、HTML ヘルプを表示するだけでなく (、"@"のシンボルがその下にある"<>") です。
+アイコンは、HTML ヘルプを表示するだけでなく (、"@" symbol with "<>"その下にある)。
 
 ![イメージ](intro/_static/tagSym.png)
 

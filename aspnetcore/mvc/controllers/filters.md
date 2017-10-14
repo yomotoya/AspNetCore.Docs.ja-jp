@@ -11,11 +11,11 @@ ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: 215d165d0029bbf38ef37cdde57b80a15bff9ef9
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 34a5be6e77f8558c9b3c257575272e167ed95ea4
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="filters"></a>フィルター
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 09/22/2017
 
 フレームワークには、サブクラスできる組み込みの属性に基づくフィルターが含まれます。 およびカスタマイズします。 たとえば、次の結果のフィルターは、応答に、ヘッダーを追加します。
 
-<a name=add-header-attribute></a>
+<a name="add-header-attribute"></a>
 
 [!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/AddHeaderAttribute.cs?highlight=5,16)]
 
@@ -167,7 +167,7 @@ ms.lasthandoff: 09/22/2017
 
 任意の時点で、フィルター パイプラインをショート サーキットを設定してできます、`Result`プロパティを`context`フィルター メソッドに渡されたパラメーター。 たとえば、次のリソースのフィルターを防ぎますパイプラインの残りの部分を実行します。
 
-<a name=short-circuiting-resource-filter></a>
+<a name="short-circuiting-resource-filter"></a>
 
 [!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/ShortCircuitingResourceFilterAttribute.cs?highlight=12,13,14,15)]
 

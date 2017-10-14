@@ -11,15 +11,15 @@ ms.assetid: 24ce40d8-9b83-4bae-9d4c-a66350fcc8f8
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/views
-ms.openlocfilehash: 82c0c7282de34e496f529d964f99121ae2805c5a
-ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
+ms.openlocfilehash: 58cafcfdc7946e82d1e0ea5de95e0e497b1b6bcf
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="view-based-authorization"></a>ビュー ベースの承認
 
-<a name=security-authorization-views></a>
+<a name="security-authorization-views"></a>
 
 多くの場合、開発者は、それ以外の場合、現在のユーザー id に基づいて UI を変更または非表示にすることができます。 使用して MVC ビューの中で承認サービスにアクセスすることができます[依存性の注入](../../fundamentals/dependency-injection.md#fundamentals-dependency-injection)です。 Razor ビューの使用に承認サービスを挿入する、`@inject`例については、ディレクティブ`@inject IAuthorizationService AuthorizationService`(必要`@using Microsoft.AspNetCore.Authorization`)。 場合はすべてのビューで、承認サービスを配置し、`@inject`にディレクティブ、`_ViewImports.cshtml`ファイルで、`Views`ディレクトリ。 ビューに依存関係の挿入の詳細については、次を参照してください。[ビューに依存性の注入](../../mvc/views/dependency-injection.md)です。
 

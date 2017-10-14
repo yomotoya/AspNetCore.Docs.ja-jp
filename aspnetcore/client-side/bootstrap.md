@@ -11,15 +11,15 @@ ms.assetid: bd27832c-2877-4b7b-9337-e009361d845f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bootstrap
-ms.openlocfilehash: fc00bcce24d586865bf6a1d3f2f7e782a2f1c703
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: f89ad584600c3f12a936599de27f931aff0cd4b5
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>ブートス トラップで美しい、応答性の高いサイトの構築
 
-<a name=bootstrap-index></a>
+<a name="bootstrap-index"></a>
 
 によって[Steve Smith](https://ardalis.com/)
 
@@ -152,7 +152,7 @@ Visual Studio 2012 または 2013 の既定の ASP.NET MVC テンプレートを
 
 ![テーマのバッジ](bootstrap/_static/theme-badges.png)
 
-### <a name="alerts"></a>アラート
+### <a name="alerts"></a>警告
 
 アプリケーションのユーザーに何らかの通知、警告またはエラー メッセージを表示する必要があります。 標準のアラートのクラスが便利です。  関連付けられている色スキームの 4 つの異なる重要度レベルです。
 
@@ -218,6 +218,6 @@ Navbars は同様に、組み込まれていますが、もう少し複雑です
 
 ブートス トラップの JavaScript ライブラリには、アプリケーション内でプログラムでは、その動作を制御できるため、含まれるコンポーネントの API のサポートが含まれています。 さらに、 *bootstrap.js*十数か所を含むカスタム jQuery プラグイン、遷移、モーダル ダイアログ ボックスのような機能の追加 (ドキュメントで、ユーザーがスクロールされたといったに基づいてスタイルの更新) の検出をスクロールします。折りたたみ動作、手荷物の受け取り場所、およびメニュー画面をオフ スクロールがないため、ウィンドウを付加します。 についての詳細を参照してください: ブートス トラップに組み込まれている JavaScript アドオンのすべてを網羅するための十分なスペースがない[http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/)です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ブートス トラップは、レイアウトし、スタイルの web サイトおよびアプリケーションのさまざまな迅速かつ効率的に使用できる web フレームワークを提供します。 その基本的な文字体裁やスタイルは、カスタム テーマをサポートするいると、手動で作成または製品版を購入できますを簡単に操作できる快適になり、ルック アンド フィールを提供します。 これは、過去のモダンで開いている web 標準をサポートしながらを実現する高価なサード パーティ製コントロールを必要とする web コンポーネントのホストをサポートします。

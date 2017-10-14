@@ -11,8 +11,8 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: b64af625dd280b40e3c743af9415e3a67155fe6e
-ms.sourcegitcommit: e9bd53f53c0ba148343cd2057c714a7c72ee81e9
+ms.openlocfilehash: 1922037245a33f49c17f1c361003260462d96264
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/13/2017
@@ -100,7 +100,7 @@ DataAnnotations エラー メッセージとローカライズ`IStringLocalizer<
 
 ASP.NET Core MVC 1.1.0 および以上、非検証属性のローカライズされています。 ASP.NET Core MVC 1.0 は**いない**の非検証属性のローカライズされた文字列を検索します。
 
-<a name=one-resource-string-multiple-classes></a>
+<a name="one-resource-string-multiple-classes"></a>
 ### <a name="using-one-resource-string-for-multiple-classes"></a>複数のクラスの 1 つのリソース文字列を使用します。
 
 次のコードは、複数のクラスに検証属性の 1 つのリソース文字列を使用する方法を示しています。

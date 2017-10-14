@@ -11,11 +11,11 @@ ms.assetid: dd4135ec-2b15-410c-b3fb-3d12eed4a1ac
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: b8ba5740c96b116f9be3feb1967b91c2d675a97d
-ms.sourcegitcommit: 5ee9b2ab62acaafe78ad06f1dc4ba624811ab630
+ms.openlocfilehash: aa60912e06946bd0df4936d33c88d3bf7b69984c
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>ASP.NET Core でのテスト コント ローラー ロジック
 
@@ -84,7 +84,7 @@ ASP.NET MVC アプリケーション内のコント ローラーは、ユーザ�
 
 アプリでは、web API (ブレーンストーミング セッションと新しいアイデアをセッションに追加するためのメソッドに関連付けられているアイデアの一覧) と機能を公開します。
 
-<a name=ideas-controller></a>
+<a name="ideas-controller"></a>
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
 

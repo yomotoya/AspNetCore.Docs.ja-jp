@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/app-state
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9c1d10101d23e105c4a8af41d851f69b1b6a175
-ms.sourcegitcommit: 9c27fa0f0c57ad611aa43f63afb9b9c9571d4a94
+ms.openlocfilehash: d4d10ef45d562f34c3f8b5ce025abaf763c862d3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>ASP.NET Core でのセッションおよびアプリケーションの状態の概要
 
@@ -43,6 +43,7 @@ ASP.NET Core は、クライアントには各要求を使用してサーバー�
 
 ASP.NET Core MVC を公開、 [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData)プロパティを[コント ローラー](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0)です。 このプロパティは、読み取られるまでデータを格納します。 `Keep` メソッドと `Peek` メソッドは、削除せずにデータを確認するために使用できます。 `TempData`1 つの要求より多くのデータが必要なときにこのプロパティの値はリダイレクト、特に便利です。 `TempData`プロバイダーで実装 TempData、たとえば、cookie またはセッション状態のいずれかを使用します。
 
+<a name="tempdata-providers"></a>
 ### <a name="tempdata-providers"></a>TempData プロバイダー
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
@@ -106,7 +107,7 @@ Cookie は、多くの場合、既知のユーザーのコンテンツをカス�
 
 キャッシュは、格納およびデータを取得する効率的な方法です。 時間と他の考慮事項に基づいて、キャッシュされた項目の有効期間を制御できます。 詳細については[キャッシュ](../performance/caching/index.md)です。
 
-<a name=session></a>
+<a name="session"></a>
 ## <a name="working-with-session-state"></a>セッション状態の操作
 
 ### <a name="configuring-session"></a>セッションの構成
@@ -167,7 +168,7 @@ ASP.NET Core の既定のセッション プロバイダーが、基になるか
 
 設定または int 型と文字列を取得する次の例を示しています。
 
-[!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?name=snippet1)]
+[!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?range=8-27,49)]
 
 次の拡張メソッドを追加する場合は、設定およびセッションにシリアル化可能なオブジェクトを取得できます。
 
@@ -232,7 +233,7 @@ public class HomeController : Controller
 
 この方法では、コード内の複数の場所の「マジック文字列」の繰り返しを排除することの利点もあります。
 
-<a name=appstate-errors></a>
+<a name="appstate-errors"></a>
 
 ## <a name="application-state-data"></a>アプリケーション状態データ
 

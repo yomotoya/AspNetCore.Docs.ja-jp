@@ -11,15 +11,15 @@ ms.assetid: 0902ba17-5304-4a12-a2d4-e0904569e988
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 7f7df52bf51a81558818836450997281a21b5839
-ms.sourcegitcommit: f303a457644ed034a49aa89edecb4e79d9028cb1
+ms.openlocfilehash: d3575619c53e77dadc293ea2bb7dc72501a8a1e3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="resource-based-authorization"></a>リソース ベースの承認
 
-<a name=security-authorization-resource-based></a>
+<a name="security-authorization-resource-based"></a>
 
 多くの場合、承認は、アクセス対象のリソースに依存します。 たとえば、ドキュメントには、author プロパティがあります。 ドキュメントの作成者だけには許可されたリソースは、承認の評価を行う前に、ドキュメント リポジトリから読み込む必要があるため、更新します。 属性の評価はアクション内で、独自コード リソースの読み込みを実行する前に、データ バインディングの前に、承認属性を持つことはできません。 宣言型の承認、属性の方法ではなくを使用しなければならない命令型の承認では、開発者が独自のコード内で承認関数を呼び出す場所。
 
@@ -50,7 +50,7 @@ Task<bool> AuthorizeAsync(ClaimsPrincipal user,
                           string policyName);
 ```
 
-<a name=security-authorization-resource-based-imperative></a>
+<a name="security-authorization-resource-based-imperative"></a>
 
 サービスを呼び出すには、読み込む、アクション内でリソースを呼び出す、`AuthorizeAsync`オーバー ロードする必要があります。 例:
 

@@ -11,17 +11,17 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 0a4024edf13651e2ed7e0f87e554e8ba8d895619
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: dde0b5673c9885db2fecbb24b384752e5ddf70eb
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL の ASP.NET Core のミドルウェアの書き換え
 
 によって[Luke Latham](https://github.com/guardrex)と[Mikael メンギストゥ](https://github.com/mikaelm12)
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 URL の書き換えは 1 つまたは複数の事前定義された規則に基づいて、Url 要求を変更することです。 URL 書き換え、場所とアドレスが緊密にリンクされていないように、リソースの場所とその住所間の抽象化を作成します。 URL 書き換えが役に立ちますいくつかのシナリオはあります。
 * 移動またはそれらのリソースの安定したロケーターを維持しながら、サーバー リソースを一時的または永続的に交換
@@ -56,7 +56,7 @@ URL 書き換えミドルウェアの機能を調べることができます、 
 ## <a name="when-to-use-url-rewriting-middleware"></a>URL 書き換えミドルウェアを使用する場合
 使用できない場合は、URL 書き換えミドルウェアを使用して、 [URL Rewrite モジュール](https://www.iis.net/downloads/microsoft/url-rewrite)Windows Server 上の IIS で、 [Apache mod_rewrite モジュール](https://httpd.apache.org/docs/2.4/rewrite/)Apache サーバーで、 [NginxでURLの書き換え](https://www.nginx.com/blog/creating-nginx-rewrite-rules/)でホストされているアプリまたは[HTTP.sys サーバー](xref:fundamentals/servers/httpsys) (旧称[WebListener](xref:fundamentals/servers/weblistener))。 テクノロジを使用して、サーバー ベース URL 書き換え IIS、Apache、または Nginx の主な理由ではこれらのモジュールの全機能をサポートしていないミドルウェア ミドルウェアのパフォーマンス可能性とも一致しません、モジュールの。 ただし、ASP.NET Core プロジェクトなどを操作しないサーバー モジュールの一部の機能がある、`IsFile`と`IsDirectory`IIS Rewrite モジュールの制約。 これらのシナリオでは、代わりに、ミドルウェアを使用します。
 
-## <a name="package"></a>Package
+## <a name="package"></a>パッケージ
 ミドルウェアをプロジェクトに含めるへの参照を追加、 [ `Microsoft.AspNetCore.Rewrite` ](https://www.nuget.org/packages/Microsoft.AspNetCore.Rewrite/)パッケージです。 この機能は、ASP.NET Core 1.1 を対象とするアプリの使用可能な以降です。
 
 ## <a name="extension-and-options"></a>拡張機能とオプション
@@ -98,7 +98,7 @@ URL 書き換えを確立しのインスタンスを作成することでルー�
 
 置換文字列にキャプチャされたグループが挿入され、ドル記号の文字列 (`$`) に続けてのキャプチャのシーケンス番号。 最初のキャプチャ グループ値を取得`$1`、2 番目は`$2`の正規表現内のキャプチャ グループのシーケンスで続行されます。 1 つだけのキャプチャ グループにあるリダイレクト ルール regex サンプル アプリでは置換文字列に 1 つだけの挿入されたグループがあるため`$1`です。 ルールが適用されるときに、URL は次のようになります。`/redirected/1234/5678`です。
 
-<a name=url-redirect-to-secure-endpoint></a>
+<a name="url-redirect-to-secure-endpoint"></a>
 ### <a name="url-redirect-to-a-secure-endpoint"></a>セキュリティで保護されたエンドポイントへの URL リダイレクト
 使用して`AddRedirectToHttps`HTTP 要求を同じホストと HTTPS を使用して、パスにリダイレクト (`https://`)。 ステータス コードが指定されていない場合、ミドルウェアを 302 (検出) に既定値です。 ポートが指定されていない場合は、ミドルウェア既定`null`、つまり、プロトコルに変更`https://`クライアント ポート 443 上のリソースにアクセスするとします。 この例では、301 (完全な移動) に、状態コードを設定し、5001 にポートを変更する方法を示します。
 ```csharp
@@ -151,7 +151,7 @@ app.UseRewriter(options);
 | パス                              | 一致したもの |
 | --------------------------------- | :---: |
 | `/rewrite-rule/1234/5678`         | はい   |
-| `/my-cool-rewrite-rule/1234/5678` | いいえ    |
+| `/my-cool-rewrite-rule/1234/5678` | Ｘ    |
 | `/anotherrewrite-rule/1234/5678`  | いいえ    |
 
 次の`^rewrite-rule/`部分式の 2 つのキャプチャ グループが`(\d+)/(\d+)`です。 `\d`ことを示します*digit (数) を一致*です。 プラス記号 (`+`) ことを意味*直前の文字の 1 つ以上の一致*です。 そのため、URL では、スラッシュを他の数値の後に続く数値を含める必要があります。 これらのキャプチャ グループが挿入され、書き換えられた URL として`$1`と`$2`です。 書き換えルールの置換文字列は、クエリ文字列に、キャプチャされたグループを配置します。 要求されたパスの`/rewrite-rule/1234/5678`にあるリソースを取得する書き直す`/rewritten?var1=1234&var2=5678`です。 クエリ文字列が元の要求に存在する場合、URL は再作成時に保持します。
@@ -299,7 +299,7 @@ A`StreamReader`からルールの読み取りに使用される、 *IISUrlRewrit
 ### <a name="method-based-rule"></a>メソッド ベースのルール
 使用して`Add(Action<RewriteContext> applyRule)`メソッドで、独自の規則ロジックを実装します。 `RewriteContext`公開、`HttpContext`メソッドで使用するためです。 `context.Result`パイプラインを追加する方法を決定する処理が行われます。
 
-| コンテキスト。結果                       | 操作                                                          |
+| コンテキスト。結果                       | アクション                                                          |
 | ------------------------------------ | --------------------------------------------------------------- |
 | `RuleResult.ContinueRules` (既定値) | ルールの適用を続行します。                                         |
 | `RuleResult.EndResponse`             | 規則の適用を停止し、応答を送信                       |
@@ -366,7 +366,7 @@ A`StreamReader`からルールの読み取りに使用される、 *IISUrlRewrit
 
 ## <a name="regex-examples"></a>正規表現の例
 
-| Goal | Regex 文字列 (& a)<br>一致の例 | 置換後の文字列 (& a)<br>出力例 |
+| 目標 | Regex 文字列 (& a)<br>一致の例 | 置換後の文字列 (& a)<br>出力例 |
 | ---- | :-----------------------------: | :------------------------------------: |
 | クエリ文字列にパスを書き直してください。 | `^path/(.*)/(.*)`<br>`/path/abc/123` | `path?var1=$1&var2=$2`<br>`/path?var1=abc&var2=123` |
 | 末尾のスラッシュを除去します。 | `(.*)/$`<br>`/path/` | `$1`<br>`/path` |

@@ -2,7 +2,7 @@
 title: "サブキーから派生し、認証済み暗号化"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,22 +11,22 @@ ms.assetid: 34bb58a3-5a9a-41e5-b090-08f75b4bbefa
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 24ce71b417599bea22b7fae8b384db599f9e907c
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: e070742b5d9966c4772fd2f0a6d637d98a46137c
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="subkey-derivation-and-authenticated-encryption"></a>サブキーから派生し、認証済み暗号化
 
-<a name=data-protection-implementation-subkey-derivation></a>
+<a name="data-protection-implementation-subkey-derivation"></a>
 
 キー リング内のほとんどのキー エントロピの何らかの形式にが含まれます、「CBC モードの暗号化 + HMAC 検証」ことを示すアルゴリズム情報を保持または「GCM 暗号化 + 検証」です。 このような場合は、埋め込みのエントロピをこのキーのマスター キー生成情報 (または KM) と呼びます、実際の暗号化操作に使用されるキーを派生させるキーの派生関数を実行します。
 
 > [!NOTE]
 > キーは抽象クラスで、次に示すように、カスタムの実装が動作しない可能性があります。 キーは、組み込みの工場のいずれかを使用するのではなく、IAuthenticatedEncryptor の独自の実装を提供する場合は、不要になったこのセクションで説明するメカニズムが適用されます。
 
-<a name=data-protection-implementation-subkey-derivation-aad></a>
+<a name="data-protection-implementation-subkey-derivation-aad"></a>
 
 ## <a name="additional-authenticated-data-and-subkey-derivation"></a>追加の認証済みデータとサブキーの派生
 
@@ -42,7 +42,7 @@ AAD は 3 つの要素のタプルに対して一意であるためを KM から
 
 (K_E、K_H) = SP800_108_CTR_HMACSHA512 (K_M、AAD を contextHeader | | keyModifier)
 
-ここでは、NIST SP800 108 KDF カウンター モードにかけています (を参照してください[NIST SP800 108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf)秒、します。 5.1) は次のパラメーター。
+ここでは、NIST SP800 108 KDF カウンター モードにかけています (を参照してください[NIST SP800 108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf)、秒 5.1) は次のパラメーター。
 
 * キー派生キー (KDK) K_M を =
 

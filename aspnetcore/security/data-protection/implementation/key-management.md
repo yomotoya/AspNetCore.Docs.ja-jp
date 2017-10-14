@@ -2,7 +2,7 @@
 title: "キー管理"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: fb9b807a-d143-4861-9ddb-005d8796afa3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 507c00edc5bade2427151ecadfed581817e4d088
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 687207cb6a1cea89166fd2b6172cdc0a013de4b3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="key-management"></a>キー管理
 
-<a name=data-protection-implementation-key-management></a>
+<a name="data-protection-implementation-key-management"></a>
 
 データ保護システムは、自動的に保護し、ペイロードの保護を解除するために使用するマスター _ キーの有効期間を管理します。 各キーは、次の 4 つのステージのいずれかに存在できます。
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 08/11/2017
 
 例外が発生しました。 場合は、アプリケーション開発者がある[自動キーの生成を無効になっている](../configuration/overview.md#data-protection-configuring-disable-automatic-key-generation)、データ保護システムで、既定のキーとしてものを選択する必要があります。 このフォールバック シナリオでは、システムは、クラスター内の他のマシンに反映されるまでの時間をかけてキーに指定された基本設定の最新のライセンス認証日、失効して非キーを選択します。 フォールバック システムは、その結果、既定の有効期限が切れたキーの選択をなる可能性があります。 フォールバック システムは既定のキーと失効したキーを選択しないと、キー リングが空か、すべてのキーが失効していない場合は、システムが初期化時にエラーが発生します。
 
-<a name=data-protection-implementation-key-management-expiration></a>
+<a name="data-protection-implementation-key-management-expiration"></a>
 
 ## <a name="key-expiration-and-rolling"></a>キーの期限切れとロール
 

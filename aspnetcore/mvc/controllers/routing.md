@@ -11,11 +11,11 @@ ms.assetid: 26250a4d-bf62-4d45-8549-26801cf956e9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/routing
-ms.openlocfilehash: 5a0b5399f7441035cb1231a009681ca22b07ab4e
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: cc3277400aee956f47c53e5a4f3d4e84d3a3d1a3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="routing-to-controller-actions"></a>コント ローラー アクションへのルーティング
 
@@ -118,7 +118,7 @@ app.UseRouter(routes.Build());
 
 `UseMvc`すべてのルートを直接定義されていません、プレース ホルダーのルートのコレクションに追加、`attribute`ルート。 オーバー ロードは、`UseMvc(Action<IRouteBuilder>)`を使用して、独自のルートを追加し、属性のルーティングをサポートします。  `UseMvc`および属性ルートのプレース ホルダーが追加のすべてのバリエーションの - 属性のルーティングの構成方法に関係なく使用可能なは常に`UseMvc`です。 `UseMvcWithDefaultRoute`既定のルートを定義し、属性のルーティングをサポートします。 [属性がルーティング](#attribute-routing-ref-label)セクションでは、属性のルーティングの詳細についてを説明します。
 
-<a name=routing-conventional-ref-label></a>
+<a name="routing-conventional-ref-label"></a>
 
 ## <a name="conventional-routing"></a>従来のルーティング
 
@@ -190,7 +190,7 @@ public class ProductsController : Controller
 
 複数のルートが一致するし、MVC は、'最高' のルートを見つけることはできませんがスローされます、`AmbiguousActionException`です。
 
-<a name=routing-route-name-ref-label></a>
+<a name="routing-route-name-ref-label"></a>
 
 ### <a name="route-names"></a>ルート名
 
@@ -210,7 +210,7 @@ app.UseMvc(routes =>
 
 ルート名なしに影響がある URL に一致するか、要求の処理URL の生成にのみ使用されます。 [ルーティング](xref:fundamentals/routing)詳細は特定の MVC ヘルパーの URL の生成を含む URL の生成にします。
 
-<a name=attribute-routing-ref-label></a>
+<a name="attribute-routing-ref-label"></a>
 
 ## <a name="attribute-routing"></a>属性のルーティング
 
@@ -324,7 +324,7 @@ public class ProductsApiController : Controller
 > [!NOTE]
 > これは、従来*既定のルート*を定義する、`id`パラメーターをオプションとして (`{id?}`)。 Api を正確に指定するには、この機能を許可するなどの利点を持つ`/products`と`/products/5`さまざまな操作にディスパッチされます。
 
-<a name=routing-combining-ref-label></a>
+<a name="routing-combining-ref-label"></a>
 
 ### <a name="combining-routes"></a>結合ルート
 
@@ -369,7 +369,7 @@ public class HomeController : Controller
 }
 ```
 
-<a name=routing-ordering-ref-label></a>
+<a name="routing-ordering-ref-label"></a>
 
 ### <a name="ordering-attribute-routes"></a>属性ルートの順序
 
@@ -382,7 +382,7 @@ public class HomeController : Controller
 > [!TIP]
 > に応じて回避`Order`です。 URL 空間には、明示的な順序の値を正しくルーティングが必要とする場合は、クライアントとの混乱を招く可能性があります。 一般に属性のルーティングが URL に一致する正しいルートが選択されます。 上書きは、適用するよりも通常簡単にルート名を使用して、URL の生成に使用される既定の順序が動作していない場合、`Order`プロパティです。
 
-<a name=routing-token-replacement-templates-ref-label></a>
+<a name="routing-token-replacement-templates-ref-label"></a>
 
 ## <a name="token-replacement-in-route-templates-controller-action-area"></a>トークンの置換ルート テンプレートで ([コント ローラー]、[アクション]、[領域])
 
@@ -414,7 +414,7 @@ public class ProductsController : MyBaseController
 
 トークンの置換がリテラルの区切り記号に一致する`[`または`]`、文字の繰り返しでエスケープ (`[[`または`]]`)。
 
-<a name=routing-multiple-routes-ref-label></a>
+<a name="routing-multiple-routes-ref-label"></a>
 
 ### <a name="multiple-routes"></a>複数のルート
 
@@ -458,7 +458,7 @@ public class ProductsController : Controller
 > [!TIP]
 > 操作で複数のルートを使用してできるように見えます強力、シンプルかつ適切に定義されたアプリケーションの URL のスペースを保持することをお勧めします。 既存のクライアントをサポートする例については、必要な場所にのみ、アクションで複数のルートを使用します。
 
-<a name=routing-attr-options></a>
+<a name="routing-attr-options"></a>
 
 ### <a name="specifying-attribute-route-optional-parameters-default-values-and-constraints"></a>属性のルートの省略可能なパラメーター、既定値、および制約を指定します。
 
@@ -474,7 +474,7 @@ public IActionResult ShowProduct(int id)
 
 参照してください[ルート テンプレート参照](../../fundamentals/routing.md#route-template-reference)ルート テンプレートの構文の詳細な説明をします。
 
-<a name=routing-cust-rt-attr-irt-ref-label></a>
+<a name="routing-cust-rt-attr-irt-ref-label"></a>
 
 ### <a name="custom-route-attributes-using-iroutetemplateprovider"></a>使用してカスタム ルート属性`IRouteTemplateProvider`
 
@@ -495,7 +495,7 @@ public class MyApiControllerAttribute : Attribute, IRouteTemplateProvider
 
 上記の例からの属性が自動的に設定、`Template`に`"api/[controller]"`とき`[MyApiController]`を適用します。
 
-<a name=routing-app-model-ref-label></a>
+<a name="routing-app-model-ref-label"></a>
 
 ### <a name="using-application-model-to-customize-attribute-routes"></a>アプリケーション モデルを使用して属性ルートをカスタマイズするには
 
@@ -503,7 +503,7 @@ public class MyApiControllerAttribute : Attribute, IRouteTemplateProvider
 
 [!code-csharp[Main](routing/sample/main/NamespaceRoutingConvention.cs)]
 
-<a name=routing-mixed-ref-label></a>
+<a name="routing-mixed-ref-label"></a>
 
 ## <a name="mixed-routing-attribute-routing-vs-conventional-routing"></a>ルーティングの混在: 属性のルーティングと従来のルーティング
 
@@ -514,7 +514,7 @@ MVC アプリケーションでは、従来のルーティングやルーティ�
 > [!NOTE]
 > ルーティングのシステムの 2 種類のような特徴は、URL に一致するルート テンプレート後に適用するプロセスです。 従来のルーティングでは、一致したルートの値は、すべてのルーティング アクションを従来のルックアップ テーブルからアクションとコント ローラーを選択に使用されます。 属性、ルーティングの各テンプレートの操作に関連付けられてし、これ以上の参照は必要ありません。
 
-<a name=routing-url-gen-ref-label></a>
+<a name="routing-url-gen-ref-label"></a>
 
 ## <a name="url-generation"></a>URL の生成
 
@@ -567,7 +567,7 @@ MVC ルーティング属性のすべてのアクションのルックアップ 
 > [!TIP]
 > 絶対 URL を作成するを受け入れるオーバー ロードを使用して、 `protocol`:`Url.Action("Buy", "Products", new { id = 17 }, protocol: Request.Scheme)`
 
-<a name=routing-gen-urls-route-ref-label></a>
+<a name="routing-gen-urls-route-ref-label"></a>
 
 ### <a name="generating-urls-by-route"></a>ルートで Url の生成
 
@@ -575,7 +575,7 @@ MVC ルーティング属性のすべてのアクションのルックアップ 
 
 [!code-csharp[Main](routing/sample/main/Controllers/UrlGenerationControllerRouting.cs?name=snippet_1)]
 
-<a name=routing-gen-urls-html-ref-label></a>
+<a name="routing-gen-urls-html-ref-label"></a>
 
 ### <a name="generating-urls-in-html"></a>Html 形式で Url の生成
 
@@ -585,7 +585,7 @@ TagHelpers で Url を生成する、 `form` TagHelper と`<a>`TagHelper です�
 
 ビュー、内部、`IUrlHelper`を介して使用できますが、`Url`上記でカバーされないアドホック URL の生成に任意のプロパティです。
 
-<a name=routing-gen-urls-action-ref-label></a>
+<a name="routing-gen-urls-action-ref-label"></a>
 
 ### <a name="generating-urls-in-action-results"></a>アクションの結果で URL を生成します。
 
@@ -606,7 +606,7 @@ public Task<IActionResult> Edit(int id, Customer customer)
 
 メソッドに類似のパターンに従うアクション結果のファクトリ メソッド`IUrlHelper`です。
 
-<a name=routing-dedicated-ref-label></a>
+<a name="routing-dedicated-ref-label"></a>
 
 ### <a name="special-case-for-dedicated-conventional-routes"></a>従来の専用のルートの特殊なケース
 
@@ -625,7 +625,7 @@ app.UseMvc(routes =>
 
 従来の専用のルーティングがルートがなることを防止する対応するルートのパラメーターがありません。 既定値の特別な動作に依存"すぎる最長"の URL を生成します。 既定値は、ここでは`{ controller = Blog, action = Article }`、およびどちら`controller`も`action`ルートのパラメーターとして表示されます。 ルーティング URL の生成を実行するときに指定された値は既定値に一致する必要があります。 URL の生成を使用して`blog`ために失敗値`{ controller = Home, action = Index }`が一致しない`{ controller = Blog, action = Article }`です。 ルーティングし、フォールバックして再試行してください`default`、これは成功します。
 
-<a name=routing-areas-ref-label></a>
+<a name="routing-areas-ref-label"></a>
 
 ## <a name="areas"></a>区分
 
@@ -670,7 +670,7 @@ app.UseMvc(routes =>
 
 [!code-csharp[Main](routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs)]
 
-<a name=iactionconstraint-ref-label></a>
+<a name="iactionconstraint-ref-label"></a>
 
 ## <a name="understanding-iactionconstraint"></a>Understanding IActionConstraint
 
@@ -695,7 +695,7 @@ public class ProductsController : Controller
 
 概念的には、`IActionConstraint`の形式は、*オーバー ロード*、同じ名前のメソッドをオーバー ロードではなく、同じ URL に一致するアクション間でオーバー ロードには、します。 属性のルーティングを使用しても`IActionConstraint`両方を検討している候補となるさまざまなコント ローラーから、操作に実現できます。
 
-<a name=iactionconstraint-impl-ref-label></a>
+<a name="iactionconstraint-impl-ref-label"></a>
 
 ### <a name="implementing-iactionconstraint"></a>IActionConstraint を実装します。
 

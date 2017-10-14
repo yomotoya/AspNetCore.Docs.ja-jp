@@ -11,19 +11,19 @@ ms.assetid: 0e4881a3-a94d-4e35-9c1c-f025d65dcff0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 9361dcec89a0f35067181523cc56637d629614ff
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: d35e0e806999ffd2e0f8f82e0adfc940ea2b503d
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="configuring-data-protection"></a>データ保護を構成します。
 
-<a name=data-protection-configuring></a>
+<a name="data-protection-configuring"></a>
 
 いくつか適用される、データ保護システムが初期化されたときに[既定の設定](default-settings.md#data-protection-default-settings)運用環境に基づきます。 これらの設定は通常、1 台のコンピューターで実行されるアプリケーションに適しています。 開発者はこれらを変更する必要のある場合もあります (おそらく複数のコンピューターまたはコンプライアンス上の理由から、アプリケーションが分散しているので)、し、このようなシナリオは、データ保護システムは、豊富な構成 API を提供しています。
 
-<a name=data-protection-configuration-callback></a>
+<a name="data-protection-configuration-callback"></a>
 
 拡張メソッドを返す、IDataProtectionBuilder AddDataProtection 自体を連結できます。 さまざまなデータ保護を構成するオプションの拡張メソッドを公開します。 たとえば、キーを格納する %localappdata% (既定値) の代わりに UNC 共有は、次のようなシステムを構成します。
 
@@ -38,7 +38,7 @@ public void ConfigureServices(IServiceCollection services)
 >[!WARNING]
 > キーの永続性の場所を変更する場合、システムは自動的に行われなくキーの暗号化休息 DPAPI は、適切な暗号化メカニズムであるかどうかを認識していないためです。
 
-<a name=configuring-x509-certificate></a>
+<a name="configuring-x509-certificate"></a>
 
 呼び出して、ProtectKeysWith のいずれかの休息キーを保護するシステムを構成する\*Api を構成します。 次の例では UNC 共有でキーを格納し、特定の X.509 証明書の残りの部分でこれらのキーの暗号化を検討してください。
 
@@ -65,7 +65,7 @@ public void ConfigureServices(IServiceCollection services)
 
 既定では、データ保護システムは、同じ物理キーのリポジトリを共有している場合でも、別のアプリケーションを分離します。 これにより、互いの保護されているペイロードを理解するアプリケーション。 2 つの異なるアプリケーション間で保護されているペイロードを共有するようにアプリケーションの両方に同じアプリケーションの名前に渡すことシステムの構成は次の例。
 
-<a name=data-protection-code-sample-application-name></a>
+<a name="data-protection-code-sample-application-name"></a>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -75,7 +75,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-<a name=data-protection-configuring-disable-automatic-key-generation></a>
+<a name="data-protection-configuring-disable-automatic-key-generation"></a>
 
 最後に、アプリケーションの有効期限が間近、キーを自動的にロールをしないシナリオがある可能性があります。 この 1 つの例には、アプリケーションのプライマリ/セカンダリは、関係でのみ、アプリケーションのプライマリ キー管理に関連する要素を担当するあり、すべてのセカンダリ アプリケーションだけがある、キーのリングの読み取り専用ビューを設定する可能性があります。 次に示すように、システムを構成することによって、読み取り専用としてキー リングを処理する、セカンダリのアプリケーションを構成できます。
 
@@ -87,7 +87,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-<a name=data-protection-configuration-per-app-isolation></a>
+<a name="data-protection-configuration-per-app-isolation"></a>
 
 ## <a name="per-application-isolation"></a>アプリケーションごとの分離
 
@@ -105,7 +105,7 @@ ASP.NET Core ホストによって、データ保護システムが指定した�
 
 データ保護システムによって提供されていない ASP.NET Core ホスト場合 (たとえば、開発者は、それをインスタンス化自分自身 DataProtectionProvider 具象型を使用して)、既定では、アプリケーションの分離が無効になり、すべてのアプリケーションが同じキーの更新によってサポート適切な目的を提供する限り、マテリアルはペイロードを共有できます。 この環境でアプリケーションの分離を提供するには、構成オブジェクトに対して SetApplicationName メソッドを呼び出すを参照してください、[コード サンプル](#data-protection-code-sample-application-name)上。
 
-<a name=data-protection-changing-algorithms></a>
+<a name="data-protection-changing-algorithms"></a>
 
 ## <a name="changing-algorithms"></a>アルゴリズムを変更します。
 
@@ -144,7 +144,7 @@ UseCryptographicAlgorithms を呼び出すことにより、開発者は (あら
 >[!TIP]
 > アルゴリズムを変更しても、キー リング内の既存のキーには影響しません。 新しく生成されたキーにのみ影響します。
 
-<a name=data-protection-changing-algorithms-custom-managed></a>
+<a name="data-protection-changing-algorithms-custom-managed"></a>
 
 ### <a name="specifying-custom-managed-algorithms"></a>カスタムの管理されているアルゴリズムを指定します。
 
@@ -193,7 +193,7 @@ serviceCollection.AddDataProtection()
 > [!NOTE]
 > PKCS #7 パディング CBC モードの暗号化をサポートする必要があり、対称アルゴリズムは ≥ 128 ビットのキーの長さと ≥ の 64 ビットのブロック サイズにあります。 ダイジェストのサイズをいる必要があります、KeyedHashAlgorithm > = 128 ビット、およびハッシュ アルゴリズムのダイジェストの長さと同じ長さのキーをサポートする必要があります。 KeyedHashAlgorithm は HMAC を必須ではありません。
 
-<a name=data-protection-changing-algorithms-cng></a>
+<a name="data-protection-changing-algorithms-cng"></a>
 
 ### <a name="specifying-custom-windows-cng-algorithms"></a>カスタムの Windows CNG アルゴリズムを指定します。
 
@@ -287,7 +287,7 @@ services.AddDataProtection()
 
 ファースト クラスの API として公開されていない、データ保護システムはほとんどのアルゴリズムの種類を指定することを許可するのに十分な拡張可能です。 たとえば、HSM 内で格納されているすべてのキーを保持し、実装を提供する、カスタムのコアの暗号化と暗号化解除ルーチンも可能です。 詳細については、コア暗号化機能拡張セクションで IAuthenticatedEncryptorConfiguration を参照してください。
 
-### <a name="see-also"></a>関連項目
+### <a name="see-also"></a>参照
 
 * [DI に対応しないシナリオ](non-di-scenarios.md)
 * [コンピューター全体のポリシー](machine-wide-policy.md)

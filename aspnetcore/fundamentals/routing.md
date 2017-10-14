@@ -11,11 +11,11 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 9d24c2956c24a7995b3eeffc19e8c0a827349493
-ms.sourcegitcommit: ed401027aac45c5938c917c7f518a33ceffe9f95
+ms.openlocfilehash: 5dd8bee7228587d7e13f128bc8f16102fb70a412
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core でのルーティング
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/02/2017
 >[!IMPORTANT]
 > このドキュメントでは、ルーティング低レベルの ASP.NET Core について説明します。 ASP.NET Core MVC ルーティングを参照してください[コント ローラー アクションへのルーティング](../mvc/controllers/routing.md)
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="routing-basics"></a>ルーティングの基礎
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/02/2017
 
 接続されているルーティング、[ミドルウェア](middleware.md)によってパイプライン、`RouterMiddleware`クラスです。 [ASP.NET MVC](../mvc/overview.md)追加の構成の一部としてのミドルウェア パイプラインにルーティングします。 詳細については、スタンドアロン コンポーネントとしてルーティングを使用して、次を参照してください。[を使用して、ルーティングのミドルウェア](#using-routing-middleware)です。
 
-<a name=url-matching-ref></a>
+<a name="url-matching-ref"></a>
 
 ### <a name="url-matching"></a>一致する URL
 
@@ -159,7 +159,7 @@ routes.MapRoute(
 
 ![[ローカル] ウィンドウのトークン](routing/_static/tokens.png)
 
-<a name=id1></a>
+<a name="id1"></a>
 
 ### <a name="url-generation"></a>URL の生成
 
