@@ -11,15 +11,15 @@ ms.assetid: 54bb961d-29d9-4dee-8e2c-a93fc33c16f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 7eeb8f0517b8806cabdd59e7d81f8c2272238615
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 8a87972a7394246ece2af3485d93739975ba5383
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
-# <a name="aspnet-web-api-help-pages-using-swagger"></a>Swagger を使用する ASP.NET Web API のヘルプ ページ
+# <a name="aspnet-core-web-api-help-pages-using-swagger"></a>Swagger を使用する ASP.NET Core Web API のヘルプ ページ
 
-<a name=web-api-help-pages-using-swagger></a>
+<a name="web-api-help-pages-using-swagger"></a>
 
 [Shayne Boyer](https://twitter.com/spboyer) および [Scott Addie](https://twitter.com/Scott_Addie) 著
 
