@@ -1,30 +1,30 @@
 ---
 title: "ASP.NET Core の razor 構文のリファレンス"
-author: guardrex
+author: rick-anderson
 description: "サーバー ベースのコードを埋め込む web ページの Razor マークアップの構文について説明します。"
 keywords: "ASP.NET Core、Razor、Razor ディレクティブ"
 ms.author: riande
 manager: wpickett
-ms.date: 09/29/2017
+ms.date: 10/18/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 532e278597a0029b5bae93068af5b7b147c35688
-ms.sourcegitcommit: e45f8912ce32b4071bf7e83b8f8315cd8bba3520
+ms.openlocfilehash: 743c42b26c62d0e24b5d5b487b3154bc249fcff4
+ms.sourcegitcommit: a873f862c8e68b2cf2998aaed3dddd93eeba9e0f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET Core の razor 構文
 
-によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Luke Latham](https://github.com/guardrex)、および[Taylor Mullen](https://twitter.com/ntaylormullen)
+によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Luke Latham](https://github.com/guardrex)、 [Taylor Mullen](https://twitter.com/ntaylormullen)、および[Dan Vicarel](https://github.com/Rabadash8820)
 
 Razor とは、サーバー ベースのコードを埋め込む web ページのマークアップ構文です。 Razor 構文は、Razor マークアップ、c#、および HTML で構成されます。 通常、Razor を含むファイルが、 *.cshtml*ファイル拡張子。
 
 ## <a name="rendering-html"></a>HTML を表示
 
-Razor の既定の言語は、HTML です。 Razor マークアップからレンダリング HTML は、HTML ファイルから HTML をレンダリングと違いはありません。 HTML マークアップを配置する場合、 *.cshtml*レンダリング変更されていないサーバーで Razor ファイル。
+Razor の既定の言語は、HTML です。 Razor マークアップからレンダリング HTML は、HTML ファイルから HTML をレンダリングと違いはありません。  内の HTML マークアップ*.cshtml* Razor ファイルが変更されていないサーバーを表示します。
 
 ## <a name="razor-syntax"></a>Razor 構文
 
@@ -59,11 +59,24 @@ Razor の暗黙的な式が始まる`@`c# コードを続けて。
 <p>@DateTime.IsLeapYear(2016)</p>
 ```
 
-C# の場合を除く`await`キーワードで暗黙的な式はスペースを含めることはできません。 C# ステートメントにクリア終了がある場合は、スペースを intermingle できます。
+C# の場合を除く`await`キーワードで暗黙的な式はスペースを含めることはできません。 C# ステートメントにクリア終了がある場合は、スペースが混在させることができます。
 
 ```cshtml
 <p>@await DoSomething("hello", "world")</p>
 ```
+
+暗黙的な式**できません**角かっこ内の文字として C# の場合、ジェネリックを含む (`<>`) で HTML タグとして解釈されます。 次のコードは**いない**無効です。
+
+```cshtml
+<p>@GenericMethod<int>()</p>
+```
+
+上記のコードでは、次のいずれかのようなコンパイラ エラーが生成されます。
+
+ * "Int"要素が閉じられませんでした。  すべての要素はいずれかである必要がありますに対応する終了タグが自己終了、または。
+ *  メソッド グループ 'GenericMethod' を非デリゲート型 'object' を変換することはできません。 メソッドを呼び出すつもりでしたか?' 
+ 
+ジェネリック メソッドの呼び出しにラップする必要があります、 [Razor 式が明示的](#explicit-razor-expressions)または[Razor コードのブロック](#razor-code-blocks)です。 この制限は適用されません*.vbhtml* Razor ファイルのため、Visual Basic 構文は、角かっこではなく、ジェネリック型パラメーターを囲むかっこを配置します。
 
 ## <a name="explicit-razor-expressions"></a>Razor の明示的な式
 
@@ -85,7 +98,7 @@ Razor の明示的な式から成る、`@`バランスの取れたかっこ記�
 <p>Last week: 7/7/2016 4:39:52 PM - TimeSpan.FromDays(7)</p>
 ```
 
-Expression の結果の文字列を連結するのに明示的な式を使用することができます。
+明示的な式は、式の結果を含むテキストの連結を使用できます。
 
 ```cshtml
 @{
@@ -96,6 +109,26 @@ Expression の結果の文字列を連結するのに明示的な式を使用す
 ```
 
 明示的の式がない`<p>Age@joe.Age</p>`、電子メール アドレスとして扱われるおよび`<p>Age@joe.Age</p>`が表示されます。 明示的な式として書き込まれるときに`<p>Age33</p>`が表示されます。
+
+
+明示的な式は、ジェネリックのメソッドからの出力を表示するために使用できます*.cshtml*ファイル。 暗黙的な式を角かっこ内の文字で (`<>`) は、HTML タグとして解釈されます。 次のマークアップが**いない**Razor が無効です。
+
+```cshtml
+<p>@GenericMethod<int>()</p>
+```
+
+上記のコードでは、次のいずれかのようなコンパイラ エラーが生成されます。
+
+ * "Int"要素が閉じられませんでした。  すべての要素はいずれかである必要がありますに対応する終了タグが自己終了、または。
+ *  メソッド グループ 'GenericMethod' を非デリゲート型 'object' を変換することはできません。 メソッドを呼び出すつもりでしたか?' 
+ 
+ 次のマークアップは、適切な方法の書き込みにこのコードを示します。  コードは、明示的な式として書き込まれます。
+
+```cshtml
+<p>@(GenericMethod<int>())</p>
+```
+
+注: にこの制限は適用されません*.vbhtml* Razor ファイル。  *.Vbhtml* Razor ファイル、Visual Basic 構文は、角かっこではなく、ジェネリック型パラメーターを囲むかっこを配置します。
 
 ## <a name="expression-encoding"></a>式のエンコード
 
@@ -159,7 +192,7 @@ Razor コード ブロックが始まる`@`で囲まれたと`{}`です。 式�
 
 ### <a name="implicit-transitions"></a>暗黙の切り替え
 
-既定の言語コード ブロックでは、C# の場合が、HTML に移行することができます。
+既定の言語コード ブロックでは、C# の場合が、Razor ページを HTML に移行できます。
 
 ```cshtml
 @{
@@ -170,7 +203,7 @@ Razor コード ブロックが始まる`@`で囲まれたと`{}`です。 式�
 
 ### <a name="explicit-delimited-transition"></a>明示的な区切り記号付き遷移
 
-HTML を描画するコード ブロックのサブ セクションを定義するのには、Razor で表示するための文字を囲む**\<テキスト >**タグ。
+HTML を描画するコード ブロックのサブセクションを定義するのには、Razor で表示するための文字を囲む**\<テキスト >**タグ。
 
 ```cshtml
 @for (var i = 0; i < people.Length; i++)
@@ -180,9 +213,12 @@ HTML を描画するコード ブロックのサブ セクションを定義す�
 }
 ```
 
-HTML タグで囲まれていない HTML をレンダリングするときは、この方法を使用します。 HTML または Razor のタグのない Razor 実行時エラーが表示されます。
+HTML タグで囲まれていない HTML を表示するのにには、この方法を使用します。 HTML または Razor タグなしは、Razor 実行時エラーが発生します。
 
-**\<テキスト >**タグもコンテンツを表示するときに空白を制御する便利です。 間のコンテンツのみ、 **\<テキスト >**のタグをレンダリングすると、しの前後に空白、 **\<テキスト >**タグは HTML 出力で表示されます。
+**\<テキスト >**タグはコンテンツを表示するときに空白を制御すると便利です。
+
+* 間のコンテンツのみ、 **\<テキスト >**タグを表示します。 
+* 前に、または後に空白、 **\<テキスト >**タグは HTML 出力が表示されます。
 
 ### <a name="explicit-line-transition-with-"></a>明示的な行の遷移と @。
 
@@ -196,7 +232,9 @@ HTML タグで囲まれていない HTML をレンダリングするときは、
 }
 ```
 
-なし、 `@:` Razor ランタイム エラーが発生するコードでは、します。
+なし、 `@:` Razor 実行時エラーが生成されたコードでは、します。
+
+警告: 余分な`@`Razor ファイル内の文字、ブロックの後でステートメントの原因とコンパイラ エラーが発生することができます。 これらのコンパイラ エラーは報告されたエラーの前に、実際のエラーが発生するために理解するが困難にすることはできます。  このエラーは、後、1 つのコード ブロックに複数の暗黙的または明示的な式を組み合わせることが一般的です。
 
 ## <a name="control-structures"></a>制御構造
 
@@ -230,7 +268,7 @@ else
 }
 ```
 
-次のようにスイッチ ステートメントを使用することができます。
+次のマークアップは、switch ステートメントを使用する方法を示しています。
 
 ```cshtml
 @switch (value)
@@ -249,7 +287,7 @@ else
 
 ### <a name="looping-for-foreach-while-and-do-while"></a>ループ@for、 @foreach、 @while、および@do中
 
-コントロール ステートメントのループで template 宣言された HTML をレンダリングすることができます。 人のユーザーの一覧を表示するには。
+コントロール ステートメントのループを設定して、テンプレート化された HTML を表示できます。  人のユーザーの一覧を表示するには。
 
 ```cshtml
 @{
@@ -262,7 +300,7 @@ else
 }
 ```
 
-次のループ ステートメントのいずれかの操作を行うこともできます。
+次のループ ステートメントがサポートされています。
 
 `@for`
 
@@ -315,7 +353,8 @@ else
 
 ### <a name="compound-using"></a>複合@using
 
-C# で、`using`オブジェクトが破棄されることを確認するステートメントを使用します。 Razor では、同じメカニズムを使用してを追加のコンテンツを含む HTML ヘルパーを作成します。 インスタンスを含む form タグを表示するために HTML ヘルパーを利用できる、`@using`ステートメント。
+C# で、`using`オブジェクトが破棄されることを確認するステートメントを使用します。 Razor では、同じメカニズムを使用してを追加のコンテンツを含む HTML ヘルパーを作成します。 次のコードでは、HTML ヘルパーが含む form タグをレンダリング、`@using`ステートメント。
+
 
 ```cshtml
 @using (Html.BeginForm())
@@ -328,7 +367,7 @@ C# で、`using`オブジェクトが破棄されることを確認するステ�
 }
 ```
 
-スコープ レベルのアクションを実行することもできます。[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)です。
+スコープ レベルのアクションを実行できます[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)です。
 
 ### <a name="try-catch-finally"></a>@try、catch、finally
 
@@ -417,7 +456,7 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 @model TypeNameOfModel
 ```
 
-個々 のユーザー アカウントを持つ ASP.NET Core MVC アプリを作成する場合、 *Views/Account/Login.cshtml*ビューには、次のモデルの宣言が含まれています。
+個々 のユーザー アカウントに作成された ASP.NET Core MVC アプリで、 *Views/Account/Login.cshtml*ビューには、次のモデルの宣言が含まれています。
 
 ```cshtml
 @model LoginViewModel
@@ -435,17 +474,17 @@ Razor の公開、`Model`ビューに渡されるモデルにアクセスする�
 <div>The Login Email: @Model.Email</div>
 ```
 
-`@model`ディレクティブは、このプロパティの種類を指定します。 ディレクティブを指定します、`T`で`RazorPage<T>`を生成するクラスから派生して、表示します。 指定しない場合は、`@model`ディレクティブ、`Model`プロパティの型は`dynamic`します。 モデルの値は、コント ローラーからビューに渡されます。 参照してください[モデルを厳密に型指定と@modelキーワード](xref:tutorials/first-mvc-app/adding-model#strongly-typed-models-keyword-label)詳細についてはします。
+`@model`ディレクティブは、このプロパティの種類を指定します。 ディレクティブを指定します、`T`で`RazorPage<T>`を生成するクラスから派生して、表示します。 場合、`@model`指定すると、ディレクティブの後、`Model`プロパティの型は`dynamic`します。 モデルの値は、コント ローラーからビューに渡されます。 詳細については、次を参照してください。 [モデルを厳密に型指定と@modelキーワード。
 
 ### <a name="inherits"></a>@inherits
 
-`@inherits`ディレクティブには、ビューが継承するクラスのフル コントロールが提供します。
+`@inherits`ディレクティブは、ビューが継承するクラスを完全に制御を提供します。
 
 ```cshtml
 @inherits TypeNameOfClassToInheritFrom
 ```
 
-カスタム Razor ページの種類を次に示します。
+次のコードでは、カスタム Razor ページの種類を示します。
 
 [!code-csharp[Main](razor/sample/Classes/CustomRazorPage.cs)]
 
@@ -459,11 +498,11 @@ Razor の公開、`Model`ビューに渡されるモデルにアクセスする�
 <div>Custom text: Gardyloo! - A Scottish warning yelled from a window before dumping a slop bucket on the street below.</div>
 ```
 
-使用することはできません`@model`と`@inherits`同じビューにします。 した`@inherits`で、 *_ViewImports.cshtml*ビューをインポートするファイル。
+ `@model`および`@inherits`同じビューで使用することができます。  `@inherits`指定できます、 *_ViewImports.cshtml*ビューをインポートするファイル。
 
 [!code-cshtml[Main](razor/sample/Views/_ViewImportsModel.cshtml)]
 
-厳密に型指定されたビューの例を次に示します。
+次のコードは、厳密に型指定されたビューの例です。
 
 [!code-cshtml[Main](razor/sample/Views/Home/Login1.cshtml)]
 
@@ -476,11 +515,12 @@ Razor の公開、`Model`ビューに渡されるモデルにアクセスする�
 
 ### <a name="inject"></a>@inject
 
-`@inject`ディレクティブを使用すると、サービスからの挿入、[サービス コンテナー](xref:fundamentals/dependency-injection)ビュー内にします。 参照してください[ビューに依存性の注入](xref:mvc/views/dependency-injection)詳細についてはします。
+
+`@inject`ディレクティブからサービスを挿入する Razor ページを使用する、[サービス コンテナー](xref:fundamentals/dependency-injection)な表示にします。 詳細については、次を参照してください。[ビューに依存性の注入](xref:mvc/views/dependency-injection)です。
 
 ### <a name="functions"></a>@functions
 
-`@functions`ディレクティブでは、関数レベルのコンテンツ ビューを追加することができます。
+`@functions`ディレクティブは、関数レベルのコンテンツ ビューを追加する Razor ページを使用します。
 
 ```cshtml
 @functions { // C# Code }
@@ -502,7 +542,7 @@ Razor の公開、`Model`ビューに渡されるモデルにアクセスする�
 
 ### <a name="section"></a>@section
 
-`@section`ディレクティブを組み合わせて使用、[レイアウト](xref:mvc/views/layout)HTML ページのさまざまな部分にコンテンツをレンダリングするビューを有効にします。 参照してください[セクション](xref:mvc/views/layout#layout-sections-label)詳細についてはします。
+`@section`ディレクティブを組み合わせて使用、[レイアウト](xref:mvc/views/layout)HTML ページのさまざまな部分にコンテンツをレンダリングするビューを有効にします。 詳細については、次を参照してください。[セクション](xref:mvc/views/layout#layout-sections-label)です。
 
 ## <a name="tag-helpers"></a>タグ ヘルパー
 
@@ -553,7 +593,7 @@ C# Razor キーワードでダブル エスケープする必要があります`
 
 ## <a name="viewing-the-razor-c-class-generated-for-a-view"></a>ビューに対して生成された Razor c# クラスを表示します。
 
-ASP.NET Core MVC プロジェクトに次のクラスを追加します。
+ASP.NET Core の MVC プロジェクトに次のクラスを追加します。
 
 [!code-csharp[Main](razor/sample/Utilities/CustomTemplateEngine.cs)]
 
@@ -571,7 +611,12 @@ Razor ビュー エンジンは、ビューを区別する検索を実行しま�
 
 * ファイル ベースのソース: 
   * 大文字と小文字のファイル システム (Windows など) でのオペレーティング システムで物理ファイルのプロバイダーの参照は大文字小文字を区別します。 たとえば、`return View("Test")`に一致する結果*/Views/Home/Test.cshtml*、 */Views/home/test.cshtml*、およびその他の文字種バリアント。
-  * 大文字と小文字のファイル システムで (たとえば、Linux、os X を使用して`EmbeddedFileProvider`)、検索は大文字小文字を区別します。 たとえば、`return View("Test")`具体的には一致*/Views/Home/Test.cshtml*です。
+  * 大文字小文字を区別ファイル システムで (たとえば、Linux、os X を使用して`EmbeddedFileProvider`)、検索は大文字小文字を区別します。 たとえば、`return View("Test")`具体的には一致*/Views/Home/Test.cshtml*です。
 * ビューをプリコンパイル: ASP.Net Core 2.0 以降ではすべてのオペレーティング システムで大文字と小文字はプリコンパイル済みのビューを検索します。 動作は、Windows 上の物理ファイルのプロバイダーの動作と同じです。 プリコンパイル済みの 2 つのビューが大文字と小文字が異なる場合、参照の結果は非決定的です。
 
-開発者は、領域、コント ローラー、およびアクションの名前の大文字と小文字をファイルおよびディレクトリ名の大文字と小文字が一致することをお勧めします。 これにより、デプロイは、基になるファイル システムに関係なく、ビューを検索します。
+開発者は、大文字と小文字のファイルとディレクトリ名の大文字と小文字が一致します。
+
+    * 領域、コント ローラー、およびアクションの名前。 
+    * Razor ページ。
+    
+小文字を区別とは、展開が基になるファイル システムに関係なく、ビューを検索することを確認します。
