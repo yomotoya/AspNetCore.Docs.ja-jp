@@ -1,20 +1,20 @@
 ---
 title: "ASP.NET Core チュートリアル"
-author: tdykstra
+author: rick-anderson
 description: "ASP.NET Core アプリケーションの開発方法を学習するためのステップ バイ ステップ ガイドの一覧です。"
 keywords: ASP.NET Core,
-ms.author: tdykstra
+ms.author: riande
 manager: wpickett
-ms.date: 07/14/2017
+ms.date: 10/14/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/index
-ms.openlocfilehash: 4962361aa0fc8a61cfc771ed3123a3bafdbe6100
-ms.sourcegitcommit: fe25b8163e9e4115915b3293936e9da646fff84f
+ms.openlocfilehash: ba5d9d8a27b1df282783a15bb8dd945e14c61db0
+ms.sourcegitcommit: a873f862c8e68b2cf2998aaed3dddd93eeba9e0f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core チュートリアル
 
@@ -25,12 +25,18 @@ ASP.NET Core アプリケーションの開発に関する以下のステップ 
 [Razor ページ](xref:mvc/razor-pages/index)は、ASP.NET Core 2.0 で Web UI を作成するための推奨される方法です。
 
 * [ASP.NET Core での Razor ページの概要](xref:mvc/razor-pages/index)
-* [Windows で ASP.NET Core を使用して Razor ページ Web アプリを作成する](xref:tutorials/razor-pages/index)
-* [Mac で ASP.NET Core を使用して Razor ページ Web アプリを作成する](xref:tutorials/razor-pages-mac/index)  
-* [VS Code で ASP.NET Core を使用して Razor ページ Web アプリを作成する](xref:tutorials/razor-pages-vsc/index) 
-* [Windows で Visual Studio を使用して ASP.NET Core MVC Web アプリを作成する](first-mvc-app/index.md)
-* [Mac で Visual Studio を使用して ASP.NET Core MVC Web アプリを作成する](first-mvc-app-mac/index.md)
-* [Mac または Linux で Visual Studio Code を使用して ASP.NET Core MVC Web アプリを作成する](first-mvc-app-xplat/index.md)
+* ASP.NET Core で Razor ページ Web アプリを作成する
+
+   * [Windows での Razor ページ](xref:tutorials/razor-pages/index)
+   * [Mac での Razor ページ](xref:tutorials/razor-pages-mac/index)
+   * [VS Code での Razor ページ](xref:tutorials/razor-pages-vsc/index)  
+
+* ASP.NET Core MVC Web アプリを作成する
+
+   * [Visual Studio for Windows での Web アプリ](first-mvc-app/index.md)
+   * [Visual Studio for Mac での Web アプリ](first-mvc-app-mac/index.md)
+   * [Mac または Linux の Visual Studio Code での Web アプリ](first-mvc-app-xplat/index.md)
+
 * [Visual Studio を使用した ASP.NET Core と Entity Framework Core の概要](../data/ef-mvc/index.md)
 * [Yeoman でのプロジェクトの構築](../client-side/yeoman.md)
 * [タグ ヘルパーの作成](../mvc/views/tag-helpers/authoring.md)
@@ -38,9 +44,12 @@ ASP.NET Core アプリケーションの開発に関する以下のステップ 
 * [dotnet watch を使用した ASP.NET Core アプリケーションの開発](dotnet-watch.md)
 
 ## <a name="building-web-apis"></a>Web API の構築
-* [ASP.NET Core と Visual Studio for Mac で Web API を作成する](xref:tutorials/first-web-api-mac)
-* [ASP.NET Core と Visual Studio for Windows で Web API を作成する](first-web-api.md)
-* [ASP.NET Core と Visual Studio Code で Web API を作成する](web-api-vsc.md)
+* ASP.NET Core で Web API を作成する
+
+  * [Visual Studio for Windows での Web API](first-web-api.md)
+  * [Visual Studio for Mac での Web API](xref:tutorials/first-web-api-mac)
+  * [Visual Studio Code での Web API](web-api-vsc.md)
+  
 * [Swagger を使用する ASP.NET Core Web API のヘルプ ページ](web-api-help-pages-using-swagger.md)
 * [ネイティブ モバイル アプリケーションのバックエンド Web サービスの作成](../mobile/native-mobile-backend.md)
 
