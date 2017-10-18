@@ -12,25 +12,25 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9557e9f6915507450de3ffe500582839a28c3f0c
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: b2e991ea37b1b726e472d78d839143546ebd559f
+ms.sourcegitcommit: 29da58de11e20c9c60448e36e7075c6b13622624
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>ASP.NET Core でのログ記録の概要
 
 によって[Steve Smith](https://ardalis.com/)と[Tom Dykstra](https://github.com/tdykstra)
 
-ASP.NET Core は、さまざまなログ プロバイダーと連携するログ記録 API をサポートします。 組み込みのプロバイダーを使用する 1 つまたは複数の送信先にログを送信してとサード パーティ製のログ記録のフレームワークにプラグインできます。 この記事では、コードで組み込みのログ記録 API とプロバイダーを使用する方法を示します。
+ASP.NET Core は、さまざまなログ プロバイダーと連携するログ API をサポートします。 組み込みのプロバイダーを使用する 1 つまたは複数の送信先にログを送信してとサード パーティ製のログ記録のフレームワークにプラグインできます。 この記事では、コードで組み込みのログ記録 API とプロバイダーを使用する方法を示します。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ---
 
@@ -585,9 +585,6 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices)プロバイダーのパッケージは、Azure App Service アプリのファイル システム内とテキスト ファイルにログを書き込みます[blob ストレージ](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage)Azure ストレージ アカウントにします。 プロバイダーは、ASP.NET Core 1.1.0 を対象とするアプリに対してのみ使用可能な以上です。 
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-> [!NOTE]
-> ASP.NET Core 2.0 はプレビュー段階です。  Azure App Service に配置されたときに、最新のプレビュー リリースで作成されたアプリは実行されない可能性があります。 Azure App Service が 2.0 を実行する ASP.NET Core 2.0 が解放されると、アプリ、および Azure App Service をここに記載されているプロバイダーは機能します。
 
 プロバイダーのパッケージまたは呼び出しをインストールする必要はありません、`AddAzureWebAppDiagnostics`拡張メソッド。  プロバイダーは、Azure App Service にアプリを展開するとき、アプリを自動的に利用可能です。
 
