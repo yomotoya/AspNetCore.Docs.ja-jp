@@ -5,25 +5,25 @@ description: "ASP.NET Core ミドルウェアと要求パイプラインにつ�
 keywords: "ASP.NET Core、パイプライン、デリゲートのミドルウェア"
 ms.author: riande
 manager: wpickett
-ms.date: 08/14/2017
+ms.date: 10/14/2017
 ms.topic: article
 ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: 3cd15c7e8ed4956e1d451f3bd5935fc175999d1f
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: ad8d207b1e6de396f16d098fb07ddc89bea2c520
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core ミドルウェアの基本事項
 
-<a name=fundamentals-middleware></a>
+<a name="fundamentals-middleware"></a>
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)と[Steve Smith](https://ardalis.com/)
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="what-is-middleware"></a>ミドルウェアは、新機能
 
@@ -63,7 +63,7 @@ ASP.NET Core 要求パイプラインは、この図に示す (実行次のよ�
 >
 > [HttpResponse.HasStarted](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.httpresponsefeature#Microsoft_AspNetCore_Http_Features_HttpResponseFeature_HasStarted)ヘッダーが送信されたかどうかや、本体に書き込まれたを示すために役立ちますヒントします。
 
-## <a name="ordering"></a>並べ替え
+## <a name="ordering"></a>順序
 
 ミドルウェア コンポーネントを追加する順序、`Configure`メソッドは、要求で呼び出された順序と応答の逆の順序を定義します。 この順序は、セキュリティ、パフォーマンス、および機能にとって重要です。
 
@@ -73,6 +73,26 @@ Configure メソッド (下図参照) は、次のミドルウェア コンポ�
 2. 静的なファイル サーバー
 3. 認証
 4. MVC
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+
+```csharp
+public void Configure(IApplicationBuilder app)
+{
+    app.UseExceptionHandler("/Home/Error"); // Call first to catch exceptions
+                                            // thrown in the following middleware.
+
+    app.UseStaticFiles();                   // Return static files and end pipeline.
+
+    app.UseAuthentication();               // Authenticate before you access
+                                           // secure resources.
+
+    app.UseMvcWithDefaultRoute();          // Add MVC to the request pipeline.
+}
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -89,11 +109,22 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
+-----------
+
 、上記のコードで`UseExceptionHandler`は、最初のミドルウェア コンポーネントをパイプラインに追加: そのため、その後の呼び出しで発生する例外をキャッチします。
 
 静的ファイル ミドルウェアがパイプラインの早い段階で呼び出されるは、要求を処理し、残りのコンポーネントを通過せずショート サーキットためです。 静的ファイル ミドルウェアを提供**ありません**承認チェックします。 下にあるものを含め、すべてのファイルが処理される*wwwroot*、一般に公開されます。 参照してください[静的ファイルで作業](xref:fundamentals/static-files)の静的なファイルをセキュリティで保護する方法です。
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+
+静的ファイル ミドルウェアによって要求が処理されない場合に Identity ミドルウェア渡されます (`app.UseAuthentication`)、認証を実行します。 Identity に認証されていない要求がショート サーキットされません。 Identity は、要求を認証、承認 (および却下) 実行されますが、MVC は、固有の Razor ページまたはコント ローラーとアクションを選択した後のみです。
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
 静的ファイル ミドルウェアによって要求が処理されない場合に Identity ミドルウェア渡されます (`app.UseIdentity`)、認証を実行します。 Identity に認証されていない要求がショート サーキットされません。 Identity は、要求を認証、承認 (および却下) 実行されますが、MVC は、特定のコント ローラーとアクションを選択した後のみです。
+
+-----------
 
 次の例では、応答の圧縮のミドルウェアの前に、静的ファイル ミドルウェアによって静的ファイルに対する要求を処理する、順序付けミドルウェアを示します。 このミドルウェアの順序では、静的なファイルは圧縮されません。 MVC 応答から[UseMvcWithDefaultRoute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_)圧縮することができます。
 
@@ -107,7 +138,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-<a name=middleware-run-map-use></a>
+<a name="middleware-run-map-use"></a>
 
 ### <a name="use-run-and-map"></a>使用して、実行、およびマップ
 
@@ -175,7 +206,7 @@ ASP.NET Core は、次のミドルウェア コンポーネントに付属しま
 | [静的ファイル](xref:fundamentals/static-files) | 静的ファイルとディレクトリの参照を提供しているは、サポートを提供します。 |
 | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting) | Url の書き換えと、要求をリダイレクトするサポートを提供します。 |
 
-<a name=middleware-writing-middleware></a>
+<a name="middleware-writing-middleware"></a>
 
 ## <a name="writing-middleware"></a>書き込みミドルウェア
 

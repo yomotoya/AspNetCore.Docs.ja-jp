@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: b45642e39eb46631bb8034f4747222fb1bc0a83b
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 128b69513976a56104524bb803f2b8cb1daf1967
+ms.sourcegitcommit: 79bbe7481c3d1297a0db8e41dd2b635b0f778264
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="adding-a-new-field-to-a-razor-page"></a>Razor ページへの新しいフィールドの追加
 
@@ -50,7 +50,9 @@ EF Code First を利用してデータベースを自動作成すると、Code F
 
 DB を更新して新しいフィールドが含まれるようになるまでアプリは動作しません。 ここで実行すると、アプリによって `SqlException` がスローされます。
 
-`SqlException: Invalid column name 'Rating'.`
+```
+SqlException: Invalid column name 'Rating'.
+```
 
 このエラーが表示されるのは、更新された Movie モデル クラスがデータベースの Movie テーブルのスキーマと異なるためです。 (データベース テーブルに `Rating` 列はありません)。
 
@@ -72,12 +74,10 @@ DB を更新して新しいフィールドが含まれるようになるまで�
 
 ソリューションをビルドします。
 
-<a name="pmc"></a>
-
-**[ツール]** メニューで、**[NuGet パッケージ マネージャー]、[パッケージ マネージャー コンソール]** の順に選択します。
+<a name="pmc"></a> **[ツール]** メニューで、**[NuGet パッケージ マネージャー]、[パッケージ マネージャー コンソール]** の順に選択します。
 PMC で、次のコマンドを入力します。
 
-```PMC
+```powershell
 Add-Migration Rating
 Update-Database
 ```
@@ -93,13 +93,13 @@ Update-Database
 
 * SSOX でデータベースを選択します。
 * データベースを右クリックし、*[削除]* を選択します。
-* **[既存の接続を閉じる]* をチェックします。
+* **[既存の接続を閉じる]** をチェックします。
 * **[OK]** を選択します。
-* [PMC](xref:tutorials/razor-pages/new-field#pmc) でデータベースを更新します。 
+* [PMC](xref:tutorials/razor-pages/new-field#pmc) でデータベースを更新します。
 
-    ```PMC
-    Update-Database
-    ```
+  ```powershell
+  Update-Database
+  ```
 
 アプリを実行し、`Rating` フィールドでムービーを作成、編集、表示できることを確認します。 データベースがシードされていない場合は IIS Express を停止し、アプリを実行します。
 

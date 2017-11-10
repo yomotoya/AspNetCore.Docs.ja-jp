@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 852bd2dff96c951f55a9b142d8e15b6ec5856921
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 1e35ce49980bf026de35359cdf413961051e3bee
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="working-with-sql-server-localdb-and-aspnet-core"></a>SQL Server LocalDB と ASP.NET Core の使用
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 09/22/2017
 
 ASP.NET Core の[構成](xref:fundamentals/configuration)システムは `ConnectionString` を読み取ります。 ローカルで開発する場合は、*appsettings.json* ファイルから接続文字列を取得します。
 
-[!code-javascript[Main](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
+[!code-json[Main](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
 
 テストまたは実稼働サーバーにアプリを配置する場合は、環境変数または別の方法を使用して、実際の SQL Server に接続文字列を設定できます。 詳細については、[構成](xref:fundamentals/configuration)に関するページを参照してください。
 
@@ -39,15 +39,15 @@ LocalDB は、プログラム開発を対象にした、SQL Server Express デ�
 
   ![[View] メニュー](sql/_static/ssox.png)
 
-* `Movie` テーブルを右クリックして **[デザイナーの表示]** を選択します。
+* `Movie` テーブルを右クリックし、**[デザイナーの表示]** を選択します。
 
   ![Movie テーブルで開かれたコンテキスト メニュー](sql/_static/design.png)
 
   ![デザイナーに開かれた Movie テーブル](sql/_static/dv.png)
 
-`ID` の横のキー アイコンに注意してください。 既定では、EF は `ID` という名前のプロパティを主キーにします。
+`ID` の横のキー アイコンに注意してください。 既定では、EF で主キーに `ID` という名前のプロパティが作成されます。
 
-* `Movie` テーブルを右クリックして **[データの表示]** を選択します。
+* `Movie` テーブルを右クリックし、**[データの表示]** を選択します。
 
   ![開いた Movie テーブルにテーブル データが表示されています](sql/_static/vd22.png)
 
@@ -70,7 +70,7 @@ if (context.Movie.Any())
 
 次のように、*Program.cs* ファイルで `Main` メソッドの末尾にシード初期化子を追加します。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Program.cs?highlight=6,17-32)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Program.cs)]
 
 アプリのテスト
 
@@ -93,5 +93,5 @@ if (context.Movie.Any())
 次のチュートリアルでは、データの表示をクリーンアップします。
 
 >[!div class="step-by-step"]
-[前: スキャフォールディングされた Razor ページ](xref:tutorials/razor-pages/page)   
+[前: スキャフォールディングされた Razor ページ](xref:tutorials/razor-pages/page)
 [次: ページの更新](xref:tutorials/razor-pages/da1)

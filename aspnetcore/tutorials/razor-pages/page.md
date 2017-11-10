@@ -10,17 +10,17 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 3fd155c5e9a119717243a4bafff776fcbd06fab5
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 7ae83b9bdadf5ebf8846b0c09c585da406708d12
+ms.sourcegitcommit: 94b7e0f95b92c98b182a93d2b3dc0287e5f97976
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>ASP.NET Core でスキャフォールディングされた Razor ページ
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このチュートリアルでは、[前のチュートリアル](xref:tutorials/razor-pages/page)でスキャフォールディングによって作成された Razor ページについて説明します。 
+このチュートリアルでは、前のチュートリアルの[モデルの追加](xref:tutorials/razor-pages/model#scaffold-the-movie-model)に関するトピックで、スキャフォールディングによって作成された Razor ページについて説明します。 
 
 サンプルを[表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie)します。
 
@@ -43,10 +43,10 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 次の HTML ヘルパーで使用されるラムダ式を確認します。
 
 ```cshtml
-@Html.DisplayNameFor(model => model.Movies[0].Title))
+@Html.DisplayNameFor(model => model.Movie[0].Title))
 ```
 
-`DisplayNameFor` HTML ヘルパーは、ラムダ式で参照される `Title` プロパティを検査し、表示名を判別します。 ラムダ式は評価されるのではなく検査されます。 これは、`model`、`model.Movies`、または `model.Movies[0]` が `null` または空である場合、アクセス違反がないことを意味します。 ラムダ式が (`@Html.DisplayFor(modelItem => item.Title)` などを使用して) 評価される場合は、モデルのプロパティ値が評価されます。
+`DisplayNameFor` HTML ヘルパーは、ラムダ式で参照される `Title` プロパティを検査し、表示名を判別します。 ラムダ式は評価されるのではなく検査されます。 これは、`model`、`model.Movie`、または `model.Movie[0]` が `null` または空である場合、アクセス違反がないことを意味します。 ラムダ式が (`@Html.DisplayFor(modelItem => item.Title)` などを使用して) 評価される場合は、モデルのプロパティ値が評価されます。
 
 <a name="md"></a>
 ### <a name="the-model-directive"></a>@model ディレクティブ
@@ -144,5 +144,5 @@ Visual Studio に、タグ ヘルパーで使用される独特なフォント�
 次のチュートリアルでは、SQL Server LocalDB とデータベースのシード処理について説明します。
 
 >[!div class="step-by-step"]
-[前: モデルの追加](xref:tutorials/razor-pages/modelz)
+[前: モデルの追加](xref:tutorials/razor-pages/model)
 [次: SQL Server LocalDB](xref:tutorials/razor-pages/sql)

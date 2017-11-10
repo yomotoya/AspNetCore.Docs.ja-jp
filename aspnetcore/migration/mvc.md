@@ -11,11 +11,11 @@ ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/mvc
-ms.openlocfilehash: 385ab7dfea5b92687a427bdfe9558462227113b1
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 7a4357da4cc97d7c60cc7e309add7583ef096597
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>ASP.NET MVC から ASP.NET Core MVC への移行
 
@@ -150,7 +150,7 @@ ASP.NET MVC の以前のバージョンでは、静的コンテンツは、web �
 
 参照してください[Bower でクライアント側のパッケージを管理](../client-side/bower.md)詳細についてはします。
 
-<a name=migrate-layout-file></a>
+<a name="migrate-layout-file"></a>
 
 ## <a name="migrate-the-layout-file"></a>レイアウト ファイルを移行します。
 

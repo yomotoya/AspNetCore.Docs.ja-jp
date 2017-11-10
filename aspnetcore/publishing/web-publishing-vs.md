@@ -5,23 +5,23 @@ description: "Visual Studio の Web 発行について説明します。"
 keywords: "ASP.NET Core, Web 発行, 発行, msbuild, Web 配置, dotnet publish, Visual Studio 2017"
 ms.author: riande
 manager: wpickett
-ms.date: 03/14/2017
+ms.date: 09/26/2017
 ms.topic: article
 ms.assetid: 0377a02d-8fda-47a5-929a-24a16e1d2c93
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/web-publishing-vs
-ms.openlocfilehash: 665c98b5ac16bb9739af4ac204fca59a55dbb812
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: f010f9d90165ce4d6718fe1440e600985f21a01d
+ms.sourcegitcommit: f33fb9d648a611bb7b2b96291dd2176b230a9a43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="create-publish-profiles-for-visual-studio-and-msbuild-to-deploy-aspnet-core-apps"></a>ASP.NET Core アプリを展開するために、Visual Studio および MSBuild 用の発行プロファイルを作成する
 
 作成者: [Sayed Ibrahim Hashimi](https://github.com/sayedihashimi)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-この記事では、Visual Studio 2017 を使用して発行プロファイルを作成する方法に焦点を当てます。 Visual Studio で作成された発行プロファイルは、MSBuild と Visual Studio 2017 から実行できます。
+この記事では、Visual Studio 2017 を使用して発行プロファイルを作成する方法に焦点を当てます。 Visual Studio で作成された発行プロファイルは、MSBuild と Visual Studio 2017 から実行できます。 この記事では、発行プロセスについて詳しく説明します。 Azure に発行する方法については、「[Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する](xref:tutorials/publish-to-azure-webapp-using-vs)」を参照してください。
 
 次の *.csproj* ファイルは、コマンド `dotnet new mvc` で作成されました。
 
@@ -96,7 +96,7 @@ MSBuild または Visual Studio がプロジェクトを読み込むと、次の
 
 プロジェクトが読み込まれると、プロジェクト項目 (ファイル) が計算されます。 `item type` 属性によって、ファイルの処理方法が決まります。 既定で、*.cs* ファイルは `Compile` 項目一覧に含まれています。 `Compile` 項目一覧のファイルがコンパイルされます。
 
-`Content` 項目一覧には、ビルド出力に加え、発行されるファイルが含まれています。 既定で、wwwroot/** というパターンに一致するファイルが `Content` 項目に含まれます。 [wwwroot/** は glob パターンであり](https://gruntjs.com/configuring-tasks#globbing-patterns)、*wwwroot* フォルダー**および**サブフォルダーのすべてのファイルが指定されます。 発行一覧に明示的にファイルを追加する必要がある場合は、「[ファイルを含める](#including-files)」で説明されているように、*.csproj* ファイルに直接ファイルを追加することができます。
+`Content` 項目一覧には、ビルド出力に加え、発行されるファイルが含まれています。 既定で、wwwroot/** というパターンに一致するファイルが `Content` 項目に含まれます。 [wwwroot/** は glob パターンであり](https://gruntjs.com/configuring-tasks#globbing-patterns)、*wwwroot* フォルダー**および**サブフォルダーのすべてのファイルが指定されます。 発行一覧に明示的にファイルを追加するには、「[ファイルを含める](#including-files)」で説明されているように、*.csproj* ファイルに直接ファイルを追加します。
 
 Visual Studio で **[発行]** ボタンを選択するか、コマンド ラインから発行した場合:
 
@@ -106,7 +106,7 @@ Visual Studio で **[発行]** ボタンを選択するか、コマンド ライ
 - 発行項目が計算されます (発行に必要なファイル)。
 - プロジェクトが発行されます (計算されたファイルは、発行先にコピーされます)。
 
-## <a name="simple-command-line-publishing"></a>単純なコマンドラインによる発行
+## <a name="basic-command-line-publishing"></a>基本的なコマンドラインによる発行
 
 このセクションの方法は、.NET Core がサポートされるすべてのプラットフォームに使用できます。Visual Studio は必要ありません。 以下の例では、プロジェクト ディレクトリ (*.csproj* ファイルが含まれているディレクトリ) から `dotnet publish` コマンドが実行されます。 現在のフォルダーがプロジェクト フォルダーではない場合は、プロジェクト ファイル パスで明示的に渡すことができます。 例:
 
@@ -116,23 +116,35 @@ dotnet publish  c:/webs/web1
 
 Web アプリを作成して発行するには、次のコマンドを実行します。
 
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+```console
+dotnet new mvc
+dotnet publish
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
 ```console
 dotnet new mvc
 dotnet restore
 dotnet publish
 ```
 
+--------------
+
 `dotnet publish` では次のような出力が生成されます。
 
 ```console
 C:\Webs\Web1>dotnet publish
-Microsoft (R) Build Engine version 15.1.548.43366
+Microsoft (R) Build Engine version 15.3.409.57025 for .NET Core
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp1.1\Web1.dll
+  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp2.0\Web1.dll
+  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp2.0\publish\
 ```
 
-既定の発行フォルダーは `bin\$(Configuration)\netcoreapp<version>\publish` です。 `$(Configuration)` の既定値は Debug です。 上の例で `<TargetFramework>` は `netcoreapp1.1` です。 上の例で実際のパスは *bin\Debug\netcoreapp1.1\publish* です。
+既定の発行フォルダーは `bin\$(Configuration)\netcoreapp<version>\publish` です。 `$(Configuration)` の既定値は Debug です。 上の例で `<TargetFramework>` は `netcoreapp2.0` です。
 
 `dotnet publish -h` では、発行のヘルプ情報が表示されます。
 
@@ -190,7 +202,36 @@ Visual Studio で発行プロファイルを作成すると、*Properties/Publis
 
 ASP.NET Core で Web アプリを発行する方法の概要については、「[Publishing and Deployment](index.md)」(発行と配置) を参照してください。 [Publishing and Deployment](index.md) は、https://github.com/aspnet/websdk のオープン ソース プロジェクトです。
 
-現在、`dotnet publish` に発行プロファイルを使用する機能はありません。 発行プロファイルを使用するには、`dotnet build` を使用します。 `dotnet build` はプロジェクトの MSBuild を呼び出します。 代わりに、`msbuild` を直接呼び出します。
+ `dotnet publish` は Msdeploy のフォルダーを使用することができ、[KUDU](https://github.com/projectkudu/kudu/wiki) は次のプロファイルを発行します。
+ 
+フォルダー (クロスプラット フォームで機能) `dotnet publish WebApplication.csproj /p:PublishProfile=<FolderProfileName>`
+
+Msdeploy (msdeploy はクロスプラットフォームではないため、これは現在 Windows のみで機能します): `dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployProfileName> /p:Password=<DeploymentPassword>`
+
+Msdeploy パッケージ (msdeploy はクロスプラットフォームではないため、これは現在 Windows のみで機能します): `dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployPackageProfileName>`
+
+上記の例で、`deployonbuild` を `dotnet publish` に**渡さない**ようにしてください。
+
+詳細については、「[Microsoft.NET.Sdk.Publish](https://github.com/aspnet/websdk#microsoftnetsdkpublish)」を参照してください
+
+`dotnet publish` は、任意のプラットフォームから Azure に発行する KUDU API をサポートしています。 Visual Studio の発行は、KUDU API をサポートしていますが、Azure へのクロスプラットフォームの発行は websdk がサポートしています。
+
+次の内容の発行プロファイルを *[Properties/PublishProfiles]* フォルダーに追加します。
+
+```xml
+<Project>
+<PropertyGroup>
+                <PublishProtocol>Kudu</PublishProtocol>
+                <PublishSiteName>nodewebapp</PublishSiteName>
+                <UserName>username</UserName>
+                <Password>password</Password>
+</PropertyGroup>
+</Project>
+```
+
+次のコマンドを実行すると発行するコンテンツが圧縮され、KUDU API を使用して Azure に発行されます。
+
+`dotnet publish /p:PublishProfile=Azure /p:Configuration=Release`
 
 発行プロファイルを使用する場合、次の MSBuild プロパティを設定します。
 
@@ -222,7 +263,7 @@ MSBuild の使用:
 
 MSDeploy を使用して発行するには、Visual Studio 2017 でまず発行プロファイルを作成し、コマンド ラインからプロファイルを使用する方法が最も簡単です。
 
-次の例では、(`dotnet new mvc` を使用して) ASP.NET Core Web アプリを作成し、Visual Studio を使用して Azure 発行プロファイルを追加しました。
+次の例では、(`dotnet new mvc` を使用して) ASP.NET Core Web アプリが作成され、Visual Studio を使用して Azure 発行プロファイルが追加されます。
 
 **[開発者コマンド プロンプト for VS 2017]** から `msbuild` を実行します。 開発者コマンド プロンプトのパスには、正しい *msbuild.exe* が表示され、いくつかの MSBuild 編集が設定されます。
 

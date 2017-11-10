@@ -11,11 +11,11 @@ helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Serv
 ms.technology: aspnet
 keywords: "ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, サービス, HTTP サービス"
 manager: wpickett
-ms.openlocfilehash: 6835cdefcc001452a3ffc8f4fd6a2f55f7274692
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 6bbd5e332e395928d8f79888ecf190f7f59a4bbc
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>ASP.NET Core MVC と Visual Studio for Mac で Web API を作成する
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 09/22/2017
 
 以下をインストールします。
 
-- [.NET Core SDK](https://www.microsoft.com/net/core#macos)  
+- [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 以降
 - [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ## <a name="create-the-project"></a>プロジェクトの作成
@@ -198,6 +198,6 @@ public IActionResult GetById(string id)
 
 * [コントローラー アクションへのルーティング](xref:mvc/controllers/routing)
 * API の配置については、[発行および配置](../publishing/index.md)に関するページを参照してください。
-* [サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample)
+* [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 * [Postman](https://www.getpostman.com/)
 * [Fiddler](https://www.telerik.com/download/fiddler)

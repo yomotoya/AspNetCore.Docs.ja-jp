@@ -5,16 +5,16 @@ description: "この記事では、ASP.NET Core 1.x プロジェクトを ASP.NE
 keywords: "ASP.NET Core,移行"
 ms.author: scaddie
 manager: wpickett
-ms.date: 08/01/2017
+ms.date: 10/03/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: 541774d46bbf570ee860c72fdff5cece364935df
-ms.sourcegitcommit: 55759ae80e7039036a7c6da8e3806f7c88ade325
+ms.openlocfilehash: 9574f1f8e0970e1b64c2910bf46794621583f18d
+ms.sourcegitcommit: 3cf879f6beaaca2d401ad980cd26cfec70c05c24
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>ASP.NET Core 1.x から ASP.NET Core 2.0 への移行
 
@@ -104,6 +104,27 @@ ms.lasthandoff: 09/22/2017
 Unable to create an object of type '<Context>'. Add an implementation of 'IDesignTimeDbContextFactory<Context>' to the project, or see https://go.microsoft.com/fwlink/?linkid=851728 for additional patterns supported at design time.
 ```
 
+<a name="add-modify-configuration"></a>
+
+## <a name="add-configuration-providers"></a>構成プロバイダーの追加
+1.x プロジェクトでは、アプリへの構成プロバイダーの追加は `Startup` コンストラクターを使用して実行しました。 この手順には `ConfigurationBuilder` のインスタンスの作成、適用可能なプロバイダー (環境変数、アプリの設定など) の読み込み、`IConfigurationRoot` のメンバーの初期化などが伴いました。
+
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Startup.cs?name=snippet_1xStartup)]
+
+前の例では、`IHostingEnvironment.EnvironmentName` プロパティに一致する、*appsettings.json* とすべての *appsettings.\<EnvironmentName\>.json* ファイルの構成設定の `Configuration` メンバーを読み込んでいます。 これらのファイルの場所は *Startup.cs* と同じパスです。
+
+2.0 プロジェクトでは、1.x プロジェクトに固有の定型句による構成コードがバックグラウンドで実行されていました。 たとえば、環境変数とアプリの設定は起動時に読み込まれます。 同等の *Startup.cs* コードは、挿入されたインスタンスによって `IConfiguration` の初期化に削減されます。
+
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/Startup.cs?name=snippet_2xStartup)]
+
+`WebHostBuilder.CreateDefaultBuilder` によって追加された既定のプロバイダーを削除するには、`ConfigureAppConfiguration` の内部の `IConfigurationBuilder.Sources` プロパティで `Clear` メソッドを呼び出します。 プロバイダーを戻すには、*Program.cs* の `ConfigureAppConfiguration` メソッドを利用します。
+
+[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/Program.cs?name=snippet_ProgramMainConfigProviders&highlight=9-14)]
+
+前のコード スニペットの `CreateDefaultBuilder` メソッドで使用される構成は、[こちら](https://github.com/aspnet/MetaPackages/blob/rel/2.0.0/src/Microsoft.AspNetCore/WebHost.cs#L152)で確認できます。
+
+詳細については、「[ASP.NET Core の構成](xref:fundamentals/configuration)」を参照してください。
+
 <a name="db-init-code"></a>
 
 ## <a name="move-database-initialization-code"></a>データベース初期化コードの移動
@@ -142,11 +163,11 @@ EF Core 2.0 を使用する 2.0 プロジェクトでは、`Program.BuildWebHost
 
 Visual Studio 2017 で作成された ASP.NET Core 1.1 プロジェクトには、既定で Application Insights が追加されています。 *Program.cs* と *Startup.cs* 外で、Application Insights SDK を直接使用していない場合、次の手順に従います。
 
-1. *.csproj* ファイルから次の `<PackageReference />` ノードを削除します。
+1. .NET Core をターゲットにする場合、*.csproj* ファイルから次の `<PackageReference />` ノードを削除します。
     
     [!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App.csproj?range=10)]
 
-2. *Program.cs* から `UseApplicationInsights` 拡張メソッド呼び出しを削除します。
+2. .NET Core をターゲットにする場合、*Program.cs* から `UseApplicationInsights` 拡張メソッド呼び出しを削除します。
 
     [!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Program.cs?name=snippet_ProgramCsMain&highlight=8)]
 

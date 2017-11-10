@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 8c6e281e761e69908fc742d1f19c14a00de4bd46
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 9d647657f21dd7e952808e5fe020f7a9e8767cd8
+ms.sourcegitcommit: 3ba32b2b6425ed94604cb0f681db0d5bb5f8ad58
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core"></a>ASP.NET Core の Razor ページの概要
 
@@ -28,11 +28,11 @@ ms.lasthandoff: 09/19/2017
 
 ## <a name="create-a-razor-web-app"></a>Razor Web アプリの作成
 
-* Visual Studio の **[ファイル]** メニューから、**[新規作成]、[プロジェクト]** の順に選択します。
+* Visual Studio の **[ファイル]** メニューから、**[新規作成]**、**[プロジェクト]** の順に選択します。
 * 新しい ASP.NET Core Web アプリケーションを作成します。 プロジェクトに **RazorPagesMovie** という名前を付けます。 コードのコピー/貼り付けを行う際に名前空間が一致するように、プロジェクトに *RazorPagesMovie* という名前を付けることが重要です。
- ![新しい ASP.NET Core Web アプリケーション](../../mvc/razor-pages/index/_static/np.png)
+  ![新しい ASP.NET Core Web アプリケーション](../../mvc/razor-pages/index/_static/np.png)
 * ドロップダウン リストで [**ASP.NET Core 2.0**] を選択してから、**[Web アプリケーション]** を選択します。
- ![Web アプリケーション (Razor ページ)](../../mvc/razor-pages/index/_static/np2.png)
+  ![Web アプリケーション (Razor ページ)](../../mvc/razor-pages/index/_static/np2.png)
 
 以下のように、Visual Studio のテンプレートでスタート プロジェクトを作成します。
 
@@ -48,4 +48,4 @@ ms.lasthandoff: 09/19/2017
 [!INCLUDE[razor-pages-start](../../includes/RP/razor-pages-start.md)]
 
 >[!div class="step-by-step"]
-[次: モデルの追加](xref:tutorials/razor-pages/modelz)  
+[次: モデルの追加](xref:tutorials/razor-pages/model)

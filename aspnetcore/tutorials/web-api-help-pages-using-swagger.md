@@ -11,15 +11,15 @@ ms.assetid: 54bb961d-29d9-4dee-8e2c-a93fc33c16f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 647ab48fb83c5e2c79b5de371173bc644c65d831
-ms.sourcegitcommit: 98ecb0f1bae4886507b090c84ecd99ff1e5c46ed
+ms.openlocfilehash: 8a87972a7394246ece2af3485d93739975ba5383
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2017
+ms.lasthandoff: 10/13/2017
 ---
-# <a name="aspnet-web-api-help-pages-using-swagger"></a>Swagger を使用する ASP.NET Web API のヘルプ ページ
+# <a name="aspnet-core-web-api-help-pages-using-swagger"></a>Swagger を使用する ASP.NET Core Web API のヘルプ ページ
 
-<a name=web-api-help-pages-using-swagger></a>
+<a name="web-api-help-pages-using-swagger"></a>
 
 [Shayne Boyer](https://twitter.com/spboyer) および [Scott Addie](https://twitter.com/Scott_Addie) 著
 
@@ -343,7 +343,9 @@ stock UI は、機能し、表示可能ですが、API のドキュメント ペ
 
 [!code-csharp[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Startup.cs?name=snippet_Configure&highlight=3)]
 
-[Swagger UI GitHub リポジトリ](https://github.com/swagger-api/swagger-ui/tree/2.x/dist)から *dist* フォルダーの内容を取得します。 このフォルダーには、Swagger UI ページに必要なアセットが含まれています。 そのフォルダーの内容を *wwwroot/swagger/ui* フォルダーにコピーします。
+[Swagger UI GitHub リポジトリ](https://github.com/swagger-api/swagger-ui/tree/2.x/dist)から *dist* フォルダーの内容を取得します。 このフォルダーには、Swagger UI ページに必要なアセットが含まれています。
+
+*wwwroot/swagger/ui* フォルダーを作成し、それに *dist* フォルダーのコンテンツをコピーします。
 
 次の CSS を使用して *wwwroot/swagger/ui/css/custom.css* ファイルを作成し、ページ ヘッダーをカスタマイズします。
 

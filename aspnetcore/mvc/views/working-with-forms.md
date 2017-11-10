@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff6fee6eee539fc77b6c6180a816daa760202848
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: da36985206521798d3bfe71f6372dc5cc4fca09a
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core でのフォームにタグ ヘルパーの使用の概要
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 09/28/2017
 
 多くの場合、HTML ヘルパー、別の方法を特定のタグ ヘルパーに提供するが、タグ ヘルパーの HTML ヘルパーを置き換えないし、各 HTML ヘルパーのタグ ヘルパーがないことを認識することが重要です。 代わりに HTML ヘルパーが存在する場合が指定されています。
 
-<a name=my-asp-route-param-ref-label></a>
+<a name="my-asp-route-param-ref-label"></a>
 
 ## <a name="the-form-tag-helper"></a>フォーム タグ ヘルパー
 
@@ -112,7 +112,7 @@ Type expected
 |.NET 型|入力の型|
 |---|---|
 |Bool|型"checkbox"を =|
-|文字列型|型"text"を =|
+|String|型"text"を =|
 |DateTime|型"datetime"を =|
 |Byte|種類 ="number"|
 |Int|種類 ="number"|
