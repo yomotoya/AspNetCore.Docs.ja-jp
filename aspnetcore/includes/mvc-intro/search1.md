@@ -11,7 +11,7 @@
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_1stSearch)]
 
-`Index` アクション メソッドの最初の行により、ムービーを選択する [LINQ](http://msdn.microsoft.com/library/bb397926.aspx) クエリが作成されます。
+`Index` アクション メソッドの最初の行により、ムービーを選択する [LINQ](https://docs.microsoft.com/dotnet/standard/using-linq) クエリが作成されます。
 
 ```csharp
 var movies = from m in _context.Movie
@@ -24,9 +24,9 @@ var movies = from m in _context.Movie
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchNull)]
 
-上の `s => s.Title.Contains()` コードは[ラムダ式](http://msdn.microsoft.com/library/bb397687.aspx)です。 ラムダは、メソッド ベースの [LINQ](http://msdn.microsoft.com/library/bb397926.aspx) クエリで、[Where](http://msdn.microsoft.com/library/system.linq.enumerable.where.aspx) メソッドや `Contains` (上のコードで使用されている) など、標準クエリ演算子メソッドの引数として使用されます。 LINQ クエリは、`Where`、`Contains`、`OrderBy` などのメソッドの呼び出しで定義または変更されたときには実行されません。 クエリ実行は先送りされます。  つまり、その具体値が実際に繰り返されるか、`ToListAsync` メソッドが呼び出されるまで、式の評価が延期されます。 クエリの遅延実行の詳細については、「[クエリの実行](http://msdn.microsoft.com/library/bb738633.aspx)」を参照してください。
+上の `s => s.Title.Contains()` コードは[ラムダ式](https://docs.microsoft.com/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions)です。 ラムダは、メソッド ベースの [LINQ](https://docs.microsoft.com/dotnet/standard/using-linq) クエリで、[Where](https://docs.microsoft.com//dotnet/api/system.linq.enumerable.where) メソッドや `Contains` (上のコードで使用されている) など、標準クエリ演算子メソッドの引数として使用されます。 LINQ クエリは、`Where`、`Contains`、`OrderBy` などのメソッドの呼び出しで定義または変更されたときには実行されません。 クエリ実行は先送りされます。  つまり、その具体値が実際に繰り返されるか、`ToListAsync` メソッドが呼び出されるまで、式の評価が延期されます。 クエリの遅延実行の詳細については、「[クエリの実行](https://docs.microsoft.com/dotnet/framework/data/adonet/ef/language-reference/query-execution)」を参照してください。
 
-注: [Contains](http://msdn.microsoft.com/library/bb155125.aspx) メソッドは、上記の C# コードではなく、データベースで実行されます。 クエリの大文字と小文字の区別は、データベースや照合順序に依存します。 SQL Server では、[Contains](http://msdn.microsoft.com/library/bb155125.aspx) は大文字と小文字の区別がない [SQL LIKE](http://msdn.microsoft.com/library/ms179859.aspx) にマッピングされます。 SQLlite の場合、既定の照合順序で、大文字と小文字が区別されます。
+注: [Contains](https://docs.microsoft.com//dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) メソッドは、上記の C# コードではなく、データベースで実行されます。 クエリの大文字と小文字の区別は、データベースや照合順序に依存します。 SQL Server では、[Contains](https://docs.microsoft.com//dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) は大文字と小文字の区別がない [SQL LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql) にマッピングされます。 SQLlite の場合、既定の照合順序で、大文字と小文字が区別されます。
 
 `/Movies/Index` に移動します。 `?searchString=Ghost` などのクエリ文字列を URL に追加します。 フィルターされたムービーが表示されます。
 

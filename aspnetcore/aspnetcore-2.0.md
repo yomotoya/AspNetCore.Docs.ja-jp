@@ -11,11 +11,11 @@ ms.assetid: 08c9f457-9c24-40f9-a08b-47dc251e4cec
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-2.0
-ms.openlocfilehash: c572315d7a801b9b87d5f4cd14b82c5ed27e7a85
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 98af3788652e87f6222551cb4a8e5427b312660c
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2.0 の新機能
 
@@ -58,7 +58,7 @@ ASP.NET Core 2.0 では、既定で `IConfiguration` インスタンスがサー
 
 ASP.NET Core 2.0 には、既定で依存性の注入 (DI) システムにログ記録が組み込まれています。 *Startup.cs* ファイルではなく *Program.cs* ファイルに、プロバイダーを追加しフィルター処理を構成できます。 また、既定の `ILoggerFactory` では、プロバイダーをまたがるフィルター処理と特定のプロバイダーのフィルター処理の両方で、ある柔軟なアプローチを使用するフィルター処理をサポートしています。
 
-詳細については、「[Introduction to Logging](xref:fundamentals/logging)」 (ログ記録の概要) を参照してください。
+詳細については、「[Introduction to Logging](xref:fundamentals/logging/index)」 (ログ記録の概要) を参照してください。
 
 ## <a name="authentication-update"></a>認証の更新
 

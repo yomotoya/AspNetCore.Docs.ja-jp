@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/web-api-help-pages-using-swagger
 ms.openlocfilehash: 8a87972a7394246ece2af3485d93739975ba5383
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="aspnet-core-web-api-help-pages-using-swagger"></a>Swagger を使用する ASP.NET Core Web API のヘルプ ページ
 
@@ -49,25 +49,25 @@ Swashbuckle は、次の方法で追加できます。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* [**パッケージ マネージャー コンソール**] ウィンドウから:
+* **[パッケージ マネージャー コンソール]** ウィンドウから:
 
     ```powershell
     Install-Package Swashbuckle.AspNetCore
     ```
 
-* [**NuGet パッケージの管理**] ダイアログ ボックスから:
+* **[NuGet パッケージの管理]** ダイアログ ボックスから:
 
-     * [**ソリューション エクスプローラー**] > [**NuGet パッケージの管理**] でプロジェクトを右クリックします。
+     * **[ソリューション エクスプローラー]** > **[NuGet パッケージの管理]** でプロジェクトを右クリックします。
      * **パッケージ ソース**を "nuget.org" に設定します。
      * 検索ボックスに「Swashbuckle.AspNetCore」と入力します。
-     * [**参照**] タブから "Swashbuckle.AspNetCore"パッケージを選択して、[**インストール**] をクリックします。
+     * **[参照]** タブから "Swashbuckle.AspNetCore"パッケージを選択して、**[インストール]** をクリックします。
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-* [**Solution Pad**] > [**パッケージを追加**] で [*パッケージ*] フォルダーを右クリックします。
-* [**パッケージを追加**] ウィンドウの [**ソース**] ドロップダウンを "nuget.org" に設定します。
+* **[Solution Pad]** > **[パッケージを追加]** で [*パッケージ*] フォルダーを右クリックします。
+* **[パッケージを追加]** ウィンドウの **[ソース]** ドロップダウンを "nuget.org" に設定します。
 * 検索ボックスに「Swashbuckle.AspNetCore」と入力します。
-* 結果ウィンドウから Swashbuckle.AspNetCore パッケージを選択し、[**パッケージを追加**] をクリックします。
+* 結果ウィンドウから Swashbuckle.AspNetCore パッケージを選択し、**[パッケージを追加]** をクリックします。
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -204,15 +204,15 @@ XML コメントは、次の方法で有効にすることができます。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* **ソリューション エクスプローラー**で、プロジェクトを右クリックし、[**プロパティ**] を選択します。
-* [**ビルド**] タブの [**出力**] セクションの下にある [**XML ドキュメント ファイル**] チェック ボックスをオンにします。
+* **ソリューション エクスプローラー**で、プロジェクトを右クリックし、**[プロパティ]** を選択します。
+* **[ビルド]** タブの **[出力]** セクションの下にある **[XML ドキュメント ファイル]** チェック ボックスをオンにします。
 
 ![プロジェクトのプロパティの [ビルド] タブ](web-api-help-pages-using-swagger/_static/swagger-xml-comments.png)
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
-* [**プロジェクト オプション**] ダイアログ > [**ビルド**] > [**コンパイラ**] を開きます。
-* [**全般オプション**] セクションの下にある [**XML ドキュメントを生成する**] チェック ボックスをオンにします。
+* **[プロジェクト オプション]** ダイアログ > **[ビルド]** > **[コンパイラ]** を開きます。
+* **[全般オプション]** セクションの下にある **[XML ドキュメントを生成する]** チェック ボックスをオンにします。
 
 ![プロジェクトのオプションの [全般オプション] セクション](web-api-help-pages-using-swagger/_static/swagger-xml-comments-mac.png)
 
@@ -311,7 +311,7 @@ API コントローラーに `[Produces("application/json")]` 属性を追加し
 
 [!code-csharp[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/Controllers/TodoController.cs?name=snippet_TodoController&highlight=3)]
 
-[**応答コンテンツ タイプ**] ドロップダウンがコント ローラーの GET 操作の既定値としてこのコンテンツ タイプを選択します。
+**[応答コンテンツ タイプ]** ドロップダウンがコント ローラーの GET 操作の既定値としてこのコンテンツ タイプを選択します。
 
 ![既定の応答のコンテンツ タイプを持つ Swagger UI](web-api-help-pages-using-swagger/_static/json-response-content-type.png)
 
@@ -355,7 +355,7 @@ stock UI は、機能し、表示可能ですが、API のドキュメント ペ
 
 [!code-html[Main](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi/wwwroot/swagger/ui/index.html?range=14)]
 
-`http://localhost:<random_port>/swagger/ui/index.html` で *index.html* ページを参照します。 ヘッダーのテキスト ボックスに「`http://localhost:<random_port>/swagger/v1/swagger.json`」を入力し、[**探索**] ボタンをクリックします。 結果のページは次のようになります。
+`http://localhost:<random_port>/swagger/ui/index.html` で *index.html* ページを参照します。 ヘッダーのテキスト ボックスに「`http://localhost:<random_port>/swagger/v1/swagger.json`」を入力し、**[探索]** ボタンをクリックします。 結果のページは次のようになります。
 
 ![カスタム ヘッダーのタイトルを含む Swagger UI](web-api-help-pages-using-swagger/_static/custom-header.png)
 

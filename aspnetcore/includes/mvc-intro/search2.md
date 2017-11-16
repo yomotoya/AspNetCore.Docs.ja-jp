@@ -49,7 +49,7 @@ HTML `<form>` タグでは[フォーム タグ ヘルパー](../../mvc/views/wor
 
 ![From HttpPost Index: filter on ghost というアプリケーション応答を示すブラウザー ウィンドウ](../../tutorials/first-mvc-app/search/_static/fo.png)
 
-ただし、この `[HttpPost]` バージョンの `Index` メソッドを追加しても、実装方法は制限されます。 たとえば、特定の検索をブックマークするか、友だちにリンクを送信し、友だちがそれをクリックしてムービーのフィルターされた同じリストを表示できるようにするとします。 HTTP POST 要求の URL は、GET 要求の URL (localhost:xxxxx/Movies/Index) と同じであり、URL には検索情報がないことに注意してください。 検索文字列情報は、[フォーム フィールド値](https://developer.mozilla.org/docs/Web/Guide/HTML/Forms/Sending_and_retrieving_form_data)としてサーバーに送信されます。 ブラウザーの開発者ツールまたは優れた [Fiddler ツール](http://www.telerik.com/fiddler)を使用して、これを確認できます。 次のイメージは、Chrome ブラウザーの開発者ツールを示しています。
+ただし、この `[HttpPost]` バージョンの `Index` メソッドを追加しても、実装方法は制限されます。 たとえば、特定の検索をブックマークするか、友だちにリンクを送信し、友だちがそれをクリックしてムービーのフィルターされた同じリストを表示できるようにするとします。 HTTP POST 要求の URL は、GET 要求の URL (localhost:xxxxx/Movies/Index) と同じであり、URL には検索情報がないことに注意してください。 検索文字列情報は、[フォーム フィールド値](https://developer.mozilla.org/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data)としてサーバーに送信されます。 ブラウザーの開発者ツールまたは優れた [Fiddler ツール](http://www.telerik.com/fiddler)を使用して、これを確認できます。 次のイメージは、Chrome ブラウザーの開発者ツールを示しています。
 
 ![searchString 値が ghost の要求本文を示す、Microsoft Edge の開発者ツールの [ネットワーク] タブ](../../tutorials/first-mvc-app/search/_static/f12_rb.png)
 
