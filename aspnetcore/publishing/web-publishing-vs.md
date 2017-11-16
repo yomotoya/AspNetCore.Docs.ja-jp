@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/web-publishing-vs
 ms.openlocfilehash: f010f9d90165ce4d6718fe1440e600985f21a01d
-ms.sourcegitcommit: f33fb9d648a611bb7b2b96291dd2176b230a9a43
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-publish-profiles-for-visual-studio-and-msbuild-to-deploy-aspnet-core-apps"></a>ASP.NET Core アプリを展開するために、Visual Studio および MSBuild 用の発行プロファイルを作成する
 
@@ -165,7 +165,7 @@ dotnet publish -c Release -o C:/MyWebs/test
 
 `dotnet publish -c Release /p:PublishDir=//r8/release/AdminWeb`
 
-ネットワーク共有は、スラッシュを使用して指定します (*//r8/*)。.NET Core がサポートされるすべてのプラットフォームで使用できます。
+ネットワーク共有は、スラッシュを使用して指定します (*//r8/*)。 .NET Core がサポートされるすべてのプラットフォームで使用できます。
 
 配置用に発行したアプリが実行されていないことを確認します。 アプリが実行中は、*publish* フォルダー内のファイルがロックされます。 ロックされているファイルはコピーできないため、配置は行われません。
 
