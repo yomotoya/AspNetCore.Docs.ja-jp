@@ -10,4 +10,4 @@
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
 
-上のコードは `View` オブジェクトを返します。 ビュー テンプレートを使用して、ブラウザーへの HTML 応答を生成します。 上記の `Index` メソッドなどのコントローラー メソッド (アクション メソッドともいう) は、一般に、文字列のようなプリミティブ型ではなく、[IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) (または `ActionResult` から派生したクラス) を返します。
+上のコードは `View` オブジェクトを返します。 ビュー テンプレートを使用して、ブラウザーへの HTML 応答を生成します。 上記の `Index` メソッドなどのコントローラー メソッド (アクション メソッドともいう) は、一般に、string などの型ではなく、[IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) (または `ActionResult` から派生したクラス) を返します。

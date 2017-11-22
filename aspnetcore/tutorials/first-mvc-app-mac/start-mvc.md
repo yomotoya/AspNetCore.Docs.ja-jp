@@ -10,17 +10,19 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: 028d6d3246908a9cd44a6834449d2fdbc9cae0b8
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 387d7a91ae7d58cbc293c04039017df1dd208c82
+ms.sourcegitcommit: f017f940a164dbaf84307410c78eb14e0f3ac811
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>ASP.NET Core MVC と Visual Studio for Mac の概要
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このチュートリアルでは、[Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/) を使用した、ASP.NET Core MVC Web アプリの構築の基礎について説明します。 [!INCLUDE[consider RP](../../includes/razor.md)]
+このチュートリアルでは、[Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/) を使用した、ASP.NET Core MVC Web アプリの構築の基礎について説明します。 
+
+[!INCLUDE[consider RP](../../includes/razor.md)]
 
 このチュートリアルには 3 つのバージョンがあります。
 
@@ -53,7 +55,7 @@ Visual Studio で **[ファイル]、[新しいソリューション]** の順�
 
 ### <a name="launch-the-app"></a>アプリの起動
 
-Visual Studio で、**[実行]、[デバッグなしで開始]** の順に選択してアプリを起動します。 Visual Studio で [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) が開始し、ブラウザーが起動し、`http://localhost:port` にアクセスします。*ポート*はランダムに選択されたポート番号になります。
+Visual Studio で、**[実行]、[デバッグなしで開始]** の順に選択してアプリを起動します。 Visual Studio で [Kestrel](xref:fundamentals/servers/index#Kestrel) が開始し、ブラウザーが起動して `http://localhost:port` にアクセスします。*port* はランダムに選択されたポート番号になります。
 
 ![新しいプロジェクトでのブラウザー](start-mvc/b1.png)
 

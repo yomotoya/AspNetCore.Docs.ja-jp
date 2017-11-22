@@ -5,7 +5,7 @@
 
 ![[編集] リンクがマウスでポイントされ、リンク URL として http://localhost:1234/Movies/Edit/5 が表示されている状態のブラウザー ウィンドウ](../../tutorials/first-mvc-app/controller-methods-views/_static/edit7.png)
 
-**[編集]**、**[詳細]**、**[削除]** の各リンクは、*Views/Movies/Index.cshtml* ファイルで MVC Core アンカー タグ ヘルパーによって生成されます。
+**[編集]**、**[詳細]**、**[削除]** の各リンクは、*Views/Movies/Index.cshtml* ファイルで Core MVC アンカー タグ ヘルパーによって生成されます。
 
 [!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1-3&range=46-50)]
 

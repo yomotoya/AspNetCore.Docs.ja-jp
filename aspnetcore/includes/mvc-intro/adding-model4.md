@@ -1,4 +1,4 @@
-上のコードで強調表示されている部分は、[依存性の注入](xref:fundamentals/dependency-injection)コンテナーに追加されているムービー データベース コンテキストを示します。 `services.AddDbContext<MvcMovieContext>(options =>` の後の行は示されていません (お手元のコードをご覧ください)。 この行では、使うデータベースと接続文字列を指定します。 `=>` は[ラムダ演算子](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/operators/lambda-operator)です。
+上のコードで強調表示されている部分は、(*Startup.cs* ファイルの) [依存性の注入](xref:fundamentals/dependency-injection)コンテナーに追加されているムービー データベース コンテキストを示しています。 `services.AddDbContext<MvcMovieContext>(options =>` では、使用するデータベースと接続文字列を指定します。 `=>` は[ラムダ演算子](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/operators/lambda-operator)です。
 
 *Controllers/MoviesController.cs* ファイルを開いて、コンストラクターを調べます。
 
@@ -8,7 +8,7 @@
 
 コンストラクターでは、[依存性の注入](xref:fundamentals/dependency-injection)を使ってデータベース コンテキスト (`MvcMovieContext `) がコントローラーに挿入されています。 データベース コンテキストは、コントローラーの各 [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) メソッドで使用されます。
 
-<a name=strongly-typed-models-keyword-label></a>
+<a name="strongly-typed-models-keyword-label"></a>
 
 ## <a name="strongly-typed-models-and-the-model-keyword"></a>厳密に型指定されたモデルと @model キーワード
 

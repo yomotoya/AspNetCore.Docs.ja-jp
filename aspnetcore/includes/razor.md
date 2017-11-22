@@ -1,1 +1,5 @@
-このチュートリアルでは、ASP.NET Core MVC のコントローラーとビューについて説明します。 ASP.NET Core 2.0 の新しい代替である Razor ページはページ ベースのプログラミング モデルであり、Web UI の開発を容易にし、生産性を高めます。 このチュートリアルの Razor バージョンは、[Razor ページのチュートリアル](xref:mvc/razor-pages/index)を参照してください。 
+このチュートリアルでは、[Visual Studio 2017](https://www.visualstudio.com/) を使用した ASP.NET Core MVC のコントローラーとビューについて説明します。 ASP.NET Core 2.0 の新しい代替である Razor ページはページ ベースのプログラミング モデルであり、Web UI の開発を容易にし、生産性を高めます。 MVC のバージョンの前に、[Razor ページ](xref:mvc/razor-pages/index)のチュートリアルを試すことをお勧めします。 この Razor ページのチュートリアルの特徴は次のとおりです。
+
+* 使いやすい。
+* 多くの機能をカバーしている。
+* 新しいアプリケーションの開発で推奨されるアプローチである。

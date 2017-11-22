@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: 290d752ea5f177348ff3e749cc125e946ae6e763
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: dfe8136dccb0e98a9fc6b1395161ccb442392c76
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="updating-the-generated-pages"></a>生成されたページの更新
 
@@ -64,7 +64,7 @@ Pages/Movies を参照し、**[編集]** リンクをポイントしてターゲ
 
 動的に生成されたリンクは、クエリ文字列を含むムービー ID を渡します (例: `http://localhost:5000/Movies/Details?id=2`)。 
 
-"{id:int}" ルート テンプレートを使用するには、[編集]、[詳細]、および [削除] Razor ページを更新します。 これらの各ページのページ ディレクティブを `@page "{id:int}"` に変更します。 アプリを実行してから、ソースを表示します。 生成される HTML では、次にように URL のパス部分に ID を追加します。
+"{id:int}" ルート テンプレートを使用するには、[編集]、[詳細]、および [削除] Razor ページを更新します。 これらの各ページのページ ディレクティブを `@page` から `@page "{id:int}"` に変更します。 アプリを実行してから、ソースを表示します。 生成される HTML では、次にように URL のパス部分に ID を追加します。
 
 ```html
 <td>

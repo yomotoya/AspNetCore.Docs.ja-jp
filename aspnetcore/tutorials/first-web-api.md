@@ -10,17 +10,17 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-web-api
-ms.openlocfilehash: 617b11cd7652e393c06446c62138802e4a4e90df
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 3ef6fb26eab123c9f6f8275ee1d979b090db0413
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 #<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>ASP.NET Core と Visual Studio for Windows で Web API を作成する
 
-[Rick Anderson](https://twitter.com/RickAndMSFT) および [Mike Wasson](https://github.com/mikewasson) 著
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) と [Mike Wasson](https://github.com/mikewasson)
 
-このチュートリアルでは、"to-do" 項目の一覧を管理する Web API を構築します。 UI は構築しません。
+このチュートリアルでは、"to-do" 項目の一覧を管理する Web API を構築します。 ユーザー インターフェイス (UI) は作成しません。
 
 このチュートリアルには 3 つのバージョンがあります。
 
@@ -52,23 +52,23 @@ Visual Studio で、**[ファイル]** メニュー、**[新規]** > **[プロ�
 
 ### <a name="launch-the-app"></a>アプリの起動
 
-Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動します。 Visual Studio でブラウザーが起動し、`http://localhost:port/api/values` にアクセスします。*ポート*はランダムに選択されたポート番号になります。 Chrome、Edge、Firefox には次が表示されます。
+Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動します。 Visual Studio でブラウザーが起動し、`http://localhost:port/api/values` にアクセスします。*ポート*はランダムに選択されたポート番号になります。 Chrome、Microsoft Edge、Firefox では次の出力が表示されます。
 
 ```
 ["value1","value2"]
-``` 
+```
 
 ### <a name="add-a-model-class"></a>モデル クラスの追加
 
-モデルとは、アプリケーションのデータを表すオブジェクトです。 ここでは、唯一のモデルが to-do 項目です。
+モデルは、アプリのデータを表すオブジェクトです。 ここでは、唯一のモデルが to-do 項目です。
 
 "Models" という名前のフォルダーを追加します。 ソリューション エクスプローラーで、プロジェクトを右クリックします。 **[追加]** > **[新しいフォルダー]** の順に選択します。 フォルダーに *Models* という名前を付けます。
 
-注: モデル クラスはプロジェクト内のどこへでも向かいますが、慣習で *Models* フォルダーが利用されます。
+注: モデル クラスはプロジェクト内のどこでも使用できます。 通例として、モデル クラス用に *Models* フォルダーを使用しています。
 
 `TodoItem` クラスを追加します。 *Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順にクリックします。 クラスに `TodoItem` という名前を付け、**[追加]** を選択します。
 
-生成されたコードを次のコードに変更します。
+`TodoItem` クラスを次のコードで更新します。
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
@@ -80,7 +80,7 @@ Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動し
 
 `TodoContext` クラスを追加します。 *Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順にクリックします。 クラスに `TodoContext` という名前を付け、**[追加]** を選択します。
 
-生成されたコードを次のコードに変更します。
+このクラスを次のコードで置き換えます。
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
@@ -92,13 +92,13 @@ Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動し
 
 ![[新しい項目の追加] ダイアログ。検索ボックスに「controller」と入力されています。Web API コントローラーが選択されています。](first-web-api/_static/new_controller.png)
 
-生成されたコードを次のコードに変更します。
+このクラスを次のコードで置き換えます。
 
 [!INCLUDE[code and get todo items](../includes/webApi/getTodoItems.md)]
-  
+
 ### <a name="launch-the-app"></a>アプリの起動
 
-Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動します。 Visual Studio でブラウザーが起動し、`http://localhost:port/api/values` にアクセスします。*ポート*はランダムに選択されたポート番号になります。 Chrome、Edge、Firefox を使用している場合、データが表示されます。 IE を使用している場合、*values.json* ファイルを開くか保存するように求められます。 `http://localhost:port/api/todo` を先ほど作成した `Todo` コントローラーに移動します。
+Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動します。 Visual Studio でブラウザーが起動し、`http://localhost:port/api/values` にアクセスします。*ポート*はランダムに選択されたポート番号になります。 `http://localhost:port/api/todo` の `Todo` コントローラーに移動します。
 
 [!INCLUDE[last part of web API](../includes/webApi/end.md)]
 

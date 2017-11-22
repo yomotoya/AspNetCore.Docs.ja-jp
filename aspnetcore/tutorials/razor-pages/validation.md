@@ -1,7 +1,7 @@
 ---
 title: "検証の追加"
 author: rick-anderson
-description: "Razor ページに検証を追加する方法について説明します"
+description: "Razor ページに検証を追加する方法について説明します。"
 keywords: "ASP.NET Core,検証,DataAnnotations,Razor,Razor ページ"
 ms.author: riande
 manager: wpickett
@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: f8d86b48363675adaf27e2bed39f835f117e624a
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: e580ee537190c85e74e40c288af1503f136c83d8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Razor ページに検証を追加する
 
@@ -36,7 +36,12 @@ Razor ページと Entity Framework が提供している検証のサポート�
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
-検証属性で、モデルのプロパティに適用されている動作を指定します。 `Required` および `MinimumLength` 属性は、プロパティに値が必要であることを示します。ただし、検証制約を満たすためにユーザーが空白を入力することは禁止されていません。 `RegularExpression` 属性は、入力できる文字を制限するために使用されます。 上記のコードで、`Genre` と `Rating` は、文字のみを使用する必要があります (空白、数字、特殊文字は使用できません)。 `Range` 属性は、指定した範囲内に値を制限します。 `StringLength` 属性は文字列の最大長を設定します。必要に応じて、最短長も設定できます。 [[値の型]](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (`decimal`、`int`、`float`、`DateTime` など) は本来は必須ではなく、`[Required]` 属性を必要としていません。
+検証属性で、モデルのプロパティに適用されている動作を指定します。
+
+* `Required` と `MinimumLength` の属性は、プロパティに値が必要なことを示します。 ただし、ユーザーが空白を入力することで null 許容型の妥当性制約を満たすことはできます。 null 非許容の[値の型](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (`decimal`、`int`、`float`、`DateTime` など) は本質的に必須ではなく、`Required` 属性を必要としません。
+* `RegularExpression` 属性は、ユーザーが入力できる文字を制限します。 上記のコードで、`Genre` と `Rating` は、文字のみを使用する必要があります (空白、数字、特殊文字は使用できません)。
+* `Range` 属性は、指定した範囲に値を制限します。
+* `StringLength` 属性は文字列の最大長を設定します。必要に応じて、最短長も設定できます。 
 
 ASP.NET Core で検証規則を自動的に適用すると、アプリをより堅牢にすることができます。 モデルに自動検証を適用すると、新しいコードを追加したときに適用を思い出す必要がないので、アプリの保護に役立ちます。
 
@@ -128,7 +133,9 @@ public DateTime ReleaseDate { get; set; }
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
-このたびは、この Razor ページの紹介を最後までお読みいただきありがとうございました。 コメントを残していただければ幸いです。 このチュートリアルの後は、「[Getting started with MVC and EF Core](xref:data/ef-mvc/intro)」 (MVC と EF Core の概要) にお進みいただくことが推奨されます。
+### <a name="publish-to-azure"></a>Azure に発行する
+
+このアプリを Azure に発行する方法については、「[Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する](xref:tutorials/publish-to-azure-webapp-using-vs)」をご覧ください。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
@@ -138,4 +145,5 @@ public DateTime ReleaseDate { get; set; }
 * [タグ ヘルパーの作成](xref:mvc/views/tag-helpers/authoring)
 
 >[!div class="step-by-step"]
-[前へ: 新しいフィールドの追加](xref:tutorials/razor-pages/new-field)
+[前: 新しいフィールドの追加](xref:tutorials/razor-pages/new-field)
+[次: ファイルのアップロード](xref:tutorials/razor-pages/uploading-files)

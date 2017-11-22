@@ -25,10 +25,9 @@ dotnet aspnet-codegenerator razorpage -h
 
 * **[編集]**、**[詳細]**、および **[削除]** の各リンクをテストします。
 
-次のエラーが発生した場合は、移行を実行しており、データベースを更新したことを確認します。
+次のようなエラーが発生した場合は、移行を実行しデータベースを更新したことを確認します。
 
 ```
 An unhandled exception occurred while processing the request.
-SqliteException: SQLite Error 1: 'no such table: Movie'.
-Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(int rc, sqlite3 db)
+'no such table: Movie'.
 ```

@@ -20,13 +20,13 @@ To Do アイテムを取得するには、`TodoController` クラスに次のメ
 `GetAll` メソッドの HTTP 応答例を以下に示します。
 
 ```
-HTTP/1.1 200 OK
-   Content-Type: application/json; charset=utf-8
-   Server: Microsoft-IIS/10.0
-   Date: Thu, 18 Jun 2015 20:51:10 GMT
-   Content-Length: 82
-
-   [{"Key":"1", "Name":"Item1","IsComplete":false}]
+[
+  {
+    "id": 1,
+    "name": "Item1",
+    "isComplete": false
+  }
+]
    ```
 
 [Postman](https://www.getpostman.com/) または [curl](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/curl.1.html) を使用して HTTP 応答を表示する方法については、後で説明します。
@@ -35,7 +35,7 @@ HTTP/1.1 200 OK
 
 `[HttpGet]` 属性では HTTP GET メソッドを指定します。 各メソッドの URL パスは次のように構成されます。
 
-* コントローラーのルート属性でテンプレート文字列を使用します。
+* コントローラーの `Route` 属性でテンプレート文字列を使用します。
 
 [!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=TodoController&highlight=3)]
 
@@ -44,14 +44,14 @@ HTTP/1.1 200 OK
 
 `GetById` メソッドの場合:
 
-```csharp
-[HttpGet("{id}", Name = "GetTodo")]
-public IActionResult GetById(long id)
-```
+[!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 
 `"{id}"` は、`todo` アイテムの ID に対するプレースホルダー変数です。 `GetById` が呼び出されると、メソッドの `id` パラメーターに URL の "{id}" の値が割り当てられます。
 
-`Name = "GetTodo"` は名前付きルートを作成し、HTTP 応答でこのルートにリンクできるようにします。 これについては、後で例を使用して説明します。 詳細については、「[コントローラー アクションへのルーティング](xref:mvc/controllers/routing)」を参照してください。
+`Name = "GetTodo"` により名前付きのルートを作成します。 名前付きのルートの役割は次のとおりです。
+
+* アプリで、ルート名を使用して HTTP リンクを作成できるようにします。
+* 説明は後ほど行います。
 
 ### <a name="return-values"></a>戻り値
 
@@ -59,6 +59,6 @@ public IActionResult GetById(long id)
 
 これに対し、`GetById` メソッドは、広範囲の戻り値の型を表す、より一般的な `IActionResult` 型を返します。 `GetById` には、次の 2 つの異なる戻り値の型があります。
 
-* 要求された ID と一致するアイテムがない場合、メソッドは 404 エラーを返します。  これは、`NotFound` を返すことによって行われます。
+* 要求された ID と一致するアイテムがない場合、メソッドは 404 エラーを返します。 戻り値が `NotFound` の場合、HTTP 404 応答が返されます。
 
-* それ以外の場合、メソッドは JSON 応答本文で 200 を返します。 これは、`ObjectResult` を返すことによって行われます。
+* それ以外の場合、メソッドは JSON 応答本文で 200 を返します。 戻り値が `ObjectResult` の場合、HTTP 200 応答が返されます。

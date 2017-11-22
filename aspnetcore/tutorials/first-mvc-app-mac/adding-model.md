@@ -12,11 +12,11 @@ ms.assetid: 8dc28498-eeee-1638-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: .net-core
 uid: tutorials/first-mvc-app-mac/adding-model
-ms.openlocfilehash: 15fef14ab754b48935d17e754daa011acdd90b42
-ms.sourcegitcommit: a73fb5161fbdbee1d2e8474205e9840a134ee2ad
+ms.openlocfilehash: ff0b262bdf2685bd1bc410c30c12aa2d16f6dcda
+ms.sourcegitcommit: 7d092cd99057bad9246c472a8a0a8cbc7ab9fa9b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/13/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
@@ -71,7 +71,7 @@ dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMo
 
  * プロジェクト ディレクトリに移動します。 プロジェクト ディレクトリには、*Program.cs*、*Startup.cs* および *.csproj* ファイルがあります。
  * dotnet バージョンは 1.1 以上です。 `dotnet` を実行し、バージョンを取得します。
- * [MvcMovie.csproj ファイル](#prepare-the-project-for-scaffolding)に `<DotNetCliToolReference>` 要素が追加されました。
+ * [MvcMovie.csproj file](#prepare-the-project-for-scaffolding) に `<DotNetCliToolReference>` 要素が追加されています。
  
 <!--
 > [!NOTE]

@@ -1,14 +1,14 @@
 ## <a name="overview"></a>概要
 
-作成する API を以下に示します。
+このチュートリアルでは、次の API を作成します。
 
-|API | 説明    | 要求本文    | 応答本文   |
+|API | 説明 | 要求本文 | 応答本文 |
 |--- | ---- | ---- | ---- |
-|GET /api/todo  | すべての To Do アイテムを取得します。 | なし | To Do アイテムの配列|
-|GET /api/todo/{id}  | ID でアイテムを取得します。 | なし | To Do アイテム|
-|POST /api/todo | 新しいアイテムを追加します。 | To Do アイテム  | To Do アイテム |
-|PUT /api/todo/{id} | 既存のアイテムを更新します。&nbsp;  | To Do アイテム |  なし |
-|DELETE /api/todo/{id}  &nbsp;  &nbsp; | アイテムを削除します。&nbsp;  &nbsp;  | なし  | なし|
+|GET /api/todo | すべての To Do アイテムを取得します。 | なし | To Do アイテムの配列|
+|GET /api/todo/{id} | ID でアイテムを取得します。 | なし | To Do アイテム|
+|POST /api/todo | 新しいアイテムを追加します。 | To Do アイテム | To Do アイテム |
+|PUT /api/todo/{id} | 既存のアイテムを更新します。&nbsp; | To Do アイテム | なし |
+|DELETE /api/todo/{id} &nbsp; &nbsp; | アイテムを削除します &nbsp; &nbsp; | なし | なし|
 
 <br>
 
@@ -16,10 +16,10 @@
 
 ![クライアントは左側のボックスで表され、要求を送信し、アプリケーション (右側に描画されたボックス) から応答を受信します。 アプリケーション ボックス内の 3 つのボックスは、コントローラー、モデル、およびデータ アクセス レイヤーを表しています。 要求はアプリケーションのコントローラーに送られ、コントローラーとデータ アクセス レイヤー間で読み取り/書き込み操作が行われます。 モデルはシリアル化され、応答でクライアントに返されます。](../../tutorials/first-web-api/_static/architecture.png)
 
-* クライアントは、Web API を使用するもの (モバイル アプリやブラウザーなど) です。 このチュートリアルではクライアントについては記述しません。 [Postman](https://www.getpostman.com/) または [curl](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/curl.1.html) を使用して、アプリをテストします。
+* クライアントとは、Web API を使用するもの (モバイル アプリやブラウザーなど) です。 このチュートリアルでは、クライアントは作成しません。 アプリのテストでは、[Postman](https://www.getpostman.com/) または [curl](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/curl.1.html) をクライアントとして使用します。
 
-* *モデル*は、アプリケーションのデータを表すオブジェクトです。 ここでは、唯一のモデルが to-do 項目です。 モデルは C# クラスで表され、POCO (**P**lain **O**ld **C**# **O**bject。つまり、単純な従来の C# オブジェクト) とも呼ばれます。
+* *モデル*は、アプリのデータを表すオブジェクトです。 ここでは、唯一のモデルが to-do 項目です。 モデルは C# クラスで表され、POCO (**P**lain **O**ld **C**# **O**bject。つまり、単純な従来の C# オブジェクト) とも呼ばれます。
 
-* *コントローラー*は、HTTP 要求を処理し、HTTP 応答を作成するオブジェクトです。 このアプリには 1 つのコントローラーがあります。
+* *コントローラー*は、HTTP 要求を処理し、HTTP 応答を作成するオブジェクトです。 このアプリのコントローラーは 1 つです。
 
 * このチュートリアルを簡潔にするために、アプリでは永続的なデータベースを使用しません。 サンプル アプリでは、メモリ内データベースに To Do アイテムを格納します。

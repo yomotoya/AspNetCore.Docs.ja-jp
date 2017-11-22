@@ -5,19 +5,19 @@ description: "ASP.NET Core を使用して単純な Hello World アプリを作�
 keywords: "ASP.NET Core,チュートリアル,概要"
 ms.author: riande
 manager: wpickett
-ms.date: 08/30/2017
+ms.date: 10/18/2017
 ms.topic: get-started-article
 ms.assetid: 73543e9d-d9d5-47d6-9664-17a9beea6cd3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: getting-started
-ms.openlocfilehash: c81e1328fda6d1652ab937bd580be2342924d241
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: e944f0f5a3da6d1686ca8a3036666d8dadc9a0f8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="getting-started-with-aspnet-core"></a>ASP.NET Core の概要
+# <a name="get-started-with-aspnet-core"></a>ASP.NET Core の概要
 
 > [!NOTE]
 > ここで説明する手順は最新バージョンの ASP.NET Core 用です。 以前のバージョンの概要については、 [このチュートリアルの 1.1 バージョン](xref:getting-started-1.1)を参照してください。

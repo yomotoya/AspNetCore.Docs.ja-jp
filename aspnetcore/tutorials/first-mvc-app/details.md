@@ -1,21 +1,20 @@
 ---
 title: "Details メソッドと Delete メソッドの確認"
 author: rick-anderson
-description: "単純な ASP.NET Core MVC アプリの Details コントローラー メソッドとビュー。"
+description: "基本的な ASP.NET Core MVC アプリの Details コントローラー メソッドとビュー。"
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 03/07/2017
 ms.topic: get-started-article
-ms.assetid: 870192b4-8d4f-45c7-8c14-83d02bc0ad79
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: bab93a2faa122d9d6d2e71367519baa09bd76bd1
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 43394106c9074f9487e1065a37a88eb017833bae
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="examining-the-details-and-delete-methods"></a>Details メソッドと Delete メソッドの確認
 
@@ -55,6 +54,10 @@ EF は、`SingleOrDefaultAsync` メソッドによるデータの検索を簡単
 [ValidateAntiForgeryToken]
 public async Task<IActionResult> Delete(int id, bool notUsed)
 ```
+
+### <a name="publish-to-azure"></a>Azure に発行する
+
+Visual Studio を使用してこのアプリを Azure に発行する方法については、「[Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する](xref:tutorials/publish-to-azure-webapp-using-vs)」をご覧ください。  アプリの発行は、[コマンド ライン](xref:tutorials/publish-to-azure-webapp-using-cli)で行うこともできます。
 
 このたびは、ASP.NET Core MVC の紹介を最後までお読みいただきありがとうございました。 コメントを残していただければ幸いです。 このチュートリアルの後は、「[Getting started with MVC and EF Core](xref:data/ef-mvc/intro)」 (MVC と EF Core の概要) にお進みいただくことが推奨されます。
 
