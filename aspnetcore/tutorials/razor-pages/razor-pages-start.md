@@ -10,17 +10,23 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 9d647657f21dd7e952808e5fe020f7a9e8767cd8
-ms.sourcegitcommit: 3ba32b2b6425ed94604cb0f681db0d5bb5f8ad58
+ms.openlocfilehash: 5c58b5156f62572687755c9c0878db10c3c14eb1
+ms.sourcegitcommit: c07fb5cb5df0a12f9fe6735fcbc90964608fa687
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core"></a>ASP.NET Core の Razor ページの概要
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 このチュートリアルでは、ASP.NET Core の Razor ページ Web アプリの構築の基礎について説明します。 このチュートリアルを開始する前に、[Razor ページの概要](xref:mvc/razor-pages/index)に関するページを参照することをお勧めします。 ASP.NET Core で Web アプリケーション用の UI を構築する際に Razor ページを使用することをお勧めします。
+
+このチュートリアルには 3 つのバージョンがあります。
+
+* Windows 向け: 本チュートリアル
+* MacOS 向け: [Mac 向けの Visual Studio での Razor ページの概要](xref:tutorials/razor-pages-mac/razor-pages-start)
+* macOS、Linux、Windows 向け: [Visual Studio Code を使用する ASP.NET Core の Razor ページの概要](xref:tutorials/razor-pages-vsc/razor-pages-start)
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -31,7 +37,7 @@ ms.lasthandoff: 09/28/2017
 * Visual Studio の **[ファイル]** メニューから、**[新規作成]**、**[プロジェクト]** の順に選択します。
 * 新しい ASP.NET Core Web アプリケーションを作成します。 プロジェクトに **RazorPagesMovie** という名前を付けます。 コードのコピー/貼り付けを行う際に名前空間が一致するように、プロジェクトに *RazorPagesMovie* という名前を付けることが重要です。
   ![新しい ASP.NET Core Web アプリケーション](../../mvc/razor-pages/index/_static/np.png)
-* ドロップダウン リストで [**ASP.NET Core 2.0**] を選択してから、**[Web アプリケーション]** を選択します。
+* ドロップダウン リストで **[ASP.NET Core 2.0]** を選択してから、**[Web アプリケーション]** を選択します。
   ![Web アプリケーション (Razor ページ)](../../mvc/razor-pages/index/_static/np2.png)
 
 以下のように、Visual Studio のテンプレートでスタート プロジェクトを作成します。

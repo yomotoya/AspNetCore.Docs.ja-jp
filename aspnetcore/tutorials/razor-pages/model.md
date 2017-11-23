@@ -9,12 +9,12 @@ ms.date: 07/27/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
-uid: tutorials/razor-pages/modelz
-ms.openlocfilehash: 8e370decfd81e62022478b0ab695ff876e5e0a10
-ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
+uid: tutorials/razor-pages/model
+ms.openlocfilehash: 38f27a1d5ca80cec4b7bc43c3d5473fc829f1b05
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="adding-a-model-to-a-razor-pages-app"></a>Razor ページ アプリへのモデルの追加
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 09/20/2017
 
 ソリューション エクスプローラーで、**RazorPagesMovie** プロジェクトを右クリックし、**[追加]** > **[新しいフォルダー]** の順に選択します。 フォルダーに *Models* という名前を付けます。
 
-*Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順に選択します。 クラスに **Movie** という名前を付けて、次のプロパティを追加します。
+*Models* フォルダーを右クリックします。 **[追加]**、**[クラス]** の順に選択します。 クラスに **Movie** という名前を付けて、次のプロパティを追加します。
 
 [!INCLUDE[model 2](../../includes/RP/model2.md)]
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 09/20/2017
 * 初期移行を追加します。
 * 初期移行でデータベースを更新します。
 
-**[ツール]** メニューで、**[NuGet パッケージ マネージャー]、[パッケージ マネージャー コンソール]** の順に選択します。
+**[ツール]** メニューで、**[NuGet パッケージ マネージャー]**、**[パッケージ マネージャー コンソール]** の順に選択します。
 
   ![PMC メニュー](../first-mvc-app/adding-model/_static/pmc.png)
 
@@ -73,7 +73,21 @@ Update-Database
 
 [!INCLUDE[model 4windows](../../includes/RP/model4Win.md)]
 
-[!INCLUDE[model 4](../../includes/RP/model4.md)]
+[!INCLUDE[model 4](../../includes/RP/model4tbl.md)]
+
+<a name="test"></a>
+### <a name="test-the-app"></a>アプリのテスト
+
+* アプリを実行し、ブラウザーで URL に `/Movies` を追加します (`http://localhost:port/movies`)。
+* **[作成]** リンクをテストします。
+
+ ![[作成] ページ](../../tutorials/razor-pages/model/_static/conan.png)
+
+<a name="scaffold"></a>
+
+* **[編集]**、**[詳細]**、および **[削除]** の各リンクをテストします。
+
+SQL の例外が発生した場合は、移行を実行済みであり、データベースを更新したことを確認します。
 
 次のチュートリアルでは、スキャフォールディングによって作成されるファイルについて説明します。
 
