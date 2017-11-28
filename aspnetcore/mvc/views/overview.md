@@ -64,7 +64,7 @@ ms.lasthandoff: 10/03/2017
 
 <span data-ttu-id="5428d-156">この操作から制御が戻るとき、 *About.cshtml*最後のセクションに表示されているビューは、次の web ページとして表示されます。</span><span class="sxs-lookup"><span data-stu-id="5428d-156">When this action returns, the *About.cshtml* view shown in the last section is rendered as the following webpage:</span></span>
 
-![Edge ブラウザーでレンダリングされるページについて](overview/_static/about-page.png)
+![Microsoft Edge ブラウザーでレンダリングされるページについて](overview/_static/about-page.png)
 
 <span data-ttu-id="5428d-158">`View`ヘルパー メソッドが複数のオーバー ロードします。</span><span class="sxs-lookup"><span data-stu-id="5428d-158">The `View` helper method has several overloads.</span></span> <span data-ttu-id="5428d-159">必要に応じて指定できます。</span><span class="sxs-lookup"><span data-stu-id="5428d-159">You can optionally specify:</span></span>
 
