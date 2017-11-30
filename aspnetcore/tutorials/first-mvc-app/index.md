@@ -17,7 +17,7 @@ ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/19/2017
 ---
-# <a name="create-a-web-app-with-aspnet-core-mvc-using-visual-studio-on-windows"></a>Windows で Visual Studio を使用し、ASP.NET Core MVC Web アプリを作成する
+# <a name="create-a-web-app-with-aspnet-core-mvc-using-visual-studio-on-windows"></a>Windows で Visual Studio を使用し、ASP.NET Core MVC Web アプリを作成する 
 
 この一連のチュートリアルでは、Visual Studio を使用して ASP.NET Core MVC Web アプリを構築するための基礎について説明します。 [!INCLUDE[consider RP](../../includes/razor.md)]
 
