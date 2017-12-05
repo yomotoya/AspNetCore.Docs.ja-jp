@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET Core の概要"
 author: rick-anderson
-description: 
+description: "ASP.NET Core の概要を提供する。"
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: index
-ms.openlocfilehash: 748c8c0b9dd0e6eab0d7347bbf89ed80c10bdb54
-ms.sourcegitcommit: e4a1df2a5a85f299322548809e547a79b380bb92
+ms.openlocfilehash: a075c63fddb9e28a1da37d4ef6647808a0dcb583
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core の概要
 
@@ -35,7 +35,7 @@ ASP.NET Core の利点は次のとおりです。
 
 * Web UI と Web API を構築するプロセスの統一。
 * [最新のクライアント側フレームワーク](xref:client-side/index)と開発ワークフローの統合。
-* クラウド対応で環境ベースの[構成システム](xref:fundamentals/configuration)。
+* クラウド対応で環境ベースの[構成システム](xref:fundamentals/configuration/index)。
 * 組み込まれている[依存性の注入](xref:fundamentals/dependency-injection)。
 * 軽量で高パフォーマンスのモジュール化された HTTP 要求パイプライン。
 * IIS でホストする、または独自のプロセスで自己ホストする機能。
