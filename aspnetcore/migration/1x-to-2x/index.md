@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: 9574f1f8e0970e1b64c2910bf46794621583f18d
-ms.sourcegitcommit: 3cf879f6beaaca2d401ad980cd26cfec70c05c24
+ms.openlocfilehash: 12734504953f2942458c3bfe1fe146f48d8f24ff
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>ASP.NET Core 1.x から ASP.NET Core 2.0 への移行
 
@@ -123,7 +123,7 @@ Unable to create an object of type '<Context>'. Add an implementation of 'IDesig
 
 前のコード スニペットの `CreateDefaultBuilder` メソッドで使用される構成は、[こちら](https://github.com/aspnet/MetaPackages/blob/rel/2.0.0/src/Microsoft.AspNetCore/WebHost.cs#L152)で確認できます。
 
-詳細については、「[ASP.NET Core の構成](xref:fundamentals/configuration)」を参照してください。
+詳細については、「[ASP.NET Core の構成](xref:fundamentals/configuration/index)」を参照してください。
 
 <a name="db-init-code"></a>
 
