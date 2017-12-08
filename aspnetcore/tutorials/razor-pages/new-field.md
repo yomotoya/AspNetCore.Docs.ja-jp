@@ -74,7 +74,7 @@ SqlException: Invalid column name 'Rating'.
 
 <span data-ttu-id="c421f-141">ソリューションをビルドします。</span><span class="sxs-lookup"><span data-stu-id="c421f-141">Build the solution.</span></span>
 
-<span data-ttu-id="c421f-142"><a name="pmc"></a> **[ツール]** メニューで、**[NuGet パッケージ マネージャー]、[パッケージ マネージャー コンソール]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="c421f-142"><a name="pmc"></a> From the **Tools** menu, select **NuGet Package Manager > Package Manager Console**.</span></span>
+<a name="pmc"></a> <span data-ttu-id="c421f-142">**[ツール]** メニューで、**[NuGet パッケージ マネージャー]、[パッケージ マネージャー コンソール]** の順に選択します。</span><span class="sxs-lookup"><span data-stu-id="c421f-142">From the **Tools** menu, select **NuGet Package Manager > Package Manager Console**.</span></span>
 <span data-ttu-id="c421f-143">PMC で、次のコマンドを入力します。</span><span class="sxs-lookup"><span data-stu-id="c421f-143">In the PMC, enter the following commands:</span></span>
 
 ```powershell
@@ -89,7 +89,7 @@ Update-Database
 
 <span data-ttu-id="c421f-147">"Rating (評価)" という名前は任意です。移行ファイルに名前を付けるために利用されます。</span><span class="sxs-lookup"><span data-stu-id="c421f-147">The name "Rating" is arbitrary and is used to name the migration file.</span></span> <span data-ttu-id="c421f-148">移行ファイルには意味のある名前を使用すると便利です。</span><span class="sxs-lookup"><span data-stu-id="c421f-148">It's helpful to use a meaningful name for the migration file.</span></span>
 
-<span data-ttu-id="c421f-149"><a name="ssox"></a> DB 内のすべてのレコードを削除すると、初期化子は DB にデータを初期投入し、`Rating` フィールドを追加します。</span><span class="sxs-lookup"><span data-stu-id="c421f-149"><a name="ssox"></a> If you delete all the records in the DB, the initializer will seed the DB and include the `Rating` field.</span></span> <span data-ttu-id="c421f-150">これはブラウザーの削除リンクで行うか、[Sql Server Object Explorer](xref:tutorials/razor-pages/sql#ssox) (SSOX) から行うことができます。</span><span class="sxs-lookup"><span data-stu-id="c421f-150">You can do this with the delete links in the browser or from [Sql Server Object Explorer](xref:tutorials/razor-pages/sql#ssox) (SSOX).</span></span> <span data-ttu-id="c421f-151">SSOX からデータベースを削除するには:</span><span class="sxs-lookup"><span data-stu-id="c421f-151">To delete the database from SSOX:</span></span>
+<a name="ssox"></a> <span data-ttu-id="c421f-149">DB 内のすべてのレコードを削除すると、初期化子は DB にデータを初期投入し、`Rating` フィールドを追加します。</span><span class="sxs-lookup"><span data-stu-id="c421f-149">If you delete all the records in the DB, the initializer will seed the DB and include the `Rating` field.</span></span> <span data-ttu-id="c421f-150">これはブラウザーの削除リンクで行うか、[Sql Server Object Explorer](xref:tutorials/razor-pages/sql#ssox) (SSOX) から行うことができます。</span><span class="sxs-lookup"><span data-stu-id="c421f-150">You can do this with the delete links in the browser or from [Sql Server Object Explorer](xref:tutorials/razor-pages/sql#ssox) (SSOX).</span></span> <span data-ttu-id="c421f-151">SSOX からデータベースを削除するには:</span><span class="sxs-lookup"><span data-stu-id="c421f-151">To delete the database from SSOX:</span></span>
 
 * <span data-ttu-id="c421f-152">SSOX でデータベースを選択します。</span><span class="sxs-lookup"><span data-stu-id="c421f-152">Select the database in SSOX.</span></span>
 * <span data-ttu-id="c421f-153">データベースを右クリックし、*[削除]* を選択します。</span><span class="sxs-lookup"><span data-stu-id="c421f-153">Right click on the database, and select *Delete*.</span></span>
