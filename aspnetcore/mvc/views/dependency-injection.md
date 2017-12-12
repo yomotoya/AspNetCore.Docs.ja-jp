@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/dependency-injection
 ms.openlocfilehash: 4586f50bc663b7269914dfff28b61342e3991a48
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="dependency-injection-into-views"></a>ビューに依存関係の挿入
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 10/01/2017
 
 ASP.NET Core をサポートしている[依存性の注入](xref:fundamentals/dependency-injection)の表示にします。 これは、ローカライズや要素の表示を設定するためだけに必要なデータなどのビューに固有のサービスに役立ちます。 管理しようとする必要があります[関心の分離](http://deviq.com/separation-of-concerns/)コント ローラーとビューの間です。 表示するビューは、ユーザー データのほとんどは、コント ローラーからに渡されます。
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="a-simple-example"></a>単純な例
 

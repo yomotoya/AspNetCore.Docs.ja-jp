@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/partial
 ms.openlocfilehash: 60f5255ca31accbffffec18053b29810977a5ff1
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="partial-views"></a>部分ビュー
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 10/01/2017
 
 ASP.NET Core MVC には、部分ビューは、さまざまなビューの間で共有したい web ページの再利用可能な部分がある場合に便利ですがサポートされています。
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="what-are-partial-views"></a>部分ビューとは
 

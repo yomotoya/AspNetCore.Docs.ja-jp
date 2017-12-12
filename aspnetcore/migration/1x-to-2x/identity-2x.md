@@ -5,16 +5,16 @@ description: "この記事では、ASP.NET Core 2.0 に移行する ASP.NET Core
 keywords: "ASP.NET Core、Id 認証"
 ms.author: scaddie
 manager: wpickett
-ms.date: 08/02/2017
+ms.date: 10/26/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: b4e67e7cfea3c01e3ca8c0d5df2a04e789749932
-ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
+ms.openlocfilehash: 1d8c75a21cd7110b3e414f0c600e9f05cbaeff45
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="migrating-authentication-and-identity-to-aspnet-core-20"></a>移行の認証および ASP.NET Core 2.0 を Id
 
@@ -59,7 +59,8 @@ public void ConfigureServices(IServiceCollection services)
     // If you want to tweak Identity cookies, they're no longer part of IdentityOptions.
     services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/LogIn");
     services.AddAuthentication()
-            .AddFacebook(options => {
+            .AddFacebook(options => 
+            {
                 options.AppId = Configuration["auth:facebook:appid"];
                 options.AppSecret = Configuration["auth:facebook:appsecret"];
             });
@@ -108,7 +109,8 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
         // If you don't want the cookie to be automatically authenticated and assigned to HttpContext.User, 
         // remove the CookieAuthenticationDefaults.AuthenticationScheme parameter passed to AddAuthentication.
         services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options => {
+                .AddCookie(options => 
+                {
                     options.LoginPath = "/Account/LogIn";
                     options.LogoutPath = "/Account/LogOff";
                 });
@@ -126,7 +128,8 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
 
     ```csharp
     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(options => {
+            .AddJwtBearer(options => 
+            {
                 options.Audience = "http://localhost:5001/";
                 options.Authority = "http://localhost:5000/";
             });
@@ -146,12 +149,14 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
 - 呼び出す、`AddOpenIdConnect`メソッドで、`ConfigureServices`メソッド。
 
     ```csharp
-    services.AddAuthentication(options => {
+    services.AddAuthentication(options => 
+    {
         options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
     })
     .AddCookie()
-    .AddOpenIdConnect(options => {
+    .AddOpenIdConnect(options => 
+    {
         options.Authority = Configuration["auth:oidc:authority"];
         options.ClientId = Configuration["auth:oidc:clientid"];
     });
@@ -169,7 +174,8 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
     
     ```csharp
     services.AddAuthentication()
-            .AddFacebook(options => {
+            .AddFacebook(options => 
+            {
                 options.AppId = Configuration["auth:facebook:appid"];
                 options.AppSecret = Configuration["auth:facebook:appsecret"];
             });
@@ -187,7 +193,8 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
 
     ```csharp
     services.AddAuthentication()
-            .AddGoogle(options => {
+            .AddGoogle(options => 
+            {
                 options.ClientId = Configuration["auth:google:clientid"];
                 options.ClientSecret = Configuration["auth:google:clientsecret"];
             });    
@@ -205,7 +212,8 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
 
     ```csharp
     services.AddAuthentication()
-            .AddMicrosoftAccount(options => {
+            .AddMicrosoftAccount(options => 
+            {
                 options.ClientId = Configuration["auth:microsoft:clientid"];
                 options.ClientSecret = Configuration["auth:microsoft:clientsecret"];
             });
@@ -223,25 +231,29 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
 
     ```csharp
     services.AddAuthentication()
-            .AddTwitter(options => {
+            .AddTwitter(options => 
+            {
                 options.ConsumerKey = Configuration["auth:twitter:consumerkey"];
                 options.ConsumerSecret = Configuration["auth:twitter:consumersecret"];
             });
     ```
 
 ### <a name="setting-default-authentication-schemes"></a>既定の認証スキームの設定
-1.x で、`AutomaticAuthenticate`と`AutomaticChallenge`プロパティが 1 つの認証スキームに設定するためのものです。 これを適用することをお勧めはありませんでした。
+1.x で、`AutomaticAuthenticate`と`AutomaticChallenge`のプロパティ、 [AuthenticationOptions](https://docs.microsoft.com/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1)基底クラスが 1 つの認証スキームに設定するためのものです。 これを適用することをお勧めはありませんでした。
 
-個々 のフラグとして 2.0 では、これら 2 つのプロパティが削除されて`AuthenticationOptions`インスタンスし、はベースに移動した[AuthenticationOptions](/aspnet/core/api/microsoft.aspnetcore.builder.authenticationoptions)クラスです。 プロパティを構成することができます、`AddAuthentication`内でメソッドの呼び出し、`ConfigureServices`メソッドの*Startup.cs*:
+個々 のプロパティとして 2.0 では、これら 2 つのプロパティが削除されて`AuthenticationOptions`インスタンス。 構成することができます、`AddAuthentication`内でメソッドの呼び出し、`ConfigureServices`メソッドの*Startup.cs*:
 
 ```csharp
 services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
 ```
 
+上記のコード スニペットで、既定のスキームが に設定されている`CookieAuthenticationDefaults.AuthenticationScheme`("Cookie") です。
+
 または、オーバー ロードされたバージョンを使用して、 `AddAuthentication` 1 つ以上のプロパティを設定します。 次のオーバー ロードされたメソッドの例では、既定のスキームが に設定されている`CookieAuthenticationDefaults.AuthenticationScheme`です。 認証スキームまたはを指定できますが、個人内`[Authorize]`属性または承認ポリシー。
 
 ```csharp
-services.AddAuthentication(options => {
+services.AddAuthentication(options => 
+{
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
 });

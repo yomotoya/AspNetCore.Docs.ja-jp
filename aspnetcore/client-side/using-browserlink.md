@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67ddc58e38962bd876050739a2a1447be4f589bb
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: b69d085e8bee4cdac2dff08b46a95a8869e263b7
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="browser-link-in-aspnet-core"></a>ASP.NET Core のブラウザー リンク 
 
@@ -81,7 +81,7 @@ Visual Studio の横にブラウザー リンク ツール バー コントロ�
 * 複数のブラウザーで web アプリケーションを一度にを更新します。
 * 開く、**ブラウザー リンク ダッシュ ボード**です。
 * 有効または無効に**Browser Link**です。 注: ブラウザー リンクは、Visual Studio 2017 (15.3) で既定では無効です。
-* 有効にするにまたは、CSS 自動同期を無効にします。
+* 有効または無効に[CSS 自動同期](#enable-or-disable-css-auto-sync)です。
 
 > [!NOTE]
 > Visual Studio プラグインによって、最も顕著な*Web 拡張機能パック 2015*と*Web 拡張機能パック 2017*ブラウザー リンク拡張機能を提供、ASP でいくつかの追加の機能は機能しません。NET Core プロジェクト。

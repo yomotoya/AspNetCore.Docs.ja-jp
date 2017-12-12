@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
 ms.openlocfilehash: da5b7b3bf1aa01ee22edf9bd003d8f79a00a5d0b
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのタグ ヘルパーをキャッシュします。
 
@@ -84,7 +84,7 @@ Razor ビュー エンジンが既定値を設定`expires-after`20 分にしま�
 
 | 属性の型    | 値の例     |
 |----------------   |----------------   |
-| TimeSpan    | " @TimeSpan.FromSeconds (120)"    |
+| TimeSpan    | "@TimeSpan.FromSeconds(120)"    |
 
 
 内容をキャッシュする最初の要求時から時間の長さを設定します。 
@@ -103,7 +103,7 @@ Razor ビュー エンジンが既定値を設定`expires-after`20 分にしま�
 
 | 属性の型    | 値の例     |
 |----------------   |----------------   |
-| TimeSpan    | " @TimeSpan.FromSeconds (60)"     |
+| TimeSpan    | "@TimeSpan.FromSeconds(60)"     |
 
 
 アクセスされていない場合、キャッシュ エントリを削除する必要がありますを時間を設定します。
@@ -229,7 +229,7 @@ routes.MapRoute(
 
 | 属性の型    | 値の例                |
 |----------------   |----------------               |
-| 文字列型             | " @Model "                 |
+| 文字列型             | "@Model"                 |
 
 
 どのようなデータを取得キャッシュのカスタマイズをできます。 属性の文字列値が変更された、キャッシュ タグ ヘルパーの内容によって参照されるオブジェクトが更新されたとき。 多くの場合、モデルの値の文字列の連結は、この属性に割り当てられます。  実際には、連結された値のいずれかの更新には、キャッシュが無効になります。 このためです。

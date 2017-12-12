@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/portable-object-localization
 ms.openlocfilehash: 4fa73ae08b10217de657681a27f6097fc3443737
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-portable-object-localization-with-orchard-core"></a>Orchard コアでポータブル オブジェクト ローカリゼーションを構成します。
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 10/01/2017
 
 **注:** Orchard コアは、Microsoft 製品ではありません。 したがって、マイクロソフトはサポートされませんこの機能します。
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="what-is-a-po-file"></a>PO ファイルとは何ですか。
 

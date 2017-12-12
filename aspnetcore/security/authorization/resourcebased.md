@@ -1,45 +1,52 @@
 ---
-title: "リソース ベースの承認"
-author: rick-anderson
-description: 
-keywords: ASP.NET Core,
-ms.author: riande
+title: "ASP.NET Core でのリソース ベースの承認"
+author: scottaddie
+description: "Authorize attribute で十分しない場合に、ASP.NET Core アプリケーションのリソース ベースの承認を実装する方法を説明します。"
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.assetid: 0902ba17-5304-4a12-a2d4-e0904569e988
-ms.technology: aspnet
+ms.author: scaddie
+ms.custom: mvc
+ms.date: 11/07/2017
+ms.devlang: csharp
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 7f7df52bf51a81558818836450997281a21b5839
-ms.sourcegitcommit: f303a457644ed034a49aa89edecb4e79d9028cb1
+ms.openlocfilehash: 708f306da740870b106cbeeb96879480f8745439
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="resource-based-authorization"></a>リソース ベースの承認
 
-<a name=security-authorization-resource-based></a>
+作成者: [Scott Addie](https://twitter.com/Scott_Addie)
 
-多くの場合、承認は、アクセス対象のリソースに依存します。 たとえば、ドキュメントには、author プロパティがあります。 ドキュメントの作成者だけには許可されたリソースは、承認の評価を行う前に、ドキュメント リポジトリから読み込む必要があるため、更新します。 属性の評価はアクション内で、独自コード リソースの読み込みを実行する前に、データ バインディングの前に、承認属性を持つことはできません。 宣言型の承認、属性の方法ではなくを使用しなければならない命令型の承認では、開発者が独自のコード内で承認関数を呼び出す場所。
+承認方法は、アクセス対象のリソースに依存します。 Author プロパティを持つドキュメントを検討してください。 ドキュメントを更新するには、作成者のみが許可されます。 その結果、承認の評価を行う前に、データ ストアから、ドキュメントを取得する必要があります。
 
-## <a name="authorizing-within-your-code"></a>コード内で承認します。
+属性の評価は、データ バインディングの前に、ページのハンドラーまたはドキュメントに読み込みアクションの実行前に発生します。 これらの理由、による宣言型の承認から、`[Authorize]`属性が十分ではありません。 代わりに、カスタム承認メソッドを呼び出すことができます&mdash;命令型の承認と呼ばれるスタイル。
 
-承認は、サービスとして実装`IAuthorizationService`サービス コレクションに登録されている、および経由で入手できます[依存性の注入](../../fundamentals/dependency-injection.md#fundamentals-dependency-injection)コント ローラーにアクセスするためです。
+使用して、[アプリのサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample)) をこのトピックで説明する機能を探索します。
+
+## <a name="use-imperative-authorization"></a>命令型の承認を使用します。
+
+承認として実装、 [IAuthorizationService](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationservice)サービスおよびサービス内にコレクションに登録されて、`Startup`クラスです。 サービスを使用可能で[依存性の注入](xref:fundamentals/dependency-injection#fundamentals-dependency-injection)ページ ハンドラーやアクションにします。
+
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Controllers/DocumentController.cs?name=snippet_IAuthServiceDI&highlight=6)]
+
+`IAuthorizationService`2 つの`AuthorizeAsync`メソッドのオーバー ロード: リソースと、ポリシー名およびその他のリソースおよび評価するための要件の一覧を受け入れるを 1 つ受け入れます。
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
-public class DocumentController : Controller
-{
-    IAuthorizationService _authorizationService;
-
-    public DocumentController(IAuthorizationService authorizationService)
-    {
-        _authorizationService = authorizationService;
-    }
-}
+Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user,
+                          object resource,
+                          IEnumerable<IAuthorizationRequirement> requirements);
+Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user,
+                          object resource,
+                          string policyName);
 ```
 
-`IAuthorizationService`いずれかの場所を渡すリソースと、ポリシー名およびその他のリソースおよび評価するための要件の一覧を渡す 2 つのメソッドがあります。
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 Task<bool> AuthorizeAsync(ClaimsPrincipal user,
@@ -50,104 +57,78 @@ Task<bool> AuthorizeAsync(ClaimsPrincipal user,
                           string policyName);
 ```
 
-<a name=security-authorization-resource-based-imperative></a>
+---
 
-サービスを呼び出すには、読み込む、アクション内でリソースを呼び出す、`AuthorizeAsync`オーバー ロードする必要があります。 例:
+<a name="security-authorization-resource-based-imperative"></a>
 
-```csharp
-public async Task<IActionResult> Edit(Guid documentId)
-{
-    Document document = documentRepository.Find(documentId);
+次の例では、セキュリティで保護するリソースに追加されるカスタム`Document`オブジェクト。 `AuthorizeAsync`現在のユーザーが指定されたドキュメントを編集できるかどうかを決定するオーバー ロードが呼び出されます。 カスタム"EditPolicy"承認ポリシーでは、意思決定を考慮します。 参照してください[カスタム ポリシー ベースの承認](xref:security/authorization/policies)承認ポリシーを作成する方法の詳細。
 
-    if (document == null)
-    {
-        return new HttpNotFoundResult();
-    }
+> [!NOTE]
+> 次のコード サンプルは、認証が実行を想定し、セット、`User`プロパティです。
 
-    if (await _authorizationService.AuthorizeAsync(User, document, "EditPolicy"))
-    {
-        return View(document);
-    }
-    else
-    {
-        return new ChallengeResult();
-    }
-}
-```
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-## <a name="writing-a-resource-based-handler"></a>リソース ベースのハンドラーの記述
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Pages/Document/Edit.cshtml.cs?name=snippet_DocumentEditHandler)]
 
-リソース ベースの承認のハンドラーの記述に大きな違いはなく[plain 要件ハンドラーの記述](policies.md#security-authorization-policies-based-authorization-handler)です。 要件を作成して前に、要件とも、リソースの種類を指定する、要件のハンドラーを実装します。 たとえば、ドキュメント リソースを受け入れることがハンドラーは示しています。
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-```csharp
-public class DocumentAuthorizationHandler : AuthorizationHandler<MyRequirement, Document>
-{
-    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
-                                                MyRequirement requirement,
-                                                Document resource)
-    {
-        // Validate the requirement against the resource and identity.
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentEditAction)]
 
-        return Task.CompletedTask;
-    }
-}
-```
+---
 
-忘れずに、ハンドラーを登録する必要があります、`ConfigureServices`メソッド。
+## <a name="write-a-resource-based-handler"></a>リソース ベースのハンドラーを記述します。
 
-```csharp
-services.AddSingleton<IAuthorizationHandler, DocumentAuthorizationHandler>();
-```
+リソース ベースの承認されないとは大きく異なるため、ハンドラーの記述[plain 要件ハンドラーの記述](xref:security/authorization/policies#security-authorization-policies-based-authorization-handler)です。 カスタム要求のクラスを作成し、要件ハンドラー クラスを実装します。 ハンドラー クラスには、要件およびリソースの種類を指定します。 たとえば、ハンドラーを使用して、`SameAuthorRequirement`要件と`Document`リソースは次のようになります。
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
+
+---
+
+要件とのハンドラーを登録、`Startup.ConfigureServices`メソッド。
+
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Startup.cs?name=snippet_ConfigureServicesSample&highlight=3-7,9)]
 
 ### <a name="operational-requirements"></a>運用上の要件
 
-読み取り、書き込み、更新、削除などの操作に基づく決定を行う場合を使って、`OperationAuthorizationRequirement`クラス内で、`Microsoft.AspNetCore.Authorization.Infrastructure`名前空間。 この要件をあらかじめ作成されているクラスを使用すると、操作ごとに個別のクラスを作成する代わりに、パラメーター化された操作名を持つ 1 つのハンドラーを記述できます。 これを使用するには、いくつかの操作名を提供します。
+CRUD の結果に基づく決定を作るかどうか (**C**reate、 **R**いてぇ、 **U**更新する、 **D**削除 ())、操作を使用、 [OperationAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.infrastructure.operationauthorizationrequirement)ヘルパー クラス。 このクラスでは、操作の種類ごとの個別のクラスではなく 1 つのハンドラーを記述することができます。 これを使用するには、いくつかの操作名を提供します。
 
-```csharp
-public static class Operations
-{
-    public static OperationAuthorizationRequirement Create =
-        new OperationAuthorizationRequirement { Name = "Create" };
-    public static OperationAuthorizationRequirement Read =
-        new OperationAuthorizationRequirement   { Name = "Read" };
-    public static OperationAuthorizationRequirement Update =
-        new OperationAuthorizationRequirement { Name = "Update" };
-    public static OperationAuthorizationRequirement Delete =
-        new OperationAuthorizationRequirement { Name = "Delete" };
-}
-```
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_OperationsClass)]
 
-ハンドラーでしたして実装する次のように、仮定を使用して`Document`クラス リソースとして。
+ハンドラーを実装する次のように、`OperationAuthorizationRequirement`要件と`Document`リソース。
 
-```csharp
-public class DocumentAuthorizationHandler :
-    AuthorizationHandler<OperationAuthorizationRequirement, Document>
-{
-    public override Task HandleRequirementAsync(AuthorizationHandlerContext context,
-                                                OperationAuthorizationRequirement requirement,
-                                                Document resource)
-    {
-        // Validate the operation using the resource, the identity and
-        // the Name property value from the requirement.
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-        return Task.CompletedTask;
-    }
-}
-```
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
 
-ハンドラーが動作を確認できます`OperationAuthorizationRequirement`です。 ハンドラー内のコードは、その評価を行うときに、アカウントに指定された要件の Name プロパティを受け取る必要があります。
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-呼び出すときに、操作を指定する必要があります。 運用リソース ハンドラーを呼び出して`AuthorizeAsync`アクションにします。 例:
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
 
-```csharp
-if (await _authorizationService.AuthorizeAsync(User, document, Operations.Read))
-{
-    return View(document);
-}
-else
-{
-    return new ChallengeResult();
-}
-```
+---
 
-この例では、ユーザーが現在の読み取り操作を実行できないかどうか`document`インスタンス。 承認が成功した場合は、ドキュメントのビューが返されます。 返す承認に失敗したかどうかは`ChallengeResult`ミドルウェアの認証が失敗したため、ミドルウェアは 401 または 403 ステータス コードを返すなどのログイン ページにユーザーをリダイレクトする、適切な応答を受け取ることができます、任意の認証を通知します。対話型ブラウザー クライアント。
+前のハンドラーは、リソース、ユーザーの id、および要件を使用して、操作を検証`Name`プロパティです。
+
+運用上のリソース ハンドラーを呼び出すには、操作を呼び出すときに指定`AuthorizeAsync`ページ ハンドラーまたはアクションにします。 次の例では、指定されたドキュメントを表示する、認証されたユーザーが許可されているかどうかを判断します。
+
+> [!NOTE]
+> 次のコード サンプルは、認証が実行を想定し、セット、`User`プロパティです。
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Pages/Document/View.cshtml.cs?name=snippet_DocumentViewHandler&highlight=10-11)]
+
+承認に成功した場合、ドキュメントの表示 ページが返されます。 かどうかの承認が失敗したが、ユーザーが認証されると、返す`ForbidResult`承認に失敗したすべての認証ミドルウェアに通知します。 A`ChallengeResult`認証を実行する必要がありますが返されます。 対話型ブラウザー クライアントでは、ユーザーをログイン ページにリダイレクトする適切な場合があります。
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentViewAction&highlight=11-12)]
+
+承認に成功した場合、ドキュメントのビューが返されます。 承認に失敗した場合に返す`ChallengeResult`すべての認証ミドルウェアを通知承認に失敗しましたとミドルウェアは、適切な応答を受け取ることができます。 適切な応答には、401 または 403 ステータス コードを返す可能性があります。 対話型ブラウザー クライアントでは、ユーザーをログイン ページにリダイレクトする、可能性があります。
+
+---

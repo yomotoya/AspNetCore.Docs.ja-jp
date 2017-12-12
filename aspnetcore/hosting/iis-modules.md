@@ -11,15 +11,15 @@ ms.assetid: 492b3a7e-04c5-461b-b96a-38ecee5c64bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/iis-modules
-ms.openlocfilehash: afad266874d3ac059d9f3a6d26a5330a0006320b
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: fee8e830ab43f731de9c90fad06b577662760f87
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>ASP.NET Core で IIS のモジュールの使用
 
-によって[Luke Latham](https://github.com/guardrex)
+作成者: [Luke Latham](https://github.com/guardrex)
 
 ASP.NET Core アプリケーションは、リバース プロキシの構成では IIS によってホストされます。 IIS のネイティブ モジュールの一部と IIS 管理モジュールのすべてでは、ASP.NET Core アプリケーションの要求の処理に使用できません。 多くの場合は、ASP.NET Core は、代わりに IIS のネイティブおよびマネージ モジュールの機能を提供します。
 
@@ -37,10 +37,10 @@ ASP.NET Core アプリケーションは、リバース プロキシの構成で
 **ダイジェスト認証**<br>`DigestAuthenticationModule` | はい | 
 **ディレクトリの参照**<br>`DirectoryListingModule` | いいえ | [ディレクトリ参照ミドルウェア](xref:fundamentals/static-files#enabling-directory-browsing)
 **動的な圧縮**<br>`DynamicCompressionModule` | はい | [応答圧縮ミドルウェア](xref:performance/response-compression)
-**トレース**<br>`FailedRequestsTracingModule` | はい | [ASP.NET Core のログ記録](xref:fundamentals/logging#the-tracesource-provider)
+**トレース**<br>`FailedRequestsTracingModule` | はい | [ASP.NET Core のログ記録](xref:fundamentals/logging/index#the-tracesource-provider)
 **ファイルのキャッシュ**<br>`FileCacheModule` | いいえ | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
 **HTTP キャッシュ**<br>`HttpCacheModule` | いいえ | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
-**HTTP ログ**<br>`HttpLoggingModule` | はい | [ASP.NET Core のログ記録](xref:fundamentals/logging)<br>実装: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging)、 [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging)、 [NLog](https://github.com/NLog/NLog.Extensions.Logging)、 [Serilog](https://github.com/serilog/serilog-extensions-logging)
+**HTTP ログ**<br>`HttpLoggingModule` | はい | [ASP.NET Core のログ記録](xref:fundamentals/logging/index)<br>実装: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging)、 [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging)、 [NLog](https://github.com/NLog/NLog.Extensions.Logging)、 [Serilog](https://github.com/serilog/serilog-extensions-logging)
 **HTTP リダイレクト**<br>`HttpRedirectionModule` | はい | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting)
 **IIS クライアント証明書マッピング認証**<br>`IISCertificateMappingAuthenticationModule` | はい | 
 **IP およびドメインの制限**<br>`IpRestrictionModule` | はい | 

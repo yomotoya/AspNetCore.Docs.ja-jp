@@ -11,11 +11,11 @@ ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: 215d165d0029bbf38ef37cdde57b80a15bff9ef9
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 0a2a374ac77b9fd7c626aa6749cffbd3fb0f08d5
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="filters"></a>フィルター
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 09/22/2017
 
 フレームワークには、サブクラスできる組み込みの属性に基づくフィルターが含まれます。 およびカスタマイズします。 たとえば、次の結果のフィルターは、応答に、ヘッダーを追加します。
 
-<a name=add-header-attribute></a>
+<a name="add-header-attribute"></a>
 
 [!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/AddHeaderAttribute.cs?highlight=5,16)]
 
@@ -167,7 +167,7 @@ ms.lasthandoff: 09/22/2017
 
 任意の時点で、フィルター パイプラインをショート サーキットを設定してできます、`Result`プロパティを`context`フィルター メソッドに渡されたパラメーター。 たとえば、次のリソースのフィルターを防ぎますパイプラインの残りの部分を実行します。
 
-<a name=short-circuiting-resource-filter></a>
+<a name="short-circuiting-resource-filter"></a>
 
 [!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/ShortCircuitingResourceFilterAttribute.cs?highlight=12,13,14,15)]
 
@@ -188,7 +188,7 @@ ms.lasthandoff: 09/22/2017
 * `IFilterFactory`属性の実装
 
 > [!NOTE]
-> DI から取得する 1 つの依存関係は、ロガーです。 ただし、回避を作成して、ログ記録の目的で、単にフィルターを使用すると、以降、[組み込みフレームワークのログ記録機能](../../fundamentals/logging.md)必要なものを既に指定可能性があります。 フィルターにログ記録を追加する場合は、ビジネス ドメインの懸案事項や、フィルターではなく MVC アクションまたはその他のフレームワーク イベントに固有の動作を重視必要があります。
+> DI から取得する 1 つの依存関係は、ロガーです。 ただし、回避を作成して、ログ記録の目的で、単にフィルターを使用すると、以降、[組み込みフレームワークのログ記録機能](xref:fundamentals/logging/index)必要なものを既に指定可能性があります。 フィルターにログ記録を追加する場合は、ビジネス ドメインの懸案事項や、フィルターではなく MVC アクションまたはその他のフレームワーク イベントに固有の動作を重視必要があります。
 
 ### <a name="servicefilterattribute"></a>ServiceFilterAttribute
 

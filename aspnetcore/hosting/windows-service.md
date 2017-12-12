@@ -11,11 +11,11 @@ ms.assetid: d9a65066-d7cb-47df-b046-64629c4d2c6f
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/windows-service
-ms.openlocfilehash: ca3b98f0b0405fcd5751cb7d9bc7a40257739084
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: a6d1acf5ab8f40b0b4d487a6f34cd83d13907852
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="host-an-aspnet-core-app-in-a-windows-service"></a>Windows サービスでの ASP.NET Core アプリをホストします。
 
@@ -27,7 +27,7 @@ IIS を使用しない場合は、Windows 上の ASP.NET Core アプリケーシ
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* .NET framework ランタイムでは、アプリが実行する必要があります。  *.Csproj*ファイルでの適切な値を指定[TargetFramework](https://docs.microsoft.com/nuget/schema/target-frameworks)と[RuntimeIdentifier](https://docs.microsoft.com/dotnet/articles/core/rid-catalog)です。 次に例を示します。
+* アプリは、.NET Framework ランタイムで実行する必要があります。  *.Csproj*ファイルでの適切な値を指定[TargetFramework](https://docs.microsoft.com/nuget/schema/target-frameworks)と[RuntimeIdentifier](https://docs.microsoft.com/dotnet/articles/core/rid-catalog)です。 次に例を示します。
 
   [!code-xml[](windows-service/sample/AspNetCoreService.csproj?range=3-6)]
 
@@ -115,7 +115,7 @@ IIS を使用しない場合は、Windows 上の ASP.NET Core アプリケーシ
 
   * ブラウザーで実行されていることを確認する http://localhost:5000 に移動します。
 
-エラー メッセージにアクセスできるようにする簡単な方法がなどのログ プロバイダーを追加するには、アプリが、サービスで実行する場合を想定どおりに起動しない場合、 [Windows イベント ログ プロバイダー](xref:fundamentals/logging#eventlog)です。
+エラー メッセージにアクセスできるようにする簡単な方法がなどのログ プロバイダーを追加するには、アプリが、サービスで実行する場合を想定どおりに起動しない場合、 [Windows イベント ログ プロバイダー](xref:fundamentals/logging/index#eventlog)です。
 
 ## <a name="acknowledgments"></a>受信確認
 

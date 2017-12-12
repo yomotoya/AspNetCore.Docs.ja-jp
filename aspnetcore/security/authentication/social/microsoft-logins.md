@@ -1,8 +1,8 @@
 ---
 title: "外部ログインの Microsoft アカウントの設定"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "このチュートリアルでは、Microsoft アカウント ユーザーの認証方式を既存の ASP.NET Core アプリケーションの統合について説明します。"
+keywords: "ASP.NET Core、Microsoft アカウント、ログイン、認証"
 ms.author: riande
 manager: wpickett
 ms.date: 08/24/2017
@@ -11,15 +11,13 @@ ms.assetid: 66DB4B94-C78C-4005-BA03-3D982B87C268
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: cb4ea63664f29e39c2dd26cbf814a484a295ec6c
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 77c16e3ae93c9bfe1f569d0a5888c5b765d04241
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configuring-microsoft-account-authentication"></a>Microsoft アカウントの認証を構成します。
-
-<a name=security-authentication-microsoft-logins></a>
 
 作成者: [Valeriy Novytskyy](https://github.com/01binary)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 

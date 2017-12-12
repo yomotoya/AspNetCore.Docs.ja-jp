@@ -1,8 +1,8 @@
 ---
 title: "ASP.NET Core で Facebook 外部ログインのセットアップ"
 author: rick-anderson
-description: "ASP.NET Core で Facebook 外部ログインのセットアップ"
-keywords: ASP.NET Core,
+description: "このチュートリアルでは、Facebook アカウント ユーザーの認証方式を既存の ASP.NET Core アプリケーションの統合について説明します。"
+keywords: "ASP.NET Core、Facebook、ログイン、認証"
 ms.author: riande
 manager: wpickett
 ms.date: 08/01/2017
@@ -11,23 +11,21 @@ ms.assetid: 8c65179b-688c-4af1-8f5e-1862920cda95
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 2b478ce38e98977a7c52e9317b5bc6fa0d6624b7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 826ac826c22dae81e5dbea08a11a62cac0b1068a
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configuring-facebook-authentication"></a>Facebook 認証を構成します。
 
-<a name=security-authentication-facebook-logins></a>
-
 作成者: [Valeriy Novytskyy](https://github.com/01binary)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このチュートリアルで作成されたサンプルの ASP.NET Core 2.0 プロジェクトを使用して自分の Facebook アカウントでサインインするユーザーを有効にする方法を示します、[前のページ](index.md)です。 まず、次の Facebook アプリケーションの ID を作成することで、[公式手順](https://www.facebook.com/unsupportedbrowser)です。
+このチュートリアルで作成されたサンプルの ASP.NET Core 2.0 プロジェクトを使用して自分の Facebook アカウントでサインインするユーザーを有効にする方法を示します、[前のページ](index.md)です。 まず、次の Facebook アプリケーションの ID を作成することで、[公式手順](https://developers.facebook.com)です。
 
 ## <a name="create-the-app-in-facebook"></a>Facebook でのアプリを作成します。
 
-*  移動し、[開発者のための Facebook](https://www.facebook.com/unsupportedbrowser)ページし、サインインします。 既に Facebook アカウントを持っていない場合は使用して、 **Facebook にサインアップする**作成するのにはログイン ページにリンクします。
+*  移動し、[開発者のための Facebook](https://developers.facebook.com)ページし、サインインします。 既に Facebook アカウントを持っていない場合は使用して、 **Facebook にサインアップする**作成するのにはログイン ページにリンクします。
 
 * タップして、**のアプリの作成**新しいアプリ ID を作成する右上隅のボタン
 
@@ -64,6 +62,13 @@ ms.lasthandoff: 09/28/2017
 ## <a name="store-facebook-app-id-and-app-secret"></a>Facebook アプリケーションの ID とアプリのシークレットを格納します。
 
 Facebook などの機密設定をリンク`App ID`と`App Secret`、アプリケーションを使用して構成する、[シークレット Manager](xref:security/app-secrets)です。 このチュートリアルの目的で、名前トークン`Authentication:Facebook:AppId`と`Authentication:Facebook:AppSecret`です。
+
+安全に保管する次のコマンドを実行する`App ID`と`App Secret`シークレット マネージャーを使用します。
+
+```console
+dotnet user-secrets set Authentication:Facebook:AppId <app-id>
+dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
+```
 
 ## <a name="configure-facebook-authentication"></a>Facebook 認証を構成します。
 

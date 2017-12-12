@@ -7,22 +7,21 @@ ms.author: riande
 manager: wpickett
 ms.date: 02/28/2017
 ms.topic: article
-ms.assetid: 4095d273-bf3f-46cf-bdcc-18cf6815cbad
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-gulp
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2a2971a46d9d45a8fda5ac56073af608a0ede2b
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 68f6838889cfb830f2c5a1976b3140ae5d94ac25
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>ASP.NET Core で Gulp を使用の概要 
 
 によって[Erik Reitan](https://github.com/Erikre)、 [Scott Addie](https://scottaddie.com)、 [Daniel Roth](https://github.com/danroth27)、および[Shayne Boyer](https://twitter.com/spboyer)
 
-一般的な最新の web アプリケーションでは、ビルド プロセス場合があります。
+典型的な最新の web アプリで、ビルド プロセスでは次のことがあります。
 
 * バンドルして、JavaScript および CSS ファイルを縮小します。
 * ツールを実行する各ビルドの前に、バンドルと縮小のタスクを呼び出します。
@@ -31,7 +30,7 @@ ms.lasthandoff: 09/22/2017
 
 A*タスク ランナー*これらの日常的な開発タスクを自動化するツールです。 Visual Studio では、2 つの JavaScript ベースの一般的なタスク ランナーの組み込みサポートが用意されています: [Gulp](https://gulpjs.com/)と[Grunt](using-grunt.md)です。
 
-## <a name="gulp"></a>Gulp
+## <a name="gulp"></a>gulp
 
 Gulp は、JavaScript ベース ストリーミング ビルド ツールキットのクライアント側のコードです。 通常は、ビルド環境で特定のイベントがトリガーされたときに、一連のプロセスを使用してクライアント側ファイルをストリーム配信に使用されます。 Gulp を使用して自動化するインスタンスの[バンドルと縮小](bundling-and-minification.md)新しいビルドの前に、開発環境のクレンジングまたはします。
 

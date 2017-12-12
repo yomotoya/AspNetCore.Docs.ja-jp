@@ -11,11 +11,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06644b8359fb5ccc2e61a17a4c6e20e354d5ceef
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 78d9fdbd32eae29d7714507498d5d68b86c6d12e
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパーの概要 
 
@@ -35,13 +35,13 @@ ms.lasthandoff: 09/28/2017
 
 組み込みタグ ヘルパーのほとんどは、既存の HTML 要素をターゲットし、要素のサーバー側の属性を指定します。 たとえば、`<input>`要素内のビューの多くで使用されて、*ビュー/アカウント*フォルダーが含まれています、`asp-for`属性は、レンダリングされる HTML に指定されたモデルのプロパティの名前を抽出します。 次の Razor マークアップ。
 
-```html
+```cshtml
 <label asp-for="Email"></label>
 ```
 
 次の HTML を生成します。
 
-```html
+```cshtml
 <label for="Email">Email</label>
 ```
 
@@ -51,19 +51,19 @@ ms.lasthandoff: 09/28/2017
 
 タグ ヘルパーのスコープがの組み合わせによって制御される`@addTagHelper`、 `@removeTagHelper`、および"!"オプトアウト文字です。
 
-<a name=add-helper-label></a>
+<a name="add-helper-label"></a>
 
 ### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper`タグ ヘルパーを使用可能します。
 
 という名前の新しい ASP.NET Core web アプリを作成するかどうかは*AuthoringTagHelpers* (認証なしで)、次*Views/_ViewImports.cshtml*ファイルは、プロジェクトに追加されます。
 
-[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
+[!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
 `@addTagHelper`ディレクティブにより、タグ ヘルパーのビューに表示します。 ここでは、ファイルの表示は*Views/_ViewImports.cshtml*、内のすべてのビュー ファイルによって継承される既定で、*ビュー*フォルダーとサブディレクトリ; タグ ヘルパーを使用できるようにします。 上記のコードでは、ワイルドカードの構文を使用して ("\*") ことを指定する、指定したアセンブリ内のすべてのタグ ヘルパー (*Microsoft.AspNetCore.Mvc.TagHelpers*) できるように、すべてのファイルの表示になります、*ビュー*ディレクトリまたはサブディレクトリ。 最初のパラメーターの後に`@addTagHelper`を読み込むタグ ヘルパーを指定します (を使用して"\*"すべてのタグ ヘルパーの)、し"Microsoft.AspNetCore.Mvc.TagHelpers"の 2 番目のパラメーターは、タグ ヘルパーを含むアセンブリを指定します。 *Microsoft.AspNetCore.Mvc.TagHelpers*組み込みの ASP.NET Core タグ ヘルパーのアセンブリです。
 
 このプロジェクトでタグ ヘルパーのすべてを公開するために (という名前のアセンブリを作成する*AuthoringTagHelpers*)、以下を使用するとします。
 
-[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
+[!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
 
 プロジェクトが含まれている場合、`EmailTagHelper`既定の名前空間 (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`)、タグ ヘルパーの完全修飾名 (FQN) を指定することができます。
 
@@ -75,14 +75,14 @@ ms.lasthandoff: 09/28/2017
 
 タグ ヘルパーに追加する、FQN を使用するビューを最初に追加する、FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`)、およびアセンブリ名では、(*AuthoringTagHelpers*)。 ほとんどの開発者が使用を好む、"\*"ワイルドカードの構文。 ワイルドカードの構文では、ワイルドカード文字を挿入することができます"\*"、FQN のサフィックスとして。 表示されます、次のディレクティブのいずれかなど、 `EmailTagHelper`:
 
-```csharp
+```cshtml
 @addTagHelper AuthoringTagHelpers.TagHelpers.E*, AuthoringTagHelpers
 @addTagHelper AuthoringTagHelpers.TagHelpers.Email*, AuthoringTagHelpers
 ```
 
 前述のように、追加、`@addTagHelper`ディレクティブを*Views/_ViewImports.cshtml*ファイル タグ ヘルパーに使用可能ですべてのファイルの表示、*ビュー*ディレクトリとサブディレクトリです。 使用することができます、`@addTagHelper`ディレクティブでこれらのビューにタグ ヘルパーの公開にオプトインする場合に特定のビューはファイルです。
 
-<a name=remove-razor-directives-label></a>
+<a name="remove-razor-directives-label"></a>
 
 ### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper`タグ ヘルパーを削除します。
 
@@ -98,19 +98,19 @@ ms.lasthandoff: 09/28/2017
 
 タグ ヘルパーのオプトアウト文字で、要素レベルでタグ ヘルパーを無効にすることができます ("!") です。 たとえば、`Email`で検証が無効になっている、`<span>`タグ ヘルパーのオプトアウト文字。
 
-```csharp
+```cshtml
 <!span asp-validation-for="Email" class="text-danger"></!span>
 ```
 
 開始タグと終了タグにタグ ヘルパーのオプトアウト文字を適用する必要があります。 (Visual Studio エディターに自動的にオプトアウトに文字を追加、終了タグ開始タグに追加する場合)。 オプトアウト文字を追加した後、要素とタグ ヘルパー属性は印象的なフォントで表示されません。
 
-<a name=prefix-razor-directives-label></a>
+<a name="prefix-razor-directives-label"></a>
 
 ### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>使用して`@tagHelperPrefix`タグ ヘルパーの使用状況を明示するには
 
 `@tagHelperPrefix`ディレクティブでは、タグ ヘルパーのサポートを有効にして、タグ ヘルパーの使用法を明確にするタグ プレフィックス文字列を指定することができます。 たとえば、次に示すマークアップを追加、 *Views/_ViewImports.cshtml*ファイル。
 
-```html
+```cshtml
 @tagHelperPrefix th:
 ```
 設定されているタグ ヘルパーのプレフィックス コード次の図、 `th:`、プレフィックスを使用して要素のみ`th:`タグ ヘルパー (タグ ヘルパーが有効な要素がある印象的なフォント) をサポートします。 `<label>`と`<input>`要素タグ ヘルパーのプレフィックス、タグ ヘルパーに対応している、ときに、`<span>`要素はありません。
@@ -127,7 +127,7 @@ HTML の作成を検討`<label>`要素。 入力するとすぐに`<l`Visual Stu
 
 ![イメージ](intro/_static/label.png)
 
-アイコンは、HTML ヘルプを表示するだけでなく (、"@"のシンボルがその下にある"<>") です。
+アイコンは、HTML ヘルプを表示するだけでなく (、"@" symbol with "<>"その下にある)。
 
 ![イメージ](intro/_static/tagSym.png)
 
@@ -163,13 +163,13 @@ IntelliSense は、プロパティと、ページ上のモデルが使用でき�
 
 Razor ビューでの HTML 要素にタグ ヘルパーのアタッチ中に[HTML ヘルパー](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers) Razor ビューの HTML が混在してメソッドが呼び出されます。 次の Razor のマークアップは、HTML ラベルを「キャプション」の CSS クラスの作成を検討してください。
 
-```html
+```cshtml
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
 で (`@`) 記号は、これは、コードの先頭を Razor に指示します。 次の 2 つのパラメーター ("FirstName"と"名:")、文字列のためは[IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense)ヘルプことはできません。 最後の引数。
 
-```html
+```cshtml
 new {@class="caption"}
 ```
 
@@ -189,7 +189,7 @@ IntelliSense では、行全体を記述するのに役立ちます。 `LabelTag
 
 生成されます。
 
-```html
+```cshtml
 <label class="caption" for="FirstName">First Name</label>
 ```
 
@@ -199,7 +199,7 @@ Camel 形式の大文字小文字の文のコンテンツには使用されま�
 
 生成されます。
 
-```html
+```cshtml
 <label class="caption" for="FirstName">Name First</label>
 ```
 
@@ -209,7 +209,7 @@ Camel 形式の大文字小文字の文のコンテンツには使用されま�
 
 Visual Studio エディターでは、背景が灰色の c# コードを表示します。 たとえば、 `AntiForgeryToken` HTML ヘルパー。
 
-```html
+```cshtml
 @Html.AntiForgeryToken()
 ```
 

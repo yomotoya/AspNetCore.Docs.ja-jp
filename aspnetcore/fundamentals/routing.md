@@ -11,11 +11,11 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 8bce642576b6b2f9326425d30ef95168da8f47e5
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 58388f674ed5d353c1c7208a67fb338e49fdb592
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core でのルーティング
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/01/2017
 >[!IMPORTANT]
 > このドキュメントでは、ルーティング低レベルの ASP.NET Core について説明します。 ASP.NET Core MVC ルーティングを参照してください[コント ローラー アクションへのルーティング](../mvc/controllers/routing.md)
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="routing-basics"></a>ルーティングの基礎
 
@@ -40,23 +40,23 @@ ms.lasthandoff: 10/01/2017
 
 接続されているルーティング、[ミドルウェア](middleware.md)によってパイプライン、`RouterMiddleware`クラスです。 [ASP.NET MVC](../mvc/overview.md)追加の構成の一部としてのミドルウェア パイプラインにルーティングします。 詳細については、スタンドアロン コンポーネントとしてルーティングを使用して、次を参照してください。[を使用して、ルーティングのミドルウェア](#using-routing-middleware)です。
 
-<a name=url-matching-ref></a>
+<a name="url-matching-ref"></a>
 
 ### <a name="url-matching"></a>一致する URL
 
 URL の一致に入力方向の要求をルーティングするディスパッチによってプロセスでは、*ハンドラー*です。 この処理は通常、データを基に、URL パスが、要求内のデータを考慮に拡張できます。 ハンドラーを独立したに要求をディスパッチする機能は、サイズと、アプリケーションの複雑さをスケーリングするキーです。
 
-受信要求を入力してください、 `RouterMiddleware`、呼び出し、`RouteAsync`シーケンス内の各ルートのメソッドです。 `IRouter`インスタンスを選択するかどうか*処理*を設定して、要求、 `RouteContext` `Handler` null 以外の値に`RequestDelegate`です。 ルートは、要求のハンドラーを設定、要求を処理するルートの処理が停止し、ハンドラーが呼び出されます。 ミドルウェアが呼び出すすべてのルートが試みられたの要求に対するハンドラーが見つからない場合は、*次*され、要求パイプラインの次のミドルウェアが呼び出されます。
+受信要求を入力してください、 `RouterMiddleware`、呼び出し、`RouteAsync`シーケンス内の各ルートのメソッドです。 `IRouter`インスタンスを選択するかどうか*処理*を設定して、要求、 `RouteContext.Handler` null 以外の値に`RequestDelegate`です。 ルートは、要求のハンドラーを設定、要求を処理するルートの処理が停止し、ハンドラーが呼び出されます。 ミドルウェアが呼び出すすべてのルートが試みられたの要求に対するハンドラーが見つからない場合は、*次*され、要求パイプラインの次のミドルウェアが呼び出されます。
 
-入力をプライマリ`RouteAsync`は、 `RouteContext` `HttpContext`現在の要求に関連付けられています。 `RouteContext.Handler`と`RouteContext``RouteData`ルートに一致した後に設定される出力します。
+入力をプライマリ`RouteAsync`は、`RouteContext.HttpContext`現在の要求に関連付けられています。 `RouteContext.Handler`と`RouteContext.RouteData`ルートに一致した後に設定される出力します。
 
 中に一致する`RouteAsync`のプロパティを設定しても、`RouteContext.RouteData`をこれまでに実行、要求の処理に基づく適切な値です。 ルート、要求に一致する場合、`RouteContext.RouteData`に関する重要な状態情報を格納する、*結果*です。
 
-`RouteData``Values`の dictionary です*ルート値*をルートから生成します。 これらの値では、通常、URL のトークン化によって決定され、ユーザー入力を受け付けるか、アプリケーション内のさらにディスパッチ意思決定を行うために使用できます。
+`RouteData.Values`dictionary です*ルート値*をルートから生成します。 これらの値では、通常、URL のトークン化によって決定され、ユーザー入力を受け付けるか、アプリケーション内のさらにディスパッチ意思決定を行うために使用できます。
 
-`RouteData``DataTokens`一致したルートに関連するその他のデータのプロパティを収集します。 `DataTokens`アプリケーションが後でどのルートに基づく決定を行うができるように各ルートを使用してデータが一致する関連付けられた状態をサポートするために提供されます。 これらの値は開発者が定義され、操作を行います**いない**任意の方法でルーティングの動作に影響します。 さらに、データのトークンの格納値は、任意の型のルートの値は、文字列との間に簡単に変換できる必要がありますとは対照的できます。
+`RouteData.DataTokens`一致したルートに関連するその他のデータのプロパティ バッグがします。 `DataTokens`アプリケーションが後でどのルートに基づく決定を行うができるように各ルートを使用してデータが一致する関連付けられた状態をサポートするために提供されます。 これらの値は開発者が定義され、操作を行います**いない**任意の方法でルーティングの動作に影響します。 さらに、データのトークンの格納値は、任意の型のルートの値は、文字列との間に簡単に変換できる必要がありますとは対照的できます。
 
-`RouteData``Routers`要求を正常に一致するときに関与するルートの一覧を示します。 ルートは、別内にネストすることができます、`Routers`プロパティの検索一致で生成されるルートの論理ツリーのパスに反映されます。 一般に、最初の項目`Routers`ルートのコレクションは、URL の生成に使用する必要があります。 最後の項目`Routers`に一致するルート ハンドラーします。
+`RouteData.Routers`要求を正常に一致するときに関与するルートの一覧を示します。 ルートは、別内にネストすることができます、`Routers`プロパティの検索一致で生成されるルートの論理ツリーのパスに反映されます。 一般に、最初の項目`Routers`ルートのコレクションは、URL の生成に使用する必要があります。 最後の項目`Routers`に一致するルート ハンドラーします。
 
 ### <a name="url-generation"></a>URL の生成
 
@@ -66,11 +66,11 @@ URL の生成と同様の反復的なプロセスに従いますを呼び出す�
 
 プライマリの入力先`GetVirtualPath`は。
 
-* `VirtualPathContext` `HttpContext`
+* `VirtualPathContext.HttpContext`
 
-* `VirtualPathContext` `Values`
+* `VirtualPathContext.Values`
 
-* `VirtualPathContext` `AmbientValues`
+* `VirtualPathContext.AmbientValues`
 
 ルートは主にによって提供される、ルート値を使用して、`Values`と`AmbientValues`URL を生成する可能性がある値を含めるかを判断します。 `AmbientValues`ルーティングのシステムでは、現在の要求を照合から生成されたルート値のセットです。 これに対し、`Values`は現在の操作の必要な URL を生成する方法を指定するルートの値。 `HttpContext`ルートは、サービス、または現在のコンテキストに関連付けられている追加のデータを取得する必要がある場合に提供します。
 
@@ -78,11 +78,11 @@ URL の生成と同様の反復的なプロセスに従いますを呼び出す�
 
 出力`GetVirtualPath`は、`VirtualPathData`です。 `VirtualPathData`並列は`RouteData`; が含まれている、`VirtualPath`出力 URL としていくつか追加プロパティをルートで設定する必要があります。
 
-`VirtualPathData` `VirtualPath`プロパティが含まれています、*仮想パス*ルートによって生成されます。 必要に応じて、さらに、パスを処理する必要があります。 たとえば、html 形式で生成された URL を表示する場合は、前に、アプリケーションのベース パスを付加する必要があります。
+`VirtualPathData.VirtualPath`プロパティが含まれています、*仮想パス*ルートによって生成されます。 必要に応じて、さらに、パスを処理する必要があります。 たとえば、html 形式で生成された URL を表示する場合は、前に、アプリケーションのベース パスを付加する必要があります。
 
-`VirtualPathData` `Router` URL が正常に生成されるルートへの参照です。
+`VirtualPathData.Router` URL が正常に生成されるルートへの参照です。
 
-`VirtualPathData` `DataTokens`プロパティは、URL を生成するルートに関連するその他のデータのディクショナリ。 これは、並列`RouteData.DataTokens`です。
+`VirtualPathData.DataTokens`プロパティは、URL を生成するルートに関連するその他のデータのディクショナリ。 これは、並列`RouteData.DataTokens`です。
 
 ### <a name="creating-routes"></a>ルートの作成
 
@@ -159,7 +159,7 @@ routes.MapRoute(
 
 ![[ローカル] ウィンドウのトークン](routing/_static/tokens.png)
 
-<a name=id1></a>
+<a name="id1"></a>
 
 ### <a name="url-generation"></a>URL の生成
 
@@ -286,7 +286,7 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
 
 テンプレートを使用してルーティングするために最も簡単な方法では通常です。 制約と既定値は、ルート テンプレートの外部も指定できます。
 
-ヒント: を有効にする[ログ](logging.md)を表示する方法などのルーティングを実装に組み込まれている`Route`要求と一致します。
+ヒント: を有効にする[ログ](xref:fundamentals/logging/index)を表示する方法などのルーティングを実装に組み込まれている`Route`要求と一致します。
 
 ## <a name="route-constraint-reference"></a>ルート制約の参照
 

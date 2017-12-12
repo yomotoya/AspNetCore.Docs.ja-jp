@@ -13,10 +13,10 @@ ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: da36985206521798d3bfe71f6372dc5cc4fca09a
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core でのフォームにタグ ヘルパーの使用の概要
 
@@ -112,7 +112,7 @@ Type expected
 |.NET 型|入力の型|
 |---|---|
 |Bool|型"checkbox"を =|
-|String|型"text"を =|
+|文字列型|型"text"を =|
 |DateTime|型"datetime"を =|
 |Byte|種類 ="number"|
 |Int|種類 ="number"|

@@ -1,8 +1,8 @@
 ---
 title: "クレーム ベースの承認"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "このドキュメントでは、ASP.NET Core アプリケーションの承認の要求の確認を追加する方法について説明します。"
+keywords: "ASP.NET Core、承認、信頼性情報します。"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: 737be5cd-3511-4f1c-b0ce-65403fb5eed3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/claims
-ms.openlocfilehash: fca75952429d48b02c2c4350b79e29a1957599dc
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: eebaddabdd360f34b6ff44e8f4f9f1f10fda6406
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="claims-based-authorization"></a>クレーム ベースの承認
 
-<a name=security-authorization-claims-based></a>
+<a name="security-authorization-claims-based"></a>
 
-Id を作成、割り当てることができます、信頼された相手によって発行された 1 つまたは複数のクレーム。 クレームはどのような件名を表すペアが値の名前、どのようなサブジェクトではなく操作を実行できます。 たとえば、運転免許証番号、ローカルの推進ライセンス機関によって発行されるがあります。 免許証生年月日になっています。 ここでは、要求の名前になります`DateOfBirth`、要求の値になります、生年月日たとえば`8th June 1970`発行者を推進するライセンス権限となります。 クレーム ベースの承認、簡単に言うは、要求の値をチェックし、その値に基づいてリソースへのアクセスを許可します。 夜間クラブ承認プロセスにアクセスする場合の例可能性があります。
+Id を作成、割り当てることができます、信頼された相手によって発行された 1 つまたは複数のクレーム。 クレームはどのような件名を表すペアが値の名前、どのようなサブジェクトではなく操作を実行できます。 たとえば、ローカルの推進ライセンス機関によって発行された、運転免許証があります。 免許証生年月日になっています。 ここでは、要求の名前になります`DateOfBirth`、要求の値になります、生年月日たとえば`8th June 1970`発行者を推進するライセンス権限となります。 クレーム ベースの承認、簡単に言うは、要求の値をチェックし、その値に基づいてリソースへのアクセスを許可します。 夜間クラブ承認プロセスにアクセスする場合の例可能性があります。
 
 ドア セキュリティ責任者は、生年月日要求とにアクセスを許可する前に、発行者 (駆動ライセンス機関) を信頼するかどうかの日付の値に評価されます。
 
@@ -124,4 +124,4 @@ public class SalaryController : Controller
 
 上記の例では満たされている id、`EmployeeOnly`ポリシーがアクセスできる、`Payslip`そのポリシーの処理は、コント ローラーに適用されます。 ただし呼び出すために、 `UpdateSalary` id が満たす必要がありますアクション*両方*、`EmployeeOnly`ポリシーおよび`HumanResources`ポリシー。
 
-などの生年月日要求の日付を取得するには、そこから年齢を計算する場合、経過期間のチェックは 21 以上経過し、記述する必要がより複雑なポリシーを実行する場合に、[カスタム ポリシー ハンドラー](policies.md#security-authorization-policies-based)です。
+などの生年月日要求の日付を取得するには、そこから年齢を計算する場合、経過期間のチェックは 21 以上経過し、記述する必要がより複雑なポリシーを実行する場合に、[カスタム ポリシー ハンドラー](policies.md)です。

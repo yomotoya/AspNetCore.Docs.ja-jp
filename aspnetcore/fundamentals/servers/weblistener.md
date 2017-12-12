@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/weblistener
 ms.openlocfilehash: f1abb3558546cd907c78b44d9353d9c9f1f5aff1
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET Core の WebListener web サーバーの実装
 
@@ -42,7 +42,7 @@ WebListener には、次の機能がサポートされています。
 
 - Windows 7 および Windows Server 2008 R2 以降
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="when-to-use-weblistener"></a>WebListener を使用する場合
 
@@ -86,7 +86,7 @@ WebListener も内部環境に適して Kestrel を使用して取得できな�
 
 * Url とポートでリッスンするように構成します。 
 
-  既定では ASP.NET Core にバインド`http://localhost:5000`です。 URL プレフィックスとポートを構成するのに使用することができます、`UseURLs`の拡張メソッドで、`urls`コマンドライン引数または ASP.NET Core の構成システムです。 詳細については、次を参照してください。[ホスティング](../../fundamentals/hosting.md)です。
+  既定では ASP.NET Core にバインド`http://localhost:5000`です。 URL プレフィックスとポートを構成するのに使用することができます、`UseURLs`の拡張メソッドで、`urls`コマンドライン引数または ASP.NET Core の構成システムです。 詳細については、[ホスティング](../../fundamentals/hosting.md)に関するページを参照してください。
 
   リスナーは web、 [Http.Sys プレフィックス文字列書式](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)です。 WebListener に固有のプレフィックス文字列形式の要件はありません。
 

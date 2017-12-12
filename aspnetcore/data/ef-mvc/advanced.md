@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
 ms.openlocfilehash: d63502a32e38eb192b40f21f5cd57d20048154e3
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>高度なトピックの EF コア ASP.NET Core MVC のチュートリアル (10 10 の)
 
@@ -228,7 +228,7 @@ EF CLI コマンドしない自動的に閉じてコード ファイルを保存
 
 データベースの名前を変更する最も簡単な方法は、*される appsettings.json*です。 次に実行したとき`database update`、新しいデータベースは作成されます。
 
-SSOX でデータベースを削除するデータベースを右クリックして**削除**、し、**データベースの削除**ダイアログ ボックスの [**既存の接続を閉じる** ]をクリック**[Ok]**です。
+SSOX でデータベースを削除するデータベースを右クリックして**削除**、し、**データベースの削除**ダイアログ ボックスの **[既存の接続を閉じる]**をクリック**[Ok]**です。
 
 CLI を使用してデータベースを削除するには、実行、 `database drop` CLI コマンド。
 

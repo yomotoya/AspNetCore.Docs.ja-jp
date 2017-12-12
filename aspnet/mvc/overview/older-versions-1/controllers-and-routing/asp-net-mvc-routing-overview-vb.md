@@ -1,0 +1,114 @@
+---
+uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-vb
+title: "ASP.NET MVC ルーティングの概要 (VB) |Microsoft ドキュメント"
+author: StephenWalther
+description: "このチュートリアルでは、Stephen Walther は、ASP.NET MVC フレームワークがコント ローラーのアクションをブラウザーの要求をマップする方法を示します。"
+ms.author: aspnetcontent
+manager: wpickett
+ms.date: 08/19/2008
+ms.topic: article
+ms.assetid: 4bc8d19a-80f1-44b4-adbf-95ed22d691ca
+ms.technology: dotnet-mvc
+ms.prod: .net-framework
+msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-vb
+msc.type: authoredcontent
+ms.openlocfilehash: 1e4c74e61b1a0d5f5020154756e34dd2fa507034
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 11/10/2017
+---
+<a name="aspnet-mvc-routing-overview-vb"></a>ASP.NET MVC ルーティングの概要 (VB)
+====================
+によって[Stephen Walther](https://github.com/StephenWalther)
+
+> このチュートリアルでは、Stephen Walther は、ASP.NET MVC フレームワークがコント ローラーのアクションをブラウザーの要求をマップする方法を示します。
+
+
+このチュートリアルと呼ばれるすべての ASP.NET MVC アプリケーションの重要な特徴に導入する*ASP.NET ルーティング*です。 ASP.NET ルーティング モジュールは、特定の MVC コント ローラー アクションへのブラウザーの入力方向の要求のマッピングを行います。 このチュートリアルの目的は、標準的なルート テーブルがコント ローラーのアクションに要求をマップする方法を理解します。
+
+## <a name="using-the-default-route-table"></a>既定のルート テーブルを使用します。
+
+新しい ASP.NET MVC アプリケーションを作成するときに ASP.NET のルーティングを使用するアプリケーションが既に構成されています。 ASP.NET ルーティングでは、セットアップが 2 つの場所がいます。
+
+最初に、ASP.NET ルーティングが有効になっているアプリケーションの Web 構成ファイル (Web.config ファイル) にします。 ルーティングに関連する構成ファイル内の 4 つのセクションがある: system.web.httpModules セクション、system.web.httpHandlers セクション、system.webserver.modules セクションおよび system.webserver.handlers セクションです。 これらのセクションではなくルーティングが機能しないために、これらのセクションを削除しないように注意します。
+
+次に、し、さらに、アプリケーションの Global.asax ファイルで、ルート テーブルが作成されます。 Global.asax ファイルは、ASP.NET アプリケーションのライフ サイクル イベントのイベント ハンドラーを含む特殊なファイルです。 アプリケーションの開始イベントの中では、ルート テーブルが作成されます。
+
+1 のリスト内のファイルには、ASP.NET MVC アプリケーションの既定の Global.asax ファイルが含まれています。
+
+**1 - Global.asax.vb を一覧表示します。**
+
+[!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample1.vb)]
+
+MVC アプリケーション最初の開始時、アプリケーション\_Start() メソッドが呼び出されます。 このメソッドは、さらに、RegisterRoutes() メソッドを呼び出します。 RegisterRoutes() メソッドでは、ルート テーブルを作成します。
+
+既定のルート テーブルには、1 つのルート (Default という名前) が含まれています。 既定のルートがコント ローラー名、コント ローラー アクションへの URL は、2 番目のセグメントおよびという名前のパラメーターを 3 番目のセグメントに URL の最初のセグメントをマップ**id**です。
+
+Web ブラウザーのアドレス バーに次の URL を入力することを想像してください。
+
+/ホーム/インデックス/3
+
+既定のルートは、この URL を次のパラメーターにマッピングされます。
+
+- コント ローラー ホーム =
+
+- アクション インデックスを =
+
+- Id = 3
+
+URL/Home、インデックス、3 を要求するときに、次のコードは実行されます。
+
+HomeController.Index(3)
+
+既定のルートには、次の 3 つすべてのパラメーターの既定値が含まれています。 コント ローラーを指定しない場合、コント ローラー パラメーターの既定値、値**ホーム**です。 Action パラメーターの値に既定値アクションを指定しない場合**インデックス**です。 最後に、id を指定しない場合、id パラメーターの既定値、空の文字列。
+
+既定のルートが Url をコント ローラーのアクションにマップする方法の例をいくつか見てみましょう。 ブラウザーのアドレス バーに次の URL を入力することを想像してください。
+
+/ホーム
+
+既定ルート パラメーターの既定値のためこの URL を入力すると、Index() メソッドは HomeController クラスのリストの 2 を呼び出せるでします。
+
+**2 - HomeController.vb を一覧表示します。**
+
+[!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample2.vb)]
+
+HomeController クラスには 2 の一覧表示するには id。 をという名前の単一パラメーターを受け入れる Index() をという名前のメソッドが含まれていますURL/Home により、Index() メソッドを呼び出せる値を持つ Id パラメーターの値として何も行われません。
+
+MVC フレームワークがコント ローラーのアクションを呼び出すことにより、URL/Home とも一致リスト 3 のテンプレートを使用するクラスの Index() メソッドです。
+
+**3 - HomeController.vb (パラメーターなしでインデックス操作) を一覧表示します。**
+
+[!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample3.vb)]
+
+Index() メソッドを一覧表示する 3 では、パラメーターを受け入れません。 URL/Home をこの Index() メソッドが呼び出されるとなります。 また、URL/Home、インデックス、3 は、(Id は無視されます) このメソッドを呼び出します。
+
+URL/Home では、リスト 4 HomeController クラスの Index() メソッドとも一致します。
+
+**4 - HomeController.vb (null 許容パラメーターを持つインデックスの操作) を一覧表示します。**
+
+[!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample4.vb)]
+
+4 の一覧表示するのには、Index() メソッドは、1 つの整数パラメーターを持ちます。 パラメーターは null 許容パラメーター (値を持つことは Nothing) では、エラーを発生させず、Index() を呼び出すことができます。
+
+最後に、Id パラメーターから例外が発生した URL/Home を一覧表示する 5 で Index() メソッドを呼び出す*は*null 許容パラメーター。 Index() メソッドを呼び出すしようとすると、エラーが発生した図 1 に表示されます。
+
+**5 - HomeController.vb (インデックスの Id パラメーターを持つ操作) を一覧表示します。**
+
+[!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample5.vb)]
+
+
+[![パラメーターの値を期待しているコント ローラー アクションの呼び出し](asp-net-mvc-routing-overview-vb/_static/image1.jpg)](asp-net-mvc-routing-overview-vb/_static/image1.png)
+
+**図 01**: パラメーターの値を期待しているコント ローラー アクションの呼び出し ([フルサイズのイメージを表示するをクリックして](asp-net-mvc-routing-overview-vb/_static/image2.png))
+
+
+URL/Home/インデックス/3 一方で、正常に動作だけを一覧表示する 5 でインデックス コント ローラーのアクション。 要求/Home/Index/3 が 3 の値を持つ Id パラメーターを指定して呼び出される Index() メソッドです。
+
+## <a name="summary"></a>概要
+
+このチュートリアルの目的は、ASP.NET ルーティングの概要情報を提供しました。 ここには、新しい ASP.NET MVC アプリケーションで得られる既定のルート テーブルが調べられます。 既定のルートが Url をコント ローラーのアクションにマップする方法を学習しました。
+
+>[!div class="step-by-step"]
+[前へ](creating-an-action-cs.md)
+[次へ](understanding-action-filters-vb.md)

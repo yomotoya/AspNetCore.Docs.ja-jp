@@ -11,17 +11,17 @@ ms.assetid: ab4705b7-59d7-4f31-bc97-ea7f292fe926
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 3bc6d3f85d8ea7fb9b72b18cfd9c5ec2d07293b0
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 2cf82df78c250cdfdd808d49acfc06dc2ea82f5f
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="view-components"></a>コンポーネントの表示
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="introducing-view-components"></a>コンポーネントの表示の概要
 
@@ -89,23 +89,23 @@ ms.lasthandoff: 10/01/2017
 
 ビュー コンポーネントを使用して、次を呼び出して、ビュー内。
 
-```html
+```cshtml
 @Component.InvokeAsync("Name of view component", <anonymous type containing parameters>)
 ```
 
 パラメーターに渡される、`InvokeAsync`メソッドです。 `PriorityList`アーティクルで開発されたビュー コンポーネントが呼び出されて、 *Views/Todo/Index.cshtml*ファイルを表示します。 次の場合、`InvokeAsync`メソッドが呼び出された 2 つのパラメーター。
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 ## <a name="invoking-a-view-component-as-a-tag-helper"></a>としてタグ ヘルパーのビュー コンポーネントを呼び出す
 
 ASP.NET Core 1.1 以降、としてビュー コンポーネントを呼び出すことができます、[タグ ヘルパー](xref:mvc/views/tag-helpers/intro):
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 タグ ヘルパーのクラスとメソッドを pascal でパラメーターに変換された、 [kebab ケースを下げる](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101)です。 ビュー コンポーネントを呼び出すタグ ヘルパーを使用して、`<vc></vc>`要素。 ビューのコンポーネントの指定は次のとおりです。
 
-```html
+```cshtml
 <vc:[view-component-name]
   parameter1="parameter1 value"
   parameter2="parameter2 value">
@@ -114,7 +114,7 @@ ASP.NET Core 1.1 以降、としてビュー コンポーネントを呼び出�
 
 注: タグ ヘルパーとしてビュー コンポーネントを使用するために必要がありますアセンブリを登録するを使用して、ビュー コンポーネントを含む、`@addTagHelper`ディレクティブです。 たとえば、ビュー コンポーネントが"MyWebApp"と呼ばれるアセンブリ内にある場合は、ディレクティブを追加、次に、`_ViewImports.cshtml`ファイル。
 
-```csharp
+```cshtml
 @addTagHelper *, MyWebApp
 ```
 
@@ -122,11 +122,11 @@ ASP.NET Core 1.1 以降、としてビュー コンポーネントを呼び出�
 
 `InvokeAsync`このチュートリアルで使用されるメソッド。
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 タグ ヘルパーのマークアップ。
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 上記のサンプルでは、`PriorityList`表示コンポーネントになります`priority-list`です。 表示コンポーネントにパラメーターは、小文字 kebab 属性として渡されます。
 
@@ -172,7 +172,7 @@ ASP.NET Core 1.1 以降、としてビュー コンポーネントを呼び出�
 
 * 作成、*ビュー、共有、コンポーネント/PriorityList*フォルダーです。 このフォルダー名がビュー コンポーネント クラスの名前またはサフィックス マイナス クラスの名前に一致する必要があります (規約の後に使用すると、 *ViewComponent*クラス名にサフィックス)。 使用した場合、`ViewComponent`属性、クラス名は、属性の指定に一致する必要があります。
 
-* 作成、 *Views/Shared/Components/PriorityList/Default.cshtml* Razor ビュー。[!code-html[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
+* 作成、 *Views/Shared/Components/PriorityList/Default.cshtml* Razor ビュー。[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
     
    Razor ビューの一覧を受け取る`TodoItem`し、それらを表示します。 場合のビュー コンポーネント`InvokeAsync`メソッド (サンプルのように、)、ビューの名前に合格しなかった*既定*規則によって、ビュー名に使用します。 、このチュートリアルで後ほど説明するビューの名前を渡す方法です。 特定のコント ローラーの既定のスタイルを上書きするには、コント ローラーに固有のビュー フォルダーにビューを追加 (たとえば*Views/Todo/Components/PriorityList/Default.cshtml)*です。
     
@@ -180,7 +180,7 @@ ASP.NET Core 1.1 以降、としてビュー コンポーネントを呼び出�
 
 * 追加、`div`の最下位に優先度リスト コンポーネントへの呼び出しを含む、 *Views/Todo/index.cshtml*ファイル。
 
-    [!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFirst.cshtml?range=34-38)]
+    [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFirst.cshtml?range=34-38)]
 
 マークアップ`@await Component.InvokeAsync`ビュー コンポーネントを呼び出すための構文を示しています。 最初の引数は、呼び出しを呼び出したりコンポーネントの名前です。 後続のパラメーターは、コンポーネントに渡されます。 `InvokeAsync`任意の数の引数を受け取ることができます。
 
@@ -202,13 +202,13 @@ ASP.NET Core 1.1 以降、としてビュー コンポーネントを呼び出�
 
 コピー、 *Views/Shared/Components/PriorityList/Default.cshtml*ファイルという名前のビューを*Views/Shared/Components/PriorityList/PVC.cshtml*です。 PVC ビューが使用されているを示すために見出しを追加します。
 
-[!code-html[Main](../../mvc/views/view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/PVC.cshtml?highlight=3)]
+[!code-cshtml[Main](../../mvc/views/view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/PVC.cshtml?highlight=3)]
 
 更新*Views/TodoList/Index.cshtml*:
 
 <!-- Views/TodoList/Index.cshtml is never imported, so change to test tutorial -->
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 アプリを実行して、PVC ビューを確認します。
 
@@ -244,7 +244,7 @@ PVC ビューは表示されず場合、は、優先度が 4 以上のビュー 
 
 追加、 `using` 、Razor にステートメントがファイルを表示し、使用、`nameof`演算子。
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
 
 ## <a name="additional-resources"></a>その他のリソース
 

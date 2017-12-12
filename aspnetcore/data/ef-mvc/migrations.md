@@ -11,11 +11,11 @@ ms.assetid: 81f6c9c2-a819-4f3a-97a4-4b0503b56c26
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 638bef0cda14f53a326c66c6a5da3f3c1bb762c6
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 20b05801ac666feef29fd05dd3e4738b1bd50b86
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>移行 - ASP.NET Core MVC のチュートリアル (10 の 4) と EF コア
 
@@ -119,7 +119,7 @@ Done. To undo this action, use 'ef migrations remove'
 dotnet ef database update
 ```
 
-コマンドの出力がに似ていますが、`migrations add`を使用して、点を除いて、SQL コマンドのデータベースを設定するためにログを参照してください。 ログのほとんどは、次のサンプル出力で除外されます。 このレベルのログ メッセージで詳細を表示しないようにする場合は、内のログ レベルを変更できます、 *appsettings です。Development.json*ファイル。 詳細については、次を参照してください。[ログ記録の概要](xref:fundamentals/logging)です。
+コマンドの出力がに似ていますが、`migrations add`を使用して、点を除いて、SQL コマンドのデータベースを設定するためにログを参照してください。 ログのほとんどは、次のサンプル出力で除外されます。 このレベルのログ メッセージで詳細を表示しないようにする場合は、ログ レベルを変更できます、 *appsettings です。Development.json*ファイル。 詳細については、次を参照してください。[ログ記録の概要](xref:fundamentals/logging/index)です。
 
 ```text
 info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]

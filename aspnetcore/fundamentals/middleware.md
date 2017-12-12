@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
 ms.openlocfilehash: ad8d207b1e6de396f16d098fb07ddc89bea2c520
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core ミドルウェアの基本事項
 
@@ -63,7 +63,7 @@ ASP.NET Core 要求パイプラインは、この図に示す (実行次のよ�
 >
 > [HttpResponse.HasStarted](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.httpresponsefeature#Microsoft_AspNetCore_Http_Features_HttpResponseFeature_HasStarted)ヘッダーが送信されたかどうかや、本体に書き込まれたを示すために役立ちますヒントします。
 
-## <a name="ordering"></a>順序
+## <a name="ordering"></a>並べ替え
 
 ミドルウェア コンポーネントを追加する順序、`Configure`メソッドは、要求で呼び出された順序と応答の逆の順序を定義します。 この順序は、セキュリティ、パフォーマンス、および機能にとって重要です。
 

@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
 ms.openlocfilehash: d3f9eb4943ed62b674d6bb2ab1b275b0a3c02343
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core の HTTP.sys web サーバーの実装
 
@@ -40,7 +40,7 @@ HTTP.sys は、次の機能をサポートします。
 
 - Windows 7 および Windows Server 2008 R2 以降
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="when-to-use-httpsys"></a>HTTP.sys を使用する場合
 
@@ -125,7 +125,7 @@ public IActionResult MyActionMethod()
 
 利点`UrlPrefixes`が正しくフォーマットされているプレフィックスを追加しようとする場合にすぐに、エラー メッセージを取得することができます。 利点`UseUrls`(とは共有`urls`と ASPNETCORE_URLS) は Kestrel と HTTP.sys の間でより簡単に切り替えることができます。
 
-両方を使用する場合`UseUrls`(または`urls`または ASPNETCORE_URLS) と`UrlPrefixes`、設定`UrlPrefixes`内のオーバーライド`UseUrls`です。 詳細については、次を参照してください。[ホスティング](xref:fundamentals/hosting)です。
+両方を使用する場合`UseUrls`(または`urls`または ASPNETCORE_URLS) と`UrlPrefixes`、設定`UrlPrefixes`内のオーバーライド`UseUrls`です。 詳細については、[ホスティング](xref:fundamentals/hosting)に関するページを参照してください。
 
 HTTP.sys を使用して、[文字列形式の HTTP サーバー API UrlPrefix](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)です。
 

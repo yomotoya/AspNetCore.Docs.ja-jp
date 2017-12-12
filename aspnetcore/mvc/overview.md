@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
 ms.openlocfilehash: 2492b6aa4602dbbf3b9cd3dca00d40690c640cab
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC の概要
 
@@ -183,7 +183,7 @@ ASP.NET Core はの組み込みサポート[依存性の注入 (DI)](../fundamen
 
 [領域](controllers/areas.md)大規模な ASP.NET Core MVC Web アプリケーションを小さい機能グループに分割する方法を提供します。 領域は、事実上、アプリケーション内部 MVC 構造です。 MVC プロジェクトでは、モデル、コント ローラー、およびビューなどの論理コンポーネントが、他のフォルダーに保持され、MVC では、名前付け規則を使用して、これらのコンポーネント間のリレーションシップを作成します。 大規模なアプリの機能の個別の高レベル領域に、アプリを分割すると便利な場合があります。 たとえば、電子商取引を使用したアプリなど、チェック アウト、請求、および検索などの複数の事業単位です。各事業ユニットは、独自の論理コンポーネント ビュー、コント ローラー、およびモデルがあります。
 
-### <a name="web-apis"></a>Web Api
+### <a name="web-apis"></a>Web API
 
 Web サイトを構築するための優れたプラットフォームだけでなくは、ASP.NET Core MVC は、Web Api を構築するための優れたサポートがします。 さまざまなブラウザーやモバイル デバイスを含む、クライアントに到達可能なサービスをビルドすることができます。
 
