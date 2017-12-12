@@ -2,7 +2,7 @@
 title: "ASP.NET Core での Bower を使用"
 author: rick-anderson
 description: "Bower でクライアント側のパッケージを管理します。"
-keywords: "ASP.NET Core、bower"
+keywords: ASP.NET Core, bower
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bower
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5d9acc59b6f40dc8a336f59925d639fff007c4e
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 183e748cbf87b1973941eacb3fb1008f4041bb2a
+ms.sourcegitcommit: 532a323f99a37c4d7894c95cee3f7a04b594dcec
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET Core での Bower でクライアント側のパッケージを管理します。
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 09/22/2017
 
 ## <a name="exploring-the-client-side-build-process"></a>クライアント側のビルド プロセスの検証
 
-ほとんどの ASP.NET Core プロジェクト テンプレートは、Bower を使用してように既に構成済みです。 この次のチュートリアルでは、空の ASP.NET Core プロジェクトから開始して、プロジェクトで Bower を使用する方法について理解を取得できるように、手動で各部分を追加します。 プロジェクトの構造に起こることができ、ランタイムの各構成の変更として出力が行われますが参照してください。
+ほとんどの ASP.NET Core プロジェクト テンプレートは、Bower を使用してように既に構成済みです。 この次のチュートリアルでは、空の ASP.NET Core プロジェクトから開始して、プロジェクトで Bower を使用する方法について理解を取得できるように、手動で各部分を追加します。 プロジェクトの構造と、ランタイムが出力されている各構成の変更が行われたとおりに動作を確認できます。
 
 Bower でクライアント側のビルド プロセスを使用する一般的な手順は次のとおりです。
 

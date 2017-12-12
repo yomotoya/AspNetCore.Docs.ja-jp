@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 455b992dc10129278f8e23366aac9d8bcbf5594c
-ms.sourcegitcommit: ef9784dd7500f22fb98b3591ebd73d57d4f67544
+ms.openlocfilehash: 7deccf135ddd21729206ebed58ddc8aca52c1deb
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/21/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="hosting-in-aspnet-core"></a>ASP.NET Core でのホスティング
 
-によって[Luke Latham](https://github.com/guardrex)
+作成者: [Luke Latham](https://github.com/guardrex)
 
-ASP.NET Core アプリケーションの構成および起動、*ホスト*、これはアプリの起動と有効期間の管理を担当します。 少なくともは、ホストは、サーバーおよび要求処理パイプラインを構成します。
+ASP.NET Core アプリは、アプリの起動と有効期間の管理を担当する*ホスト*を構成して起動します。 少なくともは、ホストは、サーバーおよび要求処理パイプラインを構成します。
 
 ## <a name="setting-up-a-host"></a>ホストの設定
 
@@ -40,12 +40,12 @@ ASP.NET Core アプリケーションの構成および起動、*ホスト*、�
   * [ユーザーの機密情報](xref:security/app-secrets)アプリを実行するときに、`Development`環境。
   * 環境変数。
   * コマンドライン引数。
-* 構成[ログ](xref:fundamentals/logging)コンソールとデバッグ出力の[ログ フィルター](xref:fundamentals/logging#log-filtering)のログ記録の構成セクションで指定された規則、*される appsettings.json*または*appsettings です。{環境} .json*ファイル。
+* 構成[ログ](xref:fundamentals/logging/index)コンソールとデバッグ出力の[ログ フィルター](xref:fundamentals/logging/index#log-filtering)のログ記録の構成セクションで指定された規則、*される appsettings.json*または*appsettings です。{環境} .json*ファイル。
 * により、IIS の背後にある実行中、 [IIS 統合](xref:publishing/iis)のベース パスおよびポートを構成することによって、サーバーがリッスンを使用する場合、 [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)です。 モジュールでは、IIS と Kestrel リバース プロキシを作成します。 アプリの構成も行います[スタートアップ エラーがキャプチャされる](#capture-startup-errors)です。 IIS の既定のオプションを参照してください。 [、IIS が IIS と Windows 上のホスト ASP.NET Core のセクションをオプション](xref:publishing/iis#iis-options)です。
 
 *コンテンツのルート*MVC ビュー ファイルなどのコンテンツ ファイルのホストを検索する場所を決定します。 既定のコンテンツのルートは[Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory)です。 これは、結果、ルート フォルダーから、アプリが開始されたときに、コンテンツのルートとして、web プロジェクトのルート フォルダーを使用して、(たとえば、呼び出し[実行 dotnet](/dotnet/core/tools/dotnet-run)プロジェクト フォルダーから)。 これは、既定で使用される[Visual Studio](https://www.visualstudio.com/)と[dotnet 新しいテンプレート](/dotnet/core/tools/dotnet-new)です。
 
-参照してください[ASP.NET Core の構成](xref:fundamentals/configuration)アプリの構成についての詳細。
+参照してください[ASP.NET Core の構成](xref:fundamentals/configuration/index)アプリの構成についての詳細。
 
 > [!NOTE]
 > 静的なを使用する代わりとして`CreateDefaultBuilder`からホストを作成するメソッド[WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) ASP.NET Core でサポートされているアプローチは、2.x です。 詳細については、ASP.NET Core 1.x タブを参照してください。
@@ -403,7 +403,7 @@ var host = new WebHostBuilder()
 
 ## <a name="overriding-configuration"></a>構成をオーバーライドします。
 
-使用して[構成](configuration.md)ホストを構成します。 次の例では、ホストの構成は必要に応じてで指定された、 *hosting.json*ファイル。 すべての構成から読み込まれました、 *hosting.json*ファイルはコマンドライン引数によってオーバーライドされる可能性があります。 ビルドの構成 (で`config`) でホストを構成するために使用`UseConfiguration`です。
+使用して[構成](xref:fundamentals/configuration/index)ホストを構成します。 次の例では、ホストの構成は必要に応じてで指定された、 *hosting.json*ファイル。 すべての構成から読み込まれました、 *hosting.json*ファイルはコマンドライン引数によってオーバーライドされる可能性があります。 ビルドの構成 (で`config`) でホストを構成するために使用`UseConfiguration`です。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 

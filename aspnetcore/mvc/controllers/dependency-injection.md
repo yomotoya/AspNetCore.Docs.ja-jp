@@ -11,11 +11,11 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: ff0a1a34ee6b025be6312a81f1a0bcdd07026adb
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: 46b92a1cab6fb2cd06eff44feb6a55788fca5c2a
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>コント ローラーに依存関係の挿入
 
@@ -89,7 +89,7 @@ Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstr
 
 ## <a name="accessing-settings-from-a-controller"></a>コント ローラーから設定へのアクセス
 
-コント ローラー内からアプリケーションまたは構成の設定へのアクセスは、一般的なパターンです。 このアクセスで説明されているオプション パターンを使用する必要があります[構成](../../fundamentals/configuration.md)です。 一般にする必要がありますいないを要求する設定の依存関係の挿入を使用して、コント ローラーから直接。 より適切な方法は、要求、`IOptions<T>`インスタンス、場所`T`必要がある構成クラスです。
+コント ローラー内からアプリケーションまたは構成の設定へのアクセスは、一般的なパターンです。 このアクセスで説明されているオプション パターンを使用する必要があります[構成](xref:fundamentals/configuration/index)です。 一般にする必要がありますいないを要求する設定の依存関係の挿入を使用して、コント ローラーから直接。 より適切な方法は、要求、`IOptions<T>`インスタンス、場所`T`必要がある構成クラスです。
 
 オプションのパターンを使用するには、ように、オプションを表すクラスを作成する必要があります。
 
@@ -100,7 +100,7 @@ Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstr
 [!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
 
 > [!NOTE]
-> 上記の一覧で、アプリケーションが JSON 形式のファイルから設定を読み取る構成を行っています。 上記のコメントが付けられたコードに示すようには、コードで完全設定を構成することもできます。 参照してください[構成](../../fundamentals/configuration.md)詳細構成オプションを選択します。
+> 上記の一覧で、アプリケーションが JSON 形式のファイルから設定を読み取る構成を行っています。 上記のコメントが付けられたコードに示すようには、コードで完全設定を構成することもできます。 参照してください[構成](xref:fundamentals/configuration/index)詳細構成オプションを選択します。
 
 厳密に型指定された構成オブジェクトを指定すると、(この場合、 `SampleWebSettings`) され、追加サービスのコレクションに要求できますが、コント ローラーまたはアクション メソッドからのインスタンスを要求することによって`IOptions<T>`(この場合、 `IOptions<SampleWebSettings>`). 次のコードは、コント ローラーから、設定を要求 1 つの方法を示しています。
 

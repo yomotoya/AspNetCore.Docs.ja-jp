@@ -1,8 +1,8 @@
 ---
-title: "非 DI 対応したシナリオ"
+title: "ASP.NET Core でのデータ保護のための非 DI 対応したシナリオ"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "データ保護のシナリオをすることはできませんまたは依存関係の挿入によって提供されるサービスを使用したくない位置をサポートする方法を説明します。"
+keywords: "ASP.NET Core、データ保護、依存関係の挿入、DataProtectionProvider"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,30 +11,29 @@ ms.assetid: a7d8a962-80ff-48e3-96f6-8472b7ba2df9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/non-di-scenarios
-ms.openlocfilehash: 54a930c26f9f48ea0e6f7865e2927bcde0f4d6c0
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 375eecf649819dce8f1c2ba30e1cb6451d1c1253
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="non-di-aware-scenarios"></a>非 DI 対応したシナリオ
+# <a name="non-di-aware-scenarios-for-data-protection-in-aspnet-core"></a>ASP.NET Core でのデータ保護のための非 DI 対応したシナリオ
 
-データ保護システムが正常に設計された[サービス コンテナーに追加する](../consumer-apis/overview.md)DI メカニズムを使用して依存コンポーネントに提供するとします。 ただし、場合によっては、これを実現できない、システムを既存のアプリケーションにインポートする際に特にがあります。
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-これらのシナリオをサポートするためには、パッケージ Microsoft.AspNetCore.DataProtection.Extensions は具象型システムを使用して、データ保護 DI に固有のコード パスを経由せずに簡単な手段が提供される DataProtectionProvider を提供します。 型自体が IDataProtectionProvider を実装し、このプロバイダーの暗号化キーの格納場所 DirectoryInfo を提供することと同じくらい簡単にを構築します。
+ASP.NET Core データ保護システムは、通常[サービス コンテナーに追加された](xref:security/data-protection/consumer-apis/overview)依存性の注入 (DI) を使用して依存コンポーネントによって消費されているとします。 ただし、これは、実現可能または必要な場所の場合は、システムを既存のアプリケーションにインポートする際に特にです。
 
-例:
+これらのシナリオをサポートするために、 [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/)パッケージは、具象型を提供[DataProtectionProvider](/dotnet/api/Microsoft.AspNetCore.DataProtection.DataProtectionProvider)、データ保護を使用する簡単な方法を提供します。DI に頼らずにします。 `DataProtectionProvider`実装を型[IDataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionprovider)です。 構築する`DataProtectionProvider`のみを提供する必要があります、 [DirectoryInfo](/dotnet/api/system.io.directoryinfo)を次のコード例に示すように、プロバイダーの暗号化キーの格納場所を示すインスタンス。
 
 [!code-none[Main](non-di-scenarios/_static/nodisample1.cs)]
 
->[!WARNING]
-> 既定では、DataProtectionProvider 具象型では暗号化されません生のキー マテリアル前に、ファイル システムに保存します。 これは、ネットワークへの開発者のポイントを共有している、シナリオをサポートする場合、データ保護システムに自動的を推測できません rest での適切なキーの暗号化メカニズムです。
->
->さらに、DataProtectionProvider 具象型は[アプリケーションの分離](overview.md#data-protection-configuration-per-app-isolation)既定では、すべてのアプリケーション、同じキー ディレクトリで参照されている共有できますペイロードその用途のパラメーターと一致する限りです。
+既定では、`DataProtectionProvider`具象型は、生のキー マテリアルを暗号化しない前に、ファイル システムに保存します。 これは、ネットワーク共有とデータ保護システムに開発者ポイント rest での適切なキーの暗号化メカニズムの推測をできません自動的にシナリオをサポートします。
 
-必要な場合は、アプリケーション開発者はこれらの両方で対処できます。 DataProtectionProvider コンス トラクターを受け入れる、[オプションの構成のコールバック](overview.md#data-protection-configuration-callback)これは、システムの動作の調整を使用できます。 以下のサンプルは SetApplicationName、明示的な呼び出しを使用して復元中の分離を示し、自動的に Windows DPAPI を使用して永続化されたキーを暗号化するシステムの構成も示します。 ディレクトリは、UNC 共有をポイントしている場合に関連するすべてのコンピューター間で共有の証明書を配布して、呼び出しを経由して代わりに証明書ベースの暗号化を使用するシステムを構成する[ProtectKeysWithCertificate](overview.md#configuring-x509-certificate)です。
+さらに、`DataProtectionProvider`具象型しない[アプリを分離](xref:security/data-protection/configuration/overview#per-application-isolation)既定です。 同じキー ディレクトリを使用してすべてのアプリと同じくらいペイロードを共有できます、[パラメーターの目的](xref:security/data-protection/consumer-apis/purpose-strings)と一致します。
+
+[DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider)コンス トラクターは、システムの動作の調整に使用できるオプションの構成コールバックを受け取ります。 以下のサンプルに示しますを明示的に呼び出すと復元の分離[SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname)です。 サンプルは、Windows DPAPI を使用して永続化されたキーを自動的に暗号化するシステムの構成も示します。 ディレクトリは、UNC 共有をポイントしている場合に関連するすべてのコンピューター間で共有の証明書を配布して、システムを使用する証明書ベースの暗号化への呼び出しを構成する[ProtectKeysWithCertificate](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithcertificate)です。
 
 [!code-none[Main](non-di-scenarios/_static/nodisample2.cs)]
 
->[!TIP]
-> DataProtectionProvider 具象型のインスタンスでは、作成する手間がかかります。 アプリケーションは、この種類の複数のインスタンスを保持し、すべて同一のキー記憶域ディレクトリにポイントしている場合は、アプリケーションのパフォーマンスが低下する可能性があります。 使用目的は、アプリケーション開発者がこの型を 1 回インスタンス化し、この参照を 1 つを再利用を可能な限り保持することができます。 DataProtectionProvider 型およびこれから作成されたすべての IDataProtector インスタンスは、スレッド セーフである複数の呼び出し元のです。
+> [!TIP]
+> インスタンス、`DataProtectionProvider`具象型では、作成する手間がかかります。 アプリは、この種類の複数のインスタンスを保持し、それらすべてを使用している、同一のキー記憶域ディレクトリ場合は、アプリのパフォーマンスが低下する可能性があります。 使用する場合、`DataProtectionProvider`型、ことをお勧めこの種類を 1 回作成し、再利用可能な限りのことです。 `DataProtectionProvider`型とすべて[IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector)から作成されたインスタンスはスレッド セーフである複数の呼び出し元のです。

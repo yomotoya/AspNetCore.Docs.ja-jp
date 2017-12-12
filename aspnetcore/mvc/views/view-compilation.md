@@ -5,17 +5,17 @@ description: "MVC Razor ビューのコンパイル、および ASP.NET Core ア
 keywords: "ASP.NET Core、Razor ビューのコンパイル、Razor 事前コンパイル、Razor プリコンパイル"
 ms.author: riande
 manager: wpickett
-ms.date: 08/16/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.assetid: ab4705b7-1638-1638-bc97-ea7f292fe92a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-compilation
-ms.openlocfilehash: bfee2e5e8f71c99465be79589a77f0e173097b23
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 873f6203f9e7b5bb14968dcec3f8d8e5548bd834
+ms.sourcegitcommit: 282f69e8dd63c39bde97a6d72783af2970d92040
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="razor-view-compilation-and-precompilation-in-aspnet-core"></a>Razor ビューのコンパイル、および ASP.NET Core でのプリコンパイル
 
@@ -35,7 +35,7 @@ Razor ビューは、ビューが呼び出されたときに、実行時にコ�
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-参照をパッケージを含める場合は、プロジェクトは、.NET Framework を対象、 `Microsoft.AspNetCore.Mvc.Razor.ViewCompilation`:
+参照をパッケージを含める場合は、プロジェクトは、.NET Framework を対象、 [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/):
 
 ```xml
 <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.ViewCompilation" Version="2.0.0" PrivateAssets="All" />
@@ -54,3 +54,7 @@ ASP.NET Core 2.x プロジェクト テンプレートが暗黙的に設定`MvcR
 [!code-xml[Main](view-compilation\sample\MvcRazorCompileOnPublish.csproj?highlight=5,12)]
 
 ---
+
+A *< project_name >。PrecompiledViews.dll*プリコンパイルが成功した場合、コンパイル済みの Razor ビューを含むファイルが生成されます。 たとえば、次のスクリーン ショットの内容を示しています*Index.cshtml*内の*WebApplication1.PrecompiledViews.dll*:。
+
+![DLL 内の razor ビュー](view-compilation/_static/razor-views-in-dll.png)

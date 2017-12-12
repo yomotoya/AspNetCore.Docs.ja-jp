@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: bba0eafe3917fa850b3a07df8df6448409f4062d
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 83b2647df8beec1feae33400224dacf9823be9b4
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core でのアプリケーションの起動
 
@@ -30,7 +30,7 @@ ASP.NET Core アプリケーションが必要な`Startup`というクラス`Sta
 
 またを定義し、固定`Startup`呼び出すことにより、環境に関係なく使用されるクラス`UseStartup<TStartup>`です。 この方法をお勧めします。
 
-`Startup`クラスのコンス トラクターがから提供される依存関係を受け入れることができる[依存性の注入](xref:fundamentals/dependency-injection)です。 一般的な方法は、使用する`IHostingEnvironment`を設定する[構成](xref:fundamentals/configuration)ソース。
+`Startup`クラスのコンス トラクターがから提供される依存関係を受け入れることができる[依存性の注入](xref:fundamentals/dependency-injection)です。 一般的な方法は、使用する`IHostingEnvironment`を設定する[構成](xref:fundamentals/configuration/index)ソース。
 
 `Startup`クラスを含める必要があります、`Configure`メソッドを必要に応じて含めることができます、`ConfigureServices`メソッド、アプリケーションの起動時にどちらもと呼ばれます。 クラスを含めることも[環境固有のバージョンをこれらのメソッドの](xref:fundamentals/environments#startup-conventions)します。 `ConfigureServices`、存在する場合は、前に呼び出されます`Configure`です。
 
@@ -38,7 +38,7 @@ ASP.NET Core アプリケーションが必要な`Startup`というクラス`Sta
 
 ## <a name="the-configureservices-method"></a>ConfigureServices メソッド
 
-[ConfigureServices](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_)メソッドは省略可能です。 が、このオプションを使用すると、関数が呼び出される前に、 `Configure` web ホストでのメソッドです。 Web ホストが前にいくつかのサービスを構成することがあります``Startup``メソッドが呼び出される (を参照してください[ホスト](xref:fundamentals/hosting))。 慣例により、[構成オプション](xref:fundamentals/configuration)はこのメソッドで設定します。
+[ConfigureServices](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_)メソッドは省略可能です。 が、このオプションを使用すると、関数が呼び出される前に、 `Configure` web ホストでのメソッドです。 Web ホストが前にいくつかのサービスを構成することがあります``Startup``メソッドが呼び出される (を参照してください[ホスト](xref:fundamentals/hosting))。 慣例により、[構成オプション](xref:fundamentals/configuration/index)はこのメソッドで設定します。
 
 大量のセットアップが必要な機能がある`Add[Service]`拡張メソッド[IServiceCollection](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.iservicecollection)です。 既定の web サイト テンプレートからこの例は、Entity Framework、Id、および MVC 用のサービスを使用するアプリを構成します。
 
@@ -76,5 +76,5 @@ ASP.NET Core 依存関係の挿入は、アプリケーションの起動中に�
 
 * [複数の環境の使用](xref:fundamentals/environments)
 * [ミドルウェア](xref:fundamentals/middleware)
-* [ログ](xref:fundamentals/logging)
-* [構成](xref:fundamentals/configuration)
+* [ログ](xref:fundamentals/logging/index)
+* [構成](xref:fundamentals/configuration/index)

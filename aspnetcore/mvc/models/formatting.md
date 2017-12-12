@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/formatting
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91ba2456178fe806b90f27bbd2940773da950423
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: abc125a093ff2cd5a38a537ecdfc795ff03e23f7
+ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/19/2017
 ---
 # <a name="introduction-to-formatting-response-data-in-aspnet-core-mvc"></a>ASP.NET Core MVC での応答データの書式設定の概要
 
@@ -84,7 +84,7 @@ JSON 形式のデータを返す:
 
 ### <a name="content-negotiation-process"></a>コンテンツ ネゴシエーションのプロセス
 
-コンテンツ*ネゴシエーション*のみが配置の場合、`Accept`要求のヘッダーが表示されます。 要求には、accept ヘッダーが含まれている、フレームワークの優先順位で accept ヘッダーのメディアの種類を列挙しようし、します accept ヘッダーで指定された形式のいずれかで応答を生成できるフォーマッタを検出します。 フォーマッタが見つからない、クライアントの要求を満たすことができる場合に、フレームワークは、応答を生成する最初のフォーマッタを検索しよう (開発者でオプションを構成しない限り、`MvcOptions`を返す 406 Not Acceptable 代わりに)。 要求は、XML を指定、XML フォーマッタが構成されていない場合は、JSON フォーマッタが使用されます。 一般的には、フォーマッタが構成されていない場合は、要求された形式を提供することができますし、オブジェクトの書式を設定よりも、最初のフォーマッタを使用します。 ヘッダーが指定されていない場合、返されるオブジェクトを処理できる最初のフォーマッタは、応答をシリアル化するために使用されます。 この場合、ネゴシエーションの取得の任意の場所がありません - サーバーには、どのような形式が使用されますが決定することです。
+コンテンツ*ネゴシエーション*のみが配置の場合、`Accept`要求のヘッダーが表示されます。 要求には、accept ヘッダーが含まれている、フレームワークの優先順位で accept ヘッダーのメディアの種類を列挙しようし、します accept ヘッダーで指定された形式のいずれかで応答を生成できるフォーマッタを検出します。 フォーマッタが見つからない、クライアントの要求を満たすことができる場合に、フレームワークは、応答を生成する最初のフォーマッタを検索しよう (開発者でオプションを構成しない限り、`MvcOptions`を返す 406 Not Acceptable 代わりに)。 要求は、XML を指定、XML フォーマッタが構成されていない場合は、JSON フォーマッタが使用されます。 一般的には、フォーマッタが構成されていない場合は、要求された形式を提供することができますし、オブジェクトの書式を設定する最初のフォーマッタを使用します。 ヘッダーが指定されていない場合、返されるオブジェクトを処理できる最初のフォーマッタは、応答をシリアル化するために使用されます。 この場合、ネゴシエーションの取得の任意の場所がありません - サーバーには、どのような形式が使用されますが決定することです。
 
 > [!NOTE]
 > Accept ヘッダーが含まれている場合`*/*`、しない限り、ヘッダーは無視されます`RespectBrowserAcceptHeader`に設定されている場合は true`MvcOptions`です。
@@ -99,7 +99,7 @@ JSON 形式のデータを返す:
 services.AddMvc(options =>
 {
     options.RespectBrowserAcceptHeader = true; // false by default
-}
+});
 ```
 
 ## <a name="configuring-formatters"></a>フォーマッタを構成します。

@@ -1,28 +1,26 @@
 ---
 title: "ASP.NET Core でのメモリ内キャッシュ"
 author: rick-anderson
-description: "ASP.NET Core でのメモリ内のデータをキャッシュする方法を示します。"
-keywords: "ASP.NET Core、キャッシュ、メモリ内のパフォーマンス"
+description: "ASP.NET Core でのメモリ内のデータをキャッシュする方法を説明します。"
 ms.author: riande
 manager: wpickett
 ms.date: 12/14/2016
 ms.topic: article
-ms.assetid: 819511cf-d33e-410a-b5a9-bef7fa64d2f3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ce865427b6ca44c76888908fdeea9cd45c881c4
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 23312e73b4530b24b8479e2d379f16315b672ca4
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="introduction-to-in-memory-caching-in-aspnet-core"></a>ASP.NET Core でのメモリ内キャッシュの概要
+# <a name="in-memory-caching-in-aspnet-core"></a>ASP.NET Core でのメモリ内キャッシュ
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [John Luo](https://github.com/JunTaoLuo)、および[Steve Smith](https://ardalis.com/)
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/memory/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/memory/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="caching-basics"></a>キャッシュの基礎
 
@@ -89,7 +87,7 @@ Web ファーム内の非スティッキー セッションが必要な[分散�
 
 使用して、`CancellationTokenSource`グループとして削除する複数のキャッシュ エントリを許可します。 `using`内で作成された上記のコードでのパターン、キャッシュ エントリ、`using`ブロックはトリガーと有効期限の設定を継承します。
 
-### <a name="additional-notes"></a>補足メモ
+## <a name="additional-notes"></a>補足メモ
 
 - コールバックを使用して、キャッシュ項目を再作成します。
 
@@ -98,7 +96,11 @@ Web ファーム内の非スティッキー セッションが必要な[分散�
 
 - 1 つのキャッシュ エントリを使用して、別に作成した場合、子は親エントリの有効期限切れのトークンと時間ベースの有効期限の設定をコピーします。 子は、手動で削除して期限切れまたは親エントリの更新ではありません。
 
-### <a name="other-resources"></a>その他の参照情報
+## <a name="additional-resources"></a>その他の技術情報
 
-* [分散キャッシュの使用](distributed.md)
-* [応答キャッシュ ミドルウェア](middleware.md)
+* [分散キャッシュの使用](xref:performance/caching/distributed)
+* [変更のトークンを使用して変更を検出します。](xref:fundamentals/primitives/change-tokens)
+* [応答キャッシュ](xref:performance/caching/response)
+* [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
+* [キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

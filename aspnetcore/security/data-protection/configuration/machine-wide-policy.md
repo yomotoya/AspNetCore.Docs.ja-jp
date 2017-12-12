@@ -1,7 +1,7 @@
 ---
-title: "マシン全体のポリシー"
+title: "データの保護コンピューター全体のポリシーを ASP.NET Core のサポートします。"
 author: rick-anderson
-description: 
+description: "ASP.NET Core データ保護を使用するすべてのアプリの既定のコンピューター全体のポリシーを設定するためのサポートについて説明します。"
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
@@ -11,70 +11,66 @@ ms.assetid: 285ae47d-e0bf-4b03-b0a8-2b1fb18bc3a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 7ada940acfbb7fb0887fd7c0cd722bf62f211248
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 692e120f13882be594afc5fb926b96b82d9609e2
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="machine-wide-policy"></a>マシン全体のポリシー
+# <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>データの保護コンピューター全体のポリシーを ASP.NET Core のサポートします。
 
-<a name=data-protection-configuration-machinewidepolicy></a>
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Windows で実行されるときに、データ保護システムにデータの保護を使用するすべてのアプリケーションの既定のコンピューター全体のポリシーを設定するためのサポートが制限されています。 一般的な考え方としては、管理者が、コンピューター上のすべてのアプリケーションを手動で更新する必要はありません (アルゴリズムまたはキーの使用有効期間) などの既定の設定を変更しようとする可能性があります。
+Windows で実行されるときに、データ保護システムに ASP.NET Core データ保護を使用するすべてのアプリの既定のコンピューター全体のポリシーを設定するためのサポートが制限されています。 一般的な考え方としては、管理者が、アルゴリズムの使用など、既定の設定またはコンピューター上のすべてのアプリを手動で更新する必要はありません、キーの有効期間を変更しようとする可能性があります。
 
->[!WARNING]
-> システム管理者は、既定のポリシーを設定できますが、それを適用することはできません。 アプリケーション開発者は、独自の選択のいずれかの任意の値を常にオーバーライドできます。 既定のポリシーは、開発者が指定されていない場合、明示的な値をいくつか特定の設定をアプリケーションにのみ影響します。
+> [!WARNING]
+> システム管理者は、既定のポリシーを設定できますが、それを適用することはできません。 アプリの開発者は、独自の選択のいずれかの任意の値を常にオーバーライドできます。 既定のポリシーには、開発者が、設定の明示的な値を指定していないアプリのみに影響します。
 
 ## <a name="setting-default-policy"></a>既定のポリシーの設定
 
-既定のポリシーを設定するには、管理者は、次のキーの下のシステム レジストリで既知の値を設定できます。
+既定のポリシーを設定するには、管理者は次のレジストリ キーの下のシステム レジストリで既知の値を設定できます。
 
-レジストリ キー:`HKLM\SOFTWARE\Microsoft\DotNetPackages\Microsoft.AspNetCore.DataProtection`
+**HKLM\SOFTWARE\Microsoft\DotNetPackages\Microsoft.AspNetCore.DataProtection**
 
-64 ビット オペレーティング システムで 32 ビット アプリケーションの動作に影響する場合、忘れずにも構成上のキーの Wow6432Node に相当します。
+64 ビット オペレーティング システムで 32 ビット アプリの動作に影響する場合、上記のキーの Wow6432Node と同等の構成を注意してください。
 
-サポートされる値は次のとおりです。
+サポートされる値は、以下に示します。
 
-* EncryptionType [文字列] には、アルゴリズムは、データ保護に使用する必要がありますを指定します。 この値は"CNG CBC"、"CNG-GCM"または"Managed"にする必要があります、さらに詳しく記載されて[下](#data-protection-encryption-types)です。
+| 値              | 型   | 説明 |
+| ------------------ | :----: | ----------- |
+| EncryptionType     | string | アルゴリズムは、データ保護に使用する必要がありますを指定します。 値は、CNG CBC、CNG GCM、または管理対象にする必要がありで詳しく説明します。 |
+| DefaultKeyLifetime | DWORD  | 新しく生成されたキーの有効期間を指定します。 値は日数で指定しする必要があります > 7 を = です。 |
+| KeyEscrowSinks     | string | キー エスクローに使用される型を指定します。 値は、一覧内の各要素が実装する型のアセンブリ修飾名をここでは、キー エスクロー シンクのセミコロンで区切られたリスト[IKeyEscrowSink](/dotnet/api/microsoft.aspnetcore.dataprotection.keymanagement.ikeyescrowsink)です。 |
 
-* DefaultKeyLifetime [DWORD] には、新しく生成されたキーの有効期間を指定します。 この値は日数で指定され、≥ 7 をする必要があります。
+## <a name="encryption-types"></a>暗号化の種類
 
-* KeyEscrowSinks [文字列] には、キー エスクローを使用する型を指定します。 この値は、IKeyEscrowSink を実装する型のアセンブリ修飾名を一覧内の各要素がここでは、キー エスクロー シンクのセミコロンで区切られたリストです。
+Windows CNG によって提供されるサービスで、信頼性の機密性および HMAC CBC モード対称ブロック暗号を使用する、システムが構成されている EncryptionType が CNG CBC の場合は、(を参照してください[カスタム Windows CNG アルゴリズムを指定する](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms)の詳細について)。 次の追加の値がサポートされている、CngCbcAuthenticatedEncryptionSettings 型のプロパティでは、それぞれがします。
 
-<a name=data-protection-encryption-types></a>
+| 値                       | 型   | 説明 |
+| --------------------------- | :----: | ----------- |
+| EncryptionAlgorithm         | string | CNG で認識される対称ブロック暗号アルゴリズムの名前。 このアルゴリズムは、CBC モードで開きます。 |
+| EncryptionAlgorithmProvider | string | アルゴリズムの EncryptionAlgorithm を生成できる CNG プロバイダーの実装の名前。 |
+| EncryptionAlgorithmKeySize  | DWORD  | (Bits) の長さ対称ブロック暗号アルゴリズムを派生させるキー。 |
+| ハッシュ アルゴリズム               | string | CNG で認識されるハッシュ アルゴリズムの名前。 このアルゴリズムは HMAC モードで開きます。 |
+| HashAlgorithmProvider       | string | アルゴリズムの HashAlgorithm を作成できる CNG プロバイダーの実装の名前。 |
 
-### <a name="encryption-types"></a>暗号化の種類
+Windows CNG によって提供されるサービスでの機密性、および信頼性 Galois/カウンター モード対称ブロック暗号を使用する、システムが構成されている EncryptionType が CNG GCM の場合は、(を参照してください[カスタム Windows CNG アルゴリズムを指定する](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms)詳細については詳細)。 次の追加の値がサポートされている、CngGcmAuthenticatedEncryptionSettings 型のプロパティでは、それぞれがします。
 
-Windows CNG によって提供されるサービスとの信頼性の機密性、および HMAC CBC モード対称ブロック暗号を使用するように、システム構成は EncryptionType が"CNG CBC"の場合は、(を参照してください[のカスタムのWindowsCNGアルゴリズムを指定する](overview.md#data-protection-changing-algorithms-cng)詳細)。 次の追加の値がサポートされているそれぞれに対応して CngCbcAuthenticatedEncryptionSettings 型のプロパティ。
+| 値                       | 型   | 説明 |
+| --------------------------- | :----: | ----------- |
+| EncryptionAlgorithm         | string | CNG で認識される対称ブロック暗号アルゴリズムの名前。 このアルゴリズムは Galois/カウンター モードで開きます。 |
+| EncryptionAlgorithmProvider | string | アルゴリズムの EncryptionAlgorithm を生成できる CNG プロバイダーの実装の名前。 |
+| EncryptionAlgorithmKeySize  | DWORD  | (Bits) の長さ対称ブロック暗号アルゴリズムを派生させるキー。 |
 
-* [String] - EncryptionAlgorithm CNG で認識される対称ブロック暗号アルゴリズムの名前。 このアルゴリズムは、CBC モードで表示します。
+信頼性の機密性、および KeyedHashAlgorithm のマネージ対称アルゴリズムを使用する、システムが構成されている EncryptionType が管理されている場合 (を参照してください[を指定するカスタム マネージ アルゴリズム](xref:security/data-protection/configuration/overview#specifying-custom-managed-algorithms)詳細)。 次の追加の値がサポートされている、ManagedAuthenticatedEncryptionSettings 型のプロパティでは、それぞれがします。
 
-* [String] - EncryptionAlgorithmProvider アルゴリズム EncryptionAlgorithm を生じる可能性が CNG プロバイダーの実装の名前。
+| 値                      | 型   | 説明 |
+| -------------------------- | :----: | ----------- |
+| EncryptionAlgorithmType    | string | 対称アルゴリズムを実装する型のアセンブリ修飾名。 |
+| EncryptionAlgorithmKeySize | DWORD  | (Bits) の長さ、対称暗号化アルゴリズムを派生させるキー。 |
+| ValidationAlgorithmType    | string | KeyedHashAlgorithm を実装する型のアセンブリ修飾名。 |
 
-* [DWORD] - EncryptionAlgorithmKeySize (bits) の長さ、対称ブロック暗号アルゴリズムを派生させるキー。
+EncryptionType が空か、null 以外の他の任意の値を持つ場合、データ保護システムは、起動時に例外をスローします。
 
-* [String] - HashAlgorithm CNG で認識されるハッシュ アルゴリズムの名前。 このアルゴリズムは、HMAC モードで表示します。
-
-* [String] - HashAlgorithmProvider アルゴリズムの HashAlgorithm を生じる可能性が CNG プロバイダーの実装の名前。
-
-Windows CNG によって提供されるサービスでの機密性、および信頼性 Galois/カウンター モード対称ブロック暗号を使用するように、システム構成は EncryptionType が"CNG GCM"の場合は、(を参照してください[のカスタムのWindowsCNGアルゴリズムを指定する](overview.md#data-protection-changing-algorithms-cng)詳細)。 次の追加の値がサポートされているそれぞれに対応して CngGcmAuthenticatedEncryptionSettings 型のプロパティ。
-
-* [String] - EncryptionAlgorithm CNG で認識される対称ブロック暗号アルゴリズムの名前。 このアルゴリズムが Galois/カウンター モードで開きます。
-
-* [String] - EncryptionAlgorithmProvider アルゴリズム EncryptionAlgorithm を生じる可能性が CNG プロバイダーの実装の名前。
-
-* [DWORD] - EncryptionAlgorithmKeySize (bits) の長さ、対称ブロック暗号アルゴリズムを派生させるキー。
-
-EncryptionType が"Managed"場合、システムは、信頼性の機密性、および KeyedHashAlgorithm のマネージ対称アルゴリズムを使用する構成は (を参照してください[を指定するカスタム マネージ アルゴリズム](overview.md#data-protection-changing-algorithms-custom-managed)詳細)。 次の追加の値がサポートされているそれぞれに対応して ManagedAuthenticatedEncryptionSettings 型のプロパティ。
-
-* [String] - EncryptionAlgorithmType 対称アルゴリズムを実装する型のアセンブリ修飾名。
-
-* [DWORD] - EncryptionAlgorithmKeySize (bits) の長さ、対称暗号化アルゴリズムを派生させるキー。
-
-* [String] - ValidationAlgorithmType KeyedHashAlgorithm を実装する型のアセンブリ修飾名。
-
-EncryptionType がその他の値 (null 以外/空) の場合、データ保護システム起動時に例外がスローされます。
-
->[!WARNING]
-> 型名 (EncryptionAlgorithmType、ValidationAlgorithmType、KeyEscrowSinks) は、既定のポリシー設定を構成するときに、型が、アプリケーションで使用できる場合があります。 実際には、これは、アプリケーションのデスクトップ CLR で実行されている場合、アセンブリをこれらの型を含む必要がある GACed ことを意味します。 実行されている ASP.NET Core アプリケーション[.NET Core](https://www.microsoft.com/net/core)、これらの型を含むパッケージをインストールする必要があります。
+> [!WARNING]
+> (EncryptionAlgorithmType、ValidationAlgorithmType、KeyEscrowSinks) の型名を含む既定のポリシー設定を構成するときに型が、アプリに使用する必要があります。 意味アプリについてはデスクトップ CLR で実行されている、これらの型を含むアセンブリ必要がありますグローバル アセンブリ キャッシュ (GAC) 内に存在します。 ASP.NET Core アプリケーションで実行されている[.NET Core](https://www.microsoft.com/net/core)、これらの型を含むパッケージをインストールする必要があります。

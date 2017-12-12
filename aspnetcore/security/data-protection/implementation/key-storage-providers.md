@@ -11,17 +11,17 @@ ms.assetid: 423e0a79-2f34-44c4-aaf3-146a53c39251
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: 1c73608245e668c0810813e29f78f1ac3dacc414
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: d4b286dc47f8d66e6d09c3e0f48e6326139c8e1e
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="key-storage-providers"></a>キー記憶域プロバイダー
 
-<a name=data-protection-implementation-key-storage-providers></a>
+<a name="data-protection-implementation-key-storage-providers"></a>
 
-既定では、データ保護システム[ヒューリスティックを使用して](../configuration/default-settings.md#data-protection-default-settings)を暗号化キー マテリアルを保持するかを判断します。 開発者は、ヒューリスティックをオーバーライドし、手動で、場所を指定します。
+既定では、データ保護システム[ヒューリスティックを使用して](xref:security/data-protection/configuration/default-settings)を暗号化キー マテリアルを保持するかを判断します。 開発者は、ヒューリスティックをオーバーライドし、手動で、場所を指定します。
 
 > [!NOTE]
 > キーの永続化を明示的な場所を指定する場合、データ保護システムはの登録を解除ヒューリスティックが提供する rest メカニズムで既定のキーの暗号化キーは、残りの部分では暗号化されなくなりますようにします。 お勧めするさらに[明示的なキーの暗号化メカニズムが指定](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest-providers)実可動アプリケーション用。

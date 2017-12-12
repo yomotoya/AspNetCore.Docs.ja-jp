@@ -11,11 +11,11 @@ ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 820836eaf3a29c9941e84458f09ac470f8150ba7
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 0679663b3b3b66f9935d0fb24360be2954fcdee1
+ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core での Id の概要
 
@@ -32,11 +32,11 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
 1.  個々 のユーザー アカウントを使って ASP.NET Core Web アプリケーション プロジェクトを作成します。
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-    Visual Studio で、次のように選択します。**ファイル** -> **新規** -> **プロジェクト**です。 選択、 **ASP.NET Web アプリケーション**から、**新しいプロジェクト** ダイアログ ボックス。 ASP.NET Core を選択すると**Web アプリケーション**で**個々 のユーザー アカウント**の認証方法として。
+    Visual Studio で、次のように選択します。**ファイル** -> **新規** -> **プロジェクト**です。 選択、 **ASP.NET Web アプリケーション**から、**新しいプロジェクト** ダイアログ ボックス。 ASP.NET Core を選択すると**Web Application(Model-View-Controller)** ASP.NET core と 2.x**個々 のユーザー アカウント**の認証方法として。
 
     注: 選択する必要があります**個々 のユーザー アカウント**です。
  
-    ![[新しいプロジェクト] ダイアログ](identity/_static/01-mvc.png)
+    ![[新しいプロジェクト] ダイアログ](identity/_static/01-mvc_2.png)
     
     # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
     .NET Core CLI を使用する場合を使用して新しいプロジェクトを作成``dotnet new mvc --auth Individual``です。 これにより、Visual Studio によって作成された同じ Identity テンプレート コードで新しいプロジェクトが作成されます。
@@ -134,7 +134,7 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
  
 7.  データベースを表示します。
 
-    アプリは、SQL Server データベース (既定の windows と Visual Studio ユーザー用) を使用している場合は、データベース作成されたアプリを表示できます。 使用することができます**SQL Server Management Studio**です。 または、Visual Studio から、次のように選択します。**ビュー** -> **SQL Server オブジェクト エクスプ ローラー**です。 接続**(localdb) \MSSQLLocalDB**です。 一致する名前を持つデータベース* *aspnet - <*、プロジェクトの名前*>-<*日付文字列*> * * が表示されます。
+    アプリは、SQL Server データベース (既定の windows と Visual Studio ユーザー用) を使用している場合は、データベース作成されたアプリを表示できます。 使用することができます**SQL Server Management Studio**です。 または、Visual Studio から、次のように選択します。**ビュー** -> **SQL Server オブジェクト エクスプ ローラー**です。 接続**(localdb) \MSSQLLocalDB**です。 一致する名前を持つデータベース **aspnet - <*、プロジェクトの名前*>-<*日付文字列*> * * が表示されます。
 
     ![AspNetUsers データベース テーブルのコンテキスト メニュー](identity/_static/04-db.png)
     

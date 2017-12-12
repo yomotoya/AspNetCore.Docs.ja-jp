@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: c5d8506c1bc8e6364d01596a0c82e1da41eea4ca
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 352d125b9042c603b59ed9bda0e99b6a49c7ab9f
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Azure Key Vault の構成プロバイダー
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/01/2017
 1. Key vault の作成し、ガイダンスに従って、アプリケーションの Azure Active Directory (Azure AD) を設定[Azure Key Vault の使用開始](https://azure.microsoft.com/documentation/articles/key-vault-get-started/)です。
   * 使用して、資格情報コンテナーに機密情報を追加、 [AzureRM キー資格情報コンテナー PowerShell モジュール](/powershell/module/azurerm.keyvault)から使用可能な[PowerShell ギャラリー](https://www.powershellgallery.com/packages/AzureRM.KeyVault)、 [Azure Key Vault REST API](/rest/api/keyvault/)、または、 [Azure ポータル](https://portal.azure.com/)です。 機密情報は、いずれかとして作成*手動*または*証明書*シークレット。 *証明書*シークレットはアプリやサービスで使用する証明書が、構成プロバイダーによってサポートされていません。 使用する必要があります、*手動*構成プロバイダーを使用するための名前と値のペアの機密情報を作成するオプションです。
     * 単純なシークレットは、名前と値のペアとして作成されます。 Azure Key Vault のシークレット名は、英数字とハイフンに制限されます。
-    * 階層型の値 (構成セクション) を使用して`--`(2 つのハイフン)、サンプルでは、区切り記号として。 サブキーのセクションを区切るために通常使用されるコロン[ASP.NET Core 構成](xref:fundamentals/configuration)、シークレット名に許可されていません。 そのため、2 個のダッシュが使用され、コロン、シークレットは、アプリの構成に読み込まれるときに切り替わります。
+    * 階層型の値 (構成セクション) を使用して`--`(2 つのハイフン)、サンプルでは、区切り記号として。 サブキーのセクションを区切るために通常使用されるコロン[ASP.NET Core 構成](xref:fundamentals/configuration/index)、シークレット名に許可されていません。 そのため、2 個のダッシュが使用され、コロン、シークレットは、アプリの構成に読み込まれるときに切り替わります。
     * 2 つ作成*手動*機密情報の次の名前と値のペアを使用します。 最初のシークレットは、単純な名前と値を 2 番目のシークレット セクションとシークレットの名前のサブキーを使用して秘密の値を作成します。
       * `SecretName`: `secret_value_1`
       * `Section--SecretName`: `secret_value_2`
@@ -146,7 +146,7 @@ Configuration.Reload();
 無効になっており、期限切れのシークレットをスロー、`KeyVaultClientException`です。 アプリを防ぐためがスローされることから、アプリを交換または無効/有効期限が切れてシークレットを更新します。
 
 ## <a name="troubleshooting"></a>トラブルシューティング
-アプリケーションは、プロバイダーを使用して構成の読み込みに失敗すると、エラー メッセージに書き込まれます。、 [ASP.NET のログ記録インフラストラクチャ](xref:fundamentals/logging)です。 次の条件には、構成を読み込めないは禁止します。
+アプリケーションは、プロバイダーを使用して構成の読み込みに失敗すると、エラー メッセージに書き込まれます。、 [ASP.NET のログ記録インフラストラクチャ](xref:fundamentals/logging/index)です。 次の条件には、構成を読み込めないは禁止します。
 * アプリは、Azure Active Directory に正しく構成されていません。
 * Azure Key Vault に資格情報コンテナーが存在しません。
 * アプリは、key vault にアクセスする承認されていません。
@@ -157,7 +157,7 @@ Configuration.Reload();
 * ロードしようとしている値のアプリの構成キー (名前) が正しくないです。
 
 ## <a name="additional-resources"></a>その他の技術情報
-* <xref:fundamentals/configuration>
+* [構成](xref:fundamentals/configuration/index)
 * [Microsoft Azure: Key Vault](https://azure.microsoft.com/services/key-vault/)
 * [Microsoft Azure: Key Vault のドキュメント](https://docs.microsoft.com/azure/key-vault/)
 * [Azure Key Vault のキーを生成し、HSM で保護された転送する方法](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)

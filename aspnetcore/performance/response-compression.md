@@ -11,27 +11,32 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 7aea4db44764d5d8f47520adb6599e651e0e9000
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: fdb396d8857dc9c118cc19da1f7d1d498dfaacd5
+ms.sourcegitcommit: 8ab9d0065fad23400757e4e08033787e42c97d41
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>ASP.NET core 圧縮ミドルウェアの応答
 
-によって[Luke Latham](https://github.com/guardrex)
+作成者: [Luke Latham](https://github.com/guardrex)
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ネットワーク帯域幅は、限られたリソースです。 通常の応答のサイズを小さくする、アプリの応答性を大幅に多くの場合、増加します。 ペイロードのサイズを小さく 1 つの方法では、圧縮、アプリの応答です。
 
 ## <a name="when-to-use-response-compression-middleware"></a>応答の圧縮のミドルウェアを使用する場合
-IIS、Apache、またはミドルウェアのパフォーマンス可能性はありませんが一致するサーバー モジュールの Nginx サーバー ベースの応答の圧縮テクノロジを使用します。 使用できない場合は、応答の圧縮のミドルウェアを使用します。
-* [動的な圧縮の IIS モジュール](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
-* [Apache mod_deflate モジュール](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
-* [NGINX 圧縮および圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
-* [HTTP.sys サーバー](xref:fundamentals/servers/httpsys) (旧称[WebListener](xref:fundamentals/servers/weblistener))
-* [Kestrel](xref:fundamentals/servers/kestrel)
+IIS、Apache、または Nginx サーバー ベースの応答の圧縮テクノロジを使用します。 ミドルウェアのパフォーマンス可能性がありますされませんと一致するサーバーにあるモジュール。 [HTTP.sys サーバー](xref:fundamentals/servers/httpsys)と[Kestrel](xref:fundamentals/servers/kestrel)現在組み込み圧縮サポートが提供されません。
+
+場合は、圧縮ミドルウェアの応答を使用します。
+
+* 次のサーバー ベースの圧縮テクノロジを使用することができません。
+  * [動的な圧縮の IIS モジュール](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
+  * [Apache mod_deflate モジュール](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
+  * [NGINX 圧縮および圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
+* 直接ホスティング。
+  * [HTTP.sys サーバー](xref:fundamentals/servers/httpsys) (旧称[WebListener](xref:fundamentals/servers/weblistener))
+  * [Kestrel](xref:fundamentals/servers/kestrel)
 
 ## <a name="response-compression"></a>応答の圧縮
 通常は、ネイティブに圧縮された応答は、応答の圧縮を利用できます。 通常ネイティブに圧縮された応答が含まれます: CSS、JavaScript、HTML、XML、および JSON。 PNG ファイルなどのネイティブ圧縮されたアセットを圧縮することはできません。 ネイティブ圧縮された応答をさらに圧縮するしようとすると、サイズと転送時間の小さな追加低下は可能性がありますする影が薄くなって、圧縮処理にかかった時間によってです。 (ファイルの内容および圧縮の効率性) に応じて約 150 ~ 1000 バイト未満のファイルを圧縮されていません。 圧縮されたファイルのサイズが圧縮されていないファイルよりも小さいファイルの圧縮のオーバーヘッドがあります。

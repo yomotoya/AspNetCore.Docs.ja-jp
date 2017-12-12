@@ -11,11 +11,11 @@ ms.assetid: 67bd162b-bfb7-4750-9e7f-705228b5288c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: daf6dd8024863e02e40ad002a0a7da388f5a2ec7
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: b59782bccce00f3940da4ec8bcff768aff8fa4ef
+ms.sourcegitcommit: ccf08615ad59bc6f654560de33b93396113a2eb0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>関連するデータの EF コア ASP.NET Core MVC のチュートリアル (10 の 7) での更新
 
@@ -220,7 +220,7 @@ UI コースを変更することができるインストラクターに割り�
 
 <a id="notepad"></a>
 > [!NOTE] 
-> Visual Studio でコードを貼り付けるときに、改行は、コードを中断するように変更されます。  Ctrl + Z を 1 回押して、オート フォーマットを元に戻します。  ここで分かるように表示されるよう、改行は解決します。 インデント完璧なのに、する必要はありませんが、 `@</tr><tr>`、 `@:<td>`、 `@:</td>`、および`@:</tr>`行ことはできません。 1 行に示すように、または実行時エラーが表示されます。 選択された新しいコードのブロックして、Tab キーを押して 3 回、新しいコードと既存のコードの行にします。
+> Visual Studio でコードを貼り付けるときに、改行は、コードを中断するように変更されます。  Ctrl + Z を 1 回押して、オート フォーマットを元に戻します。  ここで分かるように表示されるよう、改行は解決します。 インデント完璧なのに、する必要はありませんが、 `@</tr><tr>`、 `@:<td>`、 `@:</td>`、および`@:</tr>`行ことはできません。 1 行に示すように、または実行時エラーが表示されます。 選択された新しいコードのブロックして、Tab キーを押して 3 回、新しいコードと既存のコードの行にします。 この問題の状態を確認する[ここ](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html)です。
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 

@@ -11,11 +11,11 @@ ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: eb5049d4d63c224ca74fc39072ae2c0d98ba330d
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: f217e5264742826f285444dcbaea4b28b97c4d7e
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>HTTP ハンドラーと ASP.NET Core ミドルウェアにモジュールを移行します。 
 
@@ -169,11 +169,11 @@ ASP.NET Core のプロジェクトで次のようなミドルウェアをこの�
 
 一部のモジュールとハンドラーに格納されている構成オプションがあります*Web.config*です。ただし、ASP.NET Core で新しい構成モデルが使用の代わりに*Web.config*です。
 
-新しい[構成システム](../fundamentals/configuration.md)これを解決するオプションが表示されます。
+新しい[構成システム](xref:fundamentals/configuration/index)これを解決するオプションが表示されます。
 
 * ように、ミドルウェアにオプションを直接挿入、[次のセクション](#loading-middleware-options-through-direct-injection)です。
 
-* 使用して、[オプション パターン](../fundamentals/configuration.md#options-config-objects):
+* 使用して、[オプション パターン](xref:fundamentals/configuration/options):
 
 1.  たとえば、ミドルウェアのオプションを保持するクラスを作成します。
 
@@ -384,7 +384,7 @@ public async Task Invoke(HttpContext httpContext)
 
 * [HTTP ハンドラーと HTTP モジュールの概要](https://docs.microsoft.com/iis/configuration/system.webserver/)
 
-* [構成](../fundamentals/configuration.md)
+* [構成](xref:fundamentals/configuration/index)
 
 * [アプリケーションの起動](../fundamentals/startup.md)
 

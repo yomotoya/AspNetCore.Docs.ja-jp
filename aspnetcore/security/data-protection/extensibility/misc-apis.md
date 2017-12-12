@@ -1,8 +1,8 @@
 ---
 title: "その他の API"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "このドキュメントでは、ASP.NET Core データ保護 ISecret インターフェイスについて説明します。"
+keywords: "ASP.NET Core、データ保護、ISecret"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,29 +11,29 @@ ms.assetid: 512c6ba7-88ec-47e4-a656-6b30350b34e6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/misc-apis
-ms.openlocfilehash: 541dd721a00495632f0d633577b55933c9be03fa
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: f5d6920f9f229bd480a76c952dab30efb7d9eff5
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="miscellaneous-apis"></a>その他の API
 
-<a name=data-protection-extensibility-mics-apis></a>
+<a name="data-protection-extensibility-mics-apis"></a>
 
 >[!WARNING]
 > 次のインターフェイスのいずれかを実装する型はスレッド セーフである必要があります複数の呼び出し元のです。
 
 ## <a name="isecret"></a>ISecret
 
-ISecret インターフェイスでは、暗号化キー マテリアルなどの秘密の値を表します。 次の API サーフェスが含まれています。
+`ISecret`インターフェイスは、暗号化キー マテリアルなどの秘密の値を表します。 次の API サーフェスが含まれています。
 
-* 長さ: int
+* `Length`: `int`
 
-* Dispose(): void
+* `Dispose()`: `void`
 
-* WriteSecretIntoBuffer (ArraySegment<byte>バッファー): void
+* `WriteSecretIntoBuffer(ArraySegment<byte> buffer)`: `void`
 
-WriteSecretIntoBuffer メソッドは、生の秘密の値で指定されたバッファーを設定します。 この API は、管理対象のガベージ コレクターにシークレットの露出を制限することのこれにより、呼び出し元は、バッファー オブジェクトをピン留めする機会は直接、byte[] を返すのではなく、パラメーターとして、バッファーを受け取る理由です。
+`WriteSecretIntoBuffer`メソッドは、生の秘密の値で指定されたバッファーを設定します。 この API は、パラメーターとして、バッファーの理由が返されず、`byte[]`直接が、これにより、呼び出し元は、マネージ ガベージ コレクターのシークレットの露出を制限する、バッファー オブジェクトをピン留めすることです。
 
-シークレット型は、プロセス内のメモリで秘密の値が格納 ISecret の具象実装です。 使用して Windows プラットフォームでは、秘密の値が暗号化されて[CryptProtectMemory](https://msdn.microsoft.com/library/windows/desktop/aa380262(v=vs.85).aspx)です。
+`Secret`型の具象実装は、`ISecret`のプロセスでメモリに秘密の値が格納されます。 使用して Windows プラットフォームでは、秘密の値が暗号化されて[CryptProtectMemory](https://msdn.microsoft.com/library/windows/desktop/aa380262(v=vs.85).aspx)です。

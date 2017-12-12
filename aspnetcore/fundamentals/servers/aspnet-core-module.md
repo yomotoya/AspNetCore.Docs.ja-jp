@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ced1e667acb7d11954aea27de7701db89091fd9
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 1d1f551dbde5f3dd6e71808154c2e5885d588d7c
+ms.sourcegitcommit: 282f69e8dd63c39bde97a6d72783af2970d92040
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="introduction-to-aspnet-core-module"></a>ASP.NET Core モジュールの概要
 
@@ -28,7 +28,7 @@ ASP.NET Core モジュール (ANCM) では、アプリケーション、IIS の�
 
 * Windows 7 および Windows Server 2008 R2 以降
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="what-aspnet-core-module-does"></a>ASP.NET Core モジュールの実行内容
 
@@ -58,7 +58,8 @@ ANCM が他のいくつかの機能もあります。
 
 ### <a name="install-ancm"></a>ANCM をインストールします。
 
-ASP.NET Core モジュールは、インストールする IIS で、サーバーと IIS Express で、開発用コンピューターで持っています。 サーバーでは、ANCM に含まれる、 [.NET コア Windows Server をホストしているバンドル](https://aka.ms/dotnetcore.2.0.0-windowshosting)です。 開発用コンピューターの Visual Studio 自動的にインストール ANCM IIS および IIS Express で、コンピューターに既にインストールされている場合。
+
+ASP.NET Core モジュールは、インストールする IIS で、サーバーと IIS Express で、開発用コンピューターで持っています。 サーバーでは、ANCM に含まれる、 [.NET コア Windows Server をホストしているバンドル](https://aka.ms/dotnetcore-2-windowshosting)です。 開発用コンピューターの Visual Studio 自動的にインストール ANCM IIS および IIS Express で、コンピューターに既にインストールされている場合。
 
 ### <a name="install-the-iisintegration-nuget-package"></a>IISIntegration NuGet パッケージをインストールします。
 
@@ -111,6 +112,12 @@ ASP.NET Core モジュールの構成に保存、 *Web.config*アプリケーシ
 ### <a name="run-with-iis-express-in-development"></a>IIS Express を使って開発での実行します。
 
 IIS Express は、Visual Studio の ASP.NET Core テンプレートで定義されている既定のプロファイルを使用して起動できます。
+
+## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>HTTP プロトコルとペアリング トークンを使用するプロキシの構成
+
+ANCM と Kestrel の間に作成されたプロキシは、HTTP プロトコルを使用します。 HTTP を使用して、パフォーマンスを最適化する ANCM と Kestrel 間のトラフィックが行われる、ループバック アドレスでネットワーク インターフェイスからです。 傍受 ANCM と、サーバーからの場所から Kestrel 間のトラフィックのリスクはありません。
+
+ペアリング トークンは、Kestrel によって受信された要求が IIS によってプロキシと他のソースから取得していないことを保証するために使用されます。 ペアリング トークンが作成され、環境変数に設定 (`ASPNETCORE_TOKEN`)、ANCM でします。 ペアリング トークンは、ヘッダーにも設定 (`MSAspNetCoreToken`) プロキシ要求ごとにします。 IIS のミドルウェアのチェックは、ペアリング トークン ヘッダーの値が環境変数の値と一致することを確認する受信を要求します。 トークンの値が一致しない場合は、要求が記録され、拒否されました。 ペアリングのトークンの環境変数と ANCM と Kestrel 間のトラフィックは、サーバーからの場所からアクセスできません。 トークン ペアの値を知らなくても、攻撃者は、IIS ミドルウェア内でチェックのバイパスの要求を送信できません。
 
 ## <a name="next-steps"></a>次のステップ
 

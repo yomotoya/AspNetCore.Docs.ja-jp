@@ -11,11 +11,11 @@ ms.assetid: 8468d859-ff32-4a92-9e62-08c4a9e36594
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/configuration
-ms.openlocfilehash: 4cf2227db22fbfd7f0c6239dad0d0a470c35d28c
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: d20235feec9d66c371b8ce0b7c66fb424fb261d5
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="migrating-configuration"></a>構成を移行します。
 
@@ -23,13 +23,13 @@ ms.lasthandoff: 10/01/2017
 
 開始前の記事で[ASP.NET Core MVC に ASP.NET MVC プロジェクトを移行する](mvc.md)です。 この記事では、構成を移行します。
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/configuration/samples)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/configuration/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="setup-configuration"></a>セットアップの構成
 
 ASP.NET Core を使用しない、 *Global.asax*と*web.config* ASP.NET の以前のバージョンを使用するファイル。 ASP.NET の以前のバージョンではアプリケーションのスタートアップ ロジックに格納された、`Application_StartUp`メソッド内で*Global.asax*です。 その後、ASP.NET MVC では、 *Startup.cs*ファイルがプロジェクトのルートに含まれているし、アプリケーションの起動時に呼び出されました。 ASP.NET Core を採用していますこのアプローチ完全にすべてのスタートアップ ロジックを配置することによって、 *Startup.cs*ファイル。
 
-*Web.config* ASP.NET Core でのファイルが置き換えられてもいます。 説明されているアプリケーションのスタートアップ プロシージャの一部として、構成自体を構成ようになりましたことができます*Startup.cs*です。 構成は、XML ファイルにも引き続き使用できますが、通常 ASP.NET Core プロジェクトが配置構成値 JSON 形式のファイルになど*される appsettings.json*です。 ASP.NET Core の構成システムは、環境変数は、環境固有の値より安全かつ堅牢な場所を指定することができますをも簡単にアクセスできます。 これは、接続文字列およびソース管理にチェックインする必要がありますいない API キーなどの機密情報に特に当てはまります。 参照してください[構成](../fundamentals/configuration.md)ASP.NET Core の構成に関する詳細についてはします。
+*Web.config* ASP.NET Core でのファイルが置き換えられてもいます。 説明されているアプリケーションのスタートアップ プロシージャの一部として、構成自体を構成ようになりましたことができます*Startup.cs*です。 構成は、XML ファイルにも引き続き使用できますが、通常 ASP.NET Core プロジェクトが配置構成値 JSON 形式のファイルになど*される appsettings.json*です。 ASP.NET Core の構成システムは、環境変数は、環境固有の値より安全かつ堅牢な場所を指定することができますをも簡単にアクセスできます。 これは、接続文字列およびソース管理にチェックインする必要がありますいない API キーなどの機密情報に特に当てはまります。 参照してください[構成](xref:fundamentals/configuration/index)ASP.NET Core の構成に関する詳細についてはします。
 
 この記事では、私たちは、開始から ASP.NET Core プロジェクトを部分的に移行[前の記事](mvc.md)です。 構成をセットアップで、次のコンス トラクターとプロパティを追加する、 *Startup.cs*プロジェクトのルートにあるファイル。
 

@@ -1,8 +1,8 @@
 ---
 title: "カスタムのポリシー ベースの承認"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "このドキュメントでは、作成および ASP.NET Core アプリケーションでカスタム承認ポリシーのハンドラーを使用する方法について説明します。"
+keywords: "ASP.NET Core、承認、カスタム ポリシー、承認ポリシー"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: 5021b5d20f6d9b9a4d8889f25b5e41f2c9306f64
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 0281d054204a11acc2cf11cf5fca23a8f70aad8e
+ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="custom-policy-based-authorization"></a>カスタムのポリシー ベースの承認
 
-<a name=security-authorization-policies-based></a>
+<a name="security-authorization-policies-based"></a>
 
-背後の[ロールの承認](roles.md#security-authorization-role-based)と[承認を要求](claims.md#security-authorization-claims-based)要件の使用、要件とポリシーを事前構成済みのハンドラーを作成します。 これらの構成要素を使用すると、承認の評価を許可する、豊富なため、再利用可能なコードと簡単にテストが容易な承認の構造を高速にできます。
+背後の[ロールの承認](roles.md)と[要求を承認](claims.md)要件の使用の要件とポリシーを事前構成済みのハンドラーを作成します。 これらの構成要素を使用すると、承認の評価を許可する、豊富なため、再利用可能なコードと簡単にテストが容易な承認の構造を高速にできます。
 
 承認ポリシーを 1 つまたは複数の要件で構成およびに登録されているアプリケーションの起動時に認証サービスの構成の一部として`ConfigureServices`で、 *Startup.cs*ファイル。
 
@@ -58,7 +58,7 @@ public class AlcoholPurchaseRequirementsController : Controller
 
 ## <a name="requirements"></a>要件
 
-承認要件は、現在のユーザー プリンシパルを評価するポリシーで使用するデータのパラメーターのコレクションです。 最小経過期間ポリシーで、要件があるが 1 つのパラメーター、最小経過期間です。 要件を実装する必要があります`IAuthorizationRequirement`です。 これは、空、マーカーのインターフェイスです。 パラメーター化の最低年齢の要件が実装されているとおりです。
+承認要件は、現在のユーザー プリンシパルを評価するポリシーで使用するデータのパラメーターのコレクションです。 最小経過期間ポリシーで、要件があるが、単一のパラメーター最小経過期間です。 要件を実装する必要があります`IAuthorizationRequirement`です。 これは、空、マーカーのインターフェイスです。 パラメーター化の最低年齢の要件が実装されているとおりです。
 
 ```csharp
 public class MinimumAgeRequirement : IAuthorizationRequirement
@@ -74,13 +74,13 @@ public class MinimumAgeRequirement : IAuthorizationRequirement
 
 要件は、データまたはプロパティを持つ必要はありません。
 
-<a name=security-authorization-policies-based-authorization-handler></a>
+<a name="security-authorization-policies-based-authorization-handler"></a>
 
 ## <a name="authorization-handlers"></a>認証ハンドラー
 
 認証ハンドラーは、要件のプロパティの評価にします。 認証ハンドラーが、指定されたに対して評価する必要があります`AuthorizationHandlerContext`承認が許可されたかどうかを決定します。 要件が持てる[複数のハンドラー](policies.md#security-authorization-policies-based-multiple-handlers)です。 ハンドラーを継承する必要があります`AuthorizationHandler<T>`T は、要件を処理します。
 
-<a name=security-authorization-handler-example></a>
+<a name="security-authorization-handler-example"></a>
 
 最小経過期間ハンドラーは、次のようになります。
 
@@ -114,10 +114,11 @@ public class MinimumAgeHandler : AuthorizationHandler<MinimumAgeRequirement>
 }
 ```
 
-前のコードで最初におる場合、現在のユーザー プリンシパルは、生年月日が発行したことが分かって発行者との信頼の要求を参照してください。 クレームが存在しない場合は、私たちを返すようお承認できません。 どれだけ古いユーザーが調べる、要求した場合と、要件ごとに渡された最小経過期間を満たしている場合、承認が成功しました。 承認が成功した後と呼んで`context.Succeed()`をパラメーターとして正常に実行されている要件に渡すことです。
+上記のコードで最初におる場合、現在のユーザー プリンシパルは、生年月日が発行したことが分かって発行者との信頼の要求を参照してください。 クレームが存在しない場合は、私たちを返すようお承認できません。 どれだけ古いユーザーが調べる、要求した場合と、要件ごとに渡された最小経過期間を満たしている場合、承認が成功しました。 承認が成功した後と呼んで`context.Succeed()`をパラメーターとして正常に実行されている要件に渡すことです。
 
-<a name=security-authorization-policies-based-handler-registration></a>
+<a name="security-authorization-policies-based-handler-registration"></a>
 
+### <a name="handler-registration"></a>ハンドラーの登録
 ハンドラーを構成中に、サービスのコレクションにたとえば; 登録する必要があります。
 
 ```csharp
@@ -148,9 +149,9 @@ public void ConfigureServices(IServiceCollection services)
 
 * 要件の他のハンドラーが成功する場合でも、エラーを保証、するために呼び出す`context.Fail`です。
 
-内部ハンドラーと呼ばれる要素に関係なく、ポリシー要件が必要な場合に、要件のすべてのハンドラーが呼び出されます。 これにより、要件を常に行われるログ記録など、副作用がある場合でも`context.Fail()`は別のハンドラーで呼び出されました。
+新機能を呼び出すと、ハンドラー内に関係なく、ポリシー要件が必要な場合に、要件のすべてのハンドラーが呼び出されます。 これにより、要件を常に行われるログ記録など、副作用がある場合でも`context.Fail()`は別のハンドラーで呼び出されました。
 
-<a name=security-authorization-policies-based-multiple-handlers></a>
+<a name="security-authorization-policies-based-multiple-handlers"></a>
 
 ## <a name="why-would-i-want-multiple-handlers-for-a-requirement"></a>複数のハンドラーを必要条件の目的は
 
@@ -195,7 +196,7 @@ public class HasTemporaryStickerHandler : AuthorizationHandler<EnterBuildingRequ
 
 可能性がありますの機会でポリシーを満たすことがコードで明示する単純です。 だけを指定することは、`Func<AuthorizationHandlerContext, bool>`を使用してポリシーを構成するときに、`RequireAssertion`ポリシー ビルダー。
 
-たとえば、前`BadgeEntryHandler`; 次のように書き換えることができます
+たとえば、前`BadgeEntryHandler`次のように書き換えることができます。
 
 ```csharp
 services.AddAuthorization(options =>
@@ -215,7 +216,7 @@ services.AddAuthorization(options =>
 
 `Handle`承認ハンドラーで実装する必要がありますのメソッドが 2 つのパラメーター、`AuthorizationContext`と`Requirement`を処理します。 MVC または Jabbr などのフレームワークを自由に任意のオブジェクトを追加、`Resource`プロパティを`AuthorizationContext`余分な情報を通過します。
 
-たとえば MVC がのインスタンスを渡す`Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext`HttpContext、RouteData およびそのすべてのアクセスに使用されるリソースのプロパティでは他の MVC を提供します。
+たとえば、MVC のインスタンスを渡す`Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext`HttpContext、RouteData およびそのすべてのアクセスに使用されるリソースのプロパティでは他の MVC を提供します。
 
 使用、`Resource`プロパティは、フレームワークに固有です。 内の情報を使用して、`Resource`プロパティが特定のフレームワークを承認ポリシーを制限します。 キャストする必要があります、`Resource`プロパティを使用して、`as`コードがクラッシュしないことを確認するキーワード、およびチェックインのキャストが成功で`InvalidCastExceptions`; 他のフレームワークで実行されたとき
 

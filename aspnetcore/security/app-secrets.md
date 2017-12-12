@@ -10,23 +10,23 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: 280819a6a0afb72311f0d50f7d3b83a942e9fcc3
-ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
+ms.openlocfilehash: 897d9b360ceeb5fbb0863ff1c1fcec039e1a8b8f
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>アプリ シークレットは、ASP.NET Core での開発時の安全な格納場所
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Daniel Roth](https://github.com/danroth27)、および[Scott Addie](https://scottaddie.com) 
 
-このドキュメントでは、開発でシークレット マネージャー ツールを使用して、コードからシークレットを保持する方法を示しています。 最も重要な点は、ソース コードで、パスワードや他の機密データを格納する必要がありますしないと、開発およびテスト モードで運用環境の機密情報を使用しないでください。 代わりに使用することができます、[構成](../fundamentals/configuration.md)システム環境変数からこれらの値を読み取るまたはシークレット マネージャーを使用して格納されている値からツールです。 シークレット マネージャー ツールでは、機密データがソース管理にチェックインされているを防ぐのに役立ちます。 [構成](../fundamentals/configuration.md)システムは、この記事で説明されているシークレット マネージャー ツールを使用して格納されているシークレットを読み取ることができます。
+このドキュメントでは、開発でシークレット マネージャー ツールを使用して、コードからシークレットを保持する方法を示しています。 最も重要な点は、ソース コードで、パスワードや他の機密データを格納する必要がありますしないと、開発およびテスト モードで運用環境の機密情報を使用しないでください。 代わりに使用することができます、[構成](xref:fundamentals/configuration/index)システム環境変数からこれらの値を読み取るまたはシークレット マネージャーを使用して格納されている値からツールです。 シークレット マネージャー ツールでは、機密データがソース管理にチェックインされているを防ぐのに役立ちます。 [構成](xref:fundamentals/configuration/index)システムは、この記事で説明されているシークレット マネージャー ツールを使用して格納されているシークレットを読み取ることができます。
 
 シークレット マネージャー ツールは、開発でのみ使用されます。 Azure のテストおよび運用シークレットを保護することができます、 [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/)構成プロバイダーです。 参照してください[Azure Key Vault の構成プロバイダー](https://docs.microsoft.com/aspnet/core/security/key-vault-configuration)詳細についてはします。
 
 ## <a name="environment-variables"></a>環境変数
 
-コードまたはローカルの構成ファイルでは、アプリ シークレットを格納するを回避するのには、環境変数に機密情報を保存します。 セットアップすることができます、[構成](../fundamentals/configuration.md)を呼び出して環境変数から値を読み取るために、フレームワーク`AddEnvironmentVariables`です。 環境変数を使用して以前に指定した構成のすべてのソースの構成値を上書きできます。
+コードまたはローカルの構成ファイルでは、アプリ シークレットを格納するを回避するのには、環境変数に機密情報を保存します。 セットアップすることができます、[構成](xref:fundamentals/configuration/index)を呼び出して環境変数から値を読み取るために、フレームワーク`AddEnvironmentVariables`です。 環境変数を使用して以前に指定した構成のすべてのソースの構成値を上書きできます。
 
 個々 のユーザー アカウントを持つ新しい ASP.NET Core web アプリを作成する場合に、追加するなど、既定の接続文字列を*される appsettings.json*キーを持つプロジェクト ファイルで`DefaultConnection`です。 既定の接続文字列は、ユーザー モードで実行され、パスワードを必要としない LocalDB を使用するセットアップです。 オーバーライドすることができます、アプリケーションをテストまたは実稼働サーバーを展開するときに、`DefaultConnection`で環境変数の設定をテストまたは実稼働データベースの (場合によっては資格情報の機密)、接続文字列を含むキーの値サーバー。
 
@@ -127,4 +127,4 @@ dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\w
 
 ## <a name="additional-resources"></a>その他のリソース
 
-* [構成](../fundamentals/configuration.md)
+* [構成](xref:fundamentals/configuration/index)

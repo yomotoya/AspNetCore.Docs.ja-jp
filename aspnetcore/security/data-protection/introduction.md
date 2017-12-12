@@ -1,8 +1,8 @@
 ---
 title: "データ保護の概要"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "このドキュメントでは、データ保護の概念を紹介し、関連する ASP.NET Core Api の設計原則の概要を示します。"
+keywords: "ASP.NET Core、データの保護"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 4542cd37-b47c-454c-be19-d1b5810d67fe
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/introduction
-ms.openlocfilehash: b7391fffd5d512c01af5d709755a925f739b59ba
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: dd34f2e69ea0f6427ee5f446d6440dfab17a42c4
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="introduction-to-data-protection"></a>データ保護の概要
 

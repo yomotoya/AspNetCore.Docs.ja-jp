@@ -1,8 +1,8 @@
 ---
 title: "キー記憶域の形式"
 author: tdykstra
-description: 
-keywords: ASP.NET Core
+description: "このドキュメントでは、ASP.NET Core データ保護キーの格納形式の実装の詳細について説明します。"
+keywords: "ASP.NET Core、データ保護、キー ストレージ"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: e8996478-f7bf-4b58-bab4-7fdb5d8556c5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-storage-format
-ms.openlocfilehash: e761eaa406a9691e3fa36881d42c1a0c1bd8a206
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 4ebad05f7d55e954463ce5e277b419a7d6f773c0
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="key-storage-format"></a>キー記憶域の形式
 
-<a name=data-protection-implementation-key-storage-format></a>
+<a name="data-protection-implementation-key-storage-format"></a>
 
 オブジェクトは、XML 表現で残りの部分に保存されます。 キー記憶域の既定のディレクトリには、%localappdata%\asp.net\dataprotection-keys\ です。
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 08/11/2017
 
 \<キー > 要素には、次の属性と子要素が含まれています。
 
-* キーの id です。 この値は権限を持つよう; 扱われますファイル名は、人間にとって読み終わりましただけです。
+* キーの id です。この値は権限を持つよう; 扱われますファイル名は、人間にとって読み終わりましただけです。
 
 * バージョン、\<キー > 要素を 1 に現在固定します。
 

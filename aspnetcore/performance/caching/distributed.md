@@ -1,29 +1,27 @@
 ---
-title: "分散キャッシュの使用"
+title: "ASP.NET Core での分散キャッシュの使用"
 author: ardalis
-description: 
-keywords: ASP.NET Core,
+description: "分散キャッシュを使用して、クラウドまたはサーバー ファーム環境でホストされている場合に特にパフォーマンス、および ASP.NET Core アプリケーションのスケーラビリティを向上する方法を説明します。"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: 870f082d-6d43-453d-b311-45f3aeb4d2c5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/distributed
-ms.openlocfilehash: abf680fef9de175082c1e4f4cebc2b9648f18a28
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: a00937e8c47e73fa8e29af883f44f6e1f4d4b1b4
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="working-with-a-distributed-cache"></a>分散キャッシュの使用
+# <a name="working-with-a-distributed-cache-in-aspnet-core"></a>ASP.NET Core での分散キャッシュの使用
 
 によって[Steve Smith](https://ardalis.com/)
 
 分散キャッシュでは、クラウドまたはサーバー ファーム環境でホストされている場合に特に ASP.NET Core アプリケーションのスケーラビリティとパフォーマンスを向上できます。 この記事では、ASP.NET Core の組み込みの分散キャッシュの抽象化と実装を操作する方法について説明します。
 
-[サンプル コードを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample)
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="what-is-a-distributed-cache"></a>分散キャッシュとは
 
@@ -68,7 +66,7 @@ ms.lasthandoff: 09/12/2017
 
    2. 特定の実装を構成する`IDistributedCache`で、`Startup`クラスの`ConfigureServices`メソッドがコンテナーに追加します。
 
-   3. アプリから [`Middleware](../../fundamentals/middleware.md) or MVC controller classes, request an instance of `IDistributedCache' コンス トラクターからです。 によって、インスタンスが提供されます[依存性の注入](../../fundamentals/dependency-injection.md)(DI)。
+   3. アプリから[ミドルウェア](../../fundamentals/middleware.md)MVC コント ローラー クラスでは、要求のインスタンスまたは`IDistributedCache`コンス トラクターからです。 によって、インスタンスが提供されます[依存性の注入](../../fundamentals/dependency-injection.md)(DI)。
 
 > [!NOTE]
 > シングルトンまたはスコープ ベースの有効期間を使用する必要はありません`IDistributedCache`インスタンス (少なくとも組み込みの実装のため)。 必要に応じていずれかの場所にインスタンスを作成することも (を使用せずに[依存性の注入](../../fundamentals/dependency-injection.md))、これが難しく、コードをテストするには、違反している、[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)です。
@@ -86,7 +84,7 @@ ms.lasthandoff: 09/12/2017
 > [!NOTE]
 > `IDistributedCache`で構成された、`ConfigureServices`メソッドが使用できる、`Configure`メソッドのパラメーターとして。 パラメーターとして追加すると、DI で指定する構成済みのインスタンスが許可されます。
 
-## <a name="using-a-redis-distributed-cache"></a>キャッシュ、Redis を使用した分散
+## <a name="using-a-redis-distributed-cache"></a>分散 Redis キャッシュの使用
 
 [Redis](https://redis.io/)分散キャッシュとして使用される多くの場合、オープン ソースのインメモリ データ ストアです。 ローカルで行うこともでき、構成することができます、 [Azure Redis Cache](https://azure.microsoft.com/services/cache/) ASP.NET Core の Azure でホストされるアプリにします。 キャッシュ実装を使用して、ASP.NET Core アプリケーションの構成、`RedisDistributedCache`インスタンス。
 
@@ -105,7 +103,7 @@ SqlServerCache 実装では、バッキング ストアとして SQL Server デ�
 
 Sql キャッシュのツールを使用する追加`SqlConfig.Tools`を`<ItemGroup>`の要素、 *.csproj*ファイル dotnet 復元を実行しています。
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
+[!code-xml[Main](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
 
 SqlConfig.Tools をテストするには、次のコマンドを実行
 
@@ -136,8 +134,13 @@ C:\DistCacheSample\src\DistCacheSample>dotnet sql-cache create "Data Source=(loc
 
 のどの実装を決定する際に`IDistributedCache`Redis 間を選択して、アプリの権利は、既存のインフラストラクチャと環境、パフォーマンス要件、およびチームの経験に基づいて、SQL Server、します。 チームがより快適な Redis の操作の場合は、最適な選択肢であります。 チームが SQL Server を希望する場合で同様に実装することを確信できます。 従来のキャッシュ ソリューションがデータをメモリ内データの取得を高速を格納することに注意してください。 一般的に使用されるデータをキャッシュに格納し、SQL Server または Azure ストレージなどのバックエンドの永続的なストアでデータ全体を格納する必要があります。 Redis Cache は、SQL キャッシュと比較して、高いスループットと低待機時間ににより、キャッシュ ソリューションです。
 
-その他のリソース:
+## <a name="additional-resources"></a>その他の技術情報
 
-* [メモリ キャッシュでは、](memory.md)
 * [Redis の Azure キャッシュ](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [Azure SQL データベース](https://azure.microsoft.com/documentation/services/sql-database/)
+* [メモリ内キャッシュ](xref:performance/caching/memory)
+* [変更のトークンを使用して変更を検出します。](xref:fundamentals/primitives/change-tokens)
+* [応答キャッシュ](xref:performance/caching/response)
+* [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
+* [キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

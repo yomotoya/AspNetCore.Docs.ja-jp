@@ -1,8 +1,8 @@
 ---
 title: "キーの保存時の暗号化"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "このドキュメントでは、ASP.NET Core データ保護キーの暗号化の実装の詳細について説明します。"
+keywords: "ASP.NET Core、データ保護、キーの暗号化"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,22 +11,22 @@ ms.assetid: f2bbbf4e-0945-43ce-be59-8bf19e448798
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: 16a9385630d88c4c9f33954f83fce2bbce5be719
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: b56dc56ed94662dbedeea49022aa73941bc833c5
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="key-encryption-at-rest"></a>キーの保存時の暗号化
 
-<a name=data-protection-implementation-key-encryption-at-rest></a>
+<a name="data-protection-implementation-key-encryption-at-rest"></a>
 
-既定では、データ保護システム[ヒューリスティックを使用して](../configuration/default-settings.md#data-protection-default-settings)キー マテリアルを暗号化する方法を決定する残りの部分で暗号化する必要があります。 開発者は、ヒューリスティックをオーバーライドし、残りの部分でのキーの暗号化方法を手動で指定できます。
+既定では、データ保護システム[ヒューリスティックを使用して](xref:security/data-protection/configuration/default-settings)キー マテリアルを暗号化する方法を決定する残りの部分で暗号化する必要があります。 開発者は、ヒューリスティックをオーバーライドし、残りの部分でのキーの暗号化方法を手動で指定できます。
 
 > [!NOTE]
 > Rest メカニズムで明示的なキーの暗号化を指定する場合、データ保護システムは、ヒューリスティックが提供される既定のキー記憶域メカニズムを登録解除します。 行う必要があります[キー記憶域の明示的なメカニズムが指定](key-storage-providers.md#data-protection-implementation-key-storage-providers)、それ以外の場合、データ保護システムは起動しません。
 
-<a name=data-protection-implementation-key-encryption-at-rest-providers></a>
+<a name="data-protection-implementation-key-encryption-at-rest-providers"></a>
 
 データ保護システムは、次の 3 つのボックスでキーの暗号化メカニズムに付属します。
 
@@ -38,17 +38,17 @@ ms.lasthandoff: 09/12/2017
 
 ```csharp
 sc.AddDataProtection()
-       // only the local user account can decrypt the keys
-       .ProtectKeysWithDpapi();
-   ```
+    // only the local user account can decrypt the keys
+    .ProtectKeysWithDpapi();
+```
 
-ProtectKeysWithDpapi はパラメーターなしで呼び出されると、現在の Windows ユーザー アカウントだけが保存されるキー マテリアルを解読できます。 ように (だけでなく、現在のユーザー アカウント) のコンピューター上の任意のユーザー アカウントが、キー マテリアルを解読できないする必要があるを指定することができます必要に応じて、次の例です。
+場合`ProtectKeysWithDpapi`は、現在の Windows ユーザー アカウントは、永続化されたキー マテリアルを解読できますのみパラメーターなしで呼び出されます。 ように (だけでなく、現在のユーザー アカウント) のコンピューター上の任意のユーザー アカウントが、キー マテリアルを解読できないする必要があるを指定することができます必要に応じて、次の例です。
 
 ```csharp
 sc.AddDataProtection()
-       // all user accounts on the machine can decrypt the keys
-       .ProtectKeysWithDpapi(protectToLocalMachine: true);
-   ```
+    // all user accounts on the machine can decrypt the keys
+    .ProtectKeysWithDpapi(protectToLocalMachine: true);
+```
 
 ## <a name="x509-certificate"></a>X.509 証明書
 
@@ -58,13 +58,13 @@ sc.AddDataProtection()
 
 ```csharp
 sc.AddDataProtection()
-       // searches the cert store for the cert with this thumbprint
-       .ProtectKeysWithCertificate("3BCE558E2AD3E0E34A7743EAB5AEA2A9BD2575A0");
-   ```
+    // searches the cert store for the cert with this thumbprint
+    .ProtectKeysWithCertificate("3BCE558E2AD3E0E34A7743EAB5AEA2A9BD2575A0");
+```
 
 .NET Framework の制限により CAPI 秘密キーを持つ証明書のみがサポートされています。 参照してください[証明書ベースの暗号化に Windows DPAPI-NG](#data-protection-implementation-key-encryption-at-rest-dpapi-ng)下これらの制限に対処する方法についてです。
 
-<a name=data-protection-implementation-key-encryption-at-rest-dpapi-ng></a>
+<a name="data-protection-implementation-key-encryption-at-rest-dpapi-ng"></a>
 
 ## <a name="windows-dpapi-ng"></a>Windows DPAPI NG
 
@@ -80,18 +80,18 @@ Windows 8 以降では、オペレーティング システムは、DPAPI NG (CN
 
 ```csharp
 sc.AddDataProtection()
-     // uses the descriptor rule "SID=S-1-5-21-..."
-     .ProtectKeysWithDpapiNG("SID=S-1-5-21-...",
-       flags: DpapiNGProtectionDescriptorFlags.None);
-   ```
+    // uses the descriptor rule "SID=S-1-5-21-..."
+    .ProtectKeysWithDpapiNG("SID=S-1-5-21-...",
+    flags: DpapiNGProtectionDescriptorFlags.None);
+```
 
-ProtectKeysWithDpapiNG のパラメーターなしのオーバー ロードもあります。 これは、ルールを指定するための便利なメソッド"SID とマイニング ="で、私は現在の Windows ユーザー アカウントの SID。
+パラメーターなしのオーバー ロードもあります`ProtectKeysWithDpapiNG`です。 これは、ルールを指定するための便利なメソッド"SID とマイニング ="で、私は現在の Windows ユーザー アカウントの SID。
 
 ```csharp
 sc.AddDataProtection()
-     // uses the descriptor rule "SID={current account SID}"
-     .ProtectKeysWithDpapiNG();
-   ```
+    // uses the descriptor rule "SID={current account SID}"
+    .ProtectKeysWithDpapiNG();
+```
 
 このシナリオでは、AD ドメイン コント ローラーは DPAPI NG 操作で使用される暗号化キーの配布を担当します。 ターゲット ユーザーは、(その id では、プロセスは実行されている) を指定した任意のドメインに参加しているコンピューターから暗号化されたペイロードを解読することはできます。
 
@@ -101,13 +101,13 @@ Windows 8.1 で実行している場合/Windows Server 2012 R2 以降を使用�
 
 ```csharp
 sc.AddDataProtection()
-       // searches the cert store for the cert with this thumbprint
-       .ProtectKeysWithDpapiNG("CERTIFICATE=HashId:3BCE558E2AD3E0E34A7743EAB5AEA2A9BD2575A0",
-           flags: DpapiNGProtectionDescriptorFlags.None);
-   ```
+    // searches the cert store for the cert with this thumbprint
+    .ProtectKeysWithDpapiNG("CERTIFICATE=HashId:3BCE558E2AD3E0E34A7743EAB5AEA2A9BD2575A0",
+        flags: DpapiNGProtectionDescriptorFlags.None);
+```
 
 このリポジトリに設定されているすべてのアプリケーションは、Windows 8.1 で実行されている必要があります/Windows Server 2012 R2 以降をこのキーを解読します。
 
 ## <a name="custom-key-encryption"></a>カスタムのキーの暗号化
 
-インボックス メカニズムが適切でない場合、開発者はカスタム IXmlEncryptor を提供することによって独自のキーの暗号化メカニズムを指定できます。
+カスタムを提供することによって、開発者が独自のキーの暗号化メカニズムを指定するインボックス メカニズムが適切でない場合`IXmlEncryptor`です。

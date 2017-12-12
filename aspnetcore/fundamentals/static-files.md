@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/static-files
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40c9a799c6ac8a2ce712df4b8fbf3c142ef3fd82
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: c0751576a1391f26f045c3f8c42ea39c0ff6e5d9
+ms.sourcegitcommit: e4fb6b13be56a0fb2f2778623740a047d6489227
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="working-with-static-files-in-aspnet-core"></a>ASP.NET Core での静的ファイルの操作
 
@@ -68,6 +68,8 @@ NuGet パッケージ"Microsoft.AspNetCore.StaticFiles"を含める必要があ�
 `StaticFileOptions()`応答ヘッダーを設定できます。 たとえば、次のコード設定静的ファイルの提供から、 *wwwroot*フォルダーと設定、 `Cache-Control` 10 分 (600 秒) をパブリックにキャッシュできるようにするヘッダー。
 
 [!code-csharp[Main](../fundamentals/static-files/sample/StartupAddHeader.cs?name=snippet1)]
+
+[HeaderDictionaryExtensions.Append](/dotnet/api/microsoft.aspnetcore.http.headerdictionaryextensions.append)メソッドはから利用可能な[Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/)パッケージです。 追加`using Microsoft.AspNetCore.Http;`を*csharp*ファイルの場合は、メソッドは使用できません。
 
 ![Cache-control ヘッダーを示す応答ヘッダーが追加されました](static-files/_static/add-header.png)
 

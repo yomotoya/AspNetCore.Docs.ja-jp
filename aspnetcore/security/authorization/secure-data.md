@@ -10,11 +10,11 @@ ms.assetid: abeb2f8e-dfbf-4398-a04c-338a613a65bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: 000b14ddc1adb56c029d3da8ab0754215403ba79
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: 8eeb5d71575fd819239da6dd63dd31e323fb0556
+ms.sourcegitcommit: 96af03c9f44f7c206e68ae3ef8596068e6b4e5fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成します。
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/13/2017
 
 A`ContactIsOwnerAuthorizationHandler`承認ハンドラーにより、ユーザーがそのデータを編集できるのみです。 A`ContactManagerAuthorizationHandler`承認ハンドラーは、承認または却下の連絡先のマネージャーを使用します。  A`ContactAdministratorsAuthorizationHandler`承認ハンドラーは、管理者の承認または拒否の連絡先を編集/削除の連絡先を使用します。 
 
-## <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 これは最初のチュートリアルではありません。 理解しておく必要があります。
 
@@ -186,7 +186,7 @@ Entity Framework のコアを使用してサービスを登録する必要があ
 
 ### <a name="add-a-contact-operations-requirements-class"></a>連絡先の操作の要件のクラスを追加します。
 
-追加、`ContactOperationsRequirements`クラスを*承認*フォルダーです。 このクラスは、要件を含む、アプリケーションがサポートします。
+追加、`ContactOperations`クラスを*承認*フォルダーです。 このクラスは、要件を含む、アプリケーションがサポートします。
 
 [!code-csharp[Main](secure-data/samples/final/Authorization/ContactOperations.cs)]
 

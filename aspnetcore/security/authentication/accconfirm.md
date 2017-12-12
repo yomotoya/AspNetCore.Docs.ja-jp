@@ -5,20 +5,20 @@ description: "電子メールの確認とパスワードのリセットと ASP.N
 keywords: "ASP.NET Core、パスワードのリセット、確認の電子メール、セキュリティ"
 ms.author: riande
 manager: wpickett
-ms.date: 07/19/2017
+ms.date: 12/1/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: b05dd2fee50f6cc96058971daa42b069dbb6d21d
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 955064122d2335016c7eb3dd7451b14106a3b83f
+ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>アカウントの確認と ASP.NET Core でのパスワードの回復
 
-作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) および [Joe Audette](https://twitter.com/joeaudette) 
 
 このチュートリアルでは、電子メールの確認とパスワードのリセットと ASP.NET Core アプリケーションをビルドする方法を示します。
 
@@ -117,7 +117,7 @@ config.SignIn.RequireConfirmedEmail = true;
 
 このチュートリアルでは、SendGrid を使用して電子メールを送信します。 SendGrid アカウントと電子メールを送信するキーが必要です。 その他の電子メール プロバイダーを使用することができます。 ASP.NET Core 2.x が含まれています`System.Net.Mail`、アプリから電子メールを送信することができます。 SendGrid または別の電子メール サービスを使用して電子メールを送信することをお勧めします。
 
-[オプション パターン](xref:fundamentals/configuration#options-config-objects)ユーザー アカウントとキーの設定にアクセスするために使用します。 詳細については、次を参照してください。[構成](xref:fundamentals/configuration)です。
+[オプション パターン](xref:fundamentals/configuration/options)ユーザー アカウントとキーの設定にアクセスするために使用します。 詳細については、次を参照してください。[構成](xref:fundamentals/configuration/index)です。
 
 セキュリティで保護された電子メールのキーを取得するクラスを作成します。 このサンプルで、`AuthMessageSenderOptions`でクラスを作成、 *Services/AuthMessageSenderOptions.cs*ファイル。
 
@@ -195,6 +195,8 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 メソッド全体を強調表示されている変更された行が表示されます。
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Controllers/AccountController.cs?highlight=19&name=snippet_Register)]
+
+注: 上記のコードは失敗を実装する場合`IEmailSender`とテキスト形式の電子メールを送信します。 参照してください[この問題](https://github.com/aspnet/Home/issues/2152)の詳細については、問題を回避します。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 

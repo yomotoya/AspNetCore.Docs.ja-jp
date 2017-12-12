@@ -11,7 +11,7 @@
 1. Key vault の作成し、ガイダンスに従って、アプリケーションの Azure Active Directory (Azure AD) を設定[Azure Key Vault の使用開始](https://azure.microsoft.com/documentation/articles/key-vault-get-started/)です。
   * 使用して、資格情報コンテナーに機密情報を追加、 [AzureRM キー資格情報コンテナー PowerShell モジュール](/powershell/module/azurerm.keyvault)から使用可能な[PowerShell ギャラリー](https://www.powershellgallery.com/packages/AzureRM.KeyVault)、 [Azure Key Vault REST API](/rest/api/keyvault/)、または、 [Azure ポータル](https://portal.azure.com/)です。 機密情報は、いずれかとして作成*手動*または*証明書*シークレット。 *証明書*シークレットはアプリやサービスで使用する証明書が、構成プロバイダーによってサポートされていません。 使用する必要があります、*手動*構成プロバイダーを使用するための名前と値のペアの機密情報を作成するオプションです。
     * 単純なシークレットは、名前と値のペアとして作成されます。 Azure Key Vault のシークレット名は、英数字とハイフンに制限されます。
-    * 階層型の値 (構成セクション) を使用して`--`(2 つのハイフン)、サンプルでは、区切り記号として。 サブキーのセクションを区切るために通常使用されるコロン[ASP.NET Core 構成](xref:fundamentals/configuration)、シークレット名に許可されていません。 そのため、2 個のダッシュが使用され、コロン、シークレットは、アプリの構成に読み込まれるときに切り替わります。
+    * 階層型の値 (構成セクション) を使用して`--`(2 つのハイフン)、サンプルでは、区切り記号として。 サブキーのセクションを区切るために通常使用されるコロン[ASP.NET Core 構成](xref:fundamentals/configuration/index)、シークレット名に許可されていません。 そのため、2 個のダッシュが使用され、コロン、シークレットは、アプリの構成に読み込まれるときに切り替わります。
     * 2 つ作成*手動*機密情報の次の名前と値のペアを使用します。 最初のシークレットは、単純な名前と値を 2 番目のシークレット セクションとシークレットの名前のサブキーを使用して秘密の値を作成します。
       * `SecretName`: `secret_value_1`
       * `Section--SecretName`: `secret_value_2`

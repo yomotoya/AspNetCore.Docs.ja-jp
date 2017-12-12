@@ -1,8 +1,8 @@
 ---
 title: "単純な承認"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "このドキュメントでは、Authorize 属性を使用して ASP.NET Core コント ローラーとアクションへのアクセスを制限する方法について説明します。"
+keywords: "ASP.NET Core、承認、AuthorizeAttribute"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,68 +11,68 @@ ms.assetid: 391bcaad-205f-43e4-badc-fa592d6f79f3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/simple
-ms.openlocfilehash: 013ce0d9ac1e9c1b6bb541b9fa66218c3fd799bb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: f2dad58ffa17259412077d31f512b561e79ac595
+ms.sourcegitcommit: b38796ea3806bf39b89806adfa681b2a33762907
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="simple-authorization"></a>単純な承認
 
-<a name=security-authorization-simple></a>
+<a name="security-authorization-simple"></a>
 
-MVC での承認はによって制御されます、`AuthorizeAttribute`属性とそのさまざまなパラメーターです。 その最も簡単な適用することで、`AuthorizeAttribute`属性をコント ローラーまたはアクションへのアクセス制限コント ローラーまたは認証されたユーザーに操作します。
+MVC での承認はによって制御されます、`AuthorizeAttribute`属性とそのさまざまなパラメーターです。 簡単に言うと、適用、`AuthorizeAttribute`属性をコント ローラーまたはアクションへのアクセス制限コント ローラーまたは認証されたユーザーに操作します。
 
 たとえば、次のコードがへのアクセスを制限、`AccountController`認証されたユーザーにします。
 
 ```csharp
 [Authorize]
-   public class AccountController : Controller
-   {
-       public ActionResult Login()
-       {
-       }
+public class AccountController : Controller
+{
+    public ActionResult Login()
+    {
+    }
 
-       public ActionResult Logout()
-       {
-       }
-   }
-   ```
+    public ActionResult Logout()
+    {
+    }
+}
+```
 
-単に、コント ローラーではなく、アクションに承認を適用する場合は、適用、`AuthorizeAttribute`属性をアクション自体です。
+コント ローラーではなく、アクションに承認を適用する場合は、適用、`AuthorizeAttribute`操作自体に属性します。
 
 ```csharp
 public class AccountController : Controller
+{
+   public ActionResult Login()
    {
-       public ActionResult Login()
-       {
-       }
-
-       [Authorize]
-       public ActionResult Logout()
-       {
-       }
    }
-   ```
 
-これで認証されたユーザーだけは logout 関数にアクセスできます。
+   [Authorize]
+   public ActionResult Logout()
+   {
+   }
+}
+```
 
-使用することも、`AllowAnonymousAttribute`を個々 のアクションに認証されていないユーザーによるアクセスを許可する属性の例
+認証されたユーザーのみがアクセスできるようになりました、`Logout`関数。
+
+使用することも、`AllowAnonymousAttribute`を個別のアクションに認証されていないユーザーによるアクセスを許可する属性。 例:
 
 ```csharp
 [Authorize]
-   public class AccountController : Controller
-   {
-       [AllowAnonymous]
-       public ActionResult Login()
-       {
-       }
+public class AccountController : Controller
+{
+    [AllowAnonymous]
+    public ActionResult Login()
+    {
+    }
 
-       public ActionResult Logout()
-       {
-       }
-   }
-   ```
+    public ActionResult Logout()
+    {
+    }
+}
+```
 
 認証されたユーザーのみをこのようにすると、 `AccountController`、を除き、`Login`がその認証されたか、認証されていない/匿名の状態に関係なく、だれがアクセス可能なアクションです。
 

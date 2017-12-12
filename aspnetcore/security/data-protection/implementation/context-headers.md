@@ -1,8 +1,8 @@
 ---
 title: "コンテキスト ヘッダー"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "このドキュメントでは、ASP.NET Core データ保護コンテキスト ヘッダーの実装の詳細について説明します。"
+keywords: "ASP.NET Core、データ保護、コンテキスト ヘッダー"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: a47d2f91e6764bf6760ea559f1e2753e966753e3
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: eb8e4c9ad67d3046648aea1b45f4a675b41b3ec0
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="context-headers"></a>コンテキスト ヘッダー
 
-<a name=data-protection-implementation-context-headers></a>
+<a name="data-protection-implementation-context-headers"></a>
 
 ## <a name="background-and-theory"></a>背景と理論的には
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 09/28/2017
 
 ## <a name="cbc-mode-encryption--hmac-authentication"></a>CBC モードの暗号化 + HMAC 認証
 
-<a name=data-protection-implementation-context-headers-cbc-components></a>
+<a name="data-protection-implementation-context-headers-cbc-components"></a>
 
 コンテキスト ヘッダーは、次のコンポーネントで構成されます。
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 09/28/2017
 
 * MAC (K_H、"")、これは、空の文字列入力を使用する HMAC アルゴリズムの出力。 K_H の構築は次のとおりです。
 
-理想的にはすべてゼロのベクトル K_E および K_H 渡します可能性があります。 ただし、基になるアルゴリズムがすべてゼロ ベクターのような単純型または反復可能なパターンを使用してを除外する (特に DES、3 des) の操作を実行する前に弱いキーの有無を確認するような状況を回避します。
+理想的には、すべてゼロのベクトル K_E および K_H 渡します可能性があります。 ただし、基になるアルゴリズムがすべてゼロ ベクターのような単純型または反復可能なパターンを使用してを除外する (特に DES、3 des) の操作を実行する前に弱いキーの有無を確認するような状況を回避します。
 
 代わりに、NIST SP800 108 KDF カウンター モードで使用 (を参照してください[NIST SP800 108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf)、秒 5.1) 長さ 0 キー、ラベル、およびコンテキストおよび基になる PRF として HMACSHA512 を使用します。 派生お |K_E |+ |K_H |出力のバイトし、結果に分解 K_E と K_H 自体です。 数学的に、これはように表されます。
 

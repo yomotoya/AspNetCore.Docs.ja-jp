@@ -1,8 +1,8 @@
 ---
 title: "クロスサイト スクリプティングの防止"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "このドキュメントでは、クロスサイト スクリプト (XSS) と ASP.NET Core アプリケーションでこの脆弱性に対処するための手法を紹介します。"
+keywords: "ASP.NET Core、XSS、脆弱性"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 95790927-2bfe-445e-b1fd-429c2c7030ce
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cross-site-scripting
-ms.openlocfilehash: 1816977837efd82f374a03d9f776db21358e2850
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fdb26a8338b98135cfc3f6bce9d87285e9a7eb12
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="preventing-cross-site-scripting"></a>クロスサイト スクリプティングの防止
 
-<a name=security-cross-site-scripting></a>
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 クロス サイト スクリプト (XSS) は、セキュリティの脆弱性に攻撃者がクライアント側スクリプト (JavaScript では通常) を web ページに配置することができます。 他のユーザーは、該当するページが、攻撃者がスクリプト実行を読み込み、ときに、攻撃者が cookie やセッション トークンを盗んだりを有効にする DOM を介した web ページの内容を変更または別のページにブラウザーをリダイレクトします。 XSS の脆弱性は、通常、アプリケーション ユーザーの入力を受け取りを検証する、エンコードまたはエスケープすることなしは、ページの出力時に行われます。
 
@@ -183,7 +183,7 @@ var example = "\"Quoted Value with spaces and &\"";
 >[!WARNING]
 > URL パスの一部として信頼されていない入力を使用しません。 常に信頼されていない入力を渡すクエリ文字列値として。
 
-<a name=security-cross-site-scripting-customization></a>
+<a name="security-cross-site-scripting-customization"></a>
 
 ## <a name="customizing-the-encoders"></a>エンコーダーのカスタマイズ
 

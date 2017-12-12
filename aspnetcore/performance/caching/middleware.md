@@ -1,26 +1,24 @@
 ---
 title: "応答の ASP.NET Core のミドルウェアのキャッシュ"
 author: guardrex
-description: "構成および ASP.NET Core アプリケーションでキャッシュ ミドルウェアの応答を使用します。"
-keywords: "ASP.NET Core 応答のキャッシュ、キャッシュ、ResponseCache、ResponseCaching、Cache-control、VaryByQueryKeys、ミドルウェア"
+description: "構成および ASP.NET Core アプリケーションでキャッシュ ミドルウェアの応答を使用する方法を説明します。"
 ms.author: riande
 manager: wpickett
 ms.date: 08/22/2017
 ms.topic: article
-ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: bc3350a7ef15c5c38aa072bab15cbddc7d0ee0fa
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: f3312d0c333b47169c71891eea79f03be0abcfa3
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>応答の ASP.NET Core のミドルウェアのキャッシュ
 
 によって[Luke Latham](https://github.com/guardrex)と[John Luo](https://github.com/JunTaoLuo)
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 このドキュメントでは、ASP.NET Core アプリケーションの応答のキャッシュ ミドルウェアを構成する方法の詳細を説明します。 ミドルウェアは、応答がキャッシュ可能な場合、ストア応答、およびキャッシュからの応答の機能を決定します。 HTTP キャッシュの概要について、`ResponseCache`属性は、「[応答のキャッシュ](response.md)です。
 
@@ -95,7 +93,7 @@ if (responseCachingFeature != null)
 | Header | 詳細 |
 | ------ | ------- |
 | 承認 | ヘッダーが存在する場合、応答がキャッシュされません。 |
-| キャッシュ制御 | マークされた応答をキャッシュにのみ考慮ミドルウェア、`public`キャッシュ ディレクティブです。 次のパラメーターでキャッシュを制御できます。<ul><li>最大継続期間</li><li>最大値、古くなって & #8224 です。</li><li>min 新規</li><li>必須の再検証</li><li>キャッシュなし</li><li>no ストア</li><li>専用の場合のキャッシュ</li><li>private</li><li>public</li><li>s maxage</li><li>プロキシの再検証 & #8225 です。</li></ul>&#8224; に制限が指定されていない場合`max-stale`ミドルウェアの動作は行いません。<br>& #8225 です。`proxy-revalidate`と同じ効果を持つ`must-revalidate`します。<br><br>詳細については、次を参照してください。 [RFC 7231: 要求のキャッシュ制御ディレクティブ](https://tools.ietf.org/html/rfc7234#section-5.2.1)です。 |
+| キャッシュ制御 | マークされた応答をキャッシュにのみ考慮ミドルウェア、`public`キャッシュ ディレクティブです。 次のパラメーターでキャッシュを制御できます。<ul><li>最大継続期間</li><li>最大値、古くなって &#8224;です。</li><li>min 新規</li><li>必須の再検証</li><li>キャッシュなし</li><li>no ストア</li><li>専用の場合のキャッシュ</li><li>private</li><li>public</li><li>s maxage</li><li>プロキシの再検証 &#8225;です。</li></ul>&#8224; に制限が指定されていない場合`max-stale`ミドルウェアの動作は行いません。<br>&#8225;です。`proxy-revalidate`と同じ効果を持つ`must-revalidate`します。<br><br>詳細については、次を参照してください。 [RFC 7231: 要求のキャッシュ制御ディレクティブ](https://tools.ietf.org/html/rfc7234#section-5.2.1)です。 |
 | プラグマ | A`Pragma: no-cache`要求のヘッダーと同じ効果を生成する`Cache-Control: no-cache`です。 このヘッダーは、関連するディレクティブによってオーバーライド、`Cache-Control`ヘッダーが存在する場合。 Http/1.0 との下位互換性と見なされます。 |
 | Set-cookie | ヘッダーが存在する場合、応答がキャッシュされません。 |
 | 異なる | `Vary`ヘッダーがキャッシュされた応答を変更する別のヘッダーで使用されます。 含めることによってエンコードすることによって応答をキャッシュするなど、`Vary: Accept-Encoding`ヘッダーで要求に対する応答がキャッシュされているヘッダー`Accept-Encoding: gzip`と`Accept-Encoding: text/plain`とは別にします。 ヘッダーの値を含む応答`*`は保存されません。 |
@@ -112,13 +110,13 @@ if (responseCachingFeature != null)
 
 [ミドルウェアは将来拡張](https://github.com/aspnet/ResponseCaching/issues/96)キャッシュのシナリオのミドルウェアの構成を許可する場所要求`Cache-Control`するキャッシュされた応答が機能するように決定する際に、ヘッダーを無視する必要があります。 キャッシュ動作をより詳細に制御をシークする場合は、ASP.NET Core のキャッシュの他の機能を探索します。 次のトピックを参照してください。
 
-* [ASP.NET Core でのメモリ内キャッシュの概要](xref:performance/caching/memory)
+* [メモリ内キャッシュ](xref:performance/caching/memory)
 * [分散キャッシュの使用](xref:performance/caching/distributed)
 * [ASP.NET Core MVC でのタグ ヘルパーをキャッシュします。](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
 
 ## <a name="troubleshooting"></a>トラブルシューティング
-キャッシュの動作が期待どおりでない場合は、応答がキャッシュを備え、確認するには、要求の受信ヘッダーおよび応答の送信ヘッダーがキャッシュから提供されていることを確認します。 有効にする[ログ](xref:fundamentals/logging)をデバッグするときに役立つことができます。 ミドルウェアは、キャッシュの動作および応答がキャッシュから取得されたときを記録します。
+キャッシュの動作が期待どおりでない場合は、応答がキャッシュを備え、確認するには、要求の受信ヘッダーおよび応答の送信ヘッダーがキャッシュから提供されていることを確認します。 有効にする[ログ](xref:fundamentals/logging/index)をデバッグするときに役立つことができます。 ミドルウェアは、キャッシュの動作および応答がキャッシュから取得されたときを記録します。
 
 キャッシュの動作のトラブルシューティングと、テスト時に、ブラウザーは、望ましくない方法でキャッシュに影響する要求ヘッダーを設定可能性があります。 たとえば、ブラウザーを設定、`Cache-Control`ヘッダーを`no-cache`ページを更新するときにします。 次のツールは、要求ヘッダーを明示的に設定でき、キャッシュのテストに適しています。
 
@@ -148,3 +146,9 @@ if (responseCachingFeature != null)
 
 * [アプリケーションの起動](xref:fundamentals/startup)
 * [ミドルウェア](xref:fundamentals/middleware)
+* [メモリ内キャッシュ](xref:performance/caching/memory)
+* [分散キャッシュの使用](xref:performance/caching/distributed)
+* [変更のトークンを使用して変更を検出します。](xref:fundamentals/primitives/change-tokens)
+* [応答キャッシュ](xref:performance/caching/response)
+* [キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

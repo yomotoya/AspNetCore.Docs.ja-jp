@@ -1,8 +1,8 @@
 ---
 title: "クロス オリジン要求 (CORS) を有効にします。"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "このドキュメントでは、許可するか、または ASP.NET Core アプリケーションでのクロス オリジン要求を拒否するための基準として CORS が導入されています。"
+keywords: "ASP.NET Core、CORS をクロス オリジン"
 ms.author: riande
 manager: wpickett
 ms.date: 05/17/2017
@@ -11,11 +11,11 @@ ms.assetid: f9d95e88-4d7e-4d0c-a8e1-47de1128d505
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: e441ce1c50139a5b33865eec8e8d99764258730d
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 5398b6ad6531710de2b8000cb368e5fa607ae7ff
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>クロス オリジン要求 (CORS) を有効にします。
 
@@ -58,7 +58,7 @@ Startup.cs の CORS サービスを追加します。
 
 ## <a name="enabling-cors-with-middleware"></a>ミドルウェアで CORS を有効にします。
 
-有効にする、アプリケーション全体の CORS では、要求パイプラインを使用して、CORS ミドルウェアを追加、`UseCors`拡張メソッド。 CORS ミドルウェアが (ex クロス オリジン要求をサポートするアプリで定義されたエンドポイントを付ける必要がありますに注意してください。。 呼び出しの前に`UseMvc`)。
+有効にする、アプリケーション全体の CORS では、要求パイプラインを使用して、CORS ミドルウェアを追加、`UseCors`拡張メソッド。 CORS ミドルウェアが (ex クロス オリジン要求をサポートするアプリで定義されたエンドポイントを付ける必要がありますに注意してください。 呼び出しの前に`UseMvc`)。
 
 クロス オリジン ポリシーを指定するには、CORS ミドルウェアを使用して、追加するときに、`CorsPolicyBuilder`クラスです。 これには、2 つの方法があります。 1 つは、ラムダで UseCors を呼び出すには。
 
@@ -219,7 +219,7 @@ $.ajax({
 
 [!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=89-94)]
 
-<a name=cors-how-cors-works></a>
+<a name="cors-how-cors-works"></a>
 
 ## <a name="how-cors-works"></a>CORS のしくみ
 
@@ -240,7 +240,7 @@ User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6
 Host: myservice.azurewebsites.net
 ```
 
-サーバーは、要求を許可している場合は、アクセス コントロール-を許可する-オリジン ヘッダーを設定します。 このヘッダーの値は、Origin ヘッダーと一致するか、ワイルドカード文字は、"*"、すべてのオリジンを許可されていることを意味します。。
+サーバーは、要求を許可している場合は、応答でアクセス制御の許可する-オリジン ヘッダーを設定します。 このヘッダーの値は、要求の Origin ヘッダーと一致するか、ワイルドカード文字は、"*"、すべてのオリジンを許可されていることを意味します。
 
 ```
 HTTP/1.1 200 OK

@@ -1,8 +1,8 @@
 ---
 title: "キー管理"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "このドキュメントでは、ASP.NET Core データ保護キー管理 Api の実装の詳細について説明します。"
+keywords: "ASP.NET Core、データ保護、キー管理"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: fb9b807a-d143-4861-9ddb-005d8796afa3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 507c00edc5bade2427151ecadfed581817e4d088
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: d9e38fd5c8de2b10ad24fe557aa6e3063e40236e
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="key-management"></a>キー管理
 
-<a name=data-protection-implementation-key-management></a>
+<a name="data-protection-implementation-key-management"></a>
 
-データ保護システムは、自動的に保護し、ペイロードの保護を解除するために使用するマスター _ キーの有効期間を管理します。 各キーは、次の 4 つのステージのいずれかに存在できます。
+データ保護システムは、自動的に保護し、ペイロードの保護を解除するために使用するマスター _ キーの有効期間を管理します。 各キーは、4 つの段階のいずれかに存在できます。
 
 * 作成されるキーはキー リング内に存在するが、まだアクティブになっていません。 キー使用できない新しい保護する操作のための十分な時間が経過するまで、キーがこのキーのリングを消費しているすべてのマシンに反映されるまでの機会がいること。
 
@@ -44,9 +44,9 @@ ms.lasthandoff: 08/11/2017
 
 新しいキーの生成を新しいキーの前にライセンス認証されたすべてのキーの有効期限が暗黙の型として扱うことが別のキーにフォールバックするのではなく、データ保護システムの理由がすぐに新しいキーを生成します。 基本的な考え方されている新しいキーが別のアルゴリズムまたはより古いキー、暗号化の両方のメカニズムで構成されたシステムはフォールバック経由では、現在の構成を優先する必要があります。
 
-例外が発生しました。 場合は、アプリケーション開発者がある[自動キーの生成を無効になっている](../configuration/overview.md#data-protection-configuring-disable-automatic-key-generation)、データ保護システムで、既定のキーとしてものを選択する必要があります。 このフォールバック シナリオでは、システムは、クラスター内の他のマシンに反映されるまでの時間をかけてキーに指定された基本設定の最新のライセンス認証日、失効して非キーを選択します。 フォールバック システムは、その結果、既定の有効期限が切れたキーの選択をなる可能性があります。 フォールバック システムは既定のキーと失効したキーを選択しないと、キー リングが空か、すべてのキーが失効していない場合は、システムが初期化時にエラーが発生します。
+例外が発生しました。 場合は、アプリケーション開発者がある[自動キーの生成を無効になっている](xref:security/data-protection/configuration/overview#disableautomatickeygeneration)、データ保護システムで、既定のキーとしてものを選択する必要があります。 このフォールバック シナリオでは、システムは、クラスター内の他のマシンに反映されるまでの時間をかけてキーに指定された基本設定の最新のライセンス認証日、失効して非キーを選択します。 フォールバック システムは、その結果、既定の有効期限が切れたキーの選択をなる可能性があります。 フォールバック システムは既定のキーと失効したキーを選択しないと、キー リングが空か、すべてのキーが失効していない場合は、システムが初期化時にエラーが発生します。
 
-<a name=data-protection-implementation-key-management-expiration></a>
+<a name="data-protection-implementation-key-management-expiration"></a>
 
 ## <a name="key-expiration-and-rolling"></a>キーの期限切れとロール
 
@@ -62,24 +62,24 @@ ms.lasthandoff: 08/11/2017
 services.AddDataProtection()
        // use 14-day lifetime instead of 90-day lifetime
        .SetDefaultKeyLifetime(TimeSpan.FromDays(14));
-   ```
+```
 
-管理者は、SetDefaultKeyLifetime を明示的に呼び出すには、任意のシステム全体のポリシーがよりも優先されますが既定システム全体を変更することもできます。 既定キーの有効期間は 7 日間よりも短くすることはできません。
+管理者を変更することも、システム全体で既定値もを明示的に呼び出す`SetDefaultKeyLifetime`システム全体のポリシーよりも優先されます。 既定キーの有効期間は 7 日間よりも短くすることはできません。
 
-## <a name="automatic-keyring-refresh"></a>自動キーリング更新
+## <a name="automatic-key-ring-refresh"></a>自動キー リング更新
 
 データ保護システム初期化すると、基になるリポジトリからのキー リングの読み取りし、メモリ内キャッシュします。 このキャッシュは、保護と保護の解除の操作をバッキング ストアに達することなしに続行できます。 システムでは、約 24 時間ごと、またはどちらか早い方が、現在の既定のキーが経過すると、変更のバッキング ストアが自動的にチェックします。
 
 >[!WARNING]
 > 場合は、開発者が非常にまれには、キー管理 Api を直接使用する必要があります。 データ保護システムは上記のように、自動キー管理を実行します。
 
-データ保護システムでは、IKeyManager キー リングに検査および変更するために使用するインターフェイスを公開します。 DI システム IDataProtectionProvider のインスタンスを指定するには、使用量に対する IKeyManager のインスタンスも提供できます。 代わりに、プル、IKeyManager 直線次の例のように IServiceProvider からです。
+インターフェイスを公開するデータ保護システム`IKeyManager`を使用して、検査し、キー リングに変更を加えることができます。 インスタンスを提供する DI システム`IDataProtectionProvider`のインスタンスを指定できますも`IKeyManager`の使用量に対するです。 プルする代わりに、`IKeyManager`から直接、`IServiceProvider`次の例のようにします。
 
-キーのリング (明示的に新しいキーを作成または失効を実行する) を変更するすべての操作は、メモリ内キャッシュを無効になります。 保護または保護の解除するには、次の呼び出しには、キー リングを再度読み取るし、キャッシュを再作成するデータ保護システムが発生します。
+キーのリング (明示的に新しいキーを作成または失効を実行する) を変更するすべての操作は、メモリ内キャッシュを無効になります。 次に呼び出した`Protect`または`Unprotect`キー リングを再度読み取るし、キャッシュを再作成するデータ保護システムが発生します。
 
-以下のサンプルでは、検査し、取り消しの既存のキーや、新しいキーを手動で生成するなど、キーのリングを操作する IKeyManager インターフェイスの使用方法を示します。
+次の例では、使用方法を示します、`IKeyManager`を検査および取り消しの既存のキーや、新しいキーを手動で生成するなど、キーのリングを操作するインターフェイスです。
 
-[!code-none[Main](key-management/samples/key-management.cs)]
+[!code-csharp[Main](key-management/samples/key-management.cs)]
 
 ## <a name="key-storage"></a>キーの格納
 

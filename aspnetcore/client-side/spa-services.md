@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3c38a1730e43586f37cd773bb8daa418736952f
-ms.sourcegitcommit: b3d46df910fb679edb8dd47234db6b4da604eedb
+ms.openlocfilehash: 8d47910beef9195295c8da6ac81b83b3ffe20124
+ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>ASP.NET Core での単一ページ アプリケーションを作成するため JavaScriptServices を使用します。
 
@@ -98,11 +98,11 @@ ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって�
 
 タグ ヘルパーは、プロジェクトの名前空間登録を使用して探索可能にされて*_ViewImports.cshtml*ファイル。
 
-[!code-csharp[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/_ViewImports.cshtml?highlight=3)]
+[!code-cshtml[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/_ViewImports.cshtml?highlight=3)]
 
 これらのタグ ヘルパーは、Razor ビュー内の HTML に似た構文を活用することで、低レベルの Api と直接通信の複雑さを抽象します。
 
-[!code-html[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=5)]
+[!code-cshtml[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=5)]
 
 ### <a name="the-asp-prerender-module-tag-helper"></a>`asp-prerender-module`ヘルパーにタグ付け
 
@@ -118,7 +118,7 @@ ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって�
 
 組み合わせると、`asp-prerender-module`タグ ヘルパーの`asp-prerender-data`タグ ヘルパーは、Razor ビューから、サーバー側 JavaScript にコンテキスト情報を渡すために使用できます。 たとえば、次のマークアップ合格とユーザー データを`main-server`モジュール。
 
-[!code-html[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=9-12)]
+[!code-cshtml[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=9-12)]
 
 受信した`UserName`引数は、組み込みの JSON シリアライザーを使用してシリアル化されに格納されて、`params.data`オブジェクト。 内の個人用に設定された応答メッセージを構築するために次の角度の例では、データが使用される、`h1`要素。
 

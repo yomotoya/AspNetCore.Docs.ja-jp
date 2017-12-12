@@ -11,11 +11,11 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 92085829d2a37a2aa6080aeb34a5e14be95e02d8
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 40aa105dcf06b269025d0c44e5cd7bffef271e9d
+ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="model-binding"></a>モデル バインディング
 
@@ -61,9 +61,19 @@ The link works but generates an error when building with DocFX
 
 バインディングが発生するためにクラスにパブリックの既定のコンス トラクターが必要し、バインドされるメンバーはパブリックの書き込み可能なプロパティである必要があります。 クラスはパブリックの既定のコンス トラクターを使用するインスタンスのみをモデル バインディングが発生したときにプロパティを設定することができます。
 
-パラメーターがバインドされている場合は、モデル バインディングがその名前を持つ値を探してを停止し、次のパラメーターをバインドする上を移動します。 バインドが失敗する、MVC では、エラーはスローされません。 照会できますモデル状態エラーをチェックして、`ModelState.IsValid`プロパティです。
+パラメーターがバインドされている場合は、モデル バインディングがその名前を持つ値を探してを停止し、次のパラメーターをバインドする上を移動します。 それ以外の場合、モデル バインディング動作は、その種類に応じて既定値にパラメーターを設定します。
 
-注意: コント ローラーのエントリの各`ModelState`プロパティは、`ModelStateEntry`を含む、`Errors property`です。 このコレクションを照会することはほとんどありません必要があります。 代わりに、 `ModelState.IsValid` を使用してください。
+* `T[]`: 例外の型の配列`byte[]`、バインディングで型のパラメーターが設定`T[]`に`Array.Empty<T>()`です。 型の配列`byte[]`に設定されている`null`です。
+
+* 参照の種類: バインディング インスタンスを作成クラスの既定のコンス トラクターでプロパティを設定しない場合。 ただし、このモデル バインド セット`string`パラメーター`null`です。
+
+* Null 許容型: null 許容型に設定されて`null`です。 上記の例では、モデル バインディング セット`id`に`null`型であるため`int?`です。
+
+* 値の型: 型の null 非許容の値の型`T`に設定されている`default(T)`です。 モデル バインディング パラメーターの設定など、`int id`を 0 にします。 既定値に依存するのではなく、モデルの検証または null 許容型を使用して検討してください。
+
+バインドが失敗する、MVC では、エラーはスローされません。 ユーザー入力を受け付けるすべてのアクションを確認する必要があります、`ModelState.IsValid`プロパティです。
+
+注意: コント ローラーのエントリの各`ModelState`プロパティは、`ModelStateEntry`を含む、`Errors`プロパティです。 このコレクションを照会することはほとんどありません必要があります。 代わりに、 `ModelState.IsValid` を使用してください。
 
 また、モデル バインディングを実行するときに、MVC は考慮する必要がありますのあるいくつかの特別なデータ型があります。
 

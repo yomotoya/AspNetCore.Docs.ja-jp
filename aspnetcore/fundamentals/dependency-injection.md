@@ -12,21 +12,21 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5c903a72d004afac55fbcc04ad157442e7a18ee
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 8d12960708f9d9bf2bc7c5997f82096d93087d13
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>ASP.NET Core の依存関係の挿入の概要
 
-<a name=fundamentals-dependency-injection></a>
+<a name="fundamentals-dependency-injection"></a>
 
 によって[Steve Smith](https://ardalis.com/)と[Scott Addie](https://scottaddie.com)
 
 ASP.NET Core は、まったく新たに設計をサポートし、依存関係の挿入を活用します。 ASP.NET Core アプリケーションは、スタートアップ クラス内のメソッドを挿入することによってサービスを組み込みフレームワークを利用でき、挿入もアプリケーション サービスを構成することができます。 ASP.NET Core によって提供される既定のサービス コンテナーは、最小限の機能が設定され、その他のコンテナーを置き換えるものではありませんを提供します。
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="what-is-dependency-injection"></a>依存関係の挿入とは何ですか。
 
@@ -143,7 +143,7 @@ Entity Framework コンテキストは、サービスを使用してコンテナ
 >[!WARNING]
 > 注意しなければならないメイン危険性を解決する、`Scoped`単一サービスです。 このような場合は後続の要求を処理するときに、サービスが正しくない状態を持つこと可能性があります。
 
-依存関係のあるサービスをコンテナーに登録する必要があります。 かどうか、サービスのコンス トラクターが必要です、プリミティブなど、`string`を使用してこれを挿入できるか、[パターンと構成オプション](configuration.md)です。
+依存関係のあるサービスをコンテナーに登録する必要があります。 かどうか、サービスのコンス トラクターが必要です、プリミティブなど、`string`を使用してこれを挿入できます[構成](xref:fundamentals/configuration/index)と[オプション パターン](xref:fundamentals/configuration/options)です。
 
 ## <a name="service-lifetimes-and-registration-options"></a>サービスの有効期間と登録オプション
 
@@ -228,11 +228,16 @@ public class Service1 : IDisposable {}
 public class Service2 : IDisposable {}
 public class Service3 : IDisposable {}
 
+public interface ISomeService {}
+public class SomeServiceImplementation : ISomeService, IDisposable {}
+
+
 public void ConfigureServices(IServiceCollection services)
 {
     // container will create the instance(s) of these types and will dispose them
     services.AddScoped<Service1>();
     services.AddSingleton<Service2>();
+    services.AddSingleton<ISomeService>(sp => new SomeServiceImplementation());
 
     // container did not create instance so it will NOT dispose it
     services.AddSingleton<Service3>(new Service3());
@@ -296,7 +301,7 @@ public class DefaultModule : Module
 
 * DI では、複雑な依存関係のあるオブジェクト用です。 コント ローラー、サービス、アダプター、およびリポジトリ di が追加されるオブジェクトのすべての例に示します。
 
-* DI で直接データと構成を保存しないでください。 たとえば、ユーザーのショッピング カートは、通常サービス コンテナーに追加べきではありません。 構成を使用する必要があります、[オプション モデル](configuration.md#options-config-objects)です。 同様に、その他のオブジェクトへのアクセスを許可するだけに存在する「データ ホルダー」オブジェクトは避けてください。 可能であれば、DI、経由で必要な実際のアイテムを要求することをお勧めします。
+* DI で直接データと構成を保存しないでください。 たとえば、ユーザーのショッピング カートは、通常サービス コンテナーに追加べきではありません。 構成を使用する必要があります、[オプション パターン](xref:fundamentals/configuration/options)です。 同様に、その他のオブジェクトへのアクセスを許可するだけに存在する「データ ホルダー」オブジェクトは避けてください。 可能であれば、DI、経由で必要な実際のアイテムを要求することをお勧めします。
 
 * 静的なサービスにアクセスしないようにします。
 

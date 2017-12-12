@@ -11,15 +11,15 @@ ms.assetid: 5ac13589-3837-4b4d-8abe-81f843942120
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/compatibility/replacing-machinekey
-ms.openlocfilehash: 8c00c05a1120e65f503b70229466fcad561bc6a9
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: b5a1be5fee7489f266e8a676956f68b499c6f14f
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="replacing-machinekey-in-aspnet"></a>置き換える`<machineKey>`asp.net
 
-<a name=compatibility-replacing-machinekey></a>
+<a name="compatibility-replacing-machinekey"></a>
 
 実装、 `<machineKey>` ASP.NET 内の要素[交換](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/)です。 これにより、ほとんどの呼び出しを ASP.NET 暗号化ルーチン、新しいデータ保護システムを含む、交換用のデータ保護メカニズムを経由してルーティングされます。
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 09/22/2017
 > [!NOTE]
 > 新しいデータ保護システムには、.NET 4.5.1 を対象とする既存の ASP.NET アプリケーションにインストールされている以上のみを指定できます。 インストールをアプリケーションが .NET 4.5 を対象とする場合は失敗または削減します。
 
-既存の ASP.NET 4.5.1+ プロジェクトに新しいデータ保護システムをインストールするには、Microsoft.AspNetCore.DataProtection.SystemWeb パッケージをインストールします。 データ保護システムを使用して、これがインスタンス化され、[既定の構成](../configuration/default-settings.md#data-protection-default-settings)設定します。
+既存の ASP.NET 4.5.1+ プロジェクトに新しいデータ保護システムをインストールするには、Microsoft.AspNetCore.DataProtection.SystemWeb パッケージをインストールします。 データ保護システムを使用して、これがインスタンス化され、[既定の構成](xref:security/data-protection/configuration/default-settings)設定します。
 
 行が挿入、パッケージをインストールするときに*Web.config*のために使用する ASP.NET に指示[暗号化操作を最も](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/)(フォーム認証、ビューステートへの呼び出しなど)MachineKey.Protect です。 挿入される行は次のとおりです。
 
