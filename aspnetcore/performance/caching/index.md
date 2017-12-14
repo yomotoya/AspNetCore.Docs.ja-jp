@@ -1,25 +1,26 @@
 ---
 title: "キャッシュ"
 author: ardalis
-description: "キャッシュを使って高パフォーマンスを実現する方法を紹介します。"
-keywords: "ASP.NET Core, キャッシュ, パフォーマンス"
+description: "キャッシュを使用して ASP.NET Core アプリのパフォーマンスを向上させる方法を説明します。"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 1e73cf62-8862-4341-8816-83be1a3edc96
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/index
-ms.openlocfilehash: d9f73d93359058c12afd95408d80e96d0925f6d4
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: fc96850f726a5a2a9466691901b32001b8506e36
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="caching"></a>キャッシュ
+# <a name="caching"></a><span data-ttu-id="0564b-103">キャッシュ</span><span class="sxs-lookup"><span data-stu-id="0564b-103">Caching</span></span>
 
-* [メモリ内キャッシュ](memory.md)
-* [分散キャッシュの使用](distributed.md)
-* [応答キャッシュ](response.md)
-* [応答キャッシュ ミドルウェア](middleware.md)
+* [<span data-ttu-id="0564b-104">メモリ内キャッシュ</span><span class="sxs-lookup"><span data-stu-id="0564b-104">In-memory caching</span></span>](xref:performance/caching/memory)
+* [<span data-ttu-id="0564b-105">分散キャッシュの使用</span><span class="sxs-lookup"><span data-stu-id="0564b-105">Working with a distributed cache</span></span>](xref:performance/caching/distributed)
+* [<span data-ttu-id="0564b-106">変更トークンを使用する変更の検出</span><span class="sxs-lookup"><span data-stu-id="0564b-106">Detect changes with change tokens</span></span>](xref:fundamentals/primitives/change-tokens)
+* [<span data-ttu-id="0564b-107">応答キャッシュ</span><span class="sxs-lookup"><span data-stu-id="0564b-107">Response caching</span></span>](xref:performance/caching/response)
+* [<span data-ttu-id="0564b-108">応答キャッシュ ミドルウェア</span><span class="sxs-lookup"><span data-stu-id="0564b-108">Response Caching Middleware</span></span>](xref:performance/caching/middleware)
+* [<span data-ttu-id="0564b-109">キャッシュ タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="0564b-109">Cache Tag Helper</span></span>](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [<span data-ttu-id="0564b-110">分散キャッシュ タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="0564b-110">Distributed Cache Tag Helper</span></span>](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
