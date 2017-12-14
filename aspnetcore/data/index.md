@@ -1,28 +1,39 @@
 ---
 title: "ASP.NET Core でのデータの操作"
 author: rick-anderson
-description: 
+description: "データの操作に関する記事のリンクを紹介します。 多くのユーザーは Entity Framework Core を使用しています。"
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 10/14/2017
 ms.topic: article
-ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe0ba2ef
 ms.technology: aspnet
 ms.prod: asp.net-core
-ms.openlocfilehash: 3566127476289ae085a9161132b103638bc9b068
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+uid: data/index
+ms.openlocfilehash: b3bcd15a078ed2125d14c3e94311e385a1db9683
+ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="working-with-data-in-aspnet-core"></a>ASP.NET Core でのデータの操作 
 
+* [Visual Studio を使用した Razor ページと Entity Framework Core の概要](xref:data/ef-rp/index)
+
+   * [Razor ページと EF の概要](xref:data/ef-rp/intro)
+   * [作成、読み取り、更新、削除の操作](xref:data/ef-rp/crud)
+   * [並べ替え、フィルター、ページング、グループ化](xref:data/ef-rp/sort-filter-page)
+   * [移行](xref:data/ef-rp/migrations)
+   * [複合データ モデルの作成](xref:data/ef-rp/complex-data-model)
+   * [関連データの読み取り](xref:data/ef-rp/read-related-data)
+   * [関連データの更新](xref:data/ef-rp/update-related-data)
+   * [同時実行の競合の処理](xref:data/ef-rp/concurrency)
+
 *   [Visual Studio を使用した ASP.NET Core と Entity Framework Core の概要](ef-mvc/index.md)
     *   [はじめに](ef-mvc/intro.md)
-    *   [作成、読み取り、更新、削除の操作](ef-mvc/crud.md)
-    *   [並べ替え、フィルター、ページング、グループ化](ef-mvc/sort-filter-page.md)
-    *   [移行](ef-mvc/migrations.md)
+    *   [作成、読み取り、更新、削除の操作](xref:data/ef-mvc/crud)
+    *   [並べ替え、フィルター、ページング、グループ化](xref:data/ef-mvc/sort-filter-page)
+    *   [移行](xref:data/ef-mvc/migrations)
     *   [複合データ モデルの作成](ef-mvc/complex-data-model.md)
     *   [関連データの読み取り](ef-mvc/read-related-data.md)
     *   [関連データの更新](ef-mvc/update-related-data.md)
@@ -37,3 +48,4 @@ ms.lasthandoff: 08/11/2017
     *   [Azure Blob Storage と Visual Studio の接続済みサービスの概要](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
     *   [Queue Storage と Visual Studio の接続済みサービスの概要](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
     *   [Azure Table Storage と Visual Studio の接続済みサービスの概要](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
+

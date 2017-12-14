@@ -1,8 +1,8 @@
 ---
 title: "ASP.NET Core での承認"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core,
+description: "このドキュメントは、さまざまな ASP.NET Core での承認に関するトピックの目次として機能します。"
+keywords: "ASP.NET Core,承認"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,13 +11,13 @@ ms.assetid: 1abd456b-2199-4ba3-9698-3241e0bd4afc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/index
-ms.openlocfilehash: c632a3a6009545fcd93ea36131aad1b761e58998
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 2bd9a41acedcd87afc57490f0e89e917f7bc31f8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="authorization-in-aspnet-core--simple-role-claims-based-and-custom"></a>ASP.NET Core での承認: 単純、ロール、クレーム ベース、カスタム
+# <a name="authorization-in-aspnet-core-simple-role-claims-based-and-custom"></a>ASP.NET Core での承認: 単純、ロール、クレーム ベース、カスタム
 
 * [はじめに](introduction.md)
 

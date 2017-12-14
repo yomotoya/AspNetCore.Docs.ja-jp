@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 3112faa38bb9702f6856097e315c413f0974010d
-ms.sourcegitcommit: 3ba32b2b6425ed94604cb0f681db0d5bb5f8ad58
+ms.openlocfilehash: 36dd2ad01f93ab1093bad84a58504a150c70ea16
+ms.sourcegitcommit: 4925a91ef4130ddb333f187ab13defe66f2c6cef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/03/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 
@@ -23,6 +23,8 @@ ms.lasthandoff: 09/28/2017
 Razor ページは、ページ コーディングに重点を置いたシナリオをより簡略化し、生産性を高める ASP.NET Core MVC の新機能です。
 
 モデル ビュー コントローラーのアプローチを使用するチュートリアルをお探しの場合は、「[Getting started with ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc)」 (ASP.NET Core MVC の概要) を参照してください。
+
+このドキュメントでは、Razor ページの概要について説明します。 手順を追って説明するチュートリアルではありません。 セクションの一部を理解できない場合は、[Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)に関するページを参照してください。
 
 <a name="prerequisites"></a>
 
@@ -106,6 +108,10 @@ Razor ページ機能は、Web ブラウザーで使用される一般的なパ�
 データ モデル:
 
 [!code-cs[main](index/sample/RazorPagesContacts/Data/Customer.cs)]
+
+db コンテキスト:
+
+[!code-cs[main](index/sample/RazorPagesContacts/Data/AppDbContext.cs)]
 
 *Pages/Create.cshtml* ビュー ファイル:
 
@@ -313,7 +319,7 @@ Razor ページからのビュー検索には、*Pages* フォルダーが含ま
 
 ## <a name="tempdata"></a>TempData
 
-ASP.NET Core は [コントローラー](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller)上で [TempData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller#Microsoft_AspNetCore_Mvc_Controller_TempData) プロパティを公開します。 このプロパティは、読み取られるまでデータを格納します。 `Keep` メソッドと `Peek` メソッドは、削除せずにデータを確認するために使用できます。 `TempData` は、複数の要求にデータが必要な場合のリダイレクトに役立ちます。
+ASP.NET Core は [コントローラー](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller)上で [TempData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) プロパティを公開します。 このプロパティは、読み取られるまでデータを格納します。 `Keep` メソッドと `Peek` メソッドは、削除せずにデータを確認するために使用できます。 `TempData` は、複数の要求にデータが必要な場合のリダイレクトに役立ちます。
 
 `[TempData]` は ASP.NET Core 2.0 の新しい属性で、コントローラーとページでサポートされています。
 
@@ -380,3 +386,36 @@ URL 内のクエリ文字列 `?handler=JoinList` が気に入らない場合は�
 [サンプル コードをダウンロードまたは表示します](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/index/sample)。
 
 この概要に基づく、「[Getting started with Razor Pages in ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start)」 (ASP.NET Core での Razor ページの概要) を参照してください。
+
+### <a name="specify-that-razor-pages-are-at-the-content-root"></a>Razor ページをコンテンツのルートに指定する
+
+Razor ページのルートは既定で */Pages* ディレクトリです。 Razor ページをアプリのコンテンツ ルート ([ContentRootPath](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.contentrootpath)) に指定するには、[WithRazorPagesAtContentRoot](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.withrazorpagesatcontentroot) を [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_) に追加します。
+
+```csharp
+services.AddMvc()
+    .AddRazorPagesOptions(options =>
+    {
+        ...
+    })
+    .WithRazorPagesAtContentRoot();
+```
+
+### <a name="specify-that-razor-pages-are-at-a-custom-root-directory"></a>Razor ページをカスタム ルート ディレクトリに指定する
+
+(相対パスを指定して) Razor ページをアプリのカスタム ルート ディレクトリに指定するには、[WithRazorPagesRoot](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvccorebuilderextensions.withrazorpagesroot) を [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_) に追加します。
+
+```csharp
+services.AddMvc()
+    .AddRazorPagesOptions(options =>
+    {
+        ...
+    })
+    .WithRazorPagesRoot("/path/to/razor/pages");
+```
+
+## <a name="see-also"></a>関連項目
+
+* [Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)
+* [Razor ページの承認規則](xref:security/authorization/razor-pages-authorization)
+* [Razor ページのカスタム ルートとページ モデル プロバイダー](xref:mvc/razor-pages/razor-pages-convention-features)
+* [Razor ページの単体テストと統合テスト](xref:testing/razor-pages-testing)

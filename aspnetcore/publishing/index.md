@@ -11,11 +11,11 @@ ms.assetid: f0930c68-4d17-4748-adbf-801e17601eb6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/index
-ms.openlocfilehash: df3c1f0c2768b89c3ea5dc901782170c530a542e
-ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
+ms.openlocfilehash: 0de459128426c4d027606951592b1fe3fdd24fd9
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="hosting-and-deployment-overview-for-aspnet-core-apps"></a>ASP.NET Core アプリのホスティングと展開の概要
 
@@ -58,6 +58,10 @@ ASP.NET Core アプリは、サーバーの起動時に開始し、クラッシ�
 多くの場合、展開には、`dotnet publish` からサーバーへの出力のコピー以外の追加の作業が必要になります。 たとえば、*publish* フォルダーに対するファイルの追加や除外が必要になります。 Visual Studio では Web 展開で MSBuild を使用します。この MSBuild は、展開時に他の多くの作業を行うためにカスタマイズすることができます。 詳細については、[Visual Studio の発行プロファイル](xref:publishing/web-publishing-vs)に関するページと、『[Using MSBuild and Team Foundation Build](http://msbuildbook.com/)』という書籍を参照してください。
 
 [Web の発行機能](xref:tutorials/publish-to-azure-webapp-using-vs)または[組み込みの Git サポート](xref:publishing/azure-continuous-deployment)を使用して、Visual Studio から Azure App Service に直接展開することができます。 Visual Studio Team Services では、[Azure App Service への継続的な展開](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure)がサポートされています。
+
+## <a name="publishing-to-azure"></a>Azure への発行
+
+Visual Studio を使用してこのアプリを Azure に発行する方法については、「[Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する](xref:tutorials/publish-to-azure-webapp-using-vs)」をご覧ください。  Azure へのアプリの発行は、[コマンド ライン](xref:tutorials/publish-to-azure-webapp-using-cli)で行うこともできます。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

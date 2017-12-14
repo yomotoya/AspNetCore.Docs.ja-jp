@@ -1,33 +1,33 @@
 ---
 title: "ASP.NET Core への移行"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "ASP.NET 4.x および ASP.NET Core 2 を含む、ASP.NET から ASP.NET Core への移行方法について説明します"
+keywords: "ASP.NET Core, 移行する, 移行, ASP.NET 4.6, ASP.NET 4.7, ASP.NET 4.x"
 ms.author: riande
 manager: wpickett
 ms.date: 07/27/2017
 ms.topic: article
-ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe0a2c3e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/index
-ms.openlocfilehash: 687d35e63a4cab24406a56eb4b3c48b0272c337d
-ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
+ms.openlocfilehash: 4c653d83569bcd218710ad276e154c6b8f89963c
+ms.sourcegitcommit: 747a7fddf7a4c7ef5f3e2a0912c411ee647ee203
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 11/22/2017
 ---
-# <a name="migration"></a>移行
+# <a name="migration-to-aspnet-core-including-aspnet-4x-aspnet-core-2"></a>ASP.NET 4.x、ASP.NET Core 2 を含む、ASP.NET Core への移行
 
-## <a name="aspnet-to-aspnet-core-1x"></a>ASP.NET から ASP.NET Core 1.x へ
+### <a name="aspnet-to-aspnet-core-1x"></a>ASP.NET から ASP.NET Core 1.x へ
 *   [ASP.NET MVC から ASP.NET Core MVC への移行](xref:migration/mvc)
 *   [構成の移行](xref:migration/configuration)
 *   [認証と ID の移行](xref:migration/identity)
 *   [ASP.NET Web API からの移行](xref:migration/webapi)
 *   [ミドルウェアへの HTTP モジュールの移行](xref:migration/http-modules)
 
-## <a name="aspnet-to-aspnet-core-20xrefmigrationproper-to-2xindex"></a>[ASP.NET から ASP.NET Core 2.0 へ](xref:migration/proper-to-2x/index)
+### <a name="aspnet-to-aspnet-core-20"></a>ASP.NET から ASP.NET Core 2.0 へ
+* [ASP.NET から ASP.NET Core 2.0 へ](xref:migration/proper-to-2x/index)
 
-## <a name="aspnet-core-1x-to-20"></a>ASP.NET Core 1.x から 2.0 へ
+### <a name="aspnet-core-1x-to-20"></a>ASP.NET Core 1.x から 2.0 へ
 *   [ASP.NET Core 1.x から 2.0 への移行](xref:migration/1x-to-2x/index)
 *   [認証と ID の移行](xref:migration/1x-to-2x/identity-2x)

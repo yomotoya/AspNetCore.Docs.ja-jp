@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: e580ee537190c85e74e40c288af1503f136c83d8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bd794ae2217c2a56f36cd46c2f12f1c80f6b4f2b
+ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Razor ページに検証を追加する
 
@@ -132,6 +132,8 @@ public DateTime ReleaseDate { get; set; }
 次のコードは、1 行で複数の属性を組み合わせる例です。
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+
+[Razor ページと EE Core の概要](xref:data/ef-rp/intro)に関するページでは、Razor ページでの EE Core 操作についてより詳しく説明されています。
 
 ### <a name="publish-to-azure"></a>Azure に発行する
 
