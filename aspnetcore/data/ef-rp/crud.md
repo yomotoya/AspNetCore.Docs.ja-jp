@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: 410829608540697ac4563f1399c8e72d28a13cf2
-ms.sourcegitcommit: 703593d5fd14076e79be2ba75a5b8da12a60ab15
+ms.openlocfilehash: b4b24c155c29a0ef8ffffda752253f56097e50ed
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>作成、読み取り、更新、および削除 - EF コア Razor ページ (2/8)
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 12/05/2017
 開いている*Pages/Students/Details.cshtml*です。 登録の一覧を表示する次の強調表示されたコードを追加します。
 
  <!--2do ricka. if doesn't change, remove dup -->
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=35-53)]
+[!code-cshtml[Main](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
 
 コードを貼り付けた後でコードのインデントが正しくない場合は、修正して CTRL-D-K キーを押します。
 

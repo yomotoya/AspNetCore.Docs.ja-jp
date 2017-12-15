@@ -11,11 +11,11 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: d3f9eb4943ed62b674d6bb2ab1b275b0a3c02343
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8d46862af44379d8592efdf214a80214dce2d69d
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core の HTTP.sys web サーバーの実装
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/10/2017
 > [!NOTE]
 > このトピックには、のみを ASP.NET Core 2.0 以降が適用されます。 以前のバージョンの ASP.NET Core、HTTP.sys が名前付き[WebListener](xref:fundamentals/servers/weblistener)です。
 
-HTTP.sys は、 [ASP.NET core web server](index.md) Windows だけで実行されています。 に基づいて構築されて、 [Http.Sys カーネル モード ドライバー](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)です。 HTTP.sys は、代わりに[Kestrel](kestrel.md) Kestel しない一部の機能を提供します。 **HTTP.sys と互換性がないと IIS または IIS Express では使用できません、 [ASP.NET Core モジュール](aspnet-core-module.md)です。**
+HTTP.sys は、 [ASP.NET core web server](index.md) Windows だけで実行されています。 に基づいて構築されて、 [Http.Sys カーネル モード ドライバー](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)です。 HTTP.sys は、代わりに[Kestrel](kestrel.md) Kestel しない一部の機能を提供します。 **HTTP.sys と互換性がありません、IIS または IIS Express では使用できません、 [ASP.NET Core モジュール](aspnet-core-module.md)です。**
 
 HTTP.sys は、次の機能をサポートします。
 
@@ -166,7 +166,7 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={000000
 
 次のリソースは、いくつかのシナリオの詳細な手順を提供します。 HttpListener を参照している記事は、Http.Sys に基づいている両方に、HTTP.sys に同じように適用します。
 
-* [方法: SSL 証明書でポートを構成します。](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
+* [方法 : SSL 証明書を使用してポートを構成する](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
 * [HTTPS 通信 - HttpListener ベースのホストとクライアント証明書を](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html)これは、サード パーティ製のブログとがかなり古いいてもが有用な情報です。
 * [方法: チュートリアルを使用して HttpListener または Http サーバー アンマネージ コード (C++) SSL 単純なサーバーとして](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/)有用な情報で以前のブログをすぎますがこれです。
 

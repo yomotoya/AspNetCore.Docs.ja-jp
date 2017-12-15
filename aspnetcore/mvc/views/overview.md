@@ -5,21 +5,22 @@ description: "ビューが、アプリのデータの表示と ASP.NET Core MVC 
 keywords: "ASP.NET Core、表示、MVC、razor、viewmodel、viewdata、viewbag"
 ms.author: riande
 manager: wpickett
-ms.date: 09/26/2017
+ms.date: 12/12/2017
 ms.topic: article
-ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 4530d2f500dd887bf649a753283fb3e4af995322
-ms.sourcegitcommit: c2f6c593d81fbd90e6ddd672fe0a5636d06b615a
+ms.openlocfilehash: 2562d4e5fb85159e6ccb47990f54448ddc188077
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC ビュー
 
 によって[Steve Smith](https://ardalis.com/)と[Luke Latham](https://github.com/guardrex)
+
+このドキュメントでは、ASP.NET Core MVC アプリケーションで使用されるビューについて説明します。 Razor ページについては、次を参照してください。 [Razor ページの概要](xref:mvc/razor-pages/index)です。
 
 **M**odel -**V**ビュー -**C**ontroller (MVC) パターン、*ビュー*アプリのデータのプレゼンテーションとユーザーの操作を処理します。 ビューは、HTML テンプレートが埋め込まれて[Razor マークアップ](xref:mvc/views/razor)です。 Razor のマークアップは、クライアントに送信される web ページを生成するために HTML マークアップが対話するコードです。
 
@@ -64,7 +65,7 @@ ASP.NET Core MVC ビューは*.cshtml*ファイルを使用する、 [c# プロ�
 
 この操作から制御が戻るとき、 *About.cshtml*最後のセクションに表示されているビューは、次の web ページとして表示されます。
 
-![Microsoft Edge ブラウザーでレンダリングされるページについて](overview/_static/about-page.png)
+![Edge ブラウザーでレンダリングされるページについて](overview/_static/about-page.png)
 
 `View`ヘルパー メソッドが複数のオーバー ロードします。 必要に応じて指定できます。
 

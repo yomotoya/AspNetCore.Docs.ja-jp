@@ -15,7 +15,7 @@
       * `5000-AppSecret`: `5.0.0.0_secret_value`
       * `5100-AppSecret`: `5.1.0.0_secret_value`
   * Azure Active Directory とサンプル アプリを登録します。
-  * Key vault にアクセスするアプリを承認します。 使用すると、 `Set-AzureRmKeyVaultAccessPolicy` 、key vault にアクセスするアプリを承認するために PowerShell コマンドレットを提供`List`と`Get`で機密データへのアクセス`-PermissionsToKeys list,get`です。
+  * Key vault にアクセスするアプリを承認します。 使用すると、 `Set-AzureRmKeyVaultAccessPolicy` 、key vault にアクセスするアプリを承認するために PowerShell コマンドレットを提供`List`と`Get`で機密データへのアクセス`-PermissionsToSecrets list,get`です。
 2. アプリの更新*される appsettings.json*の値を持つファイル`Vault`、 `ClientId`、および`ClientSecret`です。
 3. その構成値を取得するサンプル アプリを実行する`IConfigurationRoot`プレフィックス付きのシークレットの名前と同じ名前にします。 このサンプルではプレフィックスは、アプリのバージョンは、指定した、 `PrefixKeyVaultSecretManager` Azure Key Vault の構成プロバイダーを追加するとき。 値は、`AppSecret`で取得した`config["AppSecret"]`です。
 4. プロジェクト ファイルでのアプリ アセンブリのバージョンを変更`5.0.0.0`に`5.1.0.0`アプリをもう一度実行します。 このとき、返される秘密の値は`5.1.0.0_secret_value`します。

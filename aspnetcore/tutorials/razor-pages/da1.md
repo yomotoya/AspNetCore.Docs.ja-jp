@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: e0b09860e7dc871e0a554ddeac9e8d2c31702fb0
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: c66bb3a9d766e02c7775906cdd547a0e12c15336
+ms.sourcegitcommit: b38796ea3806bf39b89806adfa681b2a33762907
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="updating-the-generated-pages"></a>生成されたページの更新
 
@@ -95,7 +95,7 @@ Pages/Movies を参照し、**[編集]** リンクをポイントしてターゲ
 * 別のブラウザー ウィンドウで、同じムービーの **[削除]** リンクを選択してから、ムービーを削除します。
 * 前のブラウザー ウィンドウで、ムービーに変更を投稿します。
 
-実稼働コードでは、通常、2 つ以上のクライアントが同時にレコードを更新した場合に、同時実行の競合が検出されます。 詳細については、「[同時実行の競合の処理](xref:data/ef-mvc/concurrency)」を参照してください。
+実稼働コードでは、通常、2 つ以上のクライアントが同時にレコードを更新した場合に、同時実行の競合が検出されます。 詳細については、「[同時実行の競合の処理](xref:data/ef-rp/concurrency)」を参照してください。
 
 ### <a name="posting-and-binding-review"></a>レビューの投稿とバインディング
 

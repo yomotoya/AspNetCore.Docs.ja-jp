@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 7deccf135ddd21729206ebed58ddc8aca52c1deb
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: dfec2a67112d40b528b97c847da3dda8ef1e63bd
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="hosting-in-aspnet-core"></a>ASP.NET Core でのホスティング
 
@@ -48,7 +48,7 @@ ASP.NET Core アプリは、アプリの起動と有効期間の管理を担当�
 参照してください[ASP.NET Core の構成](xref:fundamentals/configuration/index)アプリの構成についての詳細。
 
 > [!NOTE]
-> 静的なを使用する代わりとして`CreateDefaultBuilder`からホストを作成するメソッド[WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) ASP.NET Core でサポートされているアプローチは、2.x です。 詳細については、ASP.NET Core 1.x タブを参照してください。
+> 静的なを使用する代わりとして`CreateDefaultBuilder`からホストを作成するメソッド[WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) ASP.NET Core でサポートされているアプローチは、2.x です。 詳細については、ASP.NET Core 1.x のタブを参照してください。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -254,7 +254,7 @@ WebHost.CreateDefaultBuilder(args)
 
 ### <a name="prevent-hosting-startup"></a>スタートアップをホストしているようにします。
 
-ホストしているアプリのアセンブリを含め、スタートアップ アセンブリの自動読み込みができなくなります。
+ホストしているアプリのアセンブリで構成されているスタートアップ アセンブリのホストを含め、スタートアップ アセンブリの自動読み込みができなくなります。 参照してください[IHostingStartup を使用して外部のアセンブリからのアプリの機能の追加](xref:hosting/ihostingstartup)詳細についてはします。
 
 **キー**: preventHostingStartup  
 **型**: *bool* (`true`または`1`)  

@@ -13,7 +13,7 @@
       * `SecretName`: `secret_value_1`
       * `Section--SecretName`: `secret_value_2`
   * Azure Active Directory とサンプル アプリを登録します。
-  * Key vault にアクセスするアプリを承認します。 使用すると、 `Set-AzureRmKeyVaultAccessPolicy` 、key vault にアクセスするアプリを承認するために PowerShell コマンドレットを提供`List`と`Get`で機密データへのアクセス`-PermissionsToKeys list,get`です。
+  * Key vault にアクセスするアプリを承認します。 使用すると、 `Set-AzureRmKeyVaultAccessPolicy` 、key vault にアクセスするアプリを承認するために PowerShell コマンドレットを提供`List`と`Get`で機密データへのアクセス`-PermissionsToSecrets list,get`です。
 2. アプリの更新*される appsettings.json*の値を持つファイル`Vault`、 `ClientId`、および`ClientSecret`です。
 3. その構成値を取得するサンプル アプリを実行する`IConfigurationRoot`秘密の名前と同じ名前にします。
   * 非階層型の値: の値は、`SecretName`で取得した`config["SecretName"]`です。

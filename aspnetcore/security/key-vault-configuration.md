@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: 352d125b9042c603b59ed9bda0e99b6a49c7ab9f
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 19cab22176c732c5cb8e337d7635bddc54107921
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Azure Key Vault の構成プロバイダー
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/29/2017
       * `SecretName`: `secret_value_1`
       * `Section--SecretName`: `secret_value_2`
   * Azure Active Directory とサンプル アプリを登録します。
-  * Key vault にアクセスするアプリを承認します。 使用すると、 `Set-AzureRmKeyVaultAccessPolicy` 、key vault にアクセスするアプリを承認するために PowerShell コマンドレットを提供`List`と`Get`で機密データへのアクセス`-PermissionsToKeys list,get`です。
+  * Key vault にアクセスするアプリを承認します。 使用すると、 `Set-AzureRmKeyVaultAccessPolicy` 、key vault にアクセスするアプリを承認するために PowerShell コマンドレットを提供`List`と`Get`で機密データへのアクセス`-PermissionsToSecrets list,get`です。
 2. アプリの更新*される appsettings.json*の値を持つファイル`Vault`、 `ClientId`、および`ClientSecret`です。
 3. その構成値を取得するサンプル アプリを実行する`IConfigurationRoot`秘密の名前と同じ名前にします。
   * 非階層型の値: の値は、`SecretName`で取得した`config["SecretName"]`です。
@@ -105,7 +105,7 @@ Key vault にシークレットを作成する 2 つ目のサンプル アプリ
       * `5000-AppSecret`: `5.0.0.0_secret_value`
       * `5100-AppSecret`: `5.1.0.0_secret_value`
   * Azure Active Directory とサンプル アプリを登録します。
-  * Key vault にアクセスするアプリを承認します。 使用すると、 `Set-AzureRmKeyVaultAccessPolicy` 、key vault にアクセスするアプリを承認するために PowerShell コマンドレットを提供`List`と`Get`で機密データへのアクセス`-PermissionsToKeys list,get`です。
+  * Key vault にアクセスするアプリを承認します。 使用すると、 `Set-AzureRmKeyVaultAccessPolicy` 、key vault にアクセスするアプリを承認するために PowerShell コマンドレットを提供`List`と`Get`で機密データへのアクセス`-PermissionsToSecrets list,get`です。
 2. アプリの更新*される appsettings.json*の値を持つファイル`Vault`、 `ClientId`、および`ClientSecret`です。
 3. その構成値を取得するサンプル アプリを実行する`IConfigurationRoot`プレフィックス付きのシークレットの名前と同じ名前にします。 このサンプルではプレフィックスは、アプリのバージョンは、指定した、 `PrefixKeyVaultSecretManager` Azure Key Vault の構成プロバイダーを追加するとき。 値は、`AppSecret`で取得した`config["AppSecret"]`です。 アプリによって生成される web ページは、読み込まれた値を示しています。
 

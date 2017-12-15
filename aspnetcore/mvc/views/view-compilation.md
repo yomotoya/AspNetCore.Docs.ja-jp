@@ -5,17 +5,17 @@ description: "MVC Razor ビューのコンパイル、および ASP.NET Core ア
 keywords: "ASP.NET Core、Razor ビューのコンパイル、Razor 事前コンパイル、Razor プリコンパイル"
 ms.author: riande
 manager: wpickett
-ms.date: 12/05/2017
+ms.date: 12/13/2017
 ms.topic: article
 ms.assetid: ab4705b7-1638-1638-bc97-ea7f292fe92a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 873f6203f9e7b5bb14968dcec3f8d8e5548bd834
-ms.sourcegitcommit: 282f69e8dd63c39bde97a6d72783af2970d92040
+ms.openlocfilehash: 6839892c104673af0fd0fd074d368f3f42259d76
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="razor-view-compilation-and-precompilation-in-aspnet-core"></a>Razor ビューのコンパイル、および ASP.NET Core でのプリコンパイル
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 12/05/2017
 
 Razor ビューは、ビューが呼び出されたときに、実行時にコンパイルされます。 ASP.NET 1.1.0 のコアし以降が必要に応じて Razor ビューをコンパイルし、アプリの配置&mdash;プリコンパイルと呼ばれるプロセスです。 ASP.NET Core 2.x プロジェクト テンプレートは、既定では、プリコンパイルを有効にします。
 
-> [!NOTE]
+> [!IMPORTANT]
 > Razor ビュー プリコンパイルを実行するときに現在使用できません、[自己完結型の配置 (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) ASP.NET Core 2.0。 2.1 を離したときに、機能は Scd の使用可能になります。 詳細については、次を参照してください。 [Windows 上の Linux でのクロス コンパイルするときに、ビューのコンパイルが失敗した](https://github.com/aspnet/MvcPrecompilation/issues/102)です。
 
 プリコンパイルの考慮事項:
@@ -54,6 +54,12 @@ ASP.NET Core 2.x プロジェクト テンプレートが暗黙的に設定`MvcR
 [!code-xml[Main](view-compilation\sample\MvcRazorCompileOnPublish.csproj?highlight=5,12)]
 
 ---
+
+アプリを準備する、[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)プロジェクトのルートで次のようなコマンドを実行することで。
+
+```console
+dotnet publish -c Release
+```
 
 A *< project_name >。PrecompiledViews.dll*プリコンパイルが成功した場合、コンパイル済みの Razor ビューを含むファイルが生成されます。 たとえば、次のスクリーン ショットの内容を示しています*Index.cshtml*内の*WebApplication1.PrecompiledViews.dll*:。
 

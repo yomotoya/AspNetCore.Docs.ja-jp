@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/index
-ms.openlocfilehash: 44eaac4f3f4ad55cbc9b5ca9fae6e406ceff3d3c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 66f6e4542dd208a986b256acd4bd1d0381aa46c6
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core チュートリアル
 
@@ -38,7 +38,6 @@ ASP.NET Core アプリケーションの開発に関する以下のステップ 
    * [Mac または Linux の Visual Studio Code での Web アプリ](first-mvc-app-xplat/index.md)
 
 * [Visual Studio を使用した ASP.NET Core と Entity Framework Core の概要](../data/ef-mvc/index.md)
-* [Yeoman でのプロジェクトの構築](../client-side/yeoman.md)
 * [タグ ヘルパーの作成](../mvc/views/tag-helpers/authoring.md)
 * [単純なビュー コンポーネントの作成](../mvc/views/view-components.md#walkthrough-creating-a-simple-view-component)
 * [dotnet watch を使用した ASP.NET Core アプリケーションの開発](dotnet-watch.md)

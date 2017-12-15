@@ -1,21 +1,21 @@
 ---
 title: "ASP.NET Core での Id の概要"
 author: rick-anderson
-description: "ASP.NET Core アプリケーションの Id を使用してください。"
+description: "ASP.NET Core アプリケーションの Id を使用します。"
 keywords: "ASP.NET Core、Identity、承認、セキュリティ"
 ms.author: riande
 manager: wpickett
-ms.date: 07/07/2017
+ms.date: 12/15/2017
 ms.topic: article
 ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 0679663b3b3b66f9935d0fb24360be2954fcdee1
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: 7daf0267a6dc659afbd188ce87e35ca40816a31d
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core での Id の概要
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 11/28/2017
 
 ASP.NET Core Id は、アプリケーションにログイン機能を追加することができるメンバーシップ システムがします。 ユーザーは、ユーザー名でアカウントやログインを作成できます、パスワード、またはこれらには、Facebook、Google、Microsoft アカウント、Twitter またはなど、外部ログイン プロバイダーを使用できます。
 
-ユーザー名、パスワード、およびプロファイル データを格納する SQL Server データベースを使用する ASP.NET Core Id を構成することができます。 代わりに、独自の永続的なストア、Azure テーブル ストレージの例を使用することができます。 このドキュメントでは、Visual Studio と CLI を使用するための手順を説明します。
+ユーザー名、パスワード、およびプロファイル データを格納する SQL Server データベースを使用する ASP.NET Core Id を構成することができます。 代わりに、独自の永続的なストア、たとえば、Azure テーブル ストレージを使用することができます。 このドキュメントでは、Visual Studio と CLI を使用するための手順を説明します。
 
 ## <a name="overview-of-identity"></a>Id の概要
 
@@ -39,9 +39,9 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
     ![[新しいプロジェクト] ダイアログ](identity/_static/01-mvc_2.png)
     
     # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
-    .NET Core CLI を使用する場合を使用して新しいプロジェクトを作成``dotnet new mvc --auth Individual``です。 これにより、Visual Studio によって作成された同じ Identity テンプレート コードで新しいプロジェクトが作成されます。
+    .NET Core CLI を使用する場合を使用して新しいプロジェクトを作成``dotnet new mvc --auth Individual``です。 このコマンドは、Visual Studio によって作成された同じ Identity テンプレート コードを新しいプロジェクトを作成します。
  
-    作成されたプロジェクトが含まれています、`Microsoft.AspNetCore.Identity.EntityFrameworkCore`パッケージ Id データおよび SQL Server を使用するスキーマに保持されますが[Entity Framework Core](https://docs.microsoft.com/ef/)です。
+    作成されたプロジェクトが含まれています、 `Microsoft.AspNetCore.Identity.EntityFrameworkCore` Id データおよび SQL Server を使用するスキーマが引き続き発生する、パッケージ[Entity Framework Core](https://docs.microsoft.com/ef/)です。
     
     ---
  

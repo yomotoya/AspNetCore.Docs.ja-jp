@@ -11,11 +11,11 @@ ms.assetid: 5de0c8f7-50ce-4e2c-b3d4-a1bd9fdfcff5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/aspnet-core-module
-ms.openlocfilehash: ac52b791e02ce52da35fe8d599465076d251b4da
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0759f16ada531774a3945f67495e5f634e6154e
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core モジュール構成の参照
 
@@ -66,7 +66,7 @@ ASP.NET Core モジュールは、サイトまたはアプリケーションを�
 | startupTimeLimit | <p>省略可能な整数属性です。</p><p>モジュールがポートでリッスンしているプロセスを開始する実行可能ファイルを待機する秒単位で期間です。 この制限時間を超えた場合、モジュールは、プロセスを終了します。 モジュールは、新しい要求を受信しは、アプリケーションの起動に失敗しない限り、後続の受信要求の処理を再開しようとしています引き続き、プロセスをもう一度起動しようとします。 **rapidFailsPerMinute**数。最後のローリング分の回数。</p><p>既定値は 120 です。</p> |
 | shutdownTimeLimit | <p>省略可能な整数属性です。</p><p>対象のモジュールが正常にシャット ダウンする実行可能ファイルの待機秒単位で期間ときに、 *app_offline.htm*ファイルが検出されました。</p><p>既定値は 10 です。</p> |
 | rapidFailsPerMinute | <p>省略可能な整数属性です。</p><p>プロセスが指定された回数を指定**processPath**は 1 分あたりのクラッシュを許可します。 この制限を超えた場合、モジュールは、プロセスが 1 分間の残りの部分の起動を停止します。</p><p>既定値は 10 です。</p> |
-| requestTimeout | <p>省略可能な timespan 属性です。</p><p>ASP.NET Core モジュールが ASPNETCORE_PORT % でリッスンしているプロセスからの応答の待機期間を指定します。</p><p>既定値は、"00:02:00" です。</p> |
+| requestTimeout | <p>省略可能な timespan 属性です。</p><p>ASP.NET Core モジュールが ASPNETCORE_PORT % でリッスンしているプロセスからの応答の待機期間を指定します。</p><p>既定値は、"00:02:00" です。</p><p>`requestTimeout`必要がありますで指定する整数の分だけ、それ以外の場合、既定値は 2 分です。</p> |
 | stdoutLogEnabled | <p>省略可能な Boolean 属性です。</p><p>True の場合、 **stdout**と**stderr**で指定されたプロセスの**processPath**で指定されたファイルにリダイレクトされます**stdoutLogFile**.</p><p>既定値は false です。</p> |
 | stdoutLogFile | <p>省略可能な文字列属性。</p><p>対象の相対パスまたは絶対ファイル パスを指定**stdout**と**stderr**で指定されたプロセスから**processPath**ログに記録されます。 相対パスは、サイトのルートです。 以降で任意のパス '.' サイト ルートに対する相対パスおよびその他のすべてのパスが絶対パスとして扱われます。 モジュール、ログ ファイルを作成するためにパスで提供されるすべてのフォルダーが存在する必要があります。 プロセス ID、タイムスタンプ (*yyyyMdhms*)、ファイル拡張子と (*.log*) アンダー スコアで区切り記号が追加、最後のセグメント、 **stdoutLogFile**提供します。</p><p>既定値は `aspnetcore-stdout` です。</p> |
 | forwardWindowsAuthToken | true または false。</p><p>True の場合、トークンが 1 回の要求ヘッダー ' MS ASPNETCORE WINAUTHTOKEN' として ASPNETCORE_PORT % でリッスンしている子プロセスに転送されます。 このトークン要求ごとに CloseHandle を呼び出すには、そのプロセスの役割です。</p><p>既定値は true です。</p> |

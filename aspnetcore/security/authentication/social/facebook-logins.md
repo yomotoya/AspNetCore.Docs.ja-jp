@@ -11,11 +11,11 @@ ms.assetid: 8c65179b-688c-4af1-8f5e-1862920cda95
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 826ac826c22dae81e5dbea08a11a62cac0b1068a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 058670b4f699288e1acbe76bae08dcebf69346b8
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configuring-facebook-authentication"></a>Facebook 認証を構成します。
 
@@ -25,9 +25,9 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="create-the-app-in-facebook"></a>Facebook でのアプリを作成します。
 
-*  移動し、[開発者のための Facebook](https://developers.facebook.com)ページし、サインインします。 既に Facebook アカウントを持っていない場合は使用して、 **Facebook にサインアップする**作成するのにはログイン ページにリンクします。
+*  移動し、 [Facebook Developers アプリ](https://developers.facebook.com/apps/)ページし、サインインします。 既に Facebook アカウントを持っていない場合は使用して、 **Facebook にサインアップする**作成するのにはログイン ページにリンクします。
 
-* タップして、**のアプリの作成**新しいアプリ ID を作成する右上隅のボタン
+* タップして、**アプリを追加する新しい**新しいアプリ ID を作成する右上隅のボタン
 
    ![Microsoft Edge で Facebook 開発者ポータルを開く](index/_static/FBMyApps.png)
 
@@ -35,10 +35,10 @@ ms.lasthandoff: 11/10/2017
 
    ![アプリ ID を新しいフォームを作成します。](index/_static/FBNewAppId.png)
 
-* 表示**製品を選択**プロンプト をクリック**設定**上、 **Facebook ログイン**カードです。
+* **製品を選択して** ページで、をクリックして**設定**上、 **Facebook ログイン**カードです。
 
    ![製品のセットアップ ページ](index/_static/FBProductSetup.png)
-
+  
 * **クイック スタート**とウィザードが起動**プラットフォームを選択して**最初のページとして。 クリックして、ここでは、ウィザードをバイパス、**設定**左側のメニュー内のリンク。
 
    ![Skip のクイック スタート](index/_static/FBSkipQuickStart.png)
@@ -72,13 +72,6 @@ dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
 
 ## <a name="configure-facebook-authentication"></a>Facebook 認証を構成します。
 
-このチュートリアルで使用されるプロジェクト テンプレートにより[Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook)パッケージが既にインストールされています。
-
-* Visual Studio 2017 でこのパッケージをインストールするには、クリックし、プロジェクトを右クリックし**NuGet パッケージの管理**です。
-* .NET Core cli をインストールするには、プロジェクト ディレクトリに、次を実行します。
-
-   `dotnet add package Microsoft.AspNetCore.Authentication.Facebook`
-
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Facebook のサービスを追加、`ConfigureServices`メソッドで、 *Startup.cs*ファイル。
@@ -98,6 +91,13 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 [!INCLUDE[default settings configuration](includes/default-settings.md)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+インストール、 [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook)パッケージです。
+
+* Visual Studio 2017 でこのパッケージをインストールするには、クリックし、プロジェクトを右クリックし**NuGet パッケージの管理**です。
+* .NET Core cli をインストールするには、プロジェクト ディレクトリに、次を実行します。
+
+   `dotnet add package Microsoft.AspNetCore.Authentication.Facebook`
 
 Facebook ミドルウェア内の追加、`Configure`メソッド*Startup.cs*ファイル。
 
