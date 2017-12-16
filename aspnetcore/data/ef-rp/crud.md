@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: b4b24c155c29a0ef8ffffda752253f56097e50ed
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 163bc35afed0bf1d9236935d5ce60e6975356594
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>作成、読み取り、更新、および削除 - EF コア Razor ページ (2/8)
 
@@ -158,7 +158,7 @@ ms.lasthandoff: 12/14/2017
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/CreateVM.cshtml.cs?name=snippet_OnPostAsync)]
 
-[SetValues](https://docs.microsoft.com/ dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_)メソッドでは、このオブジェクトの値を設定を別の値を読み取って[PropertyValues](https://docs.microsoft.com/ dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues)オブジェクト。 `SetValues`プロパティの名前の一致を使用します。 ビュー モデルの種類が、モデルの種類に関連している必要がある、一致するプロパティだけが必要です。
+[SetValues](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_)メソッドでは、このオブジェクトの値を設定を別の値を読み取って[PropertyValues](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues)オブジェクト。 `SetValues`プロパティの名前の一致を使用します。 ビュー モデルの種類が、モデルの種類に関連している必要がある、一致するプロパティだけが必要です。
 
 使用して`StudentVM`必要[CreateVM.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Students/CreateVM.cshtml)に更新する`StudentVM`なく`Student`です。
 

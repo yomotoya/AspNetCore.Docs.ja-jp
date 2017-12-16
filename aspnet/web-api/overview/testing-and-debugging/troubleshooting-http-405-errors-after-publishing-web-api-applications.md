@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
-ms.openlocfilehash: 2455bbed891179466de8fb6ade3b0a8e66eadee6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b87ae7420e1295030e90c30e97b1e331413ce263
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/15/2017
 ---
 <a name="troubleshooting-http-405-errors-after-publishing-web-api-2-applications"></a>トラブルシューティング HTTP 405 エラー発行後に Web API 2 アプリケーション
 ====================
@@ -44,7 +44,7 @@ HTTP 405 エラーをトラブルシューティングする方法を学習す�
 | **取得** | このメソッドはからデータを取得、URI と、おそらく、最も使用される HTTP メソッドを使用します。 |
 | **HEAD** | このメソッドは、要求 URI のデータを実際に取得、しません - だけで、HTTP ステータスを取得する点を除いて GET メソッドと同様です。 |
 | **投稿** | このメソッドは通常、URI に新しいデータを送信する使用します。POST は、フォーム データの送信に使用されます。 |
-| **PUT** | このメソッドは通常、URI に生データを使用します。PUT は、Web API アプリケーションへの JSON または XML データの送信によく使用します。 |
+| **PUT** | このメソッドは通常、URI に生データを送信する使用します。PUT は、Web API アプリケーションへの JSON または XML データの送信によく使用します。 |
 | **削除** | このメソッドを使用するには、URI からのデータの削除をします。 |
 | **オプション** | このメソッドは通常、URI に対してサポートされている HTTP メソッドの一覧の取得に使用されます。 |
 | **コピーの移動** | WebDAV を使用するこれら 2 つの方法が使用され、その目的は、ひとめでわかります。 |
