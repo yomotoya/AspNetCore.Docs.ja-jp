@@ -11,11 +11,11 @@ ms.assetid: eda7ee17-f38c-462e-8d1d-63f459901cf3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/social/index
-ms.openlocfilehash: 9fc0d6c3e9691f8c3fa0d769ac53c3337d822fc5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9cc637f469dcb7097ee1b3996fde8a4ebac8d7ff
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="enabling-authentication-using-facebook-google-and-other-external-providers"></a>Facebook、Google、および他の外部プロバイダーを使用する認証の有効化
 
@@ -46,6 +46,13 @@ ms.lasthandoff: 11/10/2017
 ![[新しい Web アプリケーションの作成] ダイアログ](index/_static/select-project.png)
 
 注: このチュートリアルは、ASP.NET Core 2.0 SDK バージョンに適用されます。バージョンはウィザードの上部で選択できます。
+
+## <a name="apply-migrations"></a>移行を適用する
+
+* アプリを実行して **[ログイン]** リンクを選択します。
+* **[新規ユーザーとして登録する]** リンクを選択します。
+* 新しいアカウントの電子メール アドレスとパスワードを入力し、**[登録]** を選択します。
+* 指示に従って移行を適用します。
 
 ## <a name="require-ssl"></a>SSL を必須にする
 

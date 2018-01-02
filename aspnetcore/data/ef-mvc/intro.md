@@ -11,15 +11,17 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 379802f644b977563b0b50354feb1fb9a4c8fabb
-ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
+ms.openlocfilehash: 2b21c7fb35c65d9374723faac5b812289023a0f6
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>ASP.NET Core MVC と Visual Studio (10 の 1) を使用して Entity Framework Core の概要
 
 によって[Tom Dykstra](https://github.com/tdykstra)と[Rick Anderson](https://twitter.com/RickAndMSFT)
+
+このチュートリアルの Razor ページのバージョンが利用可能な[ここ](xref:data/ef-rp/intro)です。 Razor ページ バージョンの方がわかりやすく、多くの EF 機能について説明されています。 従うことをお勧め、 [Razor ページ バージョンは、このチュートリアルの](xref:data/ef-rp/intro)します。
 
 Contoso 大学でサンプル web アプリケーションでは、Entity Framework (EF) コア 2.0 と Visual Studio 2017 を使用して ASP.NET Core 2.0 MVC web アプリケーションを作成する方法を示します。
 
@@ -64,7 +66,7 @@ Visual Studio を開き、新しい ASP.NET Core c# web という名前のプロ
 
 * 左側のウィンドウから次のように選択します。**インストール > Visual c# > Web**です。
 
-* 選択、 **ASP.NET Core Web アプリケーション**プロジェクト テンプレート。
+* **[ASP.NET Core Web アプリケーション]** プロジェクト テンプレートを選択します。
 
 * 入力**ContosoUniversity**クリックと名前として**OK**です。
 
@@ -78,7 +80,7 @@ Visual Studio を開き、新しい ASP.NET Core c# web という名前のプロ
 
 * 確認**認証**に設定されている**認証なし**です。
 
-* [OK] をクリックします。 ****
+* **[OK]** をクリックします。
 
   ![[新しい ASP.NET プロジェクト] ダイアログ](intro/_static/new-aspnet.png)
 
@@ -192,7 +194,7 @@ ASP.NET Core を実装する[依存性の注入](../../fundamentals/dependency-i
 
 [!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
 
-接続文字列の名前によって渡されるコンテキストでメソッドを呼び出す、`DbContextOptionsBuilder`オブジェクト。 ローカルの開発、 [ASP.NET Core 構成システム](../../fundamentals/configuration.md)から接続文字列を読み取り、*される appsettings.json*ファイル。
+接続文字列の名前によって渡されるコンテキストでメソッドを呼び出す、`DbContextOptionsBuilder`オブジェクト。 ローカルの開発、 [ASP.NET Core 構成システム](xref:fundamentals/configuration/index)から接続文字列を読み取り、*される appsettings.json*ファイル。
 
 追加`using`に対してステートメントを`ContosoUniversity.Data`と`Microsoft.EntityFrameworkCore`名前空間、し、プロジェクトを作成します。
 
@@ -242,15 +244,10 @@ CRUD アクション メソッドとビューの自動作成は、スキャフ�
 
 * 右クリックし、**コント ローラー**フォルダー**ソリューション エクスプ ローラー**選択**追加 > スキャフォールディングされた新しい項目**です。
 
-* **[MVC 依存関係の追加]** ダイアログで、**[最小の依存関係]**、**[追加]** の順に選択します。
+場合、 **MVC 依存関係の追加**ダイアログが表示されます。
 
-  ![依存関係を追加します。](intro/_static/add-depend.png)
-
-  Visual Studio では、コント ローラーをスキャフォールディングするために必要な依存関係を追加します。 プロジェクト ファイル内の唯一の違いは、の追加、`Microsoft.VisualStudio.Web.CodeGeneration.Design`パッケージです。
-
-  A *ScaffoldingReadMe.txt*ファイルが作成、削除可能です。
-
-* もう一度右クリックし、**コント ローラー**フォルダー**ソリューション エクスプ ローラー**選択**追加 > スキャフォールディングされた新しい項目**です。
+* [Visual Studio の最新バージョンに更新](https://www.visualstudio.com/downloads/)です。 15.5 前バージョンの visual Studio では、このダイアログを表示します。
+* を更新できない場合は、選択**追加**、しもう一度 コント ローラーの追加の手順に従います。
 
 * **追加 Scaffold**  ダイアログ ボックス。
 
@@ -320,7 +317,7 @@ SSOX、クリックして**(localdb) \MSSQLLocalDB > データベース**、内�
 
 呼び出しているため`EnsureCreated`アプリの起動で実行されている初期化メソッドででした今すぐ変更を行うには`Student`クラス、データベースを削除して、もう一度、アプリケーションを実行し、するとデータベースに自動的に変更内容を一致するように再作成します。 たとえば、追加する場合、`EmailAddress`プロパティを`Student`クラスが表示されます、新しい`EmailAddress`再作成されたテーブル内の列です。
 
-## <a name="conventions"></a>規則
+## <a name="conventions"></a>規約
 
 完全なデータベースを作成できるように、Entity Framework の順序で記述したコードの量は、規則、または Entity Framework は、前提を使用するためは最小限です。
 
@@ -364,7 +361,7 @@ Entity Framework を使用する非同期コードを作成する場合の注意
 
 .NET における非同期プログラミングの詳細については、次を参照してください。 [Async 概要](https://docs.microsoft.com/dotnet/articles/standard/async)です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 保存し、データを表示する、エンティティ フレームワークのコアと SQL Server Express LocalDB を使用する単純なアプリケーションが作成されました。 次のチュートリアルでは基本的な CRUD を実行する方法を学習 (作成、読み取り、更新、削除) 操作です。
 

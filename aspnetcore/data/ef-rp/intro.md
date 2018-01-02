@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: 98fe1b0c2dcf2e133d921b2cc8695bd2056c5ec0
-ms.sourcegitcommit: a33737ea24e1ea9642e461d1bc90d6701f889436
+ms.openlocfilehash: 571d683636244565b184cfec49061ec656377f11
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Razor ページと Visual Studio (1/8) を使用して Entity Framework Core の概要
 
@@ -250,6 +250,14 @@ The system cannot find the file specified.
 ```
 
 コマンドを再実行し、ページの下部にあるコメントのままにします。
+
+エラーが発生した場合は、次のようにします。
+  ```
+No executable found matching command "dotnet-aspnet-codegenerator"
+  ```
+
+プロジェクト ディレクトリ (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むディレクトリ) でコマンド ウィンドウを開きます。
+
 
 プロジェクトをビルドします。 ビルドには、次のようなエラーが生成されます。
 
