@@ -11,13 +11,13 @@ ms.assetid: 9918be4c-2096-404f-9b2a-ed5cde90042a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/index
-ms.openlocfilehash: d3b60eedd46bd657f01cd6b32da7e42d6af6b1c2
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: 8111f01488468470722e0734d59b18e10cebf416
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="getting-started-with-aspnet-core-and-entity-framework-core-using-visual-studio"></a>Visual Studio を使用した ASP.NET Core と Entity Framework Core の概要
+# <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio"></a>Visual Studio を使用した ASP.NET Core MVC と Entity Framework Core の概要
 
 注: このチュートリアルの Razor ページ バージョンは、[こちら](xref:data/ef-rp/intro)を参照してください。 Razor ページ バージョンの方がわかりやすく、多くの EF 機能について説明されています。
 

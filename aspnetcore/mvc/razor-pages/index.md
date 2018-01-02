@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 36dd2ad01f93ab1093bad84a58504a150c70ea16
-ms.sourcegitcommit: 4925a91ef4130ddb333f187ab13defe66f2c6cef
+ms.openlocfilehash: a66b5ea32c2090b9944cd61f90f7fe011a823e82
+ms.sourcegitcommit: 3511552becb081fb860a23d6c9b6c4efcab74577
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 
@@ -123,7 +123,7 @@ db コンテキスト:
 
 規則により、`PageModel` クラスは `<PageName>Model` と呼ばれ、ページと同じ名前空間にあります。
 
-`PageModel` 分離コード ファイルを使用すると単体テストがサポートされますが、明示的なコンストラクターとクラスを記述する必要があります。 `PageModel` 分離コード ファイルのないページは、ランタイムのコンパイルをサポートします。これは開発で有利になる場合があります。  <!-- review: advantage because you can make changes and refresh the browser without explicitly compiling the app -->
+`PageModel` クラスでは、ページの表示からロジックを分離できます。 これは、ページに送信される要求のページ ハンドラーと、ページのレンダリングに使用されるデータを定義します。 この分離により、ユーザーは[依存関係の挿入](xref:fundamentals/dependency-injection)を通じてページの依存関係を管理し、ページの[単体テスト](xref:testing/razor-pages-testing)を実行できます。
 
 このページには、(ユーザーがフォームを投稿したときに) `POST` 要求で実行される `OnPostAsync` *ハンドラー メソッド*があります。 任意の HTTP 動詞のハンドラー メソッドを追加できます。 最も一般的なハンドラーは次のとおりです。
 
