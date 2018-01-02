@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: 8adb96c7261a2e7b1556f0daddcf6f135862b53a
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: dd2eb3d3996bc0bf277c8d5e772c8568ef9f147e
+ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core でのアプリケーションの起動
 
@@ -49,7 +49,7 @@ ASP.NET Core アプリで使用する、`Startup`というクラス`Startup`慣�
 
 [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices)メソッドは。
 
-* 省略可能です。
+* 任意。
 * 前に、web ホストによって呼び出される、`Configure`アプリのサービスを構成する方法です。
 * ここで[構成オプション](xref:fundamentals/configuration/index)規約によって設定されます。
 
@@ -121,4 +121,4 @@ Web ホストに使用できるいくつかのサービスを提供する、`Sta
 * [ミドルウェア](xref:fundamentals/middleware)
 * [ログ](xref:fundamentals/logging/index)
 * [構成](xref:fundamentals/configuration/index)
-* [StartupLoader クラス: FindStartupType メソッド (参照元)](https://github.com/aspnet/Hosting/blob/rel/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs#L66-L116))
+* [StartupLoader クラス: FindStartupType メソッド (参照元)](https://github.com/aspnet/Hosting/blob/rel/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs#L66-L116)

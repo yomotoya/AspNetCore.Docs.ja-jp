@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
-ms.openlocfilehash: 24c6a35a6b663ebb0f8d0e3e7988322fa5d9018c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6790cd0deb36c9fb297ccd4df371f763dba17844
+ms.sourcegitcommit: 17b025bd33f4474f0deaafc6d0447a4e72bcad87
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/27/2017
 ---
 <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>ASP.NET では、操作を行わないと何を代わりに行うには
 ====================
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/10/2017
     - [UrlPathEncode](#urlpathencode)
 - [信頼性とパフォーマンス](#performance)
 
-    - [PreSendRequestHeaders と PreSendRequestContext](#presend)
+    - [PreSendRequestHeaders と PreSendRequestContent](#presend)
     - [Web フォーム ページの非同期イベント](#asyncevents)
     - [Fire 忘れた作業](#fire)
     - [要求エンティティ本体](#requestentity)
@@ -200,11 +200,13 @@ UrlPathEncode メソッドは、非常に特定のブラウザーの互換性の
 
 <a id="presend"></a>
 
-### <a name="presendrequestheaders-and-presendrequestcontext"></a>PreSendRequestHeaders と PreSendRequestContext
+### <a name="presendrequestheaders-and-presendrequestcontent"></a>PreSendRequestHeaders と PreSendRequestContent
 
 推奨事項では、マネージ モジュールでこれらのイベントは使用しません。 代わりに、必要なタスクを実行するネイティブの IIS モジュールを記述します。 参照してください[ネイティブ コード HTTP モジュールを作成する](https://msdn.microsoft.com/en-us/library/ms693629.aspx)です。
 
-使用することができます、 [PreSendRequestHeaders](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestheaders.aspx)と[PreSendRequestContext](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestcontent.aspx)ネイティブ IIS モジュールを使用するイベントは IHttpModule を実装するマネージ モジュールでは使用しないでください。 これらのプロパティを設定すると、非同期要求で問題が発生することができます。
+使用することができます、 [PreSendRequestHeaders](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestheaders.aspx)と[PreSendRequestContent](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestcontent.aspx)ネイティブの IIS モジュールを持つイベント。
+> [!WARNING]
+> 使用しないでください`PreSendRequestHeaders`と`PreSendRequestContent`を実装するマネージ モジュールで`IHttpModule`です。 これらのプロパティを設定すると、非同期要求で問題が発生することができます。 アプリケーション要求ルーティング処理 (ARR) と websocket の組み合わせが例外が発生するアクセス違反 w3wp クラッシュする可能性があります。 たとえば、iiscore!W3_CONTEXT_BASE::GetIsLastNotification + 68 iiscore.dll でアクセス違反例外 (0xC0000005) が発生しました。
 
 <a id="asyncevents"></a>
 

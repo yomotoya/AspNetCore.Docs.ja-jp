@@ -11,11 +11,11 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: fdb396d8857dc9c118cc19da1f7d1d498dfaacd5
-ms.sourcegitcommit: 8ab9d0065fad23400757e4e08033787e42c97d41
+ms.openlocfilehash: 68e8c89f6e5485f25d1a551ab3e524f0e9c53d0d
+ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>ASP.NET core 圧縮ミドルウェアの応答
 
@@ -45,14 +45,14 @@ IIS、Apache、または Nginx サーバー ベースの応答の圧縮テクノ
 
 | `Accept-Encoding`ヘッダーの値 | ミドルウェアのサポート | 説明                                                 |
 | :-----------------------------: | :------------------: | ----------------------------------------------------------- |
-| `br`                            | いいえ                   | Brotli 圧縮データの形式                               |
-| `compress`                      | いいえ                   | UNIX"を圧縮"データの形式                                 |
-| `deflate`                       | いいえ                   | データの形式が"zlib"内のデータを圧縮する"deflate"     |
-| `exi`                           | いいえ                   | W3C の効率的な XML インターチェンジ                               |
+| `br`                            | ×                   | Brotli 圧縮データの形式                               |
+| `compress`                      | ×                   | UNIX"を圧縮"データの形式                                 |
+| `deflate`                       | ×                   | データの形式が"zlib"内のデータを圧縮する"deflate"     |
+| `exi`                           | ×                   | W3C の効率的な XML インターチェンジ                               |
 | `gzip`                          | [はい] (既定値)        | gzip ファイル形式                                            |
-| `identity`                      | はい                  | 「エンコードなし」の識別子: 応答をエンコードする必要があります。 |
-| `pack200-gzip`                  | いいえ                   | ネットワーク転送形式は Java アーカイブ用                   |
-| `*`                             | はい                  | エンコードは明示的に要求された使用可能なコンテンツ     |
+| `identity`                      | [はい]                  | 「エンコードなし」の識別子: 応答をエンコードする必要があります。 |
+| `pack200-gzip`                  | ×                   | ネットワーク転送形式は Java アーカイブ用                   |
+| `*`                             | [はい]                  | エンコードは明示的に要求された使用可能なコンテンツ     |
 
 詳細については、次を参照してください。、 [IANA 公式コンテンツ コーディング リスト](http://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry)です。
 
@@ -183,7 +183,7 @@ Gzip 圧縮プロバイダーの既定値は、最速の圧縮レベル (`Compre
 
 [!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet1)]
 
-## <a name="middlware-issue-when-behind-an-nginx-reverse-proxy"></a>Middlware 問題 Nginx リバース プロキシの背後にある場合
+## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Nginx リバース プロキシの背後にある場合のミドルウェアの問題
 要求が Nginx がプロキシとなったとき、`Accept-Encoding`ヘッダーを削除します。 これは、ミドルウェアが応答を圧縮することを防ぎます。 詳細については、次を参照してください。 [NGINX: 圧縮および圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)です。 によってこの問題を追跡[nginx (BasicMiddleware #123) の圧縮をパススルーもらう](https://github.com/aspnet/BasicMiddleware/issues/123)です。
 
 ## <a name="working-with-iis-dynamic-compression"></a>IIS 動的圧縮を使用

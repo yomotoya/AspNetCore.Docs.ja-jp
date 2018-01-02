@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 1922037245a33f49c17f1c361003260462d96264
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a3fdbf8a1ab4ca397824a46da445fa34ddd35204
+ms.sourcegitcommit: 4be61844141d3cfb6f263636a36aebd26e90fb28
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>グローバリゼーションとローカリゼーション ASP.NET Core
 
@@ -77,7 +77,7 @@ ASP.NET Core で導入された`IStringLocalizer`と`IStringLocalizer<T>`ロー�
 
 フランス語のリソース ファイルに次が可能性があります。
 
-| キー | 値 |
+| キー | [値] |
 | ----- | ------ |
 | `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b> ` |
 
@@ -124,7 +124,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ASP.NET Core では、2 つのカルチャ値を指定できます。`SupportedCultures`と`SupportedUICultures`です。 [CultureInfo](https://docs.microsoft.com/dotnet/api/system.globalization.cultureinfo)オブジェクトに対する`SupportedCultures`日付、時刻、数、および通貨の書式設定など、カルチャに依存する関数の結果を決定します。 `SupportedCultures`テキスト、大文字と小文字の表記規則、および文字列比較の並べ替え順序を決定します。 参照してください[CultureInfo.CurrentCulture](https://docs.microsoft.com/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture)サーバーがカルチャを取得する方法の詳細。 `SupportedUICultures`を決定し、これは文字列 (から*.resx*ファイル) を検索、 [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager)です。 `ResourceManager`によって決定されるカルチャ固有の文字列を単に検索`CurrentUICulture`です。 .NET のすべてのスレッドが`CurrentCulture`と`CurrentUICulture`オブジェクト。 ASP.NET Core は、カルチャに依存する関数を表示するときに、これらの値を検査します。 たとえば、現在のスレッドのカルチャが"EN-US"(英語、米国) に設定されている`DateTime.Now.ToLongDateString()`場合は、「木曜日、2016 年 2 月 18日」が表示されます`CurrentCulture`設定されている"ES-ES"(スペイン語、スペイン) に出力になります"jueves、18 de febrero de 2016" です。
 
-## <a name="working-with-resource-files"></a>リソース ファイルの操作
+## <a name="resource-files"></a>リソース ファイル
 
 リソース ファイルは、ローカライズ可能な文字列をコードから分離するために役立ちますメカニズムです。 既定以外の言語の翻訳された文字列は分離*.resx*リソース ファイル。 という名前のスペイン語のリソース ファイルを作成するなど、 *Welcome.es.resx*を含む文字列を変換します。 "es"では、スペイン語の言語コードを示します。 Visual Studio でこのリソース ファイルを作成します。
 
@@ -172,19 +172,21 @@ Visual Studio 2017 Preview バージョン 15.3 を使用している場合、�
 
 使用しない場合、`ResourcesPath`オプション、 *.resx*ファイルのビューは、ビューと同じフォルダーに配置するとします。
 
-".Fr"カルチャの指定子を削除し、カルチャをフランス語 (cookie または他の機構) 経由での設定を使用している場合は、既定のリソース ファイルは読み取りし、文字列はローカライズします。 リソース マネージャーは、何も行われませんが、カルチャの指定子なし *.resx ファイルを処理している、要求されたカルチャを満たす場合、既定値またはフォールバック リソースを指定します。 要求されたカルチャのリソースが見つかりません必要があります、既定のリソース ファイルは持っていない場合にだけ、キーを返す場合は。
+## <a name="culture-fallback-behavior"></a>カルチャ フォールバック動作
 
-### <a name="generating-resource-files-with-visual-studio"></a>Visual Studio でのリソース ファイルを生成します。
+例として、既定のリソース ファイルは読み取り".fr"カルチャの指定子を削除し、カルチャをフランス語に設定を使用している場合と、文字列はローカライズします。 リソース マネージャーでは、既定値またはフォールバック リソースを何も行われませんが、要求されたカルチャを満たす場合に指定します。 要求されたカルチャのリソースが見つかりません必要があります、既定のリソース ファイルは持っていない場合にだけ、キーを返す場合は。
+
+### <a name="generate-resource-files-with-visual-studio"></a>Visual Studio でのリソース ファイルを生成します。
 
 Visual Studio で、ファイル名にカルチャせず、リソース ファイルを作成した場合 (たとえば、 *Welcome.resx*)、Visual Studio は各文字列のプロパティを使用して、c# クラスを作成します。 通常、たくないと ASP.NET Core です。通常、既定値がない*.resx*リソース ファイル (A *.resx*カルチャ名のないファイル)。 作成することをお勧めします。、 *.resx*カルチャ名を持つファイル (たとえば*Welcome.fr.resx*)。 作成するときに、 *.resx*カルチャ名、Visual Studio でのファイルは、クラス ファイルを生成しません。 多くの開発者に**いない**既定の言語リソース ファイルを作成します。
 
-### <a name="adding-other-cultures"></a>その他のカルチャを追加します。
+### <a name="add-other-cultures"></a>その他のカルチャを追加します。
 
 (既定の言語) 以外の言語とカルチャの組み合わせごとに一意のリソース ファイルが必要です。 ISO 言語コードがファイル名の一部となるリソース ファイルの新規作成して異なるカルチャとロケールのリソース ファイルを作成する (たとえば、 **en-us**、 **fr ca**、および**en gb**)。 これらの ISO コードを配置しているファイル名の間、 *.resx*ファイル名拡張子として*Welcome.es MX.resx* (スペイン語/メキシコ)。 カルチャ ニュートラル言語を指定するには、国コードを削除 (`MX`前の例で)。 スペイン語のニュートラル カルチャのリソース ファイル名が*Welcome.es.resx*です。
 
 ## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>要求ごとに言語/カルチャを選択するための戦略を実装します。  
 
-### <a name="configuring-localization"></a>ローカリゼーションの構成
+### <a name="configure-localization"></a>ローカリゼーションを構成します。
 
 ローカリゼーションがで構成されている、`ConfigureServices`メソッド。
 
@@ -236,7 +238,7 @@ Cookie の形式が`c=%LANGCODE%|uic=%LANGCODE%`ここで、`c`は`Culture`と`u
 
 [Accept-language ヘッダー](https://www.w3.org/International/questions/qa-accept-lang-locales)ほとんどのブラウザーで設定可能であり、ユーザーの言語を指定するためのものが最初。 この設定は、ブラウザーが送信に設定されているかは、基になるオペレーティング システムから継承する新機能を示します。 ブラウザーの要求で Accept Language HTTP ヘッダーは、ユーザーの優先言語を検出するない方法ではありません (を参照してください[ブラウザーの言語設定を設定する](https://www.w3.org/International/questions/qa-lang-priorities.en.php))。 運用アプリには、ユーザーの任意のカルチャをカスタマイズする方法を含める必要があります。
 
-### <a name="setting-the-accept-language-http-header-in-ie"></a>IE で Accept Language HTTP ヘッダーの設定
+### <a name="set-the-accept-language-http-header-in-ie"></a>IE で Accept Language HTTP ヘッダーを設定します。
 
 1. 歯車アイコンをタップ**インターネット オプション**です。
 
@@ -252,7 +254,7 @@ Cookie の形式が`c=%LANGCODE%|uic=%LANGCODE%`ここで、`c`は`Culture`と`u
 
 6. 言語をタップしてタップ**上へ移動**です。
 
-### <a name="using-a-custom-provider"></a>カスタム プロバイダーを使用します。
+### <a name="use-a-custom-provider"></a>カスタム プロバイダーを使用します。
 
 お客様は、データベース内の言語とカルチャを格納できるようにするとします。 ユーザーの姓名を検索するプロバイダーを記述することもできます。 次のコードは、カスタム プロバイダーを追加する方法を示しています。
 
@@ -281,7 +283,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 使用して`RequestLocalizationOptions`を追加またはローカライズのプロバイダーを削除します。
 
-### <a name="setting-the-culture-programmatically"></a>プログラムによる、カルチャの設定
+### <a name="set-the-culture-programmatically"></a>カルチャをプログラムで設定します。
 
 このサンプル**Localization.StarterWeb**プロジェクトでは、 [GitHub](https://github.com/aspnet/entropy)を設定するための UI が含まれています、`Culture`です。 *Views/Shared/_SelectLanguagePartial.cshtml*ファイルでは、サポートされているカルチャの一覧から、カルチャを選択することができます。
 

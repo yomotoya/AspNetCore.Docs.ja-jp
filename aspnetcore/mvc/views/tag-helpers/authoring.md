@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6858b6b8ec89a5e5ffa9e5f8dddb905f38e16603
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cbe46ee1d3cd9f7a30a87d364074f1302f9af7ab
+ms.sourcegitcommit: 5834afb87e4262b9b88e60e3fe6c735e61a1e08d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>ASP.NET Core、サンプルとチュートリアルのタグ ヘルパーの作成
 
@@ -76,9 +76,18 @@ ms.lasthandoff: 11/10/2017
     
     上記のコードは、使用可能なアセンブリ内のすべてのタグ ヘルパーを指定するのにワイルドカードの構文を使用します。 後の最初の文字列`@addTagHelper`を読み込むタグ ヘルパーを指定します (使用する"*"すべてのタグ ヘルパーの)、2 番目の文字列"AuthoringTagHelpers"アセンブリを指定するのには、タグ ヘルパーとします。 また、ワイルドカードの構文を使用して ASP.NET Core MVC タグ ヘルパーの 2 番目の行がもたらすことに注意してください (これらのヘルパーは、後ほど[タグ ヘルパーの概要](intro.md))。`@addTagHelper`タグ ヘルパーの Razor ビューを使用できるようにするディレクティブ。 また、次に示すように、タグ ヘルパーの完全修飾名 (FQN) を指定できます。
     
-    [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImports.cshtml?highlight=3&range=1-3)]
+```csharp
+@using AuthoringTagHelpers
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper AuthoringTagHelpers.TagHelpers.EmailTagHelper, AuthoringTagHelpers
+```
     
-    タグ ヘルパーに追加する、FQN を使用するビューを最初に追加する、FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`)、およびアセンブリ名では、(*AuthoringTagHelpers*)。 ほとんどの開発者は、ワイルドカードの構文を使用するを選びます。 [タグ ヘルパーの概要](intro.md)タグ ヘルパーの追加、削除、階層、およびワイルドカードの構文の詳細を見ていきます。
+<!--
+the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
+    [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImports.cshtml?highlight=3&range=1-3)]
+-->
+    
+タグ ヘルパーに追加する、FQN を使用するビューを最初に追加する、FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`)、およびアセンブリ名では、(*AuthoringTagHelpers*)。 ほとんどの開発者は、ワイルドカードの構文を使用するを選びます。 [タグ ヘルパーの概要](intro.md)タグ ヘルパーの追加、削除、階層、およびワイルドカードの構文の詳細を見ていきます。
     
 3.  内のマークアップを更新、 *Views/Home/Contact.cshtml*のこれらの変更されたファイル。
 

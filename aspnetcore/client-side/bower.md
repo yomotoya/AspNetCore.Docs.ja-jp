@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bower
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0258315e0e24d662086a3171b58112e08b9a40ab
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: aa329002f78ea48755d65a662f54425013b9a30e
+ms.sourcegitcommit: f273cc3b7409cde063140aa0bd7a81aa50f00571
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET Core での Bower でクライアント側のパッケージを管理します。
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 > [!IMPORTANT]
 > Bower を保持したまま、別のソリューションを使用してそれらを勧めします。 Webpack で yarn を 1 つの一般的な代替手段は、[移行手順](https://bower.io/blog/2017/how-to-migrate-away-from-bower/)を利用できます。
 
-[Bower](https://bower.io/)呼び出し自体「web のパッケージ マネージャーです」。 .NET エコシステム内では、NuGet の静的なコンテンツ ファイルを配信できないことによってまま void が挿入されます。 ASP.NET Core プロジェクトでは、これらの静的ファイルはのようにクライアント側のライブラリに固有[jQuery](http://jquery.com/)と[ブートス トラップ](http://getbootstrap.com/)です。 .NET ライブラリを使用することも[NuGet](https://www.nuget.org/)パッケージ マネージャーです。
+[Bower](https://bower.io/) 「web のパッケージ マネージャー」自体を呼び出します。 .NET エコシステム内では、NuGet の静的なコンテンツ ファイルを配信できないことによってまま void が挿入されます。 ASP.NET Core プロジェクトでは、これらの静的ファイルはのようにクライアント側のライブラリに固有[jQuery](http://jquery.com/)と[ブートス トラップ](http://getbootstrap.com/)です。 .NET ライブラリを使用することも[NuGet](https://www.nuget.org/)パッケージ マネージャーです。
 
 クライアント側の設定の ASP.NET Core プロジェクト テンプレートで作成した新しいプロジェクトはビルド プロセスです。 [jQuery](http://jquery.com/)と[ブートス トラップ](http://getbootstrap.com/)がインストールされている、Bower がサポートされているとします。
 

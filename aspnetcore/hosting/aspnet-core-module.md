@@ -11,11 +11,11 @@ ms.assetid: 5de0c8f7-50ce-4e2c-b3d4-a1bd9fdfcff5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/aspnet-core-module
-ms.openlocfilehash: f0759f16ada531774a3945f67495e5f634e6154e
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 277e63a5663aca622e8252d6c6be1671e57cbf68
+ms.sourcegitcommit: 44a62f59d4db39d685c4487a0345a486be18d7c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core モジュール構成の参照
 
@@ -117,6 +117,7 @@ ASP.NET Core モジュール リダイレクト`stdout`と`stderr`を設定す�
     stdoutLogFile="\\?\%home%\LogFiles\stdout">
 </aspNetCore>
 ```
+参照してください[web.config を使用して構成](#configuration-via-webconfig)の例については、`aspNetCore`内の要素、 *web.config*ファイル。
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>IIS と ASP.NET Core モジュール構成を共有します。
 
@@ -126,7 +127,7 @@ IIS 共有構成を無効にする、インストーラーを実行、更新さ�
 
 ## <a name="module-schema-and-configuration-file-locations"></a>モジュール、スキーマ、および構成ファイルの場所
 
-### <a name="module"></a>モジュール
+### <a name="module"></a>Module
 
 **IIS (x86 または amd64):**
 
