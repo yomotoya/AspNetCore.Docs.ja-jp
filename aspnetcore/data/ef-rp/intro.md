@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: 571d683636244565b184cfec49061ec656377f11
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
-ms.translationtype: HT
+ms.openlocfilehash: acbd987438edeea13f29547dc471f9a211e87b04
+ms.sourcegitcommit: 1de159820a572c08955ee77cc8b1caa3d7aa938c
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Razor ページと Visual Studio (1/8) を使用して Entity Framework Core の概要
 
@@ -29,6 +29,8 @@ Contoso 大学サンプル web アプリケーションでは、Entity Framework
 ## <a name="prerequisites"></a>必須コンポーネント
 
 [!INCLUDE[install 2.0](../../includes/install2.0.md)]
+
+十分に理解[Razor ページ](xref:mvc/razor-pages/index)です。 新しいプログラマが完了する必要があります[Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)この系列を開始する前にします。
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
