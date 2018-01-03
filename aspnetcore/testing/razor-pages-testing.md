@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 7a3f1bfa8bec830216af37d89aa588a921485e6b
-ms.sourcegitcommit: 4925a91ef4130ddb333f187ab13defe66f2c6cef
+ms.openlocfilehash: 1ecdf010f7c283a0a08b224d570a5bc5cdf536df
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Razor ページの単位と ASP.NET Core でのテストの統合
 
@@ -57,7 +57,7 @@ dotnet test
 * メッセージは、`Message`クラス (*Data/Message.cs*) 2 つのプロパティを持つ: `Id` (キー) と`Text`(メッセージ)。 `Text`プロパティは必須であり 200 文字までに制限されます。
 * 使用してメッセージが格納される[Entity Framework のメモリ内データベース](/ef/core/providers/in-memory/)&#8224;。
 * アプリには、データベース コンテキスト クラスのデータ アクセス層 (DAL) が含まれています`AppDbContext`(*Data/AppDbContext.cs*)。 DAL メソッドをマーク`virtual`、これにより、テストで使用するためのメソッドをモックします。
-* 開発環境では、メッセージ ストアは、3 つのメッセージに初期化されます。 これら*メッセージをシード*テストにも使用します。
+* データベースがアプリの起動時に空の場合、メッセージ ストアは、3 つのメッセージで初期化されます。 これら*メッセージをシード*テストにも使用します。
 
 &#8224;です。EF トピック[InMemory でテスト](/ef/core/miscellaneous/testing/in-memory)MSTest でテストするインメモリ データベースを使用する方法について説明します。 このトピックでは、 [xUnit](https://xunit.github.io/)テスト フレームワーク。 テストの概念とさまざまなテスト フレームワークの間でのテストの実装は、似ているが同一でです。
 

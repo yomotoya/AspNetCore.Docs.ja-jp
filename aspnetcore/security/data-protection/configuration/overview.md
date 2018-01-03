@@ -11,11 +11,11 @@ ms.assetid: 0e4881a3-a94d-4e35-9c1c-f025d65dcff0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 4713c2bed04af784e74586daa10ec847262a1345
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20e3d974e7790cd01f78f8db09225b5887f1772a
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-data-protection-in-aspnet-core"></a>ASP.NET Core でのデータ保護の構成
 
@@ -193,7 +193,6 @@ serviceCollection.AddDataProtection()
 一般に、\*型のプロパティは、具象型を指す必要があります (パラメーターなしのパブリック コンストラクタ) 経由でインスタンス化可能な実装の[対称アルゴリズム](/dotnet/api/system.security.cryptography.symmetricalgorithm)と[KeyedHashAlgorithm](/dotnet/api/system.security.cryptography.keyedhashalgorithm)が、特殊なケースなどのいくつかの値のシステム`typeof(Aes)`利便性を考慮します。
 
 > [!NOTE]
-> `SymmetricAlgorithm`キーの長さが必要 > = 128 ビット単位のブロック サイズ > 64 ビットの場合は、以下が PKCS #7 埋め込み CBC モードの暗号化をサポートする必要があります。 `KeyedHashAlgorithm`のダイジェストのサイズが必要 > = 128 ビット、およびハッシュ アルゴリズムのダイジェストの長さと同じ長さのキーをサポートする必要があります。 `KeyedHashAlgorithm` HMAC を厳密には必要はありません。
 > PKCS #7 パディング CBC モードの暗号化をサポートする必要があり、対称アルゴリズムは ≥ 128 ビットのキーの長さと ≥ の 64 ビットのブロック サイズにあります。 ダイジェストのサイズをいる必要があります、KeyedHashAlgorithm > = 128 ビット、およびハッシュ アルゴリズムのダイジェストの長さと同じ長さのキーをサポートする必要があります。 KeyedHashAlgorithm は HMAC を必須ではありません。
 
 ### <a name="specifying-custom-windows-cng-algorithms"></a>カスタムの Windows CNG アルゴリズムを指定します。

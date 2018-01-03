@@ -5,24 +5,24 @@ author: tfitzmac
 description: "このチュートリアルでは、ASP.NET Web Pages (Razor) を使用する場合は、(変更)、既存のデータベース エントリを更新する方法を示します。 系列を完了すると想定 th しています."
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 05/28/2015
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
 ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 6fdb365c1449e6c54dfdbe492211700211f61005
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aabf572e254de9861719fdc502340353482919b4
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>ASP.NET Web ページの概要 - データベースのデータの更新
 ====================
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
-> このチュートリアルでは、ASP.NET Web Pages (Razor) を使用する場合は、(変更)、既存のデータベース エントリを更新する方法を示します。 を通じてシリーズを完了すると想定[データの入力を使用してフォームを使用して ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251582)です。
+> このチュートリアルでは、ASP.NET Web Pages (Razor) を使用する場合は、(変更)、既存のデータベース エントリを更新する方法を示します。 を通じてシリーズを完了すると想定[データの入力を使用してフォームを使用して ASP.NET Web Pages](entering-data.md)です。
 > 
 > 学習する内容。
 > 
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/10/2017
 
 このマークアップおよびコードある場合に似ていますが、 *AddMovie*ページ。 [送信] ボタンのテキストで小さな違いがあります。 同様、 *AddMovie*  ページでは、`Html.ValidationSummary`呼び出しをいずれかを使用する必要がある場合、検証エラーを表示します。 この時点への呼び出しを除外しているお`Validation.Message`検証概要にエラーが表示されるため、します。 述べたように前のチュートリアルでは、検証の概要と、個々 のエラー メッセージをさまざまな組み合わせで使用できます。
 
-もう一度ことに注意して、`method`の属性、`<form>`要素に設定されている`post`です。 同様、 *AddMovie.cshtml*  ページで、このページでは、変更をデータベースにします。 そのため、このフォームを実行する必要があります、`POST`操作します。 (の違いの詳細について`GET`と`POST`、操作を参照してください、 [GET、POST、および HTTP 動詞の安全性](https://go.microsoft.com/fwlink/?LinkId=251581#GET,_POST,_and_HTTP_Verb_Safety)HTML フォームのチュートリアルではサイドバーです)。
+もう一度ことに注意して、`method`の属性、`<form>`要素に設定されている`post`です。 同様、 *AddMovie.cshtml*  ページで、このページでは、変更をデータベースにします。 そのため、このフォームを実行する必要があります、`POST`操作します。 (の違いの詳細について`GET`と`POST`、操作を参照してください、 [GET、POST、および HTTP 動詞の安全性](form-basics.md#GET,_POST,_and_HTTP_Verb_Safety)HTML フォームのチュートリアルではサイドバーです)。
 
 以前のチュートリアルで説明したとおり、`value`テキスト ボックスの属性はそれらをプリロードするために Razor コードで設定されています。 このとき、ただし、使用しているような変数`title`と`genre`の代わりにそのタスクの`Request.Form["title"]`:
 
@@ -224,7 +224,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > もちろん、`Query`メソッドは、1 つだけデータベースの行を返す場合があります。 ただし、ASP.NET 常には処理の結果、`Query`コレクションとしてのメソッドです。 メソッドが 1 行だけを返す場合でもその 1 つの行をコレクションから抽出する必要があります。 状況でこのため、場所する*知る*1 行のみが返されます、これは使いやすいビット`QuerySingle`です。
 > 
-> 特定の種類のデータベース操作を実行するその他のいくつかの方法はあります。 データベースのメソッドの一覧を見つけることができます、 [ASP.NET Web Pages API のクイック リファレンス](https://go.microsoft.com/fwlink/?LinkID=202907#Data)です。
+> 特定の種類のデータベース操作を実行するその他のいくつかの方法はあります。 データベースのメソッドの一覧を見つけることができます、 [ASP.NET Web Pages API のクイック リファレンス](../../api-reference/asp-net-web-pages-api-reference.md#Data)です。
 
 
 ## <a name="making-validation-for-the-id-more-robust"></a>堅牢な ID の複数の検証を行う
@@ -308,7 +308,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [Razor 構文を使用して ASP.NET Web プログラミングの概要](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Razor 構文を使用して ASP.NET Web プログラミングの概要](introducing-razor-syntax-c.md)
 - [SQL UPDATE ステートメント](http://www.w3schools.com/sql/sql_update.asp)W3Schools サイト
 
 >[!div class="step-by-step"]

@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 0c49376fd1b602fe03ef2a152d19b58513ae2710
-ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
+ms.openlocfilehash: 8862c6b9a5eb7ac3b6889071e4ce9ff6f02512c9
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 en-米国/
 
@@ -194,7 +194,7 @@ dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outD
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
-同時実行の問題を検出するために、 [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue)で更新が、`rowVersion`エンティティからの値が、フェッチします。 EF コア元を含む WHERE 句を使用して SQL の UPDATE コマンドが生成されます`RowVersion`値。 更新コマンドで行に影響がない場合 (行には、元のあるありません`RowVersion`値)、`DbUpdateConcurrencyException`例外がスローされます。
+同時実行の問題を検出するために、 [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue)で更新が、`rowVersion`フェッチ エンティティからの値。 EF コア元を含む WHERE 句を使用して SQL の UPDATE コマンドが生成されます`RowVersion`値。 更新コマンドで行に影響がない場合 (行には、元のあるありません`RowVersion`値)、`DbUpdateConcurrencyException`例外がスローされます。
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-)]
 
