@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: a66b5ea32c2090b9944cd61f90f7fe011a823e82
-ms.sourcegitcommit: 3511552becb081fb860a23d6c9b6c4efcab74577
+ms.openlocfilehash: 31d8b1f662d3d5e7dad8f459d951c7b8181148b8
+ms.sourcegitcommit: 5834afb87e4262b9b88e60e3fe6c735e61a1e08d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 
@@ -165,7 +165,7 @@ db コンテキスト:
 
 [!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)は [asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#route) 属性を使用して編集ページへのリンクを生成しました。 リンクには、連絡先 ID とともにルート データが含まれています。 たとえば、`http://localhost:5000/Edit/1` のようにします。
+[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)は `asp-route-{value}` 属性を使用して編集ページへのリンクを生成しました。 リンクには、連絡先 ID とともにルート データが含まれています。 たとえば、`http://localhost:5000/Edit/1` のようにします。
 
 *Pages/Edit.cshtml* ファイル:
 
