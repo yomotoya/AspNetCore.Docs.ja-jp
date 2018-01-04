@@ -5,24 +5,24 @@ author: tfitzmac
 description: "このチュートリアルでは、個々 のデータベース エントリを削除する方法を示します。 ASP.NET Web Pa. 内のデータベース データの更新で、系列を修了を想定しています."
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 05/28/2015
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
 ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: aef31b6170cc3bba2421eb8c2c41e83aadc129c5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5bc92b5d40e7a55dcd730d552c71031d913b277e
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>ASP.NET Web ページの概要 - データベースのデータを削除します。
 ====================
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
-> このチュートリアルでは、個々 のデータベース エントリを削除する方法を示します。 を通じてシリーズを完了すると想定[データベースのデータを更新する ASP.NET Web Pages で](https://go.microsoft.com/fwlink/?LinkId=251583)です。
+> このチュートリアルでは、個々 のデータベース エントリを削除する方法を示します。 を通じてシリーズを完了すると想定[データベースのデータを更新する ASP.NET Web Pages で](updating-data.md)です。
 > 
 > 学習する内容。
 > 
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/10/2017
 
 このリンクをという名前のページを呼び出す*DeleteMovie*を選択したムービーの ID を渡します。
 
-このチュートリアルはありませんについて詳しくは、このリンクの構築方法とほぼ同じになっているため、**編集**リンク前のチュートリアル ([データベースのデータを更新する ASP.NET Web Pages で](https://go.microsoft.com/fwlink/?LinkId=251583))。
+このチュートリアルはありませんについて詳しくは、このリンクの構築方法とほぼ同じになっているため、**編集**リンク前のチュートリアル ([データベースのデータを更新する ASP.NET Web Pages で](updating-data.md))。
 
 ## <a name="creating-the-delete-page"></a>ページの削除 を作成します。
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 11/10/2017
   
  AND  
   
-** `buttonDelete`*ボタンがフォームを送信するボタンをクリックします。*
+`buttonDelete`*ボ**タンがフォームを送信するボタンをクリックします。*
 
 そのため (実際には、このページ) でのこのフォームにボタンが 1 つだけが含まれていますの追加のテスト`buttonDelete`は技術的には必要ありません。 それでもは、データが完全に削除する操作を実行しようとしています。 したがって、ユーザーが要求して明示的に場合にのみ、操作を実行することができるだけに必ずたいです。 たとえば、このページを後で展開し、その他のボタンを追加します。 場合にのみのムービーを削除するコードの実行後も、 `buttonDelete` button がクリックしてされました。
 
@@ -169,7 +169,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [Razor 構文を使用して ASP.NET Web プログラミングの概要](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Razor 構文を使用して ASP.NET Web プログラミングの概要](../introducing-razor-syntax-c.md)
 - [SQL の DELETE ステートメント](http://www.w3schools.com/sql/sql_delete.asp)W3Schools サイト
 
 >[!div class="step-by-step"]
