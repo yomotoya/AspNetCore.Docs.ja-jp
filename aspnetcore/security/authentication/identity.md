@@ -5,17 +5,17 @@ description: "ASP.NET Core アプリケーションの Id を使用します。"
 keywords: "ASP.NET Core、Identity、承認、セキュリティ"
 ms.author: riande
 manager: wpickett
-ms.date: 12/15/2017
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 7daf0267a6dc659afbd188ce87e35ca40816a31d
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 7af53bfad2b77558a06003cbc6534236235054c4
+ms.sourcegitcommit: 677986b3a39817b712e2432cce85ad1685326b75
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core での Id の概要
 
@@ -32,11 +32,20 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
 1.  個々 のユーザー アカウントを使って ASP.NET Core Web アプリケーション プロジェクトを作成します。
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-    Visual Studio で、次のように選択します。**ファイル** -> **新規** -> **プロジェクト**です。 選択、 **ASP.NET Web アプリケーション**から、**新しいプロジェクト** ダイアログ ボックス。 ASP.NET Core を選択すると**Web Application(Model-View-Controller)** ASP.NET core と 2.x**個々 のユーザー アカウント**の認証方法として。
+    Visual Studio で、次のように選択します。**ファイル** -> **新規** -> **プロジェクト**です。 選択**ASP.NET Core Web アプリケーション** をクリック**OK**です。 
 
-    注: 選択する必要があります**個々 のユーザー アカウント**です。
+    ![[新しいプロジェクト] ダイアログ](identity/_static/01-new-project.png)
+
+    ASP.NET Core の選択**Web アプリケーション (モデル-ビュー-コント ローラー)** for ASP.NET 2.x、コアし、選択**認証の変更**です。 
+
+    ![[新しいプロジェクト] ダイアログ](identity/_static/02-new-project.png)
+
+    オファー、ダイアログを表示認証オプション。 選択**個々 のユーザー アカウント** をクリック**OK**前のダイアログに戻ります。
+
+    ![[新しいプロジェクト] ダイアログ](identity/_static/03-new-project-auth.png)
+    
+    選択すると**個々 のユーザー アカウント**モデル、ViewModels、ビュー、コント ローラー、およびプロジェクト テンプレートの一部として、認証に必要なその他のアセットを作成する Visual Studio に指示します。
  
-    ![[新しいプロジェクト] ダイアログ](identity/_static/01-mvc_2.png)
     
     # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
     .NET Core CLI を使用する場合を使用して新しいプロジェクトを作成``dotnet new mvc --auth Individual``です。 このコマンドは、Visual Studio によって作成された同じ Identity テンプレート コードを新しいプロジェクトを作成します。
@@ -77,7 +86,7 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
 
     アプリケーションを起動し、をクリックして、**登録**リンクします。
 
-    初めてこの操作を実行している場合は、移行を実行する必要はあります。 アプリケーションでは、するように求められます**適用移行**:
+    初めてこの操作を実行している場合は、移行を実行する必要はあります。 アプリケーションでは、するように求められます**適用移行**です。 必要な場合は、ページを更新します。
     
     ![移行の Web ページを適用します。](identity/_static/apply-migrations.png)
     
@@ -100,9 +109,9 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
  
     をクリックしてユーザーがサインインできるよう、**ログイン**サイトの上部にあるリンクの承認を必要とするサイトの一部にアクセスする場合、ログイン ページに移動可能性がありますか。 ユーザーがログイン ページのフォームを送信するときに、 ``AccountController`` ``Login``アクションが呼び出されます。
 
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
- 
     ``Login``アクション呼び出し``PasswordSignInAsync``上、``_signInManager``オブジェクト (に提供される``AccountController``依存関係の挿入によって)。
+
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
  
     基本``Controller``クラスが公開する``User``コント ローラーのメソッドからアクセスできるプロパティです。 インスタンスを列挙できます`User.Claims`承認決定を行うとします。 詳細については、次を参照してください。[承認](xref:security/authorization/index)です。
  
@@ -139,6 +148,35 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
     ![AspNetUsers データベース テーブルのコンテキスト メニュー](identity/_static/04-db.png)
     
     データベースを展開し、その**テーブル**を右クリックし、 **dbo します。AspNetUsers**テーブルを選択して**ビュー データ**です。
+
+8. Identity 動作を確認します。
+
+    既定値*ASP.NET Core Web アプリケーション*プロジェクト テンプレートを使用してしなくても、アプリケーションでのアクションにアクセスするユーザーにログインします。 ASP.NET Identity が動作することを確認するには追加、`[Authorize]`属性を`About`のアクション、`Home`コント ローラー。
+ 
+    ```cs
+    [Authorize]
+    public IActionResult About()
+    {
+        ViewData["Message"] = "Your application description page.";
+        return View();
+    }
+    ```
+    
+    # <a name="visual-studiotabvisualstudio"></a>[Visual Studio](#tab/visualstudio)     
+
+    使用してプロジェクトを実行**Ctrl** + **f5 キーを押して**に移動し、**に関する**ページ。 認証されたユーザーのみがアクセス、**に関する** ページが表示、ASP.NET ログインまたは登録するには、ログイン ページにリダイレクトします。
+
+    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+    コマンド ウィンドウを開き、プロジェクトのルートに移動ディレクトリを含む、`.csproj`ファイル。 実行、`dotnet run`アプリを実行するコマンド。
+
+    ```cs
+    dotnet run 
+    ```
+
+    出力で指定された URL を参照、`dotnet run`コマンド。 URL を指す必要があります`localhost`生成されたポート番号。 移動し、**に関する**ページ。 認証されたユーザーのみがアクセス、**に関する** ページが表示、ASP.NET ログインまたは登録するには、ログイン ページにリダイレクトします。
+
+    ---
 
 ## <a name="identity-components"></a>Identity コンポーネント
 

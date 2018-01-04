@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: a3fdbf8a1ab4ca397824a46da445fa34ddd35204
-ms.sourcegitcommit: 4be61844141d3cfb6f263636a36aebd26e90fb28
+ms.openlocfilehash: d1f8cf5607fdd08bf0dadc224ae0fdba7ec696bc
+ms.sourcegitcommit: 677986b3a39817b712e2432cce85ad1685326b75
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>グローバリゼーションとローカリゼーション ASP.NET Core
 
@@ -25,7 +25,7 @@ ASP.NET Core 多言語 web サイトを作成すると、多数の対象者に�
 
 国際化では、[グローバリゼーション](https://docs.microsoft.com/dotnet/api/system.globalization)と[ローカリゼーション](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization)です。 グローバリゼーションとは異なるカルチャをサポートするアプリを設計するプロセスです。 グローバリゼーションでは、入力、表示、および定義済みの一連の特定の地理的領域に関連する言語のスクリプトの出力のサポートを追加します。
 
-ローカリゼーションとは、グローバライズされたアプリ、特定のカルチャとロケールに、ローカライズの可能性が既に処理に対応させるプロセス。  詳細については、次を参照してください。**グローバリゼーションおよびローカリゼーションの条項**このドキュメントの末尾近くです。
+ローカリゼーションとは、グローバライズされたアプリ、特定のカルチャとロケールに、ローカライズの可能性が既に処理に対応させるプロセス。 詳細については、次を参照してください。**グローバリゼーションおよびローカリゼーションの条項**このドキュメントの末尾近くです。
 
 アプリのローカライズには、次の項目が含まれます。
 
@@ -305,7 +305,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 [ローカライズ化](https://docs.microsoft.com/dotnet/standard/globalization-localization/localizability-review)は、グローバライズされたアプリのローカライズ可能を確認するための中間プロセスです。
 
-[RFC 4646](https://www.ietf.org/rfc/rfc4646.txt)カルチャ名の書式を設定"<languagecode2>-< country/regioncode2 >"ここで、<languagecode2>言語コードは、< country/regioncode2 > となりです。 たとえば、`es-CL`スペイン語 (チリ) 用`en-US`英語 (米国) の場合と`en-AU`英語 (オーストラリア) 用です。 [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) ISO 639 言語に関連付けられている 2 文字の小文字のカルチャ コードと国または地域に関連付けられている 2 文字の大文字となり、ISO 3166 の組み合わせです。  参照してください[言語カルチャ名](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx)です。
+[RFC 4646](https://www.ietf.org/rfc/rfc4646.txt)カルチャ名の形式`<languagecode2>-<country/regioncode2>`ここで、`<languagecode2>`言語コードと`<country/regioncode2>`となりです。 たとえば、`es-CL`スペイン語 (チリ) 用`en-US`英語 (米国) の場合と`en-AU`英語 (オーストラリア) 用です。 [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) ISO 639 言語に関連付けられている 2 文字の小文字のカルチャ コードと国または地域に関連付けられている 2 文字の大文字となり、ISO 3166 の組み合わせです。 参照してください[言語カルチャ名](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx)です。
 
 国際化は、"I18N"に多くの場合、省略されています。 省略形は、最初と最後の文字を受け取り、それらの間でため 18 文字の数は、最後の"N"、"I"、最初の文字の数を意味します。 (G11N) のグローバリゼーションおよびローカリゼーション (L10N) にも当てはまります。
 
