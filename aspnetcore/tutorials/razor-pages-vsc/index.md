@@ -10,15 +10,15 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-vsc/index
-ms.openlocfilehash: 2ffa2361077c4c2719a458c59bebecf1cb0e9879
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f27bfaf49dac3ca9eccf8e968606c0264564b1fa
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core-and-visual-studio-code"></a>ASP.NET Core と Visual Studio Code で Razor ページ Web アプリを作成する
 
-この機能の作業はまだ進行中です。 2 週間以内にシリーズを完成させる予定です。
+この機能の作業はまだ進行中です。
 
 このシリーズでは、Visual Studio Code を使用して ASP.NET Core で Razor ページ Web アプリを作成する基礎について説明します。
 

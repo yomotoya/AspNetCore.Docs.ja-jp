@@ -11,11 +11,11 @@ ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 7af53bfad2b77558a06003cbc6534236235054c4
-ms.sourcegitcommit: 677986b3a39817b712e2432cce85ad1685326b75
+ms.openlocfilehash: 4a5d3622a22b70daa22333cafe58f8831bf0918e
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core での Id の概要
 
@@ -32,28 +32,29 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
 1.  個々 のユーザー アカウントを使って ASP.NET Core Web アプリケーション プロジェクトを作成します。
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-    Visual Studio で、次のように選択します。**ファイル** -> **新規** -> **プロジェクト**です。 選択**ASP.NET Core Web アプリケーション** をクリック**OK**です。 
+
+    Visual Studio で、次のように選択します。**ファイル** -> **新規** -> **プロジェクト**です。 選択**ASP.NET Core Web アプリケーション** をクリック**OK**です。
 
     ![[新しいプロジェクト] ダイアログ](identity/_static/01-new-project.png)
 
-    ASP.NET Core の選択**Web アプリケーション (モデル-ビュー-コント ローラー)** for ASP.NET 2.x、コアし、選択**認証の変更**です。 
+    ASP.NET Core の選択**Web アプリケーション (モデル-ビュー-コント ローラー)** for ASP.NET 2.x、コアし、選択**認証の変更**です。
 
     ![[新しいプロジェクト] ダイアログ](identity/_static/02-new-project.png)
 
     オファー、ダイアログを表示認証オプション。 選択**個々 のユーザー アカウント** をクリック**OK**前のダイアログに戻ります。
 
     ![[新しいプロジェクト] ダイアログ](identity/_static/03-new-project-auth.png)
-    
+
     選択すると**個々 のユーザー アカウント**モデル、ViewModels、ビュー、コント ローラー、およびプロジェクト テンプレートの一部として、認証に必要なその他のアセットを作成する Visual Studio に指示します。
- 
-    
+
     # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
     .NET Core CLI を使用する場合を使用して新しいプロジェクトを作成``dotnet new mvc --auth Individual``です。 このコマンドは、Visual Studio によって作成された同じ Identity テンプレート コードを新しいプロジェクトを作成します。
- 
+
     作成されたプロジェクトが含まれています、 `Microsoft.AspNetCore.Identity.EntityFrameworkCore` Id データおよび SQL Server を使用するスキーマが引き続き発生する、パッケージ[Entity Framework Core](https://docs.microsoft.com/ef/)です。
-    
+
     ---
- 
+
 2.  Id サービスを構成しのミドルウェアを追加`Startup`です。
 
     Id サービスが、アプリケーションに追加されます、`ConfigureServices`メソッドで、`Startup`クラス。
@@ -162,7 +163,7 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
     }
     ```
     
-    # <a name="visual-studiotabvisualstudio"></a>[Visual Studio](#tab/visualstudio)     
+    # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
     使用してプロジェクトを実行**Ctrl** + **f5 キーを押して**に移動し、**に関する**ページ。 認証されたユーザーのみがアクセス、**に関する** ページが表示、ASP.NET ログインまたは登録するには、ログイン ページにリダイレクトします。
 
