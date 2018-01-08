@@ -31,7 +31,7 @@ ms.lasthandoff: 11/10/2017
 
 クラウドでは、支払えばよいためだけ環境のリソースを使用している限り、テスト環境を維持するためのコストを最小限にすることができます。 CD プロセスは、必要なし、を行う環境を完了すると、テスト環境を設定できますテストします。
 
-## <a name="continuous-integration-and-continuous-delivery-workflow"></a>継続的インテグレーションと継続的配信のワークフロー
+## <a name="continuous-integration-and-continuous-delivery-workflow"></a>継続的インテグレーションと継続的デリバリーのワークフロー
 
 通常、開発、ステージング環境への継続的な配信を行うことをお勧めします。 Microsoft では、ほとんどのチームでは、運用環境のデプロイが手動で確認および承認の処理が必要です。 実稼働のことを確認展開は、開発チームの主要な人物がトラフィックの少ない時間帯やサポートについては、使用可能な場合に発生します。 受け入れテストの設定を変更と、環境で確認を行うには、開発者はすべてができるように完全に開発およびテスト環境を自動化することを防ぐために何も行われません。
 
@@ -69,9 +69,9 @@ VSTS は、さまざまな展開の計画からのアプリケーションの開
 
 次のリソースを参照してください。
 
-- [Team Foundation Server 2012 でリリース パイプラインの構築](http://aka.ms/ReleasePipeline)です。 電子書籍、実践的なラボ、およびサンプル コードでは、Microsoft Patterns and Practices、継続的配信の詳細な概要について説明します。 Visual Studio Lab Management の Visual Studio リリース管理の使用をカバーします。
+- [Team Foundation Server 2012 でリリース パイプラインの構築](http://aka.ms/ReleasePipeline)です。 電子書籍、実践的なラボ、およびサンプル コードでは、Microsoft Patterns and Practices、継続的デリバリーの詳細な概要について説明します。 Visual Studio Lab Management の Visual Studio リリース管理の使用をカバーします。
 - [Tooling ALM Rangers DevOps とガイダンス](https://aka.ms/vsarsolutions/)です。 ALM Rangers 導入 DevOps Workbench サンプル コンパニオン ソリューションと、パターンと共同で実用的なガイダンス&amp;プラクティス book *TFS 2012 とするリリース パイプラインの構築*を起動する優れた手段としてDevOps の概念を理解&amp;試せるして TFS 2012 用のリリース管理します。 ガイダンスは、1 回ビルドおよび複数の環境に配置する方法を示します。
-- [Visual Studio 2012 での継続的配信のテスト](https://msdn.microsoft.com/en-us/library/jj159345.aspx)です。 Microsoft Patterns and Practices、によって電子書籍では、自動テストが継続的な配信を統合する方法について説明します。
+- [Visual Studio 2012 での継続的デリバリーのテスト](https://msdn.microsoft.com/en-us/library/jj159345.aspx)です。 Microsoft Patterns and Practices、によって電子書籍では、自動テストが継続的な配信を統合する方法について説明します。
 - [WindowsAzureDeploymentTracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker)です。 (ラベルに基づく)、TFS からのビルドをキャプチャするためのツールのソース コードは、ビルド、パッケージ化し化しの特定の側面を構成するのには、DevOps 役割で許可するユーザーを Azure にプッシュします。 ツールは、""バージョンにロールバック、以前に配置する操作を有効にするために、展開プロセスを追跡します。 ツールは、外部の依存関係がないと、TFS Api と Azure SDK を使用してスタンドアロン機能ことができます。
 - [継続的に提供します。 信頼性の高いソフトウェアをビルド、テスト、および展開を自動化を通じて解放](https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1377126361)です。 控えめな Jez によってブック。
 - [それを解放します。設計および運用環境でソフトウェアの展開](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213)です。 Michael T. Nygard によってブック。
