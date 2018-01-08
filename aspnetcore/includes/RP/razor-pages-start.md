@@ -13,7 +13,6 @@
 | wwwroot | 静的ファイルが含まれています。 [静的ファイルの使用](xref:fundamentals/static-files)に関するページを参照してください。 |
 | ページ数 | [Razor ページ](xref:mvc/razor-pages/index)のフォルダー。 | 
 | *appsettings.json* | [構成](xref:fundamentals/configuration/index) |
-| *bower.json* | クライアント側のパッケージ管理。 [Bower](xref:client-side/bower) に関するページを参照してください。|
 | *Program.cs* | ASP.NET Core アプリを[ホスト](xref:fundamentals/hosting)します。|
 | *Startup.cs* | サービスと要求パイプラインを構成します。 [スタートアップ](xref:fundamentals/startup)に関するページを参照してください。|
 
