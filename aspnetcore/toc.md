@@ -153,7 +153,7 @@
 ## [バンドルと縮小](xref:client-side/bundling-and-minification)
 ## [ブラウザー リンクの使用](xref:client-side/using-browserlink)
 ## [SPA への JavaScriptServices の使用](xref:client-side/spa-services)
-## [SPA プロジェクト テンプレート (プレビュー) の使用](xref:spa/index)
+## [SPA プロジェクト テンプレート (RC) の使用](xref:spa/index)
 ### [Angular プロジェクト テンプレート](xref:spa/angular)
 ### [React プロジェクト テンプレート](xref:spa/react)
 ### [Redux と組み合わせた React プロジェクト テンプレート](xref:spa/react-with-redux)
