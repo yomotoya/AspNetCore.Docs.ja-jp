@@ -10,15 +10,15 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/index
-ms.openlocfilehash: 5bc3307f3e7c5e9d6f6f3adc668b807ed835f8f5
-ms.sourcegitcommit: 1563ba5d06ed6b7d2ccf6e00ee77175b3af888c7
+ms.openlocfilehash: b7dae97d0b16eda1a94f6b9b824506d80be9c663
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio"></a>Visual Studio を使用した Razor ページと Entity Framework Core の概要
 
-この一連のチュートリアルでは、データ アクセスに Entity Framework Core を使う ASP.NET Core MVC Web アプリケーションを作成する方法について説明します。 これらのチュートリアルでは、Visual Studio 2017 が必要です。
+この一連のチュートリアルでは、データ アクセスに Entity Framework (EF) Core を使う ASP.NET Core Razor ページ Web アプリを作成する方法について説明します。 これらのチュートリアルでは、Visual Studio 2017 が必要です。
 
 1. [はじめに](xref:data/ef-rp/intro)
 1. [作成、読み取り、更新、削除の操作](xref:data/ef-rp/crud)
