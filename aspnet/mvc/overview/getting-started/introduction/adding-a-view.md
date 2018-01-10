@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: cf0bb7984ad3460f8784193f7bb407c9b0ad50db
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: d273eb5e99da6c6b7678e03b1a8973041113744c
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 <a name="adding-a-view"></a>ビューの追加
 ====================
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/03/2018
 
 `Index`上記のメソッドでは、ビュー テンプレートを使用して、ブラウザーに HTML 応答を生成します。 コント ローラーのメソッド (とも呼ばれる[アクション メソッド](http://rachelappel.com/asp.net-mvc-actionresults-explained))、ように、`Index`一般に、上記のメソッドが返す、 [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx) (から派生したクラスまたは[ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx)) などの文字列のないプリミティブ型。
 
-右クリックして、 *Views\HelloWorld*フォルダーをクリック**追加**をクリックし、 **MVC 5 ビュー ページ (Razor レイアウト)**です。
+右クリックして、 *Views\HelloWorld*フォルダーをクリック**追加**をクリックし、 **MVC 5 ビュー ページ (Razor) のレイアウト**です。
   
 ![](adding-a-view/_static/image1.png)   
   

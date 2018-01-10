@@ -11,11 +11,11 @@ ms.assetid: 2bdcbf95-8d9d-4537-a4a0-a5ee439dcb62
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/cookie
-ms.openlocfilehash: 6279d3b4ac3be102449089dc66eeeb0495cfc4c0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee660667251ec4a64f2b3e83f39214e9defcea03
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="using-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core Identity なしで認証に Cookie を使用します。
 
@@ -39,7 +39,7 @@ ASP.NET Core から移行する cookie ベースの認証の詳細について 1
 
 `AuthenticationScheme`渡される`AddAuthentication`アプリの既定の認証スキームを設定します。 `AuthenticationScheme`cookie 認証の複数のインスタンスがあるし、する場合に便利です[、特定のスキームの承認](xref:security/authorization/limitingidentitybyscheme)です。 設定、`AuthenticationScheme`に`CookieAuthenticationDefaults.AuthenticationScheme`スキームの"Cookie"の値を提供します。 スキームを区別する任意の文字列値を指定することができます。
 
-`Configure`メソッドを使用して、`UseAuthentication`設定認証ミドルウェアを呼び出すメソッドを`HttpContext.User`プロパティです。 呼び出す、`UseAuthentication`メソッドを呼び出す前に`AddMvcWithDefaultRoute`MVC アプリでまたは`AddMvc`Razor ページのアプリで。
+`Configure`メソッドを使用して、`UseAuthentication`設定認証ミドルウェアを呼び出すメソッドを`HttpContext.User`プロパティです。 呼び出す、`UseAuthentication`メソッドを呼び出す前に`UseMvcWithDefaultRoute`または`UseMvc`:
 
 [!code-csharp[Main](cookie/sample/Startup.cs?name=snippet2)]
 

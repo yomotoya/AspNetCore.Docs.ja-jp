@@ -11,11 +11,11 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: dde0b5673c9885db2fecbb24b384752e5ddf70eb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 754af24f4dcf054dd89eaa5f237ab680bf2d1172
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL の ASP.NET Core のミドルウェアの書き換え
 
@@ -120,7 +120,7 @@ app.UseRewriter(options);
 ![ブラウザー ウィンドウで、要求および応答を追跡開発者ツール](url-rewriting/_static/add_redirect_to_https_permanent.png)
 
 ### <a name="url-rewrite"></a>URL 書き換え
-使用して`AddRewrite`Url の書き換えの規則を作成します。 最初のパラメーターには、着信 URL パスに一致する正規表現が含まれています。 2 番目のパラメーターは、置換文字列です。 3 番目のパラメーターでは、`skipRemainingRules: {true|false}`ミドルウェアに示す現在のルールが適用されている場合は、追加の書き換えルールをスキップするかどうかを指定します。
+使用して`AddRewrite`Url の書き換え規則を作成します。 最初のパラメーターには、着信 URL パスに一致する正規表現が含まれています。 2 番目のパラメーターは、置換文字列です。 3 番目のパラメーターでは、`skipRemainingRules: {true|false}`ミドルウェアに示す現在のルールが適用されている場合は、追加の書き換えルールをスキップするかどうかを指定します。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -142,17 +142,17 @@ app.UseRewriter(options);
 
 | パス                               | 一致したもの |
 | ---------------------------------- | :---: |
-| `/redirect-rule/1234/5678`         | はい   |
+| `/redirect-rule/1234/5678`         | [はい]   |
 | `/my-cool-redirect-rule/1234/5678` | はい   |
-| `/anotherredirect-rule/1234/5678`  | はい   |
+| `/anotherredirect-rule/1234/5678`  | [はい]   |
 
 書き換えルール`^rewrite-rule/(\d+)/(\d+)`、のみで開始される場合、パスと一致する`rewrite-rule/`です。 書き換えルールの下と上のリダイレクト ルール間の一致の違いに注意してください。
 
 | パス                              | 一致したもの |
 | --------------------------------- | :---: |
-| `/rewrite-rule/1234/5678`         | はい   |
+| `/rewrite-rule/1234/5678`         | [はい]   |
 | `/my-cool-rewrite-rule/1234/5678` | いいえ    |
-| `/anotherrewrite-rule/1234/5678`  | いいえ    |
+| `/anotherrewrite-rule/1234/5678`  | ×    |
 
 次の`^rewrite-rule/`部分式の 2 つのキャプチャ グループが`(\d+)/(\d+)`です。 `\d`ことを示します*digit (数) を一致*です。 プラス記号 (`+`) ことを意味*直前の文字の 1 つ以上の一致*です。 そのため、URL では、スラッシュを他の数値の後に続く数値を含める必要があります。 これらのキャプチャ グループが挿入され、書き換えられた URL として`$1`と`$2`です。 書き換えルールの置換文字列は、クエリ文字列に、キャプチャされたグループを配置します。 要求されたパスの`/rewrite-rule/1234/5678`にあるリソースを取得する書き直す`/rewritten?var1=1234&var2=5678`です。 クエリ文字列が元の要求に存在する場合、URL は再作成時に保持します。
 
@@ -299,7 +299,7 @@ A`StreamReader`からルールの読み取りに使用される、 *IISUrlRewrit
 ### <a name="method-based-rule"></a>メソッド ベースのルール
 使用して`Add(Action<RewriteContext> applyRule)`メソッドで、独自の規則ロジックを実装します。 `RewriteContext`公開、`HttpContext`メソッドで使用するためです。 `context.Result`パイプラインを追加する方法を決定する処理が行われます。
 
-| コンテキスト。結果                       | 操作                                                          |
+| コンテキスト。結果                       | アクション                                                          |
 | ------------------------------------ | --------------------------------------------------------------- |
 | `RuleResult.ContinueRules` (既定値) | ルールの適用を続行します。                                         |
 | `RuleResult.EndResponse`             | 規則の適用を停止し、応答を送信                       |

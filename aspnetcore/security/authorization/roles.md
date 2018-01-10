@@ -11,11 +11,11 @@ ms.assetid: 5e014da1-8bc0-409b-951a-88b92c661fdf
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/roles
-ms.openlocfilehash: 649b21d99c742843534748b0ba9d7b7b22483a62
-ms.sourcegitcommit: 703593d5fd14076e79be2ba75a5b8da12a60ab15
+ms.openlocfilehash: 26babef1a296aaa1fa11f36d30c4d911d73808ce
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="role-based-authorization"></a>ロール ベースの承認
 
@@ -25,9 +25,9 @@ Id が作成されるときは、1 つまたは複数のロールに属する可
 
 ## <a name="adding-role-checks"></a>追加のロールのチェック
 
-ロール ベースの承認チェックは、宣言型&mdash;開発者は、そのファイルを埋め込みますコント ローラーや、コント ローラー内のアクションに対して、コード内で要求されたリソースにアクセスするのメンバーである必要があります、現在のユーザー ロールを指定します。
+ロール ベースの承認チェックが宣言&mdash;開発者は、そのファイルを埋め込みますコント ローラーや、コント ローラー内のアクションに対して、コード内で要求されたリソースにアクセスするのメンバーである必要があります、現在のユーザー ロールを指定します。
 
-たとえば、次のコードと制限操作へのアクセスに、`AdministrationController`のメンバーであるユーザーのユーザーに、`Administrator`グループ。
+次のコードがすべてのアクションへのアクセスを制限するなど、`AdministrationController`のメンバーであるユーザーのユーザーに、`Administrator`ロール。
 
 ```csharp
 [Authorize(Roles = "Administrator")]

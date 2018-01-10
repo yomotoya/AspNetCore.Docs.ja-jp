@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 0ee8827ad3d5464e1645a40d453054b9e23641cf
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 054b60206cafc3d6dd5775436995638d7f5700cf
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>ASP.NET Core でのホスティング
 
@@ -874,7 +874,17 @@ public class Startup
 
 **ASP.NET Core 2.0 のみに適用されます。**
 
-挿入することで、ホストが組み込まれている場合`IStartup`呼び出しではなく、依存性の注入コンテナーに直接`UseStartup`または`Configure`、次のエラーが発生する可能性があります:`Unhandled Exception: System.ArgumentException: A valid non-empty application name must be provided`です。
+挿入することで、ホストをビルドすることがあります`IStartup`呼び出しではなく、依存性の注入コンテナーに直接`UseStartup`または`Configure`:
+
+```csharp
+services.AddSingleton<IStartup, Startup>();
+```
+
+ホストは、この方法で構築は、次のエラーが発生します。
+
+```
+Unhandled Exception: System.ArgumentException: A valid non-empty application name must be provided.
+```
 
 これは、ために発生、 [applicationName(ApplicationKey)](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostdefaults#Microsoft_AspNetCore_Hosting_WebHostDefaults_ApplicationKey)をスキャンする (現在のアセンブリ) が必要な`HostingStartupAttributes`します。 場合は、アプリを手動で挿入`IStartup`依存関係の注入コンテナー内に、次の呼び出しを追加`WebHostBuilder`で指定されたアセンブリ名。
 

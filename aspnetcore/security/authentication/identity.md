@@ -11,11 +11,11 @@ ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 4a5d3622a22b70daa22333cafe58f8831bf0918e
-ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
+ms.openlocfilehash: fc8e076af92bd8f9a95e73abb66ce32cae8ab9cf
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core での Id の概要
 
@@ -25,6 +25,8 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
 
 ユーザー名、パスワード、およびプロファイル データを格納する SQL Server データベースを使用する ASP.NET Core Id を構成することができます。 代わりに、独自の永続的なストア、たとえば、Azure テーブル ストレージを使用することができます。 このドキュメントでは、Visual Studio と CLI を使用するための手順を説明します。
 
+[表示または、サンプル コードをダウンロードします。](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(ダウンロードする方法)](https://docs.microsoft.com/en-us/aspnet/core/tutorials/index#how-to-download-a-sample)
+
 ## <a name="overview-of-identity"></a>Id の概要
 
 このトピックでを ASP.NET Core Id を使用して、ログインを登録する機能を追加する方法について説明し、ユーザーをログアウトします。 ASP.NET Core の Id を使用してアプリの作成に関する詳細な手順については、この記事の最後に次の手順を参照してください。
@@ -33,7 +35,7 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-    Visual Studio で、次のように選択します。**ファイル** -> **新規** -> **プロジェクト**です。 選択**ASP.NET Core Web アプリケーション** をクリック**OK**です。
+    Visual Studio で、次のように選択します。**ファイル** > **新規** > **プロジェクト**です。 選択**ASP.NET Core Web アプリケーション** をクリック**OK**です。
 
     ![[新しいプロジェクト] ダイアログ](identity/_static/01-new-project.png)
 
@@ -144,7 +146,7 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
  
 7.  データベースを表示します。
 
-    アプリは、SQL Server データベース (既定の windows と Visual Studio ユーザー用) を使用している場合は、データベース作成されたアプリを表示できます。 使用することができます**SQL Server Management Studio**です。 または、Visual Studio から、次のように選択します。**ビュー** -> **SQL Server オブジェクト エクスプ ローラー**です。 接続**(localdb) \MSSQLLocalDB**です。 一致する名前を持つデータベース **aspnet - <*、プロジェクトの名前*>-<*日付文字列*> * * が表示されます。
+    アプリは、SQL Server データベース (既定の windows と Visual Studio ユーザー用) を使用している場合は、データベース作成されたアプリを表示できます。 使用することができます**SQL Server Management Studio**です。 または、Visual Studio から、次のように選択します。**ビュー** > **SQL Server オブジェクト エクスプ ローラー**です。 接続**(localdb) \MSSQLLocalDB**です。 一致する名前を持つデータベース **aspnet - <*、プロジェクトの名前*>-<*日付文字列*> * * が表示されます。
 
     ![AspNetUsers データベース テーブルのコンテキスト メニュー](identity/_static/04-db.png)
     

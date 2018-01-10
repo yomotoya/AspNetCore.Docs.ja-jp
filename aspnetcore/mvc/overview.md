@@ -5,17 +5,17 @@ description: "ASP.NET Core MVC web アプリケーションを構築するため
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 01/08/2018
 ms.topic: article
 ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 2492b6aa4602dbbf3b9cd3dca00d40690c640cab
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 33c293e15c0a7f18bbace9dc564fe11d93a7d509
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC の概要
 
@@ -38,7 +38,7 @@ ASP.NET Core MVC は、web アプリを構築するための豊富なフレー�
 
 ### <a name="model-responsibilities"></a>モデルの責任
 
-MVC アプリケーション内のモデルでは、アプリケーションやビジネス ロジックによって実行される操作の状態を表します。 モデルでは、アプリケーションの状態を保存するための実装ロジックとビジネス ロジックをカプセル化する必要があります。 厳密に型指定されたビューはされる通常具体的には、データを含むように設計 ViewModel 型を使用してそのビューに表示するにはコント ローラーが作成され、モデルからこれらの ViewModel インスタンスを作成します。
+MVC アプリケーション内のモデルでは、アプリケーションやビジネス ロジックによって実行される操作の状態を表します。 モデルでは、アプリケーションの状態を保存するための実装ロジックとビジネス ロジックをカプセル化する必要があります。 厳密に型指定されたビューは通常、そのビューに表示するデータを格納するための ViewModel 型を使用します。 コント ローラーは、作成し、モデルからこれらの ViewModel インスタンスを追加します。
 
 > [!NOTE]
 > MVC アーキテクチャ パターンを使用するアプリでモデルを整理する方法があります。 詳細については、いくつか[さまざまな種類の種類のモデルの](http://deviq.com/kinds-of-models/)します。
@@ -142,12 +142,12 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
     {
       // work with the model
     }
-    // If we got this far, something failed, redisplay form
+    // At this point, something failed, redisplay form
     return View(model);
 }
 ```
 
-フレームワークでは、クライアントとサーバーの両方の要求データの検証を処理します。 モデルの種類に対して指定された検証ロジックは控えめな注釈としてレンダリングされるビューに追加され、と共にブラウザーに適用される[jQuery 検証](https://jqueryvalidation.org/)です。
+フレームワークは、クライアントとサーバーの両方の検証の要求データを処理します。 モデルの種類に対して指定された検証ロジックは控えめな注釈としてレンダリングされるビューに追加され、と共にブラウザーに適用される[jQuery 検証](https://jqueryvalidation.org/)です。
 
 ### <a name="dependency-injection"></a>依存関係の挿入
 
@@ -181,11 +181,11 @@ ASP.NET Core はの組み込みサポート[依存性の注入 (DI)](../fundamen
 
 ### <a name="areas"></a>区分
 
-[領域](controllers/areas.md)大規模な ASP.NET Core MVC Web アプリケーションを小さい機能グループに分割する方法を提供します。 領域は、事実上、アプリケーション内部 MVC 構造です。 MVC プロジェクトでは、モデル、コント ローラー、およびビューなどの論理コンポーネントが、他のフォルダーに保持され、MVC では、名前付け規則を使用して、これらのコンポーネント間のリレーションシップを作成します。 大規模なアプリの機能の個別の高レベル領域に、アプリを分割すると便利な場合があります。 たとえば、電子商取引を使用したアプリなど、チェック アウト、請求、および検索などの複数の事業単位です。各事業ユニットは、独自の論理コンポーネント ビュー、コント ローラー、およびモデルがあります。
+[領域](controllers/areas.md)大規模な ASP.NET Core MVC Web アプリケーションを小さい機能グループに分割する方法を提供します。 領域は、アプリケーション内部 MVC 構造です。 MVC プロジェクトでは、モデル、コント ローラー、およびビューなどの論理コンポーネントが、他のフォルダーに保持され、MVC では、名前付け規則を使用して、これらのコンポーネント間のリレーションシップを作成します。 大規模なアプリの機能の個別の高レベル領域に、アプリを分割すると便利な場合があります。 たとえば、電子商取引を使用したアプリなど、チェック アウト、請求、および検索などの複数の事業単位です。各事業ユニットは、独自の論理コンポーネント ビュー、コント ローラー、およびモデルがあります。
 
 ### <a name="web-apis"></a>Web API
 
-Web サイトを構築するための優れたプラットフォームだけでなくは、ASP.NET Core MVC は、Web Api を構築するための優れたサポートがします。 さまざまなブラウザーやモバイル デバイスを含む、クライアントに到達可能なサービスをビルドすることができます。
+Web サイトを構築するための優れたプラットフォームだけでなくは、ASP.NET Core MVC は、Web Api を構築するための優れたサポートがします。 さまざまなブラウザーやモバイル デバイスを含む、クライアントに到達するサービスをビルドすることができます。
 
 フレームワークの組み込みサポートを備えた HTTP コンテンツ ネゴシエーションをサポートしています[データの書式設定](models/formatting.md)JSON または XML として。 書き込む[カスタム フォーマッタ](advanced/custom-formatters.md)ユーザー独自の形式のサポートを追加します。
 
@@ -213,7 +213,7 @@ Hypermedia のサポートを有効にするのにには、リンクの生成を
 
 MVC の razor ビューできる厳密に型指定、モデルに基づく。 コント ローラーは、型チェックと IntelliSense をサポートして、ビューを有効にするビューを厳密に型指定されたモデルを渡すことができます。
 
-たとえば、次のビューが型のモデルを定義`IEnumerable<Product>`:
+次のビューが型のモデルを表示するなど、 `IEnumerable<Product>`:
 
 ```cshtml
 @model IEnumerable<Product>
