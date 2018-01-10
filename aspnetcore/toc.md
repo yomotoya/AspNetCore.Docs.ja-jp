@@ -70,7 +70,6 @@
 ### [LoggerMessage によるログ記録](xref:fundamentals/logging/loggermessage)
 ## [エラー処理](fundamentals/error-handling.md)
 ## [ファイル プロバイダー](fundamentals/file-providers.md)
-## [静的ファイルの使用](fundamentals/static-files.md)
 ## [ホスティング](fundamentals/hosting.md)
 ## [セッションとアプリケーションの状態](fundamentals/app-state.md)
 ## [サーバー](fundamentals/servers/index.md)
