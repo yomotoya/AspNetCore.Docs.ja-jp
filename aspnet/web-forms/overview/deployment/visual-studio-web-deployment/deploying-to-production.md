@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 2a8b165c149ceacba49a193c25e4a66a701ea0d6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2c49e7f6925b1ca172642747c5052ba97d70d036
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Visual Studio を使用した ASP.NET Web 展開: 実稼働環境に展開します。
 ====================
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/10/2017
 ## <a name="create-a-staging-environment"></a>ステージング環境を作成します。
 
 > [!NOTE]
-> このチュートリアルが書き込まれるため、Azure App Service はステージング環境と実稼働環境を持つでプロセスの多くを自動化する新機能を追加します。 参照してください[ステージング環境の Azure App service web アプリ設定](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/)です。
+> このチュートリアルが書き込まれてから、Azure App Service は、ステージングと運用環境を作成するためのプロセスの多くを自動化する新機能を追加します。 参照してください[ステージング環境の Azure App service web アプリ設定](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/)です。
 
 
 説明に従って、[環境のテストのチュートリアルへの展開](deploying-to-iis.md)最も信頼性の高いテスト環境は、実稼働 web サイトと同様にしているホスティング プロバイダーに web サイトです。 大きな追加コストに対するこれの利点を比較検討する必要が多くのホスティング プロバイダーですが Azure のステージング アプリとして追加の無料の web アプリを作成することができます。 また、データベースが必要し、そのため、実稼働データベースの経費経由での追加の費用は none いずれかになりますまたは最低限です。 Azure でした各データベースではなく、使用するデータベースの記憶域の量に対してお支払いステージングを使用して追加の記憶域の量が最小限に抑えられます。
@@ -286,7 +286,7 @@ A *.pubxml*ファイルには、特定の発行プロファイルに関連する
 
     同じ URL を除くステージングおよびがない場合にすべて、 *robots.txt*ファイル。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 これで正常にデプロイして、web アプリをテストしが使用可能なパブリック インターネット経由でします。
 

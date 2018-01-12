@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 3eb19aa090d0a979ceaf4edc56752472ba47ae84
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 9127c3d7180422c0e3dbd813340dd485bf360c81
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="working-with-multiple-environments"></a>複数の環境での作業
 
@@ -96,13 +96,13 @@ $Env:ASPNETCORE_ENVIRONMENT = "Development"
 
 **web.config**
 
-参照してください、*環境変数の設定*のセクションで、 [ASP.NET Core モジュール構成リファレンス](xref:hosting/aspnet-core-module#setting-environment-variables)トピックです。
+参照してください、*環境変数の設定*のセクションで、 [ASP.NET Core モジュール構成リファレンス](xref:host-and-deploy/aspnet-core-module#setting-environment-variables)トピックです。
 
 **IIS アプリケーション プール単位**
 
 分離されたアプリケーション プール (IIS 10.0 以降でサポートされています) で実行する個別アプリに対して環境変数を設定する必要がある場合は、IIS のリファレンス ドキュメントで、[環境変数\<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) のトピックにある *AppCmd.exe コマンド*のセクションを参照してください。
 
-### <a name="macos"></a>MacOS
+### <a name="macos"></a>macOS
 MacOS の現在の環境を設定する場合に実行できます行で、アプリケーションを実行しています。
 
 ```bash
@@ -152,7 +152,7 @@ ASP.NET Core アプリケーションの起動時、`Startup`ブートス トラ
 
 まったく別の使用に加えて`Startup`クラスの現在の環境に基づく内でアプリケーションを構成する方法の調整を行うことも、`Startup`クラスです。 `Configure()`と`ConfigureServices()`メソッドのような環境固有のバージョンのサポート、`Startup`クラス、フォームの自体`Configure{EnvironmentName}()`と`Configure{EnvironmentName}Services()`です。 メソッドを定義する場合`ConfigureDevelopment()`の代わりに呼び出されます`Configure()`開発環境を設定するとします。 同様に、`ConfigureDevelopmentServices()`はの代わりに呼び出されます`ConfigureServices()`同じ環境内でします。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ASP.NET Core では、さまざまな機能と開発者はさまざまな環境で、アプリケーションの動作を簡単に制御を許可する規則を提供します。 実稼働環境にステージングするには、開発環境からアプリケーションを発行するときに環境変数を設定適切に環境は、必要に応じて、デバッグ、テスト、または実稼働環境で使用するアプリケーションの最適化できます。
 

@@ -5,17 +5,17 @@ description: "ASP.NET Core web アプリケーションで静的なリソース�
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/01/2017
+ms.date: 01/10/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: c271b7ef386bacedbd45fbe9f62c9c486db55b36
-ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
+ms.openlocfilehash: ac8e7fee7600dabb8f4970b5bf87ad7a57ebf17f
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="bundling-and-minification"></a>バンドルと縮小
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/05/2017
 
 次の表は、個別に資産の読み込みとバンドルと縮小を使用して違いを示します。
 
-操作 | B/M と | B/M なし | 変更
+アクション | B/M と | B/M なし | 変更
 --- | :---: | :---: | :---:
 ファイルの要求  | 7   | 18     | 157%
 サポート技術情報の転送 | 156 | 264.68 | 70%
@@ -75,7 +75,7 @@ MVC および Razor ページのプロジェクト テンプレートは、提�
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig.json)]
 
-バンドルのオプションは次のとおりです。
+構成オプションは次のとおりです。
 
 * `outputFileName`: を出力するバンドル ファイルの名前。 相対パスを含めることができます、 *bundleconfig.json*ファイル。 **必須**
 * `inputFiles`: をまとめるためにファイルの配列。 これらは、構成ファイルへの相対パスです。 **省略可能な**、*、空の値が空の出力ファイルの結果します。 [グロブ](http://www.tldp.org/LDP/abs/html/globbingref.html)パターンがサポートされています。
@@ -91,6 +91,9 @@ MVC および Razor ページのプロジェクト テンプレートは、提�
 ## <a name="build-time-execution-of-bundling-and-minification"></a>バンドルと縮小のビルド時の実行
 
 [BuildBundlerMinifier](https://www.nuget.org/packages/BuildBundlerMinifier/) NuGet パッケージにより、バンドルの実行とビルド時に縮小します。 パッケージでは挿入[MSBuild ターゲット](/visualstudio/msbuild/msbuild-targets)ビルドおよびクリーン時に実行します。 *Bundleconfig.json*定義した構成に基づいて、出力ファイルを生成するために、ビルド プロセスによってファイルが分析されます。
+
+> [!NOTE]
+> BuildBundlerMinifier は、Microsoft の提供先のサポート GitHub 上のコミュニティによって運営プロジェクトに属していません。 問題を提出する必要があります[ここ](https://github.com/madskristensen/BundlerMinifier/issues)です。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
@@ -176,6 +179,9 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 [!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=10)]
 
+> [!NOTE]
+> BundlerMinifier.Core は、Microsoft の提供先のサポート GitHub 上のコミュニティによって運営プロジェクトに属していません。 問題を提出する必要があります[ここ](https://github.com/madskristensen/BundlerMinifier/issues)です。
+
 このパッケージに含める .NET Core CLI を拡張し、 *dotnet バンドル*ツールです。 パッケージ マネージャー コンソール (PMC) ウィンドウまたはコマンド シェルで、次のコマンドを実行できます。
 
 ```console
@@ -243,6 +249,9 @@ dotnet bundle
 ### <a name="use-the-bundler--minifier-extension"></a>バンドルと縮小化拡張機能を使用します。
 
 Visual Studio[バンドルと縮小化](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier)拡張機能が Gulp への変換を処理します。
+
+> [!NOTE]
+> バンドルと縮小化拡張機能は、Microsoft の提供先のないサポート GitHub 上のコミュニティによって運営プロジェクトに属しています。 問題を提出する必要があります[ここ](https://github.com/madskristensen/BundlerMinifier/issues)です。
 
 右クリックし、 *bundleconfig.json*ソリューション エクスプ ローラーでファイルおよび選択した**バンドルと縮小化** > **Gulp を変換しています.**:
 

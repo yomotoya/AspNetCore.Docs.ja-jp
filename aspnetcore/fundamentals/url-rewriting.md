@@ -11,11 +11,11 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 754af24f4dcf054dd89eaa5f237ab680bf2d1172
-ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
+ms.openlocfilehash: e07634a6d7ad97bf8735029b5c28d6935b71eb52
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL の ASP.NET Core のミドルウェアの書き換え
 
@@ -245,7 +245,7 @@ A`StreamReader`からルールの読み取りに使用される、 *IISUrlRewrit
 
 ![ブラウザー ウィンドウで、要求と応答を追跡開発者ツール](url-rewriting/_static/add_iis_url_rewrite.png)
 
-、望ましくない方法でアプリに影響するように構成されたサーバー レベル ルールにアクティブな IIS Rewrite モジュールがある場合は、アプリの IIS Rewrite モジュールを無効にできます。 詳細については、次を参照してください。[を無効にする IIS モジュール](xref:hosting/iis-modules#disabling-iis-modules)です。
+、望ましくない方法でアプリに影響するように構成されたサーバー レベル ルールにアクティブな IIS Rewrite モジュールがある場合は、アプリの IIS Rewrite モジュールを無効にできます。 詳細については、次を参照してください。[を無効にする IIS モジュール](xref:host-and-deploy/iis/modules#disabling-iis-modules)です。
 
 #### <a name="unsupported-features"></a>サポートされていない機能
 

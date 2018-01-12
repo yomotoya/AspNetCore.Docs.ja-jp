@@ -5,24 +5,24 @@ description: "ASP.NET Core Id で、既定値を把握し、カスタム値を�
 keywords: "ASP.NET Core、Identity、認証、セキュリティ"
 ms.author: scaddie
 manager: wpickett
-ms.date: 09/18/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 2861ca474e7e82da81943966394a92040ce96ab8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac204cb89aac1f90adc64c4f0bec4e946cb8c4d9
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="configure-identity"></a>Id を構成します。
 
-ASP.NET Core Id が、アプリケーションで簡単にオーバーライドできる既定の動作によって`Startup`クラスです。
+ASP.NET Core Id は、パスワード ポリシー、ロックアウト時間、およびアプリケーションの簡単にオーバーライドできる cookie の設定などのアプリケーションで共通の動作を持つ`Startup`クラスです。
 
 ## <a name="passwords-policy"></a>パスワード ポリシー
 
-既定では、Id は、パスワードに、大文字、小文字、数字、および英数字以外の文字を含めることが必要です。 その他のいくつかの制限もあります。 パスワードの制限を簡略化する場合するには、`Startup`アプリケーションのクラスです。
+既定では、Id は、パスワードに、大文字、小文字、数字、および英数字以外の文字を含めることが必要です。 その他のいくつかの制限もあります。 パスワードの制限を簡略化の変更、`ConfigureServices`のメソッド、`Startup`アプリケーションのクラスです。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -37,12 +37,15 @@ ASP.NET Core 追加 2.0、`RequiredUniqueChars`プロパティです。 それ�
 ---
 
 `IdentityOptions.Password`次のプロパティがあります。
-* `RequireDigit`: 0 ~ 9 では、パスワードに数字が必要です。 既定値は true です。
-* `RequiredLength`: パスワードの最小長。 既定値は 6 です。
-* `RequireNonAlphanumeric`: パスワードの英数字以外の文字が必要です。 既定値は true です。
-* `RequireUppercase`: パスワードに大文字が必要です。 既定値は true です。
-* `RequireLowercase`: パスワードに小文字が必要です。 既定値は true です。
-* `RequiredUniqueChars`: パスワードの個別の文字数が必要です。 既定値は 1 です。
+
+| プロパティ                | 説明                       | 既定値 |
+| ----------------------- | --------------------------------- | ------- |
+| `RequireDigit`          | 0 ~ 9 では、パスワードに数字が必要です。 | true |
+| `RequiredLength`        | パスワードの最小長。 | 6 |
+| `RequireNonAlphanumeric`| パスワードに英数字以外の文字が必要です。 | true |
+| `RequireUppercase`      | パスワードに大文字が必要です。 | true |
+| `RequireLowercase`      | パスワードに小文字が必要です。 | true |
+| `RequiredUniqueChars`   | パスワードに個別の文字数が必要です。 | 1 |
 
 
 ## <a name="users-lockout"></a>ユーザーのロックアウト
@@ -50,27 +53,35 @@ ASP.NET Core 追加 2.0、`RequiredUniqueChars`プロパティです。 それ�
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,39-42,50-52)]
 
 `IdentityOptions.Lockout`次のプロパティがあります。
-* `DefaultLockoutTimeSpan`: 時間数、ユーザーがロックアウト ロックアウトが発生するとします。 既定値は 5 分です。
-* `MaxFailedAccessAttempts`: 失敗したアクセス試行回数を、ユーザーがロックアウトされるまでロックアウトが有効になっている場合。 既定値は 5 です。
-* `AllowedForNewUsers`: 新しいユーザーをロックアウトできるかどうかを判断します。既定値は true です。
 
+| プロパティ                | 説明                       | 既定値 |
+| ----------------------- | --------------------------------- | ------- |
+| `DefaultLockoutTimeSpan` | 時間数、ユーザーがロックアウト ロックアウトが発生するとします。  | 5 分  |
+| `MaxFailedAccessAttempts` | ロックアウトが有効になっている場合、ユーザーがロックされるまで、失敗したアクセス試行の数。  | 5 |
+| `AllowedForNewUsers` | 新しいユーザーをロックアウトできるかどうかを判断します。  | true |
 
 ## <a name="sign-in-settings"></a>サインイン設定
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,44-46,50-52)]
 
 `IdentityOptions.SignIn`次のプロパティがあります。
-* `RequireConfirmedEmail`: 未確認の電子メールにサインインする必要があります。 既定値は false。
-* `RequireConfirmedPhoneNumber`: サインインに確認の電話番号が必要です。 既定値は false。
 
+| プロパティ                | 説明                       | 既定値 |
+| ----------------------- | --------------------------------- | ------- |
+| `RequireConfirmedEmail` | 確認の電子メールにサインインする必要があります。 | False  |
+| `RequireConfirmedPhoneNumber` |  確認の電話番号にサインインする必要があります。 | False  |
 
 ## <a name="user-validation-settings"></a>ユーザーの検証の設定
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,48-52)]
 
 `IdentityOptions.User`次のプロパティがあります。
-* `RequireUniqueEmail`: 各ユーザーを一意の電子メールを持っている必要があります。 既定値は false。
-* `AllowedUserNameCharacters`: ユーザー名に文字を指定できます。 既定値は abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+ です。
+
+| プロパティ                | 説明                       | 既定値 |
+| ----------------------- | --------------------------------- | ------- |
+| `RequireUniqueEmail`  | 各ユーザーを一意の電子メールを持っている必要があります。 | False  |
+| `AllowedUserNameCharacters`  | ユーザー名に許容される文字。 | abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+ |
+
 
 ## <a name="applications-cookie-settings"></a>アプリケーションの cookie の設定
 
@@ -86,17 +97,19 @@ ASP.NET Core 追加 2.0、`RequiredUniqueChars`プロパティです。 それ�
 
 [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Startup.cs?range=58-59,72-80,84)]
 
---- 
+---
 
 `CookieAuthenticationOptions`次のプロパティがあります。
-* `Cookie.Name`: Cookie の名前。 既定値です。AspNetCore.Cookies です。
-* `Cookie.HttpOnly`: True の場合、cookie はクライアント側スクリプトからアクセスできません。 既定値は true です。
-* `ExpireTimeSpan`: 認証チケットがクッキーに格納されている時間は作成された時点から有効になるを制御します。 既定値は 14 日間です。
-* `LoginPath`: ユーザーが承認されていない、ときに、ログインにこのパスにリダイレクトされます。 ログイン/アカウント/既定値です。
-* `LogoutPath`: ユーザーがログアウトされるときは、このパスにリダイレクトされます。 既定値は、ログアウト/アカウント/です。
-* `AccessDeniedPath`: ユーザーには、承認チェックが失敗すると、ときに、このパスにリダイレクトされます。 既定値は/アカウント/AccessDenied です。
-* `SlidingExpiration`: True の場合、現在 cookie が有効期限 ウィンドウから複数のちょうど中間にあるときに新しい有効期限時刻に新しい cookie が発行されます。 既定値は true です。
-* `ReturnUrlParameter`:、ReturnUrlParameter は、は 401 Unauthorized ステータス コードがログイン パスへの 302 リダイレクトに変更されたときに、ミドルウェアによって付加されるクエリ文字列パラメーターの名前を決定します。
-* `AuthenticationScheme`: ASP.NET Core これはのみ 1.x です。 特定の認証スキームの論理名。
-* `AutomaticAuthenticate`: このフラグにのみ関連 ASP.NET Core 1.x です。 True の場合、cookie 認証を要求ごとに実行しを検証し、作成された任意のシリアル化されたプリンシパルを再構築しようとします。
 
+| プロパティ                | 説明                       | 既定値 |
+| ----------------------- | --------------------------------- | ------- |
+| `Cookie.Name`  | Cookie の名前。  | .AspNetCore.Cookies です。  |
+| `Cookie.HttpOnly`  | True の場合、cookie はクライアント側スクリプトからアクセスできません。  |  true |
+| `ExpireTimeSpan`  | 認証チケットがクッキーに格納されている時間は作成された時点から有効になるかを制御します。  | 14 日間  |
+| `LoginPath`  | ユーザーが承認されていない、ときに、ログインにこのパスにリダイレクトされます。 | /アカウント/ログイン  |
+| `LogoutPath`  | ユーザーがログアウトするときは、このパスにリダイレクトされます。  | /アカウント/ログアウト  |
+| `AccessDeniedPath`  | ユーザーには、承認チェックが失敗した場合は、このパスにリダイレクトされます。  |   |
+| `SlidingExpiration`  | True の場合、現在 cookie が有効期限 ウィンドウから複数のちょうど中間にあるときに新しい有効期限時刻に新しい cookie が発行されます。  | /アカウント/AccessDenied |
+| `ReturnUrlParameter`  | 401 Unauthorized ステータス コードがログイン パスへの 302 リダイレクトに変更されたときに、ミドルウェアによって付加されるクエリ文字列パラメーターの名前を決定します。  |  true |
+| `AuthenticationScheme`  | これにのみ関連 ASP.NET Core 1.x です。 特定の認証スキームの論理名。 |  |
+| `AutomaticAuthenticate`  | このフラグにのみ関連 ASP.NET Core 1.x です。 True の場合、cookie 認証を要求ごとに実行しを検証し、作成された任意のシリアル化されたプリンシパルを再構築しようとします。  |  |

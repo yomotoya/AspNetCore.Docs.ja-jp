@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: index
-ms.openlocfilehash: 3a18ed30819a3d395e9bfb5dba0547667a4425e8
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 5d8e9a72a3b69866f5a4f725076e44575d20d64f
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core の概要
 
@@ -38,7 +38,7 @@ ASP.NET Core の利点は次のとおりです。
 * クラウド対応で環境ベースの[構成システム](xref:fundamentals/configuration/index)。
 * 組み込まれている[依存性の注入](xref:fundamentals/dependency-injection)。
 * 軽量で[高パフォーマンス](https://github.com/aspnet/benchmarks)のモジュール化された HTTP 要求パイプライン。
-* [IIS](xref:publishing/iis)、[Nginx](xref:publishing/linuxproduction)、[Apache](xref:publishing/apache-proxy)、[Docker](xref:publishing/docker) でホストする、または独自のプロセスで自己ホストする機能。
+* [IIS](xref:host-and-deploy/iis/index)、[Nginx](xref:host-and-deploy/linux-nginx)、[Apache](xref:host-and-deploy/linux-apache)、[Docker](xref:host-and-deploy/docker/index) でホストする、または独自のプロセスで自己ホストする機能。
 * [.NET Core](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server) に対応する場合は、アプリのサイド バイ サイド バージョン管理をサポート。
 * 最新の Web 開発を簡単にするツール。
 * Windows、macOS、Linux でビルドおよび実行する機能。
@@ -48,7 +48,7 @@ ASP.NET Core は、[NuGet](https://www.nuget.org/) パッケージとして完�
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>ASP.NET Core MVC を使って Web API と Web UI を構築する
 
-ASP.NET Core MVC は、[Web API](xref:tutorials/index#building-web-apis) と [Web アプリ](xref:tutorials/index#building-web-applications)を構築する機能を備えています。
+ASP.NET Core MVC は、[Web API](xref:tutorials/index#build-web-apis) と [Web アプリ](xref:tutorials/index#build-web-apps)を構築する機能を備えています。
 
 * [モデル ビュー コントローラー (MVC) パターン](xref:mvc/overview)は、Web API と Web アプリを[テスト可能](testing/index.md)にするのに役立ちます。
 * [Razor ページ](xref:mvc/razor-pages/index) (ASP.NET Core 2.0 の新機能) はページ ベースのプログラミング モデルであり、Web UI の開発を容易にし、生産性を高めます。
@@ -62,7 +62,7 @@ ASP.NET Core MVC は、[Web API](xref:tutorials/index#building-web-apis) と [We
 
 ASP.NET Core は、人気のあるクライアント側のフレームワークとライブラリ ([Angular](xref:spa/angular)、[React](xref:spa/react)、[Bootstrap](xref:client-side/bootstrap) など) をシームレスに統合します。 詳しくは、「[クライアント側の開発](xref:client-side/index)」をご覧ください。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 詳細については、次のリソースを参照してください。
 

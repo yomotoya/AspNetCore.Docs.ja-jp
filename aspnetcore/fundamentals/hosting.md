@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 054b60206cafc3d6dd5775436995638d7f5700cf
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 8adc58d67f103e8d1fc8fe197cf392752bdaf660
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>ASP.NET Core でのホスティング
 
@@ -41,7 +41,7 @@ ASP.NET Core アプリケーションの構成および起動、*ホスト*で�
   * 環境変数。
   * コマンドライン引数。
 * 構成[ログ](xref:fundamentals/logging/index)コンソールとデバッグ出力用です。 ログ記録が含まれています[ログ フィルター](xref:fundamentals/logging/index#log-filtering)のログ記録の構成セクションで指定された規則、*される appsettings.json*または*appsettings {。環境} .json*ファイル。
-* により、IIS の背後にある実行中、 [IIS 統合](xref:publishing/iis)です。 基本パスとを使用する場合、サーバーがリッスンするポートを構成、 [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)です。 モジュールでは、IIS と Kestrel リバース プロキシを作成します。 アプリの構成も行います[スタートアップ エラーがキャプチャされる](#capture-startup-errors)です。 IIS の既定のオプションを参照してください。 [、IIS が IIS と Windows 上のホスト ASP.NET Core のセクションをオプション](xref:publishing/iis#iis-options)です。
+* により、IIS の背後にある実行中、 [IIS 統合](xref:host-and-deploy/iis/index)です。 基本パスとを使用する場合、サーバーがリッスンするポートを構成、 [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)です。 モジュールでは、IIS と Kestrel リバース プロキシを作成します。 アプリの構成も行います[スタートアップ エラーがキャプチャされる](#capture-startup-errors)です。 IIS の既定のオプションを参照してください。 [、IIS が IIS と Windows 上のホスト ASP.NET Core のセクションをオプション](xref:host-and-deploy/iis/index#iis-options)です。
 
 *コンテンツのルート*MVC ビュー ファイルなどのコンテンツ ファイルのホストを検索する場所を決定します。 プロジェクトのルート フォルダーから、アプリが開始されると、プロジェクトのルート フォルダーは、コンテンツのルートとして使用されます。 これは、既定で使用される[Visual Studio](https://www.visualstudio.com/)と[dotnet 新しいテンプレート](/dotnet/core/tools/dotnet-new)です。
 
@@ -60,7 +60,7 @@ ASP.NET Core アプリケーションの構成および起動、*ホスト*で�
 
 *コンテンツのルート*MVC ビュー ファイルなどのコンテンツ ファイルのホストを検索する場所を決定します。 既定のコンテンツのルートが取得`UseContentRoot`によって[Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory?view=netcore-1.1)です。 プロジェクトのルート フォルダーから、アプリが開始されると、プロジェクトのルート フォルダーは、コンテンツのルートとして使用されます。 これは、既定で使用される[Visual Studio](https://www.visualstudio.com/)と[dotnet 新しいテンプレート](/dotnet/core/tools/dotnet-new)です。
 
-リバース プロキシとして、IIS を使用するには、呼び出す[UseIISIntegration](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions)ホストの作成の一部として。 `UseIISIntegration`構成されない、*サーバー*と同様、 [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1)はします。 `UseIISIntegration`基本パスとを使用する場合、サーバーがリッスンするポートを構成、 [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)Kestrel と IIS のリバース プロキシを作成します。 IIS で ASP.NET Core を使用する`UseKestrel`と`UseIISIntegration`指定する必要があります。 `UseIISIntegration`IIS または IIS Express の内側で実行されるときにのみアクティブにします。 詳細については、次を参照してください。 [Introduction to ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)と[ASP.NET Core モジュール構成の参照](xref:hosting/aspnet-core-module)です。
+リバース プロキシとして、IIS を使用するには、呼び出す[UseIISIntegration](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions)ホストの作成の一部として。 `UseIISIntegration`構成されない、*サーバー*と同様、 [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1)はします。 `UseIISIntegration`基本パスとを使用する場合、サーバーがリッスンするポートを構成、 [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)Kestrel と IIS の間のリバース プロキシを作成します。 IIS で ASP.NET Core を使用する`UseKestrel`と`UseIISIntegration`指定する必要があります。 `UseIISIntegration`IIS または IIS Express の内側で実行されるときにのみアクティブにします。 詳細については、次を参照してください。 [Introduction to ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)と[ASP.NET Core モジュール構成の参照](xref:host-and-deploy/aspnet-core-module)です。
 
 ホスト (および ASP.NET Core アプリケーション) を構成する最小限の実装には、サーバーおよびアプリケーションの要求パイプラインの構成の指定が含まれます。
 
@@ -266,7 +266,7 @@ WebHost.CreateDefaultBuilder(args)
 
 ### <a name="prevent-hosting-startup"></a>スタートアップをホストしているようにします。
 
-ホストしているアプリのアセンブリで構成されているスタートアップ アセンブリのホストを含め、スタートアップ アセンブリの自動読み込みができなくなります。 参照してください[IHostingStartup を使用して外部のアセンブリからのアプリの機能の追加](xref:hosting/ihostingstartup)詳細についてはします。
+ホストしているアプリのアセンブリで構成されているスタートアップ アセンブリのホストを含め、スタートアップ アセンブリの自動読み込みができなくなります。 参照してください[IHostingStartup を使用して外部のアセンブリからのアプリの機能の追加](xref:host-and-deploy/ihostingstartup)詳細についてはします。
 
 **キー**: preventHostingStartup  
 **型**: *bool* (`true`または`1`)  
@@ -908,7 +908,7 @@ WebHost.CreateDefaultBuilder(args)
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [IIS を使用して Windows への公開します。](../publishing/iis.md)
-* [Nginx を使用して Linux への公開します。](../publishing/linuxproduction.md)
-* [Apache を使用して Linux への公開します。](../publishing/apache-proxy.md)
-* [Windows サービスのホスト](xref:hosting/windows-service)
+* [IIS による Windows 上のホスト](xref:host-and-deploy/iis/index)
+* [Nginx による Linux でのホスト](xref:host-and-deploy/linux-nginx)
+* [Apache による Linux でのホスト](xref:host-and-deploy/linux-apache)
+* [Windows サービスのホスト](xref:host-and-deploy/windows-service)

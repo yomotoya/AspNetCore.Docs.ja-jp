@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d1f551dbde5f3dd6e71808154c2e5885d588d7c
-ms.sourcegitcommit: 282f69e8dd63c39bde97a6d72783af2970d92040
+ms.openlocfilehash: 5eef9405c0c3d219755d7cffa5d45c3df45ddb5c
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>ASP.NET Core モジュールの概要
 
@@ -54,7 +54,7 @@ ANCM が他のいくつかの機能もあります。
 
 ## <a name="how-to-use-ancm-in-aspnet-core-apps"></a>ASP.NET Core アプリケーションで ANCM を使用する方法
 
-このセクションでは、IIS サーバーおよび ASP.NET Core アプリケーションを設定するため、プロセスの概要を示します。 詳細については、次を参照してください。[を IIS に発行](../../publishing/iis.md)です。
+このセクションでは、IIS サーバーおよび ASP.NET Core アプリケーションを設定するため、プロセスの概要を示します。 詳細については、次を参照してください。 [IIS と Windows 上のホスト](xref:host-and-deploy/iis/index)です。
 
 ### <a name="install-ancm"></a>ANCM をインストールします。
 
@@ -107,7 +107,7 @@ ANCM には、バックエンド プロセスに代入する動的なポート�
 
 ### <a name="configure-ancm-options-in-webconfig"></a>Web.config で ANCM オプションを構成します。
 
-ASP.NET Core モジュールの構成に保存、 *Web.config*アプリケーションのルート フォルダーに配置されているファイル。 このファイルの設定は、スタートアップ コマンドおよび ASP.NET Core アプリを起動する引数をポイントします。 Web.config のサンプル コードと構成オプションの詳細については、次を参照してください。 [ASP.NET コア モジュールの構成の参照](../../hosting/aspnet-core-module.md)です。
+ASP.NET Core モジュールの構成に保存、 *web.config*アプリケーションのルート フォルダーに配置されているファイル。 このファイルの設定は、スタートアップ コマンドおよび ASP.NET Core アプリを起動する引数をポイントします。 サンプルの*web.config*コードと構成オプションに関する説明を参照してください[ASP.NET コア モジュールの構成の参照](xref:host-and-deploy/aspnet-core-module)です。
 
 ### <a name="run-with-iis-express-in-development"></a>IIS Express を使って開発での実行します。
 
@@ -119,11 +119,11 @@ ANCM と Kestrel の間に作成されたプロキシは、HTTP プロトコル�
 
 ペアリング トークンは、Kestrel によって受信された要求が IIS によってプロキシと他のソースから取得していないことを保証するために使用されます。 ペアリング トークンが作成され、環境変数に設定 (`ASPNETCORE_TOKEN`)、ANCM でします。 ペアリング トークンは、ヘッダーにも設定 (`MSAspNetCoreToken`) プロキシ要求ごとにします。 IIS のミドルウェアのチェックは、ペアリング トークン ヘッダーの値が環境変数の値と一致することを確認する受信を要求します。 トークンの値が一致しない場合は、要求が記録され、拒否されました。 ペアリングのトークンの環境変数と ANCM と Kestrel 間のトラフィックは、サーバーからの場所からアクセスできません。 トークン ペアの値を知らなくても、攻撃者は、IIS ミドルウェア内でチェックのバイパスの要求を送信できません。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 詳細については、次のリソースを参照してください。
 
 * [この記事のサンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample)
 * [ASP.NET Core モジュールのソース コード](https://github.com/aspnet/AspNetCoreModule)
-* [ASP.NET Core モジュール構成リファレンス](../../hosting/aspnet-core-module.md)
-* [IIS に発行します。](../../publishing/iis.md)
+* [ASP.NET Core モジュール構成リファレンス](xref:host-and-deploy/aspnet-core-module)
+* [IIS による Windows 上のホスト](xref:host-and-deploy/iis/index)
