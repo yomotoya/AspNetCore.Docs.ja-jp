@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: a7664d16a056424ee51db2208152cb5d35d8e5d9
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 10457d154f5fda875f7d1054d48daeeba3a50b7c
+ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 <a name="search"></a>検索
 ====================
@@ -123,7 +123,7 @@ Visual Studio 2013 では、表示およびファイルの表示を編集する�
 
 [!code-csharp[Main](adding-search/samples/sample12.cs)]
 
-コードを使用して、`AddRange`ジェネリックのメソッド`List`一覧にすべての個別ジャンルを追加するコレクション。 (なし、`Distinct`修飾子は、重複するジャンルを追加するには — たとえば、コメディ サンプルに 2 回追加されます)。 コードでジャンルの一覧を格納し、`ViewBag.movieGenre`オブジェクト。 カテゴリのデータ (このようなムービー ジャンルの) として格納する、 [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist(v=vs.108).aspx)内のオブジェクト、 `ViewBag`、MVC アプリケーションの一般的なアプローチは、ドロップダウン リスト ボックスでカテゴリ データにアクセスし、します。
+コードを使用して、`AddRange`ジェネリックのメソッド`List`一覧にすべての個別ジャンルを追加するコレクション。 (なし、`Distinct`修飾子は、重複するジャンルを追加するには — たとえば、コメディ サンプルに 2 回追加されます)。 コードでジャンルの一覧を格納し、`ViewBag.MovieGenre`オブジェクト。 カテゴリのデータ (このようなムービー ジャンルの) として格納する、 [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist(v=vs.108).aspx)内のオブジェクト、 `ViewBag`、MVC アプリケーションの一般的なアプローチは、ドロップダウン リスト ボックスでカテゴリ データにアクセスし、します。
 
 次のコードを確認する方法を示しています、`movieGenre`パラメーター。 空ではない、コードをさらには指定されたジャンルを選択したムービーを制限するムービーのクエリを制約します。
 
@@ -141,7 +141,7 @@ Visual Studio 2013 では、表示およびファイルの表示を編集する�
 
 [!code-cshtml[Main](adding-search/samples/sample15.cshtml)]
 
-パラメーター"movieGenre"のキーを提供する、`DropDownList`を検索するためのヘルパーを`IEnumerable<SelectListItem>`で、`ViewBag`です。 `ViewBag`がアクション メソッドで設定します。
+パラメーター"MovieGenre"のキーを提供する、`DropDownList`を検索するためのヘルパーを`IEnumerable<SelectListItem>`で、`ViewBag`です。 `ViewBag`がアクション メソッドで設定します。
 
 [!code-csharp[Main](adding-search/samples/sample16.cs?highlight=10)]
 

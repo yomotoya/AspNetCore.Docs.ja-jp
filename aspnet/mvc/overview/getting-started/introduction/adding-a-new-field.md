@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: c10eb343259b58052fd1f2411dbdc2196eafc858
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 7427b4f7c6b7a00fe795053aac0f612471a163cd
+ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 <a name="adding-a-new-field"></a>新しいフィールドの追加
 ====================
@@ -161,7 +161,7 @@ Code First Migrations で別のクラス ファイルの作成、*移行*フォ�
 
 `add-migration`コマンドを現在のムービー DB スキーマと、現在のムービー モデルを調査して、新しいモデルにデータベースを移行するために必要なコードを作成する移行フレームワークに指示します。 名前*評価*任意あり、移行ファイルの名前を使用します。 移行手順のわかりやすい名前を使用することをお勧めします。
 
-このコマンドが完了すると、Visual Studio は新しいを定義するクラス ファイルを開きます`DbMIgration`クラスを派生し、、`Up`方法、新しい列を作成するコードを確認することができます。
+このコマンドが完了すると、Visual Studio は新しいを定義するクラス ファイルを開きます`DbMigration`クラスを派生し、、`Up`方法、新しい列を作成するコードを確認することができます。
 
 [!code-csharp[Main](adding-a-new-field/samples/sample11.cs)]
 
@@ -179,8 +179,7 @@ Code First Migrations で別のクラス ファイルの作成、*移行*フォ�
 
 ![7_CreateRioII](adding-a-new-field/_static/image13.png)
 
-
-              **[作成]**をクリックします。 この評価を含む、新しいムービーに表示されます、映画を一覧表示します。
+**[作成]**をクリックします。 この評価を含む、新しいムービーに表示されます、映画を一覧表示します。
 
 ![7_ourNewMovie_SM](adding-a-new-field/_static/image14.png)
 

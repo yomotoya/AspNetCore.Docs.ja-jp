@@ -11,11 +11,11 @@ ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a011
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: b2bdf8b2b297a66b08445d99afbc5f43d2e37ef6
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 86756a1d09e6e55ca79aed6e5b718088b82b782c
+ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="anchor-tag-helper"></a>アンカー タグ ヘルパー
 
@@ -82,9 +82,9 @@ ms.lasthandoff: 01/03/2018
 
 ```html
 <a href="/items?page=%2FSpeakers">Speakers</a>
-``
+```
 
-The `asp-page` attribute is mutually exclusive with the `asp-route`, `asp-controller`, and `asp-action` attributes. However, `asp-page` can be used with `asp-route-id` to control routing, as the following code sample demonstrates:
+`asp-page`属性と同時に、 `asp-route`、 `asp-controller`、および`asp-action`属性。 ただし、`asp-page`で使用できる`asp-route-id`を制御するルーティングでは、次のコード サンプルを示します。
 
 ```cshtml
 <a asp-page="/Speaker" asp-route-id="@speaker.Id">View Speaker</a>
