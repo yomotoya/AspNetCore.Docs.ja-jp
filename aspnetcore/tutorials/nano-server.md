@@ -11,11 +11,11 @@ ms.assetid: 50922cf1-ca58-4006-9236-99b7ff2dd0cf
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/nano-server
-ms.openlocfilehash: 337cc69ef522452c17cdd6ea4a5e71cd122035dc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f30e911703d5c36d076872f91d4b2fafeefb91f5
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="aspnet-core-with-iis-on-nano-server"></a>Nano Server の ASP.NET Core と IIS
 
@@ -37,7 +37,7 @@ Nano Server は 3 つの簡単な方法でお試しいただけます。 MS ア�
 
 このチュートリアルでは、2 番目の選択肢を利用します。Windows Server 2016 の構築済みの Nano Server VHD です。
 
-このチュートリアルを進める前に、既存の ASP.NET Core アプリケーションの[発行された出力](xref:hosting/directory-structure)が必要になります。 アプリケーションが **64 ビット** プロセスで実行されるように構築されていることを確認します。
+このチュートリアルを進める前に、既存の ASP.NET Core アプリケーションの[発行された出力](xref:host-and-deploy/directory-structure)が必要になります。 アプリケーションが **64 ビット** プロセスで実行されるように構築されていることを確認します。
 
 ## <a name="setting-up-the-nano-server-instance"></a>Nano Server インスタンスの設定
 
@@ -191,7 +191,7 @@ dotnet-install.ps1 -Version 2.0.0
 </configuration>
 ```
 
-リモート セッションで次のコマンドを実行し、既定の Web サイトとは異なるポートで、公開したアプリの新しいサイトを IIS で作成します。 また、Web にアクセスするためにそのポートを開く必要があります。 このスクリプトでは `DefaultAppPool` を利用し、わかりやすくしています。 アプリケーション プールの下で実行する場合の考慮事項については、「[アプリケーション プール](xref:publishing/iis#application-pools)」を参照してください。
+リモート セッションで次のコマンドを実行し、既定の Web サイトとは異なるポートで、公開したアプリの新しいサイトを IIS で作成します。 また、Web にアクセスするためにそのポートを開く必要があります。 このスクリプトでは `DefaultAppPool` を利用し、わかりやすくしています。 アプリケーション プールの下で実行する場合の考慮事項については、「[アプリケーション プール](xref:host-and-deploy/iis/index#application-pools)」を参照してください。
 
 ```PowerShell
 Import-module IISAdministration
@@ -205,4 +205,4 @@ New-NetFirewallRule -Name "AspNetCore Port 81 IIS" -DisplayName "Allow HTTP on T
 
 ## <a name="running-the-application"></a>アプリケーションの実行
 
-公開された Web アプリにはブラウザーでアクセスできます (`http://192.168.1.10:8000`)。 「[Log creation and redirection](xref:hosting/aspnet-core-module#log-creation-and-redirection)」 (ログの作成とリダイレクト) の説明に基づいてログを設定している場合、ログを *C:\PublishedApps\AspNetCoreSampleForNano\logs* で閲覧できます。
+公開された Web アプリにはブラウザーでアクセスできます (`http://192.168.1.10:8000`)。 「[Log creation and redirection](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection)」 (ログの作成とリダイレクト) の説明に基づいてログを設定している場合、ログを *C:\PublishedApps\AspNetCoreSampleForNano\logs* で閲覧できます。
