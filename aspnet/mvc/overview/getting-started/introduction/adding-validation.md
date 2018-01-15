@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: db09b6c947b219ce21e8f4248dcc6629c6add76c
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 11fc0363c20b179a4d74f29c4dafed81ca692ef2
+ms.sourcegitcommit: 77b8025c30ec2fd46d85ee2a2b497c44435d3009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 <a name="adding-validation"></a>検証の追加
 ====================
@@ -42,7 +42,7 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 更新できるように、`Movie`組み込み活用するためにクラス[ `Required` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx)、 [ `StringLength` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)、[正規表現](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)、および[`Range` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx)検証属性。 置換、`Movie`を次のクラス。
 
-[!code-csharp[Main](adding-validation/samples/sample1.cs?highlight=8,22-24,30-31,37-38)]
+[!code-csharp[Main](adding-validation/samples/sample1.cs?highlight=5,13-15,18-19,22-23)]
 
 [ `StringLength` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性は、文字列の最大長を設定、データベースに対してこの制限を設定して、そのため、データベース スキーマを変更します。 右クリックして、**映画**テーブルに**サーバー エクスプ ローラー**  をクリック**テーブル定義を開く**:
 
