@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 6281d6ba254670b111964715410fc0694ae4d149
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: b662e66ab5b4c46d1a8d10eb7c38bf4064b5b927
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>ASP.NET Core アプリを構成する
 
@@ -355,7 +355,7 @@ Left: 1984
 
 スイッチ マッピング ディクショナリが作成されると、以下の表に示すデータが含まれます。
 
-| キー            | 値                 |
+| キー            | [値]                 |
 | -------------- | --------------------- |
 | `-MachineName` | `Profile:MachineName` |
 | `-Left`        | `App:MainWindow:Left` |
@@ -375,7 +375,7 @@ Left: 1988
 
 ## <a name="the-webconfig-file"></a>web.config ファイル
 
-IIS または IIS-Express でアプリをホストする場合は、*web.config* ファイルが必要です。 *web.config* は、IIS の AspNetCoreModule を有効にしてアプリを起動します。 *web.config* を設定することで、IIS の AspNetCoreModule を有効にし、アプリを起動して他の IIS 設定とモジュールを構成することができます。 Visual Studio を使用して *web.config* を削除すると、Visual Studio で新しく作成されます。
+IIS または IIS-Express でアプリをホストする場合は、*web.config* ファイルが必要です。 *web.config* を設定することで、[ASP.NET Core Module](xref:fundamentals/servers/aspnet-core-module) を有効にし、アプリを起動して他の IIS 設定とモジュールを構成することができます。 *web.config* ファイルが存在せず、プロジェクト ファイルに `<Project Sdk="Microsoft.NET.Sdk.Web">` が含まれている場合、プロジェクトを発行すると、発行先 (*publish* フォルダー) に *web.config* ファイルが作成されます。 詳細については、「[IIS を使用した Windows での ASP.NET Core のホスト](xref:host-and-deploy/iis/index#webconfig)」を参照してください。
 
 ## <a name="additional-notes"></a>補足メモ
 

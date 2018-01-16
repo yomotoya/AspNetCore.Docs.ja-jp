@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/index
-ms.openlocfilehash: bc19cbf0093e8a7f26af82d19f597cc805e04309
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 325f95cf9ecc295f7a1c646e352b9cd496b6268e
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="working-with-data-in-aspnet-core"></a>ASP.NET Core でのデータの操作 
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 12/14/2017
 
    * [Razor ページと EF の概要](xref:data/ef-rp/intro)
    * [作成、読み取り、更新、削除の操作](xref:data/ef-rp/crud)
-   * [並べ替え、フィルター、ページング、グループ化](xref:data/ef-rp/sort-filter-page)
+   * [並べ替え、フィルター、ページ、およびグループ化](xref:data/ef-rp/sort-filter-page)
    * [移行](xref:data/ef-rp/migrations)
    * [複合データ モデルの作成](xref:data/ef-rp/complex-data-model)
    * [関連データの読み取り](xref:data/ef-rp/read-related-data)
@@ -30,9 +30,9 @@ ms.lasthandoff: 12/14/2017
    * [同時実行の競合の処理](xref:data/ef-rp/concurrency)
 
 *   [Visual Studio を使用した ASP.NET Core MVC と Entity Framework Core の概要](ef-mvc/index.md)
-    *   [はじめに](ef-mvc/intro.md)
+    *   [開始するには](ef-mvc/intro.md)
     *   [作成、読み取り、更新、削除の操作](xref:data/ef-mvc/crud)
-    *   [並べ替え、フィルター、ページング、グループ化](xref:data/ef-mvc/sort-filter-page)
+    *   [並べ替え、フィルター、ページ、およびグループ化](xref:data/ef-mvc/sort-filter-page)
     *   [移行](xref:data/ef-mvc/migrations)
     *   [複合データ モデルの作成](ef-mvc/complex-data-model.md)
     *   [関連データの読み取り](ef-mvc/read-related-data.md)

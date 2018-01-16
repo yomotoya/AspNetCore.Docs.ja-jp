@@ -10,17 +10,17 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/index
-ms.openlocfilehash: 66f6e4542dd208a986b256acd4bd1d0381aa46c6
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: acedebaa9b89a0e00602b497d11d5612fce99a5f
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core チュートリアル
 
 ASP.NET Core アプリケーションの開発に関する以下のステップ バイ ステップ ガイドが用意されています。
 
-## <a name="building-web-applications"></a>Web アプリケーションの構築
+## <a name="build-web-apps"></a>Web アプリの構築
 
 [Razor ページ](xref:mvc/razor-pages/index)は、ASP.NET Core 2.0 で新しい Web UI アプリを作成するための推奨される方法です。
 
@@ -40,9 +40,9 @@ ASP.NET Core アプリケーションの開発に関する以下のステップ 
 * [Visual Studio を使用した ASP.NET Core と Entity Framework Core の概要](../data/ef-mvc/index.md)
 * [タグ ヘルパーの作成](../mvc/views/tag-helpers/authoring.md)
 * [単純なビュー コンポーネントの作成](../mvc/views/view-components.md#walkthrough-creating-a-simple-view-component)
-* [dotnet watch を使用した ASP.NET Core アプリケーションの開発](dotnet-watch.md)
+* [dotnet watch を使用した ASP.NET Core アプリの開発](dotnet-watch.md)
 
-## <a name="building-web-apis"></a>Web API の構築
+## <a name="build-web-apis"></a>Web API の構築
 * ASP.NET Core で Web API を作成する
 
   * [Visual Studio for Windows での Web API](first-web-api.md)
@@ -50,15 +50,15 @@ ASP.NET Core アプリケーションの開発に関する以下のステップ 
   * [Visual Studio Code での Web API](web-api-vsc.md)
   
 * [Swagger を使用する ASP.NET Core Web API のヘルプ ページ](web-api-help-pages-using-swagger.md)
-* [ネイティブ モバイル アプリケーションのバックエンド Web サービスの作成](../mobile/native-mobile-backend.md)
+* [ネイティブ モバイル アプリのバックエンド Web サービスの作成](../mobile/native-mobile-backend.md)
 
-## <a name="working-with-data"></a>データの操作
+## <a name="data-access-and-storage"></a>データ アクセスとストレージ
 * [Visual Studio を使用した ASP.NET Core と Entity Framework Core の概要](../data/ef-mvc/index.md)
 * [ASP.NET Core と EF Core - 新しいデータベース](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
 * [ASP.NET Core と EF Core - 既存のデータベース](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
 
 ## <a name="authentication-and-authorization"></a>認証と承認
-* [Facebook、Google、他の外部プロバイダーを使用する認証の有効化](../security/authentication/social/index.md)
+* [Facebook、Google、および他の外部プロバイダーを使用する認証の有効化](../security/authentication/social/index.md)
 * [アカウントの確認とパスワードの回復](../security/authentication/accconfirm.md)
 * [SMS での 2 要素認証](../security/authentication/2fa.md)
 
@@ -66,15 +66,15 @@ ASP.NET Core アプリケーションの開発に関する以下のステップ 
 * [Gulp の使用](../client-side/using-gulp.md)
 * [Grunt の使用](../client-side/using-grunt.md)
 * [Bower でのクライアント側パッケージの管理](../client-side/bower.md)
-* [Bootstrap による美しくて応答性のよい Web サイトの構築](../client-side/bootstrap.md)
+* [Bootstrap による応答性のよい Web サイトの構築](../client-side/bootstrap.md)
 
-## <a name="testing"></a>テスト中
+## <a name="test"></a>テスト
 * [dotnet テストを使用した .NET Core での単体テスト](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-## <a name="publishing-and-deployment"></a>発行と配置
+## <a name="publish-and-deploy"></a>発行と配置
 * [Visual Studio を使用して Azure に ASP.NET Core Web アプリを配置する](publish-to-azure-webapp-using-vs.md)
 * [コマンド ラインを使用して Azure に ASP.NET Core Web アプリを配置する](publish-to-azure-webapp-using-cli.md)
-* [継続的配置による Azure Web アプリへの発行](../publishing/azure-continuous-deployment.md)
+* [継続的配置による Azure Web アプリへの発行](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
 * [リモート Docker ホストに ASP.NET コンテナーを配置する](https://docs.microsoft.com/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
 * [Nano Server での ASP.NET Core](nano-server.md)
 * [ASP.NET Core と Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-add-a-web-frontend)

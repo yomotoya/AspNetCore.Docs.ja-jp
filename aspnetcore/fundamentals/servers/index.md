@@ -11,11 +11,11 @@ ms.assetid: dba74f39-58cd-4dee-a061-6d15f7346959
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/index
-ms.openlocfilehash: 04dee100dff91f7868175ff4be01156787e13e81
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b149cb316e4266e67d846b8ef8c2c7f2a25ded5c
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core での Web サーバーの実装
 
@@ -79,11 +79,11 @@ ASP.NET Core のリバース プロキシとして IIS または IIS Express を
 
 ### <a name="nginx-with-kestrel"></a>Nginx と Kestrel
 
-Kestrel のリバース プロキシ サーバーとして Linux で Nginx を使用する方法については、[Linux 運用環境への発行](../../publishing/linuxproduction.md)に関するページを参照してください。
+Kestrel のリバース プロキシ サーバーとして Linux で Nginx を使用する方法については、「[Nginx による Linux でのホスト](xref:host-and-deploy/linux-nginx)」を参照してください。
 
 ### <a name="apache-with-kestrel"></a>Apache と Kestrel
 
-Kestrel のリバース プロキシ サーバーとして Linux で Apache を使用する方法については、[リバース プロキシとしての Apache Web サーバーの使用](../../publishing/apache-proxy.md)に関するページを参照してください。
+Kestrel のリバース プロキシ サーバーとして Linux で Apache を使用する方法については、「[Apache による Linux でのホスト](xref:host-and-deploy/linux-apache)」を参照してください。
 
 ## <a name="httpsys"></a>HTTP.sys
 
@@ -123,7 +123,7 @@ Kestrel でサポートされない WebListener の機能が必要な場合は�
 
 組み込みサーバーがニーズに合わない場合は、カスタム サーバー実装を作成できます。 [Nowin](https://github.com/Bobris/Nowin) ベースの [IServer](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.server.iserver) 実装の作成方法については、[Open Web Interface for .NET (OWIN) のガイド](../owin.md)を参照してください。 アプリケーションで必要な機能インターフェイスのみを実装するのは自由です。ただし、少なくとも [IHttpRequestFeature](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.ihttprequestfeature) と [IHttpResponseFeature](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpresponsefeature) をサポートする必要があります。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 詳細については、次のリソースを参照してください。
 
@@ -131,16 +131,16 @@ Kestrel でサポートされない WebListener の機能が必要な場合は�
 
 - [Kestrel](kestrel.md)
 - [Kestrel と IIS](aspnet-core-module.md)
-- [Kestrel と Nginx](../../publishing/linuxproduction.md)
-- [Kestrel と Apache](../../publishing/apache-proxy.md)
+- [Nginx による Linux でのホスト](xref:host-and-deploy/linux-nginx)
+- [Apache による Linux でのホスト](xref:host-and-deploy/linux-apache)
 - [HTTP.sys](httpsys.md)
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 - [Kestrel](kestrel.md)
 - [Kestrel と IIS](aspnet-core-module.md)
-- [Kestrel と Nginx](../../publishing/linuxproduction.md)
-- [Kestrel と Apache](../../publishing/apache-proxy.md)
+- [Nginx による Linux でのホスト](xref:host-and-deploy/linux-nginx)
+- [Apache による Linux でのホスト](xref:host-and-deploy/linux-apache)
 - [WebListener](weblistener.md)
 
 ---

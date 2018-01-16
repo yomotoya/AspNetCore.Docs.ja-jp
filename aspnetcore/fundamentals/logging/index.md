@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging/index
-ms.openlocfilehash: 737de614625ce560df1c3d7cfd9810f9433c153d
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 3eb167c961b8d089d508ef5622db6ae1cdd99088
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>ASP.NET Core でのログ記録の概要
 
@@ -56,7 +56,7 @@ ASP.NET Core は、さまざまなログ プロバイダーと連携するログ
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_ExpandDefault&highlight=16,17)]
 
-既定のプロジェクト テンプレートでは、前述のコードの方法でログ記録を設定していますが、`ConfigureLogging` の呼び出しは `CreateDefaultBuilder` メソッドで行われます。 プロジェクト テンプレートで作成される *Program.cs* のコードを次に示します。
+既定のプロジェクト テンプレートを使用すると、[CreateDefaultBuilder](https://docs.microsoft.com/ dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder?view=aspnetcore-2.0#Microsoft_AspNetCore_WebHost_CreateDefaultBuilder_System_String___) メソッドを使用したログ記録が有効になります。
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
@@ -302,7 +302,7 @@ System.Exception: Item not found exception.
 | 1      | デバッグ         | すべてのカテゴリ                          | 情報       |
 | 2      | コンソール       | Microsoft.AspNetCore.Mvc.Razor.Internal | 警告           |
 | 3      | コンソール       | Microsoft.AspNetCore.Mvc.Razor.Razor    | デバッグ             |
-| 4      | コンソール       | Microsoft.AspNetCore.Mvc.Razor          | エラー             |
+| 4      | コンソール       | Microsoft.AspNetCore.Mvc.Razor          | Error             |
 | 5      | コンソール       | すべてのカテゴリ                          | 情報       |
 | 6      | すべてのプロバイダー | すべてのカテゴリ                          | デバッグ             |
 | 7      | すべてのプロバイダー | システム                                  | デバッグ             |

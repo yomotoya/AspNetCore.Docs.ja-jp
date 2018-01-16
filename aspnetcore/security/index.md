@@ -10,11 +10,11 @@ ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe012345
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: 3f4df08d6cf5d183735ae4b4ec4f07ed60a9623a
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: f6a1f32c1edd098b0782fd066d8e32f09952a9b7
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="aspnet-core-security-overview"></a>ASP.NET Core セキュリティの概要
 
@@ -49,11 +49,11 @@ ASP.NET Core および EF には、アプリをセキュリティで保護し、
     * [Windows 認証の構成](authentication/windowsauth.md)
     *   [アカウントの確認とパスワードの回復](authentication/accconfirm.md)
     *   [SMS での 2 要素認証](authentication/2fa.md) 
-    *   [ASP.NET Core Identity なしでの Cookie 認証の使用](authentication/cookie.md)
+    *   [Identity なしでの Cookie 認証の使用](authentication/cookie.md)
     *   [Azure Active Directory](authentication/azure-active-directory/index.md)
         *   [ASP.NET Core Web アプリへの Azure AD の統合](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
-        *   [Azure AD を使用した WPF アプリケーションからの ASP.NET Core Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
-        *   [Azure AD を使用した ASP.NET Core Web アプリケーションでの Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
+        *   [Azure AD を使用した WPF アプリからの ASP.NET Core Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
+        *   [Azure AD を使用した ASP.NET Core Web アプリでの Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
         *   [ASP.NET Core Web アプリでの Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
     *   [IdentityServer4 での ASP.NET Core アプリのセキュリティ保護](https://identityserver4.readthedocs.io)
 *   [承認](authorization/index.md)
@@ -62,12 +62,12 @@ ASP.NET Core および EF には、アプリをセキュリティで保護し、
     *   [単純な承認](authorization/simple.md)
     *   [ロール ベースの承認](authorization/roles.md)
     *   [クレーム ベースの承認](authorization/claims.md)
-    *   [カスタム ポリシー ベースの承認](authorization/policies.md)
+    *   [ポリシー ベースの承認](authorization/policies.md)
     *   [要件ハンドラーでの依存性の注入](authorization/dependencyinjection.md)
     *   [リソース ベースの承認](authorization/resourcebased.md)
     *   [ビュー ベースの承認](authorization/views.md)
     *   [スキームによる ID の制限](authorization/limitingidentitybyscheme.md)
-*   [データの保護](data-protection/index.md)
+*   [データ保護](data-protection/index.md)
     *   [データ保護の概要](data-protection/introduction.md)
     *   [データ保護 API の概要](data-protection/using-data-protection.md)
     *   [コンシューマー API](data-protection/consumer-apis/index.md)
