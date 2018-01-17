@@ -1,6 +1,6 @@
 ---
 title: "コマンド ライン ツールを使用して Azure に ASP.NET Core アプリを公開する | Microsoft Docs"
-description: "ASP.NET Core と Git コマンド ライン クライアントを使用して Microsoft Azure App をビルドし展開する方法について説明します。"
+description: "Git コマンド ライン クライアントを使用して Azure App Service に ASP.NET Core アプリを発行する方法を説明します。"
 services: multiple
 keywords: "ASP.NET Core, Azure, App Service, Git, コマンド ライン"
 author: camsoper
@@ -13,11 +13,11 @@ ms.technology: aspnet
 ms.custom: mvc
 ms.devlang: dotnet
 uid: tutorials/publish-to-azure-webapp-using-cli
-ms.openlocfilehash: 0bcff4f79356b960f663dcebb1d79a108417dbd2
-ms.sourcegitcommit: f017f940a164dbaf84307410c78eb14e0f3ac811
+ms.openlocfilehash: 6af5de584cbf8cd59d86a965592b958061014c95
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-an-aspnet-core-application-to-azure-app-service-from-the-command-line"></a>コマンド ラインで Azure App Service へ ASP.NET Core アプリケーションを展開する
 
@@ -173,7 +173,7 @@ az webapp show -n $webappname -g DotNetAzureTutorial --query defaultHostName -o 
 az group delete -n DotNetAzureTutorial
 ```
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 このチュートリアルでは、次の作業を行う方法を学びました。
 

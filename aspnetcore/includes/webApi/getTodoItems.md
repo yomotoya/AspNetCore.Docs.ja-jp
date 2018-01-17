@@ -39,7 +39,7 @@ To Do アイテムを取得するには、`TodoController` クラスに次のメ
 
 [!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=TodoController&highlight=3)]
 
-* "[Controller]" をコントローラーの名前 ("Controller" サフィックスを除くコントローラー名) に置き換えます。 このサンプルでは、コントローラー クラス名は **Todo**Controller で、ルート名は "todo" です。 ASP.NET Core の[ルーティング](xref:mvc/controllers/routing)では大文字と小文字は区別されません。
+* `[controller]` をコントローラーの名前 ("Controller" サフィックスを除くコントローラー クラス名) に置き換えます。 このサンプルでは、コントローラー クラス名は **Todo**Controller で、ルート名は "todo" です。 ASP.NET Core の[ルーティング](xref:mvc/controllers/routing)では大文字と小文字は区別されません。
 * `[HttpGet]` 属性にルート テンプレート (`[HttpGet("/products")]` など) がある場合は、それをパスに追加します。 このサンプルではテンプレートを使用しません。 詳細については、「[Attribute routing with Http[Verb] attributes](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes)」 (Http[Verb] 属性を使用する属性のルーティング) を参照してください。
 
 `GetById` メソッドの場合:

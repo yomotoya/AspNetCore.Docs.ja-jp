@@ -11,15 +11,15 @@ helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Serv
 ms.technology: aspnet
 keywords: "ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, サービス, HTTP サービス"
 manager: wpickett
-ms.openlocfilehash: 6bbd5e332e395928d8f79888ecf190f7f59a4bbc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3f84fa55baf6d808185a28db290d9e6d3c46bdac
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>ASP.NET Core MVC と Visual Studio for Mac で Web API を作成する
 
-[Rick Anderson](https://twitter.com/RickAndMSFT) および [Mike Wasson](https://github.com/mikewasson) 著
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) と [Mike Wasson](https://github.com/mikewasson)
 
 このチュートリアルでは、"to-do" 項目の一覧を管理する Web API を構築します。 UI は構築しません。
 
@@ -194,10 +194,10 @@ public IActionResult GetById(string id)
 
 ![204 (No Content) の応答を示す Postman コンソール](first-web-api/_static/pmd.png)
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 * [コントローラー アクションへのルーティング](xref:mvc/controllers/routing)
-* API の配置については、[発行および配置](../publishing/index.md)に関するページを参照してください。
+* API の配置については、[ホストおよび配置](xref:host-and-deploy/index)に関するページを参照してください。
 * [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 * [Postman](https://www.getpostman.com/)
 * [Fiddler](https://www.telerik.com/download/fiddler)

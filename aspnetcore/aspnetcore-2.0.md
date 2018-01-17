@@ -11,11 +11,11 @@ ms.assetid: 08c9f457-9c24-40f9-a08b-47dc251e4cec
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-2.0
-ms.openlocfilehash: 98af3788652e87f6222551cb4a8e5427b312660c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f01f047f809e4eaa055a4204611b152c5db87f74
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2.0 の新機能
 
@@ -142,7 +142,7 @@ C# 7.1 機能の状態については、「[Roslyn GitHub repository](https://gi
 
 ## <a name="other-documentation-updates-for-20"></a>2.0 のその他のドキュメントの更新
 
-* [ASP.NET Core アプリを展開するために、Visual Studio および MSBuild 用の発行プロファイルを作成する](xref:publishing/web-publishing-vs)
+* [ASP.NET Core アプリ開発のための Visual Studio によるプロファイルの発行](xref:host-and-deploy/visual-studio-publish-profiles)
 * [キーの管理](xref:security/data-protection/implementation/key-management)
 * [Facebook 認証の構成](xref:security/authentication/facebook-logins)
 * [Twitter 認証の構成](xref:security/authentication/twitter-logins)
