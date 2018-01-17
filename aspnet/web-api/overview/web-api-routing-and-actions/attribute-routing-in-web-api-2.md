@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: ad44ee525601f308498967159e964aa41a2ce00c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c563f566b8456b63ffe0a3c4876432c60a19e89
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 での属性のルーティング
 ====================
@@ -130,7 +130,7 @@ URI テンプレートは、いくつかのパラメーターを持つことが�
 
 Web API には、要求 (GET、POST など) の HTTP メソッドに基づいた操作も選択します。 既定では、Web API コント ローラーのメソッド名の先頭の大文字と小文字を探します。 という名前のコント ローラー メソッドなど、 `PutCustomers` HTTP PUT 要求と一致します。
 
-次の属性で、いずれかを持つ mathod を修飾することをこの規則を上書きできます。
+次の属性で、いずれかを持つメソッドを修飾することをこの規則を上書きできます。
 
 - **[HttpDelete]**
 - **[HttpGet]**
@@ -180,22 +180,22 @@ Web API には、要求 (GET、POST など) の HTTP メソッドに基づいた
 
 | 制約 | 説明 | 例 |
 | --- | --- | --- |
-| アルファ | 一致の大文字またはラテン語アルファベットの小文字 (a ~ z、A ~ Z) | {x: アルファ} |
-| bool | ブール値と一致します。 | {x: bool} |
-| datetime | 一致する、 **DateTime**値。 | {datetime: x} |
-| decimal | 10 進値と一致します。 | {x: 10 進数} |
-| double | 64 ビットの浮動小数点値に一致します。 | {x: 二重} |
-| フローティング | 32 ビット浮動小数点値に一致します。 | {x: float} |
-| guid | GUID 値に一致します。 | x: {guid} |
-| int | 32 ビット整数値に一致します。 | {x: int} |
-| 長さ | 指定した長さで、または、指定された範囲の長さの文字列と一致します。 | {x: length(6)}{x: length(1,20)} |
-| long | 64 ビット整数値に一致します。 | {x: 時間の長い} |
-| max | 整数で最大値と一致します。 | {x: max(10)} |
-| maxlength | 最大長を持つ文字列と一致します。 | {x: maxlength(10)} |
-| 分 | 整数、最小値と一致します。 | {x: min(10)} |
-| minlength | 最小長の文字列と一致します。 | {x: minlength(10)} |
-| range | 整数値の範囲内に一致します。 | {x: range(10,50)} |
-| regex | 正規表現と一致します。 | {x: regex(^\d{3}-\d{3}-\d{4}$)} |
+| アルファ | 一致の大文字またはラテン語アルファベットの小文字 (a ~ z、A ~ Z) | {x:alpha} |
+| bool | ブール値と一致します。 | {x:bool} |
+| datetime | 一致する、 **DateTime**値。 | {x:datetime} |
+| decimal | 10 進値と一致します。 | {x:decimal} |
+| double | 64 ビットの浮動小数点値に一致します。 | {x:double} |
+| float | 32 ビット浮動小数点値に一致します。 | {x:float} |
+| guid | GUID 値に一致します。 | {x:guid} |
+| int | 32 ビット整数値に一致します。 | {x:int} |
+| 長さ | 指定した長さで、または、指定された範囲の長さの文字列と一致します。 | {x:length(6)} {x:length(1,20)} |
+| long | 64 ビット整数値に一致します。 | {x:long} |
+| max | 整数で最大値と一致します。 | {x:max(10)} |
+| maxlength | 最大長を持つ文字列と一致します。 | {x:maxlength(10)} |
+| 分 | 整数、最小値と一致します。 | {x:min(10)} |
+| minlength | 最小長の文字列と一致します。 | {x:minlength(10)} |
+| range | 整数値の範囲内に一致します。 | {x:range(10,50)} |
+| regex | 正規表現と一致します。 | {x:regex(^\d{3}-\d{3}-\d{4}$)} |
 
 通知、制約の一部など&quot;min&quot;かっこで囲まれた引数を受け取ります。 コロンで区切られた、パラメーターには、複数の制約を適用できます。
 
@@ -269,10 +269,10 @@ Web API では、すべてのルートは、名を持ちます。 ルート名�
 
 これらのルートの順序が次のとおりです。
 
-1. orders/詳細
+1. orders/details
 2. orders/{id}
 3. orders/{customerName}
-4. orders/{\*日付}
+4. orders/{\*date}
 5. orders/保留中
 
 その"details"がリテラル セグメントと"{id}"、前に表示されますが、「保留中」が表示される最後ために注意してください、 **RouteOrder**プロパティは 1 です。 (この例は、customers という名前の「詳細」または「保留中」です。 一般に、あいまいなルートを避けるために再試行してください。 この例では、優れたルート テンプレートで`GetByCustomer`は"顧客/{customerName}")

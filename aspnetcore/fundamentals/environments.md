@@ -1,80 +1,114 @@
 ---
 title: "ASP.NET Core での複数の環境での作業"
-author: ardalis
+author: rick-anderson
 description: "ASP.NET Core が複数の環境間でのアプリの動作を制御するためのサポートを提供する方法について説明します。"
 keywords: "ASP.NET Core、環境の設定、ASPNETCORE_ENVIRONMENT"
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 12/25/2017
 ms.topic: article
-ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 9127c3d7180422c0e3dbd813340dd485bf360c81
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 784d176145c3e4e44ddc0ea06b6702f70cd4b08c
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="working-with-multiple-environments"></a>複数の環境での作業
 
-によって[Steve Smith](https://ardalis.com/)
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core は、開発、ステージング、運用環境など、複数の環境間でのアプリの動作を制御するためのサポートを提供します。 環境変数は、その環境用に構成するアプリを許可する、ランタイム環境を示すために使用されます。
+ASP.NET Core は、環境変数と実行時にアプリケーションの動作を設定するためのサポートを提供します。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-## <a name="development-staging-production"></a>開発、ステージング、実稼働環境
+## <a name="environments"></a>環境
 
-ASP.NET Core は、特定の環境変数を参照`ASPNETCORE_ENVIRONMENT`にで、アプリケーションが実行されている環境について説明します。 この変数を設定する任意の値が、通常使用される 3 つの値: `Development`、 `Staging`、および`Production`です。 これらのサンプルで使用される値と ASP.NET Core で提供されるテンプレートが表示されます。
+ASP.NET Core が環境変数を読み取る`ASPNETCORE_ENVIRONMENT`でアプリケーションの起動およびストア内の値が[IHostingEnvironment.EnvironmentName](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname?view=aspnetcore-2.0#Microsoft_AspNetCore_Hosting_IHostingEnvironment_EnvironmentName)です。 `ASPNETCORE_ENVIRONMENT`任意の値に設定することができますが、 [3 つの値](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname?view=aspnetcore-2.0)フレームワークでサポートされて:[開発](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development?view=aspnetcore-2.0)、[ステージング](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging?view=aspnetcore-2.0)、および[運用](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production?view=aspnetcore-2.0)です。 場合`ASPNETCORE_ENVIRONMENT`は既定に設定されている`Production`です。
 
-現在の環境設定を検出できますプログラムから、アプリケーション内で。 環境を使用してさらに、[タグ ヘルパー](../mvc/views/tag-helpers/index.md)に含める特定のセクションで、[ビュー](../mvc/views/index.md)現在アプリケーション環境に基づきます。
+[!code-csharp[Main](environments/sample/WebApp1/Startup.cs?name=snippet)]
 
-注: Windows および macOS、環境名を指定は大文字小文字を区別します。 変数を設定するかどうか`Development`または`development`または`DEVELOPMENT`結果は同じになります。 ただしは、Linux、**大文字小文字を区別**既定では OS。 環境変数、ファイル名と設定は、大文字小文字の区別を必要とします。
+上のコードでは以下の操作が行われます。
+
+* 呼び出し[UseDeveloperExceptionPage](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_DeveloperExceptionPageExtensions_UseDeveloperExceptionPage_Microsoft_AspNetCore_Builder_IApplicationBuilder_)と[UseBrowserLink](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.browserlinkextensions.usebrowserlink?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_BrowserLinkExtensions_UseBrowserLink_Microsoft_AspNetCore_Builder_IApplicationBuilder_)とき`ASPNETCORE_ENVIRONMENT`に設定されている`Development`です。
+* 呼び出し[UseExceptionHandler](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_ExceptionHandlerExtensions_UseExceptionHandler_Microsoft_AspNetCore_Builder_IApplicationBuilder_)ときの値`ASPNETCORE_ENVIRONMENT`設定されている、次のいずれか。
+
+    * `Staging`
+    * `Production`
+    * `Staging_2`
+
+[環境タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)の値を使用して`IHostingEnvironment.EnvironmentName`要素内のマークアップを追加または除外します。
+
+[!code-html[Main](environments/sample/WebApp1/Pages/About.cshtml)]
+
+注: Windows および macOS で環境変数と値いない大文字と小文字が区別されます。 Linux 環境変数と値は**大文字小文字を区別**既定です。
 
 ### <a name="development"></a>開発
 
-これは、アプリケーションを開発するときに使用する環境でなければなりません。 通常はありませんにするなど、実稼働環境でアプリの実行時に使用できる機能を有効に使用、[開発者例外ページ](xref:fundamentals/error-handling#the-developer-exception-page)です。
+開発環境には、実稼働環境で公開するべきではない機能が有効にすることができます。 たとえば、ASP.NET Core テンプレートを有効にする、[開発者例外ページ](xref:fundamentals/error-handling#the-developer-exception-page)開発環境でします。
 
-Visual Studio を使用している場合は、プロジェクトのデバッグ · プロファイルで、環境を構成できます。 デバッグ プロファイルを指定して、[サーバー](xref:fundamentals/servers/index)を設定するアプリケーションやその環境変数を起動するときに使用します。 プロジェクトには、複数のデバッグ プロファイル環境変数を異なる方法で設定することができます。 使用してこれらのプロファイルを管理する、**デバッグ**web アプリケーション プロジェクトのタブ**プロパティ**メニュー。 プロジェクトのプロパティで設定する値が永続化、 *launchSettings.json*ファイル、およびすることができますもプロファイルを構成ファイルを直接編集することによってです。
+ローカル コンピューターの開発環境を設定することができます、 *Properties\launchSettings.json*プロジェクトのファイルです。 環境の値で設定*launchSettings.json*システムの環境で設定値をオーバーライドします。
 
-IIS Express のプロファイルを次に示します。
+次の XML は次の 3 つのプロファイルから、 *launchSettings.json*ファイル。
+
+[!code-xml[Main](environments/sample/WebApp1/Properties/launchSettings.json?highlight=10,11,18,26)]
+
+アプリケーションを起動するときに`dotnet run`、最初のプロファイルが`"commandName": "Project"`使用されます。 値`commandName`を起動する web サーバーを指定します。 `commandName`いずれかを指定できます。
+
+* IIS Express
+* IIS
+* プロジェクトを起動 Kestrel)
+
+アプリを起動するときに`dotnet run`:
+
+* *launchSettings.json*は読み取り可能な場合です。 `environmentVariables`設定*launchSettings.json*環境変数をオーバーライドします。
+* ホスティング環境が表示されます。
+
+
+次の出力は、アプリの使用を開始を示します`dotnet run`:
+```bash
+PS C:\Webs\WebApp1> dotnet run
+Using launch settings from C:\Webs\WebApp1\Properties\launchSettings.json...
+Hosting environment: Staging
+Content root path: C:\Webs\WebApp1
+Now listening on: http://localhost:54340
+Application started. Press Ctrl+C to shut down.
+```
+
+Visual Studio**デバッグ**タブを編集する GUI を使用する、 *launchSettings.json*ファイル。
 
 ![プロジェクト プロパティ設定の環境変数](environments/_static/project-properties-debug.png)
 
-ここでは、`launchSettings.json`用のプロファイルを含むファイル`Development`と`Staging`:
-
-[!code-json[Main](../fundamentals/environments/sample/src/Environments/Properties/launchSettings.json?highlight=15,22)]
-
-プロジェクトのプロファイルに加えられた変更は反映されません使用される web サーバーが再起動されるまで (具体的には、Kestrel 再起動する必要がその環境に加えられた変更が検出する前に)。
+プロジェクトのプロファイルに加えられた変更は可能性があります、web サーバーが再起動されるまで有効になりません。 自体は、その環境に加えられた変更を検出するには、kestrel を再起動する必要があります。
 
 >[!WARNING]
-> 環境変数に格納*launchSettings.json*任意の方法でセキュリティ保護されていないと、1 つを使用する場合に、プロジェクトのソース コード リポジトリの一部になります。 **このファイルに資格情報またはその他の機密データを保存しないでください。** このようなデータを格納する場所を必要がある場合、*シークレット Manager*ツール」に記載[アプリ シークレットは、開発中の安全な保管](xref:security/app-secrets)です。
-
-### <a name="staging"></a>ステージング
-
-慣例により、`Staging`環境とは、実稼働前環境の実稼働環境に展開する前に最終的なテストに使用します。 理想的には、物理的な特性をミラー化する実稼働環境でのユーザーに影響を与えずに対処できますが、ステージング環境で最初に実稼働環境で発生する可能性のある問題が発生するようにします。
+> *launchSettings.json*機密情報を格納する必要があります。 [シークレット マネージャー ツール](xref:security/app-secrets)ローカル開発用のシークレットを格納するために使用できます。
 
 ### <a name="production"></a>実稼働
 
-`Production`環境はライブであるときに、アプリケーションを実行する環境エンドユーザーによって使用されているとします。 この環境は、セキュリティ、パフォーマンス、およびアプリケーションの堅牢性を最大化するように構成する必要があります。 一般的な運用環境が存在する可能性のある設定の開発とは異なりますは次のとおりです。
+実稼働環境は、セキュリティ、パフォーマンス、およびアプリケーションの堅牢性を最大化するように構成する必要があります。 一般的な運用環境が存在する可能性のある設定の開発とは異なりますは次のとおりです。
 
-* キャッシュを有効にします。
-
-* クライアント側のすべてのリソースがバンドルされている、縮小、および CDN から供給される可能性があることを確認します。
-
-* 診断 ErrorPages をオフにします。
-
-* わかりやすいエラー ページで有効にします。
-
-* 運用ログおよび監視を有効にする (たとえば、 [Application Insights](https://azure.microsoft.com/documentation/articles/app-insights-asp-net-five/))
-
-これは、操作は、完全な一覧を示すものではではありません。 なら、アプリケーションの多くの部分で環境のチェックを回避することをお勧めします。 推奨される方法は、アプリケーション内でそのようなチェックを実行する代わりに、`Startup`クラス可能な限り
+* キャッシュします。
+* クライアント側のリソースのバンドル、縮小、および CDN から供給される可能性がありますしていること。
+* 診断エラー ページが無効になっています。
+* わかりやすいエラー ページが有効にします。
+* 実稼働のログ記録と監視を有効にします。 たとえば、 [Application Insights](https://azure.microsoft.com/documentation/articles/app-insights-asp-net-five/)です。
 
 ## <a name="setting-the-environment"></a>環境の設定
 
+テストするための特定の環境を設定すると便利です。 環境が設定されていない場合を既定`Production`ほとんどのデバッグ機能を無効にします。
+
 環境を設定するためのメソッドは、オペレーティング システムによって異なります。
+
+### <a name="azure"></a>Azure
+
+Azure アプリケーション サービスの場合
+
+* 選択、**アプリケーション設定**ブレードです。
+* キーを追加して、値で**アプリ設定**です。
+
 
 ### <a name="windows"></a>Windows
 設定する、`ASPNETCORE_ENVIRONMENT`を使用して、アプリが開始された場合、現在のセッションの`dotnet run`、次のコマンドを使用
@@ -92,7 +126,8 @@ $Env:ASPNETCORE_ENVIRONMENT = "Development"
 
 ![システムの詳細プロパティ](environments/_static/systemsetting_environment.png)
 
-![ASPNET コア環境変数](environments/_static/windows_aspnetcore_environment.png) 
+![ASPNET コア環境変数](environments/_static/windows_aspnetcore_environment.png)
+
 
 **web.config**
 
@@ -100,7 +135,7 @@ $Env:ASPNETCORE_ENVIRONMENT = "Development"
 
 **IIS アプリケーション プール単位**
 
-分離されたアプリケーション プール (IIS 10.0 以降でサポートされています) で実行する個別アプリに対して環境変数を設定する必要がある場合は、IIS のリファレンス ドキュメントで、[環境変数\<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) のトピックにある *AppCmd.exe コマンド*のセクションを参照してください。
+(IIS 10.0 以降でサポート) 分離のアプリケーション プールで実行されている個々 のアプリの環境変数を設定するを参照してください、 *AppCmd.exe コマンド*のセクションで、[環境変数\<。environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe)トピックです。
 
 ### <a name="macos"></a>macOS
 MacOS の現在の環境を設定する場合に実行できます行で、アプリケーションを実行しています。
@@ -112,52 +147,35 @@ ASPNETCORE_ENVIRONMENT=Development dotnet run
 
 ```bash
 export ASPNETCORE_ENVIRONMENT=Development
-``` 
+```
 コンピューターのレベルの環境変数が設定されて、*なる*または*.bash_profile*ファイル。 任意のテキスト エディターを使用して、ファイルを編集し、次のステートメントを追加します。
 
 ```
 export ASPNETCORE_ENVIRONMENT=Development
-```  
+```
 
 ### <a name="linux"></a>Linux
 Linux ディストリビューションの場合を使用して、`export`セッション ベースの変数の設定のコマンドラインでコマンドと*bash_profile*マシン レベルの環境設定のファイルです。
 
-## <a name="determining-the-environment-at-runtime"></a>実行時に環境を決定します。
+### <a name="configuration-by-environment"></a>環境での構成
 
-`IHostingEnvironment`環境を操作するための中核となる抽象型を提供します。 このサービスは、提供、ASP.NET によってホスト レイヤーとを使用して、スタートアップ ロジックに挿入できます[依存性の注入](dependency-injection.md)です。 Visual Studio での ASP.NET Core web サイト テンプレートは、(存在する場合)、環境固有の構成ファイルをロードして、アプリのエラー処理設定をカスタマイズする、このアプローチを使用します。 どちらの場合も、この動作には、呼び出すことによって、現在指定されている環境を参照する`EnvironmentName`または`IsEnvironment`のインスタンスで`IHostingEnvironment`適切なメソッドに渡されます。
+参照してください[環境によって構成](xref:fundamentals/configuration/index#configuration-by-environment)詳細についてはします。
 
-> [!NOTE]
-> 使用して、特定の環境で、アプリケーションが実行されているかどうかを確認する必要がある場合`env.IsEnvironment("environmentname")`正しくの場合は無視されますので (確認する場合ではなく`env.EnvironmentName == "Development"`など)。
+<a name="startup-conventions"></a>
+## <a name="environment-based-startup-class-and-methods"></a>環境がスタートアップ クラスおよびメソッドに基づく
 
-たとえば、環境固有のエラー処理をセットアップするのに、構成メソッドに次のコードを使用することができます。
+ASP.NET Core アプリケーションの起動時、[スタートアップ クラス](xref:fundamentals/startup)アプリをブートス トラップします。 クラス`Startup{EnvironmentName}`存在する場合、そのクラスが呼び出されること`EnvironmentName`:
 
-[!code-csharp[Main](environments/sample/src/Environments/Startup.cs?range=19-30)]
+[!code-csharp[Main](environments/sample/WebApp1/StartupDev.cs?name=snippet&highlight=1)]
 
-アプリが実行されている場合、`Development`その環境では、Visual Studio、開発に固有のエラー ページ (通常は実行できません実稼働環境で) および特別なデータベース エラーに"BrowserLink"機能を使用するために必要なランタイム サポートを有効にページ (移行を適用する方法を提供し、開発でのみ使用するため)。 それ以外の場合、アプリは開発環境で実行されていない、ハンドルされない例外への応答に表示される標準的なエラー処理 ページが構成されます。
+注: 呼び出す[WebHostBuilder.UseStartup<TStartup> ](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.usestartup?view=aspnetcore-2.0#Microsoft_AspNetCore_Hosting_WebHostBuilderExtensions_UseStartup__1_Microsoft_AspNetCore_Hosting_IWebHostBuilder_)構成セクションをオーバーライドします。
 
-現在の環境に応じて、実行時にクライアントに送信するコンテンツを決定する必要があります。 たとえば、開発環境で一般に提供する最小化されていないスクリプトとスタイル シートは、デバッグが簡単には。 運用環境とテスト環境が縮小されたバージョンを提供する必要がありますと、CDN から一般にします。 これを行う環境を使用して[タグ ヘルパー](../mvc/views/tag-helpers/intro.md)です。 現在の環境を使用して指定された環境のいずれかと一致する場合は、環境タグ ヘルパーにその内容は表示のみ、`names`属性。
+[構成](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure?view=aspnetcore-2.0#Microsoft_AspNetCore_Hosting_StartupBase_Configure_Microsoft_AspNetCore_Builder_IApplicationBuilder_)と[ConfigureServices](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices?view=aspnetcore-2.0)フォームの環境の特定バージョンをサポートして`Configure{EnvironmentName}`と`Configure{EnvironmentName}Services`:
 
-[!code-html[Main](environments/sample/src/Environments/Views/Shared/_Layout.cshtml?range=13-22)]
-
-アプリケーションを参照してくださいタグ ヘルパーの使用を開始する[タグ ヘルパーの概要](../mvc/views/tag-helpers/intro.md)です。
-
-## <a name="startup-conventions"></a>スタートアップの表記規則
-
-ASP.NET Core では、現在の環境に基づくアプリケーションのスタートアップの構成、規則ベースのアプローチをサポートします。 アプリケーションの動作に基づいてどの環境には、作成し、独自の規則を管理することができますもプログラムで制御できます。
-
-ASP.NET Core アプリケーションの起動時、`Startup`ブートス トラップ アプリケーション、その構成設定などをロードするクラスを使用 ([の詳細については、ASP.NET スタートアップ](startup.md))。 ただし、クラスが存在する場合が名前付き`Startup{EnvironmentName}`(たとえば`StartupDevelopment`)、および`ASPNETCORE_ENVIRONMENT`環境変数は、その名前をそのと一致する`Startup`クラスは、代わりに使用します。 したがって、構成することも`Startup`開発では、独立した`StartupProduction`を実稼働環境でアプリの実行時に使用されます。 またはその逆です。
-
-> [!NOTE]
-> 呼び出す`WebHostBuilder.UseStartup<TStartup>()`構成セクションをオーバーライドします。
-
-まったく別の使用に加えて`Startup`クラスの現在の環境に基づく内でアプリケーションを構成する方法の調整を行うことも、`Startup`クラスです。 `Configure()`と`ConfigureServices()`メソッドのような環境固有のバージョンのサポート、`Startup`クラス、フォームの自体`Configure{EnvironmentName}()`と`Configure{EnvironmentName}Services()`です。 メソッドを定義する場合`ConfigureDevelopment()`の代わりに呼び出されます`Configure()`開発環境を設定するとします。 同様に、`ConfigureDevelopmentServices()`はの代わりに呼び出されます`ConfigureServices()`同じ環境内でします。
-
-## <a name="summary"></a>まとめ
-
-ASP.NET Core では、さまざまな機能と開発者はさまざまな環境で、アプリケーションの動作を簡単に制御を許可する規則を提供します。 実稼働環境にステージングするには、開発環境からアプリケーションを発行するときに環境変数を設定適切に環境は、必要に応じて、デバッグ、テスト、または実稼働環境で使用するアプリケーションの最適化できます。
+[!code-csharp[Main](environments/sample/WebApp1/Startup.cs?name=snippet_all&highlight=15,37)]
 
 ## <a name="additional-resources"></a>その他のリソース
 
+* [アプリケーションの起動](xref:fundamentals/startup)
 * [構成](xref:fundamentals/configuration/index)
-
-* [Tag Helpers の概要](../mvc/views/tag-helpers/intro.md)
+* [IHostingEnvironment.EnvironmentName](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname?view=aspnetcore-2.0#Microsoft_AspNetCore_Hosting_IHostingEnvironment_EnvironmentName)

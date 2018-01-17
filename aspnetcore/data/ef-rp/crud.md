@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: 163bc35afed0bf1d9236935d5ce60e6975356594
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 246e6307989f2660d84288ceac6793c422875f93
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>作成、読み取り、更新、および削除 - EF コア Razor ページ (2/8)
 
@@ -202,7 +202,7 @@ Web アプリで、`DbContext`を読み取るエンティティと、ページ�
 
 ## <a name="update-the-delete-page"></a>更新プログラムの削除 ページ
 
-ここでは、カスタム エラーを実装するコードを追加メッセージへの呼び出し`SaveChanges`は失敗します。 Possile エラー メッセージを格納する文字列を追加します。
+ここでは、カスタム エラーを実装するコードを追加メッセージへの呼び出し`SaveChanges`は失敗します。 考えられるエラー メッセージを格納する文字列を追加します。
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
 
