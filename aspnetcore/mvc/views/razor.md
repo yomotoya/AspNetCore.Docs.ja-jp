@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: e3c3149254d602db1fcc6d42360690be026189a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6df769069fce52755a57d8404f88203a652a1ab9
+ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET Core の razor 構文
 
@@ -76,7 +76,7 @@ C# の場合を除く`await`キーワードで暗黙的な式はスペースを�
  * "Int"要素が閉じられませんでした。  すべての要素はいずれかである必要がありますに対応する終了タグが自己終了、または。
  *  メソッド グループ 'GenericMethod' を非デリゲート型 'object' を変換することはできません。 メソッドを呼び出すつもりでしたか?' 
  
-ジェネリック メソッドの呼び出しにラップする必要があります、 [Razor 式が明示的](#explicit-razor-expressions)または[Razor コードのブロック](#razor-code-blocks)です。 この制限は適用されません*.vbhtml* Razor ファイルのため、Visual Basic 構文は、角かっこではなく、ジェネリック型パラメーターを囲むかっこを配置します。
+ジェネリック メソッドの呼び出しにラップする必要があります、 [Razor 式が明示的](#explicit-razor-expressions)または[Razor コードのブロック](#razor-code-blocks)です。
 
 ## <a name="explicit-razor-expressions"></a>Razor の明示的な式
 
@@ -127,8 +127,6 @@ Razor の明示的な式から成る、`@`バランスの取れたかっこ記�
 ```cshtml
 <p>@(GenericMethod<int>())</p>
 ```
-
-注: にこの制限は適用されません*.vbhtml* Razor ファイル。  *.Vbhtml* Razor ファイル、Visual Basic 構文は、角かっこではなく、ジェネリック型パラメーターを囲むかっこを配置します。
 
 ## <a name="expression-encoding"></a>式のエンコード
 
