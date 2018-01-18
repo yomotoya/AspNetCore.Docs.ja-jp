@@ -5,23 +5,20 @@ description: "単純な ASP.NET Core アプリケーションにモデルを追�
 keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 03/30/2017
+ms.date: 12/8/2017
 ms.topic: get-started-article
-ms.assetid: 8dc28498-00ee-4d66-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: a29bab9cf0712936fa9c3f2b4bb3b275a46fe6f6
-ms.sourcegitcommit: e641c5794525f983485621860926d8ab4e7360c8
+ms.openlocfilehash: 03c16e523fe2f91cae5c71357835684d813e3a1f
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 注: ASP.NET Core 2.0 テンプレートには、*Models* フォルダーが含まれています。
-
-ソリューション エクスプローラーで、**MvcMovie** プロジェクトを右クリックし、**[追加]** > **[新しいフォルダー]** の順に選択します。 フォルダーに *Models* という名前を付けます。
 
 *Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順に選択します。 クラスに **Movie** という名前を付けて、次のプロパティを追加します。
 
@@ -37,15 +34,10 @@ ms.lasthandoff: 11/23/2017
 
 ![前述の手順を参照](adding-model/_static/add_controller.png)
 
-**[MVC 依存関係の追加]** ダイアログで、**[最小の依存関係]**、**[追加]** の順に選択します。
+**[MVC 依存関係の追加]** ダイアログ ボックスが表示された場合は、次のようにします。
 
-![前述の手順を参照](adding-model/_static/add_depend.png)
-
-Visual Studio では、コントローラーをスキャフォールディングするために必要な依存関係を追加しますが、コント ローラー自体は作成しません。 次の **[追加]、[コントローラー]** の実行によってコントローラーが作成されます。 
-
-**ソリューション エクスプローラー**で、*Controllers* フォルダーを右クリックし、**[追加]、[コントローラー]** の順に選択します。
-
-![前述の手順を参照](adding-model/_static/add_controller.png)
+* [Visual Studio を最新バージョンに更新します](https://www.visualstudio.com/downloads/)。 15.5 より前のバージョンの Visual Studio の場合はこのダイアログが表示されます。
+* 更新できない場合は、**[追加]** を選択してから、もう一度コントローラーの追加手順に従ってください。
 
 **[スキャフォールディングを追加]** ダイアログで、**[Entity Framework を使用したビューがある MVC コントローラー]、[追加]** の順にタップします。
 
@@ -72,7 +64,7 @@ Visual Studio では、次が作成されます。
 
 データベース コンテキストと [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (作成、読み取り、更新、および削除) アクション メソッドとビューの自動作成は、*スキャフォールディング*と言います。 ムービー データベースを管理できる、完全に機能する Web アプリケーションがすぐに完成します。
 
-アプリケーションを実行し、**[MVC Movie]\(MVC ムービー\)** リンクをクリックすると、次のようなエラーが表示されます。
+アプリを実行し、**[MVC Movie]\(MVC ムービー\)** リンクをクリックすると、次のようなエラーが表示されます。
 
 ```
 An unhandled exception occurred while processing the request.

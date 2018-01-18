@@ -5,22 +5,22 @@ description: "構成 API を使用して、複数の方法で ASP.NET Core ア�
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/01/2017
+ms.date: 1/11/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/index
-ms.openlocfilehash: b662e66ab5b4c46d1a8d10eb7c38bf4064b5b927
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 0f8618898089418f709506aee5eb013f983dc294
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>ASP.NET Core アプリを構成する
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)、[Mark Michaelis](http://intellitect.com/author/mark-michaelis/)、[Steve Smith](https://ardalis.com/)、[Daniel Roth](https://github.com/danroth27)、[Luke Latham](https://github.com/guardrex)
 
-構成 API は、名前と値のペアのリストに基づく ASP.NET Core Web アプリの構成方法を提供します。 構成は実行時に複数のソースから読み取られます。 これらの名前と値のペアを複数レベルの階層にグループ化することができます。 
+構成 API は、名前と値のペアのリストに基づく ASP.NET Core Web アプリの構成方法を提供します。 構成は実行時に複数のソースから読み取られます。 これらの名前と値のペアを複数レベルの階層にグループ化することができます。
 
 以下の構成プロバイダーがあります。
 
@@ -50,19 +50,21 @@ ms.lasthandoff: 01/11/2018
 
 構成は、コロンで区切られたノードの名前と値のペアの階層リストで構成されます。 値を取得するには、対応する項目のキーを使用して `Configuration` インデクサーにアクセスします。
 
-```csharp
-Console.WriteLine($"option1 = {Configuration["subsection:suboption1"]}");
-```
+[!code-csharp[Main](index/sample/ConfigJson/Program.cs?range=24-24)]
 
 JSON 形式の構成ソースの配列を操作する場合は、コロンで区切られた文字列の一部として配列インデックスを使用します。 次の例では、上記の `wizards` 配列の最初の項目の名前を取得します。
 
 ```csharp
-Console.Write($"{Configuration["wizards:0:Name"]}, ");
+Console.Write($"{Configuration["wizards:0:Name"]}");
+// Output: Gandalf
 ```
 
-組み込みの `Configuration` プロバイダーに書き込まれた名前と値のペアは永続化**されません**。 ただし、値を保存するカスタム プロバイダーを作成することができます。 [カスタム構成プロバイダー](xref:fundamentals/configuration/index#custom-config-providers)に関する記述を参照してください。
+組み込みの[構成](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration)プロバイダーに書き込まれた名前と値のペアは永続化**されません**。 ただし、値を保存するカスタム プロバイダーを作成することができます。 [カスタム構成プロバイダー](xref:fundamentals/configuration/index#custom-config-providers)に関する記述を参照してください。
 
 上記のサンプルでは、構成インデクサーを使用して値を読み取ります。 `Startup` の外部の構成にアクセスする場合は、*オプション パターン*を使用します。 詳細については、「[オプション](xref:fundamentals/configuration/options)」トピックを参照してください。
+
+
+## <a name="configuration-by-environment"></a>環境別の構成
 
 開発、テスト、運用などの異なる環境に応じて異なる構成を設定するのが一般的です。 ASP.NET Core 2.x アプリの `CreateDefaultBuilder` 拡張メソッド (ASP.NET Core 1.x アプリの場合は、`AddJsonFile` および `AddEnvironmentVariables` を直接使用) では、JSON ファイルとシステム構成ソースを読み取るために構成プロバイダーを追加します。
 
@@ -70,18 +72,28 @@ Console.Write($"{Configuration["wizards:0:Name"]}, ");
 * *appsettings.\<EnvironmentName>.json*
 * 環境変数
 
-パラメーターの説明については、「[AddJsonFile](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions)」を参照してください。 `reloadOnChange` は、ASP.NET Core 1.1 以降でのみサポートされます。 
+ASP.NET Core 1.x アプリは、`AddJsonFile` および [AddEnvironmentVariables](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables #Microsoft_Extensions_Configuration_EnvironmentVariablesExtensions_AddEnvironmentVariables_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_) を呼び出す必要があります。
 
-構成ソースは指定された順に読み取られます。 上記のコードでは、環境変数が最後に読み取られます。 環境を使用して設定された構成値で、2 つの前述のプロバイダーで設定された値が置き換えられます。
+パラメーターの説明については、「[AddJsonFile](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions)」を参照してください。 `reloadOnChange` は、ASP.NET Core 1.1 以降でのみサポートされます。
 
-通常、環境は `Development`、`Staging`、または `Production` に設定されます。 詳細については、「[複数の環境の使用](xref:fundamentals/environments)」を参照してください。
+構成ソースは指定された順に読み取られます。 先のコードでは、環境変数が最後に読み取られます。 環境を使用して設定された構成値で、2 つの前述のプロバイダーで設定された値が置き換えられます。
+
+次の *appsettings.Staging.json* ファイルをご覧ください。
+
+[!code-json[Main](index/sample/appsettings.Staging.json)]
+
+環境が `Staging` に設定されているとき、次の `Configure` メソッドは `MyConfig` の値を読み込みます。
+
+[!code-csharp[Main](index/sample/StartupConfig.cs?name=snippet&highlight=3,4)]
+
+
+通常、環境は `Development`、`Staging`、または `Production` に設定されます。 詳細については、[「Working with multiple environments」](xref:fundamentals/environments) (複数の環境での使用) をご覧ください。
 
 構成に関する考慮事項:
 
 * `IOptionsSnapshot` では、構成データを変更時に再読み込みできます。 詳細については、「[IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot)」を参照してください。
-* 構成キーは大文字と小文字が区別されません。
-* 展開された構成ファイルの設定をローカル環境がオーバーライドできるように、最後に環境変数を指定します。
-* 構成プロバイダー コードやプレーンテキストの構成ファイルには、パスワードなどの機密データは格納**しないでください**。 開発環境やテスト環境では運用シークレットを使用しないでください。 代わりに、プロジェクトの外部にシークレットを指定してください。そうすれば、誤ってリポジトリにコミットされることはありません。 [複数の環境での作業](xref:fundamentals/environments)および[開発中のアプリ シークレットの安全な格納場所](xref:security/app-secrets)の管理の詳細を確認してください。
+* 構成キーでは大文字と小文字が区別**されません**。
+* 構成プロバイダー コードやプレーンテキストの構成ファイルには、パスワードなどの機密データは格納**しないでください**。 開発環境やテスト環境では運用シークレットを使用しないでください。 プロジェクトの外部にシークレットを指定してください。そうすれば、誤ってリポジトリにコミットされることはありません。 [複数の環境での作業](xref:fundamentals/environments)および[開発中のアプリ シークレットの安全な格納場所](xref:security/app-secrets)の管理の詳細を確認してください。
 * ご利用のシステムの環境変数でコロン (`:`) を使用できない場合は、コロン (`:`) をアンダースコア 2 つ (`__`) に置き換えてください。
 
 ## <a name="in-memory-provider-and-binding-to-a-poco-class"></a>メモリ内プロバイダーと POCO クラスへのバインディング
@@ -96,7 +108,7 @@ Console.Write($"{Configuration["wizards:0:Name"]}, ");
 
 次の例では、[GetValue&lt;T&gt;](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationbinder#Microsoft_Extensions_Configuration_ConfigurationBinder_GetValue_Microsoft_Extensions_Configuration_IConfiguration_System_Type_System_String_System_Object_) 拡張メソッドを示します。
 
-[!code-csharp[Main](index/sample/InMemoryGetValue/Program.cs?highlight=27-29)]
+[!code-csharp[Main](index/sample/InMemoryGetValue/Program.cs?highlight=31)]
 
 ConfigurationBinder の `GetValue<T>` メソッドでは、既定値 (サンプルでは 80) を指定できます。 `GetValue<T>` は単純なシナリオ用であり、セクション全体にはバインドされません。 `GetValue<T>` は、特定の型に変換された `GetSection(key).Value` からスカラー値を取得します。
 
@@ -153,7 +165,7 @@ public void CanBindObjectTree()
 
 ## <a name="create-an-entity-framework-custom-provider"></a>Entity Framework のカスタム プロバイダーを作成する
 
-このセクションでは、EF を使用してデータベースから名前と値のペアを読み取る基本的な構成プロバイダーが作成されます。 
+このセクションでは、EF を使用してデータベースから名前と値のペアを読み取る基本的な構成プロバイダーが作成されます。
 
 データベースに構成値を格納するための `ConfigurationValue` エンティティを定義します。
 
@@ -167,7 +179,7 @@ public void CanBindObjectTree()
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkConfigurationSource.cs?highlight=7)]
 
-[ConfigurationProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationprovider) から継承して、カスタム構成プロバイダーを作成します。  構成プロバイダーは、空の場合にデータベースを初期化します。
+[ConfigurationProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationprovider) から継承して、カスタム構成プロバイダーを作成します。 構成プロバイダーは、空の場合にデータベースを初期化します。
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkConfigurationProvider.cs?highlight=9,18-31,38-39)]
 
@@ -187,7 +199,7 @@ public void CanBindObjectTree()
 
 [!code-json[Main](index/sample/CustomConfigurationProvider/appsettings.json)]
 
-次が表示されます。
+次のような出力が表示されます。
 
 ```console
 key1=value_from_ef_1
@@ -241,10 +253,15 @@ Left: 1979
 
 `CreateDefaultBuilder` では、省略可能構成を *appsettings.json*、*appsettings.{Environment}.json*、[user secrets](xref:security/app-secrets) (`Development` 環境の場合)、環境変数、およびコマンドライン引数から読み込みます。 CommandLine 構成プロバイダーは最後に呼び出されます。 最後にプロバイダーを呼び出すことにより、実行時に渡されたコマンドライン引数で、前に呼び出された他の構成プロバイダーによって設定された構成をオーバーライドできます。
 
-*appsettings* ファイルで `reloadOnChange` が有効になっていることに注意してください。 *appsettings* ファイルの一致する構成値がアプリの起動後に変更された場合は、コマンドライン引数がオーバーライドされます。
+次のような *appsettings* ファイルの場合:
 
-> [!NOTE]
-> ASP.NET Core 2.x では、`CreateDefaultBuilder` メソッドを使用する代わりに、[WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) を使用してホストを作成し、[ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) を使用して手動で構成をビルドする方法がサポートされます。 詳細については、ASP.NET Core 1.x のタブを参照してください。
+* `reloadOnChange` が有効です。
+* コマンドライン引数と *appsettings* ファイルに同じ設定が含まれています。
+* 一致するコマンドライン引数を含む *appsettings* ファイルは、アプリの起動後に変更されます。
+
+上記の条件がすべて真になると、コマンドライン引数がオーバーライドされます。
+
+ASP.NET Core 2.x アプリは、[ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) で手動設定される構成、``CreateDefaultBuilder`. When using `WebHostBuilder` の代わりに、WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) を使用できます。 詳細については、ASP.NET Core 1.x のタブを参照してください。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -256,7 +273,7 @@ Left: 1979
 
 ### <a name="arguments"></a>引数
 
-コマンド ラインで渡される引数は、次の表に示すように 2 つの形式のいずれかに従う必要があります。
+コマンド ラインで渡される引数は、次の表に示すように 2 つの形式のいずれかに準拠する必要があります。
 
 | 引数の形式                                                     | 例        |
 | ------------------------------------------------------------------- | :------------: |
@@ -382,8 +399,9 @@ IIS または IIS-Express でアプリをホストする場合は、*web.config*
 * 依存関係挿入 (DI) は、`ConfigureServices` が呼び出されるまでセットアップされません。
 * 構成システムは DI に対応していません。
 * `IConfiguration` には次の 2 つ特性があります。
-  * `IConfigurationRoot`  ルート ノードに使用されます。 再読み込みをトリガーできます。
-  * `IConfigurationSection`  構成値のセクションを表します。 `GetSection` および `GetChildren` メソッドは `IConfigurationSection` を返します。
+  * `IConfigurationRoot` ルート ノードに使用されます。 再読み込みをトリガーできます。
+  * `IConfigurationSection` 構成値のセクションを表します。 `GetSection` および `GetChildren` メソッドは `IConfigurationSection` を返します。
+  * 構成を再度読み込むとき、あるいは各プロバイダーにアクセスする必用があるとき、[IConfigurationRoot](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration.iconfigurationroot) を使用します。 いずれの状況も一般的ではありません。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

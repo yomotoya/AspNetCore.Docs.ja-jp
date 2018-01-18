@@ -11,11 +11,11 @@ keywords: "ASP.NET Core, WebAPI, Web API, REST, Mac, Linux, HTTP, サービス, 
 manager: wpickett
 ms.assetid: 830b4bf5-dd14-423e-9f59-764a6f13a8f6
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: caf40ee1c2d45d2fbf33b07d707fa4f1be98d31c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 40f9259101e5d006378562a27e97948641e29450
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>Linux、macOS、Windows で ASP.NET Core MVC と Visual Studio Code を利用して Web API を作成する
 
@@ -57,7 +57,7 @@ Visual Studio Code (VS Code) で *TodoApi* フォルダーを開き、*Startup.c
 
 <!-- uid: tutorials/first-mvc-app-xplat/start-mvc uses the pic below. If you change it, make sure it's consistent -->
 
-!['TodoApi' に作成とデバッグに必要な資産がありません。 追加しますか? [今後このメッセージを表示しない]、[後で行う]、[はい] と [情報] - [未解決の依存関係があります] - [復元] - [閉じる]](web-api-vsc/_static/vsc_restore.png)
+!['TodoApi' に作成とデバッグに必要な資産がありません。 追加しますか?" という警告メッセージが表示された VS Code 今後このメッセージを表示しない, 後で, はい](web-api-vsc/_static/vsc_restore.png)
 
 **[デバッグ]** (F5) を押してプログラムをビルドし、実行します。 ブラウザーで、http://localhost:5000/api/values に移動します。 次が表示されます。
 
@@ -67,11 +67,9 @@ VS Code の使用に関するヒントが必要であれば、「[Visual Studio 
 
 ## <a name="add-support-for-entity-framework-core"></a>Entity Framework Core のサポートの追加
 
-*TodoApi.csproj* ファイルを編集し、[Entity Framework Core InMemory](https://docs.microsoft.com/ef/core/providers/in-memory/) データベース プロバイダーをインストールします。 このデータベース プロバイダーにより、メモリ内のデータベースで Entity Framework Core を使用することが許可されます。
+.NET Core 2.0 で新しいプロジェクトを作成すると、*TodoApi.csproj* ファイルに 'Microsoft.AspNetCore.All' プロバイダーが追加されます。 [Entity Framework Core InMemory](https://docs.microsoft.com/ef/core/providers/in-memory/) データベース プロバイダーを個別にインストールする必要はありません。 このデータベース プロバイダーにより、メモリ内のデータベースで Entity Framework Core を使用することが許可されます。
 
 [!code-xml[Main](web-api-vsc/sample/TodoApi/TodoApi.csproj?highlight=12)]
-
-`dotnet restore` を実行し、EF Core InMemory DB プロバイダーをダウンロードしてインストールします。 ターミナルから `dotnet restore` を実行するか、VS Code で `⌘⇧P` (macOS) または `Ctrl+Shift+P` (Linux) を入力し、「**.NET**」と入力します。 **[.NET: パッケージの復元]** を選択します。
 
 ## <a name="add-a-model-class"></a>モデル クラスの追加
 

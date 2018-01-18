@@ -18,7 +18,7 @@
 
 ## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>レイアウト ファイルでのタイトルおよびメニュー リンクの変更
 
-タイトル要素の内容を変更します。 以下に強調表示されているように、レイアウト テンプレートのアンカー テキストを "Movie App" に変更し、コントローラーを `Home` から `Movies` に変更します。
+タイトル要素で、`MvcMovie` を `Movie App` に変更します。 レイアウト テンプレートのアンカー テキストを `MvcMovie` から `Mvc Movie` に変更し、コントローラーを `Home` から `Movies` に変更します。下の強調表示されている箇所をご覧ください。
 
 注: ASP.NET Core 2.0 バージョンの場合は若干異なります。 `@inject ApplicationInsights` と `@Html.Raw(JavaScriptSnippet.FullScript)` は含まれていません。
 
@@ -29,9 +29,9 @@
 
 変更内容を保存して、**[バージョン情報]** リンクをタップします。 ここでブラウザー タブのタイトルが、**About - Mvc Movie** ではなく、**About - Movie App** になっていることに注目してください: 
 
-![[バージョン情報]タブ](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+![[バージョン情報]タブ](../../tutorials/first-mvc-app/adding-view/_static/about2.png)
 
-**[連絡先]** リンクをタップすると、ここでも **Movie App** になっていることがわかります。 レイアウト テンプレートで一度変更しただけで、サイト上のすべてのページに新しいリンク テキストと新しいタイトルが反映できました。
+**[連絡先]** リンクをタップし、タイトルとアンカー テキストにも **[Movie App]** と表示されていることを確認してください。 レイアウト テンプレートで一度変更しただけで、サイト上のすべてのページに新しいリンク テキストと新しいタイトルが反映できました。
 
 *Views/_ViewStart.cshtml* ファイルを確認します。
 
@@ -105,7 +105,7 @@
 
 データは URL から取得され、[MVC モデル バインダー](xref:mvc/models/model-binding)を使用してコントローラーに渡されます。 コントローラーはデータを `ViewData` ディクショナリにパッケージ化し、そのオブジェクトをビューに渡します。 その後、ビューでブラウザーに HTML としてデータがレンダリングされます。
 
-![[ようこそ] ラベルと、Hello Rick という語句が 4 つ示された [バージョン情報] ビュー](../../tutorials/first-mvc-app/adding-view/_static/rick.png)
+![[ようこそ] ラベルと、Hello Rick という語句が 4 つ示された [バージョン情報] ビュー](../../tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
 上のサンプルでは、`ViewData` ディクショナリを使用して、コントローラーからビューにデータを渡しました。 チュートリアルの後半で、ビュー モデルを使用して、コントローラーからビューにデータを渡します。 一般には、`ViewData` ディクショナリを使用する方法より、ビュー モデルを使用してデータを渡す方法が推奨されます。 詳細については、「[ViewModel vs ViewData vs ViewBag vs TempData vs Session in MVC](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc)」 (MVC の ViewModel、ViewData、ViewBag、TempData、Session の比較) を参照してください。
 
