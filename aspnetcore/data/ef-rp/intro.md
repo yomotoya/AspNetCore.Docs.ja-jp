@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: 86f9eceb5b8646e371811fa4611a4509ff652231
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 2725960aa8a54c803a141b8d1275e65f245f7082
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Razor ページと Visual Studio (1/8) を使用して Entity Framework Core の概要
 
@@ -34,7 +34,7 @@ Contoso 大学サンプル web アプリケーションでは、Entity Framework
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
-問題を解決できない場合に発生した場合、コードを比較することでのソリューションを見つけることは通常、[ステージを完了した](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots)または[完成したプロジェクト](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu-final)です。 一般的なエラーとそれらを解決する方法の一覧は、次を参照してください。[系列の最後のチュートリアルの「トラブルシューティング](xref:data/ef-mvc/advanced#common-errors)です。 必要なものがない場合は、StackOverflow.com に質問を投稿することができます[ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core)または[EF コア](https://stackoverflow.com/questions/tagged/entity-framework-core)です。
+問題を解決できない場合に発生した場合、コードを比較することでのソリューションを見つけることは通常、[ステージを完了した](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots)または[完成したプロジェクト](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu-final)です。 一般的なエラーとそれらを解決する方法の一覧は、次を参照してください。[系列の最後のチュートリアルの「トラブルシューティング](xref:data/ef-mvc/advanced#common-errors)です。 質問を投稿することが必要なものがない場合は、 [StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core)の[ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core)または[EF コア](https://stackoverflow.com/questions/tagged/entity-framework-core)です。
 
 > [!TIP]
 > この一連のチュートリアルは、前のチュートリアルでの処理に基づいています。 各チュートリアルが正常に完了した後、プロジェクトのコピーを保存することを検討してください。 問題に遭遇した場合は、前のチュートリアルの先頭に戻るとではなく、経由で開始できます。 代わりに、ダウンロードすることができます、[ステージを完了](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots)し、完了した段階を使用して経由で開始します。
