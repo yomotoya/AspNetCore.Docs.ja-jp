@@ -2,20 +2,18 @@
 title: "ASP.NET から ASP.NET Core 2.0 への移行"
 author: isaac2004
 description: "このリファレンス ドキュメントでは、既存の ASP.NET MVC または Web API アプリケーションを ASP.NET Core 2.0 に移行するときのガイダンスを示します。"
-keywords: "ASP.NET Core,MVC,移行"
 ms.author: scaddie
 manager: wpickett
 ms.date: 08/27/2017
 ms.topic: article
-ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: c4ec21a50bc959f24131d9d4612c879a32c77356
-ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
+ms.openlocfilehash: 96e645129fa53b10d352dcfda8f1ebb152c4dbac
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>ASP.NET から ASP.NET Core 2.0 への移行
 

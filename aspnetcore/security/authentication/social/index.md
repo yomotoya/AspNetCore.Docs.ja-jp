@@ -2,20 +2,18 @@
 title: "Facebook、Google、および他の外部プロバイダーを使用する認証の有効化"
 author: rick-anderson
 description: "このチュートリアルでは、OAuth 2.0 と外部の認証プロバイダーを使用して ASP.NET Core 2.x アプリを構築する方法について説明します。"
-keywords: "ASP.NET Core, 認証, ソーシャル, 認証プロバイダー, google, facebook, twitter, microsoft アカウント"
 ms.author: riande
 manager: wpickett
 ms.date: 11/01/2016
 ms.topic: article
-ms.assetid: eda7ee17-f38c-462e-8d1d-63f459901cf3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/social/index
-ms.openlocfilehash: 9cc637f469dcb7097ee1b3996fde8a4ebac8d7ff
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 7d03998c82bf13976ec6157acb5c56c28e5c0d52
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="enabling-authentication-using-facebook-google-and-other-external-providers"></a>Facebook、Google、および他の外部プロバイダーを使用する認証の有効化
 
@@ -96,7 +94,7 @@ OAuth 2.0 では、HTTPS プロトコル経由での認証に SSL を使用す�
 
 * 有効なパスワードを設定します。そのパスワードと電子メール アドレスを使用してサインインできます。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 * このキーの順に押します。では、外部認証プロバイダーを紹介し、外部ログインを ASP.NET Core アプリケーションに追加するために必要な前提条件について説明しました。
 
