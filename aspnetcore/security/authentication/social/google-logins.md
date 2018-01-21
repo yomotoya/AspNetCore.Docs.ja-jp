@@ -2,7 +2,6 @@
 title: "ASP.NET Core で Google 外部ログインのセットアップ"
 author: rick-anderson
 description: "このチュートリアルでは、既存の ASP.NET Core アプリケーションに Google アカウントのユーザー認証の統合について説明します。"
-keywords: "ASP.NET Core、Google、ログイン、認証"
 ms.author: riande
 manager: wpickett
 ms.date: 08/02/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/google-logins
-ms.openlocfilehash: af316d832de7356d539eaaab5be6485639030c7a
-ms.sourcegitcommit: 8ab9d0065fad23400757e4e08033787e42c97d41
+ms.openlocfilehash: 30d224061bce3a727fc31d19c194e96559e28310
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configuring-google-authentication-in-aspnet-core"></a>ASP.NET Core で Google の認証を構成します。
 
@@ -49,7 +48,7 @@ ms.lasthandoff: 11/17/2017
 ![API マネージャー Google + API ページ](index/_static/GoogleConsoleGoCredentials.png)
 
 * 選択するオプション
-   * **Google + API**
+   * **Google+ API**
    * **Web サーバー (例: node.js、Tomcat)**、および
    * **ユーザー データ**:
 
@@ -150,7 +149,7 @@ Google の資格情報を入力すると、しにリダイレクトされます�
 * **ASP.NET Core 2.x のみ:**場合の Id が呼び出すことによって構成されていない`services.AddIdentity`で`ConfigureServices`、認証を試みるが*ArgumentException: 'SignInScheme' オプションを指定する必要があります*です。 このチュートリアルで使用されるプロジェクト テンプレートは、これが行われるようにします。
 * 最初の移行を適用することで、サイト データベースが作成されていない場合、表示される*要求の処理中にデータベース操作が失敗しました*エラーです。 タップ**適用移行**データベースを作成し、エラーを越えて続行を更新します。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 * この記事では、Google との認証方法を示しました。 記載されているその他のプロバイダーでの認証に同様のアプローチを行うことができる、[前のページ](index.md)です。
 

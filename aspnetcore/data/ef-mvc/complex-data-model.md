@@ -2,20 +2,18 @@
 title: "ASP.NET MVC を持つコアを EF Core - データ モデルの 10 の 5"
 author: tdykstra
 description: "このチュートリアルでは、複数のエンティティとリレーションシップを追加し、書式設定、検証、およびデータベース マッピング規則を指定することによって、データ モデルをカスタマイズします。"
-keywords: "ASP.NET Core、Entity Framework のコア データ注釈"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: 0dd63913-a041-48b6-96a4-3aeaedbdf5d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: cacb23441e5f5ab06c6be27f3068276f21ff4ed9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5b5645936504333573950b5bd17f5a037ffd984f
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>EF コア ASP.NET Core MVC のチュートリアル (10 の 5) に、複雑なデータ モデルを作成します。
 
@@ -76,7 +74,7 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 `StringLength`属性は、名前に空白文字を入力するからユーザーを妨げることはありません。 使用することができます、`RegularExpression`入力に制限を適用する属性。 たとえば、次のコードには、最初の文字が大文字で指定し、残りの文字は英文字でが必要です。
 
 ```csharp
-[RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
+[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
 ```
 
 `MaxLength`属性と同様の機能を提供する、`StringLength`属性が、クライアント側では提供しません検証します。
@@ -493,7 +491,7 @@ dotnet ef database update
 
 ![SSOX で CourseAssignment データ](complex-data-model/_static/ssox-ci-data.png)
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 複雑なデータ モデルと対応するデータベースがあるようになりました。 次のチュートリアルでは、学びます関連のデータにアクセスする方法の詳細。
 

@@ -2,20 +2,18 @@
 title: "モデル バインディング"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 40aa105dcf06b269025d0c44e5cd7bffef271e9d
-ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
+ms.openlocfilehash: 84b9c5dc3a87b739affaeaecaa180d1b01f49b8e
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="model-binding"></a>モデル バインディング
 
@@ -73,7 +71,7 @@ The link works but generates an error when building with DocFX
 
 バインドが失敗する、MVC では、エラーはスローされません。 ユーザー入力を受け付けるすべてのアクションを確認する必要があります、`ModelState.IsValid`プロパティです。
 
-注意: コント ローラーのエントリの各`ModelState`プロパティは、`ModelStateEntry`を含む、`Errors`プロパティです。 このコレクションを照会することはほとんどありません必要があります。 代わりに、 `ModelState.IsValid` を使用してください。
+注意: コント ローラーのエントリの各`ModelState`プロパティは、`ModelStateEntry`を含む、`Errors`プロパティです。 このコレクションを照会することはほとんどありません必要があります。 代わりに、`ModelState.IsValid` を使用してください。
 
 また、モデル バインディングを実行するときに、MVC は考慮する必要がありますのあるいくつかの特別なデータ型があります。
 

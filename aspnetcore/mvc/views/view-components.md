@@ -2,20 +2,18 @@
 title: "コンポーネントの表示"
 author: rick-anderson
 description: "コンポーネントの表示は再利用可能なレンダリング ロジックがある任意の場所ものです。"
-keywords: "ASP.NET Core、コンポーネントの表示、部分ビュー"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: ab4705b7-59d7-4f31-bc97-ea7f292fe926
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 2cf82df78c250cdfdd808d49acfc06dc2ea82f5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2d93dcee102009661af708b9a9066e8af0bdbb17
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="view-components"></a>コンポーネントの表示
 
@@ -79,7 +77,7 @@ ms.lasthandoff: 11/10/2017
 ランタイムは、次のパスにビューを検索します。
 
    * ビュー/\<controller_name >/Components/\<view_component_name >/\<view_name >
-   * コンポーネント/ビュー/共有/\<view_component_name >/\<view_name >
+   * Views/Shared/Components/\<view_component_name>/\<view_name>
 
 ビューのコンポーネントの既定のビュー名は*既定*、つまり、ビューは、ファイルは通常の名前*Default.cshtml*です。 別のビュー名を指定するには、ビューのコンポーネントの結果を作成するときに、または呼び出すときに、`View`メソッドです。
 

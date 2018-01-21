@@ -2,20 +2,18 @@
 title: "サブキーから派生し、認証済み暗号化"
 author: rick-anderson
 description: "このドキュメントでは、ASP.NET Core データ保護の実装の詳細はサブキーを派生し、暗号化の認証について説明します。"
-keywords: "ASP.NET Core、データ保護、サブキー派生は、認証暗号化"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 34bb58a3-5a9a-41e5-b090-08f75b4bbefa
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 3eb27b8a6d04074662bf619a09fd867252624209
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3927678b7b67b0e521a961e363200bdfe0bdaeb3
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="subkey-derivation-and-authenticated-encryption"></a>サブキーから派生し、認証済み暗号化
 
@@ -46,11 +44,11 @@ AAD は 3 つの要素のタプルに対して一意であるためを KM から
 
 * キー派生キー (KDK) K_M を =
 
-* PRF HMACSHA512 を =
+* PRF = HMACSHA512
 
-* ラベル additionalAuthenticatedData を =
+* label = additionalAuthenticatedData
 
-* コンテキスト contextHeader を = | |keyModifier
+* context = contextHeader || keyModifier
 
 コンテキスト ヘッダーが可変長の本質的に拇印をしている派生 K_E と K_H アルゴリズムの役割を果たします。 キーの修飾子は呼び出しごとにランダムに生成される 128 ビット文字列`Encrypt`KE と KH が一意であるこの特定の認証暗号化操作の場合でも、他のすべての入力、KDF には定数確率の過負荷を確実に機能します。
 
@@ -73,7 +71,7 @@ K_E が上記のメカニズムによって生成されるはランダムな初�
 
 ![GCM モードのプロセスと戻り値](subkeyderivation/_static/galoisprocess.png)
 
-*出力: keyModifier を = | |nonce | |E_gcm (K_E、nonce、データ) | |authTag*
+*output := keyModifier || nonce || E_gcm (K_E,nonce,data) || authTag*
 
 > [!NOTE]
 > GCM ネイティブにサポートされていますが、AAD の概念、おいるまだ給紙 AAD 元の KDF にのみ、AAD パラメーターに GCM に空の文字列を渡すを無効にします。 この理由は、2 つの面です。 最初に、[機敏性をサポートするために](context-headers.md#data-protection-implementation-context-headers)暗号化キーとして直接 K_M を使用することはありません。 さらに、GCM には、その入力に非常に厳格な一意性の要件が適用されます。 GCM 暗号化ルーチンが 2 つのこれまで呼び出されたかより明確である確率を設定 (キー、nonce) 同じ入力データのペアは以内で 2 ^32 です。 K_E も修正する場合実行できませんでした。 複数の 2 ^ 32 の暗号化操作は、2 への実行前に ^-32 を制限します。 これは非常に多数の操作と同様にですが、高トラフィックの web サーバーは、これらのキーの通常の有効期間の範囲内で、単なる日以内に 40億要求を通過できます。 2 の準拠を維持する ^128 ビット キーの修飾子と 96 ビット nonce は、任意指定 K_M の使用可能な操作の数を大幅に拡張を使用してまいります-32 確率制限します。 CBC と GCM 操作間 KDF コード パスを共有おわかりやすくするためのデザインと AAD は既に、KDF で考慮ためには、GCM ルーチンに転送する必要はありません。

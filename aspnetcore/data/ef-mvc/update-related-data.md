@@ -2,20 +2,18 @@
 title: "ASP.NET MVC を持つコアを EF Core - 更新プログラムに関連したデータ - 10 の 7"
 author: tdykstra
 description: "このチュートリアルでは外部キー フィールドとナビゲーション プロパティを更新することによって関連するデータを更新します。"
-keywords: "ASP.NET Core、Entity Framework Core では、関連するデータの結合します。"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: 67bd162b-bfb7-4750-9e7f-705228b5288c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: b59782bccce00f3940da4ec8bcff768aff8fa4ef
-ms.sourcegitcommit: ccf08615ad59bc6f654560de33b93396113a2eb0
+ms.openlocfilehash: 0e4df407a1ca15aa5baa2b7226be1cf91902a583
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>関連するデータの EF コア ASP.NET Core MVC のチュートリアル (10 の 7) での更新
 
@@ -95,8 +93,7 @@ HttpGet`Edit`メソッドは編集されているコースに既に割り当て�
 
 ![コースの作成 ページ](update-related-data/_static/course-create.png)
 
-
-              **[作成]**をクリックします。 一覧に追加された新しいコース コース インデックス ページが表示されます。 インデックス ページの一覧で、部門名を示すリレーションシップが正常に確立されているナビゲーション プロパティに由来します。
+**[作成]**をクリックします。 一覧に追加された新しいコース コース インデックス ページが表示されます。 インデックス ページの一覧で、部門名を示すリレーションシップが正常に確立されているナビゲーション プロパティに由来します。
 
 をクリックして**編集**コース インデックス ページ内のコースをします。
 
@@ -294,7 +291,7 @@ public ICollection<CourseAssignment> CourseAssignments
 
 説明に従って、 [CRUD チュートリアル](crud.md)、Entity Framework は、トランザクションを暗黙的に実装します。 必要な複数を制御する--など--トランザクションでは Entity Framework の外部で実行する操作を追加する場合のシナリオを参照してください[トランザクション](https://docs.microsoft.com/ef/core/saving/transactions)です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 関連するデータの操作の概要が完了しました。 次のチュートリアルでは、同時実行の競合を処理する方法が表示されます。
 

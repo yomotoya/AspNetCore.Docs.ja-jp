@@ -2,20 +2,18 @@
 title: "保護されたペイロードの有効期間を制限します。"
 author: rick-anderson
 description: "このドキュメントでは、ASP.NET Core データ保護 Api を使用して保護されているペイロードの有効期間を制限する方法について説明します。"
-keywords: "ASP.NET Core、データ保護、ペイロードの有効期間"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 000175e2-10fc-43dd-bfc2-51e004b97b44
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/limited-lifetime-payloads
-ms.openlocfilehash: 3fe2e97db118a92cf6fa003b9ce8a9dedf253136
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 144097cd1551c1d0aece5df20ce01e14146a41d1
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="limiting-the-lifetime-of-protected-payloads"></a>保護されたペイロードの有効期間を制限します。
 
@@ -31,11 +29,11 @@ ms.lasthandoff: 11/10/2017
 
 * CreateProtector (文字列目的): ITimeLimitedDataProtector - この API は、既存のような`IDataProtectionProvider.CreateProtector`を作成するために使用できる点で[チェーンを目的](purpose-strings.md)ルート期間限定の保護機能からです。
 
-* (バイト:operator[] プレーン テキスト、DateTimeOffset の有効期限) を保護する: byte[]
+* Protect(byte[] plaintext, DateTimeOffset expiration) : byte[]
 
-* 保護する (バイト:operator[] プレーン テキスト、TimeSpan の有効期間): byte[]
+* Protect(byte[] plaintext, TimeSpan lifetime) : byte[]
 
-* (バイト:operator[] プレーン テキスト) を保護する: byte[]
+* Protect(byte[] plaintext) : byte[]
 
 * (文字列プレーン テキスト、DateTimeOffset の有効期限) を保護する: 文字列
 
@@ -45,9 +43,9 @@ ms.lasthandoff: 11/10/2017
 
 コアに加えて`Protect`プレーン テキストのみを実行するメソッド、ペイロードの有効期限の日付を指定することを許可する新しいオーバー ロードがあります。 絶対日付として有効期限の日付を指定することができます (を使用して、 `DateTimeOffset`) または相対時刻として (現在のシステムからを使用して、後で、 `TimeSpan`)。 有効期限を受け取らない指定できるオーバー ロードが呼び出されると、ペイロードが期限切れにしないと見なされます。
 
-* (バイト:operator[] protectedData、DateTimeOffset の有効期限アウト) の保護を解除: byte[]
+* Unprotect(byte[] protectedData, out DateTimeOffset expiration) : byte[]
 
-* (バイト:operator[] protectedData) の保護を解除: byte[]
+* Unprotect(byte[] protectedData) : byte[]
 
 * (DateTimeOffset の有効期限を文字列 protectedData) の保護を解除: 文字列
 

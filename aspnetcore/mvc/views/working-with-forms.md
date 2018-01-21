@@ -2,21 +2,19 @@
 title: "ASP.NET Core でのフォームにタグ ヘルパー"
 author: rick-anderson
 description: "組み込みのフォームでタグ ヘルパーの使用について説明します。"
-keywords: "ASP.NET Core、タグ ヘルパーに渡し、TagHelper、HTML フォームのフォームします。"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: 25595059-4fac-4785-8152-f88590e3169b
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da36985206521798d3bfe71f6372dc5cc4fca09a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9fbe2c5cb495aabee0e1f0bdb3871641efa03599
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core でのフォームにタグ ヘルパーの使用の概要
 
@@ -111,12 +109,12 @@ Type expected
 
 |.NET 型|入力の型|
 |---|---|
-|Bool|型"checkbox"を =|
-|文字列型|型"text"を =|
-|DateTime|型"datetime"を =|
-|Byte|種類 ="number"|
-|Int|種類 ="number"|
-|Single、Double|種類 ="number"|
+|Bool|type=”checkbox”|
+|String|type=”text”|
+|DateTime|type=”datetime”|
+|Byte|type=”number”|
+|Int|type=”number”|
+|Single、Double|type=”number”|
 
 
 次の表に、いくつかの一般的な[データ注釈](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)を (すべての検証属性が表示されている) 特定の入力の種類にマップする入力タグ ヘルパー属性。
@@ -124,13 +122,13 @@ Type expected
 
 |属性|入力の型|
 |---|---|
-|[EmailAddress]|型"email"を =|
-|[Url]|型"url"を =|
-|[HiddenInput]|種類 ="hidden"|
-|[Phone]|型「電話」を =|
-|[DataType(DataType.Password)]| 型"password"を =|
-|[DataType(DataType.Date)]| 型"date"を =|
-|[DataType(DataType.Time)]| 型「時間」を =|
+|[EmailAddress]|type=”email”|
+|[Url]|type=”url”|
+|[HiddenInput]|type=”hidden”|
+|[Phone]|type=”tel”|
+|[DataType(DataType.Password)]| type=”password”|
+|[DataType(DataType.Date)]| type=”date”|
+|[DataType(DataType.Time)]| type=”time”|
 
 
 例:
@@ -362,7 +360,7 @@ public IActionResult Edit(int id, int colorIndex)
 
 `Validation Summary Tag Helper`検証メッセージの概要を表示するために使用します。 `asp-validation-summary`属性値は、次のいずれかを指定できます。
 
-|asp 検証サマリー|検証メッセージが表示されます。|
+|asp-validation-summary|検証メッセージが表示されます。|
 |--- |--- |
 |ValidationSummary.All|プロパティとモデルのレベル|
 |ValidationSummary.ModelOnly|モデル|

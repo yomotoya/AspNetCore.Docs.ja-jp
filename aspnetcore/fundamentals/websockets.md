@@ -2,20 +2,18 @@
 title: "ASP.NET Core での Websocket のサポート"
 author: tdykstra
 description: "ASP.NET Core で Websocket を開始する方法を説明します。"
-keywords: "ASP.NET Core、Websocket"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/25/2017
 ms.topic: article
-ms.assetid: 0e0fedcd-a7b4-4479-8ae0-36eab0229d7e
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: fundamentals/websockets
-ms.openlocfilehash: 114d52d831668e5facd1142b5f9e5f68e7456f7e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 46c1f42b925a43df470d7491a1e259ab51ea5f50
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-websockets-in-aspnet-core"></a>Websocket の ASP.NET Core の概要
 
@@ -33,7 +31,7 @@ ms.lasthandoff: 11/10/2017
   
   * Windows 7/Windows Server 2008 以降
   * Linux
-  * MacOS
+  * macOS
 
 * **例外**: 場合は、IIS での windows アプリの実行中または WebListener で使用する必要があります。
 
@@ -96,7 +94,7 @@ WebSocket 要求を受け入れる前に示したコード渡し、`WebSocket`�
 
 このループを開始する前に、WebSocket を承諾するとミドルウェア パイプラインを終了します。  ソケットを閉じると、パイプラインをアンワインドします。 つまりと同様、WebSocket を承諾すると、パイプラインに進むと、要求が停止は、たとえば MVC アクションをヒットしたときに。  ただし、このループを終了し、ソケットを閉じると場合、に、パイプラインをバックアップする要求が行われます。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 [サンプル アプリケーション](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample)に付属しているこの記事では、単純なエコー アプリケーションです。 WebSocket 接続を作成する web ページがあり、サーバーを再クライアントに受信したメッセージ。 (これがいない設定を IIS Express で Visual Studio を実行する)、コマンド プロンプトから実行し、http://localhost:5000 に移動します。 Web ページは、左上にある接続の状態を示しています。
 

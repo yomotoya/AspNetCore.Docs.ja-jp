@@ -2,7 +2,6 @@
 title: "ASP.NET Core Id を構成します。"
 author: AdrienTorris
 description: "ASP.NET Core Id で、既定値を把握し、カスタム値を使用するさまざまな Id プロパティを構成します。"
-keywords: "ASP.NET Core、Identity、認証、セキュリティ"
 ms.author: scaddie
 manager: wpickett
 ms.date: 01/11/2018
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: ac204cb89aac1f90adc64c4f0bec4e946cb8c4d9
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: d3a13d1cef3417522460b44c52c1361c3e9d1162
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-identity"></a>Id を構成します。
 
@@ -103,13 +102,13 @@ ASP.NET Core 追加 2.0、`RequiredUniqueChars`プロパティです。 それ�
 
 | プロパティ                | 説明                       | 既定値 |
 | ----------------------- | --------------------------------- | ------- |
-| `Cookie.Name`  | Cookie の名前。  | .AspNetCore.Cookies です。  |
+| `Cookie.Name`  | Cookie の名前。  | .AspNetCore.Cookies.  |
 | `Cookie.HttpOnly`  | True の場合、cookie はクライアント側スクリプトからアクセスできません。  |  true |
 | `ExpireTimeSpan`  | 認証チケットがクッキーに格納されている時間は作成された時点から有効になるかを制御します。  | 14 日間  |
-| `LoginPath`  | ユーザーが承認されていない、ときに、ログインにこのパスにリダイレクトされます。 | /アカウント/ログイン  |
-| `LogoutPath`  | ユーザーがログアウトするときは、このパスにリダイレクトされます。  | /アカウント/ログアウト  |
+| `LoginPath`  | ユーザーが承認されていない、ときに、ログインにこのパスにリダイレクトされます。 | /Account/Login  |
+| `LogoutPath`  | ユーザーがログアウトするときは、このパスにリダイレクトされます。  | /Account/Logout  |
 | `AccessDeniedPath`  | ユーザーには、承認チェックが失敗した場合は、このパスにリダイレクトされます。  |   |
-| `SlidingExpiration`  | True の場合、現在 cookie が有効期限 ウィンドウから複数のちょうど中間にあるときに新しい有効期限時刻に新しい cookie が発行されます。  | /アカウント/AccessDenied |
+| `SlidingExpiration`  | True の場合、現在 cookie が有効期限 ウィンドウから複数のちょうど中間にあるときに新しい有効期限時刻に新しい cookie が発行されます。  | /Account/AccessDenied |
 | `ReturnUrlParameter`  | 401 Unauthorized ステータス コードがログイン パスへの 302 リダイレクトに変更されたときに、ミドルウェアによって付加されるクエリ文字列パラメーターの名前を決定します。  |  true |
 | `AuthenticationScheme`  | これにのみ関連 ASP.NET Core 1.x です。 特定の認証スキームの論理名。 |  |
 | `AutomaticAuthenticate`  | このフラグにのみ関連 ASP.NET Core 1.x です。 True の場合、cookie 認証を要求ごとに実行しを検証し、作成された任意のシリアル化されたプリンシパルを再構築しようとします。  |  |

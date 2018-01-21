@@ -2,21 +2,19 @@
 title: "ASP.NET Core の kestrel web サーバーの実装"
 author: tdykstra
 description: "Libuv に基づいて ASP.NET Core の Kestrel、クロスプラット フォームの web サーバーを紹介します。"
-keywords: "ASP.NET Core、Kestrel、libuv、url のプレフィックス"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 08/02/2017
 ms.topic: article
-ms.assetid: 560bd66f-7dd0-4e68-b5fb-f31477e4b785
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/kestrel
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 451c36fc9095b6e076e5287c992b6163205c523b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3695a6a127f77bd90538d72af6112ccf507f3482
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core の Kestrel web サーバーの実装の概要
 
@@ -343,7 +341,7 @@ var host = new WebHostBuilder()
 [!INCLUDE[How to make an SSL cert](../../includes/make-ssl-cert.md)]
 
 ---
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 詳細については、次のリソースを参照してください。
 

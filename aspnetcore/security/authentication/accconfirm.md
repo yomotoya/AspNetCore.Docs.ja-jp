@@ -2,7 +2,6 @@
 title: "アカウントの確認と ASP.NET Core でのパスワードの回復"
 author: rick-anderson
 description: "電子メールの確認とパスワードのリセットと ASP.NET Core アプリケーションをビルドする方法を示します。"
-keywords: "ASP.NET Core、パスワードのリセット、確認の電子メール、セキュリティ"
 ms.author: riande
 manager: wpickett
 ms.date: 12/1/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 955064122d2335016c7eb3dd7451b14106a3b83f
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: b004a8e7680b203416552e5a7a2809799e657759
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>アカウントの確認と ASP.NET Core でのパスワードの回復
 
@@ -239,7 +238,7 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 
 ユーザー名を確認して、ナビゲーションバーを展開する必要があります。
 
-![ナビゲーション バー](accconfirm/_static/x.png)
+![navbar](accconfirm/_static/x.png)
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 

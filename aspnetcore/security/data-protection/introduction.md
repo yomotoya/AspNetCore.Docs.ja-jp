@@ -2,20 +2,18 @@
 title: "データ保護の概要"
 author: rick-anderson
 description: "このドキュメントでは、データ保護の概念を紹介し、関連する ASP.NET Core Api の設計原則の概要を示します。"
-keywords: "ASP.NET Core、データの保護"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 4542cd37-b47c-454c-be19-d1b5810d67fe
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/introduction
-ms.openlocfilehash: dd34f2e69ea0f6427ee5f446d6440dfab17a42c4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b98027ee0e7c63bac23054d7623f28294388dede
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-data-protection"></a>データ保護の概要
 
@@ -71,7 +69,7 @@ ASP.NET Core データ保護スタックの代わりの長期的なとして使�
 
 データ保護スタックは、5 つのパッケージで構成されます。
 
-* Microsoft.AspNetCore.DataProtection.Abstractions には、基本的な IDataProtectionProvider および IDataProtector インターフェイスが含まれています。 これらの種類 (IDataProtector.Protect のオーバー ロードなど) で作業を支援できる便利拡張メソッドも含まれています。 詳細については、コンシューマー インターフェイスのセクションを参照してください。 場合は、他のユーザーの責任者、データ保護システムをインスタンス化して、Api を使用しているだけで、参照 Microsoft.AspNetCore.DataProtection.Abstractions にします。
+* Microsoft.AspNetCore.DataProtection.Abstractions contains the basic IDataProtectionProvider and IDataProtector interfaces. これらの種類 (IDataProtector.Protect のオーバー ロードなど) で作業を支援できる便利拡張メソッドも含まれています。 詳細については、コンシューマー インターフェイスのセクションを参照してください。 場合は、他のユーザーの責任者、データ保護システムをインスタンス化して、Api を使用しているだけで、参照 Microsoft.AspNetCore.DataProtection.Abstractions にします。
 
 * Microsoft.AspNetCore.DataProtection には、暗号化操作の中核となる、キー管理、構成、および機能拡張を含む、データ保護システムの基本的な実装が含まれています。 データ保護システムをインスタンス化を担当する場合 (たとえばに追加する、IServiceCollection) Microsoft.AspNetCore.DataProtection の参照にする変更、またはその動作を拡張する、または。
 

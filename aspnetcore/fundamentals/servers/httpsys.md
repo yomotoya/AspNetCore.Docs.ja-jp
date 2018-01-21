@@ -2,20 +2,18 @@
 title: "ASP.NET Core の HTTP.sys web サーバーの実装"
 author: rick-anderson
 description: "HTTP.sys は、Windows 上の ASP.NET core web サーバーが導入されています。 Http.Sys のカーネル モード ドライバーでビルドする HTTP.sys は、代わりに IIS なしでインターネットに直接接続に使用することができます Kestrel です。"
-keywords: "ASP.NET Core,HttpSys,HTTP.sys,HttpListener,url プレフィックス、SSL"
 ms.author: riande
 manager: wpickett
 ms.date: 08/07/2017
 ms.topic: article
-ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 8d46862af44379d8592efdf214a80214dce2d69d
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 60301e1e3eb96f51e86ef9f8be61f5fd8a4c009c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core の HTTP.sys web サーバーの実装
 
@@ -177,7 +175,7 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={000000
 
 [!INCLUDE[How to make an SSL cert](../../includes/make-ssl-cert.md)]
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 詳細については、次のリソースを参照してください。
 

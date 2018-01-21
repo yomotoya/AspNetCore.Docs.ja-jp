@@ -2,20 +2,18 @@
 title: "ASP.NET Core と Entity Framework 6 の概要"
 author: tdykstra
 description: "この記事では、ASP.NET Core アプリケーションで Entity Framework 6 を使用する方法を示します。"
-keywords: "ASP.NET Core、Entity Framework EF 6"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 02/24/2017
 ms.topic: article
-ms.assetid: 016cc836-4c43-45a4-b9a7-9efaf53350df
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/entity-framework-6
-ms.openlocfilehash: 8abec95c591f20069e20eec55fd21503e74f8606
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 51445b8c110ad618aeb680148ccf4304a45ee16e
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-aspnet-core-and-entity-framework-6"></a>ASP.NET Core と Entity Framework 6 の概要
 
@@ -89,7 +87,7 @@ DI を使用して、コント ローラーでのコンテキストのインス�
 
 * コア プロジェクトでは、コント ローラーとの読み取りおよびデータを書き込むことを確認するビューを追加します。 (ASP.NET Core MVC のスキャフォールディングをクラス ライブラリから参照されている EF6 コンテキストで動作しないことに注意してください)。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 この記事は、ASP.NET Core アプリケーションで Entity Framework 6 を使用するための基本的なガイダンスを提供しています。
 

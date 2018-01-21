@@ -2,21 +2,19 @@
 title: "ASP.NET Core のブラウザー リンク"
 author: ncarandini
 description: "Browser Link は、Visual Studio の機能に 1 つまたは複数の web ブラウザーで、開発環境をリンクする方法について説明します。"
-keywords: "ASP.NET Core、browser link を CSS 同期"
 ms.author: riande
 manager: wpickett
 ms.date: 09/22/2017
 ms.topic: article
-ms.assetid: 11813d4c-3f8a-445a-b23b-e4a57d001abc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b69d085e8bee4cdac2dff08b46a95a8869e263b7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d5db65c268923e96c45b034639437fc3496ccac1
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="browser-link-in-aspnet-core"></a>ASP.NET Core のブラウザー リンク 
 
@@ -106,7 +104,7 @@ Visual Studio を開いて、インデックスが表示された表示スクリ
 
 インデックス ビューを変更し、ブラウザー リンクは、更新ボタンをクリックすると、接続されているすべてのブラウザーは更新されます。
 
-![ブラウザー変更の同期](using-browserlink/_static/browsers-sync-to-changes.png)
+![browsers-sync-to-changes](using-browserlink/_static/browsers-sync-to-changes.png)
 
 ブラウザー リンクは、Visual Studio の外部からを起動して、アプリケーションの URL に移動したブラウザーでも動作します。
 
@@ -114,15 +112,15 @@ Visual Studio を開いて、インデックスが表示された表示スクリ
 
 Browser Link のドロップダウン メニューを開いているブラウザーとの接続を管理からブラウザー リンク ダッシュ ボードを開きます。
 
-![ダッシュ ボード browserslink 開く](using-browserlink/_static/open-browserlink-dashboard.png)
+![open-browserslink-dashboard](using-browserlink/_static/open-browserlink-dashboard.png)
 
 ブラウザーが接続されていない場合を選択して非デバッグ セッションを開始することができます、*ブラウザーで表示*リンク。
 
-![browserlink ダッシュ ボードいいえ接続](using-browserlink/_static/browserlink-dashboard-no-connections.png)
+![browserlink-dashboard-no-connections](using-browserlink/_static/browserlink-dashboard-no-connections.png)
 
 それ以外の場合、接続されているブラウザーは、各ブラウザーで表示されているページへのパスで示されています。
 
-![browserlink-ダッシュ ボードの 2 つの接続](using-browserlink/_static/browserlink-dashboard-two-connections.png)
+![browserlink-dashboard-two-connections](using-browserlink/_static/browserlink-dashboard-two-connections.png)
 
 必要に応じて、その 1 つのブラウザーを更新するリストされているブラウザーの名前をクリックすることができます。
 

@@ -2,7 +2,6 @@
 title: "ASP.NET Core の razor 構文のリファレンス"
 author: rick-anderson
 description: "サーバー ベースのコードを埋め込む web ページの Razor マークアップの構文について説明します。"
-keywords: "ASP.NET Core、Razor、Razor ディレクティブ"
 ms.author: riande
 manager: wpickett
 ms.date: 10/18/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 6df769069fce52755a57d8404f88203a652a1ab9
-ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
+ms.openlocfilehash: d932e28246998c60e2b3f9c77a2521fe55991e85
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET Core の razor 構文
 
@@ -24,7 +23,7 @@ Razor とは、サーバー ベースのコードを埋め込む web ページ�
 
 ## <a name="rendering-html"></a>HTML を表示
 
-Razor の既定の言語は、HTML です。 Razor マークアップからレンダリング HTML は、HTML ファイルから HTML をレンダリングと違いはありません。  内の HTML マークアップ*.cshtml* Razor ファイルが変更されていないサーバーを表示します。
+Razor の既定の言語は、HTML です。 Razor マークアップからレンダリング HTML は、HTML ファイルから HTML をレンダリングと違いはありません。 内の HTML マークアップ*.cshtml* Razor ファイルが変更されていないサーバーを表示します。
 
 ## <a name="razor-syntax"></a>Razor 構文
 
@@ -73,8 +72,8 @@ C# の場合を除く`await`キーワードで暗黙的な式はスペースを�
 
 上記のコードでは、次のいずれかのようなコンパイラ エラーが生成されます。
 
- * "Int"要素が閉じられませんでした。  すべての要素はいずれかである必要がありますに対応する終了タグが自己終了、または。
- *  メソッド グループ 'GenericMethod' を非デリゲート型 'object' を変換することはできません。 メソッドを呼び出すつもりでしたか?' 
+ * "Int"要素が閉じられませんでした。 すべての要素はいずれかである必要がありますに対応する終了タグが自己終了、または。
+ * メソッド グループ 'GenericMethod' を非デリゲート型 'object' を変換することはできません。 メソッドを呼び出すつもりでしたか?' 
  
 ジェネリック メソッドの呼び出しにラップする必要があります、 [Razor 式が明示的](#explicit-razor-expressions)または[Razor コードのブロック](#razor-code-blocks)です。
 
@@ -119,10 +118,10 @@ Razor の明示的な式から成る、`@`バランスの取れたかっこ記�
 
 上記のコードでは、次のいずれかのようなコンパイラ エラーが生成されます。
 
- * "Int"要素が閉じられませんでした。  すべての要素はいずれかである必要がありますに対応する終了タグが自己終了、または。
- *  メソッド グループ 'GenericMethod' を非デリゲート型 'object' を変換することはできません。 メソッドを呼び出すつもりでしたか?' 
+ * "Int"要素が閉じられませんでした。 すべての要素はいずれかである必要がありますに対応する終了タグが自己終了、または。
+ * メソッド グループ 'GenericMethod' を非デリゲート型 'object' を変換することはできません。 メソッドを呼び出すつもりでしたか?' 
  
- 次のマークアップは、適切な方法の書き込みにこのコードを示します。  コードは、明示的な式として書き込まれます。
+ 次のマークアップは、適切な方法の書き込みにこのコードを示します。 コードは、明示的な式として書き込まれます。
 
 ```cshtml
 <p>@(GenericMethod<int>())</p>
@@ -232,7 +231,7 @@ HTML タグで囲まれていない HTML を表示するのにには、この方
 
 なし、 `@:` Razor 実行時エラーが生成されたコードでは、します。
 
-警告: 余分な`@`Razor ファイル内の文字、ブロックの後でステートメントの原因とコンパイラ エラーが発生することができます。 これらのコンパイラ エラーは報告されたエラーの前に、実際のエラーが発生するために理解するが困難にすることはできます。  このエラーは、後、1 つのコード ブロックに複数の暗黙的または明示的な式を組み合わせることが一般的です。
+警告: 余分な`@`Razor ファイル内の文字、ブロックの後でステートメントの原因とコンパイラ エラーが発生することができます。 これらのコンパイラ エラーは報告されたエラーの前に、実際のエラーが発生するために理解するが困難にすることはできます。 このエラーは、後、1 つのコード ブロックに複数の暗黙的または明示的な式を組み合わせることが一般的です。
 
 ## <a name="control-structures"></a>制御構造
 
@@ -285,7 +284,7 @@ else
 
 ### <a name="looping-for-foreach-while-and-do-while"></a>ループ@for、 @foreach、 @while、および@do中
 
-コントロール ステートメントのループを設定して、テンプレート化された HTML を表示できます。  人のユーザーの一覧を表示するには。
+コントロール ステートメントのループを設定して、テンプレート化された HTML を表示できます。 人のユーザーの一覧を表示するには。
 
 ```cshtml
 @{
@@ -496,7 +495,7 @@ Razor の公開、`Model`ビューに渡されるモデルにアクセスする�
 <div>Custom text: Gardyloo! - A Scottish warning yelled from a window before dumping a slop bucket on the street below.</div>
 ```
 
- `@model`および`@inherits`同じビューで使用することができます。  `@inherits`指定できます、 *_ViewImports.cshtml*ビューをインポートするファイル。
+ `@model`および`@inherits`同じビューで使用することができます。 `@inherits`指定できます、 *_ViewImports.cshtml*ビューをインポートするファイル。
 
 [!code-cshtml[Main](razor/sample/Views/_ViewImportsModel.cshtml)]
 

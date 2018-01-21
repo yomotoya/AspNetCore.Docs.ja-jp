@@ -2,7 +2,6 @@
 title: "EF Core - と razor ページの読み取り関連データは、8 6"
 author: rick-anderson
 description: "このチュートリアルでは、読み取りおよびでナビゲーション プロパティに、Entity Framework が読み込まれるデータは、関連するデータを表示します。"
-keywords: "ASP.NET Core、Entity Framework Core では、関連するデータの結合します。"
 ms.author: riande
 manager: wpickett
 ms.date: 11/05/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: ba9b17ecdcb605d39117d03230b1db37e8e4d0dd
-ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
+ms.openlocfilehash: d0cdb5aaa4b1129c3f2404d069e9781ca16260b7
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>読み取りに関連したデータの EF コア Razor ページ (8 の 6)
 
@@ -68,7 +67,7 @@ Course エンティティには含むナビゲーション プロパティが含
 * 取得、`Name`プロパティから、`Department`エンティティです。
 * `Department`エンティティの取得元、`Course.Department`ナビゲーション プロパティ。
 
-![ourse です。部門](read-related-data/_static/dep-crs.png)
+![ourse.Department](read-related-data/_static/dep-crs.png)
 
 <a name="scaffold"></a>
 ### <a name="scaffold-the-course-model"></a>Scaffold コース モデル

@@ -2,29 +2,27 @@
 title: "ASP.NET Core のタグ ヘルパーの作成"
 author: rick-anderson
 description: "ASP.NET Core のタグ ヘルパーの作成方法を説明します。"
-keywords: "ASP.NET Core、タグ ヘルパー"
 ms.author: riande
 manager: wpickett
-ms.date: 06/14/2017
+ms.date: 01/19/2018
 ms.topic: article
-ms.assetid: 4f16d978-5695-4abf-a785-fdaabf3bbcb9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cbe46ee1d3cd9f7a30a87d364074f1302f9af7ab
-ms.sourcegitcommit: 5834afb87e4262b9b88e60e3fe6c735e61a1e08d
+ms.openlocfilehash: 9aaf40377e07e53fd0b7ebb177bcbb2df52b7553
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>ASP.NET Core、サンプルとチュートリアルのタグ ヘルパーの作成
+# <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>ASP.NET Core、サンプルとチュートリアルの作成者タグ ヘルパー
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-## <a name="getting-started-with-tag-helpers"></a>タグ ヘルパーの使用を開始します。
+## <a name="get-started-with-tag-helpers"></a>タグ ヘルパーを概要します。
 
 このチュートリアルでは、タグ ヘルパーのプログラミングの概要を提供します。 [タグ ヘルパーの概要](intro.md)タグ ヘルパーを提供する利点について説明します。
 
@@ -46,7 +44,7 @@ ms.lasthandoff: 12/20/2017
 
 ```html
 <a href="mailto:Support@contoso.com">Support@contoso.com</a>
-   ```
+```
 
 つまり、アンカー タグにより、この電子メールのリンク。 これを行う場合は、ブログ エンジンを作成して、同じドメインにすべてマーケティング、サポート、およびその他の連絡先の電子メールを送信する際に必要する可能性があります。
 
@@ -188,7 +186,7 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
 [HtmlTargetElement("MyBold")]
    ```
 
-## <a name="passing-a-model-to-a-tag-helper"></a>タグ ヘルパーにモデルを渡す
+## <a name="pass-a-model-to-a-tag-helper"></a>タグ ヘルパーにモデルを渡す
 
 1.  追加、*モデル*フォルダーです。
 
@@ -285,7 +283,7 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
 >
 >[Nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof)演算子は、コードを保護する必要があります、これまでリファクタリングを行うこと (名前を変更する可能性があります`RedCondition`)。
 
-### <a name="avoiding-tag-helper-conflicts"></a>タグ ヘルパーの競合を避ける
+### <a name="avoid-tag-helper-conflicts"></a>タグ ヘルパーの競合を回避します。
 
 このセクションでは、自動リンク タグ ヘルパーのペアを作成します。 最初は、マークアップを含む、HTML アンカー タグ同じ URL を含む (および、URL へのリンクを生成するため) に HTTP で始まる URL で置き換えられます。 2 つ目は同じ操作を行いますは URL の www を開始します。
 
@@ -329,7 +327,7 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
     
     上記のコードは、WWW タグ ヘルパーの前に、HTTP タグ ヘルパーが実行される保証されます。 変更`Order`に`MaxValue`WWW タグの生成されたマークアップが正しいことを確認してください。
 
-## <a name="inspecting-and-retrieving-child-content"></a>検査および子コンテンツを取得します。
+## <a name="inspect-and-retrieve-child-content"></a>検査し、子コンテンツを取得します。
 
 タグ ヘルパーは、コンテンツを取得するいくつかのプロパティを提供します。
 

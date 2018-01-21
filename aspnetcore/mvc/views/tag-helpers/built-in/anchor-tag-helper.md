@@ -2,20 +2,18 @@
 title: "アンカー タグ ヘルパー |Microsoft ドキュメント"
 author: pkellner
 description: "アンカー タグ ヘルパーを使用する方法を示しています。"
-keywords: "ASP.NET Core,タグ ヘルパー"
 ms.author: riande
 manager: wpickett
 ms.date: 12/20/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a011
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 86756a1d09e6e55ca79aed6e5b718088b82b782c
-ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
+ms.openlocfilehash: 7923876c792544ac4d559eb8de29475d8a4b37e0
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="anchor-tag-helper"></a>アンカー タグ ヘルパー
 
@@ -99,7 +97,7 @@ https://localhost:44399/Speakers/Index/2?page=%2FSpeaker
 > [!NOTE]
 > 使用する、 `asp-page` Razor ページで、Url 属性があります相対パスでは、たとえば`"./Speaker"`します。 内の相対パス、`asp-page`属性は MVC ビューでは使用できません。 代わりに、MVC ビューの「/」の構文を使用します。
 
-### <a name="asp-route-value"></a>asp - ルート - {value}
+### <a name="asp-route-value"></a>asp-route-{value}
 
 `asp-route-`次のワイルドカード ルート プレフィックス。 任意の値は、潜在的なルートのパラメーターとして解釈されます末尾ダッシュ後に配置します。 既定のルートが見つからない場合は、要求のパラメーターと値として生成された href にこのルート プレフィックスが追加されます。 それ以外の場合、ルート テンプレートで置き換えられますされます。
 
@@ -168,7 +166,7 @@ app.UseMvc(routes =>
 
 `Name = "speakerevals"`アンカー タグ ヘルパーのルート URL を使用してそのコント ローラーのメソッドを直接生成するように指示`/Speaker/Evaluations`です。 場合`asp-controller`または`asp-action`が他に指定されている`asp-route`、生成されるルートできない可能性がありますが予期したものとします。 `asp-route`属性のいずれかで使用しないで`asp-controller`または`asp-action`ルート競合を回避します。
 
-### <a name="asp-all-route-data"></a>asp すべてルート データ
+### <a name="asp-all-route-data"></a>asp-all-route-data
 
 `asp-all-route-data`ここで、キーは、パラメーター名と値は、そのキーに関連付けられている値のキー値のペアのディクショナリを作成できます。
 
@@ -193,7 +191,7 @@ asp-all-route-data="dict">SpeakerEvals</a>
 
 ディクショナリ一致しているすべてのキーは、パラメーターをルーティングする場合として適切なルート上でそれらの値が置き換えられるし、要求パラメーターと一致しない値が生成されます。
 
-### <a name="asp-fragment"></a>asp フラグメント
+### <a name="asp-fragment"></a>asp-fragment
 
 `asp-fragment`URL に追加する URL フラグメントを定義します。 アンカー タグ ヘルパー追加ハッシュ文字 (#)。 場合は、タグを作成します。
 
@@ -237,7 +235,7 @@ asp-all-route-data="dict">SpeakerEvals</a>
 > [!TIP]
 > Web アプリケーションで作業する MVC 区分のルート テンプレートは存在する場合領域への参照を含める必要があります。 そのテンプレートでは、2 番目のパラメーターの`routes.MapRoute`メソッド呼び出しとして表示されます。`template: '"{area:exists}/{controller=Home}/{action=Index}"'`
 
-### <a name="asp-protocol"></a>asp プロトコル
+### <a name="asp-protocol"></a>asp-protocol
 
 `asp-protocol` 、プロトコルを指定するのには (など`https`)、URL にします。 プロトコルを含むアンカー タグ ヘルパーの使用例は、次のようになります。
 

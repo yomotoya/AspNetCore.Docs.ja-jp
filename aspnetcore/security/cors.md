@@ -2,20 +2,18 @@
 title: "クロス オリジン要求 (CORS) を有効にします。"
 author: rick-anderson
 description: "このドキュメントでは、許可するか、または ASP.NET Core アプリケーションでのクロス オリジン要求を拒否するための基準として CORS が導入されています。"
-keywords: "ASP.NET Core、CORS をクロス オリジン"
 ms.author: riande
 manager: wpickett
 ms.date: 05/17/2017
 ms.topic: article
-ms.assetid: f9d95e88-4d7e-4d0c-a8e1-47de1128d505
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: 5398b6ad6531710de2b8000cb368e5fa607ae7ff
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: e6b49b9dde94cc7d035ea91b992a13df8cb8caf2
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>クロス オリジン要求 (CORS) を有効にします。
 
@@ -164,15 +162,15 @@ CORS プレフライト要求がアプリケーションによって設定され
 
 既定では、ブラウザーは公開しませんすべてのアプリケーションに応答ヘッダー。 (を参照してください[http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header))。既定で利用できる応答ヘッダーは次のとおりです。
 
-* キャッシュ制御
+* Cache-Control
 
 * コンテンツの言語
 
-* コンテンツの種類
+* Content-Type
 
 * 有効期限が切れる
 
-* 最終更新
+* Last-Modified
 
 * プラグマ
 
@@ -270,7 +268,7 @@ Test message
 
   * マルチパート フォーム データ
 
-  * テキスト/プレーン
+  * text/plain
 
 アプリケーションで、XMLHttpRequest オブジェクトで setRequestHeader を呼び出すことによって設定されたヘッダーを要求ヘッダーについて規則が適用されます。 (CORS の仕様は、これら「作成者要求ヘッダー」を呼び出します)。ルールは、ユーザー エージェント、ホスト、またはコンテンツの長さなど、ブラウザーを設定できますヘッダーには適用されません。
 

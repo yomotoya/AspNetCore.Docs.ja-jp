@@ -2,21 +2,19 @@
 title: Open Web Interface for .NET (OWIN)
 author: ardalis
 description: "ASP.NET Core のサポートについて Open Web Interface の .NET (OWIN)、これにより web サーバーから切り離すことが可能に web アプリを検出します。"
-keywords: "ASP.NET Core、.NET では、OWIN の開いている Web インターフェイス"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 70c4e6bc-a773-4039-96ec-6fe557c9369d
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/owin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2ee970a1c9cd05ebee76b92c3e2c7c6c6cc6ef8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e819037e2ebd1566c778879516e20de8dc7603ea
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>開くには .NET (OWIN) 用 Web インターフェイスの概要
 
@@ -241,84 +239,84 @@ OWIN によって異なります、 `IDictionary<string,object>` HTTP 要求/応
 
 | キー               | 値 (型) | 説明 |
 | ----------------- | ------------ | ----------- |
-| owin です。RequestScheme | `String` |  |
-| owin です。RequestMethod  | `String` | |    
-| owin です。RequestPathBase  | `String` | |    
-| owin です。RequestPath | `String` | |     
-| owin です。RequestQueryString  | `String` | |    
-| owin です。RequestProtocol  | `String` | |    
-| owin です。RequestHeaders | `IDictionary<string,string[]>`  | |
-| owin です。RequestBody | `Stream`  | |
+| owin.RequestScheme | `String` |  |
+| owin.RequestMethod  | `String` | |    
+| owin.RequestPathBase  | `String` | |    
+| owin.RequestPath | `String` | |     
+| owin.RequestQueryString  | `String` | |    
+| owin.RequestProtocol  | `String` | |    
+| owin.RequestHeaders | `IDictionary<string,string[]>`  | |
+| owin.RequestBody | `Stream`  | |
 
 ### <a name="request-data-owin-v110"></a>要求データ (OWIN v1.1.0)
 
 | キー               | 値 (型) | 説明 |
 | ----------------- | ------------ | ----------- |
-| owin です。RequestId | `String` | Optional |
+| owin.RequestId | `String` | Optional |
 
 ### <a name="response-data-owin-v100"></a>応答データ (OWIN v1.0.0)
 
 | キー               | 値 (型) | 説明 |
 | ----------------- | ------------ | ----------- |
-| owin です。ResponseStatusCode | `int` | Optional |
-| owin です。ResponseReasonPhrase | `String` | Optional |
-| owin です。ResponseHeaders | `IDictionary<string,string[]>`  | |
-| owin です。ResponseBody | `Stream`  | |
+| owin.ResponseStatusCode | `int` | Optional |
+| owin.ResponseReasonPhrase | `String` | Optional |
+| owin.ResponseHeaders | `IDictionary<string,string[]>`  | |
+| owin.ResponseBody | `Stream`  | |
 
 
 ### <a name="other-data-owin-v100"></a>その他のデータ (OWIN v1.0.0)
 
 | キー               | 値 (型) | 説明 |
 | ----------------- | ------------ | ----------- |
-| owin です。CallCancelled | `CancellationToken` |  |
-| owin です。バージョン  | `String` | |   
+| owin.CallCancelled | `CancellationToken` |  |
+| owin.Version  | `String` | |   
 
 
 ### <a name="common-keys"></a>共通キー
 
 | キー               | 値 (型) | 説明 |
 | ----------------- | ------------ | ----------- |
-| ssl です。ClientCertificate | `X509Certificate` |  |
-| ssl です。LoadClientCertAsync  | `Func<Task>` | |    
-| サーバー。RemoteIpAddress  | `String` | |    
-| サーバー。リモート ポート | `String` | |     
-| サーバー。LocalIpAddress  | `String` | |    
-| サーバー。ローカル ポート  | `String` | |    
-| サーバー。IsLocal  | `bool` | |    
-| サーバー。OnSendingHeaders  | `Action<Action<object>,object>` | |
+| ssl.ClientCertificate | `X509Certificate` |  |
+| ssl.LoadClientCertAsync  | `Func<Task>` | |    
+| server.RemoteIpAddress  | `String` | |    
+| server.RemotePort | `String` | |     
+| server.LocalIpAddress  | `String` | |    
+| server.LocalPort  | `String` | |    
+| server.IsLocal  | `bool` | |    
+| server.OnSendingHeaders  | `Action<Action<object>,object>` | |
 
 
 ### <a name="sendfiles-v030"></a>SendFiles v0.3.0
 
 | キー               | 値 (型) | 説明 |
 | ----------------- | ------------ | ----------- |
-| sendfile です。SendAsync | 参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) | 1 回の要求 |
+| sendfile.SendAsync | 参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) | 1 回の要求 |
 
 
-### <a name="opaque-v030"></a>不透明な v0.3.0
+### <a name="opaque-v030"></a>Opaque v0.3.0
 
 | キー               | 値 (型) | 説明 |
 | ----------------- | ------------ | ----------- |
-| 不透明になります。バージョン | `String` |  |
-| 不透明になります。アップグレード | `OpaqueUpgrade` | 参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
-| 不透明になります。ストリーム | `Stream` |  |
-| 不透明になります。CallCancelled | `CancellationToken` |  |
+| opaque.Version | `String` |  |
+| opaque.Upgrade | `OpaqueUpgrade` | 参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
+| opaque.Stream | `Stream` |  |
+| opaque.CallCancelled | `CancellationToken` |  |
 
 
 ### <a name="websocket-v030"></a>WebSocket v0.3.0
 
 | キー               | 値 (型) | 説明 |
 | ----------------- | ------------ | ----------- |
-| websocket です。バージョン | `String` |  |
-| websocket です。そのまま使用します。 | `WebSocketAccept` | 参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
-| websocket です。AcceptAlt |  | 非仕様 |
-| websocket です。サブプロトコル | `String` | 参照してください[RFC6455 4.2.2](https://tools.ietf.org/html/rfc6455#section-4.2.2)手順 5.5 |
-| websocket です。SendAsync | `WebSocketSendAsync` | 参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
-| websocket です。ReceiveAsync | `WebSocketReceiveAsync` | 参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
-| websocket です。CloseAsync | `WebSocketCloseAsync` | 参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
-| websocket です。CallCancelled | `CancellationToken` |  |
-| websocket です。ClientCloseStatus | `int` | Optional |
-| websocket です。ClientCloseDescription | `String` | Optional |
+| websocket.Version | `String` |  |
+| websocket.Accept | `WebSocketAccept` | 参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
+| websocket.AcceptAlt |  | 非仕様 |
+| websocket.SubProtocol | `String` | 参照してください[RFC6455 4.2.2](https://tools.ietf.org/html/rfc6455#section-4.2.2)手順 5.5 |
+| websocket.SendAsync | `WebSocketSendAsync` | 参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket.ReceiveAsync | `WebSocketReceiveAsync` | 参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket.CloseAsync | `WebSocketCloseAsync` | 参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket.CallCancelled | `CancellationToken` |  |
+| websocket.ClientCloseStatus | `int` | Optional |
+| websocket.ClientCloseDescription | `String` | Optional |
 
 
 ## <a name="additional-resources"></a>その他のリソース

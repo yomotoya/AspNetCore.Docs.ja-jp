@@ -2,7 +2,6 @@
 title: "ASP.NET Core MVC ビュー"
 author: ardalis
 description: "ビューが、アプリのデータの表示と ASP.NET Core MVC でのユーザーとの対話を処理する方法について説明します。"
-keywords: "ASP.NET Core、表示、MVC、razor、viewmodel、viewdata、viewbag"
 ms.author: riande
 manager: wpickett
 ms.date: 12/12/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 2562d4e5fb85159e6ccb47990f54448ddc188077
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: c0a1f475941f3389e9aa1f5bb7819bef491b2cae
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC ビュー
 
@@ -94,7 +93,7 @@ ASP.NET Core MVC ビューは*.cshtml*ファイルを使用する、 [c# プロ�
 暗黙的に返す場合にかかわらず、`ViewResult`で`return View();`にビューの名前を明示的に渡すことも、`View`メソッドを`return View("<ViewName>");`です。 どちらの場合は、ビューの検出は、この順序で一致するビュー ファイルを検索します。
 
    1. *ビュー/\[ControllerName]\[ViewName] .cshtml*
-   1. *ビュー/共有/\[ViewName] .cshtml*
+   1. *Views/Shared/\[ViewName].cshtml*
 
 ビュー名の代わりに、ビューのファイル パスを指定できます。 アプリのルートから始まる絶対パスを使用した場合 (必要に応じて開始され、「/」または"~/") では、 *.cshtml*拡張機能を指定する必要があります。
 

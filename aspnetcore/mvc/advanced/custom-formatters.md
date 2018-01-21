@@ -2,20 +2,18 @@
 title: "ASP.NET Core MVC web Api でカスタム フォーマッタ"
 author: tdykstra
 description: "作成して、web Api ASP.NET Core でのカスタム フォーマッタを使用する方法を説明します。"
-keywords: "ASP.NET Core web api、カスタム フォーマッタ"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 02/08/2017
 ms.topic: article
-ms.assetid: 1fb6fdc2-e199-4469-9012-b909d1913422
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: 5e665abe10fd7444c3fd5f20cfeca3ef0a5f79d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3a6474fdae29b170978226de74d523b20a16cd0c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>ASP.NET Core MVC web Api でカスタム フォーマッタ
 
@@ -98,7 +96,7 @@ ASP.NET Core MVC には、JSON、XML、またはプレーン テキスト形式�
 
 フォーマッタは、挿入した順序で評価されます。 最初の 1 つが優先されます。 
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 参照してください、[サンプル アプリケーション](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample)を実装する単純な vCard 入力と出力のフォーマッタ。  アプリケーションは、次の例のように見える Vcard を読み書き。
 

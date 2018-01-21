@@ -2,20 +2,18 @@
 title: "URL の ASP.NET Core のミドルウェアの書き換え"
 author: guardrex
 description: "URL 書き換えおよび ASP.NET Core アプリケーションの URL 書き換えミドルウェアにリダイレクトすることについて説明します。"
-keywords: "ASP.NET Core、URL 書き換え、URL 書き換え URL をリダイレクトする、URL リダイレクト、ミドルウェア apache_mod"
 ms.author: riande
 manager: wpickett
 ms.date: 08/17/2017
 ms.topic: article
-ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: e07634a6d7ad97bf8735029b5c28d6935b71eb52
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 769696931498605bd3cf3459279939afb86a4ee8
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL の ASP.NET Core のミドルウェアの書き換え
 
@@ -196,7 +194,7 @@ A`StreamReader`からルールの読み取りに使用される、 *ApacheModRew
 * HTTP_COOKIE
 * HTTP_FORWARDED
 * HTTP_HOST
-* ボタン
+* HTTP_REFERER
 * HTTP_USER_AGENT
 * HTTPS
 * IPV6
@@ -209,7 +207,7 @@ A`StreamReader`からルールの読み取りに使用される、 *ApacheModRew
 * REQUEST_URI
 * SCRIPT_FILENAME
 * SERVER_ADDR
-* これらの用語
+* SERVER_PORT
 * SERVER_PROTOCOL
 * 時間
 * TIME_DAY
@@ -266,20 +264,20 @@ A`StreamReader`からルールの読み取りに使用される、 *IISUrlRewrit
 * CustomResponse アクション
 * カスタム サーバー変数
 * ワイルドカード
-* アクション: CustomResponse
+* Action:CustomResponse
 * LogRewrittenUrl
 
 ---
 
 #### <a name="supported-server-variables"></a>サポートされているサーバー変数
 ミドルウェアは、次の URL Rewrite モジュールを IIS サーバー変数をサポートします。
-* 多く
+* CONTENT_LENGTH
 * CONTENT_TYPE
 * HTTP_ACCEPT
 * HTTP_CONNECTION
 * HTTP_COOKIE
 * HTTP_HOST
-* ボタン
+* HTTP_REFERER
 * HTTP_URL
 * HTTP_USER_AGENT
 * HTTPS
@@ -299,7 +297,7 @@ A`StreamReader`からルールの読み取りに使用される、 *IISUrlRewrit
 ### <a name="method-based-rule"></a>メソッド ベースのルール
 使用して`Add(Action<RewriteContext> applyRule)`メソッドで、独自の規則ロジックを実装します。 `RewriteContext`公開、`HttpContext`メソッドで使用するためです。 `context.Result`パイプラインを追加する方法を決定する処理が行われます。
 
-| コンテキスト。結果                       | アクション                                                          |
+| context.Result                       | アクション                                                          |
 | ------------------------------------ | --------------------------------------------------------------- |
 | `RuleResult.ContinueRules` (既定値) | ルールの適用を続行します。                                         |
 | `RuleResult.EndResponse`             | 規則の適用を停止し、応答を送信                       |

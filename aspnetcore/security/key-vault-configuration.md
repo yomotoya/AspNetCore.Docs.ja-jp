@@ -2,19 +2,17 @@
 title: "Azure Key Vault の構成プロバイダー"
 author: guardrex
 description: "Azure キー資格情報コンテナーの構成プロバイダーを使用して、実行時に読み込まれる名前と値のペアを使用してアプリケーションを構成する方法を説明します。"
-keywords: "ASP.NET Core、構成では、Azure Key Vault"
 ms.author: riande
 manager: wpickett
 ms.date: 08/09/2017
 ms.topic: article
-ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: 19cab22176c732c5cb8e337d7635bddc54107921
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 25c7d38a27741c9877538673425c5a9dceccac93
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Azure Key Vault の構成プロバイダー
 
@@ -49,8 +47,8 @@ ms.lasthandoff: 12/14/2017
 | アプリケーション設定    | 説明                    | 例                                      |
 | -------------- | ------------------------------ | -------------------------------------------- |
 | `Vault`        | Azure Key Vault の名前           | contosovault                                 |
-| `ClientId`     | Azure Active Directory アプリ Id  | 627e911e-43cc-61d4-992e-12db9c81b413         |
-| `ClientSecret` | Azure Active Directory アプリ キー | g58K3dtg59o1Pa + e59v2Tx829w6VxTB2yv9sv/101di = |
+| `ClientId`     | Azure Active Directory App Id  | 627e911e-43cc-61d4-992e-12db9c81b413         |
+| `ClientSecret` | Azure Active Directory アプリ キー | g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di= |
 
 [!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1&highlight=2,7-10)]
 

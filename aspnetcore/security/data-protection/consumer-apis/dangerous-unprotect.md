@@ -2,20 +2,18 @@
 title: "キーを持つが失効している保護を解除するペイロード"
 author: rick-anderson
 description: "このドキュメントでは、ASP.NET Core アプリケーションで、失効させたのでキーで保護されたデータの保護を解除する方法について説明します。"
-keywords: "ASP.NET Core、データ保護がキー、IPersistedDataProtector を取り消す"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 6c4e6591-45d2-4d25-855e-062ad352d648
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/dangerous-unprotect
-ms.openlocfilehash: 5d431f0bbe7152525c9a360a6e90bccbd26be93d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f2425de3f790cd8dab17940ec52a2a7e170cc630
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="unprotecting-payloads-whose-keys-have-been-revoked"></a>キーを持つが失効している保護を解除するペイロード
 

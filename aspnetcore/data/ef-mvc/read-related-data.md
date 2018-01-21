@@ -2,20 +2,18 @@
 title: "ASP.NET MVC を持つコアを EF Core - 読み取り関連データ - 10 の 6"
 author: tdykstra
 description: "このチュートリアルでは、読み取りを関連データ--Entity Framework は、ナビゲーション プロパティに読み込まれるデータを表示します。"
-keywords: "ASP.NET Core、Entity Framework Core では、関連するデータの結合します。"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: 71fec30f-8ea7-4ca8-96e3-d2e26c5be44e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 778ef976fdbef70684ca26b0c7c548ffcc83ee00
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1321cb00a432669b4a97ad20063b6cf9ea75f24c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>読み取りに関連したデータの ASP.NET Core MVC のチュートリアル (10 の 6) の EF コア
 
@@ -239,7 +237,7 @@ EF 読み取り/書き込みアクションの次の図に示すように、イ�
 
 今すぐ講習においてインストラクター インデックス ページに移動して、アプリが表示されますなし ページで、表示される内容に違いが、データの取得方法を変更した実行します。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ここで使用した一括読み込み 1 つのクエリを使用して、複数のクエリを使用してナビゲーション プロパティに関連するデータを読み取る。 次のチュートリアルでは、関連するデータを更新する方法を学習します。
 

@@ -2,7 +2,6 @@
 title: "ASP.NET Core でのホスティング"
 author: guardrex
 description: "これは、アプリの起動と有効期間の管理を担当する ASP.NET Core の web ホストについて説明します。"
-keywords: "ASP.NET Core web ホスト、IWebHost、WebHostBuilder、IHostingEnvironment、IApplicationLifetime"
 ms.author: riande
 manager: wpickett
 ms.date: 09/21/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 8adc58d67f103e8d1fc8fe197cf392752bdaf660
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 7f6712073002b73ca4ddd7586718c81e62cacbc2
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>ASP.NET Core でのホスティング
 
@@ -35,7 +34,7 @@ ASP.NET Core アプリケーションの構成および起動、*ホスト*で�
 * 構成[Kestrel](servers/kestrel.md) web サーバーとします。 Kestrel 既定のオプションを参照してください。 [Kestrel ASP.NET Core での web サーバーの実装のセクションで [オプション]、Kestrel](xref:fundamentals/servers/kestrel#kestrel-options)です。
 * によって返されるパスへのコンテンツのルートを設定[Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory)です。
 * 読み込みオプションの構成:
-  * *される appsettings.json*です。
+  * *appsettings.json*.
   * *appsettings です。{環境} .json*です。
   * [ユーザーの機密情報](xref:security/app-secrets)アプリを実行するときに、`Development`環境。
   * 環境変数。
@@ -94,7 +93,7 @@ host.Run();
 
 この設定は、スタートアップのエラーのキャプチャを制御します。
 
-**キー**: captureStartupErrors  
+**Key**: captureStartupErrors  
 **型**: *bool* (`true`または`1`)  
 **既定**: 既定値は`false`ここで、既定値は、IIS の背後にある Kestrel でアプリを実行する場合を除き、`true`です。  
 **使用して設定**:`CaptureStartupErrors`  
@@ -559,7 +558,7 @@ using (host)
 
 アプリが初期化およびの事前構成済みの既定値を使用して、新しいホストを開始`CreateDefaultBuilder`便利な静的メソッドを使用します。 これらのメソッドは、コンソール出力とサーバーを起動[WaitForShutdown](/dotnet/api/microsoft.aspnetcore.hosting.webhostextensions.waitforshutdown)改行 (Ctrl-C/SIGINT または SIGTERM) まで待機します。
 
-**開始 (RequestDelegate アプリ)**
+**Start(RequestDelegate app)**
 
 始まる、 `RequestDelegate`:
 

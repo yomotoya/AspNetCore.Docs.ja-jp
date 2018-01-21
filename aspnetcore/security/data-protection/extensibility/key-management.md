@@ -2,20 +2,18 @@
 title: "キー管理の機能拡張"
 author: rick-anderson
 description: "このドキュメントでは、ASP.NET Core データ保護キーの管理の拡張性について説明します。"
-keywords: "ASP.NET Core、データ保護、キー管理"
 ms.author: riande
 manager: wpickett
 ms.date: 11/22/2017
 ms.topic: article
-ms.assetid: 3606b251-8324-4485-8d52-582a2cd5cffb
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: 0702e13163c0208e9d2863e711b02ffb257f6260
-ms.sourcegitcommit: e641c5794525f983485621860926d8ab4e7360c8
+ms.openlocfilehash: 2bd0f945306a7acd6252c2a00aafb648cf722616
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="key-management-extensibility"></a>キー管理の機能拡張
 
@@ -97,7 +95,7 @@ ms.lasthandoff: 11/23/2017
 
    ![キーの作成](key-management/_static/keycreation2.png)
 
-   *キーの作成/CreateNewKey*
+   *Key Creation / CreateNewKey*
 
 実装で`CreateNewKey`、`AlgorithmConfiguration`コンポーネントの作成に使用する一意`IAuthenticatedEncryptorDescriptor`、し、XML としてシリアル化されます。 キー エスクロー シンクが存在する場合は、長期的な記憶域の生の (暗号化されていない) XML は、シンクに提供されます。 暗号化されていない XML を実行し、 `IXmlEncryptor` (必要な場合) を暗号化された XML ドキュメントを生成します。 この暗号化されたドキュメントが経由での長期的なストレージに保存され、`IXmlRepository`です。 (ない場合は`IXmlEncryptor`が構成されている場合、暗号化されていないドキュメントで永続化されて、 `IXmlRepository`)。
 
@@ -105,7 +103,7 @@ ms.lasthandoff: 11/23/2017
 
    ![キーの作成](key-management/_static/keycreation1.png)
 
-   *キーの作成/CreateNewKey*
+   *Key Creation / CreateNewKey*
 
 実装で`CreateNewKey`、`IAuthenticatedEncryptorConfiguration`コンポーネントの作成に使用する一意`IAuthenticatedEncryptorDescriptor`、し、XML としてシリアル化されます。 キー エスクロー シンクが存在する場合は、長期的な記憶域の生の (暗号化されていない) XML は、シンクに提供されます。 暗号化されていない XML を実行し、 `IXmlEncryptor` (必要な場合) を暗号化された XML ドキュメントを生成します。 この暗号化されたドキュメントが経由での長期的なストレージに保存され、`IXmlRepository`です。 (ない場合は`IXmlEncryptor`が構成されている場合、暗号化されていないドキュメントで永続化されて、 `IXmlRepository`)。
 

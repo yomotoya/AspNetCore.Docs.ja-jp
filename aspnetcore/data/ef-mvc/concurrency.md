@@ -2,20 +2,18 @@
 title: "ASP.NET MVC を持つコアを EF Core での同時実行性 - 8 10"
 author: tdykstra
 description: "このチュートリアルでは、複数のユーザーが同時に同じエンティティを更新するときに競合を処理する方法を示します。"
-keywords: "ASP.NET Core、Entity Framework Core では、同時実行"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: 15e79e15-bda5-441d-80c7-8032a2628605
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: ffe8ef968d7bde9755d5c55389f6f1548f03ffec
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: 69ffafc7f92cda75c001fe1098275766063113fb
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>同時実行の競合の ASP.NET Core MVC のチュートリアル (10 の 8) に EF コアの処理
 
@@ -277,7 +275,7 @@ public async Task<IActionResult> Delete(Department department)
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 これは、同時実行の競合の処理の概要を完了します。 EF Core での同時実行を処理する方法の詳細については、次を参照してください。[同時実行の競合](https://docs.microsoft.com/ef/core/saving/concurrency)です。 次のチュートリアルでは、インストラクターと学生エンティティのテーブルの階層あたりの継承を実装する方法を示します。
 

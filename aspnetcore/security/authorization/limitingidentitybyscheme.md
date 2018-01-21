@@ -2,20 +2,18 @@
 title: "特定のスキームの ASP.NET Core を承認します。"
 author: rick-anderson
 description: "この記事では、複数の認証方法を使用する場合は、id、特定のスキームを制限する方法について説明します。"
-keywords: "ASP.NET Core、id、認証スキーム"
 ms.author: riande
 manager: wpickett
 ms.date: 10/12/2017
 ms.topic: article
-ms.assetid: d3d6ca1b-b4b5-4bf7-898e-dcd90ec1bf8c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: 8c9d068b88263d0c06b11a6b87416fb02885c475
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 099dba1a4235ef62ea298748645b99e2d6d12d44
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="authorize-with-a-specific-scheme"></a>特定のスキームを承認します。
 

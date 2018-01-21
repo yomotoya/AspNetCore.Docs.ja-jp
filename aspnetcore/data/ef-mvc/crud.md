@@ -2,20 +2,18 @@
 title: "ASP.NET MVC を持つコアを EF コア CRUD - 2 10"
 author: tdykstra
 description: 
-keywords: "ASP.NET Core、Entity Framework Core、CRUD、作成、読み取り、更新、削除"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: 6e1cd570-40f1-4b24-8b6e-7d2d27758f18
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 9fc2b4c126c4d109deb2125f0db70a355c04eb15
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7e495ba56958012713836c1dd75ac0c5a8bff942
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>作成、読み取り、更新、および削除の ASP.NET Core MVC のチュートリアル (10 の 2) と EF コア
 
@@ -294,7 +292,7 @@ HttpPost を置き換える`Delete`アクション メソッド (名前付き`De
 
 詳細については、次を参照してください。 [vs を追跡します。No 追跡](https://docs.microsoft.com/ef/core/querying/tracking)です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 学生のエンティティの単純な CRUD 操作を実行するページの完全なセットがあるようになりました。 次のチュートリアルでは、機能を拡張します、**インデックス**並べ替え、フィルター処理、およびページングを追加することによってページ。
 

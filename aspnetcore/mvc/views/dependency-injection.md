@@ -2,20 +2,18 @@
 title: "ビューに依存関係の挿入"
 author: ardalis
 description: 
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 80fb9e43-e4db-4af2-b2a8-e1364a712f69
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 4586f50bc663b7269914dfff28b61342e3991a48
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cade61b1ebdb2b845b07117384475638c0227f7f
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="dependency-injection-into-views"></a>ビューに依存関係の挿入
 
@@ -84,6 +82,6 @@ HTML フォーム使用してこれらの設定を更新するにはには、プ
 
 既存のサービスを拡張する場合からの継承、または独自の既存の実装の折り返しの中に単にこの手法を使用できます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 * Simon Timms ブログ:[ビュー内に参照データの取得](http://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/)

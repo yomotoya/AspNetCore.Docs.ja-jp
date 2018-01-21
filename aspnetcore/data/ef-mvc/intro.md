@@ -2,20 +2,18 @@
 title: "ASP.NET MVC を持つコアを Entity Framework Core - 10 のチュートリアル 1"
 author: tdykstra
 description: 
-keywords: "ASP.NET Core、Entity Framework Core、チュートリアル"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 2b21c7fb35c65d9374723faac5b812289023a0f6
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: df13726689c430ab19786e104ea7404051107aa9
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>ASP.NET Core MVC と Visual Studio (10 の 1) を使用して Entity Framework Core の概要
 
@@ -29,7 +27,7 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 
 [ダウンロードまたは完成したアプリケーションを表示します。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-EF の最新バージョンであるが EF のすべての機能がない、EF コア 2.0 6.x です。 EF との間を選択する方法については 6.x と EF コアを参照してください。 [EF コア vs です。EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/)です。 EF を選択した場合、6.x を参照してください[このチュートリアル シリーズの以前のバージョン](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)します。
+EF の最新バージョンであるが EF のすべての機能がない、EF コア 2.0 6.x です。 EF との間を選択する方法については 6.x と EF コアを参照してください。 [EF コア vs です。EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). EF を選択した場合、6.x を参照してください[このチュートリアル シリーズの以前のバージョン](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)します。
 
 > [!NOTE]
 > * このチュートリアルの ASP.NET Core の 1.1 バージョンを参照してください、 [VS 2017 Update 2 のバージョンを PDF 形式では、このチュートリアルの](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf)します。
@@ -44,7 +42,7 @@ EF の最新バージョンであるが EF のすべての機能がない、EF �
 問題を解決できない場合に発生した場合、コードを比較することでのソリューションを見つけることは通常、[完成したプロジェクト](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)です。 一般的なエラーとそれらを解決する方法の一覧は、次を参照してください。[系列の最後のチュートリアルの「トラブルシューティング](advanced.md#common-errors)です。 必要なものがない場合は、StackOverflow.com に質問を投稿することができます[ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core)または[EF コア](https://stackoverflow.com/questions/tagged/entity-framework-core)です。
 
 > [!TIP] 
-> これは、一連の 10 のチュートリアルでは、それぞれは、前のチュートリアルの処理に基づいています。  各チュートリアルが正常に完了した後、プロジェクトのコピーを保存することを検討してください。  問題に遭遇した場合は、前のチュートリアルの一連の先頭に戻るとではなく、経由で開始できます。
+> これは、一連の 10 のチュートリアルでは、それぞれは、前のチュートリアルの処理に基づいています。 各チュートリアルが正常に完了した後、プロジェクトのコピーを保存することを検討してください。 問題に遭遇した場合は、前のチュートリアルの一連の先頭に戻るとではなく、経由で開始できます。
 
 ## <a name="the-contoso-university-web-application"></a>Contoso 大学 web アプリケーション
 
@@ -136,7 +134,7 @@ Entity Framework のコアで利用可能なその他のデータベース プ�
 
 `Enrollments`プロパティは、ナビゲーション プロパティ。 ナビゲーション プロパティは、このエンティティに関連するその他のエンティティを保持します。 ここで、`Enrollments`のプロパティ、`Student entity`のすべてを保持する、`Enrollment`に関連付けられているエンティティ`Student`エンティティです。 つまり場合、データベース内の特定の学生行が関連する 2 つ登録行 (その StudentID 外部キー列に、そのスチューデントの主キーの値が含まれている行) を`Student`エンティティの`Enrollments`ナビゲーション プロパティで、それらが格納されます2 つ`Enrollment`エンティティです。
 
-その型が一覧にエントリを追加、削除すると、更新できるなどをする必要があります、ナビゲーション プロパティ (多対多または一対多のリレーションシップ) のように複数のエンティティに保持できる場合`ICollection<T>`です。  指定できます`ICollection<T>`またはなど型`List<T>`または`HashSet<T>`です。 指定した場合`ICollection<T>`、EF の作成、`HashSet<T>`既定のコレクション。
+その型が一覧にエントリを追加、削除すると、更新できるなどをする必要があります、ナビゲーション プロパティ (多対多または一対多のリレーションシップ) のように複数のエンティティに保持できる場合`ICollection<T>`です。 指定できます`ICollection<T>`またはなど型`List<T>`または`HashSet<T>`です。 指定した場合`ICollection<T>`、EF の作成、`HashSet<T>`既定のコレクション。
 
 ### <a name="the-enrollment-entity"></a>登録エンティティ
 
@@ -210,7 +208,7 @@ ASP.NET Core を実装する[依存性の注入](../../fundamentals/dependency-i
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>データベースにテスト データを初期化するコードを追加します。
 
-Entity Framework を空のデータベースに作成されます。  このセクションで、テスト データを設定するために、データベースが作成された後に呼び出されるメソッドを記述します。
+Entity Framework を空のデータベースに作成されます。 このセクションで、テスト データを設定するために、データベースが作成された後に呼び出されるメソッドを記述します。
 
 ここで使用する、`EnsureCreated`メソッドを自動的にデータベースを作成します。 [後のチュートリアル](migrations.md)を削除して、データベースを再作成ではなく、データベース スキーマを変更する Code First Migrations を使用してモデルの変更を処理する方法について説明します。
 
@@ -218,7 +216,7 @@ Entity Framework を空のデータベースに作成されます。  このセ�
 
 [!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
 
-コードは、場合は、データベースが新しいと、テスト データをシード処理する必要がありますいない場合は、想定していますが、データベースの任意の受講者を確認します。  テスト データを配列に読み込むのではなく`List<T>`パフォーマンスを最適化するコレクション。
+コードは、場合は、データベースが新しいと、テスト データをシード処理する必要がありますいない場合は、想定していますが、データベースの任意の受講者を確認します。 テスト データを配列に読み込むのではなく`List<T>`パフォーマンスを最適化するコレクション。
 
 *Program.cs*、変更、`Main`メソッドをアプリケーションの起動時に次の操作します。
 
@@ -244,10 +242,10 @@ CRUD アクション メソッドとビューの自動作成は、スキャフ�
 
 * 右クリックし、**コント ローラー**フォルダー**ソリューション エクスプ ローラー**選択**追加 > スキャフォールディングされた新しい項目**です。
 
-場合、 **MVC 依存関係の追加**ダイアログが表示されます。
+**[MVC 依存関係の追加]** ダイアログ ボックスが表示された場合は、次のようにします。
 
-* [Visual Studio の最新バージョンに更新](https://www.visualstudio.com/downloads/)です。 15.5 前バージョンの visual Studio では、このダイアログを表示します。
-* を更新できない場合は、選択**追加**、しもう一度 コント ローラーの追加の手順に従います。
+* [Visual Studio を最新バージョンに更新します](https://www.visualstudio.com/downloads/)。 15.5 より前のバージョンの Visual Studio の場合はこのダイアログが表示されます。
+* 更新できない場合は、**[追加]** を選択してから、もう一度コントローラーの追加手順に従ってください。
 
 * **追加 Scaffold**  ダイアログ ボックス。
 
@@ -353,7 +351,7 @@ Web サーバーは、使用可能なスレッド数を限定を持ち、負荷�
 
 Entity Framework を使用する非同期コードを作成する場合の注意すべき点がいくつか:
 
-* クエリまたはコマンドのデータベースに送信されるステートメントだけが非同期的に実行されます。 たとえばを含む`ToListAsync`、 `SingleOrDefaultAsync`、および`SaveChangesAsync`です。  含まれません、たとえば、だけを変更するステートメント、`IQueryable`など`var students = context.Students.Where(s => s.LastName == "Davolio")`です。
+* クエリまたはコマンドのデータベースに送信されるステートメントだけが非同期的に実行されます。 たとえばを含む`ToListAsync`、 `SingleOrDefaultAsync`、および`SaveChangesAsync`です。 含まれません、たとえば、だけを変更するステートメント、`IQueryable`など`var students = context.Students.Where(s => s.LastName == "Davolio")`です。
 
 * EF コンテキストはスレッド セーフではありません: を並列で複数の操作を行うにはしないでください。 ある非同期 EF メソッドを呼び出すときに、常に使用して、`await`キーワード。
 
@@ -366,4 +364,4 @@ Entity Framework を使用する非同期コードを作成する場合の注意
 保存し、データを表示する、エンティティ フレームワークのコアと SQL Server Express LocalDB を使用する単純なアプリケーションが作成されました。 次のチュートリアルでは基本的な CRUD を実行する方法を学習 (作成、読み取り、更新、削除) 操作です。
 
 >[!div class="step-by-step"]
-[次へ](crud.md)  
+[次へ](crud.md)

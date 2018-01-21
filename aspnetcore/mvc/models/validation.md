@@ -2,20 +2,18 @@
 title: "ASP.NET Core MVC でのモデルの検証"
 author: rachelappel
 description: "ASP.NET Core MVC でのモデルの検証について説明します。"
-keywords: "ASP.NET Core、MVC での検証"
 ms.author: riande
 manager: wpickett
 ms.date: 12/18/2016
 ms.topic: article
-ms.assetid: 3a8676dd-7ed8-4a05-bca2-44e288ab99ee
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.openlocfilehash: 7f641c247cb672934e76fa13bc7b7beb3990dd82
-ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
+ms.openlocfilehash: 91db17e103723ac411a2ad4f3f9549860f250cce
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのモデル検証の概要
 
@@ -173,7 +171,7 @@ $.get({
 
 ### <a name="add-validation-to-dynamic-controls"></a>検証のダイナミック コントロールを追加します。
 
-などの個人コントロールときに、フォームに検証規則を更新することも`<input/>`s および`<select/>`s、動的に生成されます。 これらの要素のセレクターを渡すことはできません、`parse()`メソッドを直接周囲のフォームが既に解析されているし、更新されないためです。  代わりに、まず、既存の検証データを削除して次に示すように、フォーム全体は再解析。
+などの個人コントロールときに、フォームに検証規則を更新することも`<input/>`s および`<select/>`s、動的に生成されます。 これらの要素のセレクターを渡すことはできません、`parse()`メソッドを直接周囲のフォームが既に解析されているし、更新されないためです。 代わりに、まず、既存の検証データを削除して次に示すように、フォーム全体は再解析。
 
 ```js
 $.get({
@@ -233,11 +231,11 @@ JQuery なりました検証コードが false を返す場合に表示するエ
 
 ユーザーは、電子メール アドレスを入力、ときに、ビューでの JavaScript がについての電子メールが取得されている場合は、エラー メッセージが表示されますへのリモート呼び出しできます。 それ以外の場合、ユーザーは通常どおり、フォームを送信できます。
 
-`AdditionalFields`のプロパティ、`[Remote]`属性は、サーバー上のデータに対するフィールドの組み合わせを検証するために役立ちます。  たとえば場合、`User`上記のモデルが 2 つの追加のプロパティと呼ばれる`FirstName`と`LastName`、ないことを確認の既存のユーザー既に名のペアリングすることができます。  次のコードに示すように、新しいプロパティを定義します。
+`AdditionalFields`のプロパティ、`[Remote]`属性は、サーバー上のデータに対するフィールドの組み合わせを検証するために役立ちます。 たとえば場合、`User`上記のモデルが 2 つの追加のプロパティと呼ばれる`FirstName`と`LastName`、ないことを確認の既存のユーザー既に名のペアリングすることができます。 次のコードに示すように、新しいプロパティを定義します。
 
 [!code-csharp[Main](validation/sample/User.cs?range=10-13)]
 
-`AdditionalFields`でしたに設定されている明示的に文字列`"FirstName"`と`"LastName"`を使用して、 [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof)リファクタリング後でこのような演算子が簡略化します。  検証を実行するアクション メソッドは、2 つの引数の値のいずれかを同意し、必要があります`FirstName`の値のいずれかと`LastName`です。
+`AdditionalFields`でしたに設定されている明示的に文字列`"FirstName"`と`"LastName"`を使用して、 [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof)リファクタリング後でこのような演算子が簡略化します。 検証を実行するアクション メソッドは、2 つの引数の値のいずれかを同意し、必要があります`FirstName`の値のいずれかと`LastName`です。
 
 
 [!code-csharp[Main](validation/sample/UsersController.cs?range=30-39)]
@@ -248,11 +246,11 @@ JQuery なりました検証コードが false を返す場合に表示するエ
 * ペアを取得した場合、エラー メッセージが表示されます。 
 * ない場合は、ユーザーは、フォームを送信できます。
 
-2 つ以上のフィールドを検証する必要があるかどうか、`[Remote]`属性として指定することにコンマ区切りの一覧です。  例については、追加する、`MiddleName`プロパティ、モデルを設定、`[Remote]`属性の次のコードに示すようにします。
+2 つ以上のフィールドを検証する必要があるかどうか、`[Remote]`属性として指定することにコンマ区切りの一覧です。 例については、追加する、`MiddleName`プロパティ、モデルを設定、`[Remote]`属性の次のコードに示すようにします。
 
 ```cs
 [Remote(action: "VerifyName", controller: "Users", AdditionalFields = nameof(FirstName) + "," + nameof(LastName))]
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`、すべての属性の引数と同様に、定数式がある必要があります。  そのため、使用しないでください、[補間文字列](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings)呼び出したり[ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx)初期化するために`AdditionalFields`です。 追加するその他のフィールドごとに、`[Remote]`属性に、対応するコント ローラー アクション メソッドに別の引数を追加する必要があります。
+`AdditionalFields`、すべての属性の引数と同様に、定数式がある必要があります。 そのため、使用しないでください、[補間文字列](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings)呼び出したり[ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx)初期化するために`AdditionalFields`です。 追加するその他のフィールドごとに、`[Remote]`属性に、対応するコント ローラー アクション メソッドに別の引数を追加する必要があります。

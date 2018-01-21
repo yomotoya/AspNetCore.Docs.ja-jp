@@ -2,20 +2,18 @@
 title: "ASP.NET Core でのテストの統合"
 author: ardalis
 description: "ASP.NET Core の統合アプリケーションのコンポーネントが正しく動作するようにテストを使用する方法。"
-keywords: "ASP.NET Core、統合 Razor をテストします。"
 ms.author: riande
 manager: wpickett
 ms.date: 09/25/2017
 ms.topic: article
-ms.assetid: 40d534f2-89b3-4b09-9c2c-3494bf9991c9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/integration-testing
-ms.openlocfilehash: 155fd2f0663c6225531a4df6f323ebb30ab1ee73
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8b0d741c05a723ad80fe812254c9a500a9fd9204
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="integration-testing-in-aspnet-core"></a>ASP.NET Core でのテストの統合
 
@@ -61,7 +59,7 @@ ASP.NET Core には、統合テスト プロジェクトに追加することが
 
 これらのテストを使用して、素数チェッカーの正確性をテストに実際にはしようとしていることではなく、web アプリケーションが期待どおりに表示を行う際に注意します。 得られるように信頼度で単体テスト カバレッジが既にある`PrimeService`、ここで確認できます。
 
-![テスト エクスプローラー](integration-testing/_static/test-explorer.png)
+![Test Explorer](integration-testing/_static/test-explorer.png)
 
 単体テストに関する詳細については、[単体テスト](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)資料です。
 

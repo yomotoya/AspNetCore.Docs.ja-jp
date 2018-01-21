@@ -2,20 +2,18 @@
 title: "アプリケーション モデルの操作"
 author: ardalis
 description: 
-keywords: "ASP.NET Core,ASP.NET コア MVC、アプリケーション モデル"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 4eb7e52f-5665-41a4-a3e3-e348d07337f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 3c35184921dbe26cde100fd3d5124e38ea0d06cf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c69dd1cfae713036ce0ee95f70acc162b1e82cb0
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="working-with-the-application-model"></a>アプリケーション モデルの操作
 
@@ -74,7 +72,7 @@ ASP.NET Core MVC によって定義された、プロバイダーのパターン
 
 `CorsApplicationModelProvider`に関連付けられている動作を実装、`IEnableCorsAttribute`と`IDisableCorsAttribute`、および`DisableCorsAuthorizationFilter`です。 [詳細については、CORS](xref:security/cors)です。
 
-## <a name="conventions"></a>規則
+## <a name="conventions"></a>規約
 
 アプリケーション モデルでは、モデル全体またはプロバイダーをオーバーライドするよりもモデルの動作をカスタマイズする簡単な方法を提供する規則の抽象化を定義します。 これらの抽象化は、アプリの動作を変更することをお勧めします。 規則のカスタマイズを動的に適用するコードを記述するための手段です。 中に[フィルター](xref:mvc/controllers/filters)フレームワークの動作を変更する手段を提供のカスタマイズでは、アプリ全体が一緒にワイヤード方法を制御できます。
 

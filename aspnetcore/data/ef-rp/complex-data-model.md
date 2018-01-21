@@ -2,7 +2,6 @@
 title: "EF Core - データ モデル - 8 の 5 と razor ページ"
 author: rick-anderson
 description: "このチュートリアルでは、複数のエンティティとリレーションシップを追加し、書式設定、検証、およびデータベース マッピング規則を指定することによって、データ モデルをカスタマイズします。"
-keywords: "ASP.NET Core、Entity Framework のコア データ注釈"
 ms.author: riande
 manager: wpickett
 ms.date: 10/25/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: c2761f79fa4836d29541526782969bb0fd47778b
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: c375fe6ea98c621012eb55589c8b174c2a95b697
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-razor-pages-tutorial-5-of-8"></a>EF コア Razor ページのチュートリアル (5/8) に、複雑なデータ モデルを作成します。
 
@@ -84,7 +83,7 @@ ms.lasthandoff: 12/02/2017
 上記のコードでは、50 個の文字に名前を制限します。 `StringLength`属性を防ぐユーザー名を空白文字を入力します。 [正規表現](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1)属性は、制限を適用する入力に使用します。 たとえば、次のコードには、最初の文字が大文字で指定し、残りの文字は英文字でが必要です。
 
 ```csharp
-[RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
+[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
 ```
 
 アプリを実行します。

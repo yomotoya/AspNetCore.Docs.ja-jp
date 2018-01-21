@@ -2,20 +2,18 @@
 title: "クロスサイト スクリプティングの防止"
 author: rick-anderson
 description: "このドキュメントでは、クロスサイト スクリプト (XSS) と ASP.NET Core アプリケーションでこの脆弱性に対処するための手法を紹介します。"
-keywords: "ASP.NET Core、XSS、脆弱性"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 95790927-2bfe-445e-b1fd-429c2c7030ce
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cross-site-scripting
-ms.openlocfilehash: fdb26a8338b98135cfc3f6bce9d87285e9a7eb12
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af73a86aa6bcde084ecbe1a3fb5711c7da55871c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="preventing-cross-site-scripting"></a>クロスサイト スクリプティングの防止
 
@@ -171,7 +169,7 @@ public class HomeController : Controller
 
 ## <a name="encoding-url-parameters"></a>エンコードの URL パラメーター
 
-として値を使用して信頼されていない入力を持つ URL クエリ文字列を作成する場合、`UrlEncoder`値をエンコードします。 次に例を示します。
+として値を使用して信頼されていない入力を持つ URL クエリ文字列を作成する場合、`UrlEncoder`値をエンコードします。 たとえば、オブジェクトに適用された
 
 ```csharp
 var example = "\"Quoted Value with spaces and &\"";

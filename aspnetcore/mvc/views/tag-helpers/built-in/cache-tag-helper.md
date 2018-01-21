@@ -2,20 +2,18 @@
 title: "ASP.NET Core MVC でのタグ ヘルパーをキャッシュします。"
 author: pkellner
 description: "キャッシュ タグ ヘルパーを使用する方法を示しています。"
-keywords: "ASP.NET Core,タグ ヘルパー"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a012
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 74080d089dc7a72da96f9f18d613cb313cd930db
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: dfd9c3c0c4e50a99e4f8703b01bd9b384930b87a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのタグ ヘルパーをキャッシュします。
 
@@ -60,7 +58,7 @@ Razor ビュー エンジンが既定値を設定`expires-after`20 分にしま�
 
 - - -
 
-### <a name="expires-on"></a>有効期限が切れる 
+### <a name="expires-on"></a>expires-on 
 
 | 属性の型    | 値の例     |
 |----------------   |----------------   |
@@ -79,7 +77,7 @@ Razor ビュー エンジンが既定値を設定`expires-after`20 分にしま�
 
 - - -
 
-### <a name="expires-after"></a>有効期限が切れた後
+### <a name="expires-after"></a>expires-after
 
 | 属性の型    | 値の例     |
 |----------------   |----------------   |
@@ -98,7 +96,7 @@ Razor ビュー エンジンが既定値を設定`expires-after`20 分にしま�
 
 - - -
 
-### <a name="expires-sliding"></a>スライド式有効期限が切れる
+### <a name="expires-sliding"></a>expires-sliding
 
 | 属性の型    | 値の例     |
 |----------------   |----------------   |
@@ -117,12 +115,12 @@ Razor ビュー エンジンが既定値を設定`expires-after`20 分にしま�
 
 - - -
 
-### <a name="vary-by-header"></a>ヘッダーによって異なります
+### <a name="vary-by-header"></a>vary-by-header
 
 | 属性の型    | 値の例                |
 |----------------   |----------------               |
-| 文字列型            | 「ユーザー エージェント」                  |
-|                   | 「ユーザー エージェント、コンテンツ エンコード」 |
+| String            | "User-Agent"                  |
+|                   | "User-Agent,content-encoding" |
 
 1 つのヘッダー値または変更されるときに、キャッシュの更新をトリガーするヘッダー値のコンマ区切りの一覧を受け入れます。 次の例は、ヘッダーの値を監視`User-Agent`です。 コンテンツをキャッシュする例では、すべて異なる`User-Agent`web サーバーに提示します。
 
@@ -136,11 +134,11 @@ Razor ビュー エンジンが既定値を設定`expires-after`20 分にしま�
 
 - - -
 
-### <a name="vary-by-query"></a>クエリの変更
+### <a name="vary-by-query"></a>vary-by-query
 
 | 属性の型    | 値の例                |
 |----------------   |----------------               |
-| 文字列型            | 「処理を行う」                |
+| String            | 「処理を行う」                |
 |                   | 「製造元、モデル」 |
 
 1 つのヘッダー値またはヘッダーの値が変化したときに、キャッシュの更新をトリガーするヘッダー値のコンマ区切りの一覧を受け入れます。 次の例の値を調べ`Make`と`Model`です。
@@ -155,11 +153,11 @@ Razor ビュー エンジンが既定値を設定`expires-after`20 分にしま�
 
 - - -
 
-### <a name="vary-by-route"></a>ルートの変化
+### <a name="vary-by-route"></a>vary-by-route
 
 | 属性の型    | 値の例                |
 |----------------   |----------------               |
-| 文字列型            | 「処理を行う」                |
+| String            | 「処理を行う」                |
 |                   | 「製造元、モデル」 |
 
 1 つのヘッダー値またはルート データ パラメーターの値変更時に、キャッシュの更新をトリガーするヘッダー値のコンマ区切りの一覧を受け入れます。 例:
@@ -182,11 +180,11 @@ routes.MapRoute(
 
 - - -
 
-### <a name="vary-by-cookie"></a>cookie の変化
+### <a name="vary-by-cookie"></a>vary-by-cookie
 
 | 属性の型    | 値の例                |
 |----------------   |----------------               |
-| 文字列型            | ".AspNetCore.Identity.Application"                |
+| String            | ".AspNetCore.Identity.Application"                |
 |                   | ".AspNetCore.Identity.Application,HairColor" |
 
 1 つのヘッダー値またはヘッダーの値 (秒) の変更時に、キャッシュの更新をトリガーするヘッダー値のコンマ区切りの一覧を受け入れます。 次の例は、ASP.NET の Id に関連付けられているクッキーを検索します。 ユーザーが認証されるときに設定する要求 cookie キャッシュの更新をトリガーします。
@@ -201,7 +199,7 @@ routes.MapRoute(
 
 - - -
 
-### <a name="vary-by-user"></a>ユーザーによって異なる
+### <a name="vary-by-user"></a>vary-by-user
 
 | 属性の型    | 値の例                |
 |----------------   |----------------               |
@@ -224,11 +222,11 @@ routes.MapRoute(
 
 - - -
 
-### <a name="vary-by"></a>によって異なる
+### <a name="vary-by"></a>vary-by
 
 | 属性の型    | 値の例                |
 |----------------   |----------------               |
-| 文字列型             | "@Model"                 |
+| String             | "@Model"                 |
 
 
 どのようなデータを取得キャッシュのカスタマイズをできます。 属性の文字列値が変更された、キャッシュ タグ ヘルパーの内容によって参照されるオブジェクトが更新されたとき。 多くの場合、モデルの値の文字列の連結は、この属性に割り当てられます。  実際には、連結された値のいずれかの更新には、キャッシュが無効になります。 このためです。

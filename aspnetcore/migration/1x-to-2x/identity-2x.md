@@ -2,7 +2,6 @@
 title: "移行の認証および ASP.NET Core 2.0 を Id"
 author: scottaddie
 description: "この記事では、ASP.NET Core 2.0 に移行する ASP.NET Core 1.x 認証と Id の最も一般的な手順について説明します。"
-keywords: "ASP.NET Core、Id 認証"
 ms.author: scaddie
 manager: wpickett
 ms.date: 10/26/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 1d8c75a21cd7110b3e414f0c600e9f05cbaeff45
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72ad31438a344fb5fa2b357c709b923b8077e742
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrating-authentication-and-identity-to-aspnet-core-20"></a>移行の認証および ASP.NET Core 2.0 を Id
 
@@ -297,7 +296,7 @@ services.AddAuthentication(IISDefaults.AuthenticationScheme);
 
 <a name="identity-cookie-options"></a>
 
-## <a name="identitycookieoptions-instances"></a>IdentityCookieOptions インスタンス
+## <a name="identitycookieoptions-instances"></a>IdentityCookieOptions Instances
 2.0 の変更の副作用は、cookie のオプションのインスタンスではなくオプションをという名前を使用するスイッチです。 Id cookie のスキーム名をカスタマイズする機能が削除されます。
 
 1.x での使用のプロジェクトなど、[コンス トラクター インジェクション](xref:mvc/controllers/dependency-injection#constructor-injection)に渡す、`IdentityCookieOptions`にパラメーター *AccountController.cs*です。 外部の cookie 認証スキームは指定されたインスタンスからアクセスできます。

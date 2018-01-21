@@ -2,20 +2,18 @@
 title: "ASP.NET Core Id のカスタムの記憶域プロバイダー |Microsoft ドキュメント"
 author: ardalis
 description: "ASP.NET Core Id のカスタムの記憶域プロバイダーを構成する方法。"
-keywords: "ASP.NET Core、Identity、カスタムの記憶域プロバイダー"
 ms.author: riande
 manager: wpickett
 ms.date: 05/24/2017
 ms.topic: article
-ms.assetid: b2ace545-ecf6-4664-b31e-b65bd4a6b025
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 687ca96be5121502e816bdc856e17dcd5923fe05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6a5feb9039c5b0e9823e5f22f4d55a70830dd3e6
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core Id のカスタムの記憶域プロバイダー
 
@@ -62,7 +60,7 @@ Web アプリと対話する方法、マネージャー ストアと、データ
 
 [ASP.NET Core Id](https://github.com/aspnet/identity)データ型は、次のセクションで詳しく説明します。
 
-### <a name="users"></a>Users
+### <a name="users"></a>ユーザー
 
 Web サイトの登録ユーザー。 [IdentityUser](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser)型を拡張または独自のカスタム型の例として使用される可能性があります。 独自のカスタム id の記憶域ソリューションを実装する特定の型から継承する必要はありません。
 
@@ -135,7 +133,7 @@ Web サイトの登録ユーザー。 [IdentityUser](https://docs.microsoft.com/
 - IUserRoleStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserrolestore-1
 - IUserClaimStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserclaimstore-1
 - IUserPasswordStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserpasswordstore-1
-- IUserSecurityStampStore<!-- make these all links and remove / -->
+- IUserSecurityStampStore <!-- make these all links and remove / -->
 - IUserEmailStore
 - IPhoneNumberStore
 - IQueryableUserStore

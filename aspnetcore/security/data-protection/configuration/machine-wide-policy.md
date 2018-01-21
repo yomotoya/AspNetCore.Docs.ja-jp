@@ -2,20 +2,18 @@
 title: "データの保護コンピューター全体のポリシーを ASP.NET Core のサポートします。"
 author: rick-anderson
 description: "ASP.NET Core データ保護を使用するすべてのアプリの既定のコンピューター全体のポリシーを設定するためのサポートについて説明します。"
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 285ae47d-e0bf-4b03-b0a8-2b1fb18bc3a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 692e120f13882be594afc5fb926b96b82d9609e2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4c3ae3b628ebe17c7926c71f1fad664d719d1706
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>データの保護コンピューター全体のポリシーを ASP.NET Core のサポートします。
 
@@ -36,7 +34,7 @@ Windows で実行されるときに、データ保護システムに ASP.NET Cor
 
 サポートされる値は、以下に示します。
 
-| 値              | 型   | 説明 |
+| [値]              | 型   | 説明 |
 | ------------------ | :----: | ----------- |
 | EncryptionType     | string | アルゴリズムは、データ保護に使用する必要がありますを指定します。 値は、CNG CBC、CNG GCM、または管理対象にする必要がありで詳しく説明します。 |
 | DefaultKeyLifetime | DWORD  | 新しく生成されたキーの有効期間を指定します。 値は日数で指定しする必要があります > 7 を = です。 |
@@ -46,17 +44,17 @@ Windows で実行されるときに、データ保護システムに ASP.NET Cor
 
 Windows CNG によって提供されるサービスで、信頼性の機密性および HMAC CBC モード対称ブロック暗号を使用する、システムが構成されている EncryptionType が CNG CBC の場合は、(を参照してください[カスタム Windows CNG アルゴリズムを指定する](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms)の詳細について)。 次の追加の値がサポートされている、CngCbcAuthenticatedEncryptionSettings 型のプロパティでは、それぞれがします。
 
-| 値                       | 型   | 説明 |
+| [値]                       | 型   | 説明 |
 | --------------------------- | :----: | ----------- |
 | EncryptionAlgorithm         | string | CNG で認識される対称ブロック暗号アルゴリズムの名前。 このアルゴリズムは、CBC モードで開きます。 |
 | EncryptionAlgorithmProvider | string | アルゴリズムの EncryptionAlgorithm を生成できる CNG プロバイダーの実装の名前。 |
 | EncryptionAlgorithmKeySize  | DWORD  | (Bits) の長さ対称ブロック暗号アルゴリズムを派生させるキー。 |
-| ハッシュ アルゴリズム               | string | CNG で認識されるハッシュ アルゴリズムの名前。 このアルゴリズムは HMAC モードで開きます。 |
+| HashAlgorithm               | string | CNG で認識されるハッシュ アルゴリズムの名前。 このアルゴリズムは HMAC モードで開きます。 |
 | HashAlgorithmProvider       | string | アルゴリズムの HashAlgorithm を作成できる CNG プロバイダーの実装の名前。 |
 
 Windows CNG によって提供されるサービスでの機密性、および信頼性 Galois/カウンター モード対称ブロック暗号を使用する、システムが構成されている EncryptionType が CNG GCM の場合は、(を参照してください[カスタム Windows CNG アルゴリズムを指定する](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms)詳細については詳細)。 次の追加の値がサポートされている、CngGcmAuthenticatedEncryptionSettings 型のプロパティでは、それぞれがします。
 
-| 値                       | 型   | 説明 |
+| [値]                       | 型   | 説明 |
 | --------------------------- | :----: | ----------- |
 | EncryptionAlgorithm         | string | CNG で認識される対称ブロック暗号アルゴリズムの名前。 このアルゴリズムは Galois/カウンター モードで開きます。 |
 | EncryptionAlgorithmProvider | string | アルゴリズムの EncryptionAlgorithm を生成できる CNG プロバイダーの実装の名前。 |
@@ -64,7 +62,7 @@ Windows CNG によって提供されるサービスでの機密性、および�
 
 信頼性の機密性、および KeyedHashAlgorithm のマネージ対称アルゴリズムを使用する、システムが構成されている EncryptionType が管理されている場合 (を参照してください[を指定するカスタム マネージ アルゴリズム](xref:security/data-protection/configuration/overview#specifying-custom-managed-algorithms)詳細)。 次の追加の値がサポートされている、ManagedAuthenticatedEncryptionSettings 型のプロパティでは、それぞれがします。
 
-| 値                      | 型   | 説明 |
+| [値]                      | 型   | 説明 |
 | -------------------------- | :----: | ----------- |
 | EncryptionAlgorithmType    | string | 対称アルゴリズムを実装する型のアセンブリ修飾名。 |
 | EncryptionAlgorithmKeySize | DWORD  | (Bits) の長さ、対称暗号化アルゴリズムを派生させるキー。 |

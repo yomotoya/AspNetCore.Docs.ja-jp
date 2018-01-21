@@ -2,20 +2,18 @@
 title: "外部ログインの Microsoft アカウントの設定"
 author: rick-anderson
 description: "このチュートリアルでは、Microsoft アカウント ユーザーの認証方式を既存の ASP.NET Core アプリケーションの統合について説明します。"
-keywords: "ASP.NET Core、Microsoft アカウント、ログイン、認証"
 ms.author: riande
 manager: wpickett
 ms.date: 08/24/2017
 ms.topic: article
-ms.assetid: 66DB4B94-C78C-4005-BA03-3D982B87C268
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 77c16e3ae93c9bfe1f569d0a5888c5b765d04241
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6e4586eb681bd230413ace67ca9eddc3fe3e9e60
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configuring-microsoft-account-authentication"></a>Microsoft アカウントの認証を構成します。
 
@@ -136,7 +134,7 @@ Microsoft をクリックすると、認証のため Microsoft にリダイレ�
 * **ASP.NET Core 2.x のみ:**場合の Id が呼び出すことによって構成されていない`services.AddIdentity`で`ConfigureServices`、認証を試みるが*ArgumentException: 'SignInScheme' オプションを指定する必要があります*です。 このチュートリアルで使用されるプロジェクト テンプレートは、これが行われるようにします。
 * 最初の移行を適用することで、サイト データベースが作成されていない場合、表示される*要求の処理中にデータベース操作が失敗しました*エラーです。 タップ**適用移行**データベースを作成し、エラーを越えて続行を更新します。
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 * この記事では、Microsoft との認証方法を示しました。 記載されているその他のプロバイダーでの認証に同様のアプローチを行うことができる、[前のページ](index.md)です。
 

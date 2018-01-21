@@ -1,20 +1,18 @@
 ---
 title: "認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成します。"
 author: rick-anderson
-keywords: "ASP.NET Core、MVC、承認、ロール、セキュリティ、管理者"
 ms.author: riande
 manager: wpickett
 ms.date: 05/22/2017
 ms.topic: article
-ms.assetid: abeb2f8e-dfbf-4398-a04c-338a613a65bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: db95d46dafdd300d4ec13e8cc31a3d995016ab92
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 861ac619c7f5fb19a56c59536e20724d96bbddca
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成します。
 
@@ -321,4 +319,4 @@ Visual Studio のコードを使用してまたはローカルのプラットフ
 
 * [ASP.NET Core 承認ラボ](https://github.com/blowdart/AspNetAuthorizationWorkshop)です。 このラボでは、このチュートリアルで導入されたセキュリティ機能の詳細に移動します。
 * [ASP.NET Core での承認: 単純な場合、ロール、および信頼性情報ベースのカスタム](index.md)
-* [カスタムのポリシー ベースの承認](policies.md)
+* [カスタム ポリシー ベースの承認](policies.md)

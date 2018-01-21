@@ -2,20 +2,18 @@
 title: "ASP.NET Core MVC のコント ローラーと要求の処理"
 author: ardalis
 description: 
-keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 07/03/2017
 ms.topic: article
-ms.assetid: 9da9eb52-8583-4069-af91-155ba3529d7f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
-ms.openlocfilehash: 5dc6c7dc70027bb79875f389d535119a2543b873
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cef493fc2010d1c82e5c1dfec85864539252b817
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC のコント ローラーと要求の処理
 
@@ -68,7 +66,7 @@ ms.lasthandoff: 11/10/2017
 
     この型には、HTTP ステータス コードが返されます。 この型のいくつかのヘルパー メソッドは、 `BadRequest`、 `NotFound`、および`Ok`です。 たとえば、`return BadRequest();`実行時に、400 状態コードが生成されます。 ときになどのメソッド`BadRequest`、 `NotFound`、および`Ok`は、オーバー ロードされた、適合しなく HTTP ステータス コード応答者としてコンテンツ ネゴシエーションが行われているためです。
 
-* **リダイレクト**
+* **Redirect**
 
     この型には、アクションまたは変換先へリダイレクトが返されます (を使用して`Redirect`、 `LocalRedirect`、 `RedirectToAction`、または`RedirectToRoute`)。 たとえば、`return RedirectToAction("Complete", new {id = 123});`にリダイレクト`Complete`、匿名オブジェクトを渡します。
 

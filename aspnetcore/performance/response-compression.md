@@ -2,20 +2,18 @@
 title: "ASP.NET core 圧縮ミドルウェアの応答"
 author: guardrex
 description: "応答の圧縮と圧縮ミドルウェアの応答を ASP.NET Core アプリケーションで使用する方法について説明します。"
-keywords: "ASP.NET Core、パフォーマンス、応答の圧縮、gzip、受け入れるエンコード、ミドルウェア"
 ms.author: riande
 manager: wpickett
 ms.date: 08/20/2017
 ms.topic: article
-ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 86244179115fe6a7d0f7298495086a96ee9570d9
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 9270287b62f91ddb81d6a347dd583e1cbb32f3c3
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>ASP.NET core 圧縮ミドルウェアの応答
 
@@ -33,7 +31,7 @@ IIS、Apache、または Nginx サーバー ベースの応答の圧縮テクノ
 * 次のサーバー ベースの圧縮テクノロジを使用することができません。
   * [動的な圧縮の IIS モジュール](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
   * [Apache mod_deflate モジュール](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
-  * [NGINX 圧縮および圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
+  * [Nginx 圧縮および圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * 直接ホスティング。
   * [HTTP.sys サーバー](xref:fundamentals/servers/httpsys) (旧称[WebListener](xref:fundamentals/servers/weblistener))
   * [Kestrel](xref:fundamentals/servers/kestrel)
@@ -184,7 +182,7 @@ Gzip 圧縮プロバイダーの既定値は、最速の圧縮レベル (`Compre
 [!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet1)]
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Nginx リバース プロキシの背後にある場合のミドルウェアの問題
-要求が Nginx がプロキシとなったとき、`Accept-Encoding`ヘッダーを削除します。 これは、ミドルウェアが応答を圧縮することを防ぎます。 詳細については、次を参照してください。 [NGINX: 圧縮および圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)です。 によってこの問題を追跡[nginx (BasicMiddleware #123) の圧縮をパススルーもらう](https://github.com/aspnet/BasicMiddleware/issues/123)です。
+要求が Nginx がプロキシとなったとき、`Accept-Encoding`ヘッダーを削除します。 これは、ミドルウェアが応答を圧縮することを防ぎます。 詳細については、次を参照してください。 [NGINX: 圧縮および圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)です。 によってこの問題を追跡[Nginx (BasicMiddleware #123) の圧縮をパススルーもらう](https://github.com/aspnet/BasicMiddleware/issues/123)です。
 
 ## <a name="working-with-iis-dynamic-compression"></a>IIS 動的圧縮を使用
 モジュールがある場合、アクティブな IIS 動的圧縮に対してアプリを無効にするにはサーバー レベルで構成されている場合、監視できるように、追加すると、 *web.config*ファイル。 詳細については、次を参照してください。[を無効にする IIS モジュール](xref:host-and-deploy/iis/modules#disabling-iis-modules)です。

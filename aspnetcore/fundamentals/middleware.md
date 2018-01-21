@@ -2,20 +2,18 @@
 title: "ASP.NET Core ミドルウェア"
 author: rick-anderson
 description: "ASP.NET Core ミドルウェアと要求パイプラインについて説明します。"
-keywords: "ASP.NET Core、パイプライン、デリゲートのミドルウェア"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2017
 ms.topic: article
-ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: ad8d207b1e6de396f16d098fb07ddc89bea2c520
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af16046c97964e8e1c16a4f5989fcfa794741c4d
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core ミドルウェアの基本事項
 
@@ -168,7 +166,7 @@ HTTP パイプラインを使用して、構成する`Use`、 `Run`、および`
 | 要求 | 応答 |
 | --- | --- |
 | localhost:1234 | 非マップ デリゲートからこんにちはです。  |
-| localhost:1234/? ブランチ マスターを = | 分岐を使用するマスターを =|
+| localhost:1234/?branch=master | 分岐を使用するマスターを =|
 
 `Map`たとえば、入れ子をサポートします。
 

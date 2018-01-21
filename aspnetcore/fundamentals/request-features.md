@@ -2,20 +2,18 @@
 title: "ASP.NET Core での要求機能"
 author: ardalis
 description: "HTTP 要求と ASP.NET Core のインターフェイスで定義されている応答に関連する web サーバーの実装の詳細情報について説明します。"
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: d1fbd23c-2ff9-4216-b908-0201ff3afb7c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/request-features
-ms.openlocfilehash: b689d82d16c6ef55485691b3474a070765c8144b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 42e2959aefef98ce7289e50b6f72bd23eaed38bc
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="request-features-in-aspnet-core"></a>ASP.NET Core での要求機能
 
@@ -68,7 +66,7 @@ ASP.NET Core での HTTP 機能のインターフェイスの数を定義する`
 
 カスタム サーバーの実装と特定のミドルウェアの機能強化を組み合わせることにより、正確なアプリケーションに必要な機能のセットを構築できます。 これにより、サーバーでの変更を必要とせずに追加する機能がなく、攻撃を制限するため、最小限の機能のみが公開されることを確認画面領域とパフォーマンスが向上します。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 機能のインターフェイスは、特定の要求がサポートする可能性がある特定の HTTP 機能を定義します。 サーバーは、機能のコレクションと、そのサーバーでサポートされる機能の初期セットを定義するが、ミドルウェアは、これらの機能を強化するために使用できます。
 

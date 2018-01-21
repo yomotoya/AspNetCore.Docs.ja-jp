@@ -2,20 +2,18 @@
 title: "ASP.NET Core でのルーティング"
 author: ardalis
 description: "ASP.NET Core ルーティング機能が、受信要求をルート ハンドラーにマップするために対応する方法を検出します。"
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 58388f674ed5d353c1c7208a67fb338e49fdb592
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ffa3178dc4e3aac3ba51c29b7efa3f71eb56bcfe
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core でのルーティング
 
@@ -233,12 +231,12 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
 | URI | 応答  |
 | ------- | -------- |
 | /package/create/3  | Hello! ルート値: [操作の作成]、[id、3] |
-| /パッケージと追跡/3  | Hello! ルート値: [操作、トラック]、[id、-3] |
-| パッケージ化//追跡/3/ | Hello! ルート値: [操作、トラック]、[id、-3]  |
-| トラックが/package/ | \<フォール スルー、一致なし > |
-| /Hello/Joe を取得します。 | よろしくお願い Joe! |
-| POST/hello/Joe | \<フォール スルーする、一致する HTTP GET のみ > |
-| /Hello/Joe/Smith を取得します。 | \<フォール スルー、一致なし > |
+| /package/track/-3  | Hello! ルート値: [操作、トラック]、[id、-3] |
+| /package/track/-3/ | Hello! ルート値: [操作、トラック]、[id、-3]  |
+| /package/track/ | \<フォール スルー、一致なし > |
+| GET /hello/Joe | よろしくお願い Joe! |
+| POST /hello/Joe | \<フォール スルーする、一致する HTTP GET のみ > |
+| GET /hello/Joe/Smith | \<フォール スルー、一致なし > |
 
 1 つのルートを構成する場合を呼び出す`app.UseRouter`を渡して、`IRouter`インスタンス。 呼び出す必要はありません`RouteBuilder`です。
 
@@ -278,11 +276,11 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
 | ルート テンプレート | 一致する URL の例 | メモ |
 | -------- | -------- | ------- |
 | hello  | /hello  | 1 つのパスとのみ一致します。`/hello` |
-| {ページ ホーム =} | / | 設定し、一致`Page`に`Home` |
-| {ページ ホーム =}  | /にお問い合わせください。  | 設定し、一致`Page`に`Contact` |
-| {controller}/{controller}/{id} しますか? | /製品/一覧表示 | マップ`Products`コント ローラーと`List`アクション |
-| {controller}/{controller}/{id} しますか? | /製品/詳細/123  |  マップ`Products`コント ローラーと`Details`アクション。  `id`123 に設定します。 |
-| {コント ローラー ホーム =}/{アクション インデックスの =}/{id} しますか? | /  |  マップ`Home`コント ローラーと`Index`メソッドです。`id`は無視されます。 |
+| {Page=Home} | / | 設定し、一致`Page`に`Home` |
+| {Page=Home}  | /にお問い合わせください。  | 設定し、一致`Page`に`Contact` |
+| {controller}/{action}/{id?} | /製品/一覧表示 | マップ`Products`コント ローラーと`List`アクション |
+| {controller}/{action}/{id?} | /Products/Details/123  |  マップ`Products`コント ローラーと`Details`アクション。  `id`123 に設定します。 |
+| {controller=Home}/{action=Index}/{id?} | /  |  マップ`Home`コント ローラーと`Index`メソッドです。`id`は無視されます。 |
 
 テンプレートを使用してルーティングするために最も簡単な方法では通常です。 制約と既定値は、ルート テンプレートの外部も指定できます。
 
@@ -327,7 +325,7 @@ ASP.NET Core framework 追加`RegexOptions.IgnoreCase | RegexOptions.Compiled | 
 
 正規表現は、区切り記号およびルーティングと c# 言語で使用されるようなトークンを使用します。 正規表現のトークンをエスケープする必要があります。 たとえば、正規表現を使用する`^\d{3}-\d{2}-\d{4}$`にルーティングする必要があるが、`\`としてに入力した文字`\\`エスケープするために c# ソース ファイルで、`\`エスケープ文字の文字列 (を使用しない限り、[逐語的文字列リテラル](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string)です。 `{` 、 `}` 、' [' と ']' 文字は、ルーティング パラメーター区切り記号の文字をエスケープするためにそれら 2 つ入力してエスケープする必要があります。  次の表は、正規表現とエスケープされたバージョンを示します。
 
-| 式               | メモ |
+| 正規表現               | メモ |
 | ----------------- | ------------ | 
 | `^\d{3}-\d{2}-\d{4}$` | 正規表現 |
 | `^\\d{{3}}-\\d{{2}}-\\d{{4}}$` | エスケープ  |
@@ -336,7 +334,7 @@ ASP.NET Core framework 追加`RegexOptions.IgnoreCase | RegexOptions.Compiled | 
 
 ルーティングに使用する正規表現が始まるは多くの場合、`^`文字 (文字列の開始位置に一致)、末尾が、`$`文字 (終了、文字列の位置に一致)。 `^`と`$`文字ことを確認する正規表現の一致、全体のルート パラメーターの値。 なし、`^`と`$`文字、正規表現のたくない多くの場合は、文字列内のサブ文字列は一致します。 次の表は、いくつかの例を示していて、一致、理由、または一致するように失敗するときを説明します。
 
-| 式               | 文字列型 | 一致したもの | コメント |
+| 正規表現               | String | 一致したもの | コメント |
 | ----------------- | ------------ |  ------------ |  ------------ | 
 | `[a-z]{2}` | hello | 可 | 部分文字列の一致 |
 | `[a-z]{2}` | 123abc456 | 可 | 部分文字列の一致 |
@@ -367,7 +365,7 @@ ASP.NET Core framework 追加`RegexOptions.IgnoreCase | RegexOptions.Compiled | 
 | -------------   | -------------- | ------ |
 | コント ローラー「ホーム」を = | アクション"About"= | `/Home/About` |
 | コント ローラー「ホーム」を = | コント ローラー"Order"、操作を = ="About" | `/Order/About` |
-| コント ローラーの色で =「ホーム」、"Red"を = | アクション"About"= | `/Home/About` |
+| controller="Home",color="Red" | アクション"About"= | `/Home/About` |
 | コント ローラー「ホーム」を = | アクション = 色の「バージョン情報」、"Red"を = | `/Home/About?color=Red`
 
 ルート、既定値は、パラメーターに対応していない、およびその値が明示的に指定される場合は、既定値に一致する必要があります。 例:

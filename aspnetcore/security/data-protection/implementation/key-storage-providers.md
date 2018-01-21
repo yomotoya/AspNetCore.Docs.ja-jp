@@ -2,20 +2,18 @@
 title: "キー記憶域プロバイダー"
 author: rick-anderson
 description: "キー記憶域プロバイダー"
-keywords: "encryption,ASP.NET コア"
 ms.author: riande
 manager: wpickett
 ms.date: 01/14/2017
 ms.topic: article
-ms.assetid: 423e0a79-2f34-44c4-aaf3-146a53c39251
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: d4b286dc47f8d66e6d09c3e0f48e6326139c8e1e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f95322c208d323c052295959e39f945700b7ec57
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="key-storage-providers"></a>キー記憶域プロバイダー
 
@@ -73,7 +71,7 @@ public void ConfigureServices(IServiceCollection services)
 詳しくは、次のトピックをご覧ください。
 
 - [StackExchange.Redis ConnectionMultiplexer](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Basics.md)
-- [Azure Redis キャッシュ](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache#connect-to-the-cache)
+- [Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache#connect-to-the-cache)
 - [テスト コードを redis](https://github.com/aspnet/DataProtection/blob/rel/1.1.0/samples/Redis/Program.cs)です。
 
 ## <a name="registry"></a>レジストリ

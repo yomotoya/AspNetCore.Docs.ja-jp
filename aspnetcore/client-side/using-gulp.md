@@ -2,7 +2,6 @@
 title: "ASP.NET Core で Gulp を使用します。"
 author: rick-anderson
 description: "ASP.NET Core で Gulp を使用する方法を説明します。"
-keywords: "ASP.NET Core、Gulp"
 ms.author: riande
 manager: wpickett
 ms.date: 02/28/2017
@@ -11,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-gulp
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68f6838889cfb830f2c5a1976b3140ae5d94ac25
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 11f7254a2f3d3d132f2f6af6d5ddab23f896cf63
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>ASP.NET Core で Gulp を使用の概要 
 
@@ -64,8 +63,8 @@ paths.concatCssDest = paths.webroot + "css/site.min.css";
 |---|---|
 |gulp|Gulp ストリーミング ビルド システムです。 詳細については、次を参照してください。 [gulp](https://www.npmjs.com/package/gulp)です。|
 |rimraf|ノードの削除モジュール。 詳細については、次を参照してください。 [rimraf](https://www.npmjs.com/package/rimraf)です。|
-|gulp concat|オペレーティング システムの改行文字に基づいてファイルを連結するモジュール。 詳細については、次を参照してください。 [gulp concat](https://www.npmjs.com/package/gulp-concat)です。|
-|gulp cssmin|CSS ファイルを縮小するモジュール。 詳細については、次を参照してください。 [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin)です。|
+|gulp-concat|オペレーティング システムの改行文字に基づいてファイルを連結するモジュール。 詳細については、次を参照してください。 [gulp concat](https://www.npmjs.com/package/gulp-concat)です。|
+|gulp-cssmin|CSS ファイルを縮小するモジュール。 詳細については、次を参照してください。 [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin)です。|
 |gulp uglify します。|縮小するモジュール*.js*ファイル。 詳細については、次を参照してください。 [gulp uglify](https://www.npmjs.com/package/gulp-uglify)です。|
 
 必要なモジュールがインポートされると、タスクを指定できます。 ここで 6 つのタスクが登録されている、次のコードで表されます。
@@ -249,7 +248,7 @@ Visual Studio でまたはを使用して、コマンド プロンプトから�
     gulp.task("series", ["series:first", "series:second"], function () {});
     ```
  
-    次の 3 つのタスクがあるようになりました: `series:first`、 `series:second`、および`series`です。 `series:second`タスクには実行して、前に完了するタスクの配列を指定する 2 番目のパラメーターが含まれています、`series:second`タスクが実行されます。  上でのみコードで指定されたとおり、`series:first`前にタスクを完了する必要があります、`series:second`タスクが実行されます。
+    次の 3 つのタスクがあるようになりました: `series:first`、 `series:second`、および`series`です。 `series:second`タスクには実行して、前に完了するタスクの配列を指定する 2 番目のパラメーターが含まれています、`series:second`タスクが実行されます。 上でのみコードで指定されたとおり、`series:first`前にタスクを完了する必要があります、`series:second`タスクが実行されます。
 
 2.  保存*gulpfile.js*です。
 
@@ -328,7 +327,7 @@ ASP.NET Core の環境に関連する詳細については、次を参照して�
 
 ## <a name="task-and-module-details"></a>タスクとモジュールの詳細
 
-Gulp タスクは、関数名で登録されます。  現在のタスクの前に他のタスクを実行する必要がある場合は、依存関係を指定できます。 追加の関数では、実行し Gulp タスクを見るだけでなく、ソースを設定することができます (*src*) と移行先 (*dest*) 変更されているファイル。 プライマリの Gulp API 関数を次に示します。
+Gulp タスクは、関数名で登録されます。 現在のタスクの前に他のタスクを実行する必要がある場合は、依存関係を指定できます。 追加の関数では、実行し Gulp タスクを見るだけでなく、ソースを設定することができます (*src*) と移行先 (*dest*) 変更されているファイル。 プライマリの Gulp API 関数を次に示します。
 
 |Gulp 関数|構文|説明|
 |---   |--- |--- |
