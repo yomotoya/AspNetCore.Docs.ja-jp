@@ -1,8 +1,7 @@
 ---
 title: "Visual Studio を使用して Azure に ASP.NET Core アプリを発行する"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する方法を説明します。"
 ms.author: riande
 manager: wpickett
 ms.date: 12/16/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: fdd439a5e4fd41e72fd7a3c602183d4a4e9e0aa5
-ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
+ms.openlocfilehash: dd31e3a9583a0c152e97ae7cf6b215389298a20c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 /ja-jp
 
@@ -181,8 +180,7 @@ Visual Studio は、Azure で Web アプリと SQL Server を作成します。 
 
 ### <a name="next-steps"></a>次の手順
 
-* [Visual Studio と Git による Azure への継続的配置](../publishing/azure-continuous-deployment.md)
-
+* [Visual Studio と Git による Azure への継続的配置](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
 
 ## <a name="additonal-resources"></a>追加のリソース
 

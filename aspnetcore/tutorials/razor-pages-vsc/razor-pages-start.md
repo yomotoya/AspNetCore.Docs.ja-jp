@@ -2,7 +2,6 @@
 title: "Visual Studio Code を使用する ASP.NET Core の Razor ページの概要"
 author: rick-anderson
 description: "Visual Studio Code を使用する ASP.NET Core の Razor ページの概要"
-keywords: "ASP.NET Core,Razor ページ,スキャフォールディング,Entity Framework Core,EF,EF Core,データベース,mac,macOS,Visual Studio Code,Code"
 ms.author: riande
 manager: wpickett
 ms.date: 08/27/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: 1b9dff14fa98314601fa44aa229aef6b73bb79d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 727c3d5c8bed0aef3094816b7e5f0a940aea654c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core-with-visual-studio-code"></a>Visual Studio Code を使用する ASP.NET Core の Razor ページの概要
 

@@ -2,7 +2,6 @@
 title: "ASP.NET Core MVC と Visual Studio for Mac の概要"
 author: rick-anderson
 description: "ASP.NET Core MVC と Visual Studio の概要"
-keywords: ASP.NET Core,MVC,Visual Studio for Mac,Entity Framework
 ms.author: riande
 manager: wpickett
 ms.date: 8/23/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: 21f115eec924d5e4b21ad78398c8cbd99e02a0a8
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: 51c0477c40885d3aaaa7562f8baba0a94cb4f920
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>ASP.NET Core MVC と Visual Studio for Mac の概要
 
