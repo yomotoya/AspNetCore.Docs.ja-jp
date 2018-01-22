@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/bson-support-in-web-api-21
 msc.type: authoredcontent
-ms.openlocfilehash: 08ef1564b2f8f11294c3bb1ec0ff9a3d063895b6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 53ad705fad6d2225cecca4d73355bd6ebfcf56d5
+ms.sourcegitcommit: 459cb3289741a3f46325e605a617dc926ee0563d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/22/2018
 ---
 <a name="bson-support-in-aspnet-web-api-21"></a>ASP.NET Web API 2.1 で BSON サポート
 ====================
@@ -30,7 +30,7 @@ Web API 2.1 には、BSON のサポートが導入されています。 この�
 
 BSON は、軽量、簡単には、scan、エンコードとデコードに高速されるようにするために設計されました。
 
-- BSON は JSON のサイズと同等です。 データによっては、BSON ペイロードは、JSON ペイロードより小さいか大きいする可能性があります。 イメージ ファイルなど、バイナリ データをシリアル化するため BSON JSON よりも小さいので、バイナリ データはなく、base64 でエンコードされました。
+- BSON は JSON のサイズと同等です。 データによっては、BSON ペイロードは、JSON ペイロードより小さいか大きいする可能性があります。 イメージ ファイルなど、バイナリ データをシリアル化するため、バイナリ データが base64 でエンコードされたため BSON は JSON よりも小さいです。
 - BSON ドキュメントは、スキャン、パーサーはそれらをデコードすることがなく要素をスキップすることができますので、長さフィールドを持つ要素が前付くので簡単です。
 - エンコードとデコードは、数値データ型がない文字列、数値として格納されているため効率的、です。
 
