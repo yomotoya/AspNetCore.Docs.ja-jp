@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: 71bde77e0bc5698b670b560455301cae642165a6
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3f0f1c402aeac388c2fcabb509aa8aa3a46e95f5
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="aspnet-core-security-overview"></a>ASP.NET Core セキュリティの概要
 
@@ -96,7 +96,7 @@ ASP.NET Core および EF には、アプリをセキュリティで保護し、
         *   [キー ストレージの形式](data-protection/implementation/key-storage-format.md)
         *   [短期データ保護プロバイダー](data-protection/implementation/key-storage-ephemeral.md)
     *   [互換性](data-protection/compatibility/index.md)
-        *   [アプリケーション間での Cookie の共有](data-protection/compatibility/cookie-sharing.md)
+        *   [アプリ間での Cookie の共有](data-protection/compatibility/cookie-sharing.md)
         *   [ASP.NET での <machineKey> の置換](data-protection/compatibility/replacing-machinekey.md)
 *   [承認によって保護されたユーザー データでのアプリの作成](xref:security/authorization/secure-data)
 *   [開発中のアプリ シークレットの安全な保存](app-secrets.md)

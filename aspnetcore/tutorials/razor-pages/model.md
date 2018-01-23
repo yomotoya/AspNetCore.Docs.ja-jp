@@ -2,7 +2,6 @@
 title: "ASP.NET Core での Razor ページ アプリへのモデルの追加"
 author: rick-anderson
 description: "ASP.NET Core での Razor ページ アプリへのモデルの追加"
-keywords: "ASP.NET Core,Razor ページ,Razor,MVC"
 ms.author: riande
 manager: wpickett
 ms.date: 07/27/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 38f27a1d5ca80cec4b7bc43c3d5473fc829f1b05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 84e5ec27904b564fa6ee29843ceae0bb70754ea7
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="adding-a-model-to-a-razor-pages-app"></a>Razor ページ アプリへのモデルの追加
 
@@ -40,7 +39,7 @@ ms.lasthandoff: 11/10/2017
 
 *Startup.cs* ファイルで[依存性の注入](xref:fundamentals/dependency-injection)コンテナーを使用して、データベース コンテキストを登録します。
 
-[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=3-6)]
+[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=3-5,7-9)]
 
 プロジェクトをビルドして、エラーがないことを確認します。
 
@@ -60,7 +59,7 @@ ms.lasthandoff: 11/10/2017
 PMC で、次のコマンドを入力します。
 
 ```powershell
-Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design -Version 2.0.0
+Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design
 Add-Migration Initial
 Update-Database
 ```

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/index
-ms.openlocfilehash: e8d9a8b36b4f7b6392d1dde42532caec51b140ee
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 017aa939ce4c469c08d1cc3a63002ae24c66c096
+ms.sourcegitcommit: 459cb3289741a3f46325e605a617dc926ee0563d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="authentication"></a>認証
 
@@ -36,6 +36,8 @@ ms.lasthandoff: 01/19/2018
 * [Azure Active Directory](azure-active-directory/index.md)
 
   * [ASP.NET Core Web アプリへの Azure AD の統合](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
+
+  * [顧客向け ASP.NET Core web アプリへの Azure AD B2C の統合](azure-ad-b2c.md)
 
   * [Azure AD を使用した WPF アプリからの ASP.NET Core Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 

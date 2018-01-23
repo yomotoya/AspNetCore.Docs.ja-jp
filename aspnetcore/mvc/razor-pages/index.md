@@ -1,7 +1,19 @@
 ---
-タイトル: ASP.NET Core の Razor ページの概要 作者: Rick-Anderson 説明: Razor ページの ASP.NET Core チュートリアル。 MVC Core、ASP.NET Core 2.x、Web 開発入門、Visual Studio 2017 を含みます。
-このドキュメントでは、ASP.NET Core の Razor ページを使用し、ページに重点を置いたシナリオの開発を簡単にする方法について説明します。
-ms.author: riande manager: wpickett ms.date: 09/12/2017 ms.topic: get-started-article ms.technology: aspnet ms.prod: asp.net-core uid: mvc/razor-pages/index
+title: "ASP.NET Core での Razor ページの概要"
+author: Rick-Anderson
+description: "Razor ページでの ASP.NET Core のチュートリアルです。 MVC Core、ASP.NET Core 2.x、Web 開発入門、Visual Studio 2017 を含みます。 このドキュメントは、ページに重点を置いたシナリオの開発を容易にするために、ASP.NET Core での Razor ページを使用するための概要を提供します。"
+ms.author: riande
+manager: wpickett
+ms.date: 09/12/2017
+ms.topic: get-started-article
+ms.technology: aspnet
+ms.prod: asp.net-core
+uid: mvc/razor-pages/index
+ms.openlocfilehash: 059dc3a163c646877da40a73bcc9a75eb38fb345
+ms.sourcegitcommit: 459cb3289741a3f46325e605a617dc926ee0563d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 

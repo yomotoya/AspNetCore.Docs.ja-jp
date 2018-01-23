@@ -2,7 +2,6 @@
 title: "ASP.NET Core の Razor ページの概要"
 author: rick-anderson
 description: "ASP.NET Core の Razor ページの概要"
-keywords: "ASP.NET Core,Razor ページ,Razor,MVC"
 ms.author: riande
 manager: wpickett
 ms.date: 12/22/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 12685d6a391c127d78399408291c26caa0192ee2
-ms.sourcegitcommit: 44a62f59d4db39d685c4487a0345a486be18d7c7
+ms.openlocfilehash: 69a5bc439130ffacf2d267c79b1a6b0347171e49
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core"></a>ASP.NET Core の Razor ページの概要
 
@@ -41,10 +40,7 @@ ms.lasthandoff: 12/21/2017
   ![新しい ASP.NET Core Web アプリケーション](../../mvc/razor-pages/index/_static/np.png)
 * ドロップダウン リストで **[ASP.NET Core 2.0]** を選択してから、**[Web アプリケーション]** を選択します。
 
-> [!NOTE]
-> .NET Framework で ASP.NET Core を使用する場合は、まず、ダイアログの左端のドロップダウンから **[.NET Framework]** を選択します。その後、必要な ASP.NET Core バージョンを選択できます。
-
-  ![Web アプリケーション (Razor ページ)](razor-pages-start/_static/np2.png)
+  [!INCLUDE[install 2.0](../../includes/dotnetcore-on-dotnetfx-vs.md)]
 
 以下のように、Visual Studio のテンプレートでスタート プロジェクトを作成します。
 
@@ -58,6 +54,9 @@ ms.lasthandoff: 12/21/2017
 * **Ctrl + F5** キー (非デバッグ モード) でアプリを起動することで、コードの変更、ファイルの保存、ブラウザーの更新、およびコード変更の確認を行うことができます。 多くの開発者は、すばやくアプリを起動し、変更を確認できる非デバッグ モードの使用を好みます。
 
 [!INCLUDE[razor-pages-start](../../includes/RP/razor-pages-start.md)]
+
+>[!div class="step-by-step"]
+[次: モデルの追加](xref:tutorials/razor-pages/model)
 
 >[!div class="step-by-step"]
 [次: モデルの追加](xref:tutorials/razor-pages/model)
