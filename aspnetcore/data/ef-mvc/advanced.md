@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: ea83e5b17df80e5615dda49335247340d1cfb016
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: c5c06e61239c65cb1ff501a57777363a047a8db5
+ms.sourcegitcommit: f8ecf3d8f5b15f1e84ec86de3835b49ebe89fa1e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>高度なトピックの EF コア ASP.NET Core MVC のチュートリアル (10 10 の)
 
@@ -169,7 +169,7 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 ## <a name="entity-framework-core-source-code-and-development-plans"></a>Entity Framework Core のソース コードと開発計画
 
-Entity Framework Core のソース コードは[https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore)です。 ソース コードだけでなくすることができます夜間ビルドを取得、懸案事項の管理、機能仕様、設計ミーティングのメモ[将来開発のためのロードマップ](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap)などです。 バグ、ファイルを作成でき、EF ソース コードに独自の機能強化に協力することができます。
+Entity Framework Core ソース[https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore)です。 EF コア リポジトリには、議事録、デザイン、夜間のビルド、問題追跡、機能仕様が含まれています。 および[将来開発のためのロードマップ](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap)です。 ファイルまたはバグを発見し、投稿できます。
 
 ソース コードは開いているが、Entity Framework のコアが完全にマイクロソフト製品サポートします。 Microsoft Entity Framework チームは、コントロール コントリビューションの受け入れを保持し、各リリースの品質を保証するすべてのコード変更をテストします。
 

@@ -1,19 +1,20 @@
 ---
 title: "モデル バインディング"
-author: rick-anderson
-description: 
-ms.author: riande
+author: rachelappel
+description: "ASP.NET Core mvc モデル バインディングに関する情報"
+ms.author: rachelap
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 01/22/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
+ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 uid: mvc/models/model-binding
-ms.openlocfilehash: 84b9c5dc3a87b739affaeaecaa180d1b01f49b8e
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8fc6ff66d05164c1040f8cc77886357a633a0472
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="model-binding"></a>モデル バインディング
 
@@ -41,7 +42,7 @@ MVC は要求データをアクション パラメーターを名前でバイン
 
 1. `Form values`: これらは、POST メソッドを使用して HTTP 要求のフォーム値です。 (jQuery POST 要求を含む)。
 
-2. `Route values`: 一連のルートの値によって提供される[ルーティング](../../fundamentals/routing.md)
+2. `Route values`: 一連のルートの値によって提供される[ルーティング](xref:fundamentals/routing)
 
 3. `Query strings`: クエリ文字列の一部の URI。
 
@@ -101,7 +102,7 @@ MVC には、別のソースにその既定のモデル バインディング動
 
 属性は、モデル バインディングの既定の動作をオーバーライドする必要がある場合に非常に便利なツールです。
 
-## <a name="binding-formatted-data-from-the-request-body"></a>バインディングから書式付きデータ要求の本文
+## <a name="bind-formatted-data-from-the-request-body"></a>要求本文の書式設定されたデータをバインドします。
 
 要求データは、さまざまな JSON、XML、およびその他の多くを含む形式で取得できます。 要求本文内のデータにパラメーターをバインドすることを示すために、[FromBody] 属性を使用する場合、MVC は、コンテンツの種類に基づく要求データを処理する構成済みのフォーマッタのセットを使用します。 既定では、MVC が含まれます、`JsonInputFormatter`クラス XML とその他のカスタム形式の処理に関するその他のフォーマッタを追加できますが JSON データを処理します。
 

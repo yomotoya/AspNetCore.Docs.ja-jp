@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 2955888bc745fa3d49e40d364196283f16ad95ef
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: f69f707ba64d13fc372b7bc44718c9dcf8cec6e2
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/22/2018
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax コンテンツ配信ネットワーク
 ====================
@@ -161,6 +161,14 @@ CDN では、最も一般的なサード パーティ製の JavaScript ライブ
 ### <a name="jquery-releases-on-the-cdn"></a>CDN の jQuery リリース
 
 CDN では、jQuery の次のリリースがホストされています。
+
+#### <a name="jquery-version-331"></a>jQuery バージョン 3.3.1
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.map
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.slim.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.slim.min.js
+- http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.slim.min.map
 
 #### <a name="jquery-version-321"></a>jQuery バージョン 3.2.1
 - http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js

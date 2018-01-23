@@ -4,16 +4,16 @@ author: rick-anderson
 description: "ASP.NET Core ミドルウェアと要求パイプラインについて説明します。"
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2017
+ms.date: 01/22/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: af16046c97964e8e1c16a4f5989fcfa794741c4d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: ef130e736e2f32fa134156d979ce5bfbedcae828
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core ミドルウェアの基本事項
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 01/19/2018
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-## <a name="what-is-middleware"></a>ミドルウェアは、新機能
+## <a name="what-is-middleware"></a>ミドルウェアとは何ですか。
 
 ミドルウェアは、要求と応答を処理するアプリケーション パイプラインとして構成されたソフトウェアです。 各コンポーネントには:
 
@@ -191,18 +191,22 @@ app.Map("/level1/level2", HandleMultiSeg);
 
 ## <a name="built-in-middleware"></a>組み込みのミドルウェア
 
-ASP.NET Core は、次のミドルウェア コンポーネントに付属します。
+ASP.NET Core は、追加する順序の説明と同様に、次のミドルウェア コンポーネントに付属します。
 
-| ミドルウェア | 説明 |
-| ----- | ------- |
-| [認証](xref:security/authentication/identity) | 認証のサポートを提供します。 |
-| [CORS](xref:security/cors) | クロス オリジン リソース共有を構成します。 |
-| [応答キャッシュ](xref:performance/caching/middleware) | 応答のキャッシュのサポートを提供します。 |
-| [応答の圧縮](xref:performance/response-compression) | 応答の圧縮のサポートを提供します。 |
-| [ルーティング](xref:fundamentals/routing) | 定義し、要求のルートを制約します。 |
-| [セッション](xref:fundamentals/app-state) | ユーザー セッションを管理するためのサポートを提供します。 |
-| [静的ファイル](xref:fundamentals/static-files) | 静的ファイルとディレクトリの参照を提供しているは、サポートを提供します。 |
-| [URL リライト ミドルウェア](xref:fundamentals/url-rewriting) | Url の書き換えと、要求をリダイレクトするサポートを提供します。 |
+| ミドルウェア | 説明 | 順番 |
+| ---------- | ----------- | ----- |
+| [認証](xref:security/authentication/identity) | 認証のサポートを提供します。 | 前に`HttpContext.User`が必要です。 OAuth コールバックのターミナル。 |
+| [CORS](xref:security/cors) | クロス オリジン リソース共有を構成します。 | コンポーネントの前に、CORS を使用します。 |
+| [診断](xref:fundamentals/error-handling) | 診断を構成します。 | コンポーネントの前に、エラーを生成します。 |
+| [ForwardedHeaders/HttpOverrides](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | 現在の要求にプロキシのヘッダーを転送します。 | 更新されたフィールドを使用するコンポーネントの前に (例: スキーム、ホスト、ClientIP、メソッド)。 |
+| [応答キャッシュ](xref:performance/caching/middleware) | 応答のキャッシュのサポートを提供します。 | コンポーネントの前にキャッシュする必要があります。 |
+| [応答の圧縮](xref:performance/response-compression) | 応答の圧縮のサポートを提供します。 | コンポーネントの前に圧縮する必要があります。 |
+| [RequestLocalization](xref:fundamentals/localization) | ローカライズ サポートを提供します。 | ローカリゼーションの重要なコンポーネント前にです。 |
+| [ルーティング](xref:fundamentals/routing) | 定義し、要求のルートを制約します。 | 一致するルートのターミナル。 |
+| [セッション](xref:fundamentals/app-state) | ユーザー セッションを管理するためのサポートを提供します。 | コンポーネントの前に、セッションを作成する必要があります。 |
+| [静的ファイル](xref:fundamentals/static-files) | 静的ファイルとディレクトリの参照を提供しているは、サポートを提供します。 | ターミナル場合、要求では、ファイルと一致します。 |
+| [URL 書き換え](xref:fundamentals/url-rewriting) | Url の書き換えと、要求をリダイレクトするサポートを提供します。 | コンポーネントの前に URL を使用します。 |
+| [WebSocket](xref:fundamentals/websockets) | Websocket プロトコルを有効にします。 | コンポーネントの前に、WebSocket 要求を受け入れることが必要です。 |
 
 <a name="middleware-writing-middleware"></a>
 

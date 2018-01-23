@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 769696931498605bd3cf3459279939afb86a4ee8
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 99f8d1cc73fdcbd99cffe595ae89f3c61a6f9a53
+ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL の ASP.NET Core のミドルウェアの書き換え
 
@@ -38,7 +38,9 @@ URL の書き換えは 1 つまたは複数の事前定義された規則に基�
 ## <a name="url-redirect-and-url-rewrite"></a>URL リダイレクトと URL の書き換え
 表現の間に違い*URL リダイレクト*と*URL 書き換え*に微妙なように見えますが最初のクライアントにリソースを提供するための重要な意味を含んでいます。 ASP.NET Core URL 書き換えミドルウェアは、両方のニーズを満たせるです。
 
-A *URL リダイレクト*クライアント側の操作は、クライアントが別のアドレスにあるリソースにアクセスするよう指示します。 サーバーへのラウンド トリップが必要ですされ、クライアントが、リソースに対する新しい要求を行うときに、ブラウザーのアドレス バーに、クライアントに返され、リダイレクト URL が表示されます。 場合`/resource`は*リダイレクト*に`/different-resource`、クライアントからの要求`/resource`、サーバーは、クライアントがリソースをリソースを取得する必要があります、応答と`/different-resource`リダイレクトがであることを示すステータス コードで一時的または永続的です。 クライアントは、リダイレクト URL にあるリソースに対する新しい要求を実行します。
+A *URL リダイレクト*クライアント側の操作は、クライアントが別のアドレスにあるリソースにアクセスするよう指示します。 これには、サーバーへのラウンド トリップが必要です。 クライアントは、リソースの新しい要求をブラウザーのアドレス バーに、クライアントに返され、リダイレクト URL が表示されます。 
+
+場合`/resource`は*リダイレクト*に`/different-resource`、クライアントからの要求`/resource`です。 サーバーは、クライアントがリソースをリソースを取得する必要があります、応答`/different-resource`リダイレクトが、一時的または永続的なことを示すステータス コード。 クライアントは、リダイレクト URL にあるリソースに対する新しい要求を実行します。
 
 ![WebAPI サービス エンドポイントは、サーバー上のバージョン 2 (v2) をバージョン 1 (v1) から一時的に変更されましたが。 クライアントは、バージョン 1 パス/v1/api のサービスに要求がします。 サーバー応答を返信 302 (検出)、サービスの新しい、一時的なパスとバージョン 2/v2/api にします。 クライアントは、2 番目の要求をリダイレクト URL のサービスには。 サーバーは、200 (OK) 状態コードを返します。](url-rewriting/_static/url_redirect.png)
 
@@ -369,7 +371,7 @@ A`StreamReader`からルールの読み取りに使用される、 *IISUrlRewrit
 | クエリ文字列にパスを書き直してください。 | `^path/(.*)/(.*)`<br>`/path/abc/123` | `path?var1=$1&var2=$2`<br>`/path?var1=abc&var2=123` |
 | 末尾のスラッシュを除去します。 | `(.*)/$`<br>`/path/` | `$1`<br>`/path` |
 | 末尾のスラッシュを適用します。 | `(.*[^/])$`<br>`/path` | `$1/`<br>`/path/` |
-| 特定の要求を再作成を回避します。 | `(.*[^(\.axd)])$`<br>うん：`/resource.htm`<br>違います：`/resource.axd` | `rewritten/$1`<br>`/rewritten/resource.htm`<br>`/resource.axd` |
+| 特定の要求を再作成を回避します。 | `^(.*)(?<!\.axd)$` または `^(?!.*\.axd$)(.*)$`<br>うん：`/resource.htm`<br>違います：`/resource.axd` | `rewritten/$1`<br>`/rewritten/resource.htm`<br>`/resource.axd` |
 | URL セグメントを再配置します。 | `path/(.*)/(.*)/(.*)`<br>`path/1/2/3` | `path/$3/$2/$1`<br>`path/3/2/1` |
 | URL セグメントを置き換えます | `^(.*)/segment2/(.*)`<br>`/segment1/segment2/segment3` | `$1/replaced/$2`<br>`/segment1/replaced/segment3` |
 
