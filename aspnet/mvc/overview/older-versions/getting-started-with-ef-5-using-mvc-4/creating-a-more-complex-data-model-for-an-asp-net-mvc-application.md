@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 350c2e4e92c8a53d22dd2500330281b4003a05e9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5283da2786d41c0ae06607185dd416aeb7d2b62a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application-4-of-10"></a>ASP.NET MVC アプリケーション (10 の 4) のより複雑なデータ モデルの作成
 ====================
@@ -81,7 +81,7 @@ ms.lasthandoff: 11/10/2017
 
 [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性は、名前に空白文字を入力するからユーザーを妨げることはありません。 使用することができます、[正規表現](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)入力に制限を適用する属性。 たとえば、次のコードには、最初の文字が大文字で指定し、残りの文字は英文字でが必要です。
 
-`[RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]`
+`[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]`
 
 [MaxLength](https://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.MaxLengthAttribute.aspx)属性と同様の機能を提供する、 [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性が、クライアント側では提供しません検証します。
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="the-courses-and-officeassignment-navigation-properties"></a>コースと OfficeAssignment ナビゲーション プロパティ
 
-`Courses`と`OfficeAssignment`プロパティは、ナビゲーション プロパティ。 前に説明したとおり、通常は定義として[仮想](https://msdn.microsoft.com/en-us/library/9fkccyh4(v=vs.110).aspx)と呼ばれる Entity Framework 機能の活用できるように[遅延読み込み](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx)です。 さらに、ナビゲーション プロパティが複数のエンティティを保持できる場合、型実装する必要があります、 [ICollection&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/92t2ye13.aspx)インターフェイスです。 (たとえば[IList&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/5y536ey6.aspx)はなく修飾[IEnumerable&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/9eekhta0.aspx)ため`IEnumerable<T>`実装していません[追加。](https://msdn.microsoft.com/en-us/library/63ywd54z.aspx).
+`Courses`と`OfficeAssignment`プロパティは、ナビゲーション プロパティ。 前に説明したとおり、通常は定義として[仮想](https://msdn.microsoft.com/en-us/library/9fkccyh4(v=vs.110).aspx)と呼ばれる Entity Framework 機能の活用できるように[遅延読み込み](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx)です。 さらに、ナビゲーション プロパティが複数のエンティティを保持できる場合、型実装する必要があります、 [ICollection&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/92t2ye13.aspx)インターフェイスです。 (たとえば[IList&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/5y536ey6.aspx)はなく修飾[IEnumerable&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/9eekhta0.aspx)ため`IEnumerable<T>`実装していません[追加](https://msdn.microsoft.com/en-us/library/63ywd54z.aspx)。
 
 インストラクターは任意の数のコースを教えることができますので、`Courses`のコレクションとして定義された`Course`エンティティです。 当社のビジネス ルールの状態、インストラクターだけが最大で 1 つのオフィスのため`OfficeAssignment`は、1 つとして定義されて`OfficeAssignment`エンティティ (可能性もあります`null`office が割り当てられていない場合)。
 
@@ -315,7 +315,7 @@ Entity Framework を自動的に作成、`CourseInstructor`して、テーブル
 
 ![School_data_model_diagram](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image13.png)
 
-多対多リレーションシップの線以外 (\*に\*) と一対多リレーションシップの線 (1 ~ \*)、ことがわかります (1 対 0.1) の 0 または 1 を 1 つのリレーションシップの線の間、`Instructor`と`OfficeAssignment`エンティティと 0-または-1-対多リレーションシップの線 (0.1 対\*)、インストラクターと Department エンティティ間です。
+多対多リレーションシップの線以外 (\*に\*) と一対多リレーションシップの線 (1 ~ \*)、ことがわかります (1 対 0..1) の 0 または 1 を 1 つのリレーションシップの線の間、`Instructor`と`OfficeAssignment`エンティティと 0-または-1-対多リレーションシップの線 (0..1 対\*)、インストラクターと Department エンティティ間です。
 
 ## <a name="customize-the-data-model-by-adding-code-to-the-database-context"></a>データベース コンテキストにコードを追加することで、データ モデルをカスタマイズします。
 
@@ -393,7 +393,7 @@ PMC から次のように入力します。、`add-migration`コマンド。
 
 ![Table_data_in_CourseInstructor_table](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image15.png)
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 複雑なデータ モデルと対応するデータベースがあるようになりました。 次のチュートリアルで学習関連のデータにアクセスするさまざまな方法の詳細。
 

@@ -16,7 +16,7 @@ MVC は、着信 URL に応じてコントローラー クラス (およびそ�
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-ルーティングの形式は、*Startup.cs* ファイルで設定します。
+ルーティングの形式は、*Startup.cs* ファイル内の`Configure` メソッドで設定します。
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
