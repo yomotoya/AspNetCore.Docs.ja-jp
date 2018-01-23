@@ -130,6 +130,7 @@
 ## [テスト コントローラー](xref:mvc/controllers/testing)
 ## [リモート デバッグ](/visualstudio/debugger/remote-debugging-azure)
 ## [スナップショットのデバッグ](/azure/application-insights/app-insights-snapshot-debugger)
+## [Visual Studio のスナップショットのデバッグ](/visualstudio/debugger/debug-live-azure-applications)
 
 # [データ アクセスとストレージ](data/index.md)
 ## [Visual Studio を使用した Razor ページと Entity Framework Core の概要](xref:data/ef-rp/intro)
