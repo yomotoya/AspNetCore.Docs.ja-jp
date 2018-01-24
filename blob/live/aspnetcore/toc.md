@@ -130,6 +130,7 @@
 ## [テスト コントローラー](xref:mvc/controllers/testing)
 ## [リモート デバッグ](/visualstudio/debugger/remote-debugging-azure)
 ## [スナップショットのデバッグ](/azure/application-insights/app-insights-snapshot-debugger)
+## [Visual Studio のスナップショットのデバッグ](/visualstudio/debugger/debug-live-azure-applications)
 
 # [データ アクセスとストレージ](data/index.md)
 ## [Visual Studio を使用した Razor ページと Entity Framework Core の概要](xref:data/ef-rp/intro)
@@ -204,6 +205,7 @@
 ### [Identity なしでの Cookie 認証の使用](xref:security/authentication/cookie)
 ### [Azure Active Directory](xref:security/authentication/azure-active-directory/index)
 #### [ASP.NET Core Web アプリへの Azure AD の統合](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
+#### [顧客向け ASP.NET Core web アプリへの Azure AD B2C の統合](xref:security/authentication/azure-ad-b2c)
 #### [Azure AD を使用した WPF アプリからの ASP.NET Core Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 #### [Azure AD を使用した ASP.NET Core Web アプリでの Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
 ### [IdentityServer4 での ASP.NET Core アプリのセキュリティ保護](https://identityserver4.readthedocs.io/)
