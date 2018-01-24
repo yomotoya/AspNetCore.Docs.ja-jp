@@ -5,16 +5,16 @@ description: "構成 API を使用して、複数の方法で ASP.NET Core ア�
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/11/2018
+ms.date: 01/11/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 0f8618898089418f709506aee5eb013f983dc294
-ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
+ms.openlocfilehash: c4f57d1e02ad5f4e235039999af9df9d236756a7
+ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>ASP.NET Core アプリを構成する
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/17/2018
 
 構成は、コロンで区切られたノードの名前と値のペアの階層リストで構成されます。 値を取得するには、対応する項目のキーを使用して `Configuration` インデクサーにアクセスします。
 
-[!code-csharp[Main](index/sample/ConfigJson/Program.cs?range=24-24)]
+[!code-csharp[Main](index/sample/ConfigJson/Program.cs?range=21-22)]
 
 JSON 形式の構成ソースの配列を操作する場合は、コロンで区切られた文字列の一部として配列インデックスを使用します。 次の例では、上記の `wizards` 配列の最初の項目の名前を取得します。
 
@@ -59,7 +59,7 @@ Console.Write($"{Configuration["wizards:0:Name"]}");
 // Output: Gandalf
 ```
 
-組み込みの[構成](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration)プロバイダーに書き込まれた名前と値のペアは永続化**されません**。 ただし、値を保存するカスタム プロバイダーを作成することができます。 [カスタム構成プロバイダー](xref:fundamentals/configuration/index#custom-config-providers)に関する記述を参照してください。
+組み込みの[構成](/dotnet/api/microsoft.extensions.configuration)プロバイダーに書き込まれた名前と値のペアは永続化**されません**。 ただし、値を保存するカスタム プロバイダーを作成することができます。 [カスタム構成プロバイダー](xref:fundamentals/configuration/index#custom-config-providers)に関する記述を参照してください。
 
 上記のサンプルでは、構成インデクサーを使用して値を読み取ります。 `Startup` の外部の構成にアクセスする場合は、*オプション パターン*を使用します。 詳細については、「[オプション](xref:fundamentals/configuration/options)」トピックを参照してください。
 
@@ -72,7 +72,7 @@ Console.Write($"{Configuration["wizards:0:Name"]}");
 * *appsettings.\<EnvironmentName>.json*
 * 環境変数
 
-ASP.NET Core 1.x アプリは、`AddJsonFile` および [AddEnvironmentVariables](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables #Microsoft_Extensions_Configuration_EnvironmentVariablesExtensions_AddEnvironmentVariables_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_) を呼び出す必要があります。
+ASP.NET Core 1.x アプリは、`AddJsonFile` および [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables#Microsoft_Extensions_Configuration_EnvironmentVariablesExtensions_AddEnvironmentVariables_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_) を呼び出す必要があります。
 
 パラメーターの説明については、「[AddJsonFile](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions)」を参照してください。 `reloadOnChange` は、ASP.NET Core 1.1 以降でのみサポートされます。
 
@@ -106,7 +106,7 @@ ASP.NET Core 1.x アプリは、`AddJsonFile` および [AddEnvironmentVariables
 
 ### <a name="getvalue"></a>GetValue
 
-次の例では、[GetValue&lt;T&gt;](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationbinder#Microsoft_Extensions_Configuration_ConfigurationBinder_GetValue_Microsoft_Extensions_Configuration_IConfiguration_System_Type_System_String_System_Object_) 拡張メソッドを示します。
+次の例では、[GetValue&lt;T&gt;](/dotnet/api/microsoft.extensions.configuration.configurationbinder.get?view=aspnetcore-2.0#Microsoft_Extensions_Configuration_ConfigurationBinder_Get__1_Microsoft_Extensions_Configuration_IConfiguration_) 拡張メソッドを示します。
 
 [!code-csharp[Main](index/sample/InMemoryGetValue/Program.cs?highlight=31)]
 
@@ -175,11 +175,11 @@ public void CanBindObjectTree()
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/ConfigurationContext.cs?name=snippet1)]
 
-[IConfigurationSource](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.iconfigurationsource) を実装するクラスを作成します。
+[IConfigurationSource](/dotnet/api/Microsoft.Extensions.Configuration.IConfigurationSource) を実装するクラスを作成します。
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkConfigurationSource.cs?highlight=7)]
 
-[ConfigurationProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationprovider) から継承して、カスタム構成プロバイダーを作成します。 構成プロバイダーは、空の場合にデータベースを初期化します。
+[ConfigurationProvider](/dotnet/api/Microsoft.Extensions.Configuration.ConfigurationProvider) から継承して、カスタム構成プロバイダーを作成します。 構成プロバイダーは、空の場合にデータベースを初期化します。
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkConfigurationProvider.cs?highlight=9,18-31,38-39)]
 
@@ -401,7 +401,7 @@ IIS または IIS-Express でアプリをホストする場合は、*web.config*
 * `IConfiguration` には次の 2 つ特性があります。
   * `IConfigurationRoot` ルート ノードに使用されます。 再読み込みをトリガーできます。
   * `IConfigurationSection` 構成値のセクションを表します。 `GetSection` および `GetChildren` メソッドは `IConfigurationSection` を返します。
-  * 構成を再度読み込むとき、あるいは各プロバイダーにアクセスする必用があるとき、[IConfigurationRoot](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration.iconfigurationroot) を使用します。 いずれの状況も一般的ではありません。
+  * 構成を再度読み込むとき、あるいは各プロバイダーにアクセスする必用があるとき、[IConfigurationRoot](/dotnet/api/microsoft.extensions.configuration.iconfigurationroot) を使用します。 いずれの状況も一般的ではありません。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
