@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: a63d81633a0f37d24ad5e05de293e3c41004eba1
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
-ms.translationtype: MT
+ms.openlocfilehash: aa70a35ad938fff6911367ee9d12aac9d575be7e
+ms.sourcegitcommit: efc9e5b5fffa0e13957131a0da52cc1532a87651
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-the-react-project-template-release-candidate"></a>対応プロジェクト テンプレート (リリース候補) を使用します。
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/11/2018
 コマンドを使用してコマンド プロンプトから、新しいプロジェクトを作成する`dotnet new react`空のディレクトリにします。 次のコマンドがでアプリを作成するなど、 *my-新しい-アプリ*ディレクトリとそのディレクトリへの切り替え。
 
 ```console
-dotnet new -o my-new-app
+dotnet new react -o my-new-app
 cd my-new-app
 ```
 
