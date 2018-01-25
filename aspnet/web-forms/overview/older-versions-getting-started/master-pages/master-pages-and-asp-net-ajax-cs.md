@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 86ec6454313f5a6e78c0f64433ef4e5a4f8461ee
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6e09951be5483ed098b8cab6517335f9962a5d95
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="master-pages-and-aspnet-ajax-c"></a>マスター ページや ASP.NET AJAX (c#)
 ====================
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/10/2017
 
 ますます多くの開発者が構築されている過去数年、 [AJAX](http://en.wikipedia.org/wiki/Ajax_(programming))-web アプリケーションを有効にします。 AJAX 対応の web サイトでは、複数の関連する web テクノロジを使用して、応答性の高いユーザー エクスペリエンスを提供します。 Microsoft の驚くほど簡単にできるは、AJAX 対応の ASP.NET アプリケーションを作成する[ASP.NET AJAX framework](../../../../ajax/index.md)です。 ASP.NET AJAX が ASP.NET 3.5 と Visual Studio 2008; に組み込まれています。ASP.NET 2.0 アプリケーションの個別のダウンロードとして利用もできます。
 
-ASP.NET AJAX フレームワークでの AJAX 対応の web ページを作成するときに、正確に 1 つを追加する必要があります[ScriptManager コントロール](https://msdn.microsoft.com/en-us/library/bb398863.aspx)framework を使用する各ページにします。 その名前からわかるように、ScriptManager は、AJAX 対応 web ページで使用するクライアント側スクリプトを管理します。 少なくともは、ScriptManager は、HTML、JavaScript ファイルにその構成の ASP.NET AJAX クライアント ライブラリをダウンロードするブラウザーに指示するを出力します。 カスタムの JavaScript ファイル、スクリプトが有効な web サービス、およびカスタム アプリケーション サービス機能を登録するも使用できます。
+ASP.NET AJAX フレームワークでの AJAX 対応の web ページを作成するときに、正確に 1 つを追加する必要があります[ScriptManager コントロール](https://msdn.microsoft.com/library/bb398863.aspx)framework を使用する各ページにします。 その名前からわかるように、ScriptManager は、AJAX 対応 web ページで使用するクライアント側スクリプトを管理します。 少なくともは、ScriptManager は、HTML、JavaScript ファイルにその構成の ASP.NET AJAX クライアント ライブラリをダウンロードするブラウザーに指示するを出力します。 カスタムの JavaScript ファイル、スクリプトが有効な web サービス、およびカスタム アプリケーション サービス機能を登録するも使用できます。
 
 場合は、サイトは、マスター ページ、(ようにする必要があります)、するは必要ありませんすべて単一のコンテンツ ページに ScriptManager コントロールを追加するには代わりに、マスター ページに ScriptManager コントロールを追加することができます。 このチュートリアルでは、マスター ページに ScriptManager コントロールを追加する方法を示します。 ScriptManagerProxy コントロールを使用して、特定のコンテンツ ページで、カスタム スクリプトとスクリプト サービスを登録する方法についても説明します。
 
@@ -117,7 +117,7 @@ SqlDataSource コントロールを使用して、Northwind データベース�
 
 [!code-sql[Main](master-pages-and-asp-net-ajax-cs/samples/sample3.sql)]
 
-`TOP 1`キーワード、`SELECT`句には、クエリによって返される最初のレコードのみが返されます。 [ `NEWID()`関数](https://msdn.microsoft.com/en-us/library/ms190348.aspx)新しい生成[グローバルに一意の識別子の値 (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier)で使用できると、`ORDER BY`句をランダムな順序でテーブルのレコードを返します。
+`TOP 1`キーワード、`SELECT`句には、クエリによって返される最初のレコードのみが返されます。 [ `NEWID()`関数](https://msdn.microsoft.com/library/ms190348.aspx)新しい生成[グローバルに一意の識別子の値 (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier)で使用できると、`ORDER BY`句をランダムな順序でテーブルのレコードを返します。
 
 
 [![構成をランダムに選択された 1 つのレコードを返す SqlDataSource](master-pages-and-asp-net-ajax-cs/_static/image11.png)](master-pages-and-asp-net-ajax-cs/_static/image10.png)
@@ -243,7 +243,7 @@ ScriptManagerProxy コントロールの動作を表示するで UpdatePanel を
 **図 12**: タイマーを再起動する [再開] をクリックして ([フルサイズのイメージを表示するをクリックして](master-pages-and-asp-net-ajax-cs/_static/image36.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ASP.NET AJAX フレームワークを使用して AJAX 対応 web アプリケーションを構築するときに、すべての AJAX 対応 web ページに ScriptManager コントロールが含まれている必要があります。 このプロセスを容易に ScriptManager、すべてのコンテンツ ページに ScriptManager を追加する必要があるのではなく、マスター ページに追加できます。 手順 1 では、ScriptManager を手順 2. コンテンツ ページでの AJAX 機能の実装に検査中にマスター ページに追加する方法を示しました。
 
@@ -255,7 +255,7 @@ ASP.NET AJAX フレームワークを使用して AJAX 対応 web アプリケ�
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [ASP.NET AJAX フレームワーク](../../../../ajax/index.md)
+- [ASP.NET AJAX Framework](../../../../ajax/index.md)
 - [ASP.NET AJAX のチュートリアル](../aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax.md)
 - [ASP.NET AJAX のビデオ](../../../videos/aspnet-ajax/index.md)
 - [Microsoft ASP.NET AJAX による対話型ユーザー インターフェイスの構築](http://aspnet.4guysfromrolla.com/articles/101007-1.aspx)

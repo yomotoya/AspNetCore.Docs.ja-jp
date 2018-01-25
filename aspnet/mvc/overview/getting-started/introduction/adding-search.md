@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: 10457d154f5fda875f7d1054d48daeeba3a50b7c
-ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
+ms.openlocfilehash: 116f681e14af0a09a4eb1502ef9f057c5db2f97d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="search"></a>検索
 ====================
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/12/2018
 
 [!code-csharp[Main](adding-search/samples/sample1.cs?highlight=1,6-9)]
 
-最初の行、`Index`メソッドは、次を作成[LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx)映画を選択するクエリ。
+最初の行、`Index`メソッドは、次を作成[LINQ](https://msdn.microsoft.com/library/bb397926.aspx)映画を選択するクエリ。
 
 [!code-csharp[Main](adding-search/samples/sample2.cs)]
 
@@ -44,10 +44,10 @@ ms.lasthandoff: 01/12/2018
 
 [!code-csharp[Main](adding-search/samples/sample3.cs)]
 
-上の `s => s.Title` コードは[ラムダ式](https://msdn.microsoft.com/en-us/library/bb397687.aspx)です。 ラムダは、メソッド ベースで使用[LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx)など、標準クエリ演算子メソッドを引数としてクエリを実行する、[場所](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.where.aspx)上記のコードで使用されるメソッド。 定義されている場合、またはなどのメソッドを呼び出すことで変更されるときに、LINQ クエリは実行されません`Where`または`OrderBy`です。 代わりに、クエリの実行が遅延、つまり、その実際の値が実際に反復処理されるまで、式の評価が遅延されるか、 [ `ToList` ](https://msdn.microsoft.com/en-us/library/bb342261.aspx)メソッドが呼び出されます。 `Search`サンプルについては、クエリで、 *Index.cshtml*ビュー。 クエリの遅延実行の詳細については、「[クエリの実行](https://msdn.microsoft.com/en-us/library/bb738633.aspx)」を参照してください。
+上の `s => s.Title` コードは[ラムダ式](https://msdn.microsoft.com/library/bb397687.aspx)です。 ラムダは、メソッド ベースで使用[LINQ](https://msdn.microsoft.com/library/bb397926.aspx)など、標準クエリ演算子メソッドを引数としてクエリを実行する、[場所](https://msdn.microsoft.com/library/system.linq.enumerable.where.aspx)上記のコードで使用されるメソッド。 定義されている場合、またはなどのメソッドを呼び出すことで変更されるときに、LINQ クエリは実行されません`Where`または`OrderBy`です。 代わりに、クエリの実行が遅延、つまり、その実際の値が実際に反復処理されるまで、式の評価が遅延されるか、 [ `ToList` ](https://msdn.microsoft.com/library/bb342261.aspx)メソッドが呼び出されます。 `Search`サンプルについては、クエリで、 *Index.cshtml*ビュー。 クエリの遅延実行の詳細については、「[クエリの実行](https://msdn.microsoft.com/library/bb738633.aspx)」を参照してください。
 
 > [!NOTE]
-> [Contains](https://msdn.microsoft.com/en-us/library/bb155125.aspx)メソッドが、データベースでは、c# コードではなく上で実行します。 データベースで[Contains](https://msdn.microsoft.com/en-us/library/bb155125.aspx)にマップ[SQL LIKE](https://msdn.microsoft.com/en-us/library/ms179859.aspx)は大文字小文字を区別します。
+> [Contains](https://msdn.microsoft.com/library/bb155125.aspx)メソッドが、データベースでは、c# コードではなく上で実行します。 データベースで[Contains](https://msdn.microsoft.com/library/bb155125.aspx)にマップ[SQL LIKE](https://msdn.microsoft.com/library/ms179859.aspx)は大文字小文字を区別します。
 
 これで、更新することができます、`Index`をユーザーに、フォームを表示するビュー。
 
@@ -123,7 +123,7 @@ Visual Studio 2013 では、表示およびファイルの表示を編集する�
 
 [!code-csharp[Main](adding-search/samples/sample12.cs)]
 
-コードを使用して、`AddRange`ジェネリックのメソッド`List`一覧にすべての個別ジャンルを追加するコレクション。 (なし、`Distinct`修飾子は、重複するジャンルを追加するには — たとえば、コメディ サンプルに 2 回追加されます)。 コードでジャンルの一覧を格納し、`ViewBag.MovieGenre`オブジェクト。 カテゴリのデータ (このようなムービー ジャンルの) として格納する、 [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist(v=vs.108).aspx)内のオブジェクト、 `ViewBag`、MVC アプリケーションの一般的なアプローチは、ドロップダウン リスト ボックスでカテゴリ データにアクセスし、します。
+コードを使用して、`AddRange`ジェネリックのメソッド`List`一覧にすべての個別ジャンルを追加するコレクション。 (なし、`Distinct`修飾子は、重複するジャンルを追加するには — たとえば、コメディ サンプルに 2 回追加されます)。 コードでジャンルの一覧を格納し、`ViewBag.MovieGenre`オブジェクト。 カテゴリのデータ (このようなムービー ジャンルの) として格納する、 [SelectList](https://msdn.microsoft.cus/library/system.web.mvc.selectlist(v=vs.108).aspx)内のオブジェクト、 `ViewBag`、MVC アプリケーションの一般的なアプローチは、ドロップダウン リスト ボックスでカテゴリ データにアクセスし、します。
 
 次のコードを確認する方法を示しています、`movieGenre`パラメーター。 空ではない、コードをさらには指定されたジャンルを選択したムービーを制限するムービーのクエリを制約します。
 

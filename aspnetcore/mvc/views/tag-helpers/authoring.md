@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9aaf40377e07e53fd0b7ebb177bcbb2df52b7553
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a1f1b2c2e60a1337c15f019185c764d0a9ada1b5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>ASP.NET Core、サンプルとチュートリアルの作成者タグ ヘルパー
 
@@ -164,7 +164,7 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
 
 3.  アプリを実行します。 好みのブラウザーを使用するには、ソースを検査して、マークアップを確認してください。
 
-    `[HtmlTargetElement]`上の属性のみが対象"bold"の属性名を提供する HTML マークアップ。 `<bold>`タグ ヘルパーによって要素が変更されていません。
+    `[HtmlTargetElement]`上の属性のみが対象"bold"の属性名を提供する HTML マークアップ。 `<bold>`要素は、タグ ヘルパーによって変更されませんでした。
 
 4. コメント アウト、`[HtmlTargetElement]`属性行とそれは、対象とする既定`<bold>`タグ、フォームの HTML マークアップは、`<bold>`です。 ただし、既定の名前付け規則は、クラス名に一致**太字**に TagHelper`<bold>`タグ。
 
@@ -208,13 +208,13 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
     [HtmlTargetElement("WebsiteInformation")]
     ```
     
-    低い kebab ケース タグ`<website-information />`は一致しません。 使用する場合、`[HtmlTargetElement]`属性、kebab ケース次に示すようを使用するとします。
+    低い kebab ケース タグ`<website-information />`一致はありません。 使用する場合、`[HtmlTargetElement]`属性、kebab ケース次に示すようを使用するとします。
     
     ```csharp
     [HtmlTargetElement("Website-Information")]
     ```
     
-    * 自己終了要素のコンテンツがあるありません。 この例では、Razor マークアップでは、自己終了タグですがタグ ヘルパーの作成は、[セクション](http://www.w3.org/TR/html5/sections.html#the-section-element)要素 (自己終了ではないと、対応するには、内のコンテンツを記述する、`section`要素)。 そのため、設定する必要があります`TagMode`に`StartTagAndEndTag`出力に書き込みます。 行の設定をコメントする代わりに、`TagMode`と終了タグのマークアップを記述します。 (例マークアップがこのチュートリアルの後半で提供されています。)
+    * 自己終了要素のコンテンツがあるありません。 この例では、Razor マークアップでは、自己終了タグですがタグ ヘルパーの作成は、[セクション](http://www.w3.org/TR/html5/sections.html#the-section-element)要素 (内のコンテンツを記述するので、自己終了して、`section`要素)。 そのため、設定する必要があります`TagMode`に`StartTagAndEndTag`出力に書き込みます。 行の設定をコメントする代わりに、`TagMode`と終了タグのマークアップを記述します。 (例マークアップがこのチュートリアルの後半で提供されています。)
     
     * `$` (ドル記号) で、次の行を使用して、[補間文字列](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings):
     
@@ -274,7 +274,7 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Controllers/HomeController.cs?range=9-18)]
 
-4.  アプリを実行して、ホーム ページに移動します。 条件付きでマークアップ`div`はレンダリングされません。 クエリ文字列の追加`?approved=true`URL に (たとえば、 `http://localhost:1235/Home/Index?approved=true`)。 `approved`true に設定され、条件付きマークアップが表示されます。
+4.  アプリを実行して、ホーム ページに移動します。 条件付きでマークアップ`div`レンダリングされません。 クエリ文字列の追加`?approved=true`URL に (たとえば、 `http://localhost:1235/Home/Index?approved=true`)。 `approved`true に設定され、条件付きマークアップが表示されます。
 
 >[!NOTE]
 >使用して、 [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof)演算子を太字タグ ヘルパーで行ったように文字列を指定するのではなく、対象の属性を指定します。
@@ -306,7 +306,7 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?highlight=15-34&range=7-34)]
 
-5.  アプリを実行します。 通知 www テキストがリンクとしてレンダリングされますが、HTTP テキストではありません。 両方のクラスでブレークポイントを配置した場合は、HTTP タグ ヘルパー クラスが最初に実行されることが確認できます。 問題には、タグ ヘルパーの出力がキャッシュされると、HTTP タグ ヘルパーからキャッシュされた出力 WWW タグ ヘルパーの実行時に上書きされます。 このチュートリアルで後ほどおでタグ ヘルパーが実行される順序を制御する方法が表示されます。 コードは、次のように修正されます。
+5.  アプリを実行します。 通知 www テキストがリンクとして表示されますが、HTTP テキストではありません。 両方のクラスでブレークポイントを配置した場合は、HTTP タグ ヘルパー クラスが最初に実行されることが確認できます。 問題には、タグ ヘルパーの出力がキャッシュされると、HTTP タグ ヘルパーからキャッシュされた出力 WWW タグ ヘルパーの実行時に上書きされます。 このチュートリアルで後ほどおでタグ ヘルパーが実行される順序を制御する方法が表示されます。 コードは、次のように修正されます。
 
     [!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10,21,22,26&range=8-37)]
 
@@ -321,7 +321,7 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
     >
     >上記のコードは、コンテンツが変更されており場合は、出力バッファーからコンテンツを取得するかどうかをチェックします。
 
-6.  アプリを実行して、2 つのリンクが期待どおりに動作することを確認します。 この自動リンカー タグ ヘルパーが適切な表示される、中に微妙な問題があります。 WWW タグ ヘルパーが実行される場合、最初 www へのリンクは不正確になります。 追加することで、コードを更新、`Order`オーバー ロードで、タグが実行される順序を制御します。 `Order`プロパティが同じ要素を対象とするその他のタグ ヘルパーの基準とした実行順序を決定します。 既定の順序の値は 0 と低い値を持つインスタンスが最初に実行されます。
+6.  アプリを実行して、2 つのリンクが期待どおりに動作することを確認します。 この自動リンカー タグ ヘルパーが適切な表示される、中に微妙な問題があります。 WWW タグ ヘルパーが最初に実行する場合は、www へのリンクが正しいはできません。 追加することで、コードを更新、`Order`オーバー ロードで、タグが実行される順序を制御します。 `Order`プロパティが同じ要素を対象とするその他のタグ ヘルパーの基準とした実行順序を決定します。 既定の順序の値は 0 と低い値を持つインスタンスが最初に実行されます。
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z2AutoLinkerCopy.cs?highlight=5,6,7,8&range=8-15)]
     
@@ -333,8 +333,8 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
 
 -  結果`GetChildContentAsync`に追加できます`output.Content`です。
 -  結果を調査して`GetChildContentAsync`で`GetContent`です。
--  変更した場合`output.Content`、TagHelper 本体は実行またはない限り、表示されません`GetChildContentAsync`自動リンカー サンプルのようにします。
+-  変更した場合`output.Content`、TagHelper 本文、実行されるかを呼び出すまでレンダリング、表示しない`GetChildContentAsync`自動リンカー サンプルと同様に。
 
 [!code-csharp[Main](../../views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10&range=8-21)]
 
--  複数回呼び出す`GetChildContentAsync`同じ値を返すし、再実行されません、`TagHelper`本文のキャッシュされた結果を使用しないことを示す場合は false にパラメーターを渡す場合を除き、します。
+-  複数回呼び出す`GetChildContentAsync`同じ値を返すし、再実行しない、`TagHelper`本文のキャッシュされた結果を使用しないことを示す場合は false パラメーターを渡す場合を除き、します。

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 7427b4f7c6b7a00fe795053aac0f612471a163cd
-ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
+ms.openlocfilehash: 7339f6658ede16e79d19762bd6636917fe4de85f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-new-field"></a>新しいフィールドの追加
 ====================
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/12/2018
 
 **Package Manager Console**ウィンドウで、`PM>`プロンプトを入力してください
 
-Enable-migrations-ContextTypeName MvcMovie.Models.MovieDBContext
+Enable-Migrations -ContextTypeName MvcMovie.Models.MovieDBContext
 
 ![](adding-a-new-field/_static/image3.png)
 
@@ -66,13 +66,13 @@ Visual Studio を開き、*される Configuration.cs*ファイル。 置換、`
 > 
 > Code First Migrations 呼び出し、`Seed`メソッドすべての移行した後に (つまり、呼び出し**データベースを更新**パッケージ マネージャー コンソールで)、このメソッドは既に挿入されている、または場合に、それらを挿入する行を更新し、まだ存在していません。
 > 
-> [AddOrUpdate](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)次のコードにメソッド"upsert"操作を実行します。
+> [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)次のコードにメソッド"upsert"操作を実行します。
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample3.cs)]
 > 
-> [シード](https://msdn.microsoft.com/en-us/library/hh829453(v=vs.103).aspx)メソッドは、すべての移行が実行され、追加しようとしている行が既にありますデータベースを作成する最初の移行後にあるため、データを挿入することはできませんだけです。 "[Upsert](http://en.wikipedia.org/wiki/Upsert)"操作が既に存在する行を挿入しようとする場合に発生するとエラーを防ぐことが、アプリケーションのテスト中に対して行ったデータに対する変更を上書きします。 いくつかのテーブルでのテスト データを使用しない場合発生すること。 場合によってはテスト中にデータを変更すると、変更するデータベースの更新後に残します。 条件付きの挿入操作を実行する場合: 存在しない場合にのみ行を挿入します。   
+> [シード](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx)メソッドは、すべての移行が実行され、追加しようとしている行が既にありますデータベースを作成する最初の移行後にあるため、データを挿入することはできませんだけです。 "[Upsert](http://en.wikipedia.org/wiki/Upsert)"操作が既に存在する行を挿入しようとする場合に発生するとエラーを防ぐことが、アプリケーションのテスト中に対して行ったデータに対する変更を上書きします。 いくつかのテーブルでのテスト データを使用しない場合発生すること。 場合によってはテスト中にデータを変更すると、変更するデータベースの更新後に残します。 条件付きの挿入操作を実行する場合: 存在しない場合にのみ行を挿入します。   
 >   
-> 渡される最初のパラメーター、 [AddOrUpdate](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドが使用して、行が既に存在するかどうかを確認するプロパティを指定します。 次の情報を提供して、テストのムービー データの`Title`一意では、リスト内の各タイトルために、この目的のプロパティを使用できます。
+> 渡される最初のパラメーター、 [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドが使用して、行が既に存在するかどうかを確認するプロパティを指定します。 次の情報を提供して、テストのムービー データの`Title`一意では、リスト内の各タイトルために、この目的のプロパティを使用できます。
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample4.cs)]
 > 
@@ -80,7 +80,7 @@ Visual Studio を開き、*される Configuration.cs*ファイル。 置換、`
 >   
 >  *シーケンスには、複数の要素が含まれています。*  
 >   
-> 詳細については、 [AddOrUpdate](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドを参照してください[EF 4.3 AddOrUpdate メソッドを使用して注意](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/).
+> 詳細については、 [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドを参照してください[EF 4.3 AddOrUpdate メソッドを使用して注意](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/).
 
 
 **プロジェクトをビルドするには CTRL-shift キーを押し-B を押します。**(次の手順は失敗しますこの時点で構築しない場合。

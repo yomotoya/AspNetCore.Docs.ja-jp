@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/configuring-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 1c007c4c327b7cde6ff52c6b0022acdff3c9b137
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f9b471fe2afdce278869a2e4d9b693a78030324b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-aspnet-web-api-2"></a>ASP.NET Web API 2 の構成
 ====================
@@ -33,14 +33,14 @@ ms.lasthandoff: 11/10/2017
 <a id="settings"></a>
 ## <a name="configuration-settings"></a>構成設定
 
-Web API の構成設定が定義されている、 [HttpConfiguration](https://msdn.microsoft.com/en-us/library/system.web.http.httpconfiguration.aspx)クラスです。
+Web API の構成設定が定義されている、 [HttpConfiguration](https://msdn.microsoft.com/library/system.web.http.httpconfiguration.aspx)クラスです。
 
 | メンバー | 説明 |
 | --- | --- |
 | **DependencyResolver** | コント ローラーの依存関係の挿入を有効にします。 参照してください[、Web API の依存関係競合回避モジュールを使用して](dependency-injection.md)です。 |
 | **フィルター** | アクション フィルター。 |
 | **フォーマッタ** | [メディア タイプ フォーマッタ](../formats-and-model-binding/media-formatters.md)です。 |
-| **IncludeErrorDetailPolicy** | サーバーが HTTP 応答メッセージで例外メッセージやスタック トレースなどのエラーの詳細を含めるかどうかを指定します。 参照してください[IncludeErrorDetailPolicy](https://msdn.microsoft.com/en-us/library/system.web.http.includeerrordetailpolicy(v=vs.108))です。 |
+| **IncludeErrorDetailPolicy** | サーバーが HTTP 応答メッセージで例外メッセージやスタック トレースなどのエラーの詳細を含めるかどうかを指定します。 参照してください[IncludeErrorDetailPolicy](https://msdn.microsoft.com/library/system.web.http.includeerrordetailpolicy(v=vs.108))です。 |
 | **初期化子** | 最終初期化を実行する関数、 **HttpConfiguration**です。 |
 | **MessageHandlers** | [HTTP メッセージ ハンドラー](http-message-handlers.md)です。 |
 | **ParameterBindingRules** | コント ローラー アクションのパラメーターをバインドするための規則のコレクション。 |
@@ -56,7 +56,7 @@ Web API の構成設定が定義されている、 [HttpConfiguration](https://m
 <a id="webhost"></a>
 ## <a name="configuring-web-api-with-aspnet-hosting"></a>ホスティングで ASP.NET Web API の構成
 
-ASP.NET アプリケーションで Web API を呼び出して構成[GlobalConfiguration.Configure](https://msdn.microsoft.com/en-us/library/system.web.http.globalconfiguration.configure.aspx)で、**アプリケーション\_開始**メソッドです。 **構成**メソッドが型の 1 つのパラメーターを持つデリゲートを受け取る**HttpConfiguration**です。 デリゲート内の構成のすべてを実行します。
+ASP.NET アプリケーションで Web API を呼び出して構成[GlobalConfiguration.Configure](https://msdn.microsoft.com/library/system.web.http.globalconfiguration.configure.aspx)で、**アプリケーション\_開始**メソッドです。 **構成**メソッドが型の 1 つのパラメーターを持つデリゲートを受け取る**HttpConfiguration**です。 デリゲート内の構成のすべてを実行します。
 
 匿名デリゲートの使用例を次に示します。
 
@@ -126,7 +126,7 @@ OWIN の自己ホストの場合は、作成、新しい**HttpConfiguration**イ
 | **ModelBinderProvider** | 特定の種類のモデル バインダーを返します。 |
 | **ModelMetadataProvider** | モデルのメタデータを提供します。 |
 | **ModelValidatorProvider** | モデルの検証コントロールを提供します。 |
-| **ValueProviderFactory** | 値プロバイダーを作成します。 詳細については、Mike Stall のブログの投稿を参照してください[WebAPI でカスタム値プロバイダーを作成する方法。](https://blogs.msdn.com/b/jmstall/archive/2012/04/23/how-to-create-a-custom-value-provider-in-webapi.aspx) |。
+| **ValueProviderFactory** | 値プロバイダーを作成します。 詳細については、Mike Stall のブログの投稿を参照してください[WebAPI でカスタム値プロバイダーを作成する方法。](https://blogs.msdn.com/b/jmstall/archive/2012/04/23/how-to-create-a-custom-value-provider-in-webapi.aspx) |である必要があります。
 
 マルチ インスタンスのサービスに、カスタム実装を追加するには、呼び出す**追加**または**挿入**上、 **Services**コレクション。
 

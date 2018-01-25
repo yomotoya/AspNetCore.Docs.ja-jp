@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 2ac18799d214777d098cc85ec6c85fd09f84a782
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a388f2e0ca3e1f0ce24a6def2a2b91711a7bf5a7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>複数のパターンやガイダンス (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -31,18 +31,18 @@ ms.lasthandoff: 11/10/2017
 
 - クラウドへの既存の内部設置型アプリケーションを移行します。 
 
-    - [アプリケーションをクラウドに移動](https://msdn.microsoft.com/en-us/library/ff728592.aspx)です。 Microsoft Patterns and Practices では、電子書籍します。 としても使用可能な[ハードコピー ペーパー バック](https://www.amazon.com/dp/1621140202)です。
+    - [アプリケーションをクラウドに移動](https://msdn.microsoft.com/library/ff728592.aspx)です。 Microsoft Patterns and Practices では、電子書籍します。 としても使用可能な[ハードコピー ペーパー バック](https://www.amazon.com/dp/1621140202)です。
     - [移行する Microsoft ASP.NET および IIS.NET](https://go.microsoft.com/fwlink/?LinkId=400656)です。 ケース スタディ Robert McMurray でします。
     - [第 4 の移動&amp;Azure Web サイトに村長](http://www.jeff.wilcox.name/2013/04/4thandmayor-azure-websites/)です。 ブログ投稿 Jeff Wilcox によって chronicling の経験 Amazon Web Services からの web アプリを Azure App service Web アプリに移動します。
-    - [アプリを Azure に移動しますどのような変更しますか?。](https://azure.microsoft.com/en-us/documentation/videos/web-sites-internals-and-the-file-system/) 短いビデオを Stefan Schackow、Azure App service Web アプリでファイル システム アクセスについて説明します。
+    - [アプリを Azure に移動しますどのような変更しますか?。](https://azure.microsoft.com/documentation/videos/web-sites-internals-and-the-file-system/) 短いビデオを Stefan Schackow、Azure App service Web アプリでファイル システム アクセスについて説明します。
     - [Azure のハイブリッド クラウド](https://www.amazon.com/dp/B00EOP4UQW)です。 ハードコピー ブックまたは電子書籍筆者はかつて Garber、Jamal malik 著、Adam Fazio しています。
 - クラウド アプリケーションに一意なセキュリティ、認証、および承認の問題
 
     - [Azure のセキュリティ ガイダンス](https://azure.microsoft.com/blog/2014/02/10/best-practices-windows-azure-websites-waws/)
-    - [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/en-us/library/dn568099.aspx)です。 参照してください Gatekeeper パターンでは、フェデレーション Id のパターン。
+    - [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)です。 参照してください Gatekeeper パターンでは、フェデレーション Id のパターン。
     - [Azure のネットワーク セキュリティ](https://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx)です。 Ashin Palekar ホワイト ペーパー。
 
-関連項目の追加のクラウド コンピューティングのパターンやガイダンス[Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/en-us/library/dn568099.aspx)です。
+関連項目の追加のクラウド コンピューティングのパターンやガイダンス[Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)です。
 
 <a id="resources"></a>
 ## <a name="resources"></a>リソース
@@ -51,9 +51,9 @@ ms.lasthandoff: 11/10/2017
 
 ドキュメント
 
-- [Azure クラウド サービスで大規模なサービスのデザインに関するヒント集](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx)です。 Mark Simms、Michael Thomassy、ホワイト ペーパー。
-- [フェール セーフ: 回復力のあるクラウド アーキテクチャについて](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx)です。 Marc Mercuri、Ulrich Homann、Andrew Townhill、ホワイト ペーパー。 フェール セーフ ビデオ シリーズの web ページ バージョンです。
-- [Azure ガイダンス](https://azure.microsoft.com/en-us/develop/net/guidance/)公式ドキュメント ポータル ページが Azure のアプリケーションの開発に関連します。
+- [Azure クラウド サービスで大規模なサービスのデザインに関するヒント集](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx)です。 Mark Simms、Michael Thomassy、ホワイト ペーパー。
+- [フェール セーフ: 回復力のあるクラウド アーキテクチャについて](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx)です。 Marc Mercuri、Ulrich Homann、Andrew Townhill、ホワイト ペーパー。 フェール セーフ ビデオ シリーズの web ページ バージョンです。
+- [Azure ガイダンス](https://azure.microsoft.com/develop/net/guidance/)公式ドキュメント ポータル ページが Azure のアプリケーションの開発に関連します。
 
 ビデオ
 
@@ -71,11 +71,11 @@ ms.lasthandoff: 11/10/2017
 - [クラウド コンピューティング聖書](https://www.amazon.com/dp/0470903562)です。 によってバリー Sosinsky です。
 - [それを解放します。設計および運用環境でソフトウェアの展開](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213)です。 Michael T. Nygard によって。
 - [クラウド アーキテクチャのパターン: 使用して Microsoft Azure](http://shop.oreilly.com/product/0636920023777.do)です。 によって Bill Wilder です。
-- [Windows Azure Platform](https://www.amazon.com/dp/1430235632)です。 によって Tejaswi 送ります。
+- [Windows Azure Platform](https://www.amazon.com/dp/1430235632)です。 By Tejaswi Redkar.
 - [Windows Azure 新興のプログラミング パターン](https://www.amazon.com/dp/1849685606)です。 によって Riccardo 連中です。
 - [Microsoft Windows Azure 開発クックブック](https://www.amazon.com/dp/1849682224)です。 Neil Mackenzie によって。
 
-最後に、実世界のアプリの構築を開始すると、Azure では、それらを実行している、いつか付くでしょうには、専門家の支援が必要です。 など、コミュニティ サイトに質問を依頼することができます[Azure フォーラムまたは StackOverflow](https://azure.microsoft.com/en-us/support/forums/)マイクロソフトが Azure サポートに直接お問い合わせできますか。 Microsoft Azure のテクニカル サポートのいくつかのレベルを提供しています: 概要と、オプションの比較では、次を参照してください。 [Azure サポート](https://azure.microsoft.com/en-us/support/plans/)です。
+最後に、実世界のアプリの構築を開始すると、Azure では、それらを実行している、いつか付くでしょうには、専門家の支援が必要です。 など、コミュニティ サイトに質問を依頼することができます[Azure フォーラムまたは StackOverflow](https://azure.microsoft.com/support/forums/)マイクロソフトが Azure サポートに直接お問い合わせできますか。 Microsoft Azure のテクニカル サポートのいくつかのレベルを提供しています: 概要と、オプションの比較では、次を参照してください。 [Azure サポート](https://azure.microsoft.com/support/plans/)です。
 
 <a id="acknowledgments"></a>
 ## <a name="acknowledgments"></a>受信確認
@@ -115,7 +115,7 @@ ms.lasthandoff: 11/10/2017
 - ある Sunil Sabat
 - [Aleksey Sinyagin](http://www.linkedin.com/in/sinyagin)
 - 手形 Wagner
-- Michael 木
+- Michael Wood
 
 DGAC の他のメンバーは、レビューし、コメントが付加された輪郭の暫定版。
 
@@ -127,8 +127,8 @@ DGAC の他のメンバーは、レビューし、コメントが付加された
 - サンパウロ Morgado
 - Jason Oliveira
 - Alberto Poblacion
-- Ryan 弘穀
-- ペレス Jones Tsisah
+- Ryan Riley
+- Perez Jones Tsisah
 - Roger Whitehead
 - Pawel Wilkosz
 

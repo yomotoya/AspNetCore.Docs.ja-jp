@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/advanced/custom-mvc-templates
 msc.type: authoredcontent
-ms.openlocfilehash: a1fe1844e582f402a1eed9ddf10ee249e856b083
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c3ddd4e341511f520927e924b25d890088adb69e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-mvc-template"></a>カスタムの MVC テンプレート
 ====================
@@ -26,7 +26,7 @@ MVC 3 Tools Update の Visual Studio 2010 のリリースでは、MVC プロジ�
 
 カスタム テンプレートを追加することと、レジストリを使用して、新しいテンプレートに表示されるように、MVC プロジェクト ウィザードに依存した骨の折れる作業がでした。 新しいテンプレートの作成者は、内部で、MSI をインストール時に必要なレジストリ エントリが発生することを確認する必要があります。 代替手段を使用可能なテンプレートを含む ZIP ファイルを作成し、エンドユーザーが必要なレジストリ エントリを手動で作成しました。
 
-によって提供される既存のインフラストラクチャの一部を利用することにしましたので、前述の方法のどちらもは理想的な[VSIX](https://msdn.microsoft.com/en-us/library/ff363239.aspx)作成者を容易にできるように拡張機能を配布して MVC 4 以降では、カスタムの MVC テンプレートのインストールVisual Studio 2012。 この方法が提供する利点を次に示します。
+によって提供される既存のインフラストラクチャの一部を利用することにしましたので、前述の方法のどちらもは理想的な[VSIX](https://msdn.microsoft.com/library/ff363239.aspx)作成者を容易にできるように拡張機能を配布して MVC 4 以降では、カスタムの MVC テンプレートのインストールVisual Studio 2012。 この方法が提供する利点を次に示します。
 
 - VSIX 拡張機能には、別の言語 (c# および Visual Basic) をサポートする複数のテンプレートと複数のビュー エンジン (ASPX および Razor) を含めることができます。
 - VSIX 拡張機能の複数の Sku の Visual Studio Express の Sku を含む対象できます。
@@ -63,15 +63,15 @@ MVC 3 Tools Update の Visual Studio 2010 のリリースでは、MVC プロジ�
 
 **資産** タブを使用して、すべてのコンテンツ ファイルを VSIX に追加します。 使用する代わりに、VSIX マニフェスト ファイルの生の XML を編集して MVC カスタム メタデータを必要とするため、**資産** タブのコンテンツを追加します。 まず、VSIX プロジェクトにテンプレートの内容を追加します。 フォルダーとその内容の構造が、プロジェクトのレイアウトを反映することが重要です。 次の例には、基本的な MVC プロジェクト テンプレートから生成された 4 つのプロジェクト テンプレートが含まれています。 プロジェクト テンプレート (ProjectTemplates フォルダーの下にあるすべてのプロパティ) を構成するすべてのファイルが追加されたことを確認してください、**コンテンツ**itemgroup、vsix プロジェクト ファイルと各項目が含まれている、 **CopyToOutputDirectory**と**IncludeInVsix**メタデータが次の例に示すように設定します。
 
-&lt;コンテンツを含める =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicWeb.config&quot;&gt;
+&lt;Content Include=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicWeb.config&quot;&gt;
 
-&lt;CopyToOutputDirectory&gt;常に&lt;/CopyToOutputDirectory&gt;
+&lt;CopyToOutputDirectory&gt;Always&lt;/CopyToOutputDirectory&gt;
 
 &lt;IncludeInVSIX&gt;true&lt;/IncludeInVSIX&gt;
 
-&lt;/コンテンツ&gt;
+&lt;/Content&gt;
 
-それ以外の場合は、IDE は、VSIX を作成する際にエラーが表示可能性がありますが、テンプレートの内容をコンパイルしようとしています。 テンプレート内のコード ファイルは多くの場合、特別な含める[テンプレート パラメーター](https://msdn.microsoft.com/en-us/library/eehb4faa(v=vs.110).aspx)プロジェクト テンプレートがインスタンス化され、IDE でコンパイルすることはできません、Visual Studio で使用します。
+それ以外の場合は、IDE は、VSIX を作成する際にエラーが表示可能性がありますが、テンプレートの内容をコンパイルしようとしています。 テンプレート内のコード ファイルは多くの場合、特別な含める[テンプレート パラメーター](https://msdn.microsoft.com/library/eehb4faa(v=vs.110).aspx)プロジェクト テンプレートがインスタンス化され、IDE でコンパイルすることはできません、Visual Studio で使用します。
 
 ![ソリューション エクスプローラー](custom-mvc-templates/_static/image6.jpg)
 
@@ -83,27 +83,27 @@ VSIX デザイナーを終了し、右クリックして、 **source.extension.m
 
 ファイルを VSIX に追加するだけでは、MVC ウィザードを使用して、テンプレートを登録する満たされません。 MVC ウィザードにテンプレートの名前、説明、サポートされているビュー エンジンおよびプログラミング言語などの情報を提供する必要があります。 関連付けられているカスタム属性でこの情報が送られる、 **&lt;資産&gt;**要素ごと**vstemplate**ファイル。
 
-&lt;資産 d:VsixSubPath =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
+&lt;Asset d:VsixSubPath=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
 
-種類 =&quot;Microsoft.VisualStudio.Mvc.Template&quot;
+Type=&quot;Microsoft.VisualStudio.Mvc.Template&quot;
 
-d:Source =&quot;ファイル&quot;
+d:Source=&quot;File&quot;
 
-パス =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWebApplicationProjectTemplate.11.csaspx.vstemplate&quot;
+Path=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWebApplicationProjectTemplate.11.csaspx.vstemplate&quot;
 
-ProjectType =&quot;MVC&quot;
+ProjectType=&quot;MVC&quot;
 
-Language =&quot;(C#)&quot;
+Language=&quot;C#&quot;
 
-ViewEngine =&quot;Aspx&quot;
+ViewEngine=&quot;Aspx&quot;
 
-TemplateId =&quot;MyMvcApplication&quot;
+TemplateId=&quot;MyMvcApplication&quot;
 
 タイトル =&quot;カスタムの基本的な Web アプリケーション&quot;
 
 説明 =&quot;基本的な MVC web アプリケーション (Razor) から派生したカスタム テンプレート&quot;
 
-バージョン =&quot;4.0&quot;/&gt;
+Version=&quot;4.0&quot;/&gt;
 
 以下には、存在する必要があるカスタム属性の説明を示します。
 

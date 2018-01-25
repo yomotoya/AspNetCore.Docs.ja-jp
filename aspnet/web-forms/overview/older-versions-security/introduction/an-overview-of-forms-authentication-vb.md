@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4c4564e5f1f71763e7e6a78622d30a25f1a6f640
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 90bcff91d0642e6af66f43fd807b253cc516d277
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="an-overview-of-forms-authentication-vb"></a>フォーム認証 (VB) の概要
 ====================
@@ -39,12 +39,12 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="understanding-the-forms-authentication-workflow"></a>フォーム認証のワークフローを理解します。
 
-ASP.NET ランタイムが ASP.NET ページや ASP.NET Web サービスなど、ASP.NET リソースの要求を処理するときに、要求のライフ サイクル中に多数のイベントを発生させます。 要求が認証されると、承認されると、未処理の例外となどの場合に発生するイベントのときに発生するものと、要求の非常に開始し、非常に最後に発生するイベントがあります。 イベントの完全な一覧を表示するを参照してください、 [HttpApplication オブジェクトのイベント](https://msdn.microsoft.com/en-us/library/system.web.httpapplication_events.aspx)です。
+ASP.NET ランタイムが ASP.NET ページや ASP.NET Web サービスなど、ASP.NET リソースの要求を処理するときに、要求のライフ サイクル中に多数のイベントを発生させます。 要求が認証されると、承認されると、未処理の例外となどの場合に発生するイベントのときに発生するものと、要求の非常に開始し、非常に最後に発生するイベントがあります。 イベントの完全な一覧を表示するを参照してください、 [HttpApplication オブジェクトのイベント](https://msdn.microsoft.com/library/system.web.httpapplication_events.aspx)です。
 
 *HTTP モジュール*マネージ クラスのコードを持つは要求のライフ サイクルの特定のイベントに応答して実行します。 ASP.NET は、バック グラウンドでの必須のタスクを実行する HTTP モジュールの数が付属しています。 ここに特に関連する 2 つの組み込み HTTP モジュールは次のとおりです。
 
-- **[FormsAuthenticationModule](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx)**  -は、通常、ユーザーのクッキー コレクションに含まれる、フォーム認証チケットを調べることによって、ユーザーを認証します。 フォーム認証チケットが存在しない場合、ユーザーは匿名です。
-- **[UrlAuthorizationModule](https://msdn.microsoft.com/en-us/library/system.web.security.urlauthorizationmodule.aspx)**  -現在のユーザーが要求された URL にアクセスする承認されたかどうかを決定します。 このモジュールは、アプリケーションの構成ファイルで指定された承認規則を参照して、権限を決定します。 ASP.NET も含まれています、[持ちます](https://msdn.microsoft.com/en-us/library/system.web.security.fileauthorizationmodule.aspx)要求されたファイルの Acl を参照して機関を指定します。
+- **[FormsAuthenticationModule](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)**  -は、通常、ユーザーのクッキー コレクションに含まれる、フォーム認証チケットを調べることによって、ユーザーを認証します。 フォーム認証チケットが存在しない場合、ユーザーは匿名です。
+- **[UrlAuthorizationModule](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)**  -現在のユーザーが要求された URL にアクセスする承認されたかどうかを決定します。 このモジュールは、アプリケーションの構成ファイルで指定された承認規則を参照して、権限を決定します。 ASP.NET も含まれています、[持ちます](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx)要求されたファイルの Acl を参照して機関を指定します。
 
 FormsAuthenticationModule が、UrlAuthorizationModule (および持ちます) を実行する前にユーザーを認証しようとするとします。 承認モジュールが、要求を終了しを返します、要求を行うユーザーが要求されたリソースにアクセスする権限がない場合、 [HTTP 401 Unauthorized](http://www.checkupdown.com/status/E401.html)状態です。 Windows 認証のシナリオでは、ブラウザーに HTTP 401 ステータスが返されます。 この状態コードは、モーダル ダイアログ ボックスを使用して資格情報をユーザー入力を求めるブラウザーをによりします。 フォーム認証では、ただし、HTTP 401 Unauthorized ステータスは送信されません、ブラウザーに、FormsAuthenticationModule がこの状態が検出され、変更する代わりに、ユーザーをログイン ページにリダイレクトするため (を使用して、 [HTTP 302 リダイレクト](http://www.checkupdown.com/status/E302.html)状態)。
 
@@ -80,12 +80,12 @@ IIS 7 では、ただしでは、統合された IIS と ASP.NET パイプライ
 
 ## <a name="step-1-creating-an-aspnet-website-for-this-tutorial-series"></a>手順 1: このチュートリアルの一連の ASP.NET web サイトを作成します。
 
-Visual Studio 2008 の Microsoft の無料版の最も長い可能な対象ユーザーを達成するためにこの系列全体で構築することに ASP.NET web サイトが作成されます[Visual Web Developer 2008](https://www.microsoft.com/express/vwd/)です。 SqlMembershipProvider ユーザー ストアを実装します。、 [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/en-us/sql/Aa336346.aspx)データベース。 Visual Studio 2005 または Visual Studio 2008 または SQL Server の別のエディションを使用している場合心配 - 手順はほぼ同一であると、重要な相違点で指摘されます。
+Visual Studio 2008 の Microsoft の無料版の最も長い可能な対象ユーザーを達成するためにこの系列全体で構築することに ASP.NET web サイトが作成されます[Visual Web Developer 2008](https://www.microsoft.com/express/vwd/)です。 SqlMembershipProvider ユーザー ストアを実装します。、 [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/sql/Aa336346.aspx)データベース。 Visual Studio 2005 または Visual Studio 2008 または SQL Server の別のエディションを使用している場合心配 - 手順はほぼ同一であると、重要な相違点で指摘されます。
 
 フォーム認証を構成して、前に、ASP.NET web サイトが最初に必要です。 まず、新しいファイル システムに基づく ASP.NET web サイトを作成します。 これを実現するには、Visual Web Developer を起動し、ファイル メニューに移動し、選択新しい Web サイトを新しい Web サイト ダイアログ ボックスを表示します。 ASP.NET Web サイト テンプレートの選択、ファイル システムに場所ドロップダウン リストを設定、web サイトを配置するフォルダーを選択および vb です。 言語に設定 これには、Default.aspx ASP.NET ページで、アプリで新しい web サイトを作成は\_データ フォルダーと Web.config ファイルです。
 
 > [!NOTE]
-> Visual Studio には、プロジェクト管理の 2 つのモードがサポートされています。 Web サイト プロジェクトと Web アプリケーション プロジェクト。 Web サイト プロジェクトでは、Web アプリケーション プロジェクトを模倣プロジェクト アーキテクチャ Visual Studio .NET 2002年/2003 - プロジェクト ファイルをインクルードし、プロジェクトのソース コードを/bin フォルダーに配置されている単一のアセンブリにコンパイルされ、プロジェクト ファイルが不足しています。 Visual Studio 2005 最初に唯一のサポートされている Web サイト プロジェクト、Web アプリケーション プロジェクト モデルは、Service Pack 1; 再導入されましたが、Visual Studio 2008 には、両方のプロジェクト モデルが用意されています。 Visual Web Developer 2005 および 2008 のエディションはサポート Web サイト プロジェクト。 Web サイト プロジェクトのモデルを使用するされます。 Express 以外のエディションを使用しているし、使用するかどうか、 [Web アプリケーション プロジェクト モデル](https://msdn.microsoft.com/en-us/library/aa730880(vs.80).aspx)代わりに、自由にこれがあることをいくつかの相違点、画面とではなく実行する必要があります手順で表示されるものの間に注意してください、スクリーン ショットに表示し、これらのチュートリアルで説明する手順。
+> Visual Studio には、プロジェクト管理の 2 つのモードがサポートされています。 Web サイト プロジェクトと Web アプリケーション プロジェクト。 Web サイト プロジェクトでは、Web アプリケーション プロジェクトを模倣プロジェクト アーキテクチャ Visual Studio .NET 2002年/2003 - プロジェクト ファイルをインクルードし、プロジェクトのソース コードを/bin フォルダーに配置されている単一のアセンブリにコンパイルされ、プロジェクト ファイルが不足しています。 Visual Studio 2005 最初に唯一のサポートされている Web サイト プロジェクト、Web アプリケーション プロジェクト モデルは、Service Pack 1; 再導入されましたが、Visual Studio 2008 には、両方のプロジェクト モデルが用意されています。 Visual Web Developer 2005 および 2008 のエディションはサポート Web サイト プロジェクト。 Web サイト プロジェクトのモデルを使用するされます。 Express 以外のエディションを使用しているし、使用するかどうか、 [Web アプリケーション プロジェクト モデル](https://msdn.microsoft.com/library/aa730880(vs.80).aspx)代わりに、自由にこれがあることをいくつかの相違点、画面とではなく実行する必要があります手順で表示されるものの間に注意してください、スクリーン ショットに表示し、これらのチュートリアルで説明する手順。
 
 
 [![新しいファイル システムに基づいた Web サイトを作成します。](an-overview-of-forms-authentication-vb/_static/image5.png)](an-overview-of-forms-authentication-vb/_static/image4.png)
@@ -95,7 +95,7 @@ Visual Studio 2008 の Microsoft の無料版の最も長い可能な対象ユ�
 
 ### <a name="adding-a-master-page"></a>マスター ページを追加します。
 
-次に、Site.master をという名前のルート ディレクトリ内のサイトに新しいマスター ページを追加します。 [マスター ページ](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx)ASP.NET ページに適用できるサイトのテンプレートを定義するページの開発者を有効にします。 マスター ページの主な利点、サイトの全体的な外観できますは定義されている 1 つの場所でしやすくための更新や、サイトのレイアウトを調整します。
+次に、Site.master をという名前のルート ディレクトリ内のサイトに新しいマスター ページを追加します。 [マスター ページ](https://msdn.microsoft.com/library/wtxbf3hh.aspx)ASP.NET ページに適用できるサイトのテンプレートを定義するページの開発者を有効にします。 マスター ページの主な利点、サイトの全体的な外観できますは定義されている 1 つの場所でしやすくための更新や、サイトのレイアウトを調整します。
 
 
 [![マスター ページを追加するという名前の web サイトに Site.master](an-overview-of-forms-authentication-vb/_static/image8.png)](an-overview-of-forms-authentication-vb/_static/image7.png)
@@ -150,7 +150,7 @@ Visual Studio 2008 の Microsoft の無料版の最も長い可能な対象ユ�
 
 ## <a name="step-2-enabling-forms-authentication"></a>手順 2:、フォーム認証が有効にします。
 
-ASP.NET web サイトを作成して、[次へ] タスクは、フォーム認証を有効にするのには。 アプリケーションの認証構成を指定、 [&lt;認証&gt;要素](https://msdn.microsoft.com/en-us/library/532aee0e.aspx)Web.config でします。&lt;認証&gt;要素には、アプリケーションによって使用される認証モデルを指定する mode という名前の 1 つの属性が含まれています。 この属性は、次の 4 つの値のいずれかを持つことができます。
+ASP.NET web サイトを作成して、[次へ] タスクは、フォーム認証を有効にするのには。 アプリケーションの認証構成を指定、 [&lt;認証&gt;要素](https://msdn.microsoft.com/library/532aee0e.aspx)Web.config でします。&lt;認証&gt;要素には、アプリケーションによって使用される認証モデルを指定する mode という名前の 1 つの属性が含まれています。 この属性は、次の 4 つの値のいずれかを持つことができます。
 
 - **Windows** - 訪問者の認証に、web サーバーの役割は Windows 認証を使用するアプリケーションで、前のチュートリアルで説明したように、通常これには Basic、Digest または統合 Windows認証します。
 - **フォーム**-ユーザーが web ページ上のフォームを使用して認証されます。
@@ -221,7 +221,7 @@ Login.aspx に 2 つのテキスト ボックスを追加し、ユーザー名�
 
 ASP.NET 2.0 では、前に開発者が独自のユーザー ストアの両方を実装して、ストアに対して指定された資格情報を検証するコードの記述を担当します。 ほとんどの開発者ストアを実装ユーザー データベースでは、ユーザー名、パスワード、電子メール、LastLoginDate などのように列を持つユーザーをという名前のテーブルを作成します。 次に、次の表は、ユーザー アカウントごとに 1 つのレコードがあります。 ユーザーの指定された資格情報の検証が行われます。 一致するユーザー名のデータベースのクエリを実行して、データベース内のパスワードが指定されたパスワードに当てはめて考えることを確認します。
 
-ASP.NET 2.0 では、開発者必要がありますを使用してメンバーシップ プロバイダーのいずれかのユーザー ストアを管理します。 このチュートリアルの系列に使用するユーザー ストアの SQL Server データベースを使用すると、SqlMembershipProvider です。 SqlMembershipProvider を使用する場合、テーブル、ビュー、およびプロバイダーで想定されているストアド プロシージャを含む特定のデータベース スキーマを実装する必要があります。 このスキーマを実装する方法については、 *[メンバーシップ スキーマを作成する SQL Server で](../membership/creating-the-membership-schema-in-sql-server-vb.md)*チュートリアルです。 インプレース メンバーシップ プロバイダーは、ユーザーの資格情報を検証するほど単純では呼び出すことと、[メンバーシップ クラス](https://msdn.microsoft.com/en-us/library/system.web.security.membership.aspx)の[ValidateUser (*username*、*パスワード*)メソッド](https://msdn.microsoft.com/en-us/library/system.web.security.membership.validateuser.aspx)を示すブール値を返すことをするかどうかの有効性、 *username*と*パスワード*の組み合わせ。 おを実装していない SqlMembershipProvider のユーザーのストア、表示されるようにこの時点でのメンバーシップ クラスは、ValidateUser メソッドを使用することはできません。
+ASP.NET 2.0 では、開発者必要がありますを使用してメンバーシップ プロバイダーのいずれかのユーザー ストアを管理します。 このチュートリアルの系列に使用するユーザー ストアの SQL Server データベースを使用すると、SqlMembershipProvider です。 SqlMembershipProvider を使用する場合、テーブル、ビュー、およびプロバイダーで想定されているストアド プロシージャを含む特定のデータベース スキーマを実装する必要があります。 このスキーマを実装する方法については、 *[メンバーシップ スキーマを作成する SQL Server で](../membership/creating-the-membership-schema-in-sql-server-vb.md)*チュートリアルです。 インプレース メンバーシップ プロバイダーは、ユーザーの資格情報を検証するほど単純では呼び出すことと、[メンバーシップ クラス](https://msdn.microsoft.com/library/system.web.security.membership.aspx)の[ValidateUser (*username*、*パスワード*)メソッド](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx)を示すブール値を返すことをするかどうかの有効性、 *username*と*パスワード*の組み合わせ。 おを実装していない SqlMembershipProvider のユーザーのストア、表示されるようにこの時点でのメンバーシップ クラスは、ValidateUser メソッドを使用することはできません。
 
 時間がかかる場合、テーブルの構築に自社カスタム ユーザー データベース (お、SqlMembershipProvider が実装された後に古いなります) をみましょう代わりにハード コードではなくログイン内で有効な資格情報ページします。 ログイン ボタンのでは、イベント ハンドラーをクリックして、次のコードを追加します。
 
@@ -231,23 +231,23 @@ ASP.NET 2.0 では、開発者必要がありますを使用してメンバー�
 
 有効な資格情報を入力すると、ときに説明したように、適切なページにはリダイレクトされます。 ただし、適切なページとは? すると、ユーザーは、表示、承認されていないページにアクセスを FormsAuthenticationModule 自動的にリダイレクトされログイン ページに注意してください。 これにより、ReturnUrl パラメーターを使用して、クエリ文字列の要求された URL が含まれます。 つまり、ユーザーが、ProtectedPage.aspx にアクセスしようとしています。 そのためには、承認されていない場合は、FormsAuthenticationModule がリダイレクトするとします。
 
-Login.aspx ですか。ReturnUrl=ProtectedPage.aspx
+Login.aspx?ReturnUrl=ProtectedPage.aspx
 
 ログインすると、ProtectedPage.aspx にユーザーをリダイレクトする必要があります。 または、ユーザーには、独自 volition でログイン ページが参照してください可能性があります。 その場合は、ユーザーにログインした後を送信するルート フォルダーの Default.aspx ページに。
 
 ### <a name="logging-in-the-user"></a>ユーザーのログイン
 
-指定された資格情報は、有効なは、想定される必要があります、フォーム認証チケットを作成するこれによりユーザーが、サイトでのログ記録します。 [FormsAuthentication クラス](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.aspx)で、 [System.Web.Security 名前空間](https://msdn.microsoft.com/en-us/library/system.web.security.aspx)認証システムとでは、フォームを使用してユーザーをログにログ記録用のさまざまなメソッドを提供します。 FormsAuthentication クラスでは、いくつかの方法がありますが、ここではこの時点で、3 つには。
+指定された資格情報は、有効なは、想定される必要があります、フォーム認証チケットを作成するこれによりユーザーが、サイトでのログ記録します。 [FormsAuthentication クラス](https://msdn.microsoft.com/library/system.web.security.formsauthentication.aspx)で、 [System.Web.Security 名前空間](https://msdn.microsoft.com/library/system.web.security.aspx)認証システムとでは、フォームを使用してユーザーをログにログ記録用のさまざまなメソッドを提供します。 FormsAuthentication クラスでは、いくつかの方法がありますが、ここではこの時点で、3 つには。
 
-- [GetAuthCookie (*username*、 *persistCookie*)](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.getauthcookie.aspx) -指定された名前のフォーム認証チケットを作成*username*です。 次に、このメソッドは、作成し、認証チケットの内容を保持する HttpCookie オブジェクトを返します。 場合*persistCookie*が true の場合、永続的な cookie が作成されます。
-- [SetAuthCookie (*username*、 *persistCookie*)](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.setauthcookie.aspx) -、GetAuthCookie を呼び出します (*username*、 *persistCookie*)フォーム認証 cookie を生成するメソッドです。 このメソッドは、(使用されます。 それ以外の場合、cookie ベースのフォーム認証されている、このメソッドが cookie なしのチケットのロジックを処理する内部クラスを呼び出すと仮定した場合) の Cookie のコレクションに GetAuthCookie から返されるクッキーを追加します。
-- [RedirectFromLoginPage (*username*、 *persistCookie*)](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.redirectfromloginpage.aspx) -このメソッドを呼び出す SetAuthCookie (*username*、 *persistCookie*)、し、適切なページに、ユーザーをリダイレクトします。
+- [GetAuthCookie(*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.getauthcookie.aspx) - creates a forms authentication ticket for the supplied name *username*. 次に、このメソッドは、作成し、認証チケットの内容を保持する HttpCookie オブジェクトを返します。 場合*persistCookie*が true の場合、永続的な cookie が作成されます。
+- [SetAuthCookie(*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx) - calls the GetAuthCookie(*username*, *persistCookie*) method to generate the forms authentication cookie. このメソッドは、(使用されます。 それ以外の場合、cookie ベースのフォーム認証されている、このメソッドが cookie なしのチケットのロジックを処理する内部クラスを呼び出すと仮定した場合) の Cookie のコレクションに GetAuthCookie から返されるクッキーを追加します。
+- [RedirectFromLoginPage(*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.redirectfromloginpage.aspx) - this method calls SetAuthCookie(*username*, *persistCookie*), and then redirects the user to the appropriate page.
 
 GetAuthCookie は、Cookie のコレクションに、cookie の書き込み前に認証チケットを変更する必要がある場合に便利です。 SetAuthCookie は、フォーム認証チケットを作成し、Cookie のコレクションに追加するが、適切なページにユーザーをリダイレクトしたくない場合に便利です。 おそらくするいくつかの代替のページに送信したり、ログイン ページに保存します。
 
 ユーザーにログインし、適切なページにリダイレクトするので、RedirectFromLoginPage を利用してみましょう。 更新ログイン ボタンのクリック イベント ハンドラー、2 つのコメントが付けられた TODO 行を次のコード行に置き換えます。
 
-FormsAuthentication.RedirectFromLoginPage (UserName.Text、RememberMe.Checked)
+FormsAuthentication.RedirectFromLoginPage(UserName.Text, RememberMe.Checked)
 
 フォーム認証チケットのユーザー名 テキスト ボックスのテキストのプロパティを使用して、フォーム認証チケットを作成するときに*username*パラメーター、および RememberMe チェックのチェック状態、 *persistCookie*パラメーター。
 
@@ -283,7 +283,7 @@ Web サイトに機密情報が含まれている場合を除き、ここで、�
 
 ここまでで推察が、認証された利用者と匿名の訪問者を AnonymousMessagePanel だけに AuthenticatedMessagePanel だけを表示するという考え方です。 これを実現するには、ユーザーがログインしているかどうかどうかに応じて、これらのパネルの表示プロパティを設定する必要があります。
 
-[Request.IsAuthenticated プロパティ](https://msdn.microsoft.com/en-us/library/system.web.httprequest.isauthenticated.aspx)要求が認証されているかどうかを示すブール値を返します。 ページに次のコードを入力\_イベント ハンドラーのコードを読み込みます。
+[Request.IsAuthenticated プロパティ](https://msdn.microsoft.com/library/system.web.httprequest.isauthenticated.aspx)要求が認証されているかどうかを示すブール値を返します。 ページに次のコードを入力\_イベント ハンドラーのコードを読み込みます。
 
 [!code-vb[Main](an-overview-of-forms-authentication-vb/samples/sample7.vb)]
 
@@ -300,30 +300,30 @@ Web サイトに機密情報が含まれている場合を除き、ここで、�
 **図 12**: 認証されたユーザーがへようこそ の背面に表示されます。 メッセージ ([フルサイズのイメージを表示するをクリックして](an-overview-of-forms-authentication-vb/_static/image36.png))
 
 
-使用して、現在ログオンしているユーザーの id を決定できます、 [HttpContext オブジェクト](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx)の[ユーザー プロパティ](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.user.aspx)です。 HttpContext オブジェクトは、現在の要求に関する情報を表し、他のユーザー間では、応答、要求、およびセッションとしてこのような一般的な ASP.NET オブジェクトのホームです。 ユーザー定義プロパティは、現在の HTTP 要求と実装のセキュリティ コンテキストを表す、 [IPrincipal インターフェイス](https://msdn.microsoft.com/en-us/library/system.security.principal.iprincipal.aspx)です。
+使用して、現在ログオンしているユーザーの id を決定できます、 [HttpContext オブジェクト](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)の[ユーザー プロパティ](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx)です。 HttpContext オブジェクトは、現在の要求に関する情報を表し、他のユーザー間では、応答、要求、およびセッションとしてこのような一般的な ASP.NET オブジェクトのホームです。 ユーザー定義プロパティは、現在の HTTP 要求と実装のセキュリティ コンテキストを表す、 [IPrincipal インターフェイス](https://msdn.microsoft.com/library/system.security.principal.iprincipal.aspx)です。
 
 ユーザー定義プロパティは、FormsAuthenticationModule で設定されます。 具体的には、FormsAuthenticationModule には、受信要求のフォーム認証チケットが検出されると、その新しい GenericPrincipal オブジェクトを作成し、ユーザーのプロパティに割り当てます。
 
 (GenericPrincipal) などのプリンシパルのオブジェクトは、ユーザーの id とが所属するロールに関する情報を提供します。 IPrincipal インターフェイスでは、2 つのメンバーを定義します。
 
-- [IsInRole (*roleName*)](https://msdn.microsoft.com/en-us/library/system.security.principal.iprincipal.isinrole.aspx) -プリンシパルが、指定したロールに属しているかを示すブール値を返すメソッド。
-- [Identity](https://msdn.microsoft.com/en-us/library/system.security.principal.iprincipal.identity.aspx) -を実装するオブジェクトを返すプロパティ、 [IIdentity インターフェイス](https://msdn.microsoft.com/en-us/library/system.security.principal.iidentity.aspx)です。 IIdentity インターフェイス定義の 3 つのプロパティ: [AuthenticationType](https://msdn.microsoft.com/en-us/library/system.security.principal.iidentity.authenticationtype.aspx)、 [IsAuthenticated](https://msdn.microsoft.com/en-us/library/system.security.principal.iidentity.isauthenticated.aspx)、および[名前](https://msdn.microsoft.com/en-us/library/system.security.principal.iidentity.name.aspx)です。
+- [IsInRole (*roleName*)](https://msdn.microsoft.com/library/system.security.principal.iprincipal.isinrole.aspx) -プリンシパルが、指定したロールに属しているかを示すブール値を返すメソッド。
+- [Identity](https://msdn.microsoft.com/library/system.security.principal.iprincipal.identity.aspx) -を実装するオブジェクトを返すプロパティ、 [IIdentity インターフェイス](https://msdn.microsoft.com/library/system.security.principal.iidentity.aspx)です。 IIdentity インターフェイス定義の 3 つのプロパティ: [AuthenticationType](https://msdn.microsoft.com/library/system.security.principal.iidentity.authenticationtype.aspx)、 [IsAuthenticated](https://msdn.microsoft.com/library/system.security.principal.iidentity.isauthenticated.aspx)、および[名前](https://msdn.microsoft.com/library/system.security.principal.iidentity.name.aspx)です。
 
 次のコードを使用して現在のユーザーの名前お判断できます。
 
 CurrentUsersName として文字列を dim User.Identity.Name を =
 
-フォーム認証の使用時に、 [FormsIdentity オブジェクト](https://msdn.microsoft.com/en-us/library/system.web.security.formsidentity.aspx)GenericPrincipal の Identity プロパティを作成します。 FormsIdentity クラスは、常にその IsAuthenticated プロパティの文字列およびフォームの AuthenticationType プロパティは True を返します。 Name プロパティでは、フォーム認証チケットを作成するときに指定されたユーザー名を返します。 FormsIdentity にはだけでなく、これら 3 つのプロパティには、基になる認証チケットを使用してへのアクセスが含まれています、[プロパティのチケット](https://msdn.microsoft.com/en-us/library/system.web.security.formsidentity.ticket.aspx)です。 Ticket プロパティが型のオブジェクトを返します[所属](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationticket.aspx)、これは有効期限、IsPersistent、IssueDate、名などのプロパティがあります。
+フォーム認証の使用時に、 [FormsIdentity オブジェクト](https://msdn.microsoft.com/library/system.web.security.formsidentity.aspx)GenericPrincipal の Identity プロパティを作成します。 FormsIdentity クラスは、常にその IsAuthenticated プロパティの文字列およびフォームの AuthenticationType プロパティは True を返します。 Name プロパティでは、フォーム認証チケットを作成するときに指定されたユーザー名を返します。 FormsIdentity にはだけでなく、これら 3 つのプロパティには、基になる認証チケットを使用してへのアクセスが含まれています、[プロパティのチケット](https://msdn.microsoft.com/library/system.web.security.formsidentity.ticket.aspx)です。 Ticket プロパティが型のオブジェクトを返します[所属](https://msdn.microsoft.com/library/system.web.security.formsauthenticationticket.aspx)、これは有効期限、IsPersistent、IssueDate、名などのプロパティがあります。
 
 対処離れた設定されている重要な点、 *username* 、FormsAuthentication.GetAuthCookie で指定されたパラメーター (*username*、 *persistCookie*)、FormsAuthentication.SetAuthCookie (*username*、 *persistCookie*)、および FormsAuthentication.RedirectFromLoginPage (*username*、 *persistCookie*) メソッドが User.Identity.Name によって返されるのと同じ値です。 さらに、これらのメソッドによって作成された認証チケットは//新しい一般プリンシパル オブジェクトにキャストする、FormsIdentity し Ticket プロパティにアクセスして使用します。
 
-Ident として FormsIdentity を dim CType (//新しい一般プリンシパル、FormsIdentity) を =
+Dim ident As FormsIdentity = CType(User.Identity, FormsIdentity)
 
 認証チケットとして所属を dim ident を = です。チケット
 
 Default.aspx で個人用に設定された複数のメッセージを提供してみましょう。 ページを更新\_WelcomeBackMessage ラベルのテキスト プロパティには、文字列の開始を元に戻すが割り当てられているように、イベント ハンドラーを読み込む*username*!
 
-WelcomeBackMessage.Text =「こそ」 &amp; User.Identity.Name &amp; "!"
+WelcomeBackMessage.Text = "Welcome back, " &amp; User.Identity.Name &amp; "!"
 
 図 13 は、(Scott のユーザーとしてログイン) の場合、この変更の効果を示しています。
 
@@ -337,7 +337,7 @@ WelcomeBackMessage.Text =「こそ」 &amp; User.Identity.Name &amp; "!"
 
 一般的な要件は、認証および匿名ユーザーに異なるコンテンツを表示します。そのため、現在ログオンしているユーザーの名前を表示されています。 そのため、ASP.NET には、1 行のコードを記述する必要はありませんが、図 13 に示すように同じ機能を提供する 2 つの Web コントロールが含まれます。
 
-[LoginView コントロール](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.loginview.aspx)テンプレートに基づく Web コントロールを容易に認証および匿名ユーザーに別のデータを表示するものです。 LoginView には、2 つの定義済みテンプレートが含まれています。
+[LoginView コントロール](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx)テンプレートに基づく Web コントロールを容易に認証および匿名ユーザーに別のデータを表示するものです。 LoginView には、2 つの定義済みテンプレートが含まれています。
 
 - AnonymousTemplate - このテンプレートに追加されたすべてのマークアップは匿名ユーザーにのみ表示されます。
 - LoggedInTemplate - このテンプレートのマークアップが認証されたユーザーにのみ表示されます。
@@ -368,7 +368,7 @@ LoginView、およびその他のログインに関連するコントロール�
 
 デザイナーまたは宣言型マークアップから LoginView のテンプレートを定義することができます。 Visual Studio のデザイナーからは、ドロップダウン リストで構成されているテンプレートの一覧を表示する LoginView のスマート タグを展開します。 テキスト、こんにちは AnonymousTemplate; に知らない人を入力します。次に、ハイパーリンク コントロールを追加し、ログ内に、テキストと NavigateUrl プロパティを設定し、~/Login.aspx、それぞれします。
 
-AnonymousTemplate を構成した後、LoggedInTemplate に切り替えるし、テキスト、「ようこそ戻る」を入力します。 LoginName コントロールをツールボックスから「の開始 元に戻す」テキストの直後に配置すること、LoggedInTemplate をドラッグします。 [LoginName コントロール](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.loginname.aspx)、名前として意味、現在ログインしているユーザーの名前を表示します。 内部的には、ログイン名コントロールだけでは出力 User.Identity.Name プロパティ
+AnonymousTemplate を構成した後、LoggedInTemplate に切り替えるし、テキスト、「ようこそ戻る」を入力します。 LoginName コントロールをツールボックスから「の開始 元に戻す」テキストの直後に配置すること、LoggedInTemplate をドラッグします。 [LoginName コントロール](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginname.aspx)、名前として意味、現在ログインしているユーザーの名前を表示します。 内部的には、ログイン名コントロールだけでは出力 User.Identity.Name プロパティ
 
 LoginView のテンプレートへの追加を行った後、マークアップを次のようになります。
 
@@ -406,9 +406,9 @@ LoginContent ContentPlaceHolder の既定のマークアップをオーバーラ
 
 ## <a name="step-5-logging-out"></a>手順 5: ログアウトしています
 
-手順 3 でについて説明しました、サイトへのユーザーのログインのログイン ページの作成、おまだユーザーがログアウトする方法を参照してください。内のユーザーがログインするためのメソッドに加えて、FormsAuthentication クラスも用意されています、 [SignOut メソッド](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.signout.aspx)です。 SignOut メソッドには、フォーム認証チケットは、これにより、サイト外のユーザーのログ記録だけを破棄します。
+手順 3 でについて説明しました、サイトへのユーザーのログインのログイン ページの作成、おまだユーザーがログアウトする方法を参照してください。内のユーザーがログインするためのメソッドに加えて、FormsAuthentication クラスも用意されています、 [SignOut メソッド](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx)です。 SignOut メソッドには、フォーム認証チケットは、これにより、サイト外のユーザーのログ記録だけを破棄します。
 
-ログアウト リンクは、このような一般的な機能を提供するその ASP.NET には、ユーザーがログアウトに特化したコントロールが含まれています。[ログイン状態コントロール](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.loginstatus.aspx)ログイン LinkButton またはユーザーの認証の状態に応じて、ログアウト LinkButton のいずれかが表示されます。 ログアウト LinkButton が認証されたユーザーに表示されますが、匿名のユーザーに対してログイン LinkButton が表示されます。 ログイン状態の経由でログインおよびログアウトあるテキストを構成できます LoginText および LogoutText プロパティです。
+ログアウト リンクは、このような一般的な機能を提供するその ASP.NET には、ユーザーがログアウトに特化したコントロールが含まれています。[ログイン状態コントロール](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginstatus.aspx)ログイン LinkButton またはユーザーの認証の状態に応じて、ログアウト LinkButton のいずれかが表示されます。 ログアウト LinkButton が認証されたユーザーに表示されますが、匿名のユーザーに対してログイン LinkButton が表示されます。 ログイン状態の経由でログインおよびログアウトあるテキストを構成できます LoginText および LogoutText プロパティです。
 
 ログインの LinkButton をクリックすると、ログイン ページにリダイレクトが発行元となる、ポストバックが発生します。 ログアウト LinkButton をクリックし、FormsAuthentication.SignOff メソッドを呼び出すため、ログイン状態コントロール、ページに、ユーザーをリダイレクトします。 ログオンしているページは LogoutAction プロパティは、次の 3 つの値のいずれかに割り当てることができますに依存する無効なユーザーをリダイレクトします。
 
@@ -444,7 +444,7 @@ LoginView コントロールできないところで、ログイン状態があ�
 > I は、(同じように手順 4. で Login.aspx 用)、マスター ページの LoginContent ContentPlaceHolder を非表示にする Logout.aspx ページをカスタマイズすることを勧めします。 ログインの LinkButton がログイン状態コントロールによって表示されるためです (こんにちは、下にある 1 つ知らない人) ReturnUrl querystring パラメーターの現在の URL を渡してログイン ページに、ユーザーに送信します。 つまりログオンしがログアウトしたユーザーがこのログイン状態のログインの LinkButton がクリックした場合は、Logout.aspx で、ユーザーが混乱することが簡単に戻るがリダイレクトされます。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、フォーム認証ワークフローの検証の使用を開始をし、ASP.NET アプリケーションでフォーム認証を実装するためになっています。 フォーム認証の 2 つの役割を持つ、FormsAuthenticationModule で電源が入って: フォーム認証チケットに基づくユーザーを識別し、承認されていないユーザーをログイン ページにリダイレクトします。
 
@@ -459,14 +459,14 @@ LoginView コントロールできないところで、ログイン状態があ�
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
 - [Iis 6 と iis 7 のセキュリティの変更](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
-- [ログインの ASP.NET コントロール](https://msdn.microsoft.com/en-us/library/d51ttbhx.aspx)
+- [ログインの ASP.NET コントロール](https://msdn.microsoft.com/library/d51ttbhx.aspx)
 - [プロフェッショナル向けの ASP.NET 2.0 セキュリティ、メンバーシップ、およびロール管理](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html)(ISBN: 978-0-7645-9698-8)
-- [&lt;認証&gt;要素](https://msdn.microsoft.com/en-us/library/532aee0e.aspx)
-- [&lt;フォーム&gt;要素&lt;認証&gt;](https://msdn.microsoft.com/en-us/library/1d3t3c61.aspx)
+- [&lt;認証&gt;要素](https://msdn.microsoft.com/library/532aee0e.aspx)
+- [&lt;フォーム&gt;要素&lt;認証&gt;](https://msdn.microsoft.com/library/1d3t3c61.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>このチュートリアルに含まれるトピックに関するビデオ トレーニング
 
-- [ASP.NET で基本的なフォーム認証の使用](../../../videos/authentication/using-basic-forms-authentication-in-aspnet.md)
+- [ASP.NET で基本フォーム認証を使用する](../../../videos/authentication/using-basic-forms-authentication-in-aspnet.md)
 
 ### <a name="about-the-author"></a>作成者について
 

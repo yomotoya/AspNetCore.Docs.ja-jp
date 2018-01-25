@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 41efda63026c9d17cb9dceb92b5efc87490a722d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 92d9e583b6c26fa8c928d33e14593d280702a269
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="intro-to-aspnet-mvc-4"></a>ASP.NET mvc 4
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/10/2017
 
 > このチュートリアルでは使用可能な場合、更新されたバージョン[ここ](../../getting-started/introduction/getting-started.md)を使用して[Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)です。 新しいチュートリアルでは、ASP.NET MVC 5 は、このチュートリアルを超える多くの機能強化を提供を使用します。
 > 
-> このチュートリアルが Microsoft を使用して ASP.NET MVC 4 Web アプリケーションの構築の基礎を教える[Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express)または Visual Web Developer 2010 Express Service Pack 1。 チュートリアルを完了できるものをインストールする必要はありませんが、visual Studio 2012 がお勧めします。 Visual Studio 2010 を使用している場合は、以下のコンポーネントをインストールする必要があります。 次のリンクをクリックしてそれらのすべてをインストールできます。
+> このチュートリアルが Microsoft を使用して ASP.NET MVC 4 Web アプリケーションの構築の基礎を教える[Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express)または Visual Web Developer 2010 Express Service Pack 1。 チュートリアルを完了できるものをインストールする必要はありませんが、visual Studio 2012 がお勧めします。 Visual Studio 2010 を使用している場合は、以下のコンポーネントをインストールする必要があります。 次のリンクをクリックしてそれらのすべてをインストールできます。
 > 
 > - [Visual Studio Web Developer Express SP1 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
 > - [ASP.NET MVC 4 の WPI インストーラー](https://go.microsoft.com/fwlink/?LinkId=243392)
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > C# ソース コードの Visual Web Developer プロジェクトは、このトピックを使用できます。 [C# バージョンをダウンロード](https://code.msdn.microsoft.com/Intro-to-ASPNET-MVC-4-61d0219d/file/114480/1/MvcMovie.zip)です。
 > 
-> このチュートリアルでは、Visual Studio でアプリケーションを実行します。 利用できるアプリケーション、インターネット経由でホスティング プロバイダーに展開することで。 マイクロソフトでは、無料の web ホスティングで最大 10 個の web サイトを提供しています、[試用アカウントを Windows Azure の無料](https://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604)です。 Windows Azure Web サイトへの Visual Studio web プロジェクトを配置する方法については、次を参照してください。[を作成すると、ASP.NET web サイトと Visual Studio での SQL データベースを展開](https://docs.microsoft.com/dotnet/azure/)です。 そのチュートリアルでは、Entity Framework Code First Migrations を使用して Windows Azure SQL データベース (以前の SQL Azure) に、SQL Server データベースを展開する方法も示します。
+> このチュートリアルでは、Visual Studio でアプリケーションを実行します。 利用できるアプリケーション、インターネット経由でホスティング プロバイダーに展開することで。 マイクロソフトでは、無料の web ホスティングで最大 10 個の web サイトを提供しています、[試用アカウントを Windows Azure の無料](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604)です。 Windows Azure Web サイトへの Visual Studio web プロジェクトを配置する方法については、次を参照してください。[を作成すると、ASP.NET web サイトと Visual Studio での SQL データベースを展開](https://docs.microsoft.com/dotnet/azure/)です。 そのチュートリアルでは、Entity Framework Code First Migrations を使用して Windows Azure SQL データベース (以前の SQL Azure) に、SQL Server データベースを展開する方法も示します。
 > 
 > このチュートリアルは、Rick Anderson によって書き込まれました ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )。
 
@@ -72,7 +72,7 @@ Visual Studio は、IDE、または統合開発環境です。 Microsoft Word �
 
 ![](intro-to-aspnet-mvc-4/_static/image5.png)
 
-**[OK]** をクリックします。 Visual Studio では、作成した ASP.NET MVC プロジェクトの既定のテンプレートが使用されるため、何もせず作業アプリケーションが現在ある! これは、単純な&quot;Hello World!&quot;プロジェクト、およびそのアプリケーションを起動するに適しています。
+**[OK]**をクリックします。 Visual Studio では、作成した ASP.NET MVC プロジェクトの既定のテンプレートが使用されるため、何もせず作業アプリケーションが現在ある! これは、単純な&quot;Hello World!&quot;プロジェクト、およびそのアプリケーションを起動するに適しています。
 
 ![](intro-to-aspnet-mvc-4/_static/image6.png)
 

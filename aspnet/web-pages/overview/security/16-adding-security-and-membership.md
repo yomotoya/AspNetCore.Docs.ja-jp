@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: f0cee96005416bd9ef8befaf34890f415cf5ff3c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af2eeb128cff554e7ae3d903e2117861087344e9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトへのセキュリティとメンバーシップの追加
 ====================
@@ -100,7 +100,7 @@ WebMatrix で使用することができます、**スターター サイト**�
 7. 保存して閉じる *\_AppStart.cshtml*です。
 8. 実行、 *Default.cshtml*ブラウザーのページです。
 
-    ![セキュリティ-メンバーシップ-2](16-adding-security-and-membership/_static/image1.png)
+    ![security-membership-2](16-adding-security-and-membership/_static/image1.png)
 
     > [!NOTE]
     > プロパティのインスタンスである必要があることを示すエラーが発生する場合`ExtendedMembershipProvider`サイトが ASP.NET Web Pages のメンバーシップ システム (SimpleMembership) を使用して構成されていない可能性があります。 ホスティング プロバイダーのサーバーの構成は、ローカル サーバーとは異なる場合があることができます。 この問題を解決するをサイトの次の要素を追加*Web.config*ファイル。
@@ -111,20 +111,20 @@ WebMatrix で使用することができます、**スターター サイト**�
 9. ページの右上隅で、クリックして、**登録**リンクします。 *Register.cshtml*ページが表示されます。
 10. ユーザー名とパスワードを入力し、クリックして**登録**です。
 
-    ![セキュリティ-メンバーシップ-3](16-adding-security-and-membership/_static/image2.png)
+    ![security-membership-3](16-adding-security-and-membership/_static/image2.png)
 
     Web サイトを作成したときに、**スターター サイト**テンプレート、という名前のデータベース*StarterSite.sdf* 、サイトで作成された*アプリ\_データ*フォルダーです。 登録の際に、ユーザー情報がデータベースに追加されます。 SMTP 値を設定すると、メッセージは、登録を完了するために使用する電子メール アドレスに送信します。
 
-    ![セキュリティ-メンバーシップ-4](16-adding-security-and-membership/_static/image3.png)
+    ![security-membership-4](16-adding-security-and-membership/_static/image3.png)
 11. 電子メール プログラムに移動し、サイトに、確認コードとハイパーリンクを持つメッセージを検索します。
 12. 自分のアカウントをアクティブ化するハイパーリンクをクリックします。 確認のハイパーリンクは、登録の確認 ページを開きます。
 
-    ![セキュリティ-メンバーシップ-5](16-adding-security-and-membership/_static/image4.png)
+    ![security-membership-5](16-adding-security-and-membership/_static/image4.png)
 - クリックして、**ログイン**リンク、および登録したアカウントを使用してサインインします。
 
     ログインした後、**ログイン**と**登録**はリンクに置き換え、**ログアウト**リンク。 ユーザーのログイン名は、リンクとして表示されます。 (リンクできますページに移動するパスワードを変更することができます。)
 
-    ![セキュリティ-メンバーシップ-6](16-adding-security-and-membership/_static/image5.png)
+    ![security-membership-6](16-adding-security-and-membership/_static/image5.png)
 
     > [!NOTE]
     > 既定では、ASP.NET web ページの資格情報をサーバーにクリア テキストで (として送信人間が判読できるテキスト)。 運用サイトは、セキュリティで保護された HTTP を使用する必要があります (https://とも呼ばれる、 *secure socket layer*または SSL) サーバーと交換される機密情報を暗号化します。 必要な電子メールを作成することができます送信されるメッセージを設定して SSL を使用して`WebMail.EnableSsl=true`前の例に示すようにします。 SSL の詳細については、次を参照してください。 [Web 通信のセキュリティ保護: 証明書、SSL、および https://](https://go.microsoft.com/fwlink/?LinkId=208660)です。
@@ -170,7 +170,7 @@ WebMatrix で使用することができます、**スターター サイト**�
 保護するには複数のページへのアクセスは、これを行うことができます。
 
 - 各ページに、セキュリティ チェックを追加します。
-- 作成、  *\_PageStart.cshtml*  ページで、フォルダー、保護対象のページを保存し、追加セキュリティ チェックがあります。  *\_PageStart.cshtml*ページはフォルダー内のすべてのページの [グローバル] ページの種類として機能します。 この手法がで詳しく説明されている[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access)します。
+- 作成、  *\_PageStart.cshtml*  ページで、フォルダー、保護対象のページを保存し、追加セキュリティ チェックがあります。 *\_PageStart.cshtml*ページはフォルダー内のすべてのページの [グローバル] ページの種類として機能します。 この手法がで詳しく説明されている[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access)します。
 
 ## <a name="creating-security-for-groups-of-users-roles"></a>ユーザー (ロール) のグループのセキュリティを作成します。
 
@@ -181,17 +181,17 @@ ASP.NET メンバーシップ システムは、役割をサポートするを�
 1. WebMatrix でをクリックして、**データベース**ワークスペース セレクター。
 2. 左側のウィンドウで開く、 *StarterSite.sdf*ノード、開いている、**テーブル**ノードを展開し、ダブルクリック、 *web ページ\_ロール*テーブル。
 
-    ![セキュリティ-メンバーシップ-7](16-adding-security-and-membership/_static/image6.png)
+    ![security-membership-7](16-adding-security-and-membership/_static/image6.png)
 3. という名前のロールを追加&quot;admin&quot;です。 *RoleId*フィールドが自動的に入力します。 (主キーであるし、で説明したように、識別フィールドに設定されている[ASP.NET Web Pages サイトでのデータベース操作の概要](https://go.microsoft.com/fwlink/?LinkId=202893))。
 4. 新機能の値を書き留めて、 *RoleId*フィールドです。 (最初のロールを定義している場合は、その 1 なります。)
 
-    ![セキュリティ-メンバーシップ-8](16-adding-security-and-membership/_static/image7.png)
+    ![security-membership-8](16-adding-security-and-membership/_static/image7.png)
 5. 閉じる、 *web ページ\_ロール*テーブル。
 6. 開く、 *UserProfile*テーブル。
 7. メモ、 *UserId*閉じ、テーブル、テーブル内のユーザーの 1 つ以上の値。
 8. 開く、 *web ページ\_UserInRoles*テーブルし、入力、 *UserID*と*RoleID*テーブルに値。 たとえば、ユーザー 2 にするため、 &quot;admin&quot;ロール、これらの値を入力します。
 
-    ![セキュリティ-メンバーシップ-9](16-adding-security-and-membership/_static/image8.png)
+    ![security-membership-9](16-adding-security-and-membership/_static/image8.png)
 9. 閉じる、 *web ページ\_UsersInRoles*テーブル。
 
     これで定義されたロールがある場合は、そのロールにユーザーにアクセス可能なページを構成できます。
@@ -230,7 +230,7 @@ ASP.NET メンバーシップ システムは、役割をサポートするを�
 1. 実行*Default.cshtml*ブラウザーでします。 クリックして、サイトにログインする場合、**ログアウト**リンクします。
 2. クリックして、**登録**リンクし、CAPTCHA テストを使用して登録をテストします。
 
-    ![セキュリティ-メンバーシップ-10](16-adding-security-and-membership/_static/image9.png)
+    ![security-membership-10](16-adding-security-and-membership/_static/image9.png)
 
 詳細については、`ReCaptcha`ヘルパーに渡しを参照してください[自動プログラムを防ぐ (Bot) を使用して、ASP.NET Web サイトから、CATPCHA を使用して](https://go.microsoft.com/fwlink/?LinkId=251967)です。
 
@@ -254,20 +254,20 @@ ASP.NET メンバーシップ システムは、役割をサポートするを�
 
 基本的なプロセスは、ブログの投稿に記載されて[ASP.NET Razor のセキュリティを実装する最も簡単な方法](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240)です。 ほとんどの作業を行う、次のメソッドとプロパティを使用して、`WebSecurity`ヘルパー。
 
-- [WebSecurty.UserExists](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.userexists(v=vs.99).aspx)、 [WebSecurity.CreateUserAndAccount](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.createuserandaccount(v=vs.99).aspx)です。 これらのメソッドを使用して、他のユーザーは既に登録されているかどうかを判別できると、それらを登録します。
-- [WebSecurty.IsAuthenticated](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.isauthenticated(v=vs.99).aspx)です。 このプロパティでは、現在のユーザーがログインしているかどうかを確認できます。 これは、ユーザーをリダイレクトするログイン ページへログインがない場合に便利です。
-- [WebSecurity.Login](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.login(v=vs.99).aspx)、 [WebSecurity.Logout](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.logout(v=vs.99).aspx)です。 これらのメソッドは、in または out にユーザーをログインします。
-- [WebSecurity.CurrentUserName](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.currentusername(v=vs.99).aspx)です。 このプロパティは、(この場合、ユーザーがログインして)、現在のユーザーのログイン名を表示するため便利です。
-- [WebSecurity.ConfirmAccount](https://msdn.microsoft.com/en-us/library/gg569286(v=vs.99).aspx)です。 このメソッドは、登録の確認の電子メールを設定する場合に便利です。 (詳細については、ブログの投稿で説明[ASP.NET Web Pages のセキュリティの確認機能を使用して](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267))。
+- [WebSecurty.UserExists](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.userexists(v=vs.99).aspx), [WebSecurity.CreateUserAndAccount](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.createuserandaccount(v=vs.99).aspx). これらのメソッドを使用して、他のユーザーは既に登録されているかどうかを判別できると、それらを登録します。
+- [WebSecurty.IsAuthenticated](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.isauthenticated(v=vs.99).aspx). このプロパティでは、現在のユーザーがログインしているかどうかを確認できます。 これは、ユーザーをリダイレクトするログイン ページへログインがない場合に便利です。
+- [WebSecurity.Login](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.login(v=vs.99).aspx), [WebSecurity.Logout](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.logout(v=vs.99).aspx). これらのメソッドは、in または out にユーザーをログインします。
+- [WebSecurity.CurrentUserName](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.currentusername(v=vs.99).aspx). このプロパティは、(この場合、ユーザーがログインして)、現在のユーザーのログイン名を表示するため便利です。
+- [WebSecurity.ConfirmAccount](https://msdn.microsoft.com/library/gg569286(v=vs.99).aspx). このメソッドは、登録の確認の電子メールを設定する場合に便利です。 (詳細については、ブログの投稿で説明[ASP.NET Web Pages のセキュリティの確認機能を使用して](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267))。
 
-ロールを管理するには、使用することができます、[ロール](https://msdn.microsoft.com/en-us/library/gg538398(v=vs.99).aspx)と[メンバーシップ](https://msdn.microsoft.com/en-us/library/gg569035(v=vs.99).aspx)クラス、ブログ記事で説明されているようです。
+ロールを管理するには、使用することができます、[ロール](https://msdn.microsoft.com/library/gg538398(v=vs.99).aspx)と[メンバーシップ](https://msdn.microsoft.com/library/gg569035(v=vs.99).aspx)クラス、ブログ記事で説明されているようです。
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [サイト全体の動作をカスタマイズします。](https://go.microsoft.com/fwlink/?LinkId=202906)
+- [サイト全体の動作をカスタマイズする](https://go.microsoft.com/fwlink/?LinkId=202906)
 - [Web 通信の保護: 証明書、SSL、および https://](https://go.microsoft.com/fwlink/?LinkId=208660)
 - [ASP.NET Razor のセキュリティを実装する最も簡単な方法](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240)と[ASP.NET Web Pages のセキュリティの確認機能を使用して](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267)です。 これらを使用せずに ASP.NET メンバーシップ機能を実装する方法を説明するブログの投稿、**スターター サイト**テンプレート。
-- [ASP.NET Web Pages サイト内の外部のサイトからのログインを有効にします。](https://go.microsoft.com/fwlink/?LinkId=251969)
-- [WebSecurity クラスの API リファレンス](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity(v=vs.99))(MSDN)
-- [SimpleRoleProvider クラスの API リファレンス](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.simpleroleprovider(v=vs.99))(MSDN)
-- [に関する SimpleMembershipProvider クラスの API リファレンス](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.simplemembershipprovider(v=vs.99))(MSDN)
+- [ASP.NET Web ページ サイトで外部サイトからのログインを有効にする](https://go.microsoft.com/fwlink/?LinkId=251969)
+- [WebSecurity クラスの API リファレンス](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity(v=vs.99))(MSDN)
+- [SimpleRoleProvider クラスの API リファレンス](https://msdn.microsoft.com/library/webmatrix.webdata.simpleroleprovider(v=vs.99))(MSDN)
+- [に関する SimpleMembershipProvider クラスの API リファレンス](https://msdn.microsoft.com/library/webmatrix.webdata.simplemembershipprovider(v=vs.99))(MSDN)

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/what-is-new-in-aspnet-mvc
 msc.type: content
-ms.openlocfilehash: e7f92dd7a09d1986ad775203effcbce76fb0e6f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29692b380f0ad1673459681042610876d152a76f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-mvc-2"></a>ASP.NET MVC 2 の新機能
 ====================
@@ -88,7 +88,7 @@ RegisterArea メソッドでコンテキストを呼び出すことによって�
 
 ### <a id="_TOC3_3"></a>非同期コント ローラーのサポート
 
-ASP.NET MVC 2 では、要求を非同期的に処理するコント ローラーができるようになりました。 これについては、非ブロッキング古くてを呼び出してくださいを頻繁に (ネットワーク要求) などのブロッキング操作を呼び出すことがサーバーを許可することでパフォーマンスの向上につながります。 詳細については、次を参照してください。、 [ASP.NET MVC での非同期コント ローラーを使用して](https://msdn.microsoft.com/en-us/library/ee728598(v=VS.100).aspx)MSDN のトピックです。
+ASP.NET MVC 2 では、要求を非同期的に処理するコント ローラーができるようになりました。 これについては、非ブロッキング古くてを呼び出してくださいを頻繁に (ネットワーク要求) などのブロッキング操作を呼び出すことがサーバーを許可することでパフォーマンスの向上につながります。 詳細については、次を参照してください。、 [ASP.NET MVC での非同期コント ローラーを使用して](https://msdn.microsoft.com/library/ee728598(v=VS.100).aspx)MSDN のトピックです。
 
 ### <a id="_TOC3_4"></a>DefaultValueAttribute アクション メソッド パラメーターのサポート
 
@@ -102,7 +102,7 @@ System.ComponentModel.DefaultValueAttribute クラスは、アクション メ�
 
 次のような要求の Url はメソッドを呼び出すビュー アクション前の例で定義されています。
 
-- /記事/ビュー/123
+- /Article/View/123
 - /記事/ビュー/123 ですか? ページ (実質的に同じ、前回の要求) 1 を =
 - /記事/ビュー/123 ですか? ページ 2 を =
 
@@ -142,7 +142,7 @@ ModelMetadataProvider クラスでは、ビュー内のモデルのメタデー�
 
 ViewDataDictionary クラスでは、ModelMetadataProvider クラスによって、モデルから抽出されたメタデータを含む ModelMetadata オブジェクトを公開します。 これにより、テンプレート化されたヘルパーをこのメタデータを使用し、その出力は必要に応じて調整できます。
 
-詳細については、ドキュメントを参照して、 [ModelMetadata](https://msdn.microsoft.com/en-us/library/system.web.mvc.modelmetadataprovider(VS.100).aspx)と[ModelMetadataProvider](https://msdn.microsoft.com/en-us/library/system.web.mvc.modelmetadataprovider(VS.100).aspx)クラスです。
+詳細については、ドキュメントを参照して、 [ModelMetadata](https://msdn.microsoft.com/library/system.web.mvc.modelmetadataprovider(VS.100).aspx)と[ModelMetadataProvider](https://msdn.microsoft.com/library/system.web.mvc.modelmetadataprovider(VS.100).aspx)クラスです。
 
 ### <a id="_TOC3_7"></a>DataAnnotations 属性のサポート
 
@@ -152,7 +152,7 @@ ASP.NET MVC 2 (System.ComponentModel.DataAnnotations 名前空間で定義され
 
 ### <a id="_TOC3_8"></a>モデルの検証コントロール プロバイダー
 
-モデル検証プロバイダー クラスは、モデルの検証ロジックを提供する抽象型を表します。 ASP.NET MVC には、System.ComponentModel.DataAnnotations 名前空間に含まれている検証の属性に基づいて既定のプロバイダーが含まれています。 モデルへのカスタム検証規則と検証規則のカスタム マッピングを定義する、独自の検証プロバイダーを作成することもできます。 詳細については、ドキュメントを参照して、 [ModelValidatorProvider](https://msdn.microsoft.com/en-us/library/system.web.mvc.ModelValidatorProvider(VS.100).aspx)クラスです。
+モデル検証プロバイダー クラスは、モデルの検証ロジックを提供する抽象型を表します。 ASP.NET MVC には、System.ComponentModel.DataAnnotations 名前空間に含まれている検証の属性に基づいて既定のプロバイダーが含まれています。 モデルへのカスタム検証規則と検証規則のカスタム マッピングを定義する、独自の検証プロバイダーを作成することもできます。 詳細については、ドキュメントを参照して、 [ModelValidatorProvider](https://msdn.microsoft.com/library/system.web.mvc.ModelValidatorProvider(VS.100).aspx)クラスです。
 
 ### <a id="_TOC3_9"></a>クライアント側の検証
 

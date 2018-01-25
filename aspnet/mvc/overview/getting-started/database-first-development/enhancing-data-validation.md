@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 465be4b51ab280d0b3e2f4b33362fa771480d5e1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 842496c2d3ec56fb81f2409dd7d05d800f83799b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-enhancing-data-validation"></a>ASP.NET MVC で最初の EF データベース データの検証を拡張。
 ====================
@@ -51,7 +51,7 @@ Enrollment.cs では、次の強調表示されたコードを追加します。
 
 ![グレード範囲エラー](enhancing-data-validation/_static/image2.png)
 
-プロパティとクラスに適用できるデータの検証の注釈の一覧については、次を参照してください。 [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx)です。
+プロパティとクラスに適用できるデータの検証の注釈の一覧については、次を参照してください。 [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)です。
 
 ## <a name="add-metadata-classes"></a>メタデータ クラスを追加します。
 

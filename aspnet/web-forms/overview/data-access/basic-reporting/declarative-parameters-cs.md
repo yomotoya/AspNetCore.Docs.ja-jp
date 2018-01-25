@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3a4685741e0acab7a944e2822a5c43c5cf3e9cf1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4bbe32ae65f71196fc1f939671b9d1a24bee8c34
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="declarative-parameters-c"></a>宣言型のパラメーター (c#)
 ====================
@@ -111,7 +111,7 @@ Web コントロールのデータが、ObjectDataSource を呼び出すこの�
 **図 8**: に、パラメーターの値を設定、`CountryName`制御値 ([フルサイズのイメージを表示するをクリックして](declarative-parameters-cs/_static/image24.png))
 
 
-ObjectDataSource の宣言型マークアップと若干異なり、最初の例を使用して、 [ControlParameter](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.controlparameter.aspx)標準ではなく`Parameter`オブジェクト。 A`ControlParameter`を指定する追加のプロパティを持つ、 `ID` Web コントロールと、パラメーターで使用するプロパティ値の (`PropertyName`)。 データ ソース構成ウィザードが、テキスト ボックス、おすることが使用を決定するのに十分なスマート、`Text`パラメーター値のプロパティです。 ただし、Web コントロールから別のプロパティ値を使用する場合は、変更、`PropertyName`値ここで、またはウィザードで「詳細プロパティの表示設定」リンクをクリックします。
+ObjectDataSource の宣言型マークアップと若干異なり、最初の例を使用して、 [ControlParameter](https://msdn.microsoft.com/library/system.web.ui.webcontrols.controlparameter.aspx)標準ではなく`Parameter`オブジェクト。 A`ControlParameter`を指定する追加のプロパティを持つ、 `ID` Web コントロールと、パラメーターで使用するプロパティ値の (`PropertyName`)。 データ ソース構成ウィザードが、テキスト ボックス、おすることが使用を決定するのに十分なスマート、`Text`パラメーター値のプロパティです。 ただし、Web コントロールから別のプロパティ値を使用する場合は、変更、`PropertyName`値ここで、またはウィザードで「詳細プロパティの表示設定」リンクをクリックします。
 
 [!code-aspx[Main](declarative-parameters-cs/samples/sample2.aspx)]
 
@@ -147,7 +147,7 @@ ObjectDataSource の宣言型マークアップと若干異なり、最初の例
 **図 10**: All は既定で表示されるようになりました ([フルサイズのイメージを表示するをクリックして](declarative-parameters-cs/_static/image30.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 入力パラメーターを持つメソッドを使用するために必要があります、objectdatasource のパラメーターの値を指定する`SelectParameters`コレクション。 異なる型のパラメーターの異なるソースから取得されるパラメーター値を許容します。 既定のパラメーター型が、ハード コーディングされた値を使用しますが、簡単に (およびコードの行がない) と同様、クエリ文字列、セッション変数、cookie、およびページ上のコントロールを Web からもユーザーが入力した値からパラメーターの値を取得できます。
 

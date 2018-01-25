@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/aspnet-web-pages-razor-faq
 msc.type: authoredcontent
-ms.openlocfilehash: 7f6dc3b56a33bcbe3e1e4086681ca1ba76d7d153
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 60cc4ca364923cb131d5e91cd7b6307b1e68644b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-pages-razor-faq"></a>ASP.NET Web Pages (Razor) FAQ
 ====================
@@ -99,7 +99,7 @@ IIS Express のコマンド ライン オプションについては、次のよ
 <a id="Can_I_use_ASP.NET_Web_Forms_controls_on_a_Web_Pages_page"></a>
 ## <a name="can-i-use-aspnet-web-forms-controls-on-a-web-pages-page"></a>ASP.NET Web フォーム ページのコントロールを Web ページを使用できますか。
 
-いいえ。 Web フォーム コントロールと同様に、 [ チェック ボックス](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.checkbox)コントロール、[検証コントロール](https://msdn.microsoft.com/en-us/library/bwd43d0x)、および[GridView](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview) Web フォーム ページでのみ動作を制御 (*.aspx*ファイル)。 これらのコントロールでは、Web フォーム ページのフレームワークが必要です。
+いいえ。 Web フォーム コントロールと同様に、 [ チェック ボックス](https://msdn.microsoft.com/library/system.web.ui.webcontrols.checkbox)コントロール、[検証コントロール](https://msdn.microsoft.com/library/bwd43d0x)、および[GridView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview) Web フォーム ページでのみ動作を制御 (*.aspx*ファイル)。 これらのコントロールでは、Web フォーム ページのフレームワークが必要です。
 
 <a id="Can_I_deploy_an_ASP.NET_Web_Pages_site_without_using_WebMatrix"></a>
 ## <a name="can-i-deploy-an-aspnet-web-pages-site-without-using-webmatrix"></a>WebMatrix を使用せず、ASP.NET Web Pages サイトを配置できますか。
@@ -135,6 +135,6 @@ ASP.NET Web Pages を jQuery を使用する方法を説明した一部のブロ
 ## <a name="additional-resources"></a>その他のリソース
 
 
-[ASP.NET Web Pages (Razor) トラブルシューティング ガイド](https://go.microsoft.com/fwlink/?LinkId=253001)
+[ASP.NET Web ページ (Razor) トラブルシューティング ガイド](https://go.microsoft.com/fwlink/?LinkId=253001)
 
 [WebMatrix と ASP.NET Web Pages のフォーラム](https://forums.asp.net/1224.aspx/1?WebMatrix)ASP.NET web サイト

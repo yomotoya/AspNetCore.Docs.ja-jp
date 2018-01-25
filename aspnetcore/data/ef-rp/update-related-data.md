@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 817bfd48dce94e7dbad96cb6f822494e3adfae1d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 236589d0202a7f30f1e1a9d69902000fd9a2dd71
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="updating-related-data---ef-core-razor-pages-7-of-8"></a>関連するデータの EF コア Razor ページ (8 の 7) の更新
 
@@ -103,7 +103,7 @@ Razor ページを使用して、[タグ ヘルパーの選択](xref:mvc/views/w
 
 ## <a name="add-asnotracking-to-the-details-and-delete-page-models"></a>詳細を AsNoTracking を追加してページ モデルの削除
 
-[AsNoTracking](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__)追跡が必要ない場合に、パフォーマンスを向上させることができます。 追加`AsNoTracking`Delete と詳細ページのモデルにします。 次のコードは、更新の削除 ページのモデルを示しています。
+[AsNoTracking](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__)追跡が必要でない場合、パフォーマンスを向上させることができます。 追加`AsNoTracking`Delete と詳細ページのモデルにします。 次のコードは、更新の削除 ページのモデルを示しています。
 
 [!code-csharp[Main](intro/samples/cu/Pages/Courses/Delete.cshtml.cs?name=snippet&highlight=21,23,40,41)]
 
@@ -164,7 +164,7 @@ Razor ページを使用して、[タグ ヘルパーの選択](xref:mvc/views/w
 チェック ボックスは、コースに割り当てられている、インストラクターへの変更を有効にします。 データベース内のすべてのコースにチェック ボックスが表示されます。 割り当てられているインストラクター コースがチェックされます。 ユーザーでは、選択したり、コースの割り当てを変更する チェック ボックスをオフにすることができます。 コースの数が非常に大きい: 場合
 
 * おそらく、コースを表示するのに別のユーザー インターフェイスを使用します。
-* リレーションシップを作成または削除の結合エンティティを操作するためのメソッドは変化しません。
+* リレーションシップを作成または削除の結合エンティティを操作するためのメソッドは変更されません。
 
 ### <a name="add-classes-to-support-create-and-edit-instructor-pages"></a>サポートするクラスを追加作成し、インストラクター ページの編集
 

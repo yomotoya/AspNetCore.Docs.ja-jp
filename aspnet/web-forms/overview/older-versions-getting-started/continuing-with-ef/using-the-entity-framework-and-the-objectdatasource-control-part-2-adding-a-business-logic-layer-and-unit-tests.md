@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 title: "Entity Framework 4.0 ObjectDataSource コントロールを使用して、パート 2: ビジネス ロジック層と単体テストを追加する |Microsoft ドキュメント"
 author: tdykstra
-description: "この一連のチュートリアルについては、Entity Framework 4.0 チュートリアル シリーズの概要を作成した Contoso 大学 web アプリケーションに基づいています。 私。。。"
+description: "この一連のチュートリアルについては、Entity Framework 4.0 チュートリアル シリーズの概要を作成した Contoso 大学 web アプリケーションに基づいています。 I..."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: 0440f807c7baa7b92e5f05590eca9cc237b5aef9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: df37acd8901b457f7887afe767d42d53e45e4815
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Entity Framework 4.0 ObjectDataSource コントロールを使用して、パート 2: ビジネス ロジック層と単体テストを追加します。
 ====================
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/10/2017
 リポジトリのクラスと 2 つのコンス トラクターを呼び出す CRUD メソッドを使用すればを選択する任意のバックエンド データ ストアとビジネス ロジックのクラスを使用できます。 ビジネス ロジックのクラスは、クラスを呼び出しているが、データを保持する方法について注意する必要はありません。 (これは多くの場合と呼ばれる*持続性の無視が適用*)。ビジネス ロジックのクラスを単純なものを使用してリポジトリ実装に接続するため、単体テストを容易にインメモリとして`List`データを格納するコレクション。
 
 > [!NOTE]
-> Entity Framework から継承するクラスからそれらをインスタンス化しているためエンティティ オブジェクトがまだない永続化非依存には技術的には、`EntityObject`クラスです。 使用できる完全な持続性の無視が適用、 *plain old CLR object*、または*した poco から*から継承するオブジェクトの代わりに、`EntityObject`クラスです。 このチュートリアルの範囲を超えてを使用した poco からです。 詳細については、次を参照してください[テストの容易性と Entity Framework 4.0](https://msdn.microsoft.com/en-us/library/ff714955.aspx) MSDN web サイトです。)。
+> Entity Framework から継承するクラスからそれらをインスタンス化しているためエンティティ オブジェクトがまだない永続化非依存には技術的には、`EntityObject`クラスです。 使用できる完全な持続性の無視が適用、 *plain old CLR object*、または*した poco から*から継承するオブジェクトの代わりに、`EntityObject`クラスです。 このチュートリアルの範囲を超えてを使用した poco からです。 詳細については、次を参照してください[テストの容易性と Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) MSDN web サイトです。)。
 
 
 これで、接続することができます、`ObjectDataSource`にビジネス ロジックのコントロール クラスの代わりに、リポジトリへの動作を確認すべて以前と同じようです。
@@ -221,7 +221,7 @@ Contoso 大学で、個々 の講師が 1 つの部門の管理者をできる�
 
 テストして、 *DepartmentsAdd.aspx.cs*ページを 1 つ以上の部門の管理者は、1 人のユーザーを実行する試行も正しく処理することを確認します。
 
-これで完了、リポジトリ パターンを使用するための実装の概要、 `ObjectDataSource` Entity Framework でのコントロールです。 詳細については、リポジトリ パターンとテストの容易性は、MSDN のホワイト ペーパーを参照してください。[テストの容易性と Entity Framework 4.0](https://msdn.microsoft.com/en-us/library/ff714955.aspx)です。
+これで完了、リポジトリ パターンを使用するための実装の概要、 `ObjectDataSource` Entity Framework でのコントロールです。 詳細については、リポジトリ パターンとテストの容易性は、MSDN のホワイト ペーパーを参照してください。[テストの容易性と Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx)です。
 
 次のチュートリアルでは、並べ替えおよびフィルター処理をアプリケーションに機能を追加する方法が表示されます。
 

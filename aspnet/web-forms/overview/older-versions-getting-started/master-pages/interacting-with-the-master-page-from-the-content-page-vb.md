@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2f5cb1712922c355c99bde9f8252dc84f1f590ec
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a9020115e6348d30350f8fff493efe88bd0d4c37
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="interacting-with-the-master-page-from-the-content-page-vb"></a>コンテンツ ページ (VB) から、マスター ページと対話します。
 ====================
@@ -192,9 +192,9 @@ Label コントロールがマスター ページ内でプロテクト メンバ
 
 ### <a name="using-the-loosely-typedpagemasterproperty"></a>厳密に型を使用して`Page.Master`プロパティ
 
-すべての ASP.NET web ページがから派生する必要があります、`Page`クラスにある、`System.Web.UI`名前空間。 `Page`クラスが含まれています、 [ `Master`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.page.master.aspx)マスター ページへの参照を返します。 マスター ページがページにない場合`Master`返します`Nothing`です。
+すべての ASP.NET web ページがから派生する必要があります、`Page`クラスにある、`System.Web.UI`名前空間。 `Page`クラスが含まれています、 [ `Master`プロパティ](https://msdn.microsoft.com/library/system.web.ui.page.master.aspx)マスター ページへの参照を返します。 マスター ページがページにない場合`Master`返します`Nothing`です。
 
-`Master`プロパティ型のオブジェクトを返します[ `MasterPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.masterpage.aspx) (にも格納されて、`System.Web.UI`名前空間) はすべてのマスター ページから派生する基本型です。 パブリック プロパティを使用またはおキャストする必要があります、web サイトのマスター ページで定義されているメソッドにそのため、`MasterPage`から返されたオブジェクト、`Master`プロパティを適切な型です。 マスター ページファイルという名前を付けてため`Site.master`、分離コード クラスの名前が`Site`です。 したがって、次のコードのキャスト、`Page.Master`プロパティのインスタンスを`Site`クラスです。
+`Master`プロパティ型のオブジェクトを返します[ `MasterPage` ](https://msdn.microsoft.com/library/system.web.ui.masterpage.aspx) (にも格納されて、`System.Web.UI`名前空間) はすべてのマスター ページから派生する基本型です。 パブリック プロパティを使用またはおキャストする必要があります、web サイトのマスター ページで定義されているメソッドにそのため、`MasterPage`から返されたオブジェクト、`Master`プロパティを適切な型です。 マスター ページファイルという名前を付けてため`Site.master`、分離コード クラスの名前が`Site`です。 したがって、次のコードのキャスト、`Page.Master`プロパティのインスタンスを`Site`クラスです。
 
 
 [!code-vb[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample8.vb)]
@@ -217,7 +217,7 @@ Label コントロールがマスター ページ内でプロテクト メンバ
 
 ASP.NET ページにアクセスするたびに発生する自動コード生成、比較的一部ではなく興味深く有用な選択肢です。 マスター ページの場合、コンテンツ ページがどのようなマスター ページを使用している ASP.NET エンジン通知が生成されます、厳密に型指定された`Master`支払えばプロパティです。
 
-使用して、 [ `@MasterType`ディレクティブ](https://msdn.microsoft.com/en-us/library/ms228274.aspx)コンテンツ ページのマスター ページの種類の ASP.NET エンジンに通知します。 `@MasterType`ディレクティブは、マスター ページの型名か、そのファイルのパスを受け入れることができます。 指定する、`AddProduct.aspx`ページ使用`Site.master`として、マスター ページの先頭に次のディレクティブを追加`AddProduct.aspx`:
+使用して、 [ `@MasterType`ディレクティブ](https://msdn.microsoft.com/library/ms228274.aspx)コンテンツ ページのマスター ページの種類の ASP.NET エンジンに通知します。 `@MasterType`ディレクティブは、マスター ページの型名か、そのファイルのパスを受け入れることができます。 指定する、`AddProduct.aspx`ページ使用`Site.master`として、マスター ページの先頭に次のディレクティブを追加`AddProduct.aspx`:
 
 
 [!code-aspx[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample9.aspx)]
@@ -245,7 +245,7 @@ ASP.NET ページにアクセスするたびに発生する自動コード生成
 **図 08**: Just-Added 製品を表示する、マスター ページのラベルと GridView ([フルサイズのイメージを表示するをクリックして](interacting-with-the-master-page-from-the-content-page-vb/_static/image24.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 理想的には、マスター ページとそのコンテンツ ページ互いから完全に分離し、の相互作用のレベルは必要ありません。 マスター ページとページのコンテンツは、その目的を念頭にデザインする必要があります、そのマスター ページとのコンテンツ ページする必要がありますインターフェイスの一般的なシナリオの数があります。 コンテンツ ページで発生した状況をいくつかの操作に基づくマスター ページの表示の特定の部分の更新を中心に最も一般的な理由の 1 つです。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: 2bc1f096540d17095ef760eed67b458fcd4e1372
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b6b5a886efe515b434948dade1ae840ddaecd42
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Introduction to デバッグの ASP.NET Web Pages (Razor) サイト
 ====================
@@ -71,7 +71,7 @@ ms.lasthandoff: 11/10/2017
     - HTTP ランタイム情報。 このセクションでは、バージョンの web ページが実行されている Microsoft .NET Framework では、パス、キャッシュについての詳細については、について詳しく説明します。 (で学習したよう[Introduction to ASP.NET Web プログラミング構文を使用して、Razor](https://go.microsoft.com/fwlink/?LinkId=202890)構文が広範なソフトウェア上に構築された自体である Microsoft の ASP.NET web サーバー テクノロジに基づいて構築されて Razor を使用して ASP.NET Web ページ開発ライブラリ、.NET Framework と呼ばれます。)
     - 環境変数。 このセクションでは、web サーバーですべてのローカルの環境変数とその値の一覧を示します。
 
-    すべてのサーバーと要求情報の詳細についてはこの記事の範囲外ですがあることがわかります、`ServerInfo`ヘルパーは、多くの診断情報を返します。 値の詳細についてを`ServerInfo`戻り値を参照してください[環境変数の認識](https://technet.microsoft.com/en-us/library/dd560744(WS.10).aspx)、Microsoft TechNet web サイトと[IIS サーバー変数](https://msdn.microsoft.com/en-us/library/ms524602(VS.90).aspx)MSDN web サイトです。
+    すべてのサーバーと要求情報の詳細についてはこの記事の範囲外ですがあることがわかります、`ServerInfo`ヘルパーは、多くの診断情報を返します。 値の詳細についてを`ServerInfo`戻り値を参照してください[環境変数の認識](https://technet.microsoft.com/library/dd560744(WS.10).aspx)、Microsoft TechNet web サイトと[IIS サーバー変数](https://msdn.microsoft.com/library/ms524602(VS.90).aspx)MSDN web サイトです。
 
 ## <a name="embedding-output-expressions-to-display-page-values"></a>埋め込み式をページの値を表示するには
 
@@ -139,5 +139,5 @@ Visual Studio での統合デバッガーを使用して、ASP.NET Razor ペー�
 ## <a name="additional-resources"></a>その他のリソース
 
 - [Visual Studio を使用してプログラミングする ASP.NET Web Pages (Razor)](https://go.microsoft.com/fwlink/?LinkId=205854)
-- [IIS サーバー変数](https://msdn.microsoft.com/en-us/library/ms524602(VS.90).aspx)(MSDN)
-- [環境変数を認識](https://technet.microsoft.com/en-us/library/dd560744(WS.10).aspx)(TechNet)
+- [IIS サーバー変数](https://msdn.microsoft.com/library/ms524602(VS.90).aspx)(MSDN)
+- [環境変数を認識](https://technet.microsoft.com/library/dd560744(WS.10).aspx)(TechNet)

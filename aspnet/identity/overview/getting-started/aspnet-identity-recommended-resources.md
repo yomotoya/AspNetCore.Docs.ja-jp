@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: 8050d37cfea91701e1cae0413feb41ca9a68baff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cb6e378d6b1de7d43bbc4272b64f9029f4e92924
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-identity-recommended-resources"></a>ASP.NET の Id がリソースを推奨
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 > Post、優れたブログがわかっている場合[stackoverflow](http://stackoverflow.com)スレッド、またはその他のリンクが、役に立つを[電子メールの送信](mailto:aspnetue@microsoft.com?subject=Identity recommended resources)かリンクを使用してこのページの下部にあるメッセージのままにします。
 
 
-- [ASP.NET Id の概要](#gettingstarted)
+- [ASP.NET Identity の概要](#gettingstarted)
 - [新しい機能を備えた読み取りの必要があります記事](#feat)
 - [中級者向けの ASP.NET Id](#adv)
 - [ビデオ](#video)
@@ -42,9 +42,9 @@ ms.lasthandoff: 11/10/2017
 
 - [Facebook、Twitter、LinkedIn および Google OAuth2 サインオン MVC 5 アプリ](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)このチュートリアルは、Facebook、Google OAuth 2 の承認で ASP.NET MVC 5 アプリを記述する方法を示します。 ユーザー データベースにデータを追加する方法も示しています。
 - [メンバーシップ、OAuth、SQL データベースでのセキュリティで保護された ASP.NET MVC アプリケーションを Azure に展開](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)です。 このチュートリアルは、Azure のデプロイを追加の役割を使用してアプリケーションをセキュリティで保護する方法、メンバーシップ API を使用して、ユーザーとロール、および追加のセキュリティ機能を追加する方法です。
-- [ASP.NET Id の概要](introduction-to-aspnet-identity.md)
+- [ASP.NET Identity 入門](introduction-to-aspnet-identity.md)
 - [ログイン、電子メールの確認とパスワードのリセットをセキュリティで保護された ASP.NET MVC 5 web アプリケーションを作成します。](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
-- [SMS と 2 要素認証の電子メールを使って ASP.NET MVC 5 アプリ](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
+- [SMS や電子メールで 2 要素認証する ASP.NET MVC 5 アプリ](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
 
 <a id="feat"></a>
 ## <a name="new-featured-must-read-articles"></a>新しい機能を備えた読み取りの必要があります記事
@@ -59,11 +59,11 @@ ms.lasthandoff: 11/10/2017
 ## <a name="intermediate-aspnet-identity"></a>中級者向けの ASP.NET Id
 
 - [アカウントの確認と ASP.NET の Id とパスワードの回復](../features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
-- [SMS と電子メール ASP.NET の Id を使用した 2 要素認証](../features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
-- [SQL メンバーシップから ASP.NET Identity に既存の web サイトを移行します。](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [追加の ASP.NET Identity 空であるか既存の web プロジェクトをフォームします。](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
-- MSDN マガジン[ASP.NET Id を持つ外部認証](https://msdn.microsoft.com/en-us/magazine/dn745860.aspx)Dino Esposito によって
-- MSDN マガジン[ASP.NET Identity の紹介](https://msdn.microsoft.com/en-us/magazine/dn605872.aspx)Dino Esposito によって
+- [ASP.NET Identity で SMS と電子メールを利用して 2 要素認証を行う](../features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
+- [既存 Web サイトを SQL メンバーシップから ASP.NET Identity に移行する](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [ASP.NET Identity を空または既存の Web フォーム プロジェクトに追加する](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
+- MSDN マガジン[ASP.NET Id を持つ外部認証](https://msdn.microsoft.com/magazine/dn745860.aspx)Dino Esposito によって
+- MSDN マガジン[ASP.NET Identity の紹介](https://msdn.microsoft.com/magazine/dn605872.aspx)Dino Esposito によって
 - [ASP.NET Identity – ユーザーのロックアウト](http://tech.trailmax.info/2014/06/asp-net-identity-user-lockout/)
 
 <a id="samp"></a>

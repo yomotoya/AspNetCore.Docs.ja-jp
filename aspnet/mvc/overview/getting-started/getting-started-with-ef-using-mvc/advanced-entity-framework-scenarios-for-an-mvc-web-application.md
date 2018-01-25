@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 3d6cc52f7fa3089f30f1a6bbd76593f1eca95009
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 85276377671b96e65406639c8584d9ebf8d77ff7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="advanced-entity-framework-6-scenarios-for-an-mvc-5-web-application-12-of-12"></a>MVC 5 Web アプリケーション (12/12) の高度な Entity Framework 6 のシナリオ
 ====================
@@ -58,9 +58,9 @@ ms.lasthandoff: 11/10/2017
 
 Entity Framework コードの最初の API には、データベースに直接 SQL コマンドを渡すことができるようにするメソッドが含まれています。 次のオプションがあります。
 
-- 使用して、 [DbSet.SqlQuery](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset.sqlquery.aspx)をエンティティ型を返すクエリ メソッド。 返されたオブジェクトで想定されている型でなければなりません、`DbSet`オブジェクト、およびそれらが自動的に追跡データベースのコンテキストによって追跡を無効にする場合を除き、します。 (は、次のセクションを参照してください、 [AsNoTracking](https://msdn.microsoft.com/en-us/library/system.data.entity.dbextensions.asnotracking.aspx)メソッドです)。
-- 使用して、 [Database.SqlQuery](https://msdn.microsoft.com/en-us/library/system.data.entity.database.sqlquery.aspx)をエンティティがない型を返すクエリ メソッド。 返されるデータは、エンティティの種類を取得するこのメソッドを使用する場合でもデータベース コンテキストによって追跡されていません。
-- 使用して、 [Database.ExecuteSqlCommand](https://msdn.microsoft.com/en-us/library/gg679456.aspx)非クエリ コマンド。
+- 使用して、 [DbSet.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.dbset.sqlquery.aspx)をエンティティ型を返すクエリ メソッド。 返されたオブジェクトで想定されている型でなければなりません、`DbSet`オブジェクト、およびそれらが自動的に追跡データベースのコンテキストによって追跡を無効にする場合を除き、します。 (は、次のセクションを参照してください、 [AsNoTracking](https://msdn.microsoft.com/library/system.data.entity.dbextensions.asnotracking.aspx)メソッドです)。
+- 使用して、 [Database.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.database.sqlquery.aspx)をエンティティがない型を返すクエリ メソッド。 返されるデータは、エンティティの種類を取得するこのメソッドを使用する場合でもデータベース コンテキストによって追跡されていません。
+- 使用して、 [Database.ExecuteSqlCommand](https://msdn.microsoft.com/library/gg679456.aspx)非クエリ コマンド。
 
 Entity Framework を使用する利点の 1 つは、コードのデータを格納する特定のメソッドを過度に結び付ける済む点です。 これは、SQL クエリとコマンドの生成も自分で記述することから解放することで実行します。 例外的なシナリオは、手動で作成した特定の SQL クエリを実行する必要がある場合とこれらのメソッドのできるようにすると、このような例外を処理します。
 
@@ -68,7 +68,7 @@ Entity Framework を使用する利点の 1 つは、コードのデータを格
 
 ### <a name="calling-a-query-that-returns-entities"></a>クエリを呼び出すには、エンティティが返されます。
 
-[DbSet&lt;TEntity&gt; ](https://msdn.microsoft.com/en-us/library/gg696460.aspx)クラス型のエンティティを返すクエリの実行に使用できるメソッドを提供`TEntity`です。 内のコードを変更するしくみを表示する、`Details`のメソッド、`Department`コント ローラー。
+[DbSet&lt;TEntity&gt; ](https://msdn.microsoft.com/library/gg696460.aspx)クラス型のエンティティを返すクエリの実行に使用できるメソッドを提供`TEntity`です。 内のコードを変更するしくみを表示する、`Details`のメソッド、`Department`コント ローラー。
 
 *DepartmentController.cs*で、`Details`メソッド、置換、`db.Departments.FindAsync`メソッド呼び出し、`db.Departments.SqlQuery`メソッドの呼び出し、次の強調表示されたコードに示すように。
 
@@ -84,7 +84,7 @@ Entity Framework を使用する利点の 1 つは、コードのデータを格
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample2.cs)]
 
-LINQ を使用するのではなく、SQL の直接このデータを取得するコードを記述するとします。 エンティティ オブジェクト以外のものを返すクエリを実行する必要があることを意味する必要がありますを使用して、 [Database.SqlQuery](https://msdn.microsoft.com/en-us/library/system.data.entity.database.sqlquery(v=VS.103).aspx)メソッドです。
+LINQ を使用するのではなく、SQL の直接このデータを取得するコードを記述するとします。 エンティティ オブジェクト以外のものを返すクエリを実行する必要があることを意味する必要がありますを使用して、 [Database.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.database.sqlquery(v=VS.103).aspx)メソッドです。
 
 *HomeController.cs*での LINQ ステートメントは、置換、 `About` SQL ステートメントには、次の強調表示されたコードに示すように、メソッド。
 
@@ -130,19 +130,19 @@ Contoso 大学管理者がすべてコースのクレジットの数の変更な
 
 ![Courses_Index_page_showing_revised_credits](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image9.png)
 
-生の SQL クエリの詳細については、次を参照してください。[生の SQL クエリ](https://msdn.microsoft.com/en-us/data/jj592907)msdn です。
+生の SQL クエリの詳細については、次を参照してください。[生の SQL クエリ](https://msdn.microsoft.com/data/jj592907)msdn です。
 
 <a id="notracking"></a>
 ## <a name="no-tracking-queries"></a>No 追跡クエリ
 
 データベース コンテキストは、テーブルの行を取得し、それらを表すエンティティ オブジェクトを作成、ときに既定では、追跡データベース内にメモリ内のエンティティが同期されているかどうか。 メモリ内のデータはキャッシュとして機能し、エンティティを更新するときに使用します。 このキャッシュではありません多くの場合、web アプリケーションで必要なコンテキストをインスタンス化は通常短時間 (新しい 1 つが作成され、破棄要求ごとに) とコンテキストを読み取るそのエンティティが再度使用される前に、通常、エンティティが破棄されています。
 
-使用してメモリ内のエンティティ オブジェクトの追跡を無効にすることができます、 [AsNoTracking](https://msdn.microsoft.com/en-us/library/gg679352(v=vs.103).aspx)メソッドです。 実行する一般的なシナリオを以下に示します。
+使用してメモリ内のエンティティ オブジェクトの追跡を無効にすることができます、 [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx)メソッドです。 実行する一般的なシナリオを以下に示します。
 
 - クエリでは、大量の追跡を無効にするとパフォーマンスを向上させる著しくするデータを取得します。
 - 前のさまざまな目的は同じエンティティを取得したが、更新するためにエンティティをアタッチする場合します。 エンティティは、データベースのコンテキストによって既に追跡されているが、ために、変更するエンティティをアタッチできません。 この状況に対処する方法の 1 つを使用して、`AsNoTracking`オプションは、以前のクエリを使用します。
 
-使用する方法を示す例については、 [AsNoTracking](https://msdn.microsoft.com/en-us/library/gg679352(v=vs.103).aspx)メソッドを参照してください[このチュートリアルの以前のバージョン](../../older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application.md)します。 チュートリアルのこのバージョンは、必要があるために、メソッドでは、編集、モデル バインダーに作成されたエンティティでの Modified フラグを設定しない`AsNoTracking`です。
+使用する方法を示す例については、 [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx)メソッドを参照してください[このチュートリアルの以前のバージョン](../../older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application.md)します。 チュートリアルのこのバージョンは、必要があるために、メソッドでは、編集、モデル バインダーに作成されたエンティティでの Modified フラグを設定しない`AsNoTracking`です。
 
 <a id="sql"></a>
 ## <a name="examining-sql-sent-to-the-database"></a>データベースに送信する SQL の確認
@@ -204,8 +204,8 @@ A`SelectList`ドロップ ダウン リスト ビューにすべての部門を�
 リポジトリと作業パターンの単位を実装する方法の詳細については、次を参照してください。[このチュートリアル シリーズの Entity Framework 5 バージョン](../../older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)します。 Entity Framework 6 で TDD を実装する方法については、次のリソースを参照してください。
 
 - [EF6 実現するしくみついて Mocking DbSets より簡単に](http://thedatafarm.com/data-access/how-ef6-enables-mocking-dbsets-more-easily/)
-- [モック フレームワークとテスト](https://msdn.microsoft.com/en-us/data/dn314429)
-- [独自のテスト代替でテストします。](https://msdn.microsoft.com/en-us/data/dn314431)
+- [モック フレームワークとテスト](https://msdn.microsoft.com/data/dn314429)
+- [独自のテスト代替でテストします。](https://msdn.microsoft.com/data/dn314431)
 
 <a id="proxies"></a>
 ## <a name="proxy-classes"></a>プロキシ クラス
@@ -220,11 +220,11 @@ Entity Framework では、エンティティのインスタンス (たとえば�
 
 ほとんどの場合このプロキシの使用について注意する必要ありませんは例外があります。
 
-- 一部のシナリオでは、Entity Framework がプロキシのインスタンスを作成しないようにすることができます。 たとえば、エンティティをシリアル化しているときに通常するプロキシ クラスではありません、POCO クラスです。 シリアル化の問題を回避する方法の 1 つが、エンティティ オブジェクトの代わりにデータ転送オブジェクト (Dto) をシリアル化のように、 [Entity Framework と Web API を使用して](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-1.md)チュートリアルです。 別の方法は、する[プロキシの作成を無効にする](https://msdn.microsoft.com/en-US/data/jj592886.aspx)です。
-- ときにインスタンス化する、エンティティ クラスを使用して、`new`演算子、プロキシ インスタンスを取得しません。 これは、遅延読み込みと自動変更の追跡などの機能を取得しないことを意味します。 これは、通常さてです。通常必要はありません、遅延読み込み時、データベースにない新しいエンティティを作成しているため、通常必要し、しない変更の追跡とエンティティを明示的にマークしている場合`Added`です。 ただし、遅延読み込みする必要は、変更の追跡が必要な場合は、インスタンスを作成できます新しいエンティティを使用してプロキシ、[作成](https://msdn.microsoft.com/en-us/library/gg679504.aspx)のメソッド、`DbSet`クラスです。
-- プロキシの種類から実際のエンティティ型を取得する可能性があります。 使用することができます、 [GetObjectType](https://msdn.microsoft.com/en-us/library/system.data.objects.objectcontext.getobjecttype.aspx)のメソッド、`ObjectContext`プロキシ型のインスタンスの実際のエンティティ型を取得するクラス。
+- 一部のシナリオでは、Entity Framework がプロキシのインスタンスを作成しないようにすることができます。 たとえば、エンティティをシリアル化しているときに通常するプロキシ クラスではありません、POCO クラスです。 シリアル化の問題を回避する方法の 1 つが、エンティティ オブジェクトの代わりにデータ転送オブジェクト (Dto) をシリアル化のように、 [Entity Framework と Web API を使用して](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-1.md)チュートリアルです。 別の方法は、する[プロキシの作成を無効にする](https://msdn.microsoft.com/data/jj592886.aspx)です。
+- ときにインスタンス化する、エンティティ クラスを使用して、`new`演算子、プロキシ インスタンスを取得しません。 これは、遅延読み込みと自動変更の追跡などの機能を取得しないことを意味します。 これは、通常さてです。通常必要はありません、遅延読み込み時、データベースにない新しいエンティティを作成しているため、通常必要し、しない変更の追跡とエンティティを明示的にマークしている場合`Added`です。 ただし、遅延読み込みする必要は、変更の追跡が必要な場合は、インスタンスを作成できます新しいエンティティを使用してプロキシ、[作成](https://msdn.microsoft.com/library/gg679504.aspx)のメソッド、`DbSet`クラスです。
+- プロキシの種類から実際のエンティティ型を取得する可能性があります。 使用することができます、 [GetObjectType](https://msdn.microsoft.com/library/system.data.objects.objectcontext.getobjecttype.aspx)のメソッド、`ObjectContext`プロキシ型のインスタンスの実際のエンティティ型を取得するクラス。
 
-詳細については、次を参照してください。[プロキシ扱う](https://msdn.microsoft.com/en-us/data/JJ592886.aspx)msdn です。
+詳細については、次を参照してください。[プロキシ扱う](https://msdn.microsoft.com/data/JJ592886.aspx)msdn です。
 
 <a id="changedetection"></a>
 ## <a name="automatic-change-detection"></a>自動の変更の検出
@@ -241,12 +241,12 @@ Entity Framework では、元の値を持つエンティティの現在の値を
 - `DbContext.Entry`
 - `DbChangeTracker.Entries`
 
-多数のエンティティを管理するいると、ループ内で何度もがこれらのメソッドのいずれかの呼び出すと、自動変更の検出を使用して機能をオフに一時的に大幅なパフォーマンス向上をする可能性があります、 [AutoDetectChangesEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx)プロパティです。 詳細については、次を参照してください。[変更を自動的に検出する](https://msdn.microsoft.com/en-us/data/jj556205)msdn です。
+多数のエンティティを管理するいると、ループ内で何度もがこれらのメソッドのいずれかの呼び出すと、自動変更の検出を使用して機能をオフに一時的に大幅なパフォーマンス向上をする可能性があります、 [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx)プロパティです。 詳細については、次を参照してください。[変更を自動的に検出する](https://msdn.microsoft.com/data/jj556205)msdn です。
 
 <a id="validation"></a>
 ## <a name="automatic-validation"></a>自動検証
 
-呼び出すと、`SaveChanges`メソッド、既定では、Entity Framework データを検証、すべての変更されたエンティティのすべてのプロパティで、データベースを更新する前にします。 多数のエンティティを更新したし、して既に検証した、データをこの作業は必要と保存の処理を行うことが、変更は、一時的に検証を無効にすることによって時間を短縮します。 使用して行うことができます、 [ValidateOnSaveEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled.aspx)プロパティです。 詳細については、次を参照してください。[検証](https://msdn.microsoft.com/en-us/data/gg193959)msdn です。
+呼び出すと、`SaveChanges`メソッド、既定では、Entity Framework データを検証、すべての変更されたエンティティのすべてのプロパティで、データベースを更新する前にします。 多数のエンティティを更新したし、して既に検証した、データをこの作業は必要と保存の処理を行うことが、変更は、一時的に検証を無効にすることによって時間を短縮します。 使用して行うことができます、 [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled.aspx)プロパティです。 詳細については、次を参照してください。[検証](https://msdn.microsoft.com/data/gg193959)msdn です。
 
 <a id="tools"></a>
 ## <a name="entity-framework-power-tools"></a>Entity Framework のパワー ツール
@@ -265,9 +265,9 @@ Entity Framework 6 のソース コードは[GitHub](https://github.com/aspnet/E
 ソース コードは開いているが、Entity Framework が Microsoft の製品としてサポートされます。 Microsoft Entity Framework チームは、コントロール コントリビューションの受け入れを保持し、各リリースの品質を保証するすべてのコード変更をテストします。
 
 <a id="summary"></a>
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
-これは、この一連の ASP.NET MVC アプリケーションで Entity Framework を使用してチュートリアルを完了します。 Entity Framework を使用してデータを操作する方法の詳細については、次を参照してください。、 [MSDN のドキュメント ページを EF](https://msdn.microsoft.com/en-us/data/ee712907)と[ASP.NET データ アクセス - リソースのことをお勧め](../../../../whitepapers/aspnet-data-access-content-map.md)です。
+これは、この一連の ASP.NET MVC アプリケーションで Entity Framework を使用してチュートリアルを完了します。 Entity Framework を使用してデータを操作する方法の詳細については、次を参照してください。、 [MSDN のドキュメント ページを EF](https://msdn.microsoft.com/data/ee712907)と[ASP.NET データ アクセス - リソースのことをお勧め](../../../../whitepapers/aspnet-data-access-content-map.md)です。
 
 構築した後、web アプリケーションを展開する方法の詳細については、次を参照してください。 [ASP.NET Web 展開 - リソースのことをお勧め](../../../../whitepapers/aspnet-web-deployment-content-map.md)、MSDN ライブラリです。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d117456521442972f1bfcfc15a4e8e7253e07e53
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7518ddd11a05a9e3d5df85e3cf6ceffa09a25060
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-business-logic-layer-c"></a>ビジネス ロジック層 (c#) を作成します。
 ====================
@@ -56,7 +56,7 @@ BLL がで構成されている各 TableAdapter DAL; 内の 1 つ、4 つのク�
 次に、単に最初のチュートリアルから Tableadapter に定義されたメソッドをラップするクラスの各メソッドを追加してみましょう。 ここでは、これらのメソッドがだけ DAL; に直接呼び出す必要なビジネス ロジックを追加する以降を返します。
 
 > [!NOTE]
-> Visual Studio Standard Edition を使用しているか (できたら、*いない*Visual Web Developer を使用して)、視覚的に使用するクラスをデザインすることができます必要に応じて、[クラス デザイナー](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/dv_vstechart/html/clssdsgnr.asp)です。 参照してください、[クラス デザイナー ブログ](https://blogs.msdn.com/classdesigner/default.aspx)Visual Studio のこの新機能についての詳細。
+> Visual Studio Standard Edition を使用しているか (できたら、*いない*Visual Web Developer を使用して)、視覚的に使用するクラスをデザインすることができます必要に応じて、[クラス デザイナー](https://msdn.microsoft.com/library/default.asp?url=/library/dv_vstechart/html/clssdsgnr.asp)です。 参照してください、[クラス デザイナー ブログ](https://blogs.msdn.com/classdesigner/default.aspx)Visual Studio のこの新機能についての詳細。
 
 
 `ProductsBLL`クラス 7 つのメソッドの合計を追加する必要があります。
@@ -76,7 +76,7 @@ ProductsBLL.cs
 
 単にデータを返すメソッド`GetProducts`、 `GetProductByProductID`、 `GetProductsByCategoryID`、および`GetProductBySuppliersID`だけを呼び出すことがダウンして、DAL に、非常に簡単です。 一部のシナリオでもありますが実装する必要があるビジネス規則レベルでは、現在ログオンしているユーザーまたはユーザーが属しているロールに基づいて承認規則) など、単にままにこれらのメソッドには。 これらのメソッドでは、次に、BLL 単プロキシとして機能プレゼンテーション層、データ アクセス層から基になるデータにアクセスします。
 
-`AddProduct`と`UpdateProduct`メソッド両方パラメーターとして製品のさまざまなフィールドの値取得し、新しい製品を追加または、既存のものをそれぞれ更新します。 以降の多く、`Product`テーブルの列を受け入れることができます`NULL`値 (`CategoryID`、 `SupplierID`、および`UnitPrice`、いくつかの例)、入力パラメーターを`AddProduct`と`UpdateProduct`このような列の使用にマップします。[null 許容型](https://msdn.microsoft.com/en-us/library/1t3y8s4s(v=vs.80).aspx)です。 Null 許容型は .NET 2.0 に追加された新しいおよび技法を提供するかどうか、値型は、代わりを示す`null`です。 C# でフラグを設定できます値型で null 許容型として追加することによって`?`、型の後に (など`int? x;`)。 参照してください、 [null 許容型](https://msdn.microsoft.com/en-us/library/1t3y8s4s.aspx)」の「、 [c# プログラミング ガイド](https://msdn.microsoft.com/en-us/library/67ef8sbd%28VS.80%29.aspx)詳細についてはします。
+`AddProduct`と`UpdateProduct`メソッド両方パラメーターとして製品のさまざまなフィールドの値取得し、新しい製品を追加または、既存のものをそれぞれ更新します。 以降の多く、`Product`テーブルの列を受け入れることができます`NULL`値 (`CategoryID`、 `SupplierID`、および`UnitPrice`、いくつかの例)、入力パラメーターを`AddProduct`と`UpdateProduct`このような列の使用にマップします。[null 許容型](https://msdn.microsoft.com/library/1t3y8s4s(v=vs.80).aspx)です。 Null 許容型は .NET 2.0 に追加された新しいおよび技法を提供するかどうか、値型は、代わりを示す`null`です。 C# でフラグを設定できます値型で null 許容型として追加することによって`?`、型の後に (など`int? x;`)。 参照してください、 [null 許容型](https://msdn.microsoft.com/library/1t3y8s4s.aspx)」の「、 [c# プログラミング ガイド](https://msdn.microsoft.com/library/67ef8sbd%28VS.80%29.aspx)詳細についてはします。
 
 3 つのメソッドは、行の電源が挿入されていること、更新、または操作が影響を受ける行のされないことがあるために、削除かどうかを示すブール値を返します。 ページの開発者が呼び出す場合など、`DeleteProduct`で渡すこと、`ProductID`存在しない製品では、 `DELETE` 、データベースへの発行ステートメントには効果がありませんおよび、`DeleteProduct`メソッドが返す`false`です。
 
@@ -86,7 +86,7 @@ ProductsBLL.cs
 
 `UpdateProduct`を使用して更新するには、この製品に最初に読み込むこと`GetProductByProductID(productID)`です。 このかもしれませんが、データベースへの不要なアクセスと同様に、この追加のトリップが証明されてオプティミスティック同時実行制御を探索するチュートリアルが将来の価値のあるいます。 オプティミスティック同時実行制御は、同じデータに対して同時に作業している 2 人のユーザーが 1 つに相互の変更を誤って上書きしないようにする手法です。 レコード全体をグラブもやすく DataRow の列のサブセットにのみ変更 BLL で update メソッドを作成します。 ナビゲートすると、`SuppliersBLL`クラスのような例を見てみましょう。
 
-最後に、なお、`ProductsBLL`クラスには、 [DataObject 属性](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataobjectattribute.aspx)、適用される (、`[System.ComponentModel.DataObject]`右ステートメントの前に、クラス ファイルの先頭付近に構文) あり、メソッドを持つ[DataObjectMethodAttribute 属性](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataobjectmethodattribute.aspx)です。 `DataObject`属性でマークされているバインディングに適したオブジェクトとクラス、 [ObjectDataSource コントロール](https://msdn.microsoft.com/en-us/library/9a4kyhcx.aspx)であるのに対し、`DataObjectMethodAttribute`メソッドの目的を示します。 思います将来のチュートリアル、ASP.NET 2.0 の ObjectDataSource 簡単に宣言してクラスのデータにアクセスできます。 ObjectDataSource のウィザードにバインド可能なクラスのリストをフィルター処理するには、既定では、としてマークされているクラスだけ`DataObjects`ウィザードのドロップダウン リストに表示されます。 `ProductsBLL`クラスなしでは機能と同様、これらの属性が、それらを追加すると、ObjectDataSource のウィザードで作業しやすくします。
+最後に、なお、`ProductsBLL`クラスには、 [DataObject 属性](https://msdn.microsoft.com/library/system.componentmodel.dataobjectattribute.aspx)、適用される (、`[System.ComponentModel.DataObject]`右ステートメントの前に、クラス ファイルの先頭付近に構文) あり、メソッドを持つ[DataObjectMethodAttribute 属性](https://msdn.microsoft.com/library/system.componentmodel.dataobjectmethodattribute.aspx)です。 `DataObject`属性でマークされているバインディングに適したオブジェクトとクラス、 [ObjectDataSource コントロール](https://msdn.microsoft.com/library/9a4kyhcx.aspx)であるのに対し、`DataObjectMethodAttribute`メソッドの目的を示します。 思います将来のチュートリアル、ASP.NET 2.0 の ObjectDataSource 簡単に宣言してクラスのデータにアクセスできます。 ObjectDataSource のウィザードにバインド可能なクラスのリストをフィルター処理するには、既定では、としてマークされているクラスだけ`DataObjects`ウィザードのドロップダウン リストに表示されます。 `ProductsBLL`クラスなしでは機能と同様、これらの属性が、それらを追加すると、ObjectDataSource のウィザードで作業しやすくします。
 
 ## <a name="adding-the-other-classes"></a>その他のクラスを追加します。
 
@@ -144,7 +144,7 @@ BLL クラスは、ObjectDataSource を使用して (型指定されたデータ
 - `ProductID`、 `ProductName`、および`Discontinued`フィールドが必要ですが、その他のすべてのフィールドは省略可能
 - `UnitPrice`、 `UnitsInStock`、 `UnitsOnOrder`、および`ReorderLevel`フィールドが 0 以上にする必要があります
 
-これらの規則は、ことができ、データベース レベルで表す必要があります。 文字数の制限、`ProductName`と`QuantityPerUnit`フィールドがそれらの列のデータ型によってキャプチャされた、`Products`テーブル (`nvarchar(40)`と`nvarchar(20)`、それぞれ)。 場合により、データベース テーブルの列によって表されますフィールドは必須および省略可能なのかどうか`NULL`s。 次の 4 つ[check 制約](https://msdn.microsoft.com/en-us/library/ms188258.aspx)が存在するは、0 以上の値のみを実行できることを確認してください。、 `UnitPrice`、 `UnitsInStock`、 `UnitsOnOrder`、または`ReorderLevel`列です。
+これらの規則は、ことができ、データベース レベルで表す必要があります。 文字数の制限、`ProductName`と`QuantityPerUnit`フィールドがそれらの列のデータ型によってキャプチャされた、`Products`テーブル (`nvarchar(40)`と`nvarchar(20)`、それぞれ)。 場合により、データベース テーブルの列によって表されますフィールドは必須および省略可能なのかどうか`NULL`s。 次の 4 つ[check 制約](https://msdn.microsoft.com/library/ms188258.aspx)が存在するは、0 以上の値のみを実行できることを確認してください。、 `UnitPrice`、 `UnitsInStock`、 `UnitsOnOrder`、または`ReorderLevel`列です。
 
 データベースでこれらの規則を適用するだけでなくする必要がありますも適用できます、データセット レベル。 実際には、フィールド長、および値が必須またはオプション既に DataColumns の各データ テーブルのセットをキャプチャします。 自動的に提供される既存のフィールド レベルの検証を表示するには、データセット デザイナーに切り替え、データ テーブルのいずれかからフィールドを選択し、[プロパティ] ウィンドウに移動します。 図 4 に示す、`QuantityPerUnit`に DataColumn、 `ProductsDataTable` 20 文字の最大長であるし、では、`NULL`値。 設定する場合、`ProductsDataRow`の`QuantityPerUnit`プロパティを文字列値が 20 文字以内に、`ArgumentException`がスローされます。
 
@@ -154,7 +154,7 @@ BLL クラスは、ObjectDataSource を使用して (型指定されたデータ
 **図 4**: の DataColumn は、基本的なフィールド レベルの検証 ([フルサイズのイメージを表示するをクリックして](creating-a-business-logic-layer-cs/_static/image8.png))
 
 
-残念ながら、ことを指定できません範囲チェックなど、`UnitPrice`以上のプロパティ ウィンドウからの 0 に等しいを値として使用することがあります。 この種類のフィールド レベルの検証を提供するために必要がありますの DataTable のイベント ハンドラーを作成する[ColumnChanging](https://msdn.microsoft.com/en-us/library/system.data.datatable.columnchanging%28VS.80%29.aspx)イベント。 説明したように、[前のチュートリアル](creating-a-data-access-layer-cs.md)、部分クラスを使用して型指定されたデータセットによって作成された DataSet、Datatable、および DataRow オブジェクトを拡張することができます。 作成できるよう、この手法を使用して、`ColumnChanging`のイベント ハンドラー、`ProductsDataTable`クラスです。 内のクラスを作成することで開始、`App_Code`という名前のフォルダー`ProductsDataTable.ColumnChanging.cs`です。
+残念ながら、ことを指定できません範囲チェックなど、`UnitPrice`以上のプロパティ ウィンドウからの 0 に等しいを値として使用することがあります。 この種類のフィールド レベルの検証を提供するために必要がありますの DataTable のイベント ハンドラーを作成する[ColumnChanging](https://msdn.microsoft.com/library/system.data.datatable.columnchanging%28VS.80%29.aspx)イベント。 説明したように、[前のチュートリアル](creating-a-data-access-layer-cs.md)、部分クラスを使用して型指定されたデータセットによって作成された DataSet、Datatable、および DataRow オブジェクトを拡張することができます。 作成できるよう、この手法を使用して、`ColumnChanging`のイベント ハンドラー、`ProductsDataTable`クラスです。 内のクラスを作成することで開始、`App_Code`という名前のフォルダー`ProductsDataTable.ColumnChanging.cs`です。
 
 
 [![新しいクラスを App_Code フォルダーに追加します。](creating-a-business-logic-layer-cs/_static/image10.png)](creating-a-business-logic-layer-cs/_static/image9.png)
@@ -188,14 +188,14 @@ BLL クラスには、アプリケーションのビジネス ルールに準拠
 
 ## <a name="responding-to-validation-errors-in-the-presentation-tier"></a>プレゼンテーション層の検証エラーへの応答
 
-プレゼンテーション層から、BLL を呼び出すときに発生する可能性がありますまたは ASP.NET バブリングを知らせる例外を処理しようとするかどうかを判断できます (これが発生、`HttpApplication`の`Error`イベント)。 BLL をプログラムで使用する場合は、例外を処理するには、使用、 [try… catch](https://msdn.microsoft.com/en-us/library/0yd65esw.aspx)ブロックは、次の例を示します。
+プレゼンテーション層から、BLL を呼び出すときに発生する可能性がありますまたは ASP.NET バブリングを知らせる例外を処理しようとするかどうかを判断できます (これが発生、`HttpApplication`の`Error`イベント)。 BLL をプログラムで使用する場合は、例外を処理するには、使用、 [try… catch](https://msdn.microsoft.com/library/0yd65esw.aspx)ブロックは、次の例を示します。
 
 
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample7.cs)]
 
 後でチュートリアルをお見せデータを使用する場合、BLL からバブルアップ例外の処理 Web コントロールの挿入、更新、または内のコードをラップするのではなく、イベント ハンドラー内で直接処理するデータを削除することができます、`try...catch`ブロックします。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 うまく設計されたアプリケーションを作成して、特定のロールをカプセル化の種類のレイヤーにします。 この記事シリーズの最初のチュートリアルで型指定されたデータセット; を使用してデータ アクセス レイヤーを作成しましたこのチュートリアルおが組み込まれているビジネス ロジック層、一連のクラスとして、アプリケーションの`App_Code`DAL 呼び出せるフォルダーです。 BLL では、アプリケーションのフィールド レベルおよびビジネス レベルのロジックを実装します。 加え個別 BLL を作成するには、このチュートリアルで行ったように別のオプションは部分クラスを使用して、Tableadapter のメソッドを拡張します。 ただし、この手法を使用することはできませんを既存のメソッドをオーバーライドするもはこれとを分離、DAL、BLL この記事の内容を使用しましたアプローチと明確にします。
 

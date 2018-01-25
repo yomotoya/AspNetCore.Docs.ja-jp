@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3caeeb83e4c074ae0ffc30f035d793a821eb6be2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b743b04789c5e5ebf5ab922cf34a516a16a6d356
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Transient Fault Handling (Azure での実際のクラウド アプリの構築)
 ====================
@@ -39,11 +39,11 @@ ms.lasthandoff: 11/10/2017
 
 スマート再試行ロジックを実装するいくつかの方法はあります。
 
-- Microsoft Patterns&amp;プラクティス グループには、 [Transient Fault Handling Application Block](https://msdn.microsoft.com/en-us/library/dn440719(v=pandp.60).aspx)はすべて (Entity Framework) ではなく SQL データベースへのアクセスに ADO.NET を使用している場合。 だけのクエリを再試行する回数: 再試行ポリシーを設定することもコマンドとする待機時間の試行 – とラップの間、SQL 内のコード、*を使用して*ブロックします。
+- Microsoft Patterns&amp;プラクティス グループには、 [Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx)はすべて (Entity Framework) ではなく SQL データベースへのアクセスに ADO.NET を使用している場合。 だけのクエリを再試行する回数: 再試行ポリシーを設定することもコマンドとする待機時間の試行 – とラップの間、SQL 内のコード、*を使用して*ブロックします。
 
     [!code-csharp[Main](transient-fault-handling/samples/sample1.cs)]
 
-    TFH もサポートしています。 [Azure In-role Cache](https://msdn.microsoft.com/en-us/library/windowsazure/dn386103.aspx)と[Service Bus](https://azure.microsoft.com/services/service-bus/)です。
+    TFH もサポートしています。 [Azure In-role Cache](https://msdn.microsoft.com/library/windowsazure/dn386103.aspx)と[Service Bus](https://azure.microsoft.com/services/service-bus/)です。
 - Entity Framework を使用すると通常作業行っていない SQL 接続を直接パターンとベスト プラクティス、このパッケージを使用することはできませんが、Entity Framework 6 フレームワークにこのような再試行ロジックを構築するためです。 同様の方法で再試行戦略を指定して、EF はその方法を使用し、データベースにアクセスするたびにします。
 
     派生するクラスを追加する必要がありますすべては、修正アプリでこの機能を使用する*DbConfiguration*再試行ロジックを有効にします。
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/10/2017
 
 SQL データベースの再試行ポリシー ガイダンスについては、次を参照してください。[一時的なエラーと SQL データベースへの接続エラーのトラブルシューティングを行う](https://azure.microsoft.com/documentation/articles/sql-database-connectivity-issues/)です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 再試行/バックオフ戦略を高めるため一時的なエラー非表示を顧客にほとんどの場合、および Microsoft は、ADO.NET、Entity Framework または Azure を使用しているかどうかの戦略を実装する作業を最小化に使用できるフレームワークを提供しています記憶域サービス。
 
@@ -88,11 +88,11 @@ SQL データベースの再試行ポリシー ガイダンスについては、
 
 ドキュメント
 
-- [Azure クラウド サービスで大規模なサービスのデザインに関するヒント集](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx)です。 Mark Simms、Michael Thomassy、ホワイト ペーパー。 フェール セーフ系列の詳細の操作方法に関する詳細情報になるに似ています。 遠隔測定と診断のセクションを参照してください。
-- [フェール セーフ: 回復力のあるクラウド アーキテクチャについて](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx)です。 Marc Mercuri、Ulrich Homann、Andrew Townhill、ホワイト ペーパー。 フェール セーフ ビデオ シリーズの web ページ バージョンです。
-- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/en-us/library/dn568099.aspx)です。 [再試行] を参照してくださいパターン、スケジューラ エージェント スーパーバイザー パターン。
+- [Azure クラウド サービスで大規模なサービスのデザインに関するヒント集](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx)です。 Mark Simms、Michael Thomassy、ホワイト ペーパー。 フェール セーフ系列の詳細の操作方法に関する詳細情報になるに似ています。 遠隔測定と診断のセクションを参照してください。
+- [フェール セーフ: 回復力のあるクラウド アーキテクチャについて](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx)です。 Marc Mercuri、Ulrich Homann、Andrew Townhill、ホワイト ペーパー。 フェール セーフ ビデオ シリーズの web ページ バージョンです。
+- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)です。 [再試行] を参照してくださいパターン、スケジューラ エージェント スーパーバイザー パターン。
 - [Azure SQL データベース内のフォールト トレランス](https://blogs.msdn.com/b/windowsazure/archive/2012/07/30/fault-tolerance-in-windows-azure-sql-database.aspx)です。 ブログ投稿 Tony Petrossian でします。
-- [Entity Framework の接続の回復の再試行ロジック/](https://msdn.microsoft.com/en-us/data/dn456835)です。 使用し、transient fault handling Entity Framework 6 の機能をカスタマイズする方法。
+- [Entity Framework の接続の回復の再試行ロジック/](https://msdn.microsoft.com/data/dn456835)です。 使用し、transient fault handling Entity Framework 6 の機能をカスタマイズする方法。
 - [接続の回復と Entity Framework、ASP.NET MVC アプリケーションでのコマンド インターセプト](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)です。 4 番目、9 つの部分から成るチュートリアル シリーズでは、SQL データベースの EF 6 接続の復元機能を設定する方法を示します。
 
 ビデオ

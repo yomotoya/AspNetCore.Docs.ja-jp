@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: dd1ae266740ea4728c0624b1833a98ac262e0e5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 12a4ba8ad30df43e7192500ad4514dfa9679f899
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-parameters-for-web-package-deployment"></a>Web パッケージの展開のパラメーターの構成
 ====================
@@ -88,7 +88,7 @@ WPP には、これらのプロパティを生成する展開パッケージに�
 
 展開パッケージを手動でインストールする場合は、IIS マネージャーのサービス エンドポイントのアドレスと共に自動的にパラメーター化されたプロパティを求められます。 実行して、展開パッケージをインストールする場合、 *. deploy.cmd*ファイルを編集、 *SetParameters.xml*の値と共にサービス エンドポイントのアドレスの値を指定するファイル、自動的にパラメーター化されたプロパティです。
 
-作成する方法の詳細について、 *parameters.xml*ファイルを参照してください[する方法: 展開の設定時に、パッケージの構成を使用するパラメーターがインストールされている](https://msdn.microsoft.com/en-us/library/ff398068.aspx)です。 という名前のプロシージャ**Web.config ファイルの設定をデプロイのパラメーターを使用する**手順に沿って説明します。
+作成する方法の詳細について、 *parameters.xml*ファイルを参照してください[する方法: 展開の設定時に、パッケージの構成を使用するパラメーターがインストールされている](https://msdn.microsoft.com/library/ff398068.aspx)です。 という名前のプロシージャ**Web.config ファイルの設定をデプロイのパラメーターを使用する**手順に沿って説明します。
 
 ## <a name="modifying-the-setparametersxml-file"></a>SetParameters.xml ファイルを変更します。
 
@@ -144,7 +144,7 @@ WPP には、これらのプロパティを生成する展開パッケージに�
 
 ## <a name="further-reading"></a>関連項目
 
-Web パッケージを作成する方法については、次を参照してください。[パッケージ Web アプリケーション プロジェクトのビルドと](building-and-packaging-web-application-projects.md)です。 実際には、web のパッケージを配置する方法のガイダンスについては、次を参照してください。 [Web パッケージを展開する](deploying-web-packages.md)です。 作成する方法についてステップ バイ ステップ チュートリアルについては、 *parameters.xml*ファイルを参照してください[する方法: 展開の設定時に、パッケージの構成を使用するパラメーターがインストールされている](https://msdn.microsoft.com/en-us/library/ff398068.aspx)です。
+Web パッケージを作成する方法については、次を参照してください。[パッケージ Web アプリケーション プロジェクトのビルドと](building-and-packaging-web-application-projects.md)です。 実際には、web のパッケージを配置する方法のガイダンスについては、次を参照してください。 [Web パッケージを展開する](deploying-web-packages.md)です。 作成する方法についてステップ バイ ステップ チュートリアルについては、 *parameters.xml*ファイルを参照してください[する方法: 展開の設定時に、パッケージの構成を使用するパラメーターがインストールされている](https://msdn.microsoft.com/library/ff398068.aspx)です。
 
 Web Deploy でパラメーターの一般的なについては、次を参照してください。[アクションで Web 展開パラメーター](https://go.microsoft.com/?linkid=9805119) (ブログの投稿)。
 

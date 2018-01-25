@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: ef130e736e2f32fa134156d979ce5bfbedcae828
-ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
+ms.openlocfilehash: 84f386db4ab96a82011ee2fc0b6c20a1a05b5e4b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core ミドルウェアの基本事項
 
@@ -55,7 +55,7 @@ ASP.NET Core 要求パイプラインは、この図に示す (実行次のよ�
 [!code-csharp[Main](middleware/sample/Chain/Startup.cs?name=snippet1)]
 
 >[!WARNING]
-> 呼び出す必要はありません`next.Invoke`応答がクライアントに送信された後です。 変更`HttpResponse`応答が開始された後に例外がスローされます。 たとえば、ヘッダー、ステータス コードなど、設定などの変化例外がスローされます。 呼び出した後、応答本文に書き込む`next`:
+> 呼び出さない`next.Invoke`応答がクライアントに送信された後です。 変更`HttpResponse`応答が開始された後に例外がスローされます。 たとえば、ヘッダー、ステータス コードなど、設定などの変化例外がスローされます。 呼び出した後、応答本文に書き込む`next`:
 > - プロトコル違反が発生する可能性があります。 たとえば、書き込み、示されたより`content-length`です。
 > - 本文の形式が破損する可能性があります。 たとえば、CSS ファイルを HTML のフッターを書き込んでいます。
 >
@@ -63,7 +63,7 @@ ASP.NET Core 要求パイプラインは、この図に示す (実行次のよ�
 
 ## <a name="ordering"></a>並べ替え
 
-ミドルウェア コンポーネントを追加する順序、`Configure`メソッドは、要求で呼び出された順序と応答の逆の順序を定義します。 この順序は、セキュリティ、パフォーマンス、および機能にとって重要です。
+ミドルウェア コンポーネントを追加する順序、`Configure`メソッドは、要求で呼び出されるしている順序と応答の逆の順序を定義します。 この順序は、セキュリティ、パフォーマンス、および機能にとって重要です。
 
 Configure メソッド (下図参照) は、次のミドルウェア コンポーネントを追加します。
 
@@ -116,11 +116,11 @@ public void Configure(IApplicationBuilder app)
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 
-静的ファイル ミドルウェアによって要求が処理されない場合に Identity ミドルウェア渡されます (`app.UseAuthentication`)、認証を実行します。 Identity に認証されていない要求がショート サーキットされません。 Identity は、要求を認証、承認 (および却下) 実行されますが、MVC は、固有の Razor ページまたはコント ローラーとアクションを選択した後のみです。
+要求は、静的ファイル ミドルウェアによって処理されない場合、に、Identity ミドルウェア渡されます (`app.UseAuthentication`)、認証を実行します。 Id は、認証されていない要求をショート サーキットしません。 Identity は、要求を認証、承認 (および却下) 実行されますが、MVC は、固有の Razor ページまたはコント ローラーとアクションを選択した後のみです。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-静的ファイル ミドルウェアによって要求が処理されない場合に Identity ミドルウェア渡されます (`app.UseIdentity`)、認証を実行します。 Identity に認証されていない要求がショート サーキットされません。 Identity は、要求を認証、承認 (および却下) 実行されますが、MVC は、特定のコント ローラーとアクションを選択した後のみです。
+要求は、静的ファイル ミドルウェアによって処理されない場合、に、Identity ミドルウェア渡されます (`app.UseIdentity`)、認証を実行します。 Id は、認証されていない要求をショート サーキットしません。 Identity は、要求を認証、承認 (および却下) 実行されますが、MVC は、特定のコント ローラーとアクションを選択した後のみです。
 
 -----------
 
@@ -140,7 +140,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="use-run-and-map"></a>使用して、実行、およびマップ
 
-HTTP パイプラインを使用して、構成する`Use`、 `Run`、および`Map`です。 `Use`メソッドは、パイプラインをショート サーキットできます (呼び出されない場合は、`next`要求デリゲート)。 `Run`規則は、一部のミドルウェア コンポーネントが公開される`Run[Middleware]`パイプラインの最後に実行されるメソッド。
+HTTP パイプラインを使用して、構成する`Use`、 `Run`、および`Map`です。 `Use`メソッドは、パイプラインをショート サーキットことができます (呼び出しません場合に、`next`要求デリゲート)。 `Run`規則は、一部のミドルウェア コンポーネントが公開される`Run[Middleware]`パイプラインの最後に実行されるメソッド。
 
 `Map*`拡張機能は、パイプラインを分岐に、規則として使用されます。 [マップ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions)指定された要求パスの一致に基づいて、要求パイプラインを分岐します。 要求パスに指定されたパスで起動する場合、分岐が実行されます。
 

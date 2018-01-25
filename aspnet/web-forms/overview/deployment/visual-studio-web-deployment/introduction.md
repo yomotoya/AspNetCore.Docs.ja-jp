@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: e14f3bed001592c85bdbba868f51141bc52a9470
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 51344535e7ff42f1bd6641aeaaf043be6423f1b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Visual Studio を使用した ASP.NET Web 展開: 概要
 ====================
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/10/2017
 デプロイ[ソース コントロール](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md)を使用して、[した継続的配信](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)プロセスは、コマンドラインから展開する方法を示している 1 つのチュートリアルを除くこれらのチュートリアルでは説明しません。 継続的な配信方法については、次のリソースを参照してください。
 
 - [継続的インテグレーションと継続的な配信 (Windows Azure と実際のクラウド アプリのビルド)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)
-- [Azure App service web アプリを配置します。](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/)
+- [Azure App service web アプリを配置します。](https://azure.microsoft.com/documentation/articles/web-sites-deploy/)
 - [エンタープライズのシナリオで Web アプリケーションを展開する](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)(古いセットの Visual Studio 2010 では、エンタープライズ環境に関する有用な情報がまだ用に記述されたチュートリアルです)。
 
 ## <a name="using-a-third-party-hosting-provider"></a>サード パーティのホスティング プロバイダーを使用します。
@@ -130,7 +130,7 @@ Visual Studio 2010 SP1 を使用している場合は、次のソフトウェア
 
 - [Azure SDK for Visual Studio 2010](https://go.microsoft.com/fwlink/?LinkID=254269)
 - [SQL Server Express LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=SQLLocalDBOnly_11_0)
-- [SQL Server Data Tools](https://msdn.microsoft.com/en-us/library/hh500335.aspx)です。
+- [SQL Server Data Tools](https://msdn.microsoft.com/library/hh500335.aspx)です。
 
 SDK の依存関係の数を既に持っているによってコンピューターに、Azure SDK をインストールする数分から 30 分以上に、時間がかかる可能性があります。 Azure への代わりにサード パーティ製ホスティング プロバイダーにパブリッシュする場合、SDK には、Visual Studio web に最新の更新プログラムが含まれているために、機能を公開する場合でもは、Azure SDK を作成する必要があります。
 
@@ -198,7 +198,7 @@ Web サイトのページは、メニュー バーからアクセスできる、
 - アプリケーションで変更する必要がある設定の一部に含まれて、展開済みで*Web.config*先の環境 (テスト、ステージング、または運用) とその他の設定によっては、ビルドの変更が必要に応じてファイル(デバッグまたはリリース) を構成します。
 - Visual Studio ソリューションには、クラス ライブラリ プロジェクトが含まれています。 このプロジェクトで生成されるアセンブリのみを展開すると、プロジェクト自体ではありません。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 系列の最初のチュートリアルでは、サンプルの Visual Studio プロジェクトをダウンロードし、アプリケーションを展開する方法に影響するサイトの機能を確認しました。 次のチュートリアルでは、展開準備で自動的に処理するのには次の作業の一部を設定します。 他のユーザーを処理する手動でします。
 

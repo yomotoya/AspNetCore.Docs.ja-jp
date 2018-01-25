@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4796d5d9fcf1f924e9baa9bc56424a9d719425c9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6f238b8ea8dfbde67dbad7a52d6b4851d67402a8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-gridview-column-of-checkboxes-c"></a>チェック ボックス (c#) の GridView 列を追加します。
 ====================
@@ -100,7 +100,7 @@ ASP.NET 2.0 には、CheckBoxField が含まれているために使用 GridView
 
 この時点で、列のチェック ボックスがどのようなチェック ボックスがポストバック時にチェックを決定する方法がありませんがあります。 ただし、選択した製品の削除 ボタンがクリックされたときに、これらの製品を削除するのにはどのようなチェック ボックスをオンにチェックインされたおく必要があります。
 
-GridView s [ `Rows`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rows.aspx)GridView 内のデータ行へのアクセスを提供します。 これらの行を反復処理できる CheckBox コントロールをプログラムでアクセスし、しを参照してください、`Checked`チェック ボックスが選択されているかどうかを決定するプロパティです。
+GridView s [ `Rows`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows.aspx)GridView 内のデータ行へのアクセスを提供します。 これらの行を反復処理できる CheckBox コントロールをプログラムでアクセスし、しを参照してください、`Checked`チェック ボックスが選択されているかどうかを決定するプロパティです。
 
 イベント ハンドラーを作成、`DeleteSelectedProducts`ボタン Web コントロールの`Click`イベントし、次のコードを追加します。
 
@@ -148,7 +148,7 @@ GridView 上に配置すること、ページには、2 つのボタンの Web �
 > ときに、チェック ボックスをオンまたはオフにすると、対応するチェック ボックスのすべての方法の 1 つの列を表示するには、ヘッダー行のチェック ボックスです。 さらに、すべて現在チェック/オフにしてすべての実装には、ポストバックが必要です。 対応するチェック ボックス使用できる checked または unchecked、ただし、完全 ~ クライアント側-スクリプト、良くユーザー エクスペリエンスを提供します。 探索と共にクライアント側の技法の使用についての詳細ですべてをチェックし、すべてオフのヘッダー行のチェック ボックスを使用するのにはチェック アウト[チェックすべてのチェック ボックスで、クライアント側スクリプトを使用して GridView と、すべてチェック ボックスの確認](http://aspnet.4guysfromrolla.com/articles/053106-1.aspx)です。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 行の任意の数を続行する前に GridView から選択できるようにする必要がある場合、1 つのオプションは、チェック ボックスの列を追加します。 このチュートリアルで説明したとおり、GridView のチェック ボックスの列を含むだけで、CheckBox Web コントロールで TemplateField を追加します。 (前のチュートリアルで行ったようには、マークアップ、テンプレートに直接挿入する) と Web コントロールを使用して、ASP.NET は、何のチェック ボックス、ポストバック間ではチェックされませんでしたに自動的に保存します。 対応するチェック ボックスのコードで確認するのに指定されたチェック ボックスを確認するかどうかチェック状態を変更するプログラムからもアクセスできます。
 

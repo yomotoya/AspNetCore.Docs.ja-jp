@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 2d93dcee102009661af708b9a9066e8af0bdbb17
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 65074ca02a1365db278d348d4e024121a6eb4634
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="view-components"></a>コンポーネントの表示
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="introducing-view-components"></a>コンポーネントの表示の概要
 
-新しい ASP.NET Core mvc コンポーネントの表示は部分のビューに似ていますがはるかに強力なです。 コンポーネントの表示はしない、モデル バインディングを使用し、呼び出し時に指定したデータにのみ依存します。 ビュー コンポーネント:
+新しい ASP.NET Core mvc コンポーネントの表示に似ています部分ビューのこれらははるかに強力なものです。 コンポーネントの表示はしない、モデル バインディングを使用し、呼び出し時に指定したデータにのみ依存します。 ビュー コンポーネント:
 
 * 応答の全体ではなく、チャンクを表示します。
 * 同じ問題の分離やテストの容易性の利点がありますが、コント ローラーとビューの間にあります。
@@ -60,7 +60,7 @@ ms.lasthandoff: 01/19/2018
 
 * コンス トラクターを完全にサポート[依存関係の挿入](../../fundamentals/dependency-injection.md)
 
-* コント ローラーのライフ サイクルは、使用できないことを意味の一部を受け取らない[フィルター](../controllers/filters.md)ビュー コンポーネント
+* コント ローラーのライフ サイクルは、使用できないことを意味の一部を受け取りません[フィルター](../controllers/filters.md)ビュー コンポーネント
 
 ### <a name="view-component-methods"></a>ビュー コンポーネント メソッド
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 01/19/2018
 * 定義、`InvokeAsync`を返すメソッドを`IViewComponentResult`
 * モデルの初期化を呼び出すことによって、ビューに渡します通常、 `ViewComponent` `View`メソッド。
 * パラメーターを取得する呼び出し元のメソッドでは、HTTP ではないから、モデルのバインドがありません。
-* HTTP エンドポイントとして直接到達可能ではないに呼び出されます (ビュー) では通常、コードからです。 ビューのコンポーネントが、要求を処理しません。
+* HTTP エンドポイントとして直接到達可能ではない、して呼び出すことが (通常は、ビュー) で、コードからです。 ビューのコンポーネントが、要求を処理しません。
 * 詳細を現在の HTTP 要求ではなく、シグネチャではオーバー ロードします。
 
 ### <a name="view-search-path"></a>ビューの検索パス
@@ -130,7 +130,7 @@ ASP.NET Core 1.1 以降、としてビュー コンポーネントを呼び出�
 
 ### <a name="invoking-a-view-component-directly-from-a-controller"></a>コント ローラーから直接ビュー コンポーネントを呼び出す
 
-コンポーネントの表示は通常、ビューから呼び出されますが、それらをコント ローラー メソッドから直接呼び出すことができます。 コンポーネントの表示は、コント ローラーなどのエンドポイントを定義していない、ときに、コント ローラーのアクションの内容を表すオブジェクトを簡単に実装できます、`ViewComponentResult`です。
+コンポーネントの表示は通常、ビューから呼び出されますが、それらをコント ローラー メソッドから直接呼び出すことができます。 コンポーネントの表示がコント ローラーなどのエンドポイントを定義していないときに、コント ローラーのアクションの内容を表すオブジェクトを簡単に実装できます、`ViewComponentResult`です。
 
 この例では、表示コンポーネントは、コント ローラーから直接呼び出されます。
 
@@ -152,7 +152,7 @@ ASP.NET Core 1.1 以降、としてビュー コンポーネントを呼び出�
 
 * ビュー クラスをコンポーネントに含まれていることができます**任意**プロジェクト内のフォルダーです。
 * クラスの名前を PriorityList のため**ViewComponent**サフィックスで終わる**ViewComponent**、ランタイムから見ると、クラスのコンポーネントを参照するときに文字列"PriorityList"が使用されます。 について説明をさらに詳しく後述します。
-* `[ViewComponent]`属性は、ビュー コンポーネントを参照するための名前を変更できます。 たとえば、でしたがという名前を付けてクラス`XYZ`と適用、`ViewComponent`属性。
+* `[ViewComponent]`属性は、ビュー コンポーネントを参照するための名前を変更できます。 たとえば、でしたしたという名前を付けてクラス`XYZ`と適用、`ViewComponent`属性。
 
   ```csharp
   [ViewComponent(Name = "PriorityList")]
@@ -212,17 +212,17 @@ ASP.NET Core 1.1 以降、としてビュー コンポーネントを呼び出�
 
 ![優先順位のビュー コンポーネント](view-components/_static/pvc.png)
 
-PVC ビューは表示されず場合、は、優先度が 4 以上のビュー コンポーネントを呼び出していることを確認します。
+PVC ビューが表示されていない場合は、優先度が 4 以上のビュー コンポーネントを呼び出していることを確認します。
 
 ### <a name="examine-the-view-path"></a>ビューのパスを調べる
 
-* Priority ビューが返されないようには 3 つを以下の優先順位 パラメーターを変更します。
+* Priority ビューが返されません。 ようには以下に 3 つの優先順位 パラメーターを変更します。
 * 名前を一時的に、 *Views/Todo/Components/PriorityList/Default.cshtml*に*1Default.cshtml*です。
 * アプリのテストは、次のエラーが表示されます。
 
    ```
    An unhandled exception occurred while processing the request.
-   InvalidOperationException: The view 'Components/PriorityList/Default' was not found. The following locations were searched:
+   InvalidOperationException: The view 'Components/PriorityList/Default' wasn't found. The following locations were searched:
    /Views/ToDo/Components/PriorityList/Default.cshtml
    /Views/Shared/Components/PriorityList/Default.cshtml
    EnsureSuccessful

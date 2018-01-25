@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 0af5f7e841bb43fa41fa0daa4ad8d59ee0596404
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4a5433a7dd70e27b59163822ba427b026c3f4ce0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>継続的インテグレーションと継続的な配信 (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/10/2017
 
 次の図から[、Microsoft Patterns and Practices 電子書籍した継続的配信の](http://aka.ms/ReleasePipeline)一般的なワークフローを示しています。 元のコンテキストでフル サイズを表示するイメージをクリックします。
 
-[![継続的配信のワークフロー](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/en-us/library/dn449955.aspx)
+[![継続的配信のワークフロー](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
 
 ## <a name="how-the-cloud-enables-cost-effective-ci-and-cd"></a>費用効率の CI および CD、クラウドを使用する方法
 
@@ -59,19 +59,19 @@ VSTS は、さまざまな展開の計画からのアプリケーションの開
 
 ターンキー プロジェクト管理、探している場合は、チームのコラボレーション、およびソース管理ソリューションでは、チェック アウト VSTS します。 サービスは 5 つまでユーザーは、空き、時にサインアップすることができます[Visual Studio Team Services](https://www.visualstudio.com/team-services/)です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 最初の 3 つのクラウド開発パターンは、低のサイクル時間を反復可能な信頼性と予測可能な開発プロセスを実装する方法に関するされました。 [次のチャプター](web-development-best-practices.md)アーキテクチャとコーディング パターンを見てを開始します。
 
 ## <a name="resources"></a>リソース
 
-詳細については、次を参照してください。 [Azure App service web アプリを配置](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/)です。
+詳細については、次を参照してください。 [Azure App service web アプリを配置](https://azure.microsoft.com/documentation/articles/web-sites-deploy/)です。
 
 次のリソースを参照してください。
 
 - [Team Foundation Server 2012 でリリース パイプラインの構築](http://aka.ms/ReleasePipeline)です。 電子書籍、実践的なラボ、およびサンプル コードでは、Microsoft Patterns and Practices、継続的デリバリーの詳細な概要について説明します。 Visual Studio Lab Management の Visual Studio リリース管理の使用をカバーします。
 - [Tooling ALM Rangers DevOps とガイダンス](https://aka.ms/vsarsolutions/)です。 ALM Rangers 導入 DevOps Workbench サンプル コンパニオン ソリューションと、パターンと共同で実用的なガイダンス&amp;プラクティス book *TFS 2012 とするリリース パイプラインの構築*を起動する優れた手段としてDevOps の概念を理解&amp;試せるして TFS 2012 用のリリース管理します。 ガイダンスは、1 回ビルドおよび複数の環境に配置する方法を示します。
-- [Visual Studio 2012 での継続的デリバリーのテスト](https://msdn.microsoft.com/en-us/library/jj159345.aspx)です。 Microsoft Patterns and Practices、によって電子書籍では、自動テストが継続的な配信を統合する方法について説明します。
+- [Visual Studio 2012 での継続的デリバリーのテスト](https://msdn.microsoft.com/library/jj159345.aspx)です。 Microsoft Patterns and Practices、によって電子書籍では、自動テストが継続的な配信を統合する方法について説明します。
 - [WindowsAzureDeploymentTracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker)です。 (ラベルに基づく)、TFS からのビルドをキャプチャするためのツールのソース コードは、ビルド、パッケージ化し化しの特定の側面を構成するのには、DevOps 役割で許可するユーザーを Azure にプッシュします。 ツールは、""バージョンにロールバック、以前に配置する操作を有効にするために、展開プロセスを追跡します。 ツールは、外部の依存関係がないと、TFS Api と Azure SDK を使用してスタンドアロン機能ことができます。
 - [継続的に提供します。 信頼性の高いソフトウェアをビルド、テスト、および展開を自動化を通じて解放](https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1377126361)です。 控えめな Jez によってブック。
 - [それを解放します。設計および運用環境でソフトウェアの展開](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213)です。 Michael T. Nygard によってブック。

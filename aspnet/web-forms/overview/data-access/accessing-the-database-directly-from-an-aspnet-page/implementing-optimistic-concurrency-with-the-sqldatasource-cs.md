@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 69ba9e47071956385e96a28372454a3ae93ccc89
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b089a0b25aa5a520f3e20af8ec5212072ad7c7bf
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>SqlDataSource (c#) によるオプティミスティック同時実行制御を実装します。
 ====================
@@ -116,8 +116,8 @@ ms.lasthandoff: 11/10/2017
 
 拡張だけでなく、`WHERE`の句、`UpdateCommand`と`DeleteCommand`プロパティ (とそれぞれのパラメーター コレクションに追加のパラメーターを追加する)、オプティミスティック同時実行オプションを調整しますその他の 2 つの使用を選択します。プロパティ:
 
-- 変更、 [ `ConflictDetection`プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx)から`OverwriteChanges`(既定) に`CompareAllValues`
-- 変更、 [ `OldValuesParameterFormatString`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx){0} (既定) に元から\_{0}。
+- 変更、 [ `ConflictDetection`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx)から`OverwriteChanges`(既定) に`CompareAllValues`
+- 変更、 [ `OldValuesParameterFormatString`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx){0} (既定) に元から\_{0}。
 
 データの Web コントロールが SqlDataSource s を呼び出す場合`Update()`または`Delete()`元の値で渡す方法、します。 場合は、SqlDataSource s`ConflictDetection`プロパティに設定されている`CompareAllValues`、元の値は、コマンドに追加されます。 `OldValuesParameterFormatString`プロパティはこれらの元の値パラメーターに使用する名前付けパターンを提供します。 データ ソース構成ウィザードを使用して元\_{0} し名前を元のパラメーターごと、`UpdateCommand`と`DeleteCommand`プロパティおよび`UpdateParameters`と`DeleteParameters`コレクションに応じて。
 
@@ -221,7 +221,7 @@ GridView に次の変更を加えたら、GridView と SqlDataSource の宣言�
 **図 9**: 同時実行制御違反が発生した場合、メッセージが表示されます ([フルサイズのイメージを表示するをクリックして](implementing-optimistic-concurrency-with-the-sqldatasource-cs/_static/image16.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 Web アプリケーションを作成するときに、複数、同時実行ユーザーが、同じデータを編集する同時実行制御オプションを検討することが重要です。 既定では、Web コントロールの ASP.NET データとデータ ソース コントロールを使用していないすべての同時実行制御。 このチュートリアルで説明したとおり、SqlDataSource でオプティミスティック同時実行制御を実装することは比較的迅速かつ簡単です。 SqlDataSource 補完された、追加の作業の大半を処理する`WHERE`自動生成された句`UPDATE`と`DELETE`ステートメントがありますが、処理のいくつかの微妙な`NULL`で説明したように、列の値、適切な処理`NULL`セクションの値します。
 

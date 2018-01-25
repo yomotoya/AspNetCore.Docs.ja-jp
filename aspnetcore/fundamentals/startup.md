@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: dd2eb3d3996bc0bf277c8d5e772c8568ef9f147e
-ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
+ms.openlocfilehash: 81d76c39b7890e2d4ab86252cb0a343e3bb7359a
+ms.sourcegitcommit: 83b5a4715fd25e4eb6f7c8427c0ef03850a7fa07
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core でのアプリケーションの起動
 
@@ -37,11 +37,14 @@ ASP.NET Core アプリで使用する、`Startup`というクラス`Startup`慣�
 
 [!code-csharp[Main](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=10)]
 
-`Startup`クラス コンス トラクターは、ホストによって定義された依存関係を受け取ります。 一般的な用途[依存性の注入](xref:fundamentals/dependency-injection)に、`Startup`クラスは、挿入する[IHostingEnvironment](/dotnet/api/Microsoft.AspNetCore.Hosting.IHostingEnvironment)環境によってサービスを構成します。
+`Startup`クラス コンス トラクターは、ホストによって定義された依存関係を受け取ります。 一般的な用途[依存性の注入](xref:fundamentals/dependency-injection)に、`Startup`クラスが挿入するには。
+
+* [IHostingEnvironment](/dotnet/api/Microsoft.AspNetCore.Hosting.IHostingEnvironment)環境によってサービスを構成します。
+* [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration)の起動中にアプリを構成します。
 
 [!code-csharp[Main](startup/snapshot_sample/Startup2.cs)]
 
-挿入する代わりに`IHostingStartup`規則ベースのアプローチを使用することです。 アプリを個別に定義できます`Startup`さまざまな環境のためのクラス (たとえば、 `StartupDevelopment`)、実行時に適切なスタートアップ クラスが選択されているとします。 ある名前サフィックスが、現在の環境と一致するクラスが優先順位します。 アプリ開発環境で実行され、両方が含まれる場合、`Startup`クラスおよび`StartupDevelopment`クラス、`StartupDevelopment`クラスを使用します。 詳細については、次を参照してください。[複数の環境で作業](xref:fundamentals/environments#startup-conventions)です。
+挿入する代わりに`IHostingEnvironment`規則ベースのアプローチを使用することです。 アプリを個別に定義できます`Startup`さまざまな環境のためのクラス (たとえば、 `StartupDevelopment`)、実行時に適切なスタートアップ クラスが選択されているとします。 ある名前サフィックスが、現在の環境と一致するクラスが優先順位します。 アプリ開発環境で実行され、両方が含まれる場合、`Startup`クラスおよび`StartupDevelopment`クラス、`StartupDevelopment`クラスを使用します。 詳細については、[「Working with multiple environments」](xref:fundamentals/environments#startup-conventions) (複数の環境での使用) をご覧ください。
 
 について詳しく学習する`WebHostBuilder`を参照してください、[ホスティング](xref:fundamentals/hosting)トピックです。 起動中にエラーを処理する方法については、次を参照してください。[スタートアップ例外処理](xref:fundamentals/error-handling#startup-exception-handling)です。
 
@@ -83,7 +86,7 @@ Web ホストに使用できるいくつかのサービスを提供する、`Sta
 
 [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder.configureservices)と[構成](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure)便利なメソッドを指定する代わりに使用できます、`Startup`クラスです。 複数回呼び出す`ConfigureServices`互いに追加します。 複数回呼び出す`Configure`最後のメソッド呼び出しを使用します。
 
-[!code-csharp[Main](startup/snapshot_sample/Program.cs?highlight=16,20)]
+[!code-csharp[Main](startup/snapshot_sample/Program.cs?highlight=18,22)]
 
 ## <a name="startup-filters"></a>スタートアップ フィルター
 

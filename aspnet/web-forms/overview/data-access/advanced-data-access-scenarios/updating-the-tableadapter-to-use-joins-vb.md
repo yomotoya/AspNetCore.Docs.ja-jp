@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bb0b80f63ea69bb12a28f01193946f5689e70fb9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2e0698269c0a29c234f03dc56f7b63e7bc83d032
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-the-tableadapter-to-use-joins-vb"></a>(VB) を結合に使用する TableAdapter の更新
 ====================
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/10/2017
 A`JOIN`いくつかの条件に基づく別のテーブルからレコードを含む 1 つのテーブルからレコードをマージします。 たとえば、上記のクエリで、`LEFT JOIN Categories ON Categories.CategoryID = Products.CategoryID`をマージする各 SQL Server に指示カテゴリの製品レコードがレコードを`CategoryID`値に一致する製品の`CategoryID`値。 マージされた結果には、各製品カテゴリの対応するフィールドを使用することができます (など`CategoryName`)。
 
 > [!NOTE]
-> `JOIN`s はリレーショナル データベースからデータを照会する際によく使用されます。 初めて使用する場合、`JOIN`構文や使用法に関するもう少しを復習する必要があります、d をお勧め、 [SQL の Join チュートリアル](http://www.w3schools.com/sql/sql_join.asp)で[W3 学校](http://www.w3schools.com/)です。 また読み取り価値は、 [ `JOIN`基礎](https://msdn.microsoft.com/en-us/library/ms191517.aspx)と[サブクエリの基礎](https://msdn.microsoft.com/en-us/library/ms189575.aspx)のセクションでは、 [SQL オンライン ブック](https://msdn.microsoft.com/en-us/library/ms130214.aspx)です。
+> `JOIN`s はリレーショナル データベースからデータを照会する際によく使用されます。 初めて使用する場合、`JOIN`構文や使用法に関するもう少しを復習する必要があります、d をお勧め、 [SQL の Join チュートリアル](http://www.w3schools.com/sql/sql_join.asp)で[W3 学校](http://www.w3schools.com/)です。 また読み取り価値は、 [ `JOIN`基礎](https://msdn.microsoft.com/library/ms191517.aspx)と[サブクエリの基礎](https://msdn.microsoft.com/library/ms189575.aspx)のセクションでは、 [SQL オンライン ブック](https://msdn.microsoft.com/library/ms130214.aspx)です。
 
 
 `JOIN` S と相関サブクエリを両方使用できるその他のテーブルから関連するデータを取得する、そのヘッドをスクラッチおよび使用する方法を知り、多くの開発者は残されます。 すべて SQL エキスパートの I はほぼ同じことにしたことされない問題では性能とほぼ同じ実行プランを SQL Server が生成されます。 アドバイスは、次はおよびチームが最も慣れている手法を使用します。 このアドバイスを深めます後にこれらのエキスパートすぐに express の設定に注意してください。 その最もメリットのある`JOIN`相関サブクエリ経由で s。
@@ -248,7 +248,7 @@ Visual Studio は、それぞれに対して GridView に BoundField を追加�
 
 私のままに練習として、リーダーの。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 リレーショナル データベースを使用する場合は、関連テーブルにクエリから複数のデータをプルするが一般的です。 相関サブクエリと`JOIN`s がクエリ内の関連テーブルからデータにアクセスするために 2 つの異なる方法を提供します。 TableAdapter は自動生成するため、相関サブクエリの最も一般的に行われた前のチュートリアルを使用して`INSERT`、 `UPDATE`、および`DELETE`関連するクエリに対するステートメント`JOIN`s。 アドホック SQL ステートメントを使用する場合に、これらの値を手動で指定することができます、TableAdapter 構成ウィザードが完了したときに、カスタマイズは上書きされます。
 

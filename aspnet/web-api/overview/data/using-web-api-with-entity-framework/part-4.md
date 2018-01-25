@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 9294da7cd5b7a362d4ade9d1bf7e7747e20ee1a8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 58a9dfb621630f23b37247b96ed3a19a661857f1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-entity-relations"></a>処理のエンティティ関係
 ====================
@@ -84,9 +84,9 @@ SELECT ステートメントでは、ブックのテーブルから受け取る�
 
 シリアル化の問題を回避する方法の 1 つのエンティティ オブジェクトの代わりにデータ転送オブジェクト (Dto) をシリアル化を開始します。 記事の後半でこの方法が紹介します。
 
-### <a name="explicit-loading"></a>明示的読み込み
+### <a name="explicit-loading"></a>明示的な読み込み
 
-明示的な読み込み似ていますが、遅延読み込みをコードで明示的に、関連するデータを取得します。ナビゲーション プロパティにアクセスするときに自動的に発生しません。 明示的な読み込みでは、詳細な制御を関連するデータを読み込むときに利用できますが、余分なコードが必要です。 明示的な読み込みの詳細については、次を参照してください。[関連エンティティの読み込み](https://msdn.microsoft.com/en-us/data/jj574232#explicit)です。
+明示的な読み込み似ていますが、遅延読み込みをコードで明示的に、関連するデータを取得します。ナビゲーション プロパティにアクセスするときに自動的に発生しません。 明示的な読み込みでは、詳細な制御を関連するデータを読み込むときに利用できますが、余分なコードが必要です。 明示的な読み込みの詳細については、次を参照してください。[関連エンティティの読み込み](https://msdn.microsoft.com/data/jj574232#explicit)です。
 
 ## <a name="navigation-properties-and-circular-references"></a>ナビゲーション プロパティと循環参照
 

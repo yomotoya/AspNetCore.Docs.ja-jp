@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: e507d97903583c7233456e9139e1a869f8bf75bd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72c49ed8b76b5fb5eb15bf01f57980b382607496
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web Pages (Razor) トラブルシューティング ガイド
 ====================
@@ -60,7 +60,7 @@ Web サイトのルートが少なくとも 1 つであること確認*.cshtml*�
 
 Web サーバーがリモート サーバーにこのエラーが発生する場合は、サーバー管理者に問い合わせてください。 サーバーに .NET Framework 4 があることを確認または後でインストールされているようにします。 また、アプリケーションが.net Framework のバージョンを使用するように構成されるアプリケーション プールで実行されていることを確認します。
 
-サーバーを制御する場合は、.NET Framework の正しいバージョンが実行されていることを確認します。 インストールの修復を実行してもみて、`aspnet_regiis -iru`コマンド。 (たとえば、.NET Framework をインストールした後に IIS をインストールする場合 IIS がない正しく構成する ASP.NET ページを実行する。)詳細については、次を参照してください。 [ASP.NET IIS 登録ツール (Aspnet\_regiis.exe)](https://msdn.microsoft.com/en-US/library/k6h9cz8h(v=vs.100).aspx)です。
+サーバーを制御する場合は、.NET Framework の正しいバージョンが実行されていることを確認します。 インストールの修復を実行してもみて、`aspnet_regiis -iru`コマンド。 (たとえば、.NET Framework をインストールした後に IIS をインストールする場合 IIS がない正しく構成する ASP.NET ページを実行する。)詳細については、次を参照してください。 [ASP.NET IIS 登録ツール (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx)です。
 
 ### <a name="http-error-40314---forbidden"></a>HTTP エラー 403.14 - 許可されていません
 
@@ -139,7 +139,7 @@ HTTP エラー 404.17 については、前の説明を参照してください�
 
 - *メールの送信に失敗します。*
 
-    または
+    - または -
 
     *接続されているパーティが一定の時間、または確立された接続が接続されているホストが応答に失敗しましたが失敗しました。 正しく応答しなかったために、接続試行が失敗しました*
 
@@ -158,6 +158,6 @@ HTTP エラー 404.17 については、前の説明を参照してください�
 <a id="AdditionalResources"></a>
 ## <a name="additional-resources"></a>その他のリソース
 
-[ASP.NET Web Pages (Razor) FAQ](https://go.microsoft.com/fwlink/?LinkId=253000)
+[ASP.NET Web ページ (Razor) のよくあるご質問](https://go.microsoft.com/fwlink/?LinkId=253000)
 
 [WebMatrix と ASP.NET Web Pages](https://forums.asp.net/1224.aspx/1?WebMatrix) ASP.NET web サイトのフォーラム

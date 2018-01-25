@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: e52e39bf9c66419e18bf78036138d1f15376f2be
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d73ab6c9091556a62e5d9475baf67a18e305585f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authentication-and-authorization-for-signalr-hubs-signalr-1x"></a>SignalR ハブの認証と承認 (SignalR 1.x)
 ====================
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="authorize-attribute"></a>属性を承認します。
 
-SignalR の提供、 [Authorize](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx)ハブまたはメソッドへのアクセスを持つユーザーまたはロールを指定する属性。 この属性にある、`Microsoft.AspNet.SignalR`名前空間。 適用する、`Authorize`属性をハブまたはハブ内の特定のメソッドのいずれか。 適用すると、`Authorize`ハブ クラス、指定した承認要件に属性はすべてのハブ メソッドに適用します。 適用可能な承認要件の種類は次のとおりです。 なし、`Authorize`属性、ハブのすべてのパブリック メソッドがハブに接続されているクライアントで使用します。
+SignalR の提供、 [Authorize](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx)ハブまたはメソッドへのアクセスを持つユーザーまたはロールを指定する属性。 この属性にある、`Microsoft.AspNet.SignalR`名前空間。 適用する、`Authorize`属性をハブまたはハブ内の特定のメソッドのいずれか。 適用すると、`Authorize`ハブ クラス、指定した承認要件に属性はすべてのハブ メソッドに適用します。 適用可能な承認要件の種類は次のとおりです。 なし、`Authorize`属性、ハブのすべてのパブリック メソッドがハブに接続されているクライアントで使用します。
 
 Web アプリケーションで"Admin"をという名前のロールを定義している場合は、次のコード ハブをそのロールのユーザーのみがアクセスできることを指定できます。
 
@@ -65,7 +65,7 @@ Web アプリケーションで"Admin"をという名前のロールを定義し
 
 ## <a name="require-authentication-for-all-hubs"></a>すべてのハブに対して認証を要求します。
 
-アプリケーションで呼び出すことによってすべてのハブおよびハブ メソッドの認証を要求できます、 [RequireAuthentication](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubpipelineextensions.requireauthentication(v=vs.111).aspx)メソッド アプリケーションの起動時にします。 複数のハブがあり、それらのすべての認証要件を強制する場合は、このメソッドを使用する場合があります。 このメソッドを使用して役割、ユーザー、または送信の承認を指定することはできません。 のみ、ハブ メソッドへのアクセスが認証されたユーザーに制限されていることを指定することができます。 ただし、Authorize 属性には、ハブやその他の要件を指定する方法にも適用できます。 属性で指定したすべての要件は、認証の基本的な要件に加えて適用されます。
+アプリケーションで呼び出すことによってすべてのハブおよびハブ メソッドの認証を要求できます、 [RequireAuthentication](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubpipelineextensions.requireauthentication(v=vs.111).aspx)メソッド アプリケーションの起動時にします。 複数のハブがあり、それらのすべての認証要件を強制する場合は、このメソッドを使用する場合があります。 このメソッドを使用して役割、ユーザー、または送信の承認を指定することはできません。 のみ、ハブ メソッドへのアクセスが認証されたユーザーに制限されていることを指定することができます。 ただし、Authorize 属性には、ハブやその他の要件を指定する方法にも適用できます。 属性で指定したすべての要件は、認証の基本的な要件に加えて適用されます。
 
 次の例では、すべてのハブ メソッドを認証されたユーザーに制限が Global.asax ファイルを示します。
 
@@ -77,7 +77,7 @@ Web アプリケーションで"Admin"をという名前のロールを定義し
 
 ## <a name="customized-authorization"></a>カスタマイズした承認
 
-派生するクラスを作成するには承認を決定する方法をカスタマイズする必要がある場合`AuthorizeAttribute`をオーバーライドし、 [UserAuthorized](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.authorizeattribute.userauthorized(v=vs.111).aspx)メソッドです。 このメソッドは、ユーザーに承認要求を完了するかどうかを判断するには、各要求に対して呼び出されます。 オーバーライドされたメソッドでは、承認のシナリオに必要なロジックを提供します。 次の例では、クレーム ベース id を介して承認を適用する方法を示します。
+派生するクラスを作成するには承認を決定する方法をカスタマイズする必要がある場合`AuthorizeAttribute`をオーバーライドし、 [UserAuthorized](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute.userauthorized(v=vs.111).aspx)メソッドです。 このメソッドは、ユーザーに承認要求を完了するかどうかを判断するには、各要求に対して呼び出されます。 オーバーライドされたメソッドでは、承認のシナリオに必要なロジックを提供します。 次の例では、クレーム ベース id を介して承認を適用する方法を示します。
 
 [!code-csharp[Main](hub-authorization/samples/sample4.cs)]
 
@@ -105,7 +105,7 @@ Web アプリケーションで"Admin"をという名前のロールを定義し
 
 ### <a name="cookie"></a>クッキー
 
-.NET クライアントは、ASP.NET フォーム認証を使用するハブと対話するとき、は、接続の認証クッキーを手動で設定する必要があります。 Cookie を追加する、`CookieContainer`プロパティを[HubConnection](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.hubs.hubconnection(v=vs.111).aspx)オブジェクト。 次の例では、web ページから、認証 cookie を取得し、接続にその cookie を追加するコンソール アプリを示します。 URL `https://www.contoso.com/RemoteLogin` web ページを作成する必要がありますをする例をポイントします。 ページは、ポストされたユーザー名とパスワードを取得し、資格情報を持つユーザーにログインしようとしています。
+.NET クライアントは、ASP.NET フォーム認証を使用するハブと対話するとき、は、接続の認証クッキーを手動で設定する必要があります。 Cookie を追加する、`CookieContainer`プロパティを[HubConnection](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.hubs.hubconnection(v=vs.111).aspx)オブジェクト。 次の例では、web ページから、認証 cookie を取得し、接続にその cookie を追加するコンソール アプリを示します。 URL `https://www.contoso.com/RemoteLogin` web ページを作成する必要がありますをする例をポイントします。 ページは、ポストされたユーザー名とパスワードを取得し、資格情報を持つユーザーにログインしようとしています。
 
 [!code-csharp[Main](hub-authorization/samples/sample7.cs)]
 
@@ -117,7 +117,7 @@ Web アプリケーションで"Admin"をという名前のロールを定義し
 
 ### <a name="windows-authentication"></a>Windows 認証
 
-Windows 認証を使用する場合を使用して現在のユーザーの資格情報を渡すことができます、[される DefaultCredentials](https://msdn.microsoft.com/en-us/library/system.net.credentialcache.defaultcredentials.aspx)プロパティです。 される DefaultCredentials の値には、接続の資格情報を設定します。
+Windows 認証を使用する場合を使用して現在のユーザーの資格情報を渡すことができます、[される DefaultCredentials](https://msdn.microsoft.com/library/system.net.credentialcache.defaultcredentials.aspx)プロパティです。 される DefaultCredentials の値には、接続の資格情報を設定します。
 
 [!code-csharp[Main](hub-authorization/samples/sample9.cs?highlight=6)]
 
@@ -135,6 +135,6 @@ Windows 認証を使用する場合を使用して現在のユーザーの資格
 
 ### <a name="certificate"></a>証明書
 
-ユーザーを確認するクライアント証明書を渡すことができます。 接続を作成するときに、証明書を追加します。 次の例では、接続にクライアント証明書を追加する方法のみコンソールへのフル アプリケーションは表示されません。 使用して、 [X509Certificate](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate.aspx)証明書を作成するいくつかの方法を提供するクラス。
+ユーザーを確認するクライアント証明書を渡すことができます。 接続を作成するときに、証明書を追加します。 次の例では、接続にクライアント証明書を追加する方法のみコンソールへのフル アプリケーションは表示されません。 使用して、 [X509Certificate](https://msdn.microsoft.com/library/system.security.cryptography.x509certificates.x509certificate.aspx)証明書を作成するいくつかの方法を提供するクラス。
 
 [!code-csharp[Main](hub-authorization/samples/sample11.cs?highlight=6)]

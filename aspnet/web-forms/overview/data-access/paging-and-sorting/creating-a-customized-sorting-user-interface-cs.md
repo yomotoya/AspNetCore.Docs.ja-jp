@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bc009272df3626402ee4c52578f9b364f70a4e78
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dbd2f6c8f1e21529da8a0fbffab212a29f615cc1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-customized-sorting-user-interface-c"></a>カスタマイズされた並べ替えのユーザー インターフェイス (c#) を作成します。
 ====================
@@ -187,10 +187,10 @@ BoundFields 以外の型はフィールドを処理する必要があります�
 
 
 > [!NOTE]
-> 製品を使用していれば`NULL`の値をデータベース、 `CategoryID`、 `SupplierID`、または`UnitPrice`フィールド、それらの値が GridView で空の文字列として既定では、これらの製品に対して区切り行のテキストを意味`NULL`カテゴリのような値は読み取り: (が s は、カテゴリの後に名前のない: などのカテゴリを持った: 飲み物)。 BoundFields を設定できますか、ここに表示される値を求める場合[`NullDisplayText`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx)テキストに表示するか、割り当てるときに、Render メソッドで条件付きステートメントを追加することができます、`currentValue`区切り記号を行の`Text`プロパティです。
+> 製品を使用していれば`NULL`の値をデータベース、 `CategoryID`、 `SupplierID`、または`UnitPrice`フィールド、それらの値が GridView で空の文字列として既定では、これらの製品に対して区切り行のテキストを意味`NULL`カテゴリのような値は読み取り: (が s は、カテゴリの後に名前のない: などのカテゴリを持った: 飲み物)。 BoundFields を設定できますか、ここに表示される値を求める場合[`NullDisplayText`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx)テキストに表示するか、割り当てるときに、Render メソッドで条件付きステートメントを追加することができます、`currentValue`区切り記号を行の`Text`プロパティです。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 GridView は、並べ替えのインターフェイスをカスタマイズするための多くの組み込みオプションには含まれません。 は、低レベルのコードのビットをそれをより細かくカスタマイズされたインターフェイスを作成する GridView のコントロールの階層構造を微調整することが可能です。 このチュートリアルでは、並べ替え可能な GridView、個別のグループとそれらのグループの境界をより簡単に識別するための並べ替えグループ区切り行を追加する方法を説明しました。 カスタマイズした並べ替えインターフェイスの他の例については、チェック アウト[Scott Guthrie](https://weblogs.asp.net/scottgu/) s[いくつか ASP.NET 2.0 GridView の並べ替えのヒントとテクニック](https://weblogs.asp.net/scottgu/archive/2006/02/11/437995.aspx)ブログ エントリです。
 

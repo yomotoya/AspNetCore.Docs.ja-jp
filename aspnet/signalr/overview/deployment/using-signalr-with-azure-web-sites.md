@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/deployment/using-signalr-with-azure-web-sites
 msc.type: authoredcontent
-ms.openlocfilehash: 414701159b4e1fa3da9597503b14281a1e9991de
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8386441690a3fb479ffb941ebd7c0b2f83870781
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-signalr-with-web-apps-in-azure-app-service"></a>Azure App Service で Web アプリを使用して SignalR を使用します。
 ====================
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > ## <a name="questions-and-comments"></a>質問やコメント
 > 
-> このチュートリアルをリンクする方法と、ページの下部にあるコメントで改善新機能にフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)、 [StackOverflow.com](http://stackoverflow.com/)、または[Microsoft Azure フォーラム](https://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?category=windowsazureplatform).
+> このチュートリアルをリンクする方法と、ページの下部にあるコメントで改善新機能にフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)、 [StackOverflow.com](http://stackoverflow.com/)、または[Microsoft Azure フォーラム](https://social.msdn.microsoft.com/Forums/windowsazure/home?category=windowsazureplatform).
 
 
 ## <a name="table-of-contents"></a>目次
@@ -59,9 +59,9 @@ SignalR はいない社内設置のサーバーへの展開とアプリケーシ
 
 **必須コンポーネント**
 
-- Visual Studio 2013。 Visual Studio を持っていない場合、Azure SDK のインストールでは Visual Studio 2013 の Express for Web が含まれます。
+- Visual Studio 2013. Visual Studio を持っていない場合、Azure SDK のインストールでは Visual Studio 2013 の Express for Web が含まれます。
 - [Visual Studio 2013 用の azure SDK 2.3](https://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)または[Visual Studio 2012 用の Azure SDK 2.3](https://go.microsoft.com/fwlink/p/?linkid=323511)です。
-- このチュートリアルを完了するには、Azure サブスクリプションを必要があります。 実行できます[の MSDN サブスクライバー特典をアクティブ化](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/)、または[試用版サブスクリプションにサインアップする](https://azure.microsoft.com/en-us/pricing/free-trial/)です。
+- このチュートリアルを完了するには、Azure サブスクリプションを必要があります。 実行できます[の MSDN サブスクライバー特典をアクティブ化](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)、または[試用版サブスクリプションにサインアップする](https://azure.microsoft.com/pricing/free-trial/)です。
 
 ### <a name="deploying-a-signalr-web-app-to-azure"></a>SignalR web アプリを Azure に展開します。
 
@@ -76,8 +76,7 @@ SignalR はいない社内設置のサーバーへの展開とアプリケーシ
 5. "既存の Web サイトの選択 ダイアログ ボックスで、をクリックして**新規**です。
 
     ![[新しい Web サイト]](using-signalr-with-azure-web-sites/_static/image4.png)
-6. 「Windows Azure でサイトを作成する」ダイアログ ボックスで、一意のアプリ名を入力します。 領域のドロップダウン内で自分に最も近い地域を選択します。 
-              **[作成]**をクリックします。
+6. 「Windows Azure でサイトを作成する」ダイアログ ボックスで、一意のアプリ名を入力します。 領域のドロップダウン内で自分に最も近い地域を選択します。 **[作成]**をクリックします。
 
     ![Azure でサイトを作成します。](using-signalr-with-azure-web-sites/_static/image5.png)
 7. "Web の発行 ダイアログ ボックスで、をクリックして**発行**です。
@@ -116,4 +115,4 @@ Azure App Service Web Apps で Websocket を使用するためには、web ア�
 <a id="nextsteps"></a>
 ## <a name="next-steps"></a>次の手順
 
-Azure App service Web Apps での詳細については、次を参照してください。 [Web アプリの概要](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-overview/)です。
+Azure App service Web Apps での詳細については、次を参照してください。 [Web アプリの概要](https://azure.microsoft.com/documentation/articles/app-service-web-overview/)です。

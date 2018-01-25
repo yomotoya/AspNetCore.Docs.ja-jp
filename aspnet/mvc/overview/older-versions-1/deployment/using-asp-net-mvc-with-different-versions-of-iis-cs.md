@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fdd024aba399f26e9ef7d01a00078cd3d5750d94
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8f2b98d5e5ae677fdac32336d542202a40290e21
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-c"></a>ASP.NET MVC を使用して、さまざまなバージョンの IIS (c#)
 ====================
@@ -33,7 +33,7 @@ ASP.NET MVC フレームワークは、コント ローラーのアクション�
 - IIS 7.0 (クラシック モード) - ASP.NET のルーティングを使用する特別な構成を実行する必要があります。
 - IIS 6.0 または以下の ASP.NET のルーティングを使用する特別な構成を実行する必要があります。
 
-最新バージョンの IIS では、(Win7) バージョン 7.5 がします。 IIS の IIS 7 は、Windows Server 2008 および VISTA/SP1 に含まれる以降です。 インストールすることもできる IIS 7.0、Vista オペレーティング システムの Home Basic 以外のすべてのバージョンで (を参照してください[https://technet.microsoft.com/en-us/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/en-us/library/cc731179%28WS.10%29.aspx))。
+最新バージョンの IIS では、(Win7) バージョン 7.5 がします。 IIS の IIS 7 は、Windows Server 2008 および VISTA/SP1 に含まれる以降です。 インストールすることもできる IIS 7.0、Vista オペレーティング システムの Home Basic 以外のすべてのバージョンで (を参照してください[https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx))。
 
 IIS 7.0 では、要求を処理する 2 つのモードをサポートします。 統合モードまたはクラシック モードを使用することができます。 統合モードで IIS 7.0 を使用する場合は、特別な構成手順を実行する必要はありません。 ただしはクラシック モードで IIS 7.0 を使用する場合は、追加の構成を実行する必要があります。
 
@@ -87,9 +87,9 @@ IIS 7.0 より古いバージョンの IIS で ASP.NET MVC を使用する必要
 
 リスト 1 で構成されている既定のルートでは、次のようにルート Url できます。
 
-/Home/index
+/Home/Index
 
-/製品/詳細/3
+/Product/Details/3
 
 /製品
 
@@ -198,13 +198,13 @@ IIS 7.0 または IIS 6.0 のいずれかのワイルドカード スクリプ�
 
 /
 
-/Home/index
+/Home/Index
 
-/製品/詳細/3
+/Product/Details/3
 
 /製品
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、IIS (またはクラシック モードの IIS 7.0) の古いバージョンを使用する場合、ASP.NET MVC を使用する方法について説明することでした。 古いバージョンの IIS を使用する ASP.NET のルーティングを取得する 2 つの方法を説明した: 既定のルート テーブルを変更またはワイルドカード スクリプト マップを作成します。
 

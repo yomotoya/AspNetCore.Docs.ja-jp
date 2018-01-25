@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: d36ce4e2735bdc73e8731eae27346edec47998cf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a58b4a4893fca66800c012bebae4a8bbfedf7a6a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-validation-to-the-model-vb"></a>検証 (VB) モデルを追加します。
 ====================
@@ -47,13 +47,13 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 いくつかの検証ロジックを追加することから始めます、`Movie`クラスです。
 
-開く、 *Movie.vb*ファイル。 追加、`Imports`を参照するファイルの上部にあるステートメント、 [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx)名前空間。
+開く、 *Movie.vb*ファイル。 追加、`Imports`を参照するファイルの上部にあるステートメント、 [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間。
 
 [!code-vb[Main](adding-validation-to-the-model/samples/sample1.vb)]
 
 名前空間は、.NET Framework の一部です。 すべてのクラスまたはプロパティを宣言して適用できる検証属性の組み込みのセットを提供します。
 
-更新できるように、`Movie`組み込み活用するためにクラス[ `Required` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx)、 [ `StringLength` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)、および[ `Range` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx)検証属性. 属性を適用する場所の例として、次のコードを使用します。
+更新できるように、`Movie`組み込み活用するためにクラス[ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx)、 [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)、および[ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)検証属性. 属性を適用する場所の例として、次のコードを使用します。
 
 [!code-vb[Main](adding-validation-to-the-model/samples/sample2.vb)]
 
@@ -101,11 +101,11 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 ## <a name="adding-formatting-to-the-movie-model"></a>書式設定、ムービーのモデルを追加します。
 
-開く、 *Movie.vb*ファイル。 [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx)名前空間が一連の組み込みの検証属性だけでなく書式属性を提供します。 適用する、 [ `DisplayFormat` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx)属性と[ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)リリース日と価格のフィールドの列挙値。 次のコードは、`ReleaseDate`と`Price`と適切なプロパティ[ `DisplayFormat` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx)属性。
+開く、 *Movie.vb*ファイル。 [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間が一連の組み込みの検証属性だけでなく書式属性を提供します。 適用する、 [ `DisplayFormat` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)属性と[ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)リリース日と価格のフィールドの列挙値。 次のコードは、`ReleaseDate`と`Price`と適切なプロパティ[ `DisplayFormat` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)属性。
 
 [!code-vb[Main](adding-validation-to-the-model/samples/sample7.vb)]
 
-代わりに、明示的に設定できます、 [ `DataFormatString` ](https://msdn.microsoft.com/en-us/library/system.string.format.aspx)値。 次のコードは、日付の書式設定文字列のリリース日付プロパティを示しています (つまり、"d") です。 リリース日の一部として、時間にするないを指定するのにには、これを使用します。
+代わりに、明示的に設定できます、 [ `DataFormatString` ](https://msdn.microsoft.com/library/system.string.format.aspx)値。 次のコードは、日付の書式設定文字列のリリース日付プロパティを示しています (つまり、"d") です。 リリース日の一部として、時間にするないを指定するのにには、これを使用します。
 
 [!code-vb[Main](adding-validation-to-the-model/samples/sample8.vb)]
 

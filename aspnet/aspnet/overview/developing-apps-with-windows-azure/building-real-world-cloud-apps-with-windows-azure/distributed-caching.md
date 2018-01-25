@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: 923a8257376e98e6cae10d905f1cb18f7fdb28e7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 24ede9cb9289c84140f6e2573f9d526f19cac64b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>分散キャッシュ (実際のクラウド アプリのビルドと Azure)
 ====================
@@ -79,14 +79,14 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="azure-caching-services"></a>Azure のキャッシュ サービス
 
-Azure は、次のキャッシュ サービスを提供しています: [Azure Redis Cache](https://msdn.microsoft.com/en-us/library/dn690523.aspx)と[Azure Managed Cache](https://msdn.microsoft.com/en-us/library/dn386094.aspx)です。 Azure Redis cache は、人気の高いに基づいて[オープン ソース Redis Cache](http://redis.io/)とほとんどの最初の選択肢がシナリオをキャッシュします。
+Azure は、次のキャッシュ サービスを提供しています: [Azure Redis Cache](https://msdn.microsoft.com/library/dn690523.aspx)と[Azure Managed Cache](https://msdn.microsoft.com/library/dn386094.aspx)です。 Azure Redis cache は、人気の高いに基づいて[オープン ソース Redis Cache](http://redis.io/)とほとんどの最初の選択肢がシナリオをキャッシュします。
 
 <a id="sessionstate"></a>
 ## <a name="aspnet-session-state-using-a-cache-provider"></a>ASP.NET セッション状態のキャッシュ プロバイダーを使用します。
 
-説明したように、 [web 開発のベスト プラクティスの章](web-development-best-practices.md)、セッション状態を使用しないようにお勧めします。 アプリケーションは、セッション状態を必要とする場合、次のベスト プラクティスをスケール アウト (web サーバーの複数のインスタンス) を有効にしないために、既定のメモリ内のプロバイダーを回避するのにです。 SQL Server の ASP.NET セッション状態プロバイダーにより、セッション状態を使用する複数の web サーバーで実行されるサイトが、メモリ内のプロバイダーと比較して待機時間の長いコストが発生します。 セッション状態を使用する必要がある場合、最適なソリューションがなど、キャッシュ プロバイダーを使用するには、 [Azure Cache のセッション状態プロバイダー](https://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx)です。
+説明したように、 [web 開発のベスト プラクティスの章](web-development-best-practices.md)、セッション状態を使用しないようにお勧めします。 アプリケーションは、セッション状態を必要とする場合、次のベスト プラクティスをスケール アウト (web サーバーの複数のインスタンス) を有効にしないために、既定のメモリ内のプロバイダーを回避するのにです。 SQL Server の ASP.NET セッション状態プロバイダーにより、セッション状態を使用する複数の web サーバーで実行されるサイトが、メモリ内のプロバイダーと比較して待機時間の長いコストが発生します。 セッション状態を使用する必要がある場合、最適なソリューションがなど、キャッシュ プロバイダーを使用するには、 [Azure Cache のセッション状態プロバイダー](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx)です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 どのように修正アプリが応答時間とスケーラビリティを向上するために、アプリケーション データベースが利用できない場合に読み取り操作の応答して続行するためのキャッシュを実装する可能性がありますを見てきました。 [次のチャプター](queue-centric-work-pattern.md)はさらに、スケーラビリティが向上し、書き込み操作の応答性を引き続きアプリを作成する方法を説明します。
 
@@ -96,11 +96,11 @@ Azure は、次のキャッシュ サービスを提供しています: [Azure R
 
 ドキュメント
 
-- [Azure Cache](https://msdn.microsoft.com/en-us/library/gg278356.aspx)です。 Azure でのキャッシュに関する公式の MSDN ドキュメントです。
-- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/en-us/library/dn568099.aspx)です。 キャッシュのガイダンスとキャッシュア サイド パターンを参照してください。
-- [フェール セーフ: 回復力のあるクラウド アーキテクチャについて](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx)です。 Marc Mercuri、Ulrich Homann、Andrew Townhill、ホワイト ペーパー。 キャッシュのセクションを参照してください。
-- [Azure クラウド サービスで大規模なサービスのデザインに関するヒント集](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx)です。 W. Mark Simms、Michael Thomassy、ホワイト ペーパー。 分散キャッシュ セクションを参照してください。
-- [分散スケーラビリティへのパスでキャッシュ](https://msdn.microsoft.com/en-us/magazine/dd942840.aspx)です。 古い (2009 年) の MSDN マガジンの記事、一般的な分散キャッシュを明確に記述の概要フェール セーフとベスト プラクティスのホワイト ペーパーのキャッシュ セクションより詳細に移動します。
+- [Azure Cache](https://msdn.microsoft.com/library/gg278356.aspx)です。 Azure でのキャッシュに関する公式の MSDN ドキュメントです。
+- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)です。 キャッシュのガイダンスとキャッシュア サイド パターンを参照してください。
+- [フェール セーフ: 回復力のあるクラウド アーキテクチャについて](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx)です。 Marc Mercuri、Ulrich Homann、Andrew Townhill、ホワイト ペーパー。 キャッシュのセクションを参照してください。
+- [Azure クラウド サービスで大規模なサービスのデザインに関するヒント集](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx)です。 W. Mark Simms、Michael Thomassy、ホワイト ペーパー。 分散キャッシュ セクションを参照してください。
+- [分散スケーラビリティへのパスでキャッシュ](https://msdn.microsoft.com/magazine/dd942840.aspx)です。 古い (2009 年) の MSDN マガジンの記事、一般的な分散キャッシュを明確に記述の概要フェール セーフとベスト プラクティスのホワイト ペーパーのキャッシュ セクションより詳細に移動します。
 
 ビデオ
 

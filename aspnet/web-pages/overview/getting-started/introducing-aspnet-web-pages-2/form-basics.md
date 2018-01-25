@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: 97e4a2a1794dbdccf80f0b44c1246c743fa23019
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 68056759b2e80230e5fd2c0f9b2d2a89b549cf37
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>ASP.NET Web ページの HTML フォームの基本の概要
 ====================
@@ -220,7 +220,7 @@ WebMatrix での**ファイル** ワークスペースで、開く、 *Movies.cs
 > 
 > **大事な！** プレース ホルダーを使用する (と同様に`@0`) は、SQL コマンドに値を渡す*非常に重要*セキュリティのためです。 ここに表示されること、変数のデータのプレース ホルダーでは唯一の方法が SQL コマンドを構築する必要があります。
 > 
-> ありません (連結) のリテラル テキストと、ユーザーから取得する値、一緒に配置することにより、SQL ステートメントを構築します。 ようにサイトを開き、SQL ステートメントにユーザー入力の連結、 *SQL インジェクション攻撃*悪意のあるユーザーがハッキング、データベース ページへの値を送信します。 (詳細を読み取ることができます、記事[SQL インジェクション](https://msdn.microsoft.com/en-us/library/ms161953.aspx)MSDN web サイトです)。
+> ありません (連結) のリテラル テキストと、ユーザーから取得する値、一緒に配置することにより、SQL ステートメントを構築します。 ようにサイトを開き、SQL ステートメントにユーザー入力の連結、 *SQL インジェクション攻撃*悪意のあるユーザーがハッキング、データベース ページへの値を送信します。 (詳細を読み取ることができます、記事[SQL インジェクション](https://msdn.microsoft.com/library/ms161953.aspx)MSDN web サイトです)。
 
 
 ## <a name="updating-the-movies-page-with-search-code"></a>検索コードと映画 ページを更新

@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: c26ba75f6a401d50a6b46bd7ee40500c5736f20f
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d9b34c141401fbeaafe439fae1a7a75f2fe7b4ae
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>作成、読み取り、更新、および削除 - EF コア Razor ページ (2/8)
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 01/19/2018
 
 ### <a name="add-related-data"></a>関連するデータを追加します。
 
-受講者インデックス ページのスキャフォールディング コードを含まない、`Enrollments`プロパティです。 このセクションの内容で、`Enrollments`コレクションは、詳細ページに表示されます。
+受講者インデックス ページのスキャフォールディング コードが含まれていない、`Enrollments`プロパティです。 このセクションの内容で、`Enrollments`コレクションは、詳細ページに表示されます。
 
 `OnGetAsync`メソッドの*Pages/Students/Details.cshtml.cs*を使用して、 `FirstOrDefaultAsync` 、1 つを取得する方法を`Student`エンティティです。 次の強調表示されたコードを追加します。
 
@@ -132,7 +132,7 @@ ms.lasthandoff: 01/19/2018
 <a id="overpost"></a>
 ### <a name="overposting"></a>過剰ポスティング
 
-使用して`TryUpdateModel`ポストされた値を持つフィールドを更新するにはセキュリティのベスト プラクティスを overposting を防ぐために、します。 たとえば、受講者エンティティが含まれています、`Secret`プロパティをこの web ページを更新または追加する必要がありますいません。
+使用して`TryUpdateModel`ポストされた値を持つフィールドを更新するにはセキュリティのベスト プラクティスを overposting を防ぐために、します。 たとえば、受講者エンティティが含まれています、`Secret`プロパティをこの web ページを更新または追加しないでください。
 
 [!code-csharp[Main](intro/samples/cu/Models/StudentZsecret.cs?name=snippet_Intro&highlight=7)]
 
@@ -185,7 +185,7 @@ DB コンテキストは、メモリ内のエンティティが、DB 内の対�
 
 次の状態のいずれかでエンティティがあります。
 
-* `Added`: エンティティは、db では、まだ存在しません。 `SaveChanges`メソッドは、INSERT ステートメントを発行します。
+* `Added`: エンティティは、DB にまだ存在しません。 `SaveChanges`メソッドは、INSERT ステートメントを発行します。
 
 * `Unchanged`変更する必要があります: このエンティティで保存されます。 エンティティでは、データベースから読み取られるときにこの状態があります。
 

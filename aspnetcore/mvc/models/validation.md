@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.openlocfilehash: 91db17e103723ac411a2ad4f3f9549860f250cce
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 56928c61ae47d313145afadf3e0fa93a078b681b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのモデル検証の概要
 
@@ -148,14 +148,14 @@ MVC は、.NET データ型に基づく可能性のあるオーバーライド�
 
 ### <a name="add-validation-to-dynamic-forms"></a>動的なフォームに検証を追加します。
 
-JQuery 控えめな検証に渡すための検証ロジックとパラメーター jQuery 検証ページが初めて読み込まれるときに、動的に生成されたフォームの検証が自動的に発生しません。 代わりに、jQuery 作成直後に動的形式の解析を控えめな検証を指定する必要があります。 たとえば、次のコードは、AJAX を使用して追加、フォーム上のクライアント側の検証を設定する方法を示しています。
+JQuery 控えめな検証に渡すための検証ロジックとパラメーター jQuery 検証ページが初めて読み込まれるときに、動的に生成されるフォーム自動的に検証が示されません。 代わりに、jQuery 作成直後に動的形式の解析を控えめな検証を指定する必要があります。 たとえば、次のコードは、AJAX を使用して追加、フォーム上のクライアント側の検証を設定する方法を示しています。
 
 ```js
 $.get({
     url: "https://url/that/returns/a/form",
     dataType: "html",
     error: function(jqXHR, textStatus, errorThrown) {
-        alert(textStatus + ": Could not add form. " + errorThrown);
+        alert(textStatus + ": Couldn't add form. " + errorThrown);
     },
     success: function(newFormHTML) {
         var container = document.getElementById("form-container");
@@ -171,14 +171,14 @@ $.get({
 
 ### <a name="add-validation-to-dynamic-controls"></a>検証のダイナミック コントロールを追加します。
 
-などの個人コントロールときに、フォームに検証規則を更新することも`<input/>`s および`<select/>`s、動的に生成されます。 これらの要素のセレクターを渡すことはできません、`parse()`メソッドを直接周囲のフォームが既に解析されているし、更新されないためです。 代わりに、まず、既存の検証データを削除して次に示すように、フォーム全体は再解析。
+などの個人コントロールときに、フォームに検証規則を更新することも`<input/>`s および`<select/>`s、動的に生成されます。 これらの要素のセレクターを渡すことはできません、`parse()`メソッドを直接周囲のフォームがまだ解析されていないし、更新されないためです。 代わりに、まず、既存の検証データを削除して次に示すように、フォーム全体は再解析。
 
 ```js
 $.get({
     url: "https://url/that/returns/a/control",
     dataType: "html",
     error: function(jqXHR, textStatus, errorThrown) {
-        alert(textStatus + ": Could not add form. " + errorThrown);
+        alert(textStatus + ": Couldn't add form. " + errorThrown);
     },
     success: function(newInputHTML) {
         var form = document.getElementById("my-form");
@@ -235,8 +235,7 @@ JQuery なりました検証コードが false を返す場合に表示するエ
 
 [!code-csharp[Main](validation/sample/User.cs?range=10-13)]
 
-`AdditionalFields`でしたに設定されている明示的に文字列`"FirstName"`と`"LastName"`を使用して、 [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof)リファクタリング後でこのような演算子が簡略化します。 検証を実行するアクション メソッドは、2 つの引数の値のいずれかを同意し、必要があります`FirstName`の値のいずれかと`LastName`です。
-
+`AdditionalFields`でしたして明示的に設定されて、文字列に`"FirstName"`と`"LastName"`を使用して、 [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof)リファクタリング後でこのような演算子が簡略化します。 検証を実行するアクション メソッドは、2 つの引数の値のいずれかを同意し、必要があります`FirstName`の値のいずれかと`LastName`です。
 
 [!code-csharp[Main](validation/sample/UsersController.cs?range=30-39)]
 
@@ -253,4 +252,4 @@ JQuery なりました検証コードが false を返す場合に表示するエ
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`、すべての属性の引数と同様に、定数式がある必要があります。 そのため、使用しないでください、[補間文字列](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings)呼び出したり[ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx)初期化するために`AdditionalFields`です。 追加するその他のフィールドごとに、`[Remote]`属性に、対応するコント ローラー アクション メソッドに別の引数を追加する必要があります。
+`AdditionalFields`、すべての属性の引数と同様に、定数式がある必要があります。 そのため、使用しないでください、[補間文字列](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings)呼び出したり[ `string.Join()` ](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx)初期化するために`AdditionalFields`です。 追加するその他のフィールドごとに、`[Remote]`属性に、対応するコント ローラー アクション メソッドに別の引数を追加する必要があります。

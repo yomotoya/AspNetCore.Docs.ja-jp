@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fa0a0f1f80a407f8f68d5fe081b5b144e2945700
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ce0daabf8d68614c530115cc37b4f088f75dba4d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-with-the-objectdatasource-vb"></a>ObjectDataSource (VB) を使用してデータをキャッシュ
 ====================
@@ -44,7 +44,7 @@ ASP.NET 2.0 には、さまざまなキャッシュ オプションが用意さ�
 
 指定された削除条件に関係なく、キャッシュ内の項目があります*清掃*時間ベースまたは依存関係に基づく条件が満たされている前にします。 キャッシュは、その容量に達すると、新しいものを追加する前に、既存の項目を削除してください。 そのため、操作するときにプログラムでキャッシュされたデータが s を常に想定する、重要なキャッシュされたデータいない可能性があります。 チュートリアルでは、[次へ]、プログラムでキャッシュからデータにアクセスするときに使用するパターンに紹介*アーキテクチャでは、データをキャッシュ*です。
 
-キャッシュ アプリケーションからより高いパフォーマンスをつかんでの経済的な手段を提供します。 として[Steven Smith](http://aspadvice.com/blogs/ssmith/)の記事を明確に示し[ASP.NET キャッシュ: 技術とベスト プラクティス](https://msdn.microsoft.com/en-us/library/aa478965.aspx):
+キャッシュ アプリケーションからより高いパフォーマンスをつかんでの経済的な手段を提供します。 として[Steven Smith](http://aspadvice.com/blogs/ssmith/)の記事を明確に示し[ASP.NET キャッシュ: 技術とベスト プラクティス](https://msdn.microsoft.com/library/aa478965.aspx):
 
 キャッシュとできます上達する十分なパフォーマンス、多くの時間と分析が必要ないことをお勧めします。 メモリが低い、支出、1 日または週に、コードまたはデータベースの最適化を試みるのではなく 30 秒間に出力をキャッシュして、必要なパフォーマンスを得ることができる場合のキャッシュ ソリューションを操作するため (30 秒間のデータと仮定した場合に問題はありません) 移動します。 最終的には、品質が低いデザインはおそらく遅延を解消するには、コースのアプリケーションを正しく設計を行う必要がありますのでです。 適切な十分なパフォーマンスを向上を取得する場合は、キャッシュできる、優れた [方法] で、後でそのためには時間がある場合、アプリケーションをリファクターする時間を購入します。
 
@@ -175,10 +175,10 @@ GridView のこれらの変更を加えたら、GridView と ObjectDataSource s 
 
 いくつかのプロパティを設定するだけで自動的に ASP.NET データ キャッシュで取得したデータをキャッシュする、ObjectDataSource を構成できます。 次の一覧には、ObjectDataSource のキャッシュに関連するプロパティをまとめたものです。
 
-- [EnableCaching](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx)に設定する必要があります`True`キャッシュを有効にします。 既定値は、`False` です。
-- [CacheDuration](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx)時間 (秒)、データがキャッシュされている量。 既定値は 0 です。 場合、ObjectDataSource からデータをキャッシュのみ`EnableCaching`は`True`と`CacheDuration`0 より大きい値に設定されます。
-- [CacheExpirationPolicy](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx)に設定することができます`Absolute`または`Sliding`です。 場合`Absolute`、その取得のデータをキャッシュして、ObjectDataSource`CacheDuration`場合; 秒間`Sliding`、データでは、それがアクセスされていないの後にのみ有効期限が切れる`CacheDuration`(秒)。 既定値は、`Absolute` です。
-- [CacheKeyDependency](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx)このプロパティを使用して既存のキャッシュの依存関係に ObjectDataSource のキャッシュ エントリを関連付けます。 ObjectDataSource のデータ エントリ処理の途中で削除できるキャッシュから期限切れにして、関連する`CacheKeyDependency`です。 このプロパティは、SQL キャッシュ依存関係を関連付ける ObjectDataSource のキャッシュに最もよく使用、トピックについては、将来[を使用して SQL キャッシュ依存関係](using-sql-cache-dependencies-vb.md)チュートリアルです。
+- [EnableCaching](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx)に設定する必要があります`True`キャッシュを有効にします。 既定値は、`False` です。
+- [CacheDuration](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx)時間 (秒)、データがキャッシュされている量。 既定値は 0 です。 場合、ObjectDataSource からデータをキャッシュのみ`EnableCaching`は`True`と`CacheDuration`0 より大きい値に設定されます。
+- [CacheExpirationPolicy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx)に設定することができます`Absolute`または`Sliding`です。 場合`Absolute`、その取得のデータをキャッシュして、ObjectDataSource`CacheDuration`場合; 秒間`Sliding`、データでは、それがアクセスされていないの後にのみ有効期限が切れる`CacheDuration`(秒)。 既定値は、`Absolute` です。
+- [CacheKeyDependency](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx)このプロパティを使用して既存のキャッシュの依存関係に ObjectDataSource のキャッシュ エントリを関連付けます。 ObjectDataSource のデータ エントリ処理の途中で削除できるキャッシュから期限切れにして、関連する`CacheKeyDependency`です。 このプロパティは、SQL キャッシュ依存関係を関連付ける ObjectDataSource のキャッシュに最もよく使用、トピックについては、将来[を使用して SQL キャッシュ依存関係](using-sql-cache-dependencies-vb.md)チュートリアルです。
 
 S を構成できるように、 `ProductsDataSource` ObjectDataSource を絶対スケールで 30 秒間のデータをキャッシュします。 集合 ObjectDataSource s`EnableCaching`プロパティを`True`とその`CacheDuration`30 に設定するプロパティです。 ままにして、`CacheExpirationPolicy`プロパティの既定の設定に`Absolute`です。
 
@@ -206,7 +206,7 @@ S を構成できるように、 `ProductsDataSource` ObjectDataSource を絶対
 
 各 ASP.NET アプリケーションでは、インスタンスのすべてのページと訪問者の間で共有 s 独自のデータ キャッシュがあります。 つまりは、ObjectDataSource によって、データ キャッシュに格納されたデータ同様に、ページにアクセスしているすべてのユーザー間で共有されます。 これを確認するには、開く、`ObjectDataSource.aspx`ブラウザーのページです。 最初にアクセスすると、ページを選択すると発生するイベントのテキストが表示されます (以前のテストによって、キャッシュに追加されたデータが、ここでは、によって削除された) する場合。 2 番目のブラウザー インスタンスおよびコピーを開き、最初のブラウザー インスタンスから 2 番目の URL を貼り付けます。 2 番目のブラウザー インスタンスを選択すると発生するイベントのテキストが表示されていないためを使用して、同じキャッシュ データを 1 つ目として。
 
-ObjectDataSource を含むキャッシュ キー値を使用して挿入するとき、取得したデータをキャッシュに、:`CacheDuration`と`CacheExpirationPolicy`プロパティの値です指定されていると、ObjectDataSource によって使用されている、基になるビジネス オブジェクトの型。使用して、 [ `TypeName`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.typename.aspx)(`ProductsBLL`、この例では); の値、`SelectMethod`プロパティ名とパラメーターの値、`SelectParameters`コレクションとその値`StartRowIndex`と`MaximumRows`を実装する場合に使用されるプロパティ[カスタム ページング](../paging-and-sorting/paging-and-sorting-report-data-vb.md)です。
+ObjectDataSource を含むキャッシュ キー値を使用して挿入するとき、取得したデータをキャッシュに、:`CacheDuration`と`CacheExpirationPolicy`プロパティの値です指定されていると、ObjectDataSource によって使用されている、基になるビジネス オブジェクトの型。使用して、 [ `TypeName`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.typename.aspx)(`ProductsBLL`、この例では); の値、`SelectMethod`プロパティ名とパラメーターの値、`SelectParameters`コレクションとその値`StartRowIndex`と`MaximumRows`を実装する場合に使用されるプロパティ[カスタム ページング](../paging-and-sorting/paging-and-sorting-report-data-vb.md)です。
 
 これらの値を変更すると、一意のキャッシュ エントリのことを確認、これらのプロパティの組み合わせとして、キャッシュ キーの値を作成します。 たとえば、過去のチュートリアルでは ve を使用して調べる、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`、指定したカテゴリのすべての製品が返されます。 1 人のユーザーがページおよび表示の飲み物をれることもありますが、`CategoryID`は 1 です。 その結果に関係なくが、ObjectDataSource にキャッシュされている場合、`SelectParameters`値は、別のユーザーがページに付属していたときにキャッシュ内にあった飲み物の製品の中に調味料を表示する、調味料ではなく、キャッシュされた飲料、d を参照してください。 値を含むこれらのプロパティで、キャッシュ キーを変更することで、 `SelectParameters`、ObjectDataSource が beverages と調味料の個別のキャッシュ エントリを保持します。
 
@@ -218,7 +218,7 @@ ObjectDataSource ときにいずれかのキャッシュから項目を自動的
 
 つまり、のみを使用して時間ベース切れを古いデータを可能性があるし、データの新しさが重要となるシナリオの短い切れを使用してもよい場合。 古いデータを許容しない場合は、キャッシュを断念または SQL キャッシュ依存関係を使用 (データベースのデータであると仮定すると再キャッシュする)。 SQL キャッシュ依存関係は、今後のチュートリアルで検討しましょう。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、ObjectDataSource s 組み込みキャッシュ機能を確認します。 いくつかのプロパティを設定するだけでは、指定された対象から返される結果をキャッシュする ObjectDataSource を指示できます`SelectMethod`ASP.NET のデータ キャッシュにします。 `CacheDuration`と`CacheExpirationPolicy`項目がキャッシュされる期間とは、絶対またはスライド式有効期限を指定するプロパティです。 `CacheKeyDependency`プロパティがすべて ObjectDataSource のキャッシュ エントリの既存のキャッシュの依存関係に関連付けます。 時間ベースの有効期限に達すると、および SQL キャッシュ依存関係は通常使用する前に、ObjectDataSource のキャッシュからエントリを削除するために使用できます。
 
@@ -230,8 +230,8 @@ ObjectDataSource ときにいずれかのキャッシュから項目を自動的
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [ASP.NET キャッシュ: 技術とベスト プラクティス](https://msdn.microsoft.com/en-us/library/aa478965.aspx)
-- [.NET Framework アプリケーション用のキャッシュのアーキテクチャ ガイド](https://msdn.microsoft.com/en-us/library/ee817645.aspx)
+- [ASP.NET キャッシュ: 技術とベスト プラクティス](https://msdn.microsoft.com/library/aa478965.aspx)
+- [.NET Framework アプリケーション用のキャッシュのアーキテクチャ ガイド](https://msdn.microsoft.com/library/ee817645.aspx)
 - [ASP.NET 2.0 で出力キャッシュ](http://aspnet.4guysfromrolla.com/articles/121306-1.aspx)
 
 ## <a name="about-the-author"></a>作成者について

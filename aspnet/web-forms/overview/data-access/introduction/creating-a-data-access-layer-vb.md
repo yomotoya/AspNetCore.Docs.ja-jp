@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 556b90f5e29f30756a4bd3b16be9608011558c4d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ad578d5d5fb1ef0ac63d3cbde3f307535ea3d98c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-data-access-layer-vb"></a>データ アクセス層 (VB) の作成
 ====================
@@ -89,7 +89,7 @@ Web サイトを作成では、次の手順は、Visual Studio のサーバー �
 厳密に型指定されたオブジェクトを返すには、開発者は、独自のカスタム ビジネス オブジェクトを作成するか、型指定されたデータセットを使用することができます。 ビジネス オブジェクトは、プロパティを持つは通常、基になるデータベース テーブル、ビジネス オブジェクトの列を反映してクラスを表します。 開発者によって実装されます。 型指定されたデータセットは、データベース スキーマとそのメンバーが厳密に型指定されたこのスキーマによるに基づいて Visual Studio によって生成したクラスです。 型指定されたデータセット自体は、ADO.NET DataSet、DataTable、および DataRow クラスを拡張するクラスで構成されます。 データ テーブルの厳密に型指定されただけでなく型指定されたデータセット今すぐ含めることも、Tableadapter はデータセットのデータ テーブルを設定し、データベースにデータ テーブル内の変更を反映するためのメソッドを持つクラス。
 
 > [!NOTE]
-> 長所と短所を型指定されたデータセットを使用するカスタム ビジネス オブジェクトとの比較の詳細についてを参照してください[データ層のコンポーネントを設計し、層間のデータを渡す](https://msdn.microsoft.com/en-us/library/ms978496.aspx)です。
+> 長所と短所を型指定されたデータセットを使用するカスタム ビジネス オブジェクトとの比較の詳細についてを参照してください[データ層のコンポーネントを設計し、層間のデータを渡す](https://msdn.microsoft.com/library/ms978496.aspx)です。
 
 
 これらのチュートリアルのアーキテクチャ用に厳密に型指定されたデータセットを使用します。 図 3 は、型指定されたデータセットを使用するアプリケーションのさまざまな層間のワークフローを示しています。
@@ -293,7 +293,7 @@ Beverages.aspx.vb
 **図 21**: 各挿入、更新、および削除要求がすぐにデータベースに送信される ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-vb/_static/image57.png))
 
 
-バッチとしてパターンを更新する呼ぶことに、その他のパターンでは、全体の DataSet、DataTable、または 1 つのメソッドの呼び出しで Datarow のコレクションを更新します。 このパターンを持つ開発者削除挿入、および DataTable に Datarow を変更し、update メソッドにそれらの Datarow または DataTable を渡します。 このメソッドに渡された Datarow の列挙、決定かどうかがいる変更、追加、または削除されました (DataRow のを介して[RowState プロパティ](https://msdn.microsoft.com/en-us/library/system.data.datarow.rowstate.aspx)値)、し、各レコードの適切なデータベースの要求を発行します。
+バッチとしてパターンを更新する呼ぶことに、その他のパターンでは、全体の DataSet、DataTable、または 1 つのメソッドの呼び出しで Datarow のコレクションを更新します。 このパターンを持つ開発者削除挿入、および DataTable に Datarow を変更し、update メソッドにそれらの Datarow または DataTable を渡します。 このメソッドに渡された Datarow の列挙、決定かどうかがいる変更、追加、または削除されました (DataRow のを介して[RowState プロパティ](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx)値)、し、各レコードの適切なデータベースの要求を発行します。
 
 
 [![更新メソッドが呼び出されたときに、すべての変更がデータベースと同期されます。](creating-a-data-access-layer-vb/_static/image59.png)](creating-a-data-access-layer-vb/_static/image58.png)
@@ -339,7 +339,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用しま�
 **図 25**: 新規行を追加するメソッドを作成、`Products`テーブル ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-vb/_static/image69.png))
 
 
-次の画面で、`InsertCommand`の`CommandText`が表示されます。 このクエリを追加することによって拡張`SELECT SCOPE_IDENTITY()`に挿入された最後の id 値を返しますクエリの最後に、`IDENTITY`同じスコープ内の列です。 (を参照してください、[のテクニカル ドキュメント](https://msdn.microsoft.com/en-us/library/ms190315.aspx)の詳細については`SCOPE_IDENTITY()`と多くの場合にその理由[スコープを使用して\_の代わりに @ IDENTITY()@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx))。終了するかどうかを確認、`INSERT`ステートメントをセミコロンを追加する前に、`SELECT`ステートメントです。
+次の画面で、`InsertCommand`の`CommandText`が表示されます。 このクエリを追加することによって拡張`SELECT SCOPE_IDENTITY()`に挿入された最後の id 値を返しますクエリの最後に、`IDENTITY`同じスコープ内の列です。 (を参照してください、[のテクニカル ドキュメント](https://msdn.microsoft.com/library/ms190315.aspx)の詳細については`SCOPE_IDENTITY()`と多くの場合にその理由[スコープを使用して\_の代わりに @ IDENTITY()@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx))。終了するかどうかを確認、`INSERT`ステートメントをセミコロンを追加する前に、`SELECT`ステートメントです。
 
 
 [![SCOPE_IDENTITY() 値を返すクエリを拡張します。](creating-a-data-access-layer-vb/_static/image71.png)](creating-a-data-access-layer-vb/_static/image70.png)
@@ -436,7 +436,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用しま�
         [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample18.sql)]
 - **EmployeesTableAdapter**
 
-    - **ため**: 
+    - **GetEmployees**: 
 
         [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample19.sql)]
     - **GetEmployeesByManager**: 
@@ -509,7 +509,7 @@ SuppliersAndProducts.aspx.vb
 **図 35**: の左側の列で、右側にその製品の仕入先の会社名が表示されている ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-vb/_static/image93.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ときに、DAL を作成する web アプリケーションを構築する必要があります、プレゼンテーション層の作成を開始する前に発生している、最初の手順のいずれか。 Visual studio とは、行のコードを記述することがなく、10 ~ 15 分単位で実行できるタスクには型指定されたデータセットに基づく DAL の作成です。 進むチュートリアルは、この DAL に基づいて構築します。 [次のチュートリアル](creating-a-business-logic-layer-vb.md)うまくビジネス ルールの数を定義し、別のビジネス ロジック層でそれらを実装する方法について説明します。
 
@@ -520,18 +520,18 @@ SuppliersAndProducts.aspx.vb
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
 - [厳密に型指定された Tableadapter と VS 2005 と ASP.NET 2.0 でのデータ テーブルを使用して、DAL の構築](https://weblogs.asp.net/scottgu/435498)
-- [データ層のコンポーネントを設計し、層間のデータを渡す](https://msdn.microsoft.com/en-us/library/ms978496.aspx)
+- [データ層のコンポーネントを設計し、層間のデータを渡す](https://msdn.microsoft.com/library/ms978496.aspx)
 - [Visual Studio 2005 のデータセット デザイナーでのデータ アクセス層をビルドします。](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)
 - [ASP.NET 2.0 の構成情報の暗号化アプリケーション](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
-- [TableAdapter の概要](https://msdn.microsoft.com/en-us/library/bz9tthwx.aspx)
-- [指定されたデータセットの操作](https://msdn.microsoft.com/en-us/library/esbykkzb.aspx)
+- [TableAdapter の概要](https://msdn.microsoft.com/library/bz9tthwx.aspx)
+- [指定されたデータセットの操作](https://msdn.microsoft.com/library/esbykkzb.aspx)
 - [Visual Studio 2005 と ASP.NET 2.0 での厳密に型指定されたデータ アクセスを使用します。](http://aspnet.4guysfromrolla.com/articles/020806-1.aspx)
 - [TableAdapter のメソッドを拡張する方法](https://blogs.msdn.com/vbteam/archive/2005/05/04/ExtendingTableAdapters.aspx)
 - [ストアド プロシージャからのスカラー データの取得](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>このチュートリアルに含まれるトピックに関するビデオ トレーニング
 
-- [ASP.NET アプリケーション内のデータ アクセス レイヤー](../../../videos/data-access/adonet-data-services/data-access-layers-in-aspnet-applications.md)
+- [ASP.NET アプリケーションのデータ アクセス層](../../../videos/data-access/adonet-data-services/data-access-layers-in-aspnet-applications.md)
 - [データ グリッドに、データセットを手動でバインドする方法](../../../videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid.md)
 - [ASP アプリケーションからのデータセットとフィルターを操作する方法](../../../videos/data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
 

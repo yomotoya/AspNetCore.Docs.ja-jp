@@ -11,16 +11,16 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: aa70a35ad938fff6911367ee9d12aac9d575be7e
-ms.sourcegitcommit: efc9e5b5fffa0e13957131a0da52cc1532a87651
-ms.translationtype: HT
+ms.openlocfilehash: 5978094083a098a771f5dca103434ea8fcce7777
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-the-react-project-template-release-candidate"></a>対応プロジェクト テンプレート (リリース候補) を使用します。
 
 > [!NOTE]
-> このドキュメントがリリースされた対応プロジェクト テンプレートについて **このドキュメントでは、対応のテンプレートのリリース候補に関するです。** 初期 2018 でリリースされたバージョンを出荷する予定です。
+> このドキュメントは、リリースの反応するプロジェクト テンプレートではありません。 **このドキュメントでは、対応のテンプレートのリリース候補に関するです。** 初期 2018 でリリースされたバージョンを出荷する予定です。
 
 更新された対応プロジェクト テンプレートでは便利な開始点 ASP.NET Core の反応を使用してアプリと[作成対応アプリ](https://github.com/facebookincubator/create-react-app)豊富なクライアント側のユーザー インターフェイス (UI) を実装する (CRA) 規則。
 

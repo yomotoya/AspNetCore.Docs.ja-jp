@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 6362f0506934ca3b3cc86e1a927af75e7bc4e1d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 103cd68c576463d87d0077cc149f9b89c6e028e8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 のカスタム アクション フィルター
 ====================
@@ -96,7 +96,7 @@ ms.lasthandoff: 11/10/2017
 > - **結果**ActionResult オブジェクトの実行をラップするフィルター。 このフィルターは、HTTP 応答の変更など、結果の追加の処理を実行できます。
 > - **例外**フィルターで、結果の実行で承認フィルターを使用して開始および終了、アクション メソッドでスローどこかにハンドルされない例外がある場合に実行します。 例外フィルターは、ログ記録やエラー ページの表示などのタスクで使用できます。
 > 
-> フィルター プロバイダーの詳細については、この MSDN リンクを参照してください: ([https://msdn.microsoft.com/en-us/library/dd410209.aspx](https://msdn.microsoft.com/en-us/library/dd410209.aspx))。
+> フィルター プロバイダーの詳細については、この MSDN リンクを参照してください: ([https://msdn.microsoft.com/library/dd410209.aspx](https://msdn.microsoft.com/library/dd410209.aspx))。
 
 
 <a id="AboutLoggingFeature"></a>
@@ -164,7 +164,7 @@ ms.lasthandoff: 11/10/2017
     > [!NOTE]
     > **OnActionExecuting**メソッドを使用して**Entity Framework**新しい ActionLog レジスタを追加します。 作成してからコンテキスト情報を含むエンティティの新しいインスタンスを塗りつぶします**filterContext**です。
     > 
-    > に関する詳細を読み取ることができます**ControllerContext**でクラス[msdn](https://msdn.microsoft.com/en-us/library/system.web.mvc.controllercontext.aspx)です。
+    > に関する詳細を読み取ることができます**ControllerContext**でクラス[msdn](https://msdn.microsoft.com/library/system.web.mvc.controllercontext.aspx)です。
 
 <a id="Ex1Task2"></a>
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/10/2017
 
 さらに、各アクション フィルターでは、フィルターのスコープ内の実行順序を決定するために使用する順序プロパティがいます。
 
-カスタム アクション フィルターの実行順序の詳細については、この MSDN の記事をご覧ください: ([https://msdn.microsoft.com/en-us/library/dd381609(v=vs.98).aspx](https://msdn.microsoft.com/en-us/library/dd381609(v=vs.98).aspx)) です。
+カスタム アクション フィルターの実行順序の詳細については、この MSDN の記事をご覧ください: ([https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx](https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx)) です。
 
 <a id="Ex2Task1"></a>
 
@@ -361,7 +361,7 @@ ms.lasthandoff: 11/10/2017
 <a id="Summary"></a>
 
 <a id="Summary"></a>
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このハンズオン ラボを完了して、カスタム アクションを実行するアクション フィルターを拡張する方法を学習しました。 任意のページ コント ローラーのフィルターを挿入する方法も学習しました。 次の概念が使われていました。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-3
 msc.type: authoredcontent
-ms.openlocfilehash: df75a69644033cc76fee86b5a9692ab65beb4d01
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1ca627397f0f100d13388f9afc27ff481886e098
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="use-code-first-migrations-to-seed-the-database"></a>Code First Migrations を使用して、データベースのシードを
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/10/2017
 
 [完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
 
-このセクションでは、使用[Code First Migrations](https://msdn.microsoft.com/en-us/data/jj591621)をデータベースにテスト データをプレシードできる EF にします。
+このセクションでは、使用[Code First Migrations](https://msdn.microsoft.com/data/jj591621)をデータベースにテスト データをプレシードできる EF にします。
 
 **ツール**メニューの **ライブラリ パッケージ マネージャー**選択してから、 **Package Manager Console**です。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-console[Main](part-3/samples/sample4.cmd)]
 
-最初のコマンドは、データベースを作成するコードを生成し、2 番目のコマンドは、そのコードを実行します。 データベースがローカルで作成されるを使用して[LocalDB](https://msdn.microsoft.com/en-us/library/hh510202.aspx)です。
+最初のコマンドは、データベースを作成するコードを生成し、2 番目のコマンドは、そのコードを実行します。 データベースがローカルで作成されるを使用して[LocalDB](https://msdn.microsoft.com/library/hh510202.aspx)です。
 
 ![](part-3/_static/image2.png)
 
@@ -64,21 +64,21 @@ Visual Studio web プロジェクトの実行時にポート番号を割り当�
 
 この API は、データベースでの CRUD 操作を使用します。 API を以下にまとめます。
 
-| 作成者 |  |
+| Authors |  |
 | --- | -- |
 | Api/作成者します。 | すべての著者を取得します。 |
-| GET api/作成者/{id} | ID で作成者を取得します。 |
+| GET api/authors/{id} | ID で作成者を取得します。 |
 | POST api/作成者 | 新しい作成者を作成します。 |
-| PUT/api の作成者/{id} | 既存の作成者を更新します。 |
-| /Api の作成者/{id} の削除します。 | 作成者を削除します。 |
+| PUT /api/authors/{id} | 既存の作成者を更新します。 |
+| DELETE /api/authors/{id} | 作成者を削除します。 |
 
 | ブック |  |
 | --- | -- |
-| /Api/books を取得します。 | すべてのブックを取得します。 |
-| /Api ブック/{id} の取得します。 | ID でブックを取得します。 |
-| Api/ブックを投稿します。 | 新しいブックを作成します。 |
-| PUT/api ブック/{id} | 既存のブックを更新します。 |
-| /Api ブック/{id} の削除します。 | ブックを削除します。 |
+| GET /api/books | すべてのブックを取得します。 |
+| GET /api/books/{id} | ID でブックを取得します。 |
+| POST /api/books | 新しいブックを作成します。 |
+| PUT /api/books/{id} | 既存のブックを更新します。 |
+| DELETE /api/books/{id} | ブックを削除します。 |
 
 ## <a name="view-the-database-optional"></a>(省略可能) のデータベースを表示します。
 

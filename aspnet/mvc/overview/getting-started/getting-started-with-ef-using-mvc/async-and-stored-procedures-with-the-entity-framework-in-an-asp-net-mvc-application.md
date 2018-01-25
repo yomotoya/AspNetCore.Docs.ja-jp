@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5b4904037838441942ea266ce71d735642d0a717
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7412b32ac29179dfa319544781d4c7165c58196b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Async および Entity Framework、ASP.NET MVC アプリケーションでのストアド プロシージャ
 ====================
@@ -128,11 +128,11 @@ Entity framework 非同期プログラミングを使用する場合の注意す
 
     ![部門挿入 SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
-コードは、最初に格納されている既定のプロシージャ名を作成します。 既存のデータベースを使用している場合は、データベースで既に定義されているストアド プロシージャを使用するためにストアド プロシージャ名をカスタマイズする必要があります。 実行する方法については、次を参照してください。 [Entity Framework コード最初挿入/更新/削除ストアド プロシージャ](https://msdn.microsoft.com/en-us/data/dn468673)です。
+コードは、最初に格納されている既定のプロシージャ名を作成します。 既存のデータベースを使用している場合は、データベースで既に定義されているストアド プロシージャを使用するためにストアド プロシージャ名をカスタマイズする必要があります。 実行する方法については、次を参照してください。 [Entity Framework コード最初挿入/更新/削除ストアド プロシージャ](https://msdn.microsoft.com/data/dn468673)です。
 
 ストアド プロシージャは生成された新機能をカスタマイズする場合は、移行のためスキャフォールディング コードを編集することができます`Up`ストアド プロシージャを作成するメソッド。 このようにして、変更が反映されるたびに移行が実行され、展開後に、実稼働環境で移行を自動的に実行すると、実稼働データベースに適用されます。
 
-前の移行で作成された既存のストアド プロシージャを変更する場合は、空白の移行を生成する Add-migration コマンドを使用してし、を呼び出すコードを手動で作成、 [AlterStoredProcedure](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.dbmigration.alterstoredprocedure.aspx)メソッド.
+前の移行で作成された既存のストアド プロシージャを変更する場合は、空白の移行を生成する Add-migration コマンドを使用してし、を呼び出すコードを手動で作成、 [AlterStoredProcedure](https://msdn.microsoft.com/library/system.data.entity.migrations.dbmigration.alterstoredprocedure.aspx)メソッド.
 
 ## <a name="deploy-to-azure"></a>Azure への配置します。
 
@@ -146,7 +146,7 @@ Entity framework 非同期プログラミングを使用する場合の注意す
 
     初めてページを実行するデータベースにアクセスする場合は、Entity Framework 実行のすべての移行の`Up`データベースが現在のデータ モデルに最新の状態に必要なメソッドです。 これですべての前回のこのチュートリアルで追加した部門ページなど、展開した後に追加した web ページを使用できます。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、非同期的に実行されるコードを記述して、サーバーの効率性を向上させる方法と用のストアド プロシージャを使用する方法は、挿入、更新、および削除操作を確認しました。 次のチュートリアルでは、複数のユーザーが同時に同じレコードを編集しようとデータ損失を回避する方法が表示されます。
 

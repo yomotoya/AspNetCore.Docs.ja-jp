@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 226ef83f289b8fbe9a68f0d0741c7eca0d96ba94
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0224bcd2badc423ba5146feacccc44b8f33a608
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 および Visual Studio 2010 の Web 開発の概要
 ====================
@@ -199,7 +199,7 @@ ASP.NET 4 には、アプリケーションの Url のサイズを拡大する�
 
 [!code-xml[Main](overview/samples/sample10.xml)]
 
-長いまたは短いパス (プロトコル、サーバー名、およびクエリ文字列を含まない URL の部分) を許可するのには、変更、 *[済みの maxUrlLength](https://msdn.microsoft.com/en-us/library/system.web.configuration.httpruntimesection.maxurllength.aspx)* 属性。 長いまたは短いクエリ文字列を許可するには、値を変更、 *[済みの maxQueryStringLength](https://msdn.microsoft.com/en-us/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)* 属性。
+長いまたは短いパス (プロトコル、サーバー名、およびクエリ文字列を含まない URL の部分) を許可するのには、変更、 *[済みの maxUrlLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxurllength.aspx)* 属性。 長いまたは短いクエリ文字列を許可するには、値を変更、 *[済みの maxQueryStringLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)* 属性。
 
 ASP.NET 4 では、URL 文字チェックで使用される文字を構成することもできます。 ASP.NET には、URL のパス部分の無効な文字が検出されると、これは、要求を拒否し、HTTP 400 エラーを発行します。 ASP.NET の以前のバージョンでは、URL の文字のチェックは、文字の固定セットに制限されていました。 ASP.NET 4 では、new を使用して有効な文字のセットをカスタマイズできます*requestPathInvalidChars*の属性、 *httpRuntime*構成要素を次の例で示すようにします。
 
@@ -561,7 +561,7 @@ ASP.NET 4 Web フォームでルーティングを使用するための組み込
 - 次の新しい式ビルダーで定義されている*System.Web.Compilation.RouteUrlExpressionBuilder*と*System.Web.Compilation.RouteValueExpressionBuilder*:
 - *RouteUrl*、ASP.NET サーバー コントロール内のルート URL に対応する URL を作成する簡単な方法を提供します。
 - *RouteValue*からの情報を抽出する簡単な方法を提供する、 *RouteContext*オブジェクト。
-- *RouteParameter*を簡単に含まれるデータを渡すにクラス、 *RouteContext*データ ソース コントロールに対するクエリへのオブジェクト (に似て[ *FormParameter*](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.formparameter.aspx)).
+- *RouteParameter*を簡単に含まれるデータを渡すにクラス、 *RouteContext*データ ソース コントロールに対するクエリへのオブジェクト (に似て[ *FormParameter*](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formparameter.aspx)).
 
 #### <a name="routing-for-web-forms-pages"></a>Web フォーム ページのルーティング
 
@@ -625,7 +625,7 @@ ASP.NET は、正しいルートを自動的に機能 (正しい URL を生成�
 
 #### <a name="using-route-data-for-data-source-control-parameters"></a>ルート データ データ ソース コントロール パラメーターの使用
 
-*RouteParameter*クラスでは、ルート データをデータ ソース コントロール内のクエリのパラメーター値として指定することができます。 これは、[動作とほぼ同様に、](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.formparameter.aspx)クラスに、次の例に示すようにします。
+*RouteParameter*クラスでは、ルート データをデータ ソース コントロール内のクエリのパラメーター値として指定することができます。 これは、[動作とほぼ同様に、](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formparameter.aspx)クラスに、次の例に示すようにします。
 
 [!code-aspx[Main](overview/samples/sample46.aspx)]
 
@@ -1146,7 +1146,7 @@ ASP.NET MVC は、2009 年 3 月で、アドオン フレームワークとし�
 - 内のフィールドに対して生成されるマークアップを簡単に変更すること、 *GridView*と*DetailsView*動的なデータ プロジェクトの一部であるフィールド テンプレートを使用して制御します。
 
 > [!NOTE]
-> 注の詳細についてを参照してください、[動的データ ドキュメント](https://msdn.microsoft.com/en-us/library/cc488545.aspx)MSDN ライブラリです。
+> 注の詳細についてを参照してください、[動的データ ドキュメント](https://msdn.microsoft.com/library/cc488545.aspx)MSDN ライブラリです。
 
 
 ASP.NET 4 では、データ ドリブン Web サイトをすばやく構築するためのさらに多くの電源を開発者に提供する動的なデータが強化されました。
@@ -1325,7 +1325,7 @@ Visual Studio 2010 MSDeploy ツールを使用すると呼ばれますが、ア�
 
 Web パッケージを任意のサーバーにコピーされ、IIS マネージャーを使用して手動でインストールされていることができます。 または、展開の自動化、パッケージをインストールするコマンド ライン コマンドを使用して、または配置 Api を使用しています。
 
-Visual Studio 2010 は、組み込みの MSBuild タスクと Web のパッケージを作成するターゲットを提供します。 詳細については、次を参照してください。 [ASP.NET Web アプリケーション プロジェクトの展開の概要](https://msdn.microsoft.com/en-us/library/dd394698%28VS.100%29.aspx)MSDN Web サイトおよび[10 + 20 上の理由から、Web のパッケージを作成する必要があります理由](http://vishaljoshi.blogspot.com/2009/07/10-20-reasons-why-you-should-create-web.html)Vishal Joshi ブログ。
+Visual Studio 2010 は、組み込みの MSBuild タスクと Web のパッケージを作成するターゲットを提供します。 詳細については、次を参照してください。 [ASP.NET Web アプリケーション プロジェクトの展開の概要](https://msdn.microsoft.com/library/dd394698%28VS.100%29.aspx)MSDN Web サイトおよび[10 + 20 上の理由から、Web のパッケージを作成する必要があります理由](http://vishaljoshi.blogspot.com/2009/07/10-20-reasons-why-you-should-create-web.html)Vishal Joshi ブログ。
 
 <a id="0.2__Toc224729057"></a><a id="0.2__Toc253429294"></a><a id="0.2__Toc243304665"></a>
 
@@ -1337,7 +1337,7 @@ Web アプリケーションの配置に対して Visual Studio 2010 が導入�
 
 [!code-xml[Main](overview/samples/sample102.xml)]
 
-詳細については、次を参照してください[Web アプリケーション プロジェクトの配置の Web.config 変換構文](https://msdn.microsoft.com/en-us/library/dd465326%28VS.100%29.aspx)を MSDN <a id="0.2_a"> </a> Web サイトおよび[Web 展開: Web.Config 変換](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html)。Vishal Joshi ブログ。
+詳細については、次を参照してください[Web アプリケーション プロジェクトの配置の Web.config 変換構文](https://msdn.microsoft.com/library/dd465326%28VS.100%29.aspx)を MSDN <a id="0.2_a"> </a> Web サイトおよび[Web 展開: Web.Config 変換](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html)。Vishal Joshi ブログ。
 
 <a id="0.2__Toc224729058"></a><a id="0.2__Toc253429295"></a><a id="0.2__Toc243304666"></a>
 
@@ -1345,7 +1345,7 @@ Web アプリケーションの配置に対して Visual Studio 2010 が導入�
 
 Visual Studio 2010 の配置パッケージには、SQL Server データベースへの依存関係を含めることができます。 パッケージの定義の一部として、ソース データベースの接続文字列を提供します。 Web パッケージを作成するときに、Visual Studio 2010 は、データベース スキーマについて、必要に応じて、データの SQL スクリプトの作成し、これらをパッケージに追加されます。 カスタムの SQL スクリプトを提供し、サーバーで実行する必要がありますシーケンスを指定できます。 展開時に、対象サーバーを適切な接続文字列を指定します。展開プロセスは、この接続文字列を使用して、データベース スキーマを作成し、データを追加するスクリプトを実行します。
 
-さらに、1 回のクリックを使用して、発行、アプリケーションがリモート共有ホスティング サイトに発行されると、データベースを直接発行する展開を構成することができます。 詳細については、次を参照してください。[する方法: Web アプリケーション プロジェクトでのデータベースを配置](https://msdn.microsoft.com/en-us/library/dd465343%28VS.100%29.aspx)MSDN Web サイトおよび[VS 2010 でのデータベースの配置](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html)Vishal Joshi ブログ。
+さらに、1 回のクリックを使用して、発行、アプリケーションがリモート共有ホスティング サイトに発行されると、データベースを直接発行する展開を構成することができます。 詳細については、次を参照してください。[する方法: Web アプリケーション プロジェクトでのデータベースを配置](https://msdn.microsoft.com/library/dd465343%28VS.100%29.aspx)MSDN Web サイトおよび[VS 2010 でのデータベースの配置](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html)Vishal Joshi ブログ。
 
 <a id="0.2__Toc224729059"></a><a id="0.2__Toc253429296"></a><a id="0.2__Toc243304667"></a>
 
@@ -1353,7 +1353,7 @@ Visual Studio 2010 の配置パッケージには、SQL Server データベー�
 
 Visual Studio 2010 では、リモート サーバーに Web アプリケーションを公開する、IIS のリモート管理サービスを使用することもできます。 サーバーをテストまたはステージング サーバーまたはホスト アカウントの発行プロファイルを作成できます。 各プロファイルは、適切な資格情報を安全に保存できます。 ターゲットのいずれかに展開することができます Web 1 回のクリックを使用して 1 回のクリックでのサーバーは、ツールバーを公開します。 Visual Studio 2010 で、MSBuild コマンドラインを使用して公開することもできます。 これにより発行を継続的インテグレーション モデルに含めるチーム ビルド環境を構成できます。
 
-詳細については、次を参照してください。[する方法: Web アプリケーション プロジェクトを使用して 1 回のクリックの 発行および Web デプロイのデプロイ](https://msdn.microsoft.com/en-us/library/dd465337%28VS.100%29.aspx)MSDN Web サイトと[VS 2010 を 1 クリック発行 Web](http://vishaljoshi.blogspot.com/2009/05/web-1-click-publish-with-vs-2010.html) Vishal Joshi ブログ。 Visual Studio 2010 で Web アプリケーションのデプロイに関するビデオ プレゼンテーションを表示するを参照してください。 [Web Developer Preview の VS 2010](http://vishaljoshi.blogspot.com/2008/12/vs-2010-for-web-developer-previews.html) Vishal Joshi ブログ。
+詳細については、次を参照してください。[する方法: Web アプリケーション プロジェクトを使用して 1 回のクリックの 発行および Web デプロイのデプロイ](https://msdn.microsoft.com/library/dd465337%28VS.100%29.aspx)MSDN Web サイトと[VS 2010 を 1 クリック発行 Web](http://vishaljoshi.blogspot.com/2009/05/web-1-click-publish-with-vs-2010.html) Vishal Joshi ブログ。 Visual Studio 2010 で Web アプリケーションのデプロイに関するビデオ プレゼンテーションを表示するを参照してください。 [Web Developer Preview の VS 2010](http://vishaljoshi.blogspot.com/2008/12/vs-2010-for-web-developer-previews.html) Vishal Joshi ブログ。
 
 <a id="0.2__Toc224729060"></a><a id="0.2__Toc253429297"></a><a id="0.2__Toc243304668"></a>
 
@@ -1361,9 +1361,9 @@ Visual Studio 2010 では、リモート サーバーに Web アプリケーシ�
 
 次の Web サイトでは、ASP.NET 4 および Visual Studio 2010 に関する追加情報を提供します。
 
-- [ASP.NET 4](https://msdn.microsoft.com/en-us/library/ee532866%28VS.100%29.aspx) -MSDN Web サイトで ASP.NET 4 用の公式のドキュメントです。
+- [ASP.NET 4](https://msdn.microsoft.com/library/ee532866%28VS.100%29.aspx) -MSDN Web サイトで ASP.NET 4 用の公式のドキュメントです。
 - [https://www.asp.net/](https://www.asp.net/) -ASP.NET チームの Web サイトです。
-- [https://www.asp.net/dynamicdata/](https://msdn.microsoft.com/en-us/library/cc488545.aspx)と[ASP.NET 動的データのコンテンツ マップ](https://msdn.microsoft.com/en-us/library/cc488545%28VS.100%29.aspx)-チーム サイトで ASP.NET し ASP.NET 動的データの公式のドキュメントでのオンライン リソース。
+- [https://www.asp.net/dynamicdata/](https://msdn.microsoft.com/library/cc488545.aspx)と[ASP.NET 動的データのコンテンツ マップ](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx)-チーム サイトで ASP.NET し ASP.NET 動的データの公式のドキュメントでのオンライン リソース。
 - [https://www.asp.net/ajax/](../../ajax/index.md) -開発の ASP.NET Ajax の Web リソースをメインです。
 - [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/)など、Visual Web Developer チームのブログは、Visual Studio 2010 の機能に関する情報が含まれています。
 - [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack) : ASP.NET のプレビュー リリースの Web リソースをメインです。

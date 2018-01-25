@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: cf1cb7b07ffe8750724e58e4fb66854c9a033a54
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aa8bb895ed6eaa0ef4c5752f475ea7c911544ef2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>(Azure での実際のクラウド アプリの構築) すべてを自動化します。
 ====================
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/10/2017
 
 [この電子書籍の概要](introduction.md)、web ベース コンソールで、Azure 管理ポータルを確認しました。 管理ポータルを使用すると、監視し、すべての Azure に展開されているリソースを管理できます。 作成し、web アプリおよび Vm などのサービスを削除、それらのサービスを構成、サービス操作の監視およびなどの簡単な方法であります。 便利なツールですが、手動での処理は、使用すること。 場合は、任意のサイズの実稼働アプリケーションを開発して、チームの環境で特にことをお勧めするポータルについて説明し、Azure の理解するために UI を通過し、繰り返し行うプロセスを自動化します。
 
-管理ポータルで、または Visual Studio から手動で行うことができますをほぼすべては、REST 管理 API を呼び出すことによっても実行できます。 使用してスクリプトを記述する[Windows PowerShell](https://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx)などのオープン ソース フレームワークを使用できますか[Chef](http://www.opscode.com/chef/)または[Puppet](http://puppetlabs.com/puppet/what-is-puppet)です。 また、Mac または Linux の環境でバッシュ コマンド ライン ツールを使用することができます。 Azure では、これらすべてのさまざまな環境の Api のスクリプト作成を保持している、 [.NET 管理 API](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx)スクリプトではなくコードを記述する場合にします。
+管理ポータルで、または Visual Studio から手動で行うことができますをほぼすべては、REST 管理 API を呼び出すことによっても実行できます。 使用してスクリプトを記述する[Windows PowerShell](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx)などのオープン ソース フレームワークを使用できますか[Chef](http://www.opscode.com/chef/)または[Puppet](http://puppetlabs.com/puppet/what-is-puppet)です。 また、Mac または Linux の環境でバッシュ コマンド ライン ツールを使用することができます。 Azure では、これらすべてのさまざまな環境の Api のスクリプト作成を保持している、 [.NET 管理 API](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx)スクリプトではなくコードを記述する場合にします。
 
 修正アプリケーション用のテスト環境を作成し、その環境にプロジェクトを配置するプロセスを自動化するいくつかの Windows PowerShell スクリプトを作成しましたし、それらのスクリプトの内容の一部を確認します。
 
@@ -76,7 +76,7 @@ Azure PowerShell コンソールをインストールして、Azure サブスク
 
 スクリプトの終了後に表示できます、管理ポータルで作成内容。 2 つのデータベースがあります。
 
-![データベース](automate-everything/_static/image3.png)
+![Databases](automate-everything/_static/image3.png)
 
 ストレージ アカウント:
 
@@ -245,7 +245,7 @@ Azure のすべての環境の作成スクリプトを格納、`appSettings`と`
 
 ![Windows Azure にデプロイされたアプリケーションを修正します。](automate-everything/_static/image7.png)
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 これらのスクリプトを同じ手順が常に同じオプションを使用して、同じ順序で実行することを確信できます。 これにより、チームの各開発者しない誤操作または何か操作かを別のチーム メンバーの環境または実稼働環境で同じように動作しない実際には自分のコンピューターにカスタムのものを展開します。
 

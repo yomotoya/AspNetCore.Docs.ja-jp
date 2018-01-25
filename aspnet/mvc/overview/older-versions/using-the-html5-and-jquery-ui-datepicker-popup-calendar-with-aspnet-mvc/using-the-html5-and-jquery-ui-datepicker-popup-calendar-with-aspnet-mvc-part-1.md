@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 9320c8a2aadb3b3c5bd6cd90b59d8a72db384c0c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4b5507021af47d96c29809c9830d0558f5501f87
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-1"></a>ASP.NET MVC - パート 1 での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用
 ====================
@@ -51,7 +51,7 @@ C# および Visual Basic のソース コードを Visual Studio プロジェ�
 
 学習する内容を次に示します。
 
-- 属性を使用する方法、 [DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx)名前空間が表示されるときに、データの書式を制御しにあるときは編集モードにします。
+- 属性を使用する方法、 [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間が表示されるときに、データの書式を制御しにあるときは編集モードにします。
 - テンプレートを作成する方法 (編集およびテンプレートを表示) するデータの書式を制御します。
 - 追加する方法、 [jQuery UI datepicker](http://jqueryui.com/demos/datepicker/)日付フィールドを入力する手段として。
 
@@ -67,7 +67,7 @@ C# および Visual Basic のソース コードを Visual Studio プロジェ�
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/_static/image3.png)
 
-使用した結果は、日付と価格の書式設定、 [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx)属性のプロパティで、`Movie`クラスです。
+使用した結果は、日付と価格の書式設定、 [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)属性のプロパティで、`Movie`クラスです。
 
 開く、 *Movie.cs*ファイルおよびコメント アウト、`DisplayFormat`属性を`ReleaseDate`と`Price`プロパティです。 結果の`Movie`クラスは、次のようになります。
 
@@ -79,11 +79,11 @@ CTRL + f5 キーを押してもう一度アプリケーションを実行し、�
 
 ### <a name="using-the-dataannotations-datatype-attribute-to-specify-the-data-type"></a>DataAnnotations DataType 属性を使用して、データ型を指定するには
 
-コメント アウトを置き換えます`DisplayFormat`属性の`ReleaseDate`を持つプロパティ、 [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)属性を使用して、`Date`列挙します。 置換、`DisplayFormat`属性を`Price`を持つプロパティ、[データ型](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)この時間を使用してもう一度、属性、`Currency`列挙します。 これは、完成したコードはのようになります。
+コメント アウトを置き換えます`DisplayFormat`属性の`ReleaseDate`を持つプロパティ、 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性を使用して、`Date`列挙します。 置換、`DisplayFormat`属性を`Price`を持つプロパティ、[データ型](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)この時間を使用してもう一度、属性、`Currency`列挙します。 これは、完成したコードはのようになります。
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/samples/sample2.cs)]
 
-アプリケーションを実行します。 今すぐ、リリース日と価格のプロパティの形式が正しく (つまり、適切な日付と通貨の形式を使用)。 [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)属性型のメタデータを提供組み込みの ASP.NET MVC テンプレートのフィールドが正しい形式で表示できるようにします。 使用して、`DataType`属性が使用することをお勧め、`DisplayFormat`属性が、もともとのコードであるため、`DataType`属性は、モデルを使用すると、クリーナーと国際化などの目的でより柔軟です。
+アプリケーションを実行します。 今すぐ、リリース日と価格のプロパティの形式が正しく (つまり、適切な日付と通貨の形式を使用)。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性型のメタデータを提供組み込みの ASP.NET MVC テンプレートのフィールドが正しい形式で表示できるようにします。 使用して、`DataType`属性が使用することをお勧め、`DisplayFormat`属性が、もともとのコードであるため、`DataType`属性は、モデルを使用すると、クリーナーと国際化などの目的でより柔軟です。
 
 次のセクションでは、日付フィールドを表示するカスタム テンプレートを作成する方法が表示されます。
 

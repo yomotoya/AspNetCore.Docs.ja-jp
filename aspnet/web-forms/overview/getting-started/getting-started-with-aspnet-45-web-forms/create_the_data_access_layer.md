@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: ebace10dc8a861ab38bd5c834c2225e3373f13fe
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 809609155b06c4632bd4f450082d84c432c7a46f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-the-data-access-layer"></a>データ アクセス層を作成します。
 ====================
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="creating-the-data-models"></a>データ モデルを作成します。
 
-[Entity Framework](https://msdn.microsoft.com/en-us/data/aa937723)オブジェクト リレーショナル マッピング (ORM) フレームワークがします。 オブジェクトを記述する必要は通常のデータ アクセス コードの大部分を排除することと、リレーショナル データを操作できます。 Entity Framework を使用して、使用してクエリを発行する[LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx)、取得し、厳密に型指定されたオブジェクトとしてデータを操作します。 LINQ は、クエリを実行して、データを更新するためのパターンを提供します。 Entity Framework を使用するに焦点を当てたデータ アクセスの基本のではなく、アプリケーションの残りの部分を作成するのに集中することができます。 データを使用して、ナビゲーションおよび製品のクエリを作成する方法表示は、このチュートリアル シリーズの後半。
+[Entity Framework](https://msdn.microsoft.com/data/aa937723)オブジェクト リレーショナル マッピング (ORM) フレームワークがします。 オブジェクトを記述する必要は通常のデータ アクセス コードの大部分を排除することと、リレーショナル データを操作できます。 Entity Framework を使用して、使用してクエリを発行する[LINQ](https://msdn.microsoft.com/library/bb397926.aspx)、取得し、厳密に型指定されたオブジェクトとしてデータを操作します。 LINQ は、クエリを実行して、データを更新するためのパターンを提供します。 Entity Framework を使用するに焦点を当てたデータ アクセスの基本のではなく、アプリケーションの残りの部分を作成するのに集中することができます。 データを使用して、ナビゲーションおよび製品のクエリを作成する方法表示は、このチュートリアル シリーズの後半。
 
 Entity Framework と呼ばれる開発パラダイムをサポートしている*Code First*です。 最初のコードではクラスを使用して、データ モデルを定義することができます。 クラスは、コンストラクトの他の型、メソッドおよびイベント変数をグループ化して、独自のカスタム型を作成することができます。 クラスを既存のデータベースにマップしたり、それらを使用してデータベースを生成できます。 このチュートリアルでは、データ モデル クラスを記述してデータ モデルを作成します。 次に、これらの新しいクラスから実行時にデータベースを作成する Entity Framework を使用するからお知らせします。
 
@@ -173,7 +173,7 @@ Entity Framework Code First は生成、データベースの既定の場所に�
 
 エラーが発生した場合は、上記の手順を再度確認します。 内の情報、**出力**ウィンドウを示し、どのファイルに問題があるファイルの変更が必要な場所です。 この情報を使用すると、上記の手順のどの部分を確認して、プロジェクトで修正する必要がありますを決定できます。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 系列のこのチュートリアルではするが、データ モデルの作成し、同様を初期化し、データベースのシードに使用されるコードを追加します。 アプリケーションを実行すると、データ モデルを使用してアプリケーションを構成しても。
 
@@ -181,11 +181,11 @@ Entity Framework Code First は生成、データベースの既定の場所に�
 
 ## <a name="additional-resources"></a>その他のリソース
 
-[Entity Framework の概要](https://msdn.microsoft.com/en-us/library/bb399567.aspx)   
-[ADO.NET Entity Framework にビギナーズ ガイド](https://msdn.microsoft.com/en-us/data/ee712907)   
+[Entity Framework の概要](https://msdn.microsoft.com/library/bb399567.aspx)   
+[ADO.NET Entity Framework にビギナーズ ガイド](https://msdn.microsoft.com/data/ee712907)   
 [Code First の開発と Entity Framework](http://www.msteched.com/2010/Europe/DEV212) (ビデオ)   
-[コード最初のリレーションシップ Fluent API](https://msdn.microsoft.com/en-us/data/hh134698)   
-[コードの最初のデータの注釈](https://msdn.microsoft.com/en-us/data/gg193958)  
+[コード最初のリレーションシップ Fluent API](https://msdn.microsoft.com/data/hh134698)   
+[コードの最初のデータの注釈](https://msdn.microsoft.com/data/gg193958)  
 [Entity Framework 用の生産性の向上](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)
 
 >[!div class="step-by-step"]

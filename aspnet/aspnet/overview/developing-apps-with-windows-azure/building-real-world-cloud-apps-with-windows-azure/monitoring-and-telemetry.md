@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: dfb0158ec05c890ecf80571d95b22d8c791ba7fc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9baddd1836323385239206a3cf49e5938bbaff58
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>監視と遠隔測定 (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/10/2017
 - [AppDynamics](http://www.appdynamics.com/)
 - [Dynatrace](https://datamarket.azure.com/application/b4011de2-1212-4375-9211-e882766121ff)
 
-、2015 の年 3 月の時点で[Visual Studio Online の Application Insights を Microsoft](https://azure.microsoft.com/en-us/documentation/articles/app-insights-get-started/)まだリリースされていませんが、プレビューを試すに使用します。[Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#)も監視機能が含まれます。
+、2015 の年 3 月の時点で[Visual Studio Online の Application Insights を Microsoft](https://azure.microsoft.com/documentation/articles/app-insights-get-started/)まだリリースされていませんが、プレビューを試すに使用します。[Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#)も監視機能が含まれます。
 
 製品利用統計情報システムを使用することができますいかに簡単であるかを表示する New Relic の設定を通じて簡単に説明します。
 
@@ -156,13 +156,13 @@ Azure App service web アプリは、書き込み用の組み込みサポート�
 
 どのようなことをお勧め、実稼働アプリケーションを作成するときは、単純なを作成する*ILogger*インターフェイスし、がいくつかのメソッドを維持します。 これにより、簡単に後でログ記録の実装を変更して、それを実行するすべてのコードにする必要がありません。 私たちを使用している可能性があります、`System.Diagnostics.Trace`修正アプリ全体のクラスが代わりを使用して、ログ記録を実装するクラスでバック グラウンドで*ILogger*、ため*ILogger*全体でメソッドを呼び出しますアプリ。
 
-このように、豊富なのログ記録を作成する場合は、置き換えることができます[ `System.Diagnostics.Trace` ](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio#apptracelogs)する任意のログ メカニズムに使用します。 たとえば、アプリの増大に応じて拡張することができますより包括的なログ記録のパッケージを使用すること[NLog](http://nlog-project.org/)または[エンタープライズ ライブラリ ログ アプリケーション ブロック](https://msdn.microsoft.com/en-us/library/dn440731(v=pandp.60).aspx)です。 ([Log4Net](http://logging.apache.org/log4net/)別の一般的なログ記録フレームワークが、非同期のログ記録を実行しません)。
+このように、豊富なのログ記録を作成する場合は、置き換えることができます[ `System.Diagnostics.Trace` ](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio#apptracelogs)する任意のログ メカニズムに使用します。 たとえば、アプリの増大に応じて拡張することができますより包括的なログ記録のパッケージを使用すること[NLog](http://nlog-project.org/)または[エンタープライズ ライブラリ ログ アプリケーション ブロック](https://msdn.microsoft.com/library/dn440731(v=pandp.60).aspx)です。 ([Log4Net](http://logging.apache.org/log4net/)別の一般的なログ記録フレームワークが、非同期のログ記録を実行しません)。
 
 NLog などのフレームワークを使用するための 1 つの考えられる理由は、別のデータ量の多いと、価値の高いデータ ストアにログ出力分割することを容易にすることです。 効率的に大量の ACT データにすばやくアクセスを維持しながら、に対して高速のクエリを実行する必要はありません INFORM データを格納することができます。
 
 ### <a name="semantic-logging"></a>セマンティックのログ記録
 
-比較的新しい方法をさらに便利な診断情報を生成できるログ記録を行うには、次を参照してください。[エンタープライズ ライブラリ セマンティック ログ アプリケーション ブロック (スラブ)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/)です。 スラブを使用して[Event Tracing for Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/bb968803.aspx) (ETW) と[EventSource](https://msdn.microsoft.com/en-us/library/system.diagnostics.tracing.eventsource.aspx)で複数の構造化データとクエリ可能なログを作成するために .NET 4.5 をサポートします。 記述する情報をカスタマイズすることにより、ログに記録するイベントの種類ごとに異なるメソッドを定義します。 たとえば、呼び出すことができます、SQL データベースのエラー ログに記録するため、`LogSQLDatabaseError`メソッドです。 このような例外がわかって重要な情報はエラー番号のため、メソッド シグネチャ内でエラー番号パラメーターを含み、記述するログ レコードに個別のフィールドとしてはエラー番号を記録する可能性があります。 数値が個別のフィールドがより簡単かつ確実に取得できますだけメッセージ文字列にはエラー番号を連結した場合に比べて、SQL エラー番号に基づくレポート。
+比較的新しい方法をさらに便利な診断情報を生成できるログ記録を行うには、次を参照してください。[エンタープライズ ライブラリ セマンティック ログ アプリケーション ブロック (スラブ)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/)です。 スラブを使用して[Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) と[EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx)で複数の構造化データとクエリ可能なログを作成するために .NET 4.5 をサポートします。 記述する情報をカスタマイズすることにより、ログに記録するイベントの種類ごとに異なるメソッドを定義します。 たとえば、呼び出すことができます、SQL データベースのエラー ログに記録するため、`LogSQLDatabaseError`メソッドです。 このような例外がわかって重要な情報はエラー番号のため、メソッド シグネチャ内でエラー番号パラメーターを含み、記述するログ レコードに個別のフィールドとしてはエラー番号を記録する可能性があります。 数値が個別のフィールドがより簡単かつ確実に取得できますだけメッセージ文字列にはエラー番号を連結した場合に比べて、SQL エラー番号に基づくレポート。
 
 ## <a name="logging-in-the-fix-it-app"></a>修正プログラムでログ アプリ
 
@@ -244,15 +244,15 @@ Azure は、次の種類をサポートの[クラウド サービスでのログ
 
 Azure でのログ記録を有効にした後、作成するとき、Visual Studio の出力ウィンドウにログを確認できます。
 
-![ストリーミング ログ メニュー](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-viewlogsmenu.png)
+![ストリーミング ログ メニュー](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-viewlogsmenu.png)
 
-![ストリーミング ログ メニュー](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-nologsyet.png)
+![ストリーミング ログ メニュー](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-nologsyet.png)
 
 ストレージ アカウントに書き込まれたログすることもでき、ビューのいずれかのツールなど、Azure ストレージ テーブル サービスにアクセス**サーバー エクスプ ローラー** Visual Studio でまたは[Azure ストレージ エクスプ ローラー](https://azure.microsoft.com/features/storage-explorer/)です。
 
-![サーバー エクスプ ローラーでのログ](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-storagelogs.png)
+![サーバー エクスプ ローラーでのログ](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-storagelogs.png)
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ボックスの製品利用統計情報システムを実装し、独自のコードでのログ記録をインストルメントし、Azure でのログの構成に非常に単純であります。 運用の問題がある場合は、製品利用統計情報システムとカスタム ログの組み合わせに役立つ、お客様の重大な問題になる前に問題を迅速に解決します。
 
@@ -264,10 +264,10 @@ Azure でのログ記録を有効にした後、作成するとき、Visual Stud
 
 製品利用統計情報は主にドキュメント:
 
-- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/en-us/library/dn568099.aspx)です。 インストルメンテーションと遠隔測定のガイダンス、サービスの使用状況測定のガイダンス、エンドポイント監視して、パターン、およびランタイム再構成パターンを参照してください。
+- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)です。 インストルメンテーションと遠隔測定のガイダンス、サービスの使用状況測定のガイダンス、エンドポイント監視して、パターン、およびランタイム再構成パターンを参照してください。
 - [クラウドではさむ少額: New Relic パフォーマンスが Azure の web サイトの監視を有効にする](http://www.hanselman.com/blog/PennyPinchingInTheCloudEnablingNewRelicPerformanceMonitoringOnWindowsAzureWebsites.aspx)です。
-- [Azure クラウド サービスで大規模なサービスのデザインに関するヒント集](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx)です。 Mark Simms、Michael Thomassy、ホワイト ペーパー。 遠隔測定と診断のセクションを参照してください。
-- [Application Insights による次世代開発](https://msdn.microsoft.com/en-us/magazine/dn683794.aspx)です。 MSDN マガジンの記事です。
+- [Azure クラウド サービスで大規模なサービスのデザインに関するヒント集](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx)です。 Mark Simms、Michael Thomassy、ホワイト ペーパー。 遠隔測定と診断のセクションを参照してください。
+- [Application Insights による次世代開発](https://msdn.microsoft.com/magazine/dn683794.aspx)です。 MSDN マガジンの記事です。
 
 ログは主にドキュメント:
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 5d4c7d7d02ced5a99db5b59f9e2e1adf6588208a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a573b47d27767dc78d557cd2b6c73714eb9e94f4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="part-2-creating-the-domain-models"></a>パート 2: ドメイン モデルの作成
 ====================
@@ -32,9 +32,9 @@ ms.lasthandoff: 11/10/2017
 - モデル優先: ビジュアル モデルから起動して、Entity Framework では、データベースとコードの両方が生成されます。
 - コード優先: コードでは、起動して、Entity Framework には、データベースが生成されます。
 
-コード優先のアプローチは使用した poco から (従来の CLR オブジェクト) として、ドメイン オブジェクトを定義することで開始するためです。 コード優先のアプローチでは、ドメイン オブジェクトはトランザクション処理や永続化など、データベース層をサポートするために余分なコードを必要ありません。 (具体的には、それらから継承する必要はありません、 [EntityObject](https://msdn.microsoft.com/en-us/library/system.data.objects.dataclasses.entityobject.aspx)クラスです)。データ注釈を使用して、Entity Framework が、データベース スキーマを作成する方法を制御することができますも。
+コード優先のアプローチは使用した poco から (従来の CLR オブジェクト) として、ドメイン オブジェクトを定義することで開始するためです。 コード優先のアプローチでは、ドメイン オブジェクトはトランザクション処理や永続化など、データベース層をサポートするために余分なコードを必要ありません。 (具体的には、それらから継承する必要はありません、 [EntityObject](https://msdn.microsoft.com/library/system.data.objects.dataclasses.entityobject.aspx)クラスです)。データ注釈を使用して、Entity Framework が、データベース スキーマを作成する方法を制御することができますも。
 
-した poco からに説明する追加のプロパティを使用することはありませんので[データベース状態](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx)、JSON または XML に簡単にシリアル化します。 ただしをないわけでは常に、クライアントに直接、Entity Framework モデルを公開する必要があります、チュートリアルで後ほどおわかりのようです。
+した poco からに説明する追加のプロパティを使用することはありませんので[データベース状態](https://msdn.microsoft.com/library/system.data.entitystate.aspx)、JSON または XML に簡単にシリアル化します。 ただしをないわけでは常に、クライアントに直接、Entity Framework モデルを公開する必要があります、チュートリアルで後ほどおわかりのようです。
 
 次のした poco からを作成されます。
 

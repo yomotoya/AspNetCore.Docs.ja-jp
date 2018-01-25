@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4122f55c09f94d41f7caa3f86d1fbd5870417a20
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 43aed94fe5b1095af37abdae2cb4c9e67b7d7f6f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-formatting-based-upon-data-vb"></a>データ (VB) に基づくカスタム書式設定
 ====================
@@ -97,7 +97,7 @@ DetailsView にバインドされたデータは、経由でアクセスでき�
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample3.vb)]
 
 > [!NOTE]
-> `UnitPrice`持つことができます、`NULL`データベース内の値は、最初に確認で扱っていないかどうかを確認する、`NULL`値にアクセスする前に、`ProductsRow`の`UnitPrice`プロパティです。 このチェックは重要なためにアクセスしようとしている場合、`UnitPrice`プロパティにある場合に、`NULL`値、`ProductsRow`オブジェクトがスローされます、 [StrongTypingException 例外](https://msdn.microsoft.com/en-us/library/system.data.strongtypingexception.aspx)です。
+> `UnitPrice`持つことができます、`NULL`データベース内の値は、最初に確認で扱っていないかどうかを確認する、`NULL`値にアクセスする前に、`ProductsRow`の`UnitPrice`プロパティです。 このチェックは重要なためにアクセスしようとしている場合、`UnitPrice`プロパティにある場合に、`NULL`値、`ProductsRow`オブジェクトがスローされます、 [StrongTypingException 例外](https://msdn.microsoft.com/library/system.data.strongtypingexception.aspx)です。
 
 
 ## <a name="step-3-formatting-the-unitprice-value-in-the-detailsview"></a>手順 3: DetailsView で UnitPrice の値の書式設定
@@ -193,7 +193,7 @@ Web コントロールへのプログラムによる参照を作成したら、�
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample12.vb)]
 
 > [!NOTE]
-> プログラムによって、コントロールを使用して Web にアクセスするテンプレートを書式設定するための構文`FindControl("controlID")`し、そのプロパティを設定スタイルに関連することもできますを使用する場合と[TemplateFields](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.templatefield(VS.80).aspx) DetailsView または GridView制御します。 [次へ]、チュートリアルで TemplateFields について確認します。
+> プログラムによって、コントロールを使用して Web にアクセスするテンプレートを書式設定するための構文`FindControl("controlID")`し、そのプロパティを設定スタイルに関連することもできますを使用する場合と[TemplateFields](https://msdn.microsoft.com/library/system.web.ui.webcontrols.templatefield(VS.80).aspx) DetailsView または GridView制御します。 [次へ]、チュートリアルで TemplateFields について確認します。
 
 
 製品を表示するときに、図 7 は FormView を示しています。 が`UnitsInStock`図 8 に製品が、値が 10 未満の値は 10 より大きくします。
@@ -311,7 +311,7 @@ GridView の個々 のレコードの形式をカスタマイズするには、�
 **図 11**: 最も低コスト製品は黄色が強調表示されます ([フルサイズのイメージを表示するをクリックして](custom-formatting-based-upon-data-vb/_static/image27.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、GridView、DetailsView、およびコントロールにバインドされたデータに基づくフォーム ビューの書式を設定する方法を説明しました。 イベント ハンドラーを作成してこれを実現する、`DataBound`または`RowDataBound`イベント、必要な場合は書式設定の変更と共にに検査が基になるデータの場所。 DetailsView または FormView にバインドされたデータにアクセスするを使用、`DataItem`プロパティに、`DataBound`イベント ハンドラー以外の場合は、GridView の各`GridViewRow`インスタンスの`DataItem`プロパティには、で使用可能な行にバインドされたデータが含まれています。`RowDataBound`イベント ハンドラー。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 50de8473d1fd77de4b221f0c96fc7f184621d4b6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d8c4931a1d26af49ee61c896897fa6ddf12fccea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-troubleshooting-12-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します (12/12) のトラブルシューティング。
 ====================
@@ -164,7 +164,7 @@ IIS で ASP.NET 4 がインストールされていません。 展開してい�
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因と解決策
 
-名前、 *.mdf*ファイルは、削除した場合でもがこれまで、コンピューター上に存在していた SQL Server Express のデータベースの名前に一致ことはできません、 *.mdf*が既存のデータベース ファイル。 名前を変更、 *.mdf*変更とデータベースの名前として使用されていない名前にファイル、 *Web.config*ファイルを新しい名前を使用します。 代わりに、使用することができます[SQL Server Management Studio Express](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=7593)を既存の SQL Server Express を削除するデータベースします。
+名前、 *.mdf*ファイルは、削除した場合でもがこれまで、コンピューター上に存在していた SQL Server Express のデータベースの名前に一致ことはできません、 *.mdf*が既存のデータベース ファイル。 名前を変更、 *.mdf*変更とデータベースの名前として使用されていない名前にファイル、 *Web.config*ファイルを新しい名前を使用します。 代わりに、使用することができます[SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593)を既存の SQL Server Express を削除するデータベースします。
 
 ## <a name="model-compatibility-cannot-be-checked"></a>チェックするモデルの互換性ことはできません。
 
@@ -176,7 +176,7 @@ IIS で ASP.NET 4 がインストールされていません。 展開してい�
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因と解決策
 
-Web.config ファイルに配置するデータベース名がこれまで使用された場合、コンピューターにデータベースが既に存在するいくつかのテーブルを含む前にします。 前に、のコンピューターや変更に使用されていない新しい名前を選択、 *Web.config*ファイルをこの新しいデータベース名を使用 をポイントします。 代わりに、使用することができます[SQL Server Express ユーティリティ](https://www.microsoft.com/en-us/download/details.aspx?DisplayLang=en&amp;id=3990)または[SQL Server Management Studio Express](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=7593)を既存のデータベースを削除します。
+Web.config ファイルに配置するデータベース名がこれまで使用された場合、コンピューターにデータベースが既に存在するいくつかのテーブルを含む前にします。 前に、のコンピューターや変更に使用されていない新しい名前を選択、 *Web.config*ファイルをこの新しいデータベース名を使用 をポイントします。 代わりに、使用することができます[SQL Server Express ユーティリティ](https://www.microsoft.com/download/details.aspx?DisplayLang=en&amp;id=3990)または[SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593)を既存のデータベースを削除します。
 
 ## <a name="sql-error-when-a-script-attempts-to-create-users-or-roles"></a>スクリプトがユーザーまたはロールを作成しようとしたときに、SQL エラー
 
@@ -194,7 +194,7 @@ Web.config ファイルに配置するデータベース名がこれまで使用
 
 [!code-console[Main](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12/samples/sample17.cmd)]
 
-編集する方法については、`PreSource`プロジェクト ファイル内の要素を参照してください[する方法: プロジェクト ファイルでの展開設定の編集](https://msdn.microsoft.com/en-us/library/ff398069(v=vs.100).aspx)です。 ユーザーまたはロールの開発用データベースでは、転送先データベース内にある必要がある場合、は、ホスティング プロバイダーに問い合わせてしてください。
+編集する方法については、`PreSource`プロジェクト ファイル内の要素を参照してください[する方法: プロジェクト ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069(v=vs.100).aspx)です。 ユーザーまたはロールの開発用データベースでは、転送先データベース内にある必要がある場合、は、ホスティング プロバイダーに問い合わせてしてください。
 
 ## <a name="sql-server-timeout-error-when-running-custom-scripts-during-deployment"></a>配置時にカスタム スクリプトを実行するときに、SQL Server のタイムアウト エラー
 
@@ -204,7 +204,7 @@ Web.config ファイルに配置するデータベース名がこれまで使用
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因と解決策
 
-別のトランザクション モードを持つ複数のスクリプトを実行すると、タイムアウト エラーが発生することができます。 既定では、自動的に生成されたスクリプトは、トランザクションで実行が、カスタム スクリプトはこれはできません。 選択した場合、**または既存のデータベースからスキーマのデータをプル** オプションを選択、**パッケージ化/発行 SQL**  タブで、カスタム SQL スクリプトを追加する場合は、いくつかのスクリプトでのトランザクション設定を変更する必要がありますとようにすべてのスクリプトは、同じトランザクション設定を使用します。 詳細については、次を参照してください。[する方法: Web アプリケーション プロジェクトでのデータベースを配置](https://msdn.microsoft.com/en-us/library/dd465343.aspx)です。
+別のトランザクション モードを持つ複数のスクリプトを実行すると、タイムアウト エラーが発生することができます。 既定では、自動的に生成されたスクリプトは、トランザクションで実行が、カスタム スクリプトはこれはできません。 選択した場合、**または既存のデータベースからスキーマのデータをプル** オプションを選択、**パッケージ化/発行 SQL**  タブで、カスタム SQL スクリプトを追加する場合は、いくつかのスクリプトでのトランザクション設定を変更する必要がありますとようにすべてのスクリプトは、同じトランザクション設定を使用します。 詳細については、次を参照してください。[する方法: Web アプリケーション プロジェクトでのデータベースを配置](https://msdn.microsoft.com/library/dd465343.aspx)です。
 
 すべてが同じように、トランザクションの設定を構成した引き続きこのエラーが発生した場合、可能な回避策とは別に、スクリプトの実行を開始します。 **データベース スクリプト**グリッドで、**パッケージ化/発行**SQL タブで、、 **Include**タイムアウト エラーが発生したスクリプトのチェック ボックスは、プロジェクトを発行します。 移動し、**データベース スクリプト**グリッドで、そのスクリプトの選択**Include**チェック ボックスをオンおよびオフに、 **Include**他のスクリプトのチェック ボックスをします。 続いて、プロジェクトをもう一度発行します。 この時間を発行すると、選択したカスタム スクリプトのみを実行します。
 
@@ -290,7 +290,7 @@ SQL Server Compact、アプリ内のファイルにそのデータベースを�
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因と解決策
 
-既定では、Visual Studio の設定、サイトのルート フォルダーに対するアクセス許可の読み取りおよび書き込みアクセス許可アプリ\_データ フォルダーです。 追加することで、この動作を無効にするサイト フォルダの既定のアクセス許可が正しいし、設定する必要はありませんがわかっている場合 **&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;** 発行プロファイル ファイル (1 つのプロファイルに影響を与える)、または (影響を与えるすべてのプロファイル) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[する方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/en-us/library/ff398069.aspx)です。 
+既定では、Visual Studio の設定、サイトのルート フォルダーに対するアクセス許可の読み取りおよび書き込みアクセス許可アプリ\_データ フォルダーです。 追加することで、この動作を無効にするサイト フォルダの既定のアクセス許可が正しいし、設定する必要はありませんがわかっている場合 **&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;** 発行プロファイル ファイル (1 つのプロファイルに影響を与える)、または (影響を与えるすべてのプロファイル) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[する方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069.aspx)です。 
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>アプリケーションがアプリケーション フォルダーへの書き込みを行うとき、アクセス拒否エラー
 
@@ -300,7 +300,7 @@ SQL Server Compact、アプリ内のファイルにそのデータベースを�
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因と解決策
 
-既定では、Visual Studio の設定、サイトのルート フォルダーに対するアクセス許可の読み取りおよび書き込みアクセス許可アプリ\_データ フォルダーです。 示すように、そのフォルダーのアクセス許可を設定するアプリケーションでは、サブ フォルダーへの書き込みアクセスを必要とする場合、[フォルダー アクセス許可の設定](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)と[実稼働環境に展開する](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)チュートリアルです。 ルート フォルダーに追加することで読み取り専用アクセスを設定することを防ぐことがある場合は、アプリケーションでは、サイトのルート フォルダーへの書き込みアクセスが必要な **&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;** 発行プロファイル ファイル (1 つのプロファイルに影響を与える)、または (影響を与えるすべてのプロファイル) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[する方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/en-us/library/ff398069.aspx)です。 <a id="aspnet45error"></a>
+既定では、Visual Studio の設定、サイトのルート フォルダーに対するアクセス許可の読み取りおよび書き込みアクセス許可アプリ\_データ フォルダーです。 示すように、そのフォルダーのアクセス許可を設定するアプリケーションでは、サブ フォルダーへの書き込みアクセスを必要とする場合、[フォルダー アクセス許可の設定](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)と[実稼働環境に展開する](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)チュートリアルです。 ルート フォルダーに追加することで読み取り専用アクセスを設定することを防ぐことがある場合は、アプリケーションでは、サイトのルート フォルダーへの書き込みアクセスが必要な **&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;** 発行プロファイル ファイル (1 つのプロファイルに影響を与える)、または (影響を与えるすべてのプロファイル) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[する方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069.aspx)です。 <a id="aspnet45error"></a>
 
 ## <a name="configuration-error---targetframework-attribute-references-a-version-that-is-later-than-the-installed-version-of-the-net-framework"></a>構成エラー - targetFramework 属性は、.NET Framework のインストールされているバージョンより後のバージョンを参照します。
 
@@ -318,7 +318,7 @@ ASP.NET 4.5 を対象とする web プロジェクトを正常に発行された
 
 サーバーは、ASP.NET 4.5 をサポートしていません。 ASP.NET 4.5 用のサポートを追加できるかどうかを決定するホスティング プロバイダーに問い合わせてください。 ASP.NET 4 以降を対象とする web プロジェクトを配置する必要がある場合は、サーバーをアップグレードすることは、オプションではありません、代わりにします。同じ送信先に ASP.NET 4 または以前の web プロジェクトを展開する場合は、選択、**先で追加ファイルを削除する**チェック ボックスをオン、**設定**のタブ、 **Web の発行**ウィザード。 選択しない場合**先で追加ファイルを削除する**、引き続き構成エラー ページを取得することができます。
 
-プロジェクト**プロパティ**windows には、ターゲット フレームワーク ドロップダウン リストが含まれていますが、だけを変更することによってこの問題を解決することはできません**.NET Framework 4.5**に**.NET Framework 4**. 以前のフレームワーク バージョンにターゲット フレームワークを変更する場合、プロジェクトが framework の以降のバージョンのアセンブリへの参照が残っているしは実行されません。 手動でこれらの参照を変更または .NET Framework 4 以前を対象とする新しいプロジェクトを作成する必要があります。 詳細については、次を参照してください。 [Web サイトの .NET Framework のターゲット](https://msdn.microsoft.com/en-us/library/bb398791(v=vs.100).aspx)です。
+プロジェクト**プロパティ**windows には、ターゲット フレームワーク ドロップダウン リストが含まれていますが、だけを変更することによってこの問題を解決することはできません**.NET Framework 4.5**に**.NET Framework 4**. 以前のフレームワーク バージョンにターゲット フレームワークを変更する場合、プロジェクトが framework の以降のバージョンのアセンブリへの参照が残っているしは実行されません。 手動でこれらの参照を変更または .NET Framework 4 以前を対象とする新しいプロジェクトを作成する必要があります。 詳細については、次を参照してください。 [Web サイトの .NET Framework のターゲット](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx)です。
 
 >[!div class="step-by-step"]
 [前へ](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)

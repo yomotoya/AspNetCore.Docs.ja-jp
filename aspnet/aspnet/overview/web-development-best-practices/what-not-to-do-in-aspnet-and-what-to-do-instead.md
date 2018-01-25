@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
-ms.openlocfilehash: 6790cd0deb36c9fb297ccd4df371f763dba17844
-ms.sourcegitcommit: 17b025bd33f4474f0deaafc6d0447a4e72bcad87
+ms.openlocfilehash: 829f3a024bc15bec8b60b91193ba9bca37b78009
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/27/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>ASP.NET では、操作を行わないと何を代わりに行うには
 ====================
@@ -94,7 +94,7 @@ Web サーバー コントロールは、数十個の行のスタイル プロ�
 
 に関する推奨事項: がページおよびコントロールのコールバックの使用を停止し、代わりに、次のいずれかを使用: AJAX、UpdatePanel、MVC アクション メソッド、Web API、または SignalR です。
 
-以前のバージョンの ASP.NET では、ページおよびコントロールのコールバック メソッドには、ページ全体を更新することがなく、web ページの一部を更新することが有効になります。 部分ページ更新を実行できるようになりました[AJAX](../../../ajax/index.md)、 [UpdatePanel](https://msdn.microsoft.com/en-US/library/bb386454.aspx)、 [MVC](../../../mvc/index.md)、 [Web API](../../../web-api/index.md)または[SignalR](../../../signalr/index.md). フレンドリな Url で問題が発生することがあるために、コールバック メソッドを使用して、ルーティングを停止する必要があります。 既定では、コントロールには、コールバック メソッドが有効にしていないが、コントロールに、この機能を有効にした場合は無効にします。
+以前のバージョンの ASP.NET では、ページおよびコントロールのコールバック メソッドには、ページ全体を更新することがなく、web ページの一部を更新することが有効になります。 部分ページ更新を実行できるようになりました[AJAX](../../../ajax/index.md)、 [UpdatePanel](https://msdn.microsoft.com/library/bb386454.aspx)、 [MVC](../../../mvc/index.md)、 [Web API](../../../web-api/index.md)または[SignalR](../../../signalr/index.md). フレンドリな Url で問題が発生することがあるために、コールバック メソッドを使用して、ルーティングを停止する必要があります。 既定では、コントロールには、コールバック メソッドが有効にしていないが、コントロールに、この機能を有効にした場合は無効にします。
 
 <a id="browsercap"></a>
 
@@ -138,7 +138,7 @@ Razor 構文では、HTML ことができます。 または、を使用した�
 
 [!code-csharp[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample7.cs)]
 
-SQL コマンドの値を安全にエンコードする場合などのコマンド パラメーターを使用して、 [SqlParameter](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlparameter.aspx)です。 <a id="cookieless"></a>
+SQL コマンドの値を安全にエンコードする場合などのコマンド パラメーターを使用して、 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx)です。 <a id="cookieless"></a>
 
 ### <a name="cookieless-forms-authentication-and-session"></a>Cookie なしのフォーム認証とセッション
 
@@ -180,15 +180,15 @@ SQL コマンドの値を安全にエンコードする場合などのコマン�
 
 AppSettings 要素には、セキュリティ更新プログラムの必要な多くの値が含まれています。 変更または、これらの値を無効にする必要がありますされません。 場合は、更新プログラムを展開するときに、これらの値を無効にする必要があります、すぐに再度有効に展開が完了後します。
 
-詳細については、「 [ASP.NET appSettings 要素](https://msdn.microsoft.com/en-us/library/hh975440.aspx)です。
+詳細については、「 [ASP.NET appSettings 要素](https://msdn.microsoft.com/library/hh975440.aspx)です。
 
 <a id="urlpathencode"></a>
 
 ### <a name="urlpathencode"></a>UrlPathEncode
 
-推奨事項: を使用して[UrlEncode](https://msdn.microsoft.com/en-us/library/zttxte6w.aspx)代わりにします。
+推奨事項: を使用して[UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx)代わりにします。
 
-UrlPathEncode メソッドは、非常に特定のブラウザーの互換性の問題を解決するのには、.NET Framework に追加されました。 URL は適切にエンコードされませんし、クロス サイト スクリプトから、アプリケーションを保護しません。 アプリケーションで使用する必要がありますしないでください。 代わりに、 [UrlEncode](https://msdn.microsoft.com/en-us/library/zttxte6w.aspx)です。
+UrlPathEncode メソッドは、非常に特定のブラウザーの互換性の問題を解決するのには、.NET Framework に追加されました。 URL は適切にエンコードされませんし、クロス サイト スクリプトから、アプリケーションを保護しません。 アプリケーションで使用する必要がありますしないでください。 代わりに、 [UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx)です。
 
 次の例では、ハイパーリンク コントロール用のクエリ文字列パラメーターとしてエンコードされた URL を渡す方法を示します。
 
@@ -202,9 +202,9 @@ UrlPathEncode メソッドは、非常に特定のブラウザーの互換性の
 
 ### <a name="presendrequestheaders-and-presendrequestcontent"></a>PreSendRequestHeaders と PreSendRequestContent
 
-推奨事項では、マネージ モジュールでこれらのイベントは使用しません。 代わりに、必要なタスクを実行するネイティブの IIS モジュールを記述します。 参照してください[ネイティブ コード HTTP モジュールを作成する](https://msdn.microsoft.com/en-us/library/ms693629.aspx)です。
+推奨事項では、マネージ モジュールでこれらのイベントは使用しません。 代わりに、必要なタスクを実行するネイティブの IIS モジュールを記述します。 参照してください[ネイティブ コード HTTP モジュールを作成する](https://msdn.microsoft.com/library/ms693629.aspx)です。
 
-使用することができます、 [PreSendRequestHeaders](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestheaders.aspx)と[PreSendRequestContent](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestcontent.aspx)ネイティブの IIS モジュールを持つイベント。
+使用することができます、 [PreSendRequestHeaders](https://msdn.microsoft.com/library/system.web.httpapplication.presendrequestheaders.aspx)と[PreSendRequestContent](https://msdn.microsoft.com/library/system.web.httpapplication.presendrequestcontent.aspx)ネイティブの IIS モジュールを持つイベント。
 > [!WARNING]
 > 使用しないでください`PreSendRequestHeaders`と`PreSendRequestContent`を実装するマネージ モジュールで`IHttpModule`です。 これらのプロパティを設定すると、非同期要求で問題が発生することができます。 アプリケーション要求ルーティング処理 (ARR) と websocket の組み合わせが例外が発生するアクセス違反 w3wp クラッシュする可能性があります。 たとえば、iiscore!W3_CONTEXT_BASE::GetIsLastNotification + 68 iiscore.dll でアクセス違反例外 (0xC0000005) が発生しました。
 
@@ -212,7 +212,7 @@ UrlPathEncode メソッドは、非常に特定のブラウザーの互換性の
 
 ### <a name="asynchronous-page-events-with-web-forms"></a>Web フォーム ページの非同期イベント
 
-推奨事項: が Web フォームで、ページ ライフ サイクル イベントの void メソッドを非同期に書き込みを回避し、代わりに使用して[Page.RegisterAsyncTask](https://msdn.microsoft.com/en-us/library/system.web.ui.page.registerasynctask.aspx)非同期コードにします。
+推奨事項: が Web フォームで、ページ ライフ サイクル イベントの void メソッドを非同期に書き込みを回避し、代わりに使用して[Page.RegisterAsyncTask](https://msdn.microsoft.com/library/system.web.ui.page.registerasynctask.aspx)非同期コードにします。
 
 ページのイベントをマークする**非同期**と**void**、非同期コードが終了した場合を判断することはできません。 代わりに、Page.RegisterAsyncTask を使用して、その完了を追跡することができるように、非同期コードを実行します。
 
@@ -244,15 +244,15 @@ UrlPathEncode メソッドは、非常に特定のブラウザーの互換性の
 
 最も早い Request.Form または Request.InputStream から読み取る必要がありますが、ハンドラーの中にイベントを実行します。 MVC では、コント ローラーは、ハンドラーと、execute イベント、アクション メソッドを実行するとします。 Web フォームのページは、ハンドラーと、execute イベント Page.Init イベントの発生時です。 Execute イベントより前に要求エンティティ本体を読み取るする場合は、要求の処理干渉します。
 
-Execute イベントの前に要求エンティティ本体を読み取る必要がある場合を使用するか[Request.GetBufferlessInputStream](https://msdn.microsoft.com/en-us/library/ff406798.aspx)または[Request.GetBufferedInputStream](https://msdn.microsoft.com/en-us/library/system.web.httprequest.getbufferedinputstream.aspx)です。 GetBufferlessInputStream を使用する場合、要求の生のストリームを取得し、全体の要求を処理するための責任を負うものです。 GetBufferlessInputStream を呼び出した後 Request.Form および Request.InputStream は使用できません、ASP.NET によって作成されてがいないためです。 GetBufferedInputStream を使用する場合は、要求からストリームのコピーを取得します。 Request.Form と Request.InputStream が使用可能な要求の後で ASP.NET がもう一方のコピーを作成します。
+Execute イベントの前に要求エンティティ本体を読み取る必要がある場合を使用するか[Request.GetBufferlessInputStream](https://msdn.microsoft.com/library/ff406798.aspx)または[Request.GetBufferedInputStream](https://msdn.microsoft.com/library/system.web.httprequest.getbufferedinputstream.aspx)です。 GetBufferlessInputStream を使用する場合、要求の生のストリームを取得し、全体の要求を処理するための責任を負うものです。 GetBufferlessInputStream を呼び出した後 Request.Form および Request.InputStream は使用できません、ASP.NET によって作成されてがいないためです。 GetBufferedInputStream を使用する場合は、要求からストリームのコピーを取得します。 Request.Form と Request.InputStream が使用可能な要求の後で ASP.NET がもう一方のコピーを作成します。
 
 <a id="redirect"></a>
 
 ### <a name="responseredirect-and-responseend"></a>Response.Redirect と Response.End
 
-に関する推奨事項: スレッドの呼び出し後の処理方法の相違点に注意してください[Response.Redirect(String)](https://msdn.microsoft.com/en-us/library/t9dwyts4.aspx)です。
+に関する推奨事項: スレッドの呼び出し後の処理方法の相違点に注意してください[Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx)です。
 
-[Response.Redirect(String)](https://msdn.microsoft.com/en-us/library/t9dwyts4.aspx)メソッド Response.End メソッドを呼び出します。 同期プロセスで Request.Redirect を呼び出すと、すぐに中止する現在のスレッドとします。 ただし、非同期的な処理で Response.Redirect を呼び出すことは中止されない、現在のスレッドのため、要求のコードの実行が続行されます。 非同期的な処理で、コードの実行を停止するメソッドからタスクを返す必要があります。
+[Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx)メソッド Response.End メソッドを呼び出します。 同期プロセスで Request.Redirect を呼び出すと、すぐに中止する現在のスレッドとします。 ただし、非同期的な処理で Response.Redirect を呼び出すことは中止されない、現在のスレッドのため、要求のコードの実行が続行されます。 非同期的な処理で、コードの実行を停止するメソッドからタスクを返す必要があります。
 
 MVC プロジェクトでは、呼び出す必要はありません Response.Redirect です。 代わりに、RedirectResult を返します。
 
@@ -286,7 +286,7 @@ MVC プロジェクトでは、呼び出す必要はありません Response.Red
 
 ### <a name="long-running-requests-110-seconds"></a>実行時間の長い要求 (> 110 秒)
 
-推奨事項: を使用して[Websocket](https://msdn.microsoft.com/en-us/library/system.net.websockets.websocket.aspx)または[SignalR](../../../signalr/index.md)接続されているクライアント、および非同期の I/O 操作を使用します。
+推奨事項: を使用して[Websocket](https://msdn.microsoft.com/library/system.net.websockets.websocket.aspx)または[SignalR](../../../signalr/index.md)接続されているクライアント、および非同期の I/O 操作を使用します。
 
 実行時間の長い要求は、web アプリケーションで予期しない結果とパフォーマンスの低下の原因になることができます。 要求の既定のタイムアウト設定は、110 (秒) です。 実行時間の長い要求でセッション状態を使用している場合、ASP.NET は 110 秒後にセッション オブジェクトのロックが解除されます。 ただし、アプリケーションがありますセッション オブジェクトに対する操作の途中で、ロックを解除し、操作を完了しない可能性。 ユーザーから 2 番目の要求がブロックされた場合、最初の要求の実行中に、2 番目の要求は不整合な状態でセッション オブジェクトにアクセス可能性があります。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 0cc51fbe84124a62f0c1254faab796cbcdc7efd6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de661616ff3ca83052ae74d3ae6810d014aff764
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-new-category-to-the-dropdownlist-using-jquery-ui"></a>JQuery UI を使用した DropDownList に新しいカテゴリを追加します。
 ====================
@@ -90,7 +90,7 @@ ID を持つ非表示の div を作成`genreDialog`です。 JQuery を使用し
 
 [!code-cshtml[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample7.cshtml)]
 
-[Html.BeginForm](https://msdn.microsoft.com/en-us/library/dd492714.aspx)ヘルパーのオーバー ロードで使用される、 *Views\Genre\\_CreateGenre.cshtml*ファイルは、フォームを送信する URL を含むアクション属性を持つ HTML を生成します。 これは、ブラウザーでアルバムの作成 ページを表示して、ブラウザーで表示するソースを選択して確認できます。 次のマークアップでは、生成された HTML フォーム タグを含むを示します。
+[Html.BeginForm](https://msdn.microsoft.com/library/dd492714.aspx)ヘルパーのオーバー ロードで使用される、 *Views\Genre\\_CreateGenre.cshtml*ファイルは、フォームを送信する URL を含むアクション属性を持つ HTML を生成します。 これは、ブラウザーでアルバムの作成 ページを表示して、ブラウザーで表示するソースを選択して確認できます。 次のマークアップでは、生成された HTML フォーム タグを含むを示します。
 
 [!code-html[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample8.html)]
 
@@ -128,15 +128,15 @@ Rick.Anderson[at]Microsoft.com
 - [ASP.NET MVC – カスケード ドロップダウン一覧チュートリアル](https://weblogs.asp.net/raduenuca/archive/2011/03/06/asp-net-mvc-cascading-dropdown-lists-tutorial-part-1-defining-the-problem-and-the-context.aspx)によって[Radu enuca が](https://weblogs.asp.net/raduenuca/default.aspx)
 - [選択した](http://harvesthq.github.com/chosen/)複数選択やフィルター処理をサポートする JavaScript プラグインします。
 
-### <a name="contributors"></a>貢献者
+### <a name="contributors"></a>共同作成者
 
-- [Radu enuca が](https://weblogs.asp.net/raduenuca/default.aspx)
-- Jean Sébastien Goupil
+- [Radu Enuca](https://weblogs.asp.net/raduenuca/default.aspx)
+- Jean-Sébastien Goupil
 - [Brad Wilson](http://bradwilson.typepad.com/)
 
 ### <a name="reviewers"></a>校閲者
 
-- Jean Sébastien Goupil
+- Jean-Sébastien Goupil
 - [Brad Wilson](http://bradwilson.typepad.com/)
 - Mike 教皇
 - Tom Dykstra

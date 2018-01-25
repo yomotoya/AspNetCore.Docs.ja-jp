@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 7d89416626433bf737b63eda4b17e65b089ae142
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: aab96b5313a8632950e51f5586612c1d0d3d176e
+ms.sourcegitcommit: 83b5a4715fd25e4eb6f7c8427c0ef03850a7fa07
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core のオプションのパターン
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
-オプションのパターンでは、オプション クラスを使用して、関連する設定のグループを表します。 構成設定については、個別のオプション クラスに分離機能によって、アプリは 2 つの重要なソフトウェア エンジニア リング原則に従って。
+オプション パターンではオプション クラスを使用して、関連する設定のグループを表します。 構成設定については、個別のオプション クラスに分離機能によって、アプリは 2 つの重要なソフトウェア エンジニア リング原則に従って。
 
 * [インターフェイスの分離の原則 (ISP)](http://deviq.com/interface-segregation-principle/): 構成の設定に依存する機能 (クラス) が使用する構成設定のみに依存します。
 * [関心の分離](http://deviq.com/separation-of-concerns/): アプリのさまざまな部分の設定は、依存または相互に結合がありません。
@@ -257,7 +257,13 @@ services.PostConfigureAll<MyOptions>("named_options_1", myOptions =>
 
 [IOptionsFactory&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1)は新規に作成するオプションのインスタンスに (ASP.NET Core 2.0 またはそれ以降) があります。 1 つが[作成](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1.create)メソッドです。 既定の実装は、すべての登録済み`IConfigureOptions`と`IPostConfigureOptions`すべて実行し、最初に構成、その後で、後の構成します。 間で区別するため`IConfigureNamedOptions`と`IConfigureOptions`のみ適切なインターフェイスを呼び出します。
 
-[IOptionsMonitorCache&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1) (ASP.NET Core 2.0 またはそれ以降) を使って`IOptionsMonitor`キャッシュに`TOptions`インスタンス。 `IOptionsMonitorCache`値が再計算されるようにモニターでオプションのインスタンスを無効になります ([TryRemove](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.tryremove))。 値が手動でに導入されたも[TryAdd](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.tryadd)です。 [クリア](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.clear)要求時に、すべての名前付きインスタンスを再作成する必要がありますとメソッドを使用します。
+[IOptionsMonitorCache&lt;TOptions&gt;](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1) (ASP.NET Core 2.0 or later) is used by `IOptionsMonitor` to cache `TOptions` instances. `IOptionsMonitorCache`値が再計算されるようにモニターでオプションのインスタンスを無効になります ([TryRemove](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.tryremove))。 値が手動でに導入されたも[TryAdd](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.tryadd)です。 [クリア](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.clear)要求時に、すべての名前付きインスタンスを再作成する必要がありますとメソッドを使用します。
+
+## <a name="accessing-options-during-startup"></a>スタートアップ時のオプションにアクセスします。
+
+`IOptions`使用できる`Configure`する前にサービスが組み込まれているため、`Configure`メソッドを実行します。 サービス プロバイダーが組み込まれている場合`ConfigureServices`オプションにアクセスすることはありませんが含まれてオプションの構成をサービス プロバイダーが構築された後に入力します。 そのため、オプションが一致しない状態は、サービス登録の順序により存在している可能性があります。
+
+オプションは、通常、構成から読み込まれた、ために、両方のスタートアップの構成を使用できます`Configure`と`ConfigureServices`です。 起動中に構成を使用する例については、次を参照してください。、[アプリケーションの起動](xref:fundamentals/startup)トピックです。
 
 ## <a name="see-also"></a>関連項目
 

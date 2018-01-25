@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: f054d574026ab6444cc59a126ef9dcdc323f7bff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 32cdd8d524d783d7ccc3ab076de636ce4a868132
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor 構文 (c#) を使用して ASP.NET Web プログラミングの概要
 ====================
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/10/2017
 
 これらのステートメントがどのようなページがブラウザーで実行されるときに次に示します。
 
-![Razor Img1](introducing-razor-syntax-c/_static/image1.jpg)
+![Razor-Img1](introducing-razor-syntax-c/_static/image1.jpg)
 
 > [!TIP] 
 > 
@@ -79,7 +79,7 @@ A*コード ブロック*1 つまたは複数のコード ステートメント�
 
 ブラウザーに表示される結果:
 
-![Razor Img2](introducing-razor-syntax-c/_static/image2.jpg)
+![Razor-Img2](introducing-razor-syntax-c/_static/image2.jpg)
 
 ### <a name="3-inside-a-block-you-end-each-code-statement-with-a-semicolon"></a>3.セミコロンで各コード ステートメントを終了するブロック内
 
@@ -95,7 +95,7 @@ A*コード ブロック*1 つまたは複数のコード ステートメント�
 
 ブラウザーに表示される結果:
 
-![Razor Img3](introducing-razor-syntax-c/_static/image3.jpg)
+![Razor-Img3](introducing-razor-syntax-c/_static/image3.jpg)
 
 <a id="ID_StringLiterals"></a>
 ### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5.リテラル文字列の値を二重引用符で囲みます。
@@ -114,7 +114,7 @@ A*文字列*テキストとして扱われる文字のシーケンスです。 �
 
 ページを使用してこれらの例の両方の結果を次に示します。
 
-![Razor Img4](introducing-razor-syntax-c/_static/image4.jpg)
+![Razor-Img4](introducing-razor-syntax-c/_static/image4.jpg)
 
 > [!NOTE]
 > 注意して、 `@` verbatim 文字列リテラル (C#) をマークして、ASP.NET ページ内のコードをマークする、文字を使用します。
@@ -142,7 +142,7 @@ C# の場合、キーワード (と同様に`var`、 `true`、および`if`) し
 
 ブラウザーに表示される結果:
 
-![Razor Img5](introducing-razor-syntax-c/_static/image5.jpg)
+![Razor-Img5](introducing-razor-syntax-c/_static/image5.jpg)
 
 ### <a name="8-you-can-write-code-that-makes-decisions"></a>8.意思決定を行うコードを記述することができます。
 
@@ -154,7 +154,7 @@ C# の場合、キーワード (と同様に`var`、 `true`、および`if`) し
 
 結果がブラウザーで表示されます (クリックした後**送信**)。
 
-![Razor Img6](introducing-razor-syntax-c/_static/image6.jpg)
+![Razor-Img6](introducing-razor-syntax-c/_static/image6.jpg)
 
 > [!TIP] 
 > 
@@ -187,7 +187,7 @@ C# の場合、キーワード (と同様に`var`、 `true`、および`if`) し
     - `<form>`タグが含まれています、`method="post"`属性。 これを指定する、ユーザーがクリックしたときに**追加**ページは、HTTP POST メソッドを使用してサーバーに送信されます。 ページが送信されるときに、`if(IsPost)`テスト true に評価され、条件付きコードの実行、数値を加算した結果を表示します。
 3. ページを保存し、ブラウザーで実行します。 (ページが選択されて、必ず、**ファイル**ワークスペースを実行する前にします)。2 つの整数を入力し、クリックして、**追加**ボタンをクリックします。 
 
-    ![Razor Img7](introducing-razor-syntax-c/_static/image7.jpg)
+    ![Razor-Img7](introducing-razor-syntax-c/_static/image7.jpg)
 
 ## <a name="basic-programming-concepts"></a>基本的なプログラミング概念
 
@@ -209,7 +209,7 @@ Razor 構文は、Microsoft .NET Framework に基づいたは、ASP.NET と呼�
 
 Razor 構文を使用すると、専門知識をしているかどうかは、初心者とを使用すると、生産性の向上を理解しやすくなりますが簡略化された構文を使用して、ASP.NET のすべての電源ができます。 この構文は、簡単に使用できるが、ASP.NET と .NET Framework のファミリ関係は、web サイトが複雑になると、あるに使用できる大規模なフレームワークの電源を意味します。
 
-![Razor Img8](introducing-razor-syntax-c/_static/image8.jpg)
+![Razor-Img8](introducing-razor-syntax-c/_static/image8.jpg)
 
 > [!TIP] 
 > 
@@ -325,7 +325,7 @@ Razor では、c# の入れ子になったブロックに制限があります�
 
 ページで、前の例を組み合わせると、ブラウザーで表示されます。 これが表示されます。
 
-![Razor Img9](introducing-razor-syntax-c/_static/image9.jpg)
+![Razor-Img9](introducing-razor-syntax-c/_static/image9.jpg)
 
 ### <a name="converting-and-testing-data-types"></a>変換して、データ型のテスト
 
@@ -451,7 +451,7 @@ ASP.NET サーバー コードでは、条件に基づいて、タスクを実�
 
 ブラウザーに表示される最後の 2 つの条件付きブロックの結果:
 
-![Razor Img10](introducing-razor-syntax-c/_static/image10.jpg)
+![Razor-Img10](introducing-razor-syntax-c/_static/image10.jpg)
 
 ### <a name="looping-code"></a>コードのループ
 
@@ -467,7 +467,7 @@ ASP.NET サーバー コードでは、条件に基づいて、タスクを実�
 
 中かっこ内には、ループの各反復処理を実行するコードを示します。 マークアップは、新しい段落を作成する (`<p>`要素) の値を表示する出力に行を追加し、各`i`(カウンター)。 このページを実行すると、例は、11 行の行のテキスト項目数を示す行ごとに、出力の表示を作成します。
 
-![Razor Img11](introducing-razor-syntax-c/_static/image11.jpg)
+![Razor-Img11](introducing-razor-syntax-c/_static/image11.jpg)
 
 コレクションまたは配列を扱う場合場合、多くの場合、使用する、`foreach`ループします。 コレクションは、類似のオブジェクトのグループと`foreach`ループに、コレクション内の各項目にタスクを実行することができます。 この種類のループは、コレクションの便利なためとは異なり、`for`ループすることも、カウンターをインクリメントまたは制限を設定します。 代わりに、`foreach`が終了するまで、このループのコードは、単にコレクションを続行されます。
 
@@ -477,7 +477,7 @@ ASP.NET サーバー コードでは、条件に基づいて、タスクを実�
 
 `foreach`キーワードが続くかっこをコレクション内の 1 つの項目を表す変数を宣言する (例では、 `var item`) と、その後、`in`キーワード、ループ処理コレクション。 本体で、`foreach`ループ、先ほど宣言した変数を使用する現在のアイテムにアクセスすることができます。
 
-![Razor Img12](introducing-razor-syntax-c/_static/image12.jpg)
+![Razor-Img12](introducing-razor-syntax-c/_static/image12.jpg)
 
 汎用的なループを作成するには、使用、`while`ステートメント。
 
@@ -523,7 +523,7 @@ A*コレクション*のコレクションなど、同じ種類のオブジェ�
 
 ブラウザーで表示されている文字列配列のコードの出力:
 
-![Razor Img13](introducing-razor-syntax-c/_static/image13.jpg)
+![Razor-Img13](introducing-razor-syntax-c/_static/image13.jpg)
 
 設定または対応する値を取得するキー (または名前) を指定したキー/値ペアのコレクションをディクショナリには。
 
@@ -575,7 +575,7 @@ Razor 構文は、メソッドにパラメーターを渡すための 2 つの�
 
 プログラミング用語では、このような状況が呼び出されます*例外*です。 (スロー) が生成されますが、コードには、例外が発生すると、エラー メッセージの最高でユーザーに迷惑な。
 
-![Razor Img14](introducing-razor-syntax-c/_static/image14.jpg)
+![Razor-Img14](introducing-razor-syntax-c/_static/image14.jpg)
 
 コードが例外を発生可能性がある場合に、この種類のエラー メッセージを回避するために、使用する`try/catch`ステートメントです。 `try`をチェックする場合のコードを実行するステートメントでは、します。 1 つまたは複数`catch`ステートメントを検索できる固有の仕様が発生したエラー (特定の種類の例外)。 多くとして含めることができます`catch`としてするステートメントが予測は、エラーを確認する必要があります。
 
@@ -600,6 +600,6 @@ Razor 構文は、メソッドにパラメーターを渡すための 2 つの�
 **リファレンス ドキュメント**
 
 
-[ASP.NET](https://msdn.microsoft.com/en-us/library/ee532866.aspx)
+[ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
 
-[C# 言語](https://msdn.microsoft.com/en-us/library/kx37x362.aspx)
+[C# 言語](https://msdn.microsoft.com/library/kx37x362.aspx)

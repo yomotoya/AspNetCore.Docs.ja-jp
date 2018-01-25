@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 7923876c792544ac4d559eb8de29475d8a4b37e0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 74609b515936ec7da8bfc133c27cb69f51311924
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="anchor-tag-helper"></a>アンカー タグ ヘルパー
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/19/2018
 <a href="/Speaker">All Speakers</a>
 ```
 
-場合、`asp-controller`が指定されていると`asp-action`既定ではない、`asp-action`現在実行中のビューの既定のコント ローラーのメソッドになります。 上記の例では場合、 `asp-action` 、左からこのアンカー タグ ヘルパーが生成されると*HomeController*の`Index`ビュー (**ホーム/**)、生成されたマークアップになります。
+場合、`asp-controller`が指定されていると`asp-action`いない場合は、既定値`asp-action`現在実行中のビューの既定のコント ローラーのメソッドになります。 上記の例では場合、 `asp-action` 、左からこのアンカー タグ ヘルパーが生成されると*HomeController*の`Index`ビュー (**ホーム/**)、生成されたマークアップになります。
 
 ```html
 <a href="/Home">All Speakers</a>
@@ -142,7 +142,7 @@ app.UseMvc(routes =>
 <a href='/Speaker/Detail/12'>SpeakerId: 12</a>
 ```
 
-次の場合はそのルート プレフィックスがあるルーティング テンプレートの一部でない場合は、 **cshtml**ファイル。
+ルート プレフィックスがあるルーティング テンプレートの一部でない場合は、次の場合と**cshtml**ファイル。
 
 ```cshtml
 @model SpeakerData
@@ -152,7 +152,7 @@ app.UseMvc(routes =>
 <body></html>
 ```
 
-生成される HTML れます次のように**speakerid**が一致するルート上で見つかりませんでした。
+生成される HTML れます次のように**speakerid**に一致するルートが見つかりませんでした。
 
 ```html
 <a href='/Speaker/Detail?speakerid=12'>SpeakerId: 12</a>
@@ -164,7 +164,7 @@ app.UseMvc(routes =>
 
 `asp-route`名前付きのルートに直接リンクする URL を作成する方法を提供します。 ルーティング属性を使用して、ように、ルートをということができます、`SpeakerController`で使用されると、`Evaluations`メソッドです。
 
-`Name = "speakerevals"`アンカー タグ ヘルパーのルート URL を使用してそのコント ローラーのメソッドを直接生成するように指示`/Speaker/Evaluations`です。 場合`asp-controller`または`asp-action`が他に指定されている`asp-route`、生成されるルートできない可能性がありますが予期したものとします。 `asp-route`属性のいずれかで使用しないで`asp-controller`または`asp-action`ルート競合を回避します。
+`Name = "speakerevals"`アンカー タグ ヘルパーのルート URL を使用してそのコント ローラーのメソッドを直接生成するように指示`/Speaker/Evaluations`です。 場合`asp-controller`または`asp-action`が他に指定されている`asp-route`、生成されるルートできない可能性がありますが予期したものとします。 `asp-route`属性のいずれかで使用できない`asp-controller`または`asp-action`ルート競合を回避します。
 
 ### <a name="asp-all-route-data"></a>asp-all-route-data
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/application-model
-ms.openlocfilehash: c69dd1cfae713036ce0ee95f70acc162b1e82cb0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a0913edaab723656c9be484332e02c551a5c88e1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-the-application-model"></a>アプリケーション モデルの操作
 
@@ -35,7 +35,7 @@ ASP.NET Core MVC アプリケーションのモデルには、次のような構
 モデルの各レベルが、共通のアクセス`Properties`コレクション、および下位レベルにアクセスして、階層の上位レベルで設定されたプロパティ値を上書きします。 プロパティに保存される、`ActionDescriptor.Properties`アクションが作成されます。 要求を処理しているときに任意のプロパティを追加または変更、規則からアクセスできます`ActionContext.ActionDescriptor.Properties`です。 -アクションごとに、フィルターやモデル バインダーなどを構成する優れた方法としては、プロパティを使用します。
 
 > [!NOTE]
-> `ActionDescriptor.Properties`コレクションはスレッド セーフはな (書き込み) のアプリのスタートアップが完了します。 規則は、このコレクションにデータを安全に追加する最善の方法です。
+> `ActionDescriptor.Properties`アプリのスタートアップが完了したら、コレクションいないスレッド セーフ (書き込み) です。 規則は、このコレクションにデータを安全に追加する最善の方法です。
 
 ### <a name="iapplicationmodelprovider"></a>IApplicationModelProvider
 
@@ -53,7 +53,7 @@ ASP.NET Core MVC によって定義された、プロバイダーのパターン
 * [`CorsApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.cors.internal.corsapplicationmodelprovider)
 
 > [!NOTE]
-> どの 2 つのプロバイダーの値が同じ順序`Order`と呼ばれますが、定義されていませんし、したがってが依存していません。
+> 値が同じ 2 つのプロバイダーはどの順序`Order`と呼ばれますが定義されていないと、したがっての際に依存しないでください。
 
 > [!NOTE]
 > `IApplicationModelProvider`フレームワークの作成者を拡張するための高度な概念がします。 一般に、アプリは、規則を使用する必要があり、フレームワークは、プロバイダーを使用する必要があります。 重要な違いは、プロバイダーが規則の前に常に実行することです。
@@ -185,7 +185,7 @@ Shim によって提供される規則は、それらに適用された特定の
 
 ### <a name="action-conventions"></a>アクションの表記規則
 
-`UseWebApiActionConventionsAttribute`名に基づいてアクションに HTTP メソッドをマップするために使用 (たとえば、`Get`にマップ`HttpGet`)。 属性のルーティングを使用しないアクションにのみ適用されます。
+`UseWebApiActionConventionsAttribute`名に基づいてアクションに HTTP メソッドをマップするために使用 (たとえば、`Get`にマップ`HttpGet`)。 属性のルーティングを使用していないアクションにのみ適用されます。
 
 ### <a name="overloading"></a>オーバーロード
 

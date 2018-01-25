@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/creating-a-connection-string
 msc.type: authoredcontent
-ms.openlocfilehash: 41f1f30d86406580ab9fc7278a94d9c291913f9a
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 25d1c1c9954baaca9ef91eff3dd3c853930a5893
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>接続文字列を作成し、SQL Server LocalDB 協力
 ====================
@@ -36,7 +36,7 @@ SQL Server Express は、実稼働 web アプリケーションでの使用は�
 
 Visual Studio 2017、LocalDB は既定では Visual Studio と共にインストールされます。
 
-既定では、Entity Framework は、オブジェクト コンテキスト クラスと同じ名前の接続文字列の検索 (`MovieDBContext`このプロジェクトの)。 詳細については、次を参照してください。 [ASP.NET Web アプリケーション用の SQL Server 接続文字列](https://msdn.microsoft.com/en-us/library/jj653752.aspx)です。
+既定では、Entity Framework は、オブジェクト コンテキスト クラスと同じ名前の接続文字列の検索 (`MovieDBContext`このプロジェクトの)。 詳細については、次を参照してください。 [ASP.NET Web アプリケーション用の SQL Server 接続文字列](https://msdn.microsoft.com/library/jj653752.aspx)です。
 
 アプリケーションのルートを開く*Web.config*次に示すファイル。 (されません、 *Web.config*ファイルで、*ビュー*フォルダーです)。
 
@@ -56,11 +56,11 @@ Visual Studio 2017、LocalDB は既定では Visual Studio と共にインスト
 
 2 つの接続文字列は、非常に似ています。 最初の接続文字列が名前付き`DefaultConnection`メンバーシップ データベースがアプリケーションにアクセスできるユーザーを制御するために使用されます。 という名前の LocalDB データベースを指定する接続文字列を追加した*Movie.mdf*にある、*アプリ\_データ*フォルダーです。 メンバーシップ、認証およびセキュリティの詳細については、このチュートリアルで、メンバーシップ データベースを使用して、チュートリアルを参照してくださいおされません[Azure App Service に認証と SQL DB の ASP.NET MVC アプリの作成し、展開](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)です。
 
-接続文字列の名前の名前に一致する必要があります、 [DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.103).aspx)クラスです。
+接続文字列の名前の名前に一致する必要があります、 [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)クラスです。
 
 [!code-csharp[Main](creating-a-connection-string/samples/sample3.cs?highlight=15)]
 
-実際にでは、追加する必要はありません、`MovieDBContext`接続文字列。 Entity Framework が LocalDB データベースを作成するユーザーのディレクトリの完全修飾名で接続文字列を指定しない場合、 [DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.103).aspx)クラス (このケースで`MvcMovie.Models.MovieDBContext`)。 できる任意の名前をデータベースが必要ながある限り、*です。MDF*サフィックス。 たとえば、データベースの名前おでした*MyFilms.mdf*です。
+実際にでは、追加する必要はありません、`MovieDBContext`接続文字列。 Entity Framework が LocalDB データベースを作成するユーザーのディレクトリの完全修飾名で接続文字列を指定しない場合、 [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)クラス (このケースで`MvcMovie.Models.MovieDBContext`)。 できる任意の名前をデータベースが必要ながある限り、*です。MDF*サフィックス。 たとえば、データベースの名前おでした*MyFilms.mdf*です。
 
 新しいビルド次に、`MoviesController`ムービー データを表示し、新しいムービーの一覧を作成できるように使用できるクラスです。
 

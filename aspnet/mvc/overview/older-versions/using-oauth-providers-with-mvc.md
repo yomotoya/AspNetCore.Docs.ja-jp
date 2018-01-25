@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 965d2e740cc76838b1b4e1c618a2a6d784672fcc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0d053cecbf9a59f258470ee370852e3f112908c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-oauth-providers-with-mvc-4"></a>MVC 4 で OAuth プロバイダーの使用
 ====================
@@ -148,7 +148,7 @@ Facebook の資格情報を使用してログインは、ページは、サイ�
 
 前のセクションでは、通知するよう、作業をビルトイン アカウントの登録に関する追加情報を取得する必要はありません。 ただし、ほとんどの外部プロバイダーは、ユーザーに関する追加情報を渡します。 次のセクションでは、その情報を保持し、データベースに保存する方法を示します。 具体的には、ユーザーの完全名、ユーザーの個人用の web ページの URI の値、および Facebook がアカウントを検証するかどうかを示す値が保持されます。
 
-使用して[Code First Migrations](https://msdn.microsoft.com/en-us/data/jj591621)追加のユーザー情報を格納するテーブルを追加します。 現在のデータベースのスナップショットを作成する必要があります最初、既存のデータベースにテーブルを追加します。 現在のデータベースのスナップショットを作成すると、新しいテーブルのみを含む移行を後で作成できます。 現在のデータベースのスナップショットを作成します。
+使用して[Code First Migrations](https://msdn.microsoft.com/data/jj591621)追加のユーザー情報を格納するテーブルを追加します。 現在のデータベースのスナップショットを作成する必要があります最初、既存のデータベースにテーブルを追加します。 現在のデータベースのスナップショットを作成すると、新しいテーブルのみを含む移行を後で作成できます。 現在のデータベースのスナップショットを作成します。
 
 1. 開く、**パッケージ マネージャー コンソール**
 2. コマンドを実行**有効な移行**
@@ -188,7 +188,7 @@ UsersContext クラスでは、新しいクラスの DbSet プロパティを作
 
 - ID
 - name
-- link
+- リンクをクリックする
 - 性別
 - accesstoken
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: a0c59245eedbf53f367949e12dd83e2611f44fc4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1c262ec7b834107524a18c6552b171f731452c91
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="taking-web-applications-offline-with-web-deploy"></a>Web アプリケーションをオフラインでの web 配置します。
 ====================
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/10/2017
 > 次の手順は、ことを使用するカスタム MSBuild プロジェクト ファイル、配置プロセスを制御する」の説明に従って前提としています。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)です。 Visual Studio から直接配置する場合、は、別のアプローチを使用する必要があります。 Sayed Ibrahim Hashimi でこのような 1 つの方法を説明する[かかる、Web アプリ オフライン中に発行する方法](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx)です。
 
 
-展開する、*アプリ\_オフライン*ファイル変換先の IIS の web サイトに MSDeploy.exe を使用して呼び出す必要があります、 [Web Deploy **contentPath**プロバイダー](https://technet.microsoft.com/en-us/library/dd569034(WS.10).aspx)です。 **ContentPath**プロバイダーをサポートしている物理ディレクトリのパスと IIS の web サイトまたはアプリケーションのパスの両方を Visual Studio プロジェクト フォルダーと、IIS web アプリケーションの間でファイルを同期する理想的な選択肢になります。 ファイルを展開するには、MSDeploy コマンドのようにこの必要があります。
+展開する、*アプリ\_オフライン*ファイル変換先の IIS の web サイトに MSDeploy.exe を使用して呼び出す必要があります、 [Web Deploy **contentPath**プロバイダー](https://technet.microsoft.com/library/dd569034(WS.10).aspx)です。 **ContentPath**プロバイダーをサポートしている物理ディレクトリのパスと IIS の web サイトまたはアプリケーションのパスの両方を Visual Studio プロジェクト フォルダーと、IIS web アプリケーションの間でファイルを同期する理想的な選択肢になります。 ファイルを展開するには、MSDeploy コマンドのようにこの必要があります。
 
 
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample1.cmd)]
@@ -95,7 +95,7 @@ ms.lasthandoff: 11/10/2017
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample3.xml)]
 3. **SourceRoot**でプロパティが別の場所で定義されている、 *Publish.proj*ファイル。 現在のパス & #x 2014 基準とした; つまりの場所に対する相対、ソース コンテンツのルート フォルダーの場所を示す、 *Publish.proj*ファイル。
-4. **ContentPath**プロバイダー受け入れません相対ファイル パスを展開する前に、ソース ファイルへの絶対パスを取得する必要があります。 使用することができます、 [ConvertToAbsolutePath](https://msdn.microsoft.com/en-us/library/bb882668.aspx)これを行うタスクです。
+4. **ContentPath**プロバイダー受け入れません相対ファイル パスを展開する前に、ソース ファイルへの絶対パスを取得する必要があります。 使用することができます、 [ConvertToAbsolutePath](https://msdn.microsoft.com/library/bb882668.aspx)これを行うタスクです。
 5. 新しい**ターゲット**という名前の要素**GetAppOfflineAbsolutePath**です。 このターゲット内で使用して、 **ConvertToAbsolutePath**への絶対パスを取得するタスク、*アプリ\_オフライン テンプレート*プロジェクト フォルダー内のファイルです。
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample4.xml)]
@@ -148,7 +148,7 @@ Web 発行パイプライン (WPP) という名前の項目リストを使用し
 1. Visual Studio 2010 でソリューションを開きます。
 2. **ソリューション エクスプ ローラー**ウィンドウで、web アプリケーションのプロジェクト ノードを右クリックし (たとえば、 **ContactManager.Mvc**)、 をポイント**追加**をクリックして**新しい項目の**します。
 3. **新しい項目の追加**ダイアログ ボックスで、 **XML ファイル**テンプレート。
-4. **名前**ボックスに、入力*[プロジェクト名]***. wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**)、をクリックして**追加**です。
+4. **名前**ボックスに、入力*[プロジェクト名] * * *.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**)、をクリックして**追加**.
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image4.png)
 

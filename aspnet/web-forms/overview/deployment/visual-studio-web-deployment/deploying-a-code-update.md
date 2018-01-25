@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
-ms.openlocfilehash: 10da2b5013ae1348b69ea4f456d81bb4c4b73df6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f6861c702c1ccb19e5a4eee484a622079e205f86
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Visual Studio を使用した ASP.NET Web 展開: コードの更新を展開します。
 ====================
@@ -79,7 +79,7 @@ ms.lasthandoff: 11/10/2017
 
 通常どおりも回帰テストを行う (つまり、新しい変更で、既存の機能が損なわれていないことを確認するサイトの残りの部分をテストする)。 このチュートリアルでをその手順をスキップし、ステージング環境と運用環境の更新プログラムの展開に進みます。
 
-再展開するときにどのファイルが変更を自動的に決定 Web 配置し、コピーのみがサーバーにファイルを変更します。 既定では、Web Deploy で最終変更日に基づいてファイル判別どれが変更されました。 いくつかのソース管理システムでは、ファイルの内容を変更しない場合、ファイルがあっても日付に変更します。 その場合は、Web デプロイを決定するファイルが変更されたファイルのチェックサムを使用して構成することができます。 詳細については、次を参照してください。[理由はすべてのファイルを取得を再展開が、それらを変更していないか。](https://msdn.microsoft.com/en-us/library/ee942158.aspx#use_checksum) ASP.NET 展開 FAQ にします。
+再展開するときにどのファイルが変更を自動的に決定 Web 配置し、コピーのみがサーバーにファイルを変更します。 既定では、Web Deploy で最終変更日に基づいてファイル判別どれが変更されました。 いくつかのソース管理システムでは、ファイルの内容を変更しない場合、ファイルがあっても日付に変更します。 その場合は、Web デプロイを決定するファイルが変更されたファイルのチェックサムを使用して構成することができます。 詳細については、次を参照してください。[理由はすべてのファイルを取得を再展開が、それらを変更していないか。](https://msdn.microsoft.com/library/ee942158.aspx#use_checksum) ASP.NET 展開 FAQ にします。
 
 ## <a name="take-the-application-offline-during-deployment"></a>配置時にオフライン アプリケーションします。
 
@@ -167,7 +167,7 @@ Visual Studio 2012 は個々 のファイルを展開することも提供しま
     ![Site.css に加えた変更のプレビュー](deploying-a-code-update/_static/image10.png)
 
     ダブルクリックする場合、 *Web.config*ファイル、**変更のプレビュー**ダイアログ変換の構成、ビルドの効果を示していて、発行プロファイルの変換。 この時点で実行していない原因は、 *Web.config*を変更すると、変更が表示されないため、サーバー上のファイルです。 ただし、**変更のプレビュー**ウィンドウが 2 つの変更を正しく表示します。 2 つの XML 要素が削除するようです。 選択すると、発行プロセスでこれらの要素が追加された**実行 Code First Migrations アプリケーション開始時に**Code First コンテキスト クラスです。 発行プロセスが削除されませんが、取り消されるように見えるために、それらの要素を追加する前に、比較が行われます。 このエラーは、将来のリリースで修正される予定です。
-5. **[閉じる]**をクリックします。
+5. **[閉じる]** をクリックします。
 6. **[発行]**をクリックします。
 7. テスト サイトのホーム ページを開くと、ブラウザー、CTRL + f5 キーを押して CSS の変更の結果を確認するためにハード更新が発生します。
 
@@ -188,7 +188,7 @@ Visual Studio 2012 は個々 のファイルを展開することも提供しま
 
     送信先の環境に、ローカル ファイルとそのバージョンの違いを表示するウィンドウが開きます。
 
-    ![Diff-コンテンツ/Site.css](deploying-a-code-update/_static/image13.png)
+    ![Diff-Content/Site.css](deploying-a-code-update/_static/image13.png)
 4. **ソリューション エクスプ ローラー**を右クリックして**Site.css**再度 をクリック**発行 Site.css**です。
 
     **Web 公開アクティビティ**ファイルが公開されているウィンドウを示しています。
@@ -199,7 +199,7 @@ Visual Studio 2012 は個々 のファイルを展開することも提供しま
     ![通常の CSS のホーム ページ](deploying-a-code-update/_static/image15.png)
 6. ブラウザーを閉じます。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 データベースの変更を含まないアプリケーションの更新プログラムを展開するいくつかの方法を確認したようになりましたし、新機能が更新されますが期待どおりに表示を確認する変更をプレビューする方法を説明しました。 講習においてインストラクター ページのようになりましたが、**コース学期**セクションです。
 

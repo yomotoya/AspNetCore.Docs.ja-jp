@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 4f1ad959c45281cdd831c37c2e3ca428f3fae9a0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f1d15250682305f6d0512b72bd2e40cb4a8a18e5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-scaleout-in-signalr"></a>SignalR でスケール アウトの概要
 ====================
@@ -59,17 +59,17 @@ SignalR には、次の 3 つのバック プレーン現在提供していま�
 - **Redis**です。 Redis は、メモリ内キー値ストアです。 Redis は、メッセージを送信する (「パブリッシュ/サブスクライブ」) の公開/定期受信パターンをサポートします。
 - **SQL Server**です。 SQL Server のバック プレーンでは、SQL テーブルにメッセージを書き込みます。 バック プレーンでは、効率的なメッセージの Service Broker を使用します。 ただし、これは Service Broker が有効になっていない場合にでも動作します。
 
-Azure でアプリケーションを配置する場合は、Redis バック プレーンを使用して、使用を検討して[Azure Redis Cache](https://azure.microsoft.com/en-us/services/cache/)です。 サーバー ファームに配置する場合は、SQL Server または Redis のバック プレーンに検討してください。
+Azure でアプリケーションを配置する場合は、Redis バック プレーンを使用して、使用を検討して[Azure Redis Cache](https://azure.microsoft.com/services/cache/)です。 サーバー ファームに配置する場合は、SQL Server または Redis のバック プレーンに検討してください。
 
 次のトピックには、各バック プレーンのステップバイ ステップ チュートリアルが含まれています。
 
-- [Azure Service Bus での SignalR スケール アウト](scaleout-with-windows-azure-service-bus.md)
-- [Redis で SignalR スケール アウト](scaleout-with-redis.md)
-- [SQL Server での SignalR スケール アウト](scaleout-with-sql-server.md)
+- [Azure Service Bus による SignalR スケールアウト](scaleout-with-windows-azure-service-bus.md)
+- [Redis による SignalR スケールアウト](scaleout-with-redis.md)
+- [SQL Server による SignalR スケールアウト](scaleout-with-sql-server.md)
 
 ## <a name="implementation"></a>実装
 
-、SignalR メッセージ バスを介してすべてのメッセージが送信されます。 メッセージ バスを実装して、 [IMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx)インターフェイスで、パブリッシュ/サブスクライブ抽象化を提供します。 既定値に置き換えることで、バック プレーンの作業**IMessageBus**そのバック プレーン用に設計されたバスとします。 Redis メッセージ バスは、たとえば、 [RedisMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx)、し、Redis を使用して[パブリッシュ/サブスクライブ](http://redis.io/topics/pubsub)メッセージを送信するためのメカニズムです。
+、SignalR メッセージ バスを介してすべてのメッセージが送信されます。 メッセージ バスを実装して、 [IMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx)インターフェイスで、パブリッシュ/サブスクライブ抽象化を提供します。 既定値に置き換えることで、バック プレーンの作業**IMessageBus**そのバック プレーン用に設計されたバスとします。 Redis メッセージ バスは、たとえば、 [RedisMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx)、し、Redis を使用して[パブリッシュ/サブスクライブ](http://redis.io/topics/pubsub)メッセージを送信するためのメカニズムです。
 
 各サーバー インスタンスは、バスを介してバック プレーンに接続します。 メッセージが送信されると、バック プレーンに移動して、バック プレーンのすべてのサーバーに送信します。 サーバーでは、バック プレーンからメッセージが取得されるメッセージをローカル キャッシュに保存されます。 サーバーはのローカル キャッシュから、クライアントにメッセージを配信します。
 

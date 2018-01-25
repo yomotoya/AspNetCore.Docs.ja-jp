@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 title: "Entity Framework 4.0 の新機能 |Microsoft ドキュメント"
 author: tdykstra
-description: "この一連のチュートリアルについては、Entity Framework 4.0 チュートリアル シリーズの概要を作成した Contoso 大学 web アプリケーションに基づいています。 私。。。"
+description: "この一連のチュートリアルについては、Entity Framework 4.0 チュートリアル シリーズの概要を作成した Contoso 大学 web アプリケーションに基づいています。 I..."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 msc.type: authoredcontent
-ms.openlocfilehash: 4c89ca004ad4c9d731868e868cf6723aa4ed625d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c114627388217e892c84d6b76366d0fa96b0b70c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-the-entity-framework-40"></a>Entity Framework 4.0 の新機能
 ====================
@@ -90,7 +90,7 @@ Contoso 大学管理者ができるストアド プロシージャを作成し�
 
 (で、元の値に戻すクレジットの数を設定する場合*UpdateCredits.aspx.cs*変更`Credits * {0}`に`Credits / {0}`除数として 10 を入力する、ページを再実行します)。
 
-コードで定義するクエリの実行の詳細については、次を参照してください。[する方法: 直接実行コマンドに対して、データ ソース](https://msdn.microsoft.com/en-us/library/ee358769.aspx)です。
+コードで定義するクエリの実行の詳細については、次を参照してください。[する方法: 直接実行コマンドに対して、データ ソース](https://msdn.microsoft.com/library/ee358769.aspx)です。
 
 ## <a name="model-first-development"></a>モデル優先の開発
 
@@ -178,7 +178,7 @@ A *.sql*データ定義言語 (DDL) コマンドを使用してファイルを�
 
 (注: このページは、ダウンロード可能なプロジェクトに含まれるが機能するためにする必要がありますでデータベースを作成、ローカルの SQL Server Express インスタンス; データベースとして含まれています、 *.mdf*ファイルで、*アプリ\_データ*フォルダーです)。
 
-詳細については、Entity Framework のモデル優先機能を使用して、次を参照してください。 [Entity Framework 4 でモデル優先](https://msdn.microsoft.com/en-us/data/ff830362.aspx)です。
+詳細については、Entity Framework のモデル優先機能を使用して、次を参照してください。 [Entity Framework 4 でモデル優先](https://msdn.microsoft.com/data/ff830362.aspx)です。
 
 ## <a name="poco-support"></a>POCO サポート
 
@@ -188,7 +188,7 @@ Entity Framework 4 から継承しないエンティティ クラスを使用す
 
 Entity Framework ではした poco からの使用に関する詳細については、次のリソースを参照してください。
 
-- [POCO エンティティの操作](https://msdn.microsoft.com/en-us/library/dd456853.aspx)です。 これより詳しい情報を他のドキュメントへのリンクをした poco の概要については、MSDN ドキュメントです。
+- [POCO エンティティの操作](https://msdn.microsoft.com/library/dd456853.aspx)です。 これより詳しい情報を他のドキュメントへのリンクをした poco の概要については、MSDN ドキュメントです。
 - [チュートリアル: POCO Entity Framework 用のテンプレート](https://blogs.msdn.com/b/adonet/archive/2010/01/25/walkthrough-poco-template-for-the-entity-framework.aspx)した poco からに関するその他のブログの投稿へのリンクと共に、Entity Framework 開発チームのブログの投稿です。
 
 ## <a name="code-first-development"></a>コード優先の開発
@@ -209,7 +209,7 @@ Entity Framework 4 で POCO サポートには、データ モデルを作成し
 
 これは、新機能、Entity Framework と Entity Framework チュートリアル シリーズを続行するとこのするための概要を完了します。 ここで取り上げていないする Entity Framework 4 の新機能の詳細については、次のリソースを参照してください。
 
-- [ADO.NET の新](https://msdn.microsoft.com/en-us/library/ex6y04yf.aspx)Entity Framework のバージョン 4 の新機能に関する MSDN トピックです。
+- [ADO.NET の新](https://msdn.microsoft.com/library/ex6y04yf.aspx)Entity Framework のバージョン 4 の新機能に関する MSDN トピックです。
 - [Entity Framework 4 のリリースを発表](https://blogs.msdn.com/b/efdesign/archive/2010/04/12/announcing-the-release-of-entity-framework-4.aspx)バージョン 4 の新機能についての Entity Framework 開発チームのブログの投稿。
 
 >[!div class="step-by-step"]

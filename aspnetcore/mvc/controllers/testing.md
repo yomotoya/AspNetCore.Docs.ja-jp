@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: 7f34bc7766b41beafb2a1ee09577109bc1402867
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: f27e7ec43cd17e249dd646a7dfbce5df69d59664
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>ASP.NET Core でのテスト コント ローラー ロジック
 
@@ -40,7 +40,7 @@ ASP.NET MVC アプリケーション内のコント ローラーは、ユーザ�
 
 ## <a name="unit-testing"></a>単体テスト
 
-[単体テスト](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)インフラストラクチャとの依存関係から分離でのアプリの一部のテストが含まれます。 単体テスト コント ローラー ロジック、1 つのアクションの内容のみをテストするときに、その依存関係や framework 自体の動作できません。 ユニットとしてテスト コント ローラーのアクションをその動作にだけ専念するかどうかを確認します。 単体テストをコント ローラーなどの回避[フィルター](filters.md)、[ルーティング](../../fundamentals/routing.md)、または[モデル バインディング](../models/model-binding.md)です。 1 つだけをテストに焦点を当てた、単体テストは一般に書き込む単純なとを実行するクイックです。 多くのオーバーヘッドなし、適切に記述された一連の単体テストを頻繁に実行できます。 ただし、単体テストでは問題を検出されないコンポーネント間の対話での目的は[統合テスト](xref:mvc/controllers/testing#integration-testing)です。
+[単体テスト](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)インフラストラクチャとの依存関係から分離でのアプリの一部のテストが含まれます。 単体テスト コント ローラー ロジック、1 つのアクションの内容のみをテストするときに、その依存関係や framework 自体の動作できません。 ユニットとしてテスト コント ローラーのアクションをその動作にだけ専念するかどうかを確認します。 単体テストをコント ローラーなどの回避[フィルター](filters.md)、[ルーティング](../../fundamentals/routing.md)、または[モデル バインディング](../models/model-binding.md)です。 1 つだけをテストに焦点を当てた、単体テストは一般に書き込む単純なとを実行するクイックです。 多くのオーバーヘッドなし、適切に記述された一連の単体テストを頻繁に実行できます。 ただし、単体テストが問題を検出しないコンポーネント間の対話での目的は[統合テスト](xref:mvc/controllers/testing#integration-testing)です。
 
 単体テストする必要がありますカスタム フィルターやルートなどを記述している場合、特定のコント ローラー アクションで、テストの一部ではなく、します。 これらは、分離環境でテストしてください。
 
@@ -65,9 +65,9 @@ ASP.NET MVC アプリケーション内のコント ローラーは、ユーザ�
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
-ときに最初のテストのことを確認`ModelState`が有効でない同じ`ViewResult`用として返される、`GET`要求します。 テストが無効なモデルに渡すしようとしないに注意してください。 はうまくままモデル バインディングが実行されていないので (ただし、[統合テスト](xref:mvc/controllers/testing#integration-testing)演習モデル バインディングを使用)。 この場合、モデル バインディングいないテスト中です。 これらの単体テストでは、アクション メソッドのコードが何をテストするだけです。
+ときに最初のテストのことを確認`ModelState`が有効でない同じ`ViewResult`用として返される、`GET`要求します。 テストが無効なモデルに渡すしようとしないに注意してください。 はうまくままモデル バインディングが実行されていないので (ただし、[統合テスト](xref:mvc/controllers/testing#integration-testing)演習モデル バインディングを使用)。 この場合、モデル バインディングがテスト中はありません。 これらの単体テストでは、アクション メソッドのコードが何をテストするだけです。
 
-2 番目のテストの検証時に`ModelState`が有効で、新しい`BrainstormSession`(リポジトリ) を使用して追加が返されます、`RedirectToActionResult`予期されたプロパティを持つ。 呼び出されないモックの呼び出しは、通常は無視されますが、呼び出し`Verifiable`セットアップの最後の呼び出しで許可されているテストで検証します。 これは、呼び出したときに`mockRepo.Verify`、予想されるメソッドが呼び出されなかった場合、テストが失敗します。
+2 番目のテストの検証時に`ModelState`が有効で、新しい`BrainstormSession`(リポジトリ) を使用して追加が返されます、`RedirectToActionResult`予期されたプロパティを持つ。 呼び出されないモックの呼び出しは、通常は無視されますが、呼び出し`Verifiable`セットアップの最後の呼び出しで許可されているテストで検証します。 これは、呼び出したときに`mockRepo.Verify`、予想されるメソッドが呼び出された場合、テストが失敗します。
 
 > [!NOTE]
 > このサンプルで使用される Moq ライブラリしやすい検証不可能のモック (「厳密でない」モックまたはスタブとも呼ばれます) を使用して、検証可能なまたは"strict"、モックを混在させます。 詳細については[Moq とモック動作をカスタマイズする](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior)です。
@@ -121,7 +121,7 @@ ASP.NET MVC アプリケーション内のコント ローラーは、ユーザ�
 各統合テスト クラスの構成、 `TestServer` ASP.NET Core アプリケーションを実行します。 既定では、`TestServer`が実行されている - この場合、テスト プロジェクト フォルダーのフォルダーに web アプリケーションをホストします。 したがって、しようとするテスト コント ローラーのアクションを返す`ViewResult`、このエラーが発生する可能性があります。
 
 ```
-The view 'Index' was not found. The following locations were searched:
+The view 'Index' wasn't found. The following locations were searched:
 (list of locations)
 ```
 

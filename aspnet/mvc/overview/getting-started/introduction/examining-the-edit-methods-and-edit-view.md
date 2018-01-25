@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 84aadccc18e7fa0fb56c7a78e144a1bf1038aac5
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: d7e1ba503b8aa815cebf431d2f5ffc9436b3575b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>編集方法と編集ビューの確認
 ====================
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/19/2017
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample2.cs?highlight=3)]
 
-[DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) については、次のチュートリアルで説明します。 [Display](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayattribute.aspx) 属性は、フィールドの名前として表示する内容 (ここでは、"ReleaseDate" ではなく、"Release Date") を指定します。 [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性データの種類を指定する、ここでは、日付フィールドに格納されている時刻情報が表示されないようにします。 [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx)日付の形式が正しくレンダリングされない Chrome ブラウザーでのバグの属性が必要です。
+[DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) については、次のチュートリアルで説明します。 [Display](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayattribute.aspx) 属性は、フィールドの名前として表示する内容 (ここでは、"ReleaseDate" ではなく、"Release Date") を指定します。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性データの種類を指定する、ここでは、日付フィールドに格納されている時刻情報が表示されないようにします。 [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)日付の形式が正しくレンダリングされない Chrome ブラウザーでのバグの属性が必要です。
 
 アプリケーションを実行しを参照、`Movies`コント ローラー。 上にマウス ポインターを置く、**編集**にリンクする URL を表示するリンクです。
 
@@ -44,9 +44,9 @@ ms.lasthandoff: 11/19/2017
 
 ![Html.ActionLink](examining-the-edit-methods-and-edit-view/_static/image2.png)
 
-`Html`オブジェクトのプロパティを使用して公開されているヘルパーは、 [System.Web.Mvc.WebViewPage](https://msdn.microsoft.com/en-us/library/gg402107(VS.98).aspx)基本クラスです。 `ActionLink`ヘルパーのメソッドでは、簡単にコント ローラー アクション メソッドにリンクする HTML ハイパーリンクを動的に生成します。 1 番目の引数、`ActionLink`メソッドは、表示するには、このリンク テキスト (たとえば、 `<a>Edit Me</a>`)。 2 番目の引数は、呼び出すアクション メソッドの名前 (この場合、`Edit`アクション) です。 最後の引数、[匿名オブジェクト](https://weblogs.asp.net/scottgu/archive/2007/05/15/new-orcas-language-feature-anonymous-types.aspx)(ここでは、4 の ID) のルート データを生成します。
+`Html`オブジェクトのプロパティを使用して公開されているヘルパーは、 [System.Web.Mvc.WebViewPage](https://msdn.microsoft.com/library/gg402107(VS.98).aspx)基本クラスです。 `ActionLink`ヘルパーのメソッドでは、簡単にコント ローラー アクション メソッドにリンクする HTML ハイパーリンクを動的に生成します。 1 番目の引数、`ActionLink`メソッドは、表示するには、このリンク テキスト (たとえば、 `<a>Edit Me</a>`)。 2 番目の引数は、呼び出すアクション メソッドの名前 (この場合、`Edit`アクション) です。 最後の引数、[匿名オブジェクト](https://weblogs.asp.net/scottgu/archive/2007/05/15/new-orcas-language-feature-anonymous-types.aspx)(ここでは、4 の ID) のルート データを生成します。
 
-前の図に示すように生成されたリンクは`http://localhost:1234/Movies/Edit/4`します。 既定のルート (で確立された*アプリ\_Start\RouteConfig.cs*) URL パターンを受け取る`{controller}/{action}/{id}`です。 そのため、ASP.NET 変換`http://localhost:1234/Movies/Edit/4`への要求に、`Edit`のアクション メソッド、`Movies`パラメーターを使用してコント ローラー `ID` 4 に等しい。 次のコードを調べて、*アプリ\_Start\RouteConfig.cs*ファイル。 [MapRoute](../../older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs.md)メソッドを使用して正しいコント ローラーとアクション メソッドへの HTTP 要求をルーティングし、省略可能な ID パラメーターを指定します。 [MapRoute](../../older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs.md)でメソッドを使用しても、 [HtmlHelpers](https://msdn.microsoft.com/en-us/library/system.web.mvc.htmlhelper(v=vs.108).aspx)など`ActionLink`コント ローラー、アクション メソッド、およびルート データを指定する Url を生成します。
+前の図に示すように生成されたリンクは`http://localhost:1234/Movies/Edit/4`します。 既定のルート (で確立された*アプリ\_Start\RouteConfig.cs*) URL パターンを受け取る`{controller}/{action}/{id}`です。 そのため、ASP.NET 変換`http://localhost:1234/Movies/Edit/4`への要求に、`Edit`のアクション メソッド、`Movies`パラメーターを使用してコント ローラー `ID` 4 に等しい。 次のコードを調べて、*アプリ\_Start\RouteConfig.cs*ファイル。 [MapRoute](../../older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs.md)メソッドを使用して正しいコント ローラーとアクション メソッドへの HTTP 要求をルーティングし、省略可能な ID パラメーターを指定します。 [MapRoute](../../older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs.md)でメソッドを使用しても、 [HtmlHelpers](https://msdn.microsoft.com/library/system.web.mvc.htmlhelper(v=vs.108).aspx)など`ActionLink`コント ローラー、アクション メソッド、およびルート データを指定する Url を生成します。
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample4.cs?highlight=7)]
 
@@ -58,19 +58,19 @@ ms.lasthandoff: 11/19/2017
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample5.cs?highlight=19-21)]
 
-2 番目の `Edit` アクション メソッドの前に `HttpPost` 属性が付いていることに注意してください。 この属性を指定するオーバー ロードの`Edit`メソッドは、POST 要求に対してのみ呼び出すことができます。 適用する可能性があります、`HttpGet`最初の属性がメソッドを編集がされていないに必要な既定値になっているためです。 (暗黙的に割り当てられているアクション メソッドに参照お、`HttpGet`属性に`HttpGet`メソッドです)。[バインド](https://msdn.microsoft.com/en-us/library/system.web.mvc.bindattribute(v=vs.108).aspx)属性が過剰には、モデル データの送信からハッカーを保持する別の重要なセキュリティ メカニズム。 バインド属性を変更するには、プロパティのみを含める必要があります。 Overposting およびでバインド属性の読み取ることができます、[セキュリティに関する注意を過剰ポスティング](https://go.microsoft.com/fwlink/?LinkId=317598)です。 このチュートリアルで使用される単純なモデルでバインド、モデル内のすべてのデータ。 [ValidateAntiForgeryToken](https://msdn.microsoft.com/en-us/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.108).aspx)属性が要求の偽造を防ぐために使用されと対になっている`@Html.AntiForgeryToken()`を編集ビュー ファイル (*Views\Movies\Edit.cshtml*)、一部を次に示します。
+2 番目の `Edit` アクション メソッドの前に `HttpPost` 属性が付いていることに注意してください。 この属性を指定するオーバー ロードの`Edit`メソッドは、POST 要求に対してのみ呼び出すことができます。 適用する可能性があります、`HttpGet`最初の属性がメソッドを編集がされていないに必要な既定値になっているためです。 (暗黙的に割り当てられているアクション メソッドに参照お、`HttpGet`属性に`HttpGet`メソッドです)。[バインド](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx)属性が過剰には、モデル データの送信からハッカーを保持する別の重要なセキュリティ メカニズム。 バインド属性を変更するには、プロパティのみを含める必要があります。 Overposting およびでバインド属性の読み取ることができます、[セキュリティに関する注意を過剰ポスティング](https://go.microsoft.com/fwlink/?LinkId=317598)です。 このチュートリアルで使用される単純なモデルでバインド、モデル内のすべてのデータ。 [ValidateAntiForgeryToken](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.108).aspx)属性が要求の偽造を防ぐために使用されと対になっている`@Html.AntiForgeryToken()`を編集ビュー ファイル (*Views\Movies\Edit.cshtml*)、一部を次に示します。
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample6.cshtml?highlight=9)]
 
 `@Html.AntiForgeryToken()`一致する必要があります隠しフォームした偽造防止トークンを生成、`Edit`のメソッド、`Movies`コント ローラー。 詳細を読み取ることができますクロス サイトに関する要求の偽造防止 (XSRF または CSRF とも呼ばれます)、チュートリアルでは[mvc XSRF/CSRF 防止](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)です。
 
-`HttpGet` `Edit`メソッド ムービー ID パラメーターを受け取り、Entity Framework を使用してムービーを検索`Find`メソッド、し、編集ビューを選択したムービーを返します。 ムービーが見つからない場合[HttpNotFound](https://msdn.microsoft.com/en-us/library/gg453938(VS.98).aspx)が返されます。 スキャフォールディング システムが編集ビューを作成したときは、そのシステムが `Movie` クラスを調べて、クラスの各プロパティの `<label>` および `<input>` 要素をレンダリングするコードを作成しました。 次の例では、visual studio のスキャフォールディング システムによって生成された編集ビューを示します。
+`HttpGet` `Edit`メソッド ムービー ID パラメーターを受け取り、Entity Framework を使用してムービーを検索`Find`メソッド、し、編集ビューを選択したムービーを返します。 ムービーが見つからない場合[HttpNotFound](https://msdn.microsoft.com/library/gg453938(VS.98).aspx)が返されます。 スキャフォールディング システムが編集ビューを作成したときは、そのシステムが `Movie` クラスを調べて、クラスの各プロパティの `<label>` および `<input>` 要素をレンダリングするコードを作成しました。 次の例では、visual studio のスキャフォールディング システムによって生成された編集ビューを示します。
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample7.cshtml)]
 
 ビュー テンプレートには、方法に注意してください、`@model MvcMovie.Models.Movie`ファイルの上部にあるステートメント — ビュー ビュー テンプレート型にするためのモデルが必要ですが、この指定`Movie`です。
 
-スキャフォールディングのコードを使用して*ヘルパー メソッド*を HTML マークアップを効率化します。 [ `Html.LabelFor` ](https://msdn.microsoft.com/en-us/library/gg401864(VS.98).aspx)ヘルパーには、フィールドの名前が表示されます (&quot;タイトル&quot;、 &quot;ReleaseDate&quot;、&quot;ジャンル&quot;、または&quot;価格&quot;). [ `Html.EditorFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx)ヘルパーは、HTML をレンダリング`<input>`要素。 [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx)ヘルパーには、そのプロパティに関連付けられている検証メッセージが表示されます。
+スキャフォールディングのコードを使用して*ヘルパー メソッド*を HTML マークアップを効率化します。 [ `Html.LabelFor` ](https://msdn.microsoft.com/library/gg401864(VS.98).aspx)ヘルパーには、フィールドの名前が表示されます (&quot;タイトル&quot;、 &quot;ReleaseDate&quot;、&quot;ジャンル&quot;、または&quot;価格&quot;). [ `Html.EditorFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx)ヘルパーは、HTML をレンダリング`<input>`要素。 [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx)ヘルパーには、そのプロパティに関連付けられている検証メッセージが表示されます。
 
 アプリケーションを実行しに移動し、 */Movies* URL。 **[編集]** リンクをクリックします。 ブラウザーで、ページのソースを表示します。 HTML フォーム要素を次に示します。
 
@@ -84,9 +84,9 @@ ms.lasthandoff: 11/19/2017
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample9.cs)]
 
-[ValidateAntiForgeryToken](https://msdn.microsoft.com/en-us/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.108).aspx)属性を検証、 [XSRF](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)によって生成されたトークン、`@Html.AntiForgeryToken()`ビューで呼び出します。
+[ValidateAntiForgeryToken](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.108).aspx)属性を検証、 [XSRF](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)によって生成されたトークン、`@Html.AntiForgeryToken()`ビューで呼び出します。
 
-[ASP.NET MVC モデル バインダー](https://msdn.microsoft.com/en-us/library/dd410405.aspx)ポストされたフォーム値を取得し、作成、`Movie`オブジェクトとして渡される、`movie`パラメーター。 `ModelState.IsValid` メソッドは、フォームで送信されたデータを使って `Movie` オブジェクトを変更 (編集または更新) できることを検証します。 ムービー データに保存されているデータが有効である場合、`Movies`のコレクション、`db(MovieDBContext`インスタンス)。 新しいムービー データが呼び出すことによって、データベースに保存、`SaveChanges`メソッドの`MovieDBContext`します。 データを保存した後、コードはユーザーを `MoviesController` クラスの `Index` アクション メソッドにリダイレクトします。そこでは、行われたばかりの変更を含むムービー コレクションが表示されます。
+[ASP.NET MVC モデル バインダー](https://msdn.microsoft.com/library/dd410405.aspx)ポストされたフォーム値を取得し、作成、`Movie`オブジェクトとして渡される、`movie`パラメーター。 `ModelState.IsValid` メソッドは、フォームで送信されたデータを使って `Movie` オブジェクトを変更 (編集または更新) できることを検証します。 ムービー データに保存されているデータが有効である場合、`Movies`のコレクション、`db(MovieDBContext`インスタンス)。 新しいムービー データが呼び出すことによって、データベースに保存、`SaveChanges`メソッドの`MovieDBContext`します。 データを保存した後、コードはユーザーを `MoviesController` クラスの `Index` アクション メソッドにリダイレクトします。そこでは、行われたばかりの変更を含むムービー コレクションが表示されます。
 
 クライアント側の検証で、フィールドの値が無効と認識するとすぐに、エラー メッセージが表示されます。 JavaScript を無効にする場合は、クライアント側の検証する必要はありませんが、ポストされた値が有効でないと、エラー メッセージにフォームの値が表示される、サーバーが検出されます。 このチュートリアルで後ほど詳しく検証を考察します。
 
@@ -106,8 +106,8 @@ ms.lasthandoff: 11/19/2017
 1. **ツール**ボタンをクリックし**NuGetLibrary Package Manager**、クリックして**Manage NuGet Packages for Solution**です。  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image5.png)
-2. 左側のウィンドウで次のように選択します**参照*。* 。* * (次の図を参照してください)。
-3. 入力のボックスでは、次のように入力します。 *Globalize** です。  
+2. 左側のウィンドウで次のように選択します。 **参照*。 * * * (次の図を参照してください)。
+3. 入力のボックスでは、次のように入力します。 * Globalize * *。  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image6.png)選択`jQuery.Validation.Globalize`、選択`MvcMovie` をクリック**インストール**です。 *Scripts\jquery.globalize\globalize.js*ファイルは、プロジェクトに追加されます。 *Scripts\jquery.globalize\cultures\*多くのカルチャの JavaScript ファイルが格納されます。 このパッケージのインストールに 5 分かかる場合がありますに注意してください。
 

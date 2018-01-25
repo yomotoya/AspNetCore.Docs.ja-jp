@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: d0c6976519f4f4bae10fabf4cbf85401de4f58e7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f1a1db907aa1d0a62af9b363fabfc74ac11acc68
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="accessing-your-models-data-from-a-controller-vb"></a>コント ローラー (VB) から、モデルのデータにアクセスします。
 ====================
@@ -89,7 +89,7 @@ ASP.NET MVC 3 のスキャフォールディング機構自動的に作成され
 
 ASP.NET MVC では、厳密に渡せるように入力データまたはオブジェクトをビュー テンプレートも用意されています。 これには、アプローチにより向上コンパイル時のコードと、Visual Web Developer エディターでは、豊富な IntelliSense のチェック厳密型指定されました。 このアプローチでを使用して、`MoviesController`クラスと*Index.vbhtml*ビュー テンプレート。
 
-コードを作成する方法に注意してください、 [ `List` ](https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx)オブジェクトを呼び出すとき、`View`内のヘルパー メソッド、`Index`アクション メソッド。 コードが、これを渡します`Movies`表示するリストのコント ローラーから。
+コードを作成する方法に注意してください、 [ `List` ](https://msdn.microsoft.com/library/6sh2ey19.aspx)オブジェクトを呼び出すとき、`View`内のヘルパー メソッド、`Index`アクション メソッド。 コードが、これを渡します`Movies`表示するリストのコント ローラーから。
 
 [!code-vb[Main](accessing-your-models-data-from-a-controller/samples/sample3.vb)]
 

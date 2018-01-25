@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 465c9cf6f452c268e7e23509e7a29547df5d3e83
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 995d9a088e3095f36a01d2adb19ec08e6a6d1b3e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>ASP.NET と Azure App Service にパスワードや他の機密データを展開するためのベスト プラクティス
 ====================
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/10/2017
 ASP.NET ランタイム内のマークアップを含む外部ファイルの内容と結合&lt;appSettings&gt;要素。 指定したファイルが見つからない場合、ランタイムは、ファイル属性を無視します。
 
 > [!WARNING]
-> セキュリティ - 追加しないでください、*シークレット .config*をプロジェクトにファイルまたはソース管理にチェックインします。 既定では、Visual Studio の設定、`Build Action`に`Content`、つまり、ファイルを展開します。 詳細については、次を参照してください[理由しないすべてのプロジェクト フォルダーにファイルのデプロイしますか?。](https://msdn.microsoft.com/en-us/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) 拡張機能を使用できますが、*シークレット .config*を保持するをお勧めファイル、 *.config*構成ファイルは IIS では処理されないように、します。 また、 *AppSettingsSecrets.config*ファイルが 2 つのディレクトリ レベルをから、 *web.config*ファイルを完全にソリューション ディレクトリ外であるためです。 ソリューションのディレクトリからファイルを移動することによって&quot;git 追加\*&quot;リポジトリに追加されません。
+> セキュリティ - 追加しないでください、*シークレット .config*をプロジェクトにファイルまたはソース管理にチェックインします。 既定では、Visual Studio の設定、`Build Action`に`Content`、つまり、ファイルを展開します。 詳細については、次を参照してください[理由しないすべてのプロジェクト フォルダーにファイルのデプロイしますか?。](https://msdn.microsoft.com/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) 拡張機能を使用できますが、*シークレット .config*を保持するをお勧めファイル、 *.config*構成ファイルは IIS では処理されないように、します。 また、 *AppSettingsSecrets.config*ファイルが 2 つのディレクトリ レベルをから、 *web.config*ファイルを完全にソリューション ディレクトリ外であるためです。 ソリューションのディレクトリからファイルを移動することによって&quot;git 追加\*&quot;リポジトリに追加されません。
 
 
 <a id="con"></a>
@@ -96,7 +96,7 @@ Azure に web アプリを展開するとき、 *AppSettingsSecrets.config* (つ
 
 **アプリ設定**と**接続文字列**値が同じ設定を上書き、 *web.config*ファイル。 この例ではお配置しなかったこれらの設定、azure でこれらのキーがいた場合は、 *web.config*ファイル、ポータルに表示される設定が優先されます。
 
-従うベスト プラクティスは、 [DevOps ワークフロー](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything.md)して[Azure PowerShell](https://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) (またはなどの他のフレームワーク[Chef](http://www.opscode.com/chef/)または[Puppet](http://puppetlabs.com/puppet/what-is-puppet)) にAzure でのこれらの値の設定を自動化します。 次の PowerShell スクリプトを使用して[Export-clixml](http://www.powershellcookbook.com/recipe/PukO/securely-store-credentials-on-disk)暗号化された機密データをディスクにエクスポートします。
+従うベスト プラクティスは、 [DevOps ワークフロー](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything.md)して[Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/) (またはなどの他のフレームワーク[Chef](http://www.opscode.com/chef/)または[Puppet](http://puppetlabs.com/puppet/what-is-puppet)) にAzure でのこれらの値の設定を自動化します。 次の PowerShell スクリプトを使用して[Export-clixml](http://www.powershellcookbook.com/recipe/PukO/securely-store-credentials-on-disk)暗号化された機密データをディスクにエクスポートします。
 
 [!code-powershell[Main](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure/samples/sample6.ps1)]
 
@@ -105,7 +105,7 @@ Azure に web アプリを展開するとき、 *AppSettingsSecrets.config* (つ
 [!code-powershell[Main](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure/samples/sample7.ps1)]
 
 > [!WARNING]
-> セキュリティ: 機密性の高いデータを展開する PowerShell スクリプトを使用する目的は損なわを行って、PowerShell スクリプトにパスワードまたはその他の機密情報を含めないでください。 [Get-credential](https://technet.microsoft.com/en-us/library/hh849815.aspx)コマンドレットは、パスワードを取得するセキュリティで保護されたメカニズムを提供します。 UI のプロンプトを使用して、パスワードの漏洩を防止できます。
+> セキュリティ: 機密性の高いデータを展開する PowerShell スクリプトを使用する目的は損なわを行って、PowerShell スクリプトにパスワードまたはその他の機密情報を含めないでください。 [Get-credential](https://technet.microsoft.com/library/hh849815.aspx)コマンドレットは、パスワードを取得するセキュリティで保護されたメカニズムを提供します。 UI のプロンプトを使用して、パスワードの漏洩を防止できます。
 
 
 ### <a name="deploying-db-connection-strings"></a>DB 接続文字列を展開します。
@@ -119,7 +119,7 @@ DB 接続文字列は、アプリの設定を同様に処理されます。 Visu
 
 ## <a name="notes-for-on-premises-servers"></a>内部設置型サーバーのノート
 
-場合は、内部設置型の web サーバーに配置することができますをセキュリティで保護された機密情報[、構成ファイルの構成セクションを暗号化](https://msdn.microsoft.com/en-us/library/ff647398.aspx)です。 代わりに、Azure web サイトの推奨されるのと同じアプローチを使用することができます。 構成ファイルでの開発設定を保持し、実稼働設定の環境変数の値を使用します。 Azure Websites で自動化する機能をアプリケーション コードを記述する必要があるただし、ここでは、: 環境変数から設定を取得し、構成ファイルの設定の代わりにそれらの値を使用してまたは構成ファイルの設定を使用する場合環境変数が見つかりませんでした。
+場合は、内部設置型の web サーバーに配置することができますをセキュリティで保護された機密情報[、構成ファイルの構成セクションを暗号化](https://msdn.microsoft.com/library/ff647398.aspx)です。 代わりに、Azure web サイトの推奨されるのと同じアプローチを使用することができます。 構成ファイルでの開発設定を保持し、実稼働設定の環境変数の値を使用します。 Azure Websites で自動化する機能をアプリケーション コードを記述する必要があるただし、ここでは、: 環境変数から設定を取得し、構成ファイルの設定の代わりにそれらの値を使用してまたは構成ファイルの設定を使用する場合環境変数が見つかりませんでした。
 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>その他のリソース

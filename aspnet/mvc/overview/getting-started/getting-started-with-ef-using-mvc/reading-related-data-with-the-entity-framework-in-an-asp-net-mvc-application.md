@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 1f4912bb3113a8f9cdae4211e055a7e317ab2aff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7a74d01f306abeeac5ac28c942f03001e0fe00f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>関連する Entity Framework、ASP.NET MVC アプリケーションでのデータを読み取り
 ====================
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/10/2017
 - *一括読み込み*です。 エンティティが読み込まれると、それに伴う関連データを取得します。 通常、この結果、すべてのために必要なデータを取得する 1 つの結合クエリ。 一括読み込みを使用して指定する、`Include`メソッドです。
 
     ![Eager_loading_example](https://asp.net/media/2577856/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Eager_loading_example_33f907ff-f0b0-4057-8e75-05a8cacac807.png)
-- *明示的な読み込み*です。 これは、似ていますが、遅延読み込みを明示的にデータを取得する、関連するコードです。ナビゲーション プロパティにアクセスするときに自動的に発生しません。 エンティティと呼び出し元のオブジェクトの状態マネージャー エントリを取得することによって、関連するデータを手動で読み込む、 [Collection.Load](https://msdn.microsoft.com/en-us/library/gg696220(v=vs.103).aspx)のコレクションのメソッドまたは[Reference.Load](https://msdn.microsoft.com/en-us/library/gg679166(v=vs.103).aspx)メソッドを保持するプロパティを1 つのエンティティです。 (次の例では、管理者のナビゲーション プロパティをロードする場合は置き換えて`Collection(x => x.Courses)`で`Reference(x => x.Administrator)`)。通常、遅延読み込みを有効にした場合にのみ、明示的な読み込みを使用します。
+- *明示的な読み込み*です。 これは、似ていますが、遅延読み込みを明示的にデータを取得する、関連するコードです。ナビゲーション プロパティにアクセスするときに自動的に発生しません。 エンティティと呼び出し元のオブジェクトの状態マネージャー エントリを取得することによって、関連するデータを手動で読み込む、 [Collection.Load](https://msdn.microsoft.com/library/gg696220(v=vs.103).aspx)のコレクションのメソッドまたは[Reference.Load](https://msdn.microsoft.com/library/gg679166(v=vs.103).aspx)メソッドを保持するプロパティを1 つのエンティティです。 (次の例では、管理者のナビゲーション プロパティをロードする場合は置き換えて`Collection(x => x.Courses)`で`Reference(x => x.Administrator)`)。通常、遅延読み込みを有効にした場合にのみ、明示的な読み込みを使用します。
 
     ![Explicit_loading_example](https://asp.net/media/2577862/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Explicit_loading_example_79d8c368-6d82-426f-be9a-2b443644ab15.png)
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/10/2017
 
 その一方で、一部のシナリオで遅延読み込みが効率的です。 一括読み込みには、非常に複雑な結合を生成するのには SQL Server を効率的に処理できない可能性があります。 または、エンティティのセットのサブセットについてのみ、エンティティのナビゲーション プロパティにアクセスする必要がある場合を処理している場合、一括読み込みが必要以上のデータが取得されるため、遅延読み込みが向上します。 パフォーマンスが重要な場合は、パフォーマンスを最適な選択を行うために両方の方法をテストすることをお勧めします。
 
-遅延読み込みは、パフォーマンスの問題が発生するコードをマスクできます。 たとえば、eager または明示的な読み込みが指定されていないが、大量のエンティティを処理し、各イテレーションでいくつかのナビゲーション プロパティを使用するコードできない可能性があります非常に効率的な (データベースに多くのラウンド トリップ) が原因です。 内部設置型 SQL server を使用した開発にもを実行するアプリケーションでは、待機時間の増加と遅延読み込みのための Azure SQL データベースに移動すると、パフォーマンスの問題があります。 プロファイルの負荷が現実的なテスト データベース クエリは遅延読み込みが適切なかどうかを判断するに役立ちます。 詳細については、次を参照してください。 [Demystifying Entity Framework 戦略: 関連するデータの読み込み](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx)と[SQL Azure へのネットワーク待機時間の削減に Entity Framework を使用して](https://msdn.microsoft.com/en-us/magazine/gg309181.aspx)です。
+遅延読み込みは、パフォーマンスの問題が発生するコードをマスクできます。 たとえば、eager または明示的な読み込みが指定されていないが、大量のエンティティを処理し、各イテレーションでいくつかのナビゲーション プロパティを使用するコードできない可能性があります非常に効率的な (データベースに多くのラウンド トリップ) が原因です。 内部設置型 SQL server を使用した開発にもを実行するアプリケーションでは、待機時間の増加と遅延読み込みのための Azure SQL データベースに移動すると、パフォーマンスの問題があります。 プロファイルの負荷が現実的なテスト データベース クエリは遅延読み込みが適切なかどうかを判断するに役立ちます。 詳細については、次を参照してください。 [Demystifying Entity Framework 戦略: 関連するデータの読み込み](https://msdn.microsoft.com/magazine/hh205756.aspx)と[SQL Azure へのネットワーク待機時間の削減に Entity Framework を使用して](https://msdn.microsoft.com/magazine/gg309181.aspx)です。
 
 ### <a name="disable-lazy-loading-before-serialization"></a>シリアル化する前に遅延読み込みを無効にします。
 
@@ -67,9 +67,9 @@ ms.lasthandoff: 11/10/2017
 
 シリアル化の問題を回避する方法の 1 つが、エンティティ オブジェクトの代わりにデータ転送オブジェクト (Dto) をシリアル化のように、 [Entity Framework と Web API を使用して](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-5.md)チュートリアルです。
 
-Dtos の使用を使用しない場合は、遅延読み込みを無効にし、プロキシの問題を回避[プロキシの作成を無効にする](https://msdn.microsoft.com/en-US/data/jj592886.aspx)です。
+Dtos の使用を使用しない場合は、遅延読み込みを無効にし、プロキシの問題を回避[プロキシの作成を無効にする](https://msdn.microsoft.com/data/jj592886.aspx)です。
 
-ここでは、その他の[遅延読み込みを無効にする方法は](https://msdn.microsoft.com/en-US/data/jj574232):
+ここでは、その他の[遅延読み込みを無効にする方法は](https://msdn.microsoft.com/data/jj574232):
 
 - 特定のナビゲーション プロパティに対して省略、`virtual`キーワード、プロパティを宣言するときにします。
 - すべてのナビゲーション プロパティでは、次のように設定します。`LazyLoadingEnabled`に`false`、コンテキスト クラスのコンス トラクターに次のコードを配置します。 
@@ -164,7 +164,7 @@ Department 列のスキャフォールディング コードが表示される�
 
 `Where`メソッドのコレクションを返しますが、条件が 1 つだけでそのメソッドの結果に渡されるここでは`Instructor`返されるエンティティです。 `Single`メソッドが、1 つに、コレクションを変換`Instructor`エンティティで、そのエンティティにアクセスできる`Courses`プロパティです。
 
-使用する、[単一](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.single.aspx)メソッドのコレクションがわかっている場合にコレクションを 1 つの項目になります。 `Single`に渡されるコレクションが空の場合、または複数の項目がある場合、メソッドが例外をスローします。 代わりに[SingleOrDefault](https://msdn.microsoft.com/en-us/library/bb342451.aspx)、既定値が返されます (`null`ここでは)、コレクションが空の場合。 ただし、ここではするがまだ例外が発生 (から検索しようとしています、`Courses`プロパティを`null`参照)、例外メッセージは、問題の原因を示す小さい明確にします。 呼び出すと、`Single`メソッドに渡すことも、`Where`条件呼び出す代わりに、`Where`メソッドとは別に。
+使用する、[単一](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx)メソッドのコレクションがわかっている場合にコレクションを 1 つの項目になります。 `Single`に渡されるコレクションが空の場合、または複数の項目がある場合、メソッドが例外をスローします。 代わりに[SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx)、既定値が返されます (`null`ここでは)、コレクションが空の場合。 ただし、ここではするがまだ例外が発生 (から検索しようとしています、`Courses`プロパティを`null`参照)、例外メッセージは、問題の原因を示す小さい明確にします。 呼び出すと、`Single`メソッドに渡すことも、`Where`条件呼び出す代わりに、`Where`メソッドとは別に。
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 
@@ -242,7 +242,7 @@ Department 列のスキャフォールディング コードが表示される�
 
 講師インデックス ページを今すぐ実行して表示されますなし ページで、表示される内容に違いが、データの取得方法を変更しました。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ナビゲーション プロパティに関連するデータを読み込むすべての 3 つ方法 (レイジー、eager、および明示的な) を使用したようになりました。 次のチュートリアルでは、関連するデータを更新する方法を学習します。
 

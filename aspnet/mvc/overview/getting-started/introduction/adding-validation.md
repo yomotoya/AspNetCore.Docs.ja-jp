@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 11fc0363c20b179a4d74f29c4dafed81ca692ef2
-ms.sourcegitcommit: 77b8025c30ec2fd46d85ee2a2b497c44435d3009
+ms.openlocfilehash: b59965b2fab00cb64db06574d5ca3c6388daa7c8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-validation"></a>検証の追加
 ====================
@@ -38,17 +38,17 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 いくつかの検証ロジックを追加することから始めます、`Movie`クラスです。
 
-*Movie.cs* ファイルを開きます。 通知、 [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx)名前空間が含まれていない`System.Web`です。 DataAnnotations は、すべてのクラスまたはプロパティを宣言して適用できる検証属性の組み込みのセットを提供します。 (などの書式設定属性も含まれています[DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)を書式設定のヘルプおよびいずれかの検証が提供されない。)。
+*Movie.cs* ファイルを開きます。 通知、 [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間が含まれていない`System.Web`です。 DataAnnotations は、すべてのクラスまたはプロパティを宣言して適用できる検証属性の組み込みのセットを提供します。 (などの書式設定属性も含まれています[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)を書式設定のヘルプおよびいずれかの検証が提供されない。)。
 
-更新できるように、`Movie`組み込み活用するためにクラス[ `Required` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx)、 [ `StringLength` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)、[正規表現](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)、および[`Range` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx)検証属性。 置換、`Movie`を次のクラス。
+更新できるように、`Movie`組み込み活用するためにクラス[ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx)、 [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)、[正規表現](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)、および[`Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)検証属性。 置換、`Movie`を次のクラス。
 
 [!code-csharp[Main](adding-validation/samples/sample1.cs?highlight=5,13-15,18-19,22-23)]
 
-[ `StringLength` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性は、文字列の最大長を設定、データベースに対してこの制限を設定して、そのため、データベース スキーマを変更します。 右クリックして、**映画**テーブルに**サーバー エクスプ ローラー**  をクリック**テーブル定義を開く**:
+[ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性は、文字列の最大長を設定、データベースに対してこの制限を設定して、そのため、データベース スキーマを変更します。 右クリックして、**映画**テーブルに**サーバー エクスプ ローラー**  をクリック**テーブル定義を開く**:
 
 ![](adding-validation/_static/image1.png)
 
-上記の図で、文字列フィールドに設定するすべてを表示できる[NVARCHAR (MAX)](https://technet.microsoft.com/en-us/library/ms186939.aspx)です。 スキーマを更新するのに移行を使用します。 ソリューションをビルドし、開きます、**パッケージ マネージャー コンソール**ウィンドウと、次のコマンドを入力します。
+上記の図で、文字列フィールドに設定するすべてを表示できる[NVARCHAR (MAX)](https://technet.microsoft.com/library/ms186939.aspx)です。 スキーマを更新するのに移行を使用します。 ソリューションをビルドし、開きます、**パッケージ マネージャー コンソール**ウィンドウと、次のコマンドを入力します。
 
 [!code-console[Main](adding-validation/samples/sample2.cmd)]
 
@@ -64,9 +64,9 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 文字列フィールドは、新しい長さ制限を表示および`Genre`null 許容型としてチェックされていません。
 
-検証属性では、適用対象のモデル プロパティに適用する動作を指定します。 `Required` および `MinimumLength` 属性は、プロパティに値が必要であることを示します。ただし、この検証を満たすためにユーザーが空白を入力することは禁止されていません。 [正規表現](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)属性を使用できる文字の制限を入力します。 上記のコードで、`Genre` と `Rating` は、文字のみを使用する必要があります (空白、数字、特殊文字は使用できません)。 [ `Range` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性に指定した範囲内の値を規定します。 `StringLength` 属性では、文字列プロパティの最大長を設定でき、オプションとして最小長も設定できます。 値の型 (など`decimal, int, float, DateTime`) が本質的に必須で、必要はありません、`Required`属性。
+検証属性では、適用対象のモデル プロパティに適用する動作を指定します。 `Required` および `MinimumLength` 属性は、プロパティに値が必要であることを示します。ただし、この検証を満たすためにユーザーが空白を入力することは禁止されていません。 [正規表現](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)属性を使用できる文字の制限を入力します。 上記のコードで、`Genre` と `Rating` は、文字のみを使用する必要があります (空白、数字、特殊文字は使用できません)。 [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性に指定した範囲内の値を規定します。 `StringLength` 属性では、文字列プロパティの最大長を設定でき、オプションとして最小長も設定できます。 値の型 (など`decimal, int, float, DateTime`) が本質的に必須で、必要はありません、`Required`属性。
 
-コードでは、アプリケーションがデータベースに変更を保存する前に、モデル クラスを指定する検証規則が適用されている最初でいます。 たとえば、次のコードがスローされます、 [DbEntityValidationException](https://msdn.microsoft.com/en-us/library/system.data.entity.validation.dbentityvalidationexception(v=vs.103).aspx)例外時に、`SaveChanges`メソッドは、いくつか必要なため`Movie`プロパティの値が見つかりません。
+コードでは、アプリケーションがデータベースに変更を保存する前に、モデル クラスを指定する検証規則が適用されている最初でいます。 たとえば、次のコードがスローされます、 [DbEntityValidationException](https://msdn.microsoft.com/library/system.data.entity.validation.dbentityvalidationexception(v=vs.103).aspx)例外時に、`SaveChanges`メソッドは、いくつか必要なため`Movie`プロパティの値が見つかりません。
 
 [!code-csharp[Main](adding-validation/samples/sample4.cs)]
 
@@ -92,7 +92,7 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 実際の利点でのコードの 1 つの行を変更する必要はありませんでした、`MoviesController`クラスまたは、 *Create.cshtml* UI この検証を有効にするために表示します。 このチュートリアルで前に作成したコントローラーとビューにより、`Movie` モデル クラスのプロパティで検証属性を使って指定した検証規則が自動的に取得されます。 `Edit` アクション メソッドを使って検証をテストします。同じ検証が適用されます。
 
-クライアント側の検証エラーがなくなるまで、フォーム データはサーバーに送信されません。 これを確認するには HTTP Post メソッドを使用してブレークポイントを配置することにより、 [fiddler ツール](http://fiddler2.com/fiddler2/)、または、IE [F12 開発者ツール](https://msdn.microsoft.com/en-us/ie/aa740478)です。
+クライアント側の検証エラーがなくなるまで、フォーム データはサーバーに送信されません。 これを確認するには HTTP Post メソッドを使用してブレークポイントを配置することにより、 [fiddler ツール](http://fiddler2.com/fiddler2/)、または、IE [F12 開発者ツール](https://msdn.microsoft.com/ie/aa740478)です。
 
 ## <a name="how-validation-occurs-in-the-create-view-and-create-action-method"></a>作成の表示し、アクション メソッドを作成で発生する検証方法
 
@@ -128,13 +128,13 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 ## <a name="using-datatype-attributes"></a>DataType 属性の使用
 
-*Movie.cs* ファイルを開き、`Movie` クラスを調べます。 [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx)名前空間が一連の組み込みの検証属性だけでなく書式属性を提供します。 既に適用された、 [ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)リリース日と価格のフィールドの列挙値。 次のコードは、`ReleaseDate`と`Price`と適切なプロパティ[ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)属性。
+*Movie.cs* ファイルを開き、`Movie` クラスを調べます。 [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間が一連の組み込みの検証属性だけでなく書式属性を提供します。 既に適用された、 [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)リリース日と価格のフィールドの列挙値。 次のコードは、`ReleaseDate`と`Price`と適切なプロパティ[ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性。
 
 [!code-csharp[Main](adding-validation/samples/sample7.cs)]
 
-[DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、データを書式設定、ビュー エンジンのヒントを提供するだけ (などの属性を提供し、`<a>`の URL と`<a href="mailto:EmailAddress.com">`電子メールのです。 使用することができます、[正規表現](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)データの形式を検証する属性。 [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性を使用してデータベースの組み込み型よりも特定のデータ型を指定、される***されません***検証属性。 ここでのみが必要を追跡する、日付、日付と時刻がありません。 [DataType 列挙](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)などの多くのデータ型の提供*日付、時刻、PhoneNumber、通貨、EmailAddress*などです。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 たとえば、`mailto:`に対してリンクを作成できる[DataType.EmailAddress](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)、日付選択を指定することができます、 [DataType.Date](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)をサポートするブラウザーで[HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、HTML 5 を出力[データ -](http://ejohn.org/blog/html-5-data-attributes/) (発音*データ ダッシュ*) HTML 5 ブラウザーで認識できる属性です。 [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、いずれかの検証を渡さないようにします。
+[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、データを書式設定、ビュー エンジンのヒントを提供するだけ (などの属性を提供し、`<a>`の URL と`<a href="mailto:EmailAddress.com">`電子メールのです。 使用することができます、[正規表現](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)データの形式を検証する属性。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性を使用してデータベースの組み込み型よりも特定のデータ型を指定、される***されません***検証属性。 ここでのみが必要を追跡する、日付、日付と時刻がありません。 [DataType 列挙](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)などの多くのデータ型の提供*日付、時刻、PhoneNumber、通貨、EmailAddress*などです。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 たとえば、`mailto:`に対してリンクを作成できる[DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)、日付選択を指定することができます、 [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)をサポートするブラウザーで[HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、HTML 5 を出力[データ -](http://ejohn.org/blog/html-5-data-attributes/) (発音*データ ダッシュ*) HTML 5 ブラウザーで認識できる属性です。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、いずれかの検証を渡さないようにします。
 
-`DataType.Date` は、表示される日付の書式を指定しません。 既定では、データ フィールドを基に、サーバーの既定の形式に従って表示[CultureInfo](https://msdn.microsoft.com/en-us/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx)です。
+`DataType.Date` は、表示される日付の書式を指定しません。 既定では、データ フィールドを基に、サーバーの既定の形式に従って表示[CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx)です。
 
 `DisplayFormat` 属性は、日付の書式を明示的に指定するために使用されます。
 
@@ -144,20 +144,20 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 `ApplyFormatInEditMode`設定では、指定した書式設定も適用されることを編集するためのテキスト ボックスが表示されたら、値を指定します。 (したくないをいくつかのフィールドの — たとえば、通貨の値のたくない、テキスト ボックス内の通貨記号を編集するためです)。
 
-使用することができます、 [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx)自体が、属性が使用することをお勧めでは一般に、 [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx)も属性します。 `DataType`属性を伝達、*セマンティクス*データとして、画面に表示する方法ではなくおよびのでは得られない、次の利点を提供`DisplayFormat`:
+使用することができます、 [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)自体が、属性が使用することをお勧めでは一般に、 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)も属性します。 `DataType`属性を伝達、*セマンティクス*データとして、画面に表示する方法ではなくおよびのでは得られない、次の利点を提供`DisplayFormat`:
 
 - ブラウザーには、HTML5 機能 (たとえば、予定表コントロール、ロケールに応じた通貨記号、電子メールへのリンクなどを表示します。) が有効にすることができます。
-- 既定では、ブラウザーがに基づいて、正しい形式を使用してデータを表示、[ロケール](https://msdn.microsoft.com/en-us/library/vstudio/wyzd2bce.aspx)です。
-- [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性には、データを表示するために右フィールド テンプレートを選択する MVC が有効にすることができます (、 [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx)文字列テンプレートを使用して自体によって使用されている場合)。 詳細については、Brad Wilson を参照してください。[ASP.NET MVC 2 テンプレート](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html)です。 (MVC 2 用に記述されたがこの記事の内容も適用 ASP.NET MVC の現在のバージョンに)。
+- 既定では、ブラウザーがに基づいて、正しい形式を使用してデータを表示、[ロケール](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx)です。
+- [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性には、データを表示するために右フィールド テンプレートを選択する MVC が有効にすることができます (、 [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)文字列テンプレートを使用して自体によって使用されている場合)。 詳細については、Brad Wilson を参照してください。[ASP.NET MVC 2 テンプレート](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html)です。 (MVC 2 用に記述されたがこの記事の内容も適用 ASP.NET MVC の現在のバージョンに)。
 
 使用する場合、`DataType`属性指定する必要が、日付フィールドに関連付け、 `DisplayFormat` Chrome ブラウザーで、フィールドが正常に表示されることを確認するためにも属性。 詳細については、次を参照してください。[この StackOverflow スレッド](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie)です。
 
 > [!NOTE]
-> jQuery 検証では機能しません、[範囲](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性と[DateTime](https://msdn.microsoft.com/en-us/library/system.datetime.aspx)です。 たとえば、次のコードでは、指定した範囲内の日付であっても、クライアント側の検証エラーが常に表示されます。
+> jQuery 検証では機能しません、[範囲](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性と[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)です。 たとえば、次のコードでは、指定した範囲内の日付であっても、クライアント側の検証エラーが常に表示されます。
 > 
 > [!code-csharp[Main](adding-validation/samples/sample9.cs)]
 > 
-> 使用する jQuery 日の検証を無効にする必要があります、[範囲](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性が[DateTime](https://msdn.microsoft.com/en-us/library/system.datetime.aspx)です。 これは一般を使用して、モデル内のハードの日付をコンパイルすることをお勧め、[範囲](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性と[DateTime](https://msdn.microsoft.com/en-us/library/system.datetime.aspx)をお勧めします。
+> 使用する jQuery 日の検証を無効にする必要があります、[範囲](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性が[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)です。 これは一般を使用して、モデル内のハードの日付をコンパイルすることをお勧め、[範囲](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)属性と[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)をお勧めします。
 
 
 次のコードは、1 行で複数の属性を組み合わせる例です。

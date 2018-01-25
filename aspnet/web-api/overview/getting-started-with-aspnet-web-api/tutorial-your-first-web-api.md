@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: fa1cd068a7466e0b6b6fe7716090c8a7afd2a4d5
-ms.sourcegitcommit: ec9371e2fbfcb8d62e7e7cae69e7752f3f205385
+ms.openlocfilehash: 6ff9fd279a03197f761454bba3f180d7428b1b1f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (c#) の概要
 ====================
@@ -47,7 +47,7 @@ Visual Studio を起動し、選択**新しいプロジェクト**から、**開
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 
-**新しい ASP.NET プロジェクト**ダイアログで、選択、**空**テンプレート。 &quot;フォルダーを追加し、参照用のコア&quot;、確認**Web API**です。 **[OK]** をクリックします。
+**新しい ASP.NET プロジェクト**ダイアログで、選択、**空**テンプレート。 &quot;フォルダーを追加し、参照用のコア&quot;、確認**Web API**です。 **[OK]**をクリックします。
 
 ![](tutorial-your-first-web-api/_static/image3.png)
 
@@ -111,8 +111,8 @@ Web API では、*コント ローラー* HTTP 要求を処理するオブジェ
 
 | コント ローラー メソッド | URI |
 | --- | --- |
-| GetAllProducts | 製品/api |
-| GetProduct | 製品が/api/*id* |
+| GetAllProducts | /api/products |
+| GetProduct | /api/products/*id* |
 
 `GetProduct` 、メソッド、 *id* URI には、プレース ホルダーです。 たとえば、5 の ID を持つ製品を取得するには、URI は`api/products/5`します。
 
@@ -186,11 +186,11 @@ HTTP サービスを使用する場合は、HTTP 要求を表示、メッセー�
 
 Azure アカウントを Azure にこのソリューションを展開する必要があります。 アカウントがない場合は、次のオプションがあります。
 
-- [無料の Azure アカウントを開設](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604)-クレジットを取得するでも使用されているアカウントを維持する最大と使用する無料の Azure サービスおよび有料の Azure サービスを試す使用できます。
-- [MSDN サブスクライバー特典をアクティブ化](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)-お客様の MSDN サブスクリプションでは、クレジット有料の Azure サービスを使用できるすべての月です。
+- [無料の Azure アカウントを開設](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604)-クレジットを取得するでも使用されているアカウントを維持する最大と使用する無料の Azure サービスおよび有料の Azure サービスを試す使用できます。
+- [MSDN サブスクライバー特典をアクティブ化](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)-お客様の MSDN サブスクリプションでは、クレジット有料の Azure サービスを使用できるすべての月です。
 
 ## <a name="next-steps"></a>次の手順
 
 - POST、PUT、および DELETE の操作をサポートし、データベースに書き込みます HTTP サービスのより完全な例を参照してください。 [Entity Framework 6 の Web API 2 を使用して](../data/using-web-api-with-entity-framework/part-1.md)です。
 - HTTP サービスの上位の流動性および応答 web アプリケーションの作成に関する詳細は、次を参照してください。 [ASP.NET Single Page Application](../../../single-page-application/index.md)です。
-- Azure App Service に、Visual Studio web プロジェクトを展開する方法については、次を参照してください。 [Azure App Service で ASP.NET web アプリを作成](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/)です。
+- Azure App Service に、Visual Studio web プロジェクトを展開する方法については、次を参照してください。 [Azure App Service で ASP.NET web アプリを作成](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)です。

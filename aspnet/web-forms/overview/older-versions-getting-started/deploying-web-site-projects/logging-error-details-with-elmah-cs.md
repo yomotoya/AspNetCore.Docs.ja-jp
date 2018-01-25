@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3aef1c2c2357d948a49787c9dd039d4529479357
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eeb1210038f4982d80352322842733c0e96300a7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="logging-error-details-with-elmah-c"></a>ELMAH (c#) によるエラーの詳細をログ記録
 ====================
@@ -238,7 +238,7 @@ ELMAH の`ErrorLogModule`HTTP モジュールが、指定されたログのソ�
 
 ELMAH のエラーをフィルタ リング機能の詳細についてを参照してください、[セクションのエラーをフィルター処理](https://code.google.com/p/elmah/wiki/ErrorFiltering)で、 [ELMAH wiki](https://code.google.com/p/elmah/w/list)です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ELMAH は、ASP.NET web アプリケーションでエラーのログ記録の単純なものでありながら強力なメカニズムを提供します。 同様に Microsoft の正常性の監視システムでは、ELMAH エラーをログをデータベース メールで開発者にエラーの詳細を送信できます。 広範なエラー ログのデータ ストアなどのボックス サポート外、システムの監視状態とは異なり ELMAH が含まれています: Microsoft SQL Server、Microsoft Access、Oracle、XML ファイル、およびその他のいくつか。 さらに、エラー ログと、web ページから特定のエラーの詳細を表示するための組み込みメカニズムは、ELMAH`elmah.axd`です。 `elmah.axd`ページでも、RSS フィード、または Microsoft Excel を使用して読み取ることができるコンマ区切り値ファイル (CSV) としてのエラー情報をレンダリングできます。 宣言的またはプログラムでのアサーションを使用して、ログからエラーをフィルタ ELMAH を指示することもできます。 ELMAH ASP.NET バージョン 1.x アプリケーションで使用できます。
 
@@ -254,7 +254,7 @@ ELMAH は、ASP.NET web アプリケーションでエラーのログ記録の�
 - [プロジェクトの ELMAH ページ](https://code.google.com/p/elmah/)(ソース コード、サンプル、wiki)
 - [ELMAH アプリケーションへの Web 未処理の例外をキャッチするをプラグインする](http://screencastaday.com/ScreenCasts/43_Plugging_Elmah_into_Web_Application_to_Catch_Unhandled_Exceptions.aspx)(ビデオ)
 - [セキュリティ エラーのログ ページ](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages)
-- [HTTP モジュールとハンドラーを使用して、プラグ可能な ASP.NET コンポーネントを作成するには](https://msdn.microsoft.com/en-us/library/aa479332.aspx)
+- [HTTP モジュールとハンドラーを使用して、プラグ可能な ASP.NET コンポーネントを作成するには](https://msdn.microsoft.com/library/aa479332.aspx)
 - [Web サイトのセキュリティのチュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
 >[!div class="step-by-step"]

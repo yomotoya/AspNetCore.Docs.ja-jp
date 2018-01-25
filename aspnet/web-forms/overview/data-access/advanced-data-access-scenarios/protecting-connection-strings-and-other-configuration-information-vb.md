@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8eaa9f43a69620862c95194117a026be391e2fb6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f1514c4b6d041f6bbd83788e2110a95d3d831ff6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="protecting-connection-strings-and-other-configuration-information-vb"></a>接続文字列とその他の構成情報 (VB) を保護します。
 ====================
@@ -60,10 +60,10 @@ ASP.NET 2.0 には、構成情報を暗号化および暗号化の保護され�
 
 .NET Framework 2 つの保護構成プロバイダーが付属しています。
 
-- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/en-us/library/system.configuration.rsaprotectedconfigurationprovider.aspx)使用、非対称[RSA アルゴリズム](http://en.wikipedia.org/wiki/Rsa)暗号化と復号化します。
-- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/en-us/system.configuration.dpapiprotectedconfigurationprovider.aspx)-Windows を使用して[データ保護 API (DPAPI)](https://msdn.microsoft.com/en-us/library/ms995355.aspx)暗号化と復号化します。
+- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/library/system.configuration.rsaprotectedconfigurationprovider.aspx)使用、非対称[RSA アルゴリズム](http://en.wikipedia.org/wiki/Rsa)暗号化と復号化します。
+- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx)-Windows を使用して[データ保護 API (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx)暗号化と復号化します。
 
-保護された構成システムは、プロバイダーのデザイン パターンを実装するためには、独自の保護構成プロバイダーを作成し、アプリケーションに接続することです。 参照してください[保護構成プロバイダーを実装する](https://msdn.microsoft.com/en-us/library/wfc2t3az(VS.80).aspx)このプロセスについての詳細。
+保護された構成システムは、プロバイダーのデザイン パターンを実装するためには、独自の保護構成プロバイダーを作成し、アプリケーションに接続することです。 参照してください[保護構成プロバイダーを実装する](https://msdn.microsoft.com/library/wfc2t3az(VS.80).aspx)このプロセスについての詳細。
 
 RSA および DPAPI のプロバイダーが暗号化および暗号化解除ルーチンのキーを使用してで、コンピューターまたはユーザー レベルでのこれらのキーを格納することができます。 マシン レベル キーは、独自の専用サーバーでは、web アプリケーションが実行されているシナリオに最適または共有する必要があるサーバーに複数のアプリケーションがあるかどうかは、情報を暗号化します。 ユーザー レベルのキーは、共有ホスティング環境が、同じサーバー上の他のアプリケーションすることはできません、アプリケーションの s が保護された構成セクションを復号化することでより安全なオプションです。
 
@@ -96,20 +96,20 @@ Let s をプログラムから保護提供側の構成情報を示すために�
 
 [!code-vb[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample1.vb)]
 
-`DisplayWebConfig`メソッドを使用、 [ `File`クラス](https://msdn.microsoft.com/en-us/library/system.io.file.aspx)を開くには、アプリケーション s`Web.config`ファイル、 [ `StreamReader`クラス](https://msdn.microsoft.com/en-us/library/system.io.streamreader.aspx)文字列、および、にその内容を読み取る[`Path`クラス](https://msdn.microsoft.com/en-us/library/system.io.path.aspx)への物理パスを生成する、`Web.config`ファイル。 これら 3 つのクラスすべて内にある、 [ `System.IO`名前空間](https://msdn.microsoft.com/en-us/library/system.io.aspx)です。 その結果、追加する場合は、`Imports``System.IO`分離コード クラスか、または、これらのクラスと名のプレフィックスの先頭にステートメント`System.IO.`
+`DisplayWebConfig`メソッドを使用、 [ `File`クラス](https://msdn.microsoft.com/library/system.io.file.aspx)を開くには、アプリケーション s`Web.config`ファイル、 [ `StreamReader`クラス](https://msdn.microsoft.com/library/system.io.streamreader.aspx)文字列、および、にその内容を読み取る[`Path`クラス](https://msdn.microsoft.com/library/system.io.path.aspx)への物理パスを生成する、`Web.config`ファイル。 これら 3 つのクラスすべて内にある、 [ `System.IO`名前空間](https://msdn.microsoft.com/library/system.io.aspx)です。 その結果、追加する場合は、`Imports``System.IO`分離コード クラスか、または、これらのクラスと名のプレフィックスの先頭にステートメント`System.IO.`
 
 次に、2 つのボタン コントロールのイベント ハンドラーを追加する必要があります`Click`イベントの暗号化し、復号化に必要なコードを追加し、`<connectionStrings>`セクションのマシン レベル キー DPAPI プロバイダーと共に使用します。 デザイナーで、各ボタンを追加する をダブルクリック、`Click`分離コード内のイベント ハンドラー クラスし、次のコードを追加します。
 
 
 [!code-vb[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample2.vb)]
 
-2 つのイベント ハンドラーで使用するコードとほぼ同じです。 現在のアプリケーション s に関する情報を取得することによって、どちらも開始`Web.config`経由でファイル、 [ `WebConfigurationManager`クラス](https://msdn.microsoft.com/en-us/library/system.web.configuration.webconfigurationmanager.aspx)s [ `OpenWebConfiguration`メソッド](https://msdn.microsoft.com/en-us/library/system.web.configuration.webconfigurationmanager.openwebconfiguration.aspx)です。 このメソッドは、指定した仮想パスの web 構成ファイルを返します。 次に、`Web.config`ファイル %s`<connectionStrings>`セクションを使用してアクセス、 [ `Configuration`クラス](https://msdn.microsoft.com/en-us/library/system.configuration.configuration.aspx)s [ `GetSection(sectionName)`メソッド](https://msdn.microsoft.com/en-us/library/system.configuration.configuration.getsection.aspx)、返された、 [ `ConfigurationSection` ](https://msdn.microsoft.com/en-us/library/system.configuration.configurationsection.aspx)オブジェクト。
+2 つのイベント ハンドラーで使用するコードとほぼ同じです。 現在のアプリケーション s に関する情報を取得することによって、どちらも開始`Web.config`経由でファイル、 [ `WebConfigurationManager`クラス](https://msdn.microsoft.com/library/system.web.configuration.webconfigurationmanager.aspx)s [ `OpenWebConfiguration`メソッド](https://msdn.microsoft.com/library/system.web.configuration.webconfigurationmanager.openwebconfiguration.aspx)です。 このメソッドは、指定した仮想パスの web 構成ファイルを返します。 次に、`Web.config`ファイル %s`<connectionStrings>`セクションを使用してアクセス、 [ `Configuration`クラス](https://msdn.microsoft.com/library/system.configuration.configuration.aspx)s [ `GetSection(sectionName)`メソッド](https://msdn.microsoft.com/library/system.configuration.configuration.getsection.aspx)、返された、 [ `ConfigurationSection` ](https://msdn.microsoft.com/library/system.configuration.configurationsection.aspx)オブジェクト。
 
-`ConfigurationSection`オブジェクトが含まれています、 [ `SectionInformation`プロパティ](https://msdn.microsoft.com/en-us/library/system.configuration.configurationsection.sectioninformation.aspx)追加情報や構成セクションに関する機能を提供します。 上のコードとしてをチェックして構成セクションを暗号化するかどうかを決定できます、`SectionInformation`プロパティの`IsProtected`プロパティです。 セクションを暗号化またはを使用して復号化、さらに、`SectionInformation`プロパティ %s`ProtectSection(provider)`と`UnprotectSection`メソッドです。
+`ConfigurationSection`オブジェクトが含まれています、 [ `SectionInformation`プロパティ](https://msdn.microsoft.com/library/system.configuration.configurationsection.sectioninformation.aspx)追加情報や構成セクションに関する機能を提供します。 上のコードとしてをチェックして構成セクションを暗号化するかどうかを決定できます、`SectionInformation`プロパティの`IsProtected`プロパティです。 セクションを暗号化またはを使用して復号化、さらに、`SectionInformation`プロパティ %s`ProtectSection(provider)`と`UnprotectSection`メソッドです。
 
 `ProtectSection(provider)`メソッドは暗号化に使用する保護された構成プロバイダーの名前を指定する文字列を入力として受け取ります。 `EncryptConnString`ボタン s のイベント ハンドラーに DataProtectionConfigurationProvider を渡して、`ProtectSection(provider)`メソッドは DPAPI プロバイダーを使用できるようにします。 `UnprotectSection`メソッドはプロバイダの構成セクションの暗号化に使用されたをためは必要ありません任意の入力パラメーターを確認できます。
 
-呼び出した後、`ProtectSection(provider)`または`UnprotectSection`メソッドを呼び出す必要があります、`Configuration`オブジェクト s [ `Save`メソッド](https://msdn.microsoft.com/en-us/library/system.configuration.configuration.save.aspx)変更を保持します。 構成情報が暗号化または復号化されているし、呼び、変更を保存すると、`DisplayWebConfig`を読み込む、更新された`Web.config`にテキスト ボックス コントロールの内容。
+呼び出した後、`ProtectSection(provider)`または`UnprotectSection`メソッドを呼び出す必要があります、`Configuration`オブジェクト s [ `Save`メソッド](https://msdn.microsoft.com/library/system.configuration.configuration.save.aspx)変更を保持します。 構成情報が暗号化または復号化されているし、呼び、変更を保存すると、`DisplayWebConfig`を読み込む、更新された`Web.config`にテキスト ボックス コントロールの内容。
 
 上記のコードを入力すると、テストにアクセスして、`EncryptingConfigSections.aspx`ページがブラウザーを使用します。 内容を一覧するページを最初に表示する必要があります`Web.config`で、`<connectionStrings>`プレーン テキストで表示されているセクション (図 3 を参照してください)。
 
@@ -155,7 +155,7 @@ Let s をプログラムから保護提供側の構成情報を示すために�
 
 ## <a name="step-3-encrypting-configuration-sections-usingaspnetregiisexe"></a>手順 3: を使用して構成セクションを暗号化します。`aspnet_regiis.exe`
 
-.NET Framework には、さまざまなコマンド ライン ツールが含まれています、`$WINDOWS$\Microsoft.NET\Framework\version\`フォルダーです。 [を使用して SQL キャッシュ依存関係](../caching-data/using-sql-cache-dependencies-vb.md)チュートリアルでは、たとえば、について説明しましたを使用して、 `aspnet_regsql.exe` SQL キャッシュ依存関係のために必要なインフラストラクチャを追加するコマンド ライン ツールです。 このフォルダー内の他の便利なコマンド ライン ツールは、 [ASP.NET IIS 登録ツール (`aspnet_regiis.exe`)](https://msdn.microsoft.com/en-us/library/k6h9cz8h(VS.80).aspx)です。 その名前からわかるように、ASP.NET IIS 登録ツールは Microsoft s professional グレード Web サーバー、IIS と ASP.NET 2.0 アプリケーションを登録する、主に使用されます。 IIS に関連する機能に加えて、ASP.NET IIS 登録ツールこともできますを暗号化またはで指定された構成セクションを復号化`Web.config`です。
+.NET Framework には、さまざまなコマンド ライン ツールが含まれています、`$WINDOWS$\Microsoft.NET\Framework\version\`フォルダーです。 [を使用して SQL キャッシュ依存関係](../caching-data/using-sql-cache-dependencies-vb.md)チュートリアルでは、たとえば、について説明しましたを使用して、 `aspnet_regsql.exe` SQL キャッシュ依存関係のために必要なインフラストラクチャを追加するコマンド ライン ツールです。 このフォルダー内の他の便利なコマンド ライン ツールは、 [ASP.NET IIS 登録ツール (`aspnet_regiis.exe`)](https://msdn.microsoft.com/library/k6h9cz8h(VS.80).aspx)です。 その名前からわかるように、ASP.NET IIS 登録ツールは Microsoft s professional グレード Web サーバー、IIS と ASP.NET 2.0 アプリケーションを登録する、主に使用されます。 IIS に関連する機能に加えて、ASP.NET IIS 登録ツールこともできますを暗号化またはで指定された構成セクションを復号化`Web.config`です。
 
 次のステートメントで構成セクションを暗号化するために使用する一般的な構文を示しています、`aspnet_regiis.exe`コマンド ライン ツール。
 
@@ -203,10 +203,10 @@ Integrated Security = True とユーザー名とパスワードの欠如は、Wi
 攻撃者が、アプリケーションの s を表示できることを想像`Web.config`ファイル。 インターネット経由でアクセスできるデータベースへの接続に SQL 認証を使用する場合、攻撃者は、SQL Management studio または独自の web サイトで、ASP.NET ページから、データベースへの接続にこの接続文字列を使用できます。 この脅威を軽減するで接続文字列情報を暗号化`Web.config`保護された構成システムを使用します。
 
 > [!NOTE]
-> SQL Server で利用可能な認証のさまざまな種類の詳細については、次を参照してください。[セキュリティで保護された ASP.NET アプリケーションの構築: 認証、承認、およびセキュリティ保護された通信](https://msdn.microsoft.com/en-us/library/aa302392.aspx)です。 さらに接続文字列例については Windows と SQL 認証の構文の違いを示すを参照してください[ConnectionStrings.com](http://www.connectionstrings.com/)です。
+> SQL Server で利用可能な認証のさまざまな種類の詳細については、次を参照してください。[セキュリティで保護された ASP.NET アプリケーションの構築: 認証、承認、およびセキュリティ保護された通信](https://msdn.microsoft.com/library/aa302392.aspx)です。 さらに接続文字列例については Windows と SQL 認証の構文の違いを示すを参照してください[ConnectionStrings.com](http://www.connectionstrings.com/)です。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 既定では、ファイルが、 `.config` ASP.NET アプリケーションで拡張機能は、ブラウザーからアクセスすることはできません。 データベース接続文字列、ユーザー名やパスワードなどの機密情報を含むに可能性がありますので、これらの種類のファイルは返されません。 .NET 2.0 で保護された構成システムは、さらに指定された構成セクションを暗号化するようにすることで機密情報を保護します。 2 つの組み込みの保護構成プロバイダーがあります。 1 つを使用した RSA アルゴリズムと 1 つを、Windows データ保護 API (DPAPI) を使用します。
 
@@ -218,13 +218,13 @@ Integrated Security = True とユーザー名とパスワードの欠如は、Wi
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [セキュリティで保護された ASP.NET アプリケーションの構築: 認証、承認、およびセキュリティで保護された通信](https://msdn.microsoft.com/en-us/library/aa302392.aspx)
+- [セキュリティで保護された ASP.NET アプリケーションの構築: 認証、承認、およびセキュリティで保護された通信](https://msdn.microsoft.com/library/aa302392.aspx)
 - [ASP.NET 2.0 の構成情報の暗号化アプリケーション](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
 - [暗号化`Web.config`ASP.NET 2.0 内の値](https://weblogs.asp.net/scottgu/archive/2006/01/09/434893.aspx)
-- [方法: ASP.NET 2.0 の構成セクションを暗号化する DPAPI を使用します。](https://msdn.microsoft.com/en-us/library/ms998280.aspx)
-- [方法: ASP.NET 2.0 の構成セクションを暗号化する RSA を使用して](https://msdn.microsoft.com/en-us/library/ms998283.aspx)
+- [方法: ASP.NET 2.0 の構成セクションを暗号化する DPAPI を使用します。](https://msdn.microsoft.com/library/ms998280.aspx)
+- [方法: ASP.NET 2.0 の構成セクションを暗号化する RSA を使用して](https://msdn.microsoft.com/library/ms998283.aspx)
 - [.NET 2.0 の構成 API](http://www.odetocode.com/Articles/418.aspx)
-- [Windows データ保護](https://msdn.microsoft.com/en-us/library/ms995355.aspx)
+- [Windows データ保護](https://msdn.microsoft.com/library/ms995355.aspx)
 
 ## <a name="about-the-author"></a>作成者について
 

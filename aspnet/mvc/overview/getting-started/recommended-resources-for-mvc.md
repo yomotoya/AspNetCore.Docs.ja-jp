@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 2aa7ded558ff52f252468ef3412c719b4596c79f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d08ee5c2bf56611caa483337af0ec1bd7cf982c0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="mvc-recommended-resources"></a>MVC リソースを推奨
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-> このトピックでは、ASP.NET MVC 5 のドキュメント リソースへのリンクを提供します。 Post、優れたブログがわかっている場合[stackoverflow](http://stackoverflow.com/)に便利ですが、送信されるその他のリンクやスレッド[me](mailto:aspnetue@microsoft.com?subject=Great ASP.NET MVC link)記載された電子メールのリンクがします。 ここで指定したリンクは、定期的に更新されます。 古いで見つけることができます (ただし、多くの場合、引き続き関連) で ASP.NET MVC のリンク、 [MSDN コンテンツ マップ](https://msdn.microsoft.com/en-us/library/gg416514(v=vs.108).aspx)です。
+> このトピックでは、ASP.NET MVC 5 のドキュメント リソースへのリンクを提供します。 Post、優れたブログがわかっている場合[stackoverflow](http://stackoverflow.com/)に便利ですが、送信されるその他のリンクやスレッド[me](mailto:aspnetue@microsoft.com?subject=Great ASP.NET MVC link)記載された電子メールのリンクがします。 ここで指定したリンクは、定期的に更新されます。 古いで見つけることができます (ただし、多くの場合、引き続き関連) で ASP.NET MVC のリンク、 [MSDN コンテンツ マップ](https://msdn.microsoft.com/library/gg416514(v=vs.108).aspx)です。
 > 
 > 質問に対する回答を取得するか、問題の解決策を検索する場所として適して、 [ASP.NET MVC フォーラム](https://forums.asp.net/1146.aspx/1?MVC)または[stackoverflow](http://stackoverflow.com/questions/tagged/mvc+asp.net-mvc)です。
 <a id="gettingstarted"></a>
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/10/2017
 - [ASP.NET mvc 5](introduction/getting-started.md)
 - [ASP.NET MVC について](https://pluralsight.com/training/Player?author=scott-allen&amp;name=mvc4-building-m1-intro&amp;mode=live&amp;clip=0&amp;course=mvc4-building)(Pluralsight によるビデオ)
 - [Asp.Net MVC で理解モデル ビュー コント ローラー](http://www.dotnet-tricks.com/Tutorial/mvc/DIYG060113-Understanding-Model-View-Controller-in-Asp.Net-MVC.html) (短いブログ出だし)。
-- [ASP.NET MVC の概要](../older-versions-1/overview/asp-net-mvc-overview.md)
+- [ASP.NET MVC 概要](../older-versions-1/overview/asp-net-mvc-overview.md)
 - [無料の 6 時間オンライン コース - 開発 ASP.NET MVC 4 Web アプリケーション ジャンプ スタート](https://weblogs.asp.net/jgalloway/archive/2013/10/09/free-6-hour-online-course-developing-asp-net-mvc-4-web-applications-jump-start.aspx)
 - [MVC のアーキテクチャと関心の分離の学習 MVC - パート 1: 概要](http://www.codeproject.com/Articles/620195/Learning-MVC-Part-1-Introduction-to-MVC-Architectu)
 - ポスター: [ASP.NET MVC 5 アプリケーションのライフ サイクル](lifecycle-of-an-aspnet-mvc-5-application.md)
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/10/2017
 - [Facebook、Google OAuth2 サインオンで ASP.NET MVC 5 アプリを作成します。](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 - [フィルター処理、および属性の ASP.NET MVC の理解](http://www.dotnet-tricks.com/Tutorial/mvc/b11a280114-Understanding-ASP.NET-MVC-Filters-and-Attributes.html)
 - [ASP.NET MVC 5 アプリケーションのライフ サイクル](lifecycle-of-an-aspnet-mvc-5-application.md)(PDF)
-- [ASP.NET では、操作を行わないと何を代わりに行うには](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
+- [ASP.NET ではしないこと。その代わりにすること。](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
 - [SocialGoal - ASP.NET MVC 5 の Web アプリの参照を解放する EF 6 Code First、AutoMapper、Autofac、TDD および DDD](https://weblogs.asp.net/shijuvarghese/archive/2014/01/24/releasing-socialgoal-reference-web-app-for-asp-net-mvc-5-ef-6-code-first-automapper-autofac-tdd-and-ddd.aspx)
 - [Azure での実際のクラウド アプリの構築](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction.md)
 - [詳細な ASP.NET MVC パイプライン](http://www.dotnet-tricks.com/Tutorial/mvc/LYHK270114-Detailed-ASP.NET-MVC-Pipeline.html)
@@ -87,7 +87,7 @@ ms.lasthandoff: 11/10/2017
 ## <a name="security"></a>セキュリティ
 
 - [Facebook、Google OAuth2 サインオンで ASP.NET MVC 5 アプリを作成します。](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
-- [ASP.NET では、操作を行わないと何を代わりに行うには](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
+- [ASP.NET ではしないこと。その代わりにすること。](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
 - [構築する方法 (および方法を構築すること)、セキュリティで保護された「次回の」機能](http://www.troyhunt.com/2013/07/how-to-build-and-how-not-to-build.html)Troy Hunt によって
 - ビデオ: [Web、モバイル、およびルカス Adams、Stuart Kwan によって、クラウド アプリケーションの新しい認証モデル](https://channel9.msdn.com/Events/Build/2014/2-601)
 - [ビデオ: ビルド Enterprise と SaaS の Web アプリおよびサインインの Vittorio Bertocci での Azure Active Directory を使用して Web Api](https://channel9.msdn.com/Events/Build/2014/3-599)
@@ -103,13 +103,13 @@ ms.lasthandoff: 11/10/2017
 - [ASP.NET MVC でのセキュリティ](http://www.codeproject.com/Articles/654846/Security-In-ASP-NET-MVC)
 - [ASP.NET MVC 4 アプリケーションをセキュリティで保護します。](https://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)
 - [セキュリティのプラクティスの概要に関するビデオを Pluralsight](http://www.pluralsight-training.net/microsoft/players/PSODPlayer?author=scott-allen&amp;name=mvc3-building-security&amp;mode=live&amp;clip=0&amp;course=aspdotnet-mvc3-intro)
-- [ASP.NET MVC、Web ページに XSRF/CSRF 防止](../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)
+- [ASP.NET MVC と Web ページの XSRF/CSRF 防止](../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)
 - [.NET 開発者にとって OWASP 上位 10](http://www.troyhunt.com/2010/05/owasp-top-10-for-net-developers-part-1.html)
-- [MVC 4 で OAuth プロバイダーの使用](../older-versions/using-oauth-providers-with-mvc.md)
-- [ASP.NET アプリケーションのハッキング対策](https://msdn.microsoft.com/en-us/magazine/hh580736.aspx)2011 年 12 月 Adam Tuliper による MSDN マガジンの記事
-- [ASP.NET アプリケーションのセキュリティ保護](https://msdn.microsoft.com/en-us/magazine/hh708755.aspx)2012 年 1 月 Adam Tuliper による MSDN マガジンの記事
+- [MVC 4 で OAuth プロバイダーを使用する](../older-versions/using-oauth-providers-with-mvc.md)
+- [ASP.NET アプリケーションのハッキング対策](https://msdn.microsoft.com/magazine/hh580736.aspx)2011 年 12 月 Adam Tuliper による MSDN マガジンの記事
+- [ASP.NET アプリケーションのセキュリティ保護](https://msdn.microsoft.com/magazine/hh708755.aspx)2012 年 1 月 Adam Tuliper による MSDN マガジンの記事
 - [開いているリダイレクト攻撃の防止](../security/preventing-open-redirection-attacks.md)
-- [ASP.NET MVC を使用して、イントラネット サイトを作成する方法](https://msdn.microsoft.com/en-us/library/gg703322(v=vs.98).aspx)
+- [ASP.NET MVC を使用して、イントラネット サイトを作成する方法](https://msdn.microsoft.com/library/gg703322(v=vs.98).aspx)
 - [暗号化されたクエリ文字列の ASP.NET MVC 値プロバイダー](http://www.dotnetexpertguide.com/2013/01/aspnet-mvc-value-provider-for-encrypted-query-string.html?utm_source=dlvr.it&amp;utm_medium=twitter&amp;utm_campaign=Feed:_Dotnetexpertguide)
 - [Haack と Hanselman による HaaHa 表示: Microsoft ASP.NET MVC セキュリティ](https://channel9.msdn.com/Events/MIX/MIX10/FT05)(ビデオ)
 - [ASP.NET での要求に対応するユーザー id](http://brockallen.com/2013/01/26/replacing-forms-authentication-with-wifs-session-authentication-module-sam-to-enable-claims-aware-identity/)
@@ -142,7 +142,7 @@ ms.lasthandoff: 11/10/2017
 ## <a name="data-access-in-aspnet-mvc"></a>ASP.NET MVC でのデータ アクセス
 
 - [ASP.NET MVC を使用して Entity Framework の概要](getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
-- [ASP.NET データ アクセス コンテンツ マップ](https://msdn.microsoft.com/en-us/library/6759sth4.aspx)
+- [ASP.NET データ アクセス コンテンツ マップ](https://msdn.microsoft.com/library/6759sth4.aspx)
 - [EF と Web API を使用した ASP.NET MVC4 アプリケーションの構築](http://net.tutsplus.com/tutorials/building-an-asp-net-mvc4-application-with-ef-and-webapi/)
 - [ASP.NET MVC で dataList &amp; KnockoutJS](http://www.devcurry.com/2013/04/datalist-in-aspnet-mvc-knockoutjs.html)
 
@@ -150,7 +150,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="web-forms-to-mvc"></a>Mvc web フォーム
 
-- [ASP.NET Web API の MVC パターンを移行する ASP.NET Web フォーム](https://msdn.microsoft.com/en-us/magazine/jj991978.aspx)
+- [ASP.NET Web API の MVC パターンを移行する ASP.NET Web フォーム](https://msdn.microsoft.com/magazine/jj991978.aspx)
 - Matthew サーバーのビデオ[深い統合の MVC と WebForms](https://channel9.msdn.com/Events/aspConf/aspConf/Deep-Integration-of-MVC-and-WebForms)
 - [ASP.NET MVC の Web フォームの世界に住んでいます。](http://www.eworldui.net/blog/post/2008/05/09/ASPNET-MVC-Living-in-a-Web-Forms-World.aspx)
 - [Mvc web フォーム](http://www.davepaquette.com/archive/2013/12/30/so-you-inherited-an-asp-net-web-forms-application.aspx)
@@ -163,7 +163,7 @@ ms.lasthandoff: 11/10/2017
 
 - ビデオ: [Deep Dive: ASP.NET アプリのパフォーマンスを向上させる](https://channel9.msdn.com/Events/Build/2014/3-605)Levi Broderick によって
 - ビデオ:[クラウド ベース ロード テスト サービスと Application Insights を使用して、スケールと Charles Sterling でのパフォーマンスを検索するには](https://channel9.msdn.com/Events/Build/2014/3-595)
-- [ASP.NET MVC 4 で非同期メソッドの使用](../performance/using-asynchronous-methods-in-aspnet-mvc-4.md)
+- [ASP.NET MVC 4 での非同期メソッドの使用](../performance/using-asynchronous-methods-in-aspnet-mvc-4.md)
 - [バンドル化、縮小、最適化](../performance/bundling-and-minification.md)
 - [Cdn を使用して Web サイトのパフォーマンスを向上させるために有効期限が切れると](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)
 - [MVC で非同期のファイルをアップロードします。](https://weblogs.asp.net/bryansampica/archive/2013/01/15/AsyncMVCFileUpload.aspx)
@@ -217,10 +217,10 @@ ms.lasthandoff: 11/10/2017
 - [ASP.NET MVC で JSON データを格納する属性のカスタム データを使用します。](http://www.binaryintellect.net/articles/8b993a74-a84a-42bd-9127-e701a03f5885.aspx)
 - MVC 5 の場合にも引き続き該当 MVC 4 へのリンク
 - [アクション メソッドへの JSON の送信](http://haacked.com/archive/2010/04/15/sending-json-to-an-asp-net-mvc-action-method-argument.aspx)
-- [JQuery を使用した豊富なユーザー インターフェイスを構築します。](https://msdn.microsoft.com/en-us/magazine/dd722809.aspx)
+- [JQuery を使用した豊富なユーザー インターフェイスを構築します。](https://msdn.microsoft.com/magazine/dd722809.aspx)
 - [ASP.NET MVC でのビューにデータ テーブルの列 の自動設定](http://www.dotnetfunda.com/articles/show/2669/auto-populate-datatable-columns-to-the-views-in-aspnet-mvc)Sheo Narayan によって
 - [ASP.NET MVC での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用](../older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)
-- [ASP.NET mvc の DropDownList ヘルパーの使用](../older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc.md)
+- [ASP.NET MVC で DropDownList ヘルパーを使用する](../older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc.md)
 - [ASP.NET MVC で DropDownListFor](http://odetocode.com/blogs/scott/archive/2013/03/11/dropdownlistfor-with-asp-net-mvc.aspx)
 - [ASP.NET MVC の DropDownList ヘルパーのデータ バインディング](http://www.itorian.com/2013/02/dropdownlist-helper-data-binding-in-mvc.html)
 - [JavaScript と Ajax を操作する方法を示す Pluralsight ビデオ](http://www.pluralsight-training.net/microsoft/players/PSODPlayer?author=scott-allen&amp;name=mvc3-building-ajax&amp;mode=live&amp;clip=0&amp;course=aspdotnet-mvc3-intro)
@@ -237,9 +237,9 @@ ms.lasthandoff: 11/10/2017
 ## <a name="html5"></a>HTML5
 
 - [ASP.NET MVC での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用](../older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)
-- [HTML5 によるアクセシビリティの設計](https://msdn.microsoft.com/en-us/magazine/jj863135.aspx)
-- [ASP.NET MVC 4、jQuery Mobile でモバイル対応 HTML5 フォームを作成します。](https://msdn.microsoft.com/en-us/magazine/hh848259.aspx)
-- [HTML5 を既存の ASP.NET Web フォームと MVC アプリケーションに統合します。](https://msdn.microsoft.com/en-us/magazine/jj129609.aspx)
+- [HTML5 によるアクセシビリティの設計](https://msdn.microsoft.com/magazine/jj863135.aspx)
+- [ASP.NET MVC 4、jQuery Mobile でモバイル対応 HTML5 フォームを作成します。](https://msdn.microsoft.com/magazine/hh848259.aspx)
+- [HTML5 を既存の ASP.NET Web フォームと MVC アプリケーションに統合します。](https://msdn.microsoft.com/magazine/jj129609.aspx)
 
 <a id="Routing"></a>
 
@@ -272,7 +272,7 @@ ms.lasthandoff: 11/10/2017
 ## <a name="azure-and-aspnet-mvc"></a>Azure と ASP.NET MVC
 
 - [ストレージ テーブル、キュー、および Blob を使用して多階層アプリケーション](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36)
-- [サービスとして手軽とホストを Windows Azure Web サイト:](https://msdn.microsoft.com/en-us/magazine/jj883953.aspx)
+- [サービスとして手軽とホストを Windows Azure Web サイト:](https://msdn.microsoft.com/magazine/jj883953.aspx)
 - [Azure web サイトで ASP.NET MVC 4 の構成に関するヒント](http://odetocode.com/Blogs/scott/archive/2012/08/07/configuration-tips-for-asp-net-mvc-4-on-a-windows.aspx)
 - [エピソード 85 - Azure、Windows 8、および MVC 4 デモ](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-85-Windows-Azure-Sample-Content-Review)(ビデオ)
 - [Git リポジトリから Visual Studio 2012 での Azure への ASP.NET web サイトを直接展開](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)
@@ -285,11 +285,11 @@ ms.lasthandoff: 11/10/2017
 - [[ビデオ]MVC 4 でのモバイル フレンドリ web サイトの構築](https://www.bitcast.io/v/building-mobile-friendly-websites-with-mvc-4)
 - [高パフォーマンス モバイル web サイトを作成します。](http://mobile.smashingmagazine.com/2013/08/12/creating-high-performance-mobile-websites/)
 - [ASP.NET MVC 4 のモバイルに最適化されたビューの作成](https://msdn.microsoft.com/en-gb/magazine/dn296507.aspx)
-- [ASP.NET MVC 4、jQuery Mobile でモバイル対応 HTML5 フォームを作成します。](https://msdn.microsoft.com/en-us/magazine/hh848259.aspx)
-- [JQuery Mobile を MVC Web アプリケーションに統合します。](https://msdn.microsoft.com/en-us/magazine/jj650891.aspx)
-- [JQuery Mobile に詳しく知り](https://msdn.microsoft.com/en-us/magazine/jj906416.aspx)
-- [ASP.NET MVC 4 のモバイル開発の新機能します。](https://msdn.microsoft.com/en-us/magazine/hh975347.aspx)
-- [ハイブリッドの開発 Web アプリのネイティブとモバイル](https://msdn.microsoft.com/en-us/magazine/hh852592.aspx)
+- [ASP.NET MVC 4、jQuery Mobile でモバイル対応 HTML5 フォームを作成します。](https://msdn.microsoft.com/magazine/hh848259.aspx)
+- [JQuery Mobile を MVC Web アプリケーションに統合します。](https://msdn.microsoft.com/magazine/jj650891.aspx)
+- [JQuery Mobile に詳しく知り](https://msdn.microsoft.com/magazine/jj906416.aspx)
+- [ASP.NET MVC 4 のモバイル開発の新機能します。](https://msdn.microsoft.com/magazine/hh975347.aspx)
+- [ハイブリッドの開発 Web アプリのネイティブとモバイル](https://msdn.microsoft.com/magazine/hh852592.aspx)
 - [ASP.NET MVC 4 および jQuery Mobile 切り替え可能な Desktop および Mobile サイト](http://www.hanselman.com/blog/MakingASwitchableDesktopAndMobileSiteWithASPNETMVC4AndJQueryMobile.aspx)
 - [MVC 4 のモバイル容易な Web アプリケーション](http://www.codeproject.com/Articles/455627/MVC4-Mobile-Friendly-Web-Applications)
 - [ASP.NET MVC 4 Mobile](https://channel9.msdn.com/Events/aspConf/aspConf/ASP-NET-MVC-4-Mobile)
@@ -298,7 +298,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="single-page-application-spa"></a>シングル ページ アプリケーション (SPA)
 
-- [単一ページ アプリケーションの .NET Developer 入門](https://msdn.microsoft.com/en-us/magazine/dn605877.aspx)MSDN マガジン
+- [単一ページ アプリケーションの .NET Developer 入門](https://msdn.microsoft.com/magazine/dn605877.aspx)MSDN マガジン
 - [AngularJS の単一ページ アプリケーションと ASP.NET MVC 4](http://tarkus.me/post/32121691785/angularjs-with-asp-net-mvc-4)
 - [ASP.NET 内の単一ページ アプリケーション テンプレート](http://www.johnpapa.net/inside-the-asp-net-single-page-apps-template/)
 - [Asp.net MVC の単一ページ アプリケーション テンプレートの更新、および Web ツール 2012.2 RC](https://blogs.msdn.com/b/webdev/archive/2012/12/19/mvc-single-page-template-update-for-asp-net-and-web-tools-2012-2-rc.aspx)
@@ -327,14 +327,14 @@ ms.lasthandoff: 11/10/2017
 - [ASP.NET MVC の推進をテスト](https://channel9.msdn.com/Events/aspConf/aspConf/Test-Driving-ASP-NET-MVC)(ビデオ)
 - [統合テスト SpecsFor.Mvc – ASP.NET MVC でテストできます。](https://channel9.msdn.com/Events/aspConf/aspConf/Integration-Testing-With-SpecsFor-Mvc-ASP-NET-MVC-Testing-on-Steroids) (ビデオ)
 - [ASP.NET mvc の初心者向けチュートリアル単体テストが容易なアプリケーションを作成します。](http://www.codeproject.com/Articles/579035/Creating-Unit-Testable-Applications-in-ASP-NET-MVC)
-- [チュートリアル: ASP.NET MVC で TDD を使用する](https://msdn.microsoft.com/en-us/library/gg416511(v=vs.98).aspx)(MVC 3)
+- [チュートリアル: ASP.NET MVC で TDD を使用する](https://msdn.microsoft.com/library/gg416511(v=vs.98).aspx)(MVC 3)
 - [SocialGoal - ASP.NET MVC 5 の Web アプリの参照を解放する EF 6 Code First、AutoMapper、Autofac、TDD および DDD](https://weblogs.asp.net/shijuvarghese/archive/2014/01/24/releasing-socialgoal-reference-web-app-for-asp-net-mvc-5-ef-6-code-first-automapper-autofac-tdd-and-ddd.aspx)
 
 <a id="best"></a>
 
 ## <a name="best-practices"></a>ベスト プラクティス
 
-- [ASP.NET では、操作を行わないと何を代わりに行うには](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
+- [ASP.NET ではしないこと。その代わりにすること。](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
 - [Web 開発者のチェックリスト](http://webdevchecklist.com/aspnet)
 - [ビデオ: しないようにして、この!](http://vimeo.com/68390507)
 - [ASP.NET MVC ソリューションのベスト プラクティス](https://channel9.msdn.com/Events/aspConf/aspConf/ASP-NET-MVC-Solution-Best-Practices)(ビデオ)
@@ -363,9 +363,9 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="general"></a>全般
 
-- [ASP.NET MVC 5 と Web API 2 に、ASP.NET MVC 4 および Web API プロジェクトをアップグレードする方法](../releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)
+- [ASP.NET MVC 4 と Web API プロジェクトを ASP.NET MVC 5 と Web API 2 にアップグレードする](../releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)
 - [フィルター処理、および属性の ASP.NET MVC の理解](http://www.dotnet-tricks.com/Tutorial/mvc/b11a280114-Understanding-ASP.NET-MVC-Filters-and-Attributes.html)
-- [ASP.NET MVC の開発者向けのコンテンツのネゴシエーションと Web API](https://msdn.microsoft.com/en-us/magazine/dn574797.aspx)
+- [ASP.NET MVC の開発者向けのコンテンツのネゴシエーションと Web API](https://msdn.microsoft.com/magazine/dn574797.aspx)
 - [ASP.NET MVC で WebP イメージを提供しています。](http://friism.com/serving-webp-images-with-asp-net-mvc)
 - [詳細な ASP.NET MVC パイプライン](http://www.dotnet-tricks.com/Tutorial/mvc/LYHK270114-Detailed-ASP.NET-MVC-Pipeline.html)
 - [MVC での入れ子レイアウト](http://astutelogic.com/nesting-layouts-in-mvc/)Russell やす子によって
@@ -378,23 +378,23 @@ ms.lasthandoff: 11/10/2017
 - [アップロードし、ASP.NET MVC を使用してファイルをダウンロード](http://rachelappel.com/upload-and-download-files-using-asp.net-mvc#)
 - [ASP.NET MVC でビューのコンパイル時エラーが発生します。](http://blog.falafel.com/Blogs/JonathanTower/j-tower/2013/12/02/get-compile-time-view-errors-in-asp-net-mvc)
 - [ASP.NET MVC で Fluent 検証の使用](http://www.beabigrockstar.com/using-fluent-validation-with-asp-net-mvc-part-1-the-basics/)
-- [内部パートの下にある ASP.NET MVC\_1](http://www.pieterg.com/2013/4/aspnet-mvc-under-the-hood-part-1) 、 [MvcHandler](https://msdn.microsoft.com/en-us/library/system.web.mvc.mvchandler(v=vs.108).aspx)、ASP.NET MVC の要求を処理するために使用するオブジェクト。
+- [内部パートの下にある ASP.NET MVC\_1](http://www.pieterg.com/2013/4/aspnet-mvc-under-the-hood-part-1) 、 [MvcHandler](https://msdn.microsoft.com/library/system.web.mvc.mvchandler(v=vs.108).aspx)、ASP.NET MVC の要求を処理するために使用するオブジェクト。
 - [内部パートの下にある ASP.NET MVC\_2](http://www.pieterg.com/2013/4/aspnet-mvc-under-the-hood-part-2)
 - [内部パート 3 での ASP.NET MVC](http://www.pieterg.com/2013/4/aspnet-mvc-under-the-hood-part-3)コント ローラーの種類を検索します。
 - [内部パート 4 での ASP.NET MVC](http://www.pieterg.com/2013/4/aspnet-mvc-under-the-hood-part-4) TempData
-- [内部パート 5 ASP.NET MVC](http://www.pieterg.com/2013/4/aspnet-mvc-under-the-hood-part-5) 、 [ActionInvoker](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller.actioninvoker(v=vs.108).aspx)
+- [内部パート 5 ASP.NET MVC](http://www.pieterg.com/2013/4/aspnet-mvc-under-the-hood-part-5) 、 [ActionInvoker](https://msdn.microsoft.com/library/system.web.mvc.controller.actioninvoker(v=vs.108).aspx)
 - [内部パート 6 の下にある ASP.NET MVC](http://www.pieterg.com/2013/5/aspnet-mvc-under-the-hood-part-6) ActionFilters 方法が検出され、その適用方法
 - [ASP.NET MVC 用の独自のカスタム ViewWebPage を作成します。](http://www.love2dev.com/#!article/Create-Your-Own-Custom-ViewWebPage-for-ASPNET-MVC)
 - [ASP.NET MVC の Razor ビューでのトレース](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)
 - [見直され MVC の外部での ASP.NET MVC の Razor ビューのレンダリング](http://www.west-wind.com/weblog/posts/2013/Jul/15/Rendering-ASPNET-MVC-Razor-Views-outside-of-MVC-revisited)
 - [5 つ重要なフロント エンド ツールを使用する必要が最新の MVC プロジェクト](http://www.adamtibi.net/06-2013/five-essential-front-end-tools-that-should-be-used-with-modern-mvc-projects)
-- [モデル バインディングの機能と ASP.NET MVC の弱点](https://msdn.microsoft.com/en-us/magazine/hh781022.aspx)
+- [モデル バインディングの機能と ASP.NET MVC の弱点](https://msdn.microsoft.com/magazine/hh781022.aspx)
 - [Asp.Net MVC4 のセッションの動作を制御します。](http://www.dotnet-tricks.com/Tutorial/mvc/906b060113-Controlling-Session-Behavior-in-Asp.Net-MVC4.html)
 - [RenderPartial vs RenderAction vs 部分 vs MVC Razor 内のアクション](http://www.dotnet-tricks.com/Tutorial/mvc/Q8V2130113-RenderPartial-vs-RenderAction-vs-Partial-vs-Action-in-MVC-Razor.html)
 - [ルートであいまいなコント ローラーのエラーを解決するには](http://www.dotnet-tricks.com/Tutorial/mvc/30HJ010113-Resolve-Ambiguous-Controller-Error-by-routes.html)
 - [Cookie ベースの TempData プロバイダー](http://brockallen.com/2012/06/11/cookie-based-tempdata-provider/)
 - [1 つの共有\_ASP.NET MVC での区分にわたって ViewStart](http://brockallen.com/2012/08/31/sharing-a-single-_viewstart-across-areas-in-asp-net-mvc/)
-- [ASP.NET MVC でのフィルタ リング](https://msdn.microsoft.com/en-us/library/gg416513(VS.98).aspx)
+- [ASP.NET MVC でのフィルタ リング](https://msdn.microsoft.com/library/gg416513(VS.98).aspx)
 - [ASP.NET MVC 3 を使用して HandleError 内のアクション フィルターの把握に](https://channel9.msdn.com/Shows/DevNuggets/Get2KnowActionFiltersUsingHandleError)(ビデオ)
 - [MVC - カスタム フィルターのセッション タイムアウトの処理](http://codeblockdrive.blogspot.in/2012/12/mvc-custom-filters-session-timeout.html)
 - [カスタムの MVC 4 テンプレートのチュートリアル](https://blogs.msdn.com/b/yjhong/archive/2012/12/13/custom-mvc-4-template-walkthrough.aspx)

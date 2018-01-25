@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: 2458abc863a83364f90fc9d6edaace897c23b4c9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c592ed78a7332834923ce2290af77919fb3c7576
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Web Farm Framework によるサーバー ファームの作成
 ====================
@@ -65,7 +65,7 @@ WFF 2.0 を使用して、プロビジョニング、管理、および web サ�
 - サーバーは、静的 IP アドレスを持ちます。
 
 > [!NOTE]
-> コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューター、ドメインとログオン](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx)です。 静的 IP アドレスを構成する方法については、次を参照してください。[静的 IP アドレスを構成](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx)です。
+> コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューター、ドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)です。 静的 IP アドレスを構成する方法については、次を参照してください。[静的 IP アドレスを構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)です。
 
 
 ## <a name="create-the-wff-controller-server"></a>WFF コント ローラーのサーバーを作成します。
@@ -78,7 +78,7 @@ WFF コント ローラーのサーバーを作成するには、IIS 7 以降と
 2. 上部にある、 **Web Platform Installer 3.0**ウィンドウで、をクリックして**製品**です。
 3. ナビゲーション ウィンドウで、ウィンドウの左側にあるをクリックして**サーバー**です。
 4. **IIS 7 の推奨構成**行で、をクリックして**追加**です。
-5. **Web Farm Framework 2** 。*x*行で、をクリックして**追加**です。
+5. **Web ファーム フレームワーク 2。 * * * x*行で、[] をクリック**追加**です。
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image2.png)
 6. **[インストール]**をクリックします。 Web Platform Installer がインストールの一覧にさまざまな他の依存関係と共に、Web 配置ツールを追加していることを確認します。

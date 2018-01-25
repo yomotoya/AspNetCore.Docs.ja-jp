@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: bf4bb5c6f9ad8339c3597b0d6666c7077ac476e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 076fa87eff140a3e7ff6855e4876abac40419c57
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 モデルおよびデータ アクセス
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > このラボには、機能強化と軽微な変更を元のフォルダーで提供されるサンプル Web アプリケーションに適用することで前に説明した新しい機能について説明します。
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843)です。
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843)です。
 
 
 **ASP.NET MVC の基本事項**ハンズオン ラボがされて渡そうとしてハード コードされたデータのコント ローラーからテンプレートの表示にします。 しかし、実際の Web アプリケーションを構築するために実際のデータベースを使用する場合があります。
@@ -235,7 +235,7 @@ ms.lasthandoff: 11/10/2017
     > [!NOTE]
     > .Net と呼ばれる機能を使用している**LINQ** (言語統合クエリ) は、データベースに対してコードを実行し、返されますが、これらのコレクションに対して厳密に型指定されたクエリ式を作成するオブジェクトをプログラミングできます比較
     > 
-    > LINQ の概要の詳細については、次を参照してください、 [msdn サイト](https://msdn.microsoft.com/en-us/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx)です。
+    > LINQ の概要の詳細については、次を参照してください、 [msdn サイト](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx)です。
 3. 更新**インデックス**アクション メソッドは、すべてのジャンルを取得します。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex1 ストア インデックス*)
@@ -351,7 +351,7 @@ ms.lasthandoff: 11/10/2017
     > [!NOTE]
     > Code First 規約に従ってを操作するには、自動的に検出される主キーのプロパティがクラス ジャンルに必要です。
     > 
-    > 詳細を読み取ることができます First 規約に従ってこのコードに関する[msdn の記事](https://msdn.microsoft.com/en-us/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx)です。
+    > 詳細を読み取ることができます First 規約に従ってこのコードに関する[msdn の記事](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx)です。
 2. これで、POCO のモデル クラスを開く**アルバム**から**モデル**プロジェクト フォルダーと外部キーが含まれて、名前のプロパティを作成する**GenreId**と**ArtistId**です。 このクラスが既にある、 **GenreId**の主キー。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex2 コードの最初のアルバム*)
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/10/2017
     [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
 
     > [!NOTE]
-    > Entity Framework と**DbContext**と**DBSet** POCO クラス ジャンルを照会することができます。 拡張することによって**OnModelCreating**メソッドで指定する、**コード**ジャンルがデータベース テーブルにマップする方法です。 Msdn の「の詳細については、DBContext および DBSet を見つけることができます:[リンク](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.103).aspx)
+    > Entity Framework と**DbContext**と**DBSet** POCO クラス ジャンルを照会することができます。 拡張することによって**OnModelCreating**メソッドで指定する、**コード**ジャンルがデータベース テーブルにマップする方法です。 Msdn の「の詳細については、DBContext および DBSet を見つけることができます:[リンク](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
 
 <a id="Ex2Task4"></a>
 
@@ -416,7 +416,7 @@ ms.lasthandoff: 11/10/2017
     > [!NOTE]
     > .Net と呼ばれる機能を使用している**LINQ** (言語統合クエリ) は、データベースに対してコードを実行し、返されますが、これらのコレクションに対して厳密に型指定されたクエリ式を作成するオブジェクトをプログラミングできます比較
     > 
-    > LINQ の概要の詳細については、次を参照してください、 [msdn サイト](https://msdn.microsoft.com/en-us/library/bb397926(v=vs.110).aspx)です。
+    > LINQ の概要の詳細については、次を参照してください、 [msdn サイト](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx)です。
 3. 更新**インデックス**アクション メソッドは、すべてのジャンルを取得します。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex2 ストア インデックス*)
@@ -457,7 +457,7 @@ ms.lasthandoff: 11/10/2017
 この演習では、パラメーターを使用してデータベースを照会する方法およびクエリ結果の整形を使用する方法を学習、番号のデータベースを小さく機能がより効率的な方法でのデータの取得をアクセスします。
 
 > [!NOTE]
-> クエリ結果のシェイプの詳細については、次を参照してください。 [msdn の記事](https://msdn.microsoft.com/en-us/library/bb896272&amp;#040;v=vs.100&amp;#041;.aspx)です。
+> クエリ結果のシェイプの詳細については、次を参照してください。 [msdn の記事](https://msdn.microsoft.com/library/bb896272&amp;#040;v=vs.100&amp;#041;.aspx)です。
 
 
 <a id="Ex3Task1"></a>
@@ -502,7 +502,7 @@ ms.lasthandoff: 11/10/2017
 
     ![ジャンル参照](aspnet-mvc-4-models-and-data-access/_static/image24.png "ジャンルの閲覧")
 
-    *参照/ストア/参照? ジャンル Pop を =*
+    *Browsing /Store/Browse?genre=Pop*
 
 <a id="Ex3Task3"></a>
 
@@ -542,7 +542,7 @@ ms.lasthandoff: 11/10/2017
 <a id="Summary"></a>
 
 <a id="Summary"></a>
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ASP.NET MVC モデルおよびデータ アクセスの基礎を学習したこのハンズオン ラボを完了するを使用して、 **Database First**方法だけでなく**Code First**方法。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: d7a1dcc04baaa5ab27aecf95936d943f5a9b3f0c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2394ee81f4592417a034e47db6eefd3e4b91a9af
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-troubleshooting"></a>SignalR のトラブルシューティング
 ====================
@@ -186,13 +186,13 @@ SignalR のサーバーには、クライアントが切れているか、その
 
 このエラーは、ドメイン間の通信が正しく有効化されませんクロス ドメイン環境で発生する可能性があります。 ドメイン間の通信を有効にする方法については、次を参照してください。[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)です。 Silverlight クライアントで、ドメイン間の接続を確立する、次を参照してください。 [Silverlight クライアントからドメイン間の接続](../guide-to-the-api/hubs-api-guide-net-client.md#slcrossdomain)です。
 
-### <a name="404-not-found-error"></a>「404 見つかりません」エラー
+### <a name="404-not-found-error"></a>"404 Not Found" error
 
 この問題のいくつかの原因があります。 次のすべてを確認します。
 
 - **ハブ プロキシ アドレスの参照が正しくフォーマットされていません:**このエラーは生成されたハブ プロキシのアドレスへの参照が正しくフォーマットされていない場合も表示されます。 ハブのアドレスへの参照が正しく行われたことを確認します。 参照してください[を動的に生成されたプロキシを参照する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy)詳細についてはします。
 - **ハブ ルートを追加する前に、アプリケーションへのルートの追加:**場合、アプリケーションでは、他のルートを使用することを確認追加された最初のルートへの呼び出し`MapSignalR`です。
-- **IIS 7 または更新しないで 7.5 拡張子のない Url を使用する:**を使用して IIS 7 または 7.5 更新が要求される拡張子のない Url のサーバーで、ハブの定義へのアクセスを提供できるように`/signalr/hubs`です。 更新プログラムが見つかります[ここ](https://support.microsoft.com/kb/980368/en-us)です。
+- **IIS 7 または更新しないで 7.5 拡張子のない Url を使用する:**を使用して IIS 7 または 7.5 更新が要求される拡張子のない Url のサーバーで、ハブの定義へのアクセスを提供できるように`/signalr/hubs`です。 更新プログラムが見つかります[ここ](https://support.microsoft.com/kb/980368)です。
 - **IIS が最新でないキャッシュまたは破損している:**キャッシュの内容が最新でないでないことを確認するには、キャッシュをクリアする PowerShell ウィンドウで次のコマンドを入力します。
 
     [!code-powershell[Main](troubleshooting/samples/sample11.ps1)]

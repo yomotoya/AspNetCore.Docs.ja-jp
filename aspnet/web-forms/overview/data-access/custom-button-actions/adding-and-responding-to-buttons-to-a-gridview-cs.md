@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dadc1641e427b025d71ef567a626fa7c37c9fc08
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4f2a31f406bb1ed98e3620e216b4ad14fe59b32f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-c"></a>GridView (c#) をボタンに応答して追加します。
 ====================
@@ -194,7 +194,7 @@ FormView にボタンを追加するをクリックすると、すべてを停�
 **図 15**: を中止するすべての製品ボタン Web コントロールを追加 FormView の`ItemTemplate`([フルサイズのイメージを表示するをクリックして](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image41.png))
 
 
-ページ ポストバックに陥りますユーザーにアクセスして、FormView のボタンがクリックされたときに[`ItemCommand`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.formview.itemcommand.aspx)発生します。 カスタム コードを実行するには、このボタンをクリックしてに応答するには、ことができます、このイベントのイベント ハンドラーを作成します。 点に注意して、ただし、`ItemCommand`イベントが発生するたびに*任意*FormView でボタン、LinkButton、ImageButton Web コントロールをクリックします。 つまり、ユーザーが 1 つのページ、フォーム ビュー内の別に移動すると、`ItemCommand`イベントの起動以外の同じユーザーが、編集、新規をクリックするか、挿入、更新、または削除をサポートするフォーム ビューを削除します。
+ページ ポストバックに陥りますユーザーにアクセスして、FormView のボタンがクリックされたときに[`ItemCommand`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.itemcommand.aspx)発生します。 カスタム コードを実行するには、このボタンをクリックしてに応答するには、ことができます、このイベントのイベント ハンドラーを作成します。 点に注意して、ただし、`ItemCommand`イベントが発生するたびに*任意*FormView でボタン、LinkButton、ImageButton Web コントロールをクリックします。 つまり、ユーザーが 1 つのページ、フォーム ビュー内の別に移動すると、`ItemCommand`イベントの起動以外の同じユーザーが、編集、新規をクリックするか、挿入、更新、または削除をサポートするフォーム ビューを削除します。
 
 以降、`ItemCommand`イベント ハンドラーお必要があるすべての製品の中止 ボタンがクリックしてされたかどうかを決定する方法、またはその他のいくつかのボタンが、どのようなボタンがクリックされたに関係なく発生します。 これを実現する、設定できるボタン Web コントロールの`CommandName`プロパティを識別するいくつかの値にします。 ときに、ボタンがクリックされた、この`CommandName`に値が渡された、`ItemCommand`すべての製品の中止 ボタンがクリックされたボタンをしたかどうかを判断することを有効にすると、イベント ハンドラー。 設定を中止するすべての製品ボタンの`CommandName`DiscontinueProducts するプロパティです。
 
@@ -208,7 +208,7 @@ FormView のイベント ハンドラーを次に、作成`ItemCommand`イベン
 
 [!code-csharp[Main](adding-and-responding-to-buttons-to-a-gridview-cs/samples/sample7.cs)]
 
-なお、 `SupplierID` FormView で現在選択されている仕入先のことができますを使用してアクセス FormView の[`SelectedValue`プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.formview.selectedvalue.aspx)です。 `SelectedValue`プロパティは、最初のデータ、フォーム ビューに表示されているレコードの値のキーを返します。 FormView の[`DataKeyNames`プロパティ](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.formview.datakeynames.aspx)に自動的に設定されたフィールドのデータを元には、キーの値からプルされたデータを示す`SupplierID`FormView に、ObjectDataSource をバインドするときに、Visual Studio で手順 2 に戻ります.
+なお、 `SupplierID` FormView で現在選択されている仕入先のことができますを使用してアクセス FormView の[`SelectedValue`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.selectedvalue.aspx)です。 `SelectedValue`プロパティは、最初のデータ、フォーム ビューに表示されているレコードの値のキーを返します。 FormView の[`DataKeyNames`プロパティ](https://msdn.microsoft.com/system.web.ui.webcontrols.formview.datakeynames.aspx)に自動的に設定されたフィールドのデータを元には、キーの値からプルされたデータを示す`SupplierID`FormView に、ObjectDataSource をバインドするときに、Visual Studio で手順 2 に戻ります.
 
 `ItemCommand`作成されると、イベント ハンドラーをとって、ページをテストします。 Cooperativa de Quesos する参照 ' Las Cabras' supplier (私にとって FormView で業者に 5 つ目は)。 この供給業者は、2 つの製品、Queso Cabrales と Queso Manchego La Pastora、どちらも*いない*廃止されました。
 
@@ -244,7 +244,7 @@ GridView のビュー ステートを無効にした場合、GridView はポス�
 
 ## <a name="step-7-adding-the-increase-and-decrease-buttons-to-the-gridview"></a>手順 7: GridView の増加と縮小ボタンの追加
 
-GridView (および DetailsView) は両方の構成されて、フィールドのコレクション。 BoundFields、CheckBoxFields、および TemplateFields、に加えては、ASP.NET には、その名前からわかるように、ボタン、LinkButton、ImageButton に行ごとの列として表示すると、ButtonField が含まれています。 クリックすると、フォーム ビューのような*任意*内、GridView ページング ボタン、編集または削除のボタン、並べ替えボタンは、ボタンは、ポストバックが発生させ、GridView の[`RowCommand`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowcommand.aspx)です。
+GridView (および DetailsView) は両方の構成されて、フィールドのコレクション。 BoundFields、CheckBoxFields、および TemplateFields、に加えては、ASP.NET には、その名前からわかるように、ボタン、LinkButton、ImageButton に行ごとの列として表示すると、ButtonField が含まれています。 クリックすると、フォーム ビューのような*任意*内、GridView ページング ボタン、編集または削除のボタン、並べ替えボタンは、ボタンは、ポストバックが発生させ、GridView の[`RowCommand`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowcommand.aspx)です。
 
 ButtonField が、`CommandName`そのボタンのそれぞれに、指定された値を割り当てるプロパティ`CommandName`プロパティです。 FormView、使用するような`CommandName`によって値が使用される、`RowCommand`イベント ハンドラー ボタンがクリックしてされました。
 
@@ -256,7 +256,7 @@ ButtonField が、`CommandName`そのボタンのそれぞれに、指定され�
 **図 18**: GridView に 2 つの ButtonFields を追加
 
 
-最初の 2 つの GridView フィールドとして表示されるようにするには、2 つの ButtonFields を移動します。 次に、設定、`Text`プロパティ + 10% の価格を設定するこれら 2 つの ButtonFields および価格-10% と`CommandName`IncreasePrice および DecreasePrice、プロパティをそれぞれします。 既定では、ButtonField は、あるとしてその列のボタンをレンダリングします。 これは、ただし、ButtonField の[`ButtonType`プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.buttonfieldbase.buttontype.aspx)です。 これら 2 つの ButtonFields 正規プッシュ ボタンとしてレンダリングされますがあてみましょうこのため、設定、`ButtonType`プロパティを`Button`です。 図 19 フィールドに表示 ダイアログ ボックス後、これらの変更が加えられました。GridView の宣言型マークアップは、次のことです。
+最初の 2 つの GridView フィールドとして表示されるようにするには、2 つの ButtonFields を移動します。 次に、設定、`Text`プロパティ + 10% の価格を設定するこれら 2 つの ButtonFields および価格-10% と`CommandName`IncreasePrice および DecreasePrice、プロパティをそれぞれします。 既定では、ButtonField は、あるとしてその列のボタンをレンダリングします。 これは、ただし、ButtonField の[`ButtonType`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.buttonfieldbase.buttontype.aspx)です。 これら 2 つの ButtonFields 正規プッシュ ボタンとしてレンダリングされますがあてみましょうこのため、設定、`ButtonType`プロパティを`Button`です。 図 19 フィールドに表示 ダイアログ ボックス後、これらの変更が加えられました。GridView の宣言型マークアップは、次のことです。
 
 
 ![ButtonFields テキスト、CommandName、および ButtonType プロパティを構成します。](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image49.png)
@@ -294,7 +294,7 @@ ButtonField が自動的に渡されます、 *rowIndex*経由のボタンがク
 > `<asp:Button runat="server" ... CommandArgument='<%# ((GridViewRow) Container).RowIndex %>'`。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 GridView、DetailsView、FormView コントロールすべてには、ボタン、ある、または ImageButtons を含めることができます。 クリックすると、このようなボタンがポストバックを発生させるし、生成、 `ItemCommand` 、FormView および DetailsView コントロール内のイベントと`RowCommand`GridView でイベント。 これらの Web コントロールのデータには、削除するか、レコードの編集など、共通のコマンドに関連するアクションを処理する組み込みの機能があります。 ただし、おこともできますを使用してボタンをクリックしたときに、独自のカスタム コードの実行で応答します。
 

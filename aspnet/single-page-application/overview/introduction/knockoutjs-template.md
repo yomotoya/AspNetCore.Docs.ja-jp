@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 6e84dcc16345e33fcd3a3f83c4b35bc993c03ca6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e6c0c45bed098a8a1160ff11e4f77244bf55ffd3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="single-page-application-knockoutjs-template"></a>Single Page Application: KnockoutJS テンプレート
 ====================
@@ -117,7 +117,7 @@ SPA テンプレートで、dtos の使用には、ドメイン モデルと同�
 
 ## <a name="entity-framework"></a>Entity Framework
 
-SPA テンプレート EF Code First を使用します。 Code First の開発でコードでは、モデルを最初に定義するし、EF モデルを使用してデータベースを作成します。 既存のデータベースで EF を使用することもできます ([Database First](https://msdn.microsoft.com/en-us/data/jj206878.aspx))。
+SPA テンプレート EF Code First を使用します。 Code First の開発でコードでは、モデルを最初に定義するし、EF モデルを使用してデータベースを作成します。 既存のデータベースで EF を使用することもできます ([Database First](https://msdn.microsoft.com/data/jj206878.aspx))。
 
 `TodoItemContext`モデル フォルダー内のクラスから派生**DbContext**です。 このクラスは、モデルと EF 間「グルー」を提供します。 `TodoItemContext`を保持する`ToDoItem`コレクションおよび`TodoList`コレクション。 データベースを照会するには、単にこれらのコレクションに対して LINQ クエリを記述する必要があります。 たとえば、ユーザー"Alice"のタスク一覧のすべてを選択する方法を示します。
 
@@ -145,10 +145,10 @@ ASP.NET Web API では、コント ローラーは、HTTP 要求を処理する�
 | HTTP 要求 | コント ローラー メソッド | 説明 |
 | --- | --- | --- |
 | GET /api/todo | `GetTodoLists` | タスク一覧のコレクションを取得します。 |
-| GET/apitodo/*id* | `GetTodoList` | ID でタスク一覧を取得します。 |
-| PUT/apitodo/*id* | `PutTodoList` | To do リストを更新します。 |
+| GET /api/todo/*id* | `GetTodoList` | ID でタスク一覧を取得します。 |
+| PUT /api/todo/*id* | `PutTodoList` | To do リストを更新します。 |
 | POST /api/todo | `PostTodoList` | 新しいタスク一覧を作成します。 |
-| DELETE/apitodo/*id* | `DeleteTodoList` | TODO リストを削除します。 |
+| DELETE /api/todo/*id* | `DeleteTodoList` | TODO リストを削除します。 |
 
 一部の操作の Uri に ID 値のプレース ホルダーが含まれていることがわかります。 たとえば、リストを削除するに - 42 の ID を持つ、URI は`/api/todo/42`します。
 
@@ -229,7 +229,7 @@ Knockout は異なるバインディングの種類の数を提供します。 S
 
 偽造防止トークンは動作ため、悪意のあるページが同じオリジン ポリシーにより、ユーザーのトークンを読み取ることができません。 (同じオリジンのポリシーは、互いのコンテンツへのアクセスから 2 つの異なるサイトでホストされているドキュメントを避けるため)。
 
-ASP.NET MVC は、経由した偽造防止トークンの組み込みサポートを提供、 [AntiForgery](https://msdn.microsoft.com/en-us/library/system.web.helpers.antiforgery.aspx)クラスおよび[[ValidateAntiForgeryToken]](https://msdn.microsoft.com/en-us/library/system.web.mvc.validateantiforgerytokenattribute.aspx)属性。 現時点では、この機能では、Web API に組み込まれていません。 ただし、SPA テンプレートには、Web API のカスタム実装が含まれています。 このコードがで定義されている、`ValidateHttpAntiForgeryTokenAttribute`ソリューションの [フィルター] フォルダーにあるクラスです。 Web API でのアンチ CSRF の詳細については、次を参照してください。[防止クロスサイト リクエスト フォージェリ (CSRF) 攻撃](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md)です。
+ASP.NET MVC は、経由した偽造防止トークンの組み込みサポートを提供、 [AntiForgery](https://msdn.microsoft.com/library/system.web.helpers.antiforgery.aspx)クラスおよび[[ValidateAntiForgeryToken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute.aspx)属性。 現時点では、この機能では、Web API に組み込まれていません。 ただし、SPA テンプレートには、Web API のカスタム実装が含まれています。 このコードがで定義されている、`ValidateHttpAntiForgeryTokenAttribute`ソリューションの [フィルター] フォルダーにあるクラスです。 Web API でのアンチ CSRF の詳細については、次を参照してください。[防止クロスサイト リクエスト フォージェリ (CSRF) 攻撃](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md)です。
 
 ## <a name="conclusion"></a>まとめ
 

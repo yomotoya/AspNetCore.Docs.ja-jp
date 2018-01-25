@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/routing
-ms.openlocfilehash: 7559fa270a012082d04161c1cccd1dc8151d0c1c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 497ce47fa567f163cb7b1eb891408f0100d15b8a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="routing-to-controller-actions"></a>コント ローラー アクションへのルーティング
 
@@ -63,9 +63,9 @@ routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
 * `{id?}`定義`id`オプションとして
 
-既定値と省略可能なルートのパラメーターは、一致の URL パスに存在する必要はありません。 参照してください[ルート テンプレート参照](../../fundamentals/routing.md#route-template-reference)ルート テンプレートの構文の詳細な説明をします。
+既定値と省略可能なルートのパラメーターはしない、一致の URL パスに存在する必要があります。 参照してください[ルート テンプレート参照](../../fundamentals/routing.md#route-template-reference)ルート テンプレートの構文の詳細な説明をします。
 
-`"{controller=Home}/{action=Index}/{id?}"`URL パスを照合できる`/`ルートの値を生成および`{ controller = Home, action = Index }`です。 値は、`controller`と`action`ように既定値の使用`id`URL パスに対応するセグメントが存在しないために、値を生成しません。 MVC ではこれらのルート値を使用して、`HomeController`と`Index`アクション。
+`"{controller=Home}/{action=Index}/{id?}"`URL パスを照合できる`/`ルートの値を生成および`{ controller = Home, action = Index }`です。 値は、`controller`と`action`ように既定値の使用`id`URL パスに対応するセグメントが存在しないため、値は生成されません。 MVC ではこれらのルート値を使用して、`HomeController`と`Index`アクション。
 
 ```csharp
 public class HomeController : Controller
@@ -114,7 +114,7 @@ routes.DefaultHandler = new MvcRouteHandler(...);
 app.UseRouter(routes.Build());
 ```
 
-`UseMvc`すべてのルートを直接定義されていません、プレース ホルダーのルートのコレクションに追加、`attribute`ルート。 オーバー ロードは、`UseMvc(Action<IRouteBuilder>)`を使用して、独自のルートを追加し、属性のルーティングをサポートします。  `UseMvc`および属性ルートのプレース ホルダーが追加のすべてのバリエーションの - 属性のルーティングの構成方法に関係なく使用可能なは常に`UseMvc`です。 `UseMvcWithDefaultRoute`既定のルートを定義し、属性のルーティングをサポートします。 [属性がルーティング](#attribute-routing-ref-label)セクションでは、属性のルーティングの詳細についてを説明します。
+`UseMvc`すべてのルートを直接定義されていないプレース ホルダーのルートのコレクションに追加、`attribute`ルート。 オーバー ロードは、`UseMvc(Action<IRouteBuilder>)`を使用して、独自のルートを追加し、属性のルーティングをサポートします。  `UseMvc`および属性ルートのプレース ホルダーが追加のすべてのバリエーションの - 属性のルーティングの構成方法に関係なく使用可能なは常に`UseMvc`です。 `UseMvcWithDefaultRoute`既定のルートを定義し、属性のルーティングをサポートします。 [属性がルーティング](#attribute-routing-ref-label)セクションでは、属性のルーティングの詳細についてを説明します。
 
 <a name="routing-conventional-ref-label"></a>
 
@@ -134,13 +134,13 @@ routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
 * 3 番目のセグメントは省略可能なための`id`モデルのエンティティにマップします。
 
-これを使用して`default`ルート、URL path`/Products/List`にマップ、`ProductsController.List`アクション、および`/Blog/Article/17`にマップ`BlogController.Article`です。 このマッピングは、コント ローラーとアクションの名前に基づいて**のみ**名前空間、ソース ファイルの場所、またはメソッド パラメーターには基づいていません。
+これを使用して`default`ルート、URL path`/Products/List`にマップ、`ProductsController.List`アクション、および`/Blog/Article/17`にマップ`BlogController.Article`です。 このマッピングは、コント ローラーとアクションの名前に基づいて**のみ**名前空間、ソース ファイルの場所、またはメソッド パラメーターに基づいていないとします。
 
 > [!TIP]
 > 既定のルートで従来のルーティングを使用するを定義する各アクションの新しい URL パターンを考えつくしなくても、アプリケーションをすばやく構築することができます。 CRUD スタイルのアクションがあるアプリケーション、Url のコント ローラー間で一貫性を持つことができますをコードを容易にし、UI をより予測可能なためです。
 
 > [!WARNING]
-> `id`は省略可能なによって定義されたルート テンプレート、URL の一部として提供された ID を持たないユーザーの操作を実行できることを意味します。 通常何が起こる場合`id`URL が省略されているに設定することは、`0`結果として、データベースの照合にエンティティがないと、モデル バインディングによって`id == 0`です。 属性のルーティングすれば、および他のいくつかのアクションに必要な ID の詳細に制御します。 省略可能なパラメーターなどのドキュメントは、慣例`id`正しい使用法に表示される可能性がある時期。
+> `id`は省略可能なによって定義されたルート テンプレート、URL の一部として提供された ID を持たないユーザーの操作を実行できることを意味します。 通常何が起こる場合`id`URL が省略されているに設定することは、`0`結果として、データベースの照合にエンティティがないと、モデル バインディングによって`id == 0`です。 属性のルーティングすれば、および他のいくつかのアクションに必要な ID の詳細に制御します。 省略可能なパラメーターなどのドキュメントは、慣例`id`正しい使用法に表示される可能性がある場合。
 
 ## <a name="multiple-routes"></a>複数のルート
 
@@ -157,14 +157,14 @@ app.UseMvc(routes =>
 
 `blog`ルートここでは、*専用従来ルート*、従来のルーティング システムを使用しますが、特定の操作は専用のことを意味します。 `controller`と`action`パラメーターとしてルート テンプレートに表示されていない、既定値を持てるおよびためこのルートは、アクションにマップする常に`BlogController.Article`です。
 
-ルート コレクション内のルートは、並べられ、追加された順序で処理されます。 この例では、`blog`ルートは、前に実行されます、`default`ルート。
+ルート コレクション内のルートは、並べられ、追加する順番で処理されます。 この例では、`blog`ルートは、前に実行されます、`default`ルート。
 
 > [!NOTE]
 > *従来のルートを専用*多くの場合と同様にキャッチ オール ルート パラメーターを使用して`{*article}`URL パスの残りの部分をキャプチャします。 これにより、ルート 'すぎる最長一致' 他のルートに一致させるための Url と一致することを意味します。 後で、ルート テーブルのこの問題を解決するには、'最長一致' のルートを配置します。
 
 ### <a name="fallback"></a>フォールバック
 
-要求の処理の一環として、MVC は、アプリケーション内でコント ローラーとアクションを検索するルートの値を使用できることを確認します。 アクションをルートの値が一致しない場合、ルートとは見なされません、一致して次のルートが試行されます。 これと呼ばれる*フォールバック*を従来のルートと重なる場合を簡略化するためのものでは、します。
+要求の処理の一環として、MVC は、アプリケーション内でコント ローラーとアクションを検索するルートの値を使用できることを確認します。 アクションをルートの値が一致しない場合そのルートされていないと見なされます、一致して、次のルートが試行されます。 これと呼ばれる*フォールバック*を従来のルートと重なる場合を簡略化するためのものでは、します。
 
 ### <a name="disambiguating-actions"></a>アクションの明確化
 
@@ -184,7 +184,7 @@ public class ProductsController : Controller
 
 `HttpPostAttribute` ( `[HttpPost]` ) の実装は、 `IActionConstraint` HTTP 動詞が場合に選択する操作のみを許可する`POST`です。 存在、`IActionConstraint`により、 `Edit(int, Product)` 'より良い' の一致よりも`Edit(int)`ため、`Edit(int, Product)`最初に試行されます。
 
-カスタムを作成する必要がありますのみ`IActionConstraint`が特殊なシナリオでは、実装のような属性の役割を理解しておく必要`HttpPostAttribute`-その他の HTTP 動詞のような属性が定義されます。 従来のルーティングでは操作の一部であるときに、同じアクション名を使用する一般的な`show form -> submit form`ワークフローです。 このパターンの利便性を確認した後より明白になります、[理解 IActionConstraint](#understanding-iactionconstraint)セクションです。
+カスタムを作成する必要がありますのみ`IActionConstraint`が特殊なシナリオでは、実装のような属性の役割を理解しておく必要`HttpPostAttribute`-その他の HTTP 動詞のような属性が定義されます。 従来のルーティングでは操作の一部になっているときに、同じアクション名を使用する一般的な`show form -> submit form`ワークフローです。 このパターンの利便性を確認した後より明白になります、[理解 IActionConstraint](#understanding-iactionconstraint)セクションです。
 
 複数のルートが一致するし、MVC は、'最高' のルートを見つけることはできませんがスローされます、`AmbiguousActionException`です。
 
@@ -206,7 +206,7 @@ app.UseMvc(routes =>
 
 ルート名は、名前付きのルートが URL の生成に使用できるようにするに、ルートの論理名を付けます。 URL の作成は、ルートの順序を行うことができる複雑になり、URL の生成時にこれが大幅に合理化されます。 ルート名は一意のアプリケーション全体である必要があります。
 
-ルート名なしに影響がある URL に一致するか、要求の処理URL の生成にのみ使用されます。 [ルーティング](xref:fundamentals/routing)詳細は特定の MVC ヘルパーの URL の生成を含む URL の生成にします。
+ルート名なしに影響がある URL に一致するか、要求の処理これらは、URL の生成にのみ使用しています。 [ルーティング](xref:fundamentals/routing)詳細は特定の MVC ヘルパーの URL の生成を含む URL の生成にします。
 
 <a name="attribute-routing-ref-label"></a>
 
@@ -340,9 +340,9 @@ public class ProductsApiController : Controller
 }
 ```
 
-この例の URL パスでは`/products`に適合する`ProductsApi.ListProducts`、URL パス`/products/5`に適合する`ProductsApi.GetProduct(int)`です。 これらの操作にのみ一致する HTTP`GET`で装飾されているため、`HttpGetAttribute`です。
+この例の URL パスでは`/products`に適合する`ProductsApi.ListProducts`、URL パス`/products/5`に適合する`ProductsApi.GetProduct(int)`です。 これらの操作にのみ一致する HTTP`GET`で装飾するしているため、`HttpGetAttribute`です。
 
-ルート テンプレートを起点とするアクションに適用されて、`/`は取得と組み合わせないでコント ローラーに適用されたルート テンプレート。 この例と同様の URL パスのセットに一致、*既定のルート*です。
+ルート テンプレートを起点とするアクションに適用されて、`/`コント ローラーに適用されたルート テンプレートと組み合わせて取得しません。 この例と同様の URL パスのセットに一致、*既定のルート*です。
 
 ```csharp
 [Route("Home")]
@@ -350,7 +350,7 @@ public class HomeController : Controller
 {
     [Route("")]      // Combines to define the route template "Home"
     [Route("Index")] // Combines to define the route template "Home/Index"
-    [Route("/")]     // Does not combine, defines the route template ""
+    [Route("/")]     // Doesn't combine, defines the route template ""
     public IActionResult Index()
     {
         ViewData["Message"] = "Home index";
@@ -534,9 +534,9 @@ route template: {controller}/{action}/{id?}
 result: /UrlGeneration/Destination
 ```
 
-ルート テンプレート内の各ルート パラメーター値とアンビエント値と一致する名前に置換値があります。 ルート パラメーター値がないは、既定値を使用できますが、いずれかまたは省略可能である場合は省略される場合 (の場合と`id`この例では)。 任意の必要なルートのパラメーターは、対応する値を持っていない場合、URL の生成は失敗します。 ルートの URL の生成に失敗した場合は、すべてのルートが試行されたか、一致が見つかるまでに次のルートが試されます。
+ルート テンプレート内の各ルート パラメーター値とアンビエント値と一致する名前に置換値があります。 値がないルートのパラメーターは、既定値を使用できますが、いずれかまたは省略可能である場合は省略される場合 (の場合と`id`この例では)。 任意の必要なルートのパラメーターは、対応する値を持っていない場合、URL の生成は失敗します。 ルートの URL の生成に失敗した場合は、すべてのルートが試行されたか、一致が見つかるまでに次のルートが試されます。
 
-この例の`Url.Action`上では従来のルーティングが URL 生成の動作属性がルーティングと同じように概念が異なる場合。 従来のルーティングでルートの値を使用して、展開、テンプレートと、ルートの値を`controller`と`action`通常はルーティングに一致する Url に従うためこの方法でそのテンプレートに表示、*規約*. 属性、ルーティングのルートの値を`controller`と`action`テンプレート - に表示に使用するテンプレートを検索する代わりに使用することはできません。
+この例の`Url.Action`上では従来のルーティングが URL 生成の動作属性がルーティングと同じように概念が異なる場合。 従来のルーティングでルートの値を使用して、展開、テンプレートと、ルートの値を`controller`と`action`通常はルーティングに一致する Url に従うためこの方法でそのテンプレートに表示、*規約*. 属性、ルーティングのルートの値を`controller`と`action`に使用するテンプレートを検索する代わりに使用されているテンプレート - に表示されることはできません。
 
 この例では、属性のルーティングを使用します。
 
@@ -569,7 +569,7 @@ MVC ルーティング属性のすべてのアクションのルックアップ 
 
 ### <a name="generating-urls-by-route"></a>ルートで Url の生成
 
-上記のコードでは、URL の生成、コント ローラーとアクション名を渡すことによって示されています。 `IUrlHelper`用意されています、`Url.RouteUrl`メソッドのファミリです。 これらのメソッドはのような`Url.Action`はの現在の値をコピーしないで`action`と`controller`ルートの値にします。 最も一般的な使用状況は一般的に、URL を生成する、特定のルートを使用するルート名を指定する*せず*コント ローラーまたはアクション名を指定します。
+上記のコードでは、URL の生成、コント ローラーとアクション名を渡すことによって示されています。 `IUrlHelper`用意されています、`Url.RouteUrl`メソッドのファミリです。 これらのメソッドはのような`Url.Action`、それらの現在の値をコピーせず`action`と`controller`ルートの値にします。 最も一般的な使用状況は一般的に、URL を生成する、特定のルートを使用するルート名を指定する*せず*コント ローラーまたはアクション名を指定します。
 
 [!code-csharp[Main](routing/sample/main/Controllers/UrlGenerationControllerRouting.cs?name=snippet_1)]
 
@@ -640,7 +640,7 @@ app.UseMvc(routes =>
 `MapAreaRoute`既定値との制約の両方を使用してルートを作成`area`ここで指定された領域名を使用して`Blog`です。 既定値は、ルートが常に生成することにより、 `{ area = Blog, ... }`、制約が値を必要`{ area = Blog, ... }`URL 生成のためです。
 
 > [!TIP]
-> 従来のルーティングは、順序によって異なります。 一般に、領域なしルートより限定的であるので、ルート テーブルの前半の領域を持つルートを配置してください。
+> 従来のルーティングは、順序によって異なります。 一般に、領域なしルートより限定的になると、ルート テーブルの前半の領域を持つルートを配置してください。
 
 上記の例を使用して、ルートの値は、次の操作を一致は。
 
@@ -657,7 +657,7 @@ app.UseMvc(routes =>
 > [!NOTE]
 > 各コント ローラーの名前空間が完全を期すのためここで示すように、それ以外の場合、コント ローラーが競合して、コンパイラ エラーが生成される名前付けされます。 クラスの名前空間は、MVC のルーティングに影響を与えるありません。
 
-最初の 2 つのコント ローラーの領域のメンバーであるし、して、それぞれの領域名を指定した場合にのみ一致する、`area`値をルーティングします。 3 番目のコント ローラーは、任意の領域、およびときの値がありませんが唯一の一致のメンバーではない`area`ルーティングによって提供されます。
+最初の 2 つのコント ローラーの領域のメンバーであるし、して、それぞれの領域名を指定した場合にのみ一致する、`area`値をルーティングします。 3 番目のコント ローラーには任意の領域、およびときの値がありませんが唯一の一致のメンバーがされていない`area`ルーティングによって提供されます。
 
 > [!NOTE]
 > 照合の観点から*値はありません*がない場合、`area`値は、同じ場合は、値は、`area`が null または空の文字列。
@@ -689,7 +689,7 @@ public class ProductsController : Controller
 
 既定の従来ルートの URL パスを想定して`/Products/Edit`と値が生成される`{ controller = Products, action = Edit }`、一致するよう**両方**次に示す操作のです。 `IActionConstraint`と言うの候補を考慮はこれらのアクションの両方のルート データを一致している両方の用語です。
 
-ときに、`HttpGetAttribute`を実行することだとは*Edit()*の一致するものは、*取得*し、その他の HTTP 動詞の一致するものではありません。 `Edit(...)`アクションが定義されている、すべての制約がないし、すべての HTTP 動詞と一致するためです。 これと仮定した場合、 `POST` - のみ`Edit(...)`と一致します。 `GET`両方のアクションできますも一致 - ただし、アクションと、`IActionConstraint`は常と見なされます*向上*なしアクションよりもします。 そのため`Edit()`が`[HttpGet]`より具体的と見なされ、両方のアクションを一致させる場合に選択されます。
+ときに、`HttpGetAttribute`を実行することだとは*Edit()*の一致するものは、*取得*されていないその他の HTTP 動詞の一致するものとします。 `Edit(...)`アクションが定義されている、すべての制約がないし、すべての HTTP 動詞と一致するためです。 これと仮定した場合、 `POST` - のみ`Edit(...)`と一致します。 `GET`両方のアクションできますも一致 - ただし、アクションと、`IActionConstraint`は常と見なされます*向上*なしアクションよりもします。 そのため`Edit()`が`[HttpGet]`より具体的と見なされ、両方のアクションを一致させる場合に選択されます。
 
 概念的には、`IActionConstraint`の形式は、*オーバー ロード*、同じ名前のメソッドをオーバー ロードではなく、同じ URL に一致するアクション間でオーバー ロードには、します。 属性のルーティングを使用しても`IActionConstraint`両方を検討している候補となるさまざまなコント ローラーから、操作に実現できます。
 
@@ -697,7 +697,7 @@ public class ProductsController : Controller
 
 ### <a name="implementing-iactionconstraint"></a>IActionConstraint を実装します。
 
-実装する最も簡単な方法、`IActionConstraint`から派生するクラスを作成するのには、`System.Attribute`アクションとコント ローラー上に配置します。 MVC は自動的に検出、`IActionConstraint`属性として適用されます。 アプリケーション モデルを使用するには、制約を適用してがある可能性が最も柔軟な方法でメタプログラムの適用方法を可能にします。
+実装する最も簡単な方法、`IActionConstraint`から派生するクラスを作成するのには、`System.Attribute`アクションとコント ローラー上に配置します。 MVC は自動的に検出、`IActionConstraint`属性として適用されます。 ある可能性が最も柔軟なアプローチ メタプログラムを適用する方法にできるのでおよび制約を適用するアプリケーション モデルを使用できます。
 
 次の例では、制約がに基づいてアクションを選択、*国コード*ルート データから。 [GitHub の全サンプル](https://github.com/aspnet/Entropy/blob/dev/samples/Mvc.ActionConstraintSample.Web/CountrySpecificAttribute.cs)です。
 

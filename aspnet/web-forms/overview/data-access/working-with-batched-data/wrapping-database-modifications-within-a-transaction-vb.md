@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 53887e2cf7b9a60596e2aca16fd1717799ab04f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f054445091edbc27263127fb3b7b851776ec617f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="wrapping-database-modifications-within-a-transaction-vb"></a>トランザクション (VB) 内での折り返しデータベースの変更
 ====================
@@ -54,13 +54,13 @@ ms.lasthandoff: 11/10/2017
 3. 手順 2、ロールバック、トランザクションのステートメントのいずれかでエラーがある場合
 4. エラーなしですべての手順 2 からステートメント完了、トランザクションをコミットします。
 
-を作成するための SQL ステートメントのコミット、およびストアド プロシージャの SQL スクリプトを記述または作成するときに、トランザクションを手動で入力することができますをロールバック、またはプログラムで ADO.NET またはクラスでは、のいずれかを使用することを意味します、 [ `System.Transactions`名前空間](https://msdn.microsoft.com/en-us/library/system.transactions.aspx)です。 見ていきますのみ、このチュートリアルでは、ADO.NET を使用してトランザクションを管理します。 今後のチュートリアルでは、時に作成、ロールバック、およびトランザクションをコミットするための SQL ステートメントについて見ていきます、データ アクセス レイヤーでストアド プロシージャを使用する方法について取り上げます。 その間を参照してください[SQL Server ストアド プロシージャでのトランザクションの管理](http://www.4guysfromrolla.com/webtech/080305-1.shtml)詳細についてはします。
+を作成するための SQL ステートメントのコミット、およびストアド プロシージャの SQL スクリプトを記述または作成するときに、トランザクションを手動で入力することができますをロールバック、またはプログラムで ADO.NET またはクラスでは、のいずれかを使用することを意味します、 [ `System.Transactions`名前空間](https://msdn.microsoft.com/library/system.transactions.aspx)です。 見ていきますのみ、このチュートリアルでは、ADO.NET を使用してトランザクションを管理します。 今後のチュートリアルでは、時に作成、ロールバック、およびトランザクションをコミットするための SQL ステートメントについて見ていきます、データ アクセス レイヤーでストアド プロシージャを使用する方法について取り上げます。 その間を参照してください[SQL Server ストアド プロシージャでのトランザクションの管理](http://www.4guysfromrolla.com/webtech/080305-1.shtml)詳細についてはします。
 
 > [!NOTE]
-> [ `TransactionScope`クラス](https://msdn.microsoft.com/en-us/library/system.transactions.transactionscope.aspx)で、`System.Transactions`名前空間により、開発者は、トランザクションのスコープ内で、一連のステートメントをプログラムでラップして、複数の関連する複雑なトランザクションのサポートが含まれています2 つの異なるデータベースまたはでも異種の種類の Microsoft SQL Server データベース、Oracle データベース、および Web サービスなどのデータ ストアなどのソース。 トランザクションを使用する ADO.NET の代わりに、このチュートリアルを決めたら、`TransactionScope`クラス ADO.NET をデータベース トランザクションとは、多くの場合、絞り込んだがはるかに少ないリソースを消費します。 さらに、特定のシナリオで、`TransactionScope`クラスは、Microsoft 分散トランザクション コーディネーター (MSDTC) を使用します。 構成、実装、およびパフォーマンスの問題周囲の MSDTC ではなく特殊および高度なトピックと、これらのチュートリアルの対象外です。
+> [ `TransactionScope`クラス](https://msdn.microsoft.com/library/system.transactions.transactionscope.aspx)で、`System.Transactions`名前空間により、開発者は、トランザクションのスコープ内で、一連のステートメントをプログラムでラップして、複数の関連する複雑なトランザクションのサポートが含まれています2 つの異なるデータベースまたはでも異種の種類の Microsoft SQL Server データベース、Oracle データベース、および Web サービスなどのデータ ストアなどのソース。 トランザクションを使用する ADO.NET の代わりに、このチュートリアルを決めたら、`TransactionScope`クラス ADO.NET をデータベース トランザクションとは、多くの場合、絞り込んだがはるかに少ないリソースを消費します。 さらに、特定のシナリオで、`TransactionScope`クラスは、Microsoft 分散トランザクション コーディネーター (MSDTC) を使用します。 構成、実装、およびパフォーマンスの問題周囲の MSDTC ではなく特殊および高度なトピックと、これらのチュートリアルの対象外です。
 
 
-呼び出すことによってトランザクションが開始された ADO.NET での SqlClient プロバイダーを使用する場合、 [ `SqlConnection`クラス](https://msdn.microsoft.com/en-US/library/system.data.sqlclient.sqlconnection.aspx)s [ `BeginTransaction`メソッド](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnection.begintransaction.aspx)、返された、 [ `SqlTransaction`オブジェクト](https://msdn.microsoft.com/en-US/library/system.data.sqlclient.sqltransaction.aspx)です。 構成のトランザクションが内に配置するデータ変更ステートメント、`try...catch`ブロックします。 内のステートメントでエラーが発生した場合、`try`への転送の実行をブロック、 `catch` 、トランザクションをロールバックを使用して、ブロック、`SqlTransaction`オブジェクト s [ `Rollback`メソッド](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqltransaction.rollback.aspx)です。 すべてのステートメントへの呼び出しで完全に成功する場合、`SqlTransaction`オブジェクト s [ `Commit`メソッド](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqltransaction.commit.aspx)の最後に、`try`ブロックがトランザクションをコミットします。 次のコード スニペットは、このパターンを示しています。 参照してください[トランザクションでデータベースの整合性を維持する](http://aspnet.4guysfromrolla.com/articles/072705-1.aspx)構文と ADO.NET を使用してトランザクションを使用しての例を示します。
+呼び出すことによってトランザクションが開始された ADO.NET での SqlClient プロバイダーを使用する場合、 [ `SqlConnection`クラス](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx)s [ `BeginTransaction`メソッド](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.begintransaction.aspx)、返された、 [ `SqlTransaction`オブジェクト](https://msdn.microsoft.com/library/system.data.sqlclient.sqltransaction.aspx)です。 構成のトランザクションが内に配置するデータ変更ステートメント、`try...catch`ブロックします。 内のステートメントでエラーが発生した場合、`try`への転送の実行をブロック、 `catch` 、トランザクションをロールバックを使用して、ブロック、`SqlTransaction`オブジェクト s [ `Rollback`メソッド](https://msdn.microsoft.com/library/system.data.sqlclient.sqltransaction.rollback.aspx)です。 すべてのステートメントへの呼び出しで完全に成功する場合、`SqlTransaction`オブジェクト s [ `Commit`メソッド](https://msdn.microsoft.com/library/system.data.sqlclient.sqltransaction.commit.aspx)の最後に、`try`ブロックがトランザクションをコミットします。 次のコード スニペットは、このパターンを示しています。 参照してください[トランザクションでデータベースの整合性を維持する](http://aspnet.4guysfromrolla.com/articles/072705-1.aspx)構文と ADO.NET を使用してトランザクションを使用しての例を示します。
 
 
 [!code-vb[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample1.vb)]
@@ -125,7 +125,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-vb[Main](wrapping-database-modifications-within-a-transaction-vb/samples/sample3.vb)]
 
-`Partial`をコンパイラに追加する内で追加されたメンバーであることを示すクラスの宣言でキーワード、`ProductsTableAdapter`クラス内で、`NorthwindTableAdapters`名前空間。 注、`Imports System.Data.SqlClient`ファイルの上部にあるステートメントです。 TableAdapter は、SqlClient プロバイダーを使用する構成された、以降内部的に使用して、 [ `SqlDataAdapter` ](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqldataadapter.aspx)データベースにそのコマンドを実行するオブジェクト。 そのため、使用する必要があります、`SqlTransaction`トランザクションを開始するクラスとそのコミットまたはロールバックするためにします。 Microsoft SQL Server 以外のデータ ストアを使用している場合は、適切なプロバイダーを使用する必要があります。
+`Partial`をコンパイラに追加する内で追加されたメンバーであることを示すクラスの宣言でキーワード、`ProductsTableAdapter`クラス内で、`NorthwindTableAdapters`名前空間。 注、`Imports System.Data.SqlClient`ファイルの上部にあるステートメントです。 TableAdapter は、SqlClient プロバイダーを使用する構成された、以降内部的に使用して、 [ `SqlDataAdapter` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqldataadapter.aspx)データベースにそのコマンドを実行するオブジェクト。 そのため、使用する必要があります、`SqlTransaction`トランザクションを開始するクラスとそのコミットまたはロールバックするためにします。 Microsoft SQL Server 以外のデータ ストアを使用している場合は、適切なプロバイダーを使用する必要があります。
 
 これらのメソッドは、ロールバックを開始するために必要な構成要素を提供し、トランザクションをコミットします。 マークされている`Public`、内から使用することを有効にすると、 `ProductsTableAdapter`DAL に別のクラスまたは BLL など、アーキテクチャの別のレイヤーからです。 `BeginTransaction`内部の tableadapter を開きます`SqlConnection`(必要な場合)、トランザクションを開始し、それを`Transaction`プロパティ、トランザクションを内部に添付`SqlDataAdapter`s`SqlCommand`オブジェクト。 `CommitTransaction`および`RollbackTransaction`を呼び出す、`Transaction`オブジェクト s`Commit`と`Rollback`メソッド、それぞれ、閉じてから、内部`Connection`オブジェクト。
 
@@ -233,7 +233,7 @@ Let s を GridView のすべての製品を一覧表示し、ボタン Web を�
 **図 10**: 一部の製品`CategoryID`インポートされなかった値を更新中に他のユーザーが ([フルサイズのイメージを表示するをクリックして](wrapping-database-modifications-within-a-transaction-vb/_static/image14.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 既定では、TableAdapter のメソッドでは、トランザクションのスコープ内で実行されるデータベース ステートメントをラップしないでくださいが簡単な作業で追加できるメソッドを作成する、commit、およびトランザクションをロールバックします。 このチュートリアルでのような 3 つのメソッドを作成しました、`ProductsTableAdapter`クラス: `BeginTransaction`、 `CommitTransaction`、および`RollbackTransaction`です。 これらのメソッドと共に使用する方法を説明しました、`Try...Catch`一連のデータ変更ステートメントをアトミックにブロックします。 具体的には、作成した、`UpdateWithTransaction`メソッドで、 `ProductsTableAdapter`、バッチ更新パターンを使用して、指定された行数に必要な変更を実行する`ProductsDataTable`です。 追加されています、`DeleteProductsWithTransaction`メソッドを`ProductsBLL`を受け入れると、BLL 内のクラス、`List`の`ProductID`DB ダイレクト パターン メソッドを呼び出して、入力として値を`Delete`各`ProductID`です。 両方のメソッドの開始、トランザクションを作成し、内のデータ変更ステートメントを実行、`Try...Catch`ブロックします。 例外が発生する場合、トランザクションがロールバック、それ以外の場合とコミットされます。
 

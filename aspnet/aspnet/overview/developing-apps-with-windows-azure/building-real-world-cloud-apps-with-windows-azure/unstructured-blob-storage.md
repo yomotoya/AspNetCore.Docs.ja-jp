@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
 msc.type: authoredcontent
-ms.openlocfilehash: 6cb77e8ef301c2eeef7df3e391e14f4e2c0364e9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 489769533a26c99404c6a5186d66f560385dcffd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>非構造化 Blob ストレージ (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/10/2017
 
 Azure Storage の Blob サービスでは、クラウド内のファイルを保存する方法を提供します。 Blob サービスには、いくつかのファイルを格納するローカル ネットワーク ファイル システム上の利点があります。
 
-- 拡張性が高くなります。 1 つのストレージ アカウントを格納できます[数百テラバイト](https://msdn.microsoft.com/en-us/library/windowsazure/dn249410.aspx)、複数のストレージ アカウントを持つことができます。 最大の Azure のお客様の一部は、数百単位からペタバイト単位を格納します。 Microsoft SkyDrive では、blob ストレージを使用します。
+- 拡張性が高くなります。 1 つのストレージ アカウントを格納できます[数百テラバイト](https://msdn.microsoft.com/library/windowsazure/dn249410.aspx)、複数のストレージ アカウントを持つことができます。 最大の Azure のお客様の一部は、数百単位からペタバイト単位を格納します。 Microsoft SkyDrive では、blob ストレージを使用します。
 - 持続性です。 Blob サービスに格納するすべてのファイルは自動的にバックアップされます。
 - 高可用性を提供します。 [記憶域の SLA](https://go.microsoft.com/fwlink/p/?linkid=159705&amp;clcid=0x409) promise 99.9% または 99.99% の稼働時間、地理的冗長性オプションに応じてを選択します。
 - だけを格納してのみ、使用する記憶域の実際の容量を個別のファイルを取得するには、Azure のサービスとしてのプラットフォーム (PaaS) 機能であるし、Azure が自動的に処理を設定して、すべての Vm との必要なディスク ドライブを管理する、サービス。
@@ -131,7 +131,7 @@ Azure は、地政学的な境界を越えてデータをレプリケートし�
 
 [!code-cshtml[Main](unstructured-blob-storage/samples/sample13.cshtml?highlight=11)]
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 修正アプリケーションが、Blob サービスと SQL データベースでの画像 Url のみでイメージを格納する方法を説明しました。 SQL データベースをそれ以外の場合、ほぼ無制限の数のタスクの最大小数点以下桁数が可能になりになり、大量のコードを記述することがなく実行できますよりもはるかに小さい保持、Blob サービスを使用します。
 
@@ -146,7 +146,7 @@ Azure は、地政学的な境界を越えてデータをレプリケートし�
 - [Azure BLOB ストレージの概要については](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/)します。 Mike 木ブログ。
 - [.NET で Azure Blob ストレージ サービスを使用する方法](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)です。 MicrosoftAzure.com サイトに関する正式なドキュメントです。 簡単な概要を blob ストレージの blob ストレージに接続する方法を示すコード例に続けてコンテナーを作成するには、アップロードおよびなど、blob をダウンロードします。
 - [フェール セーフ: スケーラブル、かつ回復力のクラウド サービスの構築](https://channel9.msdn.com/Series/FailSafe)です。 Ulrich Homann、Marc Mercuri、Mark Simms、ビデオ シリーズを 9 つの部分で構成します。 実際のお客様と Microsoft Customer ・ Advisory Team (CAT) エクスペリエンスから抽出されたストーリーで非常にアクセス可能な興味深い方法で高度な概念とアーキテクチャの原則を説明します。 Azure ストレージ サービスと blob の詳細については、35:13 始まるエピソード 5 を参照してください。
-- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/en-us/library/dn568099.aspx)です。 バレット キー パターンを参照してください。
+- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)です。 バレット キー パターンを参照してください。
 
 >[!div class="step-by-step"]
 [前へ](data-partitioning-strategies.md)

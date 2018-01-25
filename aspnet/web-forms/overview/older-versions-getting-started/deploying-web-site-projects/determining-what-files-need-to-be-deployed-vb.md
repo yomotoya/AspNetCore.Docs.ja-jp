@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 44349b09fdc0de8ad6bd241a4c158d6a198e5d01
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aad0d4d4f7db5942c51255c34f36be73ed0e1f2d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="determining-what-files-need-to-be-deployed-vb"></a>(VB) を展開する必要があるファイルを決定します。
 ====================
@@ -43,7 +43,7 @@ ASP.NET web ページは、宣言型マークアップとソース コードに�
 
 ASP.NET エンジン ページのコードの部分は、このページの要求を処理するために (、  *`WebPage`*  `.aspx.vb`ファイル) は、最初にコンパイルされます。 このコンパイルは、明示的または自動に発生することができます。
 
-かどうかは、コンパイル時の動作を明示的に、アプリケーション全体のソース コードは、1 つまたは複数のアセンブリにコンパイル (`.dll`ファイル) に、アプリケーションの配置`Bin`ディレクトリ。 コンパイルが発生する場合に自動的にし、結果として、自動生成されたアセンブリですが、既定では、配置、`Temporary ASP.NET Files`フォルダーにある`%WINDOWS%\Microsoft.NET\Framework\<version>`この場所は、使用して構成できますが、 [ &lt;コンパイル&gt;要素](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx)で`Web.config`です。 明示的なコンパイルと、アセンブリに、ASP.NET アプリケーションのコードをコンパイルするいくつかの操作を行う必要があり、この手順は、展開する前に発生します。 コンパイル処理は、自動コンパイルとリソースにまずアクセスするときに、web サーバー上に発生します。
+かどうかは、コンパイル時の動作を明示的に、アプリケーション全体のソース コードは、1 つまたは複数のアセンブリにコンパイル (`.dll`ファイル) に、アプリケーションの配置`Bin`ディレクトリ。 コンパイルが発生する場合に自動的にし、結果として、自動生成されたアセンブリですが、既定では、配置、`Temporary ASP.NET Files`フォルダーにある`%WINDOWS%\Microsoft.NET\Framework\<version>`この場所は、使用して構成できますが、 [ &lt;コンパイル&gt;要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で`Web.config`です。 明示的なコンパイルと、アセンブリに、ASP.NET アプリケーションのコードをコンパイルするいくつかの操作を行う必要があり、この手順は、展開する前に発生します。 コンパイル処理は、自動コンパイルとリソースにまずアクセスするときに、web サーバー上に発生します。
 
 使用するどのようなコンパイル モデルにかかわらず、すべての ASP.NET ページのマークアップの部分 (、`WebPage.aspx`ファイル)、運用環境にコピーする必要があります。 明示的なコンパイルと内のアセンブリをコピーする必要があります、`Bin`フォルダー、ですが、ASP.NET ページのコードの部分をコピーする必要はありません (、`WebPage.aspx.vb`ファイル)。 自動のコンパイルとコードが存在し、ページにアクセスするときに自動的にコンパイルできるように、コードの一部のファイルをコピーする必要があります。 ASP.NET web ページのマークアップの部分が含まれています、`@Page`ページの関連するコードが既に明示的にコンパイルされたか、または自動的にコンパイルする必要があるかどうかを示す属性を持つディレクティブです。 その結果、実稼働環境ことができますの使用かコンパイル モデルにシームレスと明示的または自動コンパイルを使用することを示すために特別な構成設定を適用する必要はありません。
 
@@ -51,8 +51,8 @@ ASP.NET エンジン ページのコードの部分は、このページの要�
 
 | **コンパイル モデル** | **マークアップの一部のファイルを展開しますか。** | **ソース コード ファイルを展開しますか。** | **アセンブリを展開`Bin`ディレクトリしますか?** |
 | --- | --- | --- | --- |
-| 明示的なコンパイル | はい | いいえ | はい |
-| 自動のコンパイル | はい | はい | はい (存在する場合) |
+| 明示的なコンパイル | [はい] | いいえ | [はい] |
+| 自動のコンパイル | [はい] | [はい] | はい (存在する場合) |
 
 **表 1: どのようなファイルを展開するために使用コンパイル モデルによって異なります。**
 
@@ -69,7 +69,7 @@ Microsoft Visual Studio 2005 をリリースされたときに、Web アプリ�
 - Visual Studio でプロジェクトのビルドは、内のアセンブリを作成できません、`Bin`ディレクトリ。 代わりに、Web サイト プロジェクトをビルドすると、コンパイル時エラーを報告します。
 - 自動コンパイルをサポートします。 Web サイト プロジェクトをコードにプリコンパイル済みの (明示的なコンパイル) を指定できますが、通常マークアップとソース コードを運用環境にコピーすることによって展開されます。
 
-Microsoft は、Visual Studio 2005 Service Pack 1 を離したときに、Web アプリケーション プロジェクトのモデルを復元します。 ただし、Visual Web Developer は、のみ、Web サイト プロジェクトのモデルをサポートするために継続します。 良いニュースは、この制限は、Visual Web Developer 2008 Service Pack 1 ドロップされました。 現在 Visual Studio (Visual Web Developer) における Web アプリケーション プロジェクトのモデルまたは Web サイト プロジェクトのモデルを使用して ASP.NET アプリケーションを作成できます。 両方のモデルでは、それらの長所と短所があります。 参照してください[Web アプリケーション プロジェクトの概要: Web サイト プロジェクトを比較して Web アプリケーション プロジェクト](https://msdn.microsoft.com/en-us/library/aa730880.aspx#wapp_topic5)とどのようなプロジェクト モデルは、状況に応じた最適を決定する際に 2 つのモデルの比較についてはします。
+Microsoft は、Visual Studio 2005 Service Pack 1 を離したときに、Web アプリケーション プロジェクトのモデルを復元します。 ただし、Visual Web Developer は、のみ、Web サイト プロジェクトのモデルをサポートするために継続します。 良いニュースは、この制限は、Visual Web Developer 2008 Service Pack 1 ドロップされました。 現在 Visual Studio (Visual Web Developer) における Web アプリケーション プロジェクトのモデルまたは Web サイト プロジェクトのモデルを使用して ASP.NET アプリケーションを作成できます。 両方のモデルでは、それらの長所と短所があります。 参照してください[Web アプリケーション プロジェクトの概要: Web サイト プロジェクトを比較して Web アプリケーション プロジェクト](https://msdn.microsoft.com/library/aa730880.aspx#wapp_topic5)とどのようなプロジェクト モデルは、状況に応じた最適を決定する際に 2 つのモデルの比較についてはします。
 
 ## <a name="exploring-the-sample-web-application"></a>サンプル Web アプリケーションの探索
 
@@ -163,7 +163,7 @@ ASP.NET マークアップとソース コード ファイル以外にも、必�
 > Web サイト プロジェクトには、明示的なコンパイルを使用できます。 今後のチュートリアルでは、明示的に Web サイト プロジェクトをコンパイルする方法を確認します。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ASP.NET アプリケーションを配置するには、開発環境から運用環境に必要なファイルをコピーする必要があります。 同期する必要があるファイルの正確なセットは、ASP.NET アプリケーションのコードは明示的にまたは自動的にコンパイルされたかによって異なります。 コンパイル戦略を採用されているが、Web アプリケーション プロジェクト モデルまたは Web サイト プロジェクトのモデルを使用して ASP.NET アプリケーションを管理する Visual Studio が構成されているかどうかによって影響を受けます。
 
@@ -179,15 +179,15 @@ Web サイト プロジェクト モデルがわかるように今後のチュ�
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [ASP.NET コンパイルの概要](https://msdn.microsoft.com/en-us/library/ms178466.aspx)
-- [ASP.NET ユーザー コントロール](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx)
+- [ASP.NET コンパイルの概要](https://msdn.microsoft.com/library/ms178466.aspx)
+- [ASP.NET ユーザー コントロール](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
 - [ASP を検査中です。NET のサイトのナビゲーション](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
-- [Web アプリケーション プロジェクトの概要](https://msdn.microsoft.com/en-us/library/aa730880.aspx)
+- [Web アプリケーション プロジェクトの概要](https://msdn.microsoft.com/library/aa730880.aspx)
 - [マスター ページのチュートリアル](../master-pages/creating-a-site-wide-layout-using-master-pages-cs.md)
 - [コード ページ間の共有](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/pages/code.aspx)
 - [ASP.NET ページの分離コード クラスのカスタムの基本クラスの使用](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
 - [Visual Studio 2005 Web サイト プロジェクト システム: の説明となぜこのようなことですか?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
-- [チュートリアル: Web サイト プロジェクトを Visual Studio で Web アプリケーション プロジェクトに変換します。](https://msdn.microsoft.com/en-us/library/aa983476.aspx)
+- [チュートリアル: Web サイト プロジェクトを Visual Studio で Web アプリケーション プロジェクトに変換します。](https://msdn.microsoft.com/library/aa983476.aspx)
 
 >[!div class="step-by-step"]
 [前へ](asp-net-hosting-options-vb.md)

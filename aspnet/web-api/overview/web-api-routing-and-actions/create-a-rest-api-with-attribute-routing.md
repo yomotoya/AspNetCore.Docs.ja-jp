@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 9ecc233e595716a167ad800a0a21a6162b051648
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c1d0b3e1644ef7f9ebb4be74c3fdf3df90cf3537
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 のルーティングの属性を持つ REST API を作成します。
 ====================
@@ -24,13 +24,13 @@ ms.lasthandoff: 11/10/2017
 
 新しい型をサポートする web API 2 のルーティングでは、次のように呼び出されます。*属性がルーティング*です。 属性のルーティングの一般的な概要については、次を参照してください。 [Web API 2 での属性のルーティング](attribute-routing-in-web-api-2.md)です。 このチュートリアルではルーティングを使用して属性をブックのコレクション用の REST API を作成します。 この API は、次の操作がサポートされます。
 
-| 操作 | URI の例 |
+| アクション | URI の例 |
 | --- | --- |
-| すべての書籍の一覧を取得します。 | api/ブック |
+| すべての書籍の一覧を取得します。 | /api/books |
 | ID でブックを取得します。 | /api/books/1 |
 | 書籍の詳細を取得します。 | /api/books/1/details |
 | ジャンルの書籍の一覧を取得します。 | /api/books/fantasy |
-| 公開日によって書籍の一覧を取得します。 | /api/books/date/2013-02-16/api/books/date/2013/02/16 (代替フォーム) |
+| 公開日によって書籍の一覧を取得します。 | /api/books/date/2013-02-16 /api/books/date/2013/02/16 (alternate form) |
 | 特定の作成者によって著された書籍の一覧を取得します。 | /api/authors/1/books |
 
 メソッドはすべて読み取り専用 (HTTP GET 要求) です。
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/10/2017
 データ層は、Entity Framework を使用します。 書籍のレコードが必要で、次のフィールドがあります。
 
 - ID
-- タイトル
+- Title
 - ジャンル
 - 公開日
 - 価格
@@ -141,7 +141,7 @@ Ctrl キーと Shift キーを押しながら B キーを押して、プロジ�
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample8.cs)]
 
-次に、更新、`BooksController`を返すクラス`BookDto`インスタンス。 使用して、 [Queryable.Select](https://msdn.microsoft.com/en-us/library/system.linq.queryable.select.aspx)プロジェクトにメソッド`Book`にインスタンス`BookDto`インスタンス。 コント ローラー クラスの更新されたコードを次に示します。
+次に、更新、`BooksController`を返すクラス`BookDto`インスタンス。 使用して、 [Queryable.Select](https://msdn.microsoft.com/library/system.linq.queryable.select.aspx)プロジェクトにメソッド`Book`にインスタンス`BookDto`インスタンス。 コント ローラー クラスの更新されたコードを次に示します。
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample9.cs)]
 
@@ -168,7 +168,7 @@ Ctrl キーと Shift キーを押しながら B キーを押して、プロジ�
 | メソッド | ルート テンプレート | URI の例 |
 | --- | --- | --- |
 | `GetBooks` | "api/books" | `http://localhost/api/books` |
-| `GetBook` | "api/ブック/{id: int}" | `http://localhost/api/books/5` |
+| `GetBook` | "api/books/{id:int}" | `http://localhost/api/books/5` |
 
 ## <a name="get-book-details"></a>書籍の詳細を取得します。
 
@@ -254,6 +254,6 @@ BooksController クラスの完全なコードを次に示します。
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample22.cs)]
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 属性ルーティングでは、管理性と柔軟性が向上して API への Uri を設計するとき。

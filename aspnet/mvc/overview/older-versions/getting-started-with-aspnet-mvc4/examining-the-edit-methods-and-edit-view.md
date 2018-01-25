@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: fb20c98283bfd46e62d56252bbec4f4b4b08b1c3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a20693f3e83053dd99499d486412b66777189f1d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>編集方法と編集ビューの確認
 ====================
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/10/2017
 
 ![Html.ActionLink](examining-the-edit-methods-and-edit-view/_static/image2.png)
 
-`Html`オブジェクトのプロパティを使用して公開されているヘルパーは、 [System.Web.Mvc.WebViewPage](https://msdn.microsoft.com/en-us/library/gg402107(VS.98).aspx)基本クラスです。 `ActionLink`ヘルパーのメソッドでは、簡単にコント ローラー アクション メソッドにリンクする HTML ハイパーリンクを動的に生成します。 1 番目の引数、`ActionLink`メソッドは、表示するには、このリンク テキスト (たとえば、 `<a>Edit Me</a>`)。 2 番目の引数は、呼び出すアクション メソッドの名前です。 最後の引数、[匿名オブジェクト](https://weblogs.asp.net/scottgu/archive/2007/05/15/new-orcas-language-feature-anonymous-types.aspx)(ここでは、4 の ID) のルート データを生成します。
+`Html`オブジェクトのプロパティを使用して公開されているヘルパーは、 [System.Web.Mvc.WebViewPage](https://msdn.microsoft.com/library/gg402107(VS.98).aspx)基本クラスです。 `ActionLink`ヘルパーのメソッドでは、簡単にコント ローラー アクション メソッドにリンクする HTML ハイパーリンクを動的に生成します。 1 番目の引数、`ActionLink`メソッドは、表示するには、このリンク テキスト (たとえば、 `<a>Edit Me</a>`)。 2 番目の引数は、呼び出すアクション メソッドの名前です。 最後の引数、[匿名オブジェクト](https://weblogs.asp.net/scottgu/archive/2007/05/15/new-orcas-language-feature-anonymous-types.aspx)(ここでは、4 の ID) のルート データを生成します。
 
 前の図に示すように生成されたリンクは`http://localhost:xxxxx/Movies/Edit/4`します。 既定のルート (で確立された*アプリ\_Start\RouteConfig.cs*) URL パターンを受け取る`{controller}/{action}/{id}`です。 そのため、ASP.NET 変換`http://localhost:xxxxx/Movies/Edit/4`への要求に、`Edit`のアクション メソッド、`Movies`パラメーターを使用してコント ローラー `ID` 4 に等しい。 次のコードを調べて、*アプリ\_Start\RouteConfig.cs*ファイル。
 
@@ -54,13 +54,13 @@ ms.lasthandoff: 11/10/2017
 
 2 番目の `Edit` アクション メソッドの前に `HttpPost` 属性が付いていることに注意してください。 この属性は、のオーバー ロードすることを指定します、`Edit`メソッドは、POST 要求に対してのみ呼び出すことができます。 適用する可能性があります、`HttpGet`最初の属性がメソッドを編集がされていないに必要な既定値になっているためです。 (暗黙的に割り当てられているアクション メソッドに参照お、`HttpGet`属性に`HttpGet`メソッドです)。
 
-`HttpGet` `Edit`メソッド ムービー ID パラメーターを受け取り、Entity Framework を使用してムービーを検索`Find`メソッド、し、編集ビューを選択したムービーを返します。 ID パラメーターを指定します、[既定値](https://msdn.microsoft.com/en-us/library/dd264739.aspx)の場合は 0、`Edit`パラメーターを指定せずにメソッドが呼び出されます。 ムービーが見つからない場合[HttpNotFound](https://msdn.microsoft.com/en-us/library/gg453938(VS.98).aspx)が返されます。 スキャフォールディング システムが編集ビューを作成したときは、そのシステムが `Movie` クラスを調べて、クラスの各プロパティの `<label>` および `<input>` 要素をレンダリングするコードを作成しました。 次の例では、生成された編集ビューを示します。
+`HttpGet` `Edit`メソッド ムービー ID パラメーターを受け取り、Entity Framework を使用してムービーを検索`Find`メソッド、し、編集ビューを選択したムービーを返します。 ID パラメーターを指定します、[既定値](https://msdn.microsoft.com/library/dd264739.aspx)の場合は 0、`Edit`パラメーターを指定せずにメソッドが呼び出されます。 ムービーが見つからない場合[HttpNotFound](https://msdn.microsoft.com/library/gg453938(VS.98).aspx)が返されます。 スキャフォールディング システムが編集ビューを作成したときは、そのシステムが `Movie` クラスを調べて、クラスの各プロパティの `<label>` および `<input>` 要素をレンダリングするコードを作成しました。 次の例では、生成された編集ビューを示します。
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample4.cshtml)]
 
 ビュー テンプレートには、方法に注意してください、`@model MvcMovie.Models.Movie`ファイルの上部にあるステートメント — ビュー ビュー テンプレート型にするためのモデルが必要ですが、この指定`Movie`です。
 
-スキャフォールディングのコードを使用して*ヘルパー メソッド*を HTML マークアップを効率化します。 [ `Html.LabelFor` ](https://msdn.microsoft.com/en-us/library/gg401864(VS.98).aspx)ヘルパーには、フィールドの名前が表示されます (&quot;タイトル&quot;、 &quot;ReleaseDate&quot;、&quot;ジャンル&quot;、または&quot;価格&quot;). [ `Html.EditorFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx)ヘルパーは、HTML をレンダリング`<input>`要素。 [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx)ヘルパーには、そのプロパティに関連付けられている検証メッセージが表示されます。
+スキャフォールディングのコードを使用して*ヘルパー メソッド*を HTML マークアップを効率化します。 [ `Html.LabelFor` ](https://msdn.microsoft.com/library/gg401864(VS.98).aspx)ヘルパーには、フィールドの名前が表示されます (&quot;タイトル&quot;、 &quot;ReleaseDate&quot;、&quot;ジャンル&quot;、または&quot;価格&quot;). [ `Html.EditorFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx)ヘルパーは、HTML をレンダリング`<input>`要素。 [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx)ヘルパーには、そのプロパティに関連付けられている検証メッセージが表示されます。
 
 アプリケーションを実行しに移動し、 */Movies* URL。 **[編集]** リンクをクリックします。 ブラウザーで、ページのソースを表示します。 HTML フォーム要素を次に示します。
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample6.cs)]
 
-[ASP.NET MVC モデル バインダー](https://msdn.microsoft.com/en-us/magazine/hh781022.aspx)ポストされたフォーム値を取得し、作成、`Movie`オブジェクトとして渡される、`movie`パラメーター。 `ModelState.IsValid` メソッドは、フォームで送信されたデータを使って `Movie` オブジェクトを変更 (編集または更新) できることを検証します。 ムービー データに保存されているデータが有効である場合、`Movies`のコレクション、`db(MovieDBContext`インスタンス)。 新しいムービー データが呼び出すことによって、データベースに保存、`SaveChanges`メソッドの`MovieDBContext`します。 データを保存した後、コードがユーザーをリダイレクト、`Index`のアクション メソッド、`MoviesController`クラスが表示される、先ほど行った変更も含め、ムービーのコレクション。
+[ASP.NET MVC モデル バインダー](https://msdn.microsoft.com/magazine/hh781022.aspx)ポストされたフォーム値を取得し、作成、`Movie`オブジェクトとして渡される、`movie`パラメーター。 `ModelState.IsValid` メソッドは、フォームで送信されたデータを使って `Movie` オブジェクトを変更 (編集または更新) できることを検証します。 ムービー データに保存されているデータが有効である場合、`Movies`のコレクション、`db(MovieDBContext`インスタンス)。 新しいムービー データが呼び出すことによって、データベースに保存、`SaveChanges`メソッドの`MovieDBContext`します。 データを保存した後、コードがユーザーをリダイレクト、`Index`のアクション メソッド、`MoviesController`クラスが表示される、先ほど行った変更も含め、ムービーのコレクション。
 
 ポストされた値が有効でない場合がフォームで、再表示されます。 `Html.ValidationMessageFor`のヘルパー、 *Edit.cshtml*ビュー テンプレートを該当するエラー メッセージを表示するように注意します。
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample9.cs)]
 
-最初の行、`SearchIndex`メソッドは、次を作成[LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx)映画を選択するクエリ。
+最初の行、`SearchIndex`メソッドは、次を作成[LINQ](https://msdn.microsoft.com/library/bb397926.aspx)映画を選択するクエリ。
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample10.cs)]
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample11.cs)]
 
-上の `s => s.Title` コードは[ラムダ式](https://msdn.microsoft.com/en-us/library/bb397687.aspx)です。 ラムダは、メソッド ベースで使用[LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx)など、標準クエリ演算子メソッドを引数としてクエリを実行する、[場所](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.where.aspx)上記のコードで使用されるメソッド。 定義されている場合、またはなどのメソッドを呼び出すことで変更されるときに、LINQ クエリは実行されません`Where`または`OrderBy`です。 代わりに、クエリの実行が遅延、つまり、その実際の値が実際に反復処理されるまで、式の評価が遅延されるか、 [ `ToList` ](https://msdn.microsoft.com/en-us/library/bb342261.aspx)メソッドが呼び出されます。 `SearchIndex`サンプル、SearchIndex ビューで、クエリを実行します。 クエリの遅延実行の詳細については、「[クエリの実行](https://msdn.microsoft.com/en-us/library/bb738633.aspx)」を参照してください。
+上の `s => s.Title` コードは[ラムダ式](https://msdn.microsoft.com/library/bb397687.aspx)です。 ラムダは、メソッド ベースで使用[LINQ](https://msdn.microsoft.com/library/bb397926.aspx)など、標準クエリ演算子メソッドを引数としてクエリを実行する、[場所](https://msdn.microsoft.com/library/system.linq.enumerable.where.aspx)上記のコードで使用されるメソッド。 定義されている場合、またはなどのメソッドを呼び出すことで変更されるときに、LINQ クエリは実行されません`Where`または`OrderBy`です。 代わりに、クエリの実行が遅延、つまり、その実際の値が実際に反復処理されるまで、式の評価が遅延されるか、 [ `ToList` ](https://msdn.microsoft.com/library/bb342261.aspx)メソッドが呼び出されます。 `SearchIndex`サンプル、SearchIndex ビューで、クエリを実行します。 クエリの遅延実行の詳細については、「[クエリの実行](https://msdn.microsoft.com/library/bb738633.aspx)」を参照してください。
 
 これで、実装することができます、`SearchIndex`をユーザーに、フォームを表示するビュー。 内部を右クリックし、`SearchIndex`メソッドをクリックして**ビューの追加**です。 **ビューの追加** ダイアログ ボックスで、渡すしようとしていることを指定、`Movie`モデル クラスとしてテンプレートを表示するオブジェクト。 **Scaffold テンプレート**一覧で、選択**リスト**をクリックし、**追加**です。
 

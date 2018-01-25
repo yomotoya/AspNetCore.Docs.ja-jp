@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 title: "データベースの開発と配置 (VB) の戦略 |Microsoft ドキュメント"
 author: rick-anderson
-description: "最初にデータ ドリブン アプリケーションを展開するときに、運用環境に開発環境で無条件データベースをコピーできます。 B.."
+description: "最初にデータ ドリブン アプリケーションを展開するときに、運用環境に開発環境で無条件データベースをコピーできます。 B..."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8632ed2fe5c1a296747a0206de1c6f5c5bb59dd1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 877056dc74e0b5a64d6e0f11d63ed9f642b0a2cd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="strategies-for-database-development-and-deployment-vb"></a>データベースの開発と配置 (VB) の戦略
 ====================
@@ -79,7 +79,7 @@ ms.lasthandoff: 11/10/2017
 
 通常の文章で変更のログを維持するための主な欠点は、オートメーションがないことです。 理想的には、展開時に、実稼働データベースにデータベースの変更を実装することは手順のリストを手動で実行することのではなく、スクリプトを実行するボタンをクリックすると同じくらい簡単でしょう。 このようなオートメーションは、データ モデルを変更するために使用するそれらの SQL コマンドを含む変更ログを保持することによって可能性があります。
 
-SQL 構文には、作成して、さまざまなデータベース オブジェクトを変更するためのステートメントの数が含まれています。 たとえば、 [ *CREATE TABLE ステートメント*](https://msdn.microsoft.com/en-us/library/ms174979.aspx)を実行すると、指定した列と制約で新しいテーブルを作成します。 [ *ALTER TABLE ステートメント*](https://msdn.microsoft.com/en-us/library/ms190273.aspx)追加、削除、またはその列または制約を変更する既存のテーブルを変更します。 作成、変更、およびインデックス、ビュー、ユーザー定義関数、ストアド プロシージャ、トリガー、およびその他のデータベース オブジェクトを削除するステートメントもあります。
+SQL 構文には、作成して、さまざまなデータベース オブジェクトを変更するためのステートメントの数が含まれています。 たとえば、 [ *CREATE TABLE ステートメント*](https://msdn.microsoft.com/library/ms174979.aspx)を実行すると、指定した列と制約で新しいテーブルを作成します。 [ *ALTER TABLE ステートメント*](https://msdn.microsoft.com/library/ms190273.aspx)追加、削除、またはその列または制約を変更する既存のテーブルを変更します。 作成、変更、およびインデックス、ビュー、ユーザー定義関数、ストアド プロシージャ、トリガー、およびその他のデータベース オブジェクトを削除するステートメントもあります。
 
 新しい列を追加する展開済みアプリケーションの開発中にイメージを前述の例に戻る、`Employees`テーブルから列を削除してください、`Orders`テーブル、および新しいテーブルの追加 (`ProductCategories`)。 などの操作は、次の SQL コマンドで変更のログ ファイルになります。
 
@@ -150,7 +150,7 @@ Web サイトを展開するときに、展開が完了するまで、「オフ�
 
 オフラインの展開時に、次に、アプリケーションはアップロードするだけで、 `app_offline.htm` s 実稼働環境へのファイルのルート ディレクトリ展開プロセスを開始し、削除する (または別のものに名前を変更する) の前に 1 回の展開完了しました。 この方法の詳細については、John peterson と一緒にお届けの資料を参照してくださいを[ *ASP.NET アプリケーション オフライン*](http://www.15seconds.com/issue/061207.htm)です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 データ ドリブン アプリケーションを配置する主な課題、データベースの配置を中心として展開します。 開発環境で 1、および実稼働環境で 1 つのデータベースの 2 つのバージョンがあるためには、開発の新機能が追加されるとこれらの 2 つのデータベース スキーマがとれてなります。 さらに、実際のユーザーからの実際のデータで作成されると、実稼働データベースをすることはできませんを上書きするため、実稼働データベースで変更された開発用データベース (ASP.NET ページ、アプリケーションを構成するファイルを展開する場合と同様にどのような s画像ファイルなど)。 代わりに、データベースを展開する場合は、前回の配置、実稼働データベースの開発用データベースに加えられた変更の正確なセットを実装する必要があります。
 

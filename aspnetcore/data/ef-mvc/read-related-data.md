@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 1321cb00a432669b4a97ad20063b6cf9ea75f24c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2333ac70c77847ece1f90c9ff22eec30bc35fea1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>読み取りに関連したデータの ASP.NET Core MVC のチュートリアル (10 の 6) の EF コア
 
@@ -45,7 +45,7 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 
   ![明示的な読み込みの例](read-related-data/_static/explicit-loading.png)
 
-* 遅延読み込みします。 エンティティが読み込まれると、関連データが取得されていません。 ただし、ナビゲーション プロパティにアクセスしようとすると、最初にそのナビゲーション プロパティに必要なデータが自動的に取得します。 クエリは、最初にナビゲーション プロパティからデータを取得しようとするたびにデータベースに送信します。 Entity Framework Core 1.0 は、遅延読み込みをサポートしていません。
+* 遅延読み込みします。 エンティティが読み込まれると、関連データが取得されていません。 ただし、ナビゲーション プロパティにアクセスしようとすると、最初にそのナビゲーション プロパティに必要なデータが自動的に取得します。 クエリは、最初にナビゲーション プロパティからデータを取得しようとするたびにデータベースに送信します。 Entity Framework Core 1.0 では、遅延読み込みをサポートしていません。
 
 ### <a name="performance-considerations"></a>パフォーマンスに関する考慮事項
 
@@ -75,7 +75,7 @@ CoursesController と同じオプションを使用して、Course エンティ�
 
 * インデックスからのコースに見出しを変更します。
 
-* 追加、**数**を表示する列、`CourseID`プロパティの値。 既定では、通常はエンドユーザーにとって意味のないために、主キーはスキャフォールディングされました。 ただし、ここでは、主キーは無効と非表示にします。
+* 追加、**数**を表示する列、`CourseID`プロパティの値。 既定では、主キーはいないだ通常エンドユーザーにとって意味のないスキャフォールディングされました。 ただし、ここでは、主キーは無効と非表示にします。
 
 * 変更、**部門**部門名を表示する列。 コードの表示、`Name`に読み込まれる部門 エンティティのプロパティ、`Department`ナビゲーション プロパティ。
 
@@ -173,7 +173,7 @@ EF 読み取り/書き込みアクションの次の図に示すように、イ�
 
 * ページのタイトルを変更**インデックス**に**講習においてインストラクター**です。
 
-* 追加、 **Office**を表示する列`item.OfficeAssignment.Location`場合にのみ、`item.OfficeAssignment`が null でないです。 (これは、0 または 1 を 1 つのリレーションシップであるため、ある可能性がありますいない関連 OfficeAssignment エンティティです。)
+* 追加、 **Office**を表示する列`item.OfficeAssignment.Location`場合にのみ、 `item.OfficeAssignment` null でないです。 (これは、0 または 1 を 1 つのリレーションシップであるため、ある可能性がありますいない関連 OfficeAssignment エンティティです。)
 
   ```html
   @if (item.OfficeAssignment != null)

@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: 997756ff8d48e41da981491d6154f3107ec7a051
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d38e6fbc3407e4beca6942bbdefcaa8258ebc5ad
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-signalr-self-host"></a>チュートリアル: SignalR の自己ホスト
 ====================
@@ -94,7 +94,7 @@ IIS でホストしていない理由は次のとおりです。
 
     上記のコードには、3 つのクラスが含まれています。
 
-    - **プログラム**など、 **Main**メソッドの実行のプライマリ パスを定義します。 このメソッドでは、型の web アプリケーションで**スタートアップ**が url で指定した開始 (`http://localhost:8080`)。 セキュリティが必要な場合、エンドポイントで、SSL を実装することができます。 参照してください[する方法: SSL 証明書でポートを構成する](https://msdn.microsoft.com/en-us/library/ms733791.aspx)詳細についてはします。
+    - **プログラム**など、 **Main**メソッドの実行のプライマリ パスを定義します。 このメソッドでは、型の web アプリケーションで**スタートアップ**が url で指定した開始 (`http://localhost:8080`)。 セキュリティが必要な場合、エンドポイントで、SSL を実装することができます。 参照してください[する方法: SSL 証明書でポートを構成する](https://msdn.microsoft.com/library/ms733791.aspx)詳細についてはします。
     - **スタートアップ**、SignalR のサーバーの構成を含むクラス (このチュートリアルではのみの構成への呼び出しは、 `UseCors`)、および呼び出し`MapSignalR`プロジェクト内のすべてのハブ オブジェクト ルートを作成します。
     - **MyHub**アプリケーションをクライアントに提供する SignalR ハブ クラスです。 このクラスには 1 つのメソッド、**送信**、接続されている他のすべてのクライアントにメッセージをブロードキャストにクライアントが呼び出すことです。
 6. アプリケーションをコンパイルして実行します。 コンソール ウィンドウで、サーバーが実行されているアドレスが表示されます。

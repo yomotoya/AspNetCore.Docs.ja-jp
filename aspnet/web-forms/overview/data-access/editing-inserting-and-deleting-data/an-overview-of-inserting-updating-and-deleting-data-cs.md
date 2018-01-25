@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 24320b9f0262fba0aa5ac77f6c1294541c42267a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e483c37cc773a7255f18c26bc3609d68f71dff7d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>挿入、更新、およびデータ (c#) の削除の概要
 ====================
@@ -140,7 +140,7 @@ DAL で Tableadapter を作成した際に注意してくださいを[、最初�
 
 ObjectDataSource の一覧と同じように、その関連付けられているメソッドの入力パラメーターの各パラメーターが含まれる`SelectParameter`s は現在の入力パラメーターを受け取る select メソッドを呼び出す、ObjectDataSource が構成されている場合 (など`GetProductsByCategoryID(categoryID)`). おについては後ほど、これらの値として`DeleteParameters`、 `UpdateParameters`、および`InsertParameters`GridView、DetailsView、およびフォーム ビューで、ObjectDataSource を呼び出す前に自動的に設定されます`Insert()`、 `Update()`、または`Delete()`メソッド。 これらの値も設定できます必要に応じて、プログラムで今後のチュートリアルで説明するようです。
 
-ObjectDataSource するように構成ウィザードを使用する 1 つの副作用は、Visual Studio が設定される、 [OldValuesParameterFormatString プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.oldvaluesparameterformatstring(VS.80).aspx)に`original_{0}`です。 このプロパティの値は編集対象のデータの元の値を含めるに使用され、2 つのシナリオで役に立ちます。
+ObjectDataSource するように構成ウィザードを使用する 1 つの副作用は、Visual Studio が設定される、 [OldValuesParameterFormatString プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.oldvaluesparameterformatstring(VS.80).aspx)に`original_{0}`です。 このプロパティの値は編集対象のデータの元の値を含めるに使用され、2 つのシナリオで役に立ちます。
 
 - レコードを編集するには、ユーザーは、主キーの値を変更します。 場合、 この場合、新しい主キーの値と元のプライマリ キーの値の両方必要がありますを指定する元のプライマリ キーの値を持つレコードが見つかりませんしてそれに従って更新その値を持つできるようにします。
 - ときに、オプティミスティック同時実行制御を使用します。 オプティミスティック同時実行制御ことを確認する 2 つの手法の同時ユーザーは、いずれかに別の変更を上書きしないし、今後のチュートリアルのトピックは、です。
@@ -168,8 +168,8 @@ GridView をツールボックスからデザイナーにドラッグして開�
 
 スマート タグから ObjectDataSource、GridView にバインドすると、2 つの利点があります。
 
-- BoundFields と CheckBoxFields は、ObjectDataSource によって返されるフィールドの各自動的に作成されます。 さらに、BoundField および CheckBoxField のプロパティは、基になるフィールドのメタデータに基づいて設定されます。 たとえば、 `ProductID`、 `CategoryName`、および`SupplierName`フィールドは読み取り専用とでマークされて、`ProductsDataTable`のためべきでは更新可能な編集時にします。 この、これらの BoundFields をそれに合わせて[読み取り専用プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.boundfield.readonly(VS.80).aspx)に設定されている`true`です。
-- [DataKeyNames プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.datakeynames(VS.80).aspx)は基になるオブジェクトの主キー フィールドに割り当てられます。 これは、プロセスを使用して GridView データの削除、編集、またはこのプロパティは、フィールド (または一連のフィールド) を示します。 つまり一意各レコードを識別します。 詳細については、`DataKeyNames`プロパティに戻って、[マスター/詳細 DetailView で選択可能なマスター GridView の使用について詳しく説明](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)チュートリアルです。
+- BoundFields と CheckBoxFields は、ObjectDataSource によって返されるフィールドの各自動的に作成されます。 さらに、BoundField および CheckBoxField のプロパティは、基になるフィールドのメタデータに基づいて設定されます。 たとえば、 `ProductID`、 `CategoryName`、および`SupplierName`フィールドは読み取り専用とでマークされて、`ProductsDataTable`のためべきでは更新可能な編集時にします。 この、これらの BoundFields をそれに合わせて[読み取り専用プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.readonly(VS.80).aspx)に設定されている`true`です。
+- [DataKeyNames プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.datakeynames(VS.80).aspx)は基になるオブジェクトの主キー フィールドに割り当てられます。 これは、プロセスを使用して GridView データの削除、編集、またはこのプロパティは、フィールド (または一連のフィールド) を示します。 つまり一意各レコードを識別します。 詳細については、`DataKeyNames`プロパティに戻って、[マスター/詳細 DetailView で選択可能なマスター GridView の使用について詳しく説明](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)チュートリアルです。
 
 GridView は、[プロパティ] ウィンドウまたは宣言の構文を ObjectDataSource にバインドすることができます、そう必要がありますに適切な BoundField を手動で追加して`DataKeyNames`マークアップ。
 
@@ -327,7 +327,7 @@ GridView のデータ変更機能を示すためを起動する DetailsView を�
 
 GridView と同様のイベントの同じシーケンスを開始する [削除] ボタンをクリックすると: ポストバック; a設定、ObjectDataSource の DetailsView 続けて`DeleteParameters`に基づいて、 `DataKeyNames` ; の値し、その ObjectDataSource の呼び出しで完了`Delete()`メソッドで、実際には、データベースから製品を削除します。 DetailsView で編集でも、GridView のものと同じ方法で動作します。
 
-挿入すると、エンドユーザーが表示されます、New とボタンをクリックすると、「insert モード」で DetailsView のレンダリング 「挿入モード」では、新しいボタンが置き換え挿入し、[キャンセル] ボタンとそれらの BoundFields のみが`InsertVisible`プロパティに設定されている`true`(既定) が表示されます。 など、自動インクリメント フィールドとして識別されるデータ フィールド`ProductID`がその[InsertVisible プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datacontrolfield.insertvisible(VS.80).aspx)'éý' `false` DetailsView をスマート タグからのデータ ソースにバインドするときにします。
+挿入すると、エンドユーザーが表示されます、New とボタンをクリックすると、「insert モード」で DetailsView のレンダリング 「挿入モード」では、新しいボタンが置き換え挿入し、[キャンセル] ボタンとそれらの BoundFields のみが`InsertVisible`プロパティに設定されている`true`(既定) が表示されます。 など、自動インクリメント フィールドとして識別されるデータ フィールド`ProductID`がその[InsertVisible プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datacontrolfield.insertvisible(VS.80).aspx)'éý' `false` DetailsView をスマート タグからのデータ ソースにバインドするときにします。
 
 Visual Studio の設定、スマート タグから DetailsView にデータ ソースをバインドするときに、`InsertVisible`プロパティを`false`自動インクリメント フィールドに対してのみです。 読み取り専用のフィールドと同様に`CategoryName`と`SupplierName`、しない限り、「insert モード」のユーザー インターフェイスに表示されます、`InsertVisible`プロパティ明示的に`false`です。 これら 2 つのフィールドを設定するには、しばらく時間かかる`InsertVisible`プロパティを`false`、スマート タグのリンク DetailsView の宣言構文またはフィールドを編集します。 図 19 の設定を表示する、`InsertVisible`プロパティを`false`でフィールドの編集 をクリックしてリンクします。
 
@@ -354,7 +354,7 @@ Visual Studio の設定、スマート タグから DetailsView にデータ ソ
 
 
 > [!NOTE]
-> DetailsView の[CurrentMode プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.currentmode(VS.80).aspx)表示されているインターフェイスを示し、値は次のいずれかになります: `Edit`、 `Insert`、または`ReadOnly`です。 [DefaultMode プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.defaultmode(VS.80).aspx)を示し、DetailsView が、編集の後に戻るか、または挿入モードが完了したは永続的に編集または挿入モードを DetailsView を表示するために便利です。
+> DetailsView の[CurrentMode プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.currentmode(VS.80).aspx)表示されているインターフェイスを示し、値は次のいずれかになります: `Edit`、 `Insert`、または`ReadOnly`です。 [DefaultMode プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.defaultmode(VS.80).aspx)を示し、DetailsView が、編集の後に戻るか、または挿入モードが完了したは永続的に編集または挿入モードを DetailsView を表示するために便利です。
 
 
 ポイント アンド クリックを挿入して、編集、DetailsView の機能は、GridView と同じ制限に悩まさ: 既存のユーザーが入力する必要があります`CategoryID`と`SupplierID`テキスト ボックスを使用して値以外のインターフェイスに検証ロジック以外のすべて許可されていない製品フィールド`NULL`値または、既定値がありません。 挿入のインターフェイスを示すで、データベース レベルで指定された値を含める必要があります。
@@ -432,7 +432,7 @@ FormView の自動生成で注意が必要です、`InsertItemTemplate`です。
 > DetailsView、FormView のと同様に`CurrentMode`プロパティが表示されているインターフェイスを示すと、その`DefaultMode`プロパティは、編集の後にモードをフォーム ビューを返しますを示しますまたは挿入が完了しました。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、挿入、編集、および GridView、DetailsView、フォーム ビューを使用してデータの削除の基本を検査します。 これらのコントロールの 3 つすべては、Web コントロールのデータと、ObjectDataSource 感謝の ASP.NET ページで、1 つの行のコードを記述することがなく使用できる組み込みのデータ変更機能のいくつかのレベルを指定します。 ただし、単純なものがポイントして、かなり壊れ手法レンダリングと単純なデータ変更のユーザー インターフェイス をクリックします。 検証を提供するには、プログラムで値を挿入、例外を適切に処理、ユーザー インターフェイスのカスタマイズおよび、しなければならない一連の次のいくつかのチュートリアルで説明する手法に依存します。
 

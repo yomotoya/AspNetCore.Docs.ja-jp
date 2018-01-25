@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 15de0ca9bcceb7f745fa311b18d2c095f1dafcb1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5d1be6c30cda5a06087516210a77f48b6a3fe45b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>型指定されたデータセットの Tableadapter (VB) のストアド プロシージャを既存の使用
 ====================
@@ -200,7 +200,7 @@ ObjectDataSource ウィザードを完了すると、Visual Studio は追加 Bou
 
 テンプレートを定義することで開始、`TRY...CATCH`を初めて使用する SQL Server 2005 のコンストラクトをブロックします。 使用するような`Try...Catch`Visual basic で SQL ブロック`TRY...CATCH`ブロック内のステートメントを実行する、`TRY`ブロックします。 コントロールに転送してすぐに任意のステートメントでは、エラーが発生した場合、`CATCH`ブロックします。
 
-その構成トランザクション、SQL ステートメントの実行エラーがない場合、`COMMIT TRANSACTION`ステートメントが、変更をコミットし、トランザクションを完了します。 、ただし、ステートメントのいずれかの結果になった場合、エラー、`ROLLBACK TRANSACTION`で、`CATCH`ブロックがトランザクションの開始前の状態にデータベースを返します。 ストアド プロシージャでを使用して、エラーを発生させます、 [RAISERROR コマンド](https://msdn.microsoft.com/en-us/library/ms178592.aspx)、これにより、`SqlException`がアプリケーションで発生します。
+その構成トランザクション、SQL ステートメントの実行エラーがない場合、`COMMIT TRANSACTION`ステートメントが、変更をコミットし、トランザクションを完了します。 、ただし、ステートメントのいずれかの結果になった場合、エラー、`ROLLBACK TRANSACTION`で、`CATCH`ブロックがトランザクションの開始前の状態にデータベースを返します。 ストアド プロシージャでを使用して、エラーを発生させます、 [RAISERROR コマンド](https://msdn.microsoft.com/library/ms178592.aspx)、これにより、`SqlException`がアプリケーションで発生します。
 
 > [!NOTE]
 > 以降、`TRY...CATCH`ブロックは初めて使用する SQL Server 2005、Microsoft SQL Server の以前のバージョンを使用している場合、このテンプレートは機能しません。 SQL Server 2005 を使用していない場合を参照してください[SQL Server ストアド プロシージャでのトランザクションの管理](http://www.4guysfromrolla.com/webtech/080305-1.shtml)for SQL Server の他のバージョンで動作するテンプレートです。
@@ -265,7 +265,7 @@ DAL が更新されると、カテゴリを削除するは自動的に関連付�
 > テストする前に、`Categories_Delete`ストアド プロシージャは、選択したカテゴリと製品の数が削除されますがあります、データベースのバックアップ コピーを作成します。 使用している場合、`NORTHWND.MDF`データベース`App_Data`、単に Visual Studio を終了およびに MDF と LDF ファイルをコピー`App_Data`の他のフォルダーにします。 機能をテストした後は、Visual Studio を終了して、データベースを戻すことができ、置き換える現在 MDF と LDF ファイル`App_Data`バックアップのコピーにします。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 TableAdapter の s ウィザードでは、ご利用の米国のストアド プロシージャを自動的に生成されますもおが既にこのようなストアド プロシージャを作成したりに手動でまたはその他のツールを使用して代わりに作成します。 このようなシナリオに合わせてに、既存のストアド プロシージャを指す、TableAdapter を構成することもできます。 このチュートリアルでは、これらのストアド プロシージャを TableAdapter のメソッドを接続するための方法と、Visual Studio 環境を使用してデータベースにストアド プロシージャを手動で追加する方法を説明しました。 おは、T-SQL コマンドおよびスクリプトのパターンの開始、コミット、およびストアド プロシージャ内からトランザクションをロールバックするためにも検討します。
 

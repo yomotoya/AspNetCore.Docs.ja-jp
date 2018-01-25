@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: d3a8183fecaf830b2ee1211acd56da86454b4437
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0e7ad52662f7ceaa1f087d007d0b14b610f90bee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>ASP.NET および Web ツール 2013.2 for Visual Studio 2013 のリリース ノート
 ====================
@@ -232,10 +232,10 @@ NuGet 2.8.1 RTM は、2014 年 4 月にリリースします。 ここでは、�
 <a id="ef"></a>
 ### <a name="entity-framework-61"></a>Entity Framework 6.1
 
-Entity Framework ランタイムとツールの両方のバージョン 6.1 に更新されました。 Entity Framework (EF) 6.1 Entity Framework 6 のマイナー アップデートは、多数バグの修正や新機能にはが含まれています。 EF6.1、新規の機能に関するドキュメントへのリンクなどの詳細については、次を参照してください。 [Entity Framework のバージョン履歴](https://msdn.microsoft.com/en-US/data/jj574253)です。 このリリースの新機能は次のとおりです。
+Entity Framework ランタイムとツールの両方のバージョン 6.1 に更新されました。 Entity Framework (EF) 6.1 Entity Framework 6 のマイナー アップデートは、多数バグの修正や新機能にはが含まれています。 EF6.1、新規の機能に関するドキュメントへのリンクなどの詳細については、次を参照してください。 [Entity Framework のバージョン履歴](https://msdn.microsoft.com/data/jj574253)です。 このリリースの新機能は次のとおりです。
 
 - **ツールの統合**新しい EF モデルを作成する一貫した方法を提供します。 この機能は、既存のデータベースをリバース エンジニア リングを含む、Code First モデルの作成をサポートするために、ADO.NET Entity Data Model ウィザードを拡張します。 これらの機能が以前 EF パワー ツールの品質をベータ版で使用できます。
-- **トランザクション コミットの失敗処理**提供新しい[System.Data.Entity.Infrastructure.CommitFailureHandler](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.commitfailurehandler(v=vs.113).aspx)を使用する新しく導入された機能のトランザクションの処理を中断します。 **CommitFailureHandler**トランザクションのコミット中に、接続の障害からの自動復旧を許可します。
+- **トランザクション コミットの失敗処理**提供新しい[System.Data.Entity.Infrastructure.CommitFailureHandler](https://msdn.microsoft.com/library/system.data.entity.infrastructure.commitfailurehandler(v=vs.113).aspx)を使用する新しく導入された機能のトランザクションの処理を中断します。 **CommitFailureHandler**トランザクションのコミット中に、接続の障害からの自動復旧を許可します。
 - **IndexAttribute** Code First モデルのプロパティ (またはプロパティ) の属性を配置することで指定するインデックスを使用します。 コード最初はインデックスを作成して、対応するデータベースにします。
 - **パブリック マッピング API** EF はプロパティと型を列と、データベース内のテーブルにマップする方法には、情報へのアクセスを提供します。 以前のリリースこの API は内部です。
 - **App/Web.config ファイルを使用してインターセプターを構成する機能**(アプリケーションを再コンパイルせずに追加するインターセプターを許可) します。

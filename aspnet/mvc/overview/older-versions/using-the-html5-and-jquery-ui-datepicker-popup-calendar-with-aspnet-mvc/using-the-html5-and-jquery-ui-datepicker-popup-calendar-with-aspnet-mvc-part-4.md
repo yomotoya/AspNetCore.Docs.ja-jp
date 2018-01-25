@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 2b76d2e449d491fd8d808343065b22ba267f1152
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 32211465adeb1353908daa1014d188b84389e1a7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-4"></a>ASP.NET MVC - パート 4 での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用
 ====================
@@ -27,9 +27,9 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="adding-a-template-for-editing-dates"></a>日付を編集するためのテンプレートの追加
 
-このセクションでは、ASP.NET MVC でマークされているモデルのプロパティを編集するための UI の表示時に適用される日付を編集用のテンプレートを作成します、**日付**の列挙体、 [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)属性。 テンプレートは日付のみを表示します。時刻は表示されません。 テンプレートでは、使用、 [jQuery UI Datepicker](http://jqueryui.com/demos/datepicker/)ポップアップ カレンダーの日付を編集する方法を提供します。
+このセクションでは、ASP.NET MVC でマークされているモデルのプロパティを編集するための UI の表示時に適用される日付を編集用のテンプレートを作成します、**日付**の列挙体、 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性。 テンプレートは日付のみを表示します。時刻は表示されません。 テンプレートでは、使用、 [jQuery UI Datepicker](http://jqueryui.com/demos/datepicker/)ポップアップ カレンダーの日付を編集する方法を提供します。
 
-開始する、開く、 *Movie.cs*ファイルを追加、 [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性が、**日付**列挙型を`ReleaseDate`プロパティ、次のコードに示すように。
+開始する、開く、 *Movie.cs*ファイルを追加、 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性が、**日付**列挙型を`ReleaseDate`プロパティ、次のコードに示すように。
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/samples/sample1.cs)]
 
@@ -53,11 +53,11 @@ Ctrl キーを押しながら F5 キーを押してアプリケーションを�
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/samples/sample2.cshtml)]
 
-最初の行を宣言するモデル、`DateTime`型です。 編集のモデルの種類を宣言し、テンプレートを表示する必要はありませんは、ベスト プラクティス コンパイル時間を取得すること、モデル、ビューに渡されるを確認します。 (別のメリットはし、Visual Studio でのビューでモデルの IntelliSense を利用することです。)モデルの種類が宣言されていない場合は、ASP.NET MVC であると判断、[動的](https://msdn.microsoft.com/en-us/library/dd264741.aspx)を入力し、コンパイルが存在しない型チェックします。 あるモデルを宣言する場合、`DateTime`型が厳密に型指定します。
+最初の行を宣言するモデル、`DateTime`型です。 編集のモデルの種類を宣言し、テンプレートを表示する必要はありませんは、ベスト プラクティス コンパイル時間を取得すること、モデル、ビューに渡されるを確認します。 (別のメリットはし、Visual Studio でのビューでモデルの IntelliSense を利用することです。)モデルの種類が宣言されていない場合は、ASP.NET MVC であると判断、[動的](https://msdn.microsoft.com/library/dd264741.aspx)を入力し、コンパイルが存在しない型チェックします。 あるモデルを宣言する場合、`DateTime`型が厳密に型指定します。
 
 2 番目の行が表示される HTML マークアップをリテラルだけ&quot;日付テンプレートを使用した&quot;日付フィールドの前にします。 この行は、この日付テンプレートを使用していることを確認するのに一時的に使用します。
 
-次の行は、 [Html.TextBox](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.inputextensions.textbox.aspx)レンダリング ヘルパーに`input`テキスト ボックスにあるフィールドです。 ヘルパーの 3 番目のパラメーターは、匿名型を使用して、テキスト ボックスのクラスを設定を`datefield`、種類を`date`です。 (ため`class`、予約されている、C# の場合は、使用する必要があります、`@`エスケープ文字、 `class` c# パーサーでの属性です)。
+次の行は、 [Html.TextBox](https://msdn.microsoft.com/library/system.web.mvc.html.inputextensions.textbox.aspx)レンダリング ヘルパーに`input`テキスト ボックスにあるフィールドです。 ヘルパーの 3 番目のパラメーターは、匿名型を使用して、テキスト ボックスのクラスを設定を`datefield`、種類を`date`です。 (ため`class`、予約されている、C# の場合は、使用する必要があります、`@`エスケープ文字、 `class` c# パーサーでの属性です)。
 
 `date`型 HTML5 に対応したブラウザーは HTML5 カレンダー コントロールをレンダリングする HTML5 入力型です。 後でに jQuery datepicker をフックするために一部の JavaScript を追加、`Html.TextBox`要素を使用して、`datefield`クラスです。
 
@@ -129,7 +129,7 @@ JQuery 日付選択カレンダーを実際に使用するのには、テンプ�
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/samples/sample7.cshtml)]
 
-[URL コンテンツ ヘルパー](https://msdn.microsoft.com/en-us/library/system.web.mvc.urlhelper.content.aspx)メソッド リソース パスは絶対パスに変換します。 使用する必要があります`@URL.Content`アプリケーションが IIS で実行されているときに、これらのリソースを正しく参照します。
+[URL コンテンツ ヘルパー](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.content.aspx)メソッド リソース パスは絶対パスに変換します。 使用する必要があります`@URL.Content`アプリケーションが IIS で実行されているときに、これらのリソースを正しく参照します。
 
 Ctrl キーを押しながら F5 キーを押してアプリケーションを実行します。 編集リンクを選択しにカーソルを置きます、 **ReleaseDate**フィールドです。 JQuery UI ポップアップ カレンダーが表示されます。
 

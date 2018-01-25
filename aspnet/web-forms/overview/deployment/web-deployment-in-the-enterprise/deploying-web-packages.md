@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: db24fbf4a3486a1349ac47e55cfa495fdf1a166c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cd2bfa07262155b68ac4605fc7e9748d276d3193
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-web-packages"></a>Web パッケージを展開します。
 ====================
@@ -70,13 +70,13 @@ ms.lasthandoff: 11/10/2017
 | **/U** | ユーザー名を指定します。 これは、基本認証を使用している場合にのみ適用されます。 |
 | **/P** | パスワードを指定します。 これは、基本認証を使用している場合にのみ適用されます。 |
 | **/L** | パッケージがローカルの IIS Express のインスタンスに配置することを示します。 |
-| **/G** | 使用してパッケージを配置することを指定します、 [tempAgent プロバイダー設定](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx)です。 省略した場合、 **/G**フラグを既定値は**false**です。 |
+| **/G** | 使用してパッケージを配置することを指定します、 [tempAgent プロバイダー設定](https://technet.microsoft.com/library/ee517345(WS.10).aspx)です。 省略した場合、 **/G**フラグを既定値は**false**です。 |
 
 > [!NOTE]
 > という名前のファイルも作成、ビルド処理では、web のパッケージを作成するたびに*[プロジェクト名] .deploy readme.txt*これらの展開オプションをについて説明します。
 
 
-これらのフラグだけでなく追加として Web Deploy 操作の設定を指定できます*. deploy.cmd*パラメーター。 指定する追加の設定は、基になる MSDeploy.exe コマンドを単純にを通して渡されます。 これらの設定の詳細については、次を参照してください。 [Web Deploy 操作 Settings](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx)です。
+これらのフラグだけでなく追加として Web Deploy 操作の設定を指定できます*. deploy.cmd*パラメーター。 指定する追加の設定は、基になる MSDeploy.exe コマンドを単純にを通して渡されます。 これらの設定の詳細については、次を参照してください。 [Web Deploy 操作 Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx)です。
 
 実行して、テスト環境に ContactManager.Mvc web アプリケーション プロジェクトを展開すると、 *. deploy.cmd*ファイル。 Web デプロイのリモート エージェント サービスを使用して、テスト環境が構成されている」の説明に従って[Web 配置発行 (リモート エージェント) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)です。 Web アプリケーションを展開するには、次の手順を完了する必要があります。
 
@@ -101,9 +101,9 @@ ms.lasthandoff: 11/10/2017
 [!code-console[Main](deploying-web-packages/samples/sample3.cmd)]
 
 
-使用する方法について、 *. deploy.cmd*ファイルを web パッケージを展開しを参照してください[する方法: 展開パッケージを使用して、deploy.cmd ファイルをインストール](https://msdn.microsoft.com/en-us/library/ff356104.aspx)です。
+使用する方法について、 *. deploy.cmd*ファイルを web パッケージを展開しを参照してください[する方法: 展開パッケージを使用して、deploy.cmd ファイルをインストール](https://msdn.microsoft.com/library/ff356104.aspx)です。
 
-## <a name="using-msdeployexe"></a>MSDeploy.exe を使用します。
+## <a name="using-msdeployexe"></a>Using MSDeploy.exe
 
 使用していますが、 *. deploy.cmd*ファイルが一般に、展開プロセスを簡略化、状況によっては MSDeploy.exe を直接使用することをお勧めときにします。 例:
 
@@ -115,21 +115,21 @@ MSDeploy.exe を使用する場合は、次の 3 つの重要な情報を提供�
 
 - A **– ソース**を示す、データの取得先のパラメーターです。
 - A **– dest**にデータを移動する場所を示すパラメーターです。
-- A **– 動詞**パラメーターを示す、[操作](https://technet.microsoft.com/en-us/library/dd568989(WS.10).aspx)を実行します。
+- A **– 動詞**パラメーターを示す、[操作](https://technet.microsoft.com/library/dd568989(WS.10).aspx)を実行します。
 
-MSDeploy.exe が依存[Web Deploy プロバイダー](https://technet.microsoft.com/en-us/library/dd569040(WS.10).aspx)元とコピー先のデータを処理します。 たとえば、SQL Server データベース、IIS web サーバー、証明書、グローバル アセンブリ キャッシュ (GAC) アセンブリでは、プロバイダーではありません web 配置で使用するアプリケーションとデータのソース & #x 2014 の範囲を表す、プロバイダーの多くが含まれていますさまざまな。異なる構成ファイル、および多数の他のデータ型。 両方の**– ソース**パラメーターおよび**– dest**パラメーターは、フォームで、プロバイダーを指定する必要があります**– ソース**: [*providerName*] = [*場所*] です。 を IIS の web サイトに web パッケージを配置するときに、これらの値を使用する必要があります。
+MSDeploy.exe が依存[Web Deploy プロバイダー](https://technet.microsoft.com/library/dd569040(WS.10).aspx)元とコピー先のデータを処理します。 たとえば、SQL Server データベース、IIS web サーバー、証明書、グローバル アセンブリ キャッシュ (GAC) アセンブリでは、プロバイダーではありません web 配置で使用するアプリケーションとデータのソース & #x 2014 の範囲を表す、プロバイダーの多くが含まれていますさまざまな。異なる構成ファイル、および多数の他のデータ型。 両方の**– ソース**パラメーターおよび**– dest**パラメーターは、フォームで、プロバイダーを指定する必要があります**– ソース**: [*providerName*] = [*場所*] です。 を IIS の web サイトに web パッケージを配置するときに、これらの値を使用する必要があります。
 
-- **– ソース**プロバイダーは、常に[パッケージ](https://technet.microsoft.com/en-us/library/dd569019(WS.10).aspx)です。 例:
+- **– ソース**プロバイダーは、常に[パッケージ](https://technet.microsoft.com/library/dd569019(WS.10).aspx)です。 例:
 
     [!code-console[Main](deploying-web-packages/samples/sample4.cmd)]
-- **– Dest**プロバイダーは、常に[自動](https://technet.microsoft.com/en-us/library/dd569016(WS.10).aspx)です。例:
+- **– Dest**プロバイダーは、常に[自動](https://technet.microsoft.com/library/dd569016(WS.10).aspx)です。例:
 
     [!code-console[Main](deploying-web-packages/samples/sample5.cmd)]
 - **– 動詞**は常に**同期**です。
 
     [!code-console[Main](deploying-web-packages/samples/sample6.cmd)]
 
-さらに、する必要がありますを指定するさまざまな他の[プロバイダーに固有の設定](https://technet.microsoft.com/en-us/library/dd569001(WS.10).aspx)や一般的な[操作設定](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx)です。 たとえば、ステージング環境に ContactManager.Mvc web アプリケーションを展開するとします。 展開は、Web 配置のハンドラーを対象し、基本認証を使用する必要があります。 Web アプリケーションを展開するには、次の手順を完了する必要があります。
+さらに、する必要がありますを指定するさまざまな他の[プロバイダーに固有の設定](https://technet.microsoft.com/library/dd569001(WS.10).aspx)や一般的な[操作設定](https://technet.microsoft.com/library/dd569089(WS.10).aspx)です。 たとえば、ステージング環境に ContactManager.Mvc web アプリケーションを展開するとします。 展開は、Web 配置のハンドラーを対象し、基本認証を使用する必要があります。 Web アプリケーションを展開するには、次の手順を完了する必要があります。
 
 **MSDeploy.exe を使用して web アプリケーションを展開するには**
 
@@ -145,7 +145,7 @@ MSDeploy.exe が依存[Web Deploy プロバイダー](https://technet.microsoft.
 - **– ソース**パラメーターを指定します、**パッケージ**プロバイダー、web のパッケージの場所を示します。
 - **– Dest**パラメーターを指定します、**自動**プロバイダー。 **ComputerName**設定が移行先サーバーで、Web 配置のハンドラーのサービスの URL を提供します。 **空の authtype**設定ことを示し、基本認証を使用するよう指定する必要があります、 **username**と**パスワード**です。 最後に、 **includeAcls ="False"**設定は、移行先サーバーに、ソース web アプリケーションで、ファイルのアクセス制御リスト (Acl) をコピーしないことを示します。
 - **– 動詞: 同期**引数は、移行先サーバー上のソース コンテンツをレプリケートすることを示します。
-- **– DisableLink**引数は、アプリケーション プール、仮想ディレクトリの構成、または移行先サーバーで Secure Sockets Layer (SSL) 証明書をレプリケートしないことを示します。 詳細については、次を参照してください。 [Web 展開リンク拡張](https://technet.microsoft.com/en-us/library/dd569028(WS.10).aspx)です。
+- **– DisableLink**引数は、アプリケーション プール、仮想ディレクトリの構成、または移行先サーバーで Secure Sockets Layer (SSL) 証明書をレプリケートしないことを示します。 詳細については、次を参照してください。 [Web 展開リンク拡張](https://technet.microsoft.com/library/dd569028(WS.10).aspx)です。
 - **– SetParamFile**パラメーターの場所を提供する、 *SetParameters.xml*ファイル。
 - **– AllowUntrusted**スイッチでは、Web Deploy を受け付けることが信頼された証明機関によって発行されていない SSL 証明書を示します。 Web 展開ハンドラーに配置して、サービスの URL をセキュリティで保護する自己署名証明書を使用した場合、は、このスイッチを含める必要があります。
 

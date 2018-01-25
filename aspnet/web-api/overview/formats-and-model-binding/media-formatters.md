@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/media-formatters
 msc.type: authoredcontent
-ms.openlocfilehash: 7d85b995cd577d0ff90fe96bce508c7fbdc6ebbb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9103574597df126a22e21a2f51815f608e46f47f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="media-formatters-in-aspnet-web-api-2"></a>ASP.NET Web API 2 に、メディア フォーマッタ
 ====================
@@ -28,8 +28,8 @@ ms.lasthandoff: 11/10/2017
 
 MIME の種類とも呼ばれる、メディアの種類では、一部のデータの形式を識別します。 HTTP では、メディアの種類は、メッセージ本文の形式を記述します。 メディアの種類は、2 つの文字列、型とサブタイプで構成されます。 例:
 
-- テキスト/html
-- イメージまたは png
+- text/html
+- image/png
 - application/json
 
 HTTP メッセージにエンティティ ボディが含まれている場合、Content-type ヘッダーは、メッセージ本文の形式を指定します。 これは、受信側に、メッセージ本文の内容を解析する方法を示しています。
@@ -48,8 +48,8 @@ HTTP メッセージにエンティティ ボディが含まれている場合�
 
 メディア フォーマッタを作成するには、これらのクラスのいずれかから派生します。
 
-- [MediaTypeFormatter](https://msdn.microsoft.com/en-us/library/system.net.http.formatting.mediatypeformatter.aspx)です。 このクラスは非同期の読み取りと書き込みを行うメソッドです。
-- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/en-us/library/system.net.http.formatting.bufferedmediatypeformatter.aspx)です。 このクラスから派生**MediaTypeFormatter**が、同期読み取り/書き込みのメソッドを使用します。
+- [MediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.mediatypeformatter.aspx)です。 このクラスは非同期の読み取りと書き込みを行うメソッドです。
+- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.bufferedmediatypeformatter.aspx)です。 このクラスから派生**MediaTypeFormatter**が、同期読み取り/書き込みのメソッドを使用します。
 
 派生する**BufferedMediaTypeFormatter**のための非同期コードではありませんが、I/O 中に呼び出し元のスレッドをブロックすることができますも意味が単純になります。
 
@@ -91,10 +91,10 @@ HTTP メッセージにエンティティ ボディが含まれている場合�
 
 必要に応じて、メディア フォーマッタは、utf-8 または ISO 8859-1 などの複数の文字エンコーディングをサポートできます。
 
-コンス トラクターの 1 つ以上追加[System.Text.Encoding](https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx)型を**SupportedEncodings**コレクション。 既定の最初のエンコーディングを格納します。
+コンス トラクターの 1 つ以上追加[System.Text.Encoding](https://msdn.microsoft.com/library/system.text.encoding.aspx)型を**SupportedEncodings**コレクション。 既定の最初のエンコーディングを格納します。
 
 [!code-csharp[Main](media-formatters/samples/sample10.cs?highlight=6-7)]
 
-**WriteToStream**と**ReadFromStream**メソッドを呼び出して[MediaTypeFormatter.SelectCharacterEncoding](https://msdn.microsoft.com/en-us/library/hh969054.aspx)優先文字エン コードを選択します。 このメソッドでは、サポートされているエンコーディングの一覧に対して、要求ヘッダーと一致します。 使用して、返された**エンコード**読み取りまたは書き込みストリームをする場合。
+**WriteToStream**と**ReadFromStream**メソッドを呼び出して[MediaTypeFormatter.SelectCharacterEncoding](https://msdn.microsoft.com/library/hh969054.aspx)優先文字エン コードを選択します。 このメソッドでは、サポートされているエンコーディングの一覧に対して、要求ヘッダーと一致します。 使用して、返された**エンコード**読み取りまたは書き込みストリームをする場合。
 
 [!code-csharp[Main](media-formatters/samples/sample11.cs?highlight=3,5)]

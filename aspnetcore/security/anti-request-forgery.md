@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/anti-request-forgery
-ms.openlocfilehash: d7df8f91e88290509c8751a4b69804b60138846e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3831bf737186d10eb1b298f5ec2da1fd33ebedd9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET Core でクロスサイト リクエスト フォージェリ (XSRF/CSRF) 攻撃の防止
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="what-attack-does-anti-forgery-prevent"></a>偽造はどのような攻撃を防止しますか。
 
-クロスサイト リクエスト フォージェリ (とも呼ばれる XSRF または CSRF、発音*「surf*) は、web ホスト アプリケーションそれ悪意のある web サイト影響を与える、クライアント ブラウザーと web サイトを信頼する間の相互作用に対する攻撃そのブラウザー。 Web ブラウザーの web サイトにいくつかの種類の認証トークンに自動的にすべての要求を送信するため、このような攻撃が可能になります。 この形式の脆弱性攻撃とも呼ばれます、 *1 回のクリック攻撃*または*乗るセッション*ユーザーの攻撃の活用セッションを認証していたため、します。
+クロスサイト リクエスト フォージェリ (とも呼ばれる XSRF または CSRF、発音*「surf*) は、web ホスト アプリケーションそれ悪意のある web サイト影響を与える、クライアント ブラウザーと web サイトを信頼する間の相互作用に対する攻撃そのブラウザー。 Web ブラウザーの web サイトにいくつかの種類の認証トークンに自動的にすべての要求を送信するため、このような攻撃が可能になります。 悪用のこのフォームのとも呼ばれる、 *1 回のクリック攻撃*または*乗るセッション*ユーザーの攻撃の活用セッションを認証していたため、します。
 
 CSRF 攻撃の例:
 
@@ -51,13 +51,13 @@ CSRF 攻撃の例:
 * フォームの送信を AJAX 要求として送信します。 
 * CSS を非表示のフォームを使用します。 
 
-SSL を使用して有効になって CSRF 攻撃、悪意のあるサイトが送信できる、`https://`要求します。 
+SSL を使用すると、CSRF 攻撃を防ぐことは、悪意のあるサイトが送信できる、`https://`要求します。 
 
 一部の攻撃対象が応答するサイトのエンドポイント`GET`要求、(この種の攻撃は、一般的なフォーラム サイトでイメージを許可するが、JavaScript をブロックする) 操作を実行する場合、イメージ タグを使用できます。 使用して状態を変更するアプリケーション`GET`悪意のある攻撃からの要求を受けます。
 
 CSRF 攻撃は、ブラウザーが web サイトに関連するすべての cookie を送信するために、認証の cookie を使用する web サイトに対して可能です。 ただし、CSRF 攻撃では、cookie の悪用に制限はありません。 たとえば、基本認証とダイジェスト認証では、また脆弱です。 ユーザーは、基本認証またはダイジェスト認証を使用してログイン、ブラウザーは、セッションが終了するまで自動的に資格情報を送信します。
 
-注: このコンテキストで*セッション*をユーザーが認証されたクライアント側のセッションを参照します。 サーバー側のセッションに関連がないか、[セッション ミドルウェア](xref:fundamentals/app-state)です。
+注: このコンテキストで*セッション*をユーザーが認証されたクライアント側のセッションを参照します。 サーバー側のセッションに関連付けられていないか、[セッション ミドルウェア](xref:fundamentals/app-state)です。
 
 ユーザーは、によって CSRF 脆弱性を防ぐことができます。
 * Web サイトのログ出力をそれらの使用が終了します。
@@ -85,7 +85,7 @@ HTML フォーム要素を偽造防止トークンの自動生成の発生時に
 * `form`タグが含まれています、`method="post"`属性 AND
 
   * [アクション] 属性が空です。 ( `action=""`) または
-  * [アクション] 属性が指定されていません。 (`<form method="post">`)
+  * Action 属性が指定されていません。 (`<form method="post">`)
 
 HTML フォーム要素を偽造防止トークンの自動生成を無効にすることができます。
 
@@ -171,7 +171,7 @@ public async Task<IActionResult> RemoveLogin(RemoveLoginViewModel account)
 
 ### <a name="autovalidateantiforgerytoken"></a>AutoValidateAntiforgeryToken
 
-一般に、ASP.NET Core アプリケーションでは、HTTP セーフ メソッド (GET、HEAD、オプション、およびトレース) に対する antiforgery トークンは生成されません。 広範に適用する代わりに、``ValidateAntiForgeryToken``属性とし、オーバーライドすることで``IgnoreAntiforgeryToken``使用することができます、属性、``AutoValidateAntiforgeryToken``属性。 この属性の動作と同じように、``ValidateAntiForgeryToken``次の HTTP メソッドを使用して行われる要求のトークンを必要としないためする点を除いて、属性します。
+通常、ASP.NET Core アプリケーションは、HTTP セーフ メソッド (GET、HEAD、オプション、およびトレース) に対する antiforgery トークンを生成しません。 広範に適用する代わりに、``ValidateAntiForgeryToken``属性とし、オーバーライドすることで``IgnoreAntiforgeryToken``使用することができます、属性、``AutoValidateAntiforgeryToken``属性。 この属性の動作と同じように、``ValidateAntiForgeryToken``次の HTTP メソッドを使用して行われる要求のトークンを必要としないためする点を除いて、属性します。
 
 * GET
 * HEAD、
@@ -337,7 +337,7 @@ services.AddAntiforgery(options =>
 
 ### <a name="extending-antiforgery"></a>Antiforgery を拡張します。
 
-[IAntiForgeryAdditionalDataProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider)型により、各トークン内の追加データのラウンド トリップで ANTI-XSRF システムの動作を拡張する開発者です。 [GetAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_GetAdditionalData_Microsoft_AspNetCore_Http_HttpContext_)メソッドが呼び出された各フィールド トークンが生成され、戻り値が生成されたトークンに含まれています。 実装者が、タイムスタンプ、nonce、またはその他の値を返すし、呼び出すでした[ValidateAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_ValidateAdditionalData_Microsoft_AspNetCore_Http_HttpContext_System_String_)トークンが検証されると、このデータを検証します。 生成されたトークンに埋め込まれているクライアントのユーザー名が既にするためにこの情報を含める必要はありません。 トークンは、補足データですが含まれている場合`IAntiForgeryAdditionalDataProvider`が構成されている、補足データは検証されません。
+[IAntiForgeryAdditionalDataProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider)型により、各トークン内の追加データのラウンド トリップで ANTI-XSRF システムの動作を拡張する開発者です。 [GetAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_GetAdditionalData_Microsoft_AspNetCore_Http_HttpContext_)メソッドが呼び出された各フィールド トークンが生成され、戻り値が生成されたトークンに含まれています。 実装者が、タイムスタンプ、nonce、またはその他の値を返すし、呼び出すでした[ValidateAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_ValidateAdditionalData_Microsoft_AspNetCore_Http_HttpContext_System_String_)トークンが検証されると、このデータを検証します。 生成されたトークンに埋め込まれているクライアントのユーザー名が既にするためにこの情報を含める必要はありません。 トークンは、補足データですが含まれている場合`IAntiForgeryAdditionalDataProvider`が構成されている、補足データが検証されません。
 
 ## <a name="fundamentals"></a>Fundamentals
 
@@ -345,7 +345,7 @@ CSRF 攻撃は、ドメインのドメインをそのドメインに加えられ
 
 ### <a name="cookie-based-authentication"></a>Cookie ベースの認証
 
-ユーザーは、ユーザー名とパスワードを使用して認証されるが、それらを識別し、認証されていることを検証に使用できるトークン発行されました。 クライアントのすべての要求に付属している cookie が行うと、トークンが格納されます。 生成して、この cookie を検証していますが、cookie 認証ミドルウェアによって実行されます。 ASP.NET Core 提供 cookie[ミドルウェア](../fundamentals/middleware.md)暗号化された cookie にユーザー プリンシパルをシリアル化し、次に、後続の要求の cookie を検証するプリンシパルを再作成し、それを`User`プロパティ`HttpContext`.
+ユーザー名とパスワードを使用して、ユーザーが認証されたらを識別および認証されていることを検証するために使用するトークンが発行するしています。 クライアントのすべての要求に付属している cookie が行うと、トークンが格納されます。 生成して、この cookie を検証していますが、cookie 認証ミドルウェアによって実行されます。 ASP.NET Core 提供 cookie[ミドルウェア](../fundamentals/middleware.md)暗号化された cookie にユーザー プリンシパルをシリアル化し、次に、後続の要求の cookie を検証するプリンシパルを再作成し、それを`User`プロパティ`HttpContext`.
 
 Cookie を使用すると、認証 cookie、フォーム認証チケットのコンテナーだけです。 チケットは、各要求と一緒にフォーム認証 cookie の値として渡され、サーバー上のフォーム認証で認証されたユーザーを識別するために使用します。
 
@@ -353,11 +353,11 @@ Cookie を使用すると、認証 cookie、フォーム認証チケットのコ
 
 ### <a name="user-tokens"></a>ユーザー トークン
 
-トークン ベースの認証は、サーバーにセッションを格納しません。 代わりログオンしているときにトークン (antiforgery トークンされません) 発行されました。 このトークンは、トークンを検証するために必要なすべてのデータを保持します。 形式で、ユーザーの情報も含まれています。[クレーム](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model)です。 ユーザーは、認証を必要とするサーバーのリソースにアクセスする場合、トークンはベアラー {トークン} の形式で追加の承認ヘッダーを持つサーバーに送信されます。 これにより、アプリケーションを後続の要求では、要求でトークンを渡さサーバー側の検証のためステートレスです。 このトークンが*暗号化*; むしろ*エンコード*です。 サーバー側では、トークン内の未加工の情報にアクセスするトークンをデコードすることができます。 トークンを以降の要求を送信するには、ことができますか、保存するブラウザーのローカル記憶域またはでクッキー。 トークンが、ローカル ストレージに格納されているが、トークンが、cookie に格納されている場合、問題がある場合に XSRF の脆弱性について心配する必要はありません。
+トークン ベースの認証は、サーバーにセッションを格納しません。 代わりログオンしているときにしている発行されるトークン (antiforgery トークンされません)。 このトークンは、トークンを検証するために必要なすべてのデータを保持します。 形式で、ユーザーの情報も含まれています。[クレーム](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model)です。 ユーザーは、認証を必要とするサーバーのリソースにアクセスする場合、トークンはベアラー {トークン} の形式で追加の承認ヘッダーを持つサーバーに送信されます。 これにより、アプリケーションを後続の要求では、要求でトークンを渡さサーバー側の検証のためステートレスです。 このトークンがない*暗号化*; むしろ*エンコード*です。 サーバー側では、トークン内の未加工の情報にアクセスするトークンをデコードすることができます。 トークンを以降の要求を送信するには、ことができますか、保存するブラウザーのローカル記憶域またはでクッキー。 トークンが、ローカル ストレージに格納されているが、トークンが、cookie に格納されている場合、問題がある場合に XSRF の脆弱性について心配する必要はありません。
 
 ### <a name="multiple-applications-are-hosted-in-one-domain"></a>複数のアプリケーションが 1 つのドメインでホストされています。
 
-にもかかわらず`example1.cloudapp.net`と`example2.cloudapp.net`別のホストは、下にあるすべてのホスト間で暗黙的な信頼関係がある、`*.cloudapp.net`ドメイン。 この暗黙的な信頼関係は、(同じオリジンのポリシー AJAX 要求を必ずしも適用されません HTTP クッキーに) 相互の cookie に影響を与える可能性のある信頼されていないホストを許可します。 ASP.NET Core ランタイムは、フィールド トークンにユーザー名が埋め込まれている悪意のあるサブドメインがセッション トークンを上書きできない場合でもそのことはできません、ユーザーの有効なフィールド トークンを生成するために、いくつかの対策を提供します。 ただし、このような環境でホストされている場合、組み込みの ANTI-XSRF ルーチンまだことはできません攻撃を防ぐセッションの乗っ取りまたはログイン CSRF です。 共有ホスティング環境とは、セッションの乗っ取り、ログイン CSRF、およびその他の攻撃に vunerable です。
+にもかかわらず`example1.cloudapp.net`と`example2.cloudapp.net`別のホストは、下にあるすべてのホスト間で暗黙的な信頼関係がある、`*.cloudapp.net`ドメイン。 この暗黙的な信頼関係は、それぞれの他のクッキー (HTTP クッキーには、同じオリジンのポリシーを AJAX 要求は該当しないとは限りません) に影響を与える可能性のある信頼されていないホストできます。 ASP.NET Core ランタイムは、フィールド トークンにユーザー名が埋め込まれている悪意のあるサブドメインがセッション トークンを上書きできない場合でもそのことはできません、ユーザーの有効なフィールド トークンを生成するために、いくつかの対策を提供します。 ただし、このような環境でホストされている場合、組み込みの ANTI-XSRF ルーチンまだことはできません攻撃を防ぐセッションの乗っ取りまたはログイン CSRF です。 共有ホスティング環境とは、セッションの乗っ取り、ログイン CSRF、およびその他の攻撃に vunerable です。
 
 
 ### <a name="additional-resources"></a>その他のリソース

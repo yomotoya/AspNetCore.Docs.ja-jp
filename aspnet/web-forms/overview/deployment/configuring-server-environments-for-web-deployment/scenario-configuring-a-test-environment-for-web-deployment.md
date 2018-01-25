@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 008b9cd081152e6a378d0fa2e08497a6771fd9b5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 23e317c6e0b6daf2d7937b73738e5cb6fa32cde2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="scenario-configuring-a-test-environment-for-web-deployment"></a>シナリオ: Web 配置用のテスト環境の構成
 ====================
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/10/2017
 - Web Deploy ハンドラーを使用して展開をサポートするテストの web サーバーを構成します。
 
 > [!NOTE]
-> 使用することも[Web 展開オンデマンド](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx)(「一時エージェント」) です。 要件と制約の観点からリモート エージェント方法に似ています。
+> 使用することも[Web 展開オンデマンド](https://technet.microsoft.com/library/ee517345(WS.10).aspx)(「一時エージェント」) です。 要件と制約の観点からリモート エージェント方法に似ています。
 
 
 この場合、開発者は、移行先サーバーに管理者特権を持っているし、テスト環境は厳格なセキュリティ制約を前提と、論理的な選択では、リモート エージェントを使用して展開をサポートするテストの web サーバーを構成します。 これはそれほど複雑であり、Web 配置ハンドラー アプローチよりも小さい初期構成が必要です。 また、リモート アクセス展開をサポートするデータベース サーバーを構成する必要があります。

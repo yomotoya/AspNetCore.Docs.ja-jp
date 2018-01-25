@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: a0ee790da07c99cdb1279a6bca637a4ce8076e84
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 62a16e9a99cd1298b0db5f8099092212f9f6850b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>障害 (Azure と実際のクラウド アプリのビルド) にも対処デザインします。
 ====================
@@ -102,7 +102,7 @@ Sla で表示している場合を考慮して、重要な点は、個別の SLA
 
 いくつかのクラウド サービスは、アプリが過剰に使用する場合、サービスを拒否意図的に可能性があります。 これと呼ばれる*調整*です。 サービスに SLA がある場合は、条件は、するが抑制される可能性がある、アプリケーションの設計する必要がありますそれらの状態を回避して発生する場合は、調整を適切に対処される、条件の状態にする必要があります。 たとえば、サービスへの要求を開始できない 1 秒あたりの特定の数を超過すると、場合自動再試行が続行を調整することと、迅速に発生しないことを確認します。 必要があるの制限についての詳細、[章の一時的な障害処理](transient-fault-handling.md)です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 この章が、現実の世界クラウド アプリに障害を適切に存続するように設計する理由を実現できるようにしようとしています。 以降で、[次のチャプター](monitoring-and-telemetry.md)、このシリーズの残りのパターンの移動を行うには使用できるいくつかの戦略について詳細に説明します。
 
@@ -117,14 +117,14 @@ Sla で表示している場合を考慮して、重要な点は、個別の SLA
 
 ドキュメント:
 
-- [フェール セーフ: 回復力のあるクラウド アーキテクチャについて](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx)です。 Marc Mercuri、Ulrich Homann、Andrew Townhill、ホワイト ペーパー。 フェール セーフ ビデオ シリーズの web ページ バージョンです。
-- [Azure クラウド サービスで大規模なサービスのデザインに関するヒント集](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx)です。 Mark Simms、Michael Thomassy、ホワイト ペーパー。
-- [Azure のビジネス継続性テクニカル ガイダンス](https://msdn.microsoft.com/en-us/library/windowsazure/hh873027.aspx)です。 Patrick Wickline、Jason Roth、ホワイト ペーパー。
-- [災害復旧と Azure アプリケーションの高可用性](https://msdn.microsoft.com/en-us/library/windowsazure/dn251004.aspx)です。 Michael McKeown、Hanu Kommalapati Jason Roth、ホワイト ペーパー。
-- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/en-us/library/dn568099.aspx)です。 複数のデータ センターの展開ガイド、遮断器のパターンを参照してください。
+- [フェール セーフ: 回復力のあるクラウド アーキテクチャについて](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx)です。 Marc Mercuri、Ulrich Homann、Andrew Townhill、ホワイト ペーパー。 フェール セーフ ビデオ シリーズの web ページ バージョンです。
+- [Azure クラウド サービスで大規模なサービスのデザインに関するヒント集](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx)です。 Mark Simms、Michael Thomassy、ホワイト ペーパー。
+- [Azure のビジネス継続性テクニカル ガイダンス](https://msdn.microsoft.com/library/windowsazure/hh873027.aspx)です。 Patrick Wickline、Jason Roth、ホワイト ペーパー。
+- [災害復旧と Azure アプリケーションの高可用性](https://msdn.microsoft.com/library/windowsazure/dn251004.aspx)です。 Michael McKeown、Hanu Kommalapati Jason Roth、ホワイト ペーパー。
+- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)です。 複数のデータ センターの展開ガイド、遮断器のパターンを参照してください。
 - [Azure のサポート - サービス レベル契約](https://azure.microsoft.com/support/legal/sla/)です。
-- [Azure SQL データベースにおけるビジネス継続性](https://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx)です。 SQL データベース高可用性と災害復旧機能に関するドキュメントです。
-- [高可用性と Azure の仮想マシンにおける SQL Server の災害復旧](https://msdn.microsoft.com/en-us/library/windowsazure/jj870962.aspx)です。
+- [Azure SQL データベースにおけるビジネス継続性](https://msdn.microsoft.com/library/windowsazure/hh852669.aspx)です。 SQL データベース高可用性と災害復旧機能に関するドキュメントです。
+- [高可用性と Azure の仮想マシンにおける SQL Server の災害復旧](https://msdn.microsoft.com/library/windowsazure/jj870962.aspx)です。
 
 ビデオ:
 

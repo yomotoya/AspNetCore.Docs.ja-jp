@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d84659c8c65bebb46551eb38bd52e405ff56016
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 514efcdd78957f999e46c521d0266f092f742538
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>ASP.NET Core での単一ページ アプリケーションを作成するため JavaScriptServices を使用します。
 
@@ -46,7 +46,7 @@ JavaScriptServices は、ASP.NET Core 用のクライアント側のテクノロ
 
 ## <a name="what-is-spaservices"></a>SpaServices とは何ですか。
 
-SpaServices は SPAs を構築するための開発者の推奨されるサーバー側のプラットフォームとして ASP.NET Core の位置に作成されました。 SpaServices が ASP.NET Core と SPAs を開発する必要はありませんし、特定のクライアント フレームワークに頼る必要ありません。
+SpaServices は SPAs を構築するための開発者の推奨されるサーバー側のプラットフォームとして ASP.NET Core の位置に作成されました。 SpaServices が ASP.NET Core と SPAs を開発するため必要はありませんし、特定のクライアント フレームワークに頼る必要ありません。
 
 SpaServices は、次のような便利インフラストラクチャを提供します。
 * [サーバー側の事前](#server-prerendering)
@@ -200,7 +200,7 @@ app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
 
 ## <a name="routing-helpers"></a>ルーティングのヘルパー
 
-ほとんどの ASP.NET Core ベース SPAs では、サーバー側のルーティングだけでなくクライアント側のルーティングを必要があります。 SPA と MVC ルーティングのシステムは、干渉なし個別に操作できます。 ただし、課題となる 1 つのエッジ ケース: 404 HTTP 応答を識別します。
+ほとんどの ASP.NET Core ベース SPAs では、サーバー側のルーティングだけでなくクライアント側のルーティングを必要があります。 SPA と MVC ルーティングのシステムは、干渉なし個別に操作できます。 課題ただし、1 つのエッジ ケース装って: 404 HTTP 応答を識別します。
 
 シナリオを検討してください、拡張子のないルートの`/some/page`を使用します。 要求しないパターン一致がサーバー側のルートにはそのパターンがクライアント側のルートを一致と仮定します。 受信した要求を考えてみましょう`/images/user-512.png`が一般に、サーバー上の画像ファイルを検索するが必要です。 要求されたリソース、そのパスと一致していない任意のサーバー側のルートまたは静的ファイル場合可能性は高くありませんそれをクライアント側のアプリケーションで処理と — 通常 404 HTTP ステータス コードを取得します。
 

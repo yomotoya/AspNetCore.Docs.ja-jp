@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: e83be2446ef1e3ff1275d06d5b743fb5b9444a6a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7192481de46c36f7de71164766e68afdbba74f6d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="bundling-and-minification"></a>バンドルと縮小
 ====================
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/10/2017
 | **翻訳元** | **名前変更** |
 | --- | --- |
 | imageTagAndImageID | n |
-| イメージ コンテキスト | t |
+| imageContext | t |
 | imageElement | i |
 
 ## <a name="impact-of-bundling-and-minification"></a>バンドルの影響と縮小
@@ -76,7 +76,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="debugging-bundled-and-minified-javascript"></a>デバッグとバンドルおよび JavaScript の縮小
 
-簡単に開発環境で、JavaScript のデバッグ (ここで、 [compilation 要素](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx)で、 *Web.config*に設定されているファイル`debug="true"`)、JavaScript ファイルが組み込まれていないため、または縮小します。 JavaScript ファイルのバンドルし、縮小の場所は、リリース ビルドをデバッグすることもできます。 IE F12 開発者ツールを使用して、次のアプローチを使用して縮小されたバンドルに含まれる JavaScript 関数をデバッグします。
+簡単に開発環境で、JavaScript のデバッグ (ここで、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*に設定されているファイル`debug="true"`)、JavaScript ファイルが組み込まれていないため、または縮小します。 JavaScript ファイルのバンドルし、縮小の場所は、リリース ビルドをデバッグすることもできます。 IE F12 開発者ツールを使用して、次のアプローチを使用して縮小されたバンドルに含まれる JavaScript 関数をデバッグします。
 
 1. 選択、**スクリプト**タブをクリックし、**デバッグを開始**ボタンをクリックします。
 2. [アセット] ボタンを使用してデバッグする JavaScript 関数を含むバンドルを選択します。  
@@ -85,11 +85,11 @@ ms.lasthandoff: 11/10/2017
 4. **検索スクリプト**t 入力ボックス、デバッグする関数の名前を選択します。 次の図の**AddAltToImg**で入力した、**検索スクリプト**t 入力ボックス。  
     ![](bundling-and-minification/_static/image6.png)
 
-F12 開発者ツールでのデバッグの詳細については、MSDN の記事を参照してください。 [JavaScript エラーのデバッグに F12 開発者ツールを使用して](https://msdn.microsoft.com/en-us/library/ie/gg699336(v=vs.85).aspx)です。
+F12 開発者ツールでのデバッグの詳細については、MSDN の記事を参照してください。 [JavaScript エラーのデバッグに F12 開発者ツールを使用して](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx)です。
 
 ## <a name="controlling-bundling-and-minification"></a>制御バンドルと縮小
 
-バンドルし縮小が有効か無効でデバッグ属性の値を設定して、 [compilation 要素](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx)で、 *Web.config*ファイル。 次の XML で`debug`はこれを true に設定するバンドルと縮小が無効になっています。
+バンドルし縮小が有効か無効でデバッグ属性の値を設定して、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*ファイル。 次の XML で`debug`はこれを true に設定するバンドルと縮小が無効になっています。
 
 [!code-xml[Main](bundling-and-minification/samples/sample3.xml?highlight=2)]
 
@@ -98,7 +98,7 @@ F12 開発者ツールでのデバッグの詳細については、MSDN の記�
 [!code-csharp[Main](bundling-and-minification/samples/sample4.cs?highlight=7)]
 
 > [!NOTE]
-> しない限り、`EnableOptimizations`は`true`またはデバッグ属性、 [compilation 要素](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx)で、 *Web.config*に設定されているファイル`false`ファイルはバンドルまたは縮小されません。 さらに、.min バージョンのファイルは使用されませんが、完全なデバッグ バージョンが選択されます。 `EnableOptimizations`デバッグの属性をオーバーライドします、 [compilation 要素](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx)で、 *Web.config*ファイル
+> しない限り、`EnableOptimizations`は`true`またはデバッグ属性、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*に設定されているファイル`false`ファイルはバンドルまたは縮小されません。 さらに、.min バージョンのファイルは使用されませんが、完全なデバッグ バージョンが選択されます。 `EnableOptimizations`デバッグの属性をオーバーライドします、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*ファイル
 
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>バンドルを使用して ASP.NET Web フォームと Web ページの縮小
@@ -137,11 +137,11 @@ F12 開発者ツールでのデバッグの詳細については、MSDN の記�
 
 ## <a name="creating-a-bundle"></a>バンドルを作成します。
 
-[バンドル](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx)クラス`Include`メソッドは各文字列がリソースへの仮想パスをここでは、文字列の配列を受け取ります。 次のコードで RegisterBundles メソッドから、*アプリ\_Start\BundleConfig.cs*ファイルは、複数のファイルは、バンドルに追加を示しています。
+[バンドル](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx)クラス`Include`メソッドは各文字列がリソースへの仮想パスをここでは、文字列の配列を受け取ります。 次のコードで RegisterBundles メソッドから、*アプリ\_Start\BundleConfig.cs*ファイルは、複数のファイルは、バンドルに追加を示しています。
 
 [!code-csharp[Main](bundling-and-minification/samples/sample8.cs)]
 
-[バンドル](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx)クラス`IncludeDirectory`ディレクトリ (および必要に応じてすべてのサブディレクトリ) 内の指定された検索パターンに一致するすべてのファイルを追加するメソッドを提供します。 [バンドル](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx)クラス`IncludeDirectory`API を次に示します。
+[バンドル](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx)クラス`IncludeDirectory`ディレクトリ (および必要に応じてすべてのサブディレクトリ) 内の指定された検索パターンに一致するすべてのファイルを追加するメソッドを提供します。 [バンドル](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx)クラス`IncludeDirectory`API を次に示します。
 
 [!code-csharp[Main](bundling-and-minification/samples/sample9.cs)]
 
@@ -170,17 +170,17 @@ Render メソッドは、コードの 1 つの行で複数のバンドルを追�
 
 | **Call** | **ファイルを追加するか、例外が発生しました** |
 | --- | --- |
-| 含まれます ("~/Scripts/Common/\*.js") | *AddAltToImg.js、ToggleDiv.js、ToggleImg.js* |
-| 含まれます ("~/Scripts/Common/T\*.js") | 無効なパターンの例外。 ワイルドカード文字はプレフィックスまたはサフィックスにのみ使用できます。 |
-| 含まれます ("~/Scripts/Common/\*og\*")。 | 無効なパターンの例外。 1 つだけのワイルドカード文字を許可します。 |
-| "が含まれます ("~/Scripts/Common/T\*") | *ToggleDiv.js、ToggleImg.js* |
-| "が含まれます ("~/Scripts/Common/\*") | 無効なパターンの例外。 純粋なワイルドカード セグメントが正しくありません。 |
-| IncludeDirectory ("~/Scripts/Common"、"T\*") | *ToggleDiv.js、ToggleImg.js* |
-| IncludeDirectory ("~/Scripts/Common"、"T\*"は true、) | *ToggleDiv.js、ToggleImg.js、ToggleLinks.js* |
+| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js、ToggleDiv.js、ToggleImg.js* |
+| Include("~/Scripts/Common/T\*.js") | 無効なパターンの例外。 ワイルドカード文字はプレフィックスまたはサフィックスにのみ使用できます。 |
+| Include("~/Scripts/Common/\*og.\*") | 無効なパターンの例外。 1 つだけのワイルドカード文字を許可します。 |
+| "Include("~/Scripts/Common/T\*") | *ToggleDiv.js、ToggleImg.js* |
+| "Include("~/Scripts/Common/\*") | 無効なパターンの例外。 純粋なワイルドカード セグメントが正しくありません。 |
+| IncludeDirectory("~/Scripts/Common", "T\*") | *ToggleDiv.js、ToggleImg.js* |
+| IncludeDirectory("~/Scripts/Common", "T\*",true) | *ToggleDiv.js、ToggleImg.js、ToggleLinks.js* |
 
 バンドルに各ファイルを明示的に追加することをお勧め一般に、次のようなファイルの読み込みのワイルドカード経由で。
 
-- 既定ではワイルドカード スクリプトを追加して、これは通常たくない、アルファベット順に読み込みます。 CSS および JavaScript ファイルは頻繁に (アルファベット以外の) 特定の順序で追加する必要があります。 このリスクを軽減するには、カスタムの追加を[IBundleOrderer](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundleorderer(VS.110).aspx)の実装が各ファイルは、以下のエラーが発生しやすいを明示的に追加します。 たとえば、変更する必要がありますが、将来のフォルダーに新しいアセットを追加する可能性があります、 [IBundleOrderer](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundleorderer(VS.110).aspx)実装します。
+- 既定ではワイルドカード スクリプトを追加して、これは通常たくない、アルファベット順に読み込みます。 CSS および JavaScript ファイルは頻繁に (アルファベット以外の) 特定の順序で追加する必要があります。 このリスクを軽減するには、カスタムの追加を[IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx)の実装が各ファイルは、以下のエラーが発生しやすいを明示的に追加します。 たとえば、変更する必要がありますが、将来のフォルダーに新しいアセットを追加する可能性があります、 [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx)実装します。
 - 読み込みワイルド カードを使用してディレクトリに追加されるビューの特定のファイルは、そのバンドルを参照しているすべてのビューに含めることができます。 バンドルには、ビューの特定のスクリプトを追加する場合、バンドルを参照している他のビューに JavaScript エラーが発生した可能性があります。
 - その他のファイルがインポートされる CSS ファイルは、2 回読み込まれているインポートされたファイルで発生します。 たとえば、次のコードは、ほとんどの 2 回読み込んで jQuery UI のテーマの CSS ファイルをバンドルを作成します。 
 
@@ -209,10 +209,10 @@ IE9 F12 開発者ツールを実行して以前に読み込まれたページに
 1. 小さいコンテンツ用のフォルダーを作成します。 次の例では、 *Content\MyLess*フォルダーです。
 2. 追加、 [*.less](http://www.dotlesscss.org/) NuGet パッケージ**ドットなし**をプロジェクトにします。  
     ![NuGet ドットなしのインストール](bundling-and-minification/_static/image9.png)
-3. 実装するクラスを追加、 [IBundleTransform](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundletransform(VS.110).aspx)インターフェイスです。 *.Less トランス フォームをプロジェクトに次のコードを追加します。
+3. 実装するクラスを追加、 [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx)インターフェイスです。 *.Less トランス フォームをプロジェクトに次のコードを追加します。
 
     [!code-csharp[Main](bundling-and-minification/samples/sample13.cs)]
-4. 小さいファイルのバンドルを作成、`LessTransform`と[CssMinify](https://msdn.microsoft.com/en-us/library/system.web.optimization.cssminify(VS.110).aspx)を変換します。 次のコードを追加、`RegisterBundles`メソッドで、*アプリ\_Start\BundleConfig.cs*ファイル。
+4. 小さいファイルのバンドルを作成、`LessTransform`と[CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx)を変換します。 次のコードを追加、`RegisterBundles`メソッドで、*アプリ\_Start\BundleConfig.cs*ファイル。
 
     [!code-csharp[Main](bundling-and-minification/samples/sample14.cs)]
 5. 小さいバンドルを参照している任意のビューには、次のコードを追加します。
@@ -244,7 +244,7 @@ IE9 F12 開発者ツールを実行して以前に読み込まれたページに
 - [Cdn を使用して Web サイトのパフォーマンスを向上させるために有効期限が切れると](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)Rick anderson[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 - [RTT (ラウンドト リップ時間) を最小限に抑える](https://developers.google.com/speed/docs/best-practices/rtt)
 
-## <a name="contributors"></a>貢献者
+## <a name="contributors"></a>共同作成者
 
 - 最後にハオ トリム
 - [Howard Dierking](https://twitter.com/#!/howard_dierking)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/action-results
 msc.type: authoredcontent
-ms.openlocfilehash: 68b82661b97434795e1c306b168033dfcde529bc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d0db5c6d45020861d7295ab1db989caee525fff9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="action-results-in-web-api-2"></a>Web API 2 のアクションの結果
 ====================
@@ -56,7 +56,7 @@ HTTP 応答:
 
 ## <a name="httpresponsemessage"></a>HttpResponseMessage
 
-アクションを返す場合、 [HttpResponseMessage](https://msdn.microsoft.com/en-us/library/system.net.http.httpresponsemessage.aspx)、Web API からのプロパティを使用して、HTTP 応答メッセージに直接、戻り値が変換、 **HttpResponseMessage**を設定するオブジェクト、応答です。
+アクションを返す場合、 [HttpResponseMessage](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx)、Web API からのプロパティを使用して、HTTP 応答メッセージに直接、戻り値が変換、 **HttpResponseMessage**を設定するオブジェクト、応答です。
 
 このオプションでは、多数の応答メッセージを制御できます。 たとえば、次のコント ローラーのアクションは、Cache-control ヘッダーを設定します。
 
@@ -98,9 +98,9 @@ Web API では、要求の Accept ヘッダーを使用して、フォーマッ�
 
 [!code-console[Main](action-results/samples/sample9.cmd)]
 
-多くの場合、使用する、 **IHttpActionResult**実装で定義されている、  **[System.Web.Http.Results](https://msdn.microsoft.com/en-us/library/system.web.http.results.aspx)** 名前空間。 **ApiController**クラスは、これらの組み込みのアクション結果を返すヘルパー メソッドを定義します。
+多くの場合、使用する、 **IHttpActionResult**実装で定義されている、  **[System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)** 名前空間。 **ApiController**クラスは、これらの組み込みのアクション結果を返すヘルパー メソッドを定義します。
 
-次の例では、要求が既存の製品 ID と一致しない場合、コント ローラーは呼び出し[ApiController.NotFound](https://msdn.microsoft.com/en-us/library/system.web.http.apicontroller.notfound.aspx) 404 (Not Found) 応答を作成します。 それ以外の場合、コント ローラーを呼び出す[ApiController.OK](https://msdn.microsoft.com/en-us/library/dn314591.aspx)、200 (OK) 応答を作成する、製品が含まれています。
+次の例では、要求が既存の製品 ID と一致しない場合、コント ローラーは呼び出し[ApiController.NotFound](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx) 404 (Not Found) 応答を作成します。 それ以外の場合、コント ローラーを呼び出す[ApiController.OK](https://msdn.microsoft.com/library/dn314591.aspx)、200 (OK) 応答を作成する、製品が含まれています。
 
 [!code-csharp[Main](action-results/samples/sample10.cs)]
 

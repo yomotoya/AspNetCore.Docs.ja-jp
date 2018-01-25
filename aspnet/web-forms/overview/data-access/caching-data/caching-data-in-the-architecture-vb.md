@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f1d94045236cc8e1b12839ced4de1258466a626e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1aca89b022bb3bb7e4154ab575b5bb5513144cd5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-in-the-architecture-vb"></a>アーキテクチャ (VB) でデータのキャッシュ
 ====================
@@ -62,7 +62,7 @@ Let s に新しいサブフォルダーを作成、DAL および BLL クラス�
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample1.vb)]
 
-[ `Cache`クラス](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.aspx)s [ `Insert`メソッド](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.insert.aspx)数のオーバー ロードがします。 `Cache("key") = value``Cache.Insert(key, value)`同意語として使用し、定義済みの有効期限なしの指定したキーを使用して、キャッシュに項目を追加両方です。 通常は、依存関係、時間ベースの期限切れ、またはその両方として、キャッシュにアイテムを追加するときに、有効期限を指定します。 その他のいずれかを使用して`Insert`依存関係または時間ベースの有効期限情報を提供するメソッドのオーバー ロードします。
+[ `Cache`クラス](https://msdn.microsoft.com/library/system.web.caching.cache.aspx)s [ `Insert`メソッド](https://msdn.microsoft.com/library/system.web.caching.cache.insert.aspx)数のオーバー ロードがします。 `Cache("key") = value``Cache.Insert(key, value)`同意語として使用し、定義済みの有効期限なしの指定したキーを使用して、キャッシュに項目を追加両方です。 通常は、依存関係、時間ベースの期限切れ、またはその両方として、キャッシュにアイテムを追加するときに、有効期限を指定します。 その他のいずれかを使用して`Insert`依存関係または時間ベースの有効期限情報を提供するメソッドのオーバー ロードします。
 
 最初とを確認する場合は、要求されたデータがキャッシュに、必要な場合は、s メソッドが必要なキャッシュ レイヤーは、そこからそれを返します。 要求されたデータがキャッシュにない場合は、適切な BLL メソッド呼び出す必要があります。 その戻り値はキャッシュされ、返される、次のシーケンス図に示すようにする必要があります。
 
@@ -90,7 +90,7 @@ Let s に新しいサブフォルダーを作成、DAL および BLL クラス�
 > データ キャッシュとはスレッド セーフの単純な読み取りまたは書き込みアクセスをスレッドを同期する必要はありません。 ただし、アトミックである必要がキャッシュ内のデータに対して複数の操作を実行する必要がある場合は、ロック、またはその他のスレッド セーフを確保するメカニズムを実装する責任は。 参照してください[ASP.NET キャッシュへのアクセスの同期](http://www.ddj.com/184406369)詳細についてはします。
 
 
-項目をプログラムによって、データを使用してキャッシュから削除する、 [ `Remove`メソッド](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.remove.aspx)次のようにします。
+項目をプログラムによって、データを使用してキャッシュから削除する、 [ `Remove`メソッド](https://msdn.microsoft.com/library/system.web.caching.cache.remove.aspx)次のようにします。
 
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample4.vb)]
@@ -115,10 +115,10 @@ Let s に新しいサブフォルダーを作成、DAL および BLL クラス�
 
 `GetCacheItem(key)`使用しません*キー*呼び出し、代わりに、指定されたように値、`GetCacheKey(key)`を返すメソッド、*キー* ProductsCache-先頭に付加します。 `MasterCacheKeyArray`、ProductsCache、文字列を保持するもで使用される、`AddCacheItem(key, value)`メソッドをすぐにおわかりのようです。
 
-ASP.NET ページの分離コード クラスから、データ キャッシュにアクセスする使用、`Page`クラス s [ `Cache`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.page.cache.aspx)のような構文と`Cache("key") = value`手順 2. で説明したように、します。 アーキテクチャ内のクラスから、データ キャッシュを使ってアクセスできますか`HttpRuntime.Cache`または`HttpContext.Current.Cache`です。 [Peter Johnson](https://weblogs.asp.net/pjohnson/default.aspx)のブログ エントリ[HttpRuntime.Cache vs です。HttpContext.Current.Cache](https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache)でわずかなパフォーマンスを得ることをノート`HttpRuntime`の代わりに`HttpContext.Current`以外の場合はその結果、`ProductsCL`を使用して`HttpRuntime`です。
+ASP.NET ページの分離コード クラスから、データ キャッシュにアクセスする使用、`Page`クラス s [ `Cache`プロパティ](https://msdn.microsoft.com/library/system.web.ui.page.cache.aspx)のような構文と`Cache("key") = value`手順 2. で説明したように、します。 アーキテクチャ内のクラスから、データ キャッシュを使ってアクセスできますか`HttpRuntime.Cache`または`HttpContext.Current.Cache`です。 [Peter Johnson](https://weblogs.asp.net/pjohnson/default.aspx)のブログ エントリ[HttpRuntime.Cache vs です。HttpContext.Current.Cache](https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache)でわずかなパフォーマンスを得ることをノート`HttpRuntime`の代わりに`HttpContext.Current`以外の場合はその結果、`ProductsCL`を使用して`HttpRuntime`です。
 
 > [!NOTE]
-> クラス ライブラリ プロジェクトを使用して、アーキテクチャが実装されたかどうかへの参照を追加する必要があります、`System.Web`アセンブリを使用するために、 [ `HttpRuntime` ](https://msdn.microsoft.com/en-us/library/system.web.httpruntime.aspx)と[ `HttpContext` ](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx)クラス。
+> クラス ライブラリ プロジェクトを使用して、アーキテクチャが実装されたかどうかへの参照を追加する必要があります、`System.Web`アセンブリを使用するために、 [ `HttpRuntime` ](https://msdn.microsoft.com/library/system.web.httpruntime.aspx)と[ `HttpContext` ](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)クラス。
 
 
 項目は、キャッシュ内で見つからない場合、`ProductsCL`クラス s のメソッドが BLL からデータを取得しを使用してキャッシュに追加する、`AddCacheItem(key, value)`メソッドです。 追加する*値*キャッシュに 60 秒の時刻の有効期限を使用する次のコードを使用でした。
@@ -126,7 +126,7 @@ ASP.NET ページの分離コード クラスから、データ キャッシュ�
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample7.vb)]
 
-`DateTime.Now.AddSeconds(CacheDuration)`将来の中で時間ベースの有効期限が 60 秒を指定[ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx)ありませんスライド式有効期限が s を示します。 この中に`Insert`メソッドのオーバー ロードには絶対両方のパラメーターの入力の有効期限をスライドさせて、提供し、のみ、2 つのいずれか。 絶対時刻とする時間間隔の両方を指定しようとする場合、`Insert`メソッドがスローされます、`ArgumentException`例外。
+`DateTime.Now.AddSeconds(CacheDuration)`将来の中で時間ベースの有効期限が 60 秒を指定[ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx)ありませんスライド式有効期限が s を示します。 この中に`Insert`メソッドのオーバー ロードには絶対両方のパラメーターの入力の有効期限をスライドさせて、提供し、のみ、2 つのいずれか。 絶対時刻とする時間間隔の両方を指定しようとする場合、`Insert`メソッドがスローされます、`ArgumentException`例外。
 
 > [!NOTE]
 > この実装、`AddCacheItem(key, value)`メソッドは現在いくつかの欠点がします。 対処し、手順 4. でこれらの問題を解決しています。
@@ -150,7 +150,7 @@ ASP.NET ページの分離コード クラスから、データ キャッシュ�
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample9.vb)]
 
-`MasterCacheKeyArray`ProductsCache、単一の値を保持する文字列配列です。 最初に、キャッシュ項目がキャッシュに追加され、現在の日付と時刻を割り当てられます。 キャッシュ項目が既に存在する場合は更新されます。 次に、キャッシュの依存関係が作成されます。 [ `CacheDependency`クラス](https://msdn.microsoft.com/en-US/library/system.web.caching.cachedependency(VS.80).aspx)s のコンス トラクターのオーバー ロードの数が、ここで使用されている 1 つでは、2 つが必要です`String`の入力を配列します。 1 つ目は、一連の依存関係として使用するファイルを指定します。 ファイル ベースの依存関係の値を使用する必要ありませんので`Nothing`は最初の入力パラメーターを使用します。 2 番目の入力パラメーターは、依存関係として使用するキャッシュ キーのセットを指定します。 ここでは、単一の依存関係を指定して`MasterCacheKeyArray`です。 `CacheDependency`に渡され、`Insert`メソッドです。
+`MasterCacheKeyArray`ProductsCache、単一の値を保持する文字列配列です。 最初に、キャッシュ項目がキャッシュに追加され、現在の日付と時刻を割り当てられます。 キャッシュ項目が既に存在する場合は更新されます。 次に、キャッシュの依存関係が作成されます。 [ `CacheDependency`クラス](https://msdn.microsoft.com/library/system.web.caching.cachedependency(VS.80).aspx)s のコンス トラクターのオーバー ロードの数が、ここで使用されている 1 つでは、2 つが必要です`String`の入力を配列します。 1 つ目は、一連の依存関係として使用するファイルを指定します。 ファイル ベースの依存関係の値を使用する必要ありませんので`Nothing`は最初の入力パラメーターを使用します。 2 番目の入力パラメーターは、依存関係として使用するキャッシュ キーのセットを指定します。 ここでは、単一の依存関係を指定して`MasterCacheKeyArray`です。 `CacheDependency`に渡され、`Insert`メソッドです。
 
 この変更により`AddCacheItem(key, value)`invaliding、キャッシュは、依存関係を削除するように単純です。
 
@@ -188,7 +188,7 @@ ASP.NET ページの分離コード クラスから、データ キャッシュ�
 > この記事の付属のダウンロードで提供されるキャッシュ レイヤーは完了しません。 1 つのクラスが含まれている`ProductsCL`、のみに、いくつかのメソッドをスポーツをします。 1 つの ASP.NET ページのみが、CL を使用してさらに、(`~/Caching/FromTheArchitecture.aspx`) BLL を直接参照他のすべてのユーザーもいます。 アプリケーションで、CL を使用する場合は、プレゼンテーション層からすべての呼び出しは必要があるを必要とすると、CL CL のクラスに移動し、メソッドは、これらのクラスとプレゼンテーション層によって現在使用 BLL でメソッドについて説明します。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 キャッシュは、ASP.NET 2.0 の SqlDataSource によるプレゼンテーション層と ObjectDataSource コントロールに適用できる、中に責任を理想的にはキャッシュは、アーキテクチャの別のレイヤーに委任します。 このチュートリアルでは、プレゼンテーション層とビジネス ロジック層の間にあるキャッシュ レイヤーを作成しました。 キャッシュ レイヤーは、同じクラスと BLL 内に存在し、プレゼンテーション層から呼び出されるメソッドのセットを提供する必要があります。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-2
 msc.type: authoredcontent
-ms.openlocfilehash: b75eae11fd99b60864256f79d4770a3007487964
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7e09316f0faaf0731e4cdda48040fdaedc0f244a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="add-models-and-controllers"></a>モデルおよびコント ローラーを追加します。
 ====================
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="add-model-classes"></a>モデル クラスを追加します。
 
-このチュートリアルでは、データベース"Code First"アプローチ Entity Framework (EF) を使用して作成します。 Code First では、データベース テーブルに対応する c# クラスを作成して EF には、データベースが作成されます。 (詳細については、次を参照してください[Entity Framework 開発方法](https://msdn.microsoft.com/en-us/library/ms178359%28v=vs.110%29.aspx#dbfmfcf)。)。
+このチュートリアルでは、データベース"Code First"アプローチ Entity Framework (EF) を使用して作成します。 Code First では、データベース テーブルに対応する c# クラスを作成して EF には、データベースが作成されます。 (詳細については、次を参照してください[Entity Framework 開発方法](https://msdn.microsoft.com/library/ms178359%28v=vs.110%29.aspx#dbfmfcf)。)。
 
 した poco から (従来の CLR オブジェクト) として、ドメイン オブジェクトを定義することで開始します。 次のした poco からを作成されます。
 

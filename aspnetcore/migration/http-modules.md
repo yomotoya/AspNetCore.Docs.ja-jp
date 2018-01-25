@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: 44b2b38c284e678344432d4473162404b4bb75a5
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a38ddc64583de05b4088cd31d48fbd7ee949d4e5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>HTTP ハンドラーと ASP.NET Core ミドルウェアにモジュールを移行します。 
 
@@ -77,7 +77,7 @@ ASP.NET Core ミドルウェアを前に、最初に要約 HTTP モジュール�
 
 **ミドルウェアとモジュールは、別の順序で処理されます。**
 
-   * ミドルウェアの順序は順番に挿入された、要求パイプライン モジュールの順序の基準は、主に、順序に基づきます[アプリケーションのライフ サイクル](https://msdn.microsoft.com/library/ms227673.aspx)イベント
+   * ミドルウェアの順序は順番に挿入する、要求パイプラインのモジュールの順序の基準は、主に、順序に基づきます[アプリケーションのライフ サイクル](https://msdn.microsoft.com/library/ms227673.aspx)イベント
 
    * モジュールの順序は、同じ要求と応答の中に応答のミドルウェアの順序が要求の場合の逆順になって
 
@@ -105,11 +105,11 @@ ASP.NET Core ミドルウェアを前に、最初に要約 HTTP モジュール�
 
 <a name="http-modules-shortcircuiting-middleware"></a>
 
-モジュールは、たとえば、ユーザーの権限がない場合、要求を終了します。
+モジュールは、たとえば、ユーザーが許可されていない場合、要求を終了します。
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyTerminatingModule.cs?highlight=9,10,11,12,13&name=snippet_Terminate)]
 
-ミドルウェアの処理を呼び出していない`Invoke`パイプラインの次のミドルウェアにします。 以前 middlewares は応答により、パイプラインから戻るときにも呼び出されるために、いるこの完全に終了しない、要求に留意してください。
+ミドルウェアの処理を呼び出していない`Invoke`パイプラインの次のミドルウェアにします。 以前 middlewares は応答により、パイプラインから戻るときにも呼び出されるために、要求を終了これは完全に留意してください。
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyTerminatingMiddleware.cs?highlight=7,8&name=snippet_Terminate)]
 
@@ -319,7 +319,7 @@ public async Task Invoke(HttpContext context)
 >
 >要求あたり 1 回だけ上記のように、生の本体を読み取ることができます。 ミドルウェアの最初の読み込み後に、本文を読み取るしようとしています。 空の本文が読み取られます。
 >
->これは、バッファーからが完了するため、前に示したようにフォームを読み取り中には適用されません。
+>これは、バッファーからが完了するため、前に示したようにフォームを読み取り中に適用されません。
 
 ### <a name="httpcontextresponse"></a>HttpContext.Response
 

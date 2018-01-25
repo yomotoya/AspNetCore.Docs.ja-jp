@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: a2ac8334e62e6ab7af7042572cfd5950c687001b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ca8a3c194577766e56d0604323fef567d539316c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>Page Inspector を使用して ASP.NET Web フォームでの Visual Studio 2012 用
 ====================
@@ -51,7 +51,7 @@ Tim Ammann によって
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11/en-us)または[Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web)です。
+- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11)または[Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web)です。
 
 > [!NOTE]
 > Page Inspector の最新バージョンを取得する[Web Platform Installer](https://go.microsoft.com/fwlink/?LinkId=255386) for .NET 2.0、Azure SDK をインストールします。
@@ -67,7 +67,7 @@ Page Inspector には、Microsoft Web Developer Tools が付属しています�
 
 ![新しい Web フォーム アプリケーション](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image1.png)
 
-**[OK]** をクリックします。
+**[OK]**をクリックします。
 
 アプリケーションが開かれた**ソース**ビュー。
 
@@ -91,7 +91,7 @@ Page Inspector を使用するとを使用するアプリケーションがあ�
 
 ![Visual Studio と Page Inspector の非ドッキング ウィンドウの間には、ALT + TAB をフローティング ツール windows チェック ボックスをオフします。](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image5.png)
 
-Page Inspector ウィンドウの上部ペインには、ブラウザーのウィンドウで、現在のページを示します。 下のペインは、左側の HTML マークアップでページを表示し、いくつかのタブを使用する右側は、ページのさまざまな側面を調査します。 下のペインがに似ていますが、 [F12 開発者ツール](https://msdn.microsoft.com/en-us/ie/aa740478)Internet Explorer でします。 (ただし、開発者ツールとは異なり使用できます Visual Studio 内で右 Page Inspector。)
+Page Inspector ウィンドウの上部ペインには、ブラウザーのウィンドウで、現在のページを示します。 下のペインは、左側の HTML マークアップでページを表示し、いくつかのタブを使用する右側は、ページのさまざまな側面を調査します。 下のペインがに似ていますが、 [F12 開発者ツール](https://msdn.microsoft.com/ie/aa740478)Internet Explorer でします。 (ただし、開発者ツールとは異なり使用できます Visual Studio 内で右 Page Inspector。)
 
 ![Page Inspector](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image6.png)
 
@@ -289,7 +289,7 @@ Page Inspector への変更をすぐに検出、 *Site.css*ファイル (また�
 
 <a id="_using_page_inspector_1"></a>Visual Studio 環境内で Page Inspector のブラウザーから直接を簡単に更新されるに注意してください。 外部ブラウザーではなく Page Inspector を使用すると、web アプリケーションを開発すると、エディターで状態を維持できます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 [Page Inspector を導入](https://channel9.msdn.com/posts/visual-studio-vnext-introducing-page-inspector)(Channel 9 ビデオ)
 

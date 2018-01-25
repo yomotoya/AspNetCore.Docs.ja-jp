@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 55128faa3752a43902c17525dde3543a4a8c3997
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f2fca1e91720fba0215e12b1a1894a3a31e86b5c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-and-deleting-existing-binary-data-c"></a>既存のバイナリ データ (c#) 更新および削除
 ====================
@@ -150,7 +150,7 @@ Visual Studio で、ソリューション エクスプ ローラーを更新し�
 
 データベース外部のバイナリ データを格納する欠点の 1 つは、関連付けられているデータベースのレコードが削除されたときに、これらのファイルをクリーンアップする追加の手順を実行する必要があります。 ObjectDataSource、GridView は前に、と delete コマンドが実行された後の両方を起動するイベントを提供します。 実際には、前とアクション後の両方のイベントのイベント ハンドラーを作成する必要があります。 前に、`Categories`レコードが削除された、PDF ファイルのパスを決定する必要がありますが、いくつかの例外が発生し、カテゴリは削除されない場合に備えて、カテゴリが削除される前に、PDF を削除したくありません。
 
-GridView s [ `RowDeleting`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx)発生 ObjectDataSource s delete コマンドが呼び出されたときにその[`RowDeleted`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx)後に発生します。 次のコードを使用してこれらの 2 つのイベントのイベント ハンドラーを作成します。
+GridView s [ `RowDeleting`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx)発生 ObjectDataSource s delete コマンドが呼び出されたときにその[`RowDeleted`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx)後に発生します。 次のコードを使用してこれらの 2 つのイベントのイベント ハンドラーを作成します。
 
 
 [!code-csharp[Main](updating-and-deleting-existing-binary-data-cs/samples/sample5.cs)]
@@ -352,7 +352,7 @@ GridView s の先頭に次のコードを追加`RowUpdating`イベント ハン�
 > `UpdatingAndDeleting.aspx`ページ s を挿入して、インターフェイスの編集はに比べて多くの作業を使用できます。 `CategoryName`と`Description`DetailsView および GridView BoundFields TemplateFields に変換する必要があります。 `CategoryName`できない`NULL`値、RequiredFieldValidator を追加する必要があります。 および`Description` ボックスには、複数行テキスト ボックスに変換するか可能性があります。 課題としてこれら仕上げから退出です。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、バイナリ データの操作で、外観を完了します。 このチュートリアルと、前の 3 つでどのようにバイナリ データを説明しましたファイル システム上またはデータベース内に直接格納できます。 ユーザーは、ハード ディスク ドライブからファイルを選択して、ファイル システムに格納されているか、データベースに挿入、web サーバーにアップロードすることによってシステムにバイナリ データを提供します。 ASP.NET 2.0 には、ドラッグ アンド ドロップ簡単このようなインターフェイスを提供する、ファイルアップロード コントロールが含まれます。 ただし、前述の[ファイルのアップロード](uploading-files-cs.md)チュートリアルでは、ファイルアップロード コントロールがのみ 1 メガバイトを超えていないことをお勧め、比較的小さいファイルのアップロードに適してします。 編集し、既存のレコードからバイナリ データを削除する方法と、基になるデータ モデルにアップロードされたデータを関連付ける方法も調査します。
 

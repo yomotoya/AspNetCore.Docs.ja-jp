@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: d0b76c06495c51df3ed0f61cd318507a05240392
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5296bc1ca3fd0b24123bd79a550a7e2cffc34a44
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: を展開する SQL Server Compact データベース - 12 の 2
 ====================
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/10/2017
 
 - [SQL Server Compact](https://www.microsoft.com/sqlserver/en/us/editions/compact.aspx) (データベース エンジン)。
 - [ASP.NET Universal Providers](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (これを有効にする SQL Server Compact を使用する ASP.NET メンバーシップ システム)
-- [Entity Framework 5.0](https://msdn.microsoft.com/en-us/library/gg696172(d=lightweight,v=vs.103).aspx)(移行の最初のコード)。
+- [Entity Framework 5.0](https://msdn.microsoft.com/library/gg696172(d=lightweight,v=vs.103).aspx)(移行の最初のコード)。
 
 データベースの構造と一部 (すべて)、アプリケーションの 2 つのデータのデータベースも展開する必要があります。 通常、アプリケーションを開発するには、実際のサイトに展開したくない、データベースにテスト データを入力します。 ただし、展開する一部の実稼働データを入力することも可能性があります。 このチュートリアルでは必要なソフトウェアと正しいデータが含まように展開するときに、Contoso 大学プロジェクトを構成します。
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/10/2017
 
 サンプル アプリケーションでは、SQL Server Compact 4.0 を使用します。 このデータベース エンジンは、比較的新しいオプションを web サイトです。以前のバージョンの SQL Server Compact は、web ホスティング環境では機能しません。 SQL Server Compact は、SQL Server Express を使用した開発と完全な SQL Server への展開の一般的なシナリオと比較して、いくつかの利点を提供します。 によっては、選択したホスティング プロバイダー、SQL Server Compact 可能性がありますより低いコストで展開するには、プロバイダーによって、完全な SQL Server データベースをサポートするために追加の課金。 Web アプリケーションの一部としてデータベース エンジン自体を配置することができますので、SQL Server Compact に対する追加料金はありません。
 
-ただし、制限の対応する必要があります。 SQL Server Compact できませんストアド プロシージャ、トリガー、ビュー、またはレプリケーション。 (SQL Server Compact でサポートされていない SQL Server 機能の一覧については、次を参照してください[の相違点の間で SQL Server Compact および SQL Server](https://msdn.microsoft.com/en-us/library/bb896140.aspx)。)。また、SQL Server Compact でスキーマと SQL Server Express と SQL Server データベース内のデータを操作に使用できる、ツールの一部が行えません。 たとえば、SQL Server Compact データベースに Visual Studio で SQL Server Management Studio または SQL Server Data Tools を使用できません。 SQL Server Compact データベースの使用に関するその他のオプションを使用する必要は。
+ただし、制限の対応する必要があります。 SQL Server Compact できませんストアド プロシージャ、トリガー、ビュー、またはレプリケーション。 (SQL Server Compact でサポートされていない SQL Server 機能の一覧については、次を参照してください[の相違点の間で SQL Server Compact および SQL Server](https://msdn.microsoft.com/library/bb896140.aspx)。)。また、SQL Server Compact でスキーマと SQL Server Express と SQL Server データベース内のデータを操作に使用できる、ツールの一部が行えません。 たとえば、SQL Server Compact データベースに Visual Studio で SQL Server Management Studio または SQL Server Data Tools を使用できません。 SQL Server Compact データベースの使用に関するその他のオプションを使用する必要は。
 
 - サーバー エクスプ ローラーを使用して、Visual Studio で、SQL Server Compact の限られたデータベース操作の機能を提供することができます。
 - データベース操作機能を使用することができます[WebMatrix](https://www.microsoft.com/web/webmatrix/)、サーバー エクスプ ローラーより多くの機能を持ちます。
@@ -119,7 +119,7 @@ NuGet は展開を成功させることを確認するために実行する必�
 
 上部にある、**パッケージ マネージャー コンソール**ウィンドウ êaƒ ContosoUniversity.DAL、既定のプロジェクトとし、at、`PM>`プロンプトは「有効な移行」を入力します。
 
-![有効にする migrations_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image7.png)
+![enable-migrations_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image7.png)
 
 このコマンドを作成、*される Configuration.cs*を新しいファイル*移行*ContosoUniversity.DAL プロジェクト フォルダーにします。
 
@@ -159,13 +159,13 @@ Code First コンテキスト クラスを含むプロジェクトで"enable-mig
 
 **Package Manager Console**ウィンドウで、「追加移行初期」コマンドを入力して最初の移行を作成し、「初期」という名前を付けます。
 
-![追加 migration_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image11.png)
+![add-migration_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image11.png)
 
 Code First Migrations で別のクラス ファイルの作成、*移行*フォルダー、およびこのクラスは、データベース スキーマを作成するコードが含まれています。
 
 **Package Manager Console**、コマンド"更新プログラム-データベースを入力します"、データベースを作成および実行する、**シード**メソッドです。
 
-![更新 database_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image12.png)
+![update-database_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image12.png)
 
 (テーブルが既に存在し、作成することはできませんを示すエラーが発生すると考えられますが、データベースを削除した後、および実行する前に、アプリケーションが実行された`update-database`です。 その場合、削除、 *School.sdf*ファイルをもう一度やり直して、`update-database`コマンドです)。
 
@@ -190,7 +190,7 @@ Contoso 大学アプリケーションでは、ASP.NET メンバーシップ シ
 最初にサイトを展開するときは、ほとんどまたはすべてのテストを作成するユーザー アカウントを除外する一般的なです。 この場合、管理者アカウントとユーザー アカウントがありませんを展開します。 テスト アカウントを手動で削除するではなく、実稼働環境で必要がある 1 人の管理者ユーザー アカウントのみを持つ新しいメンバーシップ データベースを作成します。
 
 > [!NOTE]
-> メンバーシップ データベースには、アカウントのパスワードのハッシュが格納されます。 1 台のコンピューターから別のアカウントをデプロイするのには、ソース コンピューターの方がよりに、ハッシュのルーチンが、移行先サーバー上の別のハッシュを生成しないことを確認しての操作を行う必要があります。 生成されます、同じハッシュ ASP.NET ユニバーサル プロバイダーを使用すると、既定のアルゴリズムを変更しない限り、します。 既定のアルゴリズムはで指定された、HMACSHA256、**検証**の属性、  **[machineKey](https://msdn.microsoft.com/en-us/library/w8h3skw9.aspx)**  Web.config ファイル内の要素。
+> メンバーシップ データベースには、アカウントのパスワードのハッシュが格納されます。 1 台のコンピューターから別のアカウントをデプロイするのには、ソース コンピューターの方がよりに、ハッシュのルーチンが、移行先サーバー上の別のハッシュを生成しないことを確認しての操作を行う必要があります。 生成されます、同じハッシュ ASP.NET ユニバーサル プロバイダーを使用すると、既定のアルゴリズムを変更しない限り、します。 既定のアルゴリズムはで指定された、HMACSHA256、**検証**の属性、  **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)**  Web.config ファイル内の要素。
 
 
 Code First Migrations、メンバーシップ データベースが管理されませんし、(School データベースの存在で) テスト アカウントを持つデータベースのシードを設定する自動初期化子はありません。 そのため、使用可能なテスト データを保持する、新しいものを作成する前にテスト データベースのコピーを作成します。
@@ -243,7 +243,7 @@ SQL Server Compact データベース エンジンと両方のデータベース
 
 ## <a name="more-information"></a>説明
 
-NuGet の詳細については、次を参照してください。 [NuGet のプロジェクトのライブラリを管理](https://msdn.microsoft.com/en-us/magazine/hh547106.aspx)と[NuGet のドキュメント](http://docs.nuget.org/docs/start-here/overview)です。 NuGet を使用しない場合は、インストールされている場合に、新機能を決定する NuGet パッケージを分析する方法を学習する必要があります。 (たとえば、構成が*Web.config*変換がビルド時などに実行する PowerShell スクリプトを構成します)。NuGet の動作方法についての詳細についてを参照してください特に[を作成して、パッケージを発行する](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)と[構成ファイルとソース コードの変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)です。
+NuGet の詳細については、次を参照してください。 [NuGet のプロジェクトのライブラリを管理](https://msdn.microsoft.com/magazine/hh547106.aspx)と[NuGet のドキュメント](http://docs.nuget.org/docs/start-here/overview)です。 NuGet を使用しない場合は、インストールされている場合に、新機能を決定する NuGet パッケージを分析する方法を学習する必要があります。 (たとえば、構成が*Web.config*変換がビルド時などに実行する PowerShell スクリプトを構成します)。NuGet の動作方法についての詳細についてを参照してください特に[を作成して、パッケージを発行する](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)と[構成ファイルとソース コードの変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)です。
 
 >[!div class="step-by-step"]
 [前へ](deployment-to-a-hosting-provider-introduction-1-of-12.md)

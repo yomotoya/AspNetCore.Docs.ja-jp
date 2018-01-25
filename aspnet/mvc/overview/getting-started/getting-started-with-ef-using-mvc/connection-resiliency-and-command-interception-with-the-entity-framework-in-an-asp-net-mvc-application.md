@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: fecdd582918a61f3d01519c75d159f9c601c8223
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a28284e203904cc943e5e46b369e8a58ea5c820
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>接続の回復と Entity Framework、ASP.NET MVC アプリケーションでのコマンドの途中受信
 ====================
@@ -49,14 +49,14 @@ Windows Azure にアプリケーションを展開するときに Windows Azure 
 
 これらの設定、Entity Framework プロバイダーでサポートされている任意のデータベース環境を手動で構成できますが、通常 Windows Azure SQL データベースを使用するオンライン アプリケーションの適切に動作する既定値は、既に構成されているとこれらは、Contoso 大学アプリケーションを実装する設定です。
 
-接続の回復を有効にするために必要なから派生したアセンブリでクラスを作成するが、 [DbConfiguration](https://msdn.microsoft.com/en-us/data/jj680699.aspx)クラス、およびそのクラスには、SQL データベースを設定*実行方法*EF には別の用語*再試行ポリシー*です。
+接続の回復を有効にするために必要なから派生したアセンブリでクラスを作成するが、 [DbConfiguration](https://msdn.microsoft.com/data/jj680699.aspx)クラス、およびそのクラスには、SQL データベースを設定*実行方法*EF には別の用語*再試行ポリシー*です。
 
 1. DAL フォルダーでという名前のクラス ファイルを追加*SchoolConfiguration.cs*です。
 2. テンプレート コードを次のコードに置き換えます。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-    Entity Framework がから派生したクラス内で検出されたコードを自動的に実行`DbConfiguration`です。 使用することができます、`DbConfiguration`で行う場合はコードでの構成タスクを実行するクラス、 *Web.config*ファイル。 詳細については、次を参照してください。 [EntityFramework コード ベースの構成](https://msdn.microsoft.com/en-us/data/jj680699)です。
+    Entity Framework がから派生したクラス内で検出されたコードを自動的に実行`DbConfiguration`です。 使用することができます、`DbConfiguration`で行う場合はコードでの構成タスクを実行するクラス、 *Web.config*ファイル。 詳細については、次を参照してください。 [EntityFramework コード ベースの構成](https://msdn.microsoft.com/data/jj680699)です。
 3. *StudentController.cs*、追加、`using`の声明`System.Data.Entity.Infrastructure`です。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
@@ -66,13 +66,13 @@ Windows Azure にアプリケーションを展開するときに Windows Azure 
 
     使用していた`DataException`にわかりやすい「再試行」メッセージを指定するために一時的なものになる可能性があるエラーを特定しようとしています。 再試行ポリシーを有効にした、これで、一時的なものである可能性のみエラーは既にがされてしようとしたや複数回失敗しました実際に返される例外でラップされます、`RetryLimitExceededException`例外。
 
-詳細については、次を参照してください。 [Entity Framework 接続の回復/再試行ロジック](https://msdn.microsoft.com/en-us/data/dn456835)です。
+詳細については、次を参照してください。 [Entity Framework 接続の回復/再試行ロジック](https://msdn.microsoft.com/data/dn456835)です。
 
 ## <a name="enable-command-interception"></a>コマンドの途中受信を有効にします。
 
 これで、再試行ポリシーを有効にした、方法をテストすること期待どおりに機能することを確認するか。 一時的なエラーが発生、特に、ローカルで実行しているし、自動化された単体テストに実際の一時的なエラーを統合することは特に困難を強制するために簡単ではありません。 接続の復元機能をテストするには、Entity Framework は SQL Server に送信されるクエリをインターセプトし、通常、一時的である例外の種類で SQL サーバーの応答を 手段が必要です。
 
-クラウド アプリケーションのためのベスト プラクティスを実装するために、クエリの途中受信を使用することもできます: [、待機時間との成功または失敗の外部サービスへのすべての呼び出しをログ](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log)データベース サービスなどです。 EF6 提供、[専用のログ記録 API](https://msdn.microsoft.com/en-us/data/dn469464)を容易に、ログ記録を実行できることが、チュートリアルのこのセクションで、Entity Framework の使用方法が学習[インターセプション機能](https://msdn.microsoft.com/en-us/data/dn469464)の両方を直接ログ記録と一時的なエラーをシミュレートするためです。
+クラウド アプリケーションのためのベスト プラクティスを実装するために、クエリの途中受信を使用することもできます: [、待機時間との成功または失敗の外部サービスへのすべての呼び出しをログ](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log)データベース サービスなどです。 EF6 提供、[専用のログ記録 API](https://msdn.microsoft.com/data/dn469464)を容易に、ログ記録を実行できることが、チュートリアルのこのセクションで、Entity Framework の使用方法が学習[インターセプション機能](https://msdn.microsoft.com/data/dn469464)の両方を直接ログ記録と一時的なエラーをシミュレートするためです。
 
 ### <a name="create-a-logging-interface-and-class"></a>ログ記録のインターフェイスとクラスを作成します。
 
@@ -171,7 +171,7 @@ A[ベスト プラクティスのログ記録](../../../../aspnet/overview/devel
     ![ダミー例外](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 5. コメントを解除、 *SetExecutionStrategy*線*SchoolConfiguration.cs*です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、接続の回復を有効にして、Entity Framework は、作成し、データベースに送信する SQL コマンドをログする方法を説明しました。 次のチュートリアルで Code First Migrations を使用して、データベースを展開する、インターネットにアプリケーションを展開します。
 

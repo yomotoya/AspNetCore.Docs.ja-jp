@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: f8d378d3332669ae4606dad8ada06de37e7dfd20
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5780bfde928011f46c3f504aec927f2127f10d0d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuration-and-instrumentation"></a>構成およびインストルメンテーション
 ====================
@@ -78,13 +78,13 @@ ASP.NET 構成 API には、Web サイトおよびアプリケーションをプ
 
 | **構成クラスまたは名前空間** | **説明** |
 | --- | --- |
-| [System.Configuration](https://msdn.microsoft.com/en-us/library/system.configuration.aspx)名前空間 | すべての .NET Framework アプリケーションの主要な構成クラスを含みます。 セクション ハンドラー クラスを使用して、GetSection GetSectionGroup などのメソッドからセクションに対する構成データを取得できます。 これら 2 つのメソッドは、非静的です。 |
+| [System.Configuration](https://msdn.microsoft.com/library/system.configuration.aspx)名前空間 | すべての .NET Framework アプリケーションの主要な構成クラスを含みます。 セクション ハンドラー クラスを使用して、GetSection GetSectionGroup などのメソッドからセクションに対する構成データを取得できます。 これら 2 つのメソッドは、非静的です。 |
 | System.Configuration.Configuration クラス | 構成データ、コンピューター、アプリケーション、Web ディレクトリ、またはその他のリソースのセットを表します。 このクラスには、構成設定を更新し、セクションおよびセクション グループへの参照を取得するために役立つメソッド、GetSection GetSectionGroup などが含まれています。 このクラスは、WebConfigurationManager および ConfigurationManager クラスのメソッドなど、デザイン時構成データを取得するメソッドの戻り値の型として使用します。 |
-| System.Web.Configuration 名前空間 | 定義されている ASP.NET の構成セクションのセクション ハンドラー クラスを含む[ASP.NET の構成設定](https://msdn.microsoft.com/en-us/library/b5ysx397.aspx)です。 セクション ハンドラー クラスを使用して、GetSection GetSectionGroup などのメソッドからセクションに対する構成データを取得できます。 |
-| System.Web.Configuration.WebConfigurationManager クラス | 実行時およびデザイン時の構成の設定への参照を取得するための便利なメソッドを提供します。 これらのメソッドは、System.Configuration.Configuration クラスを戻り値の型として使用します。 このクラスの静的 GetSection メソッドまたは System.Configuration.ConfigurationManager クラスの静的でない GetSection メソッドは、同じ意味で使用できます。 Web アプリケーションの構成、System.Web.Configuration.WebConfigurationManager クラスは System.Configuration.ConfigurationManager クラスの代わりにお勧めします。 |
-| [System.Configuration.Provider](https://msdn.microsoft.com/en-us/library/system.configuration.provider.aspx)名前空間 | カスタマイズおよび構成プロバイダーを拡張する方法を提供します。 これは、構成システムですべてのプロバイダー クラスの基底クラスです。 |
-| [System.Web.Management](https://msdn.microsoft.com/en-us/library/system.web.management.aspx)名前空間 | クラスとインターフェイスを管理および Web アプリケーションの正常性の監視が含まれています。 厳密には、この名前空間には、API の構成の一部はありません。 たとえば、トレースとイベントの発生は、この名前空間のクラスで実現されます。 |
-| [System.Management.Instrumentation](https://msdn.microsoft.com/en-us/library/system.management.instrumentation.aspx)名前空間 | 管理情報と潜在的ユーザーにイベントを通じて Windows Management Instrumentation (WMI) を公開するアプリケーションのインストルメンテーションに必要なクラスを提供します。 ASP.NET の状態監視は、WMI を使用して、イベントを配信します。 厳密には、この名前空間には、API の構成の一部はありません。 |
+| System.Web.Configuration 名前空間 | 定義されている ASP.NET の構成セクションのセクション ハンドラー クラスを含む[ASP.NET の構成設定](https://msdn.microsoft.com/library/b5ysx397.aspx)です。 セクション ハンドラー クラスを使用して、GetSection GetSectionGroup などのメソッドからセクションに対する構成データを取得できます。 |
+| System.Web.Configuration.WebConfigurationManager class | 実行時およびデザイン時の構成の設定への参照を取得するための便利なメソッドを提供します。 これらのメソッドは、System.Configuration.Configuration クラスを戻り値の型として使用します。 このクラスの静的 GetSection メソッドまたは System.Configuration.ConfigurationManager クラスの静的でない GetSection メソッドは、同じ意味で使用できます。 Web アプリケーションの構成、System.Web.Configuration.WebConfigurationManager クラスは System.Configuration.ConfigurationManager クラスの代わりにお勧めします。 |
+| [System.Configuration.Provider](https://msdn.microsoft.com/library/system.configuration.provider.aspx)名前空間 | カスタマイズおよび構成プロバイダーを拡張する方法を提供します。 これは、構成システムですべてのプロバイダー クラスの基底クラスです。 |
+| [System.Web.Management](https://msdn.microsoft.com/library/system.web.management.aspx)名前空間 | クラスとインターフェイスを管理および Web アプリケーションの正常性の監視が含まれています。 厳密には、この名前空間には、API の構成の一部はありません。 たとえば、トレースとイベントの発生は、この名前空間のクラスで実現されます。 |
+| [System.Management.Instrumentation](https://msdn.microsoft.com/library/system.management.instrumentation.aspx)名前空間 | 管理情報と潜在的ユーザーにイベントを通じて Windows Management Instrumentation (WMI) を公開するアプリケーションのインストルメンテーションに必要なクラスを提供します。 ASP.NET の状態監視は、WMI を使用して、イベントを配信します。 厳密には、この名前空間には、API の構成の一部はありません。 |
 
 ## <a name="reading-from-aspnet-configuration-files"></a>ASP.NET 構成ファイルからの読み取り
 
@@ -148,11 +148,11 @@ ASP.NET 2.0 では、アプリケーション ドメインの開始し停止、�
 
 &lt;HealthMonitoring&gt;グローバルの Web.config ファイルのセクションには、次の項目が含まれています。
 
-| **プロバイダー** | イベント ビューアー、WMI、および SQL Server の設定プロバイダーが含まれています。 |
+| **providers** | イベント ビューアー、WMI、および SQL Server の設定プロバイダーが含まれています。 |
 | --- | --- |
 | **eventMappings** | さまざまな WebBase クラスのマッピングが含まれます。 独自のイベント クラスを生成する場合は、このリストを拡張できます。 独自のイベント クラスを生成できます粒度の細かいに情報を送信するプロバイダー。 たとえば、電子メールに独自のカスタム イベントを送信中に SQL Server に送信される未処理の例外を構成できます。 |
 | **ルール** | プロバイダーに、eventMappings をリンクします。 |
-| **バッファリング** | SQL Server および電子メール プロバイダーを使用すると、イベントをプロバイダーにフラッシュする頻度を決定します。 |
+| **buffering** | SQL Server および電子メール プロバイダーを使用すると、イベントをプロバイダーにフラッシュする頻度を決定します。 |
 
 グローバルの Web.config ファイルからのコード例を次に示します。
 
@@ -259,11 +259,11 @@ ASP.NET SQL Server の登録ツールを使用してオプションのいくつ�
 
 複数の ASP.NET アプリケーション サービスは、格納およびデータ ソースからデータを取得する管理をプロバイダーに依存します。 各プロバイダーは、データ ソースに固有です。 ASP.NET には、次の ASP.NET 機能の SQL Server プロバイダーが含まれています。
 
-- メンバーシップ (、 [SqlMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlmembershipprovider.aspx)クラス)。
-- ロール管理 (、 [SqlRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlroleprovider.aspx)クラス)。
-- プロファイル (、 [SqlProfileProvider](https://msdn.microsoft.com/en-us/library/system.web.profile.sqlprofileprovider.aspx)クラス)。
-- Web パーツのパーソナル化 (、 [SqlPersonalizationProvider](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.webparts.sqlpersonalizationprovider.aspx)クラス)。
-- イベントを web (、 [SqlWebEventProvider](https://msdn.microsoft.com/en-us/library/system.web.management.sqlwebeventprovider.aspx)クラス)。
+- メンバーシップ (、 [SqlMembershipProvider](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx)クラス)。
+- ロール管理 (、 [SqlRoleProvider](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx)クラス)。
+- プロファイル (、 [SqlProfileProvider](https://msdn.microsoft.com/library/system.web.profile.sqlprofileprovider.aspx)クラス)。
+- Web パーツのパーソナル化 (、 [SqlPersonalizationProvider](https://msdn.microsoft.com/library/system.web.ui.webcontrols.webparts.sqlpersonalizationprovider.aspx)クラス)。
+- イベントを web (、 [SqlWebEventProvider](https://msdn.microsoft.com/library/system.web.management.sqlwebeventprovider.aspx)クラス)。
 
 ASP.NET をインストールするときに、サーバーの Machine.config ファイルには、それぞれのプロバイダーに依存する ASP.NET 機能用の SQL Server プロバイダーを指定する構成要素が含まれています。 これらのプロバイダーは、既定では、SQL Server Express 2005 のローカルのユーザー インスタンスへの接続に構成されます。 プロバイダーによって使用される既定の接続文字列を変更する場合、マシンの構成で構成されている ASP.NET の機能のいずれかを使用する前にインストールする必要あります、SQL Server データベースとデータベース要素 Aspnetを使用して、選択した機能の\_regsql.exe です。 SQL 登録ツールを使用して指定したデータベースが既に存在しない場合 (aspnetdb になる既定のデータベース、コマンドラインで指定されていない場合)、現在のユーザーはスキーマ e を作成すると、SQL Server にデータベースを作成する権限が必要データベース内の要素。
 
@@ -294,14 +294,14 @@ Aspnet を実行している場合は、次のオプションは使用可能な\
 | **オプション** | **説明** |
 | --- | --- |
 | **-?** | 表示、Aspnet\_regbbrowsers.exe コマンド ウィンドウでヘルプ テキスト。 |
-| **は** | ランタイム ブラウザー機能アセンブリを作成し、グローバル アセンブリ キャッシュにインストールします。 |
+| **-i** | ランタイム ブラウザー機能アセンブリを作成し、グローバル アセンブリ キャッシュにインストールします。 |
 | **-u** | ランタイム ブラウザー機能アセンブリをグローバル アセンブリ キャッシュからアンインストールします。 |
 
 ## <a name="the-aspnet-compilation-tool---aspnetcompilerexe"></a>ASP.NET コンパイル ツール - aspnet\_compiler.exe
 
 ASP.NET コンパイル ツールは、2 つの一般的な方法で使用できます: インプレースでコンパイルおよび展開については、ターゲットの出力ディレクトリが指定されているコンパイルします。
 
-### <a name="compiling-an-application-in-placehttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[場所にアプリケーションのコンパイル](https://msdn.microsoft.com/en-us/library/ms229863.aspx)
+### <a name="compiling-an-application-in-placehttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[場所にアプリケーションのコンパイル](https://msdn.microsoft.com/library/ms229863.aspx)
 
 ASP.NET コンパイル ツールは、アプリケーションの埋め込み先をコンパイルできます、つまり、正規のコンパイルを発生させる、アプリケーションに複数の要求を行うの動作を模倣します。 プリコンパイル済みサイトのユーザーには、最初の要求でページをコンパイルするによる遅延は発生しません。
 
@@ -317,7 +317,7 @@ ASP.NET コンパイル ツールは、アプリケーションの埋め込み�
 > 入れ子になったアプリケーションが含まれるアプリケーションのコンパイルでは、入れ子になったアプリケーションはコンパイルされません。 入れ子になったアプリケーションを個別にコンパイルする必要があります。
 
 
-### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[展開のアプリケーションのコンパイル](https://msdn.microsoft.com/en-us/library/ms229863.aspx)
+### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[展開のアプリケーションのコンパイル](https://msdn.microsoft.com/library/ms229863.aspx)
 
 (ターゲットの場所にコンパイル) の展開用のアプリケーションをコンパイルするには、targetDir パラメーターを指定します。 TargetDir は、Web アプリケーションに対して、最終的な場所か、コンパイルされたアプリケーションを配置します。 使用して、 **-u**オプションがあることができますを変更する、コンパイルされたアプリケーションの特定のファイル再コンパイルせずようにアプリケーションをコンパイルします。 Aspnet\_compiler.exe が静的および動的なファイルの種類の違いになり、結果として得られるアプリケーションを作成するときに異なる方法で処理します。
 
@@ -330,7 +330,7 @@ ASP.NET コンパイル ツールは、アプリケーションの埋め込み�
 
 | **ファイルの種類** | **コンパイラの処理** |
 | --- | --- |
-| .ascx、.master、.aspx | これらのファイルはマークアップとソース コードの分離コード ファイルおよびに囲まれているすべてのコードの両方を含む分割&lt;スクリプト runat ="server"&gt;要素。 ハッシュ アルゴリズムから派生した名前でアセンブリにソース コードをコンパイルし、アセンブリは Bin ディレクトリに配置します。 すべてのインライン コード、コードの間で囲まれた、  **&lt; %** と **% &gt;** 角かっこ、マークアップに含まれて、コンパイルされません。 ソース ファイルと同じ名前の新しいファイルがマークアップを格納するために作成し、対応する出力ディレクトリに置かれます。 |
+| .ascx, .aspx, .master | これらのファイルはマークアップとソース コードの分離コード ファイルおよびに囲まれているすべてのコードの両方を含む分割&lt;スクリプト runat ="server"&gt;要素。 ハッシュ アルゴリズムから派生した名前でアセンブリにソース コードをコンパイルし、アセンブリは Bin ディレクトリに配置します。 すべてのインライン コード、コードの間で囲まれた、  **&lt; %** と **% &gt;** 角かっこ、マークアップに含まれて、コンパイルされません。 ソース ファイルと同じ名前の新しいファイルがマークアップを格納するために作成し、対応する出力ディレクトリに置かれます。 |
 | .ashx、.asmx | これらのファイルはコンパイルされずは同様に、コンパイルされない出力ディレクトリに移動されます。 ハンドラー コードをコンパイルする場合は、アプリのソース コード ファイルにコードを追加して\_コード ディレクトリ。 |
 | (以前に一覧表示するファイルの種類の分離コード ファイルを除く) .cpp、.cs、.vb、.jsl | これらのファイルがコンパイルされ、それらを参照するアセンブリにリソースとして含まれます。 ソース ファイルは出力ディレクトリにコピーされません。 コード ファイルを参照していない場合はコンパイルされません。 |
 | カスタムのファイルの種類 | これらのファイルはコンパイルされません。 これらのファイルは、対応する出力ディレクトリにコピーされます。 |
@@ -344,23 +344,23 @@ ASP.NET コンパイル ツールは、アプリケーションの埋め込み�
 
 | **ファイルの種類** | **コンパイラの処理** |
 | --- | --- |
-| .aspx、.asmx、.ashx、.master | これらのファイルはマークアップとソース コードの分離コード ファイルおよびに囲まれているすべてのコードの両方を含む分割&lt;スクリプト runat ="server"&gt;要素。 ソース コードは、ハッシュ アルゴリズムから派生した名前でアセンブリにコンパイルされます。 生成されたアセンブリは、Bin ディレクトリに配置されます。 すべてのインライン コード、コードの間で囲まれた、  **&lt; %** と **% &gt;** 角かっこ、マークアップに含まれて、コンパイルされません。 コンパイラでは、ソース ファイルと同じ名前のマークアップを格納する新しいファイルを作成します。 これらの結果として得られるファイルは、Bin ディレクトリに配置されます。 コンパイラでは、拡張子を持つが、ソース ファイルと同じ名前のファイルも作成します。マッピング情報が含まれているコンパイル済みです。 します。コンパイル済みのファイルは、ソース ファイルの元の場所に対応する出力ディレクトリに配置されます。 |
+| .aspx, .asmx, .ashx, .master | これらのファイルはマークアップとソース コードの分離コード ファイルおよびに囲まれているすべてのコードの両方を含む分割&lt;スクリプト runat ="server"&gt;要素。 ソース コードは、ハッシュ アルゴリズムから派生した名前でアセンブリにコンパイルされます。 生成されたアセンブリは、Bin ディレクトリに配置されます。 すべてのインライン コード、コードの間で囲まれた、  **&lt; %** と **% &gt;** 角かっこ、マークアップに含まれて、コンパイルされません。 コンパイラでは、ソース ファイルと同じ名前のマークアップを格納する新しいファイルを作成します。 これらの結果として得られるファイルは、Bin ディレクトリに配置されます。 コンパイラでは、拡張子を持つが、ソース ファイルと同じ名前のファイルも作成します。マッピング情報が含まれているコンパイル済みです。 します。コンパイル済みのファイルは、ソース ファイルの元の場所に対応する出力ディレクトリに配置されます。 |
 | .ascx | これらのファイルは、マークアップとソース コードに分割されます。 ソース コードがアセンブリにコンパイルされ、ハッシュ アルゴリズムから派生した名前を持つ、Bin ディレクトリに配置されます。 マークアップ ファイルは生成されません。 |
 | (以前に一覧表示するファイルの種類の分離コード ファイルを除く) .cpp、.cs、.vb、.jsl | .Ascx、.ashx、または .aspx ファイルから生成されるアセンブリによって参照されるソース コードがアセンブリにコンパイルされ、Bin ディレクトリに配置されます。 ソース ファイルはコピーされません。 |
 | カスタムのファイルの種類 | 動的なファイルと同様に、これらのファイルがコンパイルされます。 、基になるファイルの種類に応じて、コンパイラは、出力ディレクトリにマッピング ファイルを配置できます。 |
 | アプリ内のファイル\_コード サブディレクトリ | このサブディレクトリ内のソース コード ファイルがアセンブリにコンパイルされ、Bin ディレクトリに配置されます。 |
-| アプリ内のファイル\_GlobalResources サブディレクトリ | これらのファイルがアセンブリにコンパイルされ、Bin ディレクトリに配置されます。 アプリ\_GlobalResources サブディレクトリはメイン出力ディレクトリを作成します。 構成ファイルで指定 appliesTo ="All".resx および .resources ファイルは出力ディレクトリにコピーします。 参照されている場合はコピーされません、 [BuildProvider](https://msdn.microsoft.com/en-us/library/system.web.configuration.buildprovider.aspx)です。 |
+| アプリ内のファイル\_GlobalResources サブディレクトリ | これらのファイルがアセンブリにコンパイルされ、Bin ディレクトリに配置されます。 アプリ\_GlobalResources サブディレクトリはメイン出力ディレクトリを作成します。 構成ファイルで指定 appliesTo ="All".resx および .resources ファイルは出力ディレクトリにコピーします。 参照されている場合はコピーされません、 [BuildProvider](https://msdn.microsoft.com/library/system.web.configuration.buildprovider.aspx)です。 |
 | アプリ内の .resx と .resource ファイル\_LocalResources サブディレクトリ | これらのファイルは一意の名前を持つアセンブリにコンパイルされ、Bin ディレクトリに配置されます。 出力ディレクトリには、.resx ファイルまたは .resource ファイルはコピーされません。 |
 | アプリで .skin ファイル\_テーマ サブディレクトリ | テーマはアセンブリにコンパイルされ、Bin ディレクトリに配置されます。 スタブ ファイルは .skin ファイル用に作成し、対応する出力ディレクトリに配置します。 静的ファイル (.css) などは、出力ディレクトリにコピーされます。 |
 | .browser Web.config 静的ファイル Bin ディレクトリ内の既存のアセンブリを型します。 | 出力ディレクトリには、これらのファイルがコピーされます。 |
 
-### <a name="fixed-assembly-nameshttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[固定のアセンブリ名](https://msdn.microsoft.com/en-us/library/ms229863.aspx##)
+### <a name="fixed-assembly-nameshttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[固定のアセンブリ名](https://msdn.microsoft.com/library/ms229863.aspx##)
 
 MSI Windows インストーラーを使用して Web アプリケーションの展開など、一部のシナリオでは、一貫性のあるファイルの名前と内容、アセンブリまたは更新プログラムの構成設定の識別に一貫したディレクトリ構造の使用が必要です。 ような場合、使用することができます、 **- fixednames** ASP.NET コンパイル ツールがアセンブリをコンパイルする必要がありますを指定するオプション、where を使用する代わりにソース ファイルごとに複数のページがアセンブリにコンパイルされます。 これにつながる、アセンブリの数が多いため、スケーラビリティを重視する場合は注意が必要で、このオプションを使用する必要があります。
 
-### <a name="strong-name-compilationhttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[厳密な名前のコンパイル](https://msdn.microsoft.com/en-us/library/ms229863.aspx##)
+### <a name="strong-name-compilationhttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[厳密な名前のコンパイル](https://msdn.microsoft.com/library/ms229863.aspx##)
 
-**-Aptca**、 **-delaysign**、 **-keycontainer**と**-keyfile** Aspnet を使用できるように、オプションが用意されていますが\_名前付きのアセンブリを使用せずに compiler.exe 強くを作成する、[厳密名ツール (Sn.exe)](https://msdn.microsoft.com/en-us/library/k5b5tt23.aspx)とは別にします。 これらのオプションはそれぞれ、 **AllowPartiallyTrustedCallersAttribute**、 **AssemblyDelaySignAttribute**、 **AssemblyKeyNameAttribute**、および**AssemblyKeyFileAttribute**です。
+**-Aptca**、 **-delaysign**、 **-keycontainer**と**-keyfile** Aspnet を使用できるように、オプションが用意されていますが\_名前付きのアセンブリを使用せずに compiler.exe 強くを作成する、[厳密名ツール (Sn.exe)](https://msdn.microsoft.com/library/k5b5tt23.aspx)とは別にします。 これらのオプションはそれぞれ、 **AllowPartiallyTrustedCallersAttribute**、 **AssemblyDelaySignAttribute**、 **AssemblyKeyNameAttribute**、および**AssemblyKeyFileAttribute**です。
 
 これらの属性の詳細については、このコースの範囲外です。
 
@@ -447,4 +447,4 @@ Web.config ファイルに変更を保存する権限があるようになりま
 
 ## <a name="more-information"></a>詳細情報:
 
-ASP.NET 2.0 のプロバイダー モデルでは、多くの他の用途で同様のメンバーシップ、プロファイルなどが、アプリケーションの実装だけでなく、独自のプロバイダーを作成することができます。テキスト ファイルにアプリケーション イベント ログに記録するカスタム プロバイダーの作成方法の詳細については、次を参照してください。[このリンク](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnaspp/html/ASPNETProvMod_Prt6.asp)です。
+ASP.NET 2.0 のプロバイダー モデルでは、多くの他の用途で同様のメンバーシップ、プロファイルなどが、アプリケーションの実装だけでなく、独自のプロバイダーを作成することができます。テキスト ファイルにアプリケーション イベント ログに記録するカスタム プロバイダーの作成方法の詳細については、次を参照してください。[このリンク](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/ASPNETProvMod_Prt6.asp)です。

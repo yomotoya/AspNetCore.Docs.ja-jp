@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 348940748e3c33ace03d1b8f41615e9814cf6b40
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 205d5ddcd0c3240c87ec5705a6676215eb67942d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>ASP.NET MVC アプリケーションに Entity Framework と関連するデータの更新
 ====================
@@ -87,8 +87,7 @@ ms.lasthandoff: 11/10/2017
 
 ![Course_create_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
-
-              **[作成]**をクリックします。 一覧に追加された新しいコース コース インデックス ページが表示されます。 インデックス ページの一覧で、部門名を示すリレーションシップが正常に確立されているナビゲーション プロパティに由来します。
+**[作成]**をクリックします。 一覧に追加された新しいコース コース インデックス ページが表示されます。 インデックス ページの一覧で、部門名を示すリレーションシップが正常に確立されているナビゲーション プロパティに由来します。
 
 ![Course_Index_page_showing_new_course](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
 
@@ -128,7 +127,7 @@ ms.lasthandoff: 11/10/2017
 
 - メソッドの名前を変更`EditPost`署名が、同じため、`HttpGet`メソッド (、`ActionName`属性は、/Edit/URL はまだ使用されていることを指定します)。
 - 現在の取得`Instructor`の一括読み込みを使用して、データベースからのエンティティ、`OfficeAssignment`ナビゲーション プロパティ。 これと同じで行った、 `HttpGet` `Edit`メソッドです。
-- 更新、取得した`Instructor`モデル バインダーから値を持つエンティティ。 [TryUpdateModel](https://msdn.microsoft.com/en-us/library/dd470908(v=vs.108).aspx)使用オーバー ロードを使用する*ホワイト リスト*に含めるプロパティです。 こうすれば、過剰な投稿で説明したよう[2 番目のチュートリアル](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)です。
+- 更新、取得した`Instructor`モデル バインダーから値を持つエンティティ。 [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.108).aspx)使用オーバー ロードを使用する*ホワイト リスト*に含めるプロパティです。 こうすれば、過剰な投稿で説明したよう[2 番目のチュートリアル](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)です。
 
     [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 - オフィスの場所が空白の場合は、設定、`Instructor.OfficeAssignment`プロパティを null にできるように、関連する行で、`OfficeAssignment`テーブルは削除されます。
@@ -164,7 +163,7 @@ UI コースを変更することができるインストラクターに割り�
 
 コードでは、追加の一括読み込み、`Courses`ナビゲーション プロパティ、新しいを呼び出すと`PopulateAssignedCourseData` チェック ボックスを配列の使用に関する情報を提供するメソッドを`AssignedCourseData`モデル クラスを表示します。
 
-内のコード、`PopulateAssignedCourseData`メソッドはすべて読み取り`Course`ビューを使用してコースの一覧を読み込むためにエンティティ モデル クラス。 コードが、インストラクターにコースが存在するかどうかをチェック各コースに`Courses`ナビゲーション プロパティ。 コースをインストラクターに割り当てられているかどうかをチェックするときに、効率的な参照を作成するには、インストラクターに割り当てられているコースに配置されます、 [HashSet](https://msdn.microsoft.com/en-us/library/bb359438.aspx)コレクション。 `Assigned`プロパティに設定されている`true`コース講師が割り当てられます。 ビューは、このプロパティを使用して、どのチェック ボックスとして表示する選択を確認されます。 最後に、一覧は、ビューに渡される、`ViewBag`プロパティです。
+内のコード、`PopulateAssignedCourseData`メソッドはすべて読み取り`Course`ビューを使用してコースの一覧を読み込むためにエンティティ モデル クラス。 コードが、インストラクターにコースが存在するかどうかをチェック各コースに`Courses`ナビゲーション プロパティ。 コースをインストラクターに割り当てられているかどうかをチェックするときに、効率的な参照を作成するには、インストラクターに割り当てられているコースに配置されます、 [HashSet](https://msdn.microsoft.com/library/bb359438.aspx)コレクション。 `Assigned`プロパティに設定されている`true`コース講師が割り当てられます。 ビューは、このプロパティを使用して、どのチェック ボックスとして表示する選択を確認されます。 最後に、一覧は、ビューに渡される、`ViewBag`プロパティです。
 
 次に、ユーザーがクリックしたときに実行されるコードを追加**保存**です。 置換、`EditPost`メソッドを次のコードを更新する新しいメソッドを呼び出した、`Courses`のナビゲーション プロパティ、`Instructor`エンティティです。 変更が強調表示されます。
 
@@ -172,7 +171,7 @@ UI コースを変更することができるインストラクターに割り�
 
 メソッドのシグネチャが異なるようになりました、 `HttpGet` `Edit`メソッド、メソッド名の変更から`EditPost`に`Edit`です。
 
-ビューのコレクションがあるないため`Course`エンティティ、モデル バインダーは自動的に更新、`Courses`ナビゲーション プロパティ。 モデル バインダーを使用して更新するのではなく、`Courses`ナビゲーション プロパティで、新しい実行を`UpdateInstructorCourses`メソッドです。 除外する必要があるため、`Courses`モデル バインドからのプロパティです。 呼び出すコードの変更は必要ありません[TryUpdateModel](https://msdn.microsoft.com/en-us/library/dd470908(v=vs.98).aspx)使用しているため、*ホワイト リスト*オーバー ロードと`Courses`は include リストではありません。
+ビューのコレクションがあるないため`Course`エンティティ、モデル バインダーは自動的に更新、`Courses`ナビゲーション プロパティ。 モデル バインダーを使用して更新するのではなく、`Courses`ナビゲーション プロパティで、新しい実行を`UpdateInstructorCourses`メソッドです。 除外する必要があるため、`Courses`モデル バインドからのプロパティです。 呼び出すコードの変更は必要ありません[TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.98).aspx)使用しているため、*ホワイト リスト*オーバー ロードと`Courses`は include リストではありません。
 
 場合チェックを行わないボックスを選択した場合、コードで`UpdateInstructorCourses`を初期化、`Courses`ナビゲーション プロパティが空のコレクション。
 
@@ -267,9 +266,9 @@ HttpPost 作成メソッドでは、テンプレート コードの検証エラ�
 <a id="transactions"></a>
 ## <a name="handling-transactions"></a>トランザクションの処理
 
-説明に従って、[基本的な CRUD 機能チュートリアル](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)既定では、Entity Framework に暗黙的に実装するトランザクション。 必要な複数を制御する--など--トランザクションでは Entity Framework の外部で実行する操作を追加する場合のシナリオを参照してください[トランザクションを使用](https://msdn.microsoft.com/en-US/data/dn456843)msdn です。
+説明に従って、[基本的な CRUD 機能チュートリアル](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)既定では、Entity Framework に暗黙的に実装するトランザクション。 必要な複数を制御する--など--トランザクションでは Entity Framework の外部で実行する操作を追加する場合のシナリオを参照してください[トランザクションを使用](https://msdn.microsoft.com/data/dn456843)msdn です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 この概要に関連するデータの操作が完了しました。 これまでにこれらのチュートリアルは、同期 I/O を実行するコードで作業しました。 非同期のコードを実装することによって、web サーバーのリソースをより効率的に使用するアプリケーションを行い、それが次のチュートリアルで実行されます。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 61e357198ffa4e93d35b7fa4619270da630547c6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 23195949121cd13ca4b1809b8db91a7320d1fdd2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Web デプロイの発行 (リモート エージェント) 用の Web サーバーの構成
 ====================
@@ -65,7 +65,7 @@ ms.lasthandoff: 11/10/2017
 - サーバーは、静的 IP アドレスを持ちます。
 
 > [!NOTE]
-> コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューター、ドメインとログオン](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx)です。 静的 IP アドレスを構成する方法については、次を参照してください。[静的 IP アドレスを構成](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx)です。 リモート エージェント サービスは、以降は IIS 6 でサポートされてし、するドメインに参加させる必要はありません。 ただし、このチュートリアルの手順が開発され、IIS 7.5 でテストされた、他のバージョンのプロシージャが異なる場合があります。
+> コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューター、ドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)です。 静的 IP アドレスを構成する方法については、次を参照してください。[静的 IP アドレスを構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)です。 リモート エージェント サービスは、以降は IIS 6 でサポートされてし、するドメインに参加させる必要はありません。 ただし、このチュートリアルの手順が開発され、IIS 7.5 でテストされた、他のバージョンのプロシージャが異なる場合があります。
 
 
 ## <a name="install-products-and-components"></a>製品とコンポーネントをインストールします。
@@ -75,9 +75,9 @@ ms.lasthandoff: 11/10/2017
 この場合、これらをインストールする必要があります。
 
 - **IIS 7 の推奨構成**です。 これにより、 **Web サーバー (IIS)**ロール、web サーバー上の IIS モジュールおよび ASP.NET アプリケーションをホストするために必要なコンポーネントのセットをインストールします。
-- **.NET framework 4.0**です。 これは、このバージョンの .NET Framework で構築されたアプリケーションの実行に必要です。
+- **.NET Framework 4.0**. これは、このバージョンの .NET Framework で構築されたアプリケーションの実行に必要です。
 - **Web 配置ツール 2.1 以降**です。 これにより、Web Deploy (とその基になる実行可能ファイル、MSDeploy.exe) がサーバーにインストールされます。 このプロセスの一環としてがインストールされ、Web Deployment Agent サービスを開始します。 このサービスでは、リモート コンピューターから web パッケージを展開できます。
-- **ASP.NET MVC 3**です。 これは、MVC 3 アプリケーションを実行する必要があるアセンブリをインストールします。
+- **ASP.NET MVC 3**. これは、MVC 3 アプリケーションを実行する必要があるアセンブリをインストールします。
 
 > [!NOTE]
 > このチュートリアルでは、Web Platform Installer をインストールして、必要なコンポーネントの構成の使用について説明します。 Web Platform Installer を使用できますが、自動的に依存関係を検出して、常に製品の最新バージョンを取得することを確認して、インストール プロセスが簡略化します。 詳細については、次を参照してください。 [Microsoft Web Platform Installer 3.0](https://go.microsoft.com/?linkid=9805118)です。
@@ -108,7 +108,7 @@ ms.lasthandoff: 11/10/2017
 11. ライセンス条項を確認し、条項に同意した場合にをクリックして**同意**です。
 12. インストールが完了したらをクリックして**完了**、し、閉じます、 **Web Platform Installer 3.0**ウィンドウです。
 
-IIS をインストールする前に、.NET Framework 4.0 をインストールした場合を実行する必要があります、 [ASP.NET IIS 登録ツール](https://msdn.microsoft.com/en-us/library/k6h9cz8h(v=VS.100).aspx)(aspnet\_regiis.exe) を IIS と ASP.NET の最新バージョンを登録します。 これを行わないと、ことがわかります (HTML ファイル) などの静的なコンテンツを IIS が提供する、問題なくが返されます**HTTP エラー 404.0-Not Found** ASP.NET のコンテンツを参照しようとします。 この手順を使用すると、ASP.NET 4.0 が登録されていることを確認してください。
+IIS をインストールする前に、.NET Framework 4.0 をインストールした場合を実行する必要があります、 [ASP.NET IIS 登録ツール](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx)(aspnet\_regiis.exe) を IIS と ASP.NET の最新バージョンを登録します。 これを行わないと、ことがわかります (HTML ファイル) などの静的なコンテンツを IIS が提供する、問題なくが返されます**HTTP エラー 404.0-Not Found** ASP.NET のコンテンツを参照しようとします。 この手順を使用すると、ASP.NET 4.0 が登録されていることを確認してください。
 
 **ASP.NET 4.0 を IIS に登録するには**
 
@@ -154,7 +154,7 @@ Web コンテンツを展開するには、サーバーに、前に作成し、�
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image4.png)
 
     > [!NOTE]
-    > 実稼働環境にすることができますをポート 80 で web サイトをホストし、DNS レコードを一致すると共に、ホスト ヘッダーを構成します。 IIS 7 でのホスト ヘッダーを構成する方法については、次を参照してください。 [(IIS 7) の Web サイトのホスト ヘッダーを構成する](https://technet.microsoft.com/en-us/library/cc753195(WS.10).aspx)です。 Windows Server 2008 R2 の DNS サーバーの役割の詳細については、次を参照してください。 [DNS サーバーの概要](https://technet.microsoft.com/en-gb/library/cc770392.aspx)と[DNS Server](https://technet.microsoft.com/en-us/windowsserver/dd448607)です。
+    > 実稼働環境にすることができますをポート 80 で web サイトをホストし、DNS レコードを一致すると共に、ホスト ヘッダーを構成します。 IIS 7 でのホスト ヘッダーを構成する方法については、次を参照してください。 [(IIS 7) の Web サイトのホスト ヘッダーを構成する](https://technet.microsoft.com/library/cc753195(WS.10).aspx)です。 Windows Server 2008 R2 の DNS サーバーの役割の詳細については、次を参照してください。 [DNS サーバーの概要](https://technet.microsoft.com/en-gb/library/cc770392.aspx)と[DNS Server](https://technet.microsoft.com/windowsserver/dd448607)です。
 9. **[アクション]** ウィンドウの **[サイトの編集]** の下にある **[バインド]** をクリックします。
 10. **サイト バインド**ダイアログ ボックスで、をクリックして**追加**です。
 
@@ -198,8 +198,8 @@ Web サイト コンテンツを提供するためには、アプリケーショ
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image8.png)
 5. **ユーザーまたはグループ** ダイアログ ボックスで、「 **IIS\_IUSRS**、 をクリックして**名前の確認**順にクリック**OK**です。
-6. **のアクセス許可***[フォルダー名]* ダイアログ ボックスで、新しいグループが割り当てられている、**読み取り&amp;実行**、**フォルダーの一覧内容**、および**読み取り**既定のアクセスを許可します。 これを変更せずのままにし、をクリックして**OK**です。
-7. をクリックして**OK**を閉じる、 *[フォルダー名]***プロパティ** ダイアログ ボックス。
+6. **のアクセス許可 * * * [フォルダー名]* ダイアログ ボックスで、新しいグループが割り当てられている、**読み取り&amp;実行**、**フォルダー内容の一覧**、および**読み取り**既定のアクセスを許可します。 これを変更せずのままにし、をクリックして**OK**です。
+7. をクリックして**OK**を閉じる、 *[フォルダー名] * * * プロパティ** ダイアログ ボックス。
 
 最後のタスクとして、サーバーにすべての web パッケージを展開する前に行う必要があります Web Deployment Agent サービスが実行されていること。 リモート コンピューターからパッケージを展開するときに Web Deployment Agent サービスが、抽出およびパッケージの内容をインストールします。 サービスは、Web 配置ツールをインストールするときに、既定で開始され、Network Service の id で実行されます。
 
@@ -217,7 +217,7 @@ Web サイト コンテンツを提供するためには、アプリケーショ
 
 既定では、リモート エージェント サービスはこの URL で、TCP ポート 80 でリッスンします。
 
-http://[*サーバー名*]/MSDEPLOYAGENTSERVICE
+http://[*server name*]/MSDEPLOYAGENTSERVICE
 
 ほとんどの場合、web サーバーが通常リッスン ポート 80 で HTTP 要求のために、リモート エージェント サービスの追加のファイアウォール ルールを構成する必要はありません。 非標準ポートでリッスンするように、インストールをカスタマイズする場合は、必要に応じてファイアウォールの例外を構成する必要があります。
 

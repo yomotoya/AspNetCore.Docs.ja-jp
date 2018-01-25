@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: a88d8f35c770b362b74f787fee2c60a7577bccb2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a526275d76618c325a6b00f33cc550f28ab0cc00
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Visual Studio を使用した ASP.NET Web 展開: Web.config ファイルの変換
 ====================
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>Web Deploy のパラメーターと Web.config 変換
 
-2 つの方法を変更するプロセスを自動化する*Web.config*ファイルの設定: [Web.config 変換](https://msdn.microsoft.com/en-us/library/dd465326.aspx)と[Web 展開パラメーター](https://msdn.microsoft.com/en-us/library/ff398068.aspx)です。 A *Web.config*変換ファイルには変更する方法を指定する XML マークアップが含まれています、 *Web.config*ファイルが展開されるとします。 特定のさまざまな変更がビルド構成と特定のプロファイルの発行を指定できます。 既定のビルド構成には、デバッグおよびリリースでは、およびカスタム ビルド構成を作成することができます。 通常、発行プロファイルは、送信先の環境に対応しています。 (でプロファイルの発行の詳細を学習、[テスト環境として IIS に展開する](deploying-to-iis.md)チュートリアルです)。
+2 つの方法を変更するプロセスを自動化する*Web.config*ファイルの設定: [Web.config 変換](https://msdn.microsoft.com/library/dd465326.aspx)と[Web 展開パラメーター](https://msdn.microsoft.com/library/ff398068.aspx)です。 A *Web.config*変換ファイルには変更する方法を指定する XML マークアップが含まれています、 *Web.config*ファイルが展開されるとします。 特定のさまざまな変更がビルド構成と特定のプロファイルの発行を指定できます。 既定のビルド構成には、デバッグおよびリリースでは、およびカスタム ビルド構成を作成することができます。 通常、発行プロファイルは、送信先の環境に対応しています。 (でプロファイルの発行の詳細を学習、[テスト環境として IIS に展開する](deploying-to-iis.md)チュートリアルです)。
 
 Web デプロイのパラメーターは、内にある設定を含む、展開時に構成する必要がある設定の多くのさまざまな種類を指定するために使用できます*Web.config*ファイル。 指定するために使用時に*Web.config*ファイルの変更、Web デプロイ パラメーターをセットアップより複雑なを展開するまでに設定される値が認識していない場合に便利です。 など、エンタープライズ環境で作成、*展開パッケージ*、実稼働環境でインストールするには、IT 部門の担当者に付与し、そのユーザーが接続文字列またはそうしないとパスワードを入力できるように、知っています。
 
@@ -140,7 +140,7 @@ Contoso 大学 web ページで設定されている値の読み取り`appSettin
 
 既定の変換ファイルには、接続文字列を更新する方法を示す例が含まれている、ほとんどの場合、不要、接続文字列の変換を設定する、発行プロファイルで接続文字列を指定できるためです。 実行される、 [IIS に配置](deploying-to-iis.md)と[実稼働環境に展開](deploying-to-production.md)チュートリアルです。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 今すぐ行うようになると*Web.config*が配置された Web.config ファイルで対象のプレビューを確認した発行プロファイルを作成する前に変換します。
 

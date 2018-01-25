@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 10835c39d3bca752ed3068a23fecaaab56449e41
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7f38a0f2693aeb2a4884b9c03719b583423957a8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET および Web Tools for Visual Studio 2013 のリリース ノート
 ====================
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="new-features-in-aspnet-and-web-tools-for-visual-studio-2013"></a>ASP.NET および Web Tools for Visual Studio 2013 の新機能
 
-- [1 つの ASP.NET](#TOC6)
+- [One ASP.NET](#TOC6)
 - [新しい Web プロジェクトのエクスペリエンス](#newproj)
 - [ASP.NET のスキャフォールディング](#scaffold)
 - [ブラウザー リンク](#browser-link)
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/10/2017
 - [ASP.NET MVC 5](#TOC10)
 - [ASP.NET Web API 2](#TOC11)
 - [ASP.NET SignalR](#TOC13)
-- [ASP.NET Id](#TOC8)
+- [ASP.NET Identity](#TOC8)
 - [Microsoft OWIN コンポーネント](#TOC7)
 - [Entity Framework 6](#ef6)
 - [ASP.NET Razor 3](#TOC14)
@@ -73,7 +73,7 @@ ASP.NET および Web ツール Visual Studio 2013 が必要です。
 次のセクションでは、リリースで導入された機能について説明します。
 
 <a id="TOC6"></a>
-## <a name="one-aspnet"></a>1 つの ASP.NET
+## <a name="one-aspnet"></a>One ASP.NET
 
 Visual Studio 2013 のリリースで混在したりしたい場合に一致を簡単にできるように、ASP.NET テクノロジを使用する場合の動作を統合するための手段に移動しました。 たとえば、MVC を使用して、プロジェクトを開始および簡単に後で、プロジェクトに Web フォーム ページを追加したり、Web フォーム プロジェクトでの Web Api のスキャフォールディングです。 1 つの ASP.NET はやすくするための ASP.NET でお使いの場合、操作を実行する開発者です。 選択するどのようなテクノロジに関係なく、1 つの ASP.NET の信頼されている、基になる framework でビルドする信頼を持つことができます。
 
@@ -137,8 +137,8 @@ Azure SDK for .NET 2.2 で Visual Studio 2013 で使用できます**サーバ�
 
 詳細については、次のリソースを参照してください。
 
-- [Azure App service の ASP.NET web アプリを作成します。](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/)
-- [Visual Studio を使用して Azure App service web アプリをトラブルシューティングします。](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+- [Azure App service の ASP.NET web アプリを作成します。](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)
+- [Visual Studio を使用して Azure App service web アプリをトラブルシューティングします。](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 <a id="publish"></a>
 ## <a name="web-publish-enhancements"></a>Web の発行の機能強化
@@ -162,7 +162,7 @@ NuGet 2.7 にはで詳細に説明される新機能の豊富なセットが含�
 <a id="TOC9"></a>
 ## <a name="aspnet-web-forms"></a>ASP.NET Web フォーム
 
-### <a name="one-aspnet"></a>1 つの ASP.NET
+### <a name="one-aspnet"></a>One ASP.NET
 
 Web フォーム プロジェクト テンプレートは、新しい 1 つの ASP.NET エクスペリエンスとシームレスに統合します。 Web フォーム プロジェクトに MVC と Web API がサポートされており、1 つの ASP.NET プロジェクトの作成ウィザードを使用して認証を構成することができますを追加することができます。 詳細については、次を参照してください。 [Visual Studio 2013 で ASP.NET Web プロジェクトの作成](creating-web-projects-in-visual-studio.md)です。
 
@@ -177,7 +177,7 @@ Web フォーム テンプレートを使用して[ブートス トラップ](ht
 <a id="TOC10"></a>
 ## <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 
-### <a name="one-aspnet"></a>1 つの ASP.NET
+### <a name="one-aspnet"></a>One ASP.NET
 
 Web の MVC プロジェクト テンプレートは、新しい 1 つの ASP.NET エクスペリエンスとシームレスに統合します。 MVC プロジェクトをカスタマイズし、1 つの ASP.NET プロジェクトの作成ウィザードを使用して認証を構成することができます。 ASP.NET MVC 5 に入門チュートリアルはあります[ASP.NET MVC 5 の概要](../../../mvc/overview/getting-started/introduction/getting-started.md)です。
 
@@ -185,7 +185,7 @@ MVC 5 に MVC 4 プロジェクトをアップグレードする方法につい�
 
 ### <a name="aspnet-identity"></a>ASP.NET Identity
 
-ASP.NET の Id を使用して認証と id 管理には、MVC プロジェクト テンプレートが更新されました。 提供され、Facebook、Google の認証と新しいメンバーシップ API のチュートリアルが見つかります[Facebook、Google OAuth2 および OpenID サイン オンで、ASP.NET MVC 5 アプリを作成](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)と[認証で ASP.NET MVC アプリケーションを作成し、SQL DB し、Azure App Service に展開](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)です。
+ASP.NET の Id を使用して認証と id 管理には、MVC プロジェクト テンプレートが更新されました。 提供され、Facebook、Google の認証と新しいメンバーシップ API のチュートリアルが見つかります[Facebook、Google OAuth2 および OpenID サイン オンで、ASP.NET MVC 5 アプリを作成](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)と[認証で ASP.NET MVC アプリケーションを作成し、SQL DB し、Azure App Service に展開](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)です。
 
 ### <a name="bootstrap"></a>ブートス トラップ
 
@@ -531,7 +531,7 @@ OWIN および Katana の詳細については、次を参照してください�
 
 このリリースでは、新しいコンポーネントは、自己ホストのシナリオを有効にする追加されました。 これらのコンポーネントには、次の NuGet パッケージが含まれます。
 
-- **Microsoft.Owin.Host.HttpListener**です。 使用する OWIN サーバーは、 **HttpListener**を HTTP 要求をリッスンし、OWIN パイプラインに指示します。
+- **Microsoft.Owin.Host.HttpListener**. 使用する OWIN サーバーは、 **HttpListener**を HTTP 要求をリッスンし、OWIN パイプラインに指示します。
 - **Microsoft.Owin.Hosting**自己コンソール アプリケーションまたは Windows サービスなど、カスタムのプロセスで OWIN パイプラインをホストしたい開発者向けのライブラリを提供します。
 - **OwinHost**です。 ラップするスタンドアロンの実行可能ファイルを提供`Microsoft.Owin.Hosting`自己をカスタム ホスト アプリケーションを記述しなくても、OWIN パイプラインをホストすることができます。
 
@@ -553,13 +553,13 @@ OWIN 仕様からの機能と種類の定義のみを使用する OWIN コンポ
 
 次の認証コンポーネントを利用できます。
 
-- **Microsoft.Owin.Security.ActiveDirectory**です。 内部設置型またはクラウド ベースのディレクトリ サービスを使用して認証を有効にします。
+- **Microsoft.Owin.Security.ActiveDirectory**. 内部設置型またはクラウド ベースのディレクトリ サービスを使用して認証を有効にします。
 - **Microsoft.Owin.Security.Cookies** cookie を使用して認証を有効します。 このパッケージが以前に名前付き`Microsoft.Owin.Security.Forms`します。
 - **Microsoft.Owin.Security.Facebook** Facebook の OAuth ベースのサービスを使用して認証を有効します。
 - **Microsoft.Owin.Security.Google** Google の OpenID ベースのサービスを使用して認証を有効します。
 - **Microsoft.Owin.Security.Jwt** JWT トークンを使用して認証を有効します。
-- **Microsoft.Owin.Security.MicrosoftAccount** Microsoft アカウントを使用して認証を有効します。
-- **Microsoft.Owin.Security.OAuth**です。 ベアラー トークンを認証するため、OAuth 承認サーバーだけでなくミドルウェアを提供します。
+- **Microsoft.Owin.Security.MicrosoftAccount** Enables authentication using Microsoft accounts.
+- **Microsoft.Owin.Security.OAuth**. ベアラー トークンを認証するため、OAuth 承認サーバーだけでなくミドルウェアを提供します。
 - **Microsoft.Owin.Security.Twitter** Twitter の OAuth ベースのサービスを使用して認証を有効します。
 
 このリリースにも含まれています、`Microsoft.Owin.Cors`パッケージで、HTTP のクロス オリジン要求を処理するためのミドルウェアが含まれています。
@@ -643,7 +643,7 @@ ASP.NET アプリの中断は、ユーザー エクスペリエンスと多数�
     これは、次のリリースの修正されます。
 2. MVC5 に MVC4 アプリケーションをアップグレードした後は、ソリューションをビルドし、これを起動します。 次のエラーが表示されます。
 
-    [A][B]System.Web.WebPages.Razor.Configuration.HostSection に System.Web.WebPages.Razor.Configuration.HostSection をキャストすることはできません。 タイプ A の発生元 'System.Web.WebPages.Razor、バージョン 2.0.0.0、Culture = neutral, PublicKeyToken = 31bf3856ad364e35 を =' コンテキストの位置には、' Default' で' C:\windows\Microsoft.Net\assembly\GAC\_MSIL\System.Web.WebPages.Razor\v4.0\_2.0.0.0\_\_31bf3856ad364e35\System.Web.WebPages.Razor.dll' です。 タイプ B の発生元 'System.Web.WebPages.Razor, Version 3.0.0.0]、[カルチャを = = neutral, PublicKeyToken = 31bf3856ad364e35' コンテキストの位置には、' Default' で' C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\6d05bbd0\e8b5908e\assembly\dl3\c9cbca63\f8910382\_6273ce01\System.Web.WebPages.Razor.dll' です。
+    [A]System.Web.WebPages.Razor.Configuration.HostSection cannot be cast to [B]System.Web.WebPages.Razor.Configuration.HostSection. タイプ A の発生元 'System.Web.WebPages.Razor、バージョン 2.0.0.0、Culture = neutral, PublicKeyToken = 31bf3856ad364e35 を =' コンテキストの位置には、' Default' で' C:\windows\Microsoft.Net\assembly\GAC\_MSIL\System.Web.WebPages.Razor\v4.0\_2.0.0.0\_\_31bf3856ad364e35\System.Web.WebPages.Razor.dll' です。 タイプ B の発生元 'System.Web.WebPages.Razor, Version 3.0.0.0]、[カルチャを = = neutral, PublicKeyToken = 31bf3856ad364e35' コンテキストの位置には、' Default' で' C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\6d05bbd0\e8b5908e\assembly\dl3\c9cbca63\f8910382\_6273ce01\System.Web.WebPages.Razor.dll' です。
 
     上記のエラーを修正するには、開きます*すべて*プロジェクトとは、次の Web.config ファイル (Views フォルダーにあるものを含む)。
 
@@ -666,7 +666,7 @@ ASP.NET アプリの中断は、ユーザー エクスペリエンスと多数�
     移動先:
 
     `@Html.TextBoxFor(person => person.Age)`
-4. ASP.NET MVC 5 は、部分的に信頼をサポートしていません。 プロジェクトの MVC または WebAPI バイナリへのリンクを削除する必要があります、 [SecurityTransparent](https://msdn.microsoft.com/en-us/library/system.security.securitytransparentattribute.aspx)属性および[AllowPartiallyTrustedCallers](https://msdn.microsoft.com/en-us/library/system.security.allowpartiallytrustedcallersattribute.aspx)属性。 これらの属性を削除するには、次のようにコンパイラ エラーがなくなります。
+4. ASP.NET MVC 5 は、部分的に信頼をサポートしていません。 プロジェクトの MVC または WebAPI バイナリへのリンクを削除する必要があります、 [SecurityTransparent](https://msdn.microsoft.com/library/system.security.securitytransparentattribute.aspx)属性および[AllowPartiallyTrustedCallers](https://msdn.microsoft.com/library/system.security.allowpartiallytrustedcallersattribute.aspx)属性。 これらの属性を削除するには、次のようにコンパイラ エラーがなくなります。
 
     `Attempt by security transparent method ‘MyComponent' to access security critical type 'System.Web.Mvc.MvcHtmlString' failed. Assembly 'PagedList.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1' is marked with the AllowPartiallyTrustedCallersAttribute, and uses the level 2 security transparency model. Level 2 transparency causes all methods in AllowPartiallyTrustedCallers assemblies to become security transparent by default, which may be the cause of this exception.`
 
@@ -692,7 +692,7 @@ MVC プロジェクトを追加する、Web フォーム、新しいスキャフ
 
 スキャフォールディングされた項目をプロジェクトに追加するときにエラーが発生した場合、プロジェクトは不整合な状態になることができます。 いくつかのスキャフォールディングをで行われた変更はロールバックされますが、インストールされている NuGet パッケージなど、他の変更はロールバックされません。 ルーティングの構成の変更がロールバックされた場合、ユーザーはスキャフォールディングされた項目に移動するときに HTTP 404 エラーが表示されます。
 
-対応策 :
+回避策:
 
 - MVC のこのエラーを解決する新しいスキャフォールディングされた項目を追加し、MVC 5 の依存関係の選択 (最小または完全のいずれか)。 このプロセスでは、プロジェクトに追加のすべての必要な変更します。
 - Web api には、このエラーを解決します。

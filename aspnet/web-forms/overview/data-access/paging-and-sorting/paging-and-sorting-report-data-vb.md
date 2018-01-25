@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2ef1bb0b68a46535e3320834a0374b9a4f66182c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 23dbd63110092b2e91b7f3f9f6b602ef917c5527
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="paging-and-sorting-report-data-vb"></a>ページングとレポート データ (VB) の並べ替え
 ====================
@@ -101,7 +101,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="step-3-adding-paging-support"></a>手順 3: ページング サポートを追加します。
 
-一覧表示する*すべて*の 1 つの画面で製品のデータを参照するためのユーザーの情報の過負荷につながります。 結果をより管理しやすくするためには、データのサイズの小さいページにデータを分割したり、データを 1 ページずつ処理するアクセス許可できます。 実行するこれだけでページングを有効にするチェック ボックスをオン GridView s のスマート タグから (GridView s 設定[`AllowPaging`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.allowpaging.aspx)に`true`)。
+一覧表示する*すべて*の 1 つの画面で製品のデータを参照するためのユーザーの情報の過負荷につながります。 結果をより管理しやすくするためには、データのサイズの小さいページにデータを分割したり、データを 1 ページずつ処理するアクセス許可できます。 実行するこれだけでページングを有効にするチェック ボックスをオン GridView s のスマート タグから (GridView s 設定[`AllowPaging`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowpaging.aspx)に`true`)。
 
 
 [![チェック ボックスを有効にするページング ページング サポートを追加するには](paging-and-sorting-report-data-vb/_static/image10.png)](paging-and-sorting-report-data-vb/_static/image9.png)
@@ -111,12 +111,12 @@ ms.lasthandoff: 11/10/2017
 
 ページごとに表示されるレコードの数を制限し、追加ページングを有効にすると、*ページング インターフェイス*GridView にします。 図 7 に示すように、既定のページング インターフェイスは、一連のページ番号、これにすばやく移動するデータの 1 つのページから別のユーザーです。 このページング、見慣れたインターフェイス、おとしてしたらそれを目に過去のチュートリアルで DetailsView およびフォームのコントロールへのページングのサポートを追加するときにします。
 
-DetailsView とフォーム ビューの両方のコントロールでは、1 ページあたりのレコードを 1 つだけ表示されます。 ただし、GridView を参照してその[`PageSize`プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.pagesize.aspx)1 ページに表示するレコードの数を決定する (このプロパティの値を 10 に既定値)。
+DetailsView とフォーム ビューの両方のコントロールでは、1 ページあたりのレコードを 1 つだけ表示されます。 ただし、GridView を参照してその[`PageSize`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.pagesize.aspx)1 ページに表示するレコードの数を決定する (このプロパティの値を 10 に既定値)。
 
 この GridView、DetailsView、および FormView s のページングのインターフェイスをカスタマイズするには、次のプロパティを使用します。
 
 - `PagerStyle`ページング インターフェイスのスタイル情報を示しますなどの設定を指定できます`BackColor`、 `ForeColor`、 `CssClass`、`HorizontalAlign`のようにします。
-- `PagerSettings`一連ページング インターフェイスの機能をカスタマイズ可能なプロパティにはが含まれています`PageButtonCount` (既定値は 10) ページング インターフェイスに表示される数値によるページ番号の最大数を示す; [ `Mode`プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.pagersettings.mode.aspx)ページング インターフェイスの動作し、に設定することを示します。 
+- `PagerSettings`一連ページング インターフェイスの機能をカスタマイズ可能なプロパティにはが含まれています`PageButtonCount` (既定値は 10) ページング インターフェイスに表示される数値によるページ番号の最大数を示す; [ `Mode`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx)ページング インターフェイスの動作し、に設定することを示します。 
 
     - `NextPrevious`前後 1 つのページを一度にステップにユーザーを許可する、次へ および 戻るボタンを示しています
     - `NextPreviousFirstLast`次へ 戻る ボタン、に加えて最初と最後のボタンも含まれています、ユーザーがデータの最初と最後のページにすばやく移動できるようにします。
@@ -216,7 +216,7 @@ Label コントロールだけでなくも選択されている表示されて�
 
 ## <a name="step-5-adding-bi-directional-sorting-support"></a>手順 5: 双方向の並べ替えのサポートを追加します。
 
-GridView s のスマート タグは並べ替えを有効にする オプションを簡単にチェック ページング サポートを追加するだけで双方向の並べ替えのサポートの追加 (GridView s を設定する[`AllowSorting`プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.allowsorting.aspx)に`true`)。 これの各 GridView のフィールドの見出しとしてレンダリングある、クリックされたときに、ポストバックを発生させるおよび戻り値でクリックした列を昇順で並べ替えられたデータ。 降順でデータを並べ替えます再同じヘッダー LinkButton を再度クリックするとします。
+GridView s のスマート タグは並べ替えを有効にする オプションを簡単にチェック ページング サポートを追加するだけで双方向の並べ替えのサポートの追加 (GridView s を設定する[`AllowSorting`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowsorting.aspx)に`true`)。 これの各 GridView のフィールドの見出しとしてレンダリングある、クリックされたときに、ポストバックを発生させるおよび戻り値でクリックした列を昇順で並べ替えられたデータ。 降順でデータを並べ替えます再同じヘッダー LinkButton を再度クリックするとします。
 
 > [!NOTE]
 > 型指定されたデータセットではなく、カスタムのデータ アクセス層を使用している場合は、GridView s のスマート タグの並べ替えを有効にするオプションをいないがあります。 ネイティブの並べ替えをサポートするデータ ソースにバインドされた Gridview だけでは、使用可能なこのチェック ボックスがあります。 ADO.NET DataTable が用意されているので、型指定されたデータセットが既定の並べ替えのサポートを提供、`Sort`メソッドを呼び出されると、DataTable s 条件で指定された Datarow を並べ替えます。
@@ -243,11 +243,11 @@ GridView s のスマート タグは並べ替えを有効にする オプショ�
 
 BoundField、CheckBoxField、TemplateField、フィールドのすべての GridView いてなど、`SortExpression`ヘッダーのリンクを並べ替えフィールド s がクリックされたときにデータの並べ替えに使用される式を示すプロパティです。 GridView があります、`SortExpression`プロパティです。 LinkButton がクリックされたヘッダーと並べ替え、GridView が割り当てられますフィールド s`SortExpression`値をその`SortExpression`プロパティです。 次に、データは、ObjectDataSource から再度取得され、GridView s に従って並び替え`SortExpression`プロパティです。 エンドユーザーが GridView にデータを並べ替えるには、一連の手順の詳細を次に示します。
 
-1. GridView s [Sorting イベントを](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx)発生
-2. GridView s [ `SortExpression`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sortexpression.aspx)に設定されている、`SortExpression`フィールドの LinkButton がクリックしてされた並べ替えのヘッダー
+1. GridView s [Sorting イベントを](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx)発生
+2. GridView s [ `SortExpression`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx)に設定されている、`SortExpression`フィールドの LinkButton がクリックしてされた並べ替えのヘッダー
 3. ObjectDataSource が再 BLL からデータをすべて取得し、GridView s を使用してデータを並べ替えます`SortExpression`
 4. GridView の`PageIndex`プロパティを 0 にリセットすると、つまりユーザーを並べ替えるときに返されます (ページングのサポートが実装されていると仮定) データの最初のページ
-5. GridView s [ `Sorted`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx)発生
+5. GridView s [ `Sorted`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx)発生
 
 既定の並べ替えオプションと既定のページング取得再と同じように*すべて*BLL からレコードのです。 ページングせず並べ替えを使用する場合、または並べ替えを使用して既定のページング、s がこのパフォーマンスに影響 (データベースのデータをキャッシュ) が不足を回避する方法がありません。 ただし、今後のチュートリアルで後ほどお見せ、カスタム ページングを使用する場合にデータを効率的に並べ替えることが可能です。
 
@@ -274,7 +274,7 @@ GridView の各フィールドが自動的にバインドするとき、ObjectDa
 
 ## <a name="programmatically-sorting-the-gridview"></a>GridView のプログラムによる並べ替え
 
-並べ替えることもできます GridView のコンテンツ プログラムによって GridView s を使用して、 [ `Sort`メソッド](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sort.aspx)です。 単に渡す、`SortExpression`値と共に並べ替えるには、 [ `SortDirection` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending`または`Descending`)、GridView のデータが再度並べ替えられた、します。
+並べ替えることもできます GridView のコンテンツ プログラムによって GridView s を使用して、 [ `Sort`メソッド](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sort.aspx)です。 単に渡す、`SortExpression`値と共に並べ替えるには、 [ `SortDirection` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending`または`Descending`)、GridView のデータが再度並べ替えられた、します。
 
 並べ替えを無効にしました、理由を想像してください、`UnitPrice`でした。 お客様は、最低価格の製品のみに単純に購入がないかと心配ためでした。 ただし、d おような製品を最小にでは、価格が最も高い価格からのみ並べ替えできるように、最も負荷の高い製品を購入することをお勧めします。
 
@@ -291,7 +291,7 @@ GridView の各フィールドが自動的にバインドするとき、ObjectDa
 **図 15**: 製品からの最も負荷の高い、最小注文 ボタンをクリックすると ([フルサイズのイメージを表示するをクリックして](paging-and-sorting-report-data-vb/_static/image33.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、既定のページングや並べ替えの機能を実装する方法を説明しましたでどちらもが、チェック ボックスをオンと同じくらい簡単! 並べ替え時またはデータ ページ、類似のワークフローが展開します。
 

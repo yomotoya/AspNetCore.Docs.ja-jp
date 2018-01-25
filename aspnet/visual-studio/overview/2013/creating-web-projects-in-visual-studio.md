@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 96960ef56b1206374458dbbba4befffaa83c1624
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aacae7a9ccf483b21d3c6796c0411d558fa3c75b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Visual Studio 2013 で ASP.NET Web プロジェクトの作成
 ====================
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/10/2017
 > - 使用[ブートス トラップ](#bootstrap)応答性の高い設計とテーマの機能を提供します。
 > - 新機能など、MVC、に対してのみ提供するために使用する Web フォーム[自動のテスト プロジェクトの作成](#testproj)と[イントラネット サイト テンプレート](#winauth)です。
 > 
-> Azure クラウド サービスまたは Azure Mobile Services の web プロジェクトを作成する方法については、次を参照してください[Azure クラウド サービスと ASP.NET の概要](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-get-started/)と[で Azure Mobile Services の .NET スコアボード アプリの作成。バックエンド](https://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)です。
+> Azure クラウド サービスまたは Azure Mobile Services の web プロジェクトを作成する方法については、次を参照してください[Azure クラウド サービスと ASP.NET の概要](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-get-started/)と[で Azure Mobile Services の .NET スコアボード アプリの作成。バックエンド](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)です。
 
 
 <a id="prerequisites"></a>
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/10/2017
 <a id="wap"></a>
 ## <a name="web-application-projects-versus-web-site-projects"></a>Web アプリケーション プロジェクトと web サイト プロジェクト
 
-ASP.NET では、web プロジェクトの 2 種類のいずれか: *web アプリケーション プロジェクト*と*web サイト プロジェクト*です。 新しい開発では、web アプリケーション プロジェクトをお勧めして、この記事は、web アプリケーション プロジェクトにのみ適用されます。 詳細については、次を参照してください。 [Web アプリケーション プロジェクトと Visual Studio での Web サイト プロジェクト](https://msdn.microsoft.com/en-us/library/dd547590(v=vs.120).aspx)MSDN サイトです。
+ASP.NET では、web プロジェクトの 2 種類のいずれか: *web アプリケーション プロジェクト*と*web サイト プロジェクト*です。 新しい開発では、web アプリケーション プロジェクトをお勧めして、この記事は、web アプリケーション プロジェクトにのみ適用されます。 詳細については、次を参照してください。 [Web アプリケーション プロジェクトと Visual Studio での Web サイト プロジェクト](https://msdn.microsoft.com/library/dd547590(v=vs.120).aspx)MSDN サイトです。
 
 <a id="overview"></a>
 ## <a name="overview-of-web-application-project-creation"></a>Web アプリケーション プロジェクトの作成の概要
@@ -54,8 +54,8 @@ ASP.NET では、web プロジェクトの 2 種類のいずれか: *web アプ�
 
     ![[新しいプロジェクト] ダイアログ](creating-web-projects-in-visual-studio/_static/image1.png)
 
-    選択できます**クラウド**を作成する左側のウィンドウで、 [Azure クラウド サービス](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy)、 [Azure モバイル サービス](https://msdn.microsoft.com/en-us/library/windows/apps/dn629482.aspx)、または[Azure WebJob](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-webjobs)です。 このトピックでは、これらのテンプレートを扱われていません。
-3. 右側のウィンドウでをクリックして、**プロジェクトに Application Insights の追加**正常性とアプリケーションの使用状況を監視したい場合はチェック ボックスです。 詳細については、次を参照してください。 [web アプリケーションのパフォーマンスを監視](https://azure.microsoft.com/en-us/documentation/articles/app-insights-web-monitor-performance/)です。
+    選択できます**クラウド**を作成する左側のウィンドウで、 [Azure クラウド サービス](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy)、 [Azure モバイル サービス](https://msdn.microsoft.com/library/windows/apps/dn629482.aspx)、または[Azure WebJob](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-webjobs)です。 このトピックでは、これらのテンプレートを扱われていません。
+3. 右側のウィンドウでをクリックして、**プロジェクトに Application Insights の追加**正常性とアプリケーションの使用状況を監視したい場合はチェック ボックスです。 詳細については、次を参照してください。 [web アプリケーションのパフォーマンスを監視](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)です。
 4. プロジェクトを指定**名前**、**場所**、およびその他のオプションとクリック**OK**です。
 
     **新しい ASP.NET プロジェクト**ダイアログが表示されます。
@@ -86,7 +86,7 @@ Visual Studio には、簡単に web アプリケーションをホストする 
 - アプリケーションをクラウドで実行中にリモートでデバッグ モードで実行します。
 - Viiew および SQL データベースなど他の Azure サービスを管理します。
 
-ことができます[Azure アカウントを作成する](https://www.windowsazure.com/en-us/pricing/free-trial/)を無料で web アプリなどの基本的なサービスを含むし、場合は、MSDN サブスクライバー[特典](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/)すれば、その他の azure の毎月のクレジットサービスです。 
+ことができます[Azure アカウントを作成する](https://www.windowsazure.com/pricing/free-trial/)を無料で web アプリなどの基本的なサービスを含むし、場合は、MSDN サブスクライバー[特典](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/)すれば、その他の azure の毎月のクレジットサービスです。 
 
 既定では、**新しい ASP.NET プロジェクト** ダイアログ ボックスでは、web アプリまたは新しい web プロジェクト用にバーチャル マシンを作成することができます。 新しい web アプリまたは仮想マシンを作成しない場合は、クリア、**クラウド内のホスト**チェック ボックスをオンします。
 
@@ -96,7 +96,7 @@ Visual Studio には、簡単に web アプリケーションをホストする 
 
 ![Azure アプリの設定を構成します。](creating-web-projects-in-visual-studio/_static/image9.png)
 
-Azure リソースを作成するため、このプロセスを使用する方法の詳細については、次を参照してください。 [Azure と ASP.NET の概要](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)と[Visual Studio で web サイトの仮想マシンを作成する](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-dotnet-create-visual-studio-powershell/)です。
+Azure リソースを作成するため、このプロセスを使用する方法の詳細については、次を参照してください。 [Azure と ASP.NET の概要](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)と[Visual Studio で web サイトの仮想マシンを作成する](https://azure.microsoft.com/documentation/articles/virtual-machines-dotnet-create-visual-studio-powershell/)です。
 
 この記事の残りの部分では、使用可能なテンプレートと、オプションの詳細を提供します。 アーティクルには、テンプレートで使用されているブートス トラップ、レイアウトとテーマのフレームワークが導入されています。
 
@@ -112,7 +112,7 @@ Visual Studio 2013 では、.NET 4.5 または .NET framework の以降のバー
 - [MVC テンプレート](#mvc)
 - [Web API テンプレート](#webapi)
 - [単一ページ アプリケーション テンプレート](#spa)
-- [Azure モバイル サービス テンプレート](https://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)
+- [Azure モバイル サービス テンプレート](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)
 - [Visual Studio 2012 のテンプレート](#vs2012)
 
 提供する Visual Studio 拡張機能をインストールすることも、 [Facebook テンプレート](#facebook)です。
@@ -198,7 +198,7 @@ SPA テンプレートを使用してアプリケーションを作成する方�
 
 - [ASP.NET の単一ページ アプリケーション](../../../single-page-application/index.md)です。
 - [VS2013 RC の SPA テンプレートのセキュリティ機能の理解](https://blogs.msdn.com/b/webdev/archive/2013/09/20/understanding-security-features-in-spa-template.aspx)
-- [単一ページ アプリケーション: ASP.NET での応答性の高い、最新の Web アプリをビルドします。](https://msdn.microsoft.com/en-us/magazine/dn463786.aspx)
+- [単一ページ アプリケーション: ASP.NET での応答性の高い、最新の Web アプリをビルドします。](https://msdn.microsoft.com/magazine/dn463786.aspx)
 
 <a id="facebook"></a>
 ### <a name="facebook-template"></a>Facebook テンプレート
@@ -321,7 +321,7 @@ ASP.NET Identity は、これは主に外部の顧客のインターネット we
 
 個々 のユーザー アカウント オプションの詳細については、次のリソースを参照してください。
 
-- [www.asp.net/identity](../../../identity/index.md)です。 ASP.NET web サイトで ASP.NET Id に関するドキュメントです。
+- [www.asp.net/identity](../../../identity/index.md). ASP.NET web サイトで ASP.NET Id に関するドキュメントです。
 - [ASP.NET MVC 5 アプリを作成すると Facebook、Google OAuth2 OpenID サインオン](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)です。 ユーザー プロファイル データをカスタマイズする方法も示します。
 - [Web API の外部認証サービス](../../../web-api/overview/security/external-authentication-services.md)
 - [Visual Studio 2013 で ASP.NET アプリケーションに外部ログインを追加します。](https://blogs.msdn.com/b/webdev/archive/2013/06/27/adding-external-logins-to-your-asp-net-application-in-visual-studio-2013.aspx)
@@ -360,7 +360,7 @@ Azure AD のオプションのいずれかの操作にはまだ、アカウン�
 
 ![1 つの組織の認証](creating-web-projects-in-visual-studio/_static/image24.png)
 
-1 つの Azure AD で定義されているユーザー アカウントの認証を有効にする場合は、このオプションを選択[テナント](https://technet.microsoft.com/en-us/library/jj573650.aspx)です。 たとえば、サイトが contoso.com と、利用可能になります、contoso.onmicrosoft.com テナントでは、Contoso 社の従業員にします。 アプリケーションにアクセスするには、他のテナントからユーザーを許可する Azure AD を構成することはできません。
+1 つの Azure AD で定義されているユーザー アカウントの認証を有効にする場合は、このオプションを選択[テナント](https://technet.microsoft.com/library/jj573650.aspx)です。 たとえば、サイトが contoso.com と、利用可能になります、contoso.onmicrosoft.com テナントでは、Contoso 社の従業員にします。 アプリケーションにアクセスするには、他のテナントからユーザーを許可する Azure AD を構成することはできません。
 
 #### <a name="domain"></a>ドメイン
 
@@ -368,7 +368,7 @@ Azure AD のオプションのいずれかの操作にはまだ、アカウン�
 
 #### <a name="access-level"></a>アクセス レベル
 
-アプリケーションは、クエリまたは Graph API を使用して、ディレクトリ情報を更新を選択する必要がある場合**でのシングル サインオン、ディレクトリ データの読み取り**または**でのシングル サインオン、データの読み取りと書きディレクトリ**です。 それ以外の場合、選択**でのシングル サインオン**です。 詳細については、次を参照してください。[アプリケーション アクセス レベル](https://msdn.microsoft.com/en-us/library/windowsazure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels)と[クエリ Azure AD Graph API を使用して](https://msdn.microsoft.com/en-US/library/windowsazure/dn151791.aspx)です。
+アプリケーションは、クエリまたは Graph API を使用して、ディレクトリ情報を更新を選択する必要がある場合**でのシングル サインオン、ディレクトリ データの読み取り**または**でのシングル サインオン、データの読み取りと書きディレクトリ**です。 それ以外の場合、選択**でのシングル サインオン**です。 詳細については、次を参照してください。[アプリケーション アクセス レベル](https://msdn.microsoft.com/library/windowsazure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels)と[クエリ Azure AD Graph API を使用して](https://msdn.microsoft.com/library/windowsazure/dn151791.aspx)です。
 
 #### <a name="application-id-uri"></a>アプリケーション ID の URI
 
@@ -386,8 +386,8 @@ Azure AD でアプリケーションをプロビジョニングまたはプロ�
 
 - [Azure の認証](../2012/windows-azure-authentication.md)
 - [Azure AD を使用して、Web アプリケーションへのサインオンの追加](https://msdn.microsoft.com/library/windowsazure/dn151790.aspx)
-- [Azure Active Directory と ASP.NET アプリの開発](../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
-- [Azure AD での ASP.NET Web API をセキュリティで保護し、Microsoft OWIN コンポーネント](https://msdn.microsoft.com/en-us/magazine/dn463788.aspx)
+- [Azure Active Directory を使った ASP.NET アプリの開発](../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
+- [Azure AD での ASP.NET Web API をセキュリティで保護し、Microsoft OWIN コンポーネント](https://msdn.microsoft.com/magazine/dn463788.aspx)
 
 Visual Studio 2013 の場合です。 まだ更新されていない、チュートリアルどのようなチュートリアルに指示する手動で行うは、Visual Studio 2013 で自動化されています。
 
@@ -396,14 +396,14 @@ Visual Studio 2013 の場合です。 まだ更新されていない、チュー
 
 ![複数の組織の認証](creating-web-projects-in-visual-studio/_static/image25.png)
 
-複数の Azure AD で定義されているユーザー アカウントの認証を有効にする場合は、このオプションを選択[テナント](https://technet.microsoft.com/en-us/library/jj573650.aspx)です。 たとえば、サイトが contoso.com と、利用可能になります、contoso.onmicrosoft.com テナントでは、Contoso 社の従業員と fabrikam.onmicrosoft.com テナントでは、Fabrikam の会社の従業員にします。
+複数の Azure AD で定義されているユーザー アカウントの認証を有効にする場合は、このオプションを選択[テナント](https://technet.microsoft.com/library/jj573650.aspx)です。 たとえば、サイトが contoso.com と、利用可能になります、contoso.onmicrosoft.com テナントでは、Contoso 社の従業員と fabrikam.onmicrosoft.com テナントでは、Fabrikam の会社の従業員にします。
 
 入力した設定とプロビジョニング ステップ アプリケーションに似ています[1 つの組織認証](#orgauthsingle)です。
 
 使用するアプリケーションを作成する方法については**クラウド - 複数の組織**認証では、次のリソースを参照してください。
 
 - [Azure Active Directory、ASP.NET と簡単に Web アプリ統合&amp;Visual Studio](https://blogs.msdn.com/b/active_directory_team_blog/archive/2013/06/26/improved-windows-azure-active-directory-integration-with-asp-net-amp-visual-studio.aspx) Active Directory チームのブログです。
-- [Azure AD でのマルチ テナント Web アプリケーションの開発](https://msdn.microsoft.com/en-us/library/windowsazure/dn151789.aspx)チュートリアルです。 このチュートリアルは、for Visual Studio 2013 はまだ更新されていません。どのようなチュートリアルの指示に従って手動で行うは、Visual Studio 2013 で自動化されています。
+- [Azure AD でのマルチ テナント Web アプリケーションの開発](https://msdn.microsoft.com/library/windowsazure/dn151789.aspx)チュートリアルです。 このチュートリアルは、for Visual Studio 2013 はまだ更新されていません。どのようなチュートリアルの指示に従って手動で行うは、Visual Studio 2013 で自動化されています。
 - [サインインする前に、独自の複数の組織 ASP.NET アプリにサインアップする必要がある](http://www.cloudidentity.com/blog/2013/10/26/you-have-to-sign-up-with-your-own-multiple-organizations-asp-net-app-before-you-can-sign-in/)です。 一般的な問題のユーザーを解決する方法を説明する Vittorio Bertocci ブログは、マルチ組織認証を使用するプロジェクトを作成する場合に発生します。
 
 <a id="orgauthonprem"></a>
@@ -424,6 +424,6 @@ Windows Server Active Directory (AD) で定義されているユーザー アカ
 AD を使用してこのアプリケーションを識別または Visual Studio で 1 つを作成できるようにする場合は空白のままにしている一意の URI を提供します。
 
 <a id="nextsteps"></a>
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 このドキュメントには、Visual Studio 2013 で新しい ASP.NET web プロジェクトを作成するための基本的なヘルプが提供されます。 Web 開発用の Visual Studio の使用に関する詳細については、次を参照してください。 [https://www.asp.net/visual-studio/](../../index.md)です。

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 506ecc9fad47cc39a0323e9ed18814c26e28ee47
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1210f9048401ca1b4e29d6dde9bf5dbef987091f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="batch-updating-c"></a>一括更新 (c#)
 ====================
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="examining-the-steps-for-making-all-gridview-rows-editable"></a>GridView のすべての行を編集可能にするための手順を確認します。
 
-説明したように、 [、概要の挿入、更新、およびデータの削除](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)チュートリアルでは、GridView は、行ごとに、基になるデータを編集するための組み込みサポートを提供します。 内部的には、GridView ノート、どのような行を使用して編集その[`EditIndex`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx)です。 GridView は、そのデータ ソースにバインドされているが、そのチェックして、行のインデックスの値に等しいかどうかは行ごと`EditIndex`です。 場合は、その行の編集を使用してフィールドを表示する s はインターフェイスです。 BoundFields、編集のインターフェイスは、テキスト ボックスが`Text`プロパティには、BoundField 秒で指定されたデータ フィールドの値が割り当てられた`DataField`プロパティです。 TemplateFields、用、`EditItemTemplate`の代わりに使用される、`ItemTemplate`です。
+説明したように、 [、概要の挿入、更新、およびデータの削除](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md)チュートリアルでは、GridView は、行ごとに、基になるデータを編集するための組み込みサポートを提供します。 内部的には、GridView ノート、どのような行を使用して編集その[`EditIndex`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx)です。 GridView は、そのデータ ソースにバインドされているが、そのチェックして、行のインデックスの値に等しいかどうかは行ごと`EditIndex`です。 場合は、その行の編集を使用してフィールドを表示する s はインターフェイスです。 BoundFields、編集のインターフェイスは、テキスト ボックスが`Text`プロパティには、BoundField 秒で指定されたデータ フィールドの値が割り当てられた`DataField`プロパティです。 TemplateFields、用、`EditItemTemplate`の代わりに使用される、`ItemTemplate`です。
 
 ユーザーが行の編集 ボタンをクリックしたときに編集ワークフローが開始されることに注意してください。 これには、ポストバックを発生させる、GridView s を設定`EditIndex`s クリックされた行のインデックス、およびグリッドにデータを再バインドするプロパティです。 ポストバック時に、行 s [キャンセル] ボタンをクリックすると、`EditIndex`の値に設定されている`-1`グリッドにデータを再バインドする前にします。 GridView の行は、0 でのインデックス作成を開始するための設定`EditIndex`に`-1`読み取り専用モードでの GridView の表示の効果があります。
 
@@ -240,7 +240,7 @@ GridView s 以降編集インターフェイスがで定義されているその
 
 [!code-csharp[Main](batch-updating-cs/samples/sample5.cs)]
 
-このメソッドは、まずすべての製品の取得に戻り、 `ProductsDataTable` BLL の呼び出しを経由して`GetProducts`メソッドです。 列挙し、 `ProductGrid` GridView s [ `Rows`コレクション](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx)です。 `Rows`コレクションが含まれています、 [ `GridViewRow`インスタンス](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridviewrow.aspx)GridView に表示される行はごとです。 最大で 10 行、1 ページあたり GridView s を示していますので`Rows`コレクションには、10 個の項目があります。
+このメソッドは、まずすべての製品の取得に戻り、 `ProductsDataTable` BLL の呼び出しを経由して`GetProducts`メソッドです。 列挙し、 `ProductGrid` GridView s [ `Rows`コレクション](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx)です。 `Rows`コレクションが含まれています、 [ `GridViewRow`インスタンス](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewrow.aspx)GridView に表示される行はごとです。 最大で 10 行、1 ページあたり GridView s を示していますので`Rows`コレクションには、10 個の項目があります。
 
 行ごとに、`ProductID`から取得、`DataKeys`コレクションと、適切な`ProductsRow`からが選択されている、`ProductsDataTable`です。 TemplateField の 4 つの入力コントロールがプログラムによって参照されているし、その値を割り当てる、`ProductsRow`のプロパティをインスタンス化します。 更新する各 GridView の後に行の値が使用されて、 `ProductsDataTable`、BLL s に渡される s `UpdateWithTransaction` 、前のチュートリアルで示したように単純を呼び出すメソッド DAL の`UpdateWithTransaction`メソッドです。
 
@@ -270,7 +270,7 @@ GridView s 以降編集インターフェイスがで定義されているその
 
 [!code-csharp[Main](batch-updating-cs/samples/sample7.cs)]
 
-`BatchMethodAlternate`新しい空を作成して開始`ProductsDataTable`という`products`です。 これは、後、GridView s をステップ実行`Rows`コレクション各行 BLL s を使用して特定の製品情報を取得するのと`GetProductByProductID(productID)`メソッドです。 取得した`ProductsRow`インスタンスと同じ方法で更新のプロパティがあります`BatchUpdate`が、インポートを行を更新した後、 `products``ProductsDataTable` DataTable s を介して[`ImportRow(DataRow)`メソッド](https://msdn.microsoft.com/en-us/library/system.data.datatable.importrow(VS.80).aspx)です。
+`BatchMethodAlternate`新しい空を作成して開始`ProductsDataTable`という`products`です。 これは、後、GridView s をステップ実行`Rows`コレクション各行 BLL s を使用して特定の製品情報を取得するのと`GetProductByProductID(productID)`メソッドです。 取得した`ProductsRow`インスタンスと同じ方法で更新のプロパティがあります`BatchUpdate`が、インポートを行を更新した後、 `products``ProductsDataTable` DataTable s を介して[`ImportRow(DataRow)`メソッド](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx)です。
 
 後に、`foreach`ループが完了すると、 `products` 1 つ含む`ProductsRow`GridView の行ごとのインスタンス。 以降の各、`ProductsRow`インスタンスに追加された、 `products` (の代わりに更新されます)、お無条件に渡す場合、`UpdateWithTransaction`メソッド、`ProductsTableAdatper`各レコードをデータベースに挿入しようとしてがします。 代わりに、それぞれの行が変更されたこと (追加されません) を指定する必要があります。
 
@@ -279,7 +279,7 @@ GridView s 以降編集インターフェイスがで定義されているその
 
 [!code-csharp[Main](batch-updating-cs/samples/sample8.cs)]
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 GridView は、行ごとの組み込みの編集機能を提供が完全に編集可能なインターフェイスを作成するためのサポートがありません。 このチュートリアルで説明したとおり、このようなインターフェイスが、作業のビットを必要とします。 すべての行は編集 GridView を作成する必要があります TemplateFields GridView のフィールドに変換して内で編集のインターフェイスを定義する、 `ItemTemplate` s。 また、更新すべてのボタン Web コントロールの種類は、GridView とは別のページに追加する必要があります。 これらのボタン`Click`イベント ハンドラーが GridView s を列挙する必要があります`Rows`、コレクション内の変更を保存、 `ProductsDataTable`、更新された情報を適切な BLL メソッドに渡すとします。
 

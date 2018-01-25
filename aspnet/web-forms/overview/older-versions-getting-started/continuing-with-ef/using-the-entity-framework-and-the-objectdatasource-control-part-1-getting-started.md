@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 6f93d6033b68773507d624125936f0a69777e2b7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 83fe815af9030aee10a5204718b00c79925e9126
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Entity Framework 4.0 ObjectDataSource コントロールを使用して、パート 1: 作業の開始
 ====================
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > ## <a name="database-first"></a>データベースの最初
 > 
-> Entity Framework でデータを操作できる 3 つの方法があります: *Database First*、 *Model First*、および*Code First*です。 このチュートリアルでは、データベースの最初のです。 シナリオに合った最適なものを選択する方法でこれらのワークフローとガイダンスの違いの詳細については、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf)です。
+> Entity Framework でデータを操作できる 3 つの方法があります: *Database First*、 *Model First*、および*Code First*です。 このチュートリアルでは、データベースの最初のです。 シナリオに合った最適なものを選択する方法でこれらのワークフローとガイダンスの違いの詳細については、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)です。
 > 
 > ## <a name="web-forms"></a>Web フォーム
 > 
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > ## <a name="questions"></a>質問
 > 
-> チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework でも LINQ to Entities フォーラム](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)です。
+> チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework でも LINQ to Entities フォーラム](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)です。
 
 
 `EntityDataSource`コントロールでは、非常に短時間は、アプリケーションを作成することができますが、通常必要な膨大量のビジネス ロジックとデータ アクセス ロジックを保持すること、 *.aspx*ページ。 作成するために開発時間が増加が前もって投資できます複雑化し、継続的なメンテナンスを必要とするアプリケーションの場合、 *n 層*または*層*アプリケーション構造保守が簡単です。 このアーキテクチャを実装するのには、ビジネス ロジック層 (BLL) およびデータ アクセス層 (DAL) からプレゼンテーション層を分離します。 この構造体を実装する方法の 1 つを使用して、`ObjectDataSource`制御の代わりに、`EntityDataSource`コントロール。 使用すると、`ObjectDataSource`コントロール、データ アクセス コードを実装して、呼び出すことで*.aspx*ページが多くの同じコントロールを使用して他のデータ ソース コントロールの機能です。 これにより、n 層のアプローチの利点をデータにアクセスする Web フォーム コントロールを使用する利点と組み合わせるできます。
@@ -60,7 +60,7 @@ ms.lasthandoff: 11/10/2017
 
 基本的な CRUD 操作で使用するために作成するクラスだけでなく、`ObjectDataSource`コントロールは、ビジネス ロジックを実行する必要があるときに、`ObjectDataSource`の読み取りやデータを更新します。 たとえば、部門を更新するときに、他の部署があるない同じ管理者 1 人のユーザーが 1 つ以上の部門の管理者にすることはできませんのでを検証する必要があります。
 
-一部の`ObjectDataSource`ドキュメントについてなど、 [ObjectDataSource クラスの概要](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.aspx)と呼ばれるクラスを呼び出し、コントロール、*ビジネス オブジェクト*ビジネス ロジックとデータ アクセス ロジックの両方が含まれています. このチュートリアルでは、ビジネス ロジックとデータ アクセス ロジックの別々 のクラスを作成します。 データ アクセス ロジックをカプセル化するクラスが呼び出されます、*リポジトリ*です。 ビジネス ロジックのクラスには、ビジネス ロジックのメソッドとデータ アクセス メソッドの両方が含まれていますが、データ アクセス メソッドを呼び出すデータ アクセス タスクを実行するリポジトリです。
+一部の`ObjectDataSource`ドキュメントについてなど、 [ObjectDataSource クラスの概要](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.aspx)と呼ばれるクラスを呼び出し、コントロール、*ビジネス オブジェクト*ビジネス ロジックとデータ アクセス ロジックの両方が含まれています. このチュートリアルでは、ビジネス ロジックとデータ アクセス ロジックの別々 のクラスを作成します。 データ アクセス ロジックをカプセル化するクラスが呼び出されます、*リポジトリ*です。 ビジネス ロジックのクラスには、ビジネス ロジックのメソッドとデータ アクセス メソッドの両方が含まれていますが、データ アクセス メソッドを呼び出すデータ アクセス タスクを実行するリポジトリです。
 
 BLL と容易に自動化された単体 DAL の間で抽象化レイヤーを作成することも、BLL をテストします。 この抽象化レイヤーは、インターフェイスを作成して、ビジネス ロジックのクラスでリポジトリをインスタンス化するときに、インターフェイスを使用して実装されます。 これによりリポジトリ インターフェイスを実装する任意のオブジェクトへの参照でビジネス ロジックのクラスを提供しています。 通常の操作に対しては、Entity Framework で動作するリポジトリ オブジェクトを提供します。 テストでは、に対しては、簡単に操作できる、コレクションとして定義されているクラス変数などの方法で格納されているデータで動作するリポジトリ オブジェクトを提供します。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: b6f3821a8022daa26f5efcc009ab3e6283a76a19
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ed39295ed1bcaa924336a1faf52049e291abeadb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>電子メールの確認とパスワードのリセット (c#) でユーザー登録、セキュリティで保護された ASP.NET Web フォーム アプリを作成します。
 ====================
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/10/2017
  [] をクリックして**OK**新しいプロジェクトを作成します。  
     ![新しい ASP.NET プロジェクト ダイアログ ボックス](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/_static/image1.png)
 3. プロジェクトの Secure Sockets Layer (SSL) を有効にします。 使用可能な手順に従って、**プロジェクトの SSL を有効にする**のセクション、 [Web フォーム チュートリアル シリーズの概要](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#SSLWebForms)です。
-4. アプリを実行する をクリックして、**登録**リンクし、新しいユーザーを登録します。 この時点では、検証、電子メールにのみ基づきます、 [[EmailAddress]](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx)電子メール アドレスが整形式であることを確認する属性。 確認の電子メールを追加するコードを変更します。 ブラウザー ウィンドウを閉じます。
+4. アプリを実行する をクリックして、**登録**リンクし、新しいユーザーを登録します。 この時点では、検証、電子メールにのみ基づきます、 [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx)電子メール アドレスが整形式であることを確認する属性。 確認の電子メールを追加するコードを変更します。 ブラウザー ウィンドウを閉じます。
 5. **サーバー エクスプ ローラー** Visual Studio の (**ビュー**  - &gt; **サーバー エクスプ ローラー**) に移動**データ Connections\DefaultConnection\Tables\AspNetUsers**を右クリックし、選択**テーブル定義を開き**です。 
 
     次の図は、`AspNetUsers`テーブルのスキーマ。
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/10/2017
 
 1. Visual Studio で開く、 **Package Manager Console** (**ツール** - &gt; **NuGet パッケージ マネージャー**  - &gt;**Package Manager Console**)、次のコマンドを入力します。  
     `Install-Package SendGrid`
-2. 移動して、 [Azure SendGrid のサインアップ ページ](https://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/)SendGrid アカウントの登録は無料とします。 無料の SendGrid アカウント上で直接もサインアップできます[SendGrid のサイト](http://www.sendgrid.com)です。
+2. 移動して、 [Azure SendGrid のサインアップ ページ](https://azure.microsoft.com/gallery/store/sendgrid/sendgrid-azure/)SendGrid アカウントの登録は無料とします。 無料の SendGrid アカウント上で直接もサインアップできます[SendGrid のサイト](http://www.sendgrid.com)です。
 3. **ソリューション エクスプ ローラー**を開く、 *IdentityConfig.cs*ファイルで、*アプリ\_開始*フォルダー、に黄色で強調表示されている次のコードを追加`EmailService`を構成するクラス**SendGrid**:
 
     [!code-csharp[Main](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/samples/sample1.cs?highlight=3,5,8-37)]
@@ -186,5 +186,5 @@ ms.lasthandoff: 11/10/2017
 - [ASP.NET Id へのリンクは、リソースを推奨](../../../identity/overview/getting-started/aspnet-identity-recommended-resources.md)
 - [アカウントの確認と ASP.NET の Id とパスワードの回復](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
 - [ASP.NET Web フォームのチュートリアル シリーズの OAuth 2.0 プロバイダーの追加します。](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#OAuthWebForms)
-- [Azure App Service のメンバーシップ、OAuth、SQL データベースでのセキュリティで保護された ASP.NET Web フォーム アプリケーションを展開します。](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)
+- [Azure App Service のメンバーシップ、OAuth、SQL データベースでのセキュリティで保護された ASP.NET Web フォーム アプリケーションを展開します。](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)
 - [ASP.NET Web フォーム チュートリアル シリーズのプロジェクトの SSL を有効にします。](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#SSLWebForms)

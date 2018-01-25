@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 0e4df407a1ca15aa5baa2b7226be1cf91902a583
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3cdd36ae03824645e09f97cae85cc55956679390
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>関連するデータの EF コア ASP.NET Core MVC のチュートリアル (10 の 7) での更新
 
@@ -49,7 +49,7 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 
 `PopulateDepartmentsDropDownList`メソッド名でソートのすべての部門の一覧を取得、作成、`SelectList`ドロップダウン一覧は、コレクション内のビューに、コレクションを渡すと`ViewBag`です。 このメソッドは、省略可能な受け取ります`selectedDepartment`パラメーターをドロップダウン リストが表示される場合に選択される項目を指定する呼び出し元のコードを使用します。 ビューが名前"DepartmentID"に渡す、`<select>`とヘルパーのタグ ヘルパーに渡し、ファイルの場所を知っているし、`ViewBag`オブジェクトに対する、 `SelectList` "DepartmentID"という名前です。
 
-HttpGet`Create`メソッドの呼び出し、`PopulateDepartmentsDropDownList`新しいコースの部門が確立されていないため、選択したアイテムを設定しなくてもメソッド。
+HttpGet`Create`メソッドの呼び出し、`PopulateDepartmentsDropDownList`新しいコースの部門がまだ確立されていないため、選択したアイテムを設定しなくてもメソッド。
 
 [!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=3&name=snippet_CreateGet)]
 
@@ -129,7 +129,7 @@ HttpGet`Edit`メソッドは編集されているコースに既に割り当て�
 
 -  モデル バインダーから値を取得した Instructor エンティティを更新します。 `TryUpdateModel`オーバー ロードでは、ホワイト リストに追加するプロパティです。 こうすれば、過剰な投稿で説明するよう、 [2 番目のチュートリアル](crud.md)です。
 
-    <!-- Snippets do not play well with <ul> [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
+    <!-- Snippets don't play well with <ul> [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
 
     ```csharp
     if (await TryUpdateModelAsync<Instructor>(
@@ -140,7 +140,7 @@ HttpGet`Edit`メソッドは編集されているコースに既に割り当て�
     
 -   オフィスの場所が空白の場合は、null OfficeAssignment の表に、関連する行が削除されるように Instructor.OfficeAssignment プロパティを設定します。
 
-    <!-- Snippets do not play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
+    <!-- Snippets don't play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
 
     ```csharp
     if (String.IsNullOrWhiteSpace(instructorToUpdate.OfficeAssignment?.Location))
@@ -221,7 +221,7 @@ UI コースを変更することができるインストラクターに割り�
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
-このコードでは、次の 3 つの列を含んでいる HTML テーブルを作成します。 各列ではコースの番号とタイトルから構成されるキャプションを続けて チェック ボックスです。 すべてのチェック ボックスをグループとして扱う場合にモデル バインダーを通知する同じ名前 ("selectedCourses") であります。 各チェック ボックスの値の属性がの値に設定`CourseID`です。 モデル バインダーがコント ローラーで構成される配列を渡しますページがポストされるときに、`CourseID`のチェック ボックスが選択されている値。
+このコードでは、次の 3 つの列を含んでいる HTML テーブルを作成します。 各列ではコースの番号とタイトルから構成されるキャプションを続けて チェック ボックスです。 すべてのチェック ボックス グループとして扱われるしているモデル バインダーを通知する同じ名前 ("selectedCourses") であります。 各チェック ボックスの値の属性がの値に設定`CourseID`です。 モデル バインダーがコント ローラーで構成される配列を渡しますページがポストされるときに、`CourseID`のチェック ボックスが選択されている値。
 
 チェック ボックスが最初に表示されると、適合インストラクターに割り当てられているコースのチェックが属性、選択を (それらのチェックが表示される) にあります。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: 1c24ccd220bf6df09a958d07b13077f004da0a03
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e3347657fb5c7bf8c7bb4e51a2e810a1edde826a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web フォームの接続の回復性とコマンドの途中受信
 ====================
@@ -39,13 +39,13 @@ ms.lasthandoff: 11/10/2017
 
 開始する前に、コンピューターにインストールされている次のソフトウェアがあることを確認します。
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs)または[Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web)です。 .NET Framework は、自動的にインストールされます。
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs)または[Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web)です。 .NET Framework は、自動的にインストールされます。
 - Wingtip Toys Wingtip Toys プロジェクト内では、このチュートリアルで説明した機能を実装できるように、プロジェクトをサンプルします。 次のリンクは、ダウンロードの詳細を提供します。
 
     - [Getting Started with ASP.NET 4.5.1 Web フォーム、Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409) (c#)
 - このチュートリアルを終了する前に、関連するチュートリアル シリーズを確認することを検討してください[ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要](../getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)です。 チュートリアル シリーズのヘルプについて理解するには、 **WingtipToys**プロジェクトとコード。
 
-## <a name="connection-resiliency"></a>接続の回復
+## <a name="connection-resiliency"></a>接続の復元性
 
 考慮すべき 1 つのオプションがデータベースを展開する Windows Azure にアプリケーションの配置を検討するときに**Windows** **Azure SQL Database**、クラウド データベース サービスです。 一時的な接続エラーは、ときに、web サーバーとデータベース サーバーは直接接続されている一緒に、同じデータ センターでよりクラウド データベース サービスに接続するときに通常より頻繁に発生します。 クラウドの web サーバーおよびデータベースのクラウド サービスが同じデータ センター内にホストされている場合でもはロード バランサーなどの問題があることができますをそれらの間のネットワーク接続の数。
 
@@ -81,7 +81,7 @@ Entity Framework がから派生したクラス内で検出されたコードを
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample3.cs?highlight=14-15,17-22)]
 
-追加することによって、`RetryLimitExceededException`例外、ログ記録よりか場所を選択して、プロセスをもう一度やり直してください。 ユーザーにエラー メッセージを表示します。 キャッチすることにより、`RetryLimitExceededException`例外、エラーのみが一時的なする可能性がありますは既にが試行され、複数回失敗しました。 実際に返される例外でラップされます、`RetryLimitExceededException`例外。 さらに、汎用 catch ブロックも追加します。 詳細については、 `RetryLimitExceededException` 、例外を参照してください[Entity Framework 接続の回復/再試行ロジック](https://msdn.microsoft.com/en-us/data/dn456835)です。
+追加することによって、`RetryLimitExceededException`例外、ログ記録よりか場所を選択して、プロセスをもう一度やり直してください。 ユーザーにエラー メッセージを表示します。 キャッチすることにより、`RetryLimitExceededException`例外、エラーのみが一時的なする可能性がありますは既にが試行され、複数回失敗しました。 実際に返される例外でラップされます、`RetryLimitExceededException`例外。 さらに、汎用 catch ブロックも追加します。 詳細については、 `RetryLimitExceededException` 、例外を参照してください[Entity Framework 接続の回復/再試行ロジック](https://msdn.microsoft.com/data/dn456835)です。
 
 ## <a name="command-interception"></a>コマンドの途中受信
 
@@ -171,7 +171,7 @@ UI で別の値を入力することで一時的なエラーが発生するよ�
     ![デバッグの詳細の表示](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image2.png)
 8. コメントを解除、`SetExecutionStrategy`線、 *WingtipToysConfiguration.cs*ファイル。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、接続の回復とコマンドの途中受信をサポートするために、Web フォームのサンプル アプリケーションを変更する方法を説明しました。
 

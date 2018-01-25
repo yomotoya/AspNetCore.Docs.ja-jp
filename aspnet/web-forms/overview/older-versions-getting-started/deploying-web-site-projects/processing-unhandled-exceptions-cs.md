@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4c7f15053ca035a1df1222f88752b8243808bef0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 95102e5e6b3e8b78e2757a2bdee39976003011e3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="processing-unhandled-exceptions-c"></a>未処理の例外 (c#) の処理
 ====================
@@ -41,9 +41,9 @@ ASP.NET のランタイムを発生させるまでバブルが ASP.NET アプリ
 
 ## <a name="executing-code-when-theerrorevent-is-raised"></a>ときにコードを実行する、`Error`イベントが発生しました。
 
-イベントは、オブジェクトに何か興味深いものが発生したこと、シグナルを発生して、応答にコードを実行する別のオブジェクトのメカニズムを提供します。 ASP.NET の開発者は、イベントの観点から考えることに慣れています。 そのボタンのイベント ハンドラーを作成する場合は、ユーザーが特定のボタンをクリックしたときに、いくつかのコードを実行するには、`Click`イベント コードを記述してあるとします。 ASP.NET ランタイムを発生させることを考えるその[`Error`イベント](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.error.aspx)エラーの詳細をログ記録のコードは、イベント ハンドラーに移動できる未処理の例外が発生すると、次にします。 イベント ハンドラーを作成するが、`Error`イベントしますか?
+イベントは、オブジェクトに何か興味深いものが発生したこと、シグナルを発生して、応答にコードを実行する別のオブジェクトのメカニズムを提供します。 ASP.NET の開発者は、イベントの観点から考えることに慣れています。 そのボタンのイベント ハンドラーを作成する場合は、ユーザーが特定のボタンをクリックしたときに、いくつかのコードを実行するには、`Click`イベント コードを記述してあるとします。 ASP.NET ランタイムを発生させることを考えるその[`Error`イベント](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx)エラーの詳細をログ記録のコードは、イベント ハンドラーに移動できる未処理の例外が発生すると、次にします。 イベント ハンドラーを作成するが、`Error`イベントしますか?
 
-`Error`で多数のイベントのいずれかのイベントは、 [ `HttpApplication`クラス](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.aspx)要求の有効期間中に HTTP パイプラインの特定の段階で発生します。 など、`HttpApplication`クラスの[`BeginRequest`イベント](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.beginrequest.aspx); すべての要求の開始時に発生したその[`AuthenticateRequest`イベント](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx)セキュリティ モジュールが、要求元を識別されたときに発生します。 これら`HttpApplication`イベントに、ページの開発の要求の有効期間中にさまざまな時点でのカスタム ロジックを実行するための手段が得られます。
+`Error`で多数のイベントのいずれかのイベントは、 [ `HttpApplication`クラス](https://msdn.microsoft.com/library/system.web.httpapplication.aspx)要求の有効期間中に HTTP パイプラインの特定の段階で発生します。 など、`HttpApplication`クラスの[`BeginRequest`イベント](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx); すべての要求の開始時に発生したその[`AuthenticateRequest`イベント](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx)セキュリティ モジュールが、要求元を識別されたときに発生します。 これら`HttpApplication`イベントに、ページの開発の要求の有効期間中にさまざまな時点でのカスタム ロジックを実行するための手段が得られます。
 
 イベント ハンドラー、`HttpApplication`イベントは、という名前の特殊なファイルに配置できる`Global.asax`です。 Web サイトでこのファイルを作成するには、名前のグローバル アプリケーション クラス テンプレートを使用して、web サイトのルートに新しい項目を追加`Global.asax`です。
 
@@ -60,19 +60,19 @@ ASP.NET のランタイムを発生させるまでバブルが ASP.NET アプリ
 > コピーする必要があります、ASP.NET アプリケーションを展開するときに、`Global.asax`運用環境へのファイルです。 `Global.asax.cs` WAP で作成したファイルはこのコードは、プロジェクトのアセンブリにコンパイルされるので、実稼働環境にコピーする必要はありません。
 
 
-Visual Studio のグローバル アプリケーション クラス テンプレートで作成したイベント ハンドラーが完全ではありません。 イベント ハンドラーを追加するには任意の`HttpApplication`イベント、イベント ハンドラーの名前を付けて`Application_EventName`です。 次のコードを追加するなど、`Global.asax`のイベント ハンドラーを作成するファイル、 [ `AuthorizeRequest`イベント](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authorizerequest.aspx):
+Visual Studio のグローバル アプリケーション クラス テンプレートで作成したイベント ハンドラーが完全ではありません。 イベント ハンドラーを追加するには任意の`HttpApplication`イベント、イベント ハンドラーの名前を付けて`Application_EventName`です。 次のコードを追加するなど、`Global.asax`のイベント ハンドラーを作成するファイル、 [ `AuthorizeRequest`イベント](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx):
 
 [!code-vb[Main](processing-unhandled-exceptions-cs/samples/sample1.vb)]
 
 同様に、不要なグローバル アプリケーション クラス テンプレートで作成されたイベント ハンドラーを削除することができます。 このチュートリアルでのみ必要がありますのイベント ハンドラー、`Error`イベント; から他のイベント ハンドラーを削除しても構いません、`Global.asax`ファイル。
 
 > [!NOTE]
-> *HTTP モジュール*イベントのハンドラーを定義することもできます`HttpApplication`イベント。 HTTP モジュールは、別のクラス ライブラリに直接 web アプリケーション プロジェクト内に配置したりできる分離クラス ファイルとして作成されます。 HTTP モジュールが作成するための柔軟性と再利用可能なモデルを提供してクラス ライブラリ分割すること、ため`HttpApplication`イベント ハンドラー。 一方、`Global.asax`ファイルは、特定、web アプリケーションが配置されている場所をするには、HTTP モジュールをアセンブリ、この時点で、web サイトへの HTTP モジュールの追加のアセンブリを削除するように単純にコンパイルすることができます、`Bin`フォルダーとの登録、内のモジュール`Web.config`です。 このチュートリアルを作成して、HTTP モジュールを使用するのには検索しませんが、次の 2 つのチュートリアルで使用される 2 つのエラーのログ記録ライブラリは、HTTP モジュールとして実装されます。 HTTP モジュールの利点の詳細についてを参照してください[を使用して HTTP モジュールは、プラグ可能な ASP.NET コンポーネントを作成するハンドラー](https://msdn.microsoft.com/en-us/library/aa479332.aspx)です。
+> *HTTP モジュール*イベントのハンドラーを定義することもできます`HttpApplication`イベント。 HTTP モジュールは、別のクラス ライブラリに直接 web アプリケーション プロジェクト内に配置したりできる分離クラス ファイルとして作成されます。 HTTP モジュールが作成するための柔軟性と再利用可能なモデルを提供してクラス ライブラリ分割すること、ため`HttpApplication`イベント ハンドラー。 一方、`Global.asax`ファイルは、特定、web アプリケーションが配置されている場所をするには、HTTP モジュールをアセンブリ、この時点で、web サイトへの HTTP モジュールの追加のアセンブリを削除するように単純にコンパイルすることができます、`Bin`フォルダーとの登録、内のモジュール`Web.config`です。 このチュートリアルを作成して、HTTP モジュールを使用するのには検索しませんが、次の 2 つのチュートリアルで使用される 2 つのエラーのログ記録ライブラリは、HTTP モジュールとして実装されます。 HTTP モジュールの利点の詳細についてを参照してください[を使用して HTTP モジュールは、プラグ可能な ASP.NET コンポーネントを作成するハンドラー](https://msdn.microsoft.com/library/aa479332.aspx)です。
 
 
 ## <a name="retrieving-information-about-the-unhandled-exception"></a>未処理の例外に関する情報を取得します。
 
-この時点で、Global.asax ファイルである、`Application_Error`イベント ハンドラー。 このイベント ハンドラーを実行するときは、エラーの開発者に通知し、その詳細を記録する必要があります。 これらのタスクを実行するには、最初の発生した例外の詳細を確認する必要があります。 サーバー オブジェクトの[`GetLastError`メソッド](https://msdn.microsoft.com/en-us/library/system.web.httpserverutility.getlasterror.aspx)、未処理の例外の原因となったの詳細を取得、`Error`イベントが発生します。
+この時点で、Global.asax ファイルである、`Application_Error`イベント ハンドラー。 このイベント ハンドラーを実行するときは、エラーの開発者に通知し、その詳細を記録する必要があります。 これらのタスクを実行するには、最初の発生した例外の詳細を確認する必要があります。 サーバー オブジェクトの[`GetLastError`メソッド](https://msdn.microsoft.com/library/system.web.httpserverutility.getlasterror.aspx)、未処理の例外の原因となったの詳細を取得、`Error`イベントが発生します。
 
 [!code-csharp[Main](processing-unhandled-exceptions-cs/samples/sample2.cs)]
 
@@ -90,7 +90,7 @@ Visual Studio のグローバル アプリケーション クラス テンプレ
 
 実稼働環境でハンドルされない例外が発生したときにすることが重要、エラーを評価し、実行する必要があるアクションを決定できるように、開発チームのアラートを生成します。 たとえばがある場合 double 型にする必要がありますし、データベースに接続するときにエラー、接続文字列を確認してまた、おそらく、サポート チケットを開く web ホスティング会社です。 プログラミング エラーのため、例外が発生した場合、追加のコードまたは検証ロジックは、今後、このようなエラーを防ぐために追加する必要があります。
 
-.NET Framework クラス、 [ `System.Net.Mail`名前空間](https://msdn.microsoft.com/en-us/library/system.net.mail.aspx)電子メールを送信するが簡単です。 [ `MailMessage`クラス](https://msdn.microsoft.com/en-us/library/system.net.mail.mailmessage.aspx)電子メール メッセージを表しなどのプロパティを持つ`To`、 `From`、 `Subject`、 `Body`、および`Attachments`です。 `SmtpClass`送信に使用されて、`MailMessage`オブジェクト指定された SMTP サーバーを使用して; SMTP サーバーの設定をプログラムでも宣言的に指定することができます、 [ `<system.net>`要素](https://msdn.microsoft.com/en-us/library/6484zdc1.aspx)で、`Web.config file`です。 電子メールの送信の詳細については、ASP.NET アプリケーション内のメッセージをチェック アウト私の記事[ASP.NET で電子メールを送信する](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)、および[System.Net.Mail FAQ](http://systemnetmail.com/)です。
+.NET Framework クラス、 [ `System.Net.Mail`名前空間](https://msdn.microsoft.com/library/system.net.mail.aspx)電子メールを送信するが簡単です。 [ `MailMessage`クラス](https://msdn.microsoft.com/library/system.net.mail.mailmessage.aspx)電子メール メッセージを表しなどのプロパティを持つ`To`、 `From`、 `Subject`、 `Body`、および`Attachments`です。 `SmtpClass`送信に使用されて、`MailMessage`オブジェクト指定された SMTP サーバーを使用して; SMTP サーバーの設定をプログラムでも宣言的に指定することができます、 [ `<system.net>`要素](https://msdn.microsoft.com/library/6484zdc1.aspx)で、`Web.config file`です。 電子メールの送信の詳細については、ASP.NET アプリケーション内のメッセージをチェック アウト私の記事[ASP.NET で電子メールを送信する](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)、および[System.Net.Mail FAQ](http://systemnetmail.com/)です。
 
 > [!NOTE]
 > `<system.net>`要素にはで使用する SMTP サーバー設定が含まれています、`SmtpClient`クラスの電子メールを送信するときにします。 Web ホスティング可能性の高い会社には、アプリケーションから電子メールを送信に使用できる SMTP サーバーがあります。 Web アプリケーションで使用する必要があります、SMTP サーバー設定については、web ホストのサポート セクションを参照してください。
@@ -102,7 +102,7 @@ Visual Studio のグローバル アプリケーション クラス テンプレ
 
 上記のコードは非常に長いですが、これの大部分を開発者に送信する電子メールに表示される HTML を作成します。 コードが参照することで始まる、`HttpException`によって返される、`GetLastError`メソッド (`lastErrorWrapper`)。 実際に要求によって発生した例外はを介して取得された`lastErrorWrapper.InnerException`変数に割り当てられている`lastError`です。 型、メッセージ、およびスタックからトレース情報を取得`lastError`3 つの文字列変数に格納されているとします。
 
-次に、`MailMessage`という名前のオブジェクト`mm`を作成します。 電子メールの本文は HTML 形式であり、要求されたページの URL、現在ログオンしているユーザー、および例外 (種類、メッセージ、およびスタック トレース) に関する情報の名前を表示します。 優れた点の 1 つ、`HttpException`クラスは、呼び出すことによって、例外の詳細黄色画面の死亡 (YSOD) を作成するために使用する HTML を生成することができます、 [GetHtmlErrorMessage メソッド](https://msdn.microsoft.com/en-us/library/system.web.httpexception.gethtmlerrormessage.aspx)です。 このメソッドは、例外の詳細 YSOD マークアップを取得し、電子メールの添付ファイルとしてに追加するここで使用されます。 注意: かどうか、例外をトリガーする、`Error`イベントが存在しないページの要求) などの HTTP ベースの例外、`GetHtmlErrorMessage`メソッドが返す`null`です。
+次に、`MailMessage`という名前のオブジェクト`mm`を作成します。 電子メールの本文は HTML 形式であり、要求されたページの URL、現在ログオンしているユーザー、および例外 (種類、メッセージ、およびスタック トレース) に関する情報の名前を表示します。 優れた点の 1 つ、`HttpException`クラスは、呼び出すことによって、例外の詳細黄色画面の死亡 (YSOD) を作成するために使用する HTML を生成することができます、 [GetHtmlErrorMessage メソッド](https://msdn.microsoft.com/library/system.web.httpexception.gethtmlerrormessage.aspx)です。 このメソッドは、例外の詳細 YSOD マークアップを取得し、電子メールの添付ファイルとしてに追加するここで使用されます。 注意: かどうか、例外をトリガーする、`Error`イベントが存在しないページの要求) などの HTTP ベースの例外、`GetHtmlErrorMessage`メソッドが返す`null`です。
 
 最後に、送信、`MailMessage`です。 これで新たに作成する`SmtpClient`メソッドを呼び出してその`Send`メソッドです。
 
@@ -139,13 +139,13 @@ Visual Studio のグローバル アプリケーション クラス テンプレ
 
 実質的な影響は、サーバーが HTTP 302 リダイレクトに応答するときに未処理の例外が発生した要求を終了します。 カスタム エラー ページに後続の要求は、新しい要求です。この段階で、ASP.NET エンジン エラー情報が破棄し、さらにのカスタム エラー ページの新しい要求に、前回の要求でハンドルされない例外を関連付けることはできません。 その理由は`GetLastError`返します`null`カスタム エラー ページから呼び出されるとします。
 
-ただし、エラーが発生した同じ要求時に実行されるカスタム エラー ページを設定することができます。 [ `Server.Transfer(url)` ](https://msdn.microsoft.com/en-us/library/system.web.httpserverutility.transfer.aspx)メソッドが実行を指定した URL に転送し、同じ要求内で処理します。 内のコードに移動する可能性があります、`Application_Error`イベント ハンドラーに置き換えることで、カスタム エラー ページの分離コード クラス`Global.asax`を次のコード。
+ただし、エラーが発生した同じ要求時に実行されるカスタム エラー ページを設定することができます。 [ `Server.Transfer(url)` ](https://msdn.microsoft.com/library/system.web.httpserverutility.transfer.aspx)メソッドが実行を指定した URL に転送し、同じ要求内で処理します。 内のコードに移動する可能性があります、`Application_Error`イベント ハンドラーに置き換えることで、カスタム エラー ページの分離コード クラス`Global.asax`を次のコード。
 
 [!code-csharp[Main](processing-unhandled-exceptions-cs/samples/sample5.cs)]
 
 これでハンドルされない例外が発生すると、`Application_Error`イベント ハンドラーは、HTTP ステータス コードに基づいて、適切なカスタム エラー ページに制御を移します。 カスタム エラー ページが経由で未処理の例外情報へのアクセスを持つコントロールは、転送されたため`Server.GetLastError`とがエラーの開発者に通知し、その詳細を記録します。 `Server.Transfer`呼び出しには、カスタム エラー ページにユーザーをリダイレクトすることから ASP.NET エンジンが停止しました。 代わりに、カスタム エラー ページのコンテンツは、エラーが発生したページへの応答として返されます。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ASP.NET web アプリケーションでハンドルされない例外が発生したときに、ASP.NET ランタイムを発生させます、`Error`イベントと、構成済みのエラー ページが表示されます。 お開発者にエラーの通知の詳細をログに記録したりエラー イベントのイベント ハンドラーを作成することで、さまざまな方法で処理できます。 イベント ハンドラーを作成する 2 つの方法がある`HttpApplication`イベントと同様に`Error`: で、`Global.asax`ファイルまたは HTTP モジュールからです。 このチュートリアルで作成する方法を示しました、`Error`内のイベント ハンドラー、`Global.asax`ファイルを電子メール メッセージを使用して、エラーの開発者に通知します。
 
@@ -163,9 +163,9 @@ ASP.NET web アプリケーションでハンドルされない例外が発生�
 - [HTTP ハンドラーと ASP.NET の HTTP モジュール](http://www.15seconds.com/Issue/020417.htm)
 - [ASP.NET で電子メールを送信します。](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
 - [について、`Global.asax`ファイル](http://aspalliance.com/1114_Understanding_the_Globalasax_file.all)
-- [HTTP モジュールとハンドラーを使用して、プラグ可能な ASP.NET コンポーネントを作成するには](https://msdn.microsoft.com/en-us/library/aa479332.aspx)
+- [HTTP モジュールとハンドラーを使用して、プラグ可能な ASP.NET コンポーネントを作成するには](https://msdn.microsoft.com/library/aa479332.aspx)
 - [ASP.NET を扱う`Global.asax`ファイル](http://articles.techrepublic.com.com/5100-10878_11-5771721.html)
-- [扱う`HttpApplication`インスタンス](https://msdn.microsoft.com/en-us/library/a0xez8f2.aspx)
+- [扱う`HttpApplication`インスタンス](https://msdn.microsoft.com/library/a0xez8f2.aspx)
 
 >[!div class="step-by-step"]
 [前へ](displaying-a-custom-error-page-cs.md)

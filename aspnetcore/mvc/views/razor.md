@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: d932e28246998c60e2b3f9c77a2521fe55991e85
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: abdbb8112533d42f81180abad52f5ee86e3b280f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET Core の razor 構文
 
@@ -72,8 +72,8 @@ C# の場合を除く`await`キーワードで暗黙的な式はスペースを�
 
 上記のコードでは、次のいずれかのようなコンパイラ エラーが生成されます。
 
- * "Int"要素が閉じられませんでした。 すべての要素はいずれかである必要がありますに対応する終了タグが自己終了、または。
- * メソッド グループ 'GenericMethod' を非デリゲート型 'object' を変換することはできません。 メソッドを呼び出すつもりでしたか?' 
+ * "Int"要素が閉じられました。 すべての要素はいずれかである必要がありますに対応する終了タグが自己終了、または。
+ *  メソッド グループ 'GenericMethod' を非デリゲート型 'object' を変換することはできません。 メソッドを呼び出すつもりでしたか?' 
  
 ジェネリック メソッドの呼び出しにラップする必要があります、 [Razor 式が明示的](#explicit-razor-expressions)または[Razor コードのブロック](#razor-code-blocks)です。
 
@@ -118,8 +118,8 @@ Razor の明示的な式から成る、`@`バランスの取れたかっこ記�
 
 上記のコードでは、次のいずれかのようなコンパイラ エラーが生成されます。
 
- * "Int"要素が閉じられませんでした。 すべての要素はいずれかである必要がありますに対応する終了タグが自己終了、または。
- * メソッド グループ 'GenericMethod' を非デリゲート型 'object' を変換することはできません。 メソッドを呼び出すつもりでしたか?' 
+ * "Int"要素が閉じられました。 すべての要素はいずれかである必要がありますに対応する終了タグが自己終了、または。
+ *  メソッド グループ 'GenericMethod' を非デリゲート型 'object' を変換することはできません。 メソッドを呼び出すつもりでしたか?' 
  
  次のマークアップは、適切な方法の書き込みにこのコードを示します。 コードは、明示的な式として書き込まれます。
 

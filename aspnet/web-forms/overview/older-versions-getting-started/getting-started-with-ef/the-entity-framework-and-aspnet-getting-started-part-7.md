@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 7697763b97e36304d686c77e8cedd060d630c530
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aeea122636f5235364e6a40cb6e041b1fe221317
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォームの第 7 部
 ====================
@@ -135,7 +135,7 @@ Entity Framework は自動的に実行されないストアド プロシージ�
 
 ページを使用して今すぐ、`GetCourses`ストアド プロシージャをすべてのコースの一覧を取得します。 以前と同じように動作することを確認する ページを実行します。
 
-(ストアド プロシージャによって取得されたエンティティのナビゲーション プロパティがありますいない自動的に設定されますに応じて、これらのエンティティに関連するデータ`ObjectContext`既定の設定。 詳細については、次を参照してください[関連オブジェクトの読み込み](https://msdn.microsoft.com/en-us/library/bb896272.aspx)、MSDN ライブラリです。)。
+(ストアド プロシージャによって取得されたエンティティのナビゲーション プロパティがありますいない自動的に設定されますに応じて、これらのエンティティに関連するデータ`ObjectContext`既定の設定。 詳細については、次を参照してください[関連オブジェクトの読み込み](https://msdn.microsoft.com/library/bb896272.aspx)、MSDN ライブラリです。)。
 
 次のチュートリアルでは、Dynamic Data 機能を使用して、プログラムとテスト データの書式設定と検証規則に容易にできるようにする方法を学習します。 などのデータの書式指定文字列には、各 web ページ ルールとフィールドが必要かどうかを指定することではなくデータ モデルのメタデータでこのようなルールを指定することができ、すべてのページに自動的に適用します。
 

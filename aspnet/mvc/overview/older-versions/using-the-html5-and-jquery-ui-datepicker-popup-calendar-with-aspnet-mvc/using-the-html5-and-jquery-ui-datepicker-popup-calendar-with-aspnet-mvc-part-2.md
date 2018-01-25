@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 271c244ab0b9e2524a33ea6ff4d41893ce22472f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69fbaa7761c97895ffee770f6feb9ce6b745d186
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-2"></a>ASP.NET MVC - パート 2 での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用
 ====================
@@ -27,15 +27,15 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="adding-an-automatic-datetime-template"></a>自動の DateTime テンプレートを追加します。
 
-このチュートリアルの最初の部分では、書式設定を明示的に指定するモデルに属性を追加する方法と、モデルを表示するために使用されるテンプレートを明示的に指定する方法を説明しました。 たとえば、 [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx)明示的に次のコード内の属性の書式を指定する、`ReleaseDate`プロパティです。
+このチュートリアルの最初の部分では、書式設定を明示的に指定するモデルに属性を追加する方法と、モデルを表示するために使用されるテンプレートを明示的に指定する方法を説明しました。 たとえば、 [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)明示的に次のコード内の属性の書式を指定する、`ReleaseDate`プロパティです。
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample1.cs)]
 
-次の例で、 [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)属性を使用して、`Date`列挙体は、モデルを表示する日付テンプレートを使用することを指定します。 プロジェクトで日付テンプレートがない場合は、組み込み日付テンプレートが使用されます。
+次の例で、 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性を使用して、`Date`列挙体は、モデルを表示する日付テンプレートを使用することを指定します。 プロジェクトで日付テンプレートがない場合は、組み込み日付テンプレートが使用されます。
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample2.cs)]
 
-ただし、ASP です。MVC では、型の名前に一致するテンプレートを参照して規則を介した-構成を使用した型の照合を実行できます。 これにより、属性やコードをまったく使用せず、データを自動的に書式設定テンプレートを作成できます。 チュートリアルのこの部分の型のモデルのプロパティを自動的に適用するテンプレートを作成するを[DateTime](https://msdn.microsoft.com/en-us/library/system.datetime.aspx)です。 属性またはその他の構成を使用して、型のすべてのモデルのプロパティを表示するために、テンプレートを使用することを指定する必要はありません[DateTime](https://msdn.microsoft.com/en-us/library/system.datetime.aspx)です。
+ただし、ASP です。MVC では、型の名前に一致するテンプレートを参照して規則を介した-構成を使用した型の照合を実行できます。 これにより、属性やコードをまったく使用せず、データを自動的に書式設定テンプレートを作成できます。 チュートリアルのこの部分の型のモデルのプロパティを自動的に適用するテンプレートを作成するを[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)です。 属性またはその他の構成を使用して、型のすべてのモデルのプロパティを表示するために、テンプレートを使用することを指定する必要はありません[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx)です。
 
 また、個々 のプロパティまたは個別のフィールドの表示をカスタマイズする方法についても学習します。
 
@@ -83,7 +83,7 @@ Ctrl キーを押しながら F5 キーを押してアプリケーションを�
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/_static/image3.png)
 
-開く、 *Views\Shared\DisplayTemplates\DateTime.cshtml*ファイルし、を使用して、次のマークアップを追加、 [String.Format](https://msdn.microsoft.com/en-us/library/system.string.format.aspx)メソッド、プロパティを時刻のない日付として書式設定をします。 (、`{0:d}`形式を短い日付形式を指定します)。
+開く、 *Views\Shared\DisplayTemplates\DateTime.cshtml*ファイルし、を使用して、次のマークアップを追加、 [String.Format](https://msdn.microsoft.com/library/system.string.format.aspx)メソッド、プロパティを時刻のない日付として書式設定をします。 (、`{0:d}`形式を短い日付形式を指定します)。
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample5.cs)]
 
@@ -113,7 +113,7 @@ Ctrl キーを押しながら F5 キーを押してアプリケーションを�
 
 ### <a name="using-uihint-to-specify-a-display-template"></a>UIHint を使用して、表示用のテンプレートを指定するには
 
-場合は、web アプリケーションがある多く`DateTime`フィールドおよび日付専用の形式で、それらのほとんどすべてを表示する既定では、 *DateTime.cshtml*テンプレートは、有効なアプローチです。 ある場合は、いくつかの日付、完全な日付と時刻を表示するか。 問題はありません。 その他のテンプレートを作成して使用することができます、 [UIHint](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx)した完全な日付と時刻の書式を指定する属性。 そのテンプレートを選択的に適用できます。 使用することができます、 [UIHint](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx)モデル レベルで属性がビュー内のテンプレートを指定します。 このセクションで使用する方法が表示されます、`UIHint`選択的に書式を変更する、日時フィールドの一部のインスタンスの属性です。
+場合は、web アプリケーションがある多く`DateTime`フィールドおよび日付専用の形式で、それらのほとんどすべてを表示する既定では、 *DateTime.cshtml*テンプレートは、有効なアプローチです。 ある場合は、いくつかの日付、完全な日付と時刻を表示するか。 問題はありません。 その他のテンプレートを作成して使用することができます、 [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx)した完全な日付と時刻の書式を指定する属性。 そのテンプレートを選択的に適用できます。 使用することができます、 [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx)モデル レベルで属性がビュー内のテンプレートを指定します。 このセクションで使用する方法が表示されます、`UIHint`選択的に書式を変更する、日時フィールドの一部のインスタンスの属性です。
 
 開く、 *Views\Movies\DisplayTemplates\LoudDateTime.cshtml*ファイルを開き、次に、既存のコードを置き換えます。
 
@@ -121,7 +121,7 @@ Ctrl キーを押しながら F5 キーを押してアプリケーションを�
 
 これを表示する完全な日付と時刻とテキストは、緑、および大規模な CSS クラスを追加します。
 
-開く、 *Movie.cs*ファイルを追加、 [UIHint](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx)属性を`ReleaseDate`プロパティ、次の例で示すようにします。
+開く、 *Movie.cs*ファイルを追加、 [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx)属性を`ReleaseDate`プロパティ、次の例で示すようにします。
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample8.cs)]
 
@@ -133,7 +133,7 @@ Ctrl キーを押しながら F5 キーを押してアプリケーションを�
 
 戻り、`UIHint`属性、 *Movie.cs*ファイルおよびコメント アウトため、 *LoudDateTime.cshtml*テンプレートは使用されません。 アプリケーションをもう一度実行します。 リリース日は大きく、緑色は表示されません。 あることを確認、 *Views\Shared\DisplayTemplates\DateTime.cshtml*テンプレートは、インデックスおよび詳細ビューで使用します。
 
-前述のように、ビューでは、一部のデータの個々 のインスタンスに、テンプレートを適用するテンプレートを適用することもできます。 開く、 *Views\Movies\Details.cshtml*ビュー。 追加`"LoudDateTime"`の 2 番目のパラメーターとして、 [Html.DisplayFor](https://msdn.microsoft.com/en-us/library/ee407420.aspx)を呼び出して、`ReleaseDate`フィールドです。 完成したコードは次のようになります。
+前述のように、ビューでは、一部のデータの個々 のインスタンスに、テンプレートを適用するテンプレートを適用することもできます。 開く、 *Views\Movies\Details.cshtml*ビュー。 追加`"LoudDateTime"`の 2 番目のパラメーターとして、 [Html.DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx)を呼び出して、`ReleaseDate`フィールドです。 完成したコードは次のようになります。
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample9.cshtml)]
 

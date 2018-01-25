@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 42beb4ffcff9974230ba0c4a2f243020bcd4f99d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8f5d223a5944d8adb9fe65c89e87829d18d1c7ee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Razor 構文 (Visual Basic) を使用して ASP.NET Web プログラミングの概要
 ====================
@@ -58,7 +58,7 @@ Razor 構文を使用する ASP.NET Web Pages を使用するほとんどの例�
 
 ブラウザーに表示される結果:
 
-![Razor Img1](introducing-razor-syntax-vb/_static/image1.jpg)
+![Razor-Img1](introducing-razor-syntax-vb/_static/image1.jpg)
 
 > [!TIP] 
 > 
@@ -79,7 +79,7 @@ Razor 構文を使用する ASP.NET Web Pages を使用するほとんどの例�
 
 ブラウザーに表示される結果:
 
-![Razor Img2](introducing-razor-syntax-vb/_static/image2.jpg)
+![Razor-Img2](introducing-razor-syntax-vb/_static/image2.jpg)
 
 ### <a name="3-inside-a-block-you-end-each-code-statement-with-a-line-break"></a>3.ブロック内で改行するのには、各コード ステートメントを終了します。
 
@@ -95,7 +95,7 @@ Visual Basic のコード ブロックには、各ステートメントは、改
 
 ブラウザーに表示される結果:
 
-![Razor Img3](introducing-razor-syntax-vb/_static/image3.jpg)
+![Razor-Img3](introducing-razor-syntax-vb/_static/image3.jpg)
 
 ### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5.リテラル文字列の値を二重引用符で囲みます。
 
@@ -109,7 +109,7 @@ A*文字列*テキストとして扱われる文字のシーケンスです。 �
 
 ブラウザーに表示される結果:
 
-![Razor Img4](introducing-razor-syntax-vb/_static/image4.jpg)
+![Razor-Img4](introducing-razor-syntax-vb/_static/image4.jpg)
 
 ### <a name="6-visual-basic-code-is-not-case-sensitive"></a>6.Visual Basic のコードは、大文字小文字を区別はありません。
 
@@ -121,7 +121,7 @@ Visual Basic 言語では、大文字小文字を区別されません。 プロ
 
 ブラウザーに表示される結果:
 
-![vb 構文 5](introducing-razor-syntax-vb/_static/image5.jpg)
+![vb-syntax-5](introducing-razor-syntax-vb/_static/image5.jpg)
 
 ### <a name="7-much-of-your-coding-involves-working-with-objects"></a>7.コーディングのほとんどには、オブジェクトによる操作が含まれます
 
@@ -133,7 +133,7 @@ Visual Basic 言語では、大文字小文字を区別されません。 プロ
 
 ブラウザーに表示される結果:
 
-![Razor Img5](introducing-razor-syntax-vb/_static/image6.jpg)
+![Razor-Img5](introducing-razor-syntax-vb/_static/image6.jpg)
 
 ### <a name="8-you-can-write-code-that-makes-decisions"></a>8.意思決定を行うコードを記述することができます。
 
@@ -145,7 +145,7 @@ Visual Basic 言語では、大文字小文字を区別されません。 プロ
 
 結果がブラウザーで表示されます (クリックした後**送信**)。
 
-![Razor Img6](introducing-razor-syntax-vb/_static/image7.jpg)
+![Razor-Img6](introducing-razor-syntax-vb/_static/image7.jpg)
 
 > [!TIP] 
 > 
@@ -176,7 +176,7 @@ Visual Basic 言語では、大文字小文字を区別されません。 プロ
     - `<form>`タグが含まれています、`method="post"`属性。 これを指定する、ユーザーがクリックしたときに**追加**ページは、HTTP POST メソッドを使用してサーバーに送信されます。 ページを送信するときに、コード`If IsPost`true に評価され、条件付きコードの実行、数値を加算した結果を表示します。
 3. ページを保存し、ブラウザーで実行します。 (ページが選択されて、必ず、**ファイル**ワークスペースを実行する前にします)。2 つの整数を入力し、クリックして、**追加**ボタンをクリックします。
 
-    ![Razor Img7](introducing-razor-syntax-vb/_static/image8.jpg)
+    ![Razor-Img7](introducing-razor-syntax-vb/_static/image8.jpg)
 
 ## <a name="visual-basic-language-and-syntax"></a>Visual Basic 言語と構文
 
@@ -257,7 +257,7 @@ ASP.NET web ページを作成する方法とサーバー コードを HTML マ�
 
 ブラウザーに表示される結果:
 
-![Razor Img9](introducing-razor-syntax-vb/_static/image9.jpg)
+![Razor-Img9](introducing-razor-syntax-vb/_static/image9.jpg)
 
 ### <a name="converting-and-testing-data-types"></a>変換して、データ型のテスト
 
@@ -384,7 +384,7 @@ ASP.NET サーバー コード タスクを実行できます条件とループ�
 
 ブラウザーに表示される最後の 2 つの条件付きブロックの結果:
 
-![Razor Img10](introducing-razor-syntax-vb/_static/image10.jpg)
+![Razor-Img10](introducing-razor-syntax-vb/_static/image10.jpg)
 
 ### <a name="looping-code"></a>コードのループ
 
@@ -400,7 +400,7 @@ ASP.NET サーバー コード タスクを実行できます条件とループ�
 
 コードの間の行、`For`と`Next`行には、ループのイテレーションごとに実行されるコードが含まれています。 マークアップは、新しい段落を作成する (`<p>`要素) の値を表示する出力に行を追加し、それぞれ i (カウンター)。 このページを実行すると、例は、11 行の行のテキスト項目数を示す行ごとに、出力の表示を作成します。
 
-![Razor Img11](introducing-razor-syntax-vb/_static/image11.jpg)
+![Razor-Img11](introducing-razor-syntax-vb/_static/image11.jpg)
 
 コレクションまたは配列を扱う場合場合、多くの場合、使用する、`For Each`ループします。 コレクションは、類似のオブジェクトのグループと`For Each`ループに、コレクション内の各項目にタスクを実行することができます。 この種類のループは、コレクションの便利なためとは異なり、`For`ループすることも、カウンターをインクリメントまたは制限を設定します。 代わりに、`For Each`が終了するまで、このループのコードは、単にコレクションを続行されます。
 
@@ -410,7 +410,7 @@ ASP.NET サーバー コード タスクを実行できます条件とループ�
 
 `For Each`キーワードの後に、コレクション内の 1 つの項目を表す変数 (例では、 `myItem`) と、その後、`In`キーワードのコレクションをループするか後にします。 本体で、`For Each`ループ、先ほど宣言した変数を使用する現在のアイテムにアクセスすることができます。
 
-![Razor Img12](introducing-razor-syntax-vb/_static/image12.jpg)
+![Razor-Img12](introducing-razor-syntax-vb/_static/image12.jpg)
 
 汎用的なループを作成するには、使用、`Do While`ステートメント。
 
@@ -451,7 +451,7 @@ ASP.NET の最も基本的なオブジェクトは、ページです。 オブ�
 
 ブラウザーで表示されている文字列配列のコードの出力:
 
-![Razor Img13](introducing-razor-syntax-vb/_static/image13.jpg)
+![Razor-Img13](introducing-razor-syntax-vb/_static/image13.jpg)
 
 設定または対応する値を取得するキー (または名前) を指定したキー/値ペアのコレクションをディクショナリには。
 
@@ -500,7 +500,7 @@ ASP.NET の最も基本的なオブジェクトは、ページです。 オブ�
 
 プログラミング用語では、このような状況が呼び出されます*例外*です。 場合に、コードには、例外が発生すると、(スロー) を生成するエラー メッセージが表示されている、最高でユーザーに迷惑なです。
 
-![Razor Img14](introducing-razor-syntax-vb/_static/image14.jpg)
+![Razor-Img14](introducing-razor-syntax-vb/_static/image14.jpg)
 
 コードが例外を発生可能性がある場合に、この種類のエラー メッセージを回避するために、使用する`Try/Catch`ステートメントです。 `Try`をチェックする場合のコードを実行するステートメントでは、します。 1 つまたは複数`Catch`ステートメントを検索できる固有の仕様が発生したエラー (特定の種類の例外)。 多くとして含めることができます`Catch`するとしてステートメントを予測しているエラーを確認する必要があります。
 
@@ -518,5 +518,5 @@ ASP.NET の最も基本的なオブジェクトは、ページです。 オブ�
 
 ### <a name="reference-documentation"></a>リファレンス ドキュメント
 
-- [ASP.NET](https://msdn.microsoft.com/en-us/library/ee532866.aspx)
-- [Visual Basic 言語](https://msdn.microsoft.com/en-us/library/2x7h1hfk.aspx)
+- [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
+- [Visual Basic 言語](https://msdn.microsoft.com/library/2x7h1hfk.aspx)

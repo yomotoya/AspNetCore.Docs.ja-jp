@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 014fb9fe5fb9fc1a7fe56441bd70e65cfe05862d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 337765988cc6ec92384bec09a72fd00505d9a039
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-templatefields-in-the-gridview-control-vb"></a>GridView コントロール (VB) で TemplateFields の使用
 ====================
@@ -158,7 +158,7 @@ TemplateField から成る 2 つのテンプレートが表示されるよう、
 
 ## <a name="step-3-using-the-calendar-control-to-display-thehireddatefield"></a>手順 3: を表示するカレンダー コントロールを使用して、`HiredDate`フィールド
 
-データ フィールドの値を表示する GridView にテキストとしては、BoundField を使用するように単純です。 特定のシナリオでは、ただし、データが最適で表現単なるテキストではなく、特定の Web コントロールを使用しています。 データの表示には、このようなカスタマイズは、TemplateFields と可能性があります。 などのではなくテキストとして従業員の雇用された日付を表示するよりおでした、予定表を表示 (を使用して[予定表コントロール](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar(VS.80).aspx))、雇用された日付を強調表示されます。
+データ フィールドの値を表示する GridView にテキストとしては、BoundField を使用するように単純です。 特定のシナリオでは、ただし、データが最適で表現単なるテキストではなく、特定の Web コントロールを使用しています。 データの表示には、このようなカスタマイズは、TemplateFields と可能性があります。 などのではなくテキストとして従業員の雇用された日付を表示するよりおでした、予定表を表示 (を使用して[予定表コントロール](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar(VS.80).aspx))、雇用された日付を強調表示されます。
 
 これを実現する、変換することで開始、`HiredDate`を TemplateField BoundField です。 GridView のスマート タグに移動し、[フィールド] ダイアログ ボックスを立ち上げて、列の編集リンクをクリックしてだけです。 選択、 `HiredDate` BoundField とクリック「変換このフィールドを TemplateField」。
 
@@ -178,7 +178,7 @@ TemplateField から成る 2 つのテンプレートが表示されるよう、
 **図 12**: するカレンダー コントロールを追加、 `HireDate` TemplateField の`ItemTemplate`([フルサイズのイメージを表示するをクリックして](using-templatefields-in-the-gridview-control-vb/_static/image36.png))
 
 
-この時点で GridView の行ごとには、予定表コントロールでその`HiredDate`TemplateField です。 ただし、従業員の実際の`HiredDate`値が設定されていない任意の場所の予定表コントロールで、既定値は、現在の月と日付を表示するには、各カレンダー コントロールが原因です。 この問題を解決する必要がありますに割り当てる各従業員の`HiredDate`を予定表コントロールの[SelectedDate](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(VS.80).aspx)と[VisibleDate](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.visibledate(VS.80).aspx)プロパティです。
+この時点で GridView の行ごとには、予定表コントロールでその`HiredDate`TemplateField です。 ただし、従業員の実際の`HiredDate`値が設定されていない任意の場所の予定表コントロールで、既定値は、現在の月と日付を表示するには、各カレンダー コントロールが原因です。 この問題を解決する必要がありますに割り当てる各従業員の`HiredDate`を予定表コントロールの[SelectedDate](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selecteddate(VS.80).aspx)と[VisibleDate](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.visibledate(VS.80).aspx)プロパティです。
 
 予定表コントロールのスマート タグから databindings の編集 を選択します。 次に、両方にバインド`SelectedDate`と`VisibleDate`プロパティを`HiredDate`データ フィールドです。
 
@@ -260,7 +260,7 @@ TemplateFields の 3 番目の使用が GridView のに関するメタデータ�
 **図 16**:、日数、従業員が入っていたジョブが表示されます ([フルサイズのイメージを表示するをクリックして](using-templatefields-in-the-gridview-control-vb/_static/image48.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 GridView コントロール TemplateField により、他のフィールド コントロールと使用できるよりもデータを表示するために柔軟性の高い。 TemplateFields、状況に適しています。
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: a0b9ab31264e5cae666a69491bf4a8ee8251a86f
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 0a62a1a10e578e59e1d80579d80779d4dcf1658a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="key-encryption-at-rest"></a>キーの保存時の暗号化
 
@@ -50,7 +50,7 @@ sc.AddDataProtection()
 
 ## <a name="x509-certificate"></a>X.509 証明書
 
-*このメカニズムでは使用できません`.NET Core 1.0`または`1.1`です。*
+*このメカニズムでは利用できません`.NET Core 1.0`または`1.1`です。*
 
 アプリケーションを複数のコンピューターに分散された場合、は、残りの部分でのキーの暗号化にこの証明書を使用するアプリケーションを構成して、コンピューター間で共有の X.509 証明書を配布する便利な場合があります。 例については、以下を参照してください。
 

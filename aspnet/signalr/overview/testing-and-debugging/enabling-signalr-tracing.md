@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/enabling-signalr-tracing
 msc.type: authoredcontent
-ms.openlocfilehash: 2f01ab5d66e44cd82634f1b3df1ca6c78b7fd9d5
-ms.sourcegitcommit: c07fb5cb5df0a12f9fe6735fcbc90964608fa687
+ms.openlocfilehash: ac979acf162084a195bb769f842e77ad2498c7f3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="enabling-signalr-tracing"></a>SignalR のトレースを有効にします。
 ====================
@@ -61,7 +61,7 @@ ms.lasthandoff: 11/14/2017
 <a id="server"></a>
 ## <a name="enabling-tracing-on-the-server"></a>サーバーのトレースを有効にします。
 
-アプリケーションの構成ファイル (App.config または Web.config によっては、プロジェクトの種類のいずれかです。) 内でサーバーのトレースを有効にします。ログに記録するイベントのカテゴリを指定します。 構成ファイルにも指定する、イベントをテキスト ファイル、Windows イベント ログまたはの実装を使用してカスタムのログに記録するかどうか[TraceListener](https://msdn.microsoft.com/en-us/library/system.diagnostics.tracelistener(v=vs.110).aspx)です。
+アプリケーションの構成ファイル (App.config または Web.config によっては、プロジェクトの種類のいずれかです。) 内でサーバーのトレースを有効にします。ログに記録するイベントのカテゴリを指定します。 構成ファイルにも指定する、イベントをテキスト ファイル、Windows イベント ログまたはの実装を使用してカスタムのログに記録するかどうか[TraceListener](https://msdn.microsoft.com/library/system.diagnostics.tracelistener(v=vs.110).aspx)です。
 
 Server イベント カテゴリには、メッセージの次のようながあります。
 
@@ -87,7 +87,7 @@ Server イベント カテゴリには、メッセージの次のようながあ
 
 [!code-html[Main](enabling-signalr-tracing/samples/sample1.html)]
 
-上記のコードで、`SignalRSwitch`エントリを指定します、 [TraceLevel](https://msdn.microsoft.com/en-us/library/system.diagnostics.tracelevel(v=vs.110).aspx)指定したログに送信されるイベントのために使用します。 設定されているこの場合、`Verbose`つまり、すべてのデバッグおよびトレースのメッセージ ログに記録されます。
+上記のコードで、`SignalRSwitch`エントリを指定します、 [TraceLevel](https://msdn.microsoft.com/library/system.diagnostics.tracelevel(v=vs.110).aspx)指定したログに送信されるイベントのために使用します。 設定されているこの場合、`Verbose`つまり、すべてのデバッグおよびトレースのメッセージ ログに記録されます。
 
 次の出力からのエントリを示しています、`transports.log.txt`上記の構成ファイルを使用してアプリケーションのファイルです。 表示、新しい接続、削除された接続、およびトランスポート ハートビート イベント。
 
@@ -112,9 +112,9 @@ Server イベント カテゴリには、メッセージの次のようながあ
 <a id="net_client"></a>
 ## <a name="enabling-tracing-in-the-net-client-windows-desktop-apps"></a>.NET クライアント (Windows デスクトップ アプリ) でのトレースを有効にします。
 
-.NET クライアントをコンソールでは、テキスト ファイル、またはの実装を使用してカスタムのログにイベントがログ記録できます[TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter.aspx)です。
+.NET クライアントをコンソールでは、テキスト ファイル、またはの実装を使用してカスタムのログにイベントがログ記録できます[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx)です。
 
-.NET クライアントでのログ記録を有効にする設定の接続の`TraceLevel`プロパティを[TraceLevels](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.tracelevels(v=vs.118).aspx)値、および`TraceWriter`プロパティを有効な[TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter.aspx)インスタンス。
+.NET クライアントでのログ記録を有効にする設定の接続の`TraceLevel`プロパティを[TraceLevels](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.tracelevels(v=vs.118).aspx)値、および`TraceWriter`プロパティを有効な[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx)インスタンス。
 
 <a id="desktop_console"></a>
 ### <a name="logging-desktop-client-events-to-the-console"></a>コンソールにデスクトップ クライアント イベント ログの記録
@@ -137,23 +137,23 @@ Server イベント カテゴリには、メッセージの次のようながあ
 <a id="phone"></a>
 ## <a name="enabling-tracing-in-windows-phone-8-clients"></a>Windows Phone 8 クライアントでトレースを有効にします。
 
-SignalR アプリケーションを Windows Phone アプリのデスクトップ アプリケーションの場合と同じ .NET クライアントを使用して、 [Console.Out](https://msdn.microsoft.com/en-us/library/system.console.out(v=vs.110).aspx)でファイルを作成して[StreamWriter](https://msdn.microsoft.com/en-us/library/system.io.streamwriter(v=vs.110).aspx)は使用できません。 カスタム実装を作成する必要が代わりに、 [TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter(v=vs.110).aspx)トレースします。 
+SignalR アプリケーションを Windows Phone アプリのデスクトップ アプリケーションの場合と同じ .NET クライアントを使用して、 [Console.Out](https://msdn.microsoft.com/library/system.console.out(v=vs.110).aspx)でファイルを作成して[StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx)は使用できません。 カスタム実装を作成する必要が代わりに、 [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx)トレースします。 
 
 <a id="phone_ui"></a>
 ### <a name="logging-windows-phone-client-events-to-the-ui"></a>UI に Windows Phone クライアント イベント ログの記録
 
-[SignalR codebase](https://github.com/SignalR/SignalR/archive/master.zip)トレースに出力する Windows Phone のサンプルが含まれています、 [TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx)カスタムを使用して[TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter(v=vs.110).aspx)と呼ばれる実装`TextBlockWriter`です。 このクラスは含まれて、 **samples/Microsoft.AspNet.SignalR.Client.WP8.Samples**プロジェクト。 インスタンスを作成するときに`TextBlockWriter`、現在の渡す[SynchronizationContext](https://msdn.microsoft.com/en-us/library/system.threading.synchronizationcontext(v=vs.110).aspx)、および[StackPanel](https://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx)が作成する場所、 [TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx)トレースに使用するには出力:
+[SignalR codebase](https://github.com/SignalR/SignalR/archive/master.zip)トレースに出力する Windows Phone のサンプルが含まれています、 [TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx)カスタムを使用して[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx)と呼ばれる実装`TextBlockWriter`です。 このクラスは含まれて、 **samples/Microsoft.AspNet.SignalR.Client.WP8.Samples**プロジェクト。 インスタンスを作成するときに`TextBlockWriter`、現在の渡す[SynchronizationContext](https://msdn.microsoft.com/library/system.threading.synchronizationcontext(v=vs.110).aspx)、および[StackPanel](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx)が作成する場所、 [TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx)トレースに使用するには出力:
 
 [!code-csharp[Main](enabling-signalr-tracing/samples/sample7.cs)]
 
-トレース出力は、新規に書き込まれます[TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx)で作成した、 [StackPanel](https://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx)が渡されました。
+トレース出力は、新規に書き込まれます[TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx)で作成した、 [StackPanel](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx)が渡されました。
 
 ![](enabling-signalr-tracing/_static/image2.png)
 
 <a id="phone_debug"></a>
 ### <a name="logging-windows-phone-client-events-to-the-debug-console"></a>デバッグ コンソールに Windows Phone クライアント イベント ログの記録
 
-UI ではなく、デバッグ コンソールに出力を送信するには、実装を作成[TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter(v=vs.110).aspx)デバッグ ウィンドウに書き込みの接続に割り当てる[では](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.connection.tracewriter(v=vs.118).aspx)プロパティ。
+UI ではなく、デバッグ コンソールに出力を送信するには、実装を作成[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx)デバッグ ウィンドウに書き込みの接続に割り当てる[では](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connection.tracewriter(v=vs.118).aspx)プロパティ。
 
 [!code-csharp[Main](enabling-signalr-tracing/samples/sample8.cs)]
 

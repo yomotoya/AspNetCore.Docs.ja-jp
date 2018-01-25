@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 003a22d4b0d9400f3e9effe0892d2d7e03704cde
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3c198ccc3e3e2c11f3e2b9379bc63bd6428dbf69
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパーの概要 
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="what-are-tag-helpers"></a>タグ ヘルパーは?
 
-タグ ヘルパーでは、サーバー側コードを作成して、Razor ファイルでの HTML 要素のレンダリングに参加を有効にします。 たとえば、組み込み`ImageTagHelper`イメージ名にバージョン番号を追加することができます。 イメージが変更されるたびに、サーバーは、クライアント (古いキャッシュされた画像) ではなく現在のイメージを取得することが保証されますので、イメージの新しい一意のバージョンを生成します。 これは、フォーム、リンク、読み込みの資産および詳細 - およびさらに高いで利用できるパブリックの GitHub リポジトリとして NuGet パッケージの作成などの一般的なタスクの多くの組み込みタグ ヘルパー。 タグ ヘルパーは、C# の場合は、作成し、要素名、属性名、または親タグに基づく HTML 要素を対象にします。 たとえば、組み込み`LabelTagHelper`HTML を対象にできます`<label>`要素ときに、`LabelTagHelper`属性が適用されます。 慣れている場合[HTML ヘルパー](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers)、タグ ヘルパーは、Razor ビューでの HTML と c# の間で明示的な遷移を削減します。 多くの場合、HTML ヘルパー、別の方法を特定のタグ ヘルパーに提供するが、タグ ヘルパーの HTML ヘルパーを置き換えないし、各 HTML ヘルパーのタグ ヘルパーがないことを認識することが重要です。 [タグ ヘルパーの HTML ヘルパーと比較して](#tag-helpers-compared-to-html-helpers)詳細の相違点について説明します。
+タグ ヘルパーでは、サーバー側コードを作成して、Razor ファイルでの HTML 要素のレンダリングに参加を有効にします。 たとえば、組み込み`ImageTagHelper`イメージ名にバージョン番号を追加することができます。 イメージが変更されるたびに、サーバーは、クライアント (古いキャッシュされた画像) ではなく現在のイメージを取得することが保証されますので、イメージの新しい一意のバージョンを生成します。 これは、フォーム、リンク、読み込みの資産および詳細 - およびさらに高いで利用できるパブリックの GitHub リポジトリとして NuGet パッケージの作成などの一般的なタスクの多くの組み込みタグ ヘルパー。 タグ ヘルパーは、C# の場合は、作成し、要素名、属性名、または親タグに基づく HTML 要素を対象にします。 たとえば、組み込み`LabelTagHelper`HTML を対象にできます`<label>`要素ときに、`LabelTagHelper`属性が適用されます。 慣れている場合[HTML ヘルパー](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers)、タグ ヘルパーは、Razor ビューでの HTML と c# の間で明示的な遷移を削減します。 多くの場合、HTML ヘルパー、別の方法を特定のタグ ヘルパーに提供するが、タグ ヘルパー置き換えません。 HTML ヘルパーと、各 HTML ヘルパーのタグ ヘルパーがないことを認識することが重要です。 [タグ ヘルパーの HTML ヘルパーと比較して](#tag-helpers-compared-to-html-helpers)詳細の相違点について説明します。
 
 ## <a name="what-tag-helpers-provide"></a>タグ ヘルパーの提供
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 01/19/2018
 ```cshtml
 @tagHelperPrefix th:
 ```
-設定されているタグ ヘルパーのプレフィックス コード次の図、 `th:`、プレフィックスを使用して要素のみ`th:`タグ ヘルパー (タグ ヘルパーが有効な要素がある印象的なフォント) をサポートします。 `<label>`と`<input>`要素タグ ヘルパーのプレフィックス、タグ ヘルパーに対応している、ときに、`<span>`要素はありません。
+設定されているタグ ヘルパーのプレフィックス コード次の図、 `th:`、プレフィックスを使用して要素のみ`th:`タグ ヘルパー (タグ ヘルパーが有効な要素がある印象的なフォント) をサポートします。 `<label>`と`<input>`要素タグ ヘルパーのプレフィックス、タグ ヘルパーに対応している、ときに、`<span>`要素がありません。
 
 ![イメージ](intro/_static/thp.png)
 
@@ -192,7 +192,7 @@ IntelliSense では、行全体を記述するのに役立ちます。 `LabelTag
 <label class="caption" for="FirstName">First Name</label>
 ```
 
-Camel 形式の大文字小文字の文のコンテンツには使用されませんにコンテンツを追加する場合、`<label>`です。 例:
+コンテンツを追加する場合に使用されていない、camel 形式のコンテンツの文の大文字と小文字を区別する、`<label>`です。 例:
 
 ![イメージ](intro/_static/1stName.png)
 
@@ -222,7 +222,7 @@ Visual Studio エディターでは、背景が灰色の c# コードを表示�
 
 [!code-csharp[Main](intro/sample/Register.cshtml?range=12-18)]
 
-各「asp-」属性には"Email"の値が"Email"は文字列ではありません。 ここでは、"Email"は、c# 式のモデル プロパティ、`RegisterViewModel`です。
+各「asp-」属性には"Email"の値が"Email"が、文字列はありません。 ここでは、"Email"は、c# 式のモデル プロパティ、`RegisterViewModel`です。
 
 Visual Studio エディターでは、作成できます。**すべて**の Visual Studio で HTML ヘルパーの方法でコードのほとんどのヘルプはありません、登録フォームのタグ ヘルパーの方法でマークアップ。 [タグ ヘルパーの IntelliSense サポート](#intellisense-support-for-tag-helpers)Visual Studio エディターでタグ ヘルパーの使用方法の詳細を見ていきます。
 

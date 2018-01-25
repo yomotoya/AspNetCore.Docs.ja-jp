@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: 5f6ba0655f5dc1d043b905428a3797ed141b0fed
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: afee7b0621df42a8bc70fc6f7c4a8fd0383fa83a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>MSBuild プロジェクト ファイルから Windows PowerShell スクリプトの実行
 ====================
@@ -137,10 +137,10 @@ MSBuild からこのコマンドを呼び出す場合は、いくつか追加の
 
 ## <a name="executing-a-windows-powershell-script-on-a-remote-computer"></a>リモート コンピューター上の Windows PowerShell スクリプトの実行
 
-Windows PowerShell は経由でリモート コンピューターでスクリプトを実行できる[Windows リモート管理](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384426.aspx)(WinRM)。 これを行うには、使用する必要があります、 [Invoke-command](https://technet.microsoft.com/en-us/library/dd347578.aspx)コマンドレット。 これにより、リモート コンピューターに、スクリプトをコピーすることがなく 1 つまたは複数のリモート コンピューターに対して、スクリプトを実行できます。 スクリプトを実行した、ローカル コンピューターには、すべての結果が返されます。
+Windows PowerShell は経由でリモート コンピューターでスクリプトを実行できる[Windows リモート管理](https://msdn.microsoft.com/library/windows/desktop/aa384426.aspx)(WinRM)。 これを行うには、使用する必要があります、 [Invoke-command](https://technet.microsoft.com/library/dd347578.aspx)コマンドレット。 これにより、リモート コンピューターに、スクリプトをコピーすることがなく 1 つまたは複数のリモート コンピューターに対して、スクリプトを実行できます。 スクリプトを実行した、ローカル コンピューターには、すべての結果が返されます。
 
 > [!NOTE]
-> 使用する前に、 **Invoke-command**コマンドレットを Windows PowerShell を実行するスクリプトのリモート コンピューターで、リモートのメッセージを受け入れるように WinRM リスナーを構成する必要があります。 コマンドを実行してこれを行う**winrm quickconfig**リモート コンピューターにします。 詳細については、次を参照してください。[インストールと構成の Windows リモート管理](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384372(v=vs.85).aspx)です。
+> 使用する前に、 **Invoke-command**コマンドレットを Windows PowerShell を実行するスクリプトのリモート コンピューターで、リモートのメッセージを受け入れるように WinRM リスナーを構成する必要があります。 コマンドを実行してこれを行う**winrm quickconfig**リモート コンピューターにします。 詳細については、次を参照してください。[インストールと構成の Windows リモート管理](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx)です。
 
 
 Windows PowerShell ウィンドウを実行するこの構文を使用すると、 **LogDeploy.ps1**リモート コンピューター上のスクリプト。
@@ -179,7 +179,7 @@ Windows PowerShell はで指定したコンピューターで、スクリプト�
 
 ## <a name="further-reading"></a>関連項目
 
-Windows PowerShell スクリプトへの署名と、実行ポリシーの管理に関するガイダンスについては、次を参照してください。 [Windows PowerShell スクリプトの実行](https://technet.microsoft.com/en-us/library/ee176949.aspx)です。 リモート コンピューターから Windows PowerShell コマンドを実行する方法については、次を参照してください。[リモート コマンドの実行](https://technet.microsoft.com/en-us/library/dd819505.aspx)です。
+Windows PowerShell スクリプトへの署名と、実行ポリシーの管理に関するガイダンスについては、次を参照してください。 [Windows PowerShell スクリプトの実行](https://technet.microsoft.com/library/ee176949.aspx)です。 リモート コンピューターから Windows PowerShell コマンドを実行する方法については、次を参照してください。[リモート コマンドの実行](https://technet.microsoft.com/library/dd819505.aspx)です。
 
 展開プロセスを制御するカスタム MSBuild プロジェクト ファイルを使用する方法については、次を参照してください。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスの理解](../web-deployment-in-the-enterprise/understanding-the-build-process.md)です。
 

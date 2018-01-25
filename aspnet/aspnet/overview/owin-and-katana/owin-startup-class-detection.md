@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: a6ac34307b7558ad13684448f339ca74ade9e997
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 618f8fa23630dcf9821a54415766dc015694e535
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="owin-startup-class-detection"></a>OWIN 起動クラス検出
 ====================
@@ -79,7 +79,7 @@ ms.lasthandoff: 11/10/2017
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample8.cs?highlight=5,7,15-28,31-34)]
   
- `app.Use` OWIN パイプラインにミドルウェアを指定したコンポーネントを登録するラムダ式を使用します。 ここでは、受信要求に応答する前に受信した要求のログ記録を設定しています。 `next`パラメーターは、デリゲート ( [Func](https://msdn.microsoft.com/en-us/library/bb534960(v=vs.100).aspx) &lt; [タスク](https://msdn.microsoft.com/en-us/library/dd321424(v=vs.100).aspx) &gt; ) パイプラインの次のコンポーネントにします。 `app.Run`ラムダ式は、着信要求を処理パイプラインをフックし、応答のメカニズムを提供します。
+ `app.Use` OWIN パイプラインにミドルウェアを指定したコンポーネントを登録するラムダ式を使用します。 ここでは、受信要求に応答する前に受信した要求のログ記録を設定しています。 `next`パラメーターは、デリゲート ( [Func](https://msdn.microsoft.com/library/bb534960(v=vs.100).aspx) &lt; [タスク](https://msdn.microsoft.com/library/dd321424(v=vs.100).aspx) &gt; ) パイプラインの次のコンポーネントにします。 `app.Run`ラムダ式は、着信要求を処理パイプラインをフックし、応答のメカニズムを提供します。
      > [!NOTE]
      > 上記のコードでおがコメント アウトされている、`OwinStartup`という名前のクラスを実行しているの規約の属性としている証明書利用者`Startup`.-キーを押して***f5 キーを押して***アプリケーションを実行します。 更新を何回ヒットします。  
   

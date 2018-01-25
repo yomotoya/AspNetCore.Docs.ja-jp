@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 15d3d2c70346abad5addab5c29d4af9f238b39da
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c0c32c3dd24be5edfea3e17695753973f3fad30a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-your-site-using-visual-studio-c"></a>Visual Studio (c#) を使用して、サイトを展開します。
 ====================
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/10/2017
 
 
 > [!NOTE]
-> Visual Studio によって提供される他の展開に関連するツールのインクルード[Web セットアップ プロジェクト](https://msdn.microsoft.com/en-us/library/wx3b589t.aspx)と[Web デプロイメント プロジェクト](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en)アドイン。 Web セットアップ プロジェクトは、web サイトのコンテンツと構成については、1 つの MSI ファイルにパッケージ化します。 このオプションは、イントラネット内で展開されている web サイトまたは web サーバー上のお客様にインストールするパッケージ化された web アプリケーションを販売している会社に最も役立ちます。 この Web 展開プロジェクト追加では、Visual Studio アドインを指定する構成の違いを容易に開発環境と運用環境のビルドします。 Web セットアップ プロジェクトはこの一連のチュートリアルについては説明していませんWeb 配置プロジェクトをまとめたもの、 [*一般的な構成の相違点の間で開発および運用*](common-configuration-differences-between-development-and-production-cs.md)チュートリアルです。
+> Visual Studio によって提供される他の展開に関連するツールのインクルード[Web セットアップ プロジェクト](https://msdn.microsoft.com/library/wx3b589t.aspx)と[Web デプロイメント プロジェクト](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en)アドイン。 Web セットアップ プロジェクトは、web サイトのコンテンツと構成については、1 つの MSI ファイルにパッケージ化します。 このオプションは、イントラネット内で展開されている web サイトまたは web サーバー上のお客様にインストールするパッケージ化された web アプリケーションを販売している会社に最も役立ちます。 この Web 展開プロジェクト追加では、Visual Studio アドインを指定する構成の違いを容易に開発環境と運用環境のビルドします。 Web セットアップ プロジェクトはこの一連のチュートリアルについては説明していませんWeb 配置プロジェクトをまとめたもの、 [*一般的な構成の相違点の間で開発および運用*](common-configuration-differences-between-development-and-production-cs.md)チュートリアルです。
 
 
 ## <a name="deploying-your-site-using-the-copy-web-site-tool"></a>Web サイトのコピー ツールを使用して、サイトを展開します。
@@ -139,7 +139,7 @@ Visual Studio 内から web アプリケーションを配置する別の方法�
 
 内容は、運用環境と開発環境によって異なります。 特定のファイルがあるは珍しいことではありません。 キーの例は、アプリケーションの構成ファイル、`Web.config`です。 発行 オプションは無条件の web アプリケーション ファイルをコピーするため、開発環境でのバージョンでの運用環境のカスタマイズされた構成ファイルが上書きされます。 以降のチュートリアルでは、さらにこのトピックの内容について説明し、このような違いが存在する場合は、web アプリケーションを配置するためのヒントを提供します。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 Web サイトを展開するには、開発環境から運用環境に必要なファイルをコピーが含まれます。 前のチュートリアルでは、FileZilla のような FTP クライアントを使用してファイルを転送する方法を示しました。 このチュートリアルは、Visual Studio での 2 つの展開ツールを調べる: Web サイトのコピー ツールと、[発行] オプション。 Web サイトのコピー ツールは、ローカル コンピューターと簡単にアップロードまたは 2 台のコンピューター間でファイルをダウンロードする指定されたリモート コンピューター上のファイルを一覧表示する 2 つのペインを含むインターフェイスがある点で FTP クライアントに似ています。 発行 オプションは、明示的にプロジェクトをコンパイルし、指定した宛先にアプリケーション全体を配置するより矢印の反対のツールです。
 
@@ -149,11 +149,11 @@ Web サイトを展開するには、開発環境から運用環境に必要な�
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [Web サイトのコピー ツールで Web サイトのコピー](https://msdn.microsoft.com/en-us/library/1cc82atw.aspx)
+- [Web サイトのコピー ツールで Web サイトのコピー](https://msdn.microsoft.com/library/1cc82atw.aspx)
 - [どの i: Web サイトのコピー ツールを使用して Web サイトを展開](../../../videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool.md)(ビデオ)
-- [方法: Web アプリケーション プロジェクトを発行します。](https://msdn.microsoft.com/en-us/library/aa983453.aspx)
-- [方法: Web サイトを発行します。](https://msdn.microsoft.com/en-us/library/20yh9f1b.aspx)
-- [セットアップと Visual Studio でのデプロイ プロジェクト](https://msdn.microsoft.com/en-us/library/wx3b589t.aspx)
+- [方法: Web アプリケーション プロジェクトを発行します。](https://msdn.microsoft.com/library/aa983453.aspx)
+- [方法: Web サイトを発行します。](https://msdn.microsoft.com/library/20yh9f1b.aspx)
+- [セットアップと Visual Studio でのデプロイ プロジェクト](https://msdn.microsoft.com/library/wx3b589t.aspx)
 
 >[!div class="step-by-step"]
 [前へ](deploying-your-site-using-an-ftp-client-cs.md)

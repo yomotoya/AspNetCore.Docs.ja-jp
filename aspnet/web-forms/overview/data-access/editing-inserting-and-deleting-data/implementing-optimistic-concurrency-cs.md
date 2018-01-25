@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 50d02e8da7b7ab489e662b42d8f08ad3a99e66eb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a19e6c320838849e10d2aa397a23a0ee906bac22
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-optimistic-concurrency-c"></a>オプティミスティック同時実行制御 (c#) を実装します。
 ====================
@@ -257,7 +257,7 @@ ObjectDataSource のチュートリアルについては、以前データの変
 > 値、`OldValuesParameterFormatString`プロパティは、元の値を期待する BLL 内の入力パラメーター名にマップする必要があります。 これらのパラメーターという名前を付けてため`original_productName`、`original_supplierID`など、おくことができます、`OldValuesParameterFormatString`プロパティの値として`original_{0}`です。 、ただし、BLL メソッドの入力パラメーターが持っているかどうかのような名前`old_productName`、`old_supplierID`など、更新する必要があります、`OldValuesParameterFormatString`プロパティを`old_{0}`です。
 
 
-BLL メソッドに元の値を正しく渡す ObjectDataSource の順序で実行する必要がある 1 つの最後のプロパティ設定があります。 ObjectDataSource が、 [ConflictDetection プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx)に割り当て可能な[2 つの値のいずれかの](https://msdn.microsoft.com/en-US/library/system.web.ui.conflictoptions.aspx):
+BLL メソッドに元の値を正しく渡す ObjectDataSource の順序で実行する必要がある 1 つの最後のプロパティ設定があります。 ObjectDataSource が、 [ConflictDetection プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx)に割り当て可能な[2 つの値のいずれかの](https://msdn.microsoft.com/library/system.web.ui.conflictoptions.aspx):
 
 - `OverwriteChanges`-既定値です。BLL メソッドの元の入力パラメーターには、元の値を送信しません
 - `CompareAllValues`は、BLL メソッドには、元の値を送信オプティミスティック同時実行制御を使用する場合は、このオプションを選択します。
@@ -342,7 +342,7 @@ GridView の構成方法に関する問題のいくつかあります。 場合�
 
 同時実行制御違反が検出された (ではなくデータが上書きされる無条件で結果として得られる) していることを確認するためには、このページに次の 2 つのブラウザー ウィンドウを開く必要があります。 両方のブラウザー インスタンス Chai の編集 ボタンをクリックします。 次に、1 つだけのブラウザーで「チャイ」に名前を変更して更新 をクリックします。 更新プログラムは、成功し、GridView を新しい製品名として「チャイ」で、編集済み状態に戻す必要があります。
 
-その他のブラウザー ウィンドウ インスタンスで、ただし、製品名 テキスト ボックスであっても、"Chai"。 この 2 つ目のブラウザー ウィンドウを更新、`UnitPrice`に`25.00`です。 オプティミスティック同時実行サポートのない 2 つ目のブラウザー インスタンスでの更新 をクリックして変更、製品名戻る"Chai"、最初のブラウザー インスタンスによって行われた変更を上書きします。 採用されているオプティミスティック同時実行を使って、ただし、2 番目のブラウザー インスタンスで、[更新] ボタンをクリックすると結果で、 [DBConcurrencyException](https://msdn.microsoft.com/en-us/library/system.data.dbconcurrencyexception.aspx)です。
+その他のブラウザー ウィンドウ インスタンスで、ただし、製品名 テキスト ボックスであっても、"Chai"。 この 2 つ目のブラウザー ウィンドウを更新、`UnitPrice`に`25.00`です。 オプティミスティック同時実行サポートのない 2 つ目のブラウザー インスタンスでの更新 をクリックして変更、製品名戻る"Chai"、最初のブラウザー インスタンスによって行われた変更を上書きします。 採用されているオプティミスティック同時実行を使って、ただし、2 番目のブラウザー インスタンスで、[更新] ボタンをクリックすると結果で、 [DBConcurrencyException](https://msdn.microsoft.com/library/system.data.dbconcurrencyexception.aspx)です。
 
 
 [![同時実行制御違反が検出されると、DBConcurrencyException がスローされます。](implementing-optimistic-concurrency-cs/_static/image48.png)](implementing-optimistic-concurrency-cs/_static/image47.png)
@@ -417,7 +417,7 @@ DB の直接パターンでは、同時実行制御違反が発生した場合�
 **図 20**: 同時実行制御違反の発生時に削除が取り消されるユーザー s ([フルサイズのイメージを表示するをクリックして](implementing-optimistic-concurrency-cs/_static/image58.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 同時実行制御違反するための方法が複数、許可されたすべてのアプリケーションに存在同時実行ユーザー データを更新または削除します。 場合は、2 人のユーザーはだれでも最終書き込み"wins"内の取得、同じデータを同時に更新時に上書きして、その他のユーザーの変更に対して、このような違反は考慮されません。 また、開発者は、オプティミスティックかペシミスティック同時実行制御を実装できます。 オプティミスティック同時実行制御には、こと同時実行制御違反が頻繁とだけで更新は許可されていませんか delete コマンドは、同時実行違反を構成するが想定しています。 ペシミスティック同時実行制御では、同時実行違反とは、頻繁に行われる 1 つのユーザーの拒否する更新か delete コマンドが許されないと仮定します。 ペシミスティック同時実行制御でレコードを更新する必要がありますので、ロックのロック中に、レコードの削除の変更または他のユーザーを防ぐします。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c920dc8defe18b6f27d122c2cd1a6c6ffdaad608
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 02b1de31b9513247facc92bc6b72247865d176f9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>ASP.NET MVC アプリケーション (9 10 の) リポジトリおよび作業パターンの単位を実装します。
 ====================
@@ -45,15 +45,15 @@ ms.lasthandoff: 11/10/2017
 
 ![Repository_pattern_diagram](https://asp.net/media/2578149/Windows-Live-Writer_8c4963ba1fa3_CE3B_Repository_pattern_diagram_1df790d3-bdf2-4c11-9098-946ddd9cd884.png)
 
-このチュートリアルの一連の単体テストを作成できません。 概要については TDD リポジトリ パターンを使用して MVC アプリケーションで、次を参照してください。[チュートリアル: ASP.NET MVC で TDD を使用して](https://msdn.microsoft.com/en-us/library/ff847525.aspx)です。 リポジトリ パターンの詳細については、次のリソースを参照してください。
+このチュートリアルの一連の単体テストを作成できません。 概要については TDD リポジトリ パターンを使用して MVC アプリケーションで、次を参照してください。[チュートリアル: ASP.NET MVC で TDD を使用して](https://msdn.microsoft.com/library/ff847525.aspx)です。 リポジトリ パターンの詳細については、次のリソースを参照してください。
 
-- [リポジトリ パターン](https://msdn.microsoft.com/en-us/library/ff649690.aspx)msdn です。
+- [リポジトリ パターン](https://msdn.microsoft.com/library/ff649690.aspx)msdn です。
 - [Entity Framework 4.0 でリポジトリと作業単位のパターンを使用して](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx)Entity Framework チームのブログです。
 - [アジャイルの Entity Framework 4 リポジトリ](http://thedatafarm.com/blog/data-access/agile-entity-framework-4-repository-part-1-model-and-poco-classes/)Julie Lerman のブログの投稿の系列です。
 - [概要の HTML5 と jQuery アプリケーションでアカウントを構築](https://weblogs.asp.net/dwahlin/archive/2011/08/15/building-the-account-at-a-glance-html5-jquery-application.aspx)Dan Wahlin ブログ。
 
 > [!NOTE]
-> リポジトリと作業パターンの単位を実装する方法はたくさんあります。 クラスの作業の単位の有無は、リポジトリ クラスを使用することができます。 すべてのエンティティ型、または種類ごとに 1 つの 1 つのリポジトリを実装することができます。 種類ごとに 1 つを実装する場合は、別のクラス、ジェネリックの基底クラスと派生クラス、または抽象基本クラスおよび派生クラスを使用することができます。 リポジトリにビジネス ロジックを含めるしたり、データ アクセス ロジックに制限できます。 使用して、データベース コンテキスト クラスに抽象化レイヤーを作成することも[した IDbSet](https://msdn.microsoft.com/en-us/library/gg679233(v=vs.103).aspx)の代わりにあるインターフェイス[DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=vs.103).aspx)エンティティ セットの種類。 このチュートリアルで示すように抽象化レイヤーを実装する方法は、1 つのオプションを使用する、すべてのシナリオおよび環境の推奨設定されませんです。
+> リポジトリと作業パターンの単位を実装する方法はたくさんあります。 クラスの作業の単位の有無は、リポジトリ クラスを使用することができます。 すべてのエンティティ型、または種類ごとに 1 つの 1 つのリポジトリを実装することができます。 種類ごとに 1 つを実装する場合は、別のクラス、ジェネリックの基底クラスと派生クラス、または抽象基本クラスおよび派生クラスを使用することができます。 リポジトリにビジネス ロジックを含めるしたり、データ アクセス ロジックに制限できます。 使用して、データベース コンテキスト クラスに抽象化レイヤーを作成することも[した IDbSet](https://msdn.microsoft.com/library/gg679233(v=vs.103).aspx)の代わりにあるインターフェイス[DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx)エンティティ セットの種類。 このチュートリアルで示すように抽象化レイヤーを実装する方法は、1 つのオプションを使用する、すべてのシナリオおよび環境の推奨設定されませんです。
 
 
 ## <a name="creating-the-student-repository-class"></a>学生リポジトリ クラスを作成します。
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/10/2017
 
 リポジトリに新しいコンテキストをインスタンス化する可能性がありますが、し、1 つのコント ローラー内の複数のリポジトリを使用した各しまいますは別のコンテキストでします。 内の複数のリポジトリを使用してを後で、`Course`コント ローラー、およびする作業クラスの単体ようにする方法のすべてのリポジトリが、同じコンテキストを使用することが表示されます。
 
-リポジトリを実装する[IDisposable](https://msdn.microsoft.com/en-us/library/system.idisposable.aspx)コント ローラーは、前述のように、CRUD メソッドでは、データベース コンテキストに呼び出しを行う先ほど見たのと同じ方法では、データベース コンテキストを破棄します。
+リポジトリを実装する[IDisposable](https://msdn.microsoft.com/library/system.idisposable.aspx)コント ローラーは、前述のように、CRUD メソッドでは、データベース コンテキストに呼び出しを行う先ほど見たのと同じ方法では、データベース コンテキストを破棄します。
 
 ## <a name="change-the-student-controller-to-use-the-repository"></a>リポジトリを使用する、受講者コント ローラーの変更
 
@@ -243,9 +243,9 @@ CRUD メソッドでコンテキストの代わりに、リポジトリと呼ば
 
 ページは、検索し、変更内容は、以前と同じし、他のページのコースはまた、同じ動作と、同様に機能します。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
-リポジトリと作業パターンの単位の両方を実装しているようになりました。 ジェネリックのリポジトリ内のメソッド パラメーターとしてラムダ式を使用しています。 これらの式を使用する方法の詳細についての`IQueryable`オブジェクトを参照してください[IQueryable(T) インターフェイス (System.Linq)](https://msdn.microsoft.com/en-us/library/bb351562.aspx) MSDN ライブラリです。 次のチュートリアルの一部を処理する方法を学習には、シナリオが高度な。
+リポジトリと作業パターンの単位の両方を実装しているようになりました。 ジェネリックのリポジトリ内のメソッド パラメーターとしてラムダ式を使用しています。 これらの式を使用する方法の詳細についての`IQueryable`オブジェクトを参照してください[IQueryable(T) インターフェイス (System.Linq)](https://msdn.microsoft.com/library/bb351562.aspx) MSDN ライブラリです。 次のチュートリアルの一部を処理する方法を学習には、シナリオが高度な。
 
 その他の Entity Framework リソースへのリンクは含まれて、 [ASP.NET データ アクセス コンテンツ マップ](../../../../whitepapers/aspnet-data-access-content-map.md)です。
 

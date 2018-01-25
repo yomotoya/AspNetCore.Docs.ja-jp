@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: 98c96749781f577d9544c80f58404353d40848b2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7f1d8a1a473820a7c8da4c8086904cc41c86fd2a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="ui-and-navigation"></a>UI とナビゲーション
 ====================
@@ -282,14 +282,14 @@ Visual Studio 2013 プロジェクト テンプレートを使用して[ブー�
  Visual Studio からデータベースをデタッチするでは、データベース スキーマがこのチュートリアル シリーズの後で変更することができます。
 11. 戻る**ソリューション エクスプ ローラー**を選択して、**ソリューション エクスプ ローラー**  タブの下部にある、**サーバー エクスプ ローラー**ウィンドウです。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 系列のこのチュートリアルでは、いくつかの基本的な UI、グラフィック、ページ、およびナビゲーションを追加しました。 さらに、前のチュートリアルで追加するデータ クラスからデータベースを作成する Web アプリケーションを実行しました。 内容を表示しても、*製品*データベースを直接表示することによって、データベースのテーブルです。 チュートリアルでは、[次へ]、データ項目と、データベースからの詳細を表示します。
 
 ## <a name="additional-resources"></a>その他のリソース
 
-[ASP.NET Web Pages のプログラミングの概要](https://msdn.microsoft.com/en-us/library/ms178125.aspx)   
-[ASP.NET Web サーバー コントロールの概要](https://msdn.microsoft.com/en-us/library/zsyt68f1.aspx)   
+[ASP.NET Web Pages のプログラミングの概要](https://msdn.microsoft.com/library/ms178125.aspx)   
+[ASP.NET Web サーバー コントロールの概要](https://msdn.microsoft.com/library/zsyt68f1.aspx)   
 [CSS のチュートリアル](http://www.w3schools.com/css/default.asp)
 
 >[!div class="step-by-step"]

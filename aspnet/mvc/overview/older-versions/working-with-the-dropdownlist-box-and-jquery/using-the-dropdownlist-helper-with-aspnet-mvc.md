@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: b8393e1503cb562a46a00f49b51c0cb64ff2cfdc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 278d04aec68e93f3ebfd12d06a96b59f3bcbef4b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>ASP.NET mvc の DropDownList ヘルパーの使用
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-このチュートリアルがの操作の基礎を学習、 [DropDownList](https://msdn.microsoft.com/en-us/library/dd492948.aspx)ヘルパーと[ListBox](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.selectextensions.listbox.aspx) ASP.NET MVC Web アプリケーションでヘルパー。 Microsoft Visual Web Developer 2010 Express Service Pack 1、これは、無料版のチュートリアルに従うに Microsoft Visual Studio を使用することができます。 開始する前に、以下に示す前提条件がインストールされていることを確認してください。 次のリンクをクリックしてそれらのすべてをインストールすることができます: [Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)です。 また、次のリンクを使用して、前提条件を個別にインストールできます。
+このチュートリアルがの操作の基礎を学習、 [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx)ヘルパーと[ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) ASP.NET MVC Web アプリケーションでヘルパー。 Microsoft Visual Web Developer 2010 Express Service Pack 1、これは、無料版のチュートリアルに従うに Microsoft Visual Studio を使用することができます。 開始する前に、以下に示す前提条件がインストールされていることを確認してください。 次のリンクをクリックしてそれらのすべてをインストールすることができます: [Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)です。 また、次のリンクを使用して、前提条件を個別にインストールできます。
 
 - [Visual Studio Web Developer Express SP1 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)<a id="post"></a>
 - [ASP.NET MVC 3 Tools Update します。](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
@@ -34,7 +34,7 @@ Visual Web Developer のプロジェクトが完了したチュートリアル c
 
 ### <a name="what-youll-build"></a>新機能のビルドします。
 
-アクション メソッドとを使用するビューを作成、 [DropDownList](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.selectextensions.dropdownlist.aspx)カテゴリを選択するためのヘルパー。 使用することも、 **jQuery** (ジャンル、アーティストなど)、新しいカテゴリが必要なときに使用できる挿入カテゴリ ダイアログを追加します。 新しいジャンルを追加し、新しいアーティストの追加へのリンクを表示する作成ビューのスクリーン ショットを次に示します。
+アクション メソッドとを使用するビューを作成、 [DropDownList](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.dropdownlist.aspx)カテゴリを選択するためのヘルパー。 使用することも、 **jQuery** (ジャンル、アーティストなど)、新しいカテゴリが必要なときに使用できる挿入カテゴリ ダイアログを追加します。 新しいジャンルを追加し、新しいアーティストの追加へのリンクを表示する作成ビューのスクリーン ショットを次に示します。
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image1.png)
 
@@ -42,7 +42,7 @@ Visual Web Developer のプロジェクトが完了したチュートリアル c
 
 学習する内容を次に示します。
 
-- 使用する方法、 [DropDownList](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.selectextensions.dropdownlist.aspx)カテゴリ データを選択するためのヘルパー。
+- 使用する方法、 [DropDownList](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.dropdownlist.aspx)カテゴリ データを選択するためのヘルパー。
 - 追加する方法、 **jQuery**ダイアログ ボックスの新しいカテゴリを追加します。
 
 ### <a name="getting-started"></a>作業の開始
@@ -75,9 +75,9 @@ Ctrl キーを押しながら f5 キーを押してアプリケーションを�
 
 [!code-csharp[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample2.cs)]
 
-[DropDownList](https://msdn.microsoft.com/en-us/library/dd492738.aspx) HTML 選択リストの作成に使用されるヘルパーが必要です、 **IEnumerable&lt;SelectListItem &gt;** 、明示的または暗黙的にします。 つまりに渡すことができます、 **IEnumerable&lt;SelectListItem &gt;** 明示的に、 [DropDownList](https://msdn.microsoft.com/en-us/library/dd492738.aspx)ヘルパーを追加したり、 **IEnumerable&lt;SelectListItem &gt;** を[ViewBag](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx)に同じ名前を使用して、 **SelectListItem**モデル プロパティとします。 渡して、 **SelectListItem**暗黙的および明示的については、チュートリアルの次の部分で説明します。 上記のコードが作成する最も簡単な方法を示します、 **IEnumerable&lt;SelectListItem &gt;** し、テキストと値を設定します。 注、 `Comedy` [SelectListItem](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlistitem.aspx)が、[選択](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlistitem.selected.aspx)プロパティに設定**true;**これにより、レンダリングされた選択リストを表示する**コメディ** 、一覧で選択したアイテムとして。
+[DropDownList](https://msdn.microsoft.com/library/dd492738.aspx) HTML 選択リストの作成に使用されるヘルパーが必要です、 **IEnumerable&lt;SelectListItem &gt;** 、明示的または暗黙的にします。 つまりに渡すことができます、 **IEnumerable&lt;SelectListItem &gt;** 明示的に、 [DropDownList](https://msdn.microsoft.com/library/dd492738.aspx)ヘルパーを追加したり、 **IEnumerable&lt;SelectListItem &gt;** を[ViewBag](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx)に同じ名前を使用して、 **SelectListItem**モデル プロパティとします。 渡して、 **SelectListItem**暗黙的および明示的については、チュートリアルの次の部分で説明します。 上記のコードが作成する最も簡単な方法を示します、 **IEnumerable&lt;SelectListItem &gt;** し、テキストと値を設定します。 注、 `Comedy` [SelectListItem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx)が、[選択](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.selected.aspx)プロパティに設定**true;**これにより、レンダリングされた選択リストを表示する**コメディ** 、一覧で選択したアイテムとして。
 
-**IEnumerable&lt;SelectListItem &gt;** 作成以降に追加、 [ViewBag](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx) MovieType 名前を持つ。 これは、ここを渡す方法、 **IEnumerable&lt;SelectListItem &gt;** に暗黙的に、 [DropDownList](https://msdn.microsoft.com/en-us/library/dd492738.aspx)次に示すヘルパー。
+**IEnumerable&lt;SelectListItem &gt;** 作成以降に追加、 [ViewBag](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx) MovieType 名前を持つ。 これは、ここを渡す方法、 **IEnumerable&lt;SelectListItem &gt;** に暗黙的に、 [DropDownList](https://msdn.microsoft.com/library/dd492738.aspx)次に示すヘルパー。
 
 開く、 *Views\Home\SelectCategory.cshtml*ファイルし、マークアップを確認します。
 
@@ -85,7 +85,7 @@ Ctrl キーを押しながら f5 キーを押してアプリケーションを�
 
 3 番目の行のレイアウトに設定 Views/shared/\_単純\_Layout.cshtml で、標準のレイアウト ファイルの簡易バージョンです。 これは、表示状態に保つに、単純な HTML をレンダリングおいたします。
 
-このサンプルでは変更されません、アプリケーションの状態を使用してデータを送信するように、 **HTTP GET**ではなく、 **HTTP POST**です。 W3C のセクションを参照して[を選択する HTTP GET または POST クイック チェックリスト](http://www.w3.org/2001/tag/doc/whenToUseGet.html#checklist)です。 使用してアプリケーションを変更して、フォームの送信おはありません、ため、 [Html.BeginForm](https://msdn.microsoft.com/en-us/library/dd460344.aspx)アクション メソッド、コント ローラーとフォーム メソッドを指定できるオーバー ロード (**HTTP POST**または**HTTP GET**)。 通常のビューが含まれて、 [Html.BeginForm](https://msdn.microsoft.com/en-us/library/dd505244.aspx)パラメーターを受け取らないオーバー ロードします。 バージョンなしパラメーター既定値は、同じアクション メソッドとコント ローラーの POST バージョンにフォーム データの送信。
+このサンプルでは変更されません、アプリケーションの状態を使用してデータを送信するように、 **HTTP GET**ではなく、 **HTTP POST**です。 W3C のセクションを参照して[を選択する HTTP GET または POST クイック チェックリスト](http://www.w3.org/2001/tag/doc/whenToUseGet.html#checklist)です。 使用してアプリケーションを変更して、フォームの送信おはありません、ため、 [Html.BeginForm](https://msdn.microsoft.com/library/dd460344.aspx)アクション メソッド、コント ローラーとフォーム メソッドを指定できるオーバー ロード (**HTTP POST**または**HTTP GET**)。 通常のビューが含まれて、 [Html.BeginForm](https://msdn.microsoft.com/library/dd505244.aspx)パラメーターを受け取らないオーバー ロードします。 バージョンなしパラメーター既定値は、同じアクション メソッドとコント ローラーの POST バージョンにフォーム データの送信。
 
 次の行
 
@@ -112,7 +112,7 @@ Ctrl キーを押しながら f5 キーを押してアプリケーションを�
 
 [!code-csharp[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample6.cs)]
 
-[Enum](https://msdn.microsoft.com/en-us/library/sbbt4032(VS.80).aspx) `eMovieCategories` 4 つのムービーの種類をキャプチャします。 `SetViewBagMovieType`メソッドを作成、 **IEnumerable&lt;SelectListItem &gt;** から、 `eMovieCategories` **enum**、設定と、 `Selected` からプロパティ`selectedMovie`パラメーター。 `SelectCategoryEnum`アクション メソッドとして同じビューを使用して、`SelectCategory`アクション メソッド。
+[Enum](https://msdn.microsoft.com/library/sbbt4032(VS.80).aspx) `eMovieCategories` 4 つのムービーの種類をキャプチャします。 `SetViewBagMovieType`メソッドを作成、 **IEnumerable&lt;SelectListItem &gt;** から、 `eMovieCategories` **enum**、設定と、 `Selected` からプロパティ`selectedMovie`パラメーター。 `SelectCategoryEnum`アクション メソッドとして同じビューを使用して、`SelectCategory`アクション メソッド。
 
 テスト ページに移動し、をクリックして、`Select Movie Category (Enum)`リンクします。 このとき、表示されている値 (数)、代わりに、列挙型を表す文字列が表示されます。
 
@@ -128,7 +128,7 @@ HTML フォームは通常、サーバーへのデータの投稿に使用され
 
 ### <a name="creating-a-multiple-section-select-element"></a>複数のセクションを Select 要素を作成します。
 
-[ListBox](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.selectextensions.listbox.aspx) HTML を表示する HTML ヘルパー`<select>`を持つ要素、`multiple`属性は、複数の項目を選択することができます。 テストのリンクに移動し、選択、**複数選択国**リンクします。 表示される UI では、複数の国を選択することができます。 次の図でカナダと中国が選択されます。
+[ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) HTML を表示する HTML ヘルパー`<select>`を持つ要素、`multiple`属性は、複数の項目を選択することができます。 テストのリンクに移動し、選択、**複数選択国**リンクします。 表示される UI では、複数の国を選択することができます。 次の図でカナダと中国が選択されます。
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image8.png)
 
@@ -142,7 +142,7 @@ HTML フォームは通常、サーバーへのデータの投稿に使用され
 
 [!code-csharp[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample9.cs)]
 
-1. *項目*: [IEnumerable](https://msdn.microsoft.com/en-us/library/system.collections.ienumerable.aspx)リスト内の項目を格納します。 国の一覧の上の例。
+1. *項目*: [IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx)リスト内の項目を格納します。 国の一覧の上の例。
 2. *dataValueField*: でプロパティの名前、 **IEnumerable**値を含む一覧。 上記の例では、`ID`プロパティです。
 3. *dataTextField*: でプロパティの名前、 **IEnumerable**を表示する情報を含むリスト。 上記の例では、`name`プロパティです。
 4. *selectedValues*: 選択された値の一覧です。
@@ -151,7 +151,7 @@ HTML フォームは通常、サーバーへのデータの投稿に使用され
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample10.cshtml)]
 
-HTML ヘルパー [ListBox](https://msdn.microsoft.com/en-us/library/dd470200.aspx)メソッドでは、2 つのパラメーター、モデル バインドするプロパティの名前を受け取る前に使用され、 [MultiSelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.multiselectlist.aspx)オプションを選択し、値を格納しています。 `ViewBag.YouSelected`上記のコードを使用してフォームを送信するときに選択した国の値を表示します。 HTTP POST のオーバー ロードを調べて、`MultiSelectCountry`メソッドです。
+HTML ヘルパー [ListBox](https://msdn.microsoft.com/library/dd470200.aspx)メソッドでは、2 つのパラメーター、モデル バインドするプロパティの名前を受け取る前に使用され、 [MultiSelectList](https://msdn.microsoft.com/library/system.web.mvc.multiselectlist.aspx)オプションを選択し、値を格納しています。 `ViewBag.YouSelected`上記のコードを使用してフォームを送信するときに選択した国の値を表示します。 HTTP POST のオーバー ロードを調べて、`MultiSelectCountry`メソッドです。
 
 [!code-csharp[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample11.cs)]
 
@@ -193,7 +193,7 @@ HTML ヘルパー [ListBox](https://msdn.microsoft.com/en-us/library/dd470200.as
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-上記のコードで HTML 属性と属性値を追加するお`class = "chzn-select"`です。 @ 文字クラスの前は、Razor ビュー エンジンを行うには何も行われません。 `class`[c# キーワード](https://msdn.microsoft.com/en-us/library/x53a06bb.aspx)です。 @ プレフィックスとしてを含めない限り、c# のキーワードを識別子として使用できません。 上記の例で`@class`有効な識別子が、**クラス**ではありません**クラス**キーワードします。
+上記のコードで HTML 属性と属性値を追加するお`class = "chzn-select"`です。 @ 文字クラスの前は、Razor ビュー エンジンを行うには何も行われません。 `class`[c# キーワード](https://msdn.microsoft.com/library/x53a06bb.aspx)です。 @ プレフィックスとしてを含めない限り、c# のキーワードを識別子として使用できません。 上記の例で`@class`有効な識別子が、**クラス**ではありません**クラス**キーワードします。
 
 参照を追加、 *Chosen/chosen.jquery.js*と*Chosen/chosen.css*ファイル。 *Chosen/chosen.jquery.js*を実装して、選択したプラグインの機能的します。 *Chosen/chosen.css*ファイルは、スタイルを提供します。 一番下にこれらの参照を追加、 *Views\Home\MultiSelectCountry.cshtml*ファイル。 次のコードでは、選択したプラグインを参照する方法を示します。
 

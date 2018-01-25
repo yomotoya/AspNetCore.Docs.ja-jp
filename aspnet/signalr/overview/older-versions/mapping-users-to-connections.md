@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/mapping-users-to-connections
 msc.type: authoredcontent
-ms.openlocfilehash: 561c5739c4e8465efeb4b5d1eaf8a196dab8673f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 896bf4142ce090e39ed5697ff053cd56728318ed
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="mapping-signalr-users-to-connections-in-signalr-1x"></a>SignalR の接続 に SignalR ユーザーをマッピング 1.x
 ====================
@@ -98,7 +98,7 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="azure-table-storage"></a>Azure テーブル ストレージ
 
-次の Azure テーブル ストレージの例では、データベースの例に似ています。 すべての情報は Azure テーブル ストレージ サービスを開始する必要がありますを含みません。 詳細については、次を参照してください。 [.NET からテーブル ストレージの使用方法](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/)です。
+次の Azure テーブル ストレージの例では、データベースの例に似ています。 すべての情報は Azure テーブル ストレージ サービスを開始する必要がありますを含みません。 詳細については、次を参照してください。 [.NET からテーブル ストレージの使用方法](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/)です。
 
 次の例では、接続情報を格納するためのテーブル エンティティを示します。 ユーザー名でデータをパーティション分割し、ユーザーはいつでも複数の接続を持つことができますので、接続 id を使用して各エンティティを識別します。
 

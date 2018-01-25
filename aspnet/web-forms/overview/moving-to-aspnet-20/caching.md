@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: d3ef613f625d862314eb0bb60f083f60bb2317e5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9b229de60e09b94189f62a6bb6fa61a9973d637b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching"></a>キャッシュ
 ====================
@@ -77,12 +77,12 @@ SQL Server 7、2000、SQL キャッシュ依存関係のポーリングに基づ
 
 | **コマンド ライン スイッチ** | **目的** |
 | --- | --- |
-| -S*サーバー* | サーバー名を指定します。 |
+| -S *server* | サーバー名を指定します。 |
 | -ed | SQL キャッシュ依存のため、データベースを有効にすることを指定します。 |
-| -d*データベース\_名* | SQL キャッシュ依存のために、有効にする必要があります、データベース名を指定します。 |
-| E | その aspnet を示す\_regsql はデータベースに接続するときに Windows 認証を使用する必要があります。 |
+| -d *database\_name* | SQL キャッシュ依存のために、有効にする必要があります、データベース名を指定します。 |
+| -E | その aspnet を示す\_regsql はデータベースに接続するときに Windows 認証を使用する必要があります。 |
 | -et | 私たちが有効にすると SQL キャッシュ依存のためのデータベース テーブルを指定します。 |
-| -t*テーブル\_名* | SQL キャッシュ依存関係を有効にするデータベース テーブルの名前を指定します。 |
+| -t *table\_name* | SQL キャッシュ依存関係を有効にするデータベース テーブルの名前を指定します。 |
 
 > [!NOTE]
 > Aspnet で利用できるその他のスイッチは\_regsql.exe です。 完全な一覧について実行 aspnet\_regsql.exe - しますか? コマンド ライン。
@@ -102,7 +102,7 @@ SQL Server 7、2000、SQL キャッシュ依存関係のポーリングに基づ
 | AspNet\_SqlCacheUpdateChangeIdStoredProcedure | 変更したテーブルに対して changeId をインクリメントして通知テーブルを更新します。 ASP.NET では、この値を使用して、データが変更されたかどうかを調べます。 以下に示す、このストアド プロシージャ、トリガーによって実行された、テーブルが有効になっているときに作成します。 |
 
 
-- SQL Server トリガーと呼ばれる***テーブル\_名前*\_AspNet\_SqlCacheNotification\_トリガー**テーブルに対して作成します。 このトリガーの実行、AspNet\_SqlCacheUpdateChangeIdStoredProcedure INSERT、UPDATE、または削除を行うときにテーブルです。
+- SQL Server トリガーと呼ばれる ***テーブル\_名前 *\_AspNet\_SqlCacheNotification\_トリガー**テーブルに対して作成します。 このトリガーの実行、AspNet\_SqlCacheUpdateChangeIdStoredProcedure INSERT、UPDATE、または削除を行うときにテーブルです。
 - SQL Server の役割の名称**aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess**がデータベースに追加します。
 
 **Aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** SQL Server ロールが、AspNet に EXEC アクセス許可を持つ\_SqlCachePollingStoredProcedure です。 ポーリング モデル正常に動作するためには、aspnet にプロセス アカウントを追加する必要があります\_ChangeNotification\_ReceiveNotificationsOnlyAccess ロール。 Aspnet\_regsql.exe ツールはいないこの処理をします。
@@ -144,7 +144,7 @@ SQL キャッシュ依存関係をプログラムで定義する利点の 1 つ�
 
 [!code-csharp[Main](caching/samples/sample11.cs)]
 
-詳細情報: [https://msdn.microsoft.com/en-us/library/t9x04ed2.aspx](https://msdn.microsoft.com/en-us/library/t9x04ed2.aspx)
+詳細情報: [https://msdn.microsoft.com/library/t9x04ed2.aspx](https://msdn.microsoft.com/library/t9x04ed2.aspx)
 
 ## <a name="query-based-sql-cache-dependencies-sql-server-2005-only"></a>クエリ ベースの SQL キャッシュ依存関係 (SQL Server 2005 のみ)
 
@@ -188,7 +188,7 @@ ASP.NET の代替コントロールでは、キャッシュされたのではな
 
 ### <a name="substitution-api"></a>代替 API
 
-キャッシュされたページの動的なコンテンツをプログラムで作成するに呼び出せる、 [WriteSubstitution](https://msdn.microsoft.com/en-us/library/system.web.httpresponse.writesubstitution.aspx)メソッド ページ コードでメソッドの名前をパラメーターとして渡します。 動的なコンテンツの作成を処理するメソッドは、1 つ[HttpContext](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx)パラメーター文字列を返します。 返される文字列は、指定された場所に置換されるコンテンツです。 Substitution コントロールを宣言して使用する代わりに WriteSubstitution メソッドを呼び出すことの利点は、ことは、ページまたは UserControl オブジェクトの静的メソッドを呼び出すのではなく、任意のオブジェクトのメソッドを呼び出すことができます。
+キャッシュされたページの動的なコンテンツをプログラムで作成するに呼び出せる、 [WriteSubstitution](https://msdn.microsoft.com/library/system.web.httpresponse.writesubstitution.aspx)メソッド ページ コードでメソッドの名前をパラメーターとして渡します。 動的なコンテンツの作成を処理するメソッドは、1 つ[HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)パラメーター文字列を返します。 返される文字列は、指定された場所に置換されるコンテンツです。 Substitution コントロールを宣言して使用する代わりに WriteSubstitution メソッドを呼び出すことの利点は、ことは、ページまたは UserControl オブジェクトの静的メソッドを呼び出すのではなく、任意のオブジェクトのメソッドを呼び出すことができます。
 
 WriteSubstitution メソッドを呼び出すと、サーバーのキャッシュに変更するクライアント側のキャッシュ ページは、クライアントではキャッシュされません。 これにより、ページを今後の要求が動的コンテンツを生成するためのメソッドを呼び出すことです。
 
@@ -198,15 +198,15 @@ WriteSubstitution メソッドを呼び出すと、サーバーのキャッシ�
 
 ## <a name="controlcachepolicy-class"></a>ControlCachePolicy クラス
 
-ControlCachePolicy クラスは、ユーザー コントロールを使用するキャッシュ フラグメントのプログラムによる制御できます。 ASP.NET 内でユーザー コントロールが埋め込まれます、 [BasePartialCachingControl](https://msdn.microsoft.com/en-us/library/system.web.ui.basepartialcachingcontrol.aspx)インスタンス。 BasePartialCachingControl クラスは、キャッシュが有効な出力がユーザー コントロールを表します。
+ControlCachePolicy クラスは、ユーザー コントロールを使用するキャッシュ フラグメントのプログラムによる制御できます。 ASP.NET 内でユーザー コントロールが埋め込まれます、 [BasePartialCachingControl](https://msdn.microsoft.com/library/system.web.ui.basepartialcachingcontrol.aspx)インスタンス。 BasePartialCachingControl クラスは、キャッシュが有効な出力がユーザー コントロールを表します。
 
-アクセスするときに、 [BasePartialCachingControl.CachePolicy](https://msdn.microsoft.com/en-us/library/system.web.ui.basepartialcachingcontrol.cachepolicy.aspx)のプロパティ、 [PartialCachingControl](https://msdn.microsoft.com/en-us/library/system.web.ui.partialcachingcontrol.aspx)コントロール、有効な ControlCachePolicy オブジェクトが常に表示されます。 ただし、アクセスする場合、 [UserControl.CachePolicy](https://msdn.microsoft.com/en-us/library/system.web.ui.usercontrol.cachepolicy.aspx)のプロパティ、 [UserControl](https://msdn.microsoft.com/en-us/library/system.web.ui.usercontrol.aspx)コントロール、有効な ControlCachePolicy オブジェクト場合にのみ表示で、ユーザー コントロールがまだラップ、BasePartialCachingControl コントロールです。 ラップされていない場合、関連付けられている BasePartialCachingControl があるないため、操作しようとするプロパティによって返される ControlCachePolicy オブジェクトは例外をスローします。 ユーザー コントロールのインスタンスが例外を生成せずにキャッシュをサポートしているかどうかを確認するには、調査、 [SupportsCaching](https://msdn.microsoft.com/en-us/library/system.web.ui.controlcachepolicy.supportscaching.aspx)プロパティです。
+アクセスするときに、 [BasePartialCachingControl.CachePolicy](https://msdn.microsoft.com/library/system.web.ui.basepartialcachingcontrol.cachepolicy.aspx)のプロパティ、 [PartialCachingControl](https://msdn.microsoft.com/library/system.web.ui.partialcachingcontrol.aspx)コントロール、有効な ControlCachePolicy オブジェクトが常に表示されます。 ただし、アクセスする場合、 [UserControl.CachePolicy](https://msdn.microsoft.com/library/system.web.ui.usercontrol.cachepolicy.aspx)のプロパティ、 [UserControl](https://msdn.microsoft.com/library/system.web.ui.usercontrol.aspx)コントロール、有効な ControlCachePolicy オブジェクト場合にのみ表示で、ユーザー コントロールがまだラップ、BasePartialCachingControl コントロールです。 ラップされていない場合、関連付けられている BasePartialCachingControl があるないため、操作しようとするプロパティによって返される ControlCachePolicy オブジェクトは例外をスローします。 ユーザー コントロールのインスタンスが例外を生成せずにキャッシュをサポートしているかどうかを確認するには、調査、 [SupportsCaching](https://msdn.microsoft.com/library/system.web.ui.controlcachepolicy.supportscaching.aspx)プロパティです。
 
 ControlCachePolicy クラスを使用すると、出力キャッシュを有効にするいくつかの方法の 1 つです。 次に、出力キャッシュの有効化に使用できる方法を説明します。
 
-- 使用して、 [@ OutputCache](https://msdn.microsoft.com/en-us/library/hdxfb6cy.aspx)ディレクティブを有効にするは、宣言型のシナリオでのキャッシュを出力します。
-- 使用して、 [PartialCachingAttribute](https://msdn.microsoft.com/en-us/library/system.web.ui.partialcachingattribute.aspx)属性を分離コード ファイル内のユーザー コントロールのキャッシュを有効にします。
-- キャッシュが有効な前のメソッドのいずれかを使用してした、を使用して動的に読み込むBasePartialCachingControlインスタンスで作業してプログラムでのシナリオでキャッシュの設定を指定するControlCachePolicyクラスを使用して[System.Web.UI.TemplateControl.LoadControl](https://msdn.microsoft.com/en-us/library/system.web.ui.templatecontrol.loadcontrol.aspx)メソッドです。
+- 使用して、 [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx)ディレクティブを有効にするは、宣言型のシナリオでのキャッシュを出力します。
+- 使用して、 [PartialCachingAttribute](https://msdn.microsoft.com/library/system.web.ui.partialcachingattribute.aspx)属性を分離コード ファイル内のユーザー コントロールのキャッシュを有効にします。
+- キャッシュが有効な前のメソッドのいずれかを使用してした、を使用して動的に読み込むBasePartialCachingControlインスタンスで作業してプログラムでのシナリオでキャッシュの設定を指定するControlCachePolicyクラスを使用して[System.Web.UI.TemplateControl.LoadControl](https://msdn.microsoft.com/library/system.web.ui.templatecontrol.loadcontrol.aspx)メソッドです。
 
 ControlCachePolicy インスタンスは、コントロールの有効期間の初期化および PreRender 段階の間でのみ正常に操作できます。 PreRender 段階の後 ControlCachePolicy オブジェクトを変更する場合、コントロールが表示された後に行われた変更ことはできません (コントロールは、レンダリング段階キャッシュ済み) のキャッシュ設定に影響実際にため ASP.NET 例外をスローします。 最後に、ユーザー コントロールのインスタンス (とそのため、ControlCachePolicy オブジェクト) はプログラムで操作に使用できる場合にのみが実際にレンダリングされます。
 
@@ -216,9 +216,9 @@ ASP.NET 2.0 でのキャッシュの構成をいくつかの変更がありま�
 
 | **要素** | **説明** |
 | --- | --- |
-| **キャッシュ** | 省略可能な要素です。 グローバル アプリケーションのキャッシュ設定を定義します。 |
+| **cache** | 省略可能な要素です。 グローバル アプリケーションのキャッシュ設定を定義します。 |
 | **outputCache** | 省略可能な要素です。 アプリケーション全体の出力キャッシュ設定を指定します。 |
-| **いる** | 省略可能な要素です。 アプリケーションのページに適用できる出力キャッシュ設定を指定します。 |
+| **outputCacheSettings** | 省略可能な要素です。 アプリケーションのページに適用できる出力キャッシュ設定を指定します。 |
 | **sqlCacheDependency** | 省略可能な要素です。 ASP.NET アプリケーションの SQL キャッシュ依存関係を構成します。 |
 
 ### <a name="the-ltcachegt-element"></a>&lt;キャッシュ&gt;要素
@@ -240,7 +240,7 @@ ASP.NET 2.0 でのキャッシュの構成をいくつかの変更がありま�
 | **属性** | **説明** |
 | --- | --- |
 | **enableOutputCache** | 省略可能な**ブール**属性。 ページ出力キャッシュを有効/無効にします。 無効な場合、プログラムまたは宣言型の設定に関係なくページはキャッシュされません。 既定値は**true**です。 |
-| **enableFragmentCache** | 省略可能な**ブール**属性。 アプリケーションのフラグメント キャッシュを有効/無効にします。 関係なくページがキャッシュされず無効にした場合、 [@ OutputCache](https://msdn.microsoft.com/en-us/library/hdxfb6cy.aspx)ディレクティブまたは使用されるプロファイルをキャッシュします。 あるアップ ストリーム プロキシ サーバーとブラウザー クライアントしようとしないでくださいページ出力キャッシュを示すキャッシュ制御ヘッダーが含まれます。 既定値は**false**です。 |
+| **enableFragmentCache** | 省略可能な**ブール**属性。 アプリケーションのフラグメント キャッシュを有効/無効にします。 関係なくページがキャッシュされず無効にした場合、 [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx)ディレクティブまたは使用されるプロファイルをキャッシュします。 あるアップ ストリーム プロキシ サーバーとブラウザー クライアントしようとしないでくださいページ出力キャッシュを示すキャッシュ制御ヘッダーが含まれます。 既定値は**false**です。 |
 | **sendCacheControlHeader** | 省略可能な**ブール**属性。 取得または設定を示す値かどうか、**キャッシュ-コントロール: private**ヘッダーは既定では、出力キャッシュのモジュールによって送信されます。 既定値は**false**です。 |
 | **omitVaryStar** | 省略可能な**ブール**属性。 Http 送信を有効/無効に"**変わる場合があります: \*** "応答ヘッダー。 False で、既定の設定で、"**変わる場合があります: \*** "出力キャッシュ ページのヘッダーを送信します。 Vary ヘッダーが送信されると、これは、さまざまなキャッシュに保存するバージョンが Vary ヘッダーで指定されるものに基づいています。 たとえば、*変わる場合があります。 ユーザーのエージェント*要求を発行するユーザー エージェントに基づいてページの異なるバージョンを格納します。 既定値は**false**です。 |
 
@@ -254,7 +254,7 @@ ASP.NET 2.0 でのキャッシュの構成をいくつかの変更がありま�
 
 | **属性** | **説明** |
 | --- | --- |
-| **有効になっています。** | 必要な**ブール**属性。 変更をポーリングするかどうかを示します。 |
+| **enabled** | 必要な**ブール**属性。 変更をポーリングするかどうかを示します。 |
 | **pollTime** | 省略可能な**Int32**属性。 SqlCacheDependency がデータベース テーブルの変更をポーリングする頻度を設定します。 この値は、連続する当たりますまでのミリ秒数に対応します。 500 ミリ秒未満に設定することはできません。 既定値は、1 分です。 |
 
 ### <a name="more-information"></a>説明

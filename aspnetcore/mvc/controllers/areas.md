@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/areas
-ms.openlocfilehash: 666be2da6b38ffb538ae3888ea879a4104c8fd12
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 87bf2eaad1c13d21412051be769992411f685e2e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="areas"></a>区分
 
@@ -99,7 +99,7 @@ services.Configure<RazorViewEngineOptions>(options =>
    });
    ```
 
-1 つに注目することですの構造、*ビュー*フォルダーと考えられる重要ここで 1 つのみでありなどの他のフォルダーのコンテンツ*コント ローラー*と*モデル*は**いない**は重要です。 たとえば、する必要はありません、*コント ローラー*と*モデル*まったくフォルダーです。 これは機能するためのコンテンツ*コント ローラー*と*モデル*のコンテンツの場所としてコンパイルして .dll に取得される単なるコード、*ビュー*に要求されるまでビューが加えられました。
+1 つに注目することですの構造、*ビュー*フォルダーと考えられる重要ここで 1 つのみでありなどの他のフォルダーのコンテンツ*コント ローラー*と*モデル*は**いない**は重要です。 たとえば、する必要はありません、*コント ローラー*と*モデル*まったくフォルダーです。 これは機能するためのコンテンツ*コント ローラー*と*モデル*のコンテンツの場所としてコンパイルして .dll に取得される単なるコード、*ビュー*までに要求がビューが加えられました。
 
 フォルダー階層を定義したら、各コント ローラーが領域に関連付けられている MVC に指示する必要があります。 コント ローラー名を修飾すれば、`[Area]`属性。
 
@@ -153,7 +153,7 @@ services.Configure<RazorViewEngineOptions>(options =>
 
   TagHelper 構文:`<a asp-action="Index">Go to Product's Home Page</a>`
 
-  '区分' と 'controller' の値を指定しない必要があるおことに注意してくださいここは既に現在の要求のコンテキストで使用できる、です。 このような値と呼ばれる`ambient`値。
+  '区分' と 'controller' の値を指定しない必要があるおことに注意してください既に現在の要求のコンテキストで可能になるとは、ここです。 このような値と呼ばれる`ambient`値。
 
 * 別のコント ローラー上の別のアクションのコント ローラーに基づく領域内でのアクションからのリンクを生成します。
 

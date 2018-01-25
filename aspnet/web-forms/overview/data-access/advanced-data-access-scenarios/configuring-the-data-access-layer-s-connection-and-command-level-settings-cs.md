@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5675c1c2a1c8987412ae79707e4c20e29e0e0df6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: be81bde63d66c3a7070f31be830f7d10ba3a5f8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>データ アクセス層の接続とコマンド レベルの設定 (c#) を構成します。
 ====================
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="working-with-data-using-adonet"></a>ADO.NET を使用してデータの操作
 
-Microsoft .NET Framework には、多種多様な具体的にはデータを処理するよう設計されたクラスが含まれています。 内で見つかった、これらのクラス、 [ `System.Data`名前空間](https://msdn.microsoft.com/en-us/library/system.data.aspx)、呼びます、 *ADO.NET*クラスです。 ADO.NET でのクラスの一部は、特定に結び付けられます*データ プロバイダー*です。 ADO.NET のクラスと、基になるデータ ストア間を流れる情報を許可する通信チャネルとして、データ プロバイダーの考えることができます。 Ole Db と ODBC では、だけでなく、特定のデータベース システム向けに設計された特殊なプロバイダーと同様に、一般的なプロバイダーがあります。 たとえば、ole Db プロバイダーを使用して Microsoft SQL Server データベースに接続することはできますが、SqlClient プロバイダーははるかに効率的に設計されていますが、具体的には SQL Server 用に最適化されたです。
+Microsoft .NET Framework には、多種多様な具体的にはデータを処理するよう設計されたクラスが含まれています。 内で見つかった、これらのクラス、 [ `System.Data`名前空間](https://msdn.microsoft.com/library/system.data.aspx)、呼びます、 *ADO.NET*クラスです。 ADO.NET でのクラスの一部は、特定に結び付けられます*データ プロバイダー*です。 ADO.NET のクラスと、基になるデータ ストア間を流れる情報を許可する通信チャネルとして、データ プロバイダーの考えることができます。 Ole Db と ODBC では、だけでなく、特定のデータベース システム向けに設計された特殊なプロバイダーと同様に、一般的なプロバイダーがあります。 たとえば、ole Db プロバイダーを使用して Microsoft SQL Server データベースに接続することはできますが、SqlClient プロバイダーははるかに効率的に設計されていますが、具体的には SQL Server 用に最適化されたです。
 
 データをプログラムでアクセスするには、次のパターンがよく使用されます。
 
@@ -45,7 +45,7 @@ Microsoft .NET Framework には、多種多様な具体的にはデータを処�
 - コマンドを発行します。
 - `SELECT`クエリ、結果のレコードを処理します。
 
-これらの各手順を実行するための別の ADO.NET クラスがあります。 たとえば、SqlClient プロバイダーを使用してデータベースに接続する場合を使用して、 [ `SqlConnection`クラス](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnection(VS.80).aspx)です。 発行する、 `INSERT`、 `UPDATE`、 `DELETE`、または`SELECT`コマンドを使用して、データベースを[`SqlCommand`クラス](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.aspx)です。
+これらの各手順を実行するための別の ADO.NET クラスがあります。 たとえば、SqlClient プロバイダーを使用してデータベースに接続する場合を使用して、 [ `SqlConnection`クラス](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(VS.80).aspx)です。 発行する、 `INSERT`、 `UPDATE`、 `DELETE`、または`SELECT`コマンドを使用して、データベースを[`SqlCommand`クラス](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx)です。
 
 を除き、[トランザクション内でデータベースの変更をラッピング](../working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs.md)チュートリアルではなかった、Tableadapter の自動生成されたコードには、必要な機能が含まれているため自分低レベルの ADO.NET コードを作成するにはデータベースへの接続、コマンドを発行、データを取得およびデータ テーブルにそのデータを設定します。 ただし、これらの低レベルの設定をカスタマイズして必要がある場合もあります。 次に示す手順で、Tableadapter によって内部的に使用する ADO.NET オブジェクトを活用する方法について調べます。
 
@@ -121,7 +121,7 @@ S を拡張できるように、`ProductsTableAdapter`で、`Northwind`データ
 
 ## <a name="step-3-examining-the-command-related-properties"></a>手順 3: コマンドに関連するプロパティを確認します。
 
-TableAdapter は、既定が自動生成されるメイン クエリ`INSERT`、 `UPDATE`、および`DELETE`ステートメントです。 メイン クエリ s `INSERT`、 `UPDATE`、および`DELETE`ステートメントはコードで実装、TableAdapter s 経由で ADO.NET データ アダプター オブジェクトとして、`Adapter`プロパティです。 使用するような`Connection`、プロパティ、`Adapter`プロパティのデータ型が使用するデータ プロバイダーによって決定されます。 これらのチュートリアルは、SqlClient プロバイダーを使用するので、`Adapter`プロパティの型は[ `SqlDataAdapter`](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqldataadapter(VS.80).aspx)です。
+TableAdapter は、既定が自動生成されるメイン クエリ`INSERT`、 `UPDATE`、および`DELETE`ステートメントです。 メイン クエリ s `INSERT`、 `UPDATE`、および`DELETE`ステートメントはコードで実装、TableAdapter s 経由で ADO.NET データ アダプター オブジェクトとして、`Adapter`プロパティです。 使用するような`Connection`、プロパティ、`Adapter`プロパティのデータ型が使用するデータ プロバイダーによって決定されます。 これらのチュートリアルは、SqlClient プロバイダーを使用するので、`Adapter`プロパティの型は[ `SqlDataAdapter`](https://msdn.microsoft.com/library/system.data.sqlclient.sqldataadapter(VS.80).aspx)です。
 
 TableAdapter s`Adapter`プロパティ型の 3 つのプロパティは、`SqlCommand`を使用している問題、 `INSERT`、 `UPDATE`、および`DELETE`ステートメント。
 
@@ -129,7 +129,7 @@ TableAdapter s`Adapter`プロパティ型の 3 つのプロパティは、`SqlCo
 - `UpdateCommand`
 - `DeleteCommand`
 
-A`SqlCommand`オブジェクトは、データベースを特定のクエリを送信しなどのプロパティを持っている: [ `CommandText` ](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.commandtext.aspx)、アドホック SQL ステートメントまたは実行するストアド プロシージャが含まれていますと[ `Parameters`](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.parameters.aspx)の集合である`SqlParameter`オブジェクト。 バックアップで示したように、[データ アクセス レイヤーを作成する](../introduction/creating-a-data-access-layer-cs.md)チュートリアルでは、このコマンドのプロパティ ウィンドウからオブジェクトをカスタマイズすることができます。
+A`SqlCommand`オブジェクトは、データベースを特定のクエリを送信しなどのプロパティを持っている: [ `CommandText` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.commandtext.aspx)、アドホック SQL ステートメントまたは実行するストアド プロシージャが含まれていますと[ `Parameters`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.parameters.aspx)の集合である`SqlParameter`オブジェクト。 バックアップで示したように、[データ アクセス レイヤーを作成する](../introduction/creating-a-data-access-layer-cs.md)チュートリアルでは、このコマンドのプロパティ ウィンドウからオブジェクトをカスタマイズすることができます。
 
 TableAdapter のメインのクエリだけでなく、可変個のメソッドを含めることができます、呼び出されると、データベースへ指定したコマンドをディスパッチします。 メイン クエリのコマンド オブジェクトとすべての追加方法のコマンド オブジェクトが、tableadapter に格納されている`CommandCollection`プロパティです。
 
@@ -146,7 +146,7 @@ Let s をとってによって生成されたコードを見て、`ProductsTable
 
 TableAdapter は、1 つだけがあるため`Connection`プロパティは、接続レベルの設定を公開するためのコードはきわめて簡単です。 TableAdapter は、複数のコマンド オブジェクトを持つことができますので、コマンド レベルの設定を変更するときに次の点がもう少し複雑なして、 `InsertCommand`、 `UpdateCommand`、および`DeleteCommand`、内のコマンド オブジェクトの変数の数と共に、 `CommandCollection`プロパティ。 コマンド レベルの設定を更新するには、これらの設定をすべてのコマンド オブジェクトに反映する必要があります。
 
-たとえば、時間がかかり、異例な長い実行は TableAdapter の特定のクエリがあったことを想像してください。 TableAdapter を使用して、それらのクエリのいずれかを実行する、必要になるコマンド オブジェクトを向上させる[`CommandTimeout`プロパティ](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.commandtimeout.aspx)です。 このプロパティは、コマンドの実行を待機する秒数を指定、既定値は 30 です。
+たとえば、時間がかかり、異例な長い実行は TableAdapter の特定のクエリがあったことを想像してください。 TableAdapter を使用して、それらのクエリのいずれかを実行する、必要になるコマンド オブジェクトを向上させる[`CommandTimeout`プロパティ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.commandtimeout.aspx)です。 このプロパティは、コマンドの実行を待機する秒数を指定、既定値は 30 です。
 
 使用できるように、 `CommandTimeout` 、BLL によって調整されるようにプロパティが次のコードを追加`public`メソッドを`ProductsDataTable`手順 2. で作成される部分クラス ファイルを使用して (`ProductsTableAdapter.ConnectionAndCommandSettings.cs`)。
 
@@ -159,7 +159,7 @@ TableAdapter は、1 つだけがあるため`Connection`プロパティは、�
 > `Adapter`と`CommandCollection`としてマークされているプロパティ`private`TableAdapter 内のコードからのみアクセスを意味します。 異なり、`Connection`プロパティ、これらのアクセス修飾子は構成できません。 そのため、アーキテクチャの他のレイヤーをコマンド レベルのプロパティを公開する必要がある場合必要がありますアプローチを使用する、部分クラスを提供する上で説明した、`public`メソッドまたはプロパティに対して読み取りまたは書き込みを`private`コマンド オブジェクトです。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 型指定されたデータセット内で Tableadapter の提供をデータ アクセスの詳細と複雑さをカプセル化します。 Tableadapter を使用すると、私たちはありません、データベースへの接続、コマンドを実行またはデータ テーブルに結果を設定する ADO.NET コードの記述について心配します。 これはすべて自動的に処理ご利用の米国。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e92bb3d67141ba0ce594fd17c266bc69dda3cb5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fe4c421f248e325b69be7cad6c10bcbedf59ae5f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-vb"></a>フォーム認証の構成と高度なトピック (VB)
 ====================
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="step-1-examining-the-ltformsgt-configuration-settings"></a>手順 1: チェック、&lt;フォーム&gt;構成設定
 
-Asp.net フォーム認証システムでは、多数のアプリケーション間ごとにカスタマイズ可能な構成設定を提供します。 などの設定: チケットのフォーム認証の有効期間です。チケット; にどのような保護を適用します。どのような条件 cookie なしの認証チケットが使用されます。ログイン ページへのパスその他の情報です。 既定の値を変更するには追加、 [&lt;フォーム&gt;要素](https://msdn.microsoft.com/en-us/library/1d3t3c61.aspx)の子として、 [&lt;認証&gt;要素](https://msdn.microsoft.com/en-us/library/532aee0e.aspx)、これらのプロパティを指定します。値を XML 属性としてをカスタマイズする次のよう。
+Asp.net フォーム認証システムでは、多数のアプリケーション間ごとにカスタマイズ可能な構成設定を提供します。 などの設定: チケットのフォーム認証の有効期間です。チケット; にどのような保護を適用します。どのような条件 cookie なしの認証チケットが使用されます。ログイン ページへのパスその他の情報です。 既定の値を変更するには追加、 [&lt;フォーム&gt;要素](https://msdn.microsoft.com/library/1d3t3c61.aspx)の子として、 [&lt;認証&gt;要素](https://msdn.microsoft.com/library/532aee0e.aspx)、これらのプロパティを指定します。値を XML 属性としてをカスタマイズする次のよう。
 
 [!code-xml[Main](forms-authentication-configuration-and-advanced-topics-vb/samples/sample1.xml)]
 
@@ -46,7 +46,7 @@ Asp.net フォーム認証システムでは、多数のアプリケーション
 | cookie なし | この属性は、URL に埋め込まれている中ではなく、cookie にどのような条件下で、認証チケットが格納されているを指定します。 使用可能な値: 既定値です。UseUri です。自動検出します。および UseDeviceProfile (既定)。 手順 2 では、さらに詳しくは、この設定について説明します。 |
 | defaultUrl | ユーザーは、クエリ文字列で指定された RedirectUrl 値が存在しない場合、ログイン ページからサインインした後にリダイレクトされる URL を示します。 既定値は、default.aspx です。 |
 | ドメイン | Cookie ベースの認証チケットを使用する場合、この設定は、cookie のドメインの値を指定します。 既定値は、ブラウザー (www.yourdomain.com) などから発行されたドメインを使用すると、空の文字列です。 この場合、cookie は**されません**admin.yourdomain.com などのサブドメインに要求を作成する場合に送信されます。すべてのサブドメインに渡される cookie をする場合は、ユーザーに設定すると、ドメイン属性をカスタマイズする必要があります。 |
-| できる | 同じサーバー上の他の web アプリケーションの Url にリダイレクトされたときに認証されたユーザーを記憶するかどうかを示すブール値。 既定値は false です。 |
+| enableCrossAppRedirects | 同じサーバー上の他の web アプリケーションの Url にリダイレクトされたときに認証されたユーザーを記憶するかどうかを示すブール値。 既定値は false です。 |
 | loginUrl | ログイン ページの URL です。 既定値は login.aspx です。 |
 | name | ときに、cookie ベースの認証チケット、cookie の名前を使用します。 既定値です。ASPXAUTH です。 |
 | path | Cookie ベースの認証チケットを使用する場合、この設定は、cookie s path 属性を指定します。 Path 属性は、開発者は、特定のディレクトリ階層にクッキーのスコープを制限できます。 既定値は、/、ドメインに加えられたすべての要求に認証チケットを送信するブラウザーに通知します。 |
@@ -57,7 +57,7 @@ Asp.net フォーム認証システムでは、多数のアプリケーション
 
 **表 1**: の A の概要、&lt;フォーム&gt;要素の属性
 
-ASP.NET 2.0 以降で、既定値は、フォーム認証の値が FormsAuthenticationConfiguration クラス、.NET Framework でハードコーディングします。 変更は、Web.config ファイルで、アプリケーションごとを適用する必要があります。 これは ASP.NET 異なります 1.x では、フォーム認証の既定値、machine.config ファイルに格納されていた (、machine.config を編集で変更できませんでした。 そのため)。 ASP.NET のトピックに関する while 1.x では、する意義があることを伝えますフォーム認証のシステム設定の数がある ASP.NET 2.0 では、異なる既定値と ASP.NET のよりもそれを上回る 1.x です。 ASP.NET 1.x 環境から、アプリケーションを移行する場合は、これらの相違点に注意する必要があります。 参照してください[、&lt;フォーム&gt;要素のテクニカル ドキュメント](https://msdn.microsoft.com/en-us/library/1d3t3c61.aspx)相違点の一覧についてはします。
+ASP.NET 2.0 以降で、既定値は、フォーム認証の値が FormsAuthenticationConfiguration クラス、.NET Framework でハードコーディングします。 変更は、Web.config ファイルで、アプリケーションごとを適用する必要があります。 これは ASP.NET 異なります 1.x では、フォーム認証の既定値、machine.config ファイルに格納されていた (、machine.config を編集で変更できませんでした。 そのため)。 ASP.NET のトピックに関する while 1.x では、する意義があることを伝えますフォーム認証のシステム設定の数がある ASP.NET 2.0 では、異なる既定値と ASP.NET のよりもそれを上回る 1.x です。 ASP.NET 1.x 環境から、アプリケーションを移行する場合は、これらの相違点に注意する必要があります。 参照してください[、&lt;フォーム&gt;要素のテクニカル ドキュメント](https://msdn.microsoft.com/library/1d3t3c61.aspx)相違点の一覧についてはします。
 
 > [!NOTE]
 > タイムアウト、ドメイン、および、パスなど、いくつかのフォーム認証設定は、結果として得られるフォーム認証 cookie チケットの詳細を指定します。 Cookie、しくみ、およびそのさまざまなプロパティの詳細については、「[この Cookie チュートリアル](http://www.quirksmode.org/js/cookies.html)です。
@@ -137,7 +137,7 @@ FormsAuthenticationModule は、ログイン ページに自動的に承認さ�
 自動検出と値の設定に依存、*デバイス プロファイル*cookie ベースまたは cookie なしの認証チケットを使用するかどうかによってにします。 ASP.NET では、さまざまなデバイスとその機能、cookie をサポートしているかどうか、サポートしている JavaScript のバージョンなどのデータベースを保持します。 たびにデバイスがに沿って送信 web サーバーから web ページを要求、*ユーザー エージェント*HTTP ヘッダーをデバイスの種類を識別します。 ASP.NET では、そのデータベースで指定された、対応するこのプロファイルに指定されたユーザー エージェント文字列自動的に一致します。
 
 > [!NOTE]
-> 準拠する XML ファイルの数にこのデバイスの機能のデータベースが格納されている、[ブラウザー定義ファイルのスキーマ](https://msdn.microsoft.com/en-us/library/ms228122.aspx)です。 既定のデバイス プロファイル ファイルは、%windir%\microsoft.net\framework\v2.0.50727\config\browsers に配置されます。 アプリケーションのアプリにカスタム ファイルを追加することも\_ブラウザー フォルダーです。 詳細については、次を参照してください。 [How To: ブラウザーの種類を検出する ASP.NET Web Pages で](https://msdn.microsoft.com/en-us/library/3yekbd5b.aspx)です。
+> 準拠する XML ファイルの数にこのデバイスの機能のデータベースが格納されている、[ブラウザー定義ファイルのスキーマ](https://msdn.microsoft.com/library/ms228122.aspx)です。 既定のデバイス プロファイル ファイルは、%windir%\microsoft.net\framework\v2.0.50727\config\browsers に配置されます。 アプリケーションのアプリにカスタム ファイルを追加することも\_ブラウザー フォルダーです。 詳細については、次を参照してください。 [How To: ブラウザーの種類を検出する ASP.NET Web Pages で](https://msdn.microsoft.com/library/3yekbd5b.aspx)です。
 
 
 既定の設定は値であるため、プロファイルを持つレポート cookie をサポートしないデバイスでアクセスすると、このサイト cookie なしのフォーム認証チケットが使用されます。
@@ -199,14 +199,14 @@ Microsoft では、すべての設定を使用することを強くお勧めし�
 
 ### <a name="setting-the-validation-and-decryption-keys"></a>検証と復号化キーの設定
 
-暗号化とハッシュを暗号化および認証チケットを検証するフォームの認証システムで使用されるアルゴリズムはを通じてカスタマイズ可能な[ &lt;machineKey&gt;要素](https://msdn.microsoft.com/en-us/library/w8h3skw9.aspx)Web.config でします。表 2 のアウトライン、 &lt;machineKey&gt;要素の属性とその考えられる値です。
+暗号化とハッシュを暗号化および認証チケットを検証するフォームの認証システムで使用されるアルゴリズムはを通じてカスタマイズ可能な[ &lt;machineKey&gt;要素](https://msdn.microsoft.com/library/w8h3skw9.aspx)Web.config でします。表 2 のアウトライン、 &lt;machineKey&gt;要素の属性とその考えられる値です。
 
 | **属性** | **説明** |
 | --- | --- |
 | 復号化 | 暗号化に使用するアルゴリズムを示します。 この属性は、次の 4 つの値のいずれかを持つことができます: - 自動の既定値です。decryptionKey 属性の長さに基づいて、アルゴリズムを決定します。 -AES - を使用して、 [Advanced Encryption Standard (AES)](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard)アルゴリズムです。 DES - を使用して、[データ暗号化標準 (DES)](http://en.wikipedia.org/wiki/Data_Encryption_Standard)このアルゴリズムは、負荷の強度の弱さし、は使用できません。 -3 des - を使用して、 [Triple DES](http://en.wikipedia.org/wiki/Triple_DES)アルゴリズムで、3 回、DES アルゴリズムを適用することによって動作します。 |
 | decryptionKey | 暗号化アルゴリズムで使用される共有キー。 この値かする必要があります (復号化の値に基づいて) 適切な長さ、自動生成、またはいずれかの値が、追加の 16 進文字列である IsolateApps です。 IsolateApps を追加するには、アプリケーションごとに一意の値を使用する ASP.NET がように指示します。 既定値は、AutoGenerate, IsolateApps です。 |
 | 検証 | 検証に使用するアルゴリズムを示します。 この属性は、次の 4 つの値のいずれかを持つことができます: - AES - は Advanced Encryption Standard (AES) アルゴリズムを使用します。 MD5 の使用、[メッセージ ダイジェスト 5 (MD5)](http://en.wikipedia.org/wiki/MD5)アルゴリズムです。 -SHA1 の使用、 [SHA1](http://en.wikipedia.org/wiki/Sha1)アルゴリズム (既定)。 -3 des、Triple DES アルゴリズムを使用します。 |
-| キー validationkey キー | 検証アルゴリズムで使用される秘密キーです。 この値必要がありますか (検証の値に基づいて) 適切な長さ、自動生成、またはいずれかの値が、追加の 16 進文字列である IsolateApps です。 IsolateApps を追加するには、アプリケーションごとに一意の値を使用する ASP.NET がように指示します。 既定値は、AutoGenerate, IsolateApps です。 |
+| validationKey | 検証アルゴリズムで使用される秘密キーです。 この値必要がありますか (検証の値に基づいて) 適切な長さ、自動生成、またはいずれかの値が、追加の 16 進文字列である IsolateApps です。 IsolateApps を追加するには、アプリケーションごとに一意の値を使用する ASP.NET がように指示します。 既定値は、AutoGenerate, IsolateApps です。 |
 
 **表 2**: &lt;machineKey&gt;要素の属性
 
@@ -223,7 +223,7 @@ Web ファームの設定や、同じサーバー上のアプリケーション�
 
 [!code-xml[Main](forms-authentication-configuration-and-advanced-topics-vb/samples/sample5.xml)]
 
-詳細については、チェック アウト[How To: ASP.NET 2.0 で MachineKey を構成する](https://msdn.microsoft.com/en-us/library/ms998288.aspx)です。
+詳細については、チェック アウト[How To: ASP.NET 2.0 で MachineKey を構成する](https://msdn.microsoft.com/library/ms998288.aspx)です。
 
 > [!NOTE]
 > DecryptionKey と validationKey の値から取得されました[Steve Gibson](http://www.grc.com/stevegibson.htm)の[完璧なパスワードの web ページ](https://www.grc.com/passwords.htm)、各ページの訪問で 64 のランダムな 16 進数文字を生成します。 これらのキーを実稼働アプリケーションには、その方法を行う可能性を低くために、完璧なパスワード ページからランダムに生成されたもので上記のキーを置き換えることをお勧めすます。
@@ -233,7 +233,7 @@ Web ファームの設定や、同じサーバー上のアプリケーション�
 
 多くの web アプリケーションでは、に関する情報を表示、現在ログオンしているユーザーに対するページの表示をベースまたはします。 たとえば、web ページには、ユーザーの名前と彼女は最後にログオンの各ページの上部の隅にある日付が場合があります。 フォーム認証チケットには、現在ログオンしているユーザーのユーザー名が格納されますが、その他の情報が必要なときに、ページする必要がありますストアに移動するユーザーの通常のデータベースの認証チケットに格納されていない情報を参照します。
 
-少しのコードでは、フォーム認証チケットに追加のユーザー情報を格納おできます。 このようなデータを表現することができます、[所属クラス](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationticket.aspx)の[UserData プロパティ](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationticket.userdata.aspx)です。 これは、少量が一般的に必要なユーザーに関する情報を格納するのに便利な場所です。 プロパティが含まれる一部として認証チケットの cookie と他のチケットのフィールドのように、暗号化は、検証 UserData で指定された値は、フォーム認証システムの構成に基づいています。 既定は、UserData は、空の文字列です。
+少しのコードでは、フォーム認証チケットに追加のユーザー情報を格納おできます。 このようなデータを表現することができます、[所属クラス](https://msdn.microsoft.com/library/system.web.security.formsauthenticationticket.aspx)の[UserData プロパティ](https://msdn.microsoft.com/library/system.web.security.formsauthenticationticket.userdata.aspx)です。 これは、少量が一般的に必要なユーザーに関する情報を格納するのに便利な場所です。 プロパティが含まれる一部として認証チケットの cookie と他のチケットのフィールドのように、暗号化は、検証 UserData で指定された値は、フォーム認証システムの構成に基づいています。 既定は、UserData は、空の文字列です。
 
 認証チケットのユーザー データを格納するためには、ユーザーに固有の情報を取得し、チケット内に格納する、ログイン ページに少量のコードを記述する必要があります。 UserData が文字列型のプロパティであるために、文字列としてに格納されているデータを正しくシリアル化する必要があります。 たとえば、弊社ユーザー ストアには、各ユーザーの生年月日とその雇用者の名前が含まれていること、および認証チケットにこれらの 2 つのプロパティ値を格納するでした。 文字列にこれらの値をシリアル化、続けて雇用者名にパイプ (|)、生年月日の文字列のユーザーの日付を連結することによっておでした。 1974 年 8 月 15日 生まれたは、Northwind traders 社に対して機能する種類のユーザー、私たちがプロパティに割り当てる UserData 文字列: 1974-08-15 |Northwind traders 社です。
 
@@ -269,7 +269,7 @@ UserDataString として文字列を dim String.Concat(companyName(i)、="|"、t
 
 Dim authCookie として HttpCookie FormsAuthentication.GetAuthCookie (UserName.Text、RememberMe.Checked) を =
 
-Cookie に埋め込まれた FormAuthenticationTicket を使用するために必要がありますを呼び出して、FormAuthentication クラスの[メソッドを復号化](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.decrypt.aspx)cookie の値を渡して、します。
+Cookie に埋め込まれた FormAuthenticationTicket を使用するために必要がありますを呼び出して、FormAuthentication クラスの[メソッドを復号化](https://msdn.microsoft.com/library/system.web.security.formsauthentication.decrypt.aspx)cookie の値を渡して、します。
 
 チケットとして所属を dim FormsAuthentication.Decrypt(authCookie.Value) を =
 
@@ -277,9 +277,9 @@ Cookie に埋め込まれた FormAuthenticationTicket を使用するために�
 
 Dim newTicket 所属として新しい FormsAuthenticationTicket(ticket. を =チケットのバージョンです。チケットの名前。IssueDate、チケットします。有効期限、チケット。IsPersistent、userDataString)
 
-暗号化 (し検証) を呼び出して新しい所属インスタンス、[メソッドを暗号化](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.encrypt.aspx)authCookie にこの暗号化された (および検証済み) のデータを戻すとします。
+暗号化 (し検証) を呼び出して新しい所属インスタンス、[メソッドを暗号化](https://msdn.microsoft.com/library/system.web.security.formsauthentication.encrypt.aspx)authCookie にこの暗号化された (および検証済み) のデータを戻すとします。
 
-authCookie.Value FormsAuthentication.Encrypt(newTicket) を =
+authCookie.Value = FormsAuthentication.Encrypt(newTicket)
 
 最後に、authCookie が Response.Cookies コレクションに追加され、GetRedirectUrl メソッドをユーザーに送信する、適切なページを確認します。
 
@@ -322,7 +322,7 @@ Request.IsAuthenticated が true の場合場合 WelcomeBackMessage のテキス
 GenericPrincipal クラスではの役割が使用されていないほとんどのフォーム ベースの認証シナリオのニーズを満たしています。 既定の役割の処理が十分なできない場合はそれらのまたはカスタム IIdentity オブジェクト、ユーザーと関連付ける必要がある場合は、認証ワークフローの間にカスタム IPrincipal オブジェクトを作成し、HttpContext.User プロパティに割り当てます。
 
 > [!NOTE]
-> わかるように今後のチュートリアルについては、ときに ASP です。NET の役割のフレームワークが有効になっている型のカスタム プリンシパル オブジェクトを作成[RolePrincipal](https://msdn.microsoft.com/en-us/library/system.web.security.roleprincipal.aspx)し、フォーム認証が作成した GenericPrincipal オブジェクトが上書きされます。 これは、プリンシパルの IsInRole ロール フレームワークの API でインターフェイス メソッドをカスタマイズするためにします。
+> わかるように今後のチュートリアルについては、ときに ASP です。NET の役割のフレームワークが有効になっている型のカスタム プリンシパル オブジェクトを作成[RolePrincipal](https://msdn.microsoft.com/library/system.web.security.roleprincipal.aspx)し、フォーム認証が作成した GenericPrincipal オブジェクトが上書きされます。 これは、プリンシパルの IsInRole ロール フレームワークの API でインターフェイス メソッドをカスタマイズするためにします。
 
 
 おが考慮ありません自分たちの役割とまだ、ので、プリンシパルにカスタム IIdentity オブジェクトに関連付けることをこの時点でカスタム プリンシパルを作成する必要が唯一の理由になります。 手順 4. で、ユーザーの会社名と、タイトルは、特に、認証チケットの UserData プロパティで追加のユーザー情報を格納するについて説明しました。 ただし、UserData 情報は、認証チケットを使用してアクセスし、シリアル化された文字列でいつでも、チケットに格納されているユーザー情報を表示する必要がある UserData プロパティを解析を意味し、のみのみ。
@@ -334,7 +334,7 @@ GenericPrincipal クラスではの役割が使用されていないほとんど
 このチュートリアルでは、作成しましょうカスタム プリンシパルと id オブジェクト アプリで\_コード フォルダーです。 アプリを追加することによって開始\_コードをプロジェクトにフォルダー、ソリューション エクスプ ローラーでプロジェクト名を右クリックして - ASP.NET フォルダーの追加オプションを選択してアプリを選択\_コード。 アプリ\_コード フォルダーは、ファイル、web サイトに固有のクラスを保持する特別な ASP.NET フォルダーです。
 
 > [!NOTE]
-> アプリ\_コード フォルダーは、web サイト プロジェクトのモデルを使用したプロジェクトを管理する場合にのみ使用する必要があります。 使用している場合、 [Web アプリケーション プロジェクト モデル](https://msdn.microsoft.com/en-us/asp.net/Aa336618.aspx)標準フォルダを作成し、するクラスを追加します。 たとえば、クラスをという名前の新しいフォルダーを追加し、あるコードを配置します。
+> アプリ\_コード フォルダーは、web サイト プロジェクトのモデルを使用したプロジェクトを管理する場合にのみ使用する必要があります。 使用している場合、 [Web アプリケーション プロジェクト モデル](https://msdn.microsoft.com/asp.net/Aa336618.aspx)標準フォルダを作成し、するクラスを追加します。 たとえば、クラスをという名前の新しいフォルダーを追加し、あるコードを配置します。
 
 
 次に、2 つの新しいクラス ファイルをアプリに追加\_コード フォルダー、1 つの名前付き CustomIdentity.vb と 1 CustomPrincipal.vb をという名前です。
@@ -359,9 +359,9 @@ CustomIdentity クラスは、AuthenticationType、IsAuthenticated、および�
 
 カスタム id を使用するカスタム プリンシパル クラスと同様に CompanyName とタイトルのプロパティを含める既定 IIdentity 仕様を拡張するクラスがあるようになりました。 ASP.NET パイプラインにステップ インする準備が整いましたし、受信要求のセキュリティ コンテキストに、カスタムのプリンシパル オブジェクトを割り当てます。
 
-ASP.NET パイプラインは受信要求を受け取りし、いくつかの手順を通じてを処理します。 各手順で、特定のイベントが発生開発者は、ASP.NET パイプラインをタップし、ライフ サイクルの特定の時点で要求を修正できるようにします。 FormsAuthenticationModule は、ASP.NET を発生させるなど、待機、 [AuthenticateRequest イベント](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx)、この時点で、認証チケットを受信した要求を検査します。 認証チケットが見つかった場合は、GenericPrincipal オブジェクトが作成され、HttpContext.User プロパティに割り当てられます。
+ASP.NET パイプラインは受信要求を受け取りし、いくつかの手順を通じてを処理します。 各手順で、特定のイベントが発生開発者は、ASP.NET パイプラインをタップし、ライフ サイクルの特定の時点で要求を修正できるようにします。 FormsAuthenticationModule は、ASP.NET を発生させるなど、待機、 [AuthenticateRequest イベント](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx)、この時点で、認証チケットを受信した要求を検査します。 認証チケットが見つかった場合は、GenericPrincipal オブジェクトが作成され、HttpContext.User プロパティに割り当てられます。
 
-AuthenticateRequest イベント後に、ASP.NET パイプラインを発生させます、 [PostAuthenticateRequest イベント](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.postauthenticaterequest.aspx)するのインスタンスと FormsAuthenticationModule によって作成された GenericPrincipal オブジェクトを置き換えるおことができますが、CustomPrincipal オブジェクトです。 図 7 は、このワークフローを示しています。
+AuthenticateRequest イベント後に、ASP.NET パイプラインを発生させます、 [PostAuthenticateRequest イベント](https://msdn.microsoft.com/library/system.web.httpapplication.postauthenticaterequest.aspx)するのインスタンスと FormsAuthenticationModule によって作成された GenericPrincipal オブジェクトを置き換えるおことができますが、CustomPrincipal オブジェクトです。 図 7 は、このワークフローを示しています。
 
 
 [![PostAuthenticationRequest イベントで CustomPrincipal は、GenericPrincipal に置換します。](forms-authentication-configuration-and-advanced-topics-vb/_static/image20.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image19.png)
@@ -377,13 +377,13 @@ AuthenticateRequest イベント後に、ASP.NET パイプラインを発生さ�
 **図 08**: Global.asax ファイルの web サイトを追加 ([フルサイズのイメージを表示するをクリックして](forms-authentication-configuration-and-advanced-topics-vb/_static/image24.png))
 
 
-Global.asax の既定のテンプレートには、開始、終了など、ASP.NET パイプライン イベントの数のイベント ハンドラーが含まれています。 および[エラー イベント](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.error.aspx)、その他。 自由にこれらのイベント ハンドラーを削除するようにこのアプリケーションの必要ことはありません。 ここでは、イベントは、PostAuthenticateRequest です。 マークアップは、次のようになりますので、Global.asax ファイルを更新します。
+Global.asax の既定のテンプレートには、開始、終了など、ASP.NET パイプライン イベントの数のイベント ハンドラーが含まれています。 および[エラー イベント](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx)、その他。 自由にこれらのイベント ハンドラーを削除するようにこのアプリケーションの必要ことはありません。 ここでは、イベントは、PostAuthenticateRequest です。 マークアップは、次のようになりますので、Global.asax ファイルを更新します。
 
 [!code-aspx[Main](forms-authentication-configuration-and-advanced-topics-vb/samples/sample11.aspx)]
 
 アプリケーション\_OnPostAuthenticateRequest メソッドは、ASP.NET ランタイムが、着信する各ページ要求では、1 回 PostAuthenticateRequest イベントを発生させるたびに、実行します。 イベント ハンドラーは、ユーザーが認証され、フォーム認証によって認証されたかどうかにどうかを確認して起動します。 場合は、新しい CustomIdentity オブジェクトが作成され、現在の要求の認証チケットのコンス トラクターに渡されます。 次に、CustomPrincipal オブジェクトが作成され、CustomIdentity だけが作成したオブジェクトをコンス トラクターに渡されました。 最後に、現在の要求のセキュリティ コンテキストは、新しく作成された CustomPrincipal オブジェクトに割り当てられます。
 
--要求のセキュリティ コンテキストを持つ CustomPrincipal オブジェクトに関連付ける - 最後の手順が 2 つのプロパティをプリンシパルを割り当てることに注意してください: HttpContext.User と Thread.CurrentPrincipal です。 これら 2 つの割り当ては、方法により、ASP.NET でのセキュリティ コンテキストが処理される必要があります。 .NET Framework は、各実行中のスレッドをセキュリティ コンテキストを関連付けますこの情報はにより IPrincipal オブジェクトとして使用できる、[スレッド オブジェクト](https://msdn.microsoft.com/en-us/library/system.threading.thread.aspx)の[CurrentPrincipal プロパティ](https://msdn.microsoft.com/en-us/library/system.threading.thread.currentcontext.aspx)です。 混乱を招くは ASP.NET には、独自のセキュリティ コンテキスト情報 (HttpContext.User) です。
+-要求のセキュリティ コンテキストを持つ CustomPrincipal オブジェクトに関連付ける - 最後の手順が 2 つのプロパティをプリンシパルを割り当てることに注意してください: HttpContext.User と Thread.CurrentPrincipal です。 これら 2 つの割り当ては、方法により、ASP.NET でのセキュリティ コンテキストが処理される必要があります。 .NET Framework は、各実行中のスレッドをセキュリティ コンテキストを関連付けますこの情報はにより IPrincipal オブジェクトとして使用できる、[スレッド オブジェクト](https://msdn.microsoft.com/library/system.threading.thread.aspx)の[CurrentPrincipal プロパティ](https://msdn.microsoft.com/library/system.threading.thread.currentcontext.aspx)です。 混乱を招くは ASP.NET には、独自のセキュリティ コンテキスト情報 (HttpContext.User) です。
 
 特定のシナリオで、Thread.CurrentPrincipal プロパティが検査のセキュリティ コンテキストを決定するとき他のシナリオでは、HttpContext.User が使用されます。 たとえば、開発者宣言によってどのようなユーザーの状態に使用できる .NET のセキュリティ機能があるまたはロールのクラスのインスタンスを作成または固有のメソッドを呼び出すことができます (を参照してください[ビジネス レイヤーを使用してデータを承認規則を追加します。PrincipalPermissionAttributes](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx))。 背後は、これらの宣言方法は、Thread.CurrentPrincipal プロパティを使用してセキュリティ コンテキストを決定します。
 
@@ -399,7 +399,7 @@ ASP.NET ランタイムは、ご利用の米国、これらのプロパティ値
 
 [!code-vb[Main](forms-authentication-configuration-and-advanced-topics-vb/samples/sample12.vb)]
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、Web.config を使用して、フォーム認証システムの設定をカスタマイズする方法を確認します。認証チケットの有効期限を処理する方法と、暗号化と検証のセーフガードの範囲を使用して検査と変更からチケットを保護する方法について説明しました。 最後に、認証チケットの UserData プロパティを使ってカスタム プリンシパル オブジェクトと id オブジェクトを使用して、複数の開発者向けの方法でこの情報を公開する方法と、それ自体がチケットの追加のユーザー情報を格納するについて説明します。
 
@@ -412,23 +412,23 @@ ASP.NET ランタイムは、ご利用の米国、これらのプロパティ値
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
 - [フォーム認証の分解](http://aspnet.4guysfromrolla.com/articles/072005-1.aspx)
-- [ASP.NET 2.0 でフォーム認証をについて説明します。](https://msdn.microsoft.com/en-us/library/aa480476.aspx)
-- [方法: ASP.NET 2.0 でフォーム認証を保護します。](https://msdn.microsoft.com/en-us/library/ms998310.aspx)
+- [ASP.NET 2.0 でフォーム認証をについて説明します。](https://msdn.microsoft.com/library/aa480476.aspx)
+- [方法: ASP.NET 2.0 でフォーム認証を保護します。](https://msdn.microsoft.com/library/ms998310.aspx)
 - [プロフェッショナル向けの ASP.NET 2.0 セキュリティ、メンバーシップ、およびロール管理](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html)(ISBN: 978-0-7645-9698-8)
-- [ログイン コントロールのセキュリティ保護](https://msdn.microsoft.com/en-us/library/ms178346.aspx)
-- [&lt;認証&gt;要素](https://msdn.microsoft.com/en-us/library/532aee0e.aspx)
-- [&lt;フォーム&gt;要素&lt;認証&gt;](https://msdn.microsoft.com/en-us/library/1d3t3c61.aspx)
-- [&lt;MachineKey&gt;要素](https://msdn.microsoft.com/en-us/library/w8h3skw9.aspx)
+- [ログイン コントロールのセキュリティ保護](https://msdn.microsoft.com/library/ms178346.aspx)
+- [&lt;認証&gt;要素](https://msdn.microsoft.com/library/532aee0e.aspx)
+- [&lt;フォーム&gt;要素&lt;認証&gt;](https://msdn.microsoft.com/library/1d3t3c61.aspx)
+- [&lt;MachineKey&gt;要素](https://msdn.microsoft.com/library/w8h3skw9.aspx)
 - [フォーム認証チケットと Cookie を理解します。](https://support.microsoft.com/kb/910443)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>このチュートリアルに含まれるトピックに関するビデオ トレーニング
 
 - [フォーム認証のプロパティを変更する方法](../../../videos/authentication/how-to-change-the-forms-authentication-properties.md)
 - [ASP.NET アプリケーションでクッキーのない認証をセットアップして使用する方法](../../../videos/authentication/how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application.md)
-- [ASP フォーム ログインの再配置](../../../videos/authentication/asp-forms-login-relocation.md)
-- [フォーム ログイン カスタム キーの構成](../../../videos/authentication/forms-login-custom-key-configuration.md)
-- [認証方法にカスタム データを追加します。](../../../videos/authentication/add-custom-data-to-the-authentication-method.md)
-- [使用するカスタム プリンシパル オブジェクト](../../../videos/authentication/use-custom-principal-objects.md)
+- [ASP フォーム ログイン再配置](../../../videos/authentication/asp-forms-login-relocation.md)
+- [フォーム ログイン カスタム キー構成](../../../videos/authentication/forms-login-custom-key-configuration.md)
+- [認証方法にカスタム データを追加する](../../../videos/authentication/add-custom-data-to-the-authentication-method.md)
+- [カスタム プリンシパル オブジェクトを使用する](../../../videos/authentication/use-custom-principal-objects.md)
 
 ### <a name="about-the-author"></a>作成者について
 

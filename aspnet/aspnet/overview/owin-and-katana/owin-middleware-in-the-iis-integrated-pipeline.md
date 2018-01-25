@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 42851cb9b8046ca4f70894b9ec5b671b269da04c
-ms.sourcegitcommit: 97432cbf9b8673bc4ad7012d5b6f2ed273420295
+ms.openlocfilehash: 4e1270f9fb58032d22380117f4ec18b00bd725fc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>IIS 統合パイプラインの OWIN ミドルウェア
 ====================
@@ -36,9 +36,9 @@ ms.lasthandoff: 11/17/2017
 
 ## <a name="how-owin-middleware-executes-in-the-iis-integrated-pipeline"></a>IIS 統合パイプラインの OWIN ミドルウェアを実行する方法
 
-、コンソール アプリケーションの OWIN アプリケーション パイプライン ビルドを使用して、[起動構成](owin-startup-class-detection.md)を使用して、コンポーネントが追加された順序によって設定されている、`IAppBuilder.Use`メソッドです。 OWIN パイプライン、 [Katana](an-overview-of-project-katana.md)ランタイムを使用して、登録済みの順序で OMCs の処理は`IAppBuilder.Use`します。 要求パイプラインは、IIS 統合パイプラインの[HttpModules](https://msdn.microsoft.com/en-us/library/ms178468(v=vs.85).aspx)など、定義済みの一連のパイプライン イベントにサブスクライブしている[BeginRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.beginrequest.aspx)、 [AuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx)、 [AuthorizeRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authorizerequest.aspx), などです。
+、コンソール アプリケーションの OWIN アプリケーション パイプライン ビルドを使用して、[起動構成](owin-startup-class-detection.md)を使用して、コンポーネントが追加された順序によって設定されている、`IAppBuilder.Use`メソッドです。 OWIN パイプライン、 [Katana](an-overview-of-project-katana.md)ランタイムを使用して、登録済みの順序で OMCs の処理は`IAppBuilder.Use`します。 要求パイプラインは、IIS 統合パイプラインの[HttpModules](https://msdn.microsoft.com/library/ms178468(v=vs.85).aspx)など、定義済みの一連のパイプライン イベントにサブスクライブしている[BeginRequest](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx)、 [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx)、 [AuthorizeRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx), などです。
 
-比較、OMC の場合、 [HttpModule](https://msdn.microsoft.com/en-us/library/zec9k340(v=vs.85).aspx)世界では、ASP.NET、OMC を正しい定義済みのパイプラインのイベントに登録する必要があります。 HttpModule など`MyModule`要求を受信ときに呼び出されるが、 [AuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx)パイプラインのステージで。
+比較、OMC の場合、 [HttpModule](https://msdn.microsoft.com/library/zec9k340(v=vs.85).aspx)世界では、ASP.NET、OMC を正しい定義済みのパイプラインのイベントに登録する必要があります。 HttpModule など`MyModule`要求を受信ときに呼び出されるが、 [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx)パイプラインのステージで。
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample2.cs?highlight=10)]
 
@@ -57,7 +57,7 @@ OMC この、イベント ベースの同時実行の順序に参加するため
 
 [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample5.cmd)]
 
-Katana ランタイムをマップする OWIN ミドルウェア コンポーネントの各[PreExecuteRequestHandler](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.prerequesthandlerexecute.aspx) IIS パイプライン イベントに対応する既定では、 [PreRequestHandlerExecute](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.prerequesthandlerexecute.aspx)です。
+Katana ランタイムをマップする OWIN ミドルウェア コンポーネントの各[PreExecuteRequestHandler](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx) IIS パイプライン イベントに対応する既定では、 [PreRequestHandlerExecute](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx)です。
 
 ## <a name="stage-markers"></a>ステージ マーカー
 
@@ -65,7 +65,7 @@ Katana ランタイムをマップする OWIN ミドルウェア コンポーネ
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample6.cs?highlight=13,19)]
 
-`app.UseStageMarker(PipelineStage.Authenticate)`呼び出しパイプラインの認証段階で実行する (ここでは、2 つの診断コンポーネント) のすべての以前に登録したミドルウェア コンポーネントを構成します。 実行されます (これ診断を表示し、要求に応答) の最後のミドルウェア コンポーネント、`ResolveCache`ステージ (、 [ResolveRequestCache](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.resolverequestcache.aspx)イベント)。
+`app.UseStageMarker(PipelineStage.Authenticate)`呼び出しパイプラインの認証段階で実行する (ここでは、2 つの診断コンポーネント) のすべての以前に登録したミドルウェア コンポーネントを構成します。 実行されます (これ診断を表示し、要求に応答) の最後のミドルウェア コンポーネント、`ResolveCache`ステージ (、 [ResolveRequestCache](https://msdn.microsoft.com/library/system.web.httpapplication.resolverequestcache.aspx)イベント)。
 
 F5 キーを押して、アプリを実行します。次は、出力ウィンドウを示しています。
 

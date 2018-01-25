@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: a86fae5698c54a71cb598f508aa91e7d96d1b409
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c1fa5d31f68b44bfdfda61c870a6825eeba18647
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -144,7 +144,7 @@ ASP.NET MVC のドキュメントは、次の URL で MSDN Web サイトで入�
 [https://www.asp.net/mvc/](../mvc/index.md)
 
 <a id="support"></a>
-## <a name="support"></a>Support
+## <a name="support"></a>サポート
 
 これは、完全にサポートされるリリースです。 テクニカル サポートについての情報が見つかりません、 [Microsoft サポート web サイト](https://support.microsoft.com/)です。
 
@@ -165,7 +165,7 @@ ASP.NET MVC 3 は、する柔軟性が ASP.NET MVC 3、ASP.NET MVC 2 アプリ�
     - /Views/Web.config
     - /packages.config
     - /scripts/\*.js
-    - /コンテンツ/テーマ/\*です。\*
+    - /Content/themes/\*.\*
 3. コピー、*パッケージ*ソリューションの .sln ファイルがあるディレクトリでは、ソリューションのルートには、空の ASP.NET MVC 3 プロジェクト ソリューションのルートにフォルダーです。
 4. ASP.NET MVC 2 プロジェクトにすべての領域が含まれている場合、/Views/Web.config ファイルのコピー、*ビュー*区分のフォルダーです。
 5. ASP.NET MVC 2 プロジェクトの両方の Web.config ファイルでグローバル検索し、ASP.NET MVC のバージョンを置換します。 次を検索します。 
@@ -178,8 +178,8 @@ ASP.NET MVC 3 は、する柔軟性が ASP.NET MVC 3、ASP.NET MVC 2 アプリ�
 6. ソリューション エクスプ ローラーへの参照を削除*System.Web.Mvc* (指し示します DLL バージョン 2 から) への参照を追加し、 *System.Web.Mvc* (v3.0.0.0)。
 7. System.Web.WebPages.dll および System.Web.Helpers.dll への参照を追加します。 これらのアセンブリは、次のフォルダーに配置されます。 
 
-    - %ProgramFiles%\Microsoft ASP.NET\ASP.NET MVC 3\Assemblies
-    - %ProgramFiles%\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\Assemblies
+    - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET MVC 3\Assemblies
+    - %ProgramFiles%\ Microsoft ASP.NET\ASP.NET Web Pages\v1.0\Assemblies
 8. ソリューション エクスプ ローラーでプロジェクト名を右クリックし、プロジェクトのアンロードを選択します。 [プロジェクト名を再度右クリックして編集] を選択*ProjectName*.csproj です。
 9. 検索、 *ProjectTypeGuids*要素と置換 {f85e285d-a4e0-4152-9332-ab1d724d3325} を {e53f8fea-eae0-44a6-8774-ffd645390401} です。
 10. 変更を保存し、プロジェクトを右クリックし、プロジェクトの再読み込みを選択します。
@@ -251,7 +251,7 @@ ASP.NET MVC 3 は、する柔軟性が ASP.NET MVC 3、ASP.NET MVC 2 アプリ�
 
 プロジェクト テンプレートの一覧には、新しいイントラネット アプリケーション テンプレートが含まれています。 このテンプレートには、フォーム認証ではなく Windows 認証を使用して web アプリケーションを構築するための設定が含まれています。 イントラネット アプリケーションには、プロジェクトのテンプレートにカプセル化することはできませんのある IIS 設定が必要であるため、テンプレートには、プロジェクト テンプレートを IIS で使用する方法についての記載された readme ファイルが含まれます。 ドキュメントを新しいイントラネット アプリケーション テンプレートは、次の URL で MSDN web サイトで使用できます。
 
-[https://msdn.microsoft.com/en-us/library/gg703322 (VS.98).aspx](https://msdn.microsoft.com/en-us/library/gg703322(VS.98).aspx)
+[https://msdn.microsoft.com/library/gg703322(VS.98).aspx](https://msdn.microsoft.com/library/gg703322(VS.98).aspx)
 
 #### <a name="project-templates-are-now-html5-enabled"></a>プロジェクト テンプレートが HTML5 に対応
 
@@ -465,7 +465,7 @@ ASP.NET MVC 3 のプロジェクト テンプレートが加わりました最�
 - ASP.NET MVC の以前のバージョンでは、アクション フィルターは、いくつかの場合を除く要求ごと作成されました。 この動作が保証された動作しますが、実装の詳細だけを実行されていないと、フィルターのコントラクトがステートレスを検討するでした。 ASP.NET MVC 3 では、フィルターは積極的にキャッシュされます。 したがって、不適切なインスタンスの状態を格納する任意のカスタム アクション フィルターは壊れている可能性があります。
 - 例外フィルターが同じであるため、例外フィルターの実行の順序が変更された*順序*値。 ASP.NET MVC 2 以前のバージョンで同じがあったコント ローラー上の例外がフィルター*順序*例外フィルター、アクション メソッドにする前に実行されたアクション メソッドのように値します。 例外フィルターが適用されたときに、大文字と小文字を一般にこのように、指定したせず*順序*値。 ASP.NET MVC 3 では、この順序が逆になりました最も固有の例外ハンドラーが最初に実行できるようにします。 以前のバージョンと場合、*順序*プロパティが明示的に指定されて、フィルターは、指定した順序で実行されます。
 - という名前の新しいプロパティ*FileExtensions*に追加された、 *VirtualPathProviderViewEngine*基本クラスです。 ASP.NET では、名前ではなく) パスを使用して、ビューを検索、この新しいプロパティで指定されたリストに含まれるファイル拡張子を持つビューのみが考慮されます。 これは、Web フォーム ビューのカスタムのファイル拡張子を有効にするために、カスタム ビルド プロバイダーが登録されているプロバイダーが名前ではなく、完全なパスを使用してそれらのビューを参照し、アプリケーションで重大な変更です。 回避策がの値を変更するには、 *FileExtensions*プロパティにカスタムのファイル拡張子を含めます。
-- 直接実装するカスタム コント ローラー ファクトリの実装、 *IControllerFactory*インターフェイスは、新しい実装を提供する必要があります*GetControllerSessionBehavior* *このリリースでは、インターフェイスに追加されたメソッドに*です。 一般に、お勧めするこのインターフェイスを直接実装およびしない代わりに、クラスから派生させる*DefaultControllerFactory*です。
+- 直接実装するカスタム コント ローラー ファクトリ実装、 *IControllerFactory*インターフェイスは、新しい実装を提供する必要があります*GetControllerSessionBehavior * * に追加されたメソッドにはこのリリースではインターフェイス*です。 一般に、お勧めするこのインターフェイスを直接実装およびしない代わりに、クラスから派生させる*DefaultControllerFactory*です。
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>既知の問題
@@ -519,7 +519,7 @@ NuGet の詳細については、読み取り、 [Nuget のドキュメント](h
 <a id="_Toc276711788"></a>
 ### <a name="sessionless-controllers"></a>Sessionless コント ローラー
 
-新しい*ControllerSessionStateAttribute*うえでセッション状態の動作をより細かく制御コント ローラーを指定して、 [System.Web.SessionState.SessionStateBehavior](https://msdn.microsoft.com/en-us/library/system.web.sessionstate.sessionstatebehavior.aspx)列挙値。
+新しい*ControllerSessionStateAttribute*うえでセッション状態の動作をより細かく制御コント ローラーを指定して、 [System.Web.SessionState.SessionStateBehavior](https://msdn.microsoft.com/library/system.web.sessionstate.sessionstatebehavior.aspx)列挙値。
 
 次の例では、コント ローラーへのすべての要求のセッション状態をオフにする方法を示します。
 
@@ -743,7 +743,7 @@ ASP.NET MVC には、次のよう Ajax ヘルパー メソッドが含まれま�
 
 これらのメソッドでは、JavaScript を使用して、完全なポストバックを使用するのではなく、サーバーでアクション メソッドを呼び出します。 この機能は利用するために jQuery の控えめな方法で更新されました。 インライン クライアント スクリプトをそのままの状態生成ではなくこれらのヘルパー メソッドの動作から分離マークアップを使用して HTML5 属性を生成することによって、*データ ajax*プレフィックス。 マークアップには、動作は、適切な JavaScript ファイルを参照することによって適用されます。 次の JavaScript ファイルが参照されていることを確認します。
 
-- jquery 1.4.1.js
+- jquery-1.4.1.js
 - jquery.unobtrusive.ajax.js
 
 この機能は、ASP.NET MVC 3 プロジェクト、新しいテンプレートにある Web.config ファイルで既定で有効が、既存のプロジェクトに既定で無効にします。 詳細については、次を参照してください。[クライアント検証と控えめな JavaScript アプリケーション全体のフラグを追加](#0.1_AddedApplicationWideFlagsForClientValida)このドキュメントで後述します。
@@ -760,7 +760,7 @@ ASP.NET MVC には、次のよう Ajax ヘルパー メソッドが含まれま�
 
 また、次の JavaScript ファイルが参照されていることを確認してください。
 
-- jquery 1.4.1.js
+- jquery-1.4.1.js
 - jquery.validate.js
 - jquery.validate.unobtrusive.js
 

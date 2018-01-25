@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 659976d40f6109422f222d794b54d837faeb0764
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 284f3bebcd07c9cc70b3a7d645f353f5797889a7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-c"></a>BLL および DAL レベルの例外 (c#) の処理
 ====================
@@ -101,7 +101,7 @@ ObjectDataSource ウィザードを完了すると、Visual Studio が自動的�
 
 例外の詳細を割り当てます例外が発生したときに、`ExceptionDetails`ラベル コントロールの`Text`プロパティです。 以降のポストバックで、そのビュー ステートが無効になるので、`Text`どうかを示すプロパティ %s、失われます、既定のテキスト (空の文字列)、これにより、警告メッセージを非表示に戻します。
 
-ページで便利なメッセージを表示するために、エラーが発生したときを特定する必要がありますを追加する、`Try ... Catch`へのブロック、`UpdateCommand`イベント ハンドラー。 `Try`部分には、例外につながる可能性のあるコードが含まれています。 中に、`Catch`ブロックには、例外発生した場合に実行されるコードが含まれています。 チェック アウト、[例外処理の基本事項](https://msdn.microsoft.com/en-us/library/2w8f0bss.aspx)詳細については、.NET Framework のドキュメントのセクションで、`Try ... Catch`ブロックします。
+ページで便利なメッセージを表示するために、エラーが発生したときを特定する必要がありますを追加する、`Try ... Catch`へのブロック、`UpdateCommand`イベント ハンドラー。 `Try`部分には、例外につながる可能性のあるコードが含まれています。 中に、`Catch`ブロックには、例外発生した場合に実行されるコードが含まれています。 チェック アウト、[例外処理の基本事項](https://msdn.microsoft.com/library/2w8f0bss.aspx)詳細については、.NET Framework のドキュメントのセクションで、`Try ... Catch`ブロックします。
 
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample5.cs)]
@@ -128,7 +128,7 @@ ObjectDataSource ウィザードを完了すると、Visual Studio が自動的�
 **図 5**: のエラー メッセージが表示されるときに入力マイナスの価格 ([フルサイズのイメージを表示するをクリックして](handling-bll-and-dal-level-exceptions-cs/_static/image13.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ObjectDataSource、GridView、更新と削除のワークフローの間に発生した例外だけでなく、例外がされているかどうかを示すために設定できるプロパティに関する情報を含むレベルの後のイベント ハンドラーを提供します。処理されます。 これらの機能では、ただし、利用できない場合に、DataList 操作および BLL を直接使用します。 代わりに、例外処理を実装する責任はします。
 
@@ -142,7 +142,7 @@ ObjectDataSource、GridView、更新と削除のワークフローの間に発�
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [例外のデザイン ガイドライン](https://msdn.microsoft.com/en-us/library/ms298399.aspx)
+- [例外のデザインのガイドライン](https://msdn.microsoft.com/library/ms298399.aspx)
 - [エラー ログ モジュールとハンドラー (ELMAH)](http://workspaces.gotdotnet.com/elmah) (エラーのログ記録のオープン ソース ライブラリ)
 - [Enterprise Library for .NET Framework 2.0](https://www.microsoft.com/downloads/details.aspx?familyid=5A14E870-406B-4F2A-B723-97BA84AE80B5&amp;displaylang=en) (例外管理アプリケーション ブロックが含まれています)
 

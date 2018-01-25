@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: c375fe6ea98c621012eb55589c8b174c2a95b697
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2446f4734e9bb1ab6829001f6e7888c4c14ee1b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-razor-pages-tutorial-5-of-8"></a>EF コア Razor ページのチュートリアル (5/8) に、複雑なデータ モデルを作成します。
 
@@ -49,9 +49,9 @@ ms.lasthandoff: 01/19/2018
 * `mailto:`リンクが自動的に作成`DataType.EmailAddress`です。
 * 日付の選択が提供される`DataType.Date`ほとんどのブラウザーでします。
 
-`DataType`属性は、HTML 5 を出力`data-`HTML 5 ブラウザーを使用する (と読みますデータ dash) の属性です。 `DataType`属性は、検証を渡さないようにします。
+`DataType`属性は、HTML 5 を出力`data-`HTML 5 ブラウザーを使用する (と読みますデータ dash) の属性です。 `DataType`属性は、検証を提供しません。
 
-`DataType.Date` は、表示される日付の書式を指定しません。 既定では、基に、サーバーの既定の形式に従って日付フィールドを表示[CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support)です。
+`DataType.Date`表示される日付の形式で指定されていません。 既定では、基に、サーバーの既定の形式に従って日付フィールドを表示[CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support)です。
 
 `DisplayFormat` 属性は、日付の書式を明示的に指定するために使用されます。
 
@@ -284,7 +284,7 @@ public Instructor Instructor { get; set; }
 
 EF コアは、モデルに関連するエンティティのナビゲーション プロパティがある場合、データ モデルの外部キー プロパティを必要はありません。
 
-EF コアを使用、データベースには、必要に応じての FKs が自動的に作成します。 EF コア作成[プロパティをシャドウ](https://docs.microsoft.com/ef/core/modeling/shadow-properties)自動的に作成された FKs 用です。 データ モデル内に、外部キーを含めると、簡単かつ効率的に更新を行うことができます。 たとえば、モデル、FK プロパティ`DepartmentID`は*いない*含まれています。 ときにコース エンティティは編集にフェッチされます。
+EF コア自動的に FKs データベースを作成している必要な場所です。 EF コア作成[プロパティをシャドウ](https://docs.microsoft.com/ef/core/modeling/shadow-properties)自動的に作成された FKs 用です。 データ モデル内に、外部キーを含めると、簡単かつ効率的に更新を行うことができます。 たとえば、モデル、FK プロパティ`DepartmentID`は*いない*含まれています。 ときにコース エンティティは編集にフェッチされます。
 
 * `Department`エンティティが明示的に読み込まれている場合は null です。
 * Course エンティティを更新する、`Department`エンティティをフェッチ最初必要があります。
@@ -376,7 +376,7 @@ public ICollection<Course> Courses { get; set; }
 たとえば場合、`Department.InstructorID`プロパティが null 許容型として定義されていません。
 
 * EF コアは、部門が削除されたときに、インストラクターを削除する連鎖削除規則を構成します。
-* 部門が削除されたときに、インストラクターを削除することが意図した動作ではないです。
+* 部門が削除されたときに、インストラクターを削除するには、目的の動作はありません。
 
 ビジネス ルールが必要な場合、`InstructorID`プロパティが非 null 許容にする次 fluent API ステートメントを使用します。
 
@@ -431,7 +431,7 @@ public Student Student { get; set; }
 
 `Instructor`と`Course`エンティティが純粋な結合テーブルを使用して多対多リレーションシップを設定します。
 
-注: EF 6.x をサポートする多対多のリレーションシップが EF コアの暗黙の結合テーブルはありません。 詳細については、次を参照してください。[多対多リレーションシップ EF コア 2.0 で](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/)です。
+注: EF 6.x をサポートする多対多のリレーションシップが EF コアの暗黙の結合テーブルがありません。 詳細については、次を参照してください。[多対多リレーションシップ EF コア 2.0 で](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/)です。
 
 ## <a name="the-courseassignment-entity"></a>CourseAssignment エンティティ
 
@@ -462,7 +462,7 @@ FKs は null を許容できません。 2 つの FKs `CourseAssignment` (`Instr
 
 * 複数の行は、1 つのコースの許可されます。
 * 複数の行は、1 つのインストラクターが許可されます。
-* 同じインストラクターとコースに複数の行を指定することはできません。
+* 同じインストラクターとコースに複数の行は許可されません。
 
 `Enrollment`結合エンティティでは、この種の重複も有効であるため、独自の主キーを定義します。 このような重複を防ぐためには。
 
@@ -638,7 +638,7 @@ SSOX でデータベースを開きます。
 運用アプリは。
 
 * コードまたは追加するためのスクリプトを含める`Department`行および関連`Course`を新しい行`Department`行です。
-* "Temp"部門やの既定値は使用しない`Course.DepartmentID `です。
+* "Temp"部門やの既定値を使用しない`Course.DepartmentID`です。
 
 次のチュートリアルでは、関連するデータについて説明します。
 

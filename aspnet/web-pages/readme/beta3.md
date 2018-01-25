@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
-ms.openlocfilehash: 5fad4b659dafe5470aeb84d320ff711b8840d1e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: def2f4b3e54c8de539e10c1b526a1dababeca8fb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>Webmatrix と ASP.NET Web Pages (Razor) ベータ 3 リリースの Readme
 ====================
@@ -164,7 +164,7 @@ ms.lasthandoff: 11/10/2017
 
 #### <a name="change-webpagecontexthttpcontext-removed"></a>変更:"WebPageContext.HttpContext"の削除
 
-> `WebPageContext.HttpContext`プロパティが削除されました。 代わりに、 `HttpContext.Current` を使用してください。 (、`WebPageContext.HttpContext`プロパティが単にこれをラップします)。
+> `WebPageContext.HttpContext`プロパティが削除されました。 代わりに、`HttpContext.Current` を使用してください。 (、`WebPageContext.HttpContext`プロパティが単にこれをラップします)。
 
 
 #### <a name="change-facebook-helper-moved-to-new-package"></a>新しいパッケージを変更:"Facebook"ヘルパーの移動
@@ -265,7 +265,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > [!code-xml[Main](beta3/samples/sample5.xml)]
 > 
-> プロキシ サーバーの構成の詳細については、次を参照してください。 [&lt;プロキシ&gt;要素 (ネットワーク設定)](https://msdn.microsoft.com/en-us/library/sa91de1e.aspx) MSDN Web サイトです。
+> プロキシ サーバーの構成の詳細については、次を参照してください。 [&lt;プロキシ&gt;要素 (ネットワーク設定)](https://msdn.microsoft.com/library/sa91de1e.aspx) MSDN Web サイトです。
 
 
 #### <a name="issue-microsoftwebinfrastructuredll-cannot-be-loaded-error"></a>問題:「Microsoft.Web.Infrastructure.dll を読み込むことができません」エラー
@@ -553,4 +553,4 @@ WebMatrix ベータ 3 の詳細については、次の web サイトを参照�
 
 * * *
 
-© 2010 Microsoft Corporation. All Rights Reserved. [利用規約](https://msdn.microsoft.com/en-us/cc300389.aspx)です。
+© 2010 Microsoft Corporation. All Rights Reserved. [利用規約](https://msdn.microsoft.cos/cc300389.aspx)です。

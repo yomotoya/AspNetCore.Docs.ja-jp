@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 8f68a85e44389ed17576436a9210c0ca3f414403
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ed78b55d2b0315cf428f137c56ad85b29a95e1c5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-webconfig-file-transformations---3-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します Web.Config ファイルの変換、3/12。
 ====================
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>Web.config 変換ではなく Web 展開パラメーター
 
-2 つの方法を変更するプロセスを自動化する*Web.config*ファイルの設定: [Web.config 変換](https://msdn.microsoft.com/en-us/library/dd465326.aspx)と[Web 展開パラメーター](https://msdn.microsoft.com/en-us/library/ff398068.aspx)です。 A *Web.config*変換ファイルには変更する方法を指定する XML マークアップが含まれています、 *Web.config*ファイルが展開されるとします。 特定のさまざまな変更がビルド構成と特定のプロファイルの発行を指定できます。 既定のビルド構成には、デバッグおよびリリースでは、およびカスタム ビルド構成を作成することができます。 通常、発行プロファイルは、送信先の環境に対応しています。 (でプロファイルの発行の詳細を学習、[テスト環境として IIS に展開する](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)チュートリアルです)。
+2 つの方法を変更するプロセスを自動化する*Web.config*ファイルの設定: [Web.config 変換](https://msdn.microsoft.com/library/dd465326.aspx)と[Web 展開パラメーター](https://msdn.microsoft.com/library/ff398068.aspx)です。 A *Web.config*変換ファイルには変更する方法を指定する XML マークアップが含まれています、 *Web.config*ファイルが展開されるとします。 特定のさまざまな変更がビルド構成と特定のプロファイルの発行を指定できます。 既定のビルド構成には、デバッグおよびリリースでは、およびカスタム ビルド構成を作成することができます。 通常、発行プロファイルは、送信先の環境に対応しています。 (でプロファイルの発行の詳細を学習、[テスト環境として IIS に展開する](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)チュートリアルです)。
 
 Web デプロイのパラメーターは、内にある設定を含む、展開時に構成する必要がある設定の多くのさまざまな種類を指定するために使用できます*Web.config*ファイル。 指定するために使用時に*Web.config*ファイルの変更、Web デプロイ パラメーターをセットアップより複雑なを展開するまでに設定される値が認識していない場合に便利です。 など、エンタープライズ環境で作成、*展開パッケージ*、実稼働環境でインストールするには、IT 部門の担当者に付与し、そのユーザーが接続文字列またはそうしないとパスワードを入力できるように、知っています。
 
@@ -146,7 +146,7 @@ Contoso 大学 web ページで設定されている値の読み取り`appSettin
 
 ## <a name="more-information"></a>説明
 
-このチュートリアルで説明されているトピックの詳細については、Web.config 変換シナリオを参照してください。 [ASP.NET 展開のコンテンツ マップ](https://msdn.microsoft.com/en-us/library/bb386521.aspx)です。
+このチュートリアルで説明されているトピックの詳細については、Web.config 変換シナリオを参照してください。 [ASP.NET 展開のコンテンツ マップ](https://msdn.microsoft.com/library/bb386521.aspx)です。
 
 >[!div class="step-by-step"]
 [前へ](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

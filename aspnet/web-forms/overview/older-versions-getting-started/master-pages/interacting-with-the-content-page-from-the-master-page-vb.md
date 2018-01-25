@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0a2720c8dbd1b0fb12d4000ac5e309e203128604
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a25f739e5d5717d275554909e1584bb7e7fed302
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-vb"></a>マスター ページ (VB) からコンテンツ ページと対話します。
 ====================
@@ -158,7 +158,7 @@ ms.lasthandoff: 11/10/2017
 イベント ハンドラーに渡される 2 番目のパラメーターは、イベントに関する追加情報を含めることができます。 ときに、ベース`EventArgs`クラスがすべての情報を渡すされません、.NET Framework には拡張するクラスの数が含まれています`EventArgs`と、追加のプロパティが含まれます。 たとえば、`CommandEventArgs`インスタンスに応答するイベント ハンドラーに渡されます、`Command`イベント、情報の 2 つのプロパティが含まれています:`CommandArgument`と`CommandName`です。
 
 > [!NOTE]
-> 作成する方法の詳細については、させると、イベントを処理を参照してください[イベントとデリゲート](https://msdn.microsoft.com/en-us/library/17sde2xt.aspx)と[単純英語におけるイベント デリゲート](http://www.codeproject.com/KB/cs/eventdelegates.aspx)です。
+> 作成する方法の詳細については、させると、イベントを処理を参照してください[イベントとデリゲート](https://msdn.microsoft.com/library/17sde2xt.aspx)と[単純英語におけるイベント デリゲート](http://www.codeproject.com/KB/cs/eventdelegates.aspx)です。
 
 
 定義するのには、イベントは、次の構文を使用します。
@@ -238,7 +238,7 @@ ms.lasthandoff: 11/10/2017
 **図 09**: The Just-Doubled 価格は、Gridview に表示されます ([フルサイズのイメージを表示するをクリックして](interacting-with-the-content-page-from-the-master-page-vb/_static/image27.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 理想的には、マスター ページとそのコンテンツ ページ互いから完全に分離し、の相互作用のレベルは必要ありません。 ただし、マスター ページまたはマスター ページまたはコンテンツ ページから変更できるようにデータを表示するコンテンツのページがある場合は、可能性がある場合にアラートのコンテンツ ページ (または逆に) マスター ページの表示を更新できるようににデータが変更された日時。 前のチュートリアルのコンテンツ ページにプログラムから、マスター ページと対話する方法を説明しましたこのチュートリアルでは、マスター ページ開始の相互作用する方法について説明しました。
 
@@ -251,7 +251,7 @@ ms.lasthandoff: 11/10/2017
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
 - [アクセスして、ASP.NET でのデータの更新](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
-- [イベントとデリゲート](https://msdn.microsoft.com/en-us/library/17sde2xt.aspx)
+- [イベントとデリゲート](https://msdn.microsoft.com/library/17sde2xt.aspx)
 - [コンテンツおよびマスター ページの間で情報を渡す.](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
 - [ASP.NET のチュートリアルでのデータの使用](../../data-access/index.md)
 

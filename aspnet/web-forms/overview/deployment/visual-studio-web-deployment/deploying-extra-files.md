@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files
 msc.type: authoredcontent
-ms.openlocfilehash: a34607b25f6cf502f5fbf2fe51bf1937f470159e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 46e18ba81c3db8bb04c5cb997bcc1607e4e38bae
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a>Visual Studio を使用した ASP.NET Web 展開: 余分なファイルの展開
 ====================
@@ -77,19 +77,19 @@ ms.lasthandoff: 11/10/2017
 
 1 回のクリックを使用する場合は、次の発行のことを確認することができます、**プレビュー**ウィンドウを*robots.txt*コピーされます。 それ以外の場合、FTP ツールを使用していることを確認、 *robots.txt*ファイルが、web サイトのルート フォルダーに配置します。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 これは、この一連のサード パーティのホスティング プロバイダーへの ASP.NET web アプリケーションの配置に関するチュートリアルを完了します。 これらのチュートリアルで説明されているトピックのいずれかの詳細については、次を参照してください。、 [ASP.NET 展開のコンテンツ マップ](https://go.microsoft.com/fwlink/p/?LinkId=282413)です。
 
 ## <a name="more-information"></a>詳細情報
 
-MSBuild ファイルを操作する方法がわかっている場合でコードを記述して他の展開タスクの多くを自動化できます*.pubxml* (プロファイルに固有のタスク) のファイルまたはプロジェクト*. wpp.targets*ファイル (のタスクプロファイルに適用されるすべて)。 詳細については*.pubxml*と*. wpp.targets*ファイルを参照してください[する方法: 発行プロファイル (.pubxml) ファイルでの展開設定の編集、および wpp.targets Visual Studio Web 内のファイル。プロジェクト](https://msdn.microsoft.com/en-us/library/ff398069)です。 MSBuild のコードに基本的な概要については、次を参照してください。**プロジェクト ファイルの構造**で[エンタープライズ展開シリーズ: プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)です。 タスク、独自のシナリオを実行する MSBuild ファイルを操作する方法については、このブックを参照してください。:[内の Microsoft Build Engine: MSBuild を使用して、Team Foundation ビルド](http://msbuildbook.com)Sayed Ibraham Hashimi して William Bartholomew です。
+MSBuild ファイルを操作する方法がわかっている場合でコードを記述して他の展開タスクの多くを自動化できます*.pubxml* (プロファイルに固有のタスク) のファイルまたはプロジェクト*. wpp.targets*ファイル (のタスクプロファイルに適用されるすべて)。 詳細については*.pubxml*と*. wpp.targets*ファイルを参照してください[する方法: 発行プロファイル (.pubxml) ファイルでの展開設定の編集、および wpp.targets Visual Studio Web 内のファイル。プロジェクト](https://msdn.microsoft.com/library/ff398069)です。 MSBuild のコードに基本的な概要については、次を参照してください。**プロジェクト ファイルの構造**で[エンタープライズ展開シリーズ: プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)です。 タスク、独自のシナリオを実行する MSBuild ファイルを操作する方法については、このブックを参照してください。:[内の Microsoft Build Engine: MSBuild を使用して、Team Foundation ビルド](http://msbuildbook.com)Sayed Ibraham Hashimi して William Bartholomew です。
 
 ## <a name="acknowledgements"></a>謝辞
 
 このチュートリアル シリーズのコンテンツに多大な協力者次の方々 に感謝したいと思います。
 
-- [Alberto Poblacion、MVP &amp; MCT、スペイン](https://mvp.microsoft.com/en-us/mvp/Alberto%20Poblacion%20Bolano-36772)
+- [Alberto Poblacion、MVP &amp; MCT、スペイン](https://mvp.microsoft.com/mvp/Alberto%20Poblacion%20Bolano-36772)
 - Jarod Ferguson、データ プラットフォームの開発 MVP、United States
 - 過酷 Mittal、Microsoft
 - [Jon Galloway](https://weblogs.asp.net/jgalloway) (twitter: [ @jongalloway ](http://twitter.com/jongalloway))
@@ -101,7 +101,7 @@ MSBuild ファイルを操作する方法がわかっている場合でコード
 - [Sayed Hashimi、Microsoft](http://sedodream.com/default.aspx)(twitter: [ @sayedihashimi ](http://twitter.com/sayedihashimi))
 - [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](http://twitter.com/shanselman))
 - [Scott ハンター、Microsoft](https://blogs.msdn.com/b/scothu/) (twitter: [ @coolcsh ](http://twitter.com/coolcsh))
-- [Srđan Božović、セルビア](http://msforge.net/blogs/zmajcek/)
+- [Srđan Božović, Serbia](http://msforge.net/blogs/zmajcek/)
 - [Vishal Joshi、Microsoft](http://vishaljoshi.blogspot.com/) (twitter: [ @vishalrjoshi ](http://twitter.com/vishalrjoshi))
 
 >[!div class="step-by-step"]

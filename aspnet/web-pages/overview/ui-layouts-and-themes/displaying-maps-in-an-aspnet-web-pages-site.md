@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: a802e4fed81fadca195c8aa83c37c7100ac5cbec
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6f3e6a0cfb8c08cd971e88986d0f059dd8237aab
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトにマップを表示します。
 ====================
@@ -70,7 +70,7 @@ Web ページで表示できますマップ ページを使用して`Maps`ヘル
     キーを使用することを指定できます**評価/テスト**です。 WebMatrix と IIS Express を使用して、自分のコンピューターで、マッピング関数をテストする場合は、移動、**サイト**ワークスペースとは、サイトの URL (たとえば、`http://localhost:50408`ポート番号が異なる可能性がありますが、)。 これを行うこともできます*localhost*として登録する場合は、サイトのアドレス。
 2. アカウントの登録した後、Bing マップのアカウント センターに移動し、クリックして**作成またはビューのキー**:
 
-    ![マッピング 2](displaying-maps-in-an-aspnet-web-pages-site/_static/image1.png)
+    ![mapping-2](displaying-maps-in-an-aspnet-web-pages-site/_static/image1.png)
 3. Bing を作成するキーを記録します。
 
 ## <a name="creating-a-map-based-on-an-address-using-google"></a>(Google を使用)、アドレスに基づくマップを作成します。
@@ -91,7 +91,7 @@ Web ページで表示できますマップ ページを使用して`Maps`ヘル
     - 呼び出し、`@Maps.GetGoogleHtml`ページの本文にします。 アドレスをマップするには、アドレス文字列を渡す必要があります。 機能の他のマップ エンジンのメソッドは同様の方法で (`@Maps.GetYahooHtml`、 `@Maps.GetMapQuestHtml`)。
 - ページを実行し、アドレスを入力します。 ページは、Google マップ、指定した場所を表示するに基づく、マップを表示します。
 
-    ![1 のマッピング](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
+    ![mapping-1](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
 
 ## <a name="creating-a-map-based-on-latitude-and-longitude-coordinates-using-bing"></a>緯度と経度に基づいてマップを作成する座標を (Bing を使用)
 
@@ -103,7 +103,7 @@ Web ページで表示できますマップ ページを使用して`Maps`ヘル
 2. 置き換える`your-key-here`以前に生成した Bing Maps キーを使用します。
 3. 実行、 *MapCoordinates.cshtml*ページ、緯度と経度座標を入力し、クリックして、 **Map It!** ボタンをクリックします。 (任意の座標がわからない場合を再試行してください以下です。 これは Microsoft レッドモンド上の場所です。)
 
-    - 緯度: 47.6781005859375
+    - Latitude: 47.6781005859375
     - 経度:-122.158317565918
 
     指定した座標を使用して、ページが表示されます。
@@ -114,4 +114,4 @@ Web ページで表示できますマップ ページを使用して`Maps`ヘル
 ## <a name="additional-resources"></a>その他のリソース
 
 
-[Microsoft.Maps API リファレンス](https://msdn.microsoft.com/en-us/library/gg427611.aspx)
+[Microsoft.Maps API リファレンス](https://msdn.microsoft.com/library/gg427611.aspx)

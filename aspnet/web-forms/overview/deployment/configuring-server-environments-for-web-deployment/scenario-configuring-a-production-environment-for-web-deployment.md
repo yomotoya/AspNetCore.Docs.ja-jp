@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: d5574ee353ff41205e9029e4aa5d139a5aa0e959
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cdd13f96ddf08ff86b01ef9de17ea82cf038ab28
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="scenario-configuring-a-production-environment-for-web-deployment"></a>シナリオ: Web 配置用の実稼働環境の構成
 ====================
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/10/2017
 - アプリケーションへの変更は、テストまたはステージング環境の展開よりも頻度が低いごとに展開されます。
 
 > [!NOTE]
-> このチュートリアルの範囲を超えては複数のサーバーのスケール アウト データベースの配置です。 この領域の詳細についてを参照してください[SQL Server オンライン ブック](https://technet.microsoft.com/en-us/library/ms130214.aspx)です。
+> このチュートリアルの範囲を超えては複数のサーバーのスケール アウト データベースの配置です。 この領域の詳細についてを参照してください[SQL Server オンライン ブック](https://technet.microsoft.com/library/ms130214.aspx)です。
 
 
 たとえば、当社[チュートリアルのシナリオ](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)、チーム ビルド サーバーには、ユーザーの連絡先のマネージャー ソリューションをビルドし、1 つの手順で、ステージング環境に展開できるようにするビルド定義が含まれています。 アプリケーションのセキュリティ要件およびネットワーク インフラストラクチャによって課される制約により、実稼働環境に展開する準備が実稼働環境の管理者必要があります手動で実稼働 web サーバー上に web パッケージのコピーし、インポートインターネット インフォメーション サービス (IIS) マネージャーを使用します。

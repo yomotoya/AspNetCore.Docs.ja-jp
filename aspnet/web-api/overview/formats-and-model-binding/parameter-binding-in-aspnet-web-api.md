@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: ad052570fb2f168da657cd1263d8342a59d4cab0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5aa532137436922519c86246ebfa834910ac0d86
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="parameter-binding-in-aspnet-web-api"></a>ASP.NET Web API でのバインディング パラメーター
 ====================
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/10/2017
 
 既定では、Web API は、次の規則を使用して、パラメーターをバインドします。
 
-- パラメーターが「単純」型の場合は、Web API は、URI から値を取得しようとします。 単純型は、.NET[プリミティブ型](https://msdn.microsoft.com/en-us/library/system.type.isprimitive.aspx)(**int**、 **bool**、**二重**など)、および**TimeSpan**、 **DateTime**、 **Guid**、 **decimal**、および**文字列**、 *plus*任意文字列から変換できる型コンバーターで入力します。 (後の型コンバーターの詳細です。)
+- パラメーターが「単純」型の場合は、Web API は、URI から値を取得しようとします。 単純型は、.NET[プリミティブ型](https://msdn.microsoft.com/library/system.type.isprimitive.aspx)(**int**、 **bool**、**二重**など)、および**TimeSpan**、 **DateTime**、 **Guid**、 **decimal**、および**文字列**、 *plus*任意文字列から変換できる型コンバーターで入力します。 (後の型コンバーターの詳細です。)
 - メッセージ本文から値を読み取るしようとすると、複合型、Web API を使用して、[メディア タイプ フォーマッタ](media-formatters.md)です。
 
 たとえば、典型的な Web API コント ローラーのメソッドを次に示します。
@@ -121,7 +121,7 @@ Web API の既定値のプロバイダーは、ルート データおよびク�
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample11.cs)]
 
-最後にモデル バインダー プロバイダーを追加することができます、 **HttpConfiguration**です。 モデル バインダー プロバイダーは、単に、モデル バインダーを作成するファクトリ クラスです。 派生することで、プロバイダーを作成することができます、 [ModelBinderProvider](https://msdn.microsoft.com/en-us/library/system.web.http.modelbinding.modelbinderprovider.aspx)クラスです。 ただし場合、モデル バインダーは、1 つの型を処理することが容易に組み込みを使用して**SimpleModelBinderProvider**、この目的になっています。 この方法を次のコードに示します。
+最後にモデル バインダー プロバイダーを追加することができます、 **HttpConfiguration**です。 モデル バインダー プロバイダーは、単に、モデル バインダーを作成するファクトリ クラスです。 派生することで、プロバイダーを作成することができます、 [ModelBinderProvider](https://msdn.microsoft.com/library/system.web.http.modelbinding.modelbinderprovider.aspx)クラスです。 ただし場合、モデル バインダーは、1 つの型を処理することが容易に組み込みを使用して**SimpleModelBinderProvider**、この目的になっています。 この方法を次のコードに示します。
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample12.cs)]
 

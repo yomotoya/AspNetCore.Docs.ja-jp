@@ -12,28 +12,28 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/windows-azure-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 1cb38d66bd0373159e54abf822fba9c5829774ac
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4deb3536699f1ef3025f8858ee71a76a1c2def18
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="windows-azure-authentication"></a>Windows Azure の認証
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-> Microsoft ASP.NET ツールを Windows Azure Active Directory では、ホストされている web アプリケーションの認証を有効にする単純な[Windows Azure Web サイト](https://www.windowsazure.com/en-us/home/features/web-sites/)です。 Windows Azure 認証を使用して、組織、内部設置型 Active Directory から同期された会社のアカウントまたはカスタムの Windows Azure Active Directory ドメインで作成されたユーザーから Office 365 のユーザーを認証することができます。 Windows Azure 認証を有効にすると、1 つを使用してユーザーを認証するアプリケーションを構成[Windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)テナントです。
+> Microsoft ASP.NET ツールを Windows Azure Active Directory では、ホストされている web アプリケーションの認証を有効にする単純な[Windows Azure Web サイト](https://www.windowsazure.com/home/features/web-sites/)です。 Windows Azure 認証を使用して、組織、内部設置型 Active Directory から同期された会社のアカウントまたはカスタムの Windows Azure Active Directory ドメインで作成されたユーザーから Office 365 のユーザーを認証することができます。 Windows Azure 認証を有効にすると、1 つを使用してユーザーを認証するアプリケーションを構成[Windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)テナントです。
 > 
-> ASP.NET Windows Azure 認証ツールは web ロール、クラウド サービスでサポートされていませんが、そのためには、将来のリリースで予定します。 [Windows Identity Foundation](https://msdn.microsoft.com/en-us/library/hh291066(v=VS.110).aspx) (WIF) は Windows Azure web ロールでサポートされています。
+> ASP.NET Windows Azure 認証ツールは web ロール、クラウド サービスでサポートされていませんが、そのためには、将来のリリースで予定します。 [Windows Identity Foundation](https://msdn.microsoft.com/library/hh291066(v=VS.110).aspx) (WIF) は Windows Azure web ロールでサポートされています。
 > 
-> 内部設置型 Active Directory と Windows Azure Active Directory テナント間の同期をセットアップする方法の詳細については、「[実装および管理を使用して AD FS 2.0 シングル サインオン](https://technet.microsoft.com/en-us/library/jj205462.aspx)です。
+> 内部設置型 Active Directory と Windows Azure Active Directory テナント間の同期をセットアップする方法の詳細については、「[実装および管理を使用して AD FS 2.0 シングル サインオン](https://technet.microsoft.com/library/jj205462.aspx)です。
 > 
 > Windows Azure Active Directory は現在として使用できますが、[プレビュー サービスを無料](https://azure.microsoft.com/free/?WT.mc_id=A443DD604)です。
 
 
 ## <a name="requirements"></a>要件:
 
-- Visual Studio 2012 または[Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express)
+- Visual Studio 2012 または[Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express)
 - [Web ツールの Visual Studio 2012 用の拡張機能](https://go.microsoft.com/fwlink/?LinkID=282228&amp;clcid=0x409)または[Web Tools Extensions for Visual Studio Express 2012](https://go.microsoft.com/fwlink/?LinkID=282231&amp;clcid=0x409)
 - [Microsoft ASP.NET Tools Windows for Visual Studio 2012 – Azure Active Directory](https://go.microsoft.com/fwlink/?LinkID=282306)または[Microsoft ASP.NET Tools Windows 用 Azure Active Directory – Visual Studio Express 2012 for Web](https://go.microsoft.com/fwlink/?LinkId=282652)
 
@@ -157,15 +157,15 @@ Windows Azure Authentication が提供されていません、必要なロール
 
 ## <a name="acs20012-the-request-is-not-a-valid-ws-federation-protocol-message-opop"></a>ACS20012: 要求が有効な Ws-federation プロトコル メッセージ </o:p ><//o:p >
 
-これは、既に Azure サービスのいずれかにその他のいくつかの Microsoft ID でログインしている場合に発生することができます。 使用するプライベート ブラウザー ウィンドウでは、IE で InPrivate または Incognito Chrome 内と同様にまたは、すべての cookie を消去します。 </o:p ><//o:p >
+これは、既に Azure サービスのいずれかにその他のいくつかの Microsoft ID でログインしている場合に発生することができます。 使用するプライベート ブラウザー ウィンドウでは、IE で InPrivate または Incognito Chrome 内と同様にまたは、すべての cookie を消去します。 <o:p></o:p>
 
 ## <a name="additional-resources"></a>その他のリソース
 
 - [Microsoft ASP.NET Tools Windows for Visual Studio 2012 – Azure Active Directory](https://blogs.msdn.com/b/vbertocci/archive/2013/02/18/microsoft-asp-net-tools-for-windows-azure-active-directory-visual-studio-2012.aspx) – Vittorio Bertocci
 - [Windows Azure の機能: Identity](https://docs.microsoft.com/azure/active-directory/)
-- [TechNet: Windows Azure Active Directory](https://technet.microsoft.com/en-us/library/hh967619.aspx)
+- [TechNet: Windows Azure Active Directory](https://technet.microsoft.com/library/hh967619.aspx)
 - [Windows Azure Active Directory: 組織向けアプリの開発](https://activedirectory.windowsazure.com/Develop/Single-Tenant.aspx)
 - [Windows Azure Active Directory: 複数の組織向けアプリの開発](https://activedirectory.windowsazure.com/Develop/Multi-Tenant.aspx)
 - [Windows Azure Active Directory にシングル サインオンを実装する方法](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect)
 - [シングル サインオンが windows Azure Active Directory: Deep Dive](https://blogs.msdn.com/b/vbertocci/archive/2012/07/05/single-sign-on-with-windows-azure-active-directory-a-deep-dive.aspx) – Vittorio Bertocci
-- [実装および管理を使用して AD FS 2.0 シングル サインオン](https://technet.microsoft.com/en-us/library/jj205462.aspx)
+- [実装および管理を使用して AD FS 2.0 シングル サインオン](https://technet.microsoft.com/library/jj205462.aspx)

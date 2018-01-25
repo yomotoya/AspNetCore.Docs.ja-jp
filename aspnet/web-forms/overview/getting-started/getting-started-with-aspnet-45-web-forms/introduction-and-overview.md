@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 6ee3e244c4ed29384d11c7acc1440692d3f9b23e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6ae398f94c0ac3872601bdc8fd935f6d285793db
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要
 ====================
@@ -150,7 +150,7 @@ PayPal から返された後、は、確認し、注文を完了できます。
 
 開始する前に、コンピューターにインストールされている次のソフトウェアがあることを確認します。
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs)または[Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web)です。 .NET Framework は、自動的にインストールされます。
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs)または[Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web)です。 .NET Framework は、自動的にインストールされます。
 
 この一連のチュートリアルについては、Web の Microsoft Visual Studio Express 2013 を使用します。 このチュートリアルのシリーズを完了するのに、Microsoft Visual Studio Express 2013 for Web か、Microsoft Visual Studio 2013 を使用することができます。
 
@@ -163,7 +163,7 @@ PayPal から返された後、は、確認し、注文を完了できます。
 
 > [!NOTE] 
 > 
-> このチュートリアルでは、選択されている、 *Web 開発*設定のコレクションを初めて Visual Studio を起動します。 詳細については、次を参照してください。[する方法: Web 開発環境設定の選択](https://msdn.microsoft.com/en-us/library/ff521558.aspx)です。
+> このチュートリアルでは、選択されている、 *Web 開発*設定のコレクションを初めて Visual Studio を起動します。 詳細については、次を参照してください。[する方法: Web 開発環境設定の選択](https://msdn.microsoft.com/library/ff521558.aspx)です。
 
 
 ## <a name="download-the-sample-application"></a>サンプル アプリケーションをダウンロードします。

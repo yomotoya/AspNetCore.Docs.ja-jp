@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 12c34b7a9521835533998c5609870bc712a6d48c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 702d7773374f331b25489060b18f752186d7acea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-parts-in-aspnet-core"></a>ASP.NET Core でのアプリケーション部分
 
@@ -40,7 +40,7 @@ services.AddMvc()
 
 既定では、MVC は依存関係ツリーを検索および (でも他のアセンブリ) コント ローラーを検索します。 (たとえば、コンパイル時に参照されていないプラグイン) から任意のアセンブリを読み込むには、アプリケーションの部分を使用することができます。
 
-アプリケーションの部分で構成を使用することができます*回避*コント ローラーで、特定のアセンブリまたは場所を検索します。 部分 (またはアセンブリ) を利用できますがアプリに変更することによってを制御する、`ApplicationParts`のコレクション、`ApplicationPartManager`です。 内のエントリの順序、`ApplicationParts`コレクションは重要ではありません。 完全に構成することが重要、`ApplicationPartManager`コンテナー内のサービスの構成を使用する前にします。 たとえば、完全に設定します、`ApplicationPartManager`を呼び出す前に`AddControllersAsServices`です。 ためには、失敗していることを意味をコント ローラー アプリケーション パーツの追加後にメソッドの呼び出しは影響しません (は登録されないサービスとして) アプリケーションの不適切な bevavior する可能性があります。
+アプリケーションの部分で構成を使用することができます*回避*コント ローラーで、特定のアセンブリまたは場所を検索します。 部分 (またはアセンブリ) を利用できますがアプリに変更することによってを制御する、`ApplicationParts`のコレクション、`ApplicationPartManager`です。 内のエントリの順序、`ApplicationParts`コレクションが重要ではありません。 完全に構成することが重要、`ApplicationPartManager`コンテナー内のサービスの構成を使用する前にします。 たとえば、完全に設定します、`ApplicationPartManager`を呼び出す前に`AddControllersAsServices`です。 ためには、失敗していることを意味ことコント ローラー アプリケーション パーツの追加後に、メソッドの呼び出しに影響するされません (サービスとして登録しない)、アプリケーションの不適切な bevavior する可能性があります。
 
 使用したくないコント ローラーを含むアセンブリがあればを削除してから、 `ApplicationPartManager`:
 

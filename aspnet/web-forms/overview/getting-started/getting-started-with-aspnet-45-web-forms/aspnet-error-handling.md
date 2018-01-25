@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: d5d89a6a82c91b915d61ddc3c350ea0935511c07
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c5ec43ac78be4a9452ebaa6495a6883506ac162f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-error-handling"></a>ASP.NET エラー処理
 ====================
@@ -307,13 +307,13 @@ ELMAH ログの表示は簡単ですが最初に ELMAH ログに記録する未�
 
     ![ASP.NET エラーの処理 - ELMAH エラー ログ](aspnet-error-handling/_static/image9.png)
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、アプリケーション レベル、ページ レベル、およびコード レベルでのエラーの処理について学習しました。 後で確認の処理および未処理のエラー ログに記録する方法も学習しました。 例外ログに記録して NuGet を使用して、アプリケーションに通知を提供する ELMAH ユーティリティが追加されます。 さらに、安全なエラー メッセージの重要性について学習しました。
 
 ## <a name="tutorial-series-conclusion"></a>最後に一連のチュートリアル
 
-*次に沿ったいただきありがとうございます。このチュートリアルのセットを使用して、ASP.NET Web フォームに慣れることを望みます。詳細については、Web フォームの機能 ASP.NET 4.5 と Visual Studio 2013 で使用可能な場合を参照してください* [ *ASP.NET および Web Tools for Visual Studio 2013 のリリース ノート*](../../../../visual-studio/overview/2013/release-notes.md)  *.また、必ずで説明したチュートリアルを見て、*  ***次の手順 * * * セクションと defintely お試し、* [*無料試用版の Azure*](https://azure.microsoft.com/pricing/free-trial/)*.*
+*次に沿ったいただきありがとうございます。このチュートリアルのセットを使用して、ASP.NET Web フォームに慣れることを望みます。詳細については、Web フォームの機能 ASP.NET 4.5 と Visual Studio 2013 で使用可能な場合を参照してください* [ *ASP.NET および Web Tools for Visual Studio 2013 のリリース ノート*](../../../../visual-studio/overview/2013/release-notes.md)  *.また、必ずで説明したチュートリアルを見て、* ***次の手順 * * * セクションと defintely お試し、* [*無料試用版の Azure*](https://azure.microsoft.com/pricing/free-trial/)*.*
 
 ![ありがとうございます - Erik](aspnet-error-handling/_static/image10.png)  
 
@@ -335,7 +335,7 @@ Microsoft Azure に web アプリケーションの配置の詳細について�
 
 このチュートリアル シリーズのコンテンツに多大な協力者次の方々 に感謝したいと思います。
 
-- [Alberto Poblacion、MVP &amp; MCT、スペイン](https://mvp.microsoft.com/en-us/mvp/Alberto%20Poblacion%20Bolano-36772)
+- [Alberto Poblacion、MVP &amp; MCT、スペイン](https://mvp.microsoft.com/mvp/Alberto%20Poblacion%20Bolano-36772)
 - [Alex Thissen、オランダ](http://blog.alexthissen.nl/)(twitter: [ @alexthissen ](http://twitter.com/alexthissen))
 - [Andre Tournier (米国)](http://andret503.wordpress.com/)
 - Apurva Joshi、Microsoft

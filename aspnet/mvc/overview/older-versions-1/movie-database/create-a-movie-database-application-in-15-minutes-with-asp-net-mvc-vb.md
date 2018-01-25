@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4dbb3804bbb0ccb80506a592f1efb585c5748c2f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b87a69df24a410161dfaf055519eb6137fa76c06
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-vb"></a>ASP.NET MVC (VB) で 15 分以内にムービー データベース アプリケーションを作成します。
 ====================
@@ -59,11 +59,11 @@ Visual Studio 2008 または Visual Web Developer 2008 Express ASP.NET MVC ア�
 
 Visual Studio 2008 を所有していない場合は、この web サイトから、Visual Studio 2008 の 90 日間試用版をダウンロードできます。
 
-[https://msdn.microsoft.com/en-us/vs2008/products/cc268305.aspx](https://msdn.microsoft.com/en-us/vs2008/products/cc268305.aspx)
+[https://msdn.microsoft.com/vs2008/products/cc268305.aspx](https://msdn.microsoft.com/vs2008/products/cc268305.aspx)
 
 または、作成できます ASP.NET MVC アプリケーションを Visual Web Developer Express 2008 で。 Visual Web Developer Express を使用すると、Service Pack 1 がインストールされているが必要です。 Visual Web Developer 2008 Express with Service Pack 1 は、この web サイトからダウンロードできます。
 
-[https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang = en](https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en)
+[https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en](https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en)
 
 Visual Studio 2008 または Visual Web Developer 2008 のいずれかをインストールした後は、ASP.NET MVC フレームワークをインストールする必要があります。 ASP.NET MVC フレームワークは、次の web サイトからダウンロードできます。
 
@@ -106,7 +106,7 @@ ASP.NET MVC アプリケーションが標準的な一連のフォルダー: モ
 Visual Studio で新しい MVC アプリケーションを作成するときに、サンプル アプリケーションを取得します。 最初から開始したいのでこのサンプル アプリケーションのコンテンツを削除する必要があります。 次のファイルと、次のフォルダーを削除する必要があります。
 
 - Controllers\HomeController.vb
-- Views \home
+- Views\Home
 
 ## <a name="creating-the-database"></a>データベースの作成
 
@@ -136,8 +136,8 @@ Visual Studio で新しい MVC アプリケーションを作成するときに�
 | **列名** | **データ型** | **Null を許容します。** |
 | --- | --- | --- |
 | ID | Int | False |
-| タイトル | nvarchar (100) | False |
-| ディレクター | nvarchar (100) | False |
+| Title | Nvarchar(100) | False |
+| ディレクター | Nvarchar(100) | False |
 | DateReleased | DateTime | False |
 
 
@@ -306,7 +306,7 @@ Visual Studio では、新しいムービーのデータベースを作成する
 
 Visual Studio は、自動的に 5 を一覧表示するビューを生成します。 このビューには、各ムービー クラスのプロパティに対応するフィールドを含む、HTML フォームが含まれています。
 
-**5 – Views\Home\Create.aspx を一覧表示します。**
+**Listing 5 – Views\Home\Create.aspx**
 
 [!code-aspx[Main](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb/samples/sample5.aspx)]
 
@@ -360,7 +360,7 @@ Views \home フォルダーに Edit.aspx をという名前の新しいビュー
 
 オリジナルのムービーを取得し、データベース内の既存のムービーを更新する、ApplyPropertyChanges() を呼び出す必要がありますに注意してください。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、ASP.NET MVC アプリケーションの構築のエクスペリエンスの感を与えるでした。 ASP.NET MVC web アプリケーションのビルドが、Active Server Pages または ASP.NET アプリケーションの構築のエクスペリエンスとよく似ていますを検出することを願っています。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ffb502be3037e787d79bbd1e83b93cd0b34dca6a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e9ed182fb58addd8c5dadbe6e3d09c391840ca00
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="iteration-3--add-form-validation-vb"></a>イテレーション 3 – 追加のフォーム検証 (VB)
 ====================
@@ -63,13 +63,13 @@ ms.lasthandoff: 11/10/2017
 
 このイテレーションで煩雑にならないように、記述のすべての検証コードを手動でします。 検証コードを自分で記述する代わりには、検証フレームワークの利点おがかかります。 たとえば、ASP.NET MVC アプリケーションの検証ロジックを実装するのに Microsoft エンタープライズ ライブラリ検証アプリケーション ブロック (VAB) を使用できます。 検証アプリケーション ブロックに関する詳細についてを参照してください。
 
-[*http://msdn.microsoft.com/en-us/library/dd203099.aspx*](https://msdn.microsoft.com/en-us/library/dd203099.aspx)
+[*http://msdn.microsoft.com/library/dd203099.aspx*](https://msdn.microsoft.com/library/dd203099.aspx)
 
 ## <a name="adding-validation-to-the-create-view"></a>ビューを作成する検証の追加
 
 ビューを作成するに検証ロジックを追加することによって開始 s を使用できます。 さいわい、ビューを作成する Visual Studio で生成されたため、ビューを作成する既に含まれていますすべての検証メッセージを表示するために必要なユーザー インターフェイス ロジック。 ビューを作成するは、1 のリストに含まれます。
 
-**1 - を一覧表示する \Views\Contact\Create.aspx**
+**Listing 1 - \Views\Contact\Create.aspx**
 
 [!code-aspx[Main](iteration-3-add-form-validation-vb/samples/sample1.aspx)]
 
@@ -121,7 +121,7 @@ Edit() 操作では、連絡先を更新します。 Edit() アクションは�
 
 [!code-vb[Main](iteration-3-add-form-validation-vb/samples/sample3.vb)]
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このイテレーションでは、この連絡先のマネージャー アプリケーションに基本的な形式の検証を追加しました。 この検証ロジックでは、ユーザーの新しい連絡先を送信または FirstName および LastName から構成プロパティの値を指定せず、既存の連絡先を編集できなくなります。 さらに、ユーザーは、有効な電話番号と電子メール アドレスを指定する必要があります。
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: a0f25ed3c996b73e362177b196539c6f2b143739
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98647830125670ee2ed43538d65fb3ce6ac40d0d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 の重大な変更
 ====================
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/10/2017
 [Passport System.Web.Security 型は Obsolete](#0.1__Toc256770158 "_Toc256770158")  
 [ASP.NET 4 のイメージを表示するために失敗した MenuItem.PopOutImageUrl プロパティ](#0.1__Toc256770159 "_Toc256770159")  
 [Menu.StaticPopOutImageUrl とパスに円記号が含まれている場合は、イメージを表示するために Menu.DynamicPopOutImageUrl 失敗](#0.1__Toc256770160 "_Toc256770160")  
-[免責事項](#0.1__Toc256770161 "_Toc256770161")
+[Disclaimer](#0.1__Toc256770161 "_Toc256770161")
 
 <a id="0.1__ControlRenderingCompatibilityVersio"></a><a id="0.1__Toc245724853"></a><a id="0.1__Toc255587630"></a><a id="0.1__Toc256770141"></a>
 
@@ -272,15 +272,15 @@ SharePoint を実行する web サーバーが、 `Web.config` SharePoint Web �
 
 以前のバージョンの ASP.NET、 **HttpRequest**プロパティは、次の値を取ります。
 
-**HttpRequest.FilePath**:`/testapp/Action.mvc/SomeAction`
+**HttpRequest.FilePath**: `/testapp/Action.mvc/SomeAction`
 
 **HttpRequest.PathInfo**: (空の)
 
 ASP.NET 4 で**HttpRequest**プロパティは、次の値を代わりにあります。
 
-**HttpRequest.FilePath**:`/testapp/Action.mvc`
+**HttpRequest.FilePath**: `/testapp/Action.mvc`
 
-**HttpRequest.PathInfo**:`SomeAction`
+**HttpRequest.PathInfo**: `SomeAction`
 
 <a id="0.1__Toc252995493"></a><a id="0.1__Toc255587642"></a><a id="0.1__Toc256770153"></a><a id="0.1__Toc245724861"></a>
 
@@ -385,7 +385,7 @@ ASP.NET 4 で既定の CA の実装への変更の概要を次に示します。
 - ASP.NET ビルド プロバイダーによって作成される動的にコンパイルされたアセンブリは、透過的とアセンブリを明示的にマークに更新されました。
 - ASP.NET のすべてのアセンブリの APTCA 属性は、Web ホスト環境でのみ受け入れ ようにマークが付きます。 ClickOnce と同様に、部分的に信頼されたの以外の Web ホスティング環境は ASP.NET アセンブリへの呼び出しできません。
 
-新しい ASP.NET 4 のコード アクセス セキュリティ モデルの詳細については、次を参照してください。 [ASP.NET アプリケーションを使用したコード アクセス セキュリティを使用して](https://msdn.microsoft.com/en-us/library/dd984947%28VS.100%29.aspx)MSDN Web サイトです。
+新しい ASP.NET 4 のコード アクセス セキュリティ モデルの詳細については、次を参照してください。 [ASP.NET アプリケーションを使用したコード アクセス セキュリティを使用して](https://msdn.microsoft.com/library/dd984947%28VS.100%29.aspx)MSDN Web サイトです。
 
 <a id="0.1__Toc256770156"></a><a id="0.1__Toc245724863"></a><a id="0.1__Toc252995496"></a><a id="0.1__Toc255587645"></a><a id="0.1__Toc245724864"></a>
 

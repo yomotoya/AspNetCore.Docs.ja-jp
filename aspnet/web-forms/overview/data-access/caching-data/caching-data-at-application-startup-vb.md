@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 06370e31d27aeab50e56e0b0b860aca7c3ad683b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5b84b797bf0c9670ac65a5384b6d95d5df3827eb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-at-application-startup-vb"></a>アプリケーションの起動 (VB) でデータのキャッシュ
 ====================
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/10/2017
 プロアクティブを読み込み、およびおは、このチュートリアルでは探索を種類別のフレーバーでは、アプリケーションの起動時にキャッシュにデータを読み込んでいます。 この方法は、データベースのルックアップ テーブル内のレコードなどの静的データをキャッシュに特に便利です。
 
 > [!NOTE]
-> 主体的および対応を読み込み、さらに長所と短所、および実装に関する推奨事項の一覧の相違点の詳細についてを参照してください、 [、キャッシュの内容を管理する](https://msdn.microsoft.com/en-us/library/ms978503.aspx)のセクションで、 [キャッシュは、.NET Framework アプリケーションのアーキテクチャ ガイド](https://msdn.microsoft.com/en-us/library/ms978498.aspx)です。
+> 主体的および対応を読み込み、さらに長所と短所、および実装に関する推奨事項の一覧の相違点の詳細についてを参照してください、 [、キャッシュの内容を管理する](https://msdn.microsoft.com/library/ms978503.aspx)のセクションで、 [キャッシュは、.NET Framework アプリケーションのアーキテクチャ ガイド](https://msdn.microsoft.com/library/ms978498.aspx)です。
 
 
 ## <a name="step-1-determining-what-data-to-cache-at-application-startup"></a>手順 1: アプリケーションの起動時にキャッシュするデータの種類を決定します。
@@ -68,7 +68,7 @@ ms.lasthandoff: 11/10/2017
 
 呼び出すことができます前に*SomeMethod*または使用*SomeProperty*、最初にクラスを使用して、インスタンスを作成する必要があります、`New`キーワード。 *SomeMethod*と*SomeProperty*特定のインスタンスに関連付けられています。 これらのメンバーの有効期間は、それらの関連オブジェクトの有効期間に関連付けられています。 *静的メンバー*、変数、プロパティ、および間で共有される方法は、その一方で、*すべて*クラスのインスタンスと、その結果、クラスと同じ長さの有効期間があります。 静的メンバーが、キーワードで表される`Shared`です。
 
-静的メンバーに加えアプリケーション状態を使用してデータをキャッシュできます。 各 ASP.NET アプリケーションでは、すべてのユーザーとアプリケーションのページ間で共有される s 名前/値のコレクションを保持します。 使用してこのコレクションにアクセスできる、 [ `HttpContext`クラス](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx)s [ `Application`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.application.aspx)、ASP.NET ページの分離コード クラスを使用して次のようにします。
+静的メンバーに加えアプリケーション状態を使用してデータをキャッシュできます。 各 ASP.NET アプリケーションでは、すべてのユーザーとアプリケーションのページ間で共有される s 名前/値のコレクションを保持します。 使用してこのコレクションにアクセスできる、 [ `HttpContext`クラス](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)s [ `Application`プロパティ](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx)、ASP.NET ページの分離コード クラスを使用して次のようにします。
 
 
 [!code-vb[Main](caching-data-at-application-startup-vb/samples/sample2.vb)]
@@ -135,7 +135,7 @@ Web アプリケーションが初めて起動したときに、コードを実�
 - **`Session_Start`**新しいセッションが作成されるときに実行します。
 - **`Session_End`**セッションが期限切れまたは破棄すると実行されます。
 
-`Application_Start`イベント ハンドラーがアプリケーション ライフ サイクル中に 1 回だけ呼び出されます。 アプリケーションの開始と、最初に、ASP.NET のリソースがアプリケーションから要求されたアプリケーションが再起動されるまで実行を続けるの内容を変更することによって発生することができますが、`/Bin`フォルダー、変更`Global.asax`、変更、内容、`App_Code`フォルダー、または変更する、`Web.config`原因は他の間でのファイルです。 参照してください[ASP.NET アプリケーションのライフ サイクルの概要](https://msdn.microsoft.com/en-us/library/ms178473.aspx)詳細についてはアプリケーションのライフ サイクルにします。
+`Application_Start`イベント ハンドラーがアプリケーション ライフ サイクル中に 1 回だけ呼び出されます。 アプリケーションの開始と、最初に、ASP.NET のリソースがアプリケーションから要求されたアプリケーションが再起動されるまで実行を続けるの内容を変更することによって発生することができますが、`/Bin`フォルダー、変更`Global.asax`、変更、内容、`App_Code`フォルダー、または変更する、`Web.config`原因は他の間でのファイルです。 参照してください[ASP.NET アプリケーションのライフ サイクルの概要](https://msdn.microsoft.com/library/ms178473.aspx)詳細についてはアプリケーションのライフ サイクルにします。
 
 これらのチュートリアルののみいただくためにコードを追加して、`Application_Start`メソッドでは自由に、他のユーザーを削除します。 `Application_Start`を呼び出すだけで、`StaticCache`クラスの`LoadStaticCache()`は読み込まれて、仕入先の情報をキャッシュするメソッド。
 
@@ -184,7 +184,7 @@ Web アプリケーションが初めて起動したときに、コードを実�
 **図 7**: GridView に、キャッシュされた仕入先データが表示されます ([フルサイズのイメージを表示するをクリックして](caching-data-at-application-startup-vb/_static/image17.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 すべてのほとんどのデータ モデルには、かなりルックアップ テーブルの形式で実装される通常の静的なデータにはが含まれています。 この情報は、静的でないの理由もなく継続的にデータベースにアクセスするたびにこの情報を表示する必要があります。 さらに、その静的な性質により、データをキャッシュする場合が s、有効期限の必要はありません。 このチュートリアルでは、このようなデータを取得し、データ キャッシュ、アプリケーションの状態、および静的メンバー変数を介した、それをキャッシュする方法を説明しました。 この情報は、アプリケーションの起動時にキャッシュされ、アプリケーション秒の有効期間全体でキャッシュに残ります。
 

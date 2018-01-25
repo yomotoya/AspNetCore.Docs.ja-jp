@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/distributed
-ms.openlocfilehash: a00937e8c47e73fa8e29af883f44f6e1f4d4b1b4
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: a0af4887143f6ed37a1af982ec21a2ad5eae9515
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-a-distributed-cache-in-aspnet-core"></a>ASP.NET Core での分散キャッシュの使用
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/29/2017
 
 ## <a name="what-is-a-distributed-cache"></a>分散キャッシュとは
 
-分散キャッシュが複数のアプリケーション サーバーで共有 (を参照してください[キャッシュ基本](memory.md#caching-basics))。 キャッシュ内の情報が個々 の web サーバーのメモリに格納されず、キャッシュされたデータはすべてのアプリのサーバーに使用できます。 これは、いくつかの利点を提供します。
+分散キャッシュが複数のアプリケーション サーバーで共有 (を参照してください[キャッシュ基本](memory.md#caching-basics))。 キャッシュ内の情報が個々 の web サーバーのメモリに格納されていないし、キャッシュされたデータはすべてのアプリのサーバーに使用できます。 これは、いくつかの利点を提供します。
 
 1. キャッシュされたデータがすべての web サーバーに生じます。 ユーザーによっては、web サーバーは、要求を処理、異なる結果が表示されません。
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/29/2017
 
 `IDistributedCache`インターフェイスには、同期および非同期のメソッドが含まれています。 インターフェイスは、追加、取得、および実装では、分散キャッシュから削除する項目を使用します。 `IDistributedCache`インターフェイスには、次のメソッドが含まれています。
 
-**Get、されます。**
+**Get, GetAsync**
 
 文字列のキーは、としてキャッシュされたアイテムを取得、`byte[]`場合、キャッシュ内に存在します。
 
@@ -139,7 +139,7 @@ C:\DistCacheSample\src\DistCacheSample>dotnet sql-cache create "Data Source=(loc
 * [Redis の Azure キャッシュ](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [Azure SQL データベース](https://azure.microsoft.com/documentation/services/sql-database/)
 * [メモリ内キャッシュ](xref:performance/caching/memory)
-* [変更のトークンを使用して変更を検出します。](xref:fundamentals/primitives/change-tokens)
+* [変更トークンを使用する変更の検出](xref:fundamentals/primitives/change-tokens)
 * [応答キャッシュ](xref:performance/caching/response)
 * [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
 * [キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

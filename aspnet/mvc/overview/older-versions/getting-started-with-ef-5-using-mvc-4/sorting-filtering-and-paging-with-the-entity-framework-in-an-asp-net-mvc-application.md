@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 18c3825c58e7cfe0a73817a8431593c661c5fa4f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f9b68abeba19561a327bad5ee4be80d79af1a550
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>並べ替え、フィルター、および ASP.NET MVC アプリケーション (10 の 3) で Entity Framework でのページング
 ====================
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/10/2017
 | 日付の昇順 | ascending | descending |
 | 日付 (降順) | ascending | ascending |
 
-メソッドを使用して[LINQ to Entities](https://msdn.microsoft.com/en-us/library/bb386964.aspx)を並べ替え列を指定します。 コードを作成、 [IQueryable](https://msdn.microsoft.com/en-us/library/bb351562.aspx)する前に変数、`switch`ステートメントでは、変更で、`switch`ステートメント、および呼び出し、`ToList`メソッドした後に、`switch`ステートメントです。 作成および変更するときに`IQueryable`変数、クエリがないデータベースに送信します。 変換するまでに、クエリが実行されていません、`IQueryable`などのメソッドを呼び出すことで、コレクションにオブジェクト`ToList`です。 そのため、このコードなりますまで実行されない 1 つのクエリで、`return View`ステートメントです。
+メソッドを使用して[LINQ to Entities](https://msdn.microsoft.com/library/bb386964.aspx)を並べ替え列を指定します。 コードを作成、 [IQueryable](https://msdn.microsoft.com/library/bb351562.aspx)する前に変数、`switch`ステートメントでは、変更で、`switch`ステートメント、および呼び出し、`ToList`メソッドした後に、`switch`ステートメントです。 作成および変更するときに`IQueryable`変数、クエリがないデータベースに送信します。 変換するまでに、クエリが実行されていません、`IQueryable`などのメソッドを呼び出すことで、コレクションにオブジェクト`ToList`です。 そのため、このコードなりますまで実行されない 1 つのクエリで、`return View`ステートメントです。
 
 ### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>列見出しを学生インデックス ビューへのハイパーリンクの追加します。
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-追加した、`searchString`パラメーターを`Index`メソッドです。 LINQ ステートメントにも追加している、 `where` clausethat 名または姓を持つ検索文字列が含まれています。 受講者のみを選択します。 インデックス ビューに追加するテキスト ボックスから、検索する文字列値を受信します。ステートメントを追加する、[場所](https://msdn.microsoft.com/en-us/library/bb535040.aspx)句は検索対象の値がある場合にのみ実行します。
+追加した、`searchString`パラメーターを`Index`メソッドです。 LINQ ステートメントにも追加している、 `where` clausethat 名または姓を持つ検索文字列が含まれています。 受講者のみを選択します。 インデックス ビューに追加するテキスト ボックスから、検索する文字列値を受信します。ステートメントを追加する、[場所](https://msdn.microsoft.com/library/bb535040.aspx)句は検索対象の値がある場合にのみ実行します。
 
 > [!NOTE]
 > 多くの場合は、Entity Framework のエンティティ セットまたはメモリ内コレクションの拡張メソッドとして同じメソッドを呼び出すことができます。 結果は、通常は同じですが、場合によっては異なる場合があります。 .NET Framework の実装など、`Contains`メソッドは、空の文字列を渡しますが、Entity Framework provider for SQL Server Compact 4.0 には、空の文字列には、0 行が返されます。 すべての行を返します。 そのため、例のコードで (配置、`Where`内のステートメント、`if`ステートメント) すべてのバージョンの SQL Server は、同じ結果を取得することを確認します。 また、.NET Framework の実装の`Contains`メソッドは、既定では、大文字小文字の比較を実行しますが、エンティティ フレームワークの SQL Server プロバイダーは、既定では大文字と小文字の比較を実行します。 そのため、呼び出し、`ToUpper`を明示的に大文字と小文字、テストを行うメソッドにより、結果を変更しないことを返す、リポジトリを使用するには、後でコードを変更するときに、`IEnumerable`コレクションの代わりに、`IQueryable`オブジェクト。 (を呼び出すと、`Contains`メソッドを`IEnumerable`.NET Framework の実装を取得する、コレクション以外のときに呼び出す、`IQueryable`オブジェクト、データベース プロバイダーの実装を取得します)。
@@ -158,7 +158,7 @@ NuGet **PagedList.Mvc**パッケージを自動的にインストール、 **Pag
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-`ToPagedList`メソッドは、ページ数を取得します。 2 つの疑問符を表す、 [null 合体演算子](https://msdn.microsoft.com/en-us/library/ms173224.aspx)です。 Null 合体演算子を null 許容型以外の既定値を定義します式`(page ?? 1)`の値を返すことを意味`page`かどうかは、値を持つまたは 1 を返す`page`が null です。
+`ToPagedList`メソッドは、ページ数を取得します。 2 つの疑問符を表す、 [null 合体演算子](https://msdn.microsoft.com/library/ms173224.aspx)です。 Null 合体演算子を null 許容型以外の既定値を定義します式`(page ?? 1)`の値を返すことを意味`page`かどうかは、値を持つまたは 1 を返す`page`が null です。
 
 ### <a name="add-paging-links-to-the-student-index-view"></a>学生インデックス ビューにページングのリンクを追加します。
 
@@ -170,11 +170,11 @@ NuGet **PagedList.Mvc**パッケージを自動的にインストール、 **Pag
 
 `using`の声明`PagedList.Mvc`ページング ボタンの MVC ヘルパーへのアクセスを提供します。
 
-コードのオーバー ロードを使用して[BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx)を指定することができる[FormMethod.Get](https://msdn.microsoft.com/en-us/library/system.web.mvc.formmethod(v=vs.100).aspx/css)です。
+コードのオーバー ロードを使用して[BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx)を指定することができる[FormMethod.Get](https://msdn.microsoft.com/library/system.web.mvc.formmethod(v=vs.100).aspx/css)です。
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cshtml?highlight=1)]
 
-既定値[BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx)をパラメーターとして渡される HTTP メッセージの本文では、URL ではなくクエリ文字列は、投稿内容がフォームのデータを送信します。 HTTP GET を指定すると、フォームのデータに渡されます URL クエリ文字列としてユーザーの URL をブックマークすることができます。 [HTTP GET を使用するための W3C ガイドライン](http://www.w3.org/2001/tag/doc/whenToUseGet.html)アクションが、更新プログラムにならない場合は、GET を使用するように指定します。
+既定値[BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx)をパラメーターとして渡される HTTP メッセージの本文では、URL ではなくクエリ文字列は、投稿内容がフォームのデータを送信します。 HTTP GET を指定すると、フォームのデータに渡されます URL クエリ文字列としてユーザーの URL をブックマークすることができます。 [HTTP GET を使用するための W3C ガイドライン](http://www.w3.org/2001/tag/doc/whenToUseGet.html)アクションが、更新プログラムにならない場合は、GET を使用するように指定します。
 
 テキスト ボックスは、新しいページをクリックすると、現在の検索文字列を表示できるように、現在の検索文字列で初期化されます。
 
@@ -291,7 +291,7 @@ Windows Azure SQL データベースとは、SQL Server テクノロジに基づ
 7. 右側のボックスの下部にある矢印をクリックします。 ウィザード、**データベース設定**手順です。
 8. **名前**ボックスに、入力*ContosoUniversityDB*です。
 9. **サーバー**ボックスで、**新しい SQL データベース サーバー**です。 また、以前にサーバーを作成した場合は、ドロップダウン リストからそのサーバーを選択できます。
-10. 管理者の入力**ログイン名**と**パスワード**です。 選択した場合は**新しい SQL データベース サーバー**既存の名前とパスワードをここに入力していない、新しい名前とデータベースにアクセスするときに後で使用するようになりました定義しているパスワードを入力しているか。 以前作成したサーバーを選択した場合は、そのサーバーの資格情報を入力します。 このチュートリアルでは、選択することはありません、***詳細***チェック ボックスをオンします。 ***詳細***オプションでは、データベースを設定できます。[照合順序](https://msdn.microsoft.com/en-us/library/aa174903(v=SQL.80).aspx)です。
+10. 管理者の入力**ログイン名**と**パスワード**です。 選択した場合は**新しい SQL データベース サーバー**既存の名前とパスワードをここに入力していない、新しい名前とデータベースにアクセスするときに後で使用するようになりました定義しているパスワードを入力しているか。 以前作成したサーバーを選択した場合は、そのサーバーの資格情報を入力します。 このチュートリアルでは、選択することはありません、***詳細***チェック ボックスをオンします。 ***詳細***オプションでは、データベースを設定できます。[照合順序](https://msdn.microsoft.com/library/aa174903(v=SQL.80).aspx)です。
 11. 同じ選択**地域**web サイトの選択しました。
 12. 完了したらを示すために、ボックスの右下にあるチェック マークをクリックします。   
   
@@ -367,7 +367,7 @@ Windows Azure SQL データベースとは、SQL Server テクノロジに基づ
   
     ![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image32.png)
 
-この時点で、 *SchoolContext*データベースが作成された Windows Azure SQL データベースで選択したので、**実行 Code First Migrations (アプリの起動時に実行)**です。 *Web.config*配置済みの web サイト内のファイルが変更されたできるように、 [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/en-us/library/hh829476(v=vs.103).aspx)初期化子が最初の実行、コードが読み取るか、またはデータベースにデータを書き込みます (選択したときに発生した、**受講者** タブ)。
+この時点で、 *SchoolContext*データベースが作成された Windows Azure SQL データベースで選択したので、**実行 Code First Migrations (アプリの起動時に実行)**です。 *Web.config*配置済みの web サイト内のファイルが変更されたできるように、 [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx)初期化子が最初の実行、コードが読み取るか、またはデータベースにデータを書き込みます (選択したときに発生した、**受講者** タブ)。
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image33.png)
 
@@ -387,9 +387,9 @@ Windows Azure SQL データベースとは、SQL Server テクノロジに基づ
 
 ## <a name="code-first-initializers"></a>コードの最初の初期化子
 
-展開に関するセクションで説明しました、 [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/en-us/library/hh829476(v=vs.103).aspx)初期化子が使用されています。 最初のコードなど、使用できるその他の初期化子を提供[CreateDatabaseIfNotExists](https://msdn.microsoft.com/en-us/library/gg679221(v=vs.103).aspx) (既定)、 [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/en-us/library/gg679604(v=VS.103).aspx)と[DropCreateDatabaseAlways](https://msdn.microsoft.com/en-us/library/gg679506(v=VS.103).aspx)です。 `DropCreateAlways`初期化子は単体テストの条件を設定するため役に立ちます。 独自の初期化子を記述することもでき、アプリケーションからの読み取りまたはデータベースに書き込みます。 するまで待機したくない場合は、明示的に初期化子を呼び出すことができます。 初期化子の包括的な説明については、書籍の第 6 章を参照してください。 [Entity Framework のプログラミング: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman して Rowan Miller です。
+展開に関するセクションで説明しました、 [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx)初期化子が使用されています。 最初のコードなど、使用できるその他の初期化子を提供[CreateDatabaseIfNotExists](https://msdn.microsoft.com/library/gg679221(v=vs.103).aspx) (既定)、 [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=VS.103).aspx)と[DropCreateDatabaseAlways](https://msdn.microsoft.com/library/gg679506(v=VS.103).aspx)です。 `DropCreateAlways`初期化子は単体テストの条件を設定するため役に立ちます。 独自の初期化子を記述することもでき、アプリケーションからの読み取りまたはデータベースに書き込みます。 するまで待機したくない場合は、明示的に初期化子を呼び出すことができます。 初期化子の包括的な説明については、書籍の第 6 章を参照してください。 [Entity Framework のプログラミング: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman して Rowan Miller です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、データ モデルを作成して基本的な CRUD、並べ替え、フィルター、ページング、および機能をグループ化を実装する方法を説明しました。 次のチュートリアルでは、データ モデルを展開してより高度なトピックを見るが始めます。
 

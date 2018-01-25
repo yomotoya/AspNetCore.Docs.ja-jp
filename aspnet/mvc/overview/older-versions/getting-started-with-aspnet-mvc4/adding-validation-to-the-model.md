@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 73332d168e2f22621cb234a6591f3ce0eeed802f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 93b4df5fcbde8d87866d00dffda8a241d0dd596b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-validation-to-the-model"></a>モデルの検証の追加
 ====================
@@ -40,13 +40,13 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 いくつかの検証ロジックを追加することから始めます、`Movie`クラスです。
 
-*Movie.cs* ファイルを開きます。 追加、`using`を参照するファイルの上部にあるステートメント、 [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx)名前空間。
+*Movie.cs* ファイルを開きます。 追加、`using`を参照するファイルの上部にあるステートメント、 [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間。
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample1.cs)]
 
 名前空間が含まれていない`System.Web`です。 DataAnnotations は、すべてのクラスまたはプロパティを宣言して適用できる検証属性の組み込みのセットを提供します。
 
-更新できるように、`Movie`組み込み活用するためにクラス[ `Required` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx)、 [ `StringLength` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)、および[ `Range` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx)検証属性. 属性を適用する場所の例として、次のコードを使用します。
+更新できるように、`Movie`組み込み活用するためにクラス[ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx)、 [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)、および[ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx)検証属性. 属性を適用する場所の例として、次のコードを使用します。
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample2.cs?highlight=4,10,13,17)]
 
@@ -99,7 +99,7 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 5. テキストを削除します。
 6. タブです。
 
-上の順序は、[送信] ボタンを押すことがなく必要な検証をトリガーします。 単に任意のフィールドを入力することがなく送信 ボタンを押すと、クライアント側の検証がトリガーされます。 クライアント側の検証エラーがなくなるまで、フォーム データはサーバーに送信されません。 これをテストするには、HTTP Post メソッドにブレークポイントを配置するかを使用して、 [fiddler ツール](http://fiddler2.com/fiddler2/)または IE 9 [F12 開発者ツール](https://msdn.microsoft.com/en-us/ie/aa740478)です。
+上の順序は、[送信] ボタンを押すことがなく必要な検証をトリガーします。 単に任意のフィールドを入力することがなく送信 ボタンを押すと、クライアント側の検証がトリガーされます。 クライアント側の検証エラーがなくなるまで、フォーム データはサーバーに送信されません。 これをテストするには、HTTP Post メソッドにブレークポイントを配置するかを使用して、 [fiddler ツール](http://fiddler2.com/fiddler2/)または IE 9 [F12 開発者ツール](https://msdn.microsoft.com/ie/aa740478)です。
 
 ![](adding-validation-to-the-model/_static/image2.png)
 
@@ -137,17 +137,17 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 ## <a name="adding-formatting-to-the-movie-model"></a>書式設定、ムービーのモデルを追加します。
 
-*Movie.cs* ファイルを開き、`Movie` クラスを調べます。 [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx)名前空間が一連の組み込みの検証属性だけでなく書式属性を提供します。 既に適用された、 [ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)リリース日と価格のフィールドの列挙値。 次のコードは、`ReleaseDate`と`Price`と適切なプロパティ[ `DisplayFormat` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx)属性。
+*Movie.cs* ファイルを開き、`Movie` クラスを調べます。 [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間が一連の組み込みの検証属性だけでなく書式属性を提供します。 既に適用された、 [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)リリース日と価格のフィールドの列挙値。 次のコードは、`ReleaseDate`と`Price`と適切なプロパティ[ `DisplayFormat` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)属性。
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample9.cs)]
 
-[ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)属性が検証属性ではありません、HTML をレンダリングする方法をビュー エンジンに通知するために使用します。 上記の例では、`DataType.Date`属性は、時刻のない日にのみ、としてムービー日付を表示します。 たとえば、次[ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)属性は、データの形式を検証しません。
+[ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性が検証属性ではありません、HTML をレンダリングする方法をビュー エンジンに通知するために使用します。 上記の例では、`DataType.Date`属性は、時刻のない日にのみ、としてムービー日付を表示します。 たとえば、次[ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性は、データの形式を検証しません。
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample10.cs)]
 
-上に示した属性は、データを書式設定、ビュー エンジンのヒントを提供するだけ (などの属性を提供および&lt;、&gt;の URL をおよび&lt;、href =&quot;mailto:EmailAddress.com&quot; &gt;電子メール アドレス。 使用することができます、[正規表現](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)データの形式を検証する属性。
+上に示した属性は、データを書式設定、ビュー エンジンのヒントを提供するだけ (などの属性を提供および&lt;、&gt;の URL をおよび&lt;、href =&quot;mailto:EmailAddress.com&quot; &gt;電子メール アドレス。 使用することができます、[正規表現](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)データの形式を検証する属性。
 
-その他の方法を使用する、`DataType`属性が明示的に設定する、 [ `DataFormatString` ](https://msdn.microsoft.com/en-us/library/system.string.format.aspx)値。 次のコードは、日付の書式設定文字列のリリース日付プロパティを示しています (つまり、 &quot;d&quot;)。 リリース日の一部として、時間にするないを指定するのにには、これを使用します。
+その他の方法を使用する、`DataType`属性が明示的に設定する、 [ `DataFormatString` ](https://msdn.microsoft.com/library/system.string.format.aspx)値。 次のコードは、日付の書式設定文字列のリリース日付プロパティを示しています (つまり、 &quot;d&quot;)。 リリース日の一部として、時間にするないを指定するのにには、これを使用します。
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample11.cs)]
 

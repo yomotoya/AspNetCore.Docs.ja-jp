@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4632d3939204a954ed4fac88a04b0fea9bb15c83
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cf3058ac095bc2ed728a716e70f962e260eef5a2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>マスター/詳細 DropDownList (c#) によるフィルター処理
 ====================
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/10/2017
 
 レポートの一般的な種類は、*マスター/詳細レポート*、一部の「マスター」のレコードのセットを表示することによって、レポートを開始するのです。 ユーザー、ドリルダウンできますマスターのレコードのいずれかにそれによってそのマスター レコードの"の詳細の表示" マスター/詳細レポートはレポートなどの一対多の関係を視覚化する最適な選択肢すべてのカテゴリを示す特定のカテゴリを選択し、関連付けられた製品を表示するユーザーを許可します。 さらに、マスター/詳細レポートは、特に「幅の広い」テーブル (多数の列があるもの) から詳細な情報を表示するのに役立ちます。 たとえば、「マスター」マスター/詳細レポートのレベルは、データベースにだけ製品名と単位の価格、製品を表示する場合がありますおよび特定の製品へのドリル ダウンは、製品に関するその他のフィールドを表示 (カテゴリ、供給業者、単位あたりの数量とで)。
 
-マスター/詳細レポートの実装されている方法はたくさんあります。 これと次の 3 つのチュートリアルでは、マスター/詳細レポートは多岐に紹介します。 このチュートリアルでは思いますのマスター レコードを表示する方法、 [DropDownList コントロール](https://msdn.microsoft.com/en-us/library/dtx91y0z.aspx)と GridView で選択した項目の詳細。 具体的には、このチュートリアルのマスター/詳細レポートには、カテゴリおよび製品情報が表示されます。
+マスター/詳細レポートの実装されている方法はたくさんあります。 これと次の 3 つのチュートリアルでは、マスター/詳細レポートは多岐に紹介します。 このチュートリアルでは思いますのマスター レコードを表示する方法、 [DropDownList コントロール](https://msdn.microsoft.com/library/dtx91y0z.aspx)と GridView で選択した項目の詳細。 具体的には、このチュートリアルのマスター/詳細レポートには、カテゴリおよび製品情報が表示されます。
 
 ## <a name="step-1-displaying-the-categories-in-a-dropdownlist"></a>手順 1: DropDownList でカテゴリを表示します。
 
@@ -97,7 +97,7 @@ DropDownList でどのようなデータ ソースのフィールドを表示す
 
 すぐをブラウザーで作業の進行状況を確認します。 これらの製品が、選択したカテゴリに属している場合、最初のページへのアクセス、(飲み物) が表示されます (図 9) が DropDownList を変更すると、データが更新されません。 これは、ため、更新する GridView のポストバックが発生したときです。 これを行うには、2 つのオプション (うちどちらが必要、コードを記述) があります。
 
-- **設定カテゴリの DropDownList の**[AutoPostBack プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.listcontrol.autopostback%28VS.80%29.aspx)**True に設定します。** (これを行う DropDownList のスマート タグで AutoPostBack を有効にするオプションをチェックしています。)DropDownList の選択されたときに、ポストバックがこれによりトリガー、ユーザーが項目を変更します。 したがって、ユーザーは、次のドロップダウン リストから新しいカテゴリを選択したときにポストバックが発生したり、GridView、新しく選択したカテゴリの製品で更新されます。 (これは、このチュートリアルで使用したアプローチです)。
+- **設定カテゴリの DropDownList の**[AutoPostBack プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listcontrol.autopostback%28VS.80%29.aspx)**True に設定します。** (これを行う DropDownList のスマート タグで AutoPostBack を有効にするオプションをチェックしています。)DropDownList の選択されたときに、ポストバックがこれによりトリガー、ユーザーが項目を変更します。 したがって、ユーザーは、次のドロップダウン リストから新しいカテゴリを選択したときにポストバックが発生したり、GridView、新しく選択したカテゴリの製品で更新されます。 (これは、このチュートリアルで使用したアプローチです)。
 - **DropDownList の横にあるボタン Web コントロールを追加します。** 設定の`Text`プロパティを更新または同様です。 この方法で、ユーザーは、新しいカテゴリを選択し、ボタンをクリックする必要があります。 ボタンをクリックし、ポストバックを発生させるが、選択したカテゴリの製品を一覧表示する GridView を更新します。
 
 図 9 と 10 は、マスター/詳細レポートの動作を示しています。
@@ -159,7 +159,7 @@ DropDownList でどのようなデータ ソースのフィールドを表示す
 **図 14**: 一覧で、既定では、すべての製品 ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-a-dropdownlist-cs/_static/image40.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 階層的に関連するデータを表示するには、マスター/詳細レポート、元のユーザーは、階層の最上位からデータを参照するための開始し、詳細にドリル ダウンを使用してデータを表示する多くの場合、役立ちます。 このチュートリアルでは、選択したカテゴリの製品が表示された単純なマスター/詳細レポートを作成して調査します。 これは、カテゴリと、選択したカテゴリに属する製品の GridView の一覧については、DropDownList を使用して行われました。
 

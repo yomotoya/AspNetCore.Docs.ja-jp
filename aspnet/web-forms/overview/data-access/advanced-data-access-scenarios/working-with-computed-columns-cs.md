@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 133c55371cccabbbefe1b0eb3f4c7a67f2834f1d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 41206f76f9d9ca68971a53d79e84d82349e92333
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="working-with-computed-columns-c"></a>計算列 (c#) の使用
 ====================
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="introduction"></a>はじめに
 
-Microsoft SQL Server では、 *[計算列](https://msdn.microsoft.com/en-us/library/ms191250.aspx)*、これらは列の値は、通常、同じテーブル内の他の列から値を参照する式から計算されます。 例として、追跡データ モデルにテーブルがあるという`ServiceLog`を含む列を含む`ServicePerformed`、 `EmployeeID`、 `Rate`、および`Duration`、他のユーザー間でします。 額を中にサービスごとの項目 (される期間を掛けたレート) でしたが計算されます web ページまたはその他のプログラム インターフェイス経由で列を含めるように便利な場合があります、`ServiceLog`という名前のテーブル`AmountDue`を報告この情報です。 この列は、通常の列として作成できませんでしたが、いつでも更新する必要があります、`Rate`または`Duration`列値を変更します。 させることにより、`AmountDue`列、式を使用して計算列`Rate * Duration`です。 これには SQL Server が自動的に計算が発生、`AmountDue`クエリで参照されていたときに、列の値。
+Microsoft SQL Server では、 *[計算列](https://msdn.microsoft.com/library/ms191250.aspx)*、これらは列の値は、通常、同じテーブル内の他の列から値を参照する式から計算されます。 例として、追跡データ モデルにテーブルがあるという`ServiceLog`を含む列を含む`ServicePerformed`、 `EmployeeID`、 `Rate`、および`Duration`、他のユーザー間でします。 額を中にサービスごとの項目 (される期間を掛けたレート) でしたが計算されます web ページまたはその他のプログラム インターフェイス経由で列を含めるように便利な場合があります、`ServiceLog`という名前のテーブル`AmountDue`を報告この情報です。 この列は、通常の列として作成できませんでしたが、いつでも更新する必要があります、`Rate`または`Duration`列値を変更します。 させることにより、`AmountDue`列、式を使用して計算列`Rate * Duration`です。 これには SQL Server が自動的に計算が発生、`AmountDue`クエリで参照されていたときに、列の値。
 
 計算列の値は、式によって決まりますがため、このような列読み取り専用あり、したがってできない値に割り当てたでそれら`INSERT`または`UPDATE`ステートメントです。 ただし、計算列が、アドホック SQL ステートメントを使用する TableAdapter のメイン クエリの一部である場合は、それらが自動的に追加で自動生成された`INSERT`と`UPDATE`ステートメントです。 Tableadapter ではその結果、`INSERT`と`UPDATE`クエリと`InsertCommand`と`UpdateCommand`計算列への参照を削除するプロパティを更新する必要があります。
 
@@ -51,7 +51,7 @@ Northwind データベースには計算列はないのでおは社内で 1 つ�
 SQL の文字列を連結できることに注意してください。 を使用して、`+`演算子。 `CASE`ステートメントは、従来のプログラミング言語で条件付きのように使用することができます。 上記の式で、`CASE`としてステートメントを読み取ることができます: 場合`ContactTitle`は`NULL`し、出力、`ContactTitle`コンマ、それ以外の場合と連結された値を出力何も行われません。 詳細の有用性について、`CASE`ステートメントを参照してください[SQL の電源`CASE`ステートメント](http://www.4guysfromrolla.com/webtech/102704-1.shtml)です。
 
 > [!NOTE]
-> 使用する代わりに、`CASE`ステートメントは、ここではまたは使用することも`ISNULL(ContactTitle, '')`します。 [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/en-us/library/ms184325.aspx)返します*checkExpression* NULL 以外の場合、それ以外の場合を返します*replacementValue*です。 どちらか一方`ISNULL`または`CASE`は機能、このインスタンスより複雑なシナリオは場所の柔軟性、`CASE`でステートメントを照合することはできません`ISNULL`です。
+> 使用する代わりに、`CASE`ステートメントは、ここではまたは使用することも`ISNULL(ContactTitle, '')`します。 [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx)返します*checkExpression* NULL 以外の場合、それ以外の場合を返します*replacementValue*です。 どちらか一方`ISNULL`または`CASE`は機能、このインスタンスより複雑なシナリオは場所の柔軟性、`CASE`でステートメントを照合することはできません`ISNULL`です。
 
 
 この計算列を追加した後、画面が図 1 でスクリーン ショットのようになります。
@@ -69,10 +69,10 @@ SQL の文字列を連結できることに注意してください。 を使用
 
 [!code-sql[Main](working-with-computed-columns-cs/samples/sample2.sql)]
 
-Microsoft SQL Server の計算列の詳細についてを参照してください、[のテクニカル ドキュメント](https://msdn.microsoft.com/en-us/library/ms191250.aspx)です。 チェック アウト、[する方法: 計算列の指定](https://msdn.microsoft.com/en-us/library/ms188300.aspx)計算列の作成のステップ バイ ステップ チュートリアルについてはします。
+Microsoft SQL Server の計算列の詳細についてを参照してください、[のテクニカル ドキュメント](https://msdn.microsoft.com/library/ms191250.aspx)です。 チェック アウト、[する方法: 計算列の指定](https://msdn.microsoft.com/library/ms188300.aspx)計算列の作成のステップ バイ ステップ チュートリアルについてはします。
 
 > [!NOTE]
-> 既定では、計算列は、テーブルに物理的に格納されていないが、クエリで参照されるたびに再計算は、代わりにします。 ただし、チェック ボックスをオンが永続化されるには、計算列をテーブルに物理的に格納する SQL Server を指示することができます。 これにより、インデックスを作成する、計算列、計算列の値を使用するクエリのパフォーマンスを向上させることができます、`WHERE`句。 参照してください[計算列のインデックスを作成する](https://msdn.microsoft.com/en-us/library/ms189292.aspx)詳細についてはします。
+> 既定では、計算列は、テーブルに物理的に格納されていないが、クエリで参照されるたびに再計算は、代わりにします。 ただし、チェック ボックスをオンが永続化されるには、計算列をテーブルに物理的に格納する SQL Server を指示することができます。 これにより、インデックスを作成する、計算列、計算列の値を使用するクエリのパフォーマンスを向上させることができます、`WHERE`句。 参照してください[計算列のインデックスを作成する](https://msdn.microsoft.com/library/ms189292.aspx)詳細についてはします。
 
 
 ## <a name="step-2-viewing-the-computed-column-s-values"></a>手順 2: 計算列の値の表示
@@ -251,7 +251,7 @@ ObjectDataSource、GridView にこれらの編集を行った後、宣言型マ�
 > GridView 現在使用して BoundFields 編集可能なフィールドの結果として既定のインターフェイスを編集します。 以降、`CompanyName`フィールドは必須では、RequiredFieldValidator を含む TemplateField に変換する必要があります。 I のままに練習として、興味のリーダーの。 参照してください、[検証コントロールを編集および挿入するインターフェイスを追加する](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)BoundField を TemplateField に変換し、検証コントロールを追加する手順についてのチュートリアルです。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 テーブルのスキーマを定義するときに Microsoft SQL Server によって計算列を含めることができます。 これらは、値を持つは、通常、同じのレコードの他の列から値を参照する式から計算列です。 以降の値の計算列は、式に基づいて、読み取り専用、内の値を割り当てることができません、`INSERT`または`UPDATE`ステートメントです。 対応するを自動的に生成しようとする TableAdapter のメイン クエリで計算列を使用する場合の課題が生じます`INSERT`、 `UPDATE`、および`DELETE`ステートメントです。
 

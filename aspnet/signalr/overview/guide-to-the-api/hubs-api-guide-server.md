@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 1cd5569554c3fbd966ee5d55ad08a79b81af36de
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c2567d4d39a494daf77a23db5dff83c8fae4925d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>ASP.NET SignalR ハブ API ガイド - サーバー (c#)
 ====================
@@ -102,7 +102,7 @@ SignalR 2 のサーバー コンポーネントでは、.NET 4.5 で利用でき
 
 ## <a name="how-to-register-signalr-middleware"></a>SignalR のミドルウェアを登録する方法
 
-クライアントがハブへの接続に使用するルートを定義するには、呼び出し、`MapSignalR`メソッド アプリケーションの起動時にします。 `MapSignalR`[拡張メソッド](https://msdn.microsoft.com/en-us/library/vstudio/bb383977.aspx)の`OwinExtensions`クラスです。 次の例では、OWIN スタートアップ クラスを使用して SignalR ハブ ルートを定義する方法を示します。
+クライアントがハブへの接続に使用するルートを定義するには、呼び出し、`MapSignalR`メソッド アプリケーションの起動時にします。 `MapSignalR`[拡張メソッド](https://msdn.microsoft.com/library/vstudio/bb383977.aspx)の`OwinExtensions`クラスです。 次の例では、OWIN スタートアップ クラスを使用して SignalR ハブ ルートを定義する方法を示します。
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample1.cs)]
 
@@ -156,7 +156,7 @@ SignalR; のこのベース URL を使用できないようにする特殊な状
 
 ## <a name="how-to-create-and-use-hub-classes"></a>作成し、ハブ クラスを使用する方法
 
-ハブを作成するから派生するクラスを作成[Microsoft.Aspnet.Signalr.Hub](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx)です。 次の例では、チャット アプリケーション用の単純なハブ クラスを示します。
+ハブを作成するから派生するクラスを作成[Microsoft.Aspnet.Signalr.Hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx)です。 次の例では、チャット アプリケーション用の単純なハブ クラスを示します。
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample7.cs)]
 
@@ -262,7 +262,7 @@ SignalR; のこのベース URL を使用できないようにする特殊な状
 
 ### <a name="when-to-execute-asynchronously"></a>非同期的に実行するタイミング
 
-メソッドがある実行時間の長いまたは作業を実行するにする場合はデータベースの参照など、web サービス呼び出しの待機を伴うを返すことによってのハブ メソッドを非同期に作成、[タスク](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx)(の代わりに`void`を返す) または[タスク&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/dd321424.aspx)オブジェクト (の代わりに`T`型を返す)。 戻るとき、`Task`メソッド、SignalR からオブジェクトを待って、`Task`完了するにはし、そのラップ解除された結果、クライアントに戻すため、クライアントのメソッド呼び出しをコーディングする方法の違いはありません。
+メソッドがある実行時間の長いまたは作業を実行するにする場合はデータベースの参照など、web サービス呼び出しの待機を伴うを返すことによってのハブ メソッドを非同期に作成、[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)(の代わりに`void`を返す) または[タスク&lt;T&gt; ](https://msdn.microsoft.com/library/dd321424.aspx)オブジェクト (の代わりに`T`型を返す)。 戻るとき、`Task`メソッド、SignalR からオブジェクトを待って、`Task`完了するにはし、そのラップ解除された結果、クライアントに戻すため、クライアントのメソッド呼び出しをコーディングする方法の違いはありません。
 
 ハブ メソッド非同期回避 WebSocket トランスポートを使用する場合は、接続をブロックします。 ハブ メソッドが同期的に実行すると、トランスポートは、WebSocket、ハブのメソッドが完了するまで、同じクライアントからハブのメソッドの後続の呼び出しはブロックされます。
 
@@ -331,7 +331,7 @@ SignalR 2.1 には、サポートが追加されて、[進行状況レポート�
 
 ### <a name="selecting-which-clients-will-receive-the-rpc"></a>どのクライアントを選択すると、RPC が表示されます。
 
-クライアントのプロパティから返される、 [HubConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) RPC を受信するクライアントを指定するためのいくつかのオプションを提供するオブジェクト。
+クライアントのプロパティから返される、 [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) RPC を受信するクライアントを指定するためのいくつかのオプションを提供するオブジェクト。
 
 - 接続されているすべてのクライアントです。
 
@@ -403,7 +403,7 @@ SignalR 2.1 には、サポートが追加されて、[進行状況レポート�
 
 ### <a name="how-to-use-a-string-variable-as-the-method-name"></a>メソッドの名前として文字列変数を使用する方法
 
-キャスト メソッドの名前として文字列変数を使用してクライアント メソッドを呼び出す場合`Clients.All`(または`Clients.Others`、`Clients.Caller`など) に`IClientProxy`し[Invoke (methodName、args...)](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
+キャスト メソッドの名前として文字列変数を使用してクライアント メソッドを呼び出す場合`Clients.All`(または`Clients.Others`、`Clients.Caller`など) に`IClientProxy`し[Invoke (methodName、args...)](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample42.cs)]
 
@@ -413,7 +413,7 @@ SignalR 2.1 には、サポートが追加されて、[進行状況レポート�
 
 SignalR でグループは、接続しているクライアントの指定されたサブセットにメッセージをブロードキャストする方法を提供します。 グループは、クライアントの任意の数を持つことができ、クライアントは任意の数のグループのメンバーであることができます。
 
-グループ メンバーシップを管理するを使用して、[追加](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx)と[削除](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx)によって提供されるメソッド、`Groups`ハブ クラスのプロパティです。 次の例は、`Groups.Add`と`Groups.Remove`これらを呼び出す JavaScript クライアント コードでクライアント コードによって呼び出されるハブ メソッドで使用されるメソッドの後にします。
+グループ メンバーシップを管理するを使用して、[追加](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx)と[削除](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx)によって提供されるメソッド、`Groups`ハブ クラスのプロパティです。 次の例は、`Groups.Add`と`Groups.Remove`これらを呼び出す JavaScript クライアント コードでクライアント コードによって呼び出されるハブ メソッドで使用されるメソッドの後にします。
 
 **サーバー**
 
@@ -494,7 +494,7 @@ SignalR 接続を追跡する、接続のように、同じグループにユー
 
 ## <a name="how-to-get-information-about-the-client-from-the-context-property"></a>コンテキスト プロパティからのクライアントに関する情報を取得する方法
 
-クライアントに関する情報を取得する、`Context`ハブ クラスのプロパティです。 `Context`プロパティから返される、 [HubCallerContext](https://msdn.microsoft.com/en-us/library/jj890883(v=vs.111).aspx)次の情報へのアクセスを提供するオブジェクト。
+クライアントに関する情報を取得する、`Context`ハブ クラスのプロパティです。 `Context`プロパティから返される、 [HubCallerContext](https://msdn.microsoft.com/library/jj890883(v=vs.111).aspx)次の情報へのアクセスを提供するオブジェクト。
 
 - 呼び出し元のクライアントの接続 ID。
 
@@ -578,7 +578,7 @@ VB.NET または厳密に型指定されたハブでは、呼び出し元の状�
 ハブ クラスのメソッドで発生したエラーを処理するには、次の方法の 1 つ以上を使用します。
 
 - Try catch ブロックでは、メソッドのコードをラップし、例外オブジェクトを記録します。 デバッグの目的では、クライアントに例外を送信できますが、セキュリティ上の理由から実稼働環境でクライアントに詳細な情報を送信はお勧めしません。
-- 処理するハブ パイプライン モジュールを作成、 [OnIncomingError](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx)メソッドです。 次の例では、モジュールでは、ハブ パイプラインに挿入 Startup.cs のコードを続けて、エラー ログに記録するパイプライン モジュールを示します。
+- 処理するハブ パイプライン モジュールを作成、 [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx)メソッドです。 次の例では、モジュールでは、ハブ パイプラインに挿入 Startup.cs のコードを続けて、エラー ログに記録するパイプライン モジュールを示します。
 
     [!code-csharp[Main](hubs-api-guide-server/samples/sample61.cs)]
 
@@ -674,4 +674,4 @@ SignalR では、独自のコードをハブ パイプラインに挿入する�
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample77.cs?highlight=3)]
 
-オーバーライドできるさまざまな方法があります。 完全な一覧についてを参照してください。 [HubPipelineModule メソッド](https://msdn.microsoft.com/en-us/library/jj918633(v=vs.111).aspx)です。
+オーバーライドできるさまざまな方法があります。 完全な一覧についてを参照してください。 [HubPipelineModule メソッド](https://msdn.microsoft.com/library/jj918633(v=vs.111).aspx)です。

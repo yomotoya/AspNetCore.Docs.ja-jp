@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 14e245f5fd25079b4ee1dee566ca451f955a8b25
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fc6c297f08790cdcc74867df21e32258017c5a7d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a>DataList でリピータ (VB) カスタム ボタン
 ====================
@@ -114,17 +114,17 @@ DataList またはリピータ内で、ボタンをクリックすることが�
 
 ときに、ボタンがクリックされた、ポストバックが発生し、DataList またはリピータの`ItemCommand`イベントが発生します。 イベント ハンドラーは、[s] ボタンに渡されます`CommandName`と`CommandArgument`値。
 
-リピータ s のイベント ハンドラーを作成`ItemCommand`、イベント ハンドラーに渡されたイベントと 2 番目のパラメーター (名前付き`e`)。 この 2 番目のパラメーターの型は[ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx)し、次の 4 つのプロパティします。
+リピータ s のイベント ハンドラーを作成`ItemCommand`、イベント ハンドラーに渡されたイベントと 2 番目のパラメーター (名前付き`e`)。 この 2 番目のパラメーターの型は[ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx)し、次の 4 つのプロパティします。
 
 - `CommandArgument`クリックされたボタン秒の値`CommandArgument`プロパティ
 - `CommandName`ボタンの秒の値`CommandName`プロパティ
 - `CommandSource`クリックされたボタン コントロールへの参照
-- `Item`参照、 [ `RepeaterItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeateritem.aspx)がクリックされたボタンが含まれている; リピータにバインドされている各レコードとして示されています、`RepeaterItem`
+- `Item`参照、 [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx)がクリックされたボタンが含まれている; リピータにバインドされている各レコードとして示されています、`RepeaterItem`
 
 選択したカテゴリ s 以降`CategoryID`経由で渡される、`CommandArgument`プロパティで選択したカテゴリに関連付けられている製品のセットを取得できます、`ItemCommand`イベント ハンドラー。 BulletedList コントロールにこれらの製品をバインドすることができますし、 `ItemTemplate` (私たちを追加するには、まだしました)。 参照を設定した後、残っている、BulletedList を追加するにはすべて、`ItemCommand`イベント ハンドラー、し、手順 4. で取り上げる、選択したカテゴリの製品のセットをバインドします。
 
 > [!NOTE]
-> DataList s`ItemCommand`イベント ハンドラーは型のオブジェクトに渡されます[ `DataListCommandEventArgs`](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx)と同じ 4 つのプロパティを提供する、`RepeaterCommandEventArgs`クラスです。
+> DataList s`ItemCommand`イベント ハンドラーは型のオブジェクトに渡されます[ `DataListCommandEventArgs`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx)と同じ 4 つのプロパティを提供する、`RepeaterCommandEventArgs`クラスです。
 
 
 ## <a name="step-4-displaying-the-selected-category-s-products-in-a-bulleted-list"></a>手順 4: 箇条書きリストで選択したカテゴリの製品を表示します。
@@ -154,7 +154,7 @@ DataList またはリピータ内で、ボタンをクリックすることが�
 **図 7**: A BulletedList を使用して、選択したカテゴリの製品を表示 ([フルサイズのイメージを表示するをクリックして](custom-buttons-in-the-datalist-and-repeater-vb/_static/image17.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 DataList とリピータ コントロールは、任意の数をテンプレート内のボタン、ある、または ImageButtons を含めることができます。 クリックすると、このようなボタンがポストバックを発生させるし、生成、`ItemCommand`イベント。 クリックしてされたボタンにカスタム サーバー側のアクションを関連付けるのイベント ハンドラーを作成、`ItemCommand`イベント。 このイベント ハンドラーで受信をまずチェック`CommandName`クリックしてされたボタンを決定する値。 S をクリックして追加情報を指定することができます必要に応じて`CommandArgument`プロパティです。
 

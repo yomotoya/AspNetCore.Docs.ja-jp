@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/error-handling
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49507e90cd659be5da08df17e175297adad0fea1
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 019e31fa749a950db48575e1f4e8d4d26d1cde75
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>ASP.NET Core でのエラー処理の概要
 
@@ -49,7 +49,7 @@ Put`UseDeveloperExceptionPage`など、例外をキャッチするすべての�
 
 ## <a name="configuring-a-custom-exception-handling-page"></a>ページの処理、カスタム例外を構成します。
 
-例外ハンドラーで、アプリが実行されていないときに使用するページを構成することをお勧め、`Development`環境。
+アプリを実行していないときに使用する例外ハンドラー ページを構成することをお勧め、`Development`環境。
 
 [!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
@@ -65,7 +65,7 @@ public IActionResult Index()
 
 ## <a name="configuring-status-code-pages"></a>ステータス コード ページを構成します。
 
-既定では、アプリが提供されません豊富なステータス コード ページの HTTP ステータス コード 500 (内部サーバー エラー) または 404 (Not Found) など。 構成することができます、`StatusCodePagesMiddleware`に行を追加して、`Configure`メソッド。
+既定では、アプリは、HTTP ステータス コード 500 (内部サーバー エラー) または 404 (Not Found) などの豊富なステータス コード ページを指定しません。 構成することができます、`StatusCodePagesMiddleware`に行を追加して、`Configure`メソッド。
 
 ```csharp
 app.UseStatusCodePages();

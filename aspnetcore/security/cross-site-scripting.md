@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cross-site-scripting
-ms.openlocfilehash: af73a86aa6bcde084ecbe1a3fb5711c7da55871c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3aaab9d4fecd3f0d0da6a0df4d83bee090b329ea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="preventing-cross-site-scripting"></a>クロスサイト スクリプティングの防止
 
@@ -56,7 +56,7 @@ MVC で自動的に使用される、Razor エンジン エンコードすべて
    ```
 
 >[!WARNING]
-> ASP.NET Core MVC の提供、`HtmlString`クラスは出力時に自動的にエンコードされていません。 これは、必要がありますで使用しないで信頼関係のない入力と組み合わせて XSS 脆弱性にさらされるこのされます。
+> ASP.NET Core MVC の提供、`HtmlString`出力時に自動的にエンコードされていないクラス。 これは、必要がありますで使用しないで信頼関係のない入力と組み合わせて XSS 脆弱性にさらされるこのされます。
 
 ## <a name="javascript-encoding-using-razor"></a>Razor を使用して Javascript のエンコード
 
@@ -141,11 +141,11 @@ JavaScript のエンコーダーを直接呼び出すことができますも
    ```
 
 >[!WARNING]
-> DOM 要素を作成する JavaScript で信頼されていない入力は連結しないでください。 使用する必要があります`createElement()`プロパティの値を次のように適切に割り当てると`node.TextContent=`、使用または`element.SetAttribute()` / `element[attribute]=`それ以外の場合に公開する自分で DOM ベース XSS です。
+> DOM 要素を作成する JavaScript で信頼されていない入力は連結しません。 使用する必要があります`createElement()`プロパティの値を次のように適切に割り当てると`node.TextContent=`、使用または`element.SetAttribute()` / `element[attribute]=`それ以外の場合に公開する自分で DOM ベース XSS です。
 
 ## <a name="accessing-encoders-in-code"></a>コード内のエンコーダーへのアクセス
 
-HTML、JavaScript、および URL のエンコーダーでは、2 つの方法でコードに使用できる、経由でそれらを挿入する[依存性の注入](../fundamentals/dependency-injection.md#fundamentals-dependency-injection)に含まれている既定のエンコーダーを使用することも、`System.Text.Encodings.Web`名前空間。 文字の範囲に適用するいずれかの既定のエンコーダーを使用する場合を安全なコントロールとして扱う場合に反映されません - 既定のエンコーダーが可能な最も安全なエンコードの規則を使用します。
+HTML、JavaScript、および URL のエンコーダーでは、2 つの方法でコードに使用できる、経由でそれらを挿入する[依存性の注入](../fundamentals/dependency-injection.md#fundamentals-dependency-injection)に含まれている既定のエンコーダーを使用することも、`System.Text.Encodings.Web`名前空間。 適用するいずれかの既定のエンコーダーを使用する場合は、安全なものとして扱われる文字の範囲が有効になります - 既定のエンコーダーが可能な最も安全なエンコードの規則を使用します。
 
 DI、コンス トラクターを受け取る必要がありますを使用して構成可能なエンコーダーを使用する、 *HtmlEncoder*、 *JavaScriptEncoder*と*UrlEncoder*として適切なパラメーターです。 例を示します。
 
@@ -179,7 +179,7 @@ var example = "\"Quoted Value with spaces and &\"";
 変数を含む、encodedValue のエンコード後`%22Quoted%20Value%20with%20spaces%20and%20%26%22`です。 スペース、引用符、句読点、およびその他の安全でない文字パーセント エンコードされる 16 進数の値には、たとえば、空白文字になる %20。
 
 >[!WARNING]
-> URL パスの一部として信頼されていない入力を使用しません。 常に信頼されていない入力を渡すクエリ文字列値として。
+> URL パスの一部として、信頼されていない入力を使用しないでください。 常に信頼されていない入力を渡すクエリ文字列値として。
 
 <a name="security-cross-site-scripting-customization"></a>
 
@@ -228,4 +228,4 @@ services.AddSingleton<HtmlEncoder>(
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>XSS 防止手法として検証
 
-検証は、XSS 攻撃を制限することで便利なツールを指定できます。 たとえば、文字 0 ~ 9 のみを含む単純な数値文字列では、XSS 攻撃はトリガーされません。 検証より複雑な - ユーザー入力に HTML をそのまま使用する場合は HTML 入力を解析できない場合は困難になります。 マークダウンとその他のテキスト形式では、豊富な入力をより安全なオプションはなります。 単独での検証に依存しないようにします。 どのような検証を実行しているに関係なく、出力する前に信頼されていない入力は常にエンコードします。
+検証は、XSS 攻撃を制限することで便利なツールを指定できます。 たとえば、文字 0 ~ 9 のみを含む単純な数値文字列では、XSS 攻撃をトリガーしません。 検証より複雑な - ユーザー入力に HTML をそのまま使用する場合は HTML 入力を解析できない場合は困難になります。 マークダウンとその他のテキスト形式では、豊富な入力をより安全なオプションはなります。 単独での検証に依存しないようにします。 どのような検証を実行しているに関係なく、出力する前に信頼されていない入力は常にエンコードします。

@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 52052ad202958eb5d648ceb64d9f06fb86ef3777
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bad742af28d6c36bb1b66207c2ba09d140332449
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-performance-signalr-1x"></a>SignalR パフォーマンス (SignalR 1.x)
 ====================
@@ -70,7 +70,7 @@ SignalR メッセージのサイズを小さくには、シリアル化された
 
 ### <a name="tuning-your-signalr-server-for-performance"></a>パフォーマンスのため、SignalR のサーバーのチューニング
 
-次の構成設定は、SignalR アプリケーションでパフォーマンスを向上させるため、サーバーのチューニングに使用できます。 ASP.NET アプリケーションのパフォーマンスを向上させる方法の概要については、次を参照してください。 [ASP.NET のパフォーマンスを向上させる](https://msdn.microsoft.com/en-us/library/ff647787.aspx)です。
+次の構成設定は、SignalR アプリケーションでパフォーマンスを向上させるため、サーバーのチューニングに使用できます。 ASP.NET アプリケーションのパフォーマンスを向上させる方法の概要については、次を参照してください。 [ASP.NET のパフォーマンスを向上させる](https://msdn.microsoft.com/library/ff647787.aspx)です。
 
 **SignalR の構成設定**
 
@@ -215,7 +215,7 @@ SignalR パフォーマンス カウンターを削除するには、次のパ�
 
 **ASP.NET**
 
-- Asp.net \requests Current
+- ASP.NET\Requests Current
 - ASP.NET\Queued
 - ASP.NET\Rejected
 
@@ -244,6 +244,6 @@ SignalR パフォーマンス カウンターを削除するには、次のパ�
 
 ASP.NET のパフォーマンスの監視とチューニングの詳細については、次のトピックを参照してください。
 
-- [ASP.NET のパフォーマンスの概要](https://msdn.microsoft.com/en-us/library/cc668225(v=vs.100).aspx)
+- [ASP.NET のパフォーマンスの概要](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
 - [IIS 7.5、IIS 7.0 および IIS 6.0 に ASP.NET スレッドの使用状況](https://blogs.msdn.com/b/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)
-- [&lt;applicationPool&gt;要素 (Web 設定)](https://msdn.microsoft.com/en-us/library/dd560842.aspx)
+- [&lt;applicationPool&gt;要素 (Web 設定)](https://msdn.microsoft.com/library/dd560842.aspx)

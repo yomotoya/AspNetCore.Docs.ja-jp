@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1ff76d08b6de20be7263ae134b102883fc8d99a2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 43edf6745627e92d20c26377404e44f07e649a75
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="security-basics-and-aspnet-support-vb"></a>セキュリティの基礎と ASP.NET のサポート (VB)
 ====================
@@ -102,7 +102,7 @@ Windows 認証のワークフローは、次の認証の手法のいずれかを
 **図 2**: フォーム認証のワークフロー
 
 
-次の 2 つのチュートリアルでは、非常に大きい詳しくフォーム認証を詳しく調べ、お[フォーム認証の概要を](an-overview-of-forms-authentication-vb.md)と[フォーム認証の構成と高度なトピック](forms-authentication-configuration-and-advanced-topics-vb.md)です。 詳細については、ASP です。NET の認証オプションを参照してください[ASP.NET 認証](https://msdn.microsoft.com/en-us/library/eeyk640h.aspx)です。
+次の 2 つのチュートリアルでは、非常に大きい詳しくフォーム認証を詳しく調べ、お[フォーム認証の概要を](an-overview-of-forms-authentication-vb.md)と[フォーム認証の構成と高度なトピック](forms-authentication-configuration-and-advanced-topics-vb.md)です。 詳細については、ASP です。NET の認証オプションを参照してください[ASP.NET 認証](https://msdn.microsoft.com/library/eeyk640h.aspx)です。
 
 ## <a name="limiting-access-to-web-pages-directories-and-page-functionality"></a>Web ページ、ディレクトリ、およびページの機能へのアクセスを制限します。
 
@@ -113,9 +113,9 @@ ASP.NET には、特定のユーザーが特定のファイルまたはディレ
 
 ファイルの承認と URL の承認は、特定のディレクトリ内のすべての ASP.NET ページまたは特定の ASP.NET ページにアクセスするための承認規則を定義します。 これらの手法を使用して特定のユーザーの特定のページへの要求を拒否または一連のユーザーへのアクセス許可およびすべてのユーザーにアクセスを拒否する ASP.NET に指示できます。 場所 ページで、すべてのユーザー アクセスできますが、ページの機能は、ユーザーによって異なります。 のシナリオについて説明します。 たとえば、ユーザー アカウントをサポートする多くのサイトでは、さまざまなコンテンツまたは匿名ユーザーと認証済みユーザーのデータを表示するページがあります。 匿名ユーザー、認証されたユーザーはのように、お帰りメッセージを表示して代わりに対しとすると、サイトにログインへのリンクを参照してください可能性があります*Username*ログアウトへのリンクと共にします。別の例: オークション サイトにある項目を表示するときに、入札者またはオークション品目するかどうかに応じて、異なる情報が表示されます。
 
-このようなページ レベルの調整は、宣言またはプログラムによって実現できます。 ごとに異なるコンテンツを表示する匿名認証されたユーザー、ドラッグするだけよりも、 [LoginView コントロール](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.loginview.aspx)ページにその AnonymousTemplate と LoggedInTemplate テンプレートに、適切なコンテンツを入力します。 また、プログラムで指定できます、現在の要求が認証されるかどうかはユーザー、およびどのような役割 (存在する場合) に属しています。 この情報は、し、表示/非表示 ページでグリッドまたはパネル内の列を使用することができます。
+このようなページ レベルの調整は、宣言またはプログラムによって実現できます。 ごとに異なるコンテンツを表示する匿名認証されたユーザー、ドラッグするだけよりも、 [LoginView コントロール](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx)ページにその AnonymousTemplate と LoggedInTemplate テンプレートに、適切なコンテンツを入力します。 また、プログラムで指定できます、現在の要求が認証されるかどうかはユーザー、およびどのような役割 (存在する場合) に属しています。 この情報は、し、表示/非表示 ページでグリッドまたはパネル内の列を使用することができます。
 
-この系列には、承認に焦点を当てている 3 つのチュートリアルが用意されています。 ***ユーザー ベースの承認***; 特定のユーザー アカウントのページまたはディレクトリ内のページへのアクセスを制限する方法を説明します***ロール ベースの承認***レベル以外の場合は、最後に、ロールの承認規則を指定することでは、***を表示するコンテンツに基づいて、現在ログイン ユーザー***チュートリアルでは、特定の変更について説明ページのコンテンツやページにアクセスするユーザーに基づいて機能します。 詳細については、ASP です。NET の承認のオプションを参照してください[ASP.NET 承認](https://msdn.microsoft.com/en-us/library/wce3kxhd.aspx)です。
+この系列には、承認に焦点を当てている 3 つのチュートリアルが用意されています。 ***ユーザー ベースの承認***; 特定のユーザー アカウントのページまたはディレクトリ内のページへのアクセスを制限する方法を説明します***ロール ベースの承認***レベル以外の場合は、最後に、ロールの承認規則を指定することでは、***を表示するコンテンツに基づいて、現在ログイン ユーザー***チュートリアルでは、特定の変更について説明ページのコンテンツやページにアクセスするユーザーに基づいて機能します。 詳細については、ASP です。NET の承認のオプションを参照してください[ASP.NET 承認](https://msdn.microsoft.com/library/wce3kxhd.aspx)です。
 
 ## <a name="user-accounts-and-roles"></a>ユーザー アカウントとロール
 
@@ -123,7 +123,7 @@ ASP です。NET のフォーム認証では、ユーザーがサイトにログ
 
 ASP.NET 2.0 では、前に開発者が独自のユーザーおよびロール ストアの作成を担当します。 またユーザー インターフェイスの設計と基本的なユーザーのコードは、ログイン ページおよびその他の新しいアカウントを作成するページのようにアカウントに関連するページを書き込むフックいました。 ASP.NET では、各開発者と同様に、質問に自分の設計に関する決定事項に到着する実装のユーザー アカウントには、組み込みのユーザー アカウントのフレームワークせず格納する方法はパスワードやその他の機密情報ですか。パスワードの長さや強度に関するにはどのようなガイドライン示しているか。
 
-今日をはるかに簡単に感謝は、ASP.NET アプリケーションでユーザー アカウントを実装する、*メンバーシップ framework*およびログイン Web コントロール組み込みです。 メンバーシップ フレームワークは、いくつかのクラスの[System.Web.Security 名前空間](https://msdn.microsoft.com/en-us/library/system.web.security.aspx)重要なユーザー アカウントに関連するタスクを実行するための機能を提供します。 メンバーシップ framework でのキー クラスは、[メンバーシップ クラス](https://msdn.microsoft.com/en-us/library/system.web.security.membership.aspx)などのメソッドを持ちます。
+今日をはるかに簡単に感謝は、ASP.NET アプリケーションでユーザー アカウントを実装する、*メンバーシップ framework*およびログイン Web コントロール組み込みです。 メンバーシップ フレームワークは、いくつかのクラスの[System.Web.Security 名前空間](https://msdn.microsoft.com/library/system.web.security.aspx)重要なユーザー アカウントに関連するタスクを実行するための機能を提供します。 メンバーシップ framework でのキー クラスは、[メンバーシップ クラス](https://msdn.microsoft.com/library/system.web.security.membership.aspx)などのメソッドを持ちます。
 
 - CreateUser
 - DeleteUser
@@ -136,8 +136,8 @@ ASP.NET 2.0 では、前に開発者が独自のユーザーおよびロール �
 
 Microsoft では、2 つのメンバーシップ プロバイダー クラスは、.NET Framework に付属します。
 
-- [ActiveDirectoryMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.activedirectorymembershipprovider.aspx) -Active Directory と Active Directory Application Mode (ADAM) サーバー で、メンバーシップ API を実装します。
-- [SqlMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlmembershipprovider.aspx) -SQL Server データベースで、メンバーシップ API を実装します。
+- [ActiveDirectoryMembershipProvider](https://msdn.microsoft.com/library/system.web.security.activedirectorymembershipprovider.aspx) -Active Directory と Active Directory Application Mode (ADAM) サーバー で、メンバーシップ API を実装します。
+- [SqlMembershipProvider](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx) -SQL Server データベースで、メンバーシップ API を実装します。
 
 この一連のチュートリアルについては、SqlMembershipProvider した場合にのみ焦点を当てます。
 
@@ -147,21 +147,21 @@ Microsoft では、2 つのメンバーシップ プロバイダー クラスは
 **図 03**: のプロバイダー モデルにより、さまざまな実装をシームレスに接続されているに、フレームワーク ([フルサイズのイメージを表示するをクリックして](security-basics-and-asp-net-support-vb/_static/image5.png))
 
 
-プロバイダー モデルの利点は、別の実装の Microsoft、サード パーティ ベンダーまたは個々 の開発者が開発したおよびメンバーシップ フレームワークにシームレスに接続されていることです。 たとえば、リリースしました[Microsoft Access データベースのメンバーシップ プロバイダー](https://download.microsoft.com/download/5/5/b/55bc291f-4316-4fd7-9269-dbf9edbaada8/sampleaccessproviders.vsi)です。 メンバーシップ プロバイダーの詳細についてを参照してください、[プロバイダー ツールキット](https://msdn.microsoft.com/en-us/asp.net/aa336558.aspx)、メンバーシップ プロバイダー、サンプルのカスタム プロバイダー、100 を超えるページのプロバイダー モデルのドキュメントのチュートリアルが含まれていると、組み込みのメンバーシップ プロバイダー (つまり、ActiveDirectoryMembershipProvider および SqlMembershipProvider) のソース コードを完了します。
+プロバイダー モデルの利点は、別の実装の Microsoft、サード パーティ ベンダーまたは個々 の開発者が開発したおよびメンバーシップ フレームワークにシームレスに接続されていることです。 たとえば、リリースしました[Microsoft Access データベースのメンバーシップ プロバイダー](https://download.microsoft.com/download/5/5/b/55bc291f-4316-4fd7-9269-dbf9edbaada8/sampleaccessproviders.vsi)です。 メンバーシップ プロバイダーの詳細についてを参照してください、[プロバイダー ツールキット](https://msdn.microsoft.com/asp.net/aa336558.aspx)、メンバーシップ プロバイダー、サンプルのカスタム プロバイダー、100 を超えるページのプロバイダー モデルのドキュメントのチュートリアルが含まれていると、組み込みのメンバーシップ プロバイダー (つまり、ActiveDirectoryMembershipProvider および SqlMembershipProvider) のソース コードを完了します。
 
-また、ASP.NET 2.0 には、ロール フレームワークが導入されました。 メンバーシップ フレームワークと同様にロール フレームワークはプロバイダー モデルの上に構築されます。 使用して、API が公開されている、[ロール クラス](https://msdn.microsoft.com/en-us/library/system.web.security.roles.aspx)と .NET Framework が 3 つのプロバイダー クラスが付属しています。
+また、ASP.NET 2.0 には、ロール フレームワークが導入されました。 メンバーシップ フレームワークと同様にロール フレームワークはプロバイダー モデルの上に構築されます。 使用して、API が公開されている、[ロール クラス](https://msdn.microsoft.com/library/system.web.security.roles.aspx)と .NET Framework が 3 つのプロバイダー クラスが付属しています。
 
-- [AuthorizationStoreRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.authorizationstoreroleprovider.aspx) -Active Directory または ADAM など、承認マネージャーのポリシー ストアのロール情報を管理します。
-- [SqlRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlroleprovider.aspx) -SQL Server データベースにロールを実装します。
-- [WindowsTokenRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.windowstokenroleprovider.aspx) -訪問者の Windows グループに基づくロール情報を関連付けます。 このメソッドは通常、Windows 認証で使用されます。
+- [AuthorizationStoreRoleProvider](https://msdn.microsoft.com/library/system.web.security.authorizationstoreroleprovider.aspx) -Active Directory または ADAM など、承認マネージャーのポリシー ストアのロール情報を管理します。
+- [SqlRoleProvider](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx) -SQL Server データベースにロールを実装します。
+- [WindowsTokenRoleProvider](https://msdn.microsoft.com/library/system.web.security.windowstokenroleprovider.aspx) -訪問者の Windows グループに基づくロール情報を関連付けます。 このメソッドは通常、Windows 認証で使用されます。
 
 この一連のチュートリアルについては、SqlRoleProvider した場合にのみ焦点を当てます。
 
-プロバイダー モデルには、単一の前向きの API (メンバーシップとロール クラス) が含まれているため、実装の詳細について心配することがなく API の機能を構築することは - ページで選択されたプロバイダーで処理されます。開発者です。 この統一された API では、Web コントロールのメンバーシップとロールのフレームワークでは、そのインターフェイスを構築するには、Microsoft とサード パーティ ベンダー。 ASP.NET の数に付属して[ログイン Web コントロール](https://msdn.microsoft.com/en-us/library/ms178329.aspx)一般的なユーザー アカウントのユーザー インターフェイスを実装するためです。 たとえば、[ログイン コントロール](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.aspx)、それらを検証し、フォーム認証を使用してログオンし、それらの自分の資格情報をユーザーに要求します。 [LoginView コントロール](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.loginview.aspx)匿名ユーザー認証されたユーザーとに異なるマークアップまたはユーザーのロールに基づいて、異なるマークアップを表示するためのテンプレートを提供します。 および[CreateUserWizard コントロール](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.aspx)新しいユーザー アカウントを作成するためのステップ バイ ステップのユーザー インターフェイスを提供します。
+プロバイダー モデルには、単一の前向きの API (メンバーシップとロール クラス) が含まれているため、実装の詳細について心配することがなく API の機能を構築することは - ページで選択されたプロバイダーで処理されます。開発者です。 この統一された API では、Web コントロールのメンバーシップとロールのフレームワークでは、そのインターフェイスを構築するには、Microsoft とサード パーティ ベンダー。 ASP.NET の数に付属して[ログイン Web コントロール](https://msdn.microsoft.com/library/ms178329.aspx)一般的なユーザー アカウントのユーザー インターフェイスを実装するためです。 たとえば、[ログイン コントロール](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx)、それらを検証し、フォーム認証を使用してログオンし、それらの自分の資格情報をユーザーに要求します。 [LoginView コントロール](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx)匿名ユーザー認証されたユーザーとに異なるマークアップまたはユーザーのロールに基づいて、異なるマークアップを表示するためのテンプレートを提供します。 および[CreateUserWizard コントロール](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.aspx)新しいユーザー アカウントを作成するためのステップ バイ ステップのユーザー インターフェイスを提供します。
 
 背後のさまざまなログイン コントロールは、メンバーシップとロールのフレームワークと対話します。 1 行のコードを記述することがなく、ほとんどのログイン コントロールを実装できます。 拡張、およびそれらの機能をカスタマイズする方法を含む将来のチュートリアルではこれらのコントロールをさらに詳しく見ていきます。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ユーザー アカウントをサポートするすべての web アプリケーションのような機能が必要など: ユーザーがログインし、ページの訪問; の間で記憶状態で、次のログがある機能アカウントを作成する新しい訪問者の web ページでき、ページの開発者にどのようなリソース、データ、および機能がどのようなユーザーまたはロールに利用可能なを指定します。 認証および承認のユーザーとユーザー アカウントとロールを管理するためのタスクは、フォーム認証、URL の承認、およびメンバーシップとロール フレームワーク感謝の ASP.NET アプリケーションで達成する非常に簡単です。
 
@@ -174,16 +174,16 @@ Microsoft では、2 つのメンバーシップ プロバイダー クラスは
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
 - [ASP.NET 2.0 のメンバーシップ、ロール、フォーム認証、およびセキュリティ リソース](https://weblogs.asp.net/scottgu/ASP.NET-2.0-Membership_2C00_-Roles_2C00_-Forms-Authentication_2C00_-and-Security-Resources-)
-- [ASP.NET 2.0 のセキュリティのガイドライン](https://msdn.microsoft.com/en-us/library/ms998258.aspx)
-- [ASP.NET 認証](https://msdn.microsoft.com/en-us/library/eeyk640h.aspx)
-- [ASP.NET の承認](https://msdn.microsoft.com/en-us/library/wce3kxhd.aspx)
-- [ASP.NET ログイン コントロールの概要](https://msdn.microsoft.com/en-us/library/ms178329.aspx)
+- [ASP.NET 2.0 のセキュリティのガイドライン](https://msdn.microsoft.com/library/ms998258.aspx)
+- [ASP.NET の認証](https://msdn.microsoft.com/library/eeyk640h.aspx)
+- [ASP.NET の承認](https://msdn.microsoft.com/library/wce3kxhd.aspx)
+- [ASP.NET ログイン コントロールの概要](https://msdn.microsoft.com/library/ms178329.aspx)
 - [ASP.NET 2.0 を確認するメンバーシップ、ロール、およびプロファイル](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [I: でのメンバーシップとロールを使用して自分のサイトの保護方法](https://asp.net/learn/videos/video-45.aspx) (ビデオ)
-- [メンバーシップの概要](https://msdn.microsoft.com/en-us/library/yh26yfzy.aspx)
-- [MSDN セキュリティ デベロッパー センター](https://msdn.microsoft.com/en-us/security/default.aspx)
+- [メンバーシップの概要](https://msdn.microsoft.com/library/yh26yfzy.aspx)
+- [MSDN セキュリティ デベロッパー センター](https://msdn.microsoft.com/security/default.aspx)
 - [プロフェッショナル向けの ASP.NET 2.0 セキュリティ、メンバーシップ、およびロール管理](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html)(ISBN: 978-0-7645-9698-8)
-- [プロバイダー ツールキット](https://msdn.microsoft.com/en-us/asp.net/aa336558.aspx)
+- [プロバイダー ツールキット](https://msdn.microsoft.com/asp.net/aa336558.aspx)
 
 ## <a name="about-the-author"></a>作成者について
 

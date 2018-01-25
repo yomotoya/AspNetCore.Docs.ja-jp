@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: a03c8c42622a768d706acf5ac1f23b37a830d426
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c52a02291e18b1dd8a9d95b33fe466d17aae835f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-c"></a>ASP.NET SignalR ハブ API ガイド - .NET クライアント (c#)
 ====================
@@ -85,7 +85,7 @@ ms.lasthandoff: 11/10/2017
 - [SignalR ハブ API ガイド - サーバー](hubs-api-guide-server.md)
 - [SignalR ハブ API ガイド - JavaScript クライアント](hubs-api-guide-javascript-client.md)
 
-API リファレンス トピックへのリンクは、.NET 4.5 のバージョンの API といます。 .NET 4 を使用している場合は、次を参照してください。[の API のトピックは、.NET 4 バージョン](https://msdn.microsoft.com/en-us/library/jj891075(v=vs.100).aspx)します。
+API リファレンス トピックへのリンクは、.NET 4.5 のバージョンの API といます。 .NET 4 を使用している場合は、次を参照してください。[の API のトピックは、.NET 4 バージョン](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx)します。
 
 <a id="clientsetup"></a>
 
@@ -119,7 +119,7 @@ API リファレンス トピックへのリンクは、.NET 4.5 のバージョ
 
 ### <a name="cross-domain-connections-from-silverlight-clients"></a>Silverlight クライアントからドメイン間の接続
 
-Silverlight クライアントからドメイン間の接続を有効にする方法については、次を参照してください。 [、サービス利用可能なドメインの境界を越えてを行う](https://msdn.microsoft.com/en-us/library/cc197955(v=vs.95).aspx)です。
+Silverlight クライアントからドメイン間の接続を有効にする方法については、次を参照してください。 [、サービス利用可能なドメインの境界を越えてを行う](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx)です。
 
 <a id="configureconnection"></a>
 
@@ -141,7 +141,7 @@ WPF クライアントには、既定値から 2 の同時接続の最大数を�
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample4.cs?highlight=4)]
 
-詳細については、次を参照してください。 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/en-us/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)です。
+詳細については、次を参照してください。 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)です。
 
 <a id="querystring"></a>
 
@@ -163,12 +163,12 @@ WPF クライアントには、既定値から 2 の同時接続の最大数を�
 
 [!code-csharp[Main](hubs-api-guide-net-client/samples/sample7.cs?highlight=4)]
 
-[Microsoft.AspNet.SignalR.Client.Transports](https://msdn.microsoft.com/en-us/library/jj918090(v=vs.111).aspx)名前空間には、次のトランスポートを指定に使用できるクラスが含まれています。
+[Microsoft.AspNet.SignalR.Client.Transports](https://msdn.microsoft.com/library/jj918090(v=vs.111).aspx)名前空間には、次のトランスポートを指定に使用できるクラスが含まれています。
 
-- [LongPollingTransport](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.transports.longpollingtransport(v=vs.111).aspx)
-- [ServerSentEventsTransport](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.transports.serversenteventstransport(v=vs.111).aspx)
-- [WebSocketTransport](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.transports.websockettransport(v=vs.111).aspx) (サーバーとクライアントの両方が .NET 4.5 を使用する場合にのみ使用できます)。
-- [AutoTransport](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.transports.autotransport(v=vs.111).aspx) (クライアントとサーバーの両方でサポートされている最適なトランスポートと自動的に選択します。 これは、既定のトランスポートです。 渡すをこれには、`Start`メソッドは何もで渡されていない場合と同様です)。
+- [LongPollingTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.longpollingtransport(v=vs.111).aspx)
+- [ServerSentEventsTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.serversenteventstransport(v=vs.111).aspx)
+- [WebSocketTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.websockettransport(v=vs.111).aspx) (サーバーとクライアントの両方が .NET 4.5 を使用する場合にのみ使用できます)。
+- [AutoTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.autotransport(v=vs.111).aspx) (クライアントとサーバーの両方でサポートされている最適なトランスポートと自動的に選択します。 これは、既定のトランスポートです。 渡すをこれには、`Start`メソッドは何もで渡されていない場合と同様です)。
 
 ブラウザーでのみ使用されているために、ForeverFrame トランスポートはこの一覧に含まれていません。
 
@@ -336,7 +336,7 @@ SignalR では、有効期間イベントを処理することができますを
 - `ConnectionSlow`: クライアントが低速または頻繁に削除の接続を検出したときに発生します。
 - `Reconnecting`: 基になるトランスポートの再接続を開始するときに発生します。
 - `Reconnected`: 基になるトランスポートが再接続されたときに発生します。
-- `StateChanged`: 接続の状態が変更されたときに発生します。 以前の状態と新しい状態を提供します。 接続状態の値について[表す ConnectionState 列挙](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.connectionstate(v=vs.111).aspx)です。
+- `StateChanged`: 接続の状態が変更されたときに発生します。 以前の状態と新しい状態を提供します。 接続状態の値について[表す ConnectionState 列挙](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connectionstate(v=vs.111).aspx)です。
 - `Closed`: 接続を切断したときに発生します。
 
 たとえば、致命的ではありませんが、断続的な接続の問題が発生したエラーを示す警告メッセージを表示する場合は、パフォーマンスの低下や頻繁に行われるなど、接続の削除処理、`ConnectionSlow`イベント。

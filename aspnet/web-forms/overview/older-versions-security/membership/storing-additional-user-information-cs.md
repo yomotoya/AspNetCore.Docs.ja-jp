@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0d3c622dc352c804ddfea072bf3d52496c719ea6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 63aa9dce45ce7ac3e33f542f549b2ec620191d50
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="storing-additional-user-information-c"></a>ファイルを格納する追加のユーザー情報 (c#)
 ====================
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="introduction"></a>はじめに
 
-ASP です。NET のメンバーシップのフレームワークでは、ユーザーを管理するための柔軟なインターフェイスを提供します。 メンバーシップ API には、資格情報の検証、現在ログオンしているユーザーに関する情報を取得する、新しいユーザー アカウントを作成および他のユーザー アカウントを削除するためのメソッドが含まれています。 メンバーシップ フレームワーク内の各ユーザー アカウントには、資格情報を検証し、重要なユーザー アカウントに関連するタスクを実行するために必要なプロパティのみが含まれています。 メソッドとプロパティが示すこれは、 [ `MembershipUser`クラス](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.aspx)、メンバーシップ フレームワーク内のユーザー アカウントをモデル化します。 このクラスのようなプロパティには[ `UserName` ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.username.aspx)、 [ `Email` ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.email.aspx)、および[ `IsLockedOut`](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.islockedout.aspx)などのメソッドと[ `GetPassword` ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.getpassword.aspx)と[ `UnlockUser`](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.unlockuser.aspx)です。
+ASP です。NET のメンバーシップのフレームワークでは、ユーザーを管理するための柔軟なインターフェイスを提供します。 メンバーシップ API には、資格情報の検証、現在ログオンしているユーザーに関する情報を取得する、新しいユーザー アカウントを作成および他のユーザー アカウントを削除するためのメソッドが含まれています。 メンバーシップ フレームワーク内の各ユーザー アカウントには、資格情報を検証し、重要なユーザー アカウントに関連するタスクを実行するために必要なプロパティのみが含まれています。 メソッドとプロパティが示すこれは、 [ `MembershipUser`クラス](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx)、メンバーシップ フレームワーク内のユーザー アカウントをモデル化します。 このクラスのようなプロパティには[ `UserName` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.username.aspx)、 [ `Email` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.email.aspx)、および[ `IsLockedOut`](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx)などのメソッドと[ `GetPassword` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.getpassword.aspx)と[ `UnlockUser`](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx)です。
 
 多くの場合、アプリケーションは、メンバーシップ framework に含まれていない追加のユーザー情報を格納する必要があります。 たとえば、オンラインの小売店舗では、各ユーザー、および請求先住所、お支払い情報は、配信設定を保存し、連絡先の電話番号を使用できます必要があります。 さらに、各注文システムでは、特定のユーザー アカウントに関連付けられます。
 
@@ -71,7 +71,7 @@ ASP です。NET のメンバーシップのフレームワークでは、ユー
 
 追加した後、`UserId`列で、ツールバーの [保存] アイコンをクリックすると、テーブルを保存します。 新しいテーブルの名前を`GuestbookComments`です。
 
-最後に注意する問題の 1 つがある、`GuestbookComments`テーブル: を作成する必要があります、[外部キー制約](https://msdn.microsoft.com/en-us/library/ms175464.aspx)間、`GuestbookComments.UserId`列と`aspnet_Users.UserId`列です。 これを実現するには、するには、外部キー リレーションシップ ダイアログ ボックスを起動するには、ツールバーの リレーションシップ アイコンをクリックします。 (またはを起動できますこのダイアログ ボックス、テーブル デザイナー メニューに移動し、リレーションシップを選択する。)
+最後に注意する問題の 1 つがある、`GuestbookComments`テーブル: を作成する必要があります、[外部キー制約](https://msdn.microsoft.com/library/ms175464.aspx)間、`GuestbookComments.UserId`列と`aspnet_Users.UserId`列です。 これを実現するには、するには、外部キー リレーションシップ ダイアログ ボックスを起動するには、ツールバーの リレーションシップ アイコンをクリックします。 (またはを起動できますこのダイアログ ボックス、テーブル デザイナー メニューに移動し、リレーションシップを選択する。)
 
 外部キーのリレーションシップ ダイアログ ボックスの左下隅の 追加 ボタンをクリックします。 リレーションシップに参加しているテーブルを定義する必要がありますが、新しい外部キー制約は追加します。
 
@@ -231,7 +231,7 @@ Visual Studio の データベース エクスプ ローラーに移動し、テ
 **図 14**: 指定 SqlDataSource の`UpdateCommand`と`UpdateParameters`([フルサイズのイメージを表示するをクリックして](storing-additional-user-information-cs/_static/image42.png))
 
 
-追加機能のためには、SqlDataSource コントロール、コントロールが編集をサポートできるようになりました DetailsView に行われます。 DetailsView のスマート タグから「編集を有効にする」のチェック ボックスを確認します。 コントロールの追加、CommandField`Fields`コレクションでその`ShowEditButton`プロパティを True に設定します。 [編集] ボタンは、読み取り専用モードと Update DetailsView が表示され、編集モードを [キャンセル] ボタンに表示されるときにこのレンダリングします。 されなくても、[編集] をクリックするユーザーがあっても DetailsView レンダリング「常に編集可能」状態で DetailsView コントロールの設定によって[`DefaultMode`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.defaultmode.aspx)に`Edit`です。
+追加機能のためには、SqlDataSource コントロール、コントロールが編集をサポートできるようになりました DetailsView に行われます。 DetailsView のスマート タグから「編集を有効にする」のチェック ボックスを確認します。 コントロールの追加、CommandField`Fields`コレクションでその`ShowEditButton`プロパティを True に設定します。 [編集] ボタンは、読み取り専用モードと Update DetailsView が表示され、編集モードを [キャンセル] ボタンに表示されるときにこのレンダリングします。 されなくても、[編集] をクリックするユーザーがあっても DetailsView レンダリング「常に編集可能」状態で DetailsView コントロールの設定によって[`DefaultMode`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.defaultmode.aspx)に`Edit`です。
 
 これらの変更、DetailsView コントロールの宣言型マークアップを次のようになります。
 
@@ -380,7 +380,7 @@ ListView のスマート タグを開き、データ ソースのドロップダ
 
 言うまでも、設計のため、メンバーシップ システム内のすべてのユーザー アカウントは、一致することが重要である意思決定を記録で、`UserProfiles`テーブル。 対応するレコードに追加するのには、必要な`UserProfiles`CreateUserWizard、新しいメンバーシップ ユーザー アカウントを作成するときにします。
 
-説明したように、 [*ユーザー アカウントを作成する*](creating-user-accounts-cs.md)チュートリアルでは、新しいメンバーシップ ユーザーのアカウントには CreateUserWizard コントロールが作成された後発生その[`CreatedUser`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.createduser.aspx). このイベントのイベント ハンドラーを作成、だけが作成したユーザーのユーザー Id を取得したりにレコードを挿入できます、`UserProfiles`の既定値を持つテーブル、 `HomeTown`、 `HomepageUrl`、および`Signature`列です。 さらに含める追加のテキスト ボックス、CreateUserWizard コントロールのインターフェイスをカスタマイズすることにより、ユーザーにこれらの値を確認することができます。
+説明したように、 [*ユーザー アカウントを作成する*](creating-user-accounts-cs.md)チュートリアルでは、新しいメンバーシップ ユーザーのアカウントには CreateUserWizard コントロールが作成された後発生その[`CreatedUser`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.createduser.aspx). このイベントのイベント ハンドラーを作成、だけが作成したユーザーのユーザー Id を取得したりにレコードを挿入できます、`UserProfiles`の既定値を持つテーブル、 `HomeTown`、 `HomepageUrl`、および`Signature`列です。 さらに含める追加のテキスト ボックス、CreateUserWizard コントロールのインターフェイスをカスタマイズすることにより、ユーザーにこれらの値を確認することができます。
 
 最初に新しい行を追加する方法を見てみましょう、`UserProfiles`テーブルに、`CreatedUser`既定値を持つイベント ハンドラー。 次に、新しいユーザーのホーム町、ホーム ページ、および署名を収集する追加のフォーム フィールドを含める CreateUserWizard コントロールのユーザー インターフェイスをカスタマイズする方法が表示されます。
 
@@ -390,7 +390,7 @@ ListView のスマート タグを開き、データ ソースのドロップダ
 
 開く、 `EnhancedCreateUserWizard.aspx` Visual Studio でのページし、ページには、ツールボックスから CreateUserWizard コントロールをドラッグします。 CreateUserWizard コントロールの設定`ID`プロパティを`NewUserWizard`です。 説明したよう、 <a id="_msoanchor_5"> </a> [*ユーザー アカウントを作成する*](creating-user-accounts-cs.md)チュートリアル、CreateUserWizard の既定のユーザー インターフェイスに必要な情報のビジターをメッセージが表示されます。 この情報が指定されていますコントロール内部的に作成、新しいユーザー アカウント framework では、メンバーシップ、すべてせずに 1 行のコードを記述します。
 
-CreateUserWizard コントロールでは、そのワークフロー内で複数のイベントを発生させます。 CreateUserWizard コントロールが最初に起動訪問者は要求情報を提供し、フォームを送信する、その[`CreatingUser`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.creatinguser.aspx)です。 作成プロセス中に問題がある場合、 [ `CreateUserError`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.createusererror.aspx)が発生します。 ただし、ユーザーが正常に作成される場合は、次に、 [ `CreatedUser`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.createduser.aspx)が発生します。 <a id="_msoanchor_6"> </a> [*ユーザー アカウントを作成する*](creating-user-accounts-cs.md)のイベント ハンドラーを作成したチュートリアル、`CreatingUser`イベントを指定されたユーザー名が、先頭を含まないことを確認してください。末尾のスペースや、ユーザー名は、パスワードに任意の場所出現しませんでした。
+CreateUserWizard コントロールでは、そのワークフロー内で複数のイベントを発生させます。 CreateUserWizard コントロールが最初に起動訪問者は要求情報を提供し、フォームを送信する、その[`CreatingUser`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.creatinguser.aspx)です。 作成プロセス中に問題がある場合、 [ `CreateUserError`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.createusererror.aspx)が発生します。 ただし、ユーザーが正常に作成される場合は、次に、 [ `CreatedUser`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.createduser.aspx)が発生します。 <a id="_msoanchor_6"> </a> [*ユーザー アカウントを作成する*](creating-user-accounts-cs.md)のイベント ハンドラーを作成したチュートリアル、`CreatingUser`イベントを指定されたユーザー名が、先頭を含まないことを確認してください。末尾のスペースや、ユーザー名は、パスワードに任意の場所出現しませんでした。
 
 内の行を追加するために、`UserProfiles`テーブルだけが作成したユーザーの必要がありますのイベント ハンドラーを作成する、`CreatedUser`イベント。 時間によって、`CreatedUser`イベントが発生した、ユーザー アカウントが有効にすると、アカウントのユーザー Id の値を取得するメンバーシップ framework は、既に作成されています。
 
@@ -398,9 +398,9 @@ CreateUserWizard コントロールでは、そのワークフロー内で複数
 
 [!code-csharp[Main](storing-additional-user-information-cs/samples/sample11.cs)]
 
-だけで追加したユーザー アカウントのユーザー Id を取得することによって上記のコード開始。 使用してこの情報は、 `Membership.GetUser(username)` 、特定のユーザーと、使用に関する情報を返すメソッド、`ProviderUserKey`ユーザー Id を取得するプロパティです。 CreateUserWizard コントロールでユーザーが入力されたユーザー名を利用し、 [ `UserName`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.username.aspx)です。
+だけで追加したユーザー アカウントのユーザー Id を取得することによって上記のコード開始。 使用してこの情報は、 `Membership.GetUser(username)` 、特定のユーザーと、使用に関する情報を返すメソッド、`ProviderUserKey`ユーザー Id を取得するプロパティです。 CreateUserWizard コントロールでユーザーが入力されたユーザー名を利用し、 [ `UserName`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.username.aspx)です。
 
-次に、接続文字列がから取得されます`Web.config`と`INSERT`ステートメントを指定します。 必要な ADO.NET オブジェクトがインスタンス化され、コマンドを実行します。 コードを割り当てます、 [ `DBNull` ](https://msdn.microsoft.com/en-us/library/system.dbnull.aspx)インスタンスを`@HomeTown`、 `@HomepageUrl`、および`@Signature`パラメーターで、データベースの挿入の効果を`NULL`の値を`HomeTown`、 `HomepageUrl`、および`Signature`フィールドです。
+次に、接続文字列がから取得されます`Web.config`と`INSERT`ステートメントを指定します。 必要な ADO.NET オブジェクトがインスタンス化され、コマンドを実行します。 コードを割り当てます、 [ `DBNull` ](https://msdn.microsoft.com/library/system.dbnull.aspx)インスタンスを`@HomeTown`、 `@HomepageUrl`、および`@Signature`パラメーターで、データベースの挿入の効果を`NULL`の値を`HomeTown`、 `HomepageUrl`、および`Signature`フィールドです。
 
 参照してください、`EnhancedCreateUserWizard.aspx`ブラウザー内でページおよび新しいユーザー アカウントを作成します。 その後、Visual Studio に戻りの内容の確認、`aspnet_Users`と`UserProfiles`テーブル (同じように図 12 に戻ります)。 新しいユーザー アカウントが表示されます`aspnet_Users`と対応する`UserProfiles`行 (に`NULL`の値を`HomeTown`、 `HomepageUrl`、および`Signature`)。
 
@@ -412,7 +412,7 @@ CreateUserWizard コントロールでは、そのワークフロー内で複数
 
 訪問者が、新しいアカウント情報を提供し、"Create User"ボタンをクリックしたユーザー アカウントの作成は、行に追加した後、`UserProfiles`テーブル。 CreateUserWizard を表示し、その`CompleteWizardStep`、成功メッセージと、[続行] ボタンが表示されます。 [続行] ボタンをクリックすると、ポストバックがアクションは実行されませんでスタックしているユーザーのまま、`EnhancedCreateUserWizard.aspx`ページ。
 
-CreateUserWizard コントロールの経由で続行 ボタンがクリックされたときにユーザーに送信する URL を指定できます[`ContinueDestinationPageUrl`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.continuedestinationpageurl.aspx)です。 設定、`ContinueDestinationPageUrl`プロパティを"~/Membership/AdditionalUserInfo.aspx"です。 これにかかる時間に新しいユーザー `AdditionalUserInfo.aspx`、ここで、表示して設定を更新します。
+CreateUserWizard コントロールの経由で続行 ボタンがクリックされたときにユーザーに送信する URL を指定できます[`ContinueDestinationPageUrl`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.continuedestinationpageurl.aspx)です。 設定、`ContinueDestinationPageUrl`プロパティを"~/Membership/AdditionalUserInfo.aspx"です。 これにかかる時間に新しいユーザー `AdditionalUserInfo.aspx`、ここで、表示して設定を更新します。
 
 ### <a name="customizing-the-createuserwizards-interface-to-prompt-for-the-new-users-home-town-homepage-and-signature"></a>新しいユーザーのホーム町、ホーム ページ、および署名を要求する CreateUserWizard のインターフェイスのカスタマイズ
 
@@ -473,7 +473,7 @@ CreateUserWizard コントロールのスマート タグから選択、"追加/
 新しいメモ`<asp:WizardStep>`要素。 新しいユーザーのホーム町、ホーム ページ、およびここに署名を収集するためのユーザー インターフェイスを追加する必要があります。 デザイナーを使用または宣言の構文では、このコンテンツを入力できます。 デザイナーを使用するには、デザイナーでの手順を参照するスマート タグのドロップ ダウン リストから「の設定」の手順を選択します。
 
 > [!NOTE]
-> CreateUserWizard コントロールのスマート タグのドロップダウン リストからステップを選択すると更新[`ActiveStepIndex`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.activestepindex.aspx)、開始ステップのインデックスを指定します。 そのため、このドロップダウン リストを使用して、デザイナーで [ユーザー設定] ステップを編集する場合を必ず最初にアクセスして、この手順が表示されるように「記号に、新しいアカウント」に設定、`EnhancedCreateUserWizard.aspx`ページ。
+> CreateUserWizard コントロールのスマート タグのドロップダウン リストからステップを選択すると更新[`ActiveStepIndex`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.activestepindex.aspx)、開始ステップのインデックスを指定します。 そのため、このドロップダウン リストを使用して、デザイナーで [ユーザー設定] ステップを編集する場合を必ず最初にアクセスして、この手順が表示されるように「記号に、新しいアカウント」に設定、`EnhancedCreateUserWizard.aspx`ページ。
 
 
 という 3 つのテキスト ボックス コントロールが含まれています「の設定」のステップ内のユーザー インターフェイスを作成する`HomeTown`、 `HomepageUrl`、および`Signature`です。 このインターフェイスを構築した後 CreateUserWizard の宣言型マークアップを次のようになります。
@@ -482,7 +482,7 @@ CreateUserWizard コントロールのスマート タグから選択、"追加/
 
 ブラウザーからこのページにアクセスしてくださいホーム町、ホーム ページ、および署名の値を指定する、新しいユーザー アカウントを作成します。 完了した後、`CreateUserWizardStep`メンバーシップ フレームワークでユーザー アカウントを作成し、`CreatedUser`イベント ハンドラーが実行される、新しい行を追加する`UserProfiles`、データベースが`NULL`値を`HomeTown`、 `HomepageUrl`、および`Signature`. ホーム町、ホーム ページ、および署名に入力された値は使用されません。 最終的な結果は、新しいユーザー アカウントに、`UserProfiles`レコードを`HomeTown`、 `HomepageUrl`、および`Signature`を指定するフィールドがまだ必要です。
 
-ユーザーが入力したホーム町、honepage、および署名の値を受け取り、適切な更新プログラム「の設定」の手順の後にコードを実行する必要があります`UserProfiles`レコード。 ユーザーが、ウィザードの手順の間で移動するたびにコントロールをウィザードの[`ActiveStepChanged`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.wizard.activestepchanged.aspx)発生します。 このイベントと更新プログラムのイベント ハンドラーを生み出すことができます、`UserProfiles`表に、「Your 設定」の手順が完了するとします。
+ユーザーが入力したホーム町、honepage、および署名の値を受け取り、適切な更新プログラム「の設定」の手順の後にコードを実行する必要があります`UserProfiles`レコード。 ユーザーが、ウィザードの手順の間で移動するたびにコントロールをウィザードの[`ActiveStepChanged`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.wizard.activestepchanged.aspx)発生します。 このイベントと更新プログラムのイベント ハンドラーを生み出すことができます、`UserProfiles`表に、「Your 設定」の手順が完了するとします。
 
 CreateUserWizard のイベント ハンドラーを追加`ActiveStepChanged`イベントし、次のコードを追加します。
 
@@ -498,7 +498,7 @@ CreateUserWizard のイベント ハンドラーを追加`ActiveStepChanged`イ�
 > 当社の web サイトの訪問者が新しいアカウントを作成できる 2 つのページが現在:`CreatingUserAccounts.aspx`と`EnhancedCreateUserWizard.aspx`です。 Web サイトのサイト マップし、ログイン ページを指す、 `CreatingUserAccounts.aspx`  ページで、ですが、`CreatingUserAccounts.aspx`ページ ホーム町、ホーム ページ、および署名については、ユーザー プロンプトが表示されず、対応する行は追加されません`UserProfiles`です。 そのため、更新するか、`CreatingUserAccounts.aspx`この機能を提供できるようにのページか、更新、sitemap とログイン ページを参照する`EnhancedCreateUserWizard.aspx`の代わりに`CreatingUserAccounts.aspx`です。 後者のオプションを選択する場合は必ず更新して、`Membership`フォルダーの`Web.config`匿名ユーザーへのアクセスを許可するためのファイル、`EnhancedCreateUserWizard.aspx`ページ。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、メンバーシップ フレームワーク内のユーザー アカウントに関連付けられているデータのモデリング手法について説明しました。 具体的には、一対多のリレーションシップを一対一のリレーションシップを共有するデータだけでなく、ユーザー アカウントと共有するエンティティをモデル化について説明しました。 この関連する情報を表示、挿入、および更新、およびその他の SqlDataSource コントロールを使用する例をいくつかだった方法を説明しましたさらに、ADO.NET コードを使用します。
 

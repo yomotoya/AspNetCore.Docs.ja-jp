@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1edeaa392abea96a0f5085539cd8ab7810d59e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 42a8fb48b8c8cfb653ac4d64f6efe011f92b966b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-c"></a>多数 (C# の場合) から 1 つのユーザー アカウントを選択するインターフェイスの構築
 ====================
@@ -134,13 +134,13 @@ GridView で目的のユーザー アカウント情報を表示するために�
 > ユーザー名を数字や句読点などの任意の文字で開始可能性があります。 これらのアカウントを表示するのには、管理者は、すべて LinkButton オプションを使用する必要があります。 また、数字で始まるすべてのユーザー アカウントを返す LinkButton を追加できます。 私のままに練習として、リーダーの。
 
 
-フィルターのあるをクリックするとポストバックが発生させ、リピータの`ItemCommand`イベント、きたところにあるために、グリッド内の変更はありませんが、結果をフィルター処理するためのコードを記述します。 `Membership`クラスが含まれています、 [ `FindUsersByName`メソッド](https://technet.microsoft.com/en-us/library/system.web.security.membership.findusersbyname.aspx)それらのユーザー アカウントを指定した検索パターンに一致するユーザー名を返します。 このメソッドを使用しているユーザー名がで指定された文字で始めるには、これらのユーザー アカウントを取得できます、`CommandName`のフィルター選択された LinkButton がクリックされたことです。
+フィルターのあるをクリックするとポストバックが発生させ、リピータの`ItemCommand`イベント、きたところにあるために、グリッド内の変更はありませんが、結果をフィルター処理するためのコードを記述します。 `Membership`クラスが含まれています、 [ `FindUsersByName`メソッド](https://technet.microsoft.com/library/system.web.security.membership.findusersbyname.aspx)それらのユーザー アカウントを指定した検索パターンに一致するユーザー名を返します。 このメソッドを使用しているユーザー名がで指定された文字で始めるには、これらのユーザー アカウントを取得できます、`CommandName`のフィルター選択された LinkButton がクリックされたことです。
 
 更新することで開始、`ManageUser.aspx`ページの分離コード クラスという名前のプロパティが含まれるように`UsernameToMatch`です。 このプロパティには、ポストバック間でのユーザー名のフィルター文字列が引き続き発生します。
 
 [!code-csharp[Main](building-an-interface-to-select-one-user-account-from-many-cs/samples/sample8.cs)]
 
-`UsernameToMatch`プロパティに割り当てられている値を格納する、 `ViewState` UsernameToMatch キーを使用してコレクション。 このプロパティの値が読み取られると、確認に値が存在するかどうか、`ViewState`コレクションです。 ない場合、既定値、空の文字列を返します。 `UsernameToMatch`プロパティは、つまり、プロパティへの変更がポストバック間で永続化できるように状態を表示する値を保持する、一般的なパターンを示します。 このパターンの詳細については、「[について ASP.NET ビューステート](https://msdn.microsoft.com/en-us/library/ms972976.aspx)です。
+`UsernameToMatch`プロパティに割り当てられている値を格納する、 `ViewState` UsernameToMatch キーを使用してコレクション。 このプロパティの値が読み取られると、確認に値が存在するかどうか、`ViewState`コレクションです。 ない場合、既定値、空の文字列を返します。 `UsernameToMatch`プロパティは、つまり、プロパティへの変更がポストバック間で永続化できるように状態を表示する値を保持する、一般的なパターンを示します。 このパターンの詳細については、「[について ASP.NET ビューステート](https://msdn.microsoft.com/library/ms972976.aspx)です。
 
 次に、更新、`BindUserAccounts`呼び出し元の代わりにメソッド`Membership.GetAllUsers`、呼び出し`Membership.FindUsersByName`の値を渡して、 `UsernameToMatch` SQL ワイルドカード文字が付いたプロパティ % です。
 
@@ -177,7 +177,7 @@ GridView コントロールには、ページングの 2 つの種類が用意�
 
 カスタム ページングを実装するには、GridView によって表示されているレコードの正確なサブセットを取得するには、その機構まず必要あります。 良いニュースを`Membership`クラスの`FindUsersByName`メソッドにより、ページのインデックスと、ページ サイズを指定するオーバー ロードがあり、そのレコードの範囲内にあるユーザー アカウントのみを返します。
 
-特に、このオーバー ロードには、次の署名: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)`](https://msdn.microsoft.com/en-us/library/fa5st8b2.aspx)です。
+特に、このオーバー ロードには、次の署名: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)`](https://msdn.microsoft.com/library/fa5st8b2.aspx)です。
 
 *PageIndex*パラメーターは、返されるユーザー アカウントのページを指定します。*pageSize*ページごとに表示するレコードの数を示します。 *TotalRecords*パラメーターは、`out`ユーザー ストアに合計ユーザー アカウントの数を返すパラメーターです。
 
@@ -242,7 +242,7 @@ LinkButton の各イベント ハンドラーを次に、作成`Click`イベン�
 **図 9**: 次のリンクをクリックすると、2 番目のページのユーザー アカウントが表示されます ([フルサイズのイメージを表示するをクリックして](building-an-interface-to-select-one-user-account-from-many-cs/_static/image27.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 多くの場合、管理者は、ユーザー アカウントの一覧から選択する必要があります。 前のチュートリアルで、ユーザーが、設定のドロップダウン リストを使用してきましたが、このアプローチのスケーラビリティが得られない。 このチュートリアルではため、探索がより優れた代替: ページングされた GridView にある結果が表示されます、フィルターを適用できるインターフェイス。 このユーザー インターフェイスを持つ管理者できます迅速かつ効率的に見つけて何千もの間で 1 つのユーザー アカウントを選択します。
 

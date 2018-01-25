@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: f244e6bd1cd8abd23b64d07ccafcef5c4db1029b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e3ce68b949199db35c18a09771d99d38562b74e9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>ソース管理 (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -137,9 +137,9 @@ Azure でこれらの値を設定するには、管理ポータルまたはス�
 
 [Git](http://git-scm.com/)がある DVCS が非常に一般的なになります。 ソース管理に Git を使用する場合、ローカル コンピューター上のすべての履歴とリポジトリの完全なコピーがあります。 多くの人を簡単になっているため、ネットワークに接続していない--操作を行うときに作業を続行するをコミットしてロールバック、作成して、分岐を切り替えるなどです。 ネットワークに接続していることが容易かつ迅速に分岐を作成し、すべてのものがローカルの場合、分岐を切り替えます。 他の開発者に影響を与えず、ローカル コミットまたはロールバック時を実行することもできます。 サーバーに送信する前にコミットをバッチすることができます。
 
-[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO) は、Team Foundation サービスと呼ばれる両方の Git は、以前と[Team Foundation バージョン管理](https://msdn.microsoft.com/en-us/library/ms181237(v=vs.120).aspx)(TFVC; ソース管理を一元的な)。 ここでの Microsoft Azure のグループにチームによって一元的なソース管理を使用、配布、使用するものもと (一部のプロジェクトに集中型および他のプロジェクトの分散) の組み合わせがあります。 VSO サービスは、5 ユーザーまで無料です。 Free プランにサインアップすることができます[ここ](https://go.microsoft.com/fwlink/?LinkId=307137)です。
+[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO) は、Team Foundation サービスと呼ばれる両方の Git は、以前と[Team Foundation バージョン管理](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx)(TFVC; ソース管理を一元的な)。 ここでの Microsoft Azure のグループにチームによって一元的なソース管理を使用、配布、使用するものもと (一部のプロジェクトに集中型および他のプロジェクトの分散) の組み合わせがあります。 VSO サービスは、5 ユーザーまで無料です。 Free プランにサインアップすることができます[ここ](https://go.microsoft.com/fwlink/?LinkId=307137)です。
 
-Visual Studio 2013 には、組み込みファースト クラスにはが含まれています。 [Git サポート](https://msdn.microsoft.com/en-us/library/hh850437.aspx); ここでは、簡単に、その動作のデモします。
+Visual Studio 2013 には、組み込みファースト クラスにはが含まれています。 [Git サポート](https://msdn.microsoft.com/library/hh850437.aspx); ここでは、簡単に、その動作のデモします。
 
 プロジェクトを Visual Studio 2013 で開き、ソリューションを右クリックして**ソリューション エクスプ ローラー**を選択して**ソリューションをソース管理に追加**です。
 
@@ -187,11 +187,11 @@ Visual Studio は自動的にすべてのコミットのプロジェクト フ�
 
 この方法を素早く分岐を作成し、できます分岐間で前後の上下を反転の簡単な例です。 この機能により、分岐構造を使用して高アジャイルのワークフローと自動化スクリプトに表示される、[自動化すべて](automate-everything.md)章します。 たとえば、ことができます、Development 分岐で作業しているマスターから修正分岐を作成、新しい分岐に切り替えます、変更内容がありますと、それらをコミットし、Development 分岐に戻りますおよび行っていた操作を続行します。
 
-ここで確認した新機能は、Visual Studio でのローカルの Git リポジトリを操作する方法です。 チームの環境で、通常もに変更をプッシュ共通のリポジトリ。 Visual Studio のツールを使用して、リモート Git リポジトリを指すこともできます。 そのような目的の GitHub.com を使用するか、使用することができます[Visual Studio Online での Git](https://msdn.microsoft.com/en-us/library/hh850437.aspx)作業項目とバグの追跡などの他のすべての Visual Studio Online 機能と統合します。
+ここで確認した新機能は、Visual Studio でのローカルの Git リポジトリを操作する方法です。 チームの環境で、通常もに変更をプッシュ共通のリポジトリ。 Visual Studio のツールを使用して、リモート Git リポジトリを指すこともできます。 そのような目的の GitHub.com を使用するか、使用することができます[Visual Studio Online での Git](https://msdn.microsoft.com/library/hh850437.aspx)作業項目とバグの追跡などの他のすべての Visual Studio Online 機能と統合します。
 
 これは、当然のことながら、アジャイルの分岐方法を実装することができます、唯一の方法がありません。 一元的なソース管理リポジトリを使用して同じアジャイルのワークフローを有効にすることができます。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 変更を加えるし、セーフと予測可能な方法でライブを取得するどの程度の速度に基づいて、ソース管理システムの成功率を測定します。 ならなくなった場合、1 日にまたは 2 つの手動テストの実行する必要があるために、変更を加える心配と思うかもしれません自分で何を行う必要がある process-wise または test-wise できるように、分または 1 時間よりも不要になった最悪では、その変更を行うことができます。 これを行う方法の 1 つは、継続的インテグレーションと継続的な配信は、ここを実装する、[次のチャプター](continuous-integration-and-continuous-delivery.md)です。
 
@@ -202,14 +202,14 @@ Visual Studio は自動的にすべてのコミットのプロジェクト フ�
 
 TFVC (一元化されたバージョン管理) および Git (分散型バージョン管理) の詳細については、次のリソースを参照してください。
 
-- [バージョン コントロール システムを使用する: TFVC または Git しますか?](https://msdn.microsoft.com/en-us/library/vstudio/ms181368.aspx#tfvc_or_git_summary) MSDN のドキュメントには、TFVC および Git の違いの概要を作成するテーブルが含まれています。
+- [バージョン コントロール システムを使用する: TFVC または Git しますか?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) MSDN のドキュメントには、TFVC および Git の違いの概要を作成するテーブルが含まれています。
 - [Team Foundation Server に満足し、Git、ような場合にする方がよいですか。](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Git と TFVC の比較できます。
 
 分岐方法の詳細については、次のリソースを参照してください。
 
-- [Team Foundation Server 2012 でリリース パイプラインの構築](https://msdn.microsoft.com/en-us/library/dn449957.aspx)です。 Microsoft Patterns and Practices ドキュメントです。 分岐方法についての第 6 章を参照してください。 支持者の機能では、機能の分岐に切り替えますおよび、分岐機能を使用している場合に維持する短時間 (時間や日数に、多くてを支援します。
+- [Team Foundation Server 2012 でリリース パイプラインの構築](https://msdn.microsoft.com/library/dn449957.aspx)です。 Microsoft Patterns and Practices ドキュメントです。 分岐方法についての第 6 章を参照してください。 支持者の機能では、機能の分岐に切り替えますおよび、分岐機能を使用している場合に維持する短時間 (時間や日数に、多くてを支援します。
 - [バージョン コントロールのガイド](https://aka.ms/vsarsolutions)です。 ALM Rangers によって分岐方法を説明します。 [ダウンロード] タブでは、分岐 Strategies.pdf を参照してください。
-- [機能の切り替えを使用したソフトウェア開発](https://msdn.microsoft.com/en-us/magazine/dn683796.aspx)です。 MSDN マガジンの記事です。
+- [機能の切り替えを使用したソフトウェア開発](https://msdn.microsoft.com/magazine/dn683796.aspx)です。 MSDN マガジンの記事です。
 - [機能のオン/オフ](http://martinfowler.com/bliki/FeatureToggle.html)です。 機能の概要を切り替えます/Martin ファウラーのブログで機能フラグを設定します。
 - [機能を切り替えます vs 機能分岐](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx)です。 機能の切り替え、Dylan Smith によっては別のブログの投稿。
 

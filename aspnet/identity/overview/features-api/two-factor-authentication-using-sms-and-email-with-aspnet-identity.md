@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: ecb1fc693063995a3a05a7af5db64554c9f595e2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0f9ff7cf74048a008b150da1e843ff15333269ab
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="two-factor-authentication-using-sms-and-email-with-aspnet-identity"></a>SMS と電子メール ASP.NET の Id を使用した 2 要素認証
 ====================
@@ -168,7 +168,7 @@ ms.lasthandoff: 11/10/2017
 
 `isPersistent`パラメーターは、複数の要求で認証セッションが保存されるかどうかを設定します。
 
-新しいセキュリティ スタンプが生成されに格納されているセキュリティ プロファイルを変更するときに、`SecurityStamp`のフィールド、 *AspNetUsers*テーブル。 注意してください、`SecurityStamp`フィールドとは異なるセキュリティ クッキー。 セキュリティ クッキーに保存されていない、`AspNetUsers`テーブル (または Identity db では、他の場所から)。 Cookie のセキュリティ トークンは、自己署名を使用して[DPAPI](https://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata.aspx)で作成し、`UserId, SecurityStamp`と有効期限の時刻情報。
+新しいセキュリティ スタンプが生成されに格納されているセキュリティ プロファイルを変更するときに、`SecurityStamp`のフィールド、 *AspNetUsers*テーブル。 注意してください、`SecurityStamp`フィールドとは異なるセキュリティ クッキー。 セキュリティ クッキーに保存されていない、`AspNetUsers`テーブル (または Identity db では、他の場所から)。 Cookie のセキュリティ トークンは、自己署名を使用して[DPAPI](https://msdn.microsoft.com/library/system.security.cryptography.protecteddata.aspx)で作成し、`UserId, SecurityStamp`と有効期限の時刻情報。
 
 Cookie ミドルウェアでは、各要求の cookie を確認します。 `SecurityStampValidator`メソッドで、`Startup`クラスの DB のヒット数およびセキュリティ スタンプを定期的にチェックで指定されたとおり、`validateInterval`です。 これはセキュリティ プロファイルを変更する場合を除きます (この例では) で 30 分おきのみ発生します。 データベースへのトリップを最小限に抑える、30 分間隔が選択されました。
 
@@ -264,7 +264,7 @@ QR コード ジェネレーターなどの追加の 2 fa プロバイダーを�
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample17.cs?highlight=10-11,17-18)]
 
-次のコードは、`SendCode`アクション メソッド。 A [SelectListItem](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlistitem.aspx)ユーザーに対して有効になっているすべての 2 fa メソッドで作成されます。 [SelectListItem](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlistitem.aspx)に渡される、 [DropDownListFor](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.dropdownlist.aspx)ヘルパーに渡し、ユーザーが 2 fa アプローチ (通常の電子メールと SMS) を選択します。
+次のコードは、`SendCode`アクション メソッド。 A [SelectListItem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx)ユーザーに対して有効になっているすべての 2 fa メソッドで作成されます。 [SelectListItem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx)に渡される、 [DropDownListFor](https://msdn.microsoft.com/library/system.web.ui.webcontrols.dropdownlist.aspx)ヘルパーに渡し、ユーザーが 2 fa アプローチ (通常の電子メールと SMS) を選択します。
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample18.cs)]
 
@@ -284,6 +284,6 @@ QR コード ジェネレーターなどの追加の 2 fa プロバイダーを�
 - [Facebook、Twitter、LinkedIn および Google OAuth2 サインオン MVC 5 アプリ](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)プロファイル情報をユーザー テーブルに追加する方法についても説明します。
 - [ASP.NET MVC と Id 2.0: 基本を理解する](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx)John Atten でします。
 - [アカウントの確認と ASP.NET の Id とパスワードの回復](account-confirmation-and-password-recovery-with-aspnet-identity.md)
-- [ASP.NET Id の概要](../getting-started/introduction-to-aspnet-identity.md)
+- [ASP.NET Identity 入門](../getting-started/introduction-to-aspnet-identity.md)
 - [Announcing ASP.NET Identity 2.0.0 の RTM](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx) Pranav Rastogi でします。
 - [アカウントの検証と 2 要素認証を設定する ASP.NET Identity 2.0:](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) John Atten でします。

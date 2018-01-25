@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: e57f1200aaa207c9109f2832cbf88629ed385bb5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0818cce2a82ede80556b3471cec9d965c3e987f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>ASP.NET および Visual Studio 2012 での Web 開発の新機能
 ====================
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/10/2017
 
 - [Microsoft Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web)または上位 (読み取り[付録 A](#AppendixA)をインストールする方法について)。
 - [Windows PowerShell](https://support.microsoft.com/kb/968930/) (用セットアップ スクリプトに Windows 8 および Windows Server 2008 R2 に既にインストールされている)
-- [Internet Explorer 10](https://windows.microsoft.com/en-US/internet-explorer/products/ie/home)または HTML5 対応ブラウザー
+- [Internet Explorer 10](https://windows.microsoft.com/internet-explorer/products/ie/home)または HTML5 対応ブラウザー
 
 <a id="Exercises"></a>
 
@@ -202,7 +202,7 @@ Visual Studio には、開発者にアクセスし、作業、CSS スタイル �
     > [!NOTE]
     > Internet Explorer 10 を使用するいるし、シャドウを表示することはできません、ドキュメント モードが IE10 標準に設定されていることを確認します。 キーを押して**F12**を Internet Explorer developer tools を開き、をクリックして**ドキュメント モード**IE10 標準に変更します。
 
-    ![に関する-us](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image21.png)
+    ![about-us](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image21.png)
 
 <a id="Exercise2"></a>
 
@@ -692,7 +692,7 @@ Visual Studio には、コード モードにアクセスして整理する約�
 
 
 <a id="Summary"></a>
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このラボでは、ASP.NET で新機能と Visual Studio 2012 での Web 開発と Visual Studio 2012 で、さまざまな拡張機能の活用方法を理解するのに役立ちます。
 

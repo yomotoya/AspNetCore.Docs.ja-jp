@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 60301e1e3eb96f51e86ef9f8be61f5fd8a4c009c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 6fc356d8ecc1b699269286f244000b493e48a2c5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core の HTTP.sys web サーバーの実装
 
@@ -140,7 +140,7 @@ Visual Studio では、既定の起動プロファイルは、IIS express はし
 
 ## <a name="preregister-url-prefixes-and-configure-ssl"></a>URL プレフィックスを事前登録し、SSL を構成します。
 
-IIS と HTTP.sys のどちらも、要求のリッスンを基になる Http.Sys カーネル モード ドライバーに依存し、処理の初期実行します。 IIS では、management UI では、すべての構成に比較的簡単な方法です。 ただし、Http.Sys を構成する必要があります。 つまりを行うための組み込みツール*netsh.exe*です。 
+IIS と HTTP.sys のどちらも、要求のリッスンを基になる Http.Sys カーネル モード ドライバーに依存し、処理の初期実行します。 IIS では、management UI では、すべての構成に比較的簡単な方法です。 ただし、Http.Sys を構成する必要があります。 これを行うための組み込みツールの*netsh.exe*です。 
 
 *Netsh.exe* URL プレフィックスを予約し、SSL 証明書を割り当てることができます。 このツールには、管理者特権が必要です。
 

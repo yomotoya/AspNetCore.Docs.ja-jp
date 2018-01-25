@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: b225d9911246b3e2be1679b73a9f31d9f8577ba5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98fd728f48f6fb64a61686bc58824b9fb3a28b13
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Web デプロイの発行用のデータベース サーバーの構成
 ====================
@@ -48,7 +48,7 @@ Web 配置をサポートするためにデータベース サーバーを構成
 のみ、SQL Server インスタンスを含める必要がある、**データベース エンジン サービス**ロールは、任意の SQL Server のインストールに自動的に含まれています。 ただし、構成と保守の容易にするため、推奨を含めること、**管理ツール-基本**と**管理ツール-完全**サーバーの役割です。
 
 > [!NOTE]
-> コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューター、ドメインとログオン](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx)です。 静的 IP アドレスを構成する方法については、次を参照してください。[静的 IP アドレスを構成](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx)です。 SQL Server のインストールの詳細については、次を参照してください。 [SQL Server 2008 R2 のインストール](https://technet.microsoft.com/en-us/library/bb500395.aspx)です。
+> コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューター、ドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)です。 静的 IP アドレスを構成する方法については、次を参照してください。[静的 IP アドレスを構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)です。 SQL Server のインストールの詳細については、次を参照してください。 [SQL Server 2008 R2 のインストール](https://technet.microsoft.com/library/bb500395.aspx)です。
 
 
 ## <a name="enable-remote-access-to-sql-server"></a>SQL Server へのリモート アクセスを有効にします。
@@ -66,7 +66,7 @@ TCP/IP 経由で通信するために SQL Server を有効にするのにには�
 2. ツリー ビュー ペインで、展開**SQL Server ネットワーク構成**、クリックして**MSSQLSERVER のプロトコル**です。
 
     > [!NOTE]
-    > SQL Server の複数のインスタンスをインストールする場合が表示されます、**プロトコル***[インスタンス名]*インスタンスごとの項目。 インスタンスで、インスタンスごとにネットワーク設定を構成する必要があります。
+    > SQL Server の複数のインスタンスをインストールする場合が表示されます、**プロトコル * * * [インスタンス名]*インスタンスごとの項目。 インスタンスで、インスタンスごとにネットワーク設定を構成する必要があります。
 3. 詳細ウィンドウで右クリックし、 **TCP/IP**行をクリックして**を有効にする**です。
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image1.png)
@@ -102,7 +102,7 @@ SQL Server の既定のインスタンスを使用するいると想定される
   
 
 > [!NOTE]
-> 技術的には、クライアント コンピューターは、SQL Server との通信に 1024 ~ 5000 でランダムに割り当てられた TCP ポートを使用し、それに従ってファイアウォールのルールを制限することができます。 SQL Server のポートとファイアウォールの詳細については、次を参照してください[SQL ファイアウォール経由で通信するために必要な TCP/IP ポート番号](https://go.microsoft.com/?linkid=9805125)と[する方法: 特定の TCP ポート (SQL Server の構成でリッスンするようにサーバーを構成する。Manager)](https://msdn.microsoft.com/en-us/library/ms177440.aspx)です。
+> 技術的には、クライアント コンピューターは、SQL Server との通信に 1024 ~ 5000 でランダムに割り当てられた TCP ポートを使用し、それに従ってファイアウォールのルールを制限することができます。 SQL Server のポートとファイアウォールの詳細については、次を参照してください[SQL ファイアウォール経由で通信するために必要な TCP/IP ポート番号](https://go.microsoft.com/?linkid=9805125)と[する方法: 特定の TCP ポート (SQL Server の構成でリッスンするようにサーバーを構成する。Manager)](https://msdn.microsoft.com/library/ms177440.aspx)です。
 
 
 ほとんどの Windows Server 環境では、可能性があります、データベース サーバーで Windows ファイアウォールを構成する必要があります。 既定では、Windows ファイアウォールは、ルールによって特に禁止されている場合を除き、すべての送信トラフィックを許可します。 Web サーバーをデータベースにアクセスを有効にするには、SQL Server インスタンスが使用するポート番号で TCP トラフィックを許可する受信規則を構成する必要があります。 SQL Server の既定のインスタンスを使用している場合は、このルールを構成する次の手順を使用できます。
@@ -126,11 +126,11 @@ SQL Server の既定のインスタンスを使用するいると想定される
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image9.png)
 8. **名** ページで、ルールに適切にわかりやすい名前を付けます (たとえば、 **SQL Server の既定のインスタンス: ネットワーク アクセス**)、をクリックし、 **完了**です。
 
-SQL Server と標準または動的ポート経由の通信を参照して必要がある場合に特に、SQL Server 用 Windows ファイアウォールを構成する方法についての[する方法: データベース エンジン アクセスの Windows ファイアウォールを構成する](https://technet.microsoft.com/en-us/library/ms175043.aspx)です。
+SQL Server と標準または動的ポート経由の通信を参照して必要がある場合に特に、SQL Server 用 Windows ファイアウォールを構成する方法についての[する方法: データベース エンジン アクセスの Windows ファイアウォールを構成する](https://technet.microsoft.com/library/ms175043.aspx)です。
 
 ## <a name="configure-logins-and-database-permissions"></a>ログインを構成し、データベース権限
 
-Web アプリケーションにインターネット インフォメーション サービス (IIS) を展開するときに、アプリケーション プールの id を使用して、アプリケーションが実行されます。 ドメイン環境では、アプリケーション プール id は、ネットワーク リソースにアクセスするが、実行するサーバーのマシン アカウントを使用します。 コンピューター アカウントは、形式をとる*[ドメイン名]***\***[マシン名] ***$**& #x 2014 たとえば、 **FABRIKAM\。TESTWEB1$**します。 Web アプリケーションをネットワーク経由で、データベースへのアクセスを許可するのには、する必要があります。
+Web アプリケーションにインターネット インフォメーション サービス (IIS) を展開するときに、アプリケーション プールの id を使用して、アプリケーションが実行されます。 ドメイン環境では、アプリケーション プール id は、ネットワーク リソースにアクセスするが、実行するサーバーのマシン アカウントを使用します。 コンピューター アカウントは、形式をとる * [ドメイン名]***\** * [マシン名]**** $* & #x 2014; たとえば、 **FABRIKAM\TESTWEB1$**します。 Web アプリケーションをネットワーク経由で、データベースへのアクセスを許可するのには、する必要があります。
 
 - SQL Server インスタンスに、web サーバーのコンピューター アカウントのログインを追加します。
 - 必要なデータベース ロールにマシン アカウントのログインをマップ (通常**db\_datareader**と**db\_datawriter**)。
@@ -158,7 +158,7 @@ SQL Server ログインを展開するデータベースに依存しないよう
 4. **ログイン-新規** ダイアログ ボックスで、**ログイン名**ボックスに、web サーバー マシン アカウントの名前を入力 (たとえば、 **FABRIKAM\TESTWEB1$**)。
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image11.png)
-5. **[OK]** をクリックします。
+5. **[OK]**をクリックします。
 
 この時点では、データベース サーバーは、Web Deploy の発行可能な状態です。 ただし、展開するソリューションは、必要なデータベース ロールにマシン アカウントのログインをマップするまでに動作しません。 考えるより多くのデータベース ロールにログインにマッピングが必要です、することはできません後まで、マップのロール配置したデータベースです。 必要なデータベース ロールにマシン アカウントのログインをマップするには、方法があります。
 
@@ -178,12 +178,12 @@ SQL Server ログインを展開するデータベースに依存しないよう
 5. **データベース ロールのメンバーシップ:** *[データベース名]*一覧で、必要なアクセス許可を選択します。 選択する必要があります、連絡先のマネージャーのサンプル ソリューションの場合、 **db\_datareader**と**db\_datawriter**ロール。
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image13.png)
-6. **[OK]** をクリックします。
+6. **[OK]**をクリックします。
 
 データベース ロールを手動でマッピングでは、テスト環境の複数の適切な多くの場合は、ステージング環境または実稼働環境に自動または 1 回のクリックは展開の望ましいです。 詳細についてはこの種の配置後のスクリプトを使用して作業を自動化することで見つかります[を展開するデータベース ロール メンバーシップを変更するテスト環境](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)です。
 
 > [!NOTE]
-> サーバーのプロジェクトおよびデータベースの詳細については、次を参照してください。 [Visual Studio 2010 の SQL Server データベース プロジェクト](https://msdn.microsoft.com/en-us/library/ff678491.aspx)です。
+> サーバーのプロジェクトおよびデータベースの詳細については、次を参照してください。 [Visual Studio 2010 の SQL Server データベース プロジェクト](https://msdn.microsoft.com/library/ff678491.aspx)です。
 
 
 ## <a name="configure-permissions-for-the-deployment-account"></a>展開アカウントのアクセス許可を構成します。
@@ -215,7 +215,7 @@ SQL Server ログインを展開するデータベースに依存しないよう
 5. **データベース ロールのメンバーシップ:** *[データベース名]*一覧で、、 **db\_所有者**ロール。
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image15.png)
-6. **[OK]** をクリックします。
+6. **[OK]**をクリックします。
 
 ## <a name="conclusion"></a>まとめ
 

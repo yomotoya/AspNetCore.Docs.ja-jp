@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7b32a664975254dcc1d015f2400df30d05346948
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b66c68b8306b905a800465ab0ed720ae6f9d16b9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-parameterized-queries-with-the-sqldatasource-c"></a>SqlDataSource (c#) でパラメーター化クエリの使用
 ====================
@@ -209,7 +209,7 @@ Let s が Northwind データベースの名前付きで新しいストアド �
 **図 11**: 1 の Hard-Coded 値を使用して、飲料カテゴリの製品を返す ([フルサイズのイメージを表示するをクリックして](using-parameterized-queries-with-the-sqldatasource-cs/_static/image22.png))
 
 
-SqlDataSource s、ストアド プロシージャを使用する場合は次の宣言型マークアップ示すとして`SelectCommand`プロパティが、ストアド プロシージャの名前に設定され、 [ `SelectCommandType`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.selectcommandtype.aspx)に設定されている`StoredProcedure`ことを示す`SelectCommand`アドホック SQL ステートメントではなく、ストアド プロシージャの名前を指定します。
+SqlDataSource s、ストアド プロシージャを使用する場合は次の宣言型マークアップ示すとして`SelectCommand`プロパティが、ストアド プロシージャの名前に設定され、 [ `SelectCommandType`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.selectcommandtype.aspx)に設定されている`StoredProcedure`ことを示す`SelectCommand`アドホック SQL ステートメントではなく、ストアド プロシージャの名前を指定します。
 
 
 [!code-aspx[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample9.aspx)]
@@ -237,9 +237,9 @@ SqlDataSource を追加することによって開始`ParameterizedQueries.aspx`
 
 `ORDER BY NEWID()`ランダムな順序で並べ替えられたレコードを返します (を参照してください[Using`NEWID()`ランダムにレコードの並べ替えに](http://www.sqlteam.com/item.asp?ItemID=8747))。 `SELECT TOP 1`結果セットから最初のレコードを返します。 まとめるには、このクエリを返します、`CategoryID`と`CategoryName`、ランダムに選択された 1 つのカテゴリの列の値。
 
-カテゴリ s を表示する`CategoryName`値 Label Web コントロールをページに追加設定その`ID`プロパティを`CategoryNameLabel`、クリアとその`Text`プロパティ。 SqlDataSource コントロールからプログラムでデータを取得する必要がありますを呼び出す、`Select()`メソッドです。 [ `Select()`メソッド](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.select.aspx)型の単一の入力パラメーターが必要ですが[ `DataSourceSelectArguments` ](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.aspx)、返される前に、データをメッセージする方法を指定します。 これにより、並べ替えと、データをフィルター処理に指示を含めることができ、Web コントロールの並べ替えまたは SqlDataSource コントロールからのデータを取得するときにデータで使用されています。 この例では、お返される前に変更する t 必要データはなく、そのために渡されます、`DataSourceSelectArguments.Empty`オブジェクト。
+カテゴリ s を表示する`CategoryName`値 Label Web コントロールをページに追加設定その`ID`プロパティを`CategoryNameLabel`、クリアとその`Text`プロパティ。 SqlDataSource コントロールからプログラムでデータを取得する必要がありますを呼び出す、`Select()`メソッドです。 [ `Select()`メソッド](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.select.aspx)型の単一の入力パラメーターが必要ですが[ `DataSourceSelectArguments` ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx)、返される前に、データをメッセージする方法を指定します。 これにより、並べ替えと、データをフィルター処理に指示を含めることができ、Web コントロールの並べ替えまたは SqlDataSource コントロールからのデータを取得するときにデータで使用されています。 この例では、お返される前に変更する t 必要データはなく、そのために渡されます、`DataSourceSelectArguments.Empty`オブジェクト。
 
-`Select()`メソッドを実装するオブジェクトを返します`IEnumerable`です。 SqlDataSource コントロール秒の値に依存に返される正確な型[`DataSourceMode`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx)です。 このプロパティをいずれかの値に設定できる前のチュートリアルで既に説明した、`DataSet`または`DataReader`です。 場合に設定`DataSet`、`Select()`メソッドを返します、 [DataView](https://msdn.microsoft.com/en-us/library/01s96x0z.aspx)オブジェクト以外に設定した場合`DataReader`を実装するオブジェクトを返します[ `IDataReader`](https://msdn.microsoft.com/en-us/library/system.data.idatareader.aspx)です。 以降、 `RandomCategoryDataSource` SqlDataSource がその`DataSourceMode`プロパティに設定`DataSet`(既定)、おを操作し、DataView オブジェクト。
+`Select()`メソッドを実装するオブジェクトを返します`IEnumerable`です。 SqlDataSource コントロール秒の値に依存に返される正確な型[`DataSourceMode`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx)です。 このプロパティをいずれかの値に設定できる前のチュートリアルで既に説明した、`DataSet`または`DataReader`です。 場合に設定`DataSet`、`Select()`メソッドを返します、 [DataView](https://msdn.microsoft.com/library/01s96x0z.aspx)オブジェクト以外に設定した場合`DataReader`を実装するオブジェクトを返します[ `IDataReader`](https://msdn.microsoft.com/library/system.data.idatareader.aspx)です。 以降、 `RandomCategoryDataSource` SqlDataSource がその`DataSourceMode`プロパティに設定`DataSet`(既定)、おを操作し、DataView オブジェクト。
 
 次のコードからレコードを取得する方法を示しています、 `RandomCategoryDataSource` DataView として SqlDataSource を読み取る方法だけでなく、 `CategoryName` DataView の最初の行の列の値。
 
@@ -296,7 +296,7 @@ SqlDataSource ウィザードを完了すると、結果として得られる宣
 **図 15**: パラメーターのソースまたは既定値を指定しない ([フルサイズのイメージを表示するをクリックして](using-parameterized-queries-with-the-sqldatasource-cs/_static/image30.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 SqlDataSource 開発者はページをパラメーター値を持つハード コーディングされた、定義済みパラメーターのソースから取得したりプログラムによって割り当てられているパラメーター化クエリを定義できます。 このチュートリアルでは、アドホック SQL クエリとストアド プロシージャの両方のデータ ソース構成ウィザードからのパラメーター化クエリを作成する方法を説明しました。 についても説明しましたパラメーターのハードコード ソース、パラメーターのソースとしての Web コントロールを使用して、プログラムで、パラメーターの値を指定します。
 

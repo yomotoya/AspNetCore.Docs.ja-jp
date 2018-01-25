@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 04487614b219f8f6f8f0524c3b5f1aa42480c4d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ebc83098b73902fa3f7a90a38dafc43b413e75fe
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-signalr-security-signalr-1x"></a>SignalR のセキュリティの概要 (SignalR 1.x)
 ====================
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/10/2017
 
 SignalR は、アプリケーションの既存の認証構造に統合できるように設計されています。 ユーザーの認証にも任意の機能は提供されません。 代わりに、ユーザーを認証する、アプリケーションで通常どおりし、SignalR コードで、認証の結果を処理できます。 たとえば、ASP.NET フォーム認証でユーザー認証を行うし、ハブでユーザーを適用する可能性があります。 またはロールがメソッドを呼び出す権限がします。 ハブでは、ユーザー名またはユーザーがクライアントに、ロールに属しているかどうかなどの認証情報を渡すこともします。
 
-SignalR の提供、 [Authorize](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx)ハブまたはメソッドへのアクセスを持つユーザーを指定する属性。 承認属性を適用するには、ハブまたは特定のハブ メソッドのいずれかにします。 Authorize 属性がない、ハブのすべてのパブリック メソッドがハブに接続されているクライアントで使用します。 ハブの詳細については、次を参照してください。 [SignalR ハブの認証と承認](../security/hub-authorization.md)です。
+SignalR の提供、 [Authorize](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx)ハブまたはメソッドへのアクセスを持つユーザーを指定する属性。 承認属性を適用するには、ハブまたは特定のハブ メソッドのいずれかにします。 Authorize 属性がない、ハブのすべてのパブリック メソッドがハブに接続されているクライアントで使用します。 ハブの詳細については、次を参照してください。 [SignalR ハブの認証と承認](../security/hub-authorization.md)です。
 
 `Authorize`属性は、ハブでのみ使用します。 使用する場合は、承認規則を適用する、`PersistentConnection`オーバーライドする必要があります、`AuthorizeRequest`メソッドです。 永続的な接続の詳細については、次を参照してください。 [SignalR 固定接続の認証と承認](../security/persistent-connection-authorization.md)です。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b6e71470ae2888ac4332f896c34f666618a425e7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20a092ee2886932664705c22c3aa88d8a2f7f0ef
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-vb"></a>DataList とリピータ コントロール (VB) のデータの表示
 ====================
@@ -163,7 +163,7 @@ GridView のように、DataList は数多くのスタイル関連プロパテ�
 
 - `HeaderTemplate`指定した場合、出力にヘッダー行を追加し、この行を表示するために使用します。
 - `AlternatingItemTemplate`交互の項目を表示するために使用します。
-- `SelectedItemTemplate`選択した項目を表示するために使用します。選択した項目は、DataList s に対応してインデックスを持つ項目[`SelectedIndex`プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
+- `SelectedItemTemplate`選択した項目を表示するために使用します。選択した項目は、DataList s に対応してインデックスを持つ項目[`SelectedIndex`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
 - `EditItemTemplate`編集中の項目を表示するために使用します。
 - `SeparatorTemplate`指定した場合、各項目間の区切り記号を追加し、この区切り記号を表示するために使用します。
 - `FooterTemplate`-指定した場合、出力にフッター行を追加し、この行を表示するために使用します。
@@ -222,7 +222,7 @@ ASP.NET で 1.x では、コントロールがいくつかのデータ ソース
 - `SectionLevelTutorialListing.ascx`リピータが、現在のサイト マップ セクションの子セクションの行頭文字付き一覧を表示する使用されました
 
 > [!NOTE]
-> ASP.NET 2.0 が導入されていますが、新しい[BulletedList コントロール](https://msdn.microsoft.com/en-us/library/ms228101.aspx)、する単純な箇条書きリストを表示するためにデータ ソース コントロールにバインドできます。 BulletedList コントロールには必要はありません; リストに関連する HTML のいずれかを指定するには代わりに、各リスト項目のテキストとして表示するデータ フィールドだけで指定します。
+> ASP.NET 2.0 が導入されていますが、新しい[BulletedList コントロール](https://msdn.microsoft.com/library/ms228101.aspx)、する単純な箇条書きリストを表示するためにデータ ソース コントロールにバインドできます。 BulletedList コントロールには必要はありません; リストに関連する HTML のいずれかを指定するには代わりに、各リスト項目のテキストとして表示するデータ フィールドだけで指定します。
 
 
 リピータは、Web コントロールのすべてのデータを catch として機能します。 必要なマークアップを生成する既存のコントロールがない場合は、Repeater コントロールを使用できます。 リピータの使用を示すためには、手順 2. で作成された製品情報 DataList 上に表示されるカテゴリの一覧がある s を使用できます。 Let s が単一行の HTML に表示されるカテゴリを持つ具体的には、`<table>`テーブル内の列として表示される各カテゴリを使用します。
@@ -300,7 +300,7 @@ DataList とは異なり Visual Studio は自動的に作成されません Item
 **図 18**:、カテゴリ列代替背景色と、ヘッダー行が含まれています ([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-vb/_static/image50.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 GridView コントロールでは、簡単に表示、編集、削除、並べ替え、および、データのページ、外観は非常に角張った、グリッドのようにします。 外観をより細かく制御には、DataList またはリピータのいずれかのコントロールを有効にする必要があります。 これらのコントロールは、一連の BoundFields CheckBoxFields、やなどの代わりにテンプレートを使用してレコードを表示します。
 

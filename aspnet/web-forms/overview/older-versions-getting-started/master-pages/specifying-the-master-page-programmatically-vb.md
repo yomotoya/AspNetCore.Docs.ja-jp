@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 090d0777b9d541003c3115d0da7cd974820c2939
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 191de7546e2ba913fda0c8c8a8bfd3531b53336e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="specifying-the-master-page-programmatically-vb"></a>プログラムによるマスター ページの指定 (VB)
 ====================
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample1.aspx)]
 
-[ `Page`クラス](https://msdn.microsoft.com/en-us/library/system.web.ui.page.aspx)で、`System.Web.UI`名前空間が含まれています、 [ `MasterPageFile`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.page.masterpagefile.aspx)コンテンツ ページのマスター ページへのパスを返す; はこの、によって設定されるプロパティ`@Page`ディレクティブです。 このプロパティは、コンテンツ ページのマスター ページ、プログラムで指定するも使用できます。 この方法は、ページにアクセスしたユーザーなどの外部要因に基づくマスター ページを動的に割り当てる場合に便利です。
+[ `Page`クラス](https://msdn.microsoft.com/library/system.web.ui.page.aspx)で、`System.Web.UI`名前空間が含まれています、 [ `MasterPageFile`プロパティ](https://msdn.microsoft.com/library/system.web.ui.page.masterpagefile.aspx)コンテンツ ページのマスター ページへのパスを返す; はこの、によって設定されるプロパティ`@Page`ディレクティブです。 このプロパティは、コンテンツ ページのマスター ページ、プログラムで指定するも使用できます。 この方法は、ページにアクセスしたユーザーなどの外部要因に基づくマスター ページを動的に割り当てる場合に便利です。
 
 このチュートリアルでは 2 つ目のマスター ページ、web サイトに追加を実行時に使用するマスター ページを動的に決定します。
 
@@ -54,7 +54,7 @@ ASP.NET エンジンが、ページを組み込む必要があります要求が
 
 値に依存この fusion でどのようなマスター ページが partakes、`Page`オブジェクトの`MasterPageFile`プロパティです。 設定、`MasterPageFile`属性、`@Page`ディレクティブが割り当てることの実際の影響、`Page`の`MasterPageFile`段階で、初期化、ページのライフ サイクルの最初のステージであるプロパティ。 代わりにこのプロパティをプログラムで設定できます。 ただし、これが図 1 に fusion 行われる前にこのプロパティを設定することが重要です。
 
-PreInit ステージの開始時、`Page`オブジェクト、 [ `PreInit`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.page.preinit.aspx)呼び出しとその[`OnPreInit`メソッド](https://msdn.microsoft.com/en-us/library/system.web.ui.page.onpreinit.aspx)です。 マスター ページ、プログラムで設定を次に、生み出すことができますか、イベント ハンドラーを`PreInit`イベントまたは上書き、`OnPreInit`メソッドです。 両方の方法を見てみましょう。
+PreInit ステージの開始時、`Page`オブジェクト、 [ `PreInit`イベント](https://msdn.microsoft.com/library/system.web.ui.page.preinit.aspx)呼び出しとその[`OnPreInit`メソッド](https://msdn.microsoft.com/library/system.web.ui.page.onpreinit.aspx)です。 マスター ページ、プログラムで設定を次に、生み出すことができますか、イベント ハンドラーを`PreInit`イベントまたは上書き、`OnPreInit`メソッドです。 両方の方法を見てみましょう。
 
 開いて開始`Default.aspx.vb`、このサイトのホーム ページの分離コード クラス ファイルです。 ページのイベント ハンドラーを追加`PreInit`次のコードを入力してイベント。
 
@@ -264,7 +264,7 @@ Button Web コントロールをページに追加し、設定、`ID`と`Text`�
 **図 07**: コンテンツのページは、表示を使用するようになりました、`Alternate.master`マスター ページ ([フルサイズのイメージを表示するをクリックして](specifying-the-master-page-programmatically-vb/_static/image21.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 コンテンツ ページをアクセスすると、そのコンテンツ コントロールは、マスター ページ プレース ホルダー コントロールと: fused です。 コンテンツ ページのマスター ページがで示される、`Page`クラスの`MasterPageFile`プロパティに割り当てられる、`@Page`ディレクティブの`MasterPageFile`初期化段階での属性です。 このチュートリアルに値を割り当てることで見たとして、 `MasterPageFile` PreInit ステージの終了前に行うように限りプロパティです。 マスター ページ、プログラムで指定できることには、外部要因に基づくマスター ページに、コンテンツ ページの動的な連結などの高度なシナリオのドアが表示されます。
 
@@ -275,8 +275,8 @@ Button Web コントロールをページに追加し、設定、`ID`と`Text`�
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
 - [ASP.NET ページ ライフ サイクル ダイアグラム](http://emanish.googlepages.com/Asp.Net2.0Lifecycle.PNG)
-- [ASP.NET ページ ライフ サイクルの概要](https://msdn.microsoft.com/en-us/library/ms178472.aspx)
-- [ASP.NET のテーマとスキンの概要](https://msdn.microsoft.com/en-us/library/ykzx33wh.aspx)
+- [ASP.NET ページ ライフ サイクルの概要](https://msdn.microsoft.com/library/ms178472.aspx)
+- [ASP.NET のテーマとスキンの概要](https://msdn.microsoft.com/library/ykzx33wh.aspx)
 - [マスター ページ: ヒント、テクニック、およびトラップ](http://www.odetocode.com/articles/450.aspx)
 - [ASP.NET のテーマ](http://www.odetocode.com/articles/423.aspx)
 

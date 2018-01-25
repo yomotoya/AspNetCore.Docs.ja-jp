@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 9270287b62f91ddb81d6a347dd583e1cbb32f3c3
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2b39a5105339beb416490db282d4cd8b83d08660
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>ASP.NET core 圧縮ミドルウェアの応答
 
@@ -96,7 +96,7 @@ IIS、Apache、または Nginx サーバー ベースの応答の圧縮テクノ
 
 サンプル アプリをせずに要求を送信、`Accept-Encoding`ヘッダー応答は圧縮されていないことを確認します。 `Content-Encoding`と`Vary`ヘッダーが応答に表示されません。
 
-![Fiddler のウィンドウが、要求に Accept-encoding ヘッダーなしの結果を示すです。 応答は圧縮されません。](response-compression/_static/request-uncompressed.png)
+![Fiddler のウィンドウが、要求に Accept-encoding ヘッダーなしの結果を示すです。 応答が圧縮されていません。](response-compression/_static/request-uncompressed.png)
 
 要求のサンプル アプリを送信、`Accept-Encoding: gzip`ヘッダー応答が圧縮されていることを確認します。 `Content-Encoding`と`Vary`ヘッダーが応答に存在します。
 
@@ -110,7 +110,7 @@ Gzip 圧縮プロバイダーの既定値は、最速の圧縮レベル (`Compre
 
 | 圧縮レベル                | 説明                                                                                                   |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `CompressionLevel.Fastest`       | 結果の出力が最適に圧縮されていない場合でも、圧縮は、できるだけ早く完了します。 |
+| `CompressionLevel.Fastest`       | 圧縮は、結果の出力は圧縮されていない最適な場合でも、可能な限り早く完了します。 |
 | `CompressionLevel.NoCompression` | 圧縮は行われません。                                                                           |
 | `CompressionLevel.Optimal`       | 応答を最適に圧縮する、場合でも、圧縮を完了に時間がかかります。                |
 

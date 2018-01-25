@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: e6ee3f9c055a15b13c27f94675006b9a7e804f1b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 118233338112a71216b909b1dabed2333bfa235e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-inheritance-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-11-of-12"></a>ASP.NET MVC 5 アプリケーション (11/12) で Entity Framework 6 による継承の実装
 ====================
@@ -43,13 +43,13 @@ ms.lasthandoff: 11/10/2017
 
 これには、データベースでこの継承構造を表すことができますいくつかの方法があります。 割り当てることも、`Person`受講者と講習においてインストラクターに 1 つのテーブルの両方に関する情報を含むテーブル。 講習においてインストラクターにのみ適用できなかった一部の列 (`HireDate`)、受講者にのみ一部 (`EnrollmentDate`)、一部には、両方 (`LastName`、 `FirstName`)。 通常、する必要があります、*識別子*各行を入力するかを示す列を表します。 たとえば、識別子の列は、受講者のインストラクターと「生徒」「インストラクター」があります。
 
-![テーブルの hierarchy_example ごと](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+![Table-per-hierarchy_example](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
 1 つのデータベース テーブルからエンティティ継承構造を生成するには、このパターンが呼び出された*テーブルの階層あたり*(TPH) 継承します。
 
 代わりに、継承構造と同じように、データベースの作成を開始します。 たとえば name フィールドのみを持つことが、`Person`テーブルし、は独立した`Instructor`と`Student`日付フィールドを持つテーブルです。
 
-![テーブルの type_inheritance ごと](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
+![Table-per-type_inheritance](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
 各エンティティ クラスと呼ばれるデータベース テーブルのこのパターン*型ごとにテーブル*(TPT) 継承します。
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/10/2017
 
 TPC と TPH 継承パターン TPT 継承のパターンよりも、Entity Framework のパフォーマンスを向上させるが通常提供 TPT パターンが複雑な結合クエリのために使用します。
 
-このチュートリアルでは、TPH 継承の実装方法を示します。 TPH は Entity Framework での既定の継承パターンを作成では行う必要があるすべて、`Person`クラス、変更、`Instructor`と`Student`クラスから派生する`Person`、新しいクラスを追加、 `DbContext`、作成し、移行します。 (その他の継承パターンを実装する方法については、次を参照してください[マッピング テーブルの種類ごと (TPT) 継承](https://msdn.microsoft.com/en-us/data/jj591617#2.5)と[具象型でのテーブルあたりクラス (TPC) の継承をマッピング](https://msdn.microsoft.com/en-us/data/jj591617#2.6)、MSDN の。Entity Framework ドキュメントです。)
+このチュートリアルでは、TPH 継承の実装方法を示します。 TPH は Entity Framework での既定の継承パターンを作成では行う必要があるすべて、`Person`クラス、変更、`Instructor`と`Student`クラスから派生する`Person`、新しいクラスを追加、 `DbContext`、作成し、移行します。 (その他の継承パターンを実装する方法については、次を参照してください[マッピング テーブルの種類ごと (TPT) 継承](https://msdn.microsoft.com/data/jj591617#2.5)と[具象型でのテーブルあたりクラス (TPC) の継承をマッピング](https://msdn.microsoft.com/data/jj591617#2.6)、MSDN の。Entity Framework ドキュメントです。)
 
 ## <a name="create-the-person-class"></a>ユーザー クラスを作成します。
 
@@ -157,9 +157,9 @@ Person テーブルを右クリックし、をクリックして**テーブル �
 
     初めてページを実行するデータベースにアクセスする場合は、Entity Framework 実行のすべての移行の`Up`データベースが現在のデータ モデルに最新の状態に必要なメソッドです。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
-テーブルの階層あたりの継承を実装したら、 `Person`、 `Student`、および`Instructor`クラスです。 このおよびその他の継承構造の詳細については、次を参照してください。 [TPT の継承パターン](https://msdn.microsoft.com/en-us/data/jj618293)と[TPH の継承パターン](https://msdn.microsoft.com/en-us/data/jj618292)msdn です。 次のチュートリアルでは、さまざまな Entity Framework の比較的高度なシナリオを処理する方法が表示されます。
+テーブルの階層あたりの継承を実装したら、 `Person`、 `Student`、および`Instructor`クラスです。 このおよびその他の継承構造の詳細については、次を参照してください。 [TPT の継承パターン](https://msdn.microsoft.com/data/jj618293)と[TPH の継承パターン](https://msdn.microsoft.com/data/jj618292)msdn です。 次のチュートリアルでは、さまざまな Entity Framework の比較的高度なシナリオを処理する方法が表示されます。
 
 その他の Entity Framework リソースへのリンクは含まれて、 [ASP.NET データ アクセス - リソースのことをお勧め](../../../../whitepapers/aspnet-data-access-content-map.md)です。
 

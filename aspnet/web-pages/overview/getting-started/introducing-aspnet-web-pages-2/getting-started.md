@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 615ddc31d0d857e5bf9a7f372b7efcf67d185905
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a6789ee75b4ca6e9443681cc7ec0bd3ab94cedcd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introducing-aspnet-web-pages---getting-started"></a>ASP.NET Web ページ - 作業の開始の概要
 ====================
@@ -60,7 +60,7 @@ ms.lasthandoff: 11/10/2017
 
 慣れているものと仮定します。
 
-- **HTML**です。 深い専門知識は必要ありません。 HTML、については説明しませんが、私たちもないものを使用して複雑です。 便利思います HTML チュートリアルへのリンクを提供します。
+- **HTML**. 深い専門知識は必要ありません。 HTML、については説明しませんが、私たちもないものを使用して複雑です。 便利思います HTML チュートリアルへのリンクを提供します。
 - **カスケード スタイル シート (CSS)**です。 同じ html です。
 - **基本的なデータベース アイデア**です。 データのスプレッドシートを使用し、並べ替えを専門知識のレベルにあるデータをフィルター処理した場合、このチュートリアルのセットの仮定一般にします。
 
@@ -124,8 +124,8 @@ WebMatrix は、web ページ エディター、データベース ユーティ�
 
 Azure アカウントを Azure にこのソリューションを展開する必要があります。 アカウントがない場合は、次のオプションがあります。
 
-- [無料の Azure アカウントを開設](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604)-クレジットを取得するでも使用されているアカウントを維持する最大と使用する無料の Azure サービスおよび有料の Azure サービスを試す使用できます。
-- [MSDN サブスクライバー特典をアクティブ化](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)-お客様の MSDN サブスクリプションでは、クレジット有料の Azure サービスを使用できるすべての月です。
+- [無料の Azure アカウントを開設](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604)-クレジットを取得するでも使用されているアカウントを維持する最大と使用する無料の Azure サービスおよび有料の Azure サービスを試す使用できます。
+- [MSDN サブスクライバー特典をアクティブ化](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)-お客様の MSDN サブスクリプションでは、クレジット有料の Azure サービスを使用できるすべての月です。
 
 ## <a name="installing-everything"></a>すべてのインストール
 
@@ -155,7 +155,7 @@ WebMatrix をインストールする準備ができて、Web Platform Installer
 
 実行されると、インストール処理は WebMatrix を自動的に起動できます。 インストールされていない場合、Windows から、**開始**] メニューの [起動**Microsoft WebMatrix**です。
 
-WebMatrix を初めて起動すると、Microsoft アカウントで Microsoft Azure にサインインする機会が与えられます。 サインインすると、Azure 経由で 10 個の無料の web アプリが表示されます。 これらの free web アプリは、アプリをテストする便利な手段を提供します。 場合は、Azure アカウントを既に必要はありませんが、MSDN サブスクリプションが、 [MSDN サブスクリプション特典をアクティブ化](https://www.windowsazure.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)です。 それ以外の場合、ほんの数分で無料の試用アカウントを作成できます。 詳細については、「 [Azure 無料評価版](https://azure.microsoft.com/free/?WT.mc_id=A443DD604)です。
+WebMatrix を初めて起動すると、Microsoft アカウントで Microsoft Azure にサインインする機会が与えられます。 サインインすると、Azure 経由で 10 個の無料の web アプリが表示されます。 これらの free web アプリは、アプリをテストする便利な手段を提供します。 場合は、Azure アカウントを既に必要はありませんが、MSDN サブスクリプションが、 [MSDN サブスクリプション特典をアクティブ化](https://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)です。 それ以外の場合、ほんの数分で無料の試用アカウントを作成できます。 詳細については、「 [Azure 無料評価版](https://azure.microsoft.com/free/?WT.mc_id=A443DD604)です。
 
 このチュートリアルを続行する今すぐにサインインする必要はありません。 署名しないようになりました場合、は、後でサインインするオプションが続行されます。 最後の[トピック](publishing.md)シリーズをこのチュートリアルでは、web サイトを Azure に配置する方法をについて説明以外のトピックを完了にサインインする必要がありますはそのため、します。
 
@@ -207,7 +207,7 @@ WebMatrix には、ファイルの種類の一覧が表示されます。 選択
 
 ![名前付き HelloWorld.cshtml の新しい CSHTML ページの作成](getting-started/_static/image15.png)
 
-**[OK]** をクリックします。
+**[OK]**をクリックします。
 
 WebMatrix は、ページが作成され、エディターで開きます。
 

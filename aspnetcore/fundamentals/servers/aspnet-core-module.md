@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 153c40f0e825ff5826e916c7ea877a25d81954f1
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9dc2183ebbdf8b74106fe57a1dd191a57ba5d1bc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>ASP.NET Core モジュールの概要
 
@@ -38,9 +38,9 @@ IIS ワーカー プロセスからの個別のプロセスで実行する ASP.N
 
 ![ASP.NET Core モジュール](aspnet-core-module/_static/ancm.png)
 
-要求は、Web から受け取るし、プライマリ ポート (80) または SSL ポート (443) 上の IIS にルーティングする、カーネル モード Http.Sys ドライバーをヒットします。 ANCM は、ポート 80 および 443 ではないアプリケーション用に構成された HTTP ポート上の ASP.NET Core アプリケーションに要求を転送します。
+要求は、Web から受け取るし、プライマリ ポート (80) または SSL ポート (443) 上の IIS にルーティングする、カーネル モード Http.Sys ドライバーをヒットします。 ANCM が、これはポートでは、アプリケーション用に構成された HTTP ポート上の ASP.NET Core アプリケーションに要求を転送 80/443 です。
 
-Kestrel は、ANCM からのトラフィックをリッスンします。  ANCM が起動時に、環境変数を使用してポートを指定し、 [UseIISIntegration](#call-useiisintegration)メソッドでリッスンするサーバーの構成`http://localhost:{port}`です。 これは、追加のチェック ANCM からではなく要求を拒否します。 (ANCM はサポートされません HTTPS 転送、HTTPS 経由で IIS によって受信された場合でも要求が HTTP 経由で転送されるようにします。)
+Kestrel は、ANCM からのトラフィックをリッスンします。  ANCM が起動時に、環境変数を使用してポートを指定し、 [UseIISIntegration](#call-useiisintegration)メソッドでリッスンするサーバーの構成`http://localhost:{port}`です。 これは、追加のチェック ANCM からではなく要求を拒否します。 (ANCM サポートされていない HTTPS 転送のため HTTPS 経由で IIS によって受信された場合でも、要求が HTTP 経由で転送されます。)
 
 Kestrel が ANCM から要求を取得し、それらにし、それらを処理し、それらとして ASP.NET Core のミドルウェア パイプラインにプッシュ`HttpContext`アプリケーション ロジックのインスタンス。 アプリケーションの応答は、IIS、それらクライアントに返信、HTTP 要求を開始したどのプッシュに渡されます。
 

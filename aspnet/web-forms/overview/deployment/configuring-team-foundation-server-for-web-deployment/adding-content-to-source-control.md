@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: a6a90a03674cfe7565da0ed56148186ee9525707
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d46e2697d10ca27f8e08533350a6e7f2354b4a43
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-content-to-source-control"></a>ソース管理へのコンテンツの追加
 ====================
@@ -90,7 +90,7 @@ ms.lasthandoff: 11/10/2017
 1. 開発者のワークステーションでは、チーム プロジェクトのマップされたフォルダー構造内の適切な場所にプロジェクトおよびソリューションを移動します。
 
     > [!NOTE]
-    > 多くの組織では、プロジェクトおよびソリューションをソース管理にどのように編成する必要があるための推奨されるアプローチがあります。 フォルダーを構造する方法のガイダンスについては、次を参照してください。[操作方法: 構造ソース コントロール フォルダー Team Foundation Server で](https://msdn.microsoft.com/en-us/library/bb668992.aspx)です。
+    > 多くの組織では、プロジェクトおよびソリューションをソース管理にどのように編成する必要があるための推奨されるアプローチがあります。 フォルダーを構造する方法のガイダンスについては、次を参照してください。[操作方法: 構造ソース コントロール フォルダー Team Foundation Server で](https://msdn.microsoft.com/library/bb668992.aspx)です。
 2. Visual Studio 2010 でのソリューションを開きます。
 3. **ソリューション エクスプ ローラー**  ウィンドウでは、ソリューションを右クリックし、をクリックして**ソリューションをソース管理に追加**です。
 
@@ -149,13 +149,13 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="conclusion"></a>まとめ
 
-このトピックでは、チーム プロジェクトに接続し、フォルダー構造にマップをソース管理にコンテンツを追加する方法について説明します。 ソース管理下にあるアイテムを操作する方法の詳細については、次を参照してください。[を使用してバージョン管理](https://msdn.microsoft.com/en-us/library/ms181368.aspx)です。
+このトピックでは、チーム プロジェクトに接続し、フォルダー構造にマップをソース管理にコンテンツを追加する方法について説明します。 ソース管理下にあるアイテムを操作する方法の詳細については、次を参照してください。[を使用してバージョン管理](https://msdn.microsoft.com/library/ms181368.aspx)です。
 
 次のトピックでは、 [Web 配置を TFS のビルド サーバーを構成する](configuring-a-tfs-build-server-for-web-deployment.md)、TFS チーム ビルドをビルドして、ソリューションを配置するサーバーを準備する方法について説明します。
 
 ## <a name="further-reading"></a>関連項目
 
-TFS でのソース管理の操作に関する包括的な情報は、次を参照してください。[を使用してバージョン管理](https://msdn.microsoft.com/en-us/library/ms181368.aspx)です。
+TFS でのソース管理の操作に関する包括的な情報は、次を参照してください。[を使用してバージョン管理](https://msdn.microsoft.com/library/ms181368.aspx)です。
 
 >[!div class="step-by-step"]
 [前へ](creating-a-team-project-in-tfs.md)

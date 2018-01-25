@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 msc.type: authoredcontent
-ms.openlocfilehash: a40a3779ddc416e141dd27b665f43830a43590b1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de536a0ca39cb752c0962f0c4ae36eb00b586bff
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Web 開発のベスト プラクティス (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -130,7 +130,7 @@ LINQ クエリのでも、この非同期のサポートが挿入、削除、更
 
 `Async`のバージョン、`ToList`メソッド、データベースに送信されるクエリの原因となるメソッドでこのコードであるためです。 `Where`と`OrderByDescending`メソッドのみ、クエリを構成中に、`ToListAsync`メソッドが、クエリを実行しで応答を格納、`result`変数。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 すべての web プログラミング フレームワークと任意のクラウド環境では、こちらの web 開発のベスト プラクティスを実装することができますを簡単には、ASP.NET と Windows Azure のツールがあります。 これらのパターンに従うと場合、ことが簡単にスケール アウトする、web 層と各サーバーはより多くのトラフィックを処理できるため、費を最小限に抑えるします。
 
@@ -142,20 +142,20 @@ LINQ クエリのでも、この非同期のサポートが挿入、削除、更
 
 ステートレス web サーバー:
 
-- [Microsoft Patterns and Practices - 自動スケール ガイダンス](https://msdn.microsoft.com/en-us/library/dn589774.aspx)です。
+- [Microsoft Patterns and Practices - 自動スケール ガイダンス](https://msdn.microsoft.com/library/dn589774.aspx)です。
 - [無効化の ARR のインスタンスの Windows Azure Web サイトのアフィニティ](https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)です。 Erez Benari でブログの投稿では、セッション アフィニティを Windows Azure Web サイトについて説明します。
 
 CDN:
 
 - [フェール セーフ: スケーラブル、かつ回復力のクラウド サービスの構築](https://channel9.msdn.com/Series/FailSafe)です。 Ulrich Homann、Marc Mercuri、Mark Simms、ビデオ シリーズを 9 つの部分で構成します。 エピソード 3 が 1時 34分: 00 以降の CDN の説明を参照してください。
-- [Microsoft のパターンとプラクティス静的コンテンツをホストしているパターン](https://msdn.microsoft.com/en-us/library/dn589776.aspx)
+- [Microsoft のパターンとプラクティス静的コンテンツをホストしているパターン](https://msdn.microsoft.com/library/dn589776.aspx)
 - [CDN レビュー](http://www.cdnreviews.com/)です。 多くの Cdn の概要です。
 
 非同期のプログラミング:
 
 - [ASP.NET MVC 4 で非同期メソッドを使用して](../../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md)です。 Rick anderson のチュートリアルです。
-- [非同期を使用した非同期プログラミングおよび Await (c# および Visual Basic)](https://msdn.microsoft.com/en-us/library/vstudio/hh191443.aspx)です。 非同期プログラミングの論理的根拠は、ASP.NET 4.5 での動作方法およびそれを実装するコードを記述する方法を説明する MSDN のホワイト ペーパー
-- [Entity Framework 非同期クエリと保存](https://msdn.microsoft.com/en-us/data/jj819165)
+- [非同期を使用した非同期プログラミングおよび Await (c# および Visual Basic)](https://msdn.microsoft.com/library/vstudio/hh191443.aspx)です。 非同期プログラミングの論理的根拠は、ASP.NET 4.5 での動作方法およびそれを実装するコードを記述する方法を説明する MSDN のホワイト ペーパー
+- [Entity Framework 非同期クエリと保存](https://msdn.microsoft.com/data/jj819165)
 - [非同期を使用して ASP.NET Web アプリケーションを構築する方法](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/DEV-B337#fbid=tgkT4SR_DK7)です。 Rowan Miller によるビデオ プレゼンテーションです。 グラフィックのデモを含む非同期プログラミングのことが容易にするための高負荷条件下で web サーバーのスループットを大幅に増加します。
 - [フェール セーフ: スケーラブル、かつ回復力のクラウド サービスの構築](https://channel9.msdn.com/Series/FailSafe)です。 Ulrich Homann、Marc Mercuri、Mark Simms、ビデオ シリーズを 9 つの部分で構成します。 非同期プログラミングのスケーラビリティ上の影響に関するディスカッション、エピソード 4 とエピソード 8 を参照してください。
 - [非同期のメソッドでは ASP.NET 4.5 と重大な落とし穴を使用するマジック](http://www.hanselman.com/blog/TheMagicOfUsingAsynchronousMethodsInASPNET45PlusAnImportantGotcha.aspx)です。 ブログの投稿 Scott Hanselman による基本的には、ASP.NET Web フォーム アプリケーションで非同期を使用します。

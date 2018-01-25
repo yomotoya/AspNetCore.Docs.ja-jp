@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/kestrel
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3695a6a127f77bd90538d72af6112ccf507f3482
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3e2b28f15e47789ac89213e57396060ee356ee33
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core の Kestrel web サーバーの実装の概要
 
@@ -144,7 +144,7 @@ public IActionResult MyActionMethod()
 
 **最小の要求本文データ レート**
 
-データが送信される場合で指定したレートでバイト数/秒、kestrel は毎秒をチェックします。 速度が、最小値を下回る場合、接続がタイムアウトしました。Kestrel は、最小; まで、送信速度を向上させるクライアントを時間は、猶予期間はレートは、この期間中はチェックされません。 猶予期間により、TCP 速度の遅い起動のための低速なレートで最初にデータを送信する接続を削除しないでください。
+データが送信される場合で指定したレートでバイト数/秒、kestrel は毎秒をチェックします。 速度が、最小値を下回る場合、接続がタイムアウトしました。Kestrel は、最小; まで、送信速度を向上させるクライアントを時間は、猶予期間はこの期間中、レートがオフになってです。 猶予期間により、TCP 速度の遅い起動のための低速なレートで最初にデータを送信する接続を削除しないでください。
 
 既定の最小間隔は、240 バイト/秒、5 秒の猶予時間です。
 
@@ -223,7 +223,7 @@ IIS の URL のバインディングがいずれかを呼び出して設定す�
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-HTTP URL プレフィックスのみが無効です。Kestrel が SSL をサポートしていないを使用してバインディングを URL を構成するときに`UseUrls`です。
+HTTP URL プレフィックスのみが無効です。使用してバインディングを URL を構成するときに、kestrel は SSL をサポートしない`UseUrls`です。
 
 * ポート番号を含む IPv4 アドレス
 
@@ -260,7 +260,7 @@ HTTP URL プレフィックスのみが無効です。Kestrel が SSL をサポ�
   http://[::1]:5000/
   ```
 
-  ときに`localhost`Kestrel IPv4 と IPv6 の両方のループバック インターフェイスにバインドしようとするを指定します。 いずれのループバック インターフェイス上の別のサービスで使用中では、要求されたポートを開始する Kestrel は失敗します。 かどうか、ループバック インターフェイスは使用できません何らかの理由 (ほとんど IPv6 はサポートされていないためによく)、Kestrel 警告をログに記録します。 
+  ときに`localhost`Kestrel IPv4 と IPv6 の両方のループバック インターフェイスにバインドしようとするを指定します。 いずれのループバック インターフェイス上の別のサービスで使用中では、要求されたポートを開始する Kestrel は失敗します。 かどうか、ループバック インターフェイスは使用できません何らかの理由 (ほとんど IPv6 がサポートされていないためによく)、Kestrel 警告をログに記録します。 
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -303,7 +303,7 @@ HTTP URL プレフィックスのみが無効です。Kestrel が SSL をサポ�
   http://[::1]:5000/
   ```
 
-  ときに`localhost`Kestrel IPv4 と IPv6 の両方のループバック インターフェイスにバインドしようとするを指定します。 いずれのループバック インターフェイス上の別のサービスで使用中では、要求されたポートを開始する Kestrel は失敗します。 かどうか、ループバック インターフェイスは使用できません何らかの理由 (ほとんど IPv6 はサポートされていないためによく)、Kestrel 警告をログに記録します。 
+  ときに`localhost`Kestrel IPv4 と IPv6 の両方のループバック インターフェイスにバインドしようとするを指定します。 いずれのループバック インターフェイス上の別のサービスで使用中では、要求されたポートを開始する Kestrel は失敗します。 かどうか、ループバック インターフェイスは使用できません何らかの理由 (ほとんど IPv6 がサポートされていないためによく)、Kestrel 警告をログに記録します。 
 
 * Unix ソケット
 

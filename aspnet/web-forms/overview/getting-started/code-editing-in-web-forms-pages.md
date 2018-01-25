@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: dfcddb4373fbf17ca29c5ab94c6ab3387ed6b526
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8714f673cb0434189ca23d2dda14035d8652a051
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Visual Studio 2013 でのコードの編集の ASP.NET Web フォームします。
 ====================
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/10/2017
 
 このチュートリアルを完了するための要件は次のとおりです。
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs)または[Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web)です。 .NET Framework は、自動的にインストールされます。 
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs)または[Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web)です。 .NET Framework は、自動的にインストールされます。 
 
     > [!NOTE] 
     > 
@@ -132,8 +132,8 @@ Visual Studio でコード エディターでは、コードを記述すると�
 ### <a name="to-extract-a-method-in-a-c-page"></a>C# のページ内のメソッドを抽出するには
 
 1. 切り替える**デザイン**ビュー。
-2. **ツールボックス**から、**標準** タブで、ドラッグ、[ボタン](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.button.aspx)コントロールをページにします。
-3. ダブルクリックして、**ボタン**のハンドラーを作成するコントロールをその[ をクリックして](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.button.click.aspx)イベント、し、次の強調表示されたコードを追加。
+2. **ツールボックス**から、**標準** タブで、ドラッグ、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールをページにします。
+3. ダブルクリックして、**ボタン**のハンドラーを作成するコントロールをその[ をクリックして](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx)イベント、し、次の強調表示されたコードを追加。
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample2.cs?highlight=3-16)]
 
@@ -163,7 +163,7 @@ Visual Studio でコード エディターでは、コードを記述すると�
 ### <a name="to-use-refactoring-to-rename-a-variable"></a>使用してリファクタリングする変数名の変更
 
 
-1.  **をクリックして**イベント ハンドラー、次の行を探します。
+1. **をクリックして**イベント ハンドラー、次の行を探します。
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample6.cs)]
 2. 変数名を右クリックして`alist`、選択**リファクター**を選択し**の名前を変更**です。
@@ -185,13 +185,13 @@ Visual Studio でコード エディターでは、コードを記述すると�
 
 Web フォーム開発者は頻繁に実行する必要がある多くのコーディング作業があるため、コード エディターは、スニペットの場合、または作成済みのコード ブロックのライブラリを提供します。 ページには、これらのスニペットを挿入できます。
 
-Visual Studio で使用する各言語には、コード スニペットを挿入する方法にわずかな違いがあります。 スニペットを挿入する方法については、次を参照してください。 [Visual Basic の IntelliSense コード スニペット](https://msdn.microsoft.com/en-us/library/18yz4be4.aspx)です。 スニペットを挿入するには Visual C# の場合については、次を参照してください。 [Visual c# のコード スニペット](https://msdn.microsoft.com/en-us/library/z41h7fat.aspx)です。
+Visual Studio で使用する各言語には、コード スニペットを挿入する方法にわずかな違いがあります。 スニペットを挿入する方法については、次を参照してください。 [Visual Basic の IntelliSense コード スニペット](https://msdn.microsoft.com/library/18yz4be4.aspx)です。 スニペットを挿入するには Visual C# の場合については、次を参照してください。 [Visual c# のコード スニペット](https://msdn.microsoft.com/library/z41h7fat.aspx)です。
 
 ## <a name="next-steps"></a>次の手順
 
 このチュートリアルでは、コード内のエラーを修正する、コードのリファクタリング、変数の名前を変更する、コードにコード スニペットを挿入するの Visual Studio 2010 のコード エディターの基本的な機能を説明しました。 エディターで追加された機能は、アプリケーションの開発を高速で簡単になります。 たとえば、次の操作を行います。
 
-- IntelliSense オプションの変更、コード スニペットの管理、およびコード スニペットをオンラインで検索などの IntelliSense の機能について説明します。 詳細については、「[IntelliSense の使用](https://msdn.microsoft.com/en-us/library/hcw1s69b.aspx)」を参照してください。
-- 独自のコード スニペットを作成する方法を説明します。 詳細については、次を参照してください[の作成と使用の IntelliSense コード スニペット。](https://msdn.microsoft.com/en-us/library/ms165392.aspx)
-- IntelliSense コード スニペットでは、スニペットをカスタマイズして、トラブルシューティングなどの Visual Basic 固有の機能について説明します。 詳細については、次を参照してください[Visual Basic の IntelliSense コード スニペット。](https://msdn.microsoft.com/en-us/library/18yz4be4.aspx)
-- 詳細については、c# のリファクタリングとコード スニペットなど、IntelliSense の特定の機能です。 詳細については、次を参照してください。 [Visual c# IntelliSense](https://msdn.microsoft.com/en-us/library/43f44291.aspx)です。
+- IntelliSense オプションの変更、コード スニペットの管理、およびコード スニペットをオンラインで検索などの IntelliSense の機能について説明します。 詳細については、「[IntelliSense の使用](https://msdn.microsoft.com/library/hcw1s69b.aspx)」を参照してください。
+- 独自のコード スニペットを作成する方法を説明します。 詳細については、次を参照してください[の作成と使用の IntelliSense コード スニペット。](https://msdn.microsoft.com/library/ms165392.aspx)
+- IntelliSense コード スニペットでは、スニペットをカスタマイズして、トラブルシューティングなどの Visual Basic 固有の機能について説明します。 詳細については、次を参照してください[Visual Basic の IntelliSense コード スニペット。](https://msdn.microsoft.com/library/18yz4be4.aspx)
+- 詳細については、c# のリファクタリングとコード スニペットなど、IntelliSense の特定の機能です。 詳細については、次を参照してください。 [Visual c# IntelliSense](https://msdn.microsoft.com/library/43f44291.aspx)です。

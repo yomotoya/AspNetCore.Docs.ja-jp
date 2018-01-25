@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: d76efa2e95c95c91045c7f631040dfff3d4afd2c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 47af34c72f1959756f5d68e0e80052e700c7b19c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="part-1-overview-and-creating-the-project"></a>パート 1: 概要と、プロジェクトを作成します。
 ====================
@@ -84,7 +84,7 @@ Visual Web Developer Express または完全バージョンの Visual Studio を
 - 新しいユーザーは、右上隅に「登録」リンクをクリックして登録できます。
 - 登録済みユーザーは、「ログイン」リンクをクリックしてログインできます。
 
-メンバーシップ情報は、自動的に作成されるデータベースに保存されます。 ASP.NET MVC でのフォーム認証の詳細については、次を参照してください。[チュートリアル: ASP.NET MVC でのフォーム認証を使用して](https://msdn.microsoft.com/en-us/library/ff398049(VS.98).aspx)です。
+メンバーシップ情報は、自動的に作成されるデータベースに保存されます。 ASP.NET MVC でのフォーム認証の詳細については、次を参照してください。[チュートリアル: ASP.NET MVC でのフォーム認証を使用して](https://msdn.microsoft.com/library/ff398049(VS.98).aspx)です。
 
 ## <a name="update-the-css-file"></a>CSS ファイルを更新します。
 

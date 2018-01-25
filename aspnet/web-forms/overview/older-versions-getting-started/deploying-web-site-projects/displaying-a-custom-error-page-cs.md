@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 92a7e945a6f82e78b848bae8f4f362e16a567b1f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e2fcaa615415b6f61e96e12dc77866d00110a33e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-a-custom-error-page-c"></a>カスタム エラー ページ (c#) を表示します。
 ====================
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/10/2017
 
 理想の世界がないことの実行時エラー。 プログラマはコードを記述せずに、バグと信頼性の高いユーザー入力の検証と外部データベース サーバーと電子メール サーバーなどのリソースはオフラインです。 もちろん、実際にはエラー、避けられないものです。 .NET Framework のクラスは、例外をスローしてエラーを通知します。 オブジェクトの Open メソッドはたとえば、SqlConnection を呼び出して接続文字列で指定されたデータベースへの接続を確立します。 ただし、データベースがダウンした場合、または接続文字列で資格情報が有効でない場合、Open メソッドがスローされます、`SqlException`です。 使用して例外を処理することができます`try/catch/finally`ブロックします。 場合内のコード、`try`ブロックは例外をスロー、開発者が、エラーから回復を試みることができます、適切な catch ブロックに制御が移ります。 照合の catch ブロックがないか、例外が percolates search の呼び出し履歴を try ブロックに例外をスローしたコードがない場合は、`try/catch/finally`ブロックします。
 
-場合は、例外が処理されることがなく、ASP.NET ランタイムまでバブル、 [ `HttpApplication`クラス](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.aspx)の[`Error`イベント](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.error.aspx)が発生し、構成された*エラー ページ*が表示されます。 既定では、ASP.NET としても参照されているエラー ページを表示、[黄色死亡画面](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow)(YSOD)。 YSOD の 2 つのバージョン: いずれかを示します例外の詳細、スタック トレース、およびその他の情報を開発者がアプリケーションのデバッグに役立ちます (を参照してください**図 1**) です単に (参照実行時エラーがあったことを示す、他の。**図 2**)。
+場合は、例外が処理されることがなく、ASP.NET ランタイムまでバブル、 [ `HttpApplication`クラス](https://msdn.microsoft.com/library/system.web.httpapplication.aspx)の[`Error`イベント](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx)が発生し、構成された*エラー ページ*が表示されます。 既定では、ASP.NET としても参照されているエラー ページを表示、[黄色死亡画面](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow)(YSOD)。 YSOD の 2 つのバージョン: いずれかを示します例外の詳細、スタック トレース、およびその他の情報を開発者がアプリケーションのデバッグに役立ちます (を参照してください**図 1**) です単に (参照実行時エラーがあったことを示す、他の。**図 2**)。
 
 例外の詳細 YSOD が、アプリケーションをデバッグする開発者にとても役立ちますが、YSOD をエンドユーザーに表示趣味の悪いと不自然します。 代わりに、エンドユーザーよりユーザー フレンドリな通常の文章のような状況を記述すると、サイトのルック アンド フィールを維持するエラー ページに移動する必要があります。 良いニュースは、このようなカスタム エラー ページを作成することは非常に簡単です。 このチュートリアルは、ASP 見てを開始します。NET の別のエラー ページ。 ユーザーにエラーが発生した場合、カスタム エラー ページを表示する web アプリケーションを構成する方法を示します。
 
@@ -87,7 +87,7 @@ YSOD の他の種類に表示される、ランタイム エラー YSOD**図 2**
 - 構成情報、`<customErrors>`セクション、および
 - かどうか、ユーザーがアクセスしたサイト ローカルまたはリモートでします。
 
-[ `<customErrors>`セクション](https://msdn.microsoft.com/en-us/library/h0hfz6fc.aspx)で`Web.config`はどのようなエラー ページが表示に影響する 2 つの属性を持つ:`defaultRedirect`と`mode`です。 `defaultRedirect` 属性は省略できます。 指定した場合、カスタム エラー ページの URL を指定し、ランタイム エラー YSOD ではなく、カスタム エラー ページを表示するかを示します。 `mode`属性は必須であり、3 つの値のいずれかを受け入れます。 `On`、 `Off`、または`RemoteOnly`です。 これらの値には、次の動作があります。
+[ `<customErrors>`セクション](https://msdn.microsoft.com/library/h0hfz6fc.aspx)で`Web.config`はどのようなエラー ページが表示に影響する 2 つの属性を持つ:`defaultRedirect`と`mode`です。 `defaultRedirect` 属性は省略できます。 指定した場合、カスタム エラー ページの URL を指定し、ランタイム エラー YSOD ではなく、カスタム エラー ページを表示するかを示します。 `mode`属性は必須であり、3 つの値のいずれかを受け入れます。 `On`、 `Off`、または`RemoteOnly`です。 これらの値には、次の動作があります。
 
 - `On`-カスタム エラー ページまたはランタイム エラー YSOD がローカルまたはリモートされるかどうかに関係なく、すべてのユーザーに表示されていることを示します。
 - `Off`-例外詳細 YSOD がローカルまたはリモートされるかどうかに関係なく、すべてのユーザーに表示されることを指定します。
@@ -153,7 +153,7 @@ ASP.NET 機能モード属性を設定している場合、それ以外の場合
 > カスタム エラー ページは ASP.NET エンジンによって処理され、リソースへの要求が行われたときにのみ表示されます。 説明したよう、[コア違いの間で IIS と ASP.NET 開発サーバー](core-differences-between-iis-and-the-asp-net-development-server-cs.md)チュートリアルでは、web サーバーが特定の要求を処理自体です。 既定では、IIS web HTML ファイル、画像などの静的なコンテンツのサーバー プロセスの要求を使用 ASP.NET エンジンを呼び出さずにします。 その結果、ユーザーが存在しないイメージ ファイルを要求した場合、返ってくる ASP ではなく、IIS の既定の 404 エラー メッセージ。NET の構成済みのエラー ページです。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ASP.NET アプリケーションでハンドルされない例外が発生したときに、ユーザーが表示 3 つのエラー ページのいずれかの: 例外の詳細黄色画面の死亡です。黄色死亡; の 画面の実行時エラーまたは、カスタム エラー ページを選択します。 アプリケーションのエラー ページが表示される異なります`<customErrors>`構成とユーザーがローカルまたはリモートでアクセスするかどうか。 既定の動作では、リモート ユーザーにローカルの訪問者を例外の詳細 YSOD とランタイム エラー YSOD を説明します。
 
@@ -168,9 +168,9 @@ ASP.NET アプリケーションでハンドルされない例外が発生した
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
 - [エラー ページ、もう一度](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/)
-- [例外のデザイン ガイドライン](https://msdn.microsoft.com/en-us/library/ms229014.aspx)
+- [例外のデザインのガイドライン](https://msdn.microsoft.com/library/ms229014.aspx)
 - [わかりやすいエラー ページ](http://aspnet.4guysfromrolla.com/articles/090606-1.aspx)
-- [処理と例外をスロー](https://msdn.microsoft.com/en-us/library/5b2yeyab.aspx)
+- [処理と例外をスロー](https://msdn.microsoft.com/library/5b2yeyab.aspx)
 - [ASP.NET のカスタム エラー ページを使用して正しく](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
 >[!div class="step-by-step"]

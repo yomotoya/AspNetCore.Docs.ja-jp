@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 783557b69486c284a6ed927e32e71cb602695080
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4952adff752ec834b8be5f190181be98a034ccfd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-c"></a>DataList または Repeater コントロール (c#) でレポート データのページング
 ====================
@@ -80,7 +80,7 @@ ms.lasthandoff: 11/10/2017
 
 *カスタム ページング*要求されたページに表示するレコードの正確なサブセットのみを取得しておき、既定のページングのパフォーマンスの問題を解決します。 カスタム ページングを実装する場合を効率的に正しいレコードのセットだけを返す SQL クエリを記述お必要があります。 SQL Server 2005 の s を new を使用してクエリを作成する方法を説明しました[`ROW_NUMBER()`キーワード](http://www.4guysfromrolla.com/webtech/010406-1.shtml)に戻り、[効率的にページングを大規模な量のデータ](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md)チュートリアルです。
 
-DataList またはリピータ コントロール内の既定のページングを実装には、使用、 [ `PagedDataSource`クラス](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.aspx)をラップするラッパーとして、`ProductsDataTable`の内容が、ポケットベル通知を受け取ります。 `PagedDataSource`クラスには、`DataSource`任意の列挙可能なオブジェクトに割り当てることができるプロパティと[ `PageSize` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx)と[ `CurrentPageIndex` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx)にレコードの数を示すプロパティ1 ページ、および現在のページ インデックスを表示します。 これらのプロパティを設定した後、 `PagedDataSource` Web コントロールのデータのデータ ソースとして使用できます。 `PagedDataSource`が列挙されるときに、その内部のレコードの適切なサブセットをのみを返すには`DataSource`に基づいて、`PageSize`と`CurrentPageIndex`プロパティです。 図 4 の機能を示しています、`PagedDataSource`クラスです。
+DataList またはリピータ コントロール内の既定のページングを実装には、使用、 [ `PagedDataSource`クラス](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.aspx)をラップするラッパーとして、`ProductsDataTable`の内容が、ポケットベル通知を受け取ります。 `PagedDataSource`クラスには、`DataSource`任意の列挙可能なオブジェクトに割り当てることができるプロパティと[ `PageSize` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx)と[ `CurrentPageIndex` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx)にレコードの数を示すプロパティ1 ページ、および現在のページ インデックスを表示します。 これらのプロパティを設定した後、 `PagedDataSource` Web コントロールのデータのデータ ソースとして使用できます。 `PagedDataSource`が列挙されるときに、その内部のレコードの適切なサブセットをのみを返すには`DataSource`に基づいて、`PageSize`と`CurrentPageIndex`プロパティです。 図 4 の機能を示しています、`PagedDataSource`クラスです。
 
 
 ![PagedDataSource ページング可能なインターフェイスと列挙可能なオブジェクトをラップします。](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image6.png)
@@ -204,7 +204,7 @@ DataList とリピータ、ページング インターフェイス決定し、�
 
 ## <a name="determining-the-total-number-of-records-being-paged-through"></a>を通じてページングされるレコードの合計数を決定します。
 
-`PagedDataSource` ObjectDataSource s から返されたオブジェクト`Select()`メソッドは、その中に*すべて*製品レコードの場合でも、それらのサブセットのみが表示されます、DataList でします。 `PagedDataSource` S [ `Count`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.count.aspx); DataList で表示される項目の数のみを返します、 [ `DataSourceCount`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx)内のアイテムの合計数を返します、`PagedDataSource`. そのため、ASP.NET ページを割り当てる必要があります`TotalRowCount`プロパティ値の`PagedDataSource`s`DataSourceCount`プロパティです。
+`PagedDataSource` ObjectDataSource s から返されたオブジェクト`Select()`メソッドは、その中に*すべて*製品レコードの場合でも、それらのサブセットのみが表示されます、DataList でします。 `PagedDataSource` S [ `Count`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.count.aspx); DataList で表示される項目の数のみを返します、 [ `DataSourceCount`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx)内のアイテムの合計数を返します、`PagedDataSource`. そのため、ASP.NET ページを割り当てる必要があります`TotalRowCount`プロパティ値の`PagedDataSource`s`DataSourceCount`プロパティです。
 
 これを実現するには、ObjectDataSource s のイベント ハンドラーを作成`Selected`イベント。 `Selected` ObjectDataSource s の戻り値へのアクセスがあるイベント ハンドラー`Select()`この場合、メソッド、`PagedDataSource`です。
 
@@ -224,7 +224,7 @@ DataList とリピータ、ページング インターフェイス決定し、�
 
 ## <a name="disabling-paging-interface-controls"></a>インターフェイスのコントロールのページングを無効にします。
 
-現時点では、次の 4 つのすべてのボタンが表示されているページに関係なく有効です。 ただし、最後のページを表示するときに、データ、および 次へと最後のボタンの最初のページを表示する場合、まず 戻る ボタンを無効にします。 `PagedDataSource` ObjectDataSource s によって返されるオブジェクト`Select()`メソッドがプロパティ[ `IsFirstPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx)と[ `IsLastPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx)お表示しているかどうかを決定することを検証できます。データの最初と最後のページです。
+現時点では、次の 4 つのすべてのボタンが表示されているページに関係なく有効です。 ただし、最後のページを表示するときに、データ、および 次へと最後のボタンの最初のページを表示する場合、まず 戻る ボタンを無効にします。 `PagedDataSource` ObjectDataSource s によって返されるオブジェクト`Select()`メソッドがプロパティ[ `IsFirstPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx)と[ `IsLastPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx)お表示しているかどうかを決定することを検証できます。データの最初と最後のページです。
 
 ObjectDataSource s に、以下を追加`Selected`イベントのハンドラー。
 
@@ -263,7 +263,7 @@ S 以降ありません`PagedDataSource`かどうかおよびを介してペー�
 
 次のチュートリアルより詳細にカスタム ページングを実装することを検討しましょう。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 DataList でも、リピータの出力を提供しています。 DetailsView、GridView でボックス ページングのサポートが検出された、FormView を制御し最小限の労力でこのような機能を追加することができます。 内の製品のセット全体をラップする既定のページングを実装する最も簡単な方法は、`PagedDataSource`し、バインド、 `PagedDataSource` DataList またはリピータにします。 このチュートリアルでは追加、`GetProductsAsPagedDataSource`メソッドを`ProductsBLL`を返すために、`PagedDataSource`です。 `ProductsBLL`クラスには、カスタム ページングのために必要なメソッドが既に`GetProductsPaged`と`TotalNumberOfProducts`です。
 

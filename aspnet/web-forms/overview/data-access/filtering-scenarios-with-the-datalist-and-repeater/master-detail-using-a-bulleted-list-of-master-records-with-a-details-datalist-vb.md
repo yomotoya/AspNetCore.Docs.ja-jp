@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 99d04c95b42402ae2bc72562a652b6edec5e9313
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 613ad1fb101a168c79310c9dc7bf731be264f889
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>マスター/詳細詳細 DataList (VB) でマスター レコードの箇条書きリストの使い方
 ====================
@@ -210,7 +210,7 @@ LinkButton を`ID`のプロパティの値`ViewCategory`がその`Text`プロパ
 
 この時点である、`Categories`リピータ各カテゴリの製品の数と共にカテゴリの一覧を表示します。 リピータ、クリックすると、問題が発生する、ポストバック ポイントは、各カテゴリの LinkButton を使用して、選択したカテゴリでのそれらの製品を表示する必要があります、 `CategoryProducts` DataList です。
 
-私たちが直面する 1 つの課題は、DataList、選択したカテゴリの製品だけを表示する方法を示します。 [マスター/詳細 DetailsView で選択可能なマスター GridView の使用について詳しく説明](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md)行が GridView を構築する方法を説明しましたチュートリアルを選択することが、選択した行 s 詳細は同じページ上の DetailsView に表示されています。 GridView の ObjectDataSource が返される情報を使用してすべての製品について、 `ProductsBLL` s `GetProducts()` DetailsView の ObjectDataSource 中にメソッドを使用して、選択した製品に関する情報を取得する、`GetProductsByProductID(productID)`メソッドです。  *`productID`*  GridView 秒の値に関連付けることにより宣言によって指定されたがパラメーター値`SelectedValue`プロパティです。 残念ながら、リピータはありません、`SelectedValue`プロパティおよびパラメーターのソースとして使用できません。
+私たちが直面する 1 つの課題は、DataList、選択したカテゴリの製品だけを表示する方法を示します。 [マスター/詳細 DetailsView で選択可能なマスター GridView の使用について詳しく説明](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md)行が GridView を構築する方法を説明しましたチュートリアルを選択することが、選択した行 s 詳細は同じページ上の DetailsView に表示されています。 GridView の ObjectDataSource が返される情報を使用してすべての製品について、 `ProductsBLL` s `GetProducts()` DetailsView の ObjectDataSource 中にメソッドを使用して、選択した製品に関する情報を取得する、`GetProductsByProductID(productID)`メソッドです。 *`productID`*  GridView 秒の値に関連付けることにより宣言によって指定されたがパラメーター値`SelectedValue`プロパティです。 残念ながら、リピータはありません、`SelectedValue`プロパティおよびパラメーターのソースとして使用できません。
 
 > [!NOTE]
 > これは、リピータ内の LinkButton を使用するときに表示されるこれらの課題の 1 つです。 使用して、ハイパーリンクに渡す、`CategoryID`クエリ文字列を通じて代わりに、お QueryString フィールド ソースとして使用、パラメーターの値。
@@ -243,9 +243,9 @@ LinkButton を`ID`のプロパティの値`ViewCategory`がその`Text`プロパ
 
 現時点では、 `CategoryProductsDataSource` ObjectDataSource s  *`categoryID`* パラメーターは設定されません、ページを表示するときに製品が表示されないようにします。 このパラメーター値が設定されてに基づいて行う必要がありますが、`CategoryID`リピータでクリックしたカテゴリのです。 これにより、2 つの課題: 最初は方針ときリピータ s の LinkButton`ItemTemplate`が行われてクリックした 2 番目、どのように確認する、`CategoryID`の LinkButton がクリックされた、対応するカテゴリのですか?。
 
-ボタンおよび ImageButton コントロールと同様の LinkButton が、`Click`イベントおよび[`Command`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.command.aspx)です。 `Click`イベントの目的だけの LinkButton がクリックしてされたことに注意してください。 ときに、ただし、に加えて、LinkButton がクリックしてされたことに注意してくださいもが必要な追加情報をイベント ハンドラーに渡します。 このような LinkButton s 場合[ `CommandName` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.commandname.aspx)と[ `CommandArgument` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx)プロパティにこの追加情報を割り当てることができます。 LinkButton がクリックされたときにし、その`Command`イベントの起動 (の代わりにその`Click`イベント) でイベント ハンドラーには、値が渡され、`CommandName`と`CommandArgument`プロパティ。
+ボタンおよび ImageButton コントロールと同様の LinkButton が、`Click`イベントおよび[`Command`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.command.aspx)です。 `Click`イベントの目的だけの LinkButton がクリックしてされたことに注意してください。 ときに、ただし、に加えて、LinkButton がクリックしてされたことに注意してくださいもが必要な追加情報をイベント ハンドラーに渡します。 このような LinkButton s 場合[ `CommandName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandname.aspx)と[ `CommandArgument` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx)プロパティにこの追加情報を割り当てることができます。 LinkButton がクリックされたときにし、その`Command`イベントの起動 (の代わりにその`Click`イベント) でイベント ハンドラーには、値が渡され、`CommandName`と`CommandArgument`プロパティ。
 
-ときに、`Command`リピータ、リピータ s でテンプレート内のイベントは[`ItemCommand`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeater.itemcommand.aspx)が起動し、渡される、`CommandName`と`CommandArgument`クリックされた LinkButton の値 (またはボタンまたはImageButton)。 そのため、カテゴリ、リピータ LinkButton がクリックしてされたときを特定するのには、次のお必要があります。
+ときに、`Command`リピータ、リピータ s でテンプレート内のイベントは[`ItemCommand`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeater.itemcommand.aspx)が起動し、渡される、`CommandName`と`CommandArgument`クリックされた LinkButton の値 (またはボタンまたはImageButton)。 そのため、カテゴリ、リピータ LinkButton がクリックしてされたときを特定するのには、次のお必要があります。
 
 1. 設定、`CommandName`リピータ s の LinkButton のプロパティ`ItemTemplate`になんらかの値 (すれば ListProducts も使用しました)。 これを設定して`CommandName`値、LinkButton の`Command`の LinkButton がクリックされたときにイベントが発生します。
 2. 集合 LinkButton s`CommandArgument`プロパティを現在のアイテムの秒の値に`CategoryID`です。
@@ -276,7 +276,7 @@ LinkButton を`ID`のプロパティの値`ViewCategory`がその`Text`プロパ
 **図 15**: 右側に一致する製品を一覧表示生成カテゴリをクリックすると ([フルサイズのイメージを表示するをクリックして](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image43.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルを上記で説明したとおりは、1 つに統合もまたはマスター/詳細レポートは 2 つのページに分散させることができます。 マスター/詳細レポートを表示する、1 つのページで、ただしが導入されて 方法のいくつかの課題最適なマスターのレイアウトやページの詳細レコード。 *マスター/詳細 DetailsView で選択可能なマスター GridView の使用について詳しく説明*が発生しました詳細レコードがマスター レコード上に表示されます。 このチュートリアルでは、マスター レコードする浮動小数点数に CSS 手法を使用おチュートリアル、。詳細の左側です。
 

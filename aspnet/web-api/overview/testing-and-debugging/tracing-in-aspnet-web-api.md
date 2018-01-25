@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f35c8a10018ce796e2d905d6ee839ff09bb380a1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7392ae5d9bc4c3aab45a9373099a0ee18e873a4f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 のトレース
 ====================
@@ -58,7 +58,7 @@ Web API プロジェクト テンプレートを選択します。
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample2.cs?highlight=6)]
 
-このコードを追加、 [SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/en-us/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx)クラスが Web API パイプラインをします。 **SystemDiagnosticsTraceWriter**クラスをトレースに書き込みます[System.Diagnostics.Trace](https://msdn.microsoft.com/en-us/library/system.diagnostics.trace)です。
+このコードを追加、 [SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx)クラスが Web API パイプラインをします。 **SystemDiagnosticsTraceWriter**クラスをトレースに書き込みます[System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace)です。
 
 トレースを表示するには、デバッガーでアプリケーションを実行します。 ブラウザーに移動`/api/values`です。
 
@@ -68,7 +68,7 @@ Web API プロジェクト テンプレートを選択します。
 
 [![](tracing-in-aspnet-web-api/_static/image7.png)](tracing-in-aspnet-web-api/_static/image6.png)
 
-**SystemDiagnosticsTraceWriter**トレースを書き込みます**System.Diagnostics.Trace**、別のトレース リスナーを登録することができます。 たとえば、書き込むトレース ログ ファイルにします。 トレース ライターの詳細については、次を参照してください。、[トレース リスナー](https://msdn.microsoft.com/en-us/library/4y5y10s7.aspx) MSDN のトピックです。
+**SystemDiagnosticsTraceWriter**トレースを書き込みます**System.Diagnostics.Trace**、別のトレース リスナーを登録することができます。 たとえば、書き込むトレース ログ ファイルにします。 トレース ライターの詳細については、次を参照してください。、[トレース リスナー](https://msdn.microsoft.com/library/4y5y10s7.aspx) MSDN のトピックです。
 
 ### <a name="configuring-systemdiagnosticstracewriter"></a>SystemDiagnosticsTraceWriter を構成します。
 
@@ -89,7 +89,7 @@ Web API プロジェクト テンプレートを選択します。
 
 トレース ライターを取得する**HttpConfiguration.Services.GetTraceWriter**です。 このメソッドは、経由でアクセスできる、コント ローラーから、 **ApiController.Configuration**プロパティです。
 
-トレースを作成するに呼び出せる、 **ITraceWriter.Trace**メソッドを直接、ですが、 [ITraceWriterExtensions](https://msdn.microsoft.com/en-us/library/system.web.http.tracing.itracewriterextensions.aspx)クラスは、わかりやすいは一部の拡張メソッドを定義します。 たとえば、**情報**前に示したメソッドは、トレース レベルでトレースを作成**情報**です。
+トレースを作成するに呼び出せる、 **ITraceWriter.Trace**メソッドを直接、ですが、 [ITraceWriterExtensions](https://msdn.microsoft.com/library/system.web.http.tracing.itracewriterextensions.aspx)クラスは、わかりやすいは一部の拡張メソッドを定義します。 たとえば、**情報**前に示したメソッドは、トレース レベルでトレースを作成**情報**です。
 
 ## <a name="web-api-tracing-infrastructure"></a>Web API トレース インフラストラクチャ
 

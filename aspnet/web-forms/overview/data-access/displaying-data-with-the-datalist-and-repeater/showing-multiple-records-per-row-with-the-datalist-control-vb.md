@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d6a9c6aef42d1f165567d1a1802bffa853a320e1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 416178533f022f2a262799e6f042d6009bb9d999
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>DataList コントロール (VB) を含む行ごとの複数のレコードを表示
 ====================
@@ -67,7 +67,7 @@ DataList の例は、お過去の 2 つのチュートリアルで説明しま�
 
 ## <a name="step-2-changing-the-datalist-s-layout-direction"></a>手順 2: DataList のレイアウトの方向を変更します。
 
-既定の動作中に、DataList という単一列、複数行のテーブルの縦方向にその項目をレイアウトするこの動作に簡単にで変更できます DataList s [ `RepeatDirection`プロパティ](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalist.repeatdirection.aspx)です。 `RepeatDirection`プロパティは、2 つの値のいずれかを受け取ることができます:`Horizontal`または`Vertical`(既定)。
+既定の動作中に、DataList という単一列、複数行のテーブルの縦方向にその項目をレイアウトするこの動作に簡単にで変更できます DataList s [ `RepeatDirection`プロパティ](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatdirection.aspx)です。 `RepeatDirection`プロパティは、2 つの値のいずれかを受け取ることができます:`Horizontal`または`Vertical`(既定)。
 
 変更することによって、`RepeatDirection`プロパティから`Vertical`に`Horizontal`DataList はデータ ソース アイテムごとの 1 つの列を作成する 1 つの行でそのレコードを表示します。 この特殊効果を示すためには、デザイナーで DataList をクリックし、次に、[プロパティ] ウィンドウから次のように変更します。、`RepeatDirection`プロパティから`Vertical`に`Horiztonal`です。 すぐにこれを行うと、デザイナー レイアウトを調整 DataList s、単一行、複数の列のインターフェイスを作成する (図 3 を参照してください)。
 
@@ -87,7 +87,7 @@ DataList の例は、お過去の 2 つのチュートリアルで説明しま�
 
 ## <a name="step-3-displaying-data-in-a-multi-column-multi-row-table"></a>手順 3: 複数の列、複数行のテーブルにデータを表示します。
 
-複数の列、複数行 DataList を作成する必要がありますを設定する、 [ `RepeatColumns`プロパティ](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalist.repeatcolumns.aspx)を表示する列の数。 既定では、`RepeatColumns`プロパティが 0、1 つの行または列にすべての項目を表示する DataList 原因となる (の値に応じて、`RepeatDirection`プロパティ)。
+複数の列、複数行 DataList を作成する必要がありますを設定する、 [ `RepeatColumns`プロパティ](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatcolumns.aspx)を表示する列の数。 既定では、`RepeatColumns`プロパティが 0、1 つの行または列にすべての項目を表示する DataList 原因となる (の値に応じて、`RepeatDirection`プロパティ)。
 
 たとえば、テーブルの行ごとに 3 つの製品を表示する秒を使用できます。 このため、設定、`RepeatColumns`プロパティを 3 です。 この変更を行った後すぐをブラウザーで結果を表示します。 図 5 に示す、製品が 3 つの列、複数行のテーブルに表示されます。
 
@@ -107,7 +107,7 @@ DataList の例は、お過去の 2 つのチュートリアルで説明しま�
 
 結果のテーブルに表示される行の数は、DataList にバインドされているレコードの合計数によって異なります。 具体的には、そのデータ ソース アイテムの合計数の上限で割った s、`RepeatColumns`プロパティの値。 以降、 `Products` table 現在には 84 製品は、これは 3 で割り切れる、28 行が存在します。 場合、データ ソース内の項目数と`RepeatColumns`プロパティの値は割り切れる、ない場合、最後の行または列は空白セル。 場合、`RepeatDirection`に設定されている`Vertical`の場合、最後の列は空のセル場合`RepeatDirection`は`Horizontal`の場合、最後の行は空のセル。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 DataList、既定では、単一 TemplateField GridView のレイアウトを模した、単一列、複数行のテーブル内の項目一覧表示します。 この既定のレイアウトは許容されるが、実際の画面を最大化の行ごとに複数のデータ ソース アイテムを表示することによっておできます。 DataList s を設定するだけではこれを実現する`RepeatColumns`プロパティを行ごとに表示する列の数。 さらに、DataList の`RepeatDirection`を示すかどうか、複数の列、複数行のテーブルの内容を配置する水平方向に左から右、上下からへ、または垂直方向に上から下、左右からにプロパティを使用できます。
 

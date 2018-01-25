@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc3
 msc.type: content
-ms.openlocfilehash: 1aa059e92b5637b9ba7ce488da4b44322dab6d8e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c7eee987b28a5d7f8b40fe89a7bf7517ec06646f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -165,7 +165,7 @@ Razor の詳細については、次のリソースを参照してください�
 アクション メソッドの実行前に、または後にアクション メソッドの実行ロジックを実行する場合があります。 そのためには、ASP.NET MVC 2 には、アクション フィルターが用意されています。 アクション フィルターは、特定のコント ローラー アクション メソッドにアクション前とアクション後の動作を追加する宣言型手段を提供するカスタム属性です。 ただし、場合によっては、すべてのアクション メソッドに適用される前のアクションまたはアクション後の動作を指定する必要があります。 MVC 3 に追加することでグローバル フィルターを指定することができます、`GlobalFilters`コレクション。 グローバル アクション フィルターに関する詳細については、次のリソースを参照してください。
 
 - [MVC 3 preview Scott Guthrie のブログ](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)
-- [ASP.NET MVC でのフィルタ リング](https://msdn.microsoft.com/en-us/library/gg416513(VS.98).aspx)
+- [ASP.NET MVC でのフィルタ リング](https://msdn.microsoft.com/library/gg416513(VS.98).aspx)
 
 ### <a name="new-viewbag-property"></a>新しい"ViewBag"プロパティ
 
@@ -175,9 +175,9 @@ MVC 2 コント ローラーのサポート、`ViewData`プロパティすると
 
 次`ActionResult`型と対応するヘルパー メソッドは、新しい MVC 3 で強化されました。
 
-- [HttpNotFoundResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.httpnotfoundresult(v=vs.98).aspx)です。 クライアントに 404 HTTP ステータス コードを返します。
-- [RedirectResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.redirectresult(v=VS.98).aspx)です。 一時的なリダイレクト (HTTP 302 状態コード) またはブール型パラメーターによって永続的なリダイレクト (301 の HTTP ステータス コード) を返します。 この変更により、組み合わせて、[コント ローラー](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller(v=VS.98).aspx)クラスが 3 つの永続的なリダイレクトを実行する方法: `RedirectPermanent`、 `RedirectToRoutePermanent`、および`RedirectToActionPermanent`です。 これらのメソッドのインスタンスを返す`RedirectResult`で、`Permanent`プロパティに設定`true`です。
-- [HttpStatusCodeResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.httpstatuscoderesult(v=VS.98).aspx)です。 ユーザー指定の HTTP ステータス コードを返します。
+- [HttpNotFoundResult](https://msdn.microsoft.com/library/system.web.mvc.httpnotfoundresult(v=vs.98).aspx)です。 クライアントに 404 HTTP ステータス コードを返します。
+- [RedirectResult](https://msdn.microsoft.com/library/system.web.mvc.redirectresult(v=VS.98).aspx)です。 一時的なリダイレクト (HTTP 302 状態コード) またはブール型パラメーターによって永続的なリダイレクト (301 の HTTP ステータス コード) を返します。 この変更により、組み合わせて、[コント ローラー](https://msdn.microsoft.com/library/system.web.mvc.controller(v=VS.98).aspx)クラスが 3 つの永続的なリダイレクトを実行する方法: `RedirectPermanent`、 `RedirectToRoutePermanent`、および`RedirectToActionPermanent`です。 これらのメソッドのインスタンスを返す`RedirectResult`で、`Permanent`プロパティに設定`true`です。
+- [HttpStatusCodeResult](https://msdn.microsoft.com/library/system.web.mvc.httpstatuscoderesult(v=VS.98).aspx)です。 ユーザー指定の HTTP ステータス コードを返します。
 
 <a id="BM_JavaScript_and_Ajax_Improvements"></a>
 
@@ -199,7 +199,7 @@ MVC の以前のバージョンでは、明示的に呼び出す必要があり�
 
 ### <a name="remote-validator"></a>リモート検証コントロール
 
-ASP.NET MVC 3 をサポートしている新しい[RemoteAttribute](https://msdn.microsoft.com/en-us/library/system.web.mvc.remoteattribute(v=VS.98).aspx)活用するために、jQuery 検証プラグインできるようにするクラスのリモート検証のサポート。 これにより、自動的にメソッドを呼び出すカスタムできるのみ検証ロジックを実行するために、サーバー上で定義するサーバー側のクライアント側検証ライブラリです。
+ASP.NET MVC 3 をサポートしている新しい[RemoteAttribute](https://msdn.microsoft.com/library/system.web.mvc.remoteattribute(v=VS.98).aspx)活用するために、jQuery 検証プラグインできるようにするクラスのリモート検証のサポート。 これにより、自動的にメソッドを呼び出すカスタムできるのみ検証ロジックを実行するために、サーバー上で定義するサーバー側のクライアント側検証ライブラリです。
 
 次の例で、`Remote`属性は、クライアントの検証がという名前のアクションを呼び出すことを指定`UserNameAvailable`上、`UsersController`を検証するためにクラス、`UserName`フィールドです。
 
@@ -209,7 +209,7 @@ ASP.NET MVC 3 をサポートしている新しい[RemoteAttribute](https://msdn
 
 [!code-csharp[Main](mvc3/samples/sample2.cs)]
 
-使用する方法についての詳細、`Remote`属性は、「[する方法: ASP.NET MVC でのリモート検証の実装](https://msdn.microsoft.com/en-us/library/gg508808(VS.98).aspx)、MSDN ライブラリです。
+使用する方法についての詳細、`Remote`属性は、「[する方法: ASP.NET MVC でのリモート検証の実装](https://msdn.microsoft.com/library/gg508808(VS.98).aspx)、MSDN ライブラリです。
 
 ### <a name="json-binding-support"></a>バインディングの JSON サポート
 
@@ -231,9 +231,9 @@ ASP.NET MVC 3 をサポートしている`DataAnnotations`などのメタデー�
 
 ### <a name="validation-interfaces"></a>検証インターフェイス
 
-[IValidatableObject](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.ivalidatableobject.aspx)インターフェイスでは、モデル レベル検証を実行することができ、全体的なモデルまたはモデル内の 2 つのプロパティの間の状態に固有のエラー メッセージの検証を提供することができます. MVC 3 からのエラーを取得、`IValidatableObject`インターフェイスの影響を受ける組み込み HTML フォーム ヘルパーを使用してビュー内のフィールドと、モデル バインディングと自動的に、フラグまたは強調表示します。
+[IValidatableObject](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.ivalidatableobject.aspx)インターフェイスでは、モデル レベル検証を実行することができ、全体的なモデルまたはモデル内の 2 つのプロパティの間の状態に固有のエラー メッセージの検証を提供することができます. MVC 3 からのエラーを取得、`IValidatableObject`インターフェイスの影響を受ける組み込み HTML フォーム ヘルパーを使用してビュー内のフィールドと、モデル バインディングと自動的に、フラグまたは強調表示します。
 
-[IClientValidatable](https://msdn.microsoft.com/en-us/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx)インターフェイスにより、ASP.NET MVC 検証コントロールがあるクライアントの検証をサポートするかどうかを実行時に検出します。 このインターフェイスは、検証フレームワークのさまざまな統合できるように設計されています。
+[IClientValidatable](https://msdn.microsoft.com/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx)インターフェイスにより、ASP.NET MVC 検証コントロールがあるクライアントの検証をサポートするかどうかを実行時に検出します。 このインターフェイスは、検証フレームワークのさまざまな統合できるように設計されています。
 
 検証のインターフェイスの詳細については、次を参照してください。、**モデル検証の機能強化**のセクション[Scott Guthrie の MVC 3 Preview ブログの投稿](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)です。 (ただし、ブログで"IValidateObject"への参照は"IValidatableObject"である必要があります。)
 
@@ -278,7 +278,7 @@ ASP.NET MVC は出力が 1 のバージョン以降のページ全体の応答�
 
 ### <a name="granular-control-over-request-validation"></a>要求の検証をきめ細かく制御
 
-ASP.NET MVC には、組み込みの要求の検証に自動的に保護するのに役立つ XSS や HTML インジェクション攻撃があります。 ただし、明示的に無効にする要求の検証する必要がある場合などする (たとえば、ブログ記事や CMS コンテンツ) 内のコンテンツの HTML を送信できるようにします。 追加できるように、 [AllowHtml](https://msdn.microsoft.com/en-us/library/system.web.mvc.allowhtmlattribute(v=VS.98).aspx)モデルに属性またはプロパティごとにモデル バインド中に、要求の検証を無効にするモデルを表示します。 要求の検証の詳細については、次のリソースを参照してください。
+ASP.NET MVC には、組み込みの要求の検証に自動的に保護するのに役立つ XSS や HTML インジェクション攻撃があります。 ただし、明示的に無効にする要求の検証する必要がある場合などする (たとえば、ブログ記事や CMS コンテンツ) 内のコンテンツの HTML を送信できるようにします。 追加できるように、 [AllowHtml](https://msdn.microsoft.com/library/system.web.mvc.allowhtmlattribute(v=VS.98).aspx)モデルに属性またはプロパティごとにモデル バインド中に、要求の検証を無効にするモデルを表示します。 要求の検証の詳細については、次のリソースを参照してください。
 
 - **控えめな JavaScript と検証**」の「 [MVC 3 のリリース候補に Scott Guthrie のブログの投稿](https://weblogs.asp.net/scottgu/archive/2010/11/09/announcing-the-asp-net-mvc-3-release-candidate.aspx)です。
 - [MVC 3 のリリース ノートします。](../whitepapers/mvc3-release-notes.md)
@@ -303,7 +303,7 @@ ASP.NET MVC 3 の場合は、セッション状態を使用するコント ロ�
 
 ### <a name="new-additionalmetadataattribute-class"></a>新しい"AdditionalMetadataAttribute"クラス
 
-使用することができます、 [AdditionalMetadata](https://msdn.microsoft.com/en-us/library/system.web.mvc.additionalmetadataattribute(v=VS.98).aspx)を設定する属性、`ModelMetadata.AdditionalValues`モデル プロパティのディクショナリ。 たとえば、ビュー モデルに、管理者にのみ表示されるプロパティがある場合は、注釈を付けて、そのプロパティ次の例で示すように。
+使用することができます、 [AdditionalMetadata](https://msdn.microsoft.com/library/system.web.mvc.additionalmetadataattribute(v=VS.98).aspx)を設定する属性、`ModelMetadata.AdditionalValues`モデル プロパティのディクショナリ。 たとえば、ビュー モデルに、管理者にのみ表示されるプロパティがある場合は、注釈を付けて、そのプロパティ次の例で示すように。
 
 [!code-csharp[Main](mvc3/samples/sample4.cs)]
 

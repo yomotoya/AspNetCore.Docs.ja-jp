@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: cade61b1ebdb2b845b07117384475638c0227f7f
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a1258dbe2e659f6c5149d15b37451810ec7d6601
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="dependency-injection-into-views"></a>ビューに依存関係の挿入
 
@@ -41,7 +41,7 @@ ASP.NET Core をサポートしている[依存性の注入](xref:fundamentals/d
 
 [!code-csharp[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/StatisticsService.cs?highlight=15,20,26)]
 
-サンプル リポジトリでは、メモリ内コレクションを使用します。 上記の実装が、リモートでアクセスされる大規模なデータ セットは (これはすべてメモリ内のデータの動作) は推奨されません。
+サンプル リポジトリでは、メモリ内コレクションを使用します。 上記の実装 (な操作をすべてメモリ内のデータの) は、リモートでアクセスされる大規模なデータ セットにお勧めしません。
 
 このサンプルには、ビューにバインドされたモデルとビューに挿入される、サービスからデータが表示されます。
 

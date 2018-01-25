@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 9a0fb52a1d1a62bce3f11c7e0394c00b9d544ab3
-ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
+ms.openlocfilehash: 7b0a3f73efd1d30b903b3258bea2082792eb6e8c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>移行 - EF コア Razor ページのチュートリアル (8 4)
 
@@ -189,7 +189,7 @@ Done.
 
 ## <a name="appling-migrations-in-production"></a>実稼働環境での移行の適用
 
-運用アプリにする必要がありますをお勧め**いない**呼び出す[Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_)アプリケーションの起動時にします。 `Migrate`サーバー ファームでのアプリから呼び出すできません必要があります。 たとえば、次のように、アプリが (アプリの複数のインスタンスを実行する) スケール アウトによる展開クラウドをされている場合です。
+運用アプリにする必要がありますをお勧め**いない**呼び出す[Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_)アプリケーションの起動時にします。 `Migrate`サーバー ファームでのアプリから呼び出すことはできません。 たとえば、次のように、アプリが (アプリの複数のインスタンスを実行する) スケール アウトによる展開クラウドをされている場合です。
 
 データベースの移行は、制御された方法で、展開の一部として行う必要があります。 実稼働データベースの移行方法は次のとおりです。
 
@@ -210,7 +210,7 @@ PMC を使用して一部の開発者が必要に応じて、このチュート�
 
 PMC の EF コア コマンドが、 [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools)パッケージです。 このパッケージに含まれる、 [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) metapackage、ためをインストールする必要はありません。
 
-**重要:**を編集して、CLI をインストールするものと同じパッケージではない、 *.csproj*ファイル。 この種類の名前で終わる`Tools`、終わる CLI パッケージ名とは異なり`Tools.DotNet`です。
+**重要:**を編集して、CLI をインストールするものと同じパッケージはありません、 *.csproj*ファイル。 この種類の名前で終わる`Tools`、終わる CLI パッケージ名とは異なり`Tools.DotNet`です。
 
 CLI コマンドの詳細については、次を参照してください。 [.NET Core CLI](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet)です。
 

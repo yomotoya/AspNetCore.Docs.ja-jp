@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 603457655e2490e1685f53d2cec643cb9382a59d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8aa0ed2fbf385e4b8dbb7e7a3bdb152f1e016e67
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="urls-in-master-pages-vb"></a>マスター ページ (VB) 内の Url
 ====================
@@ -108,7 +108,7 @@ Web ページの URL があると言われます、*相対 URL*場合は、web �
 
 はなく絶対 URL をハード コーディングするよりも ASP.NET では、チルダを使用するページの開発者 (`~`) web アプリケーションのルートを表します。 たとえば、このチュートリアルで既に使用表記`~/Admin/Default.aspx`を指すテキストで、 `Default.aspx`  ページで、`Admin`フォルダーです。 `~`ことを示します、`Admin`フォルダーは、web アプリケーションのルートのサブフォルダーです。
 
-`Control`クラスの[`ResolveClientUrl`メソッド](https://msdn.microsoft.com/en-us/library/system.web.ui.control.resolveclienturl.aspx)URL は、コントロールが存在する web ページの適切な相対 URL を変更します。 たとえば、呼び出す`ResolveClientUrl("~/Images/PoweredByASPNET.gif")`から`About.aspx`返します`Images/PoweredByASPNET.gif`です。 呼び出す`~/Admin/Default.aspx`、ただしを返します`../Images/PoweredByASPNET.gif`です。
+`Control`クラスの[`ResolveClientUrl`メソッド](https://msdn.microsoft.com/library/system.web.ui.control.resolveclienturl.aspx)URL は、コントロールが存在する web ページの適切な相対 URL を変更します。 たとえば、呼び出す`ResolveClientUrl("~/Images/PoweredByASPNET.gif")`から`About.aspx`返します`Images/PoweredByASPNET.gif`です。 呼び出す`~/Admin/Default.aspx`、ただしを返します`../Images/PoweredByASPNET.gif`です。
 
 > [!NOTE]
 > すべての ASP.NET サーバー コントロールがから派生するため、`Control`クラス、すべてのサーバー コントロールにアクセスする、`ResolveClientUrl`メソッドです。 でも、`Page`クラスから派生します`Control`クラス、ASP.NET ページの分離コード クラスから直接には、このメソッドを使用することを意味します。
@@ -164,7 +164,7 @@ ASP.NET サーバー コントロールのみを変換することに留意し�
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample10.html)]
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 非常に多くの場合、マスター ページには、リンク、イメージ、およびその他の外部リソースの URL を使用して指定する必要がありますが含まれます。 同じフォルダーに、マスター ページとページのコンテンツが存在しない可能性がありますので、abstain から相対 Url を使用する必要があります。 ハード コーディングされた絶対 Url を使用することはできますは、web アプリケーションに絶対 URL を結合ため緊密を実行します。 ように移動するか、web アプリケーションを展開するときに多くの場合は、絶対 URL が変更された場合は、戻ってして絶対 Url を更新する必要があります。
 

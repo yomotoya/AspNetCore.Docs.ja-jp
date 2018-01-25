@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 31d83a11488212ab0ff83494d5e896ffcbeaa8a4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b97834e3e287645151bf927996fde63d93ae8356
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します SQL Server - 12 の 10 への移行。
 ====================
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/10/2017
 
 SQL Server にアップグレードすることが決まっているとは、開発およびテスト環境で SQL Server または SQL Server Express を使用することができます。 ツールのサポートとデータベース エンジン機能の違い、に加えて SQL Server Compact とその他のバージョンの SQL Server プロバイダーの実装で違いがあります。 これらの相違点には、同じコードを異なる結果を生成する可能性があります。 そのため、SQL Server Compact、開発用データベースとして保持する場合は、必要があります十分にテストするサイトで SQL Server または SQL Server Express 実稼働環境にそれぞれ配置する前に、テスト環境でします。
 
-異なり、SQL Server Compact は SQL Server Express を同じデータベース エンジンでは基本的には、および完全な SQL Server と同じ .NET プロバイダーを使用します。 SQL Server Express を使ってテストするときに、SQL Server では、同じ結果を取得することを確信できます。 SQL Server Express の SQL Server で使用できると同じデータベース ツールのほとんどを行うこともできます (されている主な例外[SQL Server Profiler](https://msdn.microsoft.com/en-us/library/ms181091.aspx))、ストアド プロシージャ、ビュー、トリガーなどのように SQL Server の他の機能がサポートされますおよびレプリケーション。 (通常ただし、実稼働 web サイトで完全な SQL Server を使用する必要があります。 共有ホスティング環境で SQL Server Express を実行できますが、向けに設計されていないと多くのホスティング プロバイダーではサポートされません。)
+異なり、SQL Server Compact は SQL Server Express を同じデータベース エンジンでは基本的には、および完全な SQL Server と同じ .NET プロバイダーを使用します。 SQL Server Express を使ってテストするときに、SQL Server では、同じ結果を取得することを確信できます。 SQL Server Express の SQL Server で使用できると同じデータベース ツールのほとんどを行うこともできます (されている主な例外[SQL Server Profiler](https://msdn.microsoft.com/library/ms181091.aspx))、ストアド プロシージャ、ビュー、トリガーなどのように SQL Server の他の機能がサポートされますおよびレプリケーション。 (通常ただし、実稼働 web サイトで完全な SQL Server を使用する必要があります。 共有ホスティング環境で SQL Server Express を実行できますが、向けに設計されていないと多くのホスティング プロバイダーではサポートされません。)
 
 Visual Studio 2012 を使用している場合は、通常開発環境に合わせて SQL Server Express LocalDB を選択する Visual Studio で既定でインストールされるものであるため。 ただし、LocalDB が動作しない IIS では、ので、テスト環境用には、SQL Server または SQL Server Express のいずれかを使用する必要があるあります。
 
@@ -57,9 +57,9 @@ Contoso 大学アプリケーションが 2 つの SQL Server Compact データ�
 
 既定では、Visual Studio 2010 が自動的にインストールされている SQL Server Express しますが、既定でインストールされていない Visual Studio 2012 で。 SQL Server 2012 Express をインストールするには、次のリンクをクリックします。
 
-- [SQL Server Express 2012](https://www.microsoft.com/en-us/download/details.aspx?id=29062)
+- [SQL Server Express 2012](https://www.microsoft.com/download/details.aspx?id=29062)
 
-選択*日本語/x64/SQLEXPR\_x64\_ENU.exe*または*日本語/x86/SQLEXPR\_x86\_ENU.exe*、インストール ウィザードで、既定設定。 インストール オプションの詳細については、次を参照してください。[インストール ウィザード (セットアップ) からの SQL Server 2012 のインストール](https://msdn.microsoft.com/en-us/library/ms143219.aspx)です。
+選択*日本語/x64/SQLEXPR\_x64\_ENU.exe*または*日本語/x86/SQLEXPR\_x86\_ENU.exe*、インストール ウィザードで、既定設定。 インストール オプションの詳細については、次を参照してください。[インストール ウィザード (セットアップ) からの SQL Server 2012 のインストール](https://msdn.microsoft.com/library/ms143219.aspx)です。
 
 ## <a name="creating-sql-server-express-databases-for-the-test-environment"></a>テスト環境の SQL Server Express データベースを作成します。
 

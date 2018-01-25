@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 09482ef453e9e8efa4a2721b9fe628d2a58dd53c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d66079f784792a2514eefabf57f70826aab5dcf1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-c"></a>Web コントロールのデータ (c#) でのバイナリ データの表示
 ====================
@@ -129,7 +129,7 @@ GridView のデザイナーには、ツールボックスからドラッグし�
 
 [!code-csharp[Main](displaying-binary-data-in-the-data-web-controls-cs/samples/sample3.cs)]
 
-場合、このメソッドを決定渡された`object`値は、データベース`NULL`し、必要な場合は、分類がカタログされていないことを示すメッセージを返します。 それ以外の場合は、`BrochurePath`値、そのハイパーリンクで表示します。 されている場合、`BrochurePath`値は提示に渡される、 [ `ResolveUrl(url)`メソッド](https://msdn.microsoft.com/en-us/library/system.web.ui.control.resolveurl.aspx)です。 このメソッドは渡された解決*url*、置換、`~`文字と適切な仮想パス。 たとえば、アプリケーションがルートと`/Tutorial55`、`ResolveUrl("~/Brochures/Meats.pdf")`戻ります`/Tutorial55/Brochures/Meat.pdf`です。
+場合、このメソッドを決定渡された`object`値は、データベース`NULL`し、必要な場合は、分類がカタログされていないことを示すメッセージを返します。 それ以外の場合は、`BrochurePath`値、そのハイパーリンクで表示します。 されている場合、`BrochurePath`値は提示に渡される、 [ `ResolveUrl(url)`メソッド](https://msdn.microsoft.com/library/system.web.ui.control.resolveurl.aspx)です。 このメソッドは渡された解決*url*、置換、`~`文字と適切な仮想パス。 たとえば、アプリケーションがルートと`/Tutorial55`、`ResolveUrl("~/Brochures/Meats.pdf")`戻ります`/Tutorial55/Brochures/Meat.pdf`です。
 
 図 10 は、これらの変更が適用された後に、ページを示します。 なお Seafood カテゴリの`BrochurePath`フィールドには、今すぐいいえパンフレット使用可能なテキストが表示されます。
 
@@ -164,7 +164,7 @@ GridView のデザイナーには、ツールボックスからドラッグし�
 
 [!code-csharp[Main](displaying-binary-data-in-the-data-web-controls-cs/samples/sample6.cs)]
 
-このコードの先頭で読み取ることによって、`CategoryID`という名前の変数にクエリ文字列値`categoryID`です。 次に、画像データは、取得への呼び出しを使用して、`CategoriesBLL`クラスの`GetCategoryWithBinaryDataByCategoryID(categoryID)`メソッドです。 このデータを使用して、クライアントに返される、`Response.BinaryWrite(data)`メソッドが呼び出されると、前に、`Picture`列値の OLE ヘッダーを削除する必要があります。 作成することでこれを行う、`byte`という名前の配列`strippedImageData`78 正確に保持する文字にはどのようなよりも小さいか、`Picture`列です。 [ `Array.Copy`メソッド](https://msdn.microsoft.com/en-us/library/z50k9bft.aspx)からデータをコピーするために使用`category.Picture`位置以降にある 78 上に`strippedImageData`です。
+このコードの先頭で読み取ることによって、`CategoryID`という名前の変数にクエリ文字列値`categoryID`です。 次に、画像データは、取得への呼び出しを使用して、`CategoriesBLL`クラスの`GetCategoryWithBinaryDataByCategoryID(categoryID)`メソッドです。 このデータを使用して、クライアントに返される、`Response.BinaryWrite(data)`メソッドが呼び出されると、前に、`Picture`列値の OLE ヘッダーを削除する必要があります。 作成することでこれを行う、`byte`という名前の配列`strippedImageData`78 正確に保持する文字にはどのようなよりも小さいか、`Picture`列です。 [ `Array.Copy`メソッド](https://msdn.microsoft.com/library/z50k9bft.aspx)からデータをコピーするために使用`category.Picture`位置以降にある 78 上に`strippedImageData`です。
 
 `Response.ContentType`プロパティを指定します、 [MIME の種類](http://en.wikipedia.org/wiki/MIME)のブラウザーでレンダリングする方法を認識するように返されるコンテンツ。 以降、`Categories`表の`Picture`列がビットマップ イメージ、ビットマップの MIME の種類が使用ここ (イメージ/bmp)。 MIME の種類を省略すると、ほとんどのブラウザーはまだイメージのため正しく表示イメージ ファイルのバイナリ データの内容に基づいて型を推論することができます。 ただし、その MIME を含めるが賢明ですが可能な場合に入力します。 参照してください、 [Internet Assigned Numbers Authority の web サイト](http://www.iana.org/)の完全な一覧については[MIME メディアの種類](http://www.iana.org/assignments/media-types/)です。
 
@@ -216,7 +216,7 @@ S を強化できるように、`Categories`で GridView`DisplayOrDownloadData.a
 **図 13**: カテゴリ s 各の行の画像が表示されます ([フルサイズのイメージを表示するをクリックして](displaying-binary-data-in-the-data-web-controls-cs/_static/image20.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、バイナリ データを表示する方法を確認します。 データがどのように表示されるかは、データの種類によって異なります。 PDF パンフレット ファイルの提供したは、ユーザー ビュー パンフレット リンクをクリックすると、PDF ファイルに直接ユーザーをかかりました。 カテゴリの画像お最初を取得し、データベースからバイナリ データを返すページを作成し、そのページを使用して GridView に各カテゴリの画像を表示します。
 

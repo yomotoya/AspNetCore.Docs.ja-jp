@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 65d32309cbd8bed6decbba4c5027d8e10a558ae8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f22a745f42dae66cd64dc38df28c59b910c17070
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unlocking-and-approving-user-accounts-c"></a>ユーザー アカウントのロック解除および承認を行う (c#)
 ====================
@@ -57,7 +57,7 @@ GridView に、内を追加した後すぐを表示、`ManageUsers.aspx`ブラ�
 **図 1**: 内の各ユーザー アカウントを"Manage"リンクを追加 ([フルサイズのイメージを表示するをクリックして](unlocking-and-approving-user-accounts-cs/_static/image3.png))
 
 
-ユーザー インターフェイスを作成し、コードには、`UserInformation.aspx`トークみましょう時点が最初のページについてユーザーをプログラムで変更する方法のロックアウトし、ステータスを承認します。 [ `MembershipUser`クラス](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.aspx)が[ `IsLockedOut` ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.islockedout.aspx)と[`IsApproved`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.isapproved.aspx)です。 `IsLockedOut`プロパティは読み取り専用です。 プログラムからユーザーをロックアウトするメカニズムはありません。ユーザーのロックを解除するには、`MembershipUser`クラスの[`UnlockUser`メソッド](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.unlockuser.aspx)です。 `IsApproved`プロパティは読み取り可能な値を設定します。 このプロパティに任意の変更を保存する必要がありますを呼び出して、`Membership`クラスの[`UpdateUser`メソッド](https://msdn.microsoft.com/en-us/library/system.web.security.membership.updateuser.aspx)、変更を渡して、`MembershipUser`オブジェクト。
+ユーザー インターフェイスを作成し、コードには、`UserInformation.aspx`トークみましょう時点が最初のページについてユーザーをプログラムで変更する方法のロックアウトし、ステータスを承認します。 [ `MembershipUser`クラス](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx)が[ `IsLockedOut` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx)と[`IsApproved`プロパティ](https://msdn.microsoft.com/library/system.web.security.membershipuser.isapproved.aspx)です。 `IsLockedOut`プロパティは読み取り専用です。 プログラムからユーザーをロックアウトするメカニズムはありません。ユーザーのロックを解除するには、`MembershipUser`クラスの[`UnlockUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx)です。 `IsApproved`プロパティは読み取り可能な値を設定します。 このプロパティに任意の変更を保存する必要がありますを呼び出して、`Membership`クラスの[`UpdateUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx)、変更を渡して、`MembershipUser`オブジェクト。
 
 `IsApproved`プロパティが読み取り/書き込み可能で、CheckBox コントロールは、このプロパティを構成するための最適なユーザー インターフェイス要素では可能性があります。 ただし、チェック ボックスは適していません、`IsLockedOut`プロパティのため、管理者は、ユーザーをロックアウトことはできません、彼女がのみロックを解除ユーザー。 ための適切なユーザー インターフェイス、`IsLockedOut`プロパティはボタンをクリックすると、ユーザー アカウントのロックを解除します。 このボタンは、ユーザーがロックアウトされた場合にのみ有効です。
 
@@ -88,7 +88,7 @@ GridView に、内を追加した後すぐを表示、`ManageUsers.aspx`ブラ�
 
 `MembershipUser`オブジェクトの`UserName`に値が表示されます、`UserNameLabel`と`IsApproved`チェック ボックスがに基づいて、`IsApproved`プロパティの値。
 
-`MembershipUser`オブジェクトの[`LastLockoutDate`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.lastlockoutdate.aspx)を返します、`DateTime`ロックされている場合、ユーザーが最後を示す値。ユーザーがロックアウトされていることはない場合、に、返される値は、メンバーシップ プロバイダーによって異なります。 新しいアカウントの作成時に、`SqlMembershipProvider`設定、`aspnet_Membership`テーブルの`LastLockoutDate`フィールドを`1754-01-01 12:00:00 AM`です。 上記のコードで空の文字列が表示されます、`LastLockoutDateLabel`場合、`LastLockoutDate`プロパティが 1 年前に発生 2000、それ以外の日付部分、`LastLockoutDate`ラベルでプロパティを表示します。 `UnlockUserButton'` S`Enabled`プロパティに設定、ユーザーの状態、つまりことは、このボタンのみ有効となる、ユーザーがロックアウトされた場合はロックアウトされます。
+`MembershipUser`オブジェクトの[`LastLockoutDate`プロパティ](https://msdn.microsoft.com/library/system.web.security.membershipuser.lastlockoutdate.aspx)を返します、`DateTime`ロックされている場合、ユーザーが最後を示す値。ユーザーがロックアウトされていることはない場合、に、返される値は、メンバーシップ プロバイダーによって異なります。 新しいアカウントの作成時に、`SqlMembershipProvider`設定、`aspnet_Membership`テーブルの`LastLockoutDate`フィールドを`1754-01-01 12:00:00 AM`です。 上記のコードで空の文字列が表示されます、`LastLockoutDateLabel`場合、`LastLockoutDate`プロパティが 1 年前に発生 2000、それ以外の日付部分、`LastLockoutDate`ラベルでプロパティを表示します。 `UnlockUserButton'` S`Enabled`プロパティに設定、ユーザーの状態、つまりことは、このボタンのみ有効となる、ユーザーがロックアウトされた場合はロックアウトされます。
 
 テストをとって、`UserInformation.aspx`ブラウザーを使用してページ。 もちろんで開始する必要がありますが、`ManageUsers.aspx`を管理するユーザー アカウントを選択します。 到着時に`UserInformation.aspx`、なお、`IsApproved`のみチェック ボックスをユーザーが承認された場合。 ユーザーがロックアウトされていること場合、最後の日付がロックアウトが表示されます。 ユーザーのロックを解除 ボタンは、ユーザーは現在ロックアウトされている場合にのみ有効です。オンまたはオフにして、`IsApproved`チェック ボックスまたは ユーザーのロックを解除 ボタンをクリックとポストバックしますが、変更は行われません、ユーザー アカウントにきたところためこれらのイベントのイベント ハンドラーを作成します。
 
@@ -146,7 +146,7 @@ Visual Studio に戻るし、イベント ハンドラーを作成、`IsApproved
 
 ### <a name="sending-a-verification-email-to-new-users"></a>新しいユーザーに確認の電子メールを送信します。
 
-CreateUserWizard コントロールから電子メールを送信する次のように構成します。 その`MailDefinition`プロパティ適切にします。 説明したように、 <a id="Tutorial13"> </a>[前のチュートリアル](recovering-and-changing-passwords-cs.md)、ChangePassword と PasswordRecovery コントロールに含まれる、 [ `MailDefinition`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx)と同じ方法で動作します。CreateUserWizard コントロールのです。
+CreateUserWizard コントロールから電子メールを送信する次のように構成します。 その`MailDefinition`プロパティ適切にします。 説明したように、 <a id="Tutorial13"> </a>[前のチュートリアル](recovering-and-changing-passwords-cs.md)、ChangePassword と PasswordRecovery コントロールに含まれる、 [ `MailDefinition`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx)と同じ方法で動作します。CreateUserWizard コントロールのです。
 
 > [!NOTE]
 > 使用する、`MailDefinition`でメールの配信を指定する必要があります。 プロパティのオプション`Web.config`です。 詳細についてを参照してください[ASP.NET で電子メールを送信する](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)です。
@@ -160,7 +160,7 @@ CreateUserWizard コントロールから電子メールを送信する次のよ
 
 なお、`CreateUserWizard.txt`電子メール テンプレートが含まれています、`<%VerificationUrl%>`プレース ホルダーです。 これは、ような場合の URL、`Verification.aspx`ページに配置されます。 CreateUserWizard が自動的に置き換えられます、`<%UserName%>`と`<%Password%>`プレース ホルダーを新しいアカウントのユーザー名とパスワードで組み込みはありませんが、`<%VerificationUrl%>`プレース ホルダーです。 手動で置き換えて、適切な検証 URL が必要です。
 
-これを実現するには、CreateUserWizard のイベント ハンドラーを作成[`SendingMail`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx)し、次のコードを追加します。
+これを実現するには、CreateUserWizard のイベント ハンドラーを作成[`SendingMail`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx)し、次のコードを追加します。
 
 [!code-csharp[Main](unlocking-and-approving-user-accounts-cs/samples/sample4.cs)]
 
@@ -196,7 +196,7 @@ CreateUserWizard コントロールから電子メールを送信する次のよ
 **図 7**: の新しいユーザーのアカウントが承認されるようになりました ([フルサイズのイメージを表示するをクリックして](unlocking-and-approving-user-accounts-cs/_static/image21.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 すべてのメンバーシップ ユーザーのアカウントがあるユーザーが、サイトにログインできるかどうかを決定する 2 つの状態:`IsLockedOut`と`IsApproved`です。 これらのプロパティの両方があります`true`ユーザーがログインするためです。
 

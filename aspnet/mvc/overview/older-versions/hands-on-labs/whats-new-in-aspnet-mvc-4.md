@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 3de952224e23eed29f90ed0e8c662e4ee3f531ce
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8b1bdae048afc78399ccc7b0eac7125d9b983c13
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 の新機能
 ====================
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
-[Web キャンプ トレーニング キットをダウンロードします。](http://www.microsoft.com/en-us/download/29843)
+[Web キャンプ トレーニング キットをダウンロードします。](http://www.microsoft.com/download/29843)
 
 > ASP.NET MVC 4 は、安定したデザイン パターンと、ASP.NET と .NET framework の機能を使用して、スケーラブルな標準ベースの web アプリケーションを構築するためのフレームワークです。 この新しい、4 番目のバージョンの framework は、モバイル web アプリケーションの開発を容易に焦点を当てています。
 > 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > このハンズオン ラボでは、ASP.NET MVC 4 で起動されます&quot;インターネット アプリケーション&quot;フォト ギャラリーのアプリケーションを作成するプロジェクト テンプレート。 JQuery Mobile、および ASP.NET MVC 4 の新機能を使用して、さまざまなモバイル デバイスとデスクトップの web ブラウザーでの互換性を確保するアプリを段階的に強化されます。 コードの生成と ASP.NET MVC 4 簡単方法のタスクをサポートすることにより非同期アクション メソッドを記述するための新しいコード レシピについても学びます&lt;ActionResult&gt;タイプを返します。
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843)です。
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843)です。
 
 
 <a id="Objectives"></a>
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/10/2017
 
 - [Microsoft Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web)または上位 (読み取り[付録 B](#AppendixB)をインストールする方法について)。
 - [ASP.NET MVC 4](../../../mvc4.md) (Microsoft Visual Studio 2012 のインストールに含まれています)
-- Windows Phone エミュレーター (に含まれる、 [Windows Phone 7.1.1 SDK](https://www.microsoft.com/en-us/download/details.aspx?id=29233))
+- Windows Phone エミュレーター (に含まれる、 [Windows Phone 7.1.1 SDK](https://www.microsoft.com/download/details.aspx?id=29233))
 - 省略可能: [WebMatrix 2](https://www.microsoft.com/web/webmatrix/)で**Electric Plum iPhone シミュレーター** (iPhone シミュレーターと web アプリケーションを参照するために使用する手順 3) の場合のみ拡張機能
 
 <a id="Setup"></a>
@@ -345,7 +345,7 @@ ASP.NET MVC 4 には、モバイル web サイトやタブレットのブラウ�
 
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample5.cs)]
-4. 開く、 **HomeController.cs**ファイルから、**コント ローラー**フォルダーです。
+4. **Controllers** フォルダーから **HomeController.cs** ファイルを開きます。
 5. 次の using ステートメントを追加します。
 
     (コード スニペットの*ASP.NET MVC 4 ラボ - Ex02 - HomeController Using*)
@@ -622,7 +622,7 @@ jQuery モバイルの既定テーマにはには、文字が与えられてい�
 
 Microsoft .NET Framework 4.5 では、.NET プログラミングでの非同期性の新しい基盤を提供する c# および Visual Basic での言語の新機能について説明します。 この新しい foundation、非同期プログラミングのと同様と同期プログラミングと約簡単です。 使用して、ASP.NET MVC 4 で非同期アクション メソッドを記述することができるよう、 **AsyncController**クラスです。 CPU バインド以外の要求を実行時間の長いの非同期アクション メソッドを使用できます。 要求の処理中に作業を実行してから、Web サーバーのブロックを回避できます。 AsyncController クラスは通常、実行時間の長い Web サービス呼び出しに使用されます。
 
-この演習では、ASP.NET MVC 4 での非同期操作の基本について説明します。 次の資料をチェック_アウトできます詳しく知りたい場合: [ [https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx)
+この演習では、ASP.NET MVC 4 での非同期操作の基本について説明します。 次の資料をチェック_アウトできます詳しく知りたい場合: [ [https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)
 
 <a id="Task_1_-_Implementing_an_Asynchronous_Controller"></a>
 #### <a name="task-1---implementing-an-asynchronous-controller"></a>タスク 1 - 非同期コント ローラーを実装します。
@@ -729,7 +729,7 @@ Microsoft .NET Framework 4.5 では、.NET プログラミングでの非同期�
 <a id="Summary"></a>
 
 <a id="Summary"></a>
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このハンズオンのラボ、するした経験でいくつかの新機能の ASP.NET MVC 4 に常駐しています。 次の概念を説明しています。
 

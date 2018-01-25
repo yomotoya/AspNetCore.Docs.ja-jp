@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 030b0bb218ca05ec270b8fb0a9321e31d9ab5180
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3f2b8e395505c1d13b914399b8de2196f0ba230a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-website-that-uses-application-services-c"></a>アプリケーション サービス (c#) を使用する web サイトを構成します。
 ====================
@@ -35,7 +35,7 @@ ASP.NET version 2.0 に導入された、一連の*アプリケーション サ�
 - **ロール**- ユーザーをグループに分類するための API です。
 - **プロファイル**- カスタムのユーザーに固有のコンテンツを格納するための API です。
 - **サイト マップ**- メニューやパンくずリストなどのナビゲーション コントロールを使用して表示されることができますし、階層構造の形式でサイトの論理構造を定義するための API です。
-- **パーソナル化**- で最もよく使用される、カスタマイズ設定を維持するための API [ *WebParts*](https://msdn.microsoft.com/en-us/library/e0s9t4ck.aspx)です。
+- **パーソナル化**- で最もよく使用される、カスタマイズ設定を維持するための API [ *WebParts*](https://msdn.microsoft.com/library/e0s9t4ck.aspx)です。
 - **正常性の監視**- パフォーマンス、セキュリティ、エラー、および実行中の web アプリケーションの他のシステム正常性メトリックを監視するための API です。
   
 
@@ -71,7 +71,7 @@ SQL Server データベースとアプリケーション サービスを使用�
 
 アプリケーション サービスの web サイトのアプリケーション固有のデータが格納されている同じデータベース内のデータベース オブジェクトを通常最適で、作成して、可能なです。 という名前のツールが付属しています、.NET Framework`aspnet_regsql.exe`指定したデータベースでデータベース オブジェクトをインストールします。 続けてがあり、このツールを使用してこれらのオブジェクトを追加、`Reviews.mdf`データベースに格納されて、`App_Data`フォルダー (開発用データベース)。 実稼働データベースにこれらのオブジェクトを追加する際に、このチュートリアルで後ほどこのツールを使用する方法を会いしましょう。
 
-アプリケーションがデータベースにデータベース オブジェクトを以外のサービスを追加する場合`ASPNETDB`をカスタマイズする必要があります、`SqlMembershipProvider`と`SqlRoleProvider`プロバイダーは、適切なデータベースを使用するように構成をクラスです。 メンバーシップ プロバイダーの追加をカスタマイズする、 [ *&lt;メンバーシップ&gt;要素*](https://msdn.microsoft.com/en-us/library/1b9hw62f.aspx)内で、 `<system.web>` 」の「 `Web.config`; を使用して、 [ *&lt;roleManager&gt;要素*](https://msdn.microsoft.com/en-us/library/ms164660.aspx)ロール プロバイダーを構成します。 次のスニペットは書評アプリケーション s から取得`Web.config`し、メンバーシップとロール Api の設定の構成を示しています。 注 - 新しいプロバイダーを登録両方`ReviewMembership`と`ReviewRole`-を使用する、`SqlMembershipProvider`と`SqlRoleProvider`プロバイダー、それぞれします。
+アプリケーションがデータベースにデータベース オブジェクトを以外のサービスを追加する場合`ASPNETDB`をカスタマイズする必要があります、`SqlMembershipProvider`と`SqlRoleProvider`プロバイダーは、適切なデータベースを使用するように構成をクラスです。 メンバーシップ プロバイダーの追加をカスタマイズする、 [ *&lt;メンバーシップ&gt;要素*](https://msdn.microsoft.com/library/1b9hw62f.aspx)内で、 `<system.web>` 」の「 `Web.config`; を使用して、 [ *&lt;roleManager&gt;要素*](https://msdn.microsoft.com/library/ms164660.aspx)ロール プロバイダーを構成します。 次のスニペットは書評アプリケーション s から取得`Web.config`し、メンバーシップとロール Api の設定の構成を示しています。 注 - 新しいプロバイダーを登録両方`ReviewMembership`と`ReviewRole`-を使用する、`SqlMembershipProvider`と`SqlRoleProvider`プロバイダー、それぞれします。
 
 [!code-xml[Main](configuring-a-website-that-uses-application-services-cs/samples/sample1.xml)]
 
@@ -94,7 +94,7 @@ ASP.NET の URL の承認機能とユーザー ロールの場合は、承認規
 
 課題の 1 つは、運用環境に開発環境で作成されたユーザー アカウントをレプリケートする場合は、アプリケーション サービスを使用する web サイトを展開するときに発生します。 メンバーシップとロールの構成に応じて、可能であれば、実稼働データベースを開発環境で作成されたユーザー アカウントを正常にコピーする場合でも、これらのユーザーが実稼働環境で web アプリケーションにサインインできないことです。 この問題の原因を拝見し、防ぐ方法について説明します。、
 
-ASP.NET 付属、nice [ *Web サイト管理ツール (WSAT)* ](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx)を Visual Studio から起動できるでき、ユーザー アカウント、ロール、および承認の規則を web ベースで管理します。インターフェイスです。 残念ながら、WSAT だけが、ローカルの web サイト、ユーザー アカウント、ロール、および実稼働環境で web アプリケーションの承認規則をリモート管理を使用できないことを意味します。 実稼働 web サイトから WSAT のような動作を実装する方法に紹介します。
+ASP.NET 付属、nice [ *Web サイト管理ツール (WSAT)* ](https://msdn.microsoft.com/library/yy40ytx0.aspx)を Visual Studio から起動できるでき、ユーザー アカウント、ロール、および承認の規則を web ベースで管理します。インターフェイスです。 残念ながら、WSAT だけが、ローカルの web サイト、ユーザー アカウント、ロール、および実稼働環境で web アプリケーションの承認規則をリモート管理を使用できないことを意味します。 実稼働 web サイトから WSAT のような動作を実装する方法に紹介します。
 
 ### <a name="adding-the-database-objects-using-aspnetregsqlexe"></a>データベース オブジェクトを使用して aspnet を追加する\_regsql.exe
 
@@ -182,7 +182,7 @@ ASP.NET Web サイト管理ツール (WSAT) を容易に作成し、ユーザー
 
 WSAT チェック アウトのすべての機能が必要なかどうかは[*ローリング、独自の Web サイト管理ツール*](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)著者の Dan Clem 順を追ってカスタム WSAT のようなツールを構築するプロセスです。 Dan は彼アプリケーションのソース コード (C# の場合) を共有し、ホストされる web サイトに追加するための手順を提供します。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 アプリケーション サービス データベースの実装を使用する web アプリケーションを展開するときにまず、実稼働データベースが必要なデータベース オブジェクトを持つことを確認する必要があります。 説明した手法を使用してこれらのオブジェクトを追加することができます、*データベースの配置*チュートリアルです。 また、使用することができます、`aspnet_regsql.exe`ツール、このチュートリアルで示したようにします。 (これは重要なは、実稼働環境では有効にするには、ユーザーと、開発環境で作成されたロールの場合)、開発および運用環境との手法で使用されるアプリケーション名の同期を中心に説明した他の課題ユーザーと、実稼働環境でロールを管理します。
 
@@ -192,13 +192,13 @@ WSAT チェック アウトのすべての機能が必要なかどうかは[*ロ
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [*ASP.NET SQL Server の登録ツール (aspnet_regsql.exe)*](https://msdn.microsoft.com/en-us/library/ms229862.aspx)
-- [*SQL Server 用のアプリケーション サービス データベースを作成します。*](https://msdn.microsoft.com/en-us/library/x28wfk74.aspx)
+- [*ASP.NET SQL Server の登録ツール (aspnet_regsql.exe)*](https://msdn.microsoft.com/library/ms229862.aspx)
+- [*SQL Server 用のアプリケーション サービス データベースを作成します。*](https://msdn.microsoft.com/library/x28wfk74.aspx)
 - [*SQL Server でのメンバーシップのスキーマの作成*](../../older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs.md)
 - [*ASP.NET のメンバーシップ、ロール、およびプロファイルを確認します。*](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [*独自の Web サイト管理ツールのローリング*](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 - [*Web サイトのセキュリティのチュートリアル*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
-- [*Web サイト管理ツールの概要*](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx)
+- [*Web サイト管理ツールの概要*](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 
 >[!div class="step-by-step"]
 [前へ](configuring-the-production-web-application-to-use-the-production-database-cs.md)

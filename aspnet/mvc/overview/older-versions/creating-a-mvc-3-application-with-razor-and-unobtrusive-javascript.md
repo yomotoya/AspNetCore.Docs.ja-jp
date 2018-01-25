@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: 68870caf1608e596962650cf653e5b455b82382a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29b45c07b5498542abbf22c4c3001b1cee41edc9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>作成した MVC 3 Razor および控えめな JavaScript を持つアプリケーション
 ====================
@@ -48,8 +48,8 @@ VB と c# の完成したプロジェクトをダウンロードする[ここ](h
 このチュートリアルではない使用する ASP.NET メンバーシップ プロバイダー ログオンおよびメンバーシップに関連付けられているすべてのファイルを削除できるようにします。 **ソリューション エクスプ ローラー**、次のファイルとディレクトリを削除します。
 
 - *Controllers\AccountController*
-- *Models \accountmodels*
-- *\Shared\\_LogOnPartial*
+- *Models\AccountModels*
+- *Views\Shared\\_LogOnPartial*
 - *Views\Account* (およびこのディレクトリ内のすべてのファイル)
 
 ![Soln Exp](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image5.png)
@@ -68,7 +68,7 @@ VB と c# の完成したプロジェクトをダウンロードする[ここ](h
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample2.cs)]
 
-`UserModel`クラスは、ユーザーを表します。 クラスの各メンバーの注釈が付いて、[必要](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx)属性から、 [DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx)名前空間。 内の属性、 [DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx)名前空間は、web アプリケーションの自動クライアントとサーバー側の検証を提供します。
+`UserModel`クラスは、ユーザーを表します。 クラスの各メンバーの注釈が付いて、[必要](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx)属性から、 [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間。 内の属性、 [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間は、web アプリケーションの自動クライアントとサーバー側の検証を提供します。
 
 開く、`HomeController`クラスを追加、`using`アクセスできるようにするディレクティブ、`UserModel`と`Users`クラス。
 
@@ -116,19 +116,19 @@ VB と c# の完成したプロジェクトをダウンロードする[ここ](h
 
 次の手順が追加するには、`Details`アクション メソッドとユーザーの詳細を表示するために表示します。
 
-![詳細](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image10.png)
+![説明](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image10.png)
 
 次の追加`Details`メソッドを home コント ローラー。
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample8.cs)]
 
-内部を右クリックし、`Details`メソッドと、選択**ビューの追加**です。 いることを確認、**データ クラスを表示**ボックスには**Mvc3Razor.Models.UserModel***です。* 設定**コンテンツを表示**に**詳細** をクリックし、**追加**です。
+内部を右クリックし、`Details`メソッドと、選択**ビューの追加**です。 いることを確認、**データ クラスを表示**ボックスには **Mvc3Razor.Models.UserModel*** です。* 設定**コンテンツを表示**に**詳細** をクリックし、**追加**です。
 
 ![詳細ビューを追加します。](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image11.png)
 
 アプリケーションを実行し、詳細情報のリンクを選択します。 自動のスキャフォールディングでは、モデルの各プロパティを示します。
 
-![詳細](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image12.png)
+![説明](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image12.png)
 
 ## <a name="creating-the-edit-view"></a>編集ビューを作成します。
 
@@ -172,7 +172,7 @@ ASP.NET MVC 3 でのクライアント側の検証を有効にするには、2 �
 
 最初の 2 つの jQuery スクリプトは、Microsoft Ajax コンテンツ配信ネットワーク (CDN) でホストされています。 Microsoft Ajax CDN を利用して、アプリケーションの初回のパフォーマンスを大幅に向上させることができます。
 
-アプリケーションを実行し、[編集] リンクをクリックします。 ブラウザーでページのソースを表示します。 ブラウザー ソースは、フォームの多くの属性を示しています。 `data-val` (のデータ検証)。 クライアント検証と控えめな JavaScript が有効にすると、クライアント検証規則とは、入力フィールドが含まれて、`data-val="true"`控えめなクライアント検証をトリガーする属性。 たとえば、 `City` 、モデル内のフィールドがで修飾された、[必要](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx)属性は、次の例に示すように html 形式で結果を。
+アプリケーションを実行し、[編集] リンクをクリックします。 ブラウザーでページのソースを表示します。 ブラウザー ソースは、フォームの多くの属性を示しています。 `data-val` (のデータ検証)。 クライアント検証と控えめな JavaScript が有効にすると、クライアント検証規則とは、入力フィールドが含まれて、`data-val="true"`控えめなクライアント検証をトリガーする属性。 たとえば、 `City` 、モデル内のフィールドがで修飾された、[必要](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx)属性は、次の例に示すように html 形式で結果を。
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample15.cshtml)]
 
@@ -180,7 +180,7 @@ ASP.NET MVC 3 でのクライアント側の検証を有効にするには、2 �
 
 ![必要な市区町村](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image14.png)
 
-同様に、クライアント検証規則内の各パラメーターの属性を追加、フォームを含む`data-val-rulename-paramname=paramvalue`です。 たとえば、`FirstName`プロパティの注釈が付いて、 [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性および 3 の最小長と 8 の最大長を指定します。 という名前のデータ検証ルール`length`パラメーターの名前を持つ`max`と 8 のパラメーターの値。 次に示しますに対して生成される HTML、`FirstName`ユーザーを編集するときにフィールドします。
+同様に、クライアント検証規則内の各パラメーターの属性を追加、フォームを含む`data-val-rulename-paramname=paramvalue`です。 たとえば、`FirstName`プロパティの注釈が付いて、 [StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性および 3 の最小長と 8 の最大長を指定します。 という名前のデータ検証ルール`length`パラメーターの名前を持つ`max`と 8 のパラメーターの値。 次に示しますに対して生成される HTML、`FirstName`ユーザーを編集するときにフィールドします。
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample16.cshtml)]
 

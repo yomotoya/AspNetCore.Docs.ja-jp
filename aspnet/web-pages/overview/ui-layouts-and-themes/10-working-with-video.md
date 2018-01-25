@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/10-working-with-video
 msc.type: authoredcontent
-ms.openlocfilehash: 0e1849fb780908b55520d8108e2227d046759987
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a14659997d86d1b5cf5381e21e997c1a03a3f57c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトにビデオを表示します。
 ====================
@@ -61,7 +61,7 @@ ms.lasthandoff: 11/10/2017
 `Video`ヘルパーは、次のメディア プレーヤーをサポートしています。
 
 - Adobe Flash
-- Windows media Player
+- Windows MediaPlayer
 - Microsoft Silverlight
 
 ### <a name="the-flash-player"></a>Flash Player
@@ -118,7 +118,7 @@ ms.lasthandoff: 11/10/2017
     [!code-cshtml[Main](10-working-with-video/samples/sample2.cshtml)]
 4. ブラウザーでページを実行します。 (ページが選択されて、必ず、**ファイル**ワークスペースを実行する前にします)。ページが表示され、ビデオを自動的に再生します。 
 
-    ![[イメージ]] (10-working-with-video/_static/image1.jpg "ch08_video 1.jpg")
+    ![[image]](10-working-with-video/_static/image1.jpg "ch08_video-1.jpg")
 
 設定することができます、`quality`フラッシュ ビデオへのパラメーター `low`、 `autolow`、 `autohigh`、 `medium`、 `high`、および`best`:
 
@@ -148,7 +148,7 @@ Flash player が名前付きの設定のビデオ モードをサポートして
     [!code-cshtml[Main](10-working-with-video/samples/sample5.cshtml)]
 4. ブラウザーでページを実行します。 ビデオを読み込んで、自動的に再生します。 
 
-    ![[イメージ]] (10-working-with-video/_static/image2.jpg "ch08_video 2.jpg")
+    ![[image]](10-working-with-video/_static/image2.jpg "ch08_video-2.jpg")
 
 設定することができます`playCount`を自動的にビデオを再生する回数を示す整数。
 
@@ -178,14 +178,14 @@ Flash player が名前付きの設定のビデオ モードをサポートして
     [!code-cshtml[Main](10-working-with-video/samples/sample10.cshtml)]
 4. ブラウザーでページを実行します。 
 
-    ![[イメージ]] (10-working-with-video/_static/image3.jpg "ch08_video 3.jpg")
+    ![[image]](10-working-with-video/_static/image3.jpg "ch08_video-3.jpg")
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>その他のリソース
 
 
-[Silverlight の概要](https://msdn.microsoft.com/en-us/library/bb404700(VS.95).aspx)
+[Silverlight の概要](https://msdn.microsoft.com/library/bb404700(VS.95).aspx)
 
 [タグ属性をフラッシュのオブジェクトと埋め込み](http://kb2.adobe.com/cps/127/tn_12701.html)
 
-[Windows Media Player 11 SDK PARAM タグします。](https://msdn.microsoft.com/en-us/library/aa392321(VS.85).aspx)
+[Windows Media Player 11 SDK PARAM タグします。](https://msdn.microsoft.com/library/aa392321(VS.85).aspx)

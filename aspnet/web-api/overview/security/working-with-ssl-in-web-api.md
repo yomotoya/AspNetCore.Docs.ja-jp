@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 8c631900c8c5ab6097e0cb9fd4a71abbcba1c88b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 127b336cb628e55bd59481ecb1c4df83960dc25b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="working-with-ssl-in-web-api"></a>Web API での SSL の操作
 ====================
@@ -72,7 +72,7 @@ ApplicationHost.config ファイルにこれらのオプションを設定する
 
 ### <a name="creating-a-client-certificate-for-testing"></a>テスト用クライアント証明書を作成します。
 
-テストの目的で使用することができます[MakeCert.exe](https://msdn.microsoft.com/en-US/library/bfsktky3.aspx)クライアント証明書を作成します。 まず、テスト ルート証明機関を作成します。
+テストの目的で使用することができます[MakeCert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)クライアント証明書を作成します。 まず、テスト ルート証明機関を作成します。
 
 [!code-console[Main](working-with-ssl-in-web-api/samples/sample4.cmd)]
 
@@ -95,6 +95,6 @@ Makecert は、秘密キーのパスワードを入力することを求めら�
 
 ### <a name="using-client-certificates-in-web-api"></a>Web API でのクライアント証明書の使用
 
-呼び出して、クライアント証明書を取得するサーバー側で[GetClientCertificate](https://msdn.microsoft.com/en-us/library/system.net.http.httprequestmessageextensions.getclientcertificate.aspx)要求メッセージにします。 メソッドは、クライアント証明書がない場合は null を返します。 返しますそれ以外の場合、 **X509Certificate2**インスタンス。 このオブジェクトを使用して、証明書の発行者や件名などから情報を取得します。 認証および承認のこの情報を使用することができます。
+呼び出して、クライアント証明書を取得するサーバー側で[GetClientCertificate](https://msdn.microsoft.com/library/system.net.http.httprequestmessageextensions.getclientcertificate.aspx)要求メッセージにします。 メソッドは、クライアント証明書がない場合は null を返します。 返しますそれ以外の場合、 **X509Certificate2**インスタンス。 このオブジェクトを使用して、証明書の発行者や件名などから情報を取得します。 認証および承認のこの情報を使用することができます。
 
 [!code-csharp[Main](working-with-ssl-in-web-api/samples/sample6.cs)]

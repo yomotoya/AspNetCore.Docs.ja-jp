@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: f455c3656c9120f4d7e6fccdba8f705e0a1c7d35
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9093fb90a52b297f173c5cddb6f332d2d1a25135
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>関連する with ASP.NET MVC アプリケーション (10 の 5) で Entity Framework データの読み取り
 ====================
@@ -68,7 +68,7 @@ ms.lasthandoff: 11/10/2017
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-遅延読み込みは、パフォーマンスの問題が発生するコードをマスクできます。 たとえば、eager または明示的な読み込みが指定されていないが、大量のエンティティを処理し、各イテレーションでいくつかのナビゲーション プロパティを使用するコードできない可能性があります非常に効率的な (データベースに多くのラウンド トリップ) が原因です。 内部設置型 SQL server を使用した開発にもを実行するアプリケーションでは、待機時間の増加と遅延読み込みのための Azure SQL データベースに移動すると、パフォーマンスの問題があります。 プロファイルの負荷が現実的なテスト データベース クエリは遅延読み込みが適切なかどうかを判断するに役立ちます。 詳細については、次を参照してください。 [Demystifying Entity Framework 戦略: 関連するデータの読み込み](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx)と[SQL Azure へのネットワーク待機時間の削減に Entity Framework を使用して](https://msdn.microsoft.com/en-us/magazine/gg309181.aspx)です。
+遅延読み込みは、パフォーマンスの問題が発生するコードをマスクできます。 たとえば、eager または明示的な読み込みが指定されていないが、大量のエンティティを処理し、各イテレーションでいくつかのナビゲーション プロパティを使用するコードできない可能性があります非常に効率的な (データベースに多くのラウンド トリップ) が原因です。 内部設置型 SQL server を使用した開発にもを実行するアプリケーションでは、待機時間の増加と遅延読み込みのための Azure SQL データベースに移動すると、パフォーマンスの問題があります。 プロファイルの負荷が現実的なテスト データベース クエリは遅延読み込みが適切なかどうかを判断するに役立ちます。 詳細については、次を参照してください。 [Demystifying Entity Framework 戦略: 関連するデータの読み込み](https://msdn.microsoft.com/magazine/hh205756.aspx)と[SQL Azure へのネットワーク待機時間の削減に Entity Framework を使用して](https://msdn.microsoft.com/magazine/gg309181.aspx)です。
 
 ## <a name="create-a-courses-index-page-that-displays-department-name"></a>その表示部門名コース インデックス ページを作成します。
 
@@ -155,9 +155,9 @@ ms.lasthandoff: 11/10/2017
 > 
 > ルート データは、ルーティング テーブルに指定された URL セグメント内のモデル バインダーにあるデータです。 たとえば、既定のルートを指定して`controller`、 `action`、および`id`セグメント。
 > 
-> ルート。MapRoute (  
+> routes.MapRoute(  
 >  名前:"Default"、  
->  url:"{controller}/{controller}/{id}"、  
+>  url: "{controller}/{action}/{id}",  
 >  既定値: new {コント ローラー = アクションでは「ホーム」="Index"id = UrlParameter.Optional}  
 > );
 > 
@@ -194,7 +194,7 @@ ms.lasthandoff: 11/10/2017
 
 `Where`メソッドのコレクションを返しますが、条件が 1 つだけでそのメソッドの結果に渡されるここでは`Instructor`返されるエンティティです。 `Single`メソッドが、1 つに、コレクションを変換`Instructor`エンティティで、そのエンティティにアクセスできる`Courses`プロパティです。
 
-使用する、[単一](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.single.aspx)メソッドのコレクションがわかっている場合にコレクションを 1 つの項目になります。 `Single`に渡されるコレクションが空の場合、または複数の項目がある場合、メソッドが例外をスローします。 代わりに[SingleOrDefault](https://msdn.microsoft.com/en-us/library/bb342451.aspx)、既定値が返されます (`null`ここでは)、コレクションが空の場合。 ただし、ここではするがまだ例外が発生 (から検索しようとしています、`Courses`プロパティを`null`参照)、例外メッセージは、問題の原因を示す小さい明確にします。 呼び出すと、`Single`メソッドに渡すことも、`Where`条件呼び出す代わりに、`Where`メソッドとは別に。
+使用する、[単一](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx)メソッドのコレクションがわかっている場合にコレクションを 1 つの項目になります。 `Single`に渡されるコレクションが空の場合、または複数の項目がある場合、メソッドが例外をスローします。 代わりに[SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx)、既定値が返されます (`null`ここでは)、コレクションが空の場合。 ただし、ここではするがまだ例外が発生 (から検索しようとしています、`Courses`プロパティを`null`参照)、例外メッセージは、問題の原因を示す小さい明確にします。 呼び出すと、`Single`メソッドに渡すことも、`Where`条件呼び出す代わりに、`Where`メソッドとは別に。
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cs)]
 
@@ -276,7 +276,7 @@ ms.lasthandoff: 11/10/2017
 
 使用することを確認、`Collection`コレクション プロパティを読み込みますが、使用する、1 つのエンティティを保持するプロパティの`Reference`メソッドです。 インストラクター インデックス ページを今すぐ実行することができ、わかりますなし ページで、表示される内容に違いが、データの取得方法を変更しました。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ナビゲーション プロパティに関連するデータを読み込むすべての 3 つ方法 (レイジー、eager、および明示的な) を使用したようになりました。 次のチュートリアルでは、関連するデータを更新する方法を学習します。
 

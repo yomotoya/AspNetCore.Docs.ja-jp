@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: df13726689c430ab19786e104ea7404051107aa9
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: c30556368ba24fb38cf3347dd49f171b5246514c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>ASP.NET Core MVC と Visual Studio (10 の 1) を使用して Entity Framework Core の概要
 
@@ -27,7 +27,7 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 
 [ダウンロードまたは完成したアプリケーションを表示します。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-EF の最新バージョンであるが EF のすべての機能がない、EF コア 2.0 6.x です。 EF との間を選択する方法については 6.x と EF コアを参照してください。 [EF コア vs です。EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). EF を選択した場合、6.x を参照してください[このチュートリアル シリーズの以前のバージョン](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)します。
+EF コア 2.0 が EF の最新バージョンであるが、EF のすべての機能をまだ存在しない 6.x です。 EF との間を選択する方法については 6.x と EF コアを参照してください。 [EF コア vs です。EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). EF を選択した場合、6.x を参照してください[このチュートリアル シリーズの以前のバージョン](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)します。
 
 > [!NOTE]
 > * このチュートリアルの ASP.NET Core の 1.1 バージョンを参照してください、 [VS 2017 Update 2 のバージョンを PDF 形式では、このチュートリアルの](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf)します。
@@ -178,7 +178,7 @@ Entity Framework がという名前が場合に、外部キーのプロパティ
 
 このコードを作成、`DbSet`各エンティティ セットのプロパティです。 Entity Framework の用語では、エンティティ セットは通常はデータベース テーブルに対応し、エンティティはテーブルの行に対応します。
 
-省略した可能性がありますが、`DbSet<Enrollment>`と`DbSet<Course>`ステートメントと同じように動作します。 Entity Framework はそれらを含める暗黙的に、`Student`エンティティ参照、`Enrollment`エンティティと`Enrollment`エンティティ参照、`Course`エンティティです。
+省略したことができ、`DbSet<Enrollment>`と`DbSet<Course>`ステートメントと同じように動作します。 Entity Framework はそれらを含める暗黙的に、`Student`エンティティ参照、`Enrollment`エンティティと`Enrollment`エンティティ参照、`Course`エンティティです。
 
 データベースが作成される、EF 作成と同じ名前を持つテーブルを`DbSet`プロパティの名前。 コレクションのプロパティ名は、通常 (受講者ではなく学生)、複数形が開発者と異なるかどうかテーブル名をする複数化か。 これらのチュートリアル DbContext で単数形のテーブル名を指定して既定の動作をオーバーライドします。 実行するには、DbSet の最後のプロパティの後に、次の強調表示されたコードを追加します。
 
@@ -204,7 +204,7 @@ ASP.NET Core を実装する[依存性の注入](../../fundamentals/dependency-i
 
 ### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-接続文字列では、SQL Server LocalDB データベースを指定します。 LocalDB は、SQL Server Express データベース エンジンの簡易バージョンがあり、アプリケーションの開発では、実稼働環境を使用しないものです。 LocalDB は要求時に開始され、ユーザー モードで実行されるため、複雑な構成はありません。 既定では、LocalDB が作成されます*.mdf*データベース内のファイル、`C:/Users/<user>`ディレクトリ。
+接続文字列では、SQL Server LocalDB データベースを指定します。 LocalDB は、SQL Server Express データベース エンジンの簡易バージョンがあり、アプリケーションの開発では、実稼働環境を使用しないものです。 LocalDB は、要求時に開始され、ユーザー モードで実行されるため、複雑な構成はありません。 既定では、LocalDB が作成されます*.mdf*データベース内のファイル、`C:/Users/<user>`ディレクトリ。
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>データベースにテスト データを初期化するコードを追加します。
 
@@ -351,9 +351,9 @@ Web サーバーは、使用可能なスレッド数を限定を持ち、負荷�
 
 Entity Framework を使用する非同期コードを作成する場合の注意すべき点がいくつか:
 
-* クエリまたはコマンドのデータベースに送信されるステートメントだけが非同期的に実行されます。 たとえばを含む`ToListAsync`、 `SingleOrDefaultAsync`、および`SaveChangesAsync`です。 含まれません、たとえば、だけを変更するステートメント、`IQueryable`など`var students = context.Students.Where(s => s.LastName == "Davolio")`です。
+* クエリまたはコマンドのデータベースに送信されるステートメントだけが非同期的に実行されます。 たとえばを含む`ToListAsync`、 `SingleOrDefaultAsync`、および`SaveChangesAsync`です。 これが含まれていない、たとえば、だけを変更するステートメントには、`IQueryable`など`var students = context.Students.Where(s => s.LastName == "Davolio")`です。
 
-* EF コンテキストはスレッド セーフではありません: を並列で複数の操作を行うにはしないでください。 ある非同期 EF メソッドを呼び出すときに、常に使用して、`await`キーワード。
+* EF コンテキストがスレッド セーフではない: を並列で複数の操作を行うにはしないでください。 ある非同期 EF メソッドを呼び出すときに、常に使用して、`await`キーワード。
 
 * 非同期コードのパフォーマンスの利点を活用、任意のライブラリのパッケージにあるかどうかを確認する場合、(ページングなど) を使用している、データベースに送信されるクエリを Entity Framework メソッドを呼び出す場合にも非同期を使用します。
 

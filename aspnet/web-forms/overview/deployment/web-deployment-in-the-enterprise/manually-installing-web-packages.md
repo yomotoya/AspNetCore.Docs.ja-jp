@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: 0ab0b4c24c1771a21c45bac011b5f156cb15d28a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e06d37c01ab66f0723b687f4ed1ee72561099aef
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="manually-installing-web-packages"></a>Web パッケージを手動でインストールします。
 ====================
@@ -131,7 +131,7 @@ Web 配置パッケージをサポートするために IIS web サーバーを�
 
 ## <a name="further-reading"></a>関連項目
 
-Web パッケージを手動でインポートをサポートする IIS web サーバーを構成する方法のガイダンスについては、次を参照してください。[用 Web 配置発行 (オフライン展開) Web サーバーの構成](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)です。 Web パッケージの展開の一般的なガイダンスについては、次を参照してください。[チュートリアル: Web 配置パッケージ (4 のパート 1) を使用して Web アプリケーション プロジェクトを配置](https://msdn.microsoft.com/en-us/library/dd483479.aspx)です。
+Web パッケージを手動でインポートをサポートする IIS web サーバーを構成する方法のガイダンスについては、次を参照してください。[用 Web 配置発行 (オフライン展開) Web サーバーの構成](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)です。 Web パッケージの展開の一般的なガイダンスについては、次を参照してください。[チュートリアル: Web 配置パッケージ (4 のパート 1) を使用して Web アプリケーション プロジェクトを配置](https://msdn.microsoft.com/library/dd483479.aspx)です。
 
 >[!div class="step-by-step"]
 [前へ](creating-and-running-a-deployment-command-file.md)

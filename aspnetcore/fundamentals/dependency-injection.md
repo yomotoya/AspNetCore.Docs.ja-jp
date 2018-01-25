@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1da3d557c48921747634b08cedb518184fb5f963
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7a5a0991694b2c7caa79dbc09f6471d614f67dac
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>ASP.NET Core の依存関係の挿入の概要
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 01/19/2018
 
 によって[Steve Smith](https://ardalis.com/)と[Scott Addie](https://scottaddie.com)
 
-ASP.NET Core は、まったく新たに設計をサポートし、依存関係の挿入を活用します。 ASP.NET Core アプリケーションは、スタートアップ クラス内のメソッドを挿入することによってサービスを組み込みフレームワークを利用でき、挿入もアプリケーション サービスを構成することができます。 ASP.NET Core によって提供される既定のサービス コンテナーは、最小限の機能が設定され、その他のコンテナーを置き換えるものではありませんを提供します。
+ASP.NET Core は、まったく新たに設計をサポートし、依存関係の挿入を活用します。 ASP.NET Core アプリケーションは、スタートアップ クラス内のメソッドを挿入することによってサービスを組み込みフレームワークを利用でき、挿入もアプリケーション サービスを構成することができます。 ASP.NET Core によって提供される既定のサービス コンテナーは、最小限の機能が設定され、その他のコンテナーを置換するためのものではありませんを提供します。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
@@ -30,7 +30,7 @@ ASP.NET Core は、まったく新たに設計をサポートし、依存関係�
 
 依存性の注入 (DI) は、オブジェクトとの共同作業者、または依存関係の間の疎結合を実現するための手法です。 、の共同作業者を直接インスタンス化または静的参照を使用して、ではなく、クラスは、そのアクションを実行する必要があるオブジェクトは、なんらかの方法でクラスに提供されます。 クラスに従うように、コンス トラクターを使用して、その依存関係を宣言する、ほとんどの場合、[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)です。 この方法は、「コンス トラクター インジェクション」と呼ばれます。
 
-クラスは、注意 DI でデザインされます、ときよりは疎結合されて共同作業者に直接、ハード コーディングされた依存関係があるないためです。 次のように、[依存関係の逆転原則](http://deviq.com/dependency-inversion-principle/)、ことを示している*「高レベルのモジュールは低レベルのモジュールに依存しないように; 抽象化の両方を利用する必要があります」。* クラスが抽象化を要求する特定の実装を参照するには、代わりに (通常`interfaces`) クラスを作成するときに提供されます。 インターフェイスへの依存関係を抽出し、これらのインターフェイスのパラメーターとして実装することはの例ではまた、[戦略の設計パターン](http://deviq.com/strategy-design-pattern/)です。
+クラスは、注意 DI でデザインされます、ときにしているより疎結合された共同作業者に直接、ハード コーディングされた依存関係がないためです。 次のように、[依存関係の逆転原則](http://deviq.com/dependency-inversion-principle/)、ことを示している*"高レベルのモジュールは、低レベルのモジュールに依存しないでください抽象化の両方を利用する必要があります。"。* クラスが抽象化を要求する特定の実装を参照するには、代わりに (通常`interfaces`) クラスを作成するときに提供されます。 インターフェイスへの依存関係を抽出し、これらのインターフェイスのパラメーターとして実装することはの例ではまた、[戦略の設計パターン](http://deviq.com/strategy-design-pattern/)です。
 
 DI を使用する、システムの設計時に、コンス トラクター (またはプロパティ) を使用して、その依存関係を要求する多くのクラスが関連付けられている依存関係とこれらのクラスを作成するのには専用のクラスをするおくと便利です。 これらのクラスと呼びます*コンテナー*、または具体的には、[制御の反転 (IoC)](http://deviq.com/inversion-of-control/)や依存関係の挿入 (DI) コンテナーのコンテナーです。 コンテナーとは、そこから要求された型のインスタンスを提供するファクトリを本質的にします。 場合は、指定された型は、依存関係があるし、依存関係の種類を提供するコンテナーが構成されていることを宣言しましたが、要求されたインスタンスの作成の一環として依存関係が作成されます。 これにより、複雑な依存関係グラフは、ハード コーディングされたオブジェクトの構築が必要ないクラスに提供できます。 オブジェクトをその依存関係を作成するだけでなくコンテナーは通常、アプリケーション内でオブジェクトの有効期間を管理します。
 
@@ -112,7 +112,7 @@ public CharactersController(ICharacterRepository characterRepository, string tit
 
 `AddTransient`抽象型を必要とするすべてのオブジェクトとは別にインスタンス化される具体的なサービスにマップするメソッドを使用します。 これは、サービスと呼ばれます*有効期間*、追加の有効期間オプションは次に説明します。 ことが重要、各サービスを登録するための適切な有効期間を選択します。 それを要求する各クラスに、サービスの新しいインスタンスを提供しますか。 指定された web 要求全体で、1 つのインスタンスを使用する必要がありますか。 または、アプリケーションの有効期間の 1 つのインスタンスを使用します必要がありますか。
 
-この記事のサンプルと呼ばれる文字名を表示する単純なコント ローラーが`CharactersController`です。 その`Index`メソッドは、現在のアプリケーションで格納されている文字の一覧を表示しが存在しない場合に、いくつかの文字を使用して、コレクションを初期化します。 このアプリケーションは、Entity Framework のコアを使用していますが、なおと`ApplicationDbContext`クラスなしですが、コント ローラーで明らかなもの、永続化します。 特定のデータ アクセスのメカニズムが代わりに、インターフェイスの背後に抽象化されて`ICharacterRepository`、どの次のように、[リポジトリ パターン](http://deviq.com/repository-pattern/)です。 インスタンス`ICharacterRepository`コンス トラクターを使用して要求し、必要に応じて文字へのアクセスを使用して、プライベート フィールドに割り当てられます。
+この記事のサンプルと呼ばれる文字名を表示する単純なコント ローラーが`CharactersController`です。 その`Index`メソッドは、現在のアプリケーションで格納されている文字の一覧を表示しが存在しない場合に、いくつかの文字を使用して、コレクションを初期化します。 このアプリケーションは、Entity Framework のコアを使用して、`ApplicationDbContext`のいずれも、永続化のためのクラス、コント ローラーで明らかです。 特定のデータ アクセスのメカニズムが代わりに、インターフェイスの背後に抽象化されて`ICharacterRepository`、どの次のように、[リポジトリ パターン](http://deviq.com/repository-pattern/)です。 インスタンス`ICharacterRepository`コンス トラクターを使用して要求し、必要に応じて文字へのアクセスを使用して、プライベート フィールドに割り当てられます。
 
 [!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
 
@@ -120,7 +120,7 @@ public CharactersController(ICharacterRepository characterRepository, string tit
 
 [!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
 
-このインターフェイスは、具象型で実装に`CharacterRepository`、それが実行時に使用します。
+このインターフェイスは、具象型で実装に`CharacterRepository`、実行時に使用されます。
 
 > [!NOTE]
 > DI 方法を使用、`CharacterRepository`クラスは、すべての「リポジトリ」] または [データ アクセス クラスではなく、アプリケーション サービスを行うことができる汎用モデル。
@@ -149,7 +149,7 @@ ASP.NET サービスは、次の有効期間で構成できます。
 
 **一時的なもの**
 
-一時的な有効期間サービスは、要求されるたびに作成されます。 この有効期間は軽量のステートレスなサービスに最適です。
+一時的な有効期間サービスは、要求されている各時に作成されます。 この有効期間は軽量のステートレスなサービスに最適です。
 
 **スコープ**
 
@@ -157,7 +157,7 @@ ASP.NET サービスは、次の有効期間で構成できます。
 
 **シングルトン**
 
-シングルトン有効期間サービスが要求される最初の時に作成されます (または`ConfigureServices`インスタンスがありますを指定する場合に実行) し、すべての後続の要求が同じインスタンスを使用します。 アプリケーションは、シングルトン動作を必要とする場合は、シングルトン デザイン パターンを実装して、自分でクラスのオブジェクトの有効期間を管理するのではなく勧めサービス コンテナー サービスの有効期間を管理できるようにします。
+シングルトン有効期間サービスが要求されている最初の時に作成されます (または`ConfigureServices`インスタンスがありますを指定する場合に実行) し、すべての後続の要求が同じインスタンスを使用します。 アプリケーションは、シングルトン動作を必要とする場合は、シングルトン デザイン パターンを実装して、自分でクラスのオブジェクトの有効期間を管理するのではなく勧めサービス コンテナー サービスの有効期間を管理できるようにします。
 
 サービスは、いくつかの方法で、コンテナーに登録することができます。 使用する具体的な種類を指定して型を指定して、サービスの実装を登録する方法が既にあります。 さらに、ファクトリを指定できます、し、要求時にインスタンスの作成に使用されます。 3 番目のアプローチでは、直接使用するには型のインスタンスをコンテナーの場合は、インスタンスを作成することはありません試みます (も、インスタンスが破棄されます) を指定します。
 
@@ -237,14 +237,14 @@ public void ConfigureServices(IServiceCollection services)
     services.AddSingleton<Service2>();
     services.AddSingleton<ISomeService>(sp => new SomeServiceImplementation());
 
-    // container did not create instance so it will NOT dispose it
+    // container didn't create instance so it will NOT dispose it
     services.AddSingleton<Service3>(new Service3());
     services.AddSingleton(new Service3());
 }
 ```
 
 > [!NOTE]
-> バージョン 1.0 の場合で、コンテナーはで dispose を呼び出す*すべて* `IDisposable` 、作成していないものを含むオブジェクト。
+> バージョン 1.0 の場合で、コンテナーはで dispose を呼び出す*すべて* `IDisposable` 、それを作成していないものを含むオブジェクト。
 
 ## <a name="replacing-the-default-services-container"></a>既定のサービス コンテナーを置き換える
 

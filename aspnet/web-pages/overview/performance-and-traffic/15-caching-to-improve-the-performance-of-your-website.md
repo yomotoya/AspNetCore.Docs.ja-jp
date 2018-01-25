@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
 msc.type: authoredcontent
-ms.openlocfilehash: c747fef33a6d1db19f09fd0303c47d689b956687
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 742409219bd3b05f8ddf2c0d5034919fc9bf1d26
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a>パフォーマンス向上のための ASP.NET Web Pages (Razor) サイトのデータのキャッシュ
 ====================
@@ -72,15 +72,15 @@ ASP.NET には、`WebCache`ヘルパーをサイトにキャッシュを追加�
     このコードは、データをキャッシュするときに常に使用する必要があります、パターンを示します。 キャッシュからのものを取得する前に常に最初がチェックするかどうか、`WebCache.Get`メソッドが null を返しました。 キャッシュ エントリの期限が切れている可能性がありますかが削除された可能性が何らかの理由により、キャッシュ内にある、指定したエントリが保証されることはありませんのでことに注意してください。
 3. 実行*WebCache.cshtml*ブラウザーでします。 (ページが選択されて、必ず、**ファイル**ワークスペースを実行する前にします)。初めて、ページを要求する時のデータは、キャッシュではありません、コードには、キャッシュに時刻の値を追加するには
 
-    ![キャッシュ-1](15-caching-to-improve-the-performance-of-your-website/_static/image1.jpg)
+    ![cache-1](15-caching-to-improve-the-performance-of-your-website/_static/image1.jpg)
 4. 更新*WebCache.cshtml*ブラウザーにします。 現時点では、時間のデータは、キャッシュにです。 前回のページを表示した後、時間が変更されていないことに注意してください。
 
-    ![キャッシュ-2](15-caching-to-improve-the-performance-of-your-website/_static/image2.jpg)
+    ![cache-2](15-caching-to-improve-the-performance-of-your-website/_static/image2.jpg)
 5. キャッシュを空にするのには 1 分間待機し、ページを更新します。 ページ再度ことを示す時のデータがキャッシュに見つかりませんでしたが更新された時間が、キャッシュに追加されます。
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>その他のリソース
 
 
-- [グラフのデータを表示します。](https://go.microsoft.com/fwlink/?LinkId=202895)
-- [WebCache API リファレンス](https://msdn.microsoft.com/en-us/library/system.web.helpers.webcache(v=vs.99).aspx)(MSDN)
+- [グラフでデータを表示する](https://go.microsoft.com/fwlink/?LinkId=202895)
+- [WebCache API リファレンス](https://msdn.microsoft.com/library/system.web.helpers.webcache(v=vs.99).aspx)(MSDN)

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: dc81961094928025e25cf62ce4d51d12bc67b80c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7d4ed67254c2b0fc2aef748cfab1c8f628b25641
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-3"></a>ASP.NET MVC - パート 3 での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用
 ====================
@@ -86,14 +86,14 @@ Ctrl キーを押しながら f5 キーを押してアプリケーションを�
 - 適用する、`DisplayFormat`属性をモデル内のプロパティです。 たとえば、次のコードでは、時間を除いた表示される日付が発生します。
 
     [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample8.cs)]
-- 適用する、 [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)属性をモデルとデータ型の指定では、プロパティにします。 たとえば、次のコードが、日付、時刻なしで表示します。
+- 適用する、 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性をモデルとデータ型の指定では、プロパティにします。 たとえば、次のコードが、日付、時刻なしで表示します。
 
     [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample9.cs)]
 
     アプリケーションが含まれている場合、 *date.cshtml*でテンプレート、 *views \shared\displaytemplates*フォルダーまたは*Views\Movies\DisplayTemplates*フォルダー、そのテンプレートレンダリングに使用される、`DateTime`プロパティです。 それ以外の場合、組み込みの ASP.NET テンプレート システムは、日付としてプロパティを表示します。
 - 画面テンプレートを作成する、 *views \shared\displaytemplates*フォルダーまたは*Views\Movies\DisplayTemplates*フォルダーの名前には、書式を設定するデータ型が一致します。 たとえば、ことを説明する、 *Views\Shared\DisplayTemplates\DateTime.cshtml*表示するために使用された`DateTime`モデルに属性を追加してビューをビューにすべてのマークアップを追加することがなく、モデルのプロパティです。
-- 使用して、 [UIHint](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx)モデル プロパティを表示するテンプレートを指定するには、モデルの属性です。
-- 明示的に追加するテンプレート名を表示、 [Html.DisplayFor](https://msdn.microsoft.com/en-us/library/ee407420.aspx)ビューで呼び出します。
+- 使用して、 [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx)モデル プロパティを表示するテンプレートを指定するには、モデルの属性です。
+- 明示的に追加するテンプレート名を表示、 [Html.DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx)ビューで呼び出します。
 
 使用するアプローチは、アプリケーションで実行する必要がありますに依存します。 必要な書式設定の種類だけを取得する方法を混在させることは珍しくことはできません。
 

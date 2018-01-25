@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 5a852ec2301e63bde9a5ce99db80224dad7fb258
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ae2fddc81f6f4da866ec0719a0e74516bdd2a4d1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>データベースの概要 Entity Framework 4.0 最初に、ASP.NET 4 Web フォームします。
 ====================
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > ## <a name="database-first"></a>データベースの最初
 > 
-> Entity Framework でデータを操作できる 3 つの方法があります: *Database First*、 *Model First*、および*Code First*です。 このチュートリアルでは、データベースの最初のです。 シナリオに合った最適なものを選択する方法でこれらのワークフローとガイダンスの違いの詳細については、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf)です。
+> Entity Framework でデータを操作できる 3 つの方法があります: *Database First*、 *Model First*、および*Code First*です。 このチュートリアルでは、データベースの最初のです。 シナリオに合った最適なものを選択する方法でこれらのワークフローとガイダンスの違いの詳細については、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)です。
 > 
 > ## <a name="web-forms"></a>Web フォーム
 > 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > ## <a name="questions"></a>質問
 > 
-> チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework でも LINQ to Entities フォーラム](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)です。
+> チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework でも LINQ to Entities フォーラム](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)です。
 
 
 ## <a name="overview"></a>概要
@@ -96,7 +96,7 @@ ms.lasthandoff: 11/10/2017
 
 このチュートリアルで使用される、データベース優先メソッドを次の手順は、サイト データベースを追加するは。 最も簡単な方法では、まずこのチュートリアルでは、プロジェクトをダウンロードします。 右クリックし、*アプリ\_データ*フォルダーを選択**既存項目の追加**を選択し、 *School.mdf*データベース プロジェクト ファイルのダウンロードします。
 
-代わりに、ある手順に従ってし[School サンプル データベースを作成する](https://msdn.microsoft.com/en-us/library/bb399731.aspx)です。 データベースをダウンロードするか、作成するかどうかをコピー、 *School.mdf*ファイルは、次のフォルダーから、アプリケーションの*アプリ\_データ*フォルダー。
+代わりに、ある手順に従ってし[School サンプル データベースを作成する](https://msdn.microsoft.com/library/bb399731.aspx)です。 データベースをダウンロードするか、作成するかどうかをコピー、 *School.mdf*ファイルは、次のフォルダーから、アプリケーションの*アプリ\_データ*フォルダー。
 
 `%PROGRAMFILES%\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA`
 

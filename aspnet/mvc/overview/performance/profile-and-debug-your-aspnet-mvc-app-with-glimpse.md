@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 98b21a54ba00a8c82c3be7ba4e39d44041ed42c6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9cfdced21251b482ca527dda9c3a698de77cc8ca
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>プロファイルし、Glimpse による ASP.NET MVC アプリのデバッグ
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-> Glimpse は、成功し、詳細なパフォーマンスを提供する NuGet パッケージのオープン ソースのファミリを拡大して、デバッグ、および ASP.NET アプリ用の診断情報。 インストールする自明の軽量の超高速と、すべてのページの下部にある主要なパフォーマンス メトリックを表示します。 サーバーで何が起こってを確認する必要がある場合、アプリにドリル ダウンすることができます。 Glimpse は、Azure のテスト環境など、開発サイクル全体で使用することをお勧めほどの貴重な情報を提供します。 中に[Fiddler](http://www.telerik.com/fiddler)と[F-12 開発ツール](https://msdn.microsoft.com/en-us/library/ie/gg589512(v=vs.85).aspx)クライアント側の提供ビュー、Glimpse がサーバーから詳細ビューを提供します。 Glimpse ASP.NET MVC と EF パッケージを使用してではこのチュートリアルに焦点が、その他の多くのパッケージを利用できます。 適切なリンクが可能な限り[皮下 docs](http://getglimpse.com/Docs/)のためを維持します。 Glimpse はオープン ソース プロジェクトは、ソース コードとドキュメントにも寄与できます。
+> Glimpse は、成功し、詳細なパフォーマンスを提供する NuGet パッケージのオープン ソースのファミリを拡大して、デバッグ、および ASP.NET アプリ用の診断情報。 インストールする自明の軽量の超高速と、すべてのページの下部にある主要なパフォーマンス メトリックを表示します。 サーバーで何が起こってを確認する必要がある場合、アプリにドリル ダウンすることができます。 Glimpse は、Azure のテスト環境など、開発サイクル全体で使用することをお勧めほどの貴重な情報を提供します。 中に[Fiddler](http://www.telerik.com/fiddler)と[F-12 開発ツール](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx)クライアント側の提供ビュー、Glimpse がサーバーから詳細ビューを提供します。 Glimpse ASP.NET MVC と EF パッケージを使用してではこのチュートリアルに焦点が、その他の多くのパッケージを利用できます。 適切なリンクが可能な限り[皮下 docs](http://getglimpse.com/Docs/)のためを維持します。 Glimpse はオープン ソース プロジェクトは、ソース コードとドキュメントにも寄与できます。
 
 
 - [Glimpse のインストール](#ig)
@@ -55,7 +55,7 @@ Glimpse をインストールするには、NuGet パッケージ マネージ�
 <a id="eg"></a>
 ## <a name="enable-glimpse-for-localhost"></a>Localhost の流れを有効にします。
 
-Http://localhost に移動:&lt;ポート番号&gt;/glimpse.axd をクリックして、 **Glimpse をオンにする**ボタンをクリックします。
+Navigate to http://localhost:&lt;port #&gt;/glimpse.axd and click the **Turn Glimpse On** button.
 
 ![Glimpse axd ページ](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image4.png)
 
@@ -113,7 +113,7 @@ Glimpse の既定のセキュリティ ポリシーは、ローカル ホスト�
 
 この変更によりだけで、すべてのユーザーは、リモート サイトに Glimpse データを表示できます。 のみ展開、適用されている発行プロファイル (など、Azure テスト proifle。) を使用する場合は、発行プロファイルを上マークアップを追加します。Glimpse データを制限するのには追加、`canViewGlimpseData`ロール Glimpse データを表示するには、このロールのユーザーのみを許可するとします。
 
-コメントを削除、 *GlimpseSecurityPolicy.cs*ファイルし、変更、 [IsInRole](https://msdn.microsoft.com/en-us/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx)から呼び出す`Administrator`を`canViewGlimpseData`ロール。
+コメントを削除、 *GlimpseSecurityPolicy.cs*ファイルし、変更、 [IsInRole](https://msdn.microsoft.com/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx)から呼び出す`Administrator`を`canViewGlimpseData`ロール。
 
 [!code-csharp[Main](profile-and-debug-your-aspnet-mvc-app-with-glimpse/samples/sample4.cs?highlight=6)]
 
@@ -121,10 +121,10 @@ Glimpse の既定のセキュリティ ポリシーは、ローカル ホスト�
 > セキュリティ - Glimpse によって提供される豊富なデータには、アプリのセキュリティでした公開します。 Microsoft では、運用アプリで使用する Glimpse のセキュリティ監査が実行されません。
 
 
-ロールを追加する方法については、次を参照してください。 [メンバーシップ、OAuth、SQL データベースで ASP.NET MVC 5 のセキュリティで保護された web アプリケーションを Azure にデプロイ](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)チュートリアルです。
+ロールを追加する方法については、次を参照してください。 [メンバーシップ、OAuth、SQL データベースで ASP.NET MVC 5 のセキュリティで保護された web アプリケーションを Azure にデプロイ](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)チュートリアルです。
 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>その他のリソース
 
-- [Azure へのメンバーシップ、OAuth、および SQL データベースでのセキュリティで保護された ASP.NET MVC 5 アプリを配置します。](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
+- [Azure へのメンバーシップ、OAuth、および SQL データベースでのセキュリティで保護された ASP.NET MVC 5 アプリを配置します。](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
 - [構成を皮下](http://getglimpse.com/Docs/Configuration)-ドキュメント ページ タブ、実行時ポリシー、ログ記録の構成にします。

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 1ea779cb10661512690e3fec16ae73be0f40d15a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f43f0a2dd80e26ecff15e5742e18264ddb5b26aa
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>ASP.NET Id のカスタムの記憶域プロバイダーの概要
 ====================
@@ -73,7 +73,7 @@ ASP.NET Identity のカスタマイズされた記憶域プロバイダーを作
 
 | データ | 説明 |
 | --- | --- |
-| Users | Web サイトの登録ユーザー。 ユーザー Id とユーザー名が含まれます。 ユーザーが、サイトに固有の資格情報でログオンする場合、ハッシュされたパスワードを含めることがなく Facebook などの外部のサイトからの資格情報を使用して)、およびユーザーの資格情報で変更された内容かどうかを示すためにセキュリティ スタンプします。 電話番号、現在の数が失敗したログインで 2 要素認証が有効になっているかどうか、電子メール アドレスが含まれますも、アカウントがロックされているかどうか。 |
+| ユーザー | Web サイトの登録ユーザー。 ユーザー Id とユーザー名が含まれます。 ユーザーが、サイトに固有の資格情報でログオンする場合、ハッシュされたパスワードを含めることがなく Facebook などの外部のサイトからの資格情報を使用して)、およびユーザーの資格情報で変更された内容かどうかを示すためにセキュリティ スタンプします。 電話番号、現在の数が失敗したログインで 2 要素認証が有効になっているかどうか、電子メール アドレスが含まれますも、アカウントがロックされているかどうか。 |
 | ユーザーの信頼性情報 | ユーザーの id を表すユーザーに関するステートメント (または要求) のセット。 ロールで実現できるよりも、ユーザーの id の大きい式を有効にできます。 |
 | ユーザーのログイン | (Facebook) などの外部認証プロバイダーについては、ユーザーのログイン時に使用します。 |
 | 役割 | サイトのグループを承認します。 ロールの Id とロール名 ("Admin"、"Employee"など) が含まれます。 |
@@ -109,15 +109,15 @@ ASP.NET Identity 2.0 のデータのリポジトリの MySQL 実装を参照し�
 <a id="user"></a>
 ## <a name="customize-the-user-class"></a>ユーザー クラスをカスタマイズします。
 
-等価であるユーザー クラスを作成する必要があります、独自の記憶域プロバイダーを実装する場合、 [IdentityUser](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework.identityuser(v=vs.108).aspx)クラス内で、 [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx)名前空間。
+等価であるユーザー クラスを作成する必要があります、独自の記憶域プロバイダーを実装する場合、 [IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser(v=vs.108).aspx)クラス内で、 [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx)名前空間。
 
 次の図は、このクラスで実装するインターフェイスおよび作成する必要がありますを IdentityUser クラスを示します。
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image2.png)
 
-[IUser&lt;TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613291(v=vs.108).aspx)インターフェイスは UserManager が操作を要求を実行するときに呼び出すしようとするプロパティを定義します。 インターフェイスには、次の 2 つのプロパティ - Id とユーザー名が含まれています。 [IUser&lt;TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613291(v=vs.108).aspx)インターフェイスでは、ジェネリックを通じてユーザーのキーの種類を指定することができます**TKey**パラメーター。 Id プロパティの型では、TKey パラメーターの値と一致します。
+[IUser&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613291(v=vs.108).aspx)インターフェイスは UserManager が操作を要求を実行するときに呼び出すしようとするプロパティを定義します。 インターフェイスには、次の 2 つのプロパティ - Id とユーザー名が含まれています。 [IUser&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613291(v=vs.108).aspx)インターフェイスでは、ジェネリックを通じてユーザーのキーの種類を指定することができます**TKey**パラメーター。 Id プロパティの型では、TKey パラメーターの値と一致します。
 
-Identity framework も用意されています、 [IUser](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.iuser(v=vs.108).aspx)インターフェイス (ジェネリック パラメーター) がない場合、キーの文字列値を使用する場合。
+Identity framework も用意されています、 [IUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.iuser(v=vs.108).aspx)インターフェイス (ジェネリック パラメーター) がない場合、キーの文字列値を使用する場合。
 
 IdentityUser クラスは、IUser を実装し、任意の追加のプロパティまたは web サイトでユーザーのコンス トラクターが含まれています。 次の例では、キーの整数を使用する IdentityUser クラスを示します。 Id フィールドに設定されている**int**ジェネリック パラメーターの値と一致しません。 
 
@@ -128,7 +128,7 @@ IdentityUser クラスは、IUser を実装し、任意の追加のプロパテ�
 <a id="userstore"></a>
 ## <a name="customize-the-user-store"></a>ユーザーのストアをカスタマイズします。
 
-ユーザーに対するすべてのデータ操作のメソッドを提供する UserStore クラスを作成します。 このクラスは、 [UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/en-us/library/dn315446(v=vs.108).aspx)クラス内で、 [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx)名前空間。 実装する、UserStore クラスで、 [IUserStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613276(v=vs.108).aspx)と省略可能なインターフェイスのいずれか。 省略可能なインターフェイスを実装するを選択すると、アプリケーションに提供する機能に基づいています。
+ユーザーに対するすべてのデータ操作のメソッドを提供する UserStore クラスを作成します。 このクラスは、 [UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn315446(v=vs.108).aspx)クラス内で、 [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx)名前空間。 実装する、UserStore クラスで、 [IUserStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx)と省略可能なインターフェイスのいずれか。 省略可能なインターフェイスを実装するを選択すると、アプリケーションに提供する機能に基づいています。
 
 次の図は、作成する必要があります、UserStore クラスと関連するインターフェイスを示します。
 
@@ -153,27 +153,27 @@ UserStore クラス内では、操作を実行するために作成したデー�
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image4.png)
 
 - **IUserStore**  
- [IUserStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613278(v=vs.108).aspx)インターフェイスは、唯一のインターフェイス、ユーザーのストアで実装する必要があります。 作成、更新、削除、およびユーザーを取得するためのメソッドを定義します。
+ [IUserStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613278(v=vs.108).aspx)インターフェイスは、唯一のインターフェイス、ユーザーのストアで実装する必要があります。 作成、更新、削除、およびユーザーを取得するためのメソッドを定義します。
 - **IUserClaimStore**  
- [IUserClaimStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613265(v=vs.108).aspx)インターフェイス メソッドを定義するユーザーの信頼性情報を有効にする、ユーザーのストアで実装する必要があります。 メソッドまたは追加、削除および取得するユーザーの信頼性情報が含まれています。
+ [IUserClaimStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613265(v=vs.108).aspx)インターフェイス メソッドを定義するユーザーの信頼性情報を有効にする、ユーザーのストアで実装する必要があります。 メソッドまたは追加、削除および取得するユーザーの信頼性情報が含まれています。
 - **IUserLoginStore**  
- [IUserLoginStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613272(v=vs.108).aspx)メソッドを定義します外部認証プロバイダーを有効にする、ユーザーのストアで実装する必要があります。 追加、削除、およびユーザーのログインとログイン情報に基づいてユーザーを取得するためのメソッドを取得するためのメソッドが含まれています。
+ [IUserLoginStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613272(v=vs.108).aspx)メソッドを定義します外部認証プロバイダーを有効にする、ユーザーのストアで実装する必要があります。 追加、削除、およびユーザーのログインとログイン情報に基づいてユーザーを取得するためのメソッドを取得するためのメソッドが含まれています。
 - **IUserRoleStore**  
- [IUserRoleStore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/en-us/library/dn613276(v=vs.108).aspx)インターフェイス メソッドを定義するロールにユーザーをマップするユーザー ストアで実装する必要があります。 追加、削除、およびユーザーのロール、およびユーザーがロールに割り当てられているかどうかをチェックするメソッドを取得するメソッドが含まれています。
+ [IUserRoleStore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx)インターフェイス メソッドを定義するロールにユーザーをマップするユーザー ストアで実装する必要があります。 追加、削除、およびユーザーのロール、およびユーザーがロールに割り当てられているかどうかをチェックするメソッドを取得するメソッドが含まれています。
 - **IUserPasswordStore**  
- [IUserPasswordStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613273(v=vs.108).aspx)インターフェイス定義を保持する、ユーザー ストアに実装する必要がありますメソッドのパスワードをハッシュします。 ハッシュされたパスワード、およびユーザーがパスワードを設定するかどうかを示すメソッド取得および設定のためのメソッドが含まれています。
+ [IUserPasswordStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx)インターフェイス定義を保持する、ユーザー ストアに実装する必要がありますメソッドのパスワードをハッシュします。 ハッシュされたパスワード、およびユーザーがパスワードを設定するかどうかを示すメソッド取得および設定のためのメソッドが含まれています。
 - **IUserSecurityStampStore**  
- [IUserSecurityStampStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613277(v=vs.108).aspx)インターフェイス メソッドを定義しますセキュリティ スタンプを使用して、ユーザーのアカウント情報が変更されたかどうかを示すために、ユーザー ストアに実装する必要があります. ユーザーをパスワードを変更または追加または削除のログイン時に、このスタンプが更新されます。 取得およびセキュリティ スタンプを設定するためのメソッドが含まれています。
+ [IUserSecurityStampStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx)インターフェイス メソッドを定義しますセキュリティ スタンプを使用して、ユーザーのアカウント情報が変更されたかどうかを示すために、ユーザー ストアに実装する必要があります. ユーザーをパスワードを変更または追加または削除のログイン時に、このスタンプが更新されます。 取得およびセキュリティ スタンプを設定するためのメソッドが含まれています。
 - **IUserTwoFactorStore**  
- [IUserTwoFactorStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613279(v=vs.108).aspx)インターフェイス 2 要素認証が実装に実装する必要があるメソッドを定義します。 取得およびユーザーの 2 要素認証が有効になっているかどうかを設定するためのメソッドが含まれています。
+ [IUserTwoFactorStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx)インターフェイス 2 要素認証が実装に実装する必要があるメソッドを定義します。 取得およびユーザーの 2 要素認証が有効になっているかどうかを設定するためのメソッドが含まれています。
 - **IUserPhoneNumberStore**  
- [IUserPhoneNumberStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613275(v=vs.108).aspx)インターフェイスがユーザーの電話番号を格納するために実装する必要がありますメソッドを定義します。 電話番号および電話番号が確認されているかどうか取得および設定のためのメソッドが含まれています。
+ [IUserPhoneNumberStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx)インターフェイスがユーザーの電話番号を格納するために実装する必要がありますメソッドを定義します。 電話番号および電話番号が確認されているかどうか取得および設定のためのメソッドが含まれています。
 - **IUserEmailStore**  
- [IUserEmailStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613143(v=vs.108).aspx)インターフェイスがユーザーの電子メール アドレスを格納するために実装する必要がありますメソッドを定義します。 電子メール アドレスおよび電子メールが確認されているかどうか取得および設定のためのメソッドが含まれています。
+ [IUserEmailStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx)インターフェイスがユーザーの電子メール アドレスを格納するために実装する必要がありますメソッドを定義します。 電子メール アドレスおよび電子メールが確認されているかどうか取得および設定のためのメソッドが含まれています。
 - **IUserLockoutStore**  
- [IUserLockoutStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613271(v=vs.108).aspx)インターフェイスがアカウントのロックに関する情報を格納するために実装する必要がありますメソッドを定義します。 失敗したアクセス試行の現在の数を取得、取得し設定を取得する、アカウントをロックすることができ、試行に失敗しましたの番号のインクリメント ロックアウトの終了日を設定するかどうかおよび失敗した回数をリセットするためのメソッドが含まれています。
+ [IUserLockoutStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613271(v=vs.108).aspx)インターフェイスがアカウントのロックに関する情報を格納するために実装する必要がありますメソッドを定義します。 失敗したアクセス試行の現在の数を取得、取得し設定を取得する、アカウントをロックすることができ、試行に失敗しましたの番号のインクリメント ロックアウトの終了日を設定するかどうかおよび失敗した回数をリセットするためのメソッドが含まれています。
 - **IQueryableUserStore**  
- [IQueryableUserStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613267(v=vs.108).aspx)インターフェイス メンバーを定義しますクエリ可能なユーザー ストアを提供するために実装する必要があります。 クエリ可能なユーザーを保持するプロパティが含まれています。
+ [IQueryableUserStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613267(v=vs.108).aspx)インターフェイス メンバーを定義しますクエリ可能なユーザー ストアを提供するために実装する必要があります。 クエリ可能なユーザーを保持するプロパティが含まれています。
 
  アプリケーション内では、必要なインターフェイスを実装します。など、IUserClaimStore、IUserLoginStore、IUserRoleStore、IUserPasswordStore、および IUserSecurityStampStore は、次に示すようにインターフェイスです。 
 
@@ -183,22 +183,22 @@ UserStore クラス内では、操作を実行するために作成したデー�
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim、IdentityUserLogin、および IdentityUserRole
 
-Microsoft.AspNet.Identity.EntityFramework 名前空間の実装を含む、 [IdentityUserClaim](https://msdn.microsoft.com/en-us/library/dn613250(v=vs.108).aspx)、 [IdentityUserLogin](https://msdn.microsoft.com/en-us/library/dn613251(v=vs.108).aspx)、および[IdentityUserRole](https://msdn.microsoft.com/en-us/library/dn613252(v=vs.108).aspx)クラス。 これらの機能を使用している場合は、これらのクラスの独自バージョンを作成して、アプリケーションのプロパティを定義することがあります。 ただし、場合もありますがこれらのエンティティを追加または削除、ユーザーの要求) などの基本的な操作を実行するときにメモリに読み込まれないする方が効率的です。 代わりに、バックエンド ストア クラスは、データ ソースで直接これらの操作を実行できます。 たとえば、UserStore.GetClaimsAsync() メソッドは、userClaimTable.FindByUserId(user. を呼び出すことができます。Id) でクエリを実行するをメソッドを直接の表に信頼性情報の一覧を返します。
+Microsoft.AspNet.Identity.EntityFramework 名前空間の実装を含む、 [IdentityUserClaim](https://msdn.microsoft.com/library/dn613250(v=vs.108).aspx)、 [IdentityUserLogin](https://msdn.microsoft.com/library/dn613251(v=vs.108).aspx)、および[IdentityUserRole](https://msdn.microsoft.com/library/dn613252(v=vs.108).aspx)クラス。 これらの機能を使用している場合は、これらのクラスの独自バージョンを作成して、アプリケーションのプロパティを定義することがあります。 ただし、場合もありますがこれらのエンティティを追加または削除、ユーザーの要求) などの基本的な操作を実行するときにメモリに読み込まれないする方が効率的です。 代わりに、バックエンド ストア クラスは、データ ソースで直接これらの操作を実行できます。 たとえば、UserStore.GetClaimsAsync() メソッドは、userClaimTable.FindByUserId(user. を呼び出すことができます。Id) でクエリを実行するをメソッドを直接の表に信頼性情報の一覧を返します。
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample6.cs)]
 
 <a id="role"></a>
 ## <a name="customize-the-role-class"></a>Role クラスをカスタマイズします。
 
-等価であるロール クラスを作成する必要があります、独自の記憶域プロバイダーを実装する場合、 [IdentityRole](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework.identityrole(v=vs.108).aspx)クラス内で、 [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx)名前空間。
+等価であるロール クラスを作成する必要があります、独自の記憶域プロバイダーを実装する場合、 [IdentityRole](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityrole(v=vs.108).aspx)クラス内で、 [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx)名前空間。
 
 次の図は、このクラスで実装するインターフェイスおよび作成する必要がありますを IdentityRole クラスを示します。
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image5.png)
 
-[IRole&lt;TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613268(v=vs.108).aspx)インターフェイスは、RoleManager が操作を要求を実行するときに呼び出すしようとするプロパティを定義します。 インターフェイスには、次の 2 つのプロパティ - Id と名前が含まれています。 [IRole&lt;TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613268(v=vs.108).aspx)インターフェイスでは、ジェネリックを経由して、ロールのキーの種類を指定することができます**TKey**パラメーター。 Id プロパティの型では、TKey パラメーターの値と一致します。
+[IRole&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613268(v=vs.108).aspx)インターフェイスは、RoleManager が操作を要求を実行するときに呼び出すしようとするプロパティを定義します。 インターフェイスには、次の 2 つのプロパティ - Id と名前が含まれています。 [IRole&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613268(v=vs.108).aspx)インターフェイスでは、ジェネリックを経由して、ロールのキーの種類を指定することができます**TKey**パラメーター。 Id プロパティの型では、TKey パラメーターの値と一致します。
 
-Identity framework も用意されています、 [IRole](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.irole(v=vs.108).aspx)インターフェイス (ジェネリック パラメーター) がない場合、キーの文字列値を使用する場合。
+Identity framework も用意されています、 [IRole](https://msdn.microsoft.com/library/microsoft.aspnet.identity.irole(v=vs.108).aspx)インターフェイス (ジェネリック パラメーター) がない場合、キーの文字列値を使用する場合。
 
 次の例では、キーの整数を使用する IdentityRole クラスを示します。 Id フィールドは、ジェネリック パラメーターの値に一致する int に設定されます。 
 
@@ -209,7 +209,7 @@ Identity framework も用意されています、 [IRole](https://msdn.microsoft
 <a id="rolestore"></a>
 ## <a name="customize-the-role-store"></a>ロール ストアをカスタマイズします。
 
-ロールでのすべてのデータ操作のメソッドを提供する RoleStore クラスを作成します。 このクラスは、 [RoleStore&lt;TRole&gt; ](https://msdn.microsoft.com/en-us/library/dn468181(v=vs.108).aspx) Microsoft.ASP.NET.Identity.EntityFramework 名前空間のクラスです。 実装する、RoleStore クラスで、 [IRoleStore&lt;TRole、TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613266(v=vs.108).aspx)し、必要に応じて、 [IQueryableRoleStore&lt;TRole、TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613262(v=vs.108).aspx)インターフェイスです。
+ロールでのすべてのデータ操作のメソッドを提供する RoleStore クラスを作成します。 このクラスは、 [RoleStore&lt;TRole&gt; ](https://msdn.microsoft.com/library/dn468181(v=vs.108).aspx) Microsoft.ASP.NET.Identity.EntityFramework 名前空間のクラスです。 実装する、RoleStore クラスで、 [IRoleStore&lt;TRole、TKey&gt; ](https://msdn.microsoft.com/library/dn613266(v=vs.108).aspx)し、必要に応じて、 [IQueryableRoleStore&lt;TRole、TKey&gt; ](https://msdn.microsoft.com/library/dn613262(v=vs.108).aspx)インターフェイスです。
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image6.png)
 
@@ -218,7 +218,7 @@ Identity framework も用意されています、 [IRole](https://msdn.microsoft
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample8.cs)]
 
 - **IRoleStore&lt;TRole&gt;**  
- [IRoleStore](https://msdn.microsoft.com/en-us/library/dn468195.aspx)インターフェイスは、ロール ストアのクラスに実装するメソッドを定義します。 作成、更新、削除、およびロールを取得するためのメソッドが含まれています。
+ [IRoleStore](https://msdn.microsoft.com/library/dn468195.aspx)インターフェイスは、ロール ストアのクラスに実装するメソッドを定義します。 作成、更新、削除、およびロールを取得するためのメソッドが含まれています。
 - **RoleStore&lt;TRole&gt;**  
  RoleStore をカスタマイズするには、IRoleStore インターフェイスを実装するクラスを作成します。 のみがある場合は、このクラスを実装する、システムの役割を使用します。 という名前のパラメーターを受け取るコンス トラクター*データベース*ExampleDatabase は、データ アクセス クラスに渡す方法の具体的な型のです。 たとえば、このコンス トラクターは、実装では、MySQL、MySQLDatabase 型のパラメーターを受け取ります。  
   

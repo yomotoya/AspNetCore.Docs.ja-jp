@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: c2e7a768c2cf9900731b822ec187093a4b250ead
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e5610753968328e5d0f1dba4cbbfed08480fd773
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a>展開をサポートするビルド定義を作成します。
 ====================
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/10/2017
 - ビルド プロセスのさまざまな他のパラメーターです。
 
 > [!NOTE]
-> ビルド定義の詳細については、次を参照してください。[ビルド プロセスの定義](https://msdn.microsoft.com/en-us/library/ms181715.aspx)です。
+> ビルド定義の詳細については、次を参照してください。[ビルド プロセスの定義](https://msdn.microsoft.com/library/ms181715.aspx)です。
 
 
 このトピックでは、開発者が新しいコンテンツをチェックインする際に、ビルドがトリガーされるように、構成項目を使用するビルド定義を作成する方法を示します。 ビルドが成功すると、ビルド サービスはテスト環境にソリューションを配置するカスタム プロジェクト ファイルを実行します。
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/10/2017
 11. 使用する展開プロセスを制御、ファイルを選択してをクリックして、カスタムのプロジェクト ファイルの場所を参照**OK**です。
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image6.png)
-12. **ビルドする項目** ダイアログ ボックスでは 2 つの項目が表示されるはずです。 **[OK]** をクリックします。
+12. **ビルドする項目** ダイアログ ボックスでは 2 つの項目が表示されるはずです。 **[OK]**をクリックします。
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image7.png)
 13. **プロセス**] タブの [、**ビルド プロセス パラメーター**テーブルで、展開、**詳細**セクションです。
@@ -149,7 +149,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="monitor-the-build-process"></a>ビルド プロセスを監視します。
 
-TFS では、ビルド プロセスの監視に役立つ機能の広範な範囲を提供します。 たとえば、TFS は、電子メールが送信またはビルドが完了したら、タスク バーの通知領域にアラートを表示します。 詳細については、次を参照してください。[実行し、ビルドの監視](https://msdn.microsoft.com/en-us/library/ms181721.aspx)です。
+TFS では、ビルド プロセスの監視に役立つ機能の広範な範囲を提供します。 たとえば、TFS は、電子メールが送信またはビルドが完了したら、タスク バーの通知領域にアラートを表示します。 詳細については、次を参照してください。[実行し、ビルドの監視](https://msdn.microsoft.com/library/ms181721.aspx)です。
 
 ## <a name="conclusion"></a>まとめ
 
@@ -159,7 +159,7 @@ TFS では、ビルド プロセスの監視に役立つ機能の広範な範囲
 
 ## <a name="further-reading"></a>関連項目
 
-ビルド定義を作成する方法の詳細については、次を参照してください。[基本的なビルド定義を作成する](https://msdn.microsoft.com/en-us/library/ms181716.aspx)と[ビルド プロセスの定義](https://msdn.microsoft.com/en-us/library/ms181715.aspx)です。 キュー ビルドの詳細については、次を参照してください。[ビルドをキュー](https://msdn.microsoft.com/en-us/library/ms181722.aspx)です。
+ビルド定義を作成する方法の詳細については、次を参照してください。[基本的なビルド定義を作成する](https://msdn.microsoft.com/library/ms181716.aspx)と[ビルド プロセスの定義](https://msdn.microsoft.com/library/ms181715.aspx)です。 キュー ビルドの詳細については、次を参照してください。[ビルドをキュー](https://msdn.microsoft.com/library/ms181722.aspx)です。
 
 >[!div class="step-by-step"]
 [前へ](configuring-a-tfs-build-server-for-web-deployment.md)

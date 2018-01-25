@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-cs
 msc.type: authoredcontent
-ms.openlocfilehash: eda544d72fe3449c8d701fc579f2f26d37090f24
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3c5f797691a6920c65db7e3906aa5fd3b348b54b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="debugging-stored-procedures-c"></a>ストアド プロシージャのデバッグ (c#)
 ====================
@@ -39,7 +39,7 @@ Visual Studio には、豊富なデバッグ機能が用意されています。
 
 ## <a name="sql-server-debugging-concepts"></a>SQL Server デバッグの概念
 
-Microsoft SQL Server 2005 の設計との統合環境を[共通言語ランタイム (CLR)](https://msdn.microsoft.com/en-us/netframework/aa497266.aspx)、これは、すべての .NET アセンブリで使用されるランタイム。 その結果、SQL Server 2005 では、マネージ データベース オブジェクトをサポートしています。 つまり、c# クラスのメソッドとして、ストアド プロシージャおよびユーザー定義関数 (Udf) のようなデータベース オブジェクトを作成できます。 これにより、これらのストアド プロシージャおよび Udf を .NET Framework では、独自のカスタム クラスからの機能を利用できます。 もちろん、SQL Server 2005 は、T-SQL でデータベース オブジェクトに対するサポートも提供しています。
+Microsoft SQL Server 2005 の設計との統合環境を[共通言語ランタイム (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx)、これは、すべての .NET アセンブリで使用されるランタイム。 その結果、SQL Server 2005 では、マネージ データベース オブジェクトをサポートしています。 つまり、c# クラスのメソッドとして、ストアド プロシージャおよびユーザー定義関数 (Udf) のようなデータベース オブジェクトを作成できます。 これにより、これらのストアド プロシージャおよび Udf を .NET Framework では、独自のカスタム クラスからの機能を利用できます。 もちろん、SQL Server 2005 は、T-SQL でデータベース オブジェクトに対するサポートも提供しています。
 
 SQL Server 2005 では、T-SQL とマネージ データベース オブジェクトの両方に対するデバッグのサポートを提供します。 ただし、これらのオブジェクトは、Visual Studio 2005 Professional とチームのシステムのエディションでのみデバッグできます。 このチュートリアルでは、デバッグの T-SQL でデータベース オブジェクトについて調べます。 以降のチュートリアルは、マネージ データベース オブジェクトのデバッグで検索します。
 
@@ -53,7 +53,7 @@ Visual Studio では、ローカルおよびリモートの SQL Server インス
 
 ローカル SQL Server インスタンスを使用している場合は、手順 1 から始まります。 と末尾には、このチュートリアルです。 リモートの SQL Server インスタンスを使用している場合が表示されます、開発用コンピューターをリモート インスタンスで SQL Server ログインを持つ Windows ユーザー アカウントを使用することを確認するをデバッグするときに最初の必要性がログに記録されます。 Moveover、このデータベースのログインと、実行中の ASP.NET アプリケーションからデータベースへの接続に使用するデータベース ログインの両方のメンバーである必要があります、`sysadmin`ロール。 リモート インスタンスをデバッグするには、Visual Studio および SQL Server の構成の詳細については、このチュートリアルの最後に、リモート インスタンスのセクションで、デバッグの T-SQL でデータベース オブジェクトを参照してください。
 
-最後に、T-SQL でデータベース オブジェクトのデバッグをサポートされている .NET アプリケーションのデバッグをサポートと豊富な機能としてを理解します。 たとえば、ブレークポイントの条件およびフィルターはサポートされていません、のみ、デバッグ ウィンドウのサブセットが使用可能なエディット コンティニュを使用することはできません、役に立たないなど、イミディ エイト ウィンドウが表示されます。 参照してください[デバッガー コマンドおよび機能に関する制限事項](https://msdn.microsoft.com/en-us/library/ms165035(VS.80).aspx)詳細についてはします。
+最後に、T-SQL でデータベース オブジェクトのデバッグをサポートされている .NET アプリケーションのデバッグをサポートと豊富な機能としてを理解します。 たとえば、ブレークポイントの条件およびフィルターはサポートされていません、のみ、デバッグ ウィンドウのサブセットが使用可能なエディット コンティニュを使用することはできません、役に立たないなど、イミディ エイト ウィンドウが表示されます。 参照してください[デバッガー コマンドおよび機能に関する制限事項](https://msdn.microsoft.com/library/ms165035(VS.80).aspx)詳細についてはします。
 
 ## <a name="step-1-directly-stepping-into-a-stored-procedure"></a>手順 1: は、ストアド プロシージャに直接ステップ イン
 
@@ -172,13 +172,13 @@ SQL Server データベース インスタンスが Visual Studio と同じコ�
 
 [!code-console[Main](debugging-stored-procedures-cs/samples/sample2.cmd)]
 
-このプロセスの詳細については、次を参照してください[William R. Vaughn](http://betav.com/BLOG/billva/) s *Hitchhiker s Visual Studio と SQL Server, エディションの 7 番目のガイド*だけでなく[操作方法: SQL Server のアクセス許可の設定。デバッグ用](https://msdn.microsoft.com/en-us/library/w1bhybwz(VS.80).aspx)です。
+このプロセスの詳細については、次を参照してください[William R. Vaughn](http://betav.com/BLOG/billva/) s *Hitchhiker s Visual Studio と SQL Server, エディションの 7 番目のガイド*だけでなく[操作方法: SQL Server のアクセス許可の設定。デバッグ用](https://msdn.microsoft.com/library/w1bhybwz(VS.80).aspx)です。
 
 > [!NOTE]
-> 開発用コンピューターには、Windows XP Service Pack 2 が実行されている場合は、リモート デバッグを行うためのインターネット接続ファイアウォールを構成する必要があります。 [方法を: SQL Server 2005 のデバッグを有効にする](https://msdn.microsoft.com/en-us/library/s0fk6z6e(VS.80).aspx)資料がこれには 2 つの手順を示します: (a)、Visual Studio ホスト コンピューターに、追加する必要があります`Devenv.exe`例外の一覧と、TCP 135 ポートを開くと (b) にリモート (SQL) コンピューターには、開く必要がありますTCP 135 ポートを追加`sqlservr.exe`例外の一覧にします。 ドメイン ポリシーでは、ネットワーク通信を IPSec を使用して行う必要がある場合、UDP 4500 と UDP 500 のポートを開く必要があります。
+> 開発用コンピューターには、Windows XP Service Pack 2 が実行されている場合は、リモート デバッグを行うためのインターネット接続ファイアウォールを構成する必要があります。 [方法を: SQL Server 2005 のデバッグを有効にする](https://msdn.microsoft.com/library/s0fk6z6e(VS.80).aspx)資料がこれには 2 つの手順を示します: (a)、Visual Studio ホスト コンピューターに、追加する必要があります`Devenv.exe`例外の一覧と、TCP 135 ポートを開くと (b) にリモート (SQL) コンピューターには、開く必要がありますTCP 135 ポートを追加`sqlservr.exe`例外の一覧にします。 ドメイン ポリシーでは、ネットワーク通信を IPSec を使用して行う必要がある場合、UDP 4500 と UDP 500 のポートを開く必要があります。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 Visual Studio は、.NET アプリケーションのコードのデバッグのサポートを提供するだけでなく、さまざまな SQL Server 2005 のデバッグ オプションも提供します。 このチュートリアルではこれらのオプションの 2 つに考えた: ダイレクト データベース デバッグと、アプリケーションのデバッグします。 T-SQL は、データベース オブジェクトを直接デバッグするには、サーバー エクスプ ローラーからオブジェクトを検索し、右クリックし、ステップ インします。 これにより、デバッガーを起動し、この時点でオブジェクトのステートメントとビューをステップし、パラメーター値の変更は、データベース オブジェクトに最初のステートメントで停止します。 手順 1. で使用して、このアプローチにステップ イン、`Products_SelectByCategoryID`ストアド プロシージャです。
 

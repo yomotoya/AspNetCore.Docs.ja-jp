@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/assigning-roles-to-users-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 752882b16fe80cc99c9f333bcc2067e677e6670b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 15d2b427e6fccfc82eab535200ba6878ab41b72e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="assigning-roles-to-users-c"></a>(C#) のユーザー ロールの割り当てください。
 ====================
@@ -81,13 +81,13 @@ DropDownList を下にある追加というリピータ`UsersRoleList`です。 
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample5.cs)]
 
-`BindUsersToUserList`メソッドはによってシステム内のすべてのユーザー アカウントを取得、 [ `Membership.GetAllUsers`メソッド](https://msdn.microsoft.com/en-us/library/dy8swhya.aspx)です。 これを返します、 [ `MembershipUserCollection`オブジェクト](https://msdn.microsoft.com/en-us/library/system.web.security.membershipusercollection.aspx)の集合である[`MembershipUser`インスタンス](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.aspx)です。 このコレクションにバインドし、 `UserList` DropDownList です。 `MembershipUser`インスタンスのコレクションにはと同様に、さまざまなプロパティが含まれている構成`UserName`、 `Email`、 `CreationDate`、および`IsOnline`です。 DropDownList の値を表示するように指示するために、`UserName`プロパティ、いることを確認、 `UserList` DropDownList の`DataTextField`と`DataValueField`プロパティは、"UserName"に設定されています。
+`BindUsersToUserList`メソッドはによってシステム内のすべてのユーザー アカウントを取得、 [ `Membership.GetAllUsers`メソッド](https://msdn.microsoft.com/library/dy8swhya.aspx)です。 これを返します、 [ `MembershipUserCollection`オブジェクト](https://msdn.microsoft.com/library/system.web.security.membershipusercollection.aspx)の集合である[`MembershipUser`インスタンス](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx)です。 このコレクションにバインドし、 `UserList` DropDownList です。 `MembershipUser`インスタンスのコレクションにはと同様に、さまざまなプロパティが含まれている構成`UserName`、 `Email`、 `CreationDate`、および`IsOnline`です。 DropDownList の値を表示するように指示するために、`UserName`プロパティ、いることを確認、 `UserList` DropDownList の`DataTextField`と`DataValueField`プロパティは、"UserName"に設定されています。
 
 > [!NOTE]
 > `Membership.GetAllUsers`メソッドに次の 2 つのオーバー ロードがあります: 入力パラメーターを受け取らずにあり、ユーザーのすべてを返します、もう 1 つで、ページのインデックスと、ページ サイズの整数値を受け取り、指定したユーザーのサブセットのみを返します。 大量のページング可能なユーザー インターフェイス要素に表示されているユーザー アカウントが存在する場合、それらのすべてではなくユーザー アカウントの正確なサブセットだけを返すので、2 番目のオーバー ロードはより効率的にユーザーを使用してページを使用できます。
 
 
-`BindRolesToList`メソッドを呼び出すことによって開始、`Roles`クラスの[`GetAllRoles`メソッド](https://msdn.microsoft.com/en-us/library/system.web.security.roles.getallroles.aspx)システムの役割を含む文字列配列が返されます。 この文字列の配列はリピータにし、バインドされています。
+`BindRolesToList`メソッドを呼び出すことによって開始、`Roles`クラスの[`GetAllRoles`メソッド](https://msdn.microsoft.com/library/system.web.security.roles.getallroles.aspx)システムの役割を含む文字列配列が返されます。 この文字列の配列はリピータにし、バインドされています。
 
 最後に、ページが最初に読み込まれたときに、これら 2 つのメソッドを呼び出す必要があります。 `Page_Load` イベント ハンドラーに次のコードを追加します。
 
@@ -107,10 +107,10 @@ DropDownList を下にある追加というリピータ`UsersRoleList`です。 
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample7.cs)]
 
-選択したユーザーを決定することにより、上記のコードを開始します。 ロールのクラスを使用して、 [ `GetRolesForUser(userName)`メソッド](https://msdn.microsoft.com/en-us/library/system.web.security.roles.getrolesforuser.aspx)文字列の配列としての役割の指定したユーザーのセットを取得します。 リピータのアイテムが列挙された次に、および各項目の`RoleCheckBox` チェック ボックスがプログラムによって参照されています。 チェック ボックスをオンに対応して、ロールに含まれる場合にのみ、`selectedUsersRoles`文字列配列。
+選択したユーザーを決定することにより、上記のコードを開始します。 ロールのクラスを使用して、 [ `GetRolesForUser(userName)`メソッド](https://msdn.microsoft.com/library/system.web.security.roles.getrolesforuser.aspx)文字列の配列としての役割の指定したユーザーのセットを取得します。 リピータのアイテムが列挙された次に、および各項目の`RoleCheckBox` チェック ボックスがプログラムによって参照されています。 チェック ボックスをオンに対応して、ロールに含まれる場合にのみ、`selectedUsersRoles`文字列配列。
 
 > [!NOTE]
-> `selectedUserRoles.Contains<string>(...)`構文は、ASP.NET 2.0 を使用している場合はコンパイルされません。 `Contains<string>`メソッドの一部である、 [LINQ ライブラリ](http://en.wikipedia.org/wiki/Language_Integrated_Query)、ASP.NET 3.5 に新機能です。 ASP.NET version 2.0 を使用して引き続き場合を使用して、 [ `Array.IndexOf<string>`メソッド](https://msdn.microsoft.com/en-us/library/eha9t187.aspx)代わりにします。
+> `selectedUserRoles.Contains<string>(...)`構文は、ASP.NET 2.0 を使用している場合はコンパイルされません。 `Contains<string>`メソッドの一部である、 [LINQ ライブラリ](http://en.wikipedia.org/wiki/Language_Integrated_Query)、ASP.NET 3.5 に新機能です。 ASP.NET version 2.0 を使用して引き続き場合を使用して、 [ `Array.IndexOf<string>`メソッド](https://msdn.microsoft.com/library/eha9t187.aspx)代わりにします。
 
 
 `CheckRolesForSelectedUser`メソッドは、2 つのケースで呼び出される必要があります: およびページが最初に読み込まれたときに、 `UserList` DropDownList の選択されたインデックスを変更します。 したがってからこのメソッドを呼び出す、`Page_Load`イベント ハンドラー (の呼び出し後に`BindUsersToUserList`と`BindRolesToList`)。 またの DropDownList のイベント ハンドラーを作成`SelectedIndexChanged`イベントからこのメソッドを呼び出すとします。
@@ -129,7 +129,7 @@ DropDownList を下にある追加というリピータ`UsersRoleList`です。 
 
 [!code-aspx[Main](assigning-roles-to-users-cs/samples/sample10.aspx)]
 
-最後のタスクが完了するには、`RoleCheckBox_CheckChanged`イベント ハンドラー。 イベントが発生したため、このチェック ボックスのインスタンスによるどのような役割が checked または unchecked 経由で CheckBox コントロールを参照することで開始する必要があります、`Text`と`Checked`プロパティです。 この情報は、選択したユーザーのユーザー名と共に使用して、おを追加または削除ユーザー ロールを介して、`Roles`クラスの[ `AddUserToRole` ](https://msdn.microsoft.com/en-us/library/system.web.security.roles.addusertorole.aspx)または[`RemoveUserFromRole`メソッド](https://msdn.microsoft.com/en-us/library/system.web.security.roles.removeuserfromrole.aspx)です。
+最後のタスクが完了するには、`RoleCheckBox_CheckChanged`イベント ハンドラー。 イベントが発生したため、このチェック ボックスのインスタンスによるどのような役割が checked または unchecked 経由で CheckBox コントロールを参照することで開始する必要があります、`Text`と`Checked`プロパティです。 この情報は、選択したユーザーのユーザー名と共に使用して、おを追加または削除ユーザー ロールを介して、`Roles`クラスの[ `AddUserToRole` ](https://msdn.microsoft.com/library/system.web.security.roles.addusertorole.aspx)または[`RemoveUserFromRole`メソッド](https://msdn.microsoft.com/library/system.web.security.roles.removeuserfromrole.aspx)です。
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample11.cs)]
 
@@ -181,7 +181,7 @@ DropDownList を下にある追加というリピータ`UsersRoleList`です。 
 
 [!code-csharp[Main](assigning-roles-to-users-cs/samples/sample14.cs)]
 
-このメソッドは、選択したロールから取得することによって開始、 `RoleList` DropDownList です。 次を使用して、 [ `Roles.GetUsersInRole(roleName)`メソッド](https://msdn.microsoft.com/en-us/library/system.web.security.roles.getusersinrole.aspx)そのロールに属しているユーザーのユーザー名の文字列の配列を取得します。 この配列にバインドし、 `RolesUserList` GridView です。
+このメソッドは、選択したロールから取得することによって開始、 `RoleList` DropDownList です。 次を使用して、 [ `Roles.GetUsersInRole(roleName)`メソッド](https://msdn.microsoft.com/library/system.web.security.roles.getusersinrole.aspx)そのロールに属しているユーザーのユーザー名の文字列の配列を取得します。 この配列にバインドし、 `RolesUserList` GridView です。
 
 このメソッドは、2 つの状況で呼び出される必要があります。 ページが最初に読み込まれるとき、およびで選択された役割、 `RoleList` DropDownList 変更します。 このため、更新、`Page_Load`イベント ハンドラー呼び出しの後にこのメソッドが呼び出されるように`CheckRolesForSelectedUser`です。 イベント ハンドラーを次に、作成、`RoleList`の`SelectedIndexChanged`イベント、しすぎるそこから、このメソッドを呼び出します。
 
@@ -242,7 +242,7 @@ GridView に削除ボタン フィールドを追加することで開始しま�
 内のコードの大部分、`Click`イベント ハンドラーは、さまざまな検証チェックを実行します。 訪問者が内のユーザー名を提供することを確認、 `UserNameToAddToRole`  ボックスに、ユーザーは、システムに存在して、選択したロールに既に属しているしないことです。 適切なメッセージが表示される場合、これらのいずれかの確認が失敗した、`ActionStatus`し、イベント ハンドラーが終了しました。 ユーザーが経由でロールを追加、すべてのチェックに合格した場合、`Roles.AddUserToRole`メソッドです。 次に、テキスト ボックスの`Text`プロパティがオフ、GridView が更新されると、および`ActionStatus`ラベルには、指定されたユーザーが選択した役割を正常に追加されたことを示すメッセージが表示されます。
 
 > [!NOTE]
-> 指定されたユーザーは既にに属していないこと、選択したロールには、使用して、 [ `Roles.IsUserInRole(userName, roleName)`メソッド](https://msdn.microsoft.com/en-us/library/system.web.security.roles.isuserinrole.aspx)を示すブール値を返すことをするかどうか*ユーザー名*のメンバーである*roleName*です。 内で再度このメソッドを使用しては、 <a id="_msoanchor_2"> </a>[次のチュートリアル](role-based-authorization-cs.md)ロールベースの承認を見てとき。
+> 指定されたユーザーは既にに属していないこと、選択したロールには、使用して、 [ `Roles.IsUserInRole(userName, roleName)`メソッド](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx)を示すブール値を返すことをするかどうか*ユーザー名*のメンバーである*roleName*です。 内で再度このメソッドを使用しては、 <a id="_msoanchor_2"> </a>[次のチュートリアル](role-based-authorization-cs.md)ロールベースの承認を見てとき。
 
 
 ブラウザーでページを参照してくださいからスーパーバイザー ロールをクリックし、 `RoleList` DropDownList です。 無効なユーザー名を入力してください: ユーザーがシステムに存在しないことを示すメッセージが表示されます。
@@ -342,7 +342,7 @@ GridView に削除ボタン フィールドを追加することで開始しま�
 **図 14**: ブルース、Tito、および Wanda は、すべての監督者 ([フルサイズのイメージを表示するをクリックして](assigning-roles-to-users-cs/_static/image42.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ロール フレームワークには、特定のユーザー ロールと、指定されたロールに属しているユーザーを決定するためのメソッドに関する情報を取得するための方法が用意されています。 さらに、いくつかの追加および 1 つまたは複数の役割を 1 つまたは複数のユーザーを削除するメソッドがあります。 このチュートリアルでに重点を置きましたこれらのメソッドを 2 つのみ:`AddUserToRole`と`RemoveUserFromRole`です。 1 つのロールに複数のユーザーを追加して、1 人のユーザーに複数のロールを割り当てるように設計する追加のバリアントがあります。
 
@@ -356,7 +356,7 @@ GridView に削除ボタン フィールドを追加することで開始しま�
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [ASP.NET Web サイト管理ツールの概要](https://msdn.microsoft.com/en-us/library/ms228053.aspx)
+- [ASP.NET Web サイト管理ツールの概要](https://msdn.microsoft.com/library/ms228053.aspx)
 - [ASP を検査中です。NET のメンバーシップ、ロール、およびプロファイル](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [独自の web サイト管理ツールのローリング](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 

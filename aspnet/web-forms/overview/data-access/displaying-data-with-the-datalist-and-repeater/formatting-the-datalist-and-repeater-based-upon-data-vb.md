@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 48e0f2bad8c048e943ec2a3ce72cc0f7ca4d34d9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 460fc36062f3338ffd178aceda2b3b224752a089
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>DataList とデータ (VB) に基づいてリピータの書式設定
 ====================
@@ -40,25 +40,25 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="using-theitemdataboundevent-handler"></a>使用して、`ItemDataBound`イベント ハンドラー
 
-データは、バインド時、DataList s のコントロールにデータをプログラムによって割り当てまたはデータ ソース コントロールから`DataSource`プロパティと呼び出し元の`DataBind()`メソッド、DataList の`DataBinding`イベントを発生させる、列挙、データ ソース各データ レコードは、DataList にバインドします。 DataList の作成、データ ソース内の各レコードに対して、 [ `DataListItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistitem.aspx)オブジェクトを現在のレコードにバインドします。 このプロセス中には、DataList は、2 つのイベントを発生します。
+データは、バインド時、DataList s のコントロールにデータをプログラムによって割り当てまたはデータ ソース コントロールから`DataSource`プロパティと呼び出し元の`DataBind()`メソッド、DataList の`DataBinding`イベントを発生させる、列挙、データ ソース各データ レコードは、DataList にバインドします。 DataList の作成、データ ソース内の各レコードに対して、 [ `DataListItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.aspx)オブジェクトを現在のレコードにバインドします。 このプロセス中には、DataList は、2 つのイベントを発生します。
 
 - **`ItemCreated`**後に起動、`DataListItem`が作成されました
 - **`ItemDataBound`**現在のレコードにバインドされた後に発生します`DataListItem`
 
 次の手順では、DataList コントロール用のデータのバインディング プロセスを示します。
 
-1. DataList s [ `DataBinding`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.control.databinding.aspx)発生
+1. DataList s [ `DataBinding`イベント](https://msdn.microsoft.com/library/system.web.ui.control.databinding.aspx)発生
 2. データは、DataList へのバインドします。  
   
  データ ソース内の各レコード 
 
     1. 作成、`DataListItem`オブジェクト
-    2. Fire、 [ `ItemCreated`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
+    2. Fire、 [ `ItemCreated`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
     3. レコードにバインドします`DataListItem`
-    4. Fire、 [ `ItemDataBound`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
+    4. Fire、 [ `ItemDataBound`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
     5. 追加、`DataListItem`を`Items`コレクション
 
-Repeater コントロールにデータをバインドするときに進行状況に合わせて、正確な同じ一連の手順を通じてします。 代わりにする唯一の違いは`DataListItem`リピータを使用して作成されるインスタンス、 [ `RepeaterItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeateritem(VS.80).aspx)s。
+Repeater コントロールにデータをバインドするときに進行状況に合わせて、正確な同じ一連の手順を通じてします。 代わりにする唯一の違いは`DataListItem`リピータを使用して作成されるインスタンス、 [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem(VS.80).aspx)s。
 
 > [!NOTE]
 > 絶好のリーダーは、DataList とリピータが GridView がデータにバインドされている場合とデータにバインドするまでに経過する手順のシーケンスとの間のわずかな異常を気付きかもしれません。 データ バインド プロセスの末尾に GridView を発生させます、`DataBound`イベントです。 ただし、このようなイベントのある DataList もリピータ コントロール。 これは、前と後のレベルのイベント ハンドラーのパターンが一般的になる必要がある前に、ASP.NET の 1.x 時間帯に戻り、DataList およびリピータ コントロールが作成されているためです。
@@ -93,7 +93,7 @@ DataList および ObjectDataSource の機能がレプリケートされた後`B
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample1.vb)]
 
-概念と DataList s のセマンティクスを while`ItemDataBound`イベント ハンドラーは、GridView s が使用されるものと同じ`RowDataBound`内のイベント ハンドラー、*カスタム書式指定ベース時にデータ*チュートリアルでは、構文は異なります微妙に。 ときに、`ItemDataBound`イベントの起動、`DataListItem`だけを使用して対応するイベント ハンドラーに渡されるデータにバインド`e.Item`(の代わりに`e.Row`GridView s と同様、`RowDataBound`イベント ハンドラー)。 DataList s`ItemDataBound`に対してイベント ハンドラーが発生*各*行のヘッダー行、ページ フッター行、および行の区切り記号を含む、DataList に追加します。 ただし、製品の情報は、データ行にはバインドのみです。 そのためを使用する場合、`ItemDataBound`イベント データを検査するのには、DataList にバインドする必要がありますまずいることを確認するで、データ項目はします。 これには、チェックして、 `DataListItem` s [ `ItemType`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistitem.itemtype.aspx)のいずれかである[8 つの値は次](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.listitemtype.aspx):
+概念と DataList s のセマンティクスを while`ItemDataBound`イベント ハンドラーは、GridView s が使用されるものと同じ`RowDataBound`内のイベント ハンドラー、*カスタム書式指定ベース時にデータ*チュートリアルでは、構文は異なります微妙に。 ときに、`ItemDataBound`イベントの起動、`DataListItem`だけを使用して対応するイベント ハンドラーに渡されるデータにバインド`e.Item`(の代わりに`e.Row`GridView s と同様、`RowDataBound`イベント ハンドラー)。 DataList s`ItemDataBound`に対してイベント ハンドラーが発生*各*行のヘッダー行、ページ フッター行、および行の区切り記号を含む、DataList に追加します。 ただし、製品の情報は、データ行にはバインドのみです。 そのためを使用する場合、`ItemDataBound`イベント データを検査するのには、DataList にバインドする必要がありますまずいることを確認するで、データ項目はします。 これには、チェックして、 `DataListItem` s [ `ItemType`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.itemtype.aspx)のいずれかである[8 つの値は次](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listitemtype.aspx):
 
 - `AlternatingItem`
 - `EditItem`
@@ -104,7 +104,7 @@ DataList および ObjectDataSource の機能がレプリケートされた後`B
 - `SelectedItem`
 - `Separator`
 
-両方`Item`と`AlternatingItem``DataListItem`の構成 DataList のデータ項目。 作業すると仮定した場合は、`Item`または`AlternatingItem`、実際にアクセスして`ProductsRow`現在バインドされているインスタンス`DataListItem`です。 `DataListItem` S [ `DataItem`プロパティ](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalistitem.dataitem.aspx)への参照が含まれています、`DataRowView`オブジェクト、`Row`プロパティは、実際に参照を提供`ProductsRow`オブジェクト。
+両方`Item`と`AlternatingItem``DataListItem`の構成 DataList のデータ項目。 作業すると仮定した場合は、`Item`または`AlternatingItem`、実際にアクセスして`ProductsRow`現在バインドされているインスタンス`DataListItem`です。 `DataListItem` S [ `DataItem`プロパティ](https://msdn.microsoft.com/system.web.ui.webcontrols.datalistitem.dataitem.aspx)への参照が含まれています、`DataRowView`オブジェクト、`Row`プロパティは、実際に参照を提供`ProductsRow`オブジェクト。
 
 次に、確認、`ProductsRow`インスタンスの`UnitPrice`プロパティです。 Products テーブル s 以降`UnitPrice`フィールドでは、`NULL`へのアクセスを試みる前に、値、`UnitPrice`プロパティは最初を確認するかどうかは、`NULL`値を使用して、`IsUnitPriceNull()`メソッドです。 場合、`UnitPrice`値がない`NULL`、その後、チェックかどうかを 2,000 ドル未満の秒。 2,000 円で実際に下にある場合、し、カスタム書式を適用する必要があります。
 
@@ -190,7 +190,7 @@ DataList s で`ItemTemplate`、 `ProductNameLabel` Label Web コントロール�
 **図 5**: 高価な製品は、価格は見積もり価格を呼び出してくださいをテキストに置き換えられます ([フルサイズのイメージを表示するには、をクリックして](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image15.png))。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 データに基づいた DataList または Repeater コントロールの内容を書式設定行えます 2 つの手法を使用しています。 最初の手法がのイベント ハンドラーを作成するには、`ItemDataBound`を新しいデータ ソース内の各レコードがバインドされていると発生するイベント`DataListItem`または`RepeaterItem`です。 `ItemDataBound`イベント ハンドラーを現在のアイテム データを検証してテンプレートのか、内容に適用できる書式設定し、 `DataListItem` s、全体の項目自体にします。
 

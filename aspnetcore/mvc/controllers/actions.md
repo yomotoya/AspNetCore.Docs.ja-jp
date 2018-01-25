@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
-ms.openlocfilehash: cef493fc2010d1c82e5c1dfec85864539252b817
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 99dcf1bd4f0dc4fcb6169f48bd398c9e40c21a35
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC のコント ローラーと要求の処理
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/19/2018
 
 コント ローラーは、モデルの処理 (存在する場合) の結果を取得し、適切なビューとその関連するビューのデータまたは API 呼び出しの結果を返します。 詳しくは[ASP.NET Core MVC の概要](xref:mvc/overview)と[ASP.NET Core MVC および Visual Studio の使用を開始する](xref:tutorials/first-mvc-app/start-mvc)です。
 
-コント ローラーが、 *UI レベル*抽象化します。 その責任は、要求データが有効であることを確認するビュー (または API の結果) を返す必要があるを選択します。 十分に考慮されたアプリでは直接含まれませんデータ アクセスやビジネス ロジックです。 代わりに、コント ローラーは、これらの役割を処理するサービスに委任されます。
+コント ローラーが、 *UI レベル*抽象化します。 その責任は、要求データが有効であることを確認するビュー (または API の結果) を返す必要があるを選択します。 十分に考慮されたアプリでは、データ アクセスやビジネス ロジックを直接含まれていません。 代わりに、コント ローラーは、これらの役割を処理するサービスに委任されます。
 
 ## <a name="defining-actions"></a>アクションの定義
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/19/2018
 
 ### <a name="controller-helper-methods"></a>コント ローラーのヘルパー メソッド
 
-コント ローラーが通常から継承[コント ローラー](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller)、これは必須ではありません。 派生する`Controller`ヘルパー メソッドの 3 つのカテゴリへのアクセスを提供します。
+コント ローラーが通常から継承[コント ローラー](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller)は必要ありませんが、します。 派生する`Controller`ヘルパー メソッドの 3 つのカテゴリへのアクセスを提供します。
 
 #### <a name="1-methods-resulting-in-an-empty-response-body"></a>1.空の応答本文で結果として得られるメソッド
 

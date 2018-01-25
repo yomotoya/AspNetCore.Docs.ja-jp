@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.topic: article
 ms.prod: asp.net-core
 uid: performance/caching/response
-ms.openlocfilehash: 104cfb2eab706a2ec6278b4d1c461f70b0af5df1
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: d7726443dbcc34c21fd6cf0f56c4412863617b9f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core で応答のキャッシュ
 
@@ -30,13 +30,13 @@ ms.lasthandoff: 11/29/2017
 
 一般的な`Cache-Control`ディレクティブが次の表に示すようにします。
 
-| ディレクティブ                                                       | 操作 |
+| ディレクティブ                                                       | アクション |
 | --------------------------------------------------------------- | ------ |
 | [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | キャッシュは、応答を格納できます。 |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | キャッシュを共有して応答を格納する必要がありません。 プライベート キャッシュは、格納し、応答を再利用可能性があります。 |
-| [最大継続期間](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | クライアントが年齢が指定した秒数よりも大きい応答を受け付けませんでした。 例: `max-age=60` (60 秒) `max-age=2592000` (1 か月) |
-| [キャッシュなし](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **要求に**: 要求を満たせませんストアド応答がキャッシュでは使用しないでください。 注: は、元のサーバーでは、クライアントの場合、応答を再生成し、ミドルウェアがストアド応答をキャッシュを更新します。<br><br>**応答で**: 元のサーバーで検証を伴わない後続の要求の応答を使用しないでください。 |
-| [no ストア](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **要求に**: キャッシュは、要求を格納しないでください。<br><br>**応答で**: キャッシュは、応答の任意の部分を格納しないでください。 |
+| [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | クライアントが年齢が指定した秒数よりも大きい応答を受け付けませんでした。 例: `max-age=60` (60 秒) `max-age=2592000` (1 か月) |
+| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **要求に**: 要求を満たせませんストアド応答がキャッシュでは使用しないでください。 注: は、元のサーバーでは、クライアントの場合、応答を再生成し、ミドルウェアがストアド応答をキャッシュを更新します。<br><br>**応答で**: 元のサーバーで検証を伴わない後続の要求の応答を使用しないでください。 |
+| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **要求に**: キャッシュは、要求を格納しないでください。<br><br>**応答で**: キャッシュは、応答の任意の部分を格納しないでください。 |
 
 その他のキャッシュでは、役割を果たすキャッシュ ヘッダーは、次の表に表示されます。
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/29/2017
 | [経過時間](https://tools.ietf.org/html/rfc7234#section-5.1)     | 応答の生成または送信元のサーバーに正常に検証されてからの秒単位で時間の推定値。 |
 | [有効期限が切れる](https://tools.ietf.org/html/rfc7234#section-5.3) | その後、応答は古いと見なされます日付/時刻。 |
 | [プラグマ](https://tools.ietf.org/html/rfc7234#section-5.4)  | Http/1.0 との互換性は設定をキャッシュする下位存在`no-cache`動作します。 場合、`Cache-Control`ヘッダーが含まれている、`Pragma`ヘッダーは無視されます。 |
-| [異なる](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | 指定するキャッシュされた応答する必要がありますいない送信しない限り、すべての`Vary`ヘッダー フィールドにキャッシュされた応答の元の要求と、新しい要求の両方に一致します。 |
+| [Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | 指定するキャッシュされた応答する必要がありますいない送信しない限り、すべての`Vary`ヘッダー フィールドにキャッシュされた応答の元の要求と、新しい要求の両方に一致します。 |
 
 ## <a name="http-based-caching-respects-request-cache-control-directives"></a>HTTP ベースのキャッシュは要求のキャッシュ制御ディレクティブ
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 11/29/2017
 
 ### <a name="distributed-cache"></a>分散キャッシュ
 
-分散キャッシュを使用して、アプリが、クラウド サーバー ファームでホストされている場合は、データをメモリに格納します。 キャッシュは、要求を処理するサーバー間で共有されます。 クライアントは、グループ内のサーバーによって処理される要求を送信できる、クライアントのキャッシュされたデータが利用できます。 ASP.NET Core は、SQL Server と分散 Redis キャッシュを提供します。
+分散キャッシュを使用して、アプリが、クラウド サーバー ファームでホストされている場合は、データをメモリに格納します。 キャッシュは、要求を処理するサーバー間で共有されます。 クライアントでは、使用可能ながグループ内の任意のサーバーによって処理され、クライアントのキャッシュされたデータを要求を送信できます。 ASP.NET Core は、SQL Server と分散 Redis キャッシュを提供します。
 
 詳細については、次を参照してください。[分散キャッシュの使用](xref:performance/caching/distributed)です。
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 11/29/2017
 | `http://example.com?key1=value1` | ミドルウェアから返される |
 | `http://example.com?key1=value2` | サーバーから返される     |
 
-最初の要求がサーバーによって返され、ミドルウェア内でキャッシュします。 2 番目の要求は、クエリ文字列が、前回の要求と一致するので、ミドルウェアによって返されます。 3 番目の要求ではありません、ミドルウェア キャッシュにクエリ文字列の値は、前の要求と一致しません。 
+最初の要求がサーバーによって返され、ミドルウェア内でキャッシュします。 2 番目の要求は、クエリ文字列が、前回の要求と一致するので、ミドルウェアによって返されます。 クエリ文字列の値は、前の要求と一致しないため、ミドルウェア キャッシュでは、3 番目の要求がありません。 
 
 `ResponseCacheAttribute`構成を作成するために使用 (を介して`IFilterFactory`)、`ResponseCacheFilter`です。 `ResponseCacheFilter`適切な HTTP ヘッダーと応答の機能の更新の処理を実行します。 フィルター:
 
@@ -176,10 +176,10 @@ Cache-Control: public,max-age=60
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [指定から HTTP でのキャッシュ](https://tools.ietf.org/html/rfc7234#section-3)
-* [キャッシュ制御](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+* [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [メモリ内キャッシュ](xref:performance/caching/memory)
 * [分散キャッシュの使用](xref:performance/caching/distributed)
-* [変更のトークンを使用して変更を検出します。](xref:fundamentals/primitives/change-tokens)
+* [変更トークンを使用する変更の検出](xref:fundamentals/primitives/change-tokens)
 * [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
 * [キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [分散キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

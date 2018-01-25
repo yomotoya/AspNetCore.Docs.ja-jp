@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: badf9da0e9a26d185e7532b02f53a8acea60ea91
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5f0d380ee411116844f42a542c12050513721eb1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-c"></a>マスター/詳細詳細 DetailView (c#) で選択可能なマスター GridView の使用
 ====================
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="step-1-creating-a-selectable-gridview"></a>手順 1: 選択可能な GridView の作成
 
-マスター/詳細の 2 ページにハイパーリンクが master の各レコードに含まれていることを報告する取り消しをクリックすると、ユーザーをクリックした行を渡すことの詳細 ページに送信される`SupplierID`クエリ文字列の値。 このようなハイパーリンクは、内を使用して GridView 行ごとに追加されました。 1 つのページのマスター/詳細レポートは必要があります、ボタンをクリックすると、各 GridView 行の詳細が表示されます。 GridView コントロールは、ポストバックを発生させるし、その行を GridView のとしてマークする各行の選択 ボタンを含めるように構成できる[SelectedRow](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedrow.aspx)です。
+マスター/詳細の 2 ページにハイパーリンクが master の各レコードに含まれていることを報告する取り消しをクリックすると、ユーザーをクリックした行を渡すことの詳細 ページに送信される`SupplierID`クエリ文字列の値。 このようなハイパーリンクは、内を使用して GridView 行ごとに追加されました。 1 つのページのマスター/詳細レポートは必要があります、ボタンをクリックすると、各 GridView 行の詳細が表示されます。 GridView コントロールは、ポストバックを発生させるし、その行を GridView のとしてマークする各行の選択 ボタンを含めるように構成できる[SelectedRow](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedrow.aspx)です。
 
 GridView コントロールを追加することで開始、 `DetailsBySelecting.aspx`  ページで、`Filtering`設定、フォルダー、`ID`プロパティを`ProductsGrid`です。 次に、追加という名前の新しい ObjectDataSource`AllProductsDataSource`を呼び出す、`ProductsBLL`クラスの`GetProducts()`メソッドです。
 
@@ -85,7 +85,7 @@ CommandField を追加、選択範囲を有効にする チェック、 `Product
 
 [!code-aspx[Main](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/samples/sample2.aspx)]
 
-ポストバックに陥ります GridView 行の選択 ボタンがクリックされたときに、GridView の`SelectedRow`プロパティを更新します。 加え、`SelectedRow`プロパティ、GridView のでは、 [SelectedIndex](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedindex%28VS.80%29.aspx)、 [SelectedValue](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedvalue%28VS.80%29.aspx)、および[SelectedDataKey](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selecteddatakey%28VS.80%29.aspx)プロパティです。 `SelectedIndex`一方、プロパティが選択した行のインデックスを返します、`SelectedValue`と`SelectedDataKey`プロパティ GridView のに基づいて値を返します[DataKeyNames プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.datakeynames%28VS.80%29.aspx)です。
+ポストバックに陥ります GridView 行の選択 ボタンがクリックされたときに、GridView の`SelectedRow`プロパティを更新します。 加え、`SelectedRow`プロパティ、GridView のでは、 [SelectedIndex](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindex%28VS.80%29.aspx)、 [SelectedValue](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedvalue%28VS.80%29.aspx)、および[SelectedDataKey](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selecteddatakey%28VS.80%29.aspx)プロパティです。 `SelectedIndex`一方、プロパティが選択した行のインデックスを返します、`SelectedValue`と`SelectedDataKey`プロパティ GridView のに基づいて値を返します[DataKeyNames プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.datakeynames%28VS.80%29.aspx)です。
 
 `DataKeyNames`に関連付けるプロパティを使用または複数のデータ フィールド、各行の値を GridView の各行と基になるデータから一意に識別する情報を属性に一般的に使用します。 `SelectedValue`プロパティは、最初の値を返します`DataKeyNames`選択した行のデータ フィールドが該当します、`SelectedDataKey`プロパティは、選択した行を返します`DataKey`オブジェクトで、すべての指定されたデータのキー フィールドの値が含まれます。該当する行。
 
@@ -131,7 +131,7 @@ CommandField を追加、選択範囲を有効にする チェック、 `Product
 **図 9**: 呼び出し、`ProductsBLL`クラスの`GetProductByProductID(productID)`メソッド ([フルサイズのイメージを表示するをクリックして](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image27.png))
 
 
- *`productID`*  GridView コントロールから得られたパラメーターの値`SelectedValue`プロパティです。 以前、GridView に説明したよう`SelectedValue`プロパティは、最初のデータ キーの選択した行の値を返します。 そのため、命令型を GridView の`DataKeyNames`プロパティに設定されている`ProductID`いるため、選択した行の`ProductID`によって値が返される`SelectedValue`です。
+*`productID`*  GridView コントロールから得られたパラメーターの値`SelectedValue`プロパティです。 以前、GridView に説明したよう`SelectedValue`プロパティは、最初のデータ キーの選択した行の値を返します。 そのため、命令型を GridView の`DataKeyNames`プロパティに設定されている`ProductID`いるため、選択した行の`ProductID`によって値が返される`SelectedValue`です。
 
 
 [![GridView の SelectedValue プロパティに、productID パラメーターを設定します。](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image29.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image28.png)
@@ -152,7 +152,7 @@ CommandField を追加、選択範囲を有効にする チェック、 `Product
 **図 12**: 行を選択すると、製品の詳細が表示されます ([フルサイズのイメージを表示するをクリックして](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image36.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 この例と前述の 3 つのチュートリアルは、マスター/詳細レポートを表示するための手法の数を見たです。 検査はこのチュートリアルでは選択可能な GridView を使用して、マスター レコードと同じページに、選択したマスター レコードに関する詳細を表示する DetailsView を格納します。 前のチュートリアルでは、DropDownLists を使用して、および 1 つの web ページと詳細レコードを別のマスター レコードを表示するマスター/詳細レポートを表示する方法を説明しました。
 

@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: d0cdb5aaa4b1129c3f2404d069e9781ca16260b7
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 532020a8fe4c5a0312cbd89278e61f614b1825f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>読み取りに関連したデータの EF コア Razor ページ (8 の 6)
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/19/2018
 
  ![明示的な読み込みの例](read-related-data/_static/explicit-loading.png)
 
-* [遅延読み込み](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading)です。 [EF コアは現在遅延読み込みをサポートしていません](https://github.com/aspnet/EntityFrameworkCore/issues/3797)です。 エンティティが読み込まれると、関連データが取得されていません。 ナビゲーション プロパティがアクセスすると、最初にそのナビゲーション プロパティに必要なデータは自動的に取得されます。 クエリは、毎回、ナビゲーション プロパティへのアクセスを初めて DB に送信されます。
+* [遅延読み込み](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading)です。 [EF Core では、遅延読み込みはサポートされていない](https://github.com/aspnet/EntityFrameworkCore/issues/3797)です。 エンティティが読み込まれると、関連データが取得されていません。 ナビゲーション プロパティがアクセスすると、最初にそのナビゲーション プロパティに必要なデータは自動的に取得されます。 クエリは、毎回、ナビゲーション プロパティへのアクセスを初めて DB に送信されます。
 
 * `Select`演算子が必要な関連するデータのみを読み込みます。
 
@@ -93,13 +93,13 @@ dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir P
 
 開いている*Pages/Courses/Index.cshtml.cs*を調べると、`OnGetAsync`メソッドです。 スキャフォールディング エンジンは、指定の一括読み込み、`Department`ナビゲーション プロパティ。 `Include`メソッドは、一括読み込みを指定します。
 
-アプリの実行を選択して、**コース**リンクします。 Department 列を表示、 `DepartmentID`、実用的ではありません。
+アプリの実行を選択して、**コース**リンクします。 Department 列を表示、 `DepartmentID`、これには役に立ちません。
 
 `OnGetAsync` メソッドを次のコードで更新します。
 
 [!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
 
-上記のコードを追加`AsNoTracking`です。 `AsNoTracking`返されるエンティティは追跡されませんのでパフォーマンスが向上します。 現在のコンテキストでは更新されませんので、エンティティは追跡されません。
+上記のコードを追加`AsNoTracking`です。 `AsNoTracking`返されるエンティティは追跡されませんのでパフォーマンスが向上します。 現在のコンテキストでない更新されるため、エンティティは追跡されません。
 
 更新*Views/Courses/Index.cshtml*次の強調表示されているマークアップ。
 
@@ -108,7 +108,7 @@ dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir P
 スキャフォールディングのコードに、次のように変更されました。
 
 * インデックスからのコースに見出しを変更します。
-* 追加、**数**を表示する列、`CourseID`プロパティの値。 既定では、通常はエンドユーザーにとって意味のないために、主キーはスキャフォールディングされました。 ただし、ここでは、主キーは無効です。
+* 追加、**数**を表示する列、`CourseID`プロパティの値。 既定では、主キーはいないだ通常エンドユーザーにとって意味のないスキャフォールディングされました。 ただし、ここでは、主キーは無効です。
 * 変更、**部門**部門名を表示する列。 コードが表示されます、`Name`のプロパティ、`Department`に読み込まれるエンティティ、`Department`ナビゲーション プロパティ。
 
   ```html
@@ -210,7 +210,7 @@ dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outD
     `http://localhost:1234/Instructors/2`
 
 * ページ タイトルが**講習においてインストラクター**です。
-* 追加、 **Office**を表示する列`item.OfficeAssignment.Location`場合にのみ、`item.OfficeAssignment`が null でないです。 これは、0 または 1 を 1 つのリレーションシップであるため、ある可能性がありますいない関連 OfficeAssignment エンティティです。
+* 追加、 **Office**を表示する列`item.OfficeAssignment.Location`場合にのみ、 `item.OfficeAssignment` null でないです。 これは、0 または 1 を 1 つのリレーションシップであるため、ある可能性がありますいない関連 OfficeAssignment エンティティです。
 
   ```html
   @if (item.OfficeAssignment != null)

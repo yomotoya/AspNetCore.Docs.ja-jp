@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9d34fb64984313e5e2844d36a70f3ab08560654e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a9a470efc9e9416cd06fd4268f4e9505393dbed3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-gridview-column-of-radio-buttons-vb"></a>ラジオ ボタン (VB) の GridView 列を追加します。
 ====================
@@ -148,7 +148,7 @@ Let s がので、このアプローチを実装する場合でも、RadioButton
 
 [!code-aspx[Main](adding-a-gridview-column-of-radio-buttons-vb/samples/sample3.aspx)]
 
-RadioButton s [ `GroupName`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.radiobutton.groupname(VS.80).aspx)は一連のラジオ ボタンをグループ化するために使用されます。 すべての RadioButton コントロールを同じ`GroupName`値では、グループ化と見なされます、一度に 1 つだけのラジオ ボタン グループから選択できます。 `GroupName`プロパティが表示されるオプション ボタン秒の値を指定`name`属性。 ブラウザーがラジオ ボタンを調べて`name`無線を決定する属性のグループ化 ボタンをクリックします。
+RadioButton s [ `GroupName`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.radiobutton.groupname(VS.80).aspx)は一連のラジオ ボタンをグループ化するために使用されます。 すべての RadioButton コントロールを同じ`GroupName`値では、グループ化と見なされます、一度に 1 つだけのラジオ ボタン グループから選択できます。 `GroupName`プロパティが表示されるオプション ボタン秒の値を指定`name`属性。 ブラウザーがラジオ ボタンを調べて`name`無線を決定する属性のグループ化 ボタンをクリックします。
 
 追加された RadioButton Web コントロールで、`ItemTemplate`ブラウザーからこのページを参照してくださいし、グリッドの行のラジオ ボタンをクリックします。 図 11 としてすべての行を選択できるようにする、事前の通知方法のオプション ボタン グループ分けされていないを示しています。
 
@@ -184,7 +184,7 @@ RadioButton s [ `GroupName`プロパティ](https://msdn.microsoft.com/en-us/lib
 
 ここでは、`GetUniqueRadioButton`と`GetRadioButtonValue`返される、適切な分離コード クラスで定義されているメソッドになります`id`と`value`属性の各オプション ボタンの値。 このアプローチで割り当てることは、`id`と`value`、その属性が遅れを指定する必要がある場合、 `checked` databinding 構文はデータがまず GridView にバインドされている場合にのみ実行されるため、属性値。 したがって、GridView のビュー ステートを有効になっている場合は、書式指定メソッドだけ起動時にページが最初に読み込まれた (または、データ ソースに GridView が明示的に再バインドすると)、および関数を設定するため、`checked`で t が勝利した属性は呼び出せませんポストします。 これではなく微妙な問題と少し任せこのため、この記事の範囲外です。 ただし、いただくために、上記の方法を使用してする行き詰まったをポイントする作業を通じてすればしないでください。 このような won 演習 t を取得すると、作業中のバージョンに近い、中には、GridView と、データ バインドのライフ サイクルの理解を促進するのに役立ちます。
 
-追加する他のアプローチの挿入のカスタム テンプレートとこのチュートリアルで使用するアプローチでの低レベルのマークアップが、 [Literal コントロール](https://msdn.microsoft.com/en-us/library/sz4949ks(VS.80).aspx)テンプレートにします。 その後、GridView s `RowCreated`または`RowDataBound`、イベント ハンドラー Literal コントロールをプログラムでアクセスできると、その`Text`プロパティを出力するマークアップに設定します。
+追加する他のアプローチの挿入のカスタム テンプレートとこのチュートリアルで使用するアプローチでの低レベルのマークアップが、 [Literal コントロール](https://msdn.microsoft.com/library/sz4949ks(VS.80).aspx)テンプレートにします。 その後、GridView s `RowCreated`または`RowDataBound`、イベント ハンドラー Literal コントロールをプログラムでアクセスできると、その`Text`プロパティを出力するマークアップに設定します。
 
 TemplateField s から RadioButton を削除することによって開始`ItemTemplate`、Literal コントロールに置き換えます。 S リテラル コントロール設定`ID`に`RadioButtonMarkup`です。
 
@@ -205,7 +205,7 @@ GridView の行を選択し、ポストバックが発生したとご感想、`S
 
 このイベント ハンドラーのコードを追加した後、時間がかかるをブラウザーでページをテストします。 最初に、その 1 つだけのラジオに注意してください、グリッドでボタンを一度に選択できます。 ただし、ラジオ ボタンを選択し、一方のボタンをクリックして、ポストバックが発生して、すべてのオプション ボタンが初期状態に戻す、ポストバックで選択したオプション ボタンが不要になったオンになっている)。 この問題を解決する必要がありますを補強、`RowCreated`ポストバックから送信された選択したラジオ ボタンのインデックスを検査して追加ようにイベント ハンドラー、`checked="checked"`行インデックスの一致結果のマークアップを生成するための属性です。
 
-ポストバックが発生すると、ブラウザーを返信、`name`と`value`選択したオプション ボタンのです。 プログラムで値を使用して`Request.Form("name")`です。 [ `Request.Form`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.httprequest.form.aspx)提供、 [ `NameValueCollection` ](https://msdn.microsoft.com/en-us/library/system.collections.specialized.namevaluecollection.aspx)されたフォーム変数を表すです。 フォーム変数では、名前および web ページのフォーム フィールドの値はされ、ポストバックに陥りますされるたびに、web ブラウザーによって再び送信されます。 レンダリングされた`name`GridView のラジオ ボタンの属性が`SuppliersGroup`web ページがポストバック ブラウザーが送信されるときに、 `SuppliersGroup=valueOfSelectedRadioButton` (他のフォーム フィールド) と共に web サーバーにします。 この情報にアクセスすることができますし、`Request.Form`プロパティを使用して:`Request.Form("SuppliersGroup")`です。
+ポストバックが発生すると、ブラウザーを返信、`name`と`value`選択したオプション ボタンのです。 プログラムで値を使用して`Request.Form("name")`です。 [ `Request.Form`プロパティ](https://msdn.microsoft.com/library/system.web.httprequest.form.aspx)提供、 [ `NameValueCollection` ](https://msdn.microsoft.com/library/system.collections.specialized.namevaluecollection.aspx)されたフォーム変数を表すです。 フォーム変数では、名前および web ページのフォーム フィールドの値はされ、ポストバックに陥りますされるたびに、web ブラウザーによって再び送信されます。 レンダリングされた`name`GridView のラジオ ボタンの属性が`SuppliersGroup`web ページがポストバック ブラウザーが送信されるときに、 `SuppliersGroup=valueOfSelectedRadioButton` (他のフォーム フィールド) と共に web サーバーにします。 この情報にアクセスすることができますし、`Request.Form`プロパティを使用して:`Request.Form("SuppliersGroup")`です。
 
 以降お必要がありますを決定する、選択したオプション ボタン インデックスが作成されますだけではなく、`RowCreated`ですが、イベント ハンドラー、 `Click` Button Web コントロールのイベント ハンドラー、let s を追加、`SuppliersSelectedIndex`プロパティを返す分離コードクラスを`-1`ラジオ ボタンが選択されていない場合、オプション ボタンのいずれかが選択されている場合は、選択されたインデックス。
 
@@ -222,7 +222,7 @@ GridView の行を選択し、ポストバックが発生したとご感想、`S
 この時点でグループ化されたラジオ ボタンの列では、1 つが GridView の行を選択し、ポストバック間で記憶される GridView に追加されました。 次のステップでは、選択した業者によって提供される製品を表示します。 手順 4. で会いしましょうユーザーを他のページにリダイレクトする方法、選択したに沿って送信`SupplierID`です。 手順 5 では同じページ上の GridView で選択したサプライヤーの製品を表示する方法が表示されます。
 
 > [!NOTE]
-> TemplateField (この時間のかかる手順 3 のフォーカス設定) を使用して作成することも、カスタム`DataControlField`適切なユーザー インターフェイスと機能を表示するクラス。 [ `DataControlField`クラス](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datacontrolfield.aspx)BoundField、CheckBoxField、TemplateField、およびその他の組み込みの GridView と DetailsView のフィールドが派生元となる基本クラスです。 カスタム作成する`DataControlField`クラスがありことを意味ラジオ ボタンの列だけ宣言の構文を使用して追加でしたも実行するように他の web ページと非常に簡単に他の web アプリケーションの機能をレプリケートします。
+> TemplateField (この時間のかかる手順 3 のフォーカス設定) を使用して作成することも、カスタム`DataControlField`適切なユーザー インターフェイスと機能を表示するクラス。 [ `DataControlField`クラス](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datacontrolfield.aspx)BoundField、CheckBoxField、TemplateField、およびその他の組み込みの GridView と DetailsView のフィールドが派生元となる基本クラスです。 カスタム作成する`DataControlField`クラスがありことを意味ラジオ ボタンの列だけ宣言の構文を使用して追加でしたも実行するように他の web ページと非常に簡単に他の web アプリケーションの機能をレプリケートします。
 
 
 ASP.NET のコントロールをコンパイルする、カスタムを作成するしたら、ただし、わかりますこうする全世界のかなりし、伴って微妙なと慎重に処理する必要がありますのエッジ ケースのホスト。 そのため、おはせず、カスタムのラジオ ボタンの列を実装する`DataControlField`ここではクラス、および TemplateField オプションのオプションを使用します。 おそらく作成、使用、およびカスタムの展開を調査する必要があります`DataControlField`将来チュートリアル内のクラスです。
@@ -295,7 +295,7 @@ ASP.NET のコントロールをコンパイルする、カスタムを作成す
 
 ある、いくつかのオプションは、ここで、パラメーター値のソースを指定します。 既定のパラメーター オブジェクトを使用し、プログラムによっての値を割り当てる可能性があります、`SuppliersSelectedIndex`プロパティ パラメーター s を`DefaultValue`ObjectDataSource s プロパティ`Selecting`イベント ハンドラー。 戻って、 [ObjectDataSource のパラメーターの値をプログラムによって設定](../basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-vb.md)ObjectDataSource のパラメーターに値を割り当てるプログラムでの更新のためのチュートリアルです。
 
-代わりに、いただければ、ControlParameter を使用して参照してください、、 `Suppliers` GridView s [ `SelectedValue`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedvalue.aspx)(図 19 を参照してください)。 GridView s`SelectedValue`プロパティから返される、`DataKey`に対応する値、 [ `SelectedIndex`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedindex.aspx)です。 このオプションを使用するためには、必要があります GridView s をプログラムで設定する`SelectedIndex`プロパティを選択した行の場合、`ListProducts`ボタンをクリックします。 設定して、追加のメリットとして、`SelectedIndex`で選択したレコードを実行する、`SelectedRowStyle`で定義されている、`DataWebControls`テーマ (黄色の背景色)。
+代わりに、いただければ、ControlParameter を使用して参照してください、、 `Suppliers` GridView s [ `SelectedValue`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedvalue.aspx)(図 19 を参照してください)。 GridView s`SelectedValue`プロパティから返される、`DataKey`に対応する値、 [ `SelectedIndex`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindex.aspx)です。 このオプションを使用するためには、必要があります GridView s をプログラムで設定する`SelectedIndex`プロパティを選択した行の場合、`ListProducts`ボタンをクリックします。 設定して、追加のメリットとして、`SelectedIndex`で選択したレコードを実行する、`SelectedRowStyle`で定義されている、`DataWebControls`テーマ (黄色の背景色)。
 
 
 [![使用して、ControlParameter を指定 GridView の SelectedValue パラメーター ソース](adding-a-gridview-column-of-radio-buttons-vb/_static/image19.gif)](adding-a-gridview-column-of-radio-buttons-vb/_static/image33.png)
@@ -323,7 +323,7 @@ GridView からサプライヤーが選択されていない場合、`ChooseSupp
 **図 20**: 同じページに一覧表示されますビッグフット醸造酒およびによって提供される製品を ([フルサイズのイメージを表示するをクリックして](adding-a-gridview-column-of-radio-buttons-vb/_static/image36.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 説明したように、[マスター/詳細 DetailView で選択可能なマスター GridView の使用について詳しく説明](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md)チュートリアルでは、レコードは、CommandField を使用した GridView から選択することができますが`ShowSelectButton`プロパティに設定されている`True`です。 CommandField、そのボタンが正規のプッシュ ボタン、リンク、またはイメージとして表示されます。 行の代替選択ユーザー インターフェイスは、オプション ボタンまたは GridView 各行のチェック ボックスを提供します。 このチュートリアルでは、ラジオ ボタンの列を追加する方法を確認します。
 

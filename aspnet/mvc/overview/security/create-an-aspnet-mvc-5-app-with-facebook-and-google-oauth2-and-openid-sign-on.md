@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: aaa061e61b9bab5b33083851624f0487b2cf6473
-ms.sourcegitcommit: ccf08615ad59bc6f654560de33b93396113a2eb0
+ms.openlocfilehash: ccf4329e6684d07570bfaabfaa1a570664fb2ca3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook、Twitter、LinkedIn および Google OAuth2 サイン オン (c#) で ASP.NET MVC 5 アプリを作成します。
 ====================
@@ -95,7 +95,7 @@ Google、Facebook などの認証プロバイダーに接続するには、SSL �
 6. 選択、 **Web**タブをクリックしに SSL URL を貼り付け、**プロジェクト Url**ボックス。 (Ctl + S) ファイルを保存します。 この URL は、Facebook、Google の認証アプリを構成する必要があります。  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image10.png)
-7. 追加、 [RequireHttps](https://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx)属性を`Home`コント ローラーのすべての要求を要求するのには、HTTPS を使用する必要があります。 安全な方法は、追加する、 [RequireHttps](https://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx)アプリケーションをフィルターします。 セクションを参照して&quot;SSL および承認属性を持つアプリケーションを保護する&quot;my tutoral で[Azure App Service に認証と SQL DB の ASP.NET MVC アプリの作成し、展開](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)です。 Home コント ローラーの一部を次に示します。
+7. 追加、 [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)属性を`Home`コント ローラーのすべての要求を要求するのには、HTTPS を使用する必要があります。 安全な方法は、追加する、 [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)アプリケーションをフィルターします。 セクションを参照して&quot;SSL および承認属性を持つアプリケーションを保護する&quot;my tutoral で[Azure App Service に認証と SQL DB の ASP.NET MVC アプリの作成し、展開](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)です。 Home コント ローラーの一部を次に示します。
 
     [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample1.cs?highlight=1)]
 8. Ctrl キーを押しながら F5 キーを押してアプリケーションを実行します。 過去の証明書をインストールしている場合は、このセクションの残りの部分をスキップし、ジャンプする[OAuth 2 では、Google のアプリを作成して、プロジェクトに、アプリを接続する](#goog)、それ以外の場合、手順については、自己署名を信頼するにはIIS Express が生成した証明書です。  
@@ -286,7 +286,7 @@ Facebook、およびでのアプリへのログオンをログアウトしとに
 
 1. アプリを Azure に配置する方法。
 2. 役割を持つアプリをセキュリティで保護する方法。
-3. 使用してアプリを保護する方法、 [RequireHttps](https://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx)と[Authorize](https://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx)フィルター。
+3. 使用してアプリを保護する方法、 [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx)と[Authorize](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.100).aspx)フィルター。
 4. メンバーシップ API を使用して、ユーザーおよびロールを追加する方法。
 
 このチュートリアルをリンクする方法と、何を改善にフィードバックを送信してください。 新しいトピックを要求することもできます。 [Me 方法でコードの表示](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code)です。 要求し、ASP.NET に追加する新しい機能に投票もできます。 などのツールには、返信できます[を作成し、ユーザーおよびロールを管理します。](http://aspnet.uservoice.com/forums/41199-general-asp-net/suggestions/5646857-asp-net-identity-membership-db-tool-to-mangage-use)

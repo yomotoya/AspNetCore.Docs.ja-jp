@@ -8,11 +8,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: 861ac619c7f5fb19a56c59536e20724d96bbddca
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7404b8ec20ed6a00554c8a7ade9a282362b9a186
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成します。
 
@@ -53,7 +53,7 @@ A`ContactIsOwnerAuthorizationHandler`承認ハンドラーにより、ユーザ�
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-これは最初のチュートリアルではありません。 理解しておく必要があります。
+これは、最初のチュートリアルがありません。 理解しておく必要があります。
 
 * [ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
@@ -163,7 +163,7 @@ Entity Framework のコアを使用してサービスを登録する必要があ
 
 [!code-csharp[Main](secure-data/samples/final/Startup.cs?name=AuthorizationHandlers)]
 
-`ContactAdministratorsAuthorizationHandler`および`ContactManagerAuthorizationHandler`シングルトンとして追加されます。 これらはシングルトンの EF を使用していないし、では、必要なすべての情報が、`Context`のパラメーター、`HandleRequirementAsync`メソッドです。
+`ContactAdministratorsAuthorizationHandler`および`ContactManagerAuthorizationHandler`シングルトンとして追加されます。 シングルトンを務める EF を使用していないし、必要なすべての情報があるため、`Context`のパラメーター、`HandleRequirementAsync`メソッドです。
 
 完全な`ConfigureServices`:
 
@@ -221,11 +221,11 @@ Entity Framework のコアを使用してサービスを登録する必要があ
 
 追加`@using ContactManager.Authorization;`
 
-更新プログラム、`Edit`と`Delete`リンクを編集および連絡先を削除するアクセス許可を持つユーザーのみレンダリングされるようにします。
+更新プログラム、`Edit`と`Delete`編集および連絡先を削除する権限を持つユーザーののみレンダリングするためにリンクします。
 
 [!code-html[Main](secure-data/samples/final/Views/Contacts/Index.cshtml?range=63-84)]
 
-警告: データ編集または削除するアクセス許可がないユーザーからのリンクを非表示にしても、アプリは保護しません。 リンクを非表示にするはアプリよりユーザー フレンドリによって唯一の有効なリンクを表示します。 ユーザーは、編集を呼び出すし、自分が所有しないデータの操作を削除するには、生成された Url を切断できます。  コント ローラーは、アクセスをセキュリティで保護するチェックを繰り返す必要があります。
+警告: データ編集または削除する権限がないユーザーからのリンクを非表示にすると、アプリがセキュリティで保護されたしません。 リンクを非表示にするはアプリよりユーザー フレンドリによって唯一の有効なリンクを表示します。 ユーザーは、編集を呼び出すし、自分が所有しないデータの操作を削除するには、生成された Url を切断できます。  コント ローラーは、アクセスをセキュリティで保護するチェックを繰り返す必要があります。
 
 ### <a name="update-the-details-view"></a>更新プログラムの詳細ビュー
 

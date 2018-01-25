@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c63b8f591023b68720c523d1c9184a527a34e9cc
-ms.sourcegitcommit: e4fb6b13be56a0fb2f2778623740a047d6489227
+ms.openlocfilehash: e3dbea51199722bfe50f201c4ddcc90aa081927d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application"></a>ASP.NET MVC アプリケーションで Entity Framework で基本的な CRUD 機能を実装します。
 ====================
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/16/2017
 
 受講者のスキャフォールディング コード`Index`ページは省略して、`Enrollments`プロパティ、そのプロパティには、コレクションが格納されているためです。 `Details`ページを HTML テーブルで、コレクションの内容を表示します。
 
- *Controllers\StudentController.cs*、用のアクション メソッド、`Details`使用方法を表示、[検索](https://msdn.microsoft.com/en-us/library/gg696418(v=VS.103).aspx)、1 つを取得する方法を`Student`エンティティです。 
+ *Controllers\StudentController.cs*、用のアクション メソッド、`Details`使用方法を表示、[検索](https://msdn.microsoft.com/library/gg696418(v=VS.103).aspx)、1 つを取得する方法を`Student`エンティティです。 
 
 [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample1.cs)]
 
@@ -92,7 +92,7 @@ Url がによって作成された`ActionLink`Razor ビュー内のステート�
 
 ## <a name="update-the-create-page"></a>更新プログラムの作成 ページ
 
-1. *Controllers\StudentController.cs*、置換、`HttpPost``Create`アクション メソッドを次のコードを追加する、`try-catch`をブロックし、削除`ID`から、 [Bind 属性](https://msdn.microsoft.com/en-us/library/system.web.mvc.bindattribute(v=vs.108).aspx)のスキャフォールディング メソッド:
+1. *Controllers\StudentController.cs*、置換、`HttpPost``Create`アクション メソッドを次のコードを追加する、`try-catch`をブロックし、削除`ID`から、 [Bind 属性](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx)のスキャフォールディング メソッド:
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample7.cs?highlight=3,5-6,13-18)]
 
@@ -108,7 +108,7 @@ Url がによって作成された`ActionLink`Razor ビュー内のステート�
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample8.cs?highlight=7)]
 
-    存在しない場合でも、 `Secret` web ページで、ハッカー フィールドでしたツールを使用してなど[fiddler](http://fiddler2.com/home)、または書き込みを行ういくつか JavaScript、`Secret`値を作成します。 なし、[バインド](https://msdn.microsoft.com/en-us/library/system.web.mvc.bindattribute(v=vs.108).aspx)属性の作成時にモデル バインダーが使用されるフィールドを制限する、`Student`インスタンス*、*モデル バインダーがピックアップされる`Secret`値を作成し、それを使用作成、`Student`エンティティのインスタンス。 値の指定されたハッカーし、`Secret`フォーム フィールドが、データベースで更新されます。 次の図は、fiddler ツールを追加する、`Secret`ポストされたフォーム値へのフィールド (に値"OverPost") です。
+    存在しない場合でも、 `Secret` web ページで、ハッカー フィールドでしたツールを使用してなど[fiddler](http://fiddler2.com/home)、または書き込みを行ういくつか JavaScript、`Secret`値を作成します。 なし、[バインド](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx)属性の作成時にモデル バインダーが使用されるフィールドを制限する、`Student`インスタンス*、*モデル バインダーがピックアップされる`Secret`値を作成し、それを使用作成、`Student`エンティティのインスタンス。 値の指定されたハッカーし、`Secret`フォーム フィールドが、データベースで更新されます。 次の図は、fiddler ツールを追加する、`Secret`ポストされたフォーム値へのフィールド (に値"OverPost") です。
 
     ![](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image5.png)  
 
@@ -120,7 +120,7 @@ Url がによって作成された`ActionLink`Razor ビュー内のステート�
 
     多くの開発者に好ま overposting を防ぐために別の方法では、モデル バインディングでエンティティ クラスではなく、ビュー モデルを使用します。 ビュー モデルで更新するプロパティのみが含まれます。 MVC モデル バインダーが終了すると、モデル プロパティの表示を必要に応じてなどのツールを使用して、エンティティ インスタンスにコピー [AutoMapper](http://automapper.org/)です。 Db を使用します。エンティティのエントリは、インスタンスの状態を Unchanged に設定して、Property("PropertyName") を設定します。IsModified ビュー モデルに含まれる各エンティティ プロパティを true に設定します。 このメソッドは両方のでは、編集し、シナリオを作成します。
 
-    以外の場合、`Bind`属性、`try-catch`ブロックはスキャフォールディング コードに加えたのみ変更します。 派生した例外[DataException](https://msdn.microsoft.com/en-us/library/system.data.dataexception.aspx)は、変更の保存中にキャッチされ、汎用的なエラー メッセージが表示されます。 [DataException](https://msdn.microsoft.com/en-us/library/system.data.dataexception.aspx)例外が場合がありますが原因で、プログラミング エラーではなく、アプリケーションを外部の何かため、ユーザーが再試行することをお勧めします。 このサンプルでは実装されていませんが実稼働品質アプリケーションは、例外を記録します。 詳細については、次を参照してください。、**について理解を深めるログ**」の「[監視と遠隔測定 (実際のクラウド アプリのビルドと Azure)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log)です。
+    以外の場合、`Bind`属性、`try-catch`ブロックはスキャフォールディング コードに加えたのみ変更します。 派生した例外[DataException](https://msdn.microsoft.com/library/system.data.dataexception.aspx)は、変更の保存中にキャッチされ、汎用的なエラー メッセージが表示されます。 [DataException](https://msdn.microsoft.com/library/system.data.dataexception.aspx)例外が場合がありますが原因で、プログラミング エラーではなく、アプリケーションを外部の何かため、ユーザーが再試行することをお勧めします。 このサンプルでは実装されていませんが実稼働品質アプリケーションは、例外を記録します。 詳細については、次を参照してください。、**について理解を深めるログ**」の「[監視と遠隔測定 (実際のクラウド アプリのビルドと Azure)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log)です。
 
     内のコード*Views\Student\Create.cshtml*で学習したような*Details.cshtml*する点を除いて、`EditorFor`と`ValidationMessageFor`ではなく、各フィールドの使用はヘルパー`DisplayFor`. 関連するコードを次に示します。
 
@@ -151,7 +151,7 @@ Url がによって作成された`ActionLink`Razor ビュー内のステート�
 
 これらの変更を防ぐためにセキュリティのベスト プラクティスを実装する[過剰ポスティング](#overpost)、生成された scaffolder、`Bind`属性を更新日時を示すフラグを設定、エンティティにモデル バインダーによって作成されたエンティティを追加します。 のコードは推奨されなく、`Bind`属性に表示されていないフィールド内の既存のデータをクリアして、`Include`パラメーター。 これを生成しないようにの MVC コント ローラー scaffolder の更新、将来、`Bind`編集メソッドの属性です。
 
-新しいコードを読み取り、既存のエンティティと呼び出し[TryUpdateModel](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller.tryupdatemodel(v=vs.118).aspx)ポストされたフォーム データでのユーザー入力からのフィールドを更新します。 Entity Framework の自動変更のセットを追跡、 [Modified](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx)エンティティのフラグ。 ときに、 [SaveChanges](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx)メソッドが呼び出されると、`Modified`フラグにより、Entity Framework データベースの行を更新する SQL ステートメントを作成します。 [同時実行の競合](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)は無視し、ユーザーが変更されなかったものも含め、データベースの行のすべての列が更新されます。 (後のチュートリアルは、同時実行の競合を処理する方法を示していますとする場合のみ、データベースで更新する個別のフィールド、エンティティを Unchanged に設定し、設定できます個々 のフィールドを変更します。)。
+新しいコードを読み取り、既存のエンティティと呼び出し[TryUpdateModel](https://msdn.microsoft.com/library/system.web.mvc.controller.tryupdatemodel(v=vs.118).aspx)ポストされたフォーム データでのユーザー入力からのフィールドを更新します。 Entity Framework の自動変更のセットを追跡、 [Modified](https://msdn.microsoft.com/library/system.data.entitystate.aspx)エンティティのフラグ。 ときに、 [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx)メソッドが呼び出されると、`Modified`フラグにより、Entity Framework データベースの行を更新する SQL ステートメントを作成します。 [同時実行の競合](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)は無視し、ユーザーが変更されなかったものも含め、データベースの行のすべての列が更新されます。 (後のチュートリアルは、同時実行の競合を処理する方法を示していますとする場合のみ、データベースで更新する個別のフィールド、エンティティを Unchanged に設定し、設定できます個々 のフィールドを変更します。)。
 
 Overposting を回避するベスト プラクティスとして、フィールドの編集 ページで更新可能にするは、ホワイト リストに登録で、`TryUpdateModel`パラメーター。 現在保護している、余分なフィールドはありませんが、後で、データ モデルにフィールドを追加する場合、自動的に保護されていることに明示的に追加するには、ここまでにバインドするモデル バインダーを使用するフィールドを一覧表示することを確認します。
 
@@ -161,9 +161,9 @@ HttpPost Edit メソッドのメソッド シグネチャでは、これらの�
 > 
 > **エンティティの状態と、アタッチと SaveChanges メソッド**
 > 
-> メモリ内のエンティティは、データベース内の対応する行との同期と、この情報を呼び出すときの動作を決定するかどうかの追跡データベース コンテキスト、`SaveChanges`メソッドです。 新しいエンティティを渡す場合など、[追加](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset.add(v=vs.103).aspx)メソッドに設定されているエンティティの状態を`Added`です。 その後呼び出す、 [SaveChanges](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx)メソッド、データベース コンテキストの問題、SQL`INSERT`コマンド。
+> メモリ内のエンティティは、データベース内の対応する行との同期と、この情報を呼び出すときの動作を決定するかどうかの追跡データベース コンテキスト、`SaveChanges`メソッドです。 新しいエンティティを渡す場合など、[追加](https://msdn.microsoft.com/library/system.data.entity.dbset.add(v=vs.103).aspx)メソッドに設定されているエンティティの状態を`Added`です。 その後呼び出す、 [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx)メソッド、データベース コンテキストの問題、SQL`INSERT`コマンド。
 > 
-> 1 つのエンティティがあります、[次の状態](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx):
+> 1 つのエンティティがあります、[次の状態](https://msdn.microsoft.com/library/system.data.entitystate.aspx):
 > 
 > - `Added`。 エンティティは、データベースにまだ存在しません。 `SaveChanges`メソッドを発行する必要があります、`INSERT`ステートメントです。
 > - `Unchanged`。 何も行う必要がありますでこのエンティティと、`SaveChanges`メソッドです。 データベースからエンティティを読み取るときに、エンティティは、この状態を持つ開始します。
@@ -173,9 +173,9 @@ HttpPost Edit メソッドのメソッド シグネチャでは、これらの�
 > 
 > デスクトップ アプリケーションでは、通常状態の変更から自動的に設定します。 デスクトップの種類のアプリケーションでは、エンティティの読み取りし、そのプロパティ値の一部を変更します。 これにより、そのエンティティの状態に自動的に変更する`Modified`です。 その後呼び出す`SaveChanges`、Entity Framework は、SQL を生成`UPDATE`を変更して実際のプロパティのみを更新するステートメント。
 > 
-> Web アプリの切断されているため、この連続した一連の許可されていません。 [DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx)を読み取る、ページが表示されたら、エンティティが破棄されています。 ときに、 `HttpPost` `Edit`アクション メソッドが呼び出される、新しい要求が行われ、の新しいインスタンスを持つ、 [DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx)にエンティティの状態を手動で設定する必要があるため、`Modified.`を呼び出すと、 `SaveChanges`、Entity Framework は、コンテキストに変更するプロパティを特定する方法があるないために、データベースの行のすべての列を更新します。
+> Web アプリの切断されているため、この連続した一連の許可されていません。 [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx)を読み取る、ページが表示されたら、エンティティが破棄されています。 ときに、 `HttpPost` `Edit`アクション メソッドが呼び出される、新しい要求が行われ、の新しいインスタンスを持つ、 [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx)にエンティティの状態を手動で設定する必要があるため、`Modified.`を呼び出すと、 `SaveChanges`、Entity Framework は、コンテキストに変更するプロパティを特定する方法があるないために、データベースの行のすべての列を更新します。
 > 
-> 場合は、SQL`Update`ステートメントをユーザーが実際に変更されたフィールドのみを更新するため、使用できるようにするときに、何らかの方法 (非表示フィールドなど) で元の値を保存することができます、 `HttpPost` `Edit`メソッドが呼び出されます。 作成し、 `Student` 、呼び出し元の値を使用して、エンティティ、`Attach`メソッドをその元のバージョン、エンティティのエンティティの値を新しい値に更新およびを呼び出す`SaveChanges.`詳細については、次を参照してください[。エンティティの状態と SaveChanges](https://msdn.microsoft.com/en-us/data/jj592676)と[ローカル データ](https://msdn.microsoft.com/en-us/data/jj592872)MSDN データ デベロッパー センターにします。
+> 場合は、SQL`Update`ステートメントをユーザーが実際に変更されたフィールドのみを更新するため、使用できるようにするときに、何らかの方法 (非表示フィールドなど) で元の値を保存することができます、 `HttpPost` `Edit`メソッドが呼び出されます。 作成し、 `Student` 、呼び出し元の値を使用して、エンティティ、`Attach`メソッドをその元のバージョン、エンティティのエンティティの値を新しい値に更新およびを呼び出す`SaveChanges.`詳細については、次を参照してください[。エンティティの状態と SaveChanges](https://msdn.microsoft.com/data/jj592676)と[ローカル データ](https://msdn.microsoft.com/data/jj592872)MSDN データ デベロッパー センターにします。
 
 
 HTML および Razor コード*Views\Student\Edit.cshtml*で学習したような*Create.cshtml*、し、変更は必要ありません。
@@ -200,12 +200,12 @@ HTML および Razor コード*Views\Student\Edit.cshtml*で学習したよう�
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample12.cs?highlight=1,7-10)]
 
-    このコードが受け付ける、[省略可能なパラメーター](https://msdn.microsoft.com/en-us/library/dd264739.aspx)変更を保存する障害の発生後、メソッドが呼び出されたかどうかを示すです。 このパラメーターは`false`ときに、 `HttpGet` `Delete`以前失敗せずにメソッドが呼び出されます。 呼び出されたとき、 `HttpPost` `Delete`データベース更新エラーへの応答でメソッドをパラメーターが`true`エラー メッセージは、ビューに渡されます。
+    このコードが受け付ける、[省略可能なパラメーター](https://msdn.microsoft.com/library/dd264739.aspx)変更を保存する障害の発生後、メソッドが呼び出されたかどうかを示すです。 このパラメーターは`false`ときに、 `HttpGet` `Delete`以前失敗せずにメソッドが呼び出されます。 呼び出されたとき、 `HttpPost` `Delete`データベース更新エラーへの応答でメソッドをパラメーターが`true`エラー メッセージは、ビューに渡されます。
 - 置換、 `HttpPost` `Delete`アクション メソッド (名前付き`DeleteConfirmed`) を次のコードを実際の削除操作を実行し、データベース更新エラーをキャッチします。
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample13.cs)]
 
-    このコードは、選択したエンティティを取得し、呼び出して、[削除](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset.remove(v=vs.103).aspx)エンティティの状態を設定するメソッドを`Deleted`です。 ときに`SaveChanges`が呼び出されると、SQL`DELETE`コマンドが生成されます。 アクション メソッドの名前も変更した`DeleteConfirmed`に`Delete`です。 名前付きスキャフォールディング コード、 `HttpPost` `Delete`メソッド`DeleteConfirmed`を与える、`HttpPost`メソッド固有の署名。 (CLR には、別のメソッドのパラメーターを持つオーバー ロードされたメソッドが必要があります)。署名が一意ではこれでは、MVC 規則のオプションを使用と同じ名前を使用、`HttpPost`と`HttpGet`メソッドを削除します。
+    このコードは、選択したエンティティを取得し、呼び出して、[削除](https://msdn.microsoft.com/library/system.data.entity.dbset.remove(v=vs.103).aspx)エンティティの状態を設定するメソッドを`Deleted`です。 ときに`SaveChanges`が呼び出されると、SQL`DELETE`コマンドが生成されます。 アクション メソッドの名前も変更した`DeleteConfirmed`に`Delete`です。 名前付きスキャフォールディング コード、 `HttpPost` `Delete`メソッド`DeleteConfirmed`を与える、`HttpPost`メソッド固有の署名。 (CLR には、別のメソッドのパラメーターを持つオーバー ロードされたメソッドが必要があります)。署名が一意ではこれでは、MVC 規則のオプションを使用と同じ名前を使用、`HttpPost`と`HttpGet`メソッドを削除します。
 
     不要な SQL クエリを呼び出すコードの行を置き換えることで、行を取得することで回避できます量の多いアプリケーションのパフォーマンスの向上がある場合、優先度、`Find`と`Remove`メソッドを次のコード。
 
@@ -225,7 +225,7 @@ HTML および Razor コード*Views\Student\Edit.cshtml*で学習したよう�
 
 ## <a name="closing-database-connections"></a>データベース接続の終了
 
-データベース接続を閉じ、できるだけ早くを保持するリソースを解放する、関連付けしたらコンテキストのインスタンスを破棄します。 スキャフォールディングのコードは、理由は、 [Dispose](https://msdn.microsoft.com/en-us/library/system.idisposable.dispose(v=vs.110).aspx)メソッドの最後に、`StudentController`クラス*StudentController.cs*次の例のように。
+データベース接続を閉じ、できるだけ早くを保持するリソースを解放する、関連付けしたらコンテキストのインスタンスを破棄します。 スキャフォールディングのコードは、理由は、 [Dispose](https://msdn.microsoft.com/library/system.idisposable.dispose(v=vs.110).aspx)メソッドの最後に、`StudentController`クラス*StudentController.cs*次の例のように。
 
 [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample16.cs)]
 
@@ -234,11 +234,11 @@ HTML および Razor コード*Views\Student\Edit.cshtml*で学習したよう�
 <a id="transactions"></a>
 ## <a name="handling-transactions"></a>トランザクションの処理
 
-既定では、Entity Framework では、トランザクションが暗黙的に実装しています。 ここで複数の行またはテーブルを変更してを呼び出すシナリオで`SaveChanges`、Entity Framework は自動的に、すべての変更が成功するか、またはすべて失敗したことを確認します。 いくつかの変更を最初に完了して、エラーが発生し、それらの変更は自動的にロールバックします。 必要な複数を制御する--など--トランザクションでは Entity Framework の外部で実行する操作を追加する場合のシナリオを参照してください[トランザクションを使用](https://msdn.microsoft.com/en-US/data/dn456843)msdn です。
+既定では、Entity Framework では、トランザクションが暗黙的に実装しています。 ここで複数の行またはテーブルを変更してを呼び出すシナリオで`SaveChanges`、Entity Framework は自動的に、すべての変更が成功するか、またはすべて失敗したことを確認します。 いくつかの変更を最初に完了して、エラーが発生し、それらの変更は自動的にロールバックします。 必要な複数を制御する--など--トランザクションでは Entity Framework の外部で実行する操作を追加する場合のシナリオを参照してください[トランザクションを使用](https://msdn.microsoft.com/data/dn456843)msdn です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
-単純な CRUD 操作を実行するページの完全なセットがあるようになりました`Student`エンティティです。 MVC ヘルパーを使用すると、データ フィールド用の UI 要素を生成します。 MVC ヘルパーの詳細については、次を参照してください。 [HTML ヘルパーを使用してフォームをレンダリング](https://msdn.microsoft.com/en-us/library/dd410596(v=VS.98).aspx)(ページが MVC 3 がは MVC 5 の場合にも引き続き該当)。
+単純な CRUD 操作を実行するページの完全なセットがあるようになりました`Student`エンティティです。 MVC ヘルパーを使用すると、データ フィールド用の UI 要素を生成します。 MVC ヘルパーの詳細については、次を参照してください。 [HTML ヘルパーを使用してフォームをレンダリング](https://msdn.microsoft.com/library/dd410596(v=VS.98).aspx)(ページが MVC 3 がは MVC 5 の場合にも引き続き該当)。
 
 次のチュートリアルでは、並べ替えとページングを追加することでインデックス ページの機能を展開します。
 

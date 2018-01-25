@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: af4967f642ba4615f3392c0c404d2ec62edaaae8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 48a7d7fdb670aebb72450fc4eb12a364ef595c53
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4 の依存関係の挿入
 ====================
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/10/2017
 > [!NOTE]
 > このハンズオン ラボは、の基本的な知識がある前提としています。 **ASP.NET MVC**と**ASP.NET MVC 4 フィルター**です。 使用していない場合**ASP.NET MVC 4 フィルター**経由で移動する前をお勧め**ASP.NET MVC のカスタム アクション フィルター**ハンズオン ラボ。
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843)です。
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843)です。
 
 
 **オブジェクト指向プログラミング**パラダイム、オブジェクトが連携コラボレーション モデルでの寄稿者およびコンシューマーがある場所です。 必然的に、この通信モデルは、オブジェクトおよび複雑さが増すときに、管理するが困難になるコンポーネント間の依存関係を生成します。
@@ -474,7 +474,7 @@ ms.lasthandoff: 11/10/2017
 
     ![Music Store](aspnet-mvc-4-dependency-injection/_static/image11.png "音楽ストア")
 
-    *音楽ストア*
+    *Music Store*
 3. 参照**/Trace.axd**  ページで、クリックして、アプリケーション トレースを表示する**詳細を表示する**です。
 
     ![アプリケーションのトレース ログ](aspnet-mvc-4-dependency-injection/_static/image12.png "アプリケーションのトレース ログ")
@@ -491,7 +491,7 @@ ms.lasthandoff: 11/10/2017
 <a id="Summary"></a>
 
 <a id="Summary"></a>
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このハンズオン ラボでは、NuGet パッケージを使用する Unity の統合により、ASP.NET MVC 4 で依存関係の挿入を使用する方法を学習しました。 実現するためには、コント ローラー、ビュー、およびアクション フィルターの内部依存関係の挿入を使用しています。
 

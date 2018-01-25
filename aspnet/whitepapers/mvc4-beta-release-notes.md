@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: 4af2df61ab4507b1f100d6bb75777da1168c5a75
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 58ae178a0e6578d8353e1a4e9d67fc1026e99f55
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -65,7 +65,7 @@ ASP.NET MVC のドキュメントは、次の URL で MSDN web サイトで入�
 チュートリアルと ASP.NET MVC に関する他の情報は、ASP.NET web サイトの MVC 4 ページで使用できる ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md))。
 
 <a id="_Toc303253804"></a>
-## <a name="support"></a>Support
+## <a name="support"></a>サポート
 
 これは、プレビュー リリースであり、公式にサポートされていません。 このリリースの操作についての質問がある場合、ASP.NET MVC フォーラムに投稿 ([https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)) では、ASP.NET コミュニティのメンバーは頻繁に、非公式のサポートを提供することができます。
 
@@ -245,7 +245,7 @@ jQuery Mobile は、タッチ最適化 web UI を構築するため、オープ�
 
 記述できるように非同期アクション メソッドを型のオブジェクトを返す 1 つのメソッド*タスク*または*タスク&lt;ActionResult&gt;*です。
 
-たとえば、Visual C# 5 を使用している場合 (またはを使用して、 [Async CTP](https://msdn.microsoft.com/en-us/vstudio/async.aspx))、次のような非同期アクション メソッドを作成することができます。
+たとえば、Visual C# 5 を使用している場合 (またはを使用して、 [Async CTP](https://msdn.microsoft.com/vstudio/async.aspx))、次のような非同期アクション メソッドを作成することができます。
 
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample8.cs)]
 

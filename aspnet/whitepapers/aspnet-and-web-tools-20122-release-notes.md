@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet-and-web-tools-20122-release-notes
 msc.type: content
-ms.openlocfilehash: e6c940aa507d72928d71019070ded5197458a763
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 52559a47f86e572f873d4eaaab50e87eb51722fd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-20122-release-notes"></a>ASP.NET および Web ツール 2012.2 リリース ノートには
 ====================
@@ -61,7 +61,7 @@ ASP.NET および Web ツール 2012.2 を手動でインストールするこ�
 チュートリアルおよびその他の情報は、ASP.NET および Web ツール 2012.2 は ASP.NET web サイト (https://www.asp.net) から入手できます。
 
 <a id="_Support"></a>
-## <a name="support"></a>Support
+## <a name="support"></a>サポート
 
 ASP.NET および Web ツール 2012.2 正式にリリースされた、サポートします。 通常のサポート チャネルを使用することができます。 ASP.NET フォーラムに質問を投稿することもできます ([https://forums.asp.net/](https://forums.asp.net/)) では、ASP.NET コミュニティのメンバーは頻繁に、非公式のサポートを提供することができます。
 
@@ -152,7 +152,7 @@ ASP.NET Web API OData の詳細については、次を参照してください�
 
 #### <a name="aspnet-web-api-tracing"></a>ASP.NET Web API Tracing
 
-ASP.NET Web API のトレースは、.NET トレースと web Api からのトレース データを統合できます。 これは既定では、Web API プロジェクト テンプレートでは有効になりました。 Web のデータをトレース Api は、出力ウィンドウに送信され、IntelliTrace をとおして利用可能な。 統合により、Windows Azure でホストされている場合は、Web API に関するトレース情報を有効にする ASP.NET Web API Tracing [Windows Azure 診断](https://msdn.microsoft.com/en-us/library/windowsazure/hh411529.aspx)です。 インストールし、ASP.NET Web API Tracing NuGet パッケージを使用して任意のアプリケーションで ASP.NET Web API のトレースを有効にすることができます ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing))。
+ASP.NET Web API のトレースは、.NET トレースと web Api からのトレース データを統合できます。 これは既定では、Web API プロジェクト テンプレートでは有効になりました。 Web のデータをトレース Api は、出力ウィンドウに送信され、IntelliTrace をとおして利用可能な。 統合により、Windows Azure でホストされている場合は、Web API に関するトレース情報を有効にする ASP.NET Web API Tracing [Windows Azure 診断](https://msdn.microsoft.com/library/windowsazure/hh411529.aspx)です。 インストールし、ASP.NET Web API Tracing NuGet パッケージを使用して任意のアプリケーションで ASP.NET Web API のトレースを有効にすることができます ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing))。
 
 詳細については、構成して、ASP.NET Web API Tracing を使用して、次を参照してください。 [https://go.microsoft.com/fwlink/?LinkID=269874](https://go.microsoft.com/fwlink/?LinkID=269874)です。
 
@@ -278,14 +278,14 @@ JQuery 1.9/Knockout 2.2.1 更新プログラムが既定の MVC SPA プロジェ
 回避策の参照を[http://knockoutjs.com/documentation/hasfocus-binding.html](http://knockoutjs.com/documentation/hasfocus-binding.html)のような修正プログラムを次のサンプル コード。
 
 ファイル todo.model.js  
- 関数の todolist(data)、追加以下。  
- **self.isSelected ko.observable(false); を =**
+ function todolist(data), add following:  
+ **self.isSelected = ko.observable(false);**
 
 次の黒くテキストを追加、todoList.prototype.addTodo を関数します。  
- **self.isSelected(true) です。**  
- self.newTodoTitle (&quot;&quot;) です。
+ **self.isSelected(true);**  
+ self.newTodoTitle(&quot;&quot;);
 
 Index.cshtml をファイルに追加し、次の黒くテキスト。  
  &lt;データ バインド フォーム =&quot;送信: addTodo&quot;&gt;  
- &lt;クラスの入力 =&quot;addTodo&quot;型 =&quot;テキスト&quot;データ バインド =&quot;値: newTodoTitle、プレース ホルダー: '型は、ここに追加する'、blurOnEnter: true の場合、**できる: isSelected**、イベント: {ぼかし: addTodo}&quot; /&gt;  
+ &lt;input class=&quot;addTodo&quot; type=&quot;text&quot; data-bind=&quot;value: newTodoTitle, placeholder: 'Type here to add', blurOnEnter: true, **hasfocus: isSelected**, event: { blur: addTodo }&quot; /&gt;  
  &lt;/form&gt;

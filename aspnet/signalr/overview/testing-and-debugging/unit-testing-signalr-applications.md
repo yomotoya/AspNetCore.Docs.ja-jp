@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: e55efd644dd4b6fb57061ffb89a5c041136c7b5e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d767e1a9d27670387133e5a48a8f92f5bdd39d9e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unit-testing-signalr-applications"></a>単体テストの SignalR アプリケーション
 ====================
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/10/2017
 <a id="unit"></a>
 ## <a name="unit-testing-signalr-applications"></a>単体テストの SignalR アプリケーション
 
-SignalR 2 で単体テスト機能を使用して SignalR アプリケーションの単体テストを作成することができます。 SignalR 2 が含まれています、 [IHubCallerConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx)インターフェイスで、テストのハブ メソッドをシミュレートするモック オブジェクトを作成するために使用できます。
+SignalR 2 で単体テスト機能を使用して SignalR アプリケーションの単体テストを作成することができます。 SignalR 2 が含まれています、 [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx)インターフェイスで、テストのハブ メソッドをシミュレートするモック オブジェクトを作成するために使用できます。
 
 このセクションで追加で作成したアプリケーションの単体テスト、[チュートリアル入門](../getting-started/tutorial-getting-started-with-signalr.md)を使用して[XUnit.net](https://github.com/xunit/xunit)と[Moq](https://github.com/Moq/moq4)です。
 
@@ -67,7 +67,7 @@ SignalR 2 で単体テスト機能を使用して SignalR アプリケーショ�
 4. 単体テストのソリューションにプロジェクトを追加します。 ソリューションを右クリックして**ソリューション エクスプ ローラー**選択**追加**、**新しいプロジェクト.**.下にある、 **c#**ノードで、選択、 **Windows**ノード。 選択**クラス ライブラリ**です。 新しいプロジェクトの名前**TestLibrary**  をクリック**OK**です。
 
     ![テスト ライブラリを作成します。](unit-testing-signalr-applications/_static/image2.png)
-5. テスト ライブラリ プロジェクトで SignalRChat プロジェクトへの参照を追加します。 右クリックし、 **TestLibrary**プロジェクトし、選択**追加**、**参照しています.**.選択、**プロジェクト**ノードの下、**ソリューション**ノード、およびチェック**SignalRChat**です。 **[OK]** をクリックします。
+5. テスト ライブラリ プロジェクトで SignalRChat プロジェクトへの参照を追加します。 右クリックし、 **TestLibrary**プロジェクトし、選択**追加**、**参照しています.**.選択、**プロジェクト**ノードの下、**ソリューション**ノード、およびチェック**SignalRChat**です。 **[OK]**をクリックします。
 
     ![プロジェクト参照を追加します。](unit-testing-signalr-applications/_static/image3.png)
 6. SignalR、Moq、XUnit パッケージを追加、 **TestLibrary**プロジェクト。 **Package Manager Console**、設定、**プロジェクトの既定の**ドロップダウンを**TestLibrary**です。 コンソール ウィンドウで、次のコマンドを実行します。
@@ -82,11 +82,11 @@ SignalR 2 で単体テスト機能を使用して SignalR アプリケーショ�
 
     [!code-csharp[Main](unit-testing-signalr-applications/samples/sample1.cs)]
 
-    使用して、テスト用クライアントを作成、上記のコードで、`Mock`オブジェクトから、 [Moq](https://github.com/Moq/moq4)型のライブラリ、 [IHubCallerConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (SignalR 2.1 に割り当てる`dynamic`の種類パラメーターです。)`IHubCallerConnectionContext`インターフェイスは、プロキシ オブジェクトを使用するクライアントのメソッドを呼び出します。 `broadcastMessage`関数は呼び出すことができるように、次に、モック クライアントの定義、`ChatHub`クラスです。 テスト エンジンは、呼び出し、`Send`のメソッド、`ChatHub`を呼び出して、モック クラス`broadcastMessage`関数。
+    使用して、テスト用クライアントを作成、上記のコードで、`Mock`オブジェクトから、 [Moq](https://github.com/Moq/moq4)型のライブラリ、 [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (SignalR 2.1 に割り当てる`dynamic`の種類パラメーターです。)`IHubCallerConnectionContext`インターフェイスは、プロキシ オブジェクトを使用するクライアントのメソッドを呼び出します。 `broadcastMessage`関数は呼び出すことができるように、次に、モック クライアントの定義、`ChatHub`クラスです。 テスト エンジンは、呼び出し、`Send`のメソッド、`ChatHub`を呼び出して、モック クラス`broadcastMessage`関数。
 9. キーを押して、ソリューションをビルド**F6**です。
 10. 単体テストを実行します。 Visual Studio で、次のように選択します。**テスト**、 **Windows**、**テスト エクスプ ローラー**です。 テスト エクスプ ローラー ウィンドウで右クリック**HubsAreMockableViaDynamic**選択**選択したテストの実行**です。
 
-    ![テスト エクスプローラー](unit-testing-signalr-applications/_static/image5.png)
+    ![Test Explorer](unit-testing-signalr-applications/_static/image5.png)
 11. テスト エクスプ ローラー ウィンドウで、下のウィンドウをチェックして、テストが成功したことを確認します。 テストが成功した、ウィンドウが表示されます。
 
     ![テスト成功](unit-testing-signalr-applications/_static/image6.png)
@@ -101,13 +101,13 @@ SignalR 2 で単体テスト機能を使用して SignalR アプリケーショ�
 
     [!code-csharp[Main](unit-testing-signalr-applications/samples/sample2.cs)]
 
-    署名を定義するインターフェイスを作成、上記のコードで、`broadcastMessage`メソッドで、テスト エンジンがモック クライアントを作成します。 モック クライアントを使用してを作成し、`Mock`型のオブジェクト[IHubCallerConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (SignalR 2.1 に割り当てる`dynamic`型パラメーターです)。`IHubCallerConnectionContext`インターフェイスは、プロキシ オブジェクトを使用するクライアントのメソッドを呼び出します。
+    署名を定義するインターフェイスを作成、上記のコードで、`broadcastMessage`メソッドで、テスト エンジンがモック クライアントを作成します。 モック クライアントを使用してを作成し、`Mock`型のオブジェクト[IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (SignalR 2.1 に割り当てる`dynamic`型パラメーターです)。`IHubCallerConnectionContext`インターフェイスは、プロキシ オブジェクトを使用するクライアントのメソッドを呼び出します。
 
     インスタンスを作成、テスト`ChatHub`、しのモック版を作成、`broadcastMessage`メソッドを呼び出すことによってさらに呼び出される、`Send`ハブのメソッドです。
 3. キーを押して、ソリューションをビルド**F6**です。
 4. 単体テストを実行します。 Visual Studio で、次のように選択します。**テスト**、 **Windows**、**テスト エクスプ ローラー**です。 テスト エクスプ ローラー ウィンドウで右クリック**HubsAreMockableViaDynamic**選択**選択したテストの実行**です。
 
-    ![テスト エクスプローラー](unit-testing-signalr-applications/_static/image7.png)
+    ![Test Explorer](unit-testing-signalr-applications/_static/image7.png)
 5. テスト エクスプ ローラー ウィンドウで、下のウィンドウをチェックして、テストが成功したことを確認します。 テストが成功した、ウィンドウが表示されます。
 
     ![テスト成功](unit-testing-signalr-applications/_static/image8.png)

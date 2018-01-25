@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: dec2602e47fbcb838643a506a7e3feebda9d9c81
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4468ee8031afccca847db67bd4b5b263f0a2c5ac
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-performance"></a>SignalR パフォーマンス
 ====================
@@ -87,7 +87,7 @@ SignalR メッセージのサイズを小さくには、シリアル化された
 
 ### <a name="tuning-your-signalr-server-for-performance"></a>パフォーマンスのため、SignalR のサーバーのチューニング
 
-次の構成設定は、SignalR アプリケーションでパフォーマンスを向上させるため、サーバーのチューニングに使用できます。 ASP.NET アプリケーションのパフォーマンスを向上させる方法の概要については、次を参照してください。 [ASP.NET のパフォーマンスを向上させる](https://msdn.microsoft.com/en-us/library/ff647787.aspx)です。
+次の構成設定は、SignalR アプリケーションでパフォーマンスを向上させるため、サーバーのチューニングに使用できます。 ASP.NET アプリケーションのパフォーマンスを向上させる方法の概要については、次を参照してください。 [ASP.NET のパフォーマンスを向上させる](https://msdn.microsoft.com/library/ff647787.aspx)です。
 
 **SignalR の構成設定**
 
@@ -104,7 +104,7 @@ SignalR メッセージのサイズを小さくには、シリアル化された
     [!code-console[Main](signalr-performance/samples/sample4.cmd)]
 - **ApplicationPool QueueLength**: これは、Http.sys がアプリケーション プールのキューを要求の最大数。 キューがいっぱいになった場合、新しい要求は 503「サービスは使用できません」応答を受信します。 既定値は 1000 です。
 
-    アプリケーションをホストするアプリケーション プールでワーカー プロセスのキューの長さを短くと、メモリ リソースを節約します。 詳細については、次を参照してください。[管理、調整、およびアプリケーション プールを構成する](https://technet.microsoft.com/en-us/library/cc745955.aspx)です。
+    アプリケーションをホストするアプリケーション プールでワーカー プロセスのキューの長さを短くと、メモリ リソースを節約します。 詳細については、次を参照してください。[管理、調整、およびアプリケーション プールを構成する](https://technet.microsoft.com/library/cc745955.aspx)です。
 
 **ASP.NET 構成の設定**
 
@@ -215,7 +215,7 @@ SignalR パフォーマンス カウンターを削除するには、次のパ�
 
 次のメトリックは、トラフィックおよびスケール アウト プロバイダーによって生成されたエラーを測定します。 A**ストリーム**このコンテキストでは、スケール アウト プロバイダーによって、スケール ユニットを使用。 これは SQL Server が使用される場合は、テーブル、Service Bus を使用する場合のトピックとサブスクリプション Redis を使用する場合。 各ストリームにより、順序付けられた読み取りおよび書き込み操作です。1 つのストリームは、潜在的なスケール ボトルネックは、そのボトルネックを低減するストリームの数を増やすことができます。 複数のストリームを使用している場合 SignalR は自動的に配布されている順序で特定の接続から送信されたメッセージを保証する方法でこれらのストリーム間 (シャード) メッセージを使用します。
 
-[MaxQueueLength](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx)設定では、SignalR で保持されているスケール アウト送信キューの長さを指定します。 値に設定する、構成済みのメッセージング バック プレーンに一度に 1 つずつ送信する送信キューのすべてのメッセージを配置が 0 より大きい。 キューのサイズが構成されている長さを超えた場合にを送信する後続の呼び出しはすぐに失敗、 [InvalidOperationException](https://msdn.microsoft.com/en-us/library/system.invalidoperationexception(v=vs.118).aspx)キュー内のメッセージの数が、設定よりも小さくするまでもう一度です。 実装済みのバック プレーン一般に、独自のキューまたはフロー制御では、キューが既定では無効です。 SQL Server の場合は任意の時点で起こっているの送信メッセージの数の制限接続プールを効果的にします。
+[MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx)設定では、SignalR で保持されているスケール アウト送信キューの長さを指定します。 値に設定する、構成済みのメッセージング バック プレーンに一度に 1 つずつ送信する送信キューのすべてのメッセージを配置が 0 より大きい。 キューのサイズが構成されている長さを超えた場合にを送信する後続の呼び出しはすぐに失敗、 [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception(v=vs.118).aspx)キュー内のメッセージの数が、設定よりも小さくするまでもう一度です。 実装済みのバック プレーン一般に、独自のキューまたはフロー制御では、キューが既定では無効です。 SQL Server の場合は任意の時点で起こっているの送信メッセージの数の制限接続プールを効果的にします。
 
 既定では、1 つだけのストリームが SQL Server および Redis の使用は、Service Bus の 5 つのストリームを使用およびキューが無効になっているがこれらの設定は、SQL Server と Service Bus の構成で変更できます。
 
@@ -251,7 +251,7 @@ A**バッファリング**ストリームが途中終了状態になったもの
 
 **ASP.NET**
 
-- Asp.net \requests Current
+- ASP.NET\Requests Current
 - ASP.NET\Queued
 - ASP.NET\Rejected
 
@@ -280,6 +280,6 @@ A**バッファリング**ストリームが途中終了状態になったもの
 
 ASP.NET のパフォーマンスの監視とチューニングの詳細については、次のトピックを参照してください。
 
-- [ASP.NET のパフォーマンスの概要](https://msdn.microsoft.com/en-us/library/cc668225(v=vs.100).aspx)
+- [ASP.NET のパフォーマンスの概要](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
 - [IIS 7.5、IIS 7.0 および IIS 6.0 に ASP.NET スレッドの使用状況](https://blogs.msdn.com/b/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)
-- [&lt;applicationPool&gt;要素 (Web 設定)](https://msdn.microsoft.com/en-us/library/dd560842.aspx)
+- [&lt;applicationPool&gt;要素 (Web 設定)](https://msdn.microsoft.com/library/dd560842.aspx)

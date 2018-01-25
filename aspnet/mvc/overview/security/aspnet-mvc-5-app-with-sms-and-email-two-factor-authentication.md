@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: db57b8fe44f41d65d27964f45e0884138629f92b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d6bc92f3cbe6b61332e33e8a507b4516bf5c15a5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>SMS と 2 要素認証の電子メールを使って ASP.NET MVC 5 アプリ
 ====================
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/10/2017
 
 1. 新しい ASP.NET Web プロジェクトを作成し、MVC テンプレートを選択します。 Web フォームは、web フォーム アプリケーションで同じ手順を実行できなかったために、ASP.NET Identity もサポートします。  
     ![](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/_static/image1.png)
-2. 既定の認証としてのままにして**個々 のユーザー アカウント**です。 Azure でアプリケーションをホストする場合は、チェック ボックスをオンのままにします。 このチュートリアルで後ほどは、Azure に配置します。 実行できます[無料の Azure アカウントを開設](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F)です。
+2. 既定の認証としてのままにして**個々 のユーザー アカウント**です。 Azure でアプリケーションをホストする場合は、チェック ボックスをオンのままにします。 このチュートリアルで後ほどは、Azure に配置します。 実行できます[無料の Azure アカウントを開設](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)です。
 3. 設定、 [SSL を使用するプロジェクト](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)です。
 
 <a id="SMS"></a>
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/10/2017
 7. 更新プログラム、 *Views\Manage\Index.cshtml* Razor ビュー: (注: しないでだけ、既存のコードにコメントを解除して、次のコードを使用します)。  
 
     [!code-cshtml[Main](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/samples/sample3.cshtml?highlight=29-66)]
-8. 確認、`EnableTwoFactorAuthentication`と`DisableTwoFactorAuthentication`内のアクション メソッド、`ManageController`が、[[ValidateAntiForgeryToken]](https://msdn.microsoft.com/en-us/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.118).aspx)属性。  
+8. 確認、`EnableTwoFactorAuthentication`と`DisableTwoFactorAuthentication`内のアクション メソッド、`ManageController`が、[[ValidateAntiForgeryToken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.118).aspx)属性。  
 
     [!code-csharp[Main](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/samples/sample4.cs?highlight=3,16)]
 9. アプリを実行し、以前に登録したアカウントでログインします。

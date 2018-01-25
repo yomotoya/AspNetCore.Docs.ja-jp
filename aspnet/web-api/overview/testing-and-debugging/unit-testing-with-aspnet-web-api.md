@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 13211ee4543e17a4bfb2f83495f4041880f37df2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4d6102dd81589e41894d8ecd95bf9ddd761a65bd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unit-testing-aspnet-web-api-2"></a>単体テストの ASP.NET Web API 2
 ====================
@@ -118,7 +118,7 @@ Controllers フォルダーを右クリックし **追加**と**スキャフォ�
 
 [!code-csharp[Main](unit-testing-with-aspnet-web-api/samples/sample2.cs)]
 
-GetProduct メソッドのインスタンスを返します、 **IHttpActionResult**インターフェイスです。 IHttpActionResult Web API 2 の新機能の 1 つは、単体テストの開発が簡単になります。 IHttpActionResult インターフェイスを実装するクラスは、 [System.Web.Http.Results](https://msdn.microsoft.com/en-us/library/system.web.http.results.aspx)名前空間。 これらのクラスは、操作要求から応答できるを表し、HTTP ステータス コードに対応します。
+GetProduct メソッドのインスタンスを返します、 **IHttpActionResult**インターフェイスです。 IHttpActionResult Web API 2 の新機能の 1 つは、単体テストの開発が簡単になります。 IHttpActionResult インターフェイスを実装するクラスは、 [System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)名前空間。 これらのクラスは、操作要求から応答できるを表し、HTTP ステータス コードに対応します。
 
 ソリューションをビルドします。
 
@@ -161,6 +161,6 @@ NuGet パッケージの管理ウィンドウを閉じます。
 
 ![テスト結果](unit-testing-with-aspnet-web-api/_static/image12.png)
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルを完了しました。 このチュートリアルでは、データは、単体テストの条件に焦点を絞る意図的に簡素化されます。 単体テスト データの高度なシナリオで次を参照してください。 [Entity Framework のモック作成時に ASP.NET Web API 2 の単体テスト](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)です。

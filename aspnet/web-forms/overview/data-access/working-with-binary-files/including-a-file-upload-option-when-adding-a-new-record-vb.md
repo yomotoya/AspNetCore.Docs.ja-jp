@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4f49c201c71ca8f98d7e15b29f1df9a6bcd1b12e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eb462a0e8ce88037855ea12d00c1afc0419fa04e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-vb"></a>新しいレコード (VB) を追加するときに、ファイルのアップロード オプションを含む
 ====================
@@ -176,7 +176,7 @@ DetailsView s のスマート タグからのテンプレートの編集 オプ�
 
 ## <a name="step-6-saving-the-uploaded-brochure-to-the-web-server-s-file-system"></a>手順 6: アップロードされたパンフレットを Web サーバーのファイル システムに保存します。
 
-ユーザーは、新しいカテゴリの値を入力、[挿入] ボタンをクリックすると、ポストバックが発生して挿入するワークフロー。 最初に、DetailsView s [ `ItemInserting`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.iteminserting.aspx)発生します。 次に、ObjectDataSource s`Insert()`メソッドが呼び出され、その結果は、新しいレコードに追加されている、`Categories`テーブル。 その後、DetailsView s [ `ItemInserted`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.iteminserted.aspx)発生します。
+ユーザーは、新しいカテゴリの値を入力、[挿入] ボタンをクリックすると、ポストバックが発生して挿入するワークフロー。 最初に、DetailsView s [ `ItemInserting`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.iteminserting.aspx)発生します。 次に、ObjectDataSource s`Insert()`メソッドが呼び出され、その結果は、新しいレコードに追加されている、`Categories`テーブル。 その後、DetailsView s [ `ItemInserted`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.iteminserted.aspx)発生します。
 
 ObjectDataSource s 前に`Insert()`メソッドが呼び出されるを適切なファイルの種類がユーザーによってアップロードされたことを最初に確認をしパンフレット PDF web サーバーのファイル システムに保存する必要があります。 DetailsView s のイベント ハンドラーを作成`ItemInserting`イベントし、次のコードを追加します。
 
@@ -191,7 +191,7 @@ ObjectDataSource s 前に`Insert()`メソッドが呼び出されるを適切な
 
 説明したように、[ファイルのアップロード](uploading-files-vb.md)チュートリアルでは、注意する必要がある 1 人のユーザーのアップロードで別の s が上書きされないように、ファイル システムにファイルの保存時にします。 このチュートリアルでは、アップロードされたファイルと同じ名前を使用を試みます。 内のファイルが既に存在する場合、`~/Brochures`を同じファイル名で、ただし、ディレクトリおあります番号を追加、末尾に一意の名前が見つかるまでです。 たとえば、ユーザーが名前付きパンフレット ファイルをアップロード`Meats.pdf`、という名前のファイルが既に存在が`Meats.pdf`で、`~/Brochures`フォルダーおを保存するファイル名を変更します`Meats-1.pdf`です。 存在する場合を見ていきます`Meats-2.pdf`など、一意のファイル名が見つかるまでです。
 
-次のコードでは、 [ `File.Exists(path)`メソッド](https://msdn.microsoft.com/en-us/library/system.io.file.exists.aspx)を指定したファイル名のファイルが既に存在するかどうかを判断します。 場合は、しようとパンフレットを新しいファイル名の競合が見つからなくなるまで続行します。
+次のコードでは、 [ `File.Exists(path)`メソッド](https://msdn.microsoft.com/library/system.io.file.exists.aspx)を指定したファイル名のファイルが既に存在するかどうかを判断します。 場合は、しようとパンフレットを新しいファイル名の競合が見つからなくなるまで続行します。
 
 
 [!code-vb[Main](including-a-file-upload-option-when-adding-a-new-record-vb/samples/sample7.vb)]
@@ -268,7 +268,7 @@ Let s をとって、挿入するインターフェイスをテストし、`Item
 
 [!code-vb[Main](including-a-file-upload-option-when-adding-a-new-record-vb/samples/sample13.vb)]
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 バイナリ データが含まれるレコードを追加するための web ベースのインターフェイスを提供するために必要なステップ数があります。 バイナリ データは、データベースに直接格納される場合は、バイナリ データが挿入されるケースを処理する特定のメソッドを追加する、アーキテクチャを更新する必要ありますが高くなります。 アーキテクチャを更新すると、次の手順はバイナリ データの各フィールドのファイルアップロード コントロールに含めるカスタマイズされた DetailsView を実現できます挿入のインターフェイスを作成しています。 アップロードされたデータは、web サーバーのファイル システムに保存または DetailsView s でデータ ソースのパラメーターに割り当てられた`ItemInserting`イベント ハンドラー。
 

@@ -12,28 +12,28 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: e660595d66d81069fa47b77387509e73b1ec834e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d47d8f61dc7af6e1dc5887338be862ea81d7bb17
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 モバイル機能
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-> このチュートリアルでのコード サンプルでの MVC 5 のバージョンがないようになりました[ASP.NET MVC 5 モバイル Web アプリケーションでは、Azure Web サイトを展開](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/)です。
+> このチュートリアルでのコード サンプルでの MVC 5 のバージョンがないようになりました[ASP.NET MVC 5 モバイル Web アプリケーションでは、Azure Web サイトを展開](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/)です。
 
 
-このチュートリアルでは、ASP.NET MVC 4 Web アプリケーションでのモバイル機能を使用する方法の基本を説明します。 このチュートリアルで行うこともできます[Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express)または Visual Web Developer 2010 Express Service Pack 1 (&quot;Visual Web Developer または VWD&quot;)。 既にある場合は、プロフェッショナルなバージョンの Visual Studio を使用できます。
+このチュートリアルでは、ASP.NET MVC 4 Web アプリケーションでのモバイル機能を使用する方法の基本を説明します。 このチュートリアルで行うこともできます[Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express)または Visual Web Developer 2010 Express Service Pack 1 (&quot;Visual Web Developer または VWD&quot;)。 既にある場合は、プロフェッショナルなバージョンの Visual Studio を使用できます。
 
 開始する前に、以下に示す前提条件がインストールされていることを確認してください。
 
-- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express) (推奨) または Visual Studio Web Developer Express SP1。 Visual Studio 2012 には、ASP.NET MVC 4 が含まれています。 Visual Web Developer 2010 を使用している場合は、インストールする必要あります[ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)です。
+- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (推奨) または Visual Studio Web Developer Express SP1。 Visual Studio 2012 contains ASP.NET MVC 4. Visual Web Developer 2010 を使用している場合は、インストールする必要あります[ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)です。
 
 モバイル ブラウザー エミュレーターも必要になります。 次のいずれか、動作します。
 
-- [Windows 7 Phone エミュレーター](https://msdn.microsoft.com/en-us/library/ff402563(VS.92).aspx)です。 (これは、このチュートリアルでは、スクリーン ショットのほとんどで使用されているエミュレーターです)。
+- [Windows 7 Phone エミュレーター](https://msdn.microsoft.com/library/ff402563(VS.92).aspx)です。 (これは、このチュートリアルでは、スクリーン ショットのほとんどで使用されているエミュレーターです)。
 - IPhone をエミュレートするためにユーザー エージェント文字列を変更します。 参照してください[この](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/)ブログ エントリです。
 - [元の opera Mobile エミュレーター](http://www.opera.com/developer/tools/mobile/)
 - [Apple Safari](http://www.apple.com/safari/download/)ユーザー エージェント iPhone に設定します。 Safari で、ユーザー エージェントを"iPhone"に設定する方法については、次を参照してください。 [IE が見かけ上 Safari させる方法について](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html)David Alison ブログ。
@@ -45,7 +45,7 @@ C# ソース コードの visual Studio プロジェクトは、このトピッ�
 
 ### <a name="what-youll-build"></a>新機能のビルドします。
 
-このチュートリアルでは、モバイルの機能を追加会議一覧の簡単なアプリケーションで提供される、[スタート プロジェクト](https://go.microsoft.com/fwlink/?LinkId=228307)です。 次のスクリーン ショットに示すように、完成したアプリケーションの [タグ] ページを示しています、 [Windows 7 Phone エミュレーター](https://msdn.microsoft.com/en-us/library/ff402563(VS.92).aspx)です。 参照してください[キーボード マッピングの Windows Phone エミュレーター](https://msdn.microsoft.com/en-us/library/ff754352(v=vs.92).aspx)をキーボード入力を簡略化します。
+このチュートリアルでは、モバイルの機能を追加会議一覧の簡単なアプリケーションで提供される、[スタート プロジェクト](https://go.microsoft.com/fwlink/?LinkId=228307)です。 次のスクリーン ショットに示すように、完成したアプリケーションの [タグ] ページを示しています、 [Windows 7 Phone エミュレーター](https://msdn.microsoft.com/library/ff402563(VS.92).aspx)です。 参照してください[キーボード マッピングの Windows Phone エミュレーター](https://msdn.microsoft.com/library/ff754352(v=vs.92).aspx)をキーボード入力を簡略化します。
 
 [![p1_Tags_CompletedProj](aspnet-mvc-4-mobile-features/_static/image2.png)](aspnet-mvc-4-mobile-features/_static/image1.png)
 
@@ -215,7 +215,7 @@ ASP.NET MVC 4 において重要な新しい機能は、オーバーライドで
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample11.cs?highlight=26)]
 
 > [!NOTE]
-> Internet Explorer 9 を使用しているし、表示されない場合、`BundleMobileConfig`黄色のハイライト上線をクリックして、[互換表示 ボタン](https://windows.microsoft.com/en-US/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![(オフ) 互換表示 ボタンの画像](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "(オフ) 互換表示 ボタンの画像")アウトラインから変更アイコン IE で![(オフ) 互換表示 ボタンの画像](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "(オフ) 互換表示 ボタンの画像")を純色![(on) 互換表示 ボタンの画像](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "(on) 互換表示 ボタンの画像")します。 また FireFox または Chrome で、このチュートリアルを参照できます。
+> Internet Explorer 9 を使用しているし、表示されない場合、`BundleMobileConfig`黄色のハイライト上線をクリックして、[互換表示 ボタン](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![(オフ) 互換表示 ボタンの画像](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "(オフ) 互換表示 ボタンの画像")アウトラインから変更アイコン IE で![(オフ) 互換表示 ボタンの画像](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "(オフ) 互換表示 ボタンの画像")を純色![(on) 互換表示 ボタンの画像](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "(on) 互換表示 ボタンの画像")します。 また FireFox または Chrome で、このチュートリアルを参照できます。
 
 
 開く、 *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml*ファイルし、次のマークアップを直接後の追加、`Html.Partial`呼び出し。
@@ -270,7 +270,7 @@ ASP.NET MVC 4 において重要な新しい機能は、オーバーライドで
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample17.cshtml)]
 
-ときに`RequireConsistentDisplayMode`に設定されている`true`、モバイルのレイアウト (*\_Layout.Mobile.cshtml*) はモバイル ビューに対してのみ使用します。 (そのファイルの表示は、フォームの ***ViewName**です。Mobile.cshtml*)。設定することができます`RequireConsistentDisplayMode`に`true`場合は、非モバイル ビューに対して、モバイルのレイアウトは動作しません。 次のスクリーン ショット方法、*スピーカー*ページが表示されるときに`RequireConsistentDisplayMode`に設定されている`true`です。
+ときに`RequireConsistentDisplayMode`に設定されている`true`、モバイルのレイアウト (*\_Layout.Mobile.cshtml*) はモバイル ビューに対してのみ使用します。 (そのファイルの表示は、フォームの ***ViewName**です。Mobile.cshtml*。)設定することができます`RequireConsistentDisplayMode`に`true`場合は、非モバイル ビューに対して、モバイルのレイアウトは動作しません。 次のスクリーン ショット方法、*スピーカー*ページが表示されるときに`RequireConsistentDisplayMode`に設定されている`true`です。
 
 [![p3_speakersConsistent](aspnet-mvc-4-mobile-features/_static/image33.png)](aspnet-mvc-4-mobile-features/_static/image32.png)
 
@@ -393,7 +393,7 @@ ASP.NET MVC 4 において重要な新しい機能は、オーバーライドで
 - モバイル ビュー スイッチャー ウィジェット デスクトップ ビューにも表示されるよりもを表示します。
 - IPhone ブラウザーなどの特定のブラウザーをサポートするためのサポート。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 - [jQuery Mobile](http://jquerymobile.com)サイトです。
 - [jQuery Mobile の概要](http://jquerymobile.com/demos/1.0b3/docs/about/intro.html)

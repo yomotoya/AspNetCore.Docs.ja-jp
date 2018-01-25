@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: a66e2a80668dbf291b9cc34f205b546b72d92bcc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c7dcb7903b0d0772acc560161ff39c6869c599a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-aspnet-identity"></a>ASP.NET Id の概要
 ====================
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="aspnet-membership"></a>ASP.NET メンバーシップ
 
-[ASP.NET メンバーシップ](https://msdn.microsoft.com/en-us/library/yh26yfzy(v=VS.100).aspx)が 2005年では、フォーム認証、およびユーザー名、パスワード、およびプロファイル データの SQL Server データベースに関連する一般的なサイトのメンバーシップの要件を解決するように設計されました。 現在、web アプリケーションのデータ記憶域オプションの多くに広範な配列があるし、ほとんどの開発者が認証と承認の機能のためのソーシャル id プロバイダーを使用するには、そのサイトを有効にします。 ASP.NET メンバーシップのデザインの制限を行います。 この移行困難
+[ASP.NET メンバーシップ](https://msdn.microsoft.com/library/yh26yfzy(v=VS.100).aspx)が 2005年では、フォーム認証、およびユーザー名、パスワード、およびプロファイル データの SQL Server データベースに関連する一般的なサイトのメンバーシップの要件を解決するように設計されました。 現在、web アプリケーションのデータ記憶域オプションの多くに広範な配列があるし、ほとんどの開発者が認証と承認の機能のためのソーシャル id プロバイダーを使用するには、そのサイトを有効にします。 ASP.NET メンバーシップのデザインの制限を行います。 この移行困難
 
 - SQL Server 用に設計された、データベース スキーマとそれを変更することはできません。 プロファイル情報を追加することができますが、追加のデータが困難にアクセスする以外で、プロファイル プロバイダーの API を介して別のテーブルにパックされました。
 - プロバイダーのシステムでは、バックアップ データ ストアを変更することができますが、システムが、リレーショナル データベースの適切な前提条件の周囲に設計されています。 Azure ストレージ テーブルなどの非リレーショナル ストレージ メカニズムでメンバーシップ情報を格納するプロバイダーを作成することができますが、多くのコードとの多くを記述してリレーショナル設計を回避する必要がある、`System.NotImplementedException`しないメソッドに対して例外NoSQL データベースに適用されます。
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/10/2017
 - OWIN の使用することはできません。
 - 既存の ASP.NET メンバーシップ プロバイダーでは機能しないしは拡張できません。
 
-### <a name="aspnet-universal-providers"></a>ASP.NET Universal Providers
+### <a name="aspnet-universal-providers"></a>ASP.NET ユニバーサル プロバイダー
 
 [ASP.NET Universal Providers](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx)と Azure SQL データベース、SQL Server Compact の操作も Microsoft でメンバーシップ情報を永続化に使用するために開発されました。 ユニバーサル プロバイダーは、Entity Framework Code First、EF でサポートされている任意のストア内のデータを永続化する汎用プロバイダーを使用できることを意味で構築されました。 ユニバーサルのプロバイダーで、データベース スキーマは、非常に多くも駆除されました。
 
@@ -132,7 +132,7 @@ ASP.NET Identity は、次の手順を使用して実装されます。 この�
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample3.cs?highlight=5-6)]
 
- 上での強調表示されたコード、`SignInAsync`メソッドを生成、 [ClaimsIdentity](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsidentity.aspx)です。 ASP.NET Identity と OWIN の Cookie 認証は要求ベースのシステムであるため、フレームワークには、ユーザーの ClaimsIdentity を生成するアプリが必要です。 ClaimsIdentity には、ユーザーが属するロールなどのユーザーのすべての要求に関する情報があります。 この段階で、ユーザーのクレームを追加することもできます。  
+ 上での強調表示されたコード、`SignInAsync`メソッドを生成、 [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx)です。 ASP.NET Identity と OWIN の Cookie 認証は要求ベースのシステムであるため、フレームワークには、ユーザーの ClaimsIdentity を生成するアプリが必要です。 ClaimsIdentity には、ユーザーが属するロールなどのユーザーのすべての要求に関する情報があります。 この段階で、ユーザーのクレームを追加することもできます。  
   
  強調表示されたコードの下で、 `SignInAsync` OWIN と呼び出し元からの AuthenticationManager を使用して、ユーザーがサインイン メソッド`SignIn`ClaimsIdentity を渡しています。  
 
@@ -142,7 +142,7 @@ ASP.NET Identity は、次の手順を使用して実装されます。 この�
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample5.cs?highlight=6)]
 
- 強調表示されたコードの表示上、OWIN`AuthenticationManager.SignOut`メソッドです。 これは、メソッドは[FormsAuthentication.SignOut](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.signout.aspx)で使用する方法、 [FormsAuthentication](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx) Web フォーム内のモジュール。
+ 強調表示されたコードの表示上、OWIN`AuthenticationManager.SignOut`メソッドです。 これは、メソッドは[FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx)で使用する方法、 [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) Web フォーム内のモジュール。
 
 ## <a name="components-of-aspnet-identity"></a>ASP.NET Identity のコンポーネント
 

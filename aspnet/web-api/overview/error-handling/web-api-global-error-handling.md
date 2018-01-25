@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/error-handling/web-api-global-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: d2bdf04b4da2a099f3a2af100b16682c68f946f2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c593c56ba3d0ee8ebf6dc425408d2c3b91c83f93
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="global-error-handling-in-aspnet-web-api-2"></a>グローバルなエラー ASP.NET Web API 2 の処理
 ====================
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/10/2017
 1. サポートされていますが、複数の例外ロガー、1 つの例外ハンドラーのみを登録します。
 2. 例外ロガー常に呼び出される、接続を中止しようとしている場合でもです。 例外ハンドラーの取得時のみ呼び出すまだを選択する応答メッセージを送信できませんでした。
 
-両方のサービス例外が検出された時点からの関連情報を含む例外コンテキストへのアクセスを提供する、特に[HttpRequestMessage](https://msdn.microsoft.com/en-us/library/system.net.http.httprequestmessage(v=vs.110).aspx)、 [HttpRequestContext](https://msdn.microsoft.com/en-us/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx)では、例外と例外のソース (以下詳細) がスローされます。
+両方のサービス例外が検出された時点からの関連情報を含む例外コンテキストへのアクセスを提供する、特に[HttpRequestMessage](https://msdn.microsoft.com/library/system.net.http.httprequestmessage(v=vs.110).aspx)、 [HttpRequestContext](https://msdn.microsoft.com/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx)では、例外と例外のソース (以下詳細) がスローされます。
 
 ### <a name="design-principles"></a>デザインの原則
 
@@ -77,13 +77,13 @@ ms.lasthandoff: 11/10/2017
 - IExceptionFilter (ExecuteAsync 例外フィルター パイプラインの ApiController の処理)
 - OWIN ホスト:
 
-    - (出力をバッファリング) 用 HttpMessageHandlerAdapter.BufferResponseContentAsync
-    - (出力をストリーミング) 用 HttpMessageHandlerAdapter.CopyResponseContentAsync
+    - HttpMessageHandlerAdapter.BufferResponseContentAsync (for buffering output)
+    - HttpMessageHandlerAdapter.CopyResponseContentAsync (for streaming output)
 - Web ホスト:
 
-    - (出力をバッファリング) 用 HttpControllerHandler.WriteBufferedResponseContentAsync
-    - (出力をストリーミング) 用 HttpControllerHandler.WriteStreamedResponseContentAsync
-    - HttpControllerHandler.WriteErrorResponseContentAsync (のバッファーされた出力モードでのエラー回復エラー)
+    - HttpControllerHandler.WriteBufferedResponseContentAsync (for buffering output)
+    - HttpControllerHandler.WriteStreamedResponseContentAsync (for streaming output)
+    - HttpControllerHandler.WriteErrorResponseContentAsync (for failures in error recovery under buffered output mode)
 
 Catch ブロックの文字列のリストも静的読み取り専用プロパティを使用して使用できます。 (静的 ExceptionCatchBlocks には、コアの catch ブロックの文字列は以外の場合は 1 つ静的クラスの各 OWIN と web ホストの残りの部分が表示されます)。`IsTopLevelCatchBlock` 呼び出しスタックの一番上でのみ例外処理の推奨のパターンに従うにとって便利です。 入れ子になった catch ブロックで発生した任意の場所 500 の応答に例外を有効ではなく、例外ハンドラーにホストで認識されるに約されるまで反映されるまで例外ことができます。
 
@@ -97,7 +97,7 @@ Catch ブロックの文字列のリストも静的読み取り専用プロパ�
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample5.cs)]
 
-例外ハンドラーを設定して例外を処理したことを示します、`Result`アクションの結果をプロパティ (たとえば、 [ExceptionResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.exceptionresult(v=vs.118).aspx)、 [InternalServerErrorResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx)、 [StatusCodeResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.statuscoderesult(v=vs.118).aspx)、またはカスタムの結果)。 場合、`Result`プロパティが null で、例外が処理されないと、元の例外が再度スローされます。
+例外ハンドラーを設定して例外を処理したことを示します、`Result`アクションの結果をプロパティ (たとえば、 [ExceptionResult](https://msdn.microsoft.com/library/system.web.http.results.exceptionresult(v=vs.118).aspx)、 [InternalServerErrorResult](https://msdn.microsoft.com/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx)、 [StatusCodeResult](https://msdn.microsoft.com/library/system.web.http.results.statuscoderesult(v=vs.118).aspx)、またはカスタムの結果)。 場合、`Result`プロパティが null で、例外が処理されないと、元の例外が再度スローされます。
 
 コール スタックの上部にある例外の特別な手順で API の呼び出し元に対して適切な応答をように作成しました。 例外は、ホストまで伝達する場合は、呼び出し元は死亡の黄色の画面を参照してくださいまたはその他のホストには、応答は通常、HTML と通常は適切な API エラー応答が提供されています。 このような場合は、null 以外の場合と、カスタムの例外ハンドラーが明示的に設定する場合にだけ、結果が開始されるバックアップを作成する`null`(未処理の) は、例外ホストに伝達します。 設定`Result`に`null`このような場合に利用できます 2 つのシナリオ。
 
@@ -106,7 +106,7 @@ Catch ブロックの文字列のリストも静的読み取り専用プロパ�
 
 例外ロガーと例外ハンドラーの両方で何もしませんロガーやハンドラー自体は、例外をスローした場合に回復します。 (例外を伝達、場合に、このページの下部にあるフィードバックを送信できるようにすること以外がある場合より適切な方法です。)例外ロガーやハンドラーのコントラクトは、それらにならないように伝達; 呼び出し元の例外それ以外の場合、例外はだけ、多くの場合、一番ホストに伝達する (ASP のようなエラーが HTML の発生しました。NET の黄色の画面) (JSON または XML を期待する API の呼び出し元に対して推奨されるオプションは通常ありません) をクライアントに送信されています。
 
-## <a name="examples"></a>例
+## <a name="examples"></a>使用例
 
 ### <a name="tracing-exception-logger"></a>トレースの例外ロガー
 

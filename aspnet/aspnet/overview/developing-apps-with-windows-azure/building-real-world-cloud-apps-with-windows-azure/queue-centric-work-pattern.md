@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: 125d555a9e170ef35dd99e0409a2442d5f9ae34a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ccfbaa26cbf610f847811e6f3c612458277046ed
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>キューを中心とした作業のパターン (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -91,7 +91,7 @@ Web アプリは、突発トラフィックを受けやすくなりますが多�
 - ユーザーが新しい解決、タスクを送信したときに、データベースへの書き込みではなく、キューにタスクを配置します。
 - キューにメッセージを処理するバックエンド サービスを作成します。
 
-使用して、キュー、 [Azure キュー ストレージ サービス](https://www.windowsazure.com/en-us/develop/net/how-to-guides/queue-service/)です。 別のオプションは、使用する[Azure Service Bus](https://docs.microsoft.com/azure/service-bus/)です。
+使用して、キュー、 [Azure キュー ストレージ サービス](https://www.windowsazure.com/develop/net/how-to-guides/queue-service/)です。 別のオプションは、使用する[Azure Service Bus](https://docs.microsoft.com/azure/service-bus/)です。
 
 使用するキュー サービスを決定するには、キューにメッセージを送受信する、アプリが必要な方法を考慮してください。
 
@@ -106,10 +106,10 @@ Web アプリは、突発トラフィックを受けやすくなりますが多�
 
 修正作業をキューに入れますには、web フロント エンドは、次の手順を実行します。
 
-1. 作成、 [CloudQueueClient](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx)インスタンス。 `CloudQueueClient`インスタンスを使用してキュー サービスに対する要求を実行します。
+1. 作成、 [CloudQueueClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx)インスタンス。 `CloudQueueClient`インスタンスを使用してキュー サービスに対する要求を実行します。
 2. まだ存在しない場合は、キューを作成します。
 3. 修正タスクのシリアル化します。
-4. 呼び出す[CloudQueue.AddMessageAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx)メッセージをキューに配置します。
+4. 呼び出す[CloudQueue.AddMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx)メッセージをキューに配置します。
 
 コンス トラクターでは、この作業をやってと`SendMessageAsync`の新しいメソッド`FixItQueueManager`クラスです。
 
@@ -117,7 +117,7 @@ Web アプリは、突発トラフィックを受けやすくなりますが多�
 
 使用して次に、 [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) fixit を JSON 形式にシリアル化するライブラリ。 必要に応じてどのようなシリアル化のアプローチを使用することができます。 JSON では、XML よりも、人間が判読できるという利点があります。
 
-実稼働品質のコードは、エラー処理ロジックを追加、一時停止、データベースが使用できなくなった場合、復旧をより正確に処理、アプリケーションの起動時にキューを作成および管理"[有害"メッセージ](https://msdn.microsoft.com/en-us/library/ms789028(v=vs.110).aspx)です。 (有害メッセージは、何らかの理由は処理できないメッセージです。 たくない場所、ワーカー ロールは継続的にしようと処理が失敗する、もう一度やり直して、失敗するに表示され、キューに留まるように有害なメッセージです。)
+実稼働品質のコードは、エラー処理ロジックを追加、一時停止、データベースが使用できなくなった場合、復旧をより正確に処理、アプリケーションの起動時にキューを作成および管理"[有害"メッセージ](https://msdn.microsoft.com/library/ms789028(v=vs.110).aspx)です。 (有害メッセージは、何らかの理由は処理できないメッセージです。 たくない場所、ワーカー ロールは継続的にしようと処理が失敗する、もう一度やり直して、失敗するに表示され、キューに留まるように有害なメッセージです。)
 
 フロント エンドの MVC アプリケーションでは、新しいタスクを作成するコードを更新する必要があります。 リポジトリにタスクを設定する代わりに呼び出して、`SendMessageAsync`上記の方法です。
 
@@ -156,7 +156,7 @@ Web アプリは、突発トラフィックを受けやすくなりますが多�
 
 ![](queue-centric-work-pattern/_static/image8.png)
 
-詳細については、次を参照してください。 [Visual Studio で Azure プロジェクトを作成します。](https://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx)
+詳細については、次を参照してください。 [Visual Studio で Azure プロジェクトを作成します。](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
 
 ワーカー ロールの内部をポーリング メッセージを呼び出すことによって、`ProcessMessageAsync`のメソッド、`FixItQueueManager`先ほど見たクラスです。
 
@@ -168,9 +168,9 @@ Web アプリは、突発トラフィックを受けやすくなりますが多�
 
 キューのメッセージが小さいトランザクションを生じますポーリング充電、処理するを待機しているメッセージが表示されない場合、ワーカー ロールの`RunAsync`メソッド、秒間待ちますポーリングする前にもう一度呼び出すことによって`Task.Delay(1000)`です。
 
-Web プロジェクトでは、非同期コードを追加することができますに自動的にパフォーマンスを向上させる IIS が限られたスレッド プールを管理するためです。 ワーカー ロール プロジェクト内のケースではありません。 ワーカー ロールのスケーラビリティを高めるためには、マルチ スレッド コードを記述または非同期コードを使用して実装する[並列プログラミング](https://msdn.microsoft.com/en-us/library/ff963553.aspx)です。 サンプルは、並列プログラミングを実装していませんが、ほどの並列プログラミングを実装するコードを非同期に作成する方法を示します。
+Web プロジェクトでは、非同期コードを追加することができますに自動的にパフォーマンスを向上させる IIS が限られたスレッド プールを管理するためです。 ワーカー ロール プロジェクト内のケースではありません。 ワーカー ロールのスケーラビリティを高めるためには、マルチ スレッド コードを記述または非同期コードを使用して実装する[並列プログラミング](https://msdn.microsoft.com/library/ff963553.aspx)です。 サンプルは、並列プログラミングを実装していませんが、ほどの並列プログラミングを実装するコードを非同期に作成する方法を示します。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 この章では、キューを中心とした作業のパターンを実装することでアプリケーションの応答性、信頼性、およびスケーラビリティを向上させる方法を説明しました。
 
@@ -184,11 +184,11 @@ Web プロジェクトでは、非同期コードを追加することができ�
 ドキュメント:
 
 - [Microsoft Azure ストレージ キュー パート 1: 作業の開始](http://justazure.com/microsoft-azure-storage-queues-part-1-getting-started/)です。 ローマ Schacherl による記事です。
-- [バック グラウンド タスクを実行して](https://msdn.microsoft.com/en-us/library/ff803365.aspx)の第 5 章[クラウド、第 3 版へのアプリケーションの移行](https://msdn.microsoft.com/en-us/library/ff728592.aspx)Microsoft Patterns and Practices からです。 (特に、セクション[「を使用して Azure ストレージ キュー」](https://msdn.microsoft.com/en-us/library/ff803365.aspx#sec7))。
-- [スケーラビリティと Azure のキュー ベースのメッセージング ソリューションのコスト効果を最大化するためのベスト プラクティス](https://msdn.microsoft.com/en-us/library/windowsazure/hh697709.aspx)です。 Valery Mizonov、ホワイト ペーパー。
-- [Azure キューと Service Bus のキューを比較する](https://msdn.microsoft.com/en-us/magazine/jj159884.aspx)です。 MSDN マガジンの記事では、使用するキュー サービスを選択するのに役立つ追加情報を提供します。 アーティクルは、Service Bus は、認証、SB キューが利用できない ACS が使用できないことを意味する ACS に依存することを示しています。 ただし、アーティクルが書き込まれるため、SB が使用するために変更されました[SAS トークン](https://msdn.microsoft.com/en-us/library/windowsazure/dn170477.aspx)ACS する代わりにします。
-- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/en-us/library/dn568099.aspx)です。 非同期メッセージング入門、パイプとフィルター パターン、トランザクションの補正パターン、競合コンシューマー パターン、CQRS パターンを参照してください。
-- [CQRS の概要](https://msdn.microsoft.com/en-us/library/jj554200)です。 Microsoft Patterns and Practices によって CQRS については、電子書籍します。
+- [バック グラウンド タスクを実行して](https://msdn.microsoft.com/library/ff803365.aspx)の第 5 章[クラウド、第 3 版へのアプリケーションの移行](https://msdn.microsoft.com/library/ff728592.aspx)Microsoft Patterns and Practices からです。 (特に、セクション[「を使用して Azure ストレージ キュー」](https://msdn.microsoft.com/library/ff803365.aspx#sec7))。
+- [スケーラビリティと Azure のキュー ベースのメッセージング ソリューションのコスト効果を最大化するためのベスト プラクティス](https://msdn.microsoft.com/library/windowsazure/hh697709.aspx)です。 Valery Mizonov、ホワイト ペーパー。
+- [Azure キューと Service Bus のキューを比較する](https://msdn.microsoft.com/magazine/jj159884.aspx)です。 MSDN マガジンの記事では、使用するキュー サービスを選択するのに役立つ追加情報を提供します。 アーティクルは、Service Bus は、認証、SB キューが利用できない ACS が使用できないことを意味する ACS に依存することを示しています。 ただし、アーティクルが書き込まれるため、SB が使用するために変更されました[SAS トークン](https://msdn.microsoft.com/library/windowsazure/dn170477.aspx)ACS する代わりにします。
+- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)です。 非同期メッセージング入門、パイプとフィルター パターン、トランザクションの補正パターン、競合コンシューマー パターン、CQRS パターンを参照してください。
+- [CQRS の概要](https://msdn.microsoft.com/library/jj554200)です。 Microsoft Patterns and Practices によって CQRS については、電子書籍します。
 
 ビデオ:
 

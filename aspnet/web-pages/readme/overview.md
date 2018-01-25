@@ -12,13 +12,13 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: 90f24550d2bb50147bab6be545be63c1838f312a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b8402aa3db1b2566878c4d56212facbbb2925eec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
-<a name="webmatrix-readme"></a>WebMatrix の Readme
+<a name="webmatrix-readme"></a>WebMatrix Readme
 ====================
 2011 年 1 月 13日
 
@@ -218,7 +218,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > [!code-xml[Main](overview/samples/sample2.xml)]
 > 
-> プロキシ サーバーの構成の詳細については、次を参照してください。 [&lt;プロキシ&gt;要素 (ネットワーク設定)](https://msdn.microsoft.com/en-us/library/sa91de1e.aspx) MSDN Web サイトです。
+> プロキシ サーバーの構成の詳細については、次を参照してください。 [&lt;プロキシ&gt;要素 (ネットワーク設定)](https://msdn.microsoft.com/library/sa91de1e.aspx) MSDN Web サイトです。
 
 
 #### <a name="issue-uninstalling-the-net-framework-version-4-disables-aspnet-web-pages-with-razor-syntax"></a>問題点:、Razor 構文を使用して ASP.NET Web Pages が無効になります、.NET Framework version 4 をアンインストールします。
@@ -258,9 +258,9 @@ ms.lasthandoff: 11/10/2017
 > 1. アセンブリをコピーする、データベース エンジンに、 *Bin*ターゲット コンピューター上のアプリケーションのフォルダー (およびサブフォルダー)。  
 > 
 >     - コピー *C:\Program files \microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->         **** *\Bin*
->     - コピー *C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\x86\\* * * に***\Bin\x86*
->     - コピー *C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **に***\Bin\amd64*
+>         **to** *\Bin*
+>     - コピー *C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\x86\\* * * を * * * \Bin\x86*
+>     - コピー *C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **に * * * \Bin\amd64*
 > 2. Web サイトのルート フォルダーに作成または開く、 *web.config*ファイル。 (WebMatrix 1.0 では、このファイルの種類がクリックした場合に使用可能な**すべて**で、**ファイルの種類を選択** ダイアログ ボックス)。
 > 3. 次の要素の子として追加、`<configuration>`要素 (内部ではなく、`<system.web>`要素)。
 > 
@@ -400,7 +400,7 @@ ms.lasthandoff: 11/10/2017
 
 IIS Express には、次の URL で使用できるは、独自の readme ファイルがあります。
 
-[https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid 0x409 を =](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
+[https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
 
 <a id="Known_Issues_SQLServerCompact"></a>
 
@@ -563,4 +563,4 @@ WebMatrix 1.0 の詳細については、次の web サイトを参照してく�
 - [ASP.NET](https://asp.net/webmatrix)
 - [Microsoft.com/web](https://www.microsoft.com/web)
 
-© 2011 Microsoft Corporation. All Rights Reserved. [利用規約](https://msdn.microsoft.com/en-us/cc300389.aspx)です。
+© 2011 Microsoft Corporation. All Rights Reserved. [利用規約](https://msdn.microsoft.cos/cc300389.aspx)です。

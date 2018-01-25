@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: b308ee9ec209ba8bbb021827655c83443dd149e6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 564f859e73a88ac9c5f27e9b8f7409ec126642f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="self-host-aspnet-web-api-1-c"></a>ASP.NET Web API 1 (c#) を自己ホストします。
 ====================
@@ -43,7 +43,7 @@ Visual Studio を起動し、選択**新しいプロジェクト**から、**開
 
 ## <a name="set-the-target-framework-visual-studio-2010"></a>ターゲット フレームワーク (Visual Studio 2010) の設定します。
 
-Visual Studio 2010 を使用している場合は、.NET Framework 4.0 をターゲット フレームワークを変更します。 (既定では、プロジェクト テンプレートの対象、 [.Net Framework クライアント プロファイル](https://msdn.microsoft.com/en-us/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile))。
+Visual Studio 2010 を使用している場合は、.NET Framework 4.0 をターゲット フレームワークを変更します。 (既定では、プロジェクト テンプレートの対象、 [.Net Framework クライアント プロファイル](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile))。
 
 ソリューション エクスプ ローラーでプロジェクトを右クリックし、**プロパティ**です。 **ターゲット フレームワーク** ドロップダウン リストで、ターゲット フレームワークを .NET Framework 4.0 に変更します。 変更を適用するメッセージが表示されたら、クリックして**はい**です。
 
@@ -100,9 +100,9 @@ NuGet Package Manager をインストールした後は、Web API Self-Host パ�
 
 | URI | 説明 |
 | --- | --- |
-| 製品/api | すべての製品の一覧を取得します。 |
-| 製品が/api/*id* | ID によって製品を取得します。 |
-| 製品が/api/? カテゴリ =*カテゴリ* | カテゴリによって製品の一覧を取得します。 |
+| /api/products | すべての製品の一覧を取得します。 |
+| /api/products/*id* | ID によって製品を取得します。 |
+| /api/products/?category=*category* | カテゴリによって製品の一覧を取得します。 |
 
 ## <a name="host-the-web-api"></a>Web API をホストします。
 
@@ -156,7 +156,7 @@ ClientApp で自己ホスト型プロジェクトへの参照を追加します�
 - 選択**参照の追加**です。
 - **参照マネージャー** ] ダイアログで、**ソリューション**[**プロジェクト**です。
 - 自己ホスト型プロジェクトを選択します。
-- **[OK]** をクリックします。
+- **[OK]**をクリックします。
 
 ![](self-host-a-web-api/_static/image6.png)
 

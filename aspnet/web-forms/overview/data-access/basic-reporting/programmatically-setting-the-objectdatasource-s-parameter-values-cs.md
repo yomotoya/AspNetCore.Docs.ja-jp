@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7a009d57f97838feb5b4a3253c6de9a872a9e9ee
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7694c56fa5c50ff75db931e88c2334f560631d74
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-c"></a>プログラムによって設定 ObjectDataSource のパラメーターの値 (c#)
 ====================
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/10/2017
 
 ただし、組み込みのデータ ソースのいずれかによってについて考慮されていないソースからパラメーター値を取得する場合がある可能性があります`Parameter`オブジェクト。 サイトには、ユーザー アカウントがサポートされている場合に、現在ログインしている訪問者のユーザー ID に基づくパラメーターを設定することがあります。 または、に沿って ObjectDataSource の基になるオブジェクトのメソッドに送信する前に、パラメーターの値をカスタマイズする必要があります。
 
-たびに ObjectDataSource の`Select`メソッドが呼び出される、ObjectDataSource を最初に発生させるその[を選択するとイベント](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx)です。 ObjectDataSource の基になるオブジェクトのメソッドは、呼び出されます。 完了し、ObjectDataSource[選択したイベント](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx)(図 1 は、このイベントのシーケンスを示しています) に発生します。 ObjectDataSource の基になるオブジェクトのメソッドに渡されたパラメーター値を設定またはのイベント ハンドラーでカスタマイズできる、`Selecting`イベント。
+たびに ObjectDataSource の`Select`メソッドが呼び出される、ObjectDataSource を最初に発生させるその[を選択するとイベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx)です。 ObjectDataSource の基になるオブジェクトのメソッドは、呼び出されます。 完了し、ObjectDataSource[選択したイベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx)(図 1 は、このイベントのシーケンスを示しています) に発生します。 ObjectDataSource の基になるオブジェクトのメソッドに渡されたパラメーター値を設定またはのイベント ハンドラーでカスタマイズできる、`Selecting`イベント。
 
 
 [![ObjectDataSource の選択とを選択するとイベント起動する前に、後の基になるオブジェクトのメソッドが呼び出されます](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image2.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image1.png)
@@ -55,7 +55,7 @@ ms.lasthandoff: 11/10/2017
 **図 2**: 新しいクエリを追加、 `EmployeesTableAdapter` ([フルサイズのイメージを表示するをクリックして](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image6.png))
 
 
-選択すると、行を返す SQL ステートメントを追加します。 指定に達すると、`SELECT`ステートメントは、既定値を画面`SELECT`のステートメント、`EmployeesTableAdapter`は既に読み込まれます。 単に追加、`WHERE`句:`WHERE DATEPART(m, HireDate) = @Month`です。 [DATEPART](https://msdn.microsoft.com/en-us/library/ms174420.aspx) T-SQL 関数の特定の日付部分を返しますです、`datetime`入力です。 ここではを使用して`DATEPART`の月を返す、`HireDate`列です。
+選択すると、行を返す SQL ステートメントを追加します。 指定に達すると、`SELECT`ステートメントは、既定値を画面`SELECT`のステートメント、`EmployeesTableAdapter`は既に読み込まれます。 単に追加、`WHERE`句:`WHERE DATEPART(m, HireDate) = @Month`です。 [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx) T-SQL 関数の特定の日付部分を返しますです、`datetime`入力です。 ここではを使用して`DATEPART`の月を返す、`HireDate`列です。
 
 
 [![戻り値のみもの行が、HireDate 列が以下に、@HiredBeforeDateパラメーター](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image8.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image7.png)
@@ -137,7 +137,7 @@ ms.lasthandoff: 11/10/2017
 **図 10**: これらの従業員を記念日この月が表示されます ([フルサイズのイメージを表示するをクリックして](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image28.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ObjectDataSource のパラメーターの通常設定できる値は、宣言によって、コードの行を必要とせずは、簡単にプログラムでパラメーターの値を設定します。 ObjectDataSource のためのイベント ハンドラーの作成が必要なことを行うには`Selecting`基になるオブジェクトのメソッドが呼び出され、経由で 1 つまたは複数のパラメーターの値を手動で設定する前に発生するイベント、`InputParameters`コレクション。
 

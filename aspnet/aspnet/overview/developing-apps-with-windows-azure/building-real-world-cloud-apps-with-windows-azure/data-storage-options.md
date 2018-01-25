@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: 3eb070167c36db7d8fb2e05af89716ee386b8211
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 88f57244bfbfdf33df3bb265d8aa2c93689b2f24
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>データ ストレージ オプション (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -41,14 +41,14 @@ ms.lasthandoff: 11/10/2017
 
 テーブルは、次の 4 つの種類の NoSQL データベースを示しています。
 
-- [キー/値データベース](https://msdn.microsoft.com/en-us/library/dn313285.aspx#sec7)キー値ごとに 1 つのシリアル化されたオブジェクトを格納します。 大量のデータを指定したキー値の 1 つの項目を取得するがないと場所を格納するのに適している、項目の他のプロパティに基づくクエリにします。
+- [キー/値データベース](https://msdn.microsoft.com/library/dn313285.aspx#sec7)キー値ごとに 1 つのシリアル化されたオブジェクトを格納します。 大量のデータを指定したキー値の 1 つの項目を取得するがないと場所を格納するのに適している、項目の他のプロパティに基づくクエリにします。
 
-    [Azure Blob ストレージ](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/)キー/値のデータベース フォルダーとファイル名に対応するキーの値を持つ、クラウド内のファイル ストレージのように機能です。 ファイルの内容の値を検索ではなく、そのフォルダーとファイル名でファイルを取得します。
+    [Azure Blob ストレージ](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/)キー/値のデータベース フォルダーとファイル名に対応するキーの値を持つ、クラウド内のファイル ストレージのように機能です。 ファイルの内容の値を検索ではなく、そのフォルダーとファイル名でファイルを取得します。
 
-    [Azure テーブル ストレージ](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/)はキー/値データベースもします。 それぞれの値が呼び出されます、*エンティティ*(パーティション キーと行キーで識別される行に似ています) が複数には含まれています*プロパティ*(列と同様、テーブル内のすべてのエンティティが同じを共有する必要しますが、列)。 キー以外の列に対してクエリを実行して、非常に効率的ではありません、避ける必要があります。 たとえば、1 人のユーザーに関する情報を格納する 1 つのパーティションを持つユーザー プロファイル データを格納できます。 同じパーティション内の別のエンティティまたはエンティティが 1 つの個別のプロパティでは、ユーザー名やパスワードのハッシュ、生年月日などのデータを格納できます。 すべてのユーザーの誕生日の特定の範囲でクエリを実行したくし、プロファイル テーブルと別のテーブル間の結合クエリを実行することはできません。 テーブル ストレージはリレーショナル データベースより安価とスケーラブルなが複雑なクエリまたは結合を有効にしないこと。
-- [Documentdatabases](https://msdn.microsoft.com/en-us/library/dn313285.aspx#sec8)キー/値のデータベースが、値を*ドキュメント*です。 "Document"は、ここでは、Word または Excel のドキュメントの意味で使用されていないが、名前付きフィールドと子ドキュメントあるうちいずれかの値のコレクションのことを意味します。 たとえば、注文履歴テーブルに注文ドキュメントがあります注文番号、発注日、および顧客フィールドです。顧客のフィールドの名前と住所のフィールドが存在します。 データベースは、XML、YAML、JSON、または BSON; などの形式でフィールドのデータをエンコードします。またはテキスト形式を使用できます。 キー/値のデータベースとは別のドキュメント データベースを設定する機能の 1 つは、非キー フィールドにクエリを実行し、クエリをより効率的にするためにセカンダリ インデックスを定義する機能です。 この機能によって、ドキュメント キーの値よりも複雑な条件に基づいてデータを取得する必要があるアプリケーションに適したドキュメント データベース。 たとえば、販売注文履歴ドキュメント データベースは、製品 ID、顧客 ID、顧客名などのさまざまなフィールドで照会できます。 [MongoDB](http://www.mongodb.org/)は一般的なドキュメント データベースです。
-- [列ファミリ データベース](https://msdn.microsoft.com/en-us/library/dn313285.aspx#sec9)キーと値を使用すると、データ記憶域の構造列のファミリと呼ばれる関連列のコレクションにデータ ストアはします。 たとえば、国勢調査データベースがユーザーの名前の列の 1 つのグループを含めることが (最初に、ミドル ネーム、姓)、個人のアドレス、1 つのグループとユーザーのプロファイル情報 (DOB、性別など) の 1 つのグループです。 データベースは各列のファミリをすべて、同じキーに関連する 1 人のユーザーのデータを維持しながら別のパーティションに格納し、できます。 すべては、名前とアドレス情報を読み取る必要がないすべてのプロファイル情報を確認できます。 [Cassandra](http://cassandra.apache.org/)は人気のある列ファミリ データベースです。
-- [データベースをグラフ化](https://msdn.microsoft.com/en-us/library/dn313285.aspx#sec10)オブジェクトとリレーションシップのコレクションとして情報を格納します。 グラフのデータベースの目的は、それらの間のオブジェクトとのリレーションシップのネットワークを通過するクエリを効率的に実行するアプリケーションを有効にします。 たとえば、オブジェクトには、人事管理データベース内の従業員が可能性がありますを見つけてたい場合がありますを容易にするクエリなど"全従業員を直接または間接的に Scott にします" [Neo4j](http://www.neo4j.org/)はグラフの一般的なデータベースです。
+    [Azure テーブル ストレージ](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/)はキー/値データベースもします。 それぞれの値が呼び出されます、*エンティティ*(パーティション キーと行キーで識別される行に似ています) が複数には含まれています*プロパティ*(列と同様、テーブル内のすべてのエンティティが同じを共有する必要しますが、列)。 キー以外の列に対してクエリを実行して、非常に効率的ではありません、避ける必要があります。 たとえば、1 人のユーザーに関する情報を格納する 1 つのパーティションを持つユーザー プロファイル データを格納できます。 同じパーティション内の別のエンティティまたはエンティティが 1 つの個別のプロパティでは、ユーザー名やパスワードのハッシュ、生年月日などのデータを格納できます。 すべてのユーザーの誕生日の特定の範囲でクエリを実行したくし、プロファイル テーブルと別のテーブル間の結合クエリを実行することはできません。 テーブル ストレージはリレーショナル データベースより安価とスケーラブルなが複雑なクエリまたは結合を有効にしないこと。
+- [Documentdatabases](https://msdn.microsoft.com/library/dn313285.aspx#sec8)キー/値のデータベースが、値を*ドキュメント*です。 "Document"は、ここでは、Word または Excel のドキュメントの意味で使用されていないが、名前付きフィールドと子ドキュメントあるうちいずれかの値のコレクションのことを意味します。 たとえば、注文履歴テーブルに注文ドキュメントがあります注文番号、発注日、および顧客フィールドです。顧客のフィールドの名前と住所のフィールドが存在します。 データベースは、XML、YAML、JSON、または BSON; などの形式でフィールドのデータをエンコードします。またはテキスト形式を使用できます。 キー/値のデータベースとは別のドキュメント データベースを設定する機能の 1 つは、非キー フィールドにクエリを実行し、クエリをより効率的にするためにセカンダリ インデックスを定義する機能です。 この機能によって、ドキュメント キーの値よりも複雑な条件に基づいてデータを取得する必要があるアプリケーションに適したドキュメント データベース。 たとえば、販売注文履歴ドキュメント データベースは、製品 ID、顧客 ID、顧客名などのさまざまなフィールドで照会できます。 [MongoDB](http://www.mongodb.org/)は一般的なドキュメント データベースです。
+- [列ファミリ データベース](https://msdn.microsoft.com/library/dn313285.aspx#sec9)キーと値を使用すると、データ記憶域の構造列のファミリと呼ばれる関連列のコレクションにデータ ストアはします。 たとえば、国勢調査データベースがユーザーの名前の列の 1 つのグループを含めることが (最初に、ミドル ネーム、姓)、個人のアドレス、1 つのグループとユーザーのプロファイル情報 (DOB、性別など) の 1 つのグループです。 データベースは各列のファミリをすべて、同じキーに関連する 1 人のユーザーのデータを維持しながら別のパーティションに格納し、できます。 すべては、名前とアドレス情報を読み取る必要がないすべてのプロファイル情報を確認できます。 [Cassandra](http://cassandra.apache.org/)は人気のある列ファミリ データベースです。
+- [データベースをグラフ化](https://msdn.microsoft.com/library/dn313285.aspx#sec10)オブジェクトとリレーションシップのコレクションとして情報を格納します。 グラフのデータベースの目的は、それらの間のオブジェクトとのリレーションシップのネットワークを通過するクエリを効率的に実行するアプリケーションを有効にします。 たとえば、オブジェクトには、人事管理データベース内の従業員が可能性がありますを見つけてたい場合がありますを容易にするクエリなど"全従業員を直接または間接的に Scott にします" [Neo4j](http://www.neo4j.org/)はグラフの一般的なデータベースです。
 
 リレーショナル データベースと比較して、NoSQL オプションでは、はるかに多くのスケーラビリティと記憶域および非構造化データの分析を与える対費用効果を提供します。 その代わりには、豊富な queryability およびリレーショナル データベースの信頼性の高いデータの整合性機能を提供しないことです。 NoSQL 適して IIS ログ データは、結合クエリの必要なしに高ボリュームが含まれます。 NoSQL が使用できないようにも銀行取引、絶対データの整合性を必要し、他のアカウントに関連するデータが多のリレーションシップが含まれます。
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/10/2017
 - データの部分に分割し、処理のための別のコンピューターに送信します。 コンピューター A 1950 1959 日付を持つユーザーの数を計算するか、コンピューター B 1960 1969 年などです。このコンピューターのグループと呼ばれる、 *Hadoop クラスター*です。
 - 結果を置く各部分のまとめ部分での処理が完了後します。 各生まれた年の人数の比較的短い形式の一覧があるようになりましたと、この全体的なリスト内の割合を計算するタスクが管理しやすいです。
 
-Azure で[HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/)すると、処理、分析、および Hadoop の電源を使用して大規模なデータから新しい見識を得ることができます。 たとえば、web サーバーのログを分析するのに使用する可能性があります。
+Azure で[HDInsight](https://azure.microsoft.com/services/hdinsight/)すると、処理、分析、および Hadoop の電源を使用して大規模なデータから新しい見識を得ることができます。 たとえば、web サーバーのログを分析するのに使用する可能性があります。
 
 - ストレージ アカウントに、web サーバーのログ記録を有効にします。 これは、ログの書き込みをアプリケーションに HTTP 要求ごとに、Blob サービスに Azure を設定します。 Blob サービスは、基本的にクラウド ファイルの記憶域と、その HDInsight 統合適切です。 
 
@@ -131,7 +131,7 @@ Azure で IaaS データ ストレージ オプションは、できるだけ、
 - 以外のライセンスを購入する必要はありませんサービスの料金には、ライセンス料が含まれます。
 - 分だけ支払う際に使用します。
 
-Azure での PaaS データ ストレージのオプションには、サード パーティ プロバイダーによってソリューションが含まれます。 たとえば、選択することができます、 [MongoLab アドオン](https://azure.microsoft.com/en-us/documentation/articles/store-mongolab-web-sites-dotnet-store-data-mongodb/)をサービスとして MongoDB データベースをプロビジョニングする Azure ストアからです。
+Azure での PaaS データ ストレージのオプションには、サード パーティ プロバイダーによってソリューションが含まれます。 たとえば、選択することができます、 [MongoLab アドオン](https://azure.microsoft.com/documentation/articles/store-mongolab-web-sites-dotnet-store-data-mongodb/)をサービスとして MongoDB データベースをプロビジョニングする Azure ストアからです。
 
 ## <a name="choosing-a-data-storage-option"></a>データ記憶域オプションを選択します。
 
@@ -147,7 +147,7 @@ Azure での PaaS データ ストレージのオプションには、サード 
 | 関数型のプロジェクション | -質問ことができます、集計などは、サーバー側で実行しますか。 選択数を実行する場合 (\*) から sql テーブルが非常に効率的にサーバー上のすべての作業を行うされ数値を探しているを返します。 集計がサポートされていない NoSQL データ ストアから同じ計算した場合は、これは、非効率的な「バインド解除済みクエリ」なでおそらくはタイムアウトが発生します。クエリが成功した場合でも、クライアントにサーバーからのすべてのデータを取得し、クライアント上の行をカウントする必要があります。 -どのような言語または式の型を使用できますか。 リレーショナル データベースでは、SQL を使用できます。 Azure テーブル ストレージなど、一部の NoSQL データベースで使用[OData](http://www.odata.org/)、し、これを行うには、主キーに対してフィルター処理およびプロジェクション (利用可能なフィールドのサブセットを選択) を取得します。 |
 | 簡易なスケーラビリティ | -頻度および量は、データ スケールが必要ですか。 は、プラットフォームはネイティブ、スケール アウトを実装しますか。 -どの程度簡単は容量 (サイズとスループット) の追加/削除するか。 リレーショナル データベースとテーブルは自動的にパーティション分割、拡張性の高いようにもように、いくつかの制限を超えるスケールするが困難。 Azure テーブル ストレージのような NoSQL データ ストアが本質的にすべてのパーティションし、パーティションを追加するのには制限はほとんどありません。 テーブル ストレージは、最大で 200 テラバイトを容易に拡張できますが、Azure SQL データベースの最大データベース サイズが 500 ギガバイトです。 複数のデータベースにパーティション分割することで、リレーショナル データを拡張できますが、多数の作業をプログラミングでは、そのモデルをサポートするために、アプリケーションを設定します。 |
 | インストルメンテーション、および管理容易性 | -どの程度簡単をインストルメントし、監視、および管理プラットフォームとは プラットフォームは、空き、どのようなメトリックを前もって知る必要があるため、正常性と、データ ストアのパフォーマンスに関する情報を入手を保持する必要があり、自分で開発する必要があります。 |
-| オペレーション | -どの程度簡単、Azure を配置して実行するプラットフォームとは PaaS ですか。 IaaS ですか。 Linux しますか。 テーブル ストレージと SQL データベースは、簡単に Azure にセットアップします。 組み込みの Azure PaaS ソリューションのないプラットフォームでは、多くの労力が必要です。 |
+| オペレーション | -どの程度簡単、Azure を配置して実行するプラットフォームとは PaaS ですか。 IaaS? Linux しますか。 テーブル ストレージと SQL データベースは、簡単に Azure にセットアップします。 組み込みの Azure PaaS ソリューションのないプラットフォームでは、多くの労力が必要です。 |
 | API のサポート | プラットフォームで作業しやすいできる API が使用可能なのですか。 Azure テーブル サービス、.NET 4.5 非同期プログラミング モデルをサポートする .NET API と SDK があります。 .NET アプリケーションを作成する場合、書き込みおよび別キーと値列のデータ ストア搭載されているプラットフォームの API がないか、小さい包括的なと比較して、Azure テーブル サービスのコードをテストするはるかに簡単になります。 |
 | トランザクションの整合性とデータの一貫性 | では、プラットフォームがデータの整合性を保証するためにトランザクションをサポートすることが重要ですか。 一括電子メールが送信されると、パフォーマンスとストレージ コストの低いデータをトランザクションまたはデータ プラットフォームで参照整合性の自動サポートよりも重要にする可能性がありますを追跡するため、Azure テーブル サービス、適切な選択を行います。 追跡銀行口座の残高や、発注書方が適切になります厳密なトランザクションの保証を提供するリレーショナル データベース プラットフォームです。 |
 | ビジネス継続性 | -どの程度簡単はバックアップ、復元、および災害復旧です。 実稼働データが破損いつかと元に戻す関数を必要があります。 リレーショナル データベースには、多くの場合、時間の時点に復元する機能など、多くの粒度の細かい復元機能があります。 考慮すべき重要な要因にはどのような復元機能を利用することを検討している各プラットフォームで理解することです。 |
@@ -249,8 +249,8 @@ SQL Server と Azure SQL Database、優れている点は、それらの両方�
 
 | Azure SQL データベース (PaaS) | 仮想マシン (IaaS) で SQL Server |
 | --- | --- |
-| **プロフェッショナル**-作成または Vm を管理、更新、または OS または SQL; 修正プログラムを適用する必要はありませんAzure です。 組み込みの高可用性、データベース レベルの SLA とします。 -(ライセンスが必要) の使用にだけ支払えばよいために、総保有コスト (tco) を低です。 多数の小さいデータベースの処理に適した (&lt;= 500 GB)。 動的に作成する簡単新しいデータベースを有効にするスケール アウトします。 | ***プロフェッショナル***- 内部設置型 SQL server 機能と互換性のあります。 SQL Server の実装- [AlwaysOn 高可用性](https://www.microsoft.com/en-us/sqlserver/solutions-technologies/mission-critical-operations/high-availability.aspx)2 + 仮想マシン、VM レベル SLA でします。 -SQL を管理する方法を完全に制御があります。 の既に所有する、または 1 つの時間単位で料金を支払う SQL ライセンスを再利用ことができます。 以下の処理に適してが大きい (1 TB +) データベース。 |
-| **Cons** -一部の機能の内部設置型 SQL Server と比較してギャップ (が不足している[CLR 統合](https://technet.microsoft.com/en-us/library/ms131102.aspx)、 [TDE](https://technet.microsoft.com/en-us/library/bb934049.aspx)、[圧縮サポート](https://technet.microsoft.com/en-us/library/cc280449.aspx)、 [SQLReporting Services](https://technet.microsoft.com/en-us/library/ms159106.aspx)など) で 500 GB のデータベース サイズの上限。 | ***Cons*** - 更新プログラム/修正プログラム (OS および SQL) は、ユーザーの責任の作成、Db の管理 (16 データ ドライブ) を使用して約 8000 を上限とするディスクの IOPS (1 秒あたりの入力/出力操作) - ユーザーの責任です。 |
+| **プロフェッショナル**-作成または Vm を管理、更新、または OS または SQL; 修正プログラムを適用する必要はありませんAzure です。 組み込みの高可用性、データベース レベルの SLA とします。 -(ライセンスが必要) の使用にだけ支払えばよいために、総保有コスト (tco) を低です。 多数の小さいデータベースの処理に適した (&lt;= 500 GB)。 動的に作成する簡単新しいデータベースを有効にするスケール アウトします。 | ***プロフェッショナル***- 内部設置型 SQL server 機能と互換性のあります。 SQL Server の実装- [AlwaysOn 高可用性](https://www.microsoft.com/sqlserver/solutions-technologies/mission-critical-operations/high-availability.aspx)2 + 仮想マシン、VM レベル SLA でします。 -SQL を管理する方法を完全に制御があります。 の既に所有する、または 1 つの時間単位で料金を支払う SQL ライセンスを再利用ことができます。 以下の処理に適してが大きい (1 TB +) データベース。 |
+| **Cons** -一部の機能の内部設置型 SQL Server と比較してギャップ (が不足している[CLR 統合](https://technet.microsoft.com/library/ms131102.aspx)、 [TDE](https://technet.microsoft.com/library/bb934049.aspx)、[圧縮サポート](https://technet.microsoft.com/library/cc280449.aspx)、 [SQLReporting Services](https://technet.microsoft.com/library/ms159106.aspx)など) で 500 GB のデータベース サイズの上限。 | ***Cons*** - 更新プログラム/修正プログラム (OS および SQL) は、ユーザーの責任の作成、Db の管理 (16 データ ドライブ) を使用して約 8000 を上限とするディスクの IOPS (1 秒あたりの入力/出力操作) - ユーザーの責任です。 |
 
 VM で SQL Server を使用する場合は、独自の SQL Server ライセンスを使用するまたはの時間に 1 つの料金を支払うことができます。 たとえば、または REST API を使用して、ポータルでは、SQL Server イメージを使用して新しい VM を作成できます。
 
@@ -260,7 +260,7 @@ VM で SQL Server を使用する場合は、独自の SQL Server ライセン�
 
 作成する場合、VM プロアクティブ レートは SQL Server イメージを含む SQL Server のライセンス コストの使用状況に基づいて、VM の時間単位で。 のみか月間のいくつか実行する予定のプロジェクトの場合が、1 時間単位で料金を支払う安いです。 プロジェクトが先となる最後の年と思われる場合が、通常どおり、ライセンスを購入する安いです。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 クラウド コンピューティングの実用的に混在するためし、アプリケーションのニーズに合わせてに最も一致するデータ記憶域のアプローチです。 新しいアプリケーションをビルドする場合について慎重に検討質問は引き続き、アプリケーションが拡張する場合にも動作方法を選択するために次のとおりです。 [次のチャプター](data-partitioning-strategies.md)データ記憶域の複数の方法を組み合わせるに使用できるいくつかのパーティション分割の方法を説明します。
 
@@ -271,35 +271,35 @@ VM で SQL Server を使用する場合は、独自の SQL Server ライセン�
 データベース プラットフォームを選択します。
 
 - [拡張性の高いソリューションへのデータ アクセス: SQL、NoSQL、および多言語の永続化を使用して](http://aka.ms/dag-doc)です。 クラウド アプリケーションの使用可能な電子書籍 Microsoft Patterns and Practices によってデータのさまざまな種類に徹底的に送られるを格納します。
-- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/en-us/library/ff898430.aspx)です。 データ整合性の概要、データの複製と同期ガイダンスについては、インデックス テーブルのパターン、ビューの具体化パターンを参照してください。
+- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/ff898430.aspx)です。 データ整合性の概要、データの複製と同期ガイダンスについては、インデックス テーブルのパターン、ビューの具体化パターンを参照してください。
 - [ベース: Acid 代替](http://queue.acm.org/detail.cfm?id=1394128)です。 データの整合性とスケーラビリティの間のトレードオフに関する記事です。
 - [7 週に 7 つのデータベース: 最新のデータベースや、NoSQL 移動にガイド](https://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp/1934356921)です。 Eric Redmond、Jim R. Wilson book です。 自分で現在利用可能なデータ ストレージのプラットフォームの範囲を導入するためお勧めします。
 
 SQL Server と SQL データベース間の選択。
 
-- [ガイダンスについては SQL データベースの premium プレビュー](https://msdn.microsoft.com/en-us/library/windowsazure/dn369873.aspx)です。 SQL データベース Premium、および SQL データベース Web および Business エディションを選択する場合のガイダンスを紹介します。
-- [ガイドラインと制限事項 (Azure SQL データベース)](https://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx)です。 SQL データベースの制限事項に関するドキュメントにリンクするポータルのページでは、SQL データベースを SQL Server の機能に特化した 1 つを含むサポートされていません。
-- [Azure の仮想マシンにおける SQL Server](https://msdn.microsoft.com/en-us/library/windowsazure/jj823132.aspx)です。 Azure の SQL Server の実行に関するドキュメントにリンクするポータル ページです。
-- [Scott Guthrie の説明で、Azure SQL データベース](https://azure.microsoft.com/en-us/documentation/videos/sql-in-azure-scottgu/)です。 6 分 Scott Guthrie による SQL データベースへの紹介ビデオです。
-- [アプリケーション パターンと Azure の仮想マシンにおける SQL Server の開発戦略](https://msdn.microsoft.com/en-us/library/windowsazure/dn574746.aspx)です。
+- [ガイダンスについては SQL データベースの premium プレビュー](https://msdn.microsoft.com/library/windowsazure/dn369873.aspx)です。 SQL データベース Premium、および SQL データベース Web および Business エディションを選択する場合のガイダンスを紹介します。
+- [ガイドラインと制限事項 (Azure SQL データベース)](https://msdn.microsoft.com/library/windowsazure/ff394102.aspx)です。 SQL データベースの制限事項に関するドキュメントにリンクするポータルのページでは、SQL データベースを SQL Server の機能に特化した 1 つを含むサポートされていません。
+- [Azure の仮想マシンにおける SQL Server](https://msdn.microsoft.com/library/windowsazure/jj823132.aspx)です。 Azure の SQL Server の実行に関するドキュメントにリンクするポータル ページです。
+- [Scott Guthrie の説明で、Azure SQL データベース](https://azure.microsoft.com/documentation/videos/sql-in-azure-scottgu/)です。 6 分 Scott Guthrie による SQL データベースへの紹介ビデオです。
+- [アプリケーション パターンと Azure の仮想マシンにおける SQL Server の開発戦略](https://msdn.microsoft.com/library/windowsazure/dn574746.aspx)です。
 
 ASP.NET Web アプリで Entity Framework と SQL データベースの使用
 
 - [MVC 5 を使用する EF 6 にあたって](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。 EF を使用し、Azure と SQL データベースにデータベースを展開する MVC アプリケーションのビルドについて説明するチュートリアル シリーズの 9 つの部分で構成します。
 - [Visual Studio を使用して ASP.NET Web 配置](../../../../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md)です。 EF Code First を使用してデータベースを展開する方法について詳細に送られるチュートリアル シリーズの 12 個の部分で構成します。
-- [Azure の Web サイトにメンバーシップ、OAuth、および SQL データベースでのセキュリティで保護された ASP.NET MVC 5 アプリを展開](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)です。 Web アプリを作成する手順を説明する詳しい手順のチュートリアルは、認証を使用して、メンバーシップ データベースにアプリケーションのテーブルを格納、データベース スキーマを変更、および、アプリを Azure に配置をします。
+- [Azure の Web サイトにメンバーシップ、OAuth、および SQL データベースでのセキュリティで保護された ASP.NET MVC 5 アプリを展開](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)です。 Web アプリを作成する手順を説明する詳しい手順のチュートリアルは、認証を使用して、メンバーシップ データベースにアプリケーションのテーブルを格納、データベース スキーマを変更、および、アプリを Azure に配置をします。
 - [ASP.NET データ アクセス コンテンツ マップ](https://go.microsoft.com/fwlink/p/?LinkId=282414)です。 EF と SQL データベースを操作するためのリソースへのリンク。
 
 Azure で MongoDB の使用。
 
 - [MongoLab - Azure での MongoDB](http://msopentech.com/opentech-projects/mongolab-mongodb-on-windows-azure/)です。 Azure で MongoDB の実行に関するドキュメントについてはポータル ページです。
-- [Azure の仮想マシンで実行されている MongoDB に接続する Azure の web サイトを作成](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-store-data-mongodb-vm/)です。 ASP.NET web アプリケーションで MongoDB データベースを使用する方法についてステップ バイ ステップ チュートリアルです。
+- [Azure の仮想マシンで実行されている MongoDB に接続する Azure の web サイトを作成](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-store-data-mongodb-vm/)です。 ASP.NET web アプリケーションで MongoDB データベースを使用する方法についてステップ バイ ステップ チュートリアルです。
 
 HDInsight (Hadoop on Azure):
 
-- [HDInsight](https://azure.microsoft.com/en-us/documentation/services/hdinsight/)です。 ポータルで、HDInsight ドキュメントを[Azure](https://azure.microsoft.com/) web サイトです。
-- [Hadoop と HDInsight: Azure での Big Data](https://msdn.microsoft.com/en-us/magazine/dn385705.aspx)です。 MSDN マガジン アーティクル Bruno Terkaly して Ricardo Villalobos、Hadoop on Azure の概要です。
-- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/en-us/library/dn568099.aspx)です。 MapReduce のパターンを参照してください。
+- [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/). ポータルで、HDInsight ドキュメントを[Azure](https://azure.microsoft.com/) web サイトです。
+- [Hadoop と HDInsight: Azure での Big Data](https://msdn.microsoft.com/magazine/dn385705.aspx)です。 MSDN マガジン アーティクル Bruno Terkaly して Ricardo Villalobos、Hadoop on Azure の概要です。
+- [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)です。 MapReduce のパターンを参照してください。
 
 >[!div class="step-by-step"]
 [前へ](single-sign-on.md)

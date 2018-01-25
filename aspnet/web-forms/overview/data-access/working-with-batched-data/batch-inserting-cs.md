@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9eb65b99a955770c72b28713d8daa66bcd1d5344
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9dc18e259da24d71464a156a70a85cfc9a1745ce
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="batch-inserting-c"></a>バッチ挿入する (c#)
 ====================
@@ -96,7 +96,7 @@ ObjectDataSource ウィザードの完了後は、Visual Studio は BoundFields 
 次に、図 1 に示す挿入インターフェイスを作成する必要があります。 このインターフェイスは、さまざまな HTML 技法で作成できますが、非常に簡単な 1 つを使用します。 4 列、7 つの行のテーブルです。
 
 > [!NOTE]
-> HTML マークアップを入力するときに`<table>`要素 (_n)、ソース ビューを使用します。 Visual Studio に追加するためのツールは、 `<table>` 、デザイナー内の要素、デザイナーを組み込むすべてすぎる許容を排除そらせる`style`マークアップに設定します。 作成したところ、`<table>`マークアップ、通常に返す Web コントロールを追加し、それらのプロパティを設定するデザイナー。 静的な HTML を使用する (_n) であらかじめ決められた列と行のテーブルを作成するときではなく、 [Table Web コントロール](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.table.aspx)テーブル Web コントロール内にある Web コントロールにアクセスできるだけを使用しているため、`FindControl("controlID")`パターン。 コントロールをプログラムで構築するテーブル Web から動的にサイズ変更テーブル (行または列を持つがいくつかのデータベースまたはユーザー指定の条件に基づくもの) に対してテーブル Web コントロールを使用には、ただし、します。
+> HTML マークアップを入力するときに`<table>`要素 (_n)、ソース ビューを使用します。 Visual Studio に追加するためのツールは、 `<table>` 、デザイナー内の要素、デザイナーを組み込むすべてすぎる許容を排除そらせる`style`マークアップに設定します。 作成したところ、`<table>`マークアップ、通常に返す Web コントロールを追加し、それらのプロパティを設定するデザイナー。 静的な HTML を使用する (_n) であらかじめ決められた列と行のテーブルを作成するときではなく、 [Table Web コントロール](https://msdn.microsoft.com/library/system.web.ui.webcontrols.table.aspx)テーブル Web コントロール内にある Web コントロールにアクセスできるだけを使用しているため、`FindControl("controlID")`パターン。 コントロールをプログラムで構築するテーブル Web から動的にサイズ変更テーブル (行または列を持つがいくつかのデータベースまたはユーザー指定の条件に基づくもの) に対してテーブル Web コントロールを使用には、ただし、します。
 
 
 次のマークアップ内の入力、`<asp:Panel>`のタグ、`InsertingInterface`パネル。
@@ -259,7 +259,7 @@ Label Web コントロールをツールボックスからデザイナー内の�
 > このチュートリアルで使用されるロジックを挿入するバッチは、トランザクションのスコープ内で、挿入をラップします。 これを確認するには、データベース レベルのエラーを意図的に紹介します。 新しいを割り当てるのではなく、たとえば、`ProductsRow`インスタンス s`CategoryID`プロパティで選択した値を`Categories`DropDownList などの値を割り当てる`i * 5`です。 ここで`i`ループ インデクサーは、1 から 5 までの値があります。 したがって、ときにバッチ内の 2 つまたは複数の製品が最初の製品を挿入を追加する必要が有効な`CategoryID`値 (5) が、それ以降の製品が`CategoryID`までと一致しない値`CategoryID`の値が、`Categories`テーブル。 最終的な結果は、最初の中に`INSERT`成功すると、以降は、外部キー制約違反で失敗します。 一括挿入は、アトミックなので最初`INSERT`はロールバックされます、状態、バッチ処理を挿入する前に、データベースの開始を取得します。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 これと前の 2 つのチュートリアルを用意しておりますできるインターフェイスの更新、削除、およびのデータ アクセス層に追加したトランザクションのサポートを使用するすべてのデータのバッチを挿入するには、[ラッピング データベースの変更トランザクション内で](wrapping-database-modifications-within-a-transaction-cs.md)チュートリアルです。 特定のシナリオでは、このようなバッチ処理のユーザー インターフェイスが大幅に効率を向上エンドユーザーを削減してクリック、ポストバック、およびキーボード、マウスのコンテキストの切り替えの数も、基になるデータの整合性を維持しながら。
 

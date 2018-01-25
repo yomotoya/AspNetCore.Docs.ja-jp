@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
-ms.openlocfilehash: fb9d2eaa83fe7486279815c21aec204bdfdf122d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 399fbe3fa1e71a9ffa7c5e6dfeca7ccab7294d1b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -66,7 +66,7 @@ ASP.NET MVC のドキュメントは、次の URL で MSDN web サイトで入�
 チュートリアルと ASP.NET MVC に関する他の情報は、ASP.NET web サイトの MVC 4 ページで使用できる ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md))。
 
 <a id="_Toc303253804"></a>
-## <a name="support"></a>Support
+## <a name="support"></a>サポート
 
 ASP.NET MVC 4 が完全にサポートします。 このリリースの操作についての質問がある場合もに掲示できます、ASP.NET MVC フォーラムに ([https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)) では、ASP.NET コミュニティのメンバーは頻繁に、非公式のサポートを提供することができます。
 
@@ -271,7 +271,7 @@ ASP.NET MVC 4 Release candidate リリース ノートを参照してくださ�
     [!code-xml[Main](mvc4-release-notes/samples/sample6.xml)]
 - **NuGet パッケージ マネージャーは、Visual Studio 2010 と Visual Web Developer 2010 のサイド バイ サイド インストールの ASP.NET MVC 4 をインストールしようとするときのインストールに失敗します。** Visual Studio 2010 と ASP.NET MVC 4 サイド バイ サイドで Visual Web Developer 2010 を実行するには、Visual Studio の両方のバージョンを既にインストールされている後に ASP.NET MVC 4 をインストールする必要があります。
 - **前提条件が既にアンインストールされている場合、ASP.NET MVC 4 のアンインストールが失敗します。** ASP.NET MVC を完全にアンインストールするには、4you は、Visual Studio をアンインストールする前に ASP.NET MVC 4 をアンインストールする必要があります。
-- **ASP.NET MVC 4 をインストールすると、アプリケーションの ASP.NET MVC 3 RTM が中断されます。** RTM を使用して作成された ASP.NET MVC 3 アプリケーションのリリース (ではなく、 [ASP.NET MVC 3 Tools Update](https://www.microsoft.com/en-us/download/details.aspx?id=1491)リリース) サイド バイ サイドで ASP.NET MVC 4 を使用するために、次の変更を必要とします。 コンパイル エラーにこれらの更新プログラムの結果を加えずにプロジェクトをビルドします。 
+- **ASP.NET MVC 4 をインストールすると、アプリケーションの ASP.NET MVC 3 RTM が中断されます。** RTM を使用して作成された ASP.NET MVC 3 アプリケーションのリリース (ではなく、 [ASP.NET MVC 3 Tools Update](https://www.microsoft.com/download/details.aspx?id=1491)リリース) サイド バイ サイドで ASP.NET MVC 4 を使用するために、次の変更を必要とします。 コンパイル エラーにこれらの更新プログラムの結果を加えずにプロジェクトをビルドします。 
 
     **必要な更新プログラム**
 

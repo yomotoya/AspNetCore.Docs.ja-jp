@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
-ms.openlocfilehash: 2127a98a0abf2c94e32b907d945c9b4d36fb2360
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 81848c683fb9ddaa8942f030a520847a3c89fde0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>デプロイの発行設定 Web 用 Web サーバーの構成 (Web Deploy ハンドラー)
 ====================
@@ -67,7 +67,7 @@ ContactManager サンプル ソリューションを具体的にはホストに�
 - サーバーは、静的 IP アドレスを持ちます。
 
 > [!NOTE]
-> コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューター、ドメインとログオン](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx)です。 静的 IP アドレスを構成する方法については、次を参照してください。[静的 IP アドレスを構成](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx)です。
+> コンピューターをドメインに参加させる方法については、次を参照してください。[に参加するコンピューター、ドメインとログオン](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx)です。 静的 IP アドレスを構成する方法については、次を参照してください。[静的 IP アドレスを構成](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx)です。
 
 
 ## <a name="install-products-and-components"></a>製品とコンポーネントをインストールします。
@@ -80,8 +80,8 @@ ContactManager サンプル ソリューションを具体的にはホストに�
 - **IIS: 管理サービス**です。 これにより、IIS で Web 管理サービス (WMSvc) がインストールされます。 このサービスは、IIS web サイトのリモート管理を有効にし、クライアントに Web 配置ハンドラー エンドポイントを公開します。
 - **IIS: 基本認証**です。 これには、基本認証の IIS モジュールがインストールされます。 これにより、Web 管理サービス (WMSvc) は、指定した資格情報を認証します。
 - **Web 配置ツール 2.1 以降**です。 これにより、Web Deploy (とその基になる実行可能ファイル、MSDeploy.exe) がサーバーにインストールされます。 このプロセスの一環として、Web 配置のハンドラーをインストールし、Web 管理サービスと統合します。
-- **.NET framework 4.0**です。 これは、このバージョンの .NET Framework で構築されたアプリケーションの実行に必要です。
-- **ASP.NET MVC 3**です。 これは、MVC 3 アプリケーションを実行する必要があるアセンブリをインストールします。
+- **.NET Framework 4.0**. これは、このバージョンの .NET Framework で構築されたアプリケーションの実行に必要です。
+- **ASP.NET MVC 3**. これは、MVC 3 アプリケーションを実行する必要があるアセンブリをインストールします。
 
 > [!NOTE]
 > このチュートリアルでは、Web Platform Installer をインストールして構成するさまざまなコンポーネントの使用について説明します。 Web Platform Installer を使用できますが、自動的に依存関係を検出して、常に製品の最新バージョンを取得することを確認して、インストール プロセスが簡略化します。 詳細については、次を参照してください。 [Microsoft Web Platform Installer 3.0](https://go.microsoft.com/?linkid=9805118)です。
@@ -114,7 +114,7 @@ ContactManager サンプル ソリューションを具体的にはホストに�
 13. ライセンス条項を確認し、条項に同意した場合にをクリックして**同意**です。
 14. インストールが完了したらをクリックして**完了**、し、閉じます、 **Web Platform Installer 3.0**ウィンドウです。
 
-IIS をインストールする前に、.NET Framework 4.0 をインストールした場合を実行する必要があります、 [ASP.NET IIS 登録ツール](https://msdn.microsoft.com/en-us/library/k6h9cz8h(v=VS.100).aspx)(aspnet\_regiis.exe) を IIS と ASP.NET の最新バージョンを登録します。 これを行わないと、ことがわかります (HTML ファイル) などの静的なコンテンツを IIS が提供する、問題なくが返されます**HTTP エラー 404.0-Not Found** ASP.NET のコンテンツを参照しようとします。 次の手順を使用すると、ASP.NET 4.0 が登録されていることを確認してください。
+IIS をインストールする前に、.NET Framework 4.0 をインストールした場合を実行する必要があります、 [ASP.NET IIS 登録ツール](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx)(aspnet\_regiis.exe) を IIS と ASP.NET の最新バージョンを登録します。 これを行わないと、ことがわかります (HTML ファイル) などの静的なコンテンツを IIS が提供する、問題なくが返されます**HTTP エラー 404.0-Not Found** ASP.NET のコンテンツを参照しようとします。 次の手順を使用すると、ASP.NET 4.0 が登録されていることを確認してください。
 
 **ASP.NET 4.0 を IIS に登録するには**
 
@@ -210,7 +210,7 @@ Web コンテンツを展開するには、サーバーに、前に作成し、�
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image11.png)
 
     > [!NOTE]
-    > 実稼働環境にすることができますをポート 80 で web サイトをホストし、DNS レコードを一致すると共に、ホスト ヘッダーを構成します。 IIS 7 でのホスト ヘッダーを構成する方法については、次を参照してください。 [(IIS 7) の Web サイトのホスト ヘッダーを構成する](https://technet.microsoft.com/en-us/library/cc753195(WS.10).aspx)です。 Windows Server 2008 R2 の DNS サーバーの役割の詳細については、次を参照してください。 [DNS サーバーの概要](https://technet.microsoft.com/en-gb/library/cc770392.aspx)と[DNS Server](https://technet.microsoft.com/en-us/windowsserver/dd448607)です。
+    > 実稼働環境にすることができますをポート 80 で web サイトをホストし、DNS レコードを一致すると共に、ホスト ヘッダーを構成します。 IIS 7 でのホスト ヘッダーを構成する方法については、次を参照してください。 [(IIS 7) の Web サイトのホスト ヘッダーを構成する](https://technet.microsoft.com/library/cc753195(WS.10).aspx)です。 Windows Server 2008 R2 の DNS サーバーの役割の詳細については、次を参照してください。 [DNS サーバーの概要](https://technet.microsoft.com/en-gb/library/cc770392.aspx)と[DNS Server](https://technet.microsoft.com/windowsserver/dd448607)です。
 9. **[アクション]** ウィンドウの **[サイトの編集]** の下にある **[バインド]** をクリックします。
 10. **サイト バインド**ダイアログ ボックスで、をクリックして**追加**です。
 
@@ -254,8 +254,8 @@ Web サイト コンテンツを提供するためには、アプリケーショ
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image15.png)
 5. **ユーザーまたはグループ** ダイアログ ボックスで、「 **IIS\_IUSRS**、 をクリックして**名前の確認**順にクリック**OK**です。
-6. **のアクセス許可***[フォルダー名]*  ダイアログ ボックスで、新しいグループが割り当てられている、**読み取り&amp;実行**、**フォルダーの一覧内容**、および**読み取り**既定のアクセスを許可します。 これを変更せずのままにし、をクリックして**OK**です。
-7. をクリックして**OK**を閉じる、 *[フォルダー名]***プロパティ** ダイアログ ボックス。
+6. **のアクセス許可 * * * [フォルダー名]*  ダイアログ ボックスで、新しいグループが割り当てられている、**読み取り&amp;実行**、**フォルダー内容の一覧**、および**読み取り**既定のアクセスを許可します。 これを変更せずのままにし、をクリックして**OK**です。
+7. をクリックして**OK**を閉じる、 *[フォルダー名] * * * プロパティ** ダイアログ ボックス。
 
 最後のタスクとして、管理者以外の資格情報にユーザーのコンテンツを展開するときに使用する適切なアクセス許可を付与する必要があります。 このユーザーには、web サイトにコンテンツをリモートで展開する権限が必要です。
 
@@ -288,7 +288,7 @@ Web サイト コンテンツを提供するためには、アプリケーショ
 | 送信 | 8172 | どれでも可 | TCP |
   
 
-Windows ファイアウォールのルールの構成の詳細については、次を参照してください。[ファイアウォール規則を構成する](https://technet.microsoft.com/en-us/library/dd448559(WS.10).aspx)です。 サードパーティ製のファイアウォール製品のマニュアルを参照してください。
+Windows ファイアウォールのルールの構成の詳細については、次を参照してください。[ファイアウォール規則を構成する](https://technet.microsoft.com/library/dd448559(WS.10).aspx)です。 サードパーティ製のファイアウォール製品のマニュアルを参照してください。
 
 ## <a name="conclusion"></a>まとめ
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b24297fd6efcb794e7d5a50076ca176689f74845
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9523fe5b241b6ff45927f142eb844a716822336b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="control-id-naming-in-content-pages-vb"></a>コンテンツ ページ (VB) で名前のコントロール ID
 ====================
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/10/2017
 このようなシナリオを処理するには、ASP.NET は、名前付けコンテナーとして使用する特定のコントロールを許可します。 名前付けコンテナーは、新しい機能`ID`名前空間。 名前付けコンテナー内に表示される任意のサーバー コントロールがある、レンダリングされた`id`値が付いて、`ID`名前付けコンテナー コントロールのです。 たとえば、`GridView`と`GridViewRow`クラスは、両方の名前付けコンテナーです。 その結果、ラベル コントロールでの GridView TemplateField で定義されている`ID` `ProductName` 、レンダリングされた指定`id`値`GridViewID_GridViewRowID_ProductName`です。 *GridViewRowID*は、その結果、GridView 行ごとに一意`id`値が一意。
 
 > [!NOTE]
-> [ `INamingContainer`インターフェイス](https://msdn.microsoft.com/en-us/library/system.web.ui.inamingcontainer.aspx)は、特定の ASP.NET サーバー コントロールは、名前付けコンテナーとして機能する必要があることを示すために使用します。 `INamingContainer`インターフェイスがない略さずにすべてのメソッドをサーバー コントロールを実装する必要があります以外ではなく、マーカーとして使用されます。 表示されるマークアップを生成するには、コントロールがこのインターフェイスを実装する場合、ASP.NET エンジンは、自動的にプレフィックスの`ID`その下位の値が表示される`id`属性の値。 このプロセスは、手順 2. で詳しく説明しています。
+> [ `INamingContainer`インターフェイス](https://msdn.microsoft.com/library/system.web.ui.inamingcontainer.aspx)は、特定の ASP.NET サーバー コントロールは、名前付けコンテナーとして機能する必要があることを示すために使用します。 `INamingContainer`インターフェイスがない略さずにすべてのメソッドをサーバー コントロールを実装する必要があります以外ではなく、マーカーとして使用されます。 表示されるマークアップを生成するには、コントロールがこのインターフェイスを実装する場合、ASP.NET エンジンは、自動的にプレフィックスの`ID`その下位の値が表示される`id`属性の値。 このプロセスは、手順 2. で詳しく説明しています。
 
 
 名前付けコンテナーはだけでなく、レンダリングされた変更`id`属性値がどのようにコントロール参照できるはプログラムで、ASP.NET ページの分離コード クラスからにも影響します。 `FindControl("controlID")`メソッドは、通常、Web コントロールをプログラムで参照を使用します。 ただし、`FindControl`は名前付けコンテナーから侵入していません。 そのため、直接使用できません、 `Page.FindControl` GridView またはその他の名前付けコンテナー内でコントロールを参照するメソッド。
@@ -121,7 +121,7 @@ Visual Studio は、マスター ページの次の 4 つ contentplaceholders �
 
 すべての ASP.NET サーバー コントロールが含まれています、`FindControl("controlID")`という名前のコントロールのコントロールの子孫を検索するメソッド*controlID*です。 このようなコントロールが見つかった場合、それが返されます。一致するコントロールが見つからない場合`FindControl`返します`Nothing`です。
 
-`FindControl`ここでコントロールにアクセスする必要がありますが、それへの直接参照を持っていない場合に便利です。 宣言の構文では、GridView のフィールド内のコントロールが 1 回定義されているデータなどの GridView などの Web コントロールを使用する場合が GridView の行ごとに実行時に、コントロールのインスタンスが作成されました。 その結果、実行時に生成されたコントロールが存在するが、分離コード クラスから使用可能な直接参照はありません。 その結果を使用する必要があります`FindControl`GridView のフィールド内の特定のコントロールをプログラムで操作します。 (使用の詳細について`FindControl`データ Web コントロールのテンプレート内のコントロールにアクセスするを参照してください[カスタム書式指定ベース時にデータ](../../data-access/custom-formatting/custom-formatting-based-upon-data-vb.md)。)。Web フォームに Web コントロールを動的に追加するときに、この同じシナリオが発生すると、トピックに記載[動的のデータ入力のユーザー インターフェイスを作成する](https://msdn.microsoft.com/en-us/library/aa479330.aspx)です。
+`FindControl`ここでコントロールにアクセスする必要がありますが、それへの直接参照を持っていない場合に便利です。 宣言の構文では、GridView のフィールド内のコントロールが 1 回定義されているデータなどの GridView などの Web コントロールを使用する場合が GridView の行ごとに実行時に、コントロールのインスタンスが作成されました。 その結果、実行時に生成されたコントロールが存在するが、分離コード クラスから使用可能な直接参照はありません。 その結果を使用する必要があります`FindControl`GridView のフィールド内の特定のコントロールをプログラムで操作します。 (使用の詳細について`FindControl`データ Web コントロールのテンプレート内のコントロールにアクセスするを参照してください[カスタム書式指定ベース時にデータ](../../data-access/custom-formatting/custom-formatting-based-upon-data-vb.md)。)。Web フォームに Web コントロールを動的に追加するときに、この同じシナリオが発生すると、トピックに記載[動的のデータ入力のユーザー インターフェイスを作成する](https://msdn.microsoft.com/library/aa479330.aspx)です。
 
 使用して説明するために、`FindControl`コンテンツ ページでは、内のコントロールを検索する方法は、イベント ハンドラーを作成、`SubmitButton`の`Click`イベント。 イベント ハンドラーに次のコードは、プログラムで参照を追加、 `Age`  テキスト ボックスと`Results`を使用してラベル付け、`FindControl`メソッド内のメッセージを表示および`Results`ユーザーの入力に基づきます。
 
@@ -228,7 +228,7 @@ ASP.NET のページを再呼び出しの名前付けコンテナー、レンダ
 
 この方法で問題となるはマスター ページ (またはその他の名前付けコンテナー コントロール) を使用してレンダリングされる HTML `id` Web コントロールのと同じ意味ではありません`ID`プロパティです。 ブラウザーを使ってページにアクセスし、実際にソースを表示する場合、最初の傾斜があります`id`属性。 わかったら、レンダリングされた`id`値、貼り付けることができますへの呼び出しに`getElementById`クライアント側スクリプトを使用する必要がある HTML 要素にアクセスします。 このアプローチをページの特定の変更が階層構造を制御するためより小さい最適または変更、`ID`名前付け、コントロールのプロパティが変更され、結果として得られる`id`属性、それによって、JavaScript コードを中断します。
 
-良いニュースを`id`表示されている属性値は、Web コントロールの使用のサーバー側コードにアクセスできる[`ClientID`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.control.clientid.aspx)です。 このプロパティを使用する必要がありますを判断、`id`クライアント側のスクリプトで使用される値の属性です。 たとえば、JavaScript 関数をページに追加するため、呼び出されるの値を表示、`Age`モーダル メッセージ ボックスでは、テキスト ボックスに次のコードを追加する、`Page_Load`イベントのハンドラー。
+良いニュースを`id`表示されている属性値は、Web コントロールの使用のサーバー側コードにアクセスできる[`ClientID`プロパティ](https://msdn.microsoft.com/library/system.web.ui.control.clientid.aspx)です。 このプロパティを使用する必要がありますを判断、`id`クライアント側のスクリプトで使用される値の属性です。 たとえば、JavaScript 関数をページに追加するため、呼び出されるの値を表示、`Age`モーダル メッセージ ボックスでは、テキスト ボックスに次のコードを追加する、`Page_Load`イベントのハンドラー。
 
 
 [!code-vb[Main](control-id-naming-in-content-pages-vb/samples/sample15.vb)]
@@ -241,10 +241,10 @@ ASP.NET のページを再呼び出しの名前付けコンテナー、レンダ
 通知方法、正しい`id`属性値、`ctl00_MainContent_Age`への呼び出し内に表示されます`getElementById`です。 この値は実行時に計算、ために、ページ コントロール階層への変更に関係なく動作します。
 
 > [!NOTE]
-> この JavaScript の例は、単サーバー コントロールによって表示される HTML 要素を正しく参照する JavaScript 関数を追加する方法を示します。 この関数を使用するのには、ドキュメントが読み込まれるとき、または特定のユーザーの操作には、関数を呼び出すにはその他の JavaScript を作成する必要があります。 これらの詳細についてはおよび関連するトピックを読み[クライアント側スクリプトを実行](https://msdn.microsoft.com/en-us/library/aa479302.aspx)です。
+> この JavaScript の例は、単サーバー コントロールによって表示される HTML 要素を正しく参照する JavaScript 関数を追加する方法を示します。 この関数を使用するのには、ドキュメントが読み込まれるとき、または特定のユーザーの操作には、関数を呼び出すにはその他の JavaScript を作成する必要があります。 これらの詳細についてはおよび関連するトピックを読み[クライアント側スクリプトを実行](https://msdn.microsoft.com/library/aa479302.aspx)です。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 特定の ASP.NET サーバー コントロールとして、名前付けコンテナー、レンダリングに影響する`id`によって canvassed コントロールのスコープだけでなく、その子孫のコントロールの値の属性、`FindControl`メソッドです。 マスター ページ、に関してマスター ページ自体とその ContentPlaceHolder コントロールの両方が名前付けコンテナーです。 その結果、定められてもう少しの作業をプログラムで参照を使用して、コンテンツ ページ内のコントロールを配置する必要があります`FindControl`です。 このチュートリアルでは 2 つの方法を調べるお: ContentPlaceHolder コントロールにドリルし、呼び出し元の`FindControl`メソッドと、独自のローリング`FindControl`すべての名前付けコンテナーを実装する再帰的に検索します。
 
@@ -257,11 +257,11 @@ ASP.NET のページを再呼び出しの名前付けコンテナー、レンダ
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
 - [ASP.NET マスター ページと`FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
-- [動的なデータ エントリのユーザー インターフェイスの作成](https://msdn.microsoft.com/en-us/library/aa479330.aspx)
+- [動的なデータ エントリのユーザー インターフェイスの作成](https://msdn.microsoft.com/library/aa479330.aspx)
 - [拡張メソッドで基本型の機能を拡張します。](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
-- [方法: ASP.NET マスター ページのコンテンツの参照](https://msdn.microsoft.com/en-us/library/xxwa0ff0.aspx)
+- [方法: ASP.NET マスター ページのコンテンツの参照](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
 - [マスター ページ: ヒント、テクニック、およびトラップ](http://www.odetocode.com/articles/450.aspx)
-- [クライアント側スクリプトの操作](https://msdn.microsoft.com/en-us/library/aa479302.aspx)
+- [クライアント側スクリプトの操作](https://msdn.microsoft.com/library/aa479302.aspx)
 
 ### <a name="about-the-author"></a>作成者について
 

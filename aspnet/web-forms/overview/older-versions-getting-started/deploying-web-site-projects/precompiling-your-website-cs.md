@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 094bcbd2ccebeeed1f620476b6bd6df67047562f
-ms.sourcegitcommit: c07fb5cb5df0a12f9fe6735fcbc90964608fa687
+ms.openlocfilehash: f31f470b4d2b6736b98c0b7d88ea7a53ad1438b9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="precompiling-your-website-c"></a>(C#) web サイトをプリコンパイルします。
 ====================
@@ -66,12 +66,12 @@ WSP モデルでの明示的なコンパイルを使用することができま�
 
 ## <a name="precompilation-options"></a>プリコンパイル オプション
 
-.NET Framework が付属しています、 [ASP.NET コンパイル ツール (`aspnet_compiler.exe`)](https://msdn.microsoft.com/en-us/library/ms229863.aspx) WSP モデルを使用してビルドされた ASP.NET アプリケーションのソース コード (およびコンテンツも) をコンパイルすることができます。 このツールは、.NET Framework version 2.0 と共にリリースされたし内にある、`%WINDIR%\Microsoft.NET\Framework\v2.0.50727`フォルダーです。 コマンドラインから使用するか、[ビルド] メニューの Web サイトの発行オプションを使用して Visual Studio 内から起動します。
+.NET Framework が付属しています、 [ASP.NET コンパイル ツール (`aspnet_compiler.exe`)](https://msdn.microsoft.com/library/ms229863.aspx) WSP モデルを使用してビルドされた ASP.NET アプリケーションのソース コード (およびコンテンツも) をコンパイルすることができます。 このツールは、.NET Framework version 2.0 と共にリリースされたし内にある、`%WINDIR%\Microsoft.NET\Framework\v2.0.50727`フォルダーです。 コマンドラインから使用するか、[ビルド] メニューの Web サイトの発行オプションを使用して Visual Studio 内から起動します。
 
 このコンパイル ツールにより、コンパイルの 2 つの一般的な形式: インプレースでプリコンパイルと展開のプリコンパイルします。 インプレースでプリコンパイルで実行すること、`aspnet_compiler.exe`から、コマンド ライン ツールをコンピューター上の仮想ディレクトリまたは存在する web サイトの物理パスへのパスを指定します。 コンパイル ツールでコンパイルされたバージョンを格納する、プロジェクト内の各 ASP.NET ページをコンパイルし、`%WINDIR%\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files`場合、ページが各から表示されたが最初に、ブラウザーと同じようにフォルダーです。 インプレースでプリコンパイルは、この手順を実行する必要があるからランタイムを軽減するために、サイトで、新しく展開される ASP.NET ページに加えられた最初の要求を高速化できます。 ただし、必要とする web サーバーからプログラムのコマンドラインを実行できるためインプレースでプリコンパイルはホステッド web サイトの大部分適していません。 共有ホスティング環境でこのレベルのアクセスが許可されていません。
 
 > [!NOTE]
-> インプレースでプリコンパイルの詳細については、チェック アウト[How To: ASP.NET Web サイトのプリコンパイル](https://msdn.microsoft.com/en-us/library/ms227972.aspx)と[ASP.NET 2.0 でのプリコンパイル](http://www.odetocode.com/Articles/417.aspx)です。
+> インプレースでプリコンパイルの詳細については、チェック アウト[How To: ASP.NET Web サイトのプリコンパイル](https://msdn.microsoft.com/library/ms227972.aspx)と[ASP.NET 2.0 でのプリコンパイル](http://www.odetocode.com/Articles/417.aspx)です。
 
 
 Web サイトのページをコンパイルするのではなく、`Temporary ASP.NET Files`フォルダーで、展開のプリコンパイル コンパイル、ページを選択して、運用環境に展開できる形式でのディレクトリをします。
@@ -107,10 +107,10 @@ Web サイトをプリコンパイルした後は、Web サイトの発行 ダ�
 **図 3**: ターゲットの場所フォルダーには、ファイルには展開が含まれています  
  ([フルサイズのイメージを表示するをクリックして](precompiling-your-website-cs/_static/image9.png))
 
-Wap の明示的なコンパイルとは異なりの展開プロセスのプリコンパイルは、サイト全体に対して 1 つのアセンブリを作成できません。 代わりに、そのバッチ一緒にいくつかのページに各アセンブリ。 またコンパイル、 `Global.asax` (存在する場合) をファイル内の任意のクラスと同様に、独自のアセンブリを`App_Code`フォルダーです。 ASP.NET の宣言型マークアップを保持するファイルは web ページ、ユーザー コントロール、およびマスター ページ (`.aspx`、`.ascx`と`.master`ファイルは、それぞれ) としてコピーのターゲットの場所のディレクトリには。 同様に、`Web.config`と共に画像、CSS クラス、および PDF ファイルなどの静的なファイルを直接を介して、ファイルがコピーされます。 形式的の詳細については、コンパイル ツールがさまざまなを処理する方法は、ファイルの種類を参照してください[ASP.NET プリコンパイル中のファイルの処理](https://msdn.microsoft.com/en-us/library/e22s60h9.aspx)です。
+Wap の明示的なコンパイルとは異なりの展開プロセスのプリコンパイルは、サイト全体に対して 1 つのアセンブリを作成できません。 代わりに、そのバッチ一緒にいくつかのページに各アセンブリ。 またコンパイル、 `Global.asax` (存在する場合) をファイル内の任意のクラスと同様に、独自のアセンブリを`App_Code`フォルダーです。 ASP.NET の宣言型マークアップを保持するファイルは web ページ、ユーザー コントロール、およびマスター ページ (`.aspx`、`.ascx`と`.master`ファイルは、それぞれ) としてコピーのターゲットの場所のディレクトリには。 同様に、`Web.config`と共に画像、CSS クラス、および PDF ファイルなどの静的なファイルを直接を介して、ファイルがコピーされます。 形式的の詳細については、コンパイル ツールがさまざまなを処理する方法は、ファイルの種類を参照してください[ASP.NET プリコンパイル中のファイルの処理](https://msdn.microsoft.com/library/e22s60h9.aspx)です。
 
 > [!NOTE]
-> Web サイトの発行 ダイアログ ボックスから「固定の名前付けに使用されているとシングル ページ アセンブリ」のチェック ボックスをオンして、ASP.NET ページ、ユーザー コントロール、またはマスター ページごとに 1 つのアセンブリを作成するコンパイル ツールに対して指示することができます。 独自のアセンブリにコンパイルされた各 ASP.NET ページの展開より詳細に制御できます。 たとえば、単一の ASP.NET web ページを更新してその変更を配置するために必要な場合必要があるのみを展開するページの`.aspx`ファイルと、運用環境に関連付けられているアセンブリ。 参照してください[How To: ASP.NET コンパイル ツールを使用して固定名を生成する](https://msdn.microsoft.com/en-us/library/ms228040.aspx)詳細についてはします。
+> Web サイトの発行 ダイアログ ボックスから「固定の名前付けに使用されているとシングル ページ アセンブリ」のチェック ボックスをオンして、ASP.NET ページ、ユーザー コントロール、またはマスター ページごとに 1 つのアセンブリを作成するコンパイル ツールに対して指示することができます。 独自のアセンブリにコンパイルされた各 ASP.NET ページの展開より詳細に制御できます。 たとえば、単一の ASP.NET web ページを更新してその変更を配置するために必要な場合必要があるのみを展開するページの`.aspx`ファイルと、運用環境に関連付けられているアセンブリ。 参照してください[How To: ASP.NET コンパイル ツールを使用して固定名を生成する](https://msdn.microsoft.com/library/ms228040.aspx)詳細についてはします。
 
 
 ターゲットの場所のディレクトリは、プリコンパイルされた web プロジェクトの一部がつまりれていないファイルも含まれています。`PrecompiledApp.config`です。 このファイルは、アプリケーションがプリコンパイルされた ASP.NET ランタイムと、更新可能なまたは正午更新可能な UI を使用したプリコンパイルしたかどうかを通知します。
@@ -173,7 +173,7 @@ Visual Studio の Web サイトの発行 ダイアログ ボックスを使用�
 
 開発環境から運用環境にファイルのコピーに関するリフレッシャーを参照してください、 [ *FTP クライアントを使用して、web サイトを展開する*](deploying-your-site-using-an-ftp-client-cs.md)と[ *Web サイトを使用して Visual Studio の配置*](determining-what-files-need-to-be-deployed-cs.md)チュートリアルです。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ASP.NET コンパイルの 2 つのモードをサポートしています: 自動と明示的なです。 前のチュートリアルで既に説明したは Web サイト プロジェクト (WSPs) は、既定では、自動コンパイルを使用して Web アプリケーション プロジェクト (Wap) 明示的なコンパイルを使用します。 ただし、明示的に ASP.NET コンパイル ツールを使用して展開する前に、WSP をコンパイルすることができます。
 
@@ -185,8 +185,8 @@ ASP.NET コンパイルの 2 つのモードをサポートしています: 自�
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [ASP.NET Web サイトのプリコンパイル](https://msdn.microsoft.com/en-us/library/ms228015.aspx)
-- [分離コードと ASP.NET 2.0 でコンパイル](https://msdn.microsoft.com/en-us/magazine/cc163675.aspx)
+- [ASP.NET Web サイトのプリコンパイル](https://msdn.microsoft.com/library/ms228015.aspx)
+- [分離コードと ASP.NET 2.0 でコンパイル](https://msdn.microsoft.com/magazine/cc163675.aspx)
 - [ASP.NET でのプリコンパイル](http://www.odetocode.com/Articles/417.aspx)
 - [ASP.NET でのプリコンパイル済みサイト オプション](http://www.dotnetperls.com/precompiled)
 

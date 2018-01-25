@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/publish-to-azure
 msc.type: authoredcontent
-ms.openlocfilehash: f75b7192b4d97c88fcbcb4ad7fef88c83157c902
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eadc0f2b08df29f80fe53d03cf88cd3cdcecfb12
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="publish-mvc-database-first-site-to-azure"></a>MVC データベースの最初のサイトを Azure に発行します。
 ====================
@@ -31,8 +31,8 @@ ms.lasthandoff: 11/10/2017
 
 Azure アカウントをこのチュートリアルを完了する必要があります。
 
-- 実行できます[無料の Azure アカウントを開く](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F)-クレジットを取得するでも使用されているアカウントを維持する最大と使用する無料の Azure サービスおよび有料の Azure サービスを試す使用できます。
-- 実行できます[MSDN サブスクライバー特典をアクティブ化](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)-、MSDN サブスクリプションでは、クレジット有料の Azure サービスを使用できるすべての月です。
+- 実行できます[無料の Azure アカウントを開く](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)-クレジットを取得するでも使用されているアカウントを維持する最大と使用する無料の Azure サービスおよび有料の Azure サービスを試す使用できます。
+- 実行できます[MSDN サブスクライバー特典をアクティブ化](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)-、MSDN サブスクリプションでは、クレジット有料の Azure サービスを使用できるすべての月です。
 
 Web アプリを発行するには、プロジェクトを右クリックして**発行**です。
 
@@ -134,7 +134,7 @@ Azure ポータルで Azure アカウントにログインします。
 
 [OK] をクリックします。
 
-今後の更新プログラムを公開するには、すべての接続情報を再度入力せずにこのプロファイルを保存するが可能性があります。 選択**プロファイルを作成する**です。
+今後の更新プログラムを公開するには、すべての接続情報を再度入力せずにこのプロファイルを保存するが可能性があります。 **[プロファイルの作成]** を選択します。
 
 ![プロファイルを保存します。](publish-to-azure/_static/image19.png)
 

@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 756f1bbba73bd760f780d18c01597642dd1f7216
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a4ae696bdd114ab9c36d1218f753fa3d515f2300
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>継承の ASP.NET Core MVC のチュートリアル (10 の 9) と EF コア
 
@@ -106,7 +106,7 @@ dotnet ef migrations add Inheritance
 
 * により HireDate null 許容ため学生行は、雇用日を必要はありません。
 
-* 受講者をポイントする外部キーの更新に使用される一時的なフィールドを追加します。 Person テーブルに受講者をコピーするときに、新しい主キー値が表示されます。
+* 受講者をポイントする外部キーの更新に使用される一時的なフィールドを追加します。 Person テーブルに受講者をコピーするときに新しい主キー値が表示されます。
 
 * Person テーブルに、Student テーブルからデータをコピーします。 これにより、受講者が割り当てられている新しい主キー値を取得します。
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/dangerous-unprotect
-ms.openlocfilehash: f2425de3f790cd8dab17940ec52a2a7e170cc630
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 08a8ad9b3b3cc2de48751d4149bf39c58954fd90
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="unprotecting-payloads-whose-keys-have-been-revoked"></a>キーを持つが失効している保護を解除するペイロード
 
@@ -44,6 +44,6 @@ DangerousUnprotect(byte[] protectedData, bool ignoreRevocationErrors,
 * `wasRevoked`: このペイロードを保護するためのキーが取り消された場合は true に設定されます。
 
 >[!WARNING]
-> 慎重に渡す際に`ignoreRevocationErrors: true`を`DangerousUnprotect`メソッドです。 このメソッドを呼び出した後の場合、`wasRevoked`値が true の場合、このペイロードを保護するためのキーが取り消された、し、ペイロードの信頼性を問題ありとして扱う必要があります。 この場合、のみ操作が続行保護されていないペイロードでいくつか別の保証がある場合、本物である、ことなどの信頼されていない web クライアントによって送信されるのではなく、セキュリティで保護されたデータベースから受信します。
+> 慎重に渡す際に`ignoreRevocationErrors: true`を`DangerousUnprotect`メソッドです。 このメソッドを呼び出した後の場合、`wasRevoked`値が true の場合、このペイロードを保護するためのキーが取り消された、し、ペイロードの信頼性を問題ありとして扱う必要があります。 この場合、のみ操作が続行保護されていないペイロードである本物であり、たとえば別程度保証がある場合そのが、信頼されていない web クライアントによって送信されるのではなく、セキュリティで保護されたデータベースから入手します。
 
 [!code-csharp[Main](dangerous-unprotect/samples/dangerous-unprotect.cs)]

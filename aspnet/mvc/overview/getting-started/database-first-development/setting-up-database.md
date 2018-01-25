@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: 9ecde847841eb727a0440f0483c69d1df6757815
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cb979333131cc6ac87fd640bf7c96931054a1814
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a>Entity Framework 6 Database First MVC 5 を使用すると作業の開始
 ====================
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/10/2017
 
 Code First の開発の導入例は、次を参照してください。 [ASP.NET MVC 5 の概要](../introduction/getting-started.md)です。 高度な例では、次を参照してください。 [ASP.NET MVC 4 アプリケーションを Entity Framework データ モデルを作成する](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。
 
-使用する Entity Framework 方法の選択に関するガイダンスについては、次を参照してください。 [Entity Framework 開発方法](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf)です。
+使用する Entity Framework 方法の選択に関するガイダンスについては、次を参照してください。 [Entity Framework 開発方法](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)です。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -49,11 +49,11 @@ Visual Studio 2013 または Visual Studio Express 2013 for Web
 
 このチュートリアルは、LocalDB を Visual Studio 2013 または Visual Studio Express 2013 for Web を使用して開発されました。 LocalDB は、代わりに既存のデータベース サーバーを使用することができますが、バージョンによっては、Visual Studio とデータベースの種類のすべて Visual Studio でのデータ ツールのサポートされていません。 ツールが、データベースで使用可能でない場合は、データベースの管理のスイートに含まれるデータベース固有の手順の一部を実行する必要があります。
 
-Visual Studio のバージョンでデータベース ツールに関する問題があれば、データベース ツールの最新バージョンをインストールしたことを確認します。 更新や、データベース ツールのインストールについては、次を参照してください。 [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/en-us/data/hh297027)です。
+Visual Studio のバージョンでデータベース ツールに関する問題があれば、データベース ツールの最新バージョンをインストールしたことを確認します。 更新や、データベース ツールのインストールについては、次を参照してください。 [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027)です。
 
 Visual Studio を起動し、作成、 **SQL Server データベース プロジェクト**です。 プロジェクトに名前を**ContosoUniversityData**です。
 
-![データベース プロジェクトを作成します。](setting-up-database/_static/image1.png)
+![create database project](setting-up-database/_static/image1.png)
 
 空のデータベース プロジェクトがあるようになりました。 プロジェクトのターゲット プラットフォームとして Azure SQL データベースを設定する必要がありますので、このチュートリアルの後半でを Azure にこのデータベースを配置します。 ターゲット プラットフォームの設定も実際に配置しないデータベースです。のみ、データベースの設計が、ターゲット プラットフォームと互換性があるデータベース プロジェクトを確認することを意味します。 ターゲット プラットフォームを設定するには、開く、**プロパティ**を選択してプロジェクト**Microsoft Azure SQL Database**ターゲット プラットフォーム。
 

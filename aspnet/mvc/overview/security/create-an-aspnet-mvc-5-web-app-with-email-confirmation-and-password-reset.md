@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: e3d8ad6e00b7fcb95f1c9bbe556021269c1a0624
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5689031015279484cc616090a767a8c25eefa3c1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>電子メールの確認とパスワードのリセット (c#) で、ログでセキュリティで保護された ASP.NET MVC 5 web アプリを作成します。
 ====================
@@ -38,9 +38,9 @@ ms.lasthandoff: 11/10/2017
 
 1. 新しい ASP.NET Web プロジェクトを作成し、MVC テンプレートを選択します。 Web フォームは、web フォーム アプリケーションで同じ手順を実行できなかったために、ASP.NET Identity もサポートします。  
     ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image1.png)
-2. 既定の認証としてのままにして**個々 のユーザー アカウント**です。 Azure でアプリケーションをホストする場合は、チェック ボックスをオンのままにします。 このチュートリアルで後ほどは、Azure に配置します。 実行できます[無料の Azure アカウントを開設](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F)です。
+2. 既定の認証としてのままにして**個々 のユーザー アカウント**です。 Azure でアプリケーションをホストする場合は、チェック ボックスをオンのままにします。 このチュートリアルで後ほどは、Azure に配置します。 実行できます[無料の Azure アカウントを開設](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)です。
 3. 設定、 [SSL を使用するプロジェクト](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)です。
-4. アプリを実行する をクリックして、**登録**リンクし、ユーザーを登録します。 この時点では、電子メールにのみ、検証、 [[EmailAddress]](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx)属性。
+4. アプリを実行する をクリックして、**登録**リンクし、ユーザーを登録します。 この時点では、電子メールにのみ、検証、 [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx)属性。
 5. サーバー エクスプ ローラーに移動**データ Connections\DefaultConnection\Tables\AspNetUsers**を右クリックし、選択**テーブル定義を開き**です。
 
     次の図は、`AspNetUsers`スキーマ。
@@ -108,7 +108,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample8.cshtml)]
 
-追加、 [Authorize attribute](https://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.118).aspx)を`Contact`Home コント ローラーのアクション メソッド。 クリックを使用することができます、**連絡先**リンク匿名ユーザーがアクセスを持っていないし、認証されたユーザーがアクセスを確認します。
+追加、 [Authorize attribute](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.118).aspx)を`Contact`Home コント ローラーのアクション メソッド。 クリックを使用することができます、**連絡先**リンク匿名ユーザーがアクセスを持っていないし、認証されたユーザーがアクセスを確認します。
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample9.cs?highlight=1)]
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample12.cs?highlight=17-20)]
 
-コメント文字を削除、 `ForgotPassword` [ActionLink](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.linkextensions.actionlink(v=vs.118).aspx)で、 *Views\Account\Login.cshtml* razor ファイルの表示。
+コメント文字を削除、 `ForgotPassword` [ActionLink](https://msdn.microsoft.com/library/system.web.mvc.html.linkextensions.actionlink(v=vs.118).aspx)で、 *Views\Account\Login.cshtml* razor ファイルの表示。
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample13.cshtml?highlight=47-50)]
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
-ms.openlocfilehash: 02c2a01ef8ec2b5a49f2c303ee61f02702a3ba54
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 997582263bd48590b74434ee0ffc6be928fa1e08
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="routing-and-action-selection-in-aspnet-web-api"></a>ルーティングと ASP.NET Web API の操作の選択
 ====================
@@ -85,8 +85,8 @@ URI"`http://localhost/api/products`"このルートと一致します。 「{カ
 「Api/製品/toys/123」、ただし、ルート ディクショナリが含まれます。
 
 - コント ローラー:"products など"
-- カテゴリ:"toys"
-- id:「123」
+- category: "toys"
+- id: "123"
 
 既定値は、ルート テンプレートで任意の場所に表示されていない値を含めることができますも。 一致する場合は、その値がディクショナリに格納します。 例:
 
@@ -95,7 +95,7 @@ URI"`http://localhost/api/products`"このルートと一致します。 「{カ
 URI のパスが「api/ルート/8」の場合は、2 つの値がディクショナリに含まれます。
 
 - コント ローラー:"customers"
-- id:「8」
+- id: "8"
 
 ## <a name="selecting-a-controller"></a>コント ローラーを選択します。
 
@@ -121,7 +121,7 @@ URI のパスが「api/ルート/8」の場合は、2 つの値がディクシ�
 
 選択アルゴリズムを見る前に、コント ローラー アクションのいくつかの点を理解する必要があります。
 
-**コント ローラーのメソッドは、「アクション」と見なされますか。** アクションを選択すると、フレームワークのみではパブリック インスタンス メソッド、コント ローラーでします。 また、除外[「特別な名前」](https://msdn.microsoft.com/en-us/library/system.reflection.methodbase.isspecialname)メソッド (コンス トラクター、イベント、演算子のオーバー ロードなど)、およびから継承されたメソッド、 **ApiController**クラスです。
+**コント ローラーのメソッドは、「アクション」と見なされますか。** アクションを選択すると、フレームワークのみではパブリック インスタンス メソッド、コント ローラーでします。 また、除外[「特別な名前」](https://msdn.microsoft.com/library/system.reflection.methodbase.isspecialname)メソッド (コンス トラクター、イベント、演算子のオーバー ロードなど)、およびから継承されたメソッド、 **ApiController**クラスです。
 
 **HTTP メソッド。** のみ、フレームワークには、次のように、要求の HTTP メソッドと一致するアクションが選択されます。
 
@@ -134,7 +134,7 @@ URI のパスが「api/ルート/8」の場合は、2 つの値がディクシ�
 - 単純型は、URI から取得されます。
 - 複合型は、要求本文から取得されます。
 
-単純型には、すべてが含まれている、 [.NET Framework のプリミティブ型](https://msdn.microsoft.com/en-us/library/system.type.isprimitive)、plus **DateTime**、 **Decimal**、 **Guid**、**文字列**、および**TimeSpan**です。 アクションごとに最大で 1 つのパラメーターは、要求本文を読み取ることができます。
+単純型には、すべてが含まれている、 [.NET Framework のプリミティブ型](https://msdn.microsoft.com/library/system.type.isprimitive)、plus **DateTime**、 **Decimal**、 **Guid**、**文字列**、および**TimeSpan**です。 アクションごとに最大で 1 つのパラメーターは、要求本文を読み取ることができます。
 
 > [!NOTE]
 > 既定のバインディング規則を上書きすることは。 参照してください[フードの下部 WebAPI パラメーター バインド](https://blogs.msdn.com/b/jmstall/archive/2012/05/11/webapi-parameter-binding-under-the-hood.aspx)です。
@@ -192,7 +192,7 @@ HTTP 要求。
 URI では、"DefaultApi"をという名前のルートと一致します。 ルート ディクショナリには、次のエントリが含まれています。
 
 - コント ローラー:"products など"
-- id:「1」
+- id: "1"
 
 ルート ディクショナリに、クエリ文字列パラメーター、「バージョン」と「詳細」が含まれていませんが、これらも操作の選択時に考慮されます。
 
@@ -206,7 +206,7 @@ HTTP 要求は、GET 要求です。 GET をサポートするコント ロー�
 
 次に、しようと、アクションのパラメーター名と一致する GET 操作だけを見ています。
 
-| 操作 | 一致するパラメーター |
+| アクション | 一致するパラメーター |
 | --- | --- |
 | `GetAll` | none |
 | `GetById` | "id" |
@@ -227,7 +227,7 @@ HTTP 要求は、GET 要求です。 GET をサポートするコント ロー�
 
 Web API は、ルーティング プロセスの一部の拡張ポイントを提供します。
 
-| インターフェイス | 説明 |
+| Interface | 説明 |
 | --- | --- |
 | **IHttpControllerSelector** | コント ローラーを選択します。 |
 | **IHttpControllerTypeResolver** | コント ローラーの種類の一覧を取得します。 **DefaultHttpControllerSelector**がこの一覧からコント ローラーの種類を選択します。 |

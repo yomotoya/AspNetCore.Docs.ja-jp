@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a5855d5624360e955d5bcbcdd44e745fa54f8bd8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b8b05705629b5e8a9acfc5d23517ef1b3cfa7cd6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-c"></a>検証コントロールを追加、編集し、インターフェイス (c#) を挿入します。
 ====================
@@ -103,11 +103,11 @@ GridView は、組み込み DetailsView の機能を挿入する、GridView へ�
 
 データ エントリ フォームを構築するときに、重要なは、すべての必須フィールドに入力し、提供されているすべての入力が有効で適切にフォーマットされた値です。 ユーザーの入力が有効であることを確認するには、ASP.NET には、1 つの入力コントロールの値を検証するために使用するよう設計されている 5 つの組み込みの検証コントロールが用意されています。
 
-- [RequiredFieldValidator](https://msdn.microsoft.com/en-us/library/5hbw267h(VS.80).aspx)値が指定されていることを確認
-- [CompareValidator](https://msdn.microsoft.com/en-us/library/db330ayw(VS.80).aspx)検証値を別の Web コントロールの値または定数値、または値の形式が指定されたデータ型に対して有効であることを確認
-- [RangeValidator](https://msdn.microsoft.com/en-us/library/f70d09xt.aspx)値が値の範囲内であることを確認
-- [RegularExpressionValidator](https://msdn.microsoft.com/en-US/library/eahwtc9e.aspx)に対して値を検証、[正規表現](http://en.wikipedia.org/wiki/Regular_expression)
-- [CustomValidator](https://msdn.microsoft.com/en-us/library/9eee01cx(VS.80).aspx) 、ユーザー定義のカスタム メソッドに対して値を検証
+- [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx)値が指定されていることを確認
+- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx)検証値を別の Web コントロールの値または定数値、または値の形式が指定されたデータ型に対して有効であることを確認
+- [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx)値が値の範囲内であることを確認
+- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx)に対して値を検証、[正規表現](http://en.wikipedia.org/wiki/Regular_expression)
+- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx) 、ユーザー定義のカスタム メソッドに対して値を検証
 
 これら 5 つのコントロールの詳細については、チェック アウト、[検証コントロール セクション](https://quickstarts.asp.net/quickstartv20/aspnet/doc/ctrlref/validation/default.aspx)の[ASP.NET クイック スタート チュートリアル](https://asp.net/QuickStart/aspnet/)です。
 
@@ -133,7 +133,7 @@ GridView は、組み込み DetailsView の機能を挿入する、GridView へ�
 **図 5**: に RequiredFieldValidator を追加、 `ProductName` `EditItemTemplate` ([フルサイズのイメージを表示するをクリックして](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image15.png))
 
 
-すべての検証コントロールは、1 つの ASP.NET Web コントロールの入力を検証することによって動作します。 そのため、追加したばかり RequiredFieldValidator がでテキスト ボックスに対して検証する必要があることを示すために必要があります、 `EditItemTemplate`; これを実現するには、検証コントロールの[ControlToValidate プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx)に、`ID`の適切な Web コントロールです。 テキスト ボックスには現在はではなくあまり特徴のない`ID`の`TextBox1`が、適切なものに変更してみましょう。 テンプレートのテキスト ボックスをクリックし、次に、[プロパティ] ウィンドウから次のように変更します。、`ID`から`TextBox1`に`EditProductName`です。
+すべての検証コントロールは、1 つの ASP.NET Web コントロールの入力を検証することによって動作します。 そのため、追加したばかり RequiredFieldValidator がでテキスト ボックスに対して検証する必要があることを示すために必要があります、 `EditItemTemplate`; これを実現するには、検証コントロールの[ControlToValidate プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx)に、`ID`の適切な Web コントロールです。 テキスト ボックスには現在はではなくあまり特徴のない`ID`の`TextBox1`が、適切なものに変更してみましょう。 テンプレートのテキスト ボックスをクリックし、次に、[プロパティ] ウィンドウから次のように変更します。、`ID`から`TextBox1`に`EditProductName`です。
 
 
 [![テキスト ボックスの ID を EditProductName に変更します。](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image17.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image16.png)
@@ -141,7 +141,7 @@ GridView は、組み込み DetailsView の機能を挿入する、GridView へ�
 **図 6**: 変更するテキスト ボックスの`ID`に`EditProductName`([フルサイズのイメージを表示するをクリックして](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image18.png))
 
 
-次に、設定、RequiredFieldValidator`ControlToValidate`プロパティを`EditProductName`です。 最後に、設定、 [ErrorMessage プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx)「製品の名前を指定する必要があります」に、 [Text プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx)に"\*"です。 `Text`プロパティの値、指定した場合は、検証が失敗した場合、検証コントロールによって表示されるテキストです。 `ErrorMessage`場合 ValidationSummary コントロールによって必要となるプロパティの値が使用される、`Text`プロパティの値を省略すると、`ErrorMessage`プロパティの値が無効な入力の検証コントロールによって表示されるテキストでもします。
+次に、設定、RequiredFieldValidator`ControlToValidate`プロパティを`EditProductName`です。 最後に、設定、 [ErrorMessage プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx)「製品の名前を指定する必要があります」に、 [Text プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx)に"\*"です。 `Text`プロパティの値、指定した場合は、検証が失敗した場合、検証コントロールによって表示されるテキストです。 `ErrorMessage`場合 ValidationSummary コントロールによって必要となるプロパティの値が使用される、`Text`プロパティの値を省略すると、`ErrorMessage`プロパティの値が無効な入力の検証コントロールによって表示されるテキストでもします。
 
 RequiredFieldValidator のこれら 3 つのプロパティを設定した後、画面は、図 7 のようになります。
 
@@ -155,7 +155,7 @@ RequiredFieldValidator のこれら 3 つのプロパティを設定した後、
 
 CompareValidator を追加する前に、 `UnitPrice` `EditItemTemplate`、最初から TextBox Web コントロールの ID を変更してみましょう`TextBox2`に`EditUnitPrice`です。 この変更を行った後、CompareValidator を追加設定、`ControlToValidate`プロパティを`EditUnitPrice`、その`ErrorMessage`「価格より大きいまたは 0 に等しい必要があります、通貨記号を含めることはできません」プロパティとその`Text`プロパティ"\*".
 
-示すために、`UnitPrice`値が 0 以上でなければ、CompareValidator を設定する必要があります[演算子プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx)に`GreaterThanEqual`、その[ValueToCompare プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx)「0」、およびその[Type プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx)に`Currency`です。 宣言型の構文を示します、 `UnitPrice` TemplateField の`EditItemTemplate`これらの変更が加えられた後。
+示すために、`UnitPrice`値が 0 以上でなければ、CompareValidator を設定する必要があります[演算子プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx)に`GreaterThanEqual`、その[ValueToCompare プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx)「0」、およびその[Type プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx)に`Currency`です。 宣言型の構文を示します、 `UnitPrice` TemplateField の`EditItemTemplate`これらの変更が加えられた後。
 
 [!code-aspx[Main](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/samples/sample3.aspx)]
 
@@ -197,9 +197,9 @@ CompareValidator を追加する前に、 `UnitPrice` `EditItemTemplate`、最�
 
 ## <a name="step-4-summarizing-data-entry-problems"></a>手順 4: 概要データ エントリの問題を作成します。
 
-ASP.NET には、5 つの検証コントロールのほか、 [ValidationSummary コントロール](https://msdn.microsoft.com/en-US/library/f9h59855(VS.80).aspx)が表示される、`ErrorMessage`の無効なデータが検出された検証コントロール。 この概要データは、モーダル、クライアント側のメッセージ ボックス データベースを介して、web ページ上のテキストとして表示できます。 検証問題の概要を作成するクライアント側のメッセージ ボックスを含めるには、このチュートリアルを強化してみましょう。
+ASP.NET には、5 つの検証コントロールのほか、 [ValidationSummary コントロール](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx)が表示される、`ErrorMessage`の無効なデータが検出された検証コントロール。 この概要データは、モーダル、クライアント側のメッセージ ボックス データベースを介して、web ページ上のテキストとして表示できます。 検証問題の概要を作成するクライアント側のメッセージ ボックスを含めるには、このチュートリアルを強化してみましょう。
 
-これを実現するには、ツールボックスからデザイナーに ValidationSummary コントロールをドラッグします。 検証コントロールの場所は関係ありません実際には、メッセージ ボックス データベースとしてのみの概要を表示するように構成することがあるため。 コントロールを追加すると、次のように設定します。 その[ShowSummary プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx)に`false`とその[ShowMessageBox プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx)に`true`です。 この追加すると、検証エラーは、クライアント側のメッセージ ボックスにまとめたものです。
+これを実現するには、ツールボックスからデザイナーに ValidationSummary コントロールをドラッグします。 検証コントロールの場所は関係ありません実際には、メッセージ ボックス データベースとしてのみの概要を表示するように構成することがあるため。 コントロールを追加すると、次のように設定します。 その[ShowSummary プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx)に`false`とその[ShowMessageBox プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx)に`true`です。 この追加すると、検証エラーは、クライアント側のメッセージ ボックスにまとめたものです。
 
 
 [![クライアント側のメッセージ ボックスの妥当性確認エラーをまとめたもの](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image32.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs/_static/image31.png)
@@ -259,7 +259,7 @@ GridView の CommandField と TemplateFields
 
 この追加すると、チュートリアルが完了しました。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 BoundFields には、挿入と編集インターフェイスの両方を指定できる、インターフェイスはカスタマイズできません。 一般的には、編集とユーザーが有効な形式で必須の入力を入力することを確認するインターフェイスを挿入する検証コントロールを追加します。 これを実現する TemplateFields に、BoundFields を変換して、検証コントロールを適切なテンプレートに追加する必要があります。 この例を拡張してこのチュートリアルでは、 *、イベントに関連付けられている挿入、更新、および削除を確認する*インターフェイスおよび GridView の挿入のチュートリアルでは、両方 DetailsView に検証コントロールを追加します。インターフェイスを編集します。 さらに、ValidationSummary コントロールを使用して検証の概要情報を表示する方法と、ページ上の検証コントロールを個別の検証グループにパーティション分割する方法を説明しました。
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: f1bdbc723e4602c2e53723aff91ec5d254f4bd93
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 5073a1663ec99a1b161092d74ab035ee9782becd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET Core の WebListener web サーバーの実装
 
@@ -131,11 +131,11 @@ using (WebListener listener = new WebListener(settings))
 
 ## <a name="preregister-url-prefixes-and-configure-ssl"></a>URL プレフィックスを事前登録し、SSL を構成します。
 
-IIS と WebListener のどちらも、要求のリッスンを基になる Http.Sys カーネル モード ドライバーに依存し、処理の初期実行します。 IIS では、management UI では、すべての構成に比較的簡単な方法です。 ただし、WebListener を使用している場合は、Http.Sys を構成する必要があります。 これを行うための組み込みツールは、netsh.exe です。 
+IIS と WebListener のどちらも、要求のリッスンを基になる Http.Sys カーネル モード ドライバーに依存し、処理の初期実行します。 IIS では、management UI では、すべての構成に比較的簡単な方法です。 ただし、WebListener を使用している場合は、Http.Sys を構成する必要があります。 Netsh.exe は、その組み込みツールです。 
 
 Netsh.exe を使用する必要があります。 最も一般的なタスクは URL プレフィックスを予約して、SSL 証明書を割り当てます。
 
-NetSh.exe は、初心者向けの使いやすいツールではありません。 次の例は、ポート 80 と 443 の URL プレフィックスを予約するために必要な最低限のものを示しています。
+NetSh.exe は、初心者向けの使いやすいツールはありません。 次の例は、ポート 80 と 443 の URL プレフィックスを予約するために必要な最低限のものを示しています。
 
 ```console
 netsh http add urlacl url=http://+:80/ user=Users

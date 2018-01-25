@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
 msc.type: content
-ms.openlocfilehash: 93fdc7ca241198dc1d7c4c1f6be0a61b15790039
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4487eb7436c0b6241505f41621a7f31b89c38b28
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>ASP.NET 4.5 と Visual Studio 2012 の新機能
 ====================
@@ -80,7 +80,7 @@ ms.lasthandoff: 11/10/2017
         - [中かっこの一致](#_Toc318097409)
         - [定義に移動](#_Toc318097410)
         - [ECMAScript5 サポート](#_Toc318097411)
-        - [DOM の IntelliSense](#_Toc318097412)
+        - [DOM IntelliSense](#_Toc318097412)
         - [VSDOC 署名のオーバー ロード](#_Toc318097413)
         - [暗黙の参照](#_Toc318097414)
     - [CSS エディター](#_Toc318097415)
@@ -266,8 +266,8 @@ ASP.NET と、クライアント Websocket ハンドシェイクが正常に完�
 
 ファイルは、バンドルされているときに最初に並べ替えたアルファベット順 (に表示されている方法**ソリューション エクスプ ローラー**)。 ライブラリが認識されるため、構成されると (jQuery、MooTools、Dojo など) にカスタムの拡張機能は最初に読み込まれます。 たとえば、上記のように、Scripts フォルダーのバンドルの最終的な順序になります。
 
-1. jquery 1.6.2.js
-2. jquery ui.js
+1. jquery-1.6.2.js
+2. jquery-ui.js
 3. jquery.tools.js
 4. a.js
 
@@ -330,7 +330,7 @@ Aspnet を実行するすべての対象となるアセンブリが確保され�
 
 **要件**: .NET Framework 4.5
 
-コールド サイト スタートアップ、アセンブリでは、ディスクから読み取るだけでなく、サイトは、JIT でコンパイルする必要があります。 複雑なサイトでは、これには、大幅な遅延を追加します。 .NET Framework 4.5 で新しい汎用的な手法では、JIT コンパイルを利用可能なプロセッサ コア間で分散させることによってこれらの遅延が軽減されます。 これは多くの部分、し、できるだけ早い段階中に収集される情報を使用して以前起動サイトのします。 この機能によって実装される、 [System.Runtime.ProfileOptimization.StartProfile](https://msdn.microsoft.com/en-us/library/system.runtime.profileoptimization.startprofile(VS.110).aspx)メソッドです。
+コールド サイト スタートアップ、アセンブリでは、ディスクから読み取るだけでなく、サイトは、JIT でコンパイルする必要があります。 複雑なサイトでは、これには、大幅な遅延を追加します。 .NET Framework 4.5 で新しい汎用的な手法では、JIT コンパイルを利用可能なプロセッサ コア間で分散させることによってこれらの遅延が軽減されます。 これは多くの部分、し、できるだけ早い段階中に収集される情報を使用して以前起動サイトのします。 この機能によって実装される、 [System.Runtime.ProfileOptimization.StartProfile](https://msdn.microsoft.com/library/system.runtime.profileoptimization.startprofile(VS.110).aspx)メソッドです。
 
 ASP.NET では、既定では複数のコアを使用しての JIT コンパイルが有効になっているため、この機能を活用するために何もする必要はありません。 この機能を無効にする場合は、次の設定を Web.config ファイルで行います。
 

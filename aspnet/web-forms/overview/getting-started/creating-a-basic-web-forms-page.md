@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 20e920ff63444c0d69cecb972619b07fe6d23097
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6b699cc939292b7ab0167dba7cfa6a00b681ef3a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>基本的な ASP.NET 4.5 Web フォーム ページの作成では、Visual Studio 2013
 ====================
 によって[Erik Reitan](https://github.com/Erikre)
 
-このチュートリアルで Web 開発環境に概要を提供します。 [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs)し、 [Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web)です。 このチュートリアルを単純な ASP.NET Web フォーム ページを作成し、新しいページを作成する、コントロールの追加、およびコードの記述の基本的な方法を示しています。
+このチュートリアルで Web 開発環境に概要を提供します。 [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs)し、 [Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web)です。 このチュートリアルを単純な ASP.NET Web フォーム ページを作成し、新しいページを作成する、コントロールの追加、およびコードの記述の基本的な方法を示しています。
 
 このチュートリアルでは、以下のタスクを行います。
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/10/2017
 
 このチュートリアルを完了するための要件は次のとおりです。
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs)または[Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web)です。 .NET Framework は、自動的にインストールされます。 
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs)または[Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web)です。 .NET Framework は、自動的にインストールされます。 
 
     > [!NOTE] 
     > 

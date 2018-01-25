@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d4b83d99fcf1247d08ce83364cc00e738b6a16c8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 63b1266e03041c4261e71fd25e988c63932b503e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authenticating-users-with-windows-authentication-vb"></a>Windows 認証 (VB) を使用してユーザーを認証
 ====================
@@ -51,7 +51,7 @@ ASP.NET 開発 Web サーバーには、NTLM 認証もサポートしていま�
 
 > [!NOTE] 
 > 
-> これらのさまざまな種類の認証の詳細については、次を参照してください[https://msdn.microsoft.com/en-us/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/en-us/library/aa292114(VS.71).aspx).。
+> これらのさまざまな種類の認証の詳細については、次を参照してください[https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).。
 
 
 インターネット インフォメーション サービス マネージャーを使用して、特定の種類の認証を有効にすることができます。 すべての種類の認証はすべてのオペレーティング システムの場合は使用できないことに注意してください。 さらに、Windows vista では IIS 7.0 を使用している場合は、インターネット インフォメーション サービス マネージャーに表示される前に、さまざまな種類の Windows 認証を有効にする必要があります。 開いている**コントロール パネル、プログラム、プログラムと機能、Windows の機能のオンまたはオフ**、インターネット インフォメーション サービス ノードを展開し、(図 2 を参照してください)。
@@ -88,7 +88,7 @@ Windows 認証を有効にした後を使用して、 &lt;Authorize&gt;コント
 
 ![clip_image008](authenticating-users-with-windows-authentication-vb/_static/image4.jpg)
 
-#### <a name="summary"></a>概要
+#### <a name="summary"></a>まとめ
 
 このチュートリアルでは、ASP.NET MVC アプリケーションのコンテキストで Windows 認証を使用する方法について説明します。 IIS で認証を構成する方法と、アプリケーションの web 構成ファイル内で Windows 認証を有効にする方法を学習しました。 最後に、使用する方法を学習しました、 &lt;Authorize&gt;属性を特定の Windows ユーザーまたはグループにコント ローラー アクションへのアクセスを制限します。
 

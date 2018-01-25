@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: ffa3178dc4e3aac3ba51c29b7efa3f71eb56bcfe
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8f6f4fac89afe14d83d629128fc3e4632ae95510
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core でのルーティング
 
@@ -98,9 +98,9 @@ routes.MapRoute(
     template: "{controller=Home}/{action=Index}/{id?}");
 ```
 
-このテンプレートはのような URL パスを一致`/Products/Details/17`およびルート値を抽出`{ controller = Products, action = Details, id = 17 }`です。 ルートの値が決定される URL パスをセグメントに分割されそれぞれのセグメントに一致する、*パラメーターをルート*ルート テンプレートの名前。 ルート パラメーターがという名前です。 中かっこでパラメーター名を囲むことによって定義されている`{ }`です。
+このテンプレートはのような URL パスを一致`/Products/Details/17`およびルート値を抽出`{ controller = Products, action = Details, id = 17 }`です。 ルートの値が決定される URL パスをセグメントに分割されそれぞれのセグメントに一致する、*パラメーターをルート*ルート テンプレートの名前。 ルート パラメーターがという名前です。 中かっこでパラメーター名を囲むことによって定義される`{ }`です。
 
-上記のテンプレートは、URL パスを一致もでした`/`と値が生成されると`{ controller = Home, action = Index }`です。 これは、`{controller}`と`{action}`ルート パラメーターが既定値を持つ、`id`ルートのパラメーターは省略可能です。 等号`=`記号続く値ルートのパラメーター名は、パラメーターの既定値を定義した後です。 疑問符 ()`?`後、ルートのパラメーター名は、オプションとして、パラメーターを定義します。 既定値を持つパラメーターをルート*常に*ルートに一致する - 対応する URL パスのセグメントがない場合、省略可能なパラメーターは、ルート値を生成しないはときに、ルート値を生成します。
+上記のテンプレートは、URL パスを一致もでした`/`と値が生成されると`{ controller = Home, action = Index }`です。 これは、`{controller}`と`{action}`ルート パラメーターが既定値を持つ、`id`ルートのパラメーターは省略可能です。 等号`=`記号続く値ルートのパラメーター名は、パラメーターの既定値を定義した後です。 疑問符 ()`?`後、ルートのパラメーター名は、オプションとして、パラメーターを定義します。 既定値を持つパラメーターをルート*常に*ルートに一致する - 対応する URL パスのセグメントがない場合、省略可能なパラメーターはルート値を生成しない場合は、ルート値を生成します。
 
 参照してください[ルート テンプレート参照](#route-template-reference)ルート テンプレートの機能と構文の詳細な説明をします。
 
@@ -255,7 +255,7 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
 
 ## <a name="route-template-reference"></a>ルート テンプレート リファレンス
 
-中かっこ内のトークン (`{ }`) 定義*パラメーターをルート*ルートが一致する場合がバインドされます。 セグメントでは、ルート、1 つ以上のルート パラメーターを定義できますが、これらは、リテラル値で区切る必要があります。 たとえば`{controller=Home}{action=Index}`できません有効なルートの間でのリテラル値が存在しないため`{controller}`と`{action}`です。 これらのルートのパラメーターには、名前が必要です。 と指定可能性があります追加の属性です。
+中かっこ内のトークン (`{ }`) 定義*パラメーターをルート*ルートが一致する場合がバインドされます。 セグメントでは、ルート、1 つ以上のルート パラメーターを定義できますが、これらは、リテラル値で区切る必要があります。 たとえば`{controller=Home}{action=Index}`間でのリテラル値が存在しないために、有効なルートをでしょう`{controller}`と`{action}`です。 これらのルートのパラメーターには、名前が必要です。 と指定可能性があります追加の属性です。
 
 ルートのパラメーターとは別のリテラル テキスト (たとえば、 `{id}`) およびパスの区切り文字`/`URL 内のテキストに一致する必要があります。 テキストの一致するとは区別されず、Url パスのデコードされた形式に基づいて。 リテラルのルート パラメーターの区切り記号に一致する`{`または`}`、文字の繰り返しでエスケープ (`{{`または`}}`)。
 
@@ -317,7 +317,7 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
 | `required`  | `{name:required}` | `Rick` |  非パラメーターの値が URL の生成中に存在するを適用するために使用 |
 
 >[!WARNING]
-> CLR 型に変換できる URL を確認するルート制約 (など`int`または`DateTime`) 常にインバリアント カルチャを使用して - URL は非ローカライズ可能な前提です。 Framework に用意されているルートの制約では、ルートの値に格納された値は変更しないでください。 URL から解析されたすべてのルートの値は、文字列として格納されます。 たとえば、 [Float ルート制約](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/Constraints/FloatRouteConstraint.cs#L44-L60)ルートの値を float に変換を試みますが、変換後の値が float に変換できることを確認にのみ使用されます。
+> CLR 型に変換できる URL を確認するルート制約 (など`int`または`DateTime`) 常にインバリアント カルチャを使用して - URL は非ローカライズ可能な前提です。 Framework に用意されているルートの制約は、ルートの値に格納された値を変更しないでください。 URL から解析されたすべてのルートの値は、文字列として格納されます。 たとえば、 [Float ルート制約](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/Constraints/FloatRouteConstraint.cs#L44-L60)ルートの値を float に変換を試みますが、変換後の値が float に変換できることを確認にのみ使用されます。
 
 ## <a name="regular-expressions"></a>正規表現 
 

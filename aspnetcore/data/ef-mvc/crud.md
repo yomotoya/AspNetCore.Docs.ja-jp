@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 7e495ba56958012713836c1dd75ac0c5a8bff942
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 873e4592ba668bbcb22f761c2a547a2a27d7e443
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>作成、読み取り、更新、および削除の ASP.NET Core MVC のチュートリアル (10 の 2) と EF コア
 
@@ -46,7 +46,7 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 
 `Include`と`ThenInclude`メソッドで発生する読み込みコンテキスト、`Student.Enrollments`ナビゲーション プロパティ、および各登録内で、`Enrollment.Course`ナビゲーション プロパティ。  これらのメソッドの詳細を学習、[関連データを読み取る](read-related-data.md)チュートリアルです。
 
-`AsNoTracking`メソッドで返されるエンティティは更新されません、現在のコンテキストの有効期間内のシナリオでパフォーマンスが向上します。 詳しくは`AsNoTracking`このチュートリアルの最後。
+`AsNoTracking`メソッドで返されるエンティティを現在のコンテキストの有効期間中に更新されませんのシナリオでパフォーマンスが向上します。 詳しくは`AsNoTracking`このチュートリアルの最後。
 
 ### <a name="route-data"></a>ルート データ
 
@@ -118,7 +118,7 @@ http://localhost:1230/Instructor/Index?id=1&CourseID=2021
 
 このコードは、セットされ、データベースに変更を保存、受講者エンティティに ASP.NET MVC モデル バインダーによって作成された学生エンティティを追加します。 (モデル バインダーのフォームから送信されたデータを操作するが容易 ASP.NET MVC 機能を指す。 モデル バインダーは、CLR 型にポストされたフォーム値を変換し、パラメーター内のアクション メソッドに渡します。 ここでは、モデル バインダーをインスタンス化学生エンティティのフォーム コレクションからプロパティ値を使用している。)
 
-削除する`ID`から、`Bind`属性の ID が SQL Server は、行が挿入されると自動的に設定されますが、主キーの値であるためです。 ユーザーからの入力は、ID 値を設定しません。
+削除する`ID`から、`Bind`属性の ID が SQL Server は、行が挿入されると自動的に設定されますが、主キーの値であるためです。 ユーザーからの入力には、ID 値を設定しません。
 
 以外の場合、`Bind`属性、try-catch ブロックがスキャフォールディング コードに加えたのみ変更します。 派生した例外`DbUpdateException`は、変更の保存中にキャッチされ、汎用的なエラー メッセージが表示されます。 `DbUpdateException`例外は場合もありますが原因でプログラミング エラーではなく、アプリケーションを外部の何かため、ユーザーが再試行することをお勧めします。 このサンプルでは実装されていませんが実稼働品質アプリケーションは、例外を記録します。 詳細については、次を参照してください。、**について理解を深めるログ**」の「[監視と遠隔測定 (実際のクラウド アプリのビルドと Azure)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)です。
 
@@ -176,7 +176,7 @@ HttpPost 編集アクション メソッドを次のコードに置き換えま�
 
 [!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ReadFirst)]
 
-これらの変更は、overposting を防ぐためにセキュリティのベスト プラクティスを実装します。 生成された scaffolder、`Bind`属性し、エンティティのセットにモデル バインダーによって作成されたエンティティを追加、`Modified`フラグ。 コードは多くのシナリオの推奨されないこと、`Bind`属性に表示されていないフィールド内の既存のデータをクリアして、`Include`パラメーター。
+これらの変更は、overposting を防ぐためにセキュリティのベスト プラクティスを実装します。 生成された scaffolder、`Bind`属性し、エンティティのセットにモデル バインダーによって作成されたエンティティを追加、`Modified`フラグ。 に、コードが多くのシナリオで推奨されていないこと、`Bind`属性に表示されていないフィールド内の既存のデータをクリアして、`Include`パラメーター。
 
 新しいコードを読み取り、既存のエンティティと呼び出し`TryUpdateModel`取得されたエンティティのフィールドを更新する[ポストされたフォーム データでのユーザー入力に基づいて](xref:mvc/models/model-binding#how-model-binding-works)です。 Entity Framework の自動変更のセットを追跡、`Modified`フォーム入力によって変更されたフィールドのフラグ。 ときに、`SaveChanges`メソッドが呼び出されると、Entity Framework は、データベースの行を更新する SQL ステートメントを作成します。 同時実行の競合は無視され、ユーザーによって更新されたテーブルの列のみが、データベースで更新されます。 (後のチュートリアルは、同時実行の競合を処理する方法を示しています)。
 
@@ -216,7 +216,7 @@ Web アプリで、`DbContext`エンティティと、ページが表示され�
 
 余分な読み取り操作を行うにはたくない場合は、モデル バインダーによって作成されたエンティティ オブジェクトを使用する必要があります。  これを行う最も簡単な方法では、前に示した代替 HttpPost 編集コードのように、modified、エンティティの状態を設定します。 その後呼び出す`SaveChanges`、Entity Framework がコンテキストに変更するプロパティを特定する方法があるないために、データベースの行のすべての列を更新します。
 
-読み取り-優先のアプローチを避けたいユーザーが実際に変更されたフィールドのみを更新する SQL UPDATE ステートメントをする場合、コードは複雑です。 何らかの方法で元の値を保存する必要が (など、隠しフィールドを使用して) ため、使用できるようにするときに、HttpPost`Edit`メソッドが呼び出されます。 呼び出し元の値を使用して学生エンティティを作成してから、`Attach`メソッドをその元のバージョン、エンティティのエンティティの値を新しい値に更新およびを呼び出す`SaveChanges`です。
+読み取り-優先のアプローチを避けたいユーザーが実際に変更されたフィールドのみを更新する SQL UPDATE ステートメントをする場合、コードは複雑です。 何らかの方法で元の値を保存する必要が (など、非表示フィールドを使用して) ことにより、使用可能な場合に、HttpPost`Edit`メソッドが呼び出されます。 呼び出し元の値を使用して学生エンティティを作成してから、`Attach`メソッドをその元のバージョン、エンティティのエンティティの値を新しい値に更新およびを呼び出す`SaveChanges`です。
 
 ### <a name="test-the-edit-page"></a>テストの編集 ページ
 

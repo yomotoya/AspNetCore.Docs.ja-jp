@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: f0d465b363652c691c203d608f2cb9d139e72fed
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b3640c94a8ae9ede330c0fe6a392acb5843cb65c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>シングル サインオン (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -31,12 +31,12 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="introduction-to-azure-ad"></a>Azure AD の概要
 
-[Azure AD](https://docs.microsoft.com/azure/active-directory/)提供[Active Directory](https://msdn.microsoft.com/en-us/library/windows/desktop/aa746492.aspx)クラウドでします。 主な機能を以下に示します。
+[Azure AD](https://docs.microsoft.com/azure/active-directory/)提供[Active Directory](https://msdn.microsoft.com/library/windows/desktop/aa746492.aspx)クラウドでします。 主な機能を以下に示します。
 
 - 内部設置型 Active Directory と統合できます。
 - アプリでのシングル サインオンが有効にします。
 - などのオープン スタンダードをサポートしている[SAML](http://en.wikipedia.org/wiki/SAML_2.0)、 [Ws-fed](http://en.wikipedia.org/wiki/WS-Federation)、および[OAuth 2.0](http://oauth.net/2/)です。
-- エンタープライズがサポートしている[Graph REST API](https://msdn.microsoft.com/en-us/library/hh974476.aspx)です。
+- エンタープライズがサポートしている[Graph REST API](https://msdn.microsoft.com/library/hh974476.aspx)です。
 
 イントラネット アプリケーションにサインオンする従業員を有効にするために使用、内部設置型 Windows Server Active Directory 環境があるとします。
 
@@ -64,7 +64,7 @@ AD と Azure AD の間には、この接続を確立した後に、web アプリ
 
 ## <a name="set-up-an-azure-ad-tenant"></a>Azure AD テナントを設定します。
 
-Azure AD、Azure AD ディレクトリと呼びます[テナント](https://technet.microsoft.com/en-us/library/jj573650.aspx)、非常に簡単には、テナントを設定するとします。 紹介する方法、Azure 管理ポータルで、概念を説明するためには、当然のことながら、他のポータル関数と同様に行うことも、スクリプトまたは管理 API を使用しています。
+Azure AD、Azure AD ディレクトリと呼びます[テナント](https://technet.microsoft.com/library/jj573650.aspx)、非常に簡単には、テナントを設定するとします。 紹介する方法、Azure 管理ポータルで、概念を説明するためには、当然のことながら、他のポータル関数と同様に行うことも、スクリプトまたは管理 API を使用しています。
 
 管理ポータルでは、Active Directory タブをクリックします。
 
@@ -118,7 +118,7 @@ Azure アカウントに自動的に 1 つの Azure AD テナントがあるし�
 
 ![WAAD 同期ツール構成ウィザード](single-sign-on/_static/image17.png)
 
-クラウドに格納できるパスワード ハッシュは、一方向のハッシュです。実際のパスワードは、Azure AD では格納されません。 に対してクラウドでハッシュを保存する場合は、使用する必要があります[Active Directory フェデレーション サービス](https://technet.microsoft.com/en-us/library/hh831502.aspx)(ADFS)。 [ときに考慮するその他の要因 ADFS を使用するかどうかを選択する](https://technet.microsoft.com/en-us/library/jj573653.aspx)です。 ADFS オプションには、いくつかの追加の構成手順が必要です。
+クラウドに格納できるパスワード ハッシュは、一方向のハッシュです。実際のパスワードは、Azure AD では格納されません。 に対してクラウドでハッシュを保存する場合は、使用する必要があります[Active Directory フェデレーション サービス](https://technet.microsoft.com/library/hh831502.aspx)(ADFS)。 [ときに考慮するその他の要因 ADFS を使用するかどうかを選択する](https://technet.microsoft.com/library/jj573653.aspx)です。 ADFS オプションには、いくつかの追加の構成手順が必要です。
 
 クラウド内のハッシュを保存する場合は、完了したら、ツールは、クリックすると、ディレクトリの同期を開始**次**です。
 
@@ -156,7 +156,7 @@ Visual Studio では、本当に楽にいくつかのスクリーン ショッ�
 
 ![認証のダイアログ ボックスを構成します。](single-sign-on/_static/image24.png)
 
-また、アプリの読み取りを付与したりディレクトリ データに対するアクセス許可の読み取り/書き込みできます。 使用できることを行うと場合、 [Azure Graph REST API](https://msdn.microsoft.com/en-us/library/windowsazure/hh974476.aspx)をユーザーの電話番号を調べる調べる、最終ログオンしているときなどに、オフィスにいるかどうか。
+また、アプリの読み取りを付与したりディレクトリ データに対するアクセス許可の読み取り/書き込みできます。 使用できることを行うと場合、 [Azure Graph REST API](https://msdn.microsoft.com/library/windowsazure/hh974476.aspx)をユーザーの電話番号を調べる調べる、最終ログオンしているときなどに、オフィスにいるかどうか。
 
 行うに必要である Visual Studio の資格情報を要求、Azure AD テナントの管理者と、新しいアプリケーションの Azure AD テナントと、プロジェクトの両方を構成します。
 
@@ -172,7 +172,7 @@ Visual Studio では、本当に楽にいくつかのスクリーン ショッ�
 
 Azure AD の認証を使用するアプリをビルドする方法を示す完全なステップ バイ ステップ チュートリアル由来以下のスクリーン ショット: [Azure Active Directory での ASP.NET アプリの開発](../../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 この章で、Azure Active Directory、Visual Studio、および ASP.NET を簡単に、組織のユーザーのインターネット アプリケーションでのシングル サインオンを設定を確認しました。 ユーザーは、内部ネットワークの Active Directory を使用してサインオンを使用して、同じ資格情報を使用してアプリをインターネットでサインオンできます。
 
@@ -186,7 +186,7 @@ Azure AD の認証を使用するアプリをビルドする方法を示す完�
 - [Azure Active Directory のドキュメント](https://docs.microsoft.com/azure/active-directory/)です。 Windowsazure.com サイトのドキュメントについては Azure AD ポータルのページです。 ステップ バイ ステップ チュートリアルについては、次を参照してください。、**開発**セクションです。
 - [Azure Multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)です。 Azure で多要素認証に関するドキュメントについてはポータル ページです。
 - [組織アカウントの認証オプション](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauthoptions)です。 Visual Studio 2013 の [新しいプロジェクト] ダイアログ ボックスで、Azure AD の認証オプションの説明です。
-- [Microsoft Patterns and Practices - Federated Identity パターン](https://msdn.microsoft.com/en-us/library/dn589790.aspx)です。
+- [Microsoft Patterns and Practices - Federated Identity パターン](https://msdn.microsoft.com/library/dn589790.aspx)です。
 - [方法: Azure Active Directory 同期ツールのインストール](https://social.technet.microsoft.com/wiki/contents/articles/19098.howto-install-the-windows-azure-active-directory-sync-tool-now-with-pictures.aspx)です。
 - [Active Directory フェデレーション サービス 2.0 コンテンツ マップ](https://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx)です。 Ad FS 2.0 に関するドキュメントへのリンク。
 - [Windows Azure AD アプリケーションでのロールベースおよび ACL ベース承認](https://code.msdn.microsoft.com/Role-Based-and-ACL-Based-86ad71a1)です。 サンプル アプリケーション。

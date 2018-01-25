@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 7e0ddc15fac9af40a0a20a99979a80517eb1b6a2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 182276f9f91b99beb1ce0fc40dcda1f19376669a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>ASP.NET AJAX 認証およびプロファイル アプリケーション サービスを理解します。
 ====================
@@ -43,7 +43,7 @@ Microsoft ASP.NET プロファイルや認証サービス、ASP.NET フォーム
 
 プロファイル サービスは、自動統合および認証サービスによって提供されるように、メンバーシップに基づくユーザー データの記憶域を使用します。 格納されたデータは、web.config ファイルで指定して、さまざまなプロファイリング サービス プロバイダーがデータの管理を処理します。 認証サービスと同様、AJAX プロファイル サービスは、ページが現在 ASP.NET プロファイル サービスの機能を組み込む必要がありますいないによって損なわれている AJAX のサポートを含むように、標準の ASP.NET プロファイル サービスとの互換性。
 
-このホワイト ペーパーのスコープ外では、ASP.NET 認証とプロファイル サービス自体をアプリケーションに組み込むことです。 トピックの詳細については、MSDN ライブラリを参照してください参照資料にメンバーシップを使用したユーザーを管理する[https://msdn.microsoft.com/en-us/library/tw292whz.aspx](https://msdn.microsoft.com/en-us/library/tw292whz.aspx)です。 ASP.NET には、ASP.NET メンバーシップの既定の認証サービス プロバイダーである SQL Server でのメンバーシップを自動的に設定するためのユーティリティも含まれています。 詳細については、ASP.NET SQL Server の登録ツールの記事を参照してください (Aspnet\_regsql.exe) で[https://msdn.microsoft.com/en-us/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/en-us/library/ms229862(vs.80).aspx).
+このホワイト ペーパーのスコープ外では、ASP.NET 認証とプロファイル サービス自体をアプリケーションに組み込むことです。 トピックの詳細については、MSDN ライブラリを参照してください参照資料にメンバーシップを使用したユーザーを管理する[https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx)です。 ASP.NET には、ASP.NET メンバーシップの既定の認証サービス プロバイダーである SQL Server でのメンバーシップを自動的に設定するためのユーティリティも含まれています。 詳細については、ASP.NET SQL Server の登録ツールの記事を参照してください (Aspnet\_regsql.exe) で[https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
 
 ## <a name="using-the-aspnet-ajax-authentication-service"></a>*ASP.NET AJAX 認証サービスを使用します。*
 
@@ -65,14 +65,14 @@ Login() メソッドでは、ユーザーの資格情報を認証するための
 
 | **パラメーター名** | **意味** |
 | --- | --- |
-| userName | 必須です。 認証にユーザー名。 |
+| userName | 必須。 認証にユーザー名。 |
 | パスワード | 省略可能な (null の既定値)。 ユーザーのパスワード。 |
 | isPersistent | 省略可能な (既定値は false)。 かどうか、ユーザーの認証の cookie は、セッション間で保持する必要があります。 False の場合、ユーザーがログアウト、ブラウザーが閉じているか、セッションの有効期限が切れるときにします。 |
 | redirectUrl | 省略可能な (null の既定値)。正常な認証時にブラウザーをリダイレクトする URL。 このパラメーターが null または空の文字列の場合は、リダイレクトは行われません。 |
 | customInfo | 省略可能な (null の既定値)。 このパラメーターは、現在使用されていないは将来使用するために予約されています。 |
 | loginCompletedCallback | 省略可能な (null の既定値)。ログインが正常に完了したときに呼び出す関数。 指定する場合、このパラメーターは defaultLoginCompleted プロパティを上書きします。 |
 | failedCallback | 省略可能な (null の既定値)。ログインが失敗したときに呼び出される関数。 指定する場合、このパラメーターは defaultFailedCallback プロパティを上書きします。 |
-| UserContext | 省略可能な (null の既定値)。 コールバック関数に渡す必要があるカスタム ユーザー コンテキスト データ。 |
+| userContext | 省略可能な (null の既定値)。 コールバック関数に渡す必要があるカスタム ユーザー コンテキスト データ。 |
 
 *戻り値。*
 
@@ -93,7 +93,7 @@ Logout() メソッドは、資格情報 cookie を削除し、web アプリケ�
 | redirectUrl | 省略可能な (null の既定値)。正常な認証時にブラウザーをリダイレクトする URL。 このパラメーターが null または空の文字列の場合は、リダイレクトは行われません。 |
 | logoutCompletedCallback | 省略可能な (null の既定値)。ログアウトが正常に完了したときに呼び出す関数。 指定する場合、このパラメーターは defaultLogoutCompleted プロパティを上書きします。 |
 | failedCallback | 省略可能な (null の既定値)。ログインが失敗したときに呼び出される関数。 指定する場合、このパラメーターは defaultFailedCallback プロパティを上書きします。 |
-| UserContext | 省略可能な (null の既定値)。 コールバック関数に渡す必要があるカスタム ユーザー コンテキスト データ。 |
+| userContext | 省略可能な (null の既定値)。 コールバック関数に渡す必要があるカスタム ユーザー コンテキスト データ。 |
 
 *戻り値。*
 
@@ -116,8 +116,8 @@ Logout() メソッドは、資格情報 cookie を削除し、web アプリケ�
 | **パラメーター名** | **意味** |
 | --- | --- |
 | エラー | エラー情報を指定します。 |
-| UserContext | ログインまたはログアウト関数が呼び出されたときを指定されたユーザー コンテキスト情報を指定します。 |
-| MethodName | 呼び出し元のメソッドの名前。 |
+| userContext | ログインまたはログアウト関数が呼び出されたときを指定されたユーザー コンテキスト情報を指定します。 |
+| methodName | 呼び出し元のメソッドの名前。 |
 
 *defaultLoginCompletedCallback プロパティ (get、set):*
 
@@ -132,8 +132,8 @@ Logout() メソッドは、資格情報 cookie を削除し、web アプリケ�
 | **パラメーター名** | **意味** |
 | --- | --- |
 | validCredentials | ユーザーが有効な資格情報を指定するかどうかを指定します。 `true`ユーザーが正常にログインした場合それ以外の場合`false`です。 |
-| UserContext | ログイン関数が呼び出されたときを指定されたユーザー コンテキスト情報を指定します。 |
-| MethodName | 呼び出し元のメソッドの名前。 |
+| userContext | ログイン関数が呼び出されたときを指定されたユーザー コンテキスト情報を指定します。 |
+| methodName | 呼び出し元のメソッドの名前。 |
 
 *defaultLogoutCompletedCallback プロパティ (get、set):*
 
@@ -148,8 +148,8 @@ Logout() メソッドは、資格情報 cookie を削除し、web アプリケ�
 | **パラメーター名** | **意味** |
 | --- | --- |
 | 結果 | このパラメーターは必ず`null`; 将来使用するために予約されています。 |
-| UserContext | ログイン関数が呼び出されたときを指定されたユーザー コンテキスト情報を指定します。 |
-| MethodName | 呼び出し元のメソッドの名前。 |
+| userContext | ログイン関数が呼び出されたときを指定されたユーザー コンテキスト情報を指定します。 |
+| methodName | 呼び出し元のメソッドの名前。 |
 
 *isLoggedIn プロパティ (get):*
 
@@ -214,7 +214,7 @@ AJAX プロファイリング サービスが構成されたら、すぐにで�
 | propertyNames | 省略可能な (null の既定値)。 サーバーから読み込まれるプロパティです。 |
 | loadCompletedCallback | 省略可能な (null の既定値)。 読み込みが完了したときに呼び出す関数。 |
 | failedCallback | 省略可能な (null の既定値)。 エラーが発生した場合に呼び出される関数。 |
-| UserContext | 省略可能な (null の既定値)。 コールバック関数に渡されるコンテキスト情報。 |
+| userContext | 省略可能な (null の既定値)。 コールバック関数に渡されるコンテキスト情報。 |
 
 Load 関数の戻り値ではありません。 正常に完了しました、これは呼び出しいずれか、`loadCompletedCallback`パラメーターまたは`defaultLoadCompletedCallback`プロパティです。 呼び出しが失敗した、またはいずれかのタイムアウトの期限が切れた場合、`failedCallback`パラメーターまたは`defaultFailedCallback`プロパティが呼び出されます。
 
@@ -231,7 +231,7 @@ Save() メソッドは、指定したプロパティ一覧 (またはすべて�
 | propertyNames | 省略可能な (null の既定値)。 サーバーに保存するプロパティです。 |
 | saveCompletedCallback | 省略可能な (null の既定値)。 保存するときに呼び出される関数が完了しました。 |
 | failedCallback | 省略可能な (null の既定値)。 エラーが発生した場合に呼び出される関数。 |
-| UserContext | 省略可能な (null の既定値)。 コールバック関数に渡されるコンテキスト情報。 |
+| userContext | 省略可能な (null の既定値)。 コールバック関数に渡されるコンテキスト情報。 |
 
 ファイルの関数は戻り値がありません。 呼び出しが正常に完了すると、いずれかが呼び出されます、`saveCompletedCallback`パラメーターまたは`defaultSaveCompletedCallback`プロパティです。 呼び出しが失敗した、またはいずれかのタイムアウトの期限が切れた場合、`failedCallback`または`defaultFailedCallback`プロパティが呼び出されます。
 
@@ -249,9 +249,9 @@ Save() メソッドは、指定したプロパティ一覧 (またはすべて�
 
 | **パラメーター名** | **意味** |
 | --- | --- |
-| エラー | エラー情報を指定します。 |
-| UserContext | 時に提供されたユーザー コンテキスト情報を指定します、読み込みまたは保存関数が呼び出されました。 |
-| MethodName | 呼び出し元のメソッドの名前。 |
+| Error | エラー情報を指定します。 |
+| userContext | 時に提供されたユーザー コンテキスト情報を指定します、読み込みまたは保存関数が呼び出されました。 |
+| methodName | 呼び出し元のメソッドの名前。 |
 
 *defaultSaveCompleted プロパティ (get、set):*
 
@@ -266,8 +266,8 @@ Save() メソッドは、指定したプロパティ一覧 (またはすべて�
 | **パラメーター名** | **意味** |
 | --- | --- |
 | numPropsSaved | 保存されたプロパティの数を指定します。 |
-| UserContext | 時に提供されたユーザー コンテキスト情報を指定します、読み込みまたは保存関数が呼び出されました。 |
-| MethodName | 呼び出し元のメソッドの名前。 |
+| userContext | 時に提供されたユーザー コンテキスト情報を指定します、読み込みまたは保存関数が呼び出されました。 |
+| methodName | 呼び出し元のメソッドの名前。 |
 
 *defaultLoadCompleted プロパティ (get、set):*
 
@@ -282,8 +282,8 @@ Save() メソッドは、指定したプロパティ一覧 (またはすべて�
 | **パラメーター名** | **意味** |
 | --- | --- |
 | numPropsLoaded | 読み込まれるプロパティの数を指定します。 |
-| UserContext | 時に提供されたユーザー コンテキスト情報を指定します、読み込みまたは保存関数が呼び出されました。 |
-| MethodName | 呼び出し元のメソッドの名前。 |
+| userContext | 時に提供されたユーザー コンテキスト情報を指定します、読み込みまたは保存関数が呼び出されました。 |
+| methodName | 呼び出し元のメソッドの名前。 |
 
 *path プロパティ (get、set):*
 
@@ -335,13 +335,13 @@ ASP.NET AJAX 拡張機能を使用すると、カスタム web サービスを�
 
 [!code-aspx[Main](understanding-asp-net-ajax-authentication-and-profile-application-services/samples/sample16.aspx)]
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ASP.NET サービス - 具体的には、プロファイリング、メンバーシップ、および認証サービスには、クライアントのブラウザーで JavaScript を簡単に公開されます。 これにより、面倒な作業を行う Updatepanel などのコントロールに依存することがなく、シームレスに認証メカニズムと、クライアント側のコードを統合する開発者です。 Web の構成設定を利用することにより、同様に、クライアントからプロファイル データを保護することができます。既定では、データがないと開発者必要がありますにオプトイン プロファイル プロパティです。
 
 さらに、簡略化された web サービスの実装を同等のメソッド署名を作成する開発者は、これらの組み込みの ASP.NET サービス プロバイダーがカスタム スクリプトを作成できます。 これらの手法のサポートは、さまざまな特定のニーズを満たすための柔軟性を開発者に提供しながら、リッチ クライアント アプリケーションの開発を簡略化します。
 
-## <a name="bio"></a>*略歴*
+## <a name="bio"></a>*Bio*
 
 Scott カテゴリは、1997 年以降の Microsoft の Web テクノロジの使用されているがあり、myKB.com の代表者 ([www.myKB.com](http://www.myKB.com))、専門分野は、ASP.NET の書き込みの際にベースのアプリケーションのナレッジ ベースのソフトウェア ソリューションに重点を置きます。 Scott が接続時に電子メール[ scott.cate@myKB.com ](mailto:scott.cate@myKB.com)または彼のブログで[ScottCate.com](http://ScottCate.com)
 

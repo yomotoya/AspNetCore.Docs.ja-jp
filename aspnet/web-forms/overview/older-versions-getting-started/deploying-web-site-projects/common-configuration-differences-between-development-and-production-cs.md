@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 25299d1f047542ac4f2d61f9d5fe55813517f76b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 725812c64667488b9a06c065c7100d0536c2e3e2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="common-configuration-differences-between-development-and-production-c"></a>一般的な構成の違い開発および運用 (c#)
 ====================
@@ -38,7 +38,7 @@ Web アプリケーションを配置するときは、適切な構成情報終�
 
 `Web.config`ファイルには、多種多様な ASP.NET アプリケーションの構成情報が含まれています。 この構成情報の一部は、環境に関係なく同じです。 たとえば、URL 承認規則と認証設定に記述された、`Web.config`ファイルの`<authentication>`と`<authorization>`要素は、通常は、環境に関係なく同じです。 外部リソースに関する情報などの他の構成情報は、通常、環境によって異なります。
 
-データベース接続文字列は、環境によっては異なる構成情報の主要な例です。 Web アプリケーションが通信する場合、データベース サーバーに接続を確立する必要があります最初とは、によって達成される、[接続文字列](http://www.connectionstrings.com/Articles/Show/what-is-a-connection-string)です。 配置することをお勧め web ページや、データベースに接続するコードで直接、データベース接続文字列をハード コーディングすることはできますが、`Web.config`の[`<connectionStrings>`要素](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx)ように接続文字列情報は、1 つ、一元化された場所には。 別のデータベースは開発時に使用される; 実稼働環境で使用するよりも多くの場合その結果、接続文字列情報は、環境ごとに一意でなければなりません。
+データベース接続文字列は、環境によっては異なる構成情報の主要な例です。 Web アプリケーションが通信する場合、データベース サーバーに接続を確立する必要があります最初とは、によって達成される、[接続文字列](http://www.connectionstrings.com/Articles/Show/what-is-a-connection-string)です。 配置することをお勧め web ページや、データベースに接続するコードで直接、データベース接続文字列をハード コーディングすることはできますが、`Web.config`の[`<connectionStrings>`要素](https://msdn.microsoft.com/library/bf7sd233.aspx)ように接続文字列情報は、1 つ、一元化された場所には。 別のデータベースは開発時に使用される; 実稼働環境で使用するよりも多くの場合その結果、接続文字列情報は、環境ごとに一意でなければなりません。
 
 > [!NOTE]
 > 今後のチュートリアルでは、この時点で、構成ファイルでデータベース接続文字列を格納する方法の詳細に進むが、データ ドリブンのアプリケーションの配置について説明します。
@@ -48,7 +48,7 @@ Web アプリケーションを配置するときは、適切な構成情報終�
 
 ### <a name="configuration-settings-that-impact-performance"></a>パフォーマンスに影響する構成設定
 
-ASP.NET ページにアクセスするときに、初めて (または変更した後に初めて) の宣言型マークアップをクラスに変換する必要があり、このクラスをコンパイルする必要があります。 Web アプリケーションは、自動コンパイルを使用している場合は、ページの分離コード クラスをすぎて、コンパイルする必要があります。 多種多様なコンパイル オプションを構成することができます、`Web.config`ファイルの[`<compilation>`要素](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx)です。
+ASP.NET ページにアクセスするときに、初めて (または変更した後に初めて) の宣言型マークアップをクラスに変換する必要があり、このクラスをコンパイルする必要があります。 Web アプリケーションは、自動コンパイルを使用している場合は、ページの分離コード クラスをすぎて、コンパイルする必要があります。 多種多様なコンパイル オプションを構成することができます、`Web.config`ファイルの[`<compilation>`要素](https://msdn.microsoft.com/library/s10awwz0.aspx)です。
 
 Debug 属性は、最も重要な属性での 1 つ、`<compilation>`要素。 場合、`debug`属性がコンパイルされたアセンブリが Visual Studio でアプリケーションをデバッグするときに必要なは、デバッグ シンボルを含めるし、"true"に設定します。 デバッグ シンボルはアセンブリのサイズが大きくなり、コードを実行するときに、追加のメモリ要件を強制します。 さらに、ときに、`debug`属性がによって返されるすべてのコンテンツを"true"に設定されている`WebResource.axd`がキャッシュされていない、つまり、たびに、ユーザー ページにアクセスを再度によって返される静的なコンテンツをダウンロードする必要があります`WebResource.axd`です。
 
@@ -68,7 +68,7 @@ ASP.NET アプリケーションでハンドルされない例外が発生した
 - 例外の詳細メッセージが表示されます、だけスローされた例外に関する情報が含まれます。
 - ASP.NET ページを作成することが望ましくない任意のメッセージが表示されますが、カスタム エラー ページが表示されます。
 
-未処理の例外が発生した場合の動作によって異なります、`Web.config`ファイルの[`<customErrors>`セクション](https://msdn.microsoft.com/en-us/library/h0hfz6fc.aspx)です。
+未処理の例外が発生した場合の動作によって異なります、`Web.config`ファイルの[`<customErrors>`セクション](https://msdn.microsoft.com/library/h0hfz6fc.aspx)です。
 
 開発およびアプリケーションのテストには、ブラウザーですべての例外の詳細を表示するのに役立ちます。 ただし、運用上のアプリケーションの例外の詳細を表示は、潜在的なセキュリティ リスクです。 さらに、そのいない flattering と不自然に見える web サイトです。 理想的には、未処理の例外が発生した場合、web アプリケーション開発環境で詳細が表示されます、例外の実稼働環境で同じアプリケーションがカスタム エラー ページを表示するときにします。
 
@@ -76,7 +76,7 @@ ASP.NET アプリケーションでハンドルされない例外が発生した
 > 既定値`<customErrors>`セクションの設定は、ページが localhost、を通じて参照されると、それ以外の場合、一般的なランタイム エラー ページを表示している場合にのみメッセージの例外の詳細を示しています。 これは、理想的ではありませんが、ある既定の動作を表示せずにローカルでない訪問者を例外の詳細を知ることを確保することがします。 今後のチュートリアルを調べ、`<customErrors>`さらに詳しくセクション実稼働環境でエラーが発生したときに表示されるカスタム エラー ページが存在する方法を示しています。
 
 
-開発時に便利ですがもう 1 つの ASP.NET 機能をトレースしています。 トレース、有効な場合、各入力方向の要求に関する情報を記録および特別な web ページでは、用意されています`Trace.axd`、最新の要求の詳細を表示するためです。 有効にして使用してトレースを構成する、 [ `<trace>`要素](https://msdn.microsoft.com/en-us/library/6915t83k.aspx)で`Web.config`です。
+開発時に便利ですがもう 1 つの ASP.NET 機能をトレースしています。 トレース、有効な場合、各入力方向の要求に関する情報を記録および特別な web ページでは、用意されています`Trace.axd`、最新の要求の詳細を表示するためです。 有効にして使用してトレースを構成する、 [ `<trace>`要素](https://msdn.microsoft.com/library/6915t83k.aspx)で`Web.config`です。
 
 有効にした場合なトレースの作成を確認して実稼働環境で無効になっていること。 トレース情報には、クッキー、セッション データ、およびその他の機密情報が含まれているために、実稼働環境でトレースを無効にする必要があります。 良いニュースは、既定では、トレースが無効であると、`Trace.axd`ファイルは、localhost を使用してアクセスのみです。 開発の既定の設定を変更する場合をオフにする戻る実稼働環境でを確認します。
 
@@ -110,13 +110,13 @@ ASP.NET アプリケーションでハンドルされない例外が発生した
 
 Web アプリケーションのビルド Web デプロイメント プロジェクトを展開し、プロジェクトの出力フォルダーからファイルを実稼働環境にコピーします。
 
-チェック アウト Web デプロイメント プロジェクトの使用に関する詳細については、[この Web プロジェクトのデプロイ記事](https://msdn.microsoft.com/en-us/magazine/cc163448.aspx)の 2007 年 4 月問題から[MSDN マガジン](https://msdn.microsoft.com/en-us/magazine/default.aspx)で関連項目セクションにあるリンクを参照してくださいまたは、。このチュートリアルの最後。
+チェック アウト Web デプロイメント プロジェクトの使用に関する詳細については、[この Web プロジェクトのデプロイ記事](https://msdn.microsoft.com/magazine/cc163448.aspx)の 2007 年 4 月問題から[MSDN マガジン](https://msdn.microsoft.com/magazine/default.aspx)で関連項目セクションにあるリンクを参照してくださいまたは、。このチュートリアルの最後。
 
 > [!NOTE]
 > Web デプロイメント プロジェクトは、Visual Studio アドインとして実装されており、Visual Studio Express Edition (Visual Web Developer を含む) は、アドインをサポートしていませんので、Visual Web Developer で Web デプロイ プロジェクトを使用できません。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 開発で web アプリケーションの動作と外部リソースは、同じアプリケーションが運用環境の場合よりも通常異なります。 たとえば、データベース接続文字列、コンパイル オプション、および未処理の例外は一般的に発生したときの動作は、環境間で異なります。 展開プロセスは、これらの違いに対応する必要があります。 このチュートリアルで説明したよう、簡単な方法は、運用環境に代替の構成ファイルを手動でコピーします。 洗練されたソリューションは、可能な Web 展開プロジェクト アドインを使用する場合、またはこのようなカスタマイズを格納できるより正式なビルドまたは配置プロセスとします。
 
@@ -134,7 +134,7 @@ Web アプリケーションのビルド Web デプロイメント プロジェ�
 - [データベースを展開するときに、キーの構成設定](http://aspnet.4guysfromrolla.com/articles/121008-1.aspx)
 - [Visual Studio 2008 Web 展開プロジェクト ダウンロード](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) | [Visual Studio 2005 Web 展開プロジェクト ダウンロード](https://download.microsoft.com/download/9/4/9/9496adc4-574e-4043-bb70-bc841e27f13c/WebDeploymentSetup.msi)
 - [VS 2008 Web デプロイメント プロジェクト](https://weblogs.asp.net/scottgu/archive/2005/11/06/429723.aspx) | [VS 2008 の Web 配置でプロジェクトのサポートがリリース](https://weblogs.asp.net/scottgu/archive/2008/01/28/vs-2008-web-deployment-project-support-released.aspx)
-- [Web 配置プロジェクト](https://msdn.microsoft.com/en-us/magazine/cc163448.aspx)
+- [Web 配置プロジェクト](https://msdn.microsoft.com/magazine/cc163448.aspx)
 
 >[!div class="step-by-step"]
 [前へ](deploying-your-site-using-visual-studio-cs.md)

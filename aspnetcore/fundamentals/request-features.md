@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/request-features
-ms.openlocfilehash: 42e2959aefef98ce7289e50b6f72bd23eaed38bc
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: f0e371f5ea6c6688ef32adcacf667a412e4625e5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="request-features-in-aspnet-core"></a>ASP.NET Core での要求機能
 
@@ -52,7 +52,7 @@ ASP.NET Core での HTTP 機能のインターフェイスの数を定義する`
 `ITlsTokenBindingFeature`TLS トークンのバインド パラメーターを使用して処理するメソッドを定義します。
 
 > [!NOTE]
-> `ISessionFeature`サーバー機能ではありませんが、によって実装される、 `SessionMiddleware` (を参照してください[アプリケーションの状態を管理](app-state.md))。
+> `ISessionFeature`サーバーの機能ではありませんが、によって実装される、 `SessionMiddleware` (を参照してください[アプリケーションの状態を管理](app-state.md))。
 
 ## <a name="feature-collections"></a>機能のコレクション
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
-ms.openlocfilehash: 959a3e61af9834b9364e9fe4bf65a04962e28969
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 527373829754757e52ab84b64e04702d649e9062
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-grunt-in-aspnet-core"></a>ASP.NET Core での Grunt の使用 
 
@@ -94,14 +94,14 @@ Grunt は、スクリプトの縮小、TypeScript のコンパイルをコード
 
 1. ソリューション エクスプ ローラーでプロジェクトを右クリックし、**追加 > 新しい項目の**コンテキスト メニュー。 選択、 **NPM 構成ファイル**項目で、既定の名前をそのまま使用*package.json*、 をクリックし、**追加**ボタンをクリックします。
 
-2. *Package.json*ファイル内、`devDependencies`中かっこをオブジェクトに、"grunt"を入力します。 選択`grunt`intellisense を一覧表示し、Enter キーを押します。 Visual Studio が grunt パッケージ名、引用符で囲むし、コロンを追加します。 コロンの右に、Intellisense の一覧の先頭から、パッケージの最新の安定したバージョンを選択します (キーを押して`Ctrl-Space`Intellisense が表示されない場合)。
+2. *Package.json*ファイル内、`devDependencies`中かっこをオブジェクトに、"grunt"を入力します。 選択`grunt`intellisense を一覧表示し、Enter キーを押します。 Visual Studio が grunt パッケージ名、引用符で囲むし、コロンを追加します。 コロンの右に、Intellisense の一覧の先頭から、パッケージの最新の安定したバージョンを選択します (キーを押して`Ctrl-Space`Intellisense が表示されないかどうか)。
 
     ![grun Intellisense](using-grunt/_static/devdependencies-grunt.png)
     
     > [!NOTE]
     > NPM を使用して[セマンティック バージョニング](http://semver.org/)の依存関係を整理します。 セマンティック バージョニング、SemVer とも呼ばれる、番号付けスキームでパッケージを識別する<major>.<minor>です。<patch>.Intellisense は、いくつかの一般的な選択肢のみを表示することによって、セマンティック バージョニングを簡略化します。 Intellisense の一覧 (上記の例では 0.4.5) の最上位の項目は、パッケージの最新の安定バージョンと見なされます。 キャレット (^) 記号が最新のメジャー バージョンと一致し、ティルダ (~) には、最新のマイナー バージョンが一致します。 参照してください、 [NPM semver バージョン パーサー参照](https://www.npmjs.com/package/semver)SemVer を提供するすべての表現性をガイドとして。
 
-3. 追加の依存関係の詳細を読み込む grunt-contrib -\*パッケージ化*クリーン*、 *jshint*、 *concat*、 *uglify*、および*ウォッチ*次の例で示すようにします。 バージョンは、例では、一致する必要はありません。
+3. 追加の依存関係の詳細を読み込む grunt-contrib -\*パッケージ化*クリーン*、 *jshint*、 *concat*、 *uglify*、および*ウォッチ*次の例で示すようにします。 バージョンの例に一致する必要はありません。
 
     ```json
     "devDependencies": {

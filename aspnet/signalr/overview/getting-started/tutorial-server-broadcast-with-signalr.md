@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: cd800062e87c07a0ef1d8d3d32c910aaf3e683cc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98a7ce4991d58181177cf56976888e9fd1526987
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>チュートリアル: SignalR 2 でサーバーのブロードキャスト
 ====================
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/10/2017
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample2.cs)]
 
-    [ハブ](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx)クライアントがサーバーで呼び出せるメソッドを定義するクラスを使用します。 1 つのメソッドを定義する:`GetAllStocks()`です。 クライアントは、最初に、サーバーに接続するとき、現在の価格の株式のすべての一覧を取得するには、このメソッドが呼び出されます。 メソッドは同期的に実行でき、返す`IEnumerable<Stock>`メモリからデータを返すことがあるためです。 データベースの参照など、web サービス呼び出しの待機も含まれるものの手順を実行してデータを取得するメソッドが持っているかどうかは指定`Task<IEnumerable<Stock>>`非同期処理を有効にする戻り値として。 詳細については、次を参照してください。 [ASP.NET SignalR ハブ API ガイド - サーバーの非同期的に実行するタイミング](../guide-to-the-api/hubs-api-guide-server.md#asyncmethods)です。
+    [ハブ](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx)クライアントがサーバーで呼び出せるメソッドを定義するクラスを使用します。 1 つのメソッドを定義する:`GetAllStocks()`です。 クライアントは、最初に、サーバーに接続するとき、現在の価格の株式のすべての一覧を取得するには、このメソッドが呼び出されます。 メソッドは同期的に実行でき、返す`IEnumerable<Stock>`メモリからデータを返すことがあるためです。 データベースの参照など、web サービス呼び出しの待機も含まれるものの手順を実行してデータを取得するメソッドが持っているかどうかは指定`Task<IEnumerable<Stock>>`非同期処理を有効にする戻り値として。 詳細については、次を参照してください。 [ASP.NET SignalR ハブ API ガイド - サーバーの非同期的に実行するタイミング](../guide-to-the-api/hubs-api-guide-server.md#asyncmethods)です。
 
     HubName 属性は、クライアントでの JavaScript コードでのハブの参照方法を指定します。 この属性を使用しない場合、クライアントに既定の名前は、ここではある stockTickerHub クラス名の camel 形式のバージョンです。
 
@@ -146,7 +146,7 @@ ms.lasthandoff: 11/10/2017
 
     ### <a name="storing-the-singleton-instance-in-a-static-field"></a>静的フィールドに、シングルトン インスタンスを格納します。
 
-    コードは、初期化、静的な\_コンス トラクターがプライベートとしてマークされているために、クラス、およびこれのインスタンスとインスタンスのプロパティをバックするインスタンス フィールドが作成できるクラスの唯一のインスタンス。 [遅延初期化](https://msdn.microsoft.com/en-us/library/dd997286.aspx)の使用、\_するインスタンスの作成がスレッド セーフであることを確認しますが、パフォーマンス上の理由は、インスタンス フィールドです。
+    コードは、初期化、静的な\_コンス トラクターがプライベートとしてマークされているために、クラス、およびこれのインスタンスとインスタンスのプロパティをバックするインスタンス フィールドが作成できるクラスの唯一のインスタンス。 [遅延初期化](https://msdn.microsoft.com/library/dd997286.aspx)の使用、\_するインスタンスの作成がスレッド セーフであることを確認しますが、パフォーマンス上の理由は、インスタンス フィールドです。
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample4.cs)]
 
@@ -160,7 +160,7 @@ ms.lasthandoff: 11/10/2017
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample6.cs)]
 
-    株式コレクションとは見なさ、 [ConcurrentDictionary](https://msdn.microsoft.com/en-us/library/dd287191.aspx)スレッド セーフの型。 代わりに、使用する可能性があります、[ディクショナリ](https://msdn.microsoft.com/en-us/library/xfhwa508.aspx)オブジェクトを明示的にそれを変更するときに、ディクショナリをロックします。
+    株式コレクションとは見なさ、 [ConcurrentDictionary](https://msdn.microsoft.com/library/dd287191.aspx)スレッド セーフの型。 代わりに、使用する可能性があります、[ディクショナリ](https://msdn.microsoft.com/library/xfhwa508.aspx)オブジェクトを明示的にそれを変更するときに、ディクショナリをロックします。
 
     このサンプル アプリケーションは [ok] をメモリ内でアプリケーション データを格納し、StockTicker インスタンスが破棄されるときに、データが失われるです。 実際のアプリケーションでは、データベースなどのバックエンド データ ストアで作業する場合します。
 
@@ -172,7 +172,7 @@ ms.lasthandoff: 11/10/2017
 
     UpdateStockPrices は state パラメーターに null を渡すと、タイマーによって呼び出されます。 価格を更新する前に、ロックを取得、 \_updateStockPricesLock オブジェクト。 コードは、別のスレッドが価格を更新中で既にし、一覧には、各銘柄の TryUpdateStockPrice が呼び出すかどうかを確認します。 TryUpdateStockPrice メソッドは、株価を変更するかどうかを決定し、これを変更する量。 株価を変更すると、株式の価格の変更をすべて接続されているクライアントにブロードキャストする BroadcastStockPrice が呼び出されます。
 
-    \_UpdatingStockPrices フラグ マークが付いている[揮発性](https://msdn.microsoft.com/en-us/library/x13ttww7.aspx)へのアクセスがスレッド セーフであることを確認します。
+    \_UpdatingStockPrices フラグ マークが付いている[揮発性](https://msdn.microsoft.com/library/x13ttww7.aspx)へのアクセスがスレッド セーフであることを確認します。
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample8.cs)]
 
@@ -192,7 +192,7 @@ ms.lasthandoff: 11/10/2017
 
     BroadcastStockPrice で呼び出している updateStockPrice メソッドがまだ存在しません。後で追加するクライアントで実行されるコードを記述するときにします。 Clients.All は動的で、実行時に式が評価されることを意味するので、updateStockPrice ここを参照できます。 このメソッドの呼び出しが実行されると、SignalR はクライアントに送信メソッド名とパラメーターの値、および updateStockPrice をという名前のメソッドで、クライアントは、そのメソッドが呼び出されることに渡されるパラメーターの値。
 
-    Clients.All では、すべてのクライアントに送信を意味します。 SignalR では、その他のオプションのクライアントまたはクライアントに送信するグループを指定できます。 詳細については、次を参照してください。 [HubConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx)です。
+    Clients.All では、すべてのクライアントに送信を意味します。 SignalR では、その他のオプションのクライアントまたはクライアントに送信するグループを指定できます。 詳細については、次を参照してください。 [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx)です。
 
 ### <a name="register-the-signalr-route"></a>SignalR のルートを登録します。
 
@@ -399,7 +399,7 @@ UpdateStockPrice 関数は、グリッドと相場表示の両方を処理を使
 
 <a id="nextsteps"></a>
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 このチュートリアルでは、接続されているすべてのクライアント、定期的と任意のクライアントからの通知に応答の両方に、サーバーからメッセージをブロードキャストする SignalR アプリケーションをプログラミングする方法を学びました。 マルチ スレッドのシングルトン インスタンスを使用して、サーバーの状態を保持するパターンも、マルチ プレーヤーのオンライン ゲーム シナリオの使用もできます。 例については、次を参照してください。 [SignalR に基づいている ShootR ゲーム](https://github.com/NTaylorMullen/ShootR)です。
 
@@ -408,8 +408,8 @@ UpdateStockPrice 関数は、グリッドと相場表示の両方を処理を使
 SignalR 開発のより高度な概念については、SignalR のソース コードおよびリソースの次のサイトを参照してください。
 
 - [ASP.NET SignalR](../../index.md)
-- [SignalR プロジェクト](http://signalr.net/)
+- [SignalR Project](http://signalr.net/)
 - [SignalR Github とサンプル](https://github.com/SignalR/SignalR)
 - [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
 
-SignalR アプリケーションを Azure にデプロイする方法のチュートリアルについては、次を参照してください。 [Azure App service Web アプリを使用してを使用して SignalR](../deployment/using-signalr-with-azure-web-sites.md)です。 Visual Studio web プロジェクトを Windows Azure Web サイトを展開する方法の詳細については、次を参照してください。 [Azure App Service で ASP.NET web アプリを作成](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/)です。
+SignalR アプリケーションを Azure にデプロイする方法のチュートリアルについては、次を参照してください。 [Azure App service Web アプリを使用してを使用して SignalR](../deployment/using-signalr-with-azure-web-sites.md)です。 Visual Studio web プロジェクトを Windows Azure Web サイトを展開する方法の詳細については、次を参照してください。 [Azure App Service で ASP.NET web アプリを作成](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)です。

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5692c43168eb261c91f40e2046897a1e5d31a028
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 50d58d10c11677fa72ede6a03e686cbde4cbae1d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="lifecycle-of-an-aspnet-mvc-5-application"></a>ASP.NET MVC 5 アプリケーションのライフ サイクル
 ====================
@@ -26,12 +26,12 @@ ms.lasthandoff: 11/10/2017
 
 HTTP の受信からのすべての ASP.NET MVC 5 アプリケーションのライフ サイクルを HTTP 応答を送信することを要求するグラフがクライアントに返信する PDF ドキュメントをダウンロードできます。 ASP.NET MVC に追加された新しい管理者向けの教育用のツール、およびアプリケーションの特定の側面にドリル ダウンする必要がある方のための参照としてもされています。 PDF ドキュメントには、次の機能があります。
 
-- 関連する[HttpApplication](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.aspx)に MVC が統合されたを理解するための段階、 [ASP.NET アプリケーションのライフ サイクル](https://msdn.microsoft.com/en-us/library/bb470252.aspx)です。
+- 関連する[HttpApplication](https://msdn.microsoft.com/library/system.web.httpapplication.aspx)に MVC が統合されたを理解するための段階、 [ASP.NET アプリケーションのライフ サイクル](https://msdn.microsoft.com/library/bb470252.aspx)です。
 - すべての MVC アプリケーションが要求処理パイプラインを通過する主なステージを理解することができます、MVC アプリケーション ライフ サイクルの概要を表示します。  
     ![](lifecycle-of-an-aspnet-mvc-5-application/_static/image1.jpg)
 - 詳細の表示で、ダウン要求処理パイプラインの詳細にドリルを示しています。 高レベルのビューと詳細を表示する、さまざまな段階にライフ サイクルの詳細を収集する方法を比較できます。 [PDF のダウンロード](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf)より大きなビューを表示します。
     ![](lifecycle-of-an-aspnet-mvc-5-application/_static/image2.jpg)
-- 配置およびオーバーライド可能なすべてのメソッドの目的は、[コント ローラー](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller.aspx)要求処理パイプライン内のオブジェクト。 可能性がありますか、任意の 1 つのメソッドをオーバーライドする必要がある可能性がありますが注意する効果のライフ サイクルの適切な段階でコードを作成できるように、アプリケーションのライフ サイクルにおける各自の役割を理解するためです。
+- 配置およびオーバーライド可能なすべてのメソッドの目的は、[コント ローラー](https://msdn.microsoft.com/library/system.web.mvc.controller.aspx)要求処理パイプライン内のオブジェクト。 可能性がありますか、任意の 1 つのメソッドをオーバーライドする必要がある可能性がありますが注意する効果のライフ サイクルの適切な段階でコードを作成できるように、アプリケーションのライフ サイクルにおける各自の役割を理解するためです。
 - フィルターの種類 (認証、承認、アクション、および結果) の各を呼び出す方法を示す飛んでアップ図。
 - 詳細ビューで、目的の各ポイントから、役に立つ記事やブログにリンクします。
 

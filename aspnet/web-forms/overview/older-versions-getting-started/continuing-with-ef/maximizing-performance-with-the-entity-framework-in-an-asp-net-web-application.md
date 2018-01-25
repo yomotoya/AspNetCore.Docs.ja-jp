@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
 title: "ASP.NET 4 Web アプリケーションに Entity Framework 4.0 とパフォーマンスを最大化 |Microsoft ドキュメント"
 author: tdykstra
-description: "この一連のチュートリアルについては、Entity Framework 4.0 チュートリアル シリーズの概要を作成した Contoso 大学 web アプリケーションに基づいています。 私。。。"
+description: "この一連のチュートリアルについては、Entity Framework 4.0 チュートリアル シリーズの概要を作成した Contoso 大学 web アプリケーションに基づいています。 I..."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9e257f5061f6bdf14ad0776ff6385fb526d6dcb1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 40a53a110115e5f6342d2a97d21b64470450fd3c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>ASP.NET 4 Web アプリケーションに Entity Framework 4.0 とパフォーマンスを最大化
 ====================
@@ -251,17 +251,17 @@ Visual Studio の名前は、ビューを作成するコード ファイルを�
 
 事前に生成されたビューの詳細については、次のリソースを参照してください。
 
-- [方法: 事前生成クエリ パフォーマンスを向上させるビュー](https://msdn.microsoft.com/en-us/library/bb896240.aspx) MSDN web サイトのです。 使用する方法について説明します、`EdmGen.exe`ビューを事前に生成するコマンド ライン ツールです。
+- [方法: 事前生成クエリ パフォーマンスを向上させるビュー](https://msdn.microsoft.com/library/bb896240.aspx) MSDN web サイトのです。 使用する方法について説明します、`EdmGen.exe`ビューを事前に生成するコマンド ライン ツールです。
 - [プリコンパイル済み/前 generated ビューと、Entity Framework 4 のパフォーマンスの分離](https://blogs.msdn.com/b/appfabriccat/archive/2010/08/06/isolating-performance-with-precompiled-pre-generated-views-in-the-entity-framework-4.aspx)on Windows Server AppFabric の Customer Advisory Team ブログ。
 
 これは、Entity Framework を使用する ASP.NET web アプリケーションのパフォーマンス向上の概要を完了します。 詳細については、次のリソースを参照してください。
 
-- [パフォーマンスに関する考慮事項 (Entity Framework)](https://msdn.microsoft.com/en-us/library/cc853327.aspx) MSDN web サイトです。
+- [パフォーマンスに関する考慮事項 (Entity Framework)](https://msdn.microsoft.com/library/cc853327.aspx) MSDN web サイトです。
 - [Entity Framework チームのブログの投稿のパフォーマンスに関連する](https://blogs.msdn.com/b/adonet/archive/tags/performance/)です。
 - [EF マージ オプションおよびコンパイル済みクエリ](https://blogs.msdn.com/b/dsimmons/archive/2010/01/12/ef-merge-options-and-compiled-queries.aspx)です。 コンパイル済みクエリとマージの予期しない動作を説明するブログの投稿などのオプション`NoTracking`です。 コンパイル済みクエリを使用するか、アプリケーションでのマージ オプションの設定を操作する場合は、この最初の読み取り。
 - [フレームワークに関連するエンティティが、データとモデリングの Customer Advisory Team ブログの投稿](https://blogs.msdn.com/b/dmcat/archive/tags/entity+framework/)です。 コンパイル済みクエリを使用して Visual Studio 2010 のプロファイラーをパフォーマンスの問題の検出の投稿が含まれます。
-- [非常に複雑なクエリのパフォーマンスの向上に関するアドバイスを entity Framework フォーラムのスレッド](https://social.msdn.microsoft.com/Forums/en-US/adodotnetentityframework/thread/ffe8b2ab-c5b5-4331-8988-33a872d0b5f6)です。
-- [ASP.NET 状態管理に関する推奨事項](https://msdn.microsoft.com/en-us/library/z1hkazw7.aspx)です。
+- [非常に複雑なクエリのパフォーマンスの向上に関するアドバイスを entity Framework フォーラムのスレッド](https://social.msdn.microsoft.com/Forums/adodotnetentityframework/thread/ffe8b2ab-c5b5-4331-8988-33a872d0b5f6)です。
+- [ASP.NET 状態管理に関する推奨事項](https://msdn.microsoft.com/library/z1hkazw7.aspx)です。
 - [Entity Framework と、ObjectDataSource を使用: カスタム ページング](http://geekswithblogs.net/Frez/articles/using-the-entity-framework-and-the-objectdatasource-custom-paging.aspx)です。 ブログの投稿でページングを実装する方法を説明するこれらのチュートリアルで作成した ContosoUniversity アプリケーション上に構築される、 *Departments.aspx*ページ。
 
 次のチュートリアルでは、バージョン 4 で導入された Entity Framework に重要な拡張機能のいくつかは確認します。

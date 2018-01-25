@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 78a54fb1b0e4c0ebd5445cca175103471925a065
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 323ee44f43f6d4081bd9ba50791755696bc9128f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-8"></a>データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォームの一部 8
 ====================
@@ -125,11 +125,11 @@ ms.lasthandoff: 11/10/2017
 
 - [Entity Framework に関する FAQ](http://www.ef-faq.org/introduction.html)
 - [Entity Framework チーム ブログ](https://blogs.msdn.com/b/adonet/)
-- [MSDN ライブラリの entity Framework](https://msdn.microsoft.com/en-us/library/bb399572.aspx)
-- [Entity Framework では、MSDN データ デベロッパー センター](https://msdn.microsoft.com/en-us/data/ef.aspx)
-- [MSDN ライブラリの EntityDataSource Web サーバー コントロールの概要](https://msdn.microsoft.com/en-us/library/cc488502.aspx)
-- [EntityDataSource コントロール、MSDN ライブラリの API リファレンス](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.entitydatasource.aspx)
-- [MSDN の entity Framework フォーラム](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/)
+- [MSDN ライブラリの entity Framework](https://msdn.microsoft.com/library/bb399572.aspx)
+- [Entity Framework では、MSDN データ デベロッパー センター](https://msdn.microsoft.com/data/ef.aspx)
+- [MSDN ライブラリの EntityDataSource Web サーバー コントロールの概要](https://msdn.microsoft.com/library/cc488502.aspx)
+- [EntityDataSource コントロール、MSDN ライブラリの API リファレンス](https://msdn.microsoft.com/library/system.web.ui.webcontrols.entitydatasource.aspx)
+- [MSDN の entity Framework フォーラム](https://social.msdn.microsoft.com/forums/adodotnetentityframework/)
 - [Julie Lerman のブログ](http://thedatafarm.com/blog/)
 
 >[!div class="step-by-step"]

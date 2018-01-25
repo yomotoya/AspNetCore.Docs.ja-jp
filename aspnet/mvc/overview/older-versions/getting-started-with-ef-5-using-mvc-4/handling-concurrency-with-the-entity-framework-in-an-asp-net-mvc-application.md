@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: b072134043ceda809bfeca98447a132ed407b323
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 87bb08a4d16965a10112a42c4e9318c32f192c04
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>ASP.NET MVC アプリケーション (10 の 7) で Entity Framework での同時実行の処理
 ====================
@@ -67,18 +67,18 @@ John が**保存**first と認識し、加藤さん、インデックス ペー�
 
 ### <a name="detecting-concurrency-conflicts"></a>同時実行の競合を検出します。
 
-競合を解決するには処理することにより[OptimisticConcurrencyException](https://msdn.microsoft.com/en-us/library/system.data.optimisticconcurrencyexception.aspx) Entity Framework がスローする例外。 これらの例外をスローするタイミングを知るために、Entity Framework は、競合を検出できる必要があります。 そのため、データベースとデータ モデルを適切に構成する必要があります。 競合の検出を有効にするためのいくつかのオプションを以下に示します。
+競合を解決するには処理することにより[OptimisticConcurrencyException](https://msdn.microsoft.com/library/system.data.optimisticconcurrencyexception.aspx) Entity Framework がスローする例外。 これらの例外をスローするタイミングを知るために、Entity Framework は、競合を検出できる必要があります。 そのため、データベースとデータ モデルを適切に構成する必要があります。 競合の検出を有効にするためのいくつかのオプションを以下に示します。
 
 - データベース テーブルを特定の行が変更されたときに使用できる追跡列を含めます。 その列を含めるに Entity Framework を構成することができますし、 `Where` SQL の句`Update`または`Delete`コマンド。
 
-    追跡列のデータ型は、通常[rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx)です。 [Rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx)値は、行が更新されるたびにインクリメントが連続番号です。 `Update`または`Delete`コマンド、`Where`句には、追跡列 (元の行バージョン) の元の値が含まれています。 更新された行が他のユーザーの値が変更されている場合、`rowversion`列は、元の値と異なるため、`Update`または`Delete`ステートメントがあるため更新する行を見つけることができません、`Where`句。 Entity Framework が、行が更新されていないことを見つけたとき、`Update`または`Delete`コマンドの (つまり、影響を受けた行の数が 0 である場合)、同時実行の競合として解釈します。
+    追跡列のデータ型は、通常[rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx)です。 [Rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx)値は、行が更新されるたびにインクリメントが連続番号です。 `Update`または`Delete`コマンド、`Where`句には、追跡列 (元の行バージョン) の元の値が含まれています。 更新された行が他のユーザーの値が変更されている場合、`rowversion`列は、元の値と異なるため、`Update`または`Delete`ステートメントがあるため更新する行を見つけることができません、`Where`句。 Entity Framework が、行が更新されていないことを見つけたとき、`Update`または`Delete`コマンドの (つまり、影響を受けた行の数が 0 である場合)、同時実行の競合として解釈します。
 - テーブルのすべての列の元の値を含める Entity Framework の構成、`Where`の句`Update`と`Delete`コマンド。
 
     最初のオプションの場合は、行の任意のものが変更されたため、行が読み取られた最初のように、`Where`句しない行が返されます、更新するには、Entity Framework は同時実行の競合として解釈します。 多くの列を持つデータベース テーブルでは、このアプローチにつながる非常に大きな`Where`句、大量の状態を維持することが必要とします。 前述のように、大量の状態を維持することができますパフォーマンスに影響アプリケーション サーバーのリソースが必要ですか web ページ自体に含める必要があるためです。 そのためこの方法は推奨できませんし、このチュートリアルで使用する方法はありません。
 
-    追加することでの同時実行制御を追跡するエンティティのすべての非主キー プロパティをマークする必要がある同時実行するには、このアプローチを実装する場合、 [ConcurrencyCheck](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.concurrencycheckattribute.aspx)属性をします。 変更により、SQL にすべての列を含める Entity Framework`WHERE`の句`UPDATE`ステートメントです。
+    追加することでの同時実行制御を追跡するエンティティのすべての非主キー プロパティをマークする必要がある同時実行するには、このアプローチを実装する場合、 [ConcurrencyCheck](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.concurrencycheckattribute.aspx)属性をします。 変更により、SQL にすべての列を含める Entity Framework`WHERE`の句`UPDATE`ステートメントです。
 
-このチュートリアルの残りの部分では追加、 [rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx)追跡するプロパティ、`Department`エンティティ、コント ローラーとビューを作成し、すべてが正常に動作することを確認します。
+このチュートリアルの残りの部分では追加、 [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx)追跡するプロパティ、`Department`エンティティ、コント ローラーとビューを作成し、すべてが正常に動作することを確認します。
 
 ## <a name="add-an-optimistic-concurrency-property-to-the-department-entity"></a>オプティミスティック同時実行プロパティを Department エンティティに追加します。
 
@@ -86,7 +86,7 @@ John が**保存**first と認識し、加藤さん、インデックス ペー�
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs?highlight=18-19)]
 
-[タイムスタンプ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.timestampattribute.aspx)属性は、この列に含まれることを指定します、`Where`の句`Update`と`Delete`データベースに送信されたコマンド。 属性といいます[タイムスタンプ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.timestampattribute.aspx)旧バージョンの SQL Server、SQL を使用するため[タイムスタンプ](https://msdn.microsoft.com/en-us/library/ms182776(v=SQL.90).aspx)データ型に、SQL [rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx)に置き換えられます。 .Net 型を`rowversion`バイト配列。 Fluent API を使用する場合は、使用、 [IsConcurrencyToken](https://msdn.microsoft.com/en-us/library/gg679501(v=VS.103).aspx)メソッドを次の例で示すように、追跡プロパティを指定します。
+[タイムスタンプ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx)属性は、この列に含まれることを指定します、`Where`の句`Update`と`Delete`データベースに送信されたコマンド。 属性といいます[タイムスタンプ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx)旧バージョンの SQL Server、SQL を使用するため[タイムスタンプ](https://msdn.microsoft.com/library/ms182776(v=SQL.90).aspx)データ型に、SQL [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx)に置き換えられます。 .Net 型を`rowversion`バイト配列。 Fluent API を使用する場合は、使用、 [IsConcurrencyToken](https://msdn.microsoft.com/library/gg679501(v=VS.103).aspx)メソッドを次の例で示すように、追跡プロパティを指定します。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
@@ -228,7 +228,7 @@ John が**保存**first と認識し、加藤さん、インデックス ペー�
 
 クリックすると**削除**もう一度、部門が削除されたことを示しています。 インデックスのページにリダイレクトしています。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 これは、同時実行の競合の処理の概要を完了します。 同時実行のさまざまなシナリオを処理する方法については、次を参照してください。[オプティミスティック同時実行パターン](https://blogs.msdn.com/b/adonet/archive/2011/02/03/using-dbcontext-in-ef-feature-ctp5-part-9-optimistic-concurrency-patterns.aspx)と[プロパティ値を持つ作業](https://blogs.msdn.com/b/adonet/archive/2011/01/30/using-dbcontext-in-ef-feature-ctp5-part-5-working-with-property-values.aspx)Entity Framework チームのブログです。 次のチュートリアルでは、テーブルの階層あたり継承を実装する方法、`Instructor`と`Student`エンティティです。
 

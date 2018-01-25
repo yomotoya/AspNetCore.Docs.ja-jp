@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
 msc.type: authoredcontent
-ms.openlocfilehash: f4d898b6e09b5b9df44b62f9cb4b9d367f288efb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 27fade9fc5cae917579d4963da7bca12f6a5cda1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-membership-databases-to-enterprise-environments"></a>エンタープライズ環境にメンバーシップ データベースの配置
 ====================
@@ -44,8 +44,8 @@ ms.lasthandoff: 11/10/2017
 
 エンタープライズ サーバー環境でのメンバーシップ データベースをプロビジョニングする方法を選択すると、次のガイドラインを使用します。
 
-- 可能な限りでは、メンバーシップ データベースを展開することはありません。 代わりに、ターゲット データベースのサーバーでメンバーシップ データベースを手動で作成します。 メンバーシップ データベース スキーマをカスタマイズしていない場合だけで、新しいもので situ で作成を使用して、移行先、 [ASP.NET SQL Server の登録ツール (aspnet\_regsql.exe)](https://msdn.microsoft.com/en-us/library/ms229862(v=vs.100).aspx)です。
-- メンバーシップ データベース & #x 2014; を展開するオプションがない場合など、データベース スキーマ & #x 2014; に対して大幅な変更を行った場合行う必要があります、スキーマのみ、データベースの配置のメンバーシップ、ユーザー アカウントのデータを除外して必要な構成データを追加する配置後スクリプトを実行します。 これらのアプローチの広範なガイダンスを検索できます[する方法: ASP.NET メンバーシップ データベースなしを含むユーザー アカウントを展開](https://msdn.microsoft.com/en-us/library/ff361972(v=vs.100).aspx)です。
+- 可能な限りでは、メンバーシップ データベースを展開することはありません。 代わりに、ターゲット データベースのサーバーでメンバーシップ データベースを手動で作成します。 メンバーシップ データベース スキーマをカスタマイズしていない場合だけで、新しいもので situ で作成を使用して、移行先、 [ASP.NET SQL Server の登録ツール (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx)です。
+- メンバーシップ データベース & #x 2014; を展開するオプションがない場合など、データベース スキーマ & #x 2014; に対して大幅な変更を行った場合行う必要があります、スキーマのみ、データベースの配置のメンバーシップ、ユーザー アカウントのデータを除外して必要な構成データを追加する配置後スクリプトを実行します。 これらのアプローチの広範なガイダンスを検索できます[する方法: ASP.NET メンバーシップ データベースなしを含むユーザー アカウントを展開](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx)です。
 
 留意することが重要*、メンバーシップ データベースのスキーマは比較的静的である可能性があります*です。 メンバーシップ データベース、カスタマイズした場合でも、定期的に & #x 2014 スキーマを更新する必要があります以外の場合は、web アプリケーションとデータベース プロジェクト内のコードと同じ頻度で変更することはしません可能性はありません。 そのため、自動または 1 ステップの展開プロセスにメンバーシップ データベースを含める必要はありません。
 
@@ -57,8 +57,8 @@ ms.lasthandoff: 11/10/2017
 
 これらの大まかな手順を使用して、メンバーシップ データベース スキーマを更新することができます。
 
-1. VSDBCMD を使用して**インポート**ソース メンバーシップ データベースの .dbschema ファイルを生成するアクション。 この手順で説明されて[する方法: コマンド プロンプトからスキーマをインポート](https://msdn.microsoft.com/en-us/library/dd172135.aspx)です。
-2. VSDBCMD を使用して**展開**.dbschema ファイル先メンバーシップ データベースを配置するアクション。 この手順で説明されて[VSDBCMD のコマンド ライン リファレンスです。EXE (配置とスキーマのインポート)](https://msdn.microsoft.com/en-us/library/dd193283.aspx)です。
+1. VSDBCMD を使用して**インポート**ソース メンバーシップ データベースの .dbschema ファイルを生成するアクション。 この手順で説明されて[する方法: コマンド プロンプトからスキーマをインポート](https://msdn.microsoft.com/library/dd172135.aspx)です。
+2. VSDBCMD を使用して**展開**.dbschema ファイル先メンバーシップ データベースを配置するアクション。 この手順で説明されて[VSDBCMD のコマンド ライン リファレンスです。EXE (配置とスキーマのインポート)](https://msdn.microsoft.com/library/dd193283.aspx)です。
 
 ## <a name="conclusion"></a>まとめ
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="further-reading"></a>関連項目
 
-詳細なガイダンスと VSDBCMD を使用する方法の例については、次を参照してください。 [VSDBCMD のコマンド ライン リファレンスです。EXE (配置とスキーマのインポート)](https://msdn.microsoft.com/en-us/library/dd193283.aspx)と[する方法: コマンド プロンプトからスキーマをインポート](https://msdn.microsoft.com/en-us/library/dd172135.aspx)です。 Aspnet を使用する方法についての\_regsql.exe メンバーシップ データベースを作成するを参照してください[ASP.NET SQL Server の登録ツール (aspnet\_regsql.exe)](https://msdn.microsoft.com/en-us/library/ms229862(v=vs.100).aspx)です。 メンバーシップ データベースの展開の一般的なガイダンスについては、次を参照してください。[する方法: ASP.NET メンバーシップ データベースなしを含むユーザー アカウントを展開](https://msdn.microsoft.com/en-us/library/ff361972(v=vs.100).aspx)です。
+詳細なガイダンスと VSDBCMD を使用する方法の例については、次を参照してください。 [VSDBCMD のコマンド ライン リファレンスです。EXE (配置とスキーマのインポート)](https://msdn.microsoft.com/library/dd193283.aspx)と[する方法: コマンド プロンプトからスキーマをインポート](https://msdn.microsoft.com/library/dd172135.aspx)です。 Aspnet を使用する方法についての\_regsql.exe メンバーシップ データベースを作成するを参照してください[ASP.NET SQL Server の登録ツール (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx)です。 メンバーシップ データベースの展開の一般的なガイダンスについては、次を参照してください。[する方法: ASP.NET メンバーシップ データベースなしを含むユーザー アカウントを展開](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx)です。
 
 >[!div class="step-by-step"]
 [前へ](deploying-database-role-memberships-to-test-environments.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 2c49e7f6925b1ca172642747c5052ba97d70d036
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: abd3f3f78dd9a9e6394e2f61aa9bd692810ca875
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Visual Studio を使用した ASP.NET Web 展開: 実稼働環境に展開します。
 ====================
@@ -150,7 +150,7 @@ Web アプリとステージング環境のデータベースを作成してプ�
     5. 閉じる、**データベース更新を構成する** ダイアログ ボックス。
 10. **SchoolContext**で、**データベース**セクションで、**実行 Code First Migrations (アプリケーション開始時に実行されます)**です。
 
-    Visual Studio に表示**Code First Migrations を実行**の代わりに**更新データベース**の`DbContext`クラスです。 移行ではなく dbDacFx プロバイダーを使用して、使用してアクセスするデータベースを配置するかどうか、`DbContext`クラスを参照してください[移行なしの Code First のデータベースを展開する方法ですか?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#deploy_code_first_without_migrations) for Visual Studio Web 配置の faqMSDN で ASP.NET です。
+    Visual Studio に表示**Code First Migrations を実行**の代わりに**更新データベース**の`DbContext`クラスです。 移行ではなく dbDacFx プロバイダーを使用して、使用してアクセスするデータベースを配置するかどうか、`DbContext`クラスを参照してください[移行なしの Code First のデータベースを展開する方法ですか?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) for Visual Studio Web 配置の faqMSDN で ASP.NET です。
 
     **設定** タブでは次の例のようになります。
 
@@ -193,7 +193,7 @@ Web アプリとステージング環境のデータベースを作成してプ�
 - 推測することはできませんを難読化された URL を使用します。
 - 作成、 *robots.txt*ファイルを検索エンジンがクロール テスト アプリケーションとレポートのリンクに検索結果にことを確認します。
 
-これらのメソッドの最初のでは、最も有効ですが、Azure App Service ではなく Azure クラウド サービスに展開することが必要になるために、このチュートリアルで説明されていません。 詳細については、クラウド サービスと Azure での IP 制限では、次を参照してください。 [Azure によって提供されるオプションをホストしているコンピューティング](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)と[特定の IP アドレス、Web ロールへのアクセスをブロック](https://msdn.microsoft.com/en-us/library/windowsazure/jj154098.aspx)です。 サード パーティのホスティング プロバイダーに配置する場合は、IP 制限を実装する方法を検索するプロバイダーに問い合わせてください。
+これらのメソッドの最初のでは、最も有効ですが、Azure App Service ではなく Azure クラウド サービスに展開することが必要になるために、このチュートリアルで説明されていません。 詳細については、クラウド サービスと Azure での IP 制限では、次を参照してください。 [Azure によって提供されるオプションをホストしているコンピューティング](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)と[特定の IP アドレス、Web ロールへのアクセスをブロック](https://msdn.microsoft.com/library/windowsazure/jj154098.aspx)です。 サード パーティのホスティング プロバイダーに配置する場合は、IP 制限を実装する方法を検索するプロバイダーに問い合わせてください。
 
 このチュートリアルを作成、 *robots.txt*ファイル。
 
@@ -256,7 +256,7 @@ ELMAH が追跡、および ELMAH エラー レポートを次に、要求は、
 
 各*.pubxml*ファイルがある、 *. pubxml.user*ファイル。 *. Pubxml.user*ファイルには、暗号化されたパスワードが含まれる選択した場合、**保存パスワード**オプション、および既定では、プロジェクトから除外されます。
 
-A *.pubxml*ファイルには、特定の発行プロファイルに関連する設定が含まれています。 すべてのプロファイルに適用される設定を構成する場合は、作成、 *. wpp.targets*ファイル。 ビルド プロセスにこれらのファイルのインポート、 *.csproj*または*.vbproj*プロジェクト ファイル、プロジェクト ファイルで構成できる設定のほとんどは、これらのファイルで構成できます。 詳細については*.pubxml*ファイルと*. wpp.targets*ファイルを参照してください[する方法: 発行プロファイル (.pubxml) ファイルでの展開設定の編集、および wpp.targets Visual Studio でのファイル。Web プロジェクト](https://msdn.microsoft.com/en-us/library/ff398069.aspx)です。
+A *.pubxml*ファイルには、特定の発行プロファイルに関連する設定が含まれています。 すべてのプロファイルに適用される設定を構成する場合は、作成、 *. wpp.targets*ファイル。 ビルド プロセスにこれらのファイルのインポート、 *.csproj*または*.vbproj*プロジェクト ファイル、プロジェクト ファイルで構成できる設定のほとんどは、これらのファイルで構成できます。 詳細については*.pubxml*ファイルと*. wpp.targets*ファイルを参照してください[する方法: 発行プロファイル (.pubxml) ファイルでの展開設定の編集、および wpp.targets Visual Studio でのファイル。Web プロジェクト](https://msdn.microsoft.com/library/ff398069.aspx)です。
 
 1. **ソリューション エクスプ ローラー**、展開**プロパティ**展開**PublishProfiles**です。
 2. 右クリック*Production.pubxml*  をクリック**開く**です。
@@ -271,7 +271,7 @@ A *.pubxml*ファイルには、特定の発行プロファイルに関連する
 
     [!code-xml[Main](deploying-to-production/samples/sample4.xml?highlight=18-20)]
 
-    ファイルとフォルダーを除外する方法の詳細については、次を参照してください。[できますものを除外する特定のファイルまたはフォルダーの展開から?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment)で、 **Visual Studio と ASP.NET の Web 配置の FAQ** msdn です。
+    ファイルとフォルダーを除外する方法の詳細については、次を参照してください。[できますものを除外する特定のファイルまたはフォルダーの展開から?](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment)で、 **Visual Studio と ASP.NET の Web 配置の FAQ** msdn です。
 
 ### <a name="deploy-to-production"></a>実稼働環境に展開します。
 
@@ -295,7 +295,7 @@ A *.pubxml*ファイルには、特定の発行プロファイルに関連する
 次のチュートリアルでをアプリケーション コードを更新し、テスト、ステージング、および実稼働環境に変更を展開します。
 
 > [!NOTE]
-> アプリケーションが、実稼働環境で使用するときは、復旧計画を実装する必要があります。 つまり、する必要がある定期的にデータベースのバックアップを運用アプリから、セキュリティで保護された記憶域の場所に、このようなバックアップのいくつかの世代を保存する必要があります。 データベースを更新するときに、変更の直前からバックアップ コピーを作成する必要があります。 次に、更新を間違えたして実稼働環境に配置した後まで、検出されない場合もことができますが破損する前に、の状態にデータベースを回復します。 詳細については、次を参照してください。 [Azure SQL データベースのバックアップと復元](https://msdn.microsoft.com/en-us/library/windowsazure/jj650016.aspx)です。
+> アプリケーションが、実稼働環境で使用するときは、復旧計画を実装する必要があります。 つまり、する必要がある定期的にデータベースのバックアップを運用アプリから、セキュリティで保護された記憶域の場所に、このようなバックアップのいくつかの世代を保存する必要があります。 データベースを更新するときに、変更の直前からバックアップ コピーを作成する必要があります。 次に、更新を間違えたして実稼働環境に配置した後まで、検出されない場合もことができますが破損する前に、の状態にデータベースを回復します。 詳細については、次を参照してください。 [Azure SQL データベースのバックアップと復元](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx)です。
 
 
 > [!NOTE]

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 4e2a3176aaedccd40ef6b619efa3c4052dd8470b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a549bd62bd78573c368784fd1529a830e009b0d4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォーム - パート 2
 ====================
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/10/2017
 
 [![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image5.png)
 
-このアプリケーションではありませんに追加する入力の検証ページ、データベースを更新するように、実稼働アプリケーションで必要になるように堅牢なエラー処理の一部はできないことに注意してください。 Entity Framework に重点を置いて、チュートリアルを保持して作業が長すぎます。 これらの機能をアプリケーションに追加する方法の詳細については、「 [ASP.NET Web Pages でのユーザー入力の検証](https://msdn.microsoft.com/en-us/library/7kh55542.aspx)と[Error Handling in ASP.NET ページおよびアプリケーション](https://msdn.microsoft.com/en-us/library/w16865z6.aspx)です。
+このアプリケーションではありませんに追加する入力の検証ページ、データベースを更新するように、実稼働アプリケーションで必要になるように堅牢なエラー処理の一部はできないことに注意してください。 Entity Framework に重点を置いて、チュートリアルを保持して作業が長すぎます。 これらの機能をアプリケーションに追加する方法の詳細については、「 [ASP.NET Web Pages でのユーザー入力の検証](https://msdn.microsoft.com/library/7kh55542.aspx)と[Error Handling in ASP.NET ページおよびアプリケーション](https://msdn.microsoft.com/library/w16865z6.aspx)です。
 
 ## <a name="adding-and-configuring-the-entitydatasource-control"></a>EntityDataSource コントロールの構成の追加と
 
@@ -157,13 +157,13 @@ ms.lasthandoff: 11/10/2017
 
 - パフォーマンスが向上します。 ときに、`EntityDataSource`データ モデルを使用して、このコントロールの初期化、`ConnectionString`と`DefaultContainerName`属性、追加の作業要求のたびにメタデータの読み込みを実行します。 これは必要ありませんを指定する場合、`ContextTypeName`属性。
 - 遅延読み込みが生成されたオブジェクト コンテキスト クラス内の既定で有効に (など`SchoolEntities`このチュートリアルでは) 4.0 では Entity Framework。 つまり、ナビゲーション プロパティが読み込まれる関連データに自動的に必要なときに右。 遅延読み込みは、このチュートリアルで後でさらに詳しく説明します。
-- オブジェクト コンテキスト クラスを適用したすべてのカスタマイズ (ここで、`SchoolEntities`クラス) を使用するコントロールに表示される、`EntityDataSource`コントロール。 オブジェクト コンテキスト クラスのカスタマイズは、このチュートリアルの系列には対応できない高度なトピックです。 詳細については、次を参照してください。[エンティティ フレームワーク生成の種類の拡張](https://msdn.microsoft.com/en-us/library/dd456844.aspx)です。
+- オブジェクト コンテキスト クラスを適用したすべてのカスタマイズ (ここで、`SchoolEntities`クラス) を使用するコントロールに表示される、`EntityDataSource`コントロール。 オブジェクト コンテキスト クラスのカスタマイズは、このチュートリアルの系列には対応できない高度なトピックです。 詳細については、次を参照してください。[エンティティ フレームワーク生成の種類の拡張](https://msdn.microsoft.com/library/dd456844.aspx)です。
 
 マークアップは (プロパティの順序が異なる可能性があります)、次の例のようになります。
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample6.aspx)]
 
-`EnableFlattening`属性は外部キー列がエンティティのプロパティとして公開されていないため、Entity Framework の以前のバージョンで必要だった機能を参照します。 現在のバージョンを使用すること*外部キーの関連付け*、つまり、外部キー プロパティですが多対多のアソシエーションの公開されます。 外部キーのプロパティと いいえ、エンティティがある[複合型](https://msdn.microsoft.com/en-us/library/bb738472.aspx)、この属性に設定しておくことができます`False`です。 既定値があるため、マークアップから属性を削除しない`True`です。 詳細については、次を参照してください。[フラット化オブジェクト (EntityDataSource)](https://msdn.microsoft.com/en-us/library/ee404746.aspx)です。
+`EnableFlattening`属性は外部キー列がエンティティのプロパティとして公開されていないため、Entity Framework の以前のバージョンで必要だった機能を参照します。 現在のバージョンを使用すること*外部キーの関連付け*、つまり、外部キー プロパティですが多対多のアソシエーションの公開されます。 外部キーのプロパティと いいえ、エンティティがある[複合型](https://msdn.microsoft.com/library/bb738472.aspx)、この属性に設定しておくことができます`False`です。 既定値があるため、マークアップから属性を削除しない`True`です。 詳細については、次を参照してください。[フラット化オブジェクト (EntityDataSource)](https://msdn.microsoft.com/library/ee404746.aspx)です。
 
 ページを実行し、受講者と (をフィルター処理するだけの受講者の次のチュートリアルで) 従業員の一覧を参照してください。 最初の名前と姓が一緒に表示されます。
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/10/2017
 
 [![Image16](the-entity-framework-and-aspnet-getting-started-part-2/_static/image48.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image47.png)
 
-**データ ソースを選択**手順で、 **DepartmentsEntityDataSource**をクリックして、データ ソースとして**スキーマの更新**、し、**名前**として表示するデータ フィールドと**DepartmentID**値のデータ フィールドとします。 **[OK]** をクリックします。
+**データ ソースを選択**手順で、 **DepartmentsEntityDataSource**をクリックして、データ ソースとして**スキーマの更新**、し、**名前**として表示するデータ フィールドと**DepartmentID**値のデータ フィールドとします。 **[OK]**をクリックします。
 
 [![Image17](the-entity-framework-and-aspnet-getting-started-part-2/_static/image50.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image49.png)
 

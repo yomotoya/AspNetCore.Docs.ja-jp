@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23312e73b4530b24b8479e2d379f16315b672ca4
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: 12d3982ce1abf74a575dae5362b037bd4ecc3d0f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="in-memory-caching-in-aspnet-core"></a>ASP.NET Core でのメモリ内キャッシュ
 
@@ -46,7 +46,7 @@ Web ファーム内の非スティッキー セッションが必要な[分散�
 
 `IMemoryCache`NuGet パッケージ"Microsoft.Extensions.Caching.Memory"が必要です。
 
-次のコードでは[TryGetValue](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__)キャッシュに現在の時刻をチェックします。 新しいエントリが作成され、キャッシュに追加項目がキャッシュされていない場合[設定](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_)です。
+次のコードでは[TryGetValue](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__)キャッシュに現在の時刻をチェックします。 新しいエントリが作成されとキャッシュに追加された場合は、項目がキャッシュされない、[設定](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_)です。
 
 [!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet1)]
 
@@ -94,12 +94,12 @@ Web ファーム内の非スティッキー セッションが必要な[分散�
   - コールバックが完了していないために、複数の要求には、キャッシュされたキーの値が空ことができます検索します。 
   - これは、結果、複数のスレッドが、キャッシュされた項目を再作成します。
 
-- 1 つのキャッシュ エントリを使用して、別に作成した場合、子は親エントリの有効期限切れのトークンと時間ベースの有効期限の設定をコピーします。 子は、手動で削除して期限切れまたは親エントリの更新ではありません。
+- 1 つのキャッシュ エントリを使用して、別に作成した場合、子は親エントリの有効期限切れのトークンと時間ベースの有効期限の設定をコピーします。 子は、手動で削除して期限切れまたは親エントリの更新はありません。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [分散キャッシュの使用](xref:performance/caching/distributed)
-* [変更のトークンを使用して変更を検出します。](xref:fundamentals/primitives/change-tokens)
+* [変更トークンを使用する変更の検出](xref:fundamentals/primitives/change-tokens)
 * [応答キャッシュ](xref:performance/caching/response)
 * [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
 * [キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

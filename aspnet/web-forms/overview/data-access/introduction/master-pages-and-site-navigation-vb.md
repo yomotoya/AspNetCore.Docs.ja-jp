@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b14bb4279ac5f6a986fc597b97176b61150044c8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7bb8a9bccbd9dfbbf983618ecd32588fd8f69c64
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="master-pages-and-site-navigation-vb"></a>マスター ページとサイトのナビゲーション (VB)
 ====================
@@ -167,11 +167,11 @@ Web.sitemap
 **図 10**: サイト マップが階層ナビゲーション構造体を表します ([フルサイズのイメージを表示するをクリックして](master-pages-and-site-navigation-vb/_static/image26.png))
 
 
-ASP.NET、.NET Framework のによってサイト マップの構造を公開する[SiteMap クラス](https://msdn.microsoft.com/en-us/library/system.web.sitemap.aspx)です。 このクラスには、`CurrentNode`プロパティで、ユーザーがアクセスした現在;、セクションに関する情報を返します、`RootNode`プロパティは、サイト マップのルートを返します (自宅、マイクロソフトのサイト マップに)。 両方、`CurrentNode`と`RootNode`プロパティの戻り値[SiteMapNode](https://msdn.microsoft.com/en-us/library/system.web.sitemapnode.aspx)インスタンスで、プロパティを持つように`ParentNode`、 `ChildNodes`、 `NextSibling`、`PreviousSibling`など、サイト マップ可能にします。処理する階層。
+ASP.NET、.NET Framework のによってサイト マップの構造を公開する[SiteMap クラス](https://msdn.microsoft.com/library/system.web.sitemap.aspx)です。 このクラスには、`CurrentNode`プロパティで、ユーザーがアクセスした現在;、セクションに関する情報を返します、`RootNode`プロパティは、サイト マップのルートを返します (自宅、マイクロソフトのサイト マップに)。 両方、`CurrentNode`と`RootNode`プロパティの戻り値[SiteMapNode](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx)インスタンスで、プロパティを持つように`ParentNode`、 `ChildNodes`、 `NextSibling`、`PreviousSibling`など、サイト マップ可能にします。処理する階層。
 
 ## <a name="step-3-displaying-a-menu-based-on-the-site-map"></a>手順 3: サイト マップに基づくメニューを表示します。
 
-ASP.NET 2.0 のデータにアクセスできる asp.net などのプログラムで行われますが、1.x では、または宣言は、新しい[データ ソース コントロール](https://msdn.microsoft.com/en-us/library/ms227679.aspx)です。 リレーショナル データベースのデータ、クラス、およびその他のユーザーからのデータにアクセスするため、ObjectDataSource コントロールにアクセスするため、SqlDataSource コントロールなどのいくつかの組み込みのデータ ソース コントロールがあります。 独自に作成することも[カスタム データ ソース コントロール](https://msdn.microsoft.com/asp.net/reference/data/default.aspx?pull=/library/en-us/dnvs05/html/DataSourceCon1.asp)です。
+ASP.NET 2.0 のデータにアクセスできる asp.net などのプログラムで行われますが、1.x では、または宣言は、新しい[データ ソース コントロール](https://msdn.microsoft.com/library/ms227679.aspx)です。 リレーショナル データベースのデータ、クラス、およびその他のユーザーからのデータにアクセスするため、ObjectDataSource コントロールにアクセスするため、SqlDataSource コントロールなどのいくつかの組み込みのデータ ソース コントロールがあります。 独自に作成することも[カスタム データ ソース コントロール](https://msdn.microsoft.com/asp.net/reference/data/default.aspx?pull=/library/dnvs05/html/DataSourceCon1.asp)です。
 
 データ ソース コントロールは、ASP.NET ページと、基になるデータ間のプロキシとして機能します。 データ ソース コントロールの取得したデータを表示するためにあります通常別の Web コントロールをページに追加し、データ ソース コントロールにバインドします。 Web コントロールをデータ ソース コントロールをバインドする単に設定、Web コントロールの`DataSourceID`プロパティのデータ ソース コントロールの値を`ID`プロパティです。
 
@@ -218,7 +218,7 @@ SiteMapDataSource コントロールはルート サイト マップ ノード�
 
 すべての ASP.NET コントロールがその状態を永続化できる必要に応じて、[ビューステート](https://msdn.microsoft.com/msdnmag/issues/03/02/CuttingEdge/)、レンダリングされる HTML 非表示のフォームのフィールドとしてシリアル化されます。 ビュー ステート コントロールが使用ポストバック間で、プログラムで変更の状態を保存するデータ Web コントロールにバインドされているデータなどです。 ビュー ステートをポストバック間で保存する情報を許可するときに、クライアントに送信する必要がありますと重大なページの肥大化につながる可能性がない場合を綿密に監視するマークアップのサイズを増やします。 GridView 特に Web コントロールのデータは、マークアップの余分なキロバイト数十をページに追加するため、特によく知られたです。 このような増加は、ブロード バンドまたはイントラネットのユーザーのごくわずかであり、ビュー ステートは、ダイヤルアップ ユーザーのラウンド トリップに数秒を追加できます。
 
-状態を表示、ブラウザーでページを参照してくださいおよび web ページによって送信されたソースを表示する影響を確認する (Internet Explorer で、[表示] メニューに移動し、ソース オプションを選択) します。 にすることもできます。[ページ トレース](https://msdn.microsoft.com/en-us/library/sfbfw58f.aspx)を各ページ上のコントロールで使用される割り当ての表示状態を確認します。 状態情報の表示がという名前の隠しフォーム フィールドのシリアル化される`__VIEWSTATE`内にある、`<div>`要素の開始後すぐに`<form>`タグ。 使用されている Web フォームがある場合にのみ、ビュー状態が保存します。ASP.NET ページが含まれていない場合、`<form runat="server">`は表示されませんその宣言の構文で、`__VIEWSTATE`表示されるマークアップ内の非表示のフォーム フィールドです。
+状態を表示、ブラウザーでページを参照してくださいおよび web ページによって送信されたソースを表示する影響を確認する (Internet Explorer で、[表示] メニューに移動し、ソース オプションを選択) します。 にすることもできます。[ページ トレース](https://msdn.microsoft.com/library/sfbfw58f.aspx)を各ページ上のコントロールで使用される割り当ての表示状態を確認します。 状態情報の表示がという名前の隠しフォーム フィールドのシリアル化される`__VIEWSTATE`内にある、`<div>`要素の開始後すぐに`<form>`タグ。 使用されている Web フォームがある場合にのみ、ビュー状態が保存します。ASP.NET ページが含まれていない場合、`<form runat="server">`は表示されませんその宣言の構文で、`__VIEWSTATE`表示されるマークアップ内の非表示のフォーム フィールドです。
 
 `__VIEWSTATE`マスター ページによって生成されたフォーム フィールドがページの生成されたマークアップに約 1,800 バイトを追加します。 この余分な膨張期限は、主にリピータ コントロールように状態を表示する SiteMapDataSource コントロールの内容が保存されます。 余分な 1,800 バイトがあまり多くのフィールドとレコードを GridView を使用する場合に興奮しており、取得するように見えない可能性があります、中にビュー ステートが 10 以上の要素によって swell 簡単にことができます。
 
@@ -252,7 +252,7 @@ Repeater コントロールを設定しましょうページのビュー ステ�
 
 サイトのチュートリアルは、さまざまな基本的なレポートでは、フィルター処理、カスタムの書式設定などのカテゴリそれぞれのカテゴリおよびそのフォルダー内の ASP.NET ページと対応するチュートリアル用のフォルダーに分割されます。 さらに、各フォルダーが含まれています、`Default.aspx`ページ。 この既定のページをすべて現在のセクションのチュートリアルの表示しましょう。 つまり、用、`Default.aspx`で、`BasicReporting`フォルダーへのリンクを必要が`SimpleDisplay.aspx`、 `DeclarativeParams.aspx`、および`ProgrammaticParams.aspx`です。 ここでは、もう一度、使用、`SiteMap`で定義されているクラスとデータをサイト マップに基づいてこの情報を表示する Web コントロール`Web.sitemap`です。
 
-リピータを使用して再び、今度は、タイトルと説明のチュートリアルの表示順序なしリストを表示してみましょう。 このを実行するコードとマークアップがごとに繰り返される必要があるため`Default.aspx` ページで、おをカプセル化できるは、この UI ロジック、[ユーザー コントロール](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx)です。 呼ばれる web サイトにフォルダーを作成`UserControls`という名前の Web ユーザー コントロールの種類の新しい項目を追加および`SectionLevelTutorialListing.ascx`、し、次のマークアップを追加します。
+リピータを使用して再び、今度は、タイトルと説明のチュートリアルの表示順序なしリストを表示してみましょう。 このを実行するコードとマークアップがごとに繰り返される必要があるため`Default.aspx` ページで、おをカプセル化できるは、この UI ロジック、[ユーザー コントロール](https://msdn.microsoft.com/library/y6wb1a0e.aspx)です。 呼ばれる web サイトにフォルダーを作成`UserControls`という名前の Web ユーザー コントロールの種類の新しい項目を追加および`SectionLevelTutorialListing.ascx`、し、次のマークアップを追加します。
 
 
 [![ユーザー コントロール フォルダーに新しい Web ユーザー コントロールを追加します。](master-pages-and-site-navigation-vb/_static/image30.png)](master-pages-and-site-navigation-vb/_static/image29.png)
@@ -285,7 +285,7 @@ SectionLevelTutorialListing.ascx.vb
 **図 15**:、基本的なレポート作成のチュートリアルの一覧が表示されます ([フルサイズのイメージを表示するをクリックして](master-pages-and-site-navigation-vb/_static/image37.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 サイト マップの定義と完全なマスター ページ、お今すぐ方式を使用して一貫したページ レイアウトとナビゲーション データに関連するチュートリアルについては、します。 サイトに追加のページ数、サイト全体のページ レイアウトやサイト ナビゲーションの情報の更新はこの情報を集中管理されているために、迅速かつ簡単なプロセスになります。 マスター ページのページのレイアウト情報が定義されている具体的には、`Site.master`とのマップにサイト`Web.sitemap`です。 書き込む必要はありませんでした*任意*このサイト全体のページ レイアウトとナビゲーション メカニズムを実現するためにコードを Visual Studio でのフル WYSIWYG デザイナー サポートを保持することです。
 
@@ -297,15 +297,15 @@ SectionLevelTutorialListing.ascx.vb
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [ASP.NET マスター ページの概要](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx)
+- [ASP.NET マスター ページの概要](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
 - [ASP.NET 2.0 のマスター ページ](http://odetocode.com/Articles/419.aspx)
 - [ASP.NET 2.0 のデザインのテンプレート](https://msdn.microsoft.com/asp.net/reference/design/templates/default.aspx)
-- [ASP.NET サイト ナビゲーションの概要](https://msdn.microsoft.com/en-us/library/e468hxky.aspx)
+- [ASP.NET サイト ナビゲーションの概要](https://msdn.microsoft.com/library/e468hxky.aspx)
 - [サイト ナビゲーションの ASP.NET 2.0 を確認します。](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
 - [ASP.NET 2.0 サイト ナビゲーション機能](https://weblogs.asp.net/scottgu/archive/2005/11/20/431019.aspx)
-- [ASP.NET の Viewstate を理解します。](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnaspp/html/viewstate.asp)
-- [方法: ASP.NET ページのトレースを有効にします。](https://msdn.microsoft.com/en-us/library/94c55d08%28VS.80%29.aspx)
-- [ASP.NET ユーザー コントロール](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx)
+- [ASP.NET の Viewstate を理解します。](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/viewstate.asp)
+- [方法: ASP.NET ページのトレースを有効にします。](https://msdn.microsoft.com/library/94c55d08%28VS.80%29.aspx)
+- [ASP.NET ユーザー コントロール](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
 
 ## <a name="about-the-author"></a>作成者について
 

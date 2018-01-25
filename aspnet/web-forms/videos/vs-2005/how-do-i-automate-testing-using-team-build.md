@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-automate-testing-using-team-build
 msc.type: video
-ms.openlocfilehash: af74961ea9fcb463ea4902b59847bf67776a4d69
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5f64d4226089a9fa26886d75f5584afb4d87617f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="how-do-i-automate-testing-using-team-build"></a>[How Do i:]チーム ビルドを使用してテストを自動化しますか。
 ====================
 によって[Chris Menegay](https://twitter.com/CMenegay)
 
-このビデオでは、Visual Studio Team System を使用して、チーム ビルド時に実行される自動テストを定義する方法と方法おドリルダウンできますこれらのテストの結果を説明します。 私たちも学習、[テスト ツールのビルド タスク](https://msdn.microsoft.com/en-us/vstudio/aa718351.aspx#bttt)チーム ビルド中に実行するテストを指定する方法を提供します。
+このビデオでは、Visual Studio Team System を使用して、チーム ビルド時に実行される自動テストを定義する方法と方法おドリルダウンできますこれらのテストの結果を説明します。 私たちも学習、[テスト ツールのビルド タスク](https://msdn.microsoft.com/vstudio/aa718351.aspx#bttt)チーム ビルド中に実行するテストを指定する方法を提供します。
 
 [&#9654;です。ビデオでは (6 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-automate-testing-using-team-build)
 

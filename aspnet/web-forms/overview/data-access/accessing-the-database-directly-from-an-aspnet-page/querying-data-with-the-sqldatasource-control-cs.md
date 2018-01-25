@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1e9950619dc9d0c8aa2911eb05911cf008989e3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4652e5820e621a7b2ad3b03bb5a1d2cb4968fadd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="querying-data-with-the-sqldatasource-control-c"></a>SqlDataSource コントロール (c#) を使用してデータのクエリを実行します。
 ====================
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/10/2017
 
 データを操作するすべてのチュートリアルはこれまでのアーキテクチャを使用して、アクセス、挿入、更新、およびアーキテクチャをバイパスして、ASP.NET ページから直接データベースのデータを削除することはもです。 これにより、web ページに直接特定のデータベースのクエリやビジネス ロジックを配置します。 十分に大規模または複雑なアプリケーションの場合、設計、実装、および階層化されたアーキテクチャを使用するが、成功した場合、更新、およびアプリケーションの保守容易性のきわめて重要です。 堅牢なアーキテクチャの開発、ただし、必要がありますいない非常に単純な 1 回限りのアプリケーションを作成するときにします。
 
-ASP.NET 2.0 には 5 つの組み込みデータ ソース コントロール[SqlDataSource](https://msdn.microsoft.com/en-us/library/dz12d98w%28vs.80%29.aspx)、 [AccessDataSource](https://msdn.microsoft.com/en-us/library/8e5545e1.aspx)、 [ObjectDataSource](https://msdn.microsoft.com/en-us/library/9a4kyhcx.aspx)、 [XmlDataSource](https://msdn.microsoft.com/en-us/library/e8d8587a%28en-US,VS.80%29.aspx)、および[SiteMapDataSource](https://msdn.microsoft.com/en-us/library/5ex9t96x%28en-US,VS.80%29.aspx)です。 アクセスして、Microsoft SQL Server、Microsoft Access、Oracle、MySQL、および他のユーザーを含む、リレーショナル データベースから直接データを変更するは、SqlDataSource を使用できます。 このチュートリアルと、次の 3 つの場合は、SqlDataSource コントロールの使用、挿入、更新、およびデータの削除を照会する方法とフィルター データだけでなくを SqlDataSource を使用する方法を調査する方法について確認します。
+ASP.NET 2.0 には 5 つの組み込みデータ ソース コントロール[SqlDataSource](https://msdn.microsoft.com/library/dz12d98w%28vs.80%29.aspx)、 [AccessDataSource](https://msdn.microsoft.com/library/8e5545e1.aspx)、 [ObjectDataSource](https://msdn.microsoft.com/library/9a4kyhcx.aspx)、 [XmlDataSource](https://msdn.microsoft.com/library/e8d8587a%28en-US,VS.80%29.aspx)、および[SiteMapDataSource](https://msdn.microsoft.com/library/5ex9t96x%28en-US,VS.80%29.aspx)です。 アクセスして、Microsoft SQL Server、Microsoft Access、Oracle、MySQL、および他のユーザーを含む、リレーショナル データベースから直接データを変更するは、SqlDataSource を使用できます。 このチュートリアルと、次の 3 つの場合は、SqlDataSource コントロールの使用、挿入、更新、およびデータの削除を照会する方法とフィルター データだけでなくを SqlDataSource を使用する方法を調査する方法について確認します。
 
 
 ![ASP.NET 2.0 には、5 つの組み込みのデータ ソース コントロールが含まれています。](querying-data-with-the-sqldatasource-control-cs/_static/image1.gif)
@@ -144,12 +144,12 @@ SqlDataSource コントロールのデータ ソース構成ウィザードが�
 
 ウィザードを完了するには、[完了] をクリックします。
 
-ObjectDataSource を SqlDataSource のウィザードだけを実行値プロパティに割り当てられる、コントロール s、つまりと同じように、 [ `ConnectionString` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.connectionstring.aspx)と[ `SelectCommand` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.selectcommand.aspx)プロパティです。 ウィザードを完了すると、SqlDataSource コントロール s 宣言型マークアップを次のようになります。
+ObjectDataSource を SqlDataSource のウィザードだけを実行値プロパティに割り当てられる、コントロール s、つまりと同じように、 [ `ConnectionString` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.connectionstring.aspx)と[ `SelectCommand` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.selectcommand.aspx)プロパティです。 ウィザードを完了すると、SqlDataSource コントロール s 宣言型マークアップを次のようになります。
 
 
 [!code-aspx[Main](querying-data-with-the-sqldatasource-control-cs/samples/sample2.aspx)]
 
-`ConnectionString`プロパティは、データベースに接続する方法に関する情報を提供します。 このプロパティは、完全なハード コーディングされた接続文字列の値を割り当てることができるか、内の接続文字列を指すことができます`Web.config`です。 Web.config で接続文字列の値を参照する構文を使用`<%$ expressionPrefix:expressionValue %>`です。 通常、*されて*は ConnectionStrings および*expressionValue* 、接続文字列での名前を指定、 `Web.config` [ `<connectionStrings>`セクション](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx)です。 ただし、構文を使用することができますを参照する`<appSettings>`要素またはリソース ファイルからのコンテンツ。 参照してください[ASP.NET 式の概要](https://msdn.microsoft.com/en-us/library/d5bd1tad.aspx)詳細構文を使用します。
+`ConnectionString`プロパティは、データベースに接続する方法に関する情報を提供します。 このプロパティは、完全なハード コーディングされた接続文字列の値を割り当てることができるか、内の接続文字列を指すことができます`Web.config`です。 Web.config で接続文字列の値を参照する構文を使用`<%$ expressionPrefix:expressionValue %>`です。 通常、*されて*は ConnectionStrings および*expressionValue* 、接続文字列での名前を指定、 `Web.config` [ `<connectionStrings>`セクション](https://msdn.microsoft.com/library/bf7sd233.aspx)です。 ただし、構文を使用することができますを参照する`<appSettings>`要素またはリソース ファイルからのコンテンツ。 参照してください[ASP.NET 式の概要](https://msdn.microsoft.com/library/d5bd1tad.aspx)詳細構文を使用します。
 
 `SelectCommand`プロパティは、アドホック SQL ステートメントまたはデータを返すに実行するストアド プロシージャを指定します。
 
@@ -190,7 +190,7 @@ GridView がそのデータ ソース コントロール s を呼び出すペー
 
 並べ替えとページングは、SqlDataSource 疎に型指定されたデータセットに、データベースのデータを取得するためには機能します。 クエリによって返される、重要な側面にページングを実装するレコードの合計数は、データセットから確認できます。 さらに、データセットの結果は、DataView を並べ替えることができます。 これらの機能は、GridView 要求ページまたはデータを並べ替えるときに自動的に SqlDataSource によって使用されます。
 
-変更することによって、データセットではなく DataReader を返す、SqlDataSource を構成することができます、 [ `DataSourceMode`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx)から`DataSet`(既定) に`DataReader`です。 SqlDataSource の結果を DataReader を期待している既存のコードに渡すときの状況で DataReader を使用してを優先可能性があります。 さらに、Datareader がデータセットよりもはるかに単純なオブジェクトであるため、優れたパフォーマンスを提供します。 この変更を行うと、ただし、データ Web コントロールを並べ替えることができますもでない場合は、SqlDataSource、クエリによって返されるレコードの数を確認することはできませんまたは DataReader からのページが返されるデータを並べ替えるためのすべての手法を提供します。
+変更することによって、データセットではなく DataReader を返す、SqlDataSource を構成することができます、 [ `DataSourceMode`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx)から`DataSet`(既定) に`DataReader`です。 SqlDataSource の結果を DataReader を期待している既存のコードに渡すときの状況で DataReader を使用してを優先可能性があります。 さらに、Datareader がデータセットよりもはるかに単純なオブジェクトであるため、優れたパフォーマンスを提供します。 この変更を行うと、ただし、データ Web コントロールを並べ替えることができますもでない場合は、SqlDataSource、クエリによって返されるレコードの数を確認することはできませんまたは DataReader からのページが返されるデータを並べ替えるためのすべての手法を提供します。
 
 ## <a name="step-4-using-a-custom-sql-statement-or-stored-procedure"></a>手順 4: カスタム SQL ステートメントを使用してストアド プロシージャまたは
 
@@ -236,7 +236,7 @@ SqlDataSource コントロールを構成するときに、カスタム SQL ス�
 **図 15**:「GridView 示します各製品の s ID、名、および関連付けられているカテゴリの名前 ([フルサイズ イメージを表示するに、をクリックして](querying-data-with-the-sqldatasource-control-cs/_static/image23.gif))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、クエリおよび SqlDataSource コントロールを使用してデータを表示する方法を説明しました。 ObjectDataSource と同様に、SqlDataSource は宣言型のデータへのアクセス方法を提供する、プロキシとして機能します。 そのプロパティを指定データベースに接続して、SQL`SELECT`を実行するクエリには、[プロパティ] ウィンドウやデータ ソースの構成ウィザードを使用して、指定することができます。
 
@@ -249,9 +249,9 @@ SqlDataSource コントロールを構成するときに、カスタム SQL ス�
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
 - [リレーショナル データベースのデータにアクセスします。](http://aspnet.4guysfromrolla.com/articles/022206-1.aspx)
-- [SqlDataSource コントロールの概要](https://msdn.microsoft.com/en-us/library/dz12d98w.aspx)
+- [SqlDataSource コントロールの概要](https://msdn.microsoft.com/library/dz12d98w.aspx)
 - [ASP.NET のクイック スタート チュートリアル: SqlDataSource コントロール](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/data/sqldatasource.aspx)
-- [Web.config`<connectionStrings>`要素](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx)
+- [Web.config`<connectionStrings>`要素](https://msdn.microsoft.com/library/bf7sd233.aspx)
 - [データベース接続文字列の参照](http://www.connectionstrings.com/)
 
 ## <a name="about-the-author"></a>作成者について

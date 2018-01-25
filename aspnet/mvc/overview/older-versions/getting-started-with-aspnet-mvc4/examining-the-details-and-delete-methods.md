@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: 213626147424e08d10d6442034ec450174200b09
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f3c56356aaa595e200a16fe0045a8b00dc5823b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-details-and-delete-methods"></a>詳細とその削除方法を確認します。
 ====================
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-csharp[Main](examining-the-details-and-delete-methods/samples/sample4.cs)]
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 DB のローカル データベースにデータを格納する完全な ASP.NET MVC アプリケーションがあるようになりました。 ことができますを作成、読み取り、更新、削除、および映画を検索します。
 
@@ -66,7 +66,7 @@ DB のローカル データベースにデータを格納する完全な ASP.NE
 
 ## <a name="next-steps"></a>次の手順
 
-ビルドして、web アプリケーションをテストした後、次の手順は、インターネット経由で使用するには、他の人に使用できるようにするは。 実行するには、web ホスティング プロバイダーに配置する必要です。 マイクロソフトでは、無料の web ホスティングで最大 10 個の web サイトを提供しています、[試用アカウントを Windows Azure の無料](https://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604)です。 次に チュートリアルを実行することをお勧め[メンバーシップ、OAuth、SQL データベースでのセキュリティで保護された ASP.NET MVC アプリケーションを Windows Azure Web サイトに展開](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)です。 優れたチュートリアルは、Tom Dykstra の中間レベル[、ASP.NET MVC アプリケーション用の Entity Framework データ モデルを作成する](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。 [Stackoverflow](http://stackoverflow.com/help)と[ASP.NET MVC フォーラム](https://forums.asp.net/1146.aspx)質問を投稿する優れたが配置されます。 次の[me](https://twitter.com/RickAndMSFT)ツイッター 最新のチュートリアルで更新プログラムを取得できるようにします。
+ビルドして、web アプリケーションをテストした後、次の手順は、インターネット経由で使用するには、他の人に使用できるようにするは。 実行するには、web ホスティング プロバイダーに配置する必要です。 マイクロソフトでは、無料の web ホスティングで最大 10 個の web サイトを提供しています、[試用アカウントを Windows Azure の無料](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604)です。 次に チュートリアルを実行することをお勧め[メンバーシップ、OAuth、SQL データベースでのセキュリティで保護された ASP.NET MVC アプリケーションを Windows Azure Web サイトに展開](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)です。 優れたチュートリアルは、Tom Dykstra の中間レベル[、ASP.NET MVC アプリケーション用の Entity Framework データ モデルを作成する](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。 [Stackoverflow](http://stackoverflow.com/help)と[ASP.NET MVC フォーラム](https://forums.asp.net/1146.aspx)質問を投稿する優れたが配置されます。 次の[me](https://twitter.com/RickAndMSFT)ツイッター 最新のチュートリアルで更新プログラムを取得できるようにします。
 
 フィードバックはへようこそ です。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6483d24e15529f1c4a8662ddeee5943d4c043c5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 97513a5a6ac7a958a03626f16a328ecb0b85c03f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="nested-master-pages-c"></a>入れ子になったマスター ページ (c#)
 ====================
@@ -342,7 +342,7 @@ Visual Studio は 4 つに追加して、入れ子になったマスター ペ�
 **図 13**: トップレベル マスター ページで選択されて、ユーザーは、入れ子になった管理ページを使用して ([フルサイズのイメージを表示するをクリックして](nested-master-pages-cs/_static/image39.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 Like 程度コンテンツ ページは、マスター ページにバインドできる、可能であれば入れ子になったを作成する子のマスター ページ、マスター ページが親のマスター ページにバインドします。 子マスター ページは、親の contentplaceholders に; の各コンテンツ コントロールを定義することがあります。これらのコンテンツ コントロールを独自のプレース ホルダー コントロール (およびその他のマークアップ) し、追加できます。 入れ子になったマスター ページは、大規模な web アプリケーションをすべてのページが、包括的なルック アンド フィールを共有しながら特定のセクションでは、サイトの一意のカスタマイズが必要で非常に便利です。
 
@@ -352,7 +352,7 @@ Like 程度コンテンツ ページは、マスター ページにバインド�
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [入れ子になった ASP.NET マスター ページ](https://msdn.microsoft.com/en-us/library/x2b3ktt7.aspx)
+- [入れ子になった ASP.NET マスター ページ](https://msdn.microsoft.com/library/x2b3ktt7.aspx)
 - [入れ子になったマスター ページと VS 2005 のデザイン時のヒント](https://weblogs.asp.net/scottgu/archive/2005/11/11/430382.aspx)
 - [VS 2008 には、マスター ページのサポートが入れ子になった](https://weblogs.asp.net/scottgu/archive/2007/07/09/vs-2008-nested-master-page-support.aspx)
 

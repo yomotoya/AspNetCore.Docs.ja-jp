@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 69f73085198c79c01988aab9e63f3ce9e7647034
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29671970dc6f53d0e14170cf6376c02634b7b08e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-vb"></a>マスター ページ (VB) を使用して、サイト全体のレイアウトを作成します。
 ====================
@@ -60,7 +60,7 @@ ms.lasthandoff: 11/10/2017
 
 さまざまな一貫したルック アンド フィールで web ページを作成するための方法があります。 単純な手法は、単にコピーして、すべての web ページに共通のレイアウトのマークアップを貼り付けますが、このアプローチにはマイナス面の数。 まず、新しいページが作成されるたびに、コピーして共有のコンテンツをページに貼り付けますことを忘れないでください。 このようなコピーと貼り付け操作はエラー、誤っての新しいページに共有マークアップのサブセットのみをコピーする場合があります。 入れたら、このアプローチにより、既存のサイト全体の外観を実際のペインの新しいルック アンド フィールを使用するために、サイト内の各単一ページを編集する必要があるため、新しいものに置き換えます。
 
-ASP.NET version 2.0 では前のページで一般的なマークアップを配置することがよく開発者[ユーザー コントロール](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx)され、各ページにこれらのユーザー コントロールを追加します。 この方法では、ページの開発者が手動ですべての新しいページにユーザー コントロールを追加するが、変更する一般的なマークアップを更新するときにユーザー コントロールだけが必要なために、サイト全体の変更を簡単に許可が必要です。 残念ながら、Visual Studio .NET 2002 および 2003 のバージョンの Visual Studio は、1.x の ASP.NET アプリケーションのユーザー コントロールをデザイン ビューで灰色のボックスとしてレンダリングの作成に使用します。 そのため、このアプローチを使用しているページの開発者は、いない WYSIWYG デザイン時環境をご利用いただけますでした。
+ASP.NET version 2.0 では前のページで一般的なマークアップを配置することがよく開発者[ユーザー コントロール](https://msdn.microsoft.com/library/y6wb1a0e.aspx)され、各ページにこれらのユーザー コントロールを追加します。 この方法では、ページの開発者が手動ですべての新しいページにユーザー コントロールを追加するが、変更する一般的なマークアップを更新するときにユーザー コントロールだけが必要なために、サイト全体の変更を簡単に許可が必要です。 残念ながら、Visual Studio .NET 2002 および 2003 のバージョンの Visual Studio は、1.x の ASP.NET アプリケーションのユーザー コントロールをデザイン ビューで灰色のボックスとしてレンダリングの作成に使用します。 そのため、このアプローチを使用しているページの開発者は、いない WYSIWYG デザイン時環境をご利用いただけますでした。
 
 ユーザー コントロールを使用する場合の欠点は、ASP.NET version 2.0 および Visual Studio 2005 での導入で対処された*マスター ページ*です。 マスター ページは、特殊な種類の両方のサイト全体のマークアップを定義する ASP.NET ページと*領域*関連付けられている、*ページのコンテンツ*カスタムのマークアップを定義します。 手順 1. でよう、これらの領域は、プレース ホルダー コントロールによって定義されます。 ContentPlaceHolder コントロールは、単にカスタム コンテンツを挿入して、コンテンツ ページで、マスター ページのコントロールの階層内の位置を表します。
 
@@ -95,7 +95,7 @@ ASP.NET version 2.0 では前のページで一般的なマークアップを配
 作成およびマスター ページとコンテンツ ページを使用して調べることができます、前に、ASP.NET web サイトが最初に必要です。 まず、新しいファイル システムに基づく ASP.NET web サイトを作成します。 これを実現する、Visual Web Developer を起動して、ファイル メニューに移動し、新しい Web サイト ダイアログを表示する新しい Web サイトを選択ボックス (図 4 を参照してください)。 ASP.NET Web サイト テンプレートを選択して、場所ドロップダウン リストをファイル システムに設定、web サイトを配置するフォルダーを選択および Visual Basic 言語に設定します。 これで新しい web サイトが作成されます、 `Default.aspx` ASP.NET ページ、`App_Data`フォルダー、および`Web.config`ファイル。
 
 > [!NOTE]
-> Visual Studio には、プロジェクト管理の 2 つのモードがサポートされています。 Web サイト プロジェクトと Web アプリケーション プロジェクト。 Web サイト プロジェクトが Web アプリケーション プロジェクトを模倣プロジェクト アーキテクチャ Visual Studio .NET 2002年/2003 - プロジェクト ファイルが含まれていて、プロジェクトのソース コードに配置されている単一のアセンブリにコンパイルされ、プロジェクト ファイルの不足している、 `/bin`フォルダーです。 Visual Studio 2005 最初に唯一のサポートされている Web サイト プロジェクト、Web アプリケーション プロジェクト モデルは、Service Pack 1; 再導入されましたが、Visual Studio 2008 には、両方のプロジェクト モデルが用意されています。 Visual Web Developer 2005 および 2008 のエディションはサポート Web サイト プロジェクト。 このチュートリアル シリーズのマイ デモ Web サイト プロジェクトのモデルを使用します。 Express 以外のエディションを使用しているし、使用するかどうか、 [Web アプリケーション プロジェクト モデル](https://msdn.microsoft.com/en-us/library/aa730880(vs.80).aspx)代わりに、自由にこれがあることをいくつかの相違点、画面とではなく実行する必要があります手順で表示されるものの間に注意してください、スクリーン ショットに表示し、これらのチュートリアルで説明する手順。
+> Visual Studio には、プロジェクト管理の 2 つのモードがサポートされています。 Web サイト プロジェクトと Web アプリケーション プロジェクト。 Web サイト プロジェクトが Web アプリケーション プロジェクトを模倣プロジェクト アーキテクチャ Visual Studio .NET 2002年/2003 - プロジェクト ファイルが含まれていて、プロジェクトのソース コードに配置されている単一のアセンブリにコンパイルされ、プロジェクト ファイルの不足している、 `/bin`フォルダーです。 Visual Studio 2005 最初に唯一のサポートされている Web サイト プロジェクト、Web アプリケーション プロジェクト モデルは、Service Pack 1; 再導入されましたが、Visual Studio 2008 には、両方のプロジェクト モデルが用意されています。 Visual Web Developer 2005 および 2008 のエディションはサポート Web サイト プロジェクト。 このチュートリアル シリーズのマイ デモ Web サイト プロジェクトのモデルを使用します。 Express 以外のエディションを使用しているし、使用するかどうか、 [Web アプリケーション プロジェクト モデル](https://msdn.microsoft.com/library/aa730880(vs.80).aspx)代わりに、自由にこれがあることをいくつかの相違点、画面とではなく実行する必要があります手順で表示されるものの間に注意してください、スクリーン ショットに表示し、これらのチュートリアルで説明する手順。
 
 
 [![新しいファイル システムに基づいた Web サイトを作成します。](creating-a-site-wide-layout-using-master-pages-vb/_static/image9.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image8.png)
@@ -115,7 +115,7 @@ Visual Web Developer で新しいマスター ページ ファイルを追加す
 
 [!code-aspx[Main](creating-a-site-wide-layout-using-master-pages-vb/samples/sample1.aspx)]
 
-宣言型マークアップの最初の行は、 [ `@Master`ディレクティブ](https://msdn.microsoft.com/en-us/library/ms228176.aspx)です。 `@Master`ディレクティブがに似ていますが、 [ `@Page`ディレクティブ](https://msdn.microsoft.com/en-us/library/ydy4x04a.aspx)ASP.NET ページに表示されます。 これは、サーバー側の言語 (VB) と、マスター ページの分離コード クラスの継承と場所に関する情報を定義します。
+宣言型マークアップの最初の行は、 [ `@Master`ディレクティブ](https://msdn.microsoft.com/library/ms228176.aspx)です。 `@Master`ディレクティブがに似ていますが、 [ `@Page`ディレクティブ](https://msdn.microsoft.com/library/ydy4x04a.aspx)ASP.NET ページに表示されます。 これは、サーバー側の言語 (VB) と、マスター ページの分離コード クラスの継承と場所に関する情報を定義します。
 
 `DOCTYPE`ページの宣言型マークアップが下に表示し、`@Master`ディレクティブです。 このページには、静的な HTML と共に次の 4 つのサーバー側コントロールが含まれます。
 
@@ -163,7 +163,7 @@ Visual Web Developer で新しいマスター ページ ファイルを追加す
 幸いにも、無料の HTML デザイン テンプレート innumerous の web サイトがある - Google 検索用語「無料の web サイト テンプレート」の 600万より多くの結果が返されます 自分の好みの 1 つは[OpenDesigns.org](http://opendesigns.org/)です。たい web サイト テンプレートが見つかったらは、CSS ファイルとイメージを web サイト プロジェクトに追加し、マスター ページに、テンプレートの HTML を統合します。
 
 > [!NOTE]
-> Microsoft にも多数の[デザイン スタート キットのテンプレートの ASP.NET を空き](https://msdn.microsoft.com/en-us/asp.net/aa336613.aspx)Visual Studio で新しい Web サイト ダイアログ ボックスに統合します。
+> Microsoft にも多数の[デザイン スタート キットのテンプレートの ASP.NET を空き](https://msdn.microsoft.com/asp.net/aa336613.aspx)Visual Studio で新しい Web サイト ダイアログ ボックスに統合します。
 
 
 ## <a name="step-2-creating-associated-content-pages"></a>手順 2: コンテンツのページは関連付けを作成します。
@@ -260,7 +260,7 @@ ASP.NET エンジンが、ページを組み込む必要がありますコンテ
 > この例のように、マスター ページはサーバー側の Web コントロール、コード、およびイベント ハンドラーを含めることができます。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 マスター ページでは、ASP.NET 開発者は簡単に更新を一貫性のあるサイト全体のレイアウトをデザインを有効にします。 Visual Web Developer が豊富なデザイン時サポートを提供できると、マスター ページと、対応するコンテンツ ページの作成は標準の ASP.NET ページを作成するように単純です。
 
@@ -272,8 +272,8 @@ ASP.NET エンジンが、ページを組み込む必要がありますコンテ
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [デザイナーの ASP.NET: Web 標準を使用して ASP.NET web サイトの構築にデザイン テンプレートおよびガイダンスを解放します。](https://msdn.microsoft.com/en-us/asp.net/aa336602.aspx)
-- [ASP.NET マスター ページの概要](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx)
+- [デザイナーの ASP.NET: Web 標準を使用して ASP.NET web サイトの構築にデザイン テンプレートおよびガイダンスを解放します。](https://msdn.microsoft.com/asp.net/aa336602.aspx)
+- [ASP.NET マスター ページの概要](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
 - [カスケード スタイル シート (CSS) のチュートリアル](http://www.w3schools.com/css/default.asp)
 - [ページのタイトルの動的設定](http://aspnet.4guysfromrolla.com/articles/051006-1.aspx)
 - [ASP.NET マスター ページ](http://www.odetocode.com/articles/419.aspx)

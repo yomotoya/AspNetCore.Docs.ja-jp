@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2668a685389938979fc4b0a1e1701a90cef5dc1c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d357ca7bfe364090ff2c8504b2116e0d99d004bc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-additional-datatable-columns-vb"></a>その他のデータ テーブルの列 (VB) を追加します。
 ====================
@@ -90,12 +90,12 @@ TableAdapter のメインのクエリを反映 DataTable のスキーマを持�
 
 [!code-sql[Main](adding-additional-datatable-columns-vb/samples/sample1.sql)]
 
-上記のクエリでは SQL Server 2005 s の新しい[`NTILE`関数](https://msdn.microsoft.com/en-us/library/ms175126.aspx)によって、グループを決定する、4 つのグループに結果を分割する、`UnitPrice`値の降順で並べ替えられます。
+上記のクエリでは SQL Server 2005 s の新しい[`NTILE`関数](https://msdn.microsoft.com/library/ms175126.aspx)によって、グループを決定する、4 つのグループに結果を分割する、`UnitPrice`値の降順で並べ替えられます。
 
 残念ながら、クエリ ビルダーに解析する方法を識別できない、`OVER`キーワードと、上記のクエリの解析中にエラーが表示されます。 そのため、クエリ ビルダーを使用せず、ウィザードで、テキスト ボックス内で直接上記のクエリを入力します。
 
 > [!NOTE]
-> その他の順位付け関数を参照してください NTILE の SQL Server 2005 の詳細については[Microsoft SQL Server 2005 で順位付けされた結果を返す](http://www.4guysfromrolla.com/webtech/010406-1.shtml)と[」の「順位付け関数](https://msdn.microsoft.com/en-us/library/ms189798.aspx)から、 [SQLServer 2005 Books Online](https://msdn.microsoft.com/en-us/library/ms189798.aspx)です。
+> その他の順位付け関数を参照してください NTILE の SQL Server 2005 の詳細については[Microsoft SQL Server 2005 で順位付けされた結果を返す](http://www.4guysfromrolla.com/webtech/010406-1.shtml)と[」の「順位付け関数](https://msdn.microsoft.com/library/ms189798.aspx)から、 [SQLServer 2005 Books Online](https://msdn.microsoft.com/library/ms189798.aspx)です。
 
 
 入力した後に、`SELECT`クエリ、[次へ] をクリックして、ウィザードが自動的に作成するストアド プロシージャの名前を指定することです。 新しいストアド プロシージャの名前を付けます`Products_SelectWithPriceQuartile`[次へ] をクリックします。
@@ -199,7 +199,7 @@ TableAdapter のメインのクエリを反映 DataTable のスキーマを持�
 
 このチュートリアルでのダウンロードに含まれています、`ProductsWithPriceQuartileTableAdapter`クラス内で、`NorthwindWithSprocs`データセットをこの方法を示しています。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ほとんどのシナリオでデータ フィールドの同じセットを返すすべての TableAdapter のメソッドが特定のメソッドまたは 2 つの追加フィールドを返す必要があります。 たとえば、[マスター/詳細 DataList でマスター レコードの箇条書きリストの使用について詳しく説明](../filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb.md)チュートリアルにメソッドを追加しました、 `CategoriesTableAdapter` s のメイン クエリのデータ フィールドが返されるだけでなくを`NumberOfProducts`フィールド各カテゴリに関連付けられている製品の数を報告します。 このチュートリアルでは見てでメソッドを追加する、`ProductsTableAdapter`返される、`PriceQuartile`メイン クエリのデータ フィールドだけでなくフィールドです。 追加のデータをキャプチャするには、は、フィールドは DataTable に対応する列を追加する必要があります TableAdapter のメソッドによって返されます。
 

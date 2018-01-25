@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/sending-html-form-data-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 3df59aab2a0c43f4a4f5c59530b0655f68d95cc7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 331d0e520a1fd8ec84aecd09a9c9e6d286c5893b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sending-html-form-data-in-aspnet-web-api-file-upload-and-multipart-mime"></a>ASP.NET Web API で HTML フォームのデータを送信する: ファイルのアップロードとマルチパート MIME
 ====================
@@ -72,7 +72,7 @@ ms.lasthandoff: 11/10/2017
 - **MultipartFileData.FileName**ファイルの保存場所、サーバーでローカル ファイル名を指定します。
 - **MultipartFileData.Headers**パーツのヘッダーが含まれています (*いない*要求ヘッダー)。 これを使用するには、コンテンツにアクセスする\_廃棄、Content-type ヘッダー。
 
-名前からわかるように、 **ReadAsMultipartAsync**非同期メソッドです。 メソッドが終了した後で作業を実行する、[継続タスク](https://msdn.microsoft.com/en-us/library/ee372288.aspx)(.NET 4.0 の場合) または**await**キーワード (.NET 4.5)。
+名前からわかるように、 **ReadAsMultipartAsync**非同期メソッドです。 メソッドが終了した後で作業を実行する、[継続タスク](https://msdn.microsoft.com/library/ee372288.aspx)(.NET 4.0 の場合) または**await**キーワード (.NET 4.5)。
 
 .NET Framework 4.0 バージョンの前のコードを次に示します。
 
@@ -101,6 +101,6 @@ ms.lasthandoff: 11/10/2017
 その場合は、 **FormData**コレクションには、次のキー/値ペアにが含まれます。
 
 - トリップ: ラウンドト リップ
-- オプション: 無着陸
-- オプション: 日付
+- options: nonstop
+- options: dates
 - 接続クライアント数: ウィンドウ

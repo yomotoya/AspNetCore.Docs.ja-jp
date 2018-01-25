@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 1e4ee8eb4901305bf6a8c9c5b949dc4ee10290e5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c11e2ef9c33b0cae1f196690533094ce1c342da5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>ASP.NET および Web ツール 2013.1 for Visual Studio 2012 のリリース ノート
 ====================
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/10/2017
 - [ソフトウェアの要件](#requirements)
 - ASP.NET および Web ツール 2013.1 for Visual Studio 2012 の新機能
 
-    - [ブートス トラップ](#bootstrap)
+    - [Bootstrap](#bootstrap)
     - [テンプレート](#templates)
 
         - [ASP.NET MVC 5 テンプレート](#mvc5template)
@@ -190,7 +190,7 @@ ASP.NET Razor 3 または ASP.NET MVC 5 にアップグレードすると、tild
 
 ![構成エラー](aspnet-and-web-tools-20131-for-visual-studio-2012/_static/image2.png)
 
-これらのリリースの Windows にインストールされているときに、Visual Studio 2012 が ASP.NET 4.5 機能を有効いないために、このエラーが表示されます。 ASP.NET 4.5 を有効にするに記載の手順を実行[Windows の機能のオンまたはオフ](https://windows.microsoft.com/en-us/windows-8/turn-windows-features-on-off)です。
+これらのリリースの Windows にインストールされているときに、Visual Studio 2012 が ASP.NET 4.5 機能を有効いないために、このエラーが表示されます。 ASP.NET 4.5 を有効にするに記載の手順を実行[Windows の機能のオンまたはオフ](https://windows.microsoft.com/windows-8/turn-windows-features-on-off)です。
 
 ![Windows の機能の無効を切り替える](aspnet-and-web-tools-20131-for-visual-studio-2012/_static/image3.png)
 

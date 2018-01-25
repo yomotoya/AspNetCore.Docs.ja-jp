@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 647514ae5a92b9d729179327fb97bd8005b0a4b2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8c0fdfdf60ff3bde34b6869adf3f8693b4d9615d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="host-owin-in-an-azure-worker-role"></a>ホストする Azure Worker ロールで OWIN
 ====================
@@ -26,13 +26,13 @@ ms.lasthandoff: 11/10/2017
 > 
 > [.NET 用 Web インターフェイスを開く](http://owin.org/)(OWIN) .NET web サーバーと web アプリケーション間で抽象型を定義します。 OWIN OWIN を自己ホスト型 IIS の外部で独自のプロセス内の web アプリケーションに最適ですが、サーバーから web アプリケーションの分離 – Azure ワーカー ロール内などです。
 > 
-> このチュートリアルでは、Microsoft Azure のワーカー ロール内の OWIN アプリケーションを自己ホストする方法を学習します。 ワーカー ロールの詳細については、次を参照してください。 [Azure 実行モデル](https://azure.microsoft.com/en-us/documentation/articles/fundamentals-application-models/#CloudServices)です。
+> このチュートリアルでは、Microsoft Azure のワーカー ロール内の OWIN アプリケーションを自己ホストする方法を学習します。 ワーカー ロールの詳細については、次を参照してください。 [Azure 実行モデル](https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices)です。
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 > 
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
-> - [Azure SDK for .NET 2.3](https://azure.microsoft.com/en-us/downloads/)
+> - [Azure SDK for .NET 2.3](https://azure.microsoft.com/downloads/)
 > - [Microsoft.Owin.Selfhost 2.1.0](http://www.nuget.org/packages/Microsoft.Owin.SelfHost/2.1.0)
 
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/10/2017
 
 [![](host-owin-in-an-azure-worker-role/_static/image2.png)](host-owin-in-an-azure-worker-role/_static/image1.png)
 
-**新しい Windows Azure のクラウド サービス**ダイアログ ボックスをダブルクリックして**ワーカー ロール**です。 既定の名前 ("WorkerRole1") のままにします。 この手順は、ワーカー ロールをソリューションに追加します。 **[OK]** をクリックします。
+**新しい Windows Azure のクラウド サービス**ダイアログ ボックスをダブルクリックして**ワーカー ロール**です。 既定の名前 ("WorkerRole1") のままにします。 この手順は、ワーカー ロールをソリューションに追加します。 **[OK]**をクリックします。
 
 [![](host-owin-in-an-azure-worker-role/_static/image4.png)](host-owin-in-an-azure-worker-role/_static/image3.png)
 
@@ -125,7 +125,7 @@ WorkerRole.cs の完全なコードを次に示します。
 
 ## <a name="deploy-to-azure"></a>Azure への配置します。
 
-この手順では、Azure アカウントが必要です。 既に持っていない場合は、ほんの数分で無料の試用アカウントを作成できます。 詳細については、「 [Microsoft Azure の無料試用版](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F)です。
+この手順では、Azure アカウントが必要です。 既に持っていない場合は、ほんの数分で無料の試用アカウントを作成できます。 詳細については、「 [Microsoft Azure の無料試用版](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)です。
 
 ソリューション エクスプ ローラーで、AzureApp プロジェクトを右クリックします。 **[発行]** を選びます。
 
@@ -139,8 +139,7 @@ Azure アカウントにサインインしていない場合はクリックし�
 
 [![](host-owin-in-an-azure-worker-role/_static/image16.png)](host-owin-in-an-azure-worker-role/_static/image15.png)
 
-クラウド サービスの名前を入力し、地域を選択します。 
-              **[作成]**をクリックします。
+クラウド サービスの名前を入力し、地域を選択します。 **[作成]**をクリックします。
 
 ![](host-owin-in-an-azure-worker-role/_static/image17.png)
 
@@ -152,5 +151,5 @@ Azure のアクティビティ ログ ウィンドウでは、展開の進行状
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [プロジェクトの Katana の概要](an-overview-of-project-katana.md)
+- [プロジェクト Katana の概要](an-overview-of-project-katana.md)
 - [GitHub の Katana プロジェクト](https://github.com/aspnet/AspNetKatana/)

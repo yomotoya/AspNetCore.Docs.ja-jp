@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: d8b94f53954c5ab63ccf3aab4eb7a7a7dbea487b
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 85d5ca18944e774d1f2577459c6c45acde01e4d9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-model-binding"></a>カスタム モデル バインディング
 
@@ -100,11 +100,11 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo2&highlight=2)]
 
-`ModelBinder`を適用する属性を使用することができます、`AuthorEntityBinder`パラメーターを既定の規則を使用しません。
+`ModelBinder`を適用する属性を使用することができます、`AuthorEntityBinder`既定の規則を使用していないパラメーターにします。
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
-引数の名前は、既定ではないため、この例では`authorId`、パラメーターを使用して、指定されている`ModelBinder`属性。 コント ローラーとアクションの両方のメソッドは、アクション メソッド内のエンティティの検索と比較して簡素化することに注意してください。 Entity Framework のコアを使用して、作成者をフェッチするためのロジックは、モデル バインダーに移動されます。 作成者モデルにバインドし、次に役立つことがいくつかのメソッドがあるときはかなり単純化できます、[ドライ原則](http://deviq.com/don-t-repeat-yourself/)です。
+引数の名前が既定値はありませんので、この例では`authorId`、パラメーターを使用して、指定されている`ModelBinder`属性。 コント ローラーとアクションの両方のメソッドは、アクション メソッド内のエンティティの検索と比較して簡素化することに注意してください。 Entity Framework のコアを使用して、作成者をフェッチするためのロジックは、モデル バインダーに移動されます。 作成者モデルにバインドし、次に役立つことがいくつかのメソッドがあるときはかなり単純化できます、[ドライ原則](http://deviq.com/don-t-repeat-yourself/)です。
 
 適用することができます、`ModelBinder`属性個々 のモデルのプロパティを (など、viewmodel で) またはアクション メソッドのパラメーターを特定のモデル バインダーまたはその型またはアクションだけのモデル名を指定します。
 
@@ -133,6 +133,6 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 ## <a name="recommendations-and-best-practices"></a>推奨事項とベスト プラクティス
 
 カスタム モデル バインダー。
-- ステータス コードを設定するか、結果を返すにしないでください (たとえば、404 Not Found)。 モデル バインドに失敗した場合、[アクション フィルター](xref:mvc/controllers/filters)自体アクション メソッド内のロジックは、エラーを処理する必要がありますか。
+- ステータス コードを設定または結果を返すを試行しないでください (たとえば、404 Not Found)。 モデル バインドに失敗した場合、[アクション フィルター](xref:mvc/controllers/filters)自体アクション メソッド内のロジックは、エラーを処理する必要がありますか。
 - コードの繰り返しとアクション メソッドから横断的関心事を排除する最も便利です。
-- 通常、カスタムの型を文字列に変換には使用できません、 [ `TypeConverter` ](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter)は通常より良いオプション。
+- 通常、カスタムの型を文字列に変換に使用しないで、 [ `TypeConverter` ](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter)は通常より良いオプション。

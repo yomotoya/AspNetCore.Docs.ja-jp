@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e3f505e525fd5e701bb40dc3e6467b880bf75447
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0133a74454a7754f4f7087e2121c7387a1aef8a8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a>DataList またはリピータ コントロール (VB) のデータの並べ替え
 ====================
@@ -81,7 +81,7 @@ DataList または Repeater コントロールでこの機能をレプリケー�
 
 ## <a name="step-3-instructing-the-objectdatasource-to-sort-the-data"></a>手順 3: データの並べ替えに ObjectDataSource を指示します。
 
-リピータに表示されるデータを並べ替えるには、データの並べ替えられた、並べ替え式の ObjectDataSource を通知する必要があります。 最初に発生させる、ObjectDataSource は、そのデータを取得する前にその[`Selecting`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.selecting.aspx)並べ替え式を指定する機会を提供します。 `Selecting`イベント ハンドラーは型のオブジェクトに渡されます[ `ObjectDataSourceSelectingEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.aspx)、という名前のプロパティを持つ[ `Arguments` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.arguments.aspx)型の[ `DataSourceSelectArguments`](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.aspx)です。 `DataSourceSelectArguments`クラスは、データ ソース コントロールにデータのコンシューマーからのデータ関連の要求を渡すように設計され、が含まれています、 [ `SortExpression`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.sortexpression.aspx)です。
+リピータに表示されるデータを並べ替えるには、データの並べ替えられた、並べ替え式の ObjectDataSource を通知する必要があります。 最初に発生させる、ObjectDataSource は、そのデータを取得する前にその[`Selecting`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting.aspx)並べ替え式を指定する機会を提供します。 `Selecting`イベント ハンドラーは型のオブジェクトに渡されます[ `ObjectDataSourceSelectingEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.aspx)、という名前のプロパティを持つ[ `Arguments` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.arguments.aspx)型の[ `DataSourceSelectArguments`](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx)です。 `DataSourceSelectArguments`クラスは、データ ソース コントロールにデータのコンシューマーからのデータ関連の要求を渡すように設計され、が含まれています、 [ `SortExpression`プロパティ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.sortexpression.aspx)です。
 
 ASP.NET ページから、ObjectDataSource に並べ替え情報を渡すのイベント ハンドラーを作成、`Selecting`イベントと、次のコードを使用します。
 
@@ -378,7 +378,7 @@ ObjectDataSource を呼び出す前に、`GetProductsPagedAndSorted`メソッド
 > 前の例で、並べ替え式として使用されました。 選択は業者によって並べ替えるときにします。 ただし、カスタム ページングの実装の CompanyName を使用する必要があります。 これはカスタム ページングの実装を担当するストアド プロシージャ`GetProductsPagedAndSorted`に並べ替え式を渡します、`ROW_NUMBER()`キーワード、`ROW_NUMBER()`キーワードは、別名ではなく、実際の列名が必要です。 したがって、使用する必要があります`CompanyName`(内の列の名前、`Suppliers`テーブル) で使用される別名ではなく、`SELECT`クエリ (`SupplierName`) の並べ替え式。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 どちらも DataList もリピータが組み込みの並べ替えのサポートを提供してがほんの少しのコードとカスタムの並べ替えインターフェイスのこのような機能を追加できます。 を介して、並べ替え式を指定することができます、並べ替え、ページングを実装する場合、 `DataSourceSelectArguments` ObjectDataSource s にオブジェクトが渡された`Select`メソッドです。 これは、`DataSourceSelectArguments`オブジェクト s `SortExpression` ObjectDataSource s でプロパティを割り当てることができます`Selecting`イベント ハンドラー。
 

@@ -12,28 +12,28 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 6a0c8dbbd02549757c316807b8e8e64fdfd70123
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b4280c6ab1b6d8d2ceaa7cef14fce94ab8c6df53
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4 での非同期メソッドの使用
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-> このチュートリアルが非同期 ASP.NET MVC Web アプリケーションを使用して、作成の基本を教える[Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11/en-us)、これは、無料版の Microsoft Visual Studio です。 使用することも[Visual Studio 2012](https://www.microsoft.com/visualstudio/11/en-us)です。
+> このチュートリアルが非同期 ASP.NET MVC Web アプリケーションを使用して、作成の基本を教える[Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11)、これは、無料版の Microsoft Visual Studio です。 使用することも[Visual Studio 2012](https://www.microsoft.com/visualstudio/11)です。
 
 > このチュートリアルでは github で完全なサンプルが提供される[https://github.com/RickAndMSFT/Async-ASP.NET/](https://github.com/RickAndMSFT/Async-ASP.NET/)
 
 
-ASP.NET MVC 4[コント ローラー](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller(VS.108).aspx)組み合わせてクラス[.NET 4.5](https://msdn.microsoft.com/en-us/library/w0x726c2(VS.110).aspx)型のオブジェクトを返す非同期アクション メソッドを記述することができます[タスク&lt;ActionResult&gt;](https://msdn.microsoft.com/en-us/library/dd321424(VS.110).aspx). .NET Framework 4 と呼ばれる非同期のプログラミング概念を導入された、[タスク](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx)ASP.NET MVC 4 をサポートしていると[タスク](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx)です。 タスクがによって表される、**タスク**型と関連する型を[System.Threading.Tasks](https://msdn.microsoft.com/en-us/library/system.threading.tasks.aspx)名前空間。 この非同期サポートに基づいて、.NET Framework 4.5、 [await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx)キーワードを使用した作業[タスク](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx)以前よりもそれほど複雑なオブジェクト非同期の認証方法 [Await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx)キーワードは、コードの断片がコードの他のいくつかの部分で非同期的に待機することを示す構文短縮形です。 [Async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx)キーワードは、タスク ベースの非同期メソッドとしてメソッドを示すために使用できるヒントを表します。 組み合わせ**await**、 **async**、および**タスク**オブジェクトは .NET 4.5 での非同期コードを記述するためのより簡単です。 非同期メソッド用の新しいモデルを呼び出す、*タスク ベースの非同期パターン*(**タップ**)。 このチュートリアルでは、非同期プログラミングを使用した経験があると仮定[await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx)キーワードおよび[タスク](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx)名前空間。
+ASP.NET MVC 4[コント ローラー](https://msdn.microsoft.com/library/system.web.mvc.controller(VS.108).aspx)組み合わせてクラス[.NET 4.5](https://msdn.microsoft.com/library/w0x726c2(VS.110).aspx)型のオブジェクトを返す非同期アクション メソッドを記述することができます[タスク&lt;ActionResult&gt;](https://msdn.microsoft.com/library/dd321424(VS.110).aspx). .NET Framework 4 と呼ばれる非同期のプログラミング概念を導入された、[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)ASP.NET MVC 4 をサポートしていると[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)です。 タスクがによって表される、**タスク**型と関連する型を[System.Threading.Tasks](https://msdn.microsoft.com/library/system.threading.tasks.aspx)名前空間。 この非同期サポートに基づいて、.NET Framework 4.5、 [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)キーワードを使用した作業[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)以前よりもそれほど複雑なオブジェクト非同期の認証方法 [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)キーワードは、コードの断片がコードの他のいくつかの部分で非同期的に待機することを示す構文短縮形です。 [Async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)キーワードは、タスク ベースの非同期メソッドとしてメソッドを示すために使用できるヒントを表します。 組み合わせ**await**、 **async**、および**タスク**オブジェクトは .NET 4.5 での非同期コードを記述するためのより簡単です。 非同期メソッド用の新しいモデルを呼び出す、*タスク ベースの非同期パターン*(**タップ**)。 このチュートリアルでは、非同期プログラミングを使用した経験があると仮定[await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)キーワードおよび[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)名前空間。
 
-使用して、詳細について[await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx)キーワードおよび[タスク](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx)名前空間には、次を参照します。
+使用して、詳細について[await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)キーワードおよび[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)名前空間には、次を参照します。
 
 - [.NET でのホワイト ペーパー: 非同期性](https://go.microsoft.com/fwlink/?LinkId=204844)
 - [よく寄せられる質問の Async と Await](https://blogs.msdn.com/b/pfxteam/archive/2012/04/12/10293335.aspx)
-- [Visual Studio の非同期プログラミング](https://msdn.microsoft.com/en-us/vstudio/gg316360)
+- [Visual Studio の非同期プログラミング](https://msdn.microsoft.com/vstudio/gg316360)
 
 ## <a id="HowRequestsProcessedByTP"></a>スレッド プール内に要求を処理する方法
 
@@ -64,7 +64,7 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 - ときにスレッドを切り替えるの利点には、コンテキストの切り替えのコストが重み付けされます。 一般に、する必要がありますメソッド非同期作業を行っていないときに、ASP.NET 要求スレッドで、同期メソッドが待機する場合。 呼び出しを非同期に行うには、ASP.NET 要求スレッドが停止していないなしの作業を行う web サービス要求が完了するまで待機するときにします。
 - テストは、ブロック操作は、サイトのパフォーマンスのボトルネックであるし、IIS で非同期メソッドのようなブロッキング呼び出しを使用してより多くの要求を処理できることを示します。
 
- ダウンロード可能なサンプルでは、非同期アクション メソッドを効果的に使用する方法を示します。 このサンプルでは、.NET 4.5 を使用して ASP.NET MVC 4 での非同期プログラミングの簡単なデモを提供するよう設計されました。 このサンプルは、ASP.NET MVC での非同期プログラミングの参照アーキテクチャではありません。 サンプル プログラム呼び出し[ASP.NET Web API](../../../web-api/index.md)メソッドを呼び出している[Task.Delay](https://msdn.microsoft.com/en-us/library/hh139096(VS.110).aspx)実行時間の長い web サービス呼び出しをシミュレートするためにします。 ほとんどの実稼働アプリケーションでは、非同期アクション メソッドを使用するこのような明らかな利点は表示されません。   
+ ダウンロード可能なサンプルでは、非同期アクション メソッドを効果的に使用する方法を示します。 このサンプルでは、.NET 4.5 を使用して ASP.NET MVC 4 での非同期プログラミングの簡単なデモを提供するよう設計されました。 このサンプルは、ASP.NET MVC での非同期プログラミングの参照アーキテクチャではありません。 サンプル プログラム呼び出し[ASP.NET Web API](../../../web-api/index.md)メソッドを呼び出している[Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx)実行時間の長い web サービス呼び出しをシミュレートするためにします。 ほとんどの実稼働アプリケーションでは、非同期アクション メソッドを使用するこのような明らかな利点は表示されません。   
   
 ほとんどのアプリケーションでは、すべてのアクション メソッドを非同期にする必要があります。 多くの場合、いくつかの同期アクション メソッドを非同期メソッドに変換するために必要な作業の量に対して最適な効率向上を提供します。
 
@@ -89,11 +89,11 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 `GizmoService GetGizmos`メソッドは、装置のデータの一覧を返す ASP.NET Web API HTTP サービスに URI を渡します。 *WebAPIpgw*プロジェクトには、Web API の実装が含まれている`gizmos, widget`と`product`コント ローラー。  
 次の図では、サンプル プロジェクトからの装置を表示します。
 
-![装置](using-asynchronous-methods-in-aspnet-mvc-4/_static/image1.png)
+![Gizmos](using-asynchronous-methods-in-aspnet-mvc-4/_static/image1.png)
 
 ## <a id="CreatingAsynchGizmos"></a>装置の非同期アクション メソッドを作成します。
 
-このサンプルでは、新しい[async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx)と[await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) (.NET 4.5 と Visual Studio 2012 で使用できる) キーワード コンパイラで複雑な変換のために必要な保守を担当します。非同期プログラミングします。 コンパイラでは、# の同期の制御フローの構築を使用してコードを記述することができ、コンパイラが自動的にスレッドがブロックされないようにするためにコールバックを使用するための変換を適用します。
+このサンプルでは、新しい[async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)と[await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) (.NET 4.5 と Visual Studio 2012 で使用できる) キーワード コンパイラで複雑な変換のために必要な保守を担当します。非同期プログラミングします。 コンパイラでは、# の同期の制御フローの構築を使用してコードを記述することができ、コンパイラが自動的にスレッドがブロックされないようにするためにコールバックを使用するための変換を適用します。
 
 次のコードは、`Gizmos`同期メソッドと`GizmosAsync`非同期メソッドです。 お使いのブラウザーがサポートされている場合、 [HTML 5`<mark>`要素](http://www.w3.org/wiki/HTML/Elements/mark)での変更を確認`GizmosAsync`黄色のハイライトでします。
 
@@ -103,15 +103,15 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 
  使用できるように、次の変更が適用された、`GizmosAsync`を非同期にします。
 
-- メソッドが付いて、 [async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx)本文の一部のコールバックを生成して自動的に作成するのには、コンパイラに指示するキーワード、`Task<ActionResult>`が返されます。
+- メソッドが付いて、 [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)本文の一部のコールバックを生成して自動的に作成するのには、コンパイラに指示するキーワード、`Task<ActionResult>`が返されます。
 - &quot;非同期&quot;メソッド名に追加されました。 "Async"を追加することは必要ありませんが、非同期メソッドを記述する場合、規則は。
 - 戻り値の型がから変更された`ActionResult`に`Task<ActionResult>`です。 戻り値の型`Task<ActionResult>`進行中の作業を表し、メソッドの呼び出し元の非同期操作の完了を待機するためのハンドルに提供します。 この場合、呼び出し元は、web サービスです。 `Task<ActionResult>`表す継続的な操作の結果`ActionResult.`
-- [Await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx)キーワードは、web サービスの呼び出しに適用されました。
+- [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)キーワードは、web サービスの呼び出しに適用されました。
 - 非同期の web サービス API が呼び出されました (`GetGizmosAsync`)。
 
 内の`GetGizmosAsync`メソッド本体の別の非同期メソッド、`GetGizmosAsync`と呼びます。 `GetGizmosAsync`直ちに返されます、`Task<List<Gizmo>>`データが使用可能な場合に最終的には完了です。 コードがタスクを待機するための商品データを取得するまで何も行うたく (を使用して、 **await**キーワード) です。 使用することができます、 **await**キーワード注釈が付けられたメソッドでのみ、 **async**キーワード。
 
-**Await**タスクが完了するまでキーワードが、スレッドをブロックしません。 タスクでのコールバック メソッドの残りの部分を署名し、直ちに返されます。 最終的に待機中のタスクが完了したら、そのコールバックを呼び出し、したがってところメソッド右側の実行が再開されます。 使用の詳細について、 [await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx)キーワードおよび[タスク](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx)名前空間を参照してください、 [async 参照](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async)です。
+**Await**タスクが完了するまでキーワードが、スレッドをブロックしません。 タスクでのコールバック メソッドの残りの部分を署名し、直ちに返されます。 最終的に待機中のタスクが完了したら、そのコールバックを呼び出し、したがってところメソッド右側の実行が再開されます。 使用の詳細について、 [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)と[async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)キーワードおよび[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)名前空間を参照してください、 [async 参照](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async)です。
 
 次のコードは、`GetGizmos`と`GetGizmosAsync`メソッドです。
 
@@ -121,9 +121,9 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 
  非同期の変更と似ていますに加え、 **GizmosAsync**上。 
 
-- メソッドのシグネチャが注釈が付けられた、 [async](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx)戻り値の型が変更されたキーワード、 `Task<List<Gizmo>>`、および*Async*メソッド名に追加されました。
-- 非同期の[HttpClient](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(VS.110).aspx)の代わりにクラスを使用、 [WebClient](https://msdn.microsoft.com/en-us/library/system.net.webclient.aspx)クラスです。
-- [Await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx)キーワードに適用された、 [HttpClient](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(VS.110).aspx)非同期メソッドです。
+- メソッドのシグネチャが注釈が付けられた、 [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)戻り値の型が変更されたキーワード、 `Task<List<Gizmo>>`、および*Async*メソッド名に追加されました。
+- 非同期の[HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx)の代わりにクラスを使用、 [WebClient](https://msdn.microsoft.com/library/system.net.webclient.aspx)クラスです。
+- [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)キーワードに適用された、 [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx)非同期メソッドです。
 
 次の図では、非同期の商品について表示されます。
 
@@ -133,7 +133,7 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 
 ## <a id="Parallel"></a>同時に複数の操作を実行します。
 
-非同期アクション メソッドでは、アクションは、いくつかの独立した操作を実行するときに重要な利点は、同期メソッドがあります。 このサンプルでは、同期メソッドに`PWG`(製品、ウィジェット、および装置) 用の製品、ウィジェット、装置の一覧を取得する 3 つの web サービス呼び出しの結果が表示されます。 [ASP.NET Web API](../../../web-api/index.md)提供されますが、プロジェクトのサービス使用[Task.Delay](https://msdn.microsoft.com/en-us/library/hh139096(VS.110).aspx)に関する遅延または低速ネットワークをシミュレートするために呼び出します。 500 (ミリ秒単位)、非同期に遅延を設定すると`PWGasync`メソッドには、同期中に完了するは少し以上 500 ミリ秒`PWG`バージョンが 1,500 (ミリ秒) を引き継ぎます。 同期`PWG`メソッドに次のコードに示します。
+非同期アクション メソッドでは、アクションは、いくつかの独立した操作を実行するときに重要な利点は、同期メソッドがあります。 このサンプルでは、同期メソッドに`PWG`(製品、ウィジェット、および装置) 用の製品、ウィジェット、装置の一覧を取得する 3 つの web サービス呼び出しの結果が表示されます。 [ASP.NET Web API](../../../web-api/index.md)提供されますが、プロジェクトのサービス使用[Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx)に関する遅延または低速ネットワークをシミュレートするために呼び出します。 500 (ミリ秒単位)、非同期に遅延を設定すると`PWGasync`メソッドには、同期中に完了するは少し以上 500 ミリ秒`PWG`バージョンが 1,500 (ミリ秒) を引き継ぎます。 同期`PWG`メソッドに次のコードに示します。
 
 [!code-csharp[Main](using-asynchronous-methods-in-aspnet-mvc-4/samples/sample7.cs)]
 
@@ -147,11 +147,11 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 
 ## <a id="CancelToken"></a>キャンセル トークンを使用します。
 
-非同期アクション メソッドが返す`Task<ActionResult>`は取り消し可能なこれらのパラメーターである、 [CancellationToken](https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(VS.110).aspx)がで提供されている場合に、パラメーター、 [AsyncTimeout](https://msdn.microsoft.com/en-us/library/system.web.mvc.asynctimeoutattribute(VS.108).aspx)属性。 次のコードは、 `GizmosCancelAsync` 150 ミリ秒のタイムアウトを持つメソッドです。
+非同期アクション メソッドが返す`Task<ActionResult>`は取り消し可能なこれらのパラメーターである、 [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken(VS.110).aspx)がで提供されている場合に、パラメーター、 [AsyncTimeout](https://msdn.microsoft.com/library/system.web.mvc.asynctimeoutattribute(VS.108).aspx)属性。 次のコードは、 `GizmosCancelAsync` 150 ミリ秒のタイムアウトを持つメソッドです。
 
 [!code-csharp[Main](using-asynchronous-methods-in-aspnet-mvc-4/samples/sample9.cs?highlight=1-3,5,10)]
 
-次のコードは、GetGizmosAsync をとるオーバー ロード、 [CancellationToken](https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(VS.110).aspx)パラメーター。
+次のコードは、GetGizmosAsync をとるオーバー ロード、 [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken(VS.110).aspx)パラメーター。
 
 [!code-csharp[Main](using-asynchronous-methods-in-aspnet-mvc-4/samples/sample10.cs)]
 
@@ -163,13 +163,13 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 
 - Windows 7、Windows Vista およびすべての Windows クライアント オペレーティング システムは最大 10 個の同時実行要求があります。 Windows サーバー オペレーティング システムに高負荷時の非同期メソッドのメリットを確認する必要があります。
 - 管理者特権でコマンド プロンプトから、IIS に .NET 4.5 を登録します。  
- %windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet\_iis 登録ツールには  
- 参照してください[ASP.NET IIS 登録ツール (Aspnet\_regiis.exe)](https://msdn.microsoft.com/en-us/library/k6h9cz8h.aspx)
+ %windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet\_regiis -i  
+ 参照してください[ASP.NET IIS 登録ツール (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h.aspx)
 - 大きく必要があります、 [HTTP.sys](https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture) 1,000 ~ 5,000 の既定値からキューの制限。 表示設定が低すぎる場合は、 [HTTP.sys](https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture) HTTP 503 ステータスの要求を拒否します。 HTTP.sys のキューの制限を変更します。
 
     - IIS マネージャーを開き、アプリケーション プール ウィンドウに移動します。
     - 対象のアプリケーション プールを右クリックし、選択**詳細設定**です。  
-        ![高度な](using-asynchronous-methods-in-aspnet-mvc-4/_static/image4.png)
+        ![advanced](using-asynchronous-methods-in-aspnet-mvc-4/_static/image4.png)
     - **詳細設定** ダイアログ ボックスで、変更*Queue Length* 5,000 に 1,000 からです。  
         ![キューの長さ](using-asynchronous-methods-in-aspnet-mvc-4/_static/image5.png)  
   
@@ -177,6 +177,6 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 
     - [.NET のバージョン管理とマルチ ターゲットの .NET 4.5 は .NET 4.0 へのインプレース アップグレードです。](http://www.hanselman.com/blog/NETVersioningAndMultiTargetingNET45IsAnInplaceUpgradeToNET40.aspx)
     - [2.0 ではなく、ASP.NET 3.5 を使用するには、IIS アプリケーションまたはアプリケーション プールを設定する方法](http://www.hanselman.com/blog/HowToSetAnIISApplicationOrAppPoolToUseASPNET35RatherThan20.aspx)
-    - [.NET framework のバージョンとの依存関係](https://msdn.microsoft.com/en-us/library/bb822049(VS.110).aspx)
-- 場合は、アプリケーションが web サービスを使用するか、HTTP 経由でバックエンドと通信する System.NET を増やす必要があります、 [connectionManagement/maxconnection](https://msdn.microsoft.com/en-us/library/fb6y0fyc(VS.110).aspx)要素。 ASP.NET アプリケーションの場合これは Cpu の 12 倍の数を自動構成機能によって制限されます。 つまりするクアッド プロセッサであり、最大で 12 \* 4 = 48 IP エンドポイントへの同時接続。 これに関連付けられているため[autoConfig](https://msdn.microsoft.com/en-us/library/7w2sway1(VS.110).aspx)、向上させる最も簡単な方法として`maxconnection`では、ASP.NET アプリケーションの設定を[System.Net.ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/en-us/library/system.net.servicepointmanager.defaultconnectionlimit(VS.110).aspx)プログラムでの`Application_Start`メソッドで、 *global.asax*ファイル。 例については、ダウンロード サンプルを参照してください。
+    - [.NET framework のバージョンとの依存関係](https://msdn.microsoft.com/library/bb822049(VS.110).aspx)
+- 場合は、アプリケーションが web サービスを使用するか、HTTP 経由でバックエンドと通信する System.NET を増やす必要があります、 [connectionManagement/maxconnection](https://msdn.microsoft.com/library/fb6y0fyc(VS.110).aspx)要素。 ASP.NET アプリケーションの場合これは Cpu の 12 倍の数を自動構成機能によって制限されます。 つまりするクアッド プロセッサであり、最大で 12 \* 4 = 48 IP エンドポイントへの同時接続。 これに関連付けられているため[autoConfig](https://msdn.microsoft.com/library/7w2sway1(VS.110).aspx)、向上させる最も簡単な方法として`maxconnection`では、ASP.NET アプリケーションの設定を[System.Net.ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(VS.110).aspx)プログラムでの`Application_Start`メソッドで、 *global.asax*ファイル。 例については、ダウンロード サンプルを参照してください。
 - .NET 4.5、5000 までの既定値で[MaxConcurrentRequestsPerCPU](https://blogs.msdn.com/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)細かくする必要があります。

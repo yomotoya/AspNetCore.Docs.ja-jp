@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc7b90c06b2d99b6c540e9650bb4d8515f5c3702
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: df22a7c4aedb5e5fef183817e9d2b1e4c4a919ee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="performing-batch-updates-vb"></a>バッチ更新 (VB) を実行します。
 ====================
@@ -116,7 +116,7 @@ DataList のセット上のボタンの Web コントロールを追加するこ
 
 すべての編集のインターフェイスを表示する DataList の項目と、すべての更新ボタンを追加すると、すべてそのままは、バッチ更新を実行するコードを書き込んでいます。 具体的には、DataList の項目と呼び出しをループする必要があります、`SuppliersBLL`クラスの`UpdateSupplierAddress`それぞれのメソッドです。
 
-コレクション`DataListItem`DataList DataList s 経由でアクセスできる、その構成をインスタンス化[`Items`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.items.aspx)です。 参照で、 `DataListItem`、対応するをつかんでお`SupplierID`から、`DataKeys`コレクションと、プログラムで TextBox Web が内で制御の参照、`ItemTemplate`次のコードに示すように。
+コレクション`DataListItem`DataList DataList s 経由でアクセスできる、その構成をインスタンス化[`Items`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.items.aspx)です。 参照で、 `DataListItem`、対応するをつかんでお`SupplierID`から、`DataKeys`コレクションと、プログラムで TextBox Web が内で制御の参照、`ItemTemplate`次のコードに示すように。
 
 
 [!code-vb[Main](performing-batch-updates-vb/samples/sample4.vb)]
@@ -131,7 +131,7 @@ DataList のセット上のボタンの Web コントロールを追加するこ
 
 このチュートリアルの呼び出しのために使用されるバッチ更新アルゴリズム、`UpdateSupplierAddress`メソッドを*すべて*アドレス情報が変更されたかどうかに関係なく、DataList で業者にします。 このような blind は t 通常、パフォーマンスの問題を更新中にデータベース テーブルの変更の監査する場合に余分なレコードをつながることができます。 たとえば、すべてを記録するトリガーを使用する`UPDATE`s、`Suppliers`監査テーブル、ユーザーが新しい監査レコードは、システムでは、ユーザーがいずれかを作成するかどうかに関係なく各仕入先の作成がすべて更新 ボタンをクリックするたびに変更します。
 
-ADO.NET DataTable およびデータ アダプターのクラスは、データベースのすべての通信にのみ、変更、削除、および新しいレコードの結果をバッチ更新をサポートするために設計されています。 DataTable 内の各行が、 [ `RowState`プロパティ](https://msdn.microsoft.com/en-us/library/system.data.datarow.rowstate.aspx)行が変更されると、そこから削除された、DataTable に追加されましたまたはが変更されないかどうかを示すです。 DataTable の内容が最初に表示されたら、すべての行が変更されていないマークされます。 行は変更済みとしてマークの任意の行の列の値を変更します。
+ADO.NET DataTable およびデータ アダプターのクラスは、データベースのすべての通信にのみ、変更、削除、および新しいレコードの結果をバッチ更新をサポートするために設計されています。 DataTable 内の各行が、 [ `RowState`プロパティ](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx)行が変更されると、そこから削除された、DataTable に追加されましたまたはが変更されないかどうかを示すです。 DataTable の内容が最初に表示されたら、すべての行が変更されていないマークされます。 行は変更済みとしてマークの任意の行の列の値を変更します。
 
 `SuppliersBLL`に 1 つの仕入先のレコードの最初の読み取りで指定された業者のアドレス情報を更新クラス、`SuppliersDataTable`し、設定、 `Address`、 `City`、および`Country`次のコードを使用して列の値。
 
@@ -155,7 +155,7 @@ ADO.NET DataTable およびデータ アダプターのクラスは、データ�
 > 毎回、`UpdateSupplierAddress`メソッドが呼び出されるは、データベースに、更新されたレコードに関する情報を取得する呼び出しが行われます。 次に、データに変更がある場合は、テーブルの行を更新するデータベースへの別の呼び出しが行われます。 このワークフローを作成することで最適化する可能性があります、`UpdateSupplierAddress`を受け入れるメソッドのオーバー ロード、`EmployeesDataTable`があるインスタンス*すべて*からの変更、`BatchUpdate.aspx`ページ。 次に行うことができる、すべてのレコードから取得するデータベースに 1 回の呼び出し、`Suppliers`テーブル。 2 つの結果セットを列挙し、および変更が発生したレコードのみを更新できませんできます。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、複数の仕入先のアドレス情報をすばやく変更するユーザーを許可する、完全に編集可能な DataList を作成する方法を説明しました。 DataList s の仕入先の住所、city、および国の値 ボックスに Web コントロールの編集のインターフェイスを定義することによって開始`ItemTemplate`です。 次に、DataList の上下の更新プログラムのすべてのボタンを追加します。 ユーザーが自分の変更を行ったし、いずれかの更新プログラムのすべてのボタンをクリックした後、 `DataListItem` s が列挙を呼び出すと、`SuppliersBLL`クラスの`UpdateSupplierAddress`メソッドが行われます。
 

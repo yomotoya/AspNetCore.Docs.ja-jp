@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/purpose-strings
-ms.openlocfilehash: b1e95c9d0aa8195aa73fddfb97a4079e67a351bf
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 181d2ae85f38051ea12c7b7ac79198ec05f36bec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="purpose-strings"></a>目的の文字列
 
@@ -34,12 +34,12 @@ ms.lasthandoff: 01/19/2018
 >
 >Minting ベアラー トークンを担当する contoso 社製コンポーネントは、その目的の文字列として Contoso.Security.BearerToken を使用できます。 または、目的の文字列として Contoso.Security.BearerToken.v1 を - さらに、使用可能性があります。 バージョン番号を追加することにより、将来のバージョンを目的に応じて Contoso.Security.BearerToken.v2 を使用する、さまざまなバージョン互いから完全に分離ペイロード移動限りなります。
 
-目的のパラメーターから`CreateProtector`文字列配列では、上記でした代わりとして指定されて`[ "Contoso.Security.BearerToken", "v1" ]`です。 これは、目的の階層を確立することができ、データ保護システムを使用するマルチ テナント シナリオの可能性を開きます。
+目的のパラメーターから`CreateProtector`文字列配列では、上記でしたした代わりとして指定されている`[ "Contoso.Security.BearerToken", "v1" ]`です。 これは、目的の階層を確立することができ、データ保護システムを使用するマルチ テナント シナリオの可能性を開きます。
 
 <a name="data-protection-contoso-purpose"></a>
 
 >[!WARNING]
-> コンポーネントは、目的のチェーンの入力の唯一のソースである信頼されていないユーザー入力を許可しません。
+> コンポーネントは、目的のチェーンの入力の唯一のソースである信頼されていないユーザー入力を許可するべきではありません。
 >
 >たとえば、セキュリティで保護されたメッセージの格納を担当する Contoso.Messaging.SecureMessage コンポーネントを検討してください。 セキュリティで保護されたメッセージング コンポーネントを呼び出す場合`CreateProtector([ username ])`、悪意のあるユーザーを呼び出すコンポーネントを取得しようとするにユーザー名"Contoso.Security.BearerToken"を持つアカウントを作成する可能性があります、 `CreateProtector([ "Contoso.Security.BearerToken" ])`、誤ってしまい、セキュリティで保護されたメッセージング認証トークンとして認識でした言い換えるペイロードにシステムです。
 >
@@ -53,9 +53,9 @@ ms.lasthandoff: 01/19/2018
 
 * 2 つの目的の引数は、同じ順序では、(序数の比較子を使用して)、同じ文字列が含まれている場合にのみに相当します。 1 つの目的の引数は、対応する 1 つの要素の目的で配列と同じです。
 
-* 2 つ`IDataProtector`該当するショートカットからが作成される場合にのみ、オブジェクトが等しく`IDataProtectionProvider`と同等の目的でパラメーターを持つオブジェクト。
+* 2 つ`IDataProtector`該当するショートカットを作成する場合にのみ、オブジェクトが等しく`IDataProtectionProvider`と同等の目的でパラメーターを持つオブジェクト。
 
 * 指定された`IDataProtector`オブジェクトへの呼び出し`Unprotect(protectedData)`元を返す`unprotectedData`場合にのみ`protectedData := Protect(unprotectedData)`同等の`IDataProtector`オブジェクト。
 
 > [!NOTE]
-> いくつかのコンポーネントが意図的に別のコンポーネントと競合する呼ばれる目的の文字列を選択、ケース マイクロソフトいない検討しています。 このようなコンポーネントは基本的と見なされる悪意のあると、このシステムは、悪意のあるコードは、ワーカー プロセス内で既に実行されているセキュリティ保証を提供するものではありません。
+> いくつかのコンポーネントが意図的に別のコンポーネントと競合する呼ばれる目的の文字列を選択、ケース マイクロソフトいない検討しています。 このようなコンポーネントは本質的にする悪意のあると見なさこのシステムが悪意のあるコードは、ワーカー プロセス内で既に実行されているセキュリティ保証を提供するものではありません。

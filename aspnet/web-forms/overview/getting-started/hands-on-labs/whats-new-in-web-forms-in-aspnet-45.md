@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 23e38416dc294a1a07cb320cf5ab328fa036d1e8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 560f949f79be8ba4936e4a6f8ee8ee32ef15acbf
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>Asp.net 4.5 Web フォームの新機能
 ====================
@@ -562,7 +562,7 @@ ASP.NET の要求の検証機能は、特定のレベルのクロス サイト �
     (コード スニペットの*Web フォーム ラボ - Ex03 - UpdateProductImage 呼び出し*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample34.cs)]
-7. アプリケーションを実行し、製品の画像をアップロードしようとしてください。 たとえば、Office クリップ アートから次の画像の URL を使用することができます: [ [http://officeimg.vo.msecnd.net/en-us/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/en-us/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/en-us/images/MB900437099.jpg)
+7. アプリケーションを実行し、製品の画像をアップロードしようとしてください。 たとえば、Office クリップ アートから次の画像の URL を使用することができます: [ [http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
 
     ![製品のイメージを設定](whats-new-in-web-forms-in-aspnet-45/_static/image23.png "製品用のイメージの設定")
 
@@ -619,7 +619,7 @@ Web サイトで時間のかかる操作が長時間割り当てられている�
 * * *
 
 <a id="Summary"></a>
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このハンズオン ラボでは、次の概念が対処して示されています。
 

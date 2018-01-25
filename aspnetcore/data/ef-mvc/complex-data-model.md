@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 5b5645936504333573950b5bd17f5a037ffd984f
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d844e2a69e4bbfdf3942f2666ead0047bdf83b7a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>EF コア ASP.NET Core MVC のチュートリアル (10 の 5) に、複雑なデータ モデルを作成します。
 
@@ -39,9 +39,9 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-`DataType` 属性は、データベースの組み込み型よりも具体的なデータ型を指定するために使用されます。 ここでのみが必要を追跡する、日付、日付と時刻がありません。 `DataType`日付、時刻、PhoneNumber、通貨、EmailAddress などの多くのデータ型の列挙体を提供します。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 たとえば、`mailto:` リンクを `DataType.EmailAddress` に作成したり、HTML5 をサポートするブラウザーで `DataType.Date` に日付セレクターを提供したりできます。 `DataType`属性は、HTML 5 を出力`data-`HTML 5 ブラウザーを理解することができます (データと読みます dash) の属性です。 `DataType`属性は、いずれかの検証を渡さないようにします。
+`DataType`属性を使用してデータベースの組み込み型よりも特定のデータ型を指定します。 ここでのみが必要を追跡する、日付、日付と時刻がありません。 `DataType`日付、時刻、PhoneNumber、通貨、EmailAddress などの多くのデータ型の列挙体を提供します。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 たとえば、`mailto:` リンクを `DataType.EmailAddress` に作成したり、HTML5 をサポートするブラウザーで `DataType.Date` に日付セレクターを提供したりできます。 `DataType`属性は、HTML 5 を出力`data-`HTML 5 ブラウザーを理解することができます (データと読みます dash) の属性です。 `DataType`属性は、いずれかの検証を提供しません。
 
-`DataType.Date` は、表示される日付の書式を指定しません。 既定では、サーバーの CultureInfo に基づく既定の形式に従ってデータ フィールドが表示されます。
+`DataType.Date`表示される日付の形式で指定されていません。 既定では、サーバーの CultureInfo に基づく既定の形式に従ってデータ フィールドが表示されます。
 
 `DisplayFormat` 属性は、日付の書式を明示的に指定するために使用されます。
 
@@ -103,7 +103,7 @@ dotnet ef database update
 
 クラスとプロパティをデータベースにマップする方法を制御するのに属性を使用することもできます。 名前を使用するいたと仮定します`FirstMidName`最初の-名前のフィールドのフィールドには、ミドル ネームが含まれる場合もあるためです。 選択した名前を指定するデータベース列が、`FirstName`データベースに対してアドホック クエリを記述するユーザーがその名前に慣れているため、します。 このマッピングを作成するには、使用することができます、`Column`属性。
 
-`Column`属性を指定するデータベースが作成されるとき、列の`Student`をマップするテーブル、`FirstMidName`プロパティの名前は`FirstName`します。 つまり、ときに、コードを指す`Student.FirstMidName`、データから得られますまたはで更新される、`FirstName`の列、`Student`テーブル。 列名を指定しない場合、プロパティ名と同じ名前が付与されます。
+`Column`属性を指定するデータベースが作成されるとき、列の`Student`をマップするテーブル、`FirstMidName`プロパティの名前は`FirstName`します。 つまり、ときに、コードを指す`Student.FirstMidName`、データから得られますまたはで更新される、`FirstName`の列、`Student`テーブル。 列名を指定しない場合、プロパティ名と同じ名前で与えられます。
 
 *Student.cs*ファイルに追加し、`using`の声明`System.ComponentModel.DataAnnotations.Schema`に列名の属性を追加し、`FirstMidName`プロパティ、次の強調表示されたコードに示すように。
 
@@ -125,7 +125,7 @@ dotnet ef database update
 
 ![移行した後で SSOX students テーブル](complex-data-model/_static/ssox-after-migration.png)
 
-最初の 2 つの移行を適用する前に、名前の列は、nvarchar (max) 型のでした。 これは nvarchar (50) し、列名は、firstname FirstMidName から変更されました。
+最初の 2 つの移行を適用する前に、名前の列は、nvarchar (max) 型のでした。 これらは、これで、nvarchar (50) と列の名前が変更された FirstMidName から firstname です。
 
 > [!Note]
 > 次のセクションでのすべてのエンティティ クラスの作成を完了する前にコンパイルしようとすると、コンパイラ エラーが発生する可能性があります。
@@ -231,7 +231,7 @@ Instructor エンティティに null 許容`OfficeAssignment`ナビゲーショ
 
 Course エンティティは、外部キーのプロパティを持つ`DepartmentID`が、関連する部門エンティティとそれを`Department`ナビゲーション プロパティ。
 
-Entity Framework は、関連エンティティのナビゲーション プロパティがある場合、データ モデルに外部キーのプロパティを追加する必要ありません。  EF は自動的には、必要に応じて、データベース内の外部キーを作成し、作成[プロパティをシャドウ](https://docs.microsoft.com/ef/core/modeling/shadow-properties)にします。 簡素化されより効率的な更新プログラムを必ずデータ モデルの外部キーを持つことができます。 たとえば、コースを編集するエンティティをフェッチするときに、Department エンティティが null、読み込まない場合ので、course エンティティを更新するときに必要があります、Department エンティティを最初に取得します。 ときに外部キー プロパティ`DepartmentID`が含まれるデータ モデルで更新する前に、Department エンティティをフェッチする必要はありません。
+Entity Framework は、関連エンティティのナビゲーション プロパティがある場合、データ モデルに外部キーのプロパティを追加する必要ありません。  EF は自動的にしている必要な場所がデータベースに外部キーを作成し、作成[プロパティをシャドウ](https://docs.microsoft.com/ef/core/modeling/shadow-properties)にします。 簡素化されより効率的な更新プログラムを必ずデータ モデルの外部キーを持つことができます。 たとえば、コースを編集するエンティティをフェッチするときに、Department エンティティが null、読み込まない場合ので、course エンティティを更新するときに必要があります、Department エンティティを最初に取得します。 ときに外部キー プロパティ`DepartmentID`が含まれるデータ モデルで更新する前に、Department エンティティをフェッチする必要はありません。
 
 ### <a name="the-databasegenerated-attribute"></a>DatabaseGenerated 属性
 
@@ -308,7 +308,7 @@ public ICollection<Course> Courses { get; set; }
 ```
 
 > [!NOTE]
-> 慣例により、Entity Framework null 非許容の外部キーおよび多対多リレーションシップの連鎖削除を有効にします。 これは、結果、循環 cascade delete ルールは、移行を追加しようとすると、例外が発生します。 たとえば、Department.InstructorID プロパティは、null 値許容と定義されていないのに、EF よう、部門ではないどのような動作を削除すると、インストラクターを削除する連鎖削除規則に構成します。 ビジネス ルールが必要な場合、`InstructorID`プロパティを null 非許容、ステートメントを使用して、次 fluent API をリレーションシップで連鎖削除を無効にする必要があります。
+> 慣例により、Entity Framework null 非許容の外部キーおよび多対多リレーションシップの連鎖削除を有効にします。 これは、結果、循環 cascade delete ルールは、移行を追加しようとすると、例外が発生します。 たとえば、Department.InstructorID プロパティは、null 値許容と定義されていないのに、EF よう、部門はこれが発生するを削除すると、インストラクターを削除する連鎖削除規則に構成します。 ビジネス ルールが必要な場合、`InstructorID`プロパティを null 非許容、ステートメントを使用して、次 fluent API をリレーションシップで連鎖削除を無効にする必要があります。
 > ```csharp
 > modelBuilder.Entity<Department>()
 >    .HasOne(d => d.Administrator)
@@ -354,7 +354,7 @@ Student とコースのエンティティ間に多対多のリレーションシ
 
 場合は、Enrollment テーブルには、評価情報が含まれていなかった、CourseID と学生 Id の 2 つの外部キーを保持することはのみです。 その場合は、なりますペイロードせず、多対多の結合テーブル (または純粋な結合テーブル)、データベースにします。 インストラクターとコース エンティティはそのような多対多リレーションシップを持ち、ペイロードしないテーブルの結合として機能するエンティティ クラスを作成するのには、次の手順。
 
-(EF 6.x サポートされていますが、多対多のリレーションシップ、EF コアの暗黙の結合テーブルはありません。 詳細については、次を参照してください、 [EF コア GitHub リポジトリにディスカッション](https://github.com/aspnet/EntityFramework/issues/1368)。)。 
+(EF 6.x サポートしていますが、多対多のリレーションシップ、EF コアの暗黙の結合テーブルがありません。 詳細については、次を参照してください、 [EF コア GitHub リポジトリにディスカッション](https://github.com/aspnet/EntityFramework/issues/1368)。)。 
 
 ## <a name="the-courseassignment-entity"></a>CourseAssignment エンティティ
 

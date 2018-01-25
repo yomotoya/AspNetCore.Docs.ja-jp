@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: f6266045ebf55fb7ae691bfb55e9c90cd4edcc96
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 497102cfa98680f2156a56ff9e36d84b7c820020
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="calling-an-odata-service-from-a-net-client-c"></a>.NET クライアント (c#) から OData サービスを呼び出す
 ====================
@@ -30,8 +30,8 @@ ms.lasthandoff: 11/10/2017
 > 
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) (Visual Studio 2012 で動作します)
-> - [WCF Data Services クライアント ライブラリ](https://msdn.microsoft.com/en-us/library/cc668772.aspx)
-> - Web API 2 です。 (Web API 2 を使用して OData サービスの使用例をビルドが、クライアント アプリケーションが Web API に依存しない)。
+> - [WCF Data Services クライアント ライブラリ](https://msdn.microsoft.com/library/cc668772.aspx)
+> - Web API 2. (Web API 2 を使用して OData サービスの使用例をビルドが、クライアント アプリケーションが Web API に依存しない)。
 
 
 このチュートリアルでは、OData サービスを呼び出すクライアント アプリケーションの作成について詳しく説明します。 OData サービスは、次のエンティティを公開します。
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/10/2017
 
 - [Web API 2 OData エンドポイントを作成します。](creating-an-odata-endpoint.md)
 - [Web API 2 OData エンティティ関係](working-with-entity-relations.md)
-- [Web API 2 OData アクション](odata-actions.md)
+- [Web API 2 の OData アクション](odata-actions.md)
 
 ## <a name="generate-the-service-proxy"></a>サービス プロキシを生成します。
 
@@ -118,7 +118,7 @@ ID でエンティティを取得する、`where`句。
 
 OData 定義[クエリ オプション](../supporting-odata-query-options.md)フィルター、並べ替え、ページ データなどに使用できます。 サービス プロキシでは、さまざまな LINQ 式を使用してこれらのオプションを適用できます。
 
-このセクションでは、簡単な例を示します。 詳細については、トピックを参照してください。 [LINQ に関する留意点 (WCF Data Services)](https://msdn.microsoft.com/en-us/library/ee622463.aspx) msdn です。
+このセクションでは、簡単な例を示します。 詳細については、トピックを参照してください。 [LINQ に関する留意点 (WCF Data Services)](https://msdn.microsoft.com/library/ee622463.aspx) msdn です。
 
 ### <a name="filtering-filter"></a>フィルター処理 ($filter)
 
@@ -226,7 +226,7 @@ OData メタデータ ドキュメントでは、操作を説明をそれらの�
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample24.cs)]
 
-詳細については、次を参照してください。[サービス操作の呼び出しとアクション](https://msdn.microsoft.com/en-us/library/hh230677.aspx)です。
+詳細については、次を参照してください。[サービス操作の呼び出しとアクション](https://msdn.microsoft.com/library/hh230677.aspx)です。
 
 1 つのオプションは拡張を**コンテナー**アクションを起動する厳密に型指定されたメソッドを提供するクラス。
 

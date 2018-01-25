@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: a5538744dfaff76f28c5f17d8f5d782ef3f6c118
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a7995844ee6ed19efa130c4f6c019214d6652ea7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-iis-as-a-test-environment---5-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します 5/12 - テスト環境として IIS に展開する。
 ====================
@@ -83,7 +83,7 @@ Windows から**開始**メニューの **実行**"inetmgr"を入力し、クリ
 
 2 つのアプリケーション プールを参照してください、.NET Framework 2.0 に設定されます両方の場合は、IIS で ASP.NET 4 をインストールする必要があります。
 
-- 右クリックして、コマンド プロンプト ウィンドウを開く**コマンド プロンプト**windows**開始**メニューを選択して**管理者として実行**です。 実行して[aspnet\_regiis.exe](https://msdn.microsoft.com/en-us/library/k6h9cz8h.aspx)を次のコマンドを使用して、IIS で ASP.NET 4 をインストールします。 (64 ビット システムでは、"Framework64"と"Framework"を置き換えてください)。
+- 右クリックして、コマンド プロンプト ウィンドウを開く**コマンド プロンプト**windows**開始**メニューを選択して**管理者として実行**です。 実行して[aspnet\_regiis.exe](https://msdn.microsoft.com/library/k6h9cz8h.aspx)を次のコマンドを使用して、IIS で ASP.NET 4 をインストールします。 (64 ビット システムでは、"Framework64"と"Framework"を置き換えてください)。
 
     [!code-console[Main](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/samples/sample2.cmd)]
 
@@ -111,7 +111,7 @@ IIS に発行する準備が整いました。
 - 作成、*展開パッケージ*し、IIS マネージャーの UI を使用してインストールします。 展開パッケージの構成要素、 *.zip*をすべてのファイルと IIS のサイトのインストールに必要なメタデータを含むファイルです。
 - 展開パッケージを作成し、コマンドラインを使用してインストールします。
 
-プロセスを経てきましたを自動化する Visual Studio を設定する前のチュートリアルでの展開タスクがこれら 3 つのメソッドのすべてに適用されます。 これらのチュートリアルでは、これらのメソッドの最初の数値を使用します。 展開パッケージを使用する方法の詳細については、次を参照してください。 [ASP.NET 展開のコンテンツ マップ](https://msdn.microsoft.com/en-us/library/bb386521.aspx)です。
+プロセスを経てきましたを自動化する Visual Studio を設定する前のチュートリアルでの展開タスクがこれら 3 つのメソッドのすべてに適用されます。 これらのチュートリアルでは、これらのメソッドの最初の数値を使用します。 展開パッケージを使用する方法の詳細については、次を参照してください。 [ASP.NET 展開のコンテンツ マップ](https://msdn.microsoft.com/library/bb386521.aspx)です。
 
 発行前に、管理者モードで Visual Studio を実行していることを確認します。 (Windows 7 で**開始**メニューで、ご使用の Visual Studio のバージョンのアイコンを右クリックして**管理者として実行**)。管理者モードでは、のみときにパブリッシュする IIS、ローカル コンピューター上の発行に必要です。
 
@@ -244,7 +244,7 @@ Visual Studio での IIS または IIS Express の実行については、次の
 
 - [IIS Express の概要](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview)IIS.net サイトです。
 - [IIS Express の概要](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx)Scott Guthrie のブログです。
-- [方法: Visual Studio で Web プロジェクトの Web サーバーを指定](https://msdn.microsoft.com/en-us/library/ms178108.aspx)です。
+- [方法: Visual Studio で Web プロジェクトの Web サーバーを指定](https://msdn.microsoft.com/library/ms178108.aspx)です。
 - [コアの相違点の間で IIS と ASP.NET 開発サーバー](../deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md) ASP.NET サイトです。
 - [30 秒以内に、ASP.NET MVC または IIS 7 で Web フォーム アプリケーションをテスト](https://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx)Rick Anderson のブログです。 このエントリは、Visual Studio 開発サーバー (Cassini) でのテストが理由 IIS Express で、テストとして信頼できると、IIS Express でのテストが理由として、IIS でのテストと信頼性の高いの例を提供します。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: 97910940f9de26ca71b111b945581d2de6650b02
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 01f72e0240e84944f8ffece9a2dbc5802be4646b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio を使用して ASP.NET Web 配置: テストへの展開
 ====================
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/10/2017
 
 オプション 2 をテストする最も確実な方法は、する場合がないと必ずしもはオプション 1 にします。 ただしを展開している場合、サード パーティ製ホスティング プロバイダー オプション 2 することは不可能またはため、このチュートリアルのシリーズが両方の方法を示していますが高くなる可能性があります。 オプション 2 のガイダンスがで提供される、[実稼働環境に展開する](deploying-to-production.md)チュートリアルです。
 
-Visual Studio で web サーバーの使用の詳細については、次を参照してください。 [ASP.NET Web プロジェクト用の Visual Studio で Web サーバー](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx)です。
+Visual Studio で web サーバーの使用の詳細については、次を参照してください。 [ASP.NET Web プロジェクト用の Visual Studio で Web サーバー](https://msdn.microsoft.com/library/58wxa9w5.aspx)です。
 
 アラーム: エラー メッセージを取得する、または、チュートリアルを通過するとおりに機能しない、確認して、[トラブルシューティングのページ](troubleshooting.md)です。
 
@@ -73,7 +73,7 @@ IIS をインストールすると、実行**IIS マネージャー** .NET Frame
     [![Inetmgr_showing_4.0_app_pools](deploying-to-iis/_static/image3.png)](deploying-to-iis/_static/image2.png)
 4. 2 つのアプリケーション プールを参照してください、.NET Framework 2.0 に設定されます両方の場合は、IIS で ASP.NET 4 をインストールする必要があります。
 
-    Windows 8 セクションことを確認する ASP.NET 4.5 がインストールされている、またはを参照してください、前の手順を参照して[このサポート技術情報記事](https://support.microsoft.com/kb/2736284)です。 Windows 7 を右クリックして、コマンド プロンプト ウィンドウを開く**コマンド プロンプト**windows**開始**メニューを選択して**管理者として実行**です。 実行して[aspnet\_regiis.exe](https://msdn.microsoft.com/en-us/library/k6h9cz8h.aspx)を次のコマンドを使用して、IIS で ASP.NET 4 をインストールします。 (32 ビット システムでは、"Framework"と"Framework64"を置き換えてください)。
+    Windows 8 セクションことを確認する ASP.NET 4.5 がインストールされている、またはを参照してください、前の手順を参照して[このサポート技術情報記事](https://support.microsoft.com/kb/2736284)です。 Windows 7 を右クリックして、コマンド プロンプト ウィンドウを開く**コマンド プロンプト**windows**開始**メニューを選択して**管理者として実行**です。 実行して[aspnet\_regiis.exe](https://msdn.microsoft.com/library/k6h9cz8h.aspx)を次のコマンドを使用して、IIS で ASP.NET 4 をインストールします。 (32 ビット システムでは、"Framework"と"Framework64"を置き換えてください)。
 
     [!code-console[Main](deploying-to-iis/samples/sample1.cmd)]
 
@@ -94,9 +94,9 @@ IIS は、web アプリケーションを発行するための準備ができま
 
 LocalDB は、SQL Server Express をインストールしておく必要が、テスト環境のために IIS では、作業に設計されていません。 Visual Studio 2010 SQL Server Express を使用している場合は、既定では既にインストールします。 Visual Studio 2012 を使用している場合は、インストールする必要です。
 
-SQL Server Express をインストールするインストールから[ダウンロード センター: Microsoft SQL Server 2012 Express](https://www.microsoft.com/en-us/download/details.aspx?id=29062)  をクリックして[ENU\x64\SQLEXPR\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLEXPR_x64_ENU.exe)または[ENU\x86\SQLEXPR\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLEXPR_x86_ENU.exe)です。 問題の 1 つを選択した場合、システムのインストールに失敗し、もう 1 つを試みることができます。
+SQL Server Express をインストールするインストールから[ダウンロード センター: Microsoft SQL Server 2012 Express](https://www.microsoft.com/download/details.aspx?id=29062)  をクリックして[ENU\x64\SQLEXPR\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLEXPR_x64_ENU.exe)または[ENU\x86\SQLEXPR\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLEXPR_x86_ENU.exe)です。 問題の 1 つを選択した場合、システムのインストールに失敗し、もう 1 つを試みることができます。
 
-SQL Server インストール センターの最初のページで、をクリックして**SQL Server の新規スタンドアロン インストールまたは既存のインストールに機能の追加**デフォルトの選択を受け入れ、指示に従います。 インストール ウィザードでは、既定の設定をそのまま使用します。 インストール オプションの詳細については、次を参照してください。[インストール ウィザード (セットアップ) からの SQL Server 2012 のインストール](https://msdn.microsoft.com/en-us/library/ms143219.aspx)です。
+SQL Server インストール センターの最初のページで、をクリックして**SQL Server の新規スタンドアロン インストールまたは既存のインストールに機能の追加**デフォルトの選択を受け入れ、指示に従います。 インストール ウィザードでは、既定の設定をそのまま使用します。 インストール オプションの詳細については、次を参照してください。[インストール ウィザード (セットアップ) からの SQL Server 2012 のインストール](https://msdn.microsoft.com/library/ms143219.aspx)です。
 
 ## <a name="create-sql-server-express-databases-for-the-test-environment"></a>テスト環境の SQL Server Express データベースを作成します。
 
@@ -227,13 +227,13 @@ Contoso 大学アプリケーションが 2 つのデータベース: メンバ�
 5. 追加手順を繰り返して、 *aspnet データ-dev.sql*スクリプト。
 
     ![メンバーシップ データベースのデータベースの更新を構成します。](deploying-to-iis/_static/image16.png)
-6. **[閉じる]**をクリックします。
+6. **[閉じる]** をクリックします。
 
 ### <a name="configure-deployment-for-the-application-database"></a>アプリケーション データベースの展開を構成します。
 
 Visual Studio で Entity Framework が検出された場合`DbContext`内のエントリを作成、クラス、**データベース**セクションを**Code First Migrations を実行**チェック ボックスをオンの代わりに、 **データベースを更新する**チェック ボックスをオンします。 このチュートリアルでは、Code First Migrations デプロイを指定するのに、このチェック ボックスを使用します。
 
-一部のシナリオで使用している、`DbContext`データベース場合でも、移行ではなく dbDacFx プロバイダーを使用して、データベースを展開します。 その場合を参照してください[移行なしの Code First のデータベースの配置方法?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#deploy_code_first_without_migrations) MSDN で ASP.NET Web 展開 FAQ にします。
+一部のシナリオで使用している、`DbContext`データベース場合でも、移行ではなく dbDacFx プロバイダーを使用して、データベースを展開します。 その場合を参照してください[移行なしの Code First のデータベースの配置方法?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) MSDN で ASP.NET Web 展開 FAQ にします。
 
 次の手順を適用する、 **SchoolContext**データベースに格納されて、**データベース** ダイアログ ボックスのセクションです。
 
@@ -318,7 +318,7 @@ Visual Studio で Entity Framework が検出された場合`DbContext`内のエ�
 1. **設定**のタブ、 **Web の発行**ウィザード、完全なデータベース スキーマの更新権限を持つユーザーを指定する接続文字列を入力し、オフ、**この接続文字列を使用実行時に**チェック ボックスをオンします。 これは展開済みの Web.config ファイルで、`DatabasePublish`接続文字列。
 2. アプリケーションが実行時に使用する接続文字列の Web.config ファイルの変換を作成します。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 今すぐ開発用コンピューター上の IIS にアプリケーションを配置してテストしたことがあります。
 
@@ -332,7 +332,7 @@ Visual Studio での IIS または IIS Express の実行については、次の
 
 - [IIS Express の概要](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview)IIS.net サイトです。
 - [IIS Express の概要](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx)Scott Guthrie のブログです。
-- [ASP.NET Web プロジェクトのために、Visual Studio でのサーバーを web](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx)です。
+- [ASP.NET Web プロジェクトのために、Visual Studio でのサーバーを web](https://msdn.microsoft.com/library/58wxa9w5.aspx)です。
 - [コアの相違点の間で IIS と ASP.NET 開発サーバー](../../older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md) ASP.NET サイトです。
 
 どのような問題については、中程度の信頼でアプリケーションを実行するときに発生する可能性を参照してください[中程度の信頼で ASP.NET アプリケーションをホストしている](http://www.4guysfromrolla.com/articles/100307-1.aspx)Rolla サイトから 4 Guys にします。

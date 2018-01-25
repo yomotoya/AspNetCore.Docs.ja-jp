@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 5265f9962ca6244b1fe13ca6e37a5217c15b8cdf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b77aa37160f3822f58908866e44497aea3d3bdc8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Web 配置の適切なアプローチを選択します。
 ====================
@@ -69,7 +69,7 @@ Web 配置の移行先サーバーで、既定の設定を使用してをイン�
 
 
 > [!NOTE]
-> Web Deploy のコマンドライン構文についての詳細と*. deploy.cmd*ファイルを参照してください[する方法: 展開パッケージを使用して、deploy.cmd ファイルをインストール](https://msdn.microsoft.com/en-us/library/ff356104.aspx)です。
+> Web Deploy のコマンドライン構文についての詳細と*. deploy.cmd*ファイルを参照してください[する方法: 展開パッケージを使用して、deploy.cmd ファイルをインストール](https://msdn.microsoft.com/library/ff356104.aspx)です。
 
 
 リモート エージェントがリモートの場所からコンテンツを展開する簡単な方法を提供し、この方法でも 1 回のクリックまたは自動の展開でうまく機能します。 ただし、展開コマンドを実行するユーザーにも必要があります、ドメイン管理者または移行先サーバーでローカルの administrators グループのメンバーのいずれか。 さらに、コマンドラインで代替資格情報を渡すことはできませんので、リモート エージェントは、基本認証をサポートしていません。
@@ -94,7 +94,7 @@ Web 配置の移行先サーバーで、既定の設定を使用してをイン�
 
 このアプローチの利点は、移行先サーバーへの Web Deploy のインストールを管理する必要はありません。 さらに、元と移行先のコンピューターが同じバージョンの Web 配置を実行していることを確認する必要はありません。 ただし、このアプローチが低下、プリンシパルと同じ制限リモート エージェントのアプローチからつまり、コンテンツを展開するために、移行先サーバー上のローカル管理者をする必要があり、NTLM 認証のみがサポートされていること。 一時エージェント アプローチには、展開先の環境のもっと初期構成が必要です。
 
-一時のエージェントを使用する方法については、次を参照してください。[する方法: 展開パッケージを使用して、deploy.cmd ファイルをインストール](https://msdn.microsoft.com/en-us/library/ff356104.aspx)と[Web 展開オンデマンド](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx)です。
+一時のエージェントを使用する方法については、次を参照してください。[する方法: 展開パッケージを使用して、deploy.cmd ファイルをインストール](https://msdn.microsoft.com/library/ff356104.aspx)と[Web 展開オンデマンド](https://technet.microsoft.com/library/ee517345(WS.10).aspx)です。
 
 ## <a name="using-the-web-deploy-handler"></a>Web を使用してハンドラーを展開
 
@@ -125,7 +125,7 @@ IIS 7 以降の場合は、Web Deploy は、IIS Web 配置ハンドラーから�
 
 
 > [!NOTE]
-> Web Deploy のコマンドライン操作と構文の詳細については、次を参照してください。 [Web 展開コマンド ライン リファレンス](https://technet.microsoft.com/en-us/library/dd568991(v=ws.10).aspx)です。 使用の詳細について、 *. deploy.cmd*ファイルを参照してください[する方法: インストールの展開パッケージを使用して、deploy.cmd ファイル](https://msdn.microsoft.com/en-us/library/ff356104.aspx)です。
+> Web Deploy のコマンドライン操作と構文の詳細については、次を参照してください。 [Web 展開コマンド ライン リファレンス](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx)です。 使用の詳細について、 *. deploy.cmd*ファイルを参照してください[する方法: インストールの展開パッケージを使用して、deploy.cmd ファイル](https://msdn.microsoft.com/library/ff356104.aspx)です。
 
 
 Web 展開ハンドラーは、環境、ホストされる環境、およびイントラネット ベースの運用環境で、サーバーへのリモート アクセスは使用できますが、管理者の資格情報がステージング環境の配置に有効な解決方法を提供します。
@@ -146,9 +146,9 @@ Web 展開ハンドラー アプローチを使用するシナリオのエンド
 
 ## <a name="further-reading"></a>関連項目
 
-Web Deploy のコマンドライン操作と構文の詳細については、次を参照してください。 [Web 展開コマンド ライン リファレンス](https://technet.microsoft.com/en-us/library/dd568991(v=ws.10).aspx)です。 使用の詳細について、 *. deploy.cmd*ファイルを参照してください[する方法: インストールの展開パッケージを使用して、deploy.cmd ファイル](https://msdn.microsoft.com/en-us/library/ff356104.aspx)です。
+Web Deploy のコマンドライン操作と構文の詳細については、次を参照してください。 [Web 展開コマンド ライン リファレンス](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx)です。 使用の詳細について、 *. deploy.cmd*ファイルを参照してください[する方法: インストールの展開パッケージを使用して、deploy.cmd ファイル](https://msdn.microsoft.com/library/ff356104.aspx)です。
 
-リモート コンピューターから web パッケージを展開するさまざまな方法に関する一般的なガイダンスについては、次を参照してください。[を使用して Web 展開でのリモート](https://technet.microsoft.com/en-us/library/ee461175(WS.10).aspx)です。 Web 展開要求時に使用する方法については、次を参照してください。 [Web 展開オンデマンド](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx)です。
+リモート コンピューターから web パッケージを展開するさまざまな方法に関する一般的なガイダンスについては、次を参照してください。[を使用して Web 展開でのリモート](https://technet.microsoft.com/library/ee461175(WS.10).aspx)です。 Web 展開要求時に使用する方法については、次を参照してください。 [Web 展開オンデマンド](https://technet.microsoft.com/library/ee517345(WS.10).aspx)です。
 
 >[!div class="step-by-step"]
 [前へ](configuring-server-environments-for-web-deployment.md)

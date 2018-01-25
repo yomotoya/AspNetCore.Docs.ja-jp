@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: b004a8e7680b203416552e5a7a2809799e657759
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: bc9febc41d0637be9f83a02799d360489f257849
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>アカウントの確認と ASP.NET Core でのパスワードの回復
 
@@ -89,7 +89,7 @@ dotnet new mvc --auth Individual
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>確認の電子メールが必要
 
-他のユーザーを偽装するしていないことを確認する新規ユーザーの登録の電子メール アドレスを確認することをお勧め (つまり、まだに登録されている他のユーザーの電子メール)。 ディスカッション フォーラムいてしないようにすると仮定します"yli@example.com"として登録する"fromnolivetto@contoso.com"。 電子メールの確認なし"nolivetto@contoso.com"アプリから不要な電子メールを取得する可能性があります。 ユーザーが誤ってとして登録されていると仮定します"ylo@example.com"ミススペルを認識していないと"yli、"ができなく、アプリは、正しいメール アドレスがある見つからないために、パスワードの回復を使用します。 確認の電子メールは、bot から制限の保護のみを提供し、登録に使用できる多くの作業電子メール エイリアスを持つ判別スパム攻撃者から保護を提供しません。
+他のユーザー偽装はいないしていることを確認する新規ユーザーの登録の電子メール アドレスを確認することをお勧め (つまり、まだに登録されている他のユーザーの電子メール)。 ディスカッション フォーラムいてしないようにすると仮定します"yli@example.com"として登録する"fromnolivetto@contoso.com"。 電子メールの確認なし"nolivetto@contoso.com"アプリから不要な電子メールを取得する可能性があります。 ユーザーが誤ってとして登録されていると仮定します"ylo@example.com"ミススペルを認識していないと"yli、"ができなく、アプリは、正しいメール アドレスがある見つからないために、パスワードの回復を使用します。 確認の電子メールは、bot から制限の保護のみを提供し、登録に使用できる多くの作業電子メール エイリアスを持つ判別スパム攻撃者から保護を提供しません。
 
 一般にする新しいユーザーが確認された電子メールがある前に、web サイトにデータを投稿するを防ぐ。 
 
@@ -110,7 +110,7 @@ dotnet new mvc --auth Individual
 ```csharp
 config.SignIn.RequireConfirmedEmail = true;
 ```
-前の行では、登録済みユーザーが自分の電子メールが確認されるまでには記録できなくなります。 ただし、その行は、登録した後ログ記録されてから新しいユーザーを妨げません。 既定のコードは、登録した後でユーザーを記録します。 ログアウトすると、登録するまで再ログインすることはできません。 コードのために新規登録されたユーザーは、変更をこのチュートリアルで後ほど**いない**ログに記録します。
+前の行では、登録済みユーザーが自分の電子メールが確認されるまでには記録できなくなります。 ただし、その行によって妨げられない新しいユーザーを登録した後に記録されています。 既定のコードは、登録した後でユーザーを記録します。 ログアウトすると、登録するまで再ログインすることはできません。 コードのために新規登録されたユーザーは、変更をこのチュートリアルで後ほど**いない**ログに記録します。
 
 ### <a name="configure-email-provider"></a>電子メール プロバイダーを構成します。
 
@@ -277,7 +277,7 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 
 ## <a name="prevent-login-at-registration"></a>登録時にログインをできません。
 
-現在のテンプレートを使用して、ユーザーが、登録フォームを完了するには記録 (認証)。 ログを記録する前に自分の電子メールを確認する一般にできます。 以下のセクションを必要とするコードを変更しましたには記録前に、新しいユーザーが確認された電子メールがあります。 更新プログラム、`[HttpPost] Login`アクションで、 *AccountController.cs*の次の強調表示されている変更されたファイルです。
+現在のテンプレートを使用してユーザーには、登録フォームが完了すると、ログインしています (認証)。 ログを記録する前に自分の電子メールを確認する一般にできます。 以下のセクションを必要とするコードを変更しましたポータルにログインする前に、新しいユーザーが確認された電子メールをあります。 更新プログラム、`[HttpPost] Login`アクションで、 *AccountController.cs*の次の強調表示されている変更されたファイルです。
 
 [!code-csharp[Main](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=11-21&name=snippet_Login)]
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 8842f57df84d841df77b34e9645dbf4909f82d85
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e5968f8d19191c3f44e9bd58f8e22a39d8d8faff
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 承認サーバー
 ====================
@@ -57,12 +57,12 @@ ms.lasthandoff: 11/10/2017
 ## <a name="prerequisites"></a>必須コンポーネント
 
 - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-editions) 、無料または[Visual Studio Express 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-express)に示されているように、**ソフトウェア バージョン**ページの上部にあります。
-- OWIN 熟知します。 参照してください[Katana プロジェクトの使用を開始する](https://msdn.microsoft.com/en-us/magazine/dn451439.aspx)と[OWIN および Katana 新](index.md)です。
+- OWIN 熟知します。 参照してください[Katana プロジェクトの使用を開始する](https://msdn.microsoft.com/magazine/dn451439.aspx)と[OWIN および Katana 新](index.md)です。
 - 十分に理解[OAuth](http://tools.ietf.org/html/rfc6749)用語では、含む[ロール](http://tools.ietf.org/html/rfc6749#section-1.1)、[プロトコル フロー](http://tools.ietf.org/html/rfc6749#section-1.2)、および[Authorization Grant](http://tools.ietf.org/html/rfc6749#section-1.3)です。 [OAuth 2.0 の概要](http://tools.ietf.org/html/rfc6749#section-1)の概要を提供します。
 
 ## <a name="create-an-authorization-server"></a>承認サーバーを作成します。
 
-このチュートリアルではおはほぼスケッチを使用する方法を[OWIN](https://msdn.microsoft.com/en-us/magazine/dn451439.aspx)と ASP.NET MVC を承認サーバーを作成します。 このチュートリアルでは、各手順は含まれません、すぐに、完成したサンプルのダウンロードを提供する予定です。 という名前の空の web アプリを最初に、作成*AuthorizationServer*し、次のパッケージをインストールします。
+このチュートリアルではおはほぼスケッチを使用する方法を[OWIN](https://msdn.microsoft.com/magazine/dn451439.aspx)と ASP.NET MVC を承認サーバーを作成します。 このチュートリアルでは、各手順は含まれません、すぐに、完成したサンプルのダウンロードを提供する予定です。 という名前の空の web アプリを最初に、作成*AuthorizationServer*し、次のパッケージをインストールします。
 
 - Microsoft.AspNet.Mvc
 - Microsoft.Owin.Host.SystemWeb
@@ -112,7 +112,7 @@ OAuth はしないユーザー アカウント情報を管理する方法や場�
 
 確認、IETF の OAuth 2[認証コード付与](http://tools.ietf.org/html/rfc6749#section-4.1)セクションのようになりました。 
 
-**プロバイダー** (次の表では) は[OAuthAuthorizationServerOptions](https://msdn.microsoft.com/en-us/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx)です。型プロバイダー `OAuthAuthorizationServerProvider`、OAuth サーバーのすべてのイベントが含まれています。 
+**プロバイダー** (次の表では) は[OAuthAuthorizationServerOptions](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx)です。型プロバイダー `OAuthAuthorizationServerProvider`、OAuth サーバーのすべてのイベントが含まれています。 
 
 | 認証コード付与セクションからフロー手順 | ダウンロードしたサンプルで上記の手順を実行します。 |
 | --- | --- |

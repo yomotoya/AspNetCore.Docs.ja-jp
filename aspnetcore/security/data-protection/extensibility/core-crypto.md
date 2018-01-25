@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: b82c30fe40c4badc74645dafa9f0d13f6ffae031
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8a3f4cf267998ddc7f393401059ca9d83ef2d8e7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="core-cryptography-extensibility"></a>コア暗号化の拡張性
 
@@ -128,7 +128,7 @@ IAuthenticatedEncryptor と IAuthenticatedEncryptorDescriptor の主な違いは
 >[!TIP]
 > この属性を設定するヘルパー API があります。 XElement.MarkAsRequiresEncryption() が Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel 名前空間にある拡張メソッドを呼び出します。
 
-ここで、シリアル化された記述子が含まれていない機密情報には場合もあります。 HSM に格納されている暗号化キーの大文字と小文字を再度検討してください。 記述子は、HSM はプレーン テキスト形式の内容を公開しないために、自体シリアル化するとき、キー マテリアルを書き込むことはできません。 代わりに、記述子 (HSM は、この方法でエクスポートを許可する) 場合、キーまたはキーを HSM の一意識別子のキーによってラップされたバージョンが書き込まれる可能性があります。
+ここで、シリアル化された記述子が含まれていない機密情報には場合もあります。 HSM に格納されている暗号化キーの大文字と小文字を再度検討してください。 HSM は、プレーン テキスト形式の内容を公開しないため自体をシリアル化した場合、キー マテリアルを記述子を書き込めません。 代わりに、記述子 (HSM は、この方法でエクスポートを許可する) 場合、キーまたはキーを HSM の一意識別子のキーによってラップされたバージョンが書き込まれる可能性があります。
 
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer"></a>
 
@@ -157,7 +157,7 @@ IAuthenticatedEncryptorDescriptorDeserializer を実装する型は、次の 2 �
 
 * CreateNewDescriptor(): IAuthenticatedEncryptorDescriptor
 
-AlgorithmConfiguration の最上位のファクトリとして考えます。 構成は、テンプレートとして機能します。 アルゴリズムの情報をラップ (例: この構成によって生成される値、AES 128-GCM マスター _ キーを持つ記述子) がまだ特定のキーでに関連付けられていません。
+AlgorithmConfiguration の最上位のファクトリとして考えます。 構成は、テンプレートとして機能します。 それがラップ アルゴリズム情報 (例: この構成によって生成される値、AES 128-GCM マスター _ キーを持つ記述子) がまだ特定のキーに関連付けられているが、します。
 
 CreateNewDescriptor し、呼ばれ、この呼び出しのためだけに最新のキー マテリアルが作成された新しい IAuthenticatedEncryptorDescriptor が生成されるときに、このキー マテリアル、および、マテリアルを使用する必要な情報をアルゴリズムをラップします。 キー マテリアルでしたするソフトウェアで作成された (メモリ内に保持) と作成され、HSM およびよびな内で保持されている可能性があります。 重要な点は、CreateNewDescriptor への呼び出しの 2 つが等価 IAuthenticatedEncryptorDescriptor インスタンスを作成しないでことです。
 
@@ -169,7 +169,7 @@ AlgorithmConfiguration 型ポイントとして機能、エントリのキーの
 
 * CreateNewDescriptor(): IAuthenticatedEncryptorDescriptor
 
-IAuthenticatedEncryptorConfiguration の最上位のファクトリとして考えます。 構成は、テンプレートとして機能します。 アルゴリズムの情報をラップ (例: この構成によって生成される値、AES 128-GCM マスター _ キーを持つ記述子) がまだ特定のキーでに関連付けられていません。
+IAuthenticatedEncryptorConfiguration の最上位のファクトリとして考えます。 構成は、テンプレートとして機能します。 それがラップ アルゴリズム情報 (例: この構成によって生成される値、AES 128-GCM マスター _ キーを持つ記述子) がまだ特定のキーに関連付けられているが、します。
 
 CreateNewDescriptor し、呼ばれ、この呼び出しのためだけに最新のキー マテリアルが作成された新しい IAuthenticatedEncryptorDescriptor が生成されるときに、このキー マテリアル、および、マテリアルを使用する必要な情報をアルゴリズムをラップします。 キー マテリアルでしたするソフトウェアで作成された (メモリ内に保持) と作成され、HSM およびよびな内で保持されている可能性があります。 重要な点は、CreateNewDescriptor への呼び出しの 2 つが等価 IAuthenticatedEncryptorDescriptor インスタンスを作成しないでことです。
 

@@ -8,11 +8,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 6da2073b18f6fff9738808c84441e59240caefe3
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 60ac1844e7747002d72aa892a47490cb7a416359
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>並べ替え、フィルター、ページング、およびグループ化 - ASP.NET Core MVC のチュートリアル (10 の 3) と EF コア
 
@@ -53,7 +53,7 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 | 日付の昇順       | ascending           | descending     |
 | 日付 (降順)      | ascending           | ascending      |
 
-メソッドは、並べ替える列を指定するのに LINQ to Entities を使用します。 このコードを作成、 `IQueryable` switch ステートメントの前に変数を呼び出し、switch ステートメントで変更、`ToListAsync`メソッドした後に、`switch`ステートメントです。 作成および変更するときに`IQueryable`変数、クエリがないデータベースに送信します。 変換するまでに、クエリが実行されていません、`IQueryable`などのメソッドを呼び出すことで、コレクションにオブジェクト`ToListAsync`です。 そのため、このコードなりますまで実行されない 1 つのクエリで、`return View`ステートメントです。
+メソッドは、並べ替える列を指定するのに LINQ to Entities を使用します。 このコードを作成、 `IQueryable` switch ステートメントの前に変数を呼び出し、switch ステートメントで変更、`ToListAsync`メソッドした後に、`switch`ステートメントです。 作成および変更するときに`IQueryable`変数、クエリがないデータベースに送信します。 変換するまで、クエリが実行されない場合は、`IQueryable`などのメソッドを呼び出すことで、コレクションにオブジェクト`ToListAsync`です。 そのため、このコードなりますまで実行されない 1 つのクエリで、`return View`ステートメントです。
 
 このコードは、列の数が多い verbose 取得でした。 [このシリーズの前回のチュートリアル](advanced.md#dynamic-linq)コードの名前を渡すことができますを記述する方法を示します、`OrderBy`文字列変数内の列です。
 
@@ -92,7 +92,7 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 
 [!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
-このコードを使用して、 `<form>` [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)検索テキスト ボックスとボタンを追加します。 既定では、`<form>`タグ ヘルパーが、パラメーターとして渡される HTTP メッセージの本文では、URL ではなくクエリ文字列は、投稿にフォーム データを送信します。 HTTP GET を指定すると、フォームのデータに渡されます URL クエリ文字列としてユーザーの URL をブックマークすることができます。 アクションが、更新プログラムにならない場合に、W3C のガイドラインをお勧めしますが使用するを取得します。
+このコードを使用して、 `<form>` [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)検索テキスト ボックスとボタンを追加します。 既定では、`<form>`タグ ヘルパーが、パラメーターとして渡される HTTP メッセージの本文では、URL ではなくクエリ文字列は、投稿にフォーム データを送信します。 HTTP GET を指定すると、フォームのデータに渡されます URL クエリ文字列としてユーザーの URL をブックマークすることができます。 更新アクションが返されない場合に、W3C のガイドラインをお勧めしますが使用するを取得します。
 
 アプリを実行する、選択、**受講者** タブで、検索文字列を入力し、検索フィルターが機能していることを確認する をクリックします。
 
@@ -144,7 +144,7 @@ public async Task<IActionResult> Index(
 
 `ViewData` CurrentFilter をという名前の要素が現在のフィルター文字列で使用してビューを提供します。 ページング、中に、フィルターの設定を維持するために、ページングのリンクでこの値を含める必要があるし、ページが表示されときに、テキスト ボックスに復元する必要があります。
 
-ページングの中に検索文字列を変更する場合は、新しいフィルターが、別のデータを表示するため、ページを 1 にリセットします。 テキスト ボックスに値を入力し、[送信] ボタンが押された検索文字列が変更されます。 その場合は、`searchString`パラメーターが null ではありません。
+ページングの中に検索文字列を変更する場合は、新しいフィルターが、別のデータを表示するため、ページを 1 にリセットします。 テキスト ボックスに値を入力し、[送信] ボタンが押された検索文字列が変更されます。 その場合は、`searchString`パラメーターが null でないです。
 
 ```csharp
 if (searchString != null)

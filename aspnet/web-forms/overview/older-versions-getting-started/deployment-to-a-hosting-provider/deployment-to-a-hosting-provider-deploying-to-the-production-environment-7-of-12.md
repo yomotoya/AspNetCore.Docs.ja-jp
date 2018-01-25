@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: ad44968975b7929f5b0f70334deabc7238797402
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4aa6766c2c7765f499f5c5380962a5fe443e8c9d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: 12 の 7 - 実稼働環境に展開します。
 ====================
@@ -246,7 +246,7 @@ Elmah への書き込みアクセスがあることを確認、 *Elmah*フォル
 
 `User-agent`行は、ファイル内のルールがすべて検索エンジン web クローラー (ロボット) に適用される検索エンジンに指示し、`Disallow`行は、サイトのページをクロールないことを指定します。
 
-おそらくたくを運用環境のデプロイからこのファイルを除外する必要があるため、実稼働サイトをカタログ化する検索エンジンです。 そのためには、次を参照してください。**できますものを除外する特定のファイルまたはフォルダーの展開から?**で[ASP.NET Web アプリケーション プロジェクトの展開に関する FAQ](https://msdn.microsoft.com/en-us/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment)です。 発行プロファイルの運用環境用にのみ、排他領域を指定することを確認します。
+おそらくたくを運用環境のデプロイからこのファイルを除外する必要があるため、実稼働サイトをカタログ化する検索エンジンです。 そのためには、次を参照してください。**できますものを除外する特定のファイルまたはフォルダーの展開から?**で[ASP.NET Web アプリケーション プロジェクトの展開に関する FAQ](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment)です。 発行プロファイルの運用環境用にのみ、排他領域を指定することを確認します。
 
 2 つ目のホスト アカウントの作成は、テスト環境は必要ありませんが、追加の経費価値がありますを使用するアプローチです。 次のチュートリアルでは、IIS を使用して、テスト環境に進みます。
 

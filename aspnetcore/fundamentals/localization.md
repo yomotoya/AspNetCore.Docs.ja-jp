@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 1c93a53ea23ec13ca3d6fc138024ba38ec4883ee
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 5f1579b5682b2f0b3f8227f0cf6b4c0361eb1e67
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>グローバリゼーションとローカリゼーション ASP.NET Core
 
@@ -41,7 +41,7 @@ ASP.NET Core で導入された`IStringLocalizer`と`IStringLocalizer<T>`ロー�
 
 上記のコードで、`IStringLocalizer<T>`実装に由来[依存性の注入](dependency-injection.md)です。 「タイトルは」のローカライズされた値が見つからないかどうかは、インデクサーのキーが返されます、つまり、文字列「タイトルは」です。 アプリで、既定の言語のリテラル文字列をそのままし、ローカライザーにラップされるよう、アプリの開発に専念することができます。 既定の言語でアプリを開発し、既定のリソース ファイルを作成しなくても、ローカリゼーション手順用に準備します。 または、従来のアプローチを使用し、既定の言語文字列を取得するキーを指定できます。 多くの開発者にとって新しいワークフローの既定の言語がない*.resx*ファイルと、文字列リテラルをラップすることだけがアプリをローカライズするオーバーヘッドを削減できます。 他の開発者には、そのやすく長い文字列リテラルを操作およびローカライズされた文字列を更新しやすくように従来の作業の流れを選びます。
 
-使用して、 `IHtmlLocalizer<T>` HTML を格納しているリソースの実装です。 `IHtmlLocalizer`HTML エンコードされたリソース文字列で書式設定される引数が、HTML ではありませんは、リソース文字列そのものをエンコードします。 サンプルでは、次の値のみ強調表示されます`name`パラメーターは、HTML エンコードします。
+使用して、 `IHtmlLocalizer<T>` HTML を格納しているリソースの実装です。 `IHtmlLocalizer`HTML エンコードされたリソース文字列で書式設定される引数が、リソース文字列そのものを HTML エンコードしません。 サンプルでは、次の値のみ強調表示されます`name`パラメーターは、HTML エンコードします。
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
@@ -152,7 +152,7 @@ Visual Studio 2017 Preview バージョン 15.3 を使用している場合、�
 
 ## <a name="resource-file-naming"></a>リソース ファイルの名前付け
 
-リソースは、アセンブリ名を除いて、クラスの完全な型名の名前です。 フランス語のリソースをメインのアセンブリがプロジェクトになど`LocalizationWebsite.Web.dll`クラスの`LocalizationWebsite.Web.Startup`という名前になります*Startup.fr.resx*です。 クラスのリソース`LocalizationWebsite.Web.Controllers.HomeController`という名前になります*Controllers.HomeController.fr.resx*です。 対象となるクラスの名前空間は、アセンブリ名と同じではない場合は、完全な型名を必要があります。 たとえば、サンプルには、プロジェクトの種類用のリソース`ExtraNamespace.Tools`という名前になります*ExtraNamespace.Tools.fr.resx*です。
+リソースは、アセンブリ名を除いて、クラスの完全な型名の名前です。 フランス語のリソースをメインのアセンブリがプロジェクトになど`LocalizationWebsite.Web.dll`クラスの`LocalizationWebsite.Web.Startup`という名前になります*Startup.fr.resx*です。 クラスのリソース`LocalizationWebsite.Web.Controllers.HomeController`という名前になります*Controllers.HomeController.fr.resx*です。 対象となるクラスの名前空間が、アセンブリ名と同じでない場合は、完全な型名を必要があります。 たとえば、サンプルには、プロジェクトの種類用のリソース`ExtraNamespace.Tools`という名前になります*ExtraNamespace.Tools.fr.resx*です。
 
 サンプル プロジェクトで、`ConfigureServices`メソッドのセット、 `ResourcesPath` 「リソース」をそのため、home コント ローラーのフランス語りソース ファイルのプロジェクトの相対パスは*Resources/Controllers.HomeController.fr.resx*です。 また、リソース ファイルを整理するのにフォルダーを使用することができます。 Home コント ローラーで、パスはなります*Resources/Controllers/HomeController.fr.resx*です。 使用しない場合、`ResourcesPath`オプション、 *.resx*ファイルは、プロジェクトの基本ディレクトリに移動します。 リソース ファイルの`HomeController`という名前になります*Controllers.HomeController.fr.resx*です。 ドットまたはパスの名前付け規則を選択した場合は、リソース ファイルを整理する方法によって異なります。
 
@@ -234,7 +234,7 @@ Cookie の形式が`c=%LANGCODE%|uic=%LANGCODE%`ここで、`c`は`Culture`と`u
 
 ### <a name="the-accept-language-http-header"></a>ブラウザーの言語の HTTP ヘッダー
 
-[Accept-language ヘッダー](https://www.w3.org/International/questions/qa-accept-lang-locales)ほとんどのブラウザーで設定可能であり、ユーザーの言語を指定するためのものが最初。 この設定は、ブラウザーが送信に設定されているかは、基になるオペレーティング システムから継承する新機能を示します。 ブラウザーの要求で Accept Language HTTP ヘッダーは、ユーザーの優先言語を検出するない方法ではありません (を参照してください[ブラウザーの言語設定を設定する](https://www.w3.org/International/questions/qa-lang-priorities.en.php))。 運用アプリには、ユーザーの任意のカルチャをカスタマイズする方法を含める必要があります。
+[Accept-language ヘッダー](https://www.w3.org/International/questions/qa-accept-lang-locales)ほとんどのブラウザーで設定可能であり、ユーザーの言語を指定するためのものが最初。 この設定は、ブラウザーが送信に設定されているかは、基になるオペレーティング システムから継承する新機能を示します。 ブラウザーの要求で Accept Language HTTP ヘッダーの優先言語を検出するためにない方法はありません (を参照してください[ブラウザーの言語設定を設定する](https://www.w3.org/International/questions/qa-lang-priorities.en.php))。 運用アプリには、ユーザーの任意のカルチャをカスタマイズする方法を含める必要があります。
 
 ### <a name="set-the-accept-language-http-header-in-ie"></a>IE で Accept Language HTTP ヘッダーを設定します。
 

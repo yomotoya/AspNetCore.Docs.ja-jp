@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 5054f932d05fb612a6e18a81274719d7e249b77b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4de0b52e0b4ae7ce00e7b07bce2decfc5068964a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="building-real-world-cloud-apps-with-azure"></a>Azure での実際のクラウド アプリの構築
 ====================
@@ -103,7 +103,7 @@ Scott Guthrie のマークされている人*現実世界クラウド アプリ�
     - 高可用性を有効にして、web およびワーカー層を疎結合、スケーラビリティが向上します。
     - 修正、アプリのデモ: Azure ストレージ キュー。
 - [他のクラウド アプリのパターンとガイダンス](more-patterns-and-guidance.md)です。
-- [付録: この修正プログラム、サンプル アプリケーション](the-fix-it-sample-application.md)
+- [付録: Fix It サンプル アプリケーション](the-fix-it-sample-application.md)
 
     - 既知の問題
     - ベスト プラクティス
@@ -155,10 +155,10 @@ Scott Guthrie のマークされている人*現実世界クラウド アプリ�
 
 これはすべて自動的に行わします。 行うには必要なは、web サイトを作成し、Windows PowerShell、Visual Studio または Azure 管理ポータルを使用して、アプリケーションを展開します。
 
-すばやくかつ簡単なチュートリアルは Visual Studio で web アプリケーションを作成し、Azure Web サイトを展開する方法を示す、次を参照してください。 [Azure と ASP.NET の概要](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/)です。
+すばやくかつ簡単なチュートリアルは Visual Studio で web アプリケーションを作成し、Azure Web サイトを展開する方法を示す、次を参照してください。 [Azure と ASP.NET の概要](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)です。
 
 <a id="summary"></a>
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 この概要は、書籍は説明トピックでは、サンプル アプリケーションのスクリーン ショットと Azure App Service のクラウド環境で Web アプリの概要の一覧を提供しています。 クラウドのアプリの開発の利点としてのいずれかとは簡単にテスト環境を作成し、コードを展開するなどの反復的な開発タスクを自動化します。 サブジェクトで実行されている方法、[次のチャプター](automate-everything.md)です。
 
@@ -168,13 +168,13 @@ Scott Guthrie のマークされている人*現実世界クラウド アプリ�
 
 ドキュメント:
 
-- [Web アプリを Azure App Service で](https://azure.microsoft.com/en-us/services/app-service/web/)です。 Web アプリに関するドキュメントについては Azure ポータルのページです。
-- [Web アプリ、クラウド サービス、および Vm: どれを使用するときにしますか?](https://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/) WAWS この章で示すようには、Azure で web アプリを実行する 3 つの方法の 1 つです。 この記事では、3 つの方法の違いについて説明し、シナリオに合った適切なものを選択する方法のガイダンスを示します。 Web サイトのようにクラウド サービスは、Azure の PaaS 機能です。 Vm は、IaaS 機能です。 IaaS と PaaS の詳細については、次を参照してください。、[データ オプション](data-storage-options.md#paasiaas)章します。
+- [Web アプリを Azure App Service で](https://azure.microsoft.com/services/app-service/web/)です。 Web アプリに関するドキュメントについては Azure ポータルのページです。
+- [Web アプリ、クラウド サービス、および Vm: どれを使用するときにしますか?](https://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/) WAWS この章で示すようには、Azure で web アプリを実行する 3 つの方法の 1 つです。 この記事では、3 つの方法の違いについて説明し、シナリオに合った適切なものを選択する方法のガイダンスを示します。 Web サイトのようにクラウド サービスは、Azure の PaaS 機能です。 Vm は、IaaS 機能です。 IaaS と PaaS の詳細については、次を参照してください。、[データ オプション](data-storage-options.md#paasiaas)章します。
 
 ビデオ:
 
-- [Scott Guthrie は、ステップ 0 では、Azure のクラウド OS から開始しますか。](https://azure.microsoft.com/en-us/documentation/videos/what-is-the-cloud-os-scottgu/)
-- [Web サイト アーキテクチャ - Stefan Schackow](https://azure.microsoft.com/en-us/documentation/videos/why-azure-web-sites-plus-architecture/)です。
+- [Scott Guthrie は、ステップ 0 では、Azure のクラウド OS から開始しますか。](https://azure.microsoft.com/documentation/videos/what-is-the-cloud-os-scottgu/)
+- [Web サイト アーキテクチャ - Stefan Schackow](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/)です。
 - [Nir Mashkowski と azure の Web サイトの内部構造](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski)です。
 
 >[!div class="step-by-step"]

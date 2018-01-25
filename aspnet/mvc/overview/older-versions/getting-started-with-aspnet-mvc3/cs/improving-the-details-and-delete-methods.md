@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: d23110944642686b3e62aef1c324847de57a07c4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e46616d45ad0e4a0ab861e6fb53f33bc567cbdea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="improving-the-details-and-delete-methods-c"></a>改善の詳細および Delete メソッド (c#)
 ====================
@@ -77,13 +77,13 @@ SQL Server Compact データベースにデータを格納する完全な ASP.NE
 
 アプリケーションを配置する場合は、最初のテストをローカルの IIS 7 サーバーのアプリケーションに便利です。 これを行うこともできます[Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=ASPNET;) ASP.NET アプリケーションの IIS 設定を有効にリンクします。 次の展開へのリンクを参照してください。
 
-- [ASP.NET の展開のコンテンツ マップ](https://msdn.microsoft.com/en-us/library/dd394698.aspx)
+- [ASP.NET の展開のコンテンツ マップ](https://msdn.microsoft.com/library/dd394698.aspx)
 - [IIS を有効にする 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
-- [Web アプリケーション プロジェクトの配置](https://msdn.microsoft.com/en-us/library/dd394698.aspx)
+- [Web アプリケーション プロジェクトの配置](https://msdn.microsoft.com/library/dd394698.aspx)
 
-これで皆さんが、中間レベルに移動する[、ASP.NET MVC アプリケーション用の Entity Framework データ モデルを作成する](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)と[MVC Music Store](../../mvc-music-store/mvc-music-store-part-1.md)チュートリアルについては、探索する、 [ASP.NETMSDN の記事](https://msdn.microsoft.com/en-us/library/gg416514(VS.98).aspx)、および多くのビデオおよびにリソースをチェック アウトする[https://asp.net/mvc](https://asp.net/mvc) ASP.NET MVC についてさらに学習します。 [ASP.NET MVC フォーラム](https://forums.asp.net/1146.aspx)質問を投稿する絶好の場所します。
+これで皆さんが、中間レベルに移動する[、ASP.NET MVC アプリケーション用の Entity Framework データ モデルを作成する](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)と[MVC Music Store](../../mvc-music-store/mvc-music-store-part-1.md)チュートリアルについては、探索する、 [ASP.NETMSDN の記事](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)、および多くのビデオおよびにリソースをチェック アウトする[https://asp.net/mvc](https://asp.net/mvc) ASP.NET MVC についてさらに学習します。 [ASP.NET MVC フォーラム](https://forums.asp.net/1146.aspx)質問を投稿する絶好の場所します。
 
-ご利用いただけます。
+それではお楽しみください。
 
 -Scott Hanselman ([http://hanselman.com](http://hanselman.com)と[ @shanselman ](http://twitter.com/shanselman) Twitter の) と Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
 

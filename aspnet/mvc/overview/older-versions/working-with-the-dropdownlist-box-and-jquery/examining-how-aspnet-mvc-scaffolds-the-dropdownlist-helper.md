@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper
 msc.type: authoredcontent
-ms.openlocfilehash: b5210f9a29f82fbadd0e6dd2d81bd85e7f23ae7e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 737773ab424b3ec3b6139b8c238a60ca23de2e69
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a>ASP.NET MVC での DropDownList ヘルパーの scaffolds 方法を確認します。
 ====================
@@ -60,7 +60,7 @@ Ctrl キーを押しながら F5 キーを押してアプリケーションを�
 
 ### <a name="the-html-select-tag"></a>HTML 選択タグ
 
-HTML`<select>`要素 (HTML によって作成された[DropDownList](https://msdn.microsoft.com/en-us/library/dd492948.aspx)ヘルパー) (ジャンルの一覧) などの値の完全な一覧を表示するために使用します。 編集フォームは、現在の値がわかっている場合、選択リストを表示できます、現在の値。 見たこの以前に選択した値を設定すると**コメディ**です。 選択リストは、カテゴリ、または外部キーのデータを表示するために最適です。 `<select>`ジャンルの外部キーの要素には、考えられるジャンル名の一覧が表示されますが、ジャンル プロパティは、ジャンル外部キー値を持つ、ジャンルの表示名ではなく更新は、フォームを保存するときにします。 選択した genre は、次の図で**Disco** 、アーティスト、 **Donna 夏**です。
+HTML`<select>`要素 (HTML によって作成された[DropDownList](https://msdn.microsoft.com/library/dd492948.aspx)ヘルパー) (ジャンルの一覧) などの値の完全な一覧を表示するために使用します。 編集フォームは、現在の値がわかっている場合、選択リストを表示できます、現在の値。 見たこの以前に選択した値を設定すると**コメディ**です。 選択リストは、カテゴリ、または外部キーのデータを表示するために最適です。 `<select>`ジャンルの外部キーの要素には、考えられるジャンル名の一覧が表示されますが、ジャンル プロパティは、ジャンル外部キー値を持つ、ジャンルの表示名ではなく更新は、フォームを保存するときにします。 選択した genre は、次の図で**Disco** 、アーティスト、 **Donna 夏**です。
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image4.png)
 
@@ -70,11 +70,11 @@ HTML`<select>`要素 (HTML によって作成された[DropDownList](https://msd
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample5.cs)]
 
-`Create`メソッドは、2 つ追加[SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist.aspx)オブジェクトを`ViewBag`、ジャンル情報が含まれる 1 つとアーティスト情報が含まれるいずれか。 [SelectList](https://msdn.microsoft.com/en-us/library/dd505286.aspx)上記で使用するコンス トラクター オーバー ロードは、3 つの引数を受け取ります。
+`Create`メソッドは、2 つ追加[SelectList](https://msdn.microsoft.com/library/system.web.mvc.selectlist.aspx)オブジェクトを`ViewBag`、ジャンル情報が含まれる 1 つとアーティスト情報が含まれるいずれか。 [SelectList](https://msdn.microsoft.com/library/dd505286.aspx)上記で使用するコンス トラクター オーバー ロードは、3 つの引数を受け取ります。
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample6.cs)]
 
-1. *項目*: [IEnumerable](https://msdn.microsoft.com/en-us/library/system.collections.ienumerable.aspx)リスト内の項目を格納します。 上記の例では、ジャンルの一覧がによって返される`db.Genres`です。
+1. *項目*: [IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx)リスト内の項目を格納します。 上記の例では、ジャンルの一覧がによって返される`db.Genres`です。
 2. *dataValueField*: でプロパティの名前、 **IEnumerable**キーの値を含む一覧。 上記の例で`GenreId`と`ArtistId`です。
 3. *dataTextField*: でプロパティの名前、 **IEnumerable**を表示する情報を含むリスト。 アーティスト、ジャンル テーブルで、`name`フィールドを使用します。
 
@@ -84,7 +84,7 @@ HTML`<select>`要素 (HTML によって作成された[DropDownList](https://msd
 
 ビューを作成するには、最初の行を示しています、`Album`モデル。 `Create`上記の方法、モデルが渡されなかったため、ビューを取得、 **null** `Album`モデル。 この時点では作成する新しいアルバムのでこのいずれかの`Album`データ。
 
-[Html.DropDownList](https://msdn.microsoft.com/en-us/library/dd492948.aspx)上に示したオーバー ロードは、モデルにバインドするフィールドの名を取得します。 使用してこの名前を探して、 **ViewBag**オブジェクトを含む、 [SelectList](https://msdn.microsoft.com/en-us/library/dd505286.aspx)オブジェクト。 このオーバー ロードを使用する必要がある名前、 **ViewBag SelectList**オブジェクト`GenreId`です。 2 番目のパラメーター (`String.Empty`) 項目が選択されていないときに表示されるテキストです。 これは、正確に新しいアルバムを作成するときに、次の新機能が必要です。 2 番目のパラメーターを削除して、次のコードを使用します。
+[Html.DropDownList](https://msdn.microsoft.com/library/dd492948.aspx)上に示したオーバー ロードは、モデルにバインドするフィールドの名を取得します。 使用してこの名前を探して、 **ViewBag**オブジェクトを含む、 [SelectList](https://msdn.microsoft.com/library/dd505286.aspx)オブジェクト。 このオーバー ロードを使用する必要がある名前、 **ViewBag SelectList**オブジェクト`GenreId`です。 2 番目のパラメーター (`String.Empty`) 項目が選択されていないときに表示されるテキストです。 これは、正確に新しいアルバムを作成するときに、次の新機能が必要です。 2 番目のパラメーターを削除して、次のコードを使用します。
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample8.cshtml)]
 

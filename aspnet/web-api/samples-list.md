@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/samples-list
 msc.type: content
-ms.openlocfilehash: 2f40cd4bebdd64c3a4b94cfc1e717fa4b304e57e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1e1f43bbeedfc052f0b3a3924f51b544a5a79dca
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="web-api-samples-list"></a>Web API のサンプル一覧
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/10/2017
 
 **Bing 翻訳サンプル** | [VS 2012 ソース](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fBingTranslateSample%2fReadMe.txt)
 
-呼び出す方法を示しています、 [Microsoft Translator サービス](https://msdn.microsoft.com/en-us/library/ff512419.aspx)を使用して、 **HttpClient**クラスです。 Microsoft Translator サービス API では、OAuth トークン、要求ごとに、トランスレーター サービス用の Azure トークン サーバーに要求を送信して、アプリケーションを取得する必要があります。 トークンのサーバーから結果が、翻訳サービスに送信される要求にフィードします。 このサンプルを実行する前に取得する必要があります、 [Azure Marketplace からのアプリケーション キー](https://msdn.microsoft.com/en-us/library/hh454950.aspx) AccessTokenMessageHandler サンプル クラス内の情報を入力します。
+呼び出す方法を示しています、 [Microsoft Translator サービス](https://msdn.microsoft.com/library/ff512419.aspx)を使用して、 **HttpClient**クラスです。 Microsoft Translator サービス API では、OAuth トークン、要求ごとに、トランスレーター サービス用の Azure トークン サーバーに要求を送信して、アプリケーションを取得する必要があります。 トークンのサーバーから結果が、翻訳サービスに送信される要求にフィードします。 このサンプルを実行する前に取得する必要があります、 [Azure Marketplace からのアプリケーション キー](https://msdn.microsoft.com/library/hh454950.aspx) AccessTokenMessageHandler サンプル クラス内の情報を入力します。
 
 **Google のマップ サンプル** | [の詳細説明](https://blogs.msdn.com/b/henrikn/archive/2012/02/17/downloading-a-google-map-to-local-file.aspx) | [VS 2012 ソース](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fGoogleMapsSample%2fReadMe.txt)
 
@@ -74,7 +74,7 @@ ASP.NET 内で HTTP がバッチ処理を実装する方法を示します。 �
 
 1. BindPrincipal は、HTTP GET メッセージ; からではなく、カスタムの汎用プリンシパルから IPrincipal パラメーターをバインドする方法を示しています。
 2. BindCustomComplexTypeFromUriOrBody は、メッセージ本文とは、要求の HTTP POST メッセージ; の URI から取得される可能性が、複合型のパラメーターをバインドする方法を示しています。
-3. BindCustomComplexTypeFromUriWithRenamedProperty は、要求の HTTP POST メッセージ; の URI によってもたらされる名前が変更されたプロパティを持つ複合型パラメーターをバインドする方法を示しています。
+3. BindCustomComplexTypeFromUriWithRenamedProperty shows how to bind a complex-type parameter with a renamed property which comes from the request URI of an HTTP POST message;
 4. PostMultipleParametersFromBody は、POST のメッセージの本文から複数のパラメーターをバインドする方法を示しています。
 
 **ファイルのアップロード サンプル** | [の詳細説明](https://blogs.msdn.com/b/henrikn/archive/2012/03/01/file-upload-and-asp-net-web-api.aspx) | [VS 2012 ソース](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fFileUploadSample%2fReadMe.txt)
@@ -83,7 +83,7 @@ ASP.NET 内で HTTP がバッチ処理を実装する方法を示します。 �
 
 **ファイルのアップロードは Azure Blob ストアのサンプルを** | [の詳細説明](https://blogs.msdn.com/b/yaohuang1/archive/2012/07/02/asp-net-web-api-and-azure-blob-storage.aspx) | [VS 2012 ソース](http://aspnet.codeplex.com/SourceControl/changeset/view/61dfed023e50#Samples%2fNet45%2fCS%2fWebApi%2fAzureBlobsFileUploadSample%2fReadMe.txt)
 
-このサンプルは、ファイル アップロード サンプルに似ていますが、ローカル ディスクにアップロードされたファイルを保存するには、代わりに、非同期的にファイルをアップロードする[Azure Blob ストア](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)を使用して[Windows Azure SDK for .NET](https://www.windowsazure.com/en-us/develop/net/)です。 内に現存の blob を一覧表示するための機構も用意されています、 [Azure Blob ストレージ コンテナー](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)です。 に対して実行する例を試すことができます**Azure ストレージ エミュレーター** Azure SDK に付属します。 ある場合、 [Azure ストレージ アカウント](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)も、実際のストレージ サービスに対して実行することができます。
+このサンプルは、ファイル アップロード サンプルに似ていますが、ローカル ディスクにアップロードされたファイルを保存するには、代わりに、非同期的にファイルをアップロードする[Azure Blob ストア](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)を使用して[Windows Azure SDK for .NET](https://www.windowsazure.com/develop/net/)です。 内に現存の blob を一覧表示するための機構も用意されています、 [Azure Blob ストレージ コンテナー](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)です。 に対して実行する例を試すことができます**Azure ストレージ エミュレーター** Azure SDK に付属します。 ある場合、 [Azure ストレージ アカウント](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)も、実際のストレージ サービスに対して実行することができます。
 
 **Http メッセージ ハンドラー パイプライン サンプル** | [の詳細説明](https://blogs.msdn.com/b/henrikn/archive/2012/08/07/httpclient-httpclienthandler-and-httpwebrequesthandler.aspx) | [VS 2010 ソース](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fHttpMessageHandlerPipelineSample%2fReadMe.txt)
 
@@ -140,7 +140,7 @@ RestBugs は、管理アプリケーションを ASP.NET Web API、および新�
 SupplierController クエリを含む機能のサブセットを公開する、キーと作成、これらの要求を処理することによって取得します。
 
 - /Suppliers を取得します。
-- /Suppliers(key) を取得します。
+- GET /Suppliers(key)
 - GET/Suppliers? $filter =.&amp;$orderby =.&amp;$top =.&amp;$skip =.
 - POST/Suppliers
 

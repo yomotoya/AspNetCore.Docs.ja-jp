@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 84ca4bbaebe401d14233131bcaa027debf7ea0f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 46f53279e2e6daa4266c06feb4ba544e14b68a03
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-6-code-first-using-mvc-5"></a>MVC 5 を使用する Entity Framework 6 Code First の概要
 ====================
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/10/2017
 > > このチュートリアル シリーズの新しいバージョンが利用可能な: [ASP.NET Core と Visual Studio 2015 を使用して Entity Framework Core 使い方](https://docs.asp.net/en/latest/data/ef-mvc/intro.html)です。
 > 
 > 
-> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 および Visual Studio 2013 を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 このチュートリアルでは、コードの最初のワークフローを使用します。 Code First、Database First または Model First を選択する方法については、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf)です。
+> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 および Visual Studio 2013 を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 このチュートリアルでは、コードの最初のワークフローを使用します。 Code First、Database First または Model First を選択する方法については、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)です。
 > 
 > サンプル アプリケーションは、架空の Contoso 大学の web サイトです。 学生受付、コースの作成、およびインストラクター割り当てなどの機能が含まれています。 このチュートリアルの系列では、Contoso 大学サンプル アプリケーションをビルドする方法について説明します。 実行できます[完成したアプリケーションをダウンロード](https://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)です。
 > 
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > ## <a name="questions-and-comments"></a>質問やコメント
 > 
-> このチュートリアルをリンクする方法と、ページの下部にあるコメントで改善新機能にフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework でも LINQ to Entities フォーラム](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)です。
+> このチュートリアルをリンクする方法と、ページの下部にあるコメントで改善新機能にフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework でも LINQ to Entities フォーラム](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)です。
 > 
 > 問題を解決できない場合に発生した場合は、ダウンロードできる完成したプロジェクトにコードを比較することによって一般的に、問題の解決策を検索できます。 一般的なエラーとそれらを解決する方法は、次を参照してください。[の一般的なエラーと解決方法またはそれらの回避策です。](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
 
@@ -169,7 +169,7 @@ NuGet はインストール (プレリリース版を除く)、Entity Framework 
 
 `EnrollmentID`プロパティは、主キーになります。 このエンティティを使用して、 *classname* `ID`パターンの代わりに`ID`で学習したとしてそれ自体で、`Student`エンティティです。 通常 1 つパターンを選択し、データ モデル全体で使用するとします。 ここでは、いずれかのパターンを使用することができます、バリエーションを示しています。 後のチュートリアルでわかる方法を使用して`ID`せず`classname`データ モデルでの継承を実装するが容易です。
 
-`Grade`プロパティは、 [enum](https://msdn.microsoft.com/en-us/data/hh859576.aspx)です。 後に疑問符 ()、`Grade`型宣言では、ことを示します、`Grade`プロパティは[null 許容](https://msdn.microsoft.com/en-us/library/2cf62fcy.aspx)です。 Null である評価とは異なる、ゼロ グレード: null は、評価が不明またはまだ割り当てられていないことを意味します。
+`Grade`プロパティは、 [enum](https://msdn.microsoft.com/data/hh859576.aspx)です。 後に疑問符 ()、`Grade`型宣言では、ことを示します、`Grade`プロパティは[null 許容](https://msdn.microsoft.com/library/2cf62fcy.aspx)です。 Null である評価とは異なる、ゼロ グレード: null は、評価が不明またはまだ割り当てられていないことを意味します。
 
 `StudentID`プロパティは、foreign key、および対応するナビゲーション プロパティは`Student`します。 `Enrollment`エンティティが 1 つに関連付けられた`Student`エンティティ、プロパティは、1 つのみを保持できるように`Student`エンティティ (とは異なり、`Student.Enrollments`ナビゲーション プロパティ先ほど見た、複数を格納する`Enrollment`エンティティ)。
 
@@ -187,11 +187,11 @@ Entity Framework がという名前が場合に、外部キーのプロパティ
 
 `Enrollments`プロパティは、ナビゲーション プロパティ。 A`Course`エンティティを任意の数に関連付けることができます`Enrollment`エンティティです。
 
-ここでの詳細について、 [DatabaseGenerated](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)このシリーズの後のチュートリアルでの属性です。 基本的には、この属性には、それを生成、データベースのではなく、コースのプライマリ キーを入力することができます。
+ここでの詳細について、 [DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)このシリーズの後のチュートリアルでの属性です。 基本的には、この属性には、それを生成、データベースのではなく、コースのプライマリ キーを入力することができます。
 
 ## <a name="create-the-database-context"></a>データベース コンテキストを作成します。
 
-指定されたデータ モデルの Entity Framework 機能を調整するメイン クラスは、*データベース コンテキスト*クラスです。 派生することによってこのクラスを作成する、 [System.Data.Entity.DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx)クラスです。 コードでは、データ モデルのエンティティが含まれているを指定します。 特定の Entity Framework の動作をカスタマイズすることもできます。 クラスの名前は、このプロジェクトで`SchoolContext`です。
+指定されたデータ モデルの Entity Framework 機能を調整するメイン クラスは、*データベース コンテキスト*クラスです。 派生することによってこのクラスを作成する、 [System.Data.Entity.DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx)クラスです。 コードでは、データ モデルのエンティティが含まれているを指定します。 特定の Entity Framework の動作をカスタマイズすることもできます。 クラスの名前は、このプロジェクトで`SchoolContext`です。
 
 ContosoUniversity プロジェクトにフォルダーを作成するでプロジェクトを右クリックして**ソリューション エクスプ ローラー**  をクリック**追加**、クリックして**新しいフォルダー**です。 新しいフォルダーの名前を付けます*DAL* (データ アクセス層) 用です。 そのフォルダーの作成という新しいクラス ファイル*SchoolContext.cs*、テンプレート コードを次のコードに置き換えます。
 
@@ -199,7 +199,7 @@ ContosoUniversity プロジェクトにフォルダーを作成するでプロ�
 
 ### <a name="specifying-entity-sets"></a>エンティティ セットを指定します。
 
-このコードを作成、 [DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=VS.103).aspx)各エンティティ セットのプロパティです。 Entity Framework の用語で、*エンティティ セット*通常、データベース テーブルに対応し、*エンティティ*テーブル内の行に対応しています。
+このコードを作成、 [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=VS.103).aspx)各エンティティ セットのプロパティです。 Entity Framework の用語で、*エンティティ セット*通常、データベース テーブルに対応し、*エンティティ*テーブル内の行に対応しています。
 
 > [!NOTE] 
 > 
@@ -212,13 +212,13 @@ ContosoUniversity プロジェクトにフォルダーを作成するでプロ�
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample7.cs?highlight=1)]
 
-Web.config ファイルに格納されているいずれかの名前ではなく、接続文字列自体に渡すこともできます。 使用するデータベースを指定するためのオプションの詳細については、次を参照してください。 [Entity Framework の接続とモデル](https://msdn.microsoft.com/en-us/data/jj592674)です。
+Web.config ファイルに格納されているいずれかの名前ではなく、接続文字列自体に渡すこともできます。 使用するデータベースを指定するためのオプションの詳細については、次を参照してください。 [Entity Framework の接続とモデル](https://msdn.microsoft.com/data/jj592674)です。
 
 場合は、接続文字列か 1 つの名前を明示的に指定しなければ、Entity Framework は、接続文字列名がクラス名と同じであると仮定します。 この例では既定の接続文字列名になりますし`SchoolContext`、明示的に指定しているものと同じです。
 
 ### <a name="specifying-singular-table-names"></a>単数形のテーブル名を指定します。
 
-`modelBuilder.Conventions.Remove`内のステートメント、 [OnModelCreating](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx)メソッドは、複数化されてからテーブル名を防止します。 これをしなかった場合、データベースで生成されたテーブルの名前は`Students`、 `Courses`、および`Enrollments`です。 代わりに、テーブル名になります`Student`、 `Course`、および`Enrollment`です。 テーブル名を複数形にするかどうかについては、開発者の間で意見が分かれるでしょう。 このチュートリアルは単数形のフォームを使用しますが、重要な点は、することを含むか、次のコード行を省略することによって、どのフォームを選択することができます。
+`modelBuilder.Conventions.Remove`内のステートメント、 [OnModelCreating](https://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx)メソッドは、複数化されてからテーブル名を防止します。 これをしなかった場合、データベースで生成されたテーブルの名前は`Students`、 `Courses`、および`Enrollments`です。 代わりに、テーブル名になります`Student`、 `Course`、および`Enrollment`です。 テーブル名を複数形にするかどうかについては、開発者の間で意見が分かれるでしょう。 このチュートリアルは単数形のフォームを使用しますが、重要な点は、することを含むか、次のコード行を省略することによって、どのフォームを選択することができます。
 
 ## <a name="set-up-ef-to-initialize-the-database-with-test-data"></a>データベースにテスト データを初期化するために、EF を設定します。
 
@@ -241,7 +241,7 @@ DAL フォルダーでという新しいクラス ファイルを作成*SchoolIn
 
 [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample9.xml?highlight=2-6)]
 
-`context type`コンテキストの完全修飾クラス名とには、アセンブリを指定し、`databaseinitializer type`初期化子のクラスと内にあるアセンブリの完全修飾名を指定します。 (で属性を設定するには、初期化子を使用する EF を含めない場合は、ときに、`context`要素: `disableDatabaseInitialization="true"`)。詳細については、次を参照してください。 [Entity Framework の構成ファイル設定](https://msdn.microsoft.com/en-us/data/jj556606)です。
+`context type`コンテキストの完全修飾クラス名とには、アセンブリを指定し、`databaseinitializer type`初期化子のクラスと内にあるアセンブリの完全修飾名を指定します。 (で属性を設定するには、初期化子を使用する EF を含めない場合は、ときに、`context`要素: `disableDatabaseInitialization="true"`)。詳細については、次を参照してください。 [Entity Framework の構成ファイル設定](https://msdn.microsoft.com/data/jj556606)です。
 
 初期化子を設定する代わりに、 *Web.config*ファイルを追加することによって実行するコードで、`Database.SetInitializer`ステートメントを`Application_Start`メソッドで、 *Global.asax.cs*ファイル。 詳細については、次を参照してください。[についてデータベース初期化子の Entity Framework Code First](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm)です。
 
@@ -264,9 +264,9 @@ Visual Studio 2015 を使用している場合は、接続文字列で"v11.0"を
 
 [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample10.xml?highlight=1-3)]
 
-追加した接続文字列は、Entity Framework がという名前の LocalDB データベースを使用することを指定します*ContosoUniversity1.mdf*です。 (データベースはまだ存在しません。EF が作成されます。)データベースを作成する場合、*アプリ\_データ*追加することも、フォルダー`AttachDBFilename=|DataDirectory|\ContosoUniversity1.mdf`接続文字列にします。 接続文字列の詳細については、次を参照してください。 [ASP.NET Web アプリケーション用の SQL Server 接続文字列](https://msdn.microsoft.com/en-us/library/jj653752.aspx)です。
+追加した接続文字列は、Entity Framework がという名前の LocalDB データベースを使用することを指定します*ContosoUniversity1.mdf*です。 (データベースはまだ存在しません。EF が作成されます。)データベースを作成する場合、*アプリ\_データ*追加することも、フォルダー`AttachDBFilename=|DataDirectory|\ContosoUniversity1.mdf`接続文字列にします。 接続文字列の詳細については、次を参照してください。 [ASP.NET Web アプリケーション用の SQL Server 接続文字列](https://msdn.microsoft.com/library/jj653752.aspx)です。
 
-実際に接続文字列を用意する必要はありません、 *Web.config*ファイル。 接続文字列を指定しない場合、Entity Framework は、コンテキスト クラスに基づくいずれかの既定値を使用します。 詳細については、次を参照してください。 [Code First の新しいデータベースに](https://msdn.microsoft.com/en-us/data/jj193542)です。
+実際に接続文字列を用意する必要はありません、 *Web.config*ファイル。 接続文字列を指定しない場合、Entity Framework は、コンテキスト クラスに基づくいずれかの既定値を使用します。 詳細については、次を参照してください。 [Code First の新しいデータベースに](https://msdn.microsoft.com/data/jj193542)です。
 
 ## <a name="creating-a-student-controller-and-views"></a>学生のコント ローラーとビューの作成
 
@@ -325,7 +325,7 @@ Visual Studio 2015 を使用している場合は、接続文字列で"v11.0"を
 
 使用しているため、`DropCreateDatabaseIfModelChanges`初期化子、でした今すぐ変更を加えるには`Student`クラス、もう一度、アプリケーションを実行し、するとデータベースに自動的に変更内容を一致するように再作成します。 たとえば、追加する場合、`EmailAddress`プロパティを`Student`クラス、受講者 ページを再度実行し、表示、テーブルをもう一度、表示して、新しい`EmailAddress`列です。
 
-## <a name="conventions"></a>規則
+## <a name="conventions"></a>規約
 
 使用するための完全なデータベースを作成できるように、Entity Framework の順序で記述したコードの量は最小限に抑える*規則*、または Entity Framework で想定します。 既に説明した一部の場合、またはされず、気付かないうち使用されていたは。
 
@@ -334,9 +334,9 @@ Visual Studio 2015 を使用している場合は、接続文字列で"v11.0"を
 - 名前付きエンティティのプロパティ`ID`または*classname* `ID`主キー プロパティとして認識されます。
 - という名前が場合、プロパティが外部キーのプロパティとして解釈されます*&lt;ナビゲーション プロパティ名&gt;&lt;主キーのプロパティ名&gt;* (たとえば、 `StudentID` の`Student`以降のナビゲーション プロパティ、`Student`エンティティの主キーが`ID`)。 外部キー プロパティできますも同じ名前にするだけで&lt;主キーのプロパティ名&gt;(たとえば、`EnrollmentID`ので、`Enrollment`エンティティの主キーが`EnrollmentID`)。
 
-規則がオーバーライドできることを見てきました。 たとえば、テーブル名を複数化しないでください、および、後述することを指定を外部キーのプロパティとしてプロパティを明示的にマークする方法です。 規則およびそれらをオーバーライドする方法の詳細を学習、[詳細複雑なデータ モデルを作成する](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)このシリーズの後でチュートリアルです。 規則の詳細については、次を参照してください。[コード First 規約に従って](https://msdn.microsoft.com/en-us/data/jj679962)です。
+規則がオーバーライドできることを見てきました。 たとえば、テーブル名を複数化しないでください、および、後述することを指定を外部キーのプロパティとしてプロパティを明示的にマークする方法です。 規則およびそれらをオーバーライドする方法の詳細を学習、[詳細複雑なデータ モデルを作成する](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)このシリーズの後でチュートリアルです。 規則の詳細については、次を参照してください。[コード First 規約に従って](https://msdn.microsoft.com/data/jj679962)です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 保存し、データを表示する Entity Framework および SQL Server Express LocalDB を使用する簡単なアプリケーションが作成されました。 次のチュートリアルでは基本的な CRUD を実行する方法を学習 (作成、読み取り、更新、削除) 操作です。
 

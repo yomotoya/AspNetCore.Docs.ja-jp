@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 56b73820f8b770a5332cb39029ae25df4d5753dc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 862f07defafb2d2613fef9f76f13aab0b11c5440
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-vb"></a>FTP クライアント (VB) を使用して、サイトを展開します。
 ====================
@@ -144,11 +144,11 @@ Web アプリケーションの開発と展開は、1 回限りのプロセス�
 > または、新しい ASP.NET ページをプロジェクトに追加するコードに関連する変更を加えるたびにアセンブリを更新する、プロジェクトをリビルドする必要がありますを明示的なコンパイルを使用する場合に留意すること、`Bin`フォルダーです。 したがって、(、他の新規および更新内容と共に) の運用上の web アプリケーションを更新するときに、実稼働環境にこの更新されたアセンブリをコピーする必要があります。
 
 
-またに変更されているいずれかを理解、`Web.config`または内のファイル、`Bin`ディレクトリが停止し、web サイトのアプリケーション プールを再起動します。 使用して、セッション状態に格納されている場合、`InProc`モード (既定)、サイトの訪問者は、これらのキー ファイルが変更されるたびに、セッション状態に失われます。 この危険を回避することを検討してセッションを使用して格納する、`StateServer`または`SQLServer`モード。 このトピックの詳細については読み取る[セッション状態モード](https://msdn.microsoft.com/en-us/library/ms178586.aspx)です。
+またに変更されているいずれかを理解、`Web.config`または内のファイル、`Bin`ディレクトリが停止し、web サイトのアプリケーション プールを再起動します。 使用して、セッション状態に格納されている場合、`InProc`モード (既定)、サイトの訪問者は、これらのキー ファイルが変更されるたびに、セッション状態に失われます。 この危険を回避することを検討してセッションを使用して格納する、`StateServer`または`SQLServer`モード。 このトピックの詳細については読み取る[セッション状態モード](https://msdn.microsoft.com/library/ms178586.aspx)です。
 
 最後に、アプリケーションの再配置する実行できる任意の場所は数秒から実稼働環境にコピーする必要のあるファイルのサイズと数によっては、数分に注意してください。 この期間中にサイトを訪問ユーザー可能性がありますが発生するエラーや不適切な動作をします。 「無効にできます」アプリケーション全体という名前のページを追加することによって`App_Offline.htm`をユーザーに説明する、アプリケーションのルート ディレクトリに、サイトのメンテナンス (など) がダウンしてがなることをバックアップ直後。 ときに、`App_Offline.htm`ファイルが存在、ASP.NET ランタイムがそのページにすべての着信要求をリダイレクトします。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 Web アプリケーションを配置するには、開発環境から運用環境に必要なファイルをコピーする必要があります。 ファイルがネットワーク経由で転送する最も一般的な方法は、ファイル転送プロトコル (FTP)、およびほとんどの web ホスト プロバイダーは、web サーバーに対する FTP アクセスをサポートします。 このチュートリアルでは、FTP クライアントを使用して、web サーバーに必要なファイルを配置する方法を説明しました。 展開した後、web サイトが参照できますすべてのユーザー接続でインターネットに!
 
@@ -159,7 +159,7 @@ Web アプリケーションを配置するには、開発環境から運用環�
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
 - [アプリ\_Offline.htm と「IE フレンドリ エラー」機能を回避します。](https://weblogs.asp.net/scottgu/App_5F00_Offline.htm-and-working-around-the-_2200_IE-Friendly-Errors_2200_-feature)
-- [セッション状態モード](https://msdn.microsoft.com/en-us/library/ms178586.aspx)
+- [セッション状態モード](https://msdn.microsoft.com/library/ms178586.aspx)
 
 >[!div class="step-by-step"]
 [前へ](determining-what-files-need-to-be-deployed-vb.md)

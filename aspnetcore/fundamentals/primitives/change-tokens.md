@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: a9479e3d676ed4dc880996a4a77de30d82b84cd5
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: 94bf356fcbfab3930804485c1b65e4a0f4c52b8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>ASP.NET Core の変更のトークンを使用して変更を検出します。
 
@@ -135,7 +135,7 @@ config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
 
 [!code-csharp[Main](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet2)]
 
-ときに`OnPostStartMonitoring`がトリガーされると、監視が有効になっているし、現在の状態がオフになっています。 ときに`OnPostStopMonitoring`がトリガーされると、監視は無効になり、状態は監視が行われていないことを反映するように設定します。
+ときに`OnPostStartMonitoring`がトリガーされると、監視が有効になっているし、現在の状態がオフになっています。 ときに`OnPostStopMonitoring`がトリガーされると、監視は無効になり、状態が監視されていない行われていることを反映するように設定します。
 
 ## <a name="monitoring-cached-file-changes"></a>キャッシュされたファイルの変更の監視
 
@@ -201,7 +201,7 @@ var compositeChangeToken =
 
 * [メモリ内キャッシュ](xref:performance/caching/memory)
 * [分散キャッシュの使用](xref:performance/caching/distributed)
-* [変更のトークンを使用して変更を検出します。](xref:fundamentals/primitives/change-tokens)
+* [変更トークンを使用する変更の検出](xref:fundamentals/primitives/change-tokens)
 * [応答キャッシュ](xref:performance/caching/response)
 * [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
 * [キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

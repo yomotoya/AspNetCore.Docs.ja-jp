@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/individual-accounts-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 8207df79c1e915b33a0ba095d917a6dc69550173
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e2056e769edf972cba830b31cf37f6418148ca73
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="secure-a-web-api-with-individual-accounts-and-local-login-in-aspnet-web-api-22"></a>個々 のアカウントと ASP.NET Web API 2.2 でローカルのログインを使用して Web API をセキュリティで保護します。
 ====================
@@ -148,9 +148,9 @@ Visual Studio からアプリをローカルで実行する場合、ユーザー
 
 **ログで**ボタンは、トークン エンドポイントに要求を送信します。 要求の本文には、次の形式で url でエンコードされたデータが含まれています。
 
-- 付与\_型:"password"
+- grant\_type: "password"
 - ユーザー名:&lt;ユーザーの電子メール&gt;
-- パスワード:&lt;パスワード&gt;
+- password: &lt;password&gt;
 
 AJAX 要求を送信する JavaScript コードを次に示します。
 
@@ -204,8 +204,8 @@ HTTP 応答:
 
 - `AccountController`。 ユーザー アカウントを管理するためには、Web API エンドポイントを提供します。 `Register`アクションは、このチュートリアルで使用した 1 つだけです。 クラスの他のメソッドは、パスワードのリセット、ソーシャル ログイン、およびその他の機能をサポートします。
 - `ApplicationUser`、/Models/IdentityModels.cs で定義されています。 このクラスは、メンバーシップ データベース内のユーザー アカウントの EF モデルです。
-- `ApplicationUserManager`、/App で定義されている\_このクラスから派生 Start/IdentityConfig.cs [UserManager](https://msdn.microsoft.com/en-us/library/dn613290.aspx)パスワード、およびなどを確認する、新しいユーザーを作成するなどのユーザー アカウントの操作を実行し、自動的に保持し、データベースに変更します。
-- `ApplicationOAuthProvider`。 このオブジェクトは、OWIN ミドルウェアに接続し、ミドルウェアによって生成されるイベントを処理します。 派生して[OAuthAuthorizationServerProvider](https://msdn.microsoft.com/en-us/library/microsoft.owin.security.oauth.oauthauthorizationserverprovider.aspx)です。
+- `ApplicationUserManager`、/App で定義されている\_このクラスから派生 Start/IdentityConfig.cs [UserManager](https://msdn.microsoft.com/library/dn613290.aspx)パスワード、およびなどを確認する、新しいユーザーを作成するなどのユーザー アカウントの操作を実行し、自動的に保持し、データベースに変更します。
+- `ApplicationOAuthProvider`。 このオブジェクトは、OWIN ミドルウェアに接続し、ミドルウェアによって生成されるイベントを処理します。 派生して[OAuthAuthorizationServerProvider](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserverprovider.aspx)です。
 
 ![](individual-accounts-in-web-api/_static/image14.png)
 
@@ -256,7 +256,7 @@ OAuth ミドルウェアは、ユーザー アカウントの設定を認識し�
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [ASP.NET Id](../../../identity/index.md)
+- [ASP.NET Identity](../../../identity/index.md)
 - [VS2013 RC の SPA テンプレートのセキュリティ機能の理解](https://blogs.msdn.com/b/webdev/archive/2013/09/20/understanding-security-features-in-spa-template.aspx)です。 MSDN のブログでは、Sun Hongye で投稿します。
 - [アカウント、Web API の個々 の分解をテンプレート – パート 2: ローカル アカウント](http://leastprivilege.com/2013/11/26/dissecting-the-web-api-individual-accounts-templatepart-2-local-accounts/)です。 ブログ投稿 Dominick Baier でします。
 - [ホストの認証および Web API OWIN の](http://brockallen.com/2013/10/27/host-authentication-and-web-api-with-owin-and-active-vs-passive-authentication-middleware/)します。 説明については、`SuppressDefaultHostAuthentication`と`HostAuthenticationFilter`Brock Allen でします。

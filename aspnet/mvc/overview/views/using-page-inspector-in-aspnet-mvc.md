@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 6aa9f16f166ecf5529ae33a17951eb5ea425e7af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5b443963a089f96a9dab11b7db4a25451075d6be
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>ASP.NET MVC フォーム内での Page Inspector の使用
 ====================
@@ -46,7 +46,7 @@ Tim Ammann によって
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11/en-us)または[Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web)です。
+- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11)または[Visual Studio Express 2012 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web)です。
 
 > [!NOTE]
 > Page Inspector の最新バージョンを取得する[Web Platform Installer](https://go.microsoft.com/fwlink/?LinkId=255386) for .NET 2.0、Windows Azure SDK をインストールします。
@@ -62,7 +62,7 @@ Page Inspector には、Microsoft Web Developer Tools が付属しています�
 
 ![新しい ASP.NET MVC アプリケーション](using-page-inspector-in-aspnet-mvc/_static/image2.png)
 
-**[OK]** をクリックします。
+**[OK]**をクリックします。
 
 **新しい ASP.NET MVC 4 プロジェクト**ダイアログ ボックスで、**インターネット アプリケーション**です。 ままにして**Razor**既定のビュー エンジンとして。
 
@@ -84,9 +84,9 @@ Visual Studio 2012 での任意のビューを右プロジェクトで、 **Page
 
 ![Page Inspector 内でビュー Index.cshtml](using-page-inspector-in-aspnet-mvc/_static/image8.png)
 
-既定では、Page Inspector がドッキングされるウィンドウとして、Visual Studio 環境の左側にあります。 場合は、他の場所にドッキングしたり、ウィンドウのドッキングを解除できます。 参照してください[する方法: を整列およびドッキング Windows](https://msdn.microsoft.com/en-us/library/z4y0hsax.aspx)です。
+既定では、Page Inspector がドッキングされるウィンドウとして、Visual Studio 環境の左側にあります。 場合は、他の場所にドッキングしたり、ウィンドウのドッキングを解除できます。 参照してください[する方法: を整列およびドッキング Windows](https://msdn.microsoft.com/library/z4y0hsax.aspx)です。
 
-Page Inspector ウィンドウの上部ペインには、ブラウザーのウィンドウで、現在のページを示します。 下のペインは、ページのさまざまな側面を調査することのできるいくつかのタブと、HTML マークアップ内のページを示します。 下のペインがに似ていますが、 [F12 開発者ツール](https://msdn.microsoft.com/en-us/ie/aa740478)Internet Explorer でします。
+Page Inspector ウィンドウの上部ペインには、ブラウザーのウィンドウで、現在のページを示します。 下のペインは、ページのさまざまな側面を調査することのできるいくつかのタブと、HTML マークアップ内のページを示します。 下のペインがに似ていますが、 [F12 開発者ツール](https://msdn.microsoft.com/ie/aa740478)Internet Explorer でします。
 
 ![Page Inspector 内での ASP.NET MVC アプリケーション](using-page-inspector-in-aspnet-mvc/_static/image10.png)
 
@@ -243,7 +243,7 @@ Page Inspector への変更をすぐに検出、 *Site.css*更新バーで、ア
 > SPA テンプレートが必要です、 [ASP.NET および Web ツール 2012.2](https://go.microsoft.com/fwlink/?LinkId=282650)を更新します。
 
 
-Visual Studio で、次のように選択します。**ファイル** &gt; **新しいプロジェクト**です。 展開し、左側の**Visual c#** **Web**、し、 **ASP.NET MVC4 Web アプリケーション**です。 **[OK]** をクリックします。
+Visual Studio で、次のように選択します。**ファイル** &gt; **新しいプロジェクト**です。 展開し、左側の**Visual c#** **Web**、し、 **ASP.NET MVC4 Web アプリケーション**です。 **[OK]**をクリックします。
 
 **新しい ASP.NET MVC 4 プロジェクト**ダイアログで、 **Single Page Application**です。
 
@@ -269,7 +269,7 @@ Page Inspector のブラウザーでは最初に表示されるには、ログ�
 
 ![](using-page-inspector-in-aspnet-mvc/_static/image50.png)
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 [Visual Studio での ASP.NET MVC 4 に出だし](../older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)(ASP.net web サイト)
 

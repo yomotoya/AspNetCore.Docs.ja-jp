@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 1f19d54a5f2679f790575d520b28472d4ff3233f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: caa79725ede320c4bd3e87ac246966c57175eb8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio を使用した ASP.NET Web 展開: データベースの配置の準備
 ====================
@@ -52,7 +52,7 @@ SQL Server のエディションの詳細については、LocalDB などにつ�
 データベースへのアクセスには、Contoso 大学アプリケーションには、.NET Framework に含まれていないために、アプリケーションと共に配置する必要があります、次のソフトウェアが必要です。
 
 - [ASP.NET Universal Providers](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (Azure SQL データベースを使用する ASP.NET メンバーシップ システムを有効に)
-- [Entity Framework](https://msdn.microsoft.com/en-us/library/gg696172.aspx)
+- [Entity Framework](https://msdn.microsoft.com/library/gg696172.aspx)
 
 このソフトウェアが NuGet パッケージに含まれているため、プロジェクトは既に設定、必要なアセンブリは、プロジェクトと共に配置されるようにします。 (リンクは、このチュートリアル用にダウンロードしたスタート プロジェクトにインストールされている内容よりも新しい可能性のあるこれらのパッケージの現在のバージョン をポイント)。
 
@@ -171,12 +171,12 @@ Contoso 大学アプリケーションでは、ASP.NET メンバーシップ シ
 開発ユーザー テスト環境とステージングと運用環境に運用環境のユーザーを展開します。 行うにはこのチュートリアルでの開発と実稼働環境での 2 つの SQL スクリプトを作成しを実行する、発行プロセスの構成後のチュートリアルでします。
 
 > [!NOTE]
-> メンバーシップ データベースには、アカウントのパスワードのハッシュが格納されます。 1 台のコンピューターから別のアカウントをデプロイするのには、ソース コンピューターの方がよりに、ハッシュのルーチンが、移行先サーバー上の別のハッシュを生成しないことを確認しての操作を行う必要があります。 生成されます、同じハッシュ ASP.NET ユニバーサル プロバイダーを使用すると、既定のアルゴリズムを変更しない限り、します。 既定のアルゴリズムはで指定された、HMACSHA256、**検証**の属性、  **[machineKey](https://msdn.microsoft.com/en-us/library/system.web.configuration.machinekeysection.aspx)**  Web.config ファイル内の要素。
+> メンバーシップ データベースには、アカウントのパスワードのハッシュが格納されます。 1 台のコンピューターから別のアカウントをデプロイするのには、ソース コンピューターの方がよりに、ハッシュのルーチンが、移行先サーバー上の別のハッシュを生成しないことを確認しての操作を行う必要があります。 生成されます、同じハッシュ ASP.NET ユニバーサル プロバイダーを使用すると、既定のアルゴリズムを変更しない限り、します。 既定のアルゴリズムはで指定された、HMACSHA256、**検証**の属性、  **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)**  Web.config ファイル内の要素。
 
 
 SQL Server Management Studio (SSMS) を使用して、またはサード パーティ製ツールを使用して、データの配置スクリプトを手動で作成することができます。 このチュートリアルの残りの部分が SSMS では、それを実行する方法を示しますをインストールして SSMS を使用しない場合は、プロジェクトの完成版からスクリプトを取得し、ソリューション フォルダーに格納する場所のセクションにスキップします。
 
-SSMS をインストールするには、インストールから[ダウンロード センター: Microsoft SQL Server 2012 Express](https://www.microsoft.com/en-us/download/details.aspx?id=29062)  をクリックして[ENU\x64\SQLManagementStudio\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe)または[ENU\x86\SQLManagementStudio\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe)です。 問題の 1 つを選択した場合、システムのインストールに失敗し、もう 1 つを試みることができます。
+SSMS をインストールするには、インストールから[ダウンロード センター: Microsoft SQL Server 2012 Express](https://www.microsoft.com/download/details.aspx?id=29062)  をクリックして[ENU\x64\SQLManagementStudio\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe)または[ENU\x86\SQLManagementStudio\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe)です。 問題の 1 つを選択した場合、システムのインストールに失敗し、もう 1 つを試みることができます。
 
 (600 メガバイト ダウンロードは、このことに注意してください。 時間がかかる場合がありますをインストールし、コンピューターの再起動が必要になります)。
 
@@ -201,7 +201,7 @@ SQL Server インストール センターの最初のページで、をクリ�
 7. 変更**を使用してデータベースのスクリプトを**に**False**です。 ステートメントを使用する Azure SQL Database の有効ながなく、テスト環境で SQL Server Express への展開の不要な。
 
     ![SSMS スクリプトのデータのみ、使用するステートメントのないです。](preparing-databases/_static/image13.png)
-8. **[OK]** をクリックします。
+8. **[OK]**をクリックします。
 9. **公開スクリプトの生成と** ダイアログ ボックスで、**ファイル名**ボックスは、スクリプトを作成する場所を指定します。 パスをソリューション フォルダー (、ContosoUniversity.sln ファイルがあるフォルダー) とファイルの名前に変更*aspnet データ-dev.sql*です。
 10. をクリックして**次へ**に移動する、**概要** タブをクリックして**次へ**スクリプトを作成するには、もう一度です。
 
@@ -218,10 +218,10 @@ SQL Server インストール センターの最初のページで、をクリ�
 - **データベースのアタッチ**ダイアログ ボックスで、をクリックして**追加**に移動し、 *aspnet ContosoUniversity-Prod.mdf*ファイルを*アプリ\_データ*フォルダーです。
 
     ![アタッチする .mdf ファイルを SSMS の追加](preparing-databases/_static/image16.png)
-- **[OK]** をクリックします。
+- **[OK]**をクリックします。
 - 以前に使用した、実稼働ファイルのスクリプトを作成する同じ手順に従います。 スクリプト ファイルの名前を付けます*aspnet データ-prod.sql*です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 両方のデータベースを展開する準備が整いましたされ、2 つのデータ配置スクリプトで、ソリューション フォルダーです。
 
@@ -231,7 +231,7 @@ SQL Server インストール センターの最初のページで、をクリ�
 
 ## <a name="more-information"></a>説明
 
-NuGet の詳細については、次を参照してください。 [NuGet のプロジェクトのライブラリを管理](https://msdn.microsoft.com/en-us/magazine/hh547106.aspx)と[NuGet のドキュメント](http://docs.nuget.org/docs/start-here/overview)です。 NuGet を使用しない場合は、インストールされている場合に、新機能を決定する NuGet パッケージを分析する方法を学習する必要があります。 (たとえば、構成が*Web.config*変換がビルド時などに実行する PowerShell スクリプトを構成します)。NuGet のしくみの詳細については、次を参照してください。[を作成すると、パッケージを発行する](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)と[構成ファイルとソース コードの変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)です。
+NuGet の詳細については、次を参照してください。 [NuGet のプロジェクトのライブラリを管理](https://msdn.microsoft.com/magazine/hh547106.aspx)と[NuGet のドキュメント](http://docs.nuget.org/docs/start-here/overview)です。 NuGet を使用しない場合は、インストールされている場合に、新機能を決定する NuGet パッケージを分析する方法を学習する必要があります。 (たとえば、構成が*Web.config*変換がビルド時などに実行する PowerShell スクリプトを構成します)。NuGet のしくみの詳細については、次を参照してください。[を作成すると、パッケージを発行する](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)と[構成ファイルとソース コードの変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)です。
 
 >[!div class="step-by-step"]
 [前へ](introduction.md)

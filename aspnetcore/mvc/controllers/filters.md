@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: db5d6a98d5e6702842e8b036c378ed96aef61b70
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 32bfddde48f5e5de9c06cb159493eb9ba6ede8be
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="filters"></a>フィルター
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 01/19/2018
 
 ### <a name="ifilterfactory"></a>IFilterFactory
 
-`IFilterFactory` は、`IFilter` を実装します。 したがって、`IFilterFactory`としてインスタンスを使用することができます、`IFilter`フィルター パイプライン内の任意の場所のインスタンス。 フレームワークは、フィルターを呼び出します準備しようとしてキャスト、`IFilterFactory`です。 そのキャストが成功した場合、`CreateInstance`を作成するメソッドが呼び出された、`IFilter`呼び出されるインスタンス。 これにより、正確なフィルター パイプラインがアプリケーションの起動時に明示的に設定する必要がないために、非常に柔軟なデザインが提供されます。
+`IFilterFactory` は、`IFilter` を実装します。 したがって、`IFilterFactory`としてインスタンスを使用することができます、`IFilter`フィルター パイプライン内の任意の場所のインスタンス。 フレームワークは、フィルターを呼び出します準備しようとしてキャスト、`IFilterFactory`です。 そのキャストが成功した場合、`CreateInstance`を作成するメソッドが呼び出された、`IFilter`呼び出されるインスタンス。 これにより、正確なフィルター パイプラインは、アプリケーションの起動時に明示的に設定する必要があるために、非常に柔軟なデザインが提供されます。
 
 実装できます`IFilterFactory`フィルターを作成するための別の方法として、独自の属性の実装に。
 
@@ -177,7 +177,7 @@ ms.lasthandoff: 01/19/2018
 
 タイプまたはインスタンスによって、フィルターを追加できます。 インスタンスを追加する場合、そのインスタンスはすべての要求に対して使用されます。 種類を追加する場合は、型でアクティブ化される、つまり、要求ごとにインスタンスが作成されコンス トラクターの依存関係が設定されますをそのされます[依存性の注入](../../fundamentals/dependency-injection.md)(DI)。 型でフィルターを追加するは等価`filters.Add(new TypeFilterAttribute(typeof(MyFilter)))`です。
 
-属性として実装され、コント ローラー クラスまたはアクション メソッドに直接追加するフィルターによって提供されるコンス トラクターの依存関係を持つことはできません[依存性の注入](../../fundamentals/dependency-injection.md)(DI)。 これは、属性には、適用することを指定したコンス トラクターのパラメーターが必要なためです。 これは、属性の機能についての制限です。
+属性として実装され、コント ローラー クラスまたはアクション メソッドに直接追加するフィルターによって提供されるコンス トラクターの依存関係を持つことはできません[依存性の注入](../../fundamentals/dependency-injection.md)(DI)。 これは、属性には、それらを適用している指定されたコンス トラクターのパラメーターが必要なためです。 これは、属性の機能についての制限です。
 
 フィルターには、DI からアクセスする必要のある依存関係がある、サポートされているいくつかの方法があります。 次のいずれかを使用して、クラスまたはアクション メソッドに、フィルターを適用できます。
 
@@ -207,7 +207,7 @@ System.InvalidOperationException: No service for type
 
 ### <a name="typefilterattribute"></a>TypeFilterAttribute
 
-`TypeFilterAttribute`よく似ています`ServiceFilterAttribute`(も実装`IFilterFactory`)、その型は、DI コンテナーから直接解決されませんが、します。 型をインスタンス化を使用して、代わりに、`Microsoft.Extensions.DependencyInjection.ObjectFactory`です。
+`TypeFilterAttribute`よく似ています`ServiceFilterAttribute`(も実装`IFilterFactory`) が DI コンテナーから直接その型が解決はありません。 型をインスタンス化を使用して、代わりに、`Microsoft.Extensions.DependencyInjection.ObjectFactory`です。
 
 この違いにより、型を使用して参照されている、`TypeFilterAttribute`最初、コンテナーに登録する必要はありません (ただし、コンテナーによって実行される依存関係があります)。 また、`TypeFilterAttribute`対象の型のコンス トラクター引数を受け入れる必要に応じてことができます。 次の例を使用して、型引数を渡す方法を示します`TypeFilterAttribute`:
 
@@ -223,7 +223,7 @@ System.InvalidOperationException: No service for type
 
 *承認フィルター*フィルター パイプライン内で実行される最初のフィルターは、アクション メソッドへのアクセスを制御します。 のみがある前に、と後のメソッドをサポートするほとんどのフィルターとは異なり、メソッドの前にします。 必要がありますだけ記述するカスタム承認フィルターを記述するかどうかは、独自の承認フレームワーク。 承認ポリシーの構成またはカスタム フィルターの記述に、カスタム承認ポリシーを上書きしてもかまいません。 組み込みのフィルターの実装はだけ認証システムを呼び出すことをします。
 
-例外の処理は何も行われませんので承認フィルター内の例外をスローする必要があります (例外フィルターされませんそれらを処理)。 代わりに、チャレンジを発行するか、別の方法します。
+何も例外をしないするため、承認フィルター内の例外をスローしないでください (例外フィルターされませんそれらを処理)。 代わりに、チャレンジを発行するか、別の方法します。
 
 詳細については[承認](../../security/authorization/index.md)です。
 
@@ -252,7 +252,7 @@ System.InvalidOperationException: No service for type
 * `Canceled`-アクションの実行がショート サーキットで別のフィルターの場合は true になります。
 * `Exception`-アクションまたは後続のアクション フィルターは、例外をスローした場合、null になります。 効果的に null には、このプロパティの設定 'handles'、例外、および`Result`は通常、アクション メソッドから返されたかのように実行されます。
 
-`IAsyncActionFilter`への呼び出し、`ActionExecutionDelegate`の後続のアクション フィルターとを返すアクション メソッドの実行、`ActionExecutedContext`です。 ショート サーキット、割り当て、`ActionExecutingContext.Result`なんらかの結果をインスタンス化し、呼び出すことはありません、`ActionExecutionDelegate`です。
+`IAsyncActionFilter`への呼び出し、`ActionExecutionDelegate`の後続のアクション フィルターとを返すアクション メソッドの実行、`ActionExecutedContext`です。 ショート サーキット、割り当て、`ActionExecutingContext.Result`なんらかの結果をインスタンス化し、呼び出さないで、`ActionExecutionDelegate`です。
 
 フレームワークは、抽象`ActionFilterAttribute`サブクラス化できます。 
 
@@ -270,14 +270,14 @@ System.InvalidOperationException: No service for type
 
 [!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/CustomExceptionFilterAttribute.cs?name=snippet_ExceptionFilter&highlight=1,14)]
 
-例外フィルターがない 2 つのイベント (の前に、と後に) - のみを実装する`OnException`(または`OnExceptionAsync`)。 
+例外フィルターは、(の前に、と後に) 2 つのイベントがありません - のみを実装する`OnException`(または`OnExceptionAsync`)。 
 
 例外フィルターは、コント ローラーの作成で発生する未処理の例外を処理[モデル バインディング](../models/model-binding.md)、アクション フィルター、またはアクション メソッド。 リソース フィルター、結果のフィルターまたは MVC 結果実行で発生する例外をキャッチするされません。
 
 例外を処理するには、設定、`ExceptionContext.ExceptionHandled`プロパティを true または応答を書き込みます。 これは、例外の伝達を停止します。 例外フィルターが「成功」に例外を有効にできないことに注意してください。 アクション フィルターのみ行うことができます。
 
 > [!NOTE]
-> ASP.NET 1.1 に設定した場合、応答は送信されません`ExceptionHandled`を true に**と**応答を書き込みます。 シナリオでは、ASP.NET Core 1.0 は応答の送信、および ASP.NET Core 1.1.2 は 1.0 の動作に戻ります。 詳細については、次を参照してください。[発行 #5594](https://github.com/aspnet/Mvc/issues/5594) GitHub リポジトリにします。 
+> 設定する場合は ASP.NET 1.1 の場合は、応答が送信されていない`ExceptionHandled`を true に**と**応答を書き込みます。 シナリオでは、ASP.NET Core 1.0 は応答の送信、および ASP.NET Core 1.1.2 は 1.0 の動作に戻ります。 詳細については、次を参照してください。[発行 #5594](https://github.com/aspnet/Mvc/issues/5594) GitHub リポジトリにします。 
 
 例外フィルターは、MVC アクション内で発生する例外をトラップするのに便利ですが取り込まエラー ミドルウェアを処理する柔軟性がありません。 [全般] の場合、ミドルウェアを優先し、エラー処理のためにのみ必要があるフィルターを使用して*異なる*する MVC アクションの選択に基づいて。 たとえば、アプリには、両方の API エンドポイントとのビューと HTML のアクション メソッドがあります。 ビュー ベースのアクションが html エラー ページを返すときに、API エンドポイントは、JSON としてのエラー情報を返す可能性があります。
 
@@ -301,13 +301,13 @@ HTTP ヘッダーを追加する結果フィルターの例を次に示します
 
 `ResultExecutedContext.Exception`アクションの結果または以降の結果のフィルターは、例外をスローした場合、null 以外の値に設定されます。 設定`Exception`に null を効率的に例外を処理およびパイプラインの後続の MVC によって再スローされてからの例外を防止します。 結果フィルター内の例外を処理している、ときに、応答にすべてのデータを書き込むことができません。 アクションの結果をその実行を途中でスロー ヘッダーが既にクライアントにフラッシュされた場合は、信頼性の高いメカニズムはエラー コードを送信することはありません。
 
-`IAsyncResultFilter`への呼び出し`await next()`上、`ResultExecutionDelegate`以降の結果フィルターとアクションの結果を実行します。 ショート サーキットの設定、`ResultExecutingContext.Cancel`に true を設定して、呼び出すことはありません、`ResultExectionDelegate`です。
+`IAsyncResultFilter`への呼び出し`await next()`上、`ResultExecutionDelegate`以降の結果フィルターとアクションの結果を実行します。 ショート サーキットの設定、`ResultExecutingContext.Cancel`を true し、呼び出さないで、`ResultExectionDelegate`です。
 
 フレームワークは、抽象`ResultFilterAttribute`サブクラス化できます。 [AddHeaderAttribute](#add-header-attribute)前に示したクラスは、結果のフィルター属性の例を示します。
 
 ## <a name="using-middleware-in-the-filter-pipeline"></a>フィルター パイプラインにミドルウェアを使用します。
 
-リソース フィルターの動作と同様に[ミドルウェア](../../fundamentals/middleware.md)を後で、パイプラインに付属しているすべての実行に囲まれています。 フィルターとは異なり、ミドルウェアから MVC、MVC コンテキストおよび構成体へのアクセスがあることを意味の一部であります。
+リソース フィルターの動作と同様に[ミドルウェア](../../fundamentals/middleware.md)を後で、パイプラインに付属しているすべての実行に囲まれています。 フィルターとは異なり、ミドルウェアから MVC、MVC コンテキストおよび構成体へのアクセスがあることを意味の一部になっています。
 
 ASP.NET Core 1.1 では、フィルター パイプラインにミドルウェアを使用できます。 MVC ルート データ、またはいずれかのコント ローラーまたはアクションを実行する必要がありますへのアクセスが必要なミドルウェア コンポーネントがある場合は、する可能性があります。
 

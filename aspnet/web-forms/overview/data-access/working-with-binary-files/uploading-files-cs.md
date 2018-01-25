@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8002253ef40c7786a5dada95b7e8d0dc070409fd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 629c1154683a0370e3e650873edf29dc9f22b4bc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="uploading-files-c"></a>ファイルのアップロード (c#)
 ====================
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/10/2017
 データベース内で直接バイナリ データを格納する主な利点は、バイナリ データおよびデータベースのレコード間の密結合です。 これには、バックアップまたは別のサイトまたはサーバーにデータベースの移動など、データベース管理タスクが大幅に簡略化します。 また、レコードを自動的に削除すると、対応するバイナリ データが削除されます。 バイナリ データを格納するデータベース内の複数の微妙な利点もあります。 参照してください[を格納するバイナリ ファイルを直接データベースを使用して ASP.NET 2.0 の](http://aspnet.4guysfromrolla.com/articles/120606-1.aspx)の詳細情報についてはします。
 
 > [!NOTE]
-> Microsoft SQL Server 2000 以前のバージョンでのみで、`varbinary`データ型が 8,000 バイトの最大数。 最大 2 GB のバイナリ データを格納する、 [ `image`データ型](https://msdn.microsoft.com/en-us/library/ms187993.aspx)代わりに使用する必要があります。 追加すると、 `MAX` SQL Server 2005、ただしで、`image`データ型は廃止されました。 これは、s ために引き続きサポート後方互換性のためが、Microsoft はことを発表しましたが、`image`データ型は、SQL Server の将来のバージョンで削除される予定です。
+> Microsoft SQL Server 2000 以前のバージョンでのみで、`varbinary`データ型が 8,000 バイトの最大数。 最大 2 GB のバイナリ データを格納する、 [ `image`データ型](https://msdn.microsoft.com/library/ms187993.aspx)代わりに使用する必要があります。 追加すると、 `MAX` SQL Server 2005、ただしで、`image`データ型は廃止されました。 これは、s ために引き続きサポート後方互換性のためが、Microsoft はことを発表しましたが、`image`データ型は、SQL Server の将来のバージョンで削除される予定です。
 
 
 表示古いデータ モデルを使用して作業している場合、`image`データ型。 Northwind データベース s`Categories`テーブルには、`Picture`カテゴリのイメージ ファイルのバイナリ データの格納に使用できる列です。 型のこの列は、Northwind データベースには、Microsoft Access や SQL Server の以前のバージョンでは、そのルートがあるので`image`です。
@@ -210,7 +210,7 @@ Tableadapter をアドホック SQL ステートメントを使用する場合�
 
 バイナリ データを収集するときに多くの場合このデータは、エンドユーザーが提供されます。 この情報をキャプチャするには、ユーザーを自分のコンピューターから web サーバーへのファイルをアップロードできる必要があります。 アップロードされたデータは、web サーバーのファイル システムと、データベース内のファイルへのパスの追加またはデータベースに直接バイナリの内容の書き込みにファイルの保存を意味する可能性がありますデータ モデルと統合する必要があります。 このステップでは、ユーザーが各自のコンピューターからサーバーへのファイルをアップロードできるようにする方法を紹介します。 次のチュートリアルでアップロードされたファイルをデータ モデルと統合することに注目有効にします。
 
-ASP.NET 2.0 s 新しい[ファイルアップロード Web コントロール](https://msdn.microsoft.com/en-us/library/ms227677(VS.80).aspx)ユーザーは各自のコンピューターから web サーバーにファイルを送信するためのメカニズムを提供します。 ファイルアップロード コントロールとして表示、`<input>`要素が`type`ファイルで、ブラウザーの [参照] ボタンとテキスト ボックスとして表示する属性を設定します。 参照 ボタンをクリックすると、ユーザーがファイルを選択 ダイアログ ボックスが表示されます。 フォームがポストバック時に、選択したファイルの内容がポストバックと共に送信されます。 サーバー側でアップロードされたファイルに関する情報はファイルアップロード コントロールのプロパティを使用してアクセスします。
+ASP.NET 2.0 s 新しい[ファイルアップロード Web コントロール](https://msdn.microsoft.com/library/ms227677(VS.80).aspx)ユーザーは各自のコンピューターから web サーバーにファイルを送信するためのメカニズムを提供します。 ファイルアップロード コントロールとして表示、`<input>`要素が`type`ファイルで、ブラウザーの [参照] ボタンとテキスト ボックスとして表示する属性を設定します。 参照 ボタンをクリックすると、ユーザーがファイルを選択 ダイアログ ボックスが表示されます。 フォームがポストバック時に、選択したファイルの内容がポストバックと共に送信されます。 サーバー側でアップロードされたファイルに関する情報はファイルアップロード コントロールのプロパティを使用してアクセスします。
 
 ファイルのアップロードを示すためには、開く、 `FileUpload.aspx`  ページで、`BinaryData`フォルダーがファイルアップロード コントロールをツールボックスからデザイナーにドラッグし、制御 s を設定`ID`プロパティを`UploadTest`です。 Button Web コントロールの設定を次に、追加の`ID`と`Text`プロパティ`UploadButton`とそれぞれに選択されたファイルをアップロードします。 最後に、クリア、ボタンの下にラベル Web コントロールを配置、`Text`プロパティとその`ID`プロパティを`UploadDetails`です。
 
@@ -233,13 +233,13 @@ ASP.NET 2.0 s 新しい[ファイルアップロード Web コントロール](h
 
 [!code-csharp[Main](uploading-files-cs/samples/sample5.cs)]
 
-ファイルアップロード コントロールでは、さまざまなアップロードされたデータを操作するためのプロパティを提供します。 インスタンス、 [ `HasFile`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.fileupload.hasfile.aspx)ファイルが、ユーザーによってアップロードされたかどうかを示すときに、 [ `FileBytes`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.fileupload.filebytes.aspx)バイトの配列としてアップロードされたバイナリ データへのアクセスを提供します。 `Click`ファイルがアップロードされていることを確認してイベント ハンドラーを起動します。 ファイルがアップロードされた場合、ラベルがアップロードされたファイルのサイズ (バイト単位)、そのコンテンツの種類の名前を表示します。
+ファイルアップロード コントロールでは、さまざまなアップロードされたデータを操作するためのプロパティを提供します。 インスタンス、 [ `HasFile`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.hasfile.aspx)ファイルが、ユーザーによってアップロードされたかどうかを示すときに、 [ `FileBytes`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.filebytes.aspx)バイトの配列としてアップロードされたバイナリ データへのアクセスを提供します。 `Click`ファイルがアップロードされていることを確認してイベント ハンドラーを起動します。 ファイルがアップロードされた場合、ラベルがアップロードされたファイルのサイズ (バイト単位)、そのコンテンツの種類の名前を表示します。
 
 > [!NOTE]
 > ユーザーが確認できますファイルをアップロードすることを確認する、`HasFile`プロパティ場合に警告を表示、s `false`、または使用することは、 [RequiredFieldValidator コントロール](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/validation/default.aspx)代わりにします。
 
 
-ファイルアップロード s`SaveAs(filePath)`を指定されたアップロードされたファイルを保存*filePath*です。 *filePath*する必要があります、*物理パス*(`C:\Websites\Brochures\SomeFile.pdf`) ではなく、*仮想**パス*(`/Brochures/SomeFile.pdf`)。 [ `Server.MapPath(virtPath)`メソッド](https://msdn.microsoft.com/en-us/library/system.web.httpserverutility.mappath.aspx)仮想パスを受け取り、対応する物理パスを返します。 仮想パスは、ここでは、`~/Brochures/fileName`ここで、 *fileName*アップロードされたファイルの名前を指定します。 参照してください[を使用して Server.MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml)仮想および物理パスと使用に関する詳細について`Server.MapPath`です。
+ファイルアップロード s`SaveAs(filePath)`を指定されたアップロードされたファイルを保存*filePath*です。 *filePath*する必要があります、*物理パス*(`C:\Websites\Brochures\SomeFile.pdf`) ではなく、*仮想**パス*(`/Brochures/SomeFile.pdf`)。 [ `Server.MapPath(virtPath)`メソッド](https://msdn.microsoft.com/library/system.web.httpserverutility.mappath.aspx)仮想パスを受け取り、対応する物理パスを返します。 仮想パスは、ここでは、`~/Brochures/fileName`ここで、 *fileName*アップロードされたファイルの名前を指定します。 参照してください[を使用して Server.MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml)仮想および物理パスと使用に関する詳細について`Server.MapPath`です。
 
 完了した後、`Click`イベント ハンドラーでは、ブラウザーでページをテストします。 参照 ボタンをクリックして、ハード ドライブからファイルを選択し、選択したファイルのアップロード ボタンをクリックします。 ポストバックは、web サーバーに保存する前に、ファイルの情報が表示されますを選択したファイルの内容を送信、`~/Brochures`フォルダーです。 アップロードした後、ファイル、Visual Studio に戻り、およびソリューション エクスプ ローラーで [更新] ボタンをクリックします。 ~/Brochures フォルダーにアップロードしたファイルを参照してください!
 
@@ -264,13 +264,13 @@ ASP.NET 2.0 s 新しい[ファイルアップロード Web コントロール](h
 
 ## <a name="challenges-involved-with-very-large-amounts-of-binary-data"></a>非常に大量のバイナリ データに関連する課題
 
-これらのチュートリアルでは、キャプチャされたバイナリ データがサイズで適切なであると仮定します。 いくつかのメガバイト数であるバイナリ データ ファイルの量が非常に大きい場合に動作しているか大きいはこれらのチュートリアルの範囲を超える新しい問題が発生します。 たとえば、既定では ASP.NET は拒否 4 MB を超えるのアップロードでこれを構成することができます、 [ `<httpRuntime>`要素](https://msdn.microsoft.com/en-us/library/e1f13641.aspx)で`Web.config`です。 IIS では、独自のファイル アップロード サイズの制限はすぎますが適用されます。 参照してください[ファイル アップロード サイズを IIS](http://vandamme.typepad.com/development/2005/09/iis_upload_file.html)詳細についてはします。 さらに、サイズの大きなファイルのアップロードにかかる時間超える可能性がある既定の ASP.NET が要求の待機 110 秒です。 大きなファイルを操作するときに発生するメモリとパフォーマンスの問題もあります。
+これらのチュートリアルでは、キャプチャされたバイナリ データがサイズで適切なであると仮定します。 いくつかのメガバイト数であるバイナリ データ ファイルの量が非常に大きい場合に動作しているか大きいはこれらのチュートリアルの範囲を超える新しい問題が発生します。 たとえば、既定では ASP.NET は拒否 4 MB を超えるのアップロードでこれを構成することができます、 [ `<httpRuntime>`要素](https://msdn.microsoft.com/library/e1f13641.aspx)で`Web.config`です。 IIS では、独自のファイル アップロード サイズの制限はすぎますが適用されます。 参照してください[ファイル アップロード サイズを IIS](http://vandamme.typepad.com/development/2005/09/iis_upload_file.html)詳細についてはします。 さらに、サイズの大きなファイルのアップロードにかかる時間超える可能性がある既定の ASP.NET が要求の待機 110 秒です。 大きなファイルを操作するときに発生するメモリとパフォーマンスの問題もあります。
 
 ファイルアップロード コントロールは大きなファイルのアップロードの実用的ではありません。 ように、ファイル コンテンツがサーバーにポストされて、エンドユーザーは、アップロードの進行状況を確認する必要があります待機します。 これより小さい、数秒でアップロードすることができますが、ファイルをアップロードする分かかる場合がありますよりも大きなファイルを処理する場合、問題になることができますを処理する場合ほど問題ではありません。 さまざまなサード パーティ製のファイル アップロード コントロールを大規模なアップロードを処理するが適してし、これらのベンダーの多くは、進捗状況と ActiveX アップロードより光沢のあるユーザー エクスペリエンスを提供するマネージャーを提供します。
 
 アプリケーションは、大きなファイルを処理する必要がある場合、は、慎重に問題を調査し、特定のニーズに適した解決策を検索する必要があります。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 バイナリ データをキャプチャする必要があるアプリケーションを構築すると、さまざまな課題が導入されています。 このチュートリアルでは最初の 2 つに調査お: バイナリ データを格納する場所を決定する、ユーザーが web ページによってバイナリ コンテンツをアップロードするを許可します。 次の 3 つのチュートリアルでは、経由では、データベース内のレコードにアップロードされたデータを関連付ける方法と、データのフィールドをテキストと共にバイナリ データを表示する方法が表示されます。
 
@@ -280,7 +280,7 @@ ASP.NET 2.0 s 新しい[ファイルアップロード Web コントロール](h
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [大きな値データ型の使用](https://msdn.microsoft.com/en-us/library/ms178158.aspx)
+- [大きな値データ型の使用](https://msdn.microsoft.com/library/ms178158.aspx)
 - [ファイルアップロード コントロールのクイック スタート](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/standard/fileupload.aspx)
 - [ASP.NET 2.0 ファイルアップロード サーバー コントロール](http://www.wrox.com/WileyCDA/Section/id-292158.html)
 - [ファイルをアップロードします。](http://www.aspnetresources.com/articles/dark_side_of_file_uploads.aspx)

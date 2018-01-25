@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0825b6bd6ca8d75f90cb7c4079e3af0213c5c4e9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 68f3a45b6a393f7b6a12b7c296a374536b0d66d6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="users-and-roles-on-the-production-website-c"></a>ユーザーとロール、実稼働 web サイト (c#)
 ====================
@@ -37,7 +37,7 @@ ASP です。NET のアプリケーション サービスは、特定の実装�
 
 ## <a name="using-the-aspnet-web-site-administration-tool"></a>ASP.NET Web サイト管理ツールを使用します。
 
-ASP.NET には、 [Web サイト管理ツール](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx)(WSAT) を簡単に作成および管理ユーザー アカウントとロールとユーザーおよびロール ベースの承認規則を指定します。 使用して、WSAT、ソリューション エクスプ ローラーで [ASP.NET 構成] アイコンをクリックしてまたは web サイトまたはプロジェクト] メニューの [ASP.NET の構成オプションを選択します。 どちらの方法では、web ブラウザーを起動しのようなアドレスで WSAT を指します。`http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
+ASP.NET には、 [Web サイト管理ツール](https://msdn.microsoft.com/library/yy40ytx0.aspx)(WSAT) を簡単に作成および管理ユーザー アカウントとロールとユーザーおよびロール ベースの承認規則を指定します。 使用して、WSAT、ソリューション エクスプ ローラーで [ASP.NET 構成] アイコンをクリックしてまたは web サイトまたはプロジェクト] メニューの [ASP.NET の構成オプションを選択します。 どちらの方法では、web ブラウザーを起動しのようなアドレスで WSAT を指します。`http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
 
 WSAT は、3 つのセクションに分かれています。
 
@@ -102,7 +102,7 @@ ASP.NET には、組み込みのログインに関連する Web コントロー�
 
 実稼働 web サイトに WSAT のような機能を実装するには、常に、独自の一連の WSAT の機能を実装する web ページを構築できます。 作業を開始、フォルダーにある WSAT ソース コードをチェック アウト`%WINDIR%\Microsoft.NET\Framework\v2.0.50727\ASP.NETWebAdminFiles`です。 別のオプションは、彼は共有の記事、Dan Clem WSAT 代替手段を使用する[ローリング、独自の Web サイト管理ツール](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)です。 Dan カスタム WSAT のようなツールを構築するプロセスを通じてリーダー、(で C# の場合)、ダウンロード、アプリケーションのソース コードが含まれていて、ホストされる web サイトにそのカスタム WSAT を追加する手順については、します。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ASP.NET Web サイト管理ツール (WSAT) は、web サイトのユーザーおよびロールの情報を管理するメンバーシップとロールのアプリケーション サービスと共に使用できます。 残念ながら、WSAT のみがローカルでアクセスできると、実稼働 web サイトからアクセスされることはできません。 ただし、開発に接続文字列を変更することにより、実稼働データベースをポイントするように環境を使用できます、WSAT ユーザーと、実稼働 web サイト ロールの管理します。
 
@@ -116,7 +116,7 @@ WSAT アプローチでは、迅速かつ簡単な方法をユーザーおよび
 
 - [ASP を検査中です。NET のメンバーシップ、ロール、およびプロファイル](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [独自の Web サイト管理ツールのローリング](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
-- [Web サイト管理ツールの概要](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx)
+- [Web サイト管理ツールの概要](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 - [Web サイトのセキュリティのチュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
 >[!div class="step-by-step"]

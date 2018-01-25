@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 326c4a4e274dbc1aa6e09f1d07c4d135e4304484
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9a7f8242bf482e81513accfe05e10a64ae0ca0b2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>ASP.NET Web API 2 の Azure ワーカー ロールをホストします。
 ====================
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
 > - Web API 2
-> - [Azure SDK for .NET 2.3](https://azure.microsoft.com/en-us/downloads/)
+> - [Azure SDK for .NET 2.3](https://azure.microsoft.com/downloads/)
 
 
 ## <a name="create-a-microsoft-azure-project"></a>Microsoft Azure プロジェクトを作成します。
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/10/2017
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image2.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image1.png)
 
-**新しい Windows Azure のクラウド サービス**ダイアログ ボックスをダブルクリックして**ワーカー ロール**です。 既定の名前 ("WorkerRole1") のままにします。 この手順は、ワーカー ロールをソリューションに追加します。 **[OK]** をクリックします。
+**新しい Windows Azure のクラウド サービス**ダイアログ ボックスをダブルクリックして**ワーカー ロール**です。 既定の名前 ("WorkerRole1") のままにします。 この手順は、ワーカー ロールをソリューションに追加します。 **[OK]**をクリックします。
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image4.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image3.png)
 
@@ -137,7 +137,7 @@ WorkerRole.cs の完全なコードを次に示します。
 
 ## <a name="deploy-to-azure"></a>Azure への配置します。
 
-この手順では、Azure アカウントが必要です。 既に持っていない場合は、ほんの数分で無料の試用アカウントを作成できます。 詳細については、「 [Microsoft Azure の無料試用版](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F)です。
+この手順では、Azure アカウントが必要です。 既に持っていない場合は、ほんの数分で無料の試用アカウントを作成できます。 詳細については、「 [Microsoft Azure の無料試用版](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)です。
 
 ソリューション エクスプ ローラーで、AzureApp プロジェクトを右クリックします。 **[発行]** を選びます。
 
@@ -151,8 +151,7 @@ Azure アカウントにサインインしていない場合はクリックし�
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image17.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image16.png)
 
-クラウド サービスの名前を入力し、地域を選択します。 
-              **[作成]**をクリックします。
+クラウド サービスの名前を入力し、地域を選択します。 **[作成]**をクリックします。
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image18.png)
 
@@ -166,5 +165,5 @@ Azure のアクティビティ ログ ウィンドウでは、展開の進行状
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [プロジェクトの Katana の概要](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
+- [プロジェクト Katana の概要](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
 - [GitHub の Katana プロジェクト](https://github.com/aspnet/AspNetKatana)

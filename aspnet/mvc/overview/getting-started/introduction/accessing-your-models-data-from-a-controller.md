@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: b60913cef4b62745cf167e6074834bf7d0c228d1
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 91bfa5fe3c5bd3029b7d7c12c8831e1653fb1d2b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>コント ローラーから、モデルのデータにアクセスします。
 ====================
@@ -87,7 +87,7 @@ Visual Studio に自動的に作成された、 [CRUD](http://en.wikipedia.org/w
 
 このチュートリアルで既に説明しましたコント ローラーが渡す方法データまたはオブジェクトを使用してビュー テンプレートに、`ViewBag`オブジェクト。 `ViewBag`ビューに情報を渡す便利な遅延バインディングされた方法を提供する動的オブジェクトです。
 
-MVC を渡す機能も用意されています。*強く*ビュー テンプレートにオブジェクトを入力します。 この厳密な型のアプローチによりより優れたコンパイル時、コードのチェックと豊富な[IntelliSense](https://msdn.microsoft.com/en-us/library/hcw1s69b(v=vs.120).aspx) Visual Studio エディターでします。 Visual Studio でスキャフォールディング メカニズムには、このアプローチが使用されている (は、渡す、*厳密*に型指定されたモデル) で、`MoviesController`メソッドとビューが作成されたとき、クラスとビューのテンプレートです。
+MVC を渡す機能も用意されています。*強く*ビュー テンプレートにオブジェクトを入力します。 この厳密な型のアプローチによりより優れたコンパイル時、コードのチェックと豊富な[IntelliSense](https://msdn.microsoft.com/library/hcw1s69b(v=vs.120).aspx) Visual Studio エディターでします。 Visual Studio でスキャフォールディング メカニズムには、このアプローチが使用されている (は、渡す、*厳密*に型指定されたモデル) で、`MoviesController`メソッドとビューが作成されたとき、クラスとビューのテンプレートです。
 
 *Controllers\MoviesController.cs*ファイルを生成された確認`Details`メソッドです。 `Details`メソッドを次に示します。
 
@@ -109,9 +109,9 @@ MVC を渡す機能も用意されています。*強く*ビュー テンプレ�
 
 [!code-cshtml[Main](accessing-your-models-data-from-a-controller/samples/sample6.cshtml)]
 
-この `@model` ディレクティブにより、厳密に型指定された `Model` オブジェクトを使って、コントローラーがビューに渡したムービーにアクセスできます。 たとえば、 *Details.cshtml*テンプレート コードを渡します各ムービーのフィールドを`DisplayNameFor`と[DisplayFor](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx)で、厳密に型指定された HTML ヘルパー`Model`オブジェクト。 `Create`と`Edit`ムービー モデル オブジェクトも渡すメソッドとテンプレートを表示します。
+この `@model` ディレクティブにより、厳密に型指定された `Model` オブジェクトを使って、コントローラーがビューに渡したムービーにアクセスできます。 たとえば、 *Details.cshtml*テンプレート コードを渡します各ムービーのフィールドを`DisplayNameFor`と[DisplayFor](https://msdn.microsoft.com/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx)で、厳密に型指定された HTML ヘルパー`Model`オブジェクト。 `Create`と`Edit`ムービー モデル オブジェクトも渡すメソッドとテンプレートを表示します。
 
-確認、 *Index.cshtml*ビュー テンプレートと`Index`メソッドで、 *MoviesController.cs*ファイル。 コードを作成する方法に注意してください、 [ `List` ](https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx)オブジェクトを呼び出すとき、`View`内のヘルパー メソッド、`Index`アクション メソッド。 コードが、これを渡します`Movies`一覧は、`Index`ビューにアクション メソッド。
+確認、 *Index.cshtml*ビュー テンプレートと`Index`メソッドで、 *MoviesController.cs*ファイル。 コードを作成する方法に注意してください、 [ `List` ](https://msdn.microsoft.com/library/6sh2ey19.aspx)オブジェクトを呼び出すとき、`View`内のヘルパー メソッド、`Index`アクション メソッド。 コードが、これを渡します`Movies`一覧は、`Index`ビューにアクション メソッド。
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample7.cs?highlight=3)]
 

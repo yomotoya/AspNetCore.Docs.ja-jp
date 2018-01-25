@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 505cca303b5569b2f676adab767d742cb5cd21a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de31a9dffb95b863a4ec38b74fd2c6e03f287a7f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Web 配置のビルド サーバーに TFS を構成します。
 ====================
@@ -58,13 +58,13 @@ ms.lasthandoff: 11/10/2017
 - 作成、*ビルド コント ローラー*と 1 つまたは複数*ビルド エージェント*です。 各ビルド コント ローラーは、ビルド エージェントのセットを管理します。 ビルドをキューに配置しときに、ビルド コント ローラーは、利用可能なビルド エージェントをビルド タスクを割り当てます。 TFS の各チーム プロジェクト コレクションは、1 つのビルド コント ローラーにマップされます。
 - ビルドの出力のドロップ フォルダーを構成します。 これは、ネットワーク共有です。 いずれかにより、ビルドの web 展開パッケージと同様に、出力、ドロップ フォルダに送信されます。
 
-[Team Foundation ビルドの管理](https://msdn.microsoft.com/en-us/library/ms252495.aspx)msdn 章には、これらのタスクを実行するために必要なすべてのリソースが含まれています。
+[Team Foundation ビルドの管理](https://msdn.microsoft.com/library/ms252495.aspx)msdn 章には、これらのタスクを実行するために必要なすべてのリソースが含まれています。
 
-- Team Foundation ビルドの概念的概要については、ビルド サービス、ビルド コント ローラーとビルド エージェント、参照を含む[Team Foundation ビルド システムを理解する](https://msdn.microsoft.com/en-us/library/dd793166.aspx)です。
-- インストールして、ビルド サービスの構成については、次を参照してください。[ビルド コンピューターの構成](https://msdn.microsoft.com/en-us/library/ms181712.aspx)です。
-- ビルド コント ローラーを作成する方法については、次を参照してください。[ビルド コント ローラーの作成と操作](https://msdn.microsoft.com/en-us/library/ee330987.aspx)です。
-- ビルド エージェントを作成する方法については、次を参照してください。[ビルド エージェントの作成と操作](https://msdn.microsoft.com/en-us/library/bb399135.aspx)です。
-- 作成し、ドロップ フォルダーの構成については、次を参照してください。[ドロップ フォルダーのセットアップ](https://msdn.microsoft.com/en-us/library/bb778394.aspx)です。
+- Team Foundation ビルドの概念的概要については、ビルド サービス、ビルド コント ローラーとビルド エージェント、参照を含む[Team Foundation ビルド システムを理解する](https://msdn.microsoft.com/library/dd793166.aspx)です。
+- インストールして、ビルド サービスの構成については、次を参照してください。[ビルド コンピューターの構成](https://msdn.microsoft.com/library/ms181712.aspx)です。
+- ビルド コント ローラーを作成する方法については、次を参照してください。[ビルド コント ローラーの作成と操作](https://msdn.microsoft.com/library/ee330987.aspx)です。
+- ビルド エージェントを作成する方法については、次を参照してください。[ビルド エージェントの作成と操作](https://msdn.microsoft.com/library/bb399135.aspx)です。
+- 作成し、ドロップ フォルダーの構成については、次を参照してください。[ドロップ フォルダーのセットアップ](https://msdn.microsoft.com/library/bb778394.aspx)です。
 
 ## <a name="install-required-products-and-components"></a>必要な製品とコンポーネントをインストールします。
 
@@ -72,9 +72,9 @@ ms.lasthandoff: 11/10/2017
 
 一般的な web プラットフォーム コンポーネントをインストールする最善の方法が使用するが、 [Web Platform Installer](https://go.microsoft.com/?linkid=9805118)です。 これにより、各製品の最新バージョンをインストールしても自動的に検出し、各製品の前提条件をインストールします。 場合、[連絡先のマネージャー](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)ソリューションでは、これらの製品とコンポーネントをインストールする、Web Platform Installer を使用する必要があります。
 
-- **.NET framework 4.0**です。 これは、このバージョンの .NET Framework で構築されたアプリケーションの実行に必要です。
+- **.NET Framework 4.0**. これは、このバージョンの .NET Framework で構築されたアプリケーションの実行に必要です。
 - **Web 配置ツール 2.1 以降**です。 これにより、Web Deploy (とその基になる実行可能ファイル、MSDeploy.exe) がサーバーにインストールされます。 このプロセスの一環としてがインストールされ、Web Deployment Agent サービスを開始します。 このサービスでは、リモート コンピューターから web パッケージを展開できます。
-- **ASP.NET MVC 3**です。 これにより、ASP.NET MVC 3 アプリケーションを実行する必要があるアセンブリがインストールされます。
+- **ASP.NET MVC 3**. これにより、ASP.NET MVC 3 アプリケーションを実行する必要があるアセンブリがインストールされます。
 
 **必要な製品とコンポーネントをインストールするには**
 
@@ -114,7 +114,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="further-reading"></a>関連項目
 
-チーム ビルドを使用して作業の一般的なガイダンスについては、次を参照してください。 [Team Foundation ビルドの管理](https://msdn.microsoft.com/en-us/library/ms252495.aspx)です。
+チーム ビルドを使用して作業の一般的なガイダンスについては、次を参照してください。 [Team Foundation ビルドの管理](https://msdn.microsoft.com/library/ms252495.aspx)です。
 
 >[!div class="step-by-step"]
 [前へ](adding-content-to-source-control.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d575c8f597bcb5d2a5d2e27e1145d39110daabe1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c9e40ff968f82a9d05fc9441e2399e52a6c55f51
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-data-with-the-objectdatasource-vb"></a>ObjectDataSource (VB) でデータの表示
 ====================
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/10/2017
 
 マイクロソフト アプリケーション アーキテクチャと web サイト ページ、レイアウトと完了のさまざまな一般的なデータおよびレポート関連のタスクを実行する方法の探索を開始する準備ができました。 前のチュートリアルで、プログラムによってデータ、ASP.NET ページ内の Web コントロールに、DAL BLL からデータをバインドする方法を説明しました。 この構文を割り当てるデータ Web コントロールの`DataSource`プロパティを表示し、呼び出すことで、コントロールのデータを`DataBind()`メソッド 1.x の ASP.NET アプリケーションで使用するパターン、2.0、アプリケーションでは使用を続行できます。 ただし、ASP.NET 2.0 の新しいデータ ソース コントロールは、宣言型データを操作する方法を提供します。 これらのコントロールを使用して、行のコードを記述しなくても、前のチュートリアルで作成された BLL から取得されたデータをバインドできます。
 
-5 つの組み込みのデータ ソース コントロールに付属して ASP.NET 2.0 [SqlDataSource](https://msdn.microsoft.com/en-us/library/dz12d98w%28vs.80%29.aspx)、 [AccessDataSource](https://msdn.microsoft.com/en-us/library/8e5545e1.aspx)、 [ObjectDataSource](https://msdn.microsoft.com/en-us/library/9a4kyhcx.aspx)、 [XmlDataSource](https://msdn.microsoft.com/en-us/library/e8d8587a%28en-US,VS.80%29.aspx)、および[SiteMapDataSource](https://msdn.microsoft.com/en-us/library/5ex9t96x%28en-US,VS.80%29.aspx)独自に作成することができますが[カスタム データ ソース コントロール](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnvs05/html/DataSourceCon1.asp)、必要に応じて。 チュートリアル アプリケーションのアーキテクチャを開発してきたために使用する、ObjectDataSource BLL クラスに対してです。
+5 つの組み込みのデータ ソース コントロールに付属して ASP.NET 2.0 [SqlDataSource](https://msdn.microsoft.com/library/dz12d98w%28vs.80%29.aspx)、 [AccessDataSource](https://msdn.microsoft.com/library/8e5545e1.aspx)、 [ObjectDataSource](https://msdn.microsoft.com/library/9a4kyhcx.aspx)、 [XmlDataSource](https://msdn.microsoft.com/library/e8d8587a%28en-US,VS.80%29.aspx)、および[SiteMapDataSource](https://msdn.microsoft.com/library/5ex9t96x%28en-US,VS.80%29.aspx)独自に作成することができますが[カスタム データ ソース コントロール](https://msdn.microsoft.com/library/default.asp?url=/library/dnvs05/html/DataSourceCon1.asp)、必要に応じて。 チュートリアル アプリケーションのアーキテクチャを開発してきたために使用する、ObjectDataSource BLL クラスに対してです。
 
 
 ![ASP.NET 2.0 には、5 つの組み込みのデータ ソース コントロールが含まれています。](displaying-data-with-the-objectdatasource-vb/_static/image1.png)
@@ -90,7 +90,7 @@ ObjectDataSource のデータ ソースの構成ウィザードを使用して�
 
 [!code-aspx[Main](displaying-data-with-the-objectdatasource-vb/samples/sample1.aspx)]
 
-でも場合は、データ ソースの構成ウィザードの必要がある生じる場合、ObjectDataSource を手動で構成するように、ウィザードでは、開発者が作成したクラスのみ一覧表示である可能性があります。 など、.NET Framework のクラスに、ObjectDataSource をバインドする場合、[メンバーシップ クラス](https://msdn.microsoft.com/en-us/library/system.web.security.membership.aspx)、ユーザー アカウント情報にアクセスまたは[ディレクトリ クラス](https://msdn.microsoft.com/en-us/library/system.io.directory.aspx)ファイル システム情報を使用するにはObjectDataSource のプロパティを手動で設定する必要があります。
+でも場合は、データ ソースの構成ウィザードの必要がある生じる場合、ObjectDataSource を手動で構成するように、ウィザードでは、開発者が作成したクラスのみ一覧表示である可能性があります。 など、.NET Framework のクラスに、ObjectDataSource をバインドする場合、[メンバーシップ クラス](https://msdn.microsoft.com/library/system.web.security.membership.aspx)、ユーザー アカウント情報にアクセスまたは[ディレクトリ クラス](https://msdn.microsoft.com/library/system.io.directory.aspx)ファイル システム情報を使用するにはObjectDataSource のプロパティを手動で設定する必要があります。
 
 ## <a name="step-2-adding-a-data-web-control-and-binding-it-to-the-objectdatasource"></a>手順 2: データ Web コントロールを追加して、ObjectDataSource へのバインド
 
@@ -172,7 +172,7 @@ DataWebControls を GridView テーマの名前を変更 (GridView フォルダ�
 
 [!code-xml[Main](displaying-data-with-the-objectdatasource-vb/samples/sample5.xml)]
 
-すべてであることには! `styleSheetTheme`設定は、テーマで指定したプロパティが必要があることを示します*いない*コントロール レベルで指定されたプロパティをオーバーライドします。 テーマの設定がコントロールの設定をより優先する必要がありますを指定するには、使用、`theme`の代わりに属性`styleSheetTheme`; 残念ながら、テーマの設定は、Visual Studio のデザイン ビューでは表示されません。 参照してください[ASP.NET のテーマとスキン概要](https://msdn.microsoft.com/en-us/library/ykzx33wh.aspx)と[サーバー側のスタイルを使用してテーマ](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)テーマとスキン; について、次を参照してください[How To: ASP.NET のテーマを適用](https://msdn.microsoft.com/en-us/library/0yy5hxdk%28VS.80%29.aspx)の詳細について。テーマを使用するページを構成します。
+すべてであることには! `styleSheetTheme`設定は、テーマで指定したプロパティが必要があることを示します*いない*コントロール レベルで指定されたプロパティをオーバーライドします。 テーマの設定がコントロールの設定をより優先する必要がありますを指定するには、使用、`theme`の代わりに属性`styleSheetTheme`; 残念ながら、テーマの設定は、Visual Studio のデザイン ビューでは表示されません。 参照してください[ASP.NET のテーマとスキン概要](https://msdn.microsoft.com/library/ykzx33wh.aspx)と[サーバー側のスタイルを使用してテーマ](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)テーマとスキン; について、次を参照してください[How To: ASP.NET のテーマを適用](https://msdn.microsoft.com/library/0yy5hxdk%28VS.80%29.aspx)の詳細について。テーマを使用するページを構成します。
 
 
 [![GridView は、製品の名前、カテゴリ、供給業者、価格、および提供が中止された情報が表示されます。](displaying-data-with-the-objectdatasource-vb/_static/image31.png)](displaying-data-with-the-objectdatasource-vb/_static/image30.png)
@@ -182,7 +182,7 @@ DataWebControls を GridView テーマの名前を変更 (GridView フォルダ�
 
 ## <a name="displaying-one-record-at-a-time-in-the-detailsview"></a>DetailsView で、一度に 1 つのレコードを表示します。
 
-GridView は、バインドされているデータ ソース コントロールによって返されるレコードごとに 1 つの行を表示します。 ただし、一度に唯一のレコードまたは 1 つのレコードを表示したい場合がある場合があります。 [DetailsView コントロール](https://msdn.microsoft.com/en-us/library/s3w1w7t4.aspx)HTML としてレンダリングして、この機能を提供`<table>`2 つの列と列や、コントロールにバインドされたプロパティごとに 1 行を使用します。 DetailsView は、単一レコードに 90 度回転 GridView と考えることができます。
+GridView は、バインドされているデータ ソース コントロールによって返されるレコードごとに 1 つの行を表示します。 ただし、一度に唯一のレコードまたは 1 つのレコードを表示したい場合がある場合があります。 [DetailsView コントロール](https://msdn.microsoft.com/library/s3w1w7t4.aspx)HTML としてレンダリングして、この機能を提供`<table>`2 つの列と列や、コントロールにバインドされたプロパティごとに 1 行を使用します。 DetailsView は、単一レコードに 90 度回転 GridView と考えることができます。
 
 DetailsView コントロールを追加することによって開始*上*で GridView`SimpleDisplay.aspx`です。 次に、GridView として同じ ObjectDataSource コントロールにバインドします。 ObjectDataSource のによって返されるオブジェクト内の各プロパティの DetailsView に追加されます BoundField GridView のと同じように`Select`メソッドです。 唯一の違いは、DetailsView の BoundFields レイアウトされること水平方向にはなく、垂直方向にします。
 
@@ -219,7 +219,7 @@ DetailsView がそのデータ ソースによって返される最初のレコ�
 
 DetailsView では、ObjectDataSource から返された各レコードをどのように表示にかなり rigid です。 データのより柔軟なビューを必要があります。 たとえば、製品の名前、カテゴリ、供給業者、価格、および各提供が中止された情報が表示される個別の行に、代わりすることも、製品名を表示してでの価格、`<h4>`見出しで表示される情報は、カテゴリおよび仕入先フォント サイズの価格と名前の下。 およびお可能性があります、値の横にあるプロパティ名 (製品、カテゴリ、およびなど) を表示する気にしません。
 
-[FormView コントロール](https://msdn.microsoft.com/en-US/library/fyf1dk77.aspx)このレベルのカスタマイズを提供します。 FormView フィールド (のように、GridView と DetailsView) を使用するのではなくを静的な HTML の Web コントロールの混在を使用できるテンプレートを使用して、 [databinding 構文](http://www.15seconds.com/issue/040630.htm)です。 リピータ コントロール ASP.NET から慣れているかどうかは 1.x を考えることができます、FormView リピータの 1 つのレコードを表示します。
+[FormView コントロール](https://msdn.microsoft.com/library/fyf1dk77.aspx)このレベルのカスタマイズを提供します。 FormView フィールド (のように、GridView と DetailsView) を使用するのではなくを静的な HTML の Web コントロールの混在を使用できるテンプレートを使用して、 [databinding 構文](http://www.15seconds.com/issue/040630.htm)です。 リピータ コントロール ASP.NET から慣れているかどうかは 1.x を考えることができます、FormView リピータの 1 つのレコードを表示します。
 
 追加するコントロールをフォーム ビュー、`SimpleDisplay.aspx`ページのデザイン画面。 最初に FormView 表示灰色のブロックと制御するために、少なくともの必要があるかを知らせる`ItemTemplate`です。
 
@@ -244,7 +244,7 @@ FormView をバインドするには、既定値を作成フォーム ビュー�
 
 FormView は DetailsView と同様に、最初に、ObjectDataSource から返されるレコードのみ表示されます。 一度に 1 つの製品間ステップへの訪問者を許可する FormView でページングを有効にすることができます。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 アクセスして、ビジネス ロジック層からデータを表示する、行の ObjectDataSource コントロールの ASP.NET 2.0 のコードを記述することがなく実現できます。 ObjectDataSource はクラスの指定したメソッドを呼び出すし、結果を返します。 これらの結果は、データ、ObjectDataSource にバインドされている Web コントロールを表示できます。 このチュートリアルでは、ObjectDataSource への GridView、DetailsView、フォーム ビューの各コントロールのバインドについて説明しました。
 
@@ -256,12 +256,12 @@ FormView は DetailsView と同様に、最初に、ObjectDataSource から返�
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [独自のデータ ソース コントロールを作成します。](https://msdn.microsoft.com/en-us/library/ms364049.aspx)
-- [ASP.NET 2.0 の GridView の例](https://msdn.microsoft.com/en-us/library/aa479339.aspx)
+- [独自のデータ ソース コントロールを作成します。](https://msdn.microsoft.com/library/ms364049.aspx)
+- [ASP.NET 2.0 の GridView の例](https://msdn.microsoft.com/library/aa479339.aspx)
 - [簡素化および拡張構文を ASP.NET 2.0 でバインド データ](http://www.15seconds.com/issue/040630.htm)
 - [ASP.NET 2.0 のテーマ](http://www.odetocode.com/Articles/423.aspx)
 - [テーマを使用してサーバー側のスタイル](https://quickstarts.asp.net/quickstartv20/aspnet/doc/themes/stylesheettheme.aspx)
-- [方法: プログラムによって ASP.NET のテーマを適用](https://msdn.microsoft.com/en-us/library/tx35bd89.aspx)
+- [方法: プログラムによって ASP.NET のテーマを適用](https://msdn.microsoft.com/library/tx35bd89.aspx)
 
 ## <a name="about-the-author"></a>作成者について
 

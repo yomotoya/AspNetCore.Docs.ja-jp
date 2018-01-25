@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 5fa7b6227eb88aa6766ab8776bc8a3cc1111b942
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 548baaaa06980fb793c079b66b6edc34422eb579
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>アカウントの確認と ASP.NET Identity (c#) とパスワードの回復
 ====================
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/10/2017
 
 1. 新しい ASP.NET Web プロジェクトを作成し、MVC テンプレートを選択します。 Web フォームは、web フォーム アプリケーションで同じ手順を実行できなかったために、ASP.NET Identity もサポートします。
 2. 既定の認証としてのままにして**個々 のユーザー アカウント**です。
-3. アプリを実行する をクリックして、**登録**リンクし、ユーザーを登録します。 この時点では、電子メールにのみ、検証、 [[EmailAddress]](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx)属性。
+3. アプリを実行する をクリックして、**登録**リンクし、ユーザーを登録します。 この時点では、電子メールにのみ、検証、 [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx)属性。
 4. サーバー エクスプ ローラーに移動**データ Connections\DefaultConnection\Tables\AspNetUsers**を右クリックし、選択**テーブル定義を開き**です。
 
     次の図は、`AspNetUsers`スキーマ。
@@ -94,7 +94,7 @@ ASP.NET Id の既定のデータ ストアは、Entity Framework が、他のデ
 
 [OWIN スタートアップ クラス](../../../aspnet/overview/owin-and-katana/owin-startup-class-detection.md)( *Startup.cs* )、アプリが起動しを呼び出すときに呼び出される、`ConfigureAuth`メソッド*アプリ\_Start\Startup.Auth.cs*、これにより、OWIN パイプラインを構成して、ASP.NET Identity を初期化します。 確認、`ConfigureAuth`メソッドです。 各`CreatePerOwinContext`呼び出し、コールバックの登録 (に保存されている、 `OwinContext`) 指定した型のインスタンスを作成する要求あたり 1 回呼び出すされます。 コンス トラクターにブレークポイントを設定することができ、`Create`各型のメソッド (`ApplicationDbContext, ApplicationUserManager`) 要求のたびに呼び出されることを確認します。 インスタンスを`ApplicationDbContext`と`ApplicationUserManager`は、アプリケーション全体でアクセス可能な OWIN コンテキストに格納します。 ASP.NET Identity は、cookie ミドルウェアを OWIN パイプラインにフックします。 詳細については、次を参照してください。 [UserManager クラスは、ASP.NET Identity の要求の有効期間管理あたり](https://blogs.msdn.com/b/webdev/archive/2014/02/12/per-request-lifetime-management-for-usermanager-class-in-asp-net-identity.aspx)します。
 
-新しいセキュリティ スタンプが生成されに格納されているセキュリティ プロファイルを変更するときに、`SecurityStamp`のフィールド、 *AspNetUsers*テーブル。 注意してください、`SecurityStamp`フィールドとは異なるセキュリティ クッキー。 セキュリティ クッキーに保存されていない、`AspNetUsers`テーブル (または Identity db では、他の場所から)。 Cookie のセキュリティ トークンは、自己署名を使用して[DPAPI](https://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata.aspx)で作成し、`UserId, SecurityStamp`と有効期限の時刻情報。
+新しいセキュリティ スタンプが生成されに格納されているセキュリティ プロファイルを変更するときに、`SecurityStamp`のフィールド、 *AspNetUsers*テーブル。 注意してください、`SecurityStamp`フィールドとは異なるセキュリティ クッキー。 セキュリティ クッキーに保存されていない、`AspNetUsers`テーブル (または Identity db では、他の場所から)。 Cookie のセキュリティ トークンは、自己署名を使用して[DPAPI](https://msdn.microsoft.com/library/system.security.cryptography.protecteddata.aspx)で作成し、`UserId, SecurityStamp`と有効期限の時刻情報。
 
 Cookie ミドルウェアでは、各要求の cookie を確認します。 `SecurityStampValidator`メソッドで、`Startup`クラスの DB のヒット数およびセキュリティ スタンプを定期的にチェックで指定されたとおり、`validateInterval`です。 これはセキュリティ プロファイルを変更する場合を除きます (この例では) で 30 分おきのみ発生します。 データベースへのトリップを最小限に抑える、30 分間隔が選択されました。 参照してください  [2 要素認証チュートリアル](index.md)詳細についてはします。
 
@@ -117,7 +117,7 @@ Id システムを許可するアプリを構成するため、ユーザーの�
 - 2 要素認証 (2 fa)。 別のチュートリアルでは 2 fa と SMS を説明します。
 - 電子メールと SMS サービスをフックします。 (取り上げ、SMS 別のチュートリアルでは)。
 
-`ApplicationUserManager`ジェネリック クラス`UserManager<ApplicationUser>`クラスです。 `ApplicationUser`派生した[IdentityUser](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework.identityuser.aspx)です。 `IdentityUser`ジェネリックから派生した`IdentityUser`クラス。
+`ApplicationUserManager`ジェネリック クラス`UserManager<ApplicationUser>`クラスです。 `ApplicationUser`派生した[IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser.aspx)です。 `IdentityUser`ジェネリックから派生した`IdentityUser`クラス。
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample1.cs)]
 
@@ -131,7 +131,7 @@ Id システムを許可するアプリを構成するため、ユーザーの�
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample2.cs?highlight=8-9)]
 
-上記の強調表示されたコードの生成、 [ClaimsIdentity](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsidentity.aspx)です。 ASP.NET Identity と OWIN の Cookie 認証クレームに基づく、ため、フレームワークが、アプリを生成する必要があります、`ClaimsIdentity`ユーザー。 `ClaimsIdentity`情報を持つユーザーの名前など、ユーザーのすべての要求について age し、ユーザーが所属するロール。 この段階で、ユーザーのクレームを追加することもできます。
+上記の強調表示されたコードの生成、 [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx)です。 ASP.NET Identity と OWIN の Cookie 認証クレームに基づく、ため、フレームワークが、アプリを生成する必要があります、`ClaimsIdentity`ユーザー。 `ClaimsIdentity`情報を持つユーザーの名前など、ユーザーのすべての要求について age し、ユーザーが所属するロール。 この段階で、ユーザーのクレームを追加することもできます。
 
 OWIN`AuthenticationManager.SignIn`メソッドでは、渡します、`ClaimsIdentity`し、ユーザーがサインインします。
 
@@ -179,13 +179,13 @@ OWIN`AuthenticationManager.SignIn`メソッドでは、渡します、`ClaimsIde
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample6.cs)]
 
-上記のコードでは、モデル データを使用して、電子メールおよび入力したパスワードを使用して、新しいユーザー アカウントを作成します。 電子メール エイリアスがデータ ストア内にある場合は、アカウントの作成に失敗して、フォームが再度表示されます。 `GenerateEmailConfirmationTokenAsync`メソッドは、セキュリティで保護された確認トークンを作成し、ASP.NET Identity のデータ ストアに保存します。 [Url.Action](https://msdn.microsoft.com/en-us/library/dd505232(v=vs.118).aspx)メソッドは、リンクを含む、作成、`UserId`および確認トークン。 このリンクは、ユーザーに電子メールで送信し、ユーザーが自分のアカウントを確認するには、その電子メール アプリでリンクをクリックできます。
+上記のコードでは、モデル データを使用して、電子メールおよび入力したパスワードを使用して、新しいユーザー アカウントを作成します。 電子メール エイリアスがデータ ストア内にある場合は、アカウントの作成に失敗して、フォームが再度表示されます。 `GenerateEmailConfirmationTokenAsync`メソッドは、セキュリティで保護された確認トークンを作成し、ASP.NET Identity のデータ ストアに保存します。 [Url.Action](https://msdn.microsoft.com/library/dd505232(v=vs.118).aspx)メソッドは、リンクを含む、作成、`UserId`および確認トークン。 このリンクは、ユーザーに電子メールで送信し、ユーザーが自分のアカウントを確認するには、その電子メール アプリでリンクをクリックできます。
 
 <a id="email"></a>
 
 ## <a name="set-up-email-confirmation"></a>確認の電子メールを設定します。
 
-移動して、 [Azure SendGrid のサインアップ ページ](https://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/)無料アカウントを登録するとします。 SendGrid を構成するのには、次のようなコードを追加します。
+移動して、 [Azure SendGrid のサインアップ ページ](https://azure.microsoft.com/gallery/store/sendgrid/sendgrid-azure/)無料アカウントを登録するとします。 SendGrid を構成するのには、次のようなコードを追加します。
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample7.cs?highlight=5)]
 
@@ -193,7 +193,7 @@ OWIN`AuthenticationManager.SignIn`メソッドでは、渡します、`ClaimsIde
 > 電子メール クライアントには、頻繁にテキスト メッセージ (HTML なし) のみがそのまま使用します。 メッセージ テキストと HTML を指定する必要があります。 サンプルでは、SendGrid 上、これは、`myMessage.Text`と`myMessage.Html`上に示したコードです。
 
 
-次のコードは、電子メールを使用して送信する方法を示します、 [MailMessage](https://msdn.microsoft.com/en-us/library/system.net.mail.mailmessage.aspx)クラス`message.Body`リンクのみを返します。
+次のコードは、電子メールを使用して送信する方法を示します、 [MailMessage](https://msdn.microsoft.com/library/system.net.mail.mailmessage.aspx)クラス`message.Body`リンクのみを返します。
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample8.cs)]
 
@@ -238,8 +238,8 @@ OWIN`AuthenticationManager.SignIn`メソッドでは、渡します、`ClaimsIde
 
 ## <a name="additional-resources"></a>その他のリソース
 
-- [ASP.NET Id のカスタムの記憶域プロバイダーの概要](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
+- [ASP.NET Identity のカスタム ストレージ プロバイダーの概要](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
 - [Facebook、Twitter、LinkedIn および Google OAuth2 サインオン MVC 5 アプリ](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)プロファイル情報をユーザー テーブルに追加する方法についても説明します。
 - [ASP.NET MVC と Id 2.0: 基本を理解する](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx)John Atten でします。
-- [ASP.NET Id の概要](../getting-started/introduction-to-aspnet-identity.md)
+- [ASP.NET Identity 入門](../getting-started/introduction-to-aspnet-identity.md)
 - [Announcing ASP.NET Identity 2.0.0 の RTM](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx) Pranav Rastogi でします。

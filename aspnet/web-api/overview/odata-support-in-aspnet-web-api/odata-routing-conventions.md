@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
-ms.openlocfilehash: cd24a85a05e427f83d28cae876431d04cc295f17
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0ab99dd443040b90ffefd2f5b9261a63b91e9463
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>ルーティング規約の ASP.NET Web API 2 Odata
 ====================
@@ -65,9 +65,9 @@ Web API の OData ルーティング規約を説明する前に、OData の Uri 
 
 | 要求 | URI の例 | アクション名 | アクションの例 |
 | --- | --- | --- | --- |
-| /Entityset を取得します。 | /製品 | GetEntitySet または Get | GetProducts |
-| /Entityset(key) を取得します。 | /Products(1) | GetEntityType または Get | GetProduct |
-| /Entityset (キー) を取得/キャスト | /(1) の製品/Models.Book | GetEntityType または Get | GetBook |
+| GET /entityset | /製品 | GetEntitySet または Get | GetProducts |
+| GET /entityset(key) | /Products(1) | GetEntityType または Get | GetProduct |
+| GET /entityset(key)/cast | /Products(1)/Models.Book | GetEntityType または Get | GetBook |
 
 詳細については、次を参照してください。[読み取り専用 OData エンドポイントを作成](odata-v3/creating-an-odata-endpoint.md)です。
 
@@ -75,20 +75,20 @@ Web API の OData ルーティング規約を説明する前に、OData の Uri 
 
 | 要求 | URI の例 | アクション名 | アクションの例 |
 | --- | --- | --- | --- |
-| /Entityset を投稿します。 | /製品 | PostEntityType または Post | PostProduct |
-| /Entityset(key) を配置します。 | /Products(1) | PutEntityType または Put | PutProduct |
-| /Entityset (キー) を配置/キャスト | /(1) の製品/Models.Book | PutEntityType または Put | PutBook |
-| 修正プログラム/entityset(key) | /Products(1) | PatchEntityType または修正プログラム | PatchProduct |
-| /Entityset (キー) をパッチ/キャスト | /(1) の製品/Models.Book | PatchEntityType または修正プログラム | PatchBook |
-| /Entityset(key) を削除します。 | /Products(1) | DeleteEntityType または削除 | DeleteProduct |
-| /Entityset (キー) を削除/キャスト | /(1) の製品/Models.Book | DeleteEntityType または削除 | DeleteBook |
+| POST /entityset | /製品 | PostEntityType または Post | PostProduct |
+| PUT /entityset(key) | /Products(1) | PutEntityType または Put | PutProduct |
+| PUT /entityset(key)/cast | /Products(1)/Models.Book | PutEntityType または Put | PutBook |
+| PATCH /entityset(key) | /Products(1) | PatchEntityType または修正プログラム | PatchProduct |
+| PATCH /entityset(key)/cast | /Products(1)/Models.Book | PatchEntityType または修正プログラム | PatchBook |
+| DELETE /entityset(key) | /Products(1) | DeleteEntityType または削除 | DeleteProduct |
+| DELETE /entityset(key)/cast | /Products(1)/Models.Book | DeleteEntityType または削除 | DeleteBook |
 
 **ナビゲーション プロパティのクエリを実行します。**
 
 | 要求 | URI の例 | アクション名 | アクションの例 |
 | --- | --- | --- | --- |
-| GET/entityset (キー)/ナビゲーション | /製品 (1)/仕入先 | GetNavigationFromEntityType または GetNavigation | GetSupplierFromProduct |
-| /Entityset (キー)/キャスト/ナビゲーションを取得します。 | /(1) の製品/Models.Book/Author | GetNavigationFromEntityType または GetNavigation | GetAuthorFromBook |
+| GET /entityset(key)/navigation | /Products(1)/Supplier | GetNavigationFromEntityType または GetNavigation | GetSupplierFromProduct |
+| GET /entityset(key)/cast/navigation | /Products(1)/Models.Book/Author | GetNavigationFromEntityType または GetNavigation | GetAuthorFromBook |
 
 詳細については、次を参照してください。[のエンティティ関係作業](odata-v3/working-with-entity-relations.md)です。
 
@@ -96,10 +96,10 @@ Web API の OData ルーティング規約を説明する前に、OData の Uri 
 
 | 要求 | URI の例 | アクション名 |
 | --- | --- | --- |
-| POST/entityset (キー)/$links/ナビゲーション | /製品 (1)/$ リンク/仕入先 | CreateLink |
-| PUT/entityset (キー)/$links/ナビゲーション | /製品 (1)/$ リンク/仕入先 | CreateLink |
-| DELETE/entityset (キー)/$links/ナビゲーション | /製品 (1)/$ リンク/仕入先 | DeleteLink |
-| /Entityset(key)/$links/navigation(relatedKey) を削除します。 | /Products/(1)/$links/Suppliers(1) | DeleteLink |
+| POST /entityset(key)/$links/navigation | /Products(1)/$links/Supplier | CreateLink |
+| PUT /entityset(key)/$links/navigation | /Products(1)/$links/Supplier | CreateLink |
+| DELETE /entityset(key)/$links/navigation | /Products(1)/$links/Supplier | DeleteLink |
+| DELETE /entityset(key)/$links/navigation(relatedKey) | /Products/(1)/$links/Suppliers(1) | DeleteLink |
 
 詳細については、次を参照してください。[のエンティティ関係作業](odata-v3/working-with-entity-relations.md)です。
 
@@ -109,15 +109,15 @@ Web API の OData ルーティング規約を説明する前に、OData の Uri 
 
 | 要求 | URI の例 | アクション名 | アクションの例 |
 | --- | --- | --- | --- |
-| GET/entityset (キー)/プロパティ | /製品 (1)/名前 | GetPropertyFromEntityType または GetProperty | GetNameFromProduct |
-| /Entityset (キー) キャスト/プロパティを取得します。 | /(1) の製品/Models.Book/Author | GetPropertyFromEntityType または GetProperty | GetTitleFromBook |
+| GET /entityset(key)/property | /Products(1)/Name | GetPropertyFromEntityType または GetProperty | GetNameFromProduct |
+| GET /entityset(key)/cast/property | /Products(1)/Models.Book/Author | GetPropertyFromEntityType または GetProperty | GetTitleFromBook |
 
 **アクション**
 
 | 要求 | URI の例 | アクション名 | アクションの例 |
 | --- | --- | --- | --- |
-| POST/entityset (キー)/操作 | /製品 (1) レート/ | ActionNameOnEntityType またはアクション名 | RateOnProduct |
-| /Entityset (キー)/キャスト/アクションを投稿します。 | /(1) の製品/Models.Book/CheckOut | ActionNameOnEntityType またはアクション名 | CheckOutOnBook |
+| POST /entityset(key)/action | /Products(1)/Rate | ActionNameOnEntityType またはアクション名 | RateOnProduct |
+| POST /entityset(key)/cast/action | /(1) の製品/Models.Book/CheckOut | ActionNameOnEntityType またはアクション名 | CheckOutOnBook |
 
 詳細については、次を参照してください。 [OData アクション](odata-v3/odata-actions.md)です。
 
@@ -147,7 +147,7 @@ Web API の OData ルーティング規約を説明する前に、OData の Uri 
 
 両方の方法、その要求に規則が適用されない場合、メソッド必要があります null を返します。
 
-**ODataPath**パラメーターが解析された OData リソース パスを表します。 一覧が含まれている **[ODataPathSegment](https://msdn.microsoft.com/en-us/library/system.web.http.odata.routing.odatapathsegment.aspx)** リソース パスのセグメントごとに 1 つのインスタンスします。 **ODataPathSegment** 、抽象クラスです。 各セグメントの種類がから派生したクラスによって表される**ODataPathSegment**です。
+**ODataPath**パラメーターが解析された OData リソース パスを表します。 一覧が含まれている **[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)** リソース パスのセグメントごとに 1 つのインスタンスします。 **ODataPathSegment** 、抽象クラスです。 各セグメントの種類がから派生したクラスによって表される**ODataPathSegment**です。
 
 **ODataPath.TemplatePath**プロパティは、文字列を連結したものを表すすべてのパス セグメント。 たとえば、次の URI が`/Products(1)/Supplier`、パス テンプレートは&quot;~/entityset/key/navigation&quot;です。 セグメントが URI セグメントに直接対応していないことに注意してください。 たとえば、エンティティ キー (1) は、独自として表されます。 **ODataPathSegment**です。
 
@@ -170,7 +170,7 @@ Web API の OData ルーティング規約を説明する前に、OData の Uri 
 1. 派生した**EntitySetRoutingConvention**であるため、 **SelectController**そのクラスのメソッドは、この新しいルーティング規約の適切な。 つまり、再実装する必要はありません**SelectController**です。
 2. GET 要求にのみ、およびパス テンプレートが場合にのみ、規則が適用される&quot;~/entityset/key/navigation/key&quot;です。
 3. アクション名が&quot;{EntityType} を取得&quot;ここで、 *{EntityType}*ナビゲーション コレクションの種類です。 たとえば、 &quot;GetSupplier&quot;です。 任意の名前付け規則を &#8212; を使用することができます。確認、コント ローラーのアクションと一致します。
-4. アクションという 2 つのパラメーターは、*キー*と*relatedKey*です。 (一部の定義済みのパラメーター名の一覧は、次を参照してください[ODataRouteConstants](https://msdn.microsoft.com/en-us/library/system.web.http.odata.routing.odatarouteconstants.aspx)。)。
+4. アクションという 2 つのパラメーターは、*キー*と*relatedKey*です。 (一部の定義済みのパラメーター名の一覧は、次を参照してください[ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx)。)。
 
 次の手順では、ルーティング規則の一覧に新しい規則を追加します。 これは、次のコードに示すように場合に、構成時に発生します。
 

@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: a980669d49d332d7ef2ff5a18c73e9b269281287
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b36fb71cba058a3409b30a1d9469159fcd027375
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 en-米国/
 
@@ -32,7 +32,7 @@ en-米国/
 * ユーザーは、エンティティの編集 ページに移動します。
 * 別のユーザーは、最初のユーザーの変更がデータベースに書き込まれる前に、同じエンティティを更新します。
 
-同時実行の検出が有効でない場合、同時実行更新が発生した場合。
+同時実行の検出が有効でないときに同時に更新が発生します。
 
 * 最後の更新の競合。 つまり、最後の値の更新は、データベースに保存されます。
 * 現在の更新プログラムの最初の数値は失われます。
@@ -73,16 +73,16 @@ John が**保存**ドル 350,000.00 の予算が表示される編集ページ�
 
 ## <a name="handling-concurrency"></a>同時実行の処理 
 
-プロパティとして構成されている場合、[同時実行トークン](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency):
+プロパティとして構成されている場合、[同時実行トークン](https://docs.microsoft.com/ef/core/modeling/concurrency):
 
-* EF コアは、フェッチ後にプロパティが変更されていないことを確認します。 チェックが実行時に[SaveChanges](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges)または[SaveChangesAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_)と呼びます。
+* EF コアは、フェッチ後にプロパティが変更されていないことを確認します。 チェックが実行時に[SaveChanges](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges)または[SaveChangesAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_)と呼びます。
 * フェッチ後、プロパティが変更された場合、 [DbUpdateConcurrencyException](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0)がスローされます。 
 
 スローされることをサポートするために、データベースとデータ モデルを構成する必要があります`DbUpdateConcurrencyException`です。
 
 ### <a name="detecting-concurrency-conflicts-on-a-property"></a>プロパティの同時実行の競合を検出します。
 
-使用してプロパティ レベルに同時実行の競合を検出できなかったことができます、 [ConcurrencyCheck](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0)属性。 属性は、モデルに複数のプロパティに適用できます。 詳細については、次を参照してください。[データ注釈 ConcurrencyCheck](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency#data-annotations)です。
+使用してプロパティ レベルに同時実行の競合を検出できなかったことができます、 [ConcurrencyCheck](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0)属性。 属性は、モデルに複数のプロパティに適用できます。 詳細については、次を参照してください。[データ注釈 ConcurrencyCheck](https://docs.microsoft.com/ef/core/modeling/concurrency#data-annotations)です。
 
 `[ConcurrencyCheck]`属性は、このチュートリアルでは使用されません。
 
@@ -127,7 +127,7 @@ modelBuilder.Entity<Department>()
 
 [!code-sql[](intro/samples/sql.txt?highlight=4-6)]
 
-[@@ROWCOUNT ](https://docs.microsoft.com/en-us/sql/t-sql/functions/rowcount-transact-sql)最後のステートメントによる影響を受ける行の数を返します。 なしで行が更新されて、EF コアをスロー、`DbUpdateConcurrencyException`です。
+[@@ROWCOUNT ](https://docs.microsoft.com/sql/t-sql/functions/rowcount-transact-sql)最後のステートメントによる影響を受ける行の数を返します。 なしで行が更新されて、EF コアをスロー、`DbUpdateConcurrencyException`です。
 
 Visual Studio の出力ウィンドウに T-SQL EF コアが生成されるを確認できます。
 
@@ -175,7 +175,7 @@ dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outD
 
 ### <a name="update-the-departments-index-page"></a>部門のインデックス ページを更新します。
 
-作成スキャフォールディング エンジン、`RowVersion`インデックス ページがそのフィールドの列を表示することはできません。 このチュートリアルの最後のバイトで、`RowVersion`同時実行制御の理解に役立つが表示されます。 最後のバイトは、一意であることは保証されません。 実際のアプリを表示しない`RowVersion`またはの最後のバイト`RowVersion`です。
+作成スキャフォールディング エンジン、`RowVersion`インデックス ページがそのフィールドの列を表示することはできません。 このチュートリアルの最後のバイトで、`RowVersion`同時実行制御の理解に役立つが表示されます。 最後のバイトは、一意である保証されません。 実際のアプリを表示しない`RowVersion`またはの最後のバイト`RowVersion`です。
 
 インデックス ページを更新します。
 
@@ -250,7 +250,7 @@ dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outD
 
 ![部門の編集 ページのエラー メッセージ](concurrency/_static/edit-error.png)
 
-このブラウザー ウィンドウを Name フィールドを変更する意図しません。 コピーし、[名前] フィールドに、現在の値 (言語) を貼り付けます。 タブです。クライアント側の検証では、エラー メッセージを削除します。
+このブラウザー ウィンドウがありませんでした [名前] フィールドを変更する予定があります。 コピーし、[名前] フィールドに、現在の値 (言語) を貼り付けます。 タブです。クライアント側の検証では、エラー メッセージを削除します。
 
 ![部門の編集 ページのエラー メッセージ](concurrency/_static/cv.png)
 
@@ -305,8 +305,8 @@ dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outD
 
 ### <a name="additional-resources"></a>その他の技術情報
 
-* [EF Core での同時実行トークン](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency)
-* [EF Core での同時実行の処理](https://docs.microsoft.com/en-us/ef/core/saving/concurrency)
+* [EF Core での同時実行トークン](https://docs.microsoft.com/ef/core/modeling/concurrency)
+* [EF Core での同時実行の処理](https://docs.microsoft.com/ef/core/saving/concurrency)
 
 >[!div class="step-by-step"]
 [前へ](xref:data/ef-rp/update-related-data)

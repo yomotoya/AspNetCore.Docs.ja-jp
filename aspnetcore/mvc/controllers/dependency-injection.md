@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 21cffcd285879fdca81cb7d92d0f079d4bf7756c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 946d695c572379c3ebc2eda1569f186f25ab9bfc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="dependency-injection-into-controllers"></a>コント ローラーに依存関係の挿入
 
@@ -87,7 +87,7 @@ Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstr
 
 ## <a name="accessing-settings-from-a-controller"></a>コント ローラーから設定へのアクセス
 
-コント ローラー内からアプリケーションまたは構成の設定へのアクセスは、一般的なパターンです。 このアクセスで説明されているオプション パターンを使用する必要があります[構成](xref:fundamentals/configuration/index)です。 一般にする必要がありますいないを要求する設定の依存関係の挿入を使用して、コント ローラーから直接。 より適切な方法は、要求、`IOptions<T>`インスタンス、場所`T`必要がある構成クラスです。
+コント ローラー内からアプリケーションまたは構成の設定へのアクセスは、一般的なパターンです。 このアクセスで説明されているオプション パターンを使用する必要があります[構成](xref:fundamentals/configuration/index)です。 依存関係の挿入を使用して、コント ローラーから直接設定を要求することはできません一般にします。 より適切な方法は、要求、`IOptions<T>`インスタンス、場所`T`必要がある構成クラスです。
 
 オプションのパターンを使用するには、ように、オプションを表すクラスを作成する必要があります。
 

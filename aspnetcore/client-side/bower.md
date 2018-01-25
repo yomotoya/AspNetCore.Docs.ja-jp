@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bower
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57a6941155c60e2769636fd4abc98531266c206c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7e3e936c81126b7ed01332565f997910a2886993
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET Core での Bower でクライアント側のパッケージを管理します。
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/19/2018
 
 ### <a name="manual-installation-in-bowerjson"></a>Bower.json に手動のインストール
 
-開く、 *bower.json*ファイルおよび依存関係に「フォント優れた」を追加します。 IntelliSense は、利用可能なパッケージを示しています。 パッケージを選択すると、使用可能なバージョンが表示されます。 次の図は、古いし、表示される内容と一致しません。
+開く、 *bower.json*ファイルおよび依存関係に「フォント優れた」を追加します。 IntelliSense は、利用可能なパッケージを示しています。 パッケージを選択すると、使用可能なバージョンが表示されます。 次の図は、古いし、表示される内容とも一致しません。
 
 ![Bower パッケージ エクスプ ローラーの IntelliSense](bower/_static/add-package.png)
 

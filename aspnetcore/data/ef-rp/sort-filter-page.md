@@ -8,11 +8,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 08f00e183dd8a8daa883d0b9ff15698b3a39f625
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 24649374b71da39d638d943617a219d45f064846
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>並べ替え、フィルター、ページング、およびグループ化 - EF コア Razor ページ (3/8)
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 01/19/2018
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-)]
 
- ときに、`IQueryable`を作成または変更するには、クエリは、データベースに送信されません。 まで、クエリが実行されない、`IQueryable`オブジェクトをコレクションに変換します。 `IQueryable`などのメソッドを呼び出すことで、コレクションに変換されます`ToListAsync`です。 したがって、`IQueryable`コードの次のステートメントまで実行されない 1 つのクエリ結果。
+ ときに、`IQueryable`を作成または変更するには、クエリは、データベースに送信されません。 までクエリが実行されない場合は、`IQueryable`オブジェクトをコレクションに変換します。 `IQueryable`などのメソッドを呼び出すことで、コレクションに変換されます`ToListAsync`です。 したがって、`IQueryable`コードの次のステートメントまで実行されない 1 つのクエリ結果。
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnlyRtn)]
 
@@ -139,7 +139,7 @@ ms.lasthandoff: 01/19/2018
 
 [!code-html[](intro/samples/cu/Pages/Students/Index3.cshtml?highlight=14-23&range=1-25)]
 
-上記のコードを使用して、 `<form>` [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)検索テキスト ボックスとボタンを追加します。 既定では、`<form>`タグ ヘルパーが POST でフォームにデータを送信します。 Post、HTTP メッセージの本文では、URL ではなく、パラメーターが渡されます。 HTTP GET を使用すると、フォームのデータはクエリ文字列として、URL で渡されます。 クエリ文字列を使用してデータを渡すことにより、URL にブックマークを設定できます。 [W3C ガイドライン](https://www.w3.org/2001/tag/doc/whenToUseGet.html)アクションが、更新プログラムにならない場合に GET を使用することをお勧めします。
+上記のコードを使用して、 `<form>` [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)検索テキスト ボックスとボタンを追加します。 既定では、`<form>`タグ ヘルパーが POST でフォームにデータを送信します。 Post、HTTP メッセージの本文では、URL ではなく、パラメーターが渡されます。 HTTP GET を使用すると、フォームのデータはクエリ文字列として、URL で渡されます。 クエリ文字列を使用してデータを渡すことにより、URL にブックマークを設定できます。 [W3C ガイドライン](https://www.w3.org/2001/tag/doc/whenToUseGet.html)更新アクションが返されない場合に GET を使用することをお勧めします。
 
 アプリをテストします。
 
@@ -201,7 +201,7 @@ http://localhost:5000/Students?SearchString=an
 ページングの中に検索文字列を変更する場合は、ページが 1 にリセットされます。 ページは、新しいフィルターが、別のデータを表示するために、1 にリセットされるがします。 検索値が入力されている場合と**送信**が選択されています。
 
 * 検索文字列を変更します。
-* `searchString`パラメーターが null ではありません。
+* `searchString`パラメーターが null でないです。
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage3)]
 
