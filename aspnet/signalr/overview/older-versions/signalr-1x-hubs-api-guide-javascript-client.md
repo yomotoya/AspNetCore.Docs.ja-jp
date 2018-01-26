@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 56931827a1a1edf003d2662b2d36964b9b6f3761
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f92470b2022f343cfd6d822abb255dc19947b4d1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-1x-hubs-api-guide---javascript-client"></a>SignalR 1.x Hubs API ガイド - JavaScript クライアント
 ====================
@@ -61,7 +61,7 @@ ms.lasthandoff: 11/10/2017
 - [SignalR ハブ API ガイド - サーバー](../guide-to-the-api/hubs-api-guide-server.md)
 - [SignalR ハブ API ガイド - .NET クライアント](../guide-to-the-api/hubs-api-guide-net-client.md)
 
-API リファレンス トピックへのリンクは、.NET 4.5 のバージョンの API といます。 .NET 4 を使用している場合は、次を参照してください。[の API のトピックは、.NET 4 バージョン](https://msdn.microsoft.com/en-us/library/jj891075(v=vs.100).aspx)します。
+API リファレンス トピックへのリンクは、.NET 4.5 のバージョンの API といます。 .NET 4 を使用している場合は、次を参照してください。[の API のトピックは、.NET 4 バージョン](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx)します。
 
 <a id="genproxy"></a>
 
@@ -125,7 +125,7 @@ ASP.NET Web フォーム アプリケーションで使用`ResolveClientUrl`プ�
 
 [!code-aspx[Main](signalr-1x-hubs-api-guide-javascript-client/samples/sample7.aspx)]
 
-一般的な規則としては、CSS や JavaScript ファイルに使用する「/signalr ハブ」URL を指定するため、同じメソッドを使用します。 URL を指定するには、チルダを使用せず、一部のシナリオで、アプリケーションが正しく動作 IIS Express を使用して Visual Studio でのテストが、完全な IIS に展開するときは、404 エラーで失敗します。 詳細については、次を参照してください。**ルート レベルのリソースへの参照の解決**で[ASP.NET Web プロジェクト用の Visual Studio で Web サーバー](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx) MSDN サイトです。
+一般的な規則としては、CSS や JavaScript ファイルに使用する「/signalr ハブ」URL を指定するため、同じメソッドを使用します。 URL を指定するには、チルダを使用せず、一部のシナリオで、アプリケーションが正しく動作 IIS Express を使用して Visual Studio でのテストが、完全な IIS に展開するときは、404 エラーで失敗します。 詳細については、次を参照してください。**ルート レベルのリソースへの参照の解決**で[ASP.NET Web プロジェクト用の Visual Studio で Web サーバー](https://msdn.microsoft.com/library/58wxa9w5.aspx) MSDN サイトです。
 
 Web プロジェクトをデバッグ モードでの Visual Studio 2012 で実行すると、お使いのブラウザーとして Internet Explorer を使用する場合は、プロキシ ファイルを確認できます**ソリューション エクスプ ローラー** **スクリプト ドキュメント**のように、次の図。
 
@@ -287,7 +287,7 @@ Web プロジェクトをデバッグ モードでの Visual Studio 2012 で実�
 
 転送方法を指定するため、次の値を使用できます。
 
-- "Websocket"
+- "webSockets"
 - "foreverFrame"
 - "serverSentEvents"
 - "longPolling"

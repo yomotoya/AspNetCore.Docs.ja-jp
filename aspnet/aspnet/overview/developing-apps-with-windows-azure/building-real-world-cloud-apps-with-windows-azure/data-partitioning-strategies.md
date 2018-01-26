@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-partitioning-strategies
 msc.type: authoredcontent
-ms.openlocfilehash: 8eddb7af2d9032153b30ab54d5e882f0b46cd4ce
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dca016cb6293a346f5622cc272e510b182c86d58
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="data-partitioning-strategies-building-real-world-cloud-apps-with-azure"></a>データのパーティション分割の方法 (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -89,7 +89,7 @@ ms.lasthandoff: 11/10/2017
 
 複雑さの一部は、実稼働環境に移動する前にそれらの計画をしている限り、管理しやすいです。 せずに多くの人が後で必要です。 Customer Advisory Team (CAT) チームがお客様のアプリが巨大な方法で抹消から月に 1 回の電話をかけるパニック状態を取得する平均とこの計画はありませんでした。 ようなものとします"にご協力。 すべてのものを 1 つのデータ ストアに配置して 45 日以内にするつもりで領域が不足!」 データ ストアにアクセスする方法に組み込まれているビジネス ロジックの多くがあり、アプリを使用しているユーザーがある場合は、良いを移行するときに、1 日のにはありません。 私たちは、これは、顧客のパーティションを支援するそこら取り組みからのデータをダウンタイムなしで即座に終了します。 それが非常に魅力的な非常に恐ろしいとメカニズムではない場合に使用することを回避できます! これについて事前に検討し、アプリに統合されては楽ずっと後で、アプリが大きくなる場合。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 有効なパーティション分割構成では、スケール単位からペタバイト単位のボトルネックがないクラウド内のデータをクラウド アプリを有効にできます。 内部設置型データ センターで、アプリを実行していた場合、大規模なコンピューターまたは広範なインフラストラクチャの前払い支払いがないとします。 クラウドにすることができますすると、必要なだけ料金を支払っている使用している場合に限り使用しているときに増分、容量を追加できます。
 
@@ -101,8 +101,8 @@ ms.lasthandoff: 11/10/2017
 
 ドキュメント:
 
-- [Windows Azure クラウド サービスで大規模なサービスのデザインに関するヒント集](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx)です。 Mark Simms、Michael Thomassy、ホワイト ペーパー。
-- [Microsoft Patterns and Practices - クラウド設計パターン](https://msdn.microsoft.com/en-us/library/dn568099.aspx)です。 データのパーティション分割ガイダンスについては、シャーディング パターンを参照してください。
+- [Windows Azure クラウド サービスで大規模なサービスのデザインに関するヒント集](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx)です。 Mark Simms、Michael Thomassy、ホワイト ペーパー。
+- [Microsoft Patterns and Practices - クラウド設計パターン](https://msdn.microsoft.com/library/dn568099.aspx)です。 データのパーティション分割ガイダンスについては、シャーディング パターンを参照してください。
 
 ビデオ:
 

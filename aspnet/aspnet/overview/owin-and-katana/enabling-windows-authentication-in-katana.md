@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 msc.type: authoredcontent
-ms.openlocfilehash: cc23a053fb1ba60ea84eca59e99f0e375fefc4cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8a26d356f7abafba021199761f9a49dcb81765c5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="enabling-windows-authentication-in-katana"></a>Katana で Windows 認証を有効にします。
 ====================
@@ -33,8 +33,8 @@ Katana は Microsoft の実装[OWIN](http://owin.org/).NET の Web インター�
 
 現在、Katana には、Windows 統合認証をサポートする 2 つのサーバーが提供しています。
 
-- **Microsoft.Owin.Host.SystemWeb**です。 ASP.NET パイプラインを持つには、IIS を使用します。
-- **Microsoft.Owin.Host.HttpListener**です。 使用して[System.Net.HttpListener](https://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx)です。 このサーバーは現在、既定のオプションがセルフホストされているときに Katana です。
+- **Microsoft.Owin.Host.SystemWeb**. ASP.NET パイプラインを持つには、IIS を使用します。
+- **Microsoft.Owin.Host.HttpListener**. 使用して[System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx)です。 このサーバーは現在、既定のオプションがセルフホストされているときに Katana です。
 
 > [!NOTE]
 > Katana は現在提供されませんの OWIN ミドルウェア Windows 認証のため、この機能は、サーバーに表示されています。
@@ -98,8 +98,8 @@ Fiddler は、アプリケーションが Windows 認証を使用しているこ
 
 ## <a name="related-topics"></a>関連トピック
 
-[プロジェクトの Katana の概要](an-overview-of-project-katana.md)
+[プロジェクト Katana の概要](an-overview-of-project-katana.md)
 
-[System.Net.HttpListener](https://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx)
+[System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx)
 
 [MVC 5 の OWIN フォーム認証を理解します。](https://blogs.msdn.com/b/webdev/archive/2013/07/03/understanding-owin-forms-authentication-in-mvc-5.aspx)
