@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: bea3b12ebe476c4b59abe117393b0ec8bb7f0306
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 6d36c0f0cabaf99195470a212091bd5e35c8eb30
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Razor ページと Visual Studio (1/8) を使用して Entity Framework Core の概要
 
@@ -52,7 +52,7 @@ Contoso 大学サンプル web アプリケーションでは、Entity Framework
 
 ## <a name="create-a-razor-pages-web-app"></a>Razor ページの web アプリを作成します。
 
-* Visual Studio の **[ファイル]** メニューから、**[新規作成]**、**[プロジェクト]** の順に選択します。
+* Visual Studio の **[ファイル]** メニューから、**[新規作成]** > **[プロジェクト]** の順に選択します。
 * 新しい ASP.NET Core Web アプリケーションを作成します。 プロジェクトに名前を**ContosoUniversity**です。 プロジェクトに名前をすることが重要*ContosoUniversity*コードは、コピー/貼り付けときに、名前空間に一致するようにします。
  ![新しい ASP.NET Core Web アプリケーション](intro/_static/np.png)
 * ドロップダウン リストで **[ASP.NET Core 2.0]** を選択してから、**[Web アプリケーション]** を選択します。
@@ -179,7 +179,7 @@ ASP.NET Core を含む[依存性の注入](xref:fundamentals/dependency-injectio
 
 ### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-接続文字列では、SQL Server LocalDB データベースを指定します。 LocalDB は、SQL Server Express データベース エンジンの簡易バージョンがあり、アプリの開発では、実稼働環境を使用しないものです。 LocalDB は要求時に開始され、ユーザー モードで実行されるため、複雑な構成はありません。 既定では、LocalDB が作成されます*.mdf* DB ファイル、`C:/Users/<user>`ディレクトリ。
+接続文字列では、SQL Server LocalDB データベースを指定します。 LocalDB は、SQL Server Express データベース エンジンの簡易バージョンがあり、アプリの開発では、実稼働環境を使用しないものです。 LocalDB は、要求時に開始され、ユーザー モードで実行されるため、複雑な構成はありません。 既定では、LocalDB が作成されます*.mdf* DB ファイル、`C:/Users/<user>`ディレクトリ。
 
 ## <a name="add-code-to-initialize-the-db-with-test-data"></a>テスト データを使用して DB に初期化するコードを追加します。
 
@@ -215,7 +215,7 @@ EF Core では、空のデータベースを作成します。 このセクシ�
 
 このセクションでは、パッケージ マネージャー コンソール (PMC) を使用して、Visual Studio web コード生成のパッケージを追加します。 スキャフォールディング エンジンを実行するには、このパッケージが必要です。
 
-**[ツール]** メニューで、**[NuGet パッケージ マネージャー]**、**[パッケージ マネージャー コンソール]** の順に選択します。
+**[ツール]** メニューで、**[NuGet パッケージ マネージャー]** > **[パッケージ マネージャー コンソール]** の順に選択します。
 
 パッケージ マネージャー コンソール (PMC) では、次のコマンドを入力します。
 
@@ -271,7 +271,7 @@ No executable found matching command "dotnet-aspnet-codegenerator"
  <a name="test"></a>
 ### <a name="test-the-app"></a>アプリのテスト
 
-アプリの実行を選択して、**受講者**リンクします。 ブラウザーの幅に応じて、**受講者**リンクは、ページの上部に表示されます。 場合、**受講者**リンクが表示されない、右上隅で、ナビゲーション アイコンをクリックします。
+アプリの実行を選択して、**受講者**リンクします。 ブラウザーの幅に応じて、**受講者**リンクは、ページの上部に表示されます。 場合、**受講者**リンクが表示されていない、右上隅で、ナビゲーション アイコンをクリックします。
 
 ![Contoso 大学のホーム ページの幅の狭い](intro/_static/home-page-narrow.png)
 
@@ -339,7 +339,7 @@ EF コアを使用する非同期コードを記述する場合の注意すべ�
 
 * クエリまたはコマンドのデータベースに送信されるステートメントだけが非同期的に実行されます。 含む`ToListAsync`、 `SingleOrDefaultAsync`、 `FirstOrDefaultAsync`、および`SaveChangesAsync`です。 だけを変更するステートメントを含まない、`IQueryable`など`var students = context.Students.Where(s => s.LastName == "Davolio")`です。
 
-* EF コア コンテキストを安全なスレッド化されていない: を並列で複数の操作を行うにはしないでください。 
+* EF コア コンテキストがスレッド セーフではない: を並列で複数の操作を行うにはしないでください。 
 
 * 非同期コードのパフォーマンスの利点を利用するには、DB にクエリを送信する EF コア メソッドを呼び出す場合に、ライブラリ パッケージ (ページングなど) で非同期を使用することを確認します。
 

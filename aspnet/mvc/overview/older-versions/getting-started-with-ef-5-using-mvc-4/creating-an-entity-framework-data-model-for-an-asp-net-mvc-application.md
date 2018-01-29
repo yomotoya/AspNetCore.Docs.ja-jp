@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c25ebf472df5dcbc664257cdf8678bfac535d846
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 223dd48bb996de527f20291e4701e7d1b60a539d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>ASP.NET MVC アプリケーション (10 の 1) 用の Entity Framework データ モデルの作成
 ====================
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > ## <a name="code-first"></a>Code First
 > 
-> Entity Framework でデータを操作できる 3 つの方法があります: *Database First*、 *Model First*、および*Code First*です。 このチュートリアルでは、Code First のです。 シナリオに合った最適なものを選択する方法でこれらのワークフローとガイダンスの違いの詳細については、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf)です。
+> Entity Framework でデータを操作できる 3 つの方法があります: *Database First*、 *Model First*、および*Code First*です。 このチュートリアルでは、Code First のです。 シナリオに合った最適なものを選択する方法でこれらのワークフローとガイダンスの違いの詳細については、次を参照してください。 [Entity Framework 開発ワークフロー](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)です。
 > 
 > ## <a name="mvc"></a>MVC
 > 
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > ## <a name="questions"></a>質問
 > 
-> チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework でも LINQ to Entities フォーラム](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)です。
+> チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework でも LINQ to Entities フォーラム](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)です。
 > 
 > ## <a name="acknowledgments"></a>受信確認
 > 
@@ -84,7 +84,7 @@ Visual Studio をインストールした場合、上記のリンクは不足し
 
 ## <a name="create-an-mvc-web-application"></a>MVC Web アプリケーションを作成します。
 
-Visual Studio を開き、プロジェクトを作成、新しい c#"ContosoUniversity"を使用して名前付き、 **ASP.NET MVC 4 Web Application**テンプレート。 対象にするかどうかを確認**.NET Framework 4.5** (使用する[`enum`プロパティ](https://msdn.microsoft.com/en-us/data/hh859576.aspx)、.NET 4.5 を必要として)。
+Visual Studio を開き、プロジェクトを作成、新しい c#"ContosoUniversity"を使用して名前付き、 **ASP.NET MVC 4 Web Application**テンプレート。 対象にするかどうかを確認**.NET Framework 4.5** (使用する[`enum`プロパティ](https://msdn.microsoft.com/data/hh859576.aspx)、.NET 4.5 を必要として)。
 
 ![New_project_dialog_box](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image3.png)
 
@@ -92,7 +92,7 @@ Visual Studio を開き、プロジェクトを作成、新しい c#"ContosoUniv
 
 ままにして、 **Razor**を選択すると、エンジンを表示およびのままにして、**単体テスト プロジェクトを作成**チェック ボックスをオフします。
 
-**[OK]** をクリックします。
+**[OK]**をクリックします。
 
 ![Project_template_options](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image4.png)
 
@@ -159,7 +159,7 @@ Visual Studio を開き、プロジェクトを作成、新しい c#"ContosoUniv
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample5.cs)]
 
-グレード プロパティは、 [enum](https://msdn.microsoft.com/en-us/data/hh859576.aspx)です。 後に疑問符 ()、`Grade`型宣言では、ことを示します、`Grade`プロパティは[null 許容](https://msdn.microsoft.com/en-us/library/2cf62fcy.aspx)です。 Null である評価とは異なる、ゼロ グレード: null は、評価が不明またはまだ割り当てられていないことを意味します。
+グレード プロパティは、 [enum](https://msdn.microsoft.com/data/hh859576.aspx)です。 後に疑問符 ()、`Grade`型宣言では、ことを示します、`Grade`プロパティは[null 許容](https://msdn.microsoft.com/library/2cf62fcy.aspx)です。 Null である評価とは異なる、ゼロ グレード: null は、評価が不明またはまだ割り当てられていないことを意味します。
 
 `StudentID`プロパティは、foreign key、および対応するナビゲーション プロパティは`Student`します。 `Enrollment`エンティティが 1 つに関連付けられた`Student`エンティティ、プロパティは、1 つのみを保持できるように`Student`エンティティ (とは異なり、`Student.Enrollments`ナビゲーション プロパティ先ほど見た、複数を格納する`Enrollment`エンティティ)。
 
@@ -175,19 +175,19 @@ Visual Studio を開き、プロジェクトを作成、新しい c#"ContosoUniv
 
 `Enrollments`プロパティは、ナビゲーション プロパティ。 A`Course`エンティティを任意の数に関連付けることができます`Enrollment`エンティティです。
 
-ここでの詳細について、[[DatabaseGenerated](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([DatabaseGeneratedOption](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx)です。次のチュートリアルではなし)] 属性します。 基本的には、この属性には、それを生成、データベースのではなく、コースのプライマリ キーを入力することができます。
+ここでの詳細について、[[DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([DatabaseGeneratedOption](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx)です。次のチュートリアルではなし)] 属性します。 基本的には、この属性には、それを生成、データベースのではなく、コースのプライマリ キーを入力することができます。
 
 ## <a name="create-the-database-context"></a>データベース コンテキストを作成します。
 
-指定されたデータ モデルの Entity Framework 機能を調整するメイン クラスは、*データベース コンテキスト*クラスです。 派生することによってこのクラスを作成する、 [System.Data.Entity.DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx)クラスです。 コードでは、データ モデルのエンティティが含まれているを指定します。 特定の Entity Framework の動作をカスタマイズすることもできます。 クラスの名前は、このプロジェクトで`SchoolContext`です。
+指定されたデータ モデルの Entity Framework 機能を調整するメイン クラスは、*データベース コンテキスト*クラスです。 派生することによってこのクラスを作成する、 [System.Data.Entity.DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx)クラスです。 コードでは、データ モデルのエンティティが含まれているを指定します。 特定の Entity Framework の動作をカスタマイズすることもできます。 クラスの名前は、このプロジェクトで`SchoolContext`です。
 
 という名前のフォルダーを作成する*DAL* (データ アクセス層) 用です。 そのフォルダーの作成という新しいクラス ファイル*SchoolContext.cs*、し、既存のコードを次のコードに置き換えます。
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample7.cs)]
 
-このコードを作成、 [DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=VS.103).aspx)各エンティティ セットのプロパティです。 Entity Framework の用語で、*エンティティ セット*通常、データベース テーブルに対応し、*エンティティ*テーブル内の行に対応しています。
+このコードを作成、 [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=VS.103).aspx)各エンティティ セットのプロパティです。 Entity Framework の用語で、*エンティティ セット*通常、データベース テーブルに対応し、*エンティティ*テーブル内の行に対応しています。
 
-`modelBuilder.Conventions.Remove`内のステートメント、 [OnModelCreating](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx)メソッドは、複数化されてからテーブル名を防止します。 これをしなかった場合、生成されたテーブルの名前は`Students`、 `Courses`、および`Enrollments`です。 代わりに、テーブル名になります`Student`、 `Course`、および`Enrollment`です。 テーブル名を複数形にするかどうかについては、開発者の間で意見が分かれるでしょう。 このチュートリアルは単数形のフォームを使用しますが、重要な点は、することを含むか、次のコード行を省略することによって、どのフォームを選択することができます。
+`modelBuilder.Conventions.Remove`内のステートメント、 [OnModelCreating](https://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx)メソッドは、複数化されてからテーブル名を防止します。 これをしなかった場合、生成されたテーブルの名前は`Students`、 `Courses`、および`Enrollments`です。 代わりに、テーブル名になります`Student`、 `Course`、および`Enrollment`です。 テーブル名を複数形にするかどうかについては、開発者の間で意見が分かれるでしょう。 このチュートリアルは単数形のフォームを使用しますが、重要な点は、することを含むか、次のコード行を省略することによって、どのフォームを選択することができます。
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
@@ -201,15 +201,15 @@ Visual Studio 2012 およびそれ以降のバージョンで LocalDB は既定�
 
 [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample8.xml)]
 
-既定では、Entity Framework と同じ名前の接続文字列の検索、`DbContext`クラス (`SchoolContext`このプロジェクトの)。 という名前の LocalDB データベースを指定する接続文字列を追加した*ContosoUniversity.mdf*にある、*アプリ\_データ*フォルダーです。 詳細については、次を参照してください。 [ASP.NET Web アプリケーション用の SQL Server 接続文字列](https://msdn.microsoft.com/en-us/library/jj653752.aspx)です。
+既定では、Entity Framework と同じ名前の接続文字列の検索、`DbContext`クラス (`SchoolContext`このプロジェクトの)。 という名前の LocalDB データベースを指定する接続文字列を追加した*ContosoUniversity.mdf*にある、*アプリ\_データ*フォルダーです。 詳細については、次を参照してください。 [ASP.NET Web アプリケーション用の SQL Server 接続文字列](https://msdn.microsoft.com/library/jj653752.aspx)です。
 
-実際には、接続文字列を指定する必要はありません。 接続文字列を指定しないで、Entity Framework が作成されます。ただし、データベースでないあります、*アプリ\_データ*アプリのフォルダーです。 データベースを作成する方法の詳細については、次を参照してください。 [Code First の新しいデータベースに](https://msdn.microsoft.com/en-us/data/jj193542)です。
+実際には、接続文字列を指定する必要はありません。 接続文字列を指定しないで、Entity Framework が作成されます。ただし、データベースでないあります、*アプリ\_データ*アプリのフォルダーです。 データベースを作成する方法の詳細については、次を参照してください。 [Code First の新しいデータベースに](https://msdn.microsoft.com/data/jj193542)です。
 
 `connectionStrings`コレクションも名前付き接続文字列には`DefaultConnection`メンバーシップ データベースに使用されます。 このチュートリアルでは、メンバーシップ データベースを使用しません。 2 つの接続文字列の唯一の違いは、データベース名および名前属性の値です。
 
 ## <a name="set-up-and-execute-a-code-first-migration"></a>設定、コードの最初の移行を実行
 
-を初めて起動するアプリケーションを開発するときに、データ モデルの変更するたびにし、多くの場合、モデルの変更と同期して、データベースを取得します。 自動的に削除し、データ モデルを変更するたびにデータベースを再作成するには、Entity Framework を構成することができます。 テスト データを簡単に再作成されますが、通常実稼働環境に配置した後をデータベースを削除しない限り、データベース スキーマを更新するためがない開発の早い段階で問題になります。 移行の機能によって、Code First を削除し、再作成することがなく、データベースを更新します。 新しいプロジェクトの開発サイクルの早い段階でが使用する[DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/en-us/library/gg679604(v=vs.103).aspx)を削除して再作成し、データベースの再シードをモデル変更されるたびにします。 いずれかを取得、アプリケーションを展開する準備が、移行アプローチに変換することができます。 このチュートリアルでは、移行のみを使用します。 詳細については、次を参照してください。 [Code First Migrations](https://msdn.microsoft.com/en-us/data/jj591621)と[移行スクリーン キャスト系列](https://blogs.msdn.com/b/adonet/archive/2014/03/12/migrations-screencast-series.aspx)です。
+を初めて起動するアプリケーションを開発するときに、データ モデルの変更するたびにし、多くの場合、モデルの変更と同期して、データベースを取得します。 自動的に削除し、データ モデルを変更するたびにデータベースを再作成するには、Entity Framework を構成することができます。 テスト データを簡単に再作成されますが、通常実稼働環境に配置した後をデータベースを削除しない限り、データベース スキーマを更新するためがない開発の早い段階で問題になります。 移行の機能によって、Code First を削除し、再作成することがなく、データベースを更新します。 新しいプロジェクトの開発サイクルの早い段階でが使用する[DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=vs.103).aspx)を削除して再作成し、データベースの再シードをモデル変更されるたびにします。 いずれかを取得、アプリケーションを展開する準備が、移行アプローチに変換することができます。 このチュートリアルでは、移行のみを使用します。 詳細については、次を参照してください。 [Code First Migrations](https://msdn.microsoft.com/data/jj591621)と[移行スクリーン キャスト系列](https://blogs.msdn.com/b/adonet/archive/2014/03/12/migrations-screencast-series.aspx)です。
 
 ### <a name="enable-code-first-migrations"></a>Code First Migrations を有効にします。
 
@@ -234,9 +234,9 @@ Visual Studio 2012 およびそれ以降のバージョンで LocalDB は既定�
 
 ### <a name="set-up-the-seed-method"></a>Seed メソッドを設定します。
 
-[シード](https://msdn.microsoft.com/en-us/library/hh829453(v=vs.103).aspx)を最新の移行、データベースを更新するたびに、Code First Migrations がデータベースを作成するときに、メソッドが実行されます。 Seed メソッドの目的は、アプリケーションの前に、テーブルにデータを挿入するために最初にデータベースにアクセスです。
+[シード](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx)を最新の移行、データベースを更新するたびに、Code First Migrations がデータベースを作成するときに、メソッドが実行されます。 Seed メソッドの目的は、アプリケーションの前に、テーブルにデータを挿入するために最初にデータベースにアクセスです。
 
-以前のバージョンの Code First では、移行がリリースされる前に、が一般的でした`Seed`開発時にモデル変更のたびに、データベースは完全に削除され、最初から再作成する必要があるため、テスト データを挿入するメソッド。 テスト データを保持するデータベースの変更後に、Code First Migrations にテスト データを含むため、[シード](https://msdn.microsoft.com/en-us/library/hh829453(v=vs.103).aspx)メソッド通常必要はありません。 実際には、したくない、`Seed`場合、使用する移行を実稼働でデータベースを配置するためにテスト データを挿入するメソッド、`Seed`メソッドは、実稼働環境で実行されます。 場合は、`Seed`実稼働環境で挿入するデータのみをデータベースに挿入するメソッド。 たとえば、ことができます、データベース内の実際の部門名を含める、`Department`表に、アプリケーションは実稼働環境で使用可能です。
+以前のバージョンの Code First では、移行がリリースされる前に、が一般的でした`Seed`開発時にモデル変更のたびに、データベースは完全に削除され、最初から再作成する必要があるため、テスト データを挿入するメソッド。 テスト データを保持するデータベースの変更後に、Code First Migrations にテスト データを含むため、[シード](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx)メソッド通常必要はありません。 実際には、したくない、`Seed`場合、使用する移行を実稼働でデータベースを配置するためにテスト データを挿入するメソッド、`Seed`メソッドは、実稼働環境で実行されます。 場合は、`Seed`実稼働環境で挿入するデータのみをデータベースに挿入するメソッド。 たとえば、ことができます、データベース内の実際の部門名を含める、`Department`表に、アプリケーションは実稼働環境で使用可能です。
 
 このチュートリアルで使用する移行展開についても`Seed`メソッドが大量のデータを手動で挿入することがなくアプリケーションの機能のしくみを確認しやすくためにテスト データをこのまま挿入されます。
 
@@ -244,11 +244,11 @@ Visual Studio 2012 およびそれ以降のバージョンで LocalDB は既定�
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample11.cs)]
 
-    [シード](https://msdn.microsoft.com/en-us/library/hh829453(v=vs.103).aspx)メソッドを受け取り、入力パラメーターとして、データベース コンテキストのオブジェクト、メソッドのコードはそのオブジェクトを使用して、データベースに新しいエンティティを追加します。 エンティティ型ごとに、コードは新しいエンティティのコレクションを作成、適切なにそれらを追加[DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=vs.103).aspx)プロパティ、および、データベースへの変更を保存します。 呼び出す必要はありません、 [SaveChanges](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx)メソッドのエンティティの各グループの後に、ここでは、として行われますが、これを行うコードは、データベースに書き込んでいるときに例外が発生した場合、問題の原因を特定できます。
+    [シード](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx)メソッドを受け取り、入力パラメーターとして、データベース コンテキストのオブジェクト、メソッドのコードはそのオブジェクトを使用して、データベースに新しいエンティティを追加します。 エンティティ型ごとに、コードは新しいエンティティのコレクションを作成、適切なにそれらを追加[DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx)プロパティ、および、データベースへの変更を保存します。 呼び出す必要はありません、 [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx)メソッドのエンティティの各グループの後に、ここでは、として行われますが、これを行うコードは、データベースに書き込んでいるときに例外が発生した場合、問題の原因を特定できます。
 
-    一部のデータを挿入するステートメントを使用して、 [AddOrUpdate](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) "upsert"操作を実行するメソッド。 `Seed`メソッドは、すべての移行が実行され、追加しようとしている行が既にありますデータベースを作成する最初の移行後にあるため、データを挿入することはできませんだけです。 "Upsert"操作が既に存在する行を挿入しようとする場合に発生するとエラーを防ぐこと***オーバーライド***アプリケーションのテスト中に対して行ったデータに対する変更。 いくつかのテーブルでのテスト データを使用しない場合発生すること。 場合によってはテスト中にデータを変更すると、変更するデータベースの更新後に残します。 条件付きの挿入操作を実行する場合: 存在しない場合にのみ行を挿入します。 Seed メソッドは、両方のアプローチを使用します。
+    一部のデータを挿入するステートメントを使用して、 [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) "upsert"操作を実行するメソッド。 `Seed`メソッドは、すべての移行が実行され、追加しようとしている行が既にありますデータベースを作成する最初の移行後にあるため、データを挿入することはできませんだけです。 "Upsert"操作が既に存在する行を挿入しようとする場合に発生するとエラーを防ぐこと***オーバーライド***アプリケーションのテスト中に対して行ったデータに対する変更。 いくつかのテーブルでのテスト データを使用しない場合発生すること。 場合によってはテスト中にデータを変更すると、変更するデータベースの更新後に残します。 条件付きの挿入操作を実行する場合: 存在しない場合にのみ行を挿入します。 Seed メソッドは、両方のアプローチを使用します。
 
-    渡される最初のパラメーター、 [AddOrUpdate](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドが使用して、行が既に存在するかどうかを確認するプロパティを指定します。 次の情報を提供して、テスト学生データの`LastName`最後の各リストの名前は一意なので、この目的のプロパティを使用できます。
+    渡される最初のパラメーター、 [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドが使用して、行が既に存在するかどうかを確認するプロパティを指定します。 次の情報を提供して、テスト学生データの`LastName`最後の各リストの名前は一意なので、この目的のプロパティを使用できます。
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample12.cs)]
 
@@ -258,7 +258,7 @@ Visual Studio 2012 およびそれ以降のバージョンで LocalDB は既定�
 
     詳細については、`AddOrUpdate`メソッドを参照してください[EF 4.3 AddOrUpdate メソッドを使用して注意](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)Julie Lerman ブログ。
 
-    追加するコード`Enrollment`エンティティを使用していない、`AddOrUpdate`メソッドです。 これは、エンティティが既に存在しが存在しない場合は、エンティティを挿入します。 かどうかを確認します。 このアプローチには、移行を実行するときに、登録グレードに対して行った変更が保存されます。 各メンバーをループ処理、コード、 `Enrollment`[リスト](https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx)し、データベースの登録が見つからない場合、データベースに登録を追加します。 初めて、データベースを更新するデータベースは空になりますので、各登録を追加します。
+    追加するコード`Enrollment`エンティティを使用していない、`AddOrUpdate`メソッドです。 これは、エンティティが既に存在しが存在しない場合は、エンティティを挿入します。 かどうかを確認します。 このアプローチには、移行を実行するときに、登録グレードに対して行った変更が保存されます。 各メンバーをループ処理、コード、 `Enrollment`[リスト](https://msdn.microsoft.com/library/6sh2ey19.aspx)し、データベースの登録が見つからない場合、データベースに登録を追加します。 初めて、データベースを更新するデータベースは空になりますので、各登録を追加します。
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample13.cs)]
 
@@ -335,7 +335,7 @@ SQL Server データベース、データ モデルに作成されました。 �
 
     ![学生のインデックス ページ](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image21.png)
 
-## <a name="conventions"></a>規則
+## <a name="conventions"></a>規約
 
 使用するための完全なデータベースを作成できるように、Entity Framework の順序で記述したコードの量は最小限に抑える*規則*、または Entity Framework で想定します。 一部の既に説明した場合。
 
@@ -343,9 +343,9 @@ SQL Server データベース、データ モデルに作成されました。 �
 - エンティティのプロパティ名は、列名に使用されます。
 - 名前付きエンティティのプロパティ`ID`または*classname* `ID`主キー プロパティとして認識されます。
 
-規則がオーバーライドすることを確認した (たとえば、指定したテーブル名を複数化しないようにする)、規則およびそれらをオーバーライドする方法の詳細を学習し、[詳細複雑なデータ モデルを作成する](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)チュートリアルこの系列に後で。 詳細については、次を参照してください。[コード First 規約に従って](https://msdn.microsoft.com/en-us/data/jj679962)です。
+規則がオーバーライドすることを確認した (たとえば、指定したテーブル名を複数化しないようにする)、規則およびそれらをオーバーライドする方法の詳細を学習し、[詳細複雑なデータ モデルを作成する](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)チュートリアルこの系列に後で。 詳細については、次を参照してください。[コード First 規約に従って](https://msdn.microsoft.com/data/jj679962)です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 保存し、データを表示する Entity Framework および SQL Server Express を使用する簡単なアプリケーションが作成されました。 次のチュートリアルでは基本的な CRUD を実行する方法を学習 (作成、読み取り、更新、削除) 操作です。 このページの下部にあるフィードバックを送信することができます。 お知らせ、チュートリアルのこの部分をリンクする方法と、それを改善する方法です。
 

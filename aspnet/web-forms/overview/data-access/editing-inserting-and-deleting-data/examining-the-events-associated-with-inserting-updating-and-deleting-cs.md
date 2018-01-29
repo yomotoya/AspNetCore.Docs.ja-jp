@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs
 title: "挿入、更新、および削除する (c#) に関連付けられているイベントを確認する |Microsoft ドキュメント"
 author: rick-anderson
-description: "について確認する前に、実行時に、および挿入後に発生するイベントを使用してこのチュートリアルでは、更新、または ASP.NET データ Web コントロールの操作を削除します。 W.."
+description: "について確認する前に、実行時に、および挿入後に発生するイベントを使用してこのチュートリアルでは、更新、または ASP.NET データ Web コントロールの操作を削除します。 W..."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 30f6ecef1a03153619df1b3ba4e709f3742c6927
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 93da23d58d1ba73c5b97f42631d036dd364de24d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-events-associated-with-inserting-updating-and-deleting-c"></a>挿入、更新、および削除する (c#) に関連付けられたイベントを確認します。
 ====================
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="introduction"></a>はじめに
 
-組み込みの挿入、編集、または削除、GridView、DetailsView、またはフォーム ビューのコントロールの機能を使用する場合、エンドユーザーが新しいレコードの追加や更新、または既存のレコードを削除するプロセスを完了すると、さまざまな手順が経過します。 説明したよう、[前のチュートリアル](an-overview-of-inserting-updating-and-deleting-data-cs.md)[編集] ボタンが更新し、[キャンセル] ボタンとテキスト ボックスに BoundFields 有効化置き換え GridView の行を編集する際に、します。 エンドユーザーは、データを更新し、更新プログラムをクリックすると、次の手順は、ポストバック時に実行されます。
+組み込みの挿入、編集、または削除、GridView、DetailsView、またはフォーム ビューのコントロールの機能を使用する場合、エンドユーザーが新しいレコードの追加や更新、または既存のレコードを削除するプロセスを完了すると、さまざまな手順が経過します。 説明したよう、[前のチュートリアル](an-overview-of-inserting-updating-and-deleting-data-cs.md)[編集] ボタンが更新し、[キャンセル] ボタンとテキスト ボックスに [BoundFields] 有効化置き換え GridView の行を編集する際に、します。 エンドユーザーは、データを更新し、更新プログラムをクリックすると、次の手順は、ポストバック時に実行されます。
 
 1. GridView を設定、ObjectDataSource の`UpdateParameters`で編集されたレコードの一意の識別フィールド (を使用して、`DataKeyNames`プロパティ)、ユーザーが入力した値と共に
 2. GridView 呼び出します、ObjectDataSource の`Update()`メソッドで、さらに、基になるオブジェクトに適切なメソッドを呼び出します (`ProductsDAL.UpdateProduct`で、前のチュートリアル)
@@ -162,12 +162,12 @@ ObjectDataSource を呼び出すことを確認する、`UpdateProduct`で製品
 
 ただし、$19.00 のスローなど、テキスト ボックス内の通貨記号と製品の更新、`FormatException`です。 GridView が、ObjectDataSource をユーザーが指定した値を代入しようとしたときに`UpdateParameters`コレクションに変換できない、 `UnitPrice` 「ドル 19.00」の文字列を`decimal`パラメーターに必要な (図 11 を参照してください)。 この問題を解決する gridview のイベント ハンドラーを作成できます`RowUpdating`イベントをユーザーが指定したを解析して`UnitPrice`通貨形式として`decimal`です。
 
-GridView の`RowUpdating`イベントが、第 2 パラメーターとして型のオブジェクトを受け取ります[GridViewUpdateEventArgs](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridviewupdateeventargs(VS.80).aspx)が含まれている、`NewValues`する準備が完了のユーザーが指定した値を保持するプロパティの 1 つとしてディクショナリObjectDataSource に割り当てられている`UpdateParameters`コレクション。 既存の設定を上書きできるお`UnitPrice`値で、 `NewValues` 10 進値を使用して、コレクションの解析でのコードの次の行を含む、通貨の書式を使用して、`RowUpdating`イベント ハンドラー。
+GridView の`RowUpdating`イベントが、第 2 パラメーターとして型のオブジェクトを受け取ります[GridViewUpdateEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdateeventargs(VS.80).aspx)が含まれている、`NewValues`する準備が完了のユーザーが指定した値を保持するプロパティの 1 つとしてディクショナリObjectDataSource に割り当てられている`UpdateParameters`コレクション。 既存の設定を上書きできるお`UnitPrice`値で、 `NewValues` 10 進値を使用して、コレクションの解析でのコードの次の行を含む、通貨の書式を使用して、`RowUpdating`イベント ハンドラー。
 
 
 [!code-csharp[Main](examining-the-events-associated-with-inserting-updating-and-deleting-cs/samples/sample4.cs)]
 
-ユーザーが指定した場合、`UnitPrice`値 (「ドル 19.00」) などは、この値がによって計算された 10 進値で上書きされます[Decimal.Parse](https://msdn.microsoft.com/en-us/library/system.decimal.parse(VS.80).aspx)、通貨の値を解析します。 これは正しく、10 進数、通貨記号、コンマ、小数点、およびが発生した場合と解析を使用して、 [NumberStyles 列挙](https://msdn.microsoft.com/en-US/library/system.globalization.numberstyles(VS.80).aspx)で、 [System.Globalization](https://msdn.microsoft.com/en-US/library/abeh092z(VS.80).aspx)名前空間。
+ユーザーが指定した場合、`UnitPrice`値 (「ドル 19.00」) などは、この値がによって計算された 10 進値で上書きされます[Decimal.Parse](https://msdn.microsoft.com/library/system.decimal.parse(VS.80).aspx)、通貨の値を解析します。 これは正しく、10 進数、通貨記号、コンマ、小数点、およびが発生した場合と解析を使用して、 [NumberStyles 列挙](https://msdn.microsoft.com/library/system.globalization.numberstyles(VS.80).aspx)で、 [System.Globalization](https://msdn.microsoft.com/library/abeh092z(VS.80).aspx)名前空間。
 
 図 11 は、ユーザー指定の通貨記号によって発生する両方の問題を示しています。 `UnitPrice`、方法と共に、GridView の`RowUpdating`イベント ハンドラーを使用して、このような入力を正しく解析します。
 
@@ -216,10 +216,10 @@ GridView の`RowUpdating`イベントが、第 2 パラメーターとして型�
 
 GridView を使用する方法を説明しましたこれまで`RowUpdating`をプログラムによって、ObjectDataSource に割り当てられているパラメーター値を変更するイベント`UpdateParameters`コレクションにもを取り消すには完全に処理を更新する方法です。 これらの概念は DetailsView およびフォームのコントロールに引き継がれると、挿入および削除にも適用されます。
 
-ObjectDataSource レベルのイベント ハンドラーではこれらのタスクを実行することもその`Inserting`、 `Updating`、および`Deleting`イベント。 これらのイベントは、基になるオブジェクトの関連付けられたメソッドが呼び出される前に発生させるし、入力パラメーターのコレクションを変更または完全の操作をキャンセルする最終機会を提供します。 これら 3 つのイベントのイベント ハンドラーの型のオブジェクトが渡される[ObjectDataSourceMethodEventArgs](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs(VS.80).aspx)関心のある 2 つのプロパティを持ちます。
+ObjectDataSource レベルのイベント ハンドラーではこれらのタスクを実行することもその`Inserting`、 `Updating`、および`Deleting`イベント。 これらのイベントは、基になるオブジェクトの関連付けられたメソッドが呼び出される前に発生させるし、入力パラメーターのコレクションを変更または完全の操作をキャンセルする最終機会を提供します。 これら 3 つのイベントのイベント ハンドラーの型のオブジェクトが渡される[ObjectDataSourceMethodEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs(VS.80).aspx)関心のある 2 つのプロパティを持ちます。
 
-- [キャンセル](https://msdn.microsoft.com/en-US/library/system.componentmodel.canceleventargs.cancel(VS.80).aspx)、これは場合に設定`true`、実行中の操作を取り消します
-- [入力パラメーター](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs.inputparameters(VS.80).aspx)のコレクションである`InsertParameters`、 `UpdateParameters`、または`DeleteParameters`かどうかは、イベント ハンドラーによって、 `Inserting`、 `Updating`、または`Deleting`イベント
+- [キャンセル](https://msdn.microsoft.com/library/system.componentmodel.canceleventargs.cancel(VS.80).aspx)、これは場合に設定`true`、実行中の操作を取り消します
+- [入力パラメーター](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs.inputparameters(VS.80).aspx)のコレクションである`InsertParameters`、 `UpdateParameters`、または`DeleteParameters`かどうかは、イベント ハンドラーによって、 `Inserting`、 `Updating`、または`Deleting`イベント
 
 ObjectDataSource レベルでパラメーター値の操作を示すためには、新しい製品を追加することができます、ページで、DetailsView を含めてみましょう。 この DetailsView は、データベースに簡単に新しい製品を追加するためのインターフェイスを提供する使用されます。 新しい製品に追加してみましょうのみの値を入力するユーザーを許可するときに、一貫性のあるユーザー インターフェイスを保持する、`ProductName`と`UnitPrice`フィールドです。 既定では、いない DetailsView の挿入のインターフェイスに提供されているこれらの値に設定されます、`NULL`データベースの値。 ただし、ObjectDataSource を使用してお`Inserting`間もなくおわかりのように、別の既定値を挿入するイベントです。
 
@@ -321,7 +321,7 @@ ObjectDataSource のイベント ハンドラーを作成するには、しば�
 **図 20**: 新しい製品ようになりましたがあるその`CategoryID`と`SupplierID`値 1 に設定 ([フルサイズのイメージを表示するをクリックして](examining-the-events-associated-with-inserting-updating-and-deleting-cs/_static/image58.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 中に、編集、挿入、およびプロセスを削除すると、データの Web コントロールと、ObjectDataSource の両方が、前と後のレベルのイベントの数を実行します。 このチュートリアルは、前のレベルのイベントを調査し、これらを使用して、入力パラメーターをカスタマイズしたり、データ変更操作をキャンセル両方のデータの Web コントロールと ObjectDataSource のイベントから完全する方法を説明します。 次のチュートリアルで作成して、後のレベルのイベントのイベント ハンドラーを使用してに紹介します。
 

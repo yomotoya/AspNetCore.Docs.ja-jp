@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 8fcc5e7c6bc39f961931589128a7a5863482aa4e
-ms.sourcegitcommit: b38796ea3806bf39b89806adfa681b2a33762907
-ms.translationtype: HT
+ms.openlocfilehash: 8156bd1c7cfc111a6a121a89d845ca284ee1b7af
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>.NET クライアント (c#) から Web API を呼び出す
 ====================
@@ -23,16 +23,16 @@ ms.lasthandoff: 12/07/2017
 
 [完成したプロジェクトをダウンロードします。](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)
 
-このチュートリアルでは、.NET アプリケーションから web API を呼び出す方法を使用して[System.Net.Http.HttpClient です。](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(v=vs.110).aspx)
+このチュートリアルでは、.NET アプリケーションから web API を呼び出す方法を使用して[System.Net.Http.HttpClient です。](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
 
 このチュートリアルでは、次の web API を使用するクライアント アプリケーションが書き込まれます。
 
-| 操作 | HTTP メソッド | 相対 URI |
+| アクション | HTTP メソッド | 相対 URI |
 | --- | --- | --- |
-| ID の製品を取得します。 | GET | 製品が/api/*id* |
-| 新しい製品を作成します。 | 投稿 | 製品/api |
-| 製品を更新します。 | PUT | 製品が/api/*id* |
-| 製品を削除します。 | Del | 製品が/api/*id* |
+| ID の製品を取得します。 | GET | /api/products/*id* |
+| 新しい製品を作成します。 | POST | /api/products |
+| 製品を更新します。 | PUT | /api/products/*id* |
+| 製品を削除します。 | Del | /api/products/*id* |
 
 この API は、ASP.NET Web API を実装する方法については、次を参照してください。 [CRUD 操作をサポートする Web API を作成する](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 )です。
@@ -57,7 +57,7 @@ Visual Studio で、という名前の新しい Windows コンソール アプ�
 
 NuGet パッケージ マネージャーを使用して、Web API Client Libraries パッケージをインストールします。
 
-**[ツール]** メニューで、**[NuGet パッケージ マネージャー]**、 > **[パッケージ マネージャー コンソール]** の順に選択します。 パッケージ マネージャー コンソール (PMC) では、次のコマンドを入力します。
+**[ツール]** メニューで、**[NuGet パッケージ マネージャー]** > **[パッケージ マネージャー コンソール]** の順に選択します。 パッケージ マネージャー コンソール (PMC) では、次のコマンドを入力します。
 
 `Install-Package Microsoft.AspNet.WebApi.Client`
 
@@ -109,7 +109,7 @@ Json.NET は、.NET の人気のある高パフォーマンス JSON フレーム
 
 **されます**メソッドは、HTTP GET 要求を送信します。 完了時のメソッドを返します、 **HttpResponseMessage** HTTP 応答を格納しています。 応答にステータス コードが成功コードの場合は、応答本文には、製品の JSON 表現が含まれています。 呼び出す**ReadAsAsync** JSON ペイロードを逆シリアル化する、`Product`インスタンス。 **ReadAsAsync**メソッドでは非同期応答の本体は任意の大きさを指定できます。
 
-**HttpClient** HTTP 応答には、エラー コードが含まれている場合、例外はスローされません。 代わりに、 **IsSuccessStatusCode**プロパティは**false**状態がエラー コードの場合。 HTTP エラー コードを例外として処理する場合は、呼び出す[HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/en-us/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) response オブジェクトにします。 `EnsureSuccessStatusCode`ステータス コードが 200 の範囲外になった場合に例外をスロー&ndash;299 です。 注意してください**HttpClient**の他の理由から例外をスローできます&mdash;要求がタイムアウトになる場合などです。
+**HttpClient** HTTP 応答には、エラー コードが含まれている場合、例外はスローされません。 代わりに、 **IsSuccessStatusCode**プロパティは**false**状態がエラー コードの場合。 HTTP エラー コードを例外として処理する場合は、呼び出す[HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) response オブジェクトにします。 `EnsureSuccessStatusCode`ステータス コードが 200 の範囲外になった場合に例外をスロー&ndash;299 です。 注意してください**HttpClient**の他の理由から例外をスローできます&mdash;要求がタイムアウトになる場合などです。
 
 <a id="MediaTypeFormatters"></a>
 ### <a name="media-type-formatters-to-deserialize"></a>逆シリアル化するメディア タイプ フォーマッタ
@@ -167,7 +167,7 @@ GET と同様に DELETE 要求しても、要求本文はありません。 DELE
 
 クライアント アプリをテストします。
 
-1. [ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/samples/server)server アプリを実行します。 [ダウンロード命令の](https://docs.microsoft.com/en-us/aspnet/core/tutorials/#how-to-download-a-sample)します。 サーバー アプリが動作を確認します。 Exaxmple の`http://localhost:64195/api/products`製品の一覧を返す必要があります。
+1. [ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server)server アプリを実行します。 [ダウンロード命令の](https://docs.microsoft.com/aspnet/core/tutorials/#how-to-download-a-sample)します。 サーバー アプリが動作を確認します。 Exaxmple の`http://localhost:64195/api/products`製品の一覧を返す必要があります。
 2. HTTP 要求のベース URI を設定します。 サーバー アプリケーションで使用されるポートにポート番号を変更します。
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 

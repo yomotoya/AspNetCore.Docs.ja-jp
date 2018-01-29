@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-user-accounts-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 43e8423cd69a9cc345f2d8ef7d0a022252235462
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 61621ffaae98ac74c16b2ff014ba9d85c2c10b3a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-user-accounts-vb"></a>ユーザー アカウント (VB) の作成
 ====================
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/10/2017
 メンバーシップ framework での作業を始める前に、もう一度このポイントに達するに移動しました、重要な手順を確認してみましょう。 使用してメンバーシップ framework を使用する場合、`SqlMembershipProvider`フォーム ベース認証のシナリオで、次の手順は web アプリケーションにメンバーシップ機能を実装する前に実行する必要があります。
 
 1. **フォーム ベース認証を有効にします。** 説明したよう *<a id="_msoanchor_4"> </a>[フォーム認証の概要を](../introduction/an-overview-of-forms-authentication-vb.md)*、編集してフォーム認証が有効になっている`Web.config`と設定、 `<authentication>`要素の`mode`属性を`Forms`です。 フォーム認証が有効になっている、受信要求ごとについて、*フォーム認証チケット*、存在する場合、識別、リクエスターです。
-2. **アプリケーション サービスのスキーマを適切なデータベースに追加します。** 使用する場合、`SqlMembershipProvider`アプリケーション サービスのスキーマをデータベースにインストールする必要があります。 通常このスキーマは、アプリケーションのデータ モデルを保持するのと同じデータベースに追加されます。  *<a id="_msoanchor_5"> </a>[メンバーシップ スキーマを作成する SQL Server で](creating-the-membership-schema-in-sql-server-vb.md)*チュートリアルを使用して調べる、`aspnet_regsql.exe`これを実現するツールです。
+2. **アプリケーション サービスのスキーマを適切なデータベースに追加します。** 使用する場合、`SqlMembershipProvider`アプリケーション サービスのスキーマをデータベースにインストールする必要があります。 通常このスキーマは、アプリケーションのデータ モデルを保持するのと同じデータベースに追加されます。 *<a id="_msoanchor_5"> </a>[メンバーシップ スキーマを作成する SQL Server で](creating-the-membership-schema-in-sql-server-vb.md)*チュートリアルを使用して調べる、`aspnet_regsql.exe`これを実現するツールです。
 3. **手順 2 からデータベースを参照する Web アプリケーションの設定をカスタマイズします。** *メンバーシップ スキーマを作成する SQL Server で*チュートリアルでは、web アプリケーションを構成する 2 つの方法を示しましたできるように、`SqlMembershipProvider`手順 2. で選択したデータベースを使用: 変更することによって、`LocalSqlServer`接続文字列名です。または手順 2 をフレームワークのメンバーシップ プロバイダーの一覧に新しい登録済みのプロバイダーを追加してからデータベースを使用して新しいプロバイダーをカスタマイズします。
 
 Web アプリケーションの構築を使用する場合、`SqlMembershipProvider`フォーム ベース認証する必要がありますを使用する前にこれら 3 つの手順を実行して、`Membership`クラスや ASP.NET ログイン Web コントロールです。 前のチュートリアルで既にこれらの手順を実行してから、メンバーシップ framework の使用を開始する準備ができました!
@@ -77,9 +77,9 @@ Web アプリケーションの構築を使用する場合、`SqlMembershipProvi
 
 最も単純な web サイトを除くすべては、何らかの形式の移動ユーザー インターフェイスを実装する必要があります。 移動ユーザー インターフェイスは、サイトのさまざまなセクションへのリンクの単純なリストにあります。 また、これらのリンクは、メニューやツリー ビューに配置可能性があります。 開発者はページ、ナビゲーションのユーザー インターフェイスの作成は、ストーリーの半分だけです。 保守し、更新可能な方法で、サイトの論理構造を定義するなんらかの手段も必要です。 新しいページを追加または既存のページが削除される、ソースを更新する 1 つのサイト マップ - したいし、が、サイトのナビゲーションのユーザー インターフェイス間で、これらの変更が反映されます。
 
-これら 2 つのタスク - サイト マップを定義して、サイト マップに基づくナビゲーションのユーザー インターフェイスを実装するは簡単に、サイト マップ framework 感謝実行し、ナビゲーション Web が追加されたで ASP.NET version 2.0 を制御します。 サイト マップを定義する開発者向けサイト マップ フレームワークを利用して、そのプログラムの API を使用してアクセスするために (、 [ `SiteMap`クラス](https://msdn.microsoft.com/en-us/library/system.web.sitemap.aspx))。 組み込みナビゲーション Web コントロールにはが含まれて、[メニュー コントロール](https://msdn.microsoft.com/en-us/library/bz09dy46.aspx)、 [TreeView コントロール](https://msdn.microsoft.com/en-us/library/3eafky27.aspx)、および[サイト マップ パス コントロール](https://msdn.microsoft.com/en-us/library/3eafky27.aspx)です。
+これら 2 つのタスク - サイト マップを定義して、サイト マップに基づくナビゲーションのユーザー インターフェイスを実装するは簡単に、サイト マップ framework 感謝実行し、ナビゲーション Web が追加されたで ASP.NET version 2.0 を制御します。 サイト マップを定義する開発者向けサイト マップ フレームワークを利用して、そのプログラムの API を使用してアクセスするために (、 [ `SiteMap`クラス](https://msdn.microsoft.com/library/system.web.sitemap.aspx))。 組み込みナビゲーション Web コントロールにはが含まれて、[メニュー コントロール](https://msdn.microsoft.com/library/bz09dy46.aspx)、 [TreeView コントロール](https://msdn.microsoft.com/library/3eafky27.aspx)、および[サイト マップ パス コントロール](https://msdn.microsoft.com/library/3eafky27.aspx)です。
 
-メンバーシップとロールのフレームワークと同様に、サイト マップ framework は上に構築される、[プロバイダー モデル](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx)です。 サイト マップ プロバイダー クラスのジョブがによって使用されるメモリ内構造を作成するには、 `SiteMap` XML ファイルまたはデータベース テーブルなどの永続的なデータ ストアからのクラスです。 .NET Framework がデータを読み取り、サイト マップ XML ファイルから既定のサイト マップ プロバイダーが付属しています ([`XmlSiteMapProvider`](https://msdn.microsoft.com/en-us/library/system.web.xmlsitemapprovider.aspx))、これは、プロバイダーは、このチュートリアルで使用します。 代替サイト マップ プロバイダー実装によって、このチュートリアルの最後に、さらに測定値のセクションを参照してください。
+メンバーシップとロールのフレームワークと同様に、サイト マップ framework は上に構築される、[プロバイダー モデル](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx)です。 サイト マップ プロバイダー クラスのジョブがによって使用されるメモリ内構造を作成するには、 `SiteMap` XML ファイルまたはデータベース テーブルなどの永続的なデータ ストアからのクラスです。 .NET Framework がデータを読み取り、サイト マップ XML ファイルから既定のサイト マップ プロバイダーが付属しています ([`XmlSiteMapProvider`](https://msdn.microsoft.com/library/system.web.xmlsitemapprovider.aspx))、これは、プロバイダーは、このチュートリアルで使用します。 代替サイト マップ プロバイダー実装によって、このチュートリアルの最後に、さらに測定値のセクションを参照してください。
 
 既定のサイト マップ プロバイダーには、適切にフォーマットされた XML という名前のファイルが必要ですが`Web.sitemap`ルート ディレクトリが存在します。 この既定のプロバイダーを使用していることからは、このようなファイルを追加し、適切な XML 形式で、サイト マップの構造を定義する必要があります。 ファイルを追加するには、ソリューション エクスプ ローラーでプロジェクト名を右クリックし、新しい項目の追加を選択します。 サイト マップという名前の種類のファイルを追加することを選択 ダイアログ ボックスから`Web.sitemap`です。
 
@@ -115,7 +115,7 @@ ASP.NET には、ユーザー インターフェイスを設計するための�
 
 [!code-aspx[Main](creating-user-accounts-vb/samples/sample3.aspx)]
 
-上記のマークアップがという名前のリピータ コントロールをバインド`menu`で定義されているサイト マップの階層が返されます、SiteMapDataSource に`Web.sitemap`です。 以降、SiteMapDataSource コントロールの[`ShowStartingNode`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sitemapdatasource.showstartingnode.aspx)が開始以降、[ホーム] ノードの子孫で、サイト マップの階層を返す False に設定します。 リピータのそれぞれ表示これらのノード (現在だけメンバーシップ)、`<li>`要素。 Repeater を別の内部では、入れ子になった順序なしリストで現在のノードの子が表示されます。
+上記のマークアップがという名前のリピータ コントロールをバインド`menu`で定義されているサイト マップの階層が返されます、SiteMapDataSource に`Web.sitemap`です。 以降、SiteMapDataSource コントロールの[`ShowStartingNode`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sitemapdatasource.showstartingnode.aspx)が開始以降、[ホーム] ノードの子孫で、サイト マップの階層を返す False に設定します。 リピータのそれぞれ表示これらのノード (現在だけメンバーシップ)、`<li>`要素。 Repeater を別の内部では、入れ子になった順序なしリストで現在のノードの子が表示されます。
 
 図 4 は、手順 2. で作成したサイト マップ構造を持つ、上記のマークアップの表示される出力を示します。 リピータ マークアップ バニラ順序なしリストです。定義されているカスケード スタイル シート規則`Styles.css`見た目心地よいレイアウトを担当します。 上記のマークアップのしくみの詳細についてを参照してください、[マスター ページとサイト ナビゲーション](https://asp.net/learn/data-access/tutorial-03-vb.aspx)チュートリアルです。
 
@@ -143,7 +143,7 @@ ASP.NET には、ユーザー インターフェイスを設計するための�
 
 ## <a name="step-4-removing-the-custom-principal-and-identity-logic"></a>手順 4: カスタム プリンシパルと Id ロジックの削除
 
- *<a id="_msoanchor_7"> </a>[フォーム認証の構成と高度なトピック](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)*チュートリアルに認証されたユーザーにカスタム プリンシパルと id オブジェクトを関連付ける方法を説明しました。 内のイベント ハンドラーを作成することでこれを実現お`Global.asax`のアプリケーションの`PostAuthenticateRequest`後に発生するイベント、`FormsAuthenticationModule`がユーザーを認証します。 このイベント ハンドラーで置き換えました、`GenericPrincipal`と`FormsIdentity`によって追加されたオブジェクト、`FormsAuthenticationModule`で、`CustomPrincipal`と`CustomIdentity`そのチュートリアルで作成したオブジェクトします。
+*<a id="_msoanchor_7"> </a>[フォーム認証の構成と高度なトピック](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)*チュートリアルに認証されたユーザーにカスタム プリンシパルと id オブジェクトを関連付ける方法を説明しました。 内のイベント ハンドラーを作成することでこれを実現お`Global.asax`のアプリケーションの`PostAuthenticateRequest`後に発生するイベント、`FormsAuthenticationModule`がユーザーを認証します。 このイベント ハンドラーで置き換えました、`GenericPrincipal`と`FormsIdentity`によって追加されたオブジェクト、`FormsAuthenticationModule`で、`CustomPrincipal`と`CustomIdentity`そのチュートリアルで作成したオブジェクトします。
 
 カスタム プリンシパル オブジェクトと id オブジェクトはほとんどの場合、特定のシナリオで役に立ちますが、`GenericPrincipal`と`FormsIdentity`オブジェクトで十分です。 したがって、既定の動作に戻るには価値のあることと思います。 削除するか、コメント アウトすることによってこの変更を行う、`PostAuthenticateRequest`イベント ハンドラーまたは削除することによって、`Global.asax`完全ファイルします。
 
@@ -153,18 +153,18 @@ ASP.NET には、ユーザー インターフェイスを設計するための�
 
 ## <a name="step-5-programmatically-creating-a-new-user"></a>手順 5: 新しいユーザーをプログラムで作成します。
 
-メンバーシップ フレームワークを使用して新しいユーザー アカウントを作成する、`Membership`クラスの[`CreateUser`メソッド](https://msdn.microsoft.com/En-US/library/system.web.security.membership.createuser.aspx)です。 このメソッドには、ユーザー名、パスワード、およびその他のユーザーに関連するフィールドのパラメーターに入力します。 呼び出しでは、上の 構成済みのメンバーシップ プロバイダーを新しいユーザー アカウントの作成を委任し、返しますが、、 [ `MembershipUser`オブジェクト](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.aspx)だけで作成されたユーザー アカウントを表すです。
+メンバーシップ フレームワークを使用して新しいユーザー アカウントを作成する、`Membership`クラスの[`CreateUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.createuser.aspx)です。 このメソッドには、ユーザー名、パスワード、およびその他のユーザーに関連するフィールドのパラメーターに入力します。 呼び出しでは、上の 構成済みのメンバーシップ プロバイダーを新しいユーザー アカウントの作成を委任し、返しますが、、 [ `MembershipUser`オブジェクト](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx)だけで作成されたユーザー アカウントを表すです。
 
 `CreateUser`メソッドが 4 つのオーバー ロードが、異なる数の入力パラメーターを入力します。
 
-- [`CreateUser(username, password)`](https://msdn.microsoft.com/En-US/library/d8t4h2es.aspx)
-- [`CreateUser(username, password, email)`](https://msdn.microsoft.com/En-US/library/t8yy6w3h.aspx)
-- [`CreateUser(username, password, email, passwordQuestion, passwordAnswer, isApproved, MembershipCreateStatus)`](https://msdn.microsoft.com/En-US/library/82xx2e62.aspx)
-- [`CreateUser(username, password, email, passwordQuestion, passwordAnswer, isApproved, providerUserKey, MembershipCreateStatus)`](https://msdn.microsoft.com/En-US/library/ms152012.aspx)
+- [`CreateUser(username, password)`](https://msdn.microsoft.com/library/d8t4h2es.aspx)
+- [`CreateUser(username, password, email)`](https://msdn.microsoft.com/library/t8yy6w3h.aspx)
+- [`CreateUser(username, password, email, passwordQuestion, passwordAnswer, isApproved, MembershipCreateStatus)`](https://msdn.microsoft.com/library/82xx2e62.aspx)
+- [`CreateUser(username, password, email, passwordQuestion, passwordAnswer, isApproved, providerUserKey, MembershipCreateStatus)`](https://msdn.microsoft.com/library/ms152012.aspx)
 
 これら 4 つのオーバー ロードは、収集される情報の量によって異なります。 最初のオーバー ロードでは、たとえばが必要がユーザー名とパスワードのみ、新しいユーザー アカウントの 2 つ目では、ユーザーの電子メール アドレスも必要です。
 
-新しいユーザー アカウントの作成に必要な情報が、メンバーシップ プロバイダーの構成設定に依存しているために、これらのオーバー ロードが存在します。  *<a id="_msoanchor_8"> </a>[メンバーシップ スキーマを作成する SQL Server で](creating-the-membership-schema-in-sql-server-vb.md)*でメンバーシップ プロバイダーの構成設定の指定を調べるおチュートリアル`Web.config`です。 表 2 には、構成設定の完全な一覧が含まれています。
+新しいユーザー アカウントの作成に必要な情報が、メンバーシップ プロバイダーの構成設定に依存しているために、これらのオーバー ロードが存在します。 *<a id="_msoanchor_8"> </a>[メンバーシップ スキーマを作成する SQL Server で](creating-the-membership-schema-in-sql-server-vb.md)*でメンバーシップ プロバイダーの構成設定の指定を調べるおチュートリアル`Web.config`です。 表 2 には、構成設定の完全な一覧が含まれています。
 
 1 つそのようなメンバーシップ プロバイダーの構成設定にどのような影響を与えます`CreateUser`オーバー ロードを使用することがありますが、`requiresQuestionAndAnswer`設定します。 場合`requiresQuestionAndAnswer`に設定されている`true`(既定)、し、新しいユーザー アカウントを作成するときに、セキュリティの質問と回答を指定お必要があります。 この情報は後で、ユーザーをリセットまたはパスワードを変更する必要がある場合に使用します。 具体的には、その時点でのセキュリティの質問を表示されているとリセットまたはパスワードを変更するために正しい解答を入力する必要があります。 したがって場合、`requiresQuestionAndAnswer`に設定されている`true`最初の 2 つのいずれかを呼び出して、`CreateUser`のセキュリティの質問と回答が見つからないため、例外の結果をオーバー ロードします。 アプリケーションがセキュリティの質問と解答を要求するように現在構成されているためにはユーザーをプログラムで作成するときに、後者の 2 つのオーバー ロードのいずれかを使用する必要があります。
 
@@ -196,7 +196,7 @@ ASP.NET には、ユーザー インターフェイスを設計するための�
 
 [!code-vb[Main](creating-user-accounts-vb/samples/sample6.vb)]
 
-`Click`という名前の変数を定義してイベント ハンドラーを起動`createStatus`型の[ `MembershipCreateStatus`](https://msdn.microsoft.com/En-US/library/system.web.security.membershipcreatestatus.aspx)です。 `MembershipCreateStatus`状態を示す列挙体には、`CreateUser`操作します。 たとえば、ユーザー アカウントが正常に作成、表示された`MembershipCreateStatus`インスタンスの値に設定されます`Success;`一方で、同じユーザー名を持つユーザーが既に存在するために、操作が失敗した場合に設定されますの値`DuplicateUserName`. `CreateUser`使用のオーバー ロードに渡す必要があります、`MembershipCreateStatus`インスタンス メソッドにします。 このパラメーターは内で適切な値に設定されて、`CreateUser`メソッド、およびおは、ユーザー アカウントが正常に作成されたかどうかを決定するメソッドの呼び出し後の値を調べることができます。
+`Click`という名前の変数を定義してイベント ハンドラーを起動`createStatus`型の[ `MembershipCreateStatus`](https://msdn.microsoft.com/library/system.web.security.membershipcreatestatus.aspx)です。 `MembershipCreateStatus`状態を示す列挙体には、`CreateUser`操作します。 たとえば、ユーザー アカウントが正常に作成、表示された`MembershipCreateStatus`インスタンスの値に設定されます`Success;`一方で、同じユーザー名を持つユーザーが既に存在するために、操作が失敗した場合に設定されますの値`DuplicateUserName`. `CreateUser`使用のオーバー ロードに渡す必要があります、`MembershipCreateStatus`インスタンス メソッドにします。 このパラメーターは内で適切な値に設定されて、`CreateUser`メソッド、およびおは、ユーザー アカウントが正常に作成されたかどうかを決定するメソッドの呼び出し後の値を調べることができます。
 
 呼び出した後`CreateUser`を渡して、 `createStatus`、`Select Case`に割り当てられている値に応じて、適切なメッセージを出力するステートメントを使用`createStatus`です。 図 7 は、新しいユーザーが正常に作成されたときに出力を示します。 図 8 と 9 は、ユーザー アカウントを作成していない場合、出力を表示します。 図 8 には、訪問者は、メンバーシップ プロバイダーの構成設定に記述されたパスワードの強度の要件を満たしていない、5 文字のパスワードを入力します。 図 9 に訪問者は既存のユーザー名 (図 7 に作成されたもの) でユーザー アカウントを作成しようとしています。
 
@@ -217,7 +217,7 @@ ASP.NET には、ユーザー インターフェイスを設計するための�
 
 
 > [!NOTE]
-> 最初の 2 つのいずれかを使用するときに、成功または失敗を判断する方法の思う`CreateUser`もメソッドがオーバー ロードの型のパラメーターを持つ`MembershipCreateStatus`です。 これらの最初の 2 つのオーバー ロードをスロー、 [ `MembershipCreateUserException`例外](https://msdn.microsoft.com/en-us/library/system.web.security.membershipcreateuserexception.aspx)を含む、障害発生した場合に、 [ `StatusCode`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipcreateuserexception.statuscode.aspx)型の`MembershipCreateStatus`します。
+> 最初の 2 つのいずれかを使用するときに、成功または失敗を判断する方法の思う`CreateUser`もメソッドがオーバー ロードの型のパラメーターを持つ`MembershipCreateStatus`です。 これらの最初の 2 つのオーバー ロードをスロー、 [ `MembershipCreateUserException`例外](https://msdn.microsoft.com/library/system.web.security.membershipcreateuserexception.aspx)を含む、障害発生した場合に、 [ `StatusCode`プロパティ](https://msdn.microsoft.com/library/system.web.security.membershipcreateuserexception.statuscode.aspx)型の`MembershipCreateStatus`します。
 
 
 少数のユーザー アカウントを作成した後の内容を一覧表示して、アカウントが作成されたことを確認してください、`aspnet_Users`と`aspnet_Membership`内のテーブル、`SecurityTutorials.mdf`データベース。 図 10 に示す経由で 2 つのユーザーを追加した、`CreatingUserAccounts.aspx`ページ: Tito としました。
@@ -262,12 +262,12 @@ CreateUserWizard コントロールの既定のインターフェイスと動作
 
 興味深いは、ユーザー インターフェイスを表示するときは CreateUserWizard コントロールがメンバーシップ プロバイダーの構成設定を参照しているです。 たとえば、セキュリティの質問と回答のテキスト ボックスが表示される場合のみ`requiresQuestionAndAnswer`が True に設定します。 CreateUserWizard が自動的に設定パスワードの強度の要件が満たされていることを確認する RegularExpressionValidator コントロールを追加同様に、その`ErrorMessage`と`ValidationExpression`プロパティに基づいて、 `minRequiredPasswordLength`、 `minRequiredNonalphanumericCharacters`、および`passwordStrengthRegularExpression`構成設定。
 
-CreateUserWizard コントロールでは、その名前からわかるようにはから派生した、[ウィザード コントロール](https://msdn.microsoft.com/en-us/library/s2etd1ek.aspx)です。 ウィザードのコントロールは、インターフェイスを提供する、マルチ ステップ タスクを完了するために設計されています。 ウィザード コントロールでの任意の数を含めることがあります`WizardSteps`それぞれが、HTML を定義するテンプレート、および Web を制御する手順。 ウィザード コントロールは、最初の初期状態が表示されます。 `WizardStep`、ナビゲーション コントロールを次に、1 つのステップから続行するか、前の手順に戻るには、ユーザーを許可するとします。
+CreateUserWizard コントロールでは、その名前からわかるようにはから派生した、[ウィザード コントロール](https://msdn.microsoft.com/library/s2etd1ek.aspx)です。 ウィザードのコントロールは、インターフェイスを提供する、マルチ ステップ タスクを完了するために設計されています。 ウィザード コントロールでの任意の数を含めることがあります`WizardSteps`それぞれが、HTML を定義するテンプレート、および Web を制御する手順。 ウィザード コントロールは、最初の初期状態が表示されます。 `WizardStep`、ナビゲーション コントロールを次に、1 つのステップから続行するか、前の手順に戻るには、ユーザーを許可するとします。
 
 図 11 では宣言型マークアップを示しています、CreateUserWizard コントロールの既定のインターフェイスが用意されています 2 `WizardStep` s:
 
-- [`CreateUserWizardStep`](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizardstep.aspx) ? 新しいユーザー アカウントを作成するための情報を収集するためのインターフェイスを表示します。 これは、図 11 に示されたステップです。
-- [`CompleteWizardStep`](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.completewizardstep.aspx) ? アカウントが正常に作成されたことを示すメッセージを表示します。
+- [`CreateUserWizardStep`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizardstep.aspx) ? 新しいユーザー アカウントを作成するための情報を収集するためのインターフェイスを表示します。 これは、図 11 に示されたステップです。
+- [`CompleteWizardStep`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.completewizardstep.aspx) ? アカウントが正常に作成されたことを示すメッセージを表示します。
 
 これらの手順のいずれかのテンプレートを変換することで、または独自の追加によって、CreateUserWizard の外観と動作を変更できます`WizardStep`s。 追加することを見ていきましょう、`WizardStep`で登録インターフェイスを*追加のユーザー情報を格納する*チュートリアルです。
 
@@ -297,11 +297,11 @@ CreateUserWizard コントロールが動作を確認してみましょう。 �
 
 さまざまなプロパティを使用の方法でカスタマイズする、CreateUserWizard`WizardStep`秒、およびイベント ハンドラー。 このセクションの内容を見てみましょうのプロパティを使用したコントロールの外観をカスタマイズする方法次のセクションでは、イベント ハンドラーからコントロールの動作を拡張する、します。
 
-CreateUserWizard コントロールの既定のユーザー インターフェイスに表示されるテキストのほぼすべて、多種多様なプロパティをカスタマイズできます。 テキスト ボックスの左側に表示されるユーザー名、パスワード、パスワードの確認、電子メール、セキュリティの質問、およびセキュリティの回答のラベルをカスタマイズするなど、 [ `UserNameLabelText` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.usernamelabeltext.aspx)、 [ `PasswordLabelText` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.passwordlabeltext.aspx)、 [ `ConfirmPasswordLabelText` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.confirmpasswordlabeltext.aspx)、 [ `EmailLabelText` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.emaillabeltext.aspx)、 [ `QuestionLabelText` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.questionlabeltext.aspx)、および[ `AnswerLabelText` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.answerlabeltext.aspx)プロパティは、それぞれします。 同様に、ユーザーを作成し、続行のボタンのテキストを指定するためのプロパティがある、`CreateUserWizardStep`と`CompleteWizardStep`にもこれらのボタンは、ボタン、ある、または ImageButtons としてレンダリングされます。
+CreateUserWizard コントロールの既定のユーザー インターフェイスに表示されるテキストのほぼすべて、多種多様なプロパティをカスタマイズできます。 テキスト ボックスの左側に表示されるユーザー名、パスワード、パスワードの確認、電子メール、セキュリティの質問、およびセキュリティの回答のラベルをカスタマイズするなど、 [ `UserNameLabelText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.usernamelabeltext.aspx)、 [ `PasswordLabelText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.passwordlabeltext.aspx)、 [ `ConfirmPasswordLabelText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.confirmpasswordlabeltext.aspx)、 [ `EmailLabelText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.emaillabeltext.aspx)、 [ `QuestionLabelText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.questionlabeltext.aspx)、および[ `AnswerLabelText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.answerlabeltext.aspx)プロパティは、それぞれします。 同様に、ユーザーを作成し、続行のボタンのテキストを指定するためのプロパティがある、`CreateUserWizardStep`と`CompleteWizardStep`にもこれらのボタンは、ボタン、ある、または ImageButtons としてレンダリングされます。
 
-色、罫線、フォント、および他のビジュアル要素は、スタイル プロパティのホストを構成できます。 CreateUserWizard コントロール自体が、一般的な Web コントロール スタイルのプロパティ - `BackColor`、 `BorderStyle`、 `CssClass`、`Font`というようの特定のセクションの外観を定義するスタイル プロパティの数があると、CreateUserWizard のインターフェイスです。 [ `TextBoxStyle`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.textboxstyle.aspx)のインスタンスのテキスト ボックスのスタイルを定義、`CreateUserWizardStep`中、 [ `TitleTextStyle`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.titletextstyle.aspx)(へのサインアップ、新しいタイトルのスタイルを定義しますアカウント)。
+色、罫線、フォント、および他のビジュアル要素は、スタイル プロパティのホストを構成できます。 CreateUserWizard コントロール自体が、一般的な Web コントロール スタイルのプロパティ - `BackColor`、 `BorderStyle`、 `CssClass`、`Font`というようの特定のセクションの外観を定義するスタイル プロパティの数があると、CreateUserWizard のインターフェイスです。 [ `TextBoxStyle`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.textboxstyle.aspx)のインスタンスのテキスト ボックスのスタイルを定義、`CreateUserWizardStep`中、 [ `TitleTextStyle`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.titletextstyle.aspx)(へのサインアップ、新しいタイトルのスタイルを定義しますアカウント)。
 
-外観に関連するプロパティに加えてには、さまざまな CreateUserWizard コントロールの動作に影響するプロパティがあります。 [ `DisplayCancelButton`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.wizard.displaycancelbutton.aspx)場合、true の場合、表示する (既定値は False)、ユーザーの作成 ボタンの横の [キャンセル] ボタンを設定します。 [キャンセル] ボタンを表示する場合にも設定して、 [`CancelDestinationPageUrl`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.continuedestinationpageurl.aspx)ユーザーは [キャンセル] をクリックした後に送信されるページを指定します。 [続行] ボタン、前のセクションで説明したとおり、`CompleteWizardStep`のインターフェイスは、ポストバックを発生させるが、同じページに訪問者のままにします。 [続行] ボタンをクリックした後、その他のいくつかのページに訪問者を送信するで URL を指定するだけ、 [ `ContinueDestinationPageUrl`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.continuedestinationpageurl.aspx)です。
+外観に関連するプロパティに加えてには、さまざまな CreateUserWizard コントロールの動作に影響するプロパティがあります。 [ `DisplayCancelButton`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.wizard.displaycancelbutton.aspx)場合、true の場合、表示する (既定値は False)、ユーザーの作成 ボタンの横の [キャンセル] ボタンを設定します。 [キャンセル] ボタンを表示する場合にも設定して、 [ `CancelDestinationPageUrl`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.continuedestinationpageurl.aspx)ユーザーは [キャンセル] をクリックした後に送信されるページを指定します。 [続行] ボタン、前のセクションで説明したとおり、`CompleteWizardStep`のインターフェイスは、ポストバックを発生させるが、同じページに訪問者のままにします。 [続行] ボタンをクリックした後、その他のいくつかのページに訪問者を送信するで URL を指定するだけ、 [ `ContinueDestinationPageUrl`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.continuedestinationpageurl.aspx)です。
 
 説明を更新、 `RegisterUser` CreateUserWizard コントロールを [キャンセル] ボタンを表示して、訪問者を送信する`Default.aspx`[キャンセル] または [続行] ボタンがクリックされたとき。 これを実現する、次のように設定します。、`DisplayCancelButton`プロパティを True にあり、両方は、`CancelDestinationPageUrl`と`ContinueDestinationPageUrl`プロパティ ~/Default.aspx です。 図 14 では、ブラウザーで表示したときに、更新された CreateUserWizard を示します。
 
@@ -311,13 +311,13 @@ CreateUserWizard コントロールの既定のユーザー インターフェ�
 **図 14**: `CreateUserWizardStep` [キャンセル] ボタンが含まれています ([フルサイズのイメージを表示するをクリックして](creating-user-accounts-vb/_static/image42.png))
 
 
-訪問者は、ユーザー名、パスワード、電子メール アドレス、およびセキュリティの質問と解答を入力し、ユーザーの作成をクリックすると、新しいユーザー アカウントが作成され、訪問者が新しく作成されたユーザーとしてログインしています。 ページにアクセスするユーザーが自分の新しいアカウントを作成すると仮定すると、これが目的の動作である可能性がありますです。 ただし、新しいユーザー アカウントを追加する管理者を許可することがあります。 これにより、ユーザー アカウントが作成されますが、管理者はまま残り、ログインしている、管理者として (新しく作成したアカウントではなく)。 この動作は、ブール値を変更できます[`LoginCreatedUser`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.logincreateduser.aspx)です。
+訪問者は、ユーザー名、パスワード、電子メール アドレス、およびセキュリティの質問と解答を入力し、ユーザーの作成をクリックすると、新しいユーザー アカウントが作成され、訪問者が新しく作成されたユーザーとしてログインしています。 ページにアクセスするユーザーが自分の新しいアカウントを作成すると仮定すると、これが目的の動作である可能性がありますです。 ただし、新しいユーザー アカウントを追加する管理者を許可することがあります。 これにより、ユーザー アカウントが作成されますが、管理者はまま残り、ログインしている、管理者として (新しく作成したアカウントではなく)。 この動作は、ブール値を変更できます[`LoginCreatedUser`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.logincreateduser.aspx)です。
 
-メンバーシップ フレームワーク内のユーザー アカウントを含む承認済みのフラグです。承認されていないユーザーが、サイトにログインできません。 既定では、新しく作成したアカウントは承認されると、ユーザーがすぐに、サイトにログインできるようにマークされます。 ただし、承認されていないとしてマークされている新しいユーザー アカウントを持っていることです。 管理者は; でログインすることが、新しいユーザーを手動で承認する必要があります。または、ユーザーがログオンを許可する前に、サインアップ時に入力した電子メール アドレスが有効であることを確認する可能性があります。 これは、場合でも、作成できる、新しく作成したユーザー アカウントは CreateUserWizard コントロールの設定によって、承認されていないとマーク[`DisableCreatedUser`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.disablecreateduser.aspx)True (既定値は False) にします。
+メンバーシップ フレームワーク内のユーザー アカウントを含む承認済みのフラグです。承認されていないユーザーが、サイトにログインできません。 既定では、新しく作成したアカウントは承認されると、ユーザーがすぐに、サイトにログインできるようにマークされます。 ただし、承認されていないとしてマークされている新しいユーザー アカウントを持っていることです。 管理者は; でログインすることが、新しいユーザーを手動で承認する必要があります。または、ユーザーがログオンを許可する前に、サインアップ時に入力した電子メール アドレスが有効であることを確認する可能性があります。 これは、場合でも、作成できる、新しく作成したユーザー アカウントは CreateUserWizard コントロールの設定によって、承認されていないとマーク[`DisableCreatedUser`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.disablecreateduser.aspx)True (既定値は False) にします。
 
-ノートの他の動作に関連するプロパティには、`AutoGeneratePassword`と`MailDefinition`です。 場合、 [ `AutoGeneratePassword`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.autogeneratepassword.aspx)を True に設定されている、`CreateUserWizardStep`パスワードとパスワードの確認 テキスト ボックスで; には表示されません代わりに、新しく作成したユーザーのパスワードが自動的に生成を使用して、 `Membership`クラスの[`GeneratePassword`メソッド](https://msdn.microsoft.com/en-us/library/system.web.security.membership.generatepassword.aspx)です。 `GeneratePassword`メソッドは、構成されたパスワードの強度の要件を満たすために英数字以外の文字のための十分な数と指定された長さのパスワードを構築します。
+ノートの他の動作に関連するプロパティには、`AutoGeneratePassword`と`MailDefinition`です。 場合、 [ `AutoGeneratePassword`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.autogeneratepassword.aspx)を True に設定されている、`CreateUserWizardStep`パスワードとパスワードの確認 テキスト ボックスで; には表示されません代わりに、新しく作成したユーザーのパスワードが自動的に生成を使用して、 `Membership`クラスの[`GeneratePassword`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.generatepassword.aspx)です。 `GeneratePassword`メソッドは、構成されたパスワードの強度の要件を満たすために英数字以外の文字のための十分な数と指定された長さのパスワードを構築します。
 
-[ `MailDefinition`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx)アカウントの作成プロセス中に指定した電子メール アドレスに電子メールを送信する場合に便利です。 `MailDefinition`プロパティには、構築された電子メール メッセージに関する情報を定義するためのサブプロパティのシリーズが含まれています。 これらのサブプロパティがなどのオプションを含める`Subject`、 `Priority`、 `IsBodyHtml`、 `From`、 `CC`、および`BodyFileName`です。 [ `BodyFileName`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.maildefinition.bodyfilename.aspx)テキスト ファイルまたは電子メール メッセージの本文を含む HTML ファイルをポイントします。 本文は、事前に定義された 2 つのプレース ホルダーをサポートしています:`<%UserName%>`と`<%Password%>`です。 これらのプレース ホルダーに存在する場合、`BodyFileName`ファイルでは、だけが作成したユーザーの名前とパスワードに置き換えられます。
+[ `MailDefinition`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx)アカウントの作成プロセス中に指定した電子メール アドレスに電子メールを送信する場合に便利です。 `MailDefinition`プロパティには、構築された電子メール メッセージに関する情報を定義するためのサブプロパティのシリーズが含まれています。 これらのサブプロパティがなどのオプションを含める`Subject`、 `Priority`、 `IsBodyHtml`、 `From`、 `CC`、および`BodyFileName`です。 [ `BodyFileName`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.maildefinition.bodyfilename.aspx)テキスト ファイルまたは電子メール メッセージの本文を含む HTML ファイルをポイントします。 本文は、事前に定義された 2 つのプレース ホルダーをサポートしています:`<%UserName%>`と`<%Password%>`です。 これらのプレース ホルダーに存在する場合、`BodyFileName`ファイルでは、だけが作成したユーザーの名前とパスワードに置き換えられます。
 
 > [!NOTE]
 > `CreateUserWizard`コントロールの`MailDefinition`プロパティには、新しいアカウントの作成時に送信される電子メール メッセージの詳細だけを指定します。 電子メール メッセージを実際に送信する方法については含まれません (つまり、SMTP サーバーまたはメール ドロップ ディレクトリが使用されているか、すべて認証情報、およびなど)。 これらの低レベルの詳細で定義されている必要があります、 `<system.net>` 」の「`Web.config`です。 これらの構成設定と ASP.NET 2.0 から電子メールを送信すると、一般の詳細についてを参照してください、 [SystemNetMail.com でよく寄せられる質問](http://www.systemnetmail.com/)と私の記事[ASP.NET 2.0 で電子メールを送信する](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)です。
@@ -325,7 +325,7 @@ CreateUserWizard コントロールの既定のユーザー インターフェ�
 
 ### <a name="extending-the-createuserwizards-behavior-using-event-handlers"></a>イベント ハンドラーを使用して CreateUserWizard の動作を拡張します。
 
-CreateUserWizard コントロールでは、そのワークフロー内で複数のイベントを発生させます。 たとえば、訪問者は、ユーザー名、パスワード、および他の関連情報を入力したユーザーの作成 ボタンをクリックしたら、CreateUserWizard コントロールが発生させます。 その[`CreatingUser`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.creatinguser.aspx)です。 作成プロセス中に問題がある場合、 [ `CreateUserError`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.createusererror.aspx)が発生します。 ただし、ユーザーが正常に作成される場合は、次に、 [ `CreatedUser`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.createduser.aspx)が発生します。 生成されるその他の CreateUserWizard コントロール イベントが、これらは、次の 3 つの最も密接もの。
+CreateUserWizard コントロールでは、そのワークフロー内で複数のイベントを発生させます。 たとえば、訪問者は、ユーザー名、パスワード、および他の関連情報を入力したユーザーの作成 ボタンをクリックしたら、CreateUserWizard コントロールが発生させます。 その[`CreatingUser`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.creatinguser.aspx)です。 作成プロセス中に問題がある場合、 [ `CreateUserError`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.createusererror.aspx)が発生します。 ただし、ユーザーが正常に作成される場合は、次に、 [ `CreatedUser`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.createduser.aspx)が発生します。 生成されるその他の CreateUserWizard コントロール イベントが、これらは、次の 3 つの最も密接もの。
 
 特定のシナリオで、適切なイベントのイベント ハンドラーを作成することで行うには CreateUserWizard のワークフローをタップすることもできます。 これを示すためを拡張してみましょう、 `RegisterUser` CreateUserWizard コントロール ユーザー名とパスワードをいくつかのカスタム検証を追加します。 具体的には、みましょう、CreateUserWizard するように増やしますユーザー名は、先頭または末尾のスペースを含めることはできませんし、ユーザー名に含めることが任意の場所のパスワード。 つまり、他のユーザーが"Scott"のようなユーザー名を作成または Scott や Scott.1234 のようなユーザー名/パスワードの組み合わせを阻止します。
 
@@ -339,7 +339,7 @@ CreateUserWizard コントロールのイベント ハンドラーを次に、�
 
 [!code-vb[Main](creating-user-accounts-vb/samples/sample8.vb)]
 
-ユーザー名と CreateUserWizard コントロールに入力したパスワードがを通じて利用できることに注意してください。 その[ `UserName` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.username.aspx)と[`Password`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.password.aspx)、それぞれします。 おプロパティを使用して、上記のイベント ハンドラーで指定されたユーザー名に先頭または末尾のスペースが含まれるかどうかと、ユーザー名をパスワードで見つかったかどうかを決定します。 エラー メッセージが表示されます両方の条件が満たされた場合、`InvalidUserNameOrPasswordMessage`ラベルと、イベント ハンドラーの`e.Cancel`プロパティに設定されている`True`です。 場合`e.Cancel`に設定されている`True`、CreateUserWizard short-circuits、ワークフローでは、効果的にユーザー アカウントの作成プロセスをキャンセルします。
+ユーザー名と CreateUserWizard コントロールに入力したパスワードがを通じて利用できることに注意してください。 その[ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.username.aspx)と[`Password`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.password.aspx)、それぞれします。 おプロパティを使用して、上記のイベント ハンドラーで指定されたユーザー名に先頭または末尾のスペースが含まれるかどうかと、ユーザー名をパスワードで見つかったかどうかを決定します。 エラー メッセージが表示されます両方の条件が満たされた場合、`InvalidUserNameOrPasswordMessage`ラベルと、イベント ハンドラーの`e.Cancel`プロパティに設定されている`True`です。 場合`e.Cancel`に設定されている`True`、CreateUserWizard short-circuits、ワークフローでは、効果的にユーザー アカウントの作成プロセスをキャンセルします。
 
 図 15 のスクリーン ショットを示しています`CreatingUserAccounts.aspx`ユーザーが先頭のスペースを持つユーザー名を入力します。
 
@@ -353,7 +353,7 @@ CreateUserWizard コントロールのイベント ハンドラーを次に、�
 > CreateUserWizard コントロールの使用例を見ていきます`CreatedUser`内のイベント、  *<a id="_msoanchor_11"> </a>[追加のユーザー情報を格納する](storing-additional-user-information-vb.md)*チュートリアルです。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 `Membership`クラスの`CreateUser`メソッドはメンバーシップ フレームワークで、新しいユーザー アカウントを作成します。 それは、構成済みのメンバーシップ プロバイダーへの呼び出しを代行させることで。 場合、 `SqlMembershipProvider`、`CreateUser`メソッドを追加するレコード、`aspnet_Users`と`aspnet_Membership`データベース テーブルです。
 
@@ -367,7 +367,7 @@ CreateUserWizard コントロールのイベント ハンドラーを次に、�
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [`CreateUser`テクニカル ドキュメント](https://msdn.microsoft.com/En-US/library/system.web.security.membershipprovider.createuser.aspx)
+- [`CreateUser`テクニカル ドキュメント](https://msdn.microsoft.com/library/system.web.security.membershipprovider.createuser.aspx)
 - [CreateUserWizard コントロールの概要](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/createuserwizard.aspx)
 - [ファイル システム ベースのサイト マップ プロバイダーを作成します。](http://aspnet.4guysfromrolla.com/articles/020106-1.aspx)
 - [ASP.NET 2.0 のウィザード コントロールでステップ バイ ステップのユーザー インターフェイスの作成](http://aspnet.4guysfromrolla.com/articles/061406-1.aspx)
