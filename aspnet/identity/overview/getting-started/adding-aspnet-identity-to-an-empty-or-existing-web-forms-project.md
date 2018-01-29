@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: f5783287a26174ddf65bb0eae34c347831d02c47
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3ab67b93a32106c0b79f9e8d739d47835391edb5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-aspnet-identity-to-an-empty-or-existing-web-forms-project"></a>追加の ASP.NET Identity 空であるか既存の web プロジェクトをフォームします。
 ====================
@@ -102,7 +102,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="configuring-the-application-for-owin-authentication"></a>OWIN 認証用のアプリケーションを構成します。
 
-この時点でユーザーを作成するためのサポートのみ追加されました。 ここで、認証ユーザーのログインを追加できる方法を示すためになっています。 ASP.NET Identity は、Microsoft OWIN 認証ミドルウェアをフォーム認証を使用します。 OWIN の Cookie 認証は要求ベースの認証メカニズムでホストされている任意のフレームワークで使用できる、cookie [OWIN](https://msdn.microsoft.com/en-us/magazine/dn451439.aspx)または IIS です。 このモデルでは、ASP.NET MVC、Web フォームを含む複数のフレームワークで同じ認証パッケージを使用できます。 プロジェクト Katana とホストの柔軟な参照でミドルウェアを実行する方法の詳細について[Katana プロジェクトの使用を開始する](https://msdn.microsoft.com/en-us/magazine/dn451439.aspx)です。
+この時点でユーザーを作成するためのサポートのみ追加されました。 ここで、認証ユーザーのログインを追加できる方法を示すためになっています。 ASP.NET Identity は、Microsoft OWIN 認証ミドルウェアをフォーム認証を使用します。 OWIN の Cookie 認証は要求ベースの認証メカニズムでホストされている任意のフレームワークで使用できる、cookie [OWIN](https://msdn.microsoft.com/magazine/dn451439.aspx)または IIS です。 このモデルでは、ASP.NET MVC、Web フォームを含む複数のフレームワークで同じ認証パッケージを使用できます。 プロジェクト Katana とホストの柔軟な参照でミドルウェアを実行する方法の詳細について[Katana プロジェクトの使用を開始する](https://msdn.microsoft.com/magazine/dn451439.aspx)です。
 
 ## <a name="installing-authentication-packages-to-your-application"></a>アプリケーションに認証パッケージをインストールします。
 
@@ -135,8 +135,8 @@ ms.lasthandoff: 11/10/2017
 
     > [!NOTE] 
     > 
-    > - フレームワークに生成するアプリの開発者が必要ですし、ASP.NET Identity OWIN の Cookie 認証は要求ベースのシステムであるため、 [ClaimsIdentity](https://msdn.microsoft.com/en-us/library/microsoft.identitymodel.claims.claimsidentity.aspx)ユーザー。 ClaimsIdentity には、ユーザーが属するロールなど、ユーザーのすべての要求に関する情報があります。 この段階で、ユーザーのクレームを追加することもできます。
-    > - ユーザーをサインインするには、OWIN と呼び出し元からの AuthenticationManager を使用して、`SignIn`上記のように、ClaimsIdentity を渡しています。 このコードは、ユーザーにサインインしも cookie を生成します。 この呼び出しはに似て[FormAuthentication.SetAuthCookie](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.setauthcookie.aspx)によって使用される、 [FormsAuthentication](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx)モジュール。
+    > - フレームワークに生成するアプリの開発者が必要ですし、ASP.NET Identity OWIN の Cookie 認証は要求ベースのシステムであるため、 [ClaimsIdentity](https://msdn.microsoft.com/library/microsoft.identitymodel.claims.claimsidentity.aspx)ユーザー。 ClaimsIdentity には、ユーザーが属するロールなど、ユーザーのすべての要求に関する情報があります。 この段階で、ユーザーのクレームを追加することもできます。
+    > - ユーザーをサインインするには、OWIN と呼び出し元からの AuthenticationManager を使用して、`SignIn`上記のように、ClaimsIdentity を渡しています。 このコードは、ユーザーにサインインしも cookie を生成します。 この呼び出しはに似て[FormAuthentication.SetAuthCookie](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx)によって使用される、 [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)モジュール。
 2. **ソリューション エクスプ ローラー**、プロジェクトをクリックしてを右クリックして**追加**、し**Web フォーム**です。 Web フォームの名前を付けます**ログイン**です。  
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image12.png)
@@ -150,16 +150,16 @@ ms.lasthandoff: 11/10/2017
     > [!NOTE] 
     > 
     > - `Page_Load`の現在のユーザーの状態を確認し、に基づいてアクションを今すぐその`Context.User.Identity.IsAuthenticated`状態です。  
-    >     **ユーザー名のログインを表示**: 拡張メソッドを追加で、Microsoft ASP.NET Identity Framework[どのオブジェクト タイプも](https://msdn.microsoft.com/en-us/library/system.security.principal.iidentity.aspx)を取得することができます、`UserName`と`UserId`用、ユーザーに記録されます。 これらの拡張メソッドが定義されている、`Microsoft.AspNet.Identity.Core`アセンブリ。 これらの拡張メソッドは、置換の[HttpContext.User.Identity.Name](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.user.aspx)です。
+    >     **ユーザー名のログインを表示**: 拡張メソッドを追加で、Microsoft ASP.NET Identity Framework[どのオブジェクト タイプも](https://msdn.microsoft.com/library/system.security.principal.iidentity.aspx)を取得することができます、`UserName`と`UserId`用、ユーザーに記録されます。 これらの拡張メソッドが定義されている、`Microsoft.AspNet.Identity.Core`アセンブリ。 これらの拡張メソッドは、置換の[HttpContext.User.Identity.Name](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx)です。
     > - SignIn メソッド:   
     >     `This`メソッドは、以前に置き換えて`CreateUser_Click`メソッドでこのサンプルと、ユーザーが正常に作成した後、ユーザー サインインようになりました。   
     >  拡張メソッドを追加で、Microsoft OWIN Framework`System.Web.HttpContext`への参照を取得することができます、`IOwinContext`です。 これらの拡張メソッドが定義されている`Microsoft.Owin.Host.SystemWeb`アセンブリ。 `OwinContext`クラスが公開する`IAuthenticationManager`を現在の要求で使用可能な認証ミドルウェアの機能を表すプロパティ。  
     >  ユーザーをサインインするを使用して、 `AuthenticationManager` OWIN と呼び出し元から`SignIn`およびを渡して、`ClaimsIdentity`上記のようにします。   
     >  フレームワークを生成するアプリを必要とし、ASP.NET Identity OWIN の Cookie 認証は要求ベースのシステムであるため、`ClaimsIdentity`ユーザー。   
     >  `ClaimsIdentity`ユーザーが属するロールなどのユーザーのすべての要求に関する情報が含まれています。 この段階で、ユーザーのクレームを追加することもできます。  
-    >  このコードは、ユーザーにサインインしも cookie を生成します。 この呼び出しはに似て[FormAuthentication.SetAuthCookie](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.setauthcookie.aspx)によって使用される、 [FormsAuthentication](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx)モジュール。
+    >  このコードは、ユーザーにサインインしも cookie を生成します。 この呼び出しはに似て[FormAuthentication.SetAuthCookie](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx)によって使用される、 [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)モジュール。
     > - `SignOut`方法:   
-    >  参照を取得、 `AuthenticationManager` OWIN と呼び出しから`SignOut`です。 これは、メソッドは[FormsAuthentication.SignOut](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.signout.aspx)で使用する方法、 [FormsAuthentication](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx)モジュール。
+    >  参照を取得、 `AuthenticationManager` OWIN と呼び出しから`SignOut`です。 これは、メソッドは[FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx)で使用する方法、 [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)モジュール。
 5. キーを押して**ctrl キーを押しながら f5 キーを押して**をビルドして、web アプリケーションを実行します。 新しいユーザー名とパスワードを入力し、をクリックして**登録**です。  
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image13.png)  

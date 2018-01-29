@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: da03a9c3e22f5a2164534ef7896b5558beb8b6f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5bee98878b5191a096b851c65aaea19ad989f608
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="user-based-authorization-c"></a>ユーザー ベースの承認 (c#)
 ====================
@@ -39,9 +39,9 @@ ASP.NET では、簡単にユーザー ベースの承認規則を定義しま�
 
 説明したように、 [*フォーム認証の概要を*](../introduction/an-overview-of-forms-authentication-cs.md)チュートリアルでは、ASP.NET ランタイムが ASP.NET リソース要求のライフ サイクル中にイベントの数を発生させるため、要求を処理するときにします。 *HTTP モジュール*マネージ クラスのコードを持つは要求のライフ サイクルの特定のイベントに応答して実行します。 ASP.NET は、バック グラウンドでの必須のタスクを実行する HTTP モジュールの数が付属しています。
 
-このような 1 つの HTTP モジュールが[ `FormsAuthenticationModule`](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx)です。 主な機能、前のチュートリアルで説明したように、`FormsAuthenticationModule`は現在の要求の id を確認します。 これは、cookie であるか、URL 内に埋め込まれているフォーム認証チケットを調べることによって行います。 この識別中に行われる、 [ `AuthenticateRequest`イベント](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx)です。
+このような 1 つの HTTP モジュールが[ `FormsAuthenticationModule`](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)です。 主な機能、前のチュートリアルで説明したように、`FormsAuthenticationModule`は現在の要求の id を確認します。 これは、cookie であるか、URL 内に埋め込まれているフォーム認証チケットを調べることによって行います。 この識別中に行われる、 [ `AuthenticateRequest`イベント](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx)です。
 
-別の重要な HTTP モジュールが、 [ `UrlAuthorizationModule`](https://msdn.microsoft.com/en-us/library/system.web.security.urlauthorizationmodule.aspx)への応答で発生する、 [ `AuthorizeRequest`イベント](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authorizerequest.aspx)(後の動作を`AuthenticateRequest`イベント)。 `UrlAuthorizationModule`で構成のマークアップを調べて`Web.config`を現在の id が指定したページにアクセスする権限を持つかどうかを判断します。 このプロセスと呼びます*URL 承認*です。
+別の重要な HTTP モジュールが、 [ `UrlAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)への応答で発生する、 [ `AuthorizeRequest`イベント](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx)(後の動作を`AuthenticateRequest`イベント)。 `UrlAuthorizationModule`で構成のマークアップを調べて`Web.config`を現在の id が指定したページにアクセスする権限を持つかどうかを判断します。 このプロセスと呼びます*URL 承認*です。
 
 について確認手順 1 で、URL 承認規則の構文がまずみましょう見てどのような`UrlAuthorizationModule`は、要求が承認されているかどうかどうかによって異なります。 場合、`UrlAuthorizationModule`と判断した要求が承認されると、し、それは何も、ライフ サイクルを通じて要求が続行されます。 ただし、要求がある場合*いない*、承認、`UrlAuthorizationModule`ライフ サイクルを中止し、指示、`Response`返されるオブジェクト、 [HTTP 401 Unauthorized](http://www.checkupdown.com/status/E401.html)状態。 この HTTP 401 ステータスは、クライアントに返されませんフォーム認証を使用するときに場合、`FormsAuthenticationModule`ステータスは、HTTP 401 に変更を検出した、 [HTTP 302 リダイレクト](http://www.checkupdown.com/status/E302.html)ログイン ページにします。
 
@@ -70,7 +70,7 @@ ASP.NET では、簡単にユーザー ベースの承認規則を定義しま�
 図 2 に示すワークフローには、でも、ほとんどのコンピューター詳しければビジター befuddle すばやくことができます。 手順 2. でサイクルが混乱これを防止する方法について取り上げます。
 
 > [!NOTE]
-> ASP.NET では、2 つのメカニズムを使用して、現在のユーザーが特定の web ページにアクセスできるかどうかを判断します。 URL 承認およびファイルの承認。 ファイルの承認がによって実装される、 [ `FileAuthorizationModule` ](https://msdn.microsoft.com/en-us/library/system.web.security.fileauthorizationmodule.aspx)、要求されたファイルの Acl を参照して権限を決定します。 ファイルの承認が最もよく使用 Windows 認証されている Acl を Windows アカウントに適用されるアクセス許可があるためです。 フォーム認証を使用する場合は、オペレーティング システムとファイル システム レベルのすべての要求がサイトにアクセスするユーザーに関係なく、同じ Windows アカウントで実行されます。 このチュートリアルの系列では、フォーム認証に焦点を当てています、のでおはについては説明しませんファイル承認します。
+> ASP.NET では、2 つのメカニズムを使用して、現在のユーザーが特定の web ページにアクセスできるかどうかを判断します。 URL 承認およびファイルの承認。 ファイルの承認がによって実装される、 [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx)、要求されたファイルの Acl を参照して権限を決定します。 ファイルの承認が最もよく使用 Windows 認証されている Acl を Windows アカウントに適用されるアクセス許可があるためです。 フォーム認証を使用する場合は、オペレーティング システムとファイル システム レベルのすべての要求がサイトにアクセスするユーザーに関係なく、同じ Windows アカウントで実行されます。 このチュートリアルの系列では、フォーム認証に焦点を当てています、のでおはについては説明しませんファイル承認します。
 
 
 ### <a name="the-scope-of-url-authorization"></a>URL 承認のスコープ
@@ -87,7 +87,7 @@ IIS 7 では、ただしでは、統合された IIS と ASP.NET パイプライ
 
 ## <a name="step-1-defining-url-authorization-rules-inwebconfig"></a>手順 1: での URL 承認規則を定義します。`Web.config`
 
-`UrlAuthorizationModule`アプリケーションの構成で定義されている URL 承認規則に基づいて特定の id の要求されたリソースにアクセス許可または拒否するかどうかを決定します。 承認規則が記述された、 [ `<authorization>`要素](https://msdn.microsoft.com/en-us/library/8d82143t.aspx)の形式で`<allow>`と`<deny>`子要素です。 各`<allow>`と`<deny>`子要素を指定できます。
+`UrlAuthorizationModule`アプリケーションの構成で定義されている URL 承認規則に基づいて特定の id の要求されたリソースにアクセス許可または拒否するかどうかを決定します。 承認規則が記述された、 [ `<authorization>`要素](https://msdn.microsoft.com/library/8d82143t.aspx)の形式で`<allow>`と`<deny>`子要素です。 各`<allow>`と`<deny>`子要素を指定できます。
 
 - 特定のユーザー
 - ユーザーのコンマ区切りの一覧
@@ -230,10 +230,10 @@ GridView のマークアップを作成、特定のディレクトリ内のフ�
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample10.cs)]
 
-上記のコードを使用して、 [ `DirectoryInfo`クラス](https://msdn.microsoft.com/en-us/library/system.io.directoryinfo.aspx)アプリケーションのルート フォルダー内のファイルの一覧を取得します。 [ `GetFiles()`メソッド](https://msdn.microsoft.com/en-us/library/system.io.directoryinfo.getfiles.aspx)ディレクトリ内のすべてのファイルの配列として返します[`FileInfo`オブジェクト](https://msdn.microsoft.com/en-us/library/system.io.fileinfo.aspx)、これが GridView にバインドし、します。 `FileInfo`オブジェクトなどさまざまなプロパティがあります`Name`、 `Length`、および`IsReadOnly`、その他。 GridView がだけ表示されます、宣言型マークアップからわかるように、`Name`と`Length`プロパティです。
+上記のコードを使用して、 [ `DirectoryInfo`クラス](https://msdn.microsoft.com/library/system.io.directoryinfo.aspx)アプリケーションのルート フォルダー内のファイルの一覧を取得します。 [ `GetFiles()`メソッド](https://msdn.microsoft.com/library/system.io.directoryinfo.getfiles.aspx)ディレクトリ内のすべてのファイルの配列として返します[`FileInfo`オブジェクト](https://msdn.microsoft.com/library/system.io.fileinfo.aspx)、これが GridView にバインドし、します。 `FileInfo`オブジェクトなどさまざまなプロパティがあります`Name`、 `Length`、および`IsReadOnly`、その他。 GridView がだけ表示されます、宣言型マークアップからわかるように、`Name`と`Length`プロパティです。
 
 > [!NOTE]
-> `DirectoryInfo`と`FileInfo`クラスは、 [ `System.IO`名前空間](https://msdn.microsoft.com/en-us/library/system.io.aspx)です。 では、これらのクラス名、名前空間の名前を付けますまたはクラス ファイルにインポートされた名前空間があるかが必要 (を介して`using System.IO`)。
+> `DirectoryInfo`と`FileInfo`クラスは、 [ `System.IO`名前空間](https://msdn.microsoft.com/library/system.io.aspx)です。 では、これらのクラス名、名前空間の名前を付けますまたはクラス ファイルにインポートされた名前空間があるかが必要 (を介して`using System.IO`)。
 
 
 すぐをブラウザーからこのページを参照してください。 アプリケーションのルート ディレクトリに存在するファイルの一覧が表示されます。 クリックすると、ビューまたはあるの削除のいずれかによって、ポストバックがアクションが発生しないきたところ、必要なイベント ハンドラーを作成します。
@@ -248,11 +248,11 @@ GridView のマークアップを作成、特定のディレクトリ内のフ�
 
 [!code-aspx[Main](user-based-authorization-cs/samples/sample11.aspx)]
 
-Gridview のイベント ハンドラーを次に、作成[`SelectedIndexChanged`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedindexchanged.aspx)し、次のコードを追加します。
+Gridview のイベント ハンドラーを次に、作成[`SelectedIndexChanged`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindexchanged.aspx)し、次のコードを追加します。
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample12.cs)]
 
-この例では、GridView の`SelectedValue`プロパティを選択したファイルの完全なファイル名を確認します。 内部的には、`DataKeys`コレクションが取得するために参照されている、 `SelectedValue`、GridView を設定することが不可欠であるため、`DataKeyNames`プロパティを名前、この手順で既に説明したようにします。 [ `File`クラス](https://msdn.microsoft.com/en-us/library/system.io.file.aspx)に代入している文字列に、選択したファイルの内容の読み取りに使用、`FileContents`テキスト ボックスの`Text`プロパティ、それによって ページで選択したファイルの内容を表示します。
+この例では、GridView の`SelectedValue`プロパティを選択したファイルの完全なファイル名を確認します。 内部的には、`DataKeys`コレクションが取得するために参照されている、 `SelectedValue`、GridView を設定することが不可欠であるため、`DataKeyNames`プロパティを名前、この手順で既に説明したようにします。 [ `File`クラス](https://msdn.microsoft.com/library/system.io.file.aspx)に代入している文字列に、選択したファイルの内容の読み取りに使用、`FileContents`テキスト ボックスの`Text`プロパティ、それによって ページで選択したファイルの内容を表示します。
 
 
 [![テキスト ボックスに、選択したファイルの内容が表示されます。](user-based-authorization-cs/_static/image23.png)](user-based-authorization-cs/_static/image22.png)
@@ -264,7 +264,7 @@ Gridview のイベント ハンドラーを次に、作成[`SelectedIndexChanged
 > HTML マークアップを含むファイルの内容を表示して表示またはファイルの削除を試みますが表示されます、`HttpRequestValidationException`エラーです。 これは、ポストバック時に、テキスト ボックスの内容は web サーバーに送信されるために発生します。 既定では、ASP.NET を発生させます、`HttpRequestValidationException`エラーは、HTML マークアップなどの危険性のあるポストバック コンテンツを検出します。 このエラーの発生を無効にするには、してオフに、ページの要求の検証を追加する`ValidateRequest="false"`を`@Page`ディレクティブです。 どのような予防措置としても行う必要がありますタイミングとして要求の検証の利点の詳細について無効にすることをお読み[要求の検証 - スクリプト攻撃の防止](https://asp.net/learn/whitepapers/request-validation/)です。
 
 
-Gridview の最後に、次のコードでイベント ハンドラーを追加[`RowDeleting`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx):
+Gridview の最後に、次のコードでイベント ハンドラーを追加[`RowDeleting`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx):
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample13.cs)]
 
@@ -358,7 +358,7 @@ LoginView をテキスト ボックスを移動した後`LoggedInTemplate`ペー
 
 手順 3 は、匿名ユーザーによるファイルの内容の表示を許可されていませんし、ファイルを削除してから、すべてのユーザーも Tito を禁止します。 宣言とプログラムの手法を承認されていない訪問者に関連するユーザー インターフェイス要素を非表示にすることで実現しました。 この単純な例では、については、単純なユーザー インターフェイス要素を適切に非表示がより複雑なサイトで同じ機能を実行するさまざまな方法である可能性がありますか。 未承認のユーザーにその機能を制限したり、非表示またはすべての該当するユーザー インターフェイス要素を無効にするを忘れる場合の対処方法
 
-機能の特定の部分を未認証のユーザーがアクセスできないことを確認する簡単な方法は、そのクラスまたはメソッドを装飾するが、 [ `PrincipalPermission`属性](https://msdn.microsoft.com/en-us/library/system.security.permissions.principalpermissionattribute.aspx)です。 .NET ランタイム クラスを使用して、そのメソッドの 1 つを実行時に現在のセキュリティ コンテキストが、クラスを使用するか、メソッドを実行する権限を持っていることを確認することを確認します。 `PrincipalPermission`属性は、これらの規則を定義できる機構を提供します。
+機能の特定の部分を未認証のユーザーがアクセスできないことを確認する簡単な方法は、そのクラスまたはメソッドを装飾するが、 [ `PrincipalPermission`属性](https://msdn.microsoft.com/library/system.security.permissions.principalpermissionattribute.aspx)です。 .NET ランタイム クラスを使用して、そのメソッドの 1 つを実行時に現在のセキュリティ コンテキストが、クラスを使用するか、メソッドを実行する権限を持っていることを確認することを確認します。 `PrincipalPermission`属性は、これらの規則を定義できる機構を提供します。
 
 使用する例を見てみましょう、 `PrincipalPermission` GridView の属性`SelectedIndexChanged`と`RowDeleting`それぞれ匿名ユーザーと Tito、以外のユーザーが実行を禁止するイベント ハンドラー。 必要なことを行うには、各関数の定義の上に適切な属性を追加です。
 
@@ -384,7 +384,7 @@ ASP.NET ページだけでなく多くのアプリケーションでは、ビジ
 
 使用する方法について、`PrincipalPermission`属性をクラスやメソッドで承認規則を定義しを参照してください[Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ エントリ[ビジネス レイヤーを使用してデータして承認規則を追加します。`PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx).
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、ユーザー ベースの承認規則を適用する方法を説明しました。 ASP を見てから始まります。NET の URL の承認フレームワークです。 要求ごとに、ASP.NET エンジンの`UrlAuthorizationModule`id が要求されたリソースにアクセスを承認されているかどうかを決定する、アプリケーションの構成で定義されている URL 承認規則を検査します。 つまり、URL 承認簡単に特定のディレクトリ内のすべてのページまたは特定のページの承認規則を指定できます。
 
@@ -397,13 +397,13 @@ URL の承認フレームワークでは、ページ単位ごとに承認規則�
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
 - [ビジネスおよびデータ層を使用する承認規則の追加`PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
-- [ASP.NET の承認](https://msdn.microsoft.com/en-us/library/wce3kxhd.aspx)
+- [ASP.NET の承認](https://msdn.microsoft.com/library/wce3kxhd.aspx)
 - [Iis 6 と iis 7 のセキュリティの変更](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
-- [特定のファイルおよびサブディレクトリを構成します。](https://msdn.microsoft.com/en-us/library/6hbkh9s7.aspx)
+- [特定のファイルおよびサブディレクトリを構成します。](https://msdn.microsoft.com/library/6hbkh9s7.aspx)
 - [ユーザーに基づくデータ変更機能を制限します。](../../data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs.md)
 - [LoginView コントロールのクイック スタート](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/loginview.aspx)
 - [IIS7 URL 承認を理解します。](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)
-- [`UrlAuthorizationModule`テクニカル ドキュメント](https://msdn.microsoft.com/en-us/library/system.web.security.urlauthorizationmodule.aspx)
+- [`UrlAuthorizationModule`テクニカル ドキュメント](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)
 - [ASP.NET 2.0 のデータの操作](../../data-access/index.md)
 
 ### <a name="about-the-author"></a>作成者について

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: 470b8a5f4a004c85f603c9c5d0766e5826c96e38
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c98e79bf8e9a1fe0899ed6d952c3e411ca472f7e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>付録: 修正プログラム、サンプル アプリケーション (Azure での実際のクラウド アプリの構築)
 ====================
@@ -62,10 +62,10 @@ ms.lasthandoff: 11/10/2017
 
 キュー メッセージの処理の修正、アプリでは、最小限のコードでキューを中心とした作業のパターンを説明するために単純にするよう設計されました。 この単純なコードは、実稼働アプリケーションの適切なできません。
 
-- コードでは、各キューのメッセージが最大で 1 回処理されることは保証されません。 キューからメッセージを取得する場合は、によって、メッセージが他のキュー リスナーに表示されていない、タイムアウト期間。 もう一度、メッセージが削除される前にタイムアウトになるには、メッセージが表示されます。 そのため場合は、ワーカー ロール インスタンスは、メッセージの処理時間を費やす、可能であれば理論的には、同じメッセージに 2 回処理に対して、データベース内の重複するタスクの結果として得られます。 この問題の詳細については、次を参照してください。[を使用して Azure ストレージ キュー](https://msdn.microsoft.com/en-us/library/ff803365.aspx#sec7)です。
-- キューのポーリングのロジックは、メッセージの取得をバッチ処理によってよりコスト効果の高い可能性があります。 呼び出すたびに[CloudQueue.GetMessageAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx)、トランザクション コストが発生します。 代わりに、呼び出せます[CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (複数形に注意してください ')、単一のトランザクションで複数のメッセージを取得します。 Azure ストレージ キューのトランザクションのコストは非常に低いコストへの影響ほとんどのシナリオで大きくします。
+- コードでは、各キューのメッセージが最大で 1 回処理されることは保証されません。 キューからメッセージを取得する場合は、によって、メッセージが他のキュー リスナーに表示されていない、タイムアウト期間。 もう一度、メッセージが削除される前にタイムアウトになるには、メッセージが表示されます。 そのため場合は、ワーカー ロール インスタンスは、メッセージの処理時間を費やす、可能であれば理論的には、同じメッセージに 2 回処理に対して、データベース内の重複するタスクの結果として得られます。 この問題の詳細については、次を参照してください。[を使用して Azure ストレージ キュー](https://msdn.microsoft.com/library/ff803365.aspx#sec7)です。
+- キューのポーリングのロジックは、メッセージの取得をバッチ処理によってよりコスト効果の高い可能性があります。 呼び出すたびに[CloudQueue.GetMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx)、トランザクション コストが発生します。 代わりに、呼び出せます[CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (複数形に注意してください ')、単一のトランザクションで複数のメッセージを取得します。 Azure ストレージ キューのトランザクションのコストは非常に低いコストへの影響ほとんどのシナリオで大きくします。
 - CPU 関係は、マルチコア仮想マシンを効率的に使用しない、キューのメッセージ処理のコードにループが発生します。 優れた設計では、同時に複数の非同期タスクを実行するのにタスクの並列化を使用します。
-- キューのメッセージ処理は、のみ基本的な例外処理がします。 たとえば、コードを処理しない[有害メッセージ](https://msdn.microsoft.com/en-us/library/ms789028.aspx)です。 (メッセージの処理には、例外が発生とする必要が、エラーを記録してメッセージを削除またはワーカー ロールは再度、プロセスを再試行してください、ループが無期限に続行されます。)
+- キューのメッセージ処理は、のみ基本的な例外処理がします。 たとえば、コードを処理しない[有害メッセージ](https://msdn.microsoft.com/library/ms789028.aspx)です。 (メッセージの処理には、例外が発生とする必要が、エラーを記録してメッセージを削除またはワーカー ロールは再度、プロセスを再試行してください、ループが無期限に続行されます。)
 
 ### <a name="sql-queries-are-unbounded"></a>SQL クエリの制限がないです。
 
@@ -85,7 +85,7 @@ PowerShell オートメーションのサンプル スクリプトは、修正�
 
 ### <a name="special-handling-for-html-codes-in-user-input"></a>ユーザー入力の HTML コードに対して特別な処理
 
-ASP.NET は、さまざまな方法が悪意のあるユーザーがユーザー入力テキスト ボックスにスクリプトを入力することでクロスサイト スクリプティング攻撃を試みる可能性がありますを自動的に防ぎます。 MVC`DisplayFor`タスクを表示するために使用するヘルパー タイトルされ、自動的に HTML エンコード値、ブラウザーに送信します。 運用アプリケーションで別の対策をする可能性があります。 詳細については、次を参照してください。 [ASP.NET での要求の検証](https://msdn.microsoft.com/en-us/library/hh882339.aspx)です。
+ASP.NET は、さまざまな方法が悪意のあるユーザーがユーザー入力テキスト ボックスにスクリプトを入力することでクロスサイト スクリプティング攻撃を試みる可能性がありますを自動的に防ぎます。 MVC`DisplayFor`タスクを表示するために使用するヘルパー タイトルされ、自動的に HTML エンコード値、ブラウザーに送信します。 運用アプリケーションで別の対策をする可能性があります。 詳細については、次を参照してください。 [ASP.NET での要求の検証](https://msdn.microsoft.com/library/hh882339.aspx)です。
 
 <a id="bestpractices"></a>
 ## <a name="best-practices"></a>ベスト プラクティス
@@ -146,13 +146,13 @@ AutoFac が自動的に破棄することに注意してください、`FixItTas
 
 ### <a name="mark-private-members-as-readonly-when-they-arent-expected-to-change"></a>変更することが求められていない場合に、プライベート メンバーを読み取り専用としてマークします。
 
-たとえば、`DashboardController`クラスのインスタンス`FixItTaskRepository`が作成され、変更するには想定されていませんとしては、定義したので[readonly](https://msdn.microsoft.com/en-us/library/acdd6hb7.aspx)です。
+たとえば、`DashboardController`クラスのインスタンス`FixItTaskRepository`が作成され、変更するには想定されていませんとしては、定義したので[readonly](https://msdn.microsoft.com/library/acdd6hb7.aspx)です。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample9.cs?highlight=3)]
 
 ### <a name="use-listany-instead-of-listcount-gt-0"></a>リストを使用します。一覧ではなく Any() です。Count() &gt; 0
 
-リスト内の 1 つまたは複数の項目が指定した条件に一致するかどうかについて注意する場合を使用して、[任意](https://msdn.microsoft.com/en-us/library/bb534972.aspx)メソッドを返すので条件に適合する項目が見つかるとすぐに対し、`Count`メソッドは、常に反復処理するのにはすべての項目。 ダッシュ ボード*Index.cshtml*ファイルでこのコードは最初から。
+リスト内の 1 つまたは複数の項目が指定した条件に一致するかどうかについて注意する場合を使用して、[任意](https://msdn.microsoft.com/library/bb534972.aspx)メソッドを返すので条件に適合する項目が見つかるとすぐに対し、`Count`メソッドは、常に反復処理するのにはすべての項目。 ダッシュ ボード*Index.cshtml*ファイルでこのコードは最初から。
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample10.cshtml)]
 
@@ -166,13 +166,13 @@ AutoFac が自動的に破棄することに注意してください、`FixItTas
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample12.cshtml)]
 
-次のように表示/アクションへのリンクは、使用する方がよい、 [Url.Action](https://msdn.microsoft.com/en-us/library/system.web.mvc.urlhelper.action.aspx)例については、HTML ヘルパー。
+次のように表示/アクションへのリンクは、使用する方がよい、 [Url.Action](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.action.aspx)例については、HTML ヘルパー。
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample13.cshtml)]
 
 ### <a name="use-taskdelay-instead-of-threadsleep-in-worker-role"></a>ワーカー ロールで Thread.Sleep ではなく Task.Delay を使用します。
 
-新しいプロジェクト テンプレートの格納`Thread.Sleep`サンプルでは、ワーカー ロールが原因でスレッドをスリープさせることができる、スレッド プールに追加の不要なスレッドを生成します。 使用することを回避する[Task.Delay](https://msdn.microsoft.com/en-us/library/hh139096.aspx)代わりにします。
+新しいプロジェクト テンプレートの格納`Thread.Sleep`サンプルでは、ワーカー ロールが原因でスレッドをスリープさせることができる、スレッド プールに追加の不要なスレッドを生成します。 使用することを回避する[Task.Delay](https://msdn.microsoft.com/library/hh139096.aspx)代わりにします。
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample14.cs?highlight=11)]
 
@@ -184,11 +184,11 @@ AutoFac が自動的に破棄することに注意してください、`FixItTas
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample15.cs)]
 
-使用する必要があります`async void`トップレベルのイベント ハンドラーに対してのみです。 としてメソッドを定義する場合`async void`、呼び出し元のできません**await**メソッドまたはメソッドをスローするすべての例外をキャッチします。 詳細については、次を参照してください。[非同期プログラミングのベスト プラクティス](https://msdn.microsoft.com/en-us/magazine/jj991977.aspx)です。 
+使用する必要があります`async void`トップレベルのイベント ハンドラーに対してのみです。 としてメソッドを定義する場合`async void`、呼び出し元のできません**await**メソッドまたはメソッドをスローするすべての例外をキャッチします。 詳細については、次を参照してください。[非同期プログラミングのベスト プラクティス](https://msdn.microsoft.com/magazine/jj991977.aspx)です。 
 
 ### <a name="use-a-cancellation-token-to-break-from-worker-role-loop"></a>キャンセル トークンを使用して、ワーカー ロールのループを中断するには
 
-通常、**実行**ワーカー ロール上のメソッドには、無限ループが含まれています。 ワーカー ロールを停止すると、 [RoleEntryPoint.OnStop](https://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx)メソッドが呼び出されます。 このメソッドを使用して内に行われている作業をキャンセルする必要があります、**実行**メソッドと終了適切にします。 それ以外の場合、プロセスは、操作の途中で終了可能性があります。
+通常、**実行**ワーカー ロール上のメソッドには、無限ループが含まれています。 ワーカー ロールを停止すると、 [RoleEntryPoint.OnStop](https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx)メソッドが呼び出されます。 このメソッドを使用して内に行われている作業をキャンセルする必要があります、**実行**メソッドと終了適切にします。 それ以外の場合、プロセスは、操作の途中で終了可能性があります。
 
 ### <a name="opt-out-of-automatic-mime-sniffing-procedure"></a>自動 MIME スニッフィング プロシージャからオプトアウトします。
 
@@ -219,7 +219,7 @@ Visual Studio では、新しい web プロジェクトを作成するときの 
 <a id="runbase"></a>
 ### <a name="run-the-base-application"></a>ベースのアプリケーションを実行します。
 
-1. インストール[Visual Studio 2013 または Visual Studio 2013 Express for Web](https://www.visualstudio.com/en-us/downloads)です。
+1. インストール[Visual Studio 2013 または Visual Studio 2013 Express for Web](https://www.visualstudio.com/downloads)です。
 2. インストール、 [Azure SDK for Visual Studio 2013 用の .NET です。](https://go.microsoft.com/fwlink/p/?linkid=323510&amp;clcid=0x409)
 3. .Zip ファイルをダウンロード、 [MSDN コード ギャラリー](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)です。
 4. ファイル エクスプ ローラーで、.zip ファイルを右クリックしてプロパティ をクリックし、プロパティ ウィンドウで ブロック解除 をクリックします。
@@ -228,7 +228,7 @@ Visual Studio では、新しい web プロジェクトを作成するときの 
 7. ツール] メニューの [ライブラリ パッケージ マネージャー、パッケージ マネージャー コンソールをクリックします。
 8. パッケージ マネージャー コンソール (PMC) では、復元をクリックします。
 9. Visual Studio を終了します。
-10. 開始、 [Azure ストレージ エミュレーター](https://msdn.microsoft.com/en-us/library/windowsazure/hh403989.aspx)です。
+10. 開始、 [Azure ストレージ エミュレーター](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx)です。
 11. 前の手順で閉じられたか、ソリューション ファイルを開いて、Visual Studio を再起動します。
 12. FixIt プロジェクトがスタートアップ プロジェクトとして設定を確認し、プロジェクトを実行するには、CTRL + F5 キーを押します。
 
@@ -240,7 +240,7 @@ Visual Studio では、新しい web プロジェクトを作成するときの 
 3. アプリケーションで*Web.config*ファイルを*MyFixIt* (web プロジェクト) をプロジェクトでの値を変更`appSettings/UseQueues`"true"にします。 
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample19.cmd?highlight=3)]
-4. 場合、 [Azure ストレージ エミュレーター](https://msdn.microsoft.com/en-us/library/windowsazure/hh403989.aspx)がまだ実行中、再び起動します。
+4. 場合、 [Azure ストレージ エミュレーター](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx)がまだ実行中、再び起動します。
 5. FixIt web プロジェクトと MyFixItCloudService プロジェクトを同時に実行します。
 
     Visual Studio 2013 を使用します。
@@ -253,7 +253,7 @@ Visual Studio では、新しい web プロジェクトを作成するときの 
     1. ソリューション エクスプ ローラーで FixIt ソリューションを右クリックし、**プロパティ**です。
     2. 選択**マルチ スタートアップ プロジェクト**.
     3. **アクション**MyFixIt と MyFixItCloudService、下にあるドロップダウン リストを選択**開始**です。
-    4. **[OK]** をクリックします。
+    4. **[OK]**をクリックします。
     5. 両方のプロジェクトを実行する場合は F5 キーを押します。
 
     MyFixItCloudService プロジェクトを実行するときに、Visual Studio は、Azure コンピューティング エミュレーターを起動します。 ファイアウォールの構成によっては、エミュレーターがファイアウォールを通過を許可する必要があります。
@@ -397,7 +397,7 @@ MyFixItCloudService\ServiceConfiguration.Cloud.cscfg では、Azure ストレー
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample34.xml?highlight=3)]
 
-クラウド サービスをデプロイする準備が整いました。 ソリューション エクスプ ローラーで MyFixItCloudService プロジェクトを右クリックし **発行**です。 詳細については、次を参照してください。"[を Azure にアプリケーションを配置](https://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)"、2 部である[このチュートリアル](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36)です。
+クラウド サービスをデプロイする準備が整いました。 ソリューション エクスプ ローラーで MyFixItCloudService プロジェクトを右クリックし **発行**です。 詳細については、次を参照してください。"[を Azure にアプリケーションを配置](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)"、2 部である[このチュートリアル](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36)です。
 
 >[!div class="step-by-step"]
 [前へ](more-patterns-and-guidance.md)

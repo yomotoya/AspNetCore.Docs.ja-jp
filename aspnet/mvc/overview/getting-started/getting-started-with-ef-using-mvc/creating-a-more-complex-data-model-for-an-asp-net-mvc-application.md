@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c4710c507f605c539d3e595a6c757f4d5393292b
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9a89aa8e7dd3b2f6ac18e0b1a9c2a9d64d27189c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application"></a>ASP.NET MVC アプリケーションのより複雑なデータ モデルの作成
 ====================
@@ -45,9 +45,9 @@ ms.lasthandoff: 01/19/2018
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample1.cs?highlight=3,12-13)]
 
-[DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性を使用してデータベースの組み込み型よりも特定のデータ型を指定します。 ここでのみが必要を追跡する、日付、日付と時刻がありません。 [DataType 列挙](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)などの多くのデータ型の提供*日付、時刻、PhoneNumber、通貨、EmailAddress*などです。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 たとえば、`mailto:`に対してリンクを作成できる[DataType.EmailAddress](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)、日付選択を指定することができます、 [DataType.Date](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx)をサポートするブラウザーで[HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、HTML 5 を出力[データ -](http://ejohn.org/blog/html-5-data-attributes/) (発音*データ ダッシュ*) HTML 5 ブラウザーで認識できる属性です。 [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、いずれかの検証を渡さないようにします。
+[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性を使用してデータベースの組み込み型よりも特定のデータ型を指定します。 ここでのみが必要を追跡する、日付、日付と時刻がありません。 [DataType 列挙](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)などの多くのデータ型の提供*日付、時刻、PhoneNumber、通貨、EmailAddress*などです。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 たとえば、`mailto:`に対してリンクを作成できる[DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)、日付選択を指定することができます、 [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)をサポートするブラウザーで[HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、HTML 5 を出力[データ -](http://ejohn.org/blog/html-5-data-attributes/) (発音*データ ダッシュ*) HTML 5 ブラウザーで認識できる属性です。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、いずれかの検証を渡さないようにします。
 
-`DataType.Date` は、表示される日付の書式を指定しません。 既定では、データ フィールドを基に、サーバーの既定の形式に従って表示[CultureInfo](https://msdn.microsoft.com/en-us/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx)です。
+`DataType.Date` は、表示される日付の書式を指定しません。 既定では、データ フィールドを基に、サーバーの既定の形式に従って表示[CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx)です。
 
 `DisplayFormat` 属性は、日付の書式を明示的に指定するために使用されます。
 
@@ -57,11 +57,11 @@ ms.lasthandoff: 01/19/2018
 
 `ApplyFormatInEditMode`設定では、指定した書式設定も適用されることを編集するためのテキスト ボックスが表示されたら、値を指定します。 (したくないをいくつかのフィールドの — たとえば、通貨の値のたくない、テキスト ボックス内の通貨記号を編集するためです)。
 
-使用することができます、 [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx)自体が、属性が使用することをお勧めでは一般に、 [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx)も属性します。 `DataType`属性を伝達、*セマンティクス*データとして、画面に表示する方法ではなくおよびのでは得られない、次の利点を提供`DisplayFormat`:
+使用することができます、 [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)自体が、属性が使用することをお勧めでは一般に、 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)も属性します。 `DataType`属性を伝達、*セマンティクス*データとして、画面に表示する方法ではなくおよびのでは得られない、次の利点を提供`DisplayFormat`:
 
 - ブラウザーが HTML5 機能を有効にすることができます (たとえば、予定表コントロールでは、ロケールに応じた通貨記号、電子メールへのリンクを表示する、いくつかのクライアント側入力検証などです。)。
-- 既定では、ブラウザーがに基づいて、正しい形式を使用してデータを表示、[ロケール](https://msdn.microsoft.com/en-us/library/vstudio/wyzd2bce.aspx)です。
-- [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性には、データを表示するために右フィールド テンプレートを選択する MVC が有効にすることができます (、 [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx)文字列テンプレートを使用)。 詳細については、Brad Wilson を参照してください。 [ASP.NET MVC 2 テンプレート](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html)です。 (MVC 2 用に記述されたがこの記事の内容も適用 ASP.NET MVC の現在のバージョンに)。
+- 既定では、ブラウザーがに基づいて、正しい形式を使用してデータを表示、[ロケール](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx)です。
+- [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性には、データを表示するために右フィールド テンプレートを選択する MVC が有効にすることができます (、 [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx)文字列テンプレートを使用)。 詳細については、Brad Wilson を参照してください。 [ASP.NET MVC 2 テンプレート](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html)です。 (MVC 2 用に記述されたがこの記事の内容も適用 ASP.NET MVC の現在のバージョンに)。
 
 使用する場合、`DataType`属性指定する必要が、日付フィールドに関連付け、 `DisplayFormat` Chrome ブラウザーで、フィールドが正常に表示されることを確認するためにも属性。 詳細については、次を参照してください。[この StackOverflow スレッド](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie)です。
 
@@ -73,23 +73,23 @@ MVC での他の日付形式を処理する方法の詳細についてを参照�
 
 ### <a name="the-stringlengthattribute"></a>StringLengthAttribute
 
-データ検証ルールおよび属性を使用して検証エラー メッセージを指定することもできます。 [StringLength 属性](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)データベースの最大長を設定し、クライアント側とサーバー側は、ASP.NET MVC の検証。 この属性には、文字列の長さを指定することも、最小値データベース スキーマに影響がありません。
+データ検証ルールおよび属性を使用して検証エラー メッセージを指定することもできます。 [StringLength 属性](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)データベースの最大長を設定し、クライアント側とサーバー側は、ASP.NET MVC の検証。 この属性には、文字列の長さを指定することも、最小値データベース スキーマに影響がありません。
 
-ユーザーが名前の 50 個を超える文字を入力しないことを確認するとします。 この制限を追加する追加[StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性を`LastName`と`FirstMidName`プロパティ、次の例で示すようにします。
+ユーザーが名前の 50 個を超える文字を入力しないことを確認するとします。 この制限を追加する追加[StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性を`LastName`と`FirstMidName`プロパティ、次の例で示すようにします。
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample3.cs?highlight=10,12)]
 
-[StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性は、名前に空白文字を入力するからユーザーを妨げることはありません。 使用することができます、[正規表現](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)入力に制限を適用する属性。 たとえば、次のコードには、最初の文字が大文字で指定し、残りの文字は英文字でが必要です。
+[StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性は、名前に空白文字を入力するからユーザーを妨げることはありません。 使用することができます、[正規表現](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)入力に制限を適用する属性。 たとえば、次のコードには、最初の文字が大文字で指定し、残りの文字は英文字でが必要です。
 
 `[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]`
 
-[MaxLength](https://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.MaxLengthAttribute.aspx)属性と同様の機能を提供する、 [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性が、クライアント側では提供しません検証します。
+[MaxLength](https://msdn.microsoft.com/library/System.ComponentModel.DataAnnotations.MaxLengthAttribute.aspx)属性と同様の機能を提供する、 [StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx)属性が、クライアント側では提供しません検証します。
 
 アプリケーションを実行し、をクリックして、**受講者**タブです。次のエラーが発生します。
 
 *データベースが作成されたために、'SchoolContext' コンテキストのバックアップ モデルが変更されました。Code First Migrations を使用して、データベースを更新するを検討してください ([https://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269))。*
 
-データベース スキーマの変更を必要とするように、データベース モデルが変更され、Entity Framework では、ことが検出されました。 UI を使用して、データベースに追加したすべてのデータを失うことがなく、スキーマを更新するのにには移行を使用します。 によって作成されたデータを変更した場合、`Seed`メソッドは、その元の状態のために変更される、 [AddOrUpdate](https://msdn.microsoft.com/en-us/library/hh846520(v=vs.103).aspx)メソッドで使用している、`Seed`メソッドです。 ([AddOrUpdate](https://msdn.microsoft.com/en-us/library/hh846520(v=vs.103).aspx)はデータベースの用語を"upsert"操作に相当します)。
+データベース スキーマの変更を必要とするように、データベース モデルが変更され、Entity Framework では、ことが検出されました。 UI を使用して、データベースに追加したすべてのデータを失うことがなく、スキーマを更新するのにには移行を使用します。 によって作成されたデータを変更した場合、`Seed`メソッドは、その元の状態のために変更される、 [AddOrUpdate](https://msdn.microsoft.com/library/hh846520(v=vs.103).aspx)メソッドで使用している、`Seed`メソッドです。 ([AddOrUpdate](https://msdn.microsoft.com/library/hh846520(v=vs.103).aspx)はデータベースの用語を"upsert"操作に相当します)。
 
 パッケージ マネージャー コンソール (PMC) では、次のコマンドを入力します。
 
@@ -109,11 +109,11 @@ MVC での他の日付形式を処理する方法の詳細についてを参照�
 
 `Column`属性を指定するデータベースが作成されるとき、列の`Student`をマップするテーブル、`FirstMidName`プロパティの名前は`FirstName`します。 つまり、ときに、コードを指す`Student.FirstMidName`、データから得られますまたはで更新される、`FirstName`の列、`Student`テーブル。 列名を指定しない場合、プロパティ名と同じ名前が付与されます。
 
-*Student.cs*ファイルに追加し、`using`の声明[System.ComponentModel.DataAnnotations.Schema](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.aspx)に列名の属性を追加し、`FirstMidName`プロパティのように、次の強調表示されたコード。
+*Student.cs*ファイルに追加し、`using`の声明[System.ComponentModel.DataAnnotations.Schema](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.aspx)に列名の属性を追加し、`FirstMidName`プロパティのように、次の強調表示されたコード。
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample5.cs?highlight=4,14)]
 
-追加、[列属性](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.columnattribute.aspx)SchoolContext をバックアップするので、データベースと一致しない、モデルを変更します。 PMC 別の移行を作成するには、次のコマンドを入力します。
+追加、[列属性](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.columnattribute.aspx)SchoolContext をバックアップするので、データベースと一致しない、モデルを変更します。 PMC 別の移行を作成するには、次のコマンドを入力します。
 
 [!code-console[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample6.cmd)]
 
@@ -125,7 +125,7 @@ MVC での他の日付形式を処理する方法の詳細についてを参照�
 
 ![](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image5.png)
 
-変更することもデータベース マッピングを使用して、 [Fluent API](https://msdn.microsoft.com/en-us/data/jj591617)ように、このチュートリアルの後半で表示されます。
+変更することもデータベース マッピングを使用して、 [Fluent API](https://msdn.microsoft.com/data/jj591617)ように、このチュートリアルの後半で表示されます。
 
 > [!NOTE]
 > 次のセクションでのすべてのエンティティ クラスの作成を完了する前にコンパイルしようとすると、コンパイラ エラーが発生する可能性があります。
@@ -141,7 +141,7 @@ MVC での他の日付形式を処理する方法の詳細についてを参照�
 
 ### <a name="the-required-attribute"></a>必須の属性
 
-[必須の属性](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx)名プロパティの必須フィールドを使用します。 `Required attribute`は必要ありません値の型など、DateTime、int、double、および float です。 必須フィールドとして扱われる本質的にようににより、値の型に null の値を割り当てることはできません。 削除することで、[必須の属性](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx)の最小の長さのパラメーターに置き換えると、`StringLength`属性。
+[必須の属性](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx)名プロパティの必須フィールドを使用します。 `Required attribute`は必要ありません値の型など、DateTime、int、double、および float です。 必須フィールドとして扱われる本質的にようににより、値の型に null の値を割り当てることはできません。 削除することで、[必須の属性](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx)の最小の長さのパラメーターに置き換えると、`StringLength`属性。
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample8.cs?highlight=2)]
 
@@ -169,7 +169,7 @@ MVC での他の日付形式を処理する方法の詳細についてを参照�
 
 ### <a name="the-courses-and-officeassignment-navigation-properties"></a>コースと OfficeAssignment ナビゲーション プロパティ
 
-`Courses`と`OfficeAssignment`プロパティは、ナビゲーション プロパティ。 前に説明したとおり、通常は定義として[仮想](https://msdn.microsoft.com/en-us/library/9fkccyh4(v=vs.110).aspx)と呼ばれる Entity Framework 機能の活用できるように[遅延読み込み](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx)です。 さらに、ナビゲーション プロパティが複数のエンティティを保持できる場合、型実装する必要があります、 [ICollection&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/92t2ye13.aspx)インターフェイスです。 たとえば[IList&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/5y536ey6.aspx)はなく修飾[IEnumerable&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/9eekhta0.aspx)ため`IEnumerable<T>`実装していません[追加](https://msdn.microsoft.com/en-us/library/63ywd54z.aspx)。
+`Courses`と`OfficeAssignment`プロパティは、ナビゲーション プロパティ。 前に説明したとおり、通常は定義として[仮想](https://msdn.microsoft.com/library/9fkccyh4(v=vs.110).aspx)と呼ばれる Entity Framework 機能の活用できるように[遅延読み込み](https://msdn.microsoft.com/magazine/hh205756.aspx)です。 さらに、ナビゲーション プロパティが複数のエンティティを保持できる場合、型実装する必要があります、 [ICollection&lt;T&gt; ](https://msdn.microsoft.com/library/92t2ye13.aspx)インターフェイスです。 たとえば[IList&lt;T&gt; ](https://msdn.microsoft.com/library/5y536ey6.aspx)はなく修飾[IEnumerable&lt;T&gt; ](https://msdn.microsoft.com/library/9eekhta0.aspx)ため`IEnumerable<T>`実装していません[追加。](https://msdn.microsoft.com/library/63ywd54z.aspx).
 
 インストラクターは任意の数のコースを教えることができますので、`Courses`のコレクションとして定義された`Course`エンティティです。
 
@@ -199,7 +199,7 @@ MVC での他の日付形式を処理する方法の詳細についてを参照�
 
 ### <a name="the-foreignkey-attribute"></a>ForeignKey 属性
 
-0 または 1 を 1 つのリレーションシップまたは 2 つのエンティティ間の一対一のリレーションシップがある場合 (との間でこのような`OfficeAssignment`と`Instructor`)、EF はリレーションシップのエンドは、プリンシパルとする end が依存する動作できません。 一対一リレーションシップでは、その他のクラスには、各クラスに参照ナビゲーション プロパティがあります。 [ForeignKey 属性](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.foreignkeyattribute.aspx)リレーションシップを確立するために依存するクラスに適用できます。 省略した場合、 [ForeignKey 属性](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.foreignkeyattribute.aspx)移行を作成するときに、次のエラーを取得します。
+0 または 1 を 1 つのリレーションシップまたは 2 つのエンティティ間の一対一のリレーションシップがある場合 (との間でこのような`OfficeAssignment`と`Instructor`)、EF はリレーションシップのエンドは、プリンシパルとする end が依存する動作できません。 一対一リレーションシップでは、その他のクラスには、各クラスに参照ナビゲーション プロパティがあります。 [ForeignKey 属性](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.foreignkeyattribute.aspx)リレーションシップを確立するために依存するクラスに適用できます。 省略した場合、 [ForeignKey 属性](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.foreignkeyattribute.aspx)移行を作成するときに、次のエラーを取得します。
 
 *型 'ContosoUniversity.Models.OfficeAssignment' および 'ContosoUniversity.Models.Instructor' 間のアソシエーションのプリンシパル end を特定できません。このアソシエーションのプリンシパル end は、リレーションシップ fluent API またはデータ注釈を使用して明示的に構成する必要があります。*
 
@@ -223,7 +223,7 @@ Course エンティティは、外部キーのプロパティを持つ`Departmen
 
 ### <a name="the-databasegenerated-attribute"></a>DatabaseGenerated 属性
 
-[DatabaseGenerated 属性](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute.aspx)で、 [None](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.110).aspx)上のパラメーター、`CourseID`プロパティは、主キーの値は、ユーザーによって提供されるではなくデータベースによって生成されたを指定します。
+[DatabaseGenerated 属性](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute.aspx)で、 [None](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.110).aspx)上のパラメーター、`CourseID`プロパティは、主キーの値は、ユーザーによって提供されるではなくデータベースによって生成されたを指定します。
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample16.cs)]
 
@@ -253,11 +253,11 @@ Course エンティティは、外部キーのプロパティを持つ`Departmen
 
 ### <a name="the-column-attribute"></a>列の属性
 
-以前を使用して、[列属性](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.columnattribute.aspx)列名のマッピングを変更します。 コードで、 `Department` 、エンティティ、 `Column` SQL データ型マッピングの SQL Server を使用して列を定義するように変更する属性が使用されている[money](https://msdn.microsoft.com/en-us/library/ms179882.aspx)データベース内の型。
+以前を使用して、[列属性](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.columnattribute.aspx)列名のマッピングを変更します。 コードで、 `Department` 、エンティティ、 `Column` SQL データ型マッピングの SQL Server を使用して列を定義するように変更する属性が使用されている[money](https://msdn.microsoft.com/library/ms179882.aspx)データベース内の型。
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample21.cs)]
 
-列マッピングは一般的に必要ですが、Entity Framework は通常、プロパティを定義する CLR 型に基づく適切な SQL Server データ型が選択されるためです。 CLR `decimal` SQL Server へのマップ」と入力`decimal`型です。 ここでは、通貨、列が保持するを特定し、 [money](https://msdn.microsoft.com/en-us/library/ms179882.aspx)データ型がより適しています。 CLR データ型と SQL Server データ型に一致する方法の詳細については、次を参照してください。 [Entity Framework 用 SqlClient](https://msdn.microsoft.com/en-us/library/bb896344.aspx)です。
+列マッピングは一般的に必要ですが、Entity Framework は通常、プロパティを定義する CLR 型に基づく適切な SQL Server データ型が選択されるためです。 CLR `decimal` SQL Server へのマップ」と入力`decimal`型です。 ここでは、通貨、列が保持するを特定し、 [money](https://msdn.microsoft.com/library/ms179882.aspx)データ型がより適しています。 CLR データ型と SQL Server データ型に一致する方法の詳細については、次を参照してください。 [Entity Framework 用 SqlClient](https://msdn.microsoft.com/library/bb896344.aspx)です。
 
 ### <a name="foreign-key-and-navigation-properties"></a>Foreign Key 制約とナビゲーション プロパティ
 
@@ -321,11 +321,11 @@ Entity Framework を自動的に作成、`CourseInstructor`して、テーブル
 
 ![School_data_model_diagram](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image15.png)
 
-多対多リレーションシップの線以外 (\*に\*) と一対多リレーションシップの線 (1 ~ \*)、ことがわかります (1 対 0..1) の 0 または 1 を 1 つのリレーションシップの線の間、`Instructor`と`OfficeAssignment`エンティティと 0-または-1-対多リレーションシップの線 (0..1 対\*)、インストラクターと Department エンティティ間です。
+多対多リレーションシップの線以外 (\*に\*) と一対多リレーションシップの線 (1 ~ \*)、ことがわかります (1 対 0.1) の 0 または 1 を 1 つのリレーションシップの線の間、`Instructor`と`OfficeAssignment`エンティティと 0-または-1-対多リレーションシップの線 (0.1 対\*)、インストラクターと Department エンティティ間です。
 
 ## <a name="customize-the-data-model-by-adding-code-to-the-database-context"></a>データベース コンテキストにコードを追加することで、データ モデルをカスタマイズします。
 
-次に新しいエンティティを追加、`SchoolContext`クラスし、を使用して、マッピングの一部はカスタマイズ[fluent API](https://msdn.microsoft.com/en-us/data/jj591617)呼び出しです。 API は、使用しているため、多くの場合、一連のメソッド呼び出しに次の例のように、1 つのステートメントを組み合わせるに"fluent"。
+次に新しいエンティティを追加、`SchoolContext`クラスし、を使用して、マッピングの一部はカスタマイズ[fluent API](https://msdn.microsoft.com/data/jj591617)呼び出しです。 API は、使用しているため、多くの場合、一連のメソッド呼び出しに次の例のように、1 つのステートメントを組み合わせるに"fluent"。
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample28.cs)]
 
@@ -337,7 +337,7 @@ Entity Framework を自動的に作成、`CourseInstructor`して、テーブル
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample29.cs)]
 
-新しいステートメント、 [OnModelCreating](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx)メソッドは、多対多の結合テーブルを構成します。
+新しいステートメント、 [OnModelCreating](https://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx)メソッドは、多対多の結合テーブルを構成します。
 
 - 多対多のリレーションシップ、`Instructor`と`Course`エンティティ、コードが、結合テーブルのテーブルと列の名前を指定します。 コード最初に構成できる多対多リレーションシップをこのコードを使用せずがしないで呼び出す場合、表示される既定の名前など`InstructorInstructorID`の`InstructorID`列です。
 

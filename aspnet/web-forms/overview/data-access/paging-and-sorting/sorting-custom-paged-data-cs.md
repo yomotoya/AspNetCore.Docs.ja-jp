@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f171929da3610f70f3641030d9a5fdb88f610f7f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a71405bc84304bf7c47f400dfa9886208316d223
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-custom-paged-data-c"></a>ページングされたデータ (c#) をカスタムの並べ替え
 ====================
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/10/2017
 
 - 使用できます。 並べ替え式の各ハード コーディングされたクエリを作成します。使用して、 `IF/ELSE` T-SQL ステートメントを実行するクエリを特定します。
 - 使用して、`CASE`動的を提供するステートメント`ORDER BY`式に基づいて、 `@sortExpressio` n の入力パラメーターは、動的にクエリ結果の並べ替え」セクションに使用されているを参照してください[SQL の電源`CASE`ステートメント](http://www.4guysfromrolla.com/webtech/102704-1.shtml)詳細についてはします。
-- ストアド プロシージャ内の文字列として、適切なクエリを作成し、使用して[、`sp_executesql`システム ストアド プロシージャ](https://msdn.microsoft.com/en-us/library/ms188001.aspx)動的クエリを実行します。
+- ストアド プロシージャ内の文字列として、適切なクエリを作成し、使用して[、`sp_executesql`システム ストアド プロシージャ](https://msdn.microsoft.com/library/ms188001.aspx)動的クエリを実行します。
 
 これらの回避策のそれぞれで、いくつかの欠点があります。 最初のオプションは、管理が容易で、その他の 2 つとして考えられる並べ替え式ごとにクエリを作成することが必要なは。 そのため、後でする場合 GridView に新しいで並べ替え可能なフィールドを追加するも必要に戻って、ストアド プロシージャを更新します。 2 番目の方法には、文字列以外のデータベース列で並べ替える場合は、パフォーマンスの問題を導入し、最初のと同様の保守容易性の問題からも低下する項目がいくつかがあります。 攻撃者が、任意の入力パラメーターの値を渡してストアド プロシージャを実行できる場合、動的 SQL を使用して、3 番目の選択肢が SQL インジェクション攻撃のリスクを紹介します。
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 11/10/2017
 
 使用するメソッドを含めるには、DAL と BLL が補完、`GetProductsPagedAndSorted`で ObjectDataSource を構成するのには、残っているストアド プロシージャは、`SortParameter.aspx`に渡す新しい BLL メソッドを使用する ページ、`SortExpression`パラメーターに基づいている、ユーザーが要求して、結果を並べ替える列です。
 
-ObjectDataSource s を変更することによって開始`SelectMethod`から`GetProductsPaged`に`GetProductsPagedAndSorted`です。 これは、データ ソースの構成ウィザードの [プロパティ] ウィンドウから、または宣言構文から直接実行できます。 次に、ObjectDataSource 秒の値を指定する必要があります[`SortParameterName`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx)です。 ObjectDataSource が GridView s に渡すしようとした場合、このプロパティを設定すると、`SortExpression`プロパティを`SelectMethod`です。 名前を持つがの値と等しい入力パラメーター、ObjectDataSource が具体的には、検索、`SortParameterName`プロパティです。 BLL s 以降`GetProductsPagedAndSorted`メソッドがという名前の並べ替え式の入力パラメーターを持つ`sortExpression`、集合 ObjectDataSource の`SortExpression`sortExpression にプロパティです。
+ObjectDataSource s を変更することによって開始`SelectMethod`から`GetProductsPaged`に`GetProductsPagedAndSorted`です。 これは、データ ソースの構成ウィザードの [プロパティ] ウィンドウから、または宣言構文から直接実行できます。 次に、ObjectDataSource 秒の値を指定する必要があります[`SortParameterName`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx)です。 ObjectDataSource が GridView s に渡すしようとした場合、このプロパティを設定すると、`SortExpression`プロパティを`SelectMethod`です。 名前を持つがの値と等しい入力パラメーター、ObjectDataSource が具体的には、検索、`SortParameterName`プロパティです。 BLL s 以降`GetProductsPagedAndSorted`メソッドがという名前の並べ替え式の入力パラメーターを持つ`sortExpression`、集合 ObjectDataSource の`SortExpression`sortExpression にプロパティです。
 
 これら 2 つの変更を加えたら、ObjectDataSource s 宣言の構文を次のようになります。
 
@@ -139,7 +139,7 @@ ObjectDataSource s を変更することによって開始`SelectMethod`から`G
 
 GridView で並べ替えを有効にするだけで、並べ替えを有効にするチェック ボックスをオン GridView の s スマート タグには、GridView s の設定で`AllowSorting`プロパティを`true`LinkButton として表示するには、各列のヘッダー テキストを原因とします。 エンドユーザーは、あるヘッダーの 1 つでクリックするは、ポストバックが引き続き行われ、次の手順までに経過します。
 
-1. GridView の更新プログラム、 [ `SortExpression`プロパティ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.sortexpression.aspx)の値に、`SortExpression`のリンクを持つヘッダーがクリックしてされたフィールドの
+1. GridView の更新プログラム、 [ `SortExpression`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx)の値に、`SortExpression`のリンクを持つヘッダーがクリックしてされたフィールドの
 2. ObjectDataSource 呼び出します BLL s `GetProductsPagedAndSorted` GridView s に渡して、メソッド`SortExpression`プロパティ、メソッドの値として`sortExpression`入力パラメーター (と共に、適切な`startRowIndex`と`maximumRows`入力パラメーターの値)
 3. BLL 呼び出します DAL の`GetProductsPagedAndSorted`メソッド
 4. DAL の実行、`GetProductsPagedAndSorted`ストアド プロシージャを渡すことで、`@sortExpression`パラメーター (と共に、`@startRowIndex`と`@maximumRows`入力パラメーターの値)
@@ -174,7 +174,7 @@ GridView で並べ替えを有効にするだけで、並べ替えを有効に�
 **図 10**:「結果これで並べ替えることができます Supplier ([フルサイズのイメージを表示するには、をクリックして](sorting-custom-paged-data-cs/_static/image16.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 デザイン時に、結果が並べ替え順序を指定する、カスタム ページングの実装前のチュートリアルで調べることが必要です。 つまり、これは、カスタム ページングの実装を実装しました提供できなかったことを同時に並べ替え機能意味していました。 このチュートリアルでは、最初に含めるストアド プロシージャを拡張することによってこのような制限をたかお、`@sortExpression`入力パラメーターの結果を並べ替える可能性があります。
 
