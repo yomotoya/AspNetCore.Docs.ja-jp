@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 059dc3a163c646877da40a73bcc9a75eb38fb345
-ms.sourcegitcommit: 459cb3289741a3f46325e605a617dc926ee0563d
+ms.openlocfilehash: a08c1b59c7be3a27fc11e6737a1cb4b4208f2901
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 
@@ -348,7 +348,7 @@ public string Message { get; set; }
 
 [!code-cshtml[main](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml?highlight=12-13)]
 
-<!-- Review: the FormActionTagHelper applies to all <form /> elements on a Razor page, even when there is no `asp-` attribute   -->
+<!-- Review: the FormActionTagHelper applies to all <form /> elements on a Razor page, even when there's no `asp-` attribute   -->
 
 前の例のフォームには、それぞれが `FormActionTagHelper` を使用して異なる URL に送信する 2 つの送信ボタンがあります。 `asp-page-handler` 属性は、`asp-page` のコンパニオンです。 `asp-page-handler` はページごとに定義されている各ハンドラー メソッドに送信する URL を生成します。 サンプルは現在のページにリンクしているため、`asp-page` は指定されません。
 
@@ -370,7 +370,7 @@ URL 内のクエリ文字列 `?handler=JoinList` が気に入らない場合は�
 
 上記のルートでは、クエリ文字列の代わりにハンドラー名を URL パスに挿入しています。 `handler` の後の `?` は、ルート パラメーターが省略可能なことを意味します。
 
-`@page` を使用して、ページのルートに追加のセグメントとパラメーターを追加できます。 ここにあるものは何でもページの既定のルートに**追加**されます。 絶対パスまたは仮想パスを使用してページのルート (`"~/Some/Other/Path"` など) を変更することはサポートされていません。
+`@page` を使用して、ページのルートに追加のセグメントとパラメーターを追加できます。 ここにあるものはすべて、既定のルートに**追加**されます。 絶対パスまたは仮想パスを使用してページのルート (`"~/Some/Other/Path"` など) を変更することはサポートされていません。
 
 ## <a name="configuration-and-settings"></a>構成と設定
 

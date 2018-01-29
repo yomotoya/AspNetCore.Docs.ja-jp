@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2155f9b0893a0b1d3cf60bc63d80df4417649beb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 38fc60b79a348ab198069a9a80a085e0dc4bcb88
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-the-membership-schema-in-sql-server-c"></a>SQL Server (c#) でのメンバーシップのスキーマの作成
 ====================
@@ -33,7 +33,7 @@ Web サイトの訪問者を識別するフォーム認証を使用して調べ�
 
 ASP.NET 2.0 では、前に、開発者は、これらすべてのユーザー アカウントに関連するタスクを実装するためのフックでした。 幸運にも ASP.NET チームはこの欠点を認識し、メンバーシップ フレームワーク ASP.NET 2.0 で導入されました。 メンバーシップのフレームワークとは、中核となるユーザー アカウントに関連するタスクを実行するためのプログラム インターフェイスを提供する .NET Framework のクラスのセットです。 このフレームワークが上に構築される、[プロバイダー モデル](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx)、カスタマイズされた実装を標準化された API に接続できます。
 
-説明したように、 <a id="Tutorial1"> </a> [*セキュリティの基礎と ASP.NET サポート*](../introduction/security-basics-and-asp-net-support-cs.md)チュートリアルでは、次の 2 つの組み込みのメンバーシップ プロバイダーが付属して .NET Framework: [ `ActiveDirectoryMembershipProvider` ](https://msdn.microsoft.com/en-us/library/system.web.security.activedirectorymembershipprovider.aspx)および[ `SqlMembershipProvider`](https://msdn.microsoft.com/en-us/library/system.web.security.sqlmembershipprovider.aspx)です。 その名前からわかるように、`SqlMembershipProvider`ユーザー ストアとして Microsoft SQL Server データベースを使用します。 アプリケーションでこのプロバイダーを使用するためには、ストアとして使用するには、どのようなデータベース プロバイダーに指示する必要があります。 ご想像のとおり、`SqlMembershipProvider`して、特定のデータベース テーブル、ビュー、およびストアド プロシージャ、ユーザー ストアのデータベースが必要です。 選択したデータベースにこの予期されるスキーマを追加する必要があります。
+説明したように、 <a id="Tutorial1"> </a> [*セキュリティの基礎と ASP.NET サポート*](../introduction/security-basics-and-asp-net-support-cs.md)チュートリアルでは、次の 2 つの組み込みのメンバーシップ プロバイダーが付属して .NET Framework: [ `ActiveDirectoryMembershipProvider` ](https://msdn.microsoft.com/library/system.web.security.activedirectorymembershipprovider.aspx)および[ `SqlMembershipProvider`](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx)です。 その名前からわかるように、`SqlMembershipProvider`ユーザー ストアとして Microsoft SQL Server データベースを使用します。 アプリケーションでこのプロバイダーを使用するためには、ストアとして使用するには、どのようなデータベース プロバイダーに指示する必要があります。 ご想像のとおり、`SqlMembershipProvider`して、特定のデータベース テーブル、ビュー、およびストアド プロシージャ、ユーザー ストアのデータベースが必要です。 選択したデータベースにこの予期されるスキーマを追加する必要があります。
 
 このチュートリアルを使用するために必要なスキーマをデータベースに追加するための手法を調べることで開始、`SqlMembershipProvider`です。 次に、スキーマ内のキーのテーブルを確認およびその目的と重要性について説明されます。 このチュートリアルは、ASP.NET アプリケーション メンバーシップ フレームワークが使用するプロバイダーを確認する方法を見てで終了します。
 
@@ -55,7 +55,7 @@ ASP.NET アプリケーションのデータは通常、複数のデータベー
 2 番目のチュートリアルではデータベースがまだ必要ありませんのでを構築してきましたアプリケーションです。 必要がありますいずれかのようになりましたが、ただし、ユーザー ストアのです。 みましょういずれかを作成し、しを追加で必要なスキーマ、`SqlMembershipProvider`プロバイダー (手順 2. を参照してください)。
 
 > [!NOTE]
-> このチュートリアルの系列全体では、使用、 [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/en-us/sql/Aa336346.aspx)データベースに、アプリケーション テーブルを保存して、`SqlMembershipProvider`スキーマです。 この決定をした 2 つの理由: 最初に、そのコストのため無料の Express Edition は SQL Server 2005; の最も変わるようにアクセス可能なバージョンSQL Server 2005 Express Edition のデータベースを配置して、web アプリケーションの直接の 2 番目に、`App_Data`フォルダー、せずを再展開が任意の特殊なセットアップ手順と、データベースをパッケージ化し、web アプリケーションは同時に 1 つの ZIP ファイルを簡単になりますまたは、構成オプション。 進めるために非-Express Edition のバージョンの SQL Server を使用する場合は、自由にできます。 手順は、ほぼ同じです。 `SqlMembershipProvider`スキーマは Microsoft SQL Server 2000 のバージョンで動作し、セットアップします。
+> このチュートリアルの系列全体では、使用、 [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/sql/Aa336346.aspx)データベースに、アプリケーション テーブルを保存して、`SqlMembershipProvider`スキーマです。 この決定をした 2 つの理由: 最初に、そのコストのため無料の Express Edition は SQL Server 2005; の最も変わるようにアクセス可能なバージョンSQL Server 2005 Express Edition のデータベースを配置して、web アプリケーションの直接の 2 番目に、`App_Data`フォルダー、せずを再展開が任意の特殊なセットアップ手順と、データベースをパッケージ化し、web アプリケーションは同時に 1 つの ZIP ファイルを簡単になりますまたは、構成オプション。 進めるために非-Express Edition のバージョンの SQL Server を使用する場合は、自由にできます。 手順は、ほぼ同じです。 `SqlMembershipProvider`スキーマは Microsoft SQL Server 2000 のバージョンで動作し、セットアップします。
 
 
 右クリックし、ソリューション エクスプ ローラーで、`App_Data`フォルダーに新しい項目の追加を選択します。 (表示されない場合、`App_Data`プロジェクトのフォルダーにソリューション エクスプ ローラーでプロジェクトを右クリックし、ASP.NET フォルダーの追加 を選択および pick `App_Data`)。新しい項目の追加 ダイアログ ボックスからという名前の新しい SQL データベースの追加を選択します。`SecurityTutorials.mdf`です。 このチュートリアルでは、追加、`SqlMembershipProvider`追加作成する後続のチュートリアルです。 このデータベースにスキーマを、アプリケーションのデータをキャプチャするテーブル。
@@ -76,7 +76,7 @@ ASP.NET アプリケーションのデータは通常、複数のデータベー
 
 ## <a name="step-2-adding-thesqlmembershipproviderschema-to-the-database"></a>手順 2: 追加、`SqlMembershipProvider`データベースにスキーマ
 
-`SqlMembershipProvider`テーブル、ビュー、およびストアド プロシージャのユーザー ストア データベースにインストールする特定のセットが必要です。 使用してこれらの必要なデータベース オブジェクトを追加することができます、 [ `aspnet_regsql.exe`ツール](https://msdn.microsoft.com/en-us/library/ms229862.aspx)です。 このファイルにあります、`%WINDIR%\Microsoft.Net\Framework\v2.0.50727\`フォルダーです。
+`SqlMembershipProvider`テーブル、ビュー、およびストアド プロシージャのユーザー ストア データベースにインストールする特定のセットが必要です。 使用してこれらの必要なデータベース オブジェクトを追加することができます、 [ `aspnet_regsql.exe`ツール](https://msdn.microsoft.com/library/ms229862.aspx)です。 このファイルにあります、`%WINDIR%\Microsoft.Net\Framework\v2.0.50727\`フォルダーです。
 
 > [!NOTE]
 > `aspnet_regsql.exe`ツールには、コマンド ライン機能と、グラフィカル ユーザー インターフェイスの両方が用意されています。 グラフィカル インターフェイスよりユーザー フレンドリなは、このチュートリアルで説明されます。 コマンド ライン インターフェイスが役に場合の追加、`SqlMembershipProvider`を自動化する必要があるスキーマ、スクリプトまたはテスト シナリオの自動ビルドのようです。
@@ -204,7 +204,7 @@ ASP.NET アプリケーションでのメンバーシップとロールのフレ
 **図 11**: ユーザー アカウントがするパーティション分割されているアプリケーション間で複数 ([フルサイズのイメージを表示するをクリックして](creating-the-membership-schema-in-sql-server-cs/_static/image33.png))
 
 
-`aspnet_Applications`テーブルは、これらのパーティションの定義内容。 ユーザー アカウント情報を格納するデータベースを使用する各アプリケーションは、このテーブルの行で表されます。 `aspnet_Applications`テーブルには 4 つの列: `ApplicationId`、 `ApplicationName`、 `LoweredApplicationName`、および`Description`です。 `ApplicationId`型は[ `uniqueidentifier` ](https://msdn.microsoft.com/en-us/library/ms187942.aspx)であり、テーブルの主キーです。`ApplicationName`アプリケーションごとに一意のわかりやすい名前を提供します。
+`aspnet_Applications`テーブルは、これらのパーティションの定義内容。 ユーザー アカウント情報を格納するデータベースを使用する各アプリケーションは、このテーブルの行で表されます。 `aspnet_Applications`テーブルには 4 つの列: `ApplicationId`、 `ApplicationName`、 `LoweredApplicationName`、および`Description`です。 `ApplicationId`型は[ `uniqueidentifier` ](https://msdn.microsoft.com/library/ms187942.aspx)であり、テーブルの主キーです。`ApplicationName`アプリケーションごとに一意のわかりやすい名前を提供します。
 
 他のメンバーシップおよびロールに関連するテーブルがリンクに戻す、`ApplicationId`フィールドに`aspnet_Applications`です。 たとえば、`aspnet_Users`ユーザー アカウントごとにレコードを含むテーブルには、`ApplicationId`外部キー フィールド以外の ditto、`aspnet_Roles`テーブル。 `ApplicationId`ユーザー アカウントに、アプリケーション パーティションを指定するこれらのテーブル内のフィールドまたはロールが所属します。
 
@@ -216,7 +216,7 @@ ASP.NET アプリケーションでのメンバーシップとロールのフレ
 - `UserName`
 - `ApplicationId`
 
-`UserId`主キーである (型`uniqueidentifier`)。 `UserName`型は`nvarchar(256)`になり、パスワード、と共に、ユーザーの資格情報をします。 (ユーザーのパスワードに保存される、`aspnet_Membership`テーブルです)。`ApplicationId`で特定のアプリケーションにユーザー アカウントをリンク`aspnet_Applications`です。 ある複合[`UNIQUE`制約](https://msdn.microsoft.com/en-us/library/ms191166.aspx)上、`UserName`と`ApplicationId`列です。 こうことをアプリケーションで指定された各ユーザー名は一意でまだこれにより、同じを`UserName`別のアプリケーションに使用します。
+`UserId`主キーである (型`uniqueidentifier`)。 `UserName`型は`nvarchar(256)`になり、パスワード、と共に、ユーザーの資格情報をします。 (ユーザーのパスワードに保存される、`aspnet_Membership`テーブルです)。`ApplicationId`で特定のアプリケーションにユーザー アカウントをリンク`aspnet_Applications`です。 ある複合[`UNIQUE`制約](https://msdn.microsoft.com/library/ms191166.aspx)上、`UserName`と`ApplicationId`列です。 こうことをアプリケーションで指定された各ユーザー名は一意でまだこれにより、同じを`UserName`別のアプリケーションに使用します。
 
 `aspnet_Membership`テーブルには、ユーザーのパスワード、電子メール アドレス、最後のログイン日と時間、およびようなど、追加のユーザー アカウント情報が含まれています。 内のレコードは一対一で対応、`aspnet_Users`と`aspnet_Membership`テーブル。 このリレーションシップを保証、`UserId`フィールドに`aspnet_Membership`テーブルの主キーとして機能します。 同様に、`aspnet_Users`テーブル、`aspnet_Membership`が含まれています、`ApplicationId`特定のアプリケーション パーティションにこの情報に結合するフィールドです。
 
@@ -232,13 +232,13 @@ ASP.NET アプリケーションでのメンバーシップとロールのフレ
 
 パスワードを格納する列は`Password`、 `PasswordFormat`、および`PasswordSalt`です。 `PasswordFormat`型のフィールドである`int`値を持つが、パスワードを格納するために使用される手法を示します。 オフの場合は 0 以外の場合は Hashed を 1 以外の場合は暗号化の 2 です。 `PasswordSalt`使用されていません。 パスワードの記憶域手法に関係なく、ランダムに生成された文字列が割り当てられています。値`PasswordSalt`はパスワードのハッシュを計算するときにのみ使用します。 最後に、`Password`列には、実際のパスワード データが含まれています。 を使用して、プレーン テキスト パスワード、パスワード、または暗号化されたパスワードのハッシュ。
 
-表 1 は、どのようなこれら 3 つの列のようになります、さまざまなストレージ技術の MySecret パスワードを格納する場合を示しています! 。
+表 1 は、どのようなこれら 3 つの列のようになります、さまざまなストレージ技術の MySecret パスワードを格納する場合を示しています! である必要があります。
 
-| **記憶域手法&lt;\_o3a\_p/&gt;** | **パスワード&lt;\_o3a\_p/&gt;** | **PasswordFormat&lt;\_o3a\_p/&gt;** | **PasswordSalt&lt;\_o3a\_p/&gt;** |
+| **記憶域手法&lt;\_o3a\_p/&gt;** | **パスワード&lt;\_o3a\_p/&gt;** | **PasswordFormat&lt;\_o3a\_p/&gt;** | **PasswordSalt&lt;\_o3a\_p /&gt;** |
 | --- | --- | --- | --- |
-| Clear | MySecret! | 0 | tTnkPlesqissc2y2SMEygA = = |
-| ハッシュ | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM = | 1 | wFgjUfhdUFOCKQiI61vtiQ = = |
-| 暗号化 | 62RZgDvhxykkqsMchZ0Yly7HS6onhpaoCYaRxV8g0F4CW56OXUU3e7Inza9j9BKp | 2 | LSRzhGS/aa/oqAXGLHJNBw = = |
+| Clear | MySecret! | 0 | tTnkPlesqissc2y2SMEygA== |
+| ハッシュ | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM= | 1 | wFgjUfhdUFOCKQiI61vtiQ== |
+| 暗号化 | 62RZgDvhxykkqsMchZ0Yly7HS6onhpaoCYaRxV8g0F4CW56OXUU3e7Inza9j9BKp | 2 | LSRzhGS/aa/oqAXGLHJNBw== |
 
 **表 1**: パスワード MySecret を格納するときに、パスワードに関連するフィールドの値の例です。
 
@@ -262,13 +262,13 @@ ASP.NET アプリケーションでのメンバーシップとロールのフレ
 
 すべてのメンバーシップとロールのフレームワークのなどのプロバイダー モデルをサポートするフレームワークの自体の実装の詳細が不足しているし、プロバイダー クラスには、その責任を委任する代わりにします。 メンバーシップ framework の場合、`Membership`クラスが、ユーザー アカウントを管理するための API を定義しますが、任意のユーザー ストアと直接やり取りしません。 代わりに、`Membership`クラスのメソッドに渡す要求の構成済みのプロバイダーを使用する、`SqlMembershipProvider`です。 内のメソッドのいずれかを呼び出しすると、`Membership`クラス、方法は、メンバーシップ framework 認識への呼び出しを委任する、`SqlMembershipProvider`しますか?
 
-`Membership`クラスには、 [ `Providers`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.security.membership.providers.aspx)メンバーシップ、フレームワークによってすべての使用可能な登録済みのプロバイダー クラスへの参照を格納しています。 各登録されているプロバイダーでは、関連付けられている名前と種類があります。 名前で特定のプロバイダーを参照するわかりやすい手段が提供、`Providers`コレクション型は、プロバイダー クラスを識別します。 さらに、各登録済みのプロバイダーには、構成設定が含まれます。 メンバーシップ フレームワークの構成設定を含める`passwordFormat`と`requiresUniqueEmail`、その他の多くの間でします。 によって使用される構成設定の完全な一覧については、表 2 を参照してください、`SqlMembershipProvider`です。
+`Membership`クラスには、 [ `Providers`プロパティ](https://msdn.microsoft.com/library/system.web.security.membership.providers.aspx)メンバーシップ、フレームワークによってすべての使用可能な登録済みのプロバイダー クラスへの参照を格納しています。 各登録されているプロバイダーでは、関連付けられている名前と種類があります。 名前で特定のプロバイダーを参照するわかりやすい手段が提供、`Providers`コレクション型は、プロバイダー クラスを識別します。 さらに、各登録済みのプロバイダーには、構成設定が含まれます。 メンバーシップ フレームワークの構成設定を含める`passwordFormat`と`requiresUniqueEmail`、その他の多くの間でします。 によって使用される構成設定の完全な一覧については、表 2 を参照してください、`SqlMembershipProvider`です。
 
 `Providers`プロパティの内容は、web アプリケーションの構成の設定で指定します。 既定では、すべての web アプリケーションがあるという名前のプロバイダー`AspNetSqlMembershipProvider`型の`SqlMembershipProvider`します。 この既定のメンバーシップ プロバイダーが登録されている`machine.config`(にある`%WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG)`:
 
 [!code-xml[Main](creating-the-membership-schema-in-sql-server-cs/samples/sample1.xml)]
 
-上に示すマークアップとして、 [ `<membership>`要素](https://msdn.microsoft.com/en-us/library/1b9hw62f.aspx)中に、メンバーシップ フレームワークの構成設定を定義、 [ `<providers>`子要素](https://msdn.microsoft.com/en-us/library/6d4936ht.aspx)登録されているを指定しますプロバイダー。 プロバイダーが追加することも、またはを使用して削除、 [ `<add>` ](https://msdn.microsoft.com/en-us/library/whae3t94.aspx)または[ `<remove>` ](https://msdn.microsoft.com/en-us/library/aykw9a6d.aspx)要素; 使用して、 [ `<clear>` ](https://msdn.microsoft.com/en-us/library/t062y6yc.aspx)現在すべてを削除する要素登録済みカスタム プロバイダー。 上に示すマークアップとして`machine.config`という名前のプロバイダーを追加`AspNetSqlMembershipProvider`型の`SqlMembershipProvider`します。
+上に示すマークアップとして、 [ `<membership>`要素](https://msdn.microsoft.com/library/1b9hw62f.aspx)中に、メンバーシップ フレームワークの構成設定を定義、 [ `<providers>`子要素](https://msdn.microsoft.com/library/6d4936ht.aspx)登録されているを指定しますプロバイダー。 プロバイダーが追加することも、またはを使用して削除、 [ `<add>` ](https://msdn.microsoft.com/library/whae3t94.aspx)または[ `<remove>` ](https://msdn.microsoft.com/library/aykw9a6d.aspx)要素; 使用して、 [ `<clear>` ](https://msdn.microsoft.com/library/t062y6yc.aspx)現在すべてを削除する要素登録済みカスタム プロバイダー。 上に示すマークアップとして`machine.config`という名前のプロバイダーを追加`AspNetSqlMembershipProvider`型の`SqlMembershipProvider`します。
 
 加え、`name`と`type`、属性、`<add>`要素には、さまざまな構成設定の値を定義する属性が含まれています。 表 2 は、使用可能な一覧`SqlMembershipProvider`-ごとの説明と共に、特定の構成設定。
 
@@ -329,7 +329,7 @@ ASP.NET アプリケーションでのメンバーシップとロールのフレ
 
 登録するだけでなく、`SecurityTutorialsSqlMembershipProvider`プロバイダー、上記のマークアップで定義、`SecurityTutorialsSqlMembershipProvider`既定のプロバイダーとして (を使用して、`defaultProvider`属性、`<membership>`要素)。 メンバーシップ フレームワークが複数の登録済みカスタム プロバイダーを持てることに注意してください。 `AspNetSqlMembershipProvider`の最初のプロバイダーとして登録されて`machine.config`、それ以外の場合に指定しない限り、既定のプロバイダーとして機能します。
 
-アプリケーションが現時点では、次の 2 つの登録済みカスタム プロバイダーを持つ:`AspNetSqlMembershipProvider`と`SecurityTutorialsSqlMembershipProvider`です。 登録する前に、ただし、`SecurityTutorialsSqlMembershipProvider`おでしたがクリアすべて以前プロバイダーの登録済みプロバイダーを追加して、 [ `<clear />`要素](https://msdn.microsoft.com/en-us/library/t062y6yc.aspx)する直前に、`<add>`要素。 これオフには、 `AspNetSqlMembershipProvider` 、登録されているプロバイダーの一覧からことを意味、`SecurityTutorialsSqlMembershipProvider`のみに登録済みのメンバーシップ プロバイダーになります。 このアプローチを使用したかどうかは、ここはマークする必要はありません、`SecurityTutorialsSqlMembershipProvider`既定のプロバイダーとしてのでことが唯一の登録済みのメンバーシップ プロバイダー。 使用の詳細について`<clear />`を参照してください[Using`<clear />`と追加のプロバイダー](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx)です。
+アプリケーションが現時点では、次の 2 つの登録済みカスタム プロバイダーを持つ:`AspNetSqlMembershipProvider`と`SecurityTutorialsSqlMembershipProvider`です。 登録する前に、ただし、`SecurityTutorialsSqlMembershipProvider`おでしたがクリアすべて以前プロバイダーの登録済みプロバイダーを追加して、 [ `<clear />`要素](https://msdn.microsoft.com/library/t062y6yc.aspx)する直前に、`<add>`要素。 これオフには、 `AspNetSqlMembershipProvider` 、登録されているプロバイダーの一覧からことを意味、`SecurityTutorialsSqlMembershipProvider`のみに登録済みのメンバーシップ プロバイダーになります。 このアプローチを使用したかどうかは、ここはマークする必要はありません、`SecurityTutorialsSqlMembershipProvider`既定のプロバイダーとしてのでことが唯一の登録済みのメンバーシップ プロバイダー。 使用の詳細について`<clear />`を参照してください[Using`<clear />`と追加のプロバイダー](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx)です。
 
 注意してください、`SecurityTutorialsSqlMembershipProvider`の`connectionStringName`、単に追加された参照の設定`SecurityTutorialsConnectionString`接続文字列名、およびその`applicationName`SecurityTutorials の値に設定が設定されています。 さらに、`requiresUniqueEmail`設定に設定されている`true`です。 その他のすべての構成オプションは内の値と同じ`AspNetSqlMembershipProvider`です。 自由にここで構成変更を加える場合。 たとえば、1 つでなく 2 つの英数字以外の文字を要求することによって、または 7 の代わりに 8 文字に、パスワードの長さを増やすことで、パスワードの強度を強化可能性があります。
 
@@ -337,7 +337,7 @@ ASP.NET アプリケーションでのメンバーシップとロールのフレ
 > メンバーシップ フレームワークを複数のアプリケーションにわたって分割する 1 人のユーザー ストアを利用することに注意してください。 メンバーシップ プロバイダーの`applicationName`設定は、ユーザーのストアを使用する場合、プロバイダーを使用してアプリケーションを示します。 値を明示的に設定することが重要である、`applicationName`構成設定のため場合、`applicationName`が実行時に web アプリケーションの仮想ルートのパスに割り当てられている、明示的に設定されていません。 これは問題なく動作別のパスにアプリケーションを移動する場合は、アプリケーションの仮想ルート パスが変更されない限り、`applicationName`設定が変更されます。 この場合、メンバーシップ プロバイダーは使用されていたよりも、別のアプリケーション パーティションの操作を開始します。 別のアプリケーション パーティションで、移行する前に作成されたユーザー アカウントが存在して、それらのユーザーは、サイトにログインできなきます。 この問題の詳細については、次を参照してください。[は常に設定、`applicationName`プロパティと構成 ASP.NET 2.0 のメンバーシップおよびその他のプロバイダー](https://weblogs.asp.net/scottgu/443634)です。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 この時点で構成されているアプリケーションのサービスとデータベースがある (`SecurityTutorials.mdf`) メンバーシップ フレームワークで使用できるように、web アプリケーションを構成し、`SecurityTutorialsSqlMembershipProvider`登録プロバイダー。 この登録されているプロバイダーの種類が`SqlMembershipProvider`あり、その`connectionStringName`を適切な接続文字列に設定 (`SecurityTutorialsConnectionString`) とその`applicationName`値が明示的に設定します。
 
@@ -353,17 +353,17 @@ ASP.NET アプリケーションでのメンバーシップとロールのフレ
 - [アプリケーション サービスを使用して SQL Server 2000 または SQL Server 2005 に ASP.NET 2.0 を構成します。](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx)
 - [SQL Server Management Studio の Express Edition をダウンロードします。](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en)
 - [ASP.NET 2.0 を調べて s メンバーシップ、ロール、およびプロファイル](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
-- [`<add>`メンバーシップ プロバイダーの要素](https://msdn.microsoft.com/en-us/library/whae3t94.aspx)
-- [`<membership>`要素](https://msdn.microsoft.com/en-us/library/1b9hw62f.aspx)
-- [`<providers>`メンバーシップ要素](https://msdn.microsoft.com/en-us/library/6d4936ht.aspx)
+- [`<add>`メンバーシップ プロバイダーの要素](https://msdn.microsoft.com/library/whae3t94.aspx)
+- [`<membership>`要素](https://msdn.microsoft.com/library/1b9hw62f.aspx)
+- [`<providers>`メンバーシップ要素](https://msdn.microsoft.com/library/6d4936ht.aspx)
 - [使用して`<clear />`プロバイダーを追加する場合に](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx)
 - [直接操作します`SqlMembershipProvider`](http://aspnet.4guysfromrolla.com/articles/091207-1.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>このチュートリアルに含まれるトピックに関するビデオ トレーニング
 
-- [ASP.NET メンバーシップを理解します。](../../../videos/authentication/understanding-aspnet-memberships.md)
-- [メンバーシップ スキーマと作業を SQL の構成](../../../videos/authentication/configuring-sql-to-work-with-membership-schemas.md)
-- [既定のメンバーシップ スキーマ内のメンバーシップの設定を変更します。](../../../videos/authentication/changing-membership-settings-in-the-default-membership-schema.md)
+- [ASP.NET メンバーシップについて理解する](../../../videos/authentication/understanding-aspnet-memberships.md)
+- [メンバーシップ スキーマと連動するように SQL を構成する](../../../videos/authentication/configuring-sql-to-work-with-membership-schemas.md)
+- [既定のメンバーシップ スキーマのメンバーシップ設定を変更する](../../../videos/authentication/changing-membership-settings-in-the-default-membership-schema.md)
 
 ### <a name="about-the-author"></a>作成者について
 

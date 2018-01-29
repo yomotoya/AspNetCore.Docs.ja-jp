@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c34476f89677fb51abc17bd64602c41dfea8f9c7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d8d43475ae2f05d83d51c53d76de4f07db70ca7a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-filtering-across-two-pages-vb"></a>マスター/詳細の 2 つのページ (VB) の間でフィルター処理
 ====================
@@ -71,7 +71,7 @@ ms.lasthandoff: 11/10/2017
 
 リンクを含める必要がありますという製品の表示 GridView 行ごとをクリックすると、ユーザーには、 `ProductsForSupplierDetails.aspx` 、選択した行を渡して`SupplierID`クエリ文字列を使用して値。 たとえば、ユーザーが東京 Traders 業者の製品の表示のリンクをクリックする (を持つ、 `SupplierID` 4 の値) を送信する`ProductsForSupplierDetails.aspx?SupplierID=4`です。
 
-これを実現するには追加、[内](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.hyperlinkfield.aspx)GridView に GridView 行ごとにハイパーリンクを追加します。 GridView のスマート タグの表示から列の編集リンクをクリックして開始します。 次に、左上にある一覧から、内を選択し、内の一覧に含める GridView のフィールドの追加 をクリックします。
+これを実現するには追加、[内](https://msdn.microsoft.com/library/system.web.ui.webcontrols.hyperlinkfield.aspx)GridView に GridView 行ごとにハイパーリンクを追加します。 GridView のスマート タグの表示から列の編集リンクをクリックして開始します。 次に、左上にある一覧から、内を選択し、内の一覧に含める GridView のフィールドの追加 をクリックします。
 
 
 [![GridView に内を追加します。](master-detail-filtering-across-two-pages-vb/_static/image9.png)](master-detail-filtering-across-two-pages-vb/_static/image8.png)
@@ -208,11 +208,11 @@ FormView のデザイン ビューで ObjectDataSource を FormView をバイン
 **図 18**: 供給業者がすべての製品を提供しないユーザーに通知されます ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-across-two-pages-vb/_static/image52.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 マスター/詳細レポートを 1 ページにマスター/詳細の両方のレコードが表示されることができます、多くの web サイトで区切られます複数の 2 つの web ページ。 このチュートリアルでは、「マスター」の web ページの GridView に一覧表示 [仕入先] と [詳細] ページに示される関連付けられている製品で、このようなマスター/詳細レポートを実装する方法について説明しました。 マスターの web ページのサプライヤーの各行に渡されます行の詳細ページへのリンクが含まれている`SupplierID`値。 このような特定の行へのリンクは、GridView の内を使用して簡単に追加できます。
 
-[詳細] ページで、指定された業者のこれらの製品を取得する呼び出すことによって実現されました、`ProductsBLL`クラスの`GetProductsBySupplierID(supplierID)`メソッドです。  *`supplierID`* パラメーターのソースとして、クエリ文字列を使用して宣言型パラメーターの値が指定されました。 詳細 ページを使用して、FormView で仕入先の詳細を表示する方法についても説明しました。
+[詳細] ページで、指定された業者のこれらの製品を取得する呼び出すことによって実現されました、`ProductsBLL`クラスの`GetProductsBySupplierID(supplierID)`メソッドです。 *`supplierID`* パラメーターのソースとして、クエリ文字列を使用して宣言型パラメーターの値が指定されました。 詳細 ページを使用して、FormView で仕入先の詳細を表示する方法についても説明しました。
 
 当社[次のチュートリアル](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md)マスター/詳細レポートの最終的なであります。 行のそれぞれが [選択] ボタンが GridView で製品の一覧を表示する方法に紹介します。 [選択] ボタンをクリックすると、同じページ上の DetailsView コントロールで製品の詳細が表示されます。
 

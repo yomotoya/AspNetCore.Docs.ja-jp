@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: efec52c4085c24b1d6227a86f7c435ca657e493c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e30df9ddc094d0390d9e5985ec676713b57feaf4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-vb"></a>ストアド プロシージャとマネージ コード (VB) でユーザー定義関数を作成します。
 ====================
@@ -33,12 +33,12 @@ Microsoft の SQL Server 2005 のようなデータベースを使用して、 [
 
 基本的に、データのセットを操作するための SQL は設計されています。 `SELECT`、 `UPDATE`、および`DELETE`ステートメントは、本質的に、対応するテーブルのすべてのレコードに適用され、によってのみ制限されます、`WHERE`句。 まだとスカラーのデータを操作するため、一度に 1 つのレコードを操作するために設計された多くの言語機能があります。 [`CURSOR`s](http://www.sqlteam.com/item.asp?ItemID=553)を通じて 1 つずつでループする一連のレコードの対応できるようにします。 文字列操作関数と同様に`LEFT`、 `CHARINDEX`、および`PATINDEX`スカラーのデータを操作します。 SQL は、制御フロー ステートメントのようにも含まれています。`IF`と`WHILE`です。
 
-Microsoft SQL Server 2005 より前のストアド プロシージャおよび Udf でしたのみとして定義する T-SQL ステートメントのコレクション。 SQL Server 2005、ただし、されたように設計との統合を提供する、[共通言語ランタイム (CLR)](https://msdn.microsoft.com/en-us/netframework/aa497266.aspx)、これは、すべての .NET アセンブリで使用されるランタイム。 その結果、ストアド プロシージャおよび Udf は、SQL Server 2005 データベースで作成できますマネージ コードを使用します。 Visual Basic のクラスのメソッドとしてストアド プロシージャまたは UDF を作成することができます。 これにより、これらのストアド プロシージャおよび Udf を .NET Framework では、独自のカスタム クラスからの機能を利用できます。
+Microsoft SQL Server 2005 より前のストアド プロシージャおよび Udf でしたのみとして定義する T-SQL ステートメントのコレクション。 SQL Server 2005、ただし、されたように設計との統合を提供する、[共通言語ランタイム (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx)、これは、すべての .NET アセンブリで使用されるランタイム。 その結果、ストアド プロシージャおよび Udf は、SQL Server 2005 データベースで作成できますマネージ コードを使用します。 Visual Basic のクラスのメソッドとしてストアド プロシージャまたは UDF を作成することができます。 これにより、これらのストアド プロシージャおよび Udf を .NET Framework では、独自のカスタム クラスからの機能を利用できます。
 
 このチュートリアルを見ていきますマネージを作成する方法には、プロシージャおよびユーザー定義関数と、Northwind データベースに統合する方法が格納されています。 開始 s を let!
 
 > [!NOTE]
-> マネージ データベース オブジェクトは、対応する SQL をいくつかの利点を提供します。 豊富な言語機能と使いやすさと既存のコードとロジックを再利用する機能は、主な利点です。 マネージ データベース オブジェクトは、手続きロジックが数多くを伴わないデータのセットを使用する場合に、効率が低下する可能性があります。 T-SQL とマネージ コードの使用の詳細についてはメリットに、チェック アウト、[の利点がありますのマネージ コードを使用してデータベース オブジェクトの作成に](https://msdn.microsoft.com/en-us/library/k2e1fb36(VS.80).aspx)です。
+> マネージ データベース オブジェクトは、対応する SQL をいくつかの利点を提供します。 豊富な言語機能と使いやすさと既存のコードとロジックを再利用する機能は、主な利点です。 マネージ データベース オブジェクトは、手続きロジックが数多くを伴わないデータのセットを使用する場合に、効率が低下する可能性があります。 T-SQL とマネージ コードの使用の詳細についてはメリットに、チェック アウト、[の利点がありますのマネージ コードを使用してデータベース オブジェクトの作成に](https://msdn.microsoft.com/library/k2e1fb36(VS.80).aspx)です。
 
 
 ## <a name="step-1-moving-the-northwind-database-out-ofappdata"></a>手順 1: の Northwind データベースの移動`App_Data`
@@ -81,7 +81,7 @@ Northwind データベースをアタッチする必要があります、`DataFi
 
 ## <a name="step-2-creating-a-new-solution-and-sql-server-project-in-visual-studio"></a>手順 2: Visual Studio での新しいソリューションと SQL Server プロジェクトの作成
 
-SQL Server 2005 でマネージ ストアド プロシージャまたは Udf を作成するには、クラスでの Visual Basic コードとしてストアド プロシージャおよび UDF ロジックを書き込みます。 このクラスをアセンブリにコンパイルする必要がありますが、コードを記述すると、(、`.dll`ファイル)、SQL Server データベースにアセンブリを登録およびに対応するメソッドを指す、データベースでストアド プロシージャまたは UDF のオブジェクトを作成アセンブリ。 次の手順すべて手動実行できます。 任意のテキスト エディターでコードを作成、Visual Basic コンパイラを使用してコマンドラインからコンパイルすることができます (`vbc.exe`)、それを使用してデータベースを登録、 [ `CREATE ASSEMBLY` ](https://msdn.microsoft.com/en-us/library/ms189524.aspx)コマンドまたは Management Studio から、格納されている追加プロシージャまたは同様の方法での UDF オブジェクトです。 さいわい、Professional およびチームのシステムのバージョン Visual Studio にはでは、これらのタスクを自動化する SQL Server のプロジェクトの種類が含まれます。 このチュートリアルでを進めながら、SQL Server のプロジェクトの種類を使用してマネージ ストアド プロシージャおよび UDF を作成します。
+SQL Server 2005 でマネージ ストアド プロシージャまたは Udf を作成するには、クラスでの Visual Basic コードとしてストアド プロシージャおよび UDF ロジックを書き込みます。 このクラスをアセンブリにコンパイルする必要がありますが、コードを記述すると、(、`.dll`ファイル)、SQL Server データベースにアセンブリを登録およびに対応するメソッドを指す、データベースでストアド プロシージャまたは UDF のオブジェクトを作成アセンブリ。 次の手順すべて手動実行できます。 任意のテキスト エディターでコードを作成、Visual Basic コンパイラを使用してコマンドラインからコンパイルすることができます (`vbc.exe`)、それを使用してデータベースを登録、 [ `CREATE ASSEMBLY` ](https://msdn.microsoft.com/library/ms189524.aspx)コマンドまたは Management Studio から、格納されている追加プロシージャまたは同様の方法での UDF オブジェクトです。 さいわい、Professional およびチームのシステムのバージョン Visual Studio にはでは、これらのタスクを自動化する SQL Server のプロジェクトの種類が含まれます。 このチュートリアルでを進めながら、SQL Server のプロジェクトの種類を使用してマネージ ストアド プロシージャおよび UDF を作成します。
 
 > [!NOTE]
 > Visual Web Developer または Visual Studio の Standard edition を使用している場合は、代わりに、手動による方法を使用する必要があります。 手順 13 では、次の手順を手動で実行する詳細な手順を提供します。 次の手順には、使用している Visual Studio のバージョンに関係なく適用しなければならない重要なの SQL Server の構成手順が含まれるので、手順 13 を読み取る前に手順 2. を 12 通してみてです。
@@ -149,14 +149,14 @@ SQL Server のプロジェクトは、特定のデータベースに関連付け
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample2.vb)]
 
-注としてストアド プロシージャが実装されている、`Shared`メソッド内で、`Partial`という名前のクラス ファイル`StoredProcedures`です。 さらに、`GetDiscontinuedProducts`でメソッドを装飾、 [ `SqlProcedure`属性](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlprocedureattribute.aspx)、これは、ストアド プロシージャとしてメソッドをマークします。
+注としてストアド プロシージャが実装されている、`Shared`メソッド内で、`Partial`という名前のクラス ファイル`StoredProcedures`です。 さらに、`GetDiscontinuedProducts`でメソッドを装飾、 [ `SqlProcedure`属性](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlprocedureattribute.aspx)、これは、ストアド プロシージャとしてメソッドをマークします。
 
 次のコードを作成、`SqlCommand`オブジェクトと設定、`CommandText`を`SELECT`から列をすべて返すクエリを`Products`製品用のテーブルが`Discontinued`1 equals をフィールドです。 コマンドを実行し、結果をクライアント アプリケーションに送信します。 このコードを追加、`GetDiscontinuedProducts`メソッドです。
 
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample3.vb)]
 
-すべてのマネージ データベース オブジェクトへのアクセスがある、 [ `SqlContext`オブジェクト](https://msdn.microsoft.com/en-us/library/ms131108.aspx)呼び出し元のコンテキストを表すです。 `SqlContext`にアクセスできるように、 [ `SqlPipe`オブジェクト](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlpipe.aspx)を介してその[`Pipe`プロパティ](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlcontext.pipe.aspx)です。 これは、`SqlPipe`オブジェクトは、SQL Server データベースと呼び出し元のアプリケーション間の情報の終端に使用します。 その名前からわかるように、 [ `ExecuteAndSend`メソッド](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlpipe.executeandsend.aspx)、渡されたで実行`SqlCommand`オブジェクトと、結果、クライアント アプリケーションに返送します。
+すべてのマネージ データベース オブジェクトへのアクセスがある、 [ `SqlContext`オブジェクト](https://msdn.microsoft.com/library/ms131108.aspx)呼び出し元のコンテキストを表すです。 `SqlContext`にアクセスできるように、 [ `SqlPipe`オブジェクト](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.aspx)を介してその[`Pipe`プロパティ](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlcontext.pipe.aspx)です。 これは、`SqlPipe`オブジェクトは、SQL Server データベースと呼び出し元のアプリケーション間の情報の終端に使用します。 その名前からわかるように、 [ `ExecuteAndSend`メソッド](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.executeandsend.aspx)、渡されたで実行`SqlCommand`オブジェクトと、結果、クライアント アプリケーションに返送します。
 
 > [!NOTE]
 > マネージ データベース オブジェクトは、ストアド プロシージャおよび Udf セットベースのロジックではなく、手続き型のロジックを使用するに最適です。 手続き型のロジックでは、行ごとにデータのセットの操作またはスカラーのデータを扱う必要があります。 `GetDiscontinuedProducts`先ほど作成した、ただし、メソッドに手続き型のロジックは関係しません。 そのため、これが理想的には実装する T-SQL ストアド プロシージャとして。 マネージ ストアド プロシージャを作成および展開するために必要な手順を示すために管理対象のストアド プロシージャとして実装されます。
@@ -214,7 +214,7 @@ Northwind データベースの構成情報を確認、入力して、コマン�
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample5.sql)]
 
-再実行する場合、`exec sp_configure`上記のステートメントが 1 の場合に有効になっている clr の設定の構成値を更新することが、実行値が 0 に設定されていることが表示されます。 この構成の変更を有効にする必要がありますを実行する、 [ `RECONFIGURE`コマンド](https://msdn.microsoft.com/en-us/library/ms176069.aspx)は、実行値は、現在の構成値に設定します。 入力するだけ`RECONFIGURE`クエリ ウィンドウで、ツールバーの Execute のアイコンをクリックします。 実行する場合`exec sp_configure`これで、有効になっている clr の設定の構成では、1 の値を確認して、値を実行する必要があります。
+再実行する場合、`exec sp_configure`上記のステートメントが 1 の場合に有効になっている clr の設定の構成値を更新することが、実行値が 0 に設定されていることが表示されます。 この構成の変更を有効にする必要がありますを実行する、 [ `RECONFIGURE`コマンド](https://msdn.microsoft.com/library/ms176069.aspx)は、実行値は、現在の構成値に設定します。 入力するだけ`RECONFIGURE`クエリ ウィンドウで、ツールバーの Execute のアイコンをクリックします。 実行する場合`exec sp_configure`これで、有効になっている clr の設定の構成では、1 の値を確認して、値を実行する必要があります。
 
 Clr を有効になっている構成が完了する準備が整いましたマネージ実行`GetDiscontinuedProducts`ストアド プロシージャです。 クエリ ウィンドウで入力し、コマンド`exec``GetDiscontinuedProducts`です。 対応するマネージ コードで、ストアド プロシージャを呼び出すと、`GetDiscontinuedProducts`メソッドを実行します。 このコードの問題、`SELECT`提供が中止されたして呼び出し元のアプリケーションは、このインスタンスで SQL Server Management Studio は、このデータを返すすべての製品を返すクエリです。 Management Studio では、これらの結果を受信し、結果ウィンドウに表示します。
 
@@ -232,7 +232,7 @@ Clr を有効になっている構成が完了する準備が整いましたマ�
 
 プロジェクトに新しいストアド プロシージャを追加するを右クリックし、`ManagedDatabaseConstructs`プロジェクト名と、新しいストアド プロシージャを追加します。 そのファイルに `GetProductsWithPriceLessThan.vb` という名前を付けます。 という名前のメソッドを持つ新しい Visual Basic クラス ファイルが作成されます手順 3 で説明したとおり、`GetProductsWithPriceLessThan`内に配置された、`Partial`クラス`StoredProcedures`です。
 
-更新プログラム、`GetProductsWithPriceLessThan`メソッド定義を受け入れるように、 [ `SqlMoney` ](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlmoney.aspx)という名前の入力パラメーター`price`を実行し、クエリの結果を返すコードを記述および。
+更新プログラム、`GetProductsWithPriceLessThan`メソッド定義を受け入れるように、 [ `SqlMoney` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.aspx)という名前の入力パラメーター`price`を実行し、クエリの結果を返すコードを記述および。
 
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample6.vb)]
@@ -400,19 +400,19 @@ Udf では、表形式のデータを返すこともできます。 たとえば
 **図 25**: 追加する新しい管理 UDF、`ManagedDatabaseConstructs`プロジェクト ([フルサイズのイメージを表示するをクリックして](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image61.png))
 
 
-ユーザー定義関数のテンプレートを作成、`Partial`という名前のクラス`UserDefinedFunctions`クラス ファイル名と同じ名前を持つメソッドに (`udf_ComputeInventoryValue_Managed`、このインスタンスで)。 使用してこのメソッドを装飾、 [ `SqlFunction`属性](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlfunctionattribute.aspx)、マネージ UDF としてメソッドをフラグを設定します。
+ユーザー定義関数のテンプレートを作成、`Partial`という名前のクラス`UserDefinedFunctions`クラス ファイル名と同じ名前を持つメソッドに (`udf_ComputeInventoryValue_Managed`、このインスタンスで)。 使用してこのメソッドを装飾、 [ `SqlFunction`属性](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlfunctionattribute.aspx)、マネージ UDF としてメソッドをフラグを設定します。
 
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample13.vb)]
 
-`udf_ComputeInventoryValue`メソッドは現在を返します、 [ `SqlString`オブジェクト](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlstring.aspx)任意の入力パラメーターは受け付けられません。 3 つの入力パラメーターを受け取るように、メソッドの定義を更新する必要があります`UnitPrice`、 `UnitsInStock`、および`Discontinued`- しを返します、`SqlMoney`オブジェクト。 インベントリの値を計算するためのロジックは、T-SQL と同じ`udf_ComputeInventoryValue`UDF です。
+`udf_ComputeInventoryValue`メソッドは現在を返します、 [ `SqlString`オブジェクト](https://msdn.microsoft.com/library/system.data.sqltypes.sqlstring.aspx)任意の入力パラメーターは受け付けられません。 3 つの入力パラメーターを受け取るように、メソッドの定義を更新する必要があります`UnitPrice`、 `UnitsInStock`、および`Discontinued`- しを返します、`SqlMoney`オブジェクト。 インベントリの値を計算するためのロジックは、T-SQL と同じ`udf_ComputeInventoryValue`UDF です。
 
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample14.vb)]
 
-UDF のメソッドの入力パラメーターが、対応する SQL 型のメモ:`SqlMoney`の`UnitPrice`フィールド、 [ `SqlInt16` ](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlint16.aspx)の`UnitsInStock`、および[ `SqlBoolean` ](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlboolean.aspx)`Discontinued`します。 これらのデータ型で定義された型の反映、`Products`テーブル:`UnitPrice`型の列は、 `money`、`UnitsInStock`型の列`smallint`、および`Discontinued`型の列`bit`です。
+UDF のメソッドの入力パラメーターが、対応する SQL 型のメモ:`SqlMoney`の`UnitPrice`フィールド、 [ `SqlInt16` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlint16.aspx)の`UnitsInStock`、および[ `SqlBoolean` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlboolean.aspx)`Discontinued`します。 これらのデータ型で定義された型の反映、`Products`テーブル:`UnitPrice`型の列は、 `money`、`UnitsInStock`型の列`smallint`、および`Discontinued`型の列`bit`です。
 
-作成することで、コードの開始、`SqlMoney`という名前のインスタンス`inventoryValue`0 の値を割り当てられています。 `Products`データベースでは、テーブル`NULL`の値が、`UnitsInPrice`と`UnitsInStock`列です。 そのため、必要があります最初のチェックにこれらの値が含まれているかどうかを`NULL`を行って、s、`SqlMoney`オブジェクト s [ `IsNull`プロパティ](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlmoney.isnull.aspx)です。 両方`UnitPrice`と`UnitsInStock`が含まれていない`NULL`値を計算し、 `inventoryValue` 2 つの製品であることにします。 その後、if`Discontinued`が true の場合、値を半分おです。
+作成することで、コードの開始、`SqlMoney`という名前のインスタンス`inventoryValue`0 の値を割り当てられています。 `Products`データベースでは、テーブル`NULL`の値が、`UnitsInPrice`と`UnitsInStock`列です。 そのため、必要があります最初のチェックにこれらの値が含まれているかどうかを`NULL`を行って、s、`SqlMoney`オブジェクト s [ `IsNull`プロパティ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.isnull.aspx)です。 両方`UnitPrice`と`UnitsInStock`が含まれていない`NULL`値を計算し、 `inventoryValue` 2 つの製品であることにします。 その後、if`Discontinued`が true の場合、値を半分おです。
 
 > [!NOTE]
 > `SqlMoney`オブジェクトのみが許可 2`SqlMoney`インスタンスに一緒に乗算されます。 できません、`SqlMoney`インスタンスにリテラルの浮動小数点数が乗算されます。 したがって、半分にする`inventoryValue`新しいで乗算お`SqlMoney`値 0.5 のあるインスタンスです。
@@ -544,7 +544,7 @@ Northwind データベースにアセンブリを追加しました中にまだ�
 **図 32**:`ManuallyCreatedDBObjects.dll`オブジェクト エクスプ ローラーに表示されます ([フルサイズのイメージを表示するをクリックして](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image78.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 Microsoft SQL Server 2005 では、統合と、共通言語ランタイム (CLR)、マネージ コードを使用して作成するデータベース オブジェクトを許可するを提供します。 以前は、T-SQL を使用してこれらのデータベース オブジェクトを作成する可能性がありますのみが、今すぐ .NET プログラミング Visual Basic などの言語を使用してこれらのオブジェクトを作成できます。 作成したこのチュートリアルでは 2 つのマネージ ストアド プロシージャとマネージ ユーザー定義関数です。
 
@@ -559,13 +559,13 @@ Visual Studio の SQL Server のプロジェクトの種類には、作成、コ
 - [ユーザー定義関数の利点と欠点](http://www.samspublishing.com/articles/article.asp?p=31724&amp;rl=1)
 - [マネージ コードでの SQL Server 2005 のオブジェクトの作成](https://channel9.msdn.com/Showpost.aspx?postid=142413)
 - [SQL Server 2005 のマネージ コードを使用してトリガーを作成します。](http://www.15seconds.com/issue/041006.htm)
-- [方法: を作成および CLR SQL を実行するサーバーのストアド プロシージャ](https://msdn.microsoft.com/en-us/library/5czye81z(VS.80).aspx)
-- [作成および CLR の SQL Server のユーザー定義関数を実行する方法](https://msdn.microsoft.com/en-us/library/w2kae45k(VS.80).aspx)
-- [方法: 編集、 `Test.sql` SQL オブジェクトを実行するスクリプト](https://msdn.microsoft.com/en-us/library/ms233682(VS.80).aspx)
+- [方法: を作成および CLR SQL を実行するサーバーのストアド プロシージャ](https://msdn.microsoft.com/library/5czye81z(VS.80).aspx)
+- [作成および CLR の SQL Server のユーザー定義関数を実行する方法](https://msdn.microsoft.com/library/w2kae45k(VS.80).aspx)
+- [方法: 編集、 `Test.sql` SQL オブジェクトを実行するスクリプト](https://msdn.microsoft.com/library/ms233682(VS.80).aspx)
 - [紹介し、ユーザー定義関数](http://www.sqlteam.com/item.asp?ItemID=1955)
 - [マネージ コードと SQL Server 2005 (ビデオ)](https://channel9.msdn.com/Showpost.aspx?postid=142413)
-- [TRANSACT-SQL リファレンス](https://msdn.microsoft.com/en-us/library/aa299742(SQL.80).aspx)
-- [チュートリアル: マネージ コードでのストアド プロシージャの作成](https://msdn.microsoft.com/en-us/library/zxsa8hkf(VS.80).aspx)
+- [TRANSACT-SQL リファレンス](https://msdn.microsoft.com/library/aa299742(SQL.80).aspx)
+- [チュートリアル: マネージ コードでのストアド プロシージャの作成](https://msdn.microsoft.com/library/zxsa8hkf(VS.80).aspx)
 
 ## <a name="about-the-author"></a>作成者について
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 00a5358361fa3f37d13ea74d61c437088b388ece
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9a1b7fbb1e60c9f1bc6a26ccaeb7d14b4c95219d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="efficiently-paging-through-large-amounts-of-data-vb"></a>効率的に大量のデータ (VB) のページング
 ====================
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="step-2-returning-the-total-number-of-records-being-paged-through"></a>手順 2: を介してページングされるレコードの合計数を返す
 
-表示されているページのレコードの正確なサブセットを取得する方法を説明する前に、最初からページングされるレコードの合計数を返す方法を見て s を使用できます。 この情報が正しくページングのユーザー インターフェイスを構成するために必要です。 使用して、特定の SQL クエリによって返されるレコードの合計数を取得できます、 [ `COUNT`集計関数](https://msdn.microsoft.com/en-US/library/ms175997.aspx)です。 たとえば、内のレコードの合計数を決定するため、`Products`テーブル、次のクエリを使用できます。
+表示されているページのレコードの正確なサブセットを取得する方法を説明する前に、最初からページングされるレコードの合計数を返す方法を見て s を使用できます。 この情報が正しくページングのユーザー インターフェイスを構成するために必要です。 使用して、特定の SQL クエリによって返されるレコードの合計数を取得できます、 [ `COUNT`集計関数](https://msdn.microsoft.com/library/ms175997.aspx)です。 たとえば、内のレコードの合計数を決定するため、`Products`テーブル、次のクエリを使用できます。
 
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-vb/samples/sample1.sql)]
@@ -120,7 +120,7 @@ DAL と行の開始インデックスを受け入れる BLL でメソッドを�
 これには 2 つ一般的な方法は、データを複数のページを効率的に行のインデックスを関連付けるために使用できるように取得するレコードの正確なサブセットがあります。
 
 - **SQL Server 2005 の s を使用して`ROW_NUMBER()`キーワード**を初めて使用する SQL Server 2005、`ROW_NUMBER()`キーワードは、一部の順序に基づいて返される各レコードを順位付けを関連付けます。 この順位付けは、各行の行のインデックスとして使用できます。
-- **テーブル変数を使用して、 `SET ROWCOUNT`**  SQL Server s [ `SET ROWCOUNT`ステートメント](https://msdn.microsoft.com/en-us/library/ms188774.aspx)合計レコードの数です終了する前に、クエリを処理する必要がありますを指定するために使用する。[テーブル変数](http://www.sqlteam.com/item.asp?ItemID=9454)akin を表形式のデータを保持できるローカルの T-SQL 変数[一時テーブル](http://www.sqlteam.com/item.asp?ItemID=2029)です。 このアプローチは均等に Microsoft SQL Server 2005 および SQL Server 2000 の両方 (一方、`ROW_NUMBER()`アプローチは、SQL Server 2005 でのみ機能)。  
+- **テーブル変数を使用して、 `SET ROWCOUNT`**  SQL Server s [ `SET ROWCOUNT`ステートメント](https://msdn.microsoft.com/library/ms188774.aspx)合計レコードの数です終了する前に、クエリを処理する必要がありますを指定するために使用する。[テーブル変数](http://www.sqlteam.com/item.asp?ItemID=9454)akin を表形式のデータを保持できるローカルの T-SQL 変数[一時テーブル](http://www.sqlteam.com/item.asp?ItemID=2029)です。 このアプローチは均等に Microsoft SQL Server 2005 および SQL Server 2000 の両方 (一方、`ROW_NUMBER()`アプローチは、SQL Server 2005 でのみ機能)。  
   
  持つテーブル変数を作成するという考え方です、`IDENTITY`列とデータを介してページングされるテーブルの主キーの列です。 これにより、連続する行のインデックスを関連付け、テーブル変数にデータを介してページングされるテーブルの内容をダンプする次に、(を使用して、`IDENTITY`列)、テーブル内の各レコード。 テーブル変数の読み込みが完了した後、`SELECT`のステートメントに、テーブル変数で、特定のレコードをプルする基になるテーブルと結合を実行できます。 `SET ROWCOUNT`インテリジェントなテーブル変数にダンプする必要があるレコードの数を制限するステートメントを使用します。  
   
@@ -275,9 +275,9 @@ GridView は、ObjectDataSource は両方の値として 0 を現在使用され
 
 この問題を解決するには、カスタム ページングを使用して、ObjectDataSource を構成する必要があります。 これは、次の手順で実行できます。
 
-1. **集合 ObjectDataSource s`EnablePaging`プロパティを`true`**に渡す必要があります、ObjectDataSource にこれを示します、 `SelectMethod` 2 つのパラメーター: 行の開始インデックスを指定する 1 つ ([ `StartRowIndexParameterName` ](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.startrowindexparametername.aspx))、および行の最大数を指定する 1 つ ([`MaximumRowsParameterName`](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.maximumrowsparametername.aspx))。
+1. **集合 ObjectDataSource s`EnablePaging`プロパティを`true`**に渡す必要があります、ObjectDataSource にこれを示します、 `SelectMethod` 2 つのパラメーター: 行の開始インデックスを指定する 1 つ ([ `StartRowIndexParameterName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.startrowindexparametername.aspx))、および行の最大数を指定する 1 つ ([`MaximumRowsParameterName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.maximumrowsparametername.aspx))。
 2. **集合 ObjectDataSource s`StartRowIndexParameterName`と`MaximumRowsParameterName`プロパティに応じて**、`StartRowIndexParameterName`と`MaximumRowsParameterName`に渡される入力パラメーターの名前を指定するプロパティ、`SelectMethod`用カスタム ページング. これらのパラメーター名は、既定では、`startIndexRow`と`maximumRows`、これは、理由を作成するとき、`GetProductsPaged`メソッド、BLL では入力パラメーターのこれらの値を使用しました。 BLL s のさまざまなパラメーター名を使用する場合`GetProductsPaged`などのメソッド`startIndex`と`maxRows`にする必要がありますの例は、ObjectDataSource s を設定、`StartRowIndexParameterName`と`MaximumRowsParameterName`プロパティに応じて (などの startIndex`StartRowIndexParameterName`およびの maxRows `MaximumRowsParameterName`)。
-3. **集合 ObjectDataSource s [ `SelectCountMethod`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.selectcountmethod(VS.80).aspx)を合計数のレコードされているページを返すメソッドの名前に (`TotalNumberOfProducts`)**ことに注意してください、`ProductsBLL`クラスの`TotalNumberOfProducts`メソッドを実行する DAL メソッドを使用してページングされるレコードの合計数を返します、`SELECT COUNT(*) FROM Products`クエリ。 この情報には、正しくページング インターフェイスを表示するために、ObjectDataSource が必要です。
+3. **集合 ObjectDataSource s [ `SelectCountMethod`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selectcountmethod(VS.80).aspx)を合計数のレコードされているページを返すメソッドの名前に (`TotalNumberOfProducts`)**ことに注意してください、`ProductsBLL`クラスの`TotalNumberOfProducts`メソッドを実行する DAL メソッドを使用してページングされるレコードの合計数を返します、`SELECT COUNT(*) FROM Products`クエリ。 この情報には、正しくページング インターフェイスを表示するために、ObjectDataSource が必要です。
 4. **削除、`startRowIndex`と`maximumRows` `<asp:Parameter>` ObjectDataSource s 宣言型マークアップから要素**ウィザード、ObjectDataSource を構成するには、Visual Studio に自動的に追加 2 `<asp:Parameter>`要素、`GetProductsPaged`のメソッドの入力パラメーターです。 設定して`EnablePaging`に`true`、これらのパラメーターが自動的に渡されます;、ObjectDataSource を渡そうとして表示される場合も宣言の構文では、 *4*パラメーターを`GetProductsPaged`メソッド2 つのパラメーターと、`TotalNumberOfProducts`メソッドです。 これらを削除するを忘れた場合`<asp:Parameter>`などのエラー メッセージが表示されます、ブラウザーからページを訪問すると、要素: *ObjectDataSource 'ObjectDataSource1' は、非ジェネリック メソッドの 'TotalNumberOfProducts' を持つを特定できませんでしたパラメーター: startRowIndex、maximumRows*です。
 
 これらの変更を加えたら、ObjectDataSource s の宣言構文は次のようになります。
@@ -352,7 +352,7 @@ GridView は、ObjectDataSource は両方の値として 0 を現在使用され
 
 残念ながら、s がない 1 つのサイズが収まるすべてがここで回答します。 パフォーマンス向上は、さまざまな要因によって異なります、web サーバーとデータベース サーバーの間でデータベース サーバーとの通信チャネルの 2 つのレコードを介してページングされると、負荷の数をされている最も顕著配置されます。 わずか 1 ダースのレコードを含む小さなテーブルは、パフォーマンスの差がごくわずかであり可能性があります。 大きなテーブルの場合は、数千 ~ 数十万行のただし、パフォーマンスの違いは深刻です。
 
-、私のアーティクル[SQL Server 2005 での ASP.NET 2.0 では、カスタム ページング](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx)、これら 2 つのページング手法を持つデータベース テーブルをページングするときの間のパフォーマンスの違いを示すために実行したいくつかのパフォーマンス テストが含まれていますレコードが 50,000 個です。 これらのテストで SQL Server レベルでクエリを実行する時間の両方について詳しく説明 (を使用して[SQL Profiler](https://msdn.microsoft.com/en-us/library/ms173757.aspx)) と ASP.NET ページを使用して、 [ASP.NET のトレース機能](https://msdn.microsoft.com/en-US/library/y13fw6we.aspx)します。 注意してくださいことこれらのテスト 1 つのアクティブなユーザーでは、開発ボックス上で実行されたしたがって科学されない一般的な web サイトのロード パターンを模倣されません。 関係なく、結果は、十分に大量のデータを使用する場合、既定およびカスタム ページングの実行時間の相対的な違いを示しています。
+、私のアーティクル[SQL Server 2005 での ASP.NET 2.0 では、カスタム ページング](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx)、これら 2 つのページング手法を持つデータベース テーブルをページングするときの間のパフォーマンスの違いを示すために実行したいくつかのパフォーマンス テストが含まれていますレコードが 50,000 個です。 これらのテストで SQL Server レベルでクエリを実行する時間の両方について詳しく説明 (を使用して[SQL Profiler](https://msdn.microsoft.com/library/ms173757.aspx)) と ASP.NET ページを使用して、 [ASP.NET のトレース機能](https://msdn.microsoft.com/library/y13fw6we.aspx)します。 注意してくださいことこれらのテスト 1 つのアクティブなユーザーでは、開発ボックス上で実行されたしたがって科学されない一般的な web サイトのロード パターンを模倣されません。 関係なく、結果は、十分に大量のデータを使用する場合、既定およびカスタム ページングの実行時間の相対的な違いを示しています。
 
 
 |  | **Avg.期間 (秒)** | **読み取り** |
@@ -365,7 +365,7 @@ GridView は、ObjectDataSource は両方の値として 0 を現在使用され
 
 わかるように、データの特定のページを取得する平均読み取り以下 354 を必要し、短時間で完了しました。 ASP.NET ページで、カスタム ページができた 1/100 に近いにレンダーされる<sup>th</sup>時間かかったの既定のページングを使用する場合。 参照してください[私の記事](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx)コードと、データベースと共にこれらの結果の詳細については、ご使用の環境でこれらのテストを再現するダウンロードできます。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 既定のページングは、データ Web コントロールのスマート タグにだけチェック ページングを有効にする チェック ボックスを実装する簡単ですが、このようなわかりやすくするための欠点はパフォーマンス。 ユーザーがデータの任意のページを要求したときに既定のページングと*すべて*それらのごく一部だけが表示される場合でも、レコードが返されます。 このパフォーマンスのオーバーヘッドを対抗、ObjectDataSource には、代替ページング オプション カスタム ページングが用意されています。
 

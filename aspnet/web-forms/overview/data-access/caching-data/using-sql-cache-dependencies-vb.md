@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 46521f48d31414ffff2707986d6f869ca2f9bc9a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af302d67b009fc25e38fb33a5e2a623f7200bcd5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-sql-cache-dependencies-vb"></a>SQL キャッシュ依存関係 (VB) を使用します。
 ====================
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/10/2017
 
 データベースのデータをキャッシュするには、時間ベースの有効期限は、使いやすさに多くの場合、選択されているが、不適切なソリューションでは頻繁にします。 理想的には、データベースのデータは、基になるデータがデータベースに変更されてまでキャッシュされたまましかし、キャッシュを削除するとします。 この方法は、キャッシュのパフォーマンス メリットを最大化され、古いデータの時間を最小限に抑えられます。 ただし、これらの利点がありますを活用するためには、基になるデータベースのデータが変更されており、キャッシュから対応する項目を削除を知っている場所にいくつかのシステムをする必要があります。 ASP.NET 2.0 では、前にページの開発者がこのシステムの実装を担当します。
 
-ASP.NET 2.0 には、 [ `SqlCacheDependency`クラス](https://msdn.microsoft.com/en-us/library/system.web.caching.sqlcachedependency.aspx)し、変更が発生すると、データベースにキャッシュされたアイテムを対応することを決定するために必要なインフラストラクチャを削除することができます。 基になるデータが変更されたときを判断するための 2 つの方法があります: 通知とポーリングします。 通知とポーリングの違いを紹介した後を作成、インフラストラクチャ ポーリングをサポートし、使用する方法を調査するために必要な`SqlCacheDependency`宣言内のクラスをプログラムでのシナリオです。
+ASP.NET 2.0 には、 [ `SqlCacheDependency`クラス](https://msdn.microsoft.com/library/system.web.caching.sqlcachedependency.aspx)し、変更が発生すると、データベースにキャッシュされたアイテムを対応することを決定するために必要なインフラストラクチャを削除することができます。 基になるデータが変更されたときを判断するための 2 つの方法があります: 通知とポーリングします。 通知とポーリングの違いを紹介した後を作成、インフラストラクチャ ポーリングをサポートし、使用する方法を調査するために必要な`SqlCacheDependency`宣言内のクラスをプログラムでのシナリオです。
 
 ## <a name="understanding-notification-and-polling"></a>Understanding 通知とポーリング
 
@@ -55,7 +55,7 @@ ASP.NET ランタイムが、現在は追跡`changeId`を使用してデータ�
 [!code-console[Main](using-sql-cache-dependencies-vb/samples/sample1.cmd)]
 
 > [!NOTE]
-> 指定されたデータベース ログインがあります。 これらのコマンドを実行する、 [ `db_securityadmin` ](https://msdn.microsoft.com/en-us/library/ms188685.aspx)と[ `db_ddladmin` ](https://msdn.microsoft.com/en-us/library/ms190667.aspx)ロール。 データベースに送信する T-SQL を検査する、`aspnet_regsql.exe`コマンド ライン プログラムを参照してください[このブログ記事](http://scottonwriting.net/sowblog/posts/10709.aspx)です。
+> 指定されたデータベース ログインがあります。 これらのコマンドを実行する、 [ `db_securityadmin` ](https://msdn.microsoft.com/library/ms188685.aspx)と[ `db_ddladmin` ](https://msdn.microsoft.com/library/ms190667.aspx)ロール。 データベースに送信する T-SQL を検査する、`aspnet_regsql.exe`コマンド ライン プログラムを参照してください[このブログ記事](http://scottonwriting.net/sowblog/posts/10709.aspx)です。
 
 
 たとえば、Microsoft SQL Server データベースをポーリングするためのインフラストラクチャを追加するという名前の`pubs`という名前のデータベース サーバーで`ScottsServer`Windows 認証を使用して、適切なディレクトリに移動し、コマンド ライン コマンドを入力します。
@@ -77,7 +77,7 @@ ASP.NET ランタイムが、現在は追跡`changeId`を使用してデータ�
 
 ## <a name="step-2-referencing-a-microsoft-sql-server-2005-express-edition-database-inappdata"></a>手順 2: で Microsoft SQL Server 2005 Express Edition データベースを参照します。`App_Data`
 
-`aspnet_regsql.exe`コマンド ライン プログラムでは、ポーリングのために必要なインフラストラクチャを追加するために、データベースとサーバー名が必要です。 存在する Microsoft SQL Server 2005 Express のデータベースのデータベースとサーバーの名前は何ですが、`App_Data`フォルダーですか? データベースとサーバーの名前とは何かを検出するのではなくすればにデータベースをアタッチする最も簡単な方法を見つけたら、`localhost\SQLExpress`データベース インスタンスとデータを使用して、名前の変更[SQL Server Management Studio](https://msdn.microsoft.com/en-us/library/ms174173.aspx)です。 場合は、コンピューターにインストールされている SQL Server 2005 の完全なバージョンの 1 つある場合は、し、可能性がありますが既にある SQL Server Management Studio がコンピューターにインストールされています。 無料をダウンロードすることができる場合は、Express edition がある場合のみ、 [Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796)です。
+`aspnet_regsql.exe`コマンド ライン プログラムでは、ポーリングのために必要なインフラストラクチャを追加するために、データベースとサーバー名が必要です。 存在する Microsoft SQL Server 2005 Express のデータベースのデータベースとサーバーの名前は何ですが、`App_Data`フォルダーですか? データベースとサーバーの名前とは何かを検出するのではなくすればにデータベースをアタッチする最も簡単な方法を見つけたら、`localhost\SQLExpress`データベース インスタンスとデータを使用して、名前の変更[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)です。 場合は、コンピューターにインストールされている SQL Server 2005 の完全なバージョンの 1 つある場合は、し、可能性がありますが既にある SQL Server Management Studio がコンピューターにインストールされています。 無料をダウンロードすることができる場合は、Express edition がある場合のみ、 [Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796)です。
 
 Visual Studio を終了して開始します。 次に、SQL Server Management Studio を開くしに接続する、`localhost\SQLExpress`サーバーが Windows 認証を使用します。
 
@@ -186,7 +186,7 @@ SQL キャッシュ依存関係を宣言して使用を示すためには、開�
 **図 8**:、ObjectDataSource s`Selecting`イベント発生の各時間が GridView でページングが、編集、または Sorted ([フルサイズのイメージを表示するをクリックして](using-sql-cache-dependencies-vb/_static/image10.png))
 
 
-説明したとおり、 [、ObjectDataSource でデータをキャッシュ](caching-data-with-the-objectdatasource-vb.md)チュートリアルでは、設定、`EnableCaching`プロパティを`True`ObjectDataSource によって指定された期間に対して、データをキャッシュすると、その`CacheDuration`プロパティです。 ObjectDataSource をも、 [ `SqlCacheDependency`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.sqlcachedependency.aspx)パターンを使用して、キャッシュされたデータに 1 つまたは複数の SQL キャッシュ依存関係を追加します。
+説明したとおり、 [、ObjectDataSource でデータをキャッシュ](caching-data-with-the-objectdatasource-vb.md)チュートリアルでは、設定、`EnableCaching`プロパティを`True`ObjectDataSource によって指定された期間に対して、データをキャッシュすると、その`CacheDuration`プロパティです。 ObjectDataSource をも、 [ `SqlCacheDependency`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sqlcachedependency.aspx)パターンを使用して、キャッシュされたデータに 1 つまたは複数の SQL キャッシュ依存関係を追加します。
 
 
 [!code-css[Main](using-sql-cache-dependencies-vb/samples/sample9.css)]
@@ -282,7 +282,7 @@ SQL をテストするキャッシュ レイヤーでキャッシュの依存関
 
 さらに、SQL キャッシュ依存関係を操作するときに依存関係として複数のデータベース テーブルを関連付けることがあります。 たとえば、`ProductsDataTable`でキャッシュされた、`ProductsCL`クラスには、各製品カテゴリと仕入先名が含まれていますが、`AddCacheItem`メソッドのみを使用して、依存関係の`Products`します。 このような状況で、ユーザーがカテゴリや供給業者の名前を更新する場合にキャッシュされている製品のデータはキャッシュに残りとが最新でいます。 キャッシュされている製品のデータに依存するようにするため、だけでなく、`Products`テーブルが、`Categories`と`Suppliers`テーブルもします。
 
-[ `AggregateCacheDependency`クラス](https://msdn.microsoft.com/en-us/library/system.web.caching.aggregatecachedependency.aspx)キャッシュ項目に複数の依存関係を関連付けるための手段を提供します。 まずを作成して、`AggregateCacheDependency`インスタンス。 使用して依存関係のセットを次に、追加、 `AggregateCacheDependency` s`Add`メソッドです。 その後、データ キャッシュにアイテムを挿入するときに渡す、`AggregateCacheDependency`インスタンス。 ときに*任意*の`AggregateCacheDependency`インスタンスの依存関係が変更、キャッシュされた項目は削除されます。
+[ `AggregateCacheDependency`クラス](https://msdn.microsoft.com/library/system.web.caching.aggregatecachedependency.aspx)キャッシュ項目に複数の依存関係を関連付けるための手段を提供します。 まずを作成して、`AggregateCacheDependency`インスタンス。 使用して依存関係のセットを次に、追加、 `AggregateCacheDependency` s`Add`メソッドです。 その後、データ キャッシュにアイテムを挿入するときに渡す、`AggregateCacheDependency`インスタンス。 ときに*任意*の`AggregateCacheDependency`インスタンスの依存関係が変更、キャッシュされた項目は削除されます。
 
 更新されたコードを次に示します、`ProductsCL`クラスの`AddCacheItem`メソッドです。 メソッドを作成、`MasterCacheKeyArray`キャッシュ依存関係と共に`SqlCacheDependency`オブジェクトに対する、 `Products`、 `Categories`、および`Suppliers`テーブル。 これらはすべてを組み合わせて 1 つ`AggregateCacheDependency`という名前のオブジェクト`aggregateDependencies`に渡されたし、`Insert`メソッドです。
 
@@ -292,10 +292,10 @@ SQL をテストするキャッシュ レイヤーでキャッシュの依存関
 この新しいコードをテストします。ように変わります、 `Products`、 `Categories`、または`Suppliers`テーブルが削除するキャッシュされたデータに発生します。 さらに、`ProductsCL`クラス s `UpdateProduct` GridView を使用して製品を編集するときに呼び出される、メソッドが削除、`MasterCacheKeyArray`これにより、キャッシュされた依存関係をキャッシュ`ProductsDataTable`削除して、次回の再取得するデータ要求。
 
 > [!NOTE]
-> SQL キャッシュ依存関係はでも使用できます[出力キャッシュ](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx)です。 この機能のデモについてを参照してください: [SQL Server で ASP.NET 出力キャッシュを使用して](https://msdn.microsoft.com/en-us/library/e3w8402y(VS.80).aspx)です。
+> SQL キャッシュ依存関係はでも使用できます[出力キャッシュ](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx)です。 この機能のデモについてを参照してください: [SQL Server で ASP.NET 出力キャッシュを使用して](https://msdn.microsoft.com/library/e3w8402y(VS.80).aspx)です。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 データベースのデータをキャッシュする場合、データは理想的にはまでキャッシュに、データベースで変更されているです。 ASP.NET 2.0 では、SQL キャッシュ依存関係を作成して宣言とプログラムの両方のシナリオで使用します。 このアプローチの課題の 1 つは、データが変更されたときを検出するのにです。 Microsoft SQL Server 2005 の完全なバージョンでは、クエリ結果が変更されたときに、アプリケーションに警告できます通知機能を提供します。 Express エディションの SQL Server 2005 と SQL Server の以前のバージョンでは、ポーリング システムを代わりに使用する必要があります。 さいわい、ポーリングのために必要なインフラストラクチャを設定することは簡単です。
 
@@ -305,10 +305,10 @@ SQL をテストするキャッシュ レイヤーでキャッシュの依存関
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [Microsoft SQL Server 2005 のクエリ通知の使用](https://msdn.microsoft.com/en-us/library/ms175110.aspx)
-- [クエリ通知を作成します。](https://msdn.microsoft.com/en-us/library/ms188669.aspx)
-- [ASP.NET でのキャッシュ、`SqlCacheDependency`クラス](https://msdn.microsoft.com/en-us/library/ms178604(VS.80).aspx)
-- [ASP.NET SQL Server の登録ツール (`aspnet_regsql.exe`)](https://msdn.microsoft.com/en-us/library/ms229862(vs.80).aspx)
+- [Microsoft SQL Server 2005 のクエリ通知の使用](https://msdn.microsoft.com/library/ms175110.aspx)
+- [クエリ通知を作成します。](https://msdn.microsoft.com/library/ms188669.aspx)
+- [ASP.NET でのキャッシュ、`SqlCacheDependency`クラス](https://msdn.microsoft.com/library/ms178604(VS.80).aspx)
+- [ASP.NET SQL Server の登録ツール (`aspnet_regsql.exe`)](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)
 - [概要`SqlCacheDependency`](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
 
 ## <a name="about-the-author"></a>作成者について

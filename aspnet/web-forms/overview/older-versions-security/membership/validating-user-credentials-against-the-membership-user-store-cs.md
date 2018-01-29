@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 66ebcebfc3eda3bce416da1adea0fd4d7f39a5e4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8f8f4db63ba8c1f1c1df7c1c5c1f92184bf6841d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-c"></a>メンバーシップ ユーザーのストア (c#) に対してユーザーの資格情報の検証
 ====================
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/10/2017
 
 フォーム認証を使用する web サイトでは、ユーザー ログオン、web サイトにログイン ページにアクセスし、自分の資格情報を入力します。 これらの資格情報は、ユーザー ストアとし、比較されます。 有効な場合は、ユーザーは、セキュリティ トークンの id と、ユーザーの信頼性を示すのフォーム認証のチケットを許可します。
 
-メンバーシップ フレームワークに対してユーザーを検証するを使用して、`Membership`クラスの[`ValidateUser`メソッド](https://msdn.microsoft.com/en-us/library/system.web.security.membership.validateuser.aspx)です。 `ValidateUser`メソッドは、2 つの入力パラメーターで使用 *`username`* と *`password`*  -資格情報が有効であるかどうかを示すブール値を返します。 使用するような`CreateUser`メソッドの前のチュートリアルで確認して、`ValidateUser`メソッドは、構成済みのメンバーシップ プロバイダーに実際の検証を代行します。
+メンバーシップ フレームワークに対してユーザーを検証するを使用して、`Membership`クラスの[`ValidateUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx)です。 `ValidateUser`メソッドは、2 つの入力パラメーターで使用 *`username`* と *`password`*  -資格情報が有効であるかどうかを示すブール値を返します。 使用するような`CreateUser`メソッドの前のチュートリアルで確認して、`ValidateUser`メソッドは、構成済みのメンバーシップ プロバイダーに実際の検証を代行します。
 
 `SqlMembershipProvider`経由で指定したユーザーのパスワードを取得することによって指定された資格情報を検証、`aspnet_Membership_GetPasswordWithFormat`ストアド プロシージャです。 注意してください、 `SqlMembershipProvider` 3 つの形式のいずれかを使用してユーザーのパスワードを格納します。 クリア、暗号化、またはハッシュします。 `aspnet_Membership_GetPasswordWithFormat`ストアド プロシージャは、その生の形式でパスワードを返します。 パスワードの暗号化またはハッシュされたパスワードの`SqlMembershipProvider`変換、  *`password`* に渡された値、`ValidateUser`暗号化をそれと同等のメソッド、または状態をハッシュされから返された結果と比較しますデータベースです。 データベースに格納されているパスワードには、ユーザーが入力した書式設定されたパスワードが一致すると、資格情報が無効です。
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="step-2-collecting-credentials-through-the-login-web-control"></a>手順 2: ログイン Web コントロールを通じて資格情報の収集
 
-[ログイン Web コントロール](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.aspx)に戻り作成されたものとよく似ています、既定のユーザー インターフェイスを表示、 <a id="SKM5"> </a> [*フォーム認証の概要を*](../introduction/an-overview-of-forms-authentication-cs.md)チュートリアルです。 ログイン コントロールを使用して us、作業保存ビジター s 資格情報を収集するためのインターフェイスを作成する必要がなくなります。 さらに、ログイン コントロール自動的にサインアウト (送信済みの資格情報が有効な場合)、ユーザーにそれによって us 保存コードを記述する必要がなくなります。
+[ログイン Web コントロール](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx)に戻り作成されたものとよく似ています、既定のユーザー インターフェイスを表示、 <a id="SKM5"> </a> [*フォーム認証の概要を*](../introduction/an-overview-of-forms-authentication-cs.md)チュートリアルです。 ログイン コントロールを使用して us、作業保存ビジター s 資格情報を収集するためのインターフェイスを作成する必要がなくなります。 さらに、ログイン コントロール自動的にサインアウト (送信済みの資格情報が有効な場合)、ユーザーにそれによって us 保存コードを記述する必要がなくなります。
 
 更新みましょう`Login.aspx`手動で作成したインターフェイスを置き換えること、およびコードでは、ログイン コントロール。 既存のマークアップを削除することで起動し、コードで`Login.aspx`です。 、完全に削除するか、単にコメント アウトできます。宣言型マークアップをコメントには、周囲にあると、`<%--`と`--%>`区切り記号。 これらの区切り記号を手動で入力することができます。 または、図 2 に示すは、コメント アウトし、[ツールバーのアイコンを選択した行をコメント] をクリックするテキストを選択する可能性があります。 同様に、選択した行のアイコンをコメントを使用すると、分離コード クラスで選択したコードをコメント アウトします。
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 11/10/2017
 
 - かどうか、ログイン コントロールが、ログイン ページで定義されている`loginUrl`この設定の既定値は、フォーム認証の構成の設定`Login.aspx`
 - 存在、 `ReturnUrl` querystring パラメーター
-- ログイン コントロールの値[`DestinationUrl`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
+- ログイン コントロールの値[`DestinationUrl`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
 - `defaultUrl`フォーム認証の構成設定に指定された値ですこの設定の既定値は。`Default.aspx`
 
 図 4 は、方法を示しています。 ログイン コントロールは、そのページの適切な意思決定に到着するこれら 4 つのパラメーターを使用します。
@@ -131,19 +131,19 @@ ms.lasthandoff: 11/10/2017
 
 ログイン コントロールの既定のプロパティ設定のタイトルが (ログの) ユーザー インターフェイスをレンダリングする、チェック ボックスと、[ログイン] ボタン、次回ユーザー名とパスワード入力用テキスト ボックス、およびラベル コントロールが次に時間をします。 これらの要素の外観は、ログイン コントロールの多数のプロパティをすべて構成可能です。 さらに、プロパティ、または 2 つを設定して - 新しいユーザー アカウントを作成するページへのリンクなどの他のユーザー インターフェイス要素を追加できます。
 
-では、ユーザーのログイン コントロールの外観を増やさずにしばらくご説明します。 以降、`Login.aspx`ページは既にログインを示すページの上部にあるテキスト、ログイン コントロールのタイトルは不要です。 したがって、クリア、 [ `TitleText`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.titletext.aspx)ログイン コントロールのタイトルを削除するために値。
+では、ユーザーのログイン コントロールの外観を増やさずにしばらくご説明します。 以降、`Login.aspx`ページは既にログインを示すページの上部にあるテキスト、ログイン コントロールのタイトルは不要です。 したがって、クリア、 [ `TitleText`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.titletext.aspx)ログイン コントロールのタイトルを削除するために値。
 
-: ユーザー名とパスワード: を通じて、2 つのテキスト ボックス コントロールの左にラベルをカスタマイズできる、 [ `UserNameLabelText` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.usernamelabeltext.aspx)と[`PasswordLabelText`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.passwordlabeltext.aspx)、それぞれします。 ユーザー名を変更してみましょう。 ユーザー名を読み取れませんラベル: です。 ラベルとテキスト ボックスのスタイルが使用して構成できますが、 [ `LabelStyle` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.labelstyle.aspx)と[`TextBoxStyle`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.textboxstyle.aspx)、それぞれします。
+: ユーザー名とパスワード: を通じて、2 つのテキスト ボックス コントロールの左にラベルをカスタマイズできる、 [ `UserNameLabelText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.usernamelabeltext.aspx)と[`PasswordLabelText`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordlabeltext.aspx)、それぞれします。 ユーザー名を変更してみましょう。 ユーザー名を読み取れませんラベル: です。 ラベルとテキスト ボックスのスタイルが使用して構成できますが、 [ `LabelStyle` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.labelstyle.aspx)と[`TextBoxStyle`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.textboxstyle.aspx)、それぞれします。
 
-次回ログイン コントロールの次の時間チェック ボックスの Text プロパティを設定することができます[ `RememberMeText property` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.remembermetext.aspx)、既定のチェック状態を使用して構成できますが、 [ `RememberMeSet property` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.remembermeset.aspx) (既定値は False)。 さあ、設定、`RememberMeSet`既定でチェックする場合は True。 次回 チェック ボックスは、サインインできるようにするプロパティです。
+次回ログイン コントロールの次の時間チェック ボックスの Text プロパティを設定することができます[ `RememberMeText property` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.remembermetext.aspx)、既定のチェック状態を使用して構成できますが、 [ `RememberMeSet property` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.remembermeset.aspx) (既定値は False)。 さあ、設定、`RememberMeSet`既定でチェックする場合は True。 次回 チェック ボックスは、サインインできるようにするプロパティです。
 
-ログイン コントロールには、そのユーザー インターフェイス コントロールのレイアウトを調整するための 2 つのプロパティが用意されています。 [ `TextLayout property` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.textlayout.aspx)を示すかどうか、ユーザー名: とパスワード: 左側の対応するテキスト ボックス (既定)、またはその上にラベルが表示されます。 [ `Orientation property` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.orientation.aspx)ユーザー名とパスワードの入力が垂直方向に置かれているかどうかを示します (上、他の 1 つ) または水平方向にします。 これら 2 つのプロパティには既定では、設定のままにしておくつもりが、これら 2 つのプロパティを結果として得られる効果を確認するには、その既定ではない値に設定を変更することをお勧めします。
+ログイン コントロールには、そのユーザー インターフェイス コントロールのレイアウトを調整するための 2 つのプロパティが用意されています。 [ `TextLayout property` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.textlayout.aspx)を示すかどうか、ユーザー名: とパスワード: 左側の対応するテキスト ボックス (既定)、またはその上にラベルが表示されます。 [ `Orientation property` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.orientation.aspx)ユーザー名とパスワードの入力が垂直方向に置かれているかどうかを示します (上、他の 1 つ) または水平方向にします。 これら 2 つのプロパティには既定では、設定のままにしておくつもりが、これら 2 つのプロパティを結果として得られる効果を確認するには、その既定ではない値に設定を変更することをお勧めします。
 
 > [!NOTE]
 > 次のセクションで、ログイン コントロールのレイアウトの構成を見てみましょうレイアウト コントロールのユーザー インターフェイス要素の正確なレイアウトを定義するテンプレートを使用します。
 
 
-ログイン コントロールのプロパティの設定を設定してラップ、 [ `CreateUserText` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.createusertext.aspx)と[`CreateUserUrl`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.createuserurl.aspx)にまだ登録されていないか。 アカウントを作成してください。 および`~/Membership/CreatingUserAccounts.aspx`、それぞれします。 これで作成した、ページを指すログイン コントロールのインターフェイスにハイパーリンクを追加、 <a id="SKM6"> </a>[前のチュートリアル](creating-user-accounts-cs.md)です。 ログイン コントロールの[ `HelpPageText` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.helppagetext.aspx)と[`HelpPageUrl`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.helppageurl.aspx)と[ `PasswordRecoveryText` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.passwordrecoverytext.aspx)と[ `PasswordRecoveryUrl` のプロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.passwordrecoveryurl.aspx)ヘルプ ページとパスワードの回復ページへのリンクを表示、同じ方法で動作します。
+ログイン コントロールのプロパティの設定を設定してラップ、 [ `CreateUserText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.createusertext.aspx)と[`CreateUserUrl`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.createuserurl.aspx)にまだ登録されていないか。 アカウントを作成してください。 および`~/Membership/CreatingUserAccounts.aspx`、それぞれします。 これで作成した、ページを指すログイン コントロールのインターフェイスにハイパーリンクを追加、 <a id="SKM6"> </a>[前のチュートリアル](creating-user-accounts-cs.md)です。 ログイン コントロールの[ `HelpPageText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.helppagetext.aspx)と[`HelpPageUrl`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.helppageurl.aspx)と[ `PasswordRecoveryText` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordrecoverytext.aspx)と[ `PasswordRecoveryUrl` のプロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.passwordrecoveryurl.aspx)ヘルプ ページとパスワードの回復ページへのリンクを表示、同じ方法で動作します。
 
 これらのプロパティの変更を加えたら、ログイン コントロールの宣言型マークアップおよび外観のようになります図 5 に示すです。
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 11/10/2017
 1. 追加の資格情報を収集する Web コントロールを含めるログイン コントロールのインターフェイスを更新します。
 2. ユーザー名とパスワードが有効であり、追加の資格情報が有効ですぎる場合にのみ、ユーザーが認証されるように、ログイン コントロールの内部認証ロジックをオーバーライドします。
 
-最初のタスクを実行するには、ログイン コントロールをテンプレートに変換し、必要な Web コントロールを追加する必要があります。 2 番目のタスクとは、コントロールのイベント ハンドラーを作成することで、ログイン コントロールの認証ロジックが優先されることが[`Authenticate`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.authenticate.aspx)です。
+最初のタスクを実行するには、ログイン コントロールをテンプレートに変換し、必要な Web コントロールを追加する必要があります。 2 番目のタスクとは、コントロールのイベント ハンドラーを作成することで、ログイン コントロールの認証ロジックが優先されることが[`Authenticate`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.authenticate.aspx)です。
 
 そのユーザー名、パスワード、および電子メール アドレスのユーザー入力を要求し、指定した電子メール アドレスには、ファイルの電子メール アドレスが一致する場合にのみユーザーを認証できるようにしましょうログイン コントロールを更新します。 まず、ログイン コントロールのインターフェイスをテンプレートに変換する必要があります。 ログイン コントロールのスマート タグから変換テンプレート オプションを選択します。
 
@@ -202,11 +202,11 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="step-3-modifying-the-login-controls-authentication-logic"></a>手順 3: ログイン コントロールの認証ロジックを変更します。
 
-彼女の訪問者が指定した場合資格情報と、[ログイン] ボタン、ポストバックに陥りますクリックして、ログインは、その認証ワークフローの進捗状況を制御します。 ワークフローを開始させて、 [ `LoggingIn`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.loggingin.aspx)です。 このイベントに関連付けられているすべてのイベント ハンドラーを設定して操作のログを取り消しても、`e.Cancel`プロパティを`true`です。
+彼女の訪問者が指定した場合資格情報と、[ログイン] ボタン、ポストバックに陥りますクリックして、ログインは、その認証ワークフローの進捗状況を制御します。 ワークフローを開始させて、 [ `LoggingIn`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loggingin.aspx)です。 このイベントに関連付けられているすべてのイベント ハンドラーを設定して操作のログを取り消しても、`e.Cancel`プロパティを`true`です。
 
-発生させることによって、ワークフローが進行状況操作のログは取り消されません場合、 [ `Authenticate`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.authenticate.aspx)です。 イベント ハンドラーがある場合、`Authenticate`イベントがいない、または指定された資格情報が有効かどうかを判断します。 ログイン コントロールを使用してイベント ハンドラーが指定されていない場合、`Membership.ValidateUser`資格情報の有効性を確認します。
+発生させることによって、ワークフローが進行状況操作のログは取り消されません場合、 [ `Authenticate`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.authenticate.aspx)です。 イベント ハンドラーがある場合、`Authenticate`イベントがいない、または指定された資格情報が有効かどうかを判断します。 ログイン コントロールを使用してイベント ハンドラーが指定されていない場合、`Membership.ValidateUser`資格情報の有効性を確認します。
 
-かどうかは、指定された資格情報が有効で、フォーム認証チケットを作成すると、 [ `LoggedIn`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.loggedin.aspx)が発生し、ユーザーは、適切なページにリダイレクトします。 ただし、資格情報と考えられる、無効な場合は、次に、 [ `LoginError`イベント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.loginerror.aspx)が発生し、ユーザーを通知するには、自分の資格情報が有効でないというメッセージが表示されます。 既定では、失敗した場合、ログイン コントロールだけを設定、`FailureText`コントロールのテキスト プロパティ (ログインの試行に失敗しましたエラー メッセージにラベルを付けます。 もう一度やり直してください)。 ただし場合、ログイン コントロールの[`FailureAction`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.failureaction.aspx)に設定されている`RedirectToLoginPage`、ログイン管理の問題、 `Response.Redirect` querystring パラメーターを追加するログイン ページに`loginfailure=1`(それが原因で、ログインコントロールをエラー メッセージが表示されます)。
+かどうかは、指定された資格情報が有効で、フォーム認証チケットを作成すると、 [ `LoggedIn`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loggedin.aspx)が発生し、ユーザーは、適切なページにリダイレクトします。 ただし、資格情報と考えられる、無効な場合は、次に、 [ `LoginError`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.loginerror.aspx)が発生し、ユーザーを通知するには、自分の資格情報が有効でないというメッセージが表示されます。 既定では、失敗した場合、ログイン コントロールだけを設定、`FailureText`コントロールのテキスト プロパティ (ログインの試行に失敗しましたエラー メッセージにラベルを付けます。 もう一度やり直してください)。 ただし場合、ログイン コントロールの[`FailureAction`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.failureaction.aspx)に設定されている`RedirectToLoginPage`、ログイン管理の問題、 `Response.Redirect` querystring パラメーターを追加するログイン ページに`loginfailure=1`(それが原因で、ログインコントロールをエラー メッセージが表示されます)。
 
 図 9 には、認証ワークフローのフロー チャートが用意されています。
 
@@ -226,11 +226,11 @@ ms.lasthandoff: 11/10/2017
 
 [!code-csharp[Main](validating-user-credentials-against-the-membership-user-store-cs/samples/sample3.cs)]
 
-ご覧のように、`Authenticate`イベント ハンドラーは型のオブジェクトに渡されます[ `AuthenticateEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.authenticateeventargs.aspx) 2 番目の入力パラメーターとして。 `AuthenticateEventArgs`クラスには、という名前のブール型プロパティが含まれています。`Authenticated`指定された資格情報が有効かどうかを指定するために使用されます。 タスクは、次に、コードを記述するここか、指定された資格情報が有効かどうかを決定してを設定するには、`e.Authenticate`プロパティに応じて。
+ご覧のように、`Authenticate`イベント ハンドラーは型のオブジェクトに渡されます[ `AuthenticateEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.authenticateeventargs.aspx) 2 番目の入力パラメーターとして。 `AuthenticateEventArgs`クラスには、という名前のブール型プロパティが含まれています。`Authenticated`指定された資格情報が有効かどうかを指定するために使用されます。 タスクは、次に、コードを記述するここか、指定された資格情報が有効かどうかを決定してを設定するには、`e.Authenticate`プロパティに応じて。
 
 ### <a name="determining-and-validating-the-supplied-credentials"></a>特定し、指定された資格情報を検証します。
 
-ログイン コントロールの使用[ `UserName` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.username.aspx)と[`Password`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.password.aspx)をユーザーが入力したユーザー名とパスワードの資格情報を確認します。 その他の Web コントロールに入力された値を決定するために (など、 `Email`  ボックスに、前の手順で追加されました)、使用して *`LoginControlID`*  `.FindControl`(" *`controlID`* ") を取得するプログラムへの参照 Web コントロール テンプレートを持つ`ID`プロパティと等しい *`controlID`*です。 たとえばへの参照を取得するため、 `Email`  ボックスに、次のコードを使用します。
+ログイン コントロールの使用[ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx)と[`Password`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx)をユーザーが入力したユーザー名とパスワードの資格情報を確認します。 その他の Web コントロールに入力された値を決定するために (など、 `Email`  ボックスに、前の手順で追加されました)、使用して *`LoginControlID`*  `.FindControl`(" *`controlID`* ") を取得するプログラムへの参照 Web コントロール テンプレートを持つ`ID`プロパティと等しい *`controlID`*です。 たとえばへの参照を取得するため、 `Email`  ボックスに、次のコードを使用します。
 
 `TextBox EmailTextBox = myLogin.FindControl("Email") as TextBox;`
 
@@ -239,9 +239,9 @@ ms.lasthandoff: 11/10/2017
 1. 指定したユーザー名とパスワードが有効であることを確認します。
 2. 入力した電子メール アドレスにログインしようとしてください。 ユーザーのファイル上の電子メール アドレスと一致することを確認してください。
 
-使用して単に最初のチェックを実行する、`Membership.ValidateUser`メソッド手順 1. で説明したようにします。 2 番目のチェックでは、テキスト ボックス コントロールに入力した電子メール アドレスにこれと比較できるように、ユーザーの電子メール アドレスを決定する必要があります。 特定のユーザーに関する情報を取得するを使用して、`Membership`クラスの[`GetUser`メソッド](https://msdn.microsoft.com/en-us/library/system.web.security.membership.getuser.aspx)です。
+使用して単に最初のチェックを実行する、`Membership.ValidateUser`メソッド手順 1. で説明したようにします。 2 番目のチェックでは、テキスト ボックス コントロールに入力した電子メール アドレスにこれと比較できるように、ユーザーの電子メール アドレスを決定する必要があります。 特定のユーザーに関する情報を取得するを使用して、`Membership`クラスの[`GetUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.getuser.aspx)です。
 
-`GetUser`メソッドはオーバー ロードの数。 すべてのパラメーターに渡すことがなく使用する場合は、現在ログインしているユーザーに関する情報を返します。 特定のユーザーに関する情報を取得するには、呼び出す`GetUser`ユーザー名を渡します。 どちらの方法でも、`GetUser`を返します、 [ `MembershipUser`オブジェクト](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.aspx)などのプロパティを持つ`UserName`、 `Email`、 `IsApproved`、`IsOnline`のようにします。
+`GetUser`メソッドはオーバー ロードの数。 すべてのパラメーターに渡すことがなく使用する場合は、現在ログインしているユーザーに関する情報を返します。 特定のユーザーに関する情報を取得するには、呼び出す`GetUser`ユーザー名を渡します。 どちらの方法でも、`GetUser`を返します、 [ `MembershipUser`オブジェクト](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx)などのプロパティを持つ`UserName`、 `Email`、 `IsApproved`、`IsOnline`のようにします。
 
 次のコードでは、これら 2 つのチェックを実装します。 両方に合格した場合、し`e.Authenticate`に設定されている`true`、それが割り当てられます`false`です。
 
@@ -261,7 +261,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="step-4-improving-the-login-controls-invalid-credentials-message"></a>手順 4: ログイン コントロールの無効な資格情報のメッセージの向上
 
-ユーザーが無効な資格情報でログオンしようとすると、ログイン コントロールには、ログインの試行が成功したことを示すメッセージが表示されます。 具体的には、コントロールがで指定されたメッセージが表示されます、 [ `FailureText`プロパティ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.failuretext.aspx)は、既定値は、ログインの試行に失敗しました。 やり直してください。
+ユーザーが無効な資格情報でログオンしようとすると、ログイン コントロールには、ログインの試行が成功したことを示すメッセージが表示されます。 具体的には、コントロールがで指定されたメッセージが表示されます、 [ `FailureText`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.failuretext.aspx)は、既定値は、ログインの試行に失敗しました。 やり直してください。
 
 なぜユーザーの資格情報がありますいない有効な多くの理由があることに注意してください。
 
@@ -288,7 +288,7 @@ ms.lasthandoff: 11/10/2017
 **図 11**: Tito 実行も無効なログインを何度もおよびがされてロックアウト ([フルサイズのイメージを表示するをクリックして](validating-user-credentials-against-the-membership-user-store-cs/_static/image33.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 以前このチュートリアルで、ログイン ページは、ハード コーディングされた一連のユーザー名とパスワードの組み合わせに対して指定された資格情報を検証します。 このチュートリアルでは、メンバーシップ フレームワークに対して資格情報を検証するページを更新します。 手順 1. でお見てを使用して、`Membership.ValidateUser`メソッド プログラムでします。 手順 2. で置き換え、手動で作成したユーザー インターフェイスとコード ログイン コントロールを使用します。
 
@@ -304,8 +304,8 @@ ms.lasthandoff: 11/10/2017
 
 - [ロックされており、承認されていないユーザーにカスタム メッセージを表示します。](http://aspnet.4guysfromrolla.com/articles/050306-1.aspx)
 - [ASP.NET 2.0 を確認するメンバーシップ、ロール、およびプロファイル](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
-- [ASP.NET ログイン ページを作成する方法](https://msdn.microsoft.com/en-us/library/ms178331.aspx)
-- [ログイン コントロールのテクニカル ドキュメント](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.aspx)
+- [ASP.NET ログイン ページを作成する方法](https://msdn.microsoft.com/library/ms178331.aspx)
+- [ログイン コントロールのテクニカル ドキュメント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx)
 - [ログイン コントロールを使用します。](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/security/login.aspx)
 
 ### <a name="about-the-author"></a>作成者について
