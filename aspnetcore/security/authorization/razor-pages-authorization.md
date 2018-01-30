@@ -2,18 +2,18 @@
 title: "ASP.NET Core に razor ページの承認規則"
 author: guardrex
 description: "起動時にユーザーを承認して、個々 のページまたはページのフォルダーにアクセスする匿名ユーザーを許可する規則にページへのアクセスを制御する方法を説明します。"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/27/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/authorization/razor-pages-authorization
-ms.openlocfilehash: 72b558816e687c30d0c60f2fd85227d0d803219b
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2bad6e1cc654b972206af03f99160628f81e026f
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>ASP.NET Core に razor ページの承認規則
 

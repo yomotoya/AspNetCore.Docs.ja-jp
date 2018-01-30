@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1edd53b1005449c060ff92fc7ebd02dbe7fa6ac2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3c53dcf40cde244a9df9afc27b20c9e7ef288198
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-c"></a>FTP クライアント (c#) を使用して、サイトを展開します。
 ====================
@@ -48,7 +48,7 @@ Web アプリケーションの書籍の確認の 2 つのバージョンがあ�
 
 移動して BookReviewsWAP プロジェクトを起動して、`BookReviewsWAP`フォルダーとをダブルクリックすると、`BookReviewsWAP.sln`ファイル。 プロジェクトを配置する前に、ビルドのソース コードを変更するが、コンパイルされたアセンブリに含まれていることを確認する必要があります。 プロジェクトをビルドするビルド メニューを開き、BookReviewsWAP のビルド メニュー オプションを選択します。 1 つのアセンブリに、プロジェクト内のソース コードをコンパイルこの`BookReviewsWAP.dll`に配置されている、`Bin`フォルダーです。
 
-必要なファイルを展開する準備が整いました。 FTP クライアントを起動し、web ホスト プロバイダーの web サーバーに接続します。 (Web ホスト会社にサインアップするときに、FTP サーバーに接続する方法に関する情報を電子メールで送信されます。 これには、FTP サーバーだけでなく、ユーザー名とパスワードのアドレスが含まれます) です。
+必要なファイルを展開する準備が整いました。 FTP クライアントを起動し、web ホスト プロバイダーの web サーバーに接続します。 (Web ホスト会社にサインアップするときに、電子メールが送信されます、FTP サーバーに接続する方法の詳細については、FTP サーバーだけでなく、ユーザー名とパスワードのアドレスが含まれます。)
 
 デスクトップから、次のファイルを web ホスト プロバイダーのルート web サイト フォルダーにコピーします。 ホストしている場合、web サーバーに FTP、web のプロバイダーは、web サイトのルート ディレクトリにあります。 ただし、一部の web ホスト プロバイダーがという名前のサブフォルダーをある`www`または`wwwroot`web サイトのファイルのルート フォルダーとして機能します。 最後に、ファイルを FTPing ときにする必要があります、実稼働環境に対応するフォルダー構造を作成する、`Bin`フォルダー、`Fiction`フォルダー、`Images`フォルダーというようにします。
 

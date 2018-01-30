@@ -1,21 +1,21 @@
 ---
-title: "ASP.NET から ASP.NET をコア 2.0 の移行"
+title: "ASP.NET から ASP.NET Core 2.0 への移行"
 author: isaac2004
-description: "このリファレンス ドキュメントでは、既存の ASP.NET MVC または Web API アプリケーションを ASP.NET Core 2.0 に移行するときのガイダンスを示します。"
-ms.author: scaddie
+description: "ASP.NET Core 2.0 に移行する既存の ASP.NET MVC または Web API アプリケーションに関するガイダンスが表示されます。"
 manager: wpickett
+ms.author: scaddie
 ms.date: 08/27/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/mvc2
-ms.openlocfilehash: 95bedf9299b4ff65c2f520358136174c4d2c4623
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 65717c1605c7f55bfd836110072772fe3dcdeb76
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="migrating-from-aspnet-to-aspnet-core-20"></a>ASP.NET から ASP.NET をコア 2.0 の移行
+# <a name="migrating-from-aspnet-to-aspnet-core-20"></a>ASP.NET から ASP.NET Core 2.0 への移行
 
 著者: [Isaac Levin](https://isaaclevin.com)
 
@@ -38,11 +38,11 @@ ASP.NET Core 2.0 プロジェクトを使うと、開発者は、.NET Core と .
 </ItemGroup>
 ```
 
-メタパッケージを使うと、メタパッケージ内で参照されているパッケージはアプリでは展開されません。 .NET Core ランタイム ストアには、これらのアセットが含まれています。 され、パフォーマンスを向上させるために、コンパイルしています。 詳しくは、「[Microsoft.AspNetCore.All metapackage for ASP.NET Core 2.x](xref:fundamentals/metapackage)」(ASP.NET Core 2.x 用 Microsoft.AspNetCore.All メタパッケージ) をご覧ください。
+メタパッケージを使うと、メタパッケージ内で参照されているパッケージはアプリでは展開されません。 .NET Core ランタイム ストアにはこれらのアセットが含まれており、パフォーマンス向上のためにプリコンパイルされています。 詳しくは、「[Microsoft.AspNetCore.All metapackage for ASP.NET Core 2.x](xref:fundamentals/metapackage)」(ASP.NET Core 2.x 用 Microsoft.AspNetCore.All メタパッケージ) をご覧ください。
 
 ## <a name="project-structure-differences"></a>プロジェクトの構造の違い
 *.csproj* ファイルの形式は、ASP.NET Core では簡素化されています。 いくつかの重要な変更は次のとおりです。
-- 明示的なインクルード ファイルのプロジェクトの一部と見なされるそれらの必要はありません。 これにより、大規模なチームで作業する場合に XML のマージが競合するリスクが軽減されます。
+- ファイルがプロジェクトの一部と見なされるためにファイルを明示的に含める必要はありません。 これにより、大規模なチームで作業する場合に XML のマージが競合するリスクが軽減されます。
 - 他のプロジェクトを GUID で参照することはなくなり、ファイルの読みやすさが向上します。
 - Visual Studio でアンロードせずにファイルを編集することができます。
 
@@ -53,13 +53,13 @@ ASP.NET Core では、アプリをブートストラップする新しいメカ�
 
 [!code-csharp[Main](samples/globalasax-sample.cs)]
 
-このアプローチでは、アプリケーションとその展開先のサーバーが、実装を妨げるような方法で結合されます。 結合を切り離すため、複数のフレームワークを一緒に使うさらにクリーンな方法を提供する [OWIN](http://owin.org/) が導入されました。 OWIN は、必要なモジュールのみを追加するためのパイプラインを提供します。 ホスティング環境は、[Startup](xref:fundamentals/startup) 関数を取得して、サービスとアプリの要求パイプラインを構成します。 `Startup` は、ミドルウェアのセットをアプリケーションに登録します。 アプリケーションは、要求ごとに、既存のハンドラーのセットに対するリンク リストのヘッド ポインターを指定して、各ミドルウェア コンポーネントを呼び出します。 各ミドルウェア コンポーネントは、要求処理パイプラインに 1 つ以上のハンドラーを追加できます。 これは、新しいリストの先頭には、ハンドラーへの参照を返すことによって行います。 各ハンドラーは、リスト内の次のハンドラーを記憶して呼び出します。 ASP.NET Core では、アプリケーションへのエントリ ポイントは `Startup` であり、*Global.asax* に依存する必要はなくなりました。 .NET Framework で OWIN を使うときは、パイプラインとして次のようなものを使います。
+このアプローチでは、アプリケーションとその展開先のサーバーが、実装を妨げるような方法で結合されます。 結合を切り離すため、複数のフレームワークを一緒に使うさらにクリーンな方法を提供する [OWIN](http://owin.org/) が導入されました。 OWIN は、必要なモジュールのみを追加するためのパイプラインを提供します。 ホスティング環境は、[Startup](xref:fundamentals/startup) 関数を取得して、サービスとアプリの要求パイプラインを構成します。 `Startup` は、ミドルウェアのセットをアプリケーションに登録します。 アプリケーションは、要求ごとに、既存のハンドラーのセットに対するリンク リストのヘッド ポインターを指定して、各ミドルウェア コンポーネントを呼び出します。 各ミドルウェア コンポーネントは、要求処理パイプラインに 1 つ以上のハンドラーを追加できます。 これは、新しいリストのヘッドであるハンドラーへの参照を返すことによって行われます。 各ハンドラーは、リスト内の次のハンドラーを記憶して呼び出します。 ASP.NET Core では、アプリケーションへのエントリ ポイントは `Startup` であり、*Global.asax* に依存する必要はなくなりました。 .NET Framework で OWIN を使うときは、パイプラインとして次のようなものを使います。
 
 [!code-csharp[Main](samples/webapi-owin.cs)]
 
 これにより既定のルートが構成され、既定では Json 経由の XmlSerialization です。 必要に応じて、このパイプラインに他のミドルウェアを追加します (サービスの読み込み、構成設定、静的ファイルなど)。
 
-ASP.NET Core は同様のアプローチを使いますが、エントリを処理するために OWIN には依存しません。 代わりに、ことによって行われます、 *Program.cs* `Main`メソッド (コンソール アプリケーションに似ています) と`Startup`はそこから読み込まれます。
+ASP.NET Core は同様のアプローチを使いますが、エントリを処理するために OWIN には依存しません。 代わりに、(コンソール アプリケーションと同じように) *Program.cs* の `Main` メソッドを通して行われ、そこから `Startup` が読み込まれます。
 
 [!code-csharp[Main](samples/program.cs)]
 
@@ -77,7 +77,7 @@ ASP.NET Core は同様のアプローチを使いますが、エントリを処�
 
 **注:** ASP.NET Core のスタートアップとミドルウェアについて詳しくは、「[Application Startup in ASP.NET Core](xref:fundamentals/startup)」(ASP.NET Core でのアプリケーションのスタートアップ) をご覧ください。
 
-## <a name="storing-configurations"></a>保存の構成
+## <a name="storing-configurations"></a>構成を保存します。
 ASP.NET では保存の設定がサポートされています。 これらの設定は、たとえば、アプリケーションが展開された環境のサポートに使われます。 一般的な方法は、すべてのカスタム キー/値ペアを、*Web.config* ファイルの `<appSettings>` セクションに保存するというものでした。
 
 [!code-xml[Main](samples/webconfig-sample.xml)]
@@ -107,8 +107,8 @@ services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"
 
 **注:** ASP.NET Core の構成について詳しくは、「[Configuration in ASP.NET Core](xref:fundamentals/configuration/index)」(ASP.NET Core の構成) をご覧ください。
 
-## <a name="native-dependency-injection"></a>ネイティブな依存性の注入
-大規模で拡張性の高いアプリケーションを構築するときの重要な目標は、コンポーネントとサービスの疎な結合です。 [依存関係の挿入](xref:fundamentals/dependency-injection)、これを実現するための一般的な手法は、ASP.NET Core のネイティブ コンポーネントではします。
+## <a name="native-dependency-injection"></a>ネイティブの依存関係の挿入
+大規模で拡張性の高いアプリケーションを構築するときの重要な目標は、コンポーネントとサービスの疎な結合です。 [依存性の注入](xref:fundamentals/dependency-injection)はこれを実現するための一般的な手法であり、ASP.NET Core のネイティブなコンポーネントです。
 
 ASP.NET アプリケーションでは、開発者はサードパーティのライブラリに依存して依存性の注入を実装します。 [Unity](https://github.com/unitycontainer/unity) はそのようなライブラリの 1 つであり、Microsoft Patterns & Practices によって提供されます。 
 
@@ -147,5 +147,6 @@ ASP.NET Core では、構成が変更されていない限り、静的ファイ�
 
 **注:** ASP.NET Core での静的ファイルの提供について詳しくは、「[Introduction to working with static files in ASP.NET Core](xref:fundamentals/static-files)」(ASP.NET Core での静的ファイルの使用の概要) をご覧ください。
 
-## <a name="additional-resources"></a>その他のリソース
-* [.NET Core にライブラリを移植する](https://docs.microsoft.com/dotnet/core/porting/libraries)
+## <a name="additional-resources"></a>その他の技術情報
+
+* [.NET Core にライブラリを移植する](/dotnet/core/porting/libraries)

@@ -2,18 +2,18 @@
 title: "ASP.NET MVC を持つコアを EF Core - データ モデルの 10 の 5"
 author: tdykstra
 description: "このチュートリアルでは、複数のエンティティとリレーションシップを追加し、書式設定、検証、およびデータベース マッピング規則を指定することによって、データ モデルをカスタマイズします。"
-ms.author: tdykstra
 manager: wpickett
+ms.author: tdykstra
 ms.date: 03/15/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: d844e2a69e4bbfdf3942f2666ead0047bdf83b7a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ac30d9ae5531934ba5163a8d9114b11ac54af8d2
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>EF コア ASP.NET Core MVC のチュートリアル (10 の 5) に、複雑なデータ モデルを作成します。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 09f1a2e4de024e5778e69fdd691d9cb0040459f3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72e9cac7cf9a01791c30783fa56ad7ea205a5a11
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="server-controls"></a>サーバー コントロール
 ====================
@@ -199,10 +199,10 @@ ASP.NET 2.0 では、requestLengthDiskThreshold 属性 httpRuntime 要素ので�
 | **ステップの種類** | **説明** |
 | --- | --- |
 | 自動 | ウィザードでは、手順階層内の位置に基づいてステップの種類が自動的に決定します。 |
-| 開始 | 最初の手順、多くの場合、最初のステートメントを提示するために使用します。 |
+| [開始] | 最初の手順、多くの場合、最初のステートメントを提示するために使用します。 |
 | 手順 | 通常の手順です。 |
 | 完了 | 最後の手順、通常、ウィザードを完了するためのボタンを表示するために使用します。 |
-| 完了しました | 成功または失敗を通信してメッセージを表示します。 |
+| 完了 | 成功または失敗を通信してメッセージを表示します。 |
 
 > [!NOTE]
 > ウィザード コントロールの追跡の状態を ASP.NET コントロール状態を使用します。 そのため、エントリのプロパティは、任意に不利益をもたらすことがなく false に設定できます。
@@ -224,7 +224,7 @@ Localize コントロールは、Literal コントロールに似ています。
 | **モード** | **説明** |
 | --- | --- |
 | 変換 | マークアップは、要求を行っているブラウザーのプロトコルに従って変換されます。 |
-| パススルー | マークアップとして表示されます-はします。 |
+| PassThrough | マークアップとして表示されます-はします。 |
 | エンコード | コントロールに追加されるマークアップは、HtmlEncode を使用してエンコードされます。 |
 
 ## <a name="multiview-and-view-controls"></a>MultiView とビュー コントロール
@@ -271,7 +271,7 @@ XmlDataSource コントロールは、XML データ ソースへのデータ バ
 
 SiteMapDataSource コントロールは、サイト マップに基づくサイトのナビゲーション コントロールのデータ バインドを提供します。 後のモジュールでさらに詳しく説明されます。
 
-## <a name="sitemappath-control"></a>サイト マップ パス コントロール
+## <a name="sitemappath-control"></a>SiteMapPath Control
 
 サイト マップ パス コントロールには、一般に呼ば階層リンク ナビゲーション リンクの系列が表示されます。 これは、後のモジュールでさらに詳しくについて説明します。
 
@@ -295,7 +295,7 @@ LoginView コントロールは、ユーザーのログイン状態に基づい�
 
 PasswordRecovery コントロールを ASP.NET アプリケーションのユーザーがパスワードを忘れた場合を取得するされます。 これは、後のモジュールでさらに詳しくについて説明します。
 
-## <a name="loginstatus"></a>ログイン状態
+## <a name="loginstatus"></a>LoginStatus
 
 ログイン状態コントロールは、ユーザーのログイン状態を表示します。 これは、後のモジュールでさらに詳しくについて説明します。
 
@@ -307,7 +307,7 @@ LoginName コントロールは、ASP.NET アプリケーションにログイ�
 
 CreateUserWizard は、構成可能なウィザードによってユーザーは、ASP.NET アプリケーションで使用する ASP.NET メンバーシップ アカウントを作成する権限です。 これは、後のモジュールでさらに詳しくについて説明します。
 
-## <a name="changepassword"></a>パスワードの変更
+## <a name="changepassword"></a>ChangePassword
 
 ChangePassword コントロールでは、ASP.NET アプリケーションのパスワードを変更することができます。 これは、後のモジュールでさらに詳しくについて説明します。
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: f0224bcd2badc423ba5146feacccc44b8f33a608
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 29d5b2f4c04b899b900427ac202c0a4f57f8076f
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 および Visual Studio 2010 の Web 開発の概要
 ====================
@@ -1218,7 +1218,7 @@ ASP.NET 4 での動的データ サポートの主な目標は、ASP.NET アプ�
 
 <a id="0.2__Toc224729045"></a><a id="0.2__Toc253429282"></a><a id="0.2__Toc243304653"></a>
 
-### <a name="new-field-templates-for-urls-and-e-mail-addresses"></a>Url と電子メール アドレスの新しいフィールド テンプレート
+### <a name="new-field-templates-for-urls-and-email-addresses"></a>Url および電子メール アドレスの新しいフィールド テンプレート
 
 ASP.NET 4 では、次の 2 つの新しい組み込みフィールド テンプレート`EmailAddress.ascx`と`Url.ascx`です。 これらのテンプレートとしてマークされているフィールドの使用は*EmailAddress*または*Url*で、 *DataType*属性。 *EmailAddress*オブジェクトを使用して作成されるハイパーリンクとして、フィールドが表示されます、 *mailto:*プロトコルです。 ユーザーは、リンクをクリックして、それとが開き、ユーザーの電子メール クライアント スケルトンのメッセージを作成します。 オブジェクトとして型指定された*Url*は通常のハイパーリンクとして表示されます。
 
@@ -1382,7 +1382,7 @@ Visual Studio 2010 では、リモート サーバーに Web アプリケーシ�
 
 マイクロソフトは、このドキュメントに記載されている内容に関し、特許、特許申請、商標、著作権、またはその他の無体財産権を有する場合があります。 別途マイクロソフトのライセンス契約上に明示の規定のない限り、このドキュメントはこれらの特許、商標、著作権、またはその他の無体財産権に関する権利をお客様に許諾するものではありません。
 
-別途記載されていない場合、本ドキュメントで使用している会社、組織、製品、ドメイン名、電子メール アドレス、ロゴ、人物、場所、出来事などの名称は架空のものです。実在する会社、組織、製品、ドメイン名、電子メール アドレス、ロゴ、人物、場所、出来事などを意図したものではなく、推論されるべきでもありません。
+特に明記されない限り、使用している会社、組織、製品、ドメイン名、電子メール アドレス、ロゴ、人物、場所、およびイベント実在は、架空のもの、および関連会社、組織、製品、ドメイン名、電子メールをアドレス、ロゴ、人物、場所またはイベントはまたは意図して推論する必要があります。
 
 © 2009 Microsoft Corporation. All rights reserved.
 

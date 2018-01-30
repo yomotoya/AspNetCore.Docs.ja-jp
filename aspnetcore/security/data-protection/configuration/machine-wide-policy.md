@@ -2,18 +2,18 @@
 title: "データの保護コンピューター全体のポリシーを ASP.NET Core のサポートします。"
 author: rick-anderson
 description: "ASP.NET Core データ保護を使用するすべてのアプリの既定のコンピューター全体のポリシーを設定するためのサポートについて説明します。"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 4c3ae3b628ebe17c7926c71f1fad664d719d1706
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 53ded37e9fd5f1a2eaa37935d1c52efb1e9231ac
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>データの保護コンピューター全体のポリシーを ASP.NET Core のサポートします。
 

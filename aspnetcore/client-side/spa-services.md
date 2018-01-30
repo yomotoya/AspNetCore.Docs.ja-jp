@@ -2,19 +2,19 @@
 title: "JavaScriptServices を使用して、単一ページ アプリケーションの作成"
 author: scottaddie
 description: "ASP.NET Core 裏付け単一ページ アプリケーション (SPA) を作成する JavaScriptServices を使用する利点について説明します。"
-ms.author: scaddie
 manager: wpickett
-ms.date: 08/02/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: client-side/spa-services
+ms.author: scaddie
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 514efcdd78957f999e46c521d0266f092f742538
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 08/02/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: client-side/spa-services
+ms.openlocfilehash: bd18d342de7c147e3588bd6daa3aebd68aa81c36
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>ASP.NET Core での単一ページ アプリケーションを作成するため JavaScriptServices を使用します。
 
@@ -288,7 +288,7 @@ dotnet run
 
 ## <a name="testing-the-app"></a>アプリのテスト
 
-SpaServices テンプレートは、事前構成を使用してクライアント側のテストを実行して[Karma](https://karma-runner.github.io/1.0/index.html)と[Jasmine](https://jasmine.github.io/)です。 Jasmine に対し、Karma テスト ランナーはこれらのテストには、人気のある単体テスト フレームワークを JavaScript 用です。 Karma が使用するよう構成、 [Webpack デベロッパー ミドルウェア](#webpack-dev-middleware)を停止し、変更されるたびに、テストを実行する必要はありません。 テスト_ケースまたはテスト ケース自体に対して実行されるコードであるかどうか、テストが自動的に実行されます。
+SpaServices テンプレートは、事前構成を使用してクライアント側のテストを実行して[Karma](https://karma-runner.github.io/1.0/index.html)と[Jasmine](https://jasmine.github.io/)です。 Jasmine に対し、Karma テスト ランナーはこれらのテストには、人気のある単体テスト フレームワークを JavaScript 用です。 Karma が使用するよう構成、 [Webpack デベロッパー ミドルウェア](#webpack-dev-middleware)を開発者が停止し、変更されるたびに、テストを実行するため必要はありません。 テスト_ケースまたはテスト ケース自体に対して実行されるコードであるかどうか、テストが自動的に実行されます。
 
 Angular アプリケーションを使用して、例として、2 つのジャスミン テスト_ケースが既に提供されている、`CounterComponent`で、 *counter.component.spec.ts*ファイル。
 

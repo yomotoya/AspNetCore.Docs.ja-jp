@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: 7f41017a2a8c058c01fe6f89a2503eb5fa77048e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1379b9fb638f67896d88d7aa4312d95280ef7318
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="supported-platforms"></a>サポートされているプラットフォーム
 ====================
@@ -41,6 +41,7 @@ ms.lasthandoff: 11/10/2017
 
 - Windows Server 2012
 - Windows Server 2008 r2
+- Windows 10
 - Windows 8
 - Windows 7
 - Windows Azure
@@ -113,8 +114,8 @@ SignalR に利用可能なトランスポートではオペレーティング �
 | --- | --- | --- |
 | Web ソケット | Windows 8 以降と .NET 4.5 以降 | N/A |
 | 無限フレーム | N/A | N/A |
-| サーバー送信イベント | .NET 4 以降 | 5+ |
-| ポーリング時間の長い | .NET 4 以降 | 5+ |
+| サーバー送信イベント | .NET 4+ | 5+ |
+| ポーリング時間の長い | .NET 4+ | 5+ |
 
 <a id="android"></a>
 
@@ -124,12 +125,12 @@ SignalR は、Windows ストア アプリケーションと Windows Phone 8 ア�
 
 **Windows ストアおよび Windows Phone のトランスポートの要件**
 
-| Transport | Windows ストア/.NET | Windows ストア/JavaScript | Windows Phone/IE | Windows Phone/.NET |
+| Transport | Windows ストア/.NET | Windows ストア/JavaScript | Windows Phone/ IE | Windows Phone/ .NET |
 | --- | --- | --- | --- | --- |
-| WebSocket | N/A | Win8 + | 8+ | N/A |
-| 無限フレーム | N/A | Win8 + | 7.5+ | N/A |
-| サーバー送信イベント | Win8 + | N/A | N/A | 8+ |
-| ポーリング時間の長い | Win8 + | Win8 + | 7.5+ | 8+ |
+| WebSocket | N/A | Win8+ | 8+ | N/A |
+| 無限フレーム | N/A | Win8+ | 7.5+ | N/A |
+| サーバー送信イベント | Win8+ | N/A | N/A | 8+ |
+| ポーリング時間の長い | Win8+ | Win8+ | 7.5+ | 8+ |
 
 <a id="updates"></a>
 

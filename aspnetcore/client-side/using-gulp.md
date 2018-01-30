@@ -2,19 +2,19 @@
 title: "ASP.NET Core で Gulp を使用します。"
 author: rick-anderson
 description: "ASP.NET Core で Gulp を使用する方法を説明します。"
-ms.author: riande
 manager: wpickett
-ms.date: 02/28/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: client-side/using-gulp
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ccfed42d66ea49c5f2745bc8653d8fb12bf707a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 02/28/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: client-side/using-gulp
+ms.openlocfilehash: f091370bc85a37eeaac1291a2fdc6ea85164f148
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>ASP.NET Core で Gulp を使用の概要 
 
@@ -59,13 +59,13 @@ paths.concatCssDest = paths.webroot + "css/site.min.css";
 
 上記のコードでは、どのノード モジュールに必要なを指定します。 `require`関数が依存タスクは、その機能を利用できるように、各モジュールをインポートします。 インポートしたモジュールの各は、変数に割り当てられます。 モジュールは、名前またはパスのいずれかに配置できます。 この例では、モジュールが名前付き`gulp`、 `rimraf`、 `gulp-concat`、`gulp-cssmin`と`gulp-uglify`名前によって取得されます。 さらに、一連のパスは、CSS および JavaScript ファイルの場所を再利用したり、タスク内で参照できるように作成されます。 次の表の説明に含まれるモジュールの*gulpfile.js*です。
 
-|モジュール名|説明|
-|---|---|
-|gulp|Gulp ストリーミング ビルド システムです。 詳細については、次を参照してください。 [gulp](https://www.npmjs.com/package/gulp)です。|
-|rimraf|ノードの削除モジュール。 詳細については、次を参照してください。 [rimraf](https://www.npmjs.com/package/rimraf)です。|
-|gulp-concat|オペレーティング システムの改行文字に基づいてファイルを連結するモジュール。 詳細については、次を参照してください。 [gulp concat](https://www.npmjs.com/package/gulp-concat)です。|
-|gulp-cssmin|CSS ファイルを縮小するモジュール。 詳細については、次を参照してください。 [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin)です。|
-|gulp uglify します。|縮小するモジュール*.js*ファイル。 詳細については、次を参照してください。 [gulp uglify](https://www.npmjs.com/package/gulp-uglify)です。|
+| モジュール名 | 説明 |
+| ----------- | ----------- |
+| gulp        | Gulp ストリーミング ビルド システムです。 詳細については、次を参照してください。 [gulp](https://www.npmjs.com/package/gulp)です。 |
+| rimraf      | ノードの削除モジュール。 詳細については、次を参照してください。 [rimraf](https://www.npmjs.com/package/rimraf)です。 |
+| gulp-concat | オペレーティング システムの改行文字に基づいてファイルを連結するモジュール。 詳細については、次を参照してください。 [gulp concat](https://www.npmjs.com/package/gulp-concat)です。 |
+| gulp-cssmin | CSS ファイルを縮小するモジュール。 詳細については、次を参照してください。 [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin)です。 |
+| gulp uglify します。 | 縮小するモジュール*.js*ファイル。 詳細については、次を参照してください。 [gulp uglify](https://www.npmjs.com/package/gulp-uglify)です。 |
 
 必要なモジュールがインポートされると、タスクを指定できます。 ここで 6 つのタスクが登録されている、次のコードで表されます。
 

@@ -4,15 +4,15 @@ author: rick-anderson
 description: "このチュートリアルでは、並べ替え、フィルター、およびページング ASP.NET Core および Entity Framework のコアを使用して 1 ページに機能を追加します。"
 ms.author: riande
 ms.date: 10/22/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 24649374b71da39d638d943617a219d45f064846
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9c1ee6f8c00f3cd501ea86fbf73f51ae540a010a
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>並べ替え、フィルター、ページング、およびグループ化 - EF コア Razor ページ (3/8)
 
@@ -107,7 +107,7 @@ ms.lasthandoff: 01/24/2018
 追加する、受講者インデックス ページにフィルター処理します。
 
 * テキスト ボックスと [送信] ボタンは、Razor ページに追加されます。 テキスト ボックスは、最初と最後の名前で検索文字列を指定します。
-* テキスト ボックスの値を使用する分離コード ファイルが更新されます。
+* テキスト ボックスの値を使用してページ モデルが更新されます。
 
 ### <a name="add-filtering-functionality-to-the-index-method"></a>Index メソッドにフィルター処理機能を追加します。
 
@@ -245,7 +245,7 @@ http://localhost:5000/Students?SearchString=an
 このステップで*Pages/About.cshtml*更新され、登録日付ごとに登録した数の受講者を表示します。 更新プログラムは、グループ化を使用し、次の手順が含まれています。
 
 * によって使用されるデータのビュー モデル クラスを作成、**に関する**ページ。
-* Razor ページに関すると分離コード ファイルを変更します。
+* Razor ページについて、ページのモデルを変更します。
 
 ### <a name="create-the-view-model"></a>ビュー モデルを作成します。
 
@@ -255,7 +255,7 @@ http://localhost:5000/Students?SearchString=an
 
 [!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
-### <a name="update-the-about-code-behind-page"></a>バージョン情報の分離コード ページを更新します。
+### <a name="update-the-about-page-model"></a>モデルを更新するバージョン情報 ページ
 
 更新プログラム、 *Pages/About.cshtml.cs*を次のコード ファイル。
 
@@ -277,7 +277,7 @@ LINQ ステートメントの登録日で学生エンティティをグループ
 
 ![ページについて](sort-filter-page/_static/about.png)
 
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の技術情報
 
 * [ASP.NET Core 2.x ソースのデバッグ](https://github.com/aspnet/Docs/issues/4155)
 

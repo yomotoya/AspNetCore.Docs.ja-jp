@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 4e1270f9fb58032d22380117f4ec18b00bd725fc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5f6ed1ae0309e9bdd3ca4ae229195835f20bc729
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>IIS 統合パイプラインの OWIN ミドルウェア
 ====================
@@ -78,7 +78,7 @@ F5 キーを押して、アプリを実行します。次は、出力ウィン�
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample8.cs)]
 
 1. 既定では、OMCs は最後のイベントで実行 (`PreHandlerExecute`)。 その理由は、最初のコード例には"PreExecuteRequestHandler"が表示されます。
-2. 使用することができます、`pp.UseStageMarker`に OWIN パイプラインのいずれかの段階で以前に実行する OMC を登録する方法が示されている、`PipelineStage`列挙型。
+2. 使用することができます、`app.UseStageMarker`に OWIN パイプラインのいずれかの段階で以前に実行する OMC を登録する方法が示されている、`PipelineStage`列挙型。
 3. OWIN パイプラインと IIS パイプラインが順序付け、そのために呼び出し`app.UseStageMarker`の順序である必要があります。 登録されている最後のイベントの前に、イベントにイベント ハンドラーを設定することはできません`app.UseStageMarker`です。 たとえば、*後*呼び出し。
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample9.cmd)]

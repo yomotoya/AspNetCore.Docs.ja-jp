@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 97e0aacbf21914bf95f01019cf4dcc9e7ca1c4be
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 17944c0600a174176e3e9940f414b34f0835b800
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="preventing-open-redirection-attacks-c"></a>開いているリダイレクト攻撃 (c#)
 ====================
@@ -43,7 +43,7 @@ ReturnUrl querystring パラメーターが検証されていないため、攻�
 
 ### <a name="a-more-complex-open-redirection-attack"></a>複雑なオープン リダイレクト攻撃
 
-開いているリダイレクト攻撃は、攻撃者がに対する脆弱性と、お客様を特定の web サイトにログインしようとしていることを認識しているために、特に危険な[フィッシング攻撃](https://www.microsoft.com/protect/fraud/phishing/symptoms.aspx)です。 たとえば、攻撃者で、自分のパスワードをキャプチャするために、web サイトのユーザーに悪意のある電子メールを送信可能性があります。 これを NerdDinner サイトでは機能するしくみを見てみましょう。 (開いているリダイレクト攻撃を防ぐために、ライブ NerdDinner サイトが更新されたことに注意してください)。
+開いているリダイレクト攻撃は、攻撃者がに対する脆弱性と、お客様を特定の web サイトにログインしようとしていることを認識しているために、特に危険な[フィッシング攻撃](https://www.microsoft.com/protect/fraud/phishing/symptoms.aspx)です。 たとえば、攻撃者で、自分のパスワードをキャプチャするために、web サイトのユーザーに悪意のある電子メールを送信でしたできます。 これを NerdDinner サイトでは機能するしくみを見てみましょう。 (開いているリダイレクト攻撃を防ぐために、ライブ NerdDinner サイトが更新されたことに注意してください)。
 
 最初に、攻撃者は、送信 us リンク NerdDinner が偽造ページへのリダイレクトを含む、ログイン ページにします。
 
@@ -119,6 +119,6 @@ IsLocalUrl() メソッドは、配置では、これでお呼び出すことが�
 
 **図 05**: 開いているリダイレクト攻撃を阻止
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 リダイレクト Url は、アプリケーションの URL をパラメーターとして渡される、開いているリダイレクト攻撃が発生します。 テンプレートを防ぐためにコードが含まれています。 ASP.NET MVC 3 では、リダイレクト攻撃を開きます。 ASP.NET MVC 1.0 と 2 つのアプリケーションをいくつかの変更でこのコードを追加することができます。 ASP.NET 1.0 と 2 つのアプリケーションにログインするときにを開いているリダイレクト攻撃を防ぐためするには、IsLocalUrl() メソッドを追加し、ログオン アクションで returnUrl パラメーターを検証します。

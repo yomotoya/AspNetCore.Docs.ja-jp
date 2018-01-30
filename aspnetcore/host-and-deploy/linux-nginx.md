@@ -1,20 +1,20 @@
 ---
 title: "Nginx 搭載の Linux で ASP.NET Core をホストする"
-description: "Ubuntu 16.04 Kestrel で実行されている ASP.NET Core web アプリへの HTTP トラフィックを転送にリバース プロキシとして Nginx をセットアップする方法について説明します。"
 author: rick-anderson
-ms.author: riande
+description: "Ubuntu 16.04 Kestrel で実行されている ASP.NET Core web アプリへの HTTP トラフィックを転送にリバース プロキシとして Nginx をセットアップする方法について説明します。"
 manager: wpickett
+ms.author: riande
 ms.custom: mvc
 ms.date: 08/21/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 465f1391ef4ff9492d9aed48cb32da0659ceda41
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9939e420fee41b11e709da911d4051a048e789b3
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Nginx 搭載の Linux で ASP.NET Core をホストする
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/24/2018
 
 ### <a name="why-use-a-reverse-proxy-server"></a>リバース プロキシ サーバーを利用する理由
 
-ASP.NET Core から動的コンテンツにサービスを提供することに関して、Kestrel は優れた Web ツールです。しかしながら、IIS、Apache、Nginx などのサーバーのように機能が豊富ではありません。 リバース プロキシ サーバーは、静的コンテンツ サービス、要求のキャッシュ、要求の圧縮、HTTP サーバーからの SSL 終了などの作業の負荷を軽減します。 リバース プロキシ サーバーは専用コンピューター上に置かれることもあれば、HTTP サーバーと並んで展開されることもあります。
+Kestrel は、ASP.NET Core から動的なコンテンツを提供しているに便利です。 ただし、web サービス機能は、IIS、Apache、Nginx などのサーバーと豊富な機能としてはありません。 リバース プロキシ サーバーは、静的なコンテンツ、要求をキャッシュ、要求、および HTTP サーバーからの SSL ターミネーションを圧縮するなどの作業をオフロードできます。 リバース プロキシ サーバーは専用コンピューター上に置かれることもあれば、HTTP サーバーと並んで展開されることもあります。
 
 このガイドの目的のために、単一インスタンスの Nginx が使用されます。 HTTP サーバーと並んで、同じサーバー上で実行されます。 要件に基づき、異なる設定を選択することがあります。
 

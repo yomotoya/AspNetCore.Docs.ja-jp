@@ -2,18 +2,18 @@
 title: "ASP.NET Core と Entity Framework 6 の概要"
 author: tdykstra
 description: "この記事では、ASP.NET Core アプリケーションで Entity Framework 6 を使用する方法を示します。"
-ms.author: tdykstra
 manager: wpickett
+ms.author: tdykstra
 ms.date: 02/24/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: data/entity-framework-6
-ms.openlocfilehash: 7f3c1f28c1e0b3a68db7f6f84c56b18643b56cc8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7407fe8a976978d7d5077d5e5ac6cc264565621d
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="getting-started-with-aspnet-core-and-entity-framework-6"></a>ASP.NET Core と Entity Framework 6 の概要
 
@@ -37,7 +37,7 @@ ASP.NET Core プロジェクトは、.NET framework と EF6 を参照する必�
 
 [!code-xml[](entity-framework-6/sample/MVCCore/MVCCore.csproj?range=3-9&highlight=2)]
 
-新しいプロジェクトを作成する場合を使用して、 **ASP.NET Core Web アプリケーション (.NET Framework)**テンプレート。
+新しいプロジェクトを作成するときに使用して、 **ASP.NET Core Web アプリケーション (.NET Framework)**テンプレート。
 
 ## <a name="handle-connection-strings"></a>接続文字列を処理します。
 
@@ -91,6 +91,6 @@ DI を使用して、コント ローラーでのコンテキストのインス�
 
 この記事は、ASP.NET Core アプリケーションで Entity Framework 6 を使用するための基本的なガイダンスを提供しています。
 
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の技術情報
 
 * [Entity Framework のコード ベースの構成](https://msdn.microsoft.com/data/jj680699.aspx)

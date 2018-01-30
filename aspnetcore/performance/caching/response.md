@@ -2,22 +2,25 @@
 title: "ASP.NET Core で応答のキャッシュ"
 author: rick-anderson
 description: "ASP.NET Core アプリケーションのパフォーマンスを向上させるし、応答の下の帯域幅要件にキャッシュを使用する方法について説明します。"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/20/2017
-ms.topic: article
 ms.prod: asp.net-core
+ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: d7726443dbcc34c21fd6cf0f56c4412863617b9f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c38f9b9a1bf1c523951e2cf1f3070858fe5daf04
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core で応答のキャッシュ
 
 によって[John Luo](https://github.com/JunTaoLuo)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Steve Smith](https://ardalis.com/)、および[Luke Latham](https://github.com/guardrex)
 
+> [!NOTE]
+> 応答のキャッシュ[コア 2.0 の ASP.NET Razor ページではサポートされていません](https://github.com/aspnet/Mvc/issues/6437)です。 この機能がでサポートされる、 [ASP.NET Core 2.1 リリース](https://github.com/aspnet/Home/wiki/Roadmap)です。
+  
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 応答のキャッシュ クライアントまたはプロキシ web サーバーに、要求の数を削減します。 応答のキャッシュ量を削減しても、応答を生成する作業の web サーバーを実行します。 応答のキャッシュは、クライアント、プロキシ、およびミドルウェアが応答をキャッシュする方法を指定できるヘッダーによって制御されます。

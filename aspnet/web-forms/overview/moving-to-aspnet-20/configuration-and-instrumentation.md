@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: 5780bfde928011f46c3f504aec927f2127f10d0d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16dfe3c899dfa028d8a52b4b5f9c2868887e8fa9
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="configuration-and-instrumentation"></a>構成およびインストルメンテーション
 ====================
@@ -138,7 +138,7 @@ System.Web.Management 名前空間は、クラスとインターフェイスを�
 
 ASP.NET 2.0 では、アプリケーション ドメインの開始し停止、だけでなく、未処理の例外をログに基づくイベントを記録するのに、イベント ログ プロバイダーの -標準を使用します。 これにより、基本的なシナリオをいくつか説明します。 、みましょうたとえばこと、アプリケーション、例外がスローが、ユーザーが、エラーを保存しないし、再現することはできません。 、既定のイベント ログ ルールが、どのような種類のエラーが発生しましたの理解を深める例外とスタックの情報を収集することになります。 別の例では、アプリケーションはセッション状態が失われる場合は適用されます。 その場合は、アプリケーション ドメインをリサイクルすると、かどうかと、アプリケーション ドメインが、まず第一に停止した理由を判断する、イベント ログで確認できます。
 
-また、状態監視システムは拡張できます。 たとえば、カスタム Web イベントを定義、アプリケーション内で発生、およびイベント情報を電子メールなどのプロバイダーに送信する規則を定義します。 これにより、簡単に、インストルメンテーションをプロバイダーの監視のヘルスを妨害することができます。 別の例としてには、注文が処理され、SQL Server データベースに各イベントを送信するルールを設定するたびにイベントを発生する可能性があります。 ユーザーがログイン複数回、行と、メールをベースのプロバイダーを使用するイベントを設定に失敗したときにイベントを発生させることがもできます。
+また、状態監視システムは拡張できます。 たとえば、カスタム Web イベントを定義、アプリケーション内で発生、およびイベント情報を電子メールなどのプロバイダーに送信する規則を定義します。 これにより、簡単に、インストルメンテーションをプロバイダーの監視のヘルスを妨害することができます。 別の例としてには、注文が処理され、SQL Server データベースに各イベントを送信するルールを設定するたびにイベントを発生する可能性があります。 ユーザーがログオンして複数回行で、電子メール ベースのプロバイダーを使用するイベントを設定が失敗したときにイベントを発生させることがもできます。
 
 既定のプロバイダーとイベントの構成は、グローバルの Web.config ファイルに格納されます。 グローバルの Web.config ファイルを格納すべての Web ベース設定 ASP.NET 1 では、Machine.config ファイルに格納されていた x。 グローバルの Web.config ファイルは、次のディレクトリにあります。
 
@@ -196,9 +196,9 @@ Wmi イベントを転送することもできます。 グローバルの Web.c
 
 [!code-xml[Main](configuration-and-instrumentation/samples/sample10.xml)]
 
-## <a name="how-to-forward-events-to-e-mail"></a>電子メールで送信するイベントを転送する方法
+## <a name="how-to-forward-events-to-email"></a>電子メールへのイベントを転送する方法
 
-電子メールで送信するイベントを転送することもできます。 どのイベント ルールが意図せず送信の場合と自分で多くの情報を電子メール プロバイダーにマップする可能性がありますの注意が適した SQL Server、またはイベント ログをします。 2 つの電子メール プロバイダーがあります。SimpleMailWebEventProvider と TemplatedMailWebEventProvider です。 それぞれが、どちらも、TemplatedMailWebEventProvider で使用できるのみ、"template"および"detailedTemplateErrors"属性を除き、同じ構成属性です。
+電子メールへのイベントを転送することもできます。 どのイベント ルールが意図せず送信の場合と自分で多くの情報を電子メール プロバイダーにマップする可能性がありますの注意が適した SQL Server、またはイベント ログをします。 2 つの電子メール プロバイダー; にはSimpleMailWebEventProvider と TemplatedMailWebEventProvider です。 それぞれが、どちらも、TemplatedMailWebEventProvider で使用できるのみ、"template"および"detailedTemplateErrors"属性を除き、同じ構成属性です。
 
 > [!NOTE]
 > どちらもこれらの電子メール プロバイダーが構成されます。 Web.config ファイルに追加する必要があります。

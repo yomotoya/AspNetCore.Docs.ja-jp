@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: ac8e7fee7600dabb8f4970b5bf87ad7a57ebf17f
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 6c233d0957ce9974adbc6112e6194c072aab0b41
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="bundling-and-minification"></a>バンドルと縮小
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/11/2018
 
 バンドルと縮小は、web アプリに適用できます 2 つの個別のパフォーマンスの最適化です。 一緒に使用すると、バンドルと縮小パフォーマンス向上サーバー要求の数を減らすと、要求された静的な資産のサイズを小さきます。
 
-バンドルと縮小、主に、最初のページ要求の読み込み時間を向上します。 Web ページが要求されたら、ブラウザーは、(JavaScript、CSS、およびイメージ) の静的なアセットをキャッシュします。 その結果、バンドルと縮小しないパフォーマンスを向上させる、同じページで、または同じアセットを要求している同じサイト上のページを要求するときにします。 設定しない場合、ヘッダー、資産を正しく有効期限が切れるし、バンドルと縮小を使用しない場合、ブラウザーの鮮度ヒューリスティック マーク資産古い数日後にします。 さらに、ブラウザーでは、各資産の検証要求が必要です。 この例では、バンドルと縮小は、最初のページ要求した後でもパフォーマンスの向上を提供します。
+バンドルと縮小、主に、最初のページ要求の読み込み時間を向上します。 Web ページが要求されたら、ブラウザーは、(JavaScript、CSS、およびイメージ) の静的なアセットをキャッシュします。 その結果、バンドルと縮小しないパフォーマンスを向上させる、同じページで、または同じアセットを要求している同じサイト上のページを要求するときにします。 場合、有効期限が切れる資産にヘッダーが正しく設定されていないし、バンドルと縮小が使用されていない場合、ブラウザーの鮮度ヒューリスティック マーク資産古い数日後にします。 さらに、ブラウザーでは、各資産の検証要求が必要です。 この例では、バンドルと縮小は、最初のページ要求した後でもパフォーマンスの向上を提供します。
 
 ### <a name="bundling"></a>バンドル化
 
@@ -242,7 +242,7 @@ dotnet bundle
 
 ---
 
-## <a name="consume-bundleconfigjson-from-gulp"></a>Gulp から bundleconfig.json を使用します。
+## <a name="consume-bundleconfigjson-from-gulp"></a>Consume bundleconfig.json from Gulp
 
 アプリのバンドルと縮小のワークフローに追加の処理が必要な場合があります。 例として、画像の最適化、キャッシュが破壊 CDN 資産処理します。 これらの要件を満たすには、Gulp を使用するバンドルと縮小のワークフローに変換できます。
 

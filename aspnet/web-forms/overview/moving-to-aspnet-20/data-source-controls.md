@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-source-controls
 msc.type: authoredcontent
-ms.openlocfilehash: f40189796d3e25e9c337768cf04fdbfa293cdc2f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b1ac7fb62767d61c97fe00338bc0f5087f4863b5
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="data-source-controls"></a>データ ソース コントロール
 ====================
@@ -115,7 +115,7 @@ SqlDataSource コントロールのプロパティの一部を次に示します
 
 設定または SQL クエリ (テキスト) またはストアド プロシージャ (ストアド プロシージャ) するか、削除コマンドの種類を取得します。
 
-### <a name="deleteparameters"></a>Deleteparameters の各
+### <a name="deleteparameters"></a>DeleteParameters
 
 SqlDataSource コントロールに関連付けられた SqlDataSourceView オブジェクトの DeleteCommand によって使用されているパラメーターを返します。
 
@@ -143,7 +143,7 @@ SqlDataSource コントロールに関連付けられた SqlDataSourceView オ�
 
 セミコロンで区切られた、データベースと SQL Server のキャッシュの依存関係で使用されるテーブルを指定する文字列。 (SQL キャッシュ依存関係は以降のモジュールで説明されます)。
 
-### <a name="updatecommand"></a>updateCommand
+### <a name="updatecommand"></a>UpdateCommand
 
 設定またはデータベース内のデータを更新するときに使用される SQL 文字列を取得します。 SQL クエリまたはストアド プロシージャの名前を指定できます。
 

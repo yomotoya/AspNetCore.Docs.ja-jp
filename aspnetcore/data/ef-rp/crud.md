@@ -2,18 +2,18 @@
 title: "Razor ページの EF コア CRUD - 2 8"
 author: rick-anderson
 description: "作成、読み取り、更新、EF コアで削除する方法を示します"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/15/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: d9b34c141401fbeaafe439fae1a7a75f2fe7b4ae
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 757aeb713b645cea0fe633b150784184d2d3571e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>作成、読み取り、更新、および削除 - EF コア Razor ページ (2/8)
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 01/24/2018
 
 このチュートリアルでは、スキャフォールディング CRUD (作成、読み取り、更新、削除) コードの確認し、カスタマイズができます。
 
-注: EF コアに重点を置いてこれらのチュートリアルの変更に複雑さを軽減するには、EF コア コードが使用 Razor ページの分離コード ファイルにします。 一部の開発者で、サービス レイヤー、またはリポジトリ パターンを使用して、UI (Razor ページ) とデータ アクセス層の間で抽象化レイヤーを作成します。
+注: EF コアに重点を置いてこれらのチュートリアルの変更に複雑さを軽減するには、EF コア コードは、モデルで使用される、Razor ページ ページ。 一部の開発者で、サービス レイヤー、またはリポジトリ パターンを使用して、UI (Razor ページ) とデータ アクセス層の間で抽象化レイヤーを作成します。
 
 このチュートリアル、作成、編集、削除、および詳細 Razor ページで、*学生*フォルダーを変更します。
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 01/24/2018
 <a name="vm"></a>
 ### <a name="view-model"></a>ビュー モデル
 
-ビュー モデルには、通常、アプリケーションによって使用されるモデルに含まれるプロパティのサブセットが含まれています。 アプリケーション モデルは、ドメイン モデルと呼ばれます。 ドメイン モデルには、通常、データベース内の対応するエンティティに必要なすべてのプロパティが含まれています。 ビュー モデルには、UI 層 (たとえば、作成 ページ) に必要なプロパティのみが含まれています。 ビュー モデルだけでなく、一部のアプリケーションは、Razor ページの分離コード クラスとブラウザー間でデータを受け渡すバインド モデルまたは入力モデルを使用します。 次の検討`Student`ビュー モデル。
+ビュー モデルには、通常、アプリケーションによって使用されるモデルに含まれるプロパティのサブセットが含まれています。 アプリケーション モデルは、ドメイン モデルと呼ばれます。 ドメイン モデルには、通常、データベース内の対応するエンティティに必要なすべてのプロパティが含まれています。 ビュー モデルには、UI 層 (たとえば、作成 ページ) に必要なプロパティのみが含まれています。 ビュー モデルだけでなく、一部のアプリケーションは、Razor ページのページのモデル クラスとブラウザー間でデータを受け渡すバインド モデルまたは入力モデルを使用します。 次の検討`Student`ビュー モデル。
 
 [!code-csharp[Main](intro/samples/cu/Models/StudentVM.cs)]
 
@@ -165,7 +165,7 @@ Razor ページで、`PageModel`派生クラスは、ビュー モデルです�
 
 ## <a name="update-the-edit-page"></a>更新プログラムの編集 ページ
 
-編集ページの分離コード ファイルを更新します。
+[編集] ページのページのモデルを更新します。
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
 

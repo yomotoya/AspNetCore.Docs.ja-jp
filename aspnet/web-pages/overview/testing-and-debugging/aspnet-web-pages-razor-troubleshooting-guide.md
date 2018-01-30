@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: 72c49ed8b76b5fb5eb15bf01f57980b382607496
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2e25e9c7cea937016301e0f11919adb9647ca216
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web Pages (Razor) トラブルシューティング ガイド
 ====================
@@ -147,7 +147,7 @@ HTTP エラー 404.17 については、前の説明を参照してください�
 - *メールボックスが使用できません。サーバーの応答: 5.1.0 &lt; someuser@invaliddomain &gt;送信者を拒否しました: 無効な送信者のドメイン*
 
     このメッセージは、ことを示すことができます、`From`アドレスが間違っているかがありません。
-- *指定した文字列は、電子メール アドレスに必要な形式ではありません。*
+- *指定した文字列は、電子メール アドレスのために必要な形式ではありません。*
 
     このエラーが発生することの値、`To`または`From`プロパティは、電子メール アドレスとして認識されません。 (ASP.NET が電子メール アドレスが有効などの形式が正しくのみになることを確認することはできません *name@domain.com* )。
 

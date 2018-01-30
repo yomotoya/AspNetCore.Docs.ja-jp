@@ -1,19 +1,19 @@
 ---
 title: "ASP.NET MVC から ASP.NET Core MVC への移行"
 author: ardalis
-description: 
-ms.author: riande
+description: "ASP.NET Core MVC に ASP.NET MVC プロジェクトを移行する作業を開始する方法を説明します。"
 manager: wpickett
+ms.author: riande
 ms.date: 03/07/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: e3220fb32900aac42cf96497964936ad5b375a86
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 447b13eccf523cab81590405740bb194112b0dad
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>ASP.NET MVC から ASP.NET Core MVC への移行
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 01/24/2018
 
 ![Microsoft Edge で開いている web アプリケーション](mvc/_static/hello-world.png)
 
-参照してください[コント ローラー](../mvc/controllers/index.md)と[ビュー](../mvc/views/index.md)詳細についてはします。
+参照してください[コント ローラー](xref:mvc/controllers/actions)と[ビュー](xref:mvc/views/overview)詳細についてはします。
 
 最小限の作業用 ASP.NET Core プロジェクトができました、ASP.NET MVC プロジェクトから機能の移行が始めることができます。 次に移動する必要があります。
 
@@ -156,7 +156,7 @@ ASP.NET MVC の以前のバージョンでは、静的コンテンツは、web �
 
 * 作成、 *Views/shared*フォルダーです。
 
-* *省略可能:*コピー *_ViewImports.cshtml*から、 *FullAspNetCore* MVC プロジェクトの*ビュー*フォルダーに、ASP.NET Core プロジェクトの*ビュー*フォルダーです。 任意の名前空間宣言を削除、 *_ViewImports.cshtml*ファイル。 *_ViewImports.cshtml*ファイル ビューのすべてのファイルの名前空間を提供しでによってもたらさ[タグ ヘルパー](../mvc/views/tag-helpers/index.md)です。 タグ ヘルパーは、新しいレイアウト ファイルで使用されます。 *_ViewImports.cshtml*ファイルが ASP.NET Core の新機能です。
+* *省略可能:*コピー *_ViewImports.cshtml*から、 *FullAspNetCore* MVC プロジェクトの*ビュー*フォルダーに、ASP.NET Core プロジェクトの*ビュー*フォルダーです。 任意の名前空間宣言を削除、 *_ViewImports.cshtml*ファイル。 *_ViewImports.cshtml*ファイル ビューのすべてのファイルの名前空間を提供しでによってもたらさ[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)です。 タグ ヘルパーは、新しいレイアウト ファイルで使用されます。 *_ViewImports.cshtml*ファイルが ASP.NET Core の新機能です。
 
 * コピー、 *_Layout.cshtml*古い ASP.NET MVC プロジェクトのファイルの*Views/shared* ASP.NET Core プロジェクトのフォルダー *Views/shared*フォルダーです。
 
@@ -191,9 +191,9 @@ ASP.NET MVC の以前のバージョンでは、静的コンテンツは、web �
 
 ブラウザーで、サイトを表示します。 これを場所に必要なスタイルを使用して正しく読み込むようになりました必要があります。
 
-* *省略可能:*新しいレイアウト ファイルを使用して再試行することができます。 このプロジェクトからレイアウト ファイルをコピーすることができます、 *FullAspNetCore*プロジェクト。 新しいレイアウト ファイルを使用して[タグ ヘルパー](../mvc/views/tag-helpers/index.md)あり、その他の改善。
+* *省略可能:*新しいレイアウト ファイルを使用して再試行することができます。 このプロジェクトからレイアウト ファイルをコピーすることができます、 *FullAspNetCore*プロジェクト。 新しいレイアウト ファイルを使用して[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)あり、その他の改善。
 
-## <a name="configure-bundling--minification"></a>バンドルの構成 (& a) の縮小
+## <a name="configure-bundling-and-minification"></a>バンドルと縮小を構成します。
 
 バンドルと縮小を構成する方法については、次を参照してください。 [Bundling and Minification](../client-side/bundling-and-minification.md)です。
 
@@ -222,8 +222,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 参照してください**開発者例外ページを使用して**で[Error Handling](../fundamentals/error-handling.md)詳細についてはします。
 
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の技術情報
 
-* [クライアント側の開発](../client-side/index.md)
-
-* [タグ ヘルパー](../mvc/views/tag-helpers/index.md)
+* [クライアント側の開発](xref:client-side/index)
+* [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)

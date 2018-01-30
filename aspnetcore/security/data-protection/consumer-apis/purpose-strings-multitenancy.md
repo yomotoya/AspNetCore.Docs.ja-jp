@@ -2,18 +2,18 @@
 title: "ASP.NET Core で目的の文字列"
 author: rick-anderson
 description: "このドキュメントでは、ASP.NET Core データ保護 Api に関連する目的の文字列の階層と、マルチ テナント機能を示します。"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
-ms.openlocfilehash: e7b08df32069cf1243630accda82eb6250594c53
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 490896563db514aba3904b01e69a23b61659d830
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="purpose-hierarchy-and-multi-tenancy-in-aspnet-core"></a>目的の階層と ASP.NET Core におけるマルチ テナント機能
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
-ms.openlocfilehash: 61a96b75fdc29bdd1510ed689ee0356ef30e03fc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b24fe2193d2c7a858667505bad9ed0b1d70a328
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="request-validation---preventing-script-attacks"></a>要求の検証 - スクリプト攻撃の防止
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 
 要求の検証、ASP.NET のバージョン 1.1 では、以降の機能は、サーバーがコンテンツを含むエンコードされていない HTML を受け入れることを防止します。 この機能は、クライアント スクリプト コードまたは HTML 知らずにサーバーに送信、格納、し、他のユーザーに提示し、いくつかのスクリプト インジェクション攻撃を防ぐために設計されています。 すべての入力データを検証することと、適切なときに HTML エンコードをまだ強くお勧めします。
 
-たとえば、ユーザーの電子メール アドレスを要求し、データベースにその電子メール アドレスを格納する Web ページを作成します。 ユーザーが入力した場合&lt;スクリプト&gt;アラート (「こんにちはスクリプトから」)&lt;/script&gt;有効な電子メール アドレスの代わりにそのデータが表示されたら、このスクリプトを実行できる場合は、コンテンツが正しくエンコードされていません。 ASP.NET の要求の検証機能は、問題が起こらないこれを防止します。
+たとえば、ユーザーの電子メール アドレスと、データベースでの電子メール アドレスのストアを要求する Web ページを作成します。 If the user enters &lt;SCRIPT&gt;alert("hello from script")&lt;/SCRIPT&gt; instead of a valid email address, when that data is presented, this script can be executed if the content was not properly encoded. ASP.NET の要求の検証機能は、問題が起こらないこれを防止します。
 
 ## <a name="why-this-feature-is-useful"></a>この機能は役立ちます理由
 

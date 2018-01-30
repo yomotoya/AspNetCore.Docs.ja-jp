@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 95102e5e6b3e8b78e2757a2bdee39976003011e3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7be257faa350476bef9f6d372ea4f140fff8d136
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="processing-unhandled-exceptions-c"></a>未処理の例外 (c#) の処理
 ====================
@@ -93,24 +93,24 @@ Visual Studio のグローバル アプリケーション クラス テンプレ
 .NET Framework クラス、 [ `System.Net.Mail`名前空間](https://msdn.microsoft.com/library/system.net.mail.aspx)電子メールを送信するが簡単です。 [ `MailMessage`クラス](https://msdn.microsoft.com/library/system.net.mail.mailmessage.aspx)電子メール メッセージを表しなどのプロパティを持つ`To`、 `From`、 `Subject`、 `Body`、および`Attachments`です。 `SmtpClass`送信に使用されて、`MailMessage`オブジェクト指定された SMTP サーバーを使用して; SMTP サーバーの設定をプログラムでも宣言的に指定することができます、 [ `<system.net>`要素](https://msdn.microsoft.com/library/6484zdc1.aspx)で、`Web.config file`です。 電子メールの送信の詳細については、ASP.NET アプリケーション内のメッセージをチェック アウト私の記事[ASP.NET で電子メールを送信する](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)、および[System.Net.Mail FAQ](http://systemnetmail.com/)です。
 
 > [!NOTE]
-> `<system.net>`要素にはで使用する SMTP サーバー設定が含まれています、`SmtpClient`クラスの電子メールを送信するときにします。 Web ホスティング可能性の高い会社には、アプリケーションから電子メールを送信に使用できる SMTP サーバーがあります。 Web アプリケーションで使用する必要があります、SMTP サーバー設定については、web ホストのサポート セクションを参照してください。
+> `<system.net>`要素にはで使用する SMTP サーバー設定が含まれています、`SmtpClient`クラスの電子メールを送信するときにします。 Web ホスティング可能性の高い会社には、アプリケーションから電子メールの送信に使用できる SMTP サーバーがあります。 Web アプリケーションで使用する必要があります、SMTP サーバー設定については、web ホストのサポート セクションを参照してください。
 
 
 次のコードを追加、`Application_Error`エラーが発生したときに、開発者に電子メールを送信するイベントのハンドラー。
 
 [!code-csharp[Main](processing-unhandled-exceptions-cs/samples/sample4.cs)]
 
-上記のコードは非常に長いですが、これの大部分を開発者に送信する電子メールに表示される HTML を作成します。 コードが参照することで始まる、`HttpException`によって返される、`GetLastError`メソッド (`lastErrorWrapper`)。 実際に要求によって発生した例外はを介して取得された`lastErrorWrapper.InnerException`変数に割り当てられている`lastError`です。 型、メッセージ、およびスタックからトレース情報を取得`lastError`3 つの文字列変数に格納されているとします。
+上記のコードは非常に長いですが、その一括は開発者に送信する電子メールに表示される HTML を作成します。 コードが参照することで始まる、`HttpException`によって返される、`GetLastError`メソッド (`lastErrorWrapper`)。 実際に要求によって発生した例外はを介して取得された`lastErrorWrapper.InnerException`変数に割り当てられている`lastError`です。 型、メッセージ、およびスタックからトレース情報を取得`lastError`3 つの文字列変数に格納されているとします。
 
 次に、`MailMessage`という名前のオブジェクト`mm`を作成します。 電子メールの本文は HTML 形式であり、要求されたページの URL、現在ログオンしているユーザー、および例外 (種類、メッセージ、およびスタック トレース) に関する情報の名前を表示します。 優れた点の 1 つ、`HttpException`クラスは、呼び出すことによって、例外の詳細黄色画面の死亡 (YSOD) を作成するために使用する HTML を生成することができます、 [GetHtmlErrorMessage メソッド](https://msdn.microsoft.com/library/system.web.httpexception.gethtmlerrormessage.aspx)です。 このメソッドは、例外の詳細 YSOD マークアップを取得し、電子メールの添付ファイルとしてに追加するここで使用されます。 注意: かどうか、例外をトリガーする、`Error`イベントが存在しないページの要求) などの HTTP ベースの例外、`GetHtmlErrorMessage`メソッドが返す`null`です。
 
 最後に、送信、`MailMessage`です。 これで新たに作成する`SmtpClient`メソッドを呼び出してその`Send`メソッドです。
 
 > [!NOTE]
-> Web アプリケーションでこのコードを使用する前にしておくの値を変更、`ToAddress`と`FromAddress`定数のsupport@example.comや電子メール アドレスをエラー通知電子メールを送信する必要があり、由来します。 SMTP サーバー設定を指定する必要も、 `<system.net>` 」の「`Web.config`です。 使用する SMTP サーバー設定を確認する、web ホスト プロバイダーを参照してください。
+> Web アプリケーションでこのコードを使用する前にしておくの値を変更、`ToAddress`と`FromAddress`定数のsupport@example.com電子メール エラー通知の電子メール アドレスに送信するかを由来します。 SMTP サーバー設定を指定する必要も、 `<system.net>` 」の「`Web.config`です。 使用する SMTP サーバー設定を確認する、web ホスト プロバイダーを参照してください。
 
 
-配置でこのコード エラーが発生、開発者は送信という電子メール メッセージをエラーの概要し、YSOD が含まれています。 前のチュートリアルで Genre.aspx を訪問し、無効な渡すことによって、実行時エラーを示すお`ID`と同様に、クエリ文字列を通じて値`Genre.aspx?ID=foo`です。 使用してページへのアクセス、 `Global.asax` - 前のチュートリアルで開発環境で引き続き実稼働環境で次の手順中に、例外の詳細黄色画面の死亡事故を参照するくださいと、ファイルの場所には、同じユーザー エクスペリエンスを作成します。カスタム エラー ページを参照してください。 この既存の動作だけでなく、開発者に電子メールが送信されます。
+配置でこのコードにエラーが発生するたび、開発者は送信電子メール メッセージ、エラーの概要し、YSOD が含まれていますが、されます。 前のチュートリアルで Genre.aspx を訪問し、無効な渡すことによって、実行時エラーを示すお`ID`と同様に、クエリ文字列を通じて値`Genre.aspx?ID=foo`です。 使用してページへのアクセス、 `Global.asax` - 前のチュートリアルで開発環境で引き続き実稼働環境で次の手順中に、例外の詳細黄色画面の死亡事故を参照するくださいと、ファイルの場所には、同じユーザー エクスペリエンスを作成します。カスタム エラー ページを参照してください。 この既存の動作だけでなく、開発者に電子メールが送信されます。
 
 **図 2**オフィスを訪れたときに受信した電子メールを示しています。`Genre.aspx?ID=foo`です。 電子メールの本文には、例外情報をまとめたものです中に、`YSOD.htm`添付ファイルには、例外の詳細 YSOD に表示されているコンテンツが表示されます (を参照してください**図 3**)。
 

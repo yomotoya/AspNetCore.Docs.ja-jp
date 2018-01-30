@@ -2,18 +2,18 @@
 title: "ASP.NET MVC を持つコアを EF コア - 継承 - 9 10"
 author: tdykstra
 description: "このチュートリアルでは、ASP.NET Core アプリケーションに Entity Framework のコアを使用して、データ モデル内の継承を実装する方法を示します。"
-ms.author: tdykstra
 manager: wpickett
+ms.author: tdykstra
 ms.date: 03/15/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: a4ae696bdd114ab9c36d1218f753fa3d515f2300
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 985cc38b10ef830b8274e40ad5f7050157fd4d86
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>継承の ASP.NET Core MVC のチュートリアル (10 の 9) と EF コア
 

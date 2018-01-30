@@ -2,18 +2,18 @@
 title: "SMS と 2 要素認証"
 author: rick-anderson
 description: "ASP.NET Core での 2 要素認証 (2 fa) を設定する方法を示しています。"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 08/15/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/authentication/2fa
-ms.openlocfilehash: 0970b7e95b116ceab1d17502d2f8aee9cd821715
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7bca1c6249bebe84b532b652ab736186f35c50ee
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="two-factor-authentication-with-sms"></a>SMS と 2 要素認証
 

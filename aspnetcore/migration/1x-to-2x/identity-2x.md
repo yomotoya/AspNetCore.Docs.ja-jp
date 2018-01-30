@@ -2,18 +2,18 @@
 title: "移行の認証および ASP.NET Core 2.0 を Id"
 author: scottaddie
 description: "この記事では、ASP.NET Core 2.0 に移行する ASP.NET Core 1.x 認証と Id の最も一般的な手順について説明します。"
-ms.author: scaddie
 manager: wpickett
+ms.author: scaddie
 ms.date: 10/26/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 72ad31438a344fb5fa2b357c709b923b8077e742
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: dd48b2b027d22b570aa182e748ca91738e935f49
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-authentication-and-identity-to-aspnet-core-20"></a>移行の認証および ASP.NET Core 2.0 を Id
 
@@ -136,7 +136,7 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
 
     渡すことによって、既定のスキームを設定する必要がありますので、このコード スニペットは Id を使用しない`JwtBearerDefaults.AuthenticationScheme`を`AddAuthentication`メソッドです。
 
-### <a name="openid-connect-oidc-authentication"></a>OpenID Connect (OIDC) 認証
+### <a name="openid-connect-oidc-authentication"></a>OpenID 接続 (OIDC) 認証
 次の変更を加え*Startup.cs*:
 
 - 置換、`UseOpenIdConnectAuthentication`メソッドの呼び出し、`Configure`メソッドを`UseAuthentication`:
@@ -161,7 +161,7 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
     });
     ```
 
-### <a name="facebook-authentication"></a>Facebook の認証
+### <a name="facebook-authentication"></a>facebook の認証
 次の変更を加え*Startup.cs*:
 - 置換、`UseFacebookAuthentication`メソッドの呼び出し、`Configure`メソッドを`UseAuthentication`:
  
@@ -296,7 +296,7 @@ services.AddAuthentication(IISDefaults.AuthenticationScheme);
 
 <a name="identity-cookie-options"></a>
 
-## <a name="identitycookieoptions-instances"></a>IdentityCookieOptions Instances
+## <a name="identitycookieoptions-instances"></a>IdentityCookieOptions インスタンス
 2.0 の変更の副作用は、cookie のオプションのインスタンスではなくオプションをという名前を使用するスイッチです。 Id cookie のスキーム名をカスタマイズする機能が削除されます。
 
 1.x での使用のプロジェクトなど、[コンス トラクター インジェクション](xref:mvc/controllers/dependency-injection#constructor-injection)に渡す、`IdentityCookieOptions`にパラメーター *AccountController.cs*です。 外部の cookie 認証スキームは指定されたインスタンスからアクセスできます。
@@ -313,7 +313,7 @@ services.AddAuthentication(IISDefaults.AuthenticationScheme);
 
 <a name="navigation-properties"></a>
 
-## <a name="add-identityuser-poco-navigation-properties"></a>IdentityUser POCO ナビゲーション プロパティを追加します。
+## <a name="add-identityuser-poco-navigation-properties"></a>IdentityUser POCO のナビゲーション プロパティを追加します。
 ベースの Entity Framework (EF) 中核となるナビゲーション プロパティ`IdentityUser`POCO (Plain Old CLR Object) が削除されました。 1.x プロジェクトでは、これらのプロパティを使用する場合は、この 2.0 のプロジェクトに追加手動でします。
 
 ```csharp
@@ -398,5 +398,5 @@ A`ManageLoginsViewModel`でオブジェクトを使用して、`ManageLogins`の
 
 <a name="additional-resources"></a>
 
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の技術情報
 追加の詳細についてを参照してください、 [Auth 2.0 のディスカッション](https://github.com/aspnet/Security/issues/1338)GitHub の問題です。
