@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/index
-ms.openlocfilehash: ee9bdc66d0bfa6433736fbc55126bdd37ba9d080
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1afb32fb6c5fffd38b7028741bfd8199e2e23d21
+ms.sourcegitcommit: 09b342b45e7372ba9ebf17f35eee331e5a08fb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/26/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>ASP.NET Core アプリを構成する
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)、[Mark Michaelis](http://intellitect.com/author/mark-michaelis/)、[Steve Smith](https://ardalis.com/)、[Daniel Roth](https://github.com/danroth27)、[Luke Latham](https://github.com/guardrex)
 
-構成 API は、名前と値のペアのリストに基づく ASP.NET Core Web アプリの構成方法を提供します。 構成は実行時に複数のソースから読み取られます。 これらの名前と値のペアを複数レベルの階層にグループ化することができます。
+構成 API は、名前と値のペアのリストに基づく ASP.NET Core Web アプリの構成方法を提供します。 構成は実行時に複数のソースから読み取られます。 名前と値の組は、複数レベルの階層にグループ化することができます。
 
 以下の構成プロバイダーがあります。
 
@@ -93,7 +93,7 @@ ASP.NET Core 1.x アプリは、`AddJsonFile` および [AddEnvironmentVariables
 
 * `IOptionsSnapshot` では、構成データを変更時に再読み込みできます。 詳細については、「[IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot)」を参照してください。
 * 構成キーでは大文字と小文字が区別**されません**。
-* 構成プロバイダー コードやプレーンテキストの構成ファイルには、パスワードなどの機密データは格納**しないでください**。 開発環境やテスト環境では運用シークレットを使用しないでください。 プロジェクトの外部にシークレットを指定してください。そうすれば、誤ってリポジトリにコミットされることはありません。 [複数の環境での作業](xref:fundamentals/environments)および[開発中のアプリ シークレットの安全な格納場所](xref:security/app-secrets)の管理の詳細を確認してください。
+* 構成プロバイダー コードやプレーンテキストの構成ファイルには、パスワードなどの機密データは格納**しないでください**。 開発環境やテスト環境では運用シークレットを使用しないでください。 プロジェクトの外部にシークレットを指定してください。そうすれば、誤ってリソース コード リポジトリにコミットされることはありません。 [複数の環境での作業](xref:fundamentals/environments)および[開発中のアプリ シークレットの安全な格納場所](xref:security/app-secrets)の管理の詳細を確認してください。
 * ご利用のシステムの環境変数でコロン (`:`) を使用できない場合は、コロン (`:`) をアンダースコア 2 つ (`__`) に置き換えてください。
 
 ## <a name="in-memory-provider-and-binding-to-a-poco-class"></a>メモリ内プロバイダーと POCO クラスへのバインディング
@@ -185,7 +185,7 @@ public void CanBindObjectTree()
 
 サンプルを実行すると、データベースからの強調表示された値 ("value_from_ef_1" および "value_from_ef_2") が表示されます。
 
-構成ソースを追加するための `EFConfigSource` 拡張メソッドを追加できます。
+構成ソースを追加するための `EFConfigSource` 拡張メソッドを使用できます。
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkExtensions.cs?highlight=12)]
 
@@ -261,7 +261,7 @@ Left: 1979
 
 上記の条件がすべて真になると、コマンドライン引数がオーバーライドされます。
 
-ASP.NET Core 2.x アプリは、[ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) で手動設定される構成、``CreateDefaultBuilder`. When using `WebHostBuilder` の代わりに、WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) を使用できます。 詳細については、ASP.NET Core 1.x のタブを参照してください。
+ASP.NET Core 2.x アプリでは、`CreateDefaultBuilder` ではなく [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) を使用できます。 `WebHostBuilder` を使用する場合は、[ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) によって構成を手動で設定します。 詳細については、ASP.NET Core 1.x のタブを参照してください。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -331,7 +331,7 @@ dotnet run -key1 value1 --key2 value2 /key3 value3
 
 ### <a name="switch-mappings"></a>スイッチ マッピング
 
-`ConfigurationBuilder` を使用して構成を手動でビルドする場合、必要に応じて、スイッチ マッピング ディクショナリを `AddCommandLine` メソッドに指定できます。 スイッチ マッピングでは、キー名の交換ロジックを指定できます。
+`ConfigurationBuilder` を使用して構成を手動でビルドする場合、スイッチ マッピング ディクショナリを `AddCommandLine` メソッドに追加できます。 スイッチ マッピングでは、キー名の交換ロジックが許可されます。
 
 スイッチ マッピング ディクショナリが使用されている場合、そのディレクトリで、コマンドライン引数によって指定されたキーと一致するキーが確認されます。 ディクショナリでコマンドライン キーが見つかった場合は、構成を設定するためにディクショナリの値 (キー交換) が返されます。 スイッチ マッピングは、単一のダッシュ (`-`) が前に付いたすべてのコマンドライン キーに必要です。
 
@@ -394,6 +394,10 @@ Left: 1988
 
 IIS または IIS-Express でアプリをホストする場合は、*web.config* ファイルが必要です。 *web.config* を設定することで、[ASP.NET Core Module](xref:fundamentals/servers/aspnet-core-module) を有効にし、アプリを起動して他の IIS 設定とモジュールを構成することができます。 *web.config* ファイルが存在せず、プロジェクト ファイルに `<Project Sdk="Microsoft.NET.Sdk.Web">` が含まれている場合、プロジェクトを発行すると、発行先 (*publish* フォルダー) に *web.config* ファイルが作成されます。 詳細については、「[IIS を使用した Windows での ASP.NET Core のホスト](xref:host-and-deploy/iis/index#webconfig)」を参照してください。
 
+## <a name="accessing-configuration-during-startup"></a>起動中に構成にアクセスする
+
+起動中に `ConfigureServices` または `Configure` 内の構成にアクセスするには、[アプリケーションの起動](xref:fundamentals/startup)に関するトピックに示されている例を参照してください。
+
 ## <a name="additional-notes"></a>補足メモ
 
 * 依存関係挿入 (DI) は、`ConfigureServices` が呼び出されるまでセットアップされません。
@@ -401,7 +405,7 @@ IIS または IIS-Express でアプリをホストする場合は、*web.config*
 * `IConfiguration` には次の 2 つ特性があります。
   * `IConfigurationRoot` ルート ノードに使用されます。 再読み込みをトリガーできます。
   * `IConfigurationSection` 構成値のセクションを表します。 `GetSection` および `GetChildren` メソッドは `IConfigurationSection` を返します。
-  * 構成を再度読み込むとき、あるいは各プロバイダーにアクセスする必用があるとき、[IConfigurationRoot](/dotnet/api/microsoft.extensions.configuration.iconfigurationroot) を使用します。 いずれの状況も一般的ではありません。
+  * 構成を再度読み込むとき、あるいは各プロバイダーにアクセスする場合、[IConfigurationRoot](/dotnet/api/microsoft.extensions.configuration.iconfigurationroot) を使用します。 いずれの状況も一般的ではありません。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
