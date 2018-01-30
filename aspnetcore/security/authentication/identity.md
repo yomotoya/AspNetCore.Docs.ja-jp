@@ -2,158 +2,158 @@
 title: "ASP.NET Core での Id の概要"
 author: rick-anderson
 description: "ASP.NET Core アプリケーションの Id を使用します。 含まれている (RequireDigit、RequiredLength、RequiredUniqueChars など) にパスワードの要件を設定します。"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 01/24/2018
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/authentication/identity
-ms.openlocfilehash: b1dc6d31f44a26a2b91a92dc43032b0315e73cce
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 52b78922da54a2d4e66120552c2ffc9f585f406b
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="introduction-to-identity-on-aspnet-core"></a><span data-ttu-id="a8198-104">ASP.NET Core での Id の概要</span><span class="sxs-lookup"><span data-stu-id="a8198-104">Introduction to Identity on ASP.NET Core</span></span>
+# <a name="introduction-to-identity-on-aspnet-core"></a><span data-ttu-id="47b67-104">ASP.NET Core での Id の概要</span><span class="sxs-lookup"><span data-stu-id="47b67-104">Introduction to Identity on ASP.NET Core</span></span>
 
-<span data-ttu-id="a8198-105">によって[Pranav Rastogi](https://github.com/rustd)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)、Jon Galloway [Erik Reitan](https://github.com/Erikre)、および[Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="a8198-105">By [Pranav Rastogi](https://github.com/rustd), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra), Jon Galloway, [Erik Reitan](https://github.com/Erikre), and [Steve Smith](https://ardalis.com/)</span></span>
+<span data-ttu-id="47b67-105">によって[Pranav Rastogi](https://github.com/rustd)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)、Jon Galloway [Erik Reitan](https://github.com/Erikre)、および[Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="47b67-105">By [Pranav Rastogi](https://github.com/rustd), [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra), Jon Galloway, [Erik Reitan](https://github.com/Erikre), and [Steve Smith](https://ardalis.com/)</span></span>
 
-<span data-ttu-id="a8198-106">ASP.NET Core Id は、アプリケーションにログイン機能を追加することができるメンバーシップ システムがします。</span><span class="sxs-lookup"><span data-stu-id="a8198-106">ASP.NET Core Identity is a membership system which allows you to add login functionality to your application.</span></span> <span data-ttu-id="a8198-107">ユーザーは、ユーザー名でアカウントやログインを作成できます、パスワード、またはこれらには、Facebook、Google、Microsoft アカウント、Twitter またはなど、外部ログイン プロバイダーを使用できます。</span><span class="sxs-lookup"><span data-stu-id="a8198-107">Users can create an account and login with a user name and password or they can use an external login provider such as Facebook, Google, Microsoft Account, Twitter or others.</span></span>
+<span data-ttu-id="47b67-106">ASP.NET Core Id は、アプリケーションにログイン機能を追加することができるメンバーシップ システムがします。</span><span class="sxs-lookup"><span data-stu-id="47b67-106">ASP.NET Core Identity is a membership system which allows you to add login functionality to your application.</span></span> <span data-ttu-id="47b67-107">ユーザーは、ユーザー名でアカウントやログインを作成できます、パスワード、またはこれらには、Facebook、Google、Microsoft アカウント、Twitter またはなど、外部ログイン プロバイダーを使用できます。</span><span class="sxs-lookup"><span data-stu-id="47b67-107">Users can create an account and login with a user name and password or they can use an external login provider such as Facebook, Google, Microsoft Account, Twitter or others.</span></span>
 
-<span data-ttu-id="a8198-108">ユーザー名、パスワード、およびプロファイル データを格納する SQL Server データベースを使用する ASP.NET Core Id を構成することができます。</span><span class="sxs-lookup"><span data-stu-id="a8198-108">You can configure ASP.NET Core Identity to use a SQL Server database to store user names, passwords, and profile data.</span></span> <span data-ttu-id="a8198-109">代わりに、独自の永続的なストア、たとえば、Azure テーブル ストレージを使用することができます。</span><span class="sxs-lookup"><span data-stu-id="a8198-109">Alternatively, you can use your own persistent store, for example, an Azure Table Storage.</span></span> <span data-ttu-id="a8198-110">このドキュメントでは、Visual Studio と CLI を使用するための手順を説明します。</span><span class="sxs-lookup"><span data-stu-id="a8198-110">This document contains instructions for Visual Studio and for using the CLI.</span></span>
+<span data-ttu-id="47b67-108">ユーザー名、パスワード、およびプロファイル データを格納する SQL Server データベースを使用する ASP.NET Core Id を構成することができます。</span><span class="sxs-lookup"><span data-stu-id="47b67-108">You can configure ASP.NET Core Identity to use a SQL Server database to store user names, passwords, and profile data.</span></span> <span data-ttu-id="47b67-109">代わりに、独自の永続的なストア、たとえば、Azure テーブル ストレージを使用することができます。</span><span class="sxs-lookup"><span data-stu-id="47b67-109">Alternatively, you can use your own persistent store, for example, an Azure Table Storage.</span></span> <span data-ttu-id="47b67-110">このドキュメントでは、Visual Studio と CLI を使用するための手順を説明します。</span><span class="sxs-lookup"><span data-stu-id="47b67-110">This document contains instructions for Visual Studio and for using the CLI.</span></span>
 
-[<span data-ttu-id="a8198-111">表示または、サンプル コードをダウンロードします。</span><span class="sxs-lookup"><span data-stu-id="a8198-111">View or download the sample code.</span></span>](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [<span data-ttu-id="a8198-112">(ダウンロードする方法)</span><span class="sxs-lookup"><span data-stu-id="a8198-112">(How to download)</span></span>](https://docs.microsoft.com/aspnet/core/tutorials/index#how-to-download-a-sample)
+[<span data-ttu-id="47b67-111">表示または、サンプル コードをダウンロードします。</span><span class="sxs-lookup"><span data-stu-id="47b67-111">View or download the sample code.</span></span>](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [<span data-ttu-id="47b67-112">(ダウンロードする方法)</span><span class="sxs-lookup"><span data-stu-id="47b67-112">(How to download)</span></span>](https://docs.microsoft.com/aspnet/core/tutorials/index#how-to-download-a-sample)
 
-## <a name="overview-of-identity"></a><span data-ttu-id="a8198-113">Id の概要</span><span class="sxs-lookup"><span data-stu-id="a8198-113">Overview of Identity</span></span>
+## <a name="overview-of-identity"></a><span data-ttu-id="47b67-113">Id の概要</span><span class="sxs-lookup"><span data-stu-id="47b67-113">Overview of Identity</span></span>
 
-<span data-ttu-id="a8198-114">このトピックでを ASP.NET Core Id を使用して、ログインを登録する機能を追加する方法について説明し、ユーザーをログアウトします。</span><span class="sxs-lookup"><span data-stu-id="a8198-114">In this topic, you'll learn how to use ASP.NET Core Identity to add functionality to register, log in, and log out a user.</span></span> <span data-ttu-id="a8198-115">ASP.NET Core の Id を使用してアプリの作成に関する詳細な手順については、この記事の最後に次の手順を参照してください。</span><span class="sxs-lookup"><span data-stu-id="a8198-115">For more detailed instructions about creating apps using ASP.NET Core Identity, see the Next Steps section at the end of this article.</span></span>
+<span data-ttu-id="47b67-114">このトピックでを ASP.NET Core Id を使用して、ログインを登録する機能を追加する方法について説明し、ユーザーをログアウトします。</span><span class="sxs-lookup"><span data-stu-id="47b67-114">In this topic, you'll learn how to use ASP.NET Core Identity to add functionality to register, log in, and log out a user.</span></span> <span data-ttu-id="47b67-115">ASP.NET Core の Id を使用してアプリの作成に関する詳細な手順については、この記事の最後に次の手順を参照してください。</span><span class="sxs-lookup"><span data-stu-id="47b67-115">For more detailed instructions about creating apps using ASP.NET Core Identity, see the Next Steps section at the end of this article.</span></span>
 
-1.  <span data-ttu-id="a8198-116">個々 のユーザー アカウントを使って ASP.NET Core Web アプリケーション プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="a8198-116">Create an ASP.NET Core Web Application project with Individual User Accounts.</span></span>
+1.  <span data-ttu-id="47b67-116">個々 のユーザー アカウントを使って ASP.NET Core Web アプリケーション プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="47b67-116">Create an ASP.NET Core Web Application project with Individual User Accounts.</span></span>
 
-    # <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="a8198-117">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="a8198-117">Visual Studio</span></span>](#tab/visual-studio)
+    # <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="47b67-117">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="47b67-117">Visual Studio</span></span>](#tab/visual-studio)
 
-    <span data-ttu-id="a8198-118">Visual Studio で、次のように選択します。**ファイル** > **新規** > **プロジェクト**です。</span><span class="sxs-lookup"><span data-stu-id="a8198-118">In Visual Studio, select **File** > **New** > **Project**.</span></span> <span data-ttu-id="a8198-119">選択**ASP.NET Core Web アプリケーション** をクリック**OK**です。</span><span class="sxs-lookup"><span data-stu-id="a8198-119">Select **ASP.NET Core Web Application** and click **OK**.</span></span>
+    <span data-ttu-id="47b67-118">Visual Studio で、次のように選択します。**ファイル** > **新規** > **プロジェクト**です。</span><span class="sxs-lookup"><span data-stu-id="47b67-118">In Visual Studio, select **File** > **New** > **Project**.</span></span> <span data-ttu-id="47b67-119">選択**ASP.NET Core Web アプリケーション** をクリック**OK**です。</span><span class="sxs-lookup"><span data-stu-id="47b67-119">Select **ASP.NET Core Web Application** and click **OK**.</span></span>
 
     ![[新しいプロジェクト] ダイアログ](identity/_static/01-new-project.png)
 
-    <span data-ttu-id="a8198-121">ASP.NET Core の選択**Web アプリケーション (モデル-ビュー-コント ローラー)** for ASP.NET 2.x、コアし、選択**認証の変更**です。</span><span class="sxs-lookup"><span data-stu-id="a8198-121">Select an ASP.NET Core **Web Application (Model-View-Controller)** for ASP.NET Core 2.x, then select **Change Authentication**.</span></span>
+    <span data-ttu-id="47b67-121">ASP.NET Core の選択**Web アプリケーション (モデル-ビュー-コント ローラー)** for ASP.NET 2.x、コアし、選択**認証の変更**です。</span><span class="sxs-lookup"><span data-stu-id="47b67-121">Select an ASP.NET Core **Web Application (Model-View-Controller)** for ASP.NET Core 2.x, then select **Change Authentication**.</span></span>
 
     ![[新しいプロジェクト] ダイアログ](identity/_static/02-new-project.png)
 
-    <span data-ttu-id="a8198-123">オファー、ダイアログを表示認証オプション。</span><span class="sxs-lookup"><span data-stu-id="a8198-123">A dialog appears offering authentication choices.</span></span> <span data-ttu-id="a8198-124">選択**個々 のユーザー アカウント** をクリック**OK**前のダイアログに戻ります。</span><span class="sxs-lookup"><span data-stu-id="a8198-124">Select **Individual User Accounts** and click **OK** to return to the previous dialog.</span></span>
+    <span data-ttu-id="47b67-123">オファー、ダイアログを表示認証オプション。</span><span class="sxs-lookup"><span data-stu-id="47b67-123">A dialog appears offering authentication choices.</span></span> <span data-ttu-id="47b67-124">選択**個々 のユーザー アカウント** をクリック**OK**前のダイアログに戻ります。</span><span class="sxs-lookup"><span data-stu-id="47b67-124">Select **Individual User Accounts** and click **OK** to return to the previous dialog.</span></span>
 
     ![[新しいプロジェクト] ダイアログ](identity/_static/03-new-project-auth.png)
 
-    <span data-ttu-id="a8198-126">選択すると**個々 のユーザー アカウント**モデル、ViewModels、ビュー、コント ローラー、およびプロジェクト テンプレートの一部として、認証に必要なその他のアセットを作成する Visual Studio に指示します。</span><span class="sxs-lookup"><span data-stu-id="a8198-126">Selecting **Individual User Accounts** directs Visual Studio to create Models, ViewModels, Views, Controllers, and other assets required for authentication as part of the project template.</span></span>
+    <span data-ttu-id="47b67-126">選択すると**個々 のユーザー アカウント**モデル、ViewModels、ビュー、コント ローラー、およびプロジェクト テンプレートの一部として、認証に必要なその他のアセットを作成する Visual Studio に指示します。</span><span class="sxs-lookup"><span data-stu-id="47b67-126">Selecting **Individual User Accounts** directs Visual Studio to create Models, ViewModels, Views, Controllers, and other assets required for authentication as part of the project template.</span></span>
 
-    # <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="a8198-127">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="a8198-127">.NET Core CLI</span></span>](#tab/netcore-cli)
+    # <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="47b67-127">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="47b67-127">.NET Core CLI</span></span>](#tab/netcore-cli)
 
-    <span data-ttu-id="a8198-128">.NET Core CLI を使用する場合を使用して新しいプロジェクトを作成``dotnet new mvc --auth Individual``です。</span><span class="sxs-lookup"><span data-stu-id="a8198-128">If using the .NET Core CLI, create the new project using ``dotnet new mvc --auth Individual``.</span></span> <span data-ttu-id="a8198-129">このコマンドは、Visual Studio によって作成された同じ Identity テンプレート コードを新しいプロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="a8198-129">This command creates a new project with the same Identity template code Visual Studio creates.</span></span>
+    <span data-ttu-id="47b67-128">.NET Core CLI を使用する場合を使用して新しいプロジェクトを作成``dotnet new mvc --auth Individual``です。</span><span class="sxs-lookup"><span data-stu-id="47b67-128">If using the .NET Core CLI, create the new project using ``dotnet new mvc --auth Individual``.</span></span> <span data-ttu-id="47b67-129">このコマンドは、Visual Studio によって作成された同じ Identity テンプレート コードを新しいプロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="47b67-129">This command creates a new project with the same Identity template code Visual Studio creates.</span></span>
 
-    <span data-ttu-id="a8198-130">作成されたプロジェクトが含まれています、 `Microsoft.AspNetCore.Identity.EntityFrameworkCore` Id データおよび SQL Server を使用するスキーマが引き続き発生する、パッケージ[Entity Framework Core](https://docs.microsoft.com/ef/)です。</span><span class="sxs-lookup"><span data-stu-id="a8198-130">The created project contains the `Microsoft.AspNetCore.Identity.EntityFrameworkCore` package, which persists the Identity data and schema to SQL Server using [Entity Framework Core](https://docs.microsoft.com/ef/).</span></span>
+    <span data-ttu-id="47b67-130">作成されたプロジェクトが含まれています、 `Microsoft.AspNetCore.Identity.EntityFrameworkCore` Id データおよび SQL Server を使用するスキーマが引き続き発生する、パッケージ[Entity Framework Core](https://docs.microsoft.com/ef/)です。</span><span class="sxs-lookup"><span data-stu-id="47b67-130">The created project contains the `Microsoft.AspNetCore.Identity.EntityFrameworkCore` package, which persists the Identity data and schema to SQL Server using [Entity Framework Core](https://docs.microsoft.com/ef/).</span></span>
 
     ---
 
-2.  <span data-ttu-id="a8198-131">Id サービスを構成しのミドルウェアを追加`Startup`です。</span><span class="sxs-lookup"><span data-stu-id="a8198-131">Configure Identity services and add middleware in `Startup`.</span></span>
+2.  <span data-ttu-id="47b67-131">Id サービスを構成しのミドルウェアを追加`Startup`です。</span><span class="sxs-lookup"><span data-stu-id="47b67-131">Configure Identity services and add middleware in `Startup`.</span></span>
 
-    <span data-ttu-id="a8198-132">Id サービスが、アプリケーションに追加されます、`ConfigureServices`メソッドで、`Startup`クラス。</span><span class="sxs-lookup"><span data-stu-id="a8198-132">The Identity services are added to the application in the `ConfigureServices` method in the `Startup` class:</span></span>
+    <span data-ttu-id="47b67-132">Id サービスが、アプリケーションに追加されます、`ConfigureServices`メソッドで、`Startup`クラス。</span><span class="sxs-lookup"><span data-stu-id="47b67-132">The Identity services are added to the application in the `ConfigureServices` method in the `Startup` class:</span></span>
 
-    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="a8198-133">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="a8198-133">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="47b67-133">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="47b67-133">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
     
     [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-39)]
     
-    <span data-ttu-id="a8198-134">これらのサービスを使用して、アプリケーションで利用できる[依存性の注入](xref:fundamentals/dependency-injection)です。</span><span class="sxs-lookup"><span data-stu-id="a8198-134">These services are made available to the application through [dependency injection](xref:fundamentals/dependency-injection).</span></span>
+    <span data-ttu-id="47b67-134">これらのサービスを使用して、アプリケーションで利用できる[依存性の注入](xref:fundamentals/dependency-injection)です。</span><span class="sxs-lookup"><span data-stu-id="47b67-134">These services are made available to the application through [dependency injection](xref:fundamentals/dependency-injection).</span></span>
     
-    <span data-ttu-id="a8198-135">呼び出して、アプリケーションの識別情報が有効になっている`UseAuthentication`で、`Configure`メソッドです。</span><span class="sxs-lookup"><span data-stu-id="a8198-135">Identity is enabled for the application by calling `UseAuthentication` in the `Configure` method.</span></span> <span data-ttu-id="a8198-136">`UseAuthentication`認証を追加[ミドルウェア](xref:fundamentals/middleware)要求パイプラインにします。</span><span class="sxs-lookup"><span data-stu-id="a8198-136">`UseAuthentication` adds authentication [middleware](xref:fundamentals/middleware) to the request pipeline.</span></span>
+    <span data-ttu-id="47b67-135">呼び出して、アプリケーションの識別情報が有効になっている`UseAuthentication`で、`Configure`メソッドです。</span><span class="sxs-lookup"><span data-stu-id="47b67-135">Identity is enabled for the application by calling `UseAuthentication` in the `Configure` method.</span></span> <span data-ttu-id="47b67-136">`UseAuthentication`認証を追加[ミドルウェア](xref:fundamentals/middleware)要求パイプラインにします。</span><span class="sxs-lookup"><span data-stu-id="47b67-136">`UseAuthentication` adds authentication [middleware](xref:fundamentals/middleware) to the request pipeline.</span></span>
     
     [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
     
-    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="a8198-137">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="a8198-137">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="47b67-137">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="47b67-137">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
     
     [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,13-34)]
     
-    <span data-ttu-id="a8198-138">これらのサービスを使用して、アプリケーションで利用できる[依存性の注入](xref:fundamentals/dependency-injection)です。</span><span class="sxs-lookup"><span data-stu-id="a8198-138">These services are made available to the application through [dependency injection](xref:fundamentals/dependency-injection).</span></span>
+    <span data-ttu-id="47b67-138">これらのサービスを使用して、アプリケーションで利用できる[依存性の注入](xref:fundamentals/dependency-injection)です。</span><span class="sxs-lookup"><span data-stu-id="47b67-138">These services are made available to the application through [dependency injection](xref:fundamentals/dependency-injection).</span></span>
     
-    <span data-ttu-id="a8198-139">呼び出して、アプリケーションの識別情報が有効になっている`UseIdentity`で、`Configure`メソッドです。</span><span class="sxs-lookup"><span data-stu-id="a8198-139">Identity is enabled for the application by calling `UseIdentity` in the `Configure` method.</span></span> <span data-ttu-id="a8198-140">`UseIdentity`cookie ベースの認証を追加[ミドルウェア](xref:fundamentals/middleware)要求パイプラインにします。</span><span class="sxs-lookup"><span data-stu-id="a8198-140">`UseIdentity` adds cookie-based authentication [middleware](xref:fundamentals/middleware) to the request pipeline.</span></span>
+    <span data-ttu-id="47b67-139">呼び出して、アプリケーションの識別情報が有効になっている`UseIdentity`で、`Configure`メソッドです。</span><span class="sxs-lookup"><span data-stu-id="47b67-139">Identity is enabled for the application by calling `UseIdentity` in the `Configure` method.</span></span> <span data-ttu-id="47b67-140">`UseIdentity`cookie ベースの認証を追加[ミドルウェア](xref:fundamentals/middleware)要求パイプラインにします。</span><span class="sxs-lookup"><span data-stu-id="47b67-140">`UseIdentity` adds cookie-based authentication [middleware](xref:fundamentals/middleware) to the request pipeline.</span></span>
         
     [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configure&highlight=21)]
     
     ---
      
-    <span data-ttu-id="a8198-141">アプリケーション起動プロセスの詳細については、次を参照してください。[アプリケーションの起動](xref:fundamentals/startup)です。</span><span class="sxs-lookup"><span data-stu-id="a8198-141">For more information about the application start up process, see [Application Startup](xref:fundamentals/startup).</span></span>
+    <span data-ttu-id="47b67-141">アプリケーション起動プロセスの詳細については、次を参照してください。[アプリケーションの起動](xref:fundamentals/startup)です。</span><span class="sxs-lookup"><span data-stu-id="47b67-141">For more information about the application start up process, see [Application Startup](xref:fundamentals/startup).</span></span>
 
-3.  <span data-ttu-id="a8198-142">ユーザーを作成します。</span><span class="sxs-lookup"><span data-stu-id="a8198-142">Create a user.</span></span>
+3.  <span data-ttu-id="47b67-142">ユーザーを作成します。</span><span class="sxs-lookup"><span data-stu-id="47b67-142">Create a user.</span></span>
 
-    <span data-ttu-id="a8198-143">アプリケーションを起動し、をクリックして、**登録**リンクします。</span><span class="sxs-lookup"><span data-stu-id="a8198-143">Launch the application and then click on the **Register** link.</span></span>
+    <span data-ttu-id="47b67-143">アプリケーションを起動し、をクリックして、**登録**リンクします。</span><span class="sxs-lookup"><span data-stu-id="47b67-143">Launch the application and then click on the **Register** link.</span></span>
 
-    <span data-ttu-id="a8198-144">初めてこの操作を実行している場合は、移行を実行する必要はあります。</span><span class="sxs-lookup"><span data-stu-id="a8198-144">If this is the first time you're performing this action, you may be required to run migrations.</span></span> <span data-ttu-id="a8198-145">アプリケーションでは、するように求められます**適用移行**です。</span><span class="sxs-lookup"><span data-stu-id="a8198-145">The application prompts you to **Apply Migrations**.</span></span> <span data-ttu-id="a8198-146">必要な場合は、ページを更新します。</span><span class="sxs-lookup"><span data-stu-id="a8198-146">Refresh the page if needed.</span></span>
+    <span data-ttu-id="47b67-144">初めてこの操作を実行している場合は、移行を実行する必要はあります。</span><span class="sxs-lookup"><span data-stu-id="47b67-144">If this is the first time you're performing this action, you may be required to run migrations.</span></span> <span data-ttu-id="47b67-145">アプリケーションでは、するように求められます**適用移行**です。</span><span class="sxs-lookup"><span data-stu-id="47b67-145">The application prompts you to **Apply Migrations**.</span></span> <span data-ttu-id="47b67-146">必要な場合は、ページを更新します。</span><span class="sxs-lookup"><span data-stu-id="47b67-146">Refresh the page if needed.</span></span>
     
     ![移行の Web ページを適用します。](identity/_static/apply-migrations.png)
     
-    <span data-ttu-id="a8198-148">代わりに、メモリ内データベースを使用してアプリを永続的なデータベースを使用しない ASP.NET Core の Id を使用してテストできます。</span><span class="sxs-lookup"><span data-stu-id="a8198-148">Alternately, you can test using ASP.NET Core Identity with your app without a persistent database by using an in-memory database.</span></span> <span data-ttu-id="a8198-149">メモリ内のデータベースを使用するのには、追加、``Microsoft.EntityFrameworkCore.InMemory``アプリをパッケージ化し、アプリの呼び出しを変更``AddDbContext``で``ConfigureServices``次のようにします。</span><span class="sxs-lookup"><span data-stu-id="a8198-149">To use an in-memory database, add the ``Microsoft.EntityFrameworkCore.InMemory`` package to your app and modify your app's call to ``AddDbContext`` in ``ConfigureServices`` as follows:</span></span>
+    <span data-ttu-id="47b67-148">代わりに、メモリ内データベースを使用してアプリを永続的なデータベースを使用しない ASP.NET Core の Id を使用してテストできます。</span><span class="sxs-lookup"><span data-stu-id="47b67-148">Alternately, you can test using ASP.NET Core Identity with your app without a persistent database by using an in-memory database.</span></span> <span data-ttu-id="47b67-149">メモリ内のデータベースを使用するのには、追加、``Microsoft.EntityFrameworkCore.InMemory``アプリをパッケージ化し、アプリの呼び出しを変更``AddDbContext``で``ConfigureServices``次のようにします。</span><span class="sxs-lookup"><span data-stu-id="47b67-149">To use an in-memory database, add the ``Microsoft.EntityFrameworkCore.InMemory`` package to your app and modify your app's call to ``AddDbContext`` in ``ConfigureServices`` as follows:</span></span>
 
     ```csharp
     services.AddDbContext<ApplicationDbContext>(options =>
         options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
     ```
     
-    <span data-ttu-id="a8198-150">ユーザーがクリックしたとき、**登録**、リンク、``Register``でアクションが呼び出される``AccountController``です。</span><span class="sxs-lookup"><span data-stu-id="a8198-150">When the user clicks the **Register** link, the ``Register`` action is invoked on ``AccountController``.</span></span> <span data-ttu-id="a8198-151">``Register``アクションが呼び出すことによって、ユーザーを作成`CreateAsync`上、`_userManager`オブジェクト (に提供される``AccountController``依存関係の挿入によって)。</span><span class="sxs-lookup"><span data-stu-id="a8198-151">The ``Register`` action creates the user by calling `CreateAsync` on the `_userManager` object (provided to ``AccountController`` by dependency injection):</span></span>
+    <span data-ttu-id="47b67-150">ユーザーがクリックしたとき、**登録**、リンク、``Register``でアクションが呼び出される``AccountController``です。</span><span class="sxs-lookup"><span data-stu-id="47b67-150">When the user clicks the **Register** link, the ``Register`` action is invoked on ``AccountController``.</span></span> <span data-ttu-id="47b67-151">``Register``アクションが呼び出すことによって、ユーザーを作成`CreateAsync`上、`_userManager`オブジェクト (に提供される``AccountController``依存関係の挿入によって)。</span><span class="sxs-lookup"><span data-stu-id="47b67-151">The ``Register`` action creates the user by calling `CreateAsync` on the `_userManager` object (provided to ``AccountController`` by dependency injection):</span></span>
  
     [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_register&highlight=11)]
 
-    <span data-ttu-id="a8198-152">ユーザーが正常に作成されている場合、ユーザーがログインへの呼び出しによって``_signInManager.SignInAsync``です。</span><span class="sxs-lookup"><span data-stu-id="a8198-152">If the user was created successfully, the user is logged in by the call to ``_signInManager.SignInAsync``.</span></span>
+    <span data-ttu-id="47b67-152">ユーザーが正常に作成されている場合、ユーザーがログインへの呼び出しによって``_signInManager.SignInAsync``です。</span><span class="sxs-lookup"><span data-stu-id="47b67-152">If the user was created successfully, the user is logged in by the call to ``_signInManager.SignInAsync``.</span></span>
 
-    <span data-ttu-id="a8198-153">**注:**を参照してください[アカウント確認](xref:security/authentication/accconfirm#prevent-login-at-registration)手順については、登録時に即時にログインできません。</span><span class="sxs-lookup"><span data-stu-id="a8198-153">**Note:** See [account confirmation](xref:security/authentication/accconfirm#prevent-login-at-registration) for steps to prevent immediate login at registration.</span></span>
+    <span data-ttu-id="47b67-153">**注:**を参照してください[アカウント確認](xref:security/authentication/accconfirm#prevent-login-at-registration)手順については、登録時に即時にログインできません。</span><span class="sxs-lookup"><span data-stu-id="47b67-153">**Note:** See [account confirmation](xref:security/authentication/accconfirm#prevent-login-at-registration) for steps to prevent immediate login at registration.</span></span>
  
-4.  <span data-ttu-id="a8198-154">ログイン。</span><span class="sxs-lookup"><span data-stu-id="a8198-154">Log in.</span></span>
+4.  <span data-ttu-id="47b67-154">ログイン。</span><span class="sxs-lookup"><span data-stu-id="47b67-154">Log in.</span></span>
  
-    <span data-ttu-id="a8198-155">をクリックしてユーザーがサインインできるよう、**ログイン**サイトの上部にあるリンクの承認を必要とするサイトの一部にアクセスする場合、ログイン ページに移動可能性がありますか。</span><span class="sxs-lookup"><span data-stu-id="a8198-155">Users can sign in by clicking the **Log in** link at the top of the site, or they may be navigated to the Login page if they attempt to access a part of the site that requires authorization.</span></span> <span data-ttu-id="a8198-156">ユーザーがログイン ページのフォームを送信するときに、 ``AccountController`` ``Login``アクションが呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="a8198-156">When the user submits the form on the Login page, the ``AccountController`` ``Login`` action is called.</span></span>
+    <span data-ttu-id="47b67-155">をクリックしてユーザーがサインインできるよう、**ログイン**サイトの上部にあるリンクの承認を必要とするサイトの一部にアクセスする場合、ログイン ページに移動可能性がありますか。</span><span class="sxs-lookup"><span data-stu-id="47b67-155">Users can sign in by clicking the **Log in** link at the top of the site, or they may be navigated to the Login page if they attempt to access a part of the site that requires authorization.</span></span> <span data-ttu-id="47b67-156">ユーザーがログイン ページのフォームを送信するときに、 ``AccountController`` ``Login``アクションが呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="47b67-156">When the user submits the form on the Login page, the ``AccountController`` ``Login`` action is called.</span></span>
 
-    <span data-ttu-id="a8198-157">``Login``アクション呼び出し``PasswordSignInAsync``上、``_signInManager``オブジェクト (に提供される``AccountController``依存関係の挿入によって)。</span><span class="sxs-lookup"><span data-stu-id="a8198-157">The ``Login`` action calls ``PasswordSignInAsync`` on the ``_signInManager`` object (provided to ``AccountController`` by dependency injection).</span></span>
+    <span data-ttu-id="47b67-157">``Login``アクション呼び出し``PasswordSignInAsync``上、``_signInManager``オブジェクト (に提供される``AccountController``依存関係の挿入によって)。</span><span class="sxs-lookup"><span data-stu-id="47b67-157">The ``Login`` action calls ``PasswordSignInAsync`` on the ``_signInManager`` object (provided to ``AccountController`` by dependency injection).</span></span>
 
     [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
  
-    <span data-ttu-id="a8198-158">基本``Controller``クラスが公開する``User``コント ローラーのメソッドからアクセスできるプロパティです。</span><span class="sxs-lookup"><span data-stu-id="a8198-158">The base ``Controller`` class exposes a ``User`` property that you can access from controller methods.</span></span> <span data-ttu-id="a8198-159">インスタンスを列挙できます`User.Claims`承認決定を行うとします。</span><span class="sxs-lookup"><span data-stu-id="a8198-159">For instance, you can enumerate `User.Claims` and make authorization decisions.</span></span> <span data-ttu-id="a8198-160">詳細については、次を参照してください。[承認](xref:security/authorization/index)です。</span><span class="sxs-lookup"><span data-stu-id="a8198-160">For more information, see [Authorization](xref:security/authorization/index).</span></span>
+    <span data-ttu-id="47b67-158">基本``Controller``クラスが公開する``User``コント ローラーのメソッドからアクセスできるプロパティです。</span><span class="sxs-lookup"><span data-stu-id="47b67-158">The base ``Controller`` class exposes a ``User`` property that you can access from controller methods.</span></span> <span data-ttu-id="47b67-159">インスタンスを列挙できます`User.Claims`承認決定を行うとします。</span><span class="sxs-lookup"><span data-stu-id="47b67-159">For instance, you can enumerate `User.Claims` and make authorization decisions.</span></span> <span data-ttu-id="47b67-160">詳細については、次を参照してください。[承認](xref:security/authorization/index)です。</span><span class="sxs-lookup"><span data-stu-id="47b67-160">For more information, see [Authorization](xref:security/authorization/index).</span></span>
  
-5.  <span data-ttu-id="a8198-161">ログアウトします。</span><span class="sxs-lookup"><span data-stu-id="a8198-161">Log out.</span></span>
+5.  <span data-ttu-id="47b67-161">ログアウトします。</span><span class="sxs-lookup"><span data-stu-id="47b67-161">Log out.</span></span>
  
-    <span data-ttu-id="a8198-162">クリックすると、**ログアウト**呼び出しのリンク、`LogOut`アクション。</span><span class="sxs-lookup"><span data-stu-id="a8198-162">Clicking the **Log out** link calls the `LogOut` action.</span></span>
+    <span data-ttu-id="47b67-162">クリックすると、**ログアウト**呼び出しのリンク、`LogOut`アクション。</span><span class="sxs-lookup"><span data-stu-id="47b67-162">Clicking the **Log out** link calls the `LogOut` action.</span></span>
  
     [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_logout&highlight=7)]
  
-    <span data-ttu-id="a8198-163">上記のコードの呼び出しの上、`_signInManager.SignOutAsync`メソッドです。</span><span class="sxs-lookup"><span data-stu-id="a8198-163">The preceding code above calls the `_signInManager.SignOutAsync` method.</span></span> <span data-ttu-id="a8198-164">`SignOutAsync`メソッドは、cookie に格納されているユーザーの信頼性情報をクリアします。</span><span class="sxs-lookup"><span data-stu-id="a8198-164">The `SignOutAsync` method clears the user's claims stored in a cookie.</span></span>
+    <span data-ttu-id="47b67-163">上記のコードの呼び出しの上、`_signInManager.SignOutAsync`メソッドです。</span><span class="sxs-lookup"><span data-stu-id="47b67-163">The preceding code above calls the `_signInManager.SignOutAsync` method.</span></span> <span data-ttu-id="47b67-164">`SignOutAsync`メソッドは、cookie に格納されているユーザーの信頼性情報をクリアします。</span><span class="sxs-lookup"><span data-stu-id="47b67-164">The `SignOutAsync` method clears the user's claims stored in a cookie.</span></span>
  
 <a name="pw"></a>
-6.  <span data-ttu-id="a8198-165">構成します。</span><span class="sxs-lookup"><span data-stu-id="a8198-165">Configuration.</span></span>
+6.  <span data-ttu-id="47b67-165">構成します。</span><span class="sxs-lookup"><span data-stu-id="47b67-165">Configuration.</span></span>
 
-    <span data-ttu-id="a8198-166">Id は、アプリのスタートアップ クラスでオーバーライドできるいくつかの既定の動作を持っています。</span><span class="sxs-lookup"><span data-stu-id="a8198-166">Identity has some default behaviors that can be overridden in the app's startup class.</span></span> <span data-ttu-id="a8198-167">`IdentityOptions`既定の動作を使用する場合に構成する必要はありません。</span><span class="sxs-lookup"><span data-stu-id="a8198-167">`IdentityOptions` don't need to be configured when using the default behaviors.</span></span> <span data-ttu-id="a8198-168">次のコードは、パスワードの強度のいくつかのオプションを設定します。</span><span class="sxs-lookup"><span data-stu-id="a8198-168">The following code sets several password strength options:</span></span>
+    <span data-ttu-id="47b67-166">Id は、アプリのスタートアップ クラスでオーバーライドできるいくつかの既定の動作を持っています。</span><span class="sxs-lookup"><span data-stu-id="47b67-166">Identity has some default behaviors that can be overridden in the app's startup class.</span></span> <span data-ttu-id="47b67-167">`IdentityOptions`既定の動作を使用する場合に構成する必要はありません。</span><span class="sxs-lookup"><span data-stu-id="47b67-167">`IdentityOptions` don't need to be configured when using the default behaviors.</span></span> <span data-ttu-id="47b67-168">次のコードは、パスワードの強度のいくつかのオプションを設定します。</span><span class="sxs-lookup"><span data-stu-id="47b67-168">The following code sets several password strength options:</span></span>
 
-    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="a8198-169">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="a8198-169">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="47b67-169">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="47b67-169">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
     
     [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-39)]
     
-    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="a8198-170">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="a8198-170">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="47b67-170">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="47b67-170">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
     
     [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=13-34)]
 
     ---
     
-    <span data-ttu-id="a8198-171">Id を構成する方法の詳細については、次を参照してください。[構成 Identity](xref:security/authentication/identity-configuration)です。</span><span class="sxs-lookup"><span data-stu-id="a8198-171">For more information about how to configure Identity, see [Configure Identity](xref:security/authentication/identity-configuration).</span></span>
+    <span data-ttu-id="47b67-171">Id を構成する方法の詳細については、次を参照してください。[構成 Identity](xref:security/authentication/identity-configuration)です。</span><span class="sxs-lookup"><span data-stu-id="47b67-171">For more information about how to configure Identity, see [Configure Identity](xref:security/authentication/identity-configuration).</span></span>
     
-    <span data-ttu-id="a8198-172">構成することもできます、主キーのデータ型を参照してください[Id の構成の主キーのデータ型](xref:security/authentication/identity-primary-key-configuration)です。</span><span class="sxs-lookup"><span data-stu-id="a8198-172">You also can configure the data type of the primary key, see [Configure Identity primary keys data type](xref:security/authentication/identity-primary-key-configuration).</span></span>
+    <span data-ttu-id="47b67-172">構成することもできます、主キーのデータ型を参照してください[Id の構成の主キーのデータ型](xref:security/authentication/identity-primary-key-configuration)です。</span><span class="sxs-lookup"><span data-stu-id="47b67-172">You also can configure the data type of the primary key, see [Configure Identity primary keys data type](xref:security/authentication/identity-primary-key-configuration).</span></span>
  
-7.  <span data-ttu-id="a8198-173">データベースを表示します。</span><span class="sxs-lookup"><span data-stu-id="a8198-173">View the database.</span></span>
+7.  <span data-ttu-id="47b67-173">データベースを表示します。</span><span class="sxs-lookup"><span data-stu-id="47b67-173">View the database.</span></span>
 
-    <span data-ttu-id="a8198-174">アプリは、SQL Server データベース (既定の windows と Visual Studio ユーザー用) を使用している場合は、データベース作成されたアプリを表示できます。</span><span class="sxs-lookup"><span data-stu-id="a8198-174">If your app is using a SQL Server database (the default on Windows and for Visual Studio users), you can view the database the app created.</span></span> <span data-ttu-id="a8198-175">使用することができます**SQL Server Management Studio**です。</span><span class="sxs-lookup"><span data-stu-id="a8198-175">You can use **SQL Server Management Studio**.</span></span> <span data-ttu-id="a8198-176">または、Visual Studio から、次のように選択します。**ビュー** > **SQL Server オブジェクト エクスプ ローラー**です。</span><span class="sxs-lookup"><span data-stu-id="a8198-176">Alternatively, from Visual Studio, select **View** > **SQL Server Object Explorer**.</span></span> <span data-ttu-id="a8198-177">接続**(localdb) \MSSQLLocalDB**です。</span><span class="sxs-lookup"><span data-stu-id="a8198-177">Connect to **(localdb)\MSSQLLocalDB**.</span></span> <span data-ttu-id="a8198-178">一致する名前を持つデータベース**aspnet - <*、プロジェクトの名前*>-<*日付文字列*>** が表示されます。</span><span class="sxs-lookup"><span data-stu-id="a8198-178">The database with a name matching **aspnet-<*name of your project*>-<*date string*>** is displayed.</span></span>
+    <span data-ttu-id="47b67-174">アプリは、SQL Server データベース (既定の windows と Visual Studio ユーザー用) を使用している場合は、データベース作成されたアプリを表示できます。</span><span class="sxs-lookup"><span data-stu-id="47b67-174">If your app is using a SQL Server database (the default on Windows and for Visual Studio users), you can view the database the app created.</span></span> <span data-ttu-id="47b67-175">使用することができます**SQL Server Management Studio**です。</span><span class="sxs-lookup"><span data-stu-id="47b67-175">You can use **SQL Server Management Studio**.</span></span> <span data-ttu-id="47b67-176">または、Visual Studio から、次のように選択します。**ビュー** > **SQL Server オブジェクト エクスプ ローラー**です。</span><span class="sxs-lookup"><span data-stu-id="47b67-176">Alternatively, from Visual Studio, select **View** > **SQL Server Object Explorer**.</span></span> <span data-ttu-id="47b67-177">接続**(localdb) \MSSQLLocalDB**です。</span><span class="sxs-lookup"><span data-stu-id="47b67-177">Connect to **(localdb)\MSSQLLocalDB**.</span></span> <span data-ttu-id="47b67-178">一致する名前を持つデータベース**aspnet - <*、プロジェクトの名前*>-<*日付文字列*>** が表示されます。</span><span class="sxs-lookup"><span data-stu-id="47b67-178">The database with a name matching **aspnet-<*name of your project*>-<*date string*>** is displayed.</span></span>
 
     ![AspNetUsers データベース テーブルのコンテキスト メニュー](identity/_static/04-db.png)
     
-    <span data-ttu-id="a8198-180">データベースを展開し、その**テーブル**を右クリックし、 **dbo します。AspNetUsers**テーブルを選択して**ビュー データ**です。</span><span class="sxs-lookup"><span data-stu-id="a8198-180">Expand the database and its **Tables**, then right-click the **dbo.AspNetUsers** table and select **View Data**.</span></span>
+    <span data-ttu-id="47b67-180">データベースを展開し、その**テーブル**を右クリックし、 **dbo します。AspNetUsers**テーブルを選択して**ビュー データ**です。</span><span class="sxs-lookup"><span data-stu-id="47b67-180">Expand the database and its **Tables**, then right-click the **dbo.AspNetUsers** table and select **View Data**.</span></span>
 
-8. <span data-ttu-id="a8198-181">Identity 動作を確認します。</span><span class="sxs-lookup"><span data-stu-id="a8198-181">Verify Identity works</span></span>
+8. <span data-ttu-id="47b67-181">Identity 動作を確認します。</span><span class="sxs-lookup"><span data-stu-id="47b67-181">Verify Identity works</span></span>
 
-    <span data-ttu-id="a8198-182">既定値*ASP.NET Core Web アプリケーション*プロジェクト テンプレートを使用してしなくても、アプリケーションでのアクションにアクセスするユーザーにログインします。</span><span class="sxs-lookup"><span data-stu-id="a8198-182">The default *ASP.NET Core Web Application* project template allows users to access any action in the application without having to login.</span></span> <span data-ttu-id="a8198-183">ASP.NET Identity が動作することを確認するには追加、`[Authorize]`属性を`About`のアクション、`Home`コント ローラー。</span><span class="sxs-lookup"><span data-stu-id="a8198-183">To verify that ASP.NET Identity works, add an`[Authorize]` attribute to the `About` action of the `Home` Controller.</span></span>
+    <span data-ttu-id="47b67-182">既定値*ASP.NET Core Web アプリケーション*プロジェクト テンプレートを使用してしなくても、アプリケーションでのアクションにアクセスするユーザーにログインします。</span><span class="sxs-lookup"><span data-stu-id="47b67-182">The default *ASP.NET Core Web Application* project template allows users to access any action in the application without having to login.</span></span> <span data-ttu-id="47b67-183">ASP.NET Identity が動作することを確認するには追加、`[Authorize]`属性を`About`のアクション、`Home`コント ローラー。</span><span class="sxs-lookup"><span data-stu-id="47b67-183">To verify that ASP.NET Identity works, add an`[Authorize]` attribute to the `About` action of the `Home` Controller.</span></span>
  
     ```cs
     [Authorize]
@@ -164,45 +164,45 @@ ms.lasthandoff: 01/24/2018
     }
     ```
     
-    # <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="a8198-184">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="a8198-184">Visual Studio</span></span>](#tab/visual-studio)
+    # <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="47b67-184">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="47b67-184">Visual Studio</span></span>](#tab/visual-studio)
 
-    <span data-ttu-id="a8198-185">使用してプロジェクトを実行**Ctrl** + **f5 キーを押して**に移動し、**に関する**ページ。</span><span class="sxs-lookup"><span data-stu-id="a8198-185">Run the project using **Ctrl** + **F5** and navigate to the **About** page.</span></span> <span data-ttu-id="a8198-186">認証されたユーザーのみがアクセス、**に関する** ページが表示、ASP.NET ログインまたは登録するには、ログイン ページにリダイレクトします。</span><span class="sxs-lookup"><span data-stu-id="a8198-186">Only authenticated users may access the **About** page now, so ASP.NET redirects you to the login page to login or register.</span></span>
+    <span data-ttu-id="47b67-185">使用してプロジェクトを実行**Ctrl** + **f5 キーを押して**に移動し、**に関する**ページ。</span><span class="sxs-lookup"><span data-stu-id="47b67-185">Run the project using **Ctrl** + **F5** and navigate to the **About** page.</span></span> <span data-ttu-id="47b67-186">認証されたユーザーのみがアクセス、**に関する** ページが表示、ASP.NET ログインまたは登録するには、ログイン ページにリダイレクトします。</span><span class="sxs-lookup"><span data-stu-id="47b67-186">Only authenticated users may access the **About** page now, so ASP.NET redirects you to the login page to login or register.</span></span>
 
-    # <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="a8198-187">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="a8198-187">.NET Core CLI</span></span>](#tab/netcore-cli)
+    # <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="47b67-187">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="47b67-187">.NET Core CLI</span></span>](#tab/netcore-cli)
 
-    <span data-ttu-id="a8198-188">コマンド ウィンドウを開き、プロジェクトのルートに移動ディレクトリを含む、`.csproj`ファイル。</span><span class="sxs-lookup"><span data-stu-id="a8198-188">Open a command window and navigate to the project's root directory containing the `.csproj` file.</span></span> <span data-ttu-id="a8198-189">実行、`dotnet run`アプリを実行するコマンド。</span><span class="sxs-lookup"><span data-stu-id="a8198-189">Run the `dotnet run` command to run the app:</span></span>
+    <span data-ttu-id="47b67-188">コマンド ウィンドウを開き、プロジェクトのルートに移動ディレクトリを含む、`.csproj`ファイル。</span><span class="sxs-lookup"><span data-stu-id="47b67-188">Open a command window and navigate to the project's root directory containing the `.csproj` file.</span></span> <span data-ttu-id="47b67-189">実行、`dotnet run`アプリを実行するコマンド。</span><span class="sxs-lookup"><span data-stu-id="47b67-189">Run the `dotnet run` command to run the app:</span></span>
 
     ```cs
     dotnet run 
     ```
 
-    <span data-ttu-id="a8198-190">出力で指定された URL を参照、`dotnet run`コマンド。</span><span class="sxs-lookup"><span data-stu-id="a8198-190">Browse the URL specified in the output from the `dotnet run` command.</span></span> <span data-ttu-id="a8198-191">URL を指す必要があります`localhost`生成されたポート番号。</span><span class="sxs-lookup"><span data-stu-id="a8198-191">The URL should point to `localhost` with a generated port number.</span></span> <span data-ttu-id="a8198-192">移動し、**に関する**ページ。</span><span class="sxs-lookup"><span data-stu-id="a8198-192">Navigate to the **About** page.</span></span> <span data-ttu-id="a8198-193">認証されたユーザーのみがアクセス、**に関する** ページが表示、ASP.NET ログインまたは登録するには、ログイン ページにリダイレクトします。</span><span class="sxs-lookup"><span data-stu-id="a8198-193">Only authenticated users may access the **About** page now, so ASP.NET redirects you to the login page to login or register.</span></span>
+    <span data-ttu-id="47b67-190">出力で指定された URL を参照、`dotnet run`コマンド。</span><span class="sxs-lookup"><span data-stu-id="47b67-190">Browse the URL specified in the output from the `dotnet run` command.</span></span> <span data-ttu-id="47b67-191">URL を指す必要があります`localhost`生成されたポート番号。</span><span class="sxs-lookup"><span data-stu-id="47b67-191">The URL should point to `localhost` with a generated port number.</span></span> <span data-ttu-id="47b67-192">移動し、**に関する**ページ。</span><span class="sxs-lookup"><span data-stu-id="47b67-192">Navigate to the **About** page.</span></span> <span data-ttu-id="47b67-193">認証されたユーザーのみがアクセス、**に関する** ページが表示、ASP.NET ログインまたは登録するには、ログイン ページにリダイレクトします。</span><span class="sxs-lookup"><span data-stu-id="47b67-193">Only authenticated users may access the **About** page now, so ASP.NET redirects you to the login page to login or register.</span></span>
 
     ---
 
-## <a name="identity-components"></a><span data-ttu-id="a8198-194">Identity コンポーネント</span><span class="sxs-lookup"><span data-stu-id="a8198-194">Identity Components</span></span>
+## <a name="identity-components"></a><span data-ttu-id="47b67-194">Identity コンポーネント</span><span class="sxs-lookup"><span data-stu-id="47b67-194">Identity Components</span></span>
 
-<span data-ttu-id="a8198-195">Id システムのプライマリ参照アセンブリが`Microsoft.AspNetCore.Identity`です。</span><span class="sxs-lookup"><span data-stu-id="a8198-195">The primary reference assembly for the Identity system is `Microsoft.AspNetCore.Identity`.</span></span> <span data-ttu-id="a8198-196">ASP.NET Core Id のインターフェイスのコア セットを含む、このパッケージをによって含まれる`Microsoft.AspNetCore.Identity.EntityFrameworkCore`です。</span><span class="sxs-lookup"><span data-stu-id="a8198-196">This package contains the core set of interfaces for ASP.NET Core Identity, and is included by `Microsoft.AspNetCore.Identity.EntityFrameworkCore`.</span></span>
+<span data-ttu-id="47b67-195">Id システムのプライマリ参照アセンブリが`Microsoft.AspNetCore.Identity`です。</span><span class="sxs-lookup"><span data-stu-id="47b67-195">The primary reference assembly for the Identity system is `Microsoft.AspNetCore.Identity`.</span></span> <span data-ttu-id="47b67-196">ASP.NET Core Id のインターフェイスのコア セットを含む、このパッケージをによって含まれる`Microsoft.AspNetCore.Identity.EntityFrameworkCore`です。</span><span class="sxs-lookup"><span data-stu-id="47b67-196">This package contains the core set of interfaces for ASP.NET Core Identity, and is included by `Microsoft.AspNetCore.Identity.EntityFrameworkCore`.</span></span>
 
-<span data-ttu-id="a8198-197">ASP.NET Core アプリケーションで Id システムを使用するには、これらの依存関係が必要です。</span><span class="sxs-lookup"><span data-stu-id="a8198-197">These dependencies are needed to use the Identity system in ASP.NET Core applications:</span></span>
+<span data-ttu-id="47b67-197">ASP.NET Core アプリケーションで Id システムを使用するには、これらの依存関係が必要です。</span><span class="sxs-lookup"><span data-stu-id="47b67-197">These dependencies are needed to use the Identity system in ASP.NET Core applications:</span></span>
 
-* <span data-ttu-id="a8198-198">`Microsoft.AspNetCore.Identity.EntityFrameworkCore`-エンティティ フレームワークのコアで Id を使用する、必要な型が含まれています。</span><span class="sxs-lookup"><span data-stu-id="a8198-198">`Microsoft.AspNetCore.Identity.EntityFrameworkCore` - Contains the required types to use Identity with Entity Framework Core.</span></span>
+* <span data-ttu-id="47b67-198">`Microsoft.AspNetCore.Identity.EntityFrameworkCore`-エンティティ フレームワークのコアで Id を使用する、必要な型が含まれています。</span><span class="sxs-lookup"><span data-stu-id="47b67-198">`Microsoft.AspNetCore.Identity.EntityFrameworkCore` - Contains the required types to use Identity with Entity Framework Core.</span></span>
 
-* <span data-ttu-id="a8198-199">`Microsoft.EntityFrameworkCore.SqlServer`Entity Framework Core は、SQL Server などのリレーショナル データベースの Microsoft の推奨されるデータ アクセス テクノロジです。</span><span class="sxs-lookup"><span data-stu-id="a8198-199">`Microsoft.EntityFrameworkCore.SqlServer` - Entity Framework Core is Microsoft's recommended data access technology for relational databases like SQL Server.</span></span> <span data-ttu-id="a8198-200">使用することができます、テストは`Microsoft.EntityFrameworkCore.InMemory`します。</span><span class="sxs-lookup"><span data-stu-id="a8198-200">For testing, you can use `Microsoft.EntityFrameworkCore.InMemory`.</span></span>
+* <span data-ttu-id="47b67-199">`Microsoft.EntityFrameworkCore.SqlServer`Entity Framework Core は、SQL Server などのリレーショナル データベースの Microsoft の推奨されるデータ アクセス テクノロジです。</span><span class="sxs-lookup"><span data-stu-id="47b67-199">`Microsoft.EntityFrameworkCore.SqlServer` - Entity Framework Core is Microsoft's recommended data access technology for relational databases like SQL Server.</span></span> <span data-ttu-id="47b67-200">使用することができます、テストは`Microsoft.EntityFrameworkCore.InMemory`します。</span><span class="sxs-lookup"><span data-stu-id="47b67-200">For testing, you can use `Microsoft.EntityFrameworkCore.InMemory`.</span></span>
 
-* <span data-ttu-id="a8198-201">`Microsoft.AspNetCore.Authentication.Cookies`-を cookie ベースの認証を使用するアプリを有効にするミドルウェア。</span><span class="sxs-lookup"><span data-stu-id="a8198-201">`Microsoft.AspNetCore.Authentication.Cookies` - Middleware that enables an app to use cookie-based authentication.</span></span>
+* <span data-ttu-id="47b67-201">`Microsoft.AspNetCore.Authentication.Cookies`-を cookie ベースの認証を使用するアプリを有効にするミドルウェア。</span><span class="sxs-lookup"><span data-stu-id="47b67-201">`Microsoft.AspNetCore.Authentication.Cookies` - Middleware that enables an app to use cookie-based authentication.</span></span>
 
-## <a name="migrating-to-aspnet-core-identity"></a><span data-ttu-id="a8198-202">ASP.NET Core の Id への移行</span><span class="sxs-lookup"><span data-stu-id="a8198-202">Migrating to ASP.NET Core Identity</span></span>
+## <a name="migrating-to-aspnet-core-identity"></a><span data-ttu-id="47b67-202">ASP.NET Core の Id への移行</span><span class="sxs-lookup"><span data-stu-id="47b67-202">Migrating to ASP.NET Core Identity</span></span>
 
-<span data-ttu-id="a8198-203">ストアを参照の追加情報と、既存の Id の移行に関するガイダンスの[移行認証と Id](xref:migration/identity)です。</span><span class="sxs-lookup"><span data-stu-id="a8198-203">For additional information and guidance on migrating your existing Identity store see [Migrating Authentication and Identity](xref:migration/identity).</span></span>
+<span data-ttu-id="47b67-203">ストアを参照の追加情報と、既存の Id の移行に関するガイダンスの[移行認証と Id](xref:migration/identity)です。</span><span class="sxs-lookup"><span data-stu-id="47b67-203">For additional information and guidance on migrating your existing Identity store see [Migrating Authentication and Identity](xref:migration/identity).</span></span>
 
-## <a name="setting-password-strength"></a><span data-ttu-id="a8198-204">パスワードの強度を設定</span><span class="sxs-lookup"><span data-stu-id="a8198-204">Setting password strength</span></span>
+## <a name="setting-password-strength"></a><span data-ttu-id="47b67-204">パスワードの強度を設定</span><span class="sxs-lookup"><span data-stu-id="47b67-204">Setting password strength</span></span>
 
-<span data-ttu-id="a8198-205">参照してください[構成](#pw)のパスワードの最小要件を設定するサンプルです。</span><span class="sxs-lookup"><span data-stu-id="a8198-205">See [Configuration](#pw) for a sample that sets the minimum password requirements.</span></span>
+<span data-ttu-id="47b67-205">参照してください[構成](#pw)のパスワードの最小要件を設定するサンプルです。</span><span class="sxs-lookup"><span data-stu-id="47b67-205">See [Configuration](#pw) for a sample that sets the minimum password requirements.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="a8198-206">次の手順</span><span class="sxs-lookup"><span data-stu-id="a8198-206">Next Steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="47b67-206">次の手順</span><span class="sxs-lookup"><span data-stu-id="47b67-206">Next Steps</span></span>
 
-* [<span data-ttu-id="a8198-207">認証と ID の移行</span><span class="sxs-lookup"><span data-stu-id="a8198-207">Migrating Authentication and Identity</span></span>](xref:migration/identity)
-* [<span data-ttu-id="a8198-208">アカウントの確認とパスワードの回復</span><span class="sxs-lookup"><span data-stu-id="a8198-208">Account Confirmation and Password Recovery</span></span>](xref:security/authentication/accconfirm)
-* [<span data-ttu-id="a8198-209">SMS での 2 要素認証</span><span class="sxs-lookup"><span data-stu-id="a8198-209">Two-factor authentication with SMS</span></span>](xref:security/authentication/2fa)
-* [<span data-ttu-id="a8198-210">Facebook、Google、および他の外部プロバイダーを使用する認証の有効化</span><span class="sxs-lookup"><span data-stu-id="a8198-210">Enabling authentication using Facebook, Google and other external providers</span></span>](xref:security/authentication/social/index)
+* [<span data-ttu-id="47b67-207">認証と ID の移行</span><span class="sxs-lookup"><span data-stu-id="47b67-207">Migrating Authentication and Identity</span></span>](xref:migration/identity)
+* [<span data-ttu-id="47b67-208">アカウントの確認とパスワードの回復</span><span class="sxs-lookup"><span data-stu-id="47b67-208">Account Confirmation and Password Recovery</span></span>](xref:security/authentication/accconfirm)
+* [<span data-ttu-id="47b67-209">SMS での 2 要素認証</span><span class="sxs-lookup"><span data-stu-id="47b67-209">Two-factor authentication with SMS</span></span>](xref:security/authentication/2fa)
+* [<span data-ttu-id="47b67-210">Facebook、Google、および他の外部プロバイダーを使用する認証の有効化</span><span class="sxs-lookup"><span data-stu-id="47b67-210">Enabling authentication using Facebook, Google and other external providers</span></span>](xref:security/authentication/social/index)
