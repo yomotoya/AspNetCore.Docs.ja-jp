@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 1d6d9265d93fbd32e2d9c22e2ac3db9b5ffd9776
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.openlocfilehash: 3d24c633368abc14efcd9fcf200a4d05c5b182c9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>ハンズオン ラボ: Azure の web サイトの保守が容易な: 変更とスケールを管理します。
 ====================
@@ -199,9 +199,9 @@ ms.lasthandoff: 11/10/2017
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample5.ps1)]
 
-    ![追加の移行](maintainable-azure-websites-managing-change-and-scale/_static/image8.png "追加の移行")
+    ![Add-Migration](maintainable-azure-websites-managing-change-and-scale/_static/image8.png "Add-Migration")
 
-    *追加の移行*
+    *Add-Migration*
 
     > [!NOTE]
     > 移行ファイルが 2 つの方法で構成される**を**と**ダウン**です。
@@ -251,7 +251,7 @@ ms.lasthandoff: 11/10/2017
 この演習では展開、**マニア Quiz** Git ソース管理を使用して、web アプリのステージング環境へのアプリケーションです。 これを行うが web アプリを作成し、管理ポータルで必要なコンポーネントのプロビジョニング、構成、 **Git**リポジトリとプッシュ アプリケーション ソース コードをローカル コンピューターから、ステージング スロットにします。 使用して実稼働データベースを更新することも、 **Code First Migrations**前述の手順で作成します。 その操作を確認するには、このテスト環境でアプリケーションを実行します。 入力が完了したらことが期待どおりに動作して、実稼働環境にアプリケーションが昇格されます。
 
 > [!NOTE]
-> ステージングされた発行を有効にするには、web アプリにあります**標準モード**です。 Web アプリを標準モードに変更する場合に追加料金が発生することに注意してください。 料金の詳細については、次を参照してください。 [App Service の料金](https://azure.microsoft.com/en-us/pricing/details/app-service/)です。
+> ステージングされた発行を有効にするには、web アプリにあります**標準モード**です。 Web アプリを標準モードに変更する場合に追加料金が発生することに注意してください。 料金の詳細については、次を参照してください。 [App Service の料金](https://azure.microsoft.com/pricing/details/app-service/)です。
 
 
 <a id="Ex2Task1"></a>
@@ -695,7 +695,7 @@ ms.lasthandoff: 11/10/2017
     [!code-xml[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample17.xml)]
 
     > [!NOTE]
-    > URL の書き換えは、受信 Web 要求を受け取り、別のリソースへの要求のリダイレクトのプロセスです。 URL 書き換えルールは、要求をリダイレクトする必要がある場合と、リダイレクト先にする、書き換えエンジンを指示します。 書き換え規則が 2 つの文字列で構成されます: 要求された URL 内で検索するパターン (通常は、正規表現を使用して) 場合は、そのパターンを置換する文字列が検出されたとします。 詳細については、次を参照してください。 [ASP.NET の URL の書き換え](https://msdn.microsoft.com/en-us/library/ms972974.aspx)です。
+    > URL の書き換えは、受信 Web 要求を受け取り、別のリソースへの要求のリダイレクトのプロセスです。 URL 書き換えルールは、要求をリダイレクトする必要がある場合と、リダイレクト先にする、書き換えエンジンを指示します。 書き換え規則が 2 つの文字列で構成されます: 要求された URL 内で検索するパターン (通常は、正規表現を使用して) 場合は、そのパターンを置換する文字列が検出されたとします。 詳細については、次を参照してください。 [ASP.NET の URL の書き換え](https://msdn.microsoft.com/library/ms972974.aspx)です。
 3. キーを押して**ctrl キーを押しながら S**変更を保存します。
 4. 新しく開きます**Git Bash** Azure App Service に更新されたアプリケーションを配置するコンソール。
 5. 変更を Azure にプッシュするには、次のコマンドを実行します。 更新プログラム、 *[、アプリケーション パス]*へのパスのプレース ホルダー、 **GeekQuiz**ソリューションです。 展開パスワードを求められます。
@@ -859,9 +859,9 @@ ms.lasthandoff: 11/10/2017
     ![ブラウザーの種類を選択すると](maintainable-azure-websites-managing-change-and-scale/_static/image95.png "ブラウザーの種類を選択します。")
 
     *ブラウザーの種類を選択します。*
-18. **カウンター セット**] ページで [**次**です。
+18. **カウンター セット** ページで **次**です。
 
-    ![カウンター セット ページで [次へ] をクリックすると](maintainable-azure-websites-managing-change-and-scale/_static/image96.png "カウンター セット ページでは、次をクリックすると")
+    ![カウンター セット ページで [次へ] をクリックすると](maintainable-azure-websites-managing-change-and-scale/_static/image96.png "カウンター セット] ページでは、[次をクリックすると")
 
     *カウンター セット ページで 次へ をクリックして*
 19. **実行設定** ページで、設定、**ロード テストの継続**に**5 分** をクリック**完了**です。
@@ -910,11 +910,11 @@ ms.lasthandoff: 11/10/2017
     > 
     > - ロード テストの期間を延長 (たとえば**10 分**)
     > - 最大値と最小値を減らして、**ターゲット CPU** web アプリの自動スケールの構成内の範囲
-    > - クラウド内のロード テストの実行**Visual Studio Online**です。 詳細については[ここ](https://www.visualstudio.com/en-us/get-started/load-test-your-app-vs.aspx)
+    > - クラウド内のロード テストの実行**Visual Studio Online**です。 詳細については[ここ](https://www.visualstudio.com/get-started/load-test-your-app-vs.aspx)
 
 * * *
 
 <a id="Summary"></a>
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このハンズオン ラボを設定し、Azure で web アプリを実稼働環境にアプリケーションを配置する方法を学習しました。 使用して、データベースの更新を検出して開始した**Entity Framework Code First Migrations**、しを使用して、サイトの新しいバージョンを展開することで続き**Git**へのロールバックを実行して、サイトの最新の安定バージョン。 さらに、記憶域を使用して、静的なコンテンツを Blob コンテナーに移動するアプリをスケールする方法について学習しました。
