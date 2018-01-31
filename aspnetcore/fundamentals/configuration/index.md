@@ -6,15 +6,15 @@ manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/11/2018
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 1afb32fb6c5fffd38b7028741bfd8199e2e23d21
-ms.sourcegitcommit: 09b342b45e7372ba9ebf17f35eee331e5a08fb26
+ms.openlocfilehash: 6b9dcfcc2fa380b601eee56095f2e6a6dbe07732
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>ASP.NET Core アプリを構成する
 
@@ -217,7 +217,7 @@ key3=value_from_json_3
 
 # <a name="basic-configurationtabbasicconfiguration"></a>[基本構成](#tab/basicconfiguration)
 
-コマンド ライン構成をアクティブにするには、[ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) のインスタンスで `AddCommandLine` 拡張メソッドを呼び出します。
+コマンド ライン構成をアクティブにするには、[ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder) のインスタンスで `AddCommandLine` 拡張メソッドを呼び出します。
 
 [!code-csharp[Main](index/sample_snapshot//CommandLine/Program.cs?highlight=18,21)]
 

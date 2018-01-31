@@ -2,18 +2,18 @@
 title: "Mac で ASP.NET Core MVC を使用して Web アプリを作成する"
 author: rick-anderson
 description: "Visual Studio for Mac を使用して ASP.NET Core MVC / Entity Framework アプリを作成する"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 06/26/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: tutorials/first-mvc-app-mac/index
-ms.openlocfilehash: f485423d9abe860aeac2457fc0053332ccf8f23f
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b69eb67cedbc90c319e5bd07556001daed43c005
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="create-a-web-app-with-aspnet-core-mvc-using-visual-studio-for-mac"></a>Visual Studio for Mac を使用し、ASP.NET Core MVC Web アプリを作成する
 
