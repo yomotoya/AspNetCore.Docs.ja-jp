@@ -2,18 +2,18 @@
 title: "SQL Server LocalDB と ASP.NET Core の使用"
 author: rick-anderson
 description: "SQL Server LocalDB と ASP.NET Core の使用について説明します。"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 08/07/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 90aa194eda1c52afb1f299a0b95c7040e32a02fc
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3bec0b7b547443dbb20c7e3a7422262c05f93975
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="working-with-sql-server-localdb-and-aspnet-core"></a>SQL Server LocalDB と ASP.NET Core の使用
 

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.custom: mvc
 ms.devlang: dotnet
 uid: tutorials/publish-to-azure-webapp-using-cli
-ms.openlocfilehash: 4797260f95443954e86aae1614140c0caa5ca8bd
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: de05c1688d7de6126434395042103d803ee3064e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deploy-an-aspnet-core-application-to-azure-app-service-from-the-command-line"></a>コマンド ラインで Azure App Service へ ASP.NET Core アプリケーションを展開する
 
@@ -150,7 +150,7 @@ git push azure master
 ```
 ---
 
-Git から、先ほど設定した展開資格情報を求められます。  認証後、アプリケーションがリモートの展開先へプッシュされ、ビルドされて展開されます。
+Git から、先ほど設定した展開資格情報を求められます。 認証後、アプリケーションがリモートの展開先へプッシュされ、ビルドされて展開されます。
 
 ![Git 展開の出力](publish-to-azure-webapp-using-cli/_static/post_deploy.png)
 

@@ -2,18 +2,18 @@
 title: "検証の追加"
 author: rick-anderson
 description: "Razor ページに検証を追加する方法について説明します。"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 08/07/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 2c7473647f23daf20ce7b204f621fb34f1a528c2
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 770b930373888c8b4bd578ba6d2524546549800e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Razor ページに検証を追加する
 
@@ -59,7 +59,7 @@ ASP.NET Core で検証規則を自動的に適用すると、アプリをより�
 
 大きな利点は、[Create]/(作成/) ページまたは [Edit]/(編集/) ページの変更が**必要ない**ことです。 DataAnnotations がモデルに適用されたときに、検証 UI は有効になっています。 このチュートリアルで作成した Razor ページでは、(`Movie` モデル クラスのプロパティで検証属性を使用して) 検証規則が自動的に選択されます。 [Edit]/(編集/) ページを使用して検証をテストします。同じ検証が適用されます。
 
-クライアント側の検証エラーがなくなるまで、フォーム データはサーバーにポストされません。 次のいずれかまたは複数の方法で、フォーム データがポストされていないことを確認します。
+クライアント側の検証エラーがなくなるまで、フォーム データはサーバーにポストされません。 次のうち 1 つまたは複数の方法で、フォーム データがポストされていないことを確認します。
 
 * `OnPostAsync` メソッドにブレークポイントを設定します。 フォームを送信します (**[Create]/(作成/)** または **[Save]/(保存/)** を選択します)。 ブレークポイントがヒットすることはありません。
 * [Fiddler ツール](http://www.telerik.com/fiddler)を使用します。

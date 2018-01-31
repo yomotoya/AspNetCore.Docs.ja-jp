@@ -1,53 +1,12 @@
----
-title: "生成されたページの更新"
-author: rick-anderson
-description: "生成されたページを更新して、表示をわかりやすくします。"
-ms.author: riande
-manager: wpickett
-ms.date: 08/07/2017
-ms.topic: get-started-article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: tutorials/razor-pages/da1
-ms.openlocfilehash: abf6839536150f29eaa2d07dafbe0d0c1a08e280
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
----
-# <a name="updating-the-generated-pages"></a>生成されたページの更新
-
-作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-ムービー アプリは上々の滑り出しでしたが、表示が理想的ではありません。 時刻の表示が好ましくなく (下の画像の 12:00:00 AM)、**ReleaseDate** は **Release Date** (2 つの単語) にするべきです。
-
-![ムービー データが表示された、Chrome で開かれているムービー アプリケーション](sql/_static/m55.png)
-
-## <a name="update-the-generated-code"></a>生成されたコードの更新
-
-*Models/Movie.cs* ファイルを開き、下のコードで強調表示されている行を追加します。
-
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDate.cs?name=snippet_1&highlight=10-11)]
-
-赤の波線を右クリックし、[クイック アクションとリファクタリング] を選択します。
-
-  ![コンテキスト メニューに **[クイック アクションとリファクタリング]** が表示されます。](da1/qa.png)
-
-`using System.ComponentModel.DataAnnotations;` を選択します。
-
-  ![一覧の一番上にある System.ComponentModel.DataAnnotations を使用する](da1/da.png)
-
-  Visual Studio により `using System.ComponentModel.DataAnnotations;` が追加されます。
-
 [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) については、次のチュートリアルで説明します。 [Display](https://docs.microsoft.com//aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) 属性は、フィールドの名前として表示する内容 (ここでは、"ReleaseDate" ではなく、"Release Date") を指定します。 [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) 属性はデータ型 (Date) を指定するため、フィールドに格納される時刻情報は表示されません。
 
 Pages/Movies を参照し、**[編集]** リンクをポイントしてターゲット URL を確認します。
 
-![[編集] リンクがマウスでポイントされ、リンク URL として http://localhost:1234/Movies/Edit/5 が表示されている状態のブラウザー ウィンドウ](da1/edit7.png)
+![[編集] リンクがマウスでポイントされ、リンク URL として http://localhost:1234/Movies/Edit/5 が表示されている状態のブラウザー ウィンドウ](../../tutorials/razor-pages/da1/edit7.png)
 
 **[編集]**、**[詳細]**、および **[削除]** の各リンクは、*Pages/Movies/Index.cshtml* ファイルで[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)によって生成されます。
 
-[!code-cshtml[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=16-18&range=32-)]
+[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=16-18&range=32-)]
 
 [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)を使うと、Razor ファイルでの HTML 要素の作成とレンダリングに、サーバー側コードを組み込むことができます。 上のコードでは、`AnchorTagHelper` は動的に Razor ページからの HTML `href` 属性値 (ルートは相対)、`asp-page`、およびルート ID (`asp-route-id`) を生成します。 詳細については、「[ページの URL の生成](xref:mvc/razor-pages/index#url-generation-for-pages)」を参照してください。
 
@@ -83,7 +42,7 @@ Pages/Movies を参照し、**[編集]** リンクをポイントしてターゲ
 
 *Pages/Movies/Edit.cshtml.cs* ファイルで `OnPostAsync` メソッドを更新します。 次の強調表示されたコードは変更点を示しています。
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet1&highlight=16-23)]
+[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet1&highlight=16-23)]
 
 上のコードでは、最初の同時クライアントがムービーを削除し、2 番目の同時クライアントがムービーに変更を投稿した場合にのみ、同時実行制御の例外を検出します。
 
@@ -98,7 +57,7 @@ Pages/Movies を参照し、**[編集]** リンクをポイントしてターゲ
 
 ### <a name="posting-and-binding-review"></a>レビューの投稿とバインディング
 
-*Pages/Movies/Edit.cshtml.cs* ファイルを確認します。[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
+*Pages/Movies/Edit.cshtml.cs* ファイルを確認します。[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
 
 HTTP GET 要求が Movies/Edit ページに対して行われた場合 (例: `http://localhost:5000/Movies/Edit/2`):
 
@@ -121,7 +80,3 @@ Movies/Edit ページが投稿された場合:
 [インデックス]、[作成]、および [削除] Razor ページの HTTP GET メソッドも同様のパターンに従います。 [作成] Razor ページの HTTP POST `OnPostAsync` メソッドも [編集] Razor ページの `OnPostAsync` メソッドと同様のパターンに従います。
 
 次のチュートリアルでは検索を追加します。
-
->[!div class="step-by-step"]
-[前: SQL Server LocalDB の使用](xref:tutorials/razor-pages/sql)
-[検索の追加](xref:tutorials/razor-pages/search)
