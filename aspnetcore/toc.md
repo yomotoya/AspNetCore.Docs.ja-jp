@@ -28,6 +28,21 @@
 ### [Details メソッドと Delete メソッドの確認](tutorials/first-mvc-app/details.md)
 
 ## [クロス プラットフォームのチュートリアル](xref:tutorials/xplat)
+### [Mac での Razor ページ Web アプリ](xref:tutorials/razor-pages-mac/index)
+#### [Razor ページの概要](xref:tutorials/razor-pages-mac/razor-pages-start)
+#### [モデルの追加](xref:tutorials/razor-pages-mac/model)
+#### [スキャフォールディングされた Razor ページ](xref:tutorials/razor-pages-mac/page)
+#### [SQLite の使用](xref:tutorials/razor-pages-mac/sql)
+#### [ページの更新](xref:tutorials/razor-pages-mac/da1)
+#### [検索の追加](xref:tutorials/razor-pages-mac/search)
+
+
+### [VS Code での Razor ページ Web アプリ](xref:tutorials/razor-pages-vsc/index)
+#### [Razor ページの概要](xref:tutorials/razor-pages-vsc/razor-pages-start)
+#### [モデルの追加](xref:tutorials/razor-pages-vsc/model)
+#### [スキャフォールディングされた Razor ページ](xref:tutorials/razor-pages-vsc/page)
+#### [SQLite の使用](xref:tutorials/razor-pages-vsc/sql)
+#### [ページの更新](xref:tutorials/razor-pages-vsc/da1)
 
 ### [Visual Studio for Mac での MVC Web アプリ](xref:tutorials/first-mvc-app-mac/index)
 #### [はじめに](xref:tutorials/first-mvc-app-mac/start-mvc)
@@ -41,7 +56,7 @@
 #### [検証の追加](xref:tutorials/first-mvc-app-mac/validation)
 #### [Details メソッドと Delete メソッドの確認](xref:tutorials/first-mvc-app/details)
 
-### [Mac または Linux の Visual Studio Code での Web アプリ](xref:tutorials/first-mvc-app-xplat/index)
+### [Mac または Linux の Visual Studio Code での MVC Web アプリ](xref:tutorials/first-mvc-app-xplat/index)
 #### [はじめに](tutorials/first-mvc-app-xplat/start-mvc.md)
 #### [コントローラーの追加](tutorials/first-mvc-app-xplat/adding-controller.md)
 #### [ビューの追加](tutorials/first-mvc-app-xplat/adding-view.md)
@@ -52,15 +67,6 @@
 #### [新しいフィールドの追加](tutorials/first-mvc-app-xplat/new-field.md)
 #### [検証の追加](tutorials/first-mvc-app-xplat/validation.md)
 #### [Details メソッドと Delete メソッドの確認](tutorials/first-mvc-app/details.md)
-
-
-### [Mac での Razor ページ Web アプリ](xref:tutorials/razor-pages-mac/index)
-#### [Razor ページの概要](xref:tutorials/razor-pages-mac/razor-pages-start)
-#### [モデルの追加](xref:tutorials/razor-pages-mac/model)
-#### [スキャフォールディングされた Razor ページ](xref:tutorials/razor-pages-mac/page)
-### [VS Code での Razor ページ Web アプリ](xref:tutorials/razor-pages-vsc/index)
-#### [Razor ページの概要](xref:tutorials/razor-pages-vsc/razor-pages-start)
-#### [モデルの追加](xref:tutorials/razor-pages-vsc/model)
 
 ### [Visual Studio for Mac での Web API](xref:tutorials/first-web-api-mac)
 ### [Visual Studio Code での Web API](xref:tutorials/web-api-vsc)
@@ -244,6 +250,7 @@
 ### [Azure Active Directory](xref:security/authentication/azure-active-directory/index)
 #### [ASP.NET Core Web アプリへの Azure AD の統合](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
 #### [顧客向け ASP.NET Core web アプリへの Azure AD B2C の統合](xref:security/authentication/azure-ad-b2c)
+#### [ASP.NET Core Web API への Azure AD B2C の統合](xref:security/authentication/azure-ad-b2c-webapi)
 #### [Azure AD を使用した WPF アプリからの ASP.NET Core Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 #### [Azure AD を使用した ASP.NET Core Web アプリでの Web API の呼び出し](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
 ### [IdentityServer4 での ASP.NET Core アプリのセキュリティ保護](https://identityserver4.readthedocs.io/)
