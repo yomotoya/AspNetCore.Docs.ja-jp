@@ -2,19 +2,19 @@
 title: "Visual Studio と Git による Azure への継続的配置"
 author: rick-anderson
 description: "Visual Studio で ASP.NET Core Web アプリを作成し、それを Azure App Service に配置する方法について説明します。Git を利用し、継続的に配置します。"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.custom: mvc
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: c1d25b109bbf211eb476860ff77b649565960b62
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 78f4eed188323f2f43fafbb69d3fca9b59129ad2
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Visual Studio および Git と ASP.NET core を Azure に継続的なデプロイ
 
