@@ -2,18 +2,18 @@
 title: "ASP.NET Core 1.x から 2.0 への移行"
 author: scottaddie
 description: "この記事では、ASP.NET Core 1.x プロジェクトを ASP.NET Core 2.0 に移行する前提条件と最も一般的な手順について説明します。"
-ms.author: scaddie
 manager: wpickett
+ms.author: scaddie
 ms.date: 10/03/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: 2ab6d72ca57332eb25435a144d77ea43203a7b4c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a88d22c88689d20376fec748b05fc4b5ecca3510
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>ASP.NET Core 1.x から ASP.NET Core 2.0 への移行
 
@@ -146,7 +146,7 @@ EF Core 2.0 を使用する 2.0 プロジェクトでは、`Program.BuildWebHost
 
 <a name="view-compilation"></a>
 
-## <a name="review-your-razor-view-compilation-setting"></a>Razor ビュー コンパイル設定の確認
+## <a name="review-razor-view-compilation-setting"></a>Razor ビュー コンパイル設定の確認
 ユーザーに最も重要なことは、アプリケーションを高速に起動することとパブリッシュされたバンドル数を少なくすることです。 これらの理由から、ASP.NET Core 2.0 では [Razor ビュー コンパイル](xref:mvc/views/view-compilation)が既定で有効になっています。
 
 `MvcRazorCompileOnPublish` プロパティを true に設定する必要がなくなりました。 ビューのコンパイルを無効にしている場合を除き、*.csproj* ファイルからこのプロパティが削除されている場合があります。
@@ -178,8 +178,9 @@ Application Insights SDK を直接使用している場合は、それを継続�
 
 <a name="auth-and-identity"></a>
 
-## <a name="adopt-authentication--identity-improvements"></a>認証/ID の機能強化の採用
+## <a name="adopt-authenticationidentity-improvements"></a>認証/ID の機能強化の採用
 ASP.NET Core 2.0 には、新しい認証モデルと ASP.NET Core ID への大幅な変更があります。 個々のユーザー アカウントを有効にしてプロジェクトを作成した場合や認証または ID を手動で追加した場合、「[ASP.NET Core 2.0 への認証と ID の移行](xref:migration/1x-to-2x/identity-2x)」を参照してください。
 
-## <a name="additional-resources"></a>その他のリソース
-- [ASP.NET Core 2.0 での互換性に影響する変更点](https://github.com/aspnet/announcements/issues?page=1&q=is%3Aissue+is%3Aopen+label%3A2.0.0+label%3A%22Breaking+change%22&utf8=%E2%9C%93)
+## <a name="additional-resources"></a>その他の技術情報
+
+* [ASP.NET Core 2.0 での互換性に影響する変更点](https://github.com/aspnet/announcements/issues?page=1&q=is%3Aissue+is%3Aopen+label%3A2.0.0+label%3A%22Breaking+change%22&utf8=%E2%9C%93)

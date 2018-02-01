@@ -2,18 +2,18 @@
 title: "ASP.NET Core での Razor ページの概要"
 author: Rick-Anderson
 description: "Razor ページでの ASP.NET Core のチュートリアルです。 MVC Core、ASP.NET Core 2.x、Web 開発入門、Visual Studio 2017 を含みます。 このドキュメントは、ページに重点を置いたシナリオの開発を容易にするために、ASP.NET Core での Razor ページを使用するための概要を提供します。"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/12/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: a08c1b59c7be3a27fc11e6737a1cb4b4208f2901
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c16959189448337b12dc4902300516b25c200eee
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 
@@ -76,7 +76,7 @@ Razor ページは *Startup.cs* で有効になっています。
 
 [!code-cshtml[main](index/sample/RazorPagesIntro/Pages/Index2.cshtml)]
 
-*Pages/Index2.cshtml.cs* "code-behind" ファイル:
+*Pages/Index2.cshtml.cs* ページ モデル:
 
 [!code-cs[main](index/sample/RazorPagesIntro/Pages/Index2.cshtml.cs)]
 
@@ -116,7 +116,7 @@ db コンテキスト:
 
 [!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Create.cshtml)]
 
-ビューの *Pages/Create.cshtml.cs* 分離コード ファイル:
+*Pages/Create.cshtml.cs* ページ モデル:
 
 [!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_ALL)]
 
@@ -332,7 +332,7 @@ ASP.NET Core は [コントローラー](https://docs.microsoft.com/aspnet/core/
 <h3>Msg: @Model.Message</h3>
 ```
 
-*Pages/Customers/Index.cshtml.cs* 分離コード ファイルは、`[TempData]` 属性を `Message` プロパティに適用します。
+*Pages/Customers/Index.cshtml.cs* ページは、`[TempData]` 属性を `Message` プロパティに適用します。
 
 ```cs
 [TempData]
@@ -352,7 +352,7 @@ public string Message { get; set; }
 
 前の例のフォームには、それぞれが `FormActionTagHelper` を使用して異なる URL に送信する 2 つの送信ボタンがあります。 `asp-page-handler` 属性は、`asp-page` のコンパニオンです。 `asp-page-handler` はページごとに定義されている各ハンドラー メソッドに送信する URL を生成します。 サンプルは現在のページにリンクしているため、`asp-page` は指定されません。
 
-分離コード ファイル:
+ページ モデル: 
 
 [!code-cs[main](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml.cs?highlight=20,32)]
 

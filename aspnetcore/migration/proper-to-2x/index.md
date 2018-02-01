@@ -1,19 +1,19 @@
 ---
 title: "ASP.NET から ASP.NET Core 2.0 への移行"
 author: isaac2004
-description: "このリファレンス ドキュメントでは、既存の ASP.NET MVC または Web API アプリケーションを ASP.NET Core 2.0 に移行するときのガイダンスを示します。"
-ms.author: scaddie
+description: "既存の ASP.NET MVC または Web API アプリケーションを ASP.NET Core 2.0 に移行するときのガイダンスをご覧ください。"
 manager: wpickett
+ms.author: scaddie
 ms.date: 08/27/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 2263f8e9936389cf8cf18ff0c6d1d07018650e14
-ms.sourcegitcommit: 09b342b45e7372ba9ebf17f35eee331e5a08fb26
+ms.openlocfilehash: d6050c7946aa45b4c1b878b96baa1b082d0c8f71
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>ASP.NET から ASP.NET Core 2.0 への移行
 
@@ -147,5 +147,6 @@ ASP.NET Core では、構成が変更されていない限り、静的ファイ�
 
 **注:** ASP.NET Core での静的ファイルの提供について詳しくは、「[Introduction to working with static files in ASP.NET Core](xref:fundamentals/static-files)」(ASP.NET Core での静的ファイルの使用の概要) をご覧ください。
 
-## <a name="additional-resources"></a>その他のリソース
-* [.NET Core にライブラリを移植する](https://docs.microsoft.com/dotnet/core/porting/libraries)
+## <a name="additional-resources"></a>その他の技術情報
+
+* [.NET Core にライブラリを移植する](/dotnet/core/porting/libraries)

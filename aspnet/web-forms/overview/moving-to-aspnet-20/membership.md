@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/membership
 msc.type: authoredcontent
-ms.openlocfilehash: 7e6bff33e9ec1de03c591de6eee2e632c7b7509d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a5a495845b60f9aac51c9776311af67f5dc8767
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="membership"></a>メンバーシップ
 ====================
@@ -218,7 +218,7 @@ ASP.NET は、現在のコンテキストのメンバーとしても RolePrincip
 **図 9**
 
 
-各 RoleGroup オブジェクトには、RoleGroup が適用されるロールを定義する文字列の配列が含まれています。 LoginView コントロールに新しい RoleGroup を追加するには、RoleGroups の編集リンクをクリックします。 上記の図では、管理者用の新しい RoleGroup を追加したことがわかります。 その RoleGroup を選択して (ビュー ドロップダウン リストから RoleGroup[0])、できます構成管理者ロールのメンバーにのみ表示されるテンプレートです。 次の図で、Sales ロールおよび配布ロールのメンバーに適用される新しい RoleGroup を追加しました。 2 番目の RoleGroup LoginView タスク ダイアログ ボックスで、ビューのドロップダウン リストに追加し、そのテンプレートに追加されたものは、販売または配布ですべてのユーザーが表示されますロール。
+各 RoleGroup オブジェクトには、RoleGroup が適用されるロールを定義する文字列の配列が含まれています。 LoginView コントロールに新しい RoleGroup を追加するには、RoleGroups の編集リンクをクリックします。 上記の図では、管理者用の新しい RoleGroup を追加したことがわかります。 [その RoleGroup] を選択して (ビュー ドロップダウン リストから RoleGroup[0])、できます構成管理者ロールのメンバーにのみ表示されるテンプレートです。 次の図で、Sales ロールおよび配布ロールのメンバーに適用される新しい RoleGroup を追加しました。 2 番目の RoleGroup LoginView タスク ダイアログ ボックスで、ビューのドロップダウン リストに追加し、そのテンプレートに追加されたものは、販売または配布ですべてのユーザーが表示されますロール。
 
 
 ![](membership/_static/image10.jpg)
