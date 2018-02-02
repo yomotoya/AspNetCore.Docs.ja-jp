@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: e076e301004c04b5c516d775353a4b6e50a3f36e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 079c36535b8c9e7229952a2f7bcd53174effa6af
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET Core でクロスサイト リクエスト フォージェリ (XSRF/CSRF) 攻撃の防止
 
@@ -345,7 +345,7 @@ CSRF 攻撃は、ドメインのドメインをそのドメインに加えられ
 
 ### <a name="cookie-based-authentication"></a>Cookie ベースの認証
 
-ユーザー名とパスワードを使用して、ユーザーが認証されたらを識別および認証されていることを検証するために使用するトークンが発行するしています。 クライアントのすべての要求に付属している cookie が行うと、トークンが格納されます。 生成して、この cookie を検証していますが、cookie 認証ミドルウェアによって実行されます。 ASP.NET Core 提供 cookie[ミドルウェア](../fundamentals/middleware.md)暗号化された cookie にユーザー プリンシパルをシリアル化し、次に、後続の要求の cookie を検証するプリンシパルを再作成し、それを`User`プロパティ`HttpContext`.
+ユーザー名とパスワードを使用して、ユーザーが認証されたらを識別および認証されていることを検証するために使用するトークンが発行するしています。 クライアントのすべての要求に付属している cookie が行うと、トークンが格納されます。 生成して、この cookie を検証していますが、cookie 認証ミドルウェアによって実行されます。 ASP.NET Core 提供 cookie[ミドルウェア](xref:fundamentals/middleware/index)暗号化された cookie にユーザー プリンシパルをシリアル化し、次に、後続の要求の cookie を検証するプリンシパルを再作成し、それを`User`プロパティ`HttpContext`.
 
 Cookie を使用すると、認証 cookie、フォーム認証チケットのコンテナーだけです。 チケットは、各要求と一緒にフォーム認証 cookie の値として渡され、サーバー上のフォーム認証で認証されたユーザーを識別するために使用します。
 

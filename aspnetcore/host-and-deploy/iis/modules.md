@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 1b5391c113ca0b980eb3c47bcce0717d4a4739ed
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b7c81f2851a932cd12553af4a2655eb9f1f7bc64
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>ASP.NET Core で IIS のモジュールの使用
 
@@ -44,8 +44,8 @@ Module | .NET Core Active | ASP.NET Core Option
 **HTTP リダイレクト**<br>`HttpRedirectionModule` | [はい] | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting)
 **IIS クライアント証明書マッピング認証**<br>`IISCertificateMappingAuthenticationModule` | [はい] | 
 **IP およびドメインの制限**<br>`IpRestrictionModule` | [はい] | 
-**ISAPI フィルター**<br>`IsapiFilterModule` | [はい] | [ミドルウェア](xref:fundamentals/middleware)
-**ISAPI**<br>`IsapiModule` | [はい] | [ミドルウェア](xref:fundamentals/middleware)
+**ISAPI フィルター**<br>`IsapiFilterModule` | [はい] | [ミドルウェア](xref:fundamentals/middleware/index)
+**ISAPI**<br>`IsapiModule` | [はい] | [ミドルウェア](xref:fundamentals/middleware/index)
 **プロトコルのサポート**<br>`ProtocolSupportModule` | [はい] | 
 **要求のフィルタリング**<br>`RequestFilteringModule` | [はい] | [URL 書き換えミドルウェア`IRule`](xref:fundamentals/url-rewriting#irule-based-rule)
 **要求監視**<br>`RequestMonitorModule` | [はい] | 

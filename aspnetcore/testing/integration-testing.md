@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: ebae76da01e1b24466174179a9d4bbe826202cc3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4a5f14e11de6ed91f67808c3ea8c78a7b1d43b03
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integration-testing-in-aspnet-core"></a>ASP.NET Core でのテストの統合
 
@@ -127,7 +127,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 考慮すべき 1 つのオプションを追加する[MVC](xref:mvc/overview)素チェックを処理するアプリケーションとコント ローラーの作成にします。 ただし、現在ないかどうかと仮定した場合必要があるその他の MVC 機能はすべて、ビットが overkill です。
 
-活用すること、ただし、ASP.NET Core[ミドルウェア](xref:fundamentals/middleware)、いるいただくと、独自のクラス内のロジック チェック素数をカプセル化し、改善を実現[関心の分離](http://deviq.com/separation-of-concerns/)で、 `Configure`メソッド。
+活用すること、ただし、ASP.NET Core[ミドルウェア](xref:fundamentals/middleware/index)、いるいただくと、独自のクラス内のロジック チェック素数をカプセル化し、改善を実現[関心の分離](http://deviq.com/separation-of-concerns/)で、 `Configure`メソッド。
 
 ミドルウェア クラスが必要ですが、パラメーターとして指定するミドルウェアを使用してパスを許可する、`RequestDelegate`と`PrimeCheckerOptions`コンス トラクター内のインスタンス。 要求のパスでは、このミドルウェアは、新機能と一致しない場合、期待するように構成する単にチェーンで次のミドルウェアを呼び出すし、それ以上何もしないでください。 実装コードの残りの部分`Configure`は、現在、`Invoke`メソッドです。
 
@@ -150,5 +150,5 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 ## <a name="resources"></a>リソース
 
 * [単体テスト](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [ミドルウェア](xref:fundamentals/middleware)
+* [ミドルウェア](xref:fundamentals/middleware/index)
 * [コントローラーのテスト](xref:mvc/controllers/testing)

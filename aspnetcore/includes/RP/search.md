@@ -90,7 +90,3 @@ Genres = new SelectList(await genreQuery.Distinct().ToListAsync());
 [!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/Movies/IndexFormGenreNoRating.cshtml?highlight=16-18&range=1-26)]
 
 ジャンルまたはムービーのタイトル、あるいはその両方で検索して、アプリをテストします。
-
->[!div class="step-by-step"]
-[前: ページの更新](xref:tutorials/razor-pages/da1)
-[次: 新しいフィールドの追加](xref:tutorials/razor-pages/new-field)

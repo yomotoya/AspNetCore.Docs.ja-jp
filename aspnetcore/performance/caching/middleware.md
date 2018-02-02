@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 9f8b5b2df43b03fa9200bd52a01d5d388153212b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 78fa8fbe70eb7d6461b6e7340c6d57e330157911
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>応答の ASP.NET Core のミドルウェアのキャッシュ
 
@@ -139,7 +139,7 @@ if (responseCachingFeature != null)
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [アプリケーションの起動](xref:fundamentals/startup)
-* [ミドルウェア](xref:fundamentals/middleware)
+* [ミドルウェア](xref:fundamentals/middleware/index)
 * [メモリ内キャッシュ](xref:performance/caching/memory)
 * [分散キャッシュの使用](xref:performance/caching/distributed)
 * [変更トークンを使用する変更の検出](xref:fundamentals/primitives/change-tokens)

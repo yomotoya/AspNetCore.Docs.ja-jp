@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: f104c9116cfaa4a82ac88e4a83b4b6f172eb2aa1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8aac6c649b22dc8f6cfc916aa78d56efad7821a0
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>HTTP ハンドラーと ASP.NET Core ミドルウェアにモジュールを移行します。 
 
 によって[Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
-この記事は、既存の ASP.NET を移行する方法を示しています。 [HTTP モジュールとハンドラー system.webserver](https://docs.microsoft.com/iis/configuration/system.webserver/)を ASP.NET Core[ミドルウェア](../fundamentals/middleware.md)です。
+この記事は、既存の ASP.NET を移行する方法を示しています。 [HTTP モジュールとハンドラー system.webserver](https://docs.microsoft.com/iis/configuration/system.webserver/)を ASP.NET Core[ミドルウェア](xref:fundamentals/middleware/index)です。
 
 ## <a name="modules-and-handlers-revisited"></a>モジュールとハンドラーが見直され
 
@@ -65,7 +65,7 @@ ASP.NET Core ミドルウェアを前に、最初に要約 HTTP モジュール�
 
    * ミドルウェアは、コードを使用して構成されてなく*Web.config*
 
-   * [パイプラインを分岐](../fundamentals/middleware.md#middleware-run-map-use)要求ヘッダー、クエリ文字列なども上にある URL だけでなくに基づいて、特定のミドルウェアに要求を送信することができます。
+   * [パイプラインを分岐](xref:fundamentals/middleware/index#middleware-run-map-use)要求ヘッダー、クエリ文字列なども上にある URL だけでなくに基づいて、特定のミドルウェアに要求を送信することができます。
 
 **ミドルウェアは、モジュールとよく似ています。**
 
@@ -81,7 +81,7 @@ ASP.NET Core ミドルウェアを前に、最初に要約 HTTP モジュール�
 
    * モジュールの順序は、同じ要求と応答の中に応答のミドルウェアの順序が要求の場合の逆順になって
 
-   * 参照してください[IApplicationBuilder のミドルウェア パイプラインを作成します。](../fundamentals/middleware.md#creating-a-middleware-pipeline-with-iapplicationbuilder)
+   * 参照してください[IApplicationBuilder のミドルウェア パイプラインを作成します。](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder)
 
 ![ミドルウェア](http-modules/_static/middleware.png)
 
@@ -93,13 +93,13 @@ ASP.NET Core ミドルウェアを前に、最初に要約 HTTP モジュール�
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyModule.cs?highlight=6,8,24,31)]
 
-ように、[ミドルウェア](../fundamentals/middleware.md) ページで、ASP.NET Core ミドルウェアが公開するクラス、`Invoke`メソッドを`HttpContext`を返すと、`Task`です。 新しいミドルウェアは、次のようになります。
+ように、[ミドルウェア](xref:fundamentals/middleware/index) ページで、ASP.NET Core ミドルウェアが公開するクラス、`Invoke`メソッドを`HttpContext`を返すと、`Task`です。 新しいミドルウェアは、次のようになります。
 
 <a name="http-modules-usemiddleware"></a>
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
 
-上記のミドルウェア テンプレートがセクションから取得されました[ミドルウェアを記述](../fundamentals/middleware.md#middleware-writing-middleware)です。
+上記のミドルウェア テンプレートがセクションから取得されました[ミドルウェアを記述](xref:fundamentals/middleware/index#middleware-writing-middleware)です。
 
 *MyMiddlewareExtensions*ヘルパー クラスを簡単にミドルウェアの構成、`Startup`クラスです。 `UseMyMiddleware`メソッドは、要求パイプラインにミドルウェア クラスを追加します。 ミドルウェアによって必要なサービスは、ミドルウェアのコンス トラクターで挿入されたを取得します。
 
@@ -121,7 +121,7 @@ HTTP モジュールが、要求を使用してパイプラインに追加され
 
 [!code-xml[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Web.config?highlight=6&range=1-3,32-33,36,43,50,101)]
 
-これによって変換[新しいミドルウェアを追加する](../fundamentals/middleware.md#creating-a-middleware-pipeline-with-iapplicationbuilder)要求パイプラインへ、`Startup`クラス。
+これによって変換[新しいミドルウェアを追加する](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder)要求パイプラインへ、`Startup`クラス。
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=16)]
 
@@ -383,4 +383,4 @@ public async Task Invoke(HttpContext httpContext)
 * [HTTP ハンドラーと HTTP モジュールの概要](/iis/configuration/system.webserver/)
 * [構成](xref:fundamentals/configuration/index)
 * [アプリケーションの起動](xref:fundamentals/startup)
-* [ミドルウェア](xref:fundamentals/middleware)
+* [ミドルウェア](xref:fundamentals/middleware/index)
