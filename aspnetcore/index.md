@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: index
-ms.openlocfilehash: d7957bdc6fa982790141bac9b73ad7d3b1dd3d8a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 42bf005a29a8723233a0d9e5532827f7522f0e75
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="introduction-to-aspnet-core"></a>ASP.NET Core の概要
+# <a name="aspnet-core"></a>ASP.NET Core
 
 著者: [Daniel Roth](https://github.com/danroth27)、[Rick Anderson](https://twitter.com/RickAndMSFT)、[Shaun Luttin](https://twitter.com/dicshaunary)
 
@@ -65,6 +65,7 @@ ASP.NET Core は、人気のあるクライアント側のフレームワーク�
 
 詳細については、次のリソースを参照してください。
 
+* [Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)
 * [ASP.NET Core チュートリアル](xref:tutorials/index)
 * [ASP.NET Core の基礎](xref:fundamentals/index)
 * [週 1 回の ASP.NET Community Standup](https://live.asp.net/) では、チームの進行状況とプランが報告され、 新しいブログやサード パーティ製ソフトウェアが取り上げられています。

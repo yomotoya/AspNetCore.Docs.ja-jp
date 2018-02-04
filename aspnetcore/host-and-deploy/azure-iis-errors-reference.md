@@ -10,17 +10,25 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 214f8c616aa65077690757e7805983a77ec4249e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 53b59045751153cd858e13769b5b42d5700e26d4
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Azure App Service と ASP.NET Core を使用した IIS の一般的なエラーのリファレンス
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
 次の一覧に含まれていないエラーもあります。 ここでは、表示されていないエラーが発生した場合[新しい懸案事項を開く](https://github.com/aspnet/Docs/issues/new)エラーを再現する詳細な指示を伴うです。
+
+次の情報を収集します。
+
+* ブラウザーの動作
+* アプリケーション イベント ログ エントリ
+* ASP.NET Core モジュール stdout ログ エントリ
+
+次の一般的なエラー情報を比較します。 一致が見つかった場合は、トラブルシューティングのアドバイスに従います。
 
 ## <a name="installer-unable-to-obtain-vc-redistributable"></a>インストーラーが VC++ 再頒布可能パッケージを取得できない
 

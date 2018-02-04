@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: 944886a7d55af8966dc51424d16bec5ff58dbc05
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6333082a2b2b4f6d3f1ce2afc600b4203a0f5dca
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成します。
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 01/30/2018
 * [承認](xref:security/authorization/index)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
-このチュートリアルの ASP.NET Core の 1.1 バージョンでは[この](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data)フォルダーです。 ASP.NET Core サンプルでは、1.1、[サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2)です。
+参照してください[この PDF ファイル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_1-16-18.pdf)ASP.NET Core MVC のバージョンについてはします。 このチュートリアルの ASP.NET Core の 1.1 バージョンでは[この](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data)フォルダーです。 ASP.NET Core サンプルでは、1.1、[サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2)です。
 
 ## <a name="the-starter-and-completed-app"></a>Starter および完成したアプリ
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 01/30/2018
 
 ASP.NET を使用して[Identity](xref:security/authentication/identity)のユーザーのユーザー ID を編集できますが、そのデータを他のユーザー データは表示されません。 追加`OwnerID`と`ContactStatus`を`Contact`モデル。
 
-[!code-csharp[Main](secure-data/samples/final2/Models/Contact.cs?name=snippet1&highlight=5-6,16-)]
+[!code-csharp[Main](secure-data/samples/final2/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
 
 `OwnerID`ユーザーの id、`AspNetUser`テーブルに、 [Identity](xref:security/authentication/identity)データベース。 `Status`フィールドは、連絡先が一般のユーザーによって表示可能であるかどうか。
 
@@ -104,7 +104,7 @@ dotnet ef database update
 
 `ConfigureServices`のメソッド、 *Startup.cs*ファイルに追加し、 [RequireHttpsAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute)承認フィルター。
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_SSL&highlight=19-)]
+[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_SSL&highlight=19-999)]
 
 Visual Studio を使用している場合は、SSL を有効にします。
 
@@ -116,7 +116,7 @@ HTTP 要求を HTTPS にリダイレクトするを参照してください。 [
 
 ユーザー認証を必要とする既定の認証ポリシーを設定します。 Razor ページ、コントローラ、またはアクション メソッド レベルでの認証を省略することができます、`[AllowAnonymous]`属性。 ユーザー認証を必要とする既定の認証ポリシーの設定と、新しく追加された Razor ページおよびコント ローラーが保護されます。 既定では必要な認証を新しいコント ローラーおよび Razor ページで証明書利用者のより安全ですが、`[Authorize]`属性。 次の追加、`ConfigureServices`のメソッド、 *Startup.cs*ファイル。
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_defaultPolicy&highlight=31-)]
+[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_defaultPolicy&highlight=31-999)]
 
 追加[AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute)インデックス、および連絡先について、ページを登録する前に、匿名ユーザーはサイトに関する情報を取得できるようにします。 
 
@@ -177,7 +177,7 @@ dotnet user-secrets set SeedUserPW <PW>
 
 Entity Framework のコアを使用してサービスを登録する必要があります[依存性の注入](xref:fundamentals/dependency-injection)を使用して[AddScoped](/aspnet/core/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions)です。 `ContactIsOwnerAuthorizationHandler` ASP.NET Core を使用して[Identity](xref:security/authentication/identity)、これは Entity Framework Core 上に構築します。 ハンドラー コレクションに登録サービスを使用するため、`ContactsController`を通じて[依存性の注入](xref:fundamentals/dependency-injection)です。 末尾に次のコードを追加`ConfigureServices`:
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=ConfigureServices&highlight=41-)]
+[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=ConfigureServices&highlight=41-999)]
 
 `ContactAdministratorsAuthorizationHandler`および`ContactManagerAuthorizationHandler`シングルトンとして追加されます。 シングルトンを務める EF を使用していないし、必要なすべての情報があるため、`Context`のパラメーター、`HandleRequirementAsync`メソッドです。
 
@@ -246,7 +246,7 @@ Entity Framework のコアを使用してサービスを登録する必要があ
 
 更新プログラム、**編集**と**削除**でリンク*Pages/Contacts/Index.cshtml*のため、適切なアクセス許可を持つユーザー、レンダリング中のみ。
 
-[!code-cshtml[Main](secure-data/samples/final2/Pages/Contacts/Index.cshtml?highlight=34-36,64-)]
+[!code-cshtml[Main](secure-data/samples/final2/Pages/Contacts/Index.cshtml?highlight=34-36,64-999)]
 
 > [!WARNING]
 > データを変更する権限がないユーザーからのリンクを非表示にすると、アプリをセキュリティで保護しません。 リンクを非表示にするにより、アプリをユーザーにわかりやすい唯一の有効なリンクを表示します。 ユーザーは、編集を呼び出すし、自分が所有しないデータの操作を削除するには、生成された Url を切断できます。 Razor ページまたはコント ローラーは、データを保護するアクセス チェックを適用する必要があります。
@@ -255,7 +255,7 @@ Entity Framework のコアを使用してサービスを登録する必要があ
 
 マネージャーが承認または連絡先を拒否するため、詳細ビューを更新します。
 
-[!code-cshtml[Main](secure-data/samples/final2/Pages/Contacts/Details.cshtml?range=48-)]
+[!code-cshtml[Main](secure-data/samples/final2/Pages/Contacts/Details.cshtml?range=48-999)]
 
 詳細ページのモデルを更新します。
 

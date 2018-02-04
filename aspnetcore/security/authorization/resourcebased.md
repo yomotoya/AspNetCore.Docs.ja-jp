@@ -11,21 +11,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 708f306da740870b106cbeeb96879480f8745439
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 723e371e0d0b4877f96898c68cd59b433fa97dc1
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="resource-based-authorization"></a>リソース ベースの承認
-
-作成者: [Scott Addie](https://twitter.com/Scott_Addie)
 
 承認方法は、アクセス対象のリソースに依存します。 Author プロパティを持つドキュメントを検討してください。 ドキュメントを更新するには、作成者のみが許可されます。 その結果、承認の評価を行う前に、データ ストアから、ドキュメントを取得する必要があります。
 
 属性の評価は、データ バインディングの前に、ページのハンドラーまたはドキュメントに読み込みアクションの実行前に発生します。 これらの理由、による宣言型の承認から、`[Authorize]`属性が十分ではありません。 代わりに、カスタム承認メソッドを呼び出すことができます&mdash;命令型の承認と呼ばれるスタイル。
 
 使用して、[アプリのサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample)) をこのトピックで説明する機能を探索します。
+
+[認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成する](xref:security/authorization/secure-data)リソース ベースの承認を使用するサンプル アプリが含まれています。
 
 ## <a name="use-imperative-authorization"></a>命令型の承認を使用します。
 

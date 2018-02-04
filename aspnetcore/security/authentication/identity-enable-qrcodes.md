@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: ae2d8eb938c00a26cf7ffb5f2fff0b9e0d22148b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cf941314d54aa4a7bd1724805dc62c763ca71dfb
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="enabling-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>ASP.NET Core でのアプリの認証子の QR コード生成を有効にします。
 
@@ -86,8 +86,6 @@ QR コードを正しく書式設定された URL はで使用します。
 
 * `AuthenticatorUri`モデルのプロパティです。
 * `data-url`プロパティに、`qrCodeData`要素。 
-
-使用して`@Html.Raw`ビューのモデル プロパティにアクセスする (それ以外の場合、url のアンパサンドは倍精度浮動小数点でエンコードされたおよび QR コードのラベル パラメーターは無視されます)。
 
 ## <a name="totp-client-and-server-time-skew"></a>TOTP クライアントとサーバー時間のずれ
 
