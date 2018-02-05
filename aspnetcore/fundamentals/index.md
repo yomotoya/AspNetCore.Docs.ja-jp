@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: 946ccc80915c5de60976a98cbbb253cb8dfacaca
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7f0e30b3ac7f9cc3a32bd96f45d83ba13505a475
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core の基礎
 
@@ -71,7 +71,7 @@ public class Startup
 }
 ```
 
-`ConfigureServices` は、アプリで使用される[サービス](#dependency-injection-services) (ASP.NET Core MVC、Entity Framework Core、Identity など) を定義します。 `Configure` は、要求パイプラインの[ミドルウェア](xref:fundamentals/middleware)を定義します。
+`ConfigureServices` は、アプリで使用される[サービス](#dependency-injection-services) (ASP.NET Core MVC、Entity Framework Core、Identity など) を定義します。 `Configure` は、要求パイプラインの[ミドルウェア](xref:fundamentals/middleware/index)を定義します。
 
 詳細については、[アプリケーションの起動](xref:fundamentals/startup)に関するページを参照してください。
 
@@ -91,9 +91,9 @@ public class Startup
 
 ## <a name="middleware"></a>ミドルウェア
 
-ASP.NET Core では、[ミドルウェア](xref:fundamentals/middleware)を使用して要求パイプラインを構成します。 ASP.NET Core ミドルウェアは `HttpContext` で非同期ロジックを実行してから、シーケンス内の次のミドルウェアを呼び出すか、直接要求を終了します。 "XYZ" と呼ばれるミドルウェア コンポーネントは、`Configure` メソッドで `UseXYZ` 拡張メソッドを呼び出して追加されます。
+ASP.NET Core では、[ミドルウェア](xref:fundamentals/middleware/index)を使用して要求パイプラインを構成します。 ASP.NET Core ミドルウェアは `HttpContext` で非同期ロジックを実行してから、シーケンス内の次のミドルウェアを呼び出すか、直接要求を終了します。 "XYZ" と呼ばれるミドルウェア コンポーネントは、`Configure` メソッドで `UseXYZ` 拡張メソッドを呼び出して追加されます。
 
-ASP.NET Core には、豊富な組み込みミドルウェアのセットが付属しています。
+ASP.NET Core には、豊富な組み込みミドルウェアのセットが含まれます。
 
 * [静的ファイル](xref:fundamentals/static-files)
 * [ルーティング](xref:fundamentals/routing)
@@ -103,7 +103,7 @@ ASP.NET Core には、豊富な組み込みミドルウェアのセットが付�
 
 ASP.NET Core アプリで [OWIN](http://owin.org) ベースのミドルウェアを使用することができます。また、独自のカスタム ミドルウェアを作成することもできます。
 
-詳細については、[ミドルウェア](xref:fundamentals/middleware)と [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin) に関するページを参照してください。
+詳細については、[ミドルウェア](xref:fundamentals/middleware/index)と [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin) に関するページを参照してください。
 
 ## <a name="environments"></a>環境
 
