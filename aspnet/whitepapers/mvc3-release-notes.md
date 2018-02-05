@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: c1fa5d31f68b44bfdfda61c870a6825eeba18647
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 92a6dee24b8942d721e3537a712be141155e61df
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/05/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -232,7 +232,7 @@ ASP.NET MVC 3 は、する柔軟性が ASP.NET MVC 3、ASP.NET MVC 2 アプリ�
 
 *データ コンテキスト クラス*、これらの選択を行うことができます。
 
-- Code First を使用していない既存のデータ コンテキスト クラスを選択する場合*&lt;新しいデータ コンテキストしています.&gt;*". データ コンテキスト クラスは、生成されます。
+- Code First を使用していない既存のデータ コンテキスト クラスを選択する場合 * * 新しいデータ コンテキスト * *。 データ コンテキスト クラスは、生成されます。
 - Code First を使用して既存のデータ コンテキスト クラスがある場合は、ここで選択します。 選択したモデル クラスを永続化に更新されます。
 - Database First または Model First を使用している場合は、ここで、オブジェクト コンテキスト クラスを選択します。
 
@@ -255,7 +255,7 @@ ASP.NET MVC 3 は、する柔軟性が ASP.NET MVC 3、ASP.NET MVC 2 アプリ�
 
 #### <a name="project-templates-are-now-html5-enabled"></a>プロジェクト テンプレートが HTML5 に対応
 
-これで、新しいプロジェクト ダイアログ ボックスには、プロジェクト テンプレートに HTML5 固有の機能を追加するオプションが含まれています。 新しい HTML5 を含むビューを生成するオプションを選択すると、 *&lt;ヘッダー&gt;*、 *&lt;フッター&gt;*、および *&lt;ナビゲーション&gt;*要素。
+これで、新しいプロジェクト ダイアログ ボックスには、プロジェクト テンプレートに HTML5 固有の機能を追加するオプションが含まれています。 新しい HTML5 を含むビューを生成するオプションを選択すると、 `<header>`、 `<footer>`、および`<navigation>`要素。 要素です。
 
 以前のバージョンのブラウザーは HTML5 固有のタグをサポートしていませんことに注意してください。 この制限に対処するには、HTML5 プロジェクト テンプレートには、Modernizr ライブラリへの参照が含まれます。 (詳しくは、次のセクションを参照してください)。
 
@@ -293,7 +293,7 @@ ADO.NET Entity Framework 4.1 には、Code First 機能が含まれています�
 
 たとえば、jQuery の新しいリリースの頻度を指定するには、プロジェクト テンプレートに含まれる jQuery のバージョンがある時点で古くなってます。 ただし、jQuery はインストール済みの NuGet パッケージとして含まれているため、通知されます ダイアログ ボックスで NuGet jQuery の新しいバージョンが利用可能な場合です。
 
-JQuery には、ファイル名にバージョン番号が含まれているため jQuery を最新バージョンに更新も更新が必要です、 *&lt;スクリプト&gt;*新しいファイル名を使用する、jQuery ファイルを参照しているタグ。 その他のスクリプト ライブラリでは、スクリプト名が、バージョン番号は含まれませんが最新バージョンをより簡単に更新されるようにします。
+JQuery には、ファイル名にバージョン番号が含まれているため jQuery を最新バージョンに更新も更新が必要です、`<script>`新しいファイル名を使用する、jQuery ファイルを参照しているタグ。 その他のスクリプト ライブラリでは、スクリプト名が、バージョン番号は含まれませんが最新バージョンをより簡単に更新されるようにします。
 
 <a id="tu-KI"></a>
 ## <a name="known-issues"></a>既知の問題
@@ -353,7 +353,7 @@ ASP.NET MVC 3 のプレリリース版で Razor ファイルに空白を含む R
 - Razor 構文の IntelliSense では、ReSharper がインストールされている場合は機能しません。 ReSharper をインストールして ASP.NET MVC 3 Razor IntelliSense サポートのメリットを利用する場合、エントリを参照してください。 [Razor Intellisense and ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) Hadi Hariri のブログでは、現時点で併用する方法について説明します。
 - ASP.NET MVC 3 のベータ版で作成した CCSHTML および VBHTML のビューには、ビルド アクションが正しく設定はありません、これらを表示する結果を含む型を省略すると、プロジェクトが発行されるときにします。 これらのファイルのビルド アクション値は、"Content"に設定する必要があります。 ASP.NET MVC 3 RTM はの新しいファイルには、この問題の修復がプレリリース版で作成されたプロジェクトの既存のファイルの設定を修正しません。
 - ![](mvc3-release-notes/_static/image3.png)
-- インストール中に、使用許諾契約書への同意 ダイアログ ボックスが表示されます、ライセンス条項では、意図したものよりも小さいウィンドウを/li。&gt;
+- インストール中に、使用許諾契約書への同意 ダイアログ ボックスでは、ものよりも小さいウィンドウをライセンス条項が表示されます。
 - Razor ビュー (.cshtml ファイル) を編集するときは、Visual Studio でのコント ローラーに移動するメニュー項目は使用できない、コード スニペットはありません。
 - For Visual Web Developer Express で Visual Studio がインストールされていない、コンピューターに ASP.NET MVC 3 をインストールし、後で Visual Studio をインストールした場合、ASP.NET MVC 3 を再インストールする必要があります。 Visual Studio と Visual Web Developer Express は、ASP.NET MVC 3 インストーラーによってアップグレードされるコンポーネントを共有します。 Visual Web Developer Express があるし、後で Visual Web Developer Express インストール コンピューターに Visual Studio for ASP.NET MVC 3 をインストールする場合、同じ問題が適用されます。
 
@@ -398,7 +398,7 @@ ASP.NET MVC 3 のプロジェクト テンプレートが加わりました最�
 <a id="_Toc2_4"></a>
 ### <a name="added-htmlraw-method"></a>追加された Html.Raw メソッド
 
-既定では、Razor はすべての値を HTML エンコード エンジンを表示します。 次のコード スニペットがのあいさつの変数の内部 HTML をエンコードするとしてそのページに表示されるように、 &amp;lt; 厳密な&amp;gt;ハローワールド！&amp;lt;/strong&amp;gt;。
+既定では、Razor はすべての値を HTML エンコード エンジンを表示します。 次のコード スニペットがのあいさつの変数の内部 HTML をエンコードするとしてそのページに表示されるように、`<strong>Hello World!</strong>`です。
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample10.cshtml)]
 
@@ -621,7 +621,7 @@ Namespace.ClassName
 - インストーラーは、Visual Studio 2010 のコンポーネントを更新するために完了する ASP.NET MVC の以前のバージョンよりもかなり長くかかる場合があります。
 - ビューの追加のスキャフォールディング強く"Edit"を選択すると、ビューのスキャフォールディングを型指定されたときに読み取り専用プロパティを指定します。 同様に、書き込み専用プロパティは「表示」ビューのスキャフォールディングされました。
 - インストール中に、使用許諾契約書への同意 ダイアログ ボックスでは、ものよりも小さいウィンドウをライセンス条項が表示されます。
-- インストール、 [Visual Studio Async CTP](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=18712f38-fcd2-4e9f-9028-8373dc5732b2&amp;displaylang=en)リリースでは、Razor ツールをインストール、ASP.NET MVC 3 の一部として含まれている競合が発生します。 同じコンピューターに Visual Studio Async CTP と Razor リリースの両方をインストールしてくださいいないを確認します。
+- Visual Studio Async CTP をインストールすると、リリースでは、Razor ツールをインストール、ASP.NET MVC 3 の一部として含まれている競合が発生します。 同じコンピューターに Visual Studio Async CTP と Razor リリースの両方をインストールしてくださいいないを確認します。
 - Razor ビュー (.cshtml ファイル) を編集するときは、Visual Studio でのコント ローラーに移動するメニュー項目は使用できない、コード スニペットはありません。
 
 <a id="TOC_ASP_NET_3_Beta"></a>
@@ -852,7 +852,7 @@ Razor ビュー (CSHTML ファイル) を編集するとき、 <a id="0.1__Toc22
 
 使用する場合、 @model CSHTML を厳密に型を指定する構文を表示、言語固有のショートカットの種類は認識されません。 たとえば、 @model int は機能しませんが、 @model Int32 は機能します。 このバグの回避策では、モデルの種類を指定する場合は、実際の型名を使用します。
 
-使用する場合、 @model CSHTML ビューを厳密に型を指定するための構文 (または@ModelTypeVBHTML ビューを厳密に型を指定)、null 許容型や配列の宣言はサポートされていません。 たとえば、 @model int? はサポートされていません。 代わりに、 @model Nullable&lt;Int32&gt;です。 構文@modelstring[] もサポートされていません; 代わりに、 @model IList&lt;文字列&gt;です。
+使用する場合、 @model CSHTML ビューを厳密に型を指定するための構文 (または@ModelTypeVBHTML ビューを厳密に型を指定)、null 許容型や配列の宣言はサポートされていません。 たとえば、 @model int? はサポートされていません。 代わりに、`@model Nullable<Int32>`です。 構文@modelstring[] もサポートされていません; 代わりに、`@model IList<string>`です。
 
 ASP.NET MVC 3、ASP.NET MVC 2 プロジェクトをアップグレードするときに、Web.config ファイルの appSettings セクションに、次を追加することを確認してください。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 13aab58e86829a8d4accd1d304420dcb34ffa472
-ms.sourcegitcommit: ec9371e2fbfcb8d62e7e7cae69e7752f3f205385
+ms.openlocfilehash: 79f136257119a8600a65e8d7c5f6e99cb9abceae
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/05/2018
 ---
 <a name="adding-a-model"></a>モデルを追加します。
 ====================
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/23/2017
 
 ![](adding-a-model/_static/image2.png)
 
-注: いくつか使用されていない`using`ステートメントが削除されました。 Visual Studio では、依存関係で未使用を灰色で表示します。 灰色の依存関係を合わせることで unnused 依存関係を削除するかをクリックして、 `Show potential fixes`  をクリック**未使用の Using の削除します。**
+注: いくつか使用されていない`using`ステートメントが削除されました。 Visual Studio では、依存関係で未使用を灰色で表示します。 灰色の依存関係を合わせることで未使用の依存関係を削除するか、をクリックして`Show potential fixes` をクリック**未使用の Using の削除します。**
 
 ![](adding-a-model/_static/image3.png)
 
