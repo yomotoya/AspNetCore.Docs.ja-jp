@@ -36,13 +36,13 @@
 #### [ページの更新](xref:tutorials/razor-pages-mac/da1)
 #### [検索の追加](xref:tutorials/razor-pages-mac/search)
 
-
 ### [VS Code での Razor ページ Web アプリ](xref:tutorials/razor-pages-vsc/index)
 #### [Razor ページの概要](xref:tutorials/razor-pages-vsc/razor-pages-start)
 #### [モデルの追加](xref:tutorials/razor-pages-vsc/model)
 #### [スキャフォールディングされた Razor ページ](xref:tutorials/razor-pages-vsc/page)
 #### [SQLite の使用](xref:tutorials/razor-pages-vsc/sql)
 #### [ページの更新](xref:tutorials/razor-pages-vsc/da1)
+#### [検索の追加](xref:tutorials/razor-pages-vsc/search)
 
 ### [Visual Studio for Mac での MVC Web アプリ](xref:tutorials/first-mvc-app-mac/index)
 #### [はじめに](xref:tutorials/first-mvc-app-mac/start-mvc)
@@ -102,7 +102,9 @@
 # [ASP.NET Core の基礎の概要](fundamentals/index.md)
 ## [アプリケーションの起動](fundamentals/startup.md)
 ## [依存性の注入 (サービス)](fundamentals/dependency-injection.md)
-## [ミドルウェア](fundamentals/middleware.md)
+## [ミドルウェア](xref:fundamentals/middleware/index)
+### [ミドルウェア](xref:fundamentals/middleware/index)
+### [ファクトリ ベースのミドルウェア](xref:fundamentals/middleware/extensibility)
 ## [静的ファイルの使用](fundamentals/static-files.md)
 ## [ルーティング](fundamentals/routing.md)
 ## [URL リライト ミドルウェア](fundamentals/url-rewriting.md)
