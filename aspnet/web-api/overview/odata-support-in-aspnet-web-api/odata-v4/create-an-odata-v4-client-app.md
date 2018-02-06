@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app
-title: "OData v4 クライアント アプリ (c#) を作成 |Microsoft ドキュメント"
+title: "OData v4 クライアント アプリ (c#) を作成する | Microsoft ドキュメント"
 author: MikeWasson
 description: 
 ms.author: aspnetcontent
@@ -18,34 +18,34 @@ ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
 ---
-<a name="create-an-odata-v4-client-app-c"></a>OData v4 クライアント アプリでは (c#) を作成します。
+<a name="create-an-odata-v4-client-app-c"></a>OData v4 クライアント アプリ (c#) を作成する
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+[Mike Wasson](https://github.com/MikeWasson) によって
 
-前のチュートリアルでは、CRUD 操作をサポートする基本的な OData サービスを作成します。 これで、サービスのクライアントを作成しましょう。
+前のチュートリアルでは、CRUD 操作をサポートする基本的な OData サービスを作成しました。 次はサービスのクライアントを作成しましょう。
 
-Visual Studio の新しいインスタンスを起動し、新しいコンソール アプリケーション プロジェクトを作成します。 **新しいプロジェクト**ダイアログで、**インストール** &gt; **テンプレート** &gt; **Visual c#** &gt; **Windows デスクトップ**を選択し、**コンソール アプリケーション**テンプレート。 プロジェクトに名前を&quot;ProductsApp&quot;です。
+まず、Visual Studio の新しいインスタンスを開始し、新しいコンソール アプリケーション プロジェクトを作成します。 **新しいプロジェクト** ダイアログでは **インストール済み** &gt; **テンプレート** &gt; **Visual C#** &gt; **Windows デスクトップ**を選択し、**コンソール アプリケーション**テンプレートを選択します。 プロジェクトには &quot;ProductsApp&quot; と名前をつけます。
 
 ![](create-an-odata-v4-client-app/_static/image1.png)
 
 > [!NOTE]
-> コンソール アプリは、OData サービスを含む Visual Studio ソリューションに追加することもできます。
+> OData サービスを含んでいる同じ Visual Studio ソリューションにコンソール アプリを追加することもできます。
 
 
-## <a name="install-the-odata-client-code-generator"></a>OData クライアント コード ジェネレーターをインストールします。
+## <a name="install-the-odata-client-code-generator"></a>OData Client Code Generator をインストールする
 
-**ツール**メニューの **拡張機能と更新プログラム**です。 選択**オンライン** &gt; **Visual Studio ギャラリー**です。 [検索] ボックスで検索&quot;OData クライアントのコード ジェネレーター&quot;です。 をクリックして**ダウンロード**VSIX をインストールします。 Visual Studio を再起動するように求められます可能性があります。
+次に **ツール** のメニューから **拡張機能と更新プログラム** を選択します。 **オンライン** &gt; **Visual Studio Gallery** を選択して、 [検索] ボックスから &quot;OData Client Code Generator&quot; を検索してください。 **ダウンロード** をクリックして VSIX をインストールします。 ここでは　Visual Studio の再起動を求められることがあります。
 
 [![](create-an-odata-v4-client-app/_static/image3.png)](create-an-odata-v4-client-app/_static/image2.png)
 
-## <a name="run-the-odata-service-locally"></a>OData サービスをローカルで実行します。
+## <a name="run-the-odata-service-locally"></a>OData サービスをローカルで実行する
 
-Visual Studio から ProductService プロジェクトを実行します。 既定では、Visual Studio は、アプリケーション ルートにブラウザーを起動します。 URI に注意してくださいこれは、次の手順で必要があります。 アプリケーションが実行されている状態のままにします。
+Visual Studio から ProductService プロジェクトを実行します。 既定では、Visual Studio はアプリケーション ルートに対してブラウザーを起動します。次の手順で必要になるので、ここでの URI を書き留めておいてください。 アプリケーションは実行されている状態のままにします。
 
 ![](create-an-odata-v4-client-app/_static/image4.png)
 
 > [!NOTE]
-> 同じソリューション内の両方のプロジェクトを配置する場合は、デバッグを行わず、ProductService プロジェクトを実行することを確認してください。 次の手順では、コンソール アプリケーション プロジェクトを変更するときに実行されているサービスを保持する必要があります。
+> 同じソリューションに両方のプロジェクトを配置する場合は ProductService プロジェクトがデバッグをせずに実行されていることを確認してください。 次の手順では、コンソール アプリケーション プロジェクトを変更している間、サービスが実行され続けている必要があります。
 
 
 ## <a name="generate-the-service-proxy"></a>サービス プロキシを生成します。
