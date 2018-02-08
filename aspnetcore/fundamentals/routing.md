@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 2897eb3a756654c61e38e847f5a8e1f8ca4f0b7c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d35c24347e8e06ed85e2af8addcc1f8cf28dc47a
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core のルーティング
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/30/2018
 
 一般的に、アプリにはルート コレクションが 1 つ与えられます。 要求が届くと、そのルート コレクションが順を追って処理されます。 受信要求は、ルート コレクションのルートごとに `RouteAsync` メソッドを呼び出し、要求 URL に一致するルートを探します。 それに対し、応答はルーティングを利用し、ルート情報に基づいて URL (リダイレクションやリンクの URL など) を生成できます。そのため、URL をハードコーディングする必要がなく、保守管理が楽になります。
 
-ルーティングは `RouterMiddleware` クラスにより[ミドルウェア](middleware.md) パイプラインに接続されます。 [ASP.NET MVC](../mvc/overview.md) は、ミドルウェア パイプラインにその構成の一部としてルーティングを追加します。 スタンドアロン コンポーネントとしてルーティングを利用する方法については、「[using-routing-middleware](#using-routing-middleware)」(ルーティング ミドルウェアを使用する) を参照してください。
+ルーティングは `RouterMiddleware` クラスにより[ミドルウェア](xref:fundamentals/middleware/index) パイプラインに接続されます。 [ASP.NET Core MVC](xref:mvc/overview) は、ミドルウェア パイプラインにその構成の一部としてルーティングを追加します。 スタンドアロン コンポーネントとしてルーティングを利用する方法については、「[ルーティング ミドルウェアの使用](#using-routing-middleware)」を参照してください。
 
 <a name="url-matching-ref"></a>
 

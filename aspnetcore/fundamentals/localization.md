@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: 794abf628beff7e5c78f9ca04309694d46910373
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 766cec5dd00b7b464eef31a3bc1721f522697608
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core のグローバリゼーションおよびローカリゼーション
 
@@ -198,7 +198,7 @@ Visual Studio で、ファイル名にカルチャを指定せずにリソース
 
 ### <a name="localization-middleware"></a>ローカリゼーション ミドルウェア
 
-要求時に現在のカルチャが、ローカリゼーション [ミドルウェア](middleware.md)で設定されます。 ローカリゼーション ミドルウェアは、*Program.cs* ファイルの `Configure` メソッドで有効になります。 要求のカルチャをチェックする可能性があるすべてのミドルウェア (たとえば `app.UseMvcWithDefaultRoute()`) の前に、ローカリゼーション ミドルウェアを構成する必要があります。
+要求時に現在のカルチャが、ローカリゼーション [ミドルウェア](xref:fundamentals/middleware/index)で設定されます。 ローカリゼーション ミドルウェアは、`Configure` メソッドで有効になります。 要求のカルチャをチェックする可能性があるすべてのミドルウェア (たとえば `app.UseMvcWithDefaultRoute()`) の前に、ローカリゼーション ミドルウェアを構成する必要があります。
 
 [!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet2)]
 
