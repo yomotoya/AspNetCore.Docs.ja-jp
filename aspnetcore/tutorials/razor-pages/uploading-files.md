@@ -2,18 +2,18 @@
 title: "SP.NET Core で Razor ページにファイルをアップロードする"
 author: guardrex
 description: "Razor ページにファイルをアップロードする方法を説明します。"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/12/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: a29043ac5d28ae8efcbbd6919e73e3774ba22699
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 24eaa0dd9293cc932c51d280300308e835a0840e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>SP.NET Core で Razor ページにファイルをアップロードする
 
@@ -76,9 +76,9 @@ Update-Database
 
 各フォーム グループには、検証 **\<span>** が含まれます。 ユーザーの入力が `FileUpload` クラスに設定されているプロパティ属性の要求を持たさない場合、あるいは `ProcessFormFile` メソッド ファイルの検証チェックで不合格になった場合、モデルは検証に失敗します。 モデルが検証に失敗すると、ヒントが表示されます。 たとえば、`Title` プロパティであれば、`[Required]` や `[StringLength(60, MinimumLength = 3)]` という注釈が表示されます。 ユーザーがタイトルを入力しないと、値が必須であるというメッセージが表示されます。 ユーザーが 3 文字より少ないか、60 文字より多い値を入力した場合、値の長さが正しくないというメッセージが表示されます。 コンテンツのないファイルが指定された場合、ファイルが空であるというメッセージが表示されます。
 
-## <a name="add-the-code-behind-file"></a>分離コード ファイルを追加する
+## <a name="add-the-page-model"></a>ページ モデルの追加
 
-分離コード ファイル (*Index.cshtml.cs*) を *Schedules* フォルダーに追加します。
+*Schedules* フォルダーにページ モデル (*Index.cshtml.cs*) を追加します。
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs)]
 
@@ -110,7 +110,7 @@ Update-Database
 
 [!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
 
-分離コード ファイル (*Delete.cshtml.cs*) は、要求のルート データの `id` によって特定される 1 つのスケジュールを読み込みます。 *Delete.cshtml.cs* ファイルを *Schedules* フォルダーに追加します。
+このページ モデル (*Delete.cshtml.cs*) は、要求のルート データの `id` によって識別される 1 つのスケジュールを読み込みます。 *Delete.cshtml.cs* ファイルを *Schedules* フォルダーに追加します。
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs)]
 
