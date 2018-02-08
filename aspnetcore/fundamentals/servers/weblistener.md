@@ -1,42 +1,42 @@
 ---
-title: "ASP.NET Core の WebListener web サーバーの実装"
+title: "ASP.NET Core への WebListener Web サーバーの実装"
 author: rick-anderson
-description: "WebListener、Windows 上の ASP.NET core web サーバーが導入されています。 Http.Sys のカーネル モード ドライバーで WebListener は、IIS なしでインターネットに直接接続に使用することができます Kestrel する代わりにします。"
-ms.author: riande
+description: "Windows 上の ASP.NET Core 用 Web サーバーである WebListener について紹介します。 WebListener は、Http.Sys カーネル モード ドライバーに基づいて構築され、IIS なしでインターネットに直接接続するために使用できる Kestrel の代替製品です。"
 manager: wpickett
+ms.author: riande
 ms.date: 08/07/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 5073a1663ec99a1b161092d74ab035ee9782becd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: fb2e0621645a48f4e603d754d8babbc07a78cae4
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET Core の WebListener web サーバーの実装
+# <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET Core への WebListener Web サーバーの実装
 
-によって[Tom Dykstra](https://github.com/tdykstra)と[Chris Ross](https://github.com/Tratcher)
+作成者: [Tom Dykstra](https://github.com/tdykstra)、[Chris Ross](https://github.com/Tratcher)
 
 > [!NOTE]
-> このトピックは ASP.NET Core にのみ 1.x です。 ASP.NET Core 2.0 では、WebListener の名前[HTTP.sys](httpsys.md)です。
+> このトピックは、ASP.NET Core 1.x にのみ適用されます。 ASP.NET Core 2.0 では、WebListener は [HTTP.sys](httpsys.md) と呼ばれます。
 
-WebListener は、 [ASP.NET core web server](index.md) Windows だけで実行されています。 に基づいて構築されて、 [Http.Sys カーネル モード ドライバー](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)です。 WebListener が代わりに[Kestrel](kestrel.md)リバース プロキシ サーバーとして IIS に依存せず、インターネットに直接接続に使用できます。 実際には、 **WebListener と互換性がないと IIS または IIS Express では使用できません、 [ASP.NET Core モジュール](aspnet-core-module.md)です。**
+WebListener は Windows 上でのみ動作する [ASP.NET Core 用 Web サーバー](index.md)です。 [Http.Sys カーネル モード ドライバー](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)に基づいて構築されています。 WebListener は、IIS に依存せずにリバース プロキシ サーバーとしてインターネットに直接接続するために使用できる [Kestrel](kestrel.md) の代替製品です。 実際、**WebListener は [ASP.NET Core モジュール](aspnet-core-module.md)と互換性がないため、IIS または IIS Express で使用することはできません。**
 
-経由で任意の .NET Core または .NET Framework アプリケーションで直接使用できますが、WebListener は、ASP.NET Core 用に開発されて、 [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) NuGet パッケージです。
+WebListener は ASP.NET Core 用に開発されましたが、[Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) NuGet パッケージを介して任意の .NET Core または.NET Framework アプリケーションで直接使用できます。
 
-WebListener には、次の機能がサポートされています。
+WebListener は、次の機能をサポートします。
 
 - [Windows 認証](xref:security/authentication/windowsauth)
 - ポート共有
-- SNI を HTTPS
-- Http/2 over TLS (Windows 10)
-- ファイルを直接転送
-- 応答のキャッシュ
-- Websocket (Windows 8)
+- SNI を使用する HTTPS
+- HTTP/2 over TLS (Windows 10)
+- 直接ファイル伝送
+- 応答キャッシュ
+- WebSocket (Windows 8)
 
-サポートされている Windows のバージョン:
+サポートされている Windows バージョン:
 
 - Windows 7 および Windows Server 2008 R2 以降
 
@@ -44,69 +44,69 @@ WebListener には、次の機能がサポートされています。
 
 ## <a name="when-to-use-weblistener"></a>WebListener を使用する場合
 
-WebListener は、IIS を使用して、サーバーをインターネットに直接公開する必要がある展開に役立ちます。
+WebListener は、IIS を使用せずにインターネットにサーバーを直接公開する必要がある展開に役立ちます。
 
 ![インターネットと直接通信する Weblistener](weblistener/_static/weblistener-to-internet.png)
 
-Http.Sys で用意されているので WebListener は攻撃から保護するため、リバース プロキシ サーバーを必要としません。 Http.Sys は、さまざまな種類の攻撃から保護し、堅牢性、セキュリティ、および多機能な web サーバーのスケーラビリティを提供する成熟したテクノロジです。 Http.Sys の上部に HTTP リスナーとして IIS 自体が実行されます。 
+WebListener は Http.Sys に基づいて構築されているため、攻撃から保護するためのリバース プロキシ サーバーは必要ありません。 Http.Sys とは、さまざまな種類の攻撃から保護し、完全な機能を備えた Web サーバーの堅牢性、セキュリティ、およびスケーラビリティを提供する成熟したテクノロジです。 IIS 自体が Http.Sys 上で HTTP リスナーとして実行されています。 
 
-WebListener も内部環境に適して Kestrel を使用して取得できない場合、提供される機能のいずれかの操作を必要なとき。
+WebListener は、Kestrel を使用して取得できない機能のいずれかが必要な場合の内部展開にも適しています。
 
 ![内部ネットワークと直接通信する Weblistener](weblistener/_static/weblistener-to-internal.png)
 
 ## <a name="how-to-use-weblistener"></a>WebListener を使用する方法
 
-次に、ホスト OS と ASP.NET Core アプリケーションのセットアップ タスクの概要を示します。
+ホスト OS と ASP.NET Core アプリケーションのセットアップ タスクの概要について説明します。
 
-### <a name="configure-windows-server"></a>Windows Server を構成します。
+### <a name="configure-windows-server"></a>Windows Server を構成する
 
-* など、アプリケーションが必要な .NET のバージョンをインストール[.NET Core](https://download.microsoft.com/download/0/A/3/0A372822-205D-4A86-BFA7-084D2CBE9EDF/DotNetCore.1.0.1-SDK.1.0.0.Preview2-003133-x64.exe)または .NET Framework 4.5.1。
+* [.NET Core](https://download.microsoft.com/download/0/A/3/0A372822-205D-4A86-BFA7-084D2CBE9EDF/DotNetCore.1.0.1-SDK.1.0.0.Preview2-003133-x64.exe)、.NET Framework 4.5.1 など、アプリケーションに必要な .NET のバージョンをインストールします。
 
-* WebListener へのバインドし、SSL 証明書を設定する URL プレフィックスを事前登録します。
+* WebListener にバインドする URL プレフィックスを事前登録し、SSL 証明書を設定します
 
-   Windows での URL プレフィックスを事前登録しない場合は、管理者特権を持つ、アプリケーションを実行する必要です。 唯一の例外は、ポート番号です。 1024 よりも大きい HTTP (HTTPS ではなく) を使用してローカル ホストにバインドするかどうかその場合は、管理者特権は必要ありません。
+   Windows で URL プレフィックスを事前登録していない場合は、管理者特権でアプリケーションを実行する必要があります。 唯一の例外は、1024 より大きいポート番号で (HTTPS ではなく) HTTP を使用して localhost にバインドする場合です。この場合、管理者権限は必要ありません。
 
-   詳細については、「[プレフィックスを事前登録し SSL を構成する方法](#preregister-url-prefixes-and-configure-ssl)この記事で後述します。
+   詳細については、この記事で後述する「[URL プレフィックスの事前登録と SSL の構成](#preregister-url-prefixes-and-configure-ssl)」を参照してください。
 
-* WebListener に到達するトラフィックを許可するファイアウォールのポートを開きます。
+* トラフィックが WebListener に到達できるようにファイアウォールのポートを開きます。
 
-   Netsh.exe を使用するか、 [PowerShell コマンドレット](https://technet.microsoft.com/library/jj554906)です。
+   netsh.exe または [PowerShell コマンドレット](https://technet.microsoft.com/library/jj554906)を使用できます。
 
-[Http.Sys レジストリ設定](https://support.microsoft.com/kb/820129)です。
+[Http.Sys のレジストリ設定](https://support.microsoft.com/kb/820129)もあります。
 
-### <a name="configure-your-aspnet-core-application"></a>ASP.NET Core アプリケーションを構成します。
+### <a name="configure-your-aspnet-core-application"></a>ASP.NET Core アプリケーションを構成する
 
-* NuGet パッケージのインストール[Microsoft.AspNetCore.Server.WebListener](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.WebListener/)です。 これもインストール[Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/)依存関係として。
+* NuGet パッケージ [Microsoft.AspNetCore.Server.WebListener](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.WebListener/) をインストールします。 これで、依存関係として [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) もインストールされます。
 
-* 呼び出す、`UseWebListener`拡張メソッドを[WebHostBuilder](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder)で、`Main`任意 WebListener を指定して、メソッド[オプション](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs)と[設定](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs)必要があります。、次の例で示すようにします。
+* 次の例で示すように、必要な WebListener [オプション](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs)と[設定](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs)を指定して、`Main` メソッド内で [WebHostBuilder](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) に対して `UseWebListener` 拡張メソッドを呼び出します。
 
   [!code-csharp[](weblistener/sample/Program.cs?name=snippet_Main&highlight=13-17)]
 
-* Url とポートでリッスンするように構成します。 
+* リッスンする URL とポートを構成する 
 
-  既定では ASP.NET Core にバインド`http://localhost:5000`です。 URL プレフィックスとポートを構成するのに使用することができます、`UseURLs`の拡張メソッドで、`urls`コマンドライン引数または ASP.NET Core の構成システムです。 詳細については、[ホスティング](../../fundamentals/hosting.md)に関するページを参照してください。
+  既定では ASP.NET Core は `http://localhost:5000` にバインドされます。 URL プレフィックスとポートを構成するには、`UseURLs` 拡張メソッド、`urls` コマンド ライン引数、または ASP.NET Core 構成システムを使用できます。 詳細については、[ホスティング](../../fundamentals/hosting.md)に関するページを参照してください。
 
-  リスナーは web、 [Http.Sys プレフィックス文字列書式](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)です。 WebListener に固有のプレフィックス文字列形式の要件はありません。
+  Web Listener は、[Http.Sys プレフィックス文字列形式](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)を使用します。 WebListener に固有のプレフィックス文字列形式の要件はありません。
 
   > [!NOTE]
-  > 内の同じプレフィックス文字列を指定することを確認してください`UseUrls`サーバーに事前登録します。 
+  > サーバーで事前登録する `UseUrls` に同じプレフィックス文字列を指定してください。 
 
-* IIS または IIS Express を実行するアプリケーションが構成されていないことを確認してください。
+* アプリケーションが IIS または IIS Express を実行するように構成されていないことを確認します。
 
-  Visual Studio では、既定の起動プロファイルは、IIS express はします。  コンソール アプリケーションとして、プロジェクトを実行するには、必要がある、選択したプロファイルを手動で変更する次のスクリーン ショットに示すようにします。
+  Visual Studio では、既定の起動プロファイルは IIS Express 用です。  プロジェクトをコンソール アプリケーションとして実行するには、次のスクリーン ショットに示すように、選択したプロファイルを手動で変更する必要があります。
 
-  ![コンソール アプリのプロファイルを選択します。](weblistener/_static/vs-choose-profile.png)
+  ![コンソール アプリのプロファイルを選択する](weblistener/_static/vs-choose-profile.png)
 
 ## <a name="how-to-use-weblistener-outside-of-aspnet-core"></a>ASP.NET Core の外部で WebListener を使用する方法
 
-* インストール、 [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) NuGet パッケージです。
+* [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) NuGet パッケージをインストールします。
 
-* [WebListener へのバインドし、SSL 証明書を設定する URL プレフィックスを事前登録](#preregister-url-prefixes-and-configure-ssl)ASP.NET Core で使用するのと同様です。
+* ASP.NET Core で使用する場合と同様に、[WebListener にバインドする URL プレフィックスを事前登録し、SSL 証明書を設定します](#preregister-url-prefixes-and-configure-ssl)。
 
-[Http.Sys レジストリ設定](https://support.microsoft.com/kb/820129)です。
+[Http.Sys のレジストリ設定](https://support.microsoft.com/kb/820129)もあります。
 
 
-ASP.NET Core の外部で WebListener の使用方法を示すコード サンプルを次に示します。
+次のコード サンプルは、ASP.NET Core の外部で WebListener を使用する方法を示しています。
 
 ```csharp
 var settings = new WebListenerSettings();
@@ -129,46 +129,46 @@ using (WebListener listener = new WebListener(settings))
 }
 ```
 
-## <a name="preregister-url-prefixes-and-configure-ssl"></a>URL プレフィックスを事前登録し、SSL を構成します。
+## <a name="preregister-url-prefixes-and-configure-ssl"></a>URL プレフィックスの事前登録と SSL の構成
 
-IIS と WebListener のどちらも、要求のリッスンを基になる Http.Sys カーネル モード ドライバーに依存し、処理の初期実行します。 IIS では、management UI では、すべての構成に比較的簡単な方法です。 ただし、WebListener を使用している場合は、Http.Sys を構成する必要があります。 Netsh.exe は、その組み込みツールです。 
+IIS と WebListener はいずれも、要求をリッスンして初期処理を行うために、基になる Http.Sys カーネル モード ドライバーに依存しています。 IIS では、管理 UI を使用すると、すべての構成を比較的簡単に実行できます。 ただし、WebListener を使用している場合は、Http.Sys を自分で構成する必要があります。 この処理に使用する組み込みツールは netsh.exe です。 
 
-Netsh.exe を使用する必要があります。 最も一般的なタスクは URL プレフィックスを予約して、SSL 証明書を割り当てます。
+netsh.exe を使用するために必要な最も一般的なタスクは、URL プレフィックスの予約と SSL 証明書の割り当てです。
 
-NetSh.exe は、初心者向けの使いやすいツールはありません。 次の例は、ポート 80 と 443 の URL プレフィックスを予約するために必要な最低限のものを示しています。
+NetSh.exe は、初心者向けの簡単なツールではありません。 次の例は、ポート 80 と 443 の URL プレフィックスを予約するために必要な最小限の値を示しています。
 
 ```console
 netsh http add urlacl url=http://+:80/ user=Users
 netsh http add urlacl url=https://+:443/ user=Users
 ```
 
-次の例では、SSL 証明書を割り当てる方法を示します。
+次の例は、SSL 証明書を割り当てる方法を示しています。
 
 ```console
 netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={00000000-0000-0000-0000-000000000000}".
 ```
 
-公式のリファレンス ドキュメントを次に示します。
+公式のリファレンス ドキュメントは次のとおりです。
 
-* [ハイパー テキスト用の Netsh コマンドは転送プロトコル (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
-* [UrlPrefix 文字列](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
+* [Netsh Commands for Hypertext Transfer Protocol (HTTP)](https://technet.microsoft.com/library/cc725882.aspx) (ハイパーテキスト転送プロトコル (HTTP) 用の Netsh コマンド)
+* [UrlPrefix Strings](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx) (UrlPrefix 文字列)
 
-次のリソースは、いくつかのシナリオの詳細な手順を提供します。 参照している記事`HttpListener`に均等に適用`WebListener`Http.Sys に基づいて、両方は、します。
+次のリソースでは、いくつかのシナリオの詳細な手順を説明しています。 `HttpListener` を参照する記事は、両方とも Http.Sys に基づいているため、`WebListener` に同様に適用されます。
 
 * [方法 : SSL 証明書を使用してポートを構成する](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
-* [HTTPS 通信 - HttpListener ベースのホストとクライアント証明書を](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html)これは、サード パーティ製のブログとがかなり古いいてもが有用な情報です。
-* [方法: チュートリアルを使用して HttpListener または Http サーバー アンマネージ コード (C++) SSL 単純なサーバーとして](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/)有用な情報で以前のブログをすぎますがこれです。
-* [SSL を使用して .NET Core WebListener を設定する方法は?](https://blogs.msdn.microsoft.com/timomta/2016/11/04/how-do-i-set-up-a-net-core-weblistener-with-ssl/)
+* [HTTPS Communication - HttpListener based Hosting and Client Certification](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html) (HTTPS 通信 - HttpListener ベースのホスティングとクライアントの認証): サードパーティのブログであり、かなり古い投稿ですが、有用な情報が含まれています。
+* [How To: Walkthrough Using HttpListener or Http Server unmanaged code (C++) as an SSL Simple Server](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/) (方法: SSL Simple Server として HttpListener または Http Server アンマネージ コード (C++) を使用するチュートリアル): これも古いブログですが、有用な情報が含まれています。
+* [How Do I Set Up A .NET Core WebListener With SSL?](https://blogs.msdn.microsoft.com/timomta/2016/11/04/how-do-i-set-up-a-net-core-weblistener-with-ssl/) (SSL を使用して.NET Core WebListener を設定する方法)
 
-Netsh.exe コマンド ラインよりも簡単に使用できる一部のサード パーティ製ツールを次に示します。 によって提供されるか、Microsoft によって承認されているこれらがありません。 ツールは既定では、管理者として実行ため netsh.exe 自体には、管理者特権が必要です。
+netsh.exe コマンド ラインよりも使いやすいサードパーティ製ツールをいくつか紹介します。 これらのツールは Microsoft 製ではなく、Microsoft が推奨するものでもありません。 netsh.exe 自体に管理者特権が必要なので、これらのツールは既定で管理者として実行されます。
 
-* [http.sys Manager](http://httpsysmanager.codeplex.com/) UI の一覧を提供し、予約をプレフィックスおよび証明書信頼リストの SSL 証明書とオプションを構成します。 
-* [HttpConfig](http://www.stevestechspot.com/ABetterHttpcfg.aspx)一覧または SSL 証明書と URL プレフィックスを構成することができます。 UI http.sys Manager よりもより洗練されたは、他のいくつかの構成オプションを公開するが、それ以外の場合と同様の機能を提供します。 新しい証明書信頼リスト (CTL) を作成することはできませんが、既存のテーブルを割り当てることができます。
+* [http.sys Manager](http://httpsysmanager.codeplex.com/) には、SSL 証明書とオプション、プレフィックス予約、および証明書信頼リストを一覧表示および設定するための UI があります。 
+* [HttpConfig](http://www.stevestechspot.com/ABetterHttpcfg.aspx) では、SSL 証明書と URL プレフィックスを一覧表示し、設定することができます。 UI は http.sys Manager より洗練されており、公開されている構成オプションも少し多いのですが、その他の機能は同様です。 新しい証明書信頼リスト (CTL) を作成することはできませんが、既存の証明書信頼リストを割り当てることができます。
 
-自己署名 SSL 証明書を生成するのには、マイクロソフトは、コマンド ライン ツールを提供しています: [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968)し、PowerShell コマンドレット[New-selfsignedcertificate](https://technet.microsoft.com/itpro/powershell/windows/pki/new-selfsignedcertificate)です。 自己署名 SSL 証明書を生成するための簡略化するサード パーティの UI ツールもあります。
+自己署名 SSL 証明書を生成する場合は、Microsoft が提供するコマンド ラインツールである [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968) と PowerShell コマンドレットの [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pki/new-selfsignedcertificate) を利用できます。 また、自己署名 SSL 証明書を簡単に生成できるサードパーティ製 UI ツールもあります。
 
 * [SelfCert](https://www.pluralsight.com/blog/software-development/selfcert-create-a-self-signed-certificate-interactively-gui-or-programmatically-in-net)
-* [Makecert の UI](http://makecertui.codeplex.com/)
+* [Makecert UI](http://makecertui.codeplex.com/)
 
 ## <a name="next-steps"></a>次の手順
 

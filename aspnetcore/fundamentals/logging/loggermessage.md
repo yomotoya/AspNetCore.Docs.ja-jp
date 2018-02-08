@@ -1,78 +1,78 @@
 ---
-title: "ASP.NET Core で LoggerMessage による高パフォーマンスのログ"
+title: "ASP.NET Core での LoggerMessage による高パフォーマンスのログ記録"
 author: guardrex
-description: "LoggerMessage 機能を使用して、高パフォーマンスのログ記録シナリオをロガーの拡張メソッドよりも少ないオブジェクトの割り当てを必要とするキャッシュ可能なデリゲートを作成する方法を説明します。"
-ms.author: riande
+description: "高パフォーマンスのログ記録シナリオにおいて、必要とするオブジェクト割り当ての数がロガー拡張メソッドよりも少ない、キャッシュ可能なデリゲートを LoggerMessage 機能を使用して作成する方法について説明します。"
 manager: wpickett
+ms.author: riande
 ms.date: 11/03/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: defba75c6c9ea13d24af4cd8515d82d9e7cf9853
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.openlocfilehash: b155826b5047e88a79d9e339d7bca8885a79006d
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>ASP.NET Core で LoggerMessage による高パフォーマンスのログ
+# <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>ASP.NET Core での LoggerMessage による高パフォーマンスのログ記録
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
-[LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage)機能をより少ないオブジェクトの割り当てを必要としより計算オーバーヘッドの削減キャッシュのデリゲートを作成する[ロガーの拡張メソッド](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions)など`LogInformation`、 `LogDebug`、および`LogError`. 高パフォーマンスのログ記録シナリオを使用して、`LoggerMessage`パターン。
+[LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage) 機能では、`LogInformation`、`LogDebug`、`LogError` のような[ロガー拡張メソッド](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions)よりも、必要なオブジェクト割り当ての数が少なくコンピューティング オーバーヘッドが小さいキャッシュ可能なデリゲートを作成します。 高パフォーマンスのログ記録シナリオの場合は、`LoggerMessage` パターンを使用します。
 
-`LoggerMessage`ロガーの拡張メソッドを次のパフォーマンスの利点があります。
+`LoggerMessage` には、ロガー拡張メソッドに比べて次のようなパフォーマンス上の利点があります。
 
-* ロガーの拡張メソッドなど、「ボックス化」(変換) 値の型を必要`int`に`object`です。 `LoggerMessage`パターンは、静的なを使用して、ボックス化を回避できます`Action`フィールドと厳密に型指定されたパラメーターを持つ拡張メソッド。
-* ロガーの拡張メソッドは、ログ メッセージが書き込まれるたびにメッセージのテンプレート (名前付きの書式指定文字列) を解析する必要があります。 `LoggerMessage`のみ、メッセージが定義されている場合、テンプレートを 1 回解析が必要です。
+* ロガー拡張メソッドでは、`int` などの値の型を `object` に "ボックス化" (変換) する必要があります。 `LoggerMessage` パターンでは、静的な `Action` フィールドと、厳密に型指定されたパラメーターを持つ拡張メソッドを使用してボックス化を回避します。
+* ロガー拡張メソッドでは、ログ メッセージが書き込まれるたびにメッセージ テンプレート (名前付きの書式文字列) を解析する必要があります。 `LoggerMessage` では、メッセージを定義するときに、一度テンプレートを解析する必要があるだけです。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/sample/)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-サンプル アプリを示しています`LoggerMessage`追跡システムの基本的な見積もりで機能します。 アプリでは、追加し、メモリ内のデータベースを使用する引用符を削除します。 使用してログのメッセージを生成するようにこれらの操作が発生すると、`LoggerMessage`パターン。
+サンプル アプリでは、基本的な見積もり追跡システムで `LoggerMessage` 機能を実演します。 アプリでは、メモリ内のデータベースを使用して見積もりの追加および削除を行います。 これらの操作が実行されると、`LoggerMessage` パターンによってログ メッセージが生成されます。
 
 ## <a name="loggermessagedefine"></a>LoggerMessage.Define
 
-[(LogLevel、EventId には、文字列) を定義する](/dotnet/api/microsoft.extensions.logging.loggermessage.define)を作成、`Action`メッセージをログ記録するために委任します。 `Define`オーバー ロードでは、名前付きの書式指定文字列 (テンプレート) に最大 6 つの型パラメーターを渡すことを許可します。
+[Define(LogLevel, EventId, String)](/dotnet/api/microsoft.extensions.logging.loggermessage.define) では、メッセージをログ記録するための `Action` デリゲートが作成されます。 `Define` オーバー ロードでは、名前付きの書式文字列 (テンプレート) に対して最大 6 個の型パラメーターを渡すことを許可します。
 
 ## <a name="loggermessagedefinescope"></a>LoggerMessage.DefineScope
 
-[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope)を作成、`Func`デリゲートを定義するため、[ログ スコープ](xref:fundamentals/logging/index#log-scopes)です。 `DefineScope`オーバー ロードでは、名前付きの書式指定文字列 (テンプレート) に最大 3 つの型パラメーターを渡すことを許可します。
+[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) は、[ログ スコープ](xref:fundamentals/logging/index#log-scopes)を定義するための `Func` デリゲートを作成します。 `DefineScope` オーバー ロードでは、名前付きの書式文字列 (テンプレート) に対して最大 3 個の型パラメーターを渡すことを許可します。
 
-## <a name="message-template-named-format-string"></a>メッセージのテンプレート (書式指定文字列を名前付き)
+## <a name="message-template-named-format-string"></a>メッセージのテンプレート (名前付きの書式文字列)
 
-指定された文字列、`Define`と`DefineScope`メソッドは、テンプレートと、補間文字列ではありません。 プレース ホルダーは、種類が指定されている順に入力されます。 テンプレートのプレース ホルダー名では、テンプレート間でわかりやすい名前と一貫性をする必要があります。 構造化されたログ データ内のプロパティ名として使用され、します。 お勧め[Pascal 文字種](/dotnet/standard/design-guidelines/capitalization-conventions)プレース ホルダー名のです。 たとえば、 `{Count}`、`{FirstName}`です。
+`Define` メソッドと `DefineScope` メソッドに指定された文字列はテンプレートであり、補間文字列ではありません。 プレースホルダーは、型が指定された順に入力されます。 テンプレート内のプレースホルダー名はわかりやすく、テンプレート間で一貫している必要があります。 それらは構造化されたログ データ内でプロパティ名としての役割を果たします。 プレースホルダー名には [Pascal 形式](/dotnet/standard/design-guidelines/capitalization-conventions)を推奨します。 たとえば、`{Count}`、`{FirstName}` のようになります。
 
-## <a name="implementing-loggermessagedefine"></a>LoggerMessage.Define を実装します。
+## <a name="implementing-loggermessagedefine"></a>LoggerMessage.Define を実装する
 
-各ログ メッセージは、`Action`によって作成された静的フィールドでは、保持`LoggerMessage.Define`です。 たとえば、サンプル アプリがインデックス ページの取得要求のログ メッセージを記述するフィールドを作成 (*Internal/LoggerExtensions.cs*)。
+各ログ メッセージは、`LoggerMessage.Define` によって作成された静的フィールドに保持される `Action` です。 たとえば、サンプル アプリでは、インデックス ページに対する GET 要求に関するログ メッセージを記述するフィールドを作成します (*Internal/LoggerExtensions.cs*)。
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet1)]
 
-`Action`を指定します。
+`Action` の場合は、次を指定します。
 
-* ログ レベルです。
-* 一意のイベントの識別子 ([EventId](/dotnet/api/microsoft.extensions.logging.eventid)) 静的拡張メソッドの名前に置き換えます。
-* (書式指定文字列を名前付き) メッセージ テンプレートです。 
+* ログ レベル。
+* 静的な拡張メソッドの名前を持つ一意のイベント識別子です ([EventId](/dotnet/api/microsoft.extensions.logging.eventid))。
+* メッセージ テンプレート (名前付き書式文字列)。 
 
-サンプル アプリのセットのインデックス ページを要求します。
+サンプル アプリのインデックス ページに対する要求では、次の設定を行います。
 
-* ログ レベルを`Information`です。
-* イベント id`1`の名前を持つ、`IndexPageRequested`メソッドです。
-* メッセージ (という名前のテンプレート書式指定文字列) を文字列にします。
+* ログ レベルを `Information` に設定します。
+* イベント ID を `IndexPageRequested` メソッドの名前を含む `1` に設定します。
+* メッセージ テンプレート (名前付き書式文字列) を文字列に設定します。
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet5)]
 
-構造化されたログ ストアは、イベント id をログ記録を強化することが指定されると、イベント名を使用可能性があります。 たとえば、 [Serilog](https://github.com/serilog/serilog-extensions-logging)はイベント名を使用します。
+構造化されたログ ストアは、イベント ID によって指定されているとき、ログ記録を強化するために、イベント名を使用する場合があります。 たとえば、[Serilog](https://github.com/serilog/serilog-extensions-logging) はイベント名を使用します。
 
-`Action`を通じて、厳密に型指定された拡張メソッドが呼び出されます。 `IndexPageRequested`メソッドは、サンプル アプリで、インデックス ページの取得要求のメッセージを記録します。
+`Action` は厳密に型指定された拡張メソッドによって呼び出されます。 `IndexPageRequested` メソッドは、サンプル アプリにおけるインデックス ページの GET 要求に関するメッセージを記録します。
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet9)]
 
-`IndexPageRequested`ロガーで呼び出されると、`OnGetAsync`メソッド*Pages/Index.cshtml.cs*:
+`IndexPageRequested` は、*Pages/Index.cshtml.cs* に含まれる `OnGetAsync` メソッドのロガー上で呼び出されます。
 
 [!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
 
-アプリのコンソール出力を検査します。
+アプリのコンソール出力を検査する:
 
 ```console
 info: LoggerMessageSample.Pages.IndexModel[1]
@@ -80,23 +80,23 @@ info: LoggerMessageSample.Pages.IndexModel[1]
       GET request for Index page
 ```
 
-ログ メッセージにパラメーターを渡すには、静的フィールドを作成するときに最大 6 つの型を定義します。 サンプル アプリは、定義することで、引用符を追加するときに、文字列をログ、`string`の入力、`Action`フィールド。
+ログ メッセージにパラメーターを渡すには、静的フィールドを作成するときに最大 6 個の型を定義します。 サンプル アプリでは、`Action` フィールドに対して `string` 型を定義して見積もりを追加すると、文字列が記録されます。
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet2)]
 
-デリゲートのログ メッセージのテンプレートは、提供される型からそのプレース ホルダーの値を受け取ります。 サンプル アプリは、見積もりパラメーターは、引用符を追加するため、デリゲートを定義、 `string`:
+デリゲートのログ メッセージ テンプレートは、そのプレースホルダー値を指定された型で受け取ります。 サンプル アプリでは、見積もりを追加するためのデリゲートを定義します。ここで見積もりパラメーターは `string` となります。
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet6)]
 
-引用符を追加するための静的な拡張メソッド`QuoteAdded`見積もり引数の値を受け取りに渡します、`Action`を委任します。
+見積もりを追加するための静的な拡張メソッドである `QuoteAdded` は、見積もり引数の値を受け取って、`Action` デリゲートに渡します。
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet10)]
 
-インデックス ページの分離コード ファイル内 (*Pages/Index.cshtml.cs*)、`QuoteAdded`メッセージを記録するために呼び出されます。
+インデックス ページのページ モデル (*Pages/Index.cshtml.cs*) では、メッセージを記録するために `QuoteAdded` が呼び出されます。
 
 [!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
 
-アプリのコンソール出力を検査します。
+アプリのコンソール出力を検査する:
 
 ```console
 info: LoggerMessageSample.Pages.IndexModel[2]
@@ -104,21 +104,21 @@ info: LoggerMessageSample.Pages.IndexModel[2]
       Quote added (Quote = 'You can avoid reality, but you cannot avoid the consequences of avoiding reality. - Ayn Rand')
 ```
 
-サンプル アプリを実装する`try` &ndash; `catch`見積もり削除のパターン。 情報メッセージが正常に削除操作の記録されます。 例外がスローされたときに、削除操作のエラー メッセージが記録されます。 ログ メッセージが含まれています、例外スタック トレースには削除操作の失敗の (*Internal/LoggerExtensions.cs*)。
+サンプル アプリでは、見積もり削除用の `try`&ndash;`catch` パターンを実装します。 削除操作に成功した場合、情報メッセージが記録されます。 例外がスローされた場合は、削除操作に対してエラー メッセージが記録されます。 削除操作が失敗した場合のログ メッセージには、例外スタック トレースが含まれます (*Internal/LoggerExtensions.cs*)。
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet3)]
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet7)]
 
-内のデリゲートに渡された例外に注意してください`QuoteDeleteFailed`:
+`QuoteDeleteFailed` 内のデリゲートに例外が渡される方法に注目してください。
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet11)]
 
-インデックス ページの分離コード、成功した見積もり削除の呼び出し、`QuoteDeleted`ロガーのメソッドです。 削除対象として、引用符が見つからないときに、`ArgumentNullException`がスローされます。 例外をトラップ、 `try` &ndash; `catch`ステートメントを呼び出してログに記録し、`QuoteDeleteFailed`で logger にメソッド、`catch`ブロック (*Pages/Index.cshtml.cs*)。
+インデックス ページのページ モデルでは、見積もりの削除に成功すると、ロガー上で `QuoteDeleted` メソッドが呼び出されます。 削除対象の見積もりが見つからない場合は、`ArgumentNullException` がスローされます。 例外は `try`&ndash;`catch` ステートメントによってトラップされ、`catch` ブロック (*Pages/Index.cshtml.cs*) 内のロガーで `QuoteDeleteFailed` を呼び出すことにより記録されます。
 
 [!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet5&highlight=14,18)]
 
-見積もりが正常に削除されると、アプリのコンソール出力を検査します。
+見積もりが正常に削除されたら、アプリのコンソール出力を検査します。
 
 ```console
 info: LoggerMessageSample.Pages.IndexModel[4]
@@ -126,7 +126,7 @@ info: LoggerMessageSample.Pages.IndexModel[4]
       Quote deleted (Quote = 'You can avoid reality, but you cannot avoid the consequences of avoiding reality. - Ayn Rand' Id = 1)
 ```
 
-見積もりの削除に失敗した場合は、アプリのコンソール出力を調べてください。 ログ メッセージで例外が含まれることに注意してください。
+見積もりの削除が失敗したら、アプリのコンソール出力を検査します。 例外はログ メッセージに含められます。
 
 ```console
 fail: LoggerMessageSample.Pages.IndexModel[5]
@@ -141,37 +141,37 @@ Parameter name: entity
       <PATH>\sample\Pages\Index.cshtml.cs:line 87
 ```
 
-## <a name="implementing-loggermessagedefinescope"></a>LoggerMessage.DefineScope を実装します。
+## <a name="implementing-loggermessagedefinescope"></a>LoggerMessage.DefineScope を実装する
 
-定義、[ログ スコープ](xref:fundamentals/logging/index#log-scopes)を使用してログ メッセージの系列に適用する、 [DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope)メソッドです。
+[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) メソッドを使用して、一連のログ メッセージに適用する[ログ スコープ](xref:fundamentals/logging/index#log-scopes)を定義します。
 
-サンプル アプリには、**すべてクリア**のすべてのデータベース内の引用符を削除するためのボタンをクリックします。 1 つ削除では、引用符は削除、時にします。 引用符が削除されるたびに、`QuoteDeleted`ロガーにメソッドが呼び出されます。 ログのスコープは、これらのログ メッセージに追加されます。
+サンプル アプリには、データベース内のすべての見積もりを削除するための **[すべてクリア]** ボタンがあります。 見積もりを削除するには、一度に 1 つ削除します。 見積もりを削除するたびに、ロガーで `QuoteDeleted` メソッドが呼び出されます。 ログ スコープは、これらのログ メッセージに追加されます。
 
-有効にする`IncludeScopes`コンソール ロガー オプション。
+コンソール ロガー オプションの `IncludeScopes` を有効にします。
 
 [!code-csharp[Main](loggermessage/sample/Program.cs?name=snippet1&highlight=22)]
 
-設定`IncludeScopes`ASP.NET Core 2.0 アプリでログのスコープを有効にするために必要なです。 設定`IncludeScopes`を介して*appsettings*構成ファイルは、ASP.NET Core 2.1 リリースが予定されている機能です。
+ASP.NET Core 2.0 アプリではログ スコープを有効にするために、`IncludeScopes` を設定することが必要です。 ASP.NET Core 2.1 リリースでは、*appsettings* 構成ファイルを介して `IncludeScopes` を設定する機能が予定されています。
 
-サンプル アプリでは、その他のプロバイダーを削除し、ログ出力を削減するためにフィルターを追加します。 これにより、具体的に示すサンプルのログ メッセージをわかりやすく`LoggerMessage`機能します。
+サンプル アプリでは、その他のプロバイダーを削除し、ログ出力を削減するためのフィルターを追加します。 これにより、`LoggerMessage` 機能を実演するサンプルのログ メッセージを確認するのが容易になります。
 
-ログのスコープを作成するには、保持するためにフィールドを追加、`Func`スコープを委任します。 フィールドを作成するサンプル アプリ`_allQuotesDeletedScope`(*Internal/LoggerExtensions.cs*)。
+ログ スコープを作成するには、スコープに対して `Func` デリゲートを保持するフィールドを追加します。 サンプル アプリでは、`_allQuotesDeletedScope` と呼ばれるフィールドを作成します (*Internal/LoggerExtensions.cs*)。
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet4)]
 
-使用して`DefineScope`デリゲートを作成します。 次の 3 種類まで指定できます用にテンプレート引数としてデリゲートが呼び出されたときに。 サンプル アプリで使用するメッセージを含むテンプレートを削除した引用符の数 (、`int`型)。
+`DefineScope` を使用してデリゲートを作成します。 デリゲートを呼び出すとき、テンプレート引数として使用するように最大 3 つの型を指定することができます。 サンプル アプリでは、削除された見積もりの数 (`int` 型) を含むメッセージ テンプレートが使用されます。
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet8)]
 
-ログ メッセージ用の静的な拡張メソッドを提供します。 メッセージ テンプレートに表示される名前付きのプロパティの型パラメーターを含めます。 サンプル アプリは、`count`引用符を削除し、返します`_allQuotesDeletedScope`:
+ログ メッセージ用の静的な拡張メソッドを指定します。 メッセージ テンプレートに表示される名前付きプロパティの任意の型パラメーターを含めます。 サンプル アプリでは、削除する見積もりの `count` を取得し、`_allQuotesDeletedScope` を返します。
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet12)]
 
-ログの拡張機能の呼び出しのスコープ ラップ、`using`ブロック。
+スコープは、`using` ブロックでログ拡張呼び出しをラップします。
 
 [!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet4&highlight=5-6,14)]
 
-アプリのコンソール出力のログ メッセージを検査します。 次の結果は、次の 3 つの引用符が含まれるログ スコープのメッセージが削除を示しています。
+アプリのコンソール出力のログ メッセージを検査します。 次の結果には、削除された 3 つの見積もりに加えて、ログ スコープ メッセージが表示されています。
 
 ```console
 info: LoggerMessageSample.Pages.IndexModel[4]

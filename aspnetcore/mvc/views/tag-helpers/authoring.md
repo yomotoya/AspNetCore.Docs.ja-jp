@@ -1,38 +1,38 @@
 ---
-title: "ASP.NET Core のタグ ヘルパーの作成"
+title: "ASP.NET Core でタグ ヘルパーを作成する"
 author: rick-anderson
-description: "ASP.NET Core のタグ ヘルパーの作成方法を説明します。"
-ms.author: riande
+description: "ASP.NET Core でのタグ ヘルパーの作成方法を説明します。"
 manager: wpickett
-ms.date: 01/19/2018
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: mvc/views/tag-helpers/authoring
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1f1b2c2e60a1337c15f019185c764d0a9ada1b5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.date: 01/19/2018
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/views/tag-helpers/authoring
+ms.openlocfilehash: 040c26bfccb8f258b0941bed4bc936cf7a16324a
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>ASP.NET Core、サンプルとチュートリアルの作成者タグ ヘルパー
+# <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>ASP.NET Core でのタグ ヘルパーの作成、チュートリアルとサンプル
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-## <a name="get-started-with-tag-helpers"></a>タグ ヘルパーを概要します。
+## <a name="get-started-with-tag-helpers"></a>タグ ヘルパーの概要
 
-このチュートリアルでは、タグ ヘルパーのプログラミングの概要を提供します。 [タグ ヘルパーの概要](intro.md)タグ ヘルパーを提供する利点について説明します。
+このチュートリアルでは、タグ ヘルパーのプログラミングの概要を提供します。 [タグ ヘルパーの概要](intro.md)に関するページでは、タグ ヘルパーが提供する利点について説明しています。
 
-タグ ヘルパーを実装するクラス、`ITagHelper`インターフェイスです。 ただし、タグ ヘルパーを作成する場合は、一般にから派生した`TagHelper`、これにアクセスするにより、`Process`メソッドです。
+タグ ヘルパーは、`ITagHelper` インターフェイス実装する任意のクラスです。 ただし、タグ ヘルパーを作成する場合は、通常は `TagHelper` から派生させます。こうすることで、`Process` メソッドにアクセスできるようになります。
 
-1. いう新しい ASP.NET Core プロジェクトを作成する**AuthoringTagHelpers**です。 認証は、このプロジェクトの必要はありません。
+1. **AuthoringTagHelpers** という新しい ASP.NET Core プロジェクトを作成します。 このプロジェクトに認証は必要ありません。
 
-2. 呼ばれるタグ ヘルパーを保持するフォルダーを作成する*TagHelpers*です。 *TagHelpers*フォルダーは*いない*必要に応じてが、妥当な規則です。 今すぐ始めましょういくつかの単純なタグ ヘルパーを記述します。
+2. タグ ヘルパーを保持する *TagHelpers* というフォルダーを作成します。 *TagHelpers* フォルダーは必須では*ありません*が、あると便利です。 それでは、いくつか単純なタグ ヘルパーを記述してみましょう。
 
-## <a name="a-minimal-tag-helper"></a>最小タグ ヘルパー
+## <a name="a-minimal-tag-helper"></a>最小のタグ ヘルパー
 
 このセクションでは、電子メール タグを更新するタグ ヘルパーを記述します。 例:
 
@@ -40,39 +40,39 @@ ms.lasthandoff: 01/24/2018
 <email>Support</email>
    ```
 
-サーバーは次のように、そのマークアップを変換するのに、電子メール タグ ヘルパーを使用します。
+サーバーは、電子メール タグ ヘルパーを使用して、そのマークアップを以下に変換します。
 
 ```html
 <a href="mailto:Support@contoso.com">Support@contoso.com</a>
 ```
 
-つまり、アンカー タグにより、この電子メールのリンク。 これを行う場合は、ブログ エンジンを作成して、同じドメインにすべてマーケティング、サポート、およびその他の連絡先の電子メールを送信する際に必要する可能性があります。
+つまり、これを電子メール リンクにするアンカー タグです。 ブログ エンジンを記述していて、マーケティング、サポート、およびその他の連絡先の電子メールをすべて同じドメインに送信するためにそれが必要な場合に、これを行うことができます。
 
-1.  次の追加`EmailTagHelper`クラスを*TagHelpers*フォルダーです。
+1.  次の `EmailTagHelper` クラスを *TagHelpers* フォルダーに追加します。
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1EmailTagHelperCopy.cs)]
     
     **注:**
     
-    * タグ ヘルパーの使用をルート クラスの名前を持つ要素を対象とする名前付け規則 (マイナス、 *TagHelper*クラス名の部分)。 この例では、ルート名で**電子メール**TagHelper は*電子メール*ので、`<email>`タグの対象となります。 後でこのメソッドをオーバーライドする方法を示しますが、この名前付け規則がほとんどタグ ヘルパーの動作する必要があります。
+    * タグ ヘルパーは、ルート クラス名の要素 (クラス名部分から *TagHelper* 部分を引いたもの) をターゲットとする名前付け規則です。 この例では、**Email**TagHelper のルート名は *email* となるため、`<email>` タグがターゲットとなります。 この命名規則は、ほとんどのタグ ヘルパーで機能します。上書きの方法については、後述します。
     
-    * `EmailTagHelper` クラスは `TagHelper` から派生したものです。 `TagHelper`クラス タグ ヘルパーを記述するためのメソッドとプロパティを提供します。
+    * `EmailTagHelper` クラスは `TagHelper` から派生したものです。 `TagHelper` クラスはタグ ヘルパーを記述するためのメソッドとプロパティを提供します。
     
-    * オーバーライドされた`Process`タグ ヘルパーが実行時にメソッドを制御します。 `TagHelper`クラスには、非同期バージョンも用意されています (`ProcessAsync`) 同じパラメーターを使用します。
+    * オーバーライドされた `Process` メソッドは、実行時のタグ ヘルパーの動作を制御します。 `TagHelper` クラスには、同じパラメーターを使用する非同期バージョン (`ProcessAsync`) も用意されています。
     
-    * コンテキスト パラメーターを`Process`(および`ProcessAsync`) 現在の HTML タグの実行に関連付けられている情報が含まれています。
+    * `Process` (および `ProcessAsync`) のコンテキスト パラメーターには、現在の HTML タグの実行に関連付けられている情報が含まれています。
     
-    * 出力パラメーターを`Process`(および`ProcessAsync`)、HTML タグとコンテンツの生成に使用される元のソースの代表的なステートフルな HTML 要素が含まれています。
+    * `Process` (および `ProcessAsync`) の出力パラメーターには、HTML タグとコンテンツの生成に使用された元のソースを代表するステートフル HTML 要素が含まれています。
     
-    * クラス名のサフィックスを持つ**TagHelper**、これは*いない*、必要なことがベスト プラクティス規則と考えられますが、します。 クラスを宣言します。
+    * クラス名には **TagHelper** のサフィックスが付けられています。これは必須*ではありません*が、ベスト プラクティスです。 クラスは、次のように宣言できます。
     
     ```csharp
     public class Email : TagHelper
     ```
 
-2.  させる、 `EmailTagHelper` 、すべての Razor ビューに使用可能なクラスを追加、`addTagHelper`ディレクティブを*Views/_ViewImports.cshtml*ファイル。[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
+2.  すべての Razor ビューで `EmailTagHelper` クラスを使用可能にするには、`addTagHelper` ディレクティブを *Views/_ViewImports.cshtml* ファイルに追加します。[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
     
-    上記のコードは、使用可能なアセンブリ内のすべてのタグ ヘルパーを指定するのにワイルドカードの構文を使用します。 後の最初の文字列`@addTagHelper`を読み込むタグ ヘルパーを指定します (使用する"*"すべてのタグ ヘルパーの)、2 番目の文字列"AuthoringTagHelpers"アセンブリを指定するのには、タグ ヘルパーとします。 また、ワイルドカードの構文を使用して ASP.NET Core MVC タグ ヘルパーの 2 番目の行がもたらすことに注意してください (これらのヘルパーは、後ほど[タグ ヘルパーの概要](intro.md))。`@addTagHelper`タグ ヘルパーの Razor ビューを使用できるようにするディレクティブ。 また、次に示すように、タグ ヘルパーの完全修飾名 (FQN) を指定できます。
+    上記のコードでは、ワイルドカードの構文を使用して、アセンブリ内のすべてのタグ ヘルパーが使用可能になるように指定しています。 `@addTagHelper` の後の最初の文字列は、読み込むタグ ヘルパーを指定します (すべてのタグ ヘルパーを指定するには、"*" を使用します)。2 番目の文字列 "AuthoringTagHelpers" は、タグ ヘルパーが存在するアセンブリを指定します。 また、2 行目で、ワイルドカードの構文を使用して ASP.NET Core MVC タグ ヘルパーを取り込むことに注目してください (これらのヘルパーについては、[タグ ヘルパーの概要](intro.md)に関するページで説明されています)。Razor ビューでタグ ヘルパーを使用可能にするのが、`@addTagHelper` ディレクティブです。 または、次に示すように、タグ ヘルパーの完全修飾名 (FQN) を指定することもできます。
     
 ```csharp
 @using AuthoringTagHelpers
@@ -85,102 +85,102 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
     [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImports.cshtml?highlight=3&range=1-3)]
 -->
     
-タグ ヘルパーに追加する、FQN を使用するビューを最初に追加する、FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`)、およびアセンブリ名では、(*AuthoringTagHelpers*)。 ほとんどの開発者は、ワイルドカードの構文を使用するを選びます。 [タグ ヘルパーの概要](intro.md)タグ ヘルパーの追加、削除、階層、およびワイルドカードの構文の詳細を見ていきます。
+FQN を使用してタグ ヘルパーをビューに追加するには、最初に FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) を追加してから、アセンブリ名 (*AuthoringTagHelpers*) を追加します。 ほとんどの開発者は、ワイルドカードの構文を使用する方を選びます。 [タグ ヘルパーの概要](intro.md)に関するページでは、タグ ヘルパーの追加、削除、階層、およびワイルドカードの構文について詳しく説明されています。
     
-3.  内のマークアップを更新、 *Views/Home/Contact.cshtml*のこれらの変更されたファイル。
+3.  これらの変更を加えて、*Views/Home/Contact.cshtml* ファイル内のマークアップを更新します。
 
     [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=15,16&range=1-17)]
 
-4.  アプリを実行して、アンカー マークアップを含む電子メール タグが置換されることを確認できるように HTML ソースの表示をお気に入りのブラウザーを使用して (たとえば、 `<a>Support</a>`)。 *サポート*と*マーケティング*は、リンクとして表示はありません、`href`ように機能する属性。 解決する次のセクションでします。
+4.  アプリを実行して、お好みのブラウザーを使用して HTML ソースを表示すると、電子メール タグがアンカー マークアップ (`<a>Support</a>` など) に置き換えられていることが確認できます。 *Support* と *Marketing* はリンクとして表示されますが、リンクを機能させる `href` 属性を持っていません。 次のセクションでこれを修正します。
 
-注: HTML タグと属性、タグ、クラス名および属性で Razor、および c# のように小文字は区別されません。
+注: HTML タグや属性と同様に、Razor および C# では、タグ、クラス名および属性の大文字と小文字は区別されません。
 
 ## <a name="setattribute-and-setcontent"></a>SetAttribute と SetContent
 
-このセクションで更新されます、`EmailTagHelper`電子メール用の有効なアンカー タグが作成できるようにします。 Razor ビューから情報に更新されます (の形式で、`mail-to`属性) と、アンカーの生成に使用します。
+このセクションでは、`EmailTagHelper` を更新して、電子メール用の有効なアンカー タグが作成できるようにします。 これを更新して、Razor ビューから (`mail-to` 属性の形式で) 情報を取得し、それを使用してアンカーを生成します。
 
-更新プログラム、`EmailTagHelper`を次のクラス。
+次のように `EmailTagHelper` クラスを更新します。
 
 [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailTo.cs?range=6-22)]
 
 **注:**
 
-* タグ ヘルパーのクラスおよびプロパティを pascal で名前に変換されます、 [kebab ケースを下げる](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101)です。 そのため、使用する、`MailTo`属性を使用する`<email mail-to="value"/>`と同等です。
+* タグ ヘルパーのパスカル ケースのクラス名とプロパティ名は、それぞれ[小文字のケバブ ケース](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101)に変換されます。 そのため、`MailTo` 属性を使用するには、相当する `<email mail-to="value"/>` を使用します。
 
-* 最後の行は、最低限の機能のタグ ヘルパーの完了したコンテンツを設定します。
+* 最後の行は、最低限機能するタグ ヘルパーの完成したコンテンツを設定します。
 
-* 強調表示された行は、属性を追加するための構文を示しています。
+* 強調表示されている行は、属性を追加するための構文を示しています。
 
 [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailTo.cs?highlight=6&range=14-21)]
 
-属性コレクションに現在存在しない限り、その方法は、属性"href"できます。 使用することも、`output.Attributes.Add`タグ ヘルパー属性をタグの属性のコレクションの末尾に追加します。
+この方法は、属性 "href" が属性コレクションに現存していない場合に限り、属性 "href" に対して有効です。 `output.Attributes.Add` メソッドを使用してタグ ヘルパー属性をタグ属性のコレクションの末尾に追加することもできます。
 
-1.  内のマークアップを更新、 *Views/Home/Contact.cshtml*のこれらの変更されたファイル。[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
+1.  これらの変更を加えて *Views/Home/Contact.cshtml* ファイル内のマークアップを更新します。[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
 
-2.  アプリケーションを実行し、適切なリンクが生成されることを確認します。
+2.  アプリを実行し、適切なリンクが生成されることを確認します。
     
     > [!NOTE]
-    >電子メール タグ自己終了を記述する場合は (`<email mail-to="Rick" />`)、最終的な出力は自己終了になります。 開始タグのみを持つタグを記述する機能を有効にする (`<email mail-to="Rick">`) に次のクラスを装飾する必要があります。
+    >自己終了の電子メール タグ (`<email mail-to="Rick" />`) を記述すると、最終的な出力も自己終了になります。 開始タグのみを持つタグ (`<email mail-to="Rick">`) を記述する機能を有効にするには、次のようにクラスを装飾する必要があります。
     >
     > [!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailVoid.cs?highlight=1&range=6-10)]
     
-    自己終了電子メール タグ ヘルパーでは、出力ようになります`<a href="mailto:Rick@contoso.com" />`です。 自己終了アンカー タグは、有効な HTML を作成するのにはしたいはありませんが、自己終了タグのヘルパーを作成する場合があります。 タグ ヘルパーの種類の設定、`TagMode`タグを読み取った後のプロパティです。
+    自己終了の電子メール タグ ヘルパーでは、出力は `<a href="mailto:Rick@contoso.com" />` になります。 自己終了のアンカー タグは有効な HTML ではないため、作成することはないかもしれませんが、自己終了のタグ ヘルパーは必要な場合があります。 タグ ヘルパーは、タグを読み取った後に、`TagMode` プロパティの型を設定します。
     
 ### <a name="processasync"></a>ProcessAsync
 
-このセクションでは非同期電子メール ヘルパーを記述します。
+このセクションでは非同期の電子メール ヘルパーを記述します。
 
-1.  置換、`EmailTagHelper`クラスを次のコードで。
+1.  `EmailTagHelper` クラスを次のコードで置き換えます。
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelper.cs?range=6-17)]
 
     **注:**
 
-    * このバージョンでは、非同期`ProcessAsync`メソッドです。 非同期の`GetChildContentAsync`を返します、`Task`を含む、`TagHelperContent`です。
+    * このバージョンでは、非同期の `ProcessAsync` メソッドを使用します。 非同期の `GetChildContentAsync` は `TagHelperContent` を含む `Task` を返します。
 
-    * 使用して、`output`パラメーターを HTML 要素の内容を取得します。
+    * `output` パラメーターを使用して、HTML 要素のコンテンツを取得します。
 
-2.  次の変更を行う、 *Views/Home/Contact.cshtml*ファイルのタグ ヘルパーは、ターゲット電子メールを取得できるようにします。
+2.  *Views/Home/Contact.cshtml* ファイルに次の変更を行って、タグ ヘルパーがターゲットの電子メールを取得できるようにします。
 
     [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=15,16&range=1-17)]
 
-3.  アプリを実行して、有効な電子メールのリンクが生成されることを確認します。
+3.  アプリを実行し、有効な電子メール リンクが生成されることを確認します。
 
-### <a name="removeall-precontentsethtmlcontent-and-postcontentsethtmlcontent"></a>RemoveAll、PreContent.SetHtmlContent および PostContent.SetHtmlContent
+### <a name="removeall-precontentsethtmlcontent-and-postcontentsethtmlcontent"></a>RemoveAll、PreContent.SetHtmlContent、PostContent.SetHtmlContent
 
-1.  次の追加`BoldTagHelper`クラスを*TagHelpers*フォルダーです。
+1.  次の `BoldTagHelper` クラスを *TagHelpers* フォルダーに追加します。
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/BoldTagHelper.cs)]
 
     **注:**
     
-    * `[HtmlTargetElement]`属性のパスを示す HTML 属性を含む任意の HTML 要素が"bold"という名前の属性パラメーターは一致と`Process`クラスでオーバーライド メソッドが実行されます。 この例で、`Process`メソッドは、"bold"属性を削除しとを含むマークアップを囲む`<strong></strong>`です。
+    * `[HtmlTargetElement]` 属性は、"bold" という名前の HTML 属性を含むすべての HTML 要素を照合することを指定する属性パラメーターを渡し、クラス内で `Process` オーバーライド メソッドが実行されます。 このサンプルでは、`Process` メソッドによって "bold" 属性が削除され、中にあるマークアップが `<strong></strong>` で囲まれます。
     
-    * 既存のタグはコンテンツを交換しないため、開始を書き込む必要があります`<strong>`とタグ付け、`PreContent.SetHtmlContent`メソッドと終了`</strong>`とタグ付け、`PostContent.SetHtmlContent`メソッドです。
+    * 既存のタグ コンテンツは置き換えたくないので、`PreContent.SetHtmlContent` メソッドを使用して開始タグ `<strong>` を記述し、`PostContent.SetHtmlContent` メソッドを使用して終了タグ `</strong>` を記述する必要があります。
     
-2.  変更、 *About.cshtml*を含むビュー、`bold`属性の値。 完成したコードは、以下に示します。
+2.  `bold` 属性値を含めるように *About.cshtml* ビューを変更します。 完成したコードを以下に示します。
 
     [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutBoldOnly.cshtml?highlight=7)]
 
-3.  アプリを実行します。 好みのブラウザーを使用するには、ソースを検査して、マークアップを確認してください。
+3.  アプリを実行します。 お好みのブラウザーを使用して、ソースを検査し、マークアップを確認できます。
 
-    `[HtmlTargetElement]`上の属性のみが対象"bold"の属性名を提供する HTML マークアップ。 `<bold>`要素は、タグ ヘルパーによって変更されませんでした。
+    上記の `[HtmlTargetElement]` 属性は、"bold" という属性名を提供する HTML マークアップのみをターゲットにしています。 `<bold>` 要素は、タグ ヘルパーによって変更されませんでした。
 
-4. コメント アウト、`[HtmlTargetElement]`属性行とそれは、対象とする既定`<bold>`タグ、フォームの HTML マークアップは、`<bold>`です。 ただし、既定の名前付け規則は、クラス名に一致**太字**に TagHelper`<bold>`タグ。
+4. `[HtmlTargetElement]` 属性の行をコメント アウトすると、既定の `<bold>` タグ (`<bold>` 形式の HTML マークアップ) が再度ターゲットになります。 既定の名前付け規則は、クラス名 **Bold**TagHelper を `<bold>` タグと一致させることに注意してください。
 
-5. アプリを実行していることを確認、`<bold>`タグがタグ ヘルパーによって処理されます。
+5. アプリを実行して、`<bold>` タグがタグ ヘルパーによって処理されることを確認します。
 
-複数のクラスを装飾`[HtmlTargetElement]`ターゲットの論理 OR で結果の属性です。 たとえば、次のコードを使用するには、太字のタグまたは太字属性は一致します。
+複数の `[HtmlTargetElement]` 属性でクラスを修飾すると、結果はターゲットの論理 OR になります。 たとえば、次のコードを使用すると、bold タグまたは bold 属性が一致します。
 
 [!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zBoldTagHelperCopy.cs?highlight=1,2&range=5-15)]
 
-同じステートメントに複数の属性を追加するときに、ランタイムとして扱います論理 and。 たとえば、次のコードで HTML 要素必要がありますという名前が"bold"という名前の属性を"bold"(`<bold bold />`) 一致するようにします。
+同じステートメントに複数の属性を追加すると、ランタイムではそれらが論理 AND として扱われます。 たとえば、次のコードでは、一致させるために、"bold" という名前の属性 (`<bold bold />`) を使って HTML 要素に "bold" と名前を付ける必要があります。
 
 ```csharp
 [HtmlTargetElement("bold", Attributes = "bold")]
    ```
 
-使用することも、`[HtmlTargetElement]`を対象となる要素の名前を変更します。 場合の例については、`BoldTagHelper`ターゲットに`<MyBold>`タグ、次の属性を使用すると。
+また、`[HtmlTargetElement]` を使用してターゲット要素の名前を変更することもできます。 たとえば、`BoldTagHelper` で `<MyBold>` タグをターゲットにするには、次の属性を使用します。
 
 ```csharp
 [HtmlTargetElement("MyBold")]
@@ -188,67 +188,67 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
 
 ## <a name="pass-a-model-to-a-tag-helper"></a>タグ ヘルパーにモデルを渡す
 
-1.  追加、*モデル*フォルダーです。
+1.  *Models* フォルダーを追加します。
 
 2.  次の `WebsiteContext` クラスを *Models* フォルダーに追加します。
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Models/WebsiteContext.cs)]
 
-3.  次の追加`WebsiteInformationTagHelper`クラスを*TagHelpers*フォルダーです。
+3.  次の `WebsiteInformationTagHelper` クラスを *TagHelpers* フォルダーに追加します。
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/WebsiteInformationTagHelper.cs)]
     
     **注:**
     
-    * 前述のように、タグ ヘルパーにより、c# を pascal クラス名とプロパティのでにタグ ヘルパー [kebab ケースを下げる](http://wiki.c2.com/?KebabCase)です。 そのため、使用する、 `WebsiteInformationTagHelper` Razor での記述`<website-information />`です。
+    * 前述したように、タグ ヘルパーは、パスカルケースの C# クラス名とタグ ヘルパーのプロパティを[小文字のケバブ ケース](http://wiki.c2.com/?KebabCase)に変換します。 そのため、`WebsiteInformationTagHelper` を Razor で使用するには、`<website-information />` を記述します。
     
-    * ターゲット要素に明示的に識別しない、`[HtmlTargetElement]`属性、そのため、既定の`website-information`の対象となります。 場合は、次の属性 (kebab ケースではありませんが、クラス名と一致することに注意) が適用されます。
+    * `[HtmlTargetElement]` 属性を使用してターゲット要素を明示的に識別しないため、`website-information` の既定がターゲットになります。 次の属性を適用した場合 (ケバブ ケースではありませんが、クラス名が一致します):
     
     ```csharp
     [HtmlTargetElement("WebsiteInformation")]
     ```
     
-    低い kebab ケース タグ`<website-information />`一致はありません。 使用する場合、`[HtmlTargetElement]`属性、kebab ケース次に示すようを使用するとします。
+    小文字のケバブ ケース タグ `<website-information />` は一致しません。 `[HtmlTargetElement]` 属性を使用する場合は、次に示すようにケバブ ケースを使用します。
     
     ```csharp
     [HtmlTargetElement("Website-Information")]
     ```
     
-    * 自己終了要素のコンテンツがあるありません。 この例では、Razor マークアップでは、自己終了タグですがタグ ヘルパーの作成は、[セクション](http://www.w3.org/TR/html5/sections.html#the-section-element)要素 (内のコンテンツを記述するので、自己終了して、`section`要素)。 そのため、設定する必要があります`TagMode`に`StartTagAndEndTag`出力に書き込みます。 行の設定をコメントする代わりに、`TagMode`と終了タグのマークアップを記述します。 (例マークアップがこのチュートリアルの後半で提供されています。)
+    * 自己終了の要素にはコンテンツがありません。 この例では、Razor マークアップは自己終了タグを使用しますが、タグ ヘルパーは [section](http://www.w3.org/TR/html5/sections.html#the-section-element) 要素を作成します (これは自己終了ではなく、`section` 要素内のコンテンツを記述しています)。 そのため、`TagMode` を `StartTagAndEndTag` に設定して出力を記述する必要があります。 または、`TagMode` を設定する行をコメント アウトして、終了タグを使ってマークアップを記述することもできます。 (サンプルのマークアップは、後ほどこのチュートリアルで提供します。)
     
-    * `$` (ドル記号) で、次の行を使用して、[補間文字列](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings):
+    * 次の行の `$` (ドル記号) は、[挿入文字列](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings)を使用しています。
     
     ```cshtml
     $@"<ul><li><strong>Version:</strong> {Info.Version}</li>
     ```
 
-4.  次のマークアップを追加、 *About.cshtml*ビュー。 強調表示されたマークアップでは、web サイトの情報を表示します。
+4.  *About.cshtml* ビューに次のマークアップを追加します。 強調表示されたマークアップは、Web サイトの情報を表示します。
     
     [!code-html[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?highlight=1,12-)]
     
     >[!NOTE]
-    > 次に示す Razor マークアップ。
+    > Razor マークアップを次に示します。
     >
     >[!code-html[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?range=13-17)]
     > 
-    >Razor、`info`属性は、文字列ではなく、クラスと c# コードを記述します。 しなくても、任意の文字列ではないタグ ヘルパー属性を記述する必要があります、`@`文字です。
+    >Razor は `info` 属性を文字列ではなくクラスとして認識し、ユーザーは C# コードを記述します。 文字列以外のタグ ヘルパー属性はすべて、`@` 文字を使わずに記述する必要があります。
     
-5.  アプリを実行し、バージョン情報を表示する web サイトの情報に移動します。
+5.  アプリを実行し、[バージョン情報] ビューに移動して、Web サイトの情報を確認します。
 
     >[!NOTE]
-    >終了タグで、次のマークアップを使用してでは、行を削除する`TagMode.StartTagAndEndTag`タグ ヘルパーで。
+    >終了タグを持つ次のマークアップを使用して、タグ ヘルパー内の `TagMode.StartTagAndEndTag` を持つ行を削除できます。
     >
     >[!code-html[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutNotSelfClosing.cshtml?range=13-18)]
 
-## <a name="condition-tag-helper"></a>タグ ヘルパーを条件します。
+## <a name="condition-tag-helper"></a>条件タグ ヘルパー
 
-条件タグ ヘルパーは、true 値を渡されるときに出力を表示します。
+条件タグ ヘルパーは、true 値が渡されたときに出力をレンダリングします。
 
-1.  次の追加`ConditionTagHelper`クラスを*TagHelpers*フォルダーです。
+1.  次の `ConditionTagHelper` クラスを *TagHelpers* フォルダーに追加します。
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/ConditionTagHelper.cs)]
 
-2.  内容を置き換える、 *Views/Home/Index.cshtml*次のマークアップ ファイル。
+2.  *Views/Home/Index.cshtml* ファイルの内容を次のマークアップに置き換えます。
 
     ```cshtml
     @using AuthoringTagHelpers.Models
@@ -270,71 +270,71 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
     </div>
     ```
     
-3.  置換、`Index`メソッドで、`Home`コント ローラーを次のコード。
+3.  `Home` コントローラーの `Index` メソッドを次のコードで置き換えます。
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Controllers/HomeController.cs?range=9-18)]
 
-4.  アプリを実行して、ホーム ページに移動します。 条件付きでマークアップ`div`レンダリングされません。 クエリ文字列の追加`?approved=true`URL に (たとえば、 `http://localhost:1235/Home/Index?approved=true`)。 `approved`true に設定され、条件付きマークアップが表示されます。
+4.  アプリを実行して、ホーム ページに移動します。 条件付き `div` ではマークアップはレンダリングされません。 クエリ文字列 `?approved=true` を URL に付加します (例: `http://localhost:1235/Home/Index?approved=true`)。 `approved` は true に設定され、条件付きマークアップが表示されます。
 
 >[!NOTE]
->使用して、 [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof)演算子を太字タグ ヘルパーで行ったように文字列を指定するのではなく、対象の属性を指定します。
+>[nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) 演算子を使用して、太字タグ ヘルパーで行ったように文字列を指定するのではなく、ターゲットにする属性を指定します。
 >
 >[!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zConditionTagHelperCopy.cs?highlight=1,2,5&range=5-18)]
 >
->[Nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof)演算子は、コードを保護する必要があります、これまでリファクタリングを行うこと (名前を変更する可能性があります`RedCondition`)。
+>[nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) 演算子は、コードがリファクタリングされないように保護します (名前は `RedCondition` に変更できます)。
 
-### <a name="avoid-tag-helper-conflicts"></a>タグ ヘルパーの競合を回避します。
+### <a name="avoid-tag-helper-conflicts"></a>タグ ヘルパーの競合を回避する
 
-このセクションでは、自動リンク タグ ヘルパーのペアを作成します。 最初は、マークアップを含む、HTML アンカー タグ同じ URL を含む (および、URL へのリンクを生成するため) に HTTP で始まる URL で置き換えられます。 2 つ目は同じ操作を行いますは URL の www を開始します。
+このセクションでは、自動リンク タグ ヘルパーのペアを記述します。 1 つ目のヘルパーは HTTP で始まる URL を含むマークアップを、同じ URL を含む HTML アンカー タグに置き換えます (この URL へのリンクも生成されます)。 2 つ目のヘルパーは WWW で始まる URL に対して同じことを行います。
 
-これら 2 つのヘルパーが密接に関連し、それらを今後リファクターする場合があります、ためにではこのままに同じファイルにします。
+これら 2 つのヘルパーは密接に関連しており、将来的にそれらをリファクターする可能性があるため、これらを同じファイルで保持します。
 
-1.  次の追加`AutoLinkerHttpTagHelper`クラスを*TagHelpers*フォルダーです。
+1.  次の `AutoLinkerHttpTagHelper` クラスを *TagHelpers* フォルダーに追加します。
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=7-19)]
 
     >[!NOTE]
-    >`AutoLinkerHttpTagHelper`クラス ターゲット`p`要素および使用[Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)アンカーを作成します。
+    >`AutoLinkerHttpTagHelper` クラスは `p` 要素をターゲットとし、[Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) を使用してアンカーを作成します。
 
-2.  末尾に次のマークアップを追加、 *Views/Home/Contact.cshtml*ファイル。
+2.  次のマークアップを *Views/Home/Contact.cshtml* ファイルの末尾に追加します。
 
     [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=19)]
 
-3.  アプリケーションを実行し、タグ ヘルパー アンカーが正しく表示されることを確認します。
+3.  アプリを実行し、タグ ヘルパーがアンカーを正しくレンダリングすることを確認します。
 
-4.  更新プログラム、`AutoLinker`クラスに含める、 `AutoLinkerWwwTagHelper` www テキスト www の元のテキストが含まれているアンカー タグに変換します。 更新されたコードは、以下が強調表示されます。
+4.  `AutoLinker` クラスを更新して `AutoLinkerWwwTagHelper` を含めます。これは www テキストを元の www テキストも含むアンカー タグに変換します。 以下では、更新されたコードが強調表示されています。
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?highlight=15-34&range=7-34)]
 
-5.  アプリを実行します。 通知 www テキストがリンクとして表示されますが、HTTP テキストではありません。 両方のクラスでブレークポイントを配置した場合は、HTTP タグ ヘルパー クラスが最初に実行されることが確認できます。 問題には、タグ ヘルパーの出力がキャッシュされると、HTTP タグ ヘルパーからキャッシュされた出力 WWW タグ ヘルパーの実行時に上書きされます。 このチュートリアルで後ほどおでタグ ヘルパーが実行される順序を制御する方法が表示されます。 コードは、次のように修正されます。
+5.  アプリを実行します。 www テキストはリンクとしてレンダリングされていますが、HTTP テキストはそのようになっていないことに注目してください。 両方のクラスにブレークポイントを配置すると、HTTP タグ ヘルパー クラスが最初に実行されることがわかります。 問題は、タグ ヘルパーの出力がキャッシュされ、WWW タグ ヘルパーを実行するときに、WWW タグ ヘルパーが HTTP タグ ヘルパーからのキャッシュされた出力を上書きすることです。 タグ ヘルパーの実行順序を制御する方法については、このチュートリアルで後ほど説明します。 コードを次のように修正します。
 
     [!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10,21,22,26&range=8-37)]
 
     >[!NOTE]
-    >Edition では、まず自動リンク タグ ヘルパーの次のコードで、ターゲットのコンテンツを取得しました。
+    >自動リンク タグ ヘルパーの最初のエディションで、次のコードを使用してターゲットのコンテンツを取得しました。
     >
     >[!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=12)]
     >
-    >つまり、呼び出す`GetChildContentAsync`を使用して、`TagHelperOutput`に渡される、`ProcessAsync`メソッドです。 説明したように以前は、出力がキャッシュされるため、最後にタグ付け wins を実行するためのヘルパー。 次のコードに問題が修正されました。
+    >つまり、`ProcessAsync` メソッドに渡された `TagHelperOutput` を使用して `GetChildContentAsync` を呼び出します。 前述したように、出力はキャッシュされるため、最後に実行されたタグ ヘルパーによって上書きされます。 次のコードを使用してこの問題を修正しました。
     >
     >[!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z2AutoLinkerCopy.cs?range=34-35)]
     >
-    >上記のコードは、コンテンツが変更されており場合は、出力バッファーからコンテンツを取得するかどうかをチェックします。
+    >上記のコードは、コンテンツが変更されているかどうかをチェックし、変更されている場合は、出力バッファーからコンテンツを取得します。
 
-6.  アプリを実行して、2 つのリンクが期待どおりに動作することを確認します。 この自動リンカー タグ ヘルパーが適切な表示される、中に微妙な問題があります。 WWW タグ ヘルパーが最初に実行する場合は、www へのリンクが正しいはできません。 追加することで、コードを更新、`Order`オーバー ロードで、タグが実行される順序を制御します。 `Order`プロパティが同じ要素を対象とするその他のタグ ヘルパーの基準とした実行順序を決定します。 既定の順序の値は 0 と低い値を持つインスタンスが最初に実行されます。
+6.  アプリを実行して、2 つのリンクが期待どおりに動作することを確認します。 自動リンカー タグ ヘルパーが正しく完全に機能しているように見えても、微妙な問題があります。 WWW タグ ヘルパーを最初に実行すると、www リンクが不正確になります。 `Order` オーバーロードを追加してコードを更新し、タグの実行順序を制御します。 `Order` プロパティを、同じ要素をターゲットとする他のタグ ヘルパーと比べることで実行順序が決まります。 既定の順序の値は 0 で、より低い値を持つインスタンスの方が先に実行されます。
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z2AutoLinkerCopy.cs?highlight=5,6,7,8&range=8-15)]
     
-    上記のコードは、WWW タグ ヘルパーの前に、HTTP タグ ヘルパーが実行される保証されます。 変更`Order`に`MaxValue`WWW タグの生成されたマークアップが正しいことを確認してください。
+    上記のコードにより、WWW タグ ヘルパーの前に、HTTP タグ ヘルパーが実行されることが保証されます。 `Order` を `MaxValue` に変更し、WWW タグの生成されたマークアップが正しいことを確認します。
 
-## <a name="inspect-and-retrieve-child-content"></a>検査し、子コンテンツを取得します。
+## <a name="inspect-and-retrieve-child-content"></a>子コンテンツを検査して取得する
 
-タグ ヘルパーは、コンテンツを取得するいくつかのプロパティを提供します。
+タグ ヘルパーには、コンテンツを取得するための複数のプロパティが用意されています。
 
--  結果`GetChildContentAsync`に追加できます`output.Content`です。
--  結果を調査して`GetChildContentAsync`で`GetContent`です。
--  変更した場合`output.Content`、TagHelper 本文、実行されるかを呼び出すまでレンダリング、表示しない`GetChildContentAsync`自動リンカー サンプルと同様に。
+-  `GetChildContentAsync` の結果を `output.Content` に付加できます。
+-  `GetContent` を使用して `GetChildContentAsync` の結果を検査できます。
+-  `output.Content` を変更すると、この自動リンカー サンプルのように、`GetChildContentAsync` を呼び出すまで、TagHelper ボディは実行またはレンダリングされません。
 
 [!code-csharp[Main](../../views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10&range=8-21)]
 
--  複数回呼び出す`GetChildContentAsync`同じ値を返すし、再実行しない、`TagHelper`本文のキャッシュされた結果を使用しないことを示す場合は false パラメーターを渡す場合を除き、します。
+-  `GetChildContentAsync` を複数回呼び出すと、同じ値が返され、キャッシュされた結果を使用しないことを示す false パラメーターを渡さない限り、`TagHelper` ボディは再実行されません。

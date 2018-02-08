@@ -1,59 +1,59 @@
 ---
-title: "ASP.NET Core でのエラー処理"
+title: "ASP.NET Core のエラー処理"
 author: ardalis
-description: "ASP.NET Core アプリケーションのエラーを処理する方法を検出します。"
-ms.author: tdykstra
+description: "ASP.NET Core アプリケーションでエラーを処理する方法について説明します。"
 manager: wpickett
-ms.date: 11/30/2016
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/error-handling
+ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 019e31fa749a950db48575e1f4e8d4d26d1cde75
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.date: 11/30/2016
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/error-handling
+ms.openlocfilehash: 5b0cda7b79b8a9523d1ba6a9b321d22d3ccc753a
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>ASP.NET Core でのエラー処理の概要
 
 執筆: [Steve Smith](https://ardalis.com/)、[Tom Dykstra](https://github.com/tdykstra/)
 
-この記事では、ASP.NET Core アプリケーションでエラーを処理する一般的な appoaches について説明します。
+この記事では、ASP.NET Core アプリでエラーを処理するための一般的な手法について取り上げます。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-## <a name="the-developer-exception-page"></a>開発者の例外ページ
+## <a name="the-developer-exception-page"></a>開発者例外ページ
 
-例外に関する詳細情報を表示するページを表示するアプリを構成するのには、インストール、 `Microsoft.AspNetCore.Diagnostics` NuGet パッケージ化し、行を追加して、[スタートアップ クラスでメソッドを構成する](startup.md):
+例外に関する詳細を表示するページを表示するようにアプリを構成するには、`Microsoft.AspNetCore.Diagnostics` NuGet パッケージをインストールし、[Startup クラスの Configure メソッド](startup.md)に次の行を追加します。
 
 [!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
 
-Put`UseDeveloperExceptionPage`など、例外をキャッチするすべてのミドルウェアの前に`app.UseMvc`です。
+`app.UseMvc` のように、例外をキャッチするミドルウェアの前に `UseDeveloperExceptionPage` を挿入します。
 
 >[!WARNING]
-> 開発者の例外のページを有効にする**、アプリが開発環境で実行されている場合にのみ**です。 実稼働環境でアプリを実行するときに、パブリックに詳細な例外情報を共有します。 [環境の構成について](environments.md)です。
+> **アプリを開発環境で実行するときにのみ**、開発者例外ページを有効にします。 アプリを実稼働環境で実行するときは、詳細な例外情報を公開しません。 [環境の構成についてはこちらをご覧ください](environments.md)。
 
-開発者の例外のページを表示する設定した環境でサンプル アプリケーションを実行`Development`、し、追加`?throw=true`アプリの基本 URL にします。 このページには、例外と、要求に関する情報をいくつかのタブが含まれます。 最初のタブには、スタック トレースが含まれています。 
+開発者例外ページを表示するには、環境を `Development` に設定してサンプル アプリケーションを実行し、アプリの基礎 URL に `?throw=true` を追加します。 このページには、例外と要求に関する情報を含むタブがいくつかあります。 最初のタブにはスタック トレースがあります。 
 
 ![スタック トレース](error-handling/_static/developer-exception-page.png)
 
-次のタブは、存在する場合に、クエリ文字列パラメーターを示します。
+次のタブには、クエリ文字列パラメーターがあればそれが表示されます。
 
-![クエリ文字列パラメーター](error-handling/_static/developer-exception-page-query.png)
+![クエリ文字列のパラメーター](error-handling/_static/developer-exception-page-query.png)
 
-この要求は、クッキーがありませんでしたが、サポートしていた場合に表示される、 **Cookie**タブです。最後のタブが渡されましたが、ヘッダーを表示できます。
+この要求には Cookie が与えられませんでしたが、与えられた場合、**Cookies** タブに表示されます。最後のタブに渡されたヘッダーを表示できます。
 
 ![ヘッダー](error-handling/_static/developer-exception-page-headers.png)
 
-## <a name="configuring-a-custom-exception-handling-page"></a>ページの処理、カスタム例外を構成します。
+## <a name="configuring-a-custom-exception-handling-page"></a>カスタム例外処理ページを構成する
 
-アプリを実行していないときに使用する例外ハンドラー ページを構成することをお勧め、`Development`環境。
+アプリを `Development` 環境で実行しないときに使用する例外ハンドラー ページを構成することをお勧めします。
 
 [!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
-MVC アプリケーションでない明示的に装飾 HTTP メソッドの属性を持つエラー ハンドラーのアクション メソッドなど`HttpGet`です。 明示的な動詞を使用して防ぐことがいくつかの要求メソッド。
+MVC アプリでは、`HttpGet` など、HTTP メソッド属性でエラー ハンドラー アクション メソッドを明示的に修飾しないでください。 明示的な動詞を使用すると、要求がメソッドに届かないことがあります。
 
 ```csharp
 [Route("/Error")]
@@ -63,19 +63,19 @@ public IActionResult Index()
 }
 ```
 
-## <a name="configuring-status-code-pages"></a>ステータス コード ページを構成します。
+## <a name="configuring-status-code-pages"></a>ステータス コード ページを構成する
 
-既定では、アプリは、HTTP ステータス コード 500 (内部サーバー エラー) または 404 (Not Found) などの豊富なステータス コード ページを指定しません。 構成することができます、`StatusCodePagesMiddleware`に行を追加して、`Configure`メソッド。
+アプリは既定で、500 (内部サーバー エラー) や 404 (見つかりません) など、HTTP ステータス コードをリッチ ページで表示しません。 `Configure` メソッドに次の行を追加することで `StatusCodePagesMiddleware` を構成できます。
 
 ```csharp
 app.UseStatusCodePages();
 ```
 
-既定では、このミドルウェアには、404 などの一般的な状態コードに対して、単純なテキストのみのハンドラーが追加されます。
+既定では、このミドルウェアは、404 など、一般的なステータス コードに単純なテキストのみのハンドラーを追加します。
 
 ![404 ページ](error-handling/_static/default-404-status-code.png)
 
-ミドルウェアは、いくつかの種類の拡張メソッドをサポートします。 ラムダ式を 1 つは、他方はコンテンツの種類と形式の文字列を使用します。
+ミドルウェアは、さまざまな拡張メソッドに対応しています。 ラムダ式を受け取るものや、コンテンツの種類と書式設定文字列を受け取るものがあります。
 
 [!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
 
@@ -83,7 +83,7 @@ app.UseStatusCodePages();
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-リダイレクトの拡張メソッドもあります。 302 ステータス コードをクライアントに送信いずれかと、元の状態コードをクライアントに返しますがもリダイレクト URL のハンドラーを実行いずれか。
+リダイレクト拡張メソッドもあります。 302 ステータス コードをクライアントに送信するものや、元のステータス コードをクライアントに返すが、リダイレクト URL のハンドラーを実行するものがあります。
 
 [!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
@@ -91,7 +91,7 @@ app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 app.UseStatusCodePagesWithReExecute("/error/{0}");
 ```
 
-特定の要求のステータス コード ページを無効にする必要がある場合は、これを行うことができます。
+特定の要求に対してステータス コード ページを無効にする場合、次の方法で可能です。
 
 ```csharp
 var statusCodePagesFeature = context.Features.Get<IStatusCodePagesFeature>();
@@ -103,36 +103,36 @@ if (statusCodePagesFeature != null)
 
 ## <a name="exception-handling-code"></a>例外処理コード
 
-例外処理のページ内のコードは、例外をスローできます。 多くの場合、純粋に静的なコンテンツで構成する実稼働のエラー ページのことをお勧めします。
+例外処理ページのコードは例外をスローすることがあります。 実稼働のエラー ページは純粋に静的なコンテンツで構成することをお勧めします。
 
-また、なることの応答ヘッダーが送信されると、応答のステータス コードを変更することはできません実行することもできる任意の例外のページやハンドラー。 応答を完了する必要があります。 または接続が中止されました。
+また、応答のヘッダーの送信後、応答のステータス コードを変更できなくなり、例外ページやハンドラーを実行できなくなることに注意してください。 応答は完了している必要があります。あるいは、接続が中止となっている必要があります。
 
-## <a name="server-exception-handling"></a>サーバーの例外処理
+## <a name="server-exception-handling"></a>サーバー例外処理
 
-アプリでは、ロジックを処理する例外に加え、[サーバー](servers/index.md)アプリをホストしているいくつかの例外処理を実行します。 サーバーは、ヘッダーが送信される前に、例外をキャッチ、サーバーは本文なしで 500 内部サーバー エラー応答を送信します。 サーバーは、ヘッダーが送信された後に例外をキャッチ、サーバーは接続を閉じます。 アプリによって処理されない要求は、サーバーによって処理されます。 サーバーの例外によって発生する例外が処理される処理します。 いずれかの構成のカスタム エラー ページまたは例外処理のミドルウェアまたはフィルターはこの動作に影響しません。
+アプリの例外処理ロジックに加え、アプリをホストしている[サーバー](servers/index.md)がいくつかの例外処理を実行します。 サーバーがヘッダーの送信前に例外をキャッチすると、サーバーは 500 内部サーバー エラーを本文なしで送信します。 サーバーがヘッダーの送信後に例外をキャッチすると、サーバーは接続を閉じます。 アプリで処理されない要求はサーバーで処理されます。 例外が発生すると、サーバーの例外処理で処理されます。 カスタムのエラー ページ、例外処理ミドルウェア、フィルターを構成しても、この動作は変わりません。
 
-## <a name="startup-exception-handling"></a>スタートアップ例外処理
+## <a name="startup-exception-handling"></a>起動時の例外処理
 
-ホスト レイヤーだけでは、アプリの起動中に発生する例外を処理できます。 実行できます[エラーへの応答での起動中に、ホストの動作を構成する](hosting.md#detailed-errors)を使用して`captureStartupErrors`と`detailedErrors`キー。
+アプリの起動中に起こる例外はホスティング層だけが処理できます。 `captureStartupErrors` と `detailedErrors` キーを利用し、[起動中のエラーに対するホストの動作を構成](hosting.md#detailed-errors)できます。
 
-ホスト アドレスとポートをバインドした後にエラーが発生する場合、ホストしていることができます、キャプチャしたスタートアップ エラーのエラー ページだけ表示されます。 任意のバインディングは、何らかの理由で失敗した場合、ホスト層 dotnet プロセスのクラッシュ、重大な例外をログに記録し、エラー ページは表示されません。
+ホスティングでは、ホスト アドレス/ポート バインディング後にエラーが発生した場合のみ、キャプチャされた起動時エラーに対してエラー ページを表示できます。 何らかの理由でバインディングに失敗した場合、ホスティング層は重要な例外をログに記録し、dotnet プロセスがクラッシュします。エラー ページは表示されません。
 
-## <a name="aspnet-mvc-error-handling"></a>ASP.NET MVC のエラー処理
+## <a name="aspnet-mvc-error-handling"></a>ASP.NET MVC エラー処理
 
-[MVC](../mvc/index.md)アプリにある例外フィルターを構成して、モデルの検証を実行するなどのエラーを処理するための追加オプション。
+[MVC](xref:mvc/overview) アプリには、エラー処理の追加オプションがいくつかあります。例外フィルターの構成やモデル検証の実行などです。
 
 ### <a name="exception-filters"></a>例外フィルター
 
-グローバルまたは MVC アプリケーション コント ローラーごとまたは - アクションごとに、例外フィルターを構成することができます。 これらのフィルターは、コント ローラーのアクションまたは別のフィルターの実行中に発生する未処理の例外を処理し、それ以外の場合は呼び出されません。 例外フィルターの詳細について[フィルター](../mvc/controllers/filters.md)です。
+例外フィルターはグローバルに構成するか、MVC アプリのコントローラーまたはアクション単位で構成できます。 このようなフィルターはコントローラー アクションや別のフィルターの実行中に発生した例外が未処理のときにそれを処理し、それ以外では呼び出されません。 例外フィルターの詳細は[フィルター](../mvc/controllers/filters.md)で確認できます。
 
 >[!TIP]
-> 例外フィルターは、MVC アクション内で発生する例外をトラップするのに便利ですが取り込まエラー ミドルウェアを処理する柔軟性がありません。 [全般] の場合、ミドルウェアを優先し、エラー処理のためにのみ必要があるフィルターを使用して*異なる*する MVC アクションの選択に基づいて。
+> 例外フィルターは、MVC アクション内で発生する例外をトラップするのには適していますが、エラー処理ミドルウェアほどの柔軟性はありません。 一般的なケースにはミドルウェアを選択し、MVC アクションで選択されたのとは*異なる*方法でエラー処理を行う必要がある場合にのみフィルターを使用します。
 
-### <a name="handling-model-state-errors"></a>処理のモデル状態エラー
+### <a name="handling-model-state-errors"></a>モデル状態エラーの処理
 
-[モデルの検証](../mvc/models/validation.md)前に呼び出される、各コント ローラー アクションを発生し、検査するアクション メソッドの責任である`ModelState.IsValid`して適切に対処します。
+[モデル検証](../mvc/models/validation.md)は各コントローラー アクションを呼び出す前に行われます。`ModelState.IsValid` を検査し、適切に対処するのはアクション メソッドの仕事です。
 
-一部のアプリは後者モデル検証エラーを処理するため、標準の規則に従うを選択、[フィルター](../mvc/controllers/filters.md)適切な場所をこのようなポリシーを実装する場合があります。 無効なモデルの状態を持つユーザーの操作の動作をテストする必要があります。 詳細について[テスト コント ローラー ロジック](../mvc/controllers/testing.md)です。
+一部のアプリでは、モデル検証エラーを処理するとき、標準的な規則に従います。その場合、そのようなポリシーを実装する場所として[フィルター](../mvc/controllers/filters.md)が適していることがあります。 無効なモデル状態でアクションの動作をテストしてください。 詳細については、[コントローラー ロジックのテスト](../mvc/controllers/testing.md)に関するページを参照してください。
 
 
 

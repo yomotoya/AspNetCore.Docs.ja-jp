@@ -1,84 +1,84 @@
 ---
-title: "ASP.NET Core MVC ビュー"
+title: "ASP.NET Core MVC のビュー"
 author: ardalis
-description: "ビューが、アプリのデータの表示と ASP.NET Core MVC でのユーザーとの対話を処理する方法について説明します。"
-ms.author: riande
+description: "ビューがアプリのデータ表示と、ASP.NET Core MVC でのユーザー操作を処理する方法について説明します。"
 manager: wpickett
+ms.author: riande
 ms.date: 12/12/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: dc36c76dbd7d82a926e39d8a8ab3a2a53b65d954
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: bab08e75652c75b371438581d6e9f56541844a61
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC ビュー
+# <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC のビュー
 
-によって[Steve Smith](https://ardalis.com/)と[Luke Latham](https://github.com/guardrex)
+作成者: [Steve Smith](https://ardalis.com/)、[Luke Latham](https://github.com/guardrex)
 
-このドキュメントでは、ASP.NET Core MVC アプリケーションで使用されるビューについて説明します。 Razor ページについては、次を参照してください。 [Razor ページの概要](xref:mvc/razor-pages/index)です。
+このドキュメントでは、ASP.NET Core MVC アプリケーションで使用されるビューについて説明します。 Razor ページについては、「[ASP.NET Core での Razor ページの概要](xref:mvc/razor-pages/index)」を参照してください。
 
-**M**odel -**V**ビュー -**C**ontroller (MVC) パターン、*ビュー*アプリのデータのプレゼンテーションとユーザーの操作を処理します。 ビューは、HTML テンプレートが埋め込まれて[Razor マークアップ](xref:mvc/views/razor)です。 Razor のマークアップは、クライアントに送信される web ページを生成するために HTML マークアップが対話するコードです。
+**M**odel-**V**iew-**C**ontroller (MVC) パターンでは、*ビュー*がアプリのデータ表示とユーザー操作を処理します。 ビューは、[Razor マークアップ](xref:mvc/views/razor)が埋め込まれた HTML テンプレートてです。 Razor マークアップは、クライアントに送信する Web ページを生成するために HTML マークアップと対話するコードです。
 
-ASP.NET Core MVC ビューは*.cshtml*ファイルを使用する、 [c# プログラミング言語](/dotnet/csharp/)Razor マークアップでします。 通常、ファイルの表示はフォルダーの各アプリの名前にグループ化[コント ローラー](xref:mvc/controllers/actions)です。 フォルダーが格納されている、*ビュー*アプリのルートにあるフォルダー。
+ASP.NET Core MVC では、ビューは、Razor マークアップで [C# プログラミング言語](/dotnet/csharp/)を使用する *.cshtml* ファイルです。 通常、ビュー ファイルは、各アプリの[コントローラー](xref:mvc/controllers/actions)の名前が付いたフォルダーにグループ化されます。 これらのフォルダーは、アプリのルートにある *Views* フォルダーに格納されます。
 
-![Visual Studio のソリューション エクスプ ローラーで、views フォルダーは About.cshtml、Contact.cshtml、および Index.cshtml ファイルを表示するのには開放の [ホーム] フォルダーで開く](overview/_static/views_solution_explorer.png)
+![Visual Studio のソリューション エクスプローラーで Views フォルダー、Home フォルダーが開かれ、About.cshtml、Contact.cshtml、および Index.cshtml ファイルが示されています。](overview/_static/views_solution_explorer.png)
 
-*ホーム*コント ローラーがによって表される、*ホーム*内のフォルダー、*ビュー*フォルダーです。 *ホーム*フォルダーには用のビューが含まれています、*に関する*、*連絡先*、および*インデックス*(ホーム ページ) の web ページ。 ユーザーがこれらの 3 つ web サイト、コント ローラー アクションのいずれかを要求するときに、*ホーム*コント ローラーは、3 つのビューのどちらを使用してビルドし、ユーザーに web ページを返すを決定します。
+*ホーム* コントローラーは、*Views* フォルダー内の *Home* フォルダーによって表されます。 *Home* フォルダーには、*About*、*Contact*、*Index* (ホームページ) の Web ページのビューが含まれています。 ユーザーがこれら 3 つの Web ページのうちの 1 つを要求すると、*ホーム* コントローラー内のコントローラー アクションが 3 つのビューからビルドに使用するものを決定して、ユーザーに Web ページを返します。
 
-使用して[レイアウト](xref:mvc/views/layout)を一貫性のある web ページのセクションを提供し、コードの繰り返しを削減します。 多くの場合、レイアウトには、ヘッダー、ナビゲーションとメニューの要素、およびフッターが含まれています。 ヘッダーとフッター多くのメタデータ要素とスクリプトとスタイルの資産へのリンクの定型的なマークアップを通常含まれます。 レイアウトでは、ビューでは、この定型的なマークアップを回避できます。
+[レイアウト](xref:mvc/views/layout)を使用して、一貫性のある Web ページ セクションを提供し、コードの繰り返しを削減します。 多くの場合、レイアウトには、ヘッダー、ナビゲーションとメニュー要素、フッターが含まれています。 ヘッダーとフッターには通常、多くのメタデータ要素とスクリプトおよびスタイル アセットへのリンクの定型マークアップが含まれます。 レイアウトは、ビューでこの定型マークアップを回避するのに役立ちます。
 
-[部分ビュー](xref:mvc/views/partial)ビューの再利用可能な部分を管理することにより、コードの重複を削減します。 たとえば、部分ビューは、いくつかのビューに表示されているブログ web サイトで、作成者略歴に役立ちます。 作成者略歴は、通常のビューのコンテンツを必要し、しない web ページのコンテンツを生成するために実行するコードです。 作成者略歴コンテンツは単独で、モデル バインディングによってビューに表示する部分ビューを使用して、この種類のコンテンツは、最適です。
+[部分ビュー](xref:mvc/views/partial)は、再利用可能なビューの部分を管理することで、コードの重複を削減します。 たとえば、ブログ Web サイトで複数のビューに表示される作成者の略歴に、部分ビューが役立ちます。 作成者の略歴は、通常のビュー コンテンツで、Web ページのコンテンツを生成するためにコードを実行する必要はありません。 作成者の略歴コンテンツは、モデル バインディングだけでビューで使用することができるため、この種類のコンテンツには部分ビューを使用するのが最適です。
 
-[コンポーネントの表示](xref:mvc/views/view-components)部分のようなビューは、コードの繰り返しを削減することができる点で、web ページを表示するために、サーバーで実行するコードを必要とするコンテンツの表示に適していますがします。 ビューのコンポーネントは、描画された内容は、ショッピング カートの web サイトのように、データベースとの対話を必要とする場合に便利です。 コンポーネントの表示は web ページの出力を生成するためにモデル バインディングに制限されます。
+[ビュー コンポーネント](xref:mvc/views/view-components)は、コードの繰り返しを削減できる点は部分ビューと似ていますが、Web ページをレンダリングするために、コードをサーバーで実行する必要があるビュー コンテンツに適しています。 ビュー コンポーネントは、レンダリングされたコンテンツで、Web サイトのショッピング カートのように、データベースとの対話を必要とする場合に便利です。 ビュー コンポーネントは、Web ページの出力を生成するためのモデル バインディングに限定されるものではありません。
 
-## <a name="benefits-of-using-views"></a>ビューを使用する利点
+## <a name="benefits-of-using-views"></a>ビューを使用するメリット
 
-ビューを確立するために、 [ **S**eparation **o**f **C**oncerns (SoC) デザイン](http://deviq.com/separation-of-concerns/)からユーザー インターフェイスのマークアップを分離することにより、MVC アプリケーション内でアプリの他の部分です。 次の SoC 設計により、アプリ モジュール、いくつかの利点を提供します。
+ビューは、ユーザー インターフェイス マークアップをアプリの他の部分から分離することで、MVC アプリ内で [**S**eparation **o**f **C**oncerns (SoC) 設計](http://deviq.com/separation-of-concerns/)を確立することに役立ちます。 SoC 設計に従うことで、アプリをモジュール化することができます。これにより次のような複数のメリットがもたらされます。
 
-* アプリより適切に編成されていますのでを維持するために簡単です。 ビューは、アプリの機能によって一般にグループ化されます。 これにより、機能を使用する場合は、関連するビューを見つけやすくします。
-* アプリの一部は疎結合します。 構築し、ビジネス ロジックとデータ アクセス コンポーネントから個別に、アプリのビューを更新できます。 必ずしも、アプリの他の部分を更新することがなく、アプリのビューを変更できます。
-* 個別の単位は、ビューがあるために、ユーザー インターフェイスがアプリの一部をテストする簡単です。
-* 効率的な整理、により可能性は低くなりますユーザー インターフェイスの繰り返しセクションでは誤ってを学習します。
+* より効率的に整理されるため、アプリの維持が容易になります。 ビューは通常、アプリの機能によってグループ化されます。 これにより、機能を使用する際に、関連するビューが見つけやすくなります。
+* アプリの部分は弱く結合されています。 ビジネス ロジックとデータ アクセス コンポーネントと切り離して、アプリのビューをビルドおよび更新できます。 アプリの他の部分を更新しなくても、アプリのビューを変更できます。
+* ビューは個別の単位であるため、アプリのユーザー インターフェイス部分をより簡単にテストできます。
+* より効率的に整理されるため、ユーザー インターフェイスのセクションを誤って繰り返す可能性が低くなります。
 
-## <a name="creating-a-view"></a>ビューを作成します。
+## <a name="creating-a-view"></a>ビューの作成
 
-コント ローラーに固有のビューを作成するのには*ビュー/[ControllerName]*フォルダーです。 コント ローラー間で共有されるビューについてに、 *Views/shared*フォルダーです。 ビューを作成するには、新しいファイルを追加し、関連付けられたコント ローラー アクションのと同じ名前を付けます、 *.cshtml*ファイル拡張子。 対応するビューを作成する、*に関する*アクションで、*ホーム*コント ローラーで、作成、 *About.cshtml*ファイルで、*ビュー/ホーム*フォルダー。
+コントローラーに固有のビューは、*Views/[ControllerName]* フォルダー内に作成されます。 コントローラー間で共有されるビューは、*Views/Shared* フォルダーに配置されます。 ビューを作成するには、新しいファイルを追加し、このファイルに、関連付けられたコントローラー アクションと同じ名前にファイル拡張子 *.cshtml* を付けた名前を付けます。 *ホーム* コントローラーで、*About* アクションに対応するビューを作成するには、*Views/Home* フォルダー内に *About.cshtml* ファイルを作成します。
 
 [!code-cshtml[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
-*Razor*マークアップが始まり、`@`シンボル。 内のコードを配置する (C#) で実行 (C#) ステートメント[Razor コードのブロック](xref:mvc/views/razor#razor-code-blocks)中かっこで off に設定 (`{ ... }`)。 たとえばに"About"の割り当てを参照してください`ViewData["Title"]`上に示したです。 HTML 内の値を表示するには単に値が参照することによって、`@`シンボル。 内容を参照してください、`<h2>`と`<h3>`要素上です。
+*Razor* マークアップは、`@` 記号で始まります。 中かっこ (`{ ... }`) で始まる [Razor コード ブロック](xref:mvc/views/razor#razor-code-blocks)内に C# コードを配置して、C# ステートメントを実行します。 例として、上に示されている `ViewData["Title"]` への "About" の割り当てを参照してください。 `@` 記号を使用して値を参照するだけで、HTML 内に値を表示することができます。 上記の `<h2>` 要素と `<h3>` 要素のコンテンツを参照してください。
 
-前に示したコンテンツの表示は、ユーザーに表示される web ページ全体の一部のみです。 ページのレイアウトの残りの部分とビューの他の一般的な側面は、他のビュー ファイルに指定されます。 詳細については、次を参照してください。、[レイアウト トピック](xref:mvc/views/layout)です。
+上記のビュー コンテンツは、ユーザーにレンダリングされる Web ページ全体の一部のみを示しています。 残りのページのレイアウトとビューのその他の共通する側面は、他のビュー ファイルで指定されます。 詳細については、「[Layout](xref:mvc/views/layout)」 (レイアウト) のトピックを参照してください。
 
-## <a name="how-controllers-specify-views"></a>コント ローラーがビューを指定する方法
+## <a name="how-controllers-specify-views"></a>コントローラーがビューを指定する方法
 
-ビューは通常の操作から返される、 [ViewResult](/aspnet/core/api/microsoft.aspnetcore.mvc.viewresult)の型である[ActionResult](/aspnet/core/api/microsoft.aspnetcore.mvc.actionresult)です。 アクション メソッドが作成して返すことができます、`ViewResult`を直接一般的に実行されていないことができます。 ほとんどのコント ローラーが継承ため[コント ローラー](/aspnet/core/api/microsoft.aspnetcore.mvc.controller)、単に使用する、`View`を返すヘルパー メソッド、 `ViewResult`:
+ビューは通常、[ActionResult](/aspnet/core/api/microsoft.aspnetcore.mvc.actionresult) の型である [ViewResult](/aspnet/core/api/microsoft.aspnetcore.mvc.viewresult) としてアクションから返されます。 アクション メソッドで `ViewResult` を作成して直接返すことはできますが、一般的には行われていません。 ほとんどのコントローラーは [Controller](/aspnet/core/api/microsoft.aspnetcore.mvc.controller) から継承されるため、`View` ヘルパー メソッドを使って `ViewResult` を返します。
 
 *HomeController.cs*
 
 [!code-csharp[Main](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
 
-この操作から制御が戻るとき、 *About.cshtml*最後のセクションに表示されているビューは、次の web ページとして表示されます。
+このアクションが返されると、最後のセクションに表示されている *About.cshtml* ビューが、次の Web ページとしてレンダリングされます。
 
-![Edge ブラウザーでレンダリングされるページについて](overview/_static/about-page.png)
+![Edge ブラウザーでレンダリングされた About ページ](overview/_static/about-page.png)
 
-`View`ヘルパー メソッドが複数のオーバー ロードします。 必要に応じて指定できます。
+`View` ヘルパー メソッドには複数のオーバーロードがあります。 必要に応じて以下を指定できます。
 
-* 返される明示的なビュー。
+* 返す明示的なビュー:
 
   ```csharp
   return View("Orders");
   ```
-* A[モデル](xref:mvc/models/model-binding)に渡す、ビュー。
+* ビューに渡す[モデル](xref:mvc/models/model-binding):
 
   ```csharp
   return View(Orders);
   ```
-* ビューとモデルの両方で:
+* ビューとモデルの両方:
 
   ```csharp
   return View("Orders", Orders);
@@ -86,50 +86,50 @@ ASP.NET Core MVC ビューは*.cshtml*ファイルを使用する、 [c# プロ�
 
 ### <a name="view-discovery"></a>ビューの検出
 
-アクションは、ビューを返します、ときに、プロセスを呼び出す*ビュー検出*行われます。 このプロセスでは、ビュー名に基づいて、どのファイルの表示が使用されるを決定します。 
+アクションがビューを返すときに、*ビューの検出*と呼ばれるプロセスが行われます。 このプロセスでは、ビュー名に基づいて、使用するビュー ファイルを決定します。 
 
-既定の動作、`View`メソッド (`return View();`) を呼び出し元のアクション メソッドと同じ名前のビューを返すことです。 たとえば、*に関する*`ActionResult`という名前のビュー ファイルを検索するコント ローラーのメソッド名が使用される*About.cshtml*です。 ランタイムが最初に、検索、*ビュー/[ControllerName]*ビューのフォルダーです。 検索に一致するビューがありますが見つからない場合は、 *Shared*ビューのフォルダーです。
+`View` メソッド (`return View();`) の既定の動作は、呼び出し元のアクション メソッドと同じ名前を持つビューを返すことです。 たとえば、コントローラーの *About* `ActionResult` メソッド名は、*About.cshtml* という名前のビュー ファイルの検索に使用されます。 ランタイムは最初に、ビューの *Views/[ControllerName]* フォルダーを調べます。 そこで一致するビューが見つからない場合は、ビューの *Shared* フォルダーを検索します。
 
-暗黙的に返す場合にかかわらず、`ViewResult`で`return View();`にビューの名前を明示的に渡すことも、`View`メソッドを`return View("<ViewName>");`です。 どちらの場合は、ビューの検出は、この順序で一致するビュー ファイルを検索します。
+`return View();` を使用して `ViewResult` を暗黙的に返すか、`return View("<ViewName>");` を使用してビュー名を `View` メソッドに明示的に渡すかは関係ありません。 どちらの場合も、ビューの検出は、次の順序で一致するビュー ファイルを検索します。
 
-   1. *ビュー/\[ControllerName]\[ViewName] .cshtml*
+   1. *Views/\[ControllerName]\[ViewName].cshtml*
    1. *Views/Shared/\[ViewName].cshtml*
 
-ビュー名の代わりに、ビューのファイル パスを指定できます。 アプリのルートから始まる絶対パスを使用した場合 (必要に応じて開始され、「/」または"~/") では、 *.cshtml*拡張機能を指定する必要があります。
+ビュー名の代わりに、ビュー ファイル パスを指定できます。 アプリのルートから始まる (必要に応じて"/" または "~/" で始まる) 絶対パスを使用する場合は、*.cshtml* 拡張子を指定する必要があります。
 
 ```csharp
 return View("Views/Home/About.cshtml");
 ```
 
-相対パスを使用することがなく異なるディレクトリにビューを指定する、 *.cshtml*拡張機能です。 内部、 `HomeController`、返すことができます、*インデックス*の表示、*管理*相対パスを持つビュー。
+*.cshtml* 拡張子なしで、相対パスを使用して異なるディレクトリ内にあるビューを指定することもできます。 `HomeController` の内部で、相対パスを使用して、*Manage* ビューの *Index* ビューを返すことができます。
 
 ```csharp
 return View("../Manage/Index");
 ```
 
-同様に、現在のコント ローラーに固有のディレクトリでを指定することができます、"./"プレフィックス。
+同様に、プレフィックス "./" を使用して、現在のコントローラーに固有のディレクトリを指定することができます。
 
 ```csharp
 return View("./About");
 ```
 
-[部分ビュー](xref:mvc/views/partial)と[コンポーネントを表示](xref:mvc/views/view-components)似ています (ただしと一致しない) の検出メカニズムを使用します。
+[部分ビュー](xref:mvc/views/partial)と[ビュー コンポーネント](xref:mvc/views/view-components)は、まったく同じではありませんが、同様の検出メカニズムを使用します。
 
-どのビューは、アプリ内にあるを使用して、カスタムの既定の規則をカスタマイズする[IViewLocationExpander](/aspnet/core/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander)です。
+カスタムの [IViewLocationExpander](/aspnet/core/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander) を使用して、ビューをアプリ内に配置する方法の既定の規則をカスタマイズすることができます。
 
-ビューの検出は、ファイル名でファイルの表示を検出することに依存しています。 基になるファイル システムが大文字と小文字の場合は、ビューの名前はおそらく大文字小文字を区別です。 オペレーティング システム間で互換性のため、コント ローラーとアクション名および関連するビューのフォルダーとファイル名の間のケースに一致します。 ファイルの表示を区別するファイル システムの操作中に検出できないエラーが発生した場合は、要求されたビュー ファイルと実際のビューのファイル名の大文字と小文字が一致していることを確認します。
+ビューの検出は、ファイル名によるビュー ファイルの検出に依存しています。 基になるファイル システムが大文字と小文字を区別する場合は、ビューの名前も大文字と小文字を区別する可能性があります。 オペレーティング システム間の互換性のため、コントローラー、アクション名、関連するビュー フォルダー、ファイル名の間で、大文字と小文字の区別を一致させます。 大文字と小文字を区別するファイル システムを使用していて、ビュー ファイルが見つからないというエラーが発生する場合は、要求されたビュー ファイルと実際のビュー ファイルの名前の大文字と小文字が一致していることを確認します。
 
-コント ローラー、アクション、および保守容易性とわかりやすくするためのビューの間の関係を反映するように、ビューのファイル構造を整理するためのベスト プラクティスに従ってください。
+保守性を高め、わかりやすくするため、ビューのファイル構造を整理するためのベスト プラクティスに従って、コントローラー、アクション、およびビューのリレーションシップを反映します。
 
 ## <a name="passing-data-to-views"></a>ビューにデータを渡す
 
-いくつかのアプローチを使用して、ビューにデータを渡すことができます。 最も堅牢な方法は、指定する、[モデル](xref:mvc/models/model-binding)ビュー内の型。 このモデルと呼ばれる一般的な*viewmodel*です。 Viewmodel 型のインスタンスは、アクションからビューに渡します。
+いくつかの方法を使用して、ビューにデータを渡すことができます。 最も確実な方法は、ビューで[モデル](xref:mvc/models/model-binding)の型を指定することです。 このモデルは、一般的に *viewmodel* と呼ばれます。 viewmodel 型のインスタンスをアクションからビューに渡します。
 
-により、利用するためにビューをビューにデータを渡して、viewmodel を使用して*強力な*型チェックします。 *厳密な型指定*(または*厳密に型指定された*) すべての変数および定数では、明示的に定義された型 (たとえば、 `string`、 `int`、または`DateTime`)。 ビューで使用される型の妥当性は、コンパイル時にチェックされます。
+viewmodel を使用してデータをビューに渡すことで、ビューで*厳密な*型チェックを利用できるようになります。 *厳密な型指定* (または*厳密に型指定された*) は、すべての変数および定数に明示的に定義された型 (`string`、`int`、または `DateTime` など) があることを意味します。 ビューで使用される型の妥当性は、コンパイル時にチェックされます。
 
-[Visual Studio](https://www.visualstudio.com/vs/)と[Visual Studio Code](https://code.visualstudio.com/)と呼ばれる機能を使用して、厳密に型指定されたクラス メンバーを一覧表示[IntelliSense](/visualstudio/ide/using-intellisense)です。 Viewmodel のプロパティを表示する場合は、入力変数名のピリオドが続く viewmodel (`.`)。 これにより、エラーの少ないコードをより早く作成できます。
+[Visual Studio](https://www.visualstudio.com/vs/) と [Visual Studio Code](https://code.visualstudio.com/) は、[IntelliSense](/visualstudio/ide/using-intellisense) と呼ばれる機能を使用して、厳密に型指定されたクラス メンバーを一覧表示します。 viewmodel のプロパティを表示する場合は、viewmodel の変数名に続けてピリオド (`.`) を入力します。 これにより、エラーの少ないコードをより早く記述できます。
 
-使用してモデルを指定して、`@model`ディレクティブです。 使用してモデルを使用して`@Model`:
+`@model` ディレクティブを使用してモデルを指定します。 `@Model` を使用してモデルを使用します。
 
 ```cshtml
 @model WebApplication1.ViewModels.Address
@@ -142,7 +142,7 @@ return View("./About");
 </address>
 ```
 
-ビューにモデルを提供するには、コント ローラーは、それをパラメーターとして渡します。
+モデルをビューに提供するため、コントローラーはモデルをパラメーターとして渡します。
 
 ```csharp
 public IActionResult Contact()
@@ -162,7 +162,7 @@ public IActionResult Contact()
 }
 ```
 
-ビューを提供できるモデルの種類に制限はありません。 使用することをお勧め**P**lain **O**%ld **C**LR **O**オブジェクト (POCO) viewmodels ほとんどまたはまったく動作 (メソッド) を定義します。 通常、viewmodel クラスは、いずれかに格納されて、*モデル*フォルダーまたは個別の*ViewModels*アプリのルートにあるフォルダーです。 *アドレス*viewmodel 上記の例で使用される、という名前のファイルに格納されている POCO viewmodel *Address.cs*:
+ビューに提供できるモデルの型に制限はありません。 **P**lain **O**ld **C**LR **O**bject (POCO) viewmodel を、動作 (メソッド) をほとんど定義せずに使用することをお勧めします。 通常、viewmodel クラスは、*Models* フォルダーまたはアプリのルートにある個別の *ViewModels* フォルダーのいずれかに格納されます。 上記の例で使用されている *Address* viewmodel は、*Address.cs* という名前のファイルに格納されている POCO viewmodel です。
 
 ```csharp
 namespace WebApplication1.ViewModels
@@ -179,35 +179,35 @@ namespace WebApplication1.ViewModels
 ```
 
 > [!NOTE]
-> Viewmodel 型やビジネス モデルの種類の両方を同じクラスを使用して何もできません。 ただし、別のモデルを使用してでは、ビューとは異なるいない個別にビジネス ロジックとデータ、アプリのアクセスの部分です。 モデルと viewmodels の分離はセキュリティ上の利点をモデルで使用する場合にも[モデル バインディング](xref:mvc/models/model-binding)と[検証](xref:mvc/models/validation)ユーザーがアプリに送信されるデータにします。
+> viewmodel 型とビジネス モデル型の両方に同じクラスを使用することを妨げるものはありません。 しかし、別のモデルを使用することで、ビジネス ロジックとアプリのデータ アクセス部分からは独立して、ビューを変えることができます。 モデルと viewmodel を分離することで、モデルが[モデル バインディング](xref:mvc/models/model-binding)と[検証](xref:mvc/models/validation)を使用する際に、ユーザーによってアプリに送信されるデータに対してセキュリティ上の利点ももたらされます。
 
 
 <a name="VD_VB"></a>
 
 ### <a name="weakly-typed-data-viewdata-and-viewbag"></a>弱い型指定のデータ (ViewData と ViewBag)
 
-注: `ViewBag` Razor ページでは使用できません。
+注: `ViewBag` は Razor ページでは使用できません。
 
-ビューへのアクセスのある、厳密に型指定されたビューだけでなく、*弱い型指定*(とも呼ばれる*弱い型指定*) データのコレクション。 厳密な型とは異なり*弱い型*(または*型が失われる*) 使用するデータの型を明示的に宣言しないことを意味します。 少量のコント ローラーとビューとの間のデータを渡すため、厳密に型指定されたデータのコレクションを使用できます。
+厳密に型指定されたビューに加え、ビューはデータの*弱い型指定* (*緩く型指定された*とも呼ばれます) のコレクションにもアクセスできます。 厳密な型とは異なり、*弱い型* (または*緩い型*) は、使用するデータの型を明示的に宣言しないことを意味します。 弱い型指定のデータのコレクションを使用して、少量のデータをコントローラーとビュー間でやり取りすることができます。
 
-| 間でデータを渡すことをしています.                        | 例                                                                        |
+| データをやり取りする相手                        | 例                                                                        |
 | ------------------------------------------------- | ------------------------------------------------------------------------------ |
-| コント ローラーとビュー                             | ドロップダウン リストをデータを作成します。                                          |
-| ビューと[[レイアウト] ビュー](xref:mvc/views/layout)   | 設定、 **\<タイトル >**ビュー ファイルから、レイアウト ビューの要素の内容。  |
-| [部分ビュー](xref:mvc/views/partial)とビュー | ユーザーが要求した web ページに基づいてデータを表示するウィジェット。      |
+| コントローラーとビュー                             | ドロップダウン リストにデータを読み込む。                                          |
+| ビューと[レイアウト ビュー](xref:mvc/views/layout)   | ビュー ファイルからレイアウト ビューの **\<title>** 要素の内容を設定する。  |
+| [部分ビュー](xref:mvc/views/partial)とビュー | ユーザーが要求した Web ページに基づいてデータを表示するウィジェット。      |
 
-このコレクションは、いずれかで参照できる、`ViewData`または`ViewBag`コント ローラーとビューのプロパティです。 `ViewData`プロパティは、弱い型指定のオブジェクトのディクショナリ。 `ViewBag`プロパティはラッパー `ViewData` 、基になるの動的なプロパティを提供する`ViewData`コレクション。
+このコレクションは、コントローラーおよびビューで `ViewData` または `ViewBag` のいずれかのプロパティを通じて参照できます。 `ViewData` プロパティは、弱い型指定のオブジェクトのディクショナリです。 `ViewBag` プロパティは、基になる `ViewData` コレクションに動的プロパティを提供する `ViewData` をラップするラッパーです。
 
-`ViewData`および`ViewBag`は実行時に動的に解決されます。 コンパイル時の型チェック見て、どちらも通常よりエラーを起こしやすい、viewmodel を使用するよりもです。 そのため、一部の開発者が最小限に抑えるまたはまったく使用しないたい`ViewData`と`ViewBag`です。
+`ViewData` および `ViewBag` は実行時に動的に解決されます。 これらはコンパイル時の型チェックを提供していないため、どちらも viewmodel を使用する場合よりも一般的にエラーが発生しやすくなります。 そのため、開発者の中には、`ViewData` および `ViewBag` の使用を最小限に抑えるか、まったく使用しない人もいます。
 
 
 <a name="VD"></a>
 
 **ViewData**
 
-`ViewData`[ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary)を介してアクセスするオブジェクト`string`キー。 その他のキャストする必要がありますが、文字列データを格納し、キャストの必要性なしで直接使用`ViewData`オブジェクトの値を特定の型に抽出するときにします。 使用することができます`ViewData`およびなどのビュー内でビューをビューには、コント ローラーからデータを渡す[部分ビュー](xref:mvc/views/partial)と[レイアウト](xref:mvc/views/layout)です。
+`ViewData` は `string` キーを介してアクセスされる [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) オブジェクトです。 文字列データは、格納してキャストなしで直接使用できますが、特定の型を抽出するときには、他の `ViewData` オブジェクトの値をこれらの型にキャストする必要があります。 `ViewData` を使用して、データをコントローラーからビューとビュー内部 ([部分ビュー](xref:mvc/views/partial)および[レイアウト](xref:mvc/views/layout)を含む) に渡すことができます。
 
-するとあいさつ文とアドレスを使用して、値を設定する例を次に示します`ViewData`アクションで。
+次の例では、1 つのアクションで `ViewData` を使用して、あいさつ文とアドレスに値を設定します。
 
 ```csharp
 public IActionResult SomeAction()
@@ -226,7 +226,7 @@ public IActionResult SomeAction()
 }
 ```
 
-ビューでデータを操作します。
+ビューでデータを使用します。
 
 ```cshtml
 @{
@@ -245,9 +245,9 @@ public IActionResult SomeAction()
 
 **ViewBag**
 
-注: `ViewBag` Razor ページでは使用できません。
+注: `ViewBag` は Razor ページでは使用できません。
 
-`ViewBag`[DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata)に格納されているオブジェクトへの動的アクセスを提供するオブジェクト`ViewData`です。 `ViewBag`簡単にキャストする必要がないため、操作を指定できます。 次の例は、使用する方法を示しています。`ViewBag`を使用するのと同じ結果に`ViewData`上。
+`ViewBag` は、`ViewData` に格納されているオブジェクトへの動的アクセスを提供する [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) オブジェクトです。 `ViewBag` はキャストを必要としないため、より簡単に使用できます。 次の例は、上記の `ViewData` を使用した時と同じ結果になるように、`ViewBag` を使用する方法を示しています。
 
 ```csharp
 public IActionResult SomeAction()
@@ -276,13 +276,13 @@ public IActionResult SomeAction()
 </address>
 ```
 
-**ViewBag、ViewData を同時に使用します。**
+**ViewBag、ViewData を同時に使用する**
 
-注: `ViewBag` Razor ページでは使用できません。
+注: `ViewBag` は Razor ページでは使用できません。
 
-`ViewData`と`ViewBag`同じ基になるを参照してください`ViewData`コレクション、両方を使用することができます`ViewData`と`ViewBag`を混在させるし、値を読み書きするときにそれらの間に一致します。
+`ViewData` と `ViewBag` は基になる同じ `ViewData` コレクションを参照しているため、値を読み書きするときに、`ViewData` と `ViewBag` の両方を使用して、それらを組み合わせることができます。
 
-設定を使用して、タイトル`ViewBag`を使用して、および`ViewData`の上部にある、 *About.cshtml*ビュー。
+*About.cshtml* ビューの一番上で、`ViewBag` を使用してタイトルを設定し、`ViewData` を使用して説明を設定します。
 
 ```cshtml
 @{
@@ -292,7 +292,7 @@ public IActionResult SomeAction()
 }
 ```
 
-プロパティを読み取るがの使用を反転`ViewData`と`ViewBag`です。 *_Layout.cshtml*ファイルを使用して、タイトルを入手してください`ViewData`しを使用して、取得する`ViewBag`:
+プロパティを読み取りますが、`ViewData` と `ViewBag` の使用を反転します。 *_Layout.cshtml*ファイルで、`ViewData` を使用してタイトルを取得し、`ViewBag` を使用して説明を取得します。
 
 ```cshtml
 <!DOCTYPE html>
@@ -303,9 +303,9 @@ public IActionResult SomeAction()
     ...
 ```
 
-文字列でのキャストを必要としないことに注意してください`ViewData`です。 使用することができます`@ViewData["Title"]`キャストなし。
+文字列には `ViewData` のキャストを必要としないことに注意してください。 キャストせずに `@ViewData["Title"]` を使用できます。
 
-両方を使用して`ViewData`と`ViewBag`に混在させると、読み取りと書き込みのプロパティに一致すると、同じ時間動作します。 次のマークアップがレンダリングされます。
+`ViewData` と `ViewBag` の両方を同時に使用することは、プロパティの読み取りと書き込みを組み合わせることと同様に可能です。 次のマークアップがレンダリングされます。
 
 ```html
 <!DOCTYPE html>
@@ -316,25 +316,25 @@ public IActionResult SomeAction()
     ...
 ```
 
-**ViewBag、ViewData の違いの概要**
+**ViewData と ViewBag の相違点の概要**
 
- `ViewBag`Razor ページではありません。
+ `ViewBag` は Razor ページでは使用できません。
 
 * `ViewData`
-  * 派生した[ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary)など、役に立ちます辞書プロパティがあるため、 `ContainsKey`、 `Add`、 `Remove`、および`Clear`です。
-  * ディクショナリ内のキーは、空白が許可されているために、文字列、です。 例 : `ViewData["Some Key With Whitespace"]`
-  * 任意の型以外の場合、`string`を使用するビューでキャストする必要があります`ViewData`です。
+  * [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) から派生するため、`ContainsKey`、`Add`、`Remove`、`Clear` などの役に立つディクショナリ プロパティがあります。
+  * ディクショナリ内のキーは文字列なので、空白が許可されます。 例 : `ViewData["Some Key With Whitespace"]`
+  * `ViewData` を使用するには、ビューで `string` 以外のすべての型をキャストする必要があります。
 * `ViewBag`
-  * 派生した[DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata)が、ドット表記を使用して動的なプロパティの作成を許可するため、(`@ViewBag.SomeKey = <value or object>`)、キャストは必要ありません。 構文`ViewBag`コント ローラーとビューを追加する方が手軽になります。
-  * Null 値をチェックする方が簡単です。 例 : `@ViewBag.Person?.Name`
+  * [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) から派生するため、ドット表記 (`@ViewBag.SomeKey = <value or object>`) を使用して動的プロパティを作成できます。キャストは必要ありません。 `ViewBag` の構文は、コントローラーとビューへの追加を高速化します。
+  * null 値のチェックを簡素化します。 例 : `@ViewBag.Person?.Name`
 
-**ViewBag、ViewData、またはを使用する場合**
+**ViewData または ViewBag を使用する場合**
 
-両方`ViewData`と`ViewBag`少量のコント ローラーとビューの間でデータを渡すための有効なアプローチでは同じようにします。 基本設定に基づいて使用するかを選択します。 混在して一致`ViewData`と`ViewBag`オブジェクトは、コードが読みやすくし、一貫して使用方法の 1 つを維持します。 両方の方法は、実行時に動的に解決される原因で、実行時エラーが発生しやすくします。 一部の開発チームは、それを回避します。
+コントローラーとビュー間で少量のデータを渡すには、`ViewData` と `ViewBag` はどちらも等しく有効な方法です。 どちらを使用するかは、任意で選択できます。 `ViewData` オブジェクトと `ViewBag` オブジェクトを組み合わせることはできますが、1 つの方法を一貫して使用した方が、コードが読みやすくなり、維持も容易になります。 どちらの方法も実行時に動的に解決されるため、実行時エラーが発生しやすくなります。 開発チームの中には、これらを避けているところもあります。
 
 ### <a name="dynamic-views"></a>動的ビュー
 
-使用して、モデルは宣言しないでビュー型`@model`に渡されたモデルのインスタンスがあるが (たとえば、 `return View(Address);`) 動的にインスタンスのプロパティを参照できます。
+`@model` を使用してモデル型は宣言しないが、渡されるモデル インスタンス (`return View(Address);` など) があるビューは、インスタンスのプロパティを動的に参照できます。
 
 ```cshtml
 <address>
@@ -344,12 +344,12 @@ public IActionResult SomeAction()
 </address>
 ```
 
-この機能は、柔軟性を提供していますが、コンパイルの保護や IntelliSense は提供していません。 プロパティが存在しない場合は、実行時に web ページの生成が失敗します。
+この機能は柔軟性を提供しますが、コンパイルの保護や IntelliSense は提供していません。 プロパティが存在しない場合は、実行時に Web ページの生成が失敗します。
 
-## <a name="more-view-features"></a>詳細ビュー
+## <a name="more-view-features"></a>ビューのその他の機能
 
-[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)容易に既存の HTML タグにサーバー側の動作を追加します。 タグ ヘルパーを使用するには、カスタム コードや、ビューの中でヘルパーを記述する必要が回避できます。 タグ ヘルパーは、HTML 要素に属性として適用され、処理できないエディターでは無視されます。 これにより、さまざまなツールのビューのマークアップを表示して編集できます。
+[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)は、既存の HTML タグへのサーバー側の動作の追加を容易にします。 タグ ヘルパーを使用すると、ビュー内でカスタム コードやヘルパーを記述する必要がなくなります。 タグ ヘルパーは、HTML 要素に属性として適用され、タグ ヘルパーを処理できないエディターでは無視されます。 これにより、さまざまなツールでビューのマークアップの編集およびレンダリングが可能になります。
 
-カスタムの HTML マークアップを生成するは、多くの組み込み HTML ヘルパーを実現できます。 複雑なユーザー インターフェイス ロジックで処理できる[ビュー コンポーネント](xref:mvc/views/view-components)です。 ビューのコンポーネントは、同じ SoC そのコント ローラーを提供し、ビューを提供します。 アクションおよび一般的なユーザー インターフェイス要素で使用されるデータを処理するビューの必要をなくしことができます。
+カスタムの HTML マークアップの生成は、さまざまな組み込み HTML ヘルパーを使って行えます。 より複雑なユーザー インターフェイス ロジックは、[ビュー コンポーネント](xref:mvc/views/view-components)で処理できます。 ビュー コンポーネントは、コントローラーとビューが提供しているのと同じ SoC を提供します。 これにより、共通のユーザー インターフェイス要素で使用されるデータを扱うアクションおよびビューの必要がなくなります。
 
-ASP.NET Core の他の多くの側面と同様にサポートをビュー[依存性の注入](xref:fundamentals/dependency-injection)、するサービスを許可する[ビューに挿入される](xref:mvc/views/dependency-injection)です。
+ASP.NET Core の他の多くの側面と同様に、ビューは、サービスを[ビューに挿入する](xref:mvc/views/dependency-injection)ことを許可する、[依存性の注入](xref:fundamentals/dependency-injection)をサポートしています。

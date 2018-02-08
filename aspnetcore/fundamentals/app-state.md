@@ -1,130 +1,130 @@
 ---
-title: "ASP.NET Core でのセッションおよびアプリケーションの状態"
+title: "ASP.NET Core のセッションとアプリケーションの状態"
 author: rick-anderson
-description: "要求間で維持アプリケーションとユーザー (セッション) 状態にアプローチです。"
-ms.author: riande
+description: "要求間でアプリケーションとユーザー (セッション) の状態を維持する手法。"
 manager: wpickett
-ms.date: 11/27/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/app-state
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e00960370fbe87ac0f81f8455526221fa992decd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.date: 11/27/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/app-state
+ms.openlocfilehash: 7aa200d3612f766ab633ccab807421b9c5393975
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>ASP.NET Core でのセッションおよびアプリケーションの状態の概要
+# <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>ASP.NET Core のセッションとアプリケーションの状態の概要
 
-によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Steve Smith](https://ardalis.com/)、および[Diana LaRose](https://github.com/DianaLaRose)
+[Rick Anderson](https://twitter.com/RickAndMSFT)、[Steve Smith](https://ardalis.com/)、[Diana LaRose](https://github.com/DianaLaRose) 作
 
-HTTP は、ステートレス プロトコルです。 Web サーバーでは、独立した要求として、各 HTTP 要求を処理し、以前の要求からユーザーの値を保持しません。 この記事では、アプリケーションと要求間でセッション状態を保持するためにさまざまな方法について説明します。 
+HTTP はステートレス プロトコルです。 Web サーバーは各 HTTP 要求を非依存の要求として扱い、前の要求からのユーザー値を維持しません。 この記事では、要求間でアプリケーションとセッションの状態を維持するさまざまな方法について取り上げます。 
 
-## <a name="session-state"></a>セッションの状態
+## <a name="session-state"></a>セッション状態
 
-セッション状態は ASP.NET Core の機能で、これを使用することでユーザーが Web アプリを参照中にユーザー データを保存して格納することができます。 サーバー上のディクショナリまたはハッシュ テーブルで構成される、セッション状態は、ブラウザーからの要求間でデータを保持します。 セッション データは、キャッシュによってバックアップされます。
+セッション状態は ASP.NET Core の機能で、これを使用することでユーザーが Web アプリを参照中にユーザー データを保存して格納することができます。 セッション状態は、サーバー上のディクショナリまたはハッシュ テーブルから構成され、ブラウザーからの要求間でデータを維持します。 セッション データはキャッシュによりバックアップされます。
 
-ASP.NET Core は、クライアントには各要求を使用してサーバーに送信されたセッション ID が含まれた cookie を提供することにより、セッション状態を維持します。 サーバーは、セッション データをフェッチするのにセッション ID を使用します。 セッション cookie はブラウザーに固有であるためのブラウザーでセッションを共有することはできません。 ブラウザー セッションの終了時にのみ、セッション cookie が削除されます。 期限切れのセッションの cookie を受信すると、同じセッションの cookie を使用する新しいセッションが作成されます。 
+ASP.NET Core は、セッション ID を含む Cookie をクライアントに与えることでセッションの状態を維持します。セッション ID は要求ごとにサーバーに送信されます。 サーバーはセッション ID を使用し、セッション データを取得します。 セッション Cookie はブラウザーに固有であるため、ブラウザー間でセッションを共有することはできません。 セッション Cookie は、ブラウザー セッションが終了したときに初めて削除されます。 Cookie を受け取り、セッションが期限切れになった場合、同じセッション Cookie を使用する新しいセッションが作成されます。 
 
-サーバーは、最後の要求の後に限られた時間のセッションを保持します。 セッションのタイムアウトを設定するか、20 分間の既定値を使用します。 セッション状態は、特定のセッションに固有でが完全に永続化する必要はありませんユーザー データの格納に最適です。 呼び出すか、データをバッキング ストアから削除`Session.Clear`データ ストアに、セッションが期限切れにするか。 ブラウザーが閉じているときに、またはセッションの cookie を削除するときに、サーバーを認識しません。
+サーバーは、最後の要求から限られた時間だけセッションを維持します。 セッション タイムアウトを設定するか、20 分という既定値を使用してください。 セッション状態は、特定のセッションに固有であるが、永久的に維持する必要がないユーザー データの格納に最適です。 `Session.Clear` を呼び出したときか、データ ストアでセッションが期限切れになったとき、バックアップ ストアからデータが削除されます。 サーバーでは、ブラウザーが閉じられことやセッション Cookie が削除されたことが認識されません。
 
 > [!WARNING]
-> セッションでは、機密データを保存しないでください。 クライアント可能性がありますいないブラウザーを閉じて、セッションの cookie をクリア (および一部のブラウザーが windows の間でセッション cookie を維持する。)。 また、セッションできない可能性があります。 1 人のユーザーに制限次のユーザーは、同じセッションと続ける可能性があります。
+> セッションでは機密データを保存しないでください。 クライアントでブラウザーが閉じられず、セッション Cookie が消去されないことがあります (ブラウザーによっては、ウィンドウ間でセッション Cookie が有効になります)。 また、セッションが 1 人のユーザーに制限されないことがあります。次のユーザーが同じセッションを続けることがあります。
 
-メモリ内のセッション プロバイダーは、ローカル サーバー上のセッション データを格納します。 サーバー ファームで web アプリを実行する場合は、特定のサーバーには、各セッションを関連付けるにスティッキー セッションを使用する必要があります。 Windows Azure Web サイトのプラットフォームでは、スティッキー セッション アプリケーション要求ルーティング処理 (ARR) が既定値です。 ただし、スティッキー セッションはスケーラビリティに影響を与えるし、web アプリの更新プログラムが複雑になることができます。 良いオプションは、Redis を使用する、またはスティッキー セッションを必要としないが、SQL Server の分散をキャッシュします。 詳細については、次を参照してください。[分散キャッシュを使用して作業](xref:performance/caching/distributed)です。 サービス プロバイダーの設定の詳細については、「[構成セッション](#configuring-session)この記事で後述します。
+メモリ内セッション プロバイダーは、ローカル サーバー上でセッション データを保存します。 サーバー ファームで Web アプリを実行する予定であれば、固定セッションを使用し、各セッションを特定のサーバーに結び付ける必要があります。 Windows Azure Web Sites プラットフォームは、初期設定で固定セッションを使用します (アプリケーション要求ルーティング処理または ARR)。 ただし、固定セッションは拡張性に影響を与え、Web アプリの更新を複雑にすることがあります。 良い選択肢は、Redis または SQL Server の分散キャッシュを使用することです。固定セッションを必要としません。 詳細については、「[分散キャッシュの使用](xref:performance/caching/distributed)」を参照してください。 サービス プロバイダーの設定方法については、この記事の「[セッションを構成する](#configuring-session)」を参照してください。
 
 <a name="temp"></a>
 ## <a name="tempdata"></a>TempData
 
-ASP.NET Core MVC を公開、 [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData)プロパティを[コント ローラー](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0)です。 このプロパティは、読み取りが可能になるまで、データを格納します。 `Keep` メソッドと `Peek` メソッドは、削除せずにデータを確認するために使用できます。 `TempData`1 つの要求より多くのデータが必要なときにこのプロパティの値はリダイレクト、特に便利です。 `TempData`プロバイダーで実装 TempData、たとえば、cookie またはセッション状態のいずれかを使用します。
+ASP.NET Core MVC は[コントローラー](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0)上で [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) プロパティを公開します。 このプロパティは、読み取られるまでデータを格納します。 `Keep` メソッドと `Peek` メソッドは、削除せずにデータを確認するために使用できます。 `TempData` は特に、複数の要求にデータが必要な場合のリダイレクトに役立ちます。 `TempData` は、Cookie やセッション状態を利用することなどで、TempData プロバイダーによって実装されます。
 
 <a name="tempdata-providers"></a>
 ### <a name="tempdata-providers"></a>TempData プロバイダー
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-ASP.NET Core 2.0 以降では、既定で TempData を cookie に格納する、クッキー ベース TempData プロバイダーが使用します。
+ASP.NET Core 2.0 以降、Cookie に TempData を保存するために Cookie ベースの TempData プロバイダーが既定で使用されます。
 
-Cookie のデータがでエンコードされた、 [Base64UrlTextEncoder](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder?view=aspnetcore-2.0)です。 Cookie が暗号化されており、チャンク、ため、1 つの cookie のサイズ制限については、ASP.NET Core 1.x は適用されません。 Cookie のデータが圧縮されていないため、暗号化されたデータの圧縮が問題につながるセキュリティなど、 [CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit))と[侵害](https://wikipedia.org/wiki/BREACH_(security_exploit))攻撃です。 Cookie ベースの TempData プロバイダーの詳細については、次を参照してください。 [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs)です。
+Cookie データは [Base64UrlTextEncoder](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder?view=aspnetcore-2.0) でエンコードされます。 Cookie はチャンク エンコードされるため、ASP.NET Core 1.x の 1 Cookie のサイズ上限は適用されません。 暗号化されているデータを圧縮すると、[CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) 攻撃や [BREACH](https://wikipedia.org/wiki/BREACH_(security_exploit)) 攻撃など、セキュリティ上の問題を起す可能性があるため、Cookie データは圧縮されません。 Cookie ベース TempData プロバイダーの詳細については、「[CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs)」を参照してください。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-ASP.NET Core 1.0 および 1.1 では、セッション状態 TempData プロバイダーは既定値です。
+ASP.NET Core 1.0 と 1.1 では、セッション状態 TempData プロバイダーが既定です。
 
 --------------
 
 <a name="choose-temp"></a>
-### <a name="choosing-a-tempdata-provider"></a>TempData プロバイダーを選択します。
+### <a name="choosing-a-tempdata-provider"></a>TempData プロバイダーを選択する
 
-など、いくつかの考慮事項を伴う TempData プロバイダーを選択します。
+TempData プロバイダーを選択するときの考慮事項:
 
-1. アプリケーションが既には、他の目的でセッション状態を使用しますか。 場合は、セッション状態 TempData プロバイダーを使用しても (データのサイズ) とは別のアプリケーションに追加のコストはありません。
-2. アプリケーションを使用して TempData だけなので、慎重、比較的少量のデータ (最大 500 バイト) のですか。 Cookie TempData プロバイダーは TempData を実行する各要求にわずかな費用を追加します。 場合、 それ以外の場合は、セッション状態 TempData プロバイダーを TempData がなくなるまで、大量の各要求でデータのラウンド トリップを回避すると役に立つことができます。
-3. Web ファーム (複数のサーバー) でアプリケーションを実行しますか。 場合は、追加の構成が cookie TempData プロバイダーを使用する必要はありません。
+1. そのアプリケーションでセッション状態が他の目的のために既に使用されていないか。 使用されている場合、(データのサイズを除き) セッション状態 TempData プロバイダーがそのアプリケーションにコストを追加することはありません。
+2. そのアプリケーションでは、比較的少量のデータに対して (最大 500 バイト) TempData がわずかばかり使用されているだけではないか。 該当する場合、Cookie TempData プロバイダーは TempData を送信する要求ごとに少額のコストを追加します。 該当しない場合、セッション状態 TempData プロバイダーは便利かもしれません。TempData が尽きるまで、要求のたびに大量のデータをラウンドトリップすることが回避されます。
+3. そのアプリケーションは Web ファーム (複数のサーバー) で実行するのか。 その場合、Cookie TempData プロバイダーを使用するために追加の構成は必要ありません。
 
 > [!NOTE]
-> ほとんどの web クライアント (web ブラウザーなど) は、各 cookie や cookie の合計数の最大サイズに制限を適用します。 そのため、cookie TempData プロバイダーを使用する場合は、アプリは、これらの制限を超えるされませんを確認します。 暗号化のオーバーヘッドが少なくて済むに対する課金およびチャンキングは、データの合計サイズを検討してください。
+> ほとんどの Web クライアント (Web ブラウザーなど) は、各 Cookie の最大サイズ、Cookie の合計数、または両方に上限を課します。 そのため、Cookie TempData プロバイダーを使用するとき、アプリでそれらの上限が超えないことを確認してください。 データの合計サイズを考慮し、暗号化やチャンク化のオーバーヘッドを計算します。
 
 <a name="config-temp"></a>
-### <a name="configure-the-tempdata-provider"></a>TempData プロバイダーを構成します。
+### <a name="configure-the-tempdata-provider"></a>TempData プロバイダーを構成する
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Cookie ベースの TempData プロバイダーは既定で有効にします。 次`Startup`クラス コードは、セッション ベースの TempData プロバイダーを構成します。
+Cookie ベース TempData プロバイダーは既定で有効になります。 次の `Startup` クラス コードでは、セッション ベース TempData プロバイダーが構成されます。
 
 [!code-csharp[](app-state/sample/src/WebAppSessionDotNetCore2.0App/StartupTempDataSession.cs?name=snippet_TempDataSession&highlight=4,6,11)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-次`Startup`クラス コードは、セッション ベースの TempData プロバイダーを構成します。
+次の `Startup` クラス コードでは、セッション ベース TempData プロバイダーが構成されます。
 
 [!code-csharp[](app-state/sample/src/WebAppSession/StartupTempDataSession.cs?name=snippet_TempDataSession&highlight=4,9)]
 
 ---
 
-順序付けは、ミドルウェア コンポーネントにとって重要です。 前の例では、型の例外で`InvalidOperationException`が発生したときに`UseSession`後に呼び出され`UseMvcWithDefaultRoute`です。 参照してください[ミドルウェアが順序付け](xref:fundamentals/middleware#ordering)詳細についてはします。
+ミドルウェア コンポーネントの場合、順序が重要です。 先の例では、`UseMvcWithDefaultRoute` の後に `UseSession` が呼び出されたとき、型 `InvalidOperationException` の例外が発生します。 詳細については、[ミドルウェアの順序付け](xref:fundamentals/middleware#ordering)に関するページを参照してください。
 
 > [!IMPORTANT]
-> .NET Framework を対象として、セッション ベースのプロバイダーを使用して追加する場合、 [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session) NuGet パッケージをプロジェクトにします。
+> .NET Framework が対象で、セッション ベースのプロバイダーを使用するとき、[Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session) NuGet パッケージをプロジェクトに追加します。
 
 ## <a name="query-strings"></a>クエリ文字列
 
-新しい要求のクエリ文字列に追加して 1 つの要求からで、限られた量のデータを渡すことができます。 これは、電子メールやソーシャル ネットワークを介して共有する埋め込みの状態を持つリンクを許可する永続的な方法で状態をキャプチャするために役立ちます。 ただし、このためを使用しないでクエリ文字列機密性の高いデータ。 簡単に共有されているだけでなくクエリ文字列にデータを含めることができます作成の営業案件[クロスサイト リクエスト フォージェリ (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))攻撃は、ユーザーが認証中に悪意のあるサイトにアクセスするを騙してことができます。 攻撃者は、アプリからユーザー データを盗む、またはユーザーの代理として、悪意のあるアクションを実行します。 保持されているアプリケーションまたはセッション状態は、CSRF 攻撃から保護する必要があります。 CSRF 攻撃の詳細については、次を参照してください。 [ASP.NET Core で防止サイト間で要求の偽造防止 (XSRF/CSRF) 攻撃](../security/anti-request-forgery.md)です。
+限られた量のデータを要求間で渡すことができます。新しい要求のクエリ文字列にそれを追加します。 これは、リンクと埋め込まれた状態がメールまたはソーシャル ネットワークを通して共有されるよう、永久的に状態をキャプチャするのに役立ちます。 ただし、この理由から、機密データにはクエリ文字列で絶対に使用しないでください。 クエリ文字列にデータを含めると、共有が簡単になりますが、[クロスサイト リクエスト フォージェリ (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) 攻撃の機会を与えてしまいます。認証中、ユーザーをだまして悪意のあるサイトに誘導します。 攻撃者はアプリからユーザー データを盗んだり、ユーザーになりすまして悪意のある行為を行ったりできます。 保存されるアプリケーションまたはセッション状態は CSRF 攻撃を防ぐ必要があります。 CSRF 攻撃の詳細については、「[Preventing Cross-Site Request Forgery (XSRF/CSRF) Attacks in ASP.NET Core](../security/anti-request-forgery.md)」 (ASP.NET Core でのクロスサイト リクエスト フォージェリ (XSRF/CSRF) の防止) を参照してください。
 
-## <a name="post-data-and-hidden-fields"></a>Post データと非表示フィールド
+## <a name="post-data-and-hidden-fields"></a>データや非表示フィールドの転記
 
-データは、隠しフォーム フィールドに保存されているし、次の要求にポストされたことができます。 これは、複数ページのフォームで共通です。 ただし、クライアントは、データを改ざんする可能性があります、ため、サーバー必要があります常に再検証します。 
+データは非表示フォーム フィールドに保存したり、次の要求で転記したりできます。 複数ページ フォームでは、これは一般的です。 ただし、クライアントがデータを改ざんする可能性があるため、サーバーは常に再検証する必要があります。 
 
 ## <a name="cookies"></a>クッキー
 
-Cookie は、web アプリケーションでユーザーに固有のデータを格納する方法を提供します。 要求ごとに cookie が送信されるため、サイズを最小限に抑える必要があります。 理想的には、識別子のみは、サーバーに格納されている実際のデータを cookie に保存する必要があります。 ほとんどのブラウザーは、cookie を 4096 バイトに制限します。 さらに、限定された数の cookie のみが各ドメインで使用できます。  
+Cookie は、web アプリケーションでユーザー固有のデータを格納する方法です。 Cookie は要求ごとに送信されるために、そのサイズは最小に抑える必要があります。 理想的には、識別子だけを Cookie に格納し、実際のデータはサーバーに保存します。 ほとんどのブラウザーで Cookie は 4096 バイトに制限されています。 また、ドメインごとに限定された数の Cookie のみを利用できます。  
 
-クッキーは、改ざんされる可能性がありますが、ためには、サーバーで検証する必要があります。 クライアントでクッキーの持続性は、ユーザーが操作の対象と有効期限は、クライアントのデータの永続性の最も持続性のある形式と通常できました。
+Cookie は改ざんされる可能性があるため、サーバーで検証する必要があります。 クライアント上の Cookie の永続性はユーザーの操作や有効期限に左右されるため、一般的に、クライアントのデータ永続性としては最も長持ちする形態となります。
 
-Cookie は、多くの場合、既知のユーザーのコンテンツをカスタマイズするパーソナル化の使用します。 ユーザーを識別のみほとんどの場合で認証されていないため、cookie にユーザー名、アカウント名、または (GUID) などの一意のユーザー ID を格納することによって通常 cookie を保護できます。 サイトのユーザーのパーソナル化インフラストラクチャにアクセスするのに、cookie を使用できます。
+Cookie は、多くの場合、パーソナル化に利用されます。既知のユーザーのためにコンテンツをカスタマイズします。 ほとんどの場合、ユーザーは識別されるだけで本人確認されないため、一般的に、Cookie にユーザー名、アカウント名、一意のユーザー ID (GUID など) を保存することで Cookie を安全にできます。 その後、Cookie を使用し、サイトのユーザー パーソナル化インフラストラクチャにアクセスできます。
 
 ## <a name="httpcontextitems"></a>HttpContext.Items
 
-`Items`コレクションが必要なデータの格納に適した場所に 1 つの特定の要求の処理中にのみです。 コレクションの内容は、各要求の後に破棄されます。 `Items`コレクションを最適な使用のコンポーネントまたはミドルウェア手段としてを通信時に、要求でさまざまなポイントで動作があり、パラメーターを渡す直接的な方法はありません。 詳細については、次を参照してください。 [HttpContext.Items 扱う](#working-with-httpcontextitems)、この記事で後述します。
+`Items` コレクションは、ある特定の要求の処理時にのみ必要なデータの格納に最適な場所です。 コレクションのコンテンツは各要求の後に破棄されます。 `Items` コレクションは、コンポーネントまたはミドルウェアが要求中に異なる時点で作動するがパラメーターを渡す直接的な方法がないとき、通信方法として最適です。 詳細については、この記事の「[HttpContext.Items を使用する](#working-with-httpcontextitems)」を参照してください。
 
 ## <a name="cache"></a>キャッシュ
 
-キャッシュは、格納およびデータを取得する効率的な方法です。 時間と他の考慮事項に基づいて、キャッシュされた項目の有効期間を制御できます。 詳細については[キャッシュ](../performance/caching/index.md)です。
+キャッシュは、データを保存し、取得する効率的な方法です。 時間やその他の考慮事項に基づき、キャッシュされる項目の有効期限を制御できます。 キャッシュに関する詳細は[こちら](../performance/caching/index.md)をご覧ください。
 
 <a name="session"></a>
-## <a name="working-with-session-state"></a>セッション状態の操作
+## <a name="working-with-session-state"></a>セッション状態の使用する
 
-### <a name="configuring-session"></a>セッションの構成
+### <a name="configuring-session"></a>セッションを構成する
 
-`Microsoft.AspNetCore.Session`パッケージは、セッション状態を管理するためのミドルウェアを提供します。 セッションのミドルウェアを有効にする`Startup`含める必要があります。
+`Microsoft.AspNetCore.Session` パッケージは、セッション状態を管理するためのミドルウェアを提供します。 セッション ミドルウェアを有効にするには、`Startup` に次が含まれている必要があります。
 
-- いずれか、 [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache)メモリ キャッシュします。 `IDistributedCache`実装は、セッションのバッキング ストアとして使用されます。
-- [AddSession](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions#Microsoft_Extensions_DependencyInjection_SessionServiceCollectionExtensions_AddSession_Microsoft_Extensions_DependencyInjection_IServiceCollection_)呼び出すには、NuGet パッケージ"Microsoft.AspNetCore.Session"する必要があります。
-- [UseSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions#methods_)呼び出します。
+- いずれかの [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache) メモリ キャッシュ。 `IDistributedCache` 実装はセッションのバックアップ ストアとして利用されます。
+- [AddSession](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions#Microsoft_Extensions_DependencyInjection_SessionServiceCollectionExtensions_AddSession_Microsoft_Extensions_DependencyInjection_IServiceCollection_) 呼び出し。これには NuGet パッケージ "Microsoft.AspNetCore.Session" が必要です。
+- [UseSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions#methods_) 呼び出し。
 
-次のコードでは、メモリ内のセッション プロバイダーを設定する方法を示します。
+次のコードでは、メモリ内セッション プロバイダーの設定方法を確認できます。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -136,23 +136,23 @@ Cookie は、多くの場合、既知のユーザーのコンテンツをカス�
 
 ---
 
-セッションを参照する`HttpContext`これがインストールされ構成されているとします。
+インストールと構成の後、`HttpContext` からセッションを参照できます。
 
-アクセスしようとする`Session`する前に`UseSession`が呼び出されると、例外`InvalidOperationException: Session has not been configured for this application or request`がスローされます。
+`UseSession` が呼び出される前に `Session` にアクセスする場合、例外 `InvalidOperationException: Session has not been configured for this application or request` がスローされます。
 
-新しいを作成しようとすると`Session`(つまり、セッションの cookie が作成されていません) への書き込みを開始した後、`Response`ストリーム、例外`InvalidOperationException: The session cannot be established after the response has started`がスローされます。 Web サーバー ログには、例外が見つかりませんブラウザーに表示されません。
+`Response` ストリームへの書き込みを既に開始した後に新しい `Session` を作成しようとする場合、例外 `InvalidOperationException: The session cannot be established after the response has started` がスローされます。 例外は Web サーバー ログにあります。ブラウザーには表示されません。
 
-### <a name="loading-session-asynchronously"></a>セッションを非同期的に読み込む 
+### <a name="loading-session-asynchronously"></a>セッションを非同期で読み込む 
 
-ASP.NET Core の既定のセッション プロバイダーが、基になるからセッションのレコードを読み込みます[IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache)ストア場合に非同期的にのみ、 [ISession.LoadAsync](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession#Microsoft_AspNetCore_Http_ISession_LoadAsync)メソッドが明示的にする前に呼び出されます `TryGetValue`、 `Set`、または`Remove`メソッドです。 場合`LoadAsync`いないを最初に呼び出す、基になるセッション レコードが同期的に読み込まれると、アプリの標準化機能する可能性のある影響を与える可能性です。
+ASP.NET Core の既定のセッション プロバイダーは、`TryGetValue`、`Set`、または `Remove` メソッドの前に [ISession.LoadAsync](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession#Microsoft_AspNetCore_Http_ISession_LoadAsync) メソッドが明示的に呼び出された場合にのみ、基礎となる [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache) ストアから非同期的にセッション レコードを読み込みます。 `LoadAsync` が最初に呼び出されない場合、基礎となるセッション レコードが同期的に読み込まれます。これはアプリの拡張機能に影響を与える可能性があります。
 
-このパターンを適用するアプリケーションを表示するには、ラップ、 [DistributedSessionStore](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsessionstore)と[DistributedSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsession)例外をスローするバージョンでの実装、`LoadAsync`メソッドではありません前に呼び出される`TryGetValue`、 `Set`、または`Remove`です。 ラップされたバージョンをサービス コンテナーに登録します。
+アプリケーションにこのパターンを強制させるには、`TryGetValue`、`Set`、または `Remove` の前に `LoadAsync` メソッドが呼び出されない場合に例外をスローするバージョンで [DistributedSessionStore](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsessionstore) と [DistributedSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsession) 実装をラップします。 ラップしたバージョンをサービス コンテナーに登録します。
 
-### <a name="implementation-details"></a>実装の詳細
+### <a name="implementation-details"></a>実装詳細
 
-セッションは、追跡し、1 つのブラウザーからの要求を特定する cookie を使用します。 既定では、この cookie が名前付き"です。パスを使用して AspNet.Session"、「/」です。 Cookie の既定値がドメインに指定されていないため、利用できるがないクライアント側スクリプトを作成 ページで (ため`CookieHttpOnly`の既定値は`true`)。
+セッションは Cookie を利用し、1 つのブラウザーからの要求を追跡し、識別します。 既定では、この Cookie には ".AspNet.Session" という名前が付き、"/" というパスを使用します。 Cookie の既定値でドメインが指定されない場合、ページのクライアント側スクリプトで利用できません (`CookieHttpOnly` の初期設定が `true` となるため)。
 
-セッションの既定値をオーバーライドする`SessionOptions`:
+セッションの既定値をオーバーライドするには、`SessionOptions` を使用します。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -164,32 +164,32 @@ ASP.NET Core の既定のセッション プロバイダーが、基になるか
 
 ---
 
-サーバーを使用して、`IdleTimeout`セッションできる期間アイドル状態の内容を破棄する前に決定するプロパティです。 このプロパティは、cookie の有効期限の独立しました。 セッションのミドルウェア (読み取りまたはに書き込まれます) を通過する各要求では、タイムアウト値をリセットします。
+サーバーは `IdleTimeout` プロパティを使用し、コンテンツが破棄されるまでのセッションのアイドル時間を決定します。 このプロパティは Cookie の有効期限に依存しません。 (読み取りまたは書き込みで) 要求がセッション ミドルウェアを通過するたびにタイムアウトがリセットされます。
 
-`Session`は*ロックしない*両方で、最後の 1 つのセッションの内容の変更を試みる次の 2 つの要求が 1 つをオーバーライドする場合、します。 `Session`として実装された、*一貫性のあるセッション*、つまり、すべての内容が一緒に格納されます。 セッション (異なるキー) のさまざまな部分を変更している 2 つの要求が互いに影響することがありますもします。
+`Session` は*ロックなし*のため、2 つの要求がセッションのコンテンツを変更しようとすると、最後の要求が最初の要求をオーバーライドします。 `Session` は*一貫性のあるセッション*として実装されます。つまり、コンテンツは全部まとめて保管されます。 2 つの要求がセッションのさまざまなパーツ (さまざまなキー) を変更する場合、互いに影響を及ぼすことがあります。
 
-### <a name="setting-and-getting-session-values"></a>設定またはセッションの値を取得します。
+### <a name="setting-and-getting-session-values"></a>セッション値の設定と取得
 
-セッションを介してへのアクセス、`Session`プロパティ`HttpContext`です。 このプロパティは、 [ISession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession)実装します。
+セッションは `HttpContext` の `Session` プロパティによりアクセスされます。 このプロパティは [ISession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession) 実装です。
 
-設定または int 型と文字列を取得する次の例を示しています。
+次の例では、int と文字列が設定され、取得されます。
 
 [!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?range=8-27,49)]
 
-次の拡張メソッドを追加する場合は、設定およびセッションにシリアル化可能なオブジェクトを取得できます。
+次の拡張メソッドを追加すると、シリアル化可能なオブジェクトを Session に設定し、取得できます。
 
 [!code-csharp[Main](app-state/sample/src/WebAppSession/Extensions/SessionExtensions.cs)]
 
-次の例では、設定し、シリアル化可能なオブジェクトを取得する方法を示します。
+次のサンプルでは、シリアル化可能なオブジェクトを設定し、取得する方法を確認できます。
 
 [!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?name=snippet2)]
 
 
-## <a name="working-with-httpcontextitems"></a>HttpContext.Items の操作
+## <a name="working-with-httpcontextitems"></a>HttpContext.Items を使用する
 
-`HttpContext`抽象化では、型のディクショナリ コレクションのサポート`IDictionary<object, object>`という`Items`です。 先頭からこのコレクションは使用可能な*HttpRequest*要求ごとの最後に破棄されます。 キー付きのエントリに値を割り当てるか、特定のキーの値を要求することによってアクセスできます。
+`HttpContext` 抽象化では、`Items` と呼ばれている、型 `IDictionary<object, object>` のディクショナリ コレクションがサポートされます。 このコレクションは *HttpRequest* の開始から利用できます。各要求の終わりに破棄されます。 キー付きエントリに値を割り当てるか、特定のキーの値を要求することでアクセスできます。
 
-以下のサンプルで[ミドルウェア](middleware.md)追加`isVerified`を`Items`コレクション。
+下のサンプルでは、[Middleware](middleware.md) により `isVerified` が `Items` コレクションに追加されます。
 
 ```csharp
 app.Use(async (context, next) =>
@@ -200,7 +200,7 @@ app.Use(async (context, next) =>
 });
 ```
 
-パイプラインで後では、他のミドルウェアにアクセスできます。
+後のパイプラインで別のミドルウェアがこれにアクセスできます。
 
 ```csharp
 app.Run(async (context) =>
@@ -210,7 +210,7 @@ app.Run(async (context) =>
 });
 ```
 
-1 つのアプリでのみ使用されるミドルウェアの`string`キーは許容されます。 ただし、ミドルウェア アプリケーション間で共有されるは、キーの競合の可能性を回避するのに一意のオブジェクトのキーを使用する必要があります。 複数のアプリケーション間で動作する必要があるミドルウェアを開発している場合は、次のように、ミドルウェア クラスで定義されている一意のオブジェクト キーを使用します。
+1 つのアプリでのみ使用されるミドルウェアの場合、`string` キーが許容されます。 ただし、アプリケーション間で共有されるミドルウェアの場合、キーの競合を回避するために、一意のオブジェクト キーを利用してください。 複数のアプリケーションで動作させるミドルウェアを開発する場合、下の図のように、ミドルウェア クラスに定義されている一意のオブジェクト キーを使用します。
 
 ```csharp
 public class SampleMiddleware
@@ -225,7 +225,7 @@ public class SampleMiddleware
 }
 ```
 
-その他のコードに格納されている値にアクセスできます`HttpContext.Items`ミドルウェア クラスによって公開キーを使用します。
+その他のコードは、ミドルウェア クラスで公開されるキーを利用し、`HttpContext.Items` に格納されている値にアクセスできます。
 
 ```csharp
 public class HomeController : Controller
@@ -237,15 +237,15 @@ public class HomeController : Controller
 }
 ```
 
-この方法では、コード内の複数の場所の「マジック文字列」の繰り返しを排除することの利点もあります。
+この手法には、コード内の複数の場所で "鍵になる文字列" を繰り返すことをなくすという利点もあります。
 
 <a name="appstate-errors"></a>
 
 ## <a name="application-state-data"></a>アプリケーション状態データ
 
-使用して[依存性の注入](xref:fundamentals/dependency-injection)すべてのユーザーにデータを使用できるようにします。
+[依存関係の注入](xref:fundamentals/dependency-injection)を利用し、すべてのユーザーがデータを利用できるようにします。
 
-1. データを含むサービスを定義する (たとえば、という名前のクラス`MyAppData`)。
+1. データに含まれているサービスを定義します (たとえば、`MyAppData` という名前のクラス)。
 
 ```csharp
 public class MyAppData
@@ -253,8 +253,8 @@ public class MyAppData
     // Declare properties/methods/etc.
 } 
 ```
-2. サービス クラスを追加`ConfigureServices`(たとえば`services.AddSingleton<MyAppData>();`)。
-3. 各コント ローラーで、データ サービス クラスを利用します。
+2. サービス クラスを `ConfigureServices` に追加します (`services.AddSingleton<MyAppData>();` など)。
+3. 各コントローラーのデータ サービス クラスを使用します。
 
 ```csharp
 public class MyController : Controller
@@ -267,23 +267,21 @@ public class MyController : Controller
 } 
 ```
 
-## <a name="common-errors-when-working-with-session"></a>セッションを使用する場合の一般的なエラー
+## <a name="common-errors-when-working-with-session"></a>セッションの使用時の一般的なエラー
 
-* 「'Microsoft.AspNetCore.Session.DistributedSessionStore' をアクティブ化しようとしました。 型 'Microsoft.Extensions.Caching.Distributed.IDistributedCache' のサービスを解決するのにはできません。」
+* "'Microsoft.AspNetCore.Session.DistributedSessionStore' を起動しようとしましたが、型 'Microsoft.Extensions.Caching.Distributed.IDistributedCache' のサービスを解決できません。"
 
-  これは、少なくとも 1 つの構成に失敗により発生通常`IDistributedCache`実装します。 詳細については、次を参照してください。[分散キャッシュを使用して作業](xref:performance/caching/distributed)と[メモリ キャッシュに](xref:performance/caching/memory)です。
+  これは通常、少なくとも 1 つの `IDistributedCache` 実装で構成に失敗したことで発生します。 詳細については、[分散キャッシュの使用](xref:performance/caching/distributed)と[メモリ内キャッシュ](xref:performance/caching/memory)に関するページを参照してください。
 
-* ミドルウェアに失敗したセッションがセッションを保持するイベント (例: データベースが利用できない場合)、例外をログに記録し、それを受け取ります。 要求し、正常に続行されます、非常に予期しない動作につながります。
+* セッション ミドルウェアがセッションを永続化できなかった場合 (データベースが利用できなかったなど)、例外をログに記録し、受け取られます。 要求は通常どおり続行され、まったく予想できない動作につながります。
 
-一般的な使用例:
+典型的な例:
 
-他のユーザーは、セッションに買い物かごを格納します。 ユーザーが項目を追加しますが、コミットに失敗しました。 "、項目が追加されました"、true にはあまりするメッセージが報告するように、アプリは、そのエラーに関する知りません。
+誰かがセッションに買い物カゴを保管します。 アイテムを追加しますが、コミットが失敗します。 アプリはこの失敗を認識せず、"アイテムが追加されました" というメッセージを伝えますが、それは本当ではありません。
 
-呼び出すには、このようなエラーを確認することをお勧め`await feature.Session.CommitAsync();`完了したら、アプリ コードからセッションを作成します。 新機能を使用するようなエラーを行うことができます。 これと同じ動作を呼び出すときに`LoadAsync`です。
+このようなエラーを確認するために推奨される方法は、セッションへの書き込みを終えた時点でアプリ コードから `await feature.Session.CommitAsync();` を呼び出すことです。 その後、エラーを自由に処理できます。 `LoadAsync` を呼び出すとき、同様の動作が行われます。
 
+### <a name="additional-resources"></a>その他の技術情報
 
-### <a name="additional-resources"></a>その他のリソース
-
-
-* [ASP.NET Core 1.x: このドキュメントで使用されるコードのサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSession)
-* [ASP.NET Core 2.x: このドキュメントで使用されるコードのサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSessionDotNetCore2.0App)
+* [ASP.NET Core 1.x: このドキュメントで使用されたサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSession)
+* [ASP.NET Core 2.x: このドキュメントで使用されたサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSessionDotNetCore2.0App)

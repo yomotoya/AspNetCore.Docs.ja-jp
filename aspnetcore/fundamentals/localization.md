@@ -1,105 +1,105 @@
 ---
-title: "グローバリゼーションとローカリゼーション ASP.NET Core"
+title: "ASP.NET Core のグローバリゼーションおよびローカリゼーション"
 author: rick-anderson
-description: "コンテンツをさまざまな言語およびカルチャにローカライズするため、ASP.NET Core がミドルウェアとサービスを提供する方法について説明します。"
-ms.author: riande
+description: "ASP.NET Core がコンテンツをさまざまな言語と文化にローカライズするために提供するサービスとミドルウェアについて説明します。"
 manager: wpickett
+ms.author: riande
 ms.date: 01/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: 5f1579b5682b2f0b3f8227f0cf6b4c0361eb1e67
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 794abf628beff7e5c78f9ca04309694d46910373
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="globalization-and-localization-in-aspnet-core"></a>グローバリゼーションとローカリゼーション ASP.NET Core
+# <a name="globalization-and-localization-in-aspnet-core"></a>ASP.NET Core のグローバリゼーションおよびローカリゼーション
 
-によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Damien Bowden](https://twitter.com/damien_bod)、 [Bart Calixto](https://twitter.com/bartmax)、 [Nadeem Afana](https://twitter.com/NadeemAfana)、および[Hisham Bin Ateya](https://twitter.com/hishambinateya)
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)、[Damien Bowden](https://twitter.com/damien_bod)、[Bart Calixto](https://twitter.com/bartmax)、[Nadeem Afana](https://twitter.com/NadeemAfana)、[Hisham Bin Ateya](https://twitter.com/hishambinateya)
 
-ASP.NET Core 多言語 web サイトを作成すると、多数の対象者に到達するようにサイトが許可されます。 ASP.NET Core は、さまざまな言語と文化にローカライズするためのサービスとミドルウェアを提供します。
+ASP.NET Core で多言語の Web サイトを作成すると、より幅広い対象者がサイトにアクセスできるようになります。 ASP.NET Core は、さまざまな言語と文化にローカライズするためのサービスとミドルウェアを提供します。
 
-国際化では、[グローバリゼーション](https://docs.microsoft.com/dotnet/api/system.globalization)と[ローカリゼーション](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization)です。 グローバリゼーションとは異なるカルチャをサポートするアプリを設計するプロセスです。 グローバリゼーションでは、入力、表示、および定義済みの一連の特定の地理的領域に関連する言語のスクリプトの出力のサポートを追加します。
+国際化には、[グローバリゼーション](https://docs.microsoft.com/dotnet/api/system.globalization)と[ローカリゼーション](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization)が含まれます。 グローバリゼーションとは異なるカルチャをサポートするアプリを設計するプロセスです。 グローバリゼーションによって、特定の地域に関連する定義済みの言語セットの入出力と表示のサポートが追加されます。
 
-ローカリゼーションとは、グローバライズされたアプリ、特定のカルチャとロケールに、ローカライズの可能性が既に処理に対応させるプロセス。 詳細については、次を参照してください。**グローバリゼーションおよびローカリゼーションの条項**このドキュメントの末尾近くです。
+ローカリゼーションとは、ローカライズのために既に処理されているグローバル化されたアプリを特定のカルチャ/ロケールに適合させるプロセスです。 詳細については、本ドキュメントの末尾にある「**グローバリゼーションとローカリゼーションの用語**」を参照してください。
 
-アプリのローカライズには、次の項目が含まれます。
+アプリのローカリゼーションには、以下のものが関与します。
 
-1. アプリのコンテンツをローカライズできるようにします
+1. アプリのコンテンツをローカライズできるようにする
 
-2. 言語およびサポートするカルチャのローカライズされたリソースを提供します。
+2. サポートする言語およびカルチャのローカライズされたリソースを提供する
 
-3. 要求ごとに言語/カルチャを選択するための戦略を実装します。
+3. 要求ごとに言語/カルチャを選択するための戦略を実装する
 
-## <a name="make-the-apps-content-localizable"></a>アプリのコンテンツをローカライズできるようにします
+## <a name="make-the-apps-content-localizable"></a>アプリのコンテンツをローカライズできるようにする
 
-ASP.NET Core で導入された`IStringLocalizer`と`IStringLocalizer<T>`ローカライズされたアプリの開発時に、生産性を向上させるために設計されています。 `IStringLocalizer`使用して、 [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager)と[ResourceReader](https://docs.microsoft.com/dotnet/api/system.resources.resourcereader)を実行時にカルチャ固有のリソースを提供します。 シンプルなインターフェイスが、インデクサー、および`IEnumerable`ローカライズされた文字列を返すためです。 `IStringLocalizer`リソース ファイルに既定の言語識別文字列を格納するには不要です。 開発の早い段階でリソース ファイルを作成する必要はなく、ローカリゼーションの対象となるアプリを開発できます。 次のコードでは、ローカライズ文字列「タイトルは」をラップする方法を示します。
+ASP.NET Core で導入された `IStringLocalizer` と `IStringLocalizer<T>` は、ローカライズされたアプリの開発時に生産性を向上させるように設計されています。 `IStringLocalizer` は、[ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager) と [ResourceReader](https://docs.microsoft.com/dotnet/api/system.resources.resourcereader) を使用して、実行時にカルチャ固有のリソースを提供します。 シンプルなインターフェイスには、ローカライズされた文字列を返すためのインデクサーと `IEnumerable` があります。 `IStringLocalizer` では、リソース ファイルに既定の言語文字列を格納する必要がありません。 ローカリゼーションの対象となるアプリを開発することができ、開発の早い段階でリソース ファイルを作成する必要はありません。 次のコードは、ローカリゼーションのために文字列 "About Title" をラップする方法を示しています。
 
 [!code-csharp[Main](localization/sample/Localization/Controllers/AboutController.cs)]
 
-上記のコードで、`IStringLocalizer<T>`実装に由来[依存性の注入](dependency-injection.md)です。 「タイトルは」のローカライズされた値が見つからないかどうかは、インデクサーのキーが返されます、つまり、文字列「タイトルは」です。 アプリで、既定の言語のリテラル文字列をそのままし、ローカライザーにラップされるよう、アプリの開発に専念することができます。 既定の言語でアプリを開発し、既定のリソース ファイルを作成しなくても、ローカリゼーション手順用に準備します。 または、従来のアプローチを使用し、既定の言語文字列を取得するキーを指定できます。 多くの開発者にとって新しいワークフローの既定の言語がない*.resx*ファイルと、文字列リテラルをラップすることだけがアプリをローカライズするオーバーヘッドを削減できます。 他の開発者には、そのやすく長い文字列リテラルを操作およびローカライズされた文字列を更新しやすくように従来の作業の流れを選びます。
+上記のコードで、`IStringLocalizer<T>` の実装は、[依存関係の挿入](dependency-injection.md)によって実行されます。 "About Title" のローカライズされた値が見つからない場合、インデクサーのキー、つまり文字列 "About Title" が返されます。 アプリで、既定の言語のリテラル文字列をそのままにし、ローカライザーにそれらをラップすることができるので、アプリの開発に専念することができます。 既定の言語でアプリを開発し、既定のリソース ファイルを最初に作成せずに、ローカリゼーション手順用に準備します。 または、従来のアプローチを使用し、既定の言語文字列を取得するキーを提供できます。 既定の言語の *.resx* ファイルを使用せずに、文字列リテラルをラップするだけの新しいワークフローは、多くの開発者にとって、アプリをローカライズする際のオーバーヘッドの削減になります。 他の開発者は、長い文字列リテラルの操作が容易で、ローカライズされた文字列を更新しやすい従来のワークフローを好みます。
 
-使用して、 `IHtmlLocalizer<T>` HTML を格納しているリソースの実装です。 `IHtmlLocalizer`HTML エンコードされたリソース文字列で書式設定される引数が、リソース文字列そのものを HTML エンコードしません。 サンプルでは、次の値のみ強調表示されます`name`パラメーターは、HTML エンコードします。
+HTML を格納しているリソースには、`IHtmlLocalizer<T>` の実装を使用します。 `IHtmlLocalizer` HTML は、リソース文字列でフォーマットされた引数をエンコードしますが、リソース文字列自体は HTML エンコードしません。 下の強調表示されたサンプルでは、`name` パラメーターの値のみが HTML エンコードされます。
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
-**注:**のみテキストと HTML ではないをローカライズする場合、通常します。
+**注:** 一般的に、HTML ではなく、テキストのみをローカライズする必要があります。
 
-最下位のレベルを取得できます`IStringLocalizerFactory`不在[依存性の注入](dependency-injection.md):
+最下位のレベルでは、[依存関係の挿入](dependency-injection.md)から `IStringLocalizerFactory` を取得できます。
 
 [!code-csharp[Main](localization/sample/Localization/Controllers/TestController.cs?start=9&end=26&highlight=7-13)]
 
-上記のコードを示します、2 つのファクトリの各メソッドを作成します。
+上記のコードは、2 つの各ファクトリ作成メソッドを示しています。
 
-領域で、コント ローラーによって、ローカライズされた文字列をパーティション分割または 1 つのコンテナーを持つことができます。 サンプル アプリで、ダミーという名前のクラス`SharedResource`共有リソースのために使用します。
+ローカライズされた文字列は、コントローラーまたは領域で仕切るか、1 つのコンテナーにすることができます。 サンプル アプリでは、共有されるリソースのために `SharedResource` というダミー クラスを使用しています。
 
 [!code-csharp[Main](localization/sample/Localization/Resources/SharedResource.cs)]
 
-一部の開発者が使用して、`Startup`グローバルまたは共有の文字列を格納するクラス。 以下のサンプルで、`InfoController`と`SharedResource`ローカライザーが使用されます。
+一部の開発者は、`Startup` クラスを使用してグローバル文字列または共有文字列を格納します。 下のサンプルでは、`InfoController` と `SharedResource` のローカライザーが使用されています。
 
 [!code-csharp[Main](localization/sample/Localization/Controllers/InfoController.cs?range=9-26)]
 
-## <a name="view-localization"></a>ビューのローカライズ
+## <a name="view-localization"></a>ビューのローカリゼーション
 
-`IViewLocalizer`サービス提供のローカライズされた文字列、[ビュー](https://docs.microsoft.com/aspnet/core)です。 `ViewLocalizer`クラスは、このインターフェイスを実装し、ビューのファイル パスからリソースの場所を検索します。 次のコードは、の既定の実装を使用する方法を示しています`IViewLocalizer`:。
+`IViewLocalizer` サービスは、[ビュー](https://docs.microsoft.com/aspnet/core)のローカライズされた文字列を提供します。 `ViewLocalizer` クラスは、このインターフェイスを実装し、ビューのファイル パスからリソースの場所を見つけます。 次のコードは、`IViewLocalizer` の既定の実装の使用方法を示しています。
 
 [!code-cshtml[Main](localization/sample/Localization/Views/Home/About.cshtml)]
 
-既定の実装`IViewLocalizer`ビューのファイルの名前に基づいてリソース ファイルを検索します。 共有のグローバル リソース ファイルを使用するオプションはありません。 `ViewLocalizer`実装を使用してローカライザー `IHtmlLocalizer`Razor しない HTML のため、ローカライズされた文字列をエンコードします。 リソース文字列をパラメーター化できると`IViewLocalizer`HTML エンコードされますが、パラメーター、リソース文字列ではありません。 次の Razor マークアップを考慮してください。
+`IViewLocalizer` の既定の実装は、ビューのファイル名に基づいてリソース ファイルを見つけます。 グローバルな共有リソース ファイルを使用するオプションはありません。 `ViewLocalizer` は、`IHtmlLocalizer` を使用してローカライザーを実装するので、Razor は、ローカライズされた文字列を HTML エンコードしません。 リソース文字列をパラメーター化することができます。`IViewLocalizer` は、パラメーターを HTML エンコードしますが、リソース文字列は HTML エンコードしません。 次の Razor マークアップについて考えます。
 
 ```cshtml
 @Localizer["<i>Hello</i> <b>{0}!</b>", UserManager.GetUserName(User)]
 ```
 
-フランス語のリソース ファイルに次が可能性があります。
+フランス語のリソース ファイルには次の値が含まれます。
 
 | キー | [値] |
 | ----- | ------ |
 | `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b> ` |
 
-描画のビューには、リソース ファイルから HTML マークアップが含まれます。
+描画されたビューには、リソース ファイルからの HTML マークアップが含まれます。
 
-**注:**のみテキストと HTML ではないをローカライズする場合、通常します。
+**注:** 一般的に、HTML ではなく、テキストのみをローカライズする必要があります。
 
-ビュー内の共有リソース ファイルを使用するのには、挿入`IHtmlLocalizer<T>`:
+ビュー内の共有リソース ファイルを使用するには、`IHtmlLocalizer<T>` を挿入します。
 
 [!code-cshtml[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
 
-## <a name="dataannotations-localization"></a>DataAnnotations ローカリゼーション
+## <a name="dataannotations-localization"></a>DataAnnotations のローカリゼーション
 
-DataAnnotations エラー メッセージとローカライズ`IStringLocalizer<T>`です。 オプションを使用して`ResourcesPath = "Resources"`、エラー メッセージで`RegisterViewModel`は次のパスのいずれかで格納されていることができます。
+DataAnnotations エラー メッセージは `IStringLocalizer<T>` を使用してローカライズします。 オプション `ResourcesPath = "Resources"` を使用して、`RegisterViewModel` のエラー メッセージを次のいずれかのパスに格納できます。
 
 * Resources/ViewModels.Account.RegisterViewModel.fr.resx
 * Resources/ViewModels/Account/RegisterViewModel.fr.resx
 
 [!code-csharp[Main](localization/sample/Localization/ViewModels/Account/RegisterViewModel.cs?start=9&end=26)]
 
-ASP.NET Core MVC 1.1.0 および以上、非検証属性のローカライズされています。 ASP.NET Core MVC 1.0 は**いない**の非検証属性のローカライズされた文字列を検索します。
+ASP.NET Core MVC 1.1.0 以上では、非検証属性がローカライズされます。 ASP.NET Core MVC 1.0 は、非検証属性のローカライズされた文字列を検索**しません**。
 
 <a name="one-resource-string-multiple-classes"></a>
-### <a name="using-one-resource-string-for-multiple-classes"></a>複数のクラスの 1 つのリソース文字列を使用します。
+### <a name="using-one-resource-string-for-multiple-classes"></a>複数のクラスに 1 つのリソース文字列を使用する
 
 次のコードは、複数のクラスに検証属性の 1 つのリソース文字列を使用する方法を示しています。
 
@@ -114,147 +114,147 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-上記のコード、 `SharedResource` resx に対応するクラスには、検証メッセージを格納します。 この方法を DataAnnotations を使ってのみ`SharedResource`、各クラスのリソースではなくです。 
+上記のコードでは、`SharedResource` は、resx に対応するクラスであり、ここに検証メッセージが格納されます。 この方法では、DataAnnotations は、各クラスのリソースではなく、`SharedResource` のみを使用します。 
 
-## <a name="provide-localized-resources-for-the-languages-and-cultures-you-support"></a>言語およびサポートするカルチャのローカライズされたリソースを提供します。  
+## <a name="provide-localized-resources-for-the-languages-and-cultures-you-support"></a>サポートする言語およびカルチャのローカライズされたリソースを提供する  
 
 ### <a name="supportedcultures-and-supporteduicultures"></a>SupportedCultures と SupportedUICultures
 
-ASP.NET Core では、2 つのカルチャ値を指定できます。`SupportedCultures`と`SupportedUICultures`です。 [CultureInfo](https://docs.microsoft.com/dotnet/api/system.globalization.cultureinfo)オブジェクトに対する`SupportedCultures`日付、時刻、数、および通貨の書式設定など、カルチャに依存する関数の結果を決定します。 `SupportedCultures`テキスト、大文字と小文字の表記規則、および文字列比較の並べ替え順序を決定します。 参照してください[CultureInfo.CurrentCulture](https://docs.microsoft.com/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture)サーバーがカルチャを取得する方法の詳細。 `SupportedUICultures`を決定し、これは文字列 (から*.resx*ファイル) を検索、 [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager)です。 `ResourceManager`によって決定されるカルチャ固有の文字列を単に検索`CurrentUICulture`です。 .NET のすべてのスレッドが`CurrentCulture`と`CurrentUICulture`オブジェクト。 ASP.NET Core は、カルチャに依存する関数を表示するときに、これらの値を検査します。 たとえば、現在のスレッドのカルチャが"EN-US"(英語、米国) に設定されている`DateTime.Now.ToLongDateString()`場合は、「木曜日、2016 年 2 月 18日」が表示されます`CurrentCulture`設定されている"ES-ES"(スペイン語、スペイン) に出力になります"jueves、18 de febrero de 2016" です。
+ASP.NET Core では、`SupportedCultures` と `SupportedUICultures` という 2 つのカルチャ値を指定できます。 日付、数値、および通貨の書式設定など、カルチャに依存する関数の結果は、`SupportedCultures` の [CultureInfo](https://docs.microsoft.com/dotnet/api/system.globalization.cultureinfo) オブジェクトによって決まります。 テキストの並べ替え順序、大文字と小文字の表記規則、文字列比較も `SupportedCultures` によって決まります。 サーバーがカルチャを取得する方法の詳細については、「[CultureInfo.CurrentCulture](https://docs.microsoft.com/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture)」を参照してください。 `SupportedUICultures` は、*.resx* ファイルからのどの翻訳文字列が [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager) によって検索されるかを決定します。 `ResourceManager` は、`CurrentUICulture` によって決定されるカルチャ固有の文字列を単に検索します。 .NET のすべてのスレッドに `CurrentCulture` オブジェクトと `CurrentUICulture`オブジェクトがあります。 ASP.NET Core は、カルチャに依存する関数を表示するときに、これらの値を検査します。 たとえば、現在のスレッドのカルチャが "en-US" (英語、米国) に設定されている場合は、`DateTime.Now.ToLongDateString()` は、"Thursday, February 18, 2016" を表示しますが、`CurrentCulture` が "es-ES" (スペイン語、スペイン) に設定されている場合、出力は "jueves, 18 de febrero de 2016" になります。
 
 ## <a name="resource-files"></a>リソース ファイル
 
-リソース ファイルは、ローカライズ可能な文字列をコードから分離するために役立ちますメカニズムです。 既定以外の言語の翻訳された文字列は分離*.resx*リソース ファイル。 という名前のスペイン語のリソース ファイルを作成するなど、 *Welcome.es.resx*を含む文字列を変換します。 "es"では、スペイン語の言語コードを示します。 Visual Studio でこのリソース ファイルを作成します。
+リソース ファイルは、ローカライズ可能な文字列をコードから分離するために役立つメカニズムです。 既定以外の言語の翻訳された文字列は、分離された *.resx* リソース ファイルです。 たとえば、翻訳された文字列を含む *Welcome.es.resx* という名前のスペイン語のリソース ファイルを作成したい場合があります。 "es" は、スペイン語の言語コードです。 Visual Studio でこのリソース ファイルを作成するには、次の手順を実行します。
 
-1. **ソリューション エクスプ ローラー**、リソース ファイルを格納するフォルダーを右クリックして >**追加** > **新しい項目の**します。
+1. **ソリューション エクスプローラー**で、リソース ファイルが格納されているフォルダーを右クリックし、**[追加]** > **[新しい項目]** を選択します。
 
-    ![入れ子になったコンテキスト メニュー: ソリューション エクスプ ローラーでコンテキスト メニューは、リソース用に開かれています。 2 つ目のコンテキスト メニューが強調表示されている新しい項目のコマンドを示す追加用に開いています。](localization/_static/newi.png)
+    ![入れ子になったコンテキスト メニュー: ソリューション エクスプローラーでリソースのコンテキスト メニューが開かれます。 [追加] の 2 つ目のコンテキスト メニューが開き、[新しい項目] コマンドが強調表示されます。](localization/_static/newi.png)
 
-2. **検索には、テンプレートがインストールされている**ボックスで、「リソース」を入力し、ファイルの名前します。
+2. **インストールされているテンプレートの検索**ボックスに、「resource」と入力し、ファイルに名前を付けます。
 
     ![[新しい項目の追加] ダイアログ](localization/_static/res.png)
 
-3. キーの値 (ネイティブの文字列) で入力、**名前**列と翻訳された文字列を**値**列です。
+3. キーの値 (ネイティブの文字列) を **[名前]** 列に入力し、翻訳された文字列を **[値]** 列に入力します。
 
-    ![Hello の 名前 列と 値 列内の単語 Hola (スペイン語でのこんにちは) Welcome.es.resx ファイル (へようこそ のリソース ファイルのスペイン語)](localization/_static/hola.png)
+    ![Welcome.es.resx ファイル (スペイン語の Welcome リソース ファイル) と、[名前] 列の Hello という単語と、[値] 列の Hola という単語 (スペイン語のこんにちは)](localization/_static/hola.png)
 
-    Visual Studio の表示、 *Welcome.es.resx*ファイル。
+    Visual Studio に *Welcome.es.resx* ファイルが表示されます。
 
-    ![ソリューション エクスプ ローラーのようこそスペイン語 (es) のリソース ファイルを表示](localization/_static/se.png)
+    ![Welcome スペイン語リソース ファイルを表示しているソリューション エクスプローラー](localization/_static/se.png)
 
 <a name="error"></a>
 
-Visual Studio 2017 Preview バージョン 15.3 を使用している場合、リソース エディターでエラー インジケーターが表示されます。 削除、 *ResXFileCodeGenerator*値から、*カスタム ツール*このエラー メッセージを防ぐためにプロパティ グリッド。
+Visual Studio 2017 Preview バージョン 15.3 を使用している場合、リソース エディターでエラー インジケーターが表示されます。 このエラー メッセージを防ぐために、*[カスタム ツール]* プロパティから *ResXFileCodeGenerator* 値を削除します。
 
 ![Resx エディター](localization/_static/err.png)
 
-また、このエラーを無視することができます。 次のリリースでこの問題を解決する予定です。
+または、このエラーを無視することができます。 次のリリースでこの問題を解決する予定です。
 
 ## <a name="resource-file-naming"></a>リソース ファイルの名前付け
 
-リソースは、アセンブリ名を除いて、クラスの完全な型名の名前です。 フランス語のリソースをメインのアセンブリがプロジェクトになど`LocalizationWebsite.Web.dll`クラスの`LocalizationWebsite.Web.Startup`という名前になります*Startup.fr.resx*です。 クラスのリソース`LocalizationWebsite.Web.Controllers.HomeController`という名前になります*Controllers.HomeController.fr.resx*です。 対象となるクラスの名前空間が、アセンブリ名と同じでない場合は、完全な型名を必要があります。 たとえば、サンプルには、プロジェクトの種類用のリソース`ExtraNamespace.Tools`という名前になります*ExtraNamespace.Tools.fr.resx*です。
+リソースの名前は、クラスの完全な型名からアセンブリ名を除いたものになります。 たとえば、メイン アセンブリが `LocalizationWebsite.Web.dll` であるプロジェクト内のクラス `LocalizationWebsite.Web.Startup` のフランス語のリソースは、*Startup.fr.resx* という名前になります。 クラス `LocalizationWebsite.Web.Controllers.HomeController` のリソースは、*Controllers.HomeController.fr.resx* という名前になります。 対象となるクラスの名前空間が、アセンブリ名と同じでない場合は、完全な型名が必要です。 たとえば、同じプロジェクトで、型 `ExtraNamespace.Tools` のリソースは、*ExtraNamespace.Tools.fr.resx* という名前になります。
 
-サンプル プロジェクトで、`ConfigureServices`メソッドのセット、 `ResourcesPath` 「リソース」をそのため、home コント ローラーのフランス語りソース ファイルのプロジェクトの相対パスは*Resources/Controllers.HomeController.fr.resx*です。 また、リソース ファイルを整理するのにフォルダーを使用することができます。 Home コント ローラーで、パスはなります*Resources/Controllers/HomeController.fr.resx*です。 使用しない場合、`ResourcesPath`オプション、 *.resx*ファイルは、プロジェクトの基本ディレクトリに移動します。 リソース ファイルの`HomeController`という名前になります*Controllers.HomeController.fr.resx*です。 ドットまたはパスの名前付け規則を選択した場合は、リソース ファイルを整理する方法によって異なります。
+サンプル プロジェクトで、`ConfigureServices` メソッドは `ResourcesPath` を "Resources" に設定するので、ホーム コントローラーのフランス語のりソース ファイルの相対パスは、*Resources/Controllers.HomeController.fr.resx* です。 あるいは、フォルダーを使用してリソース ファイルを整理することもできます。 Home コント ローラーのパスは、*Resources/Controllers/HomeController.fr.resx* です。 `ResourcesPath` オプションを使用しない場合、*.resx* ファイルは、プロジェクトの基本ディレクトリに置かれます。 `HomeController` のリソース ファイルは、*Controllers.HomeController.fr.resx* という名前になります。 ドットまたはパスの名前付け規則の選択は、リソース ファイルを整理する方法によって決まります。
 
-| リソース名 | ドットまたはパスの名前を付ける |
+| リソース名 | ドットまたはパスの名前付け |
 | ------------   | ------------- |
 | Resources/Controllers.HomeController.fr.resx | ドット  |
 | Resources/Controllers/HomeController.fr.resx  | パス |
 |    |     |
 
-リソース ファイルを使用して`@inject IViewLocalizer`Razor ビューで、同様のパターンに従います。 ビュー用のリソース ファイルは、ドット名前またはパスの名前付けを使用して名前付きことができます。 Razor ビューのリソース ファイルは、関連するビューのファイルのパスを模倣します。 設定と仮定した場合、`ResourcesPath`に「リソース」、フランス語のリソース ファイルに関連付けられて、 *Views/Home/About.cshtml*ビューでは、次のいずれかの可能性があります。
+Razor ビューの `@inject IViewLocalizer` を使用するリソース ファイルは同様のパターンに従います。 ビューのリソース ファイルには、ドットの名前付けまたはパスの名前付けを使用して名前を付けることができます。 Razor ビューのリソース ファイルは、関連するビュー ファイルのパスを模倣します。 `ResourcesPath` を "Resources" に設定すると仮定すると、*Views/Home/About.cshtml* ビューに関連付けられるフランス語のリソース ファイルは、次のいずれかになります。
 
 * Resources/Views/Home/About.fr.resx
 
 * Resources/Views.Home.About.fr.resx
 
-使用しない場合、`ResourcesPath`オプション、 *.resx*ファイルのビューは、ビューと同じフォルダーに配置するとします。
+`ResourcesPath` オプションを使用しない場合、ビューの *.resx* ファイルは、ビューと同じフォルダーに配置されます。
 
 ## <a name="culture-fallback-behavior"></a>カルチャ フォールバック動作
 
-例として、既定のリソース ファイルは読み取り".fr"カルチャの指定子を削除し、カルチャをフランス語に設定を使用している場合と、文字列はローカライズします。 リソース マネージャーでは、既定値またはフォールバック リソースを何も行われませんが、要求されたカルチャを満たす場合に指定します。 要求されたカルチャのリソースが見つかりません必要があります、既定のリソース ファイルは持っていない場合にだけ、キーを返す場合は。
+例として、".fr" カルチャ指定子を削除し、カルチャを French に設定した場合、既定のリソース ファイルは read で文字列がローカライズされます。 リソース マネージャーは、要求されたカルチャを満たすものがない場合、既定またはフォールバックのリソースを指定します。 要求されたカルチャのリソースが見つからないときにキーのみを返す場合は、既定のリソース ファイルを使用することはできません。
 
-### <a name="generate-resource-files-with-visual-studio"></a>Visual Studio でのリソース ファイルを生成します。
+### <a name="generate-resource-files-with-visual-studio"></a>Visual Studio でリソース ファイルを生成する
 
-Visual Studio で、ファイル名にカルチャせず、リソース ファイルを作成した場合 (たとえば、 *Welcome.resx*)、Visual Studio は各文字列のプロパティを使用して、c# クラスを作成します。 通常、たくないと ASP.NET Core です。通常、既定値がない*.resx*リソース ファイル (A *.resx*カルチャ名のないファイル)。 作成することをお勧めします。、 *.resx*カルチャ名を持つファイル (たとえば*Welcome.fr.resx*)。 作成するときに、 *.resx*カルチャ名、Visual Studio でのファイルは、クラス ファイルを生成しません。 多くの開発者に**いない**既定の言語リソース ファイルを作成します。
+Visual Studio で、ファイル名にカルチャを指定せずにリソース ファイルを作成する場合 (たとえば、*Welcome.resx*)、Visual Studio は各文字列のプロパティを使用して、C# クラスを作成します。 通常、ASP.NET Core ではこれを行いません。一般的に既定の *.resx* リソース ファイル (カルチャ名のない *.resx* ファイル) は使用しません。 カルチャ名を含む *.resx* ファイル (たとえば *Welcome.fr.resx*) を作成することをお勧めします。 カルチャ名を含む *.resx* ファイルを作成すると、Visual Studio はクラス ファイルを生成しません。 多くの開発者は既定の言語リソース ファイルを作成**しない**と予想されます。
 
-### <a name="add-other-cultures"></a>その他のカルチャを追加します。
+### <a name="add-other-cultures"></a>その他のカルチャを追加する
 
-(既定の言語) 以外の言語とカルチャの組み合わせごとに一意のリソース ファイルが必要です。 ISO 言語コードがファイル名の一部となるリソース ファイルの新規作成して異なるカルチャとロケールのリソース ファイルを作成する (たとえば、 **en-us**、 **fr ca**、および**en gb**)。 これらの ISO コードを配置しているファイル名の間、 *.resx*ファイル名拡張子として*Welcome.es MX.resx* (スペイン語/メキシコ)。 カルチャ ニュートラル言語を指定するには、国コードを削除 (`MX`前の例で)。 スペイン語のニュートラル カルチャのリソース ファイル名が*Welcome.es.resx*です。
+各言語とカルチャの組み合わせ (既定の言語以外) ごとに一意のリソース ファイルが必要です。 ISO 言語コードがファイル名の一部となるリソース ファイル (たとえば、**en-us**、**fr-ca**、**en-gb**) を新規作成することで、異なるカルチャとロケールのリソース ファイルを作成することができます。 *Welcome.es-MX.resx* (スペイン語/メキシコ) のように、ファイル名と *.resx* ファイル名拡張子の間にこれらの ISO コードが置かれます。 カルチャ的にニュートラルな言語を指定するには、国コード (前の例では `MX`) を削除します。 カルチャ的にニュートラルなスペイン語のリソース ファイル名は *Welcome.es.resx* です。
 
-## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>要求ごとに言語/カルチャを選択するための戦略を実装します。  
+## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>要求ごとに言語/カルチャを選択するための戦略を実装する  
 
-### <a name="configure-localization"></a>ローカリゼーションを構成します。
+### <a name="configure-localization"></a>ローカリゼーションを構成する
 
-ローカリゼーションがで構成されている、`ConfigureServices`メソッド。
+ローカリゼーションは、`ConfigureServices` メソッドで構成されます。
 
 [!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet1)]
 
-* `AddLocalization`ローカリゼーション サービスをサービス コンテナーに追加します。 上記のコードは、「リソース」のリソース パスを設定します。
+* `AddLocalization` ローカリゼーション サービスをサービス コンテナーに追加します。 上記のコードは、リソース パスを "Resources" に設定します。
 
-* `AddViewLocalization`ファイルのローカライズされた表示のサポートを追加します。 このサンプル ビューでのローカライズをビュー ファイルのサフィックスに基づきます。 たとえば"fr"で、 *Index.fr.cshtml*ファイル。
+* `AddViewLocalization` ローカライズされたビュー ファイルのサポートを追加します。 このサンプル ビューでは、ローカリゼーションは、ビュー ファイルのサフィックスに基づいています。 たとえば、*Index.fr.cshtml* ファイルの "fr" です。
 
-* `AddDataAnnotationsLocalization`ローカライズのサポートが追加されて`DataAnnotations`を介してメッセージを検証`IStringLocalizer`抽象化します。
+* `AddDataAnnotationsLocalization` `IStringLocalizer` 抽象化を介してローカライズされた `DataAnnotations` 検証メッセージのサポートを追加します。
 
 ### <a name="localization-middleware"></a>ローカリゼーション ミドルウェア
 
-要求時に、現在のカルチャは、ローカリゼーションで設定[ミドルウェア](middleware.md)です。 ローカライズ ミドルウェアが有効になっている、`Configure`メソッドの*Program.cs*ファイル。 要求のカルチャをチェックするすべてのミドルウェアの前に、ローカリゼーション ミドルウェアを構成する必要があります、注意してください (たとえば、 `app.UseMvcWithDefaultRoute()`)。
+要求時に現在のカルチャが、ローカリゼーション [ミドルウェア](middleware.md)で設定されます。 ローカリゼーション ミドルウェアは、*Program.cs* ファイルの `Configure` メソッドで有効になります。 要求のカルチャをチェックする可能性があるすべてのミドルウェア (たとえば `app.UseMvcWithDefaultRoute()`) の前に、ローカリゼーション ミドルウェアを構成する必要があります。
 
 [!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet2)]
 
-`UseRequestLocalization`初期化、`RequestLocalizationOptions`オブジェクト。 すべての要求リストの`RequestCultureProvider`で、`RequestLocalizationOptions`が列挙され、要求のカルチャが正常に決定できる最初のプロバイダーが使用されます。 既定のプロバイダーに由来、`RequestLocalizationOptions`クラス。
+`UseRequestLocalization` は `RequestLocalizationOptions` オブジェクトを初期化します。 すべての要求で、`RequestLocalizationOptions` の `RequestCultureProvider` のリストが列挙され、要求のカルチャを正常に決定できる最初のプロバイダーが使用されます。 既定のプロバイダーは `RequestLocalizationOptions` クラスから派生します。
 
 1. `QueryStringRequestCultureProvider`
 2. `CookieRequestCultureProvider`
 3. `AcceptLanguageHeaderRequestCultureProvider`
 
-既定の一覧は、最も限定的に最も固有から移動します。 記事の後半では、順序を変更し、であっても、カスタム プロバイダーを追加する方法が表示されます。 要求のカルチャを判断、プロバイダーの場合、`DefaultRequestCulture`を使用します。
+既定のリストは、最も具体的なものから最も具体的でないものの順番になります。 記事の後半では、この順序を変更する方法、さらにカスタム カルチャ プロバイダーを追加する方法も説明します。 要求のカルチャを判断できるプロバイダーがない場合、`DefaultRequestCulture` が使用されます。
 
 ### <a name="querystringrequestcultureprovider"></a>QueryStringRequestCultureProvider
 
-いくつかのアプリでは、クエリ文字列を使用して設定は、[カルチャおよび UI カルチャ](https://msdn.microsoft.com/library/system.globalization.cultureinfo.aspx)です。 をクッキーまたは Accept-language ヘッダーのアプローチを使用するアプリの URL にクエリ文字列を追加することはデバッグおよびコードのテストに役立ちます。 既定では、`QueryStringRequestCultureProvider`の最初のローカリゼーション プロバイダーとして登録されて、 `RequestCultureProvider`  ボックスの一覧です。 クエリ文字列パラメーターを渡す`culture`と`ui-culture`です。 次の例では、特定のカルチャ (言語および地域) をスペイン語/メキシコに設定します。
+いくつかのアプリでは、クエリ文字列を使用して、[カルチャおよび UI カルチャ](https://msdn.microsoft.com/library/system.globalization.cultureinfo.aspx)を設定します。 Cookie または Accept-language ヘッダーのアプローチを使用するアプリの場合、URL にクエリ文字列を追加すると、デバッグおよびコードのテストに役立ちます。 既定では、`QueryStringRequestCultureProvider` が、`RequestCultureProvider` リストの最初のローカリゼーション プロバイダーとして登録されます。 クエリ文字列パラメーター `culture` と `ui-culture` を渡します。 次の例では、特定のカルチャ (言語および地域) をスペイン語/メキシコに設定します。
 
    `http://localhost:5000/?culture=es-MX&ui-culture=es-MX`
 
-2 つのいずれかのみを渡す場合 (`culture`または`ui-culture`)、クエリ文字列のプロバイダーに渡された 1 つを使用して両方の値を設定します。 たとえば、カルチャだけを設定は両方を設定、`Culture`と`UICulture`:
+2 つのいずれかのみ (`culture` または `ui-culture`) を渡した場合、クエリ文字列プロバイダーは、渡した 1 つのパラメーターを使用して両方の値を設定します。 たとえば、カルチャだけを設定すると、`Culture` と `UICulture` の両方が設定されます。
 
    `http://localhost:5000/?culture=es-MX`
 
 ### <a name="cookierequestcultureprovider"></a>CookieRequestCultureProvider
 
-実稼働アプリケーションは、ASP.NET Core カルチャ cookie を使用してカルチャを設定するためのメカニズムを提供して多くの場合、します。 使用して、 `MakeCookieValue` cookie を作成します。
+多くの場合、実稼働アプリケーションは、ASP.NET Core カルチャ Cookie を使用してカルチャを設定するためのメカニズムを提供します。 Cookie を作成するには、`MakeCookieValue` メソッドを使用します。
 
-`CookieRequestCultureProvider` `DefaultCookieName`カルチャ情報を指定したユーザーを追跡するために使用する既定の cookie 名を返します。 既定の cookie 名は"です。AspNetCore.Culture"です。
+`CookieRequestCultureProvider` `DefaultCookieName` は、ユーザーの優先するカルチャ情報を追跡するために使用される既定の Cookie 名を返します。 既定の Cookie 名は `.AspNetCore.Culture` です。
 
-Cookie の形式が`c=%LANGCODE%|uic=%LANGCODE%`ここで、`c`は`Culture`と`uic`は`UICulture`例。
+Cookie の形式は `c=%LANGCODE%|uic=%LANGCODE%` です。ここで、`c` は `Culture` であり、`uic` は `UICulture` です。たとえば、次のようになります。
 
     c=en-UK|uic=en-US
 
-のみを指定するカルチャ情報と UI カルチャのいずれかの場合、指定されたカルチャはカルチャ情報と UI カルチャの両方に使用されます。
+カルチャ情報と UI カルチャの 1 つのみを指定した場合、指定したカルチャが、カルチャ情報と UI カルチャの両方に使用されます。
 
-### <a name="the-accept-language-http-header"></a>ブラウザーの言語の HTTP ヘッダー
+### <a name="the-accept-language-http-header"></a>Accept-Language HTTP ヘッダー
 
-[Accept-language ヘッダー](https://www.w3.org/International/questions/qa-accept-lang-locales)ほとんどのブラウザーで設定可能であり、ユーザーの言語を指定するためのものが最初。 この設定は、ブラウザーが送信に設定されているかは、基になるオペレーティング システムから継承する新機能を示します。 ブラウザーの要求で Accept Language HTTP ヘッダーの優先言語を検出するためにない方法はありません (を参照してください[ブラウザーの言語設定を設定する](https://www.w3.org/International/questions/qa-lang-priorities.en.php))。 運用アプリには、ユーザーの任意のカルチャをカスタマイズする方法を含める必要があります。
+[Accept-language ヘッダー](https://www.w3.org/International/questions/qa-accept-lang-locales)は、ほとんどのブラウザーで設定可能であり、当初はユーザーの言語を指定するためのものでした。 この設定は、ブラウザーが何を送信するように設定されているか、基になるオペレーティング システムから何を継承するかを示します。 ブラウザーの要求からの Accept Language HTTP ヘッダーは、ユーザーの優先言語を検出するための確実な方法ではありません (「[Setting language preferences in a browser](https://www.w3.org/International/questions/qa-lang-priorities.en.php)」(ブラウザーの優先言語を設定する) を参照してください)。 実稼働アプリには、ユーザーがカルチャの選択をカスタマイズする方法を含める必要があります。
 
-### <a name="set-the-accept-language-http-header-in-ie"></a>IE で Accept Language HTTP ヘッダーを設定します。
+### <a name="set-the-accept-language-http-header-in-ie"></a>IE で Accept-Language HTTP ヘッダーを設定する
 
-1. 歯車アイコンをタップ**インターネット オプション**です。
+1. 歯車アイコンから、**[インターネット オプション]** をタップします。
 
-2. タップ**言語**します。
+2. **[言語]** をタップします。
 
     ![インターネット オプション](localization/_static/lang.png)
 
-3. タップ**言語設定**です。
+3. **[言語の優先順位の設定]** をタップします。
 
-4. タップ**言語を追加**です。
+4. **[言語の追加]** をタップします。
 
 5. 言語を追加します。
 
-6. 言語をタップしてタップ**上へ移動**です。
+6. 言語をタップして、**[上へ移動]** をタップします。
 
-### <a name="use-a-custom-provider"></a>カスタム プロバイダーを使用します。
+### <a name="use-a-custom-provider"></a>カスタム プロバイダーを使用する
 
-お客様は、データベース内の言語とカルチャを格納できるようにするとします。 ユーザーの姓名を検索するプロバイダーを記述することもできます。 次のコードは、カスタム プロバイダーを追加する方法を示しています。
+お客様がデータベースに言語とカルチャを格納できるようにしたいとします。 ユーザーのためにこれらの値を検索するプロバイダーを記述することもできます。 次のコードは、カスタム プロバイダーを追加する方法を示しています。
 
 ```csharp
 private const string enUSCulture = "en-US";
@@ -279,47 +279,47 @@ services.Configure<RequestLocalizationOptions>(options =>
 });
 ```
 
-使用して`RequestLocalizationOptions`を追加またはローカライズのプロバイダーを削除します。
+ローカリゼーション プロバイダーを追加または削除するには、`RequestLocalizationOptions` を使用します。
 
-### <a name="set-the-culture-programmatically"></a>カルチャをプログラムで設定します。
+### <a name="set-the-culture-programmatically"></a>プログラムでカルチャを設定する
 
-このサンプル**Localization.StarterWeb**プロジェクトでは、 [GitHub](https://github.com/aspnet/entropy)を設定するための UI が含まれています、`Culture`です。 *Views/Shared/_SelectLanguagePartial.cshtml*ファイルでは、サポートされているカルチャの一覧から、カルチャを選択することができます。
+この [GitHub](https://github.com/aspnet/entropy) のサンプル **Localization.StarterWeb** プロジェクトには、`Culture` を設定するための UI が含まれています。 *Views/Shared/_SelectLanguagePartial.cshtml* ファイルを使用して、サポートされているカルチャの一覧からカルチャを選択することができます。
 
 [!code-cshtml[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 
-*Views/Shared/_SelectLanguagePartial.cshtml*にファイルが追加、`footer`できるすべてのビューに使用できるようにレイアウト ファイルのセクション。
+*Views/Shared/_SelectLanguagePartial.cshtml* ファイルは、レイアウト ファイルの `footer` セクションに追加されるので、すべてのビューで使用できます。
 
 [!code-cshtml[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
 
-`SetLanguage`メソッドはカルチャ cookie を設定します。
+`SetLanguage` メソッドはカルチャ Cookie を設定します。
 
 [!code-csharp[Main](localization/sample/Localization/Controllers/HomeController.cs?range=57-67)]
 
-接続することはできません、 *_SelectLanguagePartial.cshtml*このプロジェクトのサンプル コードにします。 **Localization.StarterWeb**プロジェクトでは、 [GitHub](https://github.com/aspnet/entropy)フローするコードが含ま、`RequestLocalizationOptions`を通じて部分 Razor を[依存性の注入](dependency-injection.md)コンテナーです。
+*_SelectLanguagePartial.cshtml* をこのプロジェクトのサンプル コードに接続することはできません。 [GitHub](https://github.com/aspnet/entropy) の **Localization.StarterWeb** プロジェクトには、[依存関係の挿入](dependency-injection.md)コンテナーを介して Razor 部分に `RequestLocalizationOptions` を挿入するコードがあります。
 
 ## <a name="globalization-and-localization-terms"></a>グローバリゼーションとローカリゼーションの用語
 
-アプリをローカライズするプロセスは、最新のソフトウェアの開発でよく使用される、関連する文字セットの基本的な理解とそれらに関連した問題の理解にも必要です。 すべてのコンピューターは、数値 (コード) としてテキストを格納、さまざまなシステムは別の番号を使用して、同じテキストを格納します。 ローカリゼーション処理は、特定のカルチャとロケールのアプリのユーザー インターフェイス (UI) の変換を指します。
+アプリをローカライズするプロセスでは、最新のソフトウェア開発でよく使用される関連する文字セットの基本的な理解と、それらに関連した問題の理解も必要です。 すべてのコンピューターは、テキストを数値 (コード) として格納しますが、さまざまなシステムが異なる数値を使用して同じテキストを格納します。 ローカリゼーション プロセスとは、特定のカルチャ/ロケール用にアプリのユーザー インターフェイス (UI) を変換することを指します。
 
-[ローカライズ化](https://docs.microsoft.com/dotnet/standard/globalization-localization/localizability-review)は、グローバライズされたアプリのローカライズ可能を確認するための中間プロセスです。
+[ローカライズ化](https://docs.microsoft.com/dotnet/standard/globalization-localization/localizability-review)は、グローバル化されたアプリのローカリゼーションの準備ができていることを確認するための中間プロセスです。
 
-[RFC 4646](https://www.ietf.org/rfc/rfc4646.txt)カルチャ名の形式`<languagecode2>-<country/regioncode2>`ここで、`<languagecode2>`言語コードと`<country/regioncode2>`となりです。 たとえば、`es-CL`スペイン語 (チリ) 用`en-US`英語 (米国) の場合と`en-AU`英語 (オーストラリア) 用です。 [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) ISO 639 言語に関連付けられている 2 文字の小文字のカルチャ コードと国または地域に関連付けられている 2 文字の大文字となり、ISO 3166 の組み合わせです。 参照してください[言語カルチャ名](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx)です。
+カルチャ名の [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) 形式は `<languagecode2>-<country/regioncode2>` です。ここで、`<languagecode2>` は言語コードであり、`<country/regioncode2>` はサブカルチャ コードです。 たとえば、スペイン語 (チリ) は `es-CL`、英語 (米国) は `en-US`、英語 (オーストラリア) は `en-AU` です。 [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) は、言語に関連付けられた ISO 639 の 2 文字の小文字カルチャ コードと、国または地域に関連付けられた ISO 3166 の 2 文字の大文字サブカルチャ コードの組み合わせです。 「[Language Culture Name](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx)」(言語カルチャ名) を参照してください。
 
-国際化は、"I18N"に多くの場合、省略されています。 省略形は、最初と最後の文字を受け取り、それらの間でため 18 文字の数は、最後の"N"、"I"、最初の文字の数を意味します。 (G11N) のグローバリゼーションおよびローカリゼーション (L10N) にも当てはまります。
+多くの場合、国際化は "I18N" に省略されます。 省略形は、最初と最後の文字およびそれらの間の文字の数になります。したがって、18 は、最初の "I" と最後の "N" の間の文字の数を表します。 同じことが、グローバリゼーション (G11N) とローカリゼーション (L10N) にも当てはまります。
 
-条件:
+用語:
 
-* グローバリゼーション (G11N): アプリ別の言語と地域をサポートするためのプロセスです。
-* ローカライズ (L10N): のカスタマイズ プロセスの特定の言語および地域のアプリです。
-* 国際化 (I18N): は、グローバリゼーションおよびローカリゼーションの両方について説明します。
-* カルチャ: は、言語および、必要に応じて、領域です。
-* ニュートラル カルチャ: 指定した言語が地域ではないカルチャ。 (たとえば"en"、"es")
-* 特定のカルチャ: 指定された言語と地域を持つカルチャ。 (例"EN-US"、"EN-GB"、"es CL") の
-* カルチャの親: を含む特定のカルチャ ニュートラル カルチャです。 (たとえば、"en"は"EN-US"と"EN-GB"の親カルチャ)
-* ロケール: ロケールとは、カルチャと同じです。
+* グローバリゼーション (G11N): アプリが別の言語と地域をサポートするようにするプロセス。
+* ローカリゼーション (L10N): 特定の言語と地域向けにアプリをカスタマイズするプロセス。
+* 国際化 (I18N): グローバリゼーションとローカリゼーションの両方を示します。
+* カルチャ: 言語および必要に応じて地域です。
+* ニュートラル カルチャ: 指定した言語のみを含み、地域は含まないカルチャ  (例: "en"、"es")。
+* 特定のカルチャ: 指定した言語と地域を含むカルチャ  (例: "en-US"、"en-GB"、"es-CL")。
+* 親カルチャ: 特定のカルチャを含むニュートラル カルチャ  (たとえば、"en" は "en-US" および "en-GB" の親カルチャです)。
+* ロケール: ロケールはカルチャと同じです。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [Localization.StarterWeb プロジェクト](https://github.com/aspnet/entropy)アーティクルで使用します。
-* [Visual Studio でのリソース ファイル](https://docs.microsoft.com/cpp/windows/resource-files-visual-studio)
-* [.Resx ファイル内のリソース](https://docs.microsoft.com/dotnet/framework/resources/working-with-resx-files-programmatically)
+* 記事で使用されている [Localization.StarterWeb プロジェクト](https://github.com/aspnet/entropy)。
+* [Visual Studio のリソース ファイル](https://docs.microsoft.com/cpp/windows/resource-files-visual-studio)
+* [.resx ファイル内のリソース](https://docs.microsoft.com/dotnet/framework/resources/working-with-resx-files-programmatically)

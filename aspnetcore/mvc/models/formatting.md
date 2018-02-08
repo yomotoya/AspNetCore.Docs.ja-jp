@@ -1,97 +1,97 @@
 ---
-title: "ASP.NET Core MVC での応答データを書式設定"
+title: "ASP.NET Core MVC の応答データの書式設定"
 author: ardalis
-description: "ASP.NET Core MVC での応答データを書式設定する方法を説明します。"
-ms.author: riande
+description: "ASP.NET Core MVC で応答データを書式設定する方法について説明します。"
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: mvc/models/formatting
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddda494e0db22031af9d20325e14e8458756cbfd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.date: 10/14/2016
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/models/formatting
+ms.openlocfilehash: 36231cd2bf59408e9c858ea99355c1e8dd859e6e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="introduction-to-formatting-response-data-in-aspnet-core-mvc"></a>ASP.NET Core MVC での応答データの書式設定の概要
+# <a name="introduction-to-formatting-response-data-in-aspnet-core-mvc"></a>ASP.NET Core MVC で応答データを書式設定する方法の概要
 
-によって[Steve Smith](https://ardalis.com/)
+作成者: [Steve Smith](https://ardalis.com/)
 
-ASP.NET Core MVC には、クライアントの仕様に応答したり固定形式を使用して、応答データを書式設定するための組み込みサポートがあります。
+ASP.NET Core MVC には、応答データを書式設定するためのサポートが組み込まれています。固定の書式を利用するか、クライアントの仕様に合わせます。
 
-[GitHub からサンプルのダウンロードを表示または](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/formatting/sample)です。
+[GitHub のサンプルを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/formatting/sample)
 
-## <a name="format-specific-action-results"></a>ファイル形式に固有のアクションの結果
+## <a name="format-specific-action-results"></a>書式固有アクションの結果
 
-などが特定の形式に固有のいくつかのアクション結果型は`JsonResult`と`ContentResult`です。 アクションは、特定の方法で常にフォーマットされている特定の結果を返すことができます。 たとえばを返す、`JsonResult`クライアント設定に関係なく、JSON 形式のデータが返されます。 同様を返す、 `ContentResult` (単に文字列を返すことが)、プレーン テキスト形式の文字列データが返されます。
+アクションの結果には、`JsonResult` や `ContentResult` のように、特定の形式に固有となる型があります。 アクションは、常に特定の方法で書式設定された結果を返すことができます。 たとえば、`JsonResult` を返すとき、クライアントの設定に関係なく、JSON で書式設定されたデータが返されます。 同様に、`ContentResult` を返すとき、プレーンテキストで書式設定された文字列データが返されます (単純に文字列が返されます)。
 
 > [!NOTE]
-> アクションを特定の種類を返す必要はありません。MVC には、任意のオブジェクトの戻り値がサポートしています。 アクションを返す場合、`IActionResult`実装とコント ローラーから継承`Controller`開発者の選択肢の多くに対応する多数のヘルパー メソッドがあります。 オブジェクトを返すアクションからの結果は`IActionResult`、適切な型をシリアル化される`IOutputFormatter`実装します。
+> 特定の型を返すためにアクションは必要ありません。MVC ではあらゆるオブジェクト戻り値を利用できます。 アクションが `IActionResult` 実装を返し、コントローラーが `Controller` から継承する場合、開発者は選択肢の多くに対応するさまざまなヘルパー メソッドを利用できます。 型が `IActionResult` ではないオブジェクトを返すアクションからの結果は、適切な `IOutputFormatter` 実装を利用してシリアル化されます。
 
-継承するコント ローラーから特定の形式でデータを返す、`Controller`基底クラス、組み込みのヘルパー メソッドを使用して`Json`を JSON を返すと`Content`のプレーン テキスト。 アクション メソッドは、特定の結果の型を返す必要があります (たとえば、 `JsonResult`) または`IActionResult`です。
+`Controller` 基底クラスから継承するコントローラーから特定の書式でデータを返すには、組み込みのヘルパー メソッド `Json` を使用して JSON を返し、`Content` を使用してプレーンテキストを返します。 アクション メソッドでは、特定の結果の型を返す必要があります (`JsonResult` や `IActionResult` など)。
 
-JSON 形式のデータを返す:
+JSON で書式設定されたデータを返す:
 
 [!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=21-26)]
 
-このアクションから応答のサンプル:
+このアクションからのサンプル応答:
 
-![応答のコンテンツの種類を示す Microsoft edge 開発者ツールの [ネットワーク] タブは、アプリケーション/json です。](formatting/_static/json-response.png)
+![Microsoft Edge の開発者ツールの [ネットワーク] タブ。応答のコンテンツの種類が application/json です。](formatting/_static/json-response.png)
 
-なお、応答のコンテンツの種類は`application/json`ネットワーク要求の一覧と、応答ヘッダーのセクションの両方が表示される。 要求ヘッダーのセクションの Accept ヘッダーで (ここでは、Microsoft Edge) ブラウザーで表示されるオプションの一覧にも注意してください。 現在の手法では、このヘッダーを無視します。その名実は後ほど説明します。
+応答のコンテンツの種類が `application/json` であることに注目してください。ネットワーク要求の一覧と [応答ヘッダー] セクションの両方に表示されます。 また、ブラウザー (この場合、Microsoft Edge) により [応答ヘッダー] セクションの Accept ヘッダーに表示されるオプションの一覧に注目してください。 現在の手法ではこのヘッダーが無視されます。無視しない方法について以下で説明します。
 
-プレーン テキストの書式設定されたデータを返すには使用`ContentResult`と`Content`ヘルパー。
+プレーンテキストで書式設定されたデータを返すには、`ContentResult` と `Content` ヘルパーを使用します。
 
 [!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=47-52)]
 
-この操作からの応答:
+このアクションからの応答:
 
-![応答のコンテンツの種類を示す Microsoft edge 開発者ツールの [ネットワーク] タブは、テキスト/プレーンです。](formatting/_static/text-response.png)
+![Microsoft Edge の開発者ツールの [ネットワーク] タブ。応答のコンテンツの種類が text/plain です。](formatting/_static/text-response.png)
 
-この場合、`Content-Type`が返される`text/plain`です。 また、文字列の応答タイプだけを使用して同じ動作を実現できます。
+この場合、返される `Content-Type` は `text/plain` です。 応答の型として文字列を使用する方法でもこれと同じ動作が得られます。
 
 [!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=54-59)]
 
 >[!TIP]
-> 複数の重要な操作の種類またはオプション (たとえば、さまざまな HTTP ステータス コードが実行される操作の結果に基づく) を返す、必要に応じて`IActionResult`戻り値の型として。
+> 戻り値の型やオプションを複数ともなう重要なアクションの場合 (実行された操作の結果に基づき、さまざまな HTTP ステータス コードが生成されるなど)、戻り値の型として `IActionResult` を優先します。
 
 ## <a name="content-negotiation"></a>コンテンツ ネゴシエーション
 
-コンテンツのネゴシエーション (*conneg*略して) クライアントを指定するときに発生、 [Accept ヘッダー](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)です。 ASP.NET Core MVC で使用される既定の形式は、JSON です。 コンテンツ ネゴシエーションはによって実装`ObjectResult`です。 特定のアクション結果のヘルパー メソッドから返されるステータス コードにも組み込まれている (すべてに基づいて`ObjectResult`)。 モデルの種類 (データ転送の種類として定義したクラス) を取得することもでき、フレームワークは自動的にそれを囲みで、`ObjectResult`します。
+クライアントにより [Accept ヘッダー](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)が指定されると、コンテンツ ネゴシエーション (省略形は *conneg*) が発生します。 ASP.NET Core MVC で使用される既定の書式は JSON です。 コンテンツ ネゴシエーションは `ObjectResult` によって実装されます。 (すべて `ObjectResult` に基づく) ヘルパー メソッドから返されるステータス コード固有のアクションの結果にも組み込まれます。 モデルの型を返すこともできます (データ転送の型として定義しているクラス)。フレームワークはこれを自動的に `ObjectResult` でラップします。
 
-次のアクション メソッドを使用して、`Ok`と`NotFound`ヘルパー メソッド。
+次のアクション メソッドでは、ヘルパー メソッドの `Ok` と `NotFound` が使用されます。
 
 [!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=8,10&range=28-38)]
 
-ない場合は、別の形式が要求されたサーバーは要求された形式で返すことができます、JSON 形式の応答が返されます。 などのツールを使用する[Fiddler](http://www.telerik.com/fiddler)を Accept ヘッダーが含まれる要求を作成し、別の形式を指定します。 その場合、サーバーがある場合、*フォーマッタ*要求の形式で応答を生成することができます、結果が返されますクライアント優先形式です。
+別の書式が要求され、その要求された書式をサーバーが返せる場合を除き、JSON で書式設定された応答が返されます。 [Fiddler](http://www.telerik.com/fiddler) のようなツールを利用し、Accept ヘッダーを含む要求を作成したり、別の書式を指定したりできます。 その場合、要求された書式で応答を生成できる*フォーマッタ*がサーバーに与えられている場合、クライアントの優先書式で結果が返されます。
 
-![手動で作成を示す fiddler コンソール アプリケーションまたは xml の Accept ヘッダー値を持つ要求を取得します。](formatting/_static/fiddler-composer.png)
+![Fiddler コンソールに手動で作成された GET 要求が表示されているのを確認できます。Accept ヘッダー値が application/xml になっています。](formatting/_static/fiddler-composer.png)
 
-上のスクリーン ショットでは、要求を生成する、Fiddler 作成ツールが使用されています指定`Accept: application/xml`です。 既定では、ASP.NET Core MVC のみをサポートしている JSON でも返される結果は JSON 形式も、別の形式を指定すると、します。 次のセクションの他のフォーマッタを追加する方法が表示されます。
+上のスクリーンショットでは、要求の生成に Fiddler Composer が使用されています。`Accept: application/xml` を指定しています。 既定では、ASP.NET Core MVC は JSON のみに対応しています。そのため、別の書式が指定されていても、結果は JSON で書式設定されて返されます。 フォーマッタの追加方法は次のセクションで確認します。
 
-コント ローラーのアクションはした poco から (Plain Old CLR Object) を返すことができる場合に ASP.NET MVC が自動的に作成、`ObjectResult`オブジェクトをラップします。 クライアントが形式のシリアル化されたオブジェクトを取得 (JSON 形式では、既定以外の場合は XML またはその他の形式を構成することができます)。 対象のオブジェクトが返された場合`null`、フレームワークは戻ります、`204 No Content`応答します。
+コントローラー アクションでは、POCO (Plain Old CLR Object/単純な従来の CLR オブジェクト) を返すことができます。POCO では、ASP.NET MVC によって、オブジェクトをラップする `ObjectResult` が自動的に作成されます。 書式設定され、シリアル化されたオブジェクトがクライアントに与えられます (JSON 書式が既定ですが、XML やその他の形式を設定できます)。 返されるオブジェクトが `null` の場合、フレームワークは `204 No Content` 応答を返します。
 
-オブジェクトの種類を取得します。
+オブジェクトの型を返す:
 
 [!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3&range=40-45)]
 
-サンプルでは、有効な作成者エイリアスの要求は、著者のデータを 200 OK の応答に表示されます。 無効なエイリアスの要求は、204 No Content 応答に表示されます。 XML および JSON 形式で応答を示すスクリーン ショットは、以下に示します。
+このサンプルでは、有効な作成者エイリアスを要求しています。200 OK という応答と作成者のデータが返されます。 無効なエイリアスを要求すると、204 No Content という応答が返されます。 下のスクリーンショットでは、XML 形式と JSON 形式の応答を確認できます。
 
-### <a name="content-negotiation-process"></a>コンテンツ ネゴシエーションのプロセス
+### <a name="content-negotiation-process"></a>コンテンツ ネゴシエーション プロセス
 
-コンテンツ*ネゴシエーション*のみが配置の場合、`Accept`要求のヘッダーが表示されます。 要求には、accept ヘッダーが含まれている、フレームワークの優先順位で accept ヘッダーのメディアの種類を列挙しようし、します accept ヘッダーで指定された形式のいずれかで応答を生成できるフォーマッタを検出します。 フォーマッタが見つからない、クライアントの要求を満たすことができる場合に、フレームワークは、応答を生成する最初のフォーマッタを検索しよう (開発者でオプションを構成しない限り、`MvcOptions`を返す 406 Not Acceptable 代わりに)。 要求は、XML を指定、XML フォーマッタが構成されていない場合は、JSON フォーマッタが使用されます。 一般的には、フォーマッタが構成されていない場合は、要求された形式を提供することができますし、オブジェクトの書式を設定する最初のフォーマッタを使用します。 ヘッダーが指定されていない場合、返されるオブジェクトを処理できる最初のフォーマッタは、応答をシリアル化するために使用されます。 この場合、ネゴシエーションの取得の任意の場所がありません - サーバーには、どのような形式が使用されますが決定することです。
+コンテンツ *ネゴシエーション*は、`Accept` ヘッダーが要求に現れるときにのみ発生します。 要求に Accept ヘッダーが含まれると、フレームワークは Accept ヘッダーのメディアの種類を優先順序で列挙し、Accept ヘッダーによって指定される書式の 1 つで応答を生成できるフォーマットを探します。 クライアントの要求を満たせるフォーマッタが見つからない場合、フレームワークは、応答を生成できる最初のフォーマットを見つけようとします (406 Not Acceptable を代わりに返すよう、開発者が `MvcOptions` でオプションを構成していない限り)。 要求で XML が指定されているが、XML フォーマッタが構成されていない場合、JSON フォーマッタが使用されます。 もっと一般的に言うと、要求された書式を提供できるフォーマッタが構成されていない場合、オブジェクトを書式設定できる最初のフォーマッタが使用されます。 ヘッダーが与えられない場合、応答のシリアル化に、返すオブジェクトを処理できる最初のフォーマッタが使用されます。 この例では、ネゴシエーションは発生しません。使用する書式はサーバーが決定します。
 
 > [!NOTE]
-> Accept ヘッダーが含まれている場合`*/*`、しない限り、ヘッダーは無視されます`RespectBrowserAcceptHeader`に設定されている場合は true`MvcOptions`です。
+> Accept ヘッダーに `*/*` が含まれる場合、`RespectBrowserAcceptHeader` が `MvcOptions` で true に設定されていない限り、ヘッダーが無視されます。
 
 ### <a name="browsers-and-content-negotiation"></a>ブラウザーとコンテンツ ネゴシエーション
 
-一般的な API は、クライアントとは異なりを指定する傾向が web ブラウザー`Accept`をさまざまな形式と、ワイルドカードを含むヘッダー。 既定では、フレームワークは、ブラウザーから、要求が送信されたことが検出された場合は無視されます、`Accept`ヘッダーと戻り値の代わりに、アプリケーション内のコンテンツの構成済みの既定の形式 (JSON 設定しない場合)。 これにより、さまざまなブラウザーを使用して、Api を使用する場合より一貫した使用環境が提供します。
+一般的な API クライアントとは異なり、Web ブラウザーは、ワイルドカードなど、多大な書式を含む `Accept` ヘッダーを提供することが多々あります。 既定では、ブラウザーから要求が来ていることをフレームワークが検出すると、フレームワークは `Accept` ヘッダーを無視し、代わりにアプリケーションで構成されている既定の書式でコンテンツを返します (他が設定されていない場合は JSON)。 さまざまなブラウザーで API を利用しても、一貫した操作性が与えられます。
 
-場合は、アプリケーションの記念ブラウザー accept ヘッダーを使用する場合、するこの MVC の構成の一部として設定して構成できます`RespectBrowserAcceptHeader`に`true`で、`ConfigureServices`メソッド*Startup.cs*です。
+アプリケーションでブラウザーの Accept ヘッダーを受け付けるようにする場合、MVC の構成の一部として設定できます。*Startup.cs* の `ConfigureServices` メソッドで `RespectBrowserAcceptHeader` を `true` に設定します。
 
 ```csharp
 services.AddMvc(options =>
@@ -100,19 +100,19 @@ services.AddMvc(options =>
 });
 ```
 
-## <a name="configuring-formatters"></a>フォーマッタを構成します。
+## <a name="configuring-formatters"></a>フォーマッタを構成する
 
-アプリケーションは、JSON の既定値を超える追加の形式をサポートする必要がある場合、は、NuGet パッケージを追加して、それらをサポートする MVC を構成することができます。 入力と出力に別のフォーマッタがあります。 入力のフォーマッタが使用[モデル バインド](model-binding.md); 出力フォーマッタが応答を書式設定に使用されます。 構成することも[カスタム フォーマッタ](../advanced/custom-formatters.md)です。
+アプリケーションが既定の JSON 以外の追加書式をサポートしなければならない場合、NuGet パッケージを追加し、サポートするように MVC を構成できます。 入力と出力で別々のフォーマッタがあります。 入力フォーマッタは[モデル バインディング](model-binding.md)で使用されます。出力フォーマッタは応答の書式設定に使用されます。 [カスタム フォーマッタ](../advanced/custom-formatters.md)を構成することもできます。
 
-### <a name="adding-xml-format-support"></a>XML 形式のサポートを追加します。
+### <a name="adding-xml-format-support"></a>XML 形式のサポートを追加する
 
-XML が書式設定のサポートを追加するには、インストール、 `Microsoft.AspNetCore.Mvc.Formatters.Xml` NuGet パッケージです。
+XML 書式設定のサポートを追加するには、`Microsoft.AspNetCore.Mvc.Formatters.Xml` NuGet パッケージをインストールします。
 
-MVC の構成に、XmlSerializerFormatters を追加*Startup.cs*:
+*Startup.cs* で MVC の構成に XmlSerializerFormatters を追加します。
 
 [!code-csharp[Main](./formatting/sample/Startup.cs?name=snippet1&highlight=2)]
 
-代わりに、出力フォーマッタだけを追加することができます。
+あるいは、出力フォーマッタだけを追加できます。
 
 ```csharp
 services.AddMvc(options =>
@@ -121,7 +121,7 @@ services.AddMvc(options =>
 });
 ```
 
-これら 2 つの方法が使用して結果をシリアル化`System.Xml.Serialization.XmlSerializer`です。 使用することができます、したい場合、`System.Runtime.Serialization.DataContractSerializer`その関連付けられたフォーマッタを追加することで。
+以上の 2 つの手法では、`System.Xml.Serialization.XmlSerializer` を利用して結果がシリアル化されます。 `System.Runtime.Serialization.DataContractSerializer` がよければ、それを利用できます。それに関連するフォーマッタを追加してください。
 
 ```csharp
 services.AddMvc(options =>
@@ -130,32 +130,32 @@ services.AddMvc(options =>
 });
 ```
 
-コント ローラーのメソッドが要求のに基づいて、適切な形式を返す必要があります XML が書式設定のサポートを追加したら、`Accept`ヘッダーがこの Fiddler を例に示します。
+XML 書式設定のサポートを追加すると、コントローラー メソッドは、要求の `Accept` ヘッダーに基づき、適切な書式を返すはずです。下の Fiddler の例をご覧ください。
 
-![Fiddler コンソール: Accept ヘッダーの値は、アプリケーションまたは xml 要求の生のタブを示しています。 応答の生のタブには、アプリケーションまたは xml の Content-type ヘッダーの値が表示されます。](formatting/_static/xml-response.png)
+![Fiddler コンソール: 要求の [Raw] タブで、Accept ヘッダー値が application/xml であることを確認できます。 応答の [Raw] タブで、Content-Type ヘッダー値が application/xml であることを確認できます。](formatting/_static/xml-response.png)
 
-生の GET 要求が行われたインスペクター タブで確認できます、`Accept: application/xml`ヘッダーが設定されています。 応答のペインの表示、`Content-Type: application/xml`ヘッダー、および`Author`オブジェクトを XML にシリアル化されました。
+[Inspectors] タブで、`Accept: application/xml` ヘッダーが設定された状態で Raw GET 要求が行われたことを確認できます。 応答ウィンドウに `Content-Type: application/xml` ヘッダーが表示されます。`Author` オブジェクトが XML にシリアル化されています。
 
-指定する要求を変更する作成ツール タブを使用して`application/json`で、`Accept`ヘッダー。 要求を実行して、応答は、JSON として書式設定されます。
+[Composer] タブを使用して要求を変更し、`Accept` ヘッダーに `application/json` を指定します。 要求を実行します。応答が JSON で書式設定されます。
 
-![Fiddler コンソール: Accept ヘッダーの値は application/json と要求の生のタブを示しています。 応答の生のタブには、アプリケーションおよび json の Content-type ヘッダーの値が表示されます。](formatting/_static/json-response-fiddler.png)
+![Fiddler コンソール: 要求の [Raw] タブで、Accept ヘッダー値が application/json であることを確認できます。 応答の [Raw] タブで、Content-Type ヘッダー値が application/json であることを確認できます。](formatting/_static/json-response-fiddler.png)
 
-このスクリーン ショットでは、要求のヘッダーに設定を確認できます`Accept: application/json`応答を指定と同じとその`Content-Type`です。 `Author` JSON 形式で、応答の本文にオブジェクトが示すようにします。
+このスクリーンショットでは、`Accept: application/json` のヘッダーとして要求セットを確認できます。応答によって、その `Content-Type` と同じものが指定されます。 `Author` オブジェクトは応答の本文に JSON 形式で表示されます。
 
-### <a name="forcing-a-particular-format"></a>特定の形式の強制
+### <a name="forcing-a-particular-format"></a>特定の書式を強制する
 
-特定の操作の応答形式を制限したい場合にすることができます、適用することができます、`[Produces]`フィルター。 `[Produces]`フィルターは、特定のアクション (またはコント ローラー) の応答形式を指定します。 などのほとんど[フィルター](../controllers/filters.md)、これは、アクション、コント ローラー、またはグローバル スコープで適用できます。
+特定のアクションの応答書式を制限する場合、`[Produces]` フィルターを適用できます。 `[Produces]` フィルターによって、特定のアクション (またはコントローラー) の応答書式が指定されます。 ほとんどの[フィルター](../controllers/filters.md)と同様に、アクション、コントローラー、グローバル スコープで適用できます。
 
 ```csharp
 [Produces("application/json")]
 public class AuthorsController
 ```
 
-`[Produces]`フィルター内のすべてのアクションが強制的に実行、`AuthorsController`を JSON 形式の応答を返す、他のフォーマッタは、アプリケーションと指定されたクライアント用に構成された場合でも、`Accept`別、要求ヘッダー使用可能な形式です。 参照してください[フィルター](../controllers/filters.md)全体にフィルターを適用する方法を含む詳細についてはします。
+アプリケーションに他のフォーマッタが構成されており、クライアントが `Accept` ヘッダーで別の利用できる書式を要求している場合でも、`[Produces]` フィルターは `AuthorsController` 内のすべてのアクションに JSON で書式設定された応答を返すように強制します。 フィルターをグローバルで適用する方法など、詳細については「[フィルター](../controllers/filters.md)」を参照してください。
 
-### <a name="special-case-formatters"></a>特殊なケース フォーマッタ
+### <a name="special-case-formatters"></a>特殊なケースのフォーマッタ
 
-特殊なケースは、組み込みのフォーマッタを使用して実装されます。 既定では、`string`戻り値の型として書式設定*テキスト/プレーン*(*テキスト/html*経由で要求された場合`Accept`ヘッダー)。 この動作を削除することで削除することができます、`TextOutputFormatter`です。 フォーマッタを削除する、`Configure`メソッド*Startup.cs* (下図参照)。 型を返す、204 コンテンツ応答がない場合を返すモデル オブジェクトがあるアクションを返す`null`です。 この動作を削除することで削除することができます、`HttpNoContentOutputFormatter`です。 次のコードを削除、`TextOutputFormatter`と`HttpNoContentOutputFormatter`です。
+一部の特殊なケースが組み込みのフォーマッタで実装されます。 既定では、戻り値の型 `string` は *text/plain* として書式設定されます (`Accept` ヘッダー経由で要求された場合は *text/html*)。 この動作は `TextOutputFormatter` を削除することで削除できます。 *Startup.cs* の `Configure` メソッドでフォーマッタを削除します (下記参照)。 戻り値の型としてモデル オブジェクトをともなうアクションは、`null` を返すとき、204 No Content の応答を返します。 この動作は `HttpNoContentOutputFormatter` を削除することで削除できます。 次のコードでは、`TextOutputFormatter` と `HttpNoContentOutputFormatter` が削除されます。
 
 ```csharp
 services.AddMvc(options =>
@@ -165,13 +165,13 @@ services.AddMvc(options =>
 });
 ```
 
-なし、 `TextOutputFormatter`、`string`型を返す 406 を返す例については、許容できません。 XML フォーマッタが存在する場合、これにフォーマットすることに注意してください`string`型を返す場合、`TextOutputFormatter`を削除します。
+`TextOutputFormatter` がない場合、`string` は戻り値の型として 406 Not Acceptable などを返します。 XML フォーマッタが存在するときは、`TextOutputFormatter` が削除された場合、戻り値の型 `string` が書式設定されます。
 
-なし、 `HttpNoContentOutputFormatter`、null オブジェクトは構成済みのフォーマッタを使用して書式設定します。 たとえば、JSON フォーマッタが返されるだけ応答の本体を持つ`null`XML フォーマッタは、属性を持つ空の XML 要素を返すときに、`xsi:nil="true"`を設定します。
+`HttpNoContentOutputFormatter` がない場合、構成されているフォーマッタを利用し、null オブジェクトが書式設定されます。 たとえば、JSON フォーマッタは応答と `null` の本文を返すのに対し、XML フォーマッタは空の XML 要素と属性 `xsi:nil="true"` セットを返します。
 
-## <a name="response-format-url-mappings"></a>応答の形式の URL マッピング
+## <a name="response-format-url-mappings"></a>応答形式の URL マッピング
 
-クライアントで要求できますを特定の形式、URL の一部としてなど、クエリ文字列またはまたは .xml または .json などの形式に固有のファイル拡張子を使用して、パスの一部です。 API を使用してルート上では、要求パスからのマッピングを指定してください。 例:
+クライアントは URL の一部として特定の書式を要求できます。たとえば、クエリ文字列やパスの一部に含めます。あるいは、.xml や .json など、書式固有のファイル拡張子を利用します。 要求パスからのマッピングは、API で使用されるルートに指定する必要があります。 例:
 
 ```csharp
 [FormatFilter]
@@ -181,10 +181,10 @@ public class ProductsController
     public Product GetById(int id)
 ```
 
-このルートには、省略可能なファイル拡張子として指定する要求の形式ができるようにします。 `[FormatFilter]`属性の形式の値の存在を確認、`RouteData`し、応答の作成時に、応答形式を適切なフォーマッタにマップされます。
+このルートにより、要求された書式をオプションのファイル拡張子として指定できます。 `[FormatFilter]` 属性は `RouteData` に書式値がないか確認し、応答が作成されると、応答形式を適切なフォーマッタにマッピングします。
 
 | ルート                      | フォーマッタ                          |
 | -------------------------- | ---------------------------------- |
 | `/products/GetById/5`      | 既定の出力フォーマッタ       |
-| `/products/GetById/5.json` | (構成されている) 場合は、JSON フォーマッタ |
-| `/products/GetById/5.xml`  | (構成されている) 場合は、XML フォーマッタ  |
+| `/products/GetById/5.json` | JSON フォーマッタ (構成される場合) |
+| `/products/GetById/5.xml`  | XML フォーマッタ (構成される場合)  |

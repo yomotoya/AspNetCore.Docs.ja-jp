@@ -1,121 +1,121 @@
 ---
 title: "ASP.NET Core モジュール"
 author: tdykstra
-description: "ASP.NET Core モジュール (ANCM)、IIS または IIS Express を使用して、リバース プロキシ サーバーとして Kestrel web サーバーができるように IIS モジュールが導入されています。"
-ms.author: tdykstra
+description: "Kestrel Web サーバーが IIS または IIS Express をリバース プロキシ サーバーとして使用できるようにするための IIS モジュールである ASP.NET Core モジュール (ANCM) について紹介します。"
 manager: wpickett
-ms.date: 08/03/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/servers/aspnet-core-module
+ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9dc2183ebbdf8b74106fe57a1dd191a57ba5d1bc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.date: 08/03/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/servers/aspnet-core-module
+ms.openlocfilehash: 4337bc42c5454d6a9634a396d9c89f3518af148b
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>ASP.NET Core モジュールの概要
 
-によって[Tom Dykstra](https://github.com/tdykstra)、 [Rick Strahl](https://github.com/RickStrahl)、および[Chris Ross](https://github.com/Tratcher) 
+作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Strahl](https://github.com/RickStrahl)、[Chris Ross](https://github.com/Tratcher) 
 
-ASP.NET Core モジュール (ANCM) では、アプリケーション、IIS の背後にある ASP.NET Core を実行できますこれは、新機能 (セキュリティ、管理容易性、および多数詳細) でも適切に IIS を使用すると、を使用して[Kestrel](kestrel.md)には、新機能 (されている非常に高速)、でも適切に取得しています、。一度に 2 つのテクノロジからの利点があります。 **ANCM は Kestrel; でのみ機能します。WebListener と互換性がない (ASP.NET Core で 1.x)、または HTTP.sys (2.x) にします。** 
+ASP.NET Core モジュール (ANCM) では、IIS の背後で ASP.NET Core アプリケーションを実行することができます。この場合は、セキュリティ、管理容易性、その他さまざまな点で優れている IIS、および高速化に適している [Kestrel](kestrel.md) が使用され、両方の技術の利点が一度に活用されます。 **ANCM は Kestrel でのみ機能します。WebListener (ASP.NET Core 1.x) または HTTP.sys (2.x) と互換性はありません。** 
 
-サポートされている Windows のバージョン:
+サポートされている Windows バージョン:
 
 * Windows 7 および Windows Server 2008 R2 以降
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-## <a name="what-aspnet-core-module-does"></a>ASP.NET Core モジュールの実行内容
+## <a name="what-aspnet-core-module-does"></a>ASP.NET Core モジュールの機能
 
-ANCM は、IIS のパイプラインにフックし、トラフィックをバックエンド ASP.NET Core アプリケーションにリダイレクトするネイティブの IIS モジュールです。 Windows 認証など、他のほとんどのモジュールは、まだ実行する機会を取得します。 ANCM はコントロールをだけは、ハンドラーが、要求を選択し、ハンドラー マッピングがアプリケーションで定義されている場合に*web.config*ファイル。
+ANCM とは、IIS パイプラインにフックしてトラフィックをバックエンドの ASP.NET Core アプリケーションにリダイレクトするネイティブの IIS モジュールです。 Windows 認証など、他のほとんどのモジュールは引き続き実行することができます。 ANCM が制御を取得するのは、要求に対してハンドラーが選択され、ハンドラー マッピングがアプリケーション *web.config* ファイルに定義される場合のみです。
 
-IIS ワーカー プロセスからの個別のプロセスで実行する ASP.NET Core アプリケーション、ため ANCM もが、処理の管理。 最初の要求はクラッシュして再起動し、ANCM は ASP.NET Core アプリケーションのプロセスを開始します。 これは、従来の ASP.NET アプリケーションと基本的に同じ動作を実行するインプロセス iis および WAS (Windows ライセンス認証サービスなど) によって管理されています。
+ASP.NET Core アプリケーションは IIS ワーカー プロセスとは独立したプロセスで実行されるため、ANCM もプロセス管理を行います。 ANCM は、最初の要求を受信したときに ASP.NET Core アプリケーションのプロセスを開始し、プロセスがクラッシュしたときは再起動します。 この動作は、IIS のインプロセスで実行され、WAS (Windows プロセス アクティブ化サービス ) によって管理される従来の ASP.NET アプリケーションと基本的に同じです。
 
-ここでは、IIS、ANCM、および ASP.NET Core アプリケーションの間のリレーションシップを示す図。
+次の図は、IIS アプリケーション、ANCM アプリケーション、および ASP.NET Core アプリケーションの間のリレーションシップを示しています。
 
 ![ASP.NET Core モジュール](aspnet-core-module/_static/ancm.png)
 
-要求は、Web から受け取るし、プライマリ ポート (80) または SSL ポート (443) 上の IIS にルーティングする、カーネル モード Http.Sys ドライバーをヒットします。 ANCM が、これはポートでは、アプリケーション用に構成された HTTP ポート上の ASP.NET Core アプリケーションに要求を転送 80/443 です。
+要求は Web から送信され、カーネル モード Http.Sys ドライバーに到達します。このドライバーはプライマリ ポート (80) または SSL ポート (443) で IIS に要求をルーティングします。 ANCM は、アプリケーション用に構成された、ポート 80/443 以外の HTTP ポートで ASP.NET Core アプリケーションに要求を転送します。
 
-Kestrel は、ANCM からのトラフィックをリッスンします。  ANCM が起動時に、環境変数を使用してポートを指定し、 [UseIISIntegration](#call-useiisintegration)メソッドでリッスンするサーバーの構成`http://localhost:{port}`です。 これは、追加のチェック ANCM からではなく要求を拒否します。 (ANCM サポートされていない HTTPS 転送のため HTTPS 経由で IIS によって受信された場合でも、要求が HTTP 経由で転送されます。)
+Kestrel は ANCM からのトラフィックをリッスンします。  ANCM が起動時に環境変数を介してポートを指定すると、サーバーは `http://localhost:{port}` をリッスンするように、[UseIISIntegration](#call-useiisintegration) メソッドによって構成されます。 ANCM 以外からの要求を拒否するためのに追加のチェックが行われます  (ANCM では HTTPS 転送がサポートされていないのため、要求は HTTPS を介して IIS によって受信された場合でも、HTTP を介して転送されます)。
 
-Kestrel が ANCM から要求を取得し、それらにし、それらを処理し、それらとして ASP.NET Core のミドルウェア パイプラインにプッシュ`HttpContext`アプリケーション ロジックのインスタンス。 アプリケーションの応答は、IIS、それらクライアントに返信、HTTP 要求を開始したどのプッシュに渡されます。
+Kestrel は ANCM から要求を取得し、それを ASP.NET Core ミドルウェア パイプラインにプッシュします。そこで要求は処理され、`HttpContext` インスタンスとしてアプリケーション ロジックに渡されます。 アプリケーションの応答が IIS に渡され、IIS はその応答を、要求を開始した HTTP クライアントに返します。
 
-ANCM が他のいくつかの機能もあります。
+ANCM には他にもいくつかの機能があります。
 
 * 環境変数を設定します。
-* ログ`stdout`ファイル記憶域に出力します。
+* `stdout` 出力をファイル記憶域にログ記録します。
 * Windows 認証トークンを転送します。
 
-## <a name="how-to-use-ancm-in-aspnet-core-apps"></a>ASP.NET Core アプリケーションで ANCM を使用する方法
+## <a name="how-to-use-ancm-in-aspnet-core-apps"></a>ASP.NET Core アプリで ANCM を使用する方法
 
-このセクションでは、IIS サーバーおよび ASP.NET Core アプリケーションを設定するため、プロセスの概要を示します。 詳細については、次を参照してください。 [IIS と Windows 上のホスト](xref:host-and-deploy/iis/index)です。
+このセクションでは、IIS サーバーおよび ASP.NET Core アプリケーションを設定するためのプロセスの概要を説明します。 詳細については、「[IIS を使用した Windows での ASP.NET Core のホスト](xref:host-and-deploy/iis/index)」を参照してください。
 
-### <a name="install-ancm"></a>ANCM をインストールします。
+### <a name="install-ancm"></a>ANCM をインストールする
 
 
-ASP.NET Core モジュールは、インストールする IIS で、サーバーと IIS Express で、開発用コンピューターで持っています。 サーバーでは、ANCM に含まれる、 [.NET コア Windows Server をホストしているバンドル](https://aka.ms/dotnetcore-2-windowshosting)です。 開発用コンピューターの Visual Studio 自動的にインストール ANCM IIS および IIS Express で、コンピューターに既にインストールされている場合。
+ASP.NET Core モジュールは、サーバー上では IIS にインストールし、開発用コンピューター上では IIS Express にインストールする必要があります。 サーバーの場合、ANCM は [.NET Core Windows Server Hosting バンドル](https://aka.ms/dotnetcore-2-windowshosting)に含まれています。 開発用コンピューターの場合、ANCM は Visual Studio によって自動的に IIS Express にインストールされ、コンピューターに既にインストールされている場合は IIS にインストールされます。
 
-### <a name="install-the-iisintegration-nuget-package"></a>IISIntegration NuGet パッケージをインストールします。
+### <a name="install-the-iisintegration-nuget-package"></a>IISIntegration NuGet パッケージをインストールする
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) ASP.NET Core metapackages にパッケージが含まれます ([Microsoft.AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore/)と[Microsoft.AspNetCore.All](xref:fundamentals/metapackage)). を使用しない、metapackages のいずれかの場合は、インストール`Microsoft.AspNetCore.Server.IISIntegration`とは別にします。 `IISIntegration`パッケージは、アプリを設定する ANCM によってブロードキャストされた環境変数を読み取るの相互運用性パックします。 環境変数では、リッスンするポートなどの構成情報を提供します。 
+[Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) パッケージは、ASP.NET Core メタパッケージ ([Microsoft.AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore/) および [Microsoft.AspNetCore.All](xref:fundamentals/metapackage)) に含まれます。 メタパッケージの 1 つを使用しない場合は、`Microsoft.AspNetCore.Server.IISIntegration` を個別にインストールします。 `IISIntegration` パッケージは、アプリを設定するために ANCM によってブロードキャストされた環境変数を読み取る相互運用性パックです。 環境変数は、リッスンするポートなどの構成情報を提供します。 
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-アプリケーションでインストール[Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/)です。 `IISIntegration`パッケージは、アプリを設定する ANCM によってブロードキャストされた環境変数を読み取るの相互運用性パックします。 環境変数では、リッスンするポートなどの構成情報を提供します。 
+アプリケーションで、[Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) をインストールします。 `IISIntegration` パッケージは、アプリを設定するために ANCM によってブロードキャストされた環境変数を読み取る相互運用性パックです。 環境変数は、リッスンするポートなどの構成情報を提供します。 
 
 ---
 
-### <a name="call-useiisintegration"></a>呼び出し UseIISIntegration
+### <a name="call-useiisintegration"></a>UseIISIntegration の呼び出し
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-`UseIISIntegration`拡張メソッドを[ `WebHostBuilder` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) IIS を実行したときに自動的に呼び出されます。
+[`WebHostBuilder`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) 上の `UseIISIntegration` 拡張メソッドは、IIS で実行するときに自動的に呼び出されます。
 
-ASP.NET Core metapackages のいずれかを使用していないしがインストールされていないかどうか、`Microsoft.AspNetCore.Server.IISIntegration`パッケージ、実行時エラーを取得します。 呼び出す場合`UseIISIntegration`パッケージがインストールされていない場合、コンパイル時エラーに明示的に、取得します。
+ASP.NET Core メタパッケージのいずれか 1 つを使用しておらず、さらに `Microsoft.AspNetCore.Server.IISIntegration` パッケージがインストールされていない場合は、実行時エラーが返されます。 `UseIISIntegration` を明示的に呼び出した場合、パッケージがインストールされていないと、コンパイル時エラーが発生します。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-アプリケーションの`Main`メソッドを呼び出し、`UseIISIntegration`拡張メソッドを[ `WebHostBuilder`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder)です。 
+アプリケーションの `Main` メソッドでは、[`WebHostBuilder`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) で `UseIISIntegration` 拡張メソッドを呼び出します。 
 
 [!code-csharp[](aspnet-core-module/sample/Program.cs?name=snippet_Main&highlight=12)]
 
 ---
 
-`UseIISIntegration`メソッドの ANCM 設定すると、環境変数とそのキャッシュなしでこれらがない場合。 この動作には、開発および macOS または Linux でのテストと IIS を実行しているサーバーへの展開のようなシナリオが容易になります。 で macOS または Linux を実行しているときに、Kestrel が web サーバーとして機能します。ただし、アプリが IIS 環境に展開されると、自動的に ANCM と IIS 使用されます。
+`UseIISIntegration` メソッドは ANCM によって設定された環境変数を探し、見つからない場合は動作しません。 このようなしくみは、macOS または Linux で開発およびテストを行い、IIS を実行しているサーバーに展開するようなシナリオが容易になります。 macOS または Linux で実行している間、Kestrel は Web サーバーとして機能しますが、アプリが IIS 環境に展開されると、自動的に ANCM および IIS を使用するようになります。
 
-### <a name="ancm-port-binding-overrides-other-port-bindings"></a>ANCM ポートのバインドが他のポートのバインドをオーバーライドします
+### <a name="ancm-port-binding-overrides-other-port-bindings"></a>ANCM ポート バインディングで他のポート バインディングを上書きする
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-ANCM には、バックエンド プロセスに代入する動的なポートが生成されます。 `UseIISIntegration`メソッドは、この動的なポートを取得し、Kestrel でリッスンするように構成`http://locahost:{dynamicPort}/`です。 呼び出しなど、その他の URL の構成が上書きされます。`UseUrls`または[Kestrel のリッスン API](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#endpoint-configuration)です。 呼び出す必要はありませんので、`UseUrls`または Kestrel の`Listen`API ANCM を使用するとします。 呼び出す場合`UseUrls`または`Listen`Kestrel は IIS ことがなくアプリを実行するときに指定したポートでリッスンします。
+ANCM は、バックエンド プロセスに割り当てる動的なポートを生成します。 `UseIISIntegration` メソッドは、この動的なポートを取得すると共に、`http://locahost:{dynamicPort}/` をリッスンするように Kestrel を構成します。 これにより、`UseUrls` または [Kestrel の Listen API](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#endpoint-configuration) の呼び出しなど、その他の URL 構成が上書きされます。 したがって、ANCM を使用するときに、`UseUrls` または Kestrel の `Listen` API を呼び出す必要はありません。 `UseUrls` または `Listen` を呼び出す場合、IIS なしでアプリを実行するときに指定するポートが Kestrel によってリッスンされます。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-ANCM には、バックエンド プロセスに代入する動的なポートが生成されます。 `UseIISIntegration`メソッドは、この動的なポートを取得し、Kestrel でリッスンするように構成`http://locahost:{dynamicPort}/`です。 呼び出しなど、その他の URL の構成が上書きされます。`UseUrls`です。 呼び出す必要はありませんので、 `UseUrls` ANCM を使用するとします。 呼び出す場合`UseUrls`Kestrel は IIS ことがなくアプリを実行するときに指定したポートでリッスンします。
+ANCM は、バックエンド プロセスに割り当てる動的なポートを生成します。 `UseIISIntegration` メソッドは、この動的なポートを取得すると共に、`http://locahost:{dynamicPort}/` をリッスンするように Kestrel を構成します。 これにより、`UseUrls` の呼び出しなど、その他の URL 構成が上書きされます。 したがって、ANCM を使用するときに、`UseUrls` を呼び出す必要はありません。 `UseUrls` を呼び出す場合、IIS なしでアプリを実行するときに指定するポートが Kestrel によってリッスンされます。
 
-呼び出す場合に、ASP.NET Core 1.0 で`UseUrls`、それを呼び出す**する前に**呼び出す`UseIISIntegration`ANCM に構成されたポートの上書きを取得しないようにします。 ANCM 設定より優先されるため、この呼び出しの順序が ASP.NET Core 1.1 のため必要はありません`UseUrls`です。
+ASP.NET Core 1.0 では、`UseUrls` を呼び出す場合、これを呼び出して**から**、`UseIISIntegration` を呼び出します。そうすれば、ANCM で構成されたポートは上書きされません。 この呼び出しの順序は ASP.NET Core 1.1 では必要ありません。ANCM 設定は `UseUrls` より優先されるからです。
 
 ---
 
-### <a name="configure-ancm-options-in-webconfig"></a>Web.config で ANCM オプションを構成します。
+### <a name="configure-ancm-options-in-webconfig"></a>Web.config で ANCM オプションを構成する
 
-ASP.NET Core モジュールの構成に保存、 *web.config*アプリケーションのルート フォルダーに配置されているファイル。 このファイルの設定は、スタートアップ コマンドおよび ASP.NET Core アプリを起動する引数をポイントします。 サンプルの*web.config*コードと構成オプションに関する説明を参照してください[ASP.NET コア モジュールの構成の参照](xref:host-and-deploy/aspnet-core-module)です。
+ASP.NET Core モジュールの構成は、アプリケーションのルート フォルダーに配置された *web.config* ファイルに格納されます。 このファイル内の設定は、ASP.NET Core アプリを起動するスタートアップ コマンドと引数をポイントします。 *web.config* コードのサンプルと構成オプションのガイダンスについては、「[ASP.NET Core Module Configuration Reference](xref:host-and-deploy/aspnet-core-module)」 (ASP.NET Core モジュール構成の参照) を参照してください。
 
-### <a name="run-with-iis-express-in-development"></a>IIS Express を使って開発での実行します。
+### <a name="run-with-iis-express-in-development"></a>開発における IIS Express での実行
 
-IIS Express は、Visual Studio の ASP.NET Core テンプレートで定義されている既定のプロファイルを使用して起動できます。
+IIS Express を Visual Studio で起動するには、ASP.NET Core テンプレートによって定義された既定のプロファイルを使用します。
 
-## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>HTTP プロトコルとペアリング トークンを使用するプロキシの構成
+## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>プロキシの構成で HTTP プロトコルとペアリング トークンを使用する
 
-ANCM と Kestrel の間に作成されたプロキシは、HTTP プロトコルを使用します。 HTTP を使用して、パフォーマンスを最適化する ANCM と Kestrel 間のトラフィックが行われる、ループバック アドレスでネットワーク インターフェイスからです。 傍受 ANCM と、サーバーからの場所から Kestrel 間のトラフィックのリスクはありません。
+ANCM と Kestrel の間で作成されたプロキシで、HTTP プロトコルを使用します。 HTTP を使用することは、パフォーマンス最適化の手段です。この場合は、ANCM と Kestrel の間のトラフィックがネットワーク インターフェイスから離れたループバック アドレスで発生します。 ANCM と Kestrel の間のトラフィックが、サーバーから離れた場所で傍受される危険性があります。
 
-ペアリング トークンは、Kestrel によって受信された要求が IIS によってプロキシと他のソースから取得していないことを保証するために使用されます。 ペアリング トークンが作成され、環境変数に設定 (`ASPNETCORE_TOKEN`)、ANCM でします。 ペアリング トークンは、ヘッダーにも設定 (`MSAspNetCoreToken`) プロキシ要求ごとにします。 IIS のミドルウェアのチェックは、ペアリング トークン ヘッダーの値が環境変数の値と一致することを確認する受信を要求します。 トークンの値が一致しない場合は、要求が記録され、拒否されました。 ペアリングのトークンの環境変数と ANCM と Kestrel 間のトラフィックは、サーバーからの場所からアクセスできません。 トークン ペアの値を知らなくても、攻撃者は、IIS ミドルウェア内でチェックのバイパスの要求を送信できません。
+ペアリング トークンを使用すると、Kestrel によって受信される要求が IIS によってプロキシされたものであり、他のソースからのものでないことを保証できます。 ペアリング トークンは、ANCM によって作成され、環境変数 (`ASPNETCORE_TOKEN`) に設定されます。 ペアリング トークンはまた、プロキシされたすべての要求のヘッダー (`MSAspNetCoreToken`) にも設定されます。 IIS ミドルウェアは、受信した各要求をチェックし、ペアリング トークン ヘッダーの値が環境変数の値と一致することを確認します。 トークンの値が一致しない場合、要求はログに記録され、拒否されます。 ペアリング トークン環境変数および、ANCM と Kestrel の間のトラフィックには、サーバーから離れた場所からアクセスすることはできません。 ペアリング トークンの値がわからなければ、攻撃者は IIS ミドルウェアのチェックをバイパスする要求を送信できません。
 
 ## <a name="next-steps"></a>次の手順
 

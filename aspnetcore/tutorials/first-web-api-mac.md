@@ -1,26 +1,26 @@
 ---
 title: "ASP.NET Core と Visual Studio for Mac で Web API を作成する"
-description: "ASP.NET Core MVC と Visual Studio for Mac で Web API を作成する"
 author: rick-anderson
+description: "ASP.NET Core MVC と Visual Studio for Mac で Web API を作成する"
+helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
+manager: wpickett
 ms.author: riande
 ms.date: 09/15/2017
-ms.topic: get-started-article
 ms.prod: asp.net-core
-uid: tutorials/first-web-api-mac
-helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
 ms.technology: aspnet
-manager: wpickett
-ms.openlocfilehash: 4f2643a91e1523008b68df670a9734e3d4dea5a8
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.topic: get-started-article
+uid: tutorials/first-web-api-mac
+ms.openlocfilehash: b0e1a331fe3229119f4669fa336b6af4822785bf
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>ASP.NET Core MVC と Visual Studio for Mac で Web API を作成する
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) と [Mike Wasson](https://github.com/mikewasson)
 
-このチュートリアルでは、"to-do" 項目の一覧を管理する Web API を構築します。 UI は構築しません。
+このチュートリアルでは、"to-do" 項目の一覧を管理する Web API を構築します。 UI が構成されていません。
 
 このチュートリアルには 3 つのバージョンがあります。
 
