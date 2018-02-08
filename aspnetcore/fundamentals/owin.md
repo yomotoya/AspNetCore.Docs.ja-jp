@@ -1,42 +1,42 @@
 ---
 title: Open Web Interface for .NET (OWIN)
 author: ardalis
-description: "ASP.NET Core のサポートについて Open Web Interface の .NET (OWIN)、これにより web サーバーから切り離すことが可能に web アプリを検出します。"
-ms.author: riande
+description: "ASP.NET Core が Open Web Interface for .NET (OWIN) をどのようにサポートしているかを確認します。確認することで、Web アプリケーションを Web サーバーから切り離すことができるようになります。"
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/owin
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 42ffa01745b7a492b3b8cb2778805f254863b890
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.date: 10/14/2016
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/owin
+ms.openlocfilehash: 1a6a49715840d66dc37465758d3a896af96e2976
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="introduction-to-open-web-interface-for-net-owin"></a><span data-ttu-id="0ff68-103">開くには .NET (OWIN) 用 Web インターフェイスの概要</span><span class="sxs-lookup"><span data-stu-id="0ff68-103">Introduction to Open Web Interface for .NET (OWIN)</span></span>
+# <a name="introduction-to-open-web-interface-for-net-owin"></a><span data-ttu-id="4620c-103">Open Web Interface for .NET (OWIN) の概要</span><span class="sxs-lookup"><span data-stu-id="4620c-103">Introduction to Open Web Interface for .NET (OWIN)</span></span>
 
-<span data-ttu-id="0ff68-104">によって[Steve Smith](https://ardalis.com/)と[Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="0ff68-104">By [Steve Smith](https://ardalis.com/) and  [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="4620c-104">作成者: [Steve Smith](https://ardalis.com/)、[Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="4620c-104">By [Steve Smith](https://ardalis.com/) and  [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="0ff68-105">ASP.NET Core は、Open Web Interface for .NET (OWIN) をサポートします。</span><span class="sxs-lookup"><span data-stu-id="0ff68-105">ASP.NET Core supports the Open Web Interface for .NET (OWIN).</span></span> <span data-ttu-id="0ff68-106">OWIN により、Web アプリを Web サーバーから切り離すことが可能になります。</span><span class="sxs-lookup"><span data-stu-id="0ff68-106">OWIN allows web apps to be decoupled from web servers.</span></span> <span data-ttu-id="0ff68-107">要求と関連付けられている応答を処理するパイプラインで使用されるミドルウェアの標準的な方法を定義します。</span><span class="sxs-lookup"><span data-stu-id="0ff68-107">It defines a standard way for middleware to be used in a pipeline to handle requests and associated responses.</span></span> <span data-ttu-id="0ff68-108">ASP.NET Core アプリケーションとミドルウェアは、OWIN ベースのアプリケーション、サーバー、およびミドルウェアと相互運用できます。</span><span class="sxs-lookup"><span data-stu-id="0ff68-108">ASP.NET Core applications and middleware can interoperate with OWIN-based applications, servers, and middleware.</span></span>
+<span data-ttu-id="4620c-105">ASP.NET Core は、Open Web Interface for .NET (OWIN) をサポートします。</span><span class="sxs-lookup"><span data-stu-id="4620c-105">ASP.NET Core supports the Open Web Interface for .NET (OWIN).</span></span> <span data-ttu-id="4620c-106">OWIN により、Web アプリを Web サーバーから切り離すことが可能になります。</span><span class="sxs-lookup"><span data-stu-id="4620c-106">OWIN allows web apps to be decoupled from web servers.</span></span> <span data-ttu-id="4620c-107">ミドルウェアをパイプラインで使用し、要求と関連する応答を処理するための標準的な方法を定義します。</span><span class="sxs-lookup"><span data-stu-id="4620c-107">It defines a standard way for middleware to be used in a pipeline to handle requests and associated responses.</span></span> <span data-ttu-id="4620c-108">ASP.NET Core アプリケーションとミドルウェアは、OWIN ベースのアプリケーション、サーバー、およびミドルウェアと相互運用できます。</span><span class="sxs-lookup"><span data-stu-id="4620c-108">ASP.NET Core applications and middleware can interoperate with OWIN-based applications, servers, and middleware.</span></span>
 
-<span data-ttu-id="0ff68-109">OWIN は、2 つのフレームワークに一緒に使用するさまざまなオブジェクト モデルでは、分離のレイヤーを提供します。</span><span class="sxs-lookup"><span data-stu-id="0ff68-109">OWIN provides a decoupling layer that allows two frameworks with disparate object models to be used together.</span></span> <span data-ttu-id="0ff68-110">`Microsoft.AspNetCore.Owin`パッケージは次の 2 つのアダプター実装を提供します。</span><span class="sxs-lookup"><span data-stu-id="0ff68-110">The `Microsoft.AspNetCore.Owin` package provides two adapter implementations:</span></span>
-- <span data-ttu-id="0ff68-111">OWIN に ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="0ff68-111">ASP.NET Core to OWIN</span></span> 
-- <span data-ttu-id="0ff68-112">ASP.NET Core を OWIN</span><span class="sxs-lookup"><span data-stu-id="0ff68-112">OWIN to ASP.NET Core</span></span>
+<span data-ttu-id="4620c-109">OWIN には、さまざまなオブジェクト モデルを使用する 2 つのフレームワークを併用できる分離レイヤーがあります。</span><span class="sxs-lookup"><span data-stu-id="4620c-109">OWIN provides a decoupling layer that allows two frameworks with disparate object models to be used together.</span></span> <span data-ttu-id="4620c-110">`Microsoft.AspNetCore.Owin` パッケージには 2 つのアダプター実装が用意されています。</span><span class="sxs-lookup"><span data-stu-id="4620c-110">The `Microsoft.AspNetCore.Owin` package provides two adapter implementations:</span></span>
+- <span data-ttu-id="4620c-111">ASP.NET Core から OWIN へ</span><span class="sxs-lookup"><span data-stu-id="4620c-111">ASP.NET Core to OWIN</span></span> 
+- <span data-ttu-id="4620c-112">OWIN から ASP.NET Core へ</span><span class="sxs-lookup"><span data-stu-id="4620c-112">OWIN to ASP.NET Core</span></span>
 
-<span data-ttu-id="0ff68-113">これにより、ホストの上、OWIN 互換サーバー/、または ASP.NET Core 上に実行するその他の OWIN 互換コンポーネントをホストする ASP.NET Core できます。</span><span class="sxs-lookup"><span data-stu-id="0ff68-113">This allows ASP.NET Core to be hosted on top of an OWIN compatible server/host, or for other OWIN compatible components to be run on top of ASP.NET Core.</span></span>
+<span data-ttu-id="4620c-113">これにより、ASP.NET Core を OWIN 互換のサーバー/ホスト上でホストするか、他の OWIN 互換コンポーネントを ASP.NET Core 上で実行することができます。</span><span class="sxs-lookup"><span data-stu-id="4620c-113">This allows ASP.NET Core to be hosted on top of an OWIN compatible server/host, or for other OWIN compatible components to be run on top of ASP.NET Core.</span></span>
 
-<span data-ttu-id="0ff68-114">注: これらのアダプターを使用して、パフォーマンス コストが付属します。</span><span class="sxs-lookup"><span data-stu-id="0ff68-114">Note: Using these adapters comes with a performance cost.</span></span> <span data-ttu-id="0ff68-115">ASP.NET Core コンポーネントのみを使用してアプリケーションには、Owin パッケージまたはアダプターを使用しないでください。</span><span class="sxs-lookup"><span data-stu-id="0ff68-115">Applications using only ASP.NET Core components shouldn't use the Owin package or adapters.</span></span>
+<span data-ttu-id="4620c-114">注: これらのアダプターを使用すると、パフォーマンスが低下します。</span><span class="sxs-lookup"><span data-stu-id="4620c-114">Note: Using these adapters comes with a performance cost.</span></span> <span data-ttu-id="4620c-115">ASP.NET Core コンポーネントのみを使用するアプリケーションでは、OWIN パッケージまたはアダプターを使用しないでください。</span><span class="sxs-lookup"><span data-stu-id="4620c-115">Applications using only ASP.NET Core components shouldn't use the Owin package or adapters.</span></span>
 
-<span data-ttu-id="0ff68-116">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="0ff68-116">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="4620c-116">[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。</span><span class="sxs-lookup"><span data-stu-id="4620c-116">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
 
-## <a name="running-owin-middleware-in-the-aspnet-pipeline"></a><span data-ttu-id="0ff68-117">ASP.NET パイプラインで実行中の OWIN ミドルウェア</span><span class="sxs-lookup"><span data-stu-id="0ff68-117">Running OWIN middleware in the ASP.NET pipeline</span></span>
+## <a name="running-owin-middleware-in-the-aspnet-pipeline"></a><span data-ttu-id="4620c-117">ASP.NET パイプラインで OWIN ミドルウェアを実行する</span><span class="sxs-lookup"><span data-stu-id="4620c-117">Running OWIN middleware in the ASP.NET pipeline</span></span>
 
-<span data-ttu-id="0ff68-118">ASP.NET Core の OWIN のサポートがの一部として展開されている、`Microsoft.AspNetCore.Owin`パッケージです。</span><span class="sxs-lookup"><span data-stu-id="0ff68-118">ASP.NET Core's OWIN support is deployed as part of the `Microsoft.AspNetCore.Owin` package.</span></span> <span data-ttu-id="0ff68-119">OWIN のサポートは、このパッケージをインストールすることによって、プロジェクトにインポートできます。</span><span class="sxs-lookup"><span data-stu-id="0ff68-119">You can import OWIN support into your project by installing this package.</span></span>
+<span data-ttu-id="4620c-118">ASP.NET Core の OWIN のサポートは、`Microsoft.AspNetCore.Owin` パッケージの一部として展開されます。</span><span class="sxs-lookup"><span data-stu-id="4620c-118">ASP.NET Core's OWIN support is deployed as part of the `Microsoft.AspNetCore.Owin` package.</span></span> <span data-ttu-id="4620c-119">このパッケージをインストールすることで、OWIN のサポートをプロジェクトにインポートできます。</span><span class="sxs-lookup"><span data-stu-id="4620c-119">You can import OWIN support into your project by installing this package.</span></span>
 
-<span data-ttu-id="0ff68-120">OWIN ミドルウェアに準拠している、 [OWIN 仕様](http://owin.org/spec/spec/owin-1.0.0.html)、する必要があります、`Func<IDictionary<string, object>, Task>`インターフェイス、および特定のキーを設定する (など`owin.ResponseBody`)。</span><span class="sxs-lookup"><span data-stu-id="0ff68-120">OWIN middleware conforms to the [OWIN specification](http://owin.org/spec/spec/owin-1.0.0.html), which requires a `Func<IDictionary<string, object>, Task>` interface, and specific keys be set (such as `owin.ResponseBody`).</span></span> <span data-ttu-id="0ff68-121">次の単純な OWIN ミドルウェアには、"Hello World"が表示されます。</span><span class="sxs-lookup"><span data-stu-id="0ff68-121">The following simple OWIN middleware displays "Hello World":</span></span>
+<span data-ttu-id="4620c-120">OWIN ミドルウェアは、`Func<IDictionary<string, object>, Task>` インターフェイスと特定のキー (`owin.ResponseBody` など) の設定を必須とする [OWIN 仕様](http://owin.org/spec/spec/owin-1.0.0.html)に準拠しています。</span><span class="sxs-lookup"><span data-stu-id="4620c-120">OWIN middleware conforms to the [OWIN specification](http://owin.org/spec/spec/owin-1.0.0.html), which requires a `Func<IDictionary<string, object>, Task>` interface, and specific keys be set (such as `owin.ResponseBody`).</span></span> <span data-ttu-id="4620c-121">次の単純な OWIN ミドルウェアを実行すると "Hello World" が表示されます。</span><span class="sxs-lookup"><span data-stu-id="4620c-121">The following simple OWIN middleware displays "Hello World":</span></span>
 
 ```csharp
 public Task OwinHello(IDictionary<string, object> environment)
@@ -55,9 +55,9 @@ public Task OwinHello(IDictionary<string, object> environment)
 }
 ```
 
-<span data-ttu-id="0ff68-122">サンプルの署名を返します、`Task`を受け入れると、 `IDictionary<string, object>` OWIN による要求どおりです。</span><span class="sxs-lookup"><span data-stu-id="0ff68-122">The sample signature returns a `Task` and accepts an `IDictionary<string, object>` as required by OWIN.</span></span>
+<span data-ttu-id="4620c-122">サンプル署名は `Task` を返し、OWIN で必要な場合に `IDictionary<string, object>` を受け取ります。</span><span class="sxs-lookup"><span data-stu-id="4620c-122">The sample signature returns a `Task` and accepts an `IDictionary<string, object>` as required by OWIN.</span></span>
 
-<span data-ttu-id="0ff68-123">次のコードを追加する方法を示しています、 `OwinHello` (前に示した) での ASP.NET パイプラインにミドルウェア、`UseOwin`拡張メソッド。</span><span class="sxs-lookup"><span data-stu-id="0ff68-123">The following code shows how to add the `OwinHello` middleware (shown above) to the ASP.NET pipeline with the `UseOwin` extension method.</span></span>
+<span data-ttu-id="4620c-123">次のコードは、`UseOwin` 拡張メソッドを使用して ASP.NET パイプラインに `OwinHello` ミドルウェア (上の図) を追加する方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="4620c-123">The following code shows how to add the `OwinHello` middleware (shown above) to the ASP.NET pipeline with the `UseOwin` extension method.</span></span>
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -69,13 +69,13 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-<span data-ttu-id="0ff68-124">OWIN パイプライン内で実行するには、その他のアクションを構成することができます。</span><span class="sxs-lookup"><span data-stu-id="0ff68-124">You can configure other actions to take place within the OWIN pipeline.</span></span>
+<span data-ttu-id="4620c-124">OWIN パイプライン内で実行する他のアクションを構成できます。</span><span class="sxs-lookup"><span data-stu-id="4620c-124">You can configure other actions to take place within the OWIN pipeline.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="0ff68-125">応答ヘッダーは、応答ストリームへの最初の書き込みの前にのみ変更する必要があります。</span><span class="sxs-lookup"><span data-stu-id="0ff68-125">Response headers should only be modified prior to the first write to the response stream.</span></span>
+> <span data-ttu-id="4620c-125">応答ヘッダーは、応答ストリームへの最初の書き込み前にのみ変更してください。</span><span class="sxs-lookup"><span data-stu-id="4620c-125">Response headers should only be modified prior to the first write to the response stream.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="0ff68-126">複数回呼び出す`UseOwin`をパフォーマンス上の理由からお勧めします。</span><span class="sxs-lookup"><span data-stu-id="0ff68-126">Multiple calls to `UseOwin` is discouraged for performance reasons.</span></span> <span data-ttu-id="0ff68-127">OWIN コンポーネントは、一緒にグループ化する場合、最適動作します。</span><span class="sxs-lookup"><span data-stu-id="0ff68-127">OWIN components will operate best if grouped together.</span></span>
+> <span data-ttu-id="4620c-126">パフォーマンス上の理由から、`UseOwin` を複数回、呼び出すことは避けてください。</span><span class="sxs-lookup"><span data-stu-id="4620c-126">Multiple calls to `UseOwin` is discouraged for performance reasons.</span></span> <span data-ttu-id="4620c-127">OWIN コンポーネントは、グループ化されている場合に最適に動作します。</span><span class="sxs-lookup"><span data-stu-id="4620c-127">OWIN components will operate best if grouped together.</span></span>
 
 ```csharp
 app.UseOwin(pipeline =>
@@ -91,17 +91,17 @@ app.UseOwin(pipeline =>
 
 <a name="hosting-on-owin"></a>
 
-## <a name="using-aspnet-hosting-on-an-owin-based-server"></a><span data-ttu-id="0ff68-128">OWIN ベースのサーバーで ASP.NET ホストの使用</span><span class="sxs-lookup"><span data-stu-id="0ff68-128">Using ASP.NET Hosting on an OWIN-based server</span></span>
+## <a name="using-aspnet-hosting-on-an-owin-based-server"></a><span data-ttu-id="4620c-128">OWIN ベースのサーバーで ASP.NET ホスティングを使用する</span><span class="sxs-lookup"><span data-stu-id="4620c-128">Using ASP.NET Hosting on an OWIN-based server</span></span>
 
-<span data-ttu-id="0ff68-129">OWIN ベースのサーバーには、ASP.NET アプリケーションをホストできます。</span><span class="sxs-lookup"><span data-stu-id="0ff68-129">OWIN-based servers can host ASP.NET applications.</span></span> <span data-ttu-id="0ff68-130">このような 1 つのサーバーが[Nowin](https://github.com/Bobris/Nowin)、.NET OWIN web サーバー。</span><span class="sxs-lookup"><span data-stu-id="0ff68-130">One such server is [Nowin](https://github.com/Bobris/Nowin), a .NET OWIN web server.</span></span> <span data-ttu-id="0ff68-131">この記事のサンプルでは、含めました Nowin を参照し、それを使用して作成されるプロジェクト、 `IServer` ASP.NET Core 自己ホスト型の対応します。</span><span class="sxs-lookup"><span data-stu-id="0ff68-131">In the sample for this article, I've included a project that references Nowin and uses it to create an `IServer` capable of self-hosting ASP.NET Core.</span></span>
+<span data-ttu-id="4620c-129">OWIN ベースのサーバーは、ASP.NET アプリケーションをホストできます。</span><span class="sxs-lookup"><span data-stu-id="4620c-129">OWIN-based servers can host ASP.NET applications.</span></span> <span data-ttu-id="4620c-130">たとえば、.NET OWIN Web サーバーである [Nowin](https://github.com/Bobris/Nowin) です。</span><span class="sxs-lookup"><span data-stu-id="4620c-130">One such server is [Nowin](https://github.com/Bobris/Nowin), a .NET OWIN web server.</span></span> <span data-ttu-id="4620c-131">この記事のサンプルには ​​Nowin を参照するプロジェクトを含めました。また、それを使用して ASP.NET Core を自己ホスティングできる `IServer` を作成しています。</span><span class="sxs-lookup"><span data-stu-id="4620c-131">In the sample for this article, I've included a project that references Nowin and uses it to create an `IServer` capable of self-hosting ASP.NET Core.</span></span>
 
 [!code-csharp[Main](owin/sample/src/NowinSample/Program.cs?highlight=15)]
 
-<span data-ttu-id="0ff68-132">`IServer`インターフェイスを必要とする、`Features`プロパティおよび`Start`メソッドです。</span><span class="sxs-lookup"><span data-stu-id="0ff68-132">`IServer` is an interface that requires an `Features` property and a `Start` method.</span></span>
+<span data-ttu-id="4620c-132">`IServer` は、`Features` プロパティと `Start` メソッドを必要とするインターフェイスです。</span><span class="sxs-lookup"><span data-stu-id="4620c-132">`IServer` is an interface that requires an `Features` property and a `Start` method.</span></span>
 
-<span data-ttu-id="0ff68-133">`Start`構成して、サーバーは、ここでは、一連の IServerAddressesFeature から解析されたアドレスを設定する fluent API 呼び出しを担当します。</span><span class="sxs-lookup"><span data-stu-id="0ff68-133">`Start` is responsible for configuring and starting the server, which in this case is done through a series of fluent API calls that set addresses parsed from the IServerAddressesFeature.</span></span> <span data-ttu-id="0ff68-134">なお fluent 構成の`_builder`変数は、要求で処理することを指定します、`appFunc`メソッドで定義しました。</span><span class="sxs-lookup"><span data-stu-id="0ff68-134">Note that the fluent configuration of the `_builder` variable specifies that requests will be handled by the `appFunc` defined earlier in the method.</span></span> <span data-ttu-id="0ff68-135">これは、`Func`は着信要求を処理する要求のたびに呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="0ff68-135">This `Func` is called on each request to process incoming requests.</span></span>
+<span data-ttu-id="4620c-133">`Start` はサーバーの構成と起動を担当します。この例では、IServerAddressesFeature から解析されたアドレスを設定する一連の fluent API 呼び出しによって行われます。</span><span class="sxs-lookup"><span data-stu-id="4620c-133">`Start` is responsible for configuring and starting the server, which in this case is done through a series of fluent API calls that set addresses parsed from the IServerAddressesFeature.</span></span> <span data-ttu-id="4620c-134">`_builder` 変数の fluent 構成によって、メソッドの前半で定義された `appFunc` が要求を処理するように指定されている点に注意してください。</span><span class="sxs-lookup"><span data-stu-id="4620c-134">Note that the fluent configuration of the `_builder` variable specifies that requests will be handled by the `appFunc` defined earlier in the method.</span></span> <span data-ttu-id="4620c-135">この `Func` は、受信要求を処理するたびに呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="4620c-135">This `Func` is called on each request to process incoming requests.</span></span>
 
-<span data-ttu-id="0ff68-136">追加しても、`IWebHostBuilder`を追加して Nowin サーバーを構成するが簡単に拡張します。</span><span class="sxs-lookup"><span data-stu-id="0ff68-136">We'll also add an `IWebHostBuilder` extension to make it easy to add and configure the Nowin server.</span></span>
+<span data-ttu-id="4620c-136">また、Nowin サーバーの追加と構成を簡単に行うための `IWebHostBuilder` 拡張機能も追加します。</span><span class="sxs-lookup"><span data-stu-id="4620c-136">We'll also add an `IWebHostBuilder` extension to make it easy to add and configure the Nowin server.</span></span>
 
 ```csharp
 using System;
@@ -134,7 +134,7 @@ namespace Microsoft.AspNetCore.Hosting
 }
 ```
 
-<span data-ttu-id="0ff68-137">こうすると、そのために必要なこのカスタムのサーバー拡張機能の呼び出しを使用した ASP.NET アプリケーションを実行する*Program.cs*:</span><span class="sxs-lookup"><span data-stu-id="0ff68-137">With this in place, all that's required to run an ASP.NET application using this custom server to call the extension in *Program.cs*:</span></span>
+<span data-ttu-id="4620c-137">この準備が終わったら、このカスタム サーバーを使用して ASP.NET アプリケーションを実行し、*Program.cs* で拡張機能を呼び出すために必要な作業は次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="4620c-137">With this in place, all that's required to run an ASP.NET application using this custom server to call the extension in *Program.cs*:</span></span>
 
 ```csharp
 
@@ -165,11 +165,11 @@ namespace NowinSample
 
 ```
 
-<span data-ttu-id="0ff68-138">詳細については、ASP.NET[サーバー](servers/index.md)です。</span><span class="sxs-lookup"><span data-stu-id="0ff68-138">Learn more about ASP.NET [Servers](servers/index.md).</span></span>
+<span data-ttu-id="4620c-138">ASP.NET サーバーの詳細については[こちら](servers/index.md)を参照してください。</span><span class="sxs-lookup"><span data-stu-id="4620c-138">Learn more about ASP.NET [Servers](servers/index.md).</span></span>
 
-## <a name="run-aspnet-core-on-an-owin-based-server-and-use-its-websockets-support"></a><span data-ttu-id="0ff68-139">OWIN ベースのサーバーで ASP.NET Core を実行し、Websocket のサポートを使用</span><span class="sxs-lookup"><span data-stu-id="0ff68-139">Run ASP.NET Core on an OWIN-based server and use its WebSockets support</span></span>
+## <a name="run-aspnet-core-on-an-owin-based-server-and-use-its-websockets-support"></a><span data-ttu-id="4620c-139">OWIN ベースのサーバー上で ASP.NET Core を実行し、その WebSockets のサポートを利用する</span><span class="sxs-lookup"><span data-stu-id="4620c-139">Run ASP.NET Core on an OWIN-based server and use its WebSockets support</span></span>
 
-<span data-ttu-id="0ff68-140">OWIN ベースのサーバーの機能の別の例で利用できる ASP.NET Core は、Websocket などの機能にアクセスします。</span><span class="sxs-lookup"><span data-stu-id="0ff68-140">Another example of how OWIN-based servers' features can be leveraged by ASP.NET Core is access to features like WebSockets.</span></span> <span data-ttu-id="0ff68-141">前の例で使用される .NET OWIN web サーバーには、ASP.NET Core アプリケーションによって利用されるように組み込まれており、Web ソケットのサポートがいます。</span><span class="sxs-lookup"><span data-stu-id="0ff68-141">The .NET OWIN web server used in the previous example has support for Web Sockets built in, which can be leveraged by an ASP.NET Core application.</span></span> <span data-ttu-id="0ff68-142">次の例では、Web ソケットをサポートし、Websocket 経由でサーバーに送信されるすべてのものでエコー バックする単純な web アプリを示します。</span><span class="sxs-lookup"><span data-stu-id="0ff68-142">The example below shows a simple web app that supports Web Sockets and echoes back everything sent to the server through WebSockets.</span></span>
+<span data-ttu-id="4620c-140">OWIN ベースのサーバーの機能を ASP.NET Core で利用する方法のもう 1 つの例として、WebSockets などの機能へのアクセスが挙げられます。</span><span class="sxs-lookup"><span data-stu-id="4620c-140">Another example of how OWIN-based servers' features can be leveraged by ASP.NET Core is access to features like WebSockets.</span></span> <span data-ttu-id="4620c-141">前の例で使用していた .NET OWIN Web サーバーは、ASP.NET Core アプリケーションから利用できる組み込みの Web Sockets をサポートしています。</span><span class="sxs-lookup"><span data-stu-id="4620c-141">The .NET OWIN web server used in the previous example has support for Web Sockets built in, which can be leveraged by an ASP.NET Core application.</span></span> <span data-ttu-id="4620c-142">Web Sockets をサポートし、WebSockets を介してサーバーに送信されたすべてをエコー バックする単純な Web アプリケーションの例を次に示します。</span><span class="sxs-lookup"><span data-stu-id="4620c-142">The example below shows a simple web app that supports Web Sockets and echoes back everything sent to the server through WebSockets.</span></span>
 
 ```csharp
 public class Startup
@@ -217,13 +217,13 @@ public class Startup
 }
 ```
 
-<span data-ttu-id="0ff68-143">これは、[サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample)が構成されている同じ`NowinServer`唯一の違いはで、アプリケーションを構成する方法として、1 つ前の`Configure`メソッドです。</span><span class="sxs-lookup"><span data-stu-id="0ff68-143">This [sample](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) is configured using the same `NowinServer` as the previous one - the only difference is in how the application is configured in its `Configure` method.</span></span> <span data-ttu-id="0ff68-144">使用してテスト[単純な websocket クライアント](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en)アプリケーションを示します。</span><span class="sxs-lookup"><span data-stu-id="0ff68-144">A test using [a simple websocket client](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en) demonstrates  the application:</span></span>
+<span data-ttu-id="4620c-143">この[サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample)は、前のサンプルと同じ `NowinServer` を使用して構成されています。唯一の違いは、アプリケーションがその `Configure` メソッドでどのように構成されているかです。</span><span class="sxs-lookup"><span data-stu-id="4620c-143">This [sample](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) is configured using the same `NowinServer` as the previous one - the only difference is in how the application is configured in its `Configure` method.</span></span> <span data-ttu-id="4620c-144">[単純な websocket クライアント](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en)を使用したテストで、アプリケーションについて説明します。</span><span class="sxs-lookup"><span data-stu-id="4620c-144">A test using [a simple websocket client](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en) demonstrates  the application:</span></span>
 
-![Web ソケットのテスト用クライアント](owin/_static/websocket-test.png)
+![Web ソケットのテスト クライアント](owin/_static/websocket-test.png)
 
-## <a name="owin-environment"></a><span data-ttu-id="0ff68-146">OWIN 環境</span><span class="sxs-lookup"><span data-stu-id="0ff68-146">OWIN environment</span></span>
+## <a name="owin-environment"></a><span data-ttu-id="4620c-146">OWIN 環境</span><span class="sxs-lookup"><span data-stu-id="4620c-146">OWIN environment</span></span>
 
-<span data-ttu-id="0ff68-147">使用する OWIN 環境を構築することができます、`HttpContext`です。</span><span class="sxs-lookup"><span data-stu-id="0ff68-147">You can construct a OWIN environment using the `HttpContext`.</span></span>
+<span data-ttu-id="4620c-147">`HttpContext` を使用して OWIN 環境を構築することができます。</span><span class="sxs-lookup"><span data-stu-id="4620c-147">You can construct a OWIN environment using the `HttpContext`.</span></span>
 
 ```csharp
 
@@ -231,96 +231,94 @@ public class Startup
    var features = new OwinFeatureCollection(environment);
    ```
 
-## <a name="owin-keys"></a><span data-ttu-id="0ff68-148">OWIN キー</span><span class="sxs-lookup"><span data-stu-id="0ff68-148">OWIN keys</span></span>
+## <a name="owin-keys"></a><span data-ttu-id="4620c-148">OWIN キー</span><span class="sxs-lookup"><span data-stu-id="4620c-148">OWIN keys</span></span>
 
-<span data-ttu-id="0ff68-149">OWIN によって異なります、 `IDictionary<string,object>` HTTP 要求/応答の交換全体の情報を通信するオブジェクト。</span><span class="sxs-lookup"><span data-stu-id="0ff68-149">OWIN depends on an `IDictionary<string,object>` object to communicate information throughout an HTTP Request/Response exchange.</span></span> <span data-ttu-id="0ff68-150">ASP.NET Core では、以下に示すキーを実装します。</span><span class="sxs-lookup"><span data-stu-id="0ff68-150">ASP.NET Core implements the keys listed below.</span></span> <span data-ttu-id="0ff68-151">参照してください、[プライマリ仕様、拡張機能](http://owin.org/#spec)、および[OWIN キー ガイドラインと一般的なキー](http://owin.org/spec/spec/CommonKeys.html)です。</span><span class="sxs-lookup"><span data-stu-id="0ff68-151">See the [primary specification, extensions](http://owin.org/#spec), and [OWIN Key Guidelines and Common Keys](http://owin.org/spec/spec/CommonKeys.html).</span></span>
+<span data-ttu-id="4620c-149">OWIN は、HTTP 要求/応答の交換を通じて情報を伝達するために `IDictionary<string,object>` オブジェクトに依存しています。</span><span class="sxs-lookup"><span data-stu-id="4620c-149">OWIN depends on an `IDictionary<string,object>` object to communicate information throughout an HTTP Request/Response exchange.</span></span> <span data-ttu-id="4620c-150">ASP.NET Core は次のキーを実装しています。</span><span class="sxs-lookup"><span data-stu-id="4620c-150">ASP.NET Core implements the keys listed below.</span></span> <span data-ttu-id="4620c-151">[主な仕様、拡張機能](http://owin.org/#spec)に関するセクションと、「[OWIN Key Guidelines and Common Keys](http://owin.org/spec/spec/CommonKeys.html)」(OWIN キーのガイドラインと共通キー) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="4620c-151">See the [primary specification, extensions](http://owin.org/#spec), and [OWIN Key Guidelines and Common Keys](http://owin.org/spec/spec/CommonKeys.html).</span></span>
 
-### <a name="request-data-owin-v100"></a><span data-ttu-id="0ff68-152">要求データ (OWIN v1.0.0)</span><span class="sxs-lookup"><span data-stu-id="0ff68-152">Request Data (OWIN v1.0.0)</span></span>
+### <a name="request-data-owin-v100"></a><span data-ttu-id="4620c-152">要求データ (OWIN v1.0.0)</span><span class="sxs-lookup"><span data-stu-id="4620c-152">Request data (OWIN v1.0.0)</span></span>
 
-| <span data-ttu-id="0ff68-153">キー</span><span class="sxs-lookup"><span data-stu-id="0ff68-153">Key</span></span>               | <span data-ttu-id="0ff68-154">値 (型)</span><span class="sxs-lookup"><span data-stu-id="0ff68-154">Value (type)</span></span> | <span data-ttu-id="0ff68-155">説明</span><span class="sxs-lookup"><span data-stu-id="0ff68-155">Description</span></span> |
+| <span data-ttu-id="4620c-153">キー</span><span class="sxs-lookup"><span data-stu-id="4620c-153">Key</span></span>               | <span data-ttu-id="4620c-154">値 (型)</span><span class="sxs-lookup"><span data-stu-id="4620c-154">Value (type)</span></span> | <span data-ttu-id="4620c-155">説明</span><span class="sxs-lookup"><span data-stu-id="4620c-155">Description</span></span> |
 | ----------------- | ------------ | ----------- |
-| <span data-ttu-id="0ff68-156">owin.RequestScheme</span><span class="sxs-lookup"><span data-stu-id="0ff68-156">owin.RequestScheme</span></span> | `String` |  |
-| <span data-ttu-id="0ff68-157">owin.RequestMethod</span><span class="sxs-lookup"><span data-stu-id="0ff68-157">owin.RequestMethod</span></span>  | `String` | |    
-| <span data-ttu-id="0ff68-158">owin.RequestPathBase</span><span class="sxs-lookup"><span data-stu-id="0ff68-158">owin.RequestPathBase</span></span>  | `String` | |    
-| <span data-ttu-id="0ff68-159">owin.RequestPath</span><span class="sxs-lookup"><span data-stu-id="0ff68-159">owin.RequestPath</span></span> | `String` | |     
-| <span data-ttu-id="0ff68-160">owin.RequestQueryString</span><span class="sxs-lookup"><span data-stu-id="0ff68-160">owin.RequestQueryString</span></span>  | `String` | |    
-| <span data-ttu-id="0ff68-161">owin.RequestProtocol</span><span class="sxs-lookup"><span data-stu-id="0ff68-161">owin.RequestProtocol</span></span>  | `String` | |    
-| <span data-ttu-id="0ff68-162">owin.RequestHeaders</span><span class="sxs-lookup"><span data-stu-id="0ff68-162">owin.RequestHeaders</span></span> | `IDictionary<string,string[]>`  | |
-| <span data-ttu-id="0ff68-163">owin.RequestBody</span><span class="sxs-lookup"><span data-stu-id="0ff68-163">owin.RequestBody</span></span> | `Stream`  | |
+| <span data-ttu-id="4620c-156">owin.RequestScheme</span><span class="sxs-lookup"><span data-stu-id="4620c-156">owin.RequestScheme</span></span> | `String` |  |
+| <span data-ttu-id="4620c-157">owin.RequestMethod</span><span class="sxs-lookup"><span data-stu-id="4620c-157">owin.RequestMethod</span></span>  | `String` | |    
+| <span data-ttu-id="4620c-158">owin.RequestPathBase</span><span class="sxs-lookup"><span data-stu-id="4620c-158">owin.RequestPathBase</span></span>  | `String` | |    
+| <span data-ttu-id="4620c-159">owin.RequestPath</span><span class="sxs-lookup"><span data-stu-id="4620c-159">owin.RequestPath</span></span> | `String` | |     
+| <span data-ttu-id="4620c-160">owin.RequestQueryString</span><span class="sxs-lookup"><span data-stu-id="4620c-160">owin.RequestQueryString</span></span>  | `String` | |    
+| <span data-ttu-id="4620c-161">owin.RequestProtocol</span><span class="sxs-lookup"><span data-stu-id="4620c-161">owin.RequestProtocol</span></span>  | `String` | |    
+| <span data-ttu-id="4620c-162">owin.RequestHeaders</span><span class="sxs-lookup"><span data-stu-id="4620c-162">owin.RequestHeaders</span></span> | `IDictionary<string,string[]>`  | |
+| <span data-ttu-id="4620c-163">owin.RequestBody</span><span class="sxs-lookup"><span data-stu-id="4620c-163">owin.RequestBody</span></span> | `Stream`  | |
 
-### <a name="request-data-owin-v110"></a><span data-ttu-id="0ff68-164">要求データ (OWIN v1.1.0)</span><span class="sxs-lookup"><span data-stu-id="0ff68-164">Request Data (OWIN v1.1.0)</span></span>
+### <a name="request-data-owin-v110"></a><span data-ttu-id="4620c-164">要求データ (OWIN v1.1.0)</span><span class="sxs-lookup"><span data-stu-id="4620c-164">Request data (OWIN v1.1.0)</span></span>
 
-| <span data-ttu-id="0ff68-165">キー</span><span class="sxs-lookup"><span data-stu-id="0ff68-165">Key</span></span>               | <span data-ttu-id="0ff68-166">値 (型)</span><span class="sxs-lookup"><span data-stu-id="0ff68-166">Value (type)</span></span> | <span data-ttu-id="0ff68-167">説明</span><span class="sxs-lookup"><span data-stu-id="0ff68-167">Description</span></span> |
+| <span data-ttu-id="4620c-165">キー</span><span class="sxs-lookup"><span data-stu-id="4620c-165">Key</span></span>               | <span data-ttu-id="4620c-166">値 (型)</span><span class="sxs-lookup"><span data-stu-id="4620c-166">Value (type)</span></span> | <span data-ttu-id="4620c-167">説明</span><span class="sxs-lookup"><span data-stu-id="4620c-167">Description</span></span> |
 | ----------------- | ------------ | ----------- |
-| <span data-ttu-id="0ff68-168">owin.RequestId</span><span class="sxs-lookup"><span data-stu-id="0ff68-168">owin.RequestId</span></span> | `String` | <span data-ttu-id="0ff68-169">Optional</span><span class="sxs-lookup"><span data-stu-id="0ff68-169">Optional</span></span> |
+| <span data-ttu-id="4620c-168">owin.RequestId</span><span class="sxs-lookup"><span data-stu-id="4620c-168">owin.RequestId</span></span> | `String` | <span data-ttu-id="4620c-169">Optional</span><span class="sxs-lookup"><span data-stu-id="4620c-169">Optional</span></span> |
 
-### <a name="response-data-owin-v100"></a><span data-ttu-id="0ff68-170">応答データ (OWIN v1.0.0)</span><span class="sxs-lookup"><span data-stu-id="0ff68-170">Response Data (OWIN v1.0.0)</span></span>
+### <a name="response-data-owin-v100"></a><span data-ttu-id="4620c-170">応答データ (OWIN v1.0.0)</span><span class="sxs-lookup"><span data-stu-id="4620c-170">Response data (OWIN v1.0.0)</span></span>
 
-| <span data-ttu-id="0ff68-171">キー</span><span class="sxs-lookup"><span data-stu-id="0ff68-171">Key</span></span>               | <span data-ttu-id="0ff68-172">値 (型)</span><span class="sxs-lookup"><span data-stu-id="0ff68-172">Value (type)</span></span> | <span data-ttu-id="0ff68-173">説明</span><span class="sxs-lookup"><span data-stu-id="0ff68-173">Description</span></span> |
+| <span data-ttu-id="4620c-171">キー</span><span class="sxs-lookup"><span data-stu-id="4620c-171">Key</span></span>               | <span data-ttu-id="4620c-172">値 (型)</span><span class="sxs-lookup"><span data-stu-id="4620c-172">Value (type)</span></span> | <span data-ttu-id="4620c-173">説明</span><span class="sxs-lookup"><span data-stu-id="4620c-173">Description</span></span> |
 | ----------------- | ------------ | ----------- |
-| <span data-ttu-id="0ff68-174">owin.ResponseStatusCode</span><span class="sxs-lookup"><span data-stu-id="0ff68-174">owin.ResponseStatusCode</span></span> | `int` | <span data-ttu-id="0ff68-175">Optional</span><span class="sxs-lookup"><span data-stu-id="0ff68-175">Optional</span></span> |
-| <span data-ttu-id="0ff68-176">owin.ResponseReasonPhrase</span><span class="sxs-lookup"><span data-stu-id="0ff68-176">owin.ResponseReasonPhrase</span></span> | `String` | <span data-ttu-id="0ff68-177">Optional</span><span class="sxs-lookup"><span data-stu-id="0ff68-177">Optional</span></span> |
-| <span data-ttu-id="0ff68-178">owin.ResponseHeaders</span><span class="sxs-lookup"><span data-stu-id="0ff68-178">owin.ResponseHeaders</span></span> | `IDictionary<string,string[]>`  | |
-| <span data-ttu-id="0ff68-179">owin.ResponseBody</span><span class="sxs-lookup"><span data-stu-id="0ff68-179">owin.ResponseBody</span></span> | `Stream`  | |
+| <span data-ttu-id="4620c-174">owin.ResponseStatusCode</span><span class="sxs-lookup"><span data-stu-id="4620c-174">owin.ResponseStatusCode</span></span> | `int` | <span data-ttu-id="4620c-175">Optional</span><span class="sxs-lookup"><span data-stu-id="4620c-175">Optional</span></span> |
+| <span data-ttu-id="4620c-176">owin.ResponseReasonPhrase</span><span class="sxs-lookup"><span data-stu-id="4620c-176">owin.ResponseReasonPhrase</span></span> | `String` | <span data-ttu-id="4620c-177">Optional</span><span class="sxs-lookup"><span data-stu-id="4620c-177">Optional</span></span> |
+| <span data-ttu-id="4620c-178">owin.ResponseHeaders</span><span class="sxs-lookup"><span data-stu-id="4620c-178">owin.ResponseHeaders</span></span> | `IDictionary<string,string[]>`  | |
+| <span data-ttu-id="4620c-179">owin.ResponseBody</span><span class="sxs-lookup"><span data-stu-id="4620c-179">owin.ResponseBody</span></span> | `Stream`  | |
 
 
-### <a name="other-data-owin-v100"></a><span data-ttu-id="0ff68-180">その他のデータ (OWIN v1.0.0)</span><span class="sxs-lookup"><span data-stu-id="0ff68-180">Other Data (OWIN v1.0.0)</span></span>
+### <a name="other-data-owin-v100"></a><span data-ttu-id="4620c-180">その他のデータ (OWIN v1.0.0)</span><span class="sxs-lookup"><span data-stu-id="4620c-180">Other data (OWIN v1.0.0)</span></span>
 
-| <span data-ttu-id="0ff68-181">キー</span><span class="sxs-lookup"><span data-stu-id="0ff68-181">Key</span></span>               | <span data-ttu-id="0ff68-182">値 (型)</span><span class="sxs-lookup"><span data-stu-id="0ff68-182">Value (type)</span></span> | <span data-ttu-id="0ff68-183">説明</span><span class="sxs-lookup"><span data-stu-id="0ff68-183">Description</span></span> |
+| <span data-ttu-id="4620c-181">キー</span><span class="sxs-lookup"><span data-stu-id="4620c-181">Key</span></span>               | <span data-ttu-id="4620c-182">値 (型)</span><span class="sxs-lookup"><span data-stu-id="4620c-182">Value (type)</span></span> | <span data-ttu-id="4620c-183">説明</span><span class="sxs-lookup"><span data-stu-id="4620c-183">Description</span></span> |
 | ----------------- | ------------ | ----------- |
-| <span data-ttu-id="0ff68-184">owin.CallCancelled</span><span class="sxs-lookup"><span data-stu-id="0ff68-184">owin.CallCancelled</span></span> | `CancellationToken` |  |
-| <span data-ttu-id="0ff68-185">owin.Version</span><span class="sxs-lookup"><span data-stu-id="0ff68-185">owin.Version</span></span>  | `String` | |   
+| <span data-ttu-id="4620c-184">owin.CallCancelled</span><span class="sxs-lookup"><span data-stu-id="4620c-184">owin.CallCancelled</span></span> | `CancellationToken` |  |
+| <span data-ttu-id="4620c-185">owin.Version</span><span class="sxs-lookup"><span data-stu-id="4620c-185">owin.Version</span></span>  | `String` | |   
 
 
-### <a name="common-keys"></a><span data-ttu-id="0ff68-186">共通キー</span><span class="sxs-lookup"><span data-stu-id="0ff68-186">Common Keys</span></span>
+### <a name="common-keys"></a><span data-ttu-id="4620c-186">共通キー</span><span class="sxs-lookup"><span data-stu-id="4620c-186">Common keys</span></span>
 
-| <span data-ttu-id="0ff68-187">キー</span><span class="sxs-lookup"><span data-stu-id="0ff68-187">Key</span></span>               | <span data-ttu-id="0ff68-188">値 (型)</span><span class="sxs-lookup"><span data-stu-id="0ff68-188">Value (type)</span></span> | <span data-ttu-id="0ff68-189">説明</span><span class="sxs-lookup"><span data-stu-id="0ff68-189">Description</span></span> |
+| <span data-ttu-id="4620c-187">キー</span><span class="sxs-lookup"><span data-stu-id="4620c-187">Key</span></span>               | <span data-ttu-id="4620c-188">値 (型)</span><span class="sxs-lookup"><span data-stu-id="4620c-188">Value (type)</span></span> | <span data-ttu-id="4620c-189">説明</span><span class="sxs-lookup"><span data-stu-id="4620c-189">Description</span></span> |
 | ----------------- | ------------ | ----------- |
-| <span data-ttu-id="0ff68-190">ssl.ClientCertificate</span><span class="sxs-lookup"><span data-stu-id="0ff68-190">ssl.ClientCertificate</span></span> | `X509Certificate` |  |
-| <span data-ttu-id="0ff68-191">ssl.LoadClientCertAsync</span><span class="sxs-lookup"><span data-stu-id="0ff68-191">ssl.LoadClientCertAsync</span></span>  | `Func<Task>` | |    
-| <span data-ttu-id="0ff68-192">server.RemoteIpAddress</span><span class="sxs-lookup"><span data-stu-id="0ff68-192">server.RemoteIpAddress</span></span>  | `String` | |    
-| <span data-ttu-id="0ff68-193">server.RemotePort</span><span class="sxs-lookup"><span data-stu-id="0ff68-193">server.RemotePort</span></span> | `String` | |     
-| <span data-ttu-id="0ff68-194">server.LocalIpAddress</span><span class="sxs-lookup"><span data-stu-id="0ff68-194">server.LocalIpAddress</span></span>  | `String` | |    
-| <span data-ttu-id="0ff68-195">server.LocalPort</span><span class="sxs-lookup"><span data-stu-id="0ff68-195">server.LocalPort</span></span>  | `String` | |    
-| <span data-ttu-id="0ff68-196">server.IsLocal</span><span class="sxs-lookup"><span data-stu-id="0ff68-196">server.IsLocal</span></span>  | `bool` | |    
-| <span data-ttu-id="0ff68-197">server.OnSendingHeaders</span><span class="sxs-lookup"><span data-stu-id="0ff68-197">server.OnSendingHeaders</span></span>  | `Action<Action<object>,object>` | |
+| <span data-ttu-id="4620c-190">ssl.ClientCertificate</span><span class="sxs-lookup"><span data-stu-id="4620c-190">ssl.ClientCertificate</span></span> | `X509Certificate` |  |
+| <span data-ttu-id="4620c-191">ssl.LoadClientCertAsync</span><span class="sxs-lookup"><span data-stu-id="4620c-191">ssl.LoadClientCertAsync</span></span>  | `Func<Task>` | |    
+| <span data-ttu-id="4620c-192">server.RemoteIpAddress</span><span class="sxs-lookup"><span data-stu-id="4620c-192">server.RemoteIpAddress</span></span>  | `String` | |    
+| <span data-ttu-id="4620c-193">server.RemotePort</span><span class="sxs-lookup"><span data-stu-id="4620c-193">server.RemotePort</span></span> | `String` | |     
+| <span data-ttu-id="4620c-194">server.LocalIpAddress</span><span class="sxs-lookup"><span data-stu-id="4620c-194">server.LocalIpAddress</span></span>  | `String` | |    
+| <span data-ttu-id="4620c-195">server.LocalPort</span><span class="sxs-lookup"><span data-stu-id="4620c-195">server.LocalPort</span></span>  | `String` | |    
+| <span data-ttu-id="4620c-196">server.IsLocal</span><span class="sxs-lookup"><span data-stu-id="4620c-196">server.IsLocal</span></span>  | `bool` | |    
+| <span data-ttu-id="4620c-197">server.OnSendingHeaders</span><span class="sxs-lookup"><span data-stu-id="4620c-197">server.OnSendingHeaders</span></span>  | `Action<Action<object>,object>` | |
 
 
-### <a name="sendfiles-v030"></a><span data-ttu-id="0ff68-198">SendFiles v0.3.0</span><span class="sxs-lookup"><span data-stu-id="0ff68-198">SendFiles v0.3.0</span></span>
+### <a name="sendfiles-v030"></a><span data-ttu-id="4620c-198">SendFiles v0.3.0</span><span class="sxs-lookup"><span data-stu-id="4620c-198">SendFiles v0.3.0</span></span>
 
-| <span data-ttu-id="0ff68-199">キー</span><span class="sxs-lookup"><span data-stu-id="0ff68-199">Key</span></span>               | <span data-ttu-id="0ff68-200">値 (型)</span><span class="sxs-lookup"><span data-stu-id="0ff68-200">Value (type)</span></span> | <span data-ttu-id="0ff68-201">説明</span><span class="sxs-lookup"><span data-stu-id="0ff68-201">Description</span></span> |
+| <span data-ttu-id="4620c-199">キー</span><span class="sxs-lookup"><span data-stu-id="4620c-199">Key</span></span>               | <span data-ttu-id="4620c-200">値 (型)</span><span class="sxs-lookup"><span data-stu-id="4620c-200">Value (type)</span></span> | <span data-ttu-id="4620c-201">説明</span><span class="sxs-lookup"><span data-stu-id="4620c-201">Description</span></span> |
 | ----------------- | ------------ | ----------- |
-| <span data-ttu-id="0ff68-202">sendfile.SendAsync</span><span class="sxs-lookup"><span data-stu-id="0ff68-202">sendfile.SendAsync</span></span> | <span data-ttu-id="0ff68-203">参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span><span class="sxs-lookup"><span data-stu-id="0ff68-203">See [delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span></span> | <span data-ttu-id="0ff68-204">1 回の要求</span><span class="sxs-lookup"><span data-stu-id="0ff68-204">Per Request</span></span> |
+| <span data-ttu-id="4620c-202">sendfile.SendAsync</span><span class="sxs-lookup"><span data-stu-id="4620c-202">sendfile.SendAsync</span></span> | <span data-ttu-id="4620c-203">「[Delegate Signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)」(デリゲート シグネチャ) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="4620c-203">See [delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span></span> | <span data-ttu-id="4620c-204">要求ごと</span><span class="sxs-lookup"><span data-stu-id="4620c-204">Per Request</span></span> |
 
 
-### <a name="opaque-v030"></a><span data-ttu-id="0ff68-205">Opaque v0.3.0</span><span class="sxs-lookup"><span data-stu-id="0ff68-205">Opaque v0.3.0</span></span>
+### <a name="opaque-v030"></a><span data-ttu-id="4620c-205">Opaque v0.3.0</span><span class="sxs-lookup"><span data-stu-id="4620c-205">Opaque v0.3.0</span></span>
 
-| <span data-ttu-id="0ff68-206">キー</span><span class="sxs-lookup"><span data-stu-id="0ff68-206">Key</span></span>               | <span data-ttu-id="0ff68-207">値 (型)</span><span class="sxs-lookup"><span data-stu-id="0ff68-207">Value (type)</span></span> | <span data-ttu-id="0ff68-208">説明</span><span class="sxs-lookup"><span data-stu-id="0ff68-208">Description</span></span> |
+| <span data-ttu-id="4620c-206">キー</span><span class="sxs-lookup"><span data-stu-id="4620c-206">Key</span></span>               | <span data-ttu-id="4620c-207">値 (型)</span><span class="sxs-lookup"><span data-stu-id="4620c-207">Value (type)</span></span> | <span data-ttu-id="4620c-208">説明</span><span class="sxs-lookup"><span data-stu-id="4620c-208">Description</span></span> |
 | ----------------- | ------------ | ----------- |
-| <span data-ttu-id="0ff68-209">opaque.Version</span><span class="sxs-lookup"><span data-stu-id="0ff68-209">opaque.Version</span></span> | `String` |  |
-| <span data-ttu-id="0ff68-210">opaque.Upgrade</span><span class="sxs-lookup"><span data-stu-id="0ff68-210">opaque.Upgrade</span></span> | `OpaqueUpgrade` | <span data-ttu-id="0ff68-211">参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span><span class="sxs-lookup"><span data-stu-id="0ff68-211">See [delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span></span> |
-| <span data-ttu-id="0ff68-212">opaque.Stream</span><span class="sxs-lookup"><span data-stu-id="0ff68-212">opaque.Stream</span></span> | `Stream` |  |
-| <span data-ttu-id="0ff68-213">opaque.CallCancelled</span><span class="sxs-lookup"><span data-stu-id="0ff68-213">opaque.CallCancelled</span></span> | `CancellationToken` |  |
+| <span data-ttu-id="4620c-209">opaque.Version</span><span class="sxs-lookup"><span data-stu-id="4620c-209">opaque.Version</span></span> | `String` |  |
+| <span data-ttu-id="4620c-210">opaque.Upgrade</span><span class="sxs-lookup"><span data-stu-id="4620c-210">opaque.Upgrade</span></span> | `OpaqueUpgrade` | <span data-ttu-id="4620c-211">「[Delegate Signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)」(デリゲート シグネチャ) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="4620c-211">See [delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span></span> |
+| <span data-ttu-id="4620c-212">opaque.Stream</span><span class="sxs-lookup"><span data-stu-id="4620c-212">opaque.Stream</span></span> | `Stream` |  |
+| <span data-ttu-id="4620c-213">opaque.CallCancelled</span><span class="sxs-lookup"><span data-stu-id="4620c-213">opaque.CallCancelled</span></span> | `CancellationToken` |  |
 
 
-### <a name="websocket-v030"></a><span data-ttu-id="0ff68-214">WebSocket v0.3.0</span><span class="sxs-lookup"><span data-stu-id="0ff68-214">WebSocket v0.3.0</span></span>
+### <a name="websocket-v030"></a><span data-ttu-id="4620c-214">WebSocket v0.3.0</span><span class="sxs-lookup"><span data-stu-id="4620c-214">WebSocket v0.3.0</span></span>
 
-| <span data-ttu-id="0ff68-215">キー</span><span class="sxs-lookup"><span data-stu-id="0ff68-215">Key</span></span>               | <span data-ttu-id="0ff68-216">値 (型)</span><span class="sxs-lookup"><span data-stu-id="0ff68-216">Value (type)</span></span> | <span data-ttu-id="0ff68-217">説明</span><span class="sxs-lookup"><span data-stu-id="0ff68-217">Description</span></span> |
+| <span data-ttu-id="4620c-215">キー</span><span class="sxs-lookup"><span data-stu-id="4620c-215">Key</span></span>               | <span data-ttu-id="4620c-216">値 (型)</span><span class="sxs-lookup"><span data-stu-id="4620c-216">Value (type)</span></span> | <span data-ttu-id="4620c-217">説明</span><span class="sxs-lookup"><span data-stu-id="4620c-217">Description</span></span> |
 | ----------------- | ------------ | ----------- |
-| <span data-ttu-id="0ff68-218">websocket.Version</span><span class="sxs-lookup"><span data-stu-id="0ff68-218">websocket.Version</span></span> | `String` |  |
-| <span data-ttu-id="0ff68-219">websocket.Accept</span><span class="sxs-lookup"><span data-stu-id="0ff68-219">websocket.Accept</span></span> | `WebSocketAccept` | <span data-ttu-id="0ff68-220">参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span><span class="sxs-lookup"><span data-stu-id="0ff68-220">See [delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span></span> |
-| <span data-ttu-id="0ff68-221">websocket.AcceptAlt</span><span class="sxs-lookup"><span data-stu-id="0ff68-221">websocket.AcceptAlt</span></span> |  | <span data-ttu-id="0ff68-222">非仕様</span><span class="sxs-lookup"><span data-stu-id="0ff68-222">Non-spec</span></span> |
-| <span data-ttu-id="0ff68-223">websocket.SubProtocol</span><span class="sxs-lookup"><span data-stu-id="0ff68-223">websocket.SubProtocol</span></span> | `String` | <span data-ttu-id="0ff68-224">参照してください[RFC6455 4.2.2](https://tools.ietf.org/html/rfc6455#section-4.2.2)手順 5.5</span><span class="sxs-lookup"><span data-stu-id="0ff68-224">See [RFC6455 Section 4.2.2](https://tools.ietf.org/html/rfc6455#section-4.2.2) Step 5.5</span></span> |
-| <span data-ttu-id="0ff68-225">websocket.SendAsync</span><span class="sxs-lookup"><span data-stu-id="0ff68-225">websocket.SendAsync</span></span> | `WebSocketSendAsync` | <span data-ttu-id="0ff68-226">参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span><span class="sxs-lookup"><span data-stu-id="0ff68-226">See [delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span></span>  |
-| <span data-ttu-id="0ff68-227">websocket.ReceiveAsync</span><span class="sxs-lookup"><span data-stu-id="0ff68-227">websocket.ReceiveAsync</span></span> | `WebSocketReceiveAsync` | <span data-ttu-id="0ff68-228">参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span><span class="sxs-lookup"><span data-stu-id="0ff68-228">See [delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span></span>  |
-| <span data-ttu-id="0ff68-229">websocket.CloseAsync</span><span class="sxs-lookup"><span data-stu-id="0ff68-229">websocket.CloseAsync</span></span> | `WebSocketCloseAsync` | <span data-ttu-id="0ff68-230">参照してください[デリゲートのシグネチャ](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span><span class="sxs-lookup"><span data-stu-id="0ff68-230">See [delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span></span>  |
-| <span data-ttu-id="0ff68-231">websocket.CallCancelled</span><span class="sxs-lookup"><span data-stu-id="0ff68-231">websocket.CallCancelled</span></span> | `CancellationToken` |  |
-| <span data-ttu-id="0ff68-232">websocket.ClientCloseStatus</span><span class="sxs-lookup"><span data-stu-id="0ff68-232">websocket.ClientCloseStatus</span></span> | `int` | <span data-ttu-id="0ff68-233">Optional</span><span class="sxs-lookup"><span data-stu-id="0ff68-233">Optional</span></span> |
-| <span data-ttu-id="0ff68-234">websocket.ClientCloseDescription</span><span class="sxs-lookup"><span data-stu-id="0ff68-234">websocket.ClientCloseDescription</span></span> | `String` | <span data-ttu-id="0ff68-235">Optional</span><span class="sxs-lookup"><span data-stu-id="0ff68-235">Optional</span></span> |
+| <span data-ttu-id="4620c-218">websocket.Version</span><span class="sxs-lookup"><span data-stu-id="4620c-218">websocket.Version</span></span> | `String` |  |
+| <span data-ttu-id="4620c-219">websocket.Accept</span><span class="sxs-lookup"><span data-stu-id="4620c-219">websocket.Accept</span></span> | `WebSocketAccept` | <span data-ttu-id="4620c-220">「[Delegate Signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)」(デリゲート シグネチャ) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="4620c-220">See [delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span></span> |
+| <span data-ttu-id="4620c-221">websocket.AcceptAlt</span><span class="sxs-lookup"><span data-stu-id="4620c-221">websocket.AcceptAlt</span></span> |  | <span data-ttu-id="4620c-222">記述なし</span><span class="sxs-lookup"><span data-stu-id="4620c-222">Non-spec</span></span> |
+| <span data-ttu-id="4620c-223">websocket.SubProtocol</span><span class="sxs-lookup"><span data-stu-id="4620c-223">websocket.SubProtocol</span></span> | `String` | <span data-ttu-id="4620c-224">[RFC6455 のセクション 4.2.2](https://tools.ietf.org/html/rfc6455#section-4.2.2) の手順 5.5 を参照してください。</span><span class="sxs-lookup"><span data-stu-id="4620c-224">See [RFC6455 Section 4.2.2](https://tools.ietf.org/html/rfc6455#section-4.2.2) Step 5.5</span></span> |
+| <span data-ttu-id="4620c-225">websocket.SendAsync</span><span class="sxs-lookup"><span data-stu-id="4620c-225">websocket.SendAsync</span></span> | `WebSocketSendAsync` | <span data-ttu-id="4620c-226">「[Delegate Signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)」(デリゲート シグネチャ) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="4620c-226">See [delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span></span>  |
+| <span data-ttu-id="4620c-227">websocket.ReceiveAsync</span><span class="sxs-lookup"><span data-stu-id="4620c-227">websocket.ReceiveAsync</span></span> | `WebSocketReceiveAsync` | <span data-ttu-id="4620c-228">「[Delegate Signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)」(デリゲート シグネチャ) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="4620c-228">See [delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span></span>  |
+| <span data-ttu-id="4620c-229">websocket.CloseAsync</span><span class="sxs-lookup"><span data-stu-id="4620c-229">websocket.CloseAsync</span></span> | `WebSocketCloseAsync` | <span data-ttu-id="4620c-230">「[Delegate Signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)」(デリゲート シグネチャ) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="4620c-230">See [delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)</span></span>  |
+| <span data-ttu-id="4620c-231">websocket.CallCancelled</span><span class="sxs-lookup"><span data-stu-id="4620c-231">websocket.CallCancelled</span></span> | `CancellationToken` |  |
+| <span data-ttu-id="4620c-232">websocket.ClientCloseStatus</span><span class="sxs-lookup"><span data-stu-id="4620c-232">websocket.ClientCloseStatus</span></span> | `int` | <span data-ttu-id="4620c-233">Optional</span><span class="sxs-lookup"><span data-stu-id="4620c-233">Optional</span></span> |
+| <span data-ttu-id="4620c-234">websocket.ClientCloseDescription</span><span class="sxs-lookup"><span data-stu-id="4620c-234">websocket.ClientCloseDescription</span></span> | `String` | <span data-ttu-id="4620c-235">Optional</span><span class="sxs-lookup"><span data-stu-id="4620c-235">Optional</span></span> |
 
+## <a name="additional-resources"></a><span data-ttu-id="4620c-236">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="4620c-236">Additional resources</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="0ff68-236">その他のリソース</span><span class="sxs-lookup"><span data-stu-id="0ff68-236">Additional Resources</span></span>
-
-* [<span data-ttu-id="0ff68-237">ミドルウェア</span><span class="sxs-lookup"><span data-stu-id="0ff68-237">Middleware</span></span>](middleware.md)
-
-* [<span data-ttu-id="0ff68-238">サーバー</span><span class="sxs-lookup"><span data-stu-id="0ff68-238">Servers</span></span>](servers/index.md)
+* [<span data-ttu-id="4620c-237">ミドルウェア</span><span class="sxs-lookup"><span data-stu-id="4620c-237">Middleware</span></span>](xref:fundamentals/middleware/index)
+* [<span data-ttu-id="4620c-238">サーバー</span><span class="sxs-lookup"><span data-stu-id="4620c-238">Servers</span></span>](xref:fundamentals/servers/index)
