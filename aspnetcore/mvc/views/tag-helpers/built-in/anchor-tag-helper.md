@@ -1,107 +1,107 @@
 ---
-title: "アンカー タグ ヘルパー |Microsoft ドキュメント"
+title: "ASP.NET Core のアンカー タグ ヘルパー"
 author: pkellner
-description: "アンカー タグ ヘルパーを使用する方法を示しています。"
-ms.author: riande
+description: "アンカー タグ ヘルパーを使用する方法を示します"
 manager: wpickett
+ms.author: riande
 ms.date: 12/20/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 74609b515936ec7da8bfc133c27cb69f51311924
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 404fc7bc3b35114066f035e1ac28d10a8279ccbc
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="anchor-tag-helper"></a>アンカー タグ ヘルパー
 
 著者: [Peter Kellner](http://peterkellner.net) 
 
-アンカー タグ ヘルパーの強化 HTML アンカー (`<a ... ></a>`) 新しい属性を追加してタグ。 生成されたリンク (上、`href`タグ)、新しい属性を使用して作成します。 その URL には、https などの省略可能なプロトコルを含めることができます。
+アンカー タグ ヘルパーは、新しい属性を追加することで HTML アンカー (`<a ... ></a>`) タグを拡張します。 (`href` タグで) 生成されるリンクは、新しい属性を使用して作成されます。 その URL には、https などの省略可能なプロトコルを含めることができます。
 
-下の スピーカー コント ローラーは、このドキュメントのサンプルで使用されます。
+このドキュメントのサンプルでは、以下のスピーカー コントローラーを使用します。
 
 **SpeakerController.cs** 
 
 [!code-csharp[SpeakerController](sample/TagHelpersBuiltInAspNetCore/src/TagHelpersBuiltInAspNetCore/Controllers/SpeakerController.cs)]
 
 
-## <a name="anchor-tag-helper-attributes"></a>アンカー タグ ヘルパー属性
+## <a name="anchor-tag-helper-attributes"></a>アンカー タグ ヘルパーの属性
 
-### <a name="asp-controller"></a>asp コント ローラー
+### <a name="asp-controller"></a>asp-controller
 
-`asp-controller`URL の生成に使用するコント ローラーを関連付けるために使用します。 指定されたコント ローラーは、現在のプロジェクトに存在する必要があります。 次のコードには、すべてのスピーカーが一覧表示します。 
+`asp-controller` は URL の生成に使用されるコントローラーとの関連付けに使用されます。 指定されたコントローラーが、現在のプロジェクトに存在する必要があります。 次のコードでは、すべてのスピーカーが一覧表示されます。 
 
 ```cshtml
 <a asp-controller="Speaker" asp-action="Index">All Speakers</a>
 ```
 
-生成されたマークアップになります。
+次のようなマークアップが生成されます。
 
 ```html
 <a href="/Speaker">All Speakers</a>
 ```
 
-場合、`asp-controller`が指定されていると`asp-action`いない場合は、既定値`asp-action`現在実行中のビューの既定のコント ローラーのメソッドになります。 上記の例では場合、 `asp-action` 、左からこのアンカー タグ ヘルパーが生成されると*HomeController*の`Index`ビュー (**ホーム/**)、生成されたマークアップになります。
+`asp-controller` が指定され、`asp-action` が指定されない場合は、既定の `asp-action` が現在実行されているビューの既定のコントローラーのメソッドになります。 つまり、上記の例で、`asp-action` が除外されていて、このアンカー タグ ヘルパーが *HomeController* の `Index` ビュー (**/Home**) から生成される場合、次のようなマークアップが生成されます。
 
 ```html
 <a href="/Home">All Speakers</a>
 ```
 
-### <a name="asp-action"></a>asp アクション
+### <a name="asp-action"></a>asp-action
 
-`asp-action`含まれているコント ローラー アクション メソッドの名前を生成された`href`です。 たとえば、次のコードは、生成された設定`href`スピーカー詳細ページを指します。
+`asp-action` は、生成される `href` に含まれるコントローラーのアクション メソッドの名前です。 たとえば、次のコードは、スピーカーの詳細ページを示すために生成される `href` を設定します。
 
 ```html
 <a asp-controller="Speaker" asp-action="Detail">Speaker Detail</a>
 ```
 
-生成されたマークアップになります。
+次のようなマークアップが生成されます。
 
 ```html
 <a href="/Speaker/Detail">Speaker Detail</a>
 ```
 
-ない場合は`asp-controller`属性が指定されて、現在のビューを実行するビューを呼び出す既定のコント ローラーが使用されます。  
+`asp-controller` 属性が指定されていない場合、現在のビューを実行しているビューを呼び出す既定のコントローラーが使用されます。  
  
-場合、属性`asp-action`は`Index`、url、既定値に先行する操作は追加されず、`Index`呼び出されるメソッド。 アクションを指定 (または既定値) で参照されているコント ローラーに存在する必要があります`asp-controller`です。
+属性 `asp-action` が `Index` で、URL に操作が何も追加されていない場合、既定の `Index` メソッドが呼び出されます。 指定された (または既定の) 操作が、`asp-controller` で参照されるコントローラーに存在する必要があります。
 
-### <a name="asp-page"></a>asp ページ
+### <a name="asp-page"></a>asp-page
 
-使用して、`asp-page`特定ページを指す URL を設定するアンカー タグ内の属性です。 スラッシュでページ名の前に付ける「/」の URL を作成します。 以下のサンプル内の URL は、現在のディレクトリに「スピーカー」ページを指します。
+`asp-page` 属性をアンカー タグで使用すると、URL が特定のページを示すように設定されます。 ページ名の前にスラッシュ "/" を付けると URL が作成されます。 以下のサンプルの URL は、現在のディレクトリの "スピーカー" ページを示しています。
 
 ```cshtml
 <a asp-page="/Speakers">All Speakers</a>
 ```
 
-`asp-page`上記のコード サンプルでの属性が次のスニペットは、次のようなビューでの HTML 出力を表示します。
+前のコード サンプルの `asp-page` 属性は、ビューに次のスニペットに似た HTML 出力を表示します。
 
 ```html
 <a href="/items?page=%2FSpeakers">Speakers</a>
 ```
 
-`asp-page`属性と同時に、 `asp-route`、 `asp-controller`、および`asp-action`属性。 ただし、`asp-page`で使用できる`asp-route-id`を制御するルーティングでは、次のコード サンプルを示します。
+`asp-page` 属性は `asp-route`、`asp-controller`、`asp-action` の各属性と相互に排他的です。 ただし、`asp-page` は、次のコード サンプルで示されているように、`asp-route-id` とともに使用してルーティングを制御できます。
 
 ```cshtml
 <a asp-page="/Speaker" asp-route-id="@speaker.Id">View Speaker</a>
 ```
 
-`asp-route-id`次の出力が生成されます。
+`asp-route-id` で生成される出力は次のとおりです。
 
 ```html
 https://localhost:44399/Speakers/Index/2?page=%2FSpeaker
 ```
 
 > [!NOTE]
-> 使用する、 `asp-page` Razor ページで、Url 属性があります相対パスでは、たとえば`"./Speaker"`します。 内の相対パス、`asp-page`属性は MVC ビューでは使用できません。 代わりに、MVC ビューの「/」の構文を使用します。
+> Razor ページで `asp-page` 属性を使用するには、`"./Speaker"` のように、URL が相対パスである必要があります。 `asp-page` 属性の相対パスは MVC ビューでは使用できません。 MVC ビューでは、代わりに "/" の構文を使用します。
 
 ### <a name="asp-route-value"></a>asp-route-{value}
 
-`asp-route-`次のワイルドカード ルート プレフィックス。 任意の値は、潜在的なルートのパラメーターとして解釈されます末尾ダッシュ後に配置します。 既定のルートが見つからない場合は、要求のパラメーターと値として生成された href にこのルート プレフィックスが追加されます。 それ以外の場合、ルート テンプレートで置き換えられますされます。
+`asp-route-` はワイルド カード ルート プレフィックスです。 末尾ダッシュの後ろにある値はすべて、潜在的なルート パラメーターと解釈されます。 既定のルートが見つからない場合は、このルート プレフィックスが生成された href に要求パラメーターおよび値として追加されます。 見つかった場合は、そのルートがルート テンプレートで置き換えられます。
 
-前提とするとがコント ローラー メソッドように定義します。
+次のようにコントローラー メソッドが定義されていることが前提です。
 
 ```csharp
 public IActionResult AnchorTagHelper(string id)
@@ -114,7 +114,7 @@ public IActionResult AnchorTagHelper(string id)
 }
 ```
 
-定義されている既定のルート テンプレートがあると、 *Startup.cs*次のようにします。
+さらに、既定のルート テンプレートが次のように *Startup.cs* に定義されている必要もあります。
 
 ```csharp
 app.UseMvc(routes =>
@@ -126,7 +126,7 @@ app.UseMvc(routes =>
 
 ```
 
-**Cshtml** 、アンカー タグ ヘルパーを使用する必要のあるファイル、**スピーカー**ビューに、コント ローラーから渡されたモデル パラメーターを次に示します。
+コントローラーからビューに渡される**スピーカー** モデル パラメーターを使用するために必要なアンカー タグ ヘルパーが含まれる **cshtml** ファイルは次のようになります。
 
 ```cshtml
 @model SpeakerData
@@ -136,13 +136,13 @@ app.UseMvc(routes =>
 <body></html>
 ```
 
-生成される HTML れます次のように**id**で既定のルートが見つかりました。
+**id** が既定のルートで見つかったため、次のような HTML が生成されます。
 
 ```html
 <a href='/Speaker/Detail/12'>SpeakerId: 12</a>
 ```
 
-ルート プレフィックスがあるルーティング テンプレートの一部でない場合は、次の場合と**cshtml**ファイル。
+ルート プレフィックスが見つかったルーティング テンプレートに含まれていない場合、**cshtml** ファイルは次のようになります。
 
 ```cshtml
 @model SpeakerData
@@ -152,25 +152,25 @@ app.UseMvc(routes =>
 <body></html>
 ```
 
-生成される HTML れます次のように**speakerid**に一致するルートが見つかりませんでした。
+**speakerid** が一致するルートで見つからなかったため、次のような HTML が生成されます。
 
 ```html
 <a href='/Speaker/Detail?speakerid=12'>SpeakerId: 12</a>
 ```
 
-いずれか`asp-controller`または`asp-action`が指定されていないがで同じ既定の処理の後に、`asp-route`属性。
+`asp-controller` または `asp-action` のどちらかが指定されていない場合は、`asp-route` 属性の場合と同じ既定の処理に従います。
 
-### <a name="asp-route"></a>asp ルート
+### <a name="asp-route"></a>asp-route
 
-`asp-route`名前付きのルートに直接リンクする URL を作成する方法を提供します。 ルーティング属性を使用して、ように、ルートをということができます、`SpeakerController`で使用されると、`Evaluations`メソッドです。
+`asp-route` により、名前付きルートに直接リンクする URL を作成することができます。 ルーティング属性を使用すると、`SpeakerController` に示されているようにルートに名前を付け、その `Evaluations` メソッドで使用することができます。
 
-`Name = "speakerevals"`アンカー タグ ヘルパーのルート URL を使用してそのコント ローラーのメソッドを直接生成するように指示`/Speaker/Evaluations`です。 場合`asp-controller`または`asp-action`が他に指定されている`asp-route`、生成されるルートできない可能性がありますが予期したものとします。 `asp-route`属性のいずれかで使用できない`asp-controller`または`asp-action`ルート競合を回避します。
+`Name = "speakerevals"` からアンカー タグ ヘルパーに、URL `/Speaker/Evaluations` を使用してそのコントローラー メソッドに直接ルートを生成するように指示されます。 `asp-controller` または `asp-action` が `asp-route` の他に指定されていると、想定と異なるルートが生成される場合があります。 ルートの競合を防ぐには、`asp-route` を属性 `asp-controller` または `asp-action` のどちらかとともに使用してはいけません。
 
 ### <a name="asp-all-route-data"></a>asp-all-route-data
 
-`asp-all-route-data`ここで、キーは、パラメーター名と値は、そのキーに関連付けられている値のキー値のペアのディクショナリを作成できます。
+`asp-all-route-data` では、キーがパラメーター名で、値がそのキーに関連付けられた値であるキー値ペアのディクショナリを生成できます。
 
-次の例に、としてインライン ディクショナリが作成され、razor ビューにデータが渡されます。 代わりに、データも、モデルを使用して渡される可能性があります。
+以下の例に示すように、インライン ディクショナリが作成され、Razor ビューにデータが渡されます。 または、データがモデルによって渡される場合もあります。
 
 ```cshtml
 @{
@@ -185,67 +185,67 @@ app.UseMvc(routes =>
 asp-all-route-data="dict">SpeakerEvals</a>
 ```
 
-上記のコードには、次の URL が生成されます: http://localhost/Speaker/EvaluationsCurrent?speakerId=11&currentYear=true
+上記のコードでは、次の URL が生成されます: http://localhost/Speaker/EvaluationsCurrent?speakerId=11&currentYear=true
 
-ときに、リンクをクリックして、コント ローラー メソッド`EvaluationsCurrent`と呼びます。 これは、そのコント ローラーがある 2 つの文字列パラメーターから作成したものと一致するために呼び出されますが、`asp-all-route-data`ディクショナリ。
+リンクをクリックすると、コントローラー メソッド `EvaluationsCurrent` が呼び出されます。 これが呼び出されるのは、そのコントローラーに `asp-all-route-data` ディクショナリから作成されたものと一致する 2 つの文字列パラメーターが含まれているためです。
 
-ディクショナリ一致しているすべてのキーは、パラメーターをルーティングする場合として適切なルート上でそれらの値が置き換えられるし、要求パラメーターと一致しない値が生成されます。
+ディクショナリのいずれかのキーがルート パラメーターと一致している場合、その値はルートで適宜置き換えられ、一致しない他の値が要求パラメーターとして生成されます。
 
 ### <a name="asp-fragment"></a>asp-fragment
 
-`asp-fragment`URL に追加する URL フラグメントを定義します。 アンカー タグ ヘルパー追加ハッシュ文字 (#)。 場合は、タグを作成します。
+`asp-fragment` では URL に追加される URL フラグメントが定義されます。 アンカー タグ ヘルパーにより、ハッシュ文字 (#) が追加されます。 タグを作成する場合: 
 
 ```cshtml
 <a asp-action="Evaluations" asp-controller="Speaker"  
    asp-fragment="SpeakerEvaluations">About Speaker Evals</a>
 ```
 
-生成された URL になります: http://localhost/Speaker/Evaluations#SpeakerEvaluations
+次の URL が生成されます: http://localhost/Speaker/Evaluations#SpeakerEvaluations
 
-ハッシュのタグは、クライアント側アプリケーションを構築するときに便利です。 簡単なマークを付け、たとえば、JavaScript では、検索、使用できます。
+ハッシュ タグはクライアント側アプリケーションを構築するときに便利です。 たとえば、JavaScript でのマーク付けや検索を簡単にするために使用できます。
 
-### <a name="asp-area"></a>asp 領域
+### <a name="asp-area"></a>asp-area
 
-`asp-area`ASP.NET Core は適切なルートの設定を使用して領域の名前を設定します。 どの区分属性によって、ルートの再マップの例を以下に示します。 設定`asp-area`ブログに、ディレクトリをプレフィックス`Areas/Blogs`関連付けられているコント ローラーとこのアンカー タグのビューのルートにします。
+`asp-area` は ASP.NET Core が適切なルートを設定するために使用する区分名を設定します。 区分の属性によって、どのようにルートの再マップが行われるかの例を以下に示します。 `asp-area` を [ブログ] に設定すると、このアンカー タグの関連付けられているコントローラーとビューのルートに、ディレクトリ `Areas/Blogs` のプレフィックスが付けられます。
 
 * プロジェクト名
   * wwwroot
   * 区分
     * ブログ
-      * コント ローラー
+      * コントローラー
         * HomeController.cs
       * ビュー
         * Home
           * Index.cshtml
           * AboutBlog.cshtml
-  * コント ローラー
+  * コントローラー
 
-などの無効である area タグを指定する```area="Blogs"```参照するときに、```AboutBlog.cshtml```ファイルは、次のようになりますアンカー タグ ヘルパーの使用します。
+```AboutBlog.cshtml``` ファイルを参照するときに ```area="Blogs"``` などの有効な区分タグを指定すると、アンカー タグ ヘルパーを使用した次のようなファイルになります。
 
 ```cshtml
 <a asp-action="AboutBlog" asp-controller="Home" asp-area="Blogs">Blogs About</a>
 ```
 
-生成される HTML では、領域セグメントが含まれますされ、次のようになります。
+生成される HTML には区分セグメントが含まれ、次のようになります。
 
 ```html
 <a href="/Blogs/Home/AboutBlog">Blogs About</a>
 ```
 
 > [!TIP]
-> Web アプリケーションで作業する MVC 区分のルート テンプレートは存在する場合領域への参照を含める必要があります。 そのテンプレートでは、2 番目のパラメーターの`routes.MapRoute`メソッド呼び出しとして表示されます。`template: '"{area:exists}/{controller=Home}/{action=Index}"'`
+> MVC 区分が Web アプリケーションで動作するには、ルート テンプレートに区分への参照 (存在する場合) が含まれている必要があります。 その `routes.MapRoute` メソッド呼び出しの 2 番目のパラメーターであるテンプレートは次のように表示されます: `template: '"{area:exists}/{controller=Home}/{action=Index}"'`
 
 ### <a name="asp-protocol"></a>asp-protocol
 
-`asp-protocol` 、プロトコルを指定するのには (など`https`)、URL にします。 プロトコルを含むアンカー タグ ヘルパーの使用例は、次のようになります。
+`asp-protocol` は URL に (`https` などの) プロトコルを指定するためにあります。 プロトコルを含むアンカー タグ ヘルパーの例は、次のとおりです。
 
 ```<a asp-protocol="https" asp-action="About" asp-controller="Home">About</a>```
 
-次のように HTML を生成します。
+HTML は次のように生成されます。
 
 ```<a href="https://localhost/Home/About">About</a>```
 
-ドメインの例では、localhost がアンカー タグ ヘルパーは、URL を生成するときに、web サイトのパブリック ドメインを使用します。
+例ではドメインが localhost ですが、アンカー タグ ヘルパーは URL を生成するときに Web サイトのパブリック ドメインを使用します。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

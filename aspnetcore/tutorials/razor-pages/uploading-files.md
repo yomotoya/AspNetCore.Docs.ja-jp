@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 24eaa0dd9293cc932c51d280300308e835a0840e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4a2c6da6ed698d1a65ee51bd00a557e607f012da
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>SP.NET Core で Razor ページにファイルをアップロードする
 
@@ -25,9 +25,27 @@ ms.lasthandoff: 01/30/2018
 
 以下の手順では、映画スケジュール ファイルのアップロード機能をサンプル アプリに追加します。 映画スケジュールを表すのが `Schedule` クラスです。 このクラスには、2 つのバージョンのスケジュールが含まれています。 1 つのバージョンは顧客に提供される `PublicSchedule` です。 もう 1 つのバージョンは社員が利用する `PrivateSchedule` です。 いずれも別個のファイルとしてアップロードされます。 このチュートリアルでは、POST が 1 つのページからサーバーに 2 つのファイルをアップロードします。
 
+## <a name="security-considerations"></a>セキュリティの考慮事項
+
+サーバーにファイルをアップロードする機能をユーザーに提供するときには、十分に注意してください。 攻撃者が[サービス拒否](/windows-hardware/drivers/ifs/denial-of-service)などの攻撃をシステムに実行する場合があります。 攻撃の成功の可能性を少なくするセキュリティ手順には、次のようなものがあります。
+
+* システムの専用のファイル アップロード領域にファイルをアップロードする。これによりアップロードしたコンテンツにセキュリティ対策を適用しやすくなります。 ファイルのアップロードを許可する際に、実行アクセス許可がアップロード先で無効になっていることを確認する。
+* ユーザー入力やアップロードされたファイルのファイル名からではなく、アプリで決定された安全なファイル名を使用する。
+* 承認されている特定のファイル拡張子のみを許可する。
+* クライアント側のチェックがサーバーで実行されることを確認する。 クライアント側のチェックは簡単に回避できます。
+* アップロードのサイズを確認し、アップロードのサイズが予想よりも大きくならないようにする。
+* アップロードされたコンテンツに対してウイルス/マルウェア スキャナーを実行する。
+
+> [!WARNING]
+> システムへの悪意のあるコードのアップロードは、頻繁に次のような内容のコードの実行するための足がかりとなります。
+> * システムを完全に乗っ取る。
+> * システムが完全に失敗したという結果を、システムにオーバーロードする。
+> * ユーザーまたはシステムのデータを破壊する。
+> * パブリック インターフェイスに落書きする。
+
 ## <a name="add-a-fileupload-class"></a>FileUpload クラスを追加する
 
-以下では、ファイル アップロードのペアを処理する Razor ページを作成します。 `FileUpload` クラスを追加して、スケジュール データを取得するページにバインドします。 *Models* フォルダーを右クリックします。 **[追加]**、**[クラス]** の順に選択します。 クラスに **FileUpload** という名前を付けて、次のプロパティを追加します。
+ファイル アップロードのペアを処理する Razor ページを作成します。 `FileUpload` クラスを追加して、スケジュール データを取得するページにバインドします。 *Models* フォルダーを右クリックします。 **[追加]**、**[クラス]** の順に選択します。 クラスに **FileUpload** という名前を付けて、次のプロパティを追加します。
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
 
@@ -38,6 +56,23 @@ ms.lasthandoff: 01/30/2018
 アップロード済みのスケジュール ファイルを処理するコード重複を回避するために、静的なヘルパー メソッドを先に追加します。 アプリで *Utilities* フォルダーを作成し、次のコンテンツを含む *FileHelpers.cs* ファイルを追加します。 ヘルパー メソッドの `ProcessFormFile` は [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) と [ModelStateDictionary](/api/microsoft.aspnetcore.mvc.modelbinding.modelstatedictionary) を受け取り、ファイルのサイズとコンテンツが含まれる文字列を返します。 コンテンツの種類と長さが確認されます。 ファイルが検証チェックに合格しなければ、エラーが `ModelState` に追加されます。
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Utilities/FileHelpers.cs)]
+
+### <a name="save-the-file-to-disk"></a>ファイルをディスクに保存する
+
+このサンプル アプリでは、データベース フィールドにファイルの内容が保存されます。 ファイルの内容をディスクに保存するには、[FileStream](/dotnet/api/system.io.filestream) を使用します。
+
+```csharp
+using (var fileStream = new FileStream(filePath, FileMode.Create))
+{
+    await formFile.CopyToAsync(fileStream);
+}
+```
+
+ワーカー プロセスには、`filePath` によって指定された場所への書き込みアクセス許可が必要です。
+
+### <a name="save-the-file-to-azure-blob-storage"></a>Azure Blob ストレージにファイルを保存する
+
+ファイルの内容を Azure Blob ストレージにアップロードする方法については、「[.NET を使用して Azure Blob Storage を使用する](/azure/storage/blobs/storage-dotnet-how-to-use-blobs)」を参照してください。 このトピックでは [UploadFromStream](/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromstreamasync) を使用して [FileStream](/dotnet/api/system.io.filestream) を Blob ストレージに保存する方法を説明しています。
 
 ## <a name="add-the-schedule-class"></a>Schedule クラスを追加する
 
@@ -106,7 +141,7 @@ Update-Database
 
 ## <a name="add-a-page-to-confirm-schedule-deletion"></a>スケジュール削除を確定するためのページを追加する
 
-ユーザーがスケジュールを削除するボタンをクリックしたとき、削除を取り消す機会をユーザーに与えます。 削除確定ページ (*Delete.cshtml*) を *Schedules* フォルダーに追加します。
+ユーザーがスケジュールを削除するボタンをクリックすると、削除を取り消すことができます。 削除確定ページ (*Delete.cshtml*) を *Schedules* フォルダーに追加します。
 
 [!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
 
@@ -144,7 +179,7 @@ Update-Database
 
 `IFormFile` アップロードの問題を解決する方法については、「[ASP.NET でのファイルのアップロード](xref:mvc/models/file-uploads#troubleshooting)」の「トラブルシューティング」セクションを参照してください。
 
-このたびは、この Razor ページの紹介を最後までお読みいただきありがとうございました。 コメントを残していただければ幸いです。 このチュートリアルの後は、「[Getting started with MVC and EF Core](xref:data/ef-mvc/intro)」 (MVC と EF Core の概要) にお進みいただくことが推奨されます。
+このたびは、この Razor ページの紹介を最後までお読みいただきありがとうございました。 貴重なご意見をお寄せいただき心より感謝いたします。 このチュートリアルの後は、「[Getting started with MVC and EF Core](xref:data/ef-mvc/intro)」 (MVC と EF Core の概要) にお進みいただくことが推奨されます。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

@@ -1,65 +1,65 @@
 ---
-title: "ASP.NET Core で razor ページのルートとアプリの規則機能"
+title: "ASP.NET Core での Razor ページのルートとアプリの規則機能"
 author: guardrex
-description: "モデル プロバイダーの規則の機能をルートとアプリの利用方法コントロール ページのルーティング、探索、および処理を検出します。"
-ms.author: riande
+description: "ルートとアプリ モデル プロバイダーの規則機能が、ページのルーティング、検出、および処理の制御にどのように役立つかについて確認します。"
 manager: wpickett
+ms.author: riande
 ms.date: 10/23/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/razor-pages/razor-pages-convention-features
-ms.openlocfilehash: 69475ca9abd4e732dc704ad6a8a2fffe219984f7
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
-ms.translationtype: MT
+ms.openlocfilehash: bf1c895fc972310d5541d0098226d58b8183e320
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>ASP.NET Core で razor ページのルートとアプリの規則機能
+# <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>ASP.NET Core での Razor ページのルートとアプリの規則機能
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
-ページのルーティング、探索、および Razor ページのアプリでの処理を制御するページのルートとアプリ モデル プロバイダー規約機能を使用する方法を説明します。 使用してページにルーティングを構成する個々 のページのページのカスタム ルートを構成する必要がある場合、 [AddPageRoute 規約](#configure-a-page-route)このトピックの後半で説明します。
+ページ ルートとアプリ モデル プロバイダーの規則機能を使用して、Razor ページ アプリでページのルーティング、検出、および処理を制御する方法について説明します。 個別のページにカスタムのページ ルートを構成する必要がある場合、このトピックで後述される「[AddPageRoute convention](#configure-a-page-route)」で、ページへのルーティングを構成します。
 
-使用して、[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample)) をこのトピックで説明する機能を探索します。
+[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample) ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample)) を使用して、このトピックで説明される機能について調べます。
 
-| フィーチャー | このサンプルでは. |
+| フィーチャー | このサンプルでは、次のデモを実行します。 |
 | -------- | --------------------------- |
-| [モデルのルートとアプリの規則](#add-route-and-app-model-conventions)<br><br>Conventions.Add<ul><li>IPageRouteModelConvention</li><li>IPageApplicationModelConvention</li></ul> | アプリのページへのルート テンプレートとヘッダーを追加します。 |
-| [ページのルート アクションの表記規則](#page-route-action-conventions)<ul><li>AddFolderRouteModelConvention</li><li>AddPageRouteModelConvention</li><li>AddPageRoute</li></ul> | 1 つのページと、フォルダー内のページには、ルート テンプレートを追加します。 |
-| [ページのモデルの操作規則](#page-model-action-conventions)<ul><li>AddFolderApplicationModelConvention</li><li>AddPageApplicationModelConvention</li><li>ConfigureFilter (フィルター クラス、ラムダ式、またはフィルター ファクトリ)</li></ul> | フォルダー内のページにヘッダーを追加する、単一のページにヘッダーを追加して、構成、[フィルター ファクトリ](xref:mvc/controllers/filters#ifilterfactory)アプリのページにヘッダーを追加します。 |
-| [既定ページ アプリ モデル プロバイダー](#replace-the-default-page-app-model-provider) | ハンドラーの名前付け規則を変更するには、既定ページ モデル プロバイダーを置換します。 |
+| [ルート モデル規則とアプリ モデル規則](#add-route-and-app-model-conventions)<br><br>Conventions.Add<ul><li>IPageRouteModelConvention</li><li>IPageApplicationModelConvention</li></ul> | ルート テンプレートとヘッダーをアプリのページに追加する。 |
+| [ページ ルート アクション規則](#page-route-action-conventions)<ul><li>AddFolderRouteModelConvention</li><li>AddPageRouteModelConvention</li><li>AddPageRoute</li></ul> | ルート テンプレートをフォルダー内のページおよび単一ページに追加する。 |
+| [ページ モデル アクション規則](#page-model-action-conventions)<ul><li>AddFolderApplicationModelConvention</li><li>AddPageApplicationModelConvention</li><li>ConfigureFilter (フィルター クラス、ラムダ式、またはフィルター ファクトリ)</li></ul> | ヘッダーをフォルダー内のページに追加する、ヘッダーを単一ページに追加する、ヘッダーをアプリのページに追加するように[フィルター ファクトリ](xref:mvc/controllers/filters#ifilterfactory)を構成する。 |
+| [既定のページ アプリ モデル プロバイダー](#replace-the-default-page-app-model-provider) | 既定のページ モデル プロバイダーを置き換えて、名前付けハンドラーの規則を変更する。 |
 
-## <a name="add-route-and-app-model-conventions"></a>モデルのルートとアプリの規則を追加します。
+## <a name="add-route-and-app-model-conventions"></a>ルート モデル規則とアプリ モデル規則の追加
 
-デリゲートを追加[IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) Razor ページに適用されるルートとアプリのモデルの規則を追加します。
+[IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) の委任を追加して、Razor ページに適用するルート モデル規則とアプリ モデル規則を追加します。
 
-**すべてのページにルート モデルの規則を追加します。**
+**すべてのページにルート モデル規則を追加する**
 
-使用して[規則](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions)を作成し、追加、 [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention)のコレクションに[IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention)ルートとページのモデルの中に適用されるインスタンス構築します。
+[規則](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions)を使用して、[IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) を作成し、ルートとページ モデルの構築中に適用される [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) インスタンスのコレクションに追加します。
 
-サンプル アプリを追加、`{globalTemplate?}`すべてのアプリのページにルート テンプレート。
+サンプル アプリでは、`{globalTemplate?}` ルート テンプレートをアプリ内のすべてのページに追加します。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
 
 > [!NOTE]
-> `Order`プロパティを`AttributeRouteModel`に設定されている`0`(ゼロ)。 これにより、このテンプレートが与えられているルート データ値の位置は、最初の優先順位 1 つのルート値を指定するときにします。 たとえば、サンプルが追加されて、`{aboutTemplate?}`トピックの後半でルート テンプレート。 `{aboutTemplate?}`テンプレートが指定された、`Order`の`1`します。 [バージョン情報] ページが要求された場合`/About/RouteDataValue`、"RouteDataValue"が読み込まれます`RouteData.Values["globalTemplate"]`(`Order = 0`) および not `RouteData.Values["aboutTemplate"]` (`Order = 1`) の設定のため、`Order`プロパティです。
+> `AttributeRouteModel` の `Order` プロパティに `0` (ゼロ) が設定されます。 この設定によって、単一のルート値が指定されたときに、このテンプレートが優先的に最初のルート データ値の位置に指定されます。 たとえば、このサンプルでは、このトピックの後で `{aboutTemplate?}` ルート テンプレートを追加します。 `{aboutTemplate?}` テンプレートの `Order` には `1` が指定されます。 [About] ページが `/About/RouteDataValue` で要求されると、"RouteDataValue" は `RouteData.Values["globalTemplate"]` (`Order = 0`) に読み込まれ、`Order` プロパティが設定されるため `RouteData.Values["aboutTemplate"]` (`Order = 1`) には読み込まれません。
 
 *Startup.cs*:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet1)]
 
-[要求について] ページで、サンプルの`localhost:5000/About/GlobalRouteValue`され、結果を調べる。
+`localhost:5000/About/GlobalRouteValue` でサンプルの [About] ページを要求し、その結果を調べます。
 
-![GlobalRouteValue のルート セグメントでは、バージョン情報 ページが要求されます。 表示されたページは、ルート データの値が、ページの OnGet メソッド内でキャプチャされるを示しています。](razor-pages-convention-features/_static/about-page-global-template.png)
+![[About] ページは、GlobalRouteValue のルート セグメントで要求されます。 レンダリングされたページは、ルート データの値がページの OnGet メソッドでキャプチャされたことを示しています。](razor-pages-convention-features/_static/about-page-global-template.png)
 
-**すべてのページにアプリ モデルの規則を追加します。**
+**すべてのページにアプリ モデル規則を追加する**
 
-使用して[規則](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions)を作成し、追加、 [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention)のコレクションに[IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention)ルートとページの中に適用されるインスタンスモデルの構築します。
+[規則](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions)を使用して、[IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) を作成し、ルートとページ モデルの構築中に適用される [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) インスタンスのコレクションに追加します。
 
-これとトピックの以降の他の規則を示すため、サンプル アプリケーションが含まれています、`AddHeaderAttribute`クラスです。 クラスのコンス トラクターを受け入れる、`name`文字列と`values`文字列配列。 これらの値が使用されるその`OnResultExecuting`応答ヘッダーを設定します。 完全クラスを示す、[モデル操作の規則 ページ](#page-model-action-conventions)トピックの以降のセクションでします。
+この規則やこのトピックで後述されるその他の規則のデモを実行するには、サンプル アプリに `AddHeaderAttribute` クラスを含めます。 クラス コンストラクターは、`name` 文字列と `values` 文字列配列を受け入れます。 これらの値は、応答ヘッダーを設定するために、その `OnResultExecuting` メソッド内で使用されます。 完全クラスは、このトピックで後述される「[ページ モデル アクション規則](#page-model-action-conventions)」セクションで示されます。
 
-サンプル アプリは、 `AddHeaderAttribute` 、ヘッダーを追加するクラス`GlobalHeader`、すべてのアプリのページに。
+サンプル アプリでは、`AddHeaderAttribute` クラスを使用して、ヘッダー (`GlobalHeader`) をアプリ内のすべてのページに追加します。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Conventions/GlobalHeaderPageApplicationModelConvention.cs?name=snippet1)]
 
@@ -67,121 +67,121 @@ ms.lasthandoff: 01/19/2018
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet2)]
 
-要求について ページで、サンプルの`localhost:5000/About`し、結果を表示するヘッダーを検査します。
+`localhost:5000/About` でサンプルの [About] ページを要求し、そのヘッダーを調べて結果を確認します。
 
-![バージョン情報 ページの応答ヘッダー、GlobalHeader が追加されていることを示します。](razor-pages-convention-features/_static/about-page-global-header.png)
+![[About] ページの応答ヘッダーは、GlobalHeader が追加されたことを示しています。](razor-pages-convention-features/_static/about-page-global-header.png)
 
-## <a name="page-route-action-conventions"></a>ページのルート アクションの表記規則
+## <a name="page-route-action-conventions"></a>ページ ルート アクション規則
 
-派生する既定のルート モデル プロバイダー [IPageRouteModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelprovider)をページのルートを構成するための機能拡張ポイントを提供できるように設計された規則を呼び出します。
+[IPageRouteModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelprovider) から派生する既定のルート モデル プロバイダーは、ページ ルートを構成するための拡張ポイントを提供するようにデザインされた規則を呼び出します。
 
-**フォルダーのルート モデルの規則**
+**フォルダー ルート モデル規則**
 
-使用して[AddFolderRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addfolderroutemodelconvention)を作成して追加、 [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention)でアクションを呼び出す、 [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel)すべての下にあるページ、指定したフォルダーです。
+[AddFolderRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addfolderroutemodelconvention) を使用して、指定したフォルダーのページにある [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) のアクションを呼び出す、[IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) を作成して追加します。
 
-サンプル アプリは`AddFolderRouteModelConvention`を追加する、`{otherPagesTemplate?}`ルート テンプレート内のページに、 *OtherPages*フォルダー。
+サンプル アプリでは `AddFolderRouteModelConvention` を使用して、`{otherPagesTemplate?}` ルート テンプレートを *OtherPages* フォルダーのページに追加します。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet3)]
 
 > [!NOTE]
-> `Order`プロパティを`AttributeRouteModel`に設定されている`1`です。 これにより、テンプレートを`{globalTemplate?}`(このトピックではセット) が優先単一のルート値を指定するときに、ルートの最初のデータ値の位置。 Page1 ページが要求されている場合`/OtherPages/Page1/RouteDataValue`、"RouteDataValue"に読み込まれる`RouteData.Values["globalTemplate"]`(`Order = 0`) および not `RouteData.Values["otherPagesTemplate"]` (`Order = 1`) の設定のため、`Order`プロパティです。
+> `AttributeRouteModel` の `Order` プロパティに `1` が設定されます。 この設定により、単一のルート値が指定されたときに、(このトピックの前半で設定した) `{globalTemplate?}` のテンプレートが優先的に最初のルート データ値の位置に指定されます。 Page1 ページが `/OtherPages/Page1/RouteDataValue` で要求されると、"RouteDataValue" は `RouteData.Values["globalTemplate"]` (`Order = 0`) に読み込まれ、`Order` プロパティが設定されるため `RouteData.Values["otherPagesTemplate"]` (`Order = 1`) には読み込まれません。
 
-サンプルの Page1 ページ要求`localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue`が表示され、結果を調べる。
+`localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` でサンプルの Page1 ページを要求し、その結果を調べます。
 
-![Page1 OtherPages フォルダーには、GlobalRouteValue と OtherPagesRouteValue のルート セグメントを持つ要求されます。 表示されたページは、ルート データの値が、ページの OnGet メソッド内でキャプチャされるを示しています。](razor-pages-convention-features/_static/otherpages-page1-global-and-otherpages-templates.png)
+![OtherPages フォルダーの Page1 は、GlobalRouteValue と OtherPagesRouteValue のルート セグメントで要求されます。 レンダリングされたページは、ルート データの値がページの OnGet メソッドでキャプチャされたことを示しています。](razor-pages-convention-features/_static/otherpages-page1-global-and-otherpages-templates.png)
 
-**ページのルート モデルの規則**
+**ページ ルート モデル規則**
 
-使用して[AddPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addpageroutemodelconvention)を作成し、追加、 [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention)でアクションを呼び出す、 [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel)指定したページの名前です。
+[AddPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addpageroutemodelconvention) を使用して、指定した名前でページの [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) のアクションを呼び出す、[IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) を作成して追加します。
 
-サンプル アプリは`AddPageRouteModelConvention`を追加する、`{aboutTemplate?}`バージョン情報 ページにルート テンプレート。
+サンプル アプリでは `AddPageRouteModelConvention` を使用して、`{aboutTemplate?}` ルート テンプレートを [About] ページに追加します。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet4)]
 
 > [!NOTE]
-> `Order`プロパティを`AttributeRouteModel`に設定されている`1`です。 これにより、テンプレートを`{globalTemplate?}`(このトピックではセット) が優先単一のルート値を指定するときに、ルートの最初のデータ値の位置。 [バージョン情報] ページが要求されている場合`/About/RouteDataValue`、"RouteDataValue"が読み込まれます`RouteData.Values["globalTemplate"]`(`Order = 0`) および not `RouteData.Values["aboutTemplate"]` (`Order = 1`) の設定のため、`Order`プロパティです。
+> `AttributeRouteModel` の `Order` プロパティに `1` が設定されます。 この設定により、単一のルート値が指定されたときに、(このトピックの前半で設定した) `{globalTemplate?}` のテンプレートが優先的に最初のルート データ値の位置に指定されます。 [About] ページが `/About/RouteDataValue` で要求されると、"RouteDataValue" は `RouteData.Values["globalTemplate"]` (`Order = 0`) に読み込まれ、`Order` プロパティが設定されるため `RouteData.Values["aboutTemplate"]` (`Order = 1`) には読み込まれません。
 
-[要求について] ページで、サンプルの`localhost:5000/About/GlobalRouteValue/AboutRouteValue`され、結果を調べる。
+`localhost:5000/About/GlobalRouteValue/AboutRouteValue` でサンプルの [About] ページを要求し、その結果を調べます。
 
-![ページに関する要求に含まれるルート セグメント GlobalRouteValue および AboutRouteValue されます。 表示されたページは、ルート データの値が、ページの OnGet メソッド内でキャプチャされるを示しています。](razor-pages-convention-features/_static/about-page-global-and-about-templates.png)
+![[About] ページは、GlobalRouteValue と AboutRouteValue のルート セグメントで要求されます。 レンダリングされたページは、ルート データの値がページの OnGet メソッドでキャプチャされたことを示しています。](razor-pages-convention-features/_static/about-page-global-and-about-templates.png)
 
-## <a name="configure-a-page-route"></a>ページのルートを構成します。
+## <a name="configure-a-page-route"></a>ページ ルートの構成
 
-使用して[AddPageRoute](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.addpageroute)を指定したページのパスにあるページへのルートを構成します。 ページに生成されたリンクは、指定されたルートを使用します。 `AddPageRoute`使用して`AddPageRouteModelConvention`ルートを作成します。
+[AddPageRoute](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.addpageroute) を使用して、特定のページ パスでページへのルートを構成します。 そのページに対して生成されたリンクでは、指定したルートを使用します。 `AddPageRoute` では、`AddPageRouteModelConvention` を使用してルートを確立します。
 
-サンプル アプリへのルートを作成する`/TheContactPage`の*Contact.cshtml*:
+サンプル アプリでは、*Contact.cshtml* の `/TheContactPage` へのルートを作成します。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet5)]
 
-連絡先 ページは、現在は到達も`/Contact`既定のルートを使用しています。
+[Contact] ページには、既定のルート経由の `/Contact` でアクセスすることもできます。
 
-メンバーのページに、サンプル アプリのカスタム ルートでは、省略可能な`text`ルート セグメント (`{text?}`)。 ページは、この省略可能なセグメントでも含まれています。 その`@page`ディレクティブの訪問者のページにアクセスする場合にその`/Contact`ルート。
+サンプル アプリの [Contact] ページに対するカスタム ルートでは、省略可能な `text` ルート セグメント (`{text?}`) を許可します。 また、訪問者が `/Contact` ルートでページにアクセスする場合、ページの `@page` ディレクティブにはこの省略可能なセグメントも含まれます。
 
 [!code-cshtml[Main](razor-pages-convention-features/sample/Pages/Contact.cshtml?highlight=1)]
 
-URL が生成されることに注意してください、**連絡先**レンダリングされるページのリンクには、更新されたルートが反映されます。
+レンダリングされたページの **Contact** リンク用に生成された URL には、更新されたルートが反映されることに注意してください。
 
-![ナビゲーション バーで、サンプル アプリにお問い合わせくださいリンク](razor-pages-convention-features/_static/contact-link.png)
+![ナビゲーション バーのサンプル アプリの [Contact] リンク](razor-pages-convention-features/_static/contact-link.png)
 
-![レンダリングされる HTML の連絡先のリンクの検査 href に設定されていることを示します '/TheContactPage'](razor-pages-convention-features/_static/contact-link-source.png)
+![レンダリングされた HTML の [Contact] リンクを調べると、href に '/TheContactPage' が設定されています](razor-pages-convention-features/_static/contact-link-source.png)
 
-ページにアクセスして、連絡先どちらでも、通常そのルート上`/Contact`、またはカスタムのルート`/TheContactPage`です。 追加の指定した場合`text`ルート セグメント ページを示しています、HTML でエンコードされたセグメントを指定します。
+通常のルート (`/Contact`) またはカスタム ルート (`/TheContactPage`) のいずれかで、[Contact] ページにアクセスします。 追加の `text` ルート セグメントを指定した場合、ページには指定した HTML エンコードのセグメントが示されます。
 
-![オプション 'text' ルート セグメント、URL で 'TextValue' を指定する edge ブラウザー例です。 表示されたページは、'text' セグメントの値を示します。](razor-pages-convention-features/_static/route-segment-with-custom-route.png)
+![URL の 'TextValue' の省略可能な 'text' ルート セグメントを適用する Edge ブラウザーの例。 レンダリングされたページには、'text' セグメントの値が示されています。](razor-pages-convention-features/_static/route-segment-with-custom-route.png)
 
-## <a name="page-model-action-conventions"></a>ページのモデルの操作規則
+## <a name="page-model-action-conventions"></a>ページ モデル アクション規則
 
-実装してページ モデルの既定のプロバイダー [IPageApplicationModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelprovider)ページ モデルを構成するための機能拡張ポイントを提供するように設計されている規則を呼び出します。 これらの規則は、ビルドとページの検出と処理機能を変更すると便利です。
+[IPageApplicationModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelprovider) を実装する既定のページ モデル プロバイダーは、ページ モデルを構成するための拡張ポイントを提供するようにデザインされた規則を呼び出します。 これらの規則は、ページ検出をビルドおよび変更したり、機能を処理したりするときに便利です。
 
-このセクションの例については、サンプル アプリを使用して、`AddHeaderAttribute`はクラス、 [ResultFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.resultfilterattribute)、応答ヘッダーを適用します。
+このセクションの例の場合、サンプル アプリでは、応答ヘッダーを適用する [ResultFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.resultfilterattribute) である、`AddHeaderAttribute` クラスを使用します。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Filters/AddHeader.cs?name=snippet1)]
 
-規則を使用して、サンプルは、1 つのページと、フォルダー内のページのすべてには、属性を適用する方法を示します。
+規則を使用して、このサンプルでは、フォルダー内のすべてのページおよび単一ページに属性を適用する方法のデモを実行します。
 
-**フォルダー アプリ モデルの規則**
+**フォルダー アプリ モデル規則**
 
-使用して[AddFolderApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addfolderapplicationmodelconvention)を作成し、追加、 [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention)でアクションを呼び出す[PageApplicationModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageapplicationmodel)のインスタンス指定したフォルダーの下のすべてのページです。
+[AddFolderApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addfolderapplicationmodelconvention) を使用して、指定したフォルダーにあるすべてのページの [PageApplicationModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageapplicationmodel) インスタンスのアクションを呼び出す、[IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) を作成して追加します。
 
-サンプルの使用`AddFolderApplicationModelConvention`、ヘッダーを追加することによって`OtherPagesHeader`、内のページに、 *OtherPages*アプリのフォルダー。
+このサンプルでは、ヘッダー (`OtherPagesHeader`) をアプリの *OtherPages* フォルダー内にあるページに追加して、`AddFolderApplicationModelConvention` を使用するデモを実行します。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet6)]
 
-サンプルの Page1 ページ要求`localhost:5000/OtherPages/Page1`結果を表示するヘッダーを検査および。
+`localhost:5000/OtherPages/Page1` でサンプルの Page1 ページを要求し、そのヘッダーを調べて結果を確認します。
 
-![OtherPages/Page1 ページの応答ヘッダー、OtherPagesHeader が追加されていることを示します。](razor-pages-convention-features/_static/page1-otherpages-header.png)
+![OtherPages/Page1 ページの応答ヘッダーは、OtherPagesHeader が追加されていることを示しています。](razor-pages-convention-features/_static/page1-otherpages-header.png)
 
-**ページ アプリ モデルの規則**
+**ページ アプリ モデル規則**
 
-使用して[AddPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addpageapplicationmodelconvention)を作成し、追加、 [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention)でアクションを呼び出す、 [PageApplicationModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageapplicationmodel)ページの名前に置き換えます speciifed。
+[AddPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addpageapplicationmodelconvention) を使用して、指定した名前でページの [PageApplicationModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageapplicationmodel) のアクションを呼び出す、[IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) を作成して追加します。
 
-サンプルの使用`AddPageApplicationModelConvention`、ヘッダーを追加することによって`AboutHeader`、バージョン情報 ページに。
+サンプルでは、ヘッダー (`AboutHeader`) を [About] ページに追加して、`AddPageApplicationModelConvention` を使用するデモを実行します。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet7)]
 
-要求について ページで、サンプルの`localhost:5000/About`し、結果を表示するヘッダーを検査します。
+`localhost:5000/About` でサンプルの [About] ページを要求し、そのヘッダーを調べて結果を確認します。
 
-![バージョン情報 ページの応答ヘッダー、AboutHeader が追加されていることを示します。](razor-pages-convention-features/_static/about-page-about-header.png)
+![[About] ページの応答ヘッダーは、AboutHeader が追加されたことを示しています。](razor-pages-convention-features/_static/about-page-about-header.png)
 
-**フィルターを構成します。**
+**フィルターの構成**
 
-[ConfigureFilter](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.configurefilter)指定されたフィルターを適用するように構成します。 フィルター クラスを実装することができますが、サンプル アプリは舞台裏フィルターを返すファクトリとして実装されているラムダ式でフィルターを実装する方法を示します。
+[ConfigureFilter](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.configurefilter) では、指定したフィルターを適用するように構成します。 フィルター クラスを実装できますが、サンプル アプリでは、ラムダ式でフィルターを実装する方法を示しています。これは、フィルターを返すファクトリとしてバックグラウンドで実装されます。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet8)]
 
-セグメントで Page2 ページへの相対パスを確認するページ アプリ モデルが使用される、 *OtherPages*フォルダーです。 条件が成功した場合、ヘッダーが追加されます。 ない場合、`EmptyFilter`を適用します。
+ページ アプリ モデルは、*OtherPages* フォルダーの Page2 ページにつながるセグメントの相対パスを確認するために使用されます。 条件を満たすと、ヘッダーが追加されます。 満たさない場合は、`EmptyFilter` が適用されます。
 
-`EmptyFilter`[アクション フィルター](xref:mvc/controllers/filters#action-filters)です。 Razor ページによってアクション フィルターが無視されるので、`EmptyFilter`キャッシュなしで、パスが含まれていないかどうかは意図されたように`OtherPages/Page2`です。
+`EmptyFilter` は[アクション フィルター](xref:mvc/controllers/filters#action-filters)です。 アクション フィルターは Razor ページによって無視されるため、パスに `OtherPages/Page2` が含まれない場合は、意図されたように `EmptyFilter` は操作されません。
 
-サンプルのページ 2 ページを要求`localhost:5000/OtherPages/Page2`され、結果を表示するヘッダーを調べる。
+`localhost:5000/OtherPages/Page2` でサンプルの Page2 ページを要求し、そのヘッダーを調べて結果を確認します。
 
-![OtherPagesPage2Header は Page2 の応答に追加されます。](razor-pages-convention-features/_static/page2-filter-header.png)
+![OtherPagesPage2Header は、Page2 への応答に追加されます。](razor-pages-convention-features/_static/page2-filter-header.png)
 
-**フィルターのファクトリを構成します。**
+**フィルター ファクトリの構成**
 
-[ConfigureFilter](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.configurefilter?view=aspnetcore-2.0#Microsoft_Extensions_DependencyInjection_PageConventionCollectionExtensions_ConfigureFilter_Microsoft_AspNetCore_Mvc_ApplicationModels_PageConventionCollection_System_Func_Microsoft_AspNetCore_Mvc_ApplicationModels_PageApplicationModel_Microsoft_AspNetCore_Mvc_Filters_IFilterMetadata__)構成を適用する指定されたファクトリ[フィルター](xref:mvc/controllers/filters)すべての Razor ページにします。
+[ConfigureFilter](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.configurefilter?view=aspnetcore-2.0#Microsoft_Extensions_DependencyInjection_PageConventionCollectionExtensions_ConfigureFilter_Microsoft_AspNetCore_Mvc_ApplicationModels_PageConventionCollection_System_Func_Microsoft_AspNetCore_Mvc_ApplicationModels_PageApplicationModel_Microsoft_AspNetCore_Mvc_Filters_IFilterMetadata__) では、[フィルター](xref:mvc/controllers/filters)をすべての Razor ページに適用するように、指定したファクトリを構成します。
 
-サンプル アプリを使用する例を提供する、[フィルター ファクトリ](xref:mvc/controllers/filters#ifilterfactory)、ヘッダーを追加することによって`FilterFactoryHeader`アプリのページへの 2 つの値。
+サンプル アプリでは、アプリのページに対する 2 つの値と共にヘッダー (`FilterFactoryHeader`) を追加して、[フィルター ファクトリ](xref:mvc/controllers/filters#ifilterfactory)を使用する例を提供します。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet9)]
 
@@ -189,110 +189,110 @@ URL が生成されることに注意してください、**連絡先**レンダ
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Factories/AddHeaderWithFactory.cs?name=snippet1)]
 
-要求について ページで、サンプルの`localhost:5000/About`し、結果を表示するヘッダーを検査します。
+`localhost:5000/About` でサンプルの [About] ページを要求し、そのヘッダーを調べて結果を確認します。
 
-![バージョン情報 ページの応答ヘッダーは、2 つの FilterFactoryHeader ヘッダーが追加されたことを示します。](razor-pages-convention-features/_static/about-page-filter-factory-header.png)
+![[About] ページの応答ヘッダーは、FilterFactoryHeader ヘッダーが 2 つ追加されたことを示しています。](razor-pages-convention-features/_static/about-page-filter-factory-header.png)
 
-## <a name="replace-the-default-page-app-model-provider"></a>既定ページ アプリ モデル プロバイダーを置き換える
+## <a name="replace-the-default-page-app-model-provider"></a>既定のページ アプリ モデル プロバイダーを置き換える
 
-Razor ページを使用して、`IPageApplicationModelProvider`を作成するインターフェイス、 [DefaultPageApplicationModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.internal.defaultpageapplicationmodelprovider)です。 ハンドラーの検出と処理のため、独自の実装ロジックを提供する既定のモデル プロバイダーから継承することができます。 既定の実装 ([参照ソース](https://github.com/aspnet/Mvc/blob/rel/2.0.1/src/Microsoft.AspNetCore.Mvc.RazorPages/Internal/DefaultPageApplicationModelProvider.cs)) の規則を確立*名前のない*と*という*は以下の説明、名前を付けるハンドラー。
+Razor ページでは、`IPageApplicationModelProvider` インターフェイスを使用して、[DefaultPageApplicationModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.internal.defaultpageapplicationmodelprovider) を作成します。 既定のモデル プロバイダーから継承し、ハンドラーの検出と処理に独自の実装ロジックを指定することができます。 既定の実装 ([参照ソース](https://github.com/aspnet/Mvc/blob/rel/2.0.1/src/Microsoft.AspNetCore.Mvc.RazorPages/Internal/DefaultPageApplicationModelProvider.cs)) では、以下に示すように、*名前なし*と*名前付き*の名前付けハンドラーの規則を確立します。
 
-**既定の名前のないハンドラー メソッド**
+**既定の名前なしハンドラー メソッド**
 
-ハンドラー メソッドの HTTP 動詞 (「名前のない」ハンドラー メソッド)、規則に従って: `On<HTTP verb>[Async]` (追加`Async`は任意ですが、非同期メソッドのために推奨)。
+HTTP 動詞のハンドラー メソッド ("名前なし" ハンドラー メソッド) は、`On<HTTP verb>[Async]` の規則に従います (`Async` の追加は省略可能ですが、非同期メソッドの場合は推奨されます)。
 
-| 名前のないハンドラー メソッド     | 操作                      |
+| 名前なしハンドラー メソッド     | 操作                      |
 | -------------------------- | ------------------------------ |
 | `OnGet`/`OnGetAsync`       | ページの状態を初期化します。     |
 | `OnPost`/`OnPostAsync`     | POST 要求を処理します。          |
-| `OnDelete`/`OnDeleteAsync` | #8224; (&)、DELETE 要求を処理します。 |
-| `OnPut`/`OnPutAsync`       | #8224; (&)、PUT 要求を処理します。    |
-| `OnPatch`/`OnPatchAsync`   | #8224; (&)、PATCH 要求を処理します。  |
+| `OnDelete`/`OnDeleteAsync` | DELETE 要求を処理します&#8224;。 |
+| `OnPut`/`OnPutAsync`       | PUT 要求を処理します&#8224;。    |
+| `OnPatch`/`OnPatchAsync`   | PATCH 要求を処理します&#8224;。  |
 
-&#8224;です。ページに API 呼び出しを行うために使用します。
+&#8224;ページへの API 呼び出しを作成するために使用されます。
 
 **既定の名前付きハンドラー メソッド**
 
-(「名前」ハンドラー メソッド)、開発者によって提供されるハンドラー メソッドでは、同様の規則に従います。 HTTP 動詞の後、または HTTP 動詞の間に、ハンドラーの名前が表示されます、 `Async`: `On<HTTP verb><handler name>[Async]` (追加`Async`は任意ですが、非同期メソッドのために推奨)。 たとえば、メッセージを処理するメソッドは、次の表に示すように名前が付けかかる場合があります。
+開発者 ("名前付き" ハンドラー メソッド) によって指定されたハンドラー メソッドは、同様の規則に従います。 ハンドラー名は HTTP 動詞の後、または HTTP 動詞と `Async`: `On<HTTP verb><handler name>[Async]` (`Async` の追加は省略可能ですが、非同期メソッドの場合は推奨されます) の間に表示されます。 たとえば、メッセージを処理するメソッドは、以下の表に示されている名前指定を取得する可能性があります。
 
-| ハンドラー メソッドをという名前の例             | 例の操作        |
+| 名前付きハンドラー メソッドの例             | 操作の例        |
 | ---------------------------------------- | ------------------------ |
 | `OnGetMessage`/`OnGetMessageAsync`       | メッセージを取得します。        |
 | `OnPostMessage`/`OnPostMessageAsync`     | メッセージを投稿します。          |
-| `OnDeleteMessage`/`OnDeleteMessageAsync` | #8224; (&)、メッセージを削除します。 |
-| `OnPutMessage`/`OnPutMessageAsync`       | #8224; (&)、メッセージを配置します。    |
-| `OnPatchMessage`/`OnPatchMessageAsync`   | メッセージ &#8224; 修正プログラムを適用します。  |
+| `OnDeleteMessage`/`OnDeleteMessageAsync` | メッセージを削除します&#8224;。 |
+| `OnPutMessage`/`OnPutMessageAsync`       | メッセージを配置します&#8224;。    |
+| `OnPatchMessage`/`OnPatchMessageAsync`   | メッセージを修正します&#8224;。  |
 
-&#8224;です。ページに API 呼び出しを行うために使用します。
+&#8224;ページへの API 呼び出しを作成するために使用されます。
 
-**ハンドラー メソッドの名前を変更します。**
+**ハンドラー メソッド名をカスタマイズする**
 
-名前と名前付きのハンドラー メソッドの名前を変更したいとします。 別の名前付けスキームでは、"On"に、メソッド名に開始しないようにし、HTTP 動詞を決定する単語の最初のセグメントを使用します。 その他の変更を行うことができます for DELETE 動詞を変換するなど PUT、および投稿に修正プログラムを適用します。 このようなスキームでは、次の表に示すように、メソッド名を提供します。
+名前なしハンドラー メソッドと名前付きハンドラー メソッドに名前を付ける方法を変更するとします。 別の名前付けスキームは、メソッド名が "On" で始まることを避けて、最初の単語セグメントを使用して HTTP 動詞を決定するためのものです。 DELETE、PUT、PATCH の動詞を POST に変換するなど、その他の変更を行うことができます。 このようなスキームは、次の表に示すようなメソッド名を指定します。
 
 | ハンドラー メソッド                       | 操作                      |
 | ------------------------------------ | ------------------------------ |
 | `Get`                                | ページの状態を初期化します。     |
 | `Post`/`PostAsync`                   | POST 要求を処理します。          |
-| `Delete`/`DeleteAsync`               | #8224; (&)、DELETE 要求を処理します。 |
-| `Put`/`PutAsync`                     | #8224; (&)、PUT 要求を処理します。    |
-| `Patch`/`PatchAsync`                 | #8224; (&)、PATCH 要求を処理します。  |
+| `Delete`/`DeleteAsync`               | DELETE 要求を処理します&#8224;。 |
+| `Put`/`PutAsync`                     | PUT 要求を処理します&#8224;。    |
+| `Patch`/`PatchAsync`                 | PATCH 要求を処理します&#8224;。  |
 | `GetMessage`                         | メッセージを取得します。              |
 | `PostMessage`/`PostMessageAsync`     | メッセージを投稿します。                |
 | `DeleteMessage`/`DeleteMessageAsync` | 削除するメッセージを投稿します。      |
-| `PutMessage`/`PutMessageAsync`       | メッセージを投稿して配置します。         |
-| `PatchMessage`/`PatchMessageAsync`   | メッセージを投稿する修正プログラムを適用します。       |
+| `PutMessage`/`PutMessageAsync`       | 配置するメッセージを投稿します。         |
+| `PatchMessage`/`PatchMessageAsync`   | 修正するメッセージを投稿します。       |
 
-&#8224;です。ページに API 呼び出しを行うために使用します。
+&#8224;ページへの API 呼び出しを作成するために使用されます。
 
-継承するこのパターンを確立するために、`DefaultPageApplicationModelProvider`クラスし、オーバーライド、 [CreateHandlerModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.internal.defaultpageapplicationmodelprovider.createhandlermodel)を解決するためのカスタム ロジックを提供するメソッド[PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel)ハンドラー名。 サンプル アプリこれを行う方法を示します、`CustomPageApplicationModelProvider`クラス。
+このスキームを確立するには、`DefaultPageApplicationModelProvider` クラスから継承して [CreateHandlerModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.internal.defaultpageapplicationmodelprovider.createhandlermodel) メソッドを上書きし、カスタム ロジックを適用して [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) ハンドラー名を解決します。 サンプル アプリは、その `CustomPageApplicationModelProvider` クラスでこれがどのように行われるかを示します。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/CustomPageApplicationModelProvider.cs?name=snippet1&highlight=1-2,45-46,64-68,78-85,87,92,106)]
 
-クラスの主な特徴は次のとおりです。
+クラスの主な内容は次のとおりです。
 
-* クラスを継承`DefaultPageApplicationModelProvider`です。
-* `TryParseHandlerMethod` HTTP 動詞を確認するハンドラーの処理 (`httpMethod`) と名前付きのハンドラーの名前 (`handlerName`) を作成するとき、`PageHandlerModel`です。
-  * `Async`存在する場合、後置形式は無視されます。
-  * 大文字と小文字を使用すると、メソッドの名前の HTTP 動詞を解析します。
-  * ときに、メソッド名 (せず`Async`) は、HTTP 動詞名と同じ、ハンドラーがない名前付きです。 `handlerName`に設定されている`null`、メソッド名と`Get`、 `Post`、 `Delete`、 `Put`、または`Patch`です。
-  * ときに、メソッド名 (せず`Async`) HTTP 動詞名よりも長い名前付きハンドラーがあります。 `handlerName` に `<method name (less 'Async', if present)>` が設定されています。 たとえば、"GetMessage"と"GetMessageAsync"の両方は、"GetMessage"のハンドラー名を生成します。
-  * 削除、PUT、PATCH HTTP 動詞が POST に変換されます。
+* クラスは、`DefaultPageApplicationModelProvider` を継承します。
+* `PageHandlerModel` を作成するときに、`TryParseHandlerMethod` は HTTP 動詞 (`httpMethod`) と名前付きハンドラー名 (`handlerName`) を決定するハンドラーを処理します。
+  * 存在する場合、`Async` の後置形式は無視されます。
+  * メソッド名から HTTP 動詞を解析するために、文字種が使用されます。
+  * メソッド名 (`Async` なし) が HTTP 動詞名と同じ場合、名前付きハンドラーはありません。 `handlerName` に `null` が設定され、メソッド名は `Get`、`Post`、`Delete`、`Put`、または `Patch` になります。
+  * メソッド名 (`Async` なし) が HTTP 動詞名より長い場合、名前付きハンドラーは存在します。 `handlerName` に `<method name (less 'Async', if present)>` が設定されています。 たとえば、"GetMessage" と "GetMessageAsync" は両方、"GetMessage" のハンドラー名を使用します。
+  * DELETE、PUT、および PATCH HTTP 動詞は、POST に変換されます。
 
-登録、`CustomPageApplicationModelProvider`で、`Startup`クラス。
+`Startup` クラスに `CustomPageApplicationModelProvider` を登録します。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet10)]
 
-分離コード ファイル*Index.cshtml.cs*アプリ内のページの通常のハンドラー メソッドの名前付け規則を変更する方法を示しています。 "On"Razor ページで使用される名前が付けられ、通常は削除されます。 ページの状態を初期化するメソッドの名前は今すぐ`Get`です。 ページのいずれかの任意の分離コード ファイルを開く場合に、アプリ全体で使用されるこの規則を表示できます。
+*Index.cshtml.cs* のページ モデルは、通常のハンドラー メソッドの名前付け規則が、アプリのページに対してどのように変更されるかを示します。 Razor ページで使用される通常の "On" プレフィックスの名前付けは削除されます。 ページの状態を初期化するメソッドは、`Get` という名前になりました。 いずれかのページでいずれかのモデルを開くと、アプリ全体で使用されるこの規則を表示できます。
 
-それぞれの他の方法は、その処理を説明する HTTP 動詞を使用して開始します。 2 つの方法で始まる`Delete`は通常として扱う、DELETE HTTP 動詞がロジックでは、`TryParseHandlerMethod`両方ハンドラーに対して post 動詞を明示的に設定します。
+その他の各メソッドは、その処理について説明する HTTP 動詞で始まります。 通常、`Delete` で開始する 2 つのメソッドは、DELETE HTTP 動詞として処理されますが、`TryParseHandlerMethod` のロジックは、明示的に両方のハンドラーの動詞を POST に設定します。
 
-なお`Async`は間で省略可能`DeleteAllMessages`と`DeleteMessageAsync`です。 非同期のどちらを使用することもできますが、`Async`か後置; を実行することをお勧めします。 `DeleteAllMessages`ここでは、デモンストレーションのための使用しますが、これらのメソッドの名前を付けることをお勧め`DeleteAllMessagesAsync`です。 処理に影響しませんのサンプルの実装を使用して、`Async`後置非同期メソッドであるファクトを呼び出します。
+`Async` は、`DeleteAllMessages` と `DeleteMessageAsync` の間で省略可能であることに注意してください。 これらは両方、非同期メソッドですが、`Async` の後置形式を使用するかどうかを選択できます。使用することをお勧めします。 ここでは、`DeleteAllMessages` はデモンストレーション目的で使用されますが、メソッド `DeleteAllMessagesAsync` のように名前を付けることをお勧めします。 これはサンプルの実装の処理に影響しませんが、`Async` の後置形式を使用して、非同期メソッドというファクトを呼び出します。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Pages/Index.cshtml.cs?name=snippet1&highlight=1,6,16,29)]
 
-提供されるハンドラーの名前を控えておきます*Index.cshtml*一致、`DeleteAllMessages`と`DeleteMessageAsync`ハンドラー メソッド。
+*Index.cshtml* で指定されたハンドラー名は、`DeleteAllMessages` と `DeleteMessageAsync` ハンドラー メソッドに一致することに注意してください。
 
 [!code-cshtml[Main](razor-pages-convention-features/sample/Pages/Index.cshtml?range=29-60&highlight=7-8,24-25)]
 
-`Async`ハンドラー メソッドの名前で`DeleteMessageAsync`でサインアウトが考慮され、`TryParseHandlerMethod`メソッドへの POST 要求の一致するハンドラー。 `asp-page-handler`名前`DeleteMessage`ハンドラー メソッドに一致する`DeleteMessageAsync`です。
+ハンドラー メソッド名 `DeleteMessageAsync` の `Async` は、メソッドへの POST 要求に一致するハンドラーの `TryParseHandlerMethod` によって除外されます。 `DeleteMessage` の `asp-page-handler` の名前は、ハンドラー メソッド `DeleteMessageAsync` に一致します。
 
-## <a name="mvc-filters-and-the-page-filter-ipagefilter"></a>MVC のフィルターと、ページ フィルター (IPageFilter)
+## <a name="mvc-filters-and-the-page-filter-ipagefilter"></a>MVC フィルターとページ フィルター (IPageFilter)
 
-MVC[アクション フィルター](xref:mvc/controllers/filters#action-filters) Razor ページ ハンドラーのメソッドを使用するために Razor ページによって無視されます。 使用するための他の種類の MVC フィルターの利用できます:[承認](xref:mvc/controllers/filters#authorization-filters)、[例外](xref:mvc/controllers/filters#exception-filters)、[リソース](xref:mvc/controllers/filters#resource-filters)、および[結果](xref:mvc/controllers/filters#result-filters)です。 詳細については、次を参照してください。、[フィルター](xref:mvc/controllers/filters)トピックです。
+Razor ページはハンドラー メソッドを使用するため、MVC [アクション フィルター](xref:mvc/controllers/filters#action-filters)は Razor ページによって無視されます。 その他の型の MVC フィルターは、[承認](xref:mvc/controllers/filters#authorization-filters)、[例外](xref:mvc/controllers/filters#exception-filters)、[リソース](xref:mvc/controllers/filters#resource-filters)、および[結果](xref:mvc/controllers/filters#result-filters)を使用するために利用できます。 詳細については、「[フィルター](xref:mvc/controllers/filters)」トピックを参照してください。
 
-ページ フィルター ([IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter)) は、Razor ページに適用されるフィルターです。 ページのハンドラー メソッドの実行が囲まれます。 ページのハンドラー メソッドの実行の段階でカスタム コードを処理することができます。 サンプル アプリからの使用例を次に示します。
+ページ フィルター ([IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter)) は、Razor ページに適用されるフィルターです。 このフィルターで、ページ ハンドラー メソッドの実行を囲みます。 これにより、ページ ハンドラー メソッドの実行のステージでカスタムのコードを処理できます。 サンプル アプリの例は次のとおりです。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Filters/ReplaceRouteValueFilterAttribute.cs?name=snippet1)]
 
-このフィルターでのチェック、 `globalTemplate` "ReplacementValue"で"TriggerValue"とスワップの値をルーティングします。
+このフィルターは、"TriggerValue" の `globalTemplate` ルート値をチェックし、"ReplacementValue" で入れ替えます。
 
-`ReplaceRouteValueFilter`に直接適用できる属性、`PageModel`分離コード。
+`ReplaceRouteValueFilter` 属性は `PageModel` に直接適用できます。
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Pages/OtherPages/Page3.cshtml.cs?range=10-12&highlight=1)]
 
-要求、Page3 ページでのサンプル アプリから`localhost:5000/OtherPages/Page3/TriggerValue`です。 フィルターが、ルート値を置換する方法に注意してください。
+`localhost:5000/OtherPages/Page3/TriggerValue` でサンプル アプリから Page3 ページを要求します。 フィルターでどのようにルート値を置き換えるのかがわかります。
 
-![ルートの値を置き換える値に置き換えてフィルターで TriggerValue ルート セグメント結果を含む OtherPages/Page3 を要求します。](razor-pages-convention-features/_static/otherpages-page3-filter-replacement-value.png)
+![TriggerValue ルート セグメントを使った OtherPages/Page3 への要求は、ルートの値を ReplacementValue に置き換えるフィルターになります。](razor-pages-convention-features/_static/otherpages-page3-filter-replacement-value.png)
 
 ## <a name="see-also"></a>関連項目
 
