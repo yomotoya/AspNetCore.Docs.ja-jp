@@ -31,7 +31,7 @@ ms.lasthandoff: 01/24/2018
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) (Visual Studio 2012 で動作します)
 > - [WCF Data Services クライアント ライブラリ](https://msdn.microsoft.com/library/cc668772.aspx)
-> - Web API 2. (Web API 2 を使用して OData サービスの使用例をビルドが、クライアント アプリケーションが Web API に依存しない)。
+> - Web API 2. (Web API 2 を使用してビルドした OData サービスの使用例、しかしクライアント アプリケーションは Web API に依存しない)。
 
 
 このチュートリアルでは、OData サービスを呼び出すクライアント アプリケーションの作成について詳しく説明します。 OData サービスは、次のエンティティを公開します。
