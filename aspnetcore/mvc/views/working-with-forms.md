@@ -1,48 +1,48 @@
 ---
-title: "ASP.NET Core でのフォームにタグ ヘルパー"
+title: "ASP.NET Core のフォームでのタグ ヘルパー"
 author: rick-anderson
-description: "組み込みのフォームでタグ ヘルパーの使用について説明します。"
-ms.author: riande
+description: "フォームで使用される組み込みのタグ ヘルパーについて説明します。"
 manager: wpickett
-ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: mvc/views/working-with-forms
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fd51755e1dc9a1dfb9ab5cc4558f7da9475ce32
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.date: 02/14/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/views/working-with-forms
+ms.openlocfilehash: 805c2ba5b3a9669d5547e1c595883436eea0d11a
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a><span data-ttu-id="8c21c-103">ASP.NET Core でのフォームにタグ ヘルパーの使用の概要</span><span class="sxs-lookup"><span data-stu-id="8c21c-103">Introduction to using tag helpers in forms in ASP.NET Core</span></span>
+# <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a><span data-ttu-id="1b513-103">ASP.NET Core のフォームでタグ ヘルパーを使用する方法の概要</span><span class="sxs-lookup"><span data-stu-id="1b513-103">Introduction to using tag helpers in forms in ASP.NET Core</span></span>
 
-<span data-ttu-id="8c21c-104">によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Dave Paquette](https://twitter.com/Dave_Paquette)、および[Jerrie Pelser](https://github.com/jerriep)</span><span class="sxs-lookup"><span data-stu-id="8c21c-104">By [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](https://twitter.com/Dave_Paquette), and [Jerrie Pelser](https://github.com/jerriep)</span></span>
+<span data-ttu-id="1b513-104">作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)、[Dave Paquette](https://twitter.com/Dave_Paquette)、[Jerrie Pelser](https://github.com/jerriep)</span><span class="sxs-lookup"><span data-stu-id="1b513-104">By [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](https://twitter.com/Dave_Paquette), and [Jerrie Pelser](https://github.com/jerriep)</span></span>
 
-<span data-ttu-id="8c21c-105">このドキュメントでは、フォームとフォームでよく使用される HTML 要素の操作を示します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-105">This document demonstrates working with Forms and the HTML elements commonly used on a Form.</span></span> <span data-ttu-id="8c21c-106">HTML[フォーム](https://www.w3.org/TR/html401/interact/forms.html)要素は、主要なメカニズム web アプリを使用してポストバックをサーバーにデータを提供します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-106">The HTML [Form](https://www.w3.org/TR/html401/interact/forms.html) element provides the primary mechanism web apps use to post back data to the server.</span></span> <span data-ttu-id="8c21c-107">このドキュメントのほとんどについて説明します[タグ ヘルパー](tag-helpers/intro.md)とどのように役立つ生産的に堅牢な HTML フォームを作成します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-107">Most of this document describes [Tag Helpers](tag-helpers/intro.md) and how they can help you productively create robust HTML forms.</span></span> <span data-ttu-id="8c21c-108">読むことをお勧め[タグ ヘルパーの概要](tag-helpers/intro.md)このドキュメントを読む前にします。</span><span class="sxs-lookup"><span data-stu-id="8c21c-108">We recommend you read [Introduction to Tag Helpers](tag-helpers/intro.md) before you read this document.</span></span>
+<span data-ttu-id="1b513-105">このドキュメントでは、フォームとフォームでよく使用される HTML 要素の使用方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="1b513-105">This document demonstrates working with Forms and the HTML elements commonly used on a Form.</span></span> <span data-ttu-id="1b513-106">HTML の [Form](https://www.w3.org/TR/html401/interact/forms.html) 要素には、Web アプリケーションからサーバーにデータをポスト バックするために使用する主要なメカニズムがあります。</span><span class="sxs-lookup"><span data-stu-id="1b513-106">The HTML [Form](https://www.w3.org/TR/html401/interact/forms.html) element provides the primary mechanism web apps use to post back data to the server.</span></span> <span data-ttu-id="1b513-107">このドキュメントでは、[タグ ヘルパー](tag-helpers/intro.md)と、タグ ヘルパーを利用して堅牢な HTML フォームを生産的に作成する方法について主に説明します。</span><span class="sxs-lookup"><span data-stu-id="1b513-107">Most of this document describes [Tag Helpers](tag-helpers/intro.md) and how they can help you productively create robust HTML forms.</span></span> <span data-ttu-id="1b513-108">このドキュメントを読む前に、[タグ ヘルパーの概要](tag-helpers/intro.md)に関するページを読むことをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="1b513-108">We recommend you read [Introduction to Tag Helpers](tag-helpers/intro.md) before you read this document.</span></span>
 
-<span data-ttu-id="8c21c-109">多くの場合、HTML ヘルパー、別の方法を特定のタグ ヘルパーに提供するが、タグ ヘルパー置き換えません。 HTML ヘルパーと、各 HTML ヘルパーのタグ ヘルパーがないことを認識することが重要です。</span><span class="sxs-lookup"><span data-stu-id="8c21c-109">In many cases, HTML Helpers provide an alternative approach to a specific Tag Helper, but it's important to recognize that Tag Helpers don't replace HTML Helpers and there's not a Tag Helper for each HTML Helper.</span></span> <span data-ttu-id="8c21c-110">代わりに HTML ヘルパーが存在する場合が指定されています。</span><span class="sxs-lookup"><span data-stu-id="8c21c-110">When an HTML Helper alternative exists, it's mentioned.</span></span>
+<span data-ttu-id="1b513-109">多くの場合、HTML ヘルパーには特定のタグ ヘルパーの代替方法が用意されていますが、タグ ヘルパーは HTML ヘルパーの置き換えではない点と、各 HTML ヘルパーに対応するタグ ヘルパーがない点を認識することが重要です。</span><span class="sxs-lookup"><span data-stu-id="1b513-109">In many cases, HTML Helpers provide an alternative approach to a specific Tag Helper, but it's important to recognize that Tag Helpers don't replace HTML Helpers and there's not a Tag Helper for each HTML Helper.</span></span> <span data-ttu-id="1b513-110">HTML ヘルパーの代替が存在する場合は記載します。</span><span class="sxs-lookup"><span data-stu-id="1b513-110">When an HTML Helper alternative exists, it's mentioned.</span></span>
 
 <a name="my-asp-route-param-ref-label"></a>
 
-## <a name="the-form-tag-helper"></a><span data-ttu-id="8c21c-111">フォーム タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="8c21c-111">The Form Tag Helper</span></span>
+## <a name="the-form-tag-helper"></a><span data-ttu-id="1b513-111">フォーム タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="1b513-111">The Form Tag Helper</span></span>
 
-<span data-ttu-id="8c21c-112">[フォーム](https://www.w3.org/TR/html401/interact/forms.html)タグ ヘルパー。</span><span class="sxs-lookup"><span data-stu-id="8c21c-112">The [Form](https://www.w3.org/TR/html401/interact/forms.html) Tag Helper:</span></span>
+<span data-ttu-id="1b513-112">[フォーム](https://www.w3.org/TR/html401/interact/forms.html) タグ ヘルパー:</span><span class="sxs-lookup"><span data-stu-id="1b513-112">The [Form](https://www.w3.org/TR/html401/interact/forms.html) Tag Helper:</span></span>
 
-* <span data-ttu-id="8c21c-113">HTML を生成[\<フォーム >](https://www.w3.org/TR/html401/interact/forms.html) `action` MVC コント ローラーのアクションまたは名前付きのルートの属性の値</span><span class="sxs-lookup"><span data-stu-id="8c21c-113">Generates the HTML [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) `action` attribute value for a MVC controller action or named route</span></span>
+* <span data-ttu-id="1b513-113">MVC コントローラー アクションまたは名前付きルートについて HTML の [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) `action` 属性値を生成します。</span><span class="sxs-lookup"><span data-stu-id="1b513-113">Generates the HTML [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) `action` attribute value for a MVC controller action or named route</span></span>
 
-* <span data-ttu-id="8c21c-114">非表示を生成[要求の検証トークン](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)クロスサイト リクエスト フォージェリを防ぐために (を使用すると、 `[ValidateAntiForgeryToken]` HTTP Post のアクション メソッドの属性)</span><span class="sxs-lookup"><span data-stu-id="8c21c-114">Generates a hidden [Request Verification Token](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) to prevent cross-site request forgery (when used with the `[ValidateAntiForgeryToken]` attribute in the HTTP Post action method)</span></span>
+* <span data-ttu-id="1b513-114">クロスサイト リクエスト フォージェリを防ぐために、非表示の[要求検証トークン](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)を生成します (HTTP POST アクション メソッドで `[ValidateAntiForgeryToken]` 属性と共に使用する場合)</span><span class="sxs-lookup"><span data-stu-id="1b513-114">Generates a hidden [Request Verification Token](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) to prevent cross-site request forgery (when used with the `[ValidateAntiForgeryToken]` attribute in the HTTP Post action method)</span></span>
 
-* <span data-ttu-id="8c21c-115">提供、`asp-route-<Parameter Name>`属性に、ここで`<Parameter Name>`がルートの値に追加します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-115">Provides the `asp-route-<Parameter Name>` attribute, where `<Parameter Name>` is added to the route values.</span></span> <span data-ttu-id="8c21c-116">`routeValues`パラメーター`Html.BeginForm`と`Html.BeginRouteForm`同様の機能を提供します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-116">The  `routeValues` parameters to `Html.BeginForm` and `Html.BeginRouteForm` provide similar functionality.</span></span>
+* <span data-ttu-id="1b513-115">`asp-route-<Parameter Name>` 属性を提供します (`<Parameter Name>` がルート値に追加される場合)。</span><span class="sxs-lookup"><span data-stu-id="1b513-115">Provides the `asp-route-<Parameter Name>` attribute, where `<Parameter Name>` is added to the route values.</span></span> <span data-ttu-id="1b513-116">`Html.BeginForm` および `Html.BeginRouteForm` に `routeValues` パラメーターを指定すると、同様の機能が提供されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-116">The  `routeValues` parameters to `Html.BeginForm` and `Html.BeginRouteForm` provide similar functionality.</span></span>
 
-* <span data-ttu-id="8c21c-117">HTML ヘルパーの代替手段を持つ`Html.BeginForm`と`Html.BeginRouteForm`</span><span class="sxs-lookup"><span data-stu-id="8c21c-117">Has an HTML Helper alternative `Html.BeginForm` and `Html.BeginRouteForm`</span></span>
+* <span data-ttu-id="1b513-117">HTML ヘルパーの代替の `Html.BeginForm` と `Html.BeginRouteForm` があります</span><span class="sxs-lookup"><span data-stu-id="1b513-117">Has an HTML Helper alternative `Html.BeginForm` and `Html.BeginRouteForm`</span></span>
 
-<span data-ttu-id="8c21c-118">例:</span><span class="sxs-lookup"><span data-stu-id="8c21c-118">Sample:</span></span>
+<span data-ttu-id="1b513-118">サンプル:</span><span class="sxs-lookup"><span data-stu-id="1b513-118">Sample:</span></span>
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Demo/RegisterFormOnly.cshtml)]
 
-<span data-ttu-id="8c21c-119">フォーム タグ ヘルパーの上には、次の HTML が生成されます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-119">The Form Tag Helper above generates the following HTML:</span></span>
+<span data-ttu-id="1b513-119">上記のフォーム タグ ヘルパーで、次の HTML が生成されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-119">The Form Tag Helper above generates the following HTML:</span></span>
 
 ```HTML
 <form method="post" action="/Demo/Register">
@@ -51,15 +51,15 @@ ms.lasthandoff: 01/24/2018
     </form>
 ```
 
-<span data-ttu-id="8c21c-120">MVC ランタイムによって生成、`action`フォーム タグ ヘルパーの属性から値を属性`asp-controller`と`asp-action`です。</span><span class="sxs-lookup"><span data-stu-id="8c21c-120">The MVC runtime generates the `action` attribute value from the Form Tag Helper attributes `asp-controller` and `asp-action`.</span></span> <span data-ttu-id="8c21c-121">フォーム タグ ヘルパー生成も非表示[要求の検証トークン](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)クロスサイト リクエスト フォージェリを防ぐために (を使用すると、 `[ValidateAntiForgeryToken]` HTTP Post のアクション メソッドの属性)。</span><span class="sxs-lookup"><span data-stu-id="8c21c-121">The Form Tag Helper also generates a hidden [Request Verification Token](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) to prevent cross-site request forgery (when used with the `[ValidateAntiForgeryToken]` attribute in the HTTP Post action method).</span></span> <span data-ttu-id="8c21c-122">フォーム タグ ヘルパーがこのサービスを提供、クロスサイト リクエスト フォージェリから純粋な HTML フォームを保護するは困難です。</span><span class="sxs-lookup"><span data-stu-id="8c21c-122">Protecting a pure HTML Form from cross-site request forgery is difficult, the Form Tag Helper provides this service for you.</span></span>
+<span data-ttu-id="1b513-120">MVC ランタイムで、フォーム タグ ヘルパーの属性 `asp-controller` と `asp-action` から `action` 属性値が生成されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-120">The MVC runtime generates the `action` attribute value from the Form Tag Helper attributes `asp-controller` and `asp-action`.</span></span> <span data-ttu-id="1b513-121">また、フォーム タグ ヘルパーも、クロスサイト リクエスト フォージェリを防ぐために、非表示の[要求検証トークン](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)を生成します (HTTP POST アクション メソッドで `[ValidateAntiForgeryToken]` 属性と共に使用する場合)。</span><span class="sxs-lookup"><span data-stu-id="1b513-121">The Form Tag Helper also generates a hidden [Request Verification Token](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) to prevent cross-site request forgery (when used with the `[ValidateAntiForgeryToken]` attribute in the HTTP Post action method).</span></span> <span data-ttu-id="1b513-122">純粋な HTML フォームをクロスサイト リクエスト フォージェリから保護することは難しいため、フォーム タグ ヘルパーが提供するサービスを利用してください。</span><span class="sxs-lookup"><span data-stu-id="1b513-122">Protecting a pure HTML Form from cross-site request forgery is difficult, the Form Tag Helper provides this service for you.</span></span>
 
-### <a name="using-a-named-route"></a><span data-ttu-id="8c21c-123">名前付きのルートを使用します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-123">Using a named route</span></span>
+### <a name="using-a-named-route"></a><span data-ttu-id="1b513-123">名前付きのルートの使用</span><span class="sxs-lookup"><span data-stu-id="1b513-123">Using a named route</span></span>
 
-<span data-ttu-id="8c21c-124">`asp-route`タグ ヘルパー属性、html マークアップを生成できますも`action`属性。</span><span class="sxs-lookup"><span data-stu-id="8c21c-124">The `asp-route` Tag Helper attribute can also generate markup for the HTML `action` attribute.</span></span> <span data-ttu-id="8c21c-125">使用したアプリ、[ルート](../../fundamentals/routing.md)という`register`登録ページで、次のマークアップを使用でした。</span><span class="sxs-lookup"><span data-stu-id="8c21c-125">An app with a [route](../../fundamentals/routing.md)  named `register` could use the following markup for the registration page:</span></span>
+<span data-ttu-id="1b513-124">`asp-route` タグ ヘルパー属性で、HTML `action` 属性のマークアップを生成することもできます。</span><span class="sxs-lookup"><span data-stu-id="1b513-124">The `asp-route` Tag Helper attribute can also generate markup for the HTML `action` attribute.</span></span> <span data-ttu-id="1b513-125">`register` という名前の[ルート](../../fundamentals/routing.md)を持つアプリケーションは、登録ページに次のマークアップを使用できます。</span><span class="sxs-lookup"><span data-stu-id="1b513-125">An app with a [route](../../fundamentals/routing.md)  named `register` could use the following markup for the registration page:</span></span>
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
-<span data-ttu-id="8c21c-126">内のビューの多くは、*ビュー/アカウント*フォルダー (で新しい web アプリを作成するときに生成される*個々 のユーザー アカウント*) が含まれて、 [asp ルート-returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms)属性。</span><span class="sxs-lookup"><span data-stu-id="8c21c-126">Many of the views in the *Views/Account* folder (generated when you create a new web app with *Individual User Accounts*) contain the [asp-route-returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms) attribute:</span></span>
+<span data-ttu-id="1b513-126">*Views/Account* フォルダー (*個々のユーザー アカウント*を使用して新しい Web アプリケーションを作成するときに生成されるフォルダー) のビューの多くには、[asp-route-returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms) 属性が含まれています。</span><span class="sxs-lookup"><span data-stu-id="1b513-126">Many of the views in the *Views/Account* folder (generated when you create a new web app with *Individual User Accounts*) contain the [asp-route-returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms) attribute:</span></span>
 
 ```cshtml
 <form asp-controller="Account" asp-action="Login"
@@ -68,31 +68,31 @@ ms.lasthandoff: 01/24/2018
 ```
 
 >[!NOTE]
-><span data-ttu-id="8c21c-127">組み込みのテンプレートと`returnUrl`承認済みのリソースにアクセスしようとしていますが、ことがなく認証、承認されたときに、自動的に設定されるだけです。</span><span class="sxs-lookup"><span data-stu-id="8c21c-127">With the built in templates, `returnUrl` is only populated automatically when you try to access an authorized resource but are not authenticated or authorized.</span></span> <span data-ttu-id="8c21c-128">未承認のアクセスを試みると、セキュリティ ミドルウェアにリダイレクトする、ログイン ページで、`returnUrl`を設定します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-128">When you attempt an unauthorized access, the security middleware redirects you to the login page with the `returnUrl` set.</span></span>
+><span data-ttu-id="1b513-127">承認済みで認証されていないリソースまたは承認されていないリソースにアクセスしようとすると、組み込みのテンプレートを使用して、`returnUrl` のみが自動的に設定されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-127">With the built in templates, `returnUrl` is only populated automatically when you try to access an authorized resource but are not authenticated or authorized.</span></span> <span data-ttu-id="1b513-128">未承認のアクセスを試行すると、セキュリティ ミドルウェアによって、`returnUrl` が設定されたログイン ページにリダイレクトされます。</span><span class="sxs-lookup"><span data-stu-id="1b513-128">When you attempt an unauthorized access, the security middleware redirects you to the login page with the `returnUrl` set.</span></span>
 
-## <a name="the-input-tag-helper"></a><span data-ttu-id="8c21c-129">入力タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="8c21c-129">The Input Tag Helper</span></span>
+## <a name="the-input-tag-helper"></a><span data-ttu-id="1b513-129">入力タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="1b513-129">The Input Tag Helper</span></span>
 
-<span data-ttu-id="8c21c-130">入力タグ ヘルパー バインド HTML [\<入力 >](https://www.w3.org/wiki/HTML/Elements/input)要素で、razor ビューのモデルの式をします。</span><span class="sxs-lookup"><span data-stu-id="8c21c-130">The Input Tag Helper binds an HTML [\<input>](https://www.w3.org/wiki/HTML/Elements/input) element to a model expression in your razor view.</span></span>
+<span data-ttu-id="1b513-130">入力タグ ヘルパーは、HTML の [\<input>](https://www.w3.org/wiki/HTML/Elements/input) 要素を Razor ビューのモデル式にバインドします。</span><span class="sxs-lookup"><span data-stu-id="1b513-130">The Input Tag Helper binds an HTML [\<input>](https://www.w3.org/wiki/HTML/Elements/input) element to a model expression in your razor view.</span></span>
 
-<span data-ttu-id="8c21c-131">構文:</span><span class="sxs-lookup"><span data-stu-id="8c21c-131">Syntax:</span></span>
+<span data-ttu-id="1b513-131">構文:</span><span class="sxs-lookup"><span data-stu-id="1b513-131">Syntax:</span></span>
 
 ```HTML
 <input asp-for="<Expression Name>" />
 ```
 
-<span data-ttu-id="8c21c-132">入力タグ ヘルパー。</span><span class="sxs-lookup"><span data-stu-id="8c21c-132">The Input Tag Helper:</span></span>
+<span data-ttu-id="1b513-132">入力タグ ヘルパー:</span><span class="sxs-lookup"><span data-stu-id="1b513-132">The Input Tag Helper:</span></span>
 
-* <span data-ttu-id="8c21c-133">生成、`id`と`name`で指定された式の名前の HTML 属性、`asp-for`属性。</span><span class="sxs-lookup"><span data-stu-id="8c21c-133">Generates the `id` and `name` HTML attributes for the expression name specified in the `asp-for` attribute.</span></span> <span data-ttu-id="8c21c-134">`asp-for="Property1.Property2"` は `m => m.Property1.Property2` と同じです。</span><span class="sxs-lookup"><span data-stu-id="8c21c-134">`asp-for="Property1.Property2"` is equivalent to `m => m.Property1.Property2`.</span></span> <span data-ttu-id="8c21c-135">式の名前は、の使用目的は、`asp-for`属性の値。</span><span class="sxs-lookup"><span data-stu-id="8c21c-135">The name of the expression is what is used for the `asp-for` attribute value.</span></span> <span data-ttu-id="8c21c-136">参照してください、[式名](#expression-names)詳細についてはします。</span><span class="sxs-lookup"><span data-stu-id="8c21c-136">See the [Expression names](#expression-names) section for additional information.</span></span>
+* <span data-ttu-id="1b513-133">`asp-for` 属性で指定された式の名前の `id` および `name` HTML 属性を生成します。</span><span class="sxs-lookup"><span data-stu-id="1b513-133">Generates the `id` and `name` HTML attributes for the expression name specified in the `asp-for` attribute.</span></span> <span data-ttu-id="1b513-134">`asp-for="Property1.Property2"` は `m => m.Property1.Property2` と同じです。</span><span class="sxs-lookup"><span data-stu-id="1b513-134">`asp-for="Property1.Property2"` is equivalent to `m => m.Property1.Property2`.</span></span> <span data-ttu-id="1b513-135">式の名前は、`asp-for` 属性値に使用されるものです。</span><span class="sxs-lookup"><span data-stu-id="1b513-135">The name of the expression is what is used for the `asp-for` attribute value.</span></span> <span data-ttu-id="1b513-136">詳細については、「[式の名前](#expression-names)」セクションを参照してください。</span><span class="sxs-lookup"><span data-stu-id="1b513-136">See the [Expression names](#expression-names) section for additional information.</span></span>
 
-* <span data-ttu-id="8c21c-137">HTML を設定`type`モデルの種類に基づいて値の属性と[データ注釈](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)モデル プロパティに適用される属性</span><span class="sxs-lookup"><span data-stu-id="8c21c-137">Sets the HTML `type` attribute value based on the model type and  [data annotation](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes applied to the model property</span></span>
+* <span data-ttu-id="1b513-137">モデル プロパティに適用されているモデル型と[データ注釈](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)に基づいて HTML `type` 属性値を設定します</span><span class="sxs-lookup"><span data-stu-id="1b513-137">Sets the HTML `type` attribute value based on the model type and  [data annotation](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes applied to the model property</span></span>
 
-* <span data-ttu-id="8c21c-138">HTML を上書きしない`type`属性値のいずれかを指定します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-138">Won't overwrite the HTML `type` attribute value when one is specified</span></span>
+* <span data-ttu-id="1b513-138">HTML `type` 属性値が指定されている場合は、上書きしません</span><span class="sxs-lookup"><span data-stu-id="1b513-138">Won't overwrite the HTML `type` attribute value when one is specified</span></span>
 
-* <span data-ttu-id="8c21c-139">生成[HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)から属性を検証[データ注釈](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)モデルのプロパティに適用される属性</span><span class="sxs-lookup"><span data-stu-id="8c21c-139">Generates [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)  validation attributes from [data annotation](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes applied to model properties</span></span>
+* <span data-ttu-id="1b513-139">モデル プロパティに適用された[データ注釈](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)属性から [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) 検証属性を生成します</span><span class="sxs-lookup"><span data-stu-id="1b513-139">Generates [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)  validation attributes from [data annotation](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes applied to model properties</span></span>
 
-* <span data-ttu-id="8c21c-140">重複する HTML ヘルパー機能を持つ`Html.TextBoxFor`と`Html.EditorFor`です。</span><span class="sxs-lookup"><span data-stu-id="8c21c-140">Has an HTML Helper feature overlap with `Html.TextBoxFor` and `Html.EditorFor`.</span></span> <span data-ttu-id="8c21c-141">参照してください、**入力タグ ヘルパーの HTML ヘルパー代替**詳細セクションです。</span><span class="sxs-lookup"><span data-stu-id="8c21c-141">See the **HTML Helper alternatives to Input Tag Helper** section for details.</span></span>
+* <span data-ttu-id="1b513-140">`Html.TextBoxFor` および `Html.EditorFor` と重複する HTML ヘルパー機能があります。</span><span class="sxs-lookup"><span data-stu-id="1b513-140">Has an HTML Helper feature overlap with `Html.TextBoxFor` and `Html.EditorFor`.</span></span> <span data-ttu-id="1b513-141">詳細については、「**入力タグ ヘルパーの代替となる HTML ヘルパー**」セクションを参照してください。</span><span class="sxs-lookup"><span data-stu-id="1b513-141">See the **HTML Helper alternatives to Input Tag Helper** section for details.</span></span>
 
-* <span data-ttu-id="8c21c-142">厳密な型指定を提供します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-142">Provides strong typing.</span></span> <span data-ttu-id="8c21c-143">プロパティの変更の名前は、タグ ヘルパーを更新しない場合、次のようなエラーが表示されます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-143">If the name of the property changes and you don't update the Tag Helper you'll get an error similar to the following:</span></span>
+* <span data-ttu-id="1b513-142">厳密な型指定を提供します。</span><span class="sxs-lookup"><span data-stu-id="1b513-142">Provides strong typing.</span></span> <span data-ttu-id="1b513-143">プロパティの名前が変更され、タグ ヘルパーを更新しない場合は、次のようなエラーが表示されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-143">If the name of the property changes and you don't update the Tag Helper you'll get an error similar to the following:</span></span>
 
 ```HTML
 An error occurred during the compilation of a resource required to process
@@ -105,45 +105,45 @@ Type expected
  could be found (are you missing a using directive or an assembly reference?)
 ```
 
-<span data-ttu-id="8c21c-144">`Input`タグ ヘルパーの設定、HTML`type`属性ベースの .NET 型にします。</span><span class="sxs-lookup"><span data-stu-id="8c21c-144">The `Input` Tag Helper sets the HTML `type` attribute based on the .NET type.</span></span> <span data-ttu-id="8c21c-145">次の表には、いくつかの一般的な .NET 型と (すべての .NET 型が一覧に) 生成された HTML の種類が一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-145">The following table lists some common .NET types and generated HTML type (not every .NET type is listed).</span></span>
+<span data-ttu-id="1b513-144">`Input` タグ ヘルパーは、.NET 型に基づいて HTML `type` 属性を設定します。</span><span class="sxs-lookup"><span data-stu-id="1b513-144">The `Input` Tag Helper sets the HTML `type` attribute based on the .NET type.</span></span> <span data-ttu-id="1b513-145">次の表は、一般的な.NET 型と生成される HTML 型の一部をまとめたものです (すべての .NET 型を網羅した一覧ではありません)。</span><span class="sxs-lookup"><span data-stu-id="1b513-145">The following table lists some common .NET types and generated HTML type (not every .NET type is listed).</span></span>
 
-|<span data-ttu-id="8c21c-146">.NET 型</span><span class="sxs-lookup"><span data-stu-id="8c21c-146">.NET type</span></span>|<span data-ttu-id="8c21c-147">入力の型</span><span class="sxs-lookup"><span data-stu-id="8c21c-147">Input Type</span></span>|
+|<span data-ttu-id="1b513-146">.NET 型</span><span class="sxs-lookup"><span data-stu-id="1b513-146">.NET type</span></span>|<span data-ttu-id="1b513-147">入力の型</span><span class="sxs-lookup"><span data-stu-id="1b513-147">Input Type</span></span>|
 |---|---|
-|<span data-ttu-id="8c21c-148">Bool</span><span class="sxs-lookup"><span data-stu-id="8c21c-148">Bool</span></span>|<span data-ttu-id="8c21c-149">type=”checkbox”</span><span class="sxs-lookup"><span data-stu-id="8c21c-149">type=”checkbox”</span></span>|
-|<span data-ttu-id="8c21c-150">String</span><span class="sxs-lookup"><span data-stu-id="8c21c-150">String</span></span>|<span data-ttu-id="8c21c-151">type=”text”</span><span class="sxs-lookup"><span data-stu-id="8c21c-151">type=”text”</span></span>|
-|<span data-ttu-id="8c21c-152">DateTime</span><span class="sxs-lookup"><span data-stu-id="8c21c-152">DateTime</span></span>|<span data-ttu-id="8c21c-153">type=”datetime”</span><span class="sxs-lookup"><span data-stu-id="8c21c-153">type=”datetime”</span></span>|
-|<span data-ttu-id="8c21c-154">Byte</span><span class="sxs-lookup"><span data-stu-id="8c21c-154">Byte</span></span>|<span data-ttu-id="8c21c-155">type=”number”</span><span class="sxs-lookup"><span data-stu-id="8c21c-155">type=”number”</span></span>|
-|<span data-ttu-id="8c21c-156">Int</span><span class="sxs-lookup"><span data-stu-id="8c21c-156">Int</span></span>|<span data-ttu-id="8c21c-157">type=”number”</span><span class="sxs-lookup"><span data-stu-id="8c21c-157">type=”number”</span></span>|
-|<span data-ttu-id="8c21c-158">Single、Double</span><span class="sxs-lookup"><span data-stu-id="8c21c-158">Single, Double</span></span>|<span data-ttu-id="8c21c-159">type=”number”</span><span class="sxs-lookup"><span data-stu-id="8c21c-159">type=”number”</span></span>|
+|<span data-ttu-id="1b513-148">Bool</span><span class="sxs-lookup"><span data-stu-id="1b513-148">Bool</span></span>|<span data-ttu-id="1b513-149">type=”checkbox”</span><span class="sxs-lookup"><span data-stu-id="1b513-149">type=”checkbox”</span></span>|
+|<span data-ttu-id="1b513-150">String</span><span class="sxs-lookup"><span data-stu-id="1b513-150">String</span></span>|<span data-ttu-id="1b513-151">type=”text”</span><span class="sxs-lookup"><span data-stu-id="1b513-151">type=”text”</span></span>|
+|<span data-ttu-id="1b513-152">DateTime</span><span class="sxs-lookup"><span data-stu-id="1b513-152">DateTime</span></span>|<span data-ttu-id="1b513-153">type=”datetime”</span><span class="sxs-lookup"><span data-stu-id="1b513-153">type=”datetime”</span></span>|
+|<span data-ttu-id="1b513-154">Byte</span><span class="sxs-lookup"><span data-stu-id="1b513-154">Byte</span></span>|<span data-ttu-id="1b513-155">type=”number”</span><span class="sxs-lookup"><span data-stu-id="1b513-155">type=”number”</span></span>|
+|<span data-ttu-id="1b513-156">Int</span><span class="sxs-lookup"><span data-stu-id="1b513-156">Int</span></span>|<span data-ttu-id="1b513-157">type=”number”</span><span class="sxs-lookup"><span data-stu-id="1b513-157">type=”number”</span></span>|
+|<span data-ttu-id="1b513-158">Single、Double</span><span class="sxs-lookup"><span data-stu-id="1b513-158">Single, Double</span></span>|<span data-ttu-id="1b513-159">type=”number”</span><span class="sxs-lookup"><span data-stu-id="1b513-159">type=”number”</span></span>|
 
 
-<span data-ttu-id="8c21c-160">次の表に、いくつかの一般的な[データ注釈](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)を (すべての検証属性が表示されている) 特定の入力の種類にマップする入力タグ ヘルパー属性。</span><span class="sxs-lookup"><span data-stu-id="8c21c-160">The following table shows some common [data annotations](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes that the input tag helper will map to specific input types (not every validation attribute is listed):</span></span>
+<span data-ttu-id="1b513-160">次の表は、入力タグ ヘルパーが特定の入力の型にマップする一般的な[データ注釈](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)属性の一部をまとめたものです (すべての検証属性を網羅した一覧ではありません)。</span><span class="sxs-lookup"><span data-stu-id="1b513-160">The following table shows some common [data annotations](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes that the input tag helper will map to specific input types (not every validation attribute is listed):</span></span>
 
 
-|<span data-ttu-id="8c21c-161">属性</span><span class="sxs-lookup"><span data-stu-id="8c21c-161">Attribute</span></span>|<span data-ttu-id="8c21c-162">入力の型</span><span class="sxs-lookup"><span data-stu-id="8c21c-162">Input Type</span></span>|
+|<span data-ttu-id="1b513-161">属性</span><span class="sxs-lookup"><span data-stu-id="1b513-161">Attribute</span></span>|<span data-ttu-id="1b513-162">入力の型</span><span class="sxs-lookup"><span data-stu-id="1b513-162">Input Type</span></span>|
 |---|---|
-|<span data-ttu-id="8c21c-163">[EmailAddress]</span><span class="sxs-lookup"><span data-stu-id="8c21c-163">[EmailAddress]</span></span>|<span data-ttu-id="8c21c-164">type=”email”</span><span class="sxs-lookup"><span data-stu-id="8c21c-164">type=”email”</span></span>|
-|<span data-ttu-id="8c21c-165">[Url]</span><span class="sxs-lookup"><span data-stu-id="8c21c-165">[Url]</span></span>|<span data-ttu-id="8c21c-166">type=”url”</span><span class="sxs-lookup"><span data-stu-id="8c21c-166">type=”url”</span></span>|
-|<span data-ttu-id="8c21c-167">[HiddenInput]</span><span class="sxs-lookup"><span data-stu-id="8c21c-167">[HiddenInput]</span></span>|<span data-ttu-id="8c21c-168">type=”hidden”</span><span class="sxs-lookup"><span data-stu-id="8c21c-168">type=”hidden”</span></span>|
-|<span data-ttu-id="8c21c-169">[Phone]</span><span class="sxs-lookup"><span data-stu-id="8c21c-169">[Phone]</span></span>|<span data-ttu-id="8c21c-170">type=”tel”</span><span class="sxs-lookup"><span data-stu-id="8c21c-170">type=”tel”</span></span>|
-|<span data-ttu-id="8c21c-171">[DataType(DataType.Password)]</span><span class="sxs-lookup"><span data-stu-id="8c21c-171">[DataType(DataType.Password)]</span></span>| <span data-ttu-id="8c21c-172">type=”password”</span><span class="sxs-lookup"><span data-stu-id="8c21c-172">type=”password”</span></span>|
-|<span data-ttu-id="8c21c-173">[DataType(DataType.Date)]</span><span class="sxs-lookup"><span data-stu-id="8c21c-173">[DataType(DataType.Date)]</span></span>| <span data-ttu-id="8c21c-174">type=”date”</span><span class="sxs-lookup"><span data-stu-id="8c21c-174">type=”date”</span></span>|
-|<span data-ttu-id="8c21c-175">[DataType(DataType.Time)]</span><span class="sxs-lookup"><span data-stu-id="8c21c-175">[DataType(DataType.Time)]</span></span>| <span data-ttu-id="8c21c-176">type=”time”</span><span class="sxs-lookup"><span data-stu-id="8c21c-176">type=”time”</span></span>|
+|<span data-ttu-id="1b513-163">[EmailAddress]</span><span class="sxs-lookup"><span data-stu-id="1b513-163">[EmailAddress]</span></span>|<span data-ttu-id="1b513-164">type=”email”</span><span class="sxs-lookup"><span data-stu-id="1b513-164">type=”email”</span></span>|
+|<span data-ttu-id="1b513-165">[Url]</span><span class="sxs-lookup"><span data-stu-id="1b513-165">[Url]</span></span>|<span data-ttu-id="1b513-166">type=”url”</span><span class="sxs-lookup"><span data-stu-id="1b513-166">type=”url”</span></span>|
+|<span data-ttu-id="1b513-167">[HiddenInput]</span><span class="sxs-lookup"><span data-stu-id="1b513-167">[HiddenInput]</span></span>|<span data-ttu-id="1b513-168">type=”hidden”</span><span class="sxs-lookup"><span data-stu-id="1b513-168">type=”hidden”</span></span>|
+|<span data-ttu-id="1b513-169">[Phone]</span><span class="sxs-lookup"><span data-stu-id="1b513-169">[Phone]</span></span>|<span data-ttu-id="1b513-170">type=”tel”</span><span class="sxs-lookup"><span data-stu-id="1b513-170">type=”tel”</span></span>|
+|<span data-ttu-id="1b513-171">[DataType(DataType.Password)]</span><span class="sxs-lookup"><span data-stu-id="1b513-171">[DataType(DataType.Password)]</span></span>| <span data-ttu-id="1b513-172">type=”password”</span><span class="sxs-lookup"><span data-stu-id="1b513-172">type=”password”</span></span>|
+|<span data-ttu-id="1b513-173">[DataType(DataType.Date)]</span><span class="sxs-lookup"><span data-stu-id="1b513-173">[DataType(DataType.Date)]</span></span>| <span data-ttu-id="1b513-174">type=”date”</span><span class="sxs-lookup"><span data-stu-id="1b513-174">type=”date”</span></span>|
+|<span data-ttu-id="1b513-175">[DataType(DataType.Time)]</span><span class="sxs-lookup"><span data-stu-id="1b513-175">[DataType(DataType.Time)]</span></span>| <span data-ttu-id="1b513-176">type=”time”</span><span class="sxs-lookup"><span data-stu-id="1b513-176">type=”time”</span></span>|
 
 
-<span data-ttu-id="8c21c-177">例:</span><span class="sxs-lookup"><span data-stu-id="8c21c-177">Sample:</span></span>
+<span data-ttu-id="1b513-177">サンプル:</span><span class="sxs-lookup"><span data-stu-id="1b513-177">Sample:</span></span>
 
 [!code-csharp[Main](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Demo/RegisterInput.cshtml)]
 
-<span data-ttu-id="8c21c-178">上記のコードは、次の HTML を生成します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-178">The code above generates the following HTML:</span></span>
+<span data-ttu-id="1b513-178">上記のコードで、次の HTML が生成されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-178">The code above generates the following HTML:</span></span>
 
 ```HTML
   <form method="post" action="/Demo/RegisterInput">
        Email:
        <input type="email" data-val="true"
-              data-val-email="The Email Address field is not a valid e-mail address."
+              data-val-email="The Email Address field is not a valid email address."
               data-val-required="The Email Address field is required."
               id="Email" name="Email" value="" /> <br>
        Password:
@@ -155,24 +155,24 @@ Type expected
    </form>
 ```
 
-<span data-ttu-id="8c21c-179">データの注釈に適用される、`Email`と`Password`プロパティは、モデルのメタデータを生成します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-179">The data annotations applied to the `Email` and `Password` properties generate metadata on the model.</span></span> <span data-ttu-id="8c21c-180">入力タグ ヘルパーは、モデルのメタデータを消費し、生成[HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*`属性 (を参照してください[モデルの検証](../models/validation.md))。</span><span class="sxs-lookup"><span data-stu-id="8c21c-180">The Input Tag Helper consumes the model metadata and produces [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` attributes (see [Model Validation](../models/validation.md)).</span></span> <span data-ttu-id="8c21c-181">これらの属性では、入力フィールドにアタッチする検証コントロールについて説明します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-181">These attributes describe the validators to attach to the input fields.</span></span> <span data-ttu-id="8c21c-182">これにより、控えめな HTML5 および[jQuery](https://jquery.com/)検証します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-182">This provides unobtrusive HTML5 and [jQuery](https://jquery.com/) validation.</span></span> <span data-ttu-id="8c21c-183">控えめな属性の形式である`data-val-rule="Error Message"`ここで、ルールは、検証規則の名前 (など`data-val-required`、 `data-val-email`、 `data-val-maxlength`, などです)。エラー メッセージは、属性で提供されるの値として表示されます、`data-val-rule`属性。</span><span class="sxs-lookup"><span data-stu-id="8c21c-183">The unobtrusive attributes have the format `data-val-rule="Error Message"`, where rule is the name of the validation rule (such as `data-val-required`, `data-val-email`, `data-val-maxlength`, etc.) If an error message is provided in the attribute, it's displayed as the value for the `data-val-rule` attribute.</span></span> <span data-ttu-id="8c21c-184">また、フォームの属性がある`data-val-ruleName-argumentName="argumentValue"`など、そのルールに関する追加情報を提供する`data-val-maxlength-max="1024"`です。</span><span class="sxs-lookup"><span data-stu-id="8c21c-184">There are also attributes of the form `data-val-ruleName-argumentName="argumentValue"` that provide additional details about the rule, for example, `data-val-maxlength-max="1024"` .</span></span>
+<span data-ttu-id="1b513-179">`Email` および `Password` プロパティに適用されたデータ注釈によって、モデルに関するメタデータが生成されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-179">The data annotations applied to the `Email` and `Password` properties generate metadata on the model.</span></span> <span data-ttu-id="1b513-180">入力タグ ヘルパーはモデルのメタデータを使用し、[HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` 属性を生成します ([モデルの検証](../models/validation.md)に関するページを参照してください)。</span><span class="sxs-lookup"><span data-stu-id="1b513-180">The Input Tag Helper consumes the model metadata and produces [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` attributes (see [Model Validation](../models/validation.md)).</span></span> <span data-ttu-id="1b513-181">これらの属性に、入力フィールドにアタッチする検証コントロールを記述します。</span><span class="sxs-lookup"><span data-stu-id="1b513-181">These attributes describe the validators to attach to the input fields.</span></span> <span data-ttu-id="1b513-182">これで、控えめな HTML5 と [jQuery](https://jquery.com/) の検証機能を提供します。</span><span class="sxs-lookup"><span data-stu-id="1b513-182">This provides unobtrusive HTML5 and [jQuery](https://jquery.com/) validation.</span></span> <span data-ttu-id="1b513-183">控えめな属性の形式は `data-val-rule="Error Message"` です。この rule は検証ルールの名前です (`data-val-required`、`data-val-email`、`data-val-maxlength` など)。属性にエラー メッセージが指定されている場合は、`data-val-rule` 属性の値として表示されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-183">The unobtrusive attributes have the format `data-val-rule="Error Message"`, where rule is the name of the validation rule (such as `data-val-required`, `data-val-email`, `data-val-maxlength`, etc.) If an error message is provided in the attribute, it's displayed as the value for the `data-val-rule` attribute.</span></span> <span data-ttu-id="1b513-184">`data-val-maxlength-max="1024"` など、ルールに関する追加の詳細情報を提供するフォームの属性 `data-val-ruleName-argumentName="argumentValue"` もあります。</span><span class="sxs-lookup"><span data-stu-id="1b513-184">There are also attributes of the form `data-val-ruleName-argumentName="argumentValue"` that provide additional details about the rule, for example, `data-val-maxlength-max="1024"` .</span></span>
 
-### <a name="html-helper-alternatives-to-input-tag-helper"></a><span data-ttu-id="8c21c-185">入力タグ ヘルパーの代替 HTML ヘルパー</span><span class="sxs-lookup"><span data-stu-id="8c21c-185">HTML Helper alternatives to Input Tag Helper</span></span>
+### <a name="html-helper-alternatives-to-input-tag-helper"></a><span data-ttu-id="1b513-185">入力タグ ヘルパーの代替となる HTML ヘルパー</span><span class="sxs-lookup"><span data-stu-id="1b513-185">HTML Helper alternatives to Input Tag Helper</span></span>
 
-<span data-ttu-id="8c21c-186">`Html.TextBox`、 `Html.TextBoxFor`、`Html.Editor`と`Html.EditorFor`入力タグ ヘルパーの機能が重複しています。</span><span class="sxs-lookup"><span data-stu-id="8c21c-186">`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` and `Html.EditorFor` have overlapping features with the Input Tag Helper.</span></span> <span data-ttu-id="8c21c-187">入力タグ ヘルパーは自動的に設定されている、`type`属性です。`Html.TextBox`と`Html.TextBoxFor`されません。</span><span class="sxs-lookup"><span data-stu-id="8c21c-187">The Input Tag Helper will automatically set the `type` attribute; `Html.TextBox` and `Html.TextBoxFor` won't.</span></span> <span data-ttu-id="8c21c-188">`Html.Editor``Html.EditorFor`コレクション、複合オブジェクト、テンプレートの処理、入力タグ ヘルパーのしません。</span><span class="sxs-lookup"><span data-stu-id="8c21c-188">`Html.Editor` and `Html.EditorFor` handle collections, complex objects and templates; the Input Tag Helper doesn't.</span></span> <span data-ttu-id="8c21c-189">入力タグ ヘルパー`Html.EditorFor`と`Html.TextBoxFor`厳密に型指定された (、ラムダ式を使用)。`Html.TextBox`と`Html.Editor`されない (式の名前を使用)。</span><span class="sxs-lookup"><span data-stu-id="8c21c-189">The Input Tag Helper, `Html.EditorFor`  and  `Html.TextBoxFor` are strongly typed (they use lambda expressions); `Html.TextBox` and `Html.Editor` are not (they use expression names).</span></span>
+<span data-ttu-id="1b513-186">`Html.TextBox`、`Html.TextBoxFor`、`Html.Editor`、`Html.EditorFor` には、入力タグ ヘルパーと重複する機能があります。</span><span class="sxs-lookup"><span data-stu-id="1b513-186">`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` and `Html.EditorFor` have overlapping features with the Input Tag Helper.</span></span> <span data-ttu-id="1b513-187">入力タグ ヘルパーでは `type` 属性が自動的に設定されますが、`Html.TextBox` と `Html.TextBoxFor` では自動設定されません。</span><span class="sxs-lookup"><span data-stu-id="1b513-187">The Input Tag Helper will automatically set the `type` attribute; `Html.TextBox` and `Html.TextBoxFor` won't.</span></span> <span data-ttu-id="1b513-188">`Html.Editor` と `Html.EditorFor` はコレクション、複雑なオブジェクト、テンプレートを処理しますが、入力タグ ヘルパーは処理しません。</span><span class="sxs-lookup"><span data-stu-id="1b513-188">`Html.Editor` and `Html.EditorFor` handle collections, complex objects and templates; the Input Tag Helper doesn't.</span></span> <span data-ttu-id="1b513-189">入力タグ ヘルパーの `Html.EditorFor` と `Html.TextBoxFor` は厳密に型指定されていますが (ラムダ式を使用します)、`Html.TextBox` と `Html.Editor` は厳密に型指定されていません (式の名前を使用します)。</span><span class="sxs-lookup"><span data-stu-id="1b513-189">The Input Tag Helper, `Html.EditorFor`  and  `Html.TextBoxFor` are strongly typed (they use lambda expressions); `Html.TextBox` and `Html.Editor` are not (they use expression names).</span></span>
 
-### <a name="htmlattributes"></a><span data-ttu-id="8c21c-190">HtmlAttributes</span><span class="sxs-lookup"><span data-stu-id="8c21c-190">HtmlAttributes</span></span>
+### <a name="htmlattributes"></a><span data-ttu-id="1b513-190">HtmlAttributes</span><span class="sxs-lookup"><span data-stu-id="1b513-190">HtmlAttributes</span></span>
 
-<span data-ttu-id="8c21c-191">`@Html.Editor()`および`@Html.EditorFor()`特殊なを使用して`ViewDataDictionary`という名前のエントリ`htmlAttributes`既定のテンプレートを実行するときにします。</span><span class="sxs-lookup"><span data-stu-id="8c21c-191">`@Html.Editor()` and `@Html.EditorFor()` use a special `ViewDataDictionary` entry named `htmlAttributes` when executing their default templates.</span></span> <span data-ttu-id="8c21c-192">この動作は、必要に応じてを補う`additionalViewData`パラメーター。</span><span class="sxs-lookup"><span data-stu-id="8c21c-192">This behavior is optionally augmented using `additionalViewData` parameters.</span></span> <span data-ttu-id="8c21c-193">キー"htmlAttributes"は区別されません。</span><span class="sxs-lookup"><span data-stu-id="8c21c-193">The key "htmlAttributes" is case-insensitive.</span></span> <span data-ttu-id="8c21c-194">キー"htmlAttributes"と同じように処理される、`htmlAttributes`入力のようなヘルパーにオブジェクトが渡される`@Html.TextBox()`です。</span><span class="sxs-lookup"><span data-stu-id="8c21c-194">The key "htmlAttributes" is handled similarly to the `htmlAttributes` object passed to input helpers like `@Html.TextBox()`.</span></span>
+<span data-ttu-id="1b513-191">`@Html.Editor()` と `@Html.EditorFor()` は、既定のテンプレートを実行するときに `htmlAttributes` という名前の特殊な `ViewDataDictionary` エントリを使用します。</span><span class="sxs-lookup"><span data-stu-id="1b513-191">`@Html.Editor()` and `@Html.EditorFor()` use a special `ViewDataDictionary` entry named `htmlAttributes` when executing their default templates.</span></span> <span data-ttu-id="1b513-192">この動作は、必要に応じて `additionalViewData` パラメーターを使用して拡張されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-192">This behavior is optionally augmented using `additionalViewData` parameters.</span></span> <span data-ttu-id="1b513-193">キー "htmlAttributes" は大文字と小文字が区別されません。</span><span class="sxs-lookup"><span data-stu-id="1b513-193">The key "htmlAttributes" is case-insensitive.</span></span> <span data-ttu-id="1b513-194">キー "htmlAttributes" は、`htmlAttributes` のような入力ヘルパーに渡される `@Html.TextBox()` オブジェクトと同様に処理されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-194">The key "htmlAttributes" is handled similarly to the `htmlAttributes` object passed to input helpers like `@Html.TextBox()`.</span></span>
 
 ```HTML
 @Html.EditorFor(model => model.YourProperty, 
   new { htmlAttributes = new { @class="myCssClass", style="Width:100px" } })
 ```
 
-### <a name="expression-names"></a><span data-ttu-id="8c21c-195">式の名前</span><span class="sxs-lookup"><span data-stu-id="8c21c-195">Expression names</span></span>
+### <a name="expression-names"></a><span data-ttu-id="1b513-195">式の名前</span><span class="sxs-lookup"><span data-stu-id="1b513-195">Expression names</span></span>
 
-<span data-ttu-id="8c21c-196">`asp-for`属性値は、`ModelExpression`ラムダ式の右側にあるとします。</span><span class="sxs-lookup"><span data-stu-id="8c21c-196">The `asp-for` attribute value is a `ModelExpression` and the right hand side of a lambda expression.</span></span> <span data-ttu-id="8c21c-197">したがって、`asp-for="Property1"`なります`m => m.Property1`は生成されたコード内でプレフィックスする必要はありません`Model`です。</span><span class="sxs-lookup"><span data-stu-id="8c21c-197">Therefore, `asp-for="Property1"` becomes `m => m.Property1` in the generated code which is why you don't need to prefix with `Model`.</span></span> <span data-ttu-id="8c21c-198">使用することができます、"@"文字の前に移動して、インライン式、 `m.`:</span><span class="sxs-lookup"><span data-stu-id="8c21c-198">You can use the "@" character to start an inline expression and move before the `m.`:</span></span>
+<span data-ttu-id="1b513-196">`asp-for` 属性値は `ModelExpression` であり、ラムダ式の右辺です。</span><span class="sxs-lookup"><span data-stu-id="1b513-196">The `asp-for` attribute value is a `ModelExpression` and the right hand side of a lambda expression.</span></span> <span data-ttu-id="1b513-197">そのため、生成されるコードで `asp-for="Property1"` は `m => m.Property1` になります。したがって、`Model` をプレフィックスとして付加する必要はありません。</span><span class="sxs-lookup"><span data-stu-id="1b513-197">Therefore, `asp-for="Property1"` becomes `m => m.Property1` in the generated code which is why you don't need to prefix with `Model`.</span></span> <span data-ttu-id="1b513-198">"@" 文字を使用してインライン式を開始し、`m.` の前に移動できます。</span><span class="sxs-lookup"><span data-stu-id="1b513-198">You can use the "@" character to start an inline expression and move before the `m.`:</span></span>
 
 ```HTML
 @{
@@ -181,39 +181,39 @@ Type expected
    <input asp-for="@joe" />
 ```
 
-<span data-ttu-id="8c21c-199">次が生成されます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-199">Generates the following:</span></span>
+<span data-ttu-id="1b513-199">以下が生成されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-199">Generates the following:</span></span>
 
 ```HTML
 <input type="text" id="joe" name="joe" value="Joe" />
 ```
 
-<span data-ttu-id="8c21c-200">コレクションのプロパティを持つ`asp-for="CollectionProperty[23].Member"`と同じ名前が生成されます`asp-for="CollectionProperty[i].Member"`とき`i`プロパティ値を持つ`23`します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-200">With collection properties, `asp-for="CollectionProperty[23].Member"` generates the same name as `asp-for="CollectionProperty[i].Member"` when `i` has the value `23`.</span></span>
+<span data-ttu-id="1b513-200">`i` の値が `23` の場合、`asp-for="CollectionProperty[23].Member"` はコレクションのプロパティを使用して、`asp-for="CollectionProperty[i].Member"` と同じ名前を生成します。</span><span class="sxs-lookup"><span data-stu-id="1b513-200">With collection properties, `asp-for="CollectionProperty[23].Member"` generates the same name as `asp-for="CollectionProperty[i].Member"` when `i` has the value `23`.</span></span>
 
-### <a name="navigating-child-properties"></a><span data-ttu-id="8c21c-201">子のプロパティを移動します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-201">Navigating child properties</span></span>
+### <a name="navigating-child-properties"></a><span data-ttu-id="1b513-201">子プロパティの移動</span><span class="sxs-lookup"><span data-stu-id="1b513-201">Navigating child properties</span></span>
 
-<span data-ttu-id="8c21c-202">ビュー モデルのプロパティのパスを使用して子プロパティに移動することもできます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-202">You can also navigate to child properties using the property path of the view model.</span></span> <span data-ttu-id="8c21c-203">子を含む複雑なモデル クラスを考えます`Address`プロパティです。</span><span class="sxs-lookup"><span data-stu-id="8c21c-203">Consider a more complex model class that contains a child `Address` property.</span></span>
+<span data-ttu-id="1b513-202">ビュー モデルのプロパティ パスを使用して、子プロパティに移動することもできます。</span><span class="sxs-lookup"><span data-stu-id="1b513-202">You can also navigate to child properties using the property path of the view model.</span></span> <span data-ttu-id="1b513-203">子 `Address` プロパティを含むより複雑なモデル クラスを考えてみましょう。</span><span class="sxs-lookup"><span data-stu-id="1b513-203">Consider a more complex model class that contains a child `Address` property.</span></span>
 
 [!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/AddressViewModel.cs?highlight=1,2,3,4&range=5-8)]
 
 [!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/RegisterAddressViewModel.cs?highlight=8&range=5-13)]
 
-<span data-ttu-id="8c21c-204">バインド ビューでは、 `Address.AddressLine1`:</span><span class="sxs-lookup"><span data-stu-id="8c21c-204">In the view, we bind to `Address.AddressLine1`:</span></span>
+<span data-ttu-id="1b513-204">このビューでは、`Address.AddressLine1` にバインドしています。</span><span class="sxs-lookup"><span data-stu-id="1b513-204">In the view, we bind to `Address.AddressLine1`:</span></span>
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterAddress.cshtml?highlight=6)]
 
-<span data-ttu-id="8c21c-205">次の HTML が生成`Address.AddressLine1`:</span><span class="sxs-lookup"><span data-stu-id="8c21c-205">The following HTML is generated for `Address.AddressLine1`:</span></span>
+<span data-ttu-id="1b513-205">`Address.AddressLine1` に対して次の HTML が生成されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-205">The following HTML is generated for `Address.AddressLine1`:</span></span>
 
 ```HTML
 <input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="" />
 ```
 
-### <a name="expression-names-and-collections"></a><span data-ttu-id="8c21c-206">式の名前とコレクション</span><span class="sxs-lookup"><span data-stu-id="8c21c-206">Expression names and Collections</span></span>
+### <a name="expression-names-and-collections"></a><span data-ttu-id="1b513-206">式の名前とコレクション</span><span class="sxs-lookup"><span data-stu-id="1b513-206">Expression names and Collections</span></span>
 
-<span data-ttu-id="8c21c-207">サンプルは、配列を含むモデル`Colors`:</span><span class="sxs-lookup"><span data-stu-id="8c21c-207">Sample, a model containing an array of `Colors`:</span></span>
+<span data-ttu-id="1b513-207">`Colors` の配列を含むサンプル モデル:</span><span class="sxs-lookup"><span data-stu-id="1b513-207">Sample, a model containing an array of `Colors`:</span></span>
 
 [!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/Person.cs?highlight=3&range=5-10)]
 
-<span data-ttu-id="8c21c-208">操作方法:</span><span class="sxs-lookup"><span data-stu-id="8c21c-208">The action method:</span></span>
+<span data-ttu-id="1b513-208">アクション メソッド:</span><span class="sxs-lookup"><span data-stu-id="1b513-208">The action method:</span></span>
 
 ```csharp
 public IActionResult Edit(int id, int colorIndex)
@@ -223,52 +223,52 @@ public IActionResult Edit(int id, int colorIndex)
    }
 ```
 
-<span data-ttu-id="8c21c-209">次の Razor は、特定のアクセス方法を示しています。`Color`要素。</span><span class="sxs-lookup"><span data-stu-id="8c21c-209">The following Razor shows how you access a specific `Color` element:</span></span>
+<span data-ttu-id="1b513-209">次の Razor は、特定の `Color` 要素にアクセスする方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="1b513-209">The following Razor shows how you access a specific `Color` element:</span></span>
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Demo/EditColor.cshtml)]
 
-<span data-ttu-id="8c21c-210">*Views/Shared/EditorTemplates/String.cshtml*テンプレート。</span><span class="sxs-lookup"><span data-stu-id="8c21c-210">The *Views/Shared/EditorTemplates/String.cshtml* template:</span></span>
+<span data-ttu-id="1b513-210">*Views/Shared/EditorTemplates/String.cshtml* テンプレート:</span><span class="sxs-lookup"><span data-stu-id="1b513-210">The *Views/Shared/EditorTemplates/String.cshtml* template:</span></span>
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/String.cshtml)]
 
-<span data-ttu-id="8c21c-211">サンプルを使用して`List<T>`:</span><span class="sxs-lookup"><span data-stu-id="8c21c-211">Sample using `List<T>`:</span></span>
+<span data-ttu-id="1b513-211">`List<T>` を使用するサンプル:</span><span class="sxs-lookup"><span data-stu-id="1b513-211">Sample using `List<T>`:</span></span>
 
 [!code-csharp[Main](working-with-forms/sample/final/ViewModels/ToDoItem.cs?range=3-8)]
 
-<span data-ttu-id="8c21c-212">次の Razor は、コレクションに対する反復処理する方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="8c21c-212">The following Razor shows how to iterate over a collection:</span></span>
+<span data-ttu-id="1b513-212">次の Razor は、コレクションに対して反復処理を実行する方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="1b513-212">The following Razor shows how to iterate over a collection:</span></span>
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Demo/Edit.cshtml)]
 
-<span data-ttu-id="8c21c-213">*Views/Shared/EditorTemplates/ToDoItem.cshtml*テンプレート。</span><span class="sxs-lookup"><span data-stu-id="8c21c-213">The *Views/Shared/EditorTemplates/ToDoItem.cshtml* template:</span></span>
+<span data-ttu-id="1b513-213">*Views/Shared/EditorTemplates/ToDoItem.cshtml* テンプレート:</span><span class="sxs-lookup"><span data-stu-id="1b513-213">The *Views/Shared/EditorTemplates/ToDoItem.cshtml* template:</span></span>
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
 
 >[!NOTE]
-><span data-ttu-id="8c21c-214">常に使用する`for`(および*いない* `foreach`) リストを反復処理します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-214">Always use `for` (and *not* `foreach`) to iterate over a list.</span></span> <span data-ttu-id="8c21c-215">LINQ でインデクサーを評価する式は負荷のかかるし、最小限に抑える必要があります。</span><span class="sxs-lookup"><span data-stu-id="8c21c-215">Evaluating an indexer in a LINQ expression can be expensive and should be minimized.</span></span>
+><span data-ttu-id="1b513-214">(`foreach` *ではなく*) 常に `for` を使用して一覧に対して反復処理を実行します。</span><span class="sxs-lookup"><span data-stu-id="1b513-214">Always use `for` (and *not* `foreach`) to iterate over a list.</span></span> <span data-ttu-id="1b513-215">LINQ 式でインデクサーを評価する処理はコストが高くなる可能性があるので、最小限に抑えることをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="1b513-215">Evaluating an indexer in a LINQ expression can be expensive and should be minimized.</span></span>
 
 &nbsp;
 
 >[!NOTE]
-><span data-ttu-id="8c21c-216">上記のコメント付きのサンプル コードでラムダ式を交換する方法を示しています、`@`各にアクセスする演算子`ToDoItem`一覧にします。</span><span class="sxs-lookup"><span data-stu-id="8c21c-216">The commented sample code above shows how you would replace the lambda expression with the `@` operator to access each `ToDoItem` in the list.</span></span>
+><span data-ttu-id="1b513-216">上記のコメント付きサンプル コードは、ラムダ式を `@` 演算子に置き換えて、リスト内の各 `ToDoItem` にアクセスする方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="1b513-216">The commented sample code above shows how you would replace the lambda expression with the `@` operator to access each `ToDoItem` in the list.</span></span>
 
-## <a name="the-textarea-tag-helper"></a><span data-ttu-id="8c21c-217">Textarea タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="8c21c-217">The Textarea Tag Helper</span></span>
+## <a name="the-textarea-tag-helper"></a><span data-ttu-id="1b513-217">Textarea タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="1b513-217">The Textarea Tag Helper</span></span>
 
-<span data-ttu-id="8c21c-218">`Textarea Tag Helper`タグ ヘルパーは、入力タグ ヘルパーに似ています。</span><span class="sxs-lookup"><span data-stu-id="8c21c-218">The `Textarea Tag Helper` tag helper is  similar to the Input Tag Helper.</span></span>
+<span data-ttu-id="1b513-218">`Textarea Tag Helper` タグ ヘルパーは、入力タグ ヘルパーと似ています。</span><span class="sxs-lookup"><span data-stu-id="1b513-218">The `Textarea Tag Helper` tag helper is  similar to the Input Tag Helper.</span></span>
 
-* <span data-ttu-id="8c21c-219">生成、`id`と`name`属性、およびデータの検証属性をモデルから、 [ \<textarea >](https://www.w3.org/wiki/HTML/Elements/textarea)要素。</span><span class="sxs-lookup"><span data-stu-id="8c21c-219">Generates the `id` and `name` attributes, and the data validation attributes from the model for a [\<textarea>](https://www.w3.org/wiki/HTML/Elements/textarea) element.</span></span>
+* <span data-ttu-id="1b513-219">[\<textarea>](https://www.w3.org/wiki/HTML/Elements/textarea) 要素のモデルから `id` および `name` 属性と、データ検証属性を生成します。</span><span class="sxs-lookup"><span data-stu-id="1b513-219">Generates the `id` and `name` attributes, and the data validation attributes from the model for a [\<textarea>](https://www.w3.org/wiki/HTML/Elements/textarea) element.</span></span>
 
-* <span data-ttu-id="8c21c-220">厳密な型指定を提供します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-220">Provides strong typing.</span></span>
+* <span data-ttu-id="1b513-220">厳密な型指定を提供します。</span><span class="sxs-lookup"><span data-stu-id="1b513-220">Provides strong typing.</span></span>
 
-* <span data-ttu-id="8c21c-221">HTML ヘルパーの代替方法:`Html.TextAreaFor`</span><span class="sxs-lookup"><span data-stu-id="8c21c-221">HTML Helper alternative: `Html.TextAreaFor`</span></span>
+* <span data-ttu-id="1b513-221">HTML ヘルパーの代替: `Html.TextAreaFor`</span><span class="sxs-lookup"><span data-stu-id="1b513-221">HTML Helper alternative: `Html.TextAreaFor`</span></span>
 
-<span data-ttu-id="8c21c-222">例:</span><span class="sxs-lookup"><span data-stu-id="8c21c-222">Sample:</span></span>
+<span data-ttu-id="1b513-222">サンプル:</span><span class="sxs-lookup"><span data-stu-id="1b513-222">Sample:</span></span>
 
 [!code-csharp[Main](working-with-forms/sample/final/ViewModels/DescriptionViewModel.cs)]
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterTextArea.cshtml?highlight=4)]
 
-<span data-ttu-id="8c21c-223">次の HTML が生成されます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-223">The following HTML is generated:</span></span>
+<span data-ttu-id="1b513-223">次の HTML が生成されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-223">The following HTML is generated:</span></span>
 
 ```HTML
 <form method="post" action="/Demo/RegisterTextArea">
@@ -284,53 +284,53 @@ public IActionResult Edit(int id, int colorIndex)
 </form>
 ```
 
-## <a name="the-label-tag-helper"></a><span data-ttu-id="8c21c-224">ラベル タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="8c21c-224">The Label Tag Helper</span></span>
+## <a name="the-label-tag-helper"></a><span data-ttu-id="1b513-224">ラベル タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="1b513-224">The Label Tag Helper</span></span>
 
-* <span data-ttu-id="8c21c-225">ラベルのキャプションを生成し、`for`属性を[ <label> ](https://www.w3.org/wiki/HTML/Elements/label)式の名前の要素</span><span class="sxs-lookup"><span data-stu-id="8c21c-225">Generates the label caption and `for` attribute on a [<label>](https://www.w3.org/wiki/HTML/Elements/label) element for an expression name</span></span>
+* <span data-ttu-id="1b513-225">式の名前の [<label>](https://www.w3.org/wiki/HTML/Elements/label) 要素に対してラベルのキャプションと `for` 属性を生成します。</span><span class="sxs-lookup"><span data-stu-id="1b513-225">Generates the label caption and `for` attribute on a [<label>](https://www.w3.org/wiki/HTML/Elements/label) element for an expression name</span></span>
 
-* <span data-ttu-id="8c21c-226">代わりに HTML ヘルパー:`Html.LabelFor`です。</span><span class="sxs-lookup"><span data-stu-id="8c21c-226">HTML Helper alternative: `Html.LabelFor`.</span></span>
+* <span data-ttu-id="1b513-226">HTML ヘルパーの代替: `Html.LabelFor`。</span><span class="sxs-lookup"><span data-stu-id="1b513-226">HTML Helper alternative: `Html.LabelFor`.</span></span>
 
-<span data-ttu-id="8c21c-227">`Label Tag Helper`純粋な HTML label 要素は次の利点を提供します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-227">The `Label Tag Helper`  provides the following benefits over a pure HTML label element:</span></span>
+<span data-ttu-id="1b513-227">`Label Tag Helper` は、純粋な HTML の label 要素よりも次の点で優れています。</span><span class="sxs-lookup"><span data-stu-id="1b513-227">The `Label Tag Helper`  provides the following benefits over a pure HTML label element:</span></span>
 
-* <span data-ttu-id="8c21c-228">自動的に値を取得する、わかりやすいラベルから、`Display`属性。</span><span class="sxs-lookup"><span data-stu-id="8c21c-228">You automatically get the descriptive label value from the `Display` attribute.</span></span> <span data-ttu-id="8c21c-229">時間との組み合わせを意図した表示名を変更する可能性があります`Display`属性とタグ ヘルパーのラベルが適用されます、`Display`どこからでも使用されます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-229">The intended display name might change over time, and the combination of `Display` attribute and Label Tag Helper will apply the `Display` everywhere it's used.</span></span>
+* <span data-ttu-id="1b513-228">`Display` 属性からわかりやすいラベル値が自動的に取得されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-228">You automatically get the descriptive label value from the `Display` attribute.</span></span> <span data-ttu-id="1b513-229">意図した表示名は時間と共に変化する可能性があります。また、`Display` 属性とラベル タグ ヘルパーの組み合わせによって、使用されているあらゆる場所に `Display` が適用されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-229">The intended display name might change over time, and the combination of `Display` attribute and Label Tag Helper will apply the `Display` everywhere it's used.</span></span>
 
-* <span data-ttu-id="8c21c-230">ソース コードの少ないマークアップ</span><span class="sxs-lookup"><span data-stu-id="8c21c-230">Less markup in source code</span></span>
+* <span data-ttu-id="1b513-230">ソース コードのマークアップが少ない</span><span class="sxs-lookup"><span data-stu-id="1b513-230">Less markup in source code</span></span>
 
-* <span data-ttu-id="8c21c-231">厳密なモデル プロパティを使用して型指定します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-231">Strong typing with the model property.</span></span>
+* <span data-ttu-id="1b513-231">モデルのプロパティを使用した厳密な型指定。</span><span class="sxs-lookup"><span data-stu-id="1b513-231">Strong typing with the model property.</span></span>
 
-<span data-ttu-id="8c21c-232">例:</span><span class="sxs-lookup"><span data-stu-id="8c21c-232">Sample:</span></span>
+<span data-ttu-id="1b513-232">サンプル:</span><span class="sxs-lookup"><span data-stu-id="1b513-232">Sample:</span></span>
 
 [!code-csharp[Main](working-with-forms/sample/final/ViewModels/SimpleViewModel.cs)]
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterLabel.cshtml?highlight=4)]
 
-<span data-ttu-id="8c21c-233">に対して次の HTML を生成、`<label>`要素。</span><span class="sxs-lookup"><span data-stu-id="8c21c-233">The following HTML is generated for the `<label>` element:</span></span>
+<span data-ttu-id="1b513-233">`<label>` 要素に対して次の HTML が生成されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-233">The following HTML is generated for the `<label>` element:</span></span>
 
 ```HTML
 <label for="Email">Email Address</label>
 ```
 
-<span data-ttu-id="8c21c-234">生成されたラベル タグ ヘルパーの`for`"Email"は、id の属性値に関連付けられている、`<input>`要素。</span><span class="sxs-lookup"><span data-stu-id="8c21c-234">The Label Tag Helper generated the `for` attribute value of "Email", which is the ID associated with the `<input>` element.</span></span> <span data-ttu-id="8c21c-235">タグ ヘルパーの一貫性のある生成`id`と`for`要素が正しく関連付けられている可能性があるようにします。</span><span class="sxs-lookup"><span data-stu-id="8c21c-235">The Tag Helpers generate consistent `id` and `for` elements so they can be correctly associated.</span></span> <span data-ttu-id="8c21c-236">このサンプルではキャプションを起源、`Display`属性。</span><span class="sxs-lookup"><span data-stu-id="8c21c-236">The caption in this sample comes from the `Display` attribute.</span></span> <span data-ttu-id="8c21c-237">モデルが含まれていなかった場合、`Display`属性、キャプションは、式のプロパティの名前になります。</span><span class="sxs-lookup"><span data-stu-id="8c21c-237">If the model didn't contain a `Display` attribute, the caption would be the property name of the expression.</span></span>
+<span data-ttu-id="1b513-234">ラベル タグ ヘルパーから "Email" の属性値 `for` が生成されました。これは、`<input>` に関連付けられた ID です。</span><span class="sxs-lookup"><span data-stu-id="1b513-234">The Label Tag Helper generated the `for` attribute value of "Email", which is the ID associated with the `<input>` element.</span></span> <span data-ttu-id="1b513-235">タグ ヘルパーでは一貫性のある `id` および `for` 要素が生成されるので、正しく関連付けられます。</span><span class="sxs-lookup"><span data-stu-id="1b513-235">The Tag Helpers generate consistent `id` and `for` elements so they can be correctly associated.</span></span> <span data-ttu-id="1b513-236">このサンプルのキャプションは `Display` 属性に由来します。</span><span class="sxs-lookup"><span data-stu-id="1b513-236">The caption in this sample comes from the `Display` attribute.</span></span> <span data-ttu-id="1b513-237">モデルに `Display` 属性を含めなかった場合、キャプションは式のプロパティ名になります。</span><span class="sxs-lookup"><span data-stu-id="1b513-237">If the model didn't contain a `Display` attribute, the caption would be the property name of the expression.</span></span>
 
-## <a name="the-validation-tag-helpers"></a><span data-ttu-id="8c21c-238">検証タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="8c21c-238">The Validation Tag Helpers</span></span>
+## <a name="the-validation-tag-helpers"></a><span data-ttu-id="1b513-238">検証タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="1b513-238">The Validation Tag Helpers</span></span>
 
-<span data-ttu-id="8c21c-239">検証タグ ヘルパーの 2 つがあります。</span><span class="sxs-lookup"><span data-stu-id="8c21c-239">There are two Validation Tag Helpers.</span></span> <span data-ttu-id="8c21c-240">`Validation Message Tag Helper` (するメッセージが表示されます、検証プロパティを 1 つのモデルに)、および`Validation Summary Tag Helper`(検証エラーの概要が表示されます)。</span><span class="sxs-lookup"><span data-stu-id="8c21c-240">The `Validation Message Tag Helper` (which displays a validation message for a single property on your model), and the `Validation Summary Tag Helper` (which displays a summary of validation errors).</span></span> <span data-ttu-id="8c21c-241">`Input Tag Helper`入力要素に基づいてデータ モデルのクラスに注釈属性に HTML5 クライアント側の検証属性を追加します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-241">The `Input Tag Helper` adds HTML5 client side validation attributes to input elements based on data annotation attributes on your model classes.</span></span> <span data-ttu-id="8c21c-242">検証は、サーバーも実行します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-242">Validation is also performed on the server.</span></span> <span data-ttu-id="8c21c-243">検証タグ ヘルパーでは、検証エラーが発生したときに、これらのエラー メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-243">The Validation Tag Helper displays these error messages when a validation error occurs.</span></span>
+<span data-ttu-id="1b513-239">2 つの検証タグ ヘルパーがあります。</span><span class="sxs-lookup"><span data-stu-id="1b513-239">There are two Validation Tag Helpers.</span></span> <span data-ttu-id="1b513-240">`Validation Message Tag Helper` (モデルの単一のプロパティに関する検証メッセージを表示する) と `Validation Summary Tag Helper` (検証エラーの概要を表示する) です。</span><span class="sxs-lookup"><span data-stu-id="1b513-240">The `Validation Message Tag Helper` (which displays a validation message for a single property on your model), and the `Validation Summary Tag Helper` (which displays a summary of validation errors).</span></span> <span data-ttu-id="1b513-241">`Input Tag Helper` は、モデル クラスのデータ注釈属性に基づいて、HTML5 のクライアント側検証属性を input 要素に追加します。</span><span class="sxs-lookup"><span data-stu-id="1b513-241">The `Input Tag Helper` adds HTML5 client side validation attributes to input elements based on data annotation attributes on your model classes.</span></span> <span data-ttu-id="1b513-242">検証はサーバー側でも実行されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-242">Validation is also performed on the server.</span></span> <span data-ttu-id="1b513-243">検証エラーが発生すると、検証タグ ヘルパーによってこれらのエラー メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-243">The Validation Tag Helper displays these error messages when a validation error occurs.</span></span>
 
-### <a name="the-validation-message-tag-helper"></a><span data-ttu-id="8c21c-244">検証メッセージ タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="8c21c-244">The Validation Message Tag Helper</span></span>
+### <a name="the-validation-message-tag-helper"></a><span data-ttu-id="1b513-244">検証メッセージ タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="1b513-244">The Validation Message Tag Helper</span></span>
 
-* <span data-ttu-id="8c21c-245">追加、 [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"`属性を[span](https://developer.mozilla.org/docs/Web/HTML/Element/span)要素は、指定したモデルのプロパティの入力フィールドの検証エラー メッセージをアタッチします。</span><span class="sxs-lookup"><span data-stu-id="8c21c-245">Adds the [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)  `data-valmsg-for="property"` attribute to the [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element, which attaches the validation error messages on the input field of the specified model property.</span></span> <span data-ttu-id="8c21c-246">クライアント側の検証エラーが発生したときに[jQuery](https://jquery.com/)のエラー メッセージを表示、`<span>`要素。</span><span class="sxs-lookup"><span data-stu-id="8c21c-246">When a client side validation error occurs, [jQuery](https://jquery.com/) displays the error message in the `<span>` element.</span></span>
+* <span data-ttu-id="1b513-245">[HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` 属性を [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) 要素に追加します。これによって、指定されたモデル プロパティの入力フィールドに検証エラー メッセージがアタッチされます。</span><span class="sxs-lookup"><span data-stu-id="1b513-245">Adds the [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)  `data-valmsg-for="property"` attribute to the [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element, which attaches the validation error messages on the input field of the specified model property.</span></span> <span data-ttu-id="1b513-246">クライアント側の検証エラーが発生すると、[jQuery](https://jquery.com/) によって `<span>` 要素のエラー メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-246">When a client side validation error occurs, [jQuery](https://jquery.com/) displays the error message in the `<span>` element.</span></span>
 
-* <span data-ttu-id="8c21c-247">検証では、サーバー上の場所も受け取ります。</span><span class="sxs-lookup"><span data-stu-id="8c21c-247">Validation also takes place on the server.</span></span> <span data-ttu-id="8c21c-248">クライアント上で JavaScript が無効になる場合があり、いくつかの検証は、サーバー側でのみ実行できます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-248">Clients may have JavaScript disabled and some validation can only be done on the server side.</span></span>
+* <span data-ttu-id="1b513-247">検証はサーバー側でも実行されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-247">Validation also takes place on the server.</span></span> <span data-ttu-id="1b513-248">クライアントで JavaScript が無効にされている場合や、一部の検証をサーバー側でのみ実行できる場合があります。</span><span class="sxs-lookup"><span data-stu-id="1b513-248">Clients may have JavaScript disabled and some validation can only be done on the server side.</span></span>
 
-* <span data-ttu-id="8c21c-249">HTML ヘルパーの代替方法:`Html.ValidationMessageFor`</span><span class="sxs-lookup"><span data-stu-id="8c21c-249">HTML Helper alternative: `Html.ValidationMessageFor`</span></span>
+* <span data-ttu-id="1b513-249">HTML ヘルパーの代替: `Html.ValidationMessageFor`</span><span class="sxs-lookup"><span data-stu-id="1b513-249">HTML Helper alternative: `Html.ValidationMessageFor`</span></span>
 
-<span data-ttu-id="8c21c-250">`Validation Message Tag Helper`と共に使用される、`asp-validation-for`された HTML 属性[span](https://developer.mozilla.org/docs/Web/HTML/Element/span)要素。</span><span class="sxs-lookup"><span data-stu-id="8c21c-250">The `Validation Message Tag Helper`  is used with the `asp-validation-for` attribute on a HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element.</span></span>
+<span data-ttu-id="1b513-250">`Validation Message Tag Helper` は、HTML の [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) 要素で `asp-validation-for` 属性と共に使用されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-250">The `Validation Message Tag Helper`  is used with the `asp-validation-for` attribute on a HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element.</span></span>
 
 ```HTML
 <span asp-validation-for="Email"></span>
 ```
 
-<span data-ttu-id="8c21c-251">検証メッセージ タグ ヘルパーは、次の HTML を生成します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-251">The Validation Message Tag Helper will generate the following HTML:</span></span>
+<span data-ttu-id="1b513-251">検証メッセージ タグ ヘルパーから、次の HTML が生成されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-251">The Validation Message Tag Helper will generate the following HTML:</span></span>
 
 ```HTML
 <span class="field-validation-valid"
@@ -338,12 +338,12 @@ public IActionResult Edit(int id, int colorIndex)
   data-valmsg-replace="true"></span>
 ```
 
-<span data-ttu-id="8c21c-252">一般的に使用する、`Validation Message Tag Helper`後、`Input`同じプロパティ タグ ヘルパー。</span><span class="sxs-lookup"><span data-stu-id="8c21c-252">You generally use the `Validation Message Tag Helper`  after an `Input` Tag Helper for the same property.</span></span> <span data-ttu-id="8c21c-253">これには、エラーが発生した入力近く検証エラー メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-253">Doing so displays any validation error messages near the input that caused the error.</span></span>
+<span data-ttu-id="1b513-252">一般的に、同じプロパティの場合は、`Input` タグ ヘルパーの後に `Validation Message Tag Helper` を使用します。</span><span class="sxs-lookup"><span data-stu-id="1b513-252">You generally use the `Validation Message Tag Helper`  after an `Input` Tag Helper for the same property.</span></span> <span data-ttu-id="1b513-253">こうすることで、エラーの原因となった入力の近くで検証エラー メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-253">Doing so displays any validation error messages near the input that caused the error.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="8c21c-254">正しい JavaScript では、ビューが必要と[jQuery](https://jquery.com/)スクリプト クライアント側の検証のために参照します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-254">You must have a view with the correct JavaScript and [jQuery](https://jquery.com/) script references in place for client side validation.</span></span> <span data-ttu-id="8c21c-255">参照してください[モデルの検証](../models/validation.md)詳細についてはします。</span><span class="sxs-lookup"><span data-stu-id="8c21c-255">See [Model Validation](../models/validation.md) for more information.</span></span>
+> <span data-ttu-id="1b513-254">クライアント側の検証のために、正しい JavaScript および [jQuery](https://jquery.com/) のスクリプト参照を使用したビューを用意する必要があります。</span><span class="sxs-lookup"><span data-stu-id="1b513-254">You must have a view with the correct JavaScript and [jQuery](https://jquery.com/) script references in place for client side validation.</span></span> <span data-ttu-id="1b513-255">詳細については、[モデルの検証](../models/validation.md)に関するページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="1b513-255">See [Model Validation](../models/validation.md) for more information.</span></span>
 
-<span data-ttu-id="8c21c-256">本文として MVC がエラー メッセージが表示を配置する場合、サーバー側で検証エラー (たとえばとカスタム サーバー側の検証がある場合またはクライアント側の検証が無効になっています)、`<span>`要素。</span><span class="sxs-lookup"><span data-stu-id="8c21c-256">When a server side validation error occurs (for example when you have custom server side validation or client-side validation is disabled), MVC places that error message as the body of the `<span>` element.</span></span>
+<span data-ttu-id="1b513-256">サーバー側の検証エラーが発生した場合 (カスタムのサーバー側の検証がある場合や、クライアント側の検証が無効な場合など)、MVC はそのエラー メッセージを `<span>` 要素の本文として配置します。</span><span class="sxs-lookup"><span data-stu-id="1b513-256">When a server side validation error occurs (for example when you have custom server side validation or client-side validation is disabled), MVC places that error message as the body of the `<span>` element.</span></span>
 
 ```HTML
 <span class="field-validation-error" data-valmsg-for="Email"
@@ -352,29 +352,29 @@ public IActionResult Edit(int id, int colorIndex)
 </span>
 ```
 
-### <a name="the-validation-summary-tag-helper"></a><span data-ttu-id="8c21c-257">検証概要タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="8c21c-257">The Validation Summary Tag Helper</span></span>
+### <a name="the-validation-summary-tag-helper"></a><span data-ttu-id="1b513-257">検証概要タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="1b513-257">The Validation Summary Tag Helper</span></span>
 
-* <span data-ttu-id="8c21c-258">ターゲット`<div>`要素を`asp-validation-summary`属性</span><span class="sxs-lookup"><span data-stu-id="8c21c-258">Targets `<div>` elements with the `asp-validation-summary` attribute</span></span>
+* <span data-ttu-id="1b513-258">`asp-validation-summary` 属性を持つ `<div>` 要素をターゲットとします</span><span class="sxs-lookup"><span data-stu-id="1b513-258">Targets `<div>` elements with the `asp-validation-summary` attribute</span></span>
 
-* <span data-ttu-id="8c21c-259">HTML ヘルパーの代替方法:`@Html.ValidationSummary`</span><span class="sxs-lookup"><span data-stu-id="8c21c-259">HTML Helper alternative: `@Html.ValidationSummary`</span></span>
+* <span data-ttu-id="1b513-259">HTML ヘルパーの代替: `@Html.ValidationSummary`</span><span class="sxs-lookup"><span data-stu-id="1b513-259">HTML Helper alternative: `@Html.ValidationSummary`</span></span>
 
-<span data-ttu-id="8c21c-260">`Validation Summary Tag Helper`検証メッセージの概要を表示するために使用します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-260">The `Validation Summary Tag Helper`  is used to display a summary of validation messages.</span></span> <span data-ttu-id="8c21c-261">`asp-validation-summary`属性値は、次のいずれかを指定できます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-261">The `asp-validation-summary` attribute value can be any of the following:</span></span>
+<span data-ttu-id="1b513-260">`Validation Summary Tag Helper` は、検証メッセージの概要を表示するために使用されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-260">The `Validation Summary Tag Helper`  is used to display a summary of validation messages.</span></span> <span data-ttu-id="1b513-261">`asp-validation-summary` 属性値には、次のいずれかを指定できます。</span><span class="sxs-lookup"><span data-stu-id="1b513-261">The `asp-validation-summary` attribute value can be any of the following:</span></span>
 
-|<span data-ttu-id="8c21c-262">asp-validation-summary</span><span class="sxs-lookup"><span data-stu-id="8c21c-262">asp-validation-summary</span></span>|<span data-ttu-id="8c21c-263">検証メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-263">Validation messages displayed</span></span>|
+|<span data-ttu-id="1b513-262">asp-validation-summary</span><span class="sxs-lookup"><span data-stu-id="1b513-262">asp-validation-summary</span></span>|<span data-ttu-id="1b513-263">検証メッセージが表示されます</span><span class="sxs-lookup"><span data-stu-id="1b513-263">Validation messages displayed</span></span>|
 |--- |--- |
-|<span data-ttu-id="8c21c-264">ValidationSummary.All</span><span class="sxs-lookup"><span data-stu-id="8c21c-264">ValidationSummary.All</span></span>|<span data-ttu-id="8c21c-265">プロパティとモデルのレベル</span><span class="sxs-lookup"><span data-stu-id="8c21c-265">Property and model level</span></span>|
-|<span data-ttu-id="8c21c-266">ValidationSummary.ModelOnly</span><span class="sxs-lookup"><span data-stu-id="8c21c-266">ValidationSummary.ModelOnly</span></span>|<span data-ttu-id="8c21c-267">モデル</span><span class="sxs-lookup"><span data-stu-id="8c21c-267">Model</span></span>|
-|<span data-ttu-id="8c21c-268">ValidationSummary.None</span><span class="sxs-lookup"><span data-stu-id="8c21c-268">ValidationSummary.None</span></span>|<span data-ttu-id="8c21c-269">なし</span><span class="sxs-lookup"><span data-stu-id="8c21c-269">None</span></span>|
+|<span data-ttu-id="1b513-264">ValidationSummary.All</span><span class="sxs-lookup"><span data-stu-id="1b513-264">ValidationSummary.All</span></span>|<span data-ttu-id="1b513-265">プロパティとモデル レベル</span><span class="sxs-lookup"><span data-stu-id="1b513-265">Property and model level</span></span>|
+|<span data-ttu-id="1b513-266">ValidationSummary.ModelOnly</span><span class="sxs-lookup"><span data-stu-id="1b513-266">ValidationSummary.ModelOnly</span></span>|<span data-ttu-id="1b513-267">モデル</span><span class="sxs-lookup"><span data-stu-id="1b513-267">Model</span></span>|
+|<span data-ttu-id="1b513-268">ValidationSummary.None</span><span class="sxs-lookup"><span data-stu-id="1b513-268">ValidationSummary.None</span></span>|<span data-ttu-id="1b513-269">なし</span><span class="sxs-lookup"><span data-stu-id="1b513-269">None</span></span>|
 
-### <a name="sample"></a><span data-ttu-id="8c21c-270">サンプル</span><span class="sxs-lookup"><span data-stu-id="8c21c-270">Sample</span></span>
+### <a name="sample"></a><span data-ttu-id="1b513-270">サンプル</span><span class="sxs-lookup"><span data-stu-id="1b513-270">Sample</span></span>
 
-<span data-ttu-id="8c21c-271">次の例では、データ モデルで装飾されて`DataAnnotation`で検証エラー メッセージを生成する属性、`<input>`要素。</span><span class="sxs-lookup"><span data-stu-id="8c21c-271">In the following example, the data model is decorated with `DataAnnotation` attributes, which generates validation error messages on the `<input>` element.</span></span>  <span data-ttu-id="8c21c-272">検証エラーが発生したときに検証タグ ヘルパーには、エラー メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-272">When a validation error occurs, the Validation Tag Helper displays the error message:</span></span>
+<span data-ttu-id="1b513-271">次の例では、データ モデルは `DataAnnotation` 属性で修飾され、`<input>` 要素に関する検証エラー メッセージが生成されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-271">In the following example, the data model is decorated with `DataAnnotation` attributes, which generates validation error messages on the `<input>` element.</span></span>  <span data-ttu-id="1b513-272">検証エラーが発生すると、検証タグ ヘルパーはエラー メッセージを表示します。</span><span class="sxs-lookup"><span data-stu-id="1b513-272">When a validation error occurs, the Validation Tag Helper displays the error message:</span></span>
 
 [!code-csharp[Main](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterValidation.cshtml?highlight=4,6,8&range=1-10)]
 
-<span data-ttu-id="8c21c-273">生成された HTML (モデルが有効な場合):</span><span class="sxs-lookup"><span data-stu-id="8c21c-273">The generated HTML (when the model is valid):</span></span>
+<span data-ttu-id="1b513-273">生成される HTML (モデルが有効な場合):</span><span class="sxs-lookup"><span data-stu-id="1b513-273">The generated HTML (when the model is valid):</span></span>
 
 ```HTML
 <form action="/DemoReg/Register" method="post">
@@ -382,7 +382,7 @@ public IActionResult Edit(int id, int colorIndex)
   <ul><li style="display:none"></li></ul></div>
   Email:  <input name="Email" id="Email" type="email" value=""
    data-val-required="The Email field is required."
-   data-val-email="The Email field is not a valid e-mail address."
+   data-val-email="The Email field is not a valid email address."
    data-val="true"> <br>
   <span class="field-validation-valid" data-valmsg-replace="true"
    data-valmsg-for="Email"></span><br>
@@ -395,33 +395,33 @@ public IActionResult Edit(int id, int colorIndex)
 </form>
 ```
 
-## <a name="the-select-tag-helper"></a><span data-ttu-id="8c21c-274">Select タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="8c21c-274">The Select Tag Helper</span></span>
+## <a name="the-select-tag-helper"></a><span data-ttu-id="1b513-274">選択タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="1b513-274">The Select Tag Helper</span></span>
 
-* <span data-ttu-id="8c21c-275">生成されます[選択](https://www.w3.org/wiki/HTML/Elements/select)と関連付けられた[オプション](https://www.w3.org/wiki/HTML/Elements/option)モデルのプロパティの要素。</span><span class="sxs-lookup"><span data-stu-id="8c21c-275">Generates [select](https://www.w3.org/wiki/HTML/Elements/select) and associated [option](https://www.w3.org/wiki/HTML/Elements/option) elements for properties of your model.</span></span>
+* <span data-ttu-id="1b513-275">モデルのプロパティについて、[select](https://www.w3.org/wiki/HTML/Elements/select) 要素と、関連する [option](https://www.w3.org/wiki/HTML/Elements/option) 要素を生成します。</span><span class="sxs-lookup"><span data-stu-id="1b513-275">Generates [select](https://www.w3.org/wiki/HTML/Elements/select) and associated [option](https://www.w3.org/wiki/HTML/Elements/option) elements for properties of your model.</span></span>
 
-* <span data-ttu-id="8c21c-276">HTML ヘルパーの代替手段を持つ`Html.DropDownListFor`と`Html.ListBoxFor`</span><span class="sxs-lookup"><span data-stu-id="8c21c-276">Has an HTML Helper alternative `Html.DropDownListFor` and `Html.ListBoxFor`</span></span>
+* <span data-ttu-id="1b513-276">HTML ヘルパーの代替の `Html.DropDownListFor` と `Html.ListBoxFor` があります</span><span class="sxs-lookup"><span data-stu-id="1b513-276">Has an HTML Helper alternative `Html.DropDownListFor` and `Html.ListBoxFor`</span></span>
 
-<span data-ttu-id="8c21c-277">`Select Tag Helper` `asp-for` 、モデルのプロパティ名を指定します、[選択](https://www.w3.org/wiki/HTML/Elements/select)要素および`asp-items`を指定します、[オプション](https://www.w3.org/wiki/HTML/Elements/option)要素。</span><span class="sxs-lookup"><span data-stu-id="8c21c-277">The `Select Tag Helper` `asp-for` specifies the model property  name for the [select](https://www.w3.org/wiki/HTML/Elements/select) element  and `asp-items` specifies the [option](https://www.w3.org/wiki/HTML/Elements/option) elements.</span></span>  <span data-ttu-id="8c21c-278">例:</span><span class="sxs-lookup"><span data-stu-id="8c21c-278">For example:</span></span>
+<span data-ttu-id="1b513-277">`Select Tag Helper` `asp-for` は [select](https://www.w3.org/wiki/HTML/Elements/select) 要素のモデル プロパティ名を指定し、`asp-items` は [option](https://www.w3.org/wiki/HTML/Elements/option) 要素を指定します。</span><span class="sxs-lookup"><span data-stu-id="1b513-277">The `Select Tag Helper` `asp-for` specifies the model property  name for the [select](https://www.w3.org/wiki/HTML/Elements/select) element  and `asp-items` specifies the [option](https://www.w3.org/wiki/HTML/Elements/option) elements.</span></span>  <span data-ttu-id="1b513-278">例:</span><span class="sxs-lookup"><span data-stu-id="1b513-278">For example:</span></span>
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
-<span data-ttu-id="8c21c-279">例:</span><span class="sxs-lookup"><span data-stu-id="8c21c-279">Sample:</span></span>
+<span data-ttu-id="1b513-279">サンプル:</span><span class="sxs-lookup"><span data-stu-id="1b513-279">Sample:</span></span>
 
 [!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryViewModel.cs)]
 
-<span data-ttu-id="8c21c-280">`Index`メソッドの初期化、 `CountryViewModel`、選択した国を設定およびに渡します、`Index`ビュー。</span><span class="sxs-lookup"><span data-stu-id="8c21c-280">The `Index` method initializes the `CountryViewModel`, sets the selected country and passes it to the `Index` view.</span></span>
+<span data-ttu-id="1b513-280">`Index` メソッドは `CountryViewModel` を初期化し、選択された国を設定し、それを `Index` ビューに渡します。</span><span class="sxs-lookup"><span data-stu-id="1b513-280">The `Index` method initializes the `CountryViewModel`, sets the selected country and passes it to the `Index` view.</span></span>
 
 [!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
-<span data-ttu-id="8c21c-281">HTTP POST`Index`メソッドは、選択範囲を表示します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-281">The HTTP POST `Index` method displays the selection:</span></span>
+<span data-ttu-id="1b513-281">HTTP POST `Index` メソッドによって選択内容が表示されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-281">The HTTP POST `Index` method displays the selection:</span></span>
 
 [!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=15-27)]
 
-<span data-ttu-id="8c21c-282">`Index`ビュー。</span><span class="sxs-lookup"><span data-stu-id="8c21c-282">The `Index` view:</span></span>
+<span data-ttu-id="1b513-282">`Index` ビュー:</span><span class="sxs-lookup"><span data-stu-id="1b513-282">The `Index` view:</span></span>
 
 [!code-cshtml[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
 
-<span data-ttu-id="8c21c-283">これには、("CA"選択) で、次の HTML が生成されます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-283">Which generates the following HTML (with "CA" selected):</span></span>
+<span data-ttu-id="1b513-283">次の HTML が生成されます ("CA" が選択されている場合)。</span><span class="sxs-lookup"><span data-stu-id="1b513-283">Which generates the following HTML (with "CA" selected):</span></span>
 
 ```html
 <form method="post" action="/">
@@ -436,31 +436,31 @@ public IActionResult Edit(int id, int colorIndex)
 ```
 
 > [!NOTE]
-> <span data-ttu-id="8c21c-284">使用をお勧めしません`ViewBag`または`ViewData`選択タグ ヘルパーとします。</span><span class="sxs-lookup"><span data-stu-id="8c21c-284">We don't recommend using `ViewBag` or `ViewData` with the Select Tag Helper.</span></span> <span data-ttu-id="8c21c-285">ビュー モデルは、MVC のメタデータを提供することをより堅牢になり、通常それほど大きな問題です。</span><span class="sxs-lookup"><span data-stu-id="8c21c-285">A view model is more robust at providing MVC metadata and generally less problematic.</span></span>
+> <span data-ttu-id="1b513-284">選択タグ ヘルパーで `ViewBag` または `ViewData` を使用することはお勧めしません。</span><span class="sxs-lookup"><span data-stu-id="1b513-284">We don't recommend using `ViewBag` or `ViewData` with the Select Tag Helper.</span></span> <span data-ttu-id="1b513-285">ビュー モデルは、MVC メタデータを提供する場合に堅牢性が高くなり、一般的にあまり問題にはなりません。</span><span class="sxs-lookup"><span data-stu-id="1b513-285">A view model is more robust at providing MVC metadata and generally less problematic.</span></span>
 
-<span data-ttu-id="8c21c-286">`asp-for`属性値は、特殊なケースを必要し、しない、`Model`プレフィックス、その他のタグ ヘルパー属性は (など`asp-items`)</span><span class="sxs-lookup"><span data-stu-id="8c21c-286">The `asp-for` attribute value is a special case and doesn't require a `Model` prefix, the other Tag Helper attributes do (such as `asp-items`)</span></span>
+<span data-ttu-id="1b513-286">`asp-for` 属性値は特殊なケースであり、(`asp-items` などの) 他のタグ ヘルパー属性とは異なり、`Model` プレフィックスは必須ではありません</span><span class="sxs-lookup"><span data-stu-id="1b513-286">The `asp-for` attribute value is a special case and doesn't require a `Model` prefix, the other Tag Helper attributes do (such as `asp-items`)</span></span>
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
-### <a name="enum-binding"></a><span data-ttu-id="8c21c-287">列挙型のバインディング</span><span class="sxs-lookup"><span data-stu-id="8c21c-287">Enum binding</span></span>
+### <a name="enum-binding"></a><span data-ttu-id="1b513-287">Enum バインディング</span><span class="sxs-lookup"><span data-stu-id="1b513-287">Enum binding</span></span>
 
-<span data-ttu-id="8c21c-288">使用すると便利なことがよくあります`<select>`で、`enum`プロパティを生成し、`SelectListItem`からの要素、`enum`値。</span><span class="sxs-lookup"><span data-stu-id="8c21c-288">It's often convenient to use `<select>` with an `enum` property and generate the `SelectListItem` elements from the `enum` values.</span></span>
+<span data-ttu-id="1b513-288">`<select>` を `enum` プロパティと組み合わせて使用し、`enum` 値から `SelectListItem` 要素を生成すると便利な場合がよくあります。</span><span class="sxs-lookup"><span data-stu-id="1b513-288">It's often convenient to use `<select>` with an `enum` property and generate the `SelectListItem` elements from the `enum` values.</span></span>
 
-<span data-ttu-id="8c21c-289">例:</span><span class="sxs-lookup"><span data-stu-id="8c21c-289">Sample:</span></span>
+<span data-ttu-id="1b513-289">サンプル:</span><span class="sxs-lookup"><span data-stu-id="1b513-289">Sample:</span></span>
 
 [!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryEnumViewModel.cs?range=3-7)]
 
 [!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryEnum.cs)]
 
-<span data-ttu-id="8c21c-290">`GetEnumSelectList`メソッドを生成、`SelectList`列挙型のオブジェクト。</span><span class="sxs-lookup"><span data-stu-id="8c21c-290">The `GetEnumSelectList` method generates a `SelectList` object for an enum.</span></span>
+<span data-ttu-id="1b513-290">`GetEnumSelectList` メソッドは列挙型の場合に `SelectList` オブジェクトを生成します。</span><span class="sxs-lookup"><span data-stu-id="1b513-290">The `GetEnumSelectList` method generates a `SelectList` object for an enum.</span></span>
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEnum.cshtml?highlight=5)]
 
-<span data-ttu-id="8c21c-291">装飾できるは、列挙子リストが、`Display`豊富な UI を取得する属性。</span><span class="sxs-lookup"><span data-stu-id="8c21c-291">You can decorate your enumerator list with the `Display` attribute to get a richer UI:</span></span>
+<span data-ttu-id="1b513-291">より高機能な UI にするために、列挙子リストを `Display` 属性で修飾することができます。</span><span class="sxs-lookup"><span data-stu-id="1b513-291">You can decorate your enumerator list with the `Display` attribute to get a richer UI:</span></span>
 
 [!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryEnum.cs?highlight=5,7)]
 
-<span data-ttu-id="8c21c-292">次の HTML が生成されます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-292">The following HTML is generated:</span></span>
+<span data-ttu-id="1b513-292">次の HTML が生成されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-292">The following HTML is generated:</span></span>
 
 ```HTML
   <form method="post" action="/Home/IndexEnum">
@@ -478,19 +478,19 @@ public IActionResult Edit(int id, int colorIndex)
     </form>
 ```
 
-### <a name="option-group"></a><span data-ttu-id="8c21c-293">オプション グループ</span><span class="sxs-lookup"><span data-stu-id="8c21c-293">Option Group</span></span>
+### <a name="option-group"></a><span data-ttu-id="1b513-293">オプション グループ</span><span class="sxs-lookup"><span data-stu-id="1b513-293">Option Group</span></span>
 
-<span data-ttu-id="8c21c-294">HTML [ \<optgroup >](https://www.w3.org/wiki/HTML/Elements/optgroup)ビュー モデルには、1 つまたは複数が含まれている場合、要素が生成される`SelectListGroup`オブジェクト。</span><span class="sxs-lookup"><span data-stu-id="8c21c-294">The HTML  [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) element is generated when the view model contains one or more `SelectListGroup` objects.</span></span>
+<span data-ttu-id="1b513-294">HTML の [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) 要素は、ビュー モデルに 1 つ以上の `SelectListGroup` オブジェクトが含まれている場合に生成されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-294">The HTML  [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) element is generated when the view model contains one or more `SelectListGroup` objects.</span></span>
 
-<span data-ttu-id="8c21c-295">`CountryViewModelGroup`グループ、 `SelectListItem` "North America"および"Europe"グループに要素。</span><span class="sxs-lookup"><span data-stu-id="8c21c-295">The `CountryViewModelGroup` groups the `SelectListItem` elements into the "North America" and "Europe" groups:</span></span>
+<span data-ttu-id="1b513-295">`CountryViewModelGroup` は `SelectListItem` 要素を "北米" グループと "ヨーロッパ" グループに分けます。</span><span class="sxs-lookup"><span data-stu-id="1b513-295">The `CountryViewModelGroup` groups the `SelectListItem` elements into the "North America" and "Europe" groups:</span></span>
 
 [!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelGroup.cs?highlight=5,6,14,20,26,32,38,44&range=6-56)]
 
-<span data-ttu-id="8c21c-296">2 つのグループを次に示します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-296">The two groups are shown below:</span></span>
+<span data-ttu-id="1b513-296">この 2 つのグループを次に示します。</span><span class="sxs-lookup"><span data-stu-id="1b513-296">The two groups are shown below:</span></span>
 
 ![オプション グループの例](working-with-forms/_static/grp.png)
 
-<span data-ttu-id="8c21c-298">生成される HTML。</span><span class="sxs-lookup"><span data-stu-id="8c21c-298">The generated HTML:</span></span>
+<span data-ttu-id="1b513-298">生成される HTML:</span><span class="sxs-lookup"><span data-stu-id="1b513-298">The generated HTML:</span></span>
 
 ```HTML
  <form method="post" action="/Home/IndexGroup">
@@ -511,17 +511,17 @@ public IActionResult Edit(int id, int colorIndex)
  </form>
 ```
 
-### <a name="multiple-select"></a><span data-ttu-id="8c21c-299">複数の選択</span><span class="sxs-lookup"><span data-stu-id="8c21c-299">Multiple select</span></span>
+### <a name="multiple-select"></a><span data-ttu-id="1b513-299">複数選択</span><span class="sxs-lookup"><span data-stu-id="1b513-299">Multiple select</span></span>
 
-<span data-ttu-id="8c21c-300">タグの選択ヘルパーが自動的に生成、[複数 =「複数」](http://w3c.github.io/html-reference/select.html)属性でプロパティが指定された場合、`asp-for`属性は、`IEnumerable`です。</span><span class="sxs-lookup"><span data-stu-id="8c21c-300">The Select Tag Helper  will automatically generate the [multiple = "multiple"](http://w3c.github.io/html-reference/select.html)  attribute if the property specified in the `asp-for` attribute is an `IEnumerable`.</span></span> <span data-ttu-id="8c21c-301">たとえば、次のようなモデルを指定します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-301">For example, given the following model:</span></span>
+<span data-ttu-id="1b513-300">`asp-for` 属性に指定されているプロパティが `IEnumerable` の場合、選択タグ ヘルパーは [multiple = "multiple"](http://w3c.github.io/html-reference/select.html) 属性を自動的に生成します。</span><span class="sxs-lookup"><span data-stu-id="1b513-300">The Select Tag Helper  will automatically generate the [multiple = "multiple"](http://w3c.github.io/html-reference/select.html)  attribute if the property specified in the `asp-for` attribute is an `IEnumerable`.</span></span> <span data-ttu-id="1b513-301">たとえば、次のようなモデルがあるとします。</span><span class="sxs-lookup"><span data-stu-id="1b513-301">For example, given the following model:</span></span>
 
 [!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelIEnumerable.cs?highlight=6)]
 
-<span data-ttu-id="8c21c-302">次のビュー。</span><span class="sxs-lookup"><span data-stu-id="8c21c-302">With the following view:</span></span>
+<span data-ttu-id="1b513-302">次のビューを対象にします。</span><span class="sxs-lookup"><span data-stu-id="1b513-302">With the following view:</span></span>
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexMultiSelect.cshtml?highlight=4)]
 
-<span data-ttu-id="8c21c-303">次の HTML を生成します。</span><span class="sxs-lookup"><span data-stu-id="8c21c-303">Generates the following HTML:</span></span>
+<span data-ttu-id="1b513-303">次の HTML が生成されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-303">Generates the following HTML:</span></span>
 
 ```HTML
 <form method="post" action="/Home/IndexMultiSelect">
@@ -539,23 +539,23 @@ public IActionResult Edit(int id, int colorIndex)
 </form>
 ```
 
-### <a name="no-selection"></a><span data-ttu-id="8c21c-304">選択されていません</span><span class="sxs-lookup"><span data-stu-id="8c21c-304">No selection</span></span>
+### <a name="no-selection"></a><span data-ttu-id="1b513-304">選択なし</span><span class="sxs-lookup"><span data-stu-id="1b513-304">No selection</span></span>
 
-<span data-ttu-id="8c21c-305">複数のページで、「指定されていません」のオプションを使用して自分宛てを検索する場合は、HTML の繰り返しを排除するためのテンプレートを作成できます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-305">If you find yourself using the "not specified" option in multiple pages, you can create a template to eliminate repeating the HTML:</span></span>
+<span data-ttu-id="1b513-305">複数のページで "未指定" オプションを使用しているとわかった場合は、テンプレートを作成して HTML の繰り返しを除去することができます。</span><span class="sxs-lookup"><span data-stu-id="1b513-305">If you find yourself using the "not specified" option in multiple pages, you can create a template to eliminate repeating the HTML:</span></span>
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEmptyTemplate.cshtml?highlight=5)]
 
-<span data-ttu-id="8c21c-306">*Views/Shared/EditorTemplates/CountryViewModel.cshtml*テンプレート。</span><span class="sxs-lookup"><span data-stu-id="8c21c-306">The *Views/Shared/EditorTemplates/CountryViewModel.cshtml* template:</span></span>
+<span data-ttu-id="1b513-306">*Views/Shared/EditorTemplates/CountryViewModel.cshtml* テンプレート:</span><span class="sxs-lookup"><span data-stu-id="1b513-306">The *Views/Shared/EditorTemplates/CountryViewModel.cshtml* template:</span></span>
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
 
-<span data-ttu-id="8c21c-307">HTML を追加する[\<オプション >](https://www.w3.org/wiki/HTML/Elements/option)要素に限定されません、*選択されていない*ケースです。</span><span class="sxs-lookup"><span data-stu-id="8c21c-307">Adding HTML [\<option>](https://www.w3.org/wiki/HTML/Elements/option) elements isn't limited to the *No selection* case.</span></span> <span data-ttu-id="8c21c-308">たとえば、次のビューとアクション メソッド上のコードに似た HTML が生成されます。</span><span class="sxs-lookup"><span data-stu-id="8c21c-308">For example, the following view and action method will generate HTML similar to the code above:</span></span>
+<span data-ttu-id="1b513-307">HTML の [\<option>](https://www.w3.org/wiki/HTML/Elements/option) 要素の追加は、*選択なし*の場合に限定されません。</span><span class="sxs-lookup"><span data-stu-id="1b513-307">Adding HTML [\<option>](https://www.w3.org/wiki/HTML/Elements/option) elements isn't limited to the *No selection* case.</span></span> <span data-ttu-id="1b513-308">たとえば、次のビューおよびアクション メソッドで、上記のコードのような HTML が生成されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-308">For example, the following view and action method will generate HTML similar to the code above:</span></span>
 
 [!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Home/IndexOption.cshtml)]
 
-<span data-ttu-id="8c21c-309">正しい`<option>`要素が選択されます (含まれて、`selected="selected"`属性) によっては、現在`Country`値。</span><span class="sxs-lookup"><span data-stu-id="8c21c-309">The correct `<option>` element will be selected ( contain the `selected="selected"` attribute) depending on the current `Country` value.</span></span>
+<span data-ttu-id="1b513-309">現在の `Country` 値に応じて、(`selected="selected"` 属性を含む) 正しい `<option>` 要素が選択されます。</span><span class="sxs-lookup"><span data-stu-id="1b513-309">The correct `<option>` element will be selected ( contain the `selected="selected"` attribute) depending on the current `Country` value.</span></span>
 
 ```HTML
  <form method="post" action="/Home/IndexEmpty">
@@ -570,18 +570,12 @@ public IActionResult Edit(int id, int colorIndex)
  </form>
  ```
 
-## <a name="additional-resources"></a><span data-ttu-id="8c21c-310">その他のリソース</span><span class="sxs-lookup"><span data-stu-id="8c21c-310">Additional Resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="1b513-310">その他の技術情報</span><span class="sxs-lookup"><span data-stu-id="1b513-310">Additional resources</span></span>
 
-* [<span data-ttu-id="8c21c-311">タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="8c21c-311">Tag Helpers</span></span>](tag-helpers/intro.md)
-
-* [<span data-ttu-id="8c21c-312">HTML フォーム要素</span><span class="sxs-lookup"><span data-stu-id="8c21c-312">HTML Form element</span></span>](https://www.w3.org/TR/html401/interact/forms.html)
-
-* [<span data-ttu-id="8c21c-313">検証トークンの要求</span><span class="sxs-lookup"><span data-stu-id="8c21c-313">Request Verification Token</span></span>](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
-
-* [<span data-ttu-id="8c21c-314">モデル バインド</span><span class="sxs-lookup"><span data-stu-id="8c21c-314">Model Binding</span></span>](../models/model-binding.md)
-
-* [<span data-ttu-id="8c21c-315">モデルの検証</span><span class="sxs-lookup"><span data-stu-id="8c21c-315">Model Validation</span></span>](../models/validation.md)
-
-* [<span data-ttu-id="8c21c-316">データ注釈</span><span class="sxs-lookup"><span data-stu-id="8c21c-316">data annotations</span></span>](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)
-
-* <span data-ttu-id="8c21c-317">[このドキュメントのスニペットをコード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample)です。</span><span class="sxs-lookup"><span data-stu-id="8c21c-317">[Code snippets for this document](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample).</span></span>
+* [<span data-ttu-id="1b513-311">タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="1b513-311">Tag Helpers</span></span>](xref:mvc/views/tag-helpers/intro)
+* [<span data-ttu-id="1b513-312">HTML の Form 要素</span><span class="sxs-lookup"><span data-stu-id="1b513-312">HTML Form element</span></span>](https://www.w3.org/TR/html401/interact/forms.html)
+* [<span data-ttu-id="1b513-313">要求検証トークン</span><span class="sxs-lookup"><span data-stu-id="1b513-313">Request Verification Token</span></span>](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
+* [<span data-ttu-id="1b513-314">モデル バインド</span><span class="sxs-lookup"><span data-stu-id="1b513-314">Model Binding</span></span>](xref:mvc/models/model-binding)
+* [<span data-ttu-id="1b513-315">モデルの検証</span><span class="sxs-lookup"><span data-stu-id="1b513-315">Model Validation</span></span>](xref:mvc/models/validation)
+* [<span data-ttu-id="1b513-316">IAttributeAdapter インターフェイス</span><span class="sxs-lookup"><span data-stu-id="1b513-316">IAttributeAdapter Interface</span></span>](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
+* [<span data-ttu-id="1b513-317">このドキュメントのコード スニペット</span><span class="sxs-lookup"><span data-stu-id="1b513-317">Code snippets for this document</span></span>](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample)
