@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/response-compression
-ms.openlocfilehash: eae51e74c7f2b2f038638c765d4e833a1d9b1232
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: c10f94b40fec00e7533cc3a6e88daa3f3da614ed
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>ASP.NET core 圧縮ミドルウェアの応答
 
@@ -76,10 +76,10 @@ IIS、Apache、または Nginx サーバー ベースの応答の圧縮テクノ
 * 圧縮の MIME の種類の既定のリストに、MIME の種類を追加する方法です。
 
 ## <a name="package"></a>Package
-ミドルウェアをプロジェクトに含めるへの参照を追加、 [ `Microsoft.AspNetCore.ResponseCompression` ](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/)パッケージまたはを使用して、 [ `Microsoft.AspNetCore.All` ](https://www.nuget.org/packages/Microsoft.AspNetCore.All/)パッケージです。 この機能は、ASP.NET Core 1.1 を対象とするアプリの使用可能な以降です。
+ミドルウェアをプロジェクトに含めるへの参照を追加、 [ `Microsoft.AspNetCore.ResponseCompression` ](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/)パッケージまたはを使用して、 [ `Microsoft.AspNetCore.All` ](https://www.nuget.org/packages/Microsoft.AspNetCore.All/)パッケージです。 この機能は、ASP.NET Core 1.1.0 以上をターゲットとするアプリで使用できます。
 
 ## <a name="configuration"></a>構成
-次のコードと応答の圧縮のミドルウェアを有効にする方法を示しています、および既定の MIME の種類の既定 gzip 圧縮を使用します。
+次のコードは、既定 gzip 圧縮を使用し、既定の MIME の種類の応答の圧縮のミドルウェアを有効にする方法を示しています。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -185,7 +185,7 @@ Gzip 圧縮プロバイダーの既定値は、最速の圧縮レベル (`Compre
 要求が Nginx がプロキシとなったとき、`Accept-Encoding`ヘッダーを削除します。 これは、ミドルウェアが応答を圧縮することを防ぎます。 詳細については、次を参照してください。 [NGINX: 圧縮および圧縮解除](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)です。 によってこの問題を追跡[Nginx (BasicMiddleware #123) の圧縮をパススルーもらう](https://github.com/aspnet/BasicMiddleware/issues/123)です。
 
 ## <a name="working-with-iis-dynamic-compression"></a>IIS 動的圧縮を使用
-モジュールがある場合、アクティブな IIS 動的圧縮に対してアプリを無効にするにはサーバー レベルで構成されている場合、監視できるように、追加すると、 *web.config*ファイル。 詳細については、次を参照してください。[を無効にする IIS モジュール](xref:host-and-deploy/iis/modules#disabling-iis-modules)です。
+モジュールがある場合、アクティブな IIS 動的圧縮に対してアプリを無効にするにはサーバー レベルで構成されている場合、監視できるように、追加すると、 *web.config*ファイル。 詳細については、「[Disabling IIS modules](xref:host-and-deploy/iis/modules#disabling-iis-modules)」 (IIS モジュールの無効化) を参照してください。
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 などのツールを使用して[Fiddler](http://www.telerik.com/fiddler)、 [Firebug](http://getfirebug.com/)、または[Postman](https://www.getpostman.com/)を設定することを`Accept-Encoding`要求ヘッダーおよび応答ヘッダー、サイズ、および本文を調査します。 応答の圧縮のミドルウェアが圧縮を次の条件を満たす応答。

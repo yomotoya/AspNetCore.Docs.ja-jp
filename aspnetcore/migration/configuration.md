@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/configuration
-ms.openlocfilehash: 23b96ad11201f9b82cbd9fb832757d905407d228
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f258e12a95770909bff24fd5dd3611324179596f
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="migrating-configuration"></a>構成を移行します。
 
-によって[Steve Smith](https://ardalis.com/)と[Scott Addie](https://scottaddie.com)
+作成者: [Steve Smith](https://ardalis.com/)、[Scott Addie](https://scottaddie.com)
 
 開始前の記事で[ASP.NET Core MVC に ASP.NET MVC プロジェクトを移行する](mvc.md)です。 この記事では、構成を移行します。
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/30/2018
 
 ASP.NET Core を使用しない、 *Global.asax*と*web.config* ASP.NET の以前のバージョンを使用するファイル。 ASP.NET の以前のバージョンではアプリケーションのスタートアップ ロジックに格納された、`Application_StartUp`メソッド内で*Global.asax*です。 その後、ASP.NET MVC では、 *Startup.cs*ファイルがプロジェクトのルートに含まれているし、アプリケーションの起動時に呼び出されました。 ASP.NET Core を採用していますこのアプローチ完全にすべてのスタートアップ ロジックを配置することによって、 *Startup.cs*ファイル。
 
-*Web.config* ASP.NET Core でのファイルが置き換えられてもいます。 説明されているアプリケーションのスタートアップ プロシージャの一部として、構成自体を構成ようになりましたことができます*Startup.cs*です。 構成は、XML ファイルにも引き続き使用できますが、通常 ASP.NET Core プロジェクトが配置構成値 JSON 形式のファイルになど*される appsettings.json*です。 ASP.NET Core の構成システムは、環境変数は、環境固有の値より安全かつ堅牢な場所を指定することができますをも簡単にアクセスできます。 これは、接続文字列およびソース管理にチェックインしないようにする API キーなどの機密情報に特に当てはまります。 参照してください[構成](xref:fundamentals/configuration/index)ASP.NET Core の構成に関する詳細についてはします。
+*Web.config* ASP.NET Core でのファイルが置き換えられてもいます。 説明されているアプリケーションのスタートアップ プロシージャの一部として、構成自体を構成ようになりましたことができます*Startup.cs*です。 構成は、XML ファイルにも引き続き使用できますが、通常 ASP.NET Core プロジェクトが配置構成値 JSON 形式のファイルになど*される appsettings.json*です。 ASP.NET Core の構成システムは、環境変数は、提供できますをも簡単にアクセスできます、[よりセキュリティで保護された信頼性の高い場所](xref:security/app-secrets)環境固有の値。 これは、接続文字列およびソース管理にチェックインしないようにする API キーなどの機密情報に特に当てはまります。 参照してください[構成](xref:fundamentals/configuration/index)ASP.NET Core の構成に関する詳細についてはします。
 
 この記事では、私たちは、開始から ASP.NET Core プロジェクトを部分的に移行[前の記事](mvc.md)です。 構成をセットアップで、次のコンス トラクターとプロパティを追加する、 *Startup.cs*プロジェクトのルートにあるファイル。
 

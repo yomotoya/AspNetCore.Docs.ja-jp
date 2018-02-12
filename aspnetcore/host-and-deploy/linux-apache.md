@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: aa55ecd6dc8169e0e77b3899389ec924b1e1ae4a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 61827f456ba01ffa726f3446401156409b29111d
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Apache 搭載の Linux で ASP.NET Core をホストする
 
@@ -38,7 +38,46 @@ ms.lasthandoff: 01/30/2018
 
 リバース プロキシは、動的な web アプリの送信用の共通のセットアップです。 リバース プロキシは、HTTP 要求を終了し、ASP.NET アプリケーションに転送します。
 
-プロキシ サーバーは、クライアント要求を処理せずに他のサーバーに転送するサーバーです。 リバース プロキシは、一般的に任意のクライアントに代わって固定の送信先に転送します。 このガイドでは、Apache は Kestrel ASP.NET Core アプリケーションが機能していること、同じサーバーで実行されているリバース プロキシとして構成されます。
+プロキシ サーバーは、要求を満たせません自体ではなく別のサーバーにクライアント要求を転送する 1 つです。 リバース プロキシは、一般的に任意のクライアントに代わって固定の送信先に転送します。 このガイドでは、Apache は Kestrel ASP.NET Core アプリケーションが機能していること、同じサーバーで実行されているリバース プロキシとして構成されます。
+
+要求は、リバース プロキシによって転送される、ためから転送されるヘッダー ミドルウェアを使用して、 [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/)パッケージです。 ミドルウェアの更新プログラム、`Request.Scheme`を使用して、`X-Forwarded-Proto`ヘッダー、そのリダイレクト Uri とその他のセキュリティ ポリシーが正常に動作するようにします。
+
+認証ミドルウェアの任意の型を使用する場合、転送ヘッダー ミドルウェアが最初に実行する必要があります。 この順序により、認証ミドルウェアがヘッダーの値を使用して正しくリダイレクト Uri を生成することができます。
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+呼び出す、 [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders)メソッドで`Startup.Configure`呼び出す前に[UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication)または類似の認証スキームのミドルウェア。
+
+```csharp
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
+app.UseAuthentication();
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+呼び出す、 [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders)メソッド`Startup.Configure`呼び出す前に[UseIdentity](/dotnet/api/microsoft.aspnetcore.builder.builderextensions.useidentity)と[UseFacebookAuthentication](/dotnet/api/microsoft.aspnetcore.builder.facebookappbuilderextensions.usefacebookauthentication)または同様の認証スキームミドルウェア。
+
+```csharp
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
+app.UseIdentity();
+app.UseFacebookAuthentication(new FacebookOptions()
+{
+    AppId = Configuration["Authentication:Facebook:AppId"],
+    AppSecret = Configuration["Authentication:Facebook:AppSecret"]
+});
+```
+
+---
+
+ない場合は[ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions)は指定した、ミドルウェアに転送する既定のヘッダーが`None`です。
 
 ### <a name="install-apache"></a>Apache をインストールする
 

@@ -10,18 +10,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: 0205eb34ac7f8b10720b0aa3a19bbdc3a74b545b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ee628ee14aa38969cdb4443718c378fd36192596
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET Core での Bower でクライアント側のパッケージを管理します。
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)、[ノエル ライス](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)、および[Scott Addie](https://scottaddie.com) 
 
 > [!IMPORTANT]
-> Bower を保持したまま、別のソリューションを使用してそれらを勧めします。 Webpack で yarn を 1 つの一般的な代替手段は、[移行手順](https://bower.io/blog/2017/how-to-migrate-away-from-bower/)を利用できます。
+> Bower を保持したまま、別のソリューションを使用して、管理者がお勧めします。 Webpack で yarn を 1 つの一般的な代替手段は、[移行手順](https://bower.io/blog/2017/how-to-migrate-away-from-bower/)を利用できます。
 
 [Bower](https://bower.io/) 「web のパッケージ マネージャー」自体を呼び出します。 .NET エコシステム内では、NuGet の静的なコンテンツ ファイルを配信できないことによってまま void が挿入されます。 ASP.NET Core プロジェクトでは、これらの静的ファイルはのようにクライアント側のライブラリに固有[jQuery](http://jquery.com/)と[ブートス トラップ](http://getbootstrap.com/)です。 .NET ライブラリを使用することも[NuGet](https://www.nuget.org/)パッケージ マネージャーです。
 

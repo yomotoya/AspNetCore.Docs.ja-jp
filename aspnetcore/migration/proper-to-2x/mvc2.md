@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc2
-ms.openlocfilehash: 65717c1605c7f55bfd836110072772fe3dcdeb76
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: aa06200c6983f2c09a7271c8e8ce4b38f54163ad
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>ASP.NET から ASP.NET Core 2.0 への移行
 
@@ -77,7 +77,7 @@ ASP.NET Core は同様のアプローチを使いますが、エントリを処�
 
 **注:** ASP.NET Core のスタートアップとミドルウェアについて詳しくは、「[Application Startup in ASP.NET Core](xref:fundamentals/startup)」(ASP.NET Core でのアプリケーションのスタートアップ) をご覧ください。
 
-## <a name="storing-configurations"></a>構成を保存します。
+## <a name="storing-configurations"></a>保存の構成
 ASP.NET では保存の設定がサポートされています。 これらの設定は、たとえば、アプリケーションが展開された環境のサポートに使われます。 一般的な方法は、すべてのカスタム キー/値ペアを、*Web.config* ファイルの `<appSettings>` セクションに保存するというものでした。
 
 [!code-xml[Main](samples/webconfig-sample.xml)]
@@ -107,7 +107,7 @@ services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"
 
 **注:** ASP.NET Core の構成について詳しくは、「[Configuration in ASP.NET Core](xref:fundamentals/configuration/index)」(ASP.NET Core の構成) をご覧ください。
 
-## <a name="native-dependency-injection"></a>ネイティブの依存関係の挿入
+## <a name="native-dependency-injection"></a>ネイティブな依存性の注入
 大規模で拡張性の高いアプリケーションを構築するときの重要な目標は、コンポーネントとサービスの疎な結合です。 [依存性の注入](xref:fundamentals/dependency-injection)はこれを実現するための一般的な手法であり、ASP.NET Core のネイティブなコンポーネントです。
 
 ASP.NET アプリケーションでは、開発者はサードパーティのライブラリに依存して依存性の注入を実装します。 [Unity](https://github.com/unitycontainer/unity) はそのようなライブラリの 1 つであり、Microsoft Patterns & Practices によって提供されます。 
