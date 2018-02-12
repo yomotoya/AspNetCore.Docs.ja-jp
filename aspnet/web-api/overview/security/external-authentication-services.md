@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: 5d6e6727f387d047e7b41a6efa0d2dadf467558e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 744396cb0c95d1887f259b1e2e890bd06ef7d049
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a>ASP.NET Web API の外部認証サービス (c#)
 ====================
@@ -263,7 +263,7 @@ OAuth および OpenID を使用するアプリケーションの作成に関す
     1. Windows で、管理者特権のコマンド プロンプトを開きます。
     2. 次のコマンドを入力します。
 
-        <kbd>メモ帳 %WinDir%\system32\drivers\etc\hosts</kbd>
+        <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
     3. 次のようなエントリを HOSTS ファイルに追加します。
 
         <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
@@ -278,10 +278,10 @@ OAuth および OpenID を使用するアプリケーションの作成に関す
     1. Windows で、管理者特権のコマンド プロンプトを開きます。
     2. IIS Express フォルダーに変更するのには、次のコマンドを入力します。
 
-        <kbd>cd/d &quot;%ProgramFiles%\IIS Express&quot;</kbd>
+        <kbd>cd /d &quot;%ProgramFiles%\IIS Express&quot;</kbd>
     3. FQDN をアプリケーションに追加するには、次のコマンドを入力します。
 
-        <kbd>構成を設定する appcmd.exe-section:system.applicationHost/sites/+&quot;[名前 = 'WebApplication1'] .bindings [。プロトコル 'http'、bindingInformation を = ='*:80:www.wingtiptoys.com']&quot; /commit:apphost</kbd>
+        <kbd>appcmd.exe set config -section:system.applicationHost/sites /+&quot;[name='WebApplication1'].bindings.[protocol='http',bindingInformation='*:80:www.wingtiptoys.com']&quot; /commit:apphost</kbd>
 
  ここで**WebApplication1** 、プロジェクトの名前を指定し、 **bindingInformation**テストに使用するポート番号と FQDN が含まれています。
 
@@ -303,7 +303,7 @@ OAuth および OpenID を使用するアプリケーションの作成に関す
 <a id="DISABLE"></a>
 ### <a name="optional-disable-local-registration"></a>省略可能: ローカルの登録を無効にします。
 
-現在 ASP.NET ローカルの登録の機能は防止しません自動プログラム (bot) アカウントです。 メンバーを作成します。たとえば、bot 防止と検証のようなテクノロジを使用して[CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md)です。 このためには、ログイン ページにローカル ログイン フォームと登録のリンクを削除する必要があります。 これを行うには、開く、  *\_Login.cshtml*プロジェクトで、ページし、行をコメント アウト、ローカル ログイン パネルと登録のリンク。 次のコード例のように表示されたページのようになります。
+現在 ASP.NET ローカルの登録の機能は防止しません自動プログラム (bot) アカウントです。 メンバーを作成します。たとえば、bot 防止と検証のようなテクノロジを使用して[CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md)です。 このためには、ログイン ページにローカル ログイン フォームと登録のリンクを削除する必要があります。 これを行うには、開く、  *\_Login.cshtml*プロジェクトで、ページし、行をコメント アウト、ローカル ログイン パネルと登録のリンク。 結果のページは、次のコード サンプルのようになります。
 
 [!code-html[Main](external-authentication-services/samples/sample10.html)]
 

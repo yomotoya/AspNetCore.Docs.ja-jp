@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8d0b3665e9bac6856a3fe1b50b05215f2747e354
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 92c003cf929448d0b03f9de76330e9495ac51d20
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="using-the-tagbuilder-class-to-build-html-helpers-vb"></a>HTML ヘルパー (VB) をビルドするのに TagBuilder クラスの使用
 ====================
@@ -59,7 +59,7 @@ TagBuilder クラスのインスタンスを作成するときは、TagBuilder �
 
 リスト 1 のモジュールには、Image() という 2 つのオーバー ロードされたメソッドが含まれています。 Image() メソッドを呼び出すときに、か HTML 属性のセットを表すオブジェクトを渡すことができます。
 
-TagBuilder.MergeAttribute() メソッドを使用、TagBuilder に src 属性などの個々 の属性を追加する方法に注意してください。 注意してください、さらに追加する属性のコレクション、TagBuilder TagBuilder.MergeAttributes() メソッドを使用する方法です。 MergeAttributes() メソッドは、ディクショナリを受け取ります&lt;文字列, オブジェクト&gt;パラメーター。 ディクショナリに属性のコレクションを表すオブジェクトを変換する、RouteValueDictionary クラスが使用される&lt;文字列, オブジェクト&gt;です。
+TagBuilder.MergeAttribute() メソッドを使用、TagBuilder に src 属性などの個々 の属性を追加する方法に注意してください。 注意してください、さらに追加する属性のコレクション、TagBuilder TagBuilder.MergeAttributes() メソッドを使用する方法です。 MergeAttributes() メソッドは、ディクショナリを受け取ります&lt;文字列, オブジェクト&gt;パラメーター。 ディクショナリに属性のコレクションを表すオブジェクトを変換する RouteValueDictionary クラスが使用される&lt;文字列, オブジェクト&gt;です。
 
 イメージ ヘルパーを作成した後は、その他の標準の HTML ヘルパーのいずれかのように、ASP.NET MVC ビューで、ヘルパーを使用できます。 ビューを一覧表示する 2 で、2 回 Xbox の同じイメージを表示するイメージ ヘルパーを使用して (図 1 を参照してください)。 Image() ヘルパーは、両方および HTML 属性のコレクションを使用せずに呼び出されます。
 

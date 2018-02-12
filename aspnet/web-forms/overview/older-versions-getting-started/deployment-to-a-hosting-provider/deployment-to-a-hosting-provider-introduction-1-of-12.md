@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 9c0edb301de85d15b9a3527382b72211f6f3d3ec
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a0f38c83bd9231dbd37d3d505c90316af521b336
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>SQL Server compact の Visual Studio を使用して ASP.NET Web アプリケーションの配置: 12 の第 1 の概要
 ====================
@@ -137,7 +137,7 @@ Web サイトのページは、メニュー バーからアクセスできる、
 - アプリケーションでは、Entity Framework 5.0 を使用して、アプリケーション データベースのデータにアクセスします。 Entity Framework 5.0 を含むアセンブリは、アプリケーションと共に配置する必要があります。
 - アプリケーションでは、サード パーティ製のエラー ログ機能およびユーティリティのレポートを使用します。 このユーティリティは、アプリケーションと共に配置する必要がありますアセンブリで提供されます。
 - エラーのログ記録ユーティリティは、ファイル フォルダーに、XML ファイルにエラー情報を書き込みます。 配置済みのサイトで ASP.NET を実行するアカウントが、このフォルダーの書き込みアクセス許可をこのフォルダーを展開から除外する必要があること確認する必要があります。 (それ以外の場合、テスト環境からのエラー ログのデータを実稼働環境に展開するとや、実稼働のエラー ログ ファイルを削除する可能性があります)。
-- アプリケーションで変更する必要がある設定の一部に含まれて、展開済みで*Web.config*先の環境 (テストまたは実稼働)、およびその他の設定によっては、ビルドの変更が必要に応じてファイル(デバッグまたはリリース) を構成します。
+- アプリケーションに変更する必要がある設定が含まれています、展開済みで*Web.config*先の環境 (テストまたは実稼働)、およびその他の設定によっては、ビルドの変更が必要に応じてファイル(デバッグまたはリリース) を構成します。
 - Visual Studio ソリューションには、クラス ライブラリ プロジェクトが含まれています。 このプロジェクトで生成されるアセンブリのみを展開すると、プロジェクト自体ではありません。
 
 系列の最初のチュートリアルでは、サンプルの Visual Studio プロジェクトをダウンロードし、アプリケーションを展開する方法に影響するサイトの機能を確認しました。 次のチュートリアルでは、展開準備で自動的に処理するのには次の作業の一部を設定します。 他のユーザーを処理する手動でします。

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 8aeb04f772fa687706bd8080b4306ff0040a159f
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 14c7fdfc1ed8b87aac8ca937298c7da6373bf06d
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>アカウントの確認と ASP.NET Core でのパスワードの回復
 
@@ -114,7 +114,7 @@ config.SignIn.RequireConfirmedEmail = true;
 
 ### <a name="configure-email-provider"></a>電子メール プロバイダーを構成します。
 
-このチュートリアルでは、SendGrid を使用して電子メールを送信します。 SendGrid アカウントと電子メールを送信するキーが必要です。 その他の電子メール プロバイダーを使用することができます。 ASP.NET Core 2.x が含まれています`System.Net.Mail`、アプリから電子メールを送信することができます。 SendGrid または別の電子メール サービスを使用して電子メールを送信することをお勧めします。 SMTP は、セキュリティで保護し、正しくセットアップされて困難です。
+このチュートリアルでは、SendGrid を使用して電子メールを送信します。 SendGrid アカウントと電子メールを送信するキーが必要です。 その他の電子メール プロバイダーを使用することができます。 ASP.NET Core 2.x が含まれています`System.Net.Mail`、アプリから電子メールを送信することができます。 SendGrid または別の電子メール サービスを使用して電子メールを送信することをお勧めします。 SMTP は適切に設定してセキュリティで保護するが困難です。
 
 [オプション パターン](xref:fundamentals/configuration/options)ユーザー アカウントとキーの設定にアクセスするために使用します。 詳細については、次を参照してください。[構成](xref:fundamentals/configuration/index)です。
 

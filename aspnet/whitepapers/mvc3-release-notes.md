@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 92a6dee24b8942d721e3537a712be141155e61df
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: 058b7c6fe6eeeea4403e7e5fdc05bb44d2ba1300
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -255,7 +255,7 @@ ASP.NET MVC 3 は、する柔軟性が ASP.NET MVC 3、ASP.NET MVC 2 アプリ�
 
 #### <a name="project-templates-are-now-html5-enabled"></a>プロジェクト テンプレートが HTML5 に対応
 
-これで、新しいプロジェクト ダイアログ ボックスには、プロジェクト テンプレートに HTML5 固有の機能を追加するオプションが含まれています。 新しい HTML5 を含むビューを生成するオプションを選択すると、 `<header>`、 `<footer>`、および`<navigation>`要素。 要素です。
+これで、新しいプロジェクト ダイアログ ボックスには、プロジェクト テンプレートに HTML5 固有の機能を追加するオプションが含まれています。 新しい HTML5 を含むビューを生成するオプションを選択すると、 `<header>`、 `<footer>`、および`<navigation>`要素。
 
 以前のバージョンのブラウザーは HTML5 固有のタグをサポートしていませんことに注意してください。 この制限に対処するには、HTML5 プロジェクト テンプレートには、Modernizr ライブラリへの参照が含まれます。 (詳しくは、次のセクションを参照してください)。
 
@@ -608,7 +608,7 @@ Namespace.ClassName
 ## <a name="breaking-changes"></a>互換性に影響する変更点
 
 - 例外フィルターが同じであるため、例外フィルターの実行の順序が変更された*順序*値。 ASP.NET MVC 2 以前のバージョンで同じがあったコント ローラー上の例外がフィルター*順序*例外フィルター、アクション メソッドにする前に実行されたアクション メソッド上のものとします。 例外フィルターが適用されたときに、大文字と小文字を一般にこのように、指定したせず*順序*値。 ASP.NET MVC 3 では、この順序が逆になりました最も固有の例外ハンドラーが最初に実行できるようにします。 以前のバージョンと場合、*順序*プロパティが明示的に指定されて、フィルターは、指定した順序で実行されます。
-- という名前の新しいプロパティを追加*FileExtensions*を*VirtualPathProviderViewEngine*基本クラスです。 検索時に、ビュー パスを使用して、名前ではなく) に含まれているファイル拡張子を持つビューのみ、この新しいプロパティで指定されたリストと見なされます。 これは、web フォーム ビューのカスタムのファイル拡張子を有効にするプロバイダーを構築するカスタムを登録するユーザーの重大な変更と名前ではなく、完全なパスを使用してそれらのビューを参照しているとします。 回避策がの値を変更するには、 *FileExtensions*プロパティにカスタムのファイル拡張子を含めます。
+- という名前の新しいプロパティを追加*FileExtensions*を*VirtualPathProviderViewEngine*基本クラスです。 検索時に、ビュー パスを使用して、名前ではなく) に含まれているファイル拡張子を持つビューのみ、この新しいプロパティで指定されたリストと見なされます。 これは、web フォーム ビューのカスタムのファイル拡張子を有効にするカスタム ビルド プロバイダーを登録し、名前ではなく、完全なパスを使用してそれらのビューを参照している人にとって重大な変更です。 回避策がの値を変更するには、 *FileExtensions*プロパティにカスタムのファイル拡張子を含めます。
 
 <a id="_Toc276711795"></a>
 ## <a name="known-issues"></a>既知の問題

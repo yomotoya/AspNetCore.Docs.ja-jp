@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: a91bf065c9ce0fc5bd9b7115340edabea975a7e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69b7d5453b6ff36d6e28a69428b016cb8cfd06e9
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1 での CRUD 操作を有効にします。
 ====================
@@ -39,14 +39,14 @@ CRUD&quot;作成、読み取り、更新、および Delete、&quot;は 4 つの
 
 製品の API は、次のメソッドに公開します。
 
-| 操作 | HTTP メソッド | 相対 URI |
+| アクション | HTTP メソッド | 相対 URI |
 | --- | --- | --- |
-| すべての製品の一覧を取得します。 | GET | 製品/api |
-| ID の製品を取得します。 | GET | 製品が/api/*id* |
-| カテゴリによって製品を取得します。 | GET | /api 製品ですか? カテゴリ =*カテゴリ* |
-| 新しい製品を作成します。 | 投稿 | 製品/api |
-| 製品を更新します。 | PUT | 製品が/api/*id* |
-| 製品を削除します。 | Del | 製品が/api/*id* |
+| すべての製品の一覧を取得します。 | GET | /api/products |
+| ID の製品を取得します。 | GET | /api/products/*id* |
+| カテゴリによって製品を取得します。 | GET | /api/products?category=*category* |
+| 新しい製品を作成します。 | POST | /api/products |
+| 製品を更新します。 | PUT | /api/products/*id* |
+| 製品を削除します。 | Del | /api/products/*id* |
 
 パスに製品 ID を含む Uri の一部に注意してください。 たとえば、製品 ID が 28 を取得するクライアント GET 要求を送信`http://hostname/api/products/28`です。
 
@@ -56,8 +56,8 @@ CRUD&quot;作成、読み取り、更新、および Delete、&quot;は 4 つの
 
 | リソース | URI |
 | --- | --- |
-| すべての製品の一覧。 | 製品/api |
-| 個々 の製品です。 | 製品が/api/*id* |
+| すべての製品の一覧。 | /api/products |
+| 個々 の製品です。 | /api/products/*id* |
 
 ### <a name="methods"></a>メソッド
 
@@ -127,7 +127,7 @@ ASP.NET MVC を使用する場合、し、既に慣れているコント ロー�
 
 ソリューション エクスプ ローラーでファイルを右クリックして、ValuesController を削除してください**を削除します。** 今すぐよう、新しいコント ローラーを追加します。
 
-**ソリューション エクスプ ローラー**を右クリックし、コント ローラーのフォルダーです。 選択**追加**し、**コント ローラー**です。
+**ソリューション エクスプ ローラー**、コント ローラーのフォルダーを右クリックします。 選択**追加**し、**コント ローラー**です。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image6.png)
 
@@ -155,11 +155,11 @@ ASP.NET MVC を使用する場合、し、既に慣れているコント ロー�
 
 ProductStore API では、いくつかは公開&quot;読み取り&quot;HTTP GET メソッドとアクション。 各アクション メソッドに対応させるには、`ProductsController`クラスです。
 
-| 操作 | HTTP メソッド | 相対 URI |
+| アクション | HTTP メソッド | 相対 URI |
 | --- | --- | --- |
-| すべての製品の一覧を取得します。 | GET | 製品/api |
-| ID の製品を取得します。 | GET | 製品が/api/*id* |
-| カテゴリによって製品を取得します。 | GET | /api 製品ですか? カテゴリ =*カテゴリ* |
+| すべての製品の一覧を取得します。 | GET | /api/products |
+| ID の製品を取得します。 | GET | /api/products/*id* |
+| カテゴリによって製品を取得します。 | GET | /api/products?category=*category* |
 
 すべての製品の一覧を取得するには、このメソッドは追加、`ProductsController`クラス。
 

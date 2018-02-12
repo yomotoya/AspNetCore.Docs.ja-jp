@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: c2d7454534ff0e9e0a80365793800ab7c45d3b6e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fe67b9a11a82b55d5f3e0e5f1b0cee10a58833d2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>ASP.NET web API OData v4 の種類を開く
 ====================
@@ -88,7 +88,7 @@ Entity Data Model (EDM) を作成すると、
 また、`Press`そのプロパティ`Book`インスタンスには、次の動的なプロパティ。
 
 - 「ブログ」プリミティブ型。
-- "Address": 複合型
+- "Address": Complex type
 
 ## <a name="query-the-metadata"></a>メタデータのクエリ
 
@@ -100,11 +100,11 @@ OData メタデータ ドキュメントを取得する GET 要求を送信`~/$m
 
 - `Book`と`Press`の値の型、`OpenType`属性が true です。 `Customer`と`Address`型はこの属性がありません。
 - `Book`エンティティ型が宣言されている 3 つのプロパティ: ISBN、タイトル、およびキーを押します。 OData メタデータを含まない、 `Book.Properties` CLR クラスからプロパティです。
-- 同様に、`Press`複合型が宣言された 2 つのプロパティ: 名前とカテゴリ。 メタデータは含まれません、 `Press.DynamicProperties` CLR クラスからプロパティです。
+- 同様に、`Press`複合型が宣言された 2 つのプロパティ: 名前とカテゴリ。 メタデータを含まない、 `Press.DynamicProperties` CLR クラスからプロパティです。
 
 ## <a name="query-an-entity"></a>エンティティのクエリ
 
-ISBN を book「978-0-7356-7942-9」と等しい、送信に送ってへの GET 要求`~/Books('978-0-7356-7942-9')`です。 応答本文は、次のようになります。 (読みやすくするためにインデントされます。)
+ISBN を book と等しい「978-0-7356-7942-9」を取得する GET 要求を送信`~/Books('978-0-7356-7942-9')`です。 応答本文は、次のようになります。 (読みやすくするためにインデントされます。)
 
 [!code-console[Main](use-open-types-in-odata-v4/samples/sample7.cmd?highlight=8-13,15-23)]
 

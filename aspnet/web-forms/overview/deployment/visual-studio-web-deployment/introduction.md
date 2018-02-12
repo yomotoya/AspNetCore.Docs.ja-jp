@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 51344535e7ff42f1bd6641aeaaf043be6423f1b7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a7c5b348e44a88a56680237b0cac75c999901ec3
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Visual Studio を使用した ASP.NET Web 展開: 概要
 ====================
@@ -195,7 +195,7 @@ Web サイトのページは、メニュー バーからアクセスできる、
 - アプリケーションでは、SQL Server データベースにユーザー アカウント情報を格納、ASP.NET メンバーシップ システムを使用します。 アプリケーションでは、制限された情報へのアクセスを持つ管理者ユーザーを定義します。 テスト アカウントを持たないが、管理者アカウントを使用して、メンバーシップ データベースを展開する必要があります。
 - アプリケーションでは、サード パーティ製のエラー ログ機能およびユーティリティのレポートを使用します。 このユーティリティは、アプリケーションと共に配置する必要がありますアセンブリで提供されます。
 - エラーのログ記録ユーティリティは、ファイル フォルダーに、XML ファイルにエラー情報を書き込みます。 配置済みのサイトで ASP.NET を実行するアカウントが、このフォルダーの書き込みアクセス許可をこのフォルダーを展開から除外する必要があること確認する必要があります。 (それ以外の場合、テスト環境からのエラー ログのデータを実稼働環境に展開するとや、実稼働のエラー ログ ファイルを削除する可能性があります)。
-- アプリケーションで変更する必要がある設定の一部に含まれて、展開済みで*Web.config*先の環境 (テスト、ステージング、または運用) とその他の設定によっては、ビルドの変更が必要に応じてファイル(デバッグまたはリリース) を構成します。
+- アプリケーションに変更する必要がある設定が含まれています、展開済みで*Web.config*先の環境 (テスト、ステージング、または運用) とその他の設定によっては、ビルドの変更が必要に応じてファイル(デバッグまたはリリース) を構成します。
 - Visual Studio ソリューションには、クラス ライブラリ プロジェクトが含まれています。 このプロジェクトで生成されるアセンブリのみを展開すると、プロジェクト自体ではありません。
 
 ## <a name="summary"></a>まとめ

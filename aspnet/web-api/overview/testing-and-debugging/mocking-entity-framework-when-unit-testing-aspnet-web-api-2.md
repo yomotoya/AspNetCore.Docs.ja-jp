@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 2d8a3df94c91d2fac79006916375764c2b90dc85
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: abfde7edec85812de3560f4edefb110c3e374580
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Entity Framework をモック作成時に単体テストの ASP.NET Web API 2
 ====================
@@ -149,7 +149,7 @@ StoreApp.Tests プロジェクトを右クリックし  **NuGet パッケージ�
 
 ![パッケージを管理します。](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image4.png)
 
-オンラインのパッケージから検索して EntityFramework パッケージ (バージョン 6.0 またはそれ以降) をインストールします。 代わりに StoreApp プロジェクトが選択した可能性があります EntityFramework パッケージが既にインストールされている場合は、StoreApp.Tests プロジェクト。
+オンラインのパッケージから検索して EntityFramework パッケージ (バージョン 6.0 またはそれ以降) をインストールします。 EntityFramework パッケージが既にインストールされている場合は、StoreApp.Tests プロジェクトではなく StoreApp プロジェクトを選択した可能性があります。
 
 ![Entity Framework を追加します。](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image5.png)
 

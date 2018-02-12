@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: 58ae178a0e6578d8353e1a4e9d67fc1026e99f55
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d6797d1dbacff7503f74782d325ff5a9598970c0
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -295,7 +295,7 @@ ASP.NET MVC 4 Beta は、Windows Azure SDK の 2011 年 9 月 1.5 のリリー�
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
     - *MvcVBRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
-- **WebMatrix.WebData.dll に含めるときは、ASP.NET MVC 4 アプリケーションの/bin ディレクトリに、フォーム認証の URL になります。** (たとえば、展開可能な依存関係の追加 ダイアログを使用する場合は、「Razor 構文で ASP.NET Web ページ」を選択する) を WebMatrix.WebData.dll アセンブリをアプリケーションに追加すると、認証ログインへのリダイレクト/アカウント/ログオンよりも優先されますのではなく/既定の ASP.NET MVC アカウント コント ローラーで期待どおりに、アカウント/ログインします。 この動作を回避し、web.config ファイルの [認証] セクションで既に指定された URL を使用する PreserveLoginUrl と呼ばれる、appSetting を追加およびを true に設定できます。 
+- **WebMatrix.WebData.dll が含まれる場合、ASP.NET MVC 4 アプリケーションの/bin ディレクトリに、フォーム認証の URL になります。** (たとえば、展開可能な依存関係の追加 ダイアログを使用する場合は、「Razor 構文で ASP.NET Web ページ」を選択する) を WebMatrix.WebData.dll アセンブリをアプリケーションに追加すると、認証ログインへのリダイレクト/アカウント/ログオンよりも優先されますのではなく/既定の ASP.NET MVC アカウント コント ローラーで期待どおりに、アカウント/ログインします。 この動作を回避し、web.config ファイルの [認証] セクションで既に指定された URL を使用する PreserveLoginUrl と呼ばれる、appSetting を追加およびを true に設定できます。 
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample13.xml)]
 - **NuGet パッケージ マネージャーは、Visual Studio 2010 と Visual Web Developer 2010 のサイド バイ サイド インストールの ASP.NET MVC 4 をインストールしようとするときのインストールに失敗します。** Visual Studio 2010 と ASP.NET MVC 4 サイド バイ サイドで Visual Web Developer 2010 を実行するには、Visual Studio の両方のバージョンを既にインストールされている後に ASP.NET MVC 4 をインストールする必要があります。
