@@ -12,22 +12,22 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown
 msc.type: chapter
-ms.openlocfilehash: 8d0708b03deb54d41c64ed383d319b0b70549e1c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 200dc5ce3f27b5123edea2ac63f0a86b8502605d
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
-<a name="cascadingdropdown"></a><span data-ttu-id="393cc-103">CascadingDropdown</span><span class="sxs-lookup"><span data-stu-id="393cc-103">CascadingDropdown</span></span>
+<a name="cascadingdropdown"></a><span data-ttu-id="90a84-103">CascadingDropdown</span><span class="sxs-lookup"><span data-stu-id="90a84-103">CascadingDropdown</span></span>
 ====================
-> <span data-ttu-id="393cc-104">このチュートリアルで使用する方法、ユーザーが、選択を行うときに、CascadingDropDown 作成するコントロールを関連するドロップダウンがその更新プログラムを一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="393cc-104">This tutorial shows how to use the the CascadingDropDown control to create related drop-down lists that update when users make a selection.</span></span>
+> <span data-ttu-id="90a84-104">このチュートリアルでは、CascadingDropDown コントロールを使用して、ユーザーが、選択を行うときに更新関連のドロップダウン リストを作成する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="90a84-104">This tutorial shows how to use the CascadingDropDown control to create related drop-down lists that update when users make a selection.</span></span>
 
 
-- [<span data-ttu-id="393cc-105">CascadingDropDown (c#) を使用して、リストを入力</span><span class="sxs-lookup"><span data-stu-id="393cc-105">Filling a List Using CascadingDropDown (C#)</span></span>](filling-a-list-using-cascadingdropdown-cs.md)
-- [<span data-ttu-id="393cc-106">データベース (c#) で CascadingDropDown の使用</span><span class="sxs-lookup"><span data-stu-id="393cc-106">Using CascadingDropDown with a Database (C#)</span></span>](using-cascadingdropdown-with-a-database-cs.md)
-- [<span data-ttu-id="393cc-107">一覧のエントリ CascadingDropDown (c#) を事前に設定します。</span><span class="sxs-lookup"><span data-stu-id="393cc-107">Presetting List Entries with CascadingDropDown (C#)</span></span>](presetting-list-entries-with-cascadingdropdown-cs.md)
-- [<span data-ttu-id="393cc-108">CascadingDropDown (c#) での自動ポストバックの使用</span><span class="sxs-lookup"><span data-stu-id="393cc-108">Using Auto-Postback with CascadingDropDown (C#)</span></span>](using-auto-postback-with-cascadingdropdown-cs.md)
-- [<span data-ttu-id="393cc-109">CascadingDropDown (VB) を使用して、リストを入力</span><span class="sxs-lookup"><span data-stu-id="393cc-109">Filling a List Using CascadingDropDown (VB)</span></span>](filling-a-list-using-cascadingdropdown-vb.md)
-- [<span data-ttu-id="393cc-110">データベース (VB) で CascadingDropDown の使用</span><span class="sxs-lookup"><span data-stu-id="393cc-110">Using CascadingDropDown with a Database (VB)</span></span>](using-cascadingdropdown-with-a-database-vb.md)
-- [<span data-ttu-id="393cc-111">一覧のエントリ CascadingDropDown (VB) を事前に設定します。</span><span class="sxs-lookup"><span data-stu-id="393cc-111">Presetting List Entries with CascadingDropDown (VB)</span></span>](presetting-list-entries-with-cascadingdropdown-vb.md)
-- [<span data-ttu-id="393cc-112">CascadingDropDown (VB) での自動ポストバックの使用</span><span class="sxs-lookup"><span data-stu-id="393cc-112">Using Auto-Postback with CascadingDropDown (VB)</span></span>](using-auto-postback-with-cascadingdropdown-vb.md)
+- [<span data-ttu-id="90a84-105">CascadingDropDown を使用して一覧に入力する (C#)</span><span class="sxs-lookup"><span data-stu-id="90a84-105">Filling a List Using CascadingDropDown (C#)</span></span>](filling-a-list-using-cascadingdropdown-cs.md)
+- [<span data-ttu-id="90a84-106">データベースで CascadingDropDown を使用する (C#)</span><span class="sxs-lookup"><span data-stu-id="90a84-106">Using CascadingDropDown with a Database (C#)</span></span>](using-cascadingdropdown-with-a-database-cs.md)
+- [<span data-ttu-id="90a84-107">CascadingDropDown で一覧のエントリを事前設定する (C#)</span><span class="sxs-lookup"><span data-stu-id="90a84-107">Presetting List Entries with CascadingDropDown (C#)</span></span>](presetting-list-entries-with-cascadingdropdown-cs.md)
+- [<span data-ttu-id="90a84-108">CascadingDropDown で自動ポストバックを使用する (C#)</span><span class="sxs-lookup"><span data-stu-id="90a84-108">Using Auto-Postback with CascadingDropDown (C#)</span></span>](using-auto-postback-with-cascadingdropdown-cs.md)
+- [<span data-ttu-id="90a84-109">CascadingDropDown を使用して一覧に入力する (VB)</span><span class="sxs-lookup"><span data-stu-id="90a84-109">Filling a List Using CascadingDropDown (VB)</span></span>](filling-a-list-using-cascadingdropdown-vb.md)
+- [<span data-ttu-id="90a84-110">データベースで CascadingDropDown を使用する (VB)</span><span class="sxs-lookup"><span data-stu-id="90a84-110">Using CascadingDropDown with a Database (VB)</span></span>](using-cascadingdropdown-with-a-database-vb.md)
+- [<span data-ttu-id="90a84-111">CascadingDropDown で一覧のエントリを事前設定する (VB)</span><span class="sxs-lookup"><span data-stu-id="90a84-111">Presetting List Entries with CascadingDropDown (VB)</span></span>](presetting-list-entries-with-cascadingdropdown-vb.md)
+- [<span data-ttu-id="90a84-112">CascadingDropDown で自動ポストバックを使用する (VB)</span><span class="sxs-lookup"><span data-stu-id="90a84-112">Using Auto-Postback with CascadingDropDown (VB)</span></span>](using-auto-postback-with-cascadingdropdown-vb.md)
