@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: be3e3d61a6567da3c2cd696c01661146f2da7131
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6daa0dec764e2e9248cac97ba7d7b6df0da3208f
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>作成するストアド プロシージャおよびユーザー定義関数をマネージ コード (c#)
 ====================
@@ -420,7 +420,7 @@ UDF のメソッドの入力パラメーターが、対応する SQL 型のメ�
 
 ## <a name="step-11-deploying-the-managed-udf"></a>手順 11: 管理対象の UDF を展開します。
 
-これで、マネージ UDF を作成したら、Northwind データベースに配置する準備ができました。 手順 4 で説明したとおり、SQL Server プロジェクト内のマネージ オブジェクトは、ソリューション エクスプ ローラーでプロジェクト名を右クリックし、コンテキスト メニューから [展開] を選択して展開されます。
+管理対象の UDF を作成すると、Northwind データベースを展開する準備ができました。 手順 4 で説明したとおり、SQL Server プロジェクト内のマネージ オブジェクトは、ソリューション エクスプ ローラーでプロジェクト名を右クリックし、コンテキスト メニューから [展開] を選択して展開されます。
 
 プロジェクトを配置した後は、SQL Server Management Studio に戻り、スカラー値関数のフォルダーを更新しています。 2 つのエントリが表示されます。
 
