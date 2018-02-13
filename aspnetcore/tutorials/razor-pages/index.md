@@ -9,15 +9,15 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: 146c6907dfd09f565cb784ce7e555f8cfc01f5cf
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0a3d5ae039bc73d20cc05140e53a8bc4daaefd6c
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core"></a>ASP.NET Core で Razor ページ Web アプリを作成する
 
-このシリーズでは、Visual Studio を使用して ASP.NET Core で Razor ページ Web アプリを作成する基礎について説明します。 Mac のバージョンについては、[こちら](xref:tutorials/razor-pages-mac/index)を参照してください。 Visual Studio Code のバージョンについては、[こちら](xref:tutorials/razor-pages-vsc/index)を参照してください。
+このシリーズでは、Visual Studio を使用して ASP.NET Core で Razor ページ Web アプリを作成する基礎について説明します。 このシリーズの他のバージョンには、[Mac バージョン](xref:tutorials/razor-pages-mac/index)と [Visual Studio Code バージョン](xref:tutorials/razor-pages-vsc/index)があります。
 
 1. [Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)
 1. [Razor ページ アプリへのモデルの追加](xref:tutorials/razor-pages/model)
