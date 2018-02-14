@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app
-title: "OData v4 クライアント アプリ (c#) を作成する | Microsoft ドキュメント"
+title: "OData v4 クライアント アプリ (c#) の作成 | Microsoft ドキュメント"
 author: MikeWasson
 description: 
 ms.author: aspnetcontent
@@ -18,13 +18,13 @@ ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
 ---
-<a name="create-an-odata-v4-client-app-c"></a>OData v4 クライアント アプリ (c#) を作成する
+<a name="create-an-odata-v4-client-app-c"></a>OData v4 クライアント アプリ (c#) の作成
 ====================
-[Mike Wasson](https://github.com/MikeWasson) によって
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
 前のチュートリアルでは、CRUD 操作をサポートする基本的な OData サービスを作成しました。 次はサービスのクライアントを作成しましょう。
 
-まず、Visual Studio の新しいインスタンスを開始し、新しいコンソール アプリケーション プロジェクトを作成します。 **新しいプロジェクト** ダイアログでは **インストール済み** &gt; **テンプレート** &gt; **Visual C#** &gt; **Windows デスクトップ**を選択し、**コンソール アプリケーション**テンプレートを選択します。 プロジェクトには &quot;ProductsApp&quot; と名前をつけます。
+Visual Studio の新しいインスタンスを開始し、新しいコンソール アプリケーション プロジェクトを作成します。 [**新しいプロジェクト**] ダイアログで[**インストール済み**] &gt; [**テンプレート**] &gt; [**Visual C#**] &gt; [**Windows デスクトップ**] を選択し、[**コンソール アプリケーション**] テンプレートを選択します。 プロジェクトには &quot;ProductsApp&quot; と名前をつけます。
 
 ![](create-an-odata-v4-client-app/_static/image1.png)
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="install-the-odata-client-code-generator"></a>OData Client Code Generator をインストールする
 
-次に **ツール** のメニューから **拡張機能と更新プログラム** を選択します。 **オンライン** &gt; **Visual Studio Gallery** を選択して、 [検索] ボックスから &quot;OData Client Code Generator&quot; を検索してください。 **ダウンロード** をクリックして VSIX をインストールします。 ここでは　Visual Studio の再起動を求められることがあります。
+[**ツール**] メニューから [**拡張機能と更新プログラム**] を選択します。[**オンライン**] &gt; [**Visual Studio Gallery**] を選択して、 [検索] ボックスから &quot;OData Client Code Generator&quot; を検索してください。[**ダウンロード**] をクリックして VSIX をインストールします。 ここでは　Visual Studio の再起動を求められることがあります。
 
 [![](create-an-odata-v4-client-app/_static/image3.png)](create-an-odata-v4-client-app/_static/image2.png)
 
