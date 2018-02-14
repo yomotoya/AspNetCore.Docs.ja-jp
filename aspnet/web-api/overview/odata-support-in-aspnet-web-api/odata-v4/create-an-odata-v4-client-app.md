@@ -70,9 +70,9 @@ ProductClient.odata.config ファイルを開きます。`Parameter` 要素の�
 
 [![](create-an-odata-v4-client-app/_static/image11.png)](create-an-odata-v4-client-app/_static/image10.png)
 
-テンプレートをもう一度実行してください。 ソリューション エクスプローラーで、ProductClient.tt ファイルを右クリックし **カスタム ツールの実行** を選択します。
+テンプレートをもう一度実行してください。 ソリューション エクスプローラーで、ProductClient.tt ファイルを右クリックし [**カスタム ツールの実行**] を選択します。
 
-テンプレートは、プロキシを定義する ProductClient.cs をという名前のコード ファイルを作成します。 アプリを開発するときに、OData エンドポイントを変更した場合は、プロキシを更新するためにテンプレートを再実行してください。
+テンプレートは、プロキシを定義する ProductClient.cs という名前のコード ファイルを作成します。 アプリを開発するときに、OData エンドポイントを変更した場合は、プロキシを更新するためにテンプレートを再実行してください。
 
 ![](create-an-odata-v4-client-app/_static/image12.png)
 
