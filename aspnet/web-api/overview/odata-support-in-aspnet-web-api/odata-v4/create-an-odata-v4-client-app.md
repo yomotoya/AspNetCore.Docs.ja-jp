@@ -60,32 +60,32 @@ Visual Studio から ProductService プロジェクトを実行します。 既�
 
 [![](create-an-odata-v4-client-app/_static/image7.png)](create-an-odata-v4-client-app/_static/image6.png)
 
-この時点では、無視してかまいませんが、エラーが表示されます。 Visual Studio は、テンプレートを自動的に実行されますが、テンプレートには、一部の構成設定が必要があります最初。
+この時点でエラーが表示されますが、無視してもよいものです。 Visual Studio は、自動的にテンプレートを実行させますが、このテンプレートは最初にいくつかの構成設定を必要とします。
 
 [![](create-an-odata-v4-client-app/_static/image9.png)](create-an-odata-v4-client-app/_static/image8.png)
 
-ProductClient.odata.config ファイルを開きます。`Parameter` ProductService プロジェクト (前の手順) 元の URI での貼り付けの要素。 例:
+ProductClient.odata.config ファイルを開きます。`Parameter` 要素の中へ、ProductService プロジェクト (前の手順) からコピーしてきた URI を貼り付けます。 例えば:
 
 [!code-xml[Main](create-an-odata-v4-client-app/samples/sample1.xml)]
 
 [![](create-an-odata-v4-client-app/_static/image11.png)](create-an-odata-v4-client-app/_static/image10.png)
 
-テンプレートをもう一度実行します。 ソリューション エクスプ ローラーで、ProductClient.tt ファイルを右クリックし、選択**カスタム ツールの実行**です。
+テンプレートをもう一度実行してください。 ソリューション エクスプローラーで、ProductClient.tt ファイルを右クリックし [**カスタム ツールの実行**] を選択します。
 
-テンプレートでは、プロキシを定義する ProductClient.cs をという名前のコード ファイルを作成します。 OData エンドポイントを変更する場合に、アプリを開発するときは、プロキシを更新するには、再度テンプレートを実行します。
+テンプレートは、プロキシを定義する ProductClient.cs という名前のコード ファイルを作成します。 アプリを開発するときに、OData エンドポイントを変更した場合は、プロキシを更新するためにテンプレートを再実行してください。
 
 ![](create-an-odata-v4-client-app/_static/image12.png)
 
-## <a name="use-the-service-proxy-to-call-the-odata-service"></a>サービス プロキシを使用して、OData サービスの呼び出し
+## <a name="use-the-service-proxy-to-call-the-odata-service"></a>OData サービスの呼び出すためにサービス プロキシを使用する
 
-Program.cs ファイルを開き、次のように定型コードを置き換えます。
+Program.cs ファイルを開き、次に示す定型コードへ書き換えてください。
 
 [!code-csharp[Main](create-an-odata-v4-client-app/samples/sample2.cs)]
 
-値を置き換える*serviceUri*以前からサービス URI とします。
+*serviceUri* の値を前のサービス URI へ置き換えます。
 
 [!code-csharp[Main](create-an-odata-v4-client-app/samples/sample3.cs)]
 
-アプリを実行するときに、次と出力されます。
+アプリを実行すると、次のような出力を得られるはずです。
 
 [!code-console[Main](create-an-odata-v4-client-app/samples/sample4.cmd)]
