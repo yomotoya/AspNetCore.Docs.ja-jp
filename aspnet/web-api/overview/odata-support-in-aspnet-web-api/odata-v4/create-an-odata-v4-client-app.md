@@ -47,16 +47,15 @@ Visual Studio から ProductService プロジェクトを実行します。 既�
 > [!NOTE]
 > 同じソリューション内の両方のプロジェクトを配置する場合は、デバッグを行わず、ProductService プロジェクトを実行することを確認してください。 次の手順では、コンソール アプリケーション プロジェクトを変更するときに実行されているサービスを保持する必要があります。
 
+## <a name="generate-the-service-proxy"></a>サービス プロキシを生成する
 
-## <a name="generate-the-service-proxy"></a>サービス プロキシを生成します。
+サービス プロキシは、OData サービスにアクセスするためのメソッドを定義する .NET クラスです。 プロキシは、メソッドの呼び出しをHTTP 要求に変換します。 [T4 テンプレート](https://msdn.microsoft.com/library/bb126445.aspx) を実行することによって、プロキシ クラスを作成することができます。
 
-サービス プロキシは、OData サービスにアクセスするためのメソッドを定義する .NET クラスです。 プロキシは、HTTP 要求にメソッド呼び出しを変換します。 実行して、プロキシ クラスを作成するが、 [T4 テンプレート](https://msdn.microsoft.com/library/bb126445.aspx)です。
-
-プロジェクトを右クリックします。 選択**追加** &gt; **新しい項目の**します。
+プロジェクトで右クリックします。[**追加**] &gt; [**新しい項目**] を選択します。
 
 ![](create-an-odata-v4-client-app/_static/image5.png)
 
-**新しい項目の追加**ダイアログで、 **Visual c# アイテム** &gt; **コード** &gt; **OData クライアント**です。 テンプレートに名前を&quot;ProductClient.tt&quot;です。 をクリックして**追加**でセキュリティの警告 をクリックします。
+[**新しい項目の追加**] ダイアログで、[**Visual C# アイテム**] &gt; [**コード**] &gt; **[OData クライアント]** を選択します。 テンプレートには &quot;ProductClient.tt&quot; と名前を付けてください。[**追加**] をクリックして、セキュリティ警告の画面を進めます。
 
 [![](create-an-odata-v4-client-app/_static/image7.png)](create-an-odata-v4-client-app/_static/image6.png)
 
@@ -87,5 +86,6 @@ Program.cs ファイルを開き、次に示す定型コードへ書き換えて
 [!code-csharp[Main](create-an-odata-v4-client-app/samples/sample3.cs)]
 
 アプリを実行すると、次のような出力を得られるはずです。
+
 
 [!code-console[Main](create-an-odata-v4-client-app/samples/sample4.cmd)]
