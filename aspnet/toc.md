@@ -1289,7 +1289,7 @@
 ##### [ASP.NET MVC Storefront パート 16: メンバーシップ変更と OpenID](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
 ##### [ASP.NET MVC Storefront パート 17: 精算と Jeff Atwood](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
 ##### [ASP.NET MVC Storefront パート 18: 顧客体験を生み出す](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience.md)
-##### [ASP.NET MVC MVC Storefront パート 19: 注文処理と Windows ワークフロー](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+##### [ASP.NET MVC Storefront パート 19: 注文処理と Windows ワークフロー](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
 ##### [ASP.NET MVC Storefront パート 19a: Windows ワークフローの続き](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
 ##### [ASP.NET MVC Storefront パート 20: ログに記録する](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging.md)
 ##### [ASP.NET MVC Storefront パート 21: 発注管理とパーソナル化](mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)

@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 8156bd1c7cfc111a6a121a89d845ca284ee1b7af
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 44e02888b53ee372ab93db5f90acb691f26b7519
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>.NET クライアント (c#) から Web API を呼び出す
 ====================
@@ -57,7 +57,7 @@ Visual Studio で、という名前の新しい Windows コンソール アプ�
 
 NuGet パッケージ マネージャーを使用して、Web API Client Libraries パッケージをインストールします。
 
-**[ツール]** メニューで、**[NuGet パッケージ マネージャー]** > **[パッケージ マネージャー コンソール]** の順に選択します。 パッケージ マネージャー コンソール (PMC) では、次のコマンドを入力します。
+**[ツール]** メニューで、**[NuGet パッケージ マネージャー]**、**[パッケージ マネージャー コンソール]** の順に選択します。 パッケージ マネージャー コンソール (PMC) では、次のコマンドを入力します。
 
 `Install-Package Microsoft.AspNet.WebApi.Client`
 
@@ -116,7 +116,7 @@ Json.NET は、.NET の人気のある高パフォーマンス JSON フレーム
 
 ときに**ReadAsAsync**が呼び出されたの既定のセットを使用して、パラメーターなしで*メディア フォーマッタ*応答本体を読み取る。 既定のフォーマッタは、JSON、XML、およびフォームの url エンコード データをサポートします。
 
-既定のフォーマッタを使用する代わりに、フォーマッタの一覧を指定することができます、 **ReadAsAsync**メソッドです。  使用して、フォーマッタの一覧は、カスタムのメディア タイプ フォーマッタがある場合に便利です。
+既定のフォーマッタを使用する代わりに、フォーマッタの一覧を指定することができます、 **ReadAsAsync**メソッドです。  フォーマッタのリストを使用して、カスタムのメディアの種類のフォーマッタがある場合に便利です。
 
 ```csharp
 var formatters = new List<MediaTypeFormatter>() {

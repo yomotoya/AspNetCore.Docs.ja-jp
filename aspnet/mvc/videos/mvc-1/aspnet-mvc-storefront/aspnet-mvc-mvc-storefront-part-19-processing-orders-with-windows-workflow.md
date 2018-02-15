@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow
 msc.type: video
 ms.openlocfilehash: 56d2802b571561cb31f45bc7ed118eb33a4641bb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow"></a>ASP.NET MVC MVC Storefront 一部 19: Windows ワークフローの注文の処理
 ====================

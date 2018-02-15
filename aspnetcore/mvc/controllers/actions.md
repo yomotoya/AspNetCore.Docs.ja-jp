@@ -1,107 +1,107 @@
 ---
-title: "ASP.NET Core MVC のコント ローラーと要求の処理"
+title: "ASP.NET Core MVC でコントローラーで要求を処理する"
 author: ardalis
 description: 
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 07/03/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/controllers/actions
-ms.openlocfilehash: 99dcf1bd4f0dc4fcb6169f48bd398c9e40c21a35
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 1c6bf5ad92a43274af351652d240e2fa8873a956
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC のコント ローラーと要求の処理
+# <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC でコントローラーで要求を処理する
 
-によって[Steve Smith](https://ardalis.com/)と[Scott Addie](https://github.com/scottaddie)
+作成者: [Steve Smith](https://ardalis.com/)、[Scott Addie](https://github.com/scottaddie)
 
-コント ローラー、アクション、およびアクションの結果は、開発者が ASP.NET Core MVC を使用してアプリを構築する方法の基本的な部分です。
+コントローラー、アクション、アクションの結果は、開発者が ASP.NET Core MVC を利用してアプリをビルドするときの基本的な部分です。
 
-## <a name="what-is-a-controller"></a>コント ローラーとは何ですか。
+## <a name="what-is-a-controller"></a>コントローラーとは何か。
 
-コント ローラーは、定義およびアクションのセットをグループ化に使用されます。 アクション (または*アクション メソッド*) 要求を処理するコント ローラーのメソッドです。 コント ローラーを論理的にまとめると同様のアクション。 アクションのこの集計は、ルーティング、キャッシュ、および承認、総称して適用するなど、ルールの共通セットを許可します。 要求がによってアクションにマップされる[ルーティング](xref:mvc/controllers/routing)です。
+コントローラーは一連のアクションを定義し、グループ化するために使用されます。 アクション (または*アクション メソッド*) は、要求を処理するコントローラーのメソッドです。 コントローラーは、同様のアクションを論理的にグループ化します。 アクションをこのように集めることで、ルーティング、キャッシュ、承認など、一連の共通ルールをまとめて適用できます。 要求は[ルーティング](xref:mvc/controllers/routing)を介してアクションにマッピングされます。
 
-慣例により、コント ローラー クラス。
-* プロジェクトのルート レベルに存在する*コント ローラー*フォルダー
-* 継承します。`Microsoft.AspNetCore.Mvc.Controller`
+コントローラー クラスは慣例で
+* プロジェクトのルートレベル *[コントローラー]* フォルダーに置かれます
+* `Microsoft.AspNetCore.Mvc.Controller` から継承します
 
-コント ローラーは、true は、次の条件の少なくとも 1 つにインスタンス化可能なクラスを示します。
-* "Controller"でクラス名が付加されたもの
-* 名前を持つに"Controller"サフィックスがクラスからクラスを継承します。
-* クラスを装飾、`[Controller]`属性
+コントローラーはインスタンス化が可能なクラスであり、次の条件の少なくとも 1 つが当てはまります。
+* クラス名に "Controller" というサフィックスが付く
+* クラスが名前に "Controller" というサフィックスが付くクラスから継承する
+* クラスが `[Controller]` 属性で修飾される
 
-コント ローラー クラスが関連付けられていない必要があります`[NonController]`属性。
+コントローラー クラスには、`[NonController]` 属性を関連付けないでください。
 
-コント ローラーが従う必要があります、[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)です。 この原則を実装するのにはいくつかの方法はあります。 複数のコント ローラーのアクションは、同じサービスを必要とする場合は、使用を検討して[コンス トラクター インジェクション](xref:mvc/controllers/dependency-injection#constructor-injection)をこれらの依存関係を要求します。 サービスは、1 つのアクション メソッドのみが必要な場合は、使用を検討して[アクション インジェクション](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)を依存関係を要求します。
+コントローラーは [Explicit Dependencies Principle](http://deviq.com/explicit-dependencies-principle/) に従う必要があります。 この原則を実装するための手法がいくつかあります。 複数のコントローラー アクションに同じサービスが必要な場合、[コンストラクターの挿入](xref:mvc/controllers/dependency-injection#constructor-injection)で依存関係を要求する方法を検討してください。 サービスを必要とするアクション メソッドが 1 つだけの場合、[アクションの挿入](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)で依存関係を要求する方法を検討してください。
 
-内で、 **M**odel -**V**ビュー -**C**ontroller パターンでは、コント ローラーは、要求の初期の処理と、モデルのインスタンス化を行います。 一般に、ビジネスの意思決定は、モデル内で実行してください。
+**M**odel-**V**iew-**C**ontroller パターン内では、コントローラーは要求の初回処理とモデルのインスタンス化を担います。 一般的に、ビジネスの決定はモデル内で実行するべきです。
 
-コント ローラーは、モデルの処理 (存在する場合) の結果を取得し、適切なビューとその関連するビューのデータまたは API 呼び出しの結果を返します。 詳しくは[ASP.NET Core MVC の概要](xref:mvc/overview)と[ASP.NET Core MVC および Visual Studio の使用を開始する](xref:tutorials/first-mvc-app/start-mvc)です。
+コントローラーはモデルの処理の結果を受け取り (結果があれば)、適切なビューとそれに関連付けられるビュー データを返すか、API 呼び出しの結果を返します。 詳細については、「[ASP.NET Core MVC の概要](xref:mvc/overview)」と「[ASP.NET Core MVC と Visual Studio の概要](xref:tutorials/first-mvc-app/start-mvc)」を参照してください。
 
-コント ローラーが、 *UI レベル*抽象化します。 その責任は、要求データが有効であることを確認するビュー (または API の結果) を返す必要があるを選択します。 十分に考慮されたアプリでは、データ アクセスやビジネス ロジックを直接含まれていません。 代わりに、コント ローラーは、これらの役割を処理するサービスに委任されます。
+コントローラーは *UI レベル*の抽象化です。 その役目は、要求データの有効性を確保することと返すビュー (あるいは、API の結果) を選択することです。 要素が十分に考慮されたアプリの場合、データ アクセスやビジネス ロジックは直接含まれません。 そうではなく、コントローラーはサービスにそのような役目を委任します。
 
-## <a name="defining-actions"></a>アクションの定義
+## <a name="defining-actions"></a>アクションを定義する
 
-コント ローラーで、パブリック メソッドを除くで修飾された、`[NonAction]`属性、操作を示します。 アクションのパラメーターは、データを要求にバインドされを使用して検証されます[モデル バインディング](xref:mvc/models/model-binding)です。 モデル バインドされているものすべてのモデルの検証が行われます。 `ModelState.IsValid`プロパティの値は、モデル バインディングと検証が成功したかどうかを示します。
+`[NonAction]` 属性で修飾されるものを除き、コントローラーのパブリック メソッドはアクションです。 アクションのパラメーターは要求データにバインドされ、[モデル バインド](xref:mvc/models/model-binding)により検証されます。 モデル検証は、モデル バインドされているすべてに実行されます。 プロパティ値 `ModelState.IsValid` は、モデルのバインドと検証に成功したかどうかを示します。
 
-アクション メソッドには、ビジネス問題を要求をマップするためのロジックを含める必要があります。 ビジネスに関する懸念がを介してコント ローラーにアクセスするサービスとして表される通常必要があります[依存性の注入](xref:mvc/controllers/dependency-injection)です。 アクションは、ビジネス アクションの結果をアプリケーションの状態にマップします。
+アクション メソッドには、要求をビジネスにマッピングするためのロジックを含めてください。 ビジネスは通常、コントローラーが[依存関係挿入](xref:mvc/controllers/dependency-injection)を経由してアクセスするサービスとして表されます。 アクションはビジネス アクションの結果をアプリケーションの状態にマッピングします。
 
-アクションは、何も返すことができますのインスタンスを頻繁に返す`IActionResult`(または`Task<IActionResult>`async メソッドの場合) の応答を生成します。 選択するため、アクション メソッドは*応答の種類*です。 アクションの結果*、応答は*します。
+アクションは何でも返すことができますが、多くの場合、応答を生成する `IActionResult` のインスタンス (あるいは、非同期メソッドの `Task<IActionResult>`) を返します。 アクション メソッドは、*応答の種類*の選択を担います。 アクションの結果は*応答を行いません*。
 
-### <a name="controller-helper-methods"></a>コント ローラーのヘルパー メソッド
+### <a name="controller-helper-methods"></a>コントローラー ヘルパー メソッド
 
-コント ローラーが通常から継承[コント ローラー](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller)は必要ありませんが、します。 派生する`Controller`ヘルパー メソッドの 3 つのカテゴリへのアクセスを提供します。
+コントローラーは通常、[コントローラー](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller)から継承します。ただし、これは必須ではありません。 `Controller` から派生することで、次の 3 つのカテゴリのヘルパー メソッドにアクセスできます。
 
-#### <a name="1-methods-resulting-in-an-empty-response-body"></a>1.空の応答本文で結果として得られるメソッド
+#### <a name="1-methods-resulting-in-an-empty-response-body"></a>1.応答の本文が空になるメソッド
 
-いいえ`Content-Type`応答本文を記述するコンテンツがないために、HTTP 応答ヘッダーが含まれています。
+`Content-Type` HTTP 応答ヘッダーが含まれません。応答の本文に記述するコンテンツがないためです。
 
-このカテゴリ内の 2 つの結果型がある: リダイレクトと HTTP ステータス コード。
+このカテゴリの中に、リダイレクトと HTTP 状態コードという 2 つの種類の結果があります。
 
 * **HTTP 状態コード**
 
-    この型には、HTTP ステータス コードが返されます。 この型のいくつかのヘルパー メソッドは、 `BadRequest`、 `NotFound`、および`Ok`です。 たとえば、`return BadRequest();`実行時に、400 状態コードが生成されます。 ときになどのメソッド`BadRequest`、 `NotFound`、および`Ok`は、オーバー ロードされた、適合しなく HTTP ステータス コード応答者としてコンテンツ ネゴシエーションが行われているためです。
+    この型は HTTP 状態コードを返します。 この種類のヘルパー メソッドには、`BadRequest`、`NotFound`、`Ok` などがあります。 たとえば、`return BadRequest();` の場合、実行時に 400 状態コードが生成されます。 `BadRequest`、`NotFound`、`Ok` などのメソッドがオーバーロードされると、HTTP ステータス コードのレスポンダーでなくなります。コンテンツ ネゴシエーションが発生するためです。
 
-* **Redirect**
+* **リダイレクト**
 
-    この型には、アクションまたは変換先へリダイレクトが返されます (を使用して`Redirect`、 `LocalRedirect`、 `RedirectToAction`、または`RedirectToRoute`)。 たとえば、`return RedirectToAction("Complete", new {id = 123});`にリダイレクト`Complete`、匿名オブジェクトを渡します。
+    この種類では、アクションまたは宛先にリダイレクトが返されます (`Redirect`、`LocalRedirect`、`RedirectToAction`、`RedirectToRoute` を利用して)。 たとえば、`return RedirectToAction("Complete", new {id = 123});` は `Complete` にリダイレクトし、匿名のオブジェクトを渡します。
 
-    リダイレクトの結果の型は、主に加えての HTTP ステータス コード型とは異なる、 `Location` HTTP 応答ヘッダー。
+    リダイレクトの結果の種類は HTTP ステータス コードの種類とは、`Location` HTTP 応答ヘッダーを追加するという点で主に異なります。
 
-#### <a name="2-methods-resulting-in-a-non-empty-response-body-with-a-predefined-content-type"></a>2.定義済みコンテンツの種類を空の応答本文で結果として得られるメソッド
+#### <a name="2-methods-resulting-in-a-non-empty-response-body-with-a-predefined-content-type"></a>2.空ではない応答本文と事前定義のコンテンツの種類が生成されるメソッド
 
-このカテゴリのほとんどのヘルパー メソッドが含まれて、`ContentType`プロパティを設定することができます、`Content-Type`応答ヘッダーを応答本文を記述します。
+このカテゴリのヘルパー メソッドの多くには `ContentType` プロパティが含まれ、`Content-Type` 応答ヘッダーを設定し、応答本文を記述できます。
 
-このカテゴリ内の 2 つの結果型がある:[ビュー](xref:mvc/views/overview)と[応答の書式設定](xref:mvc/models/formatting)です。
+このカテゴリには 2 種類の結果があります。[ビュー](xref:mvc/views/overview)と[書式設定された応答](xref:mvc/models/formatting)です。
 
 * **表示**
 
-    この型は、HTML を表示するために、モデルを使用するビューを返します。 たとえば、`return View(customer);`データ バインディングのビューにモデルを渡します。
+    この種類では、モデルを利用して HTML をレンダリングするビューが返されます。 たとえば、`return View(customer);` はデータ バインディングのビューにモデルを渡します。
 
-* **形式の応答**
+* **書式設定された応答**
 
-    この型は、特定の方法でオブジェクトを表すためには、JSON または類似のデータ交換形式を返します。 たとえば、 `return Json(customer);` JSON 形式を指定されたオブジェクトをシリアル化します。
+    この種類では、JSON または同様のデータ交換形式を返し、特定の手法でオブジェクトを表します。 たとえば、`return Json(customer);` の場合、与えられたオブジェクトを JSON 形式にシリアル化します。
     
-    この型の他の一般的な方法`File`、 `PhysicalFile`、および`VirtualFile`です。 たとえば、`return PhysicalFile(customerFilePath, "text/xml");`によって記述された XML ファイルを返す、 `Content-Type` "text/xml"応答ヘッダーの値。
+    この種類の一般的なメソッドには他に `File`、`PhysicalFile`、`VirtualFile` などがあります。 たとえば、`return PhysicalFile(customerFilePath, "text/xml");` は、`Content-Type` 応答ヘッダー値の "text/xml" で表される XML ファイルを返します。
 
-#### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3.空の応答本文のメソッドは、クライアントとのネゴシエーション コンテンツの種類で書式設定
+#### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3.クライアントとネゴシエーションしたコンテンツの種類で書式設定された空ではない応答本文を生成するメソッド
 
-このカテゴリより適切と呼ばれる**コンテンツ ネゴシエーション**です。 [コンテンツ ネゴシエーション](xref:mvc/models/formatting#content-negotiation)、操作が返された場合に適用されます、 [ObjectResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.objectresult)型または以外の何か、 [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult)実装します。 以外を返すアクション`IActionResult`実装 (たとえば、 `object`) も、形式の応答を返します。
+このカテゴリは、**コンテンツ ネゴシエーション**として知られています。 [コンテンツ ネゴシエーション](xref:mvc/models/formatting#content-negotiation)は、アクションが [ObjectResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.objectresult) 型を返すか、[IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) 実装以外の何かを返すときに適用されます。 非 `IActionResult` の実装 (`object` など) を返すアクションは、書式設定された応答も返します。
 
-この型の一部のヘルパー メソッドを含める`BadRequest`、 `CreatedAtRoute`、および`Ok`です。 これらのメソッドの例として、 `return BadRequest(modelState);`、 `return CreatedAtRoute("routename", values, newobject);`、および`return Ok(value);`、それぞれします。 なお`BadRequest`と`Ok`値を渡すこと、なく代わりとして使用され、結果の HTTP ステータス コードの種類以外の値を渡す場合にのみ、コンテンツ ネゴシエーションを実行します。 `CreatedAtRoute`メソッド、その一方で、常にコンテンツ ネゴシエーションを実行値が渡されることが必要なすべてのオーバー ロード以降。
+この種類のヘルパー メソッドには `BadRequest`、`CreatedAtRoute`、`Ok` などがあります。 このようなメソッドの例として、それぞれ `return BadRequest(modelState);`、`return CreatedAtRoute("routename", values, newobject);`、`return Ok(value);` があります。 `BadRequest` と `Ok` は、値が渡されたときにのみ、コンテンツ ネゴシエーションを実行します。値が渡されなければ、代わりに HTTP ステータス コードという結果の種類としてサービスを提供します。 一方、`CreatedAtRoute` メソッドは常にコンテンツ ネゴシエーションを実行します。そのあらゆるオーバーロードにおいて、値を渡すことが必要になるためです。
 
-### <a name="cross-cutting-concerns"></a>横断的関心事
+### <a name="cross-cutting-concerns"></a>横断的な問題
 
-アプリケーションは、通常、ワークフローの部分を共有します。 例には、ショッピング カートにアクセスする認証を必要とするアプリまたはいくつかのページ上のデータをキャッシュするアプリが含まれます。 ロジックを実行するアクション メソッドの前後に、使用、*フィルター*です。 使用して[フィルター](xref:mvc/controllers/filters)横断的関心事に従うことの重複を減らすことができます、[しない繰り返します自分で (ドライ) 原則](http://deviq.com/don-t-repeat-yourself/)です。
+アプリケーションは通常、ワークフローの一部を共有します。 たとえば、ショッピング カートにアクセスする際、認証を要求するアプリや一部のページでデータをキャッシュするアプリです。 アクション メソッドの前または後でロジックを実行するには、*フィルター*を使用します。 横断的な問題で[フィルター](xref:mvc/controllers/filters)を使用すると、重複がなくなります。[DRY (Don't Repeat Yourself/繰り返しを避ける) 原則](http://deviq.com/don-t-repeat-yourself/)に従うことが可能になります。
 
-最もなどの属性をフィルター処理`[Authorize]`、目的のレベルの粒度に応じてコント ローラーまたはアクションのレベルで適用されることができます。
+`[Authorize]` など、フィルター属性の多くは、求められる詳細度に基づき、コントローラーまたはアクション レベルで適用できます。
 
-エラー処理と応答のキャッシュは多くの場合、横断的関心事です。
+エラー処理と応答キャッシュは多くの場合、横断的な問題です。
    * [エラー処理](xref:mvc/controllers/filters#exception-filters)
    * [応答キャッシュ](xref:performance/caching/response)
 
-フィルターまたはカスタムを使用して処理できる多くの横断的関心事[ミドルウェア](xref:fundamentals/middleware)です。
+横断的な問題の多くはフィルターやカスタム [ミドルウェア](xref:fundamentals/middleware)の利用で処理できます。

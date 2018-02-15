@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: af08039de2d810948b9ab64974111b0346c7fa0f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2a65e4b793b615c45cdf31166e0a000ae72ee534
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>手順 10: 最終的な更新プログラムのナビゲーションおよびサイト設計、結論
 ====================
@@ -135,7 +135,7 @@ GenreMenu コント ローラーのアクションを右クリックし、次に
 
 ## <a name="conclusion"></a>まとめ
 
-ASP.NET MVC 簡単これまで見てきたなどのデータベース アクセス、メンバーシップ、AJAX、高度な web サイトを作成します。 非常に短時間です。 おそらくこのチュートリアルが提供されているツールを独自の ASP.NET MVC アプリケーションの構築を開始する必要があります!
+ある ASP.NET MVC 簡単これまで見てきたなどのデータベース アクセス、メンバーシップ、AJAX、高度な web サイトを作成します。 非常に短時間です。 おそらくこのチュートリアルが提供されているツールを独自の ASP.NET MVC アプリケーションの構築を開始する必要があります!
 
 
 >[!div class="step-by-step"]

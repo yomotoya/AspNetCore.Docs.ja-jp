@@ -1,39 +1,39 @@
 ---
-title: "キャッシュ タグ ヘルパーの分散 |Microsoft ドキュメント"
+title: "ASP.NET Core の分散キャッシュ タグ ヘルパー"
 author: pkellner
-description: "キャッシュ タグ ヘルパーを使用する方法を示しています。"
-ms.author: riande
+description: "キャッシュ タグ ヘルパーを使用する方法を示します"
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: f5844dade218fdba1169a55fe3ce251a9cc03db2
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
-ms.translationtype: MT
+ms.openlocfilehash: 710477732b865e2e3821102d34545bbd4e0a5919
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="distributed-cache-tag-helper"></a>分散キャッシュ タグ ヘルパー
 
 著者: [Peter Kellner](http://peterkellner.net) 
 
 
-分散キャッシュ タグ ヘルパーは、分散キャッシュ ソースにそのコンテンツをキャッシュすることによって、ASP.NET Core アプリケーションのパフォーマンスを大幅に改善する機能を提供します。
+分散キャッシュ タグ ヘルパーは、ASP.NET Core アプリの内容を分散キャッシュ ソースにキャッシュすることによって、アプリのパフォーマンスを大幅に改善する機能を提供します。
 
-分散キャッシュ タグ ヘルパーは、キャッシュ タグ ヘルパーと同じ基本クラスから継承します。  キャッシュ タグ ヘルパーに関連付けられているすべての属性は、分散タグ ヘルパーでも機能します。
+分散キャッシュ タグ ヘルパーは、キャッシュ タグ ヘルパーと同じ基本クラスから継承されます。  キャッシュ タグ ヘルパーに関連付けられているすべての属性は、分散タグ ヘルパーでも機能します。
 
 
-分散キャッシュ タグ ヘルパーの後、**明示的な依存関係の原則**と呼ばれる**コンス トラクター インジェクション**です。  具体的には、`IDistributedCache`インターフェイス コンテナーは、分散キャッシュ タグ ヘルパーのコンス トラクターに渡されます。  場合のない特定の具象実装`IDistributedCache`内で作成された`ConfigureServices`、通常、startup.cs の分散キャッシュ タグ ヘルパーは基本のキャッシュ タグ ヘルパーとしてキャッシュされたデータを格納するため同じメモリ内のプロバイダーを使用します。
+分散キャッシュ タグ ヘルパーは、**コンストラクター インジェクション**と呼ばれる**明示的な依存関係の原則**に従います。  具体的には、`IDistributedCache` インターフェイス コンテナーは、分散キャッシュ タグ ヘルパーのコンストラクターに渡されます。  `ConfigureServices` に `IDistributedCache` の具体的な実装が作成されていない場合 (通常は startup.cs にあります)、分散キャッシュ タグ ヘルパーはキャッシュされたデータの格納に基本キャッシュ タグ ヘルパーと同じメモリ内プロバイダーを使用します。
 
-## <a name="distributed-cache-tag-helper-attributes"></a>分散キャッシュ タグ ヘルパー属性
+## <a name="distributed-cache-tag-helper-attributes"></a>分散キャッシュ タグ ヘルパーの属性
 
 - - -
 
-### <a name="enabled-expires-on-expires-after-expires-sliding-vary-by-header-vary-by-query-vary-by-route-vary-by-cookie-vary-by-user-vary-by-priority"></a>有効期限が切れるの有効期限が切れた後に有効期限が切れる-スライディング有効になっているヘッダーの異なるクエリによって異なりますルートによって異なります cookie の異なるユーザーによって異なる別の優先順位
+### <a name="enabled-expires-on-expires-after-expires-sliding-vary-by-header-vary-by-query-vary-by-route-vary-by-cookie-vary-by-user-vary-by-priority"></a>expires-on expires-after expires-sliding vary-by-header vary-by-query vary-by-route vary-by-cookie vary-by-user vary-by priority が有効
 
-定義については、タグ ヘルパーのキャッシュを参照してください。 分散キャッシュ タグ ヘルパーは、これらすべての属性はキャッシュ タグ ヘルパーから一般的なので、キャッシュ タグ ヘルパーと同じクラスから継承します。
+定義については、キャッシュ タグ ヘルパーを参照してください。 分散キャッシュ タグ ヘルパーはキャッシュ タグ ヘルパーと同じクラスから継承されるため、これらすべての属性がキャッシュ タグ ヘルパーと共通しています。
 
 - - -
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 01/19/2018
 |----------------   |----------------   |
 | string    | "my-distributed-cache-unique-key-101"     |
 
-必要な`name`属性は、分散キャッシュ タグ ヘルパーのインスタンスごとに格納されているキャッシュへのキーとして使用します。  Razor ページで、タグ ヘルパーの場所と Razor ページ名に基づいて各タグ ヘルパーのキャッシュ インスタンスをキーを代入する基本的なキャッシュ タグ ヘルパーとは異なり、分散キャッシュ タグ ヘルパーのみに基づいて、キーの属性`name`
+必須の `name` 属性は、分散キャッシュ タグ ヘルパーのインスタンスごとに保存されているキャッシュのキーとして使用されます。  基本キャッシュ タグ ヘルパーは Razor ページ名と、Razor ページのタグ ヘルパーの場所に基づいて各キャッシュ タグ ヘルパー インスタンスにキーを割り当てますが、分散キャッシュ タグ ヘルパーのキーが基準とするのは属性 `name` のみです
 
 使用例:
 
@@ -53,11 +53,11 @@ ms.lasthandoff: 01/19/2018
 </distributed-cache>
 ```
 
-## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a>キャッシュ タグ ヘルパー IDistributedCache 実装の分散
+## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a>分散キャッシュ タグ ヘルパー IDistributedCache の実装
 
-2 つの実装がある`IDistributedCache`ASP.NET Core に組み込まれています。  いずれかに基づきます**Sql Server** 、もう一方に基づいて**Redis**です。 これらの実装の詳細については、名前付き「での作業を分散キャッシュ」の下で参照されているリソースで確認できます。 どちらの実装では、インスタンスの設定が関係`IDistributedCache`ASP.NET Core で**startup.cs**です。
+ASP.NET Core には `IDistributedCache` の 2 つの実装が組み込まれています。  1 つは **SQL Server** に基づき、もう 1 つは **Redis** に基づきます。 これらの実装の詳細については、下で参照されている "分散キャッシュの使用" のリソースで確認できます。 どちらの実装も、ASP.NET Core の **startup.cs** で `IDistributedCache` のインスタンスの設定を伴います。
 
-具体的にはの特定の実装を使用してに関連付けられているタグの属性がない`IDistributedCache`です。
+`IDistributedCache` のいずれかの具体的な実装の使用に、明確に関連付けられている属性はありません。
 
 
 

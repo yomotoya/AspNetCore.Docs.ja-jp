@@ -1,51 +1,51 @@
 ---
-title: "カスタム モデル バインディング"
+title: "カスタム モデル バインド"
 author: ardalis
-description: "ASP.NET Core mvc モデル バインディングをカスタマイズします。"
-ms.author: riande
+description: "ASP.NET Core MVC でのカスタム モデル バインド。"
 manager: wpickett
+ms.author: riande
 ms.date: 04/10/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 85d5ca18944e774d1f2577459c6c45acde01e4d9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 313bc586a1c313f0bf5d8f413a4b082ffc2b7f0c
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="custom-model-binding"></a>カスタム モデル バインディング
+# <a name="custom-model-binding"></a>カスタム モデル バインド
 
-によって[Steve Smith](https://ardalis.com/)
+作成者: [Steve Smith](https://ardalis.com/)
 
-モデル バインディングでは、モデルの種類 (渡されるとメソッドの引数として) ではなく HTTP 要求よりもを直接操作するコント ローラーのアクションを許可します。 入力方向の要求データとアプリケーションのモデル間のマッピングは、モデル バインダーによって処理されます。 開発者は、カスタム モデル バインダー (ただし、通常、独自のプロバイダーを記述する必要はありません) を実装することによって、組み込みのモデル バインディング機能を拡張できます。
+モデル バインドにより、コントローラー アクションが HTTP 要求ではなく (メソッド引数として渡される) モデルの型を直接操作できるようになります。 受信要求データとアプリケーション モデルのマッピングは、モデル バインダーによって処理されます。 開発者は、カスタム モデル バインダーを実装することで組み込みのモデル バインド機能を拡張することができます (ただし、通常は自分のプロバイダーを記述する必要はありません)。
 
-[GitHub から表示またはダウンロードのサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/)
+[GitHub のサンプルを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/)
 
 ## <a name="default-model-binder-limitations"></a>既定のモデル バインダーの制限事項
 
-既定のモデル バインダーは、ほとんどの一般的な .NET Core データ型をサポートし、ほとんどの開発者のニーズを満たす必要があります。 テキスト ベースの入力を要求の種類のモデルに直接バインドを享受できます。 それをバインドする前に、入力を変換する必要があります。 たとえばがある場合、モデル データの検索に使用できるキー。 キーに基づいてデータをフェッチするのにカスタム モデル バインダーを使用することができます。
+既定のモデル バインダーは、一般的な .NET Core データ型の多くをサポートし、ほとんどの開発者のニーズを満たします。 要求からのテキストベースの入力をモデルの型に直接バインドすることが見込まれています。 入力は、バインドする前に変換しなければならないことがあります。 たとえば、モデル データの検索に使用できるキーがある場合などです。 カスタム モデル バインダーを使用すると、キーに基づいてデータをフェッチすることができます。
 
-## <a name="model-binding-review"></a>モデル バインディングのレビュー
+## <a name="model-binding-review"></a>モデル バインドの確認
 
-モデル バインドは、上で動作の種類に固有の定義を使用します。 A*単純型*が入力内の 1 つの文字列から変換されます。 A*複合型*が複数の入力値から変換されます。 フレームワークの存在に基づいて差を決定する、`TypeConverter`です。 単純ながある場合に実行する型コンバーターを作成することをお勧めします。 `string`  ->  `SomeType`外部リソースを必要としないマッピングします。
+モデル バインドは、操作の対象とする型に特定の定義を使用します。 *単純型*は、入力の 1 つの文字列から変換されます。 *複合型*は、複数の入力値から変換されます。 フレームワークは、`TypeConverter` の存在の有無によって違いを判断します。 外部リソースを必要としない `string` -> `SomeType` の単純なマッピングがある場合は型コンバーターを作成することをお勧めします。
 
-独自のカスタム モデル バインダーを作成する前にどのように既存のモデルを確認する価値のバインダーが実装されているをお勧めします。 検討してください、 [ByteArrayModelBinder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinder)これは、base64 でエンコードされた文字列をバイト配列に変換を使用できます。 バイト配列は多くの場合、ファイルまたはデータベース BLOB フィールドとして格納されます。
+独自のカスタム モデル バインダーを作成する前に、既存のモデル バインダーがどのように実装されているかを確認するとよいでしょう。 Base64 でエンコードされた文字列をバイト配列に変換できる、[ByteArrayModelBinder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinder) の使用を検討してください。 バイト配列は多くの場合、ファイルまたはデータベース BLOB のフィールドとして格納されます。
 
 ### <a name="working-with-the-bytearraymodelbinder"></a>ByteArrayModelBinder の操作
 
-バイナリ データを表す、Base64 でエンコードされた文字列を使用できます。 たとえば、次の図は、文字列としてエンコードできます。
+Base64 でエンコードされた文字列を使用してバイナリ データを表すことができます。 たとえば、次のイメージは、文字列としてエンコードできます。
 
 ![dotnet bot](custom-model-binding/images/bot.png "dotnet bot")
 
-エンコードされた文字列の一部は、次の図で示されます。
+次のイメージは、エンコードされた文字列の一部を示したものです。
 
-![エンコードされた dotnet bot](custom-model-binding/images/encoded-bot.png "dotnet bot エンコード")
+![エンコードされた dotnet bot](custom-model-binding/images/encoded-bot.png "エンコードされた dotnet bot")
 
-指示に従って、[サンプルの README](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md)を base64 でエンコードされた文字列をファイルに変換します。
+[サンプルの README](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) の指示に従って、Base64 でエンコードされた文字列をファイルに変換します。
 
-ASP.NET Core MVC の base64 でエンコードされた文字列を撮影して使用することができます、`ByteArrayModelBinder`バイト配列に変換します。 [ByteArrayModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider)を実装する[IModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider)マップ`byte[]`引数`ByteArrayModelBinder`:
+ASP.NET Core MVC は Base64 でエンコードされた文字列を取得し、`ByteArrayModelBinder` を使用してこれをバイト配列に変換します。 [IModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) を実装する [ByteArrayModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) は、次のようにして `byte[]` 引数を `ByteArrayModelBinder` にマップします。
 
 ```csharp
 public IModelBinder GetBinder(ModelBinderProviderContext context)
@@ -64,75 +64,75 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 }
 ```
 
-独自のカスタム モデル バインダーを作成するときにすることができます独自に実装`IModelBinderProvider`入力するかを使用して、 [ModelBinderAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinderattribute)です。
+独自のカスタム モデル バインダーを作成するときには、独自の `IModelBinderProvider` 型を実装するか、[ModelBinderAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinderattribute) を使用することができます。
 
-使用する次の例に示します`ByteArrayModelBinder`を base64 でエンコードされた文字列に変換する、`byte[]`し、結果をファイルに保存します。
+次の例は、`ByteArrayModelBinder` を使用して Base64 でエンコードされた文字列を `byte[]` に変換し、結果をファイルに保存する方法を示しています。
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post1&highlight=3)]
 
-などのツールを使用してこの api メソッドに base64 でエンコードされた文字列を投稿する[Postman](https://www.getpostman.com/):
+[Postman](https://www.getpostman.com/) のようなツールを使用すると、この API メソッドに Base64 でエンコードされた文字列を POST することができます。
 
 ![postman](custom-model-binding/images/postman.png "postman")
 
-バインダーは、要求データを適切に名前付きプロパティまたは引数をバインドできます、限りモデル バインドは成功します。 次の例は、使用する方法を示しています。`ByteArrayModelBinder`ビュー モデルを含む。
+バインダーが要求データを適切に命名されたプロパティまたは引数にバインドできれば、モデル バインドは成功します。 ビュー モデルを指定して `ByteArrayModelBinder` を使用する方法を次の例に示します。
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post2&highlight=2)]
 
 ## <a name="custom-model-binder-sample"></a>カスタム モデル バインダーのサンプル
 
-このセクションで、カスタム モデル バインダーを実装します。
+このセクションでは、次のようなカスタム モデル バインダーを実装します。
 
-- 受信した要求データを厳密に型指定されたキーの引数に変換します。
-- Entity Framework のコアを使用すると、関連するエンティティをフェッチします。
-- 関連するエンティティを引数としてアクション メソッドに渡します。
+- 受信した要求データを厳密に型指定されたキーの引数に変換する。
+- Entity Framework Core を使用して関連するエンティティをフェッチする。
+- 関連するエンティティを引数としてアクション メソッドに渡す。
 
-次のサンプルは、`ModelBinder`属性を`Author`モデル。
+次のサンプルでは、`Author` モデルの `ModelBinder` 属性を使用しています。
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
 
-上記のコードでは、`ModelBinder`属性の型を指定`IModelBinder`バインドを使用する必要のある`Author`アクションのパラメーターです。 
+上記のコードでは、`Author` アクション パラメーターのバインドで使用される必要がある `IModelBinder` の型が `ModelBinder` 属性で指定されています。 
 
-`AuthorEntityBinder`に連結するため、`Author`エンティティ フレームワークのコアを使用してデータ ソースからエンティティをフェッチしてパラメーターと`authorId`:
+`AuthorEntityBinder` は、Entity Framework Core と `authorId` を使用してデータ ソースからエンティティをフェッチすることで `Author` パラメーターをバインドするために使用されます。
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
 
-次のコードを使用する方法を示しています、`AuthorEntityBinder`アクション メソッドで。
+アクション メソッドでの `AuthorEntityBinder` の使用方法を次のコードに示します。
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo2&highlight=2)]
 
-`ModelBinder`を適用する属性を使用することができます、`AuthorEntityBinder`既定の規則を使用していないパラメーターにします。
+`ModelBinder` 属性を使用すると、既定の規則を使用しないパラメーターに `AuthorEntityBinder` を適用できます。
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
-引数の名前が既定値はありませんので、この例では`authorId`、パラメーターを使用して、指定されている`ModelBinder`属性。 コント ローラーとアクションの両方のメソッドは、アクション メソッド内のエンティティの検索と比較して簡素化することに注意してください。 Entity Framework のコアを使用して、作成者をフェッチするためのロジックは、モデル バインダーに移動されます。 作成者モデルにバインドし、次に役立つことがいくつかのメソッドがあるときはかなり単純化できます、[ドライ原則](http://deviq.com/don-t-repeat-yourself/)です。
+この例では引数の名前が既定の `authorId` ではないため、`ModelBinder` 属性を使用してパラメーターに指定されています。 コント ローラーとアクション メソッドの両方とも、アクション メソッドでのエンティティの検索と比べて簡素化されています。 Entity Framework Core を使用して作成者をフェッチするためのロジックは、モデル バインダーに移動しています。 これは、作成者モデルにバインドするメソッドがいくつかある場合、大幅な簡素化になる可能性があり、[DRY 原則](http://deviq.com/don-t-repeat-yourself/)への準拠にもつながります。
 
-適用することができます、`ModelBinder`属性個々 のモデルのプロパティを (など、viewmodel で) またはアクション メソッドのパラメーターを特定のモデル バインダーまたはその型またはアクションだけのモデル名を指定します。
+`ModelBinder` 属性を (ビューモデルなどの) 個々のモデル プロパティまたはアクション メソッド パラメーターに適用して、その型やアクションのみを対象とする特定のモデル バインダーまたはモデル名を指定することができます。
 
-### <a name="implementing-a-modelbinderprovider"></a>ModelBinderProvider を実装します。
+### <a name="implementing-a-modelbinderprovider"></a>ModelBinderProvider の実装
 
-実装する属性を適用するには、代わりに`IModelBinderProvider`です。 これは、組み込みフレームワーク バインダーの実装方法です。 型を指定する場合に、バインダーが動作するか、それによって生成される値の引数の型を指定する**いない**入力、バインダーを受け入れます。 次のバインダー プロバイダーが連動、`AuthorEntityBinder`です。 使用する必要はありません、プロバイダーの MVC のコレクションに追加されたとき、`ModelBinder`属性に`Author`または`Author`パラメーターを入力します。
+属性を適用する代わりに、`IModelBinderProvider` を実装することができます。 これは、組み込みフレームワーク バインダーの実装方法と同じです。 バインダーが動作する型を指定するときに、バインダーが受け入れる入力**ではなく**、生成される引数の型を指定します。 次のバインダー プロバイダーは `AuthorEntityBinder` で動作します。 プロバイダーの MVC のコレクションに追加されるときに、`Author` または `Author` の型のパラメーターで `ModelBinder` 属性を使用する必要はありません。
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
 
-> 注: 上記のコードを返します、`BinderTypeModelBinder`です。 `BinderTypeModelBinder`モデル バインダーのファクトリとして機能し、依存性の注入 (DI) を提供します。 `AuthorEntityBinder` DI EF コアにアクセスする必要があります。 使用して`BinderTypeModelBinder`DI からサービスが、モデル バインダーに必要な場合です。
+> 注: 上のコードは `BinderTypeModelBinder` を返します。 `BinderTypeModelBinder` はモデル バインダーのファクトリとして機能し、依存関係の挿入 (DI) を提供します。 `AuthorEntityBinder` は DI に EF Core へのアクセスを求めます。 モデル バインダーが DI からのサービスを必要としている場合は、`BinderTypeModelBinder` を使用してください。
 
-カスタム モデル バインダー プロバイダーを使用する追加の`ConfigureServices`:
+カスタム モデル バインダー プロバイダーを使用する場合、次のようにしてこれを `ConfigureServices` に追加します。
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
 
-モデル バインダーを評価するときに、プロバイダーのコレクションは順序どおりにチェックします。 バインダーを返します最初のプロバイダーが使用されます。
+モデル バインダーを評価するときに、プロバイダーのコレクションが順序どおりにチェックされます。 バインダーを返す最初のプロバイダーが使用されます。
 
-次の図は、デバッガーからのモデル バインダーに既定値を示します。
+次のイメージは、デバッガーの既定のモデル バインダーを示します。
 
 ![既定のモデル バインダー](custom-model-binding/images/default-model-binders.png "既定のモデル バインダー")
 
-コレクションの末尾には、プロバイダーを追加すると、組み込みのモデル バインダー前に、カスタムのバインダーに呼び出される可能性があります。 この例では、カスタムのプロバイダーがの使用されることを確認するコレクションの先頭に追加される`Author`アクションの引数。
+コレクションの末尾にプロバイダーを追加すると、カスタム バインダーより前に組み込みのモデル バインダーが呼び出される可能性があります。 この例では、カスタム プロバイダーが `Author` アクションの引数で使用されるように、コレクションの先頭に追加されています。
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
 
 ## <a name="recommendations-and-best-practices"></a>推奨事項とベスト プラクティス
 
-カスタム モデル バインダー。
-- ステータス コードを設定または結果を返すを試行しないでください (たとえば、404 Not Found)。 モデル バインドに失敗した場合、[アクション フィルター](xref:mvc/controllers/filters)自体アクション メソッド内のロジックは、エラーを処理する必要がありますか。
-- コードの繰り返しとアクション メソッドから横断的関心事を排除する最も便利です。
-- 通常、カスタムの型を文字列に変換に使用しないで、 [ `TypeConverter` ](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter)は通常より良いオプション。
+カスタム モデル バインダー:
+- 状態コードの設定または結果 (たとえば 404 Not Found) のリターンを試行しないでください。 モデル バインドが失敗した場合、アクション メソッド自体の[アクション フィルター](xref:mvc/controllers/filters)またはロジックでエラーが処理される必要があります。
+- アクション メソッドから繰り返しのコードや横断的な問題を排除する場合に最も役立ちます。
+- 通常、文字列をカスタムの型に変換する場合に使用すべきではありません。通常は、[`TypeConverter`](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter) の方がオプションとして優れています。

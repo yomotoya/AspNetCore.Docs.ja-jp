@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper
 msc.type: authoredcontent
-ms.openlocfilehash: 737773ab424b3ec3b6139b8c238a60ca23de2e69
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: abd9b5c09e942b966eb3eaaebe1b315c30b8e0c0
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a>ASP.NET MVC での DropDownList ヘルパーの scaffolds 方法を確認します。
 ====================
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/24/2018
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image1.png)
 
-編集、 *StoreManager\Index.cshtml*表示および削除`AlbumArtUrl`です。 削除する`AlbumArtUrl`は、プレゼンテーションを読みやすくします。 完成したコードは、以下に示します。
+編集、 *StoreManager\Index.cshtml*表示および削除`AlbumArtUrl`です。 削除する`AlbumArtUrl`は、プレゼンテーションを読みやすくします。 完成したコードを以下に示します。
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample1.cshtml)]
 
@@ -112,7 +112,7 @@ HTML`<select>`要素 (HTML によって作成された[DropDownList](https://msd
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample10.cs)]
 
-設定する 2 つの行を置き換える、`ViewBag`内の各、`Create`と`Edit`メソッドを呼び出して、`SetGenreArtistViewBag`メソッドです。 完成したコードは、以下に示します。
+設定する 2 つの行を置き換える、`ViewBag`内の各、`Create`と`Edit`メソッドを呼び出して、`SetGenreArtistViewBag`メソッドです。 完成したコードを以下に示します。
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample11.cs)]
 
@@ -168,7 +168,7 @@ HTML`<select>`要素 (HTML によって作成された[DropDownList](https://msd
 
 プロジェクトをビルドしますので、`AlbumSelectListViewModel`は次の手順で、ビューを作成した場合に使用できます。
 
-追加、`EditVM`メソッドを`StoreManagerController`です。 完成したコードは、以下に示します。
+追加、`EditVM`メソッドを`StoreManagerController`です。 完成したコードを以下に示します。
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample20.cs)]
 
@@ -202,7 +202,7 @@ HTML`<select>`要素 (HTML によって作成された[DropDownList](https://msd
 
 表示されるすべての 3 つの方法は、承認します。 Explictily パスに多くの開発者が必要に応じて、`SelectList`を`DropDownList`を使用して、`ViewBag`です。 この方法より適切なコレクションの名前を使用する柔軟性を提供するという追加の利点があります。 1 つの注意点は、名前を付けることはできません、`ViewBag SelectList`モデル プロパティと同じ名前のオブジェクトします。
 
-一部の開発者は、ViewModel アプローチを選択します。 他のユーザーより詳細な検討マークアップと生成される HTML、ViewModel のアプローチの欠点は、します。
+一部の開発者は、ViewModel アプローチを選択します。 他のユーザーより詳細なマークアップを考慮し、欠点は、ViewModel アプローチの HTML を生成します。
 
 このセクションを使用する 3 つの方法を学習おしました、 **DropDownList**カテゴリ データを使用します。 次のセクションでは、新しいカテゴリを追加する方法を紹介します。
 

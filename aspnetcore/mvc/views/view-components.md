@@ -1,107 +1,107 @@
 ---
-title: "コンポーネントの表示"
+title: "ビュー コンポーネント"
 author: rick-anderson
-description: "コンポーネントの表示は再利用可能なレンダリング ロジックがある任意の場所ものです。"
-ms.author: riande
+description: "ビュー コンポーネントは、再利用可能なレンダリング ロジックをどこでも使用できるようにするためのものです。"
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: 65074ca02a1365db278d348d4e024121a6eb4634
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 27e77b8fa032c2b5be753a27db748b7499e27105
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="view-components"></a>コンポーネントの表示
+# <a name="view-components"></a>ビュー コンポーネント
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-## <a name="introducing-view-components"></a>コンポーネントの表示の概要
+## <a name="introducing-view-components"></a>ビュー コンポーネントの概要
 
-新しい ASP.NET Core mvc コンポーネントの表示に似ています部分ビューのこれらははるかに強力なものです。 コンポーネントの表示はしない、モデル バインディングを使用し、呼び出し時に指定したデータにのみ依存します。 ビュー コンポーネント:
+ASP.NET Core MVC を初めてお使いの場合、ビュー コンポーネントは部分ビューと似ていますが、はるかに強力なものです。 ビュー コンポーネントでは、モデル バインドを使用せず、呼び出すときに指定されたデータのみに依存します。 ビュー コンポーネントの特徴は次のとおりです。
 
-* 応答の全体ではなく、チャンクを表示します。
-* 同じ問題の分離やテストの容易性の利点がありますが、コント ローラーとビューの間にあります。
-* パラメーターとビジネス ロジックを持つことができます。
-* 通常、レイアウト ページから呼び出されます
+* 応答全体ではなく、チャンクをレンダリングします。
+* コントローラーとビューの間にあるのと同じ関心の分離とテストの容易性の利点があります。
+* パラメーターとビジネス ロジックを含めることができます。
+* 通常、レイアウト ページから呼び出されます。
 
-コンポーネントの表示は、任意の場所などの複雑すぎるため、部分ビューが再利用可能なレンダリング ロジックがある場合。
+ビュー コンポーネントは、次のような部分ビューには複雑すぎる、再利用可能なレンダリング ロジックをどこでも使用できるようにするためのものです。
 
 * 動的なナビゲーション メニュー
-* タグのクラウド (データベースのクエリを)
+* タグ クラウド (データベースをクエリする場所)
 * ログイン パネル
 * ショッピング カート
-* パブリッシュされたアーティクル最近
-* 一般的なブログでサイドバーの内容
-* すべてのページにレンダリングされますをログアウトするかによっては、ユーザーの状態にあるログ、ログインに、いずれかのリンクを表示するログイン パネル
+* 新着情報の記事
+* 一般的なブログのサイドバーのコンテンツ
+* すべてのページでレンダリングされ、ユーザーの状態のログに応じて、ログアウトまたはログインのいずれかのリンクを示すログイン パネル
 
-ビュー コンポーネントは、2 つの部分で構成されています: クラス (から派生した通常[ViewComponent](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponent)) であり、結果 (通常はビュー) を返します。 コント ローラーと同様に、ビュー コンポーネントが、POCO をすることができますもほとんどの開発者は活用するために使用可能なプロパティとメソッドから派生することによって`ViewComponent`です。
+ビュー コンポーネントは、次の 2 つのパーツで構成されます。クラス (通常、[ViewComponent](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponent) から派生) と、クラスで返される結果 (通常はビュー) です。 コントローラーと同様に、ビュー コンポーネントは POCO の場合がありますが、ほとんどの開発者は `ViewComponent` から派生させて、利用できるメソッドとプロパティを活用する必要があります。
 
-## <a name="creating-a-view-component"></a>ビュー コンポーネントを作成します。
+## <a name="creating-a-view-component"></a>ビューのコンポーネントを作成する
 
-このセクションには、ビュー コンポーネントを作成する高レベルの要件が含まれています。 記事の後半でおうまく各手順の詳細を確認し、ビュー コンポーネントを作成します。
+このセクションには、ビュー コンポーネントを作成するための高レベルの要件が含まれています。 記事の後半で、各ステップの詳細を検証し、ビュー コンポーネントを作成します。
 
-### <a name="the-view-component-class"></a>ビューのコンポーネント クラス
+### <a name="the-view-component-class"></a>ビュー コンポーネント クラス
 
-次のいずれかのビュー コンポーネント クラスを作成できます。
+ビュー コンポーネント クラスは、次のいずれかによって作成できます。
 
-* 派生する*ViewComponent*
-* 持つクラスを装飾、`[ViewComponent]`属性、またはクラスから派生する、`[ViewComponent]`属性
-* 名前が、サフィックスで終わる、クラスを作成する*ViewComponent*
+* *ViewComponent* から派生させる
+* `[ViewComponent]` 属性でクラスを装飾するか、`[ViewComponent]` 属性でクラスから派生させる
+* 名前がサフィックス *ViewComponent* で終わるクラスを作成する
 
-コント ローラーのようにビュー コンポーネントは、パブリックの入れ子にされないインデックスおよび非抽象クラスをする必要があります。 ビューのコンポーネント名は、削除"ViewComponent"サフィックスを持つクラスの名前です。 明示的に指定できますを使用して、`ViewComponentAttribute.Name`プロパティです。
+コントローラーと同様に、ビュー コンポーネントは、パブリック クラス、入れ子にされていないクラス、および非抽象クラスである必要があります。 ビュー コンポーネント名は、"ViewComponent" サフィックスを除いたクラス名です。 また、これは `ViewComponentAttribute.Name` プロパティを使用して、明示的に指定することもできます。
 
-ビューのコンポーネント クラス:
+ビュー コンポーネント クラスの特徴は次のとおりです。
 
-* コンス トラクターを完全にサポート[依存関係の挿入](../../fundamentals/dependency-injection.md)
+* コンストラクターの[依存性の注入](../../fundamentals/dependency-injection.md)を完全にサポートします
 
-* コント ローラーのライフ サイクルは、使用できないことを意味の一部を受け取りません[フィルター](../controllers/filters.md)ビュー コンポーネント
+* コントローラーのライフサイクルに関わりません。つまり、ビュー コンポーネントで[フィルター](../controllers/filters.md)を使用できないということです
 
 ### <a name="view-component-methods"></a>ビュー コンポーネント メソッド
 
-表示コンポーネントにそのロジックを定義する、`InvokeAsync`を返すメソッド、`IViewComponentResult`です。 パラメーターは、モデル バインドからではなく、ビューのコンポーネントの呼び出しから直接取得します。 ビュー コンポーネントしない直接要求が処理されます。 通常、ビュー コンポーネントは、モデルを初期化し、呼び出すことによって、ビューに渡されます、`View`メソッドです。 要約すると、コンポーネントのメソッドを参照してください。
+ビュー コンポーネントでは、`IViewComponentResult` を返す `InvokeAsync` メソッドでそのロジックを定義します。 パラメーターは、モデル バインドではなく、ビュー コンポーネントから直接取得します。 ビュー コンポーネントが要求を直接処理することはありません。 通常、ビュー コンポーネントは、モデルを初期化し、`View` メソッドを呼び出してビューに渡します。 要約すると、ビュー コンポーネント メソッドの特徴は次のとおりです。
 
-* 定義、`InvokeAsync`を返すメソッドを`IViewComponentResult`
-* モデルの初期化を呼び出すことによって、ビューに渡します通常、 `ViewComponent` `View`メソッド。
-* パラメーターを取得する呼び出し元のメソッドでは、HTTP ではないから、モデルのバインドがありません。
-* HTTP エンドポイントとして直接到達可能ではない、して呼び出すことが (通常は、ビュー) で、コードからです。 ビューのコンポーネントが、要求を処理しません。
-* 詳細を現在の HTTP 要求ではなく、シグネチャではオーバー ロードします。
+* `IViewComponentResult` を返す `InvokeAsync` メソッドを定義します
+* 通常、モデルを初期化し、`ViewComponent` `View` メソッドを呼び出してビューに渡します
+* パラメーターは HTTP ではなく、呼び出しメソッドから取得されます。モデル バインドはありません
+* HTTP エンドポイントとして直接到達することはできません。自分のコード (通常はビュー内) から呼び出されます。 ビュー コンポーネントは要求を処理しません
+* 現在の HTTP 要求からの詳細ではなく、シグネチャでオーバーロードされます
 
 ### <a name="view-search-path"></a>ビューの検索パス
 
-ランタイムは、次のパスにビューを検索します。
+ランタイムでは、次のパスでビューを検索します。
 
-   * ビュー/\<controller_name >/Components/\<view_component_name >/\<view_name >
-   * Views/Shared/Components/\<view_component_name>/\<view_name>
+   * Views/\<コントローラー名>/Components/\<ビュー コンポーネント名>/\<ビュー名>
+   * Views/Shared/Components/\<ビュー コンポーネント名>/\<ビュー名>
 
-ビューのコンポーネントの既定のビュー名は*既定*、つまり、ビューは、ファイルは通常の名前*Default.cshtml*です。 別のビュー名を指定するには、ビューのコンポーネントの結果を作成するときに、または呼び出すときに、`View`メソッドです。
+ビュー コンポーネントの既定のビュー名は、*Default* です。つまり、通常、ビュー ファイルは *Default.cshtml* という名前になるということです。 ビュー コンポーネントの結果を作成したり、`View` メソッドを呼び出したりするときに、別のビュー名を指定することができます。
 
-ファイルの表示の名前を付けることをお勧め*Default.cshtml*を使用して、*コンポーネント/ビュー/共有/\<view_component_name >/\<view_name >*パス。 `PriorityList`このサンプルで使用されるビュー コンポーネントを使用して*Views/Shared/Components/PriorityList/Default.cshtml*ビュー コンポーネントをします。
+ビュー ファイルに *Default.cshtml* という名前を付けて、*Views/Shared/Components/\<ビュー コンポーネント名>/\<ビュー名>* パスを使用することをお勧めします。 このサンプルで使用される `PriorityList` ビュー コンポーネントは、ビュー コンポーネント ビューに *Views/Shared/Components/PriorityList/Default.cshtml* を使用します。
 
 ## <a name="invoking-a-view-component"></a>ビュー コンポーネントを呼び出す
 
-ビュー コンポーネントを使用して、次を呼び出して、ビュー内。
+ビュー コンポーネントを使用するには、ビュー内で以下を呼び出します。
 
 ```cshtml
 @Component.InvokeAsync("Name of view component", <anonymous type containing parameters>)
 ```
 
-パラメーターに渡される、`InvokeAsync`メソッドです。 `PriorityList`アーティクルで開発されたビュー コンポーネントが呼び出されて、 *Views/Todo/Index.cshtml*ファイルを表示します。 次の場合、`InvokeAsync`メソッドが呼び出された 2 つのパラメーター。
+パラメーターは、`InvokeAsync` メソッドに渡されます。 この記事で開発された `PriorityList` ビュー コンポーネントは、*Views/Todo/Index.cshtml* ビュー ファイルから呼び出されます。 以下では、`InvokeAsync` メソッドは、2 つのパラメーターで呼び出されます。
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
-## <a name="invoking-a-view-component-as-a-tag-helper"></a>としてタグ ヘルパーのビュー コンポーネントを呼び出す
+## <a name="invoking-a-view-component-as-a-tag-helper"></a>タグ ヘルパーとしてビュー コンポーネントを呼び出す
 
-ASP.NET Core 1.1 以降、としてビュー コンポーネントを呼び出すことができます、[タグ ヘルパー](xref:mvc/views/tag-helpers/intro):
+ASP.NET Core 1.1 以降の場合は、[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)としてビュー コンポーネントを呼び出すことができます。
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
-タグ ヘルパーのクラスとメソッドを pascal でパラメーターに変換された、 [kebab ケースを下げる](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101)です。 ビュー コンポーネントを呼び出すタグ ヘルパーを使用して、`<vc></vc>`要素。 ビューのコンポーネントの指定は次のとおりです。
+タグ ヘルパーのパスカル ケースのクラスとメソッドのパラメーターは、それぞれ[小文字のケバブ ケース](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101)に変換されます。 ビュー コンポーネントを呼び出すタグ ヘルパーでは、`<vc></vc>` 要素を使用します。 ビュー コンポーネントは、次のように指定されます。
 
 ```cshtml
 <vc:[view-component-name]
@@ -110,99 +110,99 @@ ASP.NET Core 1.1 以降、としてビュー コンポーネントを呼び出�
 </vc:[view-component-name]>
 ```
 
-注: タグ ヘルパーとしてビュー コンポーネントを使用するために必要がありますアセンブリを登録するを使用して、ビュー コンポーネントを含む、`@addTagHelper`ディレクティブです。 たとえば、ビュー コンポーネントが"MyWebApp"と呼ばれるアセンブリ内にある場合は、ディレクティブを追加、次に、`_ViewImports.cshtml`ファイル。
+注: ビュー コンポーネントをタグ ヘルパーとして使用するには、`@addTagHelper` ディレクティブを使用して、ビュー コンポーネントを含むアセンブリを登録する必要があります。 たとえば、ビュー コンポーネントが "MyWebApp" と呼ばれるアセンブリにある場合は、次のディレクティブを `_ViewImports.cshtml` ファイルに追加します。
 
 ```cshtml
 @addTagHelper *, MyWebApp
 ```
 
-ビュー コンポーネントを参照するすべてのファイルにタグ ヘルパーとしてビュー コンポーネントを登録することができます。 参照してください[タグ ヘルパーのスコープを管理する](xref:mvc/views/tag-helpers/intro#managing-tag-helper-scope)タグ ヘルパーを登録する方法の詳細についてはします。
+ビュー コンポーネントを参照する任意のファイルへのタグ ヘルパーとして、ビュー コンポーネントを登録できます。 タグ ヘルパーを登録する方法の詳細については、「[Managing Tag Helper Scope](xref:mvc/views/tag-helpers/intro#managing-tag-helper-scope)」 (タグ ヘルパーのスコープの管理) を参照してください。
 
-`InvokeAsync`このチュートリアルで使用されるメソッド。
+このチュートリアルで使用される `InvokeAsync` メソッドは、次のとおりです。
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
-タグ ヘルパーのマークアップ。
+タグ ヘルパーのマークアップでは、次のようになります。
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
-上記のサンプルでは、`PriorityList`表示コンポーネントになります`priority-list`です。 表示コンポーネントにパラメーターは、小文字 kebab 属性として渡されます。
+上記のサンプルでは、`PriorityList` ビュー コンポーネントは `priority-list` になります。 ビュー コンポーネントに対するパラメーターは、小文字のケバブ ケースの属性として渡されます。
 
-### <a name="invoking-a-view-component-directly-from-a-controller"></a>コント ローラーから直接ビュー コンポーネントを呼び出す
+### <a name="invoking-a-view-component-directly-from-a-controller"></a>ビュー コンポーネントをコントローラーから直接呼び出す
 
-コンポーネントの表示は通常、ビューから呼び出されますが、それらをコント ローラー メソッドから直接呼び出すことができます。 コンポーネントの表示がコント ローラーなどのエンドポイントを定義していないときに、コント ローラーのアクションの内容を表すオブジェクトを簡単に実装できます、`ViewComponentResult`です。
+通常、ビュー コンポーネントはビューから呼び出されますが、コントローラー メソッドから直接呼び出すことができます。 ビュー コンポーネントでコントローラーなどのエンドポイントを定義しないときに、`ViewComponentResult` のコンテンツを返すコントローラー アクションを簡単に実装できます。
 
-この例では、表示コンポーネントは、コント ローラーから直接呼び出されます。
+この例では、ビュー コンポーネントは、コントローラーから直接呼び出されます。
 
 [!code-csharp[Main](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
 ## <a name="walkthrough-creating-a-simple-view-component"></a>チュートリアル: 単純なビュー コンポーネントの作成
 
-[ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample)、ビルド、およびスタート コードをテストします。 単純なプロジェクトでは、`Todo`の一覧を表示するコント ローラー *Todo*項目。
+スタート コードを[ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample)、ビルド、およびテストします。 これは、*[Todo]* 項目のリストを表示する `Todo` コントローラーを含む単純なプロジェクトです。
 
-![Todo などの一覧](view-components/_static/2dos.png)
+![[ToDo] のリスト](view-components/_static/2dos.png)
 
-### <a name="add-a-viewcomponent-class"></a>ViewComponent クラスを追加します。
+### <a name="add-a-viewcomponent-class"></a>ViewComponent クラスの追加
 
-作成、 *ViewComponents*フォルダーに次の追加と`PriorityListViewComponent`クラス。
+*ViewComponents* フォルダーを作成して、次の `PriorityListViewComponent` クラスを追加します。
 
 [!code-csharp[Main](view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponent1.cs?name=snippet1)]
 
 コードに関する注意事項
 
-* ビュー クラスをコンポーネントに含まれていることができます**任意**プロジェクト内のフォルダーです。
-* クラスの名前を PriorityList のため**ViewComponent**サフィックスで終わる**ViewComponent**、ランタイムから見ると、クラスのコンポーネントを参照するときに文字列"PriorityList"が使用されます。 について説明をさらに詳しく後述します。
-* `[ViewComponent]`属性は、ビュー コンポーネントを参照するための名前を変更できます。 たとえば、でしたしたという名前を付けてクラス`XYZ`と適用、`ViewComponent`属性。
+* ビュー コンポーネント クラスは、プロジェクト内の**任意**のフォルダーに含めることができます。
+* クラス名 PriorityList**ViewComponent** は、サフィックス **ViewComponent** で終わるため、ビューからクラス コンポーネントを参照するときに、ランタイムでは文字列 "PriorityList" を使用します。 これについては、後で詳しく説明します。
+* `[ViewComponent]` 属性では、ビュー コンポーネントを参照するために使用する名前を変更できます。 たとえば、クラスに `XYZ` という名前を付けて、`ViewComponent` 属性を適用することができます。
 
   ```csharp
   [ViewComponent(Name = "PriorityList")]
      public class XYZ : ViewComponent
      ```
 
-* `[ViewComponent]`上の属性名を使用するビューの コンポーネントの選択を指示する`PriorityList`に関連付けられているコンポーネントでは、ビューから、クラスのコンポーネントを参照しているときに、文字列"PriorityList"を使用するビューを探すときにします。 について説明をさらに詳しく後述します。
-* コンポーネントを使用して[依存性の注入](../../fundamentals/dependency-injection.md)データ コンテキストを使用できるようにします。
-* `InvokeAsync`公開をビューから呼び出すことができるメソッドは、任意の数の引数を受け取ることができます。
-* `InvokeAsync`メソッドのセットを返します`ToDo`を満たす項目、`isDone`と`maxPriority`パラメーター。
+* 上述の `[ViewComponent]` 属性は、ビュー コンポーネント セレクターに、コンポーネントに関連付けられたビューを探す場合は `PriorityList` という名前を使用し、ビューからクラス コンポーネントを参照する場合は文字列 "PriorityList" を使用するように指示します。 これについては、後で詳しく説明します。
+* コンポーネントでは、[依存性の注入](../../fundamentals/dependency-injection.md)を使用して、データ コンテキストを利用できるようにします。
+* `InvokeAsync` ではビューから呼び出すことができるメソッドを表示し、任意の数の引数を取得できます。
+* `InvokeAsync` メソッドでは、`isDone` と `maxPriority` パラメーターを満たす `ToDo` 項目のセットを返します。
 
-### <a name="create-the-view-component-razor-view"></a>ビューのコンポーネントの Razor ビューを作成します。
+### <a name="create-the-view-component-razor-view"></a>ビュー コンポーネントの Razor ビューの作成
 
-* 作成、*コンポーネント/ビュー/共有*フォルダーです。 このフォルダー**必要があります**という名前を付ける*コンポーネント*です。
+* *Views/Shared/Components* フォルダーを作成します。 このフォルダーは、*Components* という名前にする**必要があります**。
 
-* 作成、*ビュー、共有、コンポーネント/PriorityList*フォルダーです。 このフォルダー名がビュー コンポーネント クラスの名前またはサフィックス マイナス クラスの名前に一致する必要があります (規約の後に使用すると、 *ViewComponent*クラス名にサフィックス)。 使用した場合、`ViewComponent`属性、クラス名は、属性の指定に一致する必要があります。
+* *Views/Shared/Components/PriorityList* フォルダーを作成します。 このフォルダー名は、ビュー コンポーネント クラスの名前、または (規則に従い、クラス名に *ViewComponent* サフィックスを使用した場合は) サフィックスを差し引いたクラスの名前に一致する必要があります。 `ViewComponent` 属性を使用した場合は、クラス名は属性の指定に一致する必要があります。
 
-* 作成、 *Views/Shared/Components/PriorityList/Default.cshtml* Razor ビュー。[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
+* *Views/Shared/Components/PriorityList/Default.cshtml* Razor ビューを作成します。[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
     
-   Razor ビューの一覧を受け取る`TodoItem`し、それらを表示します。 場合のビュー コンポーネント`InvokeAsync`メソッド (サンプルのように、)、ビューの名前に合格しなかった*既定*規則によって、ビュー名に使用します。 、このチュートリアルで後ほど説明するビューの名前を渡す方法です。 特定のコント ローラーの既定のスタイルを上書きするには、コント ローラーに固有のビュー フォルダーにビューを追加 (たとえば*Views/Todo/Components/PriorityList/Default.cshtml)*です。
+   Razor ビューでは、`TodoItem` のリストを取得して表示します。 ビュー コンポーネントの `InvokeAsync` メソッドで (サンプルのように) ビューの名前を渡さない場合、*Default* が規則によってビュー名に使用されます。 このチュートリアルの後半で、ビューの名前を渡す方法について示します。 特定のコントローラーの既定のスタイルをオーバーライドするには、コントローラーに固有のビュー フォルダー (例: *Views/Todo/Components/PriorityList/Default.cshtml)* にビューを追加します。
     
-    ビューのコンポーネントがコント ローラーに固有である場合は、コント ローラー固有のフォルダーに追加できます (*Views/Todo/Components/PriorityList/Default.cshtml*)。
+    ビュー コンポーネントがコントローラーに固有の場合、コントローラーに固有のフォルダー (*Views/Todo/Components/PriorityList/Default.cshtml*) に追加できます。
 
-* 追加、`div`の最下位に優先度リスト コンポーネントへの呼び出しを含む、 *Views/Todo/index.cshtml*ファイル。
+* 優先順位リストのコンポーネントの呼び出しを含む `div` を *Views/Todo/index.cshtml* ファイルの下部に追加します。
 
     [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFirst.cshtml?range=34-38)]
 
-マークアップ`@await Component.InvokeAsync`ビュー コンポーネントを呼び出すための構文を示しています。 最初の引数は、呼び出しを呼び出したりコンポーネントの名前です。 後続のパラメーターは、コンポーネントに渡されます。 `InvokeAsync`任意の数の引数を受け取ることができます。
+`@await Component.InvokeAsync` マークアップは、ビュー コンポーネントを呼び出すための構文を示します。 最初の引数は、呼び出す必要があるコンポーネントの名前です。 後続のパラメーターは、そのコンポーネントに渡されます。 `InvokeAsync` では、任意の数の引数を取得できます。
 
-アプリをテストします。 次の図は、ToDo リストと優先度の項目を示します。
+アプリをテストします。 次の画像は、[ToDo] リストと優先順位の項目を示します。
 
-![todo リストと優先順位の項目](view-components/_static/pi.png)
+![[ToDo] リストと優先順位の項目](view-components/_static/pi.png)
 
-コント ローラーから直接のビュー コンポーネントを呼び出すこともできます。
+また、コントローラーから直接ビュー コンポーネントを呼び出すこともできます。
 
 [!code-csharp[Main](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
-![IndexVC アクションからの優先度のアイテム](view-components/_static/indexvc.png)
+![IndexVC アクションからの優先順位の項目](view-components/_static/indexvc.png)
 
-### <a name="specifying-a-view-name"></a>ビュー名を指定します。
+### <a name="specifying-a-view-name"></a>ビュー名を指定する
 
-ビューの複雑なコンポーネントは、いくつかの条件下で、既定ではないビューを指定する必要があります。 次のコードから"PVC"ビューを指定する方法を示しています、`InvokeAsync`メソッドです。 更新プログラム、`InvokeAsync`メソッドで、`PriorityListViewComponent`クラスです。
+複雑なビュー コンポーネントでは、いくつかの条件下で、既定以外のビューを指定する必要がある場合があります。 次のコードでは、`InvokeAsync` メソッドから "PVC" ビューを指定する方法を示しています。 `PriorityListViewComponent` クラスで `InvokeAsync` メソッドを更新します。
 
 [!code-csharp[Main](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponentFinal.cs?highlight=4,5,6,7,8,9&range=28-39)]
 
-コピー、 *Views/Shared/Components/PriorityList/Default.cshtml*ファイルという名前のビューを*Views/Shared/Components/PriorityList/PVC.cshtml*です。 PVC ビューが使用されているを示すために見出しを追加します。
+*Views/Shared/Components/PriorityList/Default.cshtml* ファイルを *Views/Shared/Components/PriorityList/PVC.cshtml* という名前のビューにコピーします。 PVC ビューが使用されていることを示すために、見出しを追加します。
 
 [!code-cshtml[Main](../../mvc/views/view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/PVC.cshtml?highlight=3)]
 
-更新*Views/TodoList/Index.cshtml*:
+*Views/TodoList/Index.cshtml* を更新します。
 
 <!-- Views/TodoList/Index.cshtml is never imported, so change to test tutorial -->
 
@@ -212,13 +212,13 @@ ASP.NET Core 1.1 以降、としてビュー コンポーネントを呼び出�
 
 ![優先順位のビュー コンポーネント](view-components/_static/pvc.png)
 
-PVC ビューが表示されていない場合は、優先度が 4 以上のビュー コンポーネントを呼び出していることを確認します。
+PVC ビューがレンダリングされない場合は、4 以上の優先順位でビュー コンポーネントを呼び出していることを確認します。
 
 ### <a name="examine-the-view-path"></a>ビューのパスを調べる
 
-* Priority ビューが返されません。 ようには以下に 3 つの優先順位 パラメーターを変更します。
-* 名前を一時的に、 *Views/Todo/Components/PriorityList/Default.cshtml*に*1Default.cshtml*です。
-* アプリのテストは、次のエラーが表示されます。
+* 優先順位ビューが返されないように、優先順位パラメーターを 3 以下に変更します。
+* 一時的に *Views/Todo/Components/PriorityList/Default.cshtml* の名前を *1Default.cshtml* に変更します。
+* アプリをテストすると、次のエラーが表示されます。
 
    ```
    An unhandled exception occurred while processing the request.
@@ -228,22 +228,22 @@ PVC ビューが表示されていない場合は、優先度が 4 以上のビ�
    EnsureSuccessful
    ```
 
-* コピー *Views/Todo/Components/PriorityList/1Default.cshtml*に*Views/Shared/Components/PriorityList/Default.cshtml*です。
-* 一部のマークアップを追加、 *Shared* Todo ビュー コンポーネントを表示するビューは、 *Shared*フォルダーです。
-* テスト、 **Shared**コンポーネント ビュー。
+* *Views/Todo/Components/PriorityList/1Default.cshtml* を *Views/Shared/Components/PriorityList/Default.cshtml* にコピーします。
+* *[Shared]* の [ToDo] ビュー コンポーネントにいくつかのマークアップを追加して、*[Shared]* フォルダーからのビューを示します。
+* **[Shared]** コンポーネント ビューをテストします。
 
-![共有コンポーネントの表示と ToDo 出力](view-components/_static/shared.png)
+![[Shared] コンポーネント ビューを含む [ToDo] 出力](view-components/_static/shared.png)
 
 ### <a name="avoiding-magic-strings"></a>マジック文字列の回避
 
-時間の安全性をコンパイルする場合は、クラス名に、ハード コーディングされたビュー コンポーネント名を置き換えることができます。 "ViewComponent"サフィックスなしのビュー コンポーネントを作成します。
+コンパイル時間の安全性を確保する必要がある場合は、ハードコーディングされたビュー コンポーネント名をクラス名に置き換えることができます。 "ViewComponent" サフィックスのないビュー コンポーネントを作成します。
 
 [!code-csharp[Main](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityList.cs?highlight=10&range=5-35)]
 
-追加、 `using` 、Razor にステートメントがファイルを表示し、使用、`nameof`演算子。
+`using` ステートメントを Razor ビュー ファイルに追加して、`nameof` 演算子を使用します。
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
 
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の技術情報
 
-* [ビューへの依存性の注入](dependency-injection.md)
+* [ビューへの依存性の注入](xref:mvc/views/dependency-injection)

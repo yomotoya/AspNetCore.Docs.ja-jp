@@ -8,11 +8,11 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 1318ae855154dd8fc91ff0c19b0ab111d86c71e6
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1a91a87fb90d4d4651e07f32415e4364c8e2d993
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Azure Key Vault の構成プロバイダー
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 01/30/2018
 `AddAzureKeyVault`実装を受け入れるオーバー ロードも提供`IKeyVaultSecretManager`構成のキーに変換がどのキー資格情報コンテナーの機密情報を制御することができます。 たとえば、アプリの起動時に指定したプレフィックス値に基づいてシークレットの値を読み込むインターフェイスを実装することができます。 これにより、たとえば、アプリのバージョンに基づくシークレットを読み込めません。
 
 > [!WARNING]
-> 複数のアプリのシークレットを key vault に配置するか、環境のシークレットを配置する、キー vault シークレットのプレフィックスを使用しない (たとえば、*開発*verus*運用*シークレット) を 1 つ資格情報コンテナー。 別のアプリとの開発と実稼働環境を最高レベルのセキュリティのアプリの環境を分離する個別のキー コンテナーを使用することをお勧めします。
+> 複数のアプリのシークレットを key vault に配置するか、環境のシークレットを配置する、キー vault シークレットのプレフィックスを使用しない (たとえば、*開発*と*運用*シークレット) を 1 つ資格情報コンテナー。 別のアプリとの開発と実稼働環境を最高レベルのセキュリティのアプリの環境を分離する個別のキー コンテナーを使用することをお勧めします。
 
 Key vault にシークレットを作成する 2 つ目のサンプル アプリを使用して`5000-AppSecret`(key vault のシークレット名で許可されていない期間) を表すバージョン 5.0.0.0 のアプリのアプリのシークレット。 シークレットを作成する別のバージョン、5.1.0.0、`5100-AppSecret`です。 各アプリのバージョンを読み込みます独自秘密の値としてその構成`AppSecret`、機密情報が読み込まれるバージョンを削除します。 サンプルの実装を次に示します。
 

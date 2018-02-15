@@ -105,9 +105,9 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 
 変更内容を保存し、**RpMovie** リンクをクリックしてアプリをテストします。 GitHub の [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml) ファイルを参照してください。
 
-### <a name="the-create-code-behind-page"></a>[作成] 分離コード ページ
+### <a name="the-create-page-model"></a>Create ページのモデル
 
-次のように、*Pages/Movies/Create.cshtml.cs* という分離コード ファイルを確認します。
+*Pages/Movies/Create.cshtml.cs* ページ モデルを確認します。
 
 [!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
 

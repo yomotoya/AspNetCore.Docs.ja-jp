@@ -1,59 +1,59 @@
 ---
-title: "ASP.NET Core の依存関係の挿入"
+title: "ASP.NET Core での依存関係の挿入"
 author: ardalis
-description: "ASP.NET Core が依存関係の挿入を実装する方法とその使用方法について説明します。"
-ms.author: riande
+description: "ASP.NET Core で依存関係の挿入を実装する方法とそれを使う方法について説明します。"
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/dependency-injection
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a5a0991694b2c7caa79dbc09f6471d614f67dac
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.date: 10/14/2016
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/dependency-injection
+ms.openlocfilehash: acbce5d139da0acc0870a9cf23a779bf27699a61
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="introduction-to-dependency-injection-in-aspnet-core"></a>ASP.NET Core の依存関係の挿入の概要
+# <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core での依存関係の挿入
 
 <a name="fundamentals-dependency-injection"></a>
 
-によって[Steve Smith](https://ardalis.com/)と[Scott Addie](https://scottaddie.com)
+作成者: [Steve Smith](https://ardalis.com/)、[Scott Addie](https://scottaddie.com)
 
-ASP.NET Core は、まったく新たに設計をサポートし、依存関係の挿入を活用します。 ASP.NET Core アプリケーションは、スタートアップ クラス内のメソッドを挿入することによってサービスを組み込みフレームワークを利用でき、挿入もアプリケーション サービスを構成することができます。 ASP.NET Core によって提供される既定のサービス コンテナーは、最小限の機能が設定され、その他のコンテナーを置換するためのものではありませんを提供します。
+ASP.NET Core は、依存関係の挿入をサポートして利用するようにまったく新しく設計されています。 ASP.NET Core アプリケーションは、組み込みフレームワーク サービスをスタートアップ クラスのメソッドに挿入することによってサービスを利用でき、アプリケーション サービスも挿入用に構成することができます。 ASP.NET Core によって提供される既定のサービス コンテナーは、最小限の機能セットを提供するものであり、他のコンテナーの置き換えは意図されていません。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-## <a name="what-is-dependency-injection"></a>依存関係の挿入とは何ですか。
+## <a name="what-is-dependency-injection"></a>依存関係の挿入とは
 
-依存性の注入 (DI) は、オブジェクトとの共同作業者、または依存関係の間の疎結合を実現するための手法です。 、の共同作業者を直接インスタンス化または静的参照を使用して、ではなく、クラスは、そのアクションを実行する必要があるオブジェクトは、なんらかの方法でクラスに提供されます。 クラスに従うように、コンス トラクターを使用して、その依存関係を宣言する、ほとんどの場合、[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)です。 この方法は、「コンス トラクター インジェクション」と呼ばれます。
+依存関係の挿入 (DI) とは、オブジェクトとそのコラボレーター (依存関係) との間の疎結合を実現するための手法です。 クラスがそのアクションを実行するために必要なオブジェクトは、コラボレーターを直接インスタンス化したり、静的参照を使ったりするのではなく、それ以外の何らかの方法でクラスに提供されます。 ほとんどの場合、クラスはコンストラクターを使って依存関係を宣言することで、[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)に従うことができます。 この方法は、"コンストラクターの挿入" と呼ばれます。
 
-クラスは、注意 DI でデザインされます、ときにしているより疎結合された共同作業者に直接、ハード コーディングされた依存関係がないためです。 次のように、[依存関係の逆転原則](http://deviq.com/dependency-inversion-principle/)、ことを示している*"高レベルのモジュールは、低レベルのモジュールに依存しないでください抽象化の両方を利用する必要があります。"。* クラスが抽象化を要求する特定の実装を参照するには、代わりに (通常`interfaces`) クラスを作成するときに提供されます。 インターフェイスへの依存関係を抽出し、これらのインターフェイスのパラメーターとして実装することはの例ではまた、[戦略の設計パターン](http://deviq.com/strategy-design-pattern/)です。
+クラスが DI を考慮して設計されていると、コラボレーターに対して直接的なハード コーディングされた依存関係を持たないので、より弱い結合になります。 これは[依存関係の逆転の原則](http://deviq.com/dependency-inversion-principle/)に従うものです。この原則は、"*高レベルのモジュールは低レベルのモジュールに依存してはならず、どちらも抽象化に依存する必要がある*" というものです。 特定の実装を参照する代わりに、クラスはクラスの構築時に提供される抽象化 (通常は `interfaces`) に要求します。 依存関係をインターフェイスに抽出し、これらのインターフェイスの実装をパラメーターとして提供することも、[戦略設計パターン](http://deviq.com/strategy-design-pattern/)の例です。
 
-DI を使用する、システムの設計時に、コンス トラクター (またはプロパティ) を使用して、その依存関係を要求する多くのクラスが関連付けられている依存関係とこれらのクラスを作成するのには専用のクラスをするおくと便利です。 これらのクラスと呼びます*コンテナー*、または具体的には、[制御の反転 (IoC)](http://deviq.com/inversion-of-control/)や依存関係の挿入 (DI) コンテナーのコンテナーです。 コンテナーとは、そこから要求された型のインスタンスを提供するファクトリを本質的にします。 場合は、指定された型は、依存関係があるし、依存関係の種類を提供するコンテナーが構成されていることを宣言しましたが、要求されたインスタンスの作成の一環として依存関係が作成されます。 これにより、複雑な依存関係グラフは、ハード コーディングされたオブジェクトの構築が必要ないクラスに提供できます。 オブジェクトをその依存関係を作成するだけでなくコンテナーは通常、アプリケーション内でオブジェクトの有効期間を管理します。
+システムが DI を使うように設計されていて、多くのクラスがコンストラクター (またはプロパティ) を使って依存関係を要求する場合は、これらのクラスとそれに関連付けられている依存関係を作成する専用のクラスを用意すると便利です。 このようなクラスは、"*コンテナー*"、あるいはさらに具体的に[制御の反転 (IoC)](http://deviq.com/inversion-of-control/) コンテナーまたは依存関係の挿入 (DI) コンテナーと呼ばれます。 コンテナーは基本的に、要求された型のインスタンスを提供するファクトリです。 特定の型が依存関係を持つものとして宣言されていて、コンテナーが依存関係の型を提供するように構成されている場合、コンテナーは要求されたインスタンスの作成の一環として依存関係を作成します。 これにより、複雑な依存関係グラフをクラスに提供でき、ハード コーディングされたオブジェクトの構築は必要ありません。 依存関係を含むオブジェクトを作成するだけでなく、コンテナーは通常、アプリケーション内でのオブジェクトの有効期間を管理します。
 
-ASP.NET Core に簡単なビルトイン コンテナーが含まれています (によって表される、`IServiceProvider`インターフェイス) 既定では、コンス トラクターの挿入をサポートして、ASP.NET により、特定のサービスが DI を介して使用できます。 ASP です。NET のコンテナーとして管理されます。 その型を指す*services*です。 この記事の残りの部分全体にわたって*services*は ASP.NET Core IoC コンテナーで管理されている型を参照してください。 組み込みのコンテナーのサービスを構成する、`ConfigureServices`で、アプリケーションの`Startup`クラスです。
-
-> [!NOTE]
-> Martin ファウラー上の広範な資料が書き込ま[逆転のコントロール コンテナーとの依存関係挿入パターン](https://www.martinfowler.com/articles/injection.html)です。 最適な説明も Microsoft Patterns and Practices[依存性の注入](https://msdn.microsoft.com/library/hh323705.aspx)です。
+ASP.NET Core には既定でコンストラクターの挿入をサポートする簡単な組み込みコンテナーが含まれ (`IServiceProvider` インターフェイスによって表されます)、ASP.NET は DI によって特定のサービスを利用できるようにします。 ASP.NET のコンテナーでは、それが管理する型を "*サービス*" と呼びます。 これ以降この記事では、"*サービス*" は ASP.NET Core の IoC コンテナーによって管理される型を指します。 組み込みコンテナーのサービスは、アプリケーションの `Startup` クラスの `ConfigureServices` メソッドで構成します。
 
 > [!NOTE]
-> この記事では、すべての ASP.NET アプリケーションに適用される、依存関係の挿入がについて説明します。 MVC コント ローラー内の依存関係の挿入は、「[依存関係挿入とコント ローラー](../mvc/controllers/dependency-injection.md)です。
+> Martin Fowler は、「[Inversion of Control Containers and the Dependency Injection Pattern](https://www.martinfowler.com/articles/injection.html)」(制御の反転コンテナーと依存関係の挿入パターン) で広範な記事を書いています。 Microsoft のパターンとプラクティスにも[依存関係の挿入](https://msdn.microsoft.com/library/hh323705.aspx)に関する優れた説明があります。
 
-### <a name="constructor-injection-behavior"></a>コンス トラクター インジェクションの動作
+> [!NOTE]
+> この記事では、すべての ASP.NET アプリケーションに適用される依存関係の挿入について説明します。 MVC コントローラーでの依存関係の挿入については、「[Dependency injection into controllers](../mvc/controllers/dependency-injection.md)」(コントローラーへの依存関係の挿入) をご覧ください。
 
-コンス トラクターの挿入は、対象のコンス トラクターがある必要があります*パブリック*です。 それ以外の場合、アプリがスローされます、 `InvalidOperationException`:
+### <a name="constructor-injection-behavior"></a>コンストラクターの挿入の動作
 
-> 型 '' の適切なコンス トラクターが見つかりませんでした。 具体的な型とサービスに登録されて、パブリック コンス トラクターのすべてのパラメーターを確認します。
+コンストラクターの挿入には、対象のコンストラクターが "*パブリック*" である必要があります。 そうでない場合、アプリは `InvalidOperationException` をスローします。
+
+> A suitable constructor for type 'YourType' couldn't be located. Ensure the type is concrete and services are registered for all parameters of a public constructor. (型 'YourType' の適切なコンストラクターが見つかりませんでした。型が具象であること、およびサービスがパブリック コンストラクターのすべてのパラメーターに登録されていることを確認してください。)
 
 
-コンス トラクターの挿入では、その 1 つだけ適用可能なコンス トラクターの存在が必要です。 コンス トラクター オーバー ロードがサポートされますが、引数のすべてで満足できる依存関係の挿入のみ 1 つのオーバー ロードが存在できます。 1 つ以上存在する場合、アプリがスローされます、 `InvalidOperationException`:
+コンストラクターの挿入では、該当するコンストラクターがただ 1 つだけ存在する必要があります。 コンストラクターのオーバーロードはサポートされていますが、依存関係の挿入によってすべての引数を設定できるオーバーロードは 1 つしか存在できません。 複数のコンストラクターが存在する場合、アプリは `InvalidOperationException` をスローします。
 
-> 型 '' には、すべての指定した引数型を受け付ける複数のコンス トラクターが検出されました。 適用可能なコンス トラクターの 1 つだけあります。
+> Multiple constructors accepting all given argument types have been found in type 'YourType'. There should only be one applicable constructor. (型 'YourType' には、特定の引数の型をすべて受け付けるコンストラクターが複数存在します。該当するコンストラクターは 1 つだけでなければなりません。)
 
-コンス トラクターは、依存関係の挿入では提供されない引数を受け入れることができますが、これらの既定値をサポートする必要があります。 例:
+コンストラクターは、依存関係の挿入によって提供されない引数を受け入れることができますが、既定値をサポートしている必要があります。 例:
 
 ```csharp
 // throws InvalidOperationException: Unable to resolve service for type 'System.String'...
@@ -71,152 +71,152 @@ public CharactersController(ICharacterRepository characterRepository, string tit
 }
 ```
 
-## <a name="using-framework-provided-services"></a>Framework が提供するサービスを使用します。
+## <a name="using-framework-provided-services"></a>フレームワークが提供するサービスの使用
 
-`ConfigureServices`メソッドで、`Startup`クラスは Entity Framework Core および ASP.NET Core MVC などのプラットフォーム機能を含む、アプリケーションで使用するサービスの定義を担当します。 最初に、`IServiceCollection`に提供される`ConfigureServices`が定義されている次のサービス (に応じて[ホストの構成方法](xref:fundamentals/hosting))。
+`Startup` クラスの `ConfigureServices` メソッドでは、Entity Framework Core や ASP.NET Core MVC といったプラットフォーム機能など、アプリケーションが使うサービスを定義する必要があります。 最初に、`ConfigureServices` に提供される `IServiceCollection` では、次のサービスが定義されています ([ホストの構成方法](xref:fundamentals/hosting)に依存します)。
 
 | サービスの種類 | 有効期間 |
 | ----- | ------- |
 | [Microsoft.AspNetCore.Hosting.IHostingEnvironment](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.ihostingenvironment) | シングルトン |
 | [Microsoft.Extensions.Logging.ILoggerFactory](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.iloggerfactory) | シングルトン |
 | [Microsoft.Extensions.Logging.ILogger&lt;T&gt;](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) | シングルトン |
-| [Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.builder.iapplicationbuilderfactory) | 一時的なもの |
-| [Microsoft.AspNetCore.Http.IHttpContextFactory](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.ihttpcontextfactory) | 一時的なもの |
+| [Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.builder.iapplicationbuilderfactory) | 一時的 |
+| [Microsoft.AspNetCore.Http.IHttpContextFactory](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.ihttpcontextfactory) | 一時的 |
 | [Microsoft.Extensions.Options.IOptions&lt;T&gt;](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.options.ioptions-1) | シングルトン |
 | [System.Diagnostics.DiagnosticSource](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticsource) | シングルトン |
 | [System.Diagnostics.DiagnosticListener](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticlistener) | シングルトン |
-| [Microsoft.AspNetCore.Hosting.IStartupFilter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.istartupfilter) | 一時的なもの |
+| [Microsoft.AspNetCore.Hosting.IStartupFilter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.istartupfilter) | 一時的 |
 | [Microsoft.Extensions.ObjectPool.ObjectPoolProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.objectpool.objectpoolprovider) | シングルトン |
-| [Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.options.iconfigureoptions-1) | 一時的なもの |
+| [Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.options.iconfigureoptions-1) | 一時的 |
 | [Microsoft.AspNetCore.Hosting.Server.IServer](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.server.iserver) | シングルトン |
 | [Microsoft.AspNetCore.Hosting.IStartup](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.istartup) | シングルトン |
 | [Microsoft.AspNetCore.Hosting.IApplicationLifetime](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.iapplicationlifetime) | シングルトン |
 
-以下のように拡張メソッドの番号を使用してコンテナーに追加のサービスを追加する方法の例は、 `AddDbContext`、 `AddIdentity`、および`AddMvc`です。
+`AddDbContext`、`AddIdentity`、`AddMvc` などの複数の拡張メソッドを使ってコンテナーにサービスを追加する方法の例を次に示します。
 
 [!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?highlight=5-6,8-10,12&range=39-56)]
 
-機能と ASP.NET、MVC などによって提供されるミドルウェアを 1 つの追加を使用する規則に従って*ServiceName*その機能に必要なサービスをすべて登録する拡張メソッド。
+ASP.NET によって提供される機能とミドルウェア (MVC など) は、単一の Add<*サービス名*> 拡張メソッドを使って、その機能に必要なすべてのサービスを登録する規則に従います。
 
 >[!TIP]
-> 内の特定のフレームワークに用意されているサービスを要求する`Startup`パラメーター リストで使用してメソッドを参照してください[アプリケーションの起動](startup.md)詳細についてはします。
+> `Startup` メソッドでは、パラメーター リストを使って、フレームワークによって提供される特定のサービスを要求できます。詳細については、[アプリケーションの起動](startup.md)に関するページをご覧ください。
 
-## <a name="registering-your-own-services"></a>独自のサービスを登録します。
+## <a name="registering-services"></a>サービスの登録
 
-次のように、独自のアプリケーション サービスを登録できます。 最初のジェネリック型では、コンテナーから要求される型 (通常はインターフェイス) を表します。 2 番目のジェネリック型では、コンテナーによってインスタンス化してこのような要求を満たすために使用される具体的な型を表します。
+次のようにして、独自のアプリケーション サービスを登録できます。 最初のジェネリック型は、コンテナーに要求する型 (通常はインターフェイス) を表します。 2 番目のジェネリック型は、コンテナーによってインスタンス化されてそのような要求を満たすために使われる具象型を表します。
 
 [!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?range=53-54)]
 
 > [!NOTE]
-> 各`services.Add<ServiceName>`拡張メソッドを追加 (および可能性のある構成) サービス。 たとえば、 `services.AddMvc()` MVC が必要とするサービスを追加します。 拡張メソッドを配置することをこの規則に従うお勧め、`Microsoft.Extensions.DependencyInjection`名前空間には、サービス登録のグループをカプセル化します。
+> 各 `services.Add<ServiceName>` 拡張メソッドは、サービスを追加 (および場合によっては構成) します。 たとえば、`services.AddMvc()` は MVC が必要とするサービスを追加します。 この規則に従い、拡張メソッドを `Microsoft.Extensions.DependencyInjection` 名前空間に配置して、サービス登録のグループをカプセル化することをお勧めします。
 
-`AddTransient`抽象型を必要とするすべてのオブジェクトとは別にインスタンス化される具体的なサービスにマップするメソッドを使用します。 これは、サービスと呼ばれます*有効期間*、追加の有効期間オプションは次に説明します。 ことが重要、各サービスを登録するための適切な有効期間を選択します。 それを要求する各クラスに、サービスの新しいインスタンスを提供しますか。 指定された web 要求全体で、1 つのインスタンスを使用する必要がありますか。 または、アプリケーションの有効期間の 1 つのインスタンスを使用します必要がありますか。
+抽象型を、それを要求するすべてのオブジェクトに対して個別にインスタンス化される具象サービスにマップするには、`AddTransient` メソッドを使います。 これは、サービスの "*有効期間*" と呼ばれます。有効期間の他のオプションについては後で説明します。 登録するサービスごとに適切な有効期間を選ぶことが重要です。 要求するクラスごとに、サービスの新しいインスタンスを提供する必要がありますか。 特定の Web 要求全体で、1 つのインスタンスを使う必要がありますか。 それとも、アプリケーションの有効期間を通して 1 つのインスタンスを使う必要がありますか。
 
-この記事のサンプルと呼ばれる文字名を表示する単純なコント ローラーが`CharactersController`です。 その`Index`メソッドは、現在のアプリケーションで格納されている文字の一覧を表示しが存在しない場合に、いくつかの文字を使用して、コレクションを初期化します。 このアプリケーションは、Entity Framework のコアを使用して、`ApplicationDbContext`のいずれも、永続化のためのクラス、コント ローラーで明らかです。 特定のデータ アクセスのメカニズムが代わりに、インターフェイスの背後に抽象化されて`ICharacterRepository`、どの次のように、[リポジトリ パターン](http://deviq.com/repository-pattern/)です。 インスタンス`ICharacterRepository`コンス トラクターを使用して要求し、必要に応じて文字へのアクセスを使用して、プライベート フィールドに割り当てられます。
+この記事のサンプルには、文字名を表示する `CharactersController` という名前の簡単なコントローラーがあります。 その `Index` メソッドは、アプリケーションに格納されている文字の現在のリストを表示し、存在しない場合はいくつかの文字でコレクションを初期化します。 このアプリケーションは、永続化のために Entity Framework Core と `ApplicationDbContext` クラスを使いますが、いずれもコントローラーですぐにわかるようにはなっていません。 代わりに、特定のデータ アクセス メカニズムがインターフェイス `ICharacterRepository` の背後に抽象化されており、それは[リポジトリ パターン](http://deviq.com/repository-pattern/)に従います。 `ICharacterRepository` のインスタンスがコンストラクターによって要求されてプライベート フィールドに割り当てられ、必要に応じて文字へのアクセスに使われます。
 
 [!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
 
-`ICharacterRepository`コント ローラーを使用する必要がある 2 つのメソッドを定義`Character`インスタンス。
+`ICharacterRepository` では、コントローラーが `Character` インスタンスを操作するときに必要な 2 つのメソッドが定義されています。
 
 [!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
 
-このインターフェイスは、具象型で実装に`CharacterRepository`、実行時に使用されます。
+このインターフェイスは、実行時に使われる具象型 `CharacterRepository` で実装されています。
 
 > [!NOTE]
-> DI 方法を使用、`CharacterRepository`クラスは、すべての「リポジトリ」] または [データ アクセス クラスではなく、アプリケーション サービスを行うことができる汎用モデル。
+> `CharacterRepository` クラスでの DI の使い方は一般的なモデルであり、"リポジトリ" やデータ アクセス クラスだけでなく、すべてのアプリケーション サービスで従うことができます。
 
 [!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Models/CharacterRepository.cs?highlight=9,11,12,13,14)]
 
-なお`CharacterRepository`要求、`ApplicationDbContext`のコンス トラクターにします。 連鎖的に、次のように要求された依存関係は、独自の依存関係をさらに要求するごとに使用する依存関係の挿入の異常なことはできません。 コンテナーは、すべてのグラフ内の依存関係を解決し、完全に解決済みのサービスを返すことを担当します。
+`CharacterRepository` はコンストラクターで `ApplicationDbContext` を要求していることに注意してください。 このように、要求された各依存関係がさらにそれ自身の依存関係を要求するチェーン形式で依存関係の挿入が使われるのは、珍しいことではありません。 コンテナーは、グラフ内のすべての依存関係を解決し、完全に解決されたサービスを返す必要があります。
 
 > [!NOTE]
-> 要求されたオブジェクトとすべてのオブジェクトを必要としてすべての必要なものは、オブジェクトの作成とも呼ば、*オブジェクト グラフ*です。 同様に、解決する必要がある依存関係の集合を通常呼びます、*依存関係ツリー*または*依存関係グラフ*です。
+> 要求されたオブジェクト、それが要求するすべてのオブジェクト、さらにそれらが要求するすべてのオブジェクトを作成する処理は、"*オブジェクト グラフ*" と呼ばれることがあります。 同様に、解決する必要がある依存関係の集合的なセットは、通常、"*依存関係ツリー*" または "*依存関係グラフ*" と呼ばれます。
 
-この場合、両方`ICharacterRepository`さらに`ApplicationDbContext`でサービス コンテナーに登録されている必要があります`ConfigureServices`で`Startup`です。 `ApplicationDbContext`拡張メソッドの呼び出しで構成されている`AddDbContext<T>`です。 次のコードの登録を示しています、`CharacterRepository`型です。
+この場合、`ICharacterRepository` と `ApplicationDbContext` の両方が、`Startup` の `ConfigureServices` でサービス コンテナーに登録されている必要があります。 `ApplicationDbContext` は、拡張メソッド `AddDbContext<T>` を呼び出して構成します。 次のコードでは、`CharacterRepository` 型の登録を示します。
 
 [!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Startup.cs?highlight=3-5,11&range=16-32)]
 
-Entity Framework コンテキストは、サービスを使用してコンテナーに追加するか、`Scoped`有効期間。 これは、処理の完了に自動的に上記のように、これらのヘルパー メソッドを使用する場合。 Entity Framework を使用すると、リポジトリは、同じ有効期間を使用してください。
+Entity Framework コンテキストは、`Scoped` 有効期間を使ってサービス コンテナーに追加する必要があります。 上で示したようにヘルパー メソッドを使っている場合は、これは自動的に処理されます。 Entity Framework を利用するリポジトリは、同じ有効期間を使う必要があります。
 
 >[!WARNING]
-> 注意しなければならないメイン危険性を解決する、`Scoped`単一サービスです。 このような場合は後続の要求を処理するときに、サービスが正しくない状態を持つこと可能性があります。
+> 注意しなければならない最大の危険は、シングルトンからの `Scoped` サービスの解決です。 このような場合、後続の要求を処理するときに、サービスが正しくない状態になっている可能性があります。
 
-依存関係のあるサービスをコンテナーに登録する必要があります。 かどうか、サービスのコンス トラクターが必要です、プリミティブなど、`string`を使用してこれを挿入できます[構成](xref:fundamentals/configuration/index)と[オプション パターン](xref:fundamentals/configuration/options)です。
+依存関係のあるサービスは、コンテナーに登録する必要があります。 サービスのコンストラクターでプリミティブ (`string` など) が必要な場合は、[構成](xref:fundamentals/configuration/index)と[オプション パターン](xref:fundamentals/configuration/options)を使ってこれを挿入できます。
 
-## <a name="service-lifetimes-and-registration-options"></a>サービスの有効期間と登録オプション
+## <a name="service-lifetimes-and-registration-options"></a>サービスの有効期間と登録のオプション
 
 ASP.NET サービスは、次の有効期間で構成できます。
 
-**一時的なもの**
+**一時的**
 
-一時的な有効期間サービスは、要求されている各時に作成されます。 この有効期間は軽量のステートレスなサービスに最適です。
+有効期間が一時的のサービスは、要求されるたびに作成されます。 この有効期間は、軽量でステートレスのサービスに最適です。
 
 **スコープ**
 
-有効期間のスコープを持つサービスは、要求あたり 1 回作成されます。
+有効期間がスコープのサービスは、要求ごとに 1 回作成されます。
 
 **シングルトン**
 
-シングルトン有効期間サービスが要求されている最初の時に作成されます (または`ConfigureServices`インスタンスがありますを指定する場合に実行) し、すべての後続の要求が同じインスタンスを使用します。 アプリケーションは、シングルトン動作を必要とする場合は、シングルトン デザイン パターンを実装して、自分でクラスのオブジェクトの有効期間を管理するのではなく勧めサービス コンテナー サービスの有効期間を管理できるようにします。
+有効期間がシングルトンのサービスは、サービスが初めて要求されたとき (または、インスタンスを指定する場合は `ConfigureServices` が実行されたとき) に作成され、後続のすべての要求で同じインスタンスが使われます。 アプリケーションでシングルトン動作が必要な場合は、シングルトン設計パターンを実装して自分でクラス内のオブジェクトの有効期間を管理するのではなく、サービス コンテナーにサービスの有効期間の管理を任せることをお勧めします。
 
-サービスは、いくつかの方法で、コンテナーに登録することができます。 使用する具体的な種類を指定して型を指定して、サービスの実装を登録する方法が既にあります。 さらに、ファクトリを指定できます、し、要求時にインスタンスの作成に使用されます。 3 番目のアプローチでは、直接使用するには型のインスタンスをコンテナーの場合は、インスタンスを作成することはありません試みます (も、インスタンスが破棄されます) を指定します。
+サービスは、複数の方法でコンテナーに登録できます。 使う具象型を指定することにより特定の型でサービスの実装を登録する方法は既に示しました。 さらに、ファクトリを指定することができます。ファクトリは、必要なときにインスタンスを作成するために使われます。 3 番目の方法は、使う型のインスタンスを直接指定する方法です。この場合、コンテナーはインスタンスの作成を試みません (インスタンスの破棄も行いません)。
 
-これらの有効期間と登録のオプションの違いを示すためには、1 つまたは複数のタスクを表す単純なインターフェイスを検討してください、*操作*一意の識別子を持つ`OperationId`します。 このサービスの有効期間を構成して方法に応じて、コンテナーは要求元のクラスにサービスの同じまたは別のインスタンスを提供します。 オフにする有効期間が要求されているように、お lifetime オプションごとに 1 つの型が作成されます。
+これらの有効期間と登録オプションの違いを示すため、1 つまたは複数のタスクを一意の識別子 `OperationId` を持つ "*操作*" として表す簡単なインターフェイスについて考えます。 このサービスの有効期間の構成方法に応じて、コンテナーはサービスの同じインスタンスまたは異なるインスタンスを要求元のクラスに提供します。 要求されている有効期間がはっきりわかるように、有効期間オプションごとに 1 つの型を作成します。
 
 [!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/IOperation.cs?highlight=5-8)]
 
-1 つのクラスを使用してこれらのインターフェイスを実装して`Operation`を受け入れる、`Guid`コンス トラクター、または使用して、新しい`Guid`がない場合。
+これらのインターフェイスを、1 つのクラス `Operation` を使って実装します。このクラスは、コンストラクターで `Guid` を受け取り、提供されない場合は新しい `Guid` を使います。
 
-次に、 `ConfigureServices`、各種類は、名前付きの有効期間に従って、コンテナーに追加します。
+次に、`ConfigureServices` では、各型が名前で指定されている有効期間に従ってコンテナーに追加されます。
 
 [!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Startup.cs?range=26-32)]
 
-なお、`IOperationSingletonInstance`サービスが特定のインスタンスを使用して既知の ID を持つ`Guid.Empty`のため、この型を (その Guid はすべて 0 になります) を使用するとき、明確になります。 登録されていること、`OperationService`他のそれぞれに依存する`Operation`ことができるように、要求内でチェック ボックスをオフこのサービスが、コント ローラー、または操作の種類ごとに、新しいものと同じインスタンスを取得するかどうかを入力します。 このサービスはすべて、ビューが表示されるように、その依存関係をプロパティとして公開します。
+`IOperationSingletonInstance` サービスは既知の ID `Guid.Empty` を持つ特定のインスタンスを使っているので、この型が使われているときは明確にわかります (その Guid はすべて 0 になります)。 また、他の各 `Operation` 型に依存する `OperationService` も登録してあるので、操作の種類ごとに、このサービスがコントローラーと同じインスタンスを取得しているか、または新しいインスタンスかが、要求内ではっきりわかります。 このサービスが行うことは、依存関係をビューに表示できるように、依存関係をプロパティとして公開することだけです。
 
 [!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Services/OperationService.cs)]
 
-内でのアプリケーションに個別の個々 の要求間およびオブジェクトの有効期間を示すためには、サンプルが含まれています、`OperationsController`各種類の要求を`IOperation`型だけでなく、`OperationService`です。 `Index`すべてのコント ローラーのおよびサービスのアクションで、表示`OperationId`値。
+アプリケーションに対する 1 つの要求内でのオブジェクトの有効期間および異なる個別の要求間でのオブジェクトの有効期間を示すため、サンプルには、各種類の `IOperation` 型と `OperationService` を要求する `OperationsController` が含まれます。 その後、`Index` アクションは、すべてのコント ローラーおよびサービスの `OperationId` の値を表示します。
 
 [!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Controllers/OperationsController.cs)]
 
-今すぐこのコント ローラーのアクションを次の 2 つの個別の要求が行われます。
+ここで、このコントローラー アクションに対して 2 つの異なる要求を行います。
 
-![一時的なスコープ ベース、シングルトン、およびインスタンスのコント ローラーおよび最初の要求でサービス操作の操作の操作の ID 値 (GUID) を示す Microsoft Edge で実行されている依存関係の挿入のサンプル web アプリケーションの操作ビューです。](dependency-injection/_static/lifetimes_request1.png)
+![最初の要求での Transient、Scoped、Singleton、Instance の各コントローラーと OperationService の操作の操作 ID の値 (GUID) が表示されている、Microsoft Edge で実行する DependencyInjectionSample Web アプリケーションの操作ビュー。](dependency-injection/_static/lifetimes_request1.png)
 
-![操作は、2 番目の要求の操作の ID 値が表示を表示します。](dependency-injection/_static/lifetimes_request2.png)
+![2 番目の要求の操作 ID の値が表示されている操作ビュー。](dependency-injection/_static/lifetimes_request2.png)
 
-確認のうち、`OperationId`および要求間で、要求内に値が異なります。
+要求内および要求間で変化している `OperationId` の値を確認してください。
 
-* *一時的な*オブジェクトが異なる常に以外の新しいインスタンスはすべてのコント ローラーおよびすべてのサービスに提供します。
+* *Transient* オブジェクトは常に異なります。コントローラーごとおよびサービスごとに、新しいインスタンスが提供されます。
 
-* *スコープ*オブジェクトは、異なる要求間で異なるが、要求内で同じです。
+* *Scoped* オブジェクトは、要求内では同じですが、異なる要求間では異なります
 
-* *シングルトン*オブジェクトは、すべてのオブジェクトとすべての要求で同じ (インスタンスがで提供されるかどうかに関係なく`ConfigureServices`)
+* *Singleton* オブジェクトは、インスタンスが `ConfigureServices` で提供されるかどうかに関係なく、すべてのオブジェクトとすべての要求について同じです
 
-## <a name="request-services"></a>サービスを要求します。
+## <a name="request-services"></a>要求サービス
 
-ASP.NET 内で使用可能なサービスを要求`HttpContext`を通じて公開される、`RequestServices`コレクション。
+`HttpContext` からの ASP.NET 要求内で使用可能なサービスは、`RequestServices` コレクションを通じて公開されます。
 
-![HttpContext 要求サービス Intellisense 要求サービスを取得または要求のサービス コンテナーへのアクセスを提供する IServiceProvider を設定することを示すダイアログ コンテキスト。](dependency-injection/_static/request-services.png)
+![要求のサービス コンテナーへのアクセスを提供する IServiceProvider を要求サービスが取得または設定することを示す、HttpContext 要求サービスの Intellisense コンテキスト ダイアログ。](dependency-injection/_static/request-services.png)
 
-サービスを要求では、サービスを構成して、アプリケーションの一部として要求を表します。 オブジェクトは、依存関係を指定するときに、これらがで検出された型で満たされます。`RequestServices`ではなく、`ApplicationServices`です。
+要求サービスは、アプリケーションの一部として構成および要求するサービスを表します。 オブジェクトで依存関係を指定すると、これらは `ApplicationServices` ではなく `RequestServices` で検出された型で満たされます。
 
-一般に、クラスのコンス トラクターを使用して必要なクラス型を要求することで、フレームワークのこれらの依存関係を挿入できるようにすることは、直接、これらのプロパティを使用しないでください。 簡単にテストされるクラスが生成されます。 (を参照してください[テスト](../testing/index.md)) より疎結合されたとします。
+一般に、これらのプロパティを直接使ってはいけません。代わりに、クラスのコンストラクターを使ってクラスで必要な型を要求し、フレームワークにこれらの依存関係を挿入させます。 このようにすると、クラスはテストしやすくなり (「[テスト](../testing/index.md)」を参照)、より弱い結合になります。
 
 > [!NOTE]
-> アクセスにコンス トラクターのパラメーターとしての依存関係の要求を必要に応じて、`RequestServices`コレクション。
+> コンストラクターのパラメーターとして依存関係を要求し、`RequestServices` コレクションにアクセスするようにします。
 
-## <a name="designing-your-services-for-dependency-injection"></a>依存関係の挿入で、サービスの設計
+## <a name="designing-services-for-dependency-injection"></a>依存関係の挿入のためのサービスの設計
 
-共同作業者を取得する依存関係の挿入を使用するサービスを設計する必要があります。 つまり、ステートフルな静的メソッドの呼び出しは使用しない (と呼ばれるコード匂いが発生する[静的窓](http://deviq.com/static-cling/)) と、サービス内の依存クラスを直接インスタンス化します。 やすくなり、語句を注意してください[は、New はグルー](https://ardalis.com/new-is-glue)型のインスタンスを作成するか、依存関係の挿入を使用して要求するかを選択するときに、します。 に従って、[実線の基本原則のオブジェクト指向設計](http://deviq.com/solid/)クラスが必然的に小さく、十分に考慮された、簡単にテストする傾向があります。
+依存関係の挿入を使ってコラボレーターを取得するように、サービスを設計する必要があります。 つまり、ステートフルな静的メソッドの呼び出し ([静的な結び付き](http://deviq.com/static-cling/)として知られるコードの状態になります)、およびサービス内での依存クラスの直接インスタンス化は、使わないようにします。 型をインスタンス化するか、それとも依存関係の挿入を使って要求するか迷ったときは、"[new は密接な結び付きを生み出す](https://ardalis.com/new-is-glue)" という格言を思い出すと役に立つことがあります。 [オブジェクト指向設計の SOLID 原則](http://deviq.com/solid/)に従うことで、クラスは必然的に小さく、十分に考慮された、簡単にテストできるものになる可能性が高くなります。
 
-場合、クラスが多すぎる依存関係が挿入されていることになる傾向がありますを検索しますか。 これは、クラスが多すぎる、実行しようとし、SRP - に違反する可能性がありますが、サインインでは、通常、[単一責任の原則](http://deviq.com/single-responsibility-principle/)です。 新しいクラスにその負荷の一部を移動することによって、クラスをリファクタリングすることができるかどうかを参照してください。 注意してください、`Controller`クラス必要があるに重点を置いて UI の問題、これらに適切なクラスにビジネス ルールとデータ アクセスの実装の詳細を保持する必要がありますので[に関する注意事項を区切る](http://deviq.com/separation-of-concerns/)です。
+クラスで挿入される依存関係が多すぎる場合はどうすればよいでしょうか。 これは一般に、クラスで行おうとしていることが多すぎるサインであり、SRP ([単一責任の原則](http://deviq.com/single-responsibility-principle/)) に違反する可能性があります。 責任の一部を新しいクラスに移動することにより、クラスをリファクタリングできるかどうか検討します。 `Controller` クラスは UI に関することに集中する必要があり、ビジネス ルールとデータ アクセスの実装の詳細は[問題の分離](http://deviq.com/separation-of-concerns/)に適したクラスに維持する必要があることに留意してください。
 
-データ アクセスに関する具体的には、挿入することできます、 `DbContext` 、コント ローラーに (と仮定した場合にある services コンテナに追加した EF `ConfigureServices`)。 一部の開発者がデータベースへのリポジトリ インターフェイスの使用を好むを挿入することではなく、`DbContext`直接です。 1 か所でアクセス ロジックのデータをカプセル化するインターフェイスを使用して、データベースが変更されたときに変更する必要がどのようにさまざまな場所が最小化できます。
+特にデータ アクセスに関しては、`DbContext` をコントローラーに挿入できます (`ConfigureServices` のサービス コンテナーに EF を追加した場合)。 `DbContext` を直接挿入するより、データベースへのリポジトリ インターフェイスを使う方が好まれる場合があります。 インターフェイスを使ってデータ アクセス ロジックを 1 か所にカプセル化すると、データベースを変更するときに変更する必要がある場所の数を最少にできます。
 
 ### <a name="disposing-of-services"></a>サービスの破棄
 
-コンテナーが呼び出す`Dispose`の`IDisposable`型が作成されます。 ただし場合は、自分自身を追加するインスタンスのコンテナーに、これは破棄されません。
+コンテナーは、作成する `IDisposable` 型の `Dispose` を呼び出します。 ただし、手動でインスタンスをコンテナーに追加した場合は、破棄されません。
 
 例:
 
@@ -244,18 +244,18 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 > [!NOTE]
-> バージョン 1.0 の場合で、コンテナーはで dispose を呼び出す*すべて* `IDisposable` 、それを作成していないものを含むオブジェクト。
+> バージョン 1.0 のコンテナーは、コンテナーで作成しなかったものも含めて、"*すべての*" `IDisposable` に対して破棄を呼び出しました。
 
-## <a name="replacing-the-default-services-container"></a>既定のサービス コンテナーを置き換える
+## <a name="replacing-the-default-services-container"></a>既定のサービス コンテナーの置き換え
 
-フレームワークと上に構築されたほとんどのコンシューマー アプリケーションの基本的なニーズに対応するものでは、組み込みのサービス コンテナー。 ただし、開発者は、推奨されるコンテナーで組み込みのコンテナーを置き換えることができます。 `ConfigureServices`メソッドは通常を返します`void`を返すシグネチャが変更された場合、 `IServiceProvider`、別のコンテナーを構成し、返されます。 多くの IOC コンテナーは .NET を使用できます。 この例では、 [Autofac](https://autofac.org/)パッケージを使用します。
+組み込みのサービス コンテナーは、フレームワークと、それを基に構築されたほとんどのコンシューマー アプリケーションの、基本的なニーズに対応することを意図したものです。 ただし、開発者は、組み込みのコンテナーを好みのコンテナーで置き換えることができます。 通常、`ConfigureServices` メソッドは `void` を返しますが、`IServiceProvider` を返すようにシグネチャを変更した場合、別のコンテナーを構成して返すことができます。 .NET で使うことができる多くの IOC コンテナーがあります。 この例では、[Autofac](https://autofac.org/) パッケージを使います。
 
-最初に、適切なコンテナーのパッケージをインストールします。
+最初に、適切なコンテナー パッケージをインストールします。
 
 * `Autofac`
 * `Autofac.Extensions.DependencyInjection`
 
-次に、構成内のコンテナー`ConfigureServices`を返すと、 `IServiceProvider`:
+次に、`ConfigureServices` でコンテナーを構成して、`IServiceProvider` を返します。
 
 ```csharp
 public IServiceProvider ConfigureServices(IServiceCollection services)
@@ -273,9 +273,9 @@ public IServiceProvider ConfigureServices(IServiceCollection services)
 ```
 
 > [!NOTE]
-> サード パーティ製 DI コンテナーを使用して、変更する必要あります`ConfigureServices`を返すように`IServiceProvider`の代わりに`void`です。
+> サードパーティの DI コンテナーを使うときは、`void` ではなく `IServiceProvider` を返すように、`ConfigureServices` を変更する必要があります。
 
-通常どおり Autofac を最後に、構成`DefaultModule`:
+最後に、`DefaultModule` で Autofac を通常どおり構成します。
 
 ```csharp
 public class DefaultModule : Module
@@ -287,41 +287,36 @@ public class DefaultModule : Module
 }
 ```
 
-実行時に、Autofac 型を解決して、依存関係の挿入に使用されます。 [Autofac および ASP.NET Core の使用に関する詳細については](http://docs.autofac.org/en/latest/integration/aspnetcore.html)します。
+実行時には、Autofac を使って、型の解決と依存関係の挿入が行われます。 [Autofac と ASP.NET Core の使用については、こちらをご覧ください](http://docs.autofac.org/en/latest/integration/aspnetcore.html)。
 
 ### <a name="thread-safety"></a>スレッド セーフ
 
-シングルトン サービスは、スレッド セーフである必要があります。 一時的なサービスのシングルトン サービスに依存した場合、一時的なサービスもスレッドによって、単一の使用方法に応じてセーフである必要があります。
+シングルトン サービスは、スレッド セーフである必要があります。 シングルトン サービスに一時的サービスへの依存関係がある場合、シングルトンによる一時的サービスの使い方によっては、一時的サービスもスレッド セーフであることが必要な場合があります。
 
 ## <a name="recommendations"></a>推奨事項
 
-依存関係の挿入を使用する場合は、次の推奨事項に留意してください。
+依存関係の挿入を使うときは、次の推奨事項に留意してください。
 
-* DI では、複雑な依存関係のあるオブジェクト用です。 コント ローラー、サービス、アダプター、およびリポジトリ di が追加されるオブジェクトのすべての例に示します。
+* DI は、複雑な依存関係のあるオブジェクトのためのものです。 コントローラー、サービス、アダプター、リポジトリはすべて、DI に追加される可能性があるオブジェクトの例です。
 
-* DI で直接データと構成を保存しないでください。 たとえば、ユーザーのショッピング カートは、通常サービス コンテナーに追加べきではありません。 構成を使用する必要があります、[オプション パターン](xref:fundamentals/configuration/options)です。 同様に、その他のオブジェクトへのアクセスを許可するだけに存在する「データ ホルダー」オブジェクトは避けてください。 可能であれば、DI、経由で必要な実際のアイテムを要求することをお勧めします。
+* データと構成は、DI に直接格納しないようにします。 たとえば、通常、ユーザーのショッピング カートをサービス コンテナーに追加してはいけません。 構成では、[オプション パターン](xref:fundamentals/configuration/options)を使う必要があります。 同様に、他のオブジェクトへのアクセスを許可するためだけに存在する "データ ホルダー" オブジェクトは避ける必要があります。 可能な場合は、実際に必要なアイテムを DI 経由で要求することをお勧めします。
 
-* 静的なサービスにアクセスしないようにします。
+* サービスへの静的なアクセスを行わないようにします。
 
-* アプリケーション コードでサービスの場所は避けてください。
+* サービスの場所をアプリケーション コード内に記述しないようにします。
 
-* 静的なアクセスを防ぐ`HttpContext`です。
+* `HttpContext` への静的なアクセスを行わないようにします。
 
 > [!NOTE]
-> 推奨事項のすべてのセットと同様に 1 つを無視する必要がある状況が発生する可能性があります。 例外はまれで--framework 自体内のほとんどの場合、非常に特殊なケースが見つかりました。
+> どのような推奨事項でも、無視する必要がある状況が発生する可能性があります。 例外はまれであることがわかっており、ほとんどはフレームワーク自体内での非常に特殊なケースです。
 
-依存関係の挿入は、*代替*静的/グローバル オブジェクト アクセスのパターンにします。 静的オブジェクトのアクセス権を持つ混在している場合は、DI のメリットを実現することはできません。
+依存関係の挿入は静的/グローバル オブジェクト アクセス パターンの "*代替機能*" であることを憶えておいてください。 静的オブジェクト アクセスと併用した場合、DI のメリットを実現することはできません。
 
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の技術情報
 
-* [アプリケーションの起動](startup.md)
-
-* [テスト](../testing/index.md)
-
-* [依存関係の挿入 (MSDN) での ASP.NET Core でクリーンなコードの記述](https://msdn.microsoft.com/magazine/mt703433.aspx)
-
-* [コンテナー管理アプリケーションの設計、前段階: が属しているコンテナーしますか。](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
-
+* [アプリケーションの起動](xref:fundamentals/startup)
+* [テスト](xref:testing/index)
+* [依存関係の挿入による ASP.NET Core でのクリーンなコードの作成 (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
+* [コンテナー管理アプリケーションの設計、前段階: コンテナーはどこに属していますか](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
 * [明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)
-
-* [コントロール コンテナーとの依存関係挿入パターンの反転](https://www.martinfowler.com/articles/injection.html)(ファウラー)
+* [制御の反転コンテナーと依存関係の挿入パターン](https://www.martinfowler.com/articles/injection.html) (Fowler)

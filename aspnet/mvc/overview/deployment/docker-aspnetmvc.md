@@ -11,11 +11,11 @@ ms.prod: .net-framework
 ms.technology: dotnet-mvc
 ms.devlang: dotnet
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: badc1c9b10ac27c3d876e3331c855a9d5904d27d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7a580c6c6236b375ea54ef4e9978fff6993d885a
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Windows コンテナーへの ASP.NET MVC アプリケーションの移行
 
@@ -73,7 +73,7 @@ Docker イメージに読み込む必要があるすべての資産を 1 か所�
 
 Dockerfile に Docker イメージを定義します。 Dockerfile は、基本イメージ、追加のコンポーネント、実行するアプリ、その他の構成イメージに関する指示を含みます。  Dockerfile は、イメージを作成する `docker build` コマンドの入力です。
 
-[Docker Hub](https://hub.docker.com/r/microsoft/aspnet/) にある `microsft/aspnet` イメージに基づいてイメージをビルドします。
+[Docker Hub](https://hub.docker.com/r/microsoft/aspnet/) にある `microsoft/aspnet` イメージに基づいてイメージをビルドします。
 基本イメージである `microsoft/aspnet` は、Windows Server イメージです。 Windows Server Core、IIS および ASP.NET 4.6.2 が含まれています。 このイメージをコンテナー内で実行すると、IIS とインストールされている Web サイトが自動的に起動します。
 
 イメージを作成する Dockerfile は、次のようになります。

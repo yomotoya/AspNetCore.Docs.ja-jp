@@ -1,150 +1,150 @@
 ---
-title: "ASP.NET Core でのテスト コント ローラー ロジック"
+title: "ASP.NET Core のコントローラーのロジックをテストする"
 author: ardalis
-description: "ASP.NET Core Moq と xUnit でコント ローラーのロジックをテストする方法を説明します。"
-ms.author: riande
+description: "Moq と xUnit を使って ASP.NET Core のコントローラーのロジックをテストする方法を説明します。"
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: f27e7ec43cd17e249dd646a7dfbce5df69d59664
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: cabb1d2498e6c993b327c2fb9719525ec2181f9e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="testing-controller-logic-in-aspnet-core"></a>ASP.NET Core でのテスト コント ローラー ロジック
+# <a name="testing-controller-logic-in-aspnet-core"></a>ASP.NET Core のコントローラーのロジックをテストする
 
-によって[Steve Smith](https://ardalis.com/)
+作成者: [Steve Smith](https://ardalis.com/)
 
-ASP.NET MVC アプリケーション内のコント ローラーは、ユーザー インターフェイスの問題に焦点を当てており、小規模にする必要があります。 UI 以外の問題に対処する大規模なコント ローラーは、テストや保守が困難です。
+ASP.NET MVC アプリのコントローラーは、小さく、ユーザー インターフェイスに関係することだけを処理する必要があります。 UI 以外のことも処理する大規模なコントローラーは、テストや保守が困難です。
 
-[GitHub から表示またはダウンロードのサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample)
+[GitHub のサンプルを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample)
 
-## <a name="testing-controllers"></a>テスト コント ローラー
+## <a name="testing-controllers"></a>コントローラーのテスト
 
-コント ローラーは、すべての ASP.NET Core MVC アプリケーションの中央部分です。 そのため、アプリが意図したとおりに動作する信頼が必要です。 自動テストは、この信頼を提供でき、実稼働環境に到達する前に、エラーを検出できます。 ことが重要、コント ローラー内で不要な責任を配置することを回避し、テストのみに集中コント ローラーの機能を確認してください。
+コントローラーは、すべての ASP.NET Core MVC アプリケーションの中心になるものです。 そのため、アプリが意図するとおりに動作するという信頼が必要です。 自動テストを行うと、この信頼が得られ、運用環境に提供する前にエラーを検出できます。 コントローラーに必要のない機能を持たせないようにし、テストではコントローラーの機能だけに注目することが重要です。
 
-コント ローラー ロジックは最小限にする必要があり、ビジネス ロジックまたはインフラストラクチャの問題 (たとえば、データ アクセス) に注目せずします。 フレームワークではない、コント ローラー ロジックをテストします。 テスト方法、コント ローラー*動作*有効または無効な入力に基づきます。 実行するビジネス操作の結果に基づくコント ローラーの応答をテストします。
+コントローラーのロジックは最小限のものにして、ビジネス ロジックやインフラストラクチャに関すること (たとえば、データ アクセス) には目を向けないようにする必要があります。 フレームワークではなく、コントローラーのロジックをテストします。 有効または無効な入力に基づいて、コントローラーの "*動作*" をテストします。 コントローラーが実行するビジネス操作の結果に基づいて、コントローラーの応答をテストします。
 
-一般的なコント ローラーの機能:
+コントローラーの一般的な機能:
 
-* 確認`ModelState.IsValid`です。
-* 場合、エラー応答を返す`ModelState`が無効です。
-* ビジネス エンティティを永続化ストアから取得します。
-* ビジネス エンティティに対して操作を実行します。
-* 永続化されたビジネス エンティティを保存します。
-* 適切な返す`IActionResult`です。
+* `ModelState.IsValid` を確認します。
+* `ModelState` が無効である場合は、エラー応答を返します。
+* ビジネス エンティティを永続化から取得します。
+* ビジネス エンティティに対してアクションを実行します。
+* ビジネス エンティティを永続化に保存します。
+* 適切な `IActionResult` を返します。
 
 ## <a name="unit-testing"></a>単体テスト
 
-[単体テスト](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)インフラストラクチャとの依存関係から分離でのアプリの一部のテストが含まれます。 単体テスト コント ローラー ロジック、1 つのアクションの内容のみをテストするときに、その依存関係や framework 自体の動作できません。 ユニットとしてテスト コント ローラーのアクションをその動作にだけ専念するかどうかを確認します。 単体テストをコント ローラーなどの回避[フィルター](filters.md)、[ルーティング](../../fundamentals/routing.md)、または[モデル バインディング](../models/model-binding.md)です。 1 つだけをテストに焦点を当てた、単体テストは一般に書き込む単純なとを実行するクイックです。 多くのオーバーヘッドなし、適切に記述された一連の単体テストを頻繁に実行できます。 ただし、単体テストが問題を検出しないコンポーネント間の対話での目的は[統合テスト](xref:mvc/controllers/testing#integration-testing)です。
+[単体テスト](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)では、アプリの一部をインフラストラクチャや依存関係から切り離してテストします。 コントローラー ロジックの単体テストを行うときは、それが依存しているものやフレームワーク自体の動作ではなく、単一のアクションの内容のみをテストします。 コントローラーのアクションの単体テストでは、その動作にだけ注目するようにします。 コントローラーの単体テストからは、[フィルター](filters.md)、[ルーティング](../../fundamentals/routing.md)、[モデル バインド](../models/model-binding.md)などに関することは除外します。 1 つの事柄だけに注目してテストすることにより、一般に、単体テストを簡単に作成してすばやく実行できるようになります。 適切に記述された一連の単体テストは、大きなオーバーヘッドなしに頻繁に実行できます。 ただし、単体テストではコンポーネント間の相互作用の問題は検出しません。これは、[統合テスト](xref:mvc/controllers/testing#integration-testing)の目的です。
 
-単体テストする必要がありますカスタム フィルターやルートなどを記述している場合、特定のコント ローラー アクションで、テストの一部ではなく、します。 これらは、分離環境でテストしてください。
+カスタム フィルターやルートなどを作成している場合は、それらの単体テストを行う必要がありますが、コントローラーの特定のアクションに対するテストの一部としてではありません。 これらは、切り離してテストする必要があります。
 
 > [!TIP]
-> [作成し、Visual Studio での単体テストの実行](https://docs.microsoft.com/visualstudio/test/unit-test-your-code)です。
+> [Visual Studio で単体テストを作成して実行します](https://docs.microsoft.com/visualstudio/test/unit-test-your-code)。
 
-単体テストを示すためには、次のコント ローラーを確認します。 ブレーンストーミング セッションの一覧を表示し、新しいブレーンストーミングを投稿して作成されるセッションを許可します。
+単体テストの方法を説明するための実例として、次のコントローラーを使います。 このコントローラーは、ブレーンストーミング セッションの一覧を表示し、POST を使って新しいブレーンストーミング セッションを作成できます。
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?highlight=12,16,21,42,43)]
 
-コント ローラーは、次の[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)のインスタンスに提供する依存関係の挿入を指定してください`IBrainstormSessionRepository`です。 これにより、非常に簡単にテストと同様に、モック オブジェクト フレームワークを使用して[Moq](https://www.nuget.org/packages/Moq/)です。 `HTTP GET Index`メソッドにはないループおよび分岐のみ呼び出し 1 つのメソッドです。 これをテストする`Index`メソッド、ことを確認する必要があります、`ViewResult`返されると、`ViewModel`リポジトリから`List`メソッドです。
+このコントローラーは、[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)に従い、依存関係の挿入を使って `IBrainstormSessionRepository` のインスタンスを提供されるものと想定しています。 これにより、[Moq](https://www.nuget.org/packages/Moq/) などのモック オブジェクト フレームワークを使ったテストが非常に簡単になります。 `HTTP GET Index` メソッドにはループや分岐はなく、1 つのメソッドを呼び出すだけです。 この `Index` メソッドをテストするには、リポジトリの `List` メソッドからの `ViewModel` で、`ViewResult` が返されることを確認する必要があります。
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=17-18&range=1-33,76-95)]
 
-`HomeController` `HTTP POST Index` (上記) 方法を確認する必要があります。
+`HomeController` `HTTP POST Index` メソッド (上記) では、次のことを確認する必要があります。
 
-* アクション メソッドは、無効な要求を返します`ViewResult`に適切なデータと`ModelState.IsValid`は`false`
+* `ModelState.IsValid` が `false` の場合、アクション メソッドが無効な要求の `ViewResult` と適切なデータを返すこと
 
-* `Add`リポジトリでメソッドが呼び出されると`RedirectToActionResult`が適切な引数と共に返されるときに`ModelState.IsValid`は true です。
+* `ModelState.IsValid` が true の場合、リポジトリで `Add` メソッドが呼び出されて、`RedirectToActionResult` が適切な引数と共に返されること
 
-使用してエラーを追加することで無効なモデルの状態をテストできる`AddModelError`最初のテストを以下に示すようにします。
+以下の最初のテストで示すように、`AddModelError` を使ってエラーを追加することで、無効なモデルの状態をテストできます。
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
-ときに最初のテストのことを確認`ModelState`が有効でない同じ`ViewResult`用として返される、`GET`要求します。 テストが無効なモデルに渡すしようとしないに注意してください。 はうまくままモデル バインディングが実行されていないので (ただし、[統合テスト](xref:mvc/controllers/testing#integration-testing)演習モデル バインディングを使用)。 この場合、モデル バインディングがテスト中はありません。 これらの単体テストでは、アクション メソッドのコードが何をテストするだけです。
+最初のテストでは、`ModelState` が有効ではないときに、`GET` 要求の場合と同じ `ViewResult` が返されることを確認します。 テストでは無効なモデルを渡そうとしていないことに注意してください。 モデル バインドが動作していないので、いずれにしてもうまくいきません (ただし、[統合テスト](xref:mvc/controllers/testing#integration-testing)では演習のモデル バインドを使います)。 この場合、モデル バインドはテストされていません。 これらの単体テストでは、アクション メソッドのコードだけをテストしています。
 
-2 番目のテストの検証時に`ModelState`が有効で、新しい`BrainstormSession`(リポジトリ) を使用して追加が返されます、`RedirectToActionResult`予期されたプロパティを持つ。 呼び出されないモックの呼び出しは、通常は無視されますが、呼び出し`Verifiable`セットアップの最後の呼び出しで許可されているテストで検証します。 これは、呼び出したときに`mockRepo.Verify`、予想されるメソッドが呼び出された場合、テストが失敗します。
+2 番目のテストでは、`ModelState` が有効であるときに、新しい `BrainstormSession` が (リポジトリによって) 追加され、メソッドが予期されるプロパティと共に `RedirectToActionResult` を返すことを確認します。 呼び出されないモックの呼び出しは通常は無視されますが、Setup の呼び出しの最後で `Verifiable` を呼び出すと、テスト内で検証できます。 これは `mockRepo.Verify` の呼び出しで行われ、予期されるメソッドが呼び出されないとテストは失敗します。
 
 > [!NOTE]
-> このサンプルで使用される Moq ライブラリしやすい検証不可能のモック (「厳密でない」モックまたはスタブとも呼ばれます) を使用して、検証可能なまたは"strict"、モックを混在させます。 詳細については[Moq とモック動作をカスタマイズする](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior)です。
+> このサンプルで使われている Moq ライブラリにより、検証可能な ("厳密な") モックと検証不可能なモック ("厳密でない" モックまたはスタブとも呼ばれます) を簡単に混在させることができます。 詳しくは、Moq の「[Customizing Mock Behavior](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior)」(モックの動作のカスタマイズ) をご覧ください。
 
-アプリで別のコント ローラーには、特定のブレーンストーミング セッションに関連する情報が表示されます。 無効な id 値を扱うためのロジックが含まれています。
+アプリの別のコントローラーでは、特定のブレーンストーミング セッションに関する情報が表示されます。 無効な ID 値を扱うためのロジックが含まれています。
 
 [!code-csharp[Main](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
 
-コント ローラーのアクションが 3 つのケースをテストする場合に、1 つずつ`return`ステートメント。
+コントローラーのアクションには、各 `return` ステートメントに 1 つずつ、3 つのテスト ケースがあります。
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?highlight=27,28,29,46,47,64,65,66,67,68)]
 
-アプリでは、web API (ブレーンストーミング セッションと新しいアイデアをセッションに追加するためのメソッドに関連付けられているアイデアの一覧) と機能を公開します。
+アプリでは、Web API として機能が公開されています (ブレーンストーミング セッションに関連付けられているアイデアの一覧と、新しいアイデアをセッションに追加するためのメソッド)。
 
 <a name="ideas-controller"></a>
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
 
-`ForSession`メソッドの一覧を返します`IdeaDTO`型です。 API 呼び出し経由で直接、ビジネス ドメイン エンティティが返されないように、頻繁に以降 API クライアントを必要として、アプリの内部ドメイン モデル外部に公開する API で不必要に結合するより多くのデータが含まれます。 ドメイン エンティティと、ネットワーク経由で戻ります型間のマッピングを手動で行うことができます (LINQ を使用して`Select`次のように) のようなライブラリを使用してまたは[AutoMapper](https://github.com/AutoMapper/AutoMapper)
+`ForSession` メソッドは、`IdeaDTO` 型の一覧を返します。 API の呼び出しで直接ビジネス ドメイン エンティティを返さないでください。ビジネス ドメイン エンティティには API クライアントが要求しているもの以外のデータが含まれることが多く、アプリの内部ドメイン モデルと外部に公開される API との間に必要のない結合が生じます。 ドメイン エンティティと、ネットワーク経由で戻される型の間のマッピングは、手動で (ここで示すように LINQ `Select` を使って)、または [AutoMapper](https://github.com/AutoMapper/AutoMapper) などのライブラリを使って、行うことができます。
 
-用の単体テスト、`Create`と`ForSession`API メソッド。
+API メソッド `Create` と `ForSession` の単体テストは次のとおりです。
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?highlight=18,23,29,33,38-39,43,50,58-59,68-70,76-78&range=1-83,121-135)]
 
-既に説明したよう、メソッドの動作をテストするときに`ModelState`が有効でない、テストの一部としてコント ローラーにモデル エラーを追加します。 モデルの検証またはモデルのバインディングを単体テストでテスト - 特定が増したときのアクション メソッドの動作をテストするということは避けます`ModelState`値。
+前に説明したように、`ModelState` が無効のときのメソッドの動作をテストするには、テストの一部としてコントローラーにモデル エラーを追加します。 単体テストでは、モデルの検証またはモデル バインドのテストを試さないでください。`ModelState` の特定の値に遭遇したときのアクション メソッドの動作だけをテストしてください。
 
-2 番目のテストは、null を返します、モック リポジトリが構成されているため、null を返して、リポジトリに依存します。 テスト データベースを作成する必要はありません (メモリ内またはそれ以外の場合) をこの結果を返すクエリを構築および - ようにには、単一のステートメントで実行することができます。
+2 番目のテストではリポジトリが null を返す必要があるので、モック リポジトリは null を返すように構成されています。 テスト データベース (メモリ内またはそれ以外の場所) を作成する必要はなく、この結果を返すクエリを作成します。これは、次のように単一のステートメントで実行できます。
 
-前回のテストであることを確認、リポジトリの`Update`メソッドが呼び出されます。 モックがで呼び出された以前と同様、`Verifiable`とし、モック リポジトリの`Verify`メソッドが呼び出され、検証可能なメソッドが実行されたことを確認します。 いることを確認する単体テストの責任ではありません、`Update`メソッドは、データを保存; 統合テストを実行できます。
+最後のテストでは、リポジトリの `Update` メソッドが呼び出されることを確認します。 前に行ったように、`Verifiable` ではモックが呼び出され、モック リポジトリの `Verify` メソッドが呼び出されて、検証可能なメソッドが実行されたことを確認します。 `Update` メソッドがデータを保存したことを確認するのは、単体テストの役割ではありません。これは、統合テストで実行できます。
 
 ## <a name="integration-testing"></a>統合テスト
 
-[統合テスト](../../testing/integration-testing.md)は、アプリ内の個別のモジュールを正常に確実に行われます。 一般に、単体テストをテストすることが何も、テストすることも、統合テストでが逆で true はありません。 ただし、統合テストは単体テストよりも非常に低くなる傾向があります。 したがって、何でも単体テストの場合は、して統合テストを使用して、複数の共同作業者に関連するシナリオをテストすることをお勧めします。
+[統合テスト](../../testing/integration-testing.md)は、アプリ内の異なるモジュールが正常に連携することを確認するために行われます。 一般に、単体テストでテストできるものはすべて、統合テストでもテストできますが、逆は正しくありません。 ただし、統合テストは単体テストより非常に遅い傾向があります。 したがって、可能なものはすべて単体テストで行い、複数のコラボレーターが関係するシナリオには統合テストを使うのが最善の方法です。
 
-便利可能性があります、モック オブジェクトがほとんど統合テストで使用します。 単体テストでのモック オブジェクトは、テストの目的でテストされている単体の外部での共同作業者の動作を制御する効果的な方法です。 統合テストで実際のコラボレーターを使用して、全体のサブシステムが正しくが連携することを確認します。
+モック オブジェクトは、統合テストでも役に立つことはありますが、ほとんど使われません。 単体テストでは、モック オブジェクトは、テスト対象のユニットの外部にいるコラボレーターがテストの目的に関してどのように振る舞うかを制御するのに効果的な方法です。 統合テストでは、実際のコラボレーターを使って、サブシステム全体が正しく連携することを確認します。
 
 ### <a name="application-state"></a>アプリケーションの状態
 
-1 つの重要な考慮事項統合テストを実行するときは、アプリの状態を設定する方法を示します。 テストが、互いに独立して実行する必要があり、各テストが既知の状態でアプリを開始する必要がありますのでします。 アプリがデータベースを使用するすべての永続化、または問題にこの可能性があります。 ただし、ほとんどのアプリで現実世界では、1 つのテストによって行われた変更は、データ ストアをリセットしない限り、別のテストに影響がようににいくつかの種類のデータ ストアにその状態が保持されます。 組み込みを使用して`TestServer`は、統合テスト内で ASP.NET Core アプリケーションをホストする非常に簡単ですが、使用するデータへのアクセスを許可しないとは限りません。 1 つの方法は、テスト データベースに接続するアプリがあるを実際のデータベースを使用している場合は、各テストの実行前に、既知の状態にリセットしてテストできますにアクセスすることを確認します。
+統合テストを実行するときの重要な考慮事項の 1 つは、アプリの状態を設定する方法です。 テストは相互に独立して実行する必要があるので、各テストが既知の状態のアプリで開始する必要があります。 アプリがデータベースまたはいかなる永続化も使っていない場合、これは問題にならないことがあります。 しかし、現実世界のほとんどのアプリは何らかの種類のデータ ストアにその状態が保持するので、データ ストアをリセットしない限り、あるテストによって行われた変更が、別のテストに影響する可能性があります。 組み込みの `TestServer` を使うと、統合テスト内の ASP.NET Core アプリのホストが非常に簡単になりますが、使うデータへのアクセスが許可されない場合があります。 実際のデータベースを使う場合の 1 つの方法は、アプリをテスト データベースに接続することで、テストでアクセスし、各テスト実行の前に既知の状態にリセットすることができます。
 
-このサンプル アプリケーションで使用している Entity Framework Core InMemoryDatabase サポート、だけテスト プロジェクトからそれに接続できないようにします。 公開は、代わりに、`InitializeDatabase`メソッドから、アプリの`Startup`クラスは、アプリの起動時にある場合にお電話させて、`Development`環境。 統合テストに自動的にパフォーマンスが向上環境を設定する限り`Development`です。 InMemoryDatabase はアプリを再起動するたびにリセットされた後、データベースのリセットについて心配する必要はありません。
+このサンプル アプリケーションでは、Entity Framework Core の InMemoryDatabase サポートを使っているので、テスト プロジェクトから単に接続することはできません。 代わりに、アプリの `Startup` クラスから `InitializeDatabase` メソッドを公開し、`Development` 環境のときはアプリの起動時にそのメソッドを呼び出します。 統合テストでは、環境を `Development` に設定しさえすれば、これを自動的に利用できます。 InMemoryDatabase はアプリを再起動するたびにリセットされるので、データベースのリセットについて心配する必要はありません。
 
-`Startup`クラス。
+`Startup` クラス:
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
 
-表示されます、`GetTestSession`以下の統合テストで頻繁に使用されるメソッド。
+以下の統合テストでは、`GetTestSession` メソッドが頻繁に使われていることがわかります。
 
 ### <a name="accessing-views"></a>ビューへのアクセス
 
-各統合テスト クラスの構成、 `TestServer` ASP.NET Core アプリケーションを実行します。 既定では、`TestServer`が実行されている - この場合、テスト プロジェクト フォルダーのフォルダーに web アプリケーションをホストします。 したがって、しようとするテスト コント ローラーのアクションを返す`ViewResult`、このエラーが発生する可能性があります。
+各統合テスト クラスでは、ASP.NET Core アプリを実行する `TestServer` が構成されます。 既定では、`TestServer` は実行しているフォルダー (この場合はテスト プロジェクト フォルダー) で Web アプリをホストします。 したがって、`ViewResult` を返すコントローラー アクションをテストしようとすると、次のエラーが発生する可能性があります。
 
 ```
 The view 'Index' wasn't found. The following locations were searched:
 (list of locations)
 ```
 
-この問題を解決するには、テスト対象プロジェクトのビューを見つけることができるように、サーバーのコンテンツのルートを構成する必要があります。 これへの呼び出しで`UseContentRoot`で、`TestFixture`次に示すクラス。
+この問題を解決するには、テスト対象プロジェクトのビューを見つけることができるように、サーバーのコンテンツ ルートを構成する必要があります。 これは、次に示すように、`TestFixture` クラスの `UseContentRoot` を呼び出すことによって行います。
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
 
-`TestFixture`クラスは、構成および作成を担当する、`TestServer`を設定、`HttpClient`通信するために、`TestServer`です。 使用して、統合の各テスト、`Client`プロパティをテスト サーバーに接続し、要求を行います。
+`TestFixture` クラスは、`TestServer` を構成および作成し、`TestServer` と通信するように `HttpClient` を設定します。 各統合テストは、`Client` プロパティを使ってテスト サーバーに接続し、要求を行います。
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
 
-上記の最初のテスト、`responseString`ビューで、期待どおりの結果が含まれていることを確認するを検査することができますの実際のレンダリングされる HTML を保持します。
+上の最初のテストでは、`responseString` がビューから実際にレンダリングされた HTML を保持しており、それを調べることによって期待どおりの結果が含まれることを確認できます。
 
-2 番目のテストはフォーム ポストを一意のセッションの名前を構築、アプリにポストし、必要なリダイレクトが返されることを確認します。
+2 番目のテストは、一意のセッション名でフォーム POST を作成し、アプリに POST して、期待されるリダイレクトが返されることを確認します。
 
-### <a name="api-methods"></a>API のメソッド
+### <a name="api-methods"></a>API メソッド
 
-アプリが web Api では、そのテストを自動化されていることをお勧めは期待どおりに実行することを確認を公開するかどうか。 組み込み`TestServer`web Api をテストするが容易です。 常に確認する必要がある場合は、API のメソッドは、モデル バインディングを使用している、 `ModelState.IsValid`、統合テストは、適切な場所に、モデルの検証が正しく動作していることを確認します。
+アプリが Web API を公開している場合、API が期待したとおりに実行することを自動テストで確認するのがよいアイデアです。 組み込みの `TestServer` を使うと、Web API のテストが容易になります。 API のメソッドがモデル バインドを使っている場合は、常に `ModelState.IsValid` を確認する必要があり、統合テストはモデルの検証が正しく動作していることを確認するのに適した場所です。
 
-次のテストの対象のセット、`Create`メソッドで、 [IdeasController](xref:mvc/controllers/testing#ideas-controller)上に示したクラス。
+次の一連のテストでは、上で示した [IdeasController](xref:mvc/controllers/testing#ideas-controller) クラスの `Create` メソッドが対象になっています。
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
 
-HTML ビューを返すアクションの統合テストとは異なり web API メソッド結果を返す通常できます厳密に型指定のオブジェクトに逆シリアル化されたように上記の最後のテストを示しています。 ここでは、テストが結果を逆シリアル化、`BrainstormSession`インスタンス、およびアイデアがアイデアのコレクションに正しく追加されていることを確認します。
+HTML ビューを返すアクションの統合テストとは異なり、結果を返す Web API メソッドは、通常、上の最後のテストで示されているように、厳密に型指定されたオブジェクトとして逆シリアル化できます。 この場合、テストでは、結果を `BrainstormSession` インスタンスに逆シリアル化して、アイデアのコレクションにアイデアが正しく追加されていることを確認します。
 
-この記事の内容の統合テストの他の例があります[サンプル プロジェクト](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample)です。
+統合テストの他の例については、この記事の[サンプル プロジェクト](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample)をご覧ください。

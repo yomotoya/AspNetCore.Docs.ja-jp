@@ -1,31 +1,31 @@
 ---
 title: "ASP.NET Core でのファイルのアップロード"
 author: ardalis
-description: "モデル バインディングおよびストリーミングを使用して ASP.NET Core MVC でのファイルをアップロードする方法です。"
-ms.author: riande
+description: "モデル バインドとストリーミングを使用して、ASP.NET Core MVC でファイルをアップロードする方法。"
 manager: wpickett
+ms.author: riande
 ms.date: 07/05/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/models/file-uploads
-ms.openlocfilehash: bc1cfe0d6ee88a0af49cdff9ce77ad42f57b95f7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 314d585c7bf7f8c95f763babe6cdf93e514ff656
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>ASP.NET Core でのファイルのアップロード
 
-によって[Steve Smith](https://ardalis.com/)
+作成者: [Steve Smith](https://ardalis.com/)
 
-ASP.NET MVC アクションは、単純なモデル サイズの小さいファイルのバインドまたはよりも大きなファイルのストリーミングを使用して 1 つまたは複数のファイルのアップロードをサポートします。
+ASP.NET MVC アクションでは、より小さいファイルの単純なモデル バインドまたはより大きいファイルのストリーミングを使用する 1 つ以上のファイルのアップロードがサポートされます。
 
-[GitHub から表示またはダウンロードのサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample)
+[GitHub のサンプルを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample)
 
-## <a name="uploading-small-files-with-model-binding"></a>モデル バインディングで小さなファイルをアップロードします。
+## <a name="uploading-small-files-with-model-binding"></a>モデル バインドによる小さいファイルのアップロード
 
-小さなファイルをアップロードするには、マルチパート HTML フォームを使用してまたは JavaScript を使用して、POST 要求を作成できます。 例の形式がアップロードされた複数のファイルをサポートするには、Razor を使用して、次に示します。
+小さいファイルをアップロードする場合は、マルチパートの HTML フォームを使用できます。または、JavaScript を使用して POST 要求を構築することができます。 複数のアップロード済みファイルをサポートする、Razor を使用するフォーム例を以下に示します。
 
 ```html
 <form method="post" enctype="multipart/form-data" asp-controller="UploadFiles" asp-action="Index">
@@ -43,11 +43,11 @@ ASP.NET MVC アクションは、単純なモデル サイズの小さいファ�
 </form>
 ```
 
-ファイルのアップロードをサポートするために HTML フォームを指定する必要があります、`enctype`の`multipart/form-data`します。 `files`入力要素の前に示した複数ファイルのアップロードをサポートしています。 省略、`multiple`アップロードする 1 つのファイルだけを許可するこの入力要素の属性です。 としてブラウザーで上記のマークアップを表示します。
+ファイルのアップロードをサポートするには、HTML フォームで `multipart/form-data` の `enctype` を指定する必要があります。 上記の `files` 入力要素では、複数ファイルのアップロードがサポートされます。 この入力要素の `multiple` 属性を省略すると、単一のファイルのみをアップロードできます。 上記のマークアップは次のようにブラウザーに表示されます。
 
 ![ファイルのアップロード フォーム](file-uploads/_static/upload-form.png)
 
-サーバーにアップロードされた個別のファイルからアクセスできます[モデル バインド](xref:mvc/models/model-binding)を使用して、 [IFormFile](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.iformfile)インターフェイスです。 `IFormFile`次の構造があります。
+サーバーにアップロードされた個々のファイルには、[モデル バインド](xref:mvc/models/model-binding)を介して、[IFormFile](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.iformfile) インターフェイスを使用してアクセスできます。 `IFormFile` の構造は次のとおりです。
 
 ```csharp
 public interface IFormFile
@@ -65,17 +65,17 @@ public interface IFormFile
 ```
 
 > [!WARNING]
-> 依存しない、または信頼、`FileName`検証を伴わないプロパティです。 `FileName`プロパティは、表示目的でのみ使用する必要があります。
+> 検証を行わずに `FileName` プロパティに依存したり、信頼したりしないでください。 `FileName` プロパティは表示目的でのみ使用する必要があります。
 
-モデル バインディングを使用してファイルをアップロードするとき、`IFormFile`インターフェイス、アクション メソッドは、1 つを受け入れることができます`IFormFile`または`IEnumerable<IFormFile>`(または`List<IFormFile>`) を表すいくつかのファイルです。 次の例は、1 つまたは複数のアップロードされたファイルをループ処理、ローカル ファイル システムに保存し、アップロードされたファイルのサイズと合計数を返します。
+モデル バインドと `IFormFile` インターフェイスを使用してファイルをアップロードする場合、アクション メソッドでは単一の `IFormFile`、または複数のファイルを表す `IEnumerable<IFormFile>` (または `List<IFormFile>`) を受け入れることができます。 次の例では 1 つ以上のアップロードされたファイルをループ処理し、それをローカル ファイル システムに保存し、アップロードされたファイルの合計数とサイズを返します。
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
-使用してアップロードされたファイル、`IFormFile`手法は、バッファー内のメモリまたは web サーバー上のディスクに処理される前にします。 アクション メソッドの内部、`IFormFile`内容はストリームとしてアクセスします。 ローカル ファイル システムだけでなくファイルにストリーミングできる[Azure Blob ストレージ](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)または[Entity Framework](https://docs.microsoft.com/ef/core/index)です。
+`IFormFile` 手法を使用してアップロードされたファイルは、Web サーバー上のディスクまたはメモリ内にバッファーされてから処理されます。 アクション メソッド内では、`IFormFile` コンテンツにはストリームとしてアクセスできます。 ローカル ファイル システムだけでなく、[Azure BLOB ストレージ](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)または [Entity Framework](https://docs.microsoft.com/ef/core/index) にもファイルをストリーミングすることができます。
 
-Entity Framework を使用してデータベースにバイナリ ファイルのデータを保存して、型のプロパティを定義`byte[]`エンティティで。
+Entity Framework を使用してデータベースにバイナリ ファイル データを格納するには、次のようにエンティティで `byte[]` 型のプロパティを定義します。
 
 ```csharp
 public class ApplicationUser : IdentityUser
@@ -84,7 +84,7 @@ public class ApplicationUser : IdentityUser
 }
 ```
 
-型の viewmodel プロパティを指定して`IFormFile`:
+次のように `IFormFile` 型の viewmodel プロパティを指定します。
 
 ```csharp
 public class RegisterViewModel
@@ -96,9 +96,9 @@ public class RegisterViewModel
 ```
 
 > [!NOTE]
-> `IFormFile`使用できますがアクション メソッド パラメーターとして直接または viewmodel プロパティとして、上記のようにします。
+> `IFormFile` は直接アクション メソッド パラメーターとして、または上記のように viewmodel プロパティとして使用することができます。
 
-コピー、`IFormFile`ストリームをバイト配列に保存します。
+次のように、`IFormFile` をストリームにコピーして、バイト配列に保存します。
 
 ```csharp
 // POST: /Account/Register
@@ -127,18 +127,18 @@ public async Task<IActionResult> Register(RegisterViewModel model)
 ```
 
 > [!NOTE]
-> ように、パフォーマンスに悪影響は、リレーショナル データベースにバイナリ データを格納する場合の注意を使用します。
+> パフォーマンスに悪影響を与える可能性があるため、リレーショナル データベースにバイナリ データを格納する場合は注意してください。
 
-## <a name="uploading-large-files-with-streaming"></a>ストリーミングの大きいファイルのアップロード
+## <a name="uploading-large-files-with-streaming"></a>ストリーミングによる大きいファイルのアップロード
 
-サイズまたはファイルのアップロードの頻度には、アプリのリソースの問題が発生する場合は、完全にバッファリングするのではなく、ファイルのアップロードのストリーミングを上に示したモデル バインディングのアプローチは、検討します。 使用しているときに`IFormFile`モデル バインディングがより簡単に解決、およびストリーミングを正しく実装する手順の数が必要です。
+ファイルのアップロードのサイズまたは頻度が原因でアプリのリソース問題が発生する場合は、ファイル全体をバッファーするのではなく、上記のモデル バインド方法で行ったようにファイルのアップロードのストリーミングを検討してください。 `IFormFile` とモデル バインドの使用ははるかに単純なソリューションですが、ストリーミングでは適切に実装するための多くの手順が必要になります。
 
 > [!NOTE]
-> 64 KB を超える単一バッファー内のファイルは、そのディスク上の一時ファイルをサーバーで RAM から移動されます。 ファイルのアップロードで使用したリソース (ディスク、RAM) は、同時実行ファイルのアップロードのサイズと数によって異なります。 パフォーマンスに関するほとんどのストリーミングはスケールに関する説明。 バッファーが多すぎますアップロードしようとする場合、メモリまたはディスク領域を使い果たした場合、サイトがクラッシュします。
+> 64 KB を超える単一のバッファー済みファイルは、RAM からサーバー上のディスクの一時ファイルに移動されます。 ファイルのアップロードで使用されるリソース (ディスク、RAM) は、同時ファイル アップロードの数とサイズによって異なります。 ストリーミングではパフォーマンスについてそれほど気にする必要はありませんが、サイズには注意が必要です。 あまり多くのアップロードをバッファーしようとすると、メモリまたはディスク領域が不足したときにサイトがクラッシュします。
 
-次の例では、コント ローラーのアクションをストリーム配信の JavaScript/角の使用方法を示します。 カスタム フィルター属性を使用して、HTTP ヘッダーの代わりに、要求本文で渡されたファイルの antiforgery トークンが生成されます。 アクション メソッドがアップロードされたデータを直接処理されるため、別のフィルターによりモデル バインディングが無効です。 使用して、アクション内で、フォームの内容の読み取りは、 `MultipartReader`、各個人を読み取ります`MultipartSection`ファイルの処理、または適切な内容を保存します。 すべてのセクションが読み取られた後、アクションは独自のモデル バインドを実行します。
+JavaScript/Angular を使用して、コントローラーのアクションにストリーミングする例を以下に示します。 ファイルの偽造防止トークンは、カスタム フィルター属性を使用して生成され、要求本文ではなく HTTP ヘッダーで渡されます。 アクション メソッドではアップロードされたデータが直接処理されるため、モデル バインドは別のフィルターで無効になります。 アクション内では、フォームのコンテンツが `MultipartReader` を使用して読み取られます。その場合、各 `MultipartSection` が読み取られ、必要に応じて、ファイルが処理されるかコンテンツが格納されます。 すべてのセクションが読み取られた後、アクションで独自のモデル バインドが実行されます。
 
-最初のアクションがフォームを読み込むし、antiforgery トークンを cookie に保存されます (を使用して、`GenerateAntiforgeryTokenCookieForAjax`属性)。
+最初のアクションではフォームが読み込まれ、cookie に偽造防止トークンが保存されます (`GenerateAntiforgeryTokenCookieForAjax` 属性を使用)。
 
 ```csharp
 [HttpGet]
@@ -149,21 +149,21 @@ public IActionResult Index()
 }
 ```
 
-属性が ASP.NET Core の組み込みを使用して[Antiforgery](xref:security/anti-request-forgery)要求トークンを使用して cookie の設定をサポートします。
+この属性では ASP.NET Core の組み込みの[偽造防止](xref:security/anti-request-forgery)サポートを使用して、要求トークンで cookie を設定します。
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
 
-角が自動的に antiforgery トークンを渡すという名前の要求ヘッダーで`X-XSRF-TOKEN`です。 構成でこのヘッダーを参照する ASP.NET Core MVC アプリが構成されている*Startup.cs*:
+Angular は、自動的に `X-XSRF-TOKEN` という名前の要求ヘッダーで偽造防止トークンを渡します。 ASP.NET Core MVC アプリは、次のように、*Startup.cs* の構成でこのヘッダーを参照するように構成されます。
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
 
-`DisableFormValueModelBinding`モデルのバインディングを無効にする、次に示す属性が使用される、`Upload`アクション メソッド。
+以下に示す `DisableFormValueModelBinding` 属性は、`Upload` アクション メソッドでモデル バインドを無効にするために使用されます。
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
 
-モデル バインディングが無効になるので、`Upload`アクション メソッド パラメーターを受け取らないです。 直接連携して、`Request`プロパティ`ControllerBase`です。 A`MultipartReader`各セクションの読み取りに使用します。 GUID ファイル名を持つファイルが保存され、内のキー/値のデータが格納されている、`KeyValueAccumulator`です。 すべてのセクションが読み込まれた後の内容、`KeyValueAccumulator`フォーム データをモデルの種類にバインドするために使用します。
+モデル バインドが無効であるため、`Upload` アクション メソッドではパラメーターを受け入れません。 `ControllerBase` の `Request` プロパティを直接操作します。 `MultipartReader` は各セクションを読み取るために使用されます。 ファイルは GUID ファイル名で保存され、キー/値データは `KeyValueAccumulator` に格納されます。 すべてのセクションが読み込まれた後、`KeyValueAccumulator` のコンテンツはフォーム データをモデル型にバインドするために使用されます。
 
-完全な`Upload`メソッドを次に示します。
+完全な `Upload` メソッドを以下に示します。
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
@@ -171,18 +171,18 @@ public IActionResult Index()
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
-下には、ファイルとその考えられる解決策のアップロードを扱うときの一般的な問題を示します。
+ファイルのアップロード時に発生する一般的ないくつかの問題と、考えられる解決策を以下に示します。
 
-### <a name="unexpected-not-found-error-with-iis"></a>IIS での予期しないが見つかりません。 エラー
+### <a name="unexpected-not-found-error-with-iis"></a>IIS での予期しない "見つかりません" エラー
 
-次のエラーを示します、ファイルのアップロードを超える、サーバーの構成済み`maxAllowedContentLength`:
+次のエラーは、ファイルのアップロードがサーバーの構成済みの `maxAllowedContentLength` を超えていることを示しています。
 
 ```
 HTTP 404.13 - Not Found
 The request filtering module is configured to deny a request that exceeds the request content length.
 ```
 
-既定の設定は`30000000`、約 28.6 MB であります。 値を編集してカスタマイズできる*web.config*:
+既定の設定は `30000000` で、約 28.6 MB になります。 *web.config* を編集して、値をカスタマイズすることができます。
 
 ```xml
 <system.webServer>
@@ -195,8 +195,8 @@ The request filtering module is configured to deny a request that exceeds the re
 </system.webServer>
 ```
 
-この設定は、IIS にのみ適用されます。 動作は、Kestrel でホストしているときに、既定では発生しません。 詳細については、次を参照してください。[要求制限\<requestLimits\>](https://docs.microsoft.com/iis/configuration/system.webServer/security/requestFiltering/requestLimits/)です。
+この設定は IIS にのみ適用されます。 Kestrel でホストする場合、既定ではこの動作は発生しません。 詳細については、「[Request Limits \<requestLimits\>](https://docs.microsoft.com/iis/configuration/system.webServer/security/requestFiltering/requestLimits/)」 (要求制限 <requestLimits>) を参照してください。
 
-### <a name="null-reference-exception-with-iformfile"></a>IFormFile を使用して null 参照例外
+### <a name="null-reference-exception-with-iformfile"></a>IFormFile での null 参照例外
 
-コント ローラーが受け入れる場合を使用してファイルをアップロード`IFormFile`値が常に null を検索、HTML フォームを指定することを確認するが、`enctype`の値`multipart/form-data`です。 この属性に設定されていない場合、`<form>`要素、ファイルのアップロードが発生しないと任意のバインド`IFormFile`引数は null になります。
+コントローラーが `IFormFile` を使用してアップロードされたファイルを受け入れていても、値が常に null であることがわかった場合は、HTML フォームで `multipart/form-data` の `enctype` を指定していることを確認してください。 この属性が `<form>` 要素で設定されていない場合、ファイルはアップロードされず、バインドされた `IFormFile` 引数は null になります。

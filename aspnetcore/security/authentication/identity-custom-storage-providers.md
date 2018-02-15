@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 8541fe47207c0af232ca81ae45da6af201d94799
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8cadb550eaa2dbc4541f945dc8d8d49fa757d4d3
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core Id のカスタムの記憶域プロバイダー
 
-によって[Steve Smith](https://ardalis.com/)
+作成者: [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core の Id は、カスタムの記憶域プロバイダーを作成し、アプリに接続することにより拡張可能なシステムです。 このトピックでは、ASP.NET Core Id 用のカスタマイズされた記憶域プロバイダーを作成する方法について説明します。 独自の記憶域プロバイダーを作成するための重要な概念について説明しますが、ステップ バイ ステップ チュートリアルではありません。
 
-[GitHub からサンプルのダウンロードを表示または](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample)です。
+[GitHub のサンプルを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample)。
 
 ## <a name="introduction"></a>はじめに
 

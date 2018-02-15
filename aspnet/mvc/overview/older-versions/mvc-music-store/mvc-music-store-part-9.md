@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
 msc.type: authoredcontent
-ms.openlocfilehash: 71f87043be064d24bdfb203380fb6cf651527e30
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1caf836f8c92cbc9ab95e0aa990f81493e577a27
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="part-9-registration-and-checkout"></a>手順 9: 登録とチェック アウト
 ====================
@@ -53,7 +53,7 @@ ms.lasthandoff: 01/30/2018
 
 ## <a name="migrating-the-shopping-cart"></a>ショッピング カートを移行します。
 
-ショッピング プロセスが、匿名ユーザーがチェック アウト] ボタンをクリックすると、ときに、登録する必要がありますとログインします。 ユーザーは、登録またはログインを完了すると、ユーザーに、ショッピング カート情報を関連付ける必要がありますが、間、ショッピング カート情報を維持するを必要とします。
+ショッピング プロセスが、匿名ユーザーがチェック アウト ボタンをクリックすると、ときに、登録する必要がありますとログインします。 ユーザーは、登録またはログインを完了すると、ユーザーに、ショッピング カート情報を関連付ける必要がありますが、間、ショッピング カート情報を維持するを必要とします。
 
 これは実際には、単純な ShoppingCart クラスには既にユーザー名で現在カート内のすべての項目を関連付けるメソッド。 ユーザーが登録またはログインを完了すると、このメソッドを呼び出す必要がありますがだけです。
 
@@ -119,7 +119,7 @@ CheckoutController の完全なコードは次のとおりです。
 
 ## <a name="adding-the-addressandpayment-view"></a>AddressAndPayment ビューの追加
 
-ここで、AddressAndPayment ビューを作成してみましょう。 1 つを右クリックし、AddressAndPayment コント ローラーのアクションを次に示すように順序として厳密に型指定し、テンプレートの編集を使用している AddressAndPayment をという名前のビューを追加します。
+ここで、AddressAndPayment ビューを作成してみましょう。 AddressAndPayment コント ローラーのアクションのいずれかを右クリックし、次に示すように順序として厳密に型指定し、テンプレートの編集を使用している AddressAndPayment をという名前のビューを追加します。
 
 ![](mvc-music-store-part-9/_static/image6.png)
 
@@ -156,7 +156,7 @@ CheckoutController の完全なコードは次のとおりです。
 
 ## <a name="updating-the-error-view"></a>エラー ビューを更新
 
-既定のテンプレートにはが再利用できる他の場所、サイトのように、共有ビュー] フォルダーに、エラー ビューが含まれます。 このエラー ビューは、非常に単純なエラーが含まれ、それが更新されますので、サイトのレイアウトを使用しません。
+既定のテンプレートにはが再利用できる他の場所、サイトのように、共有ビュー フォルダーに、エラー ビューが含まれます。 このエラー ビューは、非常に単純なエラーが含まれ、それが更新されますので、サイトのレイアウトを使用しません。
 
 これは汎用エラー ページであるため、コンテンツは非常に単純です。 ユーザーがそのアクションを再試行する場合は、履歴に前のページに移動するには、メッセージとのリンクを含めます。
 

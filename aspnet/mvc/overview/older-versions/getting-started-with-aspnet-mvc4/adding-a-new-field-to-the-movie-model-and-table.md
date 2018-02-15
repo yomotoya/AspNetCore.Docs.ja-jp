@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: 0c094c4d4c99702a5b513717126872a254ca3e5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9965c8a755857a8e8cb8ecbc6c467a6c856aa83d
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table"></a>ムービーのモデルとテーブルに新しいフィールドを追加します。
 ====================
@@ -81,7 +81,7 @@ Visual Studio を開き、*される Configuration.cs*ファイル。 置換、`
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image7.png)
 
-Code First Migrations で別のクラス ファイルの作成、*移行*フォルダー (名前を持つ*{日付スタンプ}\_Initial.cs* )、このクラスには、データベース スキーマを作成するコードが含まれています。 移行ファイル名は、順序付けに役立てるために事前、タイムスタンプを持つ固定されています。 確認、 *{日付スタンプ}\_Initial.cs*ファイル、ムービー DB の映画のテーブルを作成する手順があります。 以下、この手順では、データベースを更新すると*{日付スタンプ}\_Initial.cs*ファイルを作成して、データベースのスキーマです。 続いて、**シード**DB にテスト データを設定するメソッドが実行されます。
+Code First Migrations で別のクラス ファイルの作成、*移行*フォルダー (名前を持つ*{日付スタンプ}\_Initial.cs* )、このクラスには、データベース スキーマを作成するコードが含まれています。 移行ファイル名は、順序付けに役立てるために事前、タイムスタンプを持つ固定されています。 確認、 *{日付スタンプ}\_Initial.cs*ファイル、ムービー DB の映画のテーブルを作成する手順があります。 以下、この手順では、データベースを更新すると*{日付スタンプ}\_Initial.cs*ファイルが実行され、データベースのスキーマを作成します。 続いて、**シード**DB にテスト データを設定するメソッドが実行されます。
 
 **Package Manager Console**、コマンド"更新プログラム-データベースを入力します"、データベースを作成および実行する、**シード**メソッドです。
 
@@ -163,8 +163,7 @@ Code First Migrations で別のクラス ファイルの作成、*移行*フォ�
 
 ![7_CreateRioII](adding-a-new-field-to-the-movie-model-and-table/_static/image14.png)
 
-
-              **[作成]**をクリックします。 この評価を含む、新しいムービーに表示されます、映画を一覧表示します。
+**[作成]**をクリックします。 この評価を含む、新しいムービーに表示されます、映画を一覧表示します。
 
 ![7_ourNewMovie_SM](adding-a-new-field-to-the-movie-model-and-table/_static/image15.png)
 

@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: c38f9b9a1bf1c523951e2cf1f3070858fe5daf04
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 37592c3b2099c2cb74dc42ad4a7937b32c281f65
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core で応答のキャッシュ
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 01/30/2018
 
 ### <a name="distributed-cache"></a>分散キャッシュ
 
-分散キャッシュを使用して、アプリが、クラウド サーバー ファームでホストされている場合は、データをメモリに格納します。 キャッシュは、要求を処理するサーバー間で共有されます。 クライアントでは、使用可能ながグループ内の任意のサーバーによって処理され、クライアントのキャッシュされたデータを要求を送信できます。 ASP.NET Core は、SQL Server と分散 Redis キャッシュを提供します。
+分散キャッシュを使用して、アプリが、クラウド サーバー ファームでホストされている場合は、データをメモリに格納します。 キャッシュは、要求を処理するサーバー間で共有されます。 クライアントは、クライアントのキャッシュされたデータが使用可能な場合は、グループ内のサーバーによって処理される要求を送信できます。 ASP.NET Core は、SQL Server と分散 Redis キャッシュを提供します。
 
 詳細については、次を参照してください。[分散キャッシュの使用](xref:performance/caching/distributed)です。
 
@@ -86,12 +86,14 @@ ms.lasthandoff: 01/30/2018
 
 ## <a name="responsecache-attribute"></a>ResponseCache 属性
 
-`ResponseCacheAttribute`応答のキャッシュでは、適切なヘッダーを設定するために必要なパラメーターを指定します。 参照してください[ResponseCacheAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.responsecacheattribute)パラメーターの詳細についてはします。
+[ResponseCacheAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.ResponseCacheAttribute)応答のキャッシュでは、適切なヘッダーを設定するために必要なパラメーターを指定します。
 
 > [!WARNING]
-> 認証されたクライアントに関する情報を含むコンテンツのキャッシュを無効にします。 キャッシュのみ有効にするユーザーの id や、ユーザーがログインしているかどうかに基づいてコンテンツは変更されません。
+> 認証されたクライアントに関する情報を含むコンテンツのキャッシュを無効にします。 キャッシュのみ有効にするユーザーの id またはユーザーがサインインしているかどうかに基づいてコンテンツは変更されません。
 
-`VaryByQueryKeys string[]`(ASP.NET Core 1.1 以降が必要です)。 設定すると、応答のキャッシュ ミドルウェアが応答の識別ストアド クエリ キーの指定された一覧の値。 設定するには、応答のキャッシュ ミドルウェアを有効にする必要があります、`VaryByQueryKeys`プロパティです。 それ以外の場合、ランタイム例外がスローされます。 対応する HTTP ヘッダーがない、`VaryByQueryKeys`プロパティです。 このプロパティは、応答のキャッシュ ミドルウェアによって処理される HTTP 機能です。 キャッシュされた応答を提供するミドルウェアをクエリ文字列とクエリ文字列の値必要がありますと一致前の要求。 たとえば、要求と、次の表に示すように結果のシーケンスがあるとします。
+[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys)ストアドの応答を指定された一連のクエリ キーの値によって異なります。 1 つの値のときに`*`すべてからの応答は要求クエリ文字列パラメーターが用意されて、ミドルウェアによって異なります。 `VaryByQueryKeys`ASP.NET Core 1.1 以降が必要です。
+
+設定するには、応答のキャッシュ ミドルウェアを有効にする必要があります、`VaryByQueryKeys`プロパティです。 それ以外の場合、ランタイム例外がスローされます。 対応する HTTP ヘッダーがない、`VaryByQueryKeys`プロパティです。 プロパティは、応答のキャッシュ ミドルウェアによって処理される HTTP 機能です。 キャッシュされた応答を提供するミドルウェアをクエリ文字列とクエリ文字列の値必要がありますと一致前の要求。 たとえば、要求と、次の表に示すように結果のシーケンスがあるとします。
 
 | 要求                          | 結果                   |
 | -------------------------------- | ------------------------ |
@@ -101,7 +103,7 @@ ms.lasthandoff: 01/30/2018
 
 最初の要求がサーバーによって返され、ミドルウェア内でキャッシュします。 2 番目の要求は、クエリ文字列が、前回の要求と一致するので、ミドルウェアによって返されます。 クエリ文字列の値は、前の要求と一致しないため、ミドルウェア キャッシュでは、3 番目の要求がありません。 
 
-`ResponseCacheAttribute`構成を作成するために使用 (を介して`IFilterFactory`)、`ResponseCacheFilter`です。 `ResponseCacheFilter`適切な HTTP ヘッダーと応答の機能の更新の処理を実行します。 フィルター:
+`ResponseCacheAttribute`構成を作成するために使用 (を介して`IFilterFactory`)、 [ResponseCacheFilter](/dotnet/api/microsoft.aspnetcore.mvc.internal.responsecachefilter)です。 `ResponseCacheFilter`適切な HTTP ヘッダーと応答の機能の更新の処理を実行します。 フィルター:
 
 * 既存のすべてのヘッダーを削除`Vary`、 `Cache-Control`、および`Pragma`です。 
 * 設定されたプロパティに基づいて、適切なヘッダーを書き込みます、`ResponseCacheAttribute`です。 

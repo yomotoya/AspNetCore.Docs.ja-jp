@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
 msc.type: authoredcontent
-ms.openlocfilehash: ac254abcb756d048d159a9b67967a581f35ac871
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 82341724286a53f7883df324a391beeae3a9e2bd
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>(C#) EntityFramework MySQL プロバイダーと MySQL の記憶域を使用して ASP.NET Id:
 ====================
@@ -83,7 +83,7 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="update-the-entity-framework-assembly-for-your-project"></a>プロジェクトの Entity Framework アセンブリを更新します。
 
-Visual Studio 2013 のテンプレートから作成された MVC アプリケーションにはへの参照が含まれています、 [EntityFramework 6.0.0](http://www.nuget.org/packages/EntityFramework)をパッケージ化がある重要な更新プログラムをリリース以降には、そのアセンブリに含まれているをされてパフォーマンスの向上。 アプリケーションでこれらの最新の更新プログラムを使用するために、次の手順を使用します。
+Visual Studio 2013 のテンプレートから作成された MVC アプリケーションにはへの参照が含まれています、 [EntityFramework 6.0.0](http://www.nuget.org/packages/EntityFramework)をパッケージ化がありますが含まれている更新プログラムのリリース以降には、そのアセンブリへの重要なされてパフォーマンスの向上。 アプリケーションでこれらの最新の更新プログラムを使用するために、次の手順を使用します。
 
 1. Visual Studio 2013 では、MVC プロジェクトを開きます。
 2. をクリックして**ツール**をクリックし、**ライブラリ パッケージ マネージャー**、順にクリック**パッケージ マネージャー コンソール**:  
@@ -139,7 +139,7 @@ Entity Framework Code First を使用して、 **MigrationHistory**テーブル 
 
 ### <a name="creating-a-custom-entityframework-initializer-for-applicationdbcontext"></a>ApplicationDbContext のカスタム EntityFramework 初期化子を作成します。
 
-このチュートリアルで取り上げるは MySQL プロバイダーは、Entity Framework での移行がデータベースに接続するためにモデルの初期化子を使用する必要がありますので現在サポートしていません。 このチュートリアルは、MySQL インスタンスを使用して、Azure では、ため、カスタムの Entity Framework の初期化子を作成する必要する必要があります。
+このチュートリアルで取り上げるは MySQL プロバイダーは、Entity Framework での移行がデータベースに接続するためにモデルの初期化子を使用する必要がありますので現在サポートしていません。 このチュートリアルは、MySQL インスタンスを使用して、Azure では、ため、カスタムの Entity Framework の初期化子を作成する必要があります。
 
 > [!NOTE]
 > Azure またはオンプレミスでホストされているデータベースを使用しているかどうかに SQL Server インスタンスに接続している場合、この手順は必要ありません。

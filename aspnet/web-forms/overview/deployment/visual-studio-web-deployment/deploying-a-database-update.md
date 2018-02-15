@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 3fd29a5b26c564d88e4128d1904fab00b57a3b7c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8e875a4282df78ec647579e74c3fbeabd2495fc2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Visual Studio を使用した ASP.NET Web 展開: データベース更新の展開
 ====================
@@ -90,7 +90,7 @@ DbDacFx プロバイダーを使用してデータベースを更新する方法
 6. **Web 1 つをクリックして 発行**ツールバーで、をクリックして、**運用**発行プロファイルをクリックして**Web の発行**です。
 7. 実行、**講習においてインストラクター**更新プログラムが正常に展開されたことを確認するには、実稼働環境でのページです。
 
-    データベースの変更を含む実際の運用アプリケーションの更新プログラムも通常実行する配置時にアプリケーションをオフラインを使用して*アプリ\_offline.htm*前のチュートリアルで説明したとおり、します。
+    データベースの変更を含む実際の運用アプリケーションの更新プログラムの通常実行する配置時にアプリケーションをオフラインを使用して*アプリ\_offline.htm*前のチュートリアルで説明したとおり、します。
 
 ## <a name="deploy-a-database-update-by-using-the-dbdacfx-provider"></a>DbDacFx プロバイダーを使用して、データベースの更新を展開します。
 
@@ -139,7 +139,7 @@ DbDacFx プロバイダーを使用して、展開するだけ選択する必要
 
     1. をクリックして**データベース更新を構成する**です。
     2. **データベース更新を構成する**ダイアログ ボックスで、チェック ボックスをオフのチェック ボックス の横に*Grant.sql*と*aspnet データ-dev.sql*です。
-    3. **[閉じる]**をクリックします。
+    3. **[閉じる]** をクリックします。
 6. クリックして、**プレビュー**タブです。
 7. [**データベース**の右側および**DefaultConnection**、] をクリックして、**プレビューのデータベース**リンクします。
 
@@ -160,7 +160,7 @@ DbDacFx プロバイダーを使用して、展開するだけ選択する必要
 
     データベースの変更を含む実際の運用アプリケーションの更新プログラムのも通常実行する配置時にアプリケーションをオフラインをアップロードして*アプリ\_offline.htm*発行を削除する前にその後で学習したよう[前のチュートリアル](deploying-a-code-update.md)です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 Code First Migrations および dbDacFx プロバイダーの両方を使用してデータベースの変更が含まれているアプリケーションの更新プログラムを展開したようになりました。
 

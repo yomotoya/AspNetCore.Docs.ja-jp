@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 73e46134cfafb9edc4c1888211eab44b8f2bf828
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d3eb588aad592605a8e368d1af6e62ece34b79d0
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 で非同期メソッドの使用
 ====================
@@ -123,7 +123,7 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 - `RegisterAsyncTask`メソッドは、非同期タスクを非同期的に実行されるコードを含む登録に使用します。
 - 新しい`GetGizmosSvcAsync`メソッドが付いて、 [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx)本文の一部のコールバックを生成して自動的に作成するのには、コンパイラに指示するキーワード、`Task`が返されます。
 - &quot;非同期&quot;非同期のメソッド名に追加されました。 "Async"を追加することは必要ありませんが、非同期メソッドを記述する場合、規則は。
-- 戻り値の型の新しい新しい`GetGizmosSvcAsync`メソッドは`Task`します。 戻り値の型`Task`進行中の作業を表し、メソッドの呼び出し元の非同期操作の完了を待機するためのハンドルに提供します。
+- 戻り値の型の新しい`GetGizmosSvcAsync`メソッドは`Task`します。 戻り値の型`Task`進行中の作業を表し、メソッドの呼び出し元の非同期操作の完了を待機するためのハンドルに提供します。
 - [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx)キーワードは、web サービスの呼び出しに適用されました。
 - 非同期の web サービス API が呼び出されました (`GetGizmosAsync`)。
 

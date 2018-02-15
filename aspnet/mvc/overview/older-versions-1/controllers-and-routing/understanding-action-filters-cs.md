@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f469894022e39048154ec1915237e448104b4b6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 86d5d429d9900d4c04391804598626705e6c88b4
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="understanding-action-filters-c"></a>アクション フィルター (c#) を理解します。
 ====================
@@ -82,7 +82,7 @@ ASP.NET MVC フレームワークには、次の 4 つの異なる種類のフ�
 
 各フィルターの種類は、特定の順序で実行されます。 同じ種類のフィルターが実行される順序を制御する場合は、フィルターの順序のプロパティを設定できます。
 
-すべてのアクション フィルターの基本クラスは、`System.Web.Mvc.FilterAttribute`クラスです。 特定の種類のフィルターを実装するかどうかは、フィルターの基本クラスから継承し、1 つ以上を実装するクラスを作成する必要があります、 `IAuthorizationFilter`、 `IActionFilter`、 `IResultFilter`、または`ExceptionFilter`インターフェイスです。
+すべてのアクション フィルターの基本クラスは、`System.Web.Mvc.FilterAttribute`クラスです。 特定の種類のフィルターを実装するかどうかは、フィルターの基本クラスから継承し、1 つ以上を実装するクラスを作成する必要があります、 `IAuthorizationFilter`、 `IActionFilter`、 `IResultFilter`、または`IExceptionFilter`インターフェイスです。
 
 ### <a name="the-base-actionfilterattribute-class"></a>基本 ActionFilterAttribute クラス
 
@@ -121,7 +121,7 @@ ASP.NET MVC フレームワークにはやすくためにカスタム アクシ�
 
 [!code-csharp[Main](understanding-action-filters-cs/samples/sample3.cs)]
 
-### <a name="summary"></a>概要
+### <a name="summary"></a>まとめ
 
 このチュートリアルでは、ASP.NET MVC アクション フィルターに導入されました。 次の 4 つの異なる種類のフィルターについて説明しました。 承認フィルター、アクション フィルター、結果フィルター、および例外フィルター。 基本についても学びました`ActionFilterAttribute`クラスです。
 

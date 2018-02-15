@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 0dd1717ff1051f18a78fe77402c7603008b9b486
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fce1a20f9d1093b6c60542d8a786ddf54fdc922c
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="part-8-final-pages-exception-handling-and-conclusion"></a>手順 8: 最終的なページ、例外処理、および結論
 ====================
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/10/2017
 
 ContactUs.aspx をという名前の新しいページを作成します。
 
-デザイナーを使用して、次の形式を ToolkitScriptManager、AjaxdControlToolkit からエディター コントロールなど、特別な注意事項を作成します。 。
+デザイナーを使用して、次の形式を ToolkitScriptManager、AjaxdControlToolkit からエディター コントロールなど、特別な注意事項を作成します。 である必要があります。
 
 ![](tailspin-spyworks-part-8/_static/image1.jpg)
 

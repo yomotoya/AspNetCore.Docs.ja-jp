@@ -1,79 +1,77 @@
 ---
 title: "ASP.NET Core での要求機能"
 author: ardalis
-description: "HTTP 要求と ASP.NET Core のインターフェイスで定義されている応答に関連する web サーバーの実装の詳細情報について説明します。"
-ms.author: riande
+description: "ASP.NET Core のインターフェイスに定義されている HTTP 要求と応答に関連する Web サーバーの実装に関する詳細を学習します。"
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/request-features
-ms.openlocfilehash: f0e371f5ea6c6688ef32adcacf667a412e4625e5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: c79ad6001e106a3e3104b0f804a386fe8b0ee30a
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="request-features-in-aspnet-core"></a>ASP.NET Core での要求機能
 
-によって[Steve Smith](https://ardalis.com/)
+作成者: [Steve Smith](https://ardalis.com/)
 
-HTTP の要求と応答に関連する Web サーバーの実装の詳細が、インターフェイスで定義されています。 これらのインターフェイスは、サーバーの実装とミドルウェアによって作成および変更、アプリケーションのホスティング パイプラインに使用されます。
+HTTP の要求と応答に関連する Web サーバーの実装の詳細が、インターフェイスで定義されています。 これらのインターフェイスは、アプリケーションのホスティング パイプラインを作成および変更するために、サーバーの実装とミドルウェアで使用されます。
 
-## <a name="feature-interfaces"></a>機能のインターフェイス
+## <a name="feature-interfaces"></a>機能インターフェイス
 
-ASP.NET Core での HTTP 機能のインターフェイスの数を定義する`Microsoft.AspNetCore.Http.Features`サポートされる機能を識別するサーバーで使用されています。 次の機能のインターフェイスは、要求を処理し、応答を返します。
+ASP.NET Core には、サーバーがサポートする機能を識別するために使用される `Microsoft.AspNetCore.Http.Features` に、多数の HTTP 機能インターフェイスが定義されています。 次の機能インターフェイスにより、要求が処理され、応答が返されます。
 
-`IHttpRequestFeature`プロトコル、パス、クエリ文字列、ヘッダー、および本文を含む、HTTP 要求の構造を定義します。
+`IHttpRequestFeature` プロトコル、パス、クエリ文字列、ヘッダーおよび本文などの HTTP 要求の構造を定義します。
 
-`IHttpResponseFeature`ステータス コード、ヘッダー、および応答の本文を含む、HTTP 応答の構造を定義します。
+`IHttpResponseFeature` 状態コード、ヘッダー、応答の本文などの HTTP 応答の構造を定義します。
 
-`IHttpAuthenticationFeature`基づくユーザーを識別するためのサポートを定義、`ClaimsPrincipal`認証ハンドラーを指定するとします。
+`IHttpAuthenticationFeature` `ClaimsPrincipal` に基づいてユーザーを識別し、認証ハンドラーを指定するサポートを定義します。
 
-`IHttpUpgradeFeature`サポートを定義[HTTP アップグレード](https://tools.ietf.org/html/rfc2616.html#section-14.42)サーバーがプロトコルの切り替えたい場合に使用するように、その他のプロトコルを指定するクライアントを許可します。
+`IHttpUpgradeFeature` [HTTP アップグレード](https://tools.ietf.org/html/rfc2616.html#section-14.42)のサポートを定義します。これにより、サーバーでプロトコルを切り替えたい場合、使用するその他のプロトコルを指定することが可能になります。
 
-`IHttpBufferingFeature`要求と応答のバッファリングを無効にするためのメソッドを定義します。
+`IHttpBufferingFeature` 要求および応答のバッファーを無効化する方法を定義します。
 
-`IHttpConnectionFeature`ローカルおよびリモート アドレスとポートのプロパティを定義します。
+`IHttpConnectionFeature` ローカルおよびリモート アドレスおよびポートのプロパティを定義します。
 
-`IHttpRequestLifetimeFeature`接続を中止するかどうか、要求は中止されました途中で、このようなクライアント接続が切断を検出するのサポートを定義します。
+`IHttpRequestLifetimeFeature` 接続の中止、クライアントの切断により要求が途中で中止されたかどうかの検出のサポートを定義します。
 
-`IHttpSendFileFeature`ファイルを非同期的に送信するためのメソッドを定義します。
+`IHttpSendFileFeature` ファイルを非同期的に送信するためのメソッドを定義します。
 
-`IHttpWebSocketFeature`Web ソケットをサポートするための API を定義します。
+`IHttpWebSocketFeature` Web ソケットをサポートする API を定義します。
 
-`IHttpRequestIdentifierFeature`要求を一意に識別する実装できるプロパティを追加します。
+`IHttpRequestIdentifierFeature` 要求を一意に識別するために実装できるプロパティを追加します。
 
-`ISessionFeature`定義`ISessionFactory`と`ISession`ユーザー セッションをサポートするための抽象化します。
+`ISessionFeature` ユーザー セッションをサポートする `ISessionFactory` と `ISession` の抽象化を定義します。
 
-`ITlsConnectionFeature`クライアント証明書を取得するための API を定義します。
+`ITlsConnectionFeature` クライアント証明書を取得する API を定義します。
 
-`ITlsTokenBindingFeature`TLS トークンのバインド パラメーターを使用して処理するメソッドを定義します。
+`ITlsTokenBindingFeature` TLS トークンのバインド パラメーターを使用するメソッドを定義します。
 
 > [!NOTE]
-> `ISessionFeature`サーバーの機能ではありませんが、によって実装される、 `SessionMiddleware` (を参照してください[アプリケーションの状態を管理](app-state.md))。
+> `ISessionFeature` はサーバー機能ではありませんが、`SessionMiddleware` によって実装されています (「[Managing Application State](app-state.md)」 (アプリケーションの状態の管理) を参照)。
 
 ## <a name="feature-collections"></a>機能のコレクション
 
-`Features`プロパティ`HttpContext`のインターフェイスを取得および設定の現在の要求に対して使用可能な HTTP 機能を提供します。 機能のコレクションは、要求のコンテキスト内でも変更可能であるために、コレクションを変更して、その他の機能のサポートを追加するミドルウェアを使用できます。
+`HttpContext` の `Features` プロパティは、現在の要求で利用可能な HTTP 機能を取得および設定するためのインターフェイスです。 機能のコレクションは要求のコンテキスト内でも変更可能であるため、コレクションの変更と、その他の機能のサポートの追加にはミドルウェアを使用できます。
 
-## <a name="middleware-and-request-features"></a>ミドルウェアと要求の機能
+## <a name="middleware-and-request-features"></a>ミドルウェアおよび要求機能
 
-サーバーは、機能のコレクションの作成を担当するが、ミドルウェアはことができます両方をこのコレクションに追加し、コレクションからの機能を使用します。 たとえば、`StaticFileMiddleware`にアクセスする、`IHttpSendFileFeature`機能します。 機能が存在する場合、物理パスからの要求された静的ファイルの送信に使用されます。 それ以外の場合、低速な代替手段はファイルの送信に使用されます。 利用可能であれば、`IHttpSendFileFeature`オペレーティング システムにファイルを開き、ネットワーク カードに直接カーネル モードのコピーを実行できるようにします。
+サーバーは、機能コレクションの作成を行い、ミドルウェアはこのコレクションの追加と、このコレクションの機能の使用の両方を行います。 たとえば、`StaticFileMiddleware` は、`IHttpSendFileFeature` 機能にアクセスします。 この機能が存在する場合、これは、その物理パスから、要求された静的ファイルを送信するために使用されます。 ない場合、代わりの低速な方法でファイルを送信します。 使用可能な場合、`IHttpSendFileFeature` はオペレーティング システムがファイルを開き、ネットワーク カードに直接カーネル モード コピーを実行できるようにします。
 
-さらに、ミドルウェアは、サーバーによって確立された機能のコレクションに追加できます。 既存の機能は、サーバーの機能を補完するミドルウェアを許可するミドルウェアによっても置き換えられます。 コレクションに追加された機能は他のミドルウェアまたは基になるアプリケーション自体、要求パイプラインの後ですぐに使用できます。
+さらに、ミドルウェアは、サーバーによって確立された機能コレクションに追加できます。 ミドルウェアでは、既存の機能の代わりをすることも可能で、サーバーの機能を補うことができます。 コレクションに追加された機能は、その他のミドルウェアまたは基礎となっているアプリケーション自体で後で要求パイプラインで使用可能です。
 
-カスタム サーバーの実装と特定のミドルウェアの機能強化を組み合わせることにより、正確なアプリケーションに必要な機能のセットを構築できます。 これにより、サーバーでの変更を必要とせずに追加する機能がなく、攻撃を制限するため、最小限の機能のみが公開されることを確認画面領域とパフォーマンスが向上します。
+サーバーのカスタムの実装と特定のミドルウェアの機能強化を組み合わせることにより、アプリケーションで必要な正確な機能セットを構築できます。 これにより、サーバーを変更せずに不足している機能を追加できます。また、最小限の機能を公開することにより、外部から攻撃を受ける可能性を減らして、パフォーマンスを向上させることができます。
 
 ## <a name="summary"></a>まとめ
 
-機能のインターフェイスは、特定の要求がサポートする可能性がある特定の HTTP 機能を定義します。 サーバーは、機能のコレクションと、そのサーバーでサポートされる機能の初期セットを定義するが、ミドルウェアは、これらの機能を強化するために使用できます。
+機能インターフェイスは、特定の要求がサポートする可能性がある特定の HTTP 機能を定義します。 サーバーでは、機能のコレクションとそのサーバーによってサポートされる機能の初期セットを定義しますが、ミドルウェアは、これらの機能を強化するために使用できます。
 
-## <a name="additional-resources"></a>その他のリソース
+## <a name="additional-resources"></a>その他の技術情報
 
-* [サーバー](servers/index.md)
-
-* [ミドルウェア](middleware.md)
-
-* [Open Web Interface for .NET (OWIN)](owin.md)
+* [サーバー](xref:fundamentals/servers/index)
+* [ミドルウェア](xref:fundamentals/middleware/index)
+* [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin)

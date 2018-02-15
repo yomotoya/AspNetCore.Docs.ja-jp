@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: f43f0a2dd80e26ecff15e5742e18264ddb5b26aa
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: bbc1f6ef291eddd7488531943b146bb67ae7ee02
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>ASP.NET Id のカスタムの記憶域プロバイダーの概要
 ====================
@@ -128,7 +128,7 @@ IdentityUser クラスは、IUser を実装し、任意の追加のプロパテ�
 <a id="userstore"></a>
 ## <a name="customize-the-user-store"></a>ユーザーのストアをカスタマイズします。
 
-ユーザーに対するすべてのデータ操作のメソッドを提供する UserStore クラスを作成します。 このクラスは、 [UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn315446(v=vs.108).aspx)クラス内で、 [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx)名前空間。 実装する、UserStore クラスで、 [IUserStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx)と省略可能なインターフェイスのいずれか。 省略可能なインターフェイスを実装するを選択すると、アプリケーションに提供する機能に基づいています。
+ユーザーに対するすべてのデータ操作のメソッドを提供する UserStore クラスを作成します。 このクラスは、 [UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn315446(v=vs.108).aspx)クラス内で、 [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx)名前空間。 実装する、UserStore クラスで、 [IUserStore&lt;TUser、TKey&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx)と省略可能なインターフェイスのいずれか。 実装する省略可能なインターフェイスを選択すると、アプリケーションに提供する機能に基づいています。
 
 次の図は、作成する必要があります、UserStore クラスと関連するインターフェイスを示します。
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 27150d314b6861f1098e6ef4a7de94e7b371a78e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 64ac4e3575f69c164ba053943984ef25f906d7f4
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="introduction-to-signalr"></a>SignalR の概要
 ====================
@@ -35,7 +35,7 @@ ASP.NET SignalR は、ASP.NET 開発者向けのアプリケーションにリ�
 
 SignalR は ASP.NET アプリケーションに何らかの「リアルタイム」web 機能を追加するためにことができます。 チャットは例として使用される多くの場合中よりもずっとを行うことができます。 いつでも、ユーザーに、新しいデータを表示する web ページを更新するか、ページを実装[ポーリング時間の長い](http://en.wikipedia.org/wiki/Push_technology#Long_polling)新しいデータを取得するが、候補 SignalR を使用するためです。 例としては、ダッシュ ボードとアプリケーションの監視、共同作業などのアプリケーション (同時ドキュメントの編集)、ジョブの進行状況の更新プログラム、およびリアルタイム フォーム。
 
-SignalR では、完全に新しい種類の web アプリケーションをサーバーからの頻度の高い更新プログラムを必要とすることもできますリアルタイム ゲームなどです。 これの優れた例については、 [ShootR ゲームです。](http://shootr.signalr.net/)
+SignalR では、完全に新しい種類の web アプリケーションをサーバーからの頻度の高い更新プログラムを必要とすることもできますリアルタイム ゲームなどです。
 
 SignalR には、サーバー側の .NET コードからブラウザー (およびその他のクライアント プラットフォーム) クライアントでの JavaScript 関数を呼び出してサーバーからクライアントへのリモート プロシージャ コール (RPC) を作成するための単純な API が用意されています。 SignalR には、接続の管理の API にはもが含まれています (接続し、切断イベントなど) との接続をグループ化します。
 

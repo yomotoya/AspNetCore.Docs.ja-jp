@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: a58b4a4893fca66800c012bebae4a8bbfedf7a6a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cac86760b90c90a0ea2fad16268f60b5ccf61299
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="adding-validation-to-the-model-vb"></a>検証 (VB) モデルを追加します。
 ====================
@@ -97,7 +97,7 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 このアプローチのすばらしい点は、コント ローラーもビュー テンプレートの作成を知っているものが適用されている実際の検証規則の情報や、特定のエラー メッセージが表示されてです。 検証規則とエラー文字列は、`Movie` クラスでのみ指定されています。
 
-検証ロジックを後で変更する場合は、これを行う 1 つの場所にします。 アプリケーションの異なる部分で規則の適用方法が一貫しない可能性を心配する必要はありません。すべての検証ロジックは 1 か所で定義され、すべての場所で使われます。 これにより、コードの簡潔さが保たれ、簡単に維持や更新できます。 すると、いることを意味して完全性を記念するためです。
+検証ロジックを後で変更する場合は、これを行う 1 つの場所にします。 アプリケーションの異なる部分で規則の適用方法が一貫しない可能性を心配する必要はありません。すべての検証ロジックは 1 か所で定義され、すべての場所で使われます。 これにより、コードの簡潔さが保たれ、簡単に維持や更新できます。 また、これは DRY 原則に完全に従うことを意味します。
 
 ## <a name="adding-formatting-to-the-movie-model"></a>書式設定、ムービーのモデルを追加します。
 

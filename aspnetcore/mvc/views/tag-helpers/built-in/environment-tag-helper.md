@@ -1,35 +1,35 @@
 ---
-title: "環境タグ ヘルパーの ASP.NET Core"
+title: "ASP.NET Core の環境タグ ヘルパー"
 author: pkellner
-description: "すべてのプロパティを含む ASP.NET Core 環境タグ ヘルパーの定義"
-ms.author: riande
+description: "すべてのプロパティを含む、定義済みの ASP.NET Core 環境タグ ヘルパー"
 manager: wpickett
+ms.author: riande
 ms.date: 07/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
-ms.openlocfilehash: 32646f1fdaf840f796da1ec573459157a41a86d1
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
-ms.translationtype: MT
+ms.openlocfilehash: 7a99ee0e59c7f49a3208d2c86c11cabce4294889
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="environment-tag-helper-in-aspnet-core"></a>環境タグ ヘルパーの ASP.NET Core
+# <a name="environment-tag-helper-in-aspnet-core"></a>ASP.NET Core の環境タグ ヘルパー
 
-によって[Peter Kellner](http://peterkellner.net)と[Hisham Bin Ateya](https://twitter.com/hishambinateya)
+著者: [Peter Kellner](http://peterkellner.net)、[Hisham Bin Ateya](https://twitter.com/hishambinateya)
 
-環境タグ ヘルパーは、現在のホスト環境に基づいて囲まれたコンテンツを条件付きで表示します。 その 1 つの属性`names`環境のコンマ区切り一覧を示します、された名前と現在の環境に一致するいずれかの場合は、かっこで囲んだ表示される内容がトリガーされます。
+環境タグ ヘルパーは、現在のホスティング環境に基づき、囲まれたコンテンツを条件付きでレンダリングします。 その単一の属性 `names` は環境名のコンマ区切りリストであり、現在の環境に一致した場合は囲まれたコンテンツのレンダリングがトリガーされます。
 
-## <a name="environment-tag-helper-attributes"></a>環境タグ ヘルパー属性
+## <a name="environment-tag-helper-attributes"></a>環境タグ ヘルパーの属性
 
 ### <a name="names"></a>名前
 
-1 つのホスティング環境名またはホスティング収録されているコンテンツのレンダリングをトリガーする環境名のコンマ区切りの一覧を受け入れます。
+囲まれたコンテンツのレンダリングをトリガーする単一のホスティング環境名またはホスティング環境名のコンマ区切りリストを受け入れます。
 
-これらの値は、ASP.NET Core の静的プロパティから返された現在の値と比較されます`HostingEnvironment.EnvironmentName`です。  この値は、次のいずれかの:**ステージング**です。**開発**または**運用**です。 比較では、小文字を無視します。
+これらの値は、ASP.NET Core の静的プロパティ `HostingEnvironment.EnvironmentName` から返される現在の値と比較されます。  この値は、**Staging**、**Development** または **Production** のいずれかになります。 比較では大文字と小文字の区別は無視されます。
 
-有効な例`environment`タグ ヘルパーは。
+有効な `environment` タグ ヘルパーの例を以下に示します。
 
 ```cshtml
 <environment names="Staging,Production">
@@ -37,13 +37,13 @@ ms.lasthandoff: 01/19/2018
 </environment>
 ```
 
-## <a name="include-and-exclude-attributes"></a>属性を含めたり除外したり
+## <a name="include-and-exclude-attributes"></a>include および exclude 属性
 
-ASP.NET Core 2.x の追加、 `include`  &  `exclude`属性。 属性のコントロールが含まれるか除外されたホスティング環境名に基づいて含まれているコンテンツのレンダリングこれらです。
+ASP.NET Core 2.x では `include` & `exclude` 属性が追加されます。 これらの属性は、含めるまたは除外するホスティング環境名に基づいて、囲まれたコンテンツのレンダリングを制御します。
 
-### <a name="include-aspnet-core-20-and-later"></a>ASP.NET Core 2.0 以降が含まれます
+### <a name="include-aspnet-core-20-and-later"></a>include (ASP.NET Core 2.0 以降)
 
-`include`プロパティの同様の動作には、 `names` ASP.NET Core 1.0 での属性です。
+`include` プロパティの動作は、ASP.NET Core 1.0 の `names` 属性の動作と同様です。
 
 ```cshtml
 <environment include="Staging,Production">
@@ -51,9 +51,9 @@ ASP.NET Core 2.x の追加、 `include`  &  `exclude`属性。 属性のコン�
 </environment>
 ```
 
-### <a name="exclude-aspnet-core-20-and-later"></a>ASP.NET Core 2.0 以降を除外します。
+### <a name="exclude-aspnet-core-20-and-later"></a>exclude (ASP.NET Core 2.0 以降)
 
-これに対し、`exclude`プロパティにより、`EnvironmentTagHelper`指定したそのを除くすべてのホスティング環境の名前をかっこで囲んだコンテンツをレンダリングします。
+一方、`exclude` プロパティでは、ユーザーが指定したものを除き、`EnvironmentTagHelper` ですべてのホスティング環境名の囲まれたコンテンツをレンダリングできます。
 
 ```cshtml
 <environment exclude="Development">

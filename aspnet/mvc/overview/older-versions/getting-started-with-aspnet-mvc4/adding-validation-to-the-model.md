@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 93b4df5fcbde8d87866d00dffda8a241d0dd596b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6de7d279677c7bbf220b956767a97aaaff8da9a1
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="adding-validation-to-the-model"></a>モデルの検証の追加
 ====================
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/24/2018
 > > このチュートリアルの更新バージョンが利用可能な[ここ](../../getting-started/introduction/getting-started.md)ASP.NET MVC 5 と Visual Studio 2013 を使用します。 より安全な非常に簡単に従うしより多くの機能を示します。
 
 
-これでこのセクションで追加検証ロジックを`Movie`モデル、およびすることで、検証規則がいつでも作成またはアプリケーションを使用してムービーを編集しようと、ユーザーに適用されます。
+検証ロジックをここで追加、`Movie`モデル、およびすることで、検証規則がいつでも作成またはアプリケーションを使用してムービーを編集しようと、ユーザーに適用されます。
 
 ## <a name="keeping-things-dry"></a>ドライに保つこと
 
@@ -133,7 +133,7 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 このアプローチのすばらしい点は、コント ローラーもビュー テンプレートの作成を知っているものが適用されている実際の検証規則の情報や、特定のエラー メッセージが表示されてです。 検証規則とエラー文字列は、`Movie` クラスでのみ指定されています。 これらの同じ検証規則は、編集ビュー、およびその他のビュー テンプレートを作成、モデルを編集するに自動的に適用されます。
 
-検証ロジックを後で変更する場合は、これを行う正確に 1 か所でモデルの検証属性を追加することで (この例では、`movie`クラス)。 アプリケーションの異なる部分で規則の適用方法が一貫しない可能性を心配する必要はありません。すべての検証ロジックは 1 か所で定義され、すべての場所で使われます。 これにより、コードの簡潔さが保たれ、簡単に維持や更新できます。 すると、いることを意味して完全性を記念するためです。
+検証ロジックを後で変更する場合は、これを行う正確に 1 か所でモデルの検証属性を追加することで (この例では、`movie`クラス)。 アプリケーションの異なる部分で規則の適用方法が一貫しない可能性を心配する必要はありません。すべての検証ロジックは 1 か所で定義され、すべての場所で使われます。 これにより、コードの簡潔さが保たれ、簡単に維持や更新できます。 また、これは DRY 原則に完全に従うことを意味します。
 
 ## <a name="adding-formatting-to-the-movie-model"></a>書式設定、ムービーのモデルを追加します。
 
