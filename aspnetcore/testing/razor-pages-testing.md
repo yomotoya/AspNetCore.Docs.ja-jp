@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 5891b236306cd3790cbba14919796d6aa894ad53
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6f9e986c34f41fe96beb492680106f725bc1e2f9
+ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Razor ページの単位と ASP.NET Core でのテストの統合
 
@@ -71,7 +71,7 @@ dotnet test
 | ------------------ | ----------- |
 | *IntegrationTests* | <ul><li>*IndexPageTest.cs*インデックス ページの統合テストが含まれています。</li><li>*TestFixture.cs*メッセージ アプリをテストするテストのホストを作成します。</li></ul> |
 | *UnitTests*        | <ul><li>*DataAccessLayerTest.cs* DAL の単体テストが含まれています。</li><li>*IndexPageTest.cs*インデックス ページのモデルの単体テストが含まれています。</li></ul> |
-| *ユーティリティ*        | *Utilities.cs*を格納します。<ul><li>`TestingDbContextOptions`メソッドは、データベースがその基準条件テストごとにリセットできるように各 DAL 単体テストのコンテキストのオプションで新しいデータベースを作成するために使用します。</li><li>`GetRequestContentAsync`準備に使用する方法、`HttpClient`と統合テスト中に、メッセージのアプリに送信される要求のコンテンツ。</li></ul>
+| *ユーティリティ*        | *Utilities.cs*を格納します。<ul><li>`TestingDbContextOptions` メソッドは、データベースがその基準条件テストごとにリセットできるように各 DAL 単体テストのコンテキストのオプションで新しいデータベースを作成するために使用します。</li><li>`GetRequestContentAsync` 準備に使用する方法、`HttpClient`と統合テスト中に、メッセージのアプリに送信される要求のコンテンツ。</li></ul>
 
 テスト フレームワークが[xUnit](https://xunit.github.io/)です。 フレームワークのモック オブジェクトが[Moq](https://github.com/moq/moq4)です。 使用して統合テストが実施、 [ASP.NET Core テスト ホスト](xref:testing/integration-testing#the-test-host)です。
 
@@ -102,7 +102,7 @@ using (var db = new AppDbContext(optionsBuilder.Options))
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
-使用して、 `DbContextOptions` DAL 単体テストで使用して原子的に実行するには、各テスト、新しいデータベース インスタンス。
+使用して、 `DbContextOptions` DAL 単体テストで、新しいデータベース インスタンスにアトミックに実行するには、各テスト。
 
 ```csharp
 using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
@@ -176,7 +176,7 @@ using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet2)]
 
-`IndexPage`ページのモデルの`OnGetAsync`メソッド (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*)。
+`IndexPage` ページのモデルの`OnGetAsync`メソッド (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*)。
 
 [!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3)]
 
@@ -212,7 +212,7 @@ using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
 * アプリへの POST 要求を作成します。
 * 応答がインデックス ページにリダイレクトであることを確認します。
 
-`Post_AddMessageHandler_ReturnsRedirectToRoot `メソッド (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*)。
+`Post_AddMessageHandler_ReturnsRedirectToRoot ` メソッド (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*)。
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet2)]
 

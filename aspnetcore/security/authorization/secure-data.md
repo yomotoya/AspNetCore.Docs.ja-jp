@@ -1,7 +1,7 @@
 ---
 title: "認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成します。"
 author: rick-anderson
-description: "認証によって保護されているユーザー データと Razor ページ アプリケーションを作成する方法を説明します。 SSL、認証、セキュリティ、ASP.NET Core Id が含まれます。"
+description: "認証によって保護されているユーザー データと Razor ページ アプリケーションを作成する方法を説明します。 HTTPS、認証、セキュリティ、ASP.NET Core Id が含まれます。"
 manager: wpickett
 ms.author: riande
 ms.date: 01/24/2018
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: 6333082a2b2b4f6d3f1ce2afc600b4203a0f5dca
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: e186adef2e72f852543a92ddce0e82be2a3bcd12
+ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成します。
 
@@ -87,7 +87,7 @@ ASP.NET を使用して[Identity](xref:security/authentication/identity)のユ�
 
 [!code-csharp[Main](secure-data/samples/final2/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
 
-`OwnerID`ユーザーの id、`AspNetUser`テーブルに、 [Identity](xref:security/authentication/identity)データベース。 `Status`フィールドは、連絡先が一般のユーザーによって表示可能であるかどうか。
+`OwnerID` ユーザーの id、`AspNetUser`テーブルに、 [Identity](xref:security/authentication/identity)データベース。 `Status`フィールドは、連絡先が一般のユーザーによって表示可能であるかどうか。
 
 新しい移行を作成し、データベースを更新します。
 
@@ -96,7 +96,7 @@ dotnet ef migrations add userID_Status
 dotnet ef database update
 ```
 
-### <a name="require-ssl-and-authenticated-users"></a>SSL と認証済みユーザーが必要
+### <a name="require-https-and-authenticated-users"></a>HTTPS と認証済みユーザー
 
 追加[IHostingEnvironment](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment)に`Startup`:
 
@@ -104,19 +104,26 @@ dotnet ef database update
 
 `ConfigureServices`のメソッド、 *Startup.cs*ファイルに追加し、 [RequireHttpsAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute)承認フィルター。
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_SSL&highlight=19-999)]
+[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_SSL&highlight=10-999)]
 
-Visual Studio を使用している場合は、SSL を有効にします。
+Visual Studio を使用している場合は、HTTPS を有効にします。
 
-HTTP 要求を HTTPS にリダイレクトするを参照してください。 [URL 書き換えミドルウェア](xref:fundamentals/url-rewriting)です。 Visual Studio のコードを使用してローカルのプラットフォームでテストしている場合は、テスト証明書を SSL 用に含まれていません。
+HTTP 要求を HTTPS にリダイレクトするを参照してください。 [URL 書き換えミドルウェア](xref:fundamentals/url-rewriting)です。 Visual Studio のコードを使用してローカルのプラットフォームでテストしている場合は、テスト証明書を HTTPS に含まれていません。
 
   設定`"LocalTest:skipSSL": true`で、 *appsettings です。Developement.json*ファイル。
 
 ### <a name="require-authenticated-users"></a>ユーザーが認証されている必要があります。
 
-ユーザー認証を必要とする既定の認証ポリシーを設定します。 Razor ページ、コントローラ、またはアクション メソッド レベルでの認証を省略することができます、`[AllowAnonymous]`属性。 ユーザー認証を必要とする既定の認証ポリシーの設定と、新しく追加された Razor ページおよびコント ローラーが保護されます。 既定では必要な認証を新しいコント ローラーおよび Razor ページで証明書利用者のより安全ですが、`[Authorize]`属性。 次の追加、`ConfigureServices`のメソッド、 *Startup.cs*ファイル。
+ユーザー認証を必要とする既定の認証ポリシーを設定します。 Razor ページ、コントローラ、またはアクション メソッド レベルでの認証を省略することができます、`[AllowAnonymous]`属性。 ユーザー認証を必要とする既定の認証ポリシーの設定と、新しく追加された Razor ページおよびコント ローラーが保護されます。 既定では必要な認証を新しいコント ローラーおよび Razor ページで証明書利用者のより安全ですが、`[Authorize]`属性。 
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_defaultPolicy&highlight=31-999)]
+すべてのユーザーを認証する必要のある、 [AuthorizeFolder](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizefolder?view=aspnetcore-2.0#Microsoft_Extensions_DependencyInjection_PageConventionCollectionExtensions_AuthorizeFolder_Microsoft_AspNetCore_Mvc_ApplicationModels_PageConventionCollection_System_String_System_String_)と[AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage?view=aspnetcore-2.0)呼び出しは必要ありません。
+
+更新`ConfigureServices`で、次の変更。
+
+* コメント アウト`AuthorizeFolder`と`AuthorizePage`です。
+* ユーザー認証を必要とする既定の認証ポリシーを設定します。
+
+[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_defaultPolicy&highlight=23-27,31-999)]
 
 追加[AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute)インデックス、および連絡先について、ページを登録する前に、匿名ユーザーはサイトに関する情報を取得できるようにします。 
 
@@ -155,11 +162,11 @@ dotnet user-secrets set SeedUserPW <PW>
 `ContactIsOwnerAuthorizationHandler`呼び出し[コンテキスト。成功](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_)現在の認証済みユーザーがメンバーの所有者である場合。 認証ハンドラー通常。
 
 * 返す`context.Succeed`要件を満たしている場合にします。
-* 返す`Task.CompletedTask`要件を満たしていない場合にします。 `Task.CompletedTask`成功または失敗のどちらも&mdash;他の認証ハンドラーを実行することができます。
+* 返す`Task.CompletedTask`要件を満たしていない場合にします。 `Task.CompletedTask` 成功または失敗のどちらも&mdash;他の認証ハンドラーを実行することができます。
 
 明示的に失敗する場合は、返す[コンテキスト。失敗](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail)です。
 
-アプリケーションが独自のデータ編集/削除/作成所有者にお問い合わせください。 できます。 `ContactIsOwnerAuthorizationHandler`要求パラメーターに渡された操作を確認する必要はありません。
+アプリケーションが独自のデータ編集/削除/作成所有者にお問い合わせください。 できます。 `ContactIsOwnerAuthorizationHandler` 要求パラメーターに渡された操作を確認する必要はありません。
 
 ### <a name="create-a-manager-authorization-handler"></a>マネージャーの認証ハンドラーを作成します。
 
@@ -179,7 +186,7 @@ Entity Framework のコアを使用してサービスを登録する必要があ
 
 [!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=ConfigureServices&highlight=41-999)]
 
-`ContactAdministratorsAuthorizationHandler`および`ContactManagerAuthorizationHandler`シングルトンとして追加されます。 シングルトンを務める EF を使用していないし、必要なすべての情報があるため、`Context`のパラメーター、`HandleRequirementAsync`メソッドです。
+`ContactAdministratorsAuthorizationHandler` および`ContactManagerAuthorizationHandler`シングルトンとして追加されます。 シングルトンを務める EF を使用していないし、必要なすべての情報があるため、`Context`のパラメーター、`HandleRequirementAsync`メソッドです。
 
 ## <a name="support-authorization"></a>承認をサポートします。
 
@@ -263,9 +270,9 @@ Entity Framework のコアを使用してサービスを登録する必要があ
 
 ## <a name="test-the-completed-app"></a>完成したアプリをテストします。
 
-Visual Studio のコードを使用してローカルのプラットフォームでテストしている場合は、テスト証明書を SSL 用に含まれていません。
+Visual Studio のコードを使用してローカルのプラットフォームでテストしている場合は、テスト証明書を HTTPS に含まれていません。
 
-* 設定`"LocalTest:skipSSL": true`で、 *appsettings です。Developement.json*ファイルを SSL の要件をスキップします。 開発用コンピューターでのみ SSL をスキップします。
+* 設定`"LocalTest:skipSSL": true`で、 *appsettings です。Developement.json* HTTPS 要件をスキップするファイル。 開発用コンピューターでのみ Skip HTTPS です。
 
 場合は、アプリには、連絡先があります。
 
@@ -300,7 +307,7 @@ Visual Studio のコードを使用してローカルのプラットフォーム
   dotnet new razor -o ContactManager -au Individual -uld
   ```
 
-  * `-uld`SQLite ではなく LocalDB を指定します
+  * `-uld` SQLite ではなく LocalDB を指定します
 
 * 次の追加`Contact`モデル。
 
