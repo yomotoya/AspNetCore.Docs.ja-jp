@@ -1,1 +1,1 @@
-Contoso 大学 web アプリでは、EF コアと Visual Studio を使用して、Razor ページ web アプリを作成する方法を示します。 一連のチュートリアルについては、次を参照してください。[の最初のチュートリアル](xref:data/ef-rp/intro)です。
+Contoso 大学 Web アプリでは、EF Core と Visual Studio を使用して Razor Pages Web アプリを作成する方法を示します。 チュートリアル シリーズについては、[最初のチュートリアル](xref:data/ef-rp/intro)を参照してください。

@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app
-title: "OData v4 クライアント アプリ (c#) を作成 |Microsoft ドキュメント"
+title: "OData v4 クライアント アプリ (c#) の作成 | Microsoft ドキュメント"
 author: MikeWasson
 description: 
 ms.author: aspnetcontent
@@ -18,44 +18,45 @@ ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
 ---
-<a name="create-an-odata-v4-client-app-c"></a>OData v4 クライアント アプリでは (c#) を作成します。
+<a name="create-an-odata-v4-client-app-c"></a>OData v4 クライアント アプリ (c#) の作成
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-前のチュートリアルでは、CRUD 操作をサポートする基本的な OData サービスを作成します。 これで、サービスのクライアントを作成しましょう。
+前のチュートリアルでは、CRUD 操作をサポートする基本的な OData サービスを作成しました。 次はサービスのクライアントを作成しましょう。
 
-Visual Studio の新しいインスタンスを起動し、新しいコンソール アプリケーション プロジェクトを作成します。 **新しいプロジェクト**ダイアログで、**インストール** &gt; **テンプレート** &gt; **Visual c#** &gt; **Windows デスクトップ**を選択し、**コンソール アプリケーション**テンプレート。 プロジェクトに名前を&quot;ProductsApp&quot;です。
+Visual Studio の新しいインスタンスを開始し、新しいコンソール アプリケーション プロジェクトを作成します。 **[新しいプロジェクト]** ダイアログで**[インストール済み]** &gt; **[テンプレート]** &gt; **[Visual C#]** &gt; **[Windows デスクトップ]** を選択し、**[コンソール アプリケーション]** テンプレートを選択します。 プロジェクトには &quot;ProductsApp&quot; と名前をつけます。
 
 ![](create-an-odata-v4-client-app/_static/image1.png)
 
 > [!NOTE]
-> コンソール アプリは、OData サービスを含む Visual Studio ソリューションに追加することもできます。
+> OData サービスを含んでいる同じ Visual Studio ソリューションにコンソール アプリを追加することもできます。
 
 
-## <a name="install-the-odata-client-code-generator"></a>OData クライアント コード ジェネレーターをインストールします。
+## <a name="install-the-odata-client-code-generator"></a>OData Client Code Generator をインストールする
 
-**ツール**メニューの **拡張機能と更新プログラム**です。 選択**オンライン** &gt; **Visual Studio ギャラリー**です。 [検索] ボックスで検索&quot;OData クライアントのコード ジェネレーター&quot;です。 をクリックして**ダウンロード**VSIX をインストールします。 Visual Studio を再起動するように求められます可能性があります。
+**[ツール]** メニューから **[拡張機能と更新プログラム]** を選択します。 **[オンライン]** &gt; **[Visual Studio Gallery]** を選択して、 [検索] ボックスから &quot;OData Client Code Generator&quot; を検索してください。 **[ダウンロード]** をクリックして VSIX をインストールします。 ここでは　Visual Studio の再起動を求められることがあります。
 
 [![](create-an-odata-v4-client-app/_static/image3.png)](create-an-odata-v4-client-app/_static/image2.png)
 
-## <a name="run-the-odata-service-locally"></a>OData サービスをローカルで実行します。
+## <a name="run-the-odata-service-locally"></a>OData サービスをローカルで実行する
 
-Visual Studio から ProductService プロジェクトを実行します。 既定では、Visual Studio は、アプリケーション ルートにブラウザーを起動します。 URI に注意してくださいこれは、次の手順で必要があります。 アプリケーションが実行されている状態のままにします。
+Visual Studio から ProductService プロジェクトを実行します。 既定では、Visual Studio はアプリケーション ルートに対してブラウザーを起動します。 次の手順で必要になるので、ここでの URI を書き留めておいてください。 アプリケーションは実行されている状態のままにします。
 
 ![](create-an-odata-v4-client-app/_static/image4.png)
 
 > [!NOTE]
-> 同じソリューション内の両方のプロジェクトを配置する場合は、デバッグを行わず、ProductService プロジェクトを実行することを確認してください。 次の手順では、コンソール アプリケーション プロジェクトを変更するときに実行されているサービスを保持する必要があります。
+> 同じソリューションに両方のプロジェクトを配置する場合は ProductService プロジェクトがデバッグをせずに実行されていることを確認してください。 次の手順では、コンソール アプリケーション プロジェクトを変更している間、サービスが実行され続けている必要があります。
+
 
 ## <a name="generate-the-service-proxy"></a>サービス プロキシを生成する
 
-サービス プロキシは、OData サービスにアクセスするためのメソッドを定義する .NET クラスです。 プロキシは、メソッドの呼び出しをHTTP 要求に変換します。 [T4 テンプレート](https://msdn.microsoft.com/library/bb126445.aspx) を実行することによって、プロキシ クラスを作成することができます。
+サービス プロキシは、OData サービスにアクセスするためのメソッドを定義する .NET クラスです。 プロキシは、HTTP 要求にメソッド呼び出しを変換します。 実行して、プロキシ クラスを作成するが、 [T4 テンプレート](https://msdn.microsoft.com/library/bb126445.aspx)です。
 
-プロジェクトで右クリックします。[**追加**] &gt; [**新しい項目**] を選択します。
+プロジェクトで右クリックします。 **[追加]** &gt; **[新しい項目]** を選択します。
 
 ![](create-an-odata-v4-client-app/_static/image5.png)
 
-[**新しい項目の追加**] ダイアログで、[**Visual C# アイテム**] &gt; [**コード**] &gt; **[OData クライアント]** を選択します。 テンプレートには &quot;ProductClient.tt&quot; と名前を付けてください。[**追加**] をクリックして、セキュリティ警告の画面を進めます。
+**[新しい項目の追加]** ダイアログで、**[Visual C# アイテム]** &gt; **[コード]** &gt; **[OData クライアント]** を選択します。 テンプレートには &quot;ProductClient.tt&quot; と名前を付けてください。 **[追加]** をクリックして、セキュリティ警告の画面を進めます。
 
 [![](create-an-odata-v4-client-app/_static/image7.png)](create-an-odata-v4-client-app/_static/image6.png)
 
@@ -69,7 +70,7 @@ ProductClient.odata.config ファイルを開きます。`Parameter` 要素の�
 
 [![](create-an-odata-v4-client-app/_static/image11.png)](create-an-odata-v4-client-app/_static/image10.png)
 
-テンプレートをもう一度実行してください。 ソリューション エクスプローラーで、ProductClient.tt ファイルを右クリックし [**カスタム ツールの実行**] を選択します。
+テンプレートをもう一度実行してください。 ソリューション エクスプローラーで、ProductClient.tt ファイルを右クリックし **[カスタム ツールの実行]** を選択します。
 
 テンプレートは、プロキシを定義する ProductClient.cs という名前のコード ファイルを作成します。 アプリを開発するときに、OData エンドポイントを変更した場合は、プロキシを更新するためにテンプレートを再実行してください。
 
@@ -77,7 +78,7 @@ ProductClient.odata.config ファイルを開きます。`Parameter` 要素の�
 
 ## <a name="use-the-service-proxy-to-call-the-odata-service"></a>OData サービスの呼び出すためにサービス プロキシを使用する
 
-Program.cs ファイルを開き、次に示す定型コードへ書き換えてください。
+Program.cs ファイルを開き、次のように定型コードを置き換えます。
 
 [!code-csharp[Main](create-an-odata-v4-client-app/samples/sample2.cs)]
 
@@ -86,6 +87,5 @@ Program.cs ファイルを開き、次に示す定型コードへ書き換えて
 [!code-csharp[Main](create-an-odata-v4-client-app/samples/sample3.cs)]
 
 アプリを実行すると、次のような出力を得られるはずです。
-
 
 [!code-console[Main](create-an-odata-v4-client-app/samples/sample4.cmd)]

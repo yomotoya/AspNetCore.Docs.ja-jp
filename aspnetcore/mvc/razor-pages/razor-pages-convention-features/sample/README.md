@@ -1,12 +1,12 @@
 # <a name="aspnet-core-model-providers-sample"></a>ASP.NET Core モデル プロバイダーのサンプル
 
-このサンプルでは、Razor ページ カスタム ルートしてページ モデル プロバイダーの使用方法を示します。 このサンプルで説明する機能、 [Razor ページのルートとアプリ規則機能](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features)トピックです。
+このサンプルは、Razor Pages のカスタム ルートとページ モデル プロバイダーの使用方法を示しています。 このサンプルは、「[Razor Pages route and app convention features](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features)」(Razor Pages ルートとアプリの規則機能) トピックで説明されている機能を示しています。
 
 ## <a name="examples-in-this-sample"></a>このサンプルの例
 
-| フィーチャー | サンプルのデモ |
+| フィーチャー | サンプル デモ |
 | -------- | ----------- |
-| [モデルのルートとアプリの規則を追加します。](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#add-route-and-app-model-conventions) | アプリのページへのルート属性とヘッダーを追加します。 |
-| [AddPageRoute を使用して、ページのルートを追加するには](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#configure-a-page-route) | 指定したページのページに指定されたルートを追加します。 |
-| [ページのモデルの操作規則](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#page-model-action-conventions) | 単一のページにヘッダーを追加、フォルダー内のページにヘッダーを追加し、アプリのページにヘッダーを追加するフィルターのファクトリを構成します。 |
-| [既定ページ アプリ モデル プロバイダーを置き換える](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#replace-the-default-page-app-model-provider) | ハンドラーの名前付け規則を変更します。 |
+| [ルート モデル規則とアプリ モデル規則の追加](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#add-route-and-app-model-conventions) | アプリのページにルート属性とヘッダーを追加します。 |
+| [AddPageRoute を使用してページのルートを追加する](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#configure-a-page-route) | 指定したルートを指定したページでページに追加します。 |
+| [ページ モデル アクション規則](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#page-model-action-conventions) | ヘッダーをフォルダー内のページに追加し、ヘッダーを単一ページに追加し、ヘッダーをアプリのページに追加するようにフィルター ファクトリを構成します。 |
+| [既定のページ アプリ モデル プロバイダーを置き換える](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#replace-the-default-page-app-model-provider) | ハンドラーの名前付け規則を変更します。 |

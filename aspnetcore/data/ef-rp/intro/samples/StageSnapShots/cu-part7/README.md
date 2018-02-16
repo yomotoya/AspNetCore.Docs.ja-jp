@@ -1,5 +1,5 @@
-最終バージョン./cu と./cuFinal より完成したコードが含まれます。
+最終バージョン ../cu および ../cuFinal にはより完成度の高いコードが含まれています。
 
-コピー wwwroot./cu/または新規の Razor ページ プロジェクトです。
+wwwroot./cu/ または新規の Razor ページ プロジェクトからコピーします。
 
 `dotnet ef database update` を実行します。

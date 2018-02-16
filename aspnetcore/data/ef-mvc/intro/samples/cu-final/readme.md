@@ -1,11 +1,11 @@
-# <a name="contoso-university-sample-app"></a>Contoso 大学のサンプル アプリ
+# <a name="contoso-university-sample-app"></a>Contoso 大学サンプル アプリ
 
-Contoso 大学では、ASP.NET Core MVC web アプリケーションに Entity Framework のコアを使用する方法を示します。
+Contoso 大学では、ASP.NET Core MVC Web アプリケーションで Entity Framework Core を使用する方法を示します。
 
-## <a name="build-it-from-scratch"></a>ゼロから作成します。
+## <a name="build-it-from-scratch"></a>ゼロから作成する
 
-アプリケーションをビルドするには次の手順に従って、[一連のチュートリアル](https://docs.microsoft.com/aspnet/core/data/ef-mvc/intro)です。
+アプリケーションをビルドするには、[チュートリアルのシリーズ](https://docs.microsoft.com/aspnet/core/data/ef-mvc/intro)の手順に従います。
 
-## <a name="download-it"></a>ダウンロードします。
+## <a name="download-it"></a>ダウンロードする
 
-ダウンロード、[完成したプロジェクト](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)ダウンロードまたは複製機能により GitHub から、 [aspnet/ドキュメント リポジトリ](https://github.com/aspnet/Docs)への移動`aspnetcore\data\ef-mvc\intro\samples\cu-final`ローカル ファイル システムにします。  プロジェクトをダウンロードするには、後に入力して、データベースを作成`dotnet ef database update`コマンド ライン プロンプトでします。 別の方法として使用することができます**Package Manager Console** -詳細については、次を参照してください。[コマンド ライン インターフェイス (CLI) とします。Package Manager Console (PMC)](https://docs.microsoft.com/aspnet/core/data/ef-mvc/migrations#command-line-interface-cli-vs-package-manager-console-pmc)です。
+[aspnet/Docs リポジトリ](https://github.com/aspnet/Docs)をダウンロードするか複製することで、[完成したプロジェクト](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)を GitHub からダウンロードし、ローカル ファイル システムの `aspnetcore\data\ef-mvc\intro\samples\cu-final` に移動します。  プロジェクトをダウンロードした後に、コマンド ライン プロンプトに「`dotnet ef database update`」と入力してデータベースを作成します。 別の方法として、**パッケージ マネージャー コンソール**を使用することができます。詳細については、「[Command-line interface (CLI) vs.Package Manager Console (PMC)](https://docs.microsoft.com/aspnet/core/data/ef-mvc/migrations#command-line-interface-cli-vs-package-manager-console-pmc)」(コマンドライン インターフェイス (CLI) とパッケージ マネージャー コンソール (PMI) の比較) を参照してください。

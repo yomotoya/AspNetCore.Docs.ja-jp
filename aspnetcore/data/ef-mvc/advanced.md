@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET MVC を持つコアを EF Core - 詳細 - 10 10"
+title: "ASP.NET Core MVC と EF Core - 上級 - 10/10"
 author: tdykstra
-description: "このチュートリアルでは、Entity Framework のコアを使用する ASP.NET web アプリケーションの開発、基本機能を越えて移動するときに認識する便利ないくつかのトピックを紹介します。"
+description: "このチュートリアルでは、Entity Framework Core を使用するより高度な ASP.NET Web アプリケーションを開発する際に、注意すべきいくつかのトピックを紹介します。"
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -10,106 +10,106 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/advanced
 ms.openlocfilehash: 458f2dc8a67f8c706d043f0d9d7cb7ce962e52ce
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>高度なトピックの EF コア ASP.NET Core MVC のチュートリアル (10 10 の)
+# <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>高度なトピック - EF Core と ASP.NET Core MVC のチュートリアル (10/10)
 
-によって[Tom Dykstra](https://github.com/tdykstra)と[Rick Anderson](https://twitter.com/RickAndMSFT)
+作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Contoso 大学でサンプル web アプリケーションでは、Entity Framework のコアと Visual Studio を使用して ASP.NET Core MVC web アプリケーションを作成する方法を示します。 一連のチュートリアルについては、次を参照してください。[系列内の最初のチュートリアル](intro.md)です。
+Contoso University のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)をご覧ください。
 
-前のチュートリアルでは、テーブルの階層あたりの継承を実装します。 このチュートリアルでは、Entity Framework のコアを使用する ASP.NET Core web アプリケーションの開発、基本機能を越えて移動するときに認識する便利ないくつかのトピックを紹介します。
+前のチュートリアルでは、Table-Per-Hierarchy 継承を実装しました。 このチュートリアルでは、Entity Framework Core を使用するより高度な ASP.NET Core Web アプリケーションを開発する際に、注意すべきいくつかのトピックを紹介します。
 
-## <a name="raw-sql-queries"></a>生の SQL クエリ
+## <a name="raw-sql-queries"></a>生 SQL クエリ
 
-Entity Framework を使用する利点の 1 つは、コードのデータを格納する特定のメソッドを過度に結び付ける済む点です。 これは、SQL クエリとコマンドの生成も自分で記述することから解放することで実行します。 手動で作成した特定の SQL クエリを実行する必要がある場合、例外的なシナリオがあります。 このようなシナリオは、Entity Framework コードの最初の API には、使用すると、データベースに直接 SQL コマンドを渡すメソッドが含まれます。 EF Core 1.0 では、次のオプションがあります。
+Entity Framework を使用する利点の 1 つは、データを格納する特定のメソッドにコードを過度に接近させなくてもよい点です。 SQL クエリとコマンドが生成されるため、自分でこれらを記述する必要がなくなります。 ただし、例外的なシナリオがあります。手動で作成した特定の SQL クエリを実行する必要がある場合です。 このようなシナリオでは、Entity Framework Code First API には、SQL コマンドをデータベースに直接渡せるメソッドが含まれています。 EF Core 1.0 には次のオプションがあります。
 
-* 使用して、`DbSet.FromSql`をエンティティ型を返すクエリ メソッド。 返されたオブジェクトで想定されている型でなければなりません、`DbSet`オブジェクト、および、いるによって自動的に追跡データベース コンテキストしない限りする[追跡をオフにする](crud.md#no-tracking-queries)です。
+* エンティティ型を返すクエリに対して `DbSet.FromSql` メソッドを使用します。 返されたオブジェクトは、`DbSet` オブジェクトで想定されている型である必要があります。また、[追跡をオフにしている場合を除き](crud.md#no-tracking-queries)、データベース コンテキストによって自動的に追跡されます。
 
-* 使用して、`Database.ExecuteSqlCommand`非クエリ コマンド。
+* 非クエリ コマンドに対して `Database.ExecuteSqlCommand` を使用します。
 
-エンティティがない型を返すクエリを実行する必要がある場合は、EF によって提供されるデータベース接続で ADO.NET を使用できます。 返されるデータは、エンティティの種類を取得するこのメソッドを使用する場合でもデータベース コンテキストによって追跡されていません。
+エンティティではない型を返すクエリを実行する必要がある場合は、ADO.NET と EF で提供されるデータベース接続を使用できます。 このメソッドを使用してエンティティ型を取得する場合でも、返されるデータはデータベース コンテキストによって追跡されません。
 
-常に true web アプリケーションで SQL コマンドを実行するときに、としては、SQL インジェクション攻撃からサイトを保護する対策を講じる必要があります。 行うには 1 つの方法では、パラメーター化クエリを使用して、SQL コマンドとして web ページによって送信される文字列を解釈できないことを確認します。 このチュートリアルでは、ユーザー入力をクエリに統合するとき、パラメーター化クエリを使用します。
+Web アプリケーションで SQL コマンドを実行する場合は常に、SQL インジェクション攻撃から自身のサイトを保護する対策を講じる必要があります。 これを行う 1 つの方法として、パラメーター化されたクエリを使用して、Web ページによって送信された文字列が SQL コマンドとして解釈できないことを確認します。 このチュートリアルでは、ユーザー入力をクエリに統合するときに、パラメーター化されたクエリを使用します。
 
 ## <a name="call-a-query-that-returns-entities"></a>エンティティを返すクエリを呼び出す
 
-`DbSet<TEntity>`クラス型のエンティティを返すクエリの実行に使用できるメソッドを提供`TEntity`です。 内のコードを変更するしくみを表示する、`Details`部門コント ローラーのメソッドです。
+`DbSet<TEntity>` クラスは、`TEntity` 型のエンティティを返すクエリの実行に使用できるメソッドを提供します。 このしくみを確認するため、Department (部門) コントローラーの `Details` メソッド内のコードを変更します。
 
-*DepartmentsController.cs*で、`Details`メソッド、部門を取得するコードを置き換える、`FromSql`メソッドの呼び出し、次の強調表示されたコードに示すように。
+*DepartmentsController.cs* の `Details` メソッドで、次の強調表示されたコードに示されているように、部門を取得するコードを `FromSql` メソッドの呼び出しに置き換えます。
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
 
-新しいコードが正しく動作することを確認するには、次のように選択します。、**部門**タブし、**詳細**部門のいずれか。
+新しいコードが正しく動作することを確認するには、**[Departments]\(部門\)** タブを選択し、いずれかの部門の **[Details]\(詳細\)** を選択します。
 
 ![部門の詳細](advanced/_static/department-details.png)
 
 ## <a name="call-a-query-that-returns-other-types"></a>その他の型を返すクエリを呼び出す
 
-以前登録日付ごとの生徒の数が映っているバージョン情報 ページの受講者統計グリッドを作成します。 学生のエンティティ セットからデータを取得した (`_context.Students`) の一覧に結果を射影する LINQ を使用して`EnrollmentDateGroup`モデル オブジェクトを表示します。 自体ではなく LINQ を使用して、SQL を記述するとします。 SQL クエリを実行する必要があることを行うを返すエンティティ オブジェクト以外のものです。 EF Core 1.0 では、これを行うには ADO.NET コードを記述し、EF からデータベース接続を取得できます。
+以前に、登録日ごとの学生数を示す About ページ用に、学生の統計グリッドを作成しました。 Students エンティティ セット (`_context.Students`) からデータを取得し、LINQ を使用して結果を `EnrollmentDateGroup` ビュー モデル オブジェクトに投影しました。 LINQ を使用するのではなく、SQL そのものを記述するとします。 これを行うには、エンティティ オブジェクト以外のものを返す SQL クエリを実行する必要があります。 EF Core 1.0 では、これを行う方法の 1 つとして、ADO.NET コードを記述し、EF からデータベース接続を取得します。
 
-*HomeController.cs*、置換、`About`メソッドを次のコード。
+*HomeController.cs* で、`About` メソッドを次のコードで置き換えます。
 
 [!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
 
-使用して、追加のステートメント。
+using ステートメントを追加します。
 
 [!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
 
-アプリを実行してバージョン情報 ページに移動します。 以前と同じ、同じデータが表示されます。
+アプリを実行して [About] ページに移動します。 以前に行ったのと同じデータが表示されます。
 
-![ページについて](advanced/_static/about.png)
+![About ページ](advanced/_static/about.png)
 
 ## <a name="call-an-update-query"></a>更新クエリを呼び出す
 
-Contoso 大学管理者がすべてのコースのクレジットの数の変更などのデータベースでグローバルに変更を実行するとします。 かかる大学のコースの数が多い場合は、できなくなるそれらすべてのエンティティとして取得し、それらを個別に変更が効率的です。 ユーザーが、すべてのコースのクレジットの数を変更する係数を指定できるようにする web ページを実装するこのセクションの内容と SQL UPDATE ステートメントを実行することによって変更されます。 Web ページは、次の図のようになります。
+Contoso University の管理者が、すべてのコースの単位数を変更するなどの、データベースでグローバルな変更を実行するとします。 大学に多くのコースがある場合は、それらすべてをエンティティとして取得し、それらを個別に変更するのは非効率的です。 このセクションでは、すべてのコースの単位数を変更する係数をユーザーが指定できるようにする Web ページを実装し、SQL UPDATE ステートメントを実行することによって変更を行います。 Web ページは次の図のようになります。
 
-![コースのクレジットのページを更新します。](advanced/_static/update-credits.png)
+![Course Credits ページを更新する](advanced/_static/update-credits.png)
 
-*CoursesContoller.cs*、HttpGet および HttpPost UpdateCourseCredits メソッドを追加します。
+*CoursesContoller.cs* で、HttpGet および HttpPost に UpdateCourseCredits メソッドを追加します。
 
 [!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
 
 [!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
 
-何も返されない、コント ローラーは、HttpGet 要求を処理するときに`ViewData["RowsAffected"]`、前の図に示すように空のテキスト ボックスと、[送信] ボタンをビューが表示されます。
+コントローラーが HttpGet 要求を処理するときに、`ViewData["RowsAffected"]` では何も返されず、前の図に示されているように、ビューに空のテキスト ボックスと、[送信] ボタンが表示されます。
 
-ときに、**更新**ボタンがクリックされた、HttpPost メソッドを呼び出して、乗数値を保持して、テキスト ボックスに入力します。 コードの更新を記録するコースのビューに影響を受けた行の数を返します SQL を実行し、`ViewData`です。 ビューを取得すると、`RowsAffected`値、更新された行の数を表示します。
+**[更新]** ボタンをクリックすると、HttpPost メソッドが呼び出され、乗数がテキスト ボックスに入力した値になります。 このコードは次に、コースを更新し、影響を受けた行の数を`ViewData` のビューに返す SQL を実行します。 ビューが `RowsAffected` 値を取得すると、更新された行の数を表示します。
 
-**ソリューション エクスプ ローラー**を右クリックし、*ビュー/コース*フォルダー、およびクリック**追加 > 新しい項目の**します。
+**ソリューション エクスプローラー**で、*Views/Courses* フォルダーを右クリックし、**[追加] > [新しい項目]** の順にクリックします。
 
-**新しい項目の追加**ダイアログ ボックスで、をクリックして**ASP.NET** **インストール**左側のウィンドウでをクリックして**MVC ビュー ページ**、ビューの名前と*UpdateCourseCredits.cshtml*です。
+**[新しい項目の追加]** ダイアログで、左側のウィンドウの **[インストール済み]** の下の **[ASP.NET]** をクリックして、**[MVC ビュー ページ]** をクリックして、新しいビューに *UpdateCourseCredits.cshtml* という名前を付けます。
 
-*Views/Courses/UpdateCourseCredits.cshtml*、テンプレート コードを次のコードに置き換えます。
+*Views/Courses/UpdateCourseCredits.cshtml* で、テンプレート コードを次のコードに置き換えます。
 
 [!code-html[Main](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
 
-実行、`UpdateCourseCredits`メソッドを選択して、**コース** タブで、追加し、"/UpdateCourseCredits"ブラウザーのアドレス バーの URL の末尾に (たとえば: `http://localhost:5813/Courses/UpdateCourseCredits`)。 テキスト ボックスに数値を入力します。
+**[Courses]\(コース\)** タブを選択してから、ブラウザーのアドレス バーで URL の末尾に "/UpdateCourseCredits" を追加して (例: `http://localhost:5813/Courses/UpdateCourseCredits`)、`UpdateCourseCredits` メソッドを実行します。 テキスト ボックスに数値を入力します。
 
-![コースのクレジットのページを更新します。](advanced/_static/update-credits.png)
+![Course Credits ページを更新する](advanced/_static/update-credits.png)
 
-**[更新]**をクリックします。 影響を受ける行の数が参照してください。
+**[更新]**をクリックします。 影響を受けた行の数が表示されます。
 
-![更新コースのクレジットが影響を受ける行をページします。](advanced/_static/update-credits-rows-affected.png)
+![Course Credits ページの更新で影響を受けた行](advanced/_static/update-credits-rows-affected.png)
 
-をクリックして**一覧に戻る**コースのクレジットの改訂された数との一覧を表示します。
+**[リストに戻る]** をクリックして、単位数が変更されたコースの一覧を表示します。
 
-常に有効なデータの結果を更新すると実稼働コードで確実に注意してください。 ここで示す簡略化されたコードでは、5 より大きい数値で発生するのに十分なクレジットの数を乗算可能性があります。 (、`Credits`プロパティには、`[Range(0, 5)]`属性です)。更新クエリが機能しますが、無効なデータのクレジットの数は 5 個以下であると、システムの他の部分で予期しない結果が発生する可能性があります。
+実稼働コードでは、更新の結果が常に有効なデータになることが保証される点に注意してください。 ここに示した簡略化されたコードは、5 より大きい数値になるように単位数を乗算できます  (`Credits` プロパティには `[Range(0, 5)]` 属性があります)。更新クエリは機能しますが、無効なデータによって、5 以下の単位数を想定していたシステムの他の部分で予期しない結果が発生する可能性があります。
 
-生の SQL クエリの詳細については、次を参照してください。[生の SQL クエリ](https://docs.microsoft.com/ef/core/querying/raw-sql)です。
+SQL クエリの詳細については、「[Raw SQL Queries](https://docs.microsoft.com/ef/core/querying/raw-sql)」 (生 SQL クエリ) を参照してください。
 
-## <a name="examine-sql-sent-to-the-database"></a>データベースに送信する SQL を確認します。
+## <a name="examine-sql-sent-to-the-database"></a>データベースに送信される SQL を調べる
 
-データベースに送信される実際の SQL クエリを表示できるようにすると役立つ場合があります。 ASP.NET Core の組み込みのログ記録機能を SQL クエリと更新プログラムを含むログ ファイルを書き込む EF コアに自動的に使用します。 このセクションでは、SQL ログの例をいくつかが表示されます。
+データベースに送信される実際の SQL クエリを確認できると役立つ場合があります。 ASP.NET Core の組み込みのログ記録機能は、クエリと更新の SQL を含むログを書き込むため、EF Core によって自動的に使用されます。 このセクションでは、SQL ログの例をいくつか紹介します。
 
-開いている*StudentsController.cs*し、、`Details`メソッドにブレークポイントを設定する、`if (student == null)`ステートメントです。
+*StudentsController.cs* を開き、`Details` メソッドで `if (student == null)` ステートメントにブレークポイントを設定します。
 
-デバッグ モードでアプリを実行して、受講者についての詳細 ページに移動します。
+デバッグ モードでアプリを実行して、学生の [Details] ページに移動します。
 
-移動して、**出力**デバッグを表示するウィンドウは次の出力、およびクエリを参照してください。
+デバッグの出力を示す **[出力]** ウィンドウに移動して、クエリを確認します。
 
 ```
 Microsoft.EntityFrameworkCore.Database.Command:Information: Executed DbCommand (56ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
@@ -130,30 +130,30 @@ INNER JOIN (
 ORDER BY [t].[ID]
 ```
 
-ここに何かされる驚くかもしれませんがわかります: SQL が最大 2 つの行を選択します (`TOP(2)`)、Person テーブルからです。 `SingleOrDefaultAsync`メソッドは、サーバー上の 1 行に解決しません。 その理由を次に示します。
+驚くかもしれませんが、SQL は Person テーブルから最大 2 つの行 (`TOP(2)`) を選択します。 `SingleOrDefaultAsync` メソッドは、サーバー上の 1 行に解決されません。 その理由を説明します。
 
-* クエリでは、複数の行を返すと、メソッドは null を返します。
-* クエリが複数の行を返すかどうかを判断するのには EF が少なくとも 2 を返すかどうかを確認する必要です。
+* クエリが複数の行を返すと、メソッドは null を返します。
+* クエリが複数の行を返すかどうかを判断するため、EF はクエリが少なくとも 2 を返すかどうかを確認する必要があります。
 
-デバッグ モードを使用して、出力を取得するログ記録のブレークポイントで停止がないことに注意してください、**出力**ウィンドウです。 だけを容易に出力を確認するポイントでログ記録を停止することをお勧めします。 かどうかしないように、ログ記録を続行しようとしているに関心があるパーツの検索に戻るまでスクロールします。
+**[出力]** ウィンドウでログ出力を取得するには、デバッグ モードを使用してブレークポイントで停止する必要はありません。 これは単に、出力を見たいポイントでログを停止する便利な方法です。 これを行わないと、ログ記録は続行され、関心がある部分までスクロールで戻る必要があります。
 
-## <a name="repository-and-unit-of-work-patterns"></a>リポジトリと作業パターンの単位
+## <a name="repository-and-unit-of-work-patterns"></a>Repository パターンと Unit of Work パターン
 
-多くの開発者は、Entity Framework で動作するコードをラップするラッパーとしてリポジトリと作業パターンの単位を実装するコードを記述します。 これらのパターンは、データ アクセス層とアプリケーションのビジネス ロジック層の間で抽象化レイヤーを作成するためのものです。 これらのパターンを実装して、変更によって、データ ストアにアプリケーションを分離できます、自動化された単体テストまたはテスト駆動開発 (TDD) に容易にすることができます。 ただし、これらのパターンを実装する追加のコードの記述は、いくつかの理由、EF を使用するアプリケーションに最適な選択肢では常に。
+多くの開発者は、Entity Framework で動作するコードをラップするラッパーとして、Repository パターンと Unit of Work パターンを実装するためのコードを記述します。 これらのパターンは、アプリケーションのデータ アクセス層とビジネス ロジック層の間に抽象化レイヤーを作成するためのものです。 これらのパターンを実装すると、データ ストアの変更からアプリケーションを隔離でき、自動化された単体テストやテスト駆動開発 (TDD) を円滑化できます。 ただし、次の複数の理由により、追加のコードを記述してこれらのパターンを実装することが、EF を使用するアプリケーションにとって最善の選択肢ではない場合もあります。
 
-* EF コンテキスト クラス自体は、データ ストア固有のコードからコードを分離します。
+* EF コンテキスト クラス自体が、コードをデータ ストア固有のコードから隔離します。
 
-* EF コンテキスト クラスは、データベースの作業単位クラス更新 EF を使用してを実行することで動作できます。
+* EF コンテキスト クラスは、EF を使用して行っているデータベースの更新の unit-of-work クラスとして動作できます。
 
-* EF には、リポジトリのコードを記述することがなく TDD を実装するための機能が含まれています。
+* リポジトリ コードを記述しなくても、EF には TDD を実装するための機能が含まれています。
 
-リポジトリと作業パターンの単位を実装する方法については、次を参照してください。[このチュートリアル シリーズの Entity Framework 5 バージョン](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)します。
+Repository パターンと Unit of Work パターンを実装する方法については、[このチュートリアル シリーズの Entity Framework 5 バージョン](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)を参照してください。
 
-Entity Framework Core では、テストに使用できるメモリ内のデータベース プロバイダーを実装します。 詳細については、次を参照してください。 [InMemory でテスト](https://docs.microsoft.com/ef/core/miscellaneous/testing/in-memory)です。
+Entity Framework Core は、テストに使用できる In-Memory データベース プロバイダーを実装します。 詳細については、「[InMemory のテスト](https://docs.microsoft.com/ef/core/miscellaneous/testing/in-memory)」を参照してください。
 
-## <a name="automatic-change-detection"></a>自動の変更の検出
+## <a name="automatic-change-detection"></a>変更の自動検出
 
-Entity Framework では、元の値を持つエンティティの現在の値を比較することによってエンティティがどのように変更されたか (およびしたがって、更新プログラムがデータベースに送信する必要があります) を決定します。 元の値は、エンティティがクエリを実行したり、接続されているときに格納されます。 自動の変更の検出が発生する方法の一部を次に示します。
+Entity Framework では、エンティティの現在の値と元の値を比較して、エンティティがどのように変更されたか (およびそれによって、どの更新プログラムをデータベースに送信する必要があるか) を判断します。 元の値は、エンティティが照会されるかアタッチされるときに格納されます。 変更の自動検出を行うメソッドには、次のようなものがあります。
 
 * DbContext.SaveChanges
 
@@ -161,7 +161,7 @@ Entity Framework では、元の値を持つエンティティの現在の値を
 
 * ChangeTracker.Entries
 
-多数のエンティティを管理するいると、ループ内で何度もがこれらのメソッドのいずれかの呼び出すと、自動変更の検出を使用して機能をオフに一時的に大幅なパフォーマンス向上をする可能性があります、`ChangeTracker.AutoDetectChangesEnabled`プロパティです。 例:
+多数のエンティティを追跡していて、これらのいずれかのメソッドをループ内で何度も呼び出す場合、`ChangeTracker.AutoDetectChangesEnabled` プロパティを使用して変更の自動検出を一時的にオフにすると、パフォーマンスが大幅に向上する場合があります。 例:
 
 ```csharp
 _context.ChangeTracker.AutoDetectChangesEnabled = false;
@@ -169,80 +169,80 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 ## <a name="entity-framework-core-source-code-and-development-plans"></a>Entity Framework Core のソース コードと開発計画
 
-Entity Framework Core ソース[https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore)です。 EF コア リポジトリには、議事録、デザイン、夜間のビルド、問題追跡、機能仕様が含まれていますと[将来開発のためのロードマップ](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap)です。 ファイルまたはバグを発見し、投稿できます。
+Entity Framework Core ソースは、[https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore) にあります。 EF Core リポジトリには、夜間ビルド、問題追跡、機能仕様、設計ミーティング メモ、および[将来の開発のためのロードマップ](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap)が含まれています。 バグを見つけて報告したり、投稿することができます。
 
-ソース コードは開いているが、Entity Framework のコアが完全にマイクロソフト製品サポートします。 Microsoft Entity Framework チームは、コントロール コントリビューションの受け入れを保持し、各リリースの品質を保証するすべてのコード変更をテストします。
+ソース コードはオープンですが、Entity Framework Core はマイクロソフト製品として完全にサポートされています。 Microsoft Entity Framework チームは、各リリースの品質を保証するため、受け入れる投稿を管理し、すべてのコード変更をテストしています。
 
-## <a name="reverse-engineer-from-existing-database"></a>既存のデータベースをリバース エンジニア リング
+## <a name="reverse-engineer-from-existing-database"></a>既存のデータベースからのリバース エンジニアリング
 
-既存のデータベースからのエンティティ クラスを含むデータ モデルをリバース エンジニア リングを使用して、 [scaffold dbcontext](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext)コマンド。 参照してください、[入門チュートリアル](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)です。
+既存のデータベースからエンティティ クラスを含むデータ モデルをリバース エンジニアリングするには、[scaffold-dbcontext](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) コマンドを使用します。 [入門用チュートリアル](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)を参照してください。
 
 <a id="dynamic-linq"></a>
-## <a name="use-dynamic-linq-to-simplify-sort-selection-code"></a>動的な LINQ 並べ替え選択コードを簡略化を使用してください。
+## <a name="use-dynamic-linq-to-simplify-sort-selection-code"></a>動的な LINQ を使用して並べ替え選択コードを簡略化する
 
-[このシリーズの第 3 のチュートリアル](sort-filter-page.md)で列名をハード コーディングでの LINQ のコードを記述する方法を示しています、`switch`ステートメントです。 2 つの列から選択するでは、これは正常に機能しますが、コードの詳細な取得でした多数の列がある場合。 問題を解決するために使用することができます、`EF.Property`を文字列として、プロパティの名前を指定します。 このアプローチには、置換、`Index`メソッドで、`StudentsController`を次のコード。
+[このシリーズの 3 番目のチュートリアル](sort-filter-page.md)では、`switch`ステートメントで列名をハード コーディングすることで、LINQ コードを記述する方法を示しています。 選択する列が 2 つの場合は正常に機能しますが、多数の列がある場合は、コードが冗長になる可能性があります。 この問題を解決するため、`EF.Property` メソッドを使用して、プロパティの名前を文字列として指定できます。 この方法を試すには、`StudentsController` の `Index` メソッドを次のコードで置き換えます。
 
 [!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
 
 ## <a name="next-steps"></a>次の手順
 
-これは、この一連の ASP.NET MVC アプリケーションで Entity Framework のコアを使用してチュートリアルを完了します。
+これで、ASP.NET MVC アプリケーションでの Entity Framework Core の使用に関するチュートリアル シリーズは終了です。
 
-EF Core の詳細については、次を参照してください。、 [Entity Framework の主要なマニュアル](https://docs.microsoft.com/ef/core)です。 本も利用できます:[アクションで Entity Framework Core](https://www.manning.com/books/entity-framework-core-in-action)です。
+EF Core の詳細については、「[Entity Framework Core 概要](https://docs.microsoft.com/ef/core)」を参照してください。 書籍「[Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action)」も利用できます。
 
-Web アプリを展開する方法については、次を参照してください。[ホストを展開および](xref:host-and-deploy/index)です。
+Web アプリの展開方法については、「[ASP.NET Core のホストと展開](xref:host-and-deploy/index)」を参照してください。
 
-については、認証および承認など、ASP.NET Core MVC に関連するその他のトピックを参照してください、 [ASP.NET Core ドキュメント](https://docs.microsoft.com/aspnet/core/)です。
+認証および承認などの、ASP.NET Core MVC に関連するその他のトピックについては、「[ASP.NET Core](https://docs.microsoft.com/aspnet/core/)」を参照してください。
 
-## <a name="acknowledgments"></a>受信確認
+## <a name="acknowledgments"></a>謝辞
 
-Tom Dykstra と Rick Anderson (twitter @RickAndMSFT) このチュートリアルを記述します。 Rowan Miller、Diego ヴェガおよび Entity Framework チームの他のメンバー コード レビューを支援し、チュートリアルのコードを記述おされたときに発生した問題のデバッグに役に立ちます。
+チュートリアルを執筆してくださった、Tom Dykstra と Rick Anderson (twitter @RickAndMSFT)。 コードの確認をサポートし、チュートリアル用のコードの記述中に発生した問題のデバッグを支援してくれた、Rowan Miller、Diego Vega、およびその他の Entity Framework チームのメンバー。
 
 ## <a name="common-errors"></a>一般的なエラー  
 
-### <a name="contosouniversitydll-used-by-another-process"></a>別のプロセスによって使用される ContosoUniversity.dll
+### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity.dll が別のプロセスによって使用されている
 
-エラー メッセージ:
+エラー メッセージ
 
-> 開くことができません '... bin\Debug\netcoreapp1.0\ContosoUniversity.dll' 書き込み--用 '、プロセスがファイルにアクセスできません'... \bin\Debug\netcoreapp1.0\ContosoUniversity.dll' 別のプロセスによって使用されているためです。
+> '...bin\Debug\netcoreapp1.0\ContosoUniversity.dll' を書き込み用に開けません -- '別のプロセスで使用されているため、プロセスはファイル '...\bin\Debug\netcoreapp1.0\ContosoUniversity.dll' にアクセスできません。
 
 解決方法 : 
 
-IIS express サイトを停止します。 Windows のシステム トレイに IIS Express しそのアイコンを右クリックし、Contoso 大学サイトを選択してを見つけてクリックを参照してください**サイトの停止**です。
+IIS express でサイトを停止します。 Windows システム トレイに戻り、IIS Express を見つけてそのアイコンを右クリックし、Contoso University サイトを選択し、**[サイトの停止]** をクリックします。
 
-### <a name="migration-scaffolded-with-no-code-in-up-and-down-methods"></a>コードを使用せずにメソッドを上下スキャフォールディングされた移行
+### <a name="migration-scaffolded-with-no-code-in-up-and-down-methods"></a>Up メソッドと Down メソッドでコードを使用せずに移行がスキャフォールディングされる
 
 考えられる原因:
 
-EF CLI コマンドしない自動的に閉じてコード ファイルを保存します。 未保存の変更を実行すると場合、`migrations add`コマンド、EF、変更は検出されません。
+EF CLI コマンドは、コード ファイルを自動的に閉じて保存しません。 `migrations add` コマンドを実行するときに未保存の変更があると、EF は変更を検出しません。
 
 解決方法 : 
 
-実行、`migrations remove`コマンドをコードの変更を保存して再実行、`migrations add`コマンド。
+`migrations remove` コマンドを実行して、コードの変更を保存し、`migrations add` コマンドを再実行します。
 
-### <a name="errors-while-running-database-update"></a>実行中のデータベースの更新中にエラー
+### <a name="errors-while-running-database-update"></a>データベースの更新中のエラー
 
-既存のデータを含むデータベースでスキーマ変更を行うときにその他のエラーが発生することができます。 移行エラーを解決できない場合は、いずれか、接続文字列にデータベース名を変更したり、データベースを削除できます。 新しいデータベースを移行するデータが存在しないと、データベースの更新コマンドがエラーなしで完了する可能性が高くなります。
+データが存在するデータベースでスキーマの変更を行っているときに、他のエラーが発生する場合があります。 解決できない移行エラーが発生した場合は、接続文字列のデータベース名を変更するか、データベースを削除できます。 新しいデータベースには移行するデータが存在しないため、update-database コマンドがエラーなしで完了する可能性が高くなります。
 
-データベースの名前を変更する最も簡単な方法は、*される appsettings.json*です。 次に実行したとき`database update`、新しいデータベースは作成されます。
+最も簡単な方法は、*appsettings.json* でデータベースの名前を変更することです。 次に `database update` を実行したときに、新しいデータベースが作成されます。
 
-SSOX でデータベースを削除するデータベースを右クリックして**削除**、し、**データベースの削除**ダイアログ ボックスの **[既存の接続を閉じる]**をクリック**[Ok]**です。
+SSOX でデータベースを削除するには、そのデータベースを右クリックして、**[削除]** をクリックしてから、**[データベースの削除]** ダイアログ ボックスで **[既存の接続を閉じる]**、**[OK]** の順にクリックします。
 
-CLI を使用してデータベースを削除するには、実行、 `database drop` CLI コマンド。
+CLI を使用してデータベースを削除するには、`database drop` CLI コマンドを実行します。
 
 ```console
 dotnet ef database drop
 ```
 
-### <a name="error-locating-sql-server-instance"></a>SQL Server インスタンスの検索エラー
+### <a name="error-locating-sql-server-instance"></a>SQL Server インスタンスの位置を特定しているときのエラー
 
 エラー メッセージ:
 
-> SQL Server への接続を確立中にネットワーク関連またはインスタンス固有のエラーが発生しました。 サーバーが見つからないかアクセスできません。 インスタンス名が正しいこと、および SQL Server がリモート接続を許可するように構成されていることを確認してください。 (プロバイダー: SQL Network Interfaces、エラー: 26 - エラーの検索のサーバー/インスタンスの指定)
+> SQL Server への接続を確立しているときに、ネットワーク関連またはインスタンス固有のエラーが発生しました。 サーバーが見つからないかアクセスできません。 インスタンス名が正しいこと、および SQL Server がリモート接続を許可するように構成されていることを確認してください。 (プロバイダー: SQL ネットワーク インターフェイス、エラー: 26 - 指定されたサーバーまたはインスタンスの位置を特定しているときにエラーが発生しました)。
 
 解決方法 : 
 
-接続文字列を確認します。 データベース ファイルを手動で削除する場合は、新しいデータベースを最初からやり直す構築文字列でデータベースの名前を変更します。
+接続文字列を確認します。 データベース ファイルを手動で削除した場合は、構築文字列でデータベースの名前を変更して、新しいデータベースで最初からやり直します。
 
 >[!div class="step-by-step"]
 [前へ](inheritance.md)

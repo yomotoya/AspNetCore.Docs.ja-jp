@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET MVC を持つコアを EF コア - 継承 - 9 10"
+title: "ASP.NET Core MVC と EF Core - 継承 - 9/10"
 author: tdykstra
-description: "このチュートリアルでは、ASP.NET Core アプリケーションに Entity Framework のコアを使用して、データ モデル内の継承を実装する方法を示します。"
+description: "このチュートリアルでは、ASP.NET Core アプリケーションで Entity Framework Core を使用して、データ モデル内の継承を実装する方法を説明します。"
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -10,138 +10,138 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/inheritance
 ms.openlocfilehash: 985cc38b10ef830b8274e40ad5f7050157fd4d86
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>継承の ASP.NET Core MVC のチュートリアル (10 の 9) と EF コア
+# <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>継承 - EF Core と ASP.NET Core MVC のチュートリアル (9/10)
 
-によって[Tom Dykstra](https://github.com/tdykstra)と[Rick Anderson](https://twitter.com/RickAndMSFT)
+作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Contoso 大学でサンプル web アプリケーションでは、Entity Framework のコアと Visual Studio を使用して ASP.NET Core MVC web アプリケーションを作成する方法を示します。 一連のチュートリアルについては、次を参照してください。[系列内の最初のチュートリアル](intro.md)です。
+Contoso 大学のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)を参照してください。
 
-前のチュートリアルでは、同時実行例外を処理します。 このチュートリアルでは、データ モデルでの継承を実装する方法を示します。
+前のチュートリアルでは、同時実行制御の例外を処理しました。 このチュートリアルでは、データ モデルで継承を実装する方法を示します。
 
-オブジェクト指向プログラミングでは、コードの再利用を容易に継承を使用できます。 このチュートリアルでは、変更、`Instructor`と`Student`クラスから派生するように、`Person`基底クラスなどのプロパティを含む`LastName`講習においてインストラクターと受講者の両方に共通であります。 されませんを追加または web ページは変更は、コードの一部を変更しますが、し、それらの変更がデータベースに自動的に反映されます。
+オブジェクト指向プログラミングでは、継承を使用してコードの再利用を容易にします。 このチュートリアルでは、`Instructor` と `Student` クラスを `Person` 基底クラスから派生するように変更します。この基底クラスはインストラクターと受講者の両方に共通な `LastName` などのプロパティを含んでいます。 どの Web ページも追加または変更しませんが、コードの一部を変更し、それらの変更はデータベースに自動的に反映されます。
 
 ## <a name="options-for-mapping-inheritance-to-database-tables"></a>継承をデータベース テーブルにマップするためのオプション
 
-`Instructor`と`Student`School データ モデル内のクラスと同じではいくつかのプロパティがあります。
+School データ モデル内の `Instructor` および `Student` クラスにはいくつかの同じプロパティがあります。
 
-![Student とインストラクター クラス](inheritance/_static/no-inheritance.png)
+![Student クラスと Instructor クラス](inheritance/_static/no-inheritance.png)
 
-共有されるプロパティを冗長なコードを削除すると、`Instructor`と`Student`エンティティです。 または、インストラクターまたは受講者から名前が付属しているかどうかをかけることがなく名を書式設定できるサービスを記述します。 作成することが、`Person`基底クラスのプロパティ、その共有だけが含まれているし、`Instructor`と`Student`クラスは、次の図に示すように、その基底クラスから継承します。
+`Instructor` エンティティと `Student` エンティティで共有されるプロパティの冗長なコードを削除すると仮定します。 または、インストラクターと学生のどちらから名前を取得したかに関係なく、名前をフォーマットできるサービスを記述するとします。 次の図に示すように、それらの共有プロパティのみが含まれる `Person` 基底クラスを作成し、`Instructor` クラスと `Student`クラスがその基底クラスから継承するようにすることができます。
 
-![ユーザー クラスから派生する student とインストラクター クラス](inheritance/_static/inheritance.png)
+![Person クラスから派生する Student クラスと Instructor クラス](inheritance/_static/inheritance.png)
 
-これには、データベースでこの継承構造を表すことができますいくつかの方法があります。 Person テーブル受講者と講習においてインストラクターに 1 つのテーブルの両方に関する情報を含むことができます。 一部の列は、インストラクター (HireDate)、受講者 (EnrollmentDate) 両方 (姓、名) にいくつかにのみ一部にのみ適用可能性があります。 通常、識別子の列を各行を表す種類を示す必要があります。 たとえば、識別子の列は、受講者のインストラクターと「生徒」「インストラクター」があります。
+データベースでこの継承構造を表すことができるいくつかの方法があります。 受講者とインストラクターの両方に関する情報を 1 つのテーブル内に含む Person テーブルを使用できます。 一部の列 (HireDate) はインストラクターのみに適用され、一部 (EnrollmentDate) は受講者のみに適用され、一部 (LastName、FirstName) は両方に適用される可能性があります。 通常、各行がどの種類を表すかを示す識別子の列があります。 たとえば、識別子列にインストラクターを示す "Instructor" と受講者を示す "Student" がある場合があります。
 
-![テーブルの階層あたりの例](inheritance/_static/tph.png)
+![Table-per-Hierarchy の例](inheritance/_static/tph.png)
 
-このパターンの 1 つのデータベース テーブルからエンティティ継承構造を生成するには、テーブルの階層あたり (TPH) の継承が呼び出されます。
+1 つのデータベース テーブルからエンティティの継承構造を生成するこのパターンは、Table-per-Hierarchy (TPH) 継承と呼ばれます。
 
-代わりに、継承構造と同じように、データベースの作成を開始します。 たとえば、Person テーブルの名前フィールドしかありませんでした、日付フィールドを持つ別のインストラクターと Student テーブルを持つとします。
+代わりに、継承構造と同じように見えるデータベースを作成することもできます。 たとえば、Person テーブルに名前フィールドのみを含め、データ フィールドが含まれる別の Instructor テーブルと Student テーブルを使用できます。
 
 ![Table-Per-Type 継承](inheritance/_static/tpt.png)
 
-このエンティティ クラスごとにデータベース テーブルのパターンは、型 (TPT) の継承ごとにテーブルと呼ばれます。
+このエンティティ クラスごとにデータベース テーブルを作成するパターンは、Table-Per-Type (TPT) 継承と呼ばれます。
 
-まだ他のオプションは、個々 のテーブルにすべての非抽象型をマップするです。 継承されたプロパティを含むクラスのすべてのプロパティは、対応するテーブルの列にマップします。 このパターンは、具象型でのテーブルごとのクラス (TPC) の継承と呼ばれます。 前に示したように、ユーザー、学生、およびインストラクター クラスの継承を TPC が実装されている場合、Student テーブルとインストラクター テーブルはよりも長く前に、継承の実装後にまったく同じなります。
+他のオプションとして、個々のテーブルにすべての非抽象型をマップすることもできます。 継承されたプロパティを含むクラスのすべてのプロパティは、対応するテーブルの列にマップされます。 このパターンは、Table-per-Concrete Class (TPC) 継承と呼ばれます。 前に示したように、Person、Student、および Instructor クラスの TPC 継承を実装した場合、Student テーブルと Instructor テーブルは、継承を実装した後がその前とまったく同じに見えます。
 
-TPC と TPH の継承パターンは、TPT パターンが複雑な結合クエリのため通常 TPT 継承のパターンよりも優れたパフォーマンスを提供します。
+TPC および TPH 継承パターンは、一般的に TPT 継承パターンよりも高いパフォーマンスを実現します。これは、TPT パターンの結果として複雑な結合クエリになる可能性があるためです。
 
-このチュートリアルでは、TPH 継承の実装方法を示します。 TPH は、Entity Framework のコアをサポートする唯一の継承パターンです。  作成を行いますが、`Person`クラス、変更、`Instructor`と`Student`クラスから派生する`Person`、新しいクラスを追加、 `DbContext`、し、移行を作成します。
+このチュートリアルでは、TPH 継承の実装方法を示します。 TPH は、Entity Framework Core がサポートする唯一の継承パターンです。  実行する作業として、`Person` クラスを作成し、`Instructor` および `Student` クラスを `Person` から派生するように変更し、新しいクラスを `DbContext` に追加して、移行を作成します。
 
 > [!TIP] 
-> 次の変更を加える前に、プロジェクトのコピーを保存することを検討してください。  問題と最初からやり直す必要性に発生した場合、一連の先頭にこのチュートリアルの完了手順を反転することや継続的ではなく保存されているプロジェクトから開始しやすくがされます。
+> 次の変更を加える前に、プロジェクトのコピーを保存することを検討してください。  問題が発生して最初からやり直す必要がある場合、このチュートリアルで実行した手順を逆に実行したり、すべてのシリーズの最初に戻ったりするよりも、保存したプロジェクトから開始する方が簡単です。
 
-## <a name="create-the-person-class"></a>ユーザー クラスを作成します。
+## <a name="create-the-person-class"></a>Person クラスの作成
 
-Models フォルダーに Person.cs を作成し、テンプレート コードを次のコードに置き換えます。
+[モデル] フォルダーで、Person.cs を作成し、テンプレートのコードを次のコードに変更します。
 
 [!code-csharp[Main](intro/samples/cu/Models/Person.cs)]
 
-## <a name="make-student-and-instructor-classes-inherit-from-person"></a>ユーザーから継承 Student とインストラクター クラスを作成します。
+## <a name="make-student-and-instructor-classes-inherit-from-person"></a>Person クラスから Student クラスと Instructor クラスを派生させる
 
-*Instructor.cs*Person クラスから派生して、インストラクター クラス、およびキーと名前のフィールドを削除します。 コードは、次の例のようになります。
+*Instructor.cs* で、Person クラスから Instructor を派生させ、キーと名前のフィールドを削除します。 コードは次の例のように表示されます。
 
 [!code-csharp[Main](intro/samples/cu/Models/Instructor.cs?name=snippet_AfterInheritance&highlight=8)]
 
-同じ変更を加え*Student.cs*です。
+*Student.cs* に同じ変更を加えます。
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_AfterInheritance&highlight=8)]
 
 ## <a name="add-the-person-entity-type-to-the-data-model"></a>Person エンティティ型をデータ モデルに追加します。
 
-ユーザーのエンティティ型を追加*SchoolContext.cs*です。 新しい行が強調表示されます。
+Person エンティティ型を *SchoolContext.cs* に追加します。 新しい行が強調表示されます。
 
 [!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_AfterInheritance&highlight=19,30)]
 
-これは、Entity Framework は、テーブルの階層あたりの継承を構成するために必要なです。 表示されます、データベースが更新されたときに、Student テーブルとインストラクター テーブルの代わりに、Person テーブルがあります。
+Table-per-Hierarchy 継承を構成するために Entity Framework に必要なのことはこれですべてです。 ご覧のように、データベースが更新されたときに、Student テーブルと Instructor テーブルの代わりに、Person テーブルがあります。
 
-## <a name="create-and-customize-migration-code"></a>作成し、移行のコードをカスタマイズします。
+## <a name="create-and-customize-migration-code"></a>移行コードの作成とカスタマイズ
 
-変更を保存し、プロジェクトをビルドします。 プロジェクト フォルダー内のコマンド ウィンドウを開くし、次のコマンドを入力します。
+変更を保存し、プロジェクトをビルドします。 次に、プロジェクト フォルダーでコマンド ウィンドウを開き、次のコマンドを入力します。
 
 ```console
 dotnet ef migrations add Inheritance
 ```
 
-実行しない、`database update`まだコマンドします。 インストラクター テーブルを削除し、ユーザーに、Student テーブルの名前を変更ことはために、そのコマンドはデータの損失になります。 既存のデータを保持するためにカスタム コードを提供する必要があります。
+`database update` コマンドはまだ実行しないでください。 このコマンドは、Instructor テーブルを削除し、Student テーブルの名前を Person に変更するので、コマンドの結果としてデータが失われます。 既存のデータを保持するためにカスタム コードを提供する必要があります。
 
-開いている*移行/\<タイムスタンプ > _Inheritance.cs*と置換、`Up`メソッドを次のコード。
+*Migrations/\<timestamp>_Inheritance.cs* を開き、`Up` メソッドを次のコードに置き換えます。
 
 [!code-csharp[Main](intro/samples/cu/Migrations/20170216215525_Inheritance.cs?name=snippet_Up)]
 
-このコードは、次のデータベースの更新タスクの処理します。
+このコードは、次のデータベースの更新タスクを処理します。
 
 * 外部キー制約と Student テーブルをポイントするインデックスを削除します。
 
-* 個人として教師テーブルの名前を変更し、受講者用のデータを格納するために必要な変更を行います。
+* Instructor テーブルの名前の Person に変更し、Student データを格納するために必要な変更を加えます。
 
 * 受講者の null 許容 EnrollmentDate を追加します。
 
-* 行が、受講者または講師がかどうかを示すために識別子列を追加します。
+* 行が、受講者かインストラクターかを示すために識別子列を追加します。
 
-* により HireDate null 許容ため学生行は、雇用日を必要はありません。
+* 受講者行には雇用日がないので HireDate を nul 許容にします。
 
-* 受講者をポイントする外部キーの更新に使用される一時的なフィールドを追加します。 Person テーブルに受講者をコピーするときに新しい主キー値が表示されます。
+* 受講者をポイントする外部キーの更新に使用する一時的なフィールドを追加します。 Person テーブルに受講者をコピーするときに新しい主キー値を受け取ります。
 
-* Person テーブルに、Student テーブルからデータをコピーします。 これにより、受講者が割り当てられている新しい主キー値を取得します。
+* Student テーブルから Person テーブルにデータをコピーします。 これにより、受講者に新しい主キー値が割り当てられます。
 
 * 受講者をポイントする外部キー値を修正します。
 
-* 外部キー制約と今すぐ Person テーブルをポイントして、インデックスを再作成されます。
+* 今は Person テーブルをポイントしている外部キー制約とインデックスを再作成します 
 
-(学生主キーの値を変更する必要はない場合は、プライマリ キーの種類として、整数ではなく GUID を使用した、および省略されていることができいくつかの手順です。)
+(主キーの型として整数の代わりに GUID を使用した場合は、受講者の主キー値を変更する必要はなく、これらの手順のいくつかを省略できます)。
 
-実行、`database update`コマンド。
+`database update` コマンドを実行します。
 
 ```console
 dotnet ef database update
 ```
 
-(実稼働システムで対応する変更を行い、`Down`メソッドの場合も、以前のデータベース バージョンに戻るに使用しなければならなかったことです。 このチュートリアルでは使用しない、`Down`メソッドです)。
+(実稼働システムでは、以前のデータベースバージョンに戻すために `Down` メソッドを使用する必要があった場合、このメソッドに対応する変更を行います。 このチュートリアルでは、`Down` メソッドは使用しません)
 
 > [!NOTE] 
-> 既存のデータを含むデータベースでスキーマ変更を行うときにその他のエラーが発生することができます。 解決できない場合は移行エラーが発生した場合か、接続文字列でデータベース名を変更したり、データベースを削除できます。 新しいデータベースを移行するデータが存在しないと、データベースの更新コマンドがエラーなしで完了する可能性が高くなります。 データベースを削除する SSOX を使用してまたはを実行、 `database drop` CLI コマンド。
+> データが存在するデータベースでスキーマの変更を行うと、他のエラーが発生する場合があります。 解決できない移行エラーが発生した場合は、接続文字列のデータベース名を変更するか、データベースを削除できます。 新しいデータベースには移行するデータが存在しないため、update-database コマンドがエラーなしで完了する可能性が高くなります。 データベースを削除するには、SSOX を使用するか `database drop` CLI コマンドを実行します。
 
-## <a name="test-with-inheritance-implemented"></a>継承の実装をテストします。
+## <a name="test-with-inheritance-implemented"></a>継承を実装したテスト
 
-アプリを実行して、さまざまなページを再試行してください。 前に、と同じに動作します。
+アプリを実行して、さまざまなページを試してください。 すべてが前と同じように動作します。
 
-**SQL Server オブジェクト エクスプ ローラー**、展開**データ接続/SchoolContext**し**テーブル**、Student テーブルとインストラクター テーブルに置換されたことを確認して、Person テーブル。 Person テーブル デザイナーを開くし、Student テーブルとインストラクター テーブルに存在するために使用される列のすべてがあるを参照してください。
+**SQL Server オブジェクト エクスプローラー**で、**[データ接続/SchoolContext]** を展開し、**[テーブル]** を展開すると、Student テーブルと Instructor テーブルが Person テーブルに置き換えられていることを確認できます。 Person テーブル デザイナーを開くと、Student テーブルと Student テーブルに存在していたすべての列が表示されます。
 
-![SSOX で person テーブル](inheritance/_static/ssox-person-table.png)
+![SSOX の Person テーブル](inheritance/_static/ssox-person-table.png)
 
-Person テーブルを右クリックし、をクリックして**テーブル データの表示**識別子列を表示します。
+Person テーブルを右クリックし、**[テーブル データの表示]** をクリックして識別子列を表示します。
 
-![SSOX - テーブルのデータで person テーブル](inheritance/_static/ssox-person-data.png)
+![SSOX の Person テーブル - テーブル データ](inheritance/_static/ssox-person-data.png)
 
 ## <a name="summary"></a>まとめ
 
-テーブルの階層あたりの継承を実装したら、 `Person`、 `Student`、および`Instructor`クラスです。 Entity Framework Core での継承の詳細については、次を参照してください。[継承](https://docs.microsoft.com/ef/core/modeling/inheritance)です。 次のチュートリアルでは、さまざまな Entity Framework の比較的高度なシナリオを処理する方法が表示されます。
+`Person`、`Student`、および `Instructor` クラスの Table-per-Hierarchy 継承を実装しました。 Entity Framework Core での継承の詳細については、「[継承](https://docs.microsoft.com/ef/core/modeling/inheritance)」を参照してください。 次のチュートリアルでは、比較的高度なさまざまな Entity Framework のシナリオを処理する方法を説明します。
 
 >[!div class="step-by-step"]
 [前へ](concurrency.md)

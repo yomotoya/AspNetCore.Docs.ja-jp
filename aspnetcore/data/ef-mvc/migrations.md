@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET MVC を持つコアを EF コアな移行 - 4 10"
+title: "ASP.NET Core MVC と EF Core - 移行 - 4/10"
 author: tdykstra
-description: "このチュートリアルでは、ASP.NET Core MVC アプリケーションでデータ モデルの変更を管理するための EF 中核となる移行機能の使用を開始します。"
+description: "このチュートリアルでは、ASP.NET Core MVC アプリケーションでデータ モデルの変更を管理するための EF Core の移行機能の使用を開始します。"
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -10,61 +10,61 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/migrations
 ms.openlocfilehash: fd466af8a73bf4c568fafe7e7fdcaa82021624da
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>移行 - ASP.NET Core MVC のチュートリアル (10 の 4) と EF コア
+# <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>移行 - EF Core と ASP.NET Core MVC のチュートリアル (4/10)
 
-によって[Tom Dykstra](https://github.com/tdykstra)と[Rick Anderson](https://twitter.com/RickAndMSFT)
+作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Contoso 大学でサンプル web アプリケーションでは、Entity Framework のコアと Visual Studio を使用して ASP.NET Core MVC web アプリケーションを作成する方法を示します。 一連のチュートリアルについては、次を参照してください。[系列内の最初のチュートリアル](intro.md)です。
+Contoso University のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)をご覧ください。
 
-このチュートリアルでは、データ モデルの変更を管理するための EF 中核となる移行機能の使用を開始します。 後のチュートリアルでは、データ モデルを変更すると、複数の移行を追加します。
+このチュートリアルでは、データ モデルの変更を管理するための EF Core の移行機能の使用を開始します。 チュートリアルの後半では、データ モデルを変更するときに移行を追加します。
 
 ## <a name="introduction-to-migrations"></a>移行の概要
 
-新しいアプリケーションを開発するときに、データ モデルの変更するたびにし、多くの場合、モデルの変更、データベースとの同期を取得します。 これらのチュートリアルを開始するには、Entity Framework が存在しない場合、データベースの作成を構成します。 データ モデルの変更--追加、削除、またはエンティティ クラスを変更または--DbContext クラスを変更するたびにデータベースを削除することができ、EF を新規作成、モデルと一致し、テスト データのシードを設定します。
+新しいアプリケーションを開発して、データ モデルが頻繁に変更される場合、モデルが変更されるたびに、モデルはデータベースと同期されなくなります。 データベースが存在しない場合にデータベースを作成するように Entity Framework を構成して、これらのチュートリアルを開始しました。 そのため、データ モデルを変更する (エンティティ クラスを追加、削除、または変更するか、DbContext クラスを変更する) たびに、データベースを削除することができ、EF でモデルに一致する新しいデータベースを作成し、テスト データを使ってシードを設定します。
 
-データベースのデータ モデルとの同期を維持するには、このメソッドは、実稼働環境にアプリケーションを配置するまでに適切に動作します。 アプリケーションが、保持して、毎回すべてが失われるしたくないデータを格納するは、通常実稼働環境で実行されている場合は、新しい列を追加するなど変更を加えます。 EF コア移行機能を新しいデータベースを作成する代わりにデータベース スキーマを更新する EF を有効にしてこの問題を解決します。
+このメソッドは、実稼働環境にアプリケーションを展開するまで、データベースとデータ モデルの同期の維持がうまく機能します。 実稼働環境でアプリケーションを実行している場合、通常、保持する必要があるデータが保存され、新しい列の追加などの変更を加えるたびにすべてが失われないようにする必要があります。 EF Core の移行機能は、新しいデータベースを作成する代わりに、EF でデータベース スキーマを更新できるようにすることで、この問題を解決します。
 
 ## <a name="entity-framework-core-nuget-packages-for-migrations"></a>移行用の Entity Framework Core NuGet パッケージ
 
-移行を使用して作業を行うこともできます、 **Package Manager Console** (PMC) またはコマンド ライン インターフェイス (CLI)。  これらのチュートリアルでは、CLI コマンドを使用する方法を示します。 PMC に関するについては、「[このチュートリアルの最後の](#pmc)します。
+移行を使用するには、**パッケージ マネージャー コンソール** (PMC) またはコマンド ライン インターフェイス (CLI) を使用できます。  このチュートリアルでは、CLI コマンドを使用する方法を示します。 PMC については、[このチュートリアルの最後](#pmc)に説明します。
 
-コマンド ライン インターフェイス (CLI) の EF ツールが [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet) で提供されています。 このパッケージをインストールする追加して、`DotNetCliToolReference`内のコレクション、 *.csproj*ファイルを示すようにします。 **注:** *.csproj* ファイルを編集して、このパッケージをインストールする必要があります。`install-package` コマンドやパッケージ マネージャー GUI を使用することはできません。 編集することができます、 *.csproj*でプロジェクト名を右クリックしてファイル**ソリューション エクスプ ローラー**を選択して**編集 ContosoUniversity.csproj**です。
+コマンド ライン インターフェイス (CLI) の EF ツールが [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet) で提供されています。 このパッケージをインストールするには、以下のように、*.csproj* ファイルの `DotNetCliToolReference` コレクションにパッケージを追加します。 **注:** *.csproj* ファイルを編集して、このパッケージをインストールする必要があります。`install-package` コマンドやパッケージ マネージャー GUI を使用することはできません。 *.csproj* ファイルを編集するには、**[ソリューション エクスプローラー]** でプロジェクト名を右クリックし、**[ContosoUniversity.csproj の編集]** を選択します。
 
 [!code-xml[](intro/samples/cu/ContosoUniversity.csproj?range=12-15&highlight=2)]
   
-(この例では、バージョン番号は、このチュートリアルに書き込まれたときに現在でした)。 
+(この例のバージョン番号は、チュートリアルが記述された時点で最新でした)。 
 
-## <a name="change-the-connection-string"></a>接続文字列を変更します。
+## <a name="change-the-connection-string"></a>接続文字列を変更する
 
-*される appsettings.json*ファイル、ContosoUniversity2 または使用しているコンピューターで使用していない別の名前に、接続文字列にデータベースの名前を変更します。
+*appsettings.json* ファイルで、接続文字列のデータベース名を ContosoUniversity2 に変更するか、使用しているコンピューターではまだ使用していない別の名前に変更します。
 
 [!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
 
-この変更は、最初の移行が新しいデータベースを作成できるように、プロジェクトを設定します。 これは、移行には、使用を開始するために必要はありませんが、後述する理由をお勧めします。
+この変更では、最初の移行で新しいデータベースが作成されるように、プロジェクトを設定します。 これは移行の作業を開始するために必要ではありませんが、後でこの設定をお勧めする理由がわかります。
 
 > [!NOTE]
-> データベース名を変更する代わりに、データベースを削除することができます。 使用して**SQL Server オブジェクト エクスプ ローラー** (SSOX) または`database drop`CLI コマンド。
+> データベース名を変更する代わりに、データベースを削除することもできます。 **SQL Server オブジェクト エクスプローラー** (SSOX) または `database drop` CLI コマンドを使用します。
 > ```console
 > dotnet ef database drop
 > ```
 > 次のセクションでは、CLI コマンドを実行する方法について説明します。
 
-## <a name="create-an-initial-migration"></a>最初の移行を作成します。
+## <a name="create-an-initial-migration"></a>初期移行を作成する
 
-変更を保存し、プロジェクトをビルドします。 コマンド ウィンドウを開き、プロジェクト フォルダーに移動します。 実行する簡単な方法を次に示します。
+変更を保存し、プロジェクトをビルドします。 次に、コマンド ウィンドウを開き、プロジェクト フォルダーに移動します。 この操作を行う簡単な方法を次に示します。
 
-* **ソリューション エクスプ ローラー**プロジェクトを右クリックし、選択、**エクスプ ローラーで開く**コンテキスト メニュー。
+* **[ソリューション エクスプローラー]** で、プロジェクトを右クリックし、コンテキスト メニューの **[エクスプローラーで開く]** を選びます。
 
-  ![ファイル エクスプ ローラーのメニュー項目で開く](migrations/_static/open-in-file-explorer.png)
+  ![[エクスプローラーで開く] メニュー項目](migrations/_static/open-in-file-explorer.png)
 
-* アドレス バーに「cmd」を入力し、、Enter キーを押します。
+* アドレス バーに「cmd」と入力して、Enter キーを押します。
 
-  ![開いているコマンド ウィンドウ](migrations/_static/open-command-window.png)
+  ![コマンド ウィンドウを開く](migrations/_static/open-command-window.png)
 
 コマンド ウィンドウで次のコマンドを入力します。
 
@@ -72,7 +72,7 @@ Contoso 大学でサンプル web アプリケーションでは、Entity Framew
 dotnet ef migrations add InitialCreate
 ```
 
-コマンド ウィンドウで次のような出力を参照してください。
+コマンド ウィンドウに次のような出力が表示されます。
 
 ```console
 info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]
@@ -83,41 +83,41 @@ Done. To undo this action, use 'ef migrations remove'
 ```
 
 > [!NOTE]
-> エラー メッセージを表示する場合は*実行可能ファイルに一致するコマンド"dotnet-ef"が見つかりませんでした*を参照してください[このブログの投稿](http://thedatafarm.com/data-access/no-executable-found-matching-command-dotnet-ef/)トラブルシューティングのヘルプ。
+> "*"dotnet-ef" コマンドに一致する実行可能ファイルが見つかりませんでした*" というエラー メッセージが表示された場合、トラブルシューティングのヘルプについては、[このブログ記事](http://thedatafarm.com/data-access/no-executable-found-matching-command-dotnet-ef/)を参照してください。
 
-エラー メッセージを表示する場合は"*... ファイルにアクセスできませんContosoUniversity.dll 別のプロセスによって使用されているためです。*"] し、Windows システム トレイに、IIS Express のアイコンを検索し、右クリックして、[ **ContosoUniversity > Stop サイト**です。
+"*別のプロセスによって使用されているため、ContosoUniversity.dll ファイルにアクセスできません。*" というエラー メッセージが表示された場合は、Windows のシステム トレイの IIS Express アイコンを見つけて右クリックし、**[ContosoUniversity]、[サイトの停止]** の順にクリックします。
 
-## <a name="examine-the-up-and-down-methods"></a>上矢印を確認し、下矢印メソッド
+## <a name="examine-the-up-and-down-methods"></a>Up および Down メソッドを確認する
 
-実行すると、`migrations add`コマンド、EF は最初からデータベースを作成するコードを生成します。 このコードは、*移行*という名前のファイル内のフォルダー *\<タイムスタンプ > _InitialCreate.cs*です。 `Up`のメソッド、`InitialCreate`クラスは、データ モデルのエンティティ セットに対応するデータベース テーブルを作成し、`Down`メソッドでは、それらが削除される次の例で示すようにします。
+`migrations add` コマンドを実行したときに、EF では最初からデータベースを作成するコードが生成されています。 このコードは、*\<タイムスタンプ>_InitialCreate.cs* という名前のファイルにある *[Migrations]* フォルダー内にあります。 `InitialCreate` クラスの `Up` メソッドでは、データ モデルのエンティティ セットに対応するデータベース テーブルを作成し、`Down` メソッドでは、次の例に示すようにそれらを削除します。
 
 [!code-csharp[Main](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
-移行の呼び出し、`Up`移行のためのデータ モデルの変更を実装するメソッド。 更新プログラム、移行の呼び出しをロールバックするためのコマンドを入力すると、`Down`メソッドです。
+移行は、`Up` メソッドを呼び出して、移行のためのデータ モデルの変更を実装します。 更新をロールバックするためのコマンドを入力すると、移行が `Down` メソッドを呼び出します。
 
-このコードの入力時に作成された最初の移行は、`migrations add InitialCreate`コマンド。 移行の name パラメーター (この例では"InitialCreate") は、ファイル名が使用され、希望することができます。 単語または語句、移行で行われている新機能をまとめたものを選択することをお勧めします。 たとえば、後で移行"AddDepartmentTable"の名前を付けて可能性があります。
+このコードは、`migrations add InitialCreate` コマンドを入力したときに作成された初期移行向けのものです。 移行の name パラメーター (この例では "InitialCreate") は、ファイル名に使用され、どのような名前でも付けることができます。 移行で行われている処理をまとめた単語または語句を選択することをお勧めします。 たとえば、後で移行に "AddDepartmentTable" という名前を付ける可能性があります。
 
-データベースが既に存在する場合、最初の移行を作成した場合は、データベース作成コードが生成されますが、データベースに既にデータ モデルと一致するために実行する必要はありません。 ここで、データベースが存在しない、このコードはまだ実行されて、データベースを作成する別の環境にアプリを展開するときにこれは最初にテストすることをお勧めします。 理由です--前の接続文字列でデータベースの名前を変更した移行は、最初から新しい 1 つを作成できるようにします。
+データベースが既に存在するときに、初期移行を作成した場合、データベースの作成コードが生成されますが、データベースは既にデータと一致しているため、作成コードを実行する必要はありません。 データベースがまだ存在しない別の環境にアプリを展開する場合、データベースを作成するために、このコードが実行されるため、最初にテストを行うことをお勧めします。 これが、移行で新しいデータベースを最初から作成できるように、前の接続文字列でデータベースの名前を変更した理由です。
 
-## <a name="examine-the-data-model-snapshot"></a>データ モデルのスナップショットを確認します。
+## <a name="examine-the-data-model-snapshot"></a>データ モデルのスナップショットを確認する
 
-また、移行を作成、*スナップショット*で現在のデータベース スキーマの*Migrations/SchoolContextModelSnapshot.cs*です。 そのコードは次のようになります。
+移行は、現在のデータベース スキーマの*スナップショット*を *Migrations/SchoolContextModelSnapshot.cs* 内にも作成します。 コードは次のようになります。
 
 [!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
 
-現在のデータベース スキーマは、コードで表される、ための移行を作成するデータベースとやり取りする EF コアがありません。 移行を追加すると、EF は、スナップショット ファイルにデータ モデルを比較することによって変更内容を判断します。 EF は、データベースを更新する必要がある場合にのみ、データベースとやり取りします。 
+現在のデータベース スキーマはコードで表されるため、移行を作成するために、EF Core がデータベースとやり取りする必要はありません。 移行を追加するときに、EF は、スナップショット ファイルとデータ モデルを比較することによって変更内容を判断します。 EF は、データベースを更新する必要がある場合にのみ、データベースとやり取りします。 
 
-スナップショット ファイルが作成して、という名前のファイルを削除するだけで、移行を削除することはできませんので、マイグレーションと同期して保持するが*\<タイムスタンプ > _\<migrationname > .cs*です。 そのファイルを削除すると、残りのマイグレーションは、データベース スナップショット ファイルと同期されます。 削除する追加した前回の移行を使用して、 [dotnet ef 移行削除](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove)コマンド。
+スナップショット ファイルは、ファイルを作成する移行と同期され続ける必要があるため、*\<タイムスタンプ>_\<移行>.cs* という名前のファイルを削除するだけでは、移行を削除することはできません。 ファイルを削除すると、残りの移行はデータベースのスナップショット ファイルと同期されなくなります。 最後に追加された移行を削除するには、[dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) コマンドを使用します。
 
-## <a name="apply-the-migration-to-the-database"></a>移行をデータベースに適用します。
+## <a name="apply-the-migration-to-the-database"></a>移行をデータベースに適用する
 
-コマンド ウィンドウで、データベースとテーブルが作成するには、次のコマンドを入力します。
+コマンド ウィンドウで、次のコマンドを入力してデータベースとデータベース内のテーブルを作成します。
 
 ```console
 dotnet ef database update
 ```
 
-コマンドの出力がに似ていますが、`migrations add`を使用して、点を除いて、SQL コマンドのデータベースを設定するためにログを参照してください。 ログのほとんどは、次のサンプル出力で除外されます。 このレベルのログ メッセージで詳細を表示しないようにする場合は、ログ レベルを変更できます、 *appsettings です。Development.json*ファイル。 詳細については、次を参照してください。[ログ記録の概要](xref:fundamentals/logging/index)です。
+コマンドからの出力は、データベースを設定する SQL コマンドのログを表示する以外は、`migrations add` コマンドと同様です。 次のサンプル出力では、ログのほとんどは省略されています。 ログ メッセージの詳細レベルを表示しない場合は、*appsettings.Development.json* ファイルでログ レベルを変更できます。 詳細については、[ログ記録の概要](xref:fundamentals/logging/index)に関するページを参照してください。
 
 ```text
 info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]
@@ -144,28 +144,28 @@ info: Microsoft.EntityFrameworkCore.Database.Command[200101]
 Done.
 ```
 
-使用して**SQL Server オブジェクト エクスプ ローラー**の最初のチュートリアルで行ったように、データベースを調査します。  移行の種類は、データベースに適用されているの追跡を __EFMigrationsHistory テーブルの追加がわかります。 そのテーブルにデータを表示し、1 行の最初の移行データが表示されます。 (前の CLI 出力例では、最後のログは、この行が作成される INSERT ステートメントを示しています)。
+**SQL Server オブジェクト エクスプローラー**を使用して、最初のチュートリアルで行ったように、データベースを調べます。  データベースに適用されている移行を記録する __EFMigrationsHistory テーブルに追加があることがわかります。 テーブルのデータを表示すると、最初の移行の 1 行が表示されます。 (前の CLI の出力例の最後のログは、この行を作成する INSERT ステートメントを示しています)。
 
-以前と同じを引き続き動作するすべてのものを確認するアプリケーションを実行します。
+アプリケーションを実行して、すべてが以前と同じように動作することを確認します。
 
-![インデックス ページの受講者](migrations/_static/students-index.png)
+![Students インデックス ページ](migrations/_static/students-index.png)
 
 <a id="pmc"></a>
-## <a name="command-line-interface-cli-vs-package-manager-console-pmc"></a>コマンド ライン インターフェイス (CLI) とします。Package Manager Console (PMC)
+## <a name="command-line-interface-cli-vs-package-manager-console-pmc"></a>コマンド ライン インターフェイス (CLI) とパッケージ マネージャー コンソール (PMC) の比較
 
-移行を管理することは .NET Core CLI コマンドとは、Visual Studio での PowerShell コマンドレットからの EF tooling **Package Manager Console** (PMC) ウィンドウです。 このチュートリアルは、CLI を使用する方法を示しますが、したい場合は、PMC を使用することができます。
+移行を管理するための EF ツールは、.NET Core CLI コマンドから、または Visual Studio **パッケージ マネージャー コンソール** (PMC) ウィンドウの PowerShell コマンドレットから利用できます。 このチュートリアルでは、CLI の使用方法を示しますが、好みに応じて PMC を使用できます。
 
-PMC コマンドの EF コマンドが、 [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools)パッケージです。 このパッケージが既に含まれている、 [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) metapackage、ためをインストールする必要はありません。
+PMC コマンドの EF コマンドは、[Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) パッケージ内にあります。 このパッケージは既に [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) メタパッケージに含まれているため、インストールする必要はありません。
 
-**重要:**を編集して、CLI をインストールするものと同じパッケージはありません、 *.csproj*ファイル。 この種類の名前で終わる`Tools`、終わる CLI パッケージ名とは異なり`Tools.DotNet`です。
+**重要:** このパッケージは、*.csproj* ファイルを編集することで、CLI 用にインストールするパッケージと同じものではありません。 `Tools.DotNet` で終わる CLI パッケージ名とは異なり、このパッケージの名前は `Tools` で終わります。
 
-CLI コマンドの詳細については、次を参照してください。 [.NET Core CLI](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet)です。 
+CLI コマンドの詳細については、「[.NET Core CLI](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet)」を参照してください。 
 
-PMC コマンドの詳細については、次を参照してください。 [Package Manager Console (Visual Studio)](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell)です。
+PMC コマンドの詳細については、「[パッケージ マネージャー コンソール (Visual Studio)](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell)」を参照してください。
 
 ## <a name="summary"></a>まとめ
 
-このチュートリアルでは、作成して、最初の移行を適用する方法を説明しました。 次のチュートリアルでは、データ モデルを展開してより高度なトピックを見るが始めます。 その過程を作成し、追加の移行を適用します。
+このチュートリアルでは、最初の移行を作成して適用する方法が示されました。 次のチュートリアルでは、データ モデルを展開して、詳細なトピックについて確認します。 その途中で、追加の移行を作成して適用することになります。
 
 >[!div class="step-by-step"]
 [前へ](sort-filter-page.md)

@@ -1,3 +1,3 @@
-# <a name="aspnet-using-options-sample"></a>オプションのサンプルを使用して ASP.NET
+# <a name="aspnet-using-options-sample"></a>オプションのサンプルを使用する ASP.NET
 
-このサンプルでは、ASP.NET Core Razor ページ アプリでのオプションのパターンの使用方法を示します。 このサンプルで説明する機能、[オプション パターン](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)トピックです。
+このサンプルでは、ASP.NET Core Razor Pages アプリでのオプション パターンの使用方法を示します。 このサンプルでは、「[オプション パターン](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)」のトピックで説明している機能について説明します。

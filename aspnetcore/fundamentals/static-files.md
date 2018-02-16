@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core の静的ファイルを操作します。"
+title: "ASP.NET Core の静的ファイルの使用"
 author: rick-anderson
-description: "サービスを提供し、静的なファイルをセキュリティで保護および ASP.NET Core web アプリでのミドルウェアの動作をホストしている静的ファイルを構成する方法を説明します。"
+description: "静的ファイルを提供したり、それをセキュリティで保護したりする方法、および ASP.NET Core Web アプリで静的ファイルをホストするミドルウェアの動作を構成する方法について説明します。"
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -11,74 +11,74 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/static-files
-ms.openlocfilehash: 60b205bf0a45e2965f9dab46f46956947ae513fd
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
-ms.translationtype: MT
+ms.openlocfilehash: 7b156830ab59db3c08fbff6b2c4180d8765a113b
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="work-with-static-files-in-aspnet-core"></a>ASP.NET Core の静的ファイルを操作します。
+# <a name="work-with-static-files-in-aspnet-core"></a>ASP.NET Core の静的ファイルの使用
 
-によって[Rick Anderson](https://twitter.com/RickAndMSFT)と[Scott Addie](https://twitter.com/Scott_Addie)
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)、[Scott Addie](https://twitter.com/Scott_Addie)
 
-HTML、CSS、画像、および、JavaScript などの静的ファイルは、資産の ASP.NET Core アプリケーションが直接クライアントに機能します。 いくつかの構成は、これらのファイルの提供を有効にする必要があります。
+HTML、CSS、画像、JavaScript などの静的ファイルは、ASP.NET Core アプリにより直接クライアントに提供される資産です。 これらのファイルを提供するには、いくつかの構成が必要です。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-## <a name="serve-static-files"></a>静的ファイルを提供します
+## <a name="serve-static-files"></a>静的ファイルの提供
 
-静的ファイルは、プロジェクトの web ルート ディレクトリ内に格納されます。 既定のディレクトリは *\<content_root >/wwwroot*を使用して変更できますが、 [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_)メソッドです。 参照してください[コンテンツのルート](xref:fundamentals/index#content-root)と[Web ルート](xref:fundamentals/index#web-root)詳細についてはします。
+静的ファイルは、プロジェクトの Web ルート ディレクトリ内に格納されています。 既定のディレクトリは、*\<content_root>/wwwroot* ですが、[UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) メソッドを使用して変更することができます。 詳細については、「[コンテンツ ルート](xref:fundamentals/index#content-root)」および「[Web ルート](xref:fundamentals/index#web-root)」を参照してください。
 
-アプリの web ホストは、コンテンツのルート ディレクトリの対応に行う必要があります。
+アプリの Web ホストでは、コンテンツのルート ディレクトリが把握されている必要があります。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-`WebHost.CreateDefaultBuilder`メソッドは、現在のディレクトリへのコンテンツのルートを設定します。
+`WebHost.CreateDefaultBuilder` メソッドでは、コンテンツのルートが現在のディレクトリに設定されます。
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=9)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-呼び出すことによって、現在のディレクトリにコンテンツのルートを設定[UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseContentRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_)内の`Program.Main`:
+`Program.Main` 内で [UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseContentRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) が呼び出され、コンテンツのルートが現在のディレクトリに設定されます。
 
 [!code-csharp[](static-files/samples/1x/Program.cs?name=snippet_ProgramClass&highlight=7)]
 
 ---
 
-静的なファイルは、web ルートに対する相対パスを経由してアクセスできます。 たとえば、 **Web アプリケーション**プロジェクト テンプレートには内でいくつかのフォルダーが含まれています、 *wwwroot*フォルダー。
+静的なファイルには、Web ルートへの相対パスを使用してアクセスできます。 たとえば、**Web アプリケーション** プロジェクト テンプレートには、*wwwroot* フォルダー内の次のいくつかフォルダーが含まれています。
 
 * **wwwroot**
   * **css**
   * **images**
   * **js**
 
-URI の形式でファイルへのアクセス、*イメージ*サブフォルダーは*http://\<server_address >/images/\<画像 >*です。 たとえば、 *http://localhost:9189/images/banner3.svg*です。
+*images* サブフォルダーのファイルにアクセスするための URI は、*http://\<server_address>/images/\<image_file_name>* です。 たとえば、*http://localhost:9189/images/banner3.svg* です。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-.NET Framework を対象にする場合は、追加、 [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/)をプロジェクトにパッケージします。 .NET Core をターゲットとする場合、 [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage)このパッケージが含まれています。
+.NET Framework を対象としている場合、プロジェクトに [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) パッケージを追加します。 .NET Core をターゲットとする場合、[Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage)にこのパッケージが含まれます。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-追加、 [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/)をプロジェクトにパッケージします。
+プロジェクトに、[Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) パッケージを追加します。
 
 ---
 
-構成、[ミドルウェア](xref:fundamentals/middleware)静的ファイル サービスを有効にします。
+静的ファイル サービスの提供を可能にする、[ミドルウェア](xref:fundamentals/middleware/index)を構成します。
 
-### <a name="serve-files-inside-of-web-root"></a>Web ルート内でファイルを提供します
+### <a name="serve-files-inside-of-web-root"></a>Web ルート内のファイルの提供
 
-呼び出す、 [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_)メソッド内で`Startup.Configure`:
+`Startup.Configure` 内の [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) メソッドを呼び出します。
 
 [!code-csharp[](static-files/samples/1x/StartupStaticFiles.cs?name=snippet_ConfigureMethod&highlight=3)]
 
-パラメーターなし`UseStaticFiles`メソッドのオーバー ロードが含んだとして web ルート内のファイルをマークします。 次のマークアップ参照*wwwroot/images/banner1.svg*:
+パラメーターなしの `UseStaticFiles` メソッド オーバーロードによって、Web ルート内のファイルが提供可能とマークされます。 次のマークアップは、*wwwroot/images/banner1.svg* を参照します。
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_wwwroot)]
 
-### <a name="serve-files-outside-of-web-root"></a>Web ルートの外部でファイルを提供します
+### <a name="serve-files-outside-of-web-root"></a>Web ルート外のファイルの提供
 
-Web ルートの外部で処理される静的ファイルが存在するディレクトリの階層を考慮してください。
+提供する静的ファイルが、Web ルート外にあるディレクトリ階層があるとします。
 
 * **wwwroot**
   * **css**
@@ -88,96 +88,96 @@ Web ルートの外部で処理される静的ファイルが存在するディ�
   * **images**
       * *banner1.svg*
 
-要求にアクセスできる、 *banner1.svg*静的ファイル ミドルウェアを次のように構成することによってファイル。
+静的ファイル ミドルウェアを次のように構成すると、要求で *banner1.svg* ファイルにアクセスできます。
 
 [!code-csharp[](static-files/samples/1x/StartupTwoStaticFiles.cs?name=snippet_ConfigureMethod&highlight=5-10)]
 
-上記のコードでは、 *MyStaticFiles*を介してディレクトリ階層をパブリックに公開される、 *StaticFiles* URI セグメント。 要求を*http://\<server_address >/StaticFiles/images/banner1.svg*機能、 *banner1.svg*ファイル。
+前述のコードでは、*MyStaticFiles* ディレクトリ階層は、*StaticFiles* URI セグメントでパブリックに公開されています。 *http://\<server_address>/StaticFiles/images/banner1.svg* に対する要求によって、*banner1.svg* ファイルが提供されます。
 
-次のマークアップ参照*MyStaticFiles/images/banner1.svg*:
+次のマークアップは、*MyStaticFiles/images/banner1.svg* を参照します。
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_outside)]
 
-### <a name="set-http-response-headers"></a>HTTP 応答ヘッダーを設定します。
+### <a name="set-http-response-headers"></a>HTTP 応答ヘッダーの設定
 
-A [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions)を HTTP 応答ヘッダーを設定するオブジェクトを使用できます。 に加えて、web のルートからの静的なファイル サーバーを構成するには、次のコード セット、`Cache-Control`ヘッダー。
+[StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions) オブジェクトを使用すると、HTTP 応答ヘッダーを設定できます。 Web ルートから提供される静的ファイルが構成され、また、次のコードによって、`Cache-Control` ヘッダーが設定されます。
 
 [!code-csharp[](static-files/samples/1x/StartupAddHeader.cs?name=snippet_ConfigureMethod)]
 
-[HeaderDictionaryExtensions.Append](/dotnet/api/microsoft.aspnetcore.http.headerdictionaryextensions.append)にメソッドが存在する、 [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/)パッケージです。
+[HeaderDictionaryExtensions.Append](/dotnet/api/microsoft.aspnetcore.http.headerdictionaryextensions.append) メソッドは、[Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) パッケージにあります。
 
-ファイルが加えられましたキャッシュ可能なパブリックに 10 分 (600 秒)。
+これらのファイルは、10 分間 (600 秒) パブリックにキャッシュ可能になります。
 
-![Cache-control ヘッダーを示す応答ヘッダーが追加されました](static-files/_static/add-header.png)
+![Cache-Control ヘッダーが追加された応答ヘッダー](static-files/_static/add-header.png)
 
 ## <a name="static-file-authorization"></a>静的ファイルの承認
 
-静的ファイル ミドルウェアは、承認チェックを提供していません。 すべてのファイル サービスを提供し、下にあるものを含む*wwwroot*はパブリックにアクセスします。 ファイルを提供するには、承認に基づいています。
+静的ファイル ミドルウェアでは、承認の確認は行いません。 *wwwroot* の下にあるものも含め、このミドルウェアによって提供されるすべてのファイルは、一般に公開されます。 承認に基づいてファイルを提供するには:
 
-* 外部に保存する*wwwroot*と静的ファイル ミドルウェアにアクセスできる任意のディレクトリ**と**
-* 承認を適用するアクション メソッドを使用して、それらを提供します。 返す、 [FileResult](/dotnet/api/microsoft.aspnetcore.mvc.fileresult)オブジェクト。
+* *wwwroot* や静的ファイル ミドルウェアがアクセスできる任意のディレクトリの外にファイルを配置し、**かつ**
+* 承認が適用されるアクション メソッドを使用して提供するようにします。 [FileResult](/dotnet/api/microsoft.aspnetcore.mvc.fileresult) オブジェクトが返されます。
 
 [!code-csharp[](static-files/samples/1x/Controllers/HomeController.cs?name=snippet_BannerImageAction)]
 
-## <a name="enable-directory-browsing"></a>ディレクトリの参照を有効にします。
+## <a name="enable-directory-browsing"></a>ディレクトリ参照の有効化
 
-により、ディレクトリの一覧を表示する web アプリのユーザーと指定したディレクトリ内にあるファイルをディレクトリの参照します。 既定ではセキュリティ上の理由からディレクトリの参照が無効になっています (を参照してください[に関する考慮事項](#considerations))。 有効にするディレクトリの参照を呼び出すことによって、 [UseDirectoryBrowser](/dotnet/api/microsoft.aspnetcore.builder.directorybrowserextensions.usedirectorybrowser#Microsoft_AspNetCore_Builder_DirectoryBrowserExtensions_UseDirectoryBrowser_Microsoft_AspNetCore_Builder_IApplicationBuilder_Microsoft_AspNetCore_Builder_DirectoryBrowserOptions_)メソッド`Startup.Configure`:
+ディレクトリ参照では、Web アプリのユーザーが、ディレクトリ一覧および、指定したディレクトリ内のファイルを参照できるようになります。 ディレクトリ参照は、セキュリティ上の理由から既定で無効になっています (「[注意点](#considerations)」を参照)。 `Startup.Configure` で [UseDirectoryBrowser](/dotnet/api/microsoft.aspnetcore.builder.directorybrowserextensions.usedirectorybrowser#Microsoft_AspNetCore_Builder_DirectoryBrowserExtensions_UseDirectoryBrowser_Microsoft_AspNetCore_Builder_IApplicationBuilder_Microsoft_AspNetCore_Builder_DirectoryBrowserOptions_) メソッドを呼び出すと、ディレクトリの参照を有効にできます。
 
 [!code-csharp[](static-files/samples/1x/StartupBrowse.cs?name=snippet_ConfigureMethod&highlight=12-17)]
 
-呼び出すことによって必要なサービスを追加、 [AddDirectoryBrowser](/dotnet/api/microsoft.extensions.dependencyinjection.directorybrowserserviceextensions.adddirectorybrowser#Microsoft_Extensions_DependencyInjection_DirectoryBrowserServiceExtensions_AddDirectoryBrowser_Microsoft_Extensions_DependencyInjection_IServiceCollection_)メソッドから`Startup.ConfigureServices`:
+`Startup.ConfigureServices` から [AddDirectoryBrowser](/dotnet/api/microsoft.extensions.dependencyinjection.directorybrowserserviceextensions.adddirectorybrowser#Microsoft_Extensions_DependencyInjection_DirectoryBrowserServiceExtensions_AddDirectoryBrowser_Microsoft_Extensions_DependencyInjection_IServiceCollection_) メソッドを呼び出すと、必要なサービスを追加することができます。
 
 [!code-csharp[](static-files/samples/1x/StartupBrowse.cs?name=snippet_ConfigureServicesMethod&highlight=3)]
 
-上記のコードにより、ディレクトリの参照の*wwwroot/イメージ*フォルダーの URL を使用して*http://\<server_address >/により*、各ファイルおよびフォルダーへのリンク。
+上記のコードでは、URL *http://\<server_address>/MyImages* が使用され、各ファイルおよびフォルダーへのリンクを含む *wwwroot/images* フォルダーのディレクトリが参照できるようになります。
 
-![ディレクトリの参照](static-files/_static/dir-browse.png)
+![ディレクトリ参照](static-files/_static/dir-browse.png)
 
-参照してください[に関する考慮事項](#considerations)ブラウズを有効にする場合は、セキュリティ上のリスクにします。
+参照を有効にした場合のセキュリティ上のリスクについては、「[注意点](#considerations)」を参照してください。
 
-2 つに注意してください`UseStaticFiles`は次の例で呼び出します。 最初の呼び出しにより、内の静的ファイルの提供、 *wwwroot*フォルダーです。 2 番目の呼び出しにより、ディレクトリの参照の*wwwroot/イメージ*フォルダーの URL を使用して*http://\<server_address >/により*:
+次の例の 2 つの `UseStaticFiles` 呼び出しを確認してください。 最初の呼び出しにより、*wwwroot* フォルダー内の静的ファイルが提供されます。 2 番目の呼び出しにより、URL *http://\<server_address>/MyImages* が使用され、*wwwroot/images* フォルダーのディレクトリ参照が有効になります。
 
 [!code-csharp[](static-files/samples/1x/StartupBrowse.cs?name=snippet_ConfigureMethod&highlight=3,5)]
 
-## <a name="serve-a-default-document"></a>既定のドキュメントを提供します。
+## <a name="serve-a-default-document"></a>既定のドキュメントの提供
 
-既定のホーム ページの設定を提供訪問者論理の開始点は、サイトを訪問するとします。 既定のページは、URI の完全修飾ユーザーなし機能を呼び出して、 [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_)メソッドから`Startup.Configure`:
+設定された既定のホーム ページは、サイトを訪問するユーザーの論理的な開始点となります。 ユーザーが URI を完全修飾しない場合に既定のページを提供するには、`Startup.Configure` から [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) メソッドを呼び出します。
 
 [!code-csharp[](static-files/samples/1x/StartupEmpty.cs?name=snippet_ConfigureMethod&highlight=3)]
 
 > [!IMPORTANT]
-> `UseDefaultFiles`前に呼び出す必要があります`UseStaticFiles`を既定のファイルを提供します。 `UseDefaultFiles`実際には、ファイルに貢献しない URL リライターは、します。 使用して、静的ファイル ミドルウェアを有効にする`UseStaticFiles`にファイルを提供します。
+> 既定のファイルを提供するには、`UseStaticFiles` の前に `UseDefaultFiles` が呼び出される必要があります。 `UseDefaultFiles` は、ファイルを実際には提供しない URL リライターです。 ファイルを提供するには、`UseStaticFiles` を使用して静的ファイル ミドルウェアを有効にします。
 
-`UseDefaultFiles`フォルダーを検索する要求。
+`UseDefaultFiles` を使用し、以下のフォルダーを検索します。
 
 * *default.htm*
 * *default.html*
 * *index.htm*
 * *index.html*
 
-一覧から見つかった最初のファイルは、要求が完全修飾 URI であるかのように処理されます。 ブラウザーの URL は、要求された URI を反映するように続行します。
+一覧で見つかった最初のファイルは、要求で完全修飾 URI が使用されたかのように提供されます。 ブラウザー URL は、要求された URI を反映し続けます。
 
-次のコードを既定のファイル名を変更する*mydefault.html*:
+次のコードによって、既定のファイル名が *mydefault.html* に変更されます。
 
 [!code-csharp[](static-files/samples/1x/StartupDefault.cs?name=snippet_ConfigureMethod)]
 
 ## <a name="usefileserver"></a>UseFileServer
 
-[UseFileServer](/dotnet/api/microsoft.aspnetcore.builder.fileserverextensions.usefileserver#Microsoft_AspNetCore_Builder_FileServerExtensions_UseFileServer_Microsoft_AspNetCore_Builder_IApplicationBuilder_)の機能を結合`UseStaticFiles`、 `UseDefaultFiles`、および`UseDirectoryBrowser`です。
+[UseFileServer](/dotnet/api/microsoft.aspnetcore.builder.fileserverextensions.usefileserver#Microsoft_AspNetCore_Builder_FileServerExtensions_UseFileServer_Microsoft_AspNetCore_Builder_IApplicationBuilder_) は、`UseStaticFiles`、`UseDefaultFiles`、`UseDirectoryBrowser` の機能を兼ね備えています。
 
-次のコードでは、静的なファイルおよび既定のファイルのサービスを使用できます。 ディレクトリの参照が有効になっています。
+次のコードによって、静的ファイルと既定ファイルが提供できるようになります。 ディレクトリ参照は有効にしません。
 
 ```csharp
 app.UseFileServer();
 ```
 
-次のコードは、ディレクトリの参照を有効にするによって、パラメーターなしのオーバー ロード時に作成されます。
+次のコードは、ディレクトリ参照が有効になった、パラメーターなしのオーバーロード時に構築されます。
 
 ```csharp
 app.UseFileServer(enableDirectoryBrowsing: true);
 ```
 
-次のディレクトリ階層を考慮してください。
+次のディレクトリ階層があるとします。
 
 * **wwwroot**
   * **css**
@@ -188,70 +188,69 @@ app.UseFileServer(enableDirectoryBrowsing: true);
       * *banner1.svg*
   * *default.html*
 
-次のコードにより、静的なファイル、既定のファイルおよびディレクトリの参照の`MyStaticFiles`:
+次のコードにより、`MyStaticFiles` への静的ファイル、既定ファイル、ディレクトリ参照が有効になります。
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureMethod&highlight=5-11)]
 
-`AddDirectoryBrowser`呼び出す必要がある場合に、`EnableDirectoryBrowsing`プロパティの値が`true`:
+`EnableDirectoryBrowsing` プロパティの値が `true` であるとき、`AddDirectoryBrowser` を呼び出す必要があります。
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureServicesMethod)]
 
-ファイル階層を使用して、前のコード、Url を解決するには、次のように。
+このファイル階層と前述のコードを使用すると、URL は次のように解決されます。
 
 | URI            |                             応答  |
 | ------- | ------|
 | *http://\<server_address>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
 | *http://\<server_address>/StaticFiles*             |     MyStaticFiles/default.html |
 
-既定の名前のファイルが存在しない場合、 *MyStaticFiles*ディレクトリ、 *http://\<server_address >/StaticFiles*ディレクトリでクリック可能なリンクの一覧を返します。
+*MyStaticFiles* ディレクトリに既定の名前のファイルが存在しない場合、*http://\<server_address>/StaticFiles* によってクリック可能なリンクを含むディレクトリの一覧が返されます。
 
 ![静的ファイルの一覧](static-files/_static/db2.png)
 
 > [!NOTE]
-> `UseDefaultFiles`および`UseDirectoryBrowser`URL を使用して*http://\<server_address >/StaticFiles* 、末尾のスラッシュをクライアント側をトリガーせずにリダイレクト*http://\<server_address >/StaticFiles/*です。 末尾のスラッシュの追加を確認します。 ドキュメント内の相対 Url は、末尾のスラッシュは無効です。 と考えられます。
+> `UseDefaultFiles` および `UseDirectoryBrowser` は、末尾のスラッシュのない URL *http://\<server_address>/StaticFiles* を使用し、クライアント側の *http://\<server_address>/StaticFiles/* へのリダイレクトをトリガーします。 末尾のスラッシュが追加されたことを確認してください。 ドキュメント内の相対 URL は、末尾のスラッシュがない場合、無効と見なされます。
 
 ## <a name="fileextensioncontenttypeprovider"></a>FileExtensionContentTypeProvider
 
-[FileExtensionContentTypeProvider](/dotnet/api/microsoft.aspnetcore.staticfiles.fileextensioncontenttypeprovider)クラスが含まれています、`Mappings`プロパティの MIME コンテンツの種類にファイル拡張子のマッピングとして機能します。 次の例では、いくつかのファイル拡張子が既知の MIME の種類に登録されます。 *.Rtf*拡張機能を置き換え、および*.mp4*を削除します。
+[FileExtensionContentTypeProvider](/dotnet/api/microsoft.aspnetcore.staticfiles.fileextensioncontenttypeprovider) クラスには、MIME コンテンツ タイプへのファイル拡張子のマッピングを行う `Mappings` プロパティが含まれます。 次の例では、いくつかのファイル拡張子は、既知の MIME タイプに登録されています。 *.rtf* 拡張子は置換され、*.mp4* は削除されています。
 
 [!code-csharp[](static-files/samples/1x/StartupFileExtensionContentTypeProvider.cs?name=snippet_ConfigureMethod&highlight=3-12,19)]
 
-参照してください[MIME コンテンツ タイプ](http://www.iana.org/assignments/media-types/media-types.xhtml)です。
+「[MIME content types](http://www.iana.org/assignments/media-types/media-types.xhtml)」 (MIME コンテンツ タイプ) を参照してください。
 
-## <a name="non-standard-content-types"></a>非標準のコンテンツの種類
+## <a name="non-standard-content-types"></a>非標準のコンテンツ タイプ
 
-静的ファイル ミドルウェアは、ほぼ 400 の既知のファイル コンテンツの種類を認識しています。 ユーザーは、不明なファイル種類のファイルを要求している場合、静的ファイル ミドルウェアは、HTTP 404 (Not Found) 応答を返します。 ディレクトリの参照が有効になっている場合、ファイルへのリンクが表示されます。 URI には、HTTP 404 エラーが返されます。
+静的ファイル ミドルウェアでは、約 400 の既知のファイル コンテンツ タイプが認識されています。 ユーザーが不明なタイプのファイルを要求した場合、静的ファイル ミドルウェアにより、HTTP 404 (Not Found) の応答が返されます。 ディレクトリ参照が有効になっている場合、ファイルへのリンクが表示されます。 URI によって、HTTP 404 エラーが返されます。
 
-次のコードでは、不明な型の機能を有効にし、イメージとして不明なファイルを表示します。
+次のコードによって、不明なタイプを提供できるようにし、不明なファイルをイメージとしてレンダリングします。
 
 [!code-csharp[](static-files/samples/1x/StartupServeUnknownFileTypes.cs?name=snippet_ConfigureMethod)]
 
-上記のコードでは、不明なコンテンツの種類のファイルに対する要求は、イメージとして返されます。
+上記のコードでは、不明なコンテンツ タイプ ファイルに対する要求は、イメージとして返されます。
 
 > [!WARNING]
-> 有効にする[ServeUnknownFileTypes](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions.serveunknownfiletypes#Microsoft_AspNetCore_Builder_StaticFileOptions_ServeUnknownFileTypes)セキュリティ上のリスクです。 既定では、無効になっているとその使用はお勧めします。 [FileExtensionContentTypeProvider](#fileextensioncontenttypeprovider)非標準の拡張子を持つファイルを処理するより安全な代替手段を提供します。
+> [ServeUnknownFileTypes](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions.serveunknownfiletypes#Microsoft_AspNetCore_Builder_StaticFileOptions_ServeUnknownFileTypes) を有効にすると、セキュリティ上リスクとなります。 これは既定では無効で、使用は推奨されていません。 非標準の拡張子のファイルを提供する場合、より安全な代替となるのは、[FileExtensionContentTypeProvider](#fileextensioncontenttypeprovider) です。
 
 ### <a name="considerations"></a>注意事項
 
 > [!WARNING]
-> `UseDirectoryBrowser`および`UseStaticFiles`機密データがリークすることができます。 無効にするディレクトリの実稼働環境で参照することを強くお勧めします。 使用して有効にするディレクトリを注意深く確認`UseStaticFiles`または`UseDirectoryBrowser`です。 全体のディレクトリとそのサブディレクトリにパブリックにアクセスできるようになります。 ストア ファイルをパブリック サービスに適した専用のディレクトリによう *\<content_root >/wwwroot*です。 MVC ビュー、構成ファイルなど、Razor ページ (2.x のみ)、これらのファイルと区別されます。
+> `UseDirectoryBrowser` と `UseStaticFiles` では、機密データが漏洩することがあります。 本番では、ディレクトリ参照を無効にすることが、強く推奨されます。 `UseStaticFiles` や `UseDirectoryBrowser` でどのディレクトリが有効になっているか、慎重にご確認ください。 ディレクトリ全体とそのサブディレクトリが、パブリックにアクセス可能になります。 ファイルは、パブリックに提供するのに適した、*\<content_root>/wwwroot* などの専用ディレクトリに格納します。 これらのファイルは、MVC ビュー、Razor ページ (2.x のみ)、構成ファイルなどとは別にします。
 
-* Url で公開されているコンテンツを`UseDirectoryBrowser`と`UseStaticFiles`は大文字小文字の区別および基になるファイル システムの文字の制限に従って提供します。 たとえば、Windows は大文字小文字を区別&mdash;Mac と Linux されません。
+* `UseDirectoryBrowser` と `UseStaticFiles` で公開されるコンテンツの URL では、大文字と小文字が区別され、基になるファイル システムの文字制限の影響を受けます。 たとえば、Windows では大文字小文字は区別されますが、Mac と Linux ではされません。
 
-* ASP.NET Core アプリケーションの使用の IIS でホストされている、 [ASP.NET Core モジュール (ANCM)](xref:fundamentals/servers/aspnet-core-module)静的ファイルの要求を含む、アプリへのすべての要求を転送します。 IIS の静的ファイル ハンドラーは使用されません。 ANCM で処理する前に、要求を処理する機会はありません。
+* IIS でホストされている ASP.NET Core アプリは、[ASP.NET Core モジュール (ANCM)](xref:fundamentals/servers/aspnet-core-module) を使用して、静的ファイルの要求を含む、すべての要求をアプリに転送します。 IIS 静的ファイル ハンドラーは使用されません。 ANCM によって処理される前に、これで要求が処理されることはありません。
 
-* IIS マネージャーでサーバーまたは web サイト レベルで IIS の静的ファイル ハンドラーを削除する次の手順を実行するには。
-    1. 移動し、**モジュール**機能します。
-    1. 選択**: StaticFileModule**一覧にします。
-    1. をクリックして**削除**で、**アクション**サイドバーです。
+* IIS マネージャーで次の手順を実行し、サーバーまたは Web サイト レベルで IIS の静的ファイル ハンドラーを削除します。
+    1. **[モジュール]** 機能に移動します。
+    1. 一覧の **[StaticFileModule]** を選択します。
+    1. **[アクション]** サイドバーで、**[削除]** をクリックします。
 
 > [!WARNING]
-> IIS の静的ファイル ハンドラーが有効になっている場合**と**ANCM が正しく構成されていない、静的なファイルが処理されます。 これは、場合、たとえば、 *web.config*ファイルが配置されていません。
+> IIS の静的ファイル ハンドラーが有効になっており**、**ANCM が正しく構成されていない場合、静的ファイルは提供されます。 これは、たとえば、*web.config* ファイルが配置されていない場合などで発生します。
 
-* コード ファイルの配置 (含む*.cs*と*.cshtml*) アプリ プロジェクトの web ルートの外部でします。 そのため、論理的な分離がアプリのクライアント側のコンテンツとサーバー側コード間で作成されます。 これはサーバー側コードが漏洩することを防ぎます。
+* アプリ プロジェクトの Web ルートの外に、(*.cs* と *.cshtml* を含む) コード ファイルを配置します。 これにより、アプリのクライアント側コンテンツとサーバー ベースのコードの間で、論理的な分離が作成されます。 これによって、サーバー側のコードが漏洩するのを防ぎます。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [ミドルウェア](xref:fundamentals/middleware)
-
+* [ミドルウェア](xref:fundamentals/middleware/index)
 * [ASP.NET Core の概要](xref:index)
