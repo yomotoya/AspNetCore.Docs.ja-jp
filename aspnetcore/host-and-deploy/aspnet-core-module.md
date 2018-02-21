@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: c1a05c3e40e6aab0f2e4a97c0b3bb9eca8a08a41
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5addaada33364d044d89359196bd1d316590c517
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core モジュール構成の参照
 
@@ -41,7 +41,7 @@ ASP.NET Core モジュールは、サイトまたはアプリケーションを�
 </configuration>
 ```
 
-*Web.config*次の例は、[自己完結型の配置](https://docs.microsoft.com/dotnet/articles/core/deploying/#self-contained-deployments-scd)を[Azure App Service](https://azure.microsoft.com/services/app-service/)です。 詳細については、次を参照してください。 [IIS と Windows 上のホスト](xref:host-and-deploy/iis/index)です。 参照してください[サブ アプリケーションの構成](xref:host-and-deploy/iis/index#configuration-of-sub-applications)の構成に関連する重要なメモを*web.config*サブ アプリケーション内のファイルです。
+*Web.config*次の例は、[自己完結型の配置](https://docs.microsoft.com/dotnet/articles/core/deploying/#self-contained-deployments-scd)を[Azure App Service](https://azure.microsoft.com/services/app-service/)です。 詳細については、次を参照してください。 [IIS と Windows 上のホスト](xref:host-and-deploy/iis/index)です。 参照してください[サブ アプリケーションの構成](xref:host-and-deploy/iis/index#sub-application-configuration)の構成に関連する重要なメモを*web.config*サブ アプリケーション内のファイルです。
 
 ```xml
 <configuration>
@@ -75,7 +75,7 @@ ASP.NET Core モジュールは、サイトまたはアプリケーションを�
 
 ASP.NET Core モジュールによりで指定されたプロセスの環境変数を指定する、`processPath`属性を 1 つ以上指定することによって`environmentVariable`の子要素、`environmentVariables`コレクション要素の下、`aspNetCore`要素。 このセクションで設定されている環境変数よりも優先システム プロセスの環境変数。
 
-次の例では、2 つの環境変数を設定します。 `ASPNETCORE_ENVIRONMENT`アプリケーションの環境を構成`Development`です。 開発者は、この値にへの設定は一時的に可能性があります、 *web.config*を強制するためにファイル、[開発者例外ページ](xref:fundamentals/error-handling)アプリ例外をデバッグするときに読み込みます。 `CONFIG_DIR`スタートアップ時にアプリの構成ファイルを読み込むために、パスを形成する値を読み取るコードを記述は、ユーザー定義の環境変数の例を示します。
+次の例では、2 つの環境変数を設定します。 `ASPNETCORE_ENVIRONMENT` アプリケーションの環境を構成`Development`です。 開発者は、この値にへの設定は一時的に可能性があります、 *web.config*を強制するためにファイル、[開発者例外ページ](xref:fundamentals/error-handling)アプリ例外をデバッグするときに読み込みます。 `CONFIG_DIR` スタートアップ時にアプリの構成ファイルを読み込むために、パスを形成する値を読み取るコードを記述は、ユーザー定義の環境変数の例を示します。
 
 ```xml
 <aspNetCore processPath="dotnet"

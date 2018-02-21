@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 144af8e93bb935d07fd064d5f45b40faea4a2664
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 150603d17f3bed983f9871fe7665748a70177f89
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service の ASP.NET Core をトラブルシューティングします。
 
@@ -37,6 +37,14 @@ ms.lasthandoff: 02/03/2018
 アプリが起動、エラーが発生して、サーバー要求を満たすことができます。
 
 このエラーは、スタートアップ時または応答の作成中に、アプリのコード内で発生します。 応答にコンテンツを含んでいない可能性がありますか、応答が表示されます、 *500 Internal Server Error*ブラウザーにします。 アプリケーション イベント ログは、通常、アプリが正常に開始されたことを示しています。 サーバーの観点からは正しい動作です。 アプリが起動しますが、有効な応答を生成できません。 [Kudu コンソールで、アプリを実行](#run-the-app-in-the-kudu-console)または[ASP.NET コア モジュールの標準出力ログを有効にする](#aspnet-core-module-stdout-log)して問題をトラブルシューティングします。
+
+**接続のリセット**
+
+サーバーが送信するためには遅すぎるはヘッダーが送信された後にエラーが発生した場合、 **500 Internal Server Error**エラーが発生します。 これは多くの場合、複合オブジェクトの応答のシリアル化中にエラーが発生したときに発生します。 としてこの種類のエラーが表示されます、*接続のリセット*クライアントでエラーが発生します。 [アプリケーションのログ記録](xref:fundamentals/logging/index)この種のエラーのトラブルシューティングに役立つことができます。
+
+## <a name="default-startup-limits"></a>既定のスタートアップの制限
+
+ASP.NET Core モジュールが、既定値で構成されている*startupTimeLimit* 120 秒です。 既定値のままにするとアプリ、モジュール、プロセスのエラーをログに記録する前に開始に最大 2 分かかる場合があります。 モジュールを構成する方法の詳細については、次を参照してください。 [aspNetCore 要素の属性](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element)です。
 
 ## <a name="troubleshoot-app-startup-errors"></a>アプリの起動エラーをトラブルシューティングします。
 
@@ -65,10 +73,9 @@ ms.lasthandoff: 02/03/2018
 1. 選択、**高度なツール**ブレードに、**開発ツール**領域。 選択、**移動&rarr;**ボタンをクリックします。 Kudu コンソールは、新しいブラウザー タブまたはウィンドウで開きます。
 1. ページの上部にあるナビゲーション バーを使用して開きます**デバッグ コンソール**選択**CMD**です。
 1. パスのフォルダーを開いて**サイト** > **wwwroot**です。
-1. コンソールで、アプリのアセンブリを実行することによって、アプリを実行*dotnet.exe*です。 次のコマンドでのアプリのアセンブリの名前に置き換えます`<assembly_name>`:
-   ```console
-   dotnet .\<assembly_name>.dll
-   ```
+1. コンソールで、アプリのアセンブリを実行することによって、アプリを実行します。
+   * アプリの場合、[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)でのアプリのアセンブリを実行*dotnet.exe*です。 次のコマンドでのアプリのアセンブリの名前に置き換えます`<assembly_name>`: `dotnet .\<assembly_name>.dll`
+   * アプリの場合、[自己完結型の配置](/dotnet/core/deploying/#self-contained-deployments-scd)、実行、アプリの実行可能ファイルです。 次のコマンドでのアプリのアセンブリの名前に置き換えます`<assembly_name>`: `<assembly_name>.exe`
 1. コンソール アプリから、すべてのエラーを示す出力は、Kudu コンソールにパイプします。
 
 ### <a name="aspnet-core-module-stdout-log"></a>ASP.NET Core モジュール stdout ログ
@@ -104,13 +111,16 @@ ASP.NET Core モジュールは、標準出力ログは、多くの場合、有�
 
 参照してください、 [ASP.NET Core の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)です。 ほとんどのアプリの起動を妨げる一般的な問題は、リファレンス トピックについて説明します。
 
-## <a name="process-dump-for-a-slow-or-hanging-app"></a>アプリの速度低下またはハングしているプロセスのダンプ
+## <a name="slow-or-hanging-app"></a>速度低下またはハングしているアプリ
 
 参照するアプリでは、応答が遅くなると、要求でハング、 [Azure App Service のトラブルシューティング低速の web アプリケーション パフォーマンスの問題](/azure/app-service/app-service-web-troubleshoot-performance-degradation)のガイダンスをデバッグします。
 
 ## <a name="remote-debugging"></a>リモート デバッグ
 
-参照してください[リモート デバッグのトラブルシューティング: Visual Studio を使用して Azure App service web アプリの web アプリ セクション](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug)Azure ドキュメントでします。
+次のトピックを参照してください。
+
+* [リモート デバッグのトラブルシューティング: Visual Studio を使用して Azure App service web アプリの web アプリ セクション](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug)(Azure のドキュメント)
+* [Visual Studio 2017 で Azure での IIS でのリモート デバッグ ASP.NET Core](/visualstudio/debugger/remote-debugging-azure) (Visual Studio のドキュメント)
 
 ## <a name="application-insights"></a>Application Insights
 
@@ -172,4 +182,4 @@ Stdout のログ記録が有効でない場合は、次の手順に従います�
 * [「502 無効なゲートウェイ」と「503 サービス利用不可」では、Azure web アプリの HTTP エラーをトラブルシューティングします。](/app-service/app-service-web-troubleshoot-http-502-http-503)
 * [Azure App Service で低速の web アプリのパフォーマンスに関する問題をトラブルシューティングします。](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
 * [Azure で Web アプリのアプリケーションのパフォーマンスに関する Faq](/azure/app-service/app-service-web-availability-performance-application-issues-faq)
-* [Azure Friday: Azure アプリケーション サービスの診断とトラブルシューティング エクスペリエンス (12 分のビデオ)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
+* [Azure Friday: Azure App Service の診断とトラブルシューティング (12 分間のビデオ)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)

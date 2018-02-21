@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio for ASP.NET Core の開発時 IIS サポート"
 author: shirhatti
-description: "ASP.NET Core アプリケーションが Windows Server の IIS の背後で実行されている場合に、そのデバッグのサポートを検出します。"
+description: "Windows Server 上の IIS の背後にある実行時に ASP.NET Core アプリケーションのデバッグのサポートを検出します。"
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: a5f727dd21ac0c6702691df2215c42f4adc0ec27
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a8bdf4c0c0399c62666e6e61e70c0298a42c2c12
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Visual Studio for ASP.NET Core の開発時 IIS サポート
 
 [Sourabh Shirhatti](https://twitter.com/sshirhatti) による投稿
 
-この記事では、 Windows Server の IIS の背後で実行されている ASP.NET Core アプリケーションをデバッグするための、[Visual Studio](https://www.visualstudio.com/vs/) のサポートについて説明します。 このトピックでは、この機能を有効にして、プロジェクトの設定を処理します。
+この記事の内容について説明します[Visual Studio](https://www.visualstudio.com/vs/) Windows サーバーで IIS 内側で実行される ASP.NET Core アプリケーションのデバッグをサポートします。 このトピックでは、この機能を有効にして、プロジェクトの設定を処理します。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -37,7 +37,7 @@ IIS のインストールには、再起動が必要とする場合は、シス�
 
 ## <a name="enable-development-time-iis-support"></a>開発時 IIS サポートを有効にする
 
-IIS がインストールされると、既存の Visual Studio インストールを変更する Visual Studio インストーラーを起動します。 インストーラーで、**[開発時 IIS サポート]** コンポーネントを選択します。 **[ASP.NET と Web 開発]** ワークロードの **[概要]** パネルに、このコンポーネントが省略可能なコンポーネントとして表示されます。 これにより、ASP.NET Core アプリケーションの実行に必要なネイティブの IIS モジュールである [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がインストールされます。
+Visual Studio インストーラーを起動します。 選択、 **IIS サポート開発時間**コンポーネントです。 コンポーネントが一覧表示でオプションとして、**概要**パネル、 **ASP.NET および web 開発**ワークロード。 これにより、インストール、 [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)、ASP.NET Core アプリケーションの実行に必要なネイティブの IIS モジュールがあります。
 
 ![Visual Studio の機能の変更: [ワークロード] タブが選択されています。 [Web & Cloud]\(Web とクラウド\) のセクションでは、[ASP.NET と Web 開発] パネルが選択されています。 概要パネルの省略可能な領域の右側には、チェック ボックスに関しては IIS をサポートする開発にかかる時間です。](development-time-iis-support/_static/development_time_support.png)
 
@@ -73,8 +73,6 @@ IIS がインストールされると、既存の Visual Studio インストー�
 ```
 
 Visual Studio は、管理者として実行されていない場合、再起動を要求があります。 その場合は、Visual Studio を再起動します。
-
-おめでとうございます!  この時点では、プロジェクトでは、開発時の IIS のサポートのためには構成されます。 
 
 ## <a name="additional-resources"></a>その他の技術情報
 

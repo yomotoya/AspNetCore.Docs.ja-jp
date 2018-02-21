@@ -1,20 +1,20 @@
 ---
 title: "ASP.NET Core で IIS のモジュールの使用"
 author: guardrex
-description: "ASP.NET Core アプリケーションのアクティブおよび非アクティブの IIS モジュールを記述する参照ドキュメント。"
+description: "ASP.NET Core アプリケーションおよび IIS モジュールを管理する方法のアクティブおよび非アクティブの IIS モジュールを検出します。"
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/08/2017
+ms.date: 02/15/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: b7c81f2851a932cd12553af4a2655eb9f1f7bc64
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 5032c9f07af4f9291b44538cecbc310bfabc8e02
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>ASP.NET Core で IIS のモジュールの使用
 
@@ -24,63 +24,63 @@ ASP.NET Core アプリケーションは、リバース プロキシの構成で
 
 ## <a name="native-modules"></a>ネイティブ モジュール
 
-Module | .NET Core Active | ASP.NET Core Option
---- | :---: | ---
-**匿名認証**<br>`AnonymousAuthenticationModule` | [はい] | 
-**基本認証**<br>`BasicAuthenticationModule` | [はい] | 
-**クライアント証明書マッピング認証**<br>`CertificateMappingAuthenticationModule` | [はい] | 
-**CGI**<br>`CgiModule` | × | 
-**構成の検証**<br>`ConfigurationValidationModule` | [はい] | 
-**HTTP エラー**<br>`CustomErrorModule` | × | [ステータス コード ページ ミドルウェア](xref:fundamentals/error-handling#configuring-status-code-pages)
-**カスタム ログ**<br>`CustomLoggingModule` | [はい] | 
-**既定のドキュメント**<br>`DefaultDocumentModule` | × | [既定のファイルのミドルウェア](xref:fundamentals/static-files#serve-a-default-document)
-**ダイジェスト認証**<br>`DigestAuthenticationModule` | [はい] | 
-**ディレクトリの参照**<br>`DirectoryListingModule` | × | [ディレクトリ参照ミドルウェア](xref:fundamentals/static-files#enable-directory-browsing)
-**動的な圧縮**<br>`DynamicCompressionModule` | [はい] | [応答圧縮ミドルウェア](xref:performance/response-compression)
-**トレース**<br>`FailedRequestsTracingModule` | [はい] | [ASP.NET Core のログ記録](xref:fundamentals/logging/index#the-tracesource-provider)
-**ファイルのキャッシュ**<br>`FileCacheModule` | × | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
-**HTTP キャッシュ**<br>`HttpCacheModule` | × | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
-**HTTP ログ**<br>`HttpLoggingModule` | [はい] | [ASP.NET Core のログ記録](xref:fundamentals/logging/index)<br>実装: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging)、 [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging)、 [NLog](https://github.com/NLog/NLog.Extensions.Logging)、 [Serilog](https://github.com/serilog/serilog-extensions-logging)
-**HTTP リダイレクト**<br>`HttpRedirectionModule` | [はい] | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting)
-**IIS クライアント証明書マッピング認証**<br>`IISCertificateMappingAuthenticationModule` | [はい] | 
-**IP およびドメインの制限**<br>`IpRestrictionModule` | [はい] | 
-**ISAPI フィルター**<br>`IsapiFilterModule` | [はい] | [ミドルウェア](xref:fundamentals/middleware/index)
-**ISAPI**<br>`IsapiModule` | [はい] | [ミドルウェア](xref:fundamentals/middleware/index)
-**プロトコルのサポート**<br>`ProtocolSupportModule` | [はい] | 
-**要求のフィルタリング**<br>`RequestFilteringModule` | [はい] | [URL 書き換えミドルウェア`IRule`](xref:fundamentals/url-rewriting#irule-based-rule)
-**要求監視**<br>`RequestMonitorModule` | [はい] | 
-**URL 書き換え**<br>`RewriteModule` | Yes† | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting)
-**サーバー側インクルード**<br>`ServerSideIncludeModule` | × | 
-**静的な圧縮**<br>`StaticCompressionModule` | × | [応答圧縮ミドルウェア](xref:performance/response-compression)
-**静的コンテンツ**<br>`StaticFileModule` | × | [静的ファイル ミドルウェア](xref:fundamentals/static-files)
-**トークンのキャッシュ**<br>`TokenCacheModule` | [はい] | 
-**URI のキャッシュ**<br>`UriCacheModule` | [はい] | 
-**URL 認証**<br>`UrlAuthorizationModule` | [はい] | [ASP.NET Core Identity](xref:security/authentication/identity)
-**Windows 認証**<br>`WindowsAuthenticationModule` | [はい] | 
+| Module | .NET Core Active | ASP.NET Core Option |
+| ------ | :--------------: | ------------------- |
+| **匿名認証**<br>`AnonymousAuthenticationModule` | [はい] | |
+| **基本認証**<br>`BasicAuthenticationModule` | [はい] | |
+| **クライアント証明書マッピング認証**<br>`CertificateMappingAuthenticationModule` | [はい] | |
+| **CGI**<br>`CgiModule` | × | |
+| **構成の検証**<br>`ConfigurationValidationModule` | [はい] | |
+| **HTTP エラー**<br>`CustomErrorModule` | × | [ステータス コード ページ ミドルウェア](xref:fundamentals/error-handling#configuring-status-code-pages) |
+| **カスタム ログ**<br>`CustomLoggingModule` | [はい] | |
+| **既定のドキュメント**<br>`DefaultDocumentModule` | × | [既定のファイルのミドルウェア](xref:fundamentals/static-files#serve-a-default-document) |
+| **ダイジェスト認証**<br>`DigestAuthenticationModule` | [はい] | |
+| **ディレクトリの参照**<br>`DirectoryListingModule` | × | [ディレクトリ参照ミドルウェア](xref:fundamentals/static-files#enable-directory-browsing) |
+| **動的な圧縮**<br>`DynamicCompressionModule` | [はい] | [応答圧縮ミドルウェア](xref:performance/response-compression) |
+| **トレース**<br>`FailedRequestsTracingModule` | [はい] | [ASP.NET Core のログ記録](xref:fundamentals/logging/index#the-tracesource-provider) |
+| **ファイルのキャッシュ**<br>`FileCacheModule` | × | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware) |
+| **HTTP キャッシュ**<br>`HttpCacheModule` | × | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware) |
+| **HTTP ログ**<br>`HttpLoggingModule` | [はい] | [ASP.NET Core のログ記録](xref:fundamentals/logging/index)<br>実装: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging)、 [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging)、 [NLog](https://github.com/NLog/NLog.Extensions.Logging)、 [Serilog](https://github.com/serilog/serilog-extensions-logging)
+| **HTTP リダイレクト**<br>`HttpRedirectionModule` | [はい] | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting) |
+| **IIS クライアント証明書マッピング認証**<br>`IISCertificateMappingAuthenticationModule` | [はい] | |
+| **IP およびドメインの制限**<br>`IpRestrictionModule` | [はい] | |
+| **ISAPI フィルター**<br>`IsapiFilterModule` | [はい] | [ミドルウェア](xref:fundamentals/middleware/index) |
+| **ISAPI**<br>`IsapiModule` | [はい] | [ミドルウェア](xref:fundamentals/middleware/index) |
+| **プロトコルのサポート**<br>`ProtocolSupportModule` | [はい] | |
+| **要求のフィルタリング**<br>`RequestFilteringModule` | [はい] | [URL 書き換えミドルウェア `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
+| **要求監視**<br>`RequestMonitorModule` | [はい] | |
+| **URL 書き換え**<br>`RewriteModule` | [はい] &#8224;です。 | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting) |
+| **サーバー側インクルードします。**<br>`ServerSideIncludeModule` | × | |
+| **静的な圧縮**<br>`StaticCompressionModule` | × | [応答圧縮ミドルウェア](xref:performance/response-compression) |
+| **静的コンテンツ**<br>`StaticFileModule` | × | [静的ファイル ミドルウェア](xref:fundamentals/static-files) |
+| **トークンのキャッシュ**<br>`TokenCacheModule` | [はい] | |
+| **URI のキャッシュ**<br>`UriCacheModule` | [はい] | |
+| **URL 認証**<br>`UrlAuthorizationModule` | [はい] | [ASP.NET Core Identity](xref:security/authentication/identity) |
+| **Windows 認証**<br>`WindowsAuthenticationModule` | [はい] | |
 
-URL Rewrite Module を †The`isFile`と`isDirectory`の変更のための ASP.NET Core アプリケーションと連携しない[ディレクトリ構造](xref:host-and-deploy/directory-structure)です。
+&#8224;です。URL Rewrite モジュールの`isFile`と`isDirectory`一致の種類の変更のための ASP.NET Core アプリケーションとでは動作しない[ディレクトリ構造](xref:host-and-deploy/directory-structure)です。
 
 ## <a name="managed-modules"></a>マネージ モジュール
 
-Module | .NET Core Active | ASP.NET Core Option
---- | :---: | ---
-AnonymousIdentification | × | 
-DefaultAuthentication | × | 
-FileAuthorization | × | 
-FormsAuthentication | × | [Cookie 認証ミドルウェア](xref:security/authentication/cookie)
-OutputCache | × | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
-Profile | × | 
-RoleManager | × | 
-ScriptModule-4.0 | × | 
-セッション | × | [セッションのミドルウェア](xref:fundamentals/app-state)
-UrlAuthorization | × | 
-UrlMappingsModule | × | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting)
-UrlRoutingModule-4.0 | × | [ASP.NET Core  Identity](xref:security/authentication/identity)
-WindowsAuthentication | × | 
+| Module                  | .NET Core Active | ASP.NET Core Option |
+| ----------------------- | :--------------: | ------------------- |
+| AnonymousIdentification | ×               | |
+| DefaultAuthentication   | ×               | |
+| FileAuthorization       | ×               | |
+| FormsAuthentication     | ×               | [Cookie 認証ミドルウェア](xref:security/authentication/cookie) |
+| OutputCache             | ×               | [応答キャッシュ ミドルウェア](xref:performance/caching/middleware) |
+| Profile                 | ×               | |
+| RoleManager             | ×               | |
+| ScriptModule-4.0        | ×               | |
+| セッション                 | ×               | [セッションのミドルウェア](xref:fundamentals/app-state) |
+| UrlAuthorization        | ×               | |
+| UrlMappingsModule       | ×               | [URL リライト ミドルウェア](xref:fundamentals/url-rewriting) |
+| UrlRoutingModule-4.0    | ×               | [ASP.NET Core Identity](xref:security/authentication/identity) |
+| WindowsAuthentication   | ×               | |
 
 ## <a name="iis-manager-application-changes"></a>IIS マネージャー アプリケーションの変更
 
-IIS マネージャーを使用して設定を構成する、 *web.config*アプリのファイルを変更します。 アプリを配置する場合と*web.config*、IIS マネージャーで行った変更は上書きして、デプロイされている*web.config*ファイル。 サーバーの変更が加えられた場合*web.config*ファイル、コピー、更新された*web.config*ファイルをローカルのプロジェクトをすぐにします。
+IIS マネージャーを使用して、設定を構成する場合、 *web.config*アプリのファイルを変更します。 アプリを配置する場合と*web.config*、IIS マネージャーで加えられた変更は上書きによって展開された*web.config*ファイル。 サーバーの変更が加えられた場合*web.config*ファイル、コピー、更新された*web.config*ローカル プロジェクトをすぐに、サーバー上のファイルです。
 
 ## <a name="disabling-iis-modules"></a>IIS モジュールを無効にします。
 
@@ -88,7 +88,7 @@ IIS モジュールが、アプリでアプリへの追記を無効にする必�
 
 ### <a name="module-deactivation"></a>モジュールの非アクティブ化
 
-多くのモジュールは、削除せずに、アプリから実行できるように構成の設定が無効に用意されています。 これは、モジュールを非アクティブ化する最も簡単なと最も簡単な方法です。 IIS URL Rewrite モジュールを無効にしたい場合など、使用、`<httpRedirect>`次に示すようにします。 モジュールの構成設定を無効にする方法の詳細については、以下のリンク、*子要素*のセクション[IIS `<system.webServer>`](https://docs.microsoft.com/iis/configuration/system.webServer/)です。
+多くのモジュールには、アプリからモジュールを削除せずに無効にすることができる構成設定が用意されています。 これは、モジュールを非アクティブ化する最も簡単なと最も簡単な方法です。 たとえば、IIS URL Rewrite Module 無効にする、  **\<httpRedirect >**内の要素*web.config*:
 
 ```xml
 <configuration>
@@ -98,17 +98,19 @@ IIS モジュールが、アプリでアプリへの追記を無効にする必�
 </configuration>
 ```
 
+モジュールの構成設定を無効にする方法の詳細については、以下のリンク、*子要素*のセクション[IIS \<system.webServer >](/iis/configuration/system.webServer/)です。
+
 ### <a name="module-removal"></a>モジュールの取り外し
 
-設定と、モジュールを削除しなかった場合は*web.config*モジュールのロックを解除、およびロック解除、`<modules>`のセクション*web.config*最初。 手順を次に説明します。
+設定と、モジュールを削除しなかった場合は*web.config*モジュールのロックを解除、およびロック解除、 **\<モジュール >**のセクション*web.config*最初。
 
-1. サーバー レベルのモジュールのロックを解除します。 IIS サーバー、IIS マネージャーの **接続**サイドバーです。 開く、**モジュール**で、 **IIS**領域。 リスト内のモジュールをクリックします。 **アクション**、右側のサイド バーをクリックして**Unlock**です。 削除する計画どおりに多くのモジュールのロックを解除*web.config*以降。
+1. サーバー レベルのモジュールのロックを解除します。 IIS マネージャーで、IIS サーバーを選択**接続**サイドバーです。 開く、**モジュール**で、 **IIS**領域。 一覧で、モジュールを選択します。 **アクション**、右側のサイド バーを選択**Unlock**です。 多くのモジュールから削除することを計画する際のロックを解除*web.config*以降。
 
-2. アプリを展開することがなく、 `<modules>` 」の「 *web.config*です。アプリが展開された場合、 *web.config*を含む、`<modules>`セクションがロックを解除セクション最初、IIS マネージャーで、Configuration Manager なしは、セクションのロック解除しようとするときに例外をスローします。 そのため、アプリを展開することがなく、`<modules>`セクションです。
+1. アプリを展開することがなく、 **\<モジュール >** 」の「 *web.config*です。アプリが展開された場合、 *web.config*を含む、 **\<モジュール >**がロックを解除セクション最初、IIS マネージャーで、Configuration Manager なしでは、例外をスローします。セクションのロック解除しようとしています。 そのため、アプリを展開することがなく、 **\<モジュール >**セクションです。
 
-3. ロックを解除、`<modules>`のセクション*web.config*です。**接続**をサイド バーに web サイトをクリックして**サイト**です。 **管理**領域で、開く、**構成エディター**です。 ナビゲーション コントロールを使用して、`system.webServer/modules`セクションです。 **アクション**をクリックして、右側のサイドバー **Unlock**セクションです。
+1. ロックを解除、 **\<モジュール >**のセクション*web.config*です。**接続**サイドバーで web サイトを選択**サイト**です。 **管理**領域で、開く、**構成エディター**です。 ナビゲーション コントロールを使用して、`system.webServer/modules`セクションです。 **アクション**、右側のサイド バーを選択する**Unlock**セクションです。
 
-4. この時点で、`<modules>`セクションに追加できる、 *web.config*ファイルと、`<remove>`アプリからモジュールを削除する要素。 複数`<remove>`を複数のモジュールを削除する要素を追加することができます。 忘れずにいる場合*web.config*変更されるサーバーでプロジェクトをローカルにすぐに実行します。 こうすると、モジュールを削除すると、サーバー上の他のアプリを使用してモジュールの使用は影響しません。
+1. この時点で、 **\<モジュール >**セクションに追加できる、 *web.config*ファイルと、 **\<削除 >**からモジュールを削除する要素アプリ。 複数**\<削除 >**を複数のモジュールを削除する要素を追加することができます。 場合*web.config*に対する変更は、サーバーで、すぐにプロジェクトの同じ変更を行う*web.config*ファイルをローカルにします。 こうすると、モジュールを削除すると、サーバー上の他のアプリを使用してモジュールの使用は影響しません。
 
   ```xml
   <configuration> 
@@ -120,7 +122,7 @@ IIS モジュールが、アプリでアプリへの追記を無効にする必�
   </configuration>
   ```
 
-IIS のインストールでインストールされている既定のモジュールには、次を使用して`<module>`を既定のモジュールを削除する」セクション。
+IIS のインストールでインストールされている既定のモジュールには、次を使用して**\<モジュール >**を既定のモジュールを削除する」セクション。
 
 ```xml
 <modules>
@@ -136,13 +138,13 @@ IIS のインストールでインストールされている既定のモジュ�
 </modules>
 ```
 
-IIS モジュールを削除することができますも*Appcmd.exe*です。 提供、`MODULE_NAME`と`APPLICATION_NAME`次に示すコマンドで。
+IIS モジュールを削除することができますも*Appcmd.exe*です。 提供、`MODULE_NAME`と`APPLICATION_NAME`コマンド。
 
 ```console
 Appcmd.exe delete module MODULE_NAME /app.name:APPLICATION_NAME
 ```
 
-ここでは削除する方法、`DynamicCompressionModule`既定の Web サイトから。
+たとえば、削除、`DynamicCompressionModule`既定の Web サイトから。
 
 ```console
 %windir%\system32\inetsrv\appcmd.exe delete module DynamicCompressionModule /app.name:"Default Web Site"
