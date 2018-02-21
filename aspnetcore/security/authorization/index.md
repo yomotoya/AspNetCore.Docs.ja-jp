@@ -1,38 +1,41 @@
 ---
 title: "ASP.NET Core での承認"
 author: rick-anderson
-description: "このドキュメントは、さまざまな ASP.NET Core での承認に関するトピックの目次として機能します。"
+description: "アプリのユーザーに権限と特権を提供する方法を説明する ASP.NET Core 承認のトピックを検出します。"
 manager: wpickett
 ms.author: riande
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 02/19/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/index
-ms.openlocfilehash: ee408afab55a80d28291a3a44e0fd1513ff34e45
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 652a01d58f7a7d19faa8531b61ea780bc379c428
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/20/2018
 ---
-# <a name="authorization-in-aspnet-core-simple-role-claims-based-and-custom"></a>ASP.NET Core での承認: 単純、ロール、クレーム ベース、カスタム
+# <a name="authorization-in-aspnet-core"></a>ASP.NET Core での承認
 
-* [はじめに](introduction.md)
+* [はじめに](xref:security/authorization/introduction)
+
+* [承認によって保護されたユーザー データでのアプリの作成](xref:security/authorization/secure-data)
 
 * [Razor ページの承認](xref:security/authorization/razor-pages-authorization)
 
-* [単純な承認](simple.md)
+* [単純な承認](xref:security/authorization/simple)
 
-* [ロール ベースの承認](roles.md)
+* [ロール ベースの承認](xref:security/authorization/roles)
 
-* [クレーム ベースの承認](claims.md)
+* [クレーム ベースの承認](xref:security/authorization/claims)
 
-* [ポリシー ベースの承認](policies.md)
+* [ポリシー ベースの承認](xref:security/authorization/policies)
 
-* [要件ハンドラーでの依存性の注入](dependencyinjection.md)
+* [要件ハンドラーでの依存性の注入](xref:security/authorization/dependencyinjection)
 
-* [リソース ベースの承認](resourcebased.md)
+* [リソース ベースの承認](xref:security/authorization/resourcebased)
 
-* [ビュー ベースの承認](views.md)
+* [ビュー ベースの承認](xref:security/authorization/views)
 
-* [スキームによる ID の制限](limitingidentitybyscheme.md)
+* [特定のスキームでの承認](xref:security/authorization/limitingidentitybyscheme)
