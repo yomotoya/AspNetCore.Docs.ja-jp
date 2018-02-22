@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 5689031015279484cc616090a767a8c25eefa3c1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d55b34135d5bab98ab8de31cc4b12dcc272cbc0a
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/20/2018
 ---
 <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>電子メールの確認とパスワードのリセット (c#) で、ログでセキュリティで保護された ASP.NET MVC 5 web アプリを作成します。
 ====================
@@ -65,7 +65,7 @@ ms.lasthandoff: 01/24/2018
 1. パッケージ マネージャー コンソールで、次を入力して、次のコマンド。 
 
     [!code-console[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample1.cmd)]
-2. 移動して、 [Azure SendGrid のサインアップ ページ](https://go.microsoft.com/fwlink/?linkid=271033&clcid=0x409)SendGrid アカウントの登録は無料とします。 SendGrid を構成するのには、次のようなコードを追加します。
+2. 移動して、 [Azure SendGrid のサインアップ ページ](https://go.microsoft.com/fwlink/?linkid=271033&clcid=0x409)し、SendGrid の無料のアカウントに登録します。 SendGrid を構成するのには、次のようなコードを追加することによって*App_Start/IdentityConfig.cs*:
 
     [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample2.cs?highlight=3,5)]
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 01/24/2018
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample7.cs?highlight=14-15,23-30)]
 
-コメント アウトすることによって、`SignInAsync`メソッド、ユーザーは署名されません登録しています。 `TempData["ViewBagLink"] = callbackUrl;`行に使用できる[、アプリのデバッグ](#dbg)および電子メールを送信せずに登録をテストします。 `ViewBag.Message`確認の手順の表示に使用します。 [サンプルをダウンロード](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952)電子メールの設定せずに確認の電子メールをテストするコードが含まれており、アプリケーションをデバッグするも使用できます。
+コメント アウトすることによって、`SignInAsync`メソッド、ユーザーは署名されません登録しています。 `TempData["ViewBagLink"] = callbackUrl;`行に使用できる[、アプリのデバッグ](#dbg)および電子メールを送信せずに登録をテストします。 `ViewBag.Message` 確認の手順の表示に使用します。 [サンプルをダウンロード](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952)電子メールの設定せずに確認の電子メールをテストするコードが含まれており、アプリケーションをデバッグするも使用できます。
 
 作成、`Views\Shared\Info.cshtml`ファイルし、次の razor マークアップを追加します。
 
