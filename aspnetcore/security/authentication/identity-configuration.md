@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: cf7dcdb80f5edf9e10960cb08957793c36829a69
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.openlocfilehash: 0ec223ce06ff116c36182b8de507138e96a277a4
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="configure-identity"></a>Id を構成します。
 
@@ -35,7 +35,7 @@ ASP.NET Core 追加 2.0、`RequiredUniqueChars`プロパティです。 それ�
 
 ---
 
-`IdentityOptions.Password`次のプロパティがあります。
+`IdentityOptions.Password` 次のプロパティがあります。
 
 | プロパティ                | 説明                       | 既定値 |
 | ----------------------- | --------------------------------- | ------- |
@@ -51,7 +51,7 @@ ASP.NET Core 追加 2.0、`RequiredUniqueChars`プロパティです。 それ�
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,39-42,50-52)]
 
-`IdentityOptions.Lockout`次のプロパティがあります。
+`IdentityOptions.Lockout` 次のプロパティがあります。
 
 | プロパティ                | 説明                       | 既定値 |
 | ----------------------- | --------------------------------- | ------- |
@@ -63,7 +63,7 @@ ASP.NET Core 追加 2.0、`RequiredUniqueChars`プロパティです。 それ�
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,44-46,50-52)]
 
-`IdentityOptions.SignIn`次のプロパティがあります。
+`IdentityOptions.SignIn` 次のプロパティがあります。
 
 | プロパティ                | 説明                       | 既定値 |
 | ----------------------- | --------------------------------- | ------- |
@@ -74,7 +74,7 @@ ASP.NET Core 追加 2.0、`RequiredUniqueChars`プロパティです。 それ�
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,48-52)]
 
-`IdentityOptions.User`次のプロパティがあります。
+`IdentityOptions.User` 次のプロパティがあります。
 
 | プロパティ                | 説明                       | 既定値 |
 | ----------------------- | --------------------------------- | ------- |
@@ -98,7 +98,7 @@ ASP.NET Core 追加 2.0、`RequiredUniqueChars`プロパティです。 それ�
 
 ---
 
-`CookieAuthenticationOptions`次のプロパティがあります。
+`CookieAuthenticationOptions` 次のプロパティがあります。
 
 | プロパティ                | 説明                       | 既定値 |
 | ----------------------- | --------------------------------- | ------- |
@@ -107,8 +107,8 @@ ASP.NET Core 追加 2.0、`RequiredUniqueChars`プロパティです。 それ�
 | `ExpireTimeSpan`  | 認証チケットがクッキーに格納されている時間は作成された時点から有効になるかを制御します。  | 14 日間  |
 | `LoginPath`  | ユーザーが承認されていない、ときに、ログインにこのパスにリダイレクトされます。 | /Account/Login  |
 | `LogoutPath`  | ユーザーがログアウトするときは、このパスにリダイレクトされます。  | /Account/Logout  |
-| `AccessDeniedPath`  | ユーザーには、承認チェックが失敗した場合は、このパスにリダイレクトされます。  |   |
-| `SlidingExpiration`  | True の場合、現在 cookie が有効期限 ウィンドウから複数のちょうど中間にあるときに新しい有効期限時刻に新しい cookie が発行されます。  | /Account/AccessDenied |
-| `ReturnUrlParameter`  | 401 Unauthorized ステータス コードがログイン パスへの 302 リダイレクトに変更されたときに、ミドルウェアによって付加されるクエリ文字列パラメーターの名前を決定します。  |  true |
+| `AccessDeniedPath`  | ユーザーには、承認チェックが失敗した場合は、このパスにリダイレクトされます。  |  /Account/AccessDenied |
+| `SlidingExpiration`  | True の場合、現在 cookie が有効期限 ウィンドウから複数のちょうど中間にあるときに新しい有効期限時刻に新しい cookie が発行されます。  | true |
+| `ReturnUrlParameter`  | 401 Unauthorized ステータス コードがログイン パスへの 302 リダイレクトに変更されたときに、ミドルウェアによって付加されるクエリ文字列パラメーターの名前を決定します。  | ReturnUrl |
 | `AuthenticationScheme`  | これにのみ関連 ASP.NET Core 1.x です。 特定の認証スキームの論理名。 |  |
 | `AutomaticAuthenticate`  | このフラグにのみ関連 ASP.NET Core 1.x です。 True の場合、cookie 認証を要求ごとに実行しを検証し、作成された任意のシリアル化されたプリンシパルを再構築しようとします。  |  |
