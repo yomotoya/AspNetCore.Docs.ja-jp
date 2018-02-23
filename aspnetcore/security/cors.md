@@ -23,34 +23,34 @@ ms.lasthandoff: 01/30/2018
 
 [クロス オリジン リソース共有](http://www.w3.org/TR/cors/)(CORS) は、W3C 標準により、同じオリジンのポリシーを緩和するサーバーです。 CORS を使用して、サーバー明示的に許可できますいくつかのクロス オリジン要求中に、他のユーザーを拒否します。 CORS などがより安全なと以前の手法より柔軟な[JSONP](https://wikipedia.org/wiki/JSONP)です。 このトピックでは、ASP.NET Core アプリケーションで CORS を有効にする方法を示します。
 
-## <a name="what-is-same-origin"></a>「同じ発生元」とは何ですか。
+## <a name="what-is-same-origin"></a>「同一生成元」とは？
 
-2 つの Url では、同じスキーム、ホスト、およびポートがある場合の原点が同じがあります。 ([RFC 6454](http://tools.ietf.org/html/rfc6454))
+2 つの Url が、同じスキーム、ホスト、およびポートを持っていれば、その Url は同一生成元となります。 ([RFC 6454](http://tools.ietf.org/html/rfc6454))
 
-これら 2 つの Url は、原点が同じであります。
+次の 2 つの Url は、同一の生成元を持っています。
 
 * `http://example.com/foo.html`
 
 * `http://example.com/bar.html`
 
-これらの Url は、2 つよりも前の別の原点をあります。
+次の Url は、上の Url と比べると 生成元が異なっています。
 
-* `http://example.net`-別のドメイン
+* `http://example.net` - 異なるドメイン
 
-* `http://www.example.com/foo.html`-別のサブドメイン
+* `http://www.example.com/foo.html` - 異なるサブドメイン
 
-* `https://example.com/foo.html`-別のスキーム
+* `https://example.com/foo.html` - 異なるスキーム
 
-* `http://example.com:9000/foo.html`-別のポート
+* `http://example.com:9000/foo.html` - 異なるポート
 
 > [!NOTE]
-> Internet Explorer は、オリジンを比較するときにポートを検討しません。
+> Internet Explorer は、生成元を比較するときにポートを考慮しません。
 
 ## <a name="setting-up-cors"></a>CORS の設定
 
-設定するアプリケーションの CORS の追加、`Microsoft.AspNetCore.Cors`をプロジェクトにパッケージします。
+アプリケーションに CORS を設定するために `Microsoft.AspNetCore.Cors` パッケージをプロジェクトに追加します。
 
-Startup.cs の CORS サービスを追加します。
+Startup.cs に CORS サービスを追加します。
 
 [!code-csharp[Main](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
 
