@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: aaa14e2f2704a7cfa836c5524642d2138a3ae7c8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c229537e7f533eea2173dbc51b8d0d0e097d434a
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>ASP.NET Core アプリケーションの Windows 認証を構成します。
 
-によって[Steve Smith](https://ardalis.com)と[Scott Addie](https://twitter.com/Scott_Addie)
+作成者: [Steve Smith](https://ardalis.com)、[Scott Addie](https://twitter.com/Scott_Addie)
 
 Windows 認証は、IIS でホストされている ASP.NET Core アプリケーションに対して設定できる[HTTP.sys](xref:fundamentals/servers/httpsys)、または[WebListener](xref:fundamentals/servers/weblistener)です。
 
@@ -111,6 +111,9 @@ Windows 認証が有効になっており、匿名アクセスが無効になっ
 Windows 認証と匿名アクセスの両方が有効になっているときに使用して、`[Authorize]`と`[AllowAnonymous]`属性。 `[Authorize]`属性では、Windows 認証を必要と本当にアプリの部分をセキュリティで保護することができます。 `[AllowAnonymous]`属性のオーバーライド`[Authorize]`属性の匿名アクセスを許可するアプリ内で使用します。 参照してください[単純な承認](xref:security/authorization/simple)属性の使用方法の詳細。
 
 ASP.NET Core で 2.x、`[Authorize]`属性で追加の構成が必要です。 *Startup.cs* Windows 認証の匿名要求を身にします。 推奨される構成によって若干異なります、web サーバーが使用されています。
+
+> [!NOTE]
+> 既定では、空白のドキュメント ページにアクセスするための承認を持たないユーザーが表示されます。 [StatusCodePages ミドルウェア](xref:fundamentals/error-handling#configuring-status-code-pages)ユーザー エクスペリエンスを向上させる「アクセス拒否」に提供するように構成できます。
 
 #### <a name="iis"></a>IIS
 

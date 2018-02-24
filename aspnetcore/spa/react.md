@@ -1,26 +1,26 @@
 ---
 title: "対応プロジェクト テンプレートを使用します。"
 author: SteveSandersonMS
-description: "ASP.NET Core 単一ページ アプリケーション (SPA) リリース候補プロジェクト テンプレートを使用して対応と作成対応アプリの作業を開始する方法を説明します。"
+description: "ASP.NET Core 単一ページ アプリケーション (SPA) プロジェクト テンプレートを使用して対応と作成対応アプリの作業を開始する方法を説明します。"
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: 5978094083a098a771f5dca103434ea8fcce7777
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e093a47159fd8278ff3705bb2c53571a8e27fab8
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-react-project-template-release-candidate"></a>対応プロジェクト テンプレート (リリース候補) を使用します。
+# <a name="use-the-react-project-template"></a>対応プロジェクト テンプレートを使用します。
 
 > [!NOTE]
-> このドキュメントは、リリースの反応するプロジェクト テンプレートではありません。 **このドキュメントでは、対応のテンプレートのリリース候補に関するです。** 初期 2018 でリリースされたバージョンを出荷する予定です。
+> このドキュメントに関する対応プロジェクト テンプレートに含まれていない ASP.NET Core 2.0。 手動で更新できる新しい対応テンプレートことです。 既定では ASP.NET Core 2.1 では、テンプレートが含まれます。
 
 更新された対応プロジェクト テンプレートでは便利な開始点 ASP.NET Core の反応を使用してアプリと[作成対応アプリ](https://github.com/facebookincubator/create-react-app)豊富なクライアント側のユーザー インターフェイス (UI) を実装する (CRA) 規則。
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="create-a-new-app"></a>新しいアプリを作成します。
 
-確認した結果を作業を開始する[更新の対応プロジェクト テンプレートがインストールされている](xref:spa/index#installation)です。 これらの手順は、.NET Core で含まれている以前の対応プロジェクト テンプレートを適用しない 2.0.x SDK。
+ASP.NET Core 2.0 を使用する場合は、いることを確認[更新の対応プロジェクト テンプレートがインストールされている](xref:spa/index#installation)です。 ASP.NET Core 2.1 があれば、それをインストールする必要はありません。
 
 コマンドを使用してコマンド プロンプトから、新しいプロジェクトを作成する`dotnet new react`空のディレクトリにします。 次のコマンドがでアプリを作成するなど、 *my-新しい-アプリ*ディレクトリとそのディレクトリへの切り替え。
 

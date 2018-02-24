@@ -1,34 +1,34 @@
 ---
 title: "Angular プロジェクト テンプレートを使用します。"
 author: SteveSandersonMS
-description: "角速度と角運動の CLI for ASP.NET Core 単一ページ アプリケーション (SPA) リリース候補プロジェクト テンプレートを使って開始する方法を説明します。"
+description: "角速度と角運動の CLI for ASP.NET Core 単一ページ アプリケーション (SPA) プロジェクト テンプレートを使って開始する方法を説明します。"
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: 4162b1c26e9d278c811f691c4277d4de25adb204
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f81130b67d61ee063b697f19862449c3054d547d
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-angular-project-template-release-candidate"></a>Angular プロジェクト テンプレート (リリース候補) を使用します。
+# <a name="use-the-angular-project-template"></a>Angular プロジェクト テンプレートを使用します。
 
 > [!NOTE]
-> このドキュメントは、リリースの角度プロジェクト テンプレートではありません。 **このドキュメントは、角度のテンプレートのリリース候補です。** 初期 2018 でリリースされたバージョンを出荷する予定です。
+> このドキュメント角運動のプロジェクト テンプレートに含まれていない ASP.NET Core 2.0。 手動で更新できる新しい Angular テンプレートことです。 既定では ASP.NET Core 2.1 では、テンプレートが含まれます。
 
-更新された角度のプロジェクト テンプレートは、角運動の 5 と角運動の CLI を使用して、クライアント側の豊富なユーザー インターフェイス (UI) を実装するアプリケーション、ASP.NET Core の便利な開始点を提供します。
+更新された角度のプロジェクト テンプレートは、角速度と角運動の CLI を使用して、クライアント側の豊富なユーザー インターフェイス (UI) を実装するアプリケーション、ASP.NET Core の便利な開始点を提供します。
 
 テンプレートは、ASP.NET Core プロジェクト API バックエンドとして機能して、UI として機能する角度 CLI プロジェクトの作成と同じです。 テンプレートは、1 つのアプリ プロジェクトの両方のプロジェクト タイプをホストしているの利便性を提供します。 その結果、アプリ プロジェクトをビルドおよび 1 つの単位として公開します。
 
 ## <a name="create-a-new-app"></a>新しいアプリを作成します。
 
-確認した結果を作業を開始する[角運動の更新されたプロジェクト テンプレートがインストールされている](xref:spa/index#installation)です。 これらの手順は、.NET Core で含まれている前の角度のプロジェクト テンプレートを適用しない 2.0.x SDK。
+ASP.NET Core 2.0 を使用する場合は、いることを確認[角運動の更新されたプロジェクト テンプレートがインストールされている](xref:spa/index#installation)です。 ASP.NET Core 2.1 があれば、それをインストールする必要はありません。
 
 コマンドを使用してコマンド プロンプトから、新しいプロジェクトを作成する`dotnet new angular`空のディレクトリにします。 次のコマンドがでアプリを作成するなど、 *my-新しい-アプリ*ディレクトリとそのディレクトリへの切り替え。
 
