@@ -37,23 +37,23 @@ ms.lasthandoff: 02/12/2018
 この API は、ASP.NET Web API を実装する方法については、次を参照してください。 [CRUD 操作をサポートする Web API を作成する](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 )です。
 
-わかりやすくするため、このチュートリアルでは、クライアント アプリケーションは、Windows コンソール アプリケーションです。 **HttpClient** Windows Phone や Windows ストア アプリでもサポートされます。 詳細については、次を参照してください[複数のプラットフォームを使用してポータブル ライブラリの Web API クライアント コードの記述。](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx)
+説明をシンプルに保つ目的から、このチュートリアルでは Windows コンソール アプリケーション をクライアント アプリケーションとして使用します。 **HttpClient** は Windows Phone や Windows ストア アプリでも同様にサポートされています。 詳しい情報は [複数のプラットフォームを使用してポータブル ライブラリの Web API クライアント コードの記述](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx) を参照してください。
 
 <a id="CreateConsoleApp"></a>
-## <a name="create-the-console-application"></a>コンソール アプリケーションを作成します。
+## <a name="create-the-console-application"></a>コンソール アプリケーションを作成する
 
-Visual Studio で、という名前の新しい Windows コンソール アプリを作成する**HttpClientSample**し、次のコードに貼り付けます。
+Visual Studio で **HttpClientSample** という名前の新しい Windows コンソール アプリを作成し、次のコードに貼り付けます:
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_all)]
 
 上記のコードは、完全なクライアント アプリケーションです。
 
-`RunAsync`実行され、完了するまでブロックされます。 ほとんど**HttpClient**ネットワーク I/O を実行するため、メソッドは非同期、します。 内で行うすべての非同期タスクが`RunAsync`です。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
+`RunAsync` が起動し、完了するまでブロックされます。 **HttpClient** の多くのメソッドはネットワーク I/O として振る舞うため、非同期です。すべての非同期タスクは `RunAsync` の内部で完結します。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_run)]
 
 <a id="InstallClientLib"></a>
-## <a name="install-the-web-api-client-libraries"></a>Web API のクライアント ライブラリをインストールします。
+## <a name="install-the-web-api-client-libraries"></a>Web API のクライアント ライブラリをインストールする
 
 NuGet パッケージ マネージャーを使用して、Web API Client Libraries パッケージをインストールします。
 
@@ -61,7 +61,7 @@ NuGet パッケージ マネージャーを使用して、Web API Client Librari
 
 `Install-Package Microsoft.AspNet.WebApi.Client`
 
-上記のコマンドは、プロジェクトに次の NuGet パッケージを追加します。
+上記のコマンドは、次の NuGet パッケージをプロジェクトに追加します。
 
 * Microsoft.AspNet.WebApi.Client
 * Newtonsoft.Json
