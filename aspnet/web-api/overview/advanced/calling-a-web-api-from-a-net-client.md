@@ -19,23 +19,23 @@ ms.lasthandoff: 02/12/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>.NET クライアント (c#) から Web API を呼び出す
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)と[Rick Anderson](https://twitter.com/RickAndMSFT)
+作成者 [Mike Wasson](https://github.com/MikeWasson) および [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)
+[完成したプロジェクトのダウンロード](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)
 
-このチュートリアルでは、.NET アプリケーションから web API を呼び出す方法を使用して[System.Net.Http.HttpClient です。](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
+このチュートリアルでは [System.Net.Http.HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) を使用して .NET アプリケーションから web API を呼び出す方法を説明します。
 
-このチュートリアルでは、次の web API を使用するクライアント アプリケーションが書き込まれます。
+このチュートリアルでは、次の web API を使用するクライアント アプリケーションについて書かれています。
 
 | アクション | HTTP メソッド | 相対 URI |
 | --- | --- | --- |
-| ID の製品を取得します。 | GET | /api/products/*id* |
+| ID によって製品を取得します。 | GET | /api/products/*id* |
 | 新しい製品を作成します。 | POST | /api/products |
 | 製品を更新します。 | PUT | /api/products/*id* |
 | 製品を削除します。 | Del | /api/products/*id* |
 
-この API は、ASP.NET Web API を実装する方法については、次を参照してください。 [CRUD 操作をサポートする Web API を作成する](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-)です。
+ASP.NET Web API を使用して、この API を実装する方法については [CRUD 操作をサポートする Web API を作成する](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
+) を参照してください。
 
 わかりやすくするため、このチュートリアルでは、クライアント アプリケーションは、Windows コンソール アプリケーションです。 **HttpClient** Windows Phone や Windows ストア アプリでもサポートされます。 詳細については、次を参照してください[複数のプラットフォームを使用してポータブル ライブラリの Web API クライアント コードの記述。](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx)
 
