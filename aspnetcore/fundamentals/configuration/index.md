@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 5acae4de56e3f714f0cda2c00d5446d2dcddaf36
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 12635c66bacdeed7360a9d6c689212bba81439e3
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>ASP.NET Core アプリを構成する
 
@@ -63,6 +63,25 @@ Console.Write($"{Configuration["wizards:0:Name"]}");
 
 上記のサンプルでは、構成インデクサーを使用して値を読み取ります。 `Startup` の外部の構成にアクセスする場合は、*オプション パターン*を使用します。 詳細については、「[オプション](xref:fundamentals/configuration/options)」トピックを参照してください。
 
+## <a name="xml-configuration"></a>XML 構成
+
+XML 形式の構成ソースの配列を操作するには、各要素に `name` インデックスを指定します。 インデックスを使用して値にアクセスします。
+
+```xml
+<wizards>
+  <wizard name="Gandalf">
+    <age>1000</age>
+  </wizard>
+  <wizard name="Harry">
+    <age>17</age>
+  </wizard>
+</wizards>
+```
+
+```csharp
+Console.Write($"{Configuration["wizard:Harry:age"]}");
+// Output: 17
+```
 
 ## <a name="configuration-by-environment"></a>環境別の構成
 
