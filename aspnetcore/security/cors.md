@@ -54,15 +54,15 @@ Startup.cs の CORS サービスを追加します。
 
 [!code-csharp[Main](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
 
-## <a name="enabling-cors-with-middleware"></a>ミドルウェアで CORS を有効にします。
+## <a name="enabling-cors-with-middleware"></a>ミドルウェアによる CORS の有効化
 
-有効にする、アプリケーション全体の CORS では、要求パイプラインを使用して、CORS ミドルウェアを追加、`UseCors`拡張メソッド。 CORS ミドルウェアが (ex クロス オリジン要求をサポートするアプリで定義されたエンドポイントを付ける必要がありますに注意してください。 呼び出しの前に`UseMvc`)。
+アプリケーション全体で CORS を有効にするために `UseCors`拡張メソッドを使用して CORS ミドルウェアを要求パイプラインに追加します。 CORS ミドルウェアは アプリで定義されたエンドポイントより先に呼び出される必要があることに注意してください (例: `UseMvc` を呼び出す前)。
 
-クロス オリジン ポリシーを指定するには、CORS ミドルウェアを使用して、追加するときに、`CorsPolicyBuilder`クラスです。 これには、2 つの方法があります。 1 つは、ラムダで UseCors を呼び出すには。
+CORS ミドルウェアを追加するときに `CorsPolicyBuilder` クラスを使用してクロス オリジン ポリシーを指定することができます。 これには、2 つの方法があります。 1 つは、ラムダで UseCors を呼び出すことです:
 
 [!code-csharp[Main](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
 
-**注:**末尾のスラッシュせず、URL を指定する必要があります (`/`)。 URL が終了した場合は`/`、比較が返されます`false`され、ヘッダーは返されません。
+**注:** URL は末尾にスラッシュを付けずに指定される必要があります (`/`)。 URL が `/` で終了する場合、比較時に `false` が返され、ヘッダーが返されません。
 
 ラムダは、`CorsPolicyBuilder`オブジェクト。 リストができたら、[構成オプション](#cors-policy-options)このトピックで後述します。 この例では、ポリシーによりからのクロス オリジン要求`http://example.com`しない他のオリジンです。
 
