@@ -37,7 +37,7 @@ ms.lasthandoff: 02/12/2018
 この API は、ASP.NET Web API を実装する方法については、次を参照してください。 [CRUD 操作をサポートする Web API を作成する](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 )です。
 
-説明をシンプルに保つ目的から、このチュートリアルでは Windows コンソール アプリケーション をクライアント アプリケーションとして使用します。 **HttpClient** は Windows Phone や Windows ストア アプリでも同様にサポートされています。 詳しい情報は [複数のプラットフォームを使用してポータブル ライブラリの Web API クライアント コードの記述](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx) を参照してください。
+説明をシンプルに保つ目的から、このチュートリアルでは Windows コンソール アプリケーションをクライアント アプリケーションとして使用します。 **HttpClient** は Windows Phone や Windows ストア アプリでも同様にサポートされています。 詳しい情報は「[Writing Web API Client Code for Multiple Platforms Using Portable Libraries](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx)」(ポータブル ライブラリを使用して複数のプラットフォームの Web API クライアント コードを記述する) を参照してください。
 
 <a id="CreateConsoleApp"></a>
 ## <a name="create-the-console-application"></a>コンソール アプリケーションを作成する
@@ -61,7 +61,7 @@ NuGet パッケージ マネージャーを使用して、Web API Client Librari
 
 `Install-Package Microsoft.AspNet.WebApi.Client`
 
-上記のコマンドは、次の NuGet パッケージをプロジェクトに追加します。
+上記のコマンドは、プロジェクトに次の NuGet パッケージを追加します。
 
 * Microsoft.AspNet.WebApi.Client
 * Newtonsoft.Json
