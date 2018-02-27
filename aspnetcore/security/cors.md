@@ -1,7 +1,7 @@
----
-title: "クロス オリジン要求 (CORS) を有効にします。"
+﻿---
+title: "クロス オリジン要求 (CORS) を有効にする"
 author: rick-anderson
-description: "このドキュメントでは、許可するか、または ASP.NET Core アプリケーションでのクロス オリジン要求を拒否するための基準として CORS が導入されています。"
+description: "このドキュメントでは、ASP.NET Core アプリケーションにおいてクロス オリジン要求を許可または拒否するための基準として CORS を紹介しています。"
 manager: wpickett
 ms.author: riande
 ms.date: 05/17/2017
@@ -15,13 +15,13 @@ ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
 ---
-# <a name="enabling-cross-origin-requests-cors"></a>クロス オリジン要求 (CORS) を有効にします。
+# <a name="enabling-cross-origin-requests-cors"></a>クロス オリジン要求 (CORS) を有効にする
 
-によって[Mike Wasson](https://github.com/mikewasson)、 [Shayne Boyer](https://twitter.com/spboyer)、および[Tom Dykstra](https://github.com/tdykstra)
+作成者 [Mike Wasson](https://github.com/mikewasson)、 [Shayne Boyer](https://twitter.com/spboyer)、および [Tom Dykstra](https://github.com/tdykstra)
 
-ブラウザーのセキュリティは、web ページが別のドメインに AJAX 要求を行うことを防止します。 この制限が呼び出された、*同一生成元ポリシー*、悪意のあるサイトが別のサイトから機密データを読み取ることを防ぎます。 ただし、場合もあります可能性がある、web API へのクロス オリジン要求を行う他のサイトを使用できます。
+ブラウザーのセキュリティは、Web ページが別のドメインに AJAX 要求を行うことを防止します。この制限は*同一生成元ポリシー*と呼ばれ、悪意のあるサイトが別のサイトから機密データを読み取れないようにします。しかし、他のサイトがあなたの Web API にクロスオリジン要求を行えるようにする必要がある場合もあります。
 
-[クロス オリジン リソース共有](http://www.w3.org/TR/cors/)(CORS) は、W3C 標準により、同じオリジンのポリシーを緩和するサーバーです。 CORS を使用して、サーバー明示的に許可できますいくつかのクロス オリジン要求中に、他のユーザーを拒否します。 CORS などがより安全なと以前の手法より柔軟な[JSONP](https://wikipedia.org/wiki/JSONP)です。 このトピックでは、ASP.NET Core アプリケーションで CORS を有効にする方法を示します。
+[クロス オリジン リソース共有](http://www.w3.org/TR/cors/)(CORS) は、サーバーに同一生成元ポリシーの制限を緩和させる W3C 標準の１つです。CORS を使用することによって、不明なリクエストは拒否しながら、一部のクロス オリジン要求のみを明示的に許可できるようになります。CORS は [JSONP](https://wikipedia.org/wiki/JSONP) のようなかつての技術より安全でフレキシブルなものです。 このトピックでは、ASP.NET Core アプリケーションで CORS を有効にする方法を説明します。
 
 ## <a name="what-is-same-origin"></a>「同じ発生元」とは何ですか。
 
