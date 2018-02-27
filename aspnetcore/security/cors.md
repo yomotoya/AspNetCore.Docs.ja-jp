@@ -23,17 +23,17 @@ ms.lasthandoff: 01/30/2018
 
 [クロス オリジン リソース共有](http://www.w3.org/TR/cors/)(CORS) は、W3C 標準により、同じオリジンのポリシーを緩和するサーバーです。 CORS を使用して、サーバー明示的に許可できますいくつかのクロス オリジン要求中に、他のユーザーを拒否します。 CORS などがより安全なと以前の手法より柔軟な[JSONP](https://wikipedia.org/wiki/JSONP)です。 このトピックでは、ASP.NET Core アプリケーションで CORS を有効にする方法を示します。
 
-## <a name="what-is-same-origin"></a>「同一生成元」とは？
+## <a name="what-is-same-origin"></a>「同一生成元」とは
 
-2 つの Url が、同じスキーム、ホスト、およびポートを持っていれば、その Url は同一生成元となります。 ([RFC 6454](http://tools.ietf.org/html/rfc6454))
+2 つの URL のスキーム、ホスト、ポートが同じである場合、その URL は同一生成元となります。 ([RFC 6454](http://tools.ietf.org/html/rfc6454))
 
-次の 2 つの Url は、同一の生成元を持っています。
+次の 2 つの URL は生成元が同じです。
 
 * `http://example.com/foo.html`
 
 * `http://example.com/bar.html`
 
-次の Url は、上の Url と比べると 生成元が異なっています。
+次の URL は、上の URL とは生成元が異なります。
 
 * `http://example.net` - 異なるドメイン
 
