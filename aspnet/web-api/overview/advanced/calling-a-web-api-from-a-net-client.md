@@ -1,4 +1,4 @@
-﻿---
+---
 uid: web-api/overview/advanced/calling-a-web-api-from-a-net-client
 title: ".NET クライアント (c#) から Web API を呼び出す |Microsoft ドキュメント"
 author: MikeWasson
@@ -19,25 +19,25 @@ ms.lasthandoff: 02/12/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>.NET クライアント (c#) から Web API を呼び出す
 ====================
-作成者 [Mike Wasson](https://github.com/MikeWasson) および [Rick Anderson](https://twitter.com/RickAndMSFT)
+によって[Mike Wasson](https://github.com/MikeWasson)と[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[完成したプロジェクトのダウンロード](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)
+[完成したプロジェクトをダウンロードします。](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)
 
-このチュートリアルでは [System.Net.Http.HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) を使用して .NET アプリケーションから web API を呼び出す方法を説明します。
+このチュートリアルでは、.NET アプリケーションから web API を呼び出す方法を使用して[System.Net.Http.HttpClient です。](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
 
-このチュートリアルでは、次の web API を使用するクライアント アプリケーションについて書かれています。
+このチュートリアルでは、次の web API を使用するクライアント アプリケーションが書き込まれます。
 
 | アクション | HTTP メソッド | 相対 URI |
 | --- | --- | --- |
-| ID によって製品を取得します。 | GET | /api/products/*id* |
+| ID の製品を取得します。 | GET | /api/products/*id* |
 | 新しい製品を作成します。 | POST | /api/products |
 | 製品を更新します。 | PUT | /api/products/*id* |
 | 製品を削除します。 | Del | /api/products/*id* |
 
-ASP.NET Web API を使用して、この API を実装する方法については [CRUD 操作をサポートする Web API を作成する](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-) を参照してください。
+この API は、ASP.NET Web API を実装する方法については、次を参照してください。 [CRUD 操作をサポートする Web API を作成する](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
+)です。
 
-説明をシンプルに保つ目的から、このチュートリアルでは Windows コンソール アプリケーションをクライアント アプリケーションとして使用します。 **HttpClient** は Windows Phone や Windows ストア アプリでも同様にサポートされています。 詳しい情報は「[Writing Web API Client Code for Multiple Platforms Using Portable Libraries](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx)」(ポータブル ライブラリを使用して複数のプラットフォームの Web API クライアント コードを記述する) を参照してください。
+説明をシンプルに保つ目的から、このチュートリアルでは Windows コンソール アプリケーションをクライアント アプリケーションとして使用します。 **HttpClient** は Windows Phone や Windows ストア アプリでも同様にサポートされています。 詳しい情報は[Writing Web API Client Code for Multiple Platforms Using Portable Libraries](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx)(ポータブル ライブラリを使用して複数のプラットフォームの Web API クライアント コードを記述する) を参照してください
 
 <a id="CreateConsoleApp"></a>
 ## <a name="create-the-console-application"></a>コンソール アプリケーションを作成する
@@ -48,7 +48,7 @@ Visual Studio で **HttpClientSample** という名前の新しい Windows コ�
 
 上記のコードは、完全なクライアント アプリケーションです。
 
-`RunAsync` が起動し、完了するまでブロックされます。 **HttpClient** の多くのメソッドはネットワーク I/O として振る舞うため、非同期です。すべての非同期タスクは `RunAsync` の内部で完結します。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
+`RunAsync` が起動し、完了するまでブロックされます。 **HttpClient**の多くのメソッドはネットワーク I/O として振る舞うため、非同期です。 すべての非同期タスクは `RunAsync` の内部で完結します。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_run)]
 
@@ -57,7 +57,7 @@ Visual Studio で **HttpClientSample** という名前の新しい Windows コ�
 
 NuGet パッケージ マネージャーを使用して、Web API Client Libraries パッケージをインストールします。
 
-**[ツール]** メニューで、**[NuGet パッケージ マネージャー]**、**[パッケージ マネージャー コンソール]** の順に選択します。 パッケージ マネージャー コンソール (PMC) では、次のコマンドを入力します。
+**[ツール]** メニューで、**[NuGet パッケージ マネージャー]** > **[パッケージ マネージャー コンソール]** の順に選択します。 パッケージ マネージャー コンソール (PMC) では、次のコマンドを入力します。
 
 `Install-Package Microsoft.AspNet.WebApi.Client`
 
