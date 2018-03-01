@@ -1,4 +1,4 @@
----
+﻿---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app
 title: "OData v4 クライアント アプリ (c#) の作成 | Microsoft ドキュメント"
 author: MikeWasson
@@ -24,7 +24,7 @@ ms.lasthandoff: 01/24/2018
 
 前のチュートリアルでは、CRUD 操作をサポートする基本的な OData サービスを作成しました。 次はサービスのクライアントを作成しましょう。
 
-Visual Studio の新しいインスタンスを開始し、新しいコンソール アプリケーション プロジェクトを作成します。 **[新しいプロジェクト]** ダイアログで**[インストール済み]** &gt; **[テンプレート]** &gt; **[Visual C#]** &gt; **[Windows デスクトップ]** を選択し、**[コンソール アプリケーション]** テンプレートを選択します。 プロジェクトには &quot;ProductsApp&quot; と名前をつけます。
+Visual Studio の新しいインスタンスを開始し、新しいコンソール アプリケーション プロジェクトを作成します。 [**新しいプロジェクト**] ダイアログで[**インストール済み**] &gt; [**テンプレート**] &gt; [**Visual C#**] &gt; [**Windows デスクトップ**] を選択し、[**コンソール アプリケーション**] テンプレートを選択します。 プロジェクトには &quot;ProductsApp&quot; と名前をつけます。
 
 ![](create-an-odata-v4-client-app/_static/image1.png)
 
@@ -34,13 +34,13 @@ Visual Studio の新しいインスタンスを開始し、新しいコンソー
 
 ## <a name="install-the-odata-client-code-generator"></a>OData Client Code Generator をインストールする
 
-**[ツール]** メニューから **[拡張機能と更新プログラム]** を選択します。 **[オンライン]** &gt; **[Visual Studio Gallery]** を選択して、 [検索] ボックスから &quot;OData Client Code Generator&quot; を検索してください。 **[ダウンロード]** をクリックして VSIX をインストールします。 ここでは　Visual Studio の再起動を求められることがあります。
+[**ツール**] メニューから [**拡張機能と更新プログラム**] を選択します。[**オンライン**] &gt; [**Visual Studio Gallery**] を選択して、 [検索] ボックスから &quot;OData Client Code Generator&quot; を検索してください。[**ダウンロード**] をクリックして VSIX をインストールします。 ここでは　Visual Studio の再起動を求められることがあります。
 
 [![](create-an-odata-v4-client-app/_static/image3.png)](create-an-odata-v4-client-app/_static/image2.png)
 
 ## <a name="run-the-odata-service-locally"></a>OData サービスをローカルで実行する
 
-Visual Studio から ProductService プロジェクトを実行します。 既定では、Visual Studio はアプリケーション ルートに対してブラウザーを起動します。 次の手順で必要になるので、ここでの URI を書き留めておいてください。 アプリケーションは実行されている状態のままにします。
+Visual Studio から ProductService プロジェクトを実行します。 既定では、Visual Studio はアプリケーション ルートに対してブラウザーを起動します。次の手順で必要になるので、ここでの URI を書き留めておいてください。 アプリケーションは実行されている状態のままにします。
 
 ![](create-an-odata-v4-client-app/_static/image4.png)
 
