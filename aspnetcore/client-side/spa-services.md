@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: bd18d342de7c147e3588bd6daa3aebd68aa81c36
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c617f1a563b0eeccea0ab313bba8b90a4c947e28
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>ASP.NET Core での単一ページ アプリケーションを作成するため JavaScriptServices を使用します。
 
@@ -96,37 +96,37 @@ ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって�
 
 タグ ヘルパーは、プロジェクトの名前空間登録を使用して探索可能にされて*_ViewImports.cshtml*ファイル。
 
-[!code-cshtml[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/_ViewImports.cshtml?highlight=3)]
+[!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/_ViewImports.cshtml?highlight=3)]
 
 これらのタグ ヘルパーは、Razor ビュー内の HTML に似た構文を活用することで、低レベルの Api と直接通信の複雑さを抽象します。
 
-[!code-cshtml[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=5)]
+[!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=5)]
 
 ### <a name="the-asp-prerender-module-tag-helper"></a>`asp-prerender-module`ヘルパーにタグ付け
 
 `asp-prerender-module`タグ ヘルパーに渡し、前のコード例で使用される実行*ClientApp/dist/main-server.js* Node.js を使用してサーバーにします。 わかりやすくするためのために、 *main server.js*ファイルが、TypeScript-JavaScript transpilation 内のタスクの成果物、 [Webpack](http://webpack.github.io/)プロセスをビルドします。 Webpack のエントリ ポイントのエイリアスを定義する`main-server`; でこのエイリアスの依存関係グラフの走査を開始し、 *ClientApp/ブート-server.ts*ファイル。
 
-[!code-javascript[Main](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=53)]
+[!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=53)]
 
 次の角度の例で、 *ClientApp/ブート-server.ts*ファイルを利用、`createServerRenderer`関数と`RenderResult`の入力、 `aspnet-prerendering` Node.js を使用してサーバーのレンダリングを構成する npm パッケージです。 サーバー側のレンダリングが厳密に型指定された JavaScript にラップされて解決関数の呼び出しに渡される宛ての HTML マークアップ`Promise`オブジェクト。 `Promise`オブジェクトの有意性がプレース ホルダーの DOM の要素でインジェクションのページに HTML マークアップを非同期的に提供します。
 
-[!code-typescript[Main](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-34,79-)]
+[!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-34,79-)]
 
 ### <a name="the-asp-prerender-data-tag-helper"></a>`asp-prerender-data`ヘルパーにタグ付け
 
 組み合わせると、`asp-prerender-module`タグ ヘルパーの`asp-prerender-data`タグ ヘルパーは、Razor ビューから、サーバー側 JavaScript にコンテキスト情報を渡すために使用できます。 たとえば、次のマークアップ合格とユーザー データを`main-server`モジュール。
 
-[!code-cshtml[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=9-12)]
+[!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=9-12)]
 
 受信した`UserName`引数は、組み込みの JSON シリアライザーを使用してシリアル化されに格納されて、`params.data`オブジェクト。 内の個人用に設定された応答メッセージを構築するために次の角度の例では、データが使用される、`h1`要素。
 
-[!code-typescript[Main](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-21,38-52,79-)]
+[!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-21,38-52,79-)]
 
 注: タグ ヘルパーで渡されるプロパティ名で表される**PascalCase**表記します。 JavaScript に対して、同じプロパティ名がで表されるコントラストを**キャメル ケース**です。 既定の JSON シリアル化の構成は、この違いを担当します。
 
 前のコード例に展開するにデータをサーバーからに渡せるビュー hydrating によって、`globals`プロパティに提供される、`resolve`関数。
 
-[!code-typescript[Main](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-21,57-77,79-)]
+[!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-21,57-77,79-)]
 
 `postList`配列内で定義された、`globals`オブジェクトがアタッチされるブラウザーのグローバル`window`オブジェクト。 このグローバル スコープの変数ホイスト サーバー上で実行し、もう一度クライアントでは、同じデータの読み込みに関連するように特に、作業の重複を除去します。
 
@@ -138,7 +138,7 @@ ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって�
 
 [Webpack デベロッパー ミドルウェア](https://webpack.github.io/docs/webpack-dev-middleware.html)Webpack が要求時にリソースをビルドするという合理的な開発ワークフローが導入されています。 ミドルウェアは自動的にコンパイルして、ページがブラウザーで再読み込みされるときに、クライアント側のリソースを提供します。 別の方法では、サード パーティの依存関係またはカスタム コードが変更されたときに、プロジェクトの npm ビルド スクリプトを使用して Webpack を手動で起動します。 スクリプトの作成、npm、 *package.json*ファイルを次の例に示します。
 
-[!code-json[Main](../client-side/spa-services/sample/SpaServicesSampleApp/package.json?range=5)]
+[!code-json[](../client-side/spa-services/sample/SpaServicesSampleApp/package.json?range=5)]
 
 ### <a name="prerequisites"></a>必須コンポーネント
 
@@ -153,13 +153,13 @@ ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって�
 
 次のコードを使用して HTTP 要求パイプラインに Webpack デベロッパー ミドルウェアが登録されている、 *Startup.cs*ファイルの`Configure`メソッド。
 
-[!code-csharp[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=webpack-middleware-registration&highlight=4)]
+[!code-csharp[](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=webpack-middleware-registration&highlight=4)]
 
 `UseWebpackDevMiddleware`する前に、拡張メソッドを呼び出す必要があります[静的ファイルをホストしている登録](xref:fundamentals/static-files)を介して、`UseStaticFiles`拡張メソッド。 セキュリティ上の理由には、開発モードでアプリを実行する場合にのみ、ミドルウェアを登録します。
 
 *Webpack.config.js*ファイルの`output.publicPath`プロパティ、ミドルウェアを見るには、通知、`dist`フォルダーの変更。
 
-[!code-javascript[Main](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=6,13-16)]
+[!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=6,13-16)]
 
 <a name="hot-module-replacement"></a>
 
@@ -190,7 +190,7 @@ app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
 
 *Webpack.config.js*ファイルを定義する必要があります、`plugins`場合でも、そのまま空の配列。
 
-[!code-javascript[Main](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=6,25)]
+[!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=6,25)]
 
 ブラウザーでアプリを読み込んだ後に、開発者ツールのコンソール タブは、HMR アクティブ化の確認を提供します。
 
@@ -217,7 +217,7 @@ app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
 
 名前付き拡張メソッド`MapSpaFallbackRoute`で使用される、`Configure`メソッド。
 
-[!code-csharp[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=mvc-routing-table&highlight=7-9)]
+[!code-csharp[](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=mvc-routing-table&highlight=7-9)]
 
 ヒント: ルートは、構成している順序で評価されます。 その結果、`default`パターンに一致する最初の前のコード例にルートが使用されます。
 
@@ -244,7 +244,7 @@ dotnet new --install Microsoft.AspNetCore.SpaTemplates::*
 | MVC の ASP.NET Core React.js と (続編)  | reactredux | [C#]     | Web/MVC/SPA |
 | Vue.js で MVC の ASP.NET Core              | vue        | [C#]     | Web/MVC/SPA | 
 
-SPA テンプレートのいずれかを使用して新しいプロジェクトを作成するには、**短い名前**でテンプレートの`dotnet new`コマンド。 次のコマンドは、サーバー側用に構成された ASP.NET Core MVC と角運動のアプリケーションを作成します。
+SPA テンプレートのいずれかを使用して新しいプロジェクトを作成するには、**短い名前**でテンプレートの[dotnet 新しい](/dotnet/core/tools/dotnet-new)コマンド。 次のコマンドは、サーバー側用に構成された ASP.NET Core MVC と角運動のアプリケーションを作成します。
 
 ```console
 dotnet new angular
@@ -282,7 +282,7 @@ dotnet run
 
 ### <a name="running-with-visual-studio-2017"></a>Visual Studio 2017 で実行します。
 
-開く、 *.csproj*によって生成されたファイル、`dotnet new`コマンド。 必要な NuGet と npm パッケージは、プロジェクトを開く時に自動的に復元されます。 この復元処理は、数分かかる場合があります、アプリケーションが、完了時に実行できる状態にします。 実行緑のボタンまたはキーを押します`Ctrl + F5`、し、アプリケーションのランディング ページで、ブラウザーが開きます。 Localhost をに従ってでアプリケーションを実行、[ランタイム構成モード](#runtime-config-mode)です。 
+開く、 *.csproj*によって生成されたファイル、 [dotnet 新しい](/dotnet/core/tools/dotnet-new)コマンド。 必要な NuGet と npm パッケージは、プロジェクトを開く時に自動的に復元されます。 この復元処理は、数分かかる場合があります、アプリケーションが、完了時に実行できる状態にします。 実行緑のボタンまたはキーを押します`Ctrl + F5`、し、アプリケーションのランディング ページで、ブラウザーが開きます。 Localhost をに従ってでアプリケーションを実行、[ランタイム構成モード](#runtime-config-mode)です。 
 
 <a name="app-testing"></a>
 
@@ -292,7 +292,7 @@ SpaServices テンプレートは、事前構成を使用してクライアン�
 
 Angular アプリケーションを使用して、例として、2 つのジャスミン テスト_ケースが既に提供されている、`CounterComponent`で、 *counter.component.spec.ts*ファイル。
 
-[!code-typescript[Main](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/app/components/counter/counter.component.spec.ts?range=15-28)]
+[!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/app/components/counter/counter.component.spec.ts?range=15-28)]
 
 プロジェクトのルートにコマンド プロンプトを開き、次のコマンドを実行します。
 
@@ -302,7 +302,7 @@ npm test
 
 スクリプトで定義された設定が読み取られます Karma テスト ランナーを起動する、 *karma.conf.js*ファイル。 その他の設定の間で、 *karma.conf.js*経由で実行するテスト ファイルを識別、`files`配列。
 
-[!code-javascript[Main](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/test/karma.conf.js?range=4-5,8-11)]
+[!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/test/karma.conf.js?range=4-5,8-11)]
 
 <a name="app-publishing"></a>
 
@@ -310,7 +310,7 @@ npm test
 
 展開の準備完了のパッケージに生成されたクライアント側資産と公開済みの ASP.NET Core 成果物を組み合わせることは面倒なことができます。 さいわい、SpaServices がという名前のカスタム MSBuild ターゲットとそのパブリケーション全体のプロセスを統制`RunWebpack`:
 
-[!code-xml[Main](../client-side/spa-services/sample/SpaServicesSampleApp/SpaServicesSampleApp.csproj?range=31-45)]
+[!code-xml[](../client-side/spa-services/sample/SpaServicesSampleApp/SpaServicesSampleApp.csproj?range=31-45)]
 
 MSBuild ターゲットには、次の責任があります。
 1. Npm パッケージを復元します。

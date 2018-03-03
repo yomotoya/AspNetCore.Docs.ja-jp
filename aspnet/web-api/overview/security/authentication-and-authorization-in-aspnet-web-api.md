@@ -12,15 +12,15 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 2a4b5ed8a712b061b4afdf5a3adc9378dd72b37f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9d7cbb9505afb6461ba4c2087d57e9ea0da38ede
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>ASP.NET Web API で認証と承認
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
 Web API を作成したが、それへのアクセスを制御するようになりました。 この一連の記事では、承認されていないユーザーから web API をセキュリティで保護するためのいくつかのオプションを紹介します。 この系列は、認証と承認の両方に説明します。
 
@@ -80,7 +80,7 @@ Web ホスティングの両方の場所で、プリンシパルを設定する�
 
 組み込み承認フィルターを提供する web API [AuthorizeAttribute](https://msdn.microsoft.com/library/system.web.http.authorizeattribute.aspx)です。 このフィルターは、ユーザーが認証されたかどうかを確認します。 それ以外の場合は、アクションを呼び出すことがなく HTTP ステータス コード 401 (Unauthorized) を返します。
 
-コント ローラー レベル、または inidivual アクションのレベルでグローバルに、フィルターを適用することができます。
+コント ローラー レベル、または個々 のアクション レベルでグローバルに、フィルターを適用することができます。
 
 **グローバル**: すべての Web API コント ローラーのアクセスを制限するには追加、 **AuthorizeAttribute**グローバル フィルターの一覧にフィルター。
 

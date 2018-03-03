@@ -1,7 +1,7 @@
-﻿---
-title: "クロス オリジン要求 (CORS) を有効にする"
+---
+title: "クロス オリジン要求 (CORS) を有効にします。"
 author: rick-anderson
-description: "このドキュメントでは、ASP.NET Core アプリケーションにおいてクロス オリジン要求を許可または拒否するための基準として CORS を紹介しています。"
+description: "このドキュメントでは、許可するか、または ASP.NET Core アプリケーションでのクロス オリジン要求を拒否するための基準として CORS が導入されています。"
 manager: wpickett
 ms.author: riande
 ms.date: 05/17/2017
@@ -9,70 +9,70 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cors
-ms.openlocfilehash: 1c0d87b61882f69dbf2aeb0a896d9294bd029374
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ee61798fc1bde89ca3712eae9b7c4413e58cf70d
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="enabling-cross-origin-requests-cors"></a>クロス オリジン要求 (CORS) を有効にする
+# <a name="enabling-cross-origin-requests-cors"></a>クロス オリジン要求 (CORS) を有効にします。
 
-作成者 [Mike Wasson](https://github.com/mikewasson)、 [Shayne Boyer](https://twitter.com/spboyer)、および [Tom Dykstra](https://github.com/tdykstra)
+によって[Mike Wasson](https://github.com/mikewasson)、 [Shayne Boyer](https://twitter.com/spboyer)、および[Tom Dykstra](https://github.com/tdykstra)
 
-ブラウザーのセキュリティは、Web ページが別のドメインに AJAX 要求を行うことを防止します。この制限は*同一生成元ポリシー*と呼ばれ、悪意のあるサイトが別のサイトから機密データを読み取れないようにします。しかし、他のサイトがあなたの Web API にクロスオリジン要求を行えるようにする必要がある場合もあります。
+ブラウザーのセキュリティは、web ページが別のドメインに AJAX 要求を行うことを防止します。 この制限が呼び出された、*同一生成元ポリシー*、悪意のあるサイトが別のサイトから機密データを読み取ることを防ぎます。 ただし、場合もあります可能性がある、web API へのクロス オリジン要求を行う他のサイトを使用できます。
 
-[クロス オリジン リソース共有](http://www.w3.org/TR/cors/)(CORS) は、サーバーに同一生成元ポリシーの制限を緩和させる W3C 標準の１つです。CORS を使用することによって、不明なリクエストは拒否しながら、一部のクロス オリジン要求のみを明示的に許可できるようになります。CORS は [JSONP](https://wikipedia.org/wiki/JSONP) のようなかつての技術より安全でフレキシブルなものです。 このトピックでは、ASP.NET Core アプリケーションで CORS を有効にする方法を説明します。
+[クロス オリジン リソース共有](http://www.w3.org/TR/cors/)(CORS) は、W3C 標準により、同じオリジンのポリシーを緩和するサーバーです。 CORS を使用して、サーバー明示的に許可できますいくつかのクロス オリジン要求中に、他のユーザーを拒否します。 CORS などがより安全なと以前の手法より柔軟な[JSONP](https://wikipedia.org/wiki/JSONP)です。 このトピックでは、ASP.NET Core アプリケーションで CORS を有効にする方法を示します。
 
-## <a name="what-is-same-origin"></a>「同一生成元」とは
+## <a name="what-is-same-origin"></a>「同じ発生元」とは何ですか。
 
-2 つの URL のスキーム、ホスト、ポートが同じである場合、その URL は同一生成元となります。 ([RFC 6454](http://tools.ietf.org/html/rfc6454))
+2 つの Url では、同じスキーム、ホスト、およびポートがある場合の原点が同じがあります。 ([RFC 6454](http://tools.ietf.org/html/rfc6454))
 
-次の 2 つの URL は生成元が同じです。
+これら 2 つの Url は、原点が同じであります。
 
 * `http://example.com/foo.html`
 
 * `http://example.com/bar.html`
 
-次の URL は、上の URL とは生成元が異なります。
+これらの Url は、2 つよりも前の別の原点をあります。
 
-* `http://example.net` - 異なるドメイン
+* `http://example.net` -別のドメイン
 
-* `http://www.example.com/foo.html` - 異なるサブドメイン
+* `http://www.example.com/foo.html` -別のサブドメイン
 
-* `https://example.com/foo.html` - 異なるスキーム
+* `https://example.com/foo.html` -別のスキーム
 
-* `http://example.com:9000/foo.html` - 異なるポート
+* `http://example.com:9000/foo.html` -別のポート
 
 > [!NOTE]
-> Internet Explorer は、生成元を比較するときにポートを考慮しません。
+> Internet Explorer は、オリジンを比較するときにポートを検討しません。
 
 ## <a name="setting-up-cors"></a>CORS の設定
 
-アプリケーションに CORS を設定するために `Microsoft.AspNetCore.Cors` パッケージをプロジェクトに追加します。
+設定するアプリケーションの CORS の追加、`Microsoft.AspNetCore.Cors`をプロジェクトにパッケージします。
 
-Startup.cs に CORS サービスを追加します。
+Startup.cs の CORS サービスを追加します。
 
-[!code-csharp[Main](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
+[!code-csharp[](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
 
-## <a name="enabling-cors-with-middleware"></a>ミドルウェアによる CORS の有効化
+## <a name="enabling-cors-with-middleware"></a>ミドルウェアで CORS を有効にします。
 
-アプリケーション全体で CORS を有効にするために `UseCors`拡張メソッドを使用して CORS ミドルウェアを要求パイプラインに追加します。 CORS ミドルウェアは アプリで定義されたエンドポイントより先に呼び出される必要があることに注意してください (例: `UseMvc` を呼び出す前)。
+有効にする、アプリケーション全体の CORS では、要求パイプラインを使用して、CORS ミドルウェアを追加、`UseCors`拡張メソッド。 CORS ミドルウェアが (ex クロス オリジン要求をサポートするアプリで定義されたエンドポイントを付ける必要がありますに注意してください。 呼び出しの前に`UseMvc`)。
 
-CORS ミドルウェアを追加するときに `CorsPolicyBuilder` クラスを使用してクロス オリジン ポリシーを指定することができます。 これには、2 つの方法があります。 1 つは、ラムダで UseCors を呼び出すことです:
+クロス オリジン ポリシーを指定するには、CORS ミドルウェアを使用して、追加するときに、`CorsPolicyBuilder`クラスです。 これには、2 つの方法があります。 1 つは、ラムダで UseCors を呼び出すには。
 
-[!code-csharp[Main](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
+[!code-csharp[](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
 
-**注:** URL は末尾にスラッシュを付けずに指定される必要があります (`/`)。 URL が `/` で終了する場合、比較時に `false` が返され、ヘッダーが返されません。
+**注:**末尾のスラッシュせず、URL を指定する必要があります (`/`)。 URL が終了した場合は`/`、比較が返されます`false`され、ヘッダーは返されません。
 
 ラムダは、`CorsPolicyBuilder`オブジェクト。 リストができたら、[構成オプション](#cors-policy-options)このトピックで後述します。 この例では、ポリシーによりからのクロス オリジン要求`http://example.com`しない他のオリジンです。
 
 CorsPolicyBuilder いる fluent API では、メソッド呼び出しを連結することができますので注意してください。
 
-[!code-csharp[Main](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
+[!code-csharp[](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
 
 2 番目の方法を 1 つまたは複数名前付き CORS ポリシーを定義し、名前によって実行時にポリシーを選択します。
 
-[!code-csharp[Main](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
+[!code-csharp[](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
 
 この例では、"AllowSpecificOrigin"をという名前の CORS ポリシーを追加します。 ポリシーを選択するには、名前を渡す`UseCors`です。
 
@@ -84,19 +84,19 @@ MVC は、アクション、コント ローラーごとまたはグローバル
 
 特定のアクションの CORS ポリシーの追加を指定する、`[EnableCors]`属性をアクションにします。 ポリシー名を指定します。
 
-[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction)]
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction)]
 
 ### <a name="per-controller"></a>コント ローラーあたり
 
 特定のコント ローラーの CORS ポリシーの追加を指定する、`[EnableCors]`属性をコント ローラー クラスにします。 ポリシー名を指定します。
 
-[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController)]
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController)]
 
 ### <a name="globally"></a>グローバル
 
 有効にする CORS グローバルにすべてのコント ローラーの追加、`CorsAuthorizationFilterFactory`グローバル フィルターのコレクションをフィルターします。
 
-[!code-csharp[Main](cors/sample/CorsMVC/Startup2.cs?name=snippet_configureservices)]
+[!code-csharp[](cors/sample/CorsMVC/Startup2.cs?name=snippet_configureservices)]
 
 優先順位: アクション、コント ローラーで、グローバルです。 アクション レベル ポリシー コント ローラー レベルのポリシーより優先し、コント ローラー レベルのポリシーのグローバル ポリシーよりも優先します。
 
@@ -104,7 +104,7 @@ MVC は、アクション、コント ローラーごとまたはグローバル
 
 コント ローラーまたはアクションの CORS を無効にする、`[DisableCors]`属性。
 
-[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction)]
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction)]
 
 ## <a name="cors-policy-options"></a>CORS ポリシーのオプション
 
@@ -128,11 +128,11 @@ MVC は、アクション、コント ローラーごとまたはグローバル
 
 1 つまたは複数の特定のオリジンを許可します。
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=19-23)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=19-23)]
 
 すべてのオリジンを許可します。
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs??range=27-31)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs??range=27-31)]
 
 すべてのオリジンからの要求を許可する前に慎重に検討してください。 これは、事実上あらゆる web サイトが、API への AJAX 呼び出しを実行できることを意味します。
 
@@ -140,7 +140,7 @@ MVC は、アクション、コント ローラーごとまたはグローバル
 
 すべての HTTP メソッドを使用するには。
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=44-49)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=44-49)]
 
 これは、事前要求とアクセスの制御の許可する-メソッド ヘッダーに影響します。
 
@@ -150,11 +150,11 @@ CORS プレフライト要求がアプリケーションによって設定され
 
 特定のヘッダー。 ホワイト リストを
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=53-58)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=53-58)]
 
 許可するには、すべての著者要求ヘッダー。
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=62-67)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=62-67)]
 
 ブラウザーがアクセス コントロール-要求ヘッダーを設定する方法の完全一致しません。 以外の何もするヘッダーを設定する場合は"*"、する必要がありますを含めるには、少なくとも「受け入れる」、「コンテンツの種類」と「発生元」、およびサポートする任意のカスタム ヘッダー。
 
@@ -176,7 +176,7 @@ CORS プレフライト要求がアプリケーションによって設定され
 
 CORS の仕様を呼び出す*単純な応答ヘッダー*です。 その他のヘッダー使用可能にするアプリケーション。
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=71-76)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=71-76)]
 
 ### <a name="credentials-in-cross-origin-requests"></a>クロス オリジン要求に資格情報
 
@@ -203,7 +203,7 @@ $.ajax({
 
 さらに、サーバーは、資格情報を許可する必要があります。 クロス オリジンの資格情報を使用するには。
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=80-85)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=80-85)]
 
 これで、HTTP 応答では、サーバーでクロス オリジン要求の資格情報は、ブラウザーに指示する、アクセス コントロール-を許可する-資格情報ヘッダーが含まれます。
 
@@ -215,7 +215,7 @@ $.ajax({
 
 アクセス コントロール-Max-age ヘッダーでは、プレフライト要求に応答をキャッシュできる期間を指定します。 このヘッダーを設定します。
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=89-94)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=89-94)]
 
 <a name="cors-how-cors-works"></a>
 

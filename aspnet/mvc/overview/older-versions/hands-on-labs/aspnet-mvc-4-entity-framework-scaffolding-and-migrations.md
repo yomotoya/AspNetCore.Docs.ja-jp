@@ -12,24 +12,26 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 15db1589eb90739458b430c35cea38e93e3dec5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 396859463446d95c58271c4b00fc950bcd0d539a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 エンティティ フレームワークのスキャフォールディングと移行
-====================
+# <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 エンティティ フレームワークのスキャフォールディングと移行
+
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
-> ASP.NET MVC 4 コント ローラーのメソッドに慣れているか、完了したかどうか、&quot;ヘルパー、フォーム、および検証&quot;ハンズオン ラボは、注意すべきことを作成するためのロジックの多くの更新、ボックスの一覧およびが繰り返される任意のデータ エンティティを削除します。間でのアプリケーションです。 モデルにいくつかのクラスを操作する場合はもちろんのことの各エンティティ操作だけでなく、ビューの各アクション メソッド POST および GET を書き込み、かなりの時間を費やす可能性がありますができます。
-> 
-> このラボでは、ASP.NET MVC 4 のスキャフォールディングを使用して、アプリケーションの CRUD (作成、読み取り、更新、削除) のベースラインを自動的に生成する方法を学習します。 以降は、単純なモデル クラス、および、1 行のコードを記述することがなく、すべての CRUD 操作だけでなく、すべての必要なビューを格納するコント ローラーを作成します。 構築し、単純なソリューションを実行すると、生成されると、MVC ロジックとデータ操作にビューと共に、アプリケーション データベースがあります。
-> 
-> さらに、Entity Framework の移行を使用して、アプリケーション全体のモデルの更新を実行するは簡単な方法を学習します。 Entity Framework の移行を使用すると、簡単な手順と、モデルが変更された後に、データベースを変更できます。 これらすべての点に注意、ことができますをビルドして、web アプリケーションをより効率的に管理する ASP.NET MVC 4 の最新の機能を活用します。
+[Web キャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
 
+ASP.NET MVC 4 コント ローラーのメソッドに慣れているか、完了したかどうか、&quot;ヘルパー、フォーム、および検証&quot;ハンズオン ラボは、注意すべきことを作成するためのロジックの多くの更新、ボックスの一覧およびが繰り返される任意のデータ エンティティを削除します。間でのアプリケーションです。 モデルにいくつかのクラスを操作する場合はもちろんのことの各エンティティ操作だけでなく、ビューの各アクション メソッド POST および GET を書き込み、かなりの時間を費やす可能性がありますができます。
 
-<a id="Objectives"></a>
+このラボでは、ASP.NET MVC 4 のスキャフォールディングを使用して、アプリケーションの CRUD (作成、読み取り、更新、削除) のベースラインを自動的に生成する方法を学習します。 以降は、単純なモデル クラス、および、1 行のコードを記述することがなく、すべての CRUD 操作だけでなく、すべての必要なビューを格納するコント ローラーを作成します。 構築し、単純なソリューションを実行すると、生成されると、MVC ロジックとデータ操作にビューと共に、アプリケーション データベースがあります。
+
+さらに、Entity Framework の移行を使用して、アプリケーション全体のモデルの更新を実行するは簡単な方法を学習します。 Entity Framework の移行を使用すると、簡単な手順と、モデルが変更された後に、データベースを変更できます。 これらすべての点に注意、ことができますをビルドして、web アプリケーションをより効率的に管理する ASP.NET MVC 4 の最新の機能を活用します。
+
+> [!NOTE]
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[Microsoft の Web/WebCampTrainingKit リリース](https://aka.ms/webcamps-training-kit)です。 このラボに固有のプロジェクトは[ASP.NET MVC 4 エンティティ フレームワークのスキャフォールディングと移行](https://github.com/Microsoft-Web/HOL-EntityFrameworkScaffoldingAndMigrations)です。
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>目的
@@ -91,7 +93,7 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
 #### <a name="task-1--creating-a-new-aspnet-mvc-4-project-using-scaffolding"></a>スキャフォールディングを使用してタスク 1 で作成する新しい ASP.NET MVC 4 プロジェクト
 
 1. まだ開いていない場合は開始**Visual Studio 2012**です。
-2. 選択**ファイル |新しいプロジェクト**です。 [新規プロジェクト] ダイアログで、 **Visual c# |Web**セクションで、 **ASP.NET MVC 4 Web Application**です。 プロジェクトに名前を**MVC4andEFMigrations**の場所を設定および**Source\Ex1 UsingMVC4ScaffoldingEFMigrations**このラボのフォルダーです。 設定、**ソリューション名**に**開始**を確認してください**ソリューションのディレクトリを作成**がオンになっています。 **[OK]** をクリックします。
+2. 選択**ファイル |新しいプロジェクト**です。 [新規プロジェクト] ダイアログで、 **Visual c# |Web**セクションで、 **ASP.NET MVC 4 Web Application**です。 プロジェクトに名前を**MVC4andEFMigrations**の場所を設定および**Source\Ex1 UsingMVC4ScaffoldingEFMigrations**このラボのフォルダーです。 設定、**ソリューション名**に**開始**を確認してください**ソリューションのディレクトリを作成**がオンになっています。 **[OK]**をクリックします。
 
     ![新しい ASP.NET MVC 4 プロジェクト ダイアログ ボックス](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image1.png "新しい ASP.NET MVC 4 プロジェクト ダイアログ ボックス")
 
@@ -269,7 +271,7 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
 <a id="Summary"></a>
 
 <a id="Summary"></a>
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このハンズオン ラボでは、どのモデル クラスを使用して ASP.NET MVC 4 スキャフォールディングでの CRUD 操作を作成する簡単な手順を学習しました。 次に、Entity Framework の移行を使用して、ビューへのデータベースから、アプリケーションでエンド ツー エンドの更新プログラムを実行する方法を学習しました。
 
@@ -291,7 +293,7 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
 
     ![ライセンス条項に同意](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image23.png)
 
-    *ライセンス条項に同意*
+    ライセンス条項に同意
 5. ダウンロードとインストール プロセスが完了するまで待機します。
 
     ![インストールの進行状況](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image24.png)
@@ -301,13 +303,13 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
 
     ![インストールが完了しました](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image25.png)
 
-    *インストールが完了しました*
+    インストールが完了しました
 7. をクリックして**終了**Web Platform Installer を閉じます。
 8. Visual Studio Express for Web を開きするには、**開始**画面し、書き込みを開始&quot; **VS Express**&quot;、順にクリックして、 **VS Express for Web**並べて表示します。
 
     ![VS Express Web タイルを](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image26.png)
 
-    *VS Express Web タイルを*
+    VS Express Web タイルを
 
 <a id="AppendixB"></a>
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 6f9e986c34f41fe96beb492680106f725bc1e2f9
-ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
+ms.openlocfilehash: 3f53924e0b36b7924d82f97a8702aa461d9ebd78
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Razor ページの単位と ASP.NET Core でのテストの統合
 
@@ -100,7 +100,7 @@ using (var db = new AppDbContext(optionsBuilder.Options))
 
 このアプローチの問題は、各テストがどのような状態、前のテストのための状態でデータベースを受信します。 これは問題となる互いに干渉しないアトミック単位テストを作成しようとしています。 強制的に、`AppDbContext`するには、新しいデータベース コンテキストを使用して、各テストについて、指定、`DbContextOptions`新しいサービス プロバイダーに基づいているインスタンス。 テスト アプリを使用してこれを行う方法を示しています。 その`Utilities`クラス メソッド`TestingDbContextOptions`(*tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs*)。
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet1)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
 使用して、 `DbContextOptions` DAL 単体テストで、新しいデータベース インスタンスにアトミックに実行するには、各テスト。
 
@@ -119,23 +119,23 @@ using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
 
 たとえば、`DeleteMessageAsync`で識別される 1 つのメッセージを削除するため、メソッドはその`Id`(*src/RazorPagesTestingSample/Data/AppDbContext.cs*)。
 
-[!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Data/AppDbContext.cs?name=snippet4)]
+[!code-csharp[](razor-pages-testing/sample/src/RazorPagesTestingSample/Data/AppDbContext.cs?name=snippet4)]
 
 このメソッドの 2 つのテストがあります。 1 つのテストは、メソッドは、メッセージがデータベースに存在する場合、メッセージを削除を確認します。 データベースを変更しないこと、他のメソッド テスト メッセージ`Id`削除が存在しないためです。 `DeleteMessageAsync_MessageIsDeleted_WhenMessageIsFound`メソッドを次に示します。
 
-[!code-csharp[Main](razor-pages-testing/sample_snapshot/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
+[!code-csharp[](razor-pages-testing/sample_snapshot/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
 最初に、メソッドが実行の配置手順 Act 手順の準備が行われる。 シード処理のメッセージを取得し、保持されている`seedMessages`です。 シード処理のメッセージは、データベースに保存されます。 メッセージを`Id`の`1`削除用に設定されています。 ときに、`DeleteMessageAsync`メソッドが実行され、予期されるメッセージには、すべてのメッセージを 1 つを除くが必要な`Id`の`1`します。 `expectedMessages`変数はこの予想される結果を表します。
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
 メソッドの動作:`DeleteMessageAsync`で渡すメソッドが実行される、`recId`の`1`:
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet2)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet2)]
 
 メソッドの最後に、取得、`Messages`コンテキストからとを比較、 `expectedMessages` 2 つが等しいことをアサートするとします。
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet3)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet3)]
 
 比較するために、2 つ`List<Message>`は、同じです。
 
@@ -144,7 +144,7 @@ using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
 
 ようなテスト メソッド、`DeleteMessageAsync_NoMessageIsDeleted_WhenMessageIsNotFound`が存在しないメッセージを削除しようとしての結果を確認します。 ここでは、データベース内の予期されるメッセージが、実際のメッセージの後に等しいにする必要があります、`DeleteMessageAsync`メソッドを実行します。 ありません、データベースのコンテンツを変更します。
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet4)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet4)]
 
 ## <a name="unit-testing-the-page-model-methods"></a>単体テストのページのモデルのメソッド
 
@@ -168,27 +168,27 @@ using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
 
 `OnGetAsync_PopulatesThePageModel_WithAListOfMessages`番組をテストする方法、`GetMessagesAsync`メソッドは、ページのモデルのモックします。
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet1&highlight=3-4)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet1&highlight=3-4)]
 
 ときに、 `OnGetAsync` Act の手順でメソッドが実行され、ページのモデルの呼び出し`GetMessagesAsync`メソッドです。
 
 単体テストの Act の手順 (*tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs*)。
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet2)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet2)]
 
 `IndexPage` ページのモデルの`OnGetAsync`メソッド (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*)。
 
-[!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3)]
+[!code-csharp[](razor-pages-testing/sample/src/RazorPagesTestingSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3)]
 
 `GetMessagesAsync` DAL でメソッドが、このメソッドの呼び出しの結果を返さない。 モック バージョンのメソッドは、結果を返します。
 
 `Assert`手順、実際のメッセージ (`actualMessages`) から割り当てられた、`Messages`ページ モデルのプロパティです。 型チェックは、メッセージが割り当てられている場合にも実行されます。 比較に予測と実際のメッセージはその`Text`プロパティです。 テストをアサートする 2 つ`List<Message>`インスタンスが同じメッセージを格納します。
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet3)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet3)]
 
 このグループの他のテストの作成 ページを含むモデル オブジェクト、 `DefaultHttpContext`、 `ModelStateDictionary`、`ActionContext`確立するために、 `PageContext`、 `ViewDataDictionary`、および`PageContext`です。 これらは、テストを実施するのに便利です。 たとえば、メッセージ アプリを確立、`ModelState`でエラーが`AddModelError`ことを確認する有効な`PageResult`ときに返される`OnPostAddMessageAsync`が実行されます。
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet4&highlight=11,26,29,32)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet4&highlight=11,26,29,32)]
 
 ## <a name="integration-testing-the-app"></a>統合アプリのテスト
 
@@ -196,7 +196,7 @@ using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
 
 例のサンプルのテストとの統合メッセージ アプリのインデックス ページの要求の結果を確認する (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*)。
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet1)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet1)]
 
 配置手順がありません。 `GetAsync`メソッドが、`HttpClient`エンドポイントに GET 要求を送信します。 テストは、結果が 200 OK ステータス コードであることをアサートします。
 
@@ -214,19 +214,19 @@ using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
 
 `Post_AddMessageHandler_ReturnsRedirectToRoot ` メソッド (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*)。
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet2)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet2)]
 
 `GetRequestContentAsync` Antiforgery cookie と検証トークンの要求でクライアントを準備するユーティリティ メソッドを管理します。 メソッドの受信に注意してください、`IDictionary`検証トークンの要求と共にエンコードする要求のデータを渡すには、呼び出し元のテスト メソッドを許可する (*tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet2&highlight=1-2,8-9,29)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet2&highlight=1-2,8-9,29)]
 
 統合テストでは、アプリの応答の動作をテストするアプリに不適切なデータを渡すことができますも。 メッセージ アプリ 200 文字までにメッセージの長さの制限 (*src/RazorPagesTestingSample/Data/Message.cs*)。
 
-[!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Data/Message.cs?name=snippet1&highlight=7)]
+[!code-csharp[](razor-pages-testing/sample/src/RazorPagesTestingSample/Data/Message.cs?name=snippet1&highlight=7)]
 
 `Post_AddMessageHandler_ReturnsSuccess_WhenMessageTextTooLong`テスト`Message`201"X"文字がテキストで明示的に渡します。 これは、結果、`ModelState`エラーです。 投稿は、インデックスのページに戻るリダイレクトしません。 200 OK が返されます、 `null` `Location`ヘッダー (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*)。
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet3&highlight=7,16-17)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet3&highlight=7,16-17)]
 
 ## <a name="see-also"></a>関連項目
 

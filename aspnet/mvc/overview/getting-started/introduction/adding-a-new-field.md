@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 7339f6658ede16e79d19762bd6636917fe4de85f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 453fbf68aa2f3a1d9ea708355c06c53d4f1eabd0
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 <a name="adding-a-new-field"></a>新しいフィールドの追加
 ====================
@@ -76,7 +76,7 @@ Visual Studio を開き、*される Configuration.cs*ファイル。 置換、`
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample4.cs)]
 > 
-> このコードでは、titiles が一意であることを前提としています。 タイトルの重複を手動で追加する場合は、次回の移行を実行する次の例外が表示されます。   
+> このコードでは、タイトルが一意であることを前提としています。 タイトルの重複を手動で追加する場合は、次回の移行を実行する次の例外が表示されます。   
 >   
 >  *シーケンスには、複数の要素が含まれています。*  
 >   
@@ -144,7 +144,7 @@ Code First Migrations で別のクラス ファイルの作成、*移行*フォ�
 
 このエラーを解決するための手法がいくつかあります。
 
-1. Entity Framework に、新しいモデル クラス スキーマに基づいてデータベースを自動的にドロップさせ、再作成させます。 この手法は、開発周期の早い段階で、テスト データベースで開発しているときに非常に便利です。モデルとデータベース スキーマを一緒に短期間で発展させることができます。 、欠点は、データベース内の既存のデータが失われること、— ようにする*しない*を実稼働データベースでこの方法を使用します。 初期化子を使用してデータベースにテスト データを自動的にシードするは、多くの場合、アプリケーションを開発する生産性の高い方法です。 Entity Framework データベースの初期化子の詳細については、次を参照してください。 [ASP.NET MVC/Entity Framework チュートリアル](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。
+1. Entity Framework に、新しいモデル クラス スキーマに基づいてデータベースを自動的にドロップさせ、再作成させます。 この手法は、開発周期の早い段階で、テスト データベースで開発しているときに非常に便利です。モデルとデータベース スキーマを一緒に短期間で発展させることができます。 、欠点は、データベース内の既存のデータが失われること、— ようにする*しない*を実稼働データベースでこの方法を使用します。 初期化子を利用し、データベースにテスト データを自動的に初期投入します。多くの場合、アプリケーション開発の手法として有益な方法です。 Entity Framework データベースの初期化子の詳細については、次を参照してください。 [ASP.NET MVC/Entity Framework チュートリアル](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。
 2. モデル クラスに一致するように、既存のデータベースのスキーマを明示的に変更します。 この手法の長所は、データが維持されることです。 この変更は手動で行うことも、データベース変更スクリプトを作成して行うこともできます。
 3. Code First Migrations を使用して、データベース スキーマを更新します。
 

@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: e186adef2e72f852543a92ddce0e82be2a3bcd12
-ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
+ms.openlocfilehash: 5acb65be078fd39b9e7a17ce2d8167b8f7b7db22
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成します。
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 02/15/2018
 
 アプリがによって作成された[スキャフォールディング](xref:tutorials/first-mvc-app-xplat/adding-model#scaffold-the-moviecontroller)次`Contact`モデル。
 
-[!code-csharp[Main](secure-data/samples/starter2/Models/Contact.cs?name=snippet1)]
+[!code-csharp[](secure-data/samples/starter2/Models/Contact.cs?name=snippet1)]
 
 このサンプルには、次の認証ハンドラーが含まれています。
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 02/15/2018
 
 ASP.NET を使用して[Identity](xref:security/authentication/identity)のユーザーのユーザー ID を編集できますが、そのデータを他のユーザー データは表示されません。 追加`OwnerID`と`ContactStatus`を`Contact`モデル。
 
-[!code-csharp[Main](secure-data/samples/final2/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
+[!code-csharp[](secure-data/samples/final2/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
 
 `OwnerID` ユーザーの id、`AspNetUser`テーブルに、 [Identity](xref:security/authentication/identity)データベース。 `Status`フィールドは、連絡先が一般のユーザーによって表示可能であるかどうか。
 
@@ -100,11 +100,11 @@ dotnet ef database update
 
 追加[IHostingEnvironment](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment)に`Startup`:
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_env)]
+[!code-csharp[](secure-data/samples/final2/Startup.cs?name=snippet_env)]
 
 `ConfigureServices`のメソッド、 *Startup.cs*ファイルに追加し、 [RequireHttpsAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute)承認フィルター。
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_SSL&highlight=10-999)]
+[!code-csharp[](secure-data/samples/final2/Startup.cs?name=snippet_SSL&highlight=10-999)]
 
 Visual Studio を使用している場合は、HTTPS を有効にします。
 
@@ -123,11 +123,11 @@ HTTP 要求を HTTPS にリダイレクトするを参照してください。 [
 * コメント アウト`AuthorizeFolder`と`AuthorizePage`です。
 * ユーザー認証を必要とする既定の認証ポリシーを設定します。
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_defaultPolicy&highlight=23-27,31-999)]
+[!code-csharp[](secure-data/samples/final2/Startup.cs?name=snippet_defaultPolicy&highlight=23-27,31-999)]
 
 追加[AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute)インデックス、および連絡先について、ページを登録する前に、匿名ユーザーはサイトに関する情報を取得できるようにします。 
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Index.cshtml.cs?name=snippet&highlight=2)]
+[!code-csharp[](secure-data/samples/final2/Pages/Index.cshtml.cs?name=snippet&highlight=2)]
 
 追加`[AllowAnonymous]`を[LoginModel と RegisterModel](https://github.com/aspnet/templating/issues/238)です。
 
@@ -141,23 +141,23 @@ dotnet user-secrets set SeedUserPW <PW>
 
 更新`Main`テスト パスワードを使用します。
 
-[!code-csharp[Main](secure-data/samples/final2/Program.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2/Program.cs?name=snippet)]
 
 ### <a name="create-the-test-accounts-and-update-the-contacts"></a>テスト アカウントを作成し、連絡先の更新
 
 更新プログラム、`Initialize`メソッドで、`SeedData`テスト アカウントを作成するクラス。
 
-[!code-csharp[Main](secure-data/samples/final2/Data/SeedData.cs?name=snippet_Initialize)]
+[!code-csharp[](secure-data/samples/final2/Data/SeedData.cs?name=snippet_Initialize)]
 
 管理者のユーザー ID を追加し、`ContactStatus`連絡先にします。 「送信済み」と「拒否」の 1 つの連絡先のいずれかを作成します。 すべての連絡先に、ユーザー ID と状態を追加します。 1 人だけが表示されます。
 
-[!code-csharp[Main](secure-data/samples/final2/Data/SeedData.cs?name=snippet1&highlight=17,18)]
+[!code-csharp[](secure-data/samples/final2/Data/SeedData.cs?name=snippet1&highlight=17,18)]
 
 ## <a name="create-owner-manager-and-administrator-authorization-handlers"></a>所有者、マネージャー、および管理者の承認のハンドラーを作成します。
 
 作成、`ContactIsOwnerAuthorizationHandler`クラス内で、*承認*フォルダーです。 `ContactIsOwnerAuthorizationHandler`リソースで動作しているユーザーがリソースを所有していることを確認します。
 
-[!code-csharp[Main](secure-data/samples/final2/Authorization/ContactIsOwnerAuthorizationHandler.cs)]
+[!code-csharp[](secure-data/samples/final2/Authorization/ContactIsOwnerAuthorizationHandler.cs)]
 
 `ContactIsOwnerAuthorizationHandler`呼び出し[コンテキスト。成功](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_)現在の認証済みユーザーがメンバーの所有者である場合。 認証ハンドラー通常。
 
@@ -172,19 +172,19 @@ dotnet user-secrets set SeedUserPW <PW>
 
 作成、`ContactManagerAuthorizationHandler`クラス内で、*承認*フォルダーです。 `ContactManagerAuthorizationHandler`リソースに対して機能しているユーザーが管理者であることを確認します。 マネージャーだけでは、承認したり、コンテンツの変更 (新しいまたは変更された) を拒否することができます。
 
-[!code-csharp[Main](secure-data/samples/final2/Authorization/ContactManagerAuthorizationHandler.cs)]
+[!code-csharp[](secure-data/samples/final2/Authorization/ContactManagerAuthorizationHandler.cs)]
 
 ### <a name="create-an-administrator-authorization-handler"></a>管理者認証ハンドラーを作成します。
 
 作成、`ContactAdministratorsAuthorizationHandler`クラス内で、*承認*フォルダーです。 `ContactAdministratorsAuthorizationHandler`リソースに対して機能しているユーザーが管理者であることを確認します。 管理者は、すべての操作を行うことができます。
 
-[!code-csharp[Main](secure-data/samples/final2/Authorization/ContactAdministratorsAuthorizationHandler.cs)]
+[!code-csharp[](secure-data/samples/final2/Authorization/ContactAdministratorsAuthorizationHandler.cs)]
 
 ## <a name="register-the-authorization-handlers"></a>認証ハンドラーを登録します。
 
 Entity Framework のコアを使用してサービスを登録する必要があります[依存性の注入](xref:fundamentals/dependency-injection)を使用して[AddScoped](/aspnet/core/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions)です。 `ContactIsOwnerAuthorizationHandler` ASP.NET Core を使用して[Identity](xref:security/authentication/identity)、これは Entity Framework Core 上に構築します。 ハンドラー コレクションに登録サービスを使用するため、`ContactsController`を通じて[依存性の注入](xref:fundamentals/dependency-injection)です。 末尾に次のコードを追加`ConfigureServices`:
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=ConfigureServices&highlight=41-999)]
+[!code-csharp[](secure-data/samples/final2/Startup.cs?name=ConfigureServices&highlight=41-999)]
 
 `ContactAdministratorsAuthorizationHandler` および`ContactManagerAuthorizationHandler`シングルトンとして追加されます。 シングルトンを務める EF を使用していないし、必要なすべての情報があるため、`Context`のパラメーター、`HandleRequirementAsync`メソッドです。
 
@@ -196,13 +196,13 @@ Entity Framework のコアを使用してサービスを登録する必要があ
 
 確認、`ContactOperations`クラスです。 このクラスには、要件が含まれています。 アプリケーションがサポートします。
 
-[!code-csharp[Main](secure-data/samples/final2/Authorization/ContactOperations.cs)]
+[!code-csharp[](secure-data/samples/final2/Authorization/ContactOperations.cs)]
 
 ### <a name="create-a-base-class-for-the-razor-pages"></a>Razor ページの基本クラスを作成します。
 
 連絡先 Razor ページで使用するサービスを含む基本クラスを作成します。 基本クラスは、1 つの場所でその初期化コードを配置します。
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Contacts/DI_BasePageModel.cs)]
+[!code-csharp[](secure-data/samples/final2/Pages/Contacts/DI_BasePageModel.cs)]
 
 上のコードでは以下の操作が行われます。
 
@@ -214,32 +214,32 @@ Entity Framework のコアを使用してサービスを登録する必要があ
 
 使用するモデル コンス トラクターを作成する ページを更新、`DI_BasePageModel`基本クラス。
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Contacts/Create.cshtml.cs?name=snippetCtor)]
+[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Create.cshtml.cs?name=snippetCtor)]
 
 更新プログラム、`CreateModel.OnPostAsync`メソッド。
 
 * ユーザー ID を追加、`Contact`モデル。
 * ユーザーが連絡先を作成するアクセス許可を確認する認証ハンドラーを呼び出します。
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Contacts/Create.cshtml.cs?name=snippet_Create)]
+[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Create.cshtml.cs?name=snippet_Create)]
 
 ### <a name="update-the-indexmodel"></a>更新プログラム、IndexModel
 
 更新プログラム、`OnGetAsync`メソッドため、一般的なユーザーにのみ許可されている連絡先が表示されますの。
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Contacts/Index.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Index.cshtml.cs?name=snippet)]
 
 ### <a name="update-the-editmodel"></a>更新プログラム、EditModel
 
 ユーザーに連絡先を所有していることを確認する認証ハンドラーを追加します。 リソース承認が検証されているため、`[Authorize]`属性では不十分です。 アプリは、属性が評価されるときに、リソースへのアクセスにすることがありません。 リソース ベースの承認は、命令型である必要があります。 ページのモデルに読み込んで、またはハンドラー自体内で読み込むことにより、アプリが、リソースへのアクセスを持つ、チェックを実行する必要があります。 リソース キーを渡すことによって、リソースにアクセスする頻度。
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Contacts/Edit.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Edit.cshtml.cs?name=snippet)]
 
 ### <a name="update-the-deletemodel"></a>更新プログラム、DeleteModel
 
 ユーザーが連絡先の削除アクセス権を持つことを確認する認証ハンドラーを使用して削除ページ モデルを更新します。
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Contacts/Delete.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Delete.cshtml.cs?name=snippet)]
 
 ## <a name="inject-the-authorization-service-into-the-views"></a>承認サービスをビューに挿入します。
 
@@ -247,13 +247,13 @@ Entity Framework のコアを使用してサービスを登録する必要があ
 
 承認サービスを挿入、 *Views/_ViewImports.cshtml*ファイルのすべてのビューに使用可能になるようにします。
 
-[!code-cshtml[Main](secure-data/samples/final2/Pages/_ViewImports.cshtml?highlight=6-9)]
+[!code-cshtml[](secure-data/samples/final2/Pages/_ViewImports.cshtml?highlight=6-9)]
 
 上記のマークアップに追加のいくつか`using`ステートメントです。
 
 更新プログラム、**編集**と**削除**でリンク*Pages/Contacts/Index.cshtml*のため、適切なアクセス許可を持つユーザー、レンダリング中のみ。
 
-[!code-cshtml[Main](secure-data/samples/final2/Pages/Contacts/Index.cshtml?highlight=34-36,64-999)]
+[!code-cshtml[](secure-data/samples/final2/Pages/Contacts/Index.cshtml?highlight=34-36,64-999)]
 
 > [!WARNING]
 > データを変更する権限がないユーザーからのリンクを非表示にすると、アプリをセキュリティで保護しません。 リンクを非表示にするにより、アプリをユーザーにわかりやすい唯一の有効なリンクを表示します。 ユーザーは、編集を呼び出すし、自分が所有しないデータの操作を削除するには、生成された Url を切断できます。 Razor ページまたはコント ローラーは、データを保護するアクセス チェックを適用する必要があります。
@@ -262,11 +262,11 @@ Entity Framework のコアを使用してサービスを登録する必要があ
 
 マネージャーが承認または連絡先を拒否するため、詳細ビューを更新します。
 
-[!code-cshtml[Main](secure-data/samples/final2/Pages/Contacts/Details.cshtml?range=48-999)]
+[!code-cshtml[](secure-data/samples/final2/Pages/Contacts/Details.cshtml?range=48-999)]
 
 詳細ページのモデルを更新します。
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Contacts/Details.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Details.cshtml.cs?name=snippet)]
 
 ## <a name="test-the-completed-app"></a>完成したアプリをテストします。
 
@@ -311,7 +311,7 @@ Visual Studio のコードを使用してローカルのプラットフォーム
 
 * 次の追加`Contact`モデル。
 
-  [!code-csharp[Main](secure-data/samples/starter2/Models/Contact.cs?name=snippet1)]
+  [!code-csharp[](secure-data/samples/starter2/Models/Contact.cs?name=snippet1)]
 
 * Scaffold、`Contact`モデル。
 
@@ -340,7 +340,7 @@ dotnet ef database update
 
 呼び出す`SeedData.Initialize`から`Main`:
 
-[!code-csharp[Main](secure-data/samples/starter2/Program.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/starter2/Program.cs?name=snippet)]
 
 アプリに、データベースがシード処理をテストします。 DB の連絡先に任意の行がある場合は、シード メソッドは実行されません。
 

@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: e093a47159fd8278ff3705bb2c53571a8e27fab8
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: cda9f52d1f5fa1d240e210488bf1bd5c76e49be7
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-react-project-template"></a>対応プロジェクト テンプレートを使用します。
 
@@ -49,9 +49,9 @@ Visual Studio または .NET Core CLI からアプリを実行します。
 
 という環境変数があることを確認`ASPNETCORE_Environment`の値を持つ`Development`します。 Windows PowerShell 以外の入力を要求) の「、で実行される`SET ASPNETCORE_Environment=Development`です。 Linux または macOS、実行`export ASPNETCORE_Environment=Development`です。
 
-実行`dotnet build`正しくビルドするのには、アプリを確認してください。 最初の実行には、ビルド プロセスは、数分かかることが npm の依存関係を復元します。 後続のビルドは非常に高速です。
+実行[dotnet ビルド](/dotnet/core/tools/dotnet-build)正しくビルドするのには、アプリを確認してください。 最初の実行には、ビルド プロセスは、数分かかることが npm の依存関係を復元します。 後続のビルドは非常に高速です。
 
-実行`dotnet run`でアプリを起動します。
+実行[実行 dotnet](/dotnet/core/tools/dotnet-run)でアプリを起動します。
 
 ---
 

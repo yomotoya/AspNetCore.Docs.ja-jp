@@ -12,28 +12,26 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 8b1bdae048afc78399ccc7b0eac7125d9b983c13
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 35f9402ad6090c0441425a23b2b8063350892210
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 の新機能
-====================
+# <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 の新機能
+
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
-[Web キャンプ トレーニング キットをダウンロードします。](http://www.microsoft.com/download/29843)
+[Web キャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
 
-> ASP.NET MVC 4 は、安定したデザイン パターンと、ASP.NET と .NET framework の機能を使用して、スケーラブルな標準ベースの web アプリケーションを構築するためのフレームワークです。 この新しい、4 番目のバージョンの framework は、モバイル web アプリケーションの開発を容易に焦点を当てています。
-> 
-> 最初に、新しい ASP.NET MVC 4 プロジェクトを作成するときにここで、モバイル アプリケーションのプロジェクト テンプレートをモバイル デバイス向けのスタンドアロンのアプリのビルドに使用することができます。 さらに、ASP.NET MVC 4 統合 jQuery Mobile jQuery.Mobile.MVC NuGet パッケージを使用します。 jQuery Mobile は、HTML5 ベース フレームワークと Windows Phone、iPhone、Android を含む、すべての一般的なモバイル デバイス プラットフォームと互換性がある web アプリを開発するためです。 ただし、特殊化する場合は、ASP.NET MVC 4 こともできますをさまざまなデバイスごとに異なるビューを提供し、デバイス固有の最適化を指定できます。
-> 
-> このハンズオン ラボでは、ASP.NET MVC 4 で起動されます&quot;インターネット アプリケーション&quot;フォト ギャラリーのアプリケーションを作成するプロジェクト テンプレート。 JQuery Mobile、および ASP.NET MVC 4 の新機能を使用して、さまざまなモバイル デバイスとデスクトップの web ブラウザーでの互換性を確保するアプリを段階的に強化されます。 コードの生成と ASP.NET MVC 4 簡単方法のタスクをサポートすることにより非同期アクション メソッドを記述するための新しいコード レシピについても学びます&lt;ActionResult&gt;タイプを返します。
-> 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843)です。
+ASP.NET MVC 4 は、安定したデザイン パターンと、ASP.NET と .NET framework の機能を使用して、スケーラブルな標準ベースの web アプリケーションを構築するためのフレームワークです。 この新しい、4 番目のバージョンの framework は、モバイル web アプリケーションの開発を容易に焦点を当てています。
 
+最初に、新しい ASP.NET MVC 4 プロジェクトを作成するときにここで、モバイル アプリケーションのプロジェクト テンプレートをモバイル デバイス向けのスタンドアロンのアプリのビルドに使用することができます。 さらに、ASP.NET MVC 4 統合 jQuery Mobile jQuery.Mobile.MVC NuGet パッケージを使用します。 jQuery Mobile は、HTML5 ベース フレームワークと Windows Phone、iPhone、Android を含む、すべての一般的なモバイル デバイス プラットフォームと互換性がある web アプリを開発するためです。 ただし、特殊化する場合は、ASP.NET MVC 4 こともできますをさまざまなデバイスごとに異なるビューを提供し、デバイス固有の最適化を指定できます。
 
-<a id="Objectives"></a>
+このハンズオン ラボでは、ASP.NET MVC 4 で起動されます&quot;インターネット アプリケーション&quot;フォト ギャラリーのアプリケーションを作成するプロジェクト テンプレート。 JQuery Mobile、および ASP.NET MVC 4 の新機能を使用して、さまざまなモバイル デバイスとデスクトップの web ブラウザーでの互換性を確保するアプリを段階的に強化されます。 コードの生成と ASP.NET MVC 4 簡単方法のタスクをサポートすることにより非同期アクション メソッドを記述するための新しいコード レシピについても学びます&lt;ActionResult&gt;タイプを返します。
+
+> [!NOTE]
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[Microsoft の Web/WebCampTrainingKit リリース](https://aka.ms/webcamps-training-kit)です。 このラボに固有のプロジェクトは[ASP.NET 4.5 Web フォームの新](https://github.com/Microsoft-Web/HOL-ASPNETWebForms)です。
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>目的
@@ -146,7 +144,7 @@ ms.lasthandoff: 01/24/2018
 
     ![jQuery 検証](whats-new-in-aspnet-mvc-4/_static/image6.png)
 
-    *jQuery 検証*
+    jQuery 検証
 
     > [!NOTE]
     > 2 つログイン セクションでは、最初のセクションで、通知には、サイトから登録されてアカウントを使用しておよび altenativelly ログオンする (既定で無効になっている) google のように別の認証サービスを使用して 2 番目のセクションを記録できます。
@@ -164,7 +162,7 @@ ms.lasthandoff: 01/24/2018
 
     ![サービスのログを選択します。](whats-new-in-aspnet-mvc-4/_static/image7.png)
 
-    *サービスのログを選択します。*
+    サービスのログを選択します。
 10. Google アカウントを使用してをログインします。
 11. Google アカウントから情報を取得するサイト (localhost) を許可します。
 12. 最後に、Google アカウントに関連付けるサイトで登録する必要があります。
@@ -258,9 +256,9 @@ ASP.NET MVC 4 には、モバイル web サイトやタブレットのブラウ�
 
 メディア クエリの例: &gt;  **@mediaすべてと (幅の最大値: 1000px) と (幅の最小値: 700px) {}:** 700px と 1000px 間のすべての解像度。
 
-> **@media画面と (幅の最小値: 400 px と表) と (幅の最大値: 700px) {...}:**画面に対してのみです。 解像度は、400 ~ 700px でなければなりません。
+> **@media 画面と (幅の最小値: 400 px と表) と (幅の最大値: 700px) {...}:**画面に対してのみです。 解像度は、400 ~ 700px でなければなりません。
 > 
-> **@mediaハンドヘルドと (幅の最小値: 20em)、画面と (幅の最小値: 20em) {...}:**のハンドヘルド デバイス (携帯とデバイス) とスクリーンです。 幅の最小値は、20em より大きくする必要があります。
+> **@media ハンドヘルドと (幅の最小値: 20em)、画面と (幅の最小値: 20em) {...}:**のハンドヘルド デバイス (携帯とデバイス) とスクリーンです。 幅の最小値は、20em より大きくする必要があります。
 > 
 > 上の詳細については、これを見つけることができます、 [W3C サイト](http://www.w3.org/TR/css3-mediaqueries/)です。
 

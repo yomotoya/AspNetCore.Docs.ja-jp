@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 8cadb550eaa2dbc4541f945dc8d8d49fa757d4d3
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 559c5c58b416912b1caef1964ff8d7532bd98439
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core Id のカスタムの記憶域プロバイダー
 
@@ -112,7 +112,7 @@ Web サイトの登録ユーザー。 [IdentityUser](https://docs.microsoft.com/
 
 データ アクセス クラスでは、永続化メカニズムのデータ操作を実行するコードを提供します。 たとえば、カスタム プロバイダーにする必要がありますで新しいユーザーを作成するには、次のコード、*格納*クラス。
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
 
 ユーザーを作成するための実装ロジックにあり、``_usersTable.CreateAsync``メソッドを次に示すです。
 
@@ -145,7 +145,7 @@ Web サイトの登録ユーザー。 [IdentityUser](https://docs.microsoft.com/
 
 内で、`UserStore`クラス、操作を実行するために作成したデータ アクセス クラスを使用します。 依存関係の挿入を使用して渡されます。 口ひげ実装では、使用して、SQL サーバーなどで、`UserStore`クラスには、`CreateAsync`メソッドのインスタンスを使用する`DapperUsersTable`新しいレコードを挿入します。
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
 
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>ユーザーのストアをカスタマイズするときに実装するインターフェイス
 
@@ -196,7 +196,7 @@ public class UserStore : IUserStore<IdentityUser>,
 
 ロールのクラスの例を次に示します。
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
 
 ## <a name="customize-the-role-store"></a>ロール ストアをカスタマイズします。
 

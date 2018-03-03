@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/2fa
-ms.openlocfilehash: 7bca1c6249bebe84b532b652ab736186f35c50ee
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 721c4c20234c7232b509a0cff444538c2cfeb166
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="two-factor-authentication-with-sms"></a>SMS と 2 要素認証
 
@@ -60,7 +60,7 @@ Twilio アカウントの [ダッシュ ボード] タブから、コピー、**
 
    * セキュリティで保護された SMS キーを取得するクラスを作成します。 このサンプルで、`SMSoptions`でクラスを作成、 *Services/SMSoptions.cs*ファイル。
 
-[!code-csharp[Main](2fa/sample/Web2FA/Services/SMSoptions.cs)]
+[!code-csharp[](2fa/sample/Web2FA/Services/SMSoptions.cs)]
 
 設定、 `SMSAccountIdentification`、`SMSAccountPassword`と`SMSAccountFrom`で、[シークレット マネージャー ツール](xref:security/app-secrets)です。 例:
 
@@ -81,16 +81,16 @@ info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 
 
 **Twilio:**  
-[!code-csharp[Main](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]
+[!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]
 
 **ASPSMS:**  
-[!code-csharp[Main](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]
+[!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]
 
-### <a name="configure-startup-to-use-smsoptions"></a>使用するスタートアップを構成します。`SMSoptions`
+### <a name="configure-startup-to-use-smsoptions"></a>使用するスタートアップを構成します。 `SMSoptions`
 
 追加`SMSoptions`のサービス コンテナーに、`ConfigureServices`メソッドで、 *Startup.cs*:
 
-[!code-csharp[Main](2fa/sample/Web2FA/Startup.cs?name=snippet1&highlight=4)]
+[!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet1&highlight=4)]
 
 ### <a name="enable-two-factor-authentication"></a>2 要素認証を有効にします。
 
@@ -144,4 +144,4 @@ info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 
 2 fa でアカウントのロックアウトを使用することをお勧めします。 (ローカル アカウントまたはアカウントのソーシャル) 経由ユーザーがログオン後に 2 fa に失敗した場合はそれぞれが格納されている場合 (既定値は 5) の最大試行回数に達すると、ユーザーはロックアウトを 5 分間 (で時間のロックアウトを設定することができます`DefaultAccountLockoutTimeSpan`)。 次に、10 の試行が失敗した後 10 分間ロックアウトにアカウントを構成します。
 
-[!code-csharp[Main](2fa/sample/Web2FA/Startup.cs?name=snippet2&highlight=13-17)] 
+[!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet2&highlight=13-17)] 

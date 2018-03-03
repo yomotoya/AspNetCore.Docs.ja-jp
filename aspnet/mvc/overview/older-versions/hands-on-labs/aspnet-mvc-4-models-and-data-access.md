@@ -12,23 +12,24 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 076fa87eff140a3e7ff6855e4876abac40419c57
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 353419077422516761df56f730352b19b5db5ff2
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 モデルおよびデータ アクセス
-====================
+# <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 モデルおよびデータ アクセス
+
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
-> [!NOTE]
-> このハンズオン ラボは、の基本的な知識がある前提としています。 **ASP.NET MVC**です。 使用していない場合**ASP.NET MVC**経由で移動する前をお勧め**ASP.NET MVC 4 基礎**ハンズオン ラボ。
-> 
-> このラボには、機能強化と軽微な変更を元のフォルダーで提供されるサンプル Web アプリケーションに適用することで前に説明した新しい機能について説明します。
-> 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843)です。
+[Web キャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
 
+このハンズオン ラボは、の基本的な知識がある前提としています。 **ASP.NET MVC**です。 使用していない場合**ASP.NET MVC**経由で移動する前をお勧め**ASP.NET MVC 4 基礎**ハンズオン ラボ。
+
+このラボには、機能強化と軽微な変更を元のフォルダーで提供されるサンプル Web アプリケーションに適用することで前に説明した新しい機能について説明します。
+
+> [!NOTE]
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[Microsoft の Web/WebCampTrainingKit リリース](https://aka.ms/webcamps-training-kit)です。 このラボに固有のプロジェクトは[ASP.NET MVC 4 モデルおよびデータ アクセス](https://github.com/Microsoft-Web/HOL-MVC4ModelsAndDataAccess)です。
 
 **ASP.NET MVC の基本事項**ハンズオン ラボがされて渡そうとしてハード コードされたデータのコント ローラーからテンプレートの表示にします。 しかし、実際の Web アプリケーションを構築するために実際のデータベースを使用する場合があります。
 
@@ -38,7 +39,7 @@ ms.lasthandoff: 01/24/2018
 
 ![データベースの最初とします。最初のモデル](aspnet-mvc-4-models-and-data-access/_static/image1.png "Database First vs です。最初のモデルします。")
 
-*データベースの最初とします。最初のモデルします。*
+*データベースの最初とします。最初のモデルします。
 
 モデルを生成した後にハード コードされたデータを使用する代わりに、データベースから取得されたデータ ストアのビューを提供する StoreController で適切な調整が作成されます。 変更するビュー テンプレート ビュー テンプレートに同じ ViewModels が戻される、StoreController のためこの時点のデータは、データベースから取得されますが、する必要はありません。
 
@@ -325,7 +326,7 @@ ms.lasthandoff: 01/24/2018
 
     ![Web.config ファイルの場所](aspnet-mvc-4-models-and-data-access/_static/image19.png "Web.config ファイルの場所")
 
-    *Web.config ファイルの場所*
+    *web.config ファイルの場所*
 
 
     [!code-xml[Main](aspnet-mvc-4-models-and-data-access/samples/sample7.xml)]

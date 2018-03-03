@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: ee628ee14aa38969cdb4443718c378fd36192596
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 67695843846cfaf1619db11a7bffcc65802e0f69
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET Core での Bower でクライアント側のパッケージを管理します。
 
@@ -67,13 +67,13 @@ ms.lasthandoff: 02/11/2018
 
 開く、 *\shared\_Layout.cshtml*ファイルし、環境にフォント優れた CSS ファイルを追加[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)の`Development`します。 ソリューション エクスプ ローラーからドラッグ アンド ドロップ*フォント awesome.css*内、`<environment names="Development">`要素。
 
-[!code-html[Main](bower/sample/_Layout.cshtml?highlight=4&range=9-13)]
+[!code-html[](bower/sample/_Layout.cshtml?highlight=4&range=9-13)]
 
 運用アプリにするには追加*フォント awesome.min.css* 、環境タグのヘルパーを`Staging,Production`です。
 
 内容を置き換える、 *Views\Home\About.cshtml*次のマークアップ Razor ファイル。
 
-[!code-html[Main](bower/sample/About.cshtml)]
+[!code-html[](bower/sample/About.cshtml)]
 
 アプリを実行し、フォント優れたパッケージの動作の確認 [バージョン情報] ビューに移動します。
 
@@ -96,7 +96,7 @@ Bower でクライアント側のビルド プロセスを使用する一般的�
 
 * 開いている*bower.json*、jquery を追加しをブートス トラップ、`dependencies`セクションです。 その結果、 *bower.json*ファイルは次の例のようになります。 バージョンは、時間の経過と共にが変更され、下の画像と一致しない可能性があります。
 
-[!code-json[Main](bower/sample/bower.json?highlight=5,6)]
+[!code-json[](bower/sample/bower.json?highlight=5,6)]
 
 * 保存、 *bower.json*ファイル。
 
@@ -109,7 +109,7 @@ Bower でクライアント側のビルド プロセスを使用する一般的�
 * 追加、 `Microsoft.AspNetCore.StaticFiles` NuGet パッケージをプロジェクトにします。
 * 静的ファイルで配信されることを有効にする、[静的ファイル ミドルウェア](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.staticfileextensions)です。 呼び出しを追加して[UseStaticFiles](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.staticfileextensions)を`Configure`メソッドの`Startup`します。
 
-[!code-csharp[Main](bower/sample/Startup.cs?highlight=9)]
+[!code-csharp[](bower/sample/Startup.cs?highlight=9)]
 
 ### <a name="reference-packages"></a>参照パッケージ
 
@@ -119,7 +119,7 @@ Bower でクライアント側のビルド プロセスを使用する一般的�
 
  内容を置き換える*Index.html*次のマークアップ。
 
-[!code-html[Main](bower/sample/Index.html)]
+[!code-html[](bower/sample/Index.html)]
 
 * アプリを実行してに移動`http://localhost:<port>/Index.html`です。 代わりに、 *Index.html*開くと、キーを押して`Ctrl+Shift+W`です。 Jumbotron スタイルが適用される、jQuery コード応答、ボタンがクリックされたときに、ブートス トラップのボタンが状態を変更することを確認します。
 

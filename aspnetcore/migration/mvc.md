@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: 447b13eccf523cab81590405740bb194112b0dad
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: c9c9f63cd635f364d9b2e081dc051a46a44d3e4f
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>ASP.NET MVC から ASP.NET Core MVC への移行
 
@@ -48,17 +48,17 @@ ms.lasthandoff: 01/30/2018
 
 * インストール、`Microsoft.AspNetCore.Mvc`と`Microsoft.AspNetCore.StaticFiles`NuGet パッケージの管理。
 
-  `Microsoft.AspNetCore.Mvc`ASP.NET Core MVC フレームワークです。 `Microsoft.AspNetCore.StaticFiles`静的ファイル ハンドラーです。 ASP.NET ランタイムがモジュール、および静的なファイルが機能するように明示的にオプトインする必要があります (を参照してください[静的ファイルで作業](../fundamentals/static-files.md))。
+  `Microsoft.AspNetCore.Mvc` ASP.NET Core MVC フレームワークです。 `Microsoft.AspNetCore.StaticFiles` 静的ファイル ハンドラーです。 ASP.NET ランタイムがモジュール、および静的なファイルが機能するように明示的にオプトインする必要があります (を参照してください[静的ファイルで作業](../fundamentals/static-files.md))。
 
 * 開く、 *.csproj*ファイル (でプロジェクトを右クリックして**ソリューション エクスプ ローラー**を選択し、**編集 WebApp1.csproj**) を追加し、`PrepareForPublish`ターゲット。
 
-  [!code-xml[Main](mvc/sample/WebApp1.csproj?range=21-23)]
+  [!code-xml[](mvc/sample/WebApp1.csproj?range=21-23)]
 
   `PrepareForPublish`ターゲットは、Bower を使用してクライアント側のライブラリを取得するために必要です。 後でについてを説明します。
 
 * 開く、 *Startup.cs*ファイルを開き、次の一致するようにコードを変更します。
 
-  [!code-csharp[Main](mvc/sample/Startup.cs?highlight=14,27-34)]
+  [!code-csharp[](mvc/sample/Startup.cs?highlight=14,27-34)]
 
   `UseStaticFiles`拡張メソッドが静的ファイル ハンドラーを追加します。 前述のように、ASP.NET ランタイムは、モジュール、および静的なファイルが機能するように明示的にオプトインする必要があります。 `UseMvc`ルーティング拡張メソッドを追加します。 詳細については、次を参照してください。[アプリケーションの起動](../fundamentals/startup.md)と[ルーティング](../fundamentals/routing.md)です。
 
@@ -114,7 +114,7 @@ ms.lasthandoff: 01/30/2018
 
 ## <a name="controllers-and-views"></a>コント ローラーとビュー
 
-* ASP.NET MVC のコピーの各メソッド`HomeController`を新しい`HomeController`です。 ASP.NET MVC では、組み込みのテンプレートのコント ローラー アクション メソッドの戻り値型は[ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult(v=vs.118).aspx)以外の場合は ASP.NET Core MVC、アクション メソッドの戻り値の`IActionResult`代わりにします。 `ActionResult`実装する`IActionResult`ので、アクション メソッドの戻り値の型を変更する必要はありません。
+* ASP.NET MVC のコピーの各メソッド`HomeController`を新しい`HomeController`です。 ASP.NET MVC では、組み込みのテンプレートのコント ローラー アクション メソッドの戻り値型は[ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult(v=vs.118).aspx)以外の場合は ASP.NET Core MVC、アクション メソッドの戻り値の`IActionResult`代わりにします。 `ActionResult` 実装する`IActionResult`ので、アクション メソッドの戻り値の型を変更する必要はありません。
 
 * コピー、 *About.cshtml*、 *Contact.cshtml*、および*Index.cshtml* Razor ビューのファイルを ASP.NET MVC プロジェクトから ASP.NET Core プロジェクト。
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 01/30/2018
 
 ![連絡先のページ](mvc/_static/contact-page.png)
 
-スタイル設定およびメニュー項目がないことに注意してください。 解決する次のセクションでします。
+スタイル設定およびメニュー項目がないことに注意してください。 次のセクションでこれを修正します。
 
 ## <a name="static-content"></a>静的コンテンツ
 
@@ -140,7 +140,7 @@ ASP.NET MVC の以前のバージョンでは、静的コンテンツは、web �
 
 * 追加、 [Bower](https://bower.io/)という名前の構成ファイル*bower.json*プロジェクトのルートに (、プロジェクトを右クリックし、**追加 > 新しい項目の追加 > Bower 構成ファイル**)。 追加[ブートス トラップ](http://getbootstrap.com/)と[jQuery](https://jquery.com/)ファイル (以下の強調表示された行を参照してください)。
 
-  [!code-json[Main](mvc/sample/bower.json?highlight=5-6)]
+  [!code-json[](mvc/sample/bower.json?highlight=5-6)]
 
 ファイルを保存するときに Bower は自動的にダウンロードする依存関係、 *wwwroot/lib*フォルダーです。 使用することができます、**ソリューション エクスプ ローラーの検索**資産のパスを検索するボックス。
 
@@ -156,7 +156,7 @@ ASP.NET MVC の以前のバージョンでは、静的コンテンツは、web �
 
 * 作成、 *Views/shared*フォルダーです。
 
-* *省略可能:*コピー *_ViewImports.cshtml*から、 *FullAspNetCore* MVC プロジェクトの*ビュー*フォルダーに、ASP.NET Core プロジェクトの*ビュー*フォルダーです。 任意の名前空間宣言を削除、 *_ViewImports.cshtml*ファイル。 *_ViewImports.cshtml*ファイル ビューのすべてのファイルの名前空間を提供しでによってもたらさ[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)です。 タグ ヘルパーは、新しいレイアウト ファイルで使用されます。 *_ViewImports.cshtml*ファイルが ASP.NET Core の新機能です。
+* *省略可能:*コピー *_ViewImports.cshtml*から、 *FullAspNetCore* MVC プロジェクトの*ビュー* ASP.NET Core プロジェクトのフォルダー *ビュー*フォルダーです。 任意の名前空間宣言を削除、 *_ViewImports.cshtml*ファイル。 *_ViewImports.cshtml*ファイル ビューのすべてのファイルの名前空間を提供しでによってもたらさ[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)です。 タグ ヘルパーは、新しいレイアウト ファイルで使用されます。 *_ViewImports.cshtml*ファイルが ASP.NET Core の新機能です。
 
 * コピー、 *_Layout.cshtml*古い ASP.NET MVC プロジェクトのファイルの*Views/shared* ASP.NET Core プロジェクトのフォルダー *Views/shared*フォルダーです。
 
@@ -187,7 +187,7 @@ ASP.NET MVC の以前のバージョンでは、静的コンテンツは、web �
 
 更新された*_Layout.cshtml*ファイルを次に示します。
 
-[!code-html[Main](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7,27,39-40)]
+[!code-html[](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7,27,39-40)]
 
 ブラウザーで、サイトを表示します。 これを場所に必要なスタイルを使用して正しく読み込むようになりました必要があります。
 

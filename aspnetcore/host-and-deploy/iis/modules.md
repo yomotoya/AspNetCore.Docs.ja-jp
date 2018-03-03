@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 5032c9f07af4f9291b44538cecbc310bfabc8e02
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: a6610e33abdc3eafb5908728b3299e95e6e7183f
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>ASP.NET Core で IIS のモジュールの使用
 
@@ -159,6 +159,7 @@ ASP.NET Core アプリケーションを実行するために必要なだけモ�
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [IIS による Windows 上のホスト](xref:host-and-deploy/iis/index)
-* [IIS のモジュールの概要](https://docs.microsoft.com/iis/get-started/introduction-to-iis/iis-modules-overview)
+* [IIS のアーキテクチャの概要: IIS のモジュール](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#modules-in-iis)
+* [IIS のモジュールの概要](/iis/get-started/introduction-to-iis/iis-modules-overview)
 * [IIS 7.0 ロール、およびモジュールをカスタマイズします。](https://technet.microsoft.com/library/cc627313.aspx)
-* [IIS `<system.webServer>`](https://docs.microsoft.com/iis/configuration/system.webServer/)
+* [IIS `<system.webServer>`](/iis/configuration/system.webServer/)

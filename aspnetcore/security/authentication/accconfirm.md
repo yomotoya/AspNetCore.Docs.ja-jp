@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: e8f73d58bdf626910b2101ef310385f588315e26
-ms.sourcegitcommit: 725cb18ad23013e15d3dbb527958481dee79f9f8
+ms.openlocfilehash: b236b4e5d3a4fa7212453f2aec209d145f5f5e32
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>アカウントの確認と ASP.NET Core でのパスワードの回復
 
@@ -102,7 +102,7 @@ For Visual Studio は。
 
 更新`ConfigureServices`確認電子メールを要求します。
 
-[!code-csharp[Main](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet1&highlight=12-17)]
+[!code-csharp[](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet1&highlight=12-17)]
 
 `config.SignIn.RequireConfirmedEmail = true;` 登録済みユーザーがで自分の電子メールが確認されるまでのログ記録するを防ぎます。
 
@@ -114,7 +114,7 @@ For Visual Studio は。
 
 セキュリティで保護された電子メールのキーを取得するクラスを作成します。 このサンプルで、`AuthMessageSenderOptions`でクラスを作成、 *Services/AuthMessageSenderOptions.cs*ファイル。
 
-[!code-csharp[Main](accconfirm/sample/WebPWrecover/Services/AuthMessageSenderOptions.cs?name=snippet1)]
+[!code-csharp[](accconfirm/sample/WebPWrecover/Services/AuthMessageSenderOptions.cs?name=snippet1)]
 
 設定、`SendGridUser`と`SendGridKey`で、[シークレット マネージャー ツール](xref:security/app-secrets)です。 例:
 
@@ -140,11 +140,11 @@ Windows では、シークレット マネージャーが内のキー/値ペア�
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet2&highlight=28)]
+[!code-csharp[](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet2&highlight=28)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[!code-csharp[Main](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
+[!code-csharp[](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
 
 ---
 
@@ -170,12 +170,12 @@ Windows では、シークレット マネージャーが内のキー/値ペア�
 
 SendGrid を構成するには、次のようなコードを追加*Services/EmailSender.cs*:
 
-[!code-csharp[Main](accconfirm/sample/WebPWrecover/Services/EmailSender.cs)]
+[!code-csharp[](accconfirm/sample/WebPWrecover/Services/EmailSender.cs)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 * コードを追加*Services/MessageServices.cs* SendGrid を構成するには、次のようにします。
 
-[!code-csharp[Main](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
+[!code-csharp[](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
 
 ---
 
@@ -193,13 +193,13 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 
 メソッド全体を強調表示されている変更された行が表示されます。
 
-[!code-csharp[Main](accconfirm/sample/WebPWrecover/Pages/Account/Register.cshtml.cs?highlight=16&name=snippet_Register)]
+[!code-csharp[](accconfirm/sample/WebPWrecover/Pages/Account/Register.cshtml.cs?highlight=16&name=snippet_Register)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 アカウントの確認を有効にするには、次のコードをコメントを解除します。
 
-[!code-csharp[Main](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=16-25&name=snippet_Register)]
+[!code-csharp[](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=16-25&name=snippet_Register)]
 
 **注:**コードなると、新しく登録されたユーザーは、次の行をコメント アウトして自動ログオンされているが妨げ。
 
@@ -209,11 +209,11 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 
 内のコードのコメントを解除してパスワードの回復を有効にする、`ForgotPassword`のアクション*Controllers/AccountController.cs*:
 
-[!code-csharp[Main](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=17-23&name=snippet_ForgotPassword)]
+[!code-csharp[](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=17-23&name=snippet_ForgotPassword)]
 
 フォーム要素をコメントから*Views/Account/ForgotPassword.cshtml*です。 削除する必要があります、`<p> For more information on how to enable reset password ... </p>`要素は、この記事の内容へのリンクが含まれています。
 
-[!code-cshtml[Main](accconfirm/sample/WebApp1/Views/Account/ForgotPassword.cshtml?highlight=7-10,12,28)]
+[!code-cshtml[](accconfirm/sample/WebApp1/Views/Account/ForgotPassword.cshtml?highlight=7-10,12,28)]
 
 ---
 
@@ -274,7 +274,7 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 
 ## <a name="combine-social-and-local-login-accounts"></a>ソーシャルとローカルのログイン アカウントを結合します。
 
-このセクションを完了するには、まず外部認証プロバイダーを有効にする必要があります。 参照してください[Facebook、Google、およびその他の外部プロバイダーを使用して有効にする認証](social/index.md)です。
+このセクションを完了するには、まず外部認証プロバイダーを有効にする必要があります。 参照してください[Facebook、Google、および外部プロバイダー認証](xref:security/authentication/social/index)です。
 
 電子メールのリンクをクリックすると、ローカルおよびソーシャルのアカウントを組み合わせることができます。 次の順序で"RickAndMSFT@gmail.com"が最初に、ローカルのログインとして作成ただし、最初に、ソーシャル ログインとしてアカウントを作成し、ローカル ログインを追加します。
 

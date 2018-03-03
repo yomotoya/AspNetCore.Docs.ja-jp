@@ -12,28 +12,28 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: 468f6d5dabb645b1c005680dc5a1ffc4debd63b6
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f93f51219403cd5aeca2dd3648444a84690c3d25
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 の基礎
-====================
+# <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 の基礎
+
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
-> このハンズオン ラボは、MVC (モデル ビュー コント ローラー) Music Store、紹介し、ASP.NET MVC と Visual Studio を使用する方法の詳細な手順について説明しますチュートリアル アプリケーションに基づいています。 ラボでは、わかりやすくするためを学習しますをこれらのテクノロジを同時に使用する、まだ power です。 単純なアプリケーションを開始し、完全に機能 ASP.NET MVC 4 Web アプリケーションになるまで、ビルドします。
-> 
-> このラボは、ASP.NET MVC 4 で動作します。
-> 
-> ASP.NET MVC 3 のバージョンのチュートリアル アプリケーションを調査したい場合でを検索[MVC Music Store](https://github.com/evilDave/MVC-Music-Store)です。
-> 
-> > [!NOTE]
-> > このハンズオン ラボでは、HTML および JavaScript などの Web 開発テクノロジで、開発者の経験があることを前提としています。
-> 
-> 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843)です。
+[Web キャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
 
+このハンズオン ラボは、MVC (モデル ビュー コント ローラー) Music Store、紹介し、ASP.NET MVC と Visual Studio を使用する方法の詳細な手順について説明しますチュートリアル アプリケーションに基づいています。 ラボでは、わかりやすくするためを学習しますをこれらのテクノロジを同時に使用する、まだ power です。 単純なアプリケーションを開始し、完全に機能 ASP.NET MVC 4 Web アプリケーションになるまで、ビルドします。
+
+このラボは、ASP.NET MVC 4 で動作します。
+
+ASP.NET MVC 3 のバージョンのチュートリアル アプリケーションを調査したい場合でを検索[MVC Music Store](https://github.com/evilDave/MVC-Music-Store)です。
+
+このハンズオン ラボでは、HTML および JavaScript などの Web 開発テクノロジで、開発者の経験があることを前提としています。
+
+> [!NOTE]
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[Microsoft の Web/WebCampTrainingKit リリース](https://aka.ms/webcamps-training-kit)です。 このラボに固有のプロジェクトは[ASP.NET MVC 4 基礎](https://github.com/Microsoft-Web/HOL-MVC4Fundamentals)です。
 
 <a id="The_Music_Store_application"></a>
 ### <a name="the-music-store-application"></a>音楽ストア アプリケーション
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/24/2018
 
 - **モデル**: モデル オブジェクトは、ドメイン ロジックを実装するアプリケーションの部分です。 多くの場合、モデル オブジェクトも取得し、モデルの状態をデータベースに格納します。
 - **ビュー:**ビューは、アプリケーションのユーザー インターフェイス (UI) を表示するコンポーネントです。 通常、この UI は、モデル データから作成されます。 例には、テキスト ボックスやアルバム オブジェクトの現在の状態に基づいて、ボックスの一覧を表示するアルバムの編集ビューがあります。
-- **コント ローラー:**コント ローラーは、コンポーネントのユーザーとの対話を処理して、モデルを操作し、最終的には、UI をレンダリングするビューを選択します。 MVC アプリケーションでは、ビューのみ情報が表示されます。コント ローラーは、処理し、ユーザー入力との対話に応答します。
+- **コント ローラー:**コント ローラーは、コンポーネントのユーザーとの対話を処理して、モデルを操作し、最終的には、UI をレンダリングするビューを選択します。 MVC アプリケーションでは、ビューは情報のみを表示し、コントローラーがユーザーの入力と操作を処理して応答します。
 
 MVC パターンでは、これらの要素間の疎結合を提供しつつ、アプリケーション (入力ロジック、ビジネス ロジック、および UI ロジック) のさまざまな側面を分離するアプリケーションを作成するのに役立ちます。 この分離では、一度に実装の 1 つの側面に注目することができます、アプリケーションをビルドするときに、複雑さを管理できます。 さらに、MVC パターンしやすいアプリケーションを作成するためのテスト駆動開発 (TDD) の使用を促進もアプリケーションをテストします。
 
@@ -173,7 +173,7 @@ ASP.NET MVC フレームワークには、MVC パターンをサポートする 
 
 MVC フレームワークを使用して ASP.NET アプリケーションでは、ユーザーとの対話はページとを発生させると、それらのページからのイベント処理の周囲に編成されます。 これに対し、ASP.NET MVC アプリケーションでのユーザー操作は、コント ローラーとそのアクション メソッドの周囲に編成されます。
 
-その一方で、ASP.NET MVC フレームワークは、Url をコント ローラーと呼ばれるクラスにマップします。 コント ローラーが入力方向の要求を処理、ユーザー入力との相互作用を処理、適切なアプリケーション ロジックを実行およびクライアントに返送する応答を決定 (HTML を表示、ファイルをダウンロードするには、別の URL をリダイレクトします。)。 HTML を表示するには、場合、コント ローラー クラスは、通常、要求の HTML マークアップを生成する別個のビュー コンポーネントを呼び出します。 MVC アプリケーションでは、ビューのみ情報が表示されます。コント ローラーは、処理し、ユーザー入力との対話に応答します。
+その一方で、ASP.NET MVC フレームワークは、Url をコント ローラーと呼ばれるクラスにマップします。 コント ローラーが入力方向の要求を処理、ユーザー入力との相互作用を処理、適切なアプリケーション ロジックを実行およびクライアントに返送する応答を決定 (HTML を表示、ファイルをダウンロードするには、別の URL をリダイレクトします。)。 HTML を表示するには、場合、コント ローラー クラスは、通常、要求の HTML マークアップを生成する別個のビュー コンポーネントを呼び出します。 MVC アプリケーションでは、ビューは情報のみを表示し、コントローラーがユーザーの入力と操作を処理して応答します。
 
 このタスクでは、音楽ストア サイトのホーム ページの Url を処理するコント ローラー クラスを追加します。
 
@@ -818,7 +818,7 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
     > [!NOTE]
     > 別の方法としては ページで、次のようなコードに直接リンクは。
     > 
-    > &lt;href =&quot;ストア/参照? ジャンル =@genreName&quot;&gt;@genreName&lt;/a&gt;
+    > &lt;a href=&quot;/Store/Browse?genre=@genreName&quot;&gt;@genreName&lt;/a&gt;
     > 
     > このアプローチでも動作しますが、ハードコーディングされた文字列に依存します。 コント ローラーを後で変更した場合は、この命令を手動で変更する必要があります。 優れた代替手段は、使用する、 **HTML ヘルパー**メソッドです。 ASP.NET MVC には、このようなタスクを使用できる HTML ヘルパー メソッドが含まれています。 **Html.ActionLink()**ヘルパー メソッドでは、容易に HTML を構築する **&lt;、&gt;** リンク、URL パスは、正しく URL エンコードされていることを確認します。
     > 
@@ -895,7 +895,7 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
 #### <a name="task-1-exploring-the-aspnet-mvc-4-internet-application-template"></a>タスク 1: ASP.NET MVC 4 のインターネット アプリケーション テンプレートの表示
 
 1. まだ開いていない場合は開始**VS Express for Web**
-2. 選択、**ファイル |新しい |プロジェクト**メニュー コマンド。 **新しいプロジェクト**ダイアログで、選択、 **Visual c# |Web**左側のウィンドウでテンプレート ツリー、および選択、 **ASP.NET MVC 4 Web Application**です。 **名前**プロジェクト*MusicStore*し、更新、**ソリューション名**に*開始*、し、場所を選択 (または既定値のままにして) をクリック**OK**です。
+2. 選択、**ファイル |新しい |プロジェクト**メニュー コマンド。 **新しいプロジェクト**ダイアログで、選択、 **Visual c# |Web**左側のウィンドウでテンプレート ツリー、および選択、 **ASP.NET MVC 4 Web Application**です。 **名前**プロジェクト*MusicStore*し、更新、**ソリューション名**に*開始*、し、場所を選択 (または既定値) をクリック**ok**.
 
     ![新しい ASP.NET MVC 4 プロジェクトを作成する](aspnet-mvc-4-fundamentals/_static/image36.png "新しい ASP.NET MVC 4 プロジェクトを作成します。")
 
@@ -931,7 +931,7 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
 
     *ASP.NET MVC 4 インターネット アプリケーション プロジェクト テンプレート*
 
-    1. **HTML5 マークアップ**
+    1. **HTML5 markup**
 
         テンプレート ビューを開くなど、新しいテーマ マークアップを調べるには参照**About.cshtml**内で表示**ホーム**フォルダーです。
 

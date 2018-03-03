@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET Core での分散キャッシュの使用"
 author: ardalis
-description: "分散キャッシュを使用して、クラウドまたはサーバー ファーム環境でホストされている場合に特にパフォーマンス、および ASP.NET Core アプリケーションのスケーラビリティを向上する方法を説明します。"
+description: "アプリのパフォーマンスと特にクラウドまたはサーバー ファーム環境でのスケーラビリティを向上させるためにキャッシュされた分散 ASP.NET Core を使用する方法を説明します。"
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: 877a3e1f8c3282fdd67a389ddf5b4ff49dea3b42
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 635c61cbb72a6a9eb822307bbc80936ee73bedc8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="working-with-a-distributed-cache-in-aspnet-core"></a>ASP.NET Core での分散キャッシュの使用
 
-によって[Steve Smith](https://ardalis.com/)
+作成者: [Steve Smith](https://ardalis.com/)
 
 分散キャッシュでは、クラウドまたはサーバー ファーム環境でホストされている場合に特に ASP.NET Core アプリケーションのスケーラビリティとパフォーマンスを向上できます。 この記事では、ASP.NET Core の組み込みの分散キャッシュの抽象化と実装を操作する方法について説明します。
 
@@ -73,13 +73,13 @@ ms.lasthandoff: 02/01/2018
 
 次の例は、のインスタンスを使用する方法を示しています。`IDistributedCache`では、単純なミドルウェア コンポーネント。
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/StartTimeHeader.cs?highlight=15,18,21,27,28,29,30,31)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/StartTimeHeader.cs?highlight=15,18,21,27,28,29,30,31)]
 
 上記のコードでキャッシュされた値が、読み取りが書き込まれていません。 このサンプルでは、値は、サーバーの起動、および変更されない場合にのみ設定されます。 マルチ サーバーのシナリオで開始する最も最近使用したサーバーに他のサーバーで設定した前の値が上書きされます。 `Get`と`Set`メソッドを使用して、`byte[]`型です。 使用して文字列値を変換する必要がありますので、 `Encoding.UTF8.GetString` (の`Get`) および`Encoding.UTF8.GetBytes`(の`Set`)。
 
 次のコードから*Startup.cs*設定される値を示しています。
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=2,4,5,6&range=58-66)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=2,4,5,6&range=58-66)]
 
 > [!NOTE]
 > `IDistributedCache`で構成された、`ConfigureServices`メソッドが使用できる、`Configure`メソッドのパラメーターとして。 パラメーターとして追加すると、DI で指定する構成済みのインスタンスが許可されます。
@@ -92,7 +92,7 @@ Redis の実装を構成する`ConfigureServices`のインスタンスを要求�
 
 サンプル コードで、`RedisCache`のサーバーが構成されている実装を使用して、`Staging`環境。 したがって、`ConfigureStagingServices`メソッドは、構成、 `RedisCache`:
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
 
 > [!NOTE]
 > ローカル コンピューターに Redis をインストールするには、chocolatey パッケージをインストール[https://chocolatey.org/packages/redis-64/](https://chocolatey.org/packages/redis-64/)実行と`redis-server`コマンド プロンプトからです。
@@ -103,7 +103,7 @@ SqlServerCache 実装では、バッキング ストアとして SQL Server デ�
 
 Sql キャッシュのツールを使用する追加`SqlConfig.Tools`を`<ItemGroup>`の要素、 *.csproj*ファイル dotnet 復元を実行しています。
 
-[!code-xml[Main](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
+[!code-xml[](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
 
 SqlConfig.Tools をテストするには、次のコマンドを実行
 
@@ -125,7 +125,7 @@ C:\DistCacheSample\src\DistCacheSample>dotnet sql-cache create "Data Source=(loc
 
 すべてのキャッシュ実装と同様にアプリを取得および設定のインスタンスを使用してキャッシュ値`IDistributedCache`ではなく、`SqlServerCache`です。 このサンプルを実装`SqlServerCache`で、`Production`環境 (で構成されているように`ConfigureProductionServices`)。
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=7,8,9,10,11,12&range=42-56)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=7,8,9,10,11,12&range=42-56)]
 
 > [!NOTE]
 > `ConnectionString` (および必要に応じて、`SchemaName`と`TableName`) 資格情報を含めることは、通常 (UserSecrets) などのソース管理の外部に格納する必要があります。

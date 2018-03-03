@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: 8aac6c649b22dc8f6cfc916aa78d56efad7821a0
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 7f08e155491b56933ae183818e9b9ee562ad8286
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>HTTP ハンドラーと ASP.NET Core ミドルウェアにモジュールを移行します。 
 
@@ -91,13 +91,13 @@ ASP.NET Core ミドルウェアを前に、最初に要約 HTTP モジュール�
 
 既存の HTTP モジュールは、次のようになります。
 
-[!code-csharp[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyModule.cs?highlight=6,8,24,31)]
+[!code-csharp[](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyModule.cs?highlight=6,8,24,31)]
 
 ように、[ミドルウェア](xref:fundamentals/middleware/index) ページで、ASP.NET Core ミドルウェアが公開するクラス、`Invoke`メソッドを`HttpContext`を返すと、`Task`です。 新しいミドルウェアは、次のようになります。
 
 <a name="http-modules-usemiddleware"></a>
 
-[!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
+[!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
 
 上記のミドルウェア テンプレートがセクションから取得されました[ミドルウェアを記述](xref:fundamentals/middleware/index#middleware-writing-middleware)です。
 
@@ -107,11 +107,11 @@ ASP.NET Core ミドルウェアを前に、最初に要約 HTTP モジュール�
 
 モジュールは、たとえば、ユーザーが許可されていない場合、要求を終了します。
 
-[!code-csharp[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyTerminatingModule.cs?highlight=9,10,11,12,13&name=snippet_Terminate)]
+[!code-csharp[](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyTerminatingModule.cs?highlight=9,10,11,12,13&name=snippet_Terminate)]
 
 ミドルウェアの処理を呼び出していない`Invoke`パイプラインの次のミドルウェアにします。 以前 middlewares は応答により、パイプラインから戻るときにも呼び出されるために、要求を終了これは完全に留意してください。
 
-[!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyTerminatingMiddleware.cs?highlight=7,8&name=snippet_Terminate)]
+[!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyTerminatingMiddleware.cs?highlight=7,8&name=snippet_Terminate)]
 
 新しいミドルウェアにモジュールの機能を移行する場合がありますので、コードをコンパイルできないこと、`HttpContext`クラスが ASP.NET Core で大幅に変更します。 [後で](#migrating-to-the-new-httpcontext)、新規の ASP.NET Core HttpContext に移行する方法について説明します。
 
@@ -119,11 +119,11 @@ ASP.NET Core ミドルウェアを前に、最初に要約 HTTP モジュール�
 
 HTTP モジュールが、要求を使用してパイプラインに追加されます通常*Web.config*:
 
-[!code-xml[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Web.config?highlight=6&range=1-3,32-33,36,43,50,101)]
+[!code-xml[](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Web.config?highlight=6&range=1-3,32-33,36,43,50,101)]
 
 これによって変換[新しいミドルウェアを追加する](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder)要求パイプラインへ、`Startup`クラス。
 
-[!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=16)]
+[!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=16)]
 
 新しいミドルウェアを挿入するパイプラインで正確なスポットは、モジュールとして処理するイベントによって異なります (`BeginRequest`、`EndRequest`など) とその順序内のモジュールの一覧で、 *Web.config*です。
 
@@ -135,11 +135,11 @@ HTTP モジュールが、要求を使用してパイプラインに追加され
 
 HTTP ハンドラーでは、次のようになります。
 
-[!code-csharp[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/HttpHandlers/ReportHandler.cs?highlight=5,7,13,14,15,16)]
+[!code-csharp[](../migration/http-modules/sample/Asp.Net4/Asp.Net4/HttpHandlers/ReportHandler.cs?highlight=5,7,13,14,15,16)]
 
 ASP.NET Core のプロジェクトで次のようなミドルウェアをこの変換は。
 
-[!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/ReportHandlerMiddleware.cs?highlight=7,9,13,20,21,22,23,40,42,44)]
+[!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/ReportHandlerMiddleware.cs?highlight=7,9,13,20,21,22,23,40,42,44)]
 
 このミドルウェアは、モジュールに対応するミドルウェアに非常に似ています。 唯一の違いはここでは呼び出されずに`_next.Invoke(context)`です。 ハンドラーは、要求パイプラインの最後があるためありません次のミドルウェアを呼び出すため理にかなっています。
 
@@ -147,15 +147,15 @@ ASP.NET Core のプロジェクトで次のようなミドルウェアをこの�
 
 行われる HTTP ハンドラーを構成する*Web.config*し、次のようになります。
 
-[!code-xml[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Web.config?highlight=6&range=1-3,32,46-48,50,101)]
+[!code-xml[](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Web.config?highlight=6&range=1-3,32,46-48,50,101)]
 
 要求パイプラインへの新しいハンドラー ミドルウェアを追加することで、これを変換することも、`Startup`クラス、モジュールから変換されたミドルウェアに似ています。 その方法を使った問題は、新しいハンドラー ミドルウェアにすべての要求が送信します。 ただし、ミドルウェアに指定された拡張子を持つ要求を送信するだけです。 同じの機能を提供する、HTTP ハンドラーを持つ必要があります。
 
 特定の拡張機能と要求パイプラインを分岐するのには、1 つのソリューションを使用して、`MapWhen`拡張メソッド。 こうと、同じ`Configure`他のミドルウェアを追加する方法。
 
-[!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=27-34)]
+[!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=27-34)]
 
-`MapWhen`これらのパラメーターを受け取ります。
+`MapWhen` これらのパラメーターを受け取ります。
 
 1. 受け取るラムダ、`HttpContext`し、返します`true`場合は、要求が、分岐を移動する必要があります。 これは、要求だけでなく、その拡張機能が、要求ヘッダー、クエリ文字列パラメーターなどを基に分岐することを意味します。
 
@@ -175,13 +175,13 @@ ASP.NET Core のプロジェクトで次のようなミドルウェアをこの�
 
 1.  たとえば、ミドルウェアのオプションを保持するクラスを作成します。
 
-    [!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Options)]
+    [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Options)]
 
 2.  オプションの値を格納します。
 
     構成システムでは、オプション値任意の場所を格納することができます。 ただし、使用を最もサイト*される appsettings.json*ので、その方法を詳しく説明します。
 
-    [!code-json[Main](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,14-18)]
+    [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,14-18)]
 
     *MyMiddlewareOptionsSection*セクション名を次に示します。 オプション クラスの名前と同じである必要はありません。
 
@@ -193,19 +193,19 @@ ASP.NET Core のプロジェクトで次のようなミドルウェアをこの�
 
     1.  使用する場合*される appsettings.json*、ビルダーでは、構成を追加、`Startup`コンス トラクター。
 
-      [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Ctor&highlight=5-6)]
+      [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Ctor&highlight=5-6)]
 
     2.  オプションのサービスを構成します。
 
-      [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_ConfigureServices&highlight=4)]
+      [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_ConfigureServices&highlight=4)]
 
     3.  オプション クラスと、オプションを関連付けます。
 
-      [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_ConfigureServices&highlight=6-8)]
+      [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_ConfigureServices&highlight=6-8)]
 
 4.  ミドルウェア コンス トラクターにオプションを挿入します。 これは、コント ローラーにオプションを挿入することに似ています。
 
-  [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_MiddlewareWithParams&highlight=4,7,10,15-16)]
+  [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_MiddlewareWithParams&highlight=4,7,10,15-16)]
 
   [UseMiddleware](#http-modules-usemiddleware) 、ミドルウェアに追加する拡張メソッド、`IApplicationBuilder`依存関係の挿入を行います。
 
@@ -223,15 +223,15 @@ ASP.NET Core のプロジェクトで次のようなミドルウェアをこの�
 
     2 番目のオプションのセットを追加する、*される appsettings.json*ファイルを新しいキーを使用して一意に識別できるを。
 
-    [!code-json[Main](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,10-18&highlight=2-5)]
+    [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,10-18&highlight=2-5)]
 
 2.  オプションの値を取得し、ミドルウェアに渡したりします。 `Use...` (パイプラインにミドルウェアを追加) する拡張メソッドは、オプションの値で渡す論理的な場所。 
 
-    [!code-csharp[Main](http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=20-23)]
+    [!code-csharp[](http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=20-23)]
 
 4.  ミドルウェアのオプション パラメーターを受け取ることを有効にします。 オーバー ロードを提供、`Use...`拡張メソッド (オプション パラメーターを使用してに渡します`UseMiddleware`)。 ときに`UseMiddleware`が呼び出されたパラメーターを持つパラメーターに渡して、ミドルウェア コンス トラクター ミドルウェア オブジェクトをインスタンス化時にします。
 
-    [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Extensions&highlight=9-14)]
+    [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Extensions&highlight=9-14)]
 
     オプション オブジェクトをラップするこの方法に注意してください、`OptionsWrapper`オブジェクト。 これは、手順で実装`IOptions`ミドルウェア コンス トラクターが予期するとおり、します。
 
@@ -243,76 +243,76 @@ ASP.NET Core のプロジェクトで次のようなミドルウェアをこの�
 public async Task Invoke(HttpContext context)
 ```
 
-`HttpContext`ASP.NET Core で大幅に変更されました。 このセクションでは、の最も一般的に使用されるプロパティに変換する方法を示しています。 [System.Web.HttpContext](https://docs.microsoft.com/dotnet/api/system.web.httpcontext)を新しい`Microsoft.AspNetCore.Http.HttpContext`です。
+`HttpContext` ASP.NET Core で大幅に変更されました。 このセクションでは、の最も一般的に使用されるプロパティに変換する方法を示しています。 [System.Web.HttpContext](https://docs.microsoft.com/dotnet/api/system.web.httpcontext)を新しい`Microsoft.AspNetCore.Http.HttpContext`です。
 
 ### <a name="httpcontext"></a>HttpContext
 
 **HttpContext.Items**に変換されます。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Items)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Items)]
 
 **一意の要求 ID (System.Web.HttpContext 対応はありません)**
 
 使用する一意の id 要求ごとにできます。 ログに記録に非常に便利です。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Trace)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Trace)]
 
 ### <a name="httpcontextrequest"></a>HttpContext.Request
 
 **HttpContext.Request.HttpMethod**に変換されます。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Method)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Method)]
 
 **HttpContext.Request.QueryString**に変換されます。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Query)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Query)]
 
 **HttpContext.Request.Url**と**HttpContext.Request.RawUrl**に変換します。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Url)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Url)]
 
 **HttpContext.Request.IsSecureConnection**に変換されます。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Secure)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Secure)]
 
 **HttpContext.Request.UserHostAddress**に変換されます。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Host)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Host)]
 
 **HttpContext.Request.Cookies**に変換されます。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Cookies)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Cookies)]
 
 **HttpContext.Request.RequestContext.RouteData** translates to:
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Route)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Route)]
 
 **HttpContext.Request.Headers**に変換されます。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Headers)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Headers)]
 
 **HttpContext.Request.UserAgent**に変換されます。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Agent)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Agent)]
 
 **HttpContext.Request.UrlReferrer**に変換されます。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Referrer)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Referrer)]
 
 **HttpContext.Request.ContentType** translates to:
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Type)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Type)]
 
 **HttpContext.Request.Form**に変換されます。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Form)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Form)]
 
 > [!WARNING]
 > コンテンツのサブタイプが場合にのみ、フォームの値を読み取る*x-www-form-urlencoded*または*フォーム データ*です。
 
 **HttpContext.Request.InputStream**に変換されます。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Input)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Input)]
 
 > [!WARNING]
 > パイプラインの最後のハンドラー型ミドルウェアでのみ、このコードを使用します。
@@ -325,19 +325,19 @@ public async Task Invoke(HttpContext context)
 
 **HttpContext.Response.Status**と**HttpContext.Response.StatusDescription**に変換します。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Status)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Status)]
 
 **HttpContext.Response.ContentEncoding**と**HttpContext.Response.ContentType**に変換します。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_RespType)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_RespType)]
 
 **HttpContext.Response.ContentType**でそれ自体にも変換します。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_RespTypeOnly)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_RespTypeOnly)]
 
 **HttpContext.Response.Output**に変換されます。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Output)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Output)]
 
 **HttpContext.Response.TransmitFile**
 
@@ -360,7 +360,7 @@ public async Task Invoke(HttpContext httpContext)
 
 `SetHeaders`コールバック メソッドは次のようになります。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_SetHeaders)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_SetHeaders)]
 
 **HttpContext.Response.Cookies**
 
@@ -376,7 +376,7 @@ public async Task Invoke(HttpContext httpContext)
 
 `SetCookies`コールバック メソッドは、次のようになります。
 
-[!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_SetCookies)]
+[!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_SetCookies)]
 
 ## <a name="additional-resources"></a>その他の技術情報
 

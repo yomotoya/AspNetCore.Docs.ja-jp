@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: f091370bc85a37eeaac1291a2fdc6ea85164f148
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0a3443e8187d46992f55dc537d0f400c6771c50c
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>ASP.NET Core で Gulp を使用の概要 
 
@@ -204,7 +204,7 @@ gulp.task("min", ["min:js", "min:css"]);
 </Target>
 ```
 
-Visual Studio でまたはを使用して、コマンド プロンプトから、プロジェクトを実行するときに clean タスクが実行されるようになりました、`dotnet run`コマンド (実行`npm install`最初)。
+Visual Studio でまたはを使用して、コマンド プロンプトから、プロジェクトを実行するときに clean タスクが実行されるようになりました、[実行 dotnet](/dotnet/core/tools/dotnet-run)コマンド (実行`npm install`最初)。
 
 ## <a name="defining-and-running-a-new-task"></a>定義して、新しいタスクを実行します。
 

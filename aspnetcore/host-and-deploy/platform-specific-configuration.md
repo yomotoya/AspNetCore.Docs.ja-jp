@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/platform-specific-configuration
-ms.openlocfilehash: 2663cd1e05be9e8695966df959082e6e574d0b4a
-ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
+ms.openlocfilehash: c36b8acd6f7fcb4e4d11e43013ccaf5ca6d1b0ab
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-app-features-using-a-platform-specific-configuration-in-aspnet-core"></a>ASP.NET Core のプラットフォーム固有の構成を使用してアプリ機能を追加します。
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/15/2018
 
 サンプル アプリの読み取り、 [HostingStartupAssembliesKey](/dotnet/api/microsoft.aspnetcore.hosting.webhostdefaults.hostingstartupassemblieskey)に、`string`配列し、アプリのインデックス ページに結果を表示します。
 
-[!code-csharp[Main](platform-specific-configuration/sample/HostingStartupSample/Pages/Index.cshtml.cs?name=snippet1&highlight=14-16)]
+[!code-csharp[](platform-specific-configuration/sample/HostingStartupSample/Pages/Index.cshtml.cs?name=snippet1&highlight=14-16)]
 
 ## <a name="disable-automatic-loading-of-hosting-startup-assemblies"></a>ホストしているスタートアップ アセンブリの自動読み込みを無効にします。
 
@@ -49,19 +49,19 @@ ms.lasthandoff: 02/15/2018
 
 `IHostingStartup`機能は、エントリ ポイントがないコンソール アプリに基づいて、アセンブリとして展開します。 アセンブリ参照、 [Microsoft.AspNetCore.Hosting.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.Abstractions/)パッケージ。
 
-[!code-xml[Main](platform-specific-configuration/snapshot_sample/StartupFeature.csproj)]
+[!code-xml[](platform-specific-configuration/snapshot_sample/StartupFeature.csproj)]
 
 A [HostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.hostingstartupattribute)属性の実装としてクラスを識別する`IHostingStartup`を読み込み、構築するときに実行、 [IWebHost](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost)です。 名前空間は、次の例では、 `StartupFeature`、クラスと`StartupFeatureHostingStartup`:
 
-[!code-csharp[Main](platform-specific-configuration/snapshot_sample/StartupFeature.cs?name=snippet1)]
+[!code-csharp[](platform-specific-configuration/snapshot_sample/StartupFeature.cs?name=snippet1)]
 
 クラスを実装する`IHostingStartup`です。 クラスの[構成](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure)メソッドを使用、 [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)アプリに機能を追加します。
 
-[!code-csharp[Main](platform-specific-configuration/snapshot_sample/StartupFeature.cs?name=snippet2&highlight=3,5)]
+[!code-csharp[](platform-specific-configuration/snapshot_sample/StartupFeature.cs?name=snippet2&highlight=3,5)]
 
 作成するときに、`IHostingStartup`プロジェクト、依存関係ファイル (*\*. deps.json*) 設定、`runtime`するアセンブリの場所、 *bin*フォルダー。
 
-[!code-json[Main](platform-specific-configuration/snapshot_sample/StartupFeature1.deps.json?range=2-13&highlight=8)]
+[!code-json[](platform-specific-configuration/snapshot_sample/StartupFeature1.deps.json?range=2-13&highlight=8)]
 
 ファイルの一部のみが表示されます。 例では、アセンブリ名が`StartupFeature`です。
 
@@ -69,7 +69,7 @@ A [HostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.hostingstartupattrib
 
 実行時の位置、  *\*. deps.json*ファイル。 アクティブな機能を`runtime`要素は、機能のランタイム アセンブリの場所を指定する必要があります。 プレフィックス、`runtime`場所`lib/netcoreapp2.0/`:
 
-[!code-json[Main](platform-specific-configuration/snapshot_sample/StartupFeature2.deps.json?range=2-13&highlight=8)]
+[!code-json[](platform-specific-configuration/snapshot_sample/StartupFeature2.deps.json?range=2-13&highlight=8)]
 
 サンプル アプリでの変更、  *\*. deps.json*はファイルの実行によって、 [PowerShell](/powershell/scripting/powershell-scripting)スクリプト。 PowerShell スクリプトはプロジェクト ファイルでビルド ターゲットによって自動的にトリガーされます。
 

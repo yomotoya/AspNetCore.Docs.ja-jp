@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: c229537e7f533eea2173dbc51b8d0d0e097d434a
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: f6efd838d7b6c837c75f36591a49eab812f9d54c
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>ASP.NET Core アプリケーションの Windows 認証を構成します。
 
@@ -56,7 +56,7 @@ Visual Studio プロジェクト**プロパティ**ページの**デバッグ** 
 
 ## <a name="enable-windows-authentication-with-iis"></a>IIS での Windows 認証を有効にします。
 
-IIS を使用して、 [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)ASP.NET Core アプリケーションをホストするには、(ANCM)。 ANCM フロー Windows 認証を IIS に既定でします。 Windows 認証の構成については、アプリケーション プロジェクトではなく、IIS 内で実行します。 次のセクションでは、IIS マネージャーを使用して、Windows 認証を使用する ASP.NET Core アプリケーションを構成する方法を示します。
+IIS を使用して、 [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)ASP.NET Core アプリケーションをホストします。 モジュール フロー Windows 認証を IIS に既定でします。 Windows 認証は、アプリケーションではなく、IIS で構成されます。 次のセクションでは、IIS マネージャーを使用して、Windows 認証を使用する ASP.NET Core アプリケーションを構成する方法を示します。
 
 ### <a name="create-a-new-iis-site"></a>新しい IIS サイトを作成します。
 
@@ -113,7 +113,7 @@ Windows 認証と匿名アクセスの両方が有効になっているときに
 ASP.NET Core で 2.x、`[Authorize]`属性で追加の構成が必要です。 *Startup.cs* Windows 認証の匿名要求を身にします。 推奨される構成によって若干異なります、web サーバーが使用されています。
 
 > [!NOTE]
-> 既定では、空白のドキュメント ページにアクセスするための承認を持たないユーザーが表示されます。 [StatusCodePages ミドルウェア](xref:fundamentals/error-handling#configuring-status-code-pages)ユーザー エクスペリエンスを向上させる「アクセス拒否」に提供するように構成できます。
+> 既定では、空の HTTP 403 応答ページにアクセスするための承認を持たないユーザーが表示されます。 [StatusCodePages ミドルウェア](xref:fundamentals/error-handling#configuring-status-code-pages)ユーザー エクスペリエンスを向上させる「アクセス拒否」に提供するように構成できます。
 
 #### <a name="iis"></a>IIS
 

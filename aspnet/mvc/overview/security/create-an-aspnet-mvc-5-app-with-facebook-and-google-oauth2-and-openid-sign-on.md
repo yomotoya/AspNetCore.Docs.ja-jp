@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: ccf4329e6684d07570bfaabfaa1a570664fb2ca3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8dc2221ea19a33f1d34ba3aae8c60e365423e140
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook、Twitter、LinkedIn および Google OAuth2 サイン オン (c#) で ASP.NET MVC 5 アプリを作成します。
 ====================
@@ -114,6 +114,9 @@ Google、Facebook などの認証プロバイダーに接続するには、SSL �
 <a id="goog"></a>
 ## <a name="creating-a-google-app-for-oauth-2-and-connecting-the-app-to-the-project"></a>OAuth 2 では、Google のアプリを作成して、プロジェクトに、アプリを接続します。
 
+> [!WARNING]
+> 現在の Google OAuth 手順では、次を参照してください。 [ASP.NET Core の構成の Google 認証](/aspnet/core/security/authentication/social/google-logins)です。
+
 1. 移動し、 [Google Developers Console](https://console.developers.google.com/)です。
 1. 前にプロジェクトを作成していない場合は、選択**資格情報**クリックし、左側のタブで**作成**です。
 1. 左側のタブをクリックして**資格情報**です。
@@ -158,6 +161,9 @@ Google、Facebook などの認証プロバイダーに接続するには、SSL �
 
 <a id="fb"></a>
 ## <a name="creating-the-app-in-facebook-and-connecting-the-app-to-the-project"></a>Facebook でアプリを作成し、プロジェクトに、アプリを接続します。
+
+> [!WARNING]
+> 現在の Facebook の OAuth2 認証手順では、次を参照してください[を構成する Facebook 認証。](/aspnet/core/security/authentication/social/facebook-logins)
 
 Facebook の OAuth2 認証では、Facebook で作成したアプリケーションから一部の設定をプロジェクトにコピーする必要があります。
 

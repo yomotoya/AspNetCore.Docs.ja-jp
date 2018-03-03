@@ -12,25 +12,26 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 103cd68c576463d87d0077cc149f9b89c6e028e8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 639815cc92b7cb5f3dfb4e1a198f6b4c2476dc90
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 のカスタム アクション フィルター
-====================
+# <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 のカスタム アクション フィルター
+
 によって[Web キャンプ チーム](https://twitter.com/webcamps)
 
-> ASP.NET MVC には、事前にまたはアクション メソッドが呼び出された後にフィルタ リング ロジックを実行するためのアクション フィルターが用意されています。 アクション フィルターは、コント ローラーのアクション メソッドにアクション前とアクション後の動作を追加する宣言型の手段を提供するカスタム属性です。
-> 
-> このハンズオン ラボでは、コント ローラーの要求をキャッチし、データベース テーブルに、サイトの操作をログ記録を MvcMusicStore ソリューションにカスタム アクション フィルター属性を作成します。 任意のコント ローラーまたはアクションをインジェクションして、ログ記録フィルターを追加することができます。 最後に、ユーザーの一覧を示すログ ビューが表示されます。
-> 
-> > [!NOTE]
-> > このハンズオン ラボは、の基本的な知識がある前提としています。 **ASP.NET MVC**です。 使用していない場合**ASP.NET MVC**経由で移動する前をお勧め**ASP.NET MVC 4 基礎**ハンズオン ラボ。
+[Web キャンプ トレーニング キットをダウンロードします。](https://aka.ms/webcamps-training-kit)
 
+ASP.NET MVC には、事前にまたはアクション メソッドが呼び出された後にフィルタ リング ロジックを実行するためのアクション フィルターが用意されています。 アクション フィルターは、コント ローラーのアクション メソッドにアクション前とアクション後の動作を追加する宣言型の手段を提供するカスタム属性です。
 
-<a id="Objectives"></a>
+このハンズオン ラボでは、コント ローラーの要求をキャッチし、データベース テーブルに、サイトの操作をログ記録を MvcMusicStore ソリューションにカスタム アクション フィルター属性を作成します。 任意のコント ローラーまたはアクションをインジェクションして、ログ記録フィルターを追加することができます。 最後に、ユーザーの一覧を示すログ ビューが表示されます。
+
+このハンズオン ラボは、の基本的な知識がある前提としています。 **ASP.NET MVC**です。 使用していない場合**ASP.NET MVC**経由で移動する前をお勧め**ASP.NET MVC 4 基礎**ハンズオン ラボ。
+
+> [!NOTE]
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[Microsoft の Web/WebCampTrainingKit リリース](https://aka.ms/webcamps-training-kit)です。 このラボに固有のプロジェクトは[ASP.NET MVC 4 のカスタム アクション フィルター](https://github.com/Microsoft-Web/HOL-MVC4CustomActionFilters)です。
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>目的
@@ -332,7 +333,7 @@ ms.lasthandoff: 01/24/2018
 1. **StoreController**クラス、削除**[MyNewCustomActionFilter]**属性と元の order プロパティ**[CustomActionFilter]**です。 次のようになります。
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample13.cs)]
-2. 開いている**Global.asax**ファイルし、検索、**アプリケーション\_開始**メソッドです。 呼び出して各 thime アプリケーションが開始されることに注意してくださいがグローバル フィルターを登録する**RegisterGlobalFilters**メソッド内で**FilterConfig**クラスです。
+2. 開いている**Global.asax**ファイルし、検索、**アプリケーション\_開始**メソッドです。 呼び出してグローバル フィルターを登録するたびに、アプリケーションが開始されることに注意してください**RegisterGlobalFilters**メソッド内で**FilterConfig**クラスです。
 
     ![Global.asax でグローバル フィルターを登録する](aspnet-mvc-4-custom-action-filters/_static/image10.png "Global.asax でグローバル フィルターを登録します。")
 
@@ -484,12 +485,12 @@ ms.lasthandoff: 01/24/2018
 
     ![クライアントの IP アドレスを追加します。](aspnet-mvc-4-custom-action-filters/_static/image27.png)
 
-    *クライアントの IP アドレスを追加します。*
+    クライアントの IP アドレスを追加します。
 3. 1 回、**クライアント IP アドレス**が許可される IP アドレスに追加一覧で、をクリックして**保存**変更を確認します。
 
     ![変更を確認します。](aspnet-mvc-4-custom-action-filters/_static/image28.png)
 
-    *変更を確認します。*
+    変更を確認します。
 
 <a id="ApxBTask3"></a>
 

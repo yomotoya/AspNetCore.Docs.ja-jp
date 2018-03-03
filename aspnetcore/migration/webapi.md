@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 6325bdf602485b42d8193a05ede00ae275bf0a90
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9eb5f4dfec82ec1c60d33bff94d35857a4c0cfd6
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrating-from-aspnet-web-api"></a>ASP.NET Web API からの移行
 
-によって[Steve Smith](https://ardalis.com/)と[Scott Addie](https://scottaddie.com)
+作成者: [Steve Smith](https://ardalis.com/)、[Scott Addie](https://scottaddie.com)
 
 Web Api は、さまざまなブラウザーやモバイル デバイスを含む、クライアントに到達する HTTP サービスです。 ASP.NET Core MVC には、1 つ、一貫性のある web アプリケーションの構築方法を提供する Web Api を構築するためのサポートが含まれています。 この記事では、ASP.NET Web API から ASP.NET Core MVC に Web API の実装を移行するために必要な手順について説明します。
 
@@ -29,22 +29,22 @@ Web Api は、さまざまなブラウザーやモバイル デバイスを含�
 
 *Global.asax.cs*への呼び出しが行われた`WebApiConfig.Register`:
 
-[!code-csharp[Main](../migration/webapi/sample/ProductsApp/Global.asax.cs?highlight=14)]
+[!code-csharp[](../migration/webapi/sample/ProductsApp/Global.asax.cs?highlight=14)]
 
-`WebApiConfig`定義された*App_Start*であり、1 つの静的`Register`メソッド。
+`WebApiConfig` 定義された*App_Start*であり、1 つの静的`Register`メソッド。
 
-[!code-csharp[Main](../migration/webapi/sample/ProductsApp/App_Start/WebApiConfig.cs?highlight=15,16,17,18,19,20)]
+[!code-csharp[](../migration/webapi/sample/ProductsApp/App_Start/WebApiConfig.cs?highlight=15,16,17,18,19,20)]
 
 
 このクラスを構成[属性がルーティング](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)は実際には、プロジェクトで使用されていますが、します。 また、ASP.NET Web API によって使用される、ルーティング テーブルを構成します。 ASP.NET Web API が形式と一致する Url を期待するこの例では、 */api/{controller}/{id}*で*{id}*される省略可能です。
 
 *ProductsApp*プロジェクトに含まれる 1 つだけ単純なコント ローラーから継承される`ApiController`と 2 つのメソッドを公開します。
 
-[!code-csharp[Main](../migration/webapi/sample/ProductsApp/Controllers/ProductsController.cs?highlight=19,24)]
+[!code-csharp[](../migration/webapi/sample/ProductsApp/Controllers/ProductsController.cs?highlight=19,24)]
 
 最後に、次のようなモデルがあると、*製品*で使用される、 *ProductsApp*、単純なクラスには。
 
-[!code-csharp[Main](webapi/sample/ProductsApp/Models/Product.cs)]
+[!code-csharp[](webapi/sample/ProductsApp/Models/Product.cs)]
 
 これでが単純なプロジェクトから起動するときに、ASP.NET Core MVC にこの Web API プロジェクトを移行する方法について説明します。
 
@@ -66,11 +66,11 @@ Visual Studio を使用して、新しい、空のソリューションを作成
 
 ASP.NET Core を使用しない*Global.asax*、 *web.config*、または*App_Start*フォルダーです。 すべてのスタートアップ タスクを実行する代わりに、 *Startup.cs* 、プロジェクトのルートで (を参照してください[アプリケーションの起動](../fundamentals/startup.md))。 ASP.NET Core mvc で属性ベースのルーティングはここで既定で含まれてとき`UseMvc()`が呼び出されます。 および、この Web API ルートを構成するための推奨アプローチです (とは、Web API のスタート プロジェクトがルーティングを処理する方法)。
 
-[!code-none[Main](../migration/webapi/sample/ProductsCore/Startup.cs?highlight=40)]
+[!code-none[](../migration/webapi/sample/ProductsCore/Startup.cs?highlight=40)]
 
 属性は、プロジェクトの今後のルーティングを使用すると仮定した場合、追加の構成は必要ありません。 サンプルで行われるように、コント ローラーとアクションに必要な属性を適用`ValuesController`Web API のスタート プロジェクトに含まれているクラス。
 
-[!code-csharp[Main](../migration/webapi/sample/ProductsCore/Controllers/ValuesController.cs?highlight=9,13,20,27,33,39)]
+[!code-csharp[](../migration/webapi/sample/ProductsCore/Controllers/ValuesController.cs?highlight=9,13,20,27,33,39)]
 
 存在することに注意してください*[コント ローラー]* 8 行です。 これで属性ベースのルーティングをサポートしている特定のトークンなど*[コント ローラー]*と*[アクション]*です。 これらのトークンは置き換えられます実行時に、コント ローラーまたはアクションの名前でそれぞれ、属性が適用されています。 これには、プロジェクトのマジック文字列の数を減らすし、ルート保持される自動名前の変更リファクタリングを適用するときに、対応するコント ローラーとアクションで同期されていることを確認します。
 
@@ -113,7 +113,7 @@ ASP.NET Core を使用しない*Global.asax*、 *web.config*、または*App_Sta
 
 これらの変更が加えられた未使用ステートメントを使用して削除を移行された*ProductsController*クラスは、次のようになります。
 
-[!code-csharp[Main](../migration/webapi/sample/ProductsCore/Controllers/ProductsController.cs?highlight=1,2,6,8,9,27)]
+[!code-csharp[](../migration/webapi/sample/ProductsCore/Controllers/ProductsController.cs?highlight=1,2,6,8,9,27)]
 
 移行されたプロジェクトを実行しを参照することができます*/api 製品*; し、3 つの製品の完全な一覧を表示する必要があります。 参照*/api/products/1*と最初の製品を表示する必要があります。
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: 636077ea21581716308384ebf8d47c1e417a256a
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: dc320faf0048200412f131ea816f33f29ac023e1
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="enforcing-https-in-an-aspnet-core-app"></a>ASP.NET Core アプリケーションで HTTPS を適用します。
 
@@ -25,20 +25,20 @@ ms.lasthandoff: 02/11/2018
 - すべての HTTP 要求を HTTPS にリダイレクトします。
 
 > [!WARNING]
-> 操作を行います**いない**使用`RequireHttpsAttribute`機密情報を受信する Web Api にします。 `RequireHttpsAttribute`HTTP ステータス コードを使用して、HTTP から HTTPS へのブラウザーをリダイレクトします。 API クライアントの理解または HTTP から HTTPS へのリダイレクトに従うことがありますできません。 このようなクライアントは、HTTP 経由で情報を送信することがあります。 Web Api には、する必要があります。
+> 操作を行います**いない**使用`RequireHttpsAttribute`機密情報を受信する Web Api にします。 `RequireHttpsAttribute` HTTP ステータス コードを使用して、HTTP から HTTPS へのブラウザーをリダイレクトします。 API クライアントの理解または HTTP から HTTPS へのリダイレクトに従うことがありますできません。 このようなクライアントは、HTTP 経由で情報を送信することがあります。 Web Api には、する必要があります。
 >
 >* HTTP をリッスンしません。
 >* ステータス コード 400 (Bad Request) との接続を閉じていない要求を処理します。
 
 ## <a name="require-https"></a>HTTPS が必要
 
-[RequireHttpsAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.RequireHttpsAttribute) HTTPS を要求するために使用します。 `[RequireHttpsAttribute]`装飾できるは、メソッドまたはコント ローラーまたはグローバルに適用することができます。 属性をグローバルに適用するには、次のコードを追加`ConfigureServices`で`Startup`:
+[RequireHttpsAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.RequireHttpsAttribute) HTTPS を要求するために使用します。 `[RequireHttpsAttribute]` 装飾できるは、メソッドまたはコント ローラーまたはグローバルに適用することができます。 属性をグローバルに適用するには、次のコードを追加`ConfigureServices`で`Startup`:
 
-[!code-csharp[Main](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet2&highlight=4-999)]
+[!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet2&highlight=4-999)]
 
 前の強調表示されたコードでは、すべての要求を使用して`HTTPS`です。 そのため、HTTP 要求は無視されます。 次の強調表示されたコードは、すべての HTTP 要求を HTTPS にリダイレクトします。
 
-[!code-csharp[Main](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
+[!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
 
 詳細については、次を参照してください。 [URL 書き換えミドルウェア](xref:fundamentals/url-rewriting)です。
 

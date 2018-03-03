@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: 4a5f14e11de6ed91f67808c3ea8c78a7b1d43b03
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 8c28f1b4f66433eaebd9e474e784ecf3f1ac271b
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="integration-testing-in-aspnet-core"></a>ASP.NET Core でのテストの統合
 
-によって[Steve Smith](https://ardalis.com/)
+作成者: [Steve Smith](https://ardalis.com/)
 
-統合テストにより、一緒にアセンブルときに、アプリケーションのコンポーネントが正しく動作します。 ASP.NET Core サポート統合が単体テスト フレームワークと、ネットワークのオーバーヘッドが要求を処理するために使用する組み込みのテストの web ホストを使用してテストします。
+統合テストにより、一緒にアセンブルときに、アプリケーションのコンポーネントが正しく動作します。 ASP.NET Core は、単体テスト フレームワークと組み込みのテスト Web ホストを使用した統合テストをサポートします。これは、ネットワークのオーバーヘッドなしで要求を処理するために使用できます。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/testing/integration-testing/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
@@ -47,7 +47,7 @@ ASP.NET Core には、統合テスト プロジェクトに追加することが
 
 1 回、`Microsoft.AspNetCore.TestHost`パッケージがプロジェクトに含まれる、作成および構成することができます、`TestServer`テストにします。 次のテストは、サイトのルートへの要求が"Hello World!"を返すことを確認する方法を示しています。 必要が正常に実行の既定値に対する Visual Studio によって作成された ASP.NET Core の空の Web テンプレート。
 
-[!code-csharp[Main](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebDefaultRequestShould.cs?name=snippet_WebDefault&highlight=7,16,22)]
+[!code-csharp[](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebDefaultRequestShould.cs?name=snippet_WebDefault&highlight=7,16,22)]
 
 このテストでは、配置 Act アサート パターンを使用しています。 配置手順のインスタンスを作成するコンス トラクターで行われます`TestServer`です。 構成`WebHostBuilder`作成に使用される、`TestHost`以外の場合は、この例では、 `Configure` (SUT) をテスト対象システムからメソッド`Startup`クラスに渡される、`WebHostBuilder`です。 このメソッドの要求パイプラインの構成に使用する、 `TestServer` SUT サーバーの構成方法とまったく同様にします。
 
@@ -55,7 +55,7 @@ ASP.NET Core には、統合テスト プロジェクトに追加することが
 
 これで、web アプリケーションを使用して素数のチェック機能が動作することを確認するいくつかの他の統合テストを追加することができます。
 
-[!code-csharp[Main](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebCheckPrimeShould.cs?name=snippet_CheckPrime)]
+[!code-csharp[](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebCheckPrimeShould.cs?name=snippet_CheckPrime)]
 
 これらのテストを使用して、素数チェッカーの正確性をテストに実際にはしようとしていることではなく、web アプリケーションが期待どおりに表示を行う際に注意します。 得られるように信頼度で単体テスト カバレッジが既にある`PrimeService`、ここで確認できます。
 
@@ -134,13 +134,13 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 > [!NOTE]
 > ミドルウェアが異なりますので、`PrimeService`サービスは、コンス トラクターでは、このサービスのインスタンスを要求してもします。 このフレームワークは経由でこのサービスを提供[依存性の注入](xref:fundamentals/dependency-injection)に構成されているの例の場合を想定して`ConfigureServices`です。
 
-[!code-csharp[Main](../testing/integration-testing/sample/src/PrimeWeb/Middleware/PrimeCheckerMiddleware.cs?highlight=39-63)]
+[!code-csharp[](../testing/integration-testing/sample/src/PrimeWeb/Middleware/PrimeCheckerMiddleware.cs?highlight=39-63)]
 
 呼び出しがないため、このミドルウェアは、そのパスが一致するときに、要求のデリゲートのチェーン内のエンドポイントとして機能、`_next.Invoke`このミドルウェアは要求を処理します。
 
 設定され、いくつか便利な拡張メソッドをより簡単に構成するために作成、リファクタリングされたこのミドルウェア`Configure`メソッドは、次のようになります。
 
-[!code-csharp[Main](../testing/integration-testing/sample/src/PrimeWeb/Startup.cs?highlight=9&range=19-33)]
+[!code-csharp[](../testing/integration-testing/sample/src/PrimeWeb/Startup.cs?highlight=9&range=19-33)]
 
 このリファクタリング後、web アプリケーションも動作する前とに、、統合テストにすべて合格ため確実に把握しています。
 

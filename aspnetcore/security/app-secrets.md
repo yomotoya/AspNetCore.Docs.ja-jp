@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 337782a0530a37916b04aa562174b5921ddbc46b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 489c53c066af87e02e43ab0b42b0712d80d5ee5a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>アプリ シークレットは、ASP.NET Core での開発時の安全な格納場所
 
@@ -45,11 +45,11 @@ ms.lasthandoff: 01/30/2018
 
 ソリューション エクスプ ローラーでプロジェクトを右クリックし **編集\<project_name\>.csproj**コンテキスト メニュー。 強調表示された行を追加、 *.csproj*ファイル、および関連付けられている NuGet パッケージを復元する保存します。
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
 ソリューション エクスプ ローラーでプロジェクトを再度右クリックし、選択**管理ユーザーの機密情報**コンテキスト メニュー。 このジェスチャが新しく追加`UserSecretsId`内のノード、`PropertyGroup`の*.csproj*次の例に示すように、ファイル。
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
 保存、変更された*.csproj*ファイルも開きます、`secrets.json`ファイル テキスト エディターでします。 内容を置き換える、`secrets.json`を次のコード ファイル。
 
@@ -61,9 +61,9 @@ ms.lasthandoff: 01/30/2018
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-追加`Microsoft.Extensions.SecretManager.Tools`を*.csproj*ファイル実行して`dotnet restore`です。 同じ手順を使用するのコマンドラインを使用して、シークレット マネージャー ツールをインストールします。
+追加`Microsoft.Extensions.SecretManager.Tools`を*.csproj*ファイル実行して[dotnet 復元](/dotnet/core/tools/dotnet-restore)です。 同じ手順を使用するのコマンドラインを使用して、シークレット マネージャー ツールをインストールします。
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
 次のコマンドを実行して、シークレット マネージャー ツールをテストします。
 
@@ -80,7 +80,7 @@ dotnet user-secrets -h
 
 追加、`UserSecretsId`に、プロジェクトの*.csproj*ファイル。
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
 シークレット マネージャー ツールを使用すると、機密情報を設定します。 たとえば、コマンド ウィンドウで、プロジェクト ディレクトリから、次のように入力します。
 
@@ -100,25 +100,25 @@ dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\w
 
 ## <a name="accessing-user-secrets-via-configuration"></a>構成を使用してユーザーの機密情報にアクセスします。
 
-構成システムを介したシークレット Manager の機密情報にアクセスします。 追加、`Microsoft.Extensions.Configuration.UserSecrets`パッケージ化し、実行`dotnet restore`です。
+構成システムを介したシークレット Manager の機密情報にアクセスします。 追加、`Microsoft.Extensions.Configuration.UserSecrets`パッケージ化し、実行[dotnet 復元](/dotnet/core/tools/dotnet-restore)です。
 
 ユーザーの機密情報の構成ソースを追加、`Startup`メソッド。
 
-[!code-csharp[Main](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
+[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
 
 構成 API を使用してユーザーの機密情報にアクセスすることができます。
 
-[!code-csharp[Main](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
+[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
 
 ## <a name="how-the-secret-manager-tool-works"></a>シークレット マネージャー ツールの動作
 
 値が格納されている場所と方法など、実装の詳細を抽象シークレット Manager ツール。 これらの実装の詳細を知ることがなくツールを使用することができます。 現在のバージョンで、値が格納されている、 [JSON](http://json.org/)ユーザーのプロファイル ディレクトリに構成ファイル。
 
-* Windows:`%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json`
+* Windows: `%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json`
 
-* Linux:`~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+* Linux: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 
-* Mac:`~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+* Mac: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 
 値`userSecretsId`で指定された値に由来*.csproj*ファイル。
 

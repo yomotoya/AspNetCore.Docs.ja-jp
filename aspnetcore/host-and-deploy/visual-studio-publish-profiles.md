@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 138b60d0e7c2a3d8848d534ffed854feaf0f5661
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d2c4ec317f235c6d042bd130dbf79f6cb5e2d47d
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Visual Studio ASP.NET Core アプリケーションの展開用のプロファイルを発行します。
 
@@ -109,7 +109,7 @@ ASP.NET Core プロジェクトの参照と`Microsoft.NET.Sdk.Web`プロジェ�
 
 ## <a name="basic-command-line-publishing"></a>基本的なコマンド ライン発行
 
-コマンド ライン パブリッシングでは、すべての .NET Core のサポートされているプラットフォームで動作し、Visual Studio は必要ありません。 以下の例では、プロジェクト ディレクトリ (*.csproj* ファイルが含まれているディレクトリ) から `dotnet publish` コマンドが実行されます。 指定しない場合、プロジェクト フォルダー内に明示的に渡すプロジェクト ファイルのパスにします。 例:
+コマンド ライン パブリッシングでは、すべての .NET Core のサポートされているプラットフォームで動作し、Visual Studio は必要ありません。 以下のサンプルで、 [dotnet 発行](/dotnet/core/tools/dotnet-publish)プロジェクト ディレクトリからコマンドを実行 (が含まれています、 *.csproj*ファイル)。 指定しない場合、プロジェクト フォルダー内に明示的に渡すプロジェクト ファイルのパスにします。 例:
 
 ```console
 dotnet publish c:/webs/web1
@@ -134,7 +134,7 @@ dotnet publish
 
 ---
 
-`dotnet publish` では次のような出力が生成されます。
+[Dotnet 発行](/dotnet/core/tools/dotnet-publish)コマンドには、次のような出力が生成されます。
 
 ```console
 C:\Webs\Web1>dotnet publish
@@ -155,7 +155,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 dotnet publish -c Release -o C:/MyWebs/test
 ```
 
-`dotnet publish`コマンドによって実行される MSBuild を呼び出し、`Publish`ターゲットです。 渡されるパラメーター `dotnet publish` MSBuild に渡されます。 `-c` パラメーターは、`Configuration` MSBuild プロパティにマップされます。 `-o` パラメーターは `OutputPath` にマップされます。
+[Dotnet 発行](/dotnet/core/tools/dotnet-publish)コマンドによって実行される MSBuild を呼び出し、`Publish`ターゲットです。 渡されるパラメーター `dotnet publish` MSBuild に渡されます。 `-c` パラメーターは、`Configuration` MSBuild プロパティにマップされます。 `-o` パラメーターは `OutputPath` にマップされます。
 
 MSBuild プロパティは、次の形式のいずれかを使用して渡すことができます。
 
@@ -196,20 +196,20 @@ MSBuild プロパティは、次の形式のいずれかを使用して渡すこ
 
 詳細については、「[状況に適した発行オプション](https://docs.microsoft.com/visualstudio/ide/not-in-toc/web-publish-options)」を参照してください。
 
-Visual Studio が、発行プロファイルを作成するときに、*プロパティ/PublishProfiles/\<発行名 > .pubxml* MSBuild ファイルを作成します。 この *.pubxml* ファイルは MSBuild ファイルであり、発行構成設定が含まれています。 このファイルは、ビルドのカスタマイズし、発行プロセスに変更することができます。 このファイルは、発行プロファイルで読み取られます。 `<LastUsedBuildConfiguration>`特殊なため、グローバル プロパティであり、ビルドでインポートするすべてのファイルではないはずです。 詳細については、「[MSBuild: how to set the configuration property](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx)」(MSBuild: 構成プロパティの設定方法) を参照してください。
+Visual Studio が、発行プロファイルを作成するときに、*プロパティ/PublishProfiles/\<発行名 > .pubxml* MSBuild ファイルを作成します。 この *.pubxml* ファイルは MSBuild ファイルであり、発行構成設定が含まれています。 このファイルは、ビルドのカスタマイズし、発行プロセスに変更することができます。 このファイルは、発行プロファイルで読み取られます。 `<LastUsedBuildConfiguration>` 特殊なため、グローバル プロパティであり、ビルドでインポートするすべてのファイルではないはずです。 詳細については、「[MSBuild: how to set the configuration property](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx)」(MSBuild: 構成プロパティの設定方法) を参照してください。
 *.Pubxml*に依存しているために、ソース管理にファイルをチェックインしないでください、 *.user*ファイル。 また、*.user* ファイルは、機密情報が含まれている可能性があり、1 ユーザーおよびコンピューターに対してのみ有効なので、ソース コード管理にチェックインしないでください。
 
 機密情報 (発行のパスワードなど) はユーザー/コンピューターごとのレベルで暗号化され、*Properties/PublishProfiles/\<発行名>.pubxml.user* ファイルに保存されます。 このファイルには機密情報が含まれている可能性があるため、ソース コード管理に**チェックインしないでください**。
 
 ASP.NET Core 上の web アプリを公開する方法の概要については、次を参照してください。[ホストを展開および](index.md)です。 [ホストし、展開](index.md)https://github.com/aspnet/websdk でオープン ソース プロジェクトです。
 
-`dotnet publish`MSDeploy のフォルダーを使用し、 [KUDU](https://github.com/projectkudu/kudu/wiki)プロファイルの発行します。
+`dotnet publish` MSDeploy のフォルダーを使用し、 [KUDU](https://github.com/projectkudu/kudu/wiki)プロファイルの発行します。
  
-フォルダー (クロスプラット フォームで機能):`dotnet publish WebApplication.csproj /p:PublishProfile=<FolderProfileName>`
+フォルダー (クロスプラット フォームで機能): `dotnet publish WebApplication.csproj /p:PublishProfile=<FolderProfileName>`
 
-MSDeploy (現在こののみで機能します windows MSDeploy クロスプラット フォームのないため)。`dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployProfileName> /p:Password=<DeploymentPassword>`
+MSDeploy (現在こののみで機能します windows MSDeploy クロスプラット フォームのないため)。 `dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployProfileName> /p:Password=<DeploymentPassword>`
 
-MSDeploy パッケージ (現在こののみで機能します windows MSDeploy クロスプラット フォームのないため)。`dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployPackageProfileName>`
+MSDeploy パッケージ (現在こののみで機能します windows MSDeploy クロスプラット フォームのないため)。 `dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployPackageProfileName>`
 
 上記のサンプルで**しない**渡す`deployonbuild`に`dotnet publish`です。
 
@@ -244,7 +244,7 @@ MSDeploy パッケージ (現在こののみで機能します windows MSDeploy 
 * `dotnet build /p:DeployOnBuild=true /p:PublishProfile=FolderProfile`
 * `msbuild      /p:DeployOnBuild=true /p:PublishProfile=FolderProfile`
 
-呼び出すときに`dotnet build`、呼び出す`msbuild`ビルドを実行してプロセスを発行します。 呼び出す`dotnet build`または`msbuild`はフォルダー プロファイルに渡す場合、本質的に同等です。 Windows 上で直接には、MSBuild を呼び出し、MSBuild の .NET Framework のバージョンが使用されます。 MSDeploy の発行は、現在 Windows コンピューターに制限されています。 フォルダー以外のプロファイルで `dotnet build` を呼び出すと MSBuild が呼び出され、MSBuild はフォルダー以外のプロファイルで MSDeploy を使用します。 フォルダー以外のプロファイルで `dotnet build` を呼び出すと、(MSDeploy を使用して) MSBuild が呼び出され、(Windows プラットフォームで実行している場合でも) エラーになります。 フォルダー以外のプロファイルで発行するには、MSBuild を直接呼び出します。
+呼び出すときに[dotnet ビルド](/dotnet/core/tools/dotnet-build)、呼び出す`msbuild`ビルドを実行してプロセスを発行します。 呼び出す`dotnet build`または`msbuild`はフォルダー プロファイルに渡す場合、本質的に同等です。 Windows 上で直接には、MSBuild を呼び出し、MSBuild の .NET Framework のバージョンが使用されます。 MSDeploy の発行は、現在 Windows コンピューターに制限されています。 フォルダー以外のプロファイルで `dotnet build` を呼び出すと MSBuild が呼び出され、MSBuild はフォルダー以外のプロファイルで MSDeploy を使用します。 フォルダー以外のプロファイルで `dotnet build` を呼び出すと、(MSDeploy を使用して) MSBuild が呼び出され、(Windows プラットフォームで実行している場合でも) エラーになります。 フォルダー以外のプロファイルで発行するには、MSBuild を直接呼び出します。
 
 次のフォルダー発行プロファイルは、Visual Studio で作成され、ネットワーク共有に発行されます。
 
@@ -332,7 +332,7 @@ ASP.NET Core Web アプリを発行すると、ビルド成果物と *wwwroot* �
 </ItemGroup>
 ```
 
-`<MsDeploySkipRules>`削除されません、*スキップ*配置サイトからターゲットです。 `<Content>`対象となるファイルとフォルダーは、配置サイトから削除されます。 たとえば、展開された web アプリケーションが、次のファイルとします。
+`<MsDeploySkipRules>` 削除されません、*スキップ*配置サイトからターゲットです。 `<Content>` 対象となるファイルとフォルダーは、配置サイトから削除されます。 たとえば、展開された web アプリケーションが、次のファイルとします。
 
 * *Views/Home/About1.cshtml*
 * *Views/Home/About2.cshtml*

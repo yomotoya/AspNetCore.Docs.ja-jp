@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: c01abed767a226eae68725c1c53d922eac2f705e
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 5aac5cf2b8fd4bc53ba7201645b9bb02a5d1ecae
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core モジュール構成の参照
 
@@ -128,6 +128,12 @@ ASP.NET Core モジュール リダイレクト`stdout`と`stderr`場合にデ�
 ```
 
 参照してください[構成 web.config で](#configuration-with-webconfig)の例については、`aspNetCore`内の要素、 *web.config*ファイル。
+
+## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>プロキシの構成で HTTP プロトコルとペアリング トークンを使用する
+
+ASP.NET Core モジュールと Kestrel の間に作成されたプロキシは、HTTP プロトコルを使用します。 HTTP を使用するは、パフォーマンスの最適化、モジュールと Kestrel 間のトラフィックが行われる、ループバック アドレスでネットワーク インターフェイスからです。 モジュールと、サーバーからの場所から Kestrel 間のトラフィックを傍受のリスクはありません。
+
+ペアリング トークンを使用すると、Kestrel によって受信される要求が IIS によってプロキシされたものであり、他のソースからのものでないことを保証できます。 ペアリング トークンが作成され、環境変数に設定 (`ASPNETCORE_TOKEN`) モジュールによってです。 ペアリング トークンはまた、プロキシされたすべての要求のヘッダー (`MSAspNetCoreToken`) にも設定されます。 IIS ミドルウェアは、受信した各要求をチェックし、ペアリング トークン ヘッダーの値が環境変数の値と一致することを確認します。 トークンの値が一致しない場合、要求はログに記録され、拒否されます。 ペアリングのトークンの環境変数と、モジュールと Kestrel 間のトラフィックは、サーバーからの場所からアクセスできません。 ペアリング トークンの値がわからなければ、攻撃者は IIS ミドルウェアのチェックをバイパスする要求を送信できません。
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>IIS と ASP.NET Core モジュール構成を共有します。
 

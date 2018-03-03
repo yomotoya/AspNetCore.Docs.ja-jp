@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: dfed5c7a8e103973048295b7607008ecc7e90eeb
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e2ade6223cdc56a4f0f00ff0b985ceda4ab5484a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>ブートス トラップで美しい、応答性の高いサイトの構築
 
 <a name="bootstrap-index"></a>
 
-によって[Steve Smith](https://ardalis.com/)
+作成者: [Steve Smith](https://ardalis.com/)
 
 ブートス トラップは、現在の応答性の高い web アプリケーションを開発するための最も一般的なの web フレームワークです。 フロント エンドのデザインおよび開発またはエキスパートの初心者をしているかどうかは、さまざまな機能と、web サイトを持つユーザーのエクスペリエンスを向上できる利点を提供します。 ブートス トラップは、CSS および JavaScript のファイルのセットとしては展開され、デスクトップにタブレットへ電話から効率的に、web サイトまたはアプリケーションのスケールを支援するよう設計されています。
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/30/2018
 
 ASP.NET Core にブートス トラップを追加するプロジェクトに追加することだけ*bower.json*依存関係として。
 
-[!code-json[Main](../common/samples/WebApplication1/bower.json?highlight=5)]
+[!code-json[](../common/samples/WebApplication1/bower.json?highlight=5)]
 
 これは、ブートス トラップを ASP.NET Core プロジェクトに追加することをお勧めします。
 
@@ -60,7 +60,7 @@ Install-Package bootstrap
 
 ブートス トラップのローカル バージョンを参照している場合は、それを使用する任意のページを参照する必要があります。 実稼働環境では、CDN を使用してブートス トラップを参照する必要があります。 既定の ASP.NET サイト テンプレートで、 *_Layout.cshtml*ファイルはため次のようにします。
 
-[!code-html[Main](../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=9,13,51,59)]
+[!code-html[](../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=9,13,51,59)]
 
 > [!NOTE]
 > ブートス トラップの jQuery プラグインのいずれかを使用する場合は、jQuery を参照する必要があります。

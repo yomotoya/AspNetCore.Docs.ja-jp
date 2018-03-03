@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 29ef3cf3d8bcd6b4ebbf08d831dc146e830fa1ac
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e9a74d8f6c3945b1bc8c62d0ab21145a7c5717fb
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>応答の ASP.NET Core のミドルウェアのキャッシュ
 
@@ -31,11 +31,11 @@ ms.lasthandoff: 02/11/2018
 
 `ConfigureServices`ミドルウェアをサービスのコレクションに追加します。
 
-[!code-csharp[Main](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
+[!code-csharp[](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
 
 ミドルウェアを使用するアプリの構成、`UseResponseCaching`要求処理パイプラインにミドルウェアが追加される拡張メソッド。 サンプル アプリを追加、 [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2)を 10 秒間キャッシュ可能な応答をキャッシュする応答ヘッダー。 サンプルでは送信、 [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4)をキャッシュされた応答の場合にのみを処理するミドルウェアを構成するヘッダー、 [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4)後続の要求のヘッダーの元の要求と一致します。
 
-[!code-csharp[Main](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
+[!code-csharp[](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
 
 キャッシュ ミドルウェアの応答のみ 200 (OK) ステータス コードと、サーバーの応答をキャッシュします。 など、その他の応答[エラー ページ](xref:fundamentals/error-handling)、ミドルウェアによって無視されます。
 
@@ -125,10 +125,10 @@ if (responseCachingFeature != null)
 * 要求メソッドは、GET または HEAD でなければなりません。
 * ターミナルのミドルウェアなど[静的ファイル ミドルウェア](xref:fundamentals/static-files)応答のキャッシュ ミドルウェアの前に、応答を処理する必要があります。
 * `Authorization`ヘッダーを表示することはできません。
-* `Cache-Control`ヘッダーのパラメーターが有効である必要があり、応答をマークする必要があります`public`マークされていないと`private`です。
+* `Cache-Control` ヘッダーのパラメーターが有効である必要があり、応答をマークする必要があります`public`マークされていないと`private`です。
 * `Pragma: no-cache`ヘッダーを表示することはできない場合、`Cache-Control`ヘッダーは、として、存在しない、`Cache-Control`ヘッダーよりも優先、`Pragma`ヘッダーが存在する場合。
 * `Set-Cookie`ヘッダーを表示することはできません。
-* `Vary`ヘッダーのパラメーターが有効であり、等しくないにする必要があります`*`です。
+* `Vary` ヘッダーのパラメーターが有効であり、等しくないにする必要があります`*`です。
 * `Content-Length`ヘッダーの値 (場合に設定)、応答本文のサイズに一致する必要があります。
 * [IHttpSendFileFeature](/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature)は使用されません。
 * 応答で指定された古いすることはできません、`Expires`ヘッダーと`max-age`と`s-maxage`ディレクティブをキャッシュします。

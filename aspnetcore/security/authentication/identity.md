@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity
-ms.openlocfilehash: 0c05c636a991371b1a1feec88b5393724a6dc629
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 8cbf002a9280650a08ae8d49b5b6d23bafb8be18
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core での Id の概要
 
@@ -61,23 +61,23 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
 
     # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
     
-    [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-39)]
+    [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-39)]
     
     これらのサービスを使用して、アプリケーションで利用できる[依存性の注入](xref:fundamentals/dependency-injection)です。
     
-    呼び出して、アプリケーションの識別情報が有効になっている`UseAuthentication`で、`Configure`メソッドです。 `UseAuthentication`認証を追加[ミドルウェア](xref:fundamentals/middleware/index)要求パイプラインにします。
+    呼び出して、アプリケーションの識別情報が有効になっている`UseAuthentication`で、`Configure`メソッドです。 `UseAuthentication` 認証を追加[ミドルウェア](xref:fundamentals/middleware/index)要求パイプラインにします。
     
-    [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
+    [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
     
     # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
     
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,13-34)]
+    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,13-34)]
     
     これらのサービスを使用して、アプリケーションで利用できる[依存性の注入](xref:fundamentals/dependency-injection)です。
     
-    呼び出して、アプリケーションの識別情報が有効になっている`UseIdentity`で、`Configure`メソッドです。 `UseIdentity`cookie ベースの認証を追加[ミドルウェア](xref:fundamentals/middleware/index)要求パイプラインにします。
+    呼び出して、アプリケーションの識別情報が有効になっている`UseIdentity`で、`Configure`メソッドです。 `UseIdentity` cookie ベースの認証を追加[ミドルウェア](xref:fundamentals/middleware/index)要求パイプラインにします。
         
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configure&highlight=21)]
+    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configure&highlight=21)]
     
     ---
      
@@ -100,7 +100,7 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
     
     ユーザーがクリックしたとき、**登録**、リンク、``Register``でアクションが呼び出される``AccountController``です。 ``Register``アクションが呼び出すことによって、ユーザーを作成`CreateAsync`上、`_userManager`オブジェクト (に提供される``AccountController``依存関係の挿入によって)。
  
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_register&highlight=11)]
+    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_register&highlight=11)]
 
     ユーザーが正常に作成されている場合、ユーザーがログインへの呼び出しによって``_signInManager.SignInAsync``です。
 
@@ -112,7 +112,7 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
 
     ``Login``アクション呼び出し``PasswordSignInAsync``上、``_signInManager``オブジェクト (に提供される``AccountController``依存関係の挿入によって)。
 
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
+    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
  
     基本``Controller``クラスが公開する``User``コント ローラーのメソッドからアクセスできるプロパティです。 インスタンスを列挙できます`User.Claims`承認決定を行うとします。 詳細については、次を参照してください。[承認](xref:security/authorization/index)です。
  
@@ -120,22 +120,22 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
  
     クリックすると、**ログアウト**呼び出しのリンク、`LogOut`アクション。
  
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_logout&highlight=7)]
+    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_logout&highlight=7)]
  
     上記のコードの呼び出しの上、`_signInManager.SignOutAsync`メソッドです。 `SignOutAsync`メソッドは、cookie に格納されているユーザーの信頼性情報をクリアします。
  
 <a name="pw"></a>
 6.  構成します。
 
-    Id は、アプリのスタートアップ クラスでオーバーライドできるいくつかの既定の動作を持っています。 `IdentityOptions`既定の動作を使用する場合に構成する必要はありません。 次のコードは、パスワードの強度のいくつかのオプションを設定します。
+    Id は、アプリのスタートアップ クラスでオーバーライドできるいくつかの既定の動作を持っています。 `IdentityOptions` 既定の動作を使用する場合に構成する必要はありません。 次のコードは、パスワードの強度のいくつかのオプションを設定します。
 
     # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
     
-    [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-39)]
+    [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-39)]
     
     # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
     
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=13-34)]
+    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=13-34)]
 
     ---
     
@@ -170,13 +170,13 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
 
     # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-    コマンド ウィンドウを開き、プロジェクトのルートに移動ディレクトリを含む、`.csproj`ファイル。 実行、`dotnet run`アプリを実行するコマンド。
+    コマンド ウィンドウを開き、プロジェクトのルートに移動ディレクトリを含む、`.csproj`ファイル。 実行、[実行 dotnet](/dotnet/core/tools/dotnet-run)アプリを実行するコマンド。
 
     ```cs
     dotnet run 
     ```
 
-    出力で指定された URL を参照、`dotnet run`コマンド。 URL を指す必要があります`localhost`生成されたポート番号。 移動し、**に関する**ページ。 認証されたユーザーのみがアクセス、**に関する** ページが表示、ASP.NET ログインまたは登録するには、ログイン ページにリダイレクトします。
+    出力で指定された URL を参照、[実行 dotnet](/dotnet/core/tools/dotnet-run)コマンド。 URL を指す必要があります`localhost`生成されたポート番号。 移動し、**に関する**ページ。 認証されたユーザーのみがアクセス、**に関する** ページが表示、ASP.NET ログインまたは登録するには、ログイン ページにリダイレクトします。
 
     ---
 
@@ -186,11 +186,11 @@ Id システムのプライマリ参照アセンブリが`Microsoft.AspNetCore.I
 
 ASP.NET Core アプリケーションで Id システムを使用するには、これらの依存関係が必要です。
 
-* `Microsoft.AspNetCore.Identity.EntityFrameworkCore`-エンティティ フレームワークのコアで Id を使用する、必要な型が含まれています。
+* `Microsoft.AspNetCore.Identity.EntityFrameworkCore` -エンティティ フレームワークのコアで Id を使用する、必要な型が含まれています。
 
-* `Microsoft.EntityFrameworkCore.SqlServer`Entity Framework Core は、SQL Server などのリレーショナル データベースの Microsoft の推奨されるデータ アクセス テクノロジです。 使用することができます、テストは`Microsoft.EntityFrameworkCore.InMemory`します。
+* `Microsoft.EntityFrameworkCore.SqlServer` Entity Framework Core は、SQL Server などのリレーショナル データベースの Microsoft の推奨されるデータ アクセス テクノロジです。 使用することができます、テストは`Microsoft.EntityFrameworkCore.InMemory`します。
 
-* `Microsoft.AspNetCore.Authentication.Cookies`-を cookie ベースの認証を使用するアプリを有効にするミドルウェア。
+* `Microsoft.AspNetCore.Authentication.Cookies` -を cookie ベースの認証を使用するアプリを有効にするミドルウェア。
 
 ## <a name="migrating-to-aspnet-core-identity"></a>ASP.NET Core の Id への移行
 
@@ -205,4 +205,4 @@ ASP.NET Core アプリケーションで Id システムを使用するには、
 * [認証と ID の移行](xref:migration/identity)
 * [アカウントの確認とパスワードの回復](xref:security/authentication/accconfirm)
 * [SMS での 2 要素認証](xref:security/authentication/2fa)
-* [Facebook、Google、および他の外部プロバイダーを使用する認証の有効化](xref:security/authentication/social/index)
+* [Facebook、Google、および外部プロバイダーの認証](xref:security/authentication/social/index)

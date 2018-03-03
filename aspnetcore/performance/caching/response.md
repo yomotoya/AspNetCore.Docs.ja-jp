@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: 37592c3b2099c2cb74dc42ad4a7937b32c281f65
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: c654cfd7c2d291849067bfd3297f940018ccb3d8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core で応答のキャッシュ
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 02/11/2018
 > [!WARNING]
 > 認証されたクライアントに関する情報を含むコンテンツのキャッシュを無効にします。 キャッシュのみ有効にするユーザーの id またはユーザーがサインインしているかどうかに基づいてコンテンツは変更されません。
 
-[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys)ストアドの応答を指定された一連のクエリ キーの値によって異なります。 1 つの値のときに`*`すべてからの応答は要求クエリ文字列パラメーターが用意されて、ミドルウェアによって異なります。 `VaryByQueryKeys`ASP.NET Core 1.1 以降が必要です。
+[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys)ストアドの応答を指定された一連のクエリ キーの値によって異なります。 1 つの値のときに`*`すべてからの応答は要求クエリ文字列パラメーターが用意されて、ミドルウェアによって異なります。 `VaryByQueryKeys` ASP.NET Core 1.1 以降が必要です。
 
 設定するには、応答のキャッシュ ミドルウェアを有効にする必要があります、`VaryByQueryKeys`プロパティです。 それ以外の場合、ランタイム例外がスローされます。 対応する HTTP ヘッダーがない、`VaryByQueryKeys`プロパティです。 プロパティは、応答のキャッシュ ミドルウェアによって処理される HTTP 機能です。 キャッシュされた応答を提供するミドルウェアをクエリ文字列とクエリ文字列の値必要がありますと一致前の要求。 たとえば、要求と、次の表に示すように結果のシーケンスがあるとします。
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 02/11/2018
 
 このヘッダーがのみ書き込まれるときに、`VaryByHeader`プロパティを設定します。 設定されている、`Vary`プロパティの値。 次のサンプルは、`VaryByHeader`プロパティ。
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
 
 ブラウザーのネットワーク ツールを使用して応答ヘッダーを表示することができます。 次の図は出力エッジ F12、**ネットワーク** タブのときに、`About2`アクション メソッドが更新されます。
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 02/11/2018
 
 ### <a name="nostore-and-locationnone"></a>NoStore と Location.None
 
-`NoStore`ほとんどの他のプロパティをオーバーライドします。 このプロパティに設定するときに`true`、`Cache-Control`ヘッダーに設定されて`no-store`です。 場合`Location`に設定されている`None`:
+`NoStore` ほとんどの他のプロパティをオーバーライドします。 このプロパティに設定するときに`true`、`Cache-Control`ヘッダーに設定されて`no-store`です。 場合`Location`に設定されている`None`:
 
 * `Cache-Control` が `no-store,no-cache` に設定されます。
 * `Pragma` が `no-cache` に設定されます。
@@ -130,7 +130,7 @@ ms.lasthandoff: 02/11/2018
 
 通常は設定`NoStore`に`true`エラー ページにします。 例:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
 
 これは、結果、次のヘッダーになります。
 
@@ -148,7 +148,7 @@ Pragma: no-cache
 
 次のヘッダーを示す例によって生成される設定`Duration`し、既定のままにして`Location`値。
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
 
 これには、次のヘッダーが生成されます。
 
@@ -162,11 +162,11 @@ Cache-Control: public,max-age=60
 
 キャッシュ プロファイルを設定します。
 
-[!code-csharp[Main](response/sample/Startup.cs?name=snippet1)] 
+[!code-csharp[](response/sample/Startup.cs?name=snippet1)] 
 
 キャッシュ プロファイルを参照するには。
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
 
 `ResponseCache` (メソッド) のアクションとコント ローラー (クラス) の両方に属性を適用できます。 メソッド レベルの属性は、クラス レベルの属性で指定された設定をオーバーライドします。
 
