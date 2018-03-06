@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 5d236c79120d79195c1970cc87d164002b56d0f1
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 186faa4c02275ae1f4be53f4a2dd4f8325397bd2
+ms.sourcegitcommit: c5ecda3c5b1674b62294cfddcb104e7f0b9ce465
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core のミドルウェア
 
@@ -221,6 +221,9 @@ ASP.NET Core には、次のミドルウェア コンポーネントおよびそ
 次のコードは、ミドルウェアのデリゲートをクラスに移動します。
 
 [!code-csharp[](index/sample/Culture/RequestCultureMiddleware.cs)]
+
+> [!NOTE]
+> ASP.NET Core 1.x では、ミドルウェア `Task` メソッドの名前は `Invoke` である必要があります。 ASP.NET Core 2.0 以降では、名前は `Invoke` でも `InvokeAsync` でも構いません。
 
 次の拡張メソッドは、[IApplicationBuilder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder) を介してミドルウェアを公開します。
 
