@@ -9,23 +9,23 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/index
-ms.openlocfilehash: e1aaae09fe69e6b65a917785b436f927fac5345d
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7e5f6bc44241dc6fc11569a145a04340f1b3ee7f
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="aspnet-core-security-overview"></a>ASP.NET Core セキュリティの概要
 
-ASP.NET Core を使用することで、開発者はアプリのセキュリティを簡単に構成して管理することができます。 ASP.NET Core には、認証、承認、データ保護、SSL の適用、アプリ シークレット、リクエスト フォージェリの対策保護、および CORS を管理するための機能が含まれています。 これらのセキュリティ機能を使用すれば、堅牢かつセキュアな ASP.NET Core アプリを構築できます。 
+ASP.NET Core を使用することで、開発者はアプリのセキュリティを簡単に構成して管理することができます。 ASP.NET Core には、認証、承認、データ保護、SSL の適用、アプリ シークレット、リクエスト フォージェリの対策保護、および CORS を管理するための機能が含まれています。 これらのセキュリティ機能を使用すれば、堅牢かつセキュアな ASP.NET Core アプリを構築できます。
 
 ## <a name="aspnet-core-security-features"></a>ASP.NET Core セキュリティ機能
 
-ASP.NET Core では、組み込みの ID プロバイダーを含むアプリをセキュリティで保護するための多くのツールとライブラリが提供されますが、Facebook、Twitter、LinkedIn などのサードパーティの ID サービスを使用することもできます。 ASP.NET Core では、コードで公開せずに機密情報を格納して使用する方法である、アプリ シークレットを簡単に管理できます。 
+ASP.NET Core では、組み込みの ID プロバイダーを含むアプリをセキュリティで保護するための多くのツールとライブラリが提供されますが、Facebook、Twitter、LinkedIn などのサードパーティの ID サービスを使用することもできます。 ASP.NET Core では、コードで公開せずに機密情報を格納して使用する方法である、アプリ シークレットを簡単に管理できます。
 
 ## <a name="authentication-vs-authorization"></a>認証と承認
 
-認証とは、ユーザーが提供した資格情報をオペレーティング システム、データベース、アプリまたはリソースに格納されているものと比較するプロセスのことです。 資格情報が一致した場合、ユーザーは正常に認証され、承認プロセス中に、承認されたアクションを実行できます。 承認とは、ユーザーに許可する実行内容を決定するプロセスのことです。 
+認証とは、ユーザーが提供した資格情報をオペレーティング システム、データベース、アプリまたはリソースに格納されているものと比較するプロセスのことです。 資格情報が一致した場合、ユーザーは正常に認証され、承認プロセス中に、承認されたアクションを実行できます。 承認とは、ユーザーに許可する実行内容を決定するプロセスのことです。
 
 また、認証はサーバー、データベース、アプリまたはリソースなどの領域に入る方法と見なすことができます。一方、承認はユーザーがその領域 (サーバー、データベース、またはアプリ) 内のいずかのオブジェクトに対して実行できるアクションです。
 
@@ -38,16 +38,17 @@ ASP.NET Core および EF には、アプリをセキュリティで保護し、
 * [クロスサイト リクエスト フォージェリ (CSRF)](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery)
 * [オープン リダイレクト攻撃](https://docs.microsoft.com/aspnet/core/security/preventing-open-redirects)
 
-この他にも知っておく必要がある脆弱性はあります。 詳細については、このドキュメントの「*ASP.NET セキュリティに関するドキュメント*」セクションを参照してください。 
+この他にも知っておく必要がある脆弱性はあります。 詳細については、このドキュメントの「*ASP.NET セキュリティに関するドキュメント*」セクションを参照してください。
 
 ## <a name="aspnet-security-documentation"></a>ASP.NET セキュリティに関するドキュメント
 
 *   [認証](authentication/index.md)
     *   [Identity の概要](authentication/identity.md)
     *   [Facebook、Google、および他の外部プロバイダーを使用する認証の有効化](authentication/social/index.md)
+    *   [WS フェデレーションを使用した認証の有効化](authentication/ws-federation.md)
     * [Windows 認証の構成](authentication/windowsauth.md)
     *   [アカウントの確認とパスワードの回復](authentication/accconfirm.md)
-    *   [SMS での 2 要素認証](authentication/2fa.md) 
+    *   [SMS での 2 要素認証](authentication/2fa.md)
     *   [Identity なしでの Cookie 認証の使用](authentication/cookie.md)
     *   [Azure Active Directory](authentication/azure-active-directory/index.md)
         *   [ASP.NET Core Web アプリへの Azure AD の統合](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)

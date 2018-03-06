@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 158f11875f22f8f9dba6f7f109123717b9da8d18
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 5d236c79120d79195c1970cc87d164002b56d0f1
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core のミドルウェア
 
@@ -44,13 +44,13 @@ ASP.NET Core の要求パイプラインは、次の図で示すように (実�
 
 考えられる最も簡単な ASP.NET Core アプリは、1 つの要求デリゲートを設定してすべての要求を処理するものです。 この場合、実際の要求パイプラインは含まれません。 代わりに、すべての HTTP 要求に対応して単一の匿名関数が呼び出されます。
 
-[!code-csharp[Main](index/sample/Middleware/Startup.cs)]
+[!code-csharp[](index/sample/Middleware/Startup.cs)]
 
 最初の [app.Run](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions) デリゲートが、パイプラインを終了します。
 
 複数の要求デリゲートを [app.Use](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions) と一緒にチェーンすることができます。 `next` パラメーターは、パイプラインの次のデリゲートを表します  (*next* パラメーターを "*呼び出さない*" ことで、パイプラインをショートさせることができることに注意してください)。次の例で示すように、通常は、次のデリゲートの前と後の両方でアクションを実行できます。
 
-[!code-csharp[Main](index/sample/Chain/Startup.cs?name=snippet1)]
+[!code-csharp[](index/sample/Chain/Startup.cs?name=snippet1)]
 
 >[!WARNING]
 > 応答がクライアントに送信された後に、`next.Invoke` を呼び出さないでください。 応答が開始した後で `HttpResponse` を変更すると、例外がスローされます。 たとえば、ヘッダーや状態コードの設定といった変化を行うと、例外がスローされます。 `next` を呼び出した後で応答本文に書き込むと、次のようになります。
@@ -142,7 +142,7 @@ HTTP パイプラインを構成するには、`Use`、`Run`、`Map` を使い�
 
 `Map*` 拡張メソッドは、パイプラインを分岐する規則として使われます。 [Map](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) は、指定された要求パスの一致に基づいて、要求パイプラインを分岐します。 要求パスが指定されたパスで開始する場合、分岐が実行されます。
 
-[!code-csharp[Main](index/sample/Chain/StartupMap.cs?name=snippet1)]
+[!code-csharp[](index/sample/Chain/StartupMap.cs?name=snippet1)]
 
 次の表は、前のコードを使用した `http://localhost:1234` からの要求および応答を示しています。
 
@@ -157,7 +157,7 @@ HTTP パイプラインを構成するには、`Use`、`Run`、`Map` を使い�
 
 [MapWhen](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapwhenextensions) は、指定された述語の結果に基づいて、要求パイプラインを分岐します。 `Func<HttpContext, bool>` という型の任意の述語を使って、要求をパイプラインの新しい分岐にマップできます。 次の例では、クエリ文字列変数 `branch` の存在を検出するために術後が使用されます。
 
-[!code-csharp[Main](index/sample/Chain/StartupMapWhen.cs?name=snippet1)]
+[!code-csharp[](index/sample/Chain/StartupMapWhen.cs?name=snippet1)]
 
 次の表は、前のコードを使用した `http://localhost:1234` からの要求および応答を示しています。
 
@@ -212,7 +212,7 @@ ASP.NET Core には、次のミドルウェア コンポーネントおよびそ
 
 ミドルウェアは一般に、クラスにカプセル化され、拡張メソッドを使用して公開されます。 クエリ文字列から現在の要求のカルチャを設定する次のようなミドルウェアを考慮します。
 
-[!code-csharp[Main](index/sample/Culture/StartupCulture.cs?name=snippet1)]
+[!code-csharp[](index/sample/Culture/StartupCulture.cs?name=snippet1)]
 
 注: 上のサンプル コードを使って、ミドルウェア コンポーネントの作成方法を示します。 ASP.NET Core に組み込まれているローカリゼーションのサポートについては、「[ASP.NET Core のグローバリゼーションおよびローカリゼーション](xref:fundamentals/localization)」をご覧ください。
 
@@ -220,15 +220,15 @@ ASP.NET Core には、次のミドルウェア コンポーネントおよびそ
 
 次のコードは、ミドルウェアのデリゲートをクラスに移動します。
 
-[!code-csharp[Main](index/sample/Culture/RequestCultureMiddleware.cs)]
+[!code-csharp[](index/sample/Culture/RequestCultureMiddleware.cs)]
 
 次の拡張メソッドは、[IApplicationBuilder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder) を介してミドルウェアを公開します。
 
-[!code-csharp[Main](index/sample/Culture/RequestCultureMiddlewareExtensions.cs)]
+[!code-csharp[](index/sample/Culture/RequestCultureMiddlewareExtensions.cs)]
 
 次のコードは、`Configure` からミドルウェアを呼び出します。
 
-[!code-csharp[Main](index/sample/Culture/Startup.cs?name=snippet1&highlight=5)]
+[!code-csharp[](index/sample/Culture/Startup.cs?name=snippet1&highlight=5)]
 
 ミドルウェアは、コンストラクターで依存関係を公開することによって、[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)に従う必要があります。 ミドルウェアは、"*アプリケーションの有効期間*" ごとに 1 回構築されます。 要求内でミドルウェアとサービスを共有する必要がある場合は、下記の「*要求ごとの依存関係*」をご覧ください。
 
@@ -262,4 +262,4 @@ public class MyMiddleware
 * [アプリケーションの起動](xref:fundamentals/startup)
 * [要求機能](xref:fundamentals/request-features)
 * [ファクトリ ベースのミドルウェアのアクティブ化](xref:fundamentals/middleware/extensibility)
-* [サードパーティ コンテナーによるファクトリベースのミドルウェアのアクティブ化](xref:fundamentals/middleware/extensibility-third-party-container)
+* [サードパーティー コンテナーによるミドルウェアのアクティブ化](xref:fundamentals/middleware/extensibility-third-party-container)
