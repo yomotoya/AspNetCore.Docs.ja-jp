@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: caf0e423d8e6f61fd2470d1f4ea2dd93909c3696
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 590d32342b1724a0cbc937655c35631938eb09b2
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools for Docker と ASP.NET Core
 
@@ -38,7 +38,7 @@ Docker をインストールする場合、「[Docker for Windows: What to know 
 
 ## <a name="add-docker-support-to-an-app"></a>アプリに Docker サポートを追加する
 
-ASP.NET Core プロジェクトのターゲット フレームワークでは、サポートされているコンテナーの種類を判別します。 .NET Core をターゲットとするプロジェクトでは、Linux と Windows の両方のコンテナーがサポートされます。 .NET Framework をターゲットとするプロジェクトでは、Windows コンテナーのみがサポートされます。
+ASP.NET Core プロジェクトに Docker のサポートを追加するためにプロジェクトは .NET Core をターゲットする必要があります。 Linux と Windows の両方のコンテナーがサポートされます。
 
 Docker のサポートをプロジェクトに追加するときに、Windows または Linux コンテナーを選択します。 Docker ホストが同じコンテナーの種類を実行している必要があります。 実行中の Docker インスタンスでコンテナーの種類を変更するには、システム トレイの Docker アイコンを右クリックして、**[Switch to Windows containers...]\(Windows コンテナーに切り替える...\)** または **[Switch to Linux containers...]\(Linux コンテナーに切り替える...\)** を選択します。
 
@@ -67,7 +67,7 @@ Visual Studio Tools for Docker は、ソリューションに *docker-compose* �
 
 *Dockerfile* (Docker の最終イメージを作成するためのレシピ) は、プロジェクトのルートに追加されます。 その中に含まれるコマンドの詳細については、「[Dockerfile reference](https://docs.docker.com/engine/reference/builder/)」 (Dockerfile リファレンス) を参照してください。 この特定の *Dockerfile* では、次のような、4 つの異なる名前付きのビルド ステージを含む、[multi-stage build](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) を使用します。
 
-[!code-text[](visual-studio-tools-for-docker/samples/HelloDockerTools/HelloDockerTools/Dockerfile?highlight=1,5,14,17)]
+[!code-dockerfile[](visual-studio-tools-for-docker/samples/HelloDockerTools/HelloDockerTools/Dockerfile?highlight=1,5,14,17)]
 
 *Dockerfile* は、[microsoft/aspnetcore](https://hub.docker.com/r/microsoft/aspnetcore) イメージに基づいています。 このベース イメージには、Just-In-Time (JIT) にコンパイルされて起動時のパフォーマンスが向上した、ASP.NET Core NuGet パッケージが含まれます。
 

@@ -4,16 +4,16 @@ author: AdrienTorris
 description: "ASP.NET Core Id の既定値を理解し、カスタム値を使用する Id プロパティを構成する方法について説明します。"
 manager: wpickett
 ms.author: scaddie
-ms.date: 02/21/2018
+ms.date: 03/06/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 6aeb85063b4b6f97822062b523a0c1f7ee6b595c
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 469068af2fc12627a0a5d1c5623eb60bef51cea0
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configure-identity"></a>Id を構成します。
 
@@ -132,7 +132,7 @@ ASP.NET Core 追加 2.0、 [RequiredUniqueChars](/dotnet/api/microsoft.aspnetcor
 | [AutomaticChallenge](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.automaticchallenge) | ASP.NET Core にのみ適用されます 1.x です。<br><br> True の場合、認証ミドルウェアは自動の課題を処理します。 かどうかは false の場合、認証ミドルウェアが変更されるだけ応答によって明示的に示されたとき、`AuthenticationScheme`です。 |
 | [ClaimsIssuer](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.claimsissuer) | 取得または作成された任意のクレームを使用する発行者を設定 (から継承された[AuthenticationSchemeOptions](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions))。 |
 | [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain) | Cookie を関連付けるドメイン。 |
-| [Cookie.Expiration](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.expiration) | 取得または cookie の有効期間を設定します。 |
+| [Cookie.Expiration](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.expiration) | 取得または HTTP クッキー (認証の cookie とは異なる) の有効期間を設定します。 このプロパティはによってオーバーライド[ExpireTimeSpan](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.expiretimespan)です。 これは、CookieAuthentication のコンテキストで使用しないでください。 |
 | [Cookie.HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) | Cookie がクライアント側スクリプトからアクセスできるかどうかを示します。<br><br>既定値は `true` です。 |
 | [Cookie.Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name) | Cookie の名前。<br><br>既定値は `.AspNetCore.Cookies` です。 |
 | [Cookie.Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path) | Cookie のパス。 |

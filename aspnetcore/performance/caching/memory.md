@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/memory
-ms.openlocfilehash: ef5dba655a8b6332bf0b6f21c678481a1c55aecf
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 64635235c11b55818da02d63d044334f4b2cdb08
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="in-memory-caching-in-aspnet-core"></a>ASP.NET Core でのメモリ内キャッシュ
 
@@ -46,15 +46,15 @@ Web ファーム内の非スティッキー セッションが必要な[分散�
 
 `IMemoryCache` NuGet パッケージ"Microsoft.Extensions.Caching.Memory"が必要です。
 
-次のコードでは[TryGetValue](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__)キャッシュに現在の時刻をチェックします。 新しいエントリが作成されとキャッシュに追加された場合は、項目がキャッシュされない、[設定](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_)です。
+次のコードでは[TryGetValue](/dotnet/api/microsoft.extensions.caching.memory.imemorycache.trygetvalue?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__)キャッシュ内で時間をチェックします。 新しいエントリが作成されとキャッシュに追加された場合は、時間がキャッシュされない、[設定](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.set?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_Microsoft_Extensions_Caching_Memory_MemoryCacheEntryOptions_)です。
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet1)]
 
 現在の時刻とキャッシュされた時刻が表示されます。
 
-[!code-html[](memory/sample/WebCache/Views/Home/Cache.cshtml)]
+[!code-cshtml[](memory/sample/WebCache/Views/Home/Cache.cshtml)]
 
-キャッシュされた`DateTime`内でタイムアウト期間 (メモリ不足のためのない削除) 要求があるときに、値をキャッシュに残ります。 次の図は、キャッシュから取得した前の時刻と現在の時刻を示します。
+キャッシュされた`DateTime`内でタイムアウト期間 (メモリ不足のためのない削除) 要求があるときに、値がキャッシュに保持します。 次の図は、キャッシュから取得される前の時刻と現在の時刻を示します。
 
 ![表示される 2 つの異なるタイミングでインデックス ビュー](memory/_static/time.png)
 
