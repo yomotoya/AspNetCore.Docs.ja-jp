@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 223dd48bb996de527f20291e4701e7d1b60a539d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8c9971ccc70cb4b966abb64086b1b5420fc6c72a
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>ASP.NET MVC アプリケーション (10 の 1) 用の Entity Framework データ モデルの作成
 ====================
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/24/2018
 > > A[このチュートリアル シリーズの新しいバージョン](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)が Visual Studio 2013、Entity Framework 6、および MVC 5 使用します。
 > 
 > 
-> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 5 と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 サンプル アプリケーションは、架空の Contoso 大学の web サイトです。 学生受付、コースの作成、およびインストラクター割り当てなどの機能が含まれています。 このチュートリアルの系列では、Contoso 大学サンプル アプリケーションをビルドする方法について説明します。 実行できます[完成したアプリケーションをダウンロード](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)です。
+> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 5 と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 サンプル アプリケーションは架空の Contoso University の Web サイトです。 学生の受け付け、講座の作成、講師の割り当てなどの機能が含まれています。 このチュートリアルの系列では、Contoso 大学サンプル アプリケーションをビルドする方法について説明します。 実行できます[完成したアプリケーションをダウンロード](https://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)です。
 > 
 > ## <a name="code-first"></a>Code First
 > 
@@ -53,7 +53,7 @@ ms.lasthandoff: 01/24/2018
 > 
 > チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework でも LINQ to Entities フォーラム](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)です。
 > 
-> ## <a name="acknowledgments"></a>受信確認
+> ## <a name="acknowledgments"></a>謝辞
 > 
 > 一連の前回のチュートリアルを参照してください[受信確認、および VB に関する注記](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#acknowledgments)です。
 > 
@@ -64,15 +64,15 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="the-contoso-university-web-application"></a>Contoso 大学 Web アプリケーション
 
-これらのチュートリアルで構築するアプリケーションは、単純な大学 web サイトです。
+一連のチュートリアルで作成するアプリケーションは、簡単な大学向け Web サイトです。
 
-ユーザーでは、表示でき、学生、コース、インストラクターの情報を更新することができます。 ここでは、いくつかの画面を作成します。
+ユーザーは学生、講座、講師の情報を見たり、更新したりできます。 次のような画面をこれから作成します。
 
 ![Students_Index_page](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image1.png)
 
 ![](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image2.png)
 
-このサイトの UI スタイルを維持して組み込みのテンプレートによって生成されたものに近いチュートリアルは、Entity Framework を使用する方法の主に集中することです。
+このサイトの UI スタイルは、組み込みテンプレートで生成されるスタイルに近いものになっています。それにより、このチュートリアルでは主に、Entity Framework の使い方を取り上げることができます。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -98,13 +98,13 @@ Visual Studio を開き、プロジェクトを作成、新しい c#"ContosoUniv
 
 ## <a name="set-up-the-site-style"></a>サイトのスタイルを設定します。
 
-いくつかの簡単な変更は、[サイト] メニューのレイアウト、およびホーム ページを設定します。
+簡単な変更をいくつか行い、サイトのメニュー、レイアウト、ホーム ページを決めます。
 
-開いている*\shared\\_Layout.cshtml*ファイルの内容を次のコードに置き換えます。 変更が強調表示されます。
+開いている*\shared\\_Layout.cshtml*ファイルの内容を次のコードに置き換えます。 変更が強調表示されています。
 
 [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample1.cshtml?highlight=5,15,25-28,43)]
 
-このコードは、次の変更を加えます。
+このコードにより、次の変更が行われます。
 
 - "My ASP.NET MVC Application"、「ここにロゴ」のテンプレートのインスタンスを「Contoso 大学」に置き換えます。
 - このチュートリアルで後ほど使用されるいくつかのアクション リンクを追加します。
@@ -123,13 +123,13 @@ Visual Studio を開き、プロジェクトを作成、新しい c#"ContosoUniv
 
 ## <a name="create-the-data-model"></a>データ モデルを作成します。
 
-次に、Contoso 大学アプリケーション用にエンティティ クラスを作成します。 次の 3 つのエンティティを開始します。
+次に、Contoso University アプリケーションのエンティティ クラスを作成します。 次の 3 つのエンティティを開始します。
 
 ![Class_diagram](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image6.png)
 
-一対多の関係がある`Student`と`Enrollment`エンティティ、一対多の関係があると`Course`と`Enrollment`エンティティです。 つまり、任意の数に、コースの受講者を登録して、コースに受講者に、登録の任意の数を持つことができます。
+`Student` エンティティと `Enrollment` エンティティの間に一対多の関係があり、`Course` エンティティと `Enrollment` エンティティの間に一対多の関係があります。 言い換えると、1 人の学生をさまざまな講座に登録し、1 つの講座にたくさんの学生を登録できます。
 
-次のセクションでは、これらのエンティティのいずれかのクラスを作成します。
+次のセクションでは、エンティティごとにクラスを作成します。
 
 > [!NOTE]
 > すべてのエンティティ クラスを作成する前に、プロジェクトをコンパイルしようとすると、コンパイラ エラーが表示されます。
@@ -143,27 +143,27 @@ Visual Studio を開き、プロジェクトを作成、新しい c#"ContosoUniv
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample4.cs)]
 
-`StudentID`プロパティは、このクラスに対応するデータベース テーブルの主キー列になります。 既定では、Entity Framework では、解釈というプロパティ`ID`または*classname* `ID`主キーとして。
+`StudentID` プロパティは、このクラスに相当するデータベース テーブルの主キー列になります。 既定では、Entity Framework では、解釈というプロパティ`ID`または*classname* `ID`主キーとして。
 
-`Enrollments`プロパティは、*ナビゲーション プロパティ*です。 ナビゲーション プロパティは、このエンティティに関連するその他のエンティティを保持します。 ここで、`Enrollments`のプロパティ、`Student`のすべてのエンティティを保持する、`Enrollment`に関連付けられているエンティティ`Student`エンティティです。 つまり場合、指定された`Student`データベース内の行が 2 つの関連`Enrollment`行 (そのスチューデントの主キーが含まれている行の値で、`StudentID`外部キー列)、その`Student`エンティティの`Enrollments`ナビゲーション プロパティこれら 2 つが含まれます`Enrollment`エンティティです。
+`Enrollments`プロパティは、*ナビゲーション プロパティ*です。 ナビゲーション プロパティには、このエンティティに関連する他のエンティティが含まれます。 ここで、`Enrollments`のプロパティ、`Student`のすべてのエンティティを保持する、`Enrollment`に関連付けられているエンティティ`Student`エンティティです。 つまり場合、指定された`Student`データベース内の行が 2 つの関連`Enrollment`行 (そのスチューデントの主キーが含まれている行の値で、`StudentID`外部キー列)、その`Student`エンティティの`Enrollments`ナビゲーション プロパティこれら 2 つが含まれます`Enrollment`エンティティです。
 
 ナビゲーション プロパティは、通常、として定義`virtual`などの特定の Entity Framework 機能を利用を行うことができるように*遅延読み込み*です。 (遅延読み込みについては説明後の「、[関連のデータの読み取り](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)このシリーズ後でチュートリアルです。
 
-その型が一覧にエントリを追加、削除すると、更新できるなどをする必要があります、ナビゲーション プロパティ (多対多または一対多のリレーションシップ) のように複数のエンティティに保持できる場合`ICollection`です。
+ナビゲーション プロパティに複数のエンティティが含まれる場合 (多対多または一対多の関係で)、その型はリストにする必要があります。`ICollection` のように、エンティティを追加、削除、更新できるリストです。
 
 ### <a name="the-enrollment-entity"></a>登録エンティティ
 
 ![Enrollment_entity](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image8.png)
 
-*モデル*フォルダー作成*Enrollment.cs*し、既存のコードを次のコードに置き換えます。
+*[Models]* フォルダーで、*Enrollment.cs* を作成し、既存のコードを次のコードに変更します。
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample5.cs)]
 
 グレード プロパティは、 [enum](https://msdn.microsoft.com/data/hh859576.aspx)です。 後に疑問符 ()、`Grade`型宣言では、ことを示します、`Grade`プロパティは[null 許容](https://msdn.microsoft.com/library/2cf62fcy.aspx)です。 Null である評価とは異なる、ゼロ グレード: null は、評価が不明またはまだ割り当てられていないことを意味します。
 
-`StudentID`プロパティは、foreign key、および対応するナビゲーション プロパティは`Student`します。 `Enrollment`エンティティが 1 つに関連付けられた`Student`エンティティ、プロパティは、1 つのみを保持できるように`Student`エンティティ (とは異なり、`Student.Enrollments`ナビゲーション プロパティ先ほど見た、複数を格納する`Enrollment`エンティティ)。
+`StudentID` プロパティは外部キーです。それに対応するナビゲーション プロパティは `Student` です。 `Enrollment` エンティティは 1 つの `Student` エンティティに関連付けられており、1 つの `Student` エンティティだけを保持できます (先に見た、複数の `Enrollment` エンティティを保持できる `Student.Enrollments` ナビゲーション プロパティとは異なります)。
 
-`CourseID`プロパティは、foreign key、および対応するナビゲーション プロパティは`Course`します。 `Enrollment`エンティティが 1 つに関連付けられた`Course`エンティティです。
+`CourseID` プロパティは外部キーです。それに対応するナビゲーション プロパティは `Course` です。 `Enrollment` エンティティは 1 つの `Course` エンティティに関連付けられます。
 
 ### <a name="the-course-entity"></a>Course エンティティ
 
@@ -173,13 +173,13 @@ Visual Studio を開き、プロジェクトを作成、新しい c#"ContosoUniv
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample6.cs)]
 
-`Enrollments`プロパティは、ナビゲーション プロパティ。 A`Course`エンティティを任意の数に関連付けることができます`Enrollment`エンティティです。
+`Enrollments` プロパティはナビゲーション プロパティです。 1 つの `Course` エンティティにたくさんの `Enrollment` エンティティを関連付けることができます。
 
-ここでの詳細について、[[DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([DatabaseGeneratedOption](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx)です。次のチュートリアルではなし)] 属性します。 基本的には、この属性には、それを生成、データベースのではなく、コースのプライマリ キーを入力することができます。
+ここでの詳細について、[[DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([DatabaseGeneratedOption](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx)です。次のチュートリアルではなし)] 属性します。 基本的に、この属性によって、講座の主キーをデータベースに生成させず、自分で入力できるようになります。
 
-## <a name="create-the-database-context"></a>データベース コンテキストを作成します。
+## <a name="create-the-database-context"></a>データベース コンテキストの作成
 
-指定されたデータ モデルの Entity Framework 機能を調整するメイン クラスは、*データベース コンテキスト*クラスです。 派生することによってこのクラスを作成する、 [System.Data.Entity.DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx)クラスです。 コードでは、データ モデルのエンティティが含まれているを指定します。 特定の Entity Framework の動作をカスタマイズすることもできます。 クラスの名前は、このプロジェクトで`SchoolContext`です。
+指定されたデータ モデルの Entity Framework 機能を調整するメイン クラスは、*データベース コンテキスト*クラスです。 派生することによってこのクラスを作成する、 [System.Data.Entity.DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx)クラスです。 自分のコードでは、データ モデルに含めるエンティティを自分で指定します。 Entity Framework の特定の動作をカスタマイズすることもできます。 このプロジェクトでは、クラスに `SchoolContext` という名前が付けられています。
 
 という名前のフォルダーを作成する*DAL* (データ アクセス層) 用です。 そのフォルダーの作成という新しいクラス ファイル*SchoolContext.cs*、し、既存のコードを次のコードに置き換えます。
 
@@ -277,7 +277,7 @@ Visual Studio 2012 およびそれ以降のバージョンで LocalDB は既定�
 
     ![最初の移行と移行フォルダー](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image14.png)
 
-    `Up`のメソッド、`InitialCreate`クラスは、データ モデルのエンティティ セットに対応するデータベース テーブルを作成し、`Down`メソッドでは、それらを削除します。 移行の呼び出し、`Up`移行のためのデータ モデルの変更を実装するメソッド。 更新プログラム、移行の呼び出しをロールバックするためのコマンドを入力すると、`Down`メソッドです。 次のコードの内容を示しています、`InitialCreate`ファイル。
+    `Up`のメソッド、`InitialCreate`クラスは、データ モデルのエンティティ セットに対応するデータベース テーブルを作成し、`Down`メソッドでは、それらを削除します。 移行は、`Up` メソッドを呼び出して、移行のためのデータ モデルの変更を実装します。 更新をロールバックするためのコマンドを入力すると、移行が `Down` メソッドを呼び出します。 次のコードの内容を示しています、`InitialCreate`ファイル。
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample15.cs)]
 
@@ -340,7 +340,7 @@ SQL Server データベース、データ モデルに作成されました。 �
 使用するための完全なデータベースを作成できるように、Entity Framework の順序で記述したコードの量は最小限に抑える*規則*、または Entity Framework で想定します。 一部の既に説明した場合。
 
 - エンティティのクラス名の複数形のフォームは、テーブル名として使用されます。
-- エンティティのプロパティ名は、列名に使用されます。
+- 列名には、エンティティ プロパティ名が使用されます。
 - 名前付きエンティティのプロパティ`ID`または*classname* `ID`主キー プロパティとして認識されます。
 
 規則がオーバーライドすることを確認した (たとえば、指定したテーブル名を複数化しないようにする)、規則およびそれらをオーバーライドする方法の詳細を学習し、[詳細複雑なデータ モデルを作成する](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)チュートリアルこの系列に後で。 詳細については、次を参照してください。[コード First 規約に従って](https://msdn.microsoft.com/data/jj679962)です。
