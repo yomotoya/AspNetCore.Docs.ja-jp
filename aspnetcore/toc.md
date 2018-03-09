@@ -213,6 +213,9 @@
 # [モバイル](xref:mobile/index)
 ## [ネイティブ モバイル アプリのバックエンド サービスの作成](xref:mobile/native-mobile-backend)
 
+# [SignalR](xref:signalr/index)
+## [開始するには](xref:signalr/get-started-signalr-core)
+
 # [ホストとデプロイ](xref:host-and-deploy/index)
 ## [Azure App Service でのホスト](xref:host-and-deploy/azure-apps/index)
 ### [Visual Studio による Azure への公開](xref:tutorials/publish-to-azure-webapp-using-vs)
