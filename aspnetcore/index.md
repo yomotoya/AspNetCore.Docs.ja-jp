@@ -4,16 +4,16 @@ author: rick-anderson
 description: "ASP.NET Core の概要を提供する。"
 manager: wpickett
 ms.author: riande
-ms.date: 12/12/2017
+ms.date: 02/28/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: index
-ms.openlocfilehash: 42bf005a29a8723233a0d9e5532827f7522f0e75
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 112e1e4dc4eed2cf0ee94741a52ce6625e1f42a6
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="aspnet-core"></a>ASP.NET Core
 
@@ -43,7 +43,7 @@ ASP.NET Core の利点は次のとおりです。
 * Windows、macOS、Linux でビルドおよび実行する機能。
 * オープン ソースで[コミュニティ重視](https://live.asp.net/)。
 
-ASP.NET Core は、[NuGet](https://www.nuget.org/) パッケージとして完全に提供されます。 これにより、必要な NuGet パッケージだけを含むようにアプリを最適化できます。 実際に、.NET Core に対応した ASP.NET Core 2.x アプリで必要なのは、[1 つの NuGet パッケージ](xref:fundamentals/metapackage)だけです。 小さいアプリ領域の利点には、セキュリティの強化、サービスの削減、パフォーマンスの向上などがあります。
+ASP.NET Core は、[NuGet](https://www.nuget.org/) パッケージとして完全に提供されます。 NuGet パッケージを使用することにより、必要な依存関係だけを含むようにアプリを最適化できます。 実際に、.NET Core に対応した ASP.NET Core 2.x アプリで必要なのは、[1 つの NuGet パッケージ](xref:fundamentals/metapackage)だけです。 小さいアプリ領域の利点には、セキュリティの強化、サービスの削減、パフォーマンスの向上などがあります。
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>ASP.NET Core MVC を使って Web API と Web UI を構築する
 
@@ -60,6 +60,20 @@ ASP.NET Core MVC は、[Web API](xref:tutorials/index#build-web-apis) と [Web �
 ## <a name="client-side-development"></a>クライアント側の開発
 
 ASP.NET Core は、人気のあるクライアント側のフレームワークとライブラリ ([Angular](xref:spa/angular)、[React](xref:spa/react)、[Bootstrap](xref:client-side/bootstrap) など) をシームレスに統合します。 詳しくは、「[クライアント側の開発](xref:client-side/index)」をご覧ください。
+
+## <a name="aspnet-core-targeting-net-framework"></a>.NET Framework を対象とする ASP.NET Core
+
+ASP.NET Core は、.NET Core または .NET Framework を対象にすることができます。 .NET Framework を対象とする ASP.NET Core アプリはクロスプラットフォームではありません&mdash;Windows でのみ実行されます。 ASP.NET Core の .NET Framework を対象とするためのサポートを削除するプランはありません。 一般に、ASP.NET Core は [.NET Standard](/dotnet/standard/net-standard) ライブラリで構成されています。 .NET Standard 2.0 で記述されたアプリは、.NET Standard 2.0 がサポートされていればどこでも実行できます。
+
+.NET Core を対象とする利点はいくつかあり、リリースのたびにその利点が増えています。 .NET Framework 経由による .NET Core には次のような利点があります。
+
+* クロスプラットフォームである。 macOS、Linux、Windows で実行できる。
+* パフォーマンスの向上
+* side-by-side でのバージョン管理
+* 新しい API
+* ソースを開く
+
+.NET Framework と .NET Core の間にある API のギャップを埋めるため、鋭意作業中です。 [Windows 互換機能パック](/dotnet/core/porting/windows-compat-pack)により、多くの Windows 限定の API が .NET Core で利用できるようになりました。 このような API は .NET Core 1.x で利用できませんでした。
 
 ## <a name="next-steps"></a>次の手順
 
