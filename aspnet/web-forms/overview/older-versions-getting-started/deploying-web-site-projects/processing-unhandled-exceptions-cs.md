@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7be257faa350476bef9f6d372ea4f140fff8d136
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: dda73ca1878396e04b8ff04a255c25bf26ed4eff
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/12/2018
 ---
 <a name="processing-unhandled-exceptions-c"></a>未処理の例外 (c#) の処理
 ====================
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードをダウンロードする](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_12_CS.zip)または[PDF のダウンロード](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial12_ErrorHandling_cs.pdf)
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnet/web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs/samples)します ([ダウンロード方法](/aspnet/core/tutorials/index#how-to-download-a-sample))。
 
 > 実稼働環境で web アプリケーションで、実行時エラーが発生したときは、重要なは、開発者に通知して、エラーを記録できるように、後の時点で診断可能性があります。 このチュートリアルでは、ASP.NET のランタイム エラーを処理およびカスタム コードを実行するたびに、ASP.NET ランタイムまで、未処理の例外のバブルの 1 つの方法では検索の概要を示します。
 
@@ -62,7 +62,7 @@ ASP.NET のランタイムを発生させるまでバブルが ASP.NET アプリ
 
 Visual Studio のグローバル アプリケーション クラス テンプレートで作成したイベント ハンドラーが完全ではありません。 イベント ハンドラーを追加するには任意の`HttpApplication`イベント、イベント ハンドラーの名前を付けて`Application_EventName`です。 次のコードを追加するなど、`Global.asax`のイベント ハンドラーを作成するファイル、 [ `AuthorizeRequest`イベント](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx):
 
-[!code-vb[Main](processing-unhandled-exceptions-cs/samples/sample1.vb)]
+[!code-cs[Main](processing-unhandled-exceptions-cs/samples/sample1.cs)]
 
 同様に、不要なグローバル アプリケーション クラス テンプレートで作成されたイベント ハンドラーを削除することができます。 このチュートリアルでのみ必要がありますのイベント ハンドラー、`Error`イベント; から他のイベント ハンドラーを削除しても構いません、`Global.asax`ファイル。
 
@@ -159,7 +159,7 @@ ASP.NET web アプリケーションでハンドルされない例外が発生�
 
 - [ASP.NET HTTP モジュールは、HTTP ハンドラーの概要](https://support.microsoft.com/kb/307985)
 - [未処理の例外の処理 - 未処理の例外に応答して適切に](http://aspnet.4guysfromrolla.com/articles/091306-1.aspx)
-- [`HttpApplication`クラスと ASP.NET アプリケーション オブジェクト](http://www.eggheadcafe.com/articles/20030211.asp)
+- [`HttpApplication` クラスと ASP.NET アプリケーション オブジェクト](http://www.eggheadcafe.com/articles/20030211.asp)
 - [HTTP ハンドラーと ASP.NET の HTTP モジュール](http://www.15seconds.com/Issue/020417.htm)
 - [ASP.NET で電子メールを送信します。](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
 - [について、`Global.asax`ファイル](http://aspalliance.com/1114_Understanding_the_Globalasax_file.all)

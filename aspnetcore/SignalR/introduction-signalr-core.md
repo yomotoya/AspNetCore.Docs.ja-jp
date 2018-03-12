@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/introduction-signalr-core
-ms.openlocfilehash: 0e26ecf913bbe6d24da96c1ece8b13aa5240818f
-ms.sourcegitcommit: 6fa546140575b3eb279eabae12d9acad966f70e0
+ms.openlocfilehash: d4ad9bb1910a3339ac8d0d8ff740417f4e7262b7
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="introduction-to-signalr"></a>SignalR の概要
 
@@ -38,7 +38,7 @@ ASP.NET Core の SignalR:
 * 接続の管理を自動的に処理します。
 * 同時に接続されているすべてのクライアントにメッセージのブロードキャストを有効にします。 チャット ルームなどです。
 * 特定のクライアントまたはクライアントのグループへのメッセージ送信を有効にします。
-* オープン ソースでは、 [GitHub](https://github.com/aspnet/SignalR)です。
+* オープン ソースでは、 [GitHub](https://github.com/aspnet/signalr)です。
 * 適切に拡張できます。
 
 クライアントとサーバー間の接続は HTTP 接続とは異なり、永続的です。
@@ -63,4 +63,4 @@ SignalR では、ハブとエンドポイントを使用して、クライアン
 
 ## <a name="related-resources"></a>関連資料
 
-[ASP.NET Core 用 SignalR を概要します。](get-started-signalr-core)
+[ASP.NET Core 用 SignalR を概要します。](xref:signalr/get-started-signalr-core)
