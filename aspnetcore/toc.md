@@ -210,6 +210,9 @@
 ### [React プロジェクト テンプレート](xref:spa/react)
 ### [Redux と組み合わせた React プロジェクト テンプレート](xref:spa/react-with-redux)
 
+# [SignalR](xref:signalr/introduction-signalr-core)
+## [はじめに](xref:signalr/introduction-signalr-core)
+
 # [モバイル](xref:mobile/index)
 ## [ネイティブ モバイル アプリのバックエンド サービスの作成](xref:mobile/native-mobile-backend)
 
