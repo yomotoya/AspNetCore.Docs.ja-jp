@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: f69f707ba64d13fc372b7bc44718c9dcf8cec6e2
-ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
+ms.openlocfilehash: f1225f06e5218d893e3f49b2ccc67d56365b30e5
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax コンテンツ配信ネットワーク
 ====================
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/22/2018
 ## <a name="table-of-contents"></a>目次
 
 **[ajax.microsoft.com ajax.aspnetcdn.com に変更されました](#ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18)**  
-**[Visual Studio .vsdoc サポート](#Visual_Studio_vsdoc_Support_19)**  
+**[Visual Studio .vsdoc Support](#Visual_Studio_vsdoc_Support_19)**  
 **[CDN から ASP.NET Ajax を使用します。](#Using_ASPNET_Ajax_from_the_CDN_20)**  
 **[CDN から jQuery の使用](#Using_jQuery_from_the_CDN_21)**  
 **[JQuery UI、CDN からの使用](#Using_jQuery_UI_from_the_CDN_22)**  
@@ -74,7 +74,7 @@ Microsoft Ajax CDN には、Microsoft によってアップロードされた次
 
 Microsoft では、この CDN でホストされているすべてのサード パーティ ライブラリの所有権を主張しません。 ライブラリの著作権の所有者は、これらのライブラリをライセンスされています。 それぞれの著作権の所有者によってのみをダウンロードしてこのようなライブラリを使用する必要のある任意の権限が付与されます。 これらは Microsoft ライブラリではありません、ため Microsoft でない保証または (暗黙の特許権を含むなし) 知的財産権ライセンスをこの CDN でホストされているサードパーティ製ライブラリ。
 
-かどうか、JavaScript ライブラリを送信して、ライブラリは最上位の JavaScript ライブラリ (に従って http://trends.builtwith.com) または拡張機能/プラグインは、これらのライブラリへの 1 つ (a) 人気のあります。または (b) する場合に便利で ASP.NET を使用しにお問い合わせくださいAjaxCDNSubmission@Microsoft.comです。
+場合は、JavaScript ライブラリを送信して、ライブラリは、1 つの最上位の JavaScript ライブラリ (に示されたhttp://trends.builtwith.com)や拡張機能/プラグインには、(a) 人気のある; または (b) ASP.NET で使用するために役立ちますしにお問い合わせくださいこれらのライブラリにAjaxCDNSubmission@Microsoft.comです。
 
 <a id="ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18"></a>
 
@@ -615,7 +615,7 @@ JQuery 検証ライブラリの次のリリースは、この CDN でホスト�
 - [jQuery 検証 1.9](jquery-validate/cdnjqueryvalidate19.md "jquery.validate バージョン 1.9")
 - [jQuery 検証 1.8.1](jquery-validate/cdnjqueryvalidate181.md "jquery.validate バージョン 1.8.1")
 - [jQuery 検証 1.8](jquery-validate/cdnjqueryvalidate18.md "jquery.validate バージョン 1.8")
-- [jQuery 検証 1.7](jquery-validate/cdnjqueryvalidate17.md "jquery.validate バージョン 1.7")
+- [jQuery Validate 1.7](jquery-validate/cdnjqueryvalidate17.md "jquery.validate version 1.7")
 - [jQuery 検証 1.6](jquery-validate/cdnjqueryvalidate16.md "jQuery 検証 1.6")
 - [jQuery 検証 1.5.5](jquery-validate/cdnjqueryvalidate155.md "jQuery 検証 1.5.5")
 
@@ -748,7 +748,7 @@ JQuery Datatable プラグインの次のリリースは、この CDN でホス�
 - http://ajax.aspnetcdn.com/ajax/globalize/0.1.1/cultures/globalize.cultures.js
 
     - すべてのカルチャ
-- http://ajax.aspnetcdn.com/ajax/globalize/0.1.1/cultures/globalize.culture です。{カルチャ コード} .js
+- http://ajax.aspnetcdn.com/ajax/globalize/0.1.1/cultures/globalize.culture.{culture-code}.js
 
     - 「{カルチャ コード}」を目的のカルチャ コードに置き換えます、CDN でファイルを globalize.culture.en GB.js== Microsoft 例: = = これらのライブラリは、Microsoft によってアップロードされました。
 
@@ -756,7 +756,7 @@ JQuery Datatable プラグインの次のリリースは、この CDN でホス�
 
 ### <a name="respond-releases-on-the-cdn"></a>CDN のリリースを応答します。
 
-次のリリースの[https://github.com/scottjehl/Respond](https://github.com/scottjehl/Respond "https://github.com/scottjehl/Respond") CDN では、応答がホストされています。
+次のリリースの[ https://github.com/scottjehl/Respond ] (https://github.com/scottjehl/Respond " https://github.com/scottjehl/Respond ") CDN では、応答がホストされています。
 
 #### <a name="respond-version-142"></a>応答バージョン 1.4.2
 
@@ -792,6 +792,19 @@ JQuery Datatable プラグインの次のリリースは、この CDN でホス�
 ### <a name="bootstrap-releases-on-the-cdn"></a>CDN でブートス トラップのリリース
 
 次のリリースの[getbootstrap.com](http://getbootstrap.com "getbootstrap.com")ブートス トラップが CDN でホストされています。
+
+#### <a name="bootstrap-version-400"></a>ブートス トラップ バージョン 4.0.0
+
+- http://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/bootstrap.js
+- http://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/bootstrap.min.js
+- http://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap.css
+- http://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap.css.map
+- http://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap.min.css
+- http://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/fonts/glyphicons-halflings-regular.eot
+- http://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/fonts/glyphicons-halflings-regular.svg
+- http://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/fonts/glyphicons-halflings-regular.ttf
+- http://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/fonts/glyphicons-halflings-regular.woff
+- http://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/fonts/glyphicons-halflings-regular.woff2
 
 #### <a name="bootstrap-version-337"></a>ブートス トラップ バージョン 3.3.7
 
@@ -1026,7 +1039,7 @@ JQuery Datatable プラグインの次のリリースは、この CDN でホス�
 
 ### <a name="bootstrap-touchcarousel-releases-on-the-cdn"></a>CDN のブートス トラップ TouchCarousel リリース
 
-次のリリースの[https://github.com/ixisio/bootstrap-touch-carousel](https://github.com/ixisio/bootstrap-touch-carousel "https://github.com/ixisio/bootstrap-touch-carousel")ブートス トラップ TouchCarousel リリースが CDN でホストされています。:
+次のリリースの[ https://github.com/ixisio/bootstrap-touch-carousel ] (https://github.com/ixisio/bootstrap-touch-carousel " https://github.com/ixisio/bootstrap-touch-carousel ")ブートス トラップ TouchCarousel リリースが CDN でホストされています。
 
 #### <a name="bootstrap-touchcarousel-version-080"></a>ブートス トラップ TouchCarousel バージョン 0.8.0 から
 
@@ -1037,7 +1050,7 @@ JQuery Datatable プラグインの次のリリースは、この CDN でホス�
 
 ### <a name="hammerjs-releases-on-the-cdn"></a>CDN の Hammer.js リリース
 
-次のリリースの[http://hammerjs.github.io/](http://hammerjs.github.io/ "http://hammerjs.github.io/") Hammer.js リリースが CDN でホストされています。
+次のリリースの[ http://hammerjs.github.io/ ] (http://hammerjs.github.io/ " http://hammerjs.github.io/ ") Hammer.js リリースが CDN でホストされています。
 
 #### <a name="hammerjs-version-204"></a>Hammer.js バージョン 2.0.4
 

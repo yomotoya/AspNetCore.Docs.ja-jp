@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Web API からの移行"
+title: "ASP.NET Web API から ASP.NET のコアへの移行"
 author: ardalis
-description: 
+description: "ASP.NET Web API からの Web API の実装を ASP.NET のコアの MVC に移行する方法について説明します。"
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 9eb5f4dfec82ec1c60d33bff94d35857a4c0cfd6
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 929fab90aa88745807761e824a2cf614f078ea36
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="migrating-from-aspnet-web-api"></a>ASP.NET Web API からの移行
+# <a name="migrating-from-aspnet-web-api-to-aspnet-core"></a>ASP.NET Web API から ASP.NET のコアへの移行
 
 作成者: [Steve Smith](https://ardalis.com/)、[Scott Addie](https://scottaddie.com)
 
@@ -25,7 +25,7 @@ Web Api は、さまざまなブラウザーやモバイル デバイスを含�
 
 ## <a name="review-aspnet-web-api-project"></a>レビュー ASP.NET Web API プロジェクト
 
-この記事は、サンプル プロジェクトを使用して*ProductsApp*アーティクルで作成された[ASP.NET Web API の使用を開始する](https://docs.microsoft.com/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)を基盤とします。 そのプロジェクトで単純な ASP.NET Web API プロジェクトが次のように構成します。
+この資料は、サンプル プロジェクトを使用して*ProductsApp*の記事で作成された、[基本 ASP.NET Web API の 2](/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)の開始点として。 そのプロジェクトで単純な ASP.NET Web API プロジェクトが次のように構成します。
 
 *Global.asax.cs*への呼び出しが行われた`WebApiConfig.Register`:
 

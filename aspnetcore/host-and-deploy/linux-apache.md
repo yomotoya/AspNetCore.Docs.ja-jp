@@ -5,16 +5,16 @@ author: spboyer
 manager: wpickett
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 10/19/2016
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: b11bc811b6aefce22b60a28afd72c2a2d0b26955
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 033adddc586b60c9f7453df5434617aa838737f8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Apache 搭載の Linux で ASP.NET Core をホストする
 
@@ -112,27 +112,32 @@ Complete!
 ```
 
 > [!NOTE]
-> この例では、出力は、CentOS 7 バージョンが 64 ビットであるために httpd.86_64 を反映します。 Apache がインストールされている場所を確認するには、コマンド プロンプトから `whereis httpd` を実行します。 
+> この例では、出力は、CentOS 7 バージョンが 64 ビットであるために httpd.86_64 を反映します。 Apache がインストールされている場所を確認するには、コマンド プロンプトから `whereis httpd` を実行します。
 
 ### <a name="configure-apache-for-reverse-proxy"></a>Apache をリバース プロキシとして構成する
 
 Apache の構成ファイルは、`/etc/httpd/conf.d/` ディレクトリ内にあります。 ファイルのいずれか、 *.conf*拡張機能が、モジュール構成ファイルでだけでなくアルファベット順に処理される`/etc/httpd/conf.modules.d/`、ファイルのモジュールを読み込むために必要な構成が含まれています。
 
-という名前のアプリの構成ファイルを作成`hellomvc.conf`:
+という名前の構成ファイルを作成する*hellomvc.conf*アプリの。
 
 ```
 <VirtualHost *:80>
     ProxyPreserveHost On
     ProxyPass / http://127.0.0.1:5000/
     ProxyPassReverse / http://127.0.0.1:5000/
-    ErrorLog /var/log/httpd/hellomvc-error.log
-    CustomLog /var/log/httpd/hellomvc-access.log common
+    ServerName www.example.com
+    ServerAlias *.example.com
+    ErrorLog ${APACHE_LOG_DIR}hellomvc-error.log
+    CustomLog ${APACHE_LOG_DIR}hellomvc-access.log common
 </VirtualHost>
 ```
 
-**VirtualHost**ノードは、サーバー上の 1 つまたは複数のファイルに複数回を使用できます。 **VirtualHost**がポート 80 を使用して任意の IP アドレスでリッスンするように設定します。 次の 2 行は、5000 のポートで 127.0.0.1 のサーバーにルートにプロキシ要求に設定されます。 双方向通信の*ProxyPass*と*ProxyPassReverse*が必要です。
+`VirtualHost`ブロックは、サーバー上の 1 つまたは複数のファイルに複数回を表示することができます。 上記の構成ファイルでは、Apache は、ポート 80 でパブリック トラフィックを受け入れます。 ドメイン`www.example.com`が提供される、および`*.example.com`エイリアスが同じ web サイトに解決されます。 参照してください[仮想ホストの名前に基づくサポート](https://httpd.apache.org/docs/current/vhosts/name-based.html)詳細についてはします。 要求は、ポート 5000 127.0.0.1 のサーバーのルートにあるプロキシ。 双方向通信の`ProxyPass`と`ProxyPassReverse`が必要です。
 
-ごとにログ記録を構成できる**VirtualHost**を使用して**ErrorLog**と**CustomLog**ディレクティブです。 **ErrorLog** 、サーバーが、エラーをログの場所と**CustomLog**ファイル名とログ ファイルの形式を設定します。 この場合、要求の情報が記録される場所はします。 要求ごとに行が表示されます。
+> [!WARNING]
+> 適切なを指定する[ServerName ディレクティブ](https://httpd.apache.org/docs/current/mod/core.html#servername)で、 **VirtualHost**ブロックはセキュリティの脆弱性にアプリを公開します。 サブドメイン ワイルドカード バインド (たとえば、 `*.example.com`) 全体の親ドメインを制御する場合、このセキュリティ上のリスクは発生しません (to `*.com`、に対して脆弱である)。 詳細については、[rfc7230 セクション-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) を参照してください。
+
+ごとにログ記録を構成できる`VirtualHost`を使用して`ErrorLog`と`CustomLog`ディレクティブです。 `ErrorLog` サーバーが、エラーをログの場所と`CustomLog`ファイル名とログ ファイルの形式を設定します。 この場合、要求の情報が記録される場所はします。 要求ごとに行が表示されます。
 
 ファイルを保存し、構成をテストします。 すべてに合格すると、応答は `Syntax [OK]` になります。
 

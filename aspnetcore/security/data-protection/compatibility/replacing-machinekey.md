@@ -1,7 +1,7 @@
 ---
-title: "置き換える`<machineKey>`asp.net"
+title: "ASP.NET で machineKey を置き換えます"
 author: rick-anderson
-description: "置き換える`<machineKey>`asp.net"
+description: "新しいデータとより安全なデータ保護システムの使用を許可する ASP.NET で machineKey を交換する方法を検出します。"
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/compatibility/replacing-machinekey
-ms.openlocfilehash: 865c949a526e07d41ac4627fdf0411d5422adc16
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8113780dd7b8b3010cf77d14abb45730a2f28959
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="replacing-machinekey-in-aspnet"></a>置き換える`<machineKey>`asp.net
+# <a name="replace-machinekey-in-aspnet"></a>ASP.NET で machineKey を置き換えます
 
 <a name="compatibility-replacing-machinekey"></a>
 

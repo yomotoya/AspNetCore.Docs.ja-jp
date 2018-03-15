@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 60ef1f93efea777e9309ad8c664a2c6645f1ce80
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>運用データベース (VB) を使用する実稼働 Web アプリケーションを構成します。
 ====================
@@ -37,16 +37,16 @@ Web アプリケーションの情報を使用して、*接続文字列*デー�
 
 ## <a name="examining-the-connection-string-information"></a>接続文字列情報を確認します。
 
-書評の web アプリケーションで使用する接続文字列が、アプリケーションの構成ファイルに格納されている`Web.config`です。 `Web.config`適切なネーミングの接続文字列を格納するための特別なセクションが含まれる[ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx)です。 `Web.config`ファイルの書評の web サイトがある 1 つの接続文字列をという名前のこのセクションで定義されている`ReviewsConnectionString`:
+書評の web アプリケーションで使用する接続文字列が、アプリケーションの構成ファイルに格納されている`Web.config`です。 `Web.config` 適切なネーミングの接続文字列を格納するための特別なセクションが含まれる[ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx)です。 `Web.config`ファイルの書評の web サイトがある 1 つの接続文字列をという名前のこのセクションで定義されている`ReviewsConnectionString`:
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-vb/samples/sample1.xml)]
 
 接続文字列のデータ ソース = \SQLEXPRESS;。AttachDbFilename = |DataDirectory|\Reviews.mdf;Integrated セキュリティ = Trueユーザー インスタンスは True を = - は、セミコロンと各オプションで区切られたオプションと値のペアと等号で区切られた値を持つオプションと値の数で構成されます。 この接続文字列で使用される 4 つのオプションは次のとおりです。
 
-- `Data Source`-(指定されている場合)、データベース サーバーとデータベース サーバー インスタンス名の場所を指定します。 値、`.\SQLEXPRESS`例を示しますが、データベース サーバーとインスタンス名。 期間は、データベース サーバーが、アプリケーションと同じコンピューター上であるを指定しますインスタンス名が`SQLEXPRESS`です。
-- `AttachDbFilename`-データベース ファイルの場所を指定します。 値には、プレース ホルダーが含まれています。 `|DataDirectory|`、アプリケーション s の完全なパスに解決される`App_Data`実行時にフォルダーです。
-- `Integrated Security`-(false)、データベースまたは現在の Windows アカウントの資格情報 (true) に接続するときに、指定されたユーザー名とパスワードを使用するかどうかを示すブール値。
-- `User Instance`構成オプションが、SQL Server Express エディションを示す、ローカル コンピューター上の管理者以外のユーザーがアタッチし、SQL Server Express Edition のデータベースへの接続を許可するかどうかを特定します。 参照してください[SQL Server Express ユーザー インスタンス](https://msdn.microsoft.com/library/ms254504.aspx)詳細については、この設定します。
+- `Data Source` -(指定されている場合)、データベース サーバーとデータベース サーバー インスタンス名の場所を指定します。 値、`.\SQLEXPRESS`例を示しますが、データベース サーバーとインスタンス名。 期間は、データベース サーバーが、アプリケーションと同じコンピューター上であるを指定しますインスタンス名が`SQLEXPRESS`です。
+- `AttachDbFilename` -データベース ファイルの場所を指定します。 値には、プレース ホルダーが含まれています。 `|DataDirectory|`、アプリケーション s の完全なパスに解決される`App_Data`実行時にフォルダーです。
+- `Integrated Security` -(false)、データベースまたは現在の Windows アカウントの資格情報 (true) に接続するときに、指定されたユーザー名とパスワードを使用するかどうかを示すブール値。
+- `User Instance` 構成オプションが、SQL Server Express エディションを示す、ローカル コンピューター上の管理者以外のユーザーがアタッチし、SQL Server Express Edition のデータベースへの接続を許可するかどうかを特定します。 参照してください[SQL Server Express ユーザー インスタンス](https://msdn.microsoft.com/library/ms254504.aspx)詳細については、この設定します。
   
 
 使用可能な接続文字列オプションが接続しているデータベースに依存し、 [ADO.NET](http://ADO.NET)データベース プロバイダーが使用されています。 たとえば、データベースとは異なります、Oracle データベースに接続するために使用する Microsoft SQL Server への接続の接続文字列。 同様に、SqlClient プロバイダーを使用して Microsoft SQL Server データベースに接続するときに、OLE DB プロバイダーを使用するよりも別の接続文字列が使用します。
@@ -125,7 +125,7 @@ DatabaseConnectionStrings.dev.config ファイルのコピーを作成し、data
 **図 4**: ConfigSections ([フルサイズのイメージを表示するをクリックして](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image12.jpg))
 
 
-今すぐに指示する必要があります`Web.config`接続文字列ストアに対して databaseConnectionStrings.config ファイルを使用します。 開いている`Web.config`と既存の置換`<connectionStrings>`を次の要素。
+今すぐに指示する必要があります`Web.config`接続文字列ストアに対して databaseConnectionStrings.config ファイルを使用します。 `Web.config`を開いて、既存の `<connectionStrings>` 要素を次の XAML に置き換えます。
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-vb/samples/sample4.xml)]
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/first-mvc-app-mac/index
-ms.openlocfilehash: b69eb67cedbc90c319e5bd07556001daed43c005
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 554dda7ad7f20f90fd0a73b51eac508f99877683
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="create-a-web-app-with-aspnet-core-mvc-using-visual-studio-for-mac"></a>Visual Studio for Mac を使用し、ASP.NET Core MVC Web アプリを作成する
 
@@ -21,13 +21,13 @@ ms.lasthandoff: 01/30/2018
 
 [!INCLUDE[consider RP](../../includes/razor.md)]
 
-1. [はじめに](start-mvc.md)
-1. [コントローラーの追加](adding-controller.md)
-1. [ビューの追加](adding-view.md)
-1. [モデルの追加](adding-model.md)
-1. [SQLite](working-with-sql.md)
-1. [コントローラーのメソッドとビュー](controller-methods-views.md)
-1. [検索の追加](search.md)
-1. [新しいフィールドの追加](new-field.md)
-1. [検証の追加](validation.md)
+1. [開始するには](xref:tutorials/first-mvc-app-mac/start-mvc)
+1. [コントローラーの追加](xref:tutorials/first-mvc-app-mac/adding-controller)
+1. [ビューの追加](xref:tutorials/first-mvc-app-mac/adding-view)
+1. [モデルの追加](xref:tutorials/first-mvc-app-mac/adding-model)
+1. [SQLite](xref:tutorials/first-mvc-app-mac/working-with-sql)
+1. [コントローラーのメソッドとビュー](xref:tutorials/first-mvc-app-mac/controller-methods-views)
+1. [検索の追加](xref:tutorials/first-mvc-app-mac/search)
+1. [新しいフィールドの追加](xref:tutorials/first-mvc-app-mac/new-field)
+1. [検証の追加](xref:tutorials/first-mvc-app-mac/validation)
 1. [Details メソッドと Delete メソッドの確認](xref:tutorials/first-mvc-app/details)

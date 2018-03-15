@@ -1,7 +1,7 @@
 ---
-title: "クロス オリジン要求 (CORS) を有効にします。"
+title: "ASP.NET のコアの間の原点の要求 (CORS) を有効にします。"
 author: rick-anderson
-description: "このドキュメントでは、許可するか、または ASP.NET Core アプリケーションでのクロス オリジン要求を拒否するための基準として CORS が導入されています。"
+description: "学習方法を許可したり、ASP.NET のコア ・ アプリケーションの間の原点の要求を拒否しての標準として CORS。"
 manager: wpickett
 ms.author: riande
 ms.date: 05/17/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cors
-ms.openlocfilehash: ee61798fc1bde89ca3712eae9b7c4413e58cf70d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 64d939033fee14fad37a08c60da608898e20c01b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="enabling-cross-origin-requests-cors"></a>クロス オリジン要求 (CORS) を有効にします。
+# <a name="enabling-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET のコアの間の原点の要求 (CORS) を有効にします。
 
 によって[Mike Wasson](https://github.com/mikewasson)、 [Shayne Boyer](https://twitter.com/spboyer)、および[Tom Dykstra](https://github.com/tdykstra)
 
@@ -160,7 +160,7 @@ CORS プレフライト要求がアプリケーションによって設定され
 
 ### <a name="set-the-exposed-response-headers"></a>公開されている応答ヘッダーを設定します。
 
-既定では、ブラウザーはすべてのアプリケーションに応答ヘッダーを公開しません。 (を参照してください[http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header))。既定で利用できる応答ヘッダーは次のとおりです。
+既定では、ブラウザーはすべてのアプリケーションに応答ヘッダーを公開しません。 (を参照してください[ http://www.w3.org/TR/cors/#simple-response-header ](http://www.w3.org/TR/cors/#simple-response-header))。既定で利用できる応答ヘッダーは次のとおりです。
 
 * Cache-Control
 

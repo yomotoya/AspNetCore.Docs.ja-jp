@@ -1,5 +1,5 @@
 ---
-title: "データ保護 Api を使用した作業の開始"
+title: "データ保護 Api を概要します。"
 author: rick-anderson
 description: "このドキュメントでは、保護して、アプリ内のデータを復号化の ASP.NET Core データ保護 Api を使用する方法について説明します。"
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/using-data-protection
-ms.openlocfilehash: 9cb276d3a67619e13d5d49c4567dcf3bc7ad0475
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: ff72773fce28ba75aa8777eea321ed2bfb8f7e54
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="getting-started-with-the-data-protection-apis"></a>データ保護 Api を使用した作業の開始
+# <a name="get-started-with-the-data-protection-apis"></a>データ保護 Api を概要します。
 
 <a name="security-data-protection-getting-started"></a>
 

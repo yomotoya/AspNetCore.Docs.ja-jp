@@ -1,5 +1,5 @@
 ---
-title: "Web Api を Azure Active Directory B2C のクラウド認証"
+title: "Web Api を ASP.NET のコアでアクティブなディレクトリの B2C を Azure クラウド認証"
 author: camsoper
 description: "ASP.NET Core Web API と Azure Active Directory B2C の認証を設定する方法を検出します。 認証されている web API Postman をテストします。"
 ms.author: casoper
@@ -10,17 +10,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: d768e2daf2464b282b097e935ef6c5f85e8705f5
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 1213f7eb25fb6525f98d83dff0956a841ae686a7
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c"></a>Web Api を Azure Active Directory B2C のクラウド認証
+# <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web Api を ASP.NET のコアでアクティブなディレクトリの B2C を Azure クラウド認証
 
 作成者: [Cam Soper](https://twitter.com/camsoper)
 
-[Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) は、web およびモバイル アプリケーションのクラウド id 管理ソリューションです。 サービスは、クラウドとオンプレミスでホストされているアプリの認証を提供します。 認証の種類は、ソーシャル ネットワーク アカウントでは、個々 のアカウントを含めるし、エンタープライズ アカウントをフェデレーションします。 また、Azure AD B2C では、最小構成で多要素認証を提供できます。
+[Azure Active Directory の B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) は、web およびモバイル アプリケーションのクラウドのアイデンティティ管理ソリューションです。 サービスは、クラウドとオンプレミスでホストされているアプリの認証を提供します。 認証の種類は、ソーシャル ネットワーク アカウントでは、個々 のアカウントを含めるし、エンタープライズ アカウントをフェデレーションします。 また、Azure AD B2C では、最小構成で多要素認証を提供できます。
 
 > [!TIP]
 > Azure Active Directory (Azure AD) の Azure AD B2C の別の製品サービスしています。 Azure AD テナントは、組織を表し、Azure AD B2C テナントは証明書利用者アプリケーションで使用される id のコレクションを表します。 詳細については、次を参照してください。 [Azure AD B2C: よく寄せられる質問 (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs)です。
@@ -41,7 +41,7 @@ Web Api には、ユーザー インターフェイスがあるありません�
 以下は、このチュートリアルで必要です。
 
 * [Microsoft Azure サブスクリプション](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) (任意のエディション)
+* [Visual Studio 2017年](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)(任意のエディション)
 * [Postman](https://www.getpostman.com/postman)
 
 ## <a name="create-the-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C テナントを作成します。
@@ -65,7 +65,7 @@ Azure AD B2C のドキュメントで手順を使用して[サインアップま
 | **暗黙のフローを許可します。**       | [はい]                 |                                                                                        |
 | **応答 URL**                 | `https://localhost` | 応答 Url は、エンドポイントが Azure AD B2C がアプリを要求するすべてのトークンを返します。 |
 | **アプリ ID URI**                | *api*               | URI は、物理アドレスに解決する必要はありません。 のみ一意である必要があります。     |
-| **ネイティブ クライアントが含まれます**     | ×                  |                                                                                        |
+| **ネイティブ クライアントは、します。**     | ×                  |                                                                                        |
 
 この API は、登録後、テナントでアプリケーションと Api の一覧が表示されます。 だけに登録されている API を選択します。 選択、**コピー**の右側にあるアイコン、**アプリケーション ID**をクリップボードにコピーするフィールドです。 選択**スコープをパブリッシュ**既定値を確認してください*user_impersonation*スコープが存在します。
 
@@ -89,9 +89,9 @@ Visual Studio で。
     
     | 設定                       | [値]                                                 |
     |-------------------------------|-------------------------------------------------------|
-    | **ドメイン名**               | *&lt;B2C テナントのドメイン名&gt;*          |
-    | **アプリケーション ID**            | *&lt;アプリケーション ID をクリップボードから貼り付けます&gt;* |
-    | **サインアップまたはサインイン ポリシー** | `B2C_1_SiUpIn`                                        |
+    | **ドメイン名**               | *&lt;B2C のテナントのドメイン名&gt;*          |
+    | **アプリケーション ID**            | *&lt;アプリケーション ID、クリップボードからの貼り付け&gt;* |
+    | **サインアップまたはサイン インのポリシー** | `B2C_1_SiUpIn`                                        |
     
     選択**OK**を閉じる、**認証の変更**ダイアログ。 選択**OK** web アプリを作成します。
 
@@ -106,7 +106,7 @@ Visual Studio で、API を実行します。 Visual Studio では、API のル�
 
 ## <a name="use-postman-to-get-a-token-and-test-the-api"></a>Postman を使用して、トークンを取得および API のテスト
 
-[Postman](https://getpostman.com/postman)はテスト用ツールの web Api です。 このチュートリアルでは、Postman は、ユーザーの代理で web API にアクセスする web アプリをシミュレートします。
+[Postman](https://getpostman.com/postman) web Api をテストするためのツールは。 このチュートリアルでは、Postman は、ユーザーの代理で web API にアクセスする web アプリをシミュレートします。
 
 ### <a name="register-postman-as-a-web-app"></a>Web アプリとして Postman を登録します。
 
@@ -121,7 +121,7 @@ Postman は、Azure AD B2C テナントからトークンを入手できる、we
 | **暗黙のフローを許可します。**       | [はい]                              |                                 |
 | **応答 URL**                 | `https://getpostman.com/postman` |                                 |
 | **アプリ ID URI**                | *&lt;空白のままに&gt;*            | このチュートリアルでは必要ありません。 |
-| **ネイティブ クライアントが含まれます**     | ×                               |                                 |
+| **ネイティブ クライアントは、します。**     | ×                               |                                 |
 
 新しく登録されている web アプリでは、ユーザーの代理で web API にアクセスする権限が必要です。  
 
@@ -176,7 +176,7 @@ Web API に認証された要求にベアラー トークンが必要です。 P
     | **付与の種類**            | 暗黙的                                                                                      |                                                                                            |
     | **コールバック URL**          | `https://getpostman.com/postman`                                                              |                                                                                            |
     | **Auth URL**              | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` | 置き換える*&lt;テナントのドメイン名&gt;*山かっこせず、テナントのドメイン名を使用します。 |
-    | **クライアント ID**             | *&lt;入力 Postman アプリの<b>アプリケーション ID</b>&gt;*                                       |                                                                                            |
+    | **クライアント ID**             | *&lt;Postman アプリケーションを入力して<b>アプリケーション ID</b>&gt;*                                       |                                                                                            |
     | **クライアント シークレット**         | *&lt;空白のままに&gt;*                                                                         |                                                                                            |
     | **スコープ**                 | `https://<tenant domain name>/api/user_impersonation openid offline_access`                   | 置き換える*&lt;テナントのドメイン名&gt;*山かっこせず、テナントのドメイン名を使用します。 |
     | **クライアント認証** | 本文でクライアントの資格情報を送信します。                                                               |                                                                                            |
@@ -208,10 +208,10 @@ Web API に認証された要求にベアラー トークンが必要です。 P
 
 学習することにより、API の開発を続行するには。
 
-* [セキュリティで保護された ASP.NET Core web アプリケーションを Azure AD B2C](xref:security/authentication/azure-ad-b2c)です。
-* [.NET web API を使用して Azure AD B2C .NET web アプリから呼び出す](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet)です。
-* [Azure AD B2C ユーザー インターフェイスのカスタマイズ](/azure/active-directory-b2c/active-directory-b2c-reference-ui-customization)です。
+* [Azure AD B2C を使用して web アプリケーションを ASP.NET のコア ・ セキュリティで保護された](xref:security/authentication/azure-ad-b2c)です。
+* [Azure AD B2C を使用して .NET web アプリケーションから .NET web API を呼び出す](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet)。
+* [Azure AD B2C のユーザー インターフェイスをカスタマイズする](/azure/active-directory-b2c/active-directory-b2c-reference-ui-customization)です。
 * [パスワードの複雑さの要件を構成する](/azure/active-directory-b2c/active-directory-b2c-reference-password-complexity)です。
-* [多要素認証を有効にする](/azure/active-directory-b2c/active-directory-b2c-reference-mfa)です。
+* [多要素認証を有効にする](/azure/active-directory-b2c/active-directory-b2c-reference-mfa)。
 * など、追加の id プロバイダーを構成[Microsoft](/azure/active-directory-b2c/active-directory-b2c-setup-msa-app)、 [Facebook](/azure/active-directory-b2c/active-directory-b2c-setup-fb-app)、 [Google](/azure/active-directory-b2c/active-directory-b2c-setup-goog-app)、 [Amazon](/azure/active-directory-b2c/active-directory-b2c-setup-amzn-app)、 [Twitter](/azure/active-directory-b2c/active-directory-b2c-setup-twitter-app)、およびその他。
-* [Azure AD Graph API を使用して](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet)Azure AD B2C テナントからグループ メンバーシップなど、追加のユーザー情報を取得します。
+* [Azure AD グラフ API を使用して](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet)Azure AD B2C テナントから、グループ メンバーシップなどの追加のユーザー情報を取得します。

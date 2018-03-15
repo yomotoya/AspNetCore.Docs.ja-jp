@@ -1,5 +1,5 @@
 ---
-title: "Azure Key Vault の構成プロバイダー"
+title: "ASP.NET Core での azure Key Vault の構成プロバイダー"
 author: guardrex
 description: "Azure キー資格情報コンテナーの構成プロバイダーを使用して、実行時に読み込まれる名前と値のペアを使用してアプリケーションを構成する方法を説明します。"
 manager: wpickett
@@ -8,13 +8,13 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 1a91a87fb90d4d4651e07f32415e4364c8e2d993
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e1a4be77417f0a74182f1b123bfba429737d4330
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="azure-key-vault-configuration-provider"></a>Azure Key Vault の構成プロバイダー
+# <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core での azure Key Vault の構成プロバイダー
 
 によって[Luke Latham](https://github.com/guardrex)と[Andrew スタントン-看護師](https://github.com/anurse)
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 02/11/2018
 ![Azure キー資格情報コンテナーの構成プロバイダー経由で読み込まれているシークレットの値を表示されているブラウザー ウィンドウ](key-vault-configuration/_static/sample1.png)
 
 ## <a name="creating-prefixed-key-vault-secrets-and-loading-configuration-values-key-name-prefix-sample"></a>プレフィックスが指定された資格情報コンテナーの機密情報を作成および構成の値 (キーの名前のプレフィックス-サンプル) の読み込み
-`AddAzureKeyVault`実装を受け入れるオーバー ロードも提供`IKeyVaultSecretManager`構成のキーに変換がどのキー資格情報コンテナーの機密情報を制御することができます。 たとえば、アプリの起動時に指定したプレフィックス値に基づいてシークレットの値を読み込むインターフェイスを実装することができます。 これにより、たとえば、アプリのバージョンに基づくシークレットを読み込めません。
+`AddAzureKeyVault` 実装を受け入れるオーバー ロードも提供`IKeyVaultSecretManager`構成のキーに変換がどのキー資格情報コンテナーの機密情報を制御することができます。 たとえば、アプリの起動時に指定したプレフィックス値に基づいてシークレットの値を読み込むインターフェイスを実装することができます。 これにより、たとえば、アプリのバージョンに基づくシークレットを読み込めません。
 
 > [!WARNING]
 > 複数のアプリのシークレットを key vault に配置するか、環境のシークレットを配置する、キー vault シークレットのプレフィックスを使用しない (たとえば、*開発*と*運用*シークレット) を 1 つ資格情報コンテナー。 別のアプリとの開発と実稼働環境を最高レベルのセキュリティのアプリの環境を分離する個別のキー コンテナーを使用することをお勧めします。

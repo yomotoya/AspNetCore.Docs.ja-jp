@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 27a46446e9bf63e96eecc392e6d6863e27b34730
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e6a8404d3fe96a0136d7f874107b2cdf63e8e890
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service の ASP.NET Core をトラブルシューティングします。
 
@@ -184,4 +184,5 @@ Stdout のログ記録が有効でない場合は、次の手順に従います�
 * [「502 無効なゲートウェイ」と「503 サービス利用不可」では、Azure web アプリの HTTP エラーをトラブルシューティングします。](/app-service/app-service-web-troubleshoot-http-502-http-503)
 * [Azure App Service で低速の web アプリのパフォーマンスに関する問題をトラブルシューティングします。](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
 * [Azure で Web アプリのアプリケーションのパフォーマンスに関する Faq](/azure/app-service/app-service-web-availability-performance-application-issues-faq)
+* [Azure Web アプリのサンド ボックス (アプリ サービス ランタイムの実行の制限事項)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)
 * [Azure Friday: Azure App Service の診断とトラブルシューティング (12 分間のビデオ)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)

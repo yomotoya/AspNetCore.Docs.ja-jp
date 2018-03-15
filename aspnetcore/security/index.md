@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/index
-ms.openlocfilehash: 7e5f6bc44241dc6fc11569a145a04340f1b3ee7f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e03256d7b8b442569b0b0126983732c10817e20f
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="aspnet-core-security-overview"></a>ASP.NET Core セキュリティの概要
 
@@ -97,7 +97,6 @@ ASP.NET Core および EF には、アプリをセキュリティで保護し、
         *   [キー ストレージの形式](data-protection/implementation/key-storage-format.md)
         *   [短期データ保護プロバイダー](data-protection/implementation/key-storage-ephemeral.md)
     *   [互換性](data-protection/compatibility/index.md)
-        *   [アプリ間での Cookie の共有](data-protection/compatibility/cookie-sharing.md)
         *   [ASP.NET での <machineKey> の置換](data-protection/compatibility/replacing-machinekey.md)
 *   [承認によって保護されたユーザー データでのアプリの作成](xref:security/authorization/secure-data)
 *   [開発中のアプリ シークレットの安全な保存](app-secrets.md)
@@ -107,3 +106,4 @@ ASP.NET Core および EF には、アプリをセキュリティで保護し、
 *   [オープン リダイレクト攻撃の防止](preventing-open-redirects.md)
 *   [クロスサイト スクリプティングの防止](cross-site-scripting.md)
 *   [クロスオリジン要求 (CORS) の有効化](cors.md)
+*   [アプリ間での Cookie の共有](cookie-sharing.md)

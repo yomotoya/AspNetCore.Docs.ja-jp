@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/less-sass-fa
-ms.openlocfilehash: 7ef82d15de64ef62b952b6c757cb9c35fd40e788
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e00a0929db9dff6c97c4b22468156f621a1a3820
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>スタイルのアプリケーションより少ないリソースで、Sass、およびフォント優れた ASP.NET Core での概要
 
-によって[Steve Smith](https://ardalis.com/)
+作成者: [Steve Smith](https://ardalis.com/)
 
 Web アプリケーションのユーザーには、スタイルを設定し、全体的なエクスペリエンスがますます高期待があります。 最新の web アプリケーションは、豊富なツール、フレームワークの定義および一貫した方法で、ルック アンド フィールを管理するために頻繁に活用します。 ようなフレームワーク[ブートス トラップ](http://getbootstrap.com/)共通スタイルと web サイトのレイアウト オプションのセットを定義するために効果的に進むことができます。 ただし、ほとんどの重要なサイトも恩恵を効果的に定義およびスタイルおよびカスケード スタイル シート (CSS) ファイルでは、管理を行うことだけでなく、サイトのインターフェイスのより直観的なを支援するアイコンの画像以外に簡単にアクセスできること。 ような場合は言語とツールをサポートする[小さい](http://lesscss.org/)と[Sass](http://sass-lang.com/)などのライブラリおよび[フォント優れた](http://fontawesome.io/)付属します。
 
@@ -97,9 +97,9 @@ body {
 .bgDark2    {color:@darker2}
 ```
 
-`@base`その他の@-prefixed項目は、変数です。 それぞれは、色を表します。 除く`@base`色の関数の使用を設定すると、: 明るく、暗くする、および回転します。 明るくして、画面の非常に期待されるものです操作を行います。スピンは、(周囲の色は、ホイール) 度の数によって、色の色合いを調整します。 小さいプロセッサには使用されていない変数を無視するためにどこかに使用する必要はこれらの変数の動作を示すためには、します。 クラスは、`.baseColor`などが生成された CSS ファイルで変数のそれぞれの計算値をデモンストレーションします。
+`@base` その他の@-prefixed項目は、変数です。 それぞれは、色を表します。 除く`@base`色の関数の使用を設定すると、: 明るく、暗くする、および回転します。 明るくして、画面の非常に期待されるものです操作を行います。スピンは、(周囲の色は、ホイール) 度の数によって、色の色合いを調整します。 小さいプロセッサには使用されていない変数を無視するためにどこかに使用する必要はこれらの変数の動作を示すためには、します。 クラスは、`.baseColor`などが生成された CSS ファイルで変数のそれぞれの計算値をデモンストレーションします。
 
-### <a name="getting-started"></a>作業の開始
+### <a name="get-started"></a>作業開始
 
 作成、 **npm 構成ファイル**(*package.json*) のプロジェクト フォルダーを参照するように編集および`gulp`と`gulp-less`:
 

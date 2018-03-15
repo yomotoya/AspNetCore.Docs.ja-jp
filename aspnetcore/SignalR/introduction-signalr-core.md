@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/introduction-signalr-core
-ms.openlocfilehash: d4ad9bb1910a3339ac8d0d8ff740417f4e7262b7
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: 3fa70c957b246787d4e457c74f90ad797b3af766
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="introduction-to-signalr"></a>SignalR の概要
 
@@ -39,7 +39,7 @@ ASP.NET Core の SignalR:
 * 同時に接続されているすべてのクライアントにメッセージのブロードキャストを有効にします。 チャット ルームなどです。
 * 特定のクライアントまたはクライアントのグループへのメッセージ送信を有効にします。
 * オープン ソースでは、 [GitHub](https://github.com/aspnet/signalr)です。
-* 適切に拡張できます。
+* スケーラブルなです。
 
 クライアントとサーバー間の接続は HTTP 接続とは異なり、永続的です。
 

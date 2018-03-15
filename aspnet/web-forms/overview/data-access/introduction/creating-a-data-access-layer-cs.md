@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 927b2490b5c539a79bb9939b88942499b23cc464
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="creating-a-data-access-layer-c"></a>データ アクセス層 (c#) の作成
 ====================
@@ -233,7 +233,7 @@ AllProducts.aspx.cs
 **図 15**: 作成 を選択して、**選択**ステートメントが行を返します ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-cs/_static/image41.png))
 
 
-次の手順では、データにアクセスするために使用する SQL クエリを定義します。 同じ使用を特定のカテゴリに属する製品だけを返すので、**選択**ステートメントから**GetProducts()**、次の追加が**場所**句: **CategoryID 場所 = @CategoryID**です。 **@CategoryID** メソッドを作成していますが、対応する型 (つまり、null 許容の整数) の入力パラメーターを必要とする、TableAdapter ウィザードにパラメーターを示します。
+次の手順では、データにアクセスするために使用する SQL クエリを定義します。 同じ使用を特定のカテゴリに属する製品だけを返すので、**選択**ステートメントから**GetProducts()**、次の追加が**場所**句: **CategoryID 場所 = @CategoryID**です。  **@CategoryID** メソッドを作成していますが、対応する型 (つまり、null 許容の整数) の入力パラメーターを必要とする、TableAdapter ウィザードにパラメーターを示します。
 
 
 [![指定されたカテゴリの製品を返すだけにクエリを入力します](creating-a-data-access-layer-cs/_static/image43.png)](creating-a-data-access-layer-cs/_static/image42.png)
@@ -308,7 +308,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用しま�
 
 [![TableAdapter が InsertCommand、UpdateCommand、および DeleteCommand プロパティ](creating-a-data-access-layer-cs/_static/image62.png)](creating-a-data-access-layer-cs/_static/image61.png)
 
-**図 23**:、TableAdapter が**InsertCommand**、 **UpdateCommand**、および**DeleteCommand**プロパティ ([を表示する をクリックします。フルサイズのイメージ](creating-a-data-access-layer-cs/_static/image63.png))
+**図 23**:、TableAdapter が**InsertCommand**、 **UpdateCommand**、および**DeleteCommand**プロパティ ([フルサイズのビューにをクリックしてイメージ](creating-a-data-access-layer-cs/_static/image63.png))
 
 
 これらのデータベース コマンド プロパティを変更または確認して、をクリックして、 **CommandText**サブプロパティで、クエリ ビルダーが表示されます。
@@ -316,7 +316,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用しま�
 
 [![クエリ ビルダーでの挿入、更新、および DELETE ステートメントを構成します。](creating-a-data-access-layer-cs/_static/image65.png)](creating-a-data-access-layer-cs/_static/image64.png)
 
-**図 24**: 構成、**挿入**、**更新**と**削除**クエリ ビルダー内のステートメント ([フルサイズのイメージを表示する をクリックします。](creating-a-data-access-layer-cs/_static/image66.png))
+**図 24**: 構成、**挿入**、**更新**と**削除**クエリ ビルダー内のステートメント ([フルサイズのイメージを表示するをクリックします。](creating-a-data-access-layer-cs/_static/image66.png))
 
 
 次のコード例では、パターンを使用して、バッチ更新は廃止されましたいないおよび在庫以下 25 ユニットがあるすべての製品の価格を倍にする方法を示します。
@@ -537,7 +537,7 @@ SuppliersAndProducts.aspx.cs
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 

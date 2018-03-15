@@ -1,7 +1,7 @@
 ---
-title: "クロスサイト スクリプティングの防止"
+title: "クロス サイト スクリプト (XSS) ASP.NET Core での防止"
 author: rick-anderson
-description: "このドキュメントでは、クロスサイト スクリプト (XSS) と ASP.NET Core アプリケーションでこの脆弱性に対処するための手法を紹介します。"
+description: "クロス サイト スクリプト (XSS) と ASP.NET Core アプリケーションでこの脆弱性に対処する方法について説明します。"
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cross-site-scripting
-ms.openlocfilehash: 679d9689fbc2679d9ba20bf9c6dba5c95d76dbce
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9e54ee0b1169c01629c3cd91a378509a73c53904
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="preventing-cross-site-scripting"></a>クロスサイト スクリプティングの防止
+# <a name="preventing-cross-site-scripting-xss-in-aspnet-core"></a>クロス サイト スクリプト (XSS) ASP.NET Core での防止
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 

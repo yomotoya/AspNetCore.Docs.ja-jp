@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
 ms.openlocfilehash: d7e1ba503b8aa815cebf431d2f5ffc9436b3575b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>編集方法と編集ビューの確認
 ====================
@@ -62,7 +62,7 @@ ms.lasthandoff: 01/24/2018
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample6.cshtml?highlight=9)]
 
-`@Html.AntiForgeryToken()`一致する必要があります隠しフォームした偽造防止トークンを生成、`Edit`のメソッド、`Movies`コント ローラー。 詳細を読み取ることができますクロス サイトに関する要求の偽造防止 (XSRF または CSRF とも呼ばれます)、チュートリアルでは[mvc XSRF/CSRF 防止](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)です。
+`@Html.AntiForgeryToken()` 一致する必要があります隠しフォームした偽造防止トークンを生成、`Edit`のメソッド、`Movies`コント ローラー。 詳細を読み取ることができますクロス サイトに関する要求の偽造防止 (XSRF または CSRF とも呼ばれます)、チュートリアルでは[mvc XSRF/CSRF 防止](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md)です。
 
 `HttpGet` `Edit`メソッド ムービー ID パラメーターを受け取り、Entity Framework を使用してムービーを検索`Find`メソッド、し、編集ビューを選択したムービーを返します。 ムービーが見つからない場合[HttpNotFound](https://msdn.microsoft.com/library/gg453938(VS.98).aspx)が返されます。 スキャフォールディング システムが編集ビューを作成したときは、そのシステムが `Movie` クラスを調べて、クラスの各プロパティの `<label>` および `<input>` 要素をレンダリングするコードを作成しました。 次の例では、visual studio のスキャフォールディング システムによって生成された編集ビューを示します。
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 01/24/2018
 
 
 > [!NOTE]
-> コンマを使用するロケールを英語以外の jQuery 検証をサポートするために (&quot;、&quot;) する必要があります、小数点と日付の形式を英語 (米国) 以外の場合は、 *globalize.js*と特定の*cultures/globalize.cultures.js*ファイル (から[https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) および使用する JavaScript`Globalize.parseFloat`です。 NuGet からは、jQuery、英語以外の検証を取得できます。 (しないインストール Globalize 英語ロケールを使用している場合)。
+> コンマを使用するロケールを英語以外の jQuery 検証をサポートするために (&quot;、&quot;) する必要があります、小数点と日付の形式を英語 (米国) 以外の場合は、 *globalize.js*と特定の*cultures/globalize.cultures.js*ファイル (から[ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) および使用する JavaScript`Globalize.parseFloat`です。 NuGet からは、jQuery、英語以外の検証を取得できます。 (しないインストール Globalize 英語ロケールを使用している場合)。
 
 
 1. **ツール**ボタンをクリックし**NuGetLibrary Package Manager**、クリックして**Manage NuGet Packages for Solution**です。  
@@ -109,7 +109,7 @@ ms.lasthandoff: 01/24/2018
 2. 左側のウィンドウで次のように選択します。 **参照*。 * * * (次の図を参照してください)。
 3. 入力のボックスでは、次のように入力します。 * Globalize * *。  
   
-    ![](examining-the-edit-methods-and-edit-view/_static/image6.png)選択`jQuery.Validation.Globalize`、選択`MvcMovie` をクリック**インストール**です。 *Scripts\jquery.globalize\globalize.js*ファイルは、プロジェクトに追加されます。 *Scripts\jquery.globalize\cultures\*多くのカルチャの JavaScript ファイルが格納されます。 このパッケージのインストールに 5 分かかる場合がありますに注意してください。
+    ![](examining-the-edit-methods-and-edit-view/_static/image6.png) 選択`jQuery.Validation.Globalize`、選択`MvcMovie` をクリック**インストール**です。 *Scripts\jquery.globalize\globalize.js*ファイルは、プロジェクトに追加されます。 *Scripts\jquery.globalize\cultures\*多くのカルチャの JavaScript ファイルが格納されます。 このパッケージのインストールに 5 分かかる場合がありますに注意してください。
 
  次のコードは、Views\Movies\Edit.cshtml ファイルへの変更を示しています。 
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 01/24/2018
 
 [!code-xml[Main](examining-the-edit-methods-and-edit-view/samples/sample11.xml)]
 
-<a id="gettingstarted"></a><a id="jQueryAjaxJSON"></a>チュートリアルでは、[次へ] を検索機能を実装します。
+<a id="gettingstarted"></a><a id="jQueryAjaxJSON"></a> チュートリアルでは、[次へ] を検索機能を実装します。
 
 >[!div class="step-by-step"]
 [前へ](accessing-your-models-data-from-a-controller.md)

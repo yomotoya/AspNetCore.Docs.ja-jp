@@ -1,7 +1,7 @@
 ---
-title: "ブートス トラップで美しい、応答性の高いサイトの構築"
+title: "ブートス トラップおよび ASP.NET のコアを持つ、美しい、応答性の高いサイトを構築します。"
 author: ardalis
-description: 
+description: "ASP.NET のコアと応答性の高い web アプリケーションを開発するためのブートス トラップを使用する方法について説明します。"
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: e2ade6223cdc56a4f0f00ff0b985ceda4ab5484a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: c3dfaa53e9e3277d025d014f65004e4c24a5acc4
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="building-beautiful-responsive-sites-with-bootstrap"></a>ブートス トラップで美しい、応答性の高いサイトの構築
+# <a name="building-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>ブートス トラップおよび ASP.NET のコアを持つ、美しい、応答性の高いサイトを構築します。
 
 <a name="bootstrap-index"></a>
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/02/2018
 
 ブートス トラップは、現在の応答性の高い web アプリケーションを開発するための最も一般的なの web フレームワークです。 フロント エンドのデザインおよび開発またはエキスパートの初心者をしているかどうかは、さまざまな機能と、web サイトを持つユーザーのエクスペリエンスを向上できる利点を提供します。 ブートス トラップは、CSS および JavaScript のファイルのセットとしては展開され、デスクトップにタブレットへ電話から効率的に、web サイトまたはアプリケーションのスケールを支援するよう設計されています。
 
-## <a name="getting-started"></a>作業の開始
+## <a name="get-started"></a>作業開始
 
 ブートス トラップで作業を開始するいくつかの方法はあります。 Visual Studio で新しい web アプリケーションを開始する場合、は、事前インストールされているものが大文字のブートス トラップの ASP.NET Core の既定のスタート テンプレートを選択できます。
 
@@ -190,7 +190,7 @@ Navbars は同様に、組み込まれていますが、もう少し複雑です
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
 ```
 
-空き例では、使用可能なからここで開始できます、独自のダッシュ ボードを作成する場合: [http://getbootstrap.com/examples/dashboard/](http://getbootstrap.com/examples/dashboard/)です。
+独自のダッシュ ボードを構築する場合は、ことができますから起動する利用可能な無料の例は、ここ: [ http://getbootstrap.com/examples/dashboard/ ](http://getbootstrap.com/examples/dashboard/)。
 
 ## <a name="components"></a>コンポーネント
 
@@ -198,7 +198,7 @@ Navbars は同様に、組み込まれていますが、もう少し複雑です
 
 ### <a name="glyphicons"></a>Glyphicons
 
-ブートス トラップには Glyphicons からアイコン セットが含まれています ([http://glyphicons.com](http://glyphicons.com))、200 を超えるアイコン自由に、ブートス トラップが有効な web アプリケーション内で使用可能にします。 小さなサンプルだけを次に示します。
+ブートス トラップには、Glyphicons からアイコン セットが含まれています ([http://glyphicons.com](http://glyphicons.com))、200 種類以上のアイコンを自由に使用可能なブートス トラップが有効な web アプリケーション内で使用します。 小さなサンプルだけを次に示します。
 
 ![Glyphicons](bootstrap/_static/theme-glyphicons.png)
 
@@ -214,7 +214,7 @@ Navbars は同様に、組み込まれていますが、もう少し複雑です
 
 ## <a name="javascript-support"></a>JavaScript のサポート
 
-ブートス トラップの JavaScript ライブラリには、アプリケーション内でプログラムでは、その動作を制御できるため、含まれるコンポーネントの API のサポートが含まれています。 さらに、 *bootstrap.js*十数か所を含むカスタム jQuery プラグイン、遷移、モーダル ダイアログ ボックスのような機能の追加 (ドキュメントで、ユーザーがスクロールされたといったに基づいてスタイルの更新) の検出をスクロールします。折りたたみ動作、手荷物の受け取り場所、およびメニュー画面の外にスクロールしないため、ウィンドウを付けることです。 についての詳細を参照してください: ブートス トラップに組み込まれている JavaScript アドオンのすべてを網羅するための十分なスペースがない[http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/)です。
+ブートス トラップの JavaScript ライブラリには、アプリケーション内でプログラムでは、その動作を制御できるため、含まれるコンポーネントの API のサポートが含まれています。 さらに、 *bootstrap.js*十数か所を含むカスタム jQuery プラグイン、遷移、モーダル ダイアログ ボックスのような機能の追加 (ドキュメントで、ユーザーがスクロールされたといったに基づいてスタイルの更新) の検出をスクロールします。折りたたみ動作、手荷物の受け取り場所、およびメニュー画面の外にスクロールしないため、ウィンドウを付けることです。 についての詳細を参照してください: ブートス トラップに組み込まれている JavaScript のアドオンのすべてをカバーするための十分な領域がありません[ http://getbootstrap.com/javascript/ ](http://getbootstrap.com/javascript/)。
 
 ## <a name="summary"></a>まとめ
 

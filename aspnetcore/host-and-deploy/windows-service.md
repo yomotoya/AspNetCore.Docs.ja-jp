@@ -1,5 +1,5 @@
 ---
-title: "Windows サービスのホスト"
+title: "Windows サービスで ASP.NET Core をホストします。"
 author: tdykstra
 description: "Windows サービスで ASP.NET Core アプリケーションをホストする方法を説明します。"
 manager: wpickett
@@ -10,19 +10,19 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: c14a1f62bce4d06be3b8e6356f45cd5e330a0751
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: f3455e47cfc06a4492dc4e34871b348184c6ecfb
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="host-an-aspnet-core-app-in-a-windows-service"></a>Windows サービスでの ASP.NET Core アプリをホストします。
+# <a name="host-aspnet-core-in-a-windows-service"></a>Windows サービスで ASP.NET Core をホストします。
 
-によって[Tom Dykstra](https://github.com/tdykstra)
+著者: [Tom Dykstra](https://github.com/tdykstra)
 
 含まないで実行するには IIS を使用して、Windows 上の ASP.NET Core アプリケーションをホストすることをお勧め、 [Windows サービス](/dotnet/framework/windows-services/introduction-to-windows-service-applications)です。 Windows サービスとしてホストされた場合、アプリが自動的に実行できます後の開始を再起動し、人間の介入を必要とせずにクラッシュします。
 
-[表示またはダウンロードするサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/sample)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))。 サンプル アプリを実行する方法の手順は、サンプルを参照してください*README.md*ファイル。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。 サンプル アプリを実行する方法の手順は、サンプルを参照してください*README.md*ファイル。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/01/2018
 
 * アプリは、(内部ネットワーク) からだけでなく、インターネットから要求を受け取る場合は使用する必要があります、 [HTTP.sys](xref:fundamentals/servers/httpsys) web サーバー (以前の[WebListener](xref:fundamentals/servers/weblistener) 1.x アプリの ASP.NET Core)ではなく[Kestrel](xref:fundamentals/servers/kestrel)です。 IIS は推奨リバース プロキシ サーバーとして使用する Kestrel でエッジに導入されます。 詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
 
-## <a name="getting-started"></a>作業の開始
+## <a name="get-started"></a>作業開始
 
 このセクションでは、サービスで実行する既存の ASP.NET Core プロジェクトを設定するために必要な最小の変更について説明します。
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 02/01/2018
 
 [!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=Logging&highlight=7)]
 
-## <a name="acknowledgments"></a>受信確認
+## <a name="acknowledgments"></a>謝辞
 
 この記事の内容が公開されているリソースを利用して書き込まれます。
 

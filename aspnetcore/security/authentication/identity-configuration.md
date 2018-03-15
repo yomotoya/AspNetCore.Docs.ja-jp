@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 469068af2fc12627a0a5d1c5623eb60bef51cea0
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: f8be8a555454a99a3e75b5cd3d42c11e1d7b2b7e
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="configure-identity"></a>Id を構成します。
 
@@ -36,7 +36,18 @@ ASP.NET Core の Id は、パスワード ポリシー、ロックアウト時�
 
 ### <a name="lockout"></a>ロックアウト
 
+失敗したアクセスの試行数を指定した後、一定の時間のユーザーをロック (既定値: 5 には、アクセスの試行が失敗した後、5 分間ロックアウト)。 成功した認証は、失敗したアクセス試行数をリセットし、時計をリセットします。
+
+次の使用例は、既定値を示しています。
+
 [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,39-42,50-52)]
+
+いることを確認[PasswordSignInAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.passwordsigninasync)設定`lockoutOnFailure`に`true`:
+
+```csharp
+var result = await _signInManager.PasswordSignInAsync(
+                 Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
+```
 
 [IdentityOptions.Lockout](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.lockout)を指定します、 [LockoutOptions](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions)の表に示すプロパティを持つ。
 

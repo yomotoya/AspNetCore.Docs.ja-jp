@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-new-aspnet-mvc-project
 msc.type: authoredcontent
 ms.openlocfilehash: 4d30a6803b1478014a2afb814ac317df27394446
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="create-a-new-aspnet-mvc-project"></a>新しい ASP.NET MVC プロジェクトを作成します。
 ====================
@@ -66,11 +66,11 @@ Visual Studio で新しい ASP.NET MVC アプリケーションを作成する�
 | **ディレクトリ** | **目的** |
 | --- | --- |
 | **/コント ローラー** | URL 要求を処理するコント ローラー クラスを配置します。 |
-| **/モデル** | データの操作を表すクラスを配置します。 |
-| **/ビュー** | 出力のレンダリングを担当する UI テンプレート ファイルを配置します。 |
-| **/スクリプト** | JavaScript ライブラリのファイルとスクリプト (.js) を配置します。 |
-| **/コンテンツ** | CSS、画像ファイル、およびその他の非動的/非 JavaScript コンテンツを配置します。 |
-| **/アプリ\_データ** | データ ファイルを保存する場合は、読み取り/書き込みします。 |
+| **/Models** | データの操作を表すクラスを配置します。 |
+| **/Views** | 出力のレンダリングを担当する UI テンプレート ファイルを配置します。 |
+| **/Scripts** | JavaScript ライブラリのファイルとスクリプト (.js) を配置します。 |
+| **/Content** | CSS、画像ファイル、およびその他の非動的/非 JavaScript コンテンツを配置します。 |
+| **/App\_Data** | データ ファイルを保存する場合は、読み取り/書き込みします。 |
 
 ASP.NET MVC には、この構造体は不要です。 実際には、大規模なアプリケーションで作業する開発者は通常のパーティション、アプリケーションをより管理しやすいに複数のプロジェクト (例: データ モデル クラスは多くの場合、別のクラス ライブラリ プロジェクトで、web アプリケーションから移動) します。 ただし、既定のプロジェクト構造は、とらえてアプリケーションをクリーンして使用できる便利な既定のディレクトリ規約を提供しています。
 

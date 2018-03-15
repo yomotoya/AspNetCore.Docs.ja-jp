@@ -1,7 +1,7 @@
 ---
-title: "移行の認証と Id"
+title: "移行の認証と Id を ASP.NET Core"
 author: ardalis
-description: 
+description: "ASP.NET MVC プロジェクトから ASP.NET Core MVC プロジェクトに認証と id を移行する方法を説明します。"
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/identity
-ms.openlocfilehash: f02d9472ea0aa1dceae3f53c812776aab85ab54e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: bf452ad3969863f8f058b29a31f19af13cb2fc6b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="migrating-authentication-and-identity"></a>移行の認証と Id
+# <a name="migrating-authentication-and-identity-to-aspnet-core"></a>移行の認証と Id を ASP.NET Core
 
 <a name="migration-identity"></a>
 
-によって[Steve Smith](https://ardalis.com/)
+作成者: [Steve Smith](https://ardalis.com/)
 
 前の記事お[ASP.NET MVC プロジェクトから ASP.NET Core MVC に構成を移行した](configuration.md)です。 この記事では、登録、ログイン、およびユーザー管理機能を移行します。
 

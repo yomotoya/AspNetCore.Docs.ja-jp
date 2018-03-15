@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-title: "ASP.NET Web API 2 (c#) の概要"
+title: "ASP.NET Web API 2 (C#) を開始します。"
 author: MikeWasson
 description: "HTTP は、web ページを提供しているだけではなくです。 サービスとデータを公開する Api を構築するための強力なプラットフォームです。 HTTP は、シンプルで柔軟なので、および ubiq には."
 ms.author: aspnetcontent
@@ -11,15 +11,15 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 6ff9fd279a03197f761454bba3f180d7428b1b1f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d881563cdb6449aada444ef0528061581113a925
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
-<a name="getting-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (c#) の概要
+<a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (C#) を開始します。
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
 [完成したプロジェクトをダウンロードします。](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
 
@@ -134,7 +134,7 @@ Web API では、*コント ローラー* HTTP 要求を処理するオブジェ
 
 [!code-html[Main](tutorial-your-first-web-api/samples/sample3.html)]
 
-JQuery を取得するいくつかの方法はあります。 この例では使用して、 [Microsoft Ajax CDN](../../../ajax/cdn/overview.md)です。 ダウンロードすることも[http://jquery.com/](http://jquery.com/)、および"Web API"ASP.NET プロジェクト テンプレートには、jQuery もが含まれています。
+JQuery を取得するいくつかの方法はあります。 この例では使用して、 [Microsoft Ajax CDN](../../../ajax/cdn/overview.md)です。 ダウンロードすることも[ http://jquery.com/ ](http://jquery.com/)、および ASP.NET の「Web API」プロジェクト テンプレートにには、jQuery にもが含まれています。
 
 ### <a name="getting-a-list-of-products"></a>製品の一覧を取得します。
 
@@ -186,8 +186,8 @@ HTTP サービスを使用する場合は、HTTP 要求を表示、メッセー�
 
 Azure アカウントを Azure にこのソリューションを展開する必要があります。 アカウントがない場合は、次のオプションがあります。
 
-- [無料の Azure アカウントを開設](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604)-クレジットを取得するでも使用されているアカウントを維持する最大と使用する無料の Azure サービスおよび有料の Azure サービスを試す使用できます。
-- [MSDN サブスクライバー特典をアクティブ化](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)-お客様の MSDN サブスクリプションでは、クレジット有料の Azure サービスを使用できるすべての月です。
+- [Azure アカウントを無料で開いて](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604)のクレジットを取得する有料の Azure サービスを試すことができますを使用して使用後もアカウントを保持する最大の使用は、Azure のサービスを解放します。
+- [MSDN サブスクリプション会員の特典を有効に](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)が、MSDN サブスクリプションでは、クレジット毎月 Azure の有料のサービスに使用することができます。
 
 ## <a name="next-steps"></a>次の手順
 

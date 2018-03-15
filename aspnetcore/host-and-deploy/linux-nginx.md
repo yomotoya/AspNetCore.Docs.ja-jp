@@ -5,16 +5,16 @@ description: "Ubuntu 16.04 Kestrel で実行されている ASP.NET Core web ア
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/21/2017
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 5e85cf909c1a360f245bcc83233ccc1347735b26
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: a1de177fcd41c925a85e5aab9a0d236249b7da0b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Nginx 搭載の Linux で ASP.NET Core をホストする
 
@@ -22,7 +22,8 @@ ms.lasthandoff: 03/02/2018
 
 このガイドでは、Ubuntu 16.04 サーバーで本稼働対応の ASP.NET Core 環境をセットアップする方法について説明します。
 
-**注:** Ubuntu 14.04 の*supervisord* Kestrel プロセスを監視するためのソリューションとしてはお勧めします。 *systemd* Ubuntu 14.04 では使用できません。 [この文書の前のバージョンをご覧ください](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md)
+> [!NOTE]
+> Ubuntu 14.04 の*supervisord* Kestrel プロセスを監視するためのソリューションとしてはお勧めします。 *systemd* Ubuntu 14.04 では使用できません。 [このドキュメントの以前のバージョンを参照してください](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md)です。
 
 このガイドでは:
 
@@ -113,23 +114,37 @@ sudo service nginx start
 
 ### <a name="configure-nginx"></a>Nginx を構成する
 
-ASP.NET Core アプリケーションに要求を転送にリバース プロキシとして Nginx を構成するには、変更`/etc/nginx/sites-available/default`です。 テキスト エディターで開き、中身を次のものに変更します。
+ASP.NET Core アプリケーションに要求を転送するリバース プロキシとして Nginx を構成するには、変更*/etc/nginx/sites-available/default*です。 テキスト エディターで開き、中身を次のものに変更します。
 
-```
+```nginx
 server {
-    listen 80;
+    listen        80;
+    server_name   example.com *.example.com;
     location / {
-        proxy_pass http://localhost:5000;
+        proxy_pass         http://localhost:5000;
         proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection keep-alive;
-        proxy_set_header Host $http_host;
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_set_header   Connection keep-alive;
+        proxy_set_header   Host $http_host;
         proxy_cache_bypass $http_upgrade;
     }
 }
 ```
 
-この Nginx 構成ファイルは、ポート `80` から入ってくるパブリック トラフィックをポート `5000` に転送します。
+ない場合`server_name`Nginx の一致が既定のサーバーを使用します。 既定のサーバーが定義されていない場合、最初のサーバー構成ファイルでは、既定のサーバーです。 ベスト プラクティスとして、構成ファイルで 444 のステータス コードを返す特定の既定のサーバーを追加します。 既定のサーバーの構成例を示します。
+
+```nginx
+server {
+    listen   80 default_server;
+    # listen [::]:80 default_server deferred;
+    return   444;
+}
+```
+
+上記の構成ファイルと、既定のサーバーと Nginx はホスト ヘッダーを持つポート 80 でパブリック トラフィックを受け付ける`example.com`または`*.example.com`です。 これらのホストと一致しない要求 Kestrel に転送されません。 Nginx で Kestrel に一致する要求を転送する`http://localhost:5000`です。 参照してください[nginx が要求をどのように処理するか](https://nginx.org/docs/http/request_processing.html)詳細についてはします。
+
+> [!WARNING]
+> 適切なを指定する[server_name ディレクティブ](https://nginx.org/docs/http/server_names.html)セキュリティの脆弱性にアプリを公開します。 サブドメイン ワイルドカード バインド (たとえば、 `*.example.com`) 全体の親ドメインを制御する場合、このセキュリティ上のリスクは発生しません (to `*.com`、に対して脆弱である)。 詳細については、[rfc7230 セクション-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) を参照してください。
 
 Nginx 構成が確立されると、実行`sudo nginx -t`構成ファイルの構文を確認します。 構成ファイルのテストが成功した場合は、強制的に実行して、変更を取得する Nginx`sudo nginx -s reload`です。
 

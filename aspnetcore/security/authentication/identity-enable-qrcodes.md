@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET Core でのアプリの認証子の QR コード生成を有効にします。"
 author: rick-anderson
-description: "ASP.NET Core でのアプリの認証子の QR コード生成を有効にします。"
+description: "ASP.NET Core 2 要素認証を使用する認証システム アプリの QR コードの生成を有効にする方法を検出します。"
 manager: wpickett
 ms.author: riande
 ms.date: 09/24/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: cf941314d54aa4a7bd1724805dc62c763ca71dfb
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: dd326bb32565b743d21e196bcb616a716d7994bf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="enabling-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>ASP.NET Core でのアプリの認証子の QR コード生成を有効にします。
 
@@ -25,7 +25,7 @@ ASP.NET Core web アプリ テンプレートでは、認証のサポートが�
 
 ## <a name="adding-qr-codes-to-the-2fa-configuration-page"></a>2 fa 構成 ページに QR コードを追加します。
 
-これらの手順を使用して*qrcode.js* https://davidshimjs.github.io/qrcodejs/ リポジトリからです。
+これらの手順を使用して*qrcode.js*から、https://davidshimjs.github.io/qrcodejs/リポジトリです。
 
 * ダウンロード、 [qrcode.js javascript ライブラリ](https://davidshimjs.github.io/qrcodejs/)を`wwwroot\lib`プロジェクトのフォルダーにします。
 
@@ -84,8 +84,8 @@ QR コード ライブラリを優先されるライブラリと置き換える�
 
 QR コードを正しく書式設定された URL はで使用します。
 
-* `AuthenticatorUri`モデルのプロパティです。
-* `data-url`プロパティに、`qrCodeData`要素。 
+* `AuthenticatorUri` モデルのプロパティです。
+* `data-url` プロパティに、`qrCodeData`要素。 
 
 ## <a name="totp-client-and-server-time-skew"></a>TOTP クライアントとサーバー時間のずれ
 
