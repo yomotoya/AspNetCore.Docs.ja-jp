@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: bcfd20fcea1e683bcbef00a9e67bb28add4f23be
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 45b00fbc15740fad60202bb7e5ab14beb9ebe495
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core チュートリアル
 
@@ -47,8 +47,11 @@ ASP.NET Core アプリケーションの開発に関する以下のステップ 
   * [Visual Studio for Windows での Web API](first-web-api.md)
   * [Visual Studio for Mac での Web API](xref:tutorials/first-web-api-mac)
   * [Visual Studio Code での Web API](web-api-vsc.md)
-  
-* [Swagger を使用する ASP.NET Core Web API のヘルプ ページ](web-api-help-pages-using-swagger.md)
+
+* [Swagger を使用する ASP.NET Core Web API のヘルプ ページ](xref:tutorials/web-api-help-pages-using-swagger)
+  * [NSWag の概要](xref:tutorials/get-started-with-nswag)
+  * [Swashbuckle の概要](xref:tutorials/get-started-with-swashbuckle)
+
 * [ネイティブ モバイル アプリのバックエンド Web サービスの作成](../mobile/native-mobile-backend.md)
 
 ## <a name="data-access-and-storage"></a>データ アクセスとストレージ

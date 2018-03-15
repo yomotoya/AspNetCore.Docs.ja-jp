@@ -29,7 +29,9 @@
 
 ## [Web API の構築](mvc/web-api/index.md)
 ### [Mac での Web API の作成](xref:tutorials/first-web-api-mac)
-### [Swagger を使用する ASP.NET Core Web API のヘルプ ページ](tutorials/web-api-help-pages-using-swagger.md)
+### [Swagger を使用する ASP.NET Core Web API のヘルプ ページ](xref:tutorials/web-api-help-pages-using-swagger)
+#### [NSWag の概要](xref:tutorials/get-started-with-nswag)
+#### [Swashbuckle の概要](xref:tutorials/get-started-with-swashbuckle)
 ### [ネイティブ モバイル アプリのバックエンド サービスの作成](mobile/native-mobile-backend.md)
 
 ## [データ アクセス - EF Core](xref:data/index)
@@ -212,12 +214,10 @@
 
 # [SignalR](xref:signalr/introduction-signalr-core)
 ## [はじめに](xref:signalr/introduction-signalr-core)
+## [開始するには](xref:signalr/get-started-signalr-core)
 
 # [モバイル](xref:mobile/index)
 ## [ネイティブ モバイル アプリのバックエンド サービスの作成](xref:mobile/native-mobile-backend)
-
-# [SignalR](xref:signalr/index)
-## [開始するには](xref:signalr/get-started-signalr-core)
 
 # [ホストとデプロイ](xref:host-and-deploy/index)
 ## [Azure App Service でのホスト](xref:host-and-deploy/azure-apps/index)
