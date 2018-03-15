@@ -13,14 +13,14 @@ ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: e6c0c45bed098a8a1160ff11e4f77244bf55ffd3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="single-page-application-knockoutjs-template"></a>Single Page Application: KnockoutJS テンプレート
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
 > ASP.NET および Web ツール 2012.2 の一部である Knockout MVC テンプレート
 > 
@@ -94,7 +94,7 @@ Visual Studio プロジェクトには、Models フォルダーには、サー�
 
 **TodoItem、TodoList**
 
-これらは、Entity Framework Code First のデータベース モデルです。 これらのモデルが互いを指すプロパティを持つことに注意してください。 `ToDoList`ToDoItems、およびそれぞれのコレクションを含む`ToDoItem`がその親 ToDoList への参照。 これらのプロパティと呼ばれるナビゲーションされ、to do リストとそのタスク項目一対多リレーションシップを表します。
+これらは、Entity Framework Code First のデータベース モデルです。 これらのモデルが互いを指すプロパティを持つことに注意してください。 `ToDoList` ToDoItems、およびそれぞれのコレクションを含む`ToDoItem`がその親 ToDoList への参照。 これらのプロパティと呼ばれるナビゲーションされ、to do リストとそのタスク項目一対多リレーションシップを表します。
 
 `ToDoItem`クラスも使用して、 **[ForeignKey]**ことを指定する属性`ToDoListId`への外部キーは、`ToDoList`テーブル。 これは、データベースに foreign key 制約を追加する EF を示しています。
 
@@ -162,7 +162,7 @@ CRUD 操作の Web API の使用に関する詳細については、次を参照
 
 ## <a name="mvc-controllers-and-views"></a>MVC コント ローラーとビュー
 
-MVC コント ローラーは、ソリューションのコント ローラーのフォルダーにあります。 `HomeController`アプリケーションのメインの HTML をレンダリングします。 Home コント ローラーのビューは、Views/Home/Index.cshtml で定義されます。 ホーム ビューは、ユーザーがログインしているかどうかに応じて異なるコンテンツを表示します。
+MVC コント ローラーは、ソリューションのコント ローラーのフォルダーにあります。 `HomeController` アプリケーションのメインの HTML をレンダリングします。 Home コント ローラーのビューは、Views/Home/Index.cshtml で定義されます。 ホーム ビューは、ユーザーがログインしているかどうかに応じて異なるコンテンツを表示します。
 
 [!code-cshtml[Main](knockoutjs-template/samples/sample4.cshtml)]
 

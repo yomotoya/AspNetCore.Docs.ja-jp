@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
 ms.openlocfilehash: 6210d01f65bcadf8ae4209e372d5aac68861bd7a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="web-deployment-in-the-enterprise"></a>企業内の web 配置
 ====================
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/10/2017
 
 > このチュートリアルでは、多数のエンタープライズ規模の web アプリケーションを開発、テスト、ステージング、および運用環境の展開を管理するときに発生する課題に対処する方法について説明します。 このチュートリアルには、さまざまな一般的なタスクと手順について説明する概念とタスク指向のコンテンツの組み合わせと共に参照ソリューションが含まれています。
 > 
-> これらのチュートリアルのイタリア語の翻訳を参照してください。 [http://www.lucamorelli.it](http://www.lucamorelli.it)です。
+> これらのチュートリアルのイタリア語の翻訳を参照してください。 [ http://www.lucamorelli.it](http://www.lucamorelli.it)です。
 
 
 ## <a name="enterprise-deployment-challenges"></a>企業の展開に関する問題
@@ -68,19 +68,19 @@ ms.lasthandoff: 11/10/2017
 
 これらのトピックでは、参照ソリューション & #x 2014 以外の場合は、連絡先のマネージャー ソリューション & #x 2014; を紹介し、ダウンロードし、ローカル コンピューターに構成する方法について説明します。
 
-- [連絡先のマネージャー ソリューション](the-contact-manager-solution.md)
-- [連絡先のマネージャー ソリューションを設定します。](setting-up-the-contact-manager-solution.md)
+- [連絡先マネージャー ソリューション](the-contact-manager-solution.md)
+- [連絡先マネージャー ソリューションを設定する](setting-up-the-contact-manager-solution.md)
 
 これらのトピックでは、MSBuild プロジェクト ファイルを導入、できますの作成方法とカスタム プロジェクト ファイルを使用して、連絡先のマネージャー ソリューションの配置プロセスを順を追ってを記述します。
 
-- [プロジェクト ファイルを理解します。](understanding-the-project-file.md)
-- [ビルド プロセスの理解](understanding-the-build-process.md)
+- [プロジェクト ファイルについて理解する](understanding-the-project-file.md)
+- [ビルド処理について理解する](understanding-the-build-process.md)
 
 これらのトピックの説明、ビルドとパッケージ化プロセスの動作、ビルド プロセスが、Web 発行パイプラインと統合する方法、デプロイ パラメーターを変更する方法および変換先に web パッケージを展開する方法を含む web アプリケーションの配置環境:
 
-- [ビルドおよび Web アプリケーション プロジェクトをパッケージ化](building-and-packaging-web-application-projects.md)
-- [Web パッケージの展開のパラメーターの構成](configuring-parameters-for-web-package-deployment.md)
-- [Web パッケージを展開します。](deploying-web-packages.md)
+- [Web アプリケーション プロジェクトのビルドとパッケージ化](building-and-packaging-web-application-projects.md)
+- [Web パッケージ展開のパラメーターを構成する](configuring-parameters-for-web-package-deployment.md)
+- [Web パッケージを展開する](deploying-web-packages.md)
 
 - [データベース プロジェクトの配置](deploying-database-projects.md)長所と短所をそれぞれの方法と、Visual Studio データベース プロジェクトを展開に使用できるさまざまな手法について説明します。 [作成と展開コマンド ファイルを実行している](creating-and-running-a-deployment-command-file.md)デプロイ ロジックをカプセル化し、1 つの手順として複雑なソリューションを展開することができますを単純なコマンド ファイルを作成する方法について説明します。
 - 最後に、 [Web パッケージを手動でインストールする](manually-installing-web-packages.md)で IIS に web パッケージをインポートすることを示すことでチュートリアルは終わりです。

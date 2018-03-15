@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment
 msc.type: authoredcontent
 ms.openlocfilehash: f27b8376b332ff21185be0fd5c00ced7d40a20bd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-deployment-properties-for-a-target-environment"></a>ターゲット環境の展開のプロパティを構成します。
 ====================
@@ -67,13 +67,13 @@ ms.lasthandoff: 11/10/2017
 
 次の表は、サンプルの環境に固有のプロジェクト ファイル内の各プロパティの目的を説明*Env Dev.proj*と指定する必要があります値をいくつかのガイダンスを提供します。
 
-| プロパティ名 | 詳細 |
+| プロパティ名 | 説明 |
 | --- | --- |
 | **MSDeployComputerName**先の web サーバーまたはサービス エンドポイントの名前。 | を、ターゲット web サーバー上のリモート エージェント サービスに配置する場合は、対象コンピューターの名前を指定できます (たとえば、 **TESTWEB1**または**TESTWEB1.fabrikam.net**)、またはリモートを指定することができますエージェントのエンドポイント (たとえば、 `http://TESTWEB1/MSDEPLOYAGENTSERVICE`)。 各ケースで同じように動作して展開します。 を、Web 展開ハンドラーで、ターゲット web サーバー上に配置する場合、サービス エンドポイントを指定し、クエリ文字列パラメーターとして、IIS web サイトの名前を含めます (たとえば、 `https://STAGEWEB1:8172/MSDeploy.axd?site=DemoSite`)。 |
 | **MSDeployAuth** Web Deploy がリモート コンピューターへの認証に使用するメソッド。 | これに設定する必要があります**NTLM**または**基本**です。 通常、使用する**NTLM**リモート エージェント サービスを配置する場合と**基本的な**Web 展開ハンドラーを配置する場合。 基本認証を使用する場合は、ユーザー名とパスワード (Web 配置) IIS Web 配置ツールの展開を実行するために権限を借用する必要がありますを指定する必要があります。 この例では、これらの値がによって提供される、 **MSDeployUsername**と**MSDeployPassword**プロパティです。 NTLM 認証を使用する場合は、これらのプロパティを省略するか、空白のままにします。 |
 | **MSDeployUsername**基本認証を使用する場合は、Web Deploy はこのアカウントを使用、リモート コンピューター上です。 | これは、フォームにかける*ドメイン*\*username * (たとえば、 **FABRIKAM\matt**)。 この値は、基本認証を指定する場合にのみ使用します。 NTLM 認証を使用する場合、プロパティを省略できます。 値を指定する場合は無視されます。 |
 | **MSDeployPassword**基本認証を使用する場合は、Web Deploy はパスワードを使ってこの、リモート コンピューター上です。 | これで指定したユーザー アカウントのパスワード、 **MSDeployUsername**プロパティです。 この値は、基本認証を指定する場合にのみ使用します。 NTLM 認証を使用する場合、プロパティを省略できます。 値を指定する場合は無視されます。 |
-| **ContactManagerIisPath**連絡先のマネージャーの MVC アプリケーションを展開する、IIS パス。 | これは、パスになります、IIS マネージャーで、フォームに表示される [*IIS web サイト名*]/[*web**アプリケーション名*] です。 IIS web サイトが、アプリケーションを展開する前に存在する必要があることに注意してください。 たとえば、DemoSite という IIS の web サイトを作成してある場合は、DemoSite/ContactManager として MVC アプリケーション用 IIS パスを指定可能性があります。 |
+| **ContactManagerIisPath**連絡先のマネージャーの MVC アプリケーションを展開する、IIS パス。 | これは、パスになります、IIS マネージャーで、フォームに表示される [*IIS web サイト名*]/[*web * * アプリケーション名*] です。 IIS web サイトが、アプリケーションを展開する前に存在する必要があることに注意してください。 たとえば、DemoSite という IIS の web サイトを作成してある場合は、DemoSite/ContactManager として MVC アプリケーション用 IIS パスを指定可能性があります。 |
 | **ContactManagerServiceIisPath**連絡先のマネージャーの WCF サービスを展開する、IIS パス。 | たとえば、DemoSite という IIS の web サイトを作成した場合は、として WCF サービスの IIS パスを指定でした**DemoSite/ContactManagerService**です。 |
 | **ContactManagerTargetUrl**を WCF サービスに到達できる URL。 | これには、フォームをかかります [*IIS web サイトのルート URL*]/[*サービス アプリケーションの名前*]/[*サービス エンドポイント*]。 たとえば、IIS の web サイトをポート 85 で作成した場合、URL 夥しいフォーム`http://localhost:85/ContactManagerService/ContactService.svc`です。 同じサーバーに、MVC アプリケーションと WCF サービスが展開されていることに注意してください。 その結果、この URL がインストールされているコンピューターからアクセスだけです。 このため、URL で localhost または IP アドレスではなく、コンピューター名またはホスト ヘッダーを使用することをお勧めします。 コンピューター名またはホスト ヘッダーを使用する場合、[ループバック チェック](https://go.microsoft.com/?linkid=9805131)IIS のセキュリティ機能が、URL をブロックし、返す可能性があります、 **HTTP 401.1 - 権限がありません**エラーです。 |
 | **CmDatabaseConnectionString**データベース サーバーの接続文字列。 | 接続文字列では、両方の VSDBCMD に使う資格情報をデータベース サーバーに接続し、データベースと web サーバーのアプリケーション プールが、データベース サーバーに接続し、データベースとの対話に使用する資格情報の作成を決定します。 基本的には、ここにある 2 つの選択肢です。 指定できます**統合セキュリティ = true**、統合 Windows 認証を使用する場合:**データ ソース = TESTDB1; Integrated Security = true**を使用して、データベースを作成、ここでは、VSDBCMD 実行可能ファイルを実行しているユーザーおよびアプリケーションの資格情報は、web サーバーのコンピューター アカウントの id を使用してデータベースにアクセスされます。 または、ユーザー名と SQL Server アカウントのパスワードを指定することができます。 VSDBCMD データベースを作成して、データベースとやり取りするアプリケーション プールの両方に、ここでは、SQL Server 資格情報が使用される:**データ ソース = TESTDB1 です。ユーザー Id = ASqlUser です。パスワード = Pa$ $w0rd**のチュートリアルでは、このトピックでは、統合 Windows 認証を使用することを前提としています。 |

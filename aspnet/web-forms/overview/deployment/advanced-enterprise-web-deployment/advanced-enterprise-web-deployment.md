@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/advanced-enterprise-web-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: c3cb7f63cf7c0246a0c4da6038a65a6ac43a7b59
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="advanced-enterprise-web-deployment"></a>高度なエンタープライズ Web 配置
 ====================
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/10/2017
 
 > このチュートリアルでは、必要なまたは多数のエンタープライズ展開シナリオに適しているさまざまなタスクを実行する方法を示します。
 > 
-> これらのチュートリアルのイタリア語の翻訳を参照してください。 [http://www.lucamorelli.it](http://www.lucamorelli.it)です。
+> これらのチュートリアルのイタリア語の翻訳を参照してください。 [ http://www.lucamorelli.it](http://www.lucamorelli.it)です。
 
 
 これが Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルのシリーズを使用してサンプル ソリューション & #x 2014;、[連絡先のマネージャー](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)複雑さ、ASP.NET MVC 3 アプリケーション、Windows などの現実的なレベルで web アプリケーションを表すためには、ソリューション & #x 2014;Communication Foundation (WCF) サービスとデータベース プロジェクト。

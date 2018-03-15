@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 72f60841a1381380c0ea6167077420f960180dc7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-team-foundation-server-for-web-deployment"></a>Web 配置を Team Foundation Server を構成します。
 ====================
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/10/2017
 > - デプロイ ロジックを含むビルド定義を作成する方法。
 > - 自動展開のアクセス許可を構成する方法。
 > 
-> これらのチュートリアルのイタリア語の翻訳を参照してください。 [http://www.lucamorelli.it](http://www.lucamorelli.it)です。
+> これらのチュートリアルのイタリア語の翻訳を参照してください。 [ http://www.lucamorelli.it](http://www.lucamorelli.it)です。
 
 
 このチュートリアルでは、TFS 2010 をインストールして、初期構成プロセスの一部としてチーム プロジェクト コレクションを作成したと仮定します。 [For Visual Studio 2010 Team Foundation のインストール ガイド](https://go.microsoft.com/?linkid=9805132)これらのタスクに関する包括的なガイダンスを示します。

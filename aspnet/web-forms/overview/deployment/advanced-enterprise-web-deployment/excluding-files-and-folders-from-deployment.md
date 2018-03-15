@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 80810415bac473a58f60110fb9d08772e0627bd5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="excluding-files-and-folders-from-deployment"></a>ファイルとフォルダーの展開から除外
 ====================
@@ -95,7 +95,7 @@ Visual Studio で、web アプリケーション プロジェクトのプロパ�
 1. Visual Studio 2010 でソリューションを開きます。
 2. **ソリューション エクスプ ローラー**ウィンドウで、web アプリケーションのプロジェクト ノードを右クリックし (たとえば、 **ContactManager.Mvc**)、 をポイント**追加**をクリックして**新しい項目の**します。
 3. **新しい項目の追加**ダイアログ ボックスで、 **XML ファイル**テンプレート。
-4. **名前**ボックスに、入力*[プロジェクト名]***. wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**)、をクリックして**追加**です。
+4. **名前**ボックスに、入力*[プロジェクト名] * * *.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**)、をクリックして**追加**.
 
     ![](excluding-files-and-folders-from-deployment/_static/image3.png)
 

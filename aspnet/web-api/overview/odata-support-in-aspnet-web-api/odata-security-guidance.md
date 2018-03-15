@@ -13,14 +13,14 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
 ms.openlocfilehash: 799e2a0c742b545acf3b5cd27531d734aa7def80
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>ASP.NET Web API 2 のセキュリティ ガイダンス OData
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
 このトピックでは、OData を介してデータセットを公開するときに考慮すべきセキュリティの問題について説明します。
 
