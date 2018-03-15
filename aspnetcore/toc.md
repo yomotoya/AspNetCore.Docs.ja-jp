@@ -76,7 +76,7 @@
 #### [検索の追加](xref:tutorials/razor-pages-vsc/search)
 
 ### [Visual Studio for Mac での MVC Web アプリ](xref:tutorials/first-mvc-app-mac/index)
-#### [はじめに](xref:tutorials/first-mvc-app-mac/start-mvc)
+#### [開始するには](xref:tutorials/first-mvc-app-mac/start-mvc)
 #### [コントローラーの追加](xref:tutorials/first-mvc-app-mac/adding-controller)
 #### [ビューの追加](xref:tutorials/first-mvc-app-mac/adding-view)
 #### [モデルの追加](xref:tutorials/first-mvc-app-mac/adding-model)
@@ -88,7 +88,7 @@
 #### [Details メソッドと Delete メソッドの確認](xref:tutorials/first-mvc-app/details)
 
 ### [Mac または Linux の Visual Studio Code での MVC Web アプリ](xref:tutorials/first-mvc-app-xplat/index)
-#### [はじめに](tutorials/first-mvc-app-xplat/start-mvc.md)
+#### [開始するには](tutorials/first-mvc-app-xplat/start-mvc.md)
 #### [コントローラーの追加](tutorials/first-mvc-app-xplat/adding-controller.md)
 #### [ビューの追加](tutorials/first-mvc-app-xplat/adding-view.md)
 #### [モデルの追加](tutorials/first-mvc-app-xplat/adding-model.md)
@@ -313,7 +313,6 @@
 #### [キー ストレージの形式](xref:security/data-protection/implementation/key-storage-format)
 #### [短期データ保護プロバイダー](xref:security/data-protection/implementation/key-storage-ephemeral)
 ### [互換性](xref:security/data-protection/compatibility/index)
-#### [アプリ間での Cookie の共有](xref:security/data-protection/compatibility/cookie-sharing)
 #### [ASP.NET での <machineKey> の置換](xref:security/data-protection/compatibility/replacing-machinekey)
 ## [HTTPS の適用](xref:security/enforcing-ssl)
 ## [開発中のアプリ シークレットの安全な保存](xref:security/app-secrets)
@@ -322,6 +321,7 @@
 ## [オープン リダイレクト攻撃の防止](xref:security/preventing-open-redirects)
 ## [クロスサイト スクリプティングの防止](xref:security/cross-site-scripting)
 ## [クロスオリジン要求 (CORS) の有効化](xref:security/cors)
+## [アプリ間での Cookie の共有](xref:security/cookie-sharing)
 
 # [パフォーマンス](xref:performance/index)
 ## [キャッシュ](xref:performance/caching/index)
