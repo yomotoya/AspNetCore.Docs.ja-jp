@@ -1,5 +1,5 @@
 ---
-title: "Visual Studio と Git による Azure への継続的配置"
+title: "Visual Studio で Azure と ASP.NET Core での Git に継続的なデプロイ"
 author: rick-anderson
 description: "Visual Studio で ASP.NET Core Web アプリを作成し、それを Azure App Service に配置する方法について説明します。Git を利用し、継続的に配置します。"
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: ea4788b5daead9e355e13b963c025dd110eb2bff
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 7302de1ace62dba53b317039aac7f4763314aa19
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Visual Studio および Git と ASP.NET core を Azure に継続的なデプロイ
+# <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Visual Studio で Azure と ASP.NET Core での Git に継続的なデプロイ
 
 作成者: [Erik Reitan](https://github.com/Erikre)
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/02/2018
 
 1. **[ファイル]** メニューで、**[新規作成]**、**[プロジェクト]** の順に作成します。
 
-1. **[ASP.NET Core Web アプリケーション]** プロジェクト テンプレートを選択します。 このテンプレートは、**[インストール済み]** > **[テンプレート]** > **[Visual C#]** > **[.NET Core]** の下にあります。 プロジェクトに `SampleWebAppDemo` という名前を付けます。 **[Create new Git repository]\(新しい Git リポジトリを作成する\)** オプションを選択し、**[OK]** をクリックします。
+1. **[ASP.NET Core Web アプリケーション]** プロジェクト テンプレートを選択します。 このテンプレートは、**[インストール済み]** > **[テンプレート]** > **[Visual C#]** > **[.NET Core]** の下にあります。 プロジェクトに `SampleWebAppDemo` という名前を付けます。 選択、**新しい Git リポジトリの作成**オプションし、をクリックして**OK**です。
 
    ![[新しいプロジェクト] ダイアログ](azure-continuous-deployment/_static/01-new-project.png)
 
