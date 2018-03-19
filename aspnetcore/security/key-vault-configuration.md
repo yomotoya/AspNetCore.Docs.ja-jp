@@ -23,14 +23,14 @@ ms.lasthandoff: 02/11/2018
 2.x のサンプル コードを表示またはダウンロードします。
 
 * [基本的なサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/2.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample)) - 秘密の値をアプリに読み込みます。
-* [キー名のプレフィックス サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/2.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample)) - アプリのバージョン毎に異なる秘密の値のセットを読み込むことができるように、アプリのバージョンを表すキー名のプレフィックスを使用して、秘密の値を読み取ります。
+* [キー名のプレフィックス サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/2.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample)) - アプリのバージョン毎に異なるシークレット値のセットを読み込むことができるように、アプリのバージョンを表すキー名のプレフィックスを使用して、シークレット値を読み取ります。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 1.x のサンプル コードを表示またはダウンロードします。
 
-* [基本的なサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/1.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample)) - 秘密の値ををアプリに読み込みます。
-* [キー名のプレフィックス サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/1.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample)) - アプリのバージョン毎に異なる秘密の値のセットを読み込むことができるように、アプリのバージョンを表すキー名のプレフィックスを使用して、秘密の値を読み取ります。
+* [基本的なサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/1.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample)) - シークレット値ををアプリに読み込みます。
+* [キー名のプレフィックス サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/1.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample)) - アプリのバージョン毎に異なるシークレット値のセットを読み込むことができるように、アプリのバージョンを表すキー名のプレフィックスを使用して、シークレット値を読み取ります。
 
 ---
 
