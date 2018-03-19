@@ -9,23 +9,23 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/index
-ms.openlocfilehash: cbe68f6928e1d73d8e2f7f79075043dcef8ea888
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 72ac1064b597a300d660236ff35f842b6959d4ef
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio"></a>Visual Studio を使用した ASP.NET Core MVC と Entity Framework Core の概要
+# <a name="get-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio"></a>Visual Studio を使用した ASP.NET Core MVC と Entity Framework Core の概要
 
 [!INCLUDE[RP better than MVC](../../includes/RP-EF/rp-over-mvc.md)]
 
-1. [はじめに](intro.md)
-2. [作成、読み取り、更新、削除の操作](crud.md)
-3. [並べ替え、フィルター、ページング、グループ化](sort-filter-page.md)
-4. [移行](migrations.md)
-5. [複合データ モデルの作成](complex-data-model.md)
-6. [関連データの読み取り](read-related-data.md)
-7. [関連データの更新](update-related-data.md)
-8. [同時実行の競合の処理](concurrency.md)
-9. [継承](inheritance.md)
-10. [高度なトピック](advanced.md)
+1. [開始するには](xref:data/ef-mvc/intro)
+1. [作成、読み取り、更新、削除の操作](xref:data/ef-mvc/crud)
+1. [並べ替え、フィルター、ページング、グループ化](xref:data/ef-mvc/sort-filter-page)
+1. [移行](xref:data/ef-mvc/migrations)
+1. [複合データ モデルの作成](xref:data/ef-mvc/complex-data-model)
+1. [関連データの読み取り](xref:data/ef-mvc/read-related-data)
+1. [関連データの更新](xref:data/ef-mvc/update-related-data)
+1. [同時実行の競合の処理](xref:data/ef-mvc/concurrency)
+1. [継承](xref:data/ef-mvc/inheritance)
+1. [高度なトピック](xref:data/ef-mvc/advanced)

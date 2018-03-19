@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 8da97b2148c0a784e3b1fdfe210db35e3fcceade
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cefbc27c8091a2ed1441663e3779d67aae2c64dd
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のホスト
 
@@ -45,6 +45,9 @@ Visual Studio で ASP.NET Core Web アプリを作成し、それを Azure App S
 
 [VSTS による Azure への継続的配置](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure)  
 ASP.NET Core アプリ用に CI ビルドを設定し、Azure App Service に継続的配置リリースを作成します。
+
+[Azure Web アプリのサンドボックス](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
+Azure アプリのプラットフォームで適用される Azure App Service ランタイム実行の制限事項について説明します。
 
 ## <a name="application-configuration"></a>アプリケーション構成
 
@@ -99,4 +102,4 @@ Windows Server の Azure App Service では[インターネット インフォ�
 * [ASP.NET Core モジュールの概要](xref:fundamentals/servers/aspnet-core-module)
 * [ASP.NET Core モジュール構成リファレンス](xref:host-and-deploy/aspnet-core-module)
 * [IIS モジュールと ASP.NET Core の使用](xref:host-and-deploy/iis/modules)
-* [Microsoft TechNet ライブラリ: Windows Server](https://docs.microsoft.com/windows-server/windows-server-versions)
+* [Microsoft TechNet ライブラリ: Windows Server](/windows-server/windows-server-versions)

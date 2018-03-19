@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 8f52f2dc9515761510de870f10ad0975401db74a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 7c41621db835b452c9aad9463a9ffccdf0c06484
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>ASP.NET Core アプリを構成する
 
@@ -24,13 +24,13 @@ ms.lasthandoff: 03/02/2018
 
 以下の構成プロバイダーがあります。
 
-* ファイル形式 (INI、JSON、および XML)
-* コマンド ライン引数
-* 環境変数
-* メモリ内 .NET オブジェクト
-* 暗号化されたユーザー ストア
-* [Azure Key Vault](xref:security/key-vault-configuration)
-* カスタム プロバイダー (インストール済みまたは作成済み)
+* ファイル形式 (INI、JSON、および XML)。
+* コマンド ライン引数。
+* 環境変数。
+* メモリ内 .NET オブジェクト。
+* 暗号化されていない[シークレット マネージャー](xref:security/app-secrets)の記憶域。
+* [Azure Key Vault](xref:security/key-vault-configuration) などの暗号化されたユーザー ストア。
+* カスタム プロバイダー (インストール済みまたは作成済み)。
 
 各構成値は文字列キーにマップされます。 設定をカスタム [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) オブジェクト (プロパティを持つ単純な .NET クラス) に逆シリアル化するための組み込みのバインド サポートがあります。
 

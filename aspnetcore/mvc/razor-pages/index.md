@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: f24de7ab12a3bbd7915ce6c3c93a107eb47fe864
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cb80c38fd0284d5153aebfe7bb515722623a4a34
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 
@@ -21,9 +21,9 @@ ms.lasthandoff: 03/02/2018
 
 Razor ページは、ページ コーディングに重点を置いたシナリオをより簡略化し、生産性を高める ASP.NET Core MVC の新機能です。
 
-モデル ビュー コントローラーのアプローチを使用するチュートリアルをお探しの場合は、「[Getting started with ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc)」 (ASP.NET Core MVC の概要) を参照してください。
+モデル ビュー コントローラーのアプローチを使用するチュートリアルをお探しの場合は、「[Get started with ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc)」 (ASP.NET Core MVC の概要) を参照してください。
 
-このドキュメントでは、Razor ページの概要について説明します。 手順を追って説明するチュートリアルではありません。 セクションの一部を理解できない場合は、[Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)に関するページを参照してください。
+このドキュメントでは、Razor ページの概要について説明します。 手順を追って説明するチュートリアルではありません。 セクションの一部を理解できない場合は、「[Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)」を参照してください。 ASP.NET Core の概要については、「[ASP.NET Core の概要](xref:index)」を参照してください。
 
 <a name="prerequisites"></a>
 
@@ -42,7 +42,7 @@ Visual Studio を使用している場合は、以下のワークロードで [V
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Visual Studio を使用して Razor ページ プロジェクトを作成する詳細な手順については、「[Getting started with Razor Pages](xref:tutorials/razor-pages/razor-pages-start)」 (Razor ページの概要) を参照してください。
+Visual Studio を使用して Razor ページ プロジェクトを作成する詳細な手順については、「[Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)」を参照してください。
 
 #   <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
@@ -151,6 +151,11 @@ db コンテキスト:
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_PageModel&highlight=10-11)]
 
 既定では、Razor ページはプロパティを非 GET 動詞とのみバインドします。 プロパティをバインドすることで、記述すべきコードの量を削減できます。 同じプロパティを使用してバインドすることでコードを減らし、フィールド (`<input asp-for="Customer.Name" />`) からレンダリングして入力を受け入れます。
+
+> [!NOTE]
+> セキュリティ上の理由から、ページ モデルのプロパティに対して GET 要求データのバインドを選択する必要があります。 プロパティにマップする前に、ユーザー入力を確認してください。 この動作は、クエリ文字列やルート値に依存する機能をバインドする場合に選択すると便利です。
+>
+> GET 要求のプロパティをバインドするには、属性の `[BindProperty]` プロパティを `SupportsGet``true`: `[BindProperty(SupportsGet = true)]` に設定します
 
 ホーム ページ (*Index.cshtml*):
 
@@ -384,7 +389,7 @@ URL 内のクエリ文字列 `?handler=JoinList` が気に入らない場合は�
 
 [サンプル コードをダウンロードまたは表示します](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/index/sample)。
 
-この概要に基づく、「[Getting started with Razor Pages in ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start)」 (ASP.NET Core での Razor ページの概要) を参照してください。
+この概要に基づく、「[Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)」を参照してください。
 
 ### <a name="specify-that-razor-pages-are-at-the-content-root"></a>Razor ページをコンテンツのルートに指定する
 
@@ -414,6 +419,7 @@ services.AddMvc()
 
 ## <a name="see-also"></a>関連項目
 
+* [ASP.NET Core の概要](xref:index)
 * [Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)
 * [Razor ページの承認規則](xref:security/authorization/razor-pages-authorization)
 * [Razor ページのカスタム ルートとページ モデル プロバイダー](xref:mvc/razor-pages/razor-pages-convention-features)
