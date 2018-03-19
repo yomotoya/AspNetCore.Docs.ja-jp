@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: 45b00fbc15740fad60202bb7e5ab14beb9ebe495
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: fd58a6a3e35a706d503603790fa1c726e6c865d6
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core チュートリアル
 
@@ -27,14 +27,14 @@ ASP.NET Core アプリケーションの開発に関する以下のステップ 
 * ASP.NET Core で Razor ページ Web アプリを作成する
 
    * [Windows での Razor ページ](xref:tutorials/razor-pages/index)
-   * [Mac での Razor ページ](xref:tutorials/razor-pages-mac/index)
+   * [macOS での Razor ページ](xref:tutorials/razor-pages-mac/index)
    * [VS Code での Razor ページ](xref:tutorials/razor-pages-vsc/index)  
 
 * ASP.NET Core MVC Web アプリを作成する
 
    * [Visual Studio for Windows での Web アプリ](first-mvc-app/index.md)
    * [Visual Studio for Mac での Web アプリ](first-mvc-app-mac/index.md)
-   * [Mac または Linux の Visual Studio Code での Web アプリ](first-mvc-app-xplat/index.md)
+   * [macOS または Linux の Visual Studio Code での Web アプリ](first-mvc-app-xplat/index.md)
 
 * [Visual Studio を使用した ASP.NET Core と Entity Framework Core の概要](../data/ef-mvc/index.md)
 * [タグ ヘルパーの作成](../mvc/views/tag-helpers/authoring.md)

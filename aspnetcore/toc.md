@@ -28,7 +28,7 @@
 ### [Details メソッドと Delete メソッドの確認](tutorials/first-mvc-app/details.md)
 
 ## [Web API の構築](mvc/web-api/index.md)
-### [Mac での Web API の作成](xref:tutorials/first-web-api-mac)
+### [macOS での Web API の作成](xref:tutorials/first-web-api-mac)
 ### [Swagger を使用する ASP.NET Core Web API のヘルプ ページ](xref:tutorials/web-api-help-pages-using-swagger)
 #### [NSWag の概要](xref:tutorials/get-started-with-nswag)
 #### [Swashbuckle の概要](xref:tutorials/get-started-with-swashbuckle)
@@ -59,7 +59,7 @@
 #### [高度なトピック](data/ef-mvc/advanced.md)
 
 ## [クロス プラットフォームのチュートリアル](xref:tutorials/xplat)
-### [Mac での Razor ページ Web アプリ](xref:tutorials/razor-pages-mac/index)
+### [macOS での Razor ページ Web アプリ](xref:tutorials/razor-pages-mac/index)
 #### [Razor ページの概要](xref:tutorials/razor-pages-mac/razor-pages-start)
 #### [モデルの追加](xref:tutorials/razor-pages-mac/model)
 #### [スキャフォールディングされた Razor ページ](xref:tutorials/razor-pages-mac/page)
@@ -87,7 +87,7 @@
 #### [検証の追加](xref:tutorials/first-mvc-app-mac/validation)
 #### [Details メソッドと Delete メソッドの確認](xref:tutorials/first-mvc-app/details)
 
-### [Mac または Linux の Visual Studio Code での MVC Web アプリ](xref:tutorials/first-mvc-app-xplat/index)
+### [macOS または Linux の Visual Studio Code での MVC Web アプリ](xref:tutorials/first-mvc-app-xplat/index)
 #### [開始するには](tutorials/first-mvc-app-xplat/start-mvc.md)
 #### [コントローラーの追加](tutorials/first-mvc-app-xplat/adding-controller.md)
 #### [ビューの追加](tutorials/first-mvc-app-xplat/adding-view.md)
