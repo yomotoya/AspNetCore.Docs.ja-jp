@@ -1,4 +1,4 @@
----
+﻿---
 title: "ASP.NET Core での azure Key Vault の構成プロバイダー"
 author: guardrex
 description: "Azure キー資格情報コンテナーの構成プロバイダーを使用して、実行時に読み込まれる名前と値のペアを使用してアプリケーションを構成する方法を説明します。"
@@ -16,21 +16,21 @@ ms.lasthandoff: 03/15/2018
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core での azure Key Vault の構成プロバイダー
 
-によって[Luke Latham](https://github.com/guardrex)と[Andrew スタントン-看護師](https://github.com/anurse)
+作成者 [Luke Latham](https://github.com/guardrex) および [Andrew Stanton-Nurse](https://github.com/anurse)
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-表示または 2.x のサンプル コードをダウンロードします。
+2.x のサンプル コードを表示またはダウンロードします。
 
-* [基本的なサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/2.x)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))-をアプリに秘密の値を読み取ります。
-* [キー名のプレフィックス サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/2.x)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample)) - 読み取り秘密の値を別の各アプリのバージョンのシークレットの値セットを読み込むことができるアプリのバージョンを表すキー名のプレフィックスを使用します。
+* [基本的なサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/2.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample)) - 秘密の値をアプリに読み込みます。
+* [キー名のプレフィックス サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/2.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample)) - アプリのバージョン毎に異なるシークレット値のセットを読み込むことができるように、アプリのバージョンを表すキー名のプレフィックスを使用して、シークレット値を読み取ります。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-表示または 1.x のサンプル コードをダウンロードします。
+1.x のサンプル コードを表示またはダウンロードします。
 
-* [基本的なサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/1.x)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))-をアプリに秘密の値を読み取ります。
-* [キー名のプレフィックス サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/1.x)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample)) - 読み取り秘密の値を別の各アプリのバージョンのシークレットの値セットを読み込むことができるアプリのバージョンを表すキー名のプレフィックスを使用します。 
+* [基本的なサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/1.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample)) - シークレット値ををアプリに読み込みます。
+* [キー名のプレフィックス サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/1.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample)) - アプリのバージョン毎に異なるシークレット値のセットを読み込むことができるように、アプリのバージョンを表すキー名のプレフィックスを使用して、シークレット値を読み取ります。
 
 ---
 
