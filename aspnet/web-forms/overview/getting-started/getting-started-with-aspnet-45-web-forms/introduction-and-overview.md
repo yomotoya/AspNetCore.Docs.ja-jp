@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
-title: "ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要 |Microsoft ドキュメント"
+title: ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要 |Microsoft ドキュメント
 author: Erikre
-description: "このステップ バイ ステップ チュートリアル シリーズでは、ASP.NET 4.5 と Microsoft Visual Studio の有効期限を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています."
+description: このステップ バイ ステップ チュートリアル シリーズでは、ASP.NET 4.5 と Microsoft Visual Studio の有効期限を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -179,7 +179,7 @@ PayPal から返された後、は、確認し、注文を完了できます。
 
 ダウンロードが、 *.zip*ファイル。 このチュートリアルのシリーズを作成する、完成したプロジェクトで検索と選択を表示する、 *c#*内のフォルダー、 *.zip*ファイル。 保存、 *c#*フォルダーに Visual Studio 2013 プロジェクトの作業を使用するフォルダーです。 既定では、Visual Studio 2013 プロジェクト フォルダーは次のよう
 
-**C:\Users\*****&lt;username&gt;* * * \Documents\Visual Studio 2013\Projects**
+**C:\Users\*****&lt;username&gt;*****\Documents\Visual Studio 2013\Projects**
 
 名前を変更、 ***c#***フォルダー ***WingtipToys***です。
 
