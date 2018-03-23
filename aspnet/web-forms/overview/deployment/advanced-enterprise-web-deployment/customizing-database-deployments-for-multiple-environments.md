@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
-title: "複数の環境のデータベースの配置をカスタマイズする |Microsoft ドキュメント"
+title: 複数の環境のデータベースの配置をカスタマイズする |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、展開プロセスの一部として特定のターゲット環境にデータベースのプロパティを調整する方法について説明します。 注: トピックには、番目が前提としています."
+description: 'このトピックでは、展開プロセスの一部として特定のターゲット環境にデータベースのプロパティを調整する方法について説明します。 注: トピックには、番目が前提としています.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -94,7 +94,7 @@ ms.lasthandoff: 03/15/2018
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image1.png)
 3. **新しい配置構成ファイル** ダイアログ ボックスで、ファイルにわかりやすい名前を付けます (たとえば、 **TestEnvironment.sqldeployment**)、をクリックし、**保存**です。
-4. *[Filename] * * * .sqldeployment** ページで、展開先の環境の要件に適合する配置プロパティを設定し、ファイルを保存します。
+4. *[Filename]***.sqldeployment** ページで、展開先の環境の要件に適合する配置プロパティを設定し、ファイルを保存します。
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image2.png)
 5. 新しいファイルが、データベース プロジェクトのプロパティ フォルダーに追加されたことに注意してください。

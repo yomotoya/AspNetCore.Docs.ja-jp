@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
-title: "データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォーム - パート 5 |Microsoft ドキュメント"
+title: データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォーム - パート 5 |Microsoft ドキュメント
 author: tdykstra
-description: "Contoso 大学でサンプル web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、."
+description: Contoso 大学でサンプル web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -123,7 +123,7 @@ ID、タイトル、クレジットの数を入力してください、部門を
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-あるインストラクターを選択します。 **コースを割り当てる**インストラクターしない講義では、コースがドロップダウン リストに表示されます、**コースを削除する**ドロップダウン リストには、インストラクターに既に割り当てられているコースが表示されます。 **コースを割り当てる**セクションでコースを選択し、をクリックして**割り当てる**です。 コースに移動、**コースを削除する**ドロップダウン リスト。 コースを選択、**コースを削除する**セクションし、をクリックして **削除 * * *。* コースに移動、**コースを割り当てる**ドロップダウン リスト。
+あるインストラクターを選択します。 **コースを割り当てる**インストラクターしない講義では、コースがドロップダウン リストに表示されます、**コースを削除する**ドロップダウン リストには、インストラクターに既に割り当てられているコースが表示されます。 **コースを割り当てる**セクションでコースを選択し、をクリックして**割り当てる**です。 コースに移動、**コースを削除する**ドロップダウン リスト。 コースを選択、 **コースを削除する** セクションし、をクリックして **削除***。* コースに移動、**コースを割り当てる**ドロップダウン リスト。
 
 関連するデータを操作する方法がいくつか見てきました。 次のチュートリアルでは、アプリケーションの保守容易性を向上させるために、データ モデルでの継承を使用する方法を学習します。
 

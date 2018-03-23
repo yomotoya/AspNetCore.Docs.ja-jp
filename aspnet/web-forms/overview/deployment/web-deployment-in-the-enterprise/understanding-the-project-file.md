@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
-title: "プロジェクト ファイルを理解する |Microsoft ドキュメント"
+title: プロジェクト ファイルを理解する |Microsoft ドキュメント
 author: jrjlee
-description: "Microsoft Build Engine (MSBuild) プロジェクト ファイルは、ビルドおよび配置プロセスの中核にあります。 このトピックは、MSBuild の概要を概念的に開始しています."
+description: Microsoft Build Engine (MSBuild) プロジェクト ファイルは、ビルドおよび配置プロセスの中核にあります。 このトピックは、MSBuild の概要を概念的に開始しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -93,7 +93,7 @@ ASP.NET web アプリケーションと ASP.NET MVC web アプリケーション
 [!code-xml[Main](understanding-the-project-file/samples/sample2.xml)]
 
 
-プロパティ値を取得するには、形式が使用します **$(***PropertyName***) * * *。* 。たとえばの値を取得するため、 **ServerName**プロパティを入力します。
+プロパティ値を取得するには、形式が使用します **$(***PropertyName***)***。*たとえばの値を取得するため、 **ServerName** プロパティを入力します。
 
 
 [!code-powershell[Main](understanding-the-project-file/samples/sample3.ps1)]

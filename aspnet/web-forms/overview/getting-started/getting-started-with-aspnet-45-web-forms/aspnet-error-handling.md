@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
-title: "ASP.NET エラー処理 |Microsoft ドキュメント"
+title: ASP.NET エラー処理 |Microsoft ドキュメント
 author: Erikre
-description: "このチュートリアルの系列では、お用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルの系列では、お用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -313,7 +313,7 @@ ELMAH ログの表示は簡単ですが最初に ELMAH ログに記録する未�
 
 ## <a name="tutorial-series-conclusion"></a>最後に一連のチュートリアル
 
-*次に沿ったいただきありがとうございます。このチュートリアルのセットを使用して、ASP.NET Web フォームに慣れることを望みます。詳細については、Web フォームの機能 ASP.NET 4.5 と Visual Studio 2013 で使用可能な場合を参照してください* [ *ASP.NET および Web Tools for Visual Studio 2013 のリリース ノート*](../../../../visual-studio/overview/2013/release-notes.md)  *.また、必ずで説明したチュートリアルを見て、* ***次の手順 * * * セクションと defintely お試し、* [*無料試用版の Azure*](https://azure.microsoft.com/pricing/free-trial/)*.*
+*次に沿ったいただきありがとうございます。このチュートリアルのセットを使用して、ASP.NET Web フォームに慣れることを望みます。詳細については、Web フォームの機能 ASP.NET 4.5 と Visual Studio 2013 で使用可能な場合を参照してください* [*ASP.NET および Web Tools for Visual Studio 2013 のリリース ノート*](../../../../visual-studio/overview/2013/release-notes.md)*.また、必ずで説明したチュートリアルを見て、* ***次の手順****セクションと defintely お試し、* [*無料試用版の Azure*](https://azure.microsoft.com/pricing/free-trial/)*.*
 
 ![ありがとうございます - Erik](aspnet-error-handling/_static/image10.png)  
 
