@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET のコアの間の原点の要求 (CORS) を有効にします。"
+title: ASP.NET のコアの間の原点の要求 (CORS) を有効にします。
 author: rick-anderson
-description: "学習方法を許可したり、ASP.NET のコア ・ アプリケーションの間の原点の要求を拒否しての標準として CORS。"
+description: 学習方法を許可したり、ASP.NET のコア ・ アプリケーションの間の原点の要求を拒否しての標準として CORS。
 manager: wpickett
 ms.author: riande
 ms.date: 05/17/2017
@@ -11,7 +11,7 @@ ms.topic: article
 uid: security/cors
 ms.openlocfilehash: 64d939033fee14fad37a08c60da608898e20c01b
 ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/15/2018
 ---
@@ -23,34 +23,34 @@ ms.lasthandoff: 03/15/2018
 
 [クロス オリジン リソース共有](http://www.w3.org/TR/cors/)(CORS) は、W3C 標準により、同じオリジンのポリシーを緩和するサーバーです。 CORS を使用して、サーバー明示的に許可できますいくつかのクロス オリジン要求中に、他のユーザーを拒否します。 CORS などがより安全なと以前の手法より柔軟な[JSONP](https://wikipedia.org/wiki/JSONP)です。 このトピックでは、ASP.NET Core アプリケーションで CORS を有効にする方法を示します。
 
-## <a name="what-is-same-origin"></a>「同じ発生元」とは何ですか。
+## <a name="what-is-same-origin"></a>「同一生成元」とは
 
-2 つの Url では、同じスキーム、ホスト、およびポートがある場合の原点が同じがあります。 ([RFC 6454](http://tools.ietf.org/html/rfc6454))
+2 つの URL のスキーム、ホスト、ポートが同じである場合、その URL は同一生成元となります。 ([RFC 6454](http://tools.ietf.org/html/rfc6454))
 
-これら 2 つの Url は、原点が同じであります。
+次の 2 つの URL は生成元が同じです。
 
 * `http://example.com/foo.html`
 
 * `http://example.com/bar.html`
 
-これらの Url は、2 つよりも前の別の原点をあります。
+次の URL は、上の URL とは生成元が異なります。
 
-* `http://example.net` -別のドメイン
+* `http://example.net` - 異なるドメイン 
 
-* `http://www.example.com/foo.html` -別のサブドメイン
+* `http://www.example.com/foo.html` - 異なるサブドメイン
 
-* `https://example.com/foo.html` -別のスキーム
+* `https://example.com/foo.html` - 異なるスキーム
 
-* `http://example.com:9000/foo.html` -別のポート
+* `http://example.com:9000/foo.html` - 異なるポート
 
 > [!NOTE]
-> Internet Explorer は、オリジンを比較するときにポートを検討しません。
+> Internet Explorer は、生成元を比較するときにポートを考慮しません。
 
 ## <a name="setting-up-cors"></a>CORS の設定
 
-設定するアプリケーションの CORS の追加、`Microsoft.AspNetCore.Cors`をプロジェクトにパッケージします。
+アプリケーションに CORS を設定するために `Microsoft.AspNetCore.Cors` パッケージをプロジェクトに追加します。
 
-Startup.cs の CORS サービスを追加します。
+Startup.cs に CORS サービスを追加します。
 
 [!code-csharp[](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
 
