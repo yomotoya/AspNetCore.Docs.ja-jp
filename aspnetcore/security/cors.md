@@ -19,9 +19,9 @@ ms.lasthandoff: 03/15/2018
 
 によって[Mike Wasson](https://github.com/mikewasson)、 [Shayne Boyer](https://twitter.com/spboyer)、および[Tom Dykstra](https://github.com/tdykstra)
 
-ブラウザーのセキュリティは、web ページが別のドメインに AJAX 要求を行うことを防止します。 この制限が呼び出された、*同一生成元ポリシー*、悪意のあるサイトが別のサイトから機密データを読み取ることを防ぎます。 ただし、場合もあります可能性がある、web API へのクロス オリジン要求を行う他のサイトを使用できます。
+ブラウザーのセキュリティは、Web ページが別のドメインに AJAX 要求を行うことを防止します。 この制限は*同一生成元ポリシー*と呼ばれ、悪意のあるサイトが別のサイトから機密データを読み取れないようにします。 かし、他のサイトがあなたの Web API にクロスオリジン要求を行えるようにする必要がある場合もあります。
 
-[クロス オリジン リソース共有](http://www.w3.org/TR/cors/)(CORS) は、W3C 標準により、同じオリジンのポリシーを緩和するサーバーです。 CORS を使用して、サーバー明示的に許可できますいくつかのクロス オリジン要求中に、他のユーザーを拒否します。 CORS などがより安全なと以前の手法より柔軟な[JSONP](https://wikipedia.org/wiki/JSONP)です。 このトピックでは、ASP.NET Core アプリケーションで CORS を有効にする方法を示します。
+[クロス オリジン リソース共有](http://www.w3.org/TR/cors/)(CORS) は、サーバーに同一生成元ポリシーの制限を緩和させる W3C 標準の１つです。 CORS を使用することによって、不明なリクエストは拒否しながら、一部のクロス オリジン要求のみを明示的に許可できるようになります。 CORS は [JSONP](https://wikipedia.org/wiki/JSONP) のようなかつての技術より安全でフレキシブルなものです。 このトピックでは、ASP.NET Core アプリケーションで CORS を有効にする方法を説明します。
 
 ## <a name="what-is-same-origin"></a>「同一生成元」とは
 
@@ -54,15 +54,15 @@ Startup.cs に CORS サービスを追加します。
 
 [!code-csharp[](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
 
-## <a name="enabling-cors-with-middleware"></a>ミドルウェアで CORS を有効にします。
+## <a name="enabling-cors-with-middleware"></a>ミドルウェアによる CORS の有効化
 
-有効にする、アプリケーション全体の CORS では、要求パイプラインを使用して、CORS ミドルウェアを追加、`UseCors`拡張メソッド。 CORS ミドルウェアが (ex クロス オリジン要求をサポートするアプリで定義されたエンドポイントを付ける必要がありますに注意してください。 呼び出しの前に`UseMvc`)。
+アプリケーション全体で CORS を有効にするために`UseCors`拡張メソッドを使用して CORS ミドルウェアを要求パイプラインに追加します。 CORS ミドルウェアは アプリで定義されたエンドポイントより先に呼び出される必要があることに注意してください (例:  `UseMvc`を呼び出す前)。
 
-クロス オリジン ポリシーを指定するには、CORS ミドルウェアを使用して、追加するときに、`CorsPolicyBuilder`クラスです。 これには、2 つの方法があります。 1 つは、ラムダで UseCors を呼び出すには。
+CORS ミドルウェアを追加するときに`CorsPolicyBuilder`クラスを使用してクロス オリジン ポリシーを指定することができます。 これには、2 つの方法があります。 1 つは、ラムダで UseCors を呼び出すことです:
 
 [!code-csharp[](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
 
-**注:**末尾のスラッシュせず、URL を指定する必要があります (`/`)。 URL が終了した場合は`/`、比較が返されます`false`され、ヘッダーは返されません。
+**注:**URL は末尾にスラッシュを付けずに指定される必要があります (`/`)。 URL が `/`で終了する場合、比較時に`false`が返され、ヘッダーが返されません。
 
 ラムダは、`CorsPolicyBuilder`オブジェクト。 リストができたら、[構成オプション](#cors-policy-options)このトピックで後述します。 この例では、ポリシーによりからのクロス オリジン要求`http://example.com`しない他のオリジンです。
 
