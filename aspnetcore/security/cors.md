@@ -66,15 +66,15 @@ CORS ミドルウェアを追加するときに`CorsPolicyBuilder`クラスを�
 
 ラムダは、`CorsPolicyBuilder`オブジェクト。 リストができたら、[構成オプション](#cors-policy-options)このトピックで後述します。 この例では、ポリシーによりからのクロス オリジン要求`http://example.com`しない他のオリジンです。
 
-CorsPolicyBuilder いる fluent API では、メソッド呼び出しを連結することができますので注意してください。
+fluent API をもつ CorsPolicyBuilder では、メソッドの呼び出しを連結することができることに注意してください。
 
 [!code-csharp[](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
 
-2 番目の方法を 1 つまたは複数名前付き CORS ポリシーを定義し、名前によって実行時にポリシーを選択します。
+2 つ目の方法は、CORS ポリシー に 1 つまたは複数の名前を定義し、実行時に名前によってポリシーを選択することです。
 
 [!code-csharp[](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
 
-この例では、"AllowSpecificOrigin"をという名前の CORS ポリシーを追加します。 ポリシーを選択するには、名前を渡す`UseCors`です。
+この例では、"AllowSpecificOrigin"をという名前の CORS ポリシーを追加します。 ポリシーを選択するには、`UseCors` に名前を渡します。
 
 ## <a name="enabling-cors-in-mvc"></a>MVC での CORS を有効にします。
 
