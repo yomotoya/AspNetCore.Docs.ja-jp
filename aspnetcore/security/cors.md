@@ -19,7 +19,7 @@ ms.lasthandoff: 03/15/2018
 
 によって[Mike Wasson](https://github.com/mikewasson)、 [Shayne Boyer](https://twitter.com/spboyer)、および[Tom Dykstra](https://github.com/tdykstra)
 
-ブラウザーのセキュリティは、Web ページが別のドメインに AJAX 要求を行うことを防止します。 この制限は*同一生成元ポリシー*と呼ばれ、悪意のあるサイトが別のサイトから機密データを読み取れないようにします。 かし、他のサイトがあなたの Web API にクロスオリジン要求を行えるようにする必要がある場合もあります。
+ブラウザーのセキュリティは、Web ページが別のドメインに AJAX 要求を行うことを防止します。 この制限は*同一生成元ポリシー*と呼ばれ、悪意のあるサイトが別のサイトから機密データを読み取れないようにします。 しかし、他のサイトがあなたの Web API にクロスオリジン要求を行えるようにする必要がある場合もあります。
 
 [クロス オリジン リソース共有](http://www.w3.org/TR/cors/)(CORS) は、サーバーに同一生成元ポリシーの制限を緩和させる W3C 標準の１つです。 CORS を使用することによって、不明なリクエストは拒否しながら、一部のクロス オリジン要求のみを明示的に許可できるようになります。 CORS は [JSONP](https://wikipedia.org/wiki/JSONP) のようなかつての技術より安全でフレキシブルなものです。 このトピックでは、ASP.NET Core アプリケーションで CORS を有効にする方法を説明します。
 
@@ -64,17 +64,17 @@ CORS ミドルウェアを追加するときに`CorsPolicyBuilder`クラスを�
 
 **注:**URL は末尾にスラッシュを付けずに指定される必要があります (`/`)。 URL が `/`で終了する場合、比較時に`false`が返され、ヘッダーが返されません。
 
-ラムダは、`CorsPolicyBuilder`オブジェクト。 リストができたら、[構成オプション](#cors-policy-options)このトピックで後述します。 この例では、ポリシーによりからのクロス オリジン要求`http://example.com`しない他のオリジンです。
+ラムダは、`CorsPolicyBuilder` オブジェクトをとります。 [構成オプション](#cors-policy-options)のリストはこのトピックで後述します。 この例では、ポリシーは `http://example.com` からのクロス オリジン要求を許可し、他の生成元からの要求は許可しません。
 
-CorsPolicyBuilder いる fluent API では、メソッド呼び出しを連結することができますので注意してください。
+fluent API をもつ CorsPolicyBuilder では、メソッドの呼び出しを連結することができることに注意してください。
 
 [!code-csharp[](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
 
-2 番目の方法を 1 つまたは複数名前付き CORS ポリシーを定義し、名前によって実行時にポリシーを選択します。
+2 つ目の方法は、名前が付いた CORS ポリシーを 1 つまたは複数定義し、実行時に名前によってポリシーを選択することです。
 
 [!code-csharp[](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
 
-この例では、"AllowSpecificOrigin"をという名前の CORS ポリシーを追加します。 ポリシーを選択するには、名前を渡す`UseCors`です。
+この例では、"AllowSpecificOrigin" という名前の CORS ポリシーを追加します。 このポリシーを選択するには、`UseCors` にこの名前を渡します。
 
 ## <a name="enabling-cors-in-mvc"></a>MVC での CORS を有効にします。
 
