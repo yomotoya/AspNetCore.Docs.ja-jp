@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-35/aspnet-ajax/using-script-combining-to-improve-ajax-performance
-title: "AJAX のパフォーマンスを向上させるためにスクリプトの結合を使用して |Microsoft ドキュメント"
+title: AJAX のパフォーマンスを向上させるためにスクリプトの結合を使用して |Microsoft ドキュメント
 author: rick-anderson
-description: "Betrand Le 者を務める Roy で samp で単純なページを使用して、スクリプトを組み合わせてと呼ばれる新しい機能を使用して、Ajax アプリケーションのパフォーマンスを向上させる方法を説明しています."
+description: Betrand Le 者を務める Roy で samp で単純なページを使用して、スクリプトを組み合わせてと呼ばれる新しい機能を使用して、Ajax アプリケーションのパフォーマンスを向上させる方法を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2008
@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/aspnet-ajax/using-script-combining-to-improve-ajax-performance
 msc.type: video
-ms.openlocfilehash: ce6af6cb6dbb99a953d866f21d75a5e61ba9f089
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5975ad9581b919107deff853d37c3b16283d575d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="using-script-combining-to-improve-ajax-performance"></a><span data-ttu-id="c3eee-103">AJAX のパフォーマンスを向上させるためにスクリプトの結合を使用してください。</span><span class="sxs-lookup"><span data-stu-id="c3eee-103">Using Script Combining to improve AJAX performance</span></span>
+<a name="using-script-combining-to-improve-ajax-performance"></a><span data-ttu-id="5ecb9-103">AJAX のパフォーマンスを向上させるためにスクリプトの結合を使用してください。</span><span class="sxs-lookup"><span data-stu-id="5ecb9-103">Using Script Combining to improve AJAX performance</span></span>
 ====================
-<span data-ttu-id="c3eee-104">Betrand Le 者を務める Roy では、スクリプトを組み合わせると、Ajax toolkit のサンプル コードと、単純なページを利用すると呼ばれる新しい機能を使用して、Ajax アプリケーションのパフォーマンスを向上させる方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="c3eee-104">Betrand Le Roy outlines how to improve the performance of an Ajax application using a new feature called Script Combining, utilizing a simple page with sample code from the Ajax toolkit.</span></span>
+<span data-ttu-id="5ecb9-104">Betrand Le 者を務める Roy では、スクリプトを組み合わせると、Ajax toolkit のサンプル コードと、単純なページを利用すると呼ばれる新しい機能を使用して、Ajax アプリケーションのパフォーマンスを向上させる方法について説明します。</span><span class="sxs-lookup"><span data-stu-id="5ecb9-104">Betrand Le Roy outlines how to improve the performance of an Ajax application using a new feature called Script Combining, utilizing a simple page with sample code from the Ajax toolkit.</span></span>
 
-[<span data-ttu-id="c3eee-105">&#9654;です。ビデオでは (4 分)</span><span class="sxs-lookup"><span data-stu-id="c3eee-105">&#9654; Watch video (4 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-script-combining-to-improve-ajax-performance)
+[<span data-ttu-id="5ecb9-105">&#9654;ビデオでは (4 分)</span><span class="sxs-lookup"><span data-stu-id="5ecb9-105">&#9654; Watch video (4 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-script-combining-to-improve-ajax-performance)
 
->[!div class="step-by-step"]
-[<span data-ttu-id="c3eee-106">前へ</span><span class="sxs-lookup"><span data-stu-id="c3eee-106">Previous</span></span>](introduction-to-aspnet-ajax-history.md)
+> [!div class="step-by-step"]
+> [<span data-ttu-id="5ecb9-106">前へ</span><span class="sxs-lookup"><span data-stu-id="5ecb9-106">Previous</span></span>](introduction-to-aspnet-ajax-history.md)

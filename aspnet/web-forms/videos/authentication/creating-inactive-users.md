@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/authentication/creating-inactive-users
-title: "非アクティブなユーザーを作成 |Microsoft ドキュメント"
+title: 非アクティブなユーザーを作成 |Microsoft ドキュメント
 author: JoeStagner
-description: "このビデオで行える順を追って、ASP.NET メンバーシップ システムでの非アクティブなユーザーの作成と管理インターフェイスを使用し、1 つのユーザーをアクティブ化しています."
+description: このビデオで行える順を追って、ASP.NET メンバーシップ システムでの非アクティブなユーザーの作成と管理インターフェイスを使用し、1 つのユーザーをアクティブ化しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/16/2010
@@ -12,21 +12,21 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication/creating-inactive-users
 msc.type: video
-ms.openlocfilehash: 4af3f8a9c27e18b5811e217ffdfaa31f36a82865
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7f74b6d9b4e375c48c4e80533acc8384060ed64a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="creating-inactive-users"></a><span data-ttu-id="34db7-103">非アクティブなユーザーを作成します。</span><span class="sxs-lookup"><span data-stu-id="34db7-103">Creating Inactive Users</span></span>
+<a name="creating-inactive-users"></a><span data-ttu-id="ad35d-103">非アクティブなユーザーを作成します。</span><span class="sxs-lookup"><span data-stu-id="ad35d-103">Creating Inactive Users</span></span>
 ====================
-<span data-ttu-id="34db7-104">によって[行える](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="34db7-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="ad35d-104">によって[行える](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="ad35d-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="34db7-105">このビデオで行える手順を ASP.NET メンバーシップ システムでの非アクティブなユーザーの作成と管理インターフェイスを使用して、一度に 1 つのユーザーをアクティブ化です。</span><span class="sxs-lookup"><span data-stu-id="34db7-105">In this video Joe Stagner walks through creating inactive users in the ASP.NET membership system, and then using an administrative interface to activate the users one at a time.</span></span>
+<span data-ttu-id="ad35d-105">このビデオで行える手順を ASP.NET メンバーシップ システムでの非アクティブなユーザーの作成と管理インターフェイスを使用して、一度に 1 つのユーザーをアクティブ化です。</span><span class="sxs-lookup"><span data-stu-id="ad35d-105">In this video Joe Stagner walks through creating inactive users in the ASP.NET membership system, and then using an administrative interface to activate the users one at a time.</span></span>
 
-[<span data-ttu-id="34db7-106">&#9654;です。ビデオでは (23 分)</span><span class="sxs-lookup"><span data-stu-id="34db7-106">&#9654; Watch video (23 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-inactive-users)
+[<span data-ttu-id="ad35d-106">&#9654;ビデオでは (23 分)</span><span class="sxs-lookup"><span data-stu-id="ad35d-106">&#9654; Watch video (23 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-inactive-users)
 
->[!div class="step-by-step"]
-<span data-ttu-id="34db7-107">[前へ](simple-web-service-authentication.md)
-[次へ](sql-injection-defense.md)</span><span class="sxs-lookup"><span data-stu-id="34db7-107">[Previous](simple-web-service-authentication.md)
+> [!div class="step-by-step"]
+> <span data-ttu-id="ad35d-107">[前へ](simple-web-service-authentication.md)
+> [次へ](sql-injection-defense.md)</span><span class="sxs-lookup"><span data-stu-id="ad35d-107">[Previous](simple-web-service-authentication.md)
 [Next](sql-injection-defense.md)</span></span>

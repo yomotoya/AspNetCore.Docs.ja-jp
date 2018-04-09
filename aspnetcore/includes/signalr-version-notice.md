@@ -1,0 +1,2 @@
+> [!NOTE]
+> <span data-ttu-id="edcbb-101">このドキュメントでは、ASP.NET Core SignalR の最新バージョンについて説明します。</span><span class="sxs-lookup"><span data-stu-id="edcbb-101">This document details the latest version of ASP.NET Core SignalR.</span></span> <span data-ttu-id="edcbb-102">参照してください、 [SignalR 1.x ドキュメント](/aspnet/signalr/)ASP.NET フレームワークのバージョン。</span><span class="sxs-lookup"><span data-stu-id="edcbb-102">See the [SignalR 1.x documentation](/aspnet/signalr/) for the ASP.NET Framework version.</span></span>
