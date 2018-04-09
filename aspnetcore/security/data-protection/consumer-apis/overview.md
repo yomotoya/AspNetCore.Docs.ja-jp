@@ -1,7 +1,7 @@
 ---
-title: "コンシューマー Api の概要"
+title: ASP.NET Core のコンシューマー Api の概要
 author: rick-anderson
-description: "このドキュメントでは、さまざまなコンシューマー ASP.NET Core data protection ライブラリ内で利用可能な Api の簡単な概要を説明します。"
+description: さまざまなコンシューマー ASP.NET Core data protection ライブラリ内で利用可能な Api の概要が表示されます。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: 3aa0c4bc8d009147dd15571da4d7d63402e4c512
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 5d161ed8fbc39bcf4a970644480b4e909810b555
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="consumer-apis-overview"></a>コンシューマー Api の概要
+# <a name="consumer-apis-overview-for-aspnet-core"></a>ASP.NET Core のコンシューマー Api の概要
 
 `IDataProtectionProvider`と`IDataProtector`インターフェイスは、コンシューマーを使用するには、データ保護システムを使用して、基本インターフェイスです。 ファイルに配置している、 [Microsoft.AspNetCore.DataProtection.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/)パッケージです。
 
 ## <a name="idataprotectionprovider"></a>IDataProtectionProvider
 
-プロバイダーのインターフェイスでは、データ保護システムのルートを表します。 保護やデータ保護の解除を直接使用できません。 代わりに、コンシューマーがへの参照を取得する必要があります、`IDataProtector`を呼び出して`IDataProtectionProvider.CreateProtector(purpose)`ここで、目的は、目的のコンシューマーのユース ケースを説明する文字列。 参照してください[目的文字列](purpose-strings.md)を目的として、このパラメーターの適切な値を選択する方法についてははるかにします。
+プロバイダーのインターフェイスでは、データ保護システムのルートを表します。 保護やデータ保護の解除を直接使用できません。 代わりに、コンシューマーがへの参照を取得する必要があります、`IDataProtector`を呼び出して`IDataProtectionProvider.CreateProtector(purpose)`ここで、目的は、目的のコンシューマーのユース ケースを説明する文字列。 参照してください[目的文字列](xref:security/data-protection/consumer-apis/purpose-strings)を目的として、このパラメーターの適切な値を選択する方法についてははるかにします。
 
 ## <a name="idataprotector"></a>IDataProtector
 
@@ -31,18 +31,18 @@ ms.lasthandoff: 03/02/2018
 
 保護されていた一部のデータの保護を解除する保護されたデータの渡し、`Unprotect`メソッドです。 (Byte[] がある-開発者の利便性のためのベースと文字列ベースのオーバー ロードします)。保護されたペイロードは、事前に呼び出したによって生成された場合`Protect`この同じ`IDataProtector`、`Unprotect`メソッドは、元の保護されていないペイロードを返します。 保護されたペイロードが改ざんされたまたは異なるによって生成されたかどうか`IDataProtector`、 `Unprotect` CryptographicException をスローします。
 
-異なると同じ概念`IDataProtector`ties が目的の概念をバックアップします。 場合は、次の 2 つ`IDataProtector`インスタンスが同じルートから生成された`IDataProtectionProvider`がへの呼び出しでそれぞれ異なる目的の文字列を使用して`IDataProtectionProvider.CreateProtector`、両者するいると見なされ、[異なるプロテクター](purpose-strings.md)、し、いずれかの保護を解除することはできません他のによって生成されるペイロード。
+異なると同じ概念`IDataProtector`ties が目的の概念をバックアップします。 場合は、次の 2 つ`IDataProtector`インスタンスが同じルートから生成された`IDataProtectionProvider`がへの呼び出しでそれぞれ異なる目的の文字列を使用して`IDataProtectionProvider.CreateProtector`、両者するいると見なされ、[異なるプロテクター](xref:security/data-protection/consumer-apis/purpose-strings)、し、いずれかの保護を解除することはできません他のによって生成されるペイロード。
 
 ## <a name="consuming-these-interfaces"></a>これらのインターフェイスを使用
 
 コンポーネントがかかることが目的の使用方法、DI に対応するコンポーネントです、`IDataProtectionProvider`コンス トラクターのパラメーターと、コンポーネントがインスタンス化されるとき、DI システムがそのこのサービスを自動的に提供します。
 
 > [!NOTE]
-> 一部のアプリケーション (コンソール アプリケーション、ASP.NET 4.x アプリケーションなど) があります DI に対応するため、ここで説明する機構を使用できません。 これらのシナリオを参照してください、[非 DI 対応したシナリオ](../configuration/non-di-scenarios.md)のインスタンスの取得の詳細については、ドキュメント、 `IDataProtection` DI を経由せずプロバイダー。
+> 一部のアプリケーション (コンソール アプリケーション、ASP.NET 4.x アプリケーションなど) があります DI に対応するため、ここで説明する機構を使用できません。 これらのシナリオを参照してください、[非 DI 対応したシナリオ](xref:security/data-protection/configuration/non-di-scenarios)のインスタンスの取得の詳細については、ドキュメント、 `IDataProtection` DI を経由せずプロバイダー。
 
 次の例では、3 つの概念を示しています。
 
-1. [データ保護システムに追加する](../configuration/overview.md)サービス コンテナー
+1. [データ保護システム追加](xref:security/data-protection/configuration/overview)サービス コンテナー
 
 2. インスタンスを受信する DI を使用して、 `IDataProtectionProvider`、および
 

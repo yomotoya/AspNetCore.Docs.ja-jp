@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
-title: "並べ替え、ページング、およびモデル バインディング機能と web フォームを使用してデータをフィルタ リング |Microsoft ドキュメント"
+title: 並べ替え、ページング、およびモデル バインディング機能と web フォームを使用してデータをフィルタ リング |Microsoft ドキュメント
 author: tfitzmac
-description: "このチュートリアルの系列では、モデル バインディングを使用して ASP.NET Web フォーム プロジェクトとの基本的な側面について説明します。 モデル バインドは、データの操作詳細直線-しています."
+description: このチュートリアルの系列では、モデル バインディングを使用して ASP.NET Web フォーム プロジェクトとの基本的な側面について説明します。 モデル バインドは、データの操作詳細直線-しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 msc.type: authoredcontent
-ms.openlocfilehash: 94fc84533be5fcbcf0612fcdcabea7dee738d89b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d63ebecadd392877e4cb1d1dffe9db2d1d231190
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>並べ替え、ページング、およびモデル バインディング機能と web フォームを使用してデータをフィルター処理
 ====================
@@ -71,7 +71,7 @@ Web アプリケーションを実行し、これで、レコードが複数の�
 - QueryString
 - RouteData
 - セッション
-- ユーザー プロファイル
+- UserProfile
 - ViewState
 
 このチュートリアルでは、コントロールの値を使用して GridView に表示するレコードをフィルター処理します。 追加、**コントロール**以前作成したクエリ メソッドに属性します。 [後](using-query-string-values-to-retrieve-data.md)チュートリアルを適用する、 **QueryString**属性値は、クエリ文字列の値からパラメーター値を取得することを指定するパラメーターをします。
@@ -100,6 +100,6 @@ Web アプリケーションを実行し、ドロップダウン生徒数の一�
 
 次の[チュートリアル](integrating-jquery-ui.md)動的なデータ テンプレートに JQuery UI ウィジェットを統合することにより、UI を拡張します。
 
->[!div class="step-by-step"]
-[前へ](updating-deleting-and-creating-data.md)
-[次へ](integrating-jquery-ui.md)
+> [!div class="step-by-step"]
+> [前へ](updating-deleting-and-creating-data.md)
+> [次へ](integrating-jquery-ui.md)

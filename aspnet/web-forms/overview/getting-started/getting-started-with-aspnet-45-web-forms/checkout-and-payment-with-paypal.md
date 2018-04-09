@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
-title: "チェック アウトおよび PayPal の支払い |Microsoft ドキュメント"
+title: チェック アウトおよび PayPal の支払い |Microsoft ドキュメント
 author: Erikre
-description: "このチュートリアルの系列では、お用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルの系列では、お用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
 msc.type: authoredcontent
-ms.openlocfilehash: dd975850a3ed3e7b1746d5123572065675a88656
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0dba613594686a28b82bc6d7701cda6e24b82e2e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="checkout-and-payment-with-paypal"></a>チェック アウトおよび PayPal の支払い
 ====================
@@ -55,7 +55,7 @@ ms.lasthandoff: 11/10/2017
 このチュートリアル シリーズの前半のカテゴリ、製品、スキーマを定義し、ショッピング カートのアイテムを作成することで、 `Category`、 `Product`、および`CartItem`内のクラス、*モデル*フォルダーです。 製品の注文と注文の詳細のスキーマを定義する 2 つの新しいクラスを追加します。
 
 1. **モデル**フォルダー、という名前の新しいクラスを追加*Order.cs*です。   
- 新しいクラス ファイルがエディターで表示されます。
+   新しいクラス ファイルがエディターで表示されます。
 2. 次のように、既定のコードに置き換えます。   
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample1.cs)]
@@ -107,7 +107,7 @@ Wingtip Toys のサンプル アプリケーションは、匿名ユーザーを
 新しいを追加して*Web.config*ファイルの名前を*チェック アウト*フォルダー、ことができます、フォルダーに含まれるすべてのページにアクセスを制限します。
 
 1. 右クリックし、*チェック アウト*フォルダーと選択**追加** - &gt; **新しい項目の**します。  
- **[新しい項目の追加]** ダイアログ ボックスが表示されます。
+   **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 2. 選択、 **Visual c#**  - &gt; **Web**左側のテンプレートのグループです。 次に、中央のペインでは、次のように選択します。 **Web 構成ファイル**、の既定の名前を受け入れる*Web.config*、し、**追加**です。
 3. 既存の XML の内容を置き換える、 *Web.config*を次のファイル。  
 
@@ -127,13 +127,13 @@ ASP.NET の構成が、階層構造に従うことを確認することが重要
 2. 変更**SSL を有効に**に`true`です。
 3. コピー、 **SSL URL**後で使用できるようにします。   
  SSL url は、 `https://localhost:44300/` (下図のように) 以前 SSL Web サイトに作成した場合を除き、します。   
-    ![プロジェクトのプロパティ](checkout-and-payment-with-paypal/_static/image4.png)
+    ![プロジェクト プロパティ](checkout-and-payment-with-paypal/_static/image4.png)
 4. **ソリューション エクスプ ローラー**を右クリックして、 **WingtipToys**プロジェクトし、クリックして**プロパティ**です。
 5. 左側のタブをクリックして**Web**です。
 6. 変更、**プロジェクト Url**を使用する、 **SSL URL**以前に保存します。   
     ![プロジェクトの Web プロパティ](checkout-and-payment-with-paypal/_static/image5.png)
 7. キーを押してページを保存**CTRL + S**です。
-8. キーを押して**ctrl キーを押しながら f5 キーを押して**アプリケーションを実行します。 Visual Studio の SSL の警告を回避できるようにするオプションが表示されます。
+8. **Ctrl キーを押しながら F5 キーを押して**アプリケーションを実行します。 Visual Studio の SSL の警告を回避できるようにするオプションが表示されます。
 9. をクリックして**はい**IIS Express の SSL 証明書を信頼して続行します。   
     ![IIS Express の SSL 証明書の詳細](checkout-and-payment-with-paypal/_static/image6.png)  
  セキュリティの警告が表示されます。
@@ -162,32 +162,32 @@ ASP.NET Web フォームでは、メンバーシップと認証の拡張オプ�
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample5.cs)]
 3. 移動し、 [Google Developers Console](https://console.developers.google.com/)です。 Google developer 電子メール アカウント (gmail.com など) を使用してサインインする必要があります。 Google アカウントがあるない場合は、選択、**アカウントを作成する**リンクします。   
- 次に、表示、 **Google Developers Console**です。   
+   次に、表示、 **Google Developers Console**です。   
     ![Google Developers Console](checkout-and-payment-with-paypal/_static/image8.png)
 4. クリックして、**プロジェクトの作成** ボタンをクリックし、プロジェクト名と (既定値を使用することができます) ID を入力します。 [] をクリックして、**契約のチェック ボックス**と**作成**ボタンをクリックします。  
 
     ![Google - 新しいプロジェクト](checkout-and-payment-with-paypal/_static/image9.png)
 
- 数秒で新しいプロジェクトを作成して、ブラウザーは、新しいプロジェクト ページを表示します。
+   数秒で新しいプロジェクトを作成して、ブラウザーは、新しいプロジェクト ページを表示します。
 5. 左側のタブをクリックして**Api &amp; auth**、順にクリック**資格情報**です。
 6. クリックして、**新しいクライアント ID を作成する** **OAuth**です。   
- **クライアント ID を作成**ダイアログが表示されます。   
+   **クライアント ID を作成**ダイアログが表示されます。   
     ![Google のクライアント ID を作成します。](checkout-and-payment-with-paypal/_static/image10.png)
 7. **クライアント ID を作成**ダイアログ ボックスで、既定値を保持**Web アプリケーション**アプリケーションの種類。
 8. 設定、**承認済みの JavaScript 生成元**このチュートリアルで以前に使用する SSL URL を (`https://localhost:44300/` SSL の他のプロジェクトを作成した場合を除く)。   
- この URL は、アプリケーションのための原点です。 このサンプルでは、のみ入力する localhost の URL のテスト。 ただし、localhost および運用のために複数の Url を入力することができます。
+   この URL は、アプリケーションのための原点です。 このサンプルでは、のみ入力する localhost の URL のテスト。 ただし、localhost および運用のために複数の Url を入力することができます。
 9. 設定、**リダイレクト URI の承認**以下。 
 
     [!code-html[Main](checkout-and-payment-with-paypal/samples/sample6.html)]
 
- この値は、その ASP.NET OAuth の URI をユーザーが google OAuth サーバーと通信します。 上記で使用する SSL URL に注意してください ( `https://localhost:44300/` SSL の他のプロジェクトを作成した場合を除く)。
+   この値は、その ASP.NET OAuth の URI をユーザーが google OAuth サーバーと通信します。 上記で使用する SSL URL に注意してください ( `https://localhost:44300/` SSL の他のプロジェクトを作成した場合を除く)。
 10. クリックして、**クライアント ID を作成**ボタンをクリックします。
 11. Google 開発者コンソールの左側のメニューをクリックして、**同意画面**メニュー項目は、電子メール アドレスと製品名を設定します。 フォームが完了したら、をクリックして**保存**です。
 12. クリックして、 **Api**メニュー項目、スクロール ダウン をクリック、**オフ**横に**Google + API**です。   
- このオプションを受け入れると、Google + API が有効になります。
+    このオプションを受け入れると、Google + API が有効になります。
 13. 更新する必要があります、 **Microsoft.Owin** 3.0.0 NuGet パッケージです。   
- **ツール**メニューの  **NuGet Package Manager**し、 **Manage NuGet Packages for Solution**です。  
- **NuGet パッケージの管理**ウィンドウ、検索、更新、 **Microsoft.Owin** 3.0.0 パッケージです。
+    **ツール**メニューの  **NuGet Package Manager**し、 **Manage NuGet Packages for Solution**です。  
+    **NuGet パッケージの管理**ウィンドウ、検索、更新、 **Microsoft.Owin** 3.0.0 パッケージです。
 14. Visual Studio で、更新、`UseGoogleAuthentication`のメソッド、 *Startup.Auth.cs*コピー アンド ペーストでページ、**クライアント ID**と**クライアント シークレット**メソッドにします。 **クライアント ID**と**クライアント シークレット**の下に表示される値のサンプルし、は機能しません。 
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample7.cs?highlight=64-65)]
@@ -293,11 +293,11 @@ PayPal のテスト環境を使用するのには、作成し、開発者のテ�
 1 つのクラスに PayPal のコードの大半を配置します。 このクラスには、PayPal との通信に使用するメソッドが含まれています。 またには、PayPal の資格情報は、このクラスに追加します。
 
 1. Wingtip Toys サンプル アプリケーションの Visual Studio 内で右クリックし、**ロジック**クリックしてフォルダー**追加** - &gt; **新しい項目の**します。   
- **[新しい項目の追加]** ダイアログ ボックスが表示されます。
+   **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 2. **Visual c#**から、**インストール**左側のウィンドウ、**コード**です。
 3. 中央のペインでは、次のように選択します。**クラス**です。 この新しいクラスの名前を**PayPalFunctions.cs**です。
-4. **[追加]**をクリックします。  
- 新しいクラス ファイルがエディターで表示されます。
+4. **[追加]** をクリックします。  
+   新しいクラス ファイルがエディターで表示されます。
 5. 既定のコードを次のコードに置き換えます。  
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample12.cs)]
@@ -312,9 +312,9 @@ PayPal のテスト環境を使用するのには、作成し、開発者のテ�
 
 NVPAPICaller クラスには、PayPal 機能の大部分が含まれています。 クラスのコードでは、購入、PayPal のテスト環境からテストの作成に必要なメソッドを提供します。 次の 3 つの PayPal 関数は、購入に使用されます。
 
-- `SetExpressCheckout`関数
-- `GetExpressCheckoutDetails`関数
-- `DoExpressCheckoutPayment`関数
+- `SetExpressCheckout` 関数
+- `GetExpressCheckoutDetails` 関数
+- `DoExpressCheckoutPayment` 関数
 
 `ShortcutExpressCheckout`メソッドは、ショッピング カートの呼び出しからテストの購入情報と製品の詳細を収集、 `SetExpressCheckout` PayPal 関数。 `GetCheckoutDetails`メソッドは、購入の詳細と呼び出しを確認、`GetExpressCheckoutDetails`テスト購買を行う前に、PayPal 関数。 `DoCheckoutPayment`メソッドを呼び出して、テスト環境からテスト購入を完了すると、 `DoExpressCheckoutPayment` PayPal 関数。 残りのコードは、PayPal メソッドおよび文字列をエンコード、文字列をデコード、配列、処理、および資格情報を決定するなどのプロセスをサポートします。
 
@@ -359,14 +359,14 @@ Wingtip Toys のサンプル アプリケーションは、PayPal テスト サ�
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample18.cs?highlight=18)]
 6. 両方に変更を保存、*後*ファイルおよび*ShoppingCart.aspx.cs*ファイル。
 7. メニューから、次のように選択します。**デバッグ**-&gt;**ビルド WingtipToys**です。  
- プロジェクトが再構築で新しく追加された**ImageButton**コントロール。
+   プロジェクトが再構築で新しく追加された**ImageButton**コントロール。
 
 ### <a name="send-purchase-details-to-paypal"></a>注文書の詳細を PayPal に送信します。
 
 ユーザーがクリックしたとき、**チェック アウト**ショッピング カート ページ上のボタン (*後*)、発注プロセスを始めます。 次のコードでは、製品を購入するために必要な最初の PayPal 関数を呼び出します。
 
 1. *チェック アウト*フォルダーを開き、分離コード ファイルの名前は*CheckoutStart.aspx.cs*です。   
- 分離コード ファイルを開くことを確認します。
+   分離コード ファイルを開くことを確認します。
 2. 既存のコードを次のコードに置き換えます。   
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample19.cs)]
@@ -439,20 +439,20 @@ PayPal から返された後、 *CheckoutReview.aspx* Wingtip Toys のサンプ�
 製品を購入する方法を説明するアプリケーションを実行します。 実行する、PayPal のテスト環境に注意してください。 実際のコストは交換されているされません。
 
 1. 次のすべての Visual Studio で、ファイルが保存を確認します。
-2. Web ブラウザーを開きに移動[https://developer.paypal.com](https://developer.paypal.com/)です。
+2. Web ブラウザーを開きに移動[ https://developer.paypal.com](https://developer.paypal.com/)です。
 3. このチュートリアルで先ほど作成した、PayPal 開発者アカウントでログインします。  
- PayPal の開発者のサンド ボックスにログインする必要があります。 [https://developer.paypal.com](https://developer.paypal.com/) express のチェック アウトをテストします。 これは、テスト、PayPal の実稼働環境にない PayPal のサンド ボックスにのみ適用されます。
+   PayPal の開発者のサンド ボックスにログインする必要があります。 [ https://developer.paypal.com ](https://developer.paypal.com/) express のチェック アウトをテストします。 これは、テスト、PayPal の実稼働環境にない PayPal のサンド ボックスにのみ適用されます。
 4. Visual Studio で、キーを押して**f5 キーを押して**Wingtip Toys サンプル アプリケーションを実行します。  
- データベースが再構築後に、ブラウザーが開き、表示、 *Default.aspx*ページ。
+   データベースが再構築後に、ブラウザーが開き、表示、 *Default.aspx*ページ。
 5. 「自動車」など、製品カテゴリを選択し、をクリックして 3 つの異なる製品をショッピング カートに追加**をカートに追加**各製品の横にあります。  
- ショッピング カートでは、選択した製品を表示します。
+   ショッピング カートでは、選択した製品を表示します。
 6. クリックして、 **PayPal**チェック アウトするボタンをクリックします。 
 
     ![チェック アウトおよび PayPal のカートに支払い](checkout-and-payment-with-paypal/_static/image20.png)
 
- チェック アウトするには、Wingtip Toys サンプル アプリケーションのユーザー アカウントを持っている必要があります。
+   チェック アウトするには、Wingtip Toys サンプル アプリケーションのユーザー アカウントを持っている必要があります。
 7. クリックして、 **Google**既存 gmail.com などの電子メール アカウントでログインするページの右上のリンク。  
- Gmail.com などのアカウントがあるない場合、テスト目的で 1 つを作成できます[www.gmail.com](https://www.gmail.com/)です。"Register"をクリックして、標準のローカル アカウントを使用することもできます。 
+   Gmail.com などのアカウントがあるない場合、テスト目的で 1 つを作成できます[www.gmail.com](https://www.gmail.com/)です。"Register"をクリックして、標準のローカル アカウントを使用することもできます。 
 
     ![チェック アウトおよび - PayPal の支払いにログインします。](checkout-and-payment-with-paypal/_static/image21.png)
 8. Gmail アカウントとパスワードでサインインします。 
@@ -465,7 +465,7 @@ PayPal から返された後、 *CheckoutReview.aspx* Wingtip Toys のサンプ�
 
     ![チェック アウトおよび PayPal のサインインの PayPal の支払い](checkout-and-payment-with-paypal/_static/image24.png)
 11. PayPal ポリシーに同意し、をクリックして、**同意コンティニュ**ボタンをクリックします。  
- このページはのみ注には、この PayPal アカウントを使用する最初の時刻が表示されます。 もう一度テスト用のアカウントは、このことは、実際のコストは交換されませんに注意してください。 
+    このページはのみ注には、この PayPal アカウントを使用する最初の時刻が表示されます。 もう一度テスト用のアカウントは、このことは、実際のコストは交換されませんに注意してください。 
 
     ![チェック アウトおよび PayPal の PayPal のポリシーでの支払い](checkout-and-payment-with-paypal/_static/image25.png)
 12. テスト環境の確認 ページをクリック PayPal の注文情報を確認**続行**です。 
@@ -504,7 +504,7 @@ Wingtip Toys サンプル アプリケーションのデータベース内のデ
 12. Wingtip Toys のデータベース ファイルを右クリックして (*Wingtiptoys.mdf*) を選択して**接続を閉じる**です。
 13. 表示されない場合、**ソリューション エクスプ ローラー**ウィンドウで、をクリックして**ソリューション エクスプ ローラー**の下部にある、**サーバー エクスプ ローラー**を表示するウィンドウ、**ソリューション エクスプ ローラー**もう一度です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、製品の注文書を追跡するためには、注文と注文詳細スキーマを追加します。 また、PayPal 機能は、Wingtip Toys のサンプル アプリケーションに統合されます。
 
@@ -518,6 +518,6 @@ Wingtip Toys サンプル アプリケーションのデータベース内のデ
 
 このチュートリアルには、サンプル コードが含まれています。 このようなサンプル コードには、どのような種類の保証も伴わず「現状有姿を示します。 同様に、Microsoft は、正確性、整合性、または、サンプル コードの品質保証されません。 うえで、サンプル コードを使用するものとします。 状況においても Microsoft 責任を負いかねますに任意の方法で、サンプル コードは、コンテンツなどですが、これらに、エラーまたは不作為サンプル コード、コンテンツ、または任意の損失や任意の種類のすべてのサンプル コードを使用した結果として発生する破損に限定されません。 無償通知が表示され、保存および免責 Microsoft から、すべてが失われる、信頼性情報の損失、負傷事故やの kind 含め、これらに限定して occasioned またはマテリアルを投稿することにより発生する破損の影響を与えません同意しないでください。送信使用するかに限らず見解をそこに依存します。
 
->[!div class="step-by-step"]
-[前へ](shopping-cart.md)
-[次へ](membership-and-administration.md)
+> [!div class="step-by-step"]
+> [前へ](shopping-cart.md)
+> [次へ](membership-and-administration.md)

@@ -1,26 +1,26 @@
 ---
 uid: whitepapers/denied-access-to-iis-directories
-title: "ASP.NET は IIS ディレクトリへのアクセスを拒否 |Microsoft ドキュメント"
+title: ASP.NET は IIS ディレクトリへのアクセスを拒否 |Microsoft ドキュメント
 author: rick-anderson
-description: "このホワイト ペーパーでは、必要なことを ASP.NET アプリケーションに要求が、\"ディレクトリ名のディレクトリを拒否する エラーを返す場合について説明します。 %S に失敗しました."
+description: このホワイト ペーパーでは、必要なことを ASP.NET アプリケーションに要求が、"ディレクトリ名のディレクトリを拒否する エラーを返す場合について説明します。 %S に失敗しました.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: 3cb27b8a-354f-4332-bfe0-232b13bbf8aa
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/denied-access-to-iis-directories
 msc.type: content
-ms.openlocfilehash: 64118ac7a5f280775106d2dc7636923b08f28d89
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d95423776a6b58fc67ae6c791685543dadd2480c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
 <a name="aspnet-denied-access-to-iis-directories"></a>ASP.NET は、IIS ディレクトリへのアクセスを拒否します。
 ====================
-> このホワイト ペーパーでは、必要なことを ASP.NET アプリケーションに要求が、エラーを返した場合について説明します"へのアクセスを拒否*ディレクトリ名*ディレクトリ。 開始できませんでしたディレクトリ chaanges を監視します。"
+> このホワイト ペーパーでは、必要なことを ASP.NET アプリケーションに要求が、エラーを返した場合について説明します"へのアクセスを拒否*ディレクトリ名*ディレクトリ。 開始できませんでしたディレクトリの変更を監視します。"
 > 
 > ASP.NET 1.0 および 1.1 を ASP.NET に適用されます。
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
-title: "Visual Studio 2010 を使用するエンタープライズ シナリオで Web アプリケーションの配置 |Microsoft ドキュメント"
+title: Visual Studio 2010 を使用するエンタープライズ シナリオで Web アプリケーションの配置 |Microsoft ドキュメント
 author: jrjlee
-description: "このチュートリアルのセットは、ツールとさまざまなエンタープライズ シナリオで web アプリケーションの展開に使用できる手法について説明します。 最大限利用する方法を説明しています."
+description: このチュートリアルのセットは、ツールとさまざまなエンタープライズ シナリオで web アプリケーションの展開に使用できる手法について説明します。 最大限利用する方法を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/03/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: 99bab371dd34b30f3554843e49bbec7f57c3f96c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 921b1ccd8a1f2109a51f3f75149588422fefb91d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-web-applications-in-enterprise-scenarios-using-visual-studio-2010"></a>Visual Studio 2010 を使用するエンタープライズ シナリオで Web アプリケーションの配置
 ====================
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/10/2017
 > > これらのチュートリアルでは、TFS の CI サーバーとしての使用について説明、中にガイダンスが CI の任意のサーバーに簡単に適応します。 詳細な情報を理解し、チュートリアルを利用して、TFS の必要はありません。
 > 
 > 
-> これらのチュートリアルのイタリア語の翻訳を参照してください。 [http://www.lucamorelli.it](http://www.lucamorelli.it)です。
+> これらのチュートリアルのイタリア語の翻訳を参照してください。 [ http://www.lucamorelli.it](http://www.lucamorelli.it)です。
 
 
 ## <a name="about-the-authors"></a>作成者について
@@ -54,7 +54,7 @@ Benjamin Curry はでプリンシパル テクノロジスト[コンテンツ �
 次のチュートリアルをこれらのチュートリアルを記述するタスクの実行は、開発用コンピューターでこのソフトウェアをインストールする必要があります。
 
 - Visual Studio 2010 Premium または Ultimate Edition Service Pack 1
-- .NET framework 4.0
+- .NET Framework 4.0
 - .NET framework 3.5 Service Pack 1
 - ASP.NET MVC 3.0
 - IIS 7.5 Express します。
@@ -80,5 +80,5 @@ Benjamin Curry はでプリンシパル テクノロジスト[コンテンツ �
 
 このチュートリアルのセットは、参照の実装を提供し、タスクとチュートリアル一般的なコンテキストを提供すると共に、架空の企業の展開シナリオの複雑さのレベルが現実的なサンプル ソリューションを使用します。 次のトピックでは、 [Enterprise Web 展開: シナリオの概要](enterprise-web-deployment-scenario-overview.md)シナリオとサンプルのソリューションについて説明します。 そこからチュートリアルおよびトピックにニーズに最も近いを通じて使用できます。
 
->[!div class="step-by-step"]
-[次へ](enterprise-web-deployment-scenario-overview.md)
+> [!div class="step-by-step"]
+> [次へ](enterprise-web-deployment-scenario-overview.md)

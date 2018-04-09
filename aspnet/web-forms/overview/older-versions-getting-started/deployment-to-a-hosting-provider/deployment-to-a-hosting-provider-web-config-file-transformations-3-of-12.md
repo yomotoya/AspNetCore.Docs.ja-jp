@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
-title: "SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します Web.Config ファイルの変換、3/12 |。Microsoft ドキュメント"
+title: SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します Web.Config ファイルの変換、3/12 |。Microsoft ドキュメント
 author: tdykstra
-description: "この一連のチュートリアルは、展開する方法を示します (発行)、ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています."
+description: この一連のチュートリアルは、展開する方法を示します (発行)、ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: ed78b55d2b0315cf428f137c56ad85b29a95e1c5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 86eb74ca35e8804978127412e2276eeee9d615dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-webconfig-file-transformations---3-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します Web.Config ファイルの変換、3/12。
 ====================
@@ -136,7 +136,7 @@ Contoso 大学 web ページで設定されている値の読み取り`appSettin
 
 ## <a name="setting-connection-strings"></a>接続文字列の設定
 
-ほとんどの場合する必要はありません、接続文字列の変換を設定するため、発行プロファイルで接続文字列を指定することができます。 SQL Server Compact データベースを配置するときに例外があるし、Entity Framework Code First Migrations を使用して、移行先サーバー上のデータベースを更新します。 このシナリオでは、データベース スキーマを更新するため、サーバーで使用される追加の接続文字列を指定する必要があります。 この変換をセットアップするには追加、  **&lt;connectionStrings&gt;** 要素の開始後すぐに**&lt;構成&gt;**両方でタグ*Web.Test.config*と*Web.Production.config*ファイルに変換します。
+ほとんどの場合する必要はありません、接続文字列の変換を設定するため、発行プロファイルで接続文字列を指定することができます。 SQL Server Compact データベースを配置するときに例外があるし、Entity Framework Code First Migrations を使用して、移行先サーバー上のデータベースを更新します。 このシナリオでは、データベース スキーマを更新するため、サーバーで使用される追加の接続文字列を指定する必要があります。 この変換をセットアップするには追加、 **&lt;connectionStrings&gt;**要素の開始後すぐに**&lt;構成&gt;**両方でタグ*Web.Test.config*と*Web.Production.config*ファイルに変換します。
 
 [!code-xml[Main](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12/samples/sample7.xml)]
 
@@ -148,6 +148,6 @@ Contoso 大学 web ページで設定されている値の読み取り`appSettin
 
 このチュートリアルで説明されているトピックの詳細については、Web.config 変換シナリオを参照してください。 [ASP.NET 展開のコンテンツ マップ](https://msdn.microsoft.com/library/bb386521.aspx)です。
 
->[!div class="step-by-step"]
-[前へ](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
-[次へ](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)
+> [!div class="step-by-step"]
+> [前へ](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+> [次へ](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)

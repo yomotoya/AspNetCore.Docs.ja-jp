@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
-title: "Entity Framework 4.0 ObjectDataSource コントロールを使用して、パート 1: 作業の開始 |Microsoft ドキュメント"
+title: 'Entity Framework 4.0 ObjectDataSource コントロールを使用して、パート 1: 作業の開始 |Microsoft ドキュメント'
 author: tdykstra
-description: "この一連のチュートリアルについては、Entity Framework チュートリアル シリーズの概要を作成した Contoso 大学 web アプリケーションに基づいています。 場合 yo しています."
+description: この一連のチュートリアルについては、Entity Framework チュートリアル シリーズの概要を作成した Contoso 大学 web アプリケーションに基づいています。 場合 yo しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 83fe815af9030aee10a5204718b00c79925e9126
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6584767418c898913777b3b1549a816679c8430d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Entity Framework 4.0 ObjectDataSource コントロールを使用して、パート 1: 作業の開始
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 01/24/2018
 
 > このチュートリアル シリーズのビルドによって作成される Contoso 大学 web アプリケーションで、 [Entity Framework 4.0 の概要](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)一連のチュートリアルです。 前のチュートリアルを完了していない場合このチュートリアルの開始点とすることができます[アプリケーションをダウンロードして](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)作成したとします。 こともできます[アプリケーションをダウンロードして](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)一連の完全なチュートリアルで作成します。
 > 
-> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 4.0 および Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、架空の Contoso 大学の web サイトです。 学生受付、コースの作成、およびインストラクター割り当てなどの機能が含まれています。
+> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 4.0 および Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、架空の Contoso 大学の web サイトです。 学生の受け付け、講座の作成、講師の割り当てなどの機能が含まれています。
 > 
 > チュートリアルでは、c# の例を示します。 [ダウンロード可能なサンプル](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa)c# および Visual Basic の両方でコードが含まれています。
 > 
@@ -311,7 +311,7 @@ Visual studio で作成した Contoso 大学 web アプリケーションを開�
 使用して、 *DepartmentsAdd.aspx*新しい部門を追加するページし、実行、 *Departments.aspx*ページし、をクリックして**編集**追加した行にします。
 
 > [!NOTE]
-> 追加していない行を編集することはできません (つまり、データベース内に既に)、データベースに無効なデータによりデータベースで作成された行の管理者は、受講者です。 これらのいずれかを編集しようとする場合のようなエラーが報告されるエラー ページが表示されます。`'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
+> 追加していない行を編集することはできません (つまり、データベース内に既に)、データベースに無効なデータによりデータベースで作成された行の管理者は、受講者です。 これらのいずれかを編集しようとする場合のようなエラーが報告されるエラー ページが表示されます。 `'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
 
 
 [![Image10](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image36.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image35.png)
@@ -324,5 +324,5 @@ Visual studio で作成した Contoso 大学 web アプリケーションを開�
 
 これで完了使用の概要、`ObjectDataSource`コントロールの基本的な CRUD (作成、読み取り、更新、削除)、Entity Framework での操作です。 簡単な n 層アプリケーションを構築しましたが、ビジネス ロジック層は引き続き緊密に自動化された単体テストを複雑になるデータ アクセス層にします。 次のチュートリアルでは、単体テストを容易にするために、リポジトリ パターンを実装する方法が表示されます。
 
->[!div class="step-by-step"]
-[次へ](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+> [!div class="step-by-step"]
+> [次へ](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)

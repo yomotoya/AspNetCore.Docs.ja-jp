@@ -1,22 +1,22 @@
 ---
 uid: whitepapers/mvc4-beta-release-notes
-title: "ASP.NET MVC 4 |Microsoft ドキュメント"
+title: ASP.NET MVC 4 |Microsoft ドキュメント
 author: rick-anderson
-description: "このドキュメントでは、ASP.NET MVC 4 Beta の Visual Studio 2010 のリリースについて説明します。"
+description: このドキュメントでは、ASP.NET MVC 4 Beta の Visual Studio 2010 のリリースについて説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/09/2011
 ms.topic: article
 ms.assetid: 666407bb-81de-4319-89ba-0302c382a208
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: d6797d1dbacff7503f74782d325ff5a9598970c0
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: d29f09d726e835c1eb1fc38e643a4bfe7f00f61c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -139,7 +139,7 @@ ASP.NET Web API には、次の機能のサポートが含まれています。
 - **コード ベースの構成:**コードを通じてのみ Web API の構成には、ファイルのクリーンアップの設定のままです。
 - **自己ホスト:** Web Api は、ルートの全機能と Web API の他の機能を使用中に IIS だけでなく、独自のプロセスでホストできます。
 
-ASP.NET Web API の詳細についてはご参照ください[https://www.asp.net/web-api](../web-api/index.md)です。
+ASP.NET Web API の詳細についてはご参照ください[ https://www.asp.net/web-api](../web-api/index.md)です。
 
 <a id="_Toc317096198"></a>
 ### <a name="aspnet-single-page-application"></a>ASP.NET の単一ページ アプリケーション
@@ -150,7 +150,7 @@ ASP.NET MVC 4 には、さまざまな相互重要なクライアント側 JavaS
 - 単位の作業と DAL のサポートの追加の Web API コンポーネント
 - すぐに開始するスキャフォールディングでの MVC プロジェクト テンプレート
 
-単一ページ アプリケーションの詳細については、ASP.NET MVC 4 のサポートを参照してください[https://www.asp.net/single-page-application](../single-page-application/index.md)です。
+単一ページ アプリケーションの詳細については、ASP.NET MVC 4 のサポートを参照してください[ https://www.asp.net/single-page-application](../single-page-application/index.md)です。
 
 <a id="_Toc303253808"></a>
 ### <a name="enhancements-to-default-project-templates"></a>既定のプロジェクト テンプレートの機能強化
@@ -185,7 +185,7 @@ ASP.NET MVC 4 には、さまざまな相互重要なクライアント側 JavaS
 
 新しい表示モード機能には、要求を行って、ブラウザーによってビューを選択して、アプリケーションができます。 たとえば、デスクトップ ブラウザーでは、ホーム ページを要求している場合、アプリケーションは Views\Home\Index.cshtml テンプレートを使用できます。 モバイル ブラウザーは、ホーム ページを要求している場合、アプリケーションは Views\Home\Index.mobile.cshtml テンプレートを返す場合があります。
 
-レイアウトとパーシャルは、特定のブラウザーの種類を無効にできます。 例:
+レイアウトとパーシャルは、特定のブラウザーの種類を無効にできます。 例えば:
 
 - \Shared フォルダーには、両方が含まれている場合、 \_Layout.cshtml と\_Layout.mobile.cshtml テンプレート、既定では、アプリケーションで使用\_モバイル ブラウザーとからの要求中にLayout.mobile.cshtml\_Layout.cshtml 他の要求時にします。
 - フォルダーには、両方が含まれている場合\_MyPartial.cshtml と\_MyPartial.mobile.cshtml、命令@Html.Partial("\_MyPartial") はレンダリング\_携帯電話からの要求時に MyPartial.mobile.cshtmlブラウザー、および\_MyPartial.cshtml 他の要求時にします。
@@ -280,9 +280,9 @@ ASP.NET MVC 4 Beta は、Windows Azure SDK の 2011 年 9 月 1.5 のリリー�
     変更した web.config でアセンブリのバインディング要素として次のように表示されます。
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample12.xml)]
-- **Visual Basic プロジェクトで「コント ローラーの追加」の項目テンプレートを生成、正しくない名前空間呼び出されたときに * * * から領域内です。** Visual Basic を使用する ASP.NET MVC プロジェクト内の領域に、コント ローラーを追加すると、項目テンプレートは、コント ローラーに間違った名前空間を挿入します。 コント ローラーのどのアクションに移動するときに、「ファイルが見つかりません」エラーになります。  
+- <strong>Visual Basic プロジェクトで「コント ローラーの追加」の項目テンプレートが正しくない名前空間が呼び出されたときの生成</strong><strong>から領域内です。</strong> Visual Basic を使用する ASP.NET MVC プロジェクト内の領域に、コント ローラーを追加すると、項目テンプレートは、コント ローラーに間違った名前空間を挿入します。 コント ローラーのどのアクションに移動するときに、「ファイルが見つかりません」エラーになります。  
   
- 生成された名前空間は、ルート名前空間の後にすべてのものを省略します。 たとえば、生成された名前空間は*RootNamespace*する必要がありますが、 *RootNamespace.Areas.AreaName.Controllers*です。
+  生成された名前空間は、ルート名前空間の後にすべてのものを省略します。 たとえば、生成された名前空間は*RootNamespace*する必要がありますが、 *RootNamespace.Areas.AreaName.Controllers*です。
 - **Razor ビュー エンジンにおける重大な変更です。** Razor パーサーの書き換えの一環として、次の種類はから削除された*System.Web.Mvc.Razor*: 
 
     - *ModelSpan*
@@ -290,7 +290,7 @@ ASP.NET MVC 4 Beta は、Windows Azure SDK の 2011 年 9 月 1.5 のリリー�
     - *MvcCSharpRazorCodeGenerator*
     - *MvcVBRazorCodeParser*
 
- 次の方法も削除されます。 
+  次の方法も削除されます。 
 
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
@@ -305,15 +305,15 @@ ASP.NET MVC 4 Beta は、Windows Azure SDK の 2011 年 9 月 1.5 のリリー�
 
     **必要な更新プログラム**
 
-    1. ルートの Web.config ファイルで追加、新しい *&lt;appSettings&gt;* キーを持つエントリ*webPages:Version*および値*1.0.0.0*です。
+  1. ルートの Web.config ファイルで追加、新しい*&lt;appSettings&gt;*キーを持つエントリ*webPages:Version*および値*1.0.0.0*です。
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample14.xml)]
-    2. ソリューション エクスプ ローラーでプロジェクト名を右クリックし、プロジェクトのアンロードを選択します。 [名前を再度右クリックして編集] を選択*ProjectName*.csproj です。
-    3. 次のアセンブリ参照を見つけます。 
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample14.xml)]
+  2. ソリューション エクスプ ローラーでプロジェクト名を右クリックし、プロジェクトのアンロードを選択します。 [名前を再度右クリックして編集] を選択*ProjectName*.csproj です。
+  3. 次のアセンブリ参照を見つけます。 
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample15.xml)]
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample15.xml)]
 
-        次のように、それらを置き換えます。
+      次のように、それらを置き換えます。
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample16.xml)]
-    4. 変更を保存、閉じるプロジェクト (.csproj) ファイルを編集、およびし、プロジェクトを右クリックし、再読み込みを選択します。
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample16.xml)]
+  4. 変更を保存、閉じるプロジェクト (.csproj) ファイルを編集、およびし、プロジェクトを右クリックし、再読み込みを選択します。

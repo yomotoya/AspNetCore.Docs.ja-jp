@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-vb
-title: "Web サービスのバックエンド (VB) で、数値のアップダウン コントロールを作成する |Microsoft ドキュメント"
+title: Web サービスのバックエンド (VB) で、数値のアップダウン コントロールを作成する |Microsoft ドキュメント
 author: wenz
-description: "チェック ボックスに値を入力するユーザーを待つ代わりに、数値のアップダウン コントロール (Windows と他のオペレーティング システムに存在する場合) はより多くの c を生じる可能性があります."
+description: チェック ボックスに値を入力するユーザーを待つ代わりに、数値のアップダウン コントロール (Windows と他のオペレーティング システムに存在する場合) はより多くの c を生じる可能性があります.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5ceefd6c18761c2abe3f3a4298d340642a0951d6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 690fd89c552407ec5d77419aae2488e4832efe44
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-numeric-updown-control-with-a-web-service-backend-vb"></a>Web サービス バックエンド (VB) と数値のアップダウン コントロールを作成します。
 ====================
@@ -45,10 +45,10 @@ ASP.NET AJAX コントロールのツールキットに含まれています、`
 
 最後に、新しい ASP.NET ページを作成します。 必要がある通常どおり、`ScriptManager`コントロール、`TextBox`コントロールと`NumericUpDownExtender`コントロール。 後者には web サービス情報を提供する必要があります。
 
-- `ServiceDownMethod`web メソッドまたはメソッドのページを下の名前
-- `ServiceDownPath`下向きサービス メソッドを使用して web サービスへのパスページ メソッドを使用している場合は、省略します。
-- `ServiceUpMethod`web メソッドまたはメソッドをページ上の名前
-- `ServiceUpPath`サービス メソッドを使用して web サービスへのパスページ メソッドを使用している場合は、省略します。
+- `ServiceDownMethod` web メソッドまたはメソッドのページを下の名前
+- `ServiceDownPath` 下向きサービス メソッドを使用して web サービスへのパスページ メソッドを使用している場合は、省略します。
+- `ServiceUpMethod` web メソッドまたはメソッドをページ上の名前
+- `ServiceUpPath` サービス メソッドを使用して web サービスへのパスページ メソッドを使用している場合は、省略します。
 
 ページの完全なマークアップを次に示します。
 
@@ -61,5 +61,5 @@ ASP.NET AJAX コントロールのツールキットに含まれています、`
 
 2 の累乗の数値のみが表示されます ([フルサイズのイメージを表示するをクリックして](creating-a-numeric-up-down-control-with-a-web-service-backend-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](creating-a-numeric-up-down-control-with-a-web-service-backend-cs.md)
+> [!div class="step-by-step"]
+> [前へ](creating-a-numeric-up-down-control-with-a-web-service-backend-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
-title: "編集方法と編集ビューを調べて |Microsoft ドキュメント"
+title: 編集方法と編集ビューを調べて |Microsoft ドキュメント
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: d7e1ba503b8aa815cebf431d2f5ffc9436b3575b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a3baa8e9af572d4c21813218ba394715a6db65cb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>編集方法と編集ビューの確認
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 このセクションでを確認する、生成された`Edit`アクション メソッドと、ムービーのコント ローラーのビューです。 外観をよくリリース日に短い迂回が最初になります。 開く、 *Models\Movie.cs*ファイルし、次の強調表示された行を追加します。
 
@@ -106,12 +106,12 @@ ms.lasthandoff: 03/15/2018
 1. **ツール**ボタンをクリックし**NuGetLibrary Package Manager**、クリックして**Manage NuGet Packages for Solution**です。  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image5.png)
-2. 左側のウィンドウで次のように選択します。 **参照*。 * * * (次の図を参照してください)。
+2. 左側のウィンドウで次のように選択します<strong>参照*。</strong> 。*(下の画像を参照してください)。
 3. 入力のボックスでは、次のように入力します。 * Globalize * *。  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image6.png) 選択`jQuery.Validation.Globalize`、選択`MvcMovie` をクリック**インストール**です。 *Scripts\jquery.globalize\globalize.js*ファイルは、プロジェクトに追加されます。 *Scripts\jquery.globalize\cultures\*多くのカルチャの JavaScript ファイルが格納されます。 このパッケージのインストールに 5 分かかる場合がありますに注意してください。
 
- 次のコードは、Views\Movies\Edit.cshtml ファイルへの変更を示しています。 
+   次のコードは、Views\Movies\Edit.cshtml ファイルへの変更を示しています。 
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample10.cshtml)]
 
@@ -125,6 +125,6 @@ ms.lasthandoff: 03/15/2018
 
 <a id="gettingstarted"></a><a id="jQueryAjaxJSON"></a> チュートリアルでは、[次へ] を検索機能を実装します。
 
->[!div class="step-by-step"]
-[前へ](accessing-your-models-data-from-a-controller.md)
-[次へ](adding-search.md)
+> [!div class="step-by-step"]
+> [前へ](accessing-your-models-data-from-a-controller.md)
+> [次へ](adding-search.md)

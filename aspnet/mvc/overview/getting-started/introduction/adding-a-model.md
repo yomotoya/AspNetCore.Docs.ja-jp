@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/introduction/adding-a-model
-title: "モデルを追加する |Microsoft ドキュメント"
+title: モデルを追加する |Microsoft ドキュメント
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 79f136257119a8600a65e8d7c5f6e99cb9abceae
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: b3ef871c4d7627a03c8f0fd8cce9d3e97fc1a4ba
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-model"></a>モデルを追加します。
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 このセクションでは、データベース内のムービーを管理するためのいくつかのクラスを追加します。 これらのクラスになります、&quot;モデル&quot;ASP.NET MVC アプリの一部です。
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/05/2018
 
 [!code-csharp[Main](adding-a-model/samples/sample3.cs)]
 
-使用して、手動で追加してこれを行うステートメント、またはすることができます赤の波線を合わせるをクリックして`Show potential fixes` をクリック`using System.Data.Entity;`
+使用して、手動で追加してこれを行うステートメント、またはすることができます赤の波線を合わせるをクリックして`Show potential fixes` をクリック `using System.Data.Entity;`
 
 ![](adding-a-model/_static/image2.png)
 
@@ -64,6 +64,6 @@ ms.lasthandoff: 02/05/2018
 
 最後に、モデル (MVC で M) が追加されました。 次のセクションでは、データベース接続文字列を使用します。
 
->[!div class="step-by-step"]
-[前へ](adding-a-view.md)
-[次へ](creating-a-connection-string.md)
+> [!div class="step-by-step"]
+> [前へ](adding-a-view.md)
+> [次へ](creating-a-connection-string.md)

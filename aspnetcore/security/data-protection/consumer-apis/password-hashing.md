@@ -1,7 +1,7 @@
 ---
-title: "パスワードのハッシュ"
+title: ASP.NET Core でパスワードをハッシュ
 author: rick-anderson
-description: "このドキュメントでは、ASP.NET Core データ保護 Api を使用してパスワードをハッシュする方法について説明します。"
+description: ASP.NET Core データ保護 Api を使用してパスワードをハッシュする方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/password-hashing
-ms.openlocfilehash: 8e2796108be14ef382f46e6deb3d584517120d27
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 63348da144e84d614f274b5d816cbecb020dcab4
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="password-hashing"></a>パスワードのハッシュ
+# <a name="hash-passwords-in-aspnet-core"></a>ASP.NET Core でパスワードをハッシュ
 
 コード ベースをデータの保護には、パッケージが含まれています。 *Microsoft.AspNetCore.Cryptography.KeyDerivation*暗号化キー派生機能が含まれています。 このパッケージは、スタンドアロンのコンポーネントであり、データ保護システムの他の依存関係を持たない。 使用する完全に独立しています。 ソースは、データ保護コードの便宜を図ってベースと共に存在します。
 

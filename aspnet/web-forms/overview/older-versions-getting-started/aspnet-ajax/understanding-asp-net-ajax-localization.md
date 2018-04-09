@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
-title: "ASP.NET AJAX のローカライズを理解する |Microsoft ドキュメント"
+title: ASP.NET AJAX のローカライズを理解する |Microsoft ドキュメント
 author: scottcate
-description: "ローカライズは、設計と、アプリケーションまたはアプリケーション コンポーネントに特定の言語とカルチャのサポートを統合するプロセスです。 Mic しています."
+description: ローカライズは、設計と、アプリケーションまたはアプリケーション コンポーネントに特定の言語とカルチャのサポートを統合するプロセスです。 Mic しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
-ms.openlocfilehash: 5b801586ea77af78284f780fe47fe09cafb984af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 565b0294f57b784bc592b286b3d8b28504110415
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-localization"></a>ASP.NET AJAX のローカライズを理解します。
 ====================
@@ -65,8 +65,8 @@ Microsoft AJAX Framework スクリプトの管理は、展開やスクリプト�
 | --- | --- |
 | Script.js | リリース バージョンのカルチャに依存しないスクリプトです。 |
 | Script.debug.js | デバッグ バージョンのカルチャに依存しないスクリプトです。 |
-| Script.en US.js | リリース バージョン英語、米国スクリプト。 |
-| Script.debug.es CO.js | デバッグ バージョン スペイン語、コロンビア スクリプトです。 |
+| Script.en-US.js | リリース バージョン英語、米国スクリプト。 |
+| Script.debug.es-CO.js | デバッグ バージョン スペイン語、コロンビア スクリプトです。 |
 
 ## <a name="walkthrough-create-an-localized-embedded-script"></a>チュートリアル: ローカライズされた、埋め込みのスクリプトを作成します。
 
@@ -143,16 +143,16 @@ ScriptManager は、ローカライズされたアプリケーションのいく
 
 スクリプト参照は、プログラムまたは宣言型マークアップによって ScriptManager コントロールに追加できます。 宣言型マークアップ便利を扱う場合はスクリプト自体、web サイト プロジェクト以外に埋め込まれているアセンブリ、スクリプトの名前は可能性がありますが変更されない、リビジョンがプッシュされるとします。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 Web アプリケーションが大勢に到達するにつれてより広範囲のカルチャおよびコミュニティに到達できるになるコアは、ビジネス モデルと電子商取引 web アプリケーションを外部の通貨を扱うことができる必要があります。、コンテンツ管理システムは、このようなことを把握する必要があります、コンテンツ、ナビゲーション ヒントやも他の言語、および企業内のフォーム フィールドだけでなくすることが存在する必要があります。アクセスできます。
 
 .NET Framework には、リソース文字列やイメージを検索する一貫した方法を表示するには、サテライト アセンブリと XML リソース (.resx) ファイルを利用して豊富なローカライズ フレームワークでは、本質的にサポートします。 Microsoft AJAX Framework および Microsoft AJAX スクリプト ライブラリを含む、ASP.NET AJAX 拡張機能をサポートしてこのプログラミング モデル、クライアント側のコードへ簡単リソース文字列の検索を有効にします。 サテライト アセンブリは、ファイル名が指定された名前付けスキームに従う限り ScriptResource.axd でスクリプト リソース (実際の .js ファイル) の自動追加をサポートします。 このサポートは、ASP.NET AJAX 拡張機能は、スクリプトのローカリゼーションとグローバリゼーションのアプリケーションの簡略化します。
 
-## <a name="bio"></a>*略歴*
+## <a name="bio"></a>*Bio*
 
 Scott カテゴリは、1997 年以降の Microsoft の Web テクノロジの使用されているがあり、myKB.com の代表者 ([www.myKB.com](http://www.myKB.com))、専門分野は、ASP.NET の書き込みの際にベースのアプリケーションのナレッジ ベースのソフトウェア ソリューションに重点を置きます。 Scott が接続時に電子メール[ scott.cate@myKB.com ](mailto:scott.cate@myKB.com)または彼のブログで[ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[前へ](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
-[次へ](understanding-asp-net-ajax-web-services.md)
+> [!div class="step-by-step"]
+> [前へ](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
+> [次へ](understanding-asp-net-ajax-web-services.md)

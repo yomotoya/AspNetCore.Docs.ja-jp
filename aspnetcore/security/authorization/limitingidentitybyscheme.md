@@ -1,7 +1,7 @@
 ---
-title: "特定のスキームの ASP.NET Core を承認します。"
+title: ASP.NET Core での特定のスキームを承認します。
 author: rick-anderson
-description: "この記事では、複数の認証方法を使用する場合は、id、特定のスキームを制限する方法について説明します。"
+description: この記事では、複数の認証方法を使用する場合は、id、特定のスキームを制限する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/12/2017
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: dd044a0829382f9f7f0c3256c6e669340f2d5240
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 81a01d7de8221fcb3bf90a108d9df6633ca2b696
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="authorize-with-a-specific-scheme"></a>特定のスキームを承認します。
+# <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>ASP.NET Core での特定のスキームを承認します。
 
 単一ページ アプリケーション (SPAs) など、一部のシナリオでは、複数の認証方法を使用する一般的なです。 たとえば、アプリおよび使用できます cookie ベースの認証のログインに JWT ベアラ認証の JavaScript 要求。 アプリの認証ハンドラーの複数のインスタンスことがあります。 たとえば、基本的な id を含む 1 つ、2 つのクッキー ハンドラーと 1 つは多要素認証 (MFA) がトリガーされたときに作成されます。 ユーザーは、追加のセキュリティを必要とする操作を要求したため、MFA をトリガー可能性があります。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-認証サービスが認証時に構成されている場合は、認証スキームがという名前です。 例:
+認証サービスが認証時に構成されている場合は、認証スキームがという名前です。 例えば:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -46,7 +46,7 @@ public void ConfigureServices(IServiceCollection services)
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-認証スキームには、認証 middlewares が認証時に構成されている場合は、という名前です。 例:
+認証スキームには、認証 middlewares が認証時に構成されている場合は、という名前です。 例えば:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -80,7 +80,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 ## <a name="selecting-the-scheme-with-the-authorize-attribute"></a>Authorize attribute のスキームを選択します。
 
-承認、時点では、アプリは、使用するハンドラーを示します。 使用するアプリを認証方式のコンマ区切りの一覧を渡すことによって承認は、ハンドラーを選択して`[Authorize]`です。 `[Authorize]`属性は、認証方式、または、既定値が構成されているかどうかに関係なく使用するスキームを指定します。 例:
+承認、時点では、アプリは、使用するハンドラーを示します。 使用するアプリを認証方式のコンマ区切りの一覧を渡すことによって承認は、ハンドラーを選択して`[Authorize]`です。 `[Authorize]`属性は、認証方式、または、既定値が構成されているかどうかに関係なく使用するスキームを指定します。 例えば:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 

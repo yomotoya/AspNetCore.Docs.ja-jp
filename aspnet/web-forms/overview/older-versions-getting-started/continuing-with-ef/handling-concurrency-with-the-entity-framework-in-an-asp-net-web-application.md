@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application
-title: "Entity Framework 4.0 ASP.NET 4 Web アプリケーションでの同時実行の処理 |Microsoft ドキュメント"
+title: Entity Framework 4.0 ASP.NET 4 Web アプリケーションでの同時実行の処理 |Microsoft ドキュメント
 author: tdykstra
-description: "この一連のチュートリアルについては、Entity Framework 4.0 チュートリアル シリーズの概要を作成した Contoso 大学 web アプリケーションに基づいています。 私。。。"
+description: この一連のチュートリアルについては、Entity Framework 4.0 チュートリアル シリーズの概要を作成した Contoso 大学 web アプリケーションに基づいています。 I...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 7bdcf610458631749531ed1279d27e90572f0371
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f40695270006e4f8b0c9ad8e94049e5239f06e63
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-concurrency-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Entity Framework 4.0 ASP.NET 4 Web アプリケーションでの同時実行の処理
 ====================
@@ -37,13 +37,13 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="pessimistic-concurrency-locking"></a>ペシミスティック同時実行制御 (ロック)
 
-場合は、アプリケーションは同時実行シナリオの偶発的なデータ損失を防ぐため、これを行うにはデータベース ロックを使用することができます。 これと呼ばれる*ペシミスティック同時実行制御*です。 たとえば、データベースから行を参照する前にするロックを要求の読み取り専用または更新アクセスします。 場合更新アクセス権の行をロックすると、他のユーザーは許可されませんのいずれかの行をロックする読み取り専用かが変更されているプロセスでデータのコピーを取得するために、アクセスを更新します。 場合は読み取り専用アクセスの行をロックすると、他のユーザーもロックできます読み取り専用アクセス用のではなく更新します。
+同時実行で偶発的にデータが失われる事態をアプリケーションで回避する必要があれば、その方法としてデータベース ロックがあります。 これと呼ばれる*ペシミスティック同時実行制御*です。 たとえば、データベースから行を読む前に、読み取り専用か更新アクセスでロックを要求します。 更新アクセスで行をロックすると、他のユーザーはその行を読み取り専用または更新アクセスでロックできなくなります。変更中のデータのコピーが与えられるためです。 読み取り専用で行をロックすると、他のユーザーはその行を読み取り専用でロックできますが、更新アクセスではロックできません。
 
-ロックの管理と、いくつかの欠点があります。 プログラムに複雑なことができます。 必要な管理リソースは大量のデータベース、およびアプリケーションのユーザーの数とパフォーマンスの問題を引き起こす可能性が増加 (つまり、適切にスケールされない)。 これらの理由は、すべてのデータベース管理システムは、ペシミスティック同時実行をサポートします。 Entity Framework には、組み込みのサポートはありません、このチュートリアルは示してそれを実装する方法。
+ロックの管理と、いくつかの欠点があります。 プログラムが複雑になります。 必要な管理リソースは大量のデータベース、およびアプリケーションのユーザーの数とパフォーマンスの問題を引き起こす可能性が増加 (つまり、適切にスケールされない)。 そのような理由から、一部のデータベース管理システムはペシミスティック同時実行制御に対応していません。 Entity Framework には、組み込みのサポートはありません、このチュートリアルは示してそれを実装する方法。
 
 ### <a name="optimistic-concurrency"></a>オプティミスティック同時実行制御
 
-ペシミスティック同時実行する代わりに、*オプティミスティック同時実行制御*です。 オプティミスティック同時実行制御は、許可する同時実行の競合が発生する場合は適切に対処を意味します。 John はたとえば、実行、 *Department.aspx*ページで、クリック、**編集**履歴部門用のリンクし、削減、**予算**$ $1,000,000.00 から量125,000.00 です。 (John の競合する部門の管理し、コストの自分の部門を解放する必要がある)。
+ペシミスティック同時実行する代わりに、*オプティミスティック同時実行制御*です。 オプティミスティック同時実行制御では、同時実行の競合の発生を許し、発生したら適切に対処します。 John はたとえば、実行、 *Department.aspx*ページで、クリック、**編集**履歴部門用のリンクし、削減、**予算**$ $1,000,000.00 から量125,000.00 です。 (John の競合する部門の管理し、コストの自分の部門を解放する必要がある)。
 
 [![Image07](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image6.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image5.png)
 
@@ -55,15 +55,15 @@ John が**更新**最初に、加藤さんクリックして**更新**です。 
 
 このシナリオで実行できる操作の一部を以下に示します。
 
-- プロパティをユーザーが変更を追跡し、データベースに対応する列のみを更新できます。 例のシナリオで失われるデータなし、2 人のユーザーによって更新されたプロパティが異なるためです。 次回履歴部門を参照する他のユーザーと、1/1/1999 が表示およびドル 125,000.00 です。 
+- ユーザーが変更したプロパティを追跡記録し、それに該当する列だけをデータベースで更新できます。 例のシナリオでは、2 人のユーザーが異なるプロパティを更新したため、データは失われません。 次回履歴部門を参照する他のユーザーと、1/1/1999 が表示およびドル 125,000.00 です。 
 
     これは、Entity Framework の既定の動作であり、データが失われる可能性のある競合の数を大幅に短縮することができます。 ただし、この動作は、同じエンティティのプロパティに競合する変更が加えられた場合、データ損失を回避しません。 さらに、この動作は必ずしも可能です。ストアド プロシージャをエンティティ型にマップするときに、エンティティへの変更は、データベースに加えられたときにすべてのエンティティのプロパティが更新されます。
-- John の変更が上書きジェーンの変更することができます。 加藤さんがクリックした後**更新**、**予算**金額が $1,000,000.00 に戻ります。 これと呼ばれる、*クライアントが Wins*または*Wins の最後に*シナリオです。 (クライアントの値よりも優先、データ ストアには、新機能です。)
-- ジェーンの変更は、データベースで更新されているを妨害することができます。 通常、エラー メッセージが表示、データの現在の状態を表示するユーザー、および彼女ようにする必要がある場合は、自分が加えた変更を再入力できるようにはします。 ユーザー入力を保存し、それを再入力しなくても再適用する機会を与える彼女プロセスを自動化することがさらにします。 これと呼ばれる、*ストア Wins*シナリオです。 (データ ストアの値よりも優先、クライアントから送信された値です。)
+- John の変更が上書きジェーンの変更することができます。 加藤さんがクリックした後**更新**、**予算**金額が $1,000,000.00 に戻ります。 これは *Client Wins* (クライアント側に合わせる) シナリオまたは *Last in Wins* (最終書き込み者優先) シナリオと呼ばれています。 (クライアントの値よりも優先、データ ストアには、新機能です。)
+- ジェーンの変更は、データベースで更新されているを妨害することができます。 通常、エラー メッセージが表示、データの現在の状態を表示するユーザー、および彼女ようにする必要がある場合は、自分が加えた変更を再入力できるようにはします。 ユーザー入力を保存し、それを再入力しなくても再適用する機会を与える彼女プロセスを自動化することがさらにします。 これは *Store Wins* (ストア側に合わせる) シナリオと呼ばれています。 (クライアントが送信した値よりデータストアの値が優先されます。)
 
 ### <a name="detecting-concurrency-conflicts"></a>同時実行の競合を検出します。
 
-Entity Framework では、処理することにより競合を解決できる`OptimisticConcurrencyException`Entity Framework がスローする例外。 これらの例外をスローするタイミングを知るために、Entity Framework は、競合を検出できる必要があります。 そのため、データベースとデータ モデルを適切に構成する必要があります。 競合の検出を有効にするためのいくつかのオプションを以下に示します。
+Entity Framework では、処理することにより競合を解決できる`OptimisticConcurrencyException`Entity Framework がスローする例外。 このような例外がスローされるタイミングを認識する目的で、Entity Framework は競合を検出できなければなりません。 そのため、データベースとデータ モデルを適宜構成する必要があります。 競合検出を有効にするためのオプションには次のようなものがあります。
 
 - データベースには特定の行が変更されたときに使用できるテーブルの列が含まれます。 その列を含めるに Entity Framework を構成することができますし、 `Where` SQL の句`Update`または`Delete`コマンド。
 
@@ -302,8 +302,8 @@ Entity Framework を呼び出すと、`UpdateOfficeAssignment`ストアド プ�
 
 [![Image23](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image46.png)](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application/_static/image45.png)
 
-これは、同時実行の競合の処理の概要を完了します。 次のチュートリアルでは、Entity Framework を使用する web アプリケーションのパフォーマンスを向上する方法に関するガイダンスを提供します。
+同時実行の競合処理の入門編はこれで終わりです。 次のチュートリアルでは、Entity Framework を使用する web アプリケーションのパフォーマンスを向上する方法に関するガイダンスを提供します。
 
->[!div class="step-by-step"]
-[前へ](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
-[次へ](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
+> [!div class="step-by-step"]
+> [前へ](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+> [次へ](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)

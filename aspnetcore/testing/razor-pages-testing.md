@@ -1,7 +1,7 @@
 ---
-title: "Razor ページの単位と ASP.NET Core でのテストの統合"
+title: ASP.NET Core で razor ページ単位との統合テスト
 author: guardrex
-description: "Razor ページのアプリの単体テストや統合のテストを作成する方法を説明します。"
+description: Razor ページのアプリの単体テストや統合のテストを作成する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: e4f87a8151e378717aa9198e4629711c4ea6ef77
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: dc5e8651f873b8e86aaa8fdf2527e461bb065424
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Razor ページの単位と ASP.NET Core でのテストの統合
+# <a name="razor-pages-unit-and-integration-tests-in-aspnet-core"></a>ASP.NET Core で razor ページ単位との統合テスト
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
@@ -59,9 +59,9 @@ dotnet test
 * アプリには、データベース コンテキスト クラスのデータ アクセス層 (DAL) が含まれています`AppDbContext`(*Data/AppDbContext.cs*)。 DAL メソッドをマーク`virtual`、これにより、テストで使用するためのメソッドをモックします。
 * データベースがアプリの起動時に空の場合、メッセージ ストアは、3 つのメッセージで初期化されます。 これら*メッセージをシード*テストにも使用します。
 
-&#8224;EF トピックでは、[と連結されるテスト](/ef/core/miscellaneous/testing/in-memory)MSTest を使用してテストするためのメモリ内のデータベースを使用する方法について説明します。 このトピックでは、 [xUnit](https://xunit.github.io/)テスト フレームワーク。 テストの概念とさまざまなテスト フレームワークの間でのテストの実装は、似ているが同一でです。
+&#8224;EF トピック[InMemory を伴うテスト](/ef/core/miscellaneous/testing/in-memory)MSTest でテストするインメモリ データベースを使用する方法について説明します。 このトピックでは、 [xUnit](https://xunit.github.io/)テスト フレームワーク。 テストの概念とさまざまなテスト フレームワークの間でのテストの実装は、似ているが同一でです。
 
-アプリを使用していないが、[リポジトリ パターン](http://martinfowler.com/eaaCatalog/repository.html)の有効な例が表示されない、[作業単位 (UoW) パターン](https://martinfowler.com/eaaCatalog/unitOfWork.html)、Razor ページには、開発のこれらのパターンがサポートされています。 詳細については、次を参照してください[インフラストラクチャの永続性レイヤーをデザイン](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design)、 [ASP.NET MVC アプリケーションでリポジトリおよび単位の作業パターンを実装する](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)、および[テスト。コント ローラー ロジック](/aspnet/core/mvc/controllers/testing)(このサンプルは、リポジトリ パターンを実装)。
+アプリを使用していないが、[リポジトリ パターン](http://martinfowler.com/eaaCatalog/repository.html)の有効な例が表示されない、[作業単位 (UoW) パターン](https://martinfowler.com/eaaCatalog/unitOfWork.html)、Razor ページには、開発のこれらのパターンがサポートされています。 詳細については、次を参照してください[インフラストラクチャの永続性レイヤーをデザイン](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design)、 [ASP.NET MVC アプリケーションでリポジトリおよび単位の作業パターンを実装する](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)、および[テスト コント ローラー。ロジック](/aspnet/core/mvc/controllers/testing)(このサンプルは、リポジトリ パターンを実装)。
 
 ## <a name="test-app-organization"></a>組織のアプリをテストします。
 
@@ -232,7 +232,7 @@ using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
 
 * [単体テスト c# dotnet テスト、xUnit を使用して .NET Core](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 * [統合テスト](xref:testing/integration-testing)
-* [コントローラーのテスト](xref:mvc/controllers/testing)
+* [テスト コントローラー](xref:mvc/controllers/testing)
 * [単体テスト、コード](/visualstudio/test/unit-test-your-code)(Visual Studio)
 * [xUnit.net](https://xunit.github.io/)
 * [XUnit.net (.NET Core/ASP.NET Core) の概要](https://xunit.github.io/docs/getting-started-dotnet-core)

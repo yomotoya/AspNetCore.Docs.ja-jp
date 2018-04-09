@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
-title: "AJAX を使用して、動的な更新プログラムを配信 |Microsoft ドキュメント"
+title: AJAX を使用して、動的な更新プログラムを配信 |Microsoft ドキュメント
 author: microsoft
-description: "RSVP のログイン ユーザーの該当する dinner 詳細内に組み込まれて Ajax ベースのアプローチを使用して、夕食への参加をサポートして手順 10. を実装しています."
+description: RSVP のログイン ユーザーの該当する dinner 詳細内に組み込まれて Ajax ベースのアプローチを使用して、夕食への参加をサポートして手順 10. を実装しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
 msc.type: authoredcontent
-ms.openlocfilehash: 7b75f8c6cf08112eb77d1a9a40222ed1425ef3a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7cea3ee2ec52261521941efac484e91a53f6310b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-ajax-to-deliver-dynamic-updates"></a>AJAX を使用して、動的更新を配信するには
 ====================
@@ -115,9 +115,9 @@ JQuery を使用するには、へのスクリプト参照を最初に追加さ�
 
 [!code-html[Main](use-ajax-to-deliver-dynamic-updates/samples/sample9.html)]
 
-*ヒント: VS 2008 sp1 を JavaScript ファイル (jQuery を含む) の豊富な intellisense サポートを有効にする JavaScript intellisense の修正プログラムがインストールされていることを確認します。ダウンロードすることができます: http://tinyurl.com/vs2008javascripthotfix*
+*ヒント: VS 2008 sp1 を JavaScript ファイル (jQuery を含む) の豊富な intellisense サポートを有効にする JavaScript intellisense の修正プログラムがインストールされていることを確認します。ダウンロードすることができます。 http://tinyurl.com/vs2008javascripthotfix*
 
-多くの場合、JQuery を使用して記述されたコードは、グローバル「$ ()」を使用して、CSS セレクターを使用して 1 つまたは複数の HTML 要素を取得する JavaScript メソッドです。 たとえば、 *$("#rsvpmsg")* rsvpmsg の id を持つ任意の HTML 要素の選択中に*$(".something")* 「何か」CSS ですべての要素を選択クラス名。 「すべてのチェックされているオプション ボタンを返す」などのより高度なクエリを記述することもできます。 のような選択クエリを使用して: *$("の入力 [@typeラジオを =] [@checked]")*です。
+多くの場合、JQuery を使用して記述されたコードは、グローバル「$ ()」を使用して、CSS セレクターを使用して 1 つまたは複数の HTML 要素を取得する JavaScript メソッドです。 たとえば、 <em>$("#rsvpmsg")</em> rsvpmsg の id を持つ任意の HTML 要素の選択中に<em>$(".something")</em> 「何か」CSS ですべての要素を選択クラス名。 「すべてのチェックされているオプション ボタンを返す」などのより高度なクエリを記述することもできます。 のような選択クエリを使用して: <em>$("の入力 [@typeラジオを =] [@checked]")</em>です。
 
 要素を選択したら、それらを非表示にするように、アクションを実行するためにメソッドを呼び出すことができます: *$("#rsvpmsg").hide() です。*
 
@@ -153,6 +153,6 @@ RSVP シナリオでは、"rsvpmsg"を選択する"AnimateRSVPMessage"をとい�
 
 これで、AJAX を使用して、さらにし、対話型のマッピングのサポートをアプリケーションに追加して方法を見てみましょう。
 
->[!div class="step-by-step"]
-[前へ](secure-applications-using-authentication-and-authorization.md)
-[次へ](use-ajax-to-implement-mapping-scenarios.md)
+> [!div class="step-by-step"]
+> [前へ](secure-applications-using-authentication-and-authorization.md)
+> [次へ](use-ajax-to-implement-mapping-scenarios.md)

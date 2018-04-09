@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-creating-and-using-the-popular-products-control
-title: "Tailspin Spyworks - 人気のある製品コントロールの作成と |Microsoft ドキュメント"
+title: Tailspin Spyworks - 人気のある製品コントロールの作成と |Microsoft ドキュメント
 author: JoeStagner
-description: "行えるは、作成し、Tailspin Spyworks サンプルの Web フォーム アプリケーションの一般的な製品コントロールを使用します。"
+description: 行えるは、作成し、Tailspin Spyworks サンプルの Web フォーム アプリケーションの一般的な製品コントロールを使用します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/26/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-creating-and-using-the-popular-products-control
 msc.type: video
-ms.openlocfilehash: 99543265af180f1d45a5c1acd7bf13928ba399ea
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 28c5a4180c9d045c09cd046e5def8db7a8c13c54
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tailspin-spyworks---creating-and-using-the-popular-products-control"></a>Tailspin Spyworks の作成と人気のある製品コントロールの使用
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/10/2017
 
 行えるは、作成し、Tailspin Spyworks サンプルの Web フォーム アプリケーションの一般的な製品コントロールを使用します。
 
-[&#9654;です。ビデオでは (23 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-creating-and-using-the-popular-products-control)
+[&#9654;ビデオでは (23 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-creating-and-using-the-popular-products-control)
 
->[!div class="step-by-step"]
-[次へ](tailspin-spyworks-implementing-and-using-the-also-purchased-control.md)
+> [!div class="step-by-step"]
+> [次へ](tailspin-spyworks-implementing-and-using-the-also-purchased-control.md)

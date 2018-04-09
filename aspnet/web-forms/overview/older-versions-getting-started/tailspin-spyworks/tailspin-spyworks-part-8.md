@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
-title: "手順 8: 最終的なページ、例外処理、および結論 |Microsoft ドキュメント"
+title: '手順 8: 最終的なページ、例外処理、および結論 |Microsoft ドキュメント'
 author: JoeStagner
-description: "このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 8 の一部では、ページ、および例外に関する、連絡先ページを追加しています."
+description: このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 8 の一部では、ページ、および例外に関する、連絡先ページを追加しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: fce1a20f9d1093b6c60542d8a786ddf54fdc922c
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: f82294aab0616012393cf3e10f932f6d1ad0cdb6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-8-final-pages-exception-handling-and-conclusion"></a>手順 8: 最終的なページ、例外処理、および結論
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/12/2018
 > このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 8 の一部では、ページ、および例外処理についての連絡先のページを追加します。 これは、系列の最後です。
 
 
-## <a id="_Toc260221680"></a>ページ (ASP.NET から電子メールを送信する) にお問い合わせください。
+## <a id="_Toc260221680"></a>  ページ (ASP.NET から電子メールを送信する) にお問い合わせください。
 
 ContactUs.aspx をという名前の新しいページを作成します。
 
@@ -43,11 +43,11 @@ ContactUs.aspx をという名前の新しいページを作成します。
 
 [!code-xml[Main](tailspin-spyworks-part-8/samples/sample2.xml)]
 
-## <a id="_Toc260221681"></a>ページについて
+## <a id="_Toc260221681"></a>  ページについて
 
 AboutUs.aspx をという名前のページを作成し、すべてのコンテンツを追加します。
 
-## <a id="_Toc260221682"></a>グローバル例外ハンドラー
+## <a id="_Toc260221682"></a>  グローバル例外ハンドラー
 
 最後に、例外をスローして、アプリケーション全体で、そのコールド不測の事態も web アプリケーションでは原因が未処理の例外。
 
@@ -75,11 +75,11 @@ Web サイトの訪問者に表示されるハンドルされない例外作成�
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample6.cs)]
 
-## <a id="_Toc260221683"></a>結論
+## <a id="_Toc260221683"></a>  結論
 
 ASP.NET WebForms 簡単これまで見てきたなどのデータベース アクセス、メンバーシップ、AJAX、高度な web サイトを作成します。 非常に短時間です。
 
 おそらくこのチュートリアルが提供されているツールを独自の ASP.NET WebForms アプリケーションの構築を開始する必要があります!
 
->[!div class="step-by-step"]
-[前へ](tailspin-spyworks-part-7.md)
+> [!div class="step-by-step"]
+> [前へ](tailspin-spyworks-part-7.md)

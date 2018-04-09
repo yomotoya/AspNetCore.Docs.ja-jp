@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
-title: "データベース ロール メンバーシップをテスト環境に展開する |Microsoft ドキュメント"
+title: データベース ロール メンバーシップをテスト環境に展開する |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、テスト環境にソリューションの配置の一部として、データベース ロールにユーザー アカウントを追加する方法について説明します。 含むソリューションを展開するときにしています."
+description: このトピックでは、テスト環境にソリューションの配置の一部として、データベース ロールにユーザー アカウントを追加する方法について説明します。 含むソリューションを展開するときにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 226c28622f76e866fba1fc33cf9b9b7a01e5295b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4f635153213b0695d7d4b64d09adefaf8ee8e892
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-database-role-memberships-to-test-environments"></a>データベース ロール メンバーシップをテスト環境に展開します。
 ====================
@@ -37,9 +37,9 @@ ms.lasthandoff: 03/15/2018
 > キー係数この操作する必要がある、条件付きターゲット環境に基づきます。 を、ステージングまたは運用環境に配置する場合は、操作をスキップします。 開発者に配置する環境をテストするか、展開するロールのメンバーシップをそれ以上の介入なし。 このトピックでは、この課題に対処する 1 つのアプローチについて説明します。
 
 
-このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。サンプル ソリューション & #x 2014; このチュートリアルのシリーズを使用して、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; を ASP.NET MVC 3 アプリケーションを Windows のなどの複雑性のレベルが現実的な web アプリケーションを表すCommunication Foundation (WCF) サービスとデータベース プロジェクト。
+このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルの一連のサンプル ソリューションを使用する&#x2014;、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的な ASP.NET MVC 3 アプリケーション、Windows Communication も含め、複雑さのレベルを持つ web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
-説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスで 2 つのプロジェクト ファイル & #x 2014; 1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスでは、2 つのプロジェクト ファイル&#x2014;1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
 
 ## <a name="task-overview"></a>タスクの概要
 
@@ -94,7 +94,7 @@ MSBuild ターゲットでこのコマンドを埋め込むと、前に、スク
 
 - そのロールのメンバーシップを変更する前に、ターゲット データベースが存在する必要があります。 そのため、このスクリプトを実行する必要があります*後*データベース デプロイします。
 - スクリプトは、テスト環境でのみ実行されるように条件を含める必要があります。
-- "What-if"展開 & #x 2014; を実行している場合つまり、配置スクリプトを生成するが、実際にその & #x 2014; を実行している場合するべきではありません SQL スクリプトを実行します。
+- "What-if"展開を実行しているかどうかは&#x2014;つまり、配置スクリプトの生成が実際に実行しているかどうかは&#x2014;SQL スクリプトを実行してはいけない。
 
 説明されている分割プロジェクト ファイルのアプローチを使用しているかどうかは[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)連絡先のマネージャーのサンプル ソリューションで示したように、次のように、SQL スクリプトのビルド手順を分割することができます。
 
@@ -132,6 +132,6 @@ MSBuild ターゲットでこのコマンドを埋め込むと、前に、スク
 
 VSDBCMD を使用してデータベース プロジェクトを配置する方法の詳細については、次を参照してください。[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)です。 別のターゲット環境のデータベースの配置をカスタマイズする方法のガイダンスについては、次を参照してください。[複数の環境のデータベースの配置をカスタマイズする](customizing-database-deployments-for-multiple-environments.md)です。 展開プロセスを制御するカスタム MSBuild プロジェクト ファイルを使用する方法については、次を参照してください。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスの理解](../web-deployment-in-the-enterprise/understanding-the-build-process.md)です。 Sqlcmd コマンド ライン オプションの詳細については、次を参照してください。 [sqlcmd ユーティリティ](https://msdn.microsoft.com/library/ms162773.aspx)です。
 
->[!div class="step-by-step"]
-[前へ](customizing-database-deployments-for-multiple-environments.md)
-[次へ](deploying-membership-databases-to-enterprise-environments.md)
+> [!div class="step-by-step"]
+> [前へ](customizing-database-deployments-for-multiple-environments.md)
+> [次へ](deploying-membership-databases-to-enterprise-environments.md)

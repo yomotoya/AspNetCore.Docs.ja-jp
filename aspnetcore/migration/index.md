@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core への移行"
+title: ASP.NET Core への移行
 author: rick-anderson
-description: "ASP.NET 4.x および ASP.NET Core 2 を含む、ASP.NET から ASP.NET Core への移行方法について説明します"
+description: ASP.NET 4.x および ASP.NET Core 2 を含む、ASP.NET から ASP.NET Core への移行方法について説明します
 manager: wpickett
 ms.author: riande
 ms.date: 07/27/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/index
-ms.openlocfilehash: 6350dc43a2b5e63083a9e707dff74bf6407a0c94
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9df5519dd8a48fcc246616afcdbf77ef5407616b
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="migration-to-aspnet-core-including-aspnet-4x-aspnet-core-2"></a>ASP.NET 4.x、ASP.NET Core 2 を含む、ASP.NET Core への移行
+# <a name="migration-to-aspnet-core"></a>ASP.NET Core への移行
 
 ### <a name="aspnet-to-aspnet-core-1x"></a>ASP.NET から ASP.NET Core 1.x へ
 *   [ASP.NET MVC から ASP.NET Core MVC への移行](xref:migration/mvc)

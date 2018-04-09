@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-cs
-title: "キャッシュされたページ (c#) への動的なコンテンツの追加 |Microsoft ドキュメント"
+title: キャッシュされたページ (c#) への動的なコンテンツの追加 |Microsoft ドキュメント
 author: microsoft
-description: "同じページで、動的およびキャッシュされたコンテンツを混在させる方法を説明します。 キャッシュ後置換では、バナー広告 o などの動的なコンテンツを表示することができます。"
+description: 同じページで、動的およびキャッシュされたコンテンツを混在させる方法を説明します。 キャッシュ後置換では、バナー広告 o などの動的なコンテンツを表示することができます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bee7e17ee16d75419c215558b1deb7d6f0d79448
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9f91cc07bc531cfb3edf577ab79e91fd94a57a3c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-dynamic-content-to-a-cached-page-c"></a>動的なコンテンツをキャッシュされたページ (c#) に追加します。
 ====================
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/10/2017
 
 キャッシュ後置換を利用するには、HttpResponse.WriteSubstitution() メソッドを呼び出します。 WriteSubstitution() メソッドでコードを設定すると、動的コンテンツを含む、キャッシュされたページの領域を置換します。 WriteSubstitution() メソッドがビューを一覧表示する 2 で、ランダムなニュース項目を表示するために使用します。
 
-**2 – Views\Home\Index.aspx を一覧表示します。**
+**Listing 2 – Views\Home\Index.aspx**
 
 [!code-aspx[Main](adding-dynamic-content-to-a-cached-page-cs/samples/sample2.aspx)]
 
@@ -91,7 +91,7 @@ RenderBannerInternal() メソッドは、プライベート メソッドです�
 
 ![clip_image004](adding-dynamic-content-to-a-cached-page-cs/_static/image2.jpg)
 
-#### <a name="summary"></a>概要
+#### <a name="summary"></a>まとめ
 
 このチュートリアルでは、キャッシュされたページのコンテンツを動的に更新する方法について説明します。 HttpResponse.WriteSubstitution() メソッドを使用して、キャッシュされたページに挿入する動的なコンテンツを有効にする方法を学習しました。 HTML ヘルパー メソッド内で WriteSubstitution() メソッドへの呼び出しをカプセル化する方法も学習しました。
 
@@ -101,6 +101,6 @@ RenderBannerInternal() メソッドは、プライベート メソッドです�
 
 ## 
 
->[!div class="step-by-step"]
-[前へ](improving-performance-with-output-caching-cs.md)
-[次へ](creating-a-controller-cs.md)
+> [!div class="step-by-step"]
+> [前へ](improving-performance-with-output-caching-cs.md)
+> [次へ](creating-a-controller-cs.md)

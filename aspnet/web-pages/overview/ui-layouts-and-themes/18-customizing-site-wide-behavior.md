@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
-title: "ASP.NET Web Pages (Razor) サイトのサイト全体の動作をカスタマイズする |Microsoft ドキュメント"
+title: ASP.NET Web Pages (Razor) サイトのサイト全体の動作をカスタマイズする |Microsoft ドキュメント
 author: tfitzmac
-description: "この章では、ページだけではなく、web サイト全体またはフォルダー全体に設定する方法について説明します。"
+description: この章では、ページだけではなく、web サイト全体またはフォルダー全体に設定する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
 msc.type: authoredcontent
-ms.openlocfilehash: b1caa26a23517bd976addfefac89375ae965eb91
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4457318bcf1d2886eb8ed68fdd795eea7905368b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) サイトのサイト全体の動作のカスタマイズ
 ====================
@@ -93,20 +93,20 @@ ASP.NET Web Pages で作成したコードの多くの個々 のページは、�
 
     変更、次のコードに関連する設定を電子メールで送信します。
 
-    - 設定`your-SMTP-host`へのアクセスが SMTP サーバーの名前にします。
-    - 設定`your-user-name-here`SMTP サーバーのアカウントのユーザー名にします。
-    - 設定`your-account-password`SMTP サーバーのアカウントのパスワードにします。
-    - 設定`your-email-address-here`の電子メール アドレス。 これは、メッセージの送信元電子メール アドレスです。 (電子メール プロバイダーによってしない指定できます異なる`From`解決し、として、ユーザー名を使用、`From`アドレスです。)。
+   - 設定`your-SMTP-host`へのアクセスが SMTP サーバーの名前にします。
+   - 設定`your-user-name-here`SMTP サーバーのアカウントのユーザー名にします。
+   - 設定`your-account-password`SMTP サーバーのアカウントのパスワードにします。
+   - 設定`your-email-address-here`の電子メール アドレス。 これは、メッセージの送信元電子メール アドレスです。 (電子メール プロバイダーによってしない指定できます異なる`From`解決し、として、ユーザー名を使用、`From`アドレスです。)。
 
-    SMTP 設定の詳細については、次を参照してください[電子メール設定を構成する](https://go.microsoft.com/fwlink/?LinkID=202899#configuring_email_settings)アーティクルで[ASP.NET Web Pages (Razor) サイトからの電子メールを送信する](https://go.microsoft.com/fwlink/?LinkID=202899)と[電子メールの送信に関する問題](https://go.microsoft.com/fwlink/?LinkId=253001#email)。で、 [ASP.NET Web Pages (Razor) トラブルシューティング ガイド](https://go.microsoft.com/fwlink/?LinkId=253001)です。
-- 保存、  *\_AppStart.cshtml*ファイルして、閉じます。
-- という名前の新しいページを作成、web サイトのルート フォルダーに*TestEmail.cshtml*です。
-- 次のように、既存のコンテンツを置き換えます。 
+     SMTP 設定の詳細については、次を参照してください[電子メール設定を構成する](https://go.microsoft.com/fwlink/?LinkID=202899#configuring_email_settings)アーティクルで[ASP.NET Web Pages (Razor) サイトからの電子メールを送信する](https://go.microsoft.com/fwlink/?LinkID=202899)と[電子メールの送信に関する問題](https://go.microsoft.com/fwlink/?LinkId=253001#email)。で、 [ASP.NET Web Pages (Razor) トラブルシューティング ガイド](https://go.microsoft.com/fwlink/?LinkId=253001)です。
+4. 保存、  *\_AppStart.cshtml*ファイルして、閉じます。
+5. という名前の新しいページを作成、web サイトのルート フォルダーに*TestEmail.cshtml*です。
+6. 次のように、既存のコンテンツを置き換えます。 
 
-    [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample4.cshtml)]
-- 実行、 *TestEmail.cshtml*ブラウザーのページです。
-- 自分宛てに電子メール メッセージを送信し、フィールドに入力**送信**です。
-- メッセージを取得したかどうかを確認する電子メールを確認します。
+     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample4.cshtml)]
+7. 実行、 *TestEmail.cshtml*ブラウザーのページです。
+8. 自分宛てに電子メール メッセージを送信し、フィールドに入力**送信**です。
+9. メッセージを取得したかどうかを確認する電子メールを確認します。
 
 この例の重要な部分は、通常は変更しないことの設定 — などの SMTP サーバーと、電子メールの資格情報の名前: で設定されている、  *\_AppStart.cshtml*ファイル。 このように再度設定する各ページで電子メールを送信する必要はありません。 (が何らかの理由をこれらの設定を変更する必要があるを場合を設定できますに個別に、ページにします。)ページで、通常ごとに、受信者の電子メール メッセージの本文などを変更する値を設定するだけです。
 

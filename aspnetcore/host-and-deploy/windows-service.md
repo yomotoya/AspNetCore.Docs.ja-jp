@@ -1,7 +1,7 @@
 ---
-title: "Windows サービスで ASP.NET Core をホストします。"
+title: Windows サービスで ASP.NET Core をホストします。
 author: tdykstra
-description: "Windows サービスで ASP.NET Core アプリケーションをホストする方法を説明します。"
+description: Windows サービスで ASP.NET Core アプリケーションをホストする方法を説明します。
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: f3455e47cfc06a4492dc4e34871b348184c6ecfb
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: b0b27f274de1ca88b20bf582127132527b553ce0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows サービスで ASP.NET Core をホストします。
 
@@ -40,25 +40,23 @@ ms.lasthandoff: 03/15/2018
 
 1. NuGet パッケージのインストール[Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/)です。
 
-1. 次の変更を加え`Program.Main`:
-  
+2. 次の変更を加え`Program.Main`:
+
    * 呼び出す`host.RunAsService`の代わりに`host.Run`です。
-  
+
    * コードを呼び出す場合`UseContentRoot`、パスの代わりに、発行場所を使用する`Directory.GetCurrentDirectory()`です。
 
-   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+   #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
    [!code-csharp[](windows-service/sample/Program.cs?name=ServiceOnly&highlight=3-4,7,12)]
 
-   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+   #### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
    [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=ServiceOnly&highlight=3-4,8,14)]
 
-   ---
+   * * *
 
-1. フォルダーに、アプリを発行します。 使用して[dotnet 発行](/dotnet/articles/core/tools/dotnet-publish)または[発行プロファイルを Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles)フォルダーに発行します。
+3. フォルダーに、アプリを発行します。 使用して[dotnet 発行](/dotnet/articles/core/tools/dotnet-publish)または[発行プロファイルを Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles)フォルダーに発行します。
 
-1. テストを作成し、サービスを開始します。
+4. テストを作成し、サービスを開始します。
 
    使用する管理者の特権でコマンド シェルを開いて、 [sc.exe](https://technet.microsoft.com/library/bb490995)コマンド ライン ツールを作成し、サービスを開始します。 MyService サービスの名前が場合に、発行`c:\svc`AspNetCoreService をという名前のコマンドとします。
 
@@ -79,16 +77,13 @@ ms.lasthandoff: 03/15/2018
 
 テストおよびが通常の操作を呼び出すコードを追加するために、サービスの外部で実行中にデバッグしやすく`RunAsService`特定の条件下でのみです。 コンソール アプリとしてアプリを実行できますなど、`--console`コマンドライン引数や、デバッガーがアタッチされているかどうか。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](windows-service/sample/Program.cs?name=ServiceOrConsole)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=ServiceOrConsole)]
 
----
-
+* * *
 ## <a name="handle-stopping-and-starting-events"></a>停止および開始イベントを処理します。
 
 処理するために`OnStarting`、 `OnStarted`、および`OnStopping`イベントでは、次の変更、追加します。
@@ -97,25 +92,26 @@ ms.lasthandoff: 03/15/2018
 
    [!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=NoLogging)]
 
-1. 拡張メソッドを作成する`IWebHost`カスタムをパスする`WebHostService`に`ServiceBase.Run`:
+2. 拡張メソッドを作成する`IWebHost`カスタムをパスする`WebHostService`に`ServiceBase.Run`:
 
    [!code-csharp[](windows-service/sample/WebHostServiceExtensions.cs?name=ExtensionsClass)]
 
-1. `Program.Main`、新しい拡張メソッドを呼び出し、`RunAsCustomService`の代わりに`RunAsService`:
+3. `Program.Main`、新しい拡張メソッドを呼び出し、`RunAsCustomService`の代わりに`RunAsService`:
 
-   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+   #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
    [!code-csharp[](windows-service/sample/Program.cs?name=HandleStopStart&highlight=24)]
 
-   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+   #### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
    [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=HandleStopStart&highlight=26)]
 
-   ---
-
+   * * *
 場合、カスタム`WebHostService`コード (ロガー) などの依存関係の挿入からサービスを必要と、これからは取得、`Services`プロパティ`IWebHost`:
 
 [!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=Logging&highlight=7)]
+
+## <a name="proxy-server-and-load-balancer-scenarios"></a>プロキシ サーバーとロード バランサーのシナリオ
+
+インターネットや企業ネットワークからの要求との対話しプロキシの背後にある、またはロード バランサーをサービスには、追加の構成を必要があります。 詳細については、次を参照してください。[にプロキシ サーバーを操作すると、ロード バランサーの ASP.NET Core の構成](xref:host-and-deploy/proxy-load-balancer)です。
 
 ## <a name="acknowledgments"></a>謝辞
 

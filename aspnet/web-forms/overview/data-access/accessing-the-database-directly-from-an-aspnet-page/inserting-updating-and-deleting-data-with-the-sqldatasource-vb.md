@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-vb
-title: "挿入、更新、および (VB) SqlDataSource によるデータの削除 |Microsoft ドキュメント"
+title: 挿入、更新、および (VB) SqlDataSource によるデータの削除 |Microsoft ドキュメント
 author: rick-anderson
-description: "前のチュートリアルでの挿入、更新、およびデータの削除、ObjectDataSource コントロールが許可されている方法がわかりました。 SqlDataSource コントロールは、t をサポートしています."
+description: 前のチュートリアルでの挿入、更新、およびデータの削除、ObjectDataSource コントロールが許可されている方法がわかりました。 SqlDataSource コントロールは、t をサポートしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4664e15ca6afa14f072e0840354c7f5a48d97ddf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 92d195c3e1e349cd82e0625cf9a6c5a82644b5db
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-vb"></a>挿入、更新、および (VB) SqlDataSource によるデータの削除
 ====================
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/10/2017
 挿入、更新、および削除、ObjectDataSource おために必要なメソッドを指定する、オブジェクト層の挿入を実行するために呼び出す更新、または削除操作をサポートすることに注意してください。 指定しなければ、SqlDataSource による`INSERT`、 `UPDATE`、および`DELETE`SQL ステートメント (またはストアド プロシージャ) を実行します。 このチュートリアルで後ほどお見せ、これらのステートメントを手動で作成または SqlDataSource のデータ ソース構成ウィザードによって自動的に生成できます。
 
 > [!NOTE]
-> 以降既に説明した、挿入、編集、および GridView DetailsView の機能を削除して FormView コントロール、このチュートリアルをこれらの操作をサポートする SqlDataSource コントロールの構成に焦点を当てます。 編集、挿入、および削除するデータのチュートリアルへ GridView、DetailsView、および FormView、戻り値内でこれらの機能の実装を復習する必要がある場合で始まる[、概要の挿入、更新、および削除](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md)です。
+> 以降既に説明した、挿入、編集、および GridView DetailsView の機能を削除して [FormView コントロール、このチュートリアルをこれらの操作をサポートする SqlDataSource コントロールの構成に焦点を当てます。 編集、挿入、および削除するデータのチュートリアルへ GridView、DetailsView、および FormView、戻り値内でこれらの機能の実装を復習する必要がある場合で始まる[、概要の挿入、更新、および削除](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb.md)です。
 
 
 ## <a name="step-1-specifyinginsertupdate-anddeletestatements"></a>手順 1: 指定`INSERT`、`UPDATE`、および`DELETE`ステートメント
@@ -48,9 +48,9 @@ ms.lasthandoff: 11/10/2017
 
 データを選択すると、と共に、SqlDataSource コントロールを使用して挿入、更新、および指定することによってデータを削除する`INSERT`、 `UPDATE`、および`DELETE`ほぼ同じ方法で SQL ステートメント。 割り当てるだけで、 `InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ、 `INSERT`、 `UPDATE`、および`DELETE`SQL ステートメントを実行します。 (ようほとんど常に) ステートメントがパラメーターを持つかどうかに含める、 `InsertParameters`、 `UpdateParameters`、および`DeleteParameters`コレクション。
 
-1 回、 `InsertCommand`、 `UpdateCommand`、または`DeleteCommand`値が指定されて、Web コントロールのスマート タグの対応するデータの挿入を有効にする、編集を有効にする、または削除を有効にするオプションを使用可能になる予定です。 Let s はこれを示すためから例を見て、 `Querying.aspx`  ページで作成した、 [SqlDataSource コントロールでのデータのクエリを実行する](querying-data-with-the-sqldatasource-control-vb.md)チュートリアルおよびを追加するための削除機能を強化します。
+1 回、 `InsertCommand`、 `UpdateCommand`、または`DeleteCommand`値が指定されて、Web コントロールのスマート タグの対応するデータの挿入を有効にする、編集を有効にする、または削除を有効にするオプションを使用可能になる予定です。 Let s はこれを示すためから例を見て、 `Querying.aspx` ] ページで作成した、 [SqlDataSource コントロールでのデータのクエリを実行する](querying-data-with-the-sqldatasource-control-vb.md)チュートリアルおよびを追加するための削除機能を強化します。
 
-開いて開始、`InsertUpdateDelete.aspx`と`Querying.aspx`ページから、`SqlDataSource`フォルダーです。 上のデザイナーから、 `Querying.aspx`  ページで、最初の例から SqlDataSource GridView を選択します (、`ProductsDataSource`と`GridView1`コントロール)。 2 つのコントロールを選択すると、[編集] メニューに移動およびコピーを選択 (または Ctrl + C キーを押すだけ)。 次のデザイナーへ移動`InsertUpdateDelete.aspx`コントロールに貼り付けます。 に 2 つのコントロールを移動した後に`InsertUpdateDelete.aspx`ブラウザーでページをテストします。 値を確認する必要があります、 `ProductID`、 `ProductName`、および`UnitPrice`レコード内のすべての列、`Products`データベース テーブルです。
+開いて開始、`InsertUpdateDelete.aspx`と`Querying.aspx`ページから、`SqlDataSource`フォルダーです。 上のデザイナーから、 `Querying.aspx` ] ページで、最初の例から SqlDataSource GridView を選択します (、`ProductsDataSource`と`GridView1`コントロール)。 2 つのコントロールを選択すると、[編集] メニューに移動およびコピーを選択 (または Ctrl + C キーを押すだけ)。 次のデザイナーへ移動`InsertUpdateDelete.aspx`コントロールに貼り付けます。 に 2 つのコントロールを移動した後に`InsertUpdateDelete.aspx`ブラウザーでページをテストします。 値を確認する必要があります、 `ProductID`、 `ProductName`、および`UnitPrice`レコード内のすべての列、`Products`データベース テーブルです。
 
 
 [![すべての製品が一覧表示されます ProductID 順](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image1.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image1.png)
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/10/2017
 - 宣言の構文を使用
 - デザイナーで [プロパティ] ウィンドウ
 - カスタム SQL ステートメントまたはストアド プロシージャがデータ ソースの構成ウィザードでの画面を指定してから
-- データ ソースの構成ウィザードでの表示画面のテーブルから列を指定の詳細設定 ボタンを使用してこれが実際に自動的に生成、`DELETE`で使用される SQL ステートメントやパラメーターのコレクション、`DeleteCommand`と`DeleteParameters`プロパティ
+- データ ソースの構成ウィザードでの表示画面のテーブルから列を指定の詳細設定] ボタンを使用してこれが実際に自動的に生成、`DELETE`で使用される SQL ステートメントやパラメーターのコレクション、`DeleteCommand`と`DeleteParameters`プロパティ
 
 自動的に実施する方法について確認、`DELETE`手順 2. で作成されたステートメント。 ここでは、により、s、デザイナーの [プロパティ] ウィンドウを使用して、データ ソース構成ウィザードまたは宣言構文オプションは機能と同様。
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 11/10/2017
 > SqlDataSource されないでは、DeleteQuery プロパティがあります。 DeleteQuery の組み合わせは、代わりに、`DeleteCommand`と`DeleteParameters`プロパティと、デザイナーでウィンドウを表示するときにのみ、[プロパティ] ウィンドウに表示します。 場合は、ソース ビューの [プロパティ] ウィンドウを見ることがわかります、`DeleteCommand`プロパティ代わりにします。
 
 
-コマンドおよびパラメーターのエディター ダイアログを表示する DeleteQuery プロパティ内の省略記号ボックス (図 3 を参照) をクリックします。 このダイアログ ボックスで指定することができます、 `DELETE` SQL ステートメントのパラメーターを指定します。 次のクエリを入力、 `DELETE`  ボックスにコマンド (か、手動でまたはしたい場合は、クエリ ビルダーを使用して)。
+コマンドおよびパラメーターのエディター ダイアログを表示する DeleteQuery プロパティ内の省略記号ボックス (図 3 を参照) をクリックします。 このダイアログ ボックスで指定することができます、 `DELETE` SQL ステートメントのパラメーターを指定します。 次のクエリを入力、 `DELETE` ] ボックスにコマンド (か、手動でまたはしたい場合は、クエリ ビルダーを使用して)。
 
 [!code-sql[Main](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/samples/sample1.sql)]
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 11/10/2017
 **図 3**: [プロパティ] ウィンドウから DeleteQuery プロパティを選択 ([フルサイズのイメージを表示するをクリックして](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image4.png))
 
 
-*いない*(そのパラメーターのソースなし のままにして) このパラメーターの値を指定します。 GridView に、削除のサポートを追加した GridView は自動的にこの値を入力パラメーターの値を使用してその`DataKeys`の削除 ボタンがクリックしてされた行のコレクション。
+*いない*(そのパラメーターのソースなし] のままにして) このパラメーターの値を指定します。 GridView に、削除のサポートを追加した GridView は自動的にこの値を入力パラメーターの値を使用してその`DataKeys`の削除] ボタンがクリックしてされた行のコレクション。
 
 > [!NOTE]
 > 使用されるパラメーター名、`DELETE`クエリ*必要があります*の名前と同じである、 `DataKeyNames` GridView、DetailsView、またはフォーム ビュー内の値。 内のパラメーターは、`DELETE`ステートメントの名前は意図的に`@ProductID`(の代わりに、たとえば、 `@ID`)、Products テーブル (およびそのため、GridView にされている DataKeyNames 値) の主キー列名があるため、`ProductID`です。
@@ -103,7 +103,7 @@ ms.lasthandoff: 11/10/2017
 
 場合、パラメーター名と`DataKeyNames`値が一致していない GridView に自動的に値を代入できません、パラメーターから、`DataKeys`コレクション。
 
-コマンドおよびパラメーターのエディター ダイアログ ボックスに、削除の関連情報を入力した後に ok をクリックし、結果として得られるの宣言型マークアップをソース ビューに移動します。
+コマンドおよびパラメーターのエディター] ダイアログ ボックスに、削除の関連情報を入力した後に [ok] をクリックし、結果として得られるの宣言型マークアップをソース ビューに移動します。
 
 [!code-aspx[Main](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/samples/sample2.aspx)]
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/10/2017
 **図 4**: GridView 行ごとに、[削除] ボタンが含まれています ([フルサイズのイメージを表示するをクリックして](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image6.png))
 
 
-削除 ボタンをクリックすると、ポストバックが発生した、GridView 割り当てます、`ProductID`パラメーター値の`DataKeys`コレクションの値の行の削除 ボタンがクリックされ、SqlDataSource s を呼び出す`Delete()`メソッドです。 SqlDataSource コントロールは、データベースに接続し、実行、`DELETE`ステートメントです。 SqlDataSource を取得して、(を不要になったばかり削除されたレコードを含む) の製品の現在のセットを表示する GridView を再バインドします。
+[削除] ボタンをクリックすると、ポストバックが発生した、GridView 割り当てます、`ProductID`パラメーター値の`DataKeys`コレクションの値の行の削除] ボタンがクリックされ、SqlDataSource s を呼び出す`Delete()`メソッドです。 SqlDataSource コントロールは、データベースに接続し、実行、`DELETE`ステートメントです。 SqlDataSource を取得して、(を不要になったばかり削除されたレコードを含む) の製品の現在のセットを表示する GridView を再バインドします。
 
 > [!NOTE]
 > GridView が使用されるため、 `DataKeys` SqlDataSource パラメーターを設定するコレクション、s の重要なを GridView s`DataKeyNames`プロパティと主キーを構成する列に設定する SqlDataSource の`SelectCommand`を返しますこれらの列です。 さらに、その SqlDataSource s でパラメーターの名前、重要な`DeleteCommand`に設定されている`@ProductID`です。 場合、`DataKeyNames`プロパティが設定されていないか、パラメーターの名前が付いていない`@ProductsID`ポストバックを [削除] ボタンをクリックすると生成されますが、受注 t が実際には任意のレコードを削除します。
@@ -135,7 +135,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="step-2-automatically-generating-theinsertupdate-anddeletestatements"></a>手順 2: が自動的に生成する、`INSERT`、`UPDATE`、および`DELETE`ステートメント
 
-調べてから、手順 1. として`INSERT`、 `UPDATE`、および`DELETE`プロパティ ウィンドウまたはコントロール s 宣言の構文によって SQL ステートメントを指定できます。 ただし、この方法を手動で書き込みます SQL ステートメントを手動で単調とエラーが発生しやすいできる必要があります。 幸いにも、データ ソース構成ウィザードする機能が、 `INSERT`、 `UPDATE`、および`DELETE`ステートメントの表示画面のテーブルから列を指定を使用すると自動的に生成します。
+調べてから、手順 1. として`INSERT`、 `UPDATE`、および`DELETE`プロパティ] ウィンドウまたはコントロール s 宣言の構文によって SQL ステートメントを指定できます。 ただし、この方法を手動で書き込みます SQL ステートメントを手動で単調とエラーが発生しやすいできる必要があります。 幸いにも、データ ソース構成ウィザードする機能が、 `INSERT`、 `UPDATE`、および`DELETE`ステートメントの表示画面のテーブルから列を指定を使用すると自動的に生成します。
 
 この自動生成オプションを探索 s を使用できます。 DetailsView にデザイナーでは、追加`InsertUpdateDelete.aspx`設定とその`ID`プロパティを`ManageProducts`です。 次に、DetailsView s のスマート タグから新しいデータ ソースを作成し、名前付き SqlDataSource を作成する選択`ManageProductsDataSource`です。
 
@@ -145,7 +145,7 @@ ms.lasthandoff: 11/10/2017
 **図 6**: 名前付き新しい SqlDataSource 作成`ManageProductsDataSource`([フルサイズのイメージを表示するをクリックして](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image8.png))
 
 
-データ ソースの構成の作成ウィザードを使用してよう、`NORTHWINDConnectionString`接続文字列を [次へ] をクリックします。 Select ステートメントの画面の構成 から選択したテーブルまたはビューのオプション ボタンから列を指定のままにし、選択、`Products`ドロップダウン リストからテーブル。 選択、 `ProductID`、 `ProductName`、 `UnitPrice`、および`Discontinued` チェック ボックスの一覧から列です。
+データ ソースの構成の作成ウィザードを使用してよう、`NORTHWINDConnectionString`接続文字列を [次へ] をクリックします。 Select ステートメントの画面の構成] から選択したテーブルまたはビューのオプション ボタンから列を指定のままにし、選択、`Products`ドロップダウン リストからテーブル。 選択、 `ProductID`、 `ProductName`、 `UnitPrice`、および`Discontinued`] チェック ボックスの一覧から列です。
 
 
 [![ProductID、ProductName、単価、および提供が中止された列を返す、Products テーブルを使用して、](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image7.gif)](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image9.png)
@@ -158,7 +158,7 @@ ms.lasthandoff: 11/10/2017
 
 ![生成 INSERT、UPDATE、および DELETE ステートメントのチェック ボックス](inserting-updating-and-deleting-data-with-the-sqldatasource-vb/_static/image8.gif)
 
-**図 8**: 確認生成`INSERT`、 `UPDATE`、および`DELETE`ステートメント チェック ボックス
+**図 8**: 確認生成`INSERT`、 `UPDATE`、および`DELETE`ステートメント] チェック ボックス
 
 
 生成`INSERT`、 `UPDATE`、および`DELETE`選択されたテーブルが主キーと主キー列 (または列) が返される列の一覧に含まれている場合、ステートメントのチェック ボックスはチェック可能必ずです。 選択可能になりますオプティミスティック同時実行制御チェック ボックスを使用して 1 回生成`INSERT`、 `UPDATE`、および`DELETE`ステートメントのチェック ボックスがチェックされている、強化は、`WHERE`結果内の句`UPDATE`と`DELETE`オプティミスティック同時実行制御を提供するステートメント。 ここでは、このチェック ボックスをオンにせずです。次のチュートリアルでは、SqlDataSource コントロールでオプティミスティック同時実行制御について確認します。
@@ -203,7 +203,7 @@ DetailsView のデータ変更機能を有効にするには、挿入を有効�
 > データの対応するフィールドがないパラメーターの追加は、コントロールを Web、ときに、これらのパラメーターの値は、なんらかの方法で値を割り当てる必要があることに注意してください。 これらの値を指定できます。 ハード コーディングされたで直接、`InsertCommand`または`UpdateCommand`; は、(クエリ文字列、セッション状態、ページ上の Web コントロール); いくつかの事前定義されたソースから取得できますか、またはプログラムでは、前のチュートリアルで示したように割り当てることができます。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 Web コントロールを組み込みの挿入、編集、および削除機能を利用して、データの順序でにバインドされているデータ ソース コントロールは、このような機能を提供する必要があります。 SqlDataSource、これは意味を`INSERT`、 `UPDATE`、および`DELETE`SQL ステートメントを割り当てる必要があります、 `InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティです。 これらのプロパティとは対応するパラメーターのコレクションを手動で追加またはデータ ソースの構成ウィザードを自動的に生成します。 このチュートリアルでは、両方の方法を確認します。
 
@@ -213,8 +213,8 @@ ObjectDataSource でオプティミスティック同時実行制御の使用に
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[前へ](using-parameterized-queries-with-the-sqldatasource-vb.md)
-[次へ](implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)
+> [!div class="step-by-step"]
+> [前へ](using-parameterized-queries-with-the-sqldatasource-vb.md)
+> [次へ](implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)

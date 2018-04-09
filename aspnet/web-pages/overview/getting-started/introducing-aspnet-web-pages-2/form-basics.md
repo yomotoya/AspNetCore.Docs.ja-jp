@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
-title: "ASP.NET Web ページの HTML フォームの基本の概要 |Microsoft ドキュメント"
+title: ASP.NET Web ページの HTML フォームの基本の概要 |Microsoft ドキュメント
 author: tfitzmac
-description: "このチュートリアルでは、ASP.NET Web Pages (Razor) を使用すると、ユーザーの入力を処理する方法、および入力フォームを作成する方法の基礎を説明します。 今すぐそのしてしています."
+description: このチュートリアルでは、ASP.NET Web Pages (Razor) を使用すると、ユーザーの入力を処理する方法、および入力フォームを作成する方法の基礎を説明します。 今すぐそのしてしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: 68056759b2e80230e5fd2c0f9b2d2a89b549cf37
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6f44f74774c2fa6338524987779e15f3940d1830
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>ASP.NET Web ページの HTML フォームの基本の概要
 ====================
@@ -88,11 +88,11 @@ ms.lasthandoff: 01/24/2018
 
 ほとんどのユーザー入力要素は HTML`<input>`要素。 ように見える`<input type="type" name="name">,`場所*型*対象ユーザーの入力コントロールの種類を示します。 これらの要素が共通します。
 
-- テキスト ボックス:`<input type="text">`
-- チェック ボックス:`<input type="check">`
-- ラジオ ボタンをクリックします。`<input type="radio">`
-- ボタンをクリックします。`<input type="button">`
-- ボタンを送信するには。`<input type="submit">`
+- テキスト ボックス: `<input type="text">`
+- チェック ボックス: `<input type="check">`
+- ラジオ ボタンをクリックします。 `<input type="radio">`
+- ボタンをクリックします。 `<input type="button">`
+- ボタンを送信するには。 `<input type="submit">`
 
 使用することも、`<textarea>`複数行テキスト ボックスを作成する要素と`<select>`ドロップダウン リストまたはスクロール可能なリストを作成する要素。 (詳細については、HTML フォーム要素を参照してください[HTML フォームおよび入力](http://www.w3schools.com/html/html_forms.asp)W3Schools サイトです)。
 
@@ -167,11 +167,11 @@ WebMatrix での**ファイル** ワークスペースで、開く、 *Movies.cs
 > 
 > `var someValue = Request["name"];`
 > 
-> `Request`オブジェクトが実際にはいくつかのサブセットを公開します。 例:
+> `Request`オブジェクトが実際にはいくつかのサブセットを公開します。 例えば:
 > 
-> - `Request.Form`送信された内の要素から値`<form>`要素要求がある場合、`POST`要求します。
-> - `Request.QueryString`使用する値だけ URL のクエリ文字列します。 (ような URL で`http://mysite/myapp/page?searchGenre=action&page=2`、 `?searchGenre=action&page=2` URL のセクションは、クエリ文字列です)。
-> - `Request.Cookies`コレクションは、ブラウザーが送信されたクッキーにアクセスできます。
+> - `Request.Form` 送信された内の要素から値`<form>`要素要求がある場合、`POST`要求します。
+> - `Request.QueryString` 使用する値だけ URL のクエリ文字列します。 (ような URL で`http://mysite/myapp/page?searchGenre=action&page=2`、 `?searchGenre=action&page=2` URL のセクションは、クエリ文字列です)。
+> - `Request.Cookies` コレクションは、ブラウザーが送信されたクッキーにアクセスできます。
 > 
 > 送信されたフォームがわかっている値を取得するが、使用することができます`Request["name"]`です。 具体的なバージョンを使用する代わりに、 `Request.Form["name"]` (の`POST`要求) または`Request.QueryString["name"]`(の`GET`要求)。 もちろん、*名前*を取得する項目の名前を指定します。
 > 
@@ -218,7 +218,7 @@ WebMatrix での**ファイル** ワークスペースで、開く、 *Movies.cs
 
 > [!NOTE] 
 > 
-> **大事な！** プレース ホルダーを使用する (と同様に`@0`) は、SQL コマンドに値を渡す*非常に重要*セキュリティのためです。 ここに表示されること、変数のデータのプレース ホルダーでは唯一の方法が SQL コマンドを構築する必要があります。
+> **重要**。 プレース ホルダーを使用する (と同様に`@0`) は、SQL コマンドに値を渡す*非常に重要*セキュリティのためです。 ここに表示されること、変数のデータのプレース ホルダーでは唯一の方法が SQL コマンドを構築する必要があります。
 > 
 > ありません (連結) のリテラル テキストと、ユーザーから取得する値、一緒に配置することにより、SQL ステートメントを構築します。 ようにサイトを開き、SQL ステートメントにユーザー入力の連結、 *SQL インジェクション攻撃*悪意のあるユーザーがハッキング、データベース ページへの値を送信します。 (詳細を読み取ることができます、記事[SQL インジェクション](https://msdn.microsoft.com/library/ms161953.aspx)MSDN web サイトです)。
 
@@ -363,6 +363,6 @@ Web ページがあるという、このような状況を記述する正式な�
 - [SQL の WHERE 句](http://www.w3schools.com/sql/sql_where.asp)W3Schools サイト
 - [メソッドの定義](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)W3C サイトの記事
 
->[!div class="step-by-step"]
-[前へ](displaying-data.md)
-[次へ](entering-data.md)
+> [!div class="step-by-step"]
+> [前へ](displaying-data.md)
+> [次へ](entering-data.md)

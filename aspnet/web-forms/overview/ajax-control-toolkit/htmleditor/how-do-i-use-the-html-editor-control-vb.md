@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-vb
-title: "HTML エディター コントロールの使用方法 (VB) |Microsoft ドキュメント"
+title: HTML エディター コントロールの使用方法 (VB) |Microsoft ドキュメント
 author: microsoft
-description: "HTMLEditor は、ASP.NET AJAX コントロールを簡単に作成し、ツールバーのボタンを使用して HTML コンテンツを編集することができます。"
+description: HTMLEditor は、ASP.NET AJAX コントロールを簡単に作成し、ツールバーのボタンを使用して HTML コンテンツを編集することができます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a34b3dd53f031856906eca923b6ad6f43a0aaecc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4833949a54fa9ae12eaf7b596a5fe1ddfd1f7b7a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-use-the-html-editor-control-vb"></a>HTML エディター コントロールの使用方法 (VB)
 ====================
@@ -107,9 +107,9 @@ HTML エディターの Content プロパティを使用して、HTML エディ�
 
 たとえば、ブログ アプリケーションを作成している想像してみてください。 このような状況は、ブログの投稿を作成するときに、HTML エディターを使用します。 ブログの投稿を送信した 1 つだけと、悪意のある JavaScript の送信が自分自身を信頼する多くの場合、します。 ただし、コメントを投稿する匿名ユーザーを許可する場合に、HTML エディターを使用する意味は行いません。 ユーザーがパスワードなどの機密情報を送信する場合に特に注意する必要があります。 可能性のある、悪意のあるユーザーはパスワードを盗むの右側の JavaScript を含むコメントを投稿する可能性があります。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、AJAX コントロールのツールキットに含まれている HTML エディター コントロールの概要で提供されました。 HTML エディターを使用して、ユーザーからの豊富なコンテンツを受け取るし、サーバーにコンテンツを送信する方法について学習しました。 HTML エディターによって表示されるツールバーのボタンをカスタマイズする方法についても説明しました。 最後に、悪意のある入力を受け付ける HTML エディターを使用する場合、クロスサイト スクリプティング攻撃を回避する方法を学習します。
 
->[!div class="step-by-step"]
-[前へ](how-do-i-use-the-html-editor-control-cs.md)
+> [!div class="step-by-step"]
+> [前へ](how-do-i-use-the-html-editor-control-cs.md)

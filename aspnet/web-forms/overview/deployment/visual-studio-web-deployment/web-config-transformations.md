@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
-title: "Visual Studio を使用した ASP.NET Web 展開: Web.config ファイルの変換 |Microsoft ドキュメント"
+title: 'Visual Studio を使用した ASP.NET Web 展開: Web.config ファイルの変換 |Microsoft ドキュメント'
 author: tdykstra
-description: "この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています."
+description: この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: a526275d76618c325a6b00f33cc550f28ab0cc00
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 77ed0d8b2fe85adb009a3f4759030b7fba8fb9d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Visual Studio を使用した ASP.NET Web 展開: Web.config ファイルの変換
 ====================
@@ -152,6 +152,6 @@ Contoso 大学 web ページで設定されている値の読み取り`appSettin
 
 このチュートリアルで説明されているトピックの詳細については、次を参照してください[設定を変更する対象の Web.config ファイルまたは app.config ファイルでの展開時に使用して Web.config 変換](https://go.microsoft.com/fwlink/p/?LinkId=282413#transforms)で、Web コンテンツの展開マップ。Visual Studio と ASP.NET です。
 
->[!div class="step-by-step"]
-[前へ](preparing-databases.md)
-[次へ](project-properties.md)
+> [!div class="step-by-step"]
+> [前へ](preparing-databases.md)
+> [次へ](project-properties.md)

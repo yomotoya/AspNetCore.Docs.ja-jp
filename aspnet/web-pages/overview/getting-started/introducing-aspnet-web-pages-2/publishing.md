@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
-title: "ASP.NET Web Pages の概要 - WebMatrix を使用して、サイトの発行 |Microsoft ドキュメント"
+title: ASP.NET Web Pages の概要 - WebMatrix を使用して、サイトの発行 |Microsoft ドキュメント
 author: tfitzmac
-description: "このチュートリアルは、Microsoft WebMatrix と ASP.NET Web Pages を紹介するチュートリアルのセットの最終回です。 T サイトを発行する方法についても説明しています."
+description: このチュートリアルは、Microsoft WebMatrix と ASP.NET Web Pages を紹介するチュートリアルのセットの最終回です。 T サイトを発行する方法についても説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 1e718c92a2f94df50fcf7af6859917746a4982ac
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7b9bffac5cc72e1bea3f1b211cc03be2ccb8e499
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>WebMatrix を使用してサイトを発行する-ASP.NET Web Pages の概要
 ====================
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="about-publishing-your-site"></a>サイトを発行する方法
 
-ここでは、最大では、テスト、ページを含む、ローカル コンピューター上のすべての作業を行っています。 実行する、*.cshtml*ページ、WebMatrix、つまり IIS Express に組み込まれている web サーバーを使用しています。 もちろんを除き、作成したサイトを参照していないことができます。 他のユーザーが、サイトを使用するにはには、インターネットに公開する必要があります。
+ここでは、最大では、テスト、ページを含む、ローカル コンピューター上のすべての作業を行っています。 実行する、<em>.cshtml</em>ページ、WebMatrix、つまり IIS Express に組み込まれている web サーバーを使用しています。 もちろんを除き、作成したサイトを参照していないことができます。 他のユーザーが、サイトを使用するにはには、インターネットに公開する必要があります。
 
 既に公開 web サーバーへのアクセスがない限り、発行はことを意味を持つアカウントがあること、*クラウド プラットフォーム*または*ホスティング プロバイダー*です。 Microsoft Azure などのクラウド プラットフォームでは、アプリケーションのオンデマンドのインフラストラクチャを提供します。 ホスティング プロバイダーは、パブリックにアクセスできる web サーバーを所有しているとをレンタルするは、会社のサイトの領域です。 ホスティング プランの 1 か月の数ドルから実行 (無料) 小規模オフィスの何百もの大規模な商用 web サイトの毎月のドルにします。
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/10/2017
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>既定のページを設定します。
 
-ユーザーが web サイトのベース アドレスに移動する、ユーザーに、サイトの既定のページが表示されます。 たとえば、Default.htm は www.contoso.com に、サイトの既定のページとして設定されている場合に移動する**www.contoso.com**に移動することと同じ**www.contoso.com/Default.htm**です。
+ユーザーが web サイトのベース アドレスに移動する、ユーザーに、サイトの既定のページが表示されます。 たとえば、Default.htm は www.contoso.com に、サイトの既定のページとして設定されている場合に移動する<strong>www.contoso.com</strong>に移動することと同じ<strong>www.contoso.com/Default.htm</strong>です。
 
 サイトを使用して現在のところ、 **Default.cshtml**既定のページとして。 このページは、既定のページに適していますが、このチュートリアルで追加していないコンテンツはそのページに、空白のページを表示するようにします。 Default.cshtml を開き、次のコードにコンテンツを置き換えます。
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/10/2017
 
 ![変更されたサイト名](publishing/_static/image6.png)
 
-**[OK]** をクリックします。
+**[OK]**をクリックします。
 
 WebMatrix performss がかどうか、サーバー、サイトとの互換性をテストします。
 
@@ -219,5 +219,5 @@ Azure または web ポータルのホスト) は、サイトを公開した後�
 
 - [ASP.NET WebMatrix ASP.NET Web Pages のフォーラム](https://forums.asp.net/1224.aspx/1?WebMatrix+and+ASP+NET+Web+Pages)の投稿に、最適な場所の質問し、回答を得ます。
 
->[!div class="step-by-step"]
-[前へ](layouts.md)
+> [!div class="step-by-step"]
+> [前へ](layouts.md)

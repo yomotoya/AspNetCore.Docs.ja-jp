@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-vb
-title: "DropShadow (VB) の Z インデックスを調整する |Microsoft ドキュメント"
+title: DropShadow (VB) の Z インデックスを調整する |Microsoft ドキュメント
 author: wenz
-description: "AJAX コントロール ツールキットの DropShadow コントロールは、ドロップ シャドウ付きパネルを拡張します。 ただしこのシャドウは、insta の他のコントロールを持つ場合があります競合しています."
+description: AJAX コントロール ツールキットの DropShadow コントロールは、ドロップ シャドウ付きパネルを拡張します。 ただしこのシャドウは、insta の他のコントロールを持つ場合があります競合しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 844ea00c2ef1c974aa72c7dd627819b0429d612e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b484dc6bfa6f67bd6b70f7c36c2eb2ec7143edaf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adjusting-the-z-index-of-a-dropshadow-vb"></a>DropShadow (VB) の Z インデックスを調整します。
 ====================
@@ -68,6 +68,6 @@ AJAX コントロール ツールキットの DropShadow コントロールは�
 
 後: メニュー項目が表示されます ([フルサイズのイメージを表示するをクリックして](adjusting-the-z-index-of-a-dropshadow-vb/_static/image6.png))
 
->[!div class="step-by-step"]
-[前へ](manipulating-dropshadow-properties-from-client-code-cs.md)
-[次へ](manipulating-dropshadow-properties-from-client-code-vb.md)
+> [!div class="step-by-step"]
+> [前へ](manipulating-dropshadow-properties-from-client-code-cs.md)
+> [次へ](manipulating-dropshadow-properties-from-client-code-vb.md)
