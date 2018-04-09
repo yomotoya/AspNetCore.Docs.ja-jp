@@ -17,7 +17,7 @@ ms.lasthandoff: 03/15/2018
 ---
 # <a name="enabling-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET のコアの間の原点の要求 (CORS) を有効にします。
 
-によって[Mike Wasson](https://github.com/mikewasson)、 [Shayne Boyer](https://twitter.com/spboyer)、および[Tom Dykstra](https://github.com/tdykstra)
+作成者 [Mike Wasson](https://github.com/mikewasson)、 [Shayne Boyer](https://twitter.com/spboyer)、および [Tom Dykstra](https://github.com/tdykstra)
 
 ブラウザーのセキュリティは、Web ページが別のドメインに AJAX 要求を行うことを防止します。 この制限は*同一生成元ポリシー*と呼ばれ、悪意のあるサイトが別のサイトから機密データを読み取れないようにします。 しかし、他のサイトがあなたの Web API にクロスオリジン要求を行えるようにする必要がある場合もあります。
 
@@ -74,7 +74,7 @@ fluent API をもつ CorsPolicyBuilder では、メソッドの呼び出しを�
 
 [!code-csharp[](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
 
-この例では、"AllowSpecificOrigin" という名前の CORS ポリシーを追加します。 このポリシーを選択するには、`UseCors` にこの名前を渡します。
+この例では、"AllowSpecificOrigin" という名前の CORS ポリシーを追加します。  このポリシーを選択するには、`UseCors` にこの名前を渡します。
 
 ## <a name="enabling-cors-in-mvc"></a>MVC での CORS を有効にします。
 
