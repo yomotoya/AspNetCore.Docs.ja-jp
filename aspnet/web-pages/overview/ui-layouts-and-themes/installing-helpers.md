@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/installing-helpers
-title: "ページ (Razor) サイトの ASP.NET web ヘルパーをインストールする |Microsoft ドキュメント"
+title: ページ (Razor) サイトの ASP.NET web ヘルパーをインストールする |Microsoft ドキュメント
 author: tfitzmac
-description: "この記事では、ASP.NET Web Pages (Razor) の web サイトでヘルパーをインストールする方法について説明します。 コードおよびごとにマークアップを含む再使用可能なコンポーネントをヘルパーには."
+description: この記事では、ASP.NET Web Pages (Razor) の web サイトでヘルパーをインストールする方法について説明します。 コードおよびごとにマークアップを含む再使用可能なコンポーネントをヘルパーには.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/installing-helpers
 msc.type: authoredcontent
-ms.openlocfilehash: 842c5a56d14314217c1e6ad6d48ded28d3cc5b4e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 766fbb87ae8bcb8917eb8fa7f552c00792242cf6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="installing-a-helper-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトにヘルパーをインストールします。
 ====================
@@ -49,10 +49,10 @@ ASP.NET Web ページには、いくつかのヘルパーが組み込まれて�
 2. これは、NuGet パッケージ マネージャーを起動し、利用可能なパッケージを表示します。 [検索] ボックスをインストールするヘルパーのキーワードを入力します。
 
     ![WebMatrix で NuGet ギャラリー ダイアログ ボックス](installing-helpers/_static/image2.png)
-- パッケージを選択し、をクリックして**インストール**です。 をクリックして**はい**されたら、パッケージをインストールし、条項に同意することを指定するかどうか。
+3. パッケージを選択し、をクリックして**インストール**です。 をクリックして**はい**されたら、パッケージをインストールし、条項に同意することを指定するかどうか。
 
-    初めてヘルパーをインストールした場合は、NuGet は、ヘルパーを構成するコードの web サイトにフォルダーを作成します。
-- ヘルパーをアンインストールするには、クリックして、**ギャラリー**ボタンをクリックし、**インストール**タブをクリックしをアンインストールするパッケージを選択します。
+     初めてヘルパーをインストールした場合は、NuGet は、ヘルパーを構成するコードの web サイトにフォルダーを作成します。
+4. ヘルパーをアンインストールするには、クリックして、**ギャラリー**ボタンをクリックし、**インストール**タブをクリックしをアンインストールするパッケージを選択します。
 
 ## <a name="installing-the-twitter-helper"></a>Twitter helper をインストールします。
 

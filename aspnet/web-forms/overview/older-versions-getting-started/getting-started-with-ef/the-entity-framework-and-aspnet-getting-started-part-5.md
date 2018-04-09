@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 5efc5ff367d5da5df060eba0028399af898a69fa
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7f351718123e881e832f4ac95af506ed601d3337
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォーム - パート 5
 ====================
@@ -123,10 +123,10 @@ ID、タイトル、クレジットの数を入力してください、部門を
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-あるインストラクターを選択します。 **コースを割り当てる**インストラクターしない講義では、コースがドロップダウン リストに表示されます、**コースを削除する**ドロップダウン リストには、インストラクターに既に割り当てられているコースが表示されます。 **コースを割り当てる**セクションでコースを選択し、をクリックして**割り当てる**です。 コースに移動、**コースを削除する**ドロップダウン リスト。 コースを選択、 **コースを削除する** セクションし、をクリックして **削除***。* コースに移動、**コースを割り当てる**ドロップダウン リスト。
+あるインストラクターを選択します。 <strong>コースを割り当てる</strong>インストラクターしない講義では、コースがドロップダウン リストに表示されます、<strong>コースを削除する</strong>ドロップダウン リストには、インストラクターに既に割り当てられているコースが表示されます。 <strong>コースを割り当てる</strong>セクションでコースを選択し、をクリックして<strong>割り当てる</strong>です。 コースに移動、<strong>コースを削除する</strong>ドロップダウン リスト。 コースを選択、<strong>コースを削除する</strong>セクションし、をクリックして<strong>削除</strong><em>です。</em> コースに移動、<strong>コースを割り当てる</strong>ドロップダウン リスト。
 
 関連するデータを操作する方法がいくつか見てきました。 次のチュートリアルでは、アプリケーションの保守容易性を向上させるために、データ モデルでの継承を使用する方法を学習します。
 
->[!div class="step-by-step"]
-[前へ](the-entity-framework-and-aspnet-getting-started-part-4.md)
-[次へ](the-entity-framework-and-aspnet-getting-started-part-6.md)
+> [!div class="step-by-step"]
+> [前へ](the-entity-framework-and-aspnet-getting-started-part-4.md)
+> [次へ](the-entity-framework-and-aspnet-getting-started-part-6.md)

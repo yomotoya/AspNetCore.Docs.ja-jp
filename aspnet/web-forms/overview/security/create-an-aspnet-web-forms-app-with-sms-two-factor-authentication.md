@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
-title: "ASP.NET Web 作成フォーム アプリで SMS 2 要素認証 (c#) |Microsoft ドキュメント"
+title: ASP.NET Web 作成フォーム アプリで SMS 2 要素認証 (c#) |Microsoft ドキュメント
 author: Erikre
-description: "このチュートリアルでは、2 要素認証で ASP.NET Web フォーム アプリケーションをビルドする方法を示します。 このチュートリアルは、「Cr チュートリアルを補完するように設計されました."
+description: このチュートリアルでは、2 要素認証で ASP.NET Web フォーム アプリケーションをビルドする方法を示します。 このチュートリアルは、「Cr チュートリアルを補完するように設計されました.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/09/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: b1f0ec0fdefa12eb7f7b2714dbc224fef735f4bb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6c040fd3e0592b8cfd230dcd85ed3293f0a22ba7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>ASP.NET Web 作成フォーム アプリで SMS 2 要素認証 (c#)
 ====================
@@ -63,7 +63,7 @@ ms.lasthandoff: 01/24/2018
 2. **ダッシュ ボード**コピー、Twilio アカウントのタブ、**アカウント SID**と**認証トークンです。** それらをアプリに後で追加します。
 3. **番号** タブで、コピー、Twilio**電話番号**もします。
 4. Twilio を行う**アカウント SID**、**認証トークン**と**電話番号**アプリに使用します。 これらの値を簡単に格納する、 *web.config*ファイル。 Azure にデプロイするときにで安全の値を格納できる、 **appSettings**セクションの web サイトの構成 タブ。また、電話番号を追加する場合は、番号を使用のみ。   
- SendGrid の資格情報を追加することもできますに注意してください。 SendGrid は、電子メール通知サービスです。 SendGrid を有効にする方法の詳細については、「チュートリアルの ' フックを SendGrid' セクションを参照してください[確認とパスワード リセットを電子メールでおユーザー登録してセキュリティで保護された ASP.NET Web フォーム アプリを作成します。](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)
+   SendGrid の資格情報を追加することもできますに注意してください。 SendGrid は、電子メール通知サービスです。 SendGrid を有効にする方法の詳細については、「チュートリアルの ' フックを SendGrid' セクションを参照してください[確認とパスワード リセットを電子メールでおユーザー登録してセキュリティで保護された ASP.NET Web フォーム アプリを作成します。](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)
 
     [!code-xml[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample1.xml?highlight=2,6-10)]
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 01/24/2018
 
     [!code-csharp[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample6.cs?highlight=3-4,13)]
 
- 上記のコード変更をすることで認証のオプションを含む「プロバイダー」DropDownList は最初の値にリセットされません。 これによって、ユーザーが正常に認証、だけでなく、最初に使用するすべてのオプションを選択します。
+   上記のコード変更をすることで認証のオプションを含む「プロバイダー」DropDownList は最初の値にリセットされません。 これによって、ユーザーが正常に認証、だけでなく、最初に使用するすべてのオプションを選択します。
 10. **ソリューション エクスプ ローラー**を右クリックして*Default.aspx*選択**スタート ページとして設定**です。
 11. アプリをテストすることによって最初にアプリをビルドします (**Ctrl**+**shift キーを押し**+**B**) し、アプリを実行 (**f5 キーを押して**) と選択するか**登録**を新しいユーザー アカウントを作成または選択**ログイン**ユーザー アカウントは既に登録されている場合。
 12. (ユーザー) としてログイン、をクリック (電子メール アドレスなど) で、ユーザー ID を表示するには、ナビゲーション バーで、**アカウントの管理**ページ (Manage.aspx)。  
@@ -94,7 +94,7 @@ ms.lasthandoff: 01/24/2018
     ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image3.png)
 14. ここで (ユーザー) としてたい SMS メッセージ (メッセージのテキスト) を受信し、をクリックする電話番号を追加、**送信**ボタンをクリックします。   
     ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image4.png)  
- この時点で、アプリはから資格情報を使用、 *Web.config* Twilio に接続します。 SMS メッセージ (テキスト メッセージ) は、ユーザー アカウントに関連付けられている電話に送信されます。 Twilio ダッシュ ボードを表示することによって、Twilio メッセージが送信されたことを確認することができます。
+    この時点で、アプリはから資格情報を使用、 *Web.config* Twilio に接続します。 SMS メッセージ (テキスト メッセージ) は、ユーザー アカウントに関連付けられている電話に送信されます。 Twilio ダッシュ ボードを表示することによって、Twilio メッセージが送信されたことを確認することができます。
 15. 数秒後に、ユーザー アカウントに関連付けられている電話に確認コードを含むテキスト メッセージが表示されます。 確認コードとキーを押して入力**送信**です。  
      ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image5.png)
 

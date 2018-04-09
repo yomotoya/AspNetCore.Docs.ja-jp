@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-vb
-title: "データ アクセス層の接続とコマンド レベル設定 (VB) の構成 |Microsoft ドキュメント"
+title: データ アクセス層の接続とコマンド レベル設定 (VB) の構成 |Microsoft ドキュメント
 author: rick-anderson
-description: "型指定されたデータセット内で Tableadapter に自動的に対処するデータベースへの接続、コマンドを発行して、結果を含む DataTable を設定する."
+description: 型指定されたデータセット内で Tableadapter に自動的に対処するデータベースへの接続、コマンドを発行して、結果を含む DataTable を設定する.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ab392f2a7d9b6cf97da920f899aea23379209f96
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b73c6113e84e290025e5835781fa2f85587289b1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-vb"></a>データ アクセス層の接続とコマンド レベル設定 (VB) を構成します。
 ====================
@@ -93,7 +93,7 @@ S を拡張できるように、`ProductsTableAdapter`で、`Northwind`データ
 
 ![ConnectionAndCommandSettings をという名前のサブフォルダーを追加します。](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb/_static/image5.png)
 
-**図 3**: という名前のサブフォルダーの追加`ConnectionAndCommandSettings`
+**図 3**: という名前のサブフォルダーの追加 `ConnectionAndCommandSettings`
 
 
 という新しいクラス ファイルを追加`ProductsTableAdapter.ConnectionAndCommandSettings.vb`し、次のコードを入力します。
@@ -169,12 +169,12 @@ TableAdapter は、1 つだけがあるため`Connection`プロパティは、�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者が Burnadette Leigh、S ren 一 Lauritsen Teresa マーフィーと Hilton Geisenow 発生しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](working-with-computed-columns-vb.md)
-[次へ](protecting-connection-strings-and-other-configuration-information-vb.md)
+> [!div class="step-by-step"]
+> [前へ](working-with-computed-columns-vb.md)
+> [次へ](protecting-connection-strings-and-other-configuration-information-vb.md)

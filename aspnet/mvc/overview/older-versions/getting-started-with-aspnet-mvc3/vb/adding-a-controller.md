@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-controller
-title: "コント ローラー (VB) の追加 |Microsoft ドキュメント"
+title: コント ローラー (VB) の追加 |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 74113d76a74b1da27a7f9a33a13038a0c36ad036
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9a433083c31c7929f7599e52800c887f301d7727
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-controller-vb"></a>コント ローラー (VB) の追加
 ====================
@@ -79,6 +79,6 @@ URL の最初の部分を実行するコント ローラー クラスを決定�
 
 これら両方の例で、コント ローラーが実行されて MVC の VC 部分: ビューとコント ローラーの作業です。 コント ローラーは、直接 HTML を返しています。 通常はコント ローラーのコードに非常に複雑になるので、直接、HTML を返すしたくありません。 代わりに HTML 応答を生成するために使用されます、個別のビュー テンプレート ファイル通常。 結果がどのようにこれを見てみましょう。
 
->[!div class="step-by-step"]
-[前へ](intro-to-aspnet-mvc-3.md)
-[次へ](adding-a-view.md)
+> [!div class="step-by-step"]
+> [前へ](intro-to-aspnet-mvc-3.md)
+> [次へ](adding-a-view.md)

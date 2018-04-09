@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-vb
-title: "DetailsView コントロール (VB) で TemplateFields の使用 |Microsoft ドキュメント"
+title: DetailsView コントロール (VB) で TemplateFields の使用 |Microsoft ドキュメント
 author: rick-anderson
-description: "GridView で利用できる同じ TemplateFields 機能も DetailsView コントロールで使用できます。 このチュートリアルでは 1 つの製品を表示しています."
+description: GridView で利用できる同じ TemplateFields 機能も DetailsView コントロールで使用できます。 このチュートリアルでは 1 つの製品を表示しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b368a651253a569865bb92fa93d3462f88d8935f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 67009460477dcc3d1e966220b446a47d6e5b6f5a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-templatefields-in-the-detailsview-control-vb"></a>DetailsView コントロール (VB) で TemplateFields の使用
 ====================
@@ -57,7 +57,7 @@ TemplateFields BoundFields だけを含む DetailsView コントロールを作�
 **図 2**: その呼び出します新しい ObjectDataSource コントロールを追加、`GetProducts()`メソッド ([フルサイズのイメージを表示するをクリックして](using-templatefields-in-the-detailsview-control-vb/_static/image6.png))
 
 
-このレポートの削除、 `ProductID`、 `SupplierID`、 `CategoryID`、および`ReorderLevel`BoundFields です。 BoundFields の次に、順序を変更できるように、`CategoryName`と`SupplierName`BoundFields 直後、 `ProductName` BoundField です。 自由に調整する、`HeaderText`プロパティとも BoundFields の書式設定のプロパティに合わせてを参照してください。 同様に、GridView とこれらの BoundField レベルの編集実行できます (DetailsView のスマート タグの表示でフィールドの編集リンクをクリックしてアクセス可能) フィールド ダイアログ ボックス、または宣言の構文を使用。 DetailsView の最後に、クリア`Height`と`Width`DetailsView を許可するためにプロパティの値がコントロールに表示されるデータに基づいた展開をスマート タグのページングを有効にするチェック ボックスをオンします。
+このレポートの削除、 `ProductID`、 `SupplierID`、 `CategoryID`、および`ReorderLevel`BoundFields です。 BoundFields の次に、順序を変更できるように、`CategoryName`と`SupplierName`BoundFields 直後、 `ProductName` BoundField です。 自由に調整する、`HeaderText`プロパティとも BoundFields の書式設定のプロパティに合わせてを参照してください。 同様に、GridView とこれらの BoundField レベルの編集実行できます (DetailsView のスマート タグの表示でフィールドの編集リンクをクリックしてアクセス可能) フィールド] ダイアログ ボックス、または宣言の構文を使用。 DetailsView の最後に、クリア`Height`と`Width`DetailsView を許可するためにプロパティの値がコントロールに表示されるデータに基づいた展開をスマート タグのページングを有効にするチェック ボックスをオンします。
 
 これらの変更を加えたら、DetailsView コントロールの宣言型マークアップを次のようになります。
 
@@ -76,7 +76,7 @@ TemplateFields BoundFields だけを含む DetailsView コントロールを作�
 
 DetailsView が 1 行のデータ、 `UnitPrice`、 `UnitsInStock`、および`UnitsOnOrder`フィールドです。 結合できますこれらのデータ フィールドが単一行に TemplateField に新しい TemplateField を追加することで、または既存のいずれかに変換して`UnitPrice`、 `UnitsInStock`、および`UnitsOnOrder`を TemplateField BoundFields です。 個人 (_n) 既存 BoundFields を変換する、中には、新しい TemplateField を追加することで練習しましょう。
 
-DetailsView のスマート タグのフィールド ダイアログ ボックスを呼び出すことでフィールドの編集リンクをクリックして開始します。 次に、新しい TemplateField を追加し、設定、`HeaderText`プロパティを「価格と在庫」および移動新しい TemplateField 上ことが配置されているため、 `UnitPrice` BoundField です。
+DetailsView のスマート タグのフィールド] ダイアログ ボックスを呼び出すことでフィールドの編集リンクをクリックして開始します。 次に、新しい TemplateField を追加し、設定、`HeaderText`プロパティを「価格と在庫」および移動新しい TemplateField 上ことが配置されているため、 `UnitPrice` BoundField です。
 
 
 [![DetailsView コントロールに新しい TemplateField を追加します。](using-templatefields-in-the-detailsview-control-vb/_static/image11.png)](using-templatefields-in-the-detailsview-control-vb/_static/image10.png)
@@ -88,7 +88,7 @@ DetailsView のスマート タグのフィールド ダイアログ ボック�
 
 定義するのには、この手順の最後のタスク、`ItemTemplate`価格とできるインベントリ TemplateField マークアップが DetailsView のテンプレートの編集コントロールの宣言の構文をデザイナーで、または手動でのインターフェイスを使用するかを実行します。 同様に、GridView DetailsView のテンプレートを編集するインターフェイスは、スマート タグのテンプレートの編集リンクをクリックしてアクセスできます。 ここでは、ドロップダウン リストから編集し、ツールボックスからすべての Web コントロールを追加するテンプレートを選択できます。
 
-このチュートリアルでは、価格と在庫 TemplateField にラベル コントロールを追加することによって、起動`ItemTemplate`です。 次に、ラベルの Web コントロールのスマート タグから databindings の編集 リンクをクリックし、バインド、`Text`プロパティを`UnitPrice`フィールドです。
+このチュートリアルでは、価格と在庫 TemplateField にラベル コントロールを追加することによって、起動`ItemTemplate`です。 次に、ラベルの Web コントロールのスマート タグから databindings の編集] リンクをクリックし、バインド、`Text`プロパティを`UnitPrice`フィールドです。
 
 
 [![ラベルのテキストのプロパティは UnitPrice データ フィールドにバインドします。](using-templatefields-in-the-detailsview-control-vb/_static/image14.png)](using-templatefields-in-the-detailsview-control-vb/_static/image13.png)
@@ -108,7 +108,7 @@ DetailsView のスマート タグのフィールド ダイアログ ボック�
 
 製品の価格が通貨として書式設定いないことに注意してください。 BoundField、書式設定は設定して、`HtmlEncode`プロパティを`False`と`DataFormatString`プロパティを`{0:formatSpecifier}`です。 TemplateField、ただし、任意の書式設定命令指定してくださいまたは (ASP.NET ページの分離コード クラスなど)、アプリケーションのコード内のどこかに定義されている書式指定メソッドを使用して、データ バインドの構文でします。
 
-構文については、データ バインド Label Web コントロールで使用される書式設定を指定するには、ラベルのスマート タグから databindings の編集 リンクをクリックして DataBindings ダイアログ ボックスに戻ります。 形式のドロップダウン リストで直接書式設定命令を入力したり、定義済みの書式指定文字列のいずれかを選択できます。 BoundField の使用するような`DataFormatString`プロパティを使用して指定は、書式設定`{0:formatSpecifier}`です。
+構文については、データ バインド Label Web コントロールで使用される書式設定を指定するには、ラベルのスマート タグから databindings の編集] リンクをクリックして [DataBindings] ダイアログ ボックスに戻ります。 形式のドロップダウン リストで直接書式設定命令を入力したり、定義済みの書式指定文字列のいずれかを選択できます。 BoundField の使用するような`DataFormatString`プロパティを使用して指定は、書式設定`{0:formatSpecifier}`です。
 
 `UnitPrice`した適切なドロップダウン リストの値を選択するか、入力することで指定された通貨の書式設定を使用してフィールド`{0:C}`を手動でします。
 
@@ -154,7 +154,7 @@ CheckBoxField を表示するのではなく可能性があります代わりに
 
 [![文字列は True と false の場合、提供が中止された状態の表示に使用されます。](using-templatefields-in-the-detailsview-control-vb/_static/image26.png)](using-templatefields-in-the-detailsview-control-vb/_static/image25.png)
 
-**図 9**: 文字列 True と False が使用される提供が中止された状態を表示する ([フルサイズのイメージを表示するをクリックして](using-templatefields-in-the-detailsview-control-vb/_static/image27.png))
+**図 9**: [文字列 True と False が使用される提供が中止された状態を表示する ([フルサイズのイメージを表示するをクリックして](using-templatefields-in-the-detailsview-control-vb/_static/image27.png))
 
 
 を"YES"と"NO"が、代わりに使用するために、文字列"True"または"False"を選びましたしなかった想像してください。 このようなカスタマイズは TemplateField と書式設定メソッドを使用して実行できます。 書式指定メソッドでは、任意の数に、入力パラメーターのかかることができますが、テンプレートに挿入する (文字列) として HTML を返す必要があります。
@@ -183,7 +183,7 @@ CheckBoxField を表示するのではなく可能性があります代わりに
 **図 10**: YES または NO の値は、提供が中止された行に表示されます ([フルサイズのイメージを表示するをクリックして](using-templatefields-in-the-detailsview-control-vb/_static/image30.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 DetailsView コントロールで TemplateField により、データの表示は、他のフィールド コントロールで使用できますが状況に適しているよりも柔軟性の高い場所。
 
@@ -199,12 +199,12 @@ FormView コントロールには、表示される出力の構成で柔軟性�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Dan Jagers しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](using-templatefields-in-the-gridview-control-vb.md)
-[次へ](using-the-formview-s-templates-vb.md)
+> [!div class="step-by-step"]
+> [前へ](using-templatefields-in-the-gridview-control-vb.md)
+> [次へ](using-the-formview-s-templates-vb.md)

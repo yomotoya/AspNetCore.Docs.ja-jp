@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
-title: "手順 7: 機能の追加 |Microsoft ドキュメント"
+title: '手順 7: 機能の追加 |Microsoft ドキュメント'
 author: JoeStagner
-description: "このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 7 部では、アカウント revie などの追加機能を追加しています."
+description: このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 7 部では、アカウント revie などの追加機能を追加しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 5280de44b3e75f9d1ae85e0248bc3ef6d5444f6d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 17f068155f6726047901e2f7d580d375a4e07c87
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-7-adding-features"></a>手順 7: 追加の機能
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 > このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 7 部では、アカウントの確認、製品レビュー、および「人気のある項目」および「も購入済み」のユーザー コントロールなどの追加機能を追加します。
 
 
-## <a id="_Toc260221673"></a>機能の追加
+## <a id="_Toc260221673"></a>  機能の追加
 
 ユーザーは、弊社のカタログを参照できる、ショッピング カートにアイテムを配置とチェック アウト プロセスを完了、数をサポートする機能のサイトを向上させることが含まれているがあります。
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/10/2017
 7. 追加、ページに関するします。
 8. グローバル エラー
 
-## <a id="_Toc260221674"></a>アカウントの確認
+## <a id="_Toc260221674"></a>  アカウントの確認
 
 「アカウント」フォルダーに 2 つの .aspx ページ 1 つの名前付き OrderList.aspx およびその他の名前付き OrderDetails.aspx を作成します
 
@@ -56,7 +56,7 @@ GridView の内でこれらのパラメーターにも注意してください�
 
 これらの OrderDetails.aspx ページへのクエリ文字列パラメーターとして、OrderID フィールドを指定する各製品の注文の詳細ビューへのリンクを指定します。
 
-## <a id="_Toc260221675"></a>OrderDetails.aspx
+## <a id="_Toc260221675"></a>  OrderDetails.aspx
 
 EntityDataSource コントロールへのアクセス、注文と、FormView 注文データと、GridView と別の EntityDataSource を表示するのにすべての注文の品目を表示するのに使用します。
 
@@ -72,7 +72,7 @@ EntityDataSource コントロールへのアクセス、注文と、FormView 注
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample5.cs)]
 
-## <a id="_Toc260221676"></a>ホーム ページ
+## <a id="_Toc260221676"></a>  ホーム ページ
 
 Default.aspx ページには、いくつかの静的なコンテンツを追加してみましょう。
 
@@ -82,7 +82,7 @@ Default.aspx ページの下部のプレース ホルダーには、次のマー
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample6.aspx)]
 
-## <a id="_Toc260221677"></a>製品のレビュー
+## <a id="_Toc260221677"></a>  製品のレビュー
 
 まず、リンク ボタン追加、製品のレビューの入力に使用できる形式にします。
 
@@ -94,7 +94,7 @@ Default.aspx ページの下部のプレース ホルダーには、次のマー
 
 [次へ] ReviewAdd.aspx をという名前のページを追加してみましょう。
 
-このページでは、ASP.NET AJAX コントロール ツールキットを使用します。 かどうかをまだ行っていないからダウンロードすることができますので[DevExpress](http://devexpress.com/act) 、toolkit for Visual Studio での使用は、ここを設定する方法のガイダンスがおよび[https://www.asp.net/learn/ajax-videos/video-76.aspx](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md).
+このページでは、ASP.NET AJAX コントロール ツールキットを使用します。 かどうかをまだ行っていないからダウンロードすることができますので[DevExpress](http://devexpress.com/act) 、toolkit for Visual Studio での使用は、ここを設定する方法のガイダンスと[ https://www.asp.net/learn/ajax-videos/video-76.aspx](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md)です。
 
 デザイン モードでは、コントロールと検証コントロールをツールボックスからドラッグし、以下のようなフォームを作成します。
 
@@ -114,7 +114,7 @@ Default.aspx ページの下部のプレース ホルダーには、次のマー
 
 ![](tailspin-spyworks-part-7/_static/image3.jpg)
 
-## <a id="_Toc260221678"></a>人気のある項目のコントロール (ユーザー コントロールの作成)
+## <a id="_Toc260221678"></a>  人気のある項目のコントロール (ユーザー コントロールの作成)
 
 Web サイトの売上を増やすためには、「挑発的な販売」人気のある、または関連する製品に、いくつかの機能を追加します。
 
@@ -156,7 +156,7 @@ Visual Studio のソリューション エクスプ ローラーで、ソリュ�
 
 ![](tailspin-spyworks-part-7/_static/image6.jpg)
 
-## <a id="_Toc260221679"></a>(パラメーターを使用してユーザー コントロール) を管理「も購入」
+## <a id="_Toc260221679"></a>  (パラメーターを使用してユーザー コントロール) を管理「も購入」
 
 コンテキストの特異性を追加することで、次のレベルを販売して推奨を作成した 2 つ目のユーザー コントロールになります。
 
@@ -236,6 +236,6 @@ AlsoPurchased ユーザー コントロールには、ProductId 番号が必要�
 
 ![](tailspin-spyworks-part-7/_static/image7.jpg)
 
->[!div class="step-by-step"]
-[前へ](tailspin-spyworks-part-6.md)
-[次へ](tailspin-spyworks-part-8.md)
+> [!div class="step-by-step"]
+> [前へ](tailspin-spyworks-part-6.md)
+> [次へ](tailspin-spyworks-part-8.md)

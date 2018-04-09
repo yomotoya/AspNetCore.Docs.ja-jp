@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/performance/bundling-and-minification
-title: "バンドルと縮小 |Microsoft ドキュメント"
+title: バンドルと縮小 |Microsoft ドキュメント
 author: Rick-Anderson
-description: "2 つの手法のバンドルと縮小要求読み込み時間を向上させるために ASP.NET 4.5 で使用することができます。 バンドルと縮小 reducin して読み込み時間が向上しています."
+description: 2 つの手法のバンドルと縮小要求読み込み時間を向上させるために ASP.NET 4.5 で使用することができます。 バンドルと縮小 reducin して読み込み時間が向上しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/23/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 7192481de46c36f7de71164766e68afdbba74f6d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 001ebf89cda66a50cddcd7e4944f27b9396d4450
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="bundling-and-minification"></a>バンドルと縮小
 ====================
@@ -98,7 +98,7 @@ F12 開発者ツールでのデバッグの詳細については、MSDN の記�
 [!code-csharp[Main](bundling-and-minification/samples/sample4.cs?highlight=7)]
 
 > [!NOTE]
-> しない限り、`EnableOptimizations`は`true`またはデバッグ属性、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*に設定されているファイル`false`ファイルはバンドルまたは縮小されません。 さらに、.min バージョンのファイルは使用されませんが、完全なデバッグ バージョンが選択されます。 `EnableOptimizations`デバッグの属性をオーバーライドします、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*ファイル
+> しない限り、`EnableOptimizations`は`true`またはデバッグ属性、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*に設定されているファイル`false`ファイルはバンドルまたは縮小されません。 さらに、.min バージョンのファイルは使用されませんが、完全なデバッグ バージョンが選択されます。 `EnableOptimizations` デバッグの属性をオーバーライドします、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*ファイル
 
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>バンドルを使用して ASP.NET Web フォームと Web ページの縮小
@@ -186,7 +186,7 @@ Render メソッドは、コードの 1 つの行で複数のバンドルを追�
 
     [!code-csharp[Main](bundling-and-minification/samples/sample12.cs)]
 
- ワイルド カード セレクター"\*.css"では、フォルダー内の各 CSS ファイル内を含め、 *Content\themes\base\jquery.ui.all.css*ファイル。 *Jquery.ui.all.css*ファイルは他の CSS ファイルをインポートします。
+  ワイルド カード セレクター"\*.css"では、フォルダー内の各 CSS ファイル内を含め、 *Content\themes\base\jquery.ui.all.css*ファイル。 *Jquery.ui.all.css*ファイルは他の CSS ファイルをインポートします。
 
 ## <a name="bundle-caching"></a>バンドルのキャッシュ
 
@@ -233,15 +233,15 @@ IE9 F12 開発者ツールを実行して以前に読み込まれたページに
 
 `System.Web.Optimization` System.Web.Optimization.DLL で名前空間の実装です。 活用し WebGrease ライブラリ (WebGrease.dll) のサイズ縮小機能 Antlr3.Runtime.dll を使用します。
 
-*クイック投稿を行うし、リンクを共有する Twitter を使用します。マイ Twitter のハンドルが*:[@RickAndMSFT](http://twitter.com/RickAndMSFT)
+*クイック投稿を行うし、リンクを共有する Twitter を使用します。マイ Twitter のハンドルが*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 
 ## <a name="additional-resources"></a>その他のリソース
 
 - ビデオ:[バンドル化と最適化](https://channel9.msdn.com/Events/aspConf/aspConf/Bundling-and-Optimizing)によって[Howard Dierking](https://twitter.com/#!/howard_dierking)
 - [最適化の Web サイトに追加する、Web ページ](https://blogs.msdn.com/b/rickandy/archive/2012/08/15/adding-web-optimization-to-a-web-pages-site.aspx)です。
 - [追加するバンドルと縮小 Web フォームを](https://blogs.msdn.com/b/rickandy/archive/2012/08/14/adding-bundling-and-minification-to-web-forms.aspx)です。
-- [バンドルのパフォーマンスに及ぼす影響と Web サイトの参照に縮小](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx)によって[佐藤さん F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen)[@frystyk](https://twitter.com/frystyk)
-- [Cdn を使用して Web サイトのパフォーマンスを向上させるために有効期限が切れると](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)Rick anderson[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
+- [バンドルのパフォーマンスに及ぼす影響と Web サイトの参照に縮小](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx)によって[佐藤さん F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen) [@frystyk](https://twitter.com/frystyk)
+- [Cdn を使用して Web サイトのパフォーマンスを向上させるために有効期限が切れると](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)Rick anderson [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 - [RTT (ラウンドト リップ時間) を最小限に抑える](https://developers.google.com/speed/docs/best-practices/rtt)
 
 ## <a name="contributors"></a>共同作成者

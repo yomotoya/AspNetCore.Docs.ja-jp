@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
-title: "ユーザーを認証フォーム認証 (VB) |Microsoft ドキュメント"
+title: ユーザーを認証フォーム認証 (VB) |Microsoft ドキュメント
 author: microsoft
-description: "[Authorize] 属性を使用する方法について、MVC アプリケーションで特定のページで保護するパスワード。 Web サイトの管理にも使用する方法を学習するとしています."
+description: '[Authorize] 属性を使用する方法について、MVC アプリケーションで特定のページで保護するパスワード。 Web サイトの管理にも使用する方法を学習するとしています.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c7d52e51158575c674264efd19c81de9b077d27b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0ff425a4c9728de2eec3d0c94e76cb51a15de487
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-forms-authentication-vb"></a>フォーム認証 (VB) でユーザーの認証
 ====================
@@ -33,25 +33,25 @@ ms.lasthandoff: 11/10/2017
 
 **図 1 – Web サイト管理ツールを起動します。**
 
-![clip_image002 [4]](authenticating-users-with-forms-authentication-vb/_static/image1.jpg)
+![clip_image002[4]](authenticating-users-with-forms-authentication-vb/_static/image1.jpg)
 
 Web サイト管理ツール内で、[セキュリティ] タブを選択して、新しいユーザーとロールを作成します。クリックして、 **Create user** Stephen をという名前の新しいユーザーを作成するリンク (図 2 を参照してください)。 Stephen ユーザー パスワードを入力、使用する (たとえば、*シークレット*)。
 
 **図 2 – 新しいユーザーを作成します。**
 
-![clip_image004 [4]](authenticating-users-with-forms-authentication-vb/_static/image2.jpg)
+![clip_image004[4]](authenticating-users-with-forms-authentication-vb/_static/image2.jpg)
 
 新しいロールを作成するには、最初の役割を有効にして 1 つまたは複数のロールを定義します。 クリックしてロールを有効にする、**ロールを有効にする**リンクします。 次に、という名前のロールを作成*管理者* をクリックして、**作成または管理ロール**(図 3 を参照してください) をリンクします。
 
 **図 3 – 新しいロールを作成します。**
 
-![clip_image006 [4]](authenticating-users-with-forms-authentication-vb/_static/image3.jpg)
+![clip_image006[4]](authenticating-users-with-forms-authentication-vb/_static/image3.jpg)
 
 最後に、Sally をという名前の新しいユーザーを作成し、ユーザーの作成 リンクをクリックし、Sally を作成するときに管理者を選択すると、管理者ロールに Sally を関連付ける (図 4 を参照してください)。
 
 **図 4: ロールにユーザーを追加します。**
 
-![clip_image008 [4]](authenticating-users-with-forms-authentication-vb/_static/image4.jpg)
+![clip_image008[4]](authenticating-users-with-forms-authentication-vb/_static/image4.jpg)
 
 すべてが完了して、ときに、Stephen および Sally という 2 つの新しいユーザーが必要です。 管理者をという名前の新しいロールも必要です。 Sally 管理者ロールのメンバーは、Stephen です。
 
@@ -69,7 +69,7 @@ Web サイト管理ツール内で、[セキュリティ] タブを選択して�
 
 **図 5 – ログイン ビュー**
 
-![clip_image010 [4]](authenticating-users-with-forms-authentication-vb/_static/image5.jpg)
+![clip_image010[4]](authenticating-users-with-forms-authentication-vb/_static/image5.jpg)
 
 ログイン ビューを使用すると、ユーザー名とパスワードを入力します。 登録済みユーザーがいないかどうかをクリックして、**登録**レジスタに移動するリンク (図 6 を参照してください) を表示します。 レジスタ ビューを使用すると、新しいユーザー アカウントを作成します。
 
@@ -117,8 +117,8 @@ ASP.NET SQL Server セットアップ ウィザードを使用すると、ネッ
 
 > [!NOTE]
 > ASP.NET SQL Server セットアップ ウィザードを使用しない場合は、次のフォルダーに、アプリケーション サービスのデータベース オブジェクトを追加するための SQL スクリプトを見つけることができます。
-
-
+> 
+> 
 > C:\Windows\Microsoft.NET\Framework\v2.0.50727
 
 
@@ -148,10 +148,10 @@ Microsoft SQL Server Management Studio を使用して、データベースに�
 
 ![clip_image020](authenticating-users-with-forms-authentication-vb/_static/image10.jpg)
 
-#### <a name="summary"></a>概要
+#### <a name="summary"></a>まとめ
 
 このチュートリアルでは、ASP.NET MVC アプリケーションをビルドする際に、フォーム認証を使用する方法について学習しました。 最初に、Web サイト管理ツールを活用して、新しいユーザーとロールを作成する方法を学習します。 次に、[Authorize] 属性を使用して、不正なユーザーがコント ローラーのアクションを呼び出すことを防止する方法を学習します。 最後に、実稼働データベースでユーザーとロール情報を格納する MVC アプリケーションを構成する方法を学習しました。
 
->[!div class="step-by-step"]
-[前へ](preventing-javascript-injection-attacks-cs.md)
-[次へ](authenticating-users-with-windows-authentication-vb.md)
+> [!div class="step-by-step"]
+> [前へ](preventing-javascript-injection-attacks-cs.md)
+> [次へ](authenticating-users-with-windows-authentication-vb.md)

@@ -1,7 +1,7 @@
 ---
-title: "承認の概要"
+title: ASP.NET Core での承認の概要
 author: rick-anderson
-description: "このドキュメントでは、承認の基本的な説明し、承認が ASP.NET Core に関連付ける方法について説明します。"
+description: 認証と承認が ASP.NET Core アプリケーションでどのように動作するかの基本について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/introduction
-ms.openlocfilehash: 3fef6d38672af8871c04b65834789a39a7df8487
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: 7ba1966dcaf1ce0510f489cfe0ff11501faffa56
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction"></a>はじめに
+# <a name="introduction-to-authorization-in-aspnet-core"></a>ASP.NET Core での承認の概要
 
 <a name="security-authorization-introduction"></a>
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/20/2018
 
 ## <a name="authorization-types"></a>承認の種類
 
-ASP.NET Core 承認は、単純な宣言型[ロール](roles.md)およびリッチ[ポリシーに基づく](policies.md)モデル。 承認は、要件で表され、ハンドラーが要件に照らして、ユーザーの要求を評価します。 命令型チェックは、単純なポリシーまたはユーザー id と、ユーザーがアクセスしようとするリソースのプロパティの両方を評価するポリシーに基づいて作成できます。
+ASP.NET Core 承認は、単純な宣言型[ロール](xref:security/authorization/roles)およびリッチ[ポリシーに基づく](xref:security/authorization/policies)モデル。 承認は、要件で表され、ハンドラーが要件に照らして、ユーザーの要求を評価します。 命令型チェックは、単純なポリシーまたはユーザー id と、ユーザーがアクセスしようとするリソースのプロパティの両方を評価するポリシーに基づいて作成できます。
 
 ## <a name="namespaces"></a>名前空間
 

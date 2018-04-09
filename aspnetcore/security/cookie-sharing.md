@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET および ASP.NET Core とアプリ間で cookie の共有"
+title: ASP.NET および ASP.NET Core とアプリ間で cookie を共有します。
 author: rick-anderson
-description: "ASP.NET 認証 cookie を共有する方法を説明 4.x および ASP.NET Core アプリケーションです。"
+description: ASP.NET 認証 cookie を共有する方法を説明 4.x および ASP.NET Core アプリケーションです。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cookie-sharing
-ms.openlocfilehash: c2d022d8dc625d479bc690f410d4994a1d7e3d74
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 2c0f5de4ecedb796e85c08fc50d9697947a75a3f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="sharing-cookies-among-apps-with-aspnet-and-aspnet-core"></a>ASP.NET および ASP.NET Core とアプリ間で cookie の共有
+# <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>ASP.NET および ASP.NET Core とアプリ間で cookie を共有します。
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)と[Luke Latham](https://github.com/guardrex)
 
@@ -34,26 +34,28 @@ Web サイトは多くの場合、連携して、個々 の web アプリで構�
 
 * 認証 cookie の名前がの共通の値に設定されている`.AspNet.SharedCookie`です。
 * `AuthenticationType`に設定されている`Identity.Application`明示的にまたは既定のいずれか。
-* [CookieAuthenticationDefaults.AuthenticationScheme](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationdefaults.authenticationscheme) is used as the authentication scheme. 値に解決される定数`Cookies`です。
-* Cookie 認証ミドルウェアの実装を使用して[DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider)です。 `DataProtectionProvider` 暗号化と認証 cookie のペイロード データの暗号化解除用のデータ保護サービスを提供します。 `DataProtectionProvider`インスタンスは、アプリの他の部分で使用するデータ保護システムから分離します。
-  * 一般的に使われる[データ保護キー](xref:security/data-protection/implementation/key-management)記憶域の場所を使用します。 サンプル アプリで使用するという名前のフォルダー*キーリング*データ保護キーを保持するために、ソリューションのルートに位置します。
-  * [DataProtectionProvider.Create(System.IO.DirectoryInfo)](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider.create?view=aspnetcore-2.0#Microsoft_AspNetCore_DataProtection_DataProtectionProvider_Create_System_IO_DirectoryInfo_) accepts a [DirectoryInfo](/dotnet/api/system.io.directoryinfo) for use with authentication cookies. サンプル アプリのパスを提供する、*キーリング*フォルダー`DirectoryInfo`です。
+* 一般的なアプリ名を使用してデータ保護キーを共有するデータ保護システムを有効に (`SharedCookieApp`)。
+* `Identity.Application` 認証スキームとして使用されます。 どのような式を使用して、一貫して使用する必要があります*内外*共有 cookie アプリか、または明示的に設定することで、既定のスキームとして。 ためのアプリ間で一貫したスキームを使用する必要があります、cookie を暗号化および暗号化スキームが使用されます。
+* 一般的に使われる[データ保護キー](xref:security/data-protection/implementation/key-management)記憶域の場所を使用します。 サンプル アプリで使用するという名前のフォルダー*キーリング*データ保護キーを保持するために、ソリューションのルートに位置します。
+* アプリでは、ASP.NET Core、 [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem)キー記憶域の場所を設定するために使用します。 [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname)一般的なアプリの共有名を構成するために使用します。
+* Cookie 認証ミドルウェアを .NET Framework アプリでの実装を使用して[DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider)です。 `DataProtectionProvider` 暗号化と認証 cookie のペイロード データの暗号化解除用のデータ保護サービスを提供します。 `DataProtectionProvider`インスタンスは、アプリの他の部分で使用するデータ保護システムから分離します。
+  * [DataProtectionProvider.Create(System.IO.DirectoryInfo, Action\<IDataProtectionBuilder>)](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider.create?view=aspnetcore-2.0#Microsoft_AspNetCore_DataProtection_DataProtectionProvider_Create_System_IO_DirectoryInfo_System_Action_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder__) accepts a [DirectoryInfo](/dotnet/api/system.io.directoryinfo) to specify the location for data protection key storage. サンプル アプリのパスを提供する、*キーリング*フォルダー`DirectoryInfo`です。 [DataProtectionBuilderExtensions.SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname?view=aspnetcore-2.0#Microsoft_AspNetCore_DataProtection_DataProtectionBuilderExtensions_SetApplicationName_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder_System_String_)共通のアプリ名を設定します。
   * [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider)が必要です、 [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) NuGet パッケージです。 このパッケージの ASP.NET Core 2.0 と以降のアプリの入手、参照、 [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) metapackage です。 .NET Framework を対象とする場合にパッケージ参照の追加`Microsoft.AspNetCore.DataProtection.Extensions`です。
 
 ## <a name="share-authentication-cookies-among-aspnet-core-apps"></a>ASP.NET Core アプリケーション間での認証クッキーを共有します。
 
 ASP.NET Core の Id を使用する: 場合
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 `ConfigureServices`メソッドを使用して、 [ConfigureApplicationCookie](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.configureapplicationcookie) cookie のデータ保護サービスをセットアップする拡張メソッド。
 
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.Core/Startup.cs?name=snippet1)]
 
+データ保護キーとアプリ名は、アプリ間で共有する必要があります。 アプリでは、サンプル、`GetKeyRingDirInfo`に共通のキー記憶域の場所を返します、 [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem)メソッドです。 使用して[SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname)一般的なアプリの共有名を構成する (`SharedCookieApp`サンプル)。 詳細については、次を参照してください。[データ保護を構成する](xref:security/data-protection/configuration/overview)です。
+
 参照してください、 *CookieAuthWithIdentity.Core*プロジェクトで、[のサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 `Configure`メソッドを使用して、 [CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions)を設定します。
 
 * Cookie のデータ保護サービスです。
@@ -80,18 +82,17 @@ app.AddIdentity<ApplicationUser, IdentityRole>(options =>
 });
 ```
 
----
-
+* * *
 ときに、cookie を直接使用するには。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](cookie-sharing/sample/CookieAuth.Core/Startup.cs?name=snippet1)]
+
+データ保護キーとアプリ名は、アプリ間で共有する必要があります。 アプリでは、サンプル、`GetKeyRingDirInfo`に共通のキー記憶域の場所を返します、 [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem)メソッドです。 使用して[SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname)一般的なアプリの共有名を構成する (`SharedCookieApp`サンプル)。 詳細については、次を参照してください。[データ保護を構成する](xref:security/data-protection/configuration/overview)です。 
 
 参照してください、 *CookieAuth.Core*プロジェクトで、[のサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 ```csharp
 app.UseCookieAuthentication(new CookieAuthenticationOptions
 {
@@ -101,8 +102,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 });
 ```
 
----
-
+* * *
 ## <a name="encrypting-data-protection-keys-at-rest"></a>静止したデータ保護キーの暗号化
 
 運用環境の配置、構成、 `DataProtectionProvider` DPAPI または X509Certificate で残りの部分でキーを暗号化します。 参照してください[キー時の暗号化](xref:security/data-protection/implementation/key-encryption-at-rest)詳細についてはします。
@@ -144,10 +144,9 @@ ASP.NET 4.x 用アプリと ASP.NET Core の間での認証クッキーを共有
 
 1. パッケージをインストール[Microsoft.Owin.Security.Interop](https://www.nuget.org/packages/Microsoft.Owin.Security.Interop/)各 ASP.NET 4.x アプリにします。
 
-2. *Startup.Auth.cs*への呼び出しを見つける`UseCookieAuthentication`し、次のように変更します。 ASP.NET Core cookie 認証ミドルウェアで使用される名前と一致する cookie の名前を変更します。 インスタンスを提供する`DataProtectionProvider`一般的なデータ保護キー記憶域の場所を初期化します。
+2. *Startup.Auth.cs*への呼び出しを見つける`UseCookieAuthentication`し、次のように変更します。 ASP.NET Core cookie 認証ミドルウェアで使用される名前と一致する cookie の名前を変更します。 インスタンスを提供する`DataProtectionProvider`一般的なデータ保護キー記憶域の場所を初期化します。 アプリ名が、cookie を共有しているすべてのアプリで使用される共通のアプリ名 に設定されていることを確認してください`SharedCookieApp`サンプル アプリでします。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.NETFramework/CookieAuthWithIdentity.NETFramework/App_Start/Startup.Auth.cs?name=snippet1)]
 
 参照してください、 *CookieAuthWithIdentity.NETFramework*プロジェクトで、[のサンプル コード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))。
@@ -158,8 +157,7 @@ ASP.NET 4.x 用アプリと ASP.NET Core の間での認証クッキーを共有
 
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.NETFramework/CookieAuthWithIdentity.NETFramework/Models/IdentityModels.cs?name=snippet1)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 設定、`CookieManager`相互運用`ChunkingCookieManager`チャンク形式は互換性のあるようにします。
 
 ```csharp
@@ -182,8 +180,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 });
 ```
 
----
-
+* * *
 ## <a name="use-a-common-user-database"></a>一般的なユーザー データベースを使用します。
 
 各アプリケーションの id システムは、同じユーザー データベースを指すことを確認します。 それ以外の場合、id システムでは、そのデータベース内の情報に対する認証クッキーの情報と一致しようとしたときに実行時にエラーが生成されます。

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
-title: "ASP.NET Web フォームの接続の回復とコマンド インターセプト |Microsoft ドキュメント"
+title: ASP.NET Web フォームの接続の回復とコマンド インターセプト |Microsoft ドキュメント
 author: Erikre
-description: "このチュートリアルでは、接続の回復とコマンドの途中受信をサポートするために、サンプル アプリケーションを変更する方法について説明します。"
+description: このチュートリアルでは、接続の回復とコマンドの途中受信をサポートするために、サンプル アプリケーションを変更する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: e3347657fb5c7bf8c7bb4e51a2e810a1edde826a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d5c4e46209e1b21a303fdf1fb16c6c868b3ca923
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web フォームの接続の回復性とコマンドの途中受信
 ====================
@@ -102,9 +102,9 @@ Entity Framework のチュートリアルのこのセクションで使用する
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample4.cs)]
 
- インターフェイスは、ログの相対的な重要度を示すために次の 3 つのトレース レベルおよびデータベース クエリなどの外部サービス呼び出しの待機時間情報を提供する 1 つを提供します。 ログ作成メソッドで例外を渡すことのできるオーバー ロードがあります。 これは、スタック トレースと内部例外を含む例外情報は、アプリケーション全体で各ログ記録のメソッドの呼び出しで実行されていることに依存せずに、インターフェイスを実装するクラスによって確実に記録されるようにします。  
+   インターフェイスは、ログの相対的な重要度を示すために次の 3 つのトレース レベルおよびデータベース クエリなどの外部サービス呼び出しの待機時間情報を提供する 1 つを提供します。 ログ作成メソッドで例外を渡すことのできるオーバー ロードがあります。 これは、スタック トレースと内部例外を含む例外情報は、アプリケーション全体で各ログ記録のメソッドの呼び出しで実行されていることに依存せずに、インターフェイスを実装するクラスによって確実に記録されるようにします。  
   
- `TraceApi`メソッドでは、SQL データベースなどの外部サービスへの各呼び出しの待機時間を追跡できます。
+   `TraceApi`メソッドでは、SQL データベースなどの外部サービスへの各呼び出しの待機時間を追跡できます。
 3. *ログ*フォルダー、という名前のクラス ファイルを作成する*Logger.cs*し、既定のコードを次のコードに置き換えます。  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample5.cs)]
@@ -121,20 +121,20 @@ Entity Framework のチュートリアルのこのセクションで使用する
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample6.cs)]
 
- 成功したクエリまたはコマンドの場合は、このコードは、待機時間情報をログ記録する情報を書き込みます。 例外のエラー ログが作成されます。
+   成功したクエリまたはコマンドの場合は、このコードは、待機時間情報をログ記録する情報を書き込みます。 例外のエラー ログが作成されます。
 2. 入力するときに、ダミーの一時的なエラーを生成するインターセプター クラスを作成する&quot;スロー&quot;で、**名前**という名前のページのテキスト ボックス*AdminPage.aspx*クラスを作成という名前のファイル*InterceptorTransientErrors.cs*で、*ロジック*フォルダーと置換、既定のコードを次のコード。  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample7.cs)]
 
     オーバーライドのみです。 このコード、`ReaderExecuting`複数行のデータを返すことができるクエリに対して呼び出されるメソッド。 接続の回復の他の種類のクエリを確認する場合は、上書きすることでしたも、`NonQueryExecuting`と`ScalarExecuting`はログ記録インターセプターとしてメソッド、します。  
   
- "Admin"としてログオンした後で、しを選択するか、 **Admin**上部のナビゲーション バーでリンクします。 次に、 *AdminPage.aspx*という名前の製品を追加します ページ&quot;スロー&quot;です。 コードでは、エラー番号 20、通常、一時的である既知の型のダミー SQL データベースの例外を作成します。 現在一時的なものとして認識されているその他のエラー番号は、64、233、10053、10054、10060、10928、10929、40197、40501、および 40613 が、新しいバージョンの SQL データベースで変更される可能性があります。 製品の名前が"TransientErrorExample"は、次のコードで実行することができますに変更は、 *InterceptorTransientErrors.cs*ファイル。  
+   "Admin"としてログオンした後で、しを選択するか、 **Admin**上部のナビゲーション バーでリンクします。 次に、 *AdminPage.aspx*という名前の製品を追加します ページ&quot;スロー&quot;です。 コードでは、エラー番号 20、通常、一時的である既知の型のダミー SQL データベースの例外を作成します。 現在一時的なものとして認識されているその他のエラー番号は、64、233、10053、10054、10060、10928、10929、40197、40501、および 40613 が、新しいバージョンの SQL データベースで変更される可能性があります。 製品の名前が"TransientErrorExample"は、次のコードで実行することができますに変更は、 *InterceptorTransientErrors.cs*ファイル。  
   
- コードは、クエリを実行して、結果の返送を渡すことではなく Entity Framework に例外を返します。 一時的な例外が返されます*4*時間、データベースにクエリを渡すことの通常のプロシージャにコードが戻されます。
+   コードは、クエリを実行して、結果の返送を渡すことではなく Entity Framework に例外を返します。 一時的な例外が返されます*4*時間、データベースにクエリを渡すことの通常のプロシージャにコードが戻されます。
 
     すべてのものが記録されるため、Entity Framework に成功すると、前に 4 回のクエリを実行しようとして、アプリケーションの唯一の違いはクエリ結果のページを表示するために長くかかることを確認することができます。  
   
- Entity Framework は再試行回数が構成可能です。コードは、SQL データベースの実行ポリシーの既定値であるために、4 回を指定します。 実行ポリシーを変更すると、しなければなりませんでしたも変更は、ここに、コードの一時的なエラーが生成される回数を指定します。 Entity Framework をスローするように、例外を生成するコードを変更することも、`RetryLimitExceededException`例外。
+   Entity Framework は再試行回数が構成可能です。コードは、SQL データベースの実行ポリシーの既定値であるために、4 回を指定します。 実行ポリシーを変更すると、しなければなりませんでしたも変更は、ここに、コードの一時的なエラーが生成される回数を指定します。 Entity Framework をスローするように、例外を生成するコードを変更することも、`RetryLimitExceededException`例外。
 3. *Global.asax*次の追加ステートメントを使用します。  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample8.cs)]
@@ -158,16 +158,16 @@ UI で別の値を入力することで一時的なエラーが発生するよ�
 2. 選択**Admin**のナビゲーション バー上部にあるからです。
 3. 適切な説明、価格、およびイメージ ファイルに新しい製品"の Throw"という名前を入力します。
 4. キーを押して、**製品の追加**ボタンをクリックします。  
- ブラウザーは Entity Framework でも、クエリを何回か再試行は、数秒のハングことがわかります。 最初の再試行が非常に短時間発生し、各追加の再試行する前に待機時間が増加します。 このプロセスの再試行の間隔が呼び出される前に長時間待つ*指数バックオフ*です。
+   ブラウザーは Entity Framework でも、クエリを何回か再試行は、数秒のハングことがわかります。 最初の再試行が非常に短時間発生し、各追加の再試行する前に待機時間が増加します。 このプロセスの再試行の間隔が呼び出される前に長時間待つ*指数バックオフ*です。
 5. ページが読み込む atttempting ではなくなるまで待機します。
 6. プロジェクトを停止し、Visual Studio を見て**出力**トレース出力を表示するウィンドウです。 検索することができます、**出力**ウィンドウを選択して**デバッグ** - &gt; **Windows**  - &gt; **出力**です。 以前のロガーによって書き込まれたその他のいくつかのログをスクロールする必要があります。  
   
- データベースに送信される実際の SQL クエリを表示できることに注意してください。 表示一部の最初のクエリと Entity Framework では、作業を開始するコマンド データベース バージョンと移行の履歴テーブルをチェックします。   
+   データベースに送信される実際の SQL クエリを表示できることに注意してください。 表示一部の最初のクエリと Entity Framework では、作業を開始するコマンド データベース バージョンと移行の履歴テーブルをチェックします。   
     ![[出力] ウィンドウ](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image1.png)   
- アプリケーションを停止して再起動した場合を除き、このテストを繰り返すことはできませんに注意してください。 エラー カウンターをリセットするためのコードを記述することもできるように、1 つのアプリケーションに複数回接続の回復性をテストする場合は、`InterceptorTransientErrors`です。
+   アプリケーションを停止して再起動した場合を除き、このテストを繰り返すことはできませんに注意してください。 エラー カウンターをリセットするためのコードを記述することもできるように、1 つのアプリケーションに複数回接続の回復性をテストする場合は、`InterceptorTransientErrors`です。
 7. 違いを確認する (再試行ポリシー) の実行方法は、コメント、`SetExecutionStrategy`線*WingtipToysConfiguration.cs*ファイルで、*ロジック*実行、フォルダー、**管理者**デバッグ モードでページをもう一度、および名前付きの製品を追加&quot;スロー&quot;もう一度です。  
   
- 今度は、デバッガーを停止最初の生成された例外を初めてクエリを実行しようとするとすぐにします。  
+   今度は、デバッガーを停止最初の生成された例外を初めてクエリを実行しようとするとすぐにします。  
     ![デバッグの詳細の表示](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image2.png)
 8. コメントを解除、`SetExecutionStrategy`線、 *WingtipToysConfiguration.cs*ファイル。
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
-title: "(VB) を挿入するバッチ |Microsoft ドキュメント"
+title: (VB) を挿入するバッチ |Microsoft ドキュメント
 author: rick-anderson
-description: "単一の操作で複数のデータベース レコードを挿入する方法を説明します。 ユーザー インターフェイス レイヤーは、ユーザーに複数の n の入力を許可する GridView を拡張しています."
+description: 単一の操作で複数のデータベース レコードを挿入する方法を説明します。 ユーザー インターフェイス レイヤーは、ユーザーに複数の n の入力を許可する GridView を拡張しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3f09b5fd86c1cc6641fb42a466b07da161c1dd35
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a25c889784ccc6cee3ae01df59bd489b48114e74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="batch-inserting-vb"></a>バッチ (VB) を挿入します。
 ====================
@@ -203,7 +203,7 @@ Label Web コントロールをツールボックスからデザイナー内の�
 
 [!code-vb[Main](batch-inserting-vb/samples/sample5.vb)]
 
-両方`Click`イベント ハンドラーを呼び出すだけ、`ReturnToDisplayInterface`メソッド、出荷から商品の追加を返しますが`Click`内のイベント ハンドラーは、手順 4 と、製品を保存するコードを追加します。 `ReturnToDisplayInterface`返すことによって開始、`Suppliers`と`Categories`DropDownLists の最初のオプションにします。 2 つの定数`firstControlID`と`lastControlID`、開始、製品名および単価、挿入するテキスト ボックスのインターフェイスし、の境界内で使用される名前付けで使用されるコントロールのインデックス値と終了をマーク、`For`設定、ループ`Text`の TextBox コントロールのプロパティが空の文字列をバックアップします。 最後に、パネル`Visible`挿入インターフェイスが表示されないようにし、示されている表示インターフェイスのプロパティはリセットされます。
+両方`Click`イベント ハンドラーを呼び出すだけ、`ReturnToDisplayInterface`メソッド、出荷から商品の追加を返しますが`Click`内のイベント ハンドラーは、手順 4 と、製品を保存するコードを追加します。 `ReturnToDisplayInterface` 返すことによって開始、`Suppliers`と`Categories`DropDownLists の最初のオプションにします。 2 つの定数`firstControlID`と`lastControlID`、開始、製品名および単価、挿入するテキスト ボックスのインターフェイスし、の境界内で使用される名前付けで使用されるコントロールのインデックス値と終了をマーク、`For`設定、ループ`Text`の TextBox コントロールのプロパティが空の文字列をバックアップします。 最後に、パネル`Visible`挿入インターフェイスが表示されないようにし、示されている表示インターフェイスのプロパティはリセットされます。
 
 すぐをブラウザーでこのページをテストします。 最初のページにアクセスすると、図 5 のように、表示インターフェイスが表示されます。 製品の出荷を処理する ボタンをクリックします。 ページがポストバックと図 12 に示すように、挿入インターフェイス表示されます。 いずれかの追加から製品出荷または [キャンセル] ボタンをクリックすると、表示インターフェイスを返します。
 
@@ -269,11 +269,11 @@ Label Web コントロールをツールボックスからデザイナー内の�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 Hilton Giesenow と S ren 一 Lauritsen されたこのチュートリアルのレビュー担当者が生じる。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](batch-deleting-vb.md)
+> [!div class="step-by-step"]
+> [前へ](batch-deleting-vb.md)

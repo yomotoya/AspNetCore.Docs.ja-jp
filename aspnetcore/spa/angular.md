@@ -1,7 +1,7 @@
 ---
-title: "Angular プロジェクト テンプレートを使用します。"
+title: ASP.NET Core 角運動のプロジェクト テンプレートを使用します。
 author: SteveSandersonMS
-description: "角速度と角運動の CLI for ASP.NET Core 単一ページ アプリケーション (SPA) プロジェクト テンプレートを使って開始する方法を説明します。"
+description: 角速度と角運動の CLI for ASP.NET Core 単一ページ アプリケーション (SPA) プロジェクト テンプレートを使って開始する方法を説明します。
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: 07cfd20809acb67bdae6561b6ccd6edf1e70a3fe
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e3956bedbc243578f6dfdc09f5f043327de7c66b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="use-the-angular-project-template"></a>Angular プロジェクト テンプレートを使用します。
+# <a name="use-the-angular-project-template-with-aspnet-core"></a>ASP.NET Core 角運動のプロジェクト テンプレートを使用します。
 
 > [!NOTE]
 > このドキュメント角運動のプロジェクト テンプレートに含まれていない ASP.NET Core 2.0。 手動で更新できる新しい Angular テンプレートことです。 既定では ASP.NET Core 2.1 では、テンプレートが含まれます。
@@ -39,14 +39,12 @@ cd my-new-app
 
 Visual Studio または .NET Core CLI からアプリを実行します。
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
+#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 開く、生成された*.csproj*ファイル、およびそこから通常の方法でアプリを実行します。
 
 ビルド プロセスでは、数分かかることが、最初の実行で npm の依存関係を復元します。 後続のビルドは非常に高速です。
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
-
+#### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 という環境変数があることを確認`ASPNETCORE_Environment`の値を持つ`Development`します。 Windows PowerShell 以外の入力を要求) の「、で実行される`SET ASPNETCORE_Environment=Development`です。 Linux または macOS、実行`export ASPNETCORE_Environment=Development`です。
 
 実行[dotnet ビルド](/dotnet/core/tools/dotnet-build)正しくビルドするのには、アプリを確認してください。 最初の実行には、ビルド プロセスは、数分かかることが npm の依存関係を復元します。 後続のビルドは非常に高速です。
@@ -59,10 +57,9 @@ Now listening on: http://localhost:<port>
 
 ブラウザーでこの URL に移動します。
 
-アプリは、バック グラウンドで角度 CLI サーバーのインスタンスを開始します。 次のようなメッセージが記録されます: *NG ライブ開発サーバーは、localhost でリッスンしている:&lt;otherport&gt;、http://localhost にブラウザーを開きます:&lt;otherport&gt; /*. このメッセージは無視&mdash;が**いない**結合された ASP.NET Core と角運動 CLI アプリの URL。
+アプリは、バック グラウンドで角度 CLI サーバーのインスタンスを開始します。 次のようなメッセージが記録されます: <em>NG ライブ開発サーバーは、localhost でリッスンしている:&lt;otherport&gt;でブラウザーを開いてhttp://localhost: &lt;otherport&gt; /</em>. このメッセージは無視&mdash;が<strong>いない</strong>結合された ASP.NET Core と角運動 CLI アプリの URL。
 
----
-
+* * *
 プロジェクト テンプレートは、ASP.NET Core アプリケーションと角運動のアプリを作成します。 ASP.NET Core アプリケーションがデータ アクセス、承認、およびその他のサーバー側の懸念事項に使用するためのものです。 内に存在する角度のアプリ、 *ClientApp*サブディレクトリがすべての UI に関する注意事項を使用するためです。
 
 ## <a name="add-pages-images-styles-modules-etc"></a>ページ、画像、スタイル、モジュールなどを追加します。
@@ -83,9 +80,9 @@ cd ClientApp
 
 いない場合、`ng`ツールをインストールするには、実行`npm run ng`代わりにします。 たとえば、実行`npm run ng lint`または`npm run ng test`です。
 
-## <a name="install-npm-packages"></a>Npm パッケージをインストールします。
+## <a name="install-npm-packages"></a>npm パッケージをインストールする
 
-サード パーティ製の npm パッケージをインストールするでコマンド プロンプトを使用して、 *ClientApp*サブディレクトリです。 例:
+サード パーティ製の npm パッケージをインストールするでコマンド プロンプトを使用して、 *ClientApp*サブディレクトリです。 例えば:
 
 ```console
 cd ClientApp
@@ -104,7 +101,7 @@ npm install --save <package_name>
 
 プロジェクトが ASP.NET Core アプリケーションの開発モードの開始時に、バック グラウンドで角度 CLI サーバーの独自のインスタンスを開始するように構成します。 これは、機能は、別のサーバーを手動で実行する必要がないため便利です。
 
-この既定の設定の欠点があります。 C# コードとアプリを再起動する必要があります、ASP.NET Core を変更するたびに、角運動 CLI サーバーを再起動します。 バックアップを開始するには、約 10 秒が必要です。 頻繁に c# コードの編集を加えようとしての角度の CLI を再起動するまで待機しない場合は、ASP.NET Core プロセスとは無関係に Angular CLI server 外部でを実行します。 これを行うには。
+この既定の設定の欠点があります。 C# コードとアプリを再起動する必要があります、ASP.NET Core を変更するたびに、角運動 CLI サーバーを再起動します。 バックアップを開始するには、約 10 秒が必要です。 頻繁に c# コードの編集を加えようとしての角度の CLI を再起動するまで待機しない場合は、ASP.NET Core プロセスとは無関係に Angular CLI server 外部でを実行します。 次の手順に従います。
 
 1. コマンド プロンプトでに切り替えると、 *ClientApp*サブディレクトリ、および角度 CLI 開発サーバーの起動。
 

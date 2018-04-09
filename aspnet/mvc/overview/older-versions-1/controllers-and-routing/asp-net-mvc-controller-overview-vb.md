@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb
-title: "ASP.NET MVC コント ローラーの概要 (VB) |Microsoft ドキュメント"
+title: ASP.NET MVC コント ローラーの概要 (VB) |Microsoft ドキュメント
 author: StephenWalther
-description: "このチュートリアルでは Stephen Walther 紹介 ASP.NET MVC のコント ローラーにします。 新しいコント ローラーを作成してさまざまな種類のアクション res を返す方法を説明したとしています."
+description: このチュートリアルでは Stephen Walther 紹介 ASP.NET MVC のコント ローラーにします。 新しいコント ローラーを作成してさまざまな種類のアクション res を返す方法を説明したとしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 452e2cf771e8b1f298ce9693ec2a707e7c1d4dd1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0a45630e8f2d5ae0548bb6b8496df08ca5877a40
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-controller-overview-vb"></a>ASP.NET MVC コント ローラーの概要 (VB)
 ====================
@@ -62,7 +62,7 @@ MVC コント ローラーは、ASP.NET MVC の web サイトに対して行わ�
 ASP.NET MVC フレームワークには、いくつか含むアクションの結果の種類がサポートされています。
 
 1. ViewResult - を表します HTML およびマークアップ。
-2. EmptyResult のない結果を表します。
+2. EmptyResult - Represents no result.
 3. RedirectResult - は、新しい URL へのリダイレクトを表します。
 4. JsonResult - は、AJAX アプリケーションで使用できる JavaScript Object Notation 結果を表します。
 5. JavaScriptResult - は、JavaScript のスクリプトを表します。
@@ -103,8 +103,8 @@ ContentResult アクションの結果は特殊です。 ContentResult アクシ
 **4 - Controllers\StatusController.vb を一覧表示します。**
 
 > StatusController
-
-
+> 
+> 
 > System.Web.Mvc.Controller
 
 
@@ -120,10 +120,10 @@ StatusController.Index() アクションが呼び出されたときに、表示�
 
 Index() アクション 5 の一覧表示するのには、DateTime オブジェクトを返します。 ASP.NET MVC フレームワークでは、DateTime オブジェクトを文字列に変換し、ContentResult で自動的に DateTime 値をラップします。 ブラウザーは、日付と時刻をプレーン テキストとして受信します。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、ASP.NET MVC コント ローラー、コント ローラーのアクション、コント ローラー アクションの結果の概念を紹介することでした。 最初のセクションでは、ASP.NET MVC プロジェクトを新しいコント ローラーを追加する方法について学習しました。 コント ローラーのパブリック メソッドを次に、学習したコント ローラーのアクションとして、universe に公開されます。 最後に、コント ローラーのアクションから返されるアクションの結果の種類を説明します。 具体的には、コント ローラーのアクションから ViewResult、RedirectToActionResult、および ContentResult を返す方法を説明します。
 
->[!div class="step-by-step"]
-[前へ](creating-a-custom-route-constraint-cs.md)
-[次へ](creating-custom-routes-vb.md)
+> [!div class="step-by-step"]
+> [前へ](creating-a-custom-route-constraint-cs.md)
+> [次へ](creating-custom-routes-vb.md)

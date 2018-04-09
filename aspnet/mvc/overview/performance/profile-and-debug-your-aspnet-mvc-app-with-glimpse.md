@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
-title: "プロファイルし、Glimpse による ASP.NET MVC アプリのデバッグ |Microsoft ドキュメント"
+title: プロファイルし、Glimpse による ASP.NET MVC アプリのデバッグ |Microsoft ドキュメント
 author: Rick-Anderson
-description: "Glimpse は、成功し、詳細なパフォーマンスを提供する NuGet パッケージのオープン ソースのファミリを拡大して、デバッグ、および ASP.NET の診断情報を."
+description: Glimpse は、成功し、詳細なパフォーマンスを提供する NuGet パッケージのオープン ソースのファミリを拡大して、デバッグ、および ASP.NET の診断情報を.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 9cfdced21251b482ca527dda9c3a698de77cc8ca
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6ac23256c57116de81c7bf690d5ce743301c75ce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>プロファイルし、Glimpse による ASP.NET MVC アプリのデバッグ
 ====================
@@ -55,7 +55,7 @@ Glimpse をインストールするには、NuGet パッケージ マネージ�
 <a id="eg"></a>
 ## <a name="enable-glimpse-for-localhost"></a>Localhost の流れを有効にします。
 
-Navigate to http://localhost:&lt;port #&gt;/glimpse.axd and click the **Turn Glimpse On** button.
+移動http://localhost:&lt;ポート番号&gt;/glimpse.axd をクリックして、 <strong>Glimpse をオンにする</strong>ボタンをクリックします。
 
 ![Glimpse axd ページ](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image4.png)
 
@@ -93,7 +93,7 @@ Tom Dykstra を変更しました未処理[EF 6/MVC 5 のチュートリアル](
 ![ホバー時に詳細なタイミングを参照してください。](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image10.png)
 
 <a id="mb"></a>
-## <a name="model-binding"></a>モデル バインディング
+## <a name="model-binding"></a>モデル バインド
 
 [モデル バインド タブ](http://getglimpse.com/Docs/Model-Binding-Tab)豊富なフォーム変数のバインド方法と理由一部がバインドされていないはずの理解に役立つ情報を提供します。 次のイメージ、**しますか?** アイコンをクリックすると、glimpse のヘルプ ページで、その機能を表示します。
 

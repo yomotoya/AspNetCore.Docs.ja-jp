@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
-title: "Visual Studio を使用した ASP.NET Web 展開: データベースの配置の準備 |Microsoft ドキュメント"
+title: 'Visual Studio を使用した ASP.NET Web 展開: データベースの配置の準備 |Microsoft ドキュメント'
 author: tdykstra
-description: "この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています."
+description: この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: caa79725ede320c4bd3e87ac246966c57175eb8e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 61392af322de454687da522055005a670b34f510
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio を使用した ASP.NET Web 展開: データベースの配置の準備
 ====================
@@ -171,7 +171,7 @@ Contoso 大学アプリケーションでは、ASP.NET メンバーシップ シ
 開発ユーザー テスト環境とステージングと運用環境に運用環境のユーザーを展開します。 行うにはこのチュートリアルでの開発と実稼働環境での 2 つの SQL スクリプトを作成しを実行する、発行プロセスの構成後のチュートリアルでします。
 
 > [!NOTE]
-> メンバーシップ データベースには、アカウントのパスワードのハッシュが格納されます。 1 台のコンピューターから別のアカウントをデプロイするのには、ソース コンピューターの方がよりに、ハッシュのルーチンが、移行先サーバー上の別のハッシュを生成しないことを確認しての操作を行う必要があります。 生成されます、同じハッシュ ASP.NET ユニバーサル プロバイダーを使用すると、既定のアルゴリズムを変更しない限り、します。 既定のアルゴリズムはで指定された、HMACSHA256、**検証**の属性、  **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)**  Web.config ファイル内の要素。
+> メンバーシップ データベースには、アカウントのパスワードのハッシュが格納されます。 1 台のコンピューターから別のアカウントをデプロイするのには、ソース コンピューターの方がよりに、ハッシュのルーチンが、移行先サーバー上の別のハッシュを生成しないことを確認しての操作を行う必要があります。 生成されます、同じハッシュ ASP.NET ユニバーサル プロバイダーを使用すると、既定のアルゴリズムを変更しない限り、します。 既定のアルゴリズムはで指定された、HMACSHA256、**検証**の属性、 **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)** Web.config ファイル内の要素。
 
 
 SQL Server Management Studio (SSMS) を使用して、またはサード パーティ製ツールを使用して、データの配置スクリプトを手動で作成することができます。 このチュートリアルの残りの部分が SSMS では、それを実行する方法を示しますをインストールして SSMS を使用しない場合は、プロジェクトの完成版からスクリプトを取得し、ソリューション フォルダーに格納する場所のセクションにスキップします。
@@ -215,11 +215,11 @@ SQL Server インストール センターの最初のページで、をクリ�
 1. SSMS で**オブジェクト エクスプ ローラー**を右クリックして**データベース** をクリック**アタッチ**です。
 
     ![SSMS をアタッチします。](preparing-databases/_static/image15.png)
-- **データベースのアタッチ**ダイアログ ボックスで、をクリックして**追加**に移動し、 *aspnet ContosoUniversity-Prod.mdf*ファイルを*アプリ\_データ*フォルダーです。
+2. **データベースのアタッチ**ダイアログ ボックスで、をクリックして**追加**に移動し、 *aspnet ContosoUniversity-Prod.mdf*ファイルを*アプリ\_データ*フォルダーです。
 
-    ![アタッチする .mdf ファイルを SSMS の追加](preparing-databases/_static/image16.png)
-- **[OK]**をクリックします。
-- 以前に使用した、実稼働ファイルのスクリプトを作成する同じ手順に従います。 スクリプト ファイルの名前を付けます*aspnet データ-prod.sql*です。
+     ![アタッチする .mdf ファイルを SSMS の追加](preparing-databases/_static/image16.png)
+3. **[OK]**をクリックします。
+4. 以前に使用した、実稼働ファイルのスクリプトを作成する同じ手順に従います。 スクリプト ファイルの名前を付けます*aspnet データ-prod.sql*です。
 
 ## <a name="summary"></a>まとめ
 
@@ -233,6 +233,6 @@ SQL Server インストール センターの最初のページで、をクリ�
 
 NuGet の詳細については、次を参照してください。 [NuGet のプロジェクトのライブラリを管理](https://msdn.microsoft.com/magazine/hh547106.aspx)と[NuGet のドキュメント](http://docs.nuget.org/docs/start-here/overview)です。 NuGet を使用しない場合は、インストールされている場合に、新機能を決定する NuGet パッケージを分析する方法を学習する必要があります。 (たとえば、構成が*Web.config*変換がビルド時などに実行する PowerShell スクリプトを構成します)。NuGet のしくみの詳細については、次を参照してください。[を作成すると、パッケージを発行する](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)と[構成ファイルとソース コードの変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)です。
 
->[!div class="step-by-step"]
-[前へ](introduction.md)
-[次へ](web-config-transformations.md)
+> [!div class="step-by-step"]
+> [前へ](introduction.md)
+> [次へ](web-config-transformations.md)

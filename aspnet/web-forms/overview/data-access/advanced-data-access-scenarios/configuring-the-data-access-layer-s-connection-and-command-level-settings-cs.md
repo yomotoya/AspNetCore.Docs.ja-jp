@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
-title: "データ アクセス層の接続とコマンド レベルの設定 (c#) の構成 |Microsoft ドキュメント"
+title: データ アクセス層の接続とコマンド レベルの設定 (c#) の構成 |Microsoft ドキュメント
 author: rick-anderson
-description: "型指定されたデータセット内で Tableadapter に自動的に対処するデータベースへの接続、コマンドを発行して、結果を含む DataTable を設定する."
+description: 型指定されたデータセット内で Tableadapter に自動的に対処するデータベースへの接続、コマンドを発行して、結果を含む DataTable を設定する.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: be81bde63d66c3a7070f31be830f7d10ba3a5f8e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f5f221fd792956fc21cb6eb5834299d3c5bfa80d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>データ アクセス層の接続とコマンド レベルの設定 (c#) を構成します。
 ====================
@@ -51,7 +51,7 @@ Microsoft .NET Framework には、多種多様な具体的にはデータを処�
 
 ## <a name="step-1-examining-with-the-connection-property"></a>手順 1: は接続プロパティを使用して確認します。
 
-各 TableAdapter クラスには、`Connection`データベース接続情報を指定するプロパティです。 このプロパティのデータ型と`ConnectionString`値は、TableAdapter 構成ウィザードで行った選択によって決まります。 最初に型指定されたデータセットに TableAdapter を追加する際このウィザードを us データベースに注意してください (図 1 を参照してください) のソースします。 この最初の手順でドロップダウン リストには、サーバー エクスプ ローラーのデータ接続でその他のデータベースと同様に、構成ファイルで指定されたこれらのデータベースが含まれています。 ドロップダウン リストで使用するデータベースが存在しない場合は、新しい接続 をクリックし、必要な接続情報を提供する新しいデータベース接続を指定できます。
+各 TableAdapter クラスには、`Connection`データベース接続情報を指定するプロパティです。 このプロパティのデータ型と`ConnectionString`値は、TableAdapter 構成ウィザードで行った選択によって決まります。 最初に型指定されたデータセットに TableAdapter を追加する際このウィザードを us データベースに注意してください (図 1 を参照してください) のソースします。 この最初の手順でドロップダウン リストには、サーバー エクスプ ローラーのデータ接続でその他のデータベースと同様に、構成ファイルで指定されたこれらのデータベースが含まれています。 ドロップダウン リストで使用するデータベースが存在しない場合は、新しい接続] をクリックし、必要な接続情報を提供する新しいデータベース接続を指定できます。
 
 
 [![TableAdapter 構成ウィザードの最初の手順](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image2.png)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image1.png)
@@ -61,12 +61,12 @@ Microsoft .NET Framework には、多種多様な具体的にはデータを処�
 
 Let 秒かかる、tableadapter のコードを調べるにはしばらく`Connection`プロパティです。 説明したとおり、[データ アクセス レイヤーを作成する](../introduction/creating-a-data-access-layer-cs.md)チュートリアルでは、クラス ビュー] ウィンドウに、適切なクラスへのドリルダウンし、[メンバーの名前をダブルクリックして、TableAdapter の自動生成されたコードを表示できます。
 
-表示 メニューに、クラス ビュー を選択して (または Ctrl + Shift + C を入力して) は、クラス ビュー ウィンドウに移動します。 クラス ビュー ウィンドウの上部から下にドリル ダウン、`NorthwindTableAdapters`名前空間を選択し、`ProductsTableAdapter`クラスです。 これが表示されます、`ProductsTableAdapter`下にある s メンバー図 2 に示すように、クラス ビューの半分です。 ダブルクリックして、`Connection`プロパティをそのコードを参照してください。
+[表示] メニューに、クラス ビュー] を選択して (または Ctrl + Shift + C を入力して) は、クラス ビュー] ウィンドウに移動します。 クラス ビュー] ウィンドウの上部から下にドリル ダウン、`NorthwindTableAdapters`名前空間を選択し、`ProductsTableAdapter`クラスです。 これが表示されます、`ProductsTableAdapter`下にある s メンバー図 2 に示すように、クラス ビューの半分です。 ダブルクリックして、`Connection`プロパティをそのコードを参照してください。
 
 
 ![[クラス ビューの自動生成されたコードを表示する接続プロパティ] をダブルクリックします。](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image4.png)
 
-**図 2**: クラス ビューの自動生成されたコードを表示する で、接続プロパティ をダブルクリック
+**図 2**: クラス ビューの自動生成されたコードを表示する] で、接続プロパティ] をダブルクリック
 
 
 TableAdapter の`Connection`プロパティおよびその他のコードの接続に関連する次のようにします。
@@ -93,7 +93,7 @@ S を拡張できるように、`ProductsTableAdapter`で、`Northwind`データ
 
 ![ConnectionAndCommandSettings をという名前のサブフォルダーを追加します。](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image5.png)
 
-**図 3**: という名前のサブフォルダーの追加`ConnectionAndCommandSettings`
+**図 3**: という名前のサブフォルダーの追加 `ConnectionAndCommandSettings`
 
 
 という新しいクラス ファイルを追加`ProductsTableAdapter.ConnectionAndCommandSettings.cs`し、次のコードを入力します。
@@ -129,7 +129,7 @@ TableAdapter s`Adapter`プロパティ型の 3 つのプロパティは、`SqlCo
 - `UpdateCommand`
 - `DeleteCommand`
 
-A`SqlCommand`オブジェクトは、データベースを特定のクエリを送信しなどのプロパティを持っている: [ `CommandText` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.commandtext.aspx)、アドホック SQL ステートメントまたは実行するストアド プロシージャが含まれていますと[ `Parameters`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.parameters.aspx)の集合である`SqlParameter`オブジェクト。 バックアップで示したように、[データ アクセス レイヤーを作成する](../introduction/creating-a-data-access-layer-cs.md)チュートリアルでは、このコマンドのプロパティ ウィンドウからオブジェクトをカスタマイズすることができます。
+A`SqlCommand`オブジェクトは、データベースを特定のクエリを送信しなどのプロパティを持っている: [ `CommandText` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.commandtext.aspx)、アドホック SQL ステートメントまたは実行するストアド プロシージャが含まれていますと[ `Parameters`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.parameters.aspx)の集合である`SqlParameter`オブジェクト。 バックアップで示したように、[データ アクセス レイヤーを作成する](../introduction/creating-a-data-access-layer-cs.md)チュートリアルでは、このコマンドのプロパティ] ウィンドウからオブジェクトをカスタマイズすることができます。
 
 TableAdapter のメインのクエリだけでなく、可変個のメソッドを含めることができます、呼び出されると、データベースへ指定したコマンドをディスパッチします。 メイン クエリのコマンド オブジェクトとすべての追加方法のコマンド オブジェクトが、tableadapter に格納されている`CommandCollection`プロパティです。
 
@@ -169,12 +169,12 @@ TableAdapter は、1 つだけがあるため`Connection`プロパティは、�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者が Burnadette Leigh、S ren 一 Lauritsen Teresa マーフィーと Hilton Geisenow 発生しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](working-with-computed-columns-cs.md)
-[次へ](protecting-connection-strings-and-other-configuration-information-cs.md)
+> [!div class="step-by-step"]
+> [前へ](working-with-computed-columns-cs.md)
+> [次へ](protecting-connection-strings-and-other-configuration-information-cs.md)

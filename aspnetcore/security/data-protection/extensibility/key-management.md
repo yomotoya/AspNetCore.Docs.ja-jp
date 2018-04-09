@@ -1,7 +1,7 @@
 ---
-title: "キー管理の機能拡張"
+title: ASP.NET Core のキー管理の拡張機能
 author: rick-anderson
-description: "このドキュメントでは、ASP.NET Core データ保護キーの管理の拡張性について説明します。"
+description: ASP.NET Core データ保護キーの管理の拡張性について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 11/22/2017
@@ -9,18 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: bcc4984efcee9a6ffd0f3b503a38089c78adf5e8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e3042b371cf7be8fa0218c1906042d2810b180e3
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-management-extensibility"></a>キー管理の機能拡張
+# <a name="key-management-extensibility-in-aspnet-core"></a>ASP.NET Core のキー管理の拡張機能
 
 <a name="data-protection-extensibility-key-management"></a>
 
 >[!TIP]
-> 読み取り、[キー管理](../implementation/key-management.md#data-protection-implementation-key-management)ようにこれらの Api の背後にある基本的な概念について説明します、このセクションを読む前にセクションです。
+> 読み取り、[キー管理](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management)ようにこれらの Api の背後にある基本的な概念について説明します、このセクションを読む前にセクションです。
 
 >[!WARNING]
 > 次のインターフェイスのいずれかを実装する型はスレッド セーフである必要があります複数の呼び出し元のです。
@@ -37,11 +37,11 @@ ms.lasthandoff: 03/02/2018
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-さらに、`IKey`公開、`CreateEncryptor`を作成するために使用するメソッド、 [IAuthenticatedEncryptor](core-crypto.md#data-protection-extensibility-core-crypto-iauthenticatedencryptor)インスタンスは、このキーに関連付けられています。
+さらに、`IKey`公開、`CreateEncryptor`を作成するために使用するメソッド、 [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor)インスタンスは、このキーに関連付けられています。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-さらに、`IKey`公開、`CreateEncryptorInstance`を作成するために使用するメソッド、 [IAuthenticatedEncryptor](core-crypto.md#data-protection-extensibility-core-crypto-iauthenticatedencryptor)インスタンスは、このキーに関連付けられています。
+さらに、`IKey`公開、`CreateEncryptorInstance`を作成するために使用するメソッド、 [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor)インスタンスは、このキーに関連付けられています。
 
 ---
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 03/02/2018
 
 実装で`GetAllKeys`、XML ドキュメントを表すキーおよび取り消した場合は、基になるから読み取ら`IXmlRepository`です。 これらのドキュメントが暗号化されている場合、システムは自動的に復号化にします。 `XmlKeyManager` 適切な作成`IAuthenticatedEncryptorDescriptorDeserializer`にドキュメントを逆シリアル化するインスタンスを戻します`IAuthenticatedEncryptorDescriptor`インスタンスで、個々 にラップし、`IKey`インスタンス。 このコレクションの`IKey`インスタンスが、呼び出し元に返されます。
 
-特定の XML 要素の詳細についてで参照できる、[キーの格納形式のドキュメント](../implementation/key-storage-format.md#data-protection-implementation-key-storage-format)です。
+特定の XML 要素の詳細についてで参照できる、[キーの格納形式のドキュメント](xref:security/data-protection/implementation/key-storage-format#data-protection-implementation-key-storage-format)です。
 
 ## <a name="ixmlrepository"></a>IXmlRepository
 
@@ -135,7 +135,7 @@ ms.lasthandoff: 03/02/2018
 
 実装`IXmlRepository`それらに渡される XML を解析する必要はありません。 上位のレイヤーを生成して、ドキュメントの解析について心配を非透過的に XML ドキュメントを扱うさせている必要があります。
 
-実装する 2 つの組み込み具象型がある`IXmlRepository`:`FileSystemXmlRepository`と`RegistryXmlRepository`です。 参照してください、[キー記憶域プロバイダーのドキュメント](../implementation/key-storage-providers.md#data-protection-implementation-key-storage-providers)詳細についてはします。 カスタムの登録`IXmlRepository`Azure Blob ストレージなど、各種のバッキング ストアを使用する適切な方法になります。
+実装する 2 つの組み込み具象型がある`IXmlRepository`:`FileSystemXmlRepository`と`RegistryXmlRepository`です。 参照してください、[キー記憶域プロバイダーのドキュメント](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers)詳細についてはします。 カスタムの登録`IXmlRepository`Azure Blob ストレージなど、各種のバッキング ストアを使用する適切な方法になります。
 
 アプリケーション全体の既定のリポジトリを変更するにはカスタム コントロールの登録`IXmlRepository`インスタンス。
 
@@ -169,7 +169,7 @@ ms.lasthandoff: 03/02/2018
 * `DpapiXmlEncryptor`
 * `NullXmlEncryptor`
 
-参照してください、 [rest ドキュメント キーの暗号化](../implementation/key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest)詳細についてはします。
+参照してください、 [rest ドキュメント キーの暗号化](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest)詳細についてはします。
 
 既定のキーの暗号化に rest メカニズム アプリケーション全体を変更するにはカスタム コントロールの登録`IXmlEncryptor`インスタンス。
 

@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
-title: "シングル サインオン (Azure と実際のクラウド アプリのビルド) |Microsoft ドキュメント"
+title: シングル サインオン (Azure と実際のクラウド アプリのビルド) |Microsoft ドキュメント
 author: MikeWasson
-description: "Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています."
+description: Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: b3640c94a8ae9ede330c0fe6a392acb5843cb65c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 82f2f99154d94074b03d580a0f491053d6f53bde
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>シングル サインオン (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -130,7 +130,7 @@ Azure アカウントに自動的に 1 つの Azure AD テナントがあるし�
 
 のみ、以降 Windows 2003 では、組織内の 1 つのドメイン コント ローラーでこれを実行する必要があるとします。 再起動する必要はありません。 完了したら、すべてのユーザーは、クラウドと行うことができますでのシングル サインオンから任意の web またはモバイル アプリケーション、SAML、OAuth、または Ws-fed を使用します。
 
-これは、セキュリティで保護する方法について尋ね場合があります: は Microsoft を使用して、自分の機密性の高いビジネス データのですか。 答えがはいの作業を行います。 内部の Microsoft SharePoint サイトにアクセスする場合など、 [https://microsoft.sharepoint.com/](https://microsoft.sharepoint.com/)にログインを要求を取得します。
+これは、セキュリティで保護する方法について尋ね場合があります: は Microsoft を使用して、自分の機密性の高いビジネス データのですか。 答えがはいの作業を行います。 内部の Microsoft SharePoint サイトにアクセスする場合など、 [ https://microsoft.sharepoint.com/](https://microsoft.sharepoint.com/)にログインを要求を取得します。
 
 ![Office 365 のサインイン](single-sign-on/_static/image20.png)
 
@@ -193,6 +193,6 @@ Azure AD の認証を使用するアプリをビルドする方法を示す完�
 - [Azure Active Directory Graph API のブログ](https://blogs.msdn.com/b/aadgraphteam/)です。
 - [アクセス制御では、BYOD とハイブリッド Id インフラストラクチャのディレクトリ統合](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/PCIT-B213#fbid=)です。 技術 Ed 2014 セッション ビデオ Gayana Bagdasaryan によってです。
 
->[!div class="step-by-step"]
-[前へ](web-development-best-practices.md)
-[次へ](data-storage-options.md)
+> [!div class="step-by-step"]
+> [前へ](web-development-best-practices.md)
+> [次へ](data-storage-options.md)

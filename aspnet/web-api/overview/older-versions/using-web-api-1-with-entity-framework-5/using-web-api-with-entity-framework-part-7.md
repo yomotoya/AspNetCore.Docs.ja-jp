@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
-title: "手順 7: 作成、メイン ページ |Microsoft ドキュメント"
+title: '手順 7: 作成、メイン ページ |Microsoft ドキュメント'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/04/2012
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 4d06e72bc664f707bbbe4603be41347158c58903
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2c378e68a1e6600daf655c19afbfe355e89496d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-7-creating-the-main-page"></a>手順 7: 作成、メイン ページ
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="creating-the-main-page"></a>メインの作成 ページ
 
@@ -59,13 +59,13 @@ ms.lasthandoff: 01/24/2018
 
 `OrderDetailsViewModel`は順序が初期化されて、サーバーに AJAX 要求を送信することによって、注文の詳細をフェッチとします。
 
-また、`total`プロパティを`OrderDetailsViewModel`です。 このプロパティは、監視対象と呼ばれる特殊な[観測可能なオブジェクトの計算](http://knockoutjs.com/documentation/computedObservables.html)です。 名前が示すように、計算観測可能なオブジェクトできます計算値 &#8212;へのデータ バインド。 この場合、注文のコストの合計。
+また、`total`プロパティを`OrderDetailsViewModel`です。 このプロパティは、監視対象と呼ばれる特殊な[観測可能なオブジェクトの計算](http://knockoutjs.com/documentation/computedObservables.html)です。 名前が示すように、計算の監視対象することができます、計算された値へのデータ バインド&#8212;ここでは、注文のコストの合計。
 
 これらの関数を次に、追加`AppViewModel`:
 
-- `resetCart`カートからすべての項目を削除します。
-- `getDetails`注文の詳細を取得 (によって、新しい pusing`OrderDetailsViewModel`上に、`details`リスト)。
-- `createOrder`新しい注文を作成し、カートを空にします。
+- `resetCart` カートからすべての項目を削除します。
+- `getDetails` 注文の詳細を取得 (によって、新しい pusing`OrderDetailsViewModel`上に、`details`リスト)。
+- `createOrder` 新しい注文を作成し、カートを空にします。
 
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample6.js?highlight=4)]
@@ -119,5 +119,5 @@ ms.lasthandoff: 01/24/2018
 - [ASP.NET データ アクセス コンテンツ マップ](https://msdn.microsoft.com/library/6759sth4.aspx)
 - [Entity Framework デベロッパー センター](https://msdn.microsoft.com/data/ef)
 
->[!div class="step-by-step"]
-[前へ](using-web-api-with-entity-framework-part-6.md)
+> [!div class="step-by-step"]
+> [前へ](using-web-api-with-entity-framework-part-6.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
-title: "データベースを作成する |Microsoft ドキュメント"
+title: データベースを作成する |Microsoft ドキュメント
 author: shanselman
-description: "これは、ASP.NET MVC の基本について説明する初心者向けチュートリアルです。 データベースから読み取り/書き込みする単純な web アプリケーションを作成します。"
+description: これは、ASP.NET MVC の基本について説明する初心者向けチュートリアルです。 データベースから読み取り/書き込みする単純な web アプリケーションを作成します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
 msc.type: authoredcontent
-ms.openlocfilehash: 22f1042555d7cdd0ca8d75f1cbde65fbb65d81cc
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ff2a41803cd31ce50bbf79e630d827b6de441ba3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-database"></a>データベースを作成します。
 ====================
@@ -87,6 +87,6 @@ ms.lasthandoff: 01/30/2018
 
 ここで、いくつかの実際のデータを操作できます。
 
->[!div class="step-by-step"]
-[前へ](getting-started-with-mvc-part3.md)
-[次へ](getting-started-with-mvc-part5.md)
+> [!div class="step-by-step"]
+> [前へ](getting-started-with-mvc-part3.md)
+> [次へ](getting-started-with-mvc-part5.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-7
-title: "Create View (UI) |Microsoft ドキュメント"
+title: Create View (UI) |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 8c5cc662e2e3c9cb07ca9e30ff57eb084d58e1bb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5052d7cca4a5c12a9ea56eb929d4794b19e82603
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-the-view-ui"></a>ビュー (UI) を作成します。
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 このセクションで、アプリの HTML を定義し、HTML ビューとモデルとの間のデータ バインディングの追加を開始します。
 
@@ -32,7 +32,7 @@ Views/Home/Index.cshtml ファイルを開きます。 次のように、その�
 
 ほとんどの`div`の要素がある[ブートス トラップ](http://getbootstrap.com/)のスタイルを設定します。 重要な要素のものである`data-bind`属性。 この属性は、HTML をビュー モデルにリンクします。
 
-例:
+例えば:
 
 [!code-html[Main](part-7/samples/sample2.html)]
 
@@ -42,7 +42,7 @@ Views/Home/Index.cshtml ファイルを開きます。 次のように、その�
 
 新しい値を代入するときに`error`、Knockout 内のテキストを更新する、`<p>`要素。
 
-`foreach`バインディング通知の内容をループする Knockout、`books`配列。 Knockout、配列内の各項目の新規作成&lt;li&gt;要素。 コンテキスト内のバインド、`foreach`配列項目のプロパティを参照してください。 例:
+`foreach`バインディング通知の内容をループする Knockout、`books`配列。 Knockout、配列内の各項目の新規作成&lt;li&gt;要素。 コンテキスト内のバインド、`foreach`配列項目のプロパティを参照してください。 例えば:
 
 [!code-html[Main](part-7/samples/sample4.html)]
 
@@ -54,6 +54,6 @@ Views/Home/Index.cshtml ファイルを開きます。 次のように、その�
 
 書籍の一覧は、ページが読み込まれると、非同期的に読み込みます。 今すぐ、&quot;詳細&quot;リンクは機能しません。 次のセクションでこの機能を追加します。
 
->[!div class="step-by-step"]
-[前へ](part-6.md)
-[次へ](part-8.md)
+> [!div class="step-by-step"]
+> [前へ](part-6.md)
+> [次へ](part-8.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
-title: "Web 配置を Team Foundation Server の構成 |Microsoft ドキュメント"
+title: Web 配置を Team Foundation Server の構成 |Microsoft ドキュメント
 author: jrjlee
-description: "このチュートリアルでは、ソリューションをビルドし、web コンテンツをさまざまなターゲット環境に配置を Team Foundation Server (TFS) 2010 を構成する方法を示します。 これ。。。"
+description: このチュートリアルでは、ソリューションをビルドし、web コンテンツをさまざまなターゲット環境に配置を Team Foundation Server (TFS) 2010 を構成する方法を示します。 これ。。。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 72f60841a1381380c0ea6167077420f960180dc7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c4cfac333c9400d9ee613ba88520b0b0439873f5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-team-foundation-server-for-web-deployment"></a>Web 配置を Team Foundation Server を構成します。
 ====================
@@ -39,9 +39,9 @@ ms.lasthandoff: 03/15/2018
 
 ## <a name="context"></a>コンテキスト
 
-これが、エンタープライズ展開の要件に基づいて Fabrikam, Inc. という架空の会社のチュートリアルの一連の一部を形成します。このチュートリアルのシリーズを使用してサンプル ソリューション & #x 2014;、[連絡先のマネージャー](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)複雑さ、ASP.NET MVC 3 アプリケーション、Windows などの現実的なレベルで web アプリケーションを表すためには、ソリューション & #x 2014;Communication Foundation (WCF) サービスとデータベース プロジェクト。
+これが、エンタープライズ展開の要件に基づいて Fabrikam, Inc. という架空の会社のチュートリアルの一連の一部を形成します。このチュートリアルの一連のサンプル ソリューションを使用する&#x2014;、[連絡先のマネージャー](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)ソリューション&#x2014;現実的な ASP.NET MVC 3 アプリケーション、Windows Communication も含め、複雑さのレベルを持つ web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
-説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[ビルド プロセスの理解](../web-deployment-in-the-enterprise/understanding-the-build-process.md)、によって制御されるビルド プロセスで 2 つのプロジェクト ファイル & #x 2014; 1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[ビルド プロセスの理解](../web-deployment-in-the-enterprise/understanding-the-build-process.md)、によって制御されるビルド プロセスでは、2 つのプロジェクト ファイル&#x2014;1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
 
 ## <a name="scenario-overview"></a>シナリオの概要
 
@@ -77,5 +77,5 @@ ms.lasthandoff: 03/15/2018
 - [Web 配置のサーバー環境を構成する](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)です。 このチュートリアルでは、Web Deployment Agent サービス (リモート エージェント) または Web デプロイのハンドラーおよびリモートのデータベースの配置を使用してリモートの web パッケージの配置を含むさまざまな展開シナリオをサポートする Windows サーバーを構成する方法について説明します。 ご使用の環境の適切な展開方法を選択するためのガイダンスを提供し、Web Farm Framework (WFF) を使用して、サーバー ファーム内のすべての web サーバー経由で展開された web アプリケーションをレプリケートする方法について説明します。
 - [企業の Web 配置を高度な](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md)します。 このチュートリアルは複数の環境のデータベースの配置をカスタマイズする、ファイルとフォルダーの展開から除外および展開プロセス中に web アプリケーションをオフラインにするなどのさまざまな高度な展開タスクを実行する方法を説明します.
 
->[!div class="step-by-step"]
-[次へ](creating-a-team-project-in-tfs.md)
+> [!div class="step-by-step"]
+> [次へ](creating-a-team-project-in-tfs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
-title: "ストアド プロシージャ (VB) のデバッグ |Microsoft ドキュメント"
+title: ストアド プロシージャ (VB) のデバッグ |Microsoft ドキュメント
 author: rick-anderson
-description: "Visual Studio Professional edition および Team System edition を使用すると、ブレークポイントを設定し、SQL Server のストアド プロシージャにステップで、格納されているにデバッグする."
+description: Visual Studio Professional edition および Team System edition を使用すると、ブレークポイントを設定し、SQL Server のストアド プロシージャにステップで、格納されているにデバッグする.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ad09847d828d02019a72e3022d035a8fbe921568
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3391a78eaeb0add46e75048069a614ba00628f67
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="debugging-stored-procedures-vb"></a>ストアド プロシージャ (VB) のデバッグ
 ====================
@@ -167,7 +167,7 @@ SQL Server データベース インスタンスが Visual Studio と同じコ�
 
 2 番目のタスクでは、アプリケーションのデバッグを使用する Windows ユーザー アカウントがリモート データベースで有効なログインである必要があります。 ただしでワークステーションにログオンした Windows アカウントが SQL Server 上の有効なログインが高くなります。 SQL Server に、特定のログイン アカウントを追加するのではなく、SQL Server デバッグ アカウントとしてその Windows ユーザー アカウントを指定する方が適切になります。 次に、リモートの SQL Server インスタンスのデータベース オブジェクトをデバッグするには、その Windows ログイン アカウントの資格情報を使用して Visual Studio を実行します。
 
-例は、点をわかりやすくなります。 という名前の Windows アカウントがあることを想像`SQLDebug`Windows ドメイン内で。 このアカウントは有効なログインおよびのメンバーとして、リモートの SQL Server インスタンスに追加する必要があります、`sysadmin`ロール。 次に、Visual Studio からリモートの SQL Server インスタンスをデバッグするには必要がありますとして Visual Studio を実行する、`SQLDebug`ユーザー。 これは、弊社のワークステーションからログに記録としてのログ バックアップで行うことが`SQLDebug`、独自の資格情報を使用して、ワークステーションにログインし、使用することが、Visual Studio で、簡単な方法を起動および`runas.exe`として Visual Studio を起動する、`SQLDebug`ユーザー。 `runas.exe`別のユーザー アカウントの装ってで実行される特定のアプリケーションを許可します。 Visual Studio を起動する`SQLDebug`コマンドラインで次のステートメントを入力する可能性があります。
+例は、点をわかりやすくなります。 という名前の Windows アカウントがあることを想像`SQLDebug`Windows ドメイン内で。 このアカウントは有効なログインおよびのメンバーとして、リモートの SQL Server インスタンスに追加する必要があります、`sysadmin`ロール。 次に、Visual Studio からリモートの SQL Server インスタンスをデバッグするには必要がありますとして Visual Studio を実行する、`SQLDebug`ユーザー。 これは、弊社のワークステーションからログに記録としてのログ バックアップで行うことが`SQLDebug`、独自の資格情報を使用して、ワークステーションにログインし、使用することが、Visual Studio で、簡単な方法を起動および`runas.exe`として Visual Studio を起動する、`SQLDebug`ユーザー。 `runas.exe` 別のユーザー アカウントの装ってで実行される特定のアプリケーションを許可します。 Visual Studio を起動する`SQLDebug`コマンドラインで次のステートメントを入力する可能性があります。
 
 
 [!code-console[Main](debugging-stored-procedures-vb/samples/sample2.cmd)]
@@ -190,8 +190,8 @@ Visual Studio は、.NET アプリケーションのコードのデバッグの�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[前へ](protecting-connection-strings-and-other-configuration-information-vb.md)
-[次へ](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb.md)
+> [!div class="step-by-step"]
+> [前へ](protecting-connection-strings-and-other-configuration-information-vb.md)
+> [次へ](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb.md)

@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
-title: "障害 (Azure と実際のクラウド アプリのビルド) にも対処デザイン |Microsoft ドキュメント"
+title: 障害 (Azure と実際のクラウド アプリのビルド) にも対処デザイン |Microsoft ドキュメント
 author: MikeWasson
-description: "Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています."
+description: Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: 62a16e9a99cd1298b0db5f8099092212f9f6850b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 01883cb0be3e7c7b5dc8d32b784ccb3a28652f1e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>障害 (Azure と実際のクラウド アプリのビルド) にも対処デザインします。
 ====================
@@ -131,6 +131,6 @@ Sla で表示している場合を考慮して、重要な点は、個別の SLA
 - [フェール セーフ: スケーラブル、かつ回復力のクラウド サービスの構築](https://channel9.msdn.com/Series/FailSafe)です。 Ulrich Homann、Marc Mercuri、Mark Simms、系列を 9 つの部分で構成します。 実際のお客様と Microsoft Customer ・ Advisory Team (CAT) エクスペリエンスから抽出されたストーリーで非常にアクセス可能な興味深い方法で高度な概念とアーキテクチャの原則を説明します。 1 から 8 のエピソード数は、障害にも対処クラウド アプリをデザインする理由に徹底的に移動します。 49:57、障害点と障害モード 56:05、始まるエピソード 2 での説明およびブレーカー 40:55 始まるエピソード 3 での説明で 2 回の起動に制限のフォロー アップの説明を参照してください。
 - [構築 Big: Azure のお客様のパート II から学んだ教訓](https://channel9.msdn.com/Events/Build/2012/3-030)です。 Mark Simms は、エラーのための設計と、すべてのインストルメント化について説明します。 フェール セーフ系列の詳細の操作方法に関する詳細情報になるに似ています。
 
->[!div class="step-by-step"]
-[前へ](unstructured-blob-storage.md)
-[次へ](monitoring-and-telemetry.md)
+> [!div class="step-by-step"]
+> [前へ](unstructured-blob-storage.md)
+> [次へ](monitoring-and-telemetry.md)

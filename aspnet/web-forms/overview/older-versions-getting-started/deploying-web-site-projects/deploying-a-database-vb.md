@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-vb
-title: "データベース (VB) を展開する |Microsoft ドキュメント"
+title: データベース (VB) を展開する |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET web アプリケーションを配置するには、開発環境から運用環境に必要なファイルとリソースを取得する必要があります。 Da しています."
+description: ASP.NET web アプリケーションを配置するには、開発環境から運用環境に必要なファイルとリソースを取得する必要があります。 Da しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b0890d50f21eb790d81d54261a67fcf487b1c95e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 024a34c1b2e37e60e6777dd54dcbd9aa845ec749
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-a-database-vb"></a>データベース (VB) の配置
 ====================
@@ -41,10 +41,10 @@ ASP.NET web アプリケーションを配置するには、開発環境から�
 
 `Reviews.mdf`データベースには、4 つのテーブルが含まれています。
 
-- `Genres`-各ジャンル、テクノロジ、架空の状態、およびビジネスなどのレコードが含まれています。
-- `Books`-のように列を含む、各レビューのためのレコードが含まれています`Title`、 `GenreId`、 `ReviewDate`、および`Review`、その他。
-- `Authors`-確認済みのブックへの投稿者の各作成者に関する情報が含まれています。
-- `BooksAuthors`-どの作成者は、どのようなブックを記述したを指定する多対多の結合テーブルです。
+- `Genres` -各ジャンル、テクノロジ、架空の状態、およびビジネスなどのレコードが含まれています。
+- `Books` -のように列を含む、各レビューのためのレコードが含まれています`Title`、 `GenreId`、 `ReviewDate`、および`Review`、その他。
+- `Authors` -確認済みのブックへの投稿者の各作成者に関する情報が含まれています。
+- `BooksAuthors` -どの作成者は、どのようなブックを記述したを指定する多対多の結合テーブルです。
   
 
 図 1 は、これら 4 つのテーブルの ER ダイアグラムを示します。
@@ -180,7 +180,7 @@ SSMS を起動し、web ホスト プロバイダーによって提供される�
 
 この時点で実稼働環境にのみ、開発用データベースを配置おがします。 おされていない自体、web アプリケーションの展開を調べることも、実稼働データベースを使用して実稼働環境でアプリケーションに必要な構成変更内容を確認します。 次のチュートリアルでは、これらの問題を説明します。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 データ ドリブン web アプリケーションを配置するには、開発時に、実稼働環境に使用するデータベースをコピーする必要があります。 多くの web ホスト プロバイダーは、データベースの配置のプロセスを簡略化するためのツールを提供します。 たとえば、DiscountASP.NET データベース FTP できます`.mdf`ファイル (またはバックアップ) とデータベース サーバーに、コントロール パネルからデータベースをアタッチします。 どのような機能に関係なく動作する別のオプション、web ホスト プロバイダーの提供は、開発データベース %s のスキーマとデータを作成するための SQL コマンドのスクリプトを生成する Microsoft の Database Publishing Wizard ツールです。 このスクリプトが生成されたら、実稼働データベースで実行することはできます。
 
@@ -195,6 +195,6 @@ SSMS を起動し、web ホスト プロバイダーによって提供される�
 - [Microsoft SQL Server Database Publishing Wizard 1.1 のダウンロードします。](https://www.microsoft.com/downloads/details.aspx?familyid=56E5B1C5-BF17-42E0-A410-371A838E570A&amp;displaylang=en)
 - [Microsoft SQL Server Management Studio の Express Edition をダウンロードします。](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en)
 
->[!div class="step-by-step"]
-[前へ](core-differences-between-iis-and-the-asp-net-development-server-vb.md)
-[次へ](configuring-the-production-web-application-to-use-the-production-database-vb.md)
+> [!div class="step-by-step"]
+> [前へ](core-differences-between-iis-and-the-asp-net-development-server-vb.md)
+> [次へ](configuring-the-production-web-application-to-use-the-production-database-vb.md)

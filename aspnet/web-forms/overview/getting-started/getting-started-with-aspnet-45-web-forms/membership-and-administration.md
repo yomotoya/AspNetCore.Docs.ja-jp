@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
-title: "メンバーシップと管理 |Microsoft ドキュメント"
+title: メンバーシップと管理 |Microsoft ドキュメント
 author: Erikre
-description: "このチュートリアルの系列では、お用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルの系列では、お用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
-ms.openlocfilehash: a10dbfe1ca49baee1604aac8dd9a1f93ccfcb7f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 166bc642ea2083f455be0648e424f0b0ae3b082c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="membership-and-administration"></a>メンバーシップと管理
 ====================
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/10/2017
 
 - ASP.NET Identity
 - 構成と承認
-- モデル バインディング
+- モデル バインド
 - 控えめな検証
 
 ASP.NET Web フォームでは、メンバーシップ機能を提供します。 既定のテンプレートを使用するには、アプリケーションの実行時にすぐに使用できる組み込みのメンバーシップ機能があります。 このチュートリアルでは、ASP.NET Identity を使用してカスタム ロールを追加し、そのロールにユーザーを割り当てる方法を示します。 管理フォルダーへのアクセスを制限する方法を学習します。 カスタム ロールを持つユーザーを追加および削除の製品、および追加された後に製品をプレビューする管理フォルダーには、ページを追加します。
@@ -66,14 +66,14 @@ ASP.NET の Id を使用して、カスタム ロールを追加してコード�
 
     [!code-csharp[Main](membership-and-administration/samples/sample2.cs?highlight=11,26-28)]
 6. 注意して`AddUserAndRole`赤い下線が引かれます。 AddUserAndRole コードをダブルクリックします。  
- 強調表示されているメソッドの先頭に文字"A"は下線が表示されます。
+   強調表示されているメソッドの先頭に文字"A"は下線が表示されます。
 7. 文字"A"ポインターを合わせるし、UI のメソッド スタブを生成できるようにする をクリックして、`AddUserAndRole`メソッドです。 
 
     ![メンバーシップと Advministration - メソッド スタブを生成します。](membership-and-administration/_static/image1.png)
 8. という名前のオプションをクリックします。  
     `Generate method stub for "AddUserAndRole" in "WingtipToys.Logic.RoleActions"`
 9. 開く、 *RoleActions.cs*ファイルから、*ロジック*フォルダーです。  
- `AddUserAndRole`メソッドがクラス ファイルに追加されました。
+   `AddUserAndRole`メソッドがクラス ファイルに追加されました。
 10. 変更、 *RoleActions.cs*ファイルを削除することによって、`NotImplementedeException`し、次のように表示されるように、黄色で強調表示されているコードを追加します。  
 
     [!code-csharp[Main](membership-and-administration/samples/sample3.cs?highlight=5-7,15-51)]
@@ -120,8 +120,8 @@ Wingtip Toys のサンプル アプリケーションは、匿名ユーザーと
 1. プロジェクト名を右クリックして (**Wingtip Toys**) で**ソリューション エクスプ ローラー**選択**追加** - &gt; **の新しいフォルダー**.
 2. 新しいフォルダーの名前を付けます*Admin*です。
 3. 右クリックし、 *Admin*クリックしてフォルダー**追加** - &gt; **新しい項目の**します。   
- **[新しい項目の追加]** ダイアログ ボックスが表示されます。
-4. 選択、 **Visual c#** - &gt; **Web**左側のテンプレートのグループです。 中央のリストから選択**マスター ページを含む Web フォーム**、名前を付けます*AdminPage.aspx***、**し、**追加**です。
+   **[新しい項目の追加]** ダイアログ ボックスが表示されます。
+4. 選択、 <strong>Visual c#</strong> - &gt; <strong>Web</strong>左側のテンプレートのグループです。 中央のリストから選択<strong>マスター ページを含む Web フォーム</strong>、名前を付けます<em>AdminPage.aspx</em><strong>、</strong>し、<strong>追加</strong>です。
 5. 選択、 *Site.Master*クリックしてファイルをマスター ページとして**OK**です。
 
 #### <a name="add-a-webconfig-file"></a>Web.config ファイルを追加します。
@@ -129,8 +129,8 @@ Wingtip Toys のサンプル アプリケーションは、匿名ユーザーと
 追加することによって、 *Web.config*ファイルの名前を*Admin*フォルダー、フォルダー内のページにアクセスを制限することができます。
 
 1. 右クリックし、 *Admin*フォルダーと選択**追加** - &gt; **新しい項目の**します。  
- **[新しい項目の追加]** ダイアログ ボックスが表示されます。
-2. 、Visual c# web テンプレートの一覧から選択**Web 構成ファイル**中央のリストからの既定の名前を受け入れる*Web.config***、**し、 **追加**です。
+   **[新しい項目の追加]** ダイアログ ボックスが表示されます。
+2. 、Visual c# web テンプレートの一覧から選択<strong>Web 構成ファイル</strong>中央のリストからの既定の名前を受け入れる<em>Web.config</em><strong>、</strong>し、 <strong>追加</strong>です。
 3. 既存の XML の内容を置き換える、 *Web.config*を次のファイル。  
 
     [!code-xml[Main](membership-and-administration/samples/sample4.xml)]
@@ -167,9 +167,9 @@ Wingtip Toys のサンプル アプリケーションは、匿名ユーザーと
 に対して入力したコードで、 *AdminPage.aspx.cs*分離コード ファイルと呼ばれるクラス`AddProducts`データベースに製品の追加の実際の作業です。 このクラスは、今すぐ作成は、まだ、存在しません。
 
 1. **ソリューション エクスプ ローラー**を右クリックし、*ロジック*クリックしてフォルダー**追加** - &gt; **新しい項目の**します。   
- **[新しい項目の追加]** ダイアログ ボックスが表示されます。
+   **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 2. 選択、 **Visual c#**  - &gt; **コード**左側のテンプレートのグループです。 次に、選択**クラス**中央から一覧表示し、名前を付けます*AddProducts.cs*です。   
- 新しいクラス ファイルが表示されます。
+   新しいクラス ファイルが表示されます。
 3. 既存のコードを次のコードに置き換えます。  
 
     [!code-csharp[Main](membership-and-administration/samples/sample9.cs)]
@@ -192,7 +192,7 @@ Wingtip Toys のサンプル アプリケーションは、匿名ユーザーと
 
 追加しただけでなく、入力との検証コントロール、**ファイルアップロード**コントロールを*AdminPage.aspx*ページ。 このコントロールは、ファイルをアップロードする機能を提供します。 この場合、のみを許可するイメージ ファイルをアップロードします。 分離コード ファイル内 (*AdminPage.aspx.cs*)、ときに、`AddProductButton`がクリックすると、コードのチェック、`HasFile`のプロパティ、**ファイルアップロード**コントロール。 コントロールにファイルがあると、イメージに保存 (ファイル拡張子に基づいた) ファイルの種類が許可された場合、*イメージ*フォルダーおよび*イメージ/親指*アプリケーションのフォルダーです。
 
-#### <a name="model-binding"></a>モデル バインディング
+#### <a name="model-binding"></a>モデル バインド
 
 このチュートリアルの系列で前を設定するモデル バインドを使用して、 **ListView**コントロール、 **FormsView**コントロール、 **GridView**コントロール、および**DetailView**コントロール。 このチュートリアルではモデル バインディングを使用する設定、 **DropDownList**製品カテゴリの一覧を制御します。
 
@@ -235,15 +235,15 @@ Wingtip Toys のサンプル アプリケーションは、匿名ユーザーと
 今すぐアプリケーションを追加する方法を表示、削除、および更新アイテムは、ショッピング カートで実行できます。 ショッピング カートの合計金額、ショッピング カート内のすべての項目の総コストが反映されます。
 
 1. ソリューション エクスプ ローラーでキーを押して**f5 キーを押して**Wingtip Toys サンプル アプリケーションを実行します。  
- ブラウザーが開き、表示、 *Default.aspx*ページ。
+   ブラウザーが開き、表示、 *Default.aspx*ページ。
 2. クリックして、**ログイン**ページの上部にあるリンクします。 
 
     ![メンバーシップと管理 - ログイン リンク](membership-and-administration/_static/image2.png)
 
- *Login.aspx*ページが表示されます。
+   *Login.aspx*ページが表示されます。
 3. 次のユーザー名とパスワードを使用します。  
- ユーザー名:canEditUser@wingtiptoys.com  
- パスワード: Pa $word1 
+   ユーザー名: canEditUser@wingtiptoys.com  
+   Password: Pa$$word1 
 
     ![メンバーシップと管理 - ログイン ページ](membership-and-administration/_static/image3.png)
 4. クリックして、**ログイン**ページの下部にあるボタンをクリックします。
@@ -254,7 +254,7 @@ Wingtip Toys のサンプル アプリケーションは、匿名ユーザーと
 
     ![メンバーシップと管理 - [管理] ページ](membership-and-administration/_static/image5.png)
 
- 必須フィールドのメッセージが表示されることに注意してください。
+   必須フィールドのメッセージが表示されることに注意してください。
 7. 新しい製品では、詳細を追加して、をクリックして、**製品の追加**ボタンをクリックします。 
 
     ![メンバーシップと管理 - 製品を追加します。](membership-and-administration/_static/image6.png)
@@ -268,19 +268,19 @@ Wingtip Toys のサンプル アプリケーションは、匿名ユーザーと
     ![メンバーシップと管理 - 削除製品](membership-and-administration/_static/image8.png)
 12. 選択**製品**製品が削除されたことを確認する、上部のナビゲーション メニューからです。
 13. をクリックして**ログオフ**管理モードが存在します。   
- 上部のナビゲーション ウィンドウは表示されなくなりますに注意してください、 **Admin**メニュー項目。
+    上部のナビゲーション ウィンドウは表示されなくなりますに注意してください、 **Admin**メニュー項目。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、カスタムのロールとカスタムのロール ページで、管理フォルダーへのアクセス制限に属しているユーザーを追加し、カスタムのロールに属しているユーザーのナビゲーションを指定しました。 モデル バインディングの設定に使用する、 **DropDownList**コントロールにデータ。 実装する、**ファイルアップロード**コントロールと検証コントロール。 また、追加し、データベースから製品を削除する方法を学習しました。 次のチュートリアルでは、ASP.NET のルーティングを実装する方法を学習します。
 
 ## <a name="additional-resources"></a>その他のリソース
 
 [Web.config で承認要素](https://msdn.microsoft.com/library/8d82143t(v=vs.100).aspx)  
-[ASP.NET Id](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
+[ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
 [Azure の Web サイトにメンバーシップ、OAuth、SQL データベースでのセキュリティで保護された ASP.NET Web フォーム アプリケーションを展開します。](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
 [Microsoft Azure の無料試用版](https://azure.microsoft.com/pricing/free-trial/)
 
->[!div class="step-by-step"]
-[前へ](checkout-and-payment-with-paypal.md)
-[次へ](url-routing.md)
+> [!div class="step-by-step"]
+> [前へ](checkout-and-payment-with-paypal.md)
+> [次へ](url-routing.md)

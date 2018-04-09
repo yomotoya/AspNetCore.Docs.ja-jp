@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
-title: "ASP.NET AJAX UpdatePanel トリガーについて |Microsoft ドキュメント"
+title: ASP.NET AJAX UpdatePanel トリガーについて |Microsoft ドキュメント
 author: scottcate
-description: "Visual Studio でのマークアップ エディターで作業しているときにすることがありますに注意してください (IntelliSense) から UpdatePanel コントロールの 2 つの子要素があります。 Wh のいずれかを指定しています."
+description: Visual Studio でのマークアップ エディターで作業しているときにすることがありますに注意してください (IntelliSense) から UpdatePanel コントロールの 2 つの子要素があります。 Wh のいずれかを指定しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/12/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
-ms.openlocfilehash: 1338ef0763d9bfab451bc30cafa39f715200153d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f30f2ead402d2f49a89b2caf47cc30b6445d4cfb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>ASP.NET AJAX UpdatePanel トリガーをについてください。
 ====================
@@ -59,8 +59,8 @@ Visual Studio でのマークアップ エディターで作業していると�
 
 | **タグ** | **説明** |
 | --- | --- |
-| &lt;asp: AsyncPostBackTrigger&gt; | コントロールとこのトリガーの参照を含む UpdatePanel、部分ページ更新が発生するイベントを指定します。 |
-| &lt;asp: PostBackTrigger&gt; | コントロールと完全のページ更新 (ページ全体の更新) が発生するイベントを指定します。 このタグは、コントロールでは、部分的なレンダリングは、それ以外の場合と、フル更新を強制するために使用します。 |
+| &lt;asp:AsyncPostBackTrigger&gt; | コントロールとこのトリガーの参照を含む UpdatePanel、部分ページ更新が発生するイベントを指定します。 |
+| &lt;asp:PostBackTrigger&gt; | コントロールと完全のページ更新 (ページ全体の更新) が発生するイベントを指定します。 このタグは、コントロールでは、部分的なレンダリングは、それ以外の場合と、フル更新を強制するために使用します。 |
 
 ## <a name="walkthrough-cross-updatepanel-triggers"></a>*チュートリアル: クロス UpdatePanel トリガー*
 
@@ -85,7 +85,7 @@ Visual Studio でのマークアップ エディターで作業していると�
 ([フルサイズのイメージを表示するをクリックして](understanding-asp-net-ajax-updatepanel-triggers/_static/image3.png))
 
 
-## <a name="under-the-hood"></a>*実際には*
+## <a name="under-the-hood"></a>*内部的な処理*
 
 作成したばかりの例を使用して、ASP.NET AJAX を実行して内容と、UpdatePanel クロス パネル トリガーのしくみを見て取得ことができます。 HTML、生成されたページのソースと同様、FireBug - と呼ばれる、Mozilla Firefox 拡張機能させるため AJAX ポストバックを簡単に確認できます。 Lutz Roeder によって .NET Reflector ツールを使ってもします。 これらのツールの両方の自由に利用可能なオンラインでは、インターネットの検索で検出できます。
 
@@ -141,7 +141,7 @@ UpdatePanel が示されるが、サーバー側の AJAX コードを ScriptMana
 
 これは、必要がありますで指摘、ただし、いたは初期化されているページ内で時間\_Load イベント時間とがインクリメント正しくです。 その結果、開発者を適切なイベント ハンドラーの中に適切なコードが実行されていることに注意してページの使用を避ける\_コントロールのイベント ハンドラーが適切ながある場合にロードします。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ASP.NET AJAX 拡張機能の UpdatePanel コントロールは汎用性の数を更新することが原因となる必要がありますコントロール イベントを識別するためのメソッドを利用できます。 子コントロールをによって自動的に更新されるをサポートしていますが、ページ上のコントロールのイベントにも応答できます。
 
@@ -151,10 +151,10 @@ ASP.NET AJAX 拡張機能の UpdatePanel コントロールは汎用性の数を
 
 ## <a name="bio"></a>略歴
 
-Rob Paveza Terralever 上級の .NET アプリケーション開発者は、([www.terralever.com](http://www.terralever.com))、Tempe 弊社はアリゾナ州でマーケティング会社の主要な対話型 彼に到達できる[ robpaveza@gmail.com ](mailto:robpaveza@gmail.com)、彼のブログにあると[http://geekswithblogs.net/robp/](http://geekswithblogs.net/robp/)です。
+Rob Paveza Terralever 上級の .NET アプリケーション開発者は、([www.terralever.com](http://www.terralever.com))、Tempe 弊社はアリゾナ州でマーケティング会社の主要な対話型 彼に到達できる[ robpaveza@gmail.com ](mailto:robpaveza@gmail.com)、彼のブログにあると[ http://geekswithblogs.net/robp/](http://geekswithblogs.net/robp/)です。
 
 Scott カテゴリは、1997 年以降の Microsoft の Web テクノロジの使用されているがあり、myKB.com の代表者 ([www.myKB.com](http://www.myKB.com))、専門分野は、ASP.NET の書き込みの際にベースのアプリケーションのナレッジ ベースのソフトウェア ソリューションに重点を置きます。 Scott が接続時に電子メール[ scott.cate@myKB.com ](mailto:scott.cate@myKB.com)または彼のブログで[ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[前へ](understanding-partial-page-updates-with-asp-net-ajax.md)
-[次へ](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
+> [!div class="step-by-step"]
+> [前へ](understanding-partial-page-updates-with-asp-net-ajax.md)
+> [次へ](understanding-asp-net-ajax-authentication-and-profile-application-services.md)

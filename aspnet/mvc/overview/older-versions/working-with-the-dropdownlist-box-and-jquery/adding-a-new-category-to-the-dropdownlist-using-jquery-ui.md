@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
-title: "JQuery UI を使用した DropDownList に新しいカテゴリを追加する |Microsoft ドキュメント"
+title: JQuery UI を使用した DropDownList に新しいカテゴリを追加する |Microsoft ドキュメント
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: de661616ff3ca83052ae74d3ae6810d014aff764
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16f7af1d679aace24fff86abb19740beebafe785
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-category-to-the-dropdownlist-using-jquery-ui"></a>JQuery UI を使用した DropDownList に新しいカテゴリを追加します。
 ====================
@@ -36,7 +36,7 @@ HTML`Select`タグが固定のカテゴリのデータの一覧を表示する�
 2. JavaScript では、選択リストに新しいジャンル データを追加します。
 3. JavaScript は、選択した項目を新しいジャンルになります。
 
- 下の画像で**Opera**データベースに追加されで選択されている、**ジャンル**ドロップ ダウン リスト。 
+   下の画像で**Opera**データベースに追加されで選択されている、**ジャンル**ドロップ ダウン リスト。 
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image3.png)
 
@@ -60,7 +60,7 @@ ID を持つ非表示の div を作成`genreDialog`です。 JQuery を使用し
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image4.png)
 
-クリックして、**保存**ボタンをクリックします。 AJAX 呼び出しは Opera カテゴリを作成およびし、Opera、ドロップダウン リストを設定し、選択したジャンルとして Opera を設定します。
+**[保存]** ボタンをクリックします。 AJAX 呼び出しは Opera カテゴリを作成およびし、Opera、ドロップダウン リストを設定し、選択したジャンルとして Opera を設定します。
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image5.png)
 
@@ -102,7 +102,7 @@ JQuery`$.post`線は、action 属性への AJAX 呼び出しを作成 (`/StoreMa
 3. [検索] ボックスで、GenreID を入力します。
 4. [次へ] のアイコンを使用   
     ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image9.png)  
- 次の select タグに移動します。
+   次の select タグに移動します。
 
     [!code-html[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample9.html)]
 5. 最後のオプションの値を展開します。
@@ -141,5 +141,5 @@ Rick.Anderson[at]Microsoft.com
 - Mike 教皇
 - Tom Dykstra
 
->[!div class="step-by-step"]
-[前へ](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
+> [!div class="step-by-step"]
+> [前へ](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)

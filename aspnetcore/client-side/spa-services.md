@@ -1,7 +1,7 @@
 ---
-title: "JavaScriptServices を使用して ASP.NET Core の単一ページ アプリケーションを作成するには"
+title: JavaScriptServices を使用して ASP.NET Core の単一ページ アプリケーションを作成するには
 author: scottaddie
-description: "ASP.NET Core 裏付け単一ページ アプリケーション (SPA) を作成する JavaScriptServices を使用する利点について説明します。"
+description: ASP.NET Core 裏付け単一ページ アプリケーション (SPA) を作成する JavaScriptServices を使用する利点について説明します。
 manager: wpickett
 ms.author: scaddie
 ms.custom: H1Hack27Feb2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: c962fc160cf39ad1c69f4269616c993fde420035
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 05b0d7f31e167e620f2d168109ffd907ba120a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>JavaScriptServices を使用して ASP.NET Core の単一ページ アプリケーションを作成するには
 
@@ -62,7 +62,7 @@ SpaServices は、次のような便利インフラストラクチャを提供�
 
 SpaServices を操作するには次のようにインストールします。
 * [Node.js](https://nodejs.org/) (version 6 以降) npm で
-    * これらのコンポーネントがインストールされているし、見つかることを確認するには、コマンドラインから、次を実行します。
+  * これらのコンポーネントがインストールされているし、見つかることを確認するには、コマンドラインから、次を実行します。
 
     ```console
     node -v && npm -v
@@ -70,8 +70,9 @@ SpaServices を操作するには次のようにインストールします。
 
 注: を Azure の web サイトに配置する場合は、する必要はありませんここでは何も操作&mdash;Node.js がインストールされ、サーバー環境で使用できます。
 
-* [.NET core SDK](https://www.microsoft.com/net/download/core) 1.0 (またはそれ以降)
-    * Visual Studio 2017 を選択してインストールする Windows の場合は、この**.NET Core クロスプラット フォーム開発**ワークロード。
+* [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+
+  * 選択して、SDK がインストールされている Visual Studio 2017 を使用して Windows の場合は、 **.NET Core クロスプラット フォーム開発**ワークロード。
 
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) NuGet パッケージ
 

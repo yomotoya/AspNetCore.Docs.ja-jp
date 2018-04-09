@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
-title: "Entity Framework 4.0 ObjectDataSource コントロールを使用して、パート 2: ビジネス ロジック層と単体テストを追加する |Microsoft ドキュメント"
+title: 'Entity Framework 4.0 ObjectDataSource コントロールを使用して、パート 2: ビジネス ロジック層と単体テストを追加する |Microsoft ドキュメント'
 author: tdykstra
-description: "この一連のチュートリアルについては、Entity Framework 4.0 チュートリアル シリーズの概要を作成した Contoso 大学 web アプリケーションに基づいています。 I..."
+description: この一連のチュートリアルについては、Entity Framework 4.0 チュートリアル シリーズの概要を作成した Contoso 大学 web アプリケーションに基づいています。 I...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: df37acd8901b457f7887afe767d42d53e45e4815
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ecdfb2bdc546f55778ec4cc1f61aa66e129134ea
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Entity Framework 4.0 ObjectDataSource コントロールを使用して、パート 2: ビジネス ロジック層と単体テストを追加します。
 ====================
@@ -225,6 +225,6 @@ Contoso 大学で、個々 の講師が 1 つの部門の管理者をできる�
 
 次のチュートリアルでは、並べ替えおよびフィルター処理をアプリケーションに機能を追加する方法が表示されます。
 
->[!div class="step-by-step"]
-[前へ](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-[次へ](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+> [!div class="step-by-step"]
+> [前へ](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+> [次へ](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)

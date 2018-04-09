@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/roles/creating-and-managing-roles-vb
-title: "作成して、(VB) の役割の管理 |Microsoft ドキュメント"
+title: 作成して、(VB) の役割の管理 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、ロールのフレームワークを構成するために必要な手順について説明します。 次は、web ページを作成し、ロールの削除を構築します。"
+description: このチュートリアルでは、ロールのフレームワークを構成するために必要な手順について説明します。 次は、web ページを作成し、ロールの削除を構築します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/24/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0b1132c6d782cd85edb8cbee98c8ab95a15171ac
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 75ca9b1c36f9a74d755ef05717f03d139d0b29ea
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-and-managing-roles-vb"></a>ロール (VB) 作成および管理
 ====================
@@ -96,10 +96,10 @@ ASP.NET には、ロールの定義とユーザー アカウントに関連付�
 
 その結果、おだけを有効にするロール framework アプリケーションでの任意のプロバイダー情報を指定しない場合`Web.config`ファイル、アプリケーションが登録されている既定のロール プロバイダーを使用して`AspNetSqlRoleProvider`です。 場合、`~/App_Data/aspnet.mdf`データベースが存在しないか、ASP.NET ランタイムが自動的に作成し、アプリケーションのサービス スキーマを追加します。 ただし、ここを使用しない、`aspnet.mdf`データベース; を使用する代わりに、`SecurityTutorials.mdf`データベースを既に作成して、アプリケーションのサービス スキーマを追加しました。 この変更は、2 つの方法のいずれかで実行できます。
 
-- **値を指定、* * *`LocalSqlServer`* * * 接続文字列名に * * *`Web.config`* * *。** 上書きすることによって、`LocalSqlServer`の接続文字列名値`Web.config`は登録されている既定のロール プロバイダーを使用することができます (`AspNetSqlRoleProvider`) で正しく動作させることが、`SecurityTutorials.mdf`データベース。 この方法の詳細については、次を参照してください。 [Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ投稿「[を使用して SQL Server 2000 または SQL Server 2005 に ASP.NET 2.0 アプリケーション サービスを構成する](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx)です。
-- **型 * * * の場合は、新しい登録済みプロバイダーの追加`SqlRoleProvider`* * * を構成して、* * *`connectionStringName`* * * をポイントする設定、* * *`SecurityTutorials.mdf`* * * データベース。** これは、ことをお勧めしてで使用される方法は、 <a id="_msoanchor_7"> </a> [*メンバーシップ スキーマを作成する SQL Server で*](../membership/creating-the-membership-schema-in-sql-server-vb.md)チュートリアルでは、これはもこのチュートリアルで使用するアプローチです。
+- <strong>値を指定、</strong><strong>`LocalSqlServer`</strong><strong>での接続文字列名</strong><strong>`Web.config`</strong><strong>です。</strong> 上書きすることによって、`LocalSqlServer`の接続文字列名値`Web.config`は登録されている既定のロール プロバイダーを使用することができます (`AspNetSqlRoleProvider`) で正しく動作させることが、`SecurityTutorials.mdf`データベース。 この方法の詳細については、次を参照してください。 [Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ投稿「[を使用して SQL Server 2000 または SQL Server 2005 に ASP.NET 2.0 アプリケーション サービスを構成する](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx)です。
+- <strong>型の場合は、新しい登録済みプロバイダーの追加</strong><strong>`SqlRoleProvider`</strong><strong>構成とその</strong><strong>`connectionStringName`</strong><strong>をポイントする設定</strong><strong>`SecurityTutorials.mdf`</strong><strong>データベース。</strong> これは、ことをお勧めしてで使用される方法は、 <a id="_msoanchor_7"> </a> [*メンバーシップ スキーマを作成する SQL Server で*](../membership/creating-the-membership-schema-in-sql-server-vb.md)チュートリアルでは、これはもこのチュートリアルで使用するアプローチです。
 
-次の役割の構成のマークアップを追加、`Web.config`ファイル。 このマークアップという名前の新しいプロバイダーを登録します。`SecurityTutorialsSqlRoleProvider.`
+次の役割の構成のマークアップを追加、`Web.config`ファイル。 このマークアップという名前の新しいプロバイダーを登録します。 `SecurityTutorialsSqlRoleProvider.`
 
 [!code-xml[Main](creating-and-managing-roles-vb/samples/sample5.xml)]
 
@@ -187,7 +187,7 @@ GridView ために、ラベルの付いた項目内の単一行の列を表示�
 
 GridView にデータを表示するときに (_n) GridView によって暗黙的に生成されることがあるのではなく、明示的に列を定義します。 によって、データの書式をはるかに簡単である列を明示的に定義するには、列を並べ替えるにし、その他の一般的なタスクを実行します。 このため、みましょう更新 GridView の宣言型マークアップの列が明示的に定義できるようにします。
 
-開始するには、GridView の`AutoGenerateColumns`プロパティを False にします。 次に、設定、TemplateField をグリッドに追加の`HeaderText`、ロールにプロパティを構成して、`ItemTemplate`配列の内容を表示するようです。 これを実現する、という名前のラベルの Web コントロールを追加`RoleNameLabel`を`ItemTemplate`バインドとその`Text`プロパティ`Container.DataItem.`
+開始するには、GridView の`AutoGenerateColumns`プロパティを False にします。 次に、設定、TemplateField をグリッドに追加の`HeaderText`、ロールにプロパティを構成して、`ItemTemplate`配列の内容を表示するようです。 これを実現する、という名前のラベルの Web コントロールを追加`RoleNameLabel`を`ItemTemplate`バインドとその`Text`プロパティ `Container.DataItem.`
 
 これらのプロパティと`ItemTemplate`の宣言またはにより GridView のフィールド] ダイアログ ボックスと [テンプレートの編集インターフェイス コンテンツを設定できます。 フィールド ダイアログ ボックスが、接続するには、GridView のスマート タグの列の編集リンクをクリックします。 次に、自動生成を設定するフィールド のチェック ボックスをオフに、`AutoGenerateColumns`プロパティを False に設定、GridView に TemplateField を追加し、その`HeaderText`ロールにプロパティです。 定義する、`ItemTemplate`の内容が GridView のスマート タグからテンプレートの編集オプションを選択します。 上にラベル Web コントロールをドラッグ、`ItemTemplate`設定、その`ID`プロパティを`RoleNameLabel`、し、データ バインド設定を構成できるようにその`Text`プロパティにバインド`Container.DataItem`です。
 
@@ -215,8 +215,8 @@ GridView にデータを表示するときに (_n) GridView によって暗黙�
 
 この時点でユーザーを新しいロールを作成してからのすべての既存のロールを表示できます、`ManageRoles.aspx`ページ。 ロールを削除するユーザーを許可してみましょう。 `Roles.DeleteRole`メソッドに次の 2 つのオーバー ロードがあります。
 
-- [`DeleteRole(roleName)`](https://msdn.microsoft.com/library/ek4sywc0.aspx)-ロール削除*roleName*です。 役割には、1 つまたは複数のメンバーが含まれている場合は、例外がスローされます。
-- [`DeleteRole(roleName, throwOnPopulatedRole)`](https://msdn.microsoft.com/library/38h6wf59.aspx)-ロール削除*roleName*です。 場合*throwOnPopulateRole*は`True`役割には、1 つまたは複数のメンバーが含まれている場合、例外がスローされます。 場合*throwOnPopulateRole*は`False`が含まれているすべてのメンバーかどうかどうか、ロールが削除されます。 内部的には、`DeleteRole(roleName)`メソッド呼び出し`DeleteRole(roleName, True)`です。
+- [`DeleteRole(roleName)`](https://msdn.microsoft.com/library/ek4sywc0.aspx) -ロール削除*roleName*です。 役割には、1 つまたは複数のメンバーが含まれている場合は、例外がスローされます。
+- [`DeleteRole(roleName, throwOnPopulatedRole)`](https://msdn.microsoft.com/library/38h6wf59.aspx) -ロール削除*roleName*です。 場合*throwOnPopulateRole*は`True`役割には、1 つまたは複数のメンバーが含まれている場合、例外がスローされます。 場合*throwOnPopulateRole*は`False`が含まれているすべてのメンバーかどうかどうか、ロールが削除されます。 内部的には、`DeleteRole(roleName)`メソッド呼び出し`DeleteRole(roleName, True)`です。
 
 `DeleteRole`メソッドも例外がスローされる場合*roleName*は`Nothing`または空の文字列または*roleName*コンマが含まれています。 場合*roleName* 、システムに存在しません`DeleteRole`例外を発生させずに自動的に、失敗します。
 
@@ -263,12 +263,12 @@ Gridview のイベント ハンドラーを次に、作成`RowDeleting`イベン
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 
-このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者には、Alicja Maziarz、Suchi Banerjee Teresa マーフィーなどがあります。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者には、Alicja Maziarz、Suchi Banerjee Teresa マーフィーなどがあります。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](role-based-authorization-cs.md)
-[次へ](assigning-roles-to-users-vb.md)
+> [!div class="step-by-step"]
+> [前へ](role-based-authorization-cs.md)
+> [次へ](assigning-roles-to-users-vb.md)

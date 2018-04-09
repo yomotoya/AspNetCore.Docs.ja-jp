@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
-title: "(Azure での実際のクラウド アプリの構築) すべてを自動化 |Microsoft ドキュメント"
+title: (Azure での実際のクラウド アプリの構築) すべてを自動化 |Microsoft ドキュメント
 author: MikeWasson
-description: "Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています."
+description: Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: aa8bb895ed6eaa0ef4c5752f475ea7c911544ef2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2e30ab7831a10f215a08f74e61adf2d147e76543
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>(Azure での実際のクラウド アプリの構築) すべてを自動化します。
 ====================
@@ -90,7 +90,7 @@ Web アプリ:
 
 ![appSettings、connectionStrings](automate-everything/_static/image6.png)
 
-*オートメーション*フォルダー今すぐも含まれています、  *&lt;websitename&gt;.pubxml*ファイル。 このファイルには、MSBuild が作成した Azure 環境にアプリケーションを配置に使用する設定が格納されます。 例:
+*オートメーション*フォルダー今すぐも含まれています、  *&lt;websitename&gt;.pubxml*ファイル。 このファイルには、MSBuild が作成した Azure 環境にアプリケーションを配置に使用する設定が格納されます。 例えば:
 
 [!code-xml[Main](automate-everything/samples/sample1.xml)]
 
@@ -128,7 +128,7 @@ Web アプリ:
 
 ### <a name="create-the-storage-account"></a>ストレージ アカウントを作成します。
 
-メイン スクリプトを実行し、*新規 AzureStorage.ps1*スクリプトを指定する"*&lt;websitename&gt;*記憶域"ストレージ アカウントの名前に、同じデータ センターの場所として、web アプリです。
+メイン スクリプトを実行し、<em>新規 AzureStorage.ps1</em>スクリプトを指定する"<em>&lt;websitename&gt;</em>記憶域"ストレージ アカウントの名前に、同じデータ センターの場所として、web アプリです。
 
 [!code-powershell[Main](automate-everything/samples/sample4.ps1?highlight=3)]
 
@@ -158,7 +158,7 @@ Web アプリ:
 
     [!code-powershell[Main](automate-everything/samples/sample10.ps1?highlight=4)]
 
-    `New-PSCredentialFromPlainText`呼び出すスクリプト内の関数は、`ConvertTo-SecureString`を返し、パスワードを暗号化するコマンドレット、`PSCredential`オブジェクト、同じ型の型を`Get-Credential`コマンドレットを返します。
+    `New-PSCredentialFromPlainText` 呼び出すスクリプト内の関数は、`ConvertTo-SecureString`を返し、パスワードを暗号化するコマンドレット、`PSCredential`オブジェクト、同じ型の型を`Get-Credential`コマンドレットを返します。
 - 使用して、アプリケーション データベースと、メンバーシップ データベースを作成、`New-AzureSqlDatabase`コマンドレット。
 
     [!code-powershell[Main](automate-everything/samples/sample11.ps1?highlight=2,5)]
@@ -264,6 +264,6 @@ Azure のすべての環境の作成スクリプトを格納、`appSettings`と`
 - [Windows PowerShell スクリプトを使用して、開発とテスト環境に公開する](https://msdn.microsoft.com/library/azure/dn642480.aspx)です。 使用する方法を説明する MSDN ドキュメントでは、web プロジェクトの Visual Studio を自動的に生成するスクリプトを発行します。
 - [PowerShell Tools for Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597)です。 Visual Studio 拡張機能を Visual Studio での Windows PowerShell 言語のサポートを追加します。
 
->[!div class="step-by-step"]
-[前へ](introduction.md)
-[次へ](source-control.md)
+> [!div class="step-by-step"]
+> [前へ](introduction.md)
+> [次へ](source-control.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
-title: "ASP.NET Web Pages の概要 - フォームを使用してデータベースのデータを入力する |Microsoft ドキュメント"
+title: ASP.NET Web Pages の概要 - フォームを使用してデータベースのデータを入力する |Microsoft ドキュメント
 author: tfitzmac
-description: "このチュートリアルは、入力フォームを作成し、フォームからデータベース テーブルにすると、表示 (... の ASP.NET Web ページを使用するデータを入力する方法を示します"
+description: このチュートリアルは、入力フォームを作成し、フォームからデータベース テーブルにすると、表示 (... の ASP.NET Web ページを使用するデータを入力する方法を示します
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
-ms.openlocfilehash: b74eecb16b2c4695bb417816b90f701f724cc9d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bbccf8134e90c19e29efaa5afe1e46e15320c189
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>ASP.NET Web Pages の概要 - フォームを使用してデータベースのデータを入力します。
 ====================
@@ -101,7 +101,7 @@ ms.lasthandoff: 11/10/2017
 
 挿入するか、列がコマンドで既に表示されている —`(Title, Genre, Year)`です。 興味深い部分にテキスト ボックスから値を取得する方法、`VALUES`コマンドの一部です。 実際の値の代わりに`@0`、 `@1`、および`@2`、プレース ホルダーはもちろんです。 コマンドを実行すると (上、`db.Execute`行)、テキスト ボックスから取得した値を渡します。
 
-**大事な！** SQL ステートメント内のユーザーがオンラインに入力したデータを含める必要がありますが、唯一の方法では、プレース ホルダーを使用するように、ここに表示 (`VALUES(@0, @1, @2)`)。 SQL ステートメントにユーザー入力を連結する場合を開く自分で SQL インジェクション攻撃への説明に従って[フォームの基本 ASP.NET Web Pages で](https://go.microsoft.com/fwlink/?LinkId=251581)(前のチュートリアル)。
+**重要**。 SQL ステートメント内のユーザーがオンラインに入力したデータを含める必要がありますが、唯一の方法では、プレース ホルダーを使用するように、ここに表示 (`VALUES(@0, @1, @2)`)。 SQL ステートメントにユーザー入力を連結する場合を開く自分で SQL インジェクション攻撃への説明に従って[フォームの基本 ASP.NET Web Pages で](https://go.microsoft.com/fwlink/?LinkId=251581)(前のチュートリアル)。
 
 まだ内、`if`ブロックは、後に、次の行を追加、`db.Execute`行。
 
@@ -121,7 +121,7 @@ WebMatrix 内のファイルのツリー ビューで右クリックし、 *AddM
 
 ![ブラウザーの [ムービーの追加] ページ](entering-data/_static/image2.png)
 
-(ブラウザーの別のページ終了する場合は、url を確認してください`http://localhost:nnnnn/AddMovie`) ここで、  *nnnnn* 使用しているポート番号です)。
+(ブラウザーの別のページ終了する場合は、url を確認してください`http://localhost:nnnnn/AddMovie`) ここで、 *nnnnn*使用しているポート番号です)。
 
 エラー ページを入手しましたか。 場合は、ことをお読みし、コードを以前に一覧された表示だけに見えることかどうかを確認します。
 
@@ -145,7 +145,7 @@ WebMatrix 内のファイルのツリー ビューで右クリックし、 *AddM
 
 当然ながら、ユーザー データベースに空の半分でムービー情報を入力できるようにします。 解決するには、ユーザーの入力を検証します。 最初に、検証は単に確認、ユーザーにすべてのフィールドの値が入力したこと (つまり、そのどれもが含まれています、空の文字列には)。
 
-> [!TIP] 
+> [!TIP]
 > 
 > **Null および空の文字列**
 > 
@@ -260,6 +260,6 @@ ASP.NET を解釈する前に説明したとおり、`~`演算子として、web
 - [SQL INSERT INTO ステートメント](http://www.w3schools.com/sql/sql_insert.asp)W3Schools サイト
 - [サイトのページで ASP.NET Web ユーザー入力の検証](https://go.microsoft.com/fwlink/?LinkId=253002)です。 操作の詳細については、`Validation`ヘルパー。
 
->[!div class="step-by-step"]
-[前へ](form-basics.md)
-[次へ](updating-data.md)
+> [!div class="step-by-step"]
+> [前へ](form-basics.md)
+> [次へ](updating-data.md)

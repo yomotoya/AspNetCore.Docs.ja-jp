@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/slider/using-the-slider-control-with-auto-postback-vb
-title: "自動ポストバック (VB) でスライダー コントロールの使用 |Microsoft ドキュメント"
+title: 自動ポストバック (VB) でスライダー コントロールの使用 |Microsoft ドキュメント
 author: wenz
-description: "AJAX コントロール Toolkit のスライダー コントロールは、マウスを使用して制御できるグラフィカルなスライダーを提供します。 スライダーを自動転記を作成しています."
+description: AJAX コントロール Toolkit のスライダー コントロールは、マウスを使用して制御できるグラフィカルなスライダーを提供します。 スライダーを自動転記を作成しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/using-the-slider-control-with-auto-postback-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fedd3ff947c6f5d5d4d00791087e9fd825fdf9d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: edb8fa13716c3c0beb7cf86dd3843caaec939483
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-slider-control-with-auto-postback-vb"></a>自動ポストバック (VB) でスライダー コントロールの使用
 ====================
@@ -63,6 +63,6 @@ AJAX コントロール Toolkit のスライダー コントロールは、マ�
 
 その後、この変更の日付は、ラベルに書き込まれます ([フルサイズのイメージを表示するをクリックして](using-the-slider-control-with-auto-postback-vb/_static/image6.png))
 
->[!div class="step-by-step"]
-[前へ](databinding-the-slider-control-cs.md)
-[次へ](databinding-the-slider-control-vb.md)
+> [!div class="step-by-step"]
+> [前へ](databinding-the-slider-control-cs.md)
+> [次へ](databinding-the-slider-control-vb.md)

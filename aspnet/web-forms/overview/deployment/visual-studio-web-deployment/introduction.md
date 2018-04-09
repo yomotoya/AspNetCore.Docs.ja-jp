@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/introduction
-title: "Visual Studio を使用した ASP.NET Web 展開: 概要 |Microsoft ドキュメント"
+title: 'Visual Studio を使用した ASP.NET Web 展開: 概要 |Microsoft ドキュメント'
 author: tdykstra
-description: "この一連のチュートリアルについては、展開する方法を示します (発行)、ASP.NET web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーをによって V を使用しています."
+description: この一連のチュートリアルについては、展開する方法を示します (発行)、ASP.NET web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーをによって V を使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: a7c5b348e44a88a56680237b0cac75c999901ec3
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 1ff4cc3b0fa6ce7e6cdc833a0c2f7fea2050c4e6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Visual Studio を使用した ASP.NET Web 展開: 概要
 ====================
@@ -202,5 +202,5 @@ Web サイトのページは、メニュー バーからアクセスできる、
 
 系列の最初のチュートリアルでは、サンプルの Visual Studio プロジェクトをダウンロードし、アプリケーションを展開する方法に影響するサイトの機能を確認しました。 次のチュートリアルでは、展開準備で自動的に処理するのには次の作業の一部を設定します。 他のユーザーを処理する手動でします。
 
->[!div class="step-by-step"]
-[次へ](preparing-databases.md)
+> [!div class="step-by-step"]
+> [次へ](preparing-databases.md)

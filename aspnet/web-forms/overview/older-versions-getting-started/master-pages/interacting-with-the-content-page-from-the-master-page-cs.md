@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs
-title: "マスター ページ (c#) からコンテンツ ページと対話する |Microsoft ドキュメント"
+title: マスター ページ (c#) からコンテンツ ページと対話する |Microsoft ドキュメント
 author: rick-anderson
-description: "マスター ページ内のコードからのコンテンツ ページのプロパティなどの設定、メソッドの呼び出し方法を説明します。"
+description: マスター ページ内のコードからのコンテンツ ページのプロパティなどの設定、メソッドの呼び出し方法を説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4d7f6eeac084f3516ab470adf8973351cf08a7f1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7c845c7b0077e6d3fb5ce770029b4f9f48609b17
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-c"></a>マスター ページ (c#) からコンテンツ ページと対話します。
 ====================
@@ -153,7 +153,7 @@ ms.lasthandoff: 01/24/2018
 クラスを作成してイベントにサブスクライブしている、*イベント ハンドラー*メソッドは、発生するイベントに応答を実行します。 パブリッシャーが定義することで彼を発生させるイベントを定義、*イベント デリゲート*です。 イベントのデリゲートでは、どのような入力パラメーターが、イベント ハンドラーに同意する必要がありますを指定します。 .NET Framework でイベント デリゲートは値を返さない任意して 2 つの入力パラメーターを受け取る。
 
 - `Object`、イベント ソースを識別し、
-- 派生したクラス`System.EventArgs`
+- 派生したクラス `System.EventArgs`
 
 イベント ハンドラーに渡される 2 番目のパラメーターは、イベントに関する追加情報を含めることができます。 ときに、ベース`EventArgs`クラスがすべての情報を渡すされません、.NET Framework には拡張するクラスの数が含まれています`EventArgs`と、追加のプロパティが含まれます。 たとえば、`CommandEventArgs`インスタンスに応答するイベント ハンドラーに渡されます、`Command`イベント、情報の 2 つのプロパティが含まれています:`CommandArgument`と`CommandName`です。
 
@@ -199,7 +199,7 @@ ms.lasthandoff: 01/24/2018
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample11.cs)]
 
-*パブリッシャー*イベントを提供するオブジェクトへの参照は、 *eventName*、および*methodName*を対応する署名を持つサブスクライバーで定義されているイベント ハンドラーの名前を指定します*eventDelegate*です。 つまり、イベントを委任する場合は`EventHandler`、し*methodName*値を返さないを 2 つの型のパラメーターの入力を許可するサブスクライバーのメソッドの名前を指定する必要があります`Object`と`EventArgs`、それぞれします。
+*パブリッシャー*イベントを提供するオブジェクトへの参照は、 *eventName*、および*methodName*に対応するシグネチャを持つサブスクライバーで定義されたイベント ハンドラーの名前を指定します。*eventDelegate*です。 つまり、イベントを委任する場合は`EventHandler`、し*methodName*値を返さないを 2 つの型のパラメーターの入力を許可するサブスクライバーのメソッドの名前を指定する必要があります`Object`と`EventArgs`、それぞれします。
 
 このイベント配線コードでは、初めてページおよび以降のポストバックを実行する必要があり、イベントを発生させる可能性があるときにあるページ ライフ サイクルの時点で発生する必要があります。 イベント配線コードを追加する絶好のタイミングでは、PreInit ステージでは、ページのライフ サイクルの初期段階で発生します。
 
@@ -257,12 +257,12 @@ ms.lasthandoff: 01/24/2018
 
 ### <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、作成者複数受け取ります書籍や 4GuysFromRolla.com の創設者を操作した Microsoft Web テクノロジ 1998 年です。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 3.5 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)です。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、作成者複数受け取ります書籍や 4GuysFromRolla.com の創設者を操作した Microsoft Web テクノロジ 1998 年です。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 3.5 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)です。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 
-このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Suchi Banerjee しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Suchi Banerjee しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](interacting-with-the-master-page-from-the-content-page-cs.md)
-[次へ](master-pages-and-asp-net-ajax-cs.md)
+> [!div class="step-by-step"]
+> [前へ](interacting-with-the-master-page-from-the-content-page-cs.md)
+> [次へ](master-pages-and-asp-net-ajax-cs.md)

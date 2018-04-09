@@ -1,7 +1,7 @@
 ---
-title: "ブートス トラップおよび ASP.NET のコアを持つ、美しい、応答性の高いサイトを構築します。"
+title: ブートス トラップと ASP.NET Core 美しい、応答性の高いサイトを構築します。
 author: ardalis
-description: "ASP.NET のコアと応答性の高い web アプリケーションを開発するためのブートス トラップを使用する方法について説明します。"
+description: ASP.NET のコアと応答性の高い web アプリケーションを開発するためのブートス トラップを使用する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: c3dfaa53e9e3277d025d014f65004e4c24a5acc4
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 142a997fa46f37545ea04971ab6593bff053b1ef
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="building-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>ブートス トラップおよび ASP.NET のコアを持つ、美しい、応答性の高いサイトを構築します。
+# <a name="build-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>ブートス トラップと ASP.NET Core 美しい、応答性の高いサイトを構築します。
 
 <a name="bootstrap-index"></a>
 

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
-title: "SMS と 2 要素認証の電子メールを使って ASP.NET MVC 5 アプリ |Microsoft ドキュメント"
+title: SMS と 2 要素認証の電子メールを使って ASP.NET MVC 5 アプリ |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このチュートリアルでは、2 要素認証による ASP.NET MVC 5 web アプリケーションをビルドする方法を示します。 Web アプリの作成をセキュリティで保護された ASP.NET MVC 5 を完了する必要があります."
+description: このチュートリアルでは、2 要素認証による ASP.NET MVC 5 web アプリケーションをビルドする方法を示します。 Web アプリの作成をセキュリティで保護された ASP.NET MVC 5 を完了する必要があります.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/20/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: d6bc92f3cbe6b61332e33e8a507b4516bf5c15a5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5e1c54b3901f2c8c85134445c1fa91ee9f2e0d59
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>SMS と 2 要素認証の電子メールを使って ASP.NET MVC 5 アプリ
 ====================
@@ -53,44 +53,44 @@ ms.lasthandoff: 01/24/2018
 
 1. **SMS プロバイダーとユーザー アカウントの作成**  
   
- 作成、 [Twilio](https://www.twilio.com/try-twilio)または[ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/)アカウント。
+   作成、 [Twilio](https://www.twilio.com/try-twilio)または[ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/)アカウント。
 2. **その他のパッケージをインストールするか、サービス参照の追加**  
   
- Twilio:  
- パッケージ マネージャー コンソールで、次のコマンドを入力します。  
+   Twilio:  
+   パッケージ マネージャー コンソールで、次のコマンドを入力します。  
     `Install-Package Twilio`  
   
- ASPSMS:  
- 次のサービス参照を追加する必要があります。  
+   ASPSMS:  
+   次のサービス参照を追加する必要があります。  
   
     ![](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/_static/image2.png)  
   
- アドレス:  
+   アドレス:  
     `https://webservice.aspsms.com/aspsmsx2.asmx?WSDL`  
   
- 名前空間:  
+   名前空間:  
     `ASPSMSX2`
 3. **SMS プロバイダーのユーザーの資格情報を見つけ出し**  
   
- Twilio:  
- **ダッシュ ボード**コピー、Twilio アカウントのタブ、**アカウント SID**と**認証トークン**です。  
+   Twilio:  
+   **ダッシュ ボード**コピー、Twilio アカウントのタブ、**アカウント SID**と**認証トークン**です。  
   
- ASPSMS:  
- アカウントの設定からに移動**ユーザー キー**自己定義と共にコピー**パスワード**です。  
+   ASPSMS:  
+   アカウントの設定からに移動**ユーザー キー**自己定義と共にコピー**パスワード**です。  
   
- これらの値を保存後で、 *web.config*キー内のファイル`"SMSAccountIdentification"`と`"SMSAccountPassword"`です。
+   これらの値を保存後で、 *web.config*キー内のファイル`"SMSAccountIdentification"`と`"SMSAccountPassword"`です。
 4. **SenderID を指定する/発信元**  
   
- Twilio:  
- **番号** タブで、Twilio 電話番号をコピーします。  
+   Twilio:  
+   **番号** タブで、Twilio 電話番号をコピーします。  
   
- ASPSMS:  
- 内で、**発信者のロックを解除** メニューの 1 つまたは複数の発信者のロックを解除または発信元が英数字であることを (すべてのネットワークではサポートされていません) を選択します。  
+   ASPSMS:  
+   内で、**発信者のロックを解除** メニューの 1 つまたは複数の発信者のロックを解除または発信元が英数字であることを (すべてのネットワークではサポートされていません) を選択します。  
   
- この値では後で格納、 *web.config*キー内のファイル`"SMSAccountFrom"`です。
+   この値では後で格納、 *web.config*キー内のファイル`"SMSAccountFrom"`です。
 5. **アプリに SMS プロバイダーの資格情報を転送します。**  
   
- 資格情報と差出人の電話番号を使用できるように、アプリ。 これらの値を格納お煩雑にならないように、 *web.config*ファイル。 Azure にデプロイして時に、安全に値を格納おできます、**アプリ設定**セクションの web サイトの構成 タブ。 
+   資格情報と差出人の電話番号を使用できるように、アプリ。 これらの値を格納お煩雑にならないように、 *web.config*ファイル。 Azure にデプロイして時に、安全に値を格納おできます、**アプリ設定**セクションの web サイトの構成 タブ。 
 
     [!code-xml[Main](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/samples/sample1.xml?highlight=8-10)]
 
@@ -98,9 +98,9 @@ ms.lasthandoff: 01/24/2018
     > セキュリティ - ソース コード内の機密データはストアことはありません。 アカウントと資格情報は、サンプルをシンプルにする上記のコードに追加されます。 参照してください[ASP.NET と Azure へのパスワードや他の機密データの展開のベスト プラクティス](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)です。
 6. **SMS プロバイダーへのデータ転送の実装**  
   
- 構成、`SmsService`クラス内で、*アプリ\_Start\IdentityConfig.cs*ファイル。  
+   構成、`SmsService`クラス内で、*アプリ\_Start\IdentityConfig.cs*ファイル。  
   
- いずれかのアクティブ化に使用される SMS プロバイダーによって、 **Twilio**または**ASPSMS**セクション。 
+   いずれかのアクティブ化に使用される SMS プロバイダーによって、 **Twilio**または**ASPSMS**セクション。 
 
     [!code-csharp[Main](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/samples/sample2.cs)]
 7. 更新プログラム、 *Views\Manage\Index.cshtml* Razor ビュー: (注: しないでだけ、既存のコードにコメントを解除して、次のコードを使用します)。  

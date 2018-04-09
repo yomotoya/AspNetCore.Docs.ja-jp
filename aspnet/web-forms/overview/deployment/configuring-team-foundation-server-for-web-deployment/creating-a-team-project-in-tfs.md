@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
-title: "TFS でチーム プロジェクトの作成 |Microsoft ドキュメント"
+title: TFS でチーム プロジェクトの作成 |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、Team Foundation Server (TFS) 2010 で、新しいチーム プロジェクトを作成する方法について説明します。"
+description: このトピックでは、Team Foundation Server (TFS) 2010 で、新しいチーム プロジェクトを作成する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
 msc.type: authoredcontent
-ms.openlocfilehash: ef8cddb7733c1f8cacd24c5cf341a42741d25a95
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 79c069a601c0eafd84ae142241895428052acd29
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-team-project-in-tfs"></a>TFS でチーム プロジェクトの作成
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/24/2018
 > このトピックでは、Team Foundation Server (TFS) 2010 で、新しいチーム プロジェクトを作成する方法について説明します。
 
 
-このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。サンプル ソリューション & #x 2014; このチュートリアルのシリーズを使用して、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; を ASP.NET MVC 3 アプリケーションを Windows のなどの複雑性のレベルが現実的な web アプリケーションを表すCommunication Foundation (WCF) サービスとデータベース プロジェクト。
+このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルの一連のサンプル ソリューションを使用する&#x2014;、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的な ASP.NET MVC 3 アプリケーション、Windows Communication も含め、複雑さのレベルを持つ web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
 ## <a name="task-overview"></a>タスクの概要
 
@@ -107,11 +107,11 @@ ms.lasthandoff: 01/24/2018
 
     ![](creating-a-team-project-in-tfs/_static/image9.png)
 
-    > [!NOTE]
-    > 表示される、 **HTTP 404 Not Found**二重 HTTP エンコード バグによるエラーが発生します。 この場合、この URL に置き換えます。   
-    > [*サイト コレクション URL*]/\_layouts/permsetup.aspx  
-    > 例:  
-    > http://tfs/sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
+   > [!NOTE]
+   > 表示される、 <strong>HTTP 404 Not Found</strong>二重 HTTP エンコード バグによるエラーが発生します。 この場合、この URL に置き換えます。   
+   > [<em>サイト コレクション URL</em>]/\_layouts/permsetup.aspx  
+   > 例えば:  
+   > http://tfs/sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
 8. **このサイトのグループの設定**ページで、チーム プロジェクトを作成したユーザーを追加、**所有者**グループ化、およびをクリックして**OK**です。
 
     ![](creating-a-team-project-in-tfs/_static/image10.png)
@@ -202,6 +202,6 @@ ms.lasthandoff: 01/24/2018
 
 TFS でチーム プロジェクトを作成する方法より広範なガイダンスについては、次を参照してください。[チーム プロジェクトの作成](https://msdn.microsoft.com/library/ms181477(v=VS.100).aspx)です。 チーム プロジェクト コレクション内の新しいチーム プロジェクトを作成するユーザーを有効にする方法の詳細については、次を参照してください。[チーム プロジェクト コレクションの管理者アクセス許可を設定](https://msdn.microsoft.com/library/dd547204.aspx)です。 ユーザーをチーム プロジェクトに追加する方法の詳細については、次を参照してください。[チーム プロジェクトへのユーザーの追加](https://msdn.microsoft.com/library/bb558971.aspx)です。
 
->[!div class="step-by-step"]
-[前へ](configuring-team-foundation-server-for-web-deployment.md)
-[次へ](adding-content-to-source-control.md)
+> [!div class="step-by-step"]
+> [前へ](configuring-team-foundation-server-for-web-deployment.md)
+> [次へ](adding-content-to-source-control.md)

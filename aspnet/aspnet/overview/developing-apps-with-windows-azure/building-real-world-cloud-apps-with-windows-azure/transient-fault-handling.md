@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
-title: "Transient Fault Handling (Azure での実際のクラウド アプリの構築) |Microsoft ドキュメント"
+title: Transient Fault Handling (Azure での実際のクラウド アプリの構築) |Microsoft ドキュメント
 author: MikeWasson
-description: "Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています."
+description: Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/03/2015
 ms.topic: article
 ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: b743b04789c5e5ebf5ab922cf34a516a16a6d356
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 86bd67b04931ae2452f6e063e6475a434a0125bc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Transient Fault Handling (Azure での実際のクラウド アプリの構築)
 ====================
@@ -104,6 +104,6 @@ SQL データベースの再試行ポリシー ガイダンスについては、
 
 - [クラウド サービスの基礎 azure](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)です。 サンプル アプリケーション、Microsoft Azure カスタマー アドバイス チームを使用する方法を示すによって作成された、[エンタープライズ ライブラリ Transient Fault Handling Block](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH)。 詳細については、次を参照してください。[クラウド サービスの基本データ アクセス層: 一時的な障害処理](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)です。 ADO.NET を使用して直接 (使用せずに Entity Framework) データベースへのアクセスには、TFH を使用することをお勧めします。
 
->[!div class="step-by-step"]
-[前へ](monitoring-and-telemetry.md)
-[次へ](distributed-caching.md)
+> [!div class="step-by-step"]
+> [前へ](monitoring-and-telemetry.md)
+> [次へ](distributed-caching.md)

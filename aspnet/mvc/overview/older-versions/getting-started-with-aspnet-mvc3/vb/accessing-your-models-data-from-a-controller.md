@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/accessing-your-models-data-from-a-controller
-title: "コント ローラー (VB) から、モデルのデータにアクセス |Microsoft ドキュメント"
+title: コント ローラー (VB) から、モデルのデータにアクセス |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: f1a1db907aa1d0a62af9b363fabfc74ac11acc68
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 030e7cc966078b76b5f96229d437c9990f17656a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="accessing-your-models-data-from-a-controller-vb"></a>コント ローラー (VB) から、モデルのデータにアクセスします。
 ====================
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/24/2018
 
 [![5addMovieController](accessing-your-models-data-from-a-controller/_static/image2.png)](accessing-your-models-data-from-a-controller/_static/image1.png)
 
-**[追加]**をクリックします。 Visual Web Developer では、次のファイルとフォルダーを作成します。
+**[追加]** をクリックします。 Visual Web Developer では、次のファイルとフォルダーを作成します。
 
 - *MoviesController.vb*ファイルはプロジェクトの*コント ローラー*フォルダーです。
 - A*映画*プロジェクトのフォルダーに*ビュー*フォルダーです。
@@ -139,6 +139,6 @@ ASP.NET MVC では、厳密に渡せるように入力データまたはオブ�
 
 データベースとそこからコンテンツを表示する単純なリスト ページがあるようになりました。 チュートリアルでは、[次へ]、うまくスキャフォールディング コードの残りの部分を確認し、追加、`SearchIndex`メソッドおよび`SearchIndex`ビューをこのデータベースで映画を検索できます。
 
->[!div class="step-by-step"]
-[前へ](adding-a-model.md)
-[次へ](examining-the-edit-methods-and-edit-view.md)
+> [!div class="step-by-step"]
+> [前へ](adding-a-model.md)
+> [次へ](examining-the-edit-methods-and-edit-view.md)

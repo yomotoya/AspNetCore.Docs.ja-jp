@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
-title: "JavaScript インジェクション攻撃 (c#) |Microsoft ドキュメント"
+title: JavaScript インジェクション攻撃 (c#) |Microsoft ドキュメント
 author: StephenWalther
-description: "JavaScript インジェクション攻撃やクロスサイト スクリプティング攻撃が発生しないようにします。 このチュートリアルでは、Stephen Walther は、する方法に簡単に de について説明しています."
+description: JavaScript インジェクション攻撃やクロスサイト スクリプティング攻撃が発生しないようにします。 このチュートリアルでは、Stephen Walther は、する方法に簡単に de について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 67f53162cb1bb0771d632ba7a3f5960db00e2744
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fbec58c009640164d908db5a45557c9e50041173
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="preventing-javascript-injection-attacks-c"></a>JavaScript インジェクション攻撃の防止 (c#)
 ====================
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/10/2017
 
 カスタマー フィードバックの web サイトを使用して、`controller`リスト 1 にします。 これは、`controller`という 2 つのアクションを含む`Index()`と`Create()`です。
 
-**1 – を一覧表示します。`HomeController.cs`**
+**1 – を一覧表示します。 `HomeController.cs`**
 
 [!code-csharp[Main](preventing-javascript-injection-attacks-cs/samples/sample1.cs)]
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/10/2017
 
 `Index`ビューが一覧表示する 2 に含まれています。
 
-**2 – を一覧表示します。`Index.aspx`**
+**2 – を一覧表示します。 `Index.aspx`**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-cs/samples/sample2.aspx)]
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-html[Main](preventing-javascript-injection-attacks-cs/samples/sample3.html)]
 
-このテキストは、警告メッセージ ボックスを表示する JavaScript のスクリプトを表します。 このスクリプトを送信するフィードバックにユーザーが後のフォームのメッセージ*Boo!*すべてのユーザー、顧客フィードバック web サイトにアクセス、将来 (図 2 を参照) するたびに表示されます。
+このテキストは、警告メッセージ ボックスを表示する JavaScript のスクリプトを表します。 このスクリプトを送信するフィードバックにユーザーが後のフォームのメッセージ<em>Boo!</em>すべてのユーザー、顧客フィードバック web サイトにアクセス、将来 (図 2 を参照) するたびに表示されます。
 
 
 [![JavaScript インジェクション](preventing-javascript-injection-attacks-cs/_static/image5.png)](preventing-javascript-injection-attacks-cs/_static/image4.png)
@@ -117,10 +117,10 @@ HTML のできる HTML ビューで、データを表示するには、データ
 
 なぜこれが正しくないか。 Web ページ以外のもので、データベースのデータを表示する必要が生じた場合は、問題があります。 たとえば、データには、Windows フォーム アプリケーションで不要になった簡単に表示できます。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、JavaScript インジェクション攻撃の見込顧客のコンピューターを保護するにはでした。 このチュートリアルには、JavaScript インジェクション攻撃に対して、ASP.NET MVC アプリケーションを守るための 2 つの方法が説明されている: いずれかの HTML を作成することができます送信されたユーザーをエンコードするか、ビュー内のデータを HTML 送信されたユーザーをエンコード コント ローラー内のデータ。
 
->[!div class="step-by-step"]
-[前へ](authenticating-users-with-windows-authentication-cs.md)
-[次へ](authenticating-users-with-forms-authentication-vb.md)
+> [!div class="step-by-step"]
+> [前へ](authenticating-users-with-windows-authentication-cs.md)
+> [次へ](authenticating-users-with-forms-authentication-vb.md)

@@ -1,7 +1,7 @@
 ---
-title: "認証済み暗号化の詳細"
+title: ASP.NET Core での認証済み暗号化の詳細
 author: rick-anderson
-description: "このドキュメントのアウトライン ASP.NET Core データ保護の実装の詳細は、暗号化を認証します。"
+description: ASP.NET Core データの保護が認証された暗号化の実装の詳細を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/authenticated-encryption-details
-ms.openlocfilehash: b58f36a5f0353da69d6f1ef4db542aba8267027a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3ca5231e84156ede59793825e1a3e3bea0313055
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="authenticated-encryption-details"></a>認証済み暗号化の詳細
+# <a name="authenticated-encryption-details-in-aspnet-core"></a>ASP.NET Core での認証済み暗号化の詳細
 
 <a name="data-protection-implementation-authenticated-encryption-details"></a>
 
@@ -31,7 +31,7 @@ IDataProtector.Protect は byte[] プレーン テキスト パラメーター�
 
 * この特定のペイロードを保護するために使用するキーを識別する 128 ビット キー id です。
 
-* 保護されたペイロードの残りの部分は[このキーによってカプセル化された暗号化機能に固有](subkeyderivation.md#data-protection-implementation-subkey-derivation)です。 次の例で、キー、AES 256-CBC + HMACSHA256 暗号化機能を表し、ペイロードは次のようにさらに分割します。 * A 128 ビット キー修飾子です。 * は、128 ビットの初期化ベクトルです。 * AES 256-CBC 出力の 48 バイトです。 * HMACSHA256 認証タグ。
+* 保護されたペイロードの残りの部分は[このキーによってカプセル化された暗号化機能に固有](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation)です。 次の例で、キー、AES 256-CBC + HMACSHA256 暗号化機能を表し、ペイロードは次のようにさらに分割します。 * A 128 ビット キー修飾子です。 * は、128 ビットの初期化ベクトルです。 * AES 256-CBC 出力の 48 バイトです。 * HMACSHA256 認証タグ。
 
 サンプルの保護されているペイロードを次に示します。
 

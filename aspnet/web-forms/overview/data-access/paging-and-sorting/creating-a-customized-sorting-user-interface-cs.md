@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
-title: "カスタマイズされた並べ替えのユーザー インターフェイス (c#) を作成する |Microsoft ドキュメント"
+title: カスタマイズされた並べ替えのユーザー インターフェイス (c#) を作成する |Microsoft ドキュメント
 author: rick-anderson
-description: "長い一覧を表示するには、データが並べ替えられたときに、非常に役に立ちます区切り行を導入することによって関連するデータをグループ化します。 このチュートリアルでは会いしましょうを作成する方法."
+description: 長い一覧を表示するには、データが並べ替えられたときに、非常に役に立ちます区切り行を導入することによって関連するデータをグループ化します。 このチュートリアルでは会いしましょうを作成する方法.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dbd2f6c8f1e21529da8a0fbffab212a29f615cc1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c2680f5e47883c9d5fa874a36eb666270c5e406a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-customized-sorting-user-interface-c"></a>カスタマイズされた並べ替えのユーザー インターフェイス (c#) を作成します。
 ====================
@@ -141,7 +141,7 @@ GridView がまだする並べ替えられた、GridView の`SortExpression`プ�
 
 [!code-csharp[Main](creating-a-customized-sorting-user-interface-cs/samples/sample4.cs)]
 
-このコードをプログラムで参照することで開始、 `Table` GridView のコントロールの階層のルートにある検出されたオブジェクトし、という名前の文字列変数を作成する`lastValue`です。 `lastValue`前の行の値を持つ現在の行 s 並べ替え列の値の比較に使用します。 次に、GridView s`Rows`コレクションが列挙され、行ごとに、並べ替えられた列の値は、`currentValue`変数。
+このコードをプログラムで参照することで開始、 `Table` GridView のコントロールの階層のルートにある検出されたオブジェクトし、という名前の文字列変数を作成する`lastValue`です。 `lastValue` 前の行の値を持つ現在の行 s 並べ替え列の値の比較に使用します。 次に、GridView s`Rows`コレクションが列挙され、行ごとに、並べ替えられた列の値は、`currentValue`変数。
 
 > [!NOTE]
 > セル s を使用すれば、特定の行の並べ替えられています列の値を決定する`Text`プロパティです。 これは、BoundFields に適してが TemplateFields、CheckBoxFields、必要に応じて最適し、はなどです。 処理する方法の代替の GridView フィールド間もなく見ていきます。
@@ -198,8 +198,8 @@ GridView は、並べ替えのインターフェイスをカスタマイズす�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[前へ](sorting-custom-paged-data-cs.md)
-[次へ](paging-and-sorting-report-data-vb.md)
+> [!div class="step-by-step"]
+> [前へ](sorting-custom-paged-data-cs.md)
+> [次へ](paging-and-sorting-report-data-vb.md)

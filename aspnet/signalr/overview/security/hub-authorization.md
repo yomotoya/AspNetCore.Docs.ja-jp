@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/security/hub-authorization
-title: "SignalR ハブの認証と承認 |Microsoft ドキュメント"
+title: SignalR ハブの認証と承認 |Microsoft ドキュメント
 author: pfletcher
-description: "このトピックでは、どのユーザーまたはロールがハブ メソッドにアクセスできる制限する方法について説明します。 ソフトウェアのバージョンは、このトピックで Visual Studio 2013 .NET 4.5 SignalR ve を使用しています."
+description: このトピックでは、どのユーザーまたはロールがハブ メソッドにアクセスできる制限する方法について説明します。 ソフトウェアのバージョンは、このトピックで Visual Studio 2013 .NET 4.5 SignalR ve を使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/05/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/security/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: cb0f06a3ca2b39a4a952c33cea70136c7c5af7a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8e3bc8889efb1be80c57084fb04dc8030b386601
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authentication-and-authorization-for-signalr-hubs"></a>SignalR ハブの認証と承認
 ====================
@@ -73,10 +73,10 @@ Web アプリケーションで"Admin"をという名前のロールを定義し
 
 次の例は、さまざまな承認シナリオに対応します。
 
-- `[Authorize]`– 認証されたユーザーのみ
-- `[Authorize(Roles = "Admin,Manager")]`– 指定したロールのユーザーを認証されたのみ
-- `[Authorize(Users = "user1,user2")]`– 指定されたユーザー名を持つユーザーを認証されたのみ
-- `[Authorize(RequireOutgoing=false)]`– だけで認証されたユーザーは、ハブを呼び出すことができますが、サーバーからクライアントに返送の呼び出しによる制限はありません、承認など、特定のユーザーだけがメッセージを送信できますが、他のすべてのユーザー メッセージが表示されることができます。 RequireOutgoing プロパティは、ハブ内の個人用メソッドではなく、hub 全体にのみ適用できます。 RequireOutgoing が false に設定されていない、サーバーから承認要件を満たすユーザーのみが呼び出されます。
+- `[Authorize]` – 認証されたユーザーのみ
+- `[Authorize(Roles = "Admin,Manager")]` – 指定したロールのユーザーを認証されたのみ
+- `[Authorize(Users = "user1,user2")]` – 指定されたユーザー名を持つユーザーを認証されたのみ
+- `[Authorize(RequireOutgoing=false)]` – だけで認証されたユーザーは、ハブを呼び出すことができますが、サーバーからクライアントに返送の呼び出しによる制限はありません、承認など、特定のユーザーだけがメッセージを送信できますが、他のすべてのユーザー メッセージが表示されることができます。 RequireOutgoing プロパティは、ハブ内の個人用メソッドではなく、hub 全体にのみ適用できます。 RequireOutgoing が false に設定されていない、サーバーから承認要件を満たすユーザーのみが呼び出されます。
 
 <a id="requireauth"></a>
 
@@ -126,7 +126,7 @@ Web アプリケーションで"Admin"をという名前のロールを定義し
 
 [!code-csharp[Main](hub-authorization/samples/sample7.cs)]
 
-コンソール アプリに資格情報の記事**www.contoso.com/RemoteLogin**を次の分離コード ファイルを含む空のページを参照する可能性があります。
+コンソール アプリに資格情報の記事<strong>www.contoso.com/RemoteLogin</strong>を次の分離コード ファイルを含む空のページを参照する可能性があります。
 
 [!code-csharp[Main](hub-authorization/samples/sample8.cs)]
 

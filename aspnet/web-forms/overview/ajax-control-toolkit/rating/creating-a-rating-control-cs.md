@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-cs
-title: "評価コントロール (c#) を作成する |Microsoft ドキュメント"
+title: 評価コントロール (c#) を作成する |Microsoft ドキュメント
 author: wenz
-description: "多くの web サイト、e コマース、コミュニティ サイトへのユーザーは、レート アーティクルまたは項目を提供します。 通常、いくつかのコーディング作業が必要ですが、."
+description: 多くの web サイト、e コマース、コミュニティ サイトへのユーザーは、レート アーティクルまたは項目を提供します。 通常、いくつかのコーディング作業が必要ですが、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7c004522ac72b848e42320862d77bced0c11ca15
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a48cf0ed9402e2875e87ba7bdb76afc5f501a670
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-rating-control-c"></a>評価コントロール (c#) を作成します。
 ====================
@@ -41,12 +41,12 @@ ms.lasthandoff: 11/10/2017
 
 次に、追加、`Rating`から ASP.NET AJAX コントロール Toolkit コントロール。 次の属性は、この例に設定する必要があります。
 
-- `CurrentRating`使用する初期の評価
-- `MaxRating`最大年齢区分
-- `EmptyStarCssClass`評価アイテム (星印) は空にするときに使用する CSS クラス
-- `FilledStarCssClass`評価項目 (星印) は、入力時に使用する CSS クラス
-- `StarCssClass`表示状態を使用する CSS クラス
-- `WaitingStarCssClass`星の評価は、サーバーに送信中に使用する CSS クラス
+- `CurrentRating` 使用する初期の評価
+- `MaxRating` 最大年齢区分
+- `EmptyStarCssClass` 評価アイテム (星印) は空にするときに使用する CSS クラス
+- `FilledStarCssClass` 評価項目 (星印) は、入力時に使用する CSS クラス
+- `StarCssClass` 表示状態を使用する CSS クラス
+- `WaitingStarCssClass` 星の評価は、サーバーに送信中に使用する CSS クラス
 
 5 つの評価のコントロールを作成するマークアップは、次を [なし] が入力された最初の項目 (スマイリー)。
 
@@ -73,5 +73,5 @@ ms.lasthandoff: 11/10/2017
 
 最小限のコードで評価システムを作成する ([フルサイズのイメージを表示するをクリックして](creating-a-rating-control-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[次へ](creating-a-rating-control-vb.md)
+> [!div class="step-by-step"]
+> [次へ](creating-a-rating-control-vb.md)

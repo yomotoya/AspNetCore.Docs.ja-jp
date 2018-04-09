@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-web-forms-vnext/getting-started-with-the-next-version-of-aspnet
-title: "次のバージョンの ASP.NET の概要 |Microsoft ドキュメント"
+title: 次のバージョンの ASP.NET の概要 |Microsoft ドキュメント
 author: shanselman
-description: "Scott Hanselman には、ASP.NET の次のバージョンの今後の機能について説明します。"
+description: Scott Hanselman には、ASP.NET の次のバージョンの今後の機能について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/18/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/getting-started-with-the-next-version-of-aspnet
 msc.type: video
-ms.openlocfilehash: b26dde5ac5c4b5612f3697cd40a299e0f8ef6717
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8a5b972741a0e524fff4d2d8ecf908cffc894c58
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-the-next-version-of-aspnet"></a>次のバージョンの ASP.NET の概要
 ====================
@@ -24,8 +24,8 @@ ms.lasthandoff: 11/10/2017
 
 Scott Hanselman には、ASP.NET の次のバージョンの今後の機能について説明します。
 
-[&#9654;です。(3 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/getting-started-with-the-next-version-of-aspnet)
+[&#9654;(3 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/getting-started-with-the-next-version-of-aspnet)
 
->[!div class="step-by-step"]
-[前へ](aspnet-vnext-videos-bundling-and-minification.md)
-[次へ](aspnet-and-web-tools-20122.md)
+> [!div class="step-by-step"]
+> [前へ](aspnet-vnext-videos-bundling-and-minification.md)
+> [次へ](aspnet-and-web-tools-20122.md)

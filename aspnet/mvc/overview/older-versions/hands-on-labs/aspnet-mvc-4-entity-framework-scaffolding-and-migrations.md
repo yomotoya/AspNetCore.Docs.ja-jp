@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
-title: "ASP.NET MVC 4 エンティティ フレームワークのスキャフォールディングと移行 |Microsoft ドキュメント"
+title: ASP.NET MVC 4 エンティティ フレームワークのスキャフォールディングと移行 |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET MVC 4 コント ローラーのメソッドに慣れているか、完了したかどうか、&quot;ヘルパー、フォーム、および検証&quot;ハンズオン ラボは、注意してください."
+description: ASP.NET MVC 4 コント ローラーのメソッドに慣れているか、完了したかどうか、&quot;ヘルパー、フォーム、および検証&quot;ハンズオン ラボは、注意してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 396859463446d95c58271c4b00fc950bcd0d539a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 548afe1926eed49841251832d54dc213da0cb753
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 エンティティ フレームワークのスキャフォールディングと移行
 
@@ -98,7 +98,7 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
     ![新しい ASP.NET MVC 4 プロジェクト ダイアログ ボックス](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image1.png "新しい ASP.NET MVC 4 プロジェクト ダイアログ ボックス")
 
     *新しい ASP.NET MVC 4 プロジェクト ダイアログ ボックス*
-3. **新しい ASP.NET MVC 4 プロジェクト**ダイアログ ボックスの 、**インターネット アプリケーション**テンプレート、ことを確認および**Razor**は、選択した**ビュー エンジン**. をクリックして**OK**プロジェクトを作成します。
+3. **新しい ASP.NET MVC 4 プロジェクト**ダイアログ ボックスの 、**インターネット アプリケーション**テンプレート、ことを確認および**Razor**は、選択した**ビュー エンジン**. **[OK]** をクリックして、プロジェクトを作成します。
 
     ![新しい ASP.NET MVC 4 のインターネット アプリケーション](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image2.png "新しい ASP.NET MVC 4 のインターネット アプリケーション")
 
@@ -109,7 +109,9 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
     (コード スニペットの*ASP.NET MVC 4 および Entity Framework の移行 - Ex1 Person プロパティ*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample1.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample1.cs)]
+~~~
 6. をクリックして**ビルド |ソリューションをビルド**変更を保存し、プロジェクトをビルドします。
 
     ![アプリケーションのビルド](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image3.png "アプリケーションのビルド")
@@ -118,14 +120,14 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
 7. ソリューション エクスプ ローラーで、controllers フォルダーを右クリックして**追加 |コント ローラー**です。
 8. コント ローラーの名前を付けます*PersonController*を完了し、**スキャフォールディング オプション**次の値。
 
-    1. **テンプレート**ドロップダウン リストで、**読み取り/書き込みアクションと Entity Framework を使用して、ビューの MVC コント ローラー**オプション。
-    2. **モデル クラス**ドロップダウン リストで、 **Person**クラスです。
-    3. **データ コンテキスト クラス**一覧で、 **&lt;新しいデータ コンテキストしています.&gt;**. 任意の名前を選択し、クリックして**OK**です。
-    4. **ビュー**ドロップダウン リストで、ことを確認して**Razor**が選択されています。
+   1. **テンプレート**ドロップダウン リストで、**読み取り/書き込みアクションと Entity Framework を使用して、ビューの MVC コント ローラー**オプション。
+   2. **モデル クラス**ドロップダウン リストで、 **Person**クラスです。
+   3. **データ コンテキスト クラス**一覧で、 **&lt;新しいデータ コンテキストしています.&gt;**. 任意の名前を選択し、クリックして**OK**です。
+   4. **ビュー**ドロップダウン リストで、ことを確認して**Razor**が選択されています。
 
-    ![スキャフォールディングがある人コント ローラーを追加する](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image4.png "Person コント ローラーのスキャフォールディングを追加します。")
+      ![スキャフォールディングがある人コント ローラーを追加する](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image4.png "Person コント ローラーのスキャフォールディングを追加します。")
 
-    *スキャフォールディングがある人コント ローラーを追加します。*
+      *スキャフォールディングがある人コント ローラーを追加します。*
 9. をクリックして**追加**スキャフォールディングとユーザーを新しいコント ローラーを作成します。 コント ローラーのアクションだけでなく、ビューを生成したようになりました。
 
     ![スキャフォールディングを含む Person コント ローラーを作成したら](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image5.png "スキャフォールディングで人コント ローラーを作成した後")
@@ -133,9 +135,9 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
     *スキャフォールディングで人コント ローラーを作成した後*
 10. 開いている**PersonController**クラスです。 完全 CRUD アクション メソッドが自動的に生成されたことに注意してください。
 
-    ![Person コント ローラー内](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image6.png "ユーザーの内部コント ローラー")
+   ![Person コント ローラー内](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image6.png "ユーザーの内部コント ローラー")
 
-    *Person コント ローラー内*
+   *Person コント ローラー内*
 
 <a id="Ex1Task2"></a>
 
@@ -195,11 +197,15 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
 3. 開く、**される Configuration.cs** Migrations フォルダー内のファイルです。 クラスのコンス トラクターを検索し、変更、 **AutomaticMigrationsEnabled**値*true*です。
 
 
-    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample3.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample3.cs)]
+~~~
 4. ユーザー クラスを開き、個人のミドル ネームの属性を追加します。 この新しい属性を持つモデルも変更されます。
 
 
-    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample4.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample4.cs)]
+~~~
 5. 選択**ビルド |ソリューションをビルド**メニューにアプリケーションをビルドします。
 
     ![アプリケーションのビルド](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image13.png "アプリケーションのビルド")
@@ -245,11 +251,11 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
     ![コント ローラーの更新を追加する](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image18.png "コント ローラーの更新を追加します。")
 
     *コント ローラーの更新*
-10. **[追加]**をクリックします。 値を選択して、**上書き PersonController.cs**と**上書きするには、ビューが関連付けられている** をクリック**ok**です。
+10. **[追加]** をクリックします。 値を選択して、**上書き PersonController.cs**と**上書きするには、ビューが関連付けられている** をクリック**ok**です。
 
-    ![コント ローラーの上書きを追加します。](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image19.png)
+   ![コント ローラーの上書きを追加します。](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image19.png)
 
-    *コント ローラーの更新*
+   *コント ローラーの更新*
 
 <a id="Ex1Task4"></a>
 
@@ -280,9 +286,9 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 a: をインストールする Visual Studio Express 2012 for Web
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、  **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . 次の手順を案内するインストールに必要な手順*Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*です。
+インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順を案内するインストールに必要な手順*Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*です。
 
-1. 移動して[ [https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)です。 または、既に Web Platform Installer をインストールした場合、開くことができ、製品を検索&quot; *Visual Studio Express 2012 for Web と Windows Azure SDK*&quot;です。
+1. 移動して[ [ https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)です。 または、既に Web Platform Installer をインストールした場合、開くことができ、製品を検索&quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;です。
 2. をクリックして**を今すぐインストール**です。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
 3. 1 回**Web Platform Installer**が開いて、をクリックして**インストール**セットアップを開始します。
 
@@ -293,7 +299,7 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
 
     ![ライセンス条項に同意](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image23.png)
 
-    ライセンス条項に同意
+    *ライセンス条項に同意*
 5. ダウンロードとインストール プロセスが完了するまで待機します。
 
     ![インストールの進行状況](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image24.png)
@@ -303,13 +309,13 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
 
     ![インストールが完了しました](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image25.png)
 
-    インストールが完了しました
+    *インストールが完了しました*
 7. をクリックして**終了**Web Platform Installer を閉じます。
 8. Visual Studio Express for Web を開きするには、**開始**画面し、書き込みを開始&quot; **VS Express**&quot;、順にクリックして、 **VS Express for Web**並べて表示します。
 
     ![VS Express Web タイルを](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image26.png)
 
-    VS Express Web タイルを
+    *VS Express Web タイルを*
 
 <a id="AppendixB"></a>
 

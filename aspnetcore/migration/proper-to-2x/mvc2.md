@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET から ASP.NET Core 2.0 への移行"
+title: ASP.NET から ASP.NET をコア 2.0 を移行します。
 author: isaac2004
-description: "ASP.NET Core 2.0 に移行する既存の ASP.NET MVC または Web API アプリケーションに関するガイダンスが表示されます。"
+description: ASP.NET Core 2.0 に移行する既存の ASP.NET MVC または Web API アプリケーションに関するガイダンスが表示されます。
 manager: wpickett
 ms.author: scaddie
 ms.date: 08/27/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc2
-ms.openlocfilehash: 9424234011525afdba35824b6b324f5175ba023f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 58fac7642dbfdad58fef99f04d17de33e7218524
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="migrating-from-aspnet-to-aspnet-core-20"></a>ASP.NET から ASP.NET Core 2.0 への移行
+# <a name="migrate-from-aspnet-to-aspnet-core-20"></a>ASP.NET から ASP.NET をコア 2.0 を移行します。
 
 著者: [Isaac Levin](https://isaaclevin.com)
 
@@ -23,7 +23,12 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 以降。
+インストール**1**から次の[.NET のダウンロード: Windows](https://www.microsoft.com/net/download/windows):
+
+* .NET Core SDK
+* Visual Studio for Windows
+  * **ASP.NET および web 開発**ワークロード
+  * **.NET core クロスプラット フォーム開発**ワークロード
 
 ## <a name="target-frameworks"></a>ターゲット フレームワーク
 ASP.NET Core 2.0 プロジェクトを使うと、開発者は、.NET Core と .NET Framework のどちらか一方または両方を対象にして柔軟に開発できます。 最も適切なターゲット フレームワークの決定については、「[サーバー アプリ用 .NET Core と .NET Framework の選択](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server)」をご覧ください。
@@ -145,7 +150,7 @@ ASP.NET Core では、構成が変更されていない限り、静的ファイ�
 
 たとえば、*wwwroot/images* フォルダー内のイメージ アセットには、ブラウザーから `http://<app>/images/<imageFileName>` などの場所でアクセスできます。
 
-**注:** ASP.NET Core での静的ファイルの提供について詳しくは、「[Introduction to working with static files in ASP.NET Core](xref:fundamentals/static-files)」(ASP.NET Core での静的ファイルの使用の概要) をご覧ください。
+**注:** ASP.NET Core での静的ファイルを提供する詳細なリファレンスについては、次を参照してください。 [ASP.NET Core の静的ファイルを操作](xref:fundamentals/static-files)です。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

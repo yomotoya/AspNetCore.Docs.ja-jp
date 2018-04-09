@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
-title: "Web、企業内の配置 |Microsoft ドキュメント"
+title: Web、企業内の配置 |Microsoft ドキュメント
 author: jrjlee
-description: "このチュートリアルでは、devel にエンタープライズ規模の web アプリケーションの展開を管理するときに発生する課題の多くを満たす方法について説明しています."
+description: このチュートリアルでは、devel にエンタープライズ規模の web アプリケーションの展開を管理するときに発生する課題の多くを満たす方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
-ms.openlocfilehash: 6210d01f65bcadf8ae4209e372d5aac68861bd7a
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: fc463cb689f4f63a12788b80958c9fc8fe20119d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="web-deployment-in-the-enterprise"></a>企業内の web 配置
 ====================
@@ -66,7 +66,7 @@ ms.lasthandoff: 03/15/2018
 
 このチュートリアルには、次の 4 つの主な領域に分類されるトピックが含まれています。
 
-これらのトピックでは、参照ソリューション & #x 2014 以外の場合は、連絡先のマネージャー ソリューション & #x 2014; を紹介し、ダウンロードし、ローカル コンピューターに構成する方法について説明します。
+これらのトピックを紹介参照ソリューション&#x2014;Contact Manager ソリューション&#x2014;し、それをダウンロードしてローカル コンピューターに構成する方法について説明。
 
 - [連絡先マネージャー ソリューション](the-contact-manager-solution.md)
 - [連絡先マネージャー ソリューションを設定する](setting-up-the-contact-manager-solution.md)
@@ -104,5 +104,5 @@ ms.lasthandoff: 03/15/2018
 - [Web 配置を Team Foundation Server を構成する](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md)です。 このチュートリアルでは、CI のプロセスの一部としての自動展開の特定のビルドの展開を手動でトリガーなど、さまざまな配置シナリオをサポートするために TFS を構成する方法について説明します。
 - [企業の Web 配置を高度な](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md)します。 このチュートリアルは複数の環境のデータベースの配置をカスタマイズする、ファイルとフォルダーの展開から除外および展開プロセス中に web アプリケーションをオフラインにするなどのさまざまな高度な展開タスクを実行する方法を説明します.
 
->[!div class="step-by-step"]
-[次へ](the-contact-manager-solution.md)
+> [!div class="step-by-step"]
+> [次へ](the-contact-manager-solution.md)

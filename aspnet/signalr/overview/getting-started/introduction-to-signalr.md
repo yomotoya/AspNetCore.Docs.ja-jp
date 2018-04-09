@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/introduction-to-signalr
-title: "SignalR の概要 |Microsoft ドキュメント"
+title: SignalR の概要 |Microsoft ドキュメント
 author: pfletcher
-description: "この記事は、SignalR は、作成するため、デザインされたソリューションの一部について説明します。"
+description: この記事は、SignalR は、作成するため、デザインされたソリューションの一部について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 5bb49c9c2405d232ba5e067d99f8879b3bc99361
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: 0ceca3edc26d35b1155946e60863a84da0bbe592
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-signalr"></a>SignalR の概要
 ====================
@@ -85,11 +85,11 @@ SignalR は、クライアントとサーバー間のリアルタイムの作業
 2. JSONP が構成されている場合 (つまり、`jsonp`にパラメーターが設定されている`true`接続が開始されたときに)、長いポーリングを使用します。
 3. (つまり、SignalR エンドポイントがホストするページと同じドメインではない) 場合、クロス ドメイン接続が確立されている場合、WebSocket が適用されます、次の条件を満たしている場合。
 
-    - クライアントは、CORS (クロス オリジン リソース共有) をサポートします。 詳細については CORS をサポートしているクライアントを次を参照してください。 [caniuse.com で CORS](http://www.caniuse.com/CORS)です。
-    - クライアントは、WebSocket をサポートしています。
-    - このサーバーは、WebSocket をサポートします。
+   - クライアントは、CORS (クロス オリジン リソース共有) をサポートします。 詳細については CORS をサポートしているクライアントを次を参照してください。 [caniuse.com で CORS](http://www.caniuse.com/CORS)です。
+   - クライアントは、WebSocket をサポートしています。
+   - このサーバーは、WebSocket をサポートします。
 
-    これらの条件が満たされない場合、長いポーリングが使用されます。 ドメイン間の接続の詳細については、次を参照してください。[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)です。
+     これらの条件が満たされない場合、長いポーリングが使用されます。 ドメイン間の接続の詳細については、次を参照してください。[ドメイン間の接続を確立する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain)です。
 4. JSONP が構成されていない接続は、クロス ドメインではない場合は、WebSocket は、クライアントとサーバーの両方がサポートしている場合に使用されます。
 5. クライアントまたはサーバーのいずれかが WebSocket をサポートしていない場合は、使用可能になる場合にサーバー送信イベントが使用されます。
 6. サーバー送信イベントが使用できない場合は、永久にフレームが試行されます。

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
-title: "連絡先のマネージャー ソリューション |Microsoft ドキュメント"
+title: 連絡先のマネージャー ソリューション |Microsoft ドキュメント
 author: jrjlee
-description: "この一連のチュートリアル & を使用サンプル ソリューション & #x 2014 以外の場合は、Contact Manager ソリューション #x 2014; 現実的なレベルを持つエンタープライズ規模アプリケーションを表すしています."
+description: この一連のチュートリアルのサンプル ソリューションを使用して&#x2014;Contact Manager ソリューション&#x2014;現実的なレベルを持つエンタープライズ規模アプリケーションを表すしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: b7f691a1ee855788f6a57616aea35d960e4c85c7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d7034f800df98747d10401d7e2c7297fea0e46d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-contact-manager-solution"></a>連絡先のマネージャー ソリューション
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/15/2018
 
 [PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> これは、[一連のチュートリアル](web-deployment-in-the-enterprise.md)& を使用サンプル ソリューション & #x 2014 以外の場合は、連絡先のマネージャー ソリューション #x 2014; 現実的な複雑さのレベルを持つエンタープライズ規模アプリケーションを表すです。 このトピックは、連絡先のマネージャー ソリューションが導入されています、ソリューションの主要なコンポーネントについて説明し、この種のエンタープライズ環境でさまざまな対象プラットフォームにアプリケーションの展開の課題を特定します。
+> これは、[一連のチュートリアル](web-deployment-in-the-enterprise.md)サンプル ソリューションを使用&#x2014;Contact Manager ソリューション&#x2014;現実的な複雑さのレベルを持つエンタープライズ規模アプリケーションを表すです。 このトピックは、連絡先のマネージャー ソリューションが導入されています、ソリューションの主要なコンポーネントについて説明し、この種のエンタープライズ環境でさまざまな対象プラットフォームにアプリケーションの展開の課題を特定します。
 > 
 > トピックを介してこれらのチュートリアルで作業するときは、エンタープライズ展開シナリオでの特定の課題に対応する方法を示しています。 参照の実装として、連絡先のマネージャー ソリューションを使用できます。 次のトピックでは、 [、連絡先のマネージャー ソリューションの設定を](setting-up-the-contact-manager-solution.md)、ダウンロードして、ソリューション開発者のワークステーションを実行する方法について説明します。
 
@@ -67,6 +67,6 @@ ms.lasthandoff: 03/15/2018
 
 次のトピックでは、 [、連絡先のマネージャー ソリューションの設定を](setting-up-the-contact-manager-solution.md)、ダウンロードして、ソリューション開発者のワークステーションを実行する方法について説明します。
 
->[!div class="step-by-step"]
-[前へ](web-deployment-in-the-enterprise.md)
-[次へ](setting-up-the-contact-manager-solution.md)
+> [!div class="step-by-step"]
+> [前へ](web-deployment-in-the-enterprise.md)
+> [次へ](setting-up-the-contact-manager-solution.md)

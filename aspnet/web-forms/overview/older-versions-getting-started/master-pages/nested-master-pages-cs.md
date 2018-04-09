@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-cs
-title: "入れ子になったマスター ページ (c#) |Microsoft ドキュメント"
+title: 入れ子になったマスター ページ (c#) |Microsoft ドキュメント
 author: rick-anderson
-description: "他の中で 1 つのマスター ページを入れ子にする方法を示します。"
+description: 他の中で 1 つのマスター ページを入れ子にする方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 97513a5a6ac7a958a03626f16a328ecb0b85c03f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c9497659e0b8ff8164f122e6e3cb382ac0355a32
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nested-master-pages-c"></a>入れ子になったマスター ページ (c#)
 ====================
@@ -94,7 +94,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="step-2-creating-a-simple-nested-master-page"></a>手順 2: 単純な入れ子になったマスター ページを作成します。
 
-`Simple.master`ContentPlaceHolder の 2 つのコントロールが含まれています。 `MainContent` ContentPlaceHolder と共に Web フォーム内で追加されました、`head`で ContentPlaceHolder、`<head>`要素。 コンテンツ ページを作成しにバインドした場合`Simple.master`コンテンツ ページで次の 2 つの contentplaceholders に参照する 2 つのコンテンツ コントロールが必要があります。 同様に、入れ子になったマスター ページを作成し、バインドにかどうか`Simple.master`の場合、入れ子になったマスター ページは次の 2 つのコンテンツ コントロールです。
+`Simple.master` ContentPlaceHolder の 2 つのコントロールが含まれています。 `MainContent` ContentPlaceHolder と共に Web フォーム内で追加されました、`head`で ContentPlaceHolder、`<head>`要素。 コンテンツ ページを作成しにバインドした場合`Simple.master`コンテンツ ページで次の 2 つの contentplaceholders に参照する 2 つのコンテンツ コントロールが必要があります。 同様に、入れ子になったマスター ページを作成し、バインドにかどうか`Simple.master`の場合、入れ子になったマスター ページは次の 2 つのコンテンツ コントロールです。
 
 新しい入れ子になったマスター ページを追加してみましょう。、`NestedMasterPages`という名前のフォルダー`SimpleNested.master`です。 右クリックし、`NestedMasterPages`フォルダーと、新しい項目の追加を選択します。 図 2 に示すように、新しい項目の追加 ダイアログ ボックスが表示されます。 マスター ページ テンプレートの種類を選択して、新しいマスター ページの名前を入力します。 指定すること、新しいマスター ページは、入れ子になったマスター ページ、するには、「マスター ページを選択」チェック ボックスを確認します。
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 01/24/2018
 
 [!code-aspx[Main](nested-master-pages-cs/samples/sample4.aspx)]
 
-この追加した場合、入れ子になったマスター ページを保存しを新しいコンテンツ ページを追加、`NestedMasterPages`という名前のフォルダー`Default.aspx`にバインドし、`SimpleNested.master`マスター ページ。 このページを追加するのには、驚くことが含まれていない (図 4 を参照してください) のコンテンツ コントロールを表示する場合があります! コンテンツ ページにのみアクセスできますその*親*マスター ページの contentplaceholders にします。 `SimpleNested.master`ContentPlaceHolder コントロール; が含まれていません。そのため、このマスター ページにバインドされている任意のコンテンツ ページでは、すべてのコンテンツ コントロールを含めることはできません。
+この追加した場合、入れ子になったマスター ページを保存しを新しいコンテンツ ページを追加、`NestedMasterPages`という名前のフォルダー`Default.aspx`にバインドし、`SimpleNested.master`マスター ページ。 このページを追加するのには、驚くことが含まれていない (図 4 を参照してください) のコンテンツ コントロールを表示する場合があります! コンテンツ ページにのみアクセスできますその*親*マスター ページの contentplaceholders にします。 `SimpleNested.master` ContentPlaceHolder コントロール; が含まれていません。そのため、このマスター ページにバインドされている任意のコンテンツ ページでは、すべてのコンテンツ コントロールを含めることはできません。
 
 
 [![新しいコンテンツ ページにコンテンツ コントロールが含まれていません。](nested-master-pages-cs/_static/image11.png)](nested-master-pages-cs/_static/image10.png)
@@ -258,7 +258,7 @@ Visual Studio は 4 つに追加して、入れ子になったマスター ペ�
 
 バインドする必要があります [管理] セクションに新しいコンテンツ ページを追加お常、`AdminNested.master`マスター ページを作成したばかりです。 しかし、ページのコンテンツについて、既存のでしょうか。 現時点から派生して、サイト内のすべてのコンテンツ ページ、`BasePage`クラスは、プログラムによって実行時に、コンテンツ ページのマスター ページを設定します。 [管理] セクションのコンテンツ ページの想定どおりの動作ではありません。 これらのコンテンツ ページを常に使用する代わりに、`AdminNested.master`ページ。 実行時に右最上位レベル コンテンツ ページを選択する場合は、入れ子になったマスター ページの責任があります。
 
-最善の方法をこの目的の動作はという名前の新しいカスタムの基本ページ クラスを作成する`AdminBasePage`自身を拡張する、`BasePage`クラスです。 `AdminBasePage`オーバーライドし、`SetMasterPageFile`設定と、`Page`オブジェクトの`MasterPageFile`ハード コーディングされた値に"~/Admin/AdminNested.master"です。 この方法で任意のページから派生した`AdminBasePage`が使用されます`AdminNested.master`から派生した任意のページに対して`BasePage`がその`MasterPageFile`いずれかに動的にプロパティが設定"~/Site.master"または"~/Alternate.master"の値に基づいて、`MyMasterPage`セッション変数。
+最善の方法をこの目的の動作はという名前の新しいカスタムの基本ページ クラスを作成する`AdminBasePage`自身を拡張する、`BasePage`クラスです。 `AdminBasePage` オーバーライドし、`SetMasterPageFile`設定と、`Page`オブジェクトの`MasterPageFile`ハード コーディングされた値に"~/Admin/AdminNested.master"です。 この方法で任意のページから派生した`AdminBasePage`が使用されます`AdminNested.master`から派生した任意のページに対して`BasePage`がその`MasterPageFile`いずれかに動的にプロパティが設定"~/Site.master"または"~/Alternate.master"の値に基づいて、`MyMasterPage`セッション変数。
 
 新しいクラス ファイルを追加することで開始、`App_Code`という名前のフォルダー`AdminBasePage.cs`です。 `AdminBasePage`拡張`BasePage`をオーバーライドし、`SetMasterPageFile`メソッドです。 そのメソッドで割り当てる、`MasterPageFile`値"~/Admin/AdminNested.master"です。 クラスのこれらの変更を行った後ファイルを次のようになります。
 
@@ -358,12 +358,12 @@ Like 程度コンテンツ ページは、マスター ページにバインド�
 
 ### <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、作成者複数受け取ります書籍や 4GuysFromRolla.com の創設者を操作した Microsoft Web テクノロジ 1998 年です。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 3.5 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)です。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、作成者複数受け取ります書籍や 4GuysFromRolla.com の創設者を操作した Microsoft Web テクノロジ 1998 年です。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 3.5 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)です。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 
-このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](specifying-the-master-page-programmatically-cs.md)
-[次へ](creating-a-site-wide-layout-using-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [前へ](specifying-the-master-page-programmatically-cs.md)
+> [次へ](creating-a-site-wide-layout-using-master-pages-vb.md)

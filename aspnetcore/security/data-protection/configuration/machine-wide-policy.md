@@ -1,7 +1,7 @@
 ---
-title: "データの保護コンピューター全体のポリシーを ASP.NET Core のサポートします。"
+title: データの保護コンピューター全体のポリシーを ASP.NET Core のサポートします。
 author: rick-anderson
-description: "ASP.NET Core データ保護を使用するすべてのアプリの既定のコンピューター全体のポリシーを設定するためのサポートについて説明します。"
+description: ASP.NET Core データ保護を使用するすべてのアプリの既定のコンピューター全体のポリシーを設定するためのサポートについて説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 53ded37e9fd5f1a2eaa37935d1c52efb1e9231ac
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c2d5760cd18f4e3ecaf0261f36414c9298e3f4c5
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>データの保護コンピューター全体のポリシーを ASP.NET Core のサポートします。
 
@@ -71,4 +71,4 @@ Windows CNG によって提供されるサービスでの機密性、および�
 EncryptionType が空か、null 以外の他の任意の値を持つ場合、データ保護システムは、起動時に例外をスローします。
 
 > [!WARNING]
-> (EncryptionAlgorithmType、ValidationAlgorithmType、KeyEscrowSinks) の型名を含む既定のポリシー設定を構成するときに型が、アプリに使用する必要があります。 意味アプリについてはデスクトップ CLR で実行されている、これらの型を含むアセンブリ必要がありますグローバル アセンブリ キャッシュ (GAC) 内に存在します。 ASP.NET Core アプリケーションで実行されている[.NET Core](https://www.microsoft.com/net/core)、これらの型を含むパッケージをインストールする必要があります。
+> (EncryptionAlgorithmType、ValidationAlgorithmType、KeyEscrowSinks) の型名を含む既定のポリシー設定を構成するときに型が、アプリに使用する必要があります。 意味アプリについてはデスクトップ CLR で実行されている、これらの型を含むアセンブリ必要がありますグローバル アセンブリ キャッシュ (GAC) 内に存在します。 ASP.NET Core アプリケーションの .NET Core で実行されている場合は、これらの型が含まれているパッケージをインストールしてください。

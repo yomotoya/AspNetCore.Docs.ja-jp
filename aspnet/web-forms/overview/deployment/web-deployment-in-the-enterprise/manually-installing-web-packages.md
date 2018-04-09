@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
-title: "Web パッケージを手動でインストールする |Microsoft ドキュメント"
+title: Web パッケージを手動でインストールする |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、インターネット インフォメーション サービス (IIS) に web 配置パッケージを手動でインポートする方法について説明します。 トピックのビルドとパッケージ Web Applicati しています."
+description: このトピックでは、インターネット インフォメーション サービス (IIS) に web 配置パッケージを手動でインポートする方法について説明します。 トピックのビルドとパッケージ Web Applicati しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: e06d37c01ab66f0723b687f4ed1ee72561099aef
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4a28ea92b22e4928e41a39a8a91b62bfa4f08175
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="manually-installing-web-packages"></a>Web パッケージを手動でインストールします。
 ====================
@@ -30,10 +30,10 @@ ms.lasthandoff: 03/15/2018
 > 
 > Web 配置パッケージを作成した後は、さまざまな方法で、IIS サーバーにパブリッシュできます。 多数のシナリオでは、MSBuild、WPP、および Web デプロイを作成し、自動または 1 ステップのビルドおよび配置プロセスの一部として web パッケージをリモートでインストールの間の統合ポイントを活用するためにします。 このプロセスについては、「 [Web パッケージを展開する](deploying-web-packages.md)です。 ただし、これは常に可能です。 インターネットに接続された運用環境に web アプリケーションを展開するとします。 セキュリティ上の理由から、このような実稼働環境では、境界ネットワーク (DMZ、非武装地帯およびスクリーン サブネットとも呼ばれます) で、ビルド サーバーから分離したサブネット上のファイアウォールの内側にある可能性が非常に最もです。 多くの場合では、運用環境は別のドメインにまたは物理的に分離ネットワーク上になります。
 > 
-> これらのシナリオで、移行先サーバー上に web パッケージのポートを IIS に手動でインポートする唯一の選択肢があります。 この方法では、自動展開が除外はまだ web アプリケーション & #x 2014 を公開するための非常に効果的な手法以外の場合は単に、web サーバーに 1 つの zip ファイルをコピーし、インポート プロセスを案内するウィザードを使用します。
+> これらのシナリオで、移行先サーバー上に web パッケージのポートを IIS に手動でインポートする唯一の選択肢があります。 この方法では、自動展開が除外はまだ web アプリケーションを公開するための非常に効果的な手法&#x2014;する、web サーバーに 1 つの zip ファイルをコピーし、インポート プロセスを案内するウィザードを使用します。
 
 
-このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。サンプル ソリューション & #x 2014; このチュートリアルのシリーズを使用して、 [Contact Manager ソリューション](the-contact-manager-solution.md)& #x 2014; を ASP.NET MVC 3 アプリケーションを Windows のなどの複雑性のレベルが現実的な web アプリケーションを表すCommunication Foundation (WCF) サービスとデータベース プロジェクト。
+このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルの一連のサンプル ソリューションを使用する&#x2014;、 [Contact Manager ソリューション](the-contact-manager-solution.md)&#x2014;現実的な ASP.NET MVC 3 アプリケーション、Windows Communication も含め、複雑さのレベルを持つ web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
 ## <a name="task-overview"></a>タスクの概要
 
@@ -133,5 +133,5 @@ Web 配置パッケージをサポートするために IIS web サーバーを�
 
 Web パッケージを手動でインポートをサポートする IIS web サーバーを構成する方法のガイダンスについては、次を参照してください。[用 Web 配置発行 (オフライン展開) Web サーバーの構成](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)です。 Web パッケージの展開の一般的なガイダンスについては、次を参照してください。[チュートリアル: Web 配置パッケージ (4 のパート 1) を使用して Web アプリケーション プロジェクトを配置](https://msdn.microsoft.com/library/dd483479.aspx)です。
 
->[!div class="step-by-step"]
-[前へ](creating-and-running-a-deployment-command-file.md)
+> [!div class="step-by-step"]
+> [前へ](creating-and-running-a-deployment-command-file.md)

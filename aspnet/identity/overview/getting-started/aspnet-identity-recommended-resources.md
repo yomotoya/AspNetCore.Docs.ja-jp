@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/getting-started/aspnet-identity-recommended-resources
-title: "ASP.NET Id のリソースをお勧め |Microsoft ドキュメント"
+title: ASP.NET Id のリソースをお勧め |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このトピックでは、ASP.NET Identity の使用方法に関するドキュメント リソースへのリンクを提供します。 場合は、優れたブログの投稿、stackoverflow スレッド、またはその他のすべてのリンクがわかっています."
+description: このトピックでは、ASP.NET Identity の使用方法に関するドキュメント リソースへのリンクを提供します。 場合は、優れたブログの投稿、stackoverflow スレッド、またはその他のすべてのリンクがわかっています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2015
 ms.topic: article
 ms.assetid: 0f78aec2-f509-46fa-b20f-d5208425d8ec
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: cb6e378d6b1de7d43bbc4272b64f9029f4e92924
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f2e1693a32fce6956ddb1e095e6f208b9f0faab6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-identity-recommended-resources"></a>ASP.NET の Id がリソースを推奨
 ====================
@@ -94,7 +94,7 @@ ms.lasthandoff: 01/24/2018
     - [外部の Owin 認証パイプラインを理解します。](http://coding.abel.nu/2014/06/understanding-the-owin-external-authentication-pipeline/)
     - [ASP.NET Identity と Owin の概要](http://coding.abel.nu/2014/06/asp-net-identity-and-owin-overview/)
 
- によって[K. Scott Allen](https://twitter.com/OdeToCode)コードをコードで
+  によって[K. Scott Allen](https://twitter.com/OdeToCode)コードをコードで
 
     - [ASP.NET Core Id](http://odetocode.com/blogs/scott/archive/2013/11/25/asp-net-core-identity.aspx)このブログを調べ、コアなどの抽象化 IUser、IUserStore およびに\*インターフェイスを格納します。
     - [Entity Framework での ASP.NET Identity](http://odetocode.com/blogs/scott/archive/2014/01/03/asp-net-identity-with-the-entity-framework.aspx) MVC 5 の場合、Web API および SPA アプリ、接続文字列および管理のコンテキスト内の個々 のユーザー アカウント
@@ -108,7 +108,7 @@ ms.lasthandoff: 01/24/2018
 - [Pranav Rastogi](https://twitter.com/rustd)
 
     - [プロバイダーからソーシャル情報の入手します。](https://blogs.msdn.com/b/webdev/archive/2013/10/16/get-more-information-from-social-providers-used-in-the-vs-2013-project-templates.aspx)
-- [@beabigrockstar](https://twitter.com/beabigrockstar)(Jerrie Pelser)
+- [@beabigrockstar](https://twitter.com/beabigrockstar) (Jerrie Pelser)
 
     - [2 要素認証](http://www.beabigrockstar.com/blog/2-factor-authentication-with-asp-net-identity-2-0-beta-1/)
     - [ASP.NET Id の Google Authenticator を使用します。](http://www.beabigrockstar.com/blog/using-google-authenticator-asp-net-identity/)
@@ -132,7 +132,7 @@ ms.lasthandoff: 01/24/2018
 - Channel 9 [ASP.NET Id を持つ、web サイトをセキュリティで保護する](https://channel9.msdn.com/Events/TechDays/Techdays-2014-the-Netherlands/Securing-your-website-with-ASP-NET-Identity)Alex Thissen によって
 - [ASP.NET Id を使用して、既存のデータベース モデルに](https://www.youtube.com/watch?v=elfqejow5hM)Alexander Schmidt によって
 - [1 つの ASP.NET Identity](https://www.youtube.com/watch?v=w8GD-QIusKk) Telerik の Ivaylo Kenov によって
-- [チェコ語 ASP.NET Identity](https://www.youtube.com/watch?v=tVbZp5brcpY)この講義で基本認証を展開する方法、Facebook、Twitter などの外部の id プロバイダーのサポートを追加する方法、およびワンタイム パスワード (OTP) を使用する方法が示しますされます。 [ASP.NET の Id では nástupce メンバーシップ ロール プロバイダー &#367;です。 v ASP.NET、tedy knihovna pro zajišt #283 ní autentizace uživatel &; #367 です。 V této p &#345; ednášce si ukážeme、充満 nasad]
+- [チェコ語 ASP.NET Identity](https://www.youtube.com/watch?v=tVbZp5brcpY)この講義で基本認証を展開する方法、Facebook、Twitter などの外部の id プロバイダーのサポートを追加する方法、およびワンタイム パスワード (OTP) を使用する方法が示しますされます。 [ASP.NET の Id では nástupce メンバーシップ ロール プロバイダー&#367; v ASP.NET、tedy knihovna pro zajišt&#283;ní autentizace uživatel&#367;です。 V této p&#345;ednášce si ukážeme、充満 nasad]
 
 <a id="cust"></a>
 ## <a name="custom-storage-providers-for-aspnet-identity"></a>ASP.NET Id のカスタムの記憶域プロバイダー

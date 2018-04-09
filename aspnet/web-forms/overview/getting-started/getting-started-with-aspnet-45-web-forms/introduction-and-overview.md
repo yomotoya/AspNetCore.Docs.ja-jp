@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 6ae398f94c0ac3872601bdc8fd935f6d285793db
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 572b263a5f968b473457771a1dd4075910218c01
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要
 ====================
@@ -177,9 +177,9 @@ PayPal から返された後、は、確認し、注文を完了できます。
 
 [ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys の概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)(c#) 
 
-ダウンロードが、 *.zip*ファイル。 このチュートリアルのシリーズを作成する、完成したプロジェクトで検索と選択を表示する、 *c#*内のフォルダー、 *.zip*ファイル。 保存、 *c#*フォルダーに Visual Studio 2013 プロジェクトの作業を使用するフォルダーです。 既定では、Visual Studio 2013 プロジェクト フォルダーは次のよう
+ダウンロードが、 <em>.zip</em>ファイル。 このチュートリアルのシリーズを作成する、完成したプロジェクトで検索と選択を表示する、 <em>c#</em>内のフォルダー、 <em>.zip</em>ファイル。 保存、 <em>c#</em>フォルダーに Visual Studio 2013 プロジェクトの作業を使用するフォルダーです。 既定では、Visual Studio 2013 プロジェクト フォルダーは次のよう
 
-**C:\Users\*****&lt;username&gt;*****\Documents\Visual Studio 2013\Projects**
+<strong>C:\Users\</strong><strong><em>&lt;username&gt;</em></strong><strong>\Documents\Visual Studio 2013\Projects</strong>
 
 名前を変更、 ***c#***フォルダー ***WingtipToys***です。
 
@@ -197,5 +197,5 @@ PayPal から返された後、は、確認し、注文を完了できます。
 
 開発中は、エラーの発生時、または Web サイトが正しく実行されない場合は、エラー メッセージは、問題の原因に複雑な手掛かりを与える可能性があります。 または、その修正方法については説明があります。 問題の一般的なシナリオで役立つ、使用することも、 [ASP.NET フォーラム](https://forums.asp.net/)または Q &AMP; A セクションに含まれている、 [ASP.NET 4.5 Web フォームと Visual Studio 2013 - Wingtip Toys の概要](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409)(C#) サンプルです。 エラー メッセージを取得する、または、チュートリアルを通過するとおりに機能しない、上記の場所を確認することを確認します。
 
->[!div class="step-by-step"]
-[次へ](create-the-project.md)
+> [!div class="step-by-step"]
+> [次へ](create-the-project.md)

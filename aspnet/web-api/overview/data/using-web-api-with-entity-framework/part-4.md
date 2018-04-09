@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-4
-title: "エンティティのリレーションシップの処理 |Microsoft ドキュメント"
+title: エンティティのリレーションシップの処理 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 58a9dfb621630f23b37247b96ed3a19a661857f1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3c82724739b8ccb7c6b13788a5420af1e61c990b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-entity-relations"></a>処理のエンティティ関係
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 このセクションでは、EF が、関連するエンティティを読み込む方法と、モデル クラスでの循環のナビゲーション プロパティを処理する方法の詳細の一部について説明します。 (このセクションでは、背景知識を提供し、チュートリアルを完了する必要はありません。 場合は、スキップ[パート 5](part-5.md)。)。
 
@@ -112,6 +112,6 @@ XML フォーマッタを次に示します。
 
 このチュートリアルでは、する必要はありません、`Author.Book`ナビゲーション プロパティ、ようにおくことができます。
 
->[!div class="step-by-step"]
-[前へ](part-3.md)
-[次へ](part-5.md)
+> [!div class="step-by-step"]
+> [前へ](part-3.md)
+> [次へ](part-5.md)

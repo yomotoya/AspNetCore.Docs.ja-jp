@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
-title: "ASP.NET MVC アプリケーション (10 の 1) 用の Entity Framework データ モデルの作成 |Microsoft ドキュメント"
+title: ASP.NET MVC アプリケーション (10 の 1) 用の Entity Framework データ モデルの作成 |Microsoft ドキュメント
 author: tdykstra
-description: "このチュートリアル シリーズの新しいバージョンを使用できる、Visual Studio 2013、Entity Framework 6、および MVC 5 です。 Contoso 大学サンプル web アプリケーション de しています."
+description: このチュートリアル シリーズの新しいバージョンを使用できる、Visual Studio 2013、Entity Framework 6、および MVC 5 です。 Contoso 大学サンプル web アプリケーション de しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 8c9971ccc70cb4b966abb64086b1b5420fc6c72a
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: a963f26b408f2a54bd9cd3e852bc1e368f86c41f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>ASP.NET MVC アプリケーション (10 の 1) 用の Entity Framework データ モデルの作成
 ====================
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
 > > [!NOTE] 
 > > 
@@ -311,29 +311,29 @@ SQL Server データベース、データ モデルに作成されました。 �
 
 1. 作成する、`Student`コント ローラーを右クリックし、**コント ローラー**フォルダー**ソリューション エクスプ ローラー****追加**、順にクリック**コント ローラー**. **コント ローラーの追加** ダイアログ ボックス、以下の選択を行い、をクリックして**追加**: 
 
-    - コント ローラー名: **StudentController**です。
-    - テンプレート:**読み取り/書き込みアクションと Entity Framework を使用して、ビューの MVC コント ローラー**です。
-    - モデル クラス:**学生 (ContosoUniversity.Models)**です。 (プロジェクトのビルド ドロップダウン リストでは、このオプションが表示されない場合、およびもう一度やり直してください。)
-    - データ コンテキスト クラス: **SchoolContext (ContosoUniversity.Models)**です。
-    - ビュー: **Razor (CSHTML)**です。 (既定値です。)
+   - コント ローラー名: **StudentController**です。
+   - テンプレート:**読み取り/書き込みアクションと Entity Framework を使用して、ビューの MVC コント ローラー**です。
+   - モデル クラス:**学生 (ContosoUniversity.Models)**です。 (プロジェクトのビルド ドロップダウン リストでは、このオプションが表示されない場合、およびもう一度やり直してください。)
+   - データ コンテキスト クラス: **SchoolContext (ContosoUniversity.Models)**です。
+   - ビュー: **Razor (CSHTML)**です。 (既定値です。)
 
-    ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image20.png)
-- Visual Studio を開き、 *Controllers\StudentController.cs*ファイル。 データベース コンテキストのオブジェクトをインスタンス化するクラスの変数が作成されてが表示されます。
+     ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image20.png)
+2. Visual Studio を開き、 *Controllers\StudentController.cs*ファイル。 データベース コンテキストのオブジェクトをインスタンス化するクラスの変数が作成されてが表示されます。
 
-    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample16.cs)]
+     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample16.cs)]
 
-    `Index`アクション メソッドから受講者のリストを取得、*受講者*エンティティ セットを読み取ることによって、`Students`データベース コンテキストのインスタンスのプロパティ。
+     `Index`アクション メソッドから受講者のリストを取得、*受講者*エンティティ セットを読み取ることによって、`Students`データベース コンテキストのインスタンスのプロパティ。
 
-    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample17.cs)]
+     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample17.cs)]
 
-    *Student\Index.cshtml*ビューは、テーブルのこの一覧を表示します。
+     *Student\Index.cshtml*ビューは、テーブルのこの一覧を表示します。
 
-    [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample18.cshtml)]
-- Ctrl キーを押しながら F5 キーを押してプロジェクトを実行します。
+     [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample18.cshtml)]
+3. Ctrl キーを押しながら F5 キーを押してプロジェクトを実行します。
 
-    をクリックして、**受講者**テスト データを表示 タブを`Seed`メソッドを挿入します。
+     をクリックして、**受講者**テスト データを表示 タブを`Seed`メソッドを挿入します。
 
-    ![学生のインデックス ページ](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image21.png)
+     ![学生のインデックス ページ](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image21.png)
 
 ## <a name="conventions"></a>規約
 
@@ -351,5 +351,5 @@ SQL Server データベース、データ モデルに作成されました。 �
 
 その他の Entity Framework リソースへのリンクは含まれて、 [ASP.NET データ アクセス コンテンツ マップ](../../../../whitepapers/aspnet-data-access-content-map.md)です。
 
->[!div class="step-by-step"]
-[次へ](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [次へ](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)

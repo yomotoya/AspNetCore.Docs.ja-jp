@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
-title: "4 番目の反復処理する疎結合アプリケーション (c#) |Microsoft ドキュメント"
+title: 4 番目の反復処理する疎結合アプリケーション (c#) |Microsoft ドキュメント
 author: microsoft
-description: "この 3 番目のイテレーションで利用の保守し、連絡先のマネージャー アプリケーションの変更を容易にできるようにするソフトウェア設計パターンをいくつかのです。 しています."
+description: この 3 番目のイテレーションで利用の保守し、連絡先のマネージャー アプリケーションの変更を容易にできるようにするソフトウェア設計パターンをいくつかのです。 しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1b8df72f51b4730a1fa9178b51a3770ce9edf181
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 33221c6c3326c7034fe013f152579828e2fc8a3a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-c"></a>4 番目の反復処理する疎結合アプリケーション (c#)
 ====================
@@ -184,7 +184,7 @@ IContactManagerService インターフェイスは、5 の一覧に含まれま�
 
 [!code-csharp[Main](iteration-4-make-the-application-loosely-coupled-cs/samples/sample9.cs)]
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このイテレーションで、連絡先のマネージャー アプリケーションに新しい機能を追加おできません。 このイテレーションの目標を保守して変更するのにように簡単に、連絡先のマネージャー アプリケーションをリファクターするでした。
 
@@ -196,6 +196,6 @@ IContactManagerService インターフェイスは、5 の一覧に含まれま�
 
 最後に、依存関係の挿入のパターンをという名前のソフトウェアの設計パターンの利点をかかりました。 このパターンでは、具象クラスではなくインターフェイス (抽象) でプログラミングできます。 依存関係の挿入のデザイン パターンを実装することも検証を実現しているコードよりです。 次のイテレーションで、プロジェクトに単体テストを追加します。
 
->[!div class="step-by-step"]
-[前へ](iteration-3-add-form-validation-cs.md)
-[次へ](iteration-5-create-unit-tests-cs.md)
+> [!div class="step-by-step"]
+> [前へ](iteration-3-add-form-validation-cs.md)
+> [次へ](iteration-5-create-unit-tests-cs.md)

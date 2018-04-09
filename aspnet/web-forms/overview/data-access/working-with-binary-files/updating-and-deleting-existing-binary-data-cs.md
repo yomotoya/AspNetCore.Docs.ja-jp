@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-cs
-title: "更新および削除する既存のバイナリ データ (c#) |Microsoft ドキュメント"
+title: 更新および削除する既存のバイナリ データ (c#) |Microsoft ドキュメント
 author: rick-anderson
-description: "前のチュートリアルでどのように GridView コントロールを簡単に編集およびテキスト データを削除しました。 このチュートリアルではどの GridView コントロールを行うことも表示しています."
+description: 前のチュートリアルでどのように GridView コントロールを簡単に編集およびテキスト データを削除しました。 このチュートリアルではどの GridView コントロールを行うことも表示しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f2fca1e91720fba0215e12b1a1894a3a31e86b5c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 28d9d7a7e45eb4df9f61e3f587edfe2388583507
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-and-deleting-existing-binary-data-c"></a>既存のバイナリ データ (c#) 更新および削除
 ====================
@@ -264,8 +264,8 @@ GridView s [更新] ボタンがクリックされたときにその`RowUpdating
 
 ときに完了するために必要な手順 RadioButtonList s`SelectedValue`は 3 が実質的に DetailsView s が使用されるものと同じ`ItemInserting`イベント ハンドラー。 DetailsView コントロールで追加してから、新しいカテゴリのレコードが追加されたときに、このイベント ハンドラーが実行される、[前のチュートリアル](including-a-file-upload-option-when-adding-a-new-record-cs.md)です。 そのため、この機能は、異なるメソッドに out をリファクタリングすることを behooves です。 具体的は共通の機能を 2 つのメソッドを移動します。
 
-- `ProcessBrochureUpload(FileUpload, out bool)`ファイルアップロード コントロールのインスタンスと削除または編集の操作を続行するかどうかあるかどうかは、いくつかの検証エラーのため取り消す必要があるかを示す出力のブール値を入力として受け取ります。 このメソッドが、保存したファイルへのパスを返しますまたは`null`場合、ファイルは保存されませんでした。
-- `DeleteRememberedBrochurePath`ページ変数のパスで指定されたファイルを削除`deletedCategorysPdfPath`場合`deletedCategorysPdfPath`は`null`します。
+- `ProcessBrochureUpload(FileUpload, out bool)` ファイルアップロード コントロールのインスタンスと削除または編集の操作を続行するかどうかあるかどうかは、いくつかの検証エラーのため取り消す必要があるかを示す出力のブール値を入力として受け取ります。 このメソッドが、保存したファイルへのパスを返しますまたは`null`場合、ファイルは保存されませんでした。
+- `DeleteRememberedBrochurePath` ページ変数のパスで指定されたファイルを削除`deletedCategorysPdfPath`場合`deletedCategorysPdfPath`は`null`します。
 
 これら 2 つのメソッドのコードが次に示します。 間の類似性に注意してください`ProcessBrochureUpload`と DetailsView の`ItemInserting`前のチュートリアルのイベント ハンドラー。 このチュートリアルではこれらの新しいメソッドを使用するには、DetailsView のイベント ハンドラーを更新しました。 DetailsView のイベント ハンドラーへの変更を表示するには、このチュートリアルに関連付けられているコードをダウンロードします。
 
@@ -362,12 +362,12 @@ GridView s の先頭に次のコードを追加`RowUpdating`イベント ハン�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Teresa マーフィーしました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](including-a-file-upload-option-when-adding-a-new-record-cs.md)
-[次へ](uploading-files-vb.md)
+> [!div class="step-by-step"]
+> [前へ](including-a-file-upload-option-when-adding-a-new-record-cs.md)
+> [次へ](uploading-files-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
-title: "パート 6: ASP.NET メンバーシップ |Microsoft ドキュメント"
+title: 'パート 6: ASP.NET メンバーシップ |Microsoft ドキュメント'
 author: JoeStagner
-description: "このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 6 部では、ASP.NET メンバーシップを追加します。"
+description: このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 6 部では、ASP.NET メンバーシップを追加します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: efb0e2bed1172f42c7f1539f016fba305c47e3eb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 83e9bc780ea8face3e0f55fdf8c00e13b60f80a7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-6-aspnet-membership"></a>パート 6: ASP.NET メンバーシップ
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 > このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 第 6 部では、ASP.NET メンバーシップを追加します。
 
 
-## <a id="_Toc260221672"></a>ASP.NET メンバーシップの使用
+## <a id="_Toc260221672"></a>  ASP.NET メンバーシップの使用
 
 ![](tailspin-spyworks-part-6/_static/image1.png)
 
@@ -112,6 +112,6 @@ SubmitOrder を行います。
 
 今すぐアプリケーションを実行して、開始から終了までショッピング プロセスをテストすることが許可されます。
 
->[!div class="step-by-step"]
-[前へ](tailspin-spyworks-part-5.md)
-[次へ](tailspin-spyworks-part-7.md)
+> [!div class="step-by-step"]
+> [前へ](tailspin-spyworks-part-5.md)
+> [次へ](tailspin-spyworks-part-7.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/improving-the-details-and-delete-methods
-title: "改善の詳細および Delete メソッド (c#) |Microsoft ドキュメント"
+title: 改善の詳細および Delete メソッド (c#) |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: e46616d45ad0e4a0ab861e6fb53f33bc567cbdea
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 55945eb373c79fd6ae018fe8f896dc5e6bbe7744
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="improving-the-details-and-delete-methods-c"></a>改善の詳細および Delete メソッド (c#)
 ====================
@@ -61,7 +61,7 @@ ms.lasthandoff: 01/24/2018
 
 共通言語ランタイム (CLR) には、オーバー ロードされたメソッドが、一意の署名を使用している (同じ名前、パラメーターのリストが異なる) が必要です。 ただし、ここで必要が 2 つの削除のメソッドと POST の 1 つ--GET--同じシグネチャをどちらも必要とします。 (いずれも、1 つの整数をパラメーターとして受け取る必要があります。)
 
-この出力を並べ替えるには、いくつかの点を行うことができます。 別の名前を指定してメソッドを 1 つです。 彼は前の例で行ったです。 ただし、これは小さな問題を引き起こします。ASP.NET が URL のセグメントをアクション メソッドに名前でマッピングします。メソッドの名前を変更すると、通常、ルーティングでそのメソッドが見つからなくなります。 この解決策はこの例で確認できます。`ActionName("Delete")` 属性を `DeleteConfirmed` メソッドに追加しています。 これが効果的に実行マッピング、ルーティングのシステムの URL を含むように*/Delete/*post 要求を検索は、`DeleteConfirmed`メソッドです。
+この出力を並べ替えるには、いくつかの点を行うことができます。 別の名前を指定してメソッドを 1 つです。 彼は前の例で行ったです。 ただし、これは小さな問題を引き起こします。ASP.NET が URL のセグメントをアクション メソッドに名前でマッピングします。メソッドの名前を変更すると、通常、ルーティングでそのメソッドが見つからなくなります。 この解決策はこの例で確認できます。`ActionName("Delete")` 属性を `DeleteConfirmed` メソッドに追加しています。 これが効果的に実行マッピング、ルーティングのシステムの URL を含むように<em>/Delete/</em>post 要求を検索は、`DeleteConfirmed`メソッドです。
 
 同じ名前とシグネチャを持つメソッドの問題を回避する別の方法では、意図的に未使用のパラメーターを含める POST メソッドのシグネチャを変更します。 一部の開発者がパラメーターの型を追加するなど、 `FormCollection` POST メソッドに渡されると、単にパラメーターを使用しません。
 
@@ -81,11 +81,11 @@ SQL Server Compact データベースにデータを格納する完全な ASP.NE
 - [IIS を有効にする 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
 - [Web アプリケーション プロジェクトの配置](https://msdn.microsoft.com/library/dd394698.aspx)
 
-これで皆さんが、中間レベルに移動する[、ASP.NET MVC アプリケーション用の Entity Framework データ モデルを作成する](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)と[MVC Music Store](../../mvc-music-store/mvc-music-store-part-1.md)チュートリアルについては、探索する、 [ASP.NETMSDN の記事](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)、および多くのビデオおよびにリソースをチェック アウトする[https://asp.net/mvc](https://asp.net/mvc) ASP.NET MVC についてさらに学習します。 [ASP.NET MVC フォーラム](https://forums.asp.net/1146.aspx)質問を投稿する絶好の場所します。
+これで皆さんが、中間レベルに移動する[、ASP.NET MVC アプリケーション用の Entity Framework データ モデルを作成する](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)と[MVC Music Store](../../mvc-music-store/mvc-music-store-part-1.md)チュートリアルについては、探索する、 [ASP.NETMSDN の記事](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)、および多くのビデオおよびにリソースをチェック アウトする[ https://asp.net/mvc ](https://asp.net/mvc) ASP.NET MVC についてさらに学習します。 [ASP.NET MVC フォーラム](https://forums.asp.net/1146.aspx)質問を投稿する絶好の場所します。
 
 それではお楽しみください。
 
--Scott Hanselman ([http://hanselman.com](http://hanselman.com)と[ @shanselman ](http://twitter.com/shanselman) Twitter の) と Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
+-Scott Hanselman ([ http://hanselman.com ](http://hanselman.com)と[ @shanselman ](http://twitter.com/shanselman) Twitter の) と Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
 
->[!div class="step-by-step"]
-[前へ](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [前へ](adding-validation-to-the-model.md)

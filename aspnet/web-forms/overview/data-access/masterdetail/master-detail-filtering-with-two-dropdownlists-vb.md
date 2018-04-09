@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-vb
-title: "マスター/詳細フィルターは、次の 2 つ DropDownLists (VB) と共に |Microsoft ドキュメント"
+title: マスター/詳細フィルターは、次の 2 つ DropDownLists (VB) と共に |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、DropDownList の 2 つのコントロールを使用して、必要なは、親と祖父母 recor を選択する 3 番目の層を追加するマスター/詳細関係を展開しています."
+description: このチュートリアルでは、DropDownList の 2 つのコントロールを使用して、必要なは、親と祖父母 recor を選択する 3 番目の層を追加するマスター/詳細関係を展開しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c345fbfe5df4d8ce06695c4dd4b88cc099ad7836
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee0232cf8f7c0533703a51a4629522fd887f216f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-with-two-dropdownlists-vb"></a>マスター/詳細の 2 つ DropDownLists (VB) によるフィルター処理
 ====================
@@ -102,12 +102,12 @@ ObjectDataSource を構成すた後必要がありますでデータ ソース �
 **図 9**: 構成を使用する ObjectDataSource、`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-two-dropdownlists-vb/_static/image27.png))
 
 
-値を指定しなければ、ウィザードの最後の手順で、  *`categoryID`* パラメーター。 このパラメーターをから選択した項目に割り当てる、 `Categories` DropDownList です。
+値を指定しなければ、ウィザードの最後の手順で、 *`categoryID`*パラメーター。 このパラメーターをから選択した項目に割り当てる、 `Categories` DropDownList です。
 
 
 [![カテゴリの DropDownList から categoryID パラメーターの値をプルします。](master-detail-filtering-with-two-dropdownlists-vb/_static/image29.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image28.png)
 
-**図 10**: プル、  *`categoryID`* からパラメーター値、 `Categories` DropDownList ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-two-dropdownlists-vb/_static/image30.png))
+**図 10**: プル、 *`categoryID`*からパラメーター値、 `Categories` DropDownList ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-two-dropdownlists-vb/_static/image30.png))
 
 
 構成 ObjectDataSource には、ディスプレイと DropDownList の項目の値の使用がどのようなデータ ソースのフィールドを指定します。 表示、`ProductName`フィールドに使用して、`ProductID`値としてフィールドです。
@@ -141,7 +141,7 @@ ObjectDataSource と`ProductsByCategory`DropDownList には、ページが構成
 
 ## <a name="step-3-using-a-detailsview-to-display-details-for-the-selected-product"></a>手順 3: を DetailsView を使用して、選択した製品の詳細を表示するには
 
-最後の手順では、DetailsView で選択した製品の詳細を表示します。 これを追加する、DetailsView のページに次のように設定します。 その`ID`プロパティを`ProductDetails`、し、その新しい ObjectDataSource を作成します。 構成からそのデータを取得するには、この ObjectDataSource、`ProductsBLL`クラスの`GetProductByProductID(productID)`メソッドの選択した値を使用して、`ProductsByCategory`の DropDownList の値の *`productID`* パラメーター。
+最後の手順では、DetailsView で選択した製品の詳細を表示します。 これを追加する、DetailsView のページに次のように設定します。 その`ID`プロパティを`ProductDetails`、し、その新しい ObjectDataSource を作成します。 構成からそのデータを取得するには、この ObjectDataSource、`ProductsBLL`クラスの`GetProductByProductID(productID)`メソッドの選択した値を使用して、`ProductsByCategory`の DropDownList の値の*`productID`*パラメーター。
 
 
 [![ProductsBLL クラスを使用します。](master-detail-filtering-with-two-dropdownlists-vb/_static/image44.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image43.png)
@@ -156,7 +156,7 @@ ObjectDataSource と`ProductsByCategory`DropDownList には、ページが構成
 
 [![ProductsByCategory DropDownList から productID パラメーターの値をプルします。](master-detail-filtering-with-two-dropdownlists-vb/_static/image50.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image49.png)
 
-**図 17**: プル、  *`productID`* からパラメーター値、 `ProductsByCategory` DropDownList ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-two-dropdownlists-vb/_static/image51.png))
+**図 17**: プル、 *`productID`*からパラメーター値、 `ProductsByCategory` DropDownList ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-two-dropdownlists-vb/_static/image51.png))
 
 
 使用できるフィールドのいずれかを表示することができます、 `ProductDetails` DetailsView です。 削除する選択した、 `ProductID`、 `SupplierID`、および`CategoryID`フィールドし順序を変更およびその他のフィールドを書式設定します。 さらを消去した DetailsView のアウト`Height`と`Width`プロパティ、指定されたサイズに制限があるのではなく、そのデータの表示を最適に必要な幅に拡大する DetailsView を許可します。 マークアップを完全には、以下が表示されます。
@@ -207,7 +207,7 @@ ObjectDataSource と`ProductsByCategory`DropDownList には、ページが構成
 **図 21**: `ProductDetails` DetailsView は明示的に更新されるときに、 `ProductsByCategory` DropDownList の`DataBound`イベントの起動 ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-two-dropdownlists-vb/_static/image63.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 マスター/詳細レポートの理想的なユーザー インターフェイス要素として、DropDownList の機能が、マスター/詳細レコードの間に一対多のリレーションシップがある場合。 前のチュートリアルでは、1 つの DropDownList を使用して、選択したカテゴリによって表示される製品をフィルター処理する方法を説明しました。 このチュートリアルでは製品の GridView に置き換え、DropDownList を DetailsView、選択した製品の詳細を表示するために使用します。 このチュートリアルで説明する概念は、顧客、注文、発注品目などの複数の一対多リレーションシップに関連するデータ モデルに簡単に拡張できます。 一般に、一対多のリレーションシップの「一」のエンティティの各 DropDownList をいつでも追加できます。
 
@@ -215,12 +215,12 @@ ObjectDataSource と`ProductsByCategory`DropDownList には、ページが構成
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Hilton Giesenow しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](master-detail-filtering-with-a-dropdownlist-vb.md)
-[次へ](master-detail-filtering-across-two-pages-vb.md)
+> [!div class="step-by-step"]
+> [前へ](master-detail-filtering-with-a-dropdownlist-vb.md)
+> [次へ](master-detail-filtering-across-two-pages-vb.md)

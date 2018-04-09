@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
-title: "データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォームの一部 8 |Microsoft ドキュメント"
+title: データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォームの一部 8 |Microsoft ドキュメント
 author: tdykstra
-description: "Contoso 大学でサンプル web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、."
+description: Contoso 大学でサンプル web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 323ee44f43f6d4081bd9ba50791755696bc9128f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 035cce022d1b3697b825a96487529dbc9675d90e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-8"></a>データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォームの一部 8
 ====================
@@ -101,7 +101,7 @@ ms.lasthandoff: 01/24/2018
 
 メタデータ クラスのプロパティに適用される属性は、検証、ルール、およびエラー メッセージの書式設定を指定します。 次に示す属性は、次の結果が得られます。
 
-- `EnrollmentDate`(時刻) のない日付として表示されます。
+- `EnrollmentDate` (時刻) のない日付として表示されます。
 - 両方の名前フィールドは 25 文字である必要があります。 またはでは、長さ、およびカスタム エラー メッセージが指定されています。
 - 両方の名前フィールドは必須で、カスタム エラー メッセージが提供されます。
 
@@ -132,5 +132,5 @@ ms.lasthandoff: 01/24/2018
 - [MSDN の entity Framework フォーラム](https://social.msdn.microsoft.com/forums/adodotnetentityframework/)
 - [Julie Lerman のブログ](http://thedatafarm.com/blog/)
 
->[!div class="step-by-step"]
-[前へ](the-entity-framework-and-aspnet-getting-started-part-7.md)
+> [!div class="step-by-step"]
+> [前へ](the-entity-framework-and-aspnet-getting-started-part-7.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-vb
-title: "カスタム データベース駆動型サイト マップ プロバイダー (VB) のビルド |Microsoft ドキュメント"
+title: カスタム データベース駆動型サイト マップ プロバイダー (VB) のビルド |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET 2.0 の既定のサイト マップ プロバイダーは、静的な XML ファイルからのデータを取得します。 XML ベースのプロバイダーが適切に多くの小規模および中規模 siz 中."
+description: ASP.NET 2.0 の既定のサイト マップ プロバイダーは、静的な XML ファイルからのデータを取得します。 XML ベースのプロバイダーが適切に多くの小規模および中規模 siz 中.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e9b71ed89dce4e973a9096a9e2326d2c16c30673
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: df295f1b8bf0b83647ffb90501936181894634d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-a-custom-database-driven-site-map-provider-vb"></a>カスタム データベース駆動型サイト マップ プロバイダー (VB) のビルド
 ====================
@@ -145,7 +145,7 @@ Visual Studio がの BoundField を追加、データ ソースの構成ウィ�
 
 ![ProductDetails.aspx を指すビューの詳細内を追加します。](building-a-custom-database-driven-site-map-provider-vb/_static/image10.gif)
 
-**図 10**: ビューの詳細を指す内の追加`ProductDetails.aspx`
+**図 10**: ビューの詳細を指す内の追加 `ProductDetails.aspx`
 
 
 これらのカスタマイズを行った後、GridView と ObjectDataSource s 宣言型マークアップが、次のようになります。
@@ -210,7 +210,7 @@ Visual Studio がの BoundField を追加、データ ソースの構成ウィ�
 
 すべてのサイト マップ プロバイダーはから派生する必要があります、 [ `SiteMapProvider`クラス](https://msdn.microsoft.com/library/system.web.sitemapprovider.aspx)重要なメソッドを含む、およびサイトに必要なプロパティは、プロバイダーをマップが、実装の詳細の多くを省略します。 2 番目のクラスを[ `StaticSiteMapProvider` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.aspx)、拡張、`SiteMapProvider`クラスし、必要な機能のより堅牢に実装が含まれています。 内部的には、`StaticSiteMapProvider`格納、`SiteMapNode`のマップに、サイトのインスタンス、`Hashtable`などのメソッドを提供し、 `AddNode(child, parent)`、`RemoveNode(siteMapNode),`と`Clear()`追加および削除する`SiteMapNode`内部 s`Hashtable`です。 `XmlSiteMapProvider` は、`StaticSiteMapProvider` から派生しています。
 
-拡張するカスタムのサイト マップ プロバイダーを作成するときに`StaticSiteMapProvider`、2 つの抽象メソッドをオーバーライドする必要があります: [ `BuildSiteMap` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.buildsitemap.aspx)と[ `GetRootNodeCore`](https://msdn.microsoft.com/library/system.web.sitemapprovider.getrootnodecore.aspx)です。 `BuildSiteMap`、名前からわかるように、は永続的なストレージからのサイト マップ構造体の読み込みと、メモリ内で構築を行います。 `GetRootNodeCore`サイト マップのルート ノードを返します。
+拡張するカスタムのサイト マップ プロバイダーを作成するときに`StaticSiteMapProvider`、2 つの抽象メソッドをオーバーライドする必要があります: [ `BuildSiteMap` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.buildsitemap.aspx)と[ `GetRootNodeCore`](https://msdn.microsoft.com/library/system.web.sitemapprovider.getrootnodecore.aspx)です。 `BuildSiteMap`、名前からわかるように、は永続的なストレージからのサイト マップ構造体の読み込みと、メモリ内で構築を行います。 `GetRootNodeCore` サイト マップのルート ノードを返します。
 
 前に、web アプリケーションは、アプリケーションの構成に登録する必要がありますが、サイト マップ プロバイダーを使用できます。 既定では、`XmlSiteMapProvider`クラスが名前で登録されている`AspNetXmlSiteMapProvider`です。 追加のサイト マップ プロバイダーを登録するには、次に示すマークアップを追加`Web.config`:
 
@@ -221,10 +221,10 @@ Visual Studio がの BoundField を追加、データ ソースの構成ウィ�
 
 詳細については、サイトの プロバイダー クラスのマップには、初めてからアクセスがインスタンス化される、`SiteMap`クラスとは、web アプリケーションの有効期間中にメモリに残ります。 プロバイダーのメソッドである必要が呼び出された場合、複数の同時実行の web サイトの訪問者からのサイト マップ プロバイダーのインスタンスを 1 つだけなので、*スレッド セーフである*です。
 
-パフォーマンスとスケーラビリティ上の理由から、メモリ内のサイト キャッシュすることが重要は構造体をマップし、これはキャッシュたびに再作成するのではなく、構造体を返す、`BuildSiteMap`メソッドが呼び出されます。 `BuildSiteMap`可能性があります複数回呼び出すページと、サイト マップ構造の深さで使用中のナビゲーション コントロールによって、ユーザーごとのページ要求ごと。 いかなる場合においても場合は、サイト マップ構造にキャッシュしないお`BuildSiteMap`られようとしてが呼び出されるたび、再 (あるため、クエリをデータベースに) アーキテクチャから製品と分類の情報を取得します。 キャッシュの前のチュートリアルで説明したよう、キャッシュされたデータが古くなることができます。 この対処するため、時間、または SQL キャッシュ依存関係に基づく切れのいずれかを使用できます。
+パフォーマンスとスケーラビリティ上の理由から、メモリ内のサイト キャッシュすることが重要は構造体をマップし、これはキャッシュたびに再作成するのではなく、構造体を返す、`BuildSiteMap`メソッドが呼び出されます。 `BuildSiteMap` 可能性があります複数回呼び出すページと、サイト マップ構造の深さで使用中のナビゲーション コントロールによって、ユーザーごとのページ要求ごと。 いかなる場合においても場合は、サイト マップ構造にキャッシュしないお`BuildSiteMap`られようとしてが呼び出されるたび、再 (あるため、クエリをデータベースに) アーキテクチャから製品と分類の情報を取得します。 キャッシュの前のチュートリアルで説明したよう、キャッシュされたデータが古くなることができます。 この対処するため、時間、または SQL キャッシュ依存関係に基づく切れのいずれかを使用できます。
 
 > [!NOTE]
-> サイト マップ プロバイダーが必要に応じてオーバーライドして、 [ `Initialize`メソッド](https://msdn.microsoft.com/library/system.web.sitemapprovider.initialize.aspx)です。 `Initialize`サイト マップ プロバイダーが最初にインスタンス化され、プロバイダーに割り当てられているカスタム属性に渡されるときに呼び出される`Web.config`で、`<add>`ような要素:`<add name="name" type="type" customAttribute="value" />`です。 プロバイダーのコードを変更することがなくさまざまなサイト マップ プロバイダーに関連する設定を指定するページの開発者を許可する場合に便利です。 たとえば、分類と製品データを可能性があります d おアーキテクチャではなく、データベースから直接読み取るおされた場合を許可するを通じてデータベース接続文字列を指定するページの開発者`Web.config`ハード コーディングされたを使用するのではなくプロバイダーのコード内の値。 手順 6 でビルド、カスタムのサイト マップ プロバイダーがこれをオーバーライドしません`Initialize`メソッドです。 使用する例については、`Initialize`メソッドを参照してください[Jeff Prosise](http://www.wintellect.com/Weblogs/CategoryView,category,Jeff%20Prosise.aspx) s [SQL Server のサイト マップを格納する](https://msdn.microsoft.com/msdnmag/issues/05/06/WickedCode/)資料です。
+> サイト マップ プロバイダーが必要に応じてオーバーライドして、 [ `Initialize`メソッド](https://msdn.microsoft.com/library/system.web.sitemapprovider.initialize.aspx)です。 `Initialize` サイト マップ プロバイダーが最初にインスタンス化され、プロバイダーに割り当てられているカスタム属性に渡されるときに呼び出される`Web.config`で、`<add>`ような要素:`<add name="name" type="type" customAttribute="value" />`です。 プロバイダーのコードを変更することがなくさまざまなサイト マップ プロバイダーに関連する設定を指定するページの開発者を許可する場合に便利です。 たとえば、分類と製品データを可能性があります d おアーキテクチャではなく、データベースから直接読み取るおされた場合を許可するを通じてデータベース接続文字列を指定するページの開発者`Web.config`ハード コーディングされたを使用するのではなくプロバイダーのコード内の値。 手順 6 でビルド、カスタムのサイト マップ プロバイダーがこれをオーバーライドしません`Initialize`メソッドです。 使用する例については、`Initialize`メソッドを参照してください[Jeff Prosise](http://www.wintellect.com/Weblogs/CategoryView,category,Jeff%20Prosise.aspx) s [SQL Server のサイト マップを格納する](https://msdn.microsoft.com/msdnmag/issues/05/06/WickedCode/)資料です。
 
 
 ## <a name="step-6-creating-the-custom-site-map-provider"></a>手順 6: カスタムのサイト マップ プロバイダーを作成します。
@@ -238,13 +238,13 @@ Visual Studio がの BoundField を追加、データ ソースの構成ウィ�
 
 クラス レベル`SiteMapNode`変数`root`サイト マップ構造のキャッシュに使用します。 サイト マップが構築されている場合、最初に、または基になるデータが変更された後に初めて`root`なります`Nothing`サイト マップ構造が作成されるとします。 サイト マップのルート ノードに割り当てられた`root`構築時にプロセスを次にこのメソッドが呼び出された`root`されません`Nothing`です。 その結果、限り`root`は`Nothing`サイト マップ構造が再作成することがなく、呼び出し元に返されます。
 
-ルートが場合`Nothing`製品とカテゴリ情報からサイト マップ構造体を作成します。 作成することで、サイト マップが構築された、`SiteMapNode`インスタンスとしを呼び出すことで、階層を形成する、`StaticSiteMapProvider`クラスの`AddNode`メソッドです。 `AddNode`格納する、さまざまな内部のブックキーピングを実行`SiteMapNode`のインスタンスにある、`Hashtable`です。 まず、階層の構築を開始する前に、は、呼び出すことによって、`Clear`メソッドの内部からの要素を消去`Hashtable`です。 次に、`ProductsBLL`クラス s`GetProducts`メソッドおよび結果`ProductsDataTable`はローカル変数に格納します。
+ルートが場合`Nothing`製品とカテゴリ情報からサイト マップ構造体を作成します。 作成することで、サイト マップが構築された、`SiteMapNode`インスタンスとしを呼び出すことで、階層を形成する、`StaticSiteMapProvider`クラスの`AddNode`メソッドです。 `AddNode` 格納する、さまざまな内部のブックキーピングを実行`SiteMapNode`のインスタンスにある、`Hashtable`です。 まず、階層の構築を開始する前に、は、呼び出すことによって、`Clear`メソッドの内部からの要素を消去`Hashtable`です。 次に、`ProductsBLL`クラス s`GetProducts`メソッドおよび結果`ProductsDataTable`はローカル変数に格納します。
 
 ルート ノードを作成してに割り当てることによって、サイト マップ s を構築を開始`root`です。 オーバー ロード、 [ `SiteMapNode` s のコンス トラクター](https://msdn.microsoft.com/library/system.web.sitemapnode.sitemapnode.aspx)ここで、ここで使用される`BuildSiteMap`は、次の情報に渡されます。
 
 - サイト マップ プロバイダーへの参照を (`Me`)。
 - `SiteMapNode` S`Key`です。 これは、必須の値をそれぞれに一意にする必要があります`SiteMapNode`です。
-- `SiteMapNode` S`Url`です。 `Url`オプションですが、指定した場合、それぞれが、 `SiteMapNode` s`Url`値は一意である必要があります。
+- `SiteMapNode` S`Url`です。 `Url` オプションですが、指定した場合、それぞれが、 `SiteMapNode` s`Url`値は一意である必要があります。
 - `SiteMapNode` S`Title`に必要になります。
 
 `AddNode(root)`メソッドの呼び出しを追加、 `SiteMapNode` `root`ルートとしてサイト マップにします。 次に、各`ProductRow`で、`ProductsDataTable`列挙されます。 場合は既に存在する`SiteMapNode`現在の製品のカテゴリの参照されています。 それ以外の場合、新しい`SiteMapNode`カテゴリが作成され、追加の子として、`SiteMapNode``root`を通じて、`AddNode(categoryNode, root)`メソッドの呼び出しです。 適切なカテゴリの後に`SiteMapNode`ノードが見つからないか、作成された、`SiteMapNode`が、現在の製品作成され、カテゴリの子として追加`SiteMapNode`を介して`AddNode(productNode, categoryNode)`です。 注意してください、カテゴリ`SiteMapNode`s`Url`プロパティの値が`~/SiteMapProvider/ProductsByCategory.aspx?CategoryID=categoryID`製品を while `SiteMapNode` s`Url`プロパティが割り当てられている`~/SiteMapNode/ProductDetails.aspx?ProductID=productID`です。
@@ -261,7 +261,7 @@ Visual Studio がの BoundField を追加、データ ソースの構成ウィ�
 
 `BuildSiteMap`メソッドは、サイト マップのルート ノードを返すことによって完了するとします。
 
-残りのメソッドは、非常に簡単です。 `GetRootNodeCore`ルート ノードを返すことを担当します。 `BuildSiteMap` 、ルートを返します`GetRootNodeCore`を単純に返します`BuildSiteMap`s が値を返します。 `OnSiteMapChanged`メソッドのセット`root`に`Nothing`キャッシュ項目が削除されたとき。 ルートのセットに戻すと`Nothing`、次回`BuildSiteMap`が呼び出されると、サイト マップ構造が再構築されます。 最後に、`CachedDate`プロパティは、このような値が存在する場合に、データ キャッシュに格納されている日付と時刻の値を返します。 このプロパティは、サイト マップ データが最後にキャッシュされてを確認 ページの開発者によって使用できます。
+残りのメソッドは、非常に簡単です。 `GetRootNodeCore` ルート ノードを返すことを担当します。 `BuildSiteMap` 、ルートを返します`GetRootNodeCore`を単純に返します`BuildSiteMap`s が値を返します。 `OnSiteMapChanged`メソッドのセット`root`に`Nothing`キャッシュ項目が削除されたとき。 ルートのセットに戻すと`Nothing`、次回`BuildSiteMap`が呼び出されると、サイト マップ構造が再構築されます。 最後に、`CachedDate`プロパティは、このような値が存在する場合に、データ キャッシュに格納されている日付と時刻の値を返します。 このプロパティは、サイト マップ データが最後にキャッシュされてを確認 ページの開発者によって使用できます。
 
 ## <a name="step-7-registering-thenorthwindsitemapprovider"></a>手順 7: 登録します`NorthwindSiteMapProvider`
 
@@ -362,11 +362,11 @@ ASP.NET 2.0 のサイト マップ機能が含まれています、`SiteMap`ク�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Dave ガードナー、Zack Jones、Teresa マーフィー、および「社長補佐 Leigh でした。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](building-a-custom-database-driven-site-map-provider-cs.md)
+> [!div class="step-by-step"]
+> [前へ](building-a-custom-database-driven-site-map-provider-cs.md)

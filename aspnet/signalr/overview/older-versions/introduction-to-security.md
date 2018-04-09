@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/introduction-to-security
-title: "SignalR のセキュリティの概要 (SignalR 1.x) |Microsoft ドキュメント"
+title: SignalR のセキュリティの概要 (SignalR 1.x) |Microsoft ドキュメント
 author: pfletcher
-description: "SignalR アプリケーションを開発する場合に考慮する必要があります、セキュリティの問題について説明します。"
+description: SignalR アプリケーションを開発する場合に考慮する必要があります、セキュリティの問題について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: ebc83098b73902fa3f7a90a38dafc43b413e75fe
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b756d3e71d89b6c826bd497f73d052c4c8f634e8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-signalr-security-signalr-1x"></a>SignalR のセキュリティの概要 (SignalR 1.x)
 ====================
@@ -98,7 +98,7 @@ CSRF 攻撃の例を次に示します。
 
     [!code-html[Main](introduction-to-security/samples/sample1.html)]
 
- フォームのアクションが悪意のあるサイトではない、脆弱なサイトにポストすることに注意してください。 これは、CSRF の「クロスサイト」の一部です。
+   フォームのアクションが悪意のあるサイトではない、脆弱なサイトにポストすることに注意してください。 これは、CSRF の「クロスサイト」の一部です。
 4. ユーザーは、[送信] ボタンをクリックします。 ブラウザーには、要求と共に認証 cookie が含まれています。
 5. 要求は、ユーザーの認証コンテキストで example.com サーバーで実行されを行うには、認証されたユーザーが許可されている操作を実行します。
 
@@ -115,7 +115,7 @@ SignalR では、悪意のあるサイトが、SignalR アプリケーション�
 - **クエリ文字列、cookie ではない接続トークンを渡します**  
  SignalR では、クッキーとしての代わりにクエリ文字列の値として接続トークンを渡します。 Cookie との接続トークンを保存しないで、接続トークンが誤って転送されませんブラウザーによって悪意のあるコードが発生した場合。 また、接続トークンは、現在の接続を超えるは保持されません。 そのため、悪意のあるユーザーは、別のユーザーの認証の資格情報で要求を作成することはできません。
 - **接続トークンを確認してください。**  
- 」の説明に従って、[接続トークン](#connectiontoken) セクションで、サーバー接続 id が認証されたユーザーごとに関連付けられたことを認識します。 サーバーは、ユーザー名と一致しない接続の id からのすべての要求を処理しません。 悪意のあるユーザーは、ユーザー名と、現在の接続をランダムに生成された id を知っている必要があるために、悪意のあるユーザーは有効な要求を推測できなかった可能性が高いことはできません。接続が終了するとすぐに、その接続 id が無効になります。 匿名ユーザーには、機密情報へのアクセスをことはできません。
+ 」の説明に従って、[接続トークン](#connectiontoken)] セクションで、サーバー接続 id が認証されたユーザーごとに関連付けられたことを認識します。 サーバーは、ユーザー名と一致しない接続の id からのすべての要求を処理しません。 悪意のあるユーザーは、ユーザー名と、現在の接続をランダムに生成された id を知っている必要があるために、悪意のあるユーザーは有効な要求を推測できなかった可能性が高いことはできません。接続が終了するとすぐに、その接続 id が無効になります。 匿名ユーザーには、機密情報へのアクセスをことはできません。
 
 <a id="recommendations"></a>
 

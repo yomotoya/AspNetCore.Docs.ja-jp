@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-6
-title: "JavaScript クライアントを作成 |Microsoft ドキュメント"
+title: JavaScript クライアントを作成 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-6
 msc.type: authoredcontent
-ms.openlocfilehash: b397c5a413ae213c9b79da1c0e0626efe21c7e21
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29d50e448e6d282c7db06b9d1946ac221347e1ea
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-the-javascript-client"></a>JavaScript クライアントを作成します。
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 このセクションでは、HTML、JavaScript を使用して、アプリケーション用のクライアントを作成し、 [Knockout.js](http://knockoutjs.com/)ライブラリです。 クライアント アプリのビルドは段階的に。
 
@@ -58,8 +58,8 @@ Visual Studio から、**ツール**メニューの **ライブラリ パッケ�
 
 Knockout で、`observable`クラスは、データ バインディングを使用します。 監視対象の内容を変更するときに、観測可能なオブジェクトに通知のすべてのデータ バインド コントロール自体を更新できるようにします。 (、`observableArray`クラスは、配列のバージョンの*observable*)。開始するには、ビュー モデルには、次の 2 つの観測可能なオブジェクトがあります。
 
-- `books`書籍の一覧を保持します。
-- `error`AJAX 呼び出しが失敗した場合は、エラー メッセージに含まれています。
+- `books` 書籍の一覧を保持します。
+- `error` AJAX 呼び出しが失敗した場合は、エラー メッセージに含まれています。
 
 `getAllBooks`メソッドは、書籍の一覧を取得するための AJAX 呼び出しを使用します。 結果をプッシュし、`books`配列。
 
@@ -73,6 +73,6 @@ Knockout で、`observable`クラスは、データ バインディングを使�
 
 [!code-csharp[Main](part-6/samples/sample3.cs)]
 
->[!div class="step-by-step"]
-[前へ](part-5.md)
-[次へ](part-7.md)
+> [!div class="step-by-step"]
+> [前へ](part-5.md)
+> [次へ](part-7.md)

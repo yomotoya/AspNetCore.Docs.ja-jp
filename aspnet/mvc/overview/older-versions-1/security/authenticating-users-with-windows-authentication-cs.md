@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
-title: "Windows 認証 (c#) を使用してユーザーを認証 |Microsoft ドキュメント"
+title: Windows 認証 (c#) を使用してユーザーを認証 |Microsoft ドキュメント
 author: microsoft
-description: "MVC アプリケーションのコンテキストで Windows 認証を使用する方法を説明します。 アプリケーションの web co 内で Windows 認証を有効にする方法を学習するとしています."
+description: MVC アプリケーションのコンテキストで Windows 認証を使用する方法を説明します。 アプリケーションの web co 内で Windows 認証を有効にする方法を学習するとしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d52597e65272fa202ef4980924f669dcc4cec593
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 140d2232f7826e178301d1d2064e12657be23385
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-windows-authentication-c"></a>Windows 認証 (c#) を使用してユーザーを認証
 ====================
@@ -51,7 +51,7 @@ ASP.NET 開発 Web サーバーには、NTLM 認証もサポートしていま�
 
 > [!NOTE] 
 > 
-> これらのさまざまな種類の認証の詳細については、次を参照してください[https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).。
+> これらのさまざまな種類の認証の詳細については、次を参照してください。 [ https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx)です。
 
 
 インターネット インフォメーション サービス マネージャーを使用して、特定の種類の認証を有効にすることができます。 すべての種類の認証はすべてのオペレーティング システムの場合は使用できないことに注意してください。 さらに、Windows vista では IIS 7.0 を使用している場合は、インターネット インフォメーション サービス マネージャーに表示される前に、さまざまな種類の Windows 認証を有効にする必要があります。 開いている**コントロール パネル、プログラム、プログラムと機能、Windows の機能のオンまたはオフ**、インターネット インフォメーション サービス ノードを展開し、(図 2 を参照してください)。
@@ -93,6 +93,6 @@ Windows 認証を有効にした後は、コント ローラーのアクショ�
 
 このチュートリアルでは、ASP.NET MVC アプリケーションのコンテキストで Windows 認証を使用する方法について説明します。 IIS で認証を構成する方法と、アプリケーションの web 構成ファイル内で Windows 認証を有効にする方法を学習しました。 最後に、[Authorize] 属性を使用して、特定の Windows ユーザーまたはグループにコント ローラー アクションへのアクセスを制限する方法を学習します。
 
->[!div class="step-by-step"]
-[前へ](authenticating-users-with-forms-authentication-cs.md)
-[次へ](preventing-javascript-injection-attacks-cs.md)
+> [!div class="step-by-step"]
+> [前へ](authenticating-users-with-forms-authentication-cs.md)
+> [次へ](preventing-javascript-injection-attacks-cs.md)

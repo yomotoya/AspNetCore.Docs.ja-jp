@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3f732ae6f1b7845bcae88912b4a4fe26574c10de
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: ac5508334bf6d471471a719b98618bdcd3214fb5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-error-handling"></a>ASP.NET エラー処理
 ====================
@@ -104,7 +104,7 @@ Try-catch ステートメント、try ブロックの後に 1 つから成るま
 Wingtip Toys のサンプル アプリケーションにエラー処理を追加する前に、追加することでエラーのログ記録のサポートを追加するが、`ExceptionUtility`クラスを*ロジック*フォルダーです。 これにより、アプリケーションがエラーを処理するたびに、エラーの詳細をエラー ログ ファイルに追加されます。
 
 1. 右クリックし、*ロジック*クリックしてフォルダー**追加** - &gt; **新しい項目の**します。   
- **[新しい項目の追加]** ダイアログ ボックスが表示されます。
+   **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 2. 選択、 **Visual c#**  - &gt; **コード**左側のテンプレートのグループです。 次に、選択**クラス**中央から一覧表示し、名前を付けます**ExceptionUtility.cs**です。
 3. **[追加]** をクリックします。 新しいクラス ファイルが表示されます。
 4. 既存のコードを次のコードに置き換えます。  
@@ -118,9 +118,9 @@ Wingtip Toys のサンプル アプリケーションにエラー処理を追加
 Wingtip Toys サンプル アプリケーションでは、エラーを表示する 1 つのページが使用されます。 エラー ページはサイトのユーザーにセキュリティで保護されたエラー メッセージを表示するよう設計されています。 ただし、ユーザーが、コードが存在するコンピューターにローカルで提供される HTTP 要求を行う開発者の場合は、エラー ページに追加のエラーの詳細が表示されます。
 
 1. プロジェクト名を右クリックして (**Wingtip Toys**) で**ソリューション エクスプ ローラー**選択**追加** - &gt; **新しい項目の**.   
- **[新しい項目の追加]** ダイアログ ボックスが表示されます。
+   **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 2. 選択、 **Visual c#**  - &gt; **Web**左側のテンプレートのグループです。 中央のリストから選択**マスター ページを含む Web フォーム**、名前を付けます**ErrorPage.aspx**です。
-3. **[追加]**をクリックします。
+3. **[追加]** をクリックします。
 4. 選択、 *Site.Master*クリックしてファイルをマスター ページとして**OK**です。
 5. 既存のマークアップを次のように置き換えます。   
 
@@ -166,7 +166,7 @@ Wingtip Toys サンプル アプリケーションでは、エラーを表示す
 発生したときにエラーに、アプリケーションがどのように機能することを確認する、ASP.NET のエラー条件を意図的に作成できます。 Wingtip Toys サンプル アプリケーションでは、動作を表示する既定のページを読み込むときにテスト例外をスローします。
 
 1. 分離コードを開き、 *Default.aspx* Visual Studio でのページです。   
- *Default.aspx.cs*分離コード ページが表示されます。
+   *Default.aspx.cs*分離コード ページが表示されます。
 2. `Page_Load`ハンドラー、ハンドラーが次のように表示されるようにコードを追加します。   
 
     [!code-csharp[Main](aspnet-error-handling/samples/sample9.cs?highlight=3-4)]
@@ -356,11 +356,11 @@ Microsoft Azure に web アプリケーションの配置の詳細について�
 ## <a name="community-contributions"></a>コミュニティからの投稿
 
 - Graham Mendick ([@grahammendick](http://twitter.com/grahammendick))  
- Visual Studio 2012 に関連する msdn コード サンプル:[ナビゲーション Wingtip Toys](https://code.msdn.microsoft.com/Navigation-Wingtip-Toys-5f0daba2)
+  Visual Studio 2012 に関連する msdn コード サンプル:[ナビゲーション Wingtip Toys](https://code.msdn.microsoft.com/Navigation-Wingtip-Toys-5f0daba2)
 - James Chaney ([jchaney@agvance.net](mailto:jchaney@agvance.net))  
- Visual Studio 2012 に関連する msdn コード サンプル: [Visual Basic では ASP.NET 4.5 Web フォーム チュートリアル シリーズ](https://code.msdn.microsoft.com/ASPNET-45-Web-Forms-f37f0f63)
+  Visual Studio 2012 に関連する msdn コード サンプル: [Visual Basic では ASP.NET 4.5 Web フォーム チュートリアル シリーズ](https://code.msdn.microsoft.com/ASPNET-45-Web-Forms-f37f0f63)
 - Andrielle Azevedo - Microsoft Technical Audience 共同作成者 (twitter: @driazevedo)  
- Visual Studio 2012 翻訳: [Iniciando com Visão Geral ASP.NET Web フォーム 4.5 - Parte 1 - Introdução e](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
+  Visual Studio 2012 翻訳: [Iniciando com Visão Geral ASP.NET Web フォーム 4.5 - Parte 1 - Introdução e](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
 
->[!div class="step-by-step"]
-[前へ](url-routing.md)
+> [!div class="step-by-step"]
+> [前へ](url-routing.md)

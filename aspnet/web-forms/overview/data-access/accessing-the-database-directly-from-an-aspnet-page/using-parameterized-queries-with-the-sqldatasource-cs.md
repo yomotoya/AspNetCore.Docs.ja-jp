@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs
-title: "SqlDataSource (c#) によるパラメーター化クエリを使用して |Microsoft ドキュメント"
+title: SqlDataSource (c#) によるパラメーター化クエリを使用して |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルは、SqlDataSource コントロールで、外観を続行し、パラメーター化クエリを定義する方法について説明します。 パラメーターを指定する両方 decla しています."
+description: このチュートリアルは、SqlDataSource コントロールで、外観を続行し、パラメーター化クエリを定義する方法について説明します。 パラメーターを指定する両方 decla しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b66c68b8306b905a800465ab0ed720ae6f9d16b9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 87abf3029919eb9e3c2c931abfb4beb0b2f92fdb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-parameterized-queries-with-the-sqldatasource-c"></a>SqlDataSource (c#) でパラメーター化クエリの使用
 ====================
@@ -235,7 +235,7 @@ SqlDataSource を追加することによって開始`ParameterizedQueries.aspx`
 
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample10.sql)]
 
-`ORDER BY NEWID()`ランダムな順序で並べ替えられたレコードを返します (を参照してください[Using`NEWID()`ランダムにレコードの並べ替えに](http://www.sqlteam.com/item.asp?ItemID=8747))。 `SELECT TOP 1`結果セットから最初のレコードを返します。 まとめるには、このクエリを返します、`CategoryID`と`CategoryName`、ランダムに選択された 1 つのカテゴリの列の値。
+`ORDER BY NEWID()` ランダムな順序で並べ替えられたレコードを返します (を参照してください[Using`NEWID()`ランダムにレコードの並べ替えに](http://www.sqlteam.com/item.asp?ItemID=8747))。 `SELECT TOP 1` 結果セットから最初のレコードを返します。 まとめるには、このクエリを返します、`CategoryID`と`CategoryName`、ランダムに選択された 1 つのカテゴリの列の値。
 
 カテゴリ s を表示する`CategoryName`値 Label Web コントロールをページに追加設定その`ID`プロパティを`CategoryNameLabel`、クリアとその`Text`プロパティ。 SqlDataSource コントロールからプログラムでデータを取得する必要がありますを呼び出す、`Select()`メソッドです。 [ `Select()`メソッド](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.select.aspx)型の単一の入力パラメーターが必要ですが[ `DataSourceSelectArguments` ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx)、返される前に、データをメッセージする方法を指定します。 これにより、並べ替えと、データをフィルター処理に指示を含めることができ、Web コントロールの並べ替えまたは SqlDataSource コントロールからのデータを取得するときにデータで使用されています。 この例では、お返される前に変更する t 必要データはなく、そのために渡されます、`DataSourceSelectArguments.Empty`オブジェクト。
 
@@ -246,7 +246,7 @@ SqlDataSource を追加することによって開始`ParameterizedQueries.aspx`
 
 [!code-csharp[Main](using-parameterized-queries-with-the-sqldatasource-cs/samples/sample11.cs)]
 
-`randomCategoryView[0]`最初を返します`DataRowView`DataView でします。 `randomCategoryView[0]["CategoryName"]`値を返します、`CategoryName`この最初の行に列です。 DataView は、厳密に型は注意してください。 特定の列の値を参照するには、列の名前 (このケースでは CategoryName) を文字列として渡す必要があります。 図 13 に表示されるメッセージを示しています、`CategoryNameLabel`ページを表示するときにします。 によって表示される実際のカテゴリ名をランダムに選択もちろん、 `RandomCategoryDataSource` SqlDataSource (ポストバックを含む)、ページへのアクセスにします。
+`randomCategoryView[0]` 最初を返します`DataRowView`DataView でします。 `randomCategoryView[0]["CategoryName"]` 値を返します、`CategoryName`この最初の行に列です。 DataView は、厳密に型は注意してください。 特定の列の値を参照するには、列の名前 (このケースでは CategoryName) を文字列として渡す必要があります。 図 13 に表示されるメッセージを示しています、`CategoryNameLabel`ページを表示するときにします。 によって表示される実際のカテゴリ名をランダムに選択もちろん、 `RandomCategoryDataSource` SqlDataSource (ポストバックを含む)、ページへのアクセスにします。
 
 
 [![名前が表示されるカテゴリをランダムに選択されている s](using-parameterized-queries-with-the-sqldatasource-cs/_static/image13.gif)](using-parameterized-queries-with-the-sqldatasource-cs/_static/image25.png)
@@ -306,12 +306,12 @@ SqlDataSource 開発者はページをパラメーター値を持つハード �
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者には、Scott クライド、Randell Schmidt Ken Pespisa がされていました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](querying-data-with-the-sqldatasource-control-cs.md)
-[次へ](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)
+> [!div class="step-by-step"]
+> [前へ](querying-data-with-the-sqldatasource-control-cs.md)
+> [次へ](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/introduction/adding-validation
-title: "検証の追加 |Microsoft ドキュメント"
+title: 検証の追加 |Microsoft ドキュメント
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 8d768727772738264d088315e605cca72db8de0a
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: d084c5c7e232b92c8cfe2230e076752d42d8da5d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation"></a>検証の追加
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 検証ロジックをここで追加、`Movie`モデル、およびすることで、検証規則がいつでも作成またはアプリケーションを使用してムービーを編集しようと、ユーザーに適用されます。
 
@@ -132,7 +132,7 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 [!code-csharp[Main](adding-validation/samples/sample7.cs)]
 
-[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、データを書式設定、ビュー エンジンのヒントを提供するだけ (などの属性を提供し、`<a>`の URL と`<a href="mailto:EmailAddress.com">`電子メールのです。 使用することができます、[正規表現](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)データの形式を検証する属性。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性を使用してデータベースの組み込み型よりも特定のデータ型を指定、される***されません***検証属性。 ここでのみが必要を追跡する、日付、日付と時刻がありません。 [DataType 列挙](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)などの多くのデータ型の提供*日付、時刻、PhoneNumber、通貨、EmailAddress*などです。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 たとえば、`mailto:`に対してリンクを作成できる[DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)、日付選択を指定することができます、 [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)をサポートするブラウザーで[HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、HTML 5 を出力[データ -](http://ejohn.org/blog/html-5-data-attributes/) (発音*データ ダッシュ*) HTML 5 ブラウザーで認識できる属性です。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、いずれかの検証を渡さないようにします。
+[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、データを書式設定、ビュー エンジンのヒントを提供するだけ (などの属性を提供し、`<a>`の URL と`<a href="mailto:EmailAddress.com">`電子メールのです。 使用することができます、[正規表現](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx)データの形式を検証する属性。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性を使用してデータベースの組み込み型よりも特定のデータ型を指定、される***されません***検証属性。 この例では、追跡する必要があるのは、日付と時刻ではなく、日付のみです。 [DataType 列挙](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)などの多くのデータ型の提供*日付、時刻、PhoneNumber、通貨、EmailAddress*などです。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 たとえば、`mailto:`に対してリンクを作成できる[DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)、日付選択を指定することができます、 [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)をサポートするブラウザーで[HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、HTML 5 を出力[データ -](http://ejohn.org/blog/html-5-data-attributes/) (発音*データ ダッシュ*) HTML 5 ブラウザーで認識できる属性です。 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx)属性は、いずれかの検証を渡さないようにします。
 
 `DataType.Date` は、表示される日付の書式を指定しません。 既定では、データ フィールドを基に、サーバーの既定の形式に従って表示[CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx)です。
 
@@ -166,6 +166,6 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 このシリーズの次のパートでは、アプリケーションを確認し、自動的に生成される `Details` および `Delete` メソッドに対していくつかの改良を行います。
 
->[!div class="step-by-step"]
-[前へ](adding-a-new-field.md)
-[次へ](examining-the-details-and-delete-methods.md)
+> [!div class="step-by-step"]
+> [前へ](adding-a-new-field.md)
+> [次へ](examining-the-details-and-delete-methods.md)

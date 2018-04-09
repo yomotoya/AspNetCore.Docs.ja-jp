@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
-title: "ページ (Razor) サイトの ASP.NET Web におけるユーザー入力の検証 |Microsoft ドキュメント"
+title: ページ (Razor) サイトの ASP.NET Web におけるユーザー入力の検証 |Microsoft ドキュメント
 author: tfitzmac
-description: "ユーザーから取得した情報を検証する方法を説明&mdash;は、確認するユーザー入力を有効な html 形式で情報でのフォーム、名前を付けて."
+description: ユーザーから取得した情報を検証する方法を説明&mdash;は、確認するユーザー入力を有効な html 形式で情報でのフォーム、名前を付けて.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: 3bde2a4ea69577ebcbe3e9e89a7ee07e6ece8dd1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 34f703e6db70ac79c22f4a50d4cfd4e2326b4c74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) サイトにおけるユーザー入力の検証
 ====================
@@ -83,15 +83,15 @@ ASP.NET Web Pages 2 で使用できます、`Validator`ユーザー入力をテ�
     必須フィールドを確認するには、使用`Validation.RequireField(field, [error message])`(用、個々 のフィールド) または`Validation.RequireFields(field1, field2, ...))`(のフィールドの一覧)。 その他の種類の検証では、使用`Validation.Add(field, ValidationType)`です。 `ValidationType`、これらのオプションを使用することができます。
 
     `Validator.DateTime ([error message])`  
-`Validator.Decimal([error message])`  
-`Validator.EqualsTo(otherField [, error message])`  
-`Validator.Float([error message])`  
-`Validator.Integer([error message])`  
-`Validator.Range(min, max [, error message])`  
-`Validator.RegEx(pattern [, error message])`  
-`Validator.Required([error message])`  
-`Validator.StringLength(length)`  
-`Validator.Url([error message])`
+   `Validator.Decimal([error message])`  
+   `Validator.EqualsTo(otherField [, error message])`  
+   `Validator.Float([error message])`  
+   `Validator.Integer([error message])`  
+   `Validator.Range(min, max [, error message])`  
+   `Validator.RegEx(pattern [, error message])`  
+   `Validator.Required([error message])`  
+   `Validator.StringLength(length)`  
+   `Validator.Url([error message])`
 3. チェックして、検証が渡されるかどうかを確認して、ページが送信されると、 `Validation.IsValid`:
 
     [!code-csharp[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample1.cs)]
@@ -122,7 +122,7 @@ ASP.NET Web Pages 2 で使用できます、`Validator`ユーザー入力をテ�
 
     [!code-html[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample3.html)]
 
- ライブラリの 2 つのコンテンツ配信ネットワーク (CDN) から読み込み可能なため、コンピューターまたはサーバー上に必ずしも必要はありません。 ただしのローカル コピーが必要*jquery.validate.unobtrusive.js*です。 既に動作していない WebMatrix テンプレートを使用する (と同様に**スターター サイト**) ライブラリが含まれている、基になっている Web Pages サイトを作成する**スターター サイト**です。 コピーし、 *.js*ファイルを現在のサイトです。
+   ライブラリの 2 つのコンテンツ配信ネットワーク (CDN) から読み込み可能なため、コンピューターまたはサーバー上に必ずしも必要はありません。 ただしのローカル コピーが必要*jquery.validate.unobtrusive.js*です。 既に動作していない WebMatrix テンプレートを使用する (と同様に**スターター サイト**) ライブラリが含まれている、基になっている Web Pages サイトを作成する**スターター サイト**です。 コピーし、 *.js*ファイルを現在のサイトです。
 2. マークアップでは、次の情報を検証している、各要素に対して呼び出しを追加して`Validation.For(field)`です。 このメソッドは、クライアント側の検証で使用される属性を出力します。 (実際の JavaScript コードの出力ではなく、メソッドがなどの属性を出力`data-val-...`です。 これらの属性控えめなクライアントの検証をサポートを作業を行うには jQuery を使用します。)
 
 次のページでは、前の例にクライアントの検証機能を追加する方法を示します。

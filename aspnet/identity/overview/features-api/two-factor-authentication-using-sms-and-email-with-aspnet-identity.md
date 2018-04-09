@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
-title: "SMS と電子メール ASP.NET の Id を使用した 2 要素認証 |Microsoft ドキュメント"
+title: SMS と電子メール ASP.NET の Id を使用した 2 要素認証 |Microsoft ドキュメント
 author: HaoK
-description: "このチュートリアルでは、SMS や電子メールを使用した 2 要素認証 (2 fa) を設定する方法を示します。 この記事は、Rick Anderson によって書き込まれました ( @RickAndMSFT ) あたり、."
+description: このチュートリアルでは、SMS や電子メールを使用した 2 要素認証 (2 fa) を設定する方法を示します。 この記事は、Rick Anderson によって書き込まれました ( @RickAndMSFT ) あたり、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/15/2015
 ms.topic: article
 ms.assetid: 053e23c4-13c9-40fa-87cb-3e9b0823b31e
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 0f9ff7cf74048a008b150da1e843ff15333269ab
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c8f628d177004a8569dde2651469ed591e48591e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="two-factor-authentication-using-sms-and-email-with-aspnet-identity"></a>SMS と電子メール ASP.NET の Id を使用した 2 要素認証
 ====================
@@ -52,11 +52,11 @@ ms.lasthandoff: 01/24/2018
     `Install-Package SendGrid`  
     `Install-Package -Prerelease Microsoft.AspNet.Identity.Samples`  
   
- このチュートリアルで使用されます[SendGrid](http://sendgrid.com/)電子メールを送信して[Twilio](https://www.twilio.com/)または[ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) sms テキストのです。 `Identity.Samples`パッケージは操作するコードをインストールします。
+   このチュートリアルで使用されます[SendGrid](http://sendgrid.com/)電子メールを送信して[Twilio](https://www.twilio.com/)または[ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) sms テキストのです。 `Identity.Samples`パッケージは操作するコードをインストールします。
 3. 設定、 [SSL を使用するプロジェクト](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)です。
 4. *省略可能な*: の指示に従って、my[電子メール確認チュートリアル](account-confirmation-and-password-recovery-with-aspnet-identity.md)に SendGrid をフックするため、アプリを実行して、電子メール アカウントを登録します。
 5. * 省略可能: * サンプルからデモ電子メール リンク確認コードを削除 (、`ViewBag.Link`アカウント コント ローラー内のコード。 参照してください、`DisplayEmail`と`ForgotPasswordConfirmation`アクション メソッドと razor ビュー)。
-6. * 省略可能: * 削除する、`ViewBag.Status`コードと管理、およびアカウント コント ローラーから、 *Views\Account\VerifyCode.cshtml*と*Views\Manage\VerifyPhoneNumber.cshtml* razor ビュー。 または、保持することができます、`ViewBag.Status`をフックして電子メールと SMS メッセージを送信しなくてもローカルでのこのアプリの動作をテストを表示します。
+6. <em>省略可能: * 削除する、`ViewBag.Status`コードと、*Views\Account\VerifyCode.cshtml 管理およびアカウント コント ローラーから</em>と<em>Views\Manage\VerifyPhoneNumber.cshtml</em> razor ビュー。 または、保持することができます、`ViewBag.Status`をフックして電子メールと SMS メッセージを送信しなくてもローカルでのこのアプリの動作をテストを表示します。
 
 > [!NOTE]
 > 警告: このサンプルでは、セキュリティ設定のいずれかを変更すると、運用アプリが行われた変更を明示的に呼び出すのセキュリティ監査を受ける必要があります。
@@ -70,44 +70,44 @@ ms.lasthandoff: 01/24/2018
 
 1. **SMS プロバイダーとユーザー アカウントの作成**  
   
- 作成、 [Twilio](https://www.twilio.com/try-twilio)または[ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/)アカウント。
+   作成、 [Twilio](https://www.twilio.com/try-twilio)または[ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/)アカウント。
 2. **その他のパッケージをインストールするか、サービス参照の追加**  
   
- Twilio:  
- パッケージ マネージャー コンソールで、次のコマンドを入力します。  
+   Twilio:  
+   パッケージ マネージャー コンソールで、次のコマンドを入力します。  
     `Install-Package Twilio`  
   
- ASPSMS:  
- 次のサービス参照を追加する必要があります。  
+   ASPSMS:  
+   次のサービス参照を追加する必要があります。  
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image1.png)  
   
- アドレス:  
+   アドレス:  
     `https://webservice.aspsms.com/aspsmsx2.asmx?WSDL`  
   
- 名前空間:  
+   名前空間:  
     `ASPSMSX2`
 3. **SMS プロバイダーのユーザーの資格情報を見つけ出し**  
   
- Twilio:  
- **ダッシュ ボード**コピー、Twilio アカウントのタブ、**アカウント SID**と**認証トークン**です。  
+   Twilio:  
+   **ダッシュ ボード**コピー、Twilio アカウントのタブ、**アカウント SID**と**認証トークン**です。  
   
- ASPSMS:  
- アカウントの設定からに移動**ユーザー キー**自己定義と共にコピー**パスワード**です。  
+   ASPSMS:  
+   アカウントの設定からに移動**ユーザー キー**自己定義と共にコピー**パスワード**です。  
   
- 変数に後でこれらの値を格納は`SMSAccountIdentification`と`SMSAccountPassword`です。
+   変数に後でこれらの値を格納は`SMSAccountIdentification`と`SMSAccountPassword`です。
 4. **SenderID を指定する/発信元**  
   
- Twilio:  
- **番号** タブで、Twilio 電話番号をコピーします。  
+   Twilio:  
+   **番号** タブで、Twilio 電話番号をコピーします。  
   
- ASPSMS:  
- 内で、**発信者のロックを解除** メニューの 1 つまたは複数の発信者のロックを解除または発信元が英数字であることを (すべてのネットワークではサポートされていません) を選択します。  
+   ASPSMS:  
+   内で、**発信者のロックを解除** メニューの 1 つまたは複数の発信者のロックを解除または発信元が英数字であることを (すべてのネットワークではサポートされていません) を選択します。  
   
- 変数に、この値を格納おは後で`SMSAccountFrom`です。
+   変数に、この値を格納おは後で`SMSAccountFrom`です。
 5. **アプリに SMS プロバイダーの資格情報を転送します。**  
   
- 資格情報と差出人の電話番号を使用できるように、アプリ。
+   資格情報と差出人の電話番号を使用できるように、アプリ。
 
     [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample1.cs)]
 
@@ -115,9 +115,9 @@ ms.lasthandoff: 01/24/2018
     > セキュリティ - ソース コード内の機密データはストアことはありません。 アカウントと資格情報は、サンプルをシンプルにする上記のコードに追加されます。 Jon Atten を参照してください[ASP.NET MVC: ソース管理のプライベート設定の出力を保持](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx)です。
 6. **SMS プロバイダーへのデータ転送の実装**  
   
- 構成、`SmsService`クラス内で、*アプリ\_Start\IdentityConfig.cs*ファイル。  
+   構成、`SmsService`クラス内で、*アプリ\_Start\IdentityConfig.cs*ファイル。  
   
- いずれかのアクティブ化に使用される SMS プロバイダーによって、 **Twilio**または**ASPSMS**セクション。 
+   いずれかのアクティブ化に使用される SMS プロバイダーによって、 **Twilio**または**ASPSMS**セクション。 
 
     [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample2.cs)]
 7. アプリを実行し、以前に登録したアカウントでログインします。

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
-title: "ASP.NET Web API 2 の Azure ワーカー ロールをホスト |Microsoft ドキュメント"
+title: ASP.NET Web API 2 の Azure ワーカー ロールをホスト |Microsoft ドキュメント
 author: MikeWasson
-description: "このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストする Azure ワーカー ロールで ASP.NET Web API をホストする方法を示します。 .NET (OWIN) de 用 Web インターフェイスを開く."
+description: このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストする Azure ワーカー ロールで ASP.NET Web API をホストする方法を示します。 .NET (OWIN) de 用 Web インターフェイスを開く.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/02/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 9a7f8242bf482e81513accfe05e10a64ae0ca0b2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7ba1dc850e2f9d9c88e6ddf263a796e1867a98be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>ASP.NET Web API 2 の Azure ワーカー ロールをホストします。
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
 > このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストする Azure ワーカー ロールで ASP.NET Web API をホストする方法を示します。
 > 
@@ -131,7 +131,7 @@ WorkerRole.cs の完全なコードを次に示します。
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image11.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image10.png)
 
-サービスの展開、展開 [id]、サービスの詳細情報の下の IP アドレスを検索します。 Web ブラウザーを開き、http:// に移動*アドレス*/テスト/1、ここで*アドレス*;、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、`http://127.0.0.1:80/test/1`です。 Web API コント ローラーからの応答が表示されます。
+サービスの展開、展開 [id]、サービスの詳細情報の下の IP アドレスを検索します。 Web ブラウザーを開き、http:// に移動<em>アドレス</em>/テスト/1、ここで<em>アドレス</em>;、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、`http://127.0.0.1:80/test/1`です。 Web API コント ローラーからの応答が表示されます。
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image12.png)
 
@@ -159,7 +159,7 @@ Azure アカウントにサインインしていない場合はクリックし�
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image20.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image19.png)
 
-Azure のアクティビティ ログ ウィンドウでは、展開の進行状況を示します。 アプリが展開されると、http://appname.cloudapp.net/test/1 を参照します。
+Azure のアクティビティ ログ ウィンドウでは、展開の進行状況を示します。 アプリが展開されると、参照http://appname.cloudapp.net/test/1です。
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image21.png)
 

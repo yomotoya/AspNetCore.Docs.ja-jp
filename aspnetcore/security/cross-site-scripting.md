@@ -1,7 +1,7 @@
 ---
-title: "クロス サイト スクリプト (XSS) ASP.NET Core での防止"
+title: クロス サイト スクリプト (XSS) ASP.NET Core を防ぐ
 author: rick-anderson
-description: "クロス サイト スクリプト (XSS) と ASP.NET Core アプリケーションでこの脆弱性に対処する方法について説明します。"
+description: クロス サイト スクリプト (XSS) と ASP.NET Core アプリケーションでこの脆弱性に対処する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cross-site-scripting
-ms.openlocfilehash: 9e54ee0b1169c01629c3cd91a378509a73c53904
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d9263a2c1bb6a376008b7d8a55864e4d15e77cee
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="preventing-cross-site-scripting-xss-in-aspnet-core"></a>クロス サイト スクリプト (XSS) ASP.NET Core での防止
+# <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>クロス サイト スクリプト (XSS) ASP.NET Core を防ぐ
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/15/2018
 
 ## <a name="html-encoding-using-razor"></a>Razor を使用して HTML エンコード
 
-MVC で自動的に使用される、Razor エンジン エンコードすべて苦労して本当にそのようにしない限り、変数が出力に基づいています。 ルールのエンコードを使用するときに HTML 属性を使用して、  *@* ディレクティブです。 HTML 属性エンコードは HTML エンコード HTML エンコーディングまたは HTML 属性エンコードを使用するかどうかを意識する必要はありませんつまりのスーパー セットです。 使用することのみコンテキストでは、HTML、JavaScript に直接信頼されていない入力を挿入しようとしています。 ときではなくを確認する必要があります。 タグ ヘルパーは、タグのパラメーターで使用する入力もエンコードされます。
+MVC で自動的に使用される、Razor エンジン エンコードすべて苦労して本当にそのようにしない限り、変数が出力に基づいています。 ルールのエンコードを使用するときに HTML 属性を使用して、 *@*ディレクティブです。 HTML 属性エンコードは HTML エンコード HTML エンコーディングまたは HTML 属性エンコードを使用するかどうかを意識する必要はありませんつまりのスーパー セットです。 使用することのみコンテキストでは、HTML、JavaScript に直接信頼されていない入力を挿入しようとしています。 ときではなくを確認する必要があります。 タグ ヘルパーは、タグのパラメーターで使用する入力もエンコードされます。
 
 次の Razor ビュー; の実行します。
 
@@ -60,7 +60,7 @@ MVC で自動的に使用される、Razor エンジン エンコードすべて
 
 ## <a name="javascript-encoding-using-razor"></a>Razor を使用して Javascript のエンコード
 
-ビューで処理する JavaScript に値を挿入する回数である可能性があります。 これには、2 つの方法があります。 単純な値を挿入する最も安全な方法は、タグのデータの属性に値を設定し、JavaScript で取得します。 例:
+ビューで処理する JavaScript に値を挿入する回数である可能性があります。 これには、2 つの方法があります。 単純な値を挿入する最も安全な方法は、タグのデータの属性に値を設定し、JavaScript で取得します。 例えば:
 
 ```none
 @{
@@ -145,7 +145,7 @@ JavaScript のエンコーダーを直接呼び出すことができますも
 
 ## <a name="accessing-encoders-in-code"></a>コード内のエンコーダーへのアクセス
 
-HTML、JavaScript、および URL のエンコーダーでは、2 つの方法でコードに使用できる、経由でそれらを挿入する[依存性の注入](../fundamentals/dependency-injection.md#fundamentals-dependency-injection)に含まれている既定のエンコーダーを使用することも、`System.Text.Encodings.Web`名前空間。 適用するいずれかの既定のエンコーダーを使用する場合は、安全なものとして扱われる文字の範囲が有効になります - 既定のエンコーダーが可能な最も安全なエンコードの規則を使用します。
+HTML、JavaScript、および URL のエンコーダーでは、2 つの方法でコードに使用できる、経由でそれらを挿入する[依存性の注入](xref:fundamentals/dependency-injection#fundamentals-dependency-injection)に含まれている既定のエンコーダーを使用することも、`System.Text.Encodings.Web`名前空間。 適用するいずれかの既定のエンコーダーを使用する場合は、安全なものとして扱われる文字の範囲が有効になります - 既定のエンコーダーが可能な最も安全なエンコードの規則を使用します。
 
 DI、コンス トラクターを受け取る必要がありますを使用して構成可能なエンコーダーを使用する、 *HtmlEncoder*、 *JavaScriptEncoder*と*UrlEncoder*として適切なパラメーターです。 例を示します。
 

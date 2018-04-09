@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-cs
-title: "(C#) のテキスト ボックス内の特定の文字のみを許可する |Microsoft ドキュメント"
+title: (C#) のテキスト ボックス内の特定の文字のみを許可する |Microsoft ドキュメント
 author: wenz
-description: "ASP.NET の検証コントロールは、ユーザー入力の特定の文字のみが許可されることを確認できます。 ただしこのまだでも、ユーザー入力が無効です."
+description: ASP.NET の検証コントロールは、ユーザー入力の特定の文字のみが許可されることを確認できます。 ただしこのまだでも、ユーザー入力が無効です.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 246c3b5dd55ceb0f47ad1f4982ae5b3bf855e747
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d2ffc4b741bd0c7f9c456b6e76017f5350ab6378
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="allowing-only-certain-characters-in-a-text-box-c"></a>(C#) のテキスト ボックス内の特定の文字のみを許可します。
 ====================
@@ -45,10 +45,10 @@ ASP.NET AJAX コントロールのツールキットに含まれています、`
 
 最後に、`FilteredTextBoxExtender`コントロールは、ユーザーが入力できる文字の制限の対処します。 まず、設定、`TargetControlID`属性を`ID`の`TextBox`コントロール。 次に、使用可能ないずれかを選択`FilterType`値。
 
-- `Custom`既定値です。有効な文字の一覧を指定する必要があります。
-- `LowercaseLetters`小文字のみ
-- `Numbers`数字のみ
-- `UppercaseLetters`大文字の使用のみ
+- `Custom` 既定値です。有効な文字の一覧を指定する必要があります。
+- `LowercaseLetters` 小文字のみ
+- `Numbers` 数字のみ
+- `UppercaseLetters` 大文字の使用のみ
 
 場合、`Custom FilterType`を使用する、`ValidChars`プロパティが設定して型を指定することがありますの文字の一覧を提供する必要があります。 方法: テキスト ボックスにテキストを貼り付けるしようとすると、すべての無効な文字が削除されます。
 
@@ -63,5 +63,5 @@ ASP.NET AJAX コントロールのツールキットに含まれています、`
 
 数字のみを入力することがあります ([フルサイズのイメージを表示するをクリックして](allowing-only-certain-characters-in-a-text-box-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[次へ](allowing-only-certain-characters-in-a-text-box-vb.md)
+> [!div class="step-by-step"]
+> [次へ](allowing-only-certain-characters-in-a-text-box-vb.md)

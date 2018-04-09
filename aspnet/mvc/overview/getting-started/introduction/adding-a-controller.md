@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/introduction/adding-a-controller
-title: "コント ローラーの追加 |Microsoft ドキュメント"
+title: コント ローラーの追加 |Microsoft ドキュメント
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: c8f317b2ac133f560461917af1588b7a1fa51c4f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3864bab284661b0c44f9e4cb363c2d60eccc7c66
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-controller"></a>コントローラーを追加する
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 MVC*モデル-ビュー-コント ローラー*です。 MVC が適切に設計された、テストが容易な保守し、やすいアプリケーションの開発パターンです。 MVC ベースのアプリケーションが含まれます。
 
@@ -95,7 +95,7 @@ URL セグメントの上のサンプル ( `Parameters`) を使用していな�
 
 [!code-csharp[Main](adding-a-controller/samples/sample4.cs)]
 
-アプリケーションを実行し、次の URL を入力します。`http://localhost:xxx/HelloWorld/Welcome/1?name=Scott`
+アプリケーションを実行し、次の URL を入力します。 `http://localhost:xxx/HelloWorld/Welcome/1?name=Scott`
 
 ![](adding-a-controller/_static/image8.png)
 
@@ -115,6 +115,6 @@ ASP.NET MVC アプリケーションでは、一般的なクエリ文字列と�
 
 これらの例で、コント ローラーが実行されて、 &quot;VC&quot; MVC 一部分: ビューとコント ローラーの作業は、します。 コント ローラーは、直接 HTML を返しています。 通常はコント ローラーのコードに非常に複雑になるので、直接、HTML を返す必要はありません。 代わりに HTML 応答を生成するために使用されます、個別のビュー テンプレート ファイル通常。 結果がどのようにこれを次のことを確認してみましょう。
 
->[!div class="step-by-step"]
-[前へ](getting-started.md)
-[次へ](adding-a-view.md)
+> [!div class="step-by-step"]
+> [前へ](getting-started.md)
+> [次へ](adding-a-view.md)

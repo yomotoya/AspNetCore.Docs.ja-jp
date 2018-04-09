@@ -1,22 +1,22 @@
 ---
 uid: whitepapers/mvc3-release-notes
-title: "ASP.NET MVC 3 |Microsoft ドキュメント"
+title: ASP.NET MVC 3 |Microsoft ドキュメント
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/06/2010
 ms.topic: article
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 058b7c6fe6eeeea4403e7e5fdc05bb44d2ba1300
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 0bfe9cdc215226457ccfafff2b85ace87325b91b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -262,7 +262,7 @@ ASP.NET MVC 3 は、する柔軟性が ASP.NET MVC 3、ASP.NET MVC 2 アプリ�
 <a id="tu-Modernizr"></a>
 ### <a name="project-templates-now-include-modernizr-17"></a>プロジェクト テンプレートに Modernizr 1.7 が
 
-Modernizr は、これらの機能をサポートしていないブラウザーで CSS 3 および HTML5 のサポートを有効にする JavaScript ライブラリです。 このライブラリは、ASP.NET MVC 3 プロジェクトのテンプレートでの事前インストールされている NuGet パッケージとして含まれています。 Modernizr の詳細については、次を参照してください。 [http://www.modernizr.com/](http://www.modernizr.com/)です。
+Modernizr は、これらの機能をサポートしていないブラウザーで CSS 3 および HTML5 のサポートを有効にする JavaScript ライブラリです。 このライブラリは、ASP.NET MVC 3 プロジェクトのテンプレートでの事前インストールされている NuGet パッケージとして含まれています。 Modernizr の詳細については、次を参照してください。 [ http://www.modernizr.com/](http://www.modernizr.com/)です。
 
 <a id="tu-UpdatedJQuery"></a>
 ### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>プロジェクト テンプレートは、jQuery、jQuery UI、および jQuery の更新バージョンの検証
@@ -373,7 +373,7 @@ ASP.NET MVC 3 のプレリリース版で Razor ファイルに空白を含む R
 <a id="_Toc2_1"></a>
 ### <a name="project-templates-changed-to-include-jquery-144-jquery-validation-17-and-jquery-ui-186"></a>1.4.4 jQuery、jQuery 検証 1.7 と jQuery UI 1.8.6 を含むようにプロジェクト テンプレートの変更
 
-ASP.NET MVC 3 のプロジェクト テンプレートが加わりました最新バージョンの jQuery、jQuery 検証、および jQuery UI。 jQuery UI は、プロジェクト テンプレートに新たに追加し、便利なユーザー インターフェイスのウィジェットを提供します。 JQuery UI の詳細については、自分のホーム ページを参照してください: [http://jqueryui.com/](http://jqueryui.com/)です。
+ASP.NET MVC 3 のプロジェクト テンプレートが加わりました最新バージョンの jQuery、jQuery 検証、および jQuery UI。 jQuery UI は、プロジェクト テンプレートに新たに追加し、便利なユーザー インターフェイスのウィジェットを提供します。 JQuery UI の詳細については、自分のホーム ページを参照してください: [ http://jqueryui.com/](http://jqueryui.com/)です。
 
 <a id="_Toc2_2"></a>
 ### <a name="added-additionalmetadataattribute-class"></a>追加された"AdditionalMetadataAttribute"クラス
@@ -438,7 +438,7 @@ ASP.NET MVC 3 のプロジェクト テンプレートが加わりました最�
 <a id="_Toc2_10"></a>
 ### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>固定@model宣言、ドキュメントに空白を追加するには
 
-以前のリリースで、  *@model* ビューの上部にある宣言は、レンダリングされた HTML 出力に空白行を追加します。 これは、宣言は空白を挿入していないように修正されました。
+以前のリリースで、 <em>@model</em>ビューの上部にある宣言は、レンダリングされた HTML 出力に空白行を追加します。 これは、宣言は空白を挿入していないように修正されました。
 
 <a id="_Toc2_11"></a>
 ### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>エンジンに固有のファイル名をサポートするために、ビュー エンジンに追加された"FileExtensions"プロパティ
@@ -465,7 +465,7 @@ ASP.NET MVC 3 のプロジェクト テンプレートが加わりました最�
 - ASP.NET MVC の以前のバージョンでは、アクション フィルターは、いくつかの場合を除く要求ごと作成されました。 この動作が保証された動作しますが、実装の詳細だけを実行されていないと、フィルターのコントラクトがステートレスを検討するでした。 ASP.NET MVC 3 では、フィルターは積極的にキャッシュされます。 したがって、不適切なインスタンスの状態を格納する任意のカスタム アクション フィルターは壊れている可能性があります。
 - 例外フィルターが同じであるため、例外フィルターの実行の順序が変更された*順序*値。 ASP.NET MVC 2 以前のバージョンで同じがあったコント ローラー上の例外がフィルター*順序*例外フィルター、アクション メソッドにする前に実行されたアクション メソッドのように値します。 例外フィルターが適用されたときに、大文字と小文字を一般にこのように、指定したせず*順序*値。 ASP.NET MVC 3 では、この順序が逆になりました最も固有の例外ハンドラーが最初に実行できるようにします。 以前のバージョンと場合、*順序*プロパティが明示的に指定されて、フィルターは、指定した順序で実行されます。
 - という名前の新しいプロパティ*FileExtensions*に追加された、 *VirtualPathProviderViewEngine*基本クラスです。 ASP.NET では、名前ではなく) パスを使用して、ビューを検索、この新しいプロパティで指定されたリストに含まれるファイル拡張子を持つビューのみが考慮されます。 これは、Web フォーム ビューのカスタムのファイル拡張子を有効にするために、カスタム ビルド プロバイダーが登録されているプロバイダーが名前ではなく、完全なパスを使用してそれらのビューを参照し、アプリケーションで重大な変更です。 回避策がの値を変更するには、 *FileExtensions*プロパティにカスタムのファイル拡張子を含めます。
-- 直接実装するカスタム コント ローラー ファクトリ実装、 *IControllerFactory*インターフェイスは、新しい実装を提供する必要があります*GetControllerSessionBehavior * * に追加されたメソッドにはこのリリースではインターフェイス*です。 一般に、お勧めするこのインターフェイスを直接実装およびしない代わりに、クラスから派生させる*DefaultControllerFactory*です。
+- 直接実装するカスタム コント ローラー ファクトリの実装、 <em>IControllerFactory</em>インターフェイスは、新しい実装を提供する必要があります<em>GetControllerSessionBehavior</em> <em>このリリースでは、インターフェイスに追加されたメソッドに</em>です。 一般に、お勧めするこのインターフェイスを直接実装およびしない代わりに、クラスから派生させる<em>DefaultControllerFactory</em>です。
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>既知の問題
@@ -629,11 +629,11 @@ Namespace.ClassName
 
 ASP.NET MVC 3 のベータ版は、2010 年 10 月 6 日にリリースされました。 次の注意事項は、ベータ リリースに固有対象となります更新や変更前の ASP.NET MVC 3 のリリース候補セクションで参照されています。
 
-## <a id="0.1__Toc274034215"></a>新しい Featuresin ASP.NET MVC 3 のベータ版
+## <a id="0.1__Toc274034215"></a>  新しい Featuresin ASP.NET MVC 3 のベータ版
 
 <a id="0.1__Default_validation_system"></a>このセクションの内容が導入された機能について説明します、ASP.NET MVC 3 のベータ リリースでします。
 
-### <a id="0.1__Toc274034216"></a>NuGet パッケージ マネージャー
+### <a id="0.1__Toc274034216"></a>  NuGet パッケージ マネージャー
 
 ASP.NET MVC 3 では、NuGet パッケージ マネージャーは、追加するライブラリ用の統合パッケージ管理ツールおよび Visual Studio プロジェクトにツールが含まれます。 ほとんどの場合、開発者は、ソース ツリーにライブラリを取得する現在ための手順を自動化します。
 
@@ -641,7 +641,7 @@ ASP.NET MVC 3 では、NuGet パッケージ マネージャーは、追加す�
 
 NuGet の詳細については、読み取り、 [NuGet のドキュメント](https://docs.microsoft.com/nuget/)です。
 
-### <a id="0.1__Toc274034217"></a>[新しいプロジェクト] ダイアログ ボックスの向上
+### <a id="0.1__Toc274034217"></a>  [新しいプロジェクト] ダイアログ ボックスの向上
 
 新しいプロジェクトを作成するときに新しいプロジェクト ダイアログ ボックスでできるようになりました、ビュー エンジンと ASP.NET MVC プロジェクトの種類を指定します。
 
@@ -655,7 +655,7 @@ NuGet の詳細については、読み取り、 [NuGet のドキュメント](h
 
 インターネット アプリケーションです。 ASP.NET MVC でのメンバーシップ プロバイダーを使用する方法を示すサンプルの機能が含まれています。
 
-### <a id="0.1__Toc274034218"></a>厳密に指定することは簡略化された Razor ビューでのモデルの入力
+### <a id="0.1__Toc274034218"></a>  厳密に指定することは簡略化された Razor ビューでのモデルの入力
 
 新しいを使用して、厳密に型指定の Razor ビューのモデルの型を指定する方法を簡略化された@modelCSHTML ビューのディレクティブと@ModelTypeディレクティブ VBHTML ビューです。 ASP.NET MVC の以前のバージョンでは、Razor の厳密に型指定されたモデルは、この方法を表示を指定します。
 
@@ -665,7 +665,7 @@ NuGet の詳細については、読み取り、 [NuGet のドキュメント](h
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample26.cshtml)]
 
-### <a id="0.1__Toc274034219"></a>新しい ASP.NET Web ページのヘルパー メソッドをサポートします。
+### <a id="0.1__Toc274034219"></a>  新しい ASP.NET Web ページのヘルパー メソッドをサポートします。
 
 新しい ASP.NET Web Pages テクノロジには、一連ビューとコント ローラーに一般的に使用される機能を追加するための便利なヘルパー メソッドにはが含まれています。 ASP.NET MVC 3 では、コント ローラーとビュー内でこれらのヘルパー メソッドを使用して、(必要な場合) をサポートします。 これらのメソッドは、System.Web.Helpers アセンブリに格納されます。 次の表は、ASP.NET Web Pages のヘルパー メソッドのいくつかを示します。
 
@@ -675,13 +675,13 @@ NuGet の詳細については、読み取り、 [NuGet のドキュメント](h
 | Crypto | ハッシュを正しく作成するアルゴリズムを使用では、ソルトし、パスワードをハッシュします。 |
 | WebGrid | オブジェクト (通常は、データベースからのデータ) のコレクションをグリッドとして表示します。 ページングや並べ替えをサポートします。 |
 | WebImage | イメージを表示します。 |
-| WebMail | 電子メール メッセージを送信します。 |
+| WebMail | 電子メールを送信します。 |
 
 ヘルパーと基本的な構文を示すクイック リファレンス トピックでは、使用可能なドキュメントの一部として、ASP.NET Razor 構文で、次の URL:
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-api-reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
 
-### <a id="0.1__Toc274034220"></a>追加の依存関係の挿入のサポート
+### <a id="0.1__Toc274034220"></a>  追加の依存関係の挿入のサポート
 
 ASP.NET MVC 3 Preview 1 のリリースでの構築、現在のリリースには、2 つの新しいサービスや既存の 4 つのサービスのサポートを追加および依存関係の解決と共通サービス ロケーターのサポートの改善が含まれます。
 
@@ -732,7 +732,7 @@ DefaultControllerFactory クラスには、新しい IControllerFactory イン�
 - 値プロバイダー。 ValueProviderFactory を実装するクラスは、依存関係競合回避モジュールに登録することができ、システムは、コント ローラーで、モデル バインド中に使用される値プロバイダーを作成することを使用します。
 - モデル バインダー。 IModelBinderProvider を実装するクラスは、依存関係競合回避モジュールに登録することができ、システムが使用して作成するモデル バインド システムで使用されるモデル バインダー。
 
-### <a id="0.1__Toc274034221"></a>控えめな jQuery ベース Ajax のサポート
+### <a id="0.1__Toc274034221"></a>  控えめな jQuery ベース Ajax のサポート
 
 ASP.NET MVC には、次のよう Ajax ヘルパー メソッドが含まれます。
 
@@ -748,7 +748,7 @@ ASP.NET MVC には、次のよう Ajax ヘルパー メソッドが含まれま�
 
 この機能は、ASP.NET MVC 3 プロジェクト、新しいテンプレートにある Web.config ファイルで既定で有効が、既存のプロジェクトに既定で無効にします。 詳細については、次を参照してください。[クライアント検証と控えめな JavaScript アプリケーション全体のフラグを追加](#0.1_AddedApplicationWideFlagsForClientValida)このドキュメントで後述します。
 
-### <a id="0.1__Toc274034222"></a>控えめな jQuery 検証用の新しいサポート
+### <a id="0.1__Toc274034222"></a>  控えめな jQuery 検証用の新しいサポート
 
 既定では、ASP.NET MVC 3 のベータ版は、クライアント側の検証を実行するために、控えめな方法で jQuery 検証を使用します。 控えめなクライアント検証を有効にするには、ビュー内から次のような呼び出しを行います。
 
@@ -768,7 +768,7 @@ ASP.NET MVC には、次のよう Ajax ヘルパー メソッドが含まれま�
 
 <a id="0.1__Toc274034223"></a>
 
-### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>クライアント検証と控えめな JavaScript の新しいアプリケーション全体のフラグ
+### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>  クライアント検証と控えめな JavaScript の新しいアプリケーション全体のフラグ
 
 有効にするか、クライアント検証と控えめな JavaScript が次の例のように、HtmlHelper クラスの静的メンバーを使用してグローバルに無効にすることができます。
 
@@ -784,7 +784,7 @@ ASP.NET MVC には、次のよう Ajax ヘルパー メソッドが含まれま�
 
 旧バージョンとの互換性のため、既定ではこれら両方の機能は無効です。
 
-### <a id="0.1__Toc274034224"></a>ビューの実行前に実行されるコードのサポート
+### <a id="0.1__Toc274034224"></a>  ビューの実行前に実行されるコードのサポート
 
 という名前のファイルを配置できるようになりました\_viewstart.cshtml (または\_viewstart.vbhtml) Views ディレクトリにし、そのディレクトリとそのサブディレクトリに複数のビューの間で共有されるをコードを追加します。 次のコードを配置するなど、 \_viewstart.cshtml フォルダー ページに、~/Views:
 
@@ -794,7 +794,7 @@ ASP.NET MVC には、次のよう Ajax ヘルパー メソッドが含まれま�
 
 既定では、コード、 \_viewstart.cshtml ファイルは、任意のサブフォルダー内のビューにも適用されます。 ただし、個別のサブフォルダーは、独自のバージョンを持つことができます、 \_viewstart.cshtml ファイルです。 その場合は、ローカル バージョンが優先されます。 たとえば、HomeController のすべてのビューに共通するコードを実行するには、次のように配置します。、 \_~/Views/Home フォルダーにある viewstart.cshtml ファイル。
 
-### <a id="0.1__Toc274034225"></a>VBHTML Razor 構文の新しいサポート
+### <a id="0.1__Toc274034225"></a>  VBHTML Razor 構文の新しいサポート
 
 ASP.NET MVC の以前のプレビューには、c# に基づいた Razor 構文を使用して、ビューのサポートが含まれています。 これらのビューは、.cshtml ファイルの拡張子を使用します。 Razor をサポートするために継続的な作業の一環として、ASP.NET MVC 3 のベータ版には、Razor 構文 .vbhtml ファイル拡張子を使用する Visual Basic でのサポートが導入されています。
 
@@ -802,7 +802,7 @@ VBHTML ページで Visual Basic 構文の使用の概要については、次�
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-visual-basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
 
-### <a id="0.1__Toc274034226"></a>ValidateInputAttribute をより細かく制御
+### <a id="0.1__Toc274034226"></a>  ValidateInputAttribute をより細かく制御
 
 ASP.NET MVC には、受信要求に悪意のある入力が含まれていないことを確認してください ASP.NET 要求の検証のコア インフラストラクチャを呼び出す ValidateInputAttribute クラスが常に含まれます。 既定では、入力の検証を有効にします。 次の例のように、ValidateInputAttribute 属性を使用して要求の検証を無効にできます。
 
@@ -814,7 +814,7 @@ ASP.NET MVC には、受信要求に悪意のある入力が含まれていな�
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample38.cs)]
 
-### <a id="0.1__Toc274034227"></a>ヘルパーの匿名オブジェクトを使用して指定された HTML 属性名にアンダー スコアをハイフンに変換します。
+### <a id="0.1__Toc274034227"></a>  ヘルパーの匿名オブジェクトを使用して指定された HTML 属性名にアンダー スコアをハイフンに変換します。
 
 ヘルパー メソッドを使用して、次の例のように、匿名オブジェクトを使用して属性の名前/値ペアを指定できます。
 
@@ -830,7 +830,7 @@ ASP.NET MVC には、受信要求に悪意のある入力が含まれていな�
 
 [!code-html[Main](mvc3-release-notes/samples/sample41.html)]
 
-## <a id="0.1__Toc274034228"></a>バグの修正
+## <a id="0.1__Toc274034228"></a>  バグの修正
 
 EditorFor と DisplayFor テンプレート ヘルパーの既定のオブジェクト テンプレートは、DisplayAttribute.Order プロパティで指定された順序付けできるようになりました。 (以前のバージョンで順序の設定が使用されません。)
 
@@ -838,11 +838,11 @@ EditorFor と DisplayFor テンプレート ヘルパーの既定のオブジェ
 
 JsonValueProviderFactory は既定で登録されているようになりました。
 
-## <a id="0.1__Toc274034229"></a>重大な変更
+## <a id="0.1__Toc274034229"></a>  重大な変更
 
 例外フィルターの実行順序を同じ順序の値を持つ例外フィルターが変更されました。 ASP.NET MVC 2 以前のバージョンで上の例外フィルターと同じ順序で、コント ローラー アクション メソッドで例外フィルターの前に実行されたアクション メソッド上のものとします。 指定された順序値を指定せずに例外フィルターが適用されたときに、大文字と小文字を一般にこのようにします。 ASP.NET MVC 3 では、この順序が逆になりました最も固有の例外ハンドラーが最初に実行できるようにします。 以前のバージョンと Order プロパティが明示的に指定されている場合、フィルターが指定した順序で実行されます。
 
-## <a id="0.1__Toc274034230"></a>既知の問題
+## <a id="0.1__Toc274034230"></a>  既知の問題
 
 インストール中に、使用許諾契約書への同意 ダイアログ ボックスでは、ものよりも小さいウィンドウをライセンス条項が表示されます。
 
@@ -862,7 +862,7 @@ ASP.NET MVC 3、ASP.NET MVC 2 プロジェクトをアップグレードする�
 
 [!code-xml[Main](mvc3-release-notes/samples/sample43.xml)]
 
-## <a id="0.1__Toc274034231"></a>免責事項
+## <a id="0.1__Toc274034231"></a>  免責事項
 
 © 2011 Microsoft Corporation. All rights reserved. このドキュメントは提供される"としてでは、します"。 情報および見解 URL および他のインターネット Web サイトの参照を含む、このドキュメントでは、通知なく変更可能性があります。 お客様は、その使用に関するリスクを負うものとします。
 

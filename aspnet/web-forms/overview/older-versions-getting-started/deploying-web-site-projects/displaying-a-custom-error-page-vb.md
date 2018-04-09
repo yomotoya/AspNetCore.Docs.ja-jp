@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
-title: "カスタム エラー ページ (VB) の表示 |Microsoft ドキュメント"
+title: カスタム エラー ページ (VB) の表示 |Microsoft ドキュメント
 author: rick-anderson
-description: "ユーザーに表示される内容、ASP.NET web アプリケーションで、実行時エラーが発生したときですか。 方法によって異なります web サイトの&lt;customErrors&gt;構成しています.。"
+description: ユーザーに表示される内容、ASP.NET web アプリケーションで、実行時エラーが発生したときですか。 方法によって異なります web サイトの&lt;customErrors&gt;構成しています.。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e8a2f88490de08f731f9737d15237ae445c5ec0d
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: eda7ceeac174f0d1697cb95d2eab4127f124011e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-a-custom-error-page-vb"></a>カスタム エラー ページ (VB) を表示します。
 ====================
@@ -60,7 +60,7 @@ ms.lasthandoff: 01/30/2018
 
 YSOD の他の種類に表示される、ランタイム エラー YSOD**図 2**です。 ランタイム エラー YSOD 通知実行時エラーが発生した、訪問者がスローされた例外に関する情報は含まれません。 (これは、ただし、手順は説明を変更してエラーの詳細を表示できるようにする方法の`Web.config`ファイルをそのため、このような不自然に見える YSOD)。
 
-既定では、ランタイム エラー YSOD ユーザーが表示されます (使用してリモートで http://www.yoursite.com)、オフィスを訪れたブラウザーのアドレス バーに URL が示すよう**図 2**:`http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`です。 2 つの異なる YSOD 画面存在していても開発者は、エラーの詳細を知りたい考えていますが、潜在的なセキュリティの脆弱性や他の機密情報を表示する人が公開されなどの情報を実際のサイトに表示されませんが、サイトです。
+既定では、ランタイム エラー YSOD がリモート アクセス ユーザーが表示されます (を通じてhttp://www.yoursite.com)ことで、ブラウザーのアドレス バーに URL からわかるように、**図 2**:`http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`です。 2 つの異なる YSOD 画面存在していても開発者は、エラーの詳細を知りたい考えていますが、潜在的なセキュリティの脆弱性や他の機密情報を表示する人が公開されなどの情報を実際のサイトに表示されませんが、サイトです。
 
 > [!NOTE]
 > 以下に示します。 し、web ホストとして DiscountASP.NET を使用している場合、ランタイム エラー YSOD は実際のサイトにアクセスしたときに表示されませんがわかります可能性があります。 DiscountASP.NET に既定では例外の詳細 YSOD を表示するように構成、サーバーがあるためにです。 良いニュースは、追加することでこの既定の動作をオーバーライドすることができます、`<customErrors>`セクション、`Web.config`ファイル。 「構成がエラー ページが表示されます」セクションでは検討、`<customErrors>`詳細」セクション。
@@ -89,11 +89,11 @@ YSOD の他の種類に表示される、ランタイム エラー YSOD**図 2**
 
 [ `<customErrors>`セクション](https://msdn.microsoft.com/library/h0hfz6fc.aspx)で`Web.config`はどのようなエラー ページが表示に影響する 2 つの属性を持つ:`defaultRedirect`と`mode`です。 `defaultRedirect` 属性は省略できます。 指定した場合、カスタム エラー ページの URL を指定し、ランタイム エラー YSOD ではなく、カスタム エラー ページを表示するかを示します。 `mode`属性は必須であり、3 つの値のいずれかを受け入れます。 `On`、 `Off`、または`RemoteOnly`です。 これらの値には、次の動作があります。
 
-- `On`-カスタム エラー ページまたはランタイム エラー YSOD がローカルまたはリモートされるかどうかに関係なく、すべてのユーザーに表示されていることを示します。
-- `Off`-例外詳細 YSOD がローカルまたはリモートされるかどうかに関係なく、すべてのユーザーに表示されることを指定します。
-- `RemoteOnly`-カスタム エラー ページまたはランタイム エラー YSOD 表示されているリモートの訪問者を例外の詳細 YSOD がローカルのユーザーに表示されるときに示します。
+- `On` -カスタム エラー ページまたはランタイム エラー YSOD がローカルまたはリモートされるかどうかに関係なく、すべてのユーザーに表示されていることを示します。
+- `Off` -例外詳細 YSOD がローカルまたはリモートされるかどうかに関係なく、すべてのユーザーに表示されることを指定します。
+- `RemoteOnly` -カスタム エラー ページまたはランタイム エラー YSOD 表示されているリモートの訪問者を例外の詳細 YSOD がローカルのユーザーに表示されるときに示します。
 
-ASP.NET 機能モード属性を設定している場合、それ以外の場合、指定しない限り`RemoteOnly`が指定されていないと、`defaultRedirect`値。 つまり、既定の動作は、ランタイム エラー YSOD がリモートの訪問者に表示されるときに例外詳細 YSOD がローカル訪問者に表示されることにします。 追加することでこの既定の動作をオーバーライドすることができます、 `<customErrors>` web アプリケーションのセクション`Web.config file.`
+ASP.NET 機能モード属性を設定している場合、それ以外の場合、指定しない限り`RemoteOnly`が指定されていないと、`defaultRedirect`値。 つまり、既定の動作は、ランタイム エラー YSOD がリモートの訪問者に表示されるときに例外詳細 YSOD がローカル訪問者に表示されることにします。 追加することでこの既定の動作をオーバーライドすることができます、 `<customErrors>` web アプリケーションのセクション `Web.config file.`
 
 ## <a name="using-a-custom-error-page"></a>カスタム エラー ページを使用します。
 
@@ -143,7 +143,7 @@ ASP.NET 機能モード属性を設定している場合、それ以外の場合
 > チェック アウト[404 エラー ページ、1 つ以上の時間](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/)効果的な 404 エラー ページを作成する方法のガイダンスについてはします。
 
 
-[![](displaying-a-custom-error-page-vb/_static/image19.png)](displaying-a-custom-error-page-vb/_static/image18.png)**図 7**: カスタム 404 エラー ページより対象を絞ったメッセージが表示されます。`Oops.aspx`  
+[![](displaying-a-custom-error-page-vb/_static/image19.png)](displaying-a-custom-error-page-vb/_static/image18.png)**図 7**: カスタム 404 エラー ページより対象を絞ったメッセージが表示されます。 `Oops.aspx`  
  ([フルサイズのイメージを表示するをクリックして](displaying-a-custom-error-page-vb/_static/image20.png)) 
 
 わかっているため、`404.aspx`ページは、ユーザーが見つからなかったページに対する要求を行うときに、のみ、この特定の種類のエラーに対応するユーザーを支援する機能を含めるには、このカスタム エラー ページを拡張することができます。 や既知の適切な Url に無効な Url をマップするデータベース テーブルを構築する可能性がありますなどの`404.aspx`テーブルし、ページのユーザーがアクセスしようを提案するカスタム エラー ページに対してクエリを実行します。
@@ -172,6 +172,6 @@ ASP.NET アプリケーションでハンドルされない例外が発生した
 - [処理と例外をスロー](https://msdn.microsoft.com/library/5b2yeyab.aspx)
 - [ASP.NET のカスタム エラー ページを使用して正しく](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
->[!div class="step-by-step"]
-[前へ](strategies-for-database-development-and-deployment-vb.md)
-[次へ](processing-unhandled-exceptions-vb.md)
+> [!div class="step-by-step"]
+> [前へ](strategies-for-database-development-and-deployment-vb.md)
+> [次へ](processing-unhandled-exceptions-vb.md)

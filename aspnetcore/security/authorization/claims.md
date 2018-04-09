@@ -1,7 +1,7 @@
 ---
-title: "クレーム ベースの承認"
+title: ASP.NET Core でクレーム ベースの承認
 author: rick-anderson
-description: "このドキュメントでは、ASP.NET Core アプリケーションの承認の要求の確認を追加する方法について説明します。"
+description: ASP.NET Core アプリケーションの承認の要求の確認を追加する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/claims
-ms.openlocfilehash: 608aaa469c5ca20fab8250025804e28e7808122d
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: da308b67be046395bb1baa0f272e767cccbc99c8
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="claims-based-authorization"></a>クレーム ベースの承認
+# <a name="claims-based-authorization-in-aspnet-core"></a>ASP.NET Core でクレーム ベースの承認
 
 <a name="security-authorization-claims-based"></a>
 
@@ -103,7 +103,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="multiple-policy-evaluation"></a>複数のポリシーの評価
 
-コント ローラーまたはアクションに複数のポリシーを適用する場合は、アクセスが許可される前に、すべてのポリシーは渡す必要があります。 例:
+コント ローラーまたはアクションに複数のポリシーを適用する場合は、アクセスが許可される前に、すべてのポリシーは渡す必要があります。 例えば:
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -122,4 +122,4 @@ public class SalaryController : Controller
 
 上記の例では満たされている id、`EmployeeOnly`ポリシーがアクセスできる、`Payslip`そのポリシーの処理は、コント ローラーに適用されます。 ただし呼び出すために、 `UpdateSalary` id が満たす必要がありますアクション*両方*、`EmployeeOnly`ポリシーおよび`HumanResources`ポリシー。
 
-などの生年月日要求の日付を取得するには、そこから年齢を計算する場合、経過期間のチェックは 21 以上経過し、記述する必要がより複雑なポリシーを実行する場合に、[カスタム ポリシー ハンドラー](policies.md)です。
+などの生年月日要求の日付を取得するには、そこから年齢を計算する場合、経過期間のチェックは 21 以上経過し、記述する必要がより複雑なポリシーを実行する場合に、[カスタム ポリシー ハンドラー](xref:security/authorization/policies)です。

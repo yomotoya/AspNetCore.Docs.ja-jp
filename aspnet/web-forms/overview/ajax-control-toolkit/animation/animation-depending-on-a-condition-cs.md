@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-cs
-title: "条件 (c#) に応じてアニメーション |Microsoft ドキュメント"
+title: 条件 (c#) に応じてアニメーション |Microsoft ドキュメント
 author: wenz
-description: "アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 アニメーションがかどうか."
+description: アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 アニメーションがかどうか.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 13366a86be01f41e27db1869b93192520190387a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b530239e76654bc68a8fa6ac900a20df1d5699b0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="animation-depending-on-a-condition-c"></a>アニメーションによっては、条件 (c#)
 ====================
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-css[Main](animation-depending-on-a-condition-cs/samples/sample3.css)]
 
-次に、追加、`AnimationExtender`のページを提供する、 `ID`、`TargetControlID`属性と、任意`runat="server":`
+次に、追加、`AnimationExtender`のページを提供する、 `ID`、`TargetControlID`属性と、任意 `runat="server":`
 
 [!code-aspx[Main](animation-depending-on-a-condition-cs/samples/sample4.aspx)]
 
@@ -60,6 +60,6 @@ ms.lasthandoff: 11/10/2017
 
 パネルがフェードアウト サイズを変更することがなく 1 つ目、2 番目のアニメーション実行していないため ([フルサイズのイメージを表示するをクリックして](animation-depending-on-a-condition-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](executing-several-animations-after-each-other-cs.md)
-[次へ](picking-one-animation-out-of-a-list-cs.md)
+> [!div class="step-by-step"]
+> [前へ](executing-several-animations-after-each-other-cs.md)
+> [次へ](picking-one-animation-out-of-a-list-cs.md)

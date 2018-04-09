@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
-title: "ASP.NET 2.0 ページ モデル |Microsoft ドキュメント"
+title: ASP.NET 2.0 ページ モデル |Microsoft ドキュメント
 author: microsoft
-description: "ASP.NET で 1.x では、開発者には、インライン コード モデルおよびコードの分離コード モデルのいずれかが必要があります。 分離コードは、いずれかの Src 属性を使用して実装可能性があります."
+description: ASP.NET で 1.x では、開発者には、インライン コード モデルおよびコードの分離コード モデルのいずれかが必要があります。 分離コードは、いずれかの Src 属性を使用して実装可能性があります.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: e008f197cf08bec81c560018f2d42306598f9e6d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fda85ec03f845cafa7720382bf85652937932c44
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-aspnet-20-page-model"></a>ASP.NET 2.0 ページ モデル
 ====================
@@ -77,7 +77,7 @@ CodeFile 属性は、Visual Studio の 2002年/2003 での分離コード属性�
 
 CodeFileBaseClass 属性は、複数のページを 1 つの基本クラスから派生させる必要がある場合に使用します。 この属性を持たない ASP.NET では、部分クラスの実装のため ASPX ページで宣言されているコントロールを参照する共有の共通のフィールドを使用する基本クラスが正しく機能しないため ASP です。ネット コンパイル エンジンでは、ページのコントロールに基づく新しいメンバーを自動的に作成されます。 したがって、する場合は、共通の基本クラスの 2 つまたは複数のページを ASP.NET で、必要がありますを定義する CodeFileBaseClass 属性で、基本クラスを指定し、その基底クラスから各ページのクラスを派生します。 CodeFile 属性がこの属性を使用する場合にも必要です。
 
-## <a name="compilationmode"></a>compilationMode
+## <a name="compilationmode"></a>CompilationMode
 
 この属性では、ASPX ページの CompilationMode プロパティを設定することができます。 CompilationMode プロパティは、値を含む列挙**常に**、**自動**、および**Never**です。 既定値は**常に**です。 **自動**設定はコンパイルできないようにする ASP.NET 動的にページ可能な場合です。 動的コンパイルからページを除外すると、パフォーマンスが向上します。 ただし、除外されているページをコンパイルする必要があるコードが含まれている場合、エラーがスローされます、ページが参照されます。
 
@@ -115,7 +115,7 @@ CodeFileBaseClass 属性は、複数のページを 1 つの基本クラスか�
 
 ページのテーマを指定します。 StyleSheetTheme 属性の値が指定されていない場合、Theme 属性は、ページ上のコントロールに適用されるすべてのスタイルをオーバーライドします。
 
-## <a name="title"></a>タイトル
+## <a name="title"></a>Title
 
 ページのタイトルを設定します。 ここで指定した値に表示されます、&lt;タイトル&gt;レンダリングされるページの要素。
 
@@ -144,11 +144,11 @@ ASP.NET 2.0 では、@ Page ディレクティブの別の新機能は、基本�
 
 ## <a name="apprelativetemplatesourcedirectory"></a>AppRelativeTemplateSourceDirectory
 
-アプリケーションの相対パス、ページまたはコントロールを返します。 たとえば、http://app/folder/page.aspx にある ページで、プロパティを返します ~/フォルダー/です。
+アプリケーションの相対パス、ページまたはコントロールを返します。 たとえば、あるページhttp://app/folder/page.aspx、プロパティから返される ~/フォルダー/です。
 
 ## <a name="apprelativevirtualpath"></a>AppRelativeVirtualPath
 
-仮想ディレクトリの相対パス、ページまたはコントロールを返します。 たとえば http://app/folder/page.aspx にある ページで、プロパティを返します ~/folder/page.aspx です。
+仮想ディレクトリの相対パス、ページまたはコントロールを返します。 あるページをたとえばhttp://app/folder/page.aspx、プロパティから返される ~/folder/page.aspx です。
 
 ## <a name="asynctimeout"></a>AsyncTimeout
 
@@ -238,7 +238,7 @@ ASP.NET 2.0 に適用するスキン ページを指定します。
 
 取得または設定 ページに適用されている ASP.NET 2.0 のテーマの名前。 PreInit メソッドの前に、この値を設定する必要があります。
 
-## <a name="title"></a>タイトル
+## <a name="title"></a>Title
 
 このプロパティを取得またはページのヘッダーから取得した、ページのタイトルを設定します。
 
@@ -600,11 +600,13 @@ RegisterStartupScript メソッドは、RegisterClientScriptBlock メソッド�
 
 ClientScriptManager クラスの他の便利なメソッドのいくつか示します。
 
-| **GetCallbackEventReference** | このモジュールで前述のスクリプトのコールバックを参照してください。 |
-| --- | --- |
-| **GetPostBackClientHyperlink** | JavaScript の参照を取得 (javascript:&lt;呼び出す&gt;) を使用してクライアント側のイベントからの投稿をことができます。 |
-| **GetPostBackEventReference** | クライアントからの投稿を開始するために使用する文字列を取得します。 |
-| **GetWebResourceUrl** | アセンブリに埋め込まれているリソースへの URL を返します。 組み合わせて使用する必要があります**RegisterClientScriptResource**です。 |
-| **RegisterClientScriptResource** | ページに Web リソースを登録します。 これらは、リソース アセンブリに埋め込まれているし、新しい WebResource.axd ハンドラーによって処理されます。 |
-| **RegisterHiddenField** | ページを非表示のフォーム フィールドを登録します。 |
-| **RegisterOnSubmitStatement** | HTML フォームが送信されるときに実行されるクライアント側のコードを登録します。 |
+
+|  <strong>GetCallbackEventReference</strong>   |                                                 このモジュールで前述のスクリプトのコールバックを参照してください。                                                 |
+|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+|  <strong>GetPostBackClientHyperlink</strong>  |                JavaScript の参照を取得 (javascript:&lt;呼び出す&gt;) を使用してクライアント側のイベントからの投稿をことができます。                 |
+|  <strong>GetPostBackEventReference</strong>   |                                   クライアントからの投稿を開始するために使用する文字列を取得します。                                    |
+|      <strong>GetWebResourceUrl</strong>       | アセンブリに埋め込まれているリソースへの URL を返します。 組み合わせて使用する必要があります<strong>RegisterClientScriptResource</strong>です。 |
+| <strong>RegisterClientScriptResource</strong> |     ページに Web リソースを登録します。 これらは、リソース アセンブリに埋め込まれているし、新しい WebResource.axd ハンドラーによって処理されます。      |
+|     <strong>RegisterHiddenField</strong>      |                                                 ページを非表示のフォーム フィールドを登録します。                                                 |
+|  <strong>RegisterOnSubmitStatement</strong>   |                                  HTML フォームが送信されるときに実行されるクライアント側のコードを登録します。                                   |
+

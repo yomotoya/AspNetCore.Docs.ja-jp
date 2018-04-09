@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/implement-efficient-data-paging
-title: "効率的なデータのページングを実装して |Microsoft ドキュメント"
+title: 効率的なデータのページングを実装して |Microsoft ドキュメント
 author: microsoft
-description: "手順 8 では、一度にディナーの 1,000 件を表示するには、代わりにのみ表示で 10 今後ディナーように、/Dinners URL にページング サポートを追加する方法を示します."
+description: 手順 8 では、一度にディナーの 1,000 件を表示するには、代わりにのみ表示で 10 今後ディナーように、/Dinners URL にページング サポートを追加する方法を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/implement-efficient-data-paging
 msc.type: authoredcontent
-ms.openlocfilehash: 0b0fba604f97d3bb72d2d403e643b422b9ce48bd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0188e21438820adf2adbe05b047fdb772540e1a0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implement-efficient-data-paging"></a>効率的なデータのページングを実装します。
 ====================
@@ -139,6 +139,6 @@ ViewPage から継承する \Views\Dinners\Index.aspx ビュー テンプレー�
 
 これで、アプリケーションへの認証と承認をサポートを追加お方法を見てみましょう。
 
->[!div class="step-by-step"]
-[前へ](re-use-ui-using-master-pages-and-partials.md)
-[次へ](secure-applications-using-authentication-and-authorization.md)
+> [!div class="step-by-step"]
+> [前へ](re-use-ui-using-master-pages-and-partials.md)
+> [次へ](secure-applications-using-authentication-and-authorization.md)

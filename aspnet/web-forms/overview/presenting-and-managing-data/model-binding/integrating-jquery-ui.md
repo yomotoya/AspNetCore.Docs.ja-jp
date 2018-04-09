@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
-title: "モデル バインディング機能と web フォームと JQuery UI Datepicker の統合 |Microsoft ドキュメント"
+title: モデル バインディング機能と web フォームと JQuery UI Datepicker の統合 |Microsoft ドキュメント
 author: tfitzmac
-description: "このチュートリアルの系列では、モデル バインディングを使用して ASP.NET Web フォーム プロジェクトとの基本的な側面について説明します。 モデル バインドは、データの操作詳細直線-しています."
+description: このチュートリアルの系列では、モデル バインディングを使用して ASP.NET Web フォーム プロジェクトとの基本的な側面について説明します。 モデル バインドは、データの操作詳細直線-しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: da3c8f347a709a4c9a47fd0ecce5201d9b0cd1b1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 126262b440f3e914a7fac3f0b7eeadb4f648d2bb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="integrating-jquery-ui-datepicker-with-model-binding-and-web-forms"></a>モデル バインディング機能と web フォームと JQuery UI Datepicker の統合
 ====================
@@ -115,6 +115,6 @@ Web アプリケーションを実行し、AddStudent のページに移動し�
 
 次の[チュートリアル](using-query-string-values-to-retrieve-data.md)データを選択する場合、クエリ文字列の値を使用します。
 
->[!div class="step-by-step"]
-[前へ](sorting-paging-and-filtering-data.md)
-[次へ](using-query-string-values-to-retrieve-data.md)
+> [!div class="step-by-step"]
+> [前へ](sorting-paging-and-filtering-data.md)
+> [次へ](using-query-string-values-to-retrieve-data.md)

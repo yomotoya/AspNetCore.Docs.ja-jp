@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-cs
-title: "挿入、更新、および (c#)、SqlDataSource によるデータの削除 |Microsoft ドキュメント"
+title: 挿入、更新、および (c#)、SqlDataSource によるデータの削除 |Microsoft ドキュメント
 author: rick-anderson
-description: "前のチュートリアルでの挿入、更新、およびデータの削除、ObjectDataSource コントロールが許可されている方法がわかりました。 SqlDataSource コントロールは、t をサポートしています."
+description: 前のチュートリアルでの挿入、更新、およびデータの削除、ObjectDataSource コントロールが許可されている方法がわかりました。 SqlDataSource コントロールは、t をサポートしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3b080046df49ff6d4c83063d782962c5fcb33e94
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 25dab0292aefa183a1abc2615a7ba8e7a512346d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-c"></a>挿入、更新、および (c#)、SqlDataSource によるデータの削除
 ====================
@@ -203,7 +203,7 @@ DetailsView のデータ変更機能を有効にするには、挿入を有効�
 > データの対応するフィールドがないパラメーターの追加は、コントロールを Web、ときに、これらのパラメーターの値は、なんらかの方法で値を割り当てる必要があることに注意してください。 これらの値を指定できます。 ハード コーディングされたで直接、`InsertCommand`または`UpdateCommand`; は、(クエリ文字列、セッション状態、ページ上の Web コントロール); いくつかの事前定義されたソースから取得できますか、またはプログラムでは、前のチュートリアルで示したように割り当てることができます。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 Web コントロールを組み込みの挿入、編集、および削除機能を利用して、データの順序でにバインドされているデータ ソース コントロールは、このような機能を提供する必要があります。 SqlDataSource、これは意味を`INSERT`、 `UPDATE`、および`DELETE`SQL ステートメントを割り当てる必要があります、 `InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティです。 これらのプロパティとは対応するパラメーターのコレクションを手動で追加またはデータ ソースの構成ウィザードを自動的に生成します。 このチュートリアルでは、両方の方法を確認します。
 
@@ -213,8 +213,8 @@ ObjectDataSource でオプティミスティック同時実行制御の使用に
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[前へ](using-parameterized-queries-with-the-sqldatasource-cs.md)
-[次へ](implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
+> [!div class="step-by-step"]
+> [前へ](using-parameterized-queries-with-the-sqldatasource-cs.md)
+> [次へ](implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)

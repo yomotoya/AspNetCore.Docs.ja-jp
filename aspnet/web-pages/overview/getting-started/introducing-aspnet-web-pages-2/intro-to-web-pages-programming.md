@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
-title: "ASP.NET Web Pages の概要 - プログラミングの基礎について |Microsoft ドキュメント"
+title: ASP.NET Web Pages の概要 - プログラミングの基礎について |Microsoft ドキュメント
 author: tfitzmac
 description: "このチュートリアルによって、プログラムでは、ASP.NET Web ページ Razor 構文を使用する方法の概要ができます。 学習内容: 'Razor' の基本構文 pr に使用する."
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: eed07f4f8a13ea9082ab3aad3e3db24febff8ef6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3e2c990a6451c13e03baafa343df156b2d46d219
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a>ASP.NET Web Pages のプログラミングの基礎の概要
 ====================
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/10/2017
 
 リボンで、をクリックして**新規**ページを作成します。 選択**CSHTML**し、新しいページの名前を付けます*TestRazor.cshtml*です。
 
-**[OK]** をクリックします。
+**[OK]**をクリックします。
 
 新機能が既にありますを完全に置き換え、ファイルに、次をコピーします。
 
@@ -103,7 +103,7 @@ DateTime.Now の式はありません。 DateTime が簡単に言えば、*オ�
 
 - @(、\*b) では、変数は、任意の製品を表示、および b します。 (、\*演算子が乗算を意味します)。
 - @(テクノロジ +""+ 製品) それらを連結し、間にスペースを追加した後、変数のテクノロジと製品内の値を表示します。 演算子 (+) を文字列を連結する場合は、番号を追加するため、演算子と同じです。 ASP.NET 通常わかります数値または文字列で作業しているしは、正しいことをするかどうか、+ 演算子。
-- @Request.Url要求オブジェクトの Url プロパティを表示します。 要求オブジェクトは、ブラウザーから現在の要求に関する情報を格納およびもちろん Url プロパティがその現在の要求の URL が含まれます。
+- @Request.Url 要求オブジェクトの Url プロパティを表示します。 要求オブジェクトは、ブラウザーから現在の要求に関する情報を格納およびもちろん Url プロパティがその現在の要求の URL が含まれます。
 
 例では、されており、さまざまな方法で操作することができますをする必要を表示します。 上部のコード ブロック内の計算を行う、変数に、その結果を格納し、マークアップ内の変数を表示できます。 または、式の権限は、マークアップ内での計算を行うことができます。 使用する方法で何をしていると、独自の基本設定で、ある程度に依存します。
 
@@ -165,7 +165,7 @@ WebMatrix に戻ります。 コード ブロック内には、次の強調表�
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample7.cs)]
 
-使用して変数の値に対して、または式をテストすることができます、*論理演算子*または*比較演算子*: 等しい (= =) より大きい (&gt;) より小さい (&lt;)、大きいまたは等しい (&gt;=)、以下にして (&lt;=)。 ! = 演算子の意味が等しくない — たとえば場合、(、! = 0) ことを意味*場合* *、**が 0 と等しくない*です。
+使用して変数の値に対して、または式をテストすることができます、<em>論理演算子</em>または<em>比較演算子</em>: 等しい (= =) より大きい (&gt;) より小さい (&lt;)、大きいまたは等しい (&gt;=)、以下にして (&lt;=)。 ! = 演算子の意味が等しくない — たとえば場合、(、! = 0) ことを意味<em>場合</em> <em>、</em><em>が 0 と等しくない</em>です。
 
 > [!NOTE]
 > 確認するの等号 (= =) 比較演算子がない = と同じことを確認してください。 = 演算子は、値の割り当てにのみ使用されます (var、= 2)。 これらの演算子が混在する場合は、エラーが表示されますかまたは予期しない結果が表示されます。
@@ -207,7 +207,7 @@ WebMatrix に戻ります。 コード ブロック内には、次の強調表�
 
 ### <a name="testing-the-value-of-a-query-string"></a>クエリ文字列の値のテスト
 
-1 つ以上のテスト。 現時点では、追加場合に、値をテストするブロック スライド ショー クエリ文字列に渡す可能性があります。 (次のような: ' http://localhost:43097/TestRazorPart2.cshtml`?show=true`) メッセージをしたされて表示されるように、ページを変更します (「が、初めて...」など) は、表示の値が true の場合のみ表示されます。
+1 つ以上のテスト。 現時点では、追加場合に、値をテストするブロック スライド ショー クエリ文字列に渡す可能性があります。 (次のような: 'http://localhost:43097/TestRazorPart2.cshtml`?show=true`) メッセージをしたされて表示されるように、ページを変更します (「が、初めて...」など) は、表示の値が true の場合のみ表示されます。
 
 下部 (ただし、内側) に、ページの上部にあるコード ブロックは、次追加します。
 
@@ -223,7 +223,7 @@ WebMatrix に戻ります。 コード ブロック内には、次の強調表�
 
 コードでは、URL に URL のこのバージョンのと同様に、クエリ文字列内の表示をという名前の変数が含まれるかどうかを決定します。
 
-`http://localhost:43097/TestRazorPart2.cshtml`? 表示 = true
+`http://localhost:43097/TestRazorPart2.cshtml`?show=true
 
 テスト自体の要求オブジェクトのクエリ文字列プロパティを見ます。 その項目が、if、true に設定されている場合、クエリ文字列には、という名前の項目の表示が含まれている場合とブロックが実行され、区切ります変数を true に設定します。
 
@@ -259,7 +259,7 @@ WebMatrix に戻ります。 コード ブロック内には、次の強調表�
 
 ページを実行します。 マークアップで if(showMessage) テスト false を返すように、区切りますが false の場合、ため、メッセージはありません。
 
-をクリックして**送信**です。 表示が、日付と時刻、メッセージはまだありません。
+**[送信]** をクリックします。 表示が、日付と時刻、メッセージはまだありません。
 
 ブラウザーで、[URL] ボックスに移動し、次の URL の末尾に追加:? 表示 = true とし、Enter キーを押します。
 
@@ -281,7 +281,7 @@ ASP.NET Web ページには、いくつかのヘルパーが組み込まれて�
 
 このチュートリアルでは、ヘルパー Gravatar (「グローバルに認識されているアバター」) のイメージを表示することができますをインストールします。 2 つのことを学習します。 検索し、ヘルパーをインストールする方法は 1 つです。 どのヘルパー簡単に大量のコードを自分で作成する必要がありますを使用して行う必要がなくなり、何も学習します。
 
-Gravatar の web サイトで、独自の Gravatar を登録する[http://www.gravatar.com/](http://www.gravatar.com/)チュートリアルのこの部分を実行する Gravatar アカウントを作成するために不可欠ではありません。
+Gravatar の web サイトで、独自の Gravatar を登録する[ http://www.gravatar.com/](http://www.gravatar.com/)チュートリアルのこの部分を実行する Gravatar アカウントを作成するために不可欠ではありません。
 
 WebMatrix でをクリックして、 **NuGet**ボタンをクリックします。
 
@@ -360,6 +360,6 @@ GetHtml メソッドでは、その他のパラメーターを提供すること
 - [Razor 構文を使用して ASP.NET Web プログラミングの概要](https://go.microsoft.com/fwlink/?LinkID=202890)
 - [Twitter のヘルパー](../../ui-layouts-and-themes/twitter-helper.md)
 
->[!div class="step-by-step"]
-[前へ](getting-started.md)
-[次へ](displaying-data.md)
+> [!div class="step-by-step"]
+> [前へ](getting-started.md)
+> [次へ](displaying-data.md)

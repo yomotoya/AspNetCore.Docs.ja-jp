@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/data/5-working-with-data
-title: "ASP.NET Web でのデータベース操作の概要ページ (Razor) サイト |Microsoft ドキュメント"
+title: ASP.NET Web でのデータベース操作の概要ページ (Razor) サイト |Microsoft ドキュメント
 author: tfitzmac
-description: "この章では、データベースからデータにアクセスし、ASP.NET Web Pages を使用して表示する方法について説明します。"
+description: この章では、データベースからデータにアクセスし、ASP.NET Web Pages を使用して表示する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
-ms.openlocfilehash: 460af471a1b0650f8d782d582ce6cd9a06664d5c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 563074cf3e60717c2e6c336a2c282b4203f73b8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web でのデータベース操作の概要ページ (Razor) サイト
 ====================
@@ -361,7 +361,7 @@ ms.lasthandoff: 03/15/2018
 6. クリックして、**削除**製品のいずれかのリンク。 *DeleteProduct.cshtml*そのレコードを削除することを確認ページが表示されます。
 7. クリックして、**削除**ボタンをクリックします。 製品レコードが削除され、更新された製品一覧と、ページを更新します。
 
-> [!TIP] 
+> [!TIP]
 > 
 > <a id="SB_ConnectingToADatabase"></a>
 > ### <a name="connecting-to-a-database"></a>データベースへの接続

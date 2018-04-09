@@ -1,8 +1,8 @@
 ---
 uid: mvc/mvc5
-title: "ASP.NET MVC 5 |Microsoft ドキュメント"
+title: ASP.NET MVC 5 | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC 5 ASP.NET MVC 5 は、安定したデザイン パターンと AS. の電源を使用して、スケーラブルな標準ベースの web アプリケーションを構築するためのフレームワークは."
+description: ASP.NET MVC 5 ASP.NET MVC 5 は、安定したデザイン パターンと AS. の電源を使用して、スケーラブルな標準ベースの web アプリケーションを構築するためのフレームワークは.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc5
 msc.type: content
-ms.openlocfilehash: e57163469ae4606df0fc17e3e054b7696782a084
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1b3f920b51a70757ec0e20e36fa8e7dc329e663d
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
 <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 ====================
 ## <a name="whats-new-in-aspnet-mvc-5"></a>ASP.NET MVC 5 の新機能
 
-### <a name="one-aspnet"></a>1 つの ASP.NET
+### <a name="one-aspnet"></a>One ASP.NET
 
 Web の MVC プロジェクト テンプレートは、新しい 1 つの ASP.NET エクスペリエンスとシームレスに統合します。 MVC プロジェクトをカスタマイズし、1 つの ASP.NET プロジェクトの作成ウィザードを使用して認証を構成することができます。 ASP.NET MVC 5 に入門チュートリアルはあります[ASP.NET MVC 5 の概要](overview/getting-started/introduction/getting-started.md)です。
 
@@ -38,15 +38,15 @@ ASP.NET の Id を使用して認証と id 管理には、MVC プロジェクト
 
 ### <a name="authentication-filters"></a>認証フィルター
 
-[認証フィルター](http://www.dotnetcurry.com/showarticle.aspx?ID=957)新しい ASP.NET MVC パイプラインでの承認フィルターの前に実行し、認証ロジックごとのアクションを指定することを ASP.NET MVC でのフィルターの種類は、コント ローラーごとまたはすべてのコント ローラーに対してグローバルにします。 認証フィルターは、要求に資格情報を処理し、対応するプリンシパルを提供します。 認証フィルターは、未承認の要求に応答認証チャレンジを追加することもできます。 参照してください[ASP.NET MVC 5 の認証フィルター](http://www.dotnetcurry.com/showarticle.aspx?ID=957)、 [ASP.NET MVC 5 の認証フィルター](http://theshravan.net/blog/authentication-filters-in-asp-net-mvc-5/)と[最後に、新しい ASP.NET MVC 5 認証フィルター!](http://hackwebwith.net/finally-the-new-asp-net-mvc-5-authentication-filters/)です。
+[認証フィルター](http://www.dotnetcurry.com/showarticle.aspx?ID=957)新しい ASP.NET MVC パイプラインでの承認フィルターの前に実行し、認証ロジックごとのアクションを指定することを ASP.NET MVC でのフィルターの種類は、コント ローラーごとまたはすべてのコント ローラーに対してグローバルにします。 認証フィルターは、要求に資格情報を処理し、対応するプリンシパルを提供します。 認証フィルターは、未承認の要求に応答認証チャレンジを追加することもできます。 参照してください[ASP.NET MVC 5 認証フィルター](http://www.dotnetcurry.com/showarticle.aspx?ID=957)、 [ASP.NET MVC 5 の認証フィルター](http://theshravan.net/blog/authentication-filters-in-asp-net-mvc-5/)です。
 
 ### <a name="filter-overrides"></a>上書きをフィルター処理します。
 
 指定して特定のアクション メソッドまたはコント ローラーに適用するフィルターをオーバーライドすることが今すぐ、[フィルターをオーバーライド](http://www.davidhayden.me/blog/filter-overrides-in-asp-net-mvc-5)です。 オーバーライド フィルターは、特定のスコープ (アクションまたはコント ローラー) で実行しないでフィルターの種類のセットを指定します。 これにより、グローバルに適用が、特定のアクションまたはコント ローラーに適用されない特定のグローバル フィルターを除外するフィルターを構成することができます。 参照してください[ASP.NET MVC 5 と ASP.NET Web API 2 の機能の新しいフィルターをオーバーライド](https://weblogs.asp.net/imranbaloch/archive/2013/09/25/new-filter-overrides-in-asp-net-mvc-5-and-asp-net-web-api-2.aspx)、[機能を使用して、ASP.NET MVC 5 フィルターをオーバーライドする方法](http://hackwebwith.net/how-to-use-the-asp-net-mvc-5-filter-overrides-feature/)、および[フィルターは、ASP.NET MVC 5 の上書き](http://www.davidhayden.me/blog/filter-overrides-in-asp-net-mvc-5)
 
-### <a name="attribute-routing"></a>属性のルーティング
+### <a name="attribute-routing"></a>属性ルーティング
 
-ASP.NET MVC をサポート[属性がルーティング](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx)、Tim McCall の作成者によって貢献感謝[http://attributerouting.net](http://attributerouting.net)です。 属性のルーティングは、アクションとコント ローラーに注釈を付けることによって、ルートを指定できます。
+ASP.NET MVC をサポート[属性がルーティング](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx)、Tim McCall の作成者によって貢献感謝[ http://attributerouting.net](http://attributerouting.net)です。 属性のルーティングは、アクションとコント ローラーに注釈を付けることによって、ルートを指定できます。
 
 ## <a name="new-web-project-experience"></a>新しい Web プロジェクトのエクスペリエンス
 

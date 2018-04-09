@@ -8,11 +8,11 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: e1a4be77417f0a74182f1b123bfba429737d4330
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 09f28ec3792cf137fbcfdecc593e27ce6b2e7e09
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core での azure Key Vault の構成プロバイダー
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/15/2018
 
 表示または 1.x のサンプル コードをダウンロードします。
 
-* [基本的なサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/1.x)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))-をアプリに秘密の値を読み取ります。
+* [基本的なサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/1.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))- 秘密の値をアプリに読み込みます。
 * [キー名のプレフィックス サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/1.x)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample)) - 読み取り秘密の値を別の各アプリのバージョンのシークレットの値セットを読み込むことができるアプリのバージョンを表すキー名のプレフィックスを使用します。 
 
 ---
@@ -54,20 +54,21 @@ ms.lasthandoff: 03/15/2018
 
 ## <a name="creating-key-vault-secrets-and-loading-configuration-values-basic-sample"></a>シークレットの資格情報コンテナーを作成および構成値 (basic サンプル) の読み込み
 1. Key vault の作成し、ガイダンスに従って、アプリケーションの Azure Active Directory (Azure AD) を設定[Azure Key Vault の使用開始](https://azure.microsoft.com/documentation/articles/key-vault-get-started/)です。
-  * 使用して、資格情報コンテナーに機密情報を追加、 [AzureRM キー資格情報コンテナー PowerShell モジュール](/powershell/module/azurerm.keyvault)から使用可能な[PowerShell ギャラリー](https://www.powershellgallery.com/packages/AzureRM.KeyVault)、 [Azure Key Vault REST API](/rest/api/keyvault/)、または、 [Azure ポータル](https://portal.azure.com/)です。 機密情報は、いずれかとして作成*手動*または*証明書*シークレット。 *証明書*シークレットはアプリやサービスで使用する証明書が、構成プロバイダーによってサポートされていません。 使用する必要があります、*手動*構成プロバイダーを使用するための名前と値のペアの機密情報を作成するオプションです。
-    * 単純なシークレットは、名前と値のペアとして作成されます。 Azure Key Vault のシークレット名は、英数字とハイフンに制限されます。
-    * 階層型の値 (構成セクション) を使用して`--`(2 つのハイフン)、サンプルでは、区切り記号として。 サブキーのセクションを区切るために通常使用されるコロン[ASP.NET Core 構成](xref:fundamentals/configuration/index)、シークレット名に許可されていません。 そのため、2 個のダッシュが使用され、コロン、シークレットは、アプリの構成に読み込まれるときに切り替わります。
-    * 2 つ作成*手動*機密情報の次の名前と値のペアを使用します。 最初のシークレットは、単純な名前と値を 2 番目のシークレット セクションとシークレットの名前のサブキーを使用して秘密の値を作成します。
-      * `SecretName`: `secret_value_1`
-      * `Section--SecretName`: `secret_value_2`
-  * Azure Active Directory とサンプル アプリを登録します。
-  * Key vault にアクセスするアプリを承認します。 使用すると、 `Set-AzureRmKeyVaultAccessPolicy` 、key vault にアクセスするアプリを承認するために PowerShell コマンドレットを提供`List`と`Get`で機密データへのアクセス`-PermissionsToSecrets list,get`です。
+   * 使用して、資格情報コンテナーに機密情報を追加、 [AzureRM キー資格情報コンテナー PowerShell モジュール](/powershell/module/azurerm.keyvault)から使用可能な[PowerShell ギャラリー](https://www.powershellgallery.com/packages/AzureRM.KeyVault)、 [Azure Key Vault REST API](/rest/api/keyvault/)、または、 [Azure ポータル](https://portal.azure.com/)です。 機密情報は、いずれかとして作成*手動*または*証明書*シークレット。 *証明書*シークレットはアプリやサービスで使用する証明書が、構成プロバイダーによってサポートされていません。 使用する必要があります、*手動*構成プロバイダーを使用するための名前と値のペアの機密情報を作成するオプションです。
+     * 単純なシークレットは、名前と値のペアとして作成されます。 Azure Key Vault のシークレット名は、英数字とハイフンに制限されます。
+     * 階層型の値 (構成セクション) を使用して`--`(2 つのハイフン)、サンプルでは、区切り記号として。 サブキーのセクションを区切るために通常使用されるコロン[ASP.NET Core 構成](xref:fundamentals/configuration/index)、シークレット名に許可されていません。 そのため、2 個のダッシュが使用され、コロン、シークレットは、アプリの構成に読み込まれるときに切り替わります。
+     * 2 つ作成*手動*機密情報の次の名前と値のペアを使用します。 最初のシークレットは、単純な名前と値を 2 番目のシークレット セクションとシークレットの名前のサブキーを使用して秘密の値を作成します。
+       * `SecretName`: `secret_value_1`
+       * `Section--SecretName`: `secret_value_2`
+   * Azure Active Directory とサンプル アプリを登録します。
+   * Key vault にアクセスするアプリを承認します。 使用すると、 `Set-AzureRmKeyVaultAccessPolicy` 、key vault にアクセスするアプリを承認するために PowerShell コマンドレットを提供`List`と`Get`で機密データへのアクセス`-PermissionsToSecrets list,get`です。
+
 2. アプリの更新*される appsettings.json*の値を持つファイル`Vault`、 `ClientId`、および`ClientSecret`です。
 3. その構成値を取得するサンプル アプリを実行する`IConfigurationRoot`秘密の名前と同じ名前にします。
-  * 非階層型の値: の値は、`SecretName`で取得した`config["SecretName"]`です。
-  * 階層型の値 (セクション)。 使用`:`(コロン) 表記または`GetSection`拡張メソッド。 構成値を取得するのにには、これらのアプローチのいずれかを使用します。
-    * `config["Section:SecretName"]`
-    * `config.GetSection("Section")["SecretName"]`
+   * 非階層型の値: の値は、`SecretName`で取得した`config["SecretName"]`です。
+   * 階層型の値 (セクション)。 使用`:`(コロン) 表記または`GetSection`拡張メソッド。 構成値を取得するのにには、これらのアプローチのいずれかを使用します。
+     * `config["Section:SecretName"]`
+     * `config.GetSection("Section")["SecretName"]`
 
 アプリを実行すると、web ページには、秘密の読み込まれた値が示されます。
 
@@ -97,13 +98,14 @@ Key vault にシークレットを作成する 2 つ目のサンプル アプリ
 > 独自に提供することも`KeyVaultClient`実装`AddAzureKeyVault`です。 カスタムのクライアントを指定するには、クライアントの構成プロバイダーと、アプリの他の部分の 1 つのインスタンスを共有することができます。
 
 1. Key vault の作成し、ガイダンスに従って、アプリケーションの Azure Active Directory (Azure AD) を設定[Azure Key Vault の使用開始](https://azure.microsoft.com/documentation/articles/key-vault-get-started/)です。
-  * 使用して、資格情報コンテナーに機密情報を追加、 [AzureRM キー資格情報コンテナー PowerShell モジュール](/powershell/module/azurerm.keyvault)から使用可能な[PowerShell ギャラリー](https://www.powershellgallery.com/packages/AzureRM.KeyVault)、 [Azure Key Vault REST API](/rest/api/keyvault/)、または、 [Azure ポータル](https://portal.azure.com/)です。 機密情報は、いずれかとして作成*手動*または*証明書*シークレット。 *証明書*シークレットはアプリやサービスで使用する証明書が、構成プロバイダーによってサポートされていません。 使用する必要があります、*手動*構成プロバイダーを使用するための名前と値のペアの機密情報を作成するオプションです。
-    * 階層型の値 (構成セクション) を使用して`--`(2 つのハイフン)、区切り記号として。
-    * 2 つ作成*手動*次の名前/値ペアのシークレット。
-      * `5000-AppSecret`: `5.0.0.0_secret_value`
-      * `5100-AppSecret`: `5.1.0.0_secret_value`
-  * Azure Active Directory とサンプル アプリを登録します。
-  * Key vault にアクセスするアプリを承認します。 使用すると、 `Set-AzureRmKeyVaultAccessPolicy` 、key vault にアクセスするアプリを承認するために PowerShell コマンドレットを提供`List`と`Get`で機密データへのアクセス`-PermissionsToSecrets list,get`です。
+   * 使用して、資格情報コンテナーに機密情報を追加、 [AzureRM キー資格情報コンテナー PowerShell モジュール](/powershell/module/azurerm.keyvault)から使用可能な[PowerShell ギャラリー](https://www.powershellgallery.com/packages/AzureRM.KeyVault)、 [Azure Key Vault REST API](/rest/api/keyvault/)、または、 [Azure ポータル](https://portal.azure.com/)です。 機密情報は、いずれかとして作成*手動*または*証明書*シークレット。 *証明書*シークレットはアプリやサービスで使用する証明書が、構成プロバイダーによってサポートされていません。 使用する必要があります、*手動*構成プロバイダーを使用するための名前と値のペアの機密情報を作成するオプションです。
+     * 階層型の値 (構成セクション) を使用して`--`(2 つのハイフン)、区切り記号として。
+     * 2 つ作成*手動*次の名前/値ペアのシークレット。
+       * `5000-AppSecret`: `5.0.0.0_secret_value`
+       * `5100-AppSecret`: `5.1.0.0_secret_value`
+   * Azure Active Directory とサンプル アプリを登録します。
+   * Key vault にアクセスするアプリを承認します。 使用すると、 `Set-AzureRmKeyVaultAccessPolicy` 、key vault にアクセスするアプリを承認するために PowerShell コマンドレットを提供`List`と`Get`で機密データへのアクセス`-PermissionsToSecrets list,get`です。
+
 2. アプリの更新*される appsettings.json*の値を持つファイル`Vault`、 `ClientId`、および`ClientSecret`です。
 3. その構成値を取得するサンプル アプリを実行する`IConfigurationRoot`プレフィックス付きのシークレットの名前と同じ名前にします。 このサンプルではプレフィックスは、アプリのバージョンは、指定した、 `PrefixKeyVaultSecretManager` Azure Key Vault の構成プロバイダーを追加するとき。 値は、`AppSecret`で取得した`config["AppSecret"]`です。 アプリによって生成される web ページは、読み込まれた値を示しています。
 

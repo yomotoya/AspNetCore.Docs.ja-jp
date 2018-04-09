@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
-title: "ASP.NET および Visual Studio 2012 での Web 開発の新機能 |Microsoft ドキュメント"
+title: ASP.NET および Visual Studio 2012 での Web 開発の新機能 |Microsoft ドキュメント
 author: rick-anderson
-description: "新しいバージョンの Visual Studio には、さまざまな Web テクノロジを使用する場合、エクスペリエンスとパフォーマンスを向上させることに重点を置いた機能強化が導入されています."
+description: 新しいバージョンの Visual Studio には、さまざまな Web テクノロジを使用する場合、エクスペリエンスとパフォーマンスを向上させることに重点を置いた機能強化が導入されています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: f0818cce2a82ede80556b3471cec9d965c3e987f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 00b43cc548df44edded925521991a095ed856494
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>ASP.NET および Visual Studio 2012 での Web 開発の新機能
 ====================
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/24/2018
 > 
 > このラボには、機能強化と軽微な変更を元のフォルダーで提供されるサンプル Web アプリケーションに適用することで前に説明した新しい機能について説明します。
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409)です。
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409)です。
 
 
 <a id="Objectives"></a>
@@ -147,7 +147,7 @@ Visual Studio には、開発者にアクセスし、作業、CSS スタイル �
     *カラー ピッカーの不透明度*
 
     > [!NOTE]
-    > CSS3 で RGBA (赤、緑、青、Alpha) 色定義では、1 つの項目の色の不透明度の値を定義することができます。 異なり**不透明度 -**のような CSS 属性 **-**  RGBA 色は、最新のブラウザーと互換性があります。
+    > CSS3 で RGBA (赤、緑、青、Alpha) 色定義では、1 つの項目の色の不透明度の値を定義することができます。 異なり**不透明度 -**のような CSS 属性**-** RGBA 色は、最新のブラウザーと互換性があります。
 
 <a id="Ex1Task3"></a>
 
@@ -260,7 +260,9 @@ Visual Studio では、開く、または相互に一致するように編集し
 1. **Default.aspx**  ページで、追加、 **H3**タイトル (たとえば、Visual Studio 2012 もの!) を持つ要素。
 
 
-    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample5.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample5.aspx)]
+~~~
 2. 変更、 **H3**タグおよび種類**H2**または**H1 です。**
 
     終了タグが自動的に更新することを確認します。 開始タグを更新するそれに応じてすぎるを表示する終了タグを変更することもできます。
@@ -287,10 +289,12 @@ Visual Studio には、いくつかの HTML5 のコード スニペットが含�
 3. 既存のオーディオ ファイルを指すオーディオのソースを更新します。
 
 
-    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample6.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample6.aspx)]
 
-    > [!NOTE]
-    > オーディオ ファイルをソリューションに追加する必要があります。
+> [!NOTE]
+> You will need to add the audio file to the solution.
+~~~
 4. キーを押して**f5 キーを押して**サイトを実行して、オーディオを再生します。
 
     ![オーディオ コントロールを実行している](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image29.png "オーディオ コントロールの実行")
@@ -546,28 +550,36 @@ Visual Studio には、コード モードにアクセスして整理する約�
     注意して、新しい**Microsoft.Web.Optimization**名前空間は、ファイルの先頭にコメント アウトされています。 使用して、コメントを解除バンドルと縮小の機能をインクルードします。
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample10.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample10.cs)]
+~~~
 4. 検索、**アプリケーション\_開始**メソッドです。
 
     次のスニペットに示すようには、このメソッドで EnableDefaultBundles 呼び出しをコメント解除します。 これにより、そのフォルダーへのパスを使用して、フォルダー内の CSS ファイルのバンドル コレクションを参照すると、 &quot;CSS&quot;または&quot;JS&quot;サフィックス。
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample11.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample11.cs)]
+~~~
 5. 開く、 **Optimization.aspx**ファイルし、のコンテンツ コントロールを探して**HeadContent**です。
 
     CSS ファイルと参照されているタグが 1 つ JS ファイルに注意してください。
 
 
-    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample12.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample12.aspx)]
 
-    > [!NOTE]
-    > このコードは、デモの目的でです。 理想的には、Site.Master ファイル内のバンドルを参照します。 このサンプル コードで表示されます、バンドルされているファイルの一部もによって参照されている Site.Master ファイル冗長この最後の参照を作成します。
+> [!NOTE]
+> This code is for demo purposes. Ideally, you will reference the bundles in the Site.Master file. In this sample code, you will find that some of the bundled files are also being referenced by the Site.Master file, making this last reference redundant.
+~~~
 6. リンクが内のバンドルの規則を使用していることを確認、 **href**スタイルと Scripts\custom からすべての CSS または JS ファイルを取得する属性フォルダーそれぞれします。
 
     パスを使用することができます**スクリプト/カスタム/JS**をバンドルして、内のすべての JS ファイルを縮小する次のように、**スクリプトまたはカスタム**フォルダーです。 これは、既定のバンドルで既定の動作です。
 
 
-    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample13.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample13.aspx)]
+~~~
 7. 開く、 **Styles\Site.css**ファイル。
 
     元の CSS ファイルには、インデントされたコード、空白文字と、ファイルを大きくコメントが含まれていることを確認します。 (また、JavaScript ファイルが含まれていますの空白文字とコメント)。
@@ -609,13 +621,17 @@ Visual Studio には、コード モードにアクセスして整理する約�
     ファイルが同じ位置に固定; に存在しないことに注意してください。これは、既定のバンドル経由のもう 1 つの利点です。
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample14.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample14.cs)]
+~~~
 4. 開く、 **Optimization.aspx**ファイル。
 
     注意してへのリンク**静的 JS バンドル**Global.asax.cs ファイルで、静的なバンドルの構成時に宣言されているパスを使用して: **/StaticBundle**です。
 
 
-    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample15.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample15.aspx)]
+~~~
 5. キーを押して**f5 キーを押して**アプリケーションを実行しに移動する、**最適化**ページ。
 6. をクリックして、**静的 JS バンドル**ファイルを開くためのリンク。
 
@@ -641,7 +657,9 @@ Visual Studio には、コード モードにアクセスして整理する約�
     使用する動的フォルダー バンドルを定義する、 **CoffeeMinify**を使用したファイルにのみ適用されるカスタムの縮小プロセッサ、 &quot; **.coffee** &quot;拡張機能 (CoffeeScript ファイル)。 同様に、フォルダー内にバンドルするファイルを選択し、検索パターンを使用することができますに注意してください '\*.coffee' です。
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample16.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample16.cs)]
+~~~
 3. NuGet パッケージ マネージャー コンソールを開きます。 これを行うには、メニューを使用して**ビュー** | **その他のウィンドウ** | **Package Manager Console**です。
 4. **Package Manager Console**型**Install-package CoffeeSharp**とキーを押します**ENTER**です。
 5. クリックして、 **すべてのファイル**ボタンをクリックして、**ソリューション エクスプ ローラー**ウィンドウ
@@ -659,7 +677,9 @@ Visual Studio には、コード モードにアクセスして整理する約�
     このクラスは、JavaScript の出力 CoffeeScript コードのコンパイルから結果を縮小する JsMinify から継承します。 最初に、JavaScript コードを生成する CoffeeScript コンパイラを呼び出すし、その、結果のコードを縮小する JsMinify.Process メソッドにします。
 
 
-    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample17.cs)]
+~~~
+[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample17.cs)]
+~~~
 8. 開く、 **Script1.coffee**と**Script2.coffee**ファイルから、**スクリプト/バンドル**フォルダーです。
 
     これらのファイルは、CoffeeMinify クラスとのバンドルを実行中にコンパイルする CoffeScript コードが含まれます。
@@ -677,7 +697,9 @@ Visual Studio には、コード モードにアクセスして整理する約�
     注意してへのリンク**動的 JS バンドル**を参照している、**スクリプト/バンドル**フォルダーを使用して、 **コーヒー/**動的フォルダー バンドルの構成されているサフィックス。
 
 
-    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample18.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample18.aspx)]
+~~~
 10. キーを押して**f5 キーを押して**アプリケーションを実行しに移動する、**最適化**ページ。
 11. をクリックして、**動的 JS バンドル**生成されたファイルを開くためのリンク。
 
@@ -703,9 +725,9 @@ Visual Studio には、コード モードにアクセスして整理する約�
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 a: をインストールする Visual Studio Express 2012 for Web
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、  **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . 次の手順を案内するインストールに必要な手順*Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*です。
+インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順を案内するインストールに必要な手順*Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*です。
 
-1. 移動して[ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)です。 または、既に Web Platform Installer をインストールした場合、開くことができ、製品を検索&quot; *Visual Studio Express 2012 for Web と Windows Azure SDK*&quot;です。
+1. 移動して[ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)です。 または、既に Web Platform Installer をインストールした場合、開くことができ、製品を検索&quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;です。
 2. をクリックして**を今すぐインストール**です。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
 3. 1 回**Web Platform Installer**が開いて、をクリックして**インストール**セットアップを開始します。
 
@@ -851,14 +873,14 @@ Visual Studio には、コード モードにアクセスして整理する約�
     *Web 配置の構成*
 5. 次のように、データベースの接続を構成します。
 
-    - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:*プレフィックス。
-    - **ユーザー名**サーバー管理者のログイン名を入力します。
-    - **パスワード**サーバー管理者のログイン パスワードを入力します。
-    - たとえば、新しいデータベース名を入力: *MVC4SampleDB*です。
+   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:*プレフィックス。
+   - **ユーザー名**サーバー管理者のログイン名を入力します。
+   - **パスワード**サーバー管理者のログイン パスワードを入力します。
+   - たとえば、新しいデータベース名を入力: *MVC4SampleDB*です。
 
-    ![対象の接続文字列を構成する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image80.png "対象の接続文字列を構成します。")
+     ![対象の接続文字列を構成する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image80.png "対象の接続文字列を構成します。")
 
-    *対象の接続文字列を構成します。*
+     *対象の接続文字列を構成します。*
 6. 次に、 **[OK]**をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
 
     ![データベースを作成する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image81.png "データベース文字列を作成します。")

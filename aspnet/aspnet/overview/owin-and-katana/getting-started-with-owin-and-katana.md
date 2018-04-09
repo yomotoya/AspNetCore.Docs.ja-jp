@@ -1,28 +1,28 @@
 ---
 uid: aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
-title: "OWIN と Katana の概要 |Microsoft ドキュメント"
+title: OWIN と Katana の概要 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/27/2013
 ms.topic: article
 ms.assetid: 6dae249f-5ac6-4f6e-bc49-13bcd5a54a70
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 8922aada723da9b149ec111902fcd883c8241dfb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac0302ef1a786f6b1eef8119b3134a965f01c533
+ms.sourcegitcommit: 5ab5c5f4bfdb0150f42ba84c2770eadf540cae48
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/28/2018
 ---
 <a name="getting-started-with-owin-and-katana"></a>OWIN と Katana の概要
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[.NET (OWIN) の Web インターフェイスを開く](http://owin.org/).NET web サーバーと web アプリケーション間で抽象型を定義します。 アプリケーションから web サーバーを分離することにより OWIN やすく .NET web 開発用のミドルウェアを作成します。 また、OWIN しやすくその他のホスト &#8212; web アプリケーションを移植するなど、自己ホスト型 Windows サービスまたは他のプロセスにします。
+[.NET (OWIN) の Web インターフェイスを開く](http://owin.org/).NET web サーバーと web アプリケーション間で抽象型を定義します。 アプリケーションから web サーバーを分離することにより OWIN やすく .NET web 開発用のミドルウェアを作成します。 また、OWIN やすく他のホストに web アプリケーションを移植する&#8212;たとえば、自己ホスト型 Windows サービスまたは他のプロセスにします。
 
 OWIN は、実装ではなく、コミュニティが所有する仕様です。 Katana プロジェクトは、Microsoft によって開発されたオープン ソース OWIN コンポーネントのセットです。 OWIN と Katana の両方の一般的な概要については、次を参照してください。[プロジェクト Katana の概要を、](an-overview-of-project-katana.md)です。 この記事ではすぐに作業を開始するコードです。
 
@@ -74,7 +74,7 @@ F5 キーを押してデバッグを開始します。 Visual Studio はブラ�
 
 ## <a name="self-host-owin-in-a-console-application"></a>コンソール アプリケーションで自己ホストの OWIN
 
-カスタム プロセスにおける自己ホストをホストして IIS からこのアプリケーションに変換する簡単です。 IIS ホスティングでは、IIS としても動作 HTTP サーバーとプロセスをホストするサーバー。 、自己ホスト型で、アプリケーションが、プロセスを作成し、を使用して、 **HttpListener** HTTP サーバーとしてのクラスです。
+カスタム プロセスにおける自己ホストをホストして IIS からこのアプリケーションに変換する簡単です。 IIS ホスティングでは、IIS は、HTTP サーバーとは、サービスをホストするプロセスとして動作します。 、自己ホスト型で、アプリケーションが、プロセスを作成し、を使用して、 **HttpListener** HTTP サーバーとしてのクラスです。
 
 Visual Studio で、新しいコンソール アプリケーションを作成します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
@@ -108,6 +108,6 @@ Microsoft.Owin.Diagnostics パッケージには、未処理の例外をキャ�
 
 ## <a name="next-steps"></a>次の手順
 
-- [OWIN 起動クラス検出](owin-startup-class-detection.md)
+- [OWIN スタートアップ クラス検出](owin-startup-class-detection.md)
 - [OWIN を使用して ASP.NET Web API を自己ホスト](../../../web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)
 - [使用して OWIN セルフ ホスト SignalR](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)

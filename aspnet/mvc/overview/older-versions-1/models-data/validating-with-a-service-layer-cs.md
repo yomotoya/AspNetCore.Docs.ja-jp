@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-cs
-title: "サービス層 (c#) |Microsoft ドキュメント"
+title: サービス層 (c#) |Microsoft ドキュメント
 author: StephenWalther
-description: "コント ローラーのアクションから、別のサービス層には、検証ロジックを移動する方法を説明します。 Stephen Walther このチュートリアルで説明する方法をしています."
+description: コント ローラーのアクションから、別のサービス層には、検証ロジックを移動する方法を説明します。 Stephen Walther このチュートリアルで説明する方法をしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f36301aef4377c6c00cb4fc33dbc5c57b1c426a9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 06042ac197cc54da767a94a44c57eb09bb3db9fa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-with-a-service-layer-c"></a>サービス層 (c#)
 ====================
@@ -95,10 +95,10 @@ IValidationDictionary インターフェイスは、一覧表示する 6 で定�
 
 IValidationDictionary を使用してインターフェイスを ModelStateWrapper クラスことにより、コント ローラーの層から、サービス層を完全に分離します。 サービス層がモデル状態に依存するではなくなりました。 サービス層に IValidationDictionary インターフェイスを実装する任意のクラスを渡すことができます。 たとえば、WPF アプリケーションは、単純なコレクション クラスを使用 IValidationDictionary インターフェイスを実装する可能性があります。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、ASP.NET MVC アプリケーションで検証を実行するための 1 つの方法を説明することでした。 このチュートリアルでは、すべてのコント ローラーから、別のサービス層に、検証ロジックを移動する方法について学習しました。 ModelStateWrapper クラスを作成することで、コント ローラーの層から、サービス層を分離する方法も学習しました。
 
->[!div class="step-by-step"]
-[前へ](validating-with-the-idataerrorinfo-interface-cs.md)
-[次へ](validation-with-the-data-annotation-validators-cs.md)
+> [!div class="step-by-step"]
+> [前へ](validating-with-the-idataerrorinfo-interface-cs.md)
+> [次へ](validation-with-the-data-annotation-validators-cs.md)

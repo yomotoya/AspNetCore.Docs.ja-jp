@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
-title: "Visual Studio を使用した ASP.NET Web 展開: コマンド ライン展開 |Microsoft ドキュメント"
+title: 'Visual Studio を使用した ASP.NET Web 展開: コマンド ライン展開 |Microsoft ドキュメント'
 author: tdykstra
-description: "この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています."
+description: この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 8446b3fc05e3ef4a5a30c753c989252fd7f1a56f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: acc4a0e7f4744a3759b90e0f1b159da68b7c7362
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Visual Studio を使用した ASP.NET Web 展開: コマンド ライン展開
 ====================
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/10/2017
 
 プロジェクトの実行を選択して、**に関する**ページ。
 
-![ページについて](command-line-deployment/_static/image2.png)
+![About ページ](command-line-deployment/_static/image2.png)
 
 ## <a name="deploy-to-test-by-using-the-command-line"></a>コマンドラインを使用してテストに展開します。
 
@@ -98,9 +98,9 @@ Visual Studio 2010 のバージョン番号は 10.0 です。 詳細について
 
 発行方法の 3 つのコマンドラインによる公開でサポートされます。
 
-- `MSDeploy`Web Deploy を使用して発行します。
-- `Package`Web Deploy のパッケージを作成して発行します。 作成した、MSBuild コマンドからパッケージを個別にインストールする必要があります。
-- `FileSystem`-指定したフォルダーにファイルをコピーして発行します。
+- `MSDeploy` Web Deploy を使用して発行します。
+- `Package` Web Deploy のパッケージを作成して発行します。 作成した、MSBuild コマンドからパッケージを個別にインストールする必要があります。
+- `FileSystem` -指定したフォルダーにファイルをコピーして発行します。
 
 ### <a name="specifying-the-build-configuration-and-platform"></a>ビルド構成とプラットフォームの指定
 
@@ -136,7 +136,7 @@ Visual Studio またはコマンド ラインには、ビルド構成とプラ�
     実際の運用サイトの場合も、データベースの変更があった場合は通常をコピーする、*アプリ\_offline.htm*展開する前に、サイトへのファイルおよび配置の成功後削除します。
 4. ブラウザーを開き、および、ステージング サイトの URL に移動し、クリックして、**に関する**ページを展開が成功したことを確認します。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 コマンドラインを使用して、アプリケーションの更新プログラムを配置したようになりました。
 
@@ -144,6 +144,6 @@ Visual Studio またはコマンド ラインには、ビルド構成とプラ�
 
 次のチュートリアルでは場合、web を拡張する方法の例を参照してください。 パイプラインの発行します。 この例では、プロジェクトに含まれていないファイルを配置する方法を示します。
 
->[!div class="step-by-step"]
-[前へ](deploying-a-database-update.md)
-[次へ](deploying-extra-files.md)
+> [!div class="step-by-step"]
+> [前へ](deploying-a-database-update.md)
+> [次へ](deploying-extra-files.md)

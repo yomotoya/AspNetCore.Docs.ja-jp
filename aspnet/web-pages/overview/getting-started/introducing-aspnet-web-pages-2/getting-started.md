@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
-title: "ASP.NET Web ページ - 作業の開始の概要 |Microsoft ドキュメント"
+title: ASP.NET Web ページ - 作業の開始の概要 |Microsoft ドキュメント
 author: tfitzmac
-description: "WebMatrix は推奨されなくなりました統合開発環境として ASP.NET Web Pages のです。 Visual Studio または Visual Studio のコードを使用します。 このガイドにしています."
+description: WebMatrix は推奨されなくなりました統合開発環境として ASP.NET Web Pages のです。 Visual Studio または Visual Studio のコードを使用します。 このガイドにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: a6789ee75b4ca6e9443681cc7ec0bd3ab94cedcd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5fd67a230f76774e102094f42426b8bb126c0cc6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---getting-started"></a>ASP.NET Web ページ - 作業の開始の概要
 ====================
@@ -124,8 +124,8 @@ WebMatrix は、web ページ エディター、データベース ユーティ�
 
 Azure アカウントを Azure にこのソリューションを展開する必要があります。 アカウントがない場合は、次のオプションがあります。
 
-- [無料の Azure アカウントを開設](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604)-クレジットを取得するでも使用されているアカウントを維持する最大と使用する無料の Azure サービスおよび有料の Azure サービスを試す使用できます。
-- [MSDN サブスクライバー特典をアクティブ化](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)-お客様の MSDN サブスクリプションでは、クレジット有料の Azure サービスを使用できるすべての月です。
+- [Azure アカウントを無料で開いて](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604)のクレジットを取得する有料の Azure サービスを試すことができますを使用して使用後もアカウントを保持する最大の使用は、Azure のサービスを解放します。
+- [MSDN サブスクリプション会員の特典を有効に](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)が、MSDN サブスクリプションでは、クレジット毎月 Azure の有料のサービスに使用することができます。
 
 ## <a name="installing-everything"></a>すべてのインストール
 
@@ -289,5 +289,5 @@ ASP.NET Web Pages で動的 web コンテンツが生成されることを読み
 
 [ASP.NET web サイトを最初から作成](https://www.microsoft.com/web/post/create-an-aspnet-website-from-scratch)です。 これは、具体的には、チュートリアル WebMatrix (ASP.NET Web ページではない) の使用方法です。 入る、少し詳細については、このチュートリアルのセットには触れません WebMatrix の他の機能の一部です。
 
->[!div class="step-by-step"]
-[次へ](intro-to-web-pages-programming.md)
+> [!div class="step-by-step"]
+> [次へ](intro-to-web-pages-programming.md)

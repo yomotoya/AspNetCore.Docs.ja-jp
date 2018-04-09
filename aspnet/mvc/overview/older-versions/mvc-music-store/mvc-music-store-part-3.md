@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
-title: "パート 3: ビューと ViewModels |Microsoft ドキュメント"
+title: 'パート 3: ビューと ViewModels |Microsoft ドキュメント'
 author: jongalloway
-description: "このチュートリアルの系列では、すべての ASP.NET MVC Music Store サンプル アプリケーションをビルドする手順について説明します。 パート 3 は、ビューと ViewModels について説明します。"
+description: このチュートリアルの系列では、すべての ASP.NET MVC Music Store サンプル アプリケーションをビルドする手順について説明します。 パート 3 は、ビューと ViewModels について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 5b38f88283c5d2d93f0bab283dbd9451855d95e3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 497c2898db2e03b0650982c3ad1e6b5ac5ca639d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-views-and-viewmodels"></a>パート 3: ビューと ViewModels
 ====================
@@ -262,6 +262,6 @@ Html.ActionLink() には、リンクに必要な多くの情報を指定する�
 [!code-html[Main](mvc-music-store-part-3/samples/sample22.html)]
 
 
->[!div class="step-by-step"]
-[前へ](mvc-music-store-part-2.md)
-[次へ](mvc-music-store-part-4.md)
+> [!div class="step-by-step"]
+> [前へ](mvc-music-store-part-2.md)
+> [次へ](mvc-music-store-part-4.md)

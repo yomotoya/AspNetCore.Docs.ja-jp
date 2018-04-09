@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/sql-2005/more-structured-query-language
-title: "クエリ言語構造化された |Microsoft ドキュメント"
+title: クエリ言語構造化された |Microsoft ドキュメント
 author: microsoft
-description: "などのサブクエリの select の複数の SQL ステートメントやストアド プロシージャ、および c# および VB のメソッドの対応する説明には、SQL Server の初心者を検出します。"
+description: などのサブクエリの select の複数の SQL ステートメントやストアド プロシージャ、および c# および VB のメソッドの対応する説明には、SQL Server の初心者を検出します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/29/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/sql-2005/more-structured-query-language
 msc.type: video
-ms.openlocfilehash: b52755e4f00ff9e9d8f22da528696a939424dd1b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3ab24feced8068762e14f18172378d8df0dbb5ba
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="more-structured-query-language"></a>複数の構造化照会言語
 ====================
@@ -24,8 +24,8 @@ ms.lasthandoff: 11/10/2017
 
 などのサブクエリの select の複数の SQL ステートメントやストアド プロシージャ、および c# および VB のメソッドの対応する説明には、SQL Server の初心者を検出します。
 
-[&#9654;です。ビデオでは (23 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/more-structured-query-language)
+[&#9654;ビデオでは (23 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/more-structured-query-language)
 
->[!div class="step-by-step"]
-[前へ](manipulating-database-data.md)
-[次へ](understanding-security-and-network-connectivity.md)
+> [!div class="step-by-step"]
+> [前へ](manipulating-database-data.md)
+> [次へ](understanding-security-and-network-connectivity.md)

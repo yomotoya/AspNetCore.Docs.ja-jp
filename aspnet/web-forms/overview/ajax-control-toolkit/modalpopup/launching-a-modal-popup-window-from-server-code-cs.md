@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-cs
-title: "サーバー コード (c#) からのモーダル ポップアップ ウィンドウを起動 |Microsoft ドキュメント"
+title: サーバー コード (c#) からのモーダル ポップアップ ウィンドウを起動 |Microsoft ドキュメント
 author: wenz
-description: "AJAX コントロールのツールキットで ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 ただし一部のシナリオでは、その t が必要としています."
+description: AJAX コントロールのツールキットで ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 ただし一部のシナリオでは、その t が必要としています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cc2ccf8153de4f2633cc46ebbee2da199ba9d06e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 04bb056ee29065a472a70d480568b897a789ae59
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="launching-a-modal-popup-window-from-server-code-c"></a>サーバー コード (c#) からのモーダル ポップアップ ウィンドウを起動します。
 ====================
@@ -72,5 +72,5 @@ ASP.NET AJAX; に基づいてすべての web ページと同様Script Manager �
 
 モーダル ポップアップを表示するにはボタンのいずれかがクリックされた ([フルサイズのイメージを表示する をクリックします](launching-a-modal-popup-window-from-server-code-cs/_static/image3.png))。
 
->[!div class="step-by-step"]
-[次へ](using-modalpopup-with-a-repeater-control-cs.md)
+> [!div class="step-by-step"]
+> [次へ](using-modalpopup-with-a-repeater-control-cs.md)

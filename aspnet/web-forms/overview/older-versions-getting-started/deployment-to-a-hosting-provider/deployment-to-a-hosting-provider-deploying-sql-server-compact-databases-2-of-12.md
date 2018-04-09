@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
-title: "SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: を展開する SQL Server Compact データベース - 12 の 2 |Microsoft ドキュメント"
+title: 'SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: を展開する SQL Server Compact データベース - 12 の 2 |Microsoft ドキュメント'
 author: tdykstra
-description: "この一連のチュートリアルは、展開する方法を示します (発行)、ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています."
+description: この一連のチュートリアルは、展開する方法を示します (発行)、ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 5296bc1ca3fd0b24123bd79a550a7e2cffc34a44
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7e2d430bd8e07ed7d97d11a00c61d90beeac005f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: を展開する SQL Server Compact データベース - 12 の 2
 ====================
@@ -190,7 +190,7 @@ Contoso 大学アプリケーションでは、ASP.NET メンバーシップ シ
 最初にサイトを展開するときは、ほとんどまたはすべてのテストを作成するユーザー アカウントを除外する一般的なです。 この場合、管理者アカウントとユーザー アカウントがありませんを展開します。 テスト アカウントを手動で削除するではなく、実稼働環境で必要がある 1 人の管理者ユーザー アカウントのみを持つ新しいメンバーシップ データベースを作成します。
 
 > [!NOTE]
-> メンバーシップ データベースには、アカウントのパスワードのハッシュが格納されます。 1 台のコンピューターから別のアカウントをデプロイするのには、ソース コンピューターの方がよりに、ハッシュのルーチンが、移行先サーバー上の別のハッシュを生成しないことを確認しての操作を行う必要があります。 生成されます、同じハッシュ ASP.NET ユニバーサル プロバイダーを使用すると、既定のアルゴリズムを変更しない限り、します。 既定のアルゴリズムはで指定された、HMACSHA256、**検証**の属性、  **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)**  Web.config ファイル内の要素。
+> メンバーシップ データベースには、アカウントのパスワードのハッシュが格納されます。 1 台のコンピューターから別のアカウントをデプロイするのには、ソース コンピューターの方がよりに、ハッシュのルーチンが、移行先サーバー上の別のハッシュを生成しないことを確認しての操作を行う必要があります。 生成されます、同じハッシュ ASP.NET ユニバーサル プロバイダーを使用すると、既定のアルゴリズムを変更しない限り、します。 既定のアルゴリズムはで指定された、HMACSHA256、**検証**の属性、 **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)** Web.config ファイル内の要素。
 
 
 Code First Migrations、メンバーシップ データベースが管理されませんし、(School データベースの存在で) テスト アカウントを持つデータベースのシードを設定する自動初期化子はありません。 そのため、使用可能なテスト データを保持する、新しいものを作成する前にテスト データベースのコピーを作成します。
@@ -245,6 +245,6 @@ SQL Server Compact データベース エンジンと両方のデータベース
 
 NuGet の詳細については、次を参照してください。 [NuGet のプロジェクトのライブラリを管理](https://msdn.microsoft.com/magazine/hh547106.aspx)と[NuGet のドキュメント](http://docs.nuget.org/docs/start-here/overview)です。 NuGet を使用しない場合は、インストールされている場合に、新機能を決定する NuGet パッケージを分析する方法を学習する必要があります。 (たとえば、構成が*Web.config*変換がビルド時などに実行する PowerShell スクリプトを構成します)。NuGet の動作方法についての詳細についてを参照してください特に[を作成して、パッケージを発行する](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package)と[構成ファイルとソース コードの変換](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations)です。
 
->[!div class="step-by-step"]
-[前へ](deployment-to-a-hosting-provider-introduction-1-of-12.md)
-[次へ](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)
+> [!div class="step-by-step"]
+> [前へ](deployment-to-a-hosting-provider-introduction-1-of-12.md)
+> [次へ](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)

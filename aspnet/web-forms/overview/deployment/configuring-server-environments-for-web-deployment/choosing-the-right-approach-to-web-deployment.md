@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
-title: "Web 配置の適切なアプローチの選択 |Microsoft ドキュメント"
+title: Web 配置の適切なアプローチの選択 |Microsoft ドキュメント
 author: jrjlee
-description: "インターネット インフォメーション サービス (IIS) Web 配置ツール (Web 配置) 2.0 以降を使用する場合が 3 つのメイン アプローチを使用することができますを取得しています."
+description: インターネット インフォメーション サービス (IIS) Web 配置ツール (Web 配置) 2.0 以降を使用する場合が 3 つのメイン アプローチを使用することができますを取得しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: b77aa37160f3822f58908866e44497aea3d3bdc8
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 2d690744687af93a69743dc6ce6c853629f61f5d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Web 配置の適切なアプローチを選択します。
 ====================
@@ -118,7 +118,7 @@ IIS 7 以降の場合は、Web Deploy は、IIS Web 配置ハンドラーから�
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample6.cmd)]
 
 
-たとえば、ビルド プロセスが自動的にデプロイする web アプリケーションをステージング環境を正常にビルドするたびに構成されているとします。 リモート エージェントのアプローチを使用した場合は、ビルド プロセスの id を移行先サーバーを管理者にする必要があります。 これに対し、Web 配置のハンドラーの方法を使用できるようにする管理者以外のユーザー & #x 2014 です。**FABRIKAM\stagingdeployer**特定 IIS の web サイトのみ、およびビルド プロセスにアクセス許可でこのケース & #x 2014; web パッケージを展開するこれらの資格情報を提供できます。
+たとえば、ビルド プロセスが自動的にデプロイする web アプリケーションをステージング環境を正常にビルドするたびに構成されているとします。 リモート エージェントのアプローチを使用した場合は、ビルド プロセスの id を移行先サーバーを管理者にする必要があります。 これに対し、Web 配置ハンドラー アプローチを使用することができます管理者以外のユーザーをユーザーに与える&#x2014;**FABRIKAM\stagingdeployer**ここでは&#x2014;特定 IIS の web サイトのみ、およびビルド プロセスにアクセス許可は、これらを指定できますweb パッケージを展開する資格情報。
 
 
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample7.cmd)]
@@ -150,6 +150,6 @@ Web Deploy のコマンドライン操作と構文の詳細については、次
 
 リモート コンピューターから web パッケージを展開するさまざまな方法に関する一般的なガイダンスについては、次を参照してください。[を使用して Web 展開でのリモート](https://technet.microsoft.com/library/ee461175(WS.10).aspx)です。 Web 展開要求時に使用する方法については、次を参照してください。 [Web 展開オンデマンド](https://technet.microsoft.com/library/ee517345(WS.10).aspx)です。
 
->[!div class="step-by-step"]
-[前へ](configuring-server-environments-for-web-deployment.md)
-[次へ](scenario-configuring-a-test-environment-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [前へ](configuring-server-environments-for-web-deployment.md)
+> [次へ](scenario-configuring-a-test-environment-for-web-deployment.md)

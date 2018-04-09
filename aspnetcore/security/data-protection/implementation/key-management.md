@@ -1,7 +1,7 @@
 ---
-title: "キー管理"
+title: ASP.NET Core でのキー管理
 author: rick-anderson
-description: "このドキュメントでは、ASP.NET Core データ保護キー管理 Api の実装の詳細について説明します。"
+description: ASP.NET Core データ保護キー管理 Api の実装の詳細を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: a1fd7c55ec94d5def569bb407c064f4fd2fe9695
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 1b073d8779547a828c17e825b0663b26efb61d14
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-management"></a>キー管理
+# <a name="key-management-in-aspnet-core"></a>ASP.NET Core でのキー管理
 
 <a name="data-protection-implementation-key-management"></a>
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/02/2018
 
 * 失効のキーが侵害され、保護する操作では使用しないでください。
 
-作成された、アクティブ、および有効期限が切れたキーにすべて受信ペイロードを解除するために使用できます。 、ペイロードを解除するために、既定では失効のキーを使用しない場合がありますが、アプリケーション開発者[この動作をオーバーライド](../consumer-apis/dangerous-unprotect.md#data-protection-consumer-apis-dangerous-unprotect)必要な場合です。
+作成された、アクティブ、および有効期限が切れたキーにすべて受信ペイロードを解除するために使用できます。 、ペイロードを解除するために、既定では失効のキーを使用しない場合がありますが、アプリケーション開発者[この動作をオーバーライド](xref:security/data-protection/consumer-apis/dangerous-unprotect#data-protection-consumer-apis-dangerous-unprotect)必要な場合です。
 
 >[!WARNING]
 > 開発者は、(例: ファイル システムから対応するファイルの削除) によってキー リングからキーを削除したくなる可能性があります。 その時点で、キーによって保護されているすべてのデータが完全に解読され、緊急の上書きには、失効したキーではありません。 キーの削除は、完全に破壊的な動作とその結果、データ保護システム公開ありませんファースト クラスの API この操作を実行します。
@@ -83,6 +83,6 @@ services.AddDataProtection()
 
 データ保護システムには、適切なキー記憶域の場所と rest のメカニズムに暗号化を自動的に推測しようとする、ヒューリスティックがあります。 これは、アプリの開発者によって構成できます。 次のドキュメントでは、これらのメカニズムのボックスでの実装について説明します。
 
-* [ボックス内のキー記憶域プロバイダー](key-storage-providers.md#data-protection-implementation-key-storage-providers)
+* [ボックス内のキー記憶域プロバイダー](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers)
 
-* [プロバイダーの rest のボックスでキーの暗号化](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest-providers)
+* [プロバイダーの rest のボックスでキーの暗号化](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest-providers)

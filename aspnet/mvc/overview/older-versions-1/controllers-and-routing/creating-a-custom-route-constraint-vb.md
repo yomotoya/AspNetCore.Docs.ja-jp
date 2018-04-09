@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-vb
-title: "カスタム ルート制約 (VB) を作成する |Microsoft ドキュメント"
+title: カスタム ルート制約 (VB) を作成する |Microsoft ドキュメント
 author: StephenWalther
-description: "Stephen Walther では、カスタム ルート制約を作成する方法について説明します。 単純な実装により、ルートを防止するカスタムの制約に一致する w."
+description: Stephen Walther では、カスタム ルート制約を作成する方法について説明します。 単純な実装により、ルートを防止するカスタムの制約に一致する w.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 41b04c1fea267e7ee9f8a0b1c2f0d4fe4bb96d15
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 094077fa0cb546f4cc91dbf074f8014e62b3b19c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-custom-route-constraint-vb"></a>カスタム ルート制約 (VB) を作成します。
 ====================
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/10/2017
 
 Localhost の制約は、1 のリストに含まれます。
 
-**1 - LocalhostConstraint.vb を一覧表示します。**
+**Listing 1 - LocalhostConstraint.vb**
 
 [!code-vb[Main](creating-a-custom-route-constraint-vb/samples/sample2.vb)]
 
@@ -53,5 +53,5 @@ Localhost の制約は、管理者ルートの定義で使用されます。 こ
 
 既定のルート コメント アウトされています、Global.asax ファイルを一覧表示する 2 からに注意してください。 既定のルートを含める場合、既定のルートは、管理コント ローラーに対する要求を一致します。 その場合は、場合でも、その要求が管理者ルートを一致せず、リモート ユーザーは管理コント ローラーのアクションを呼び出すまだでした。
 
->[!div class="step-by-step"]
-[前へ](creating-a-route-constraint-vb.md)
+> [!div class="step-by-step"]
+> [前へ](creating-a-route-constraint-vb.md)

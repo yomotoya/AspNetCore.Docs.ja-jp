@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
-title: "展開をサポートするビルド定義を作成する |Microsoft ドキュメント"
+title: 展開をサポートするビルド定義を作成する |Microsoft ドキュメント
 author: jrjlee
-description: "どのようなビルドの Team Foundation Server (TFS) 2010 を実行する場合は、チーム プロジェクト内でビルド定義を作成する必要があります。 このトピック des しています."
+description: どのようなビルドの Team Foundation Server (TFS) 2010 を実行する場合は、チーム プロジェクト内でビルド定義を作成する必要があります。 このトピック des しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: e5610753968328e5d0f1dba4cbbfed08480fd773
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c5ea0bd9f01bb57b96abd349741f304c0093d887
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a>展開をサポートするビルド定義を作成します。
 ====================
@@ -27,9 +27,9 @@ ms.lasthandoff: 01/24/2018
 > どのようなビルドの Team Foundation Server (TFS) 2010 を実行する場合は、チーム プロジェクト内でビルド定義を作成する必要があります。 このトピックでは、TFS で、新しいビルド定義を作成する方法と、チーム ビルドでのビルド プロセスの一部として web 配置を制御する方法について説明します。
 
 
-このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。サンプル ソリューション & #x 2014; このチュートリアルのシリーズを使用して、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; を ASP.NET MVC 3 アプリケーションを Windows のなどの複雑性のレベルが現実的な web アプリケーションを表すCommunication Foundation (WCF) サービスとデータベース プロジェクト。
+このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルの一連のサンプル ソリューションを使用する&#x2014;、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的な ASP.NET MVC 3 アプリケーション、Windows Communication も含め、複雑さのレベルを持つ web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
-説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)で、ビルドおよび配置プロセスが 2 つのプロジェクト ファイル & #x 2014 で制御されている; o各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用されるビルドの手順を含む ne です。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によってビルドおよび配置プロセスが制御されるは、2 つのプロジェクト ファイル&#x2014;いずれか各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用されるビルドの手順を含むです。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
 
 ## <a name="task-overview"></a>タスクの概要
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 01/24/2018
 次のセクションでは、新しいビルド定義を作成することでこのプロセスを実装する方法について説明します。
 
 > [!NOTE]
-> この procedure & #x 2014; を単一の自動化されたプロセスは次のビルド、テスト、およびソリューション & #x 2014 展開以外の場合はテスト環境への展開に最も合ったする可能性があります。 ステージングと運用環境の場合よりもずっと既にことを確認して、テスト環境で検証される前のビルドからのコンテンツを展開します。 この方法は、次のトピックに記載されて[特定のビルドを配置](deploying-a-specific-build.md)です。
+> この手順&#x2014;、1 つが自動でプロセスをビルド、テスト、およびソリューションを配置&#x2014;テスト環境への展開に最も合ったする可能性があります。 ステージングと運用環境の場合よりもずっと既にことを確認して、テスト環境で検証される前のビルドからのコンテンツを展開します。 この方法は、次のトピックに記載されて[特定のビルドを配置](deploying-a-specific-build.md)です。
 
 
 ### <a name="who-performs-this-procedure"></a>ユーザーが、この手順を実行しますか。
@@ -133,7 +133,7 @@ ms.lasthandoff: 01/24/2018
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image10.png)
 
-進行状況とビルド & #x 2014 の以外の場合は、手動または自動をするかどうか、トリガーされた & #x 2014; に関係なく、結果を確認するビルド定義をダブルクリックして、**チーム エクスプ ローラー**ウィンドウです。 これが開き、**ビルド エクスプ ローラー**タブです。
+進行状況とをビルドの結果を確認する&#x2014;手動または自動をトリガーにするかどうかに関係なく&#x2014;内のビルド定義をダブルクリックして、**チーム エクスプ ローラー**ウィンドウです。 これが開き、**ビルド エクスプ ローラー**タブです。
 
 ![](creating-a-build-definition-that-supports-deployment/_static/image11.png)
 
@@ -161,6 +161,6 @@ TFS では、ビルド プロセスの監視に役立つ機能の広範な範囲
 
 ビルド定義を作成する方法の詳細については、次を参照してください。[基本的なビルド定義を作成する](https://msdn.microsoft.com/library/ms181716.aspx)と[ビルド プロセスの定義](https://msdn.microsoft.com/library/ms181715.aspx)です。 キュー ビルドの詳細については、次を参照してください。[ビルドをキュー](https://msdn.microsoft.com/library/ms181722.aspx)です。
 
->[!div class="step-by-step"]
-[前へ](configuring-a-tfs-build-server-for-web-deployment.md)
-[次へ](deploying-a-specific-build.md)
+> [!div class="step-by-step"]
+> [前へ](configuring-a-tfs-build-server-for-web-deployment.md)
+> [次へ](deploying-a-specific-build.md)

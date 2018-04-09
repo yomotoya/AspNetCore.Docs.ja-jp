@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core でのテストの統合"
+title: ASP.NET Core での統合テスト
 author: ardalis
-description: "ASP.NET Core の統合アプリケーションのコンポーネントが正しく動作するようにテストを使用する方法。"
+description: ASP.NET Core の統合アプリケーションのコンポーネントが正しく動作するようにテストを使用する方法。
 manager: wpickett
 ms.author: riande
 ms.date: 09/25/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: 8c28f1b4f66433eaebd9e474e784ecf3f1ac271b
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 3c618b2bd5919f6536601631eb4d21359a6bc03a
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="integration-testing-in-aspnet-core"></a>ASP.NET Core でのテストの統合
+# <a name="integration-tests-in-aspnet-core"></a>ASP.NET Core での統合テスト
 
 作成者: [Steve Smith](https://ardalis.com/)
 
@@ -151,4 +151,4 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 * [単体テスト](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 * [ミドルウェア](xref:fundamentals/middleware/index)
-* [コントローラーのテスト](xref:mvc/controllers/testing)
+* [テスト コントローラー](xref:mvc/controllers/testing)

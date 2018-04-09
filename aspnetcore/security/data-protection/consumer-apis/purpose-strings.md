@@ -1,7 +1,7 @@
 ---
-title: "目的の文字列"
+title: ASP.NET Core で目的の文字列
 author: rick-anderson
-description: "このドキュメントでは、ASP.NET Core データ保護 Api で目的の文字列を使用する方法について説明します。"
+description: ASP.NET Core データ保護 Api で目的の文字列を使用する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/purpose-strings
-ms.openlocfilehash: b4a0db801ecc1c4ba0762f0c9faf7429b4ac097b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8fe0020256d3a105b1968db693b0c667244957ec
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="purpose-strings"></a>目的の文字列
+# <a name="purpose-strings-in-aspnet-core"></a>ASP.NET Core で目的の文字列
 
 <a name="data-protection-consumer-apis-purposes"></a>
 

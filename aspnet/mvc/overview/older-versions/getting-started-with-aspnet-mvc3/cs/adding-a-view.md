@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-view
-title: "ビュー (c#) を追加する |Microsoft ドキュメント"
+title: ビュー (c#) を追加する |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 46d5494e668dfe156aeb6647ded83e6ce5366714
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 50ce4a2024ffd9e2bbb5526717052d486689ff38
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view-c"></a>ビュー (c#) を追加します。
 ====================
@@ -77,7 +77,7 @@ HTML を追加、`<h2>`タグ。 変更された*MvcMovie\Views\HelloWorld\Index
 
 [![_LayoutCshtml](adding-a-view/_static/image8.png)](adding-a-view/_static/image7.png)
 
-レイアウト テンプレートを使用すると、1 か所で、コンテナーの HTML レイアウトは、サイトを指定し、サイト内の複数のページにわたって適用できます。 注、`@RenderBody()`ファイルの下部にある行。 `RenderBody`場所を作成するすべてのビューに固有のページを表示する、レイアウト ページで「ラップされた」プレース ホルダー。 「MVC ムービー アプリ」に「マイ MVC アプリケーション」からレイアウト テンプレートのタイトルの見出しを変更します。
+レイアウト テンプレートを使用すると、1 か所で、コンテナーの HTML レイアウトは、サイトを指定し、サイト内の複数のページにわたって適用できます。 注、`@RenderBody()`ファイルの下部にある行。 `RenderBody` 場所を作成するすべてのビューに固有のページを表示する、レイアウト ページで「ラップされた」プレース ホルダー。 「MVC ムービー アプリ」に「マイ MVC アプリケーション」からレイアウト テンプレートのタイトルの見出しを変更します。
 
 [!code-cshtml[Main](adding-a-view/samples/sample3.cshtml)]
 
@@ -91,7 +91,7 @@ HTML を追加、`<h2>`タグ。 変更された*MvcMovie\Views\HelloWorld\Index
 
 ここで、インデックス ページ (ビュー) のタイトルを変更してみましょう。
 
-開いている*MvcMovie\Views\HelloWorld\Index.cshtml*です。 2 つの場所を変更する場合がある: 最初に、テキスト表示される、ブラウザーのタイトルにし、セカンダリのヘッダー (、`<h2>`要素)。 これを少し変えれば、コードのどの部分でアプリのどの部分が変更されるかを確認することができます。
+Open *MvcMovie\Views\HelloWorld\Index.cshtml*. 2 つの場所を変更する場合がある: 最初に、テキスト表示される、ブラウザーのタイトルにし、セカンダリのヘッダー (、`<h2>`要素)。 これを少し変えれば、コードのどの部分でアプリのどの部分が変更されるかを確認することができます。
 
 [!code-cshtml[Main](adding-a-view/samples/sample5.cshtml)]
 
@@ -113,7 +113,7 @@ HTML 表示するタイトルをセットの上に、コードを示すために
 
 現時点では、`Welcome`でアクション メソッド、`HelloWorldController`クラスは、`name`と`numTimes`パラメーターと、ブラウザーに直接値を出力します。 この応答を文字列としてのレンダリング コント ローラーがあるのではなくビュー テンプレートを代わりに使用するコント ローラーに変更してみましょう。 このビュー テンプレートでは動的応答が生成されます。これは、応答を生成するために、コントローラーからビューに適量のデータを渡す必要があることを意味します。 コント ローラーにテンプレートの表示に必要な動的なデータをまとめることによってこれを行う、`ViewBag`ビュー テンプレートにアクセスできるオブジェクト。
 
-戻り、 *HelloWorldController.cs*ファイルし、変更、`Welcome`を追加するメソッド、`Message`と`NumTimes`値を`ViewBag`オブジェクト。 `ViewBag`動的なオブジェクトは、つまりに自由を配置する;`ViewBag`オブジェクトを持たないプロパティに定義されたものと、その内部に配置するまでです。 完全な *HelloWorldController.cs* ファイルは次のようになります。
+戻り、 *HelloWorldController.cs*ファイルし、変更、`Welcome`を追加するメソッド、`Message`と`NumTimes`値を`ViewBag`オブジェクト。 `ViewBag` 動的なオブジェクトは、つまりに自由を配置する;`ViewBag`オブジェクトを持たないプロパティに定義されたものと、その内部に配置するまでです。 完全な *HelloWorldController.cs* ファイルは次のようになります。
 
 [!code-csharp[Main](adding-a-view/samples/sample6.cs)]
 
@@ -141,6 +141,6 @@ HTML 表示するタイトルをセットの上に、コードを示すために
 
 "M" (モデル) については学習しましたが、データベースについてはまだです。 学習したことを確認し、ムービーのデータベースを作成してみましょう。
 
->[!div class="step-by-step"]
-[前へ](adding-a-controller.md)
-[次へ](adding-a-model.md)
+> [!div class="step-by-step"]
+> [前へ](adding-a-controller.md)
+> [次へ](adding-a-model.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
-title: "ASP.NET MVC アプリケーション (9 10 の) リポジトリおよび作業パターンの単位を実装する |Microsoft ドキュメント"
+title: ASP.NET MVC アプリケーション (9 10 の) リポジトリおよび作業パターンの単位を実装する |Microsoft ドキュメント
 author: tdykstra
-description: "Contoso 大学でサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法について説明しています."
+description: Contoso 大学でサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 02b1de31b9513247facc92bc6b72247865d176f9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1f870b61658686769304a7809bde62e66da3bd0c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>ASP.NET MVC アプリケーション (9 10 の) リポジトリおよび作業パターンの単位を実装します。
 ====================
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 一連のチュートリアルについては、次を参照してください。[系列内の最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。 一連のチュートリアルを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから開始します。
+> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。 一連のチュートリアルを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから開始します。
 > 
 > > [!NOTE] 
 > > 
@@ -35,7 +35,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="the-repository-and-unit-of-work-patterns"></a>リポジトリと作業パターンの単位
 
-リポジトリと作業パターンの単位は、データ アクセス層とアプリケーションのビジネス ロジック層の間で抽象化レイヤーを作成します。 これらのパターンを実装して、変更によって、データ ストアにアプリケーションを分離できます、自動化された単体テストまたはテスト駆動開発 (TDD) に容易にすることができます。
+リポジトリと作業パターンの単位は、データ アクセス層とアプリケーションのビジネス ロジック層の間で抽象化レイヤーを作成します。 これらのパターンを実装すると、データ ストアの変更からアプリケーションを隔離でき、自動化された単体テストやテスト駆動開発 (TDD) を円滑化できます。
 
 このチュートリアルでは各エンティティ タイプのリポジトリ クラスを実装します。 `Student`リポジトリ インターフェイスおよびリポジトリ クラスを作成するエンティティ型。 コント ローラーでリポジトリをインスタンス化するときに、コント ローラーがリポジトリ インターフェイスを実装する任意のオブジェクトへの参照を受け入れるように、インターフェイスを使用します。 Web サーバーの下で、コント ローラーを実行すると、Entity Framework と連携する、リポジトリを受け取ります。 単体テスト クラスの下で、コント ローラーが実行されると、テストでは、メモリ内コレクションなどの簡単に操作できるように格納されているデータと連携する、リポジトリを受け取ります。
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="change-the-student-controller-to-use-the-repository"></a>リポジトリを使用する、受講者コント ローラーの変更
 
-*StudentController.cs*クラスの現在のコードを次のコードに置き換えます。 変更が強調表示されます。
+*StudentController.cs*クラスの現在のコードを次のコードに置き換えます。 変更が強調表示されています。
 
 [!code-csharp[Main](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=13-18,44,75,77,102-103,120,137-138,159,172-174,186)]
 
@@ -124,7 +124,7 @@ CRUD メソッドでコンテキストの代わりに、リポジトリと呼ば
 
 コードの元のバージョンで`students`として型指定されて、`IQueryable`オブジェクト。 などのメソッドを使用してコレクションに変換するまで、クエリがデータベースに送信されていない`ToList`、インデックス ビューにアクセスする、受講者モデルまで発生しません。 `Where`上の元のコードでメソッドになります、`WHERE`データベースに送信される SQL クエリ内の句。 さらに、選択したエンティティだけがデータベースによって返されることを意味します。 変更した結果として、ただし、`context.Students`に`studentRepository.GetStudents()`、`students`後、このステートメントは、変数、`IEnumerable`データベース内のすべての受講者を含むコレクション。 適用する際の最終結果、`Where`メソッドは同じですが、およびデータベースではなく、web サーバー上のメモリ内で作業を実行するようになりました。 大量のデータを返すクエリでこのできます効率的です。
 
-> [!TIP] 
+> [!TIP]
 > 
 > **Vs の IQueryable。IEnumerable**
 > 
@@ -249,6 +249,6 @@ CRUD メソッドでコンテキストの代わりに、リポジトリと呼ば
 
 その他の Entity Framework リソースへのリンクは含まれて、 [ASP.NET データ アクセス コンテンツ マップ](../../../../whitepapers/aspnet-data-access-content-map.md)です。
 
->[!div class="step-by-step"]
-[前へ](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[次へ](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+> [!div class="step-by-step"]
+> [前へ](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [次へ](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core で Facebook 外部ログインのセットアップ"
+title: ASP.NET Core で Facebook 外部ログインのセットアップ
 author: rick-anderson
-description: "このチュートリアルでは、Facebook アカウント ユーザーの認証方式を既存の ASP.NET Core アプリケーションの統合について説明します。"
+description: このチュートリアルでは、Facebook アカウント ユーザーの認証方式を既存の ASP.NET Core アプリケーションの統合について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 08/01/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 283de1df68c45fa1b41ed75710fe9eb7925f815f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 70a4b2e53be335b8854b0aef3cfbf8f4e21e6ebe
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="configuring-facebook-authentication"></a>Facebook 認証を構成します。
+# <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET Core で Facebook 外部ログインのセットアップ
 
 作成者: [Valeriy Novytskyy](https://github.com/01binary)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このチュートリアルで作成されたサンプルの ASP.NET Core 2.0 プロジェクトを使用して自分の Facebook アカウントでサインインするユーザーを有効にする方法を示します、[前のページ](index.md)です。 まず、次の Facebook アプリケーションの ID を作成することで、[公式手順](https://developers.facebook.com)です。
+このチュートリアルで作成されたサンプルの ASP.NET Core 2.0 プロジェクトを使用して自分の Facebook アカウントでサインインするユーザーを有効にする方法を示します、[前のページ](xref:security/authentication/social/index)です。 まず、次の Facebook アプリケーションの ID を作成することで、[公式手順](https://developers.facebook.com)です。
 
 ## <a name="create-the-app-in-facebook"></a>Facebook でのアプリを作成します。
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/30/2018
 * **製品を選択して** ページで、をクリックして**設定**上、 **Facebook ログイン**カードです。
 
    ![製品のセットアップ ページ](index/_static/FBProductSetup.png)
-  
+
 * **クイック スタート**とウィザードが起動**プラットフォームを選択して**最初のページとして。 クリックして、ここでは、ウィザードをバイパス、**設定**左側のメニュー内のリンク。
 
    ![Skip のクイック スタート](index/_static/FBSkipQuickStart.png)
@@ -70,8 +70,7 @@ dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
 
 ## <a name="configure-facebook-authentication"></a>Facebook 認証を構成します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Facebook のサービスを追加、`ConfigureServices`メソッドで、 *Startup.cs*ファイル。
 
 ```csharp
@@ -86,10 +85,9 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 });
 ```
 
-[!INCLUDE[default settings configuration](includes/default-settings.md)]
+[!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 インストール、 [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook)パッケージです。
 
 * Visual Studio 2017 でこのパッケージをインストールするには、クリックし、プロジェクトを右クリックし**NuGet パッケージの管理**です。
@@ -107,8 +105,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 });
 ```
 
----
-
+* * *
 参照してください、 [FacebookOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.facebookoptions) Facebook 認証でサポートされる構成オプションの詳細についての API リファレンスです。 構成オプションを使用できます。
 
 * ユーザーに関するさまざまな情報を要求します。
@@ -141,7 +138,7 @@ Facebook 資格情報を入力すると、電子メールを設定すること�
 
 ## <a name="next-steps"></a>次の手順
 
-* この記事では、facebook の認証方法を示しました。 記載されているその他のプロバイダーでの認証に同様のアプローチを行うことができる、[前のページ](index.md)です。
+* この記事では、facebook の認証方法を示しました。 記載されているその他のプロバイダーでの認証に同様のアプローチを行うことができる、[前のページ](xref:security/authentication/social/index)です。
 
 * リセットする必要があります、web サイトを Azure web アプリに発行した後、 `AppSecret` Facebook 開発者ポータルにします。
 

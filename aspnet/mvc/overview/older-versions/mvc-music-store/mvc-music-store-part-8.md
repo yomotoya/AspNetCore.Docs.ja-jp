@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
-title: "手順 8: ショッピング カート Ajax の更新と |Microsoft ドキュメント"
+title: '手順 8: ショッピング カート Ajax の更新と |Microsoft ドキュメント'
 author: jongalloway
-description: "このチュートリアルの系列では、すべての ASP.NET MVC Music Store サンプル アプリケーションをビルドする手順について説明します。 8 の一部では、Ajax の更新でショッピング カートについて説明します。"
+description: このチュートリアルの系列では、すべての ASP.NET MVC Music Store サンプル アプリケーションをビルドする手順について説明します。 8 の一部では、Ajax の更新でショッピング カートについて説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 75e1dff96f8b56d74c28ff9d522f4766fbad669f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 195c01ff0d71b2bfd0c00e71244d47a166330921
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-8-shopping-cart-with-ajax-updates"></a>手順 8: ショッピング カートの Ajax の更新
 ====================
@@ -161,6 +161,6 @@ ViewModels フォルダーの名前を指定します。
 ショッピング カートをカートにアイテムを追加する登録されていないユーザーが作業を開発しています。 次のセクションに登録をチェック アウト プロセスを完了することができますをします。
 
 
->[!div class="step-by-step"]
-[前へ](mvc-music-store-part-7.md)
-[次へ](mvc-music-store-part-9.md)
+> [!div class="step-by-step"]
+> [前へ](mvc-music-store-part-7.md)
+> [次へ](mvc-music-store-part-9.md)

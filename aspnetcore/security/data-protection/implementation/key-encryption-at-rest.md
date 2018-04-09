@@ -1,7 +1,7 @@
 ---
-title: "キーの保存時の暗号化"
+title: ASP.NET Core でのキーの暗号化
 author: rick-anderson
-description: "このドキュメントでは、ASP.NET Core データ保護キーの暗号化の実装の詳細について説明します。"
+description: ASP.NET Core データ保護キーの保存時の暗号化の実装の詳細を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,20 +9,20 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: c66430bfe547cf061e9e79a703ac665a968bbe0b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9247b141a44c958f34529e5a42a0ddc8c8893cb0
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-encryption-at-rest"></a>キーの保存時の暗号化
+# <a name="key-encryption-at-rest-in-aspnet-core"></a>ASP.NET Core でのキーの暗号化
 
 <a name="data-protection-implementation-key-encryption-at-rest"></a>
 
 既定では、データ保護システム[ヒューリスティックを使用して](xref:security/data-protection/configuration/default-settings)キー マテリアルを暗号化する方法を決定する残りの部分で暗号化する必要があります。 開発者は、ヒューリスティックをオーバーライドし、残りの部分でのキーの暗号化方法を手動で指定できます。
 
 > [!NOTE]
-> Rest メカニズムで明示的なキーの暗号化を指定する場合、データ保護システムは、ヒューリスティックが提供される既定のキー記憶域メカニズムを登録解除します。 行う必要があります[キー記憶域の明示的なメカニズムが指定](key-storage-providers.md#data-protection-implementation-key-storage-providers)、それ以外の場合、データ保護システムは起動しません。
+> Rest メカニズムで明示的なキーの暗号化を指定する場合、データ保護システムは、ヒューリスティックが提供される既定のキー記憶域メカニズムを登録解除します。 行う必要があります[キー記憶域の明示的なメカニズムが指定](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers)、それ以外の場合、データ保護システムは起動しません。
 
 <a name="data-protection-implementation-key-encryption-at-rest-providers"></a>
 
@@ -95,7 +95,7 @@ sc.AddDataProtection()
 
 ## <a name="certificate-based-encryption-with-windows-dpapi-ng"></a>証明書ベースの暗号化に Windows DPAPI-NG
 
-Windows 8.1 で実行している場合/Windows Server 2012 R2 以降を使用することもできます Windows DPAPI NG 証明書ベースの暗号化を実行するでアプリケーションが実行されている場合でも[.NET Core](https://www.microsoft.com/net/core)です。 これを利用するルール記述子文字列を使用"証明書 HashId:thumbprint を ="で、拇印は、16 進でエンコードされた SHA1 証明書の拇印を使用します。 例については、以下を参照してください。
+Windows 8.1 で実行している場合/Windows Server 2012 R2 以降を使用することもできます Windows DPAPI NG 証明書ベースの暗号化を実行するアプリケーションが .NET Core で実行されている場合でもです。 これを利用するルール記述子文字列を使用"証明書 HashId:thumbprint を ="で、拇印は、16 進でエンコードされた SHA1 証明書の拇印を使用します。 例については、以下を参照してください。
 
 ```csharp
 sc.AddDataProtection()

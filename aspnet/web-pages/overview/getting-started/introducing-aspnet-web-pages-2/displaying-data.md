@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
-title: "ASP.NET Web Pages の概要 - データの表示 |Microsoft ドキュメント"
+title: ASP.NET Web Pages の概要 - データの表示 |Microsoft ドキュメント
 author: tfitzmac
-description: "このチュートリアルでは、WebMatrix で、データベースを作成する方法と ASP.NET Web Pages (Razor) を使用すると、ページにデータベースのデータを表示する方法を説明します。 Y が前提としています."
+description: このチュートリアルでは、WebMatrix で、データベースを作成する方法と ASP.NET Web Pages (Razor) を使用すると、ページにデータベースのデータを表示する方法を説明します。 Y が前提としています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
-ms.openlocfilehash: fdb9af0ba87c7802c63451ac7aa422e0020b5719
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6c66e5fb0a1a49da411286e19c7954f83055c3fd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---displaying-data"></a>ASP.NET Web ページのデータの表示の概要
 ====================
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/10/2017
 > 説明されている機能/テクノロジ:
 > 
 > - WebMatrix データベース ツールです。
-> - `WebGrid`ヘルパー。
+> - `WebGrid` ヘルパー。
 
 
 ## <a name="what-youll-build"></a>新機能のビルドします。
@@ -338,6 +338,6 @@ WebMatrix ツリー ビューでページを右クリックし、選択**ブラ�
 
 - [Razor 構文を使用して ASP.NET Web プログラミングの概要](https://go.microsoft.com/fwlink/?LinkID=202890)
 
->[!div class="step-by-step"]
-[前へ](intro-to-web-pages-programming.md)
-[次へ](form-basics.md)
+> [!div class="step-by-step"]
+> [前へ](intro-to-web-pages-programming.md)
+> [次へ](form-basics.md)

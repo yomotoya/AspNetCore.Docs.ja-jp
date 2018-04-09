@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-9-the-shopping-cart
-title: "ASP.NET MVC Storefront 手順 9: ショッピング カート |Microsoft ドキュメント"
+title: 'ASP.NET MVC Storefront 手順 9: ショッピング カート |Microsoft ドキュメント'
 author: robconery
-description: "Rob Conery は、単純なカート システムを cooks 急上昇彼はできるようにします。"
+description: Rob Conery は、単純なカート システムを cooks 急上昇彼はできるようにします。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/27/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-9-the-shopping-cart
 msc.type: video
-ms.openlocfilehash: b46ce7ef83f31a4712b6dab926d5fb3f5134e175
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 905de3c5d44b18f2e24b93fc0027a27e7cd60ac5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-storefront-part-9-the-shopping-cart"></a>ASP.NET MVC Storefront 手順 9: ショッピング カートの内容
 ====================
@@ -24,8 +24,8 @@ ms.lasthandoff: 11/10/2017
 
 Rob Conery は、単純なカート システムを cooks 急上昇彼はできるようにします。
 
-[&#9654;です。ビデオでは (28 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-9-the-shopping-cart)
+[&#9654;ビデオでは (28 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-9-the-shopping-cart)
 
->[!div class="step-by-step"]
-[前へ](aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete.md)
-[次へ](aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization.md)
+> [!div class="step-by-step"]
+> [前へ](aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete.md)
+> [次へ](aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization.md)

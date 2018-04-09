@@ -1,22 +1,22 @@
 ---
 uid: single-page-application/overview/templates/hottowel-template
-title: "ホット タオル テンプレート |Microsoft ドキュメント"
+title: ホット タオル テンプレート |Microsoft ドキュメント
 author: madskristensen
-description: "HotTowel テンプレート"
+description: HotTowel テンプレート
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/09/2013
 ms.topic: article
 ms.assetid: 75af2e17-6ed3-4d24-8ea1-bc340027c318
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/hottowel-template
 msc.type: authoredcontent
-ms.openlocfilehash: bfc6e2c884c422f44e8be5f4f29554ae86f7ecb6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dbd037c2469d326a3d3248ca07492ed9eb93e225
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hot-towel-template"></a>ホット タオル テンプレート
 ====================
@@ -29,8 +29,8 @@ ms.lasthandoff: 11/10/2017
 > [Visual Studio 2012 用のホット タオル MVC テンプレート](https://visualstudiogallery.msdn.microsoft.com/1f68fbe8-b4e9-4968-9fd3-ddc7cbc52dca)
 > 
 > [Visual Studio 2013 のホット タオル MVC テンプレート](https://visualstudiogallery.msdn.microsoft.com/1eb8780d-d522-4dcf-bf56-56f0eab305c2)
-
-
+> 
+> 
 > ホット タオル: 1 つもない SPA に移動したくないためです。
 
 
@@ -60,7 +60,7 @@ App フォルダーには、モジュールのコレクションが含まれて�
 
 - アプリ\_開始
 - Content
-- コント ローラー
+- Controllers
 - モデル
 - スクリプト
 - ビュー
@@ -95,7 +95,7 @@ App フォルダーには、モジュールのコレクションが含まれて�
 2. ビューを追加、`App/views`フォルダー
 3. Viewmodels を追加、`App/viewmodels`フォルダー
 4. 新しいビューへの HTML および Knockout のデータ バインディングを追加します。
-5. 内のナビゲーションのルートを更新します。`shell.js`
+5. 内のナビゲーションのルートを更新します。 `shell.js`
 
 ## <a name="walkthrough-of-the-htmljavascript"></a>HTML または JavaScript のチュートリアル
 

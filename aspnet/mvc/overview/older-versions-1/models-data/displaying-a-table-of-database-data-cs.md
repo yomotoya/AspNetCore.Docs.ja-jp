@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-cs
-title: "データベースのデータ (c#) のテーブルを表示する |Microsoft ドキュメント"
+title: データベースのデータ (c#) のテーブルを表示する |Microsoft ドキュメント
 author: microsoft
-description: "このチュートリアルでは、一連のデータベース レコードを表示する 2 つの方法を説明します。 書式の HTML 内のデータベース レコードのセット ta の 2 つの方法を説明しています."
+description: このチュートリアルでは、一連のデータベース レコードを表示する 2 つの方法を説明します。 書式の HTML 内のデータベース レコードのセット ta の 2 つの方法を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 37ea081df2ee26e186669b815a4d769e1976ae9c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1d5dc9dd4a82e4577c6c1a3b124d45fef0b0f67c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-a-table-of-database-data-c"></a>データベースのデータ (c#) のテーブルを表示します。
 ====================
@@ -39,8 +39,8 @@ ms.lasthandoff: 11/10/2017
 | **列名** | **データ型** | **Null を許容します。** |
 | --- | --- | --- |
 | ID | Int | False |
-| タイトル | Nvarchar (200) | False |
-| ディレクター | Nvarchar (50) | False |
+| Title | Nvarchar(200) | False |
+| ディレクター | NVarchar(50) | False |
 | DateReleased | DateTime | False |
 
 
@@ -173,7 +173,7 @@ Index() アクションを右クリックし、メニュー オプションを�
 
 インデックス ビューを一覧表示する 4 では、MovieTemplate 部分を使用します。
 
-**4 – Views\Movie\Index.aspx を一覧表示します。**
+**Listing 4 – Views\Movie\Index.aspx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-cs/samples/sample4.aspx)]
 
@@ -185,10 +185,10 @@ Index() アクションを右クリックし、メニュー オプションを�
 RenderPartial() メソッドではほとんどの他のヘルパー メソッドとは異なる文字列を返すことはできません。 そのため、呼び出す必要があります RenderPartial() メソッドを使用して、 &lt;Html.RenderPartial(); %library;&gt;の代わりに&lt;% = Html.RenderPartial(); %&gt;です。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、HTML テーブルの一連のデータベース レコードを表示する方法を説明しました。 最初に、コント ローラーのアクションから Microsoft Entity Framework を活用して、データベース レコードのセットを返す方法を学習します。 次に、Visual Studio のスキャフォールディングを使用して項目のコレクションを自動的に表示するビューを生成する方法を学習します。 最後に、一部を利用して、ビューを簡略化する方法を学習します。 データベースの各レコードの書式を設定することができるように、テンプレートとして、部分的なを使用する方法を学習しました。
 
->[!div class="step-by-step"]
-[前へ](creating-model-classes-with-linq-to-sql-cs.md)
-[次へ](performing-simple-validation-cs.md)
+> [!div class="step-by-step"]
+> [前へ](creating-model-classes-with-linq-to-sql-cs.md)
+> [次へ](performing-simple-validation-cs.md)

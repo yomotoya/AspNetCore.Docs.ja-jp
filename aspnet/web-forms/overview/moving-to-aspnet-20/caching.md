@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/caching
-title: "キャッシュ |Microsoft ドキュメント"
+title: キャッシュ |Microsoft ドキュメント
 author: microsoft
-description: "キャッシュの理解は、優れた ASP.NET アプリケーションにとって重要です。 ASP.NET 1.x に 3 つの異なるキャッシュ オプションが提供されています。出力キャッシュとしてください."
+description: キャッシュの理解は、優れた ASP.NET アプリケーションにとって重要です。 ASP.NET 1.x に 3 つの異なるキャッシュ オプションが提供されています。出力キャッシュとしてください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 9b229de60e09b94189f62a6bb6fa61a9973d637b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 90faaae75cc85585efa05e6e50eabe8c990d076e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="caching"></a>キャッシュ
 ====================
@@ -59,7 +59,7 @@ ms.lasthandoff: 01/24/2018
 
 キャッシュ キーとして機能する項目のキーがキャッシュ キーの配列に追加される値と同じである必要があることに注意してください。
 
-## <a name="polling-based-sql-cache-dependenciesalso-called-table-based-dependencies"></a>SQL キャッシュ依存関係のポーリングに基づく*(テーブル ベースの依存関係とも呼ばれます)*
+## <a name="polling-based-sql-cache-dependenciesemalso-called-table-based-dependenciesem"></a>SQL キャッシュ依存関係のポーリングに基づく<em>(テーブル ベースの依存関係とも呼ばれます)</em>
 
 SQL Server 7、2000、SQL キャッシュ依存関係のポーリングに基づくモデルを使用します。 ポーリングに基づくモデルは、テーブル内のデータを変更するときにトリガーがデータベース テーブルにトリガーを使用します。 更新プログラムのトリガーとなる、 **changeId**フィールドが ASP.NET によってチェック定期的に通知テーブルにします。 場合、 **changeId**フィールドが更新されました、ASP.NET と認識されたデータが変更された、キャッシュされたデータは無効になります。
 
@@ -237,12 +237,13 @@ ASP.NET 2.0 でのキャッシュの構成をいくつかの変更がありま�
 
 次の属性は使用できる、 &lt;outputCache&gt;要素。
 
-| **属性** | **説明** |
-| --- | --- |
-| **enableOutputCache** | 省略可能な**ブール**属性。 ページ出力キャッシュを有効/無効にします。 無効な場合、プログラムまたは宣言型の設定に関係なくページはキャッシュされません。 既定値は**true**です。 |
-| **enableFragmentCache** | 省略可能な**ブール**属性。 アプリケーションのフラグメント キャッシュを有効/無効にします。 関係なくページがキャッシュされず無効にした場合、 [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx)ディレクティブまたは使用されるプロファイルをキャッシュします。 あるアップ ストリーム プロキシ サーバーとブラウザー クライアントしようとしないでくださいページ出力キャッシュを示すキャッシュ制御ヘッダーが含まれます。 既定値は**false**です。 |
-| **sendCacheControlHeader** | 省略可能な**ブール**属性。 取得または設定を示す値かどうか、**キャッシュ-コントロール: private**ヘッダーは既定では、出力キャッシュのモジュールによって送信されます。 既定値は**false**です。 |
-| **omitVaryStar** | 省略可能な**ブール**属性。 Http 送信を有効/無効に"**変わる場合があります: \*** "応答ヘッダー。 False で、既定の設定で、"**変わる場合があります: \*** "出力キャッシュ ページのヘッダーを送信します。 Vary ヘッダーが送信されると、これは、さまざまなキャッシュに保存するバージョンが Vary ヘッダーで指定されるものに基づいています。 たとえば、*変わる場合があります。 ユーザーのエージェント*要求を発行するユーザー エージェントに基づいてページの異なるバージョンを格納します。 既定値は**false**です。 |
+
+|       <strong>属性</strong>        |                                                                                                                                                                                                                                                       <strong>説明</strong>                                                                                                                                                                                                                                                       |
+|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   <strong>enableOutputCache</strong>    |                                                                                                                                                          省略可能な<strong>ブール</strong>属性。 ページ出力キャッシュを有効/無効にします。 無効な場合、プログラムまたは宣言型の設定に関係なくページはキャッシュされません。 既定値は<strong>true</strong>です。                                                                                                                                                           |
+|  <strong>enableFragmentCache</strong>   |                                                省略可能な<strong>ブール</strong>属性。 アプリケーションのフラグメント キャッシュを有効/無効にします。 関係なくページがキャッシュされず無効にした場合、 [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx)ディレクティブまたは使用されるプロファイルをキャッシュします。 あるアップ ストリーム プロキシ サーバーとブラウザー クライアントしようとしないでくださいページ出力キャッシュを示すキャッシュ制御ヘッダーが含まれます。 既定値は<strong>false</strong>です。                                                 |
+| <strong>sendCacheControlHeader</strong> |                                                                                                                                                      省略可能な<strong>ブール</strong>属性。 取得または設定を示す値かどうか、<strong>キャッシュ-コントロール: private</strong>ヘッダーは既定では、出力キャッシュのモジュールによって送信されます。 既定値は<strong>false</strong>です。                                                                                                                                                      |
+|      <strong>omitVaryStar</strong>      | 省略可能な<strong>ブール</strong>属性。 Http 送信を有効/無効に"<strong>変わる場合があります: \</strong ><em>"応答ヘッダー。False で、既定の設定で、"</em>* 変わる場合があります: \* <strong>"出力キャッシュ ページのヘッダーを送信します。Vary ヘッダーが送信されると、これは、さまざまなキャッシュに保存するバージョンが Vary ヘッダーで指定されるものに基づいています。たとえば、<em>変わる場合があります。 ユーザーのエージェント</em>要求を発行するユーザー エージェントに基づいてページの異なるバージョンを格納します。既定値は * * false</strong>です。 |
 
 ### <a name="the-ltoutputcachesettingsgt-element"></a>&lt;いる&gt;要素
 

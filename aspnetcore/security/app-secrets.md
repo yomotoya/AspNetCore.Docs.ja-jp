@@ -1,7 +1,7 @@
 ---
-title: "アプリ シークレットは、ASP.NET Core での開発時の安全な格納場所"
+title: アプリ シークレットは、ASP.NET Core での開発での安全な格納場所
 author: rick-anderson
-description: "開発中に機密情報を安全に格納する方法を示します"
+description: 開発中に機密情報を安全に格納する方法を示します
 manager: wpickett
 ms.author: riande
 ms.date: 09/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: a23c9dc9ee1e20c0e0551a372e1cd706bb82070e
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 166111696a9c4244ede44fca8878dd3725bb3099
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>アプリ シークレットは、ASP.NET Core での開発時の安全な格納場所
+# <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>アプリ シークレットは、ASP.NET Core での開発での安全な格納場所
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Daniel Roth](https://github.com/danroth27)、および[Scott Addie](https://scottaddie.com) 
 
@@ -34,15 +34,14 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="secret-manager"></a>シークレット マネージャー
 
-シークレット マネージャー ツールは、プロジェクト ツリーの外部で開発作業の機密データを格納します。 シークレット マネージャー ツールは、の機密情報の格納に使用できるプロジェクト ツール、 [.NET Core](https://www.microsoft.com/net/core)開発中のプロジェクトです。 シークレット マネージャー ツール アプリ シークレットは、特定のプロジェクトに関連付けるでき、それらを複数のプロジェクト間で共有できます。
+シークレット マネージャー ツールは、プロジェクト ツリーの外部で開発作業の機密データを格納します。 シークレット マネージャー ツールは、開発中に .NET Core プロジェクトの機密情報を格納するために使用できるプロジェクト ツールです。 シークレット マネージャー ツール アプリ シークレットは、特定のプロジェクトに関連付けるでき、それらを複数のプロジェクト間で共有できます。
 
 >[!WARNING]
 > シークレット マネージャー ツールは、保存されたシークレットを暗号化しないし、信頼できるストアとして扱われるべきではありません。 これは、開発目的でのみです。 キーと値は、ユーザーのプロファイル ディレクトリに JSON 構成ファイルに格納されます。
 
 ## <a name="installing-the-secret-manager-tool"></a>シークレット マネージャー ツールをインストールします。
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
+#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 ソリューション エクスプ ローラーでプロジェクトを右クリックし **編集\<project_name\>.csproj**コンテキスト メニュー。 強調表示された行を追加、 *.csproj*ファイル、および関連付けられている NuGet パッケージを復元する保存します。
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
@@ -59,8 +58,7 @@ ms.lasthandoff: 03/16/2018
 }
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
+#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 追加`Microsoft.Extensions.SecretManager.Tools`を*.csproj*ファイル実行して[dotnet 復元](/dotnet/core/tools/dotnet-restore)です。 同じ手順を使用するのコマンドラインを使用して、シークレット マネージャー ツールをインストールします。
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
@@ -89,15 +87,14 @@ dotnet user-secrets set MySecret ValueOfMySecret
 ```
 
 その他のディレクトリからシークレット マネージャー ツールを実行することができますが、使用する必要があります、`--project`へのパスに渡すオプション、 *.csproj*ファイル。
- 
+
 ```console
 dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\webapp1
 ```
 
 シークレット マネージャー ツールを使用して、一覧を削除し、アプリのシークレットをオフにすることができますも。
 
------
-
+* * *
 ## <a name="accessing-user-secrets-via-configuration"></a>構成を使用してユーザーの機密情報にアクセスします。
 
 構成システムを介したシークレット Manager の機密情報にアクセスします。 追加、`Microsoft.Extensions.Configuration.UserSecrets`パッケージ化し、実行[dotnet 復元](/dotnet/core/tools/dotnet-restore)です。

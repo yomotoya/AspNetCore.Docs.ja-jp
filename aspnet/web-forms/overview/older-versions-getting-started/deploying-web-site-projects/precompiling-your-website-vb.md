@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-vb
-title: "(VB) web サイトをプリコンパイル |Microsoft ドキュメント"
+title: (VB) web サイトをプリコンパイル |Microsoft ドキュメント
 author: rick-anderson
-description: "Visual Studio では ASP.NET 開発者 2 種類のプロジェクト: Web アプリケーション プロジェクト (Wap) と Web サイト プロジェクト (WSPs)。 主な相違点 betwe のいずれかを指定しています."
+description: 'Visual Studio では ASP.NET 開発者 2 種類のプロジェクト: Web アプリケーション プロジェクト (Wap) と Web サイト プロジェクト (WSPs)。 主な相違点 betwe のいずれかを指定しています.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7cc487aa5276c601fed632e82d7b6d32d1b53b58
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7296808480fa48b4afd0b308cd27707378519747
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="precompiling-your-website-vb"></a>(VB) web サイトをプリコンパイルします。
 ====================
@@ -97,7 +97,7 @@ Web サイトをプリコンパイルした後は、Web サイトの発行 ダ�
 
 [![](precompiling-your-website-vb/_static/image5.png)](precompiling-your-website-vb/_static/image4.png)
 
-**図 2**: プロジェクト ディレクトリに含まれる`.aspx`と`.aspx.cs`ファイル;、`Bin`だけフォルダーが含まれています`Elmah.dll`  
+**図 2**: プロジェクト ディレクトリに含まれる`.aspx`と`.aspx.cs`ファイル;、`Bin`だけフォルダーが含まれています `Elmah.dll`  
  ([フルサイズのイメージを表示するをクリックして](precompiling-your-website-vb/_static/image6.png))
 
 **図 3**内容は、ASP.NET コンパイル ツールによって作成されたターゲットの場所フォルダーが表示されます。 このフォルダーに、分離コード ファイルが含まれていません。 さらに、このフォルダーの`Bin`ディレクトリは、いくつかのアセンブリと 2 つ含まれています。`.compiled`ファイルに加え、`Elmah.dll`アセンブリ。
@@ -190,6 +190,6 @@ ASP.NET コンパイルの 2 つのモードをサポートしています: 自�
 - [ASP.NET でのプリコンパイル](http://www.odetocode.com/Articles/417.aspx)
 - [ASP.NET でのプリコンパイル済みサイト オプション](http://www.dotnetperls.com/precompiled)
 
->[!div class="step-by-step"]
-[前へ](logging-error-details-with-elmah-vb.md)
-[次へ](users-and-roles-on-the-production-website-vb.md)
+> [!div class="step-by-step"]
+> [前へ](logging-error-details-with-elmah-vb.md)
+> [次へ](users-and-roles-on-the-production-website-vb.md)

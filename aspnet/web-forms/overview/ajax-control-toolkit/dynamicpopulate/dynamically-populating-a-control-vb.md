@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-vb
-title: "コントロール (VB) を動的に作成する |Microsoft ドキュメント"
+title: コントロール (VB) を動的に作成する |Microsoft ドキュメント
 author: wenz
-description: "ASP.NET AJAX コントロールのツールキットで DynamicPopulate コントロールは、メソッドを呼び出す web サービス (ページ) と、t の対象のコントロールに、結果の値を設定しています."
+description: ASP.NET AJAX コントロールのツールキットで DynamicPopulate コントロールは、メソッドを呼び出す web サービス (ページ) と、t の対象のコントロールに、結果の値を設定しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ec0b6d429f3eb4a7243201c2a91adde462cf6345
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e2031a80be71a406e632955583d83920dd0f3ef7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-populating-a-control-vb"></a>コントロール (VB) を動的に作成します。
 ====================
@@ -55,12 +55,12 @@ Web サービスとして保存し、`DynamicPopulate.vb.asmx`です。 また�
 
 最後に、必要があります、`DynamicPopulateExtender`作業のネットワーク上のコントロールです。 次の属性が設定されます (とは別に、自明`ID`と`runat` = `"server"`)。
 
-- `TargetControlID`web サービスの呼び出しから結果を配置します。
-- `ServicePath`web サービスへのパス (ページ メソッドを使用する場合は省略)
-- `ServiceMethod`web メソッドまたはページのメソッドの名前
-- `ContextKey`web サービスに送信されるコンテキスト情報
-- `PopulateTriggerControlID`web サービスの呼び出しをトリガーする要素
-- `ClearContentsDuringUpdate`web サービスの呼び出し中にターゲット要素を空にするかどうか
+- `TargetControlID` web サービスの呼び出しから結果を配置します。
+- `ServicePath` web サービスへのパス (ページ メソッドを使用する場合は省略)
+- `ServiceMethod` web メソッドまたはページのメソッドの名前
+- `ContextKey` web サービスに送信されるコンテキスト情報
+- `PopulateTriggerControlID` web サービスの呼び出しをトリガーする要素
+- `ClearContentsDuringUpdate` web サービスの呼び出し中にターゲット要素を空にするかどうか
 
 ご覧のように、コントロールには、いくつかの情報が必要なが所定の位置に配置することで、すべて非常に簡単です。 ここでは、マークアップを`DynamicPopulateExtender`現在のシナリオでの制御。
 
@@ -73,6 +73,6 @@ ASP.NET ページをブラウザーで実行し、をクリックします。現
 
 ボタンをクリックして、サーバーから日付を取得する ([フルサイズのイメージを表示するをクリックして](dynamically-populating-a-control-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](using-dynamicpopulate-with-a-user-control-and-javascript-cs.md)
-[次へ](dynamically-populating-a-control-using-javascript-code-vb.md)
+> [!div class="step-by-step"]
+> [前へ](using-dynamicpopulate-with-a-user-control-and-javascript-cs.md)
+> [次へ](dynamically-populating-a-control-using-javascript-code-vb.md)

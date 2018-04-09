@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-details-and-delete-methods
-title: "詳細とその削除方法を確認する |Microsoft ドキュメント"
+title: 詳細とその削除方法を確認する |Microsoft ドキュメント
 author: Rick-Anderson
-description: "注: このチュートリアルの最新バージョンはここで ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全な非常に簡単に従い、デモをお勧めしています."
+description: '注: このチュートリアルの最新バージョンはここで ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全な非常に簡単に従い、デモをお勧めしています.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: f3c56356aaa595e200a16fe0045a8b00dc5823b7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 00f7e5d6679f1bd8875931e601c8151049f785ac
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="examining-the-details-and-delete-methods"></a>詳細とその削除方法を確認します。
 ====================
@@ -52,7 +52,7 @@ ms.lasthandoff: 01/24/2018
 
 共通言語ランタイム (CLR) は、オーバーロードのメソッドに一意のパラメーター シグネチャを持つことを要求します (メソッド名は同じであるが、パラメーターの一覧が異なる)。 ただし、ここで必要が 2 つの削除のメソッドと POST の 1 つ--GET--同じパラメーター シグネチャを持つ両方ことです。 (いずれも、1 つの整数をパラメーターとして受け取る必要があります。)
 
-この出力を並べ替えるには、いくつかの点を行うことができます。 別の名前を指定してメソッドを 1 つです。 先の例では、スキャフォールディング メカニズムがこれを行いました。 ただし、これは小さな問題を引き起こします。ASP.NET が URL のセグメントをアクション メソッドに名前でマッピングします。メソッドの名前を変更すると、通常、ルーティングでそのメソッドが見つからなくなります。 この解決策はこの例で確認できます。`ActionName("Delete")` 属性を `DeleteConfirmed` メソッドに追加しています。 これが効果的に実行マッピング、ルーティングのシステムの URL を含むように*/Delete/*post 要求を検索は、`DeleteConfirmed`メソッドです。
+この出力を並べ替えるには、いくつかの点を行うことができます。 別の名前を指定してメソッドを 1 つです。 先の例では、スキャフォールディング メカニズムがこれを行いました。 ただし、これは小さな問題を引き起こします。ASP.NET が URL のセグメントをアクション メソッドに名前でマッピングします。メソッドの名前を変更すると、通常、ルーティングでそのメソッドが見つからなくなります。 この解決策はこの例で確認できます。`ActionName("Delete")` 属性を `DeleteConfirmed` メソッドに追加しています。 これが効果的に実行マッピング、ルーティングのシステムの URL を含むように<em>/Delete/</em>post 要求を検索は、`DeleteConfirmed`メソッドです。
 
 同じ名前とシグネチャを持つメソッドの問題を回避するもう 1 つの一般的な方法を使用すると意図的に未使用のパラメーターを含める POST メソッドのシグネチャを変更します。 一部の開発者がパラメーターの型を追加するなど、 `FormCollection` POST メソッドに渡されると、単にパラメーターを使用しません。
 
@@ -70,8 +70,8 @@ DB のローカル データベースにデータを格納する完全な ASP.NE
 
 フィードバックはへようこそ です。
 
-— [Rick Anderson](https://blogs.msdn.com/rickAndy) twitter:[@RickAndMSFT](https://twitter.com/RickAndMSFT)  
-— [Scott Hanselman](http://www.hanselman.com/blog/) twitter:[@shanselman](https://twitter.com/shanselman)
+— [Rick Anderson](https://blogs.msdn.com/rickAndy) twitter: [@RickAndMSFT](https://twitter.com/RickAndMSFT)  
+— [Scott Hanselman](http://www.hanselman.com/blog/) twitter: [@shanselman](https://twitter.com/shanselman)
 
->[!div class="step-by-step"]
-[前へ](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [前へ](adding-validation-to-the-model.md)

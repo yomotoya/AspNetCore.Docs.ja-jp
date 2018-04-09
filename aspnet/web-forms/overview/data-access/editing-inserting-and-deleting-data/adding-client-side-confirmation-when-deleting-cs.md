@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs
-title: "(C#) を削除するときに、クライアント側の確認を追加する |Microsoft ドキュメント"
+title: (C#) を削除するときに、クライアント側の確認を追加する |Microsoft ドキュメント
 author: rick-anderson
-description: "これまでに作成しました、インターフェイスで、ユーザーは [編集] ボタンをクリックするさせようとしているときに、[削除] ボタンをクリックしてデータを誤って削除できます。 この t しています."
+description: これまでに作成しました、インターフェイスで、ユーザーは [編集] ボタンをクリックするさせようとしているときに、[削除] ボタンをクリックしてデータを誤って削除できます。 この t しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c5e8ee76224a48d3132597016b81099bd70a1776
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72b15d498e45cc519a14ecfe39111b224db88c30
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-client-side-confirmation-when-deleting-c"></a>(C#) を削除するときに、クライアント側の確認を追加します。
 ====================
@@ -75,7 +75,7 @@ FormView s の削除のみをサポートする ObjectDataSource コントロー
 
 ## <a name="step-2-calling-the-confirmstring-function-from-the-delete-buttons-client-side-onclick-event"></a>手順 2: は、削除ボタン クライアント側の onclick イベントから confirm(string) 関数を呼び出す
 
-作成 FormView、最後の手順はこのような削除ボタンを構成するときに、JavaScript、訪問者によって秒がクリックされた`confirm(string)`関数が呼び出されます。 ボタン、LinkButton、または ImageButton のクライアント側へのクライアント側スクリプトの追加`onclick`イベントの使用により実現できます、 `OnClientClick property`、ASP.NET 2.0 に新機能です。 値が必要なので、`confirm(string)`このプロパティを設定するだけ関数が返されます。`return confirm('Are you certain that you want to delete this product?');`
+作成 FormView、最後の手順はこのような削除ボタンを構成するときに、JavaScript、訪問者によって秒がクリックされた`confirm(string)`関数が呼び出されます。 ボタン、LinkButton、または ImageButton のクライアント側へのクライアント側スクリプトの追加`onclick`イベントの使用により実現できます、 `OnClientClick property`、ASP.NET 2.0 に新機能です。 値が必要なので、`confirm(string)`このプロパティを設定するだけ関数が返されます。 `return confirm('Are you certain that you want to delete this product?');`
 
 この変更後に削除の LinkButton s の宣言構文ようになります。
 
@@ -146,7 +146,7 @@ CommandField の欠点の 1 つは、そのボタンをインデックスを通�
 
 ここで*controlID*ボタン秒の値は、`ID`プロパティです。 このパターンには、キャストのハードコーディング タイプも必要ですが、必要がある、インデックス作成のためのレイアウトは実行時エラーの結果として得られるせずに変更することができます。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 JavaScript`confirm(string)`関数は、フォームの送信を制御するための一般的に使用される手法です。 実行すると、関数には、2 つのボタン、[ok] と [キャンセル] を含む、クライアント側のモーダル ダイアログ ボックスが表示されます。 ユーザーが [ok] をクリックすると、`confirm(string)`関数が返される`true`; [キャンセル] をクリックすると戻ります`false`です。 この機能は、送信処理中に、イベント ハンドラーを返す場合は、フォームの送信をキャンセルするブラウザー s の動作と組み合わせる`false`レコードを削除するときに、確認メッセージ ボックスを表示するために使用できます。
 
@@ -156,8 +156,8 @@ JavaScript`confirm(string)`関数は、フォームの送信を制御するた�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[前へ](implementing-optimistic-concurrency-cs.md)
-[次へ](limiting-data-modification-functionality-based-on-the-user-cs.md)
+> [!div class="step-by-step"]
+> [前へ](implementing-optimistic-concurrency-cs.md)
+> [次へ](limiting-data-modification-functionality-based-on-the-user-cs.md)

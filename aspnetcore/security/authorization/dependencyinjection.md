@@ -1,7 +1,7 @@
 ---
-title: "要件のハンドラーで依存関係の挿入"
+title: ASP.NET Core の要件のハンドラーで依存関係の挿入
 author: rick-anderson
-description: "このドキュメントでは、依存関係の挿入を使用して ASP.NET Core アプリケーションに承認要求ハンドラーを挿入する方法について説明します。"
+description: 依存関係の挿入を使用して ASP.NET Core アプリケーションに承認要求ハンドラーを挿入する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/dependencyinjection
-ms.openlocfilehash: 1b7506b49109264a8c628ea2e39ded9f5ace95d3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4de7f0e49ade459968f8c30fbad76ce96a65815f
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="dependency-injection-in-requirement-handlers"></a>要件のハンドラーで依存関係の挿入
+# <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a>ASP.NET Core の要件のハンドラーで依存関係の挿入
 
 <a name="security-authorization-di"></a>
 
-[認証ハンドラーを登録する必要があります](policies.md#handler-registration)構成中にサービスのコレクションで (を使用して[依存性の注入](../../fundamentals/dependency-injection.md#fundamentals-dependency-injection))。
+[認証ハンドラーを登録する必要があります](xref:security/authorization/policies#handler-registration)構成中にサービスのコレクションで (を使用して[依存性の注入](xref:fundamentals/dependency-injection#fundamentals-dependency-injection))。
 
 認証ハンドラー内で評価を行うとルールのリポジトリがあるとし、そのリポジトリは、サービスのコレクションに登録されました。 承認を解決して、コンス トラクターを挿入します。
 

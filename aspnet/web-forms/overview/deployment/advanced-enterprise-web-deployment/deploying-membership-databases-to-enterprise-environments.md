@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
-title: "エンタープライズ環境にメンバーシップ データベースを展開する |Microsoft ドキュメント"
+title: エンタープライズ環境にメンバーシップ データベースを展開する |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックは、重要な考慮事項と課題を克服 ASP.NET アプリケーション サービス データベース (複数の一般的な... をプロビジョニングする際にする必要がありますについて説明します。"
+description: このトピックは、重要な考慮事項と課題を克服 ASP.NET アプリケーション サービス データベース (複数の一般的な... をプロビジョニングする際にする必要がありますについて説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 27fade9fc5cae917579d4963da7bca12f6a5cda1
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: b783fcf57759f2a431480eec6902105f6d683408
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-membership-databases-to-enterprise-environments"></a>エンタープライズ環境にメンバーシップ データベースの配置
 ====================
@@ -27,9 +27,9 @@ ms.lasthandoff: 03/15/2018
 > このトピックには、重要な考慮事項と課題 (メンバーシップ データベースとよく呼ばれる) データベースでのテスト、ステージング、または実稼働環境でのサービスの ASP.NET アプリケーションを準備するを解決する必要がありますがについて説明します。 これらの課題に対応する方法についても説明します。
 
 
-このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。サンプル ソリューション & #x 2014; このチュートリアルのシリーズを使用して、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; を ASP.NET MVC 3 アプリケーションを Windows のなどの複雑性のレベルが現実的な web アプリケーションを表すCommunication Foundation (WCF) サービスとデータベース プロジェクト。
+このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルの一連のサンプル ソリューションを使用する&#x2014;、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的な ASP.NET MVC 3 アプリケーション、Windows Communication も含め、複雑さのレベルを持つ web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
-説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスで 2 つのプロジェクト ファイル & #x 2014; 1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスでは、2 つのプロジェクト ファイル&#x2014;1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
 
 ## <a name="what-are-the-issues-when-you-deploy-a-membership-database"></a>メンバーシップ データベースを展開するときに、問題とは?
 
@@ -45,13 +45,13 @@ ms.lasthandoff: 03/15/2018
 エンタープライズ サーバー環境でのメンバーシップ データベースをプロビジョニングする方法を選択すると、次のガイドラインを使用します。
 
 - 可能な限りでは、メンバーシップ データベースを展開することはありません。 代わりに、ターゲット データベースのサーバーでメンバーシップ データベースを手動で作成します。 メンバーシップ データベース スキーマをカスタマイズしていない場合だけで、新しいもので situ で作成を使用して、移行先、 [ASP.NET SQL Server の登録ツール (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx)です。
-- メンバーシップ データベース & #x 2014; を展開するオプションがない場合など、データベース スキーマ & #x 2014; に対して大幅な変更を行った場合行う必要があります、スキーマのみ、データベースの配置のメンバーシップ、ユーザー アカウントのデータを除外して必要な構成データを追加する配置後スクリプトを実行します。 これらのアプローチの広範なガイダンスを検索できます[する方法: ASP.NET メンバーシップ データベースなしを含むユーザー アカウントを展開](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx)です。
+- メンバーシップ データベースを展開するオプションがない場合&#x2014;例では、データベースのスキーマの大幅な変更を行った場合の&#x2014;ユーザー アカウントのデータを除外する、メンバーシップ データベースのスキーマのみの展開を行う必要があり、必要な構成データを追加する配置後スクリプトを実行します。 これらのアプローチの広範なガイダンスを検索できます[する方法: ASP.NET メンバーシップ データベースなしを含むユーザー アカウントを展開](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx)です。
 
-留意することが重要*、メンバーシップ データベースのスキーマは比較的静的である可能性があります*です。 メンバーシップ データベース、カスタマイズした場合でも、定期的に & #x 2014 スキーマを更新する必要があります以外の場合は、web アプリケーションとデータベース プロジェクト内のコードと同じ頻度で変更することはしません可能性はありません。 そのため、自動または 1 ステップの展開プロセスにメンバーシップ データベースを含める必要はありません。
+留意することが重要*、メンバーシップ データベースのスキーマは比較的静的である可能性があります*です。 メンバーシップ データベース、カスタマイズした場合でもにない可能性を定期的にスキーマを更新する必要があります&#x2014;、web アプリケーションとデータベース プロジェクト内のコードと同じ頻度で変更することはしません。 そのため、自動または 1 ステップの展開プロセスにメンバーシップ データベースを含める必要はありません。
 
 ## <a name="using-vsdbcmd-to-update-a-membership-database-schema"></a>VSDBCMD を使用してメンバーシップ データベース スキーマを更新するには
 
-場合は、最初の展開の後、メンバーシップ データベースの構造を変更することがありますしないするを (Web 配置) インターネット インフォメーション サービス (IIS) Web 配置ツールを使用して、データベースを再展開します。 Web Deploy でデータベースの配置機能には、転送先データベース & #x 2014 を差分更新を有効にする機能が含まれていません; 代わりに、Web デプロイを削除してください、データベースを再作成します。 これは、既存のユーザー アカウントのデータはステージング環境または実稼働環境で通常は望ましくないが失われることを意味します。
+場合は、最初の展開の後、メンバーシップ データベースの構造を変更することがありますしないするを (Web 配置) インターネット インフォメーション サービス (IIS) Web 配置ツールを使用して、データベースを再展開します。 Web Deploy でデータベースの配置機能には転送先データベースの差分更新を行う機能が含まれていない&#x2014;代わりに、Web デプロイを削除してください、データベースを再作成します。 これは、既存のユーザー アカウントのデータはステージング環境または実稼働環境で通常は望ましくないが失われることを意味します。
 
 代わりに、VSDBCMD ユーティリティを使用して、転送先データベースのスキーマの更新を開始します。 VSDBCMD には、次の 2 つの重要な機能が含まれています。 最初に、既存のデータベースのスキーマ .dbschema ファイルにインポートできます。 次に既存のデータベースに差分更新プログラムとだけ変更があったとき、ターゲット データベースの最新の状態のために必要なすべてのデータが失われないとして .dbschema ファイルを展開することができます。
 
@@ -68,6 +68,6 @@ ms.lasthandoff: 03/15/2018
 
 詳細なガイダンスと VSDBCMD を使用する方法の例については、次を参照してください。 [VSDBCMD のコマンド ライン リファレンスです。EXE (配置とスキーマのインポート)](https://msdn.microsoft.com/library/dd193283.aspx)と[する方法: コマンド プロンプトからスキーマをインポート](https://msdn.microsoft.com/library/dd172135.aspx)です。 Aspnet を使用する方法についての\_regsql.exe メンバーシップ データベースを作成するを参照してください[ASP.NET SQL Server の登録ツール (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx)です。 メンバーシップ データベースの展開の一般的なガイダンスについては、次を参照してください。[する方法: ASP.NET メンバーシップ データベースなしを含むユーザー アカウントを展開](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx)です。
 
->[!div class="step-by-step"]
-[前へ](deploying-database-role-memberships-to-test-environments.md)
-[次へ](excluding-files-and-folders-from-deployment.md)
+> [!div class="step-by-step"]
+> [前へ](deploying-database-role-memberships-to-test-environments.md)
+> [次へ](excluding-files-and-folders-from-deployment.md)

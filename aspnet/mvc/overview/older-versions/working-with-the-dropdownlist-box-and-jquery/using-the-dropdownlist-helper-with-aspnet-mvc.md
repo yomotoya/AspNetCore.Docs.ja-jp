@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
-title: "ASP.NET mvc の DropDownList ヘルパーの使用 |Microsoft ドキュメント"
+title: ASP.NET mvc の DropDownList ヘルパーの使用 |Microsoft ドキュメント
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 278d04aec68e93f3ebfd12d06a96b59f3bcbef4b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 21373deeded801c5cea9e89f6dac0f3542a55ca5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>ASP.NET mvc の DropDownList ヘルパーの使用
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 01/24/2018
 
 このチュートリアルがの操作の基礎を学習、 [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx)ヘルパーと[ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) ASP.NET MVC Web アプリケーションでヘルパー。 Microsoft Visual Web Developer 2010 Express Service Pack 1、これは、無料版のチュートリアルに従うに Microsoft Visual Studio を使用することができます。 開始する前に、以下に示す前提条件がインストールされていることを確認してください。 次のリンクをクリックしてそれらのすべてをインストールすることができます: [Web Platform Installer](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)です。 また、次のリンクを使用して、前提条件を個別にインストールできます。
 
-- [Visual Studio Web Developer Express SP1 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)<a id="post"></a>
+- [Visual Studio Web Developer Express SP1 の前提条件](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack) <a id="post"></a>
 - [ASP.NET MVC 3 Tools Update します。](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
 - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(ランタイムとツールのサポート)
 
@@ -193,7 +193,7 @@ HTML ヘルパー [ListBox](https://msdn.microsoft.com/library/dd470200.aspx)メ
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-上記のコードで HTML 属性と属性値を追加するお`class = "chzn-select"`です。 @ 文字クラスの前は、Razor ビュー エンジンを行うには何も行われません。 `class`[c# キーワード](https://msdn.microsoft.com/library/x53a06bb.aspx)です。 @ プレフィックスとしてを含めない限り、c# のキーワードを識別子として使用できません。 上記の例で`@class`有効な識別子が、**クラス**ではありません**クラス**キーワードします。
+上記のコードで HTML 属性と属性値を追加するお`class = "chzn-select"`です。 @ 文字クラスの前は、Razor ビュー エンジンを行うには何も行われません。 `class` [c# キーワード](https://msdn.microsoft.com/library/x53a06bb.aspx)です。 @ プレフィックスとしてを含めない限り、c# のキーワードを識別子として使用できません。 上記の例で`@class`有効な識別子が、**クラス**ではありません**クラス**キーワードします。
 
 参照を追加、 *Chosen/chosen.jquery.js*と*Chosen/chosen.css*ファイル。 *Chosen/chosen.jquery.js*を実装して、選択したプラグインの機能的します。 *Chosen/chosen.css*ファイルは、スタイルを提供します。 一番下にこれらの参照を追加、 *Views\Home\MultiSelectCountry.cshtml*ファイル。 次のコードでは、選択したプラグインを参照する方法を示します。
 
@@ -217,5 +217,5 @@ HTML ヘルパー [ListBox](https://msdn.microsoft.com/library/dd470200.aspx)メ
 
 次のセクションで、ASP.NET MVC のスキャフォールディング機構の使用方法が表示されます、 **DropDownList**ヘルパー。
 
->[!div class="step-by-step"]
-[次へ](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
+> [!div class="step-by-step"]
+> [次へ](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)

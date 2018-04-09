@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
-title: "詳細 DataList (VB) のマスター レコードの箇条書きリストを使用してマスター/詳細 |Microsoft ドキュメント"
+title: 詳細 DataList (VB) のマスター レコードの箇条書きリストを使用してマスター/詳細 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでを前のチュートリアルの 2 ページ マスター/詳細レポートを単一のページに圧縮お t にカテゴリ名の箇条書きリストを表示しています."
+description: このチュートリアルでを前のチュートリアルの 2 ページ マスター/詳細レポートを単一のページに圧縮お t にカテゴリ名の箇条書きリストを表示しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 613ad1fb101a168c79310c9dc7bf731be264f889
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4d87dc7f4fb00e96d9eb2653e6fbc1efb8bb656c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>マスター/詳細詳細 DataList (VB) でマスター レコードの箇条書きリストの使い方
 ====================
@@ -74,7 +74,7 @@ CSS クラスを追加して、内のマークアップを構成した後、 `Ca
 
 完全なマークアップを囲むリピータおよび DataList s、おリピータにカテゴリ データをバインドする準備ができたら、次の操作を制御します。 ただし、図 1 内のカテゴリの箇条書きリストでは、各カテゴリの名前だけでなくも必要がありますをカテゴリに関連付けられている製品の数を表示します。 この情報にアクセスできますか。
 
-- **ASP.NET ページの分離コード クラスのこの情報を決定します。** 指定された特定の *`categoryID`* ところを呼び出して関連付けられている製品の数を判断することができます、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドです。 このメソッドが戻る、`ProductsDataTable`オブジェクト`Count`プロパティを示します数`ProductsRow`%s に存在して、指定した製品の数は *`categoryID`*です。 作成できるよう、 `ItemDataBound` Repeater を呼び出し、リピータにバインドされている各カテゴリのイベント ハンドラー、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドの出力に、カウントが含まれています。
+- **ASP.NET ページの分離コード クラスのこの情報を決定します。** 指定された特定の*`categoryID`*ところを呼び出して関連付けられている製品の数を判断することができます、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドです。 このメソッドが戻る、`ProductsDataTable`オブジェクト`Count`プロパティを示します数`ProductsRow`%s に存在して、指定した製品の数は *`categoryID`*です。 作成できるよう、 `ItemDataBound` Repeater を呼び出し、リピータにバインドされている各カテゴリのイベント ハンドラー、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドの出力に、カウントが含まれています。
 - **更新プログラム、`CategoriesDataTable`に含める型指定されたデータセットで、`NumberOfProducts`列です。** 更新することが、`GetCategories()`メソッドで、`CategoriesDataTable`を含めることがこの情報、または、`GetCategories()`として-を新規作成は、`CategoriesDataTable`呼び出されるメソッド`GetCategoriesAndNumberOfProducts()`です。
 
 S、これらの手法の両方のシナリオを使用できます。 最初の方法は、データ アクセス層; を更新する必要ありませんので、実装に簡単です。ただし、データベースと複数の通信が必要です。 呼び出し、`ProductsBLL`クラス s`GetProductsByCategoryID(categoryID)`メソッドで、`ItemDataBound`リピータに表示されるカテゴリごとに、追加のデータベース呼び出しをイベント ハンドラーに追加します。 この手法では*N* + 1 つのデータベース呼び出し、ここで*N*リピータに表示されるカテゴリの数です。 各カテゴリに関する情報を 2 番目の方法で製品の数が返される、`CategoriesBLL`クラス s `GetCategories()` (または`GetCategoriesAndNumberOfProducts()`) メソッドを招き、1 つだけのトリップで結果としてデータベースにします。
@@ -210,7 +210,7 @@ LinkButton を`ID`のプロパティの値`ViewCategory`がその`Text`プロパ
 
 この時点である、`Categories`リピータ各カテゴリの製品の数と共にカテゴリの一覧を表示します。 リピータ、クリックすると、問題が発生する、ポストバック ポイントは、各カテゴリの LinkButton を使用して、選択したカテゴリでのそれらの製品を表示する必要があります、 `CategoryProducts` DataList です。
 
-私たちが直面する 1 つの課題は、DataList、選択したカテゴリの製品だけを表示する方法を示します。 [マスター/詳細 DetailsView で選択可能なマスター GridView の使用について詳しく説明](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md)行が GridView を構築する方法を説明しましたチュートリアルを選択することが、選択した行 s 詳細は同じページ上の DetailsView に表示されています。 GridView の ObjectDataSource が返される情報を使用してすべての製品について、 `ProductsBLL` s `GetProducts()` DetailsView の ObjectDataSource 中にメソッドを使用して、選択した製品に関する情報を取得する、`GetProductsByProductID(productID)`メソッドです。 *`productID`*  GridView 秒の値に関連付けることにより宣言によって指定されたがパラメーター値`SelectedValue`プロパティです。 残念ながら、リピータはありません、`SelectedValue`プロパティおよびパラメーターのソースとして使用できません。
+私たちが直面する 1 つの課題は、DataList、選択したカテゴリの製品だけを表示する方法を示します。 [マスター/詳細 DetailsView で選択可能なマスター GridView の使用について詳しく説明](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md)行が GridView を構築する方法を説明しましたチュートリアルを選択することが、選択した行 s 詳細は同じページ上の DetailsView に表示されています。 GridView の ObjectDataSource が返される情報を使用してすべての製品について、 `ProductsBLL` s `GetProducts()` DetailsView の ObjectDataSource 中にメソッドを使用して、選択した製品に関する情報を取得する、`GetProductsByProductID(productID)`メソッドです。 *`productID`* GridView 秒の値に関連付けることにより宣言によって指定されたがパラメーター値`SelectedValue`プロパティです。 残念ながら、リピータはありません、`SelectedValue`プロパティおよびパラメーターのソースとして使用できません。
 
 > [!NOTE]
 > これは、リピータ内の LinkButton を使用するときに表示されるこれらの課題の 1 つです。 使用して、ハイパーリンクに渡す、`CategoryID`クエリ文字列を通じて代わりに、お QueryString フィールド ソースとして使用、パラメーターの値。
@@ -233,7 +233,7 @@ LinkButton を`ID`のプロパティの値`ViewCategory`がその`Text`プロパ
 
 [![CategoryID パラメーターのパラメーターのソースを指定しないをしないでください。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image35.png)
 
-**図 13**: パラメーターのソースを指定しない、  *`categoryID`* パラメーター ([フルサイズのイメージを表示するをクリックして](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image37.png))
+**図 13**: パラメーターのソースを指定しない、 *`categoryID`*パラメーター ([フルサイズのイメージを表示するをクリックして](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image37.png))
 
 
 データ ソース構成ウィザードを完了すると、Visual Studio 自動生成 DataList の`ItemTemplate`です。 この既定値を置き換える`ItemTemplate`テンプレートを使用して前のチュートリアルで使用されている以外の場合は DataList s を設定しても、`RepeatColumns`プロパティを 2 です。 これらの変更を行った後は、DataList および関連付けられている、ObjectDataSource の宣言型マークアップは、次のようになります。
@@ -241,7 +241,7 @@ LinkButton を`ID`のプロパティの値`ViewCategory`がその`Text`プロパ
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample10.aspx)]
 
-現時点では、 `CategoryProductsDataSource` ObjectDataSource s  *`categoryID`* パラメーターは設定されません、ページを表示するときに製品が表示されないようにします。 このパラメーター値が設定されてに基づいて行う必要がありますが、`CategoryID`リピータでクリックしたカテゴリのです。 これにより、2 つの課題: 最初は方針ときリピータ s の LinkButton`ItemTemplate`が行われてクリックした 2 番目、どのように確認する、`CategoryID`の LinkButton がクリックされた、対応するカテゴリのですか?。
+現時点では、 `CategoryProductsDataSource` ObjectDataSource s *`categoryID`*パラメーターは設定されません、ページを表示するときに製品が表示されないようにします。 このパラメーター値が設定されてに基づいて行う必要がありますが、`CategoryID`リピータでクリックしたカテゴリのです。 これにより、2 つの課題: 最初は方針ときリピータ s の LinkButton`ItemTemplate`が行われてクリックした 2 番目、どのように確認する、`CategoryID`の LinkButton がクリックされた、対応するカテゴリのですか?。
 
 ボタンおよび ImageButton コントロールと同様の LinkButton が、`Click`イベントおよび[`Command`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.command.aspx)です。 `Click`イベントの目的だけの LinkButton がクリックしてされたことに注意してください。 ときに、ただし、に加えて、LinkButton がクリックしてされたことに注意してくださいもが必要な追加情報をイベント ハンドラーに渡します。 このような LinkButton s 場合[ `CommandName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandname.aspx)と[ `CommandArgument` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx)プロパティにこの追加情報を割り当てることができます。 LinkButton がクリックされたときにし、その`Command`イベントの起動 (の代わりにその`Click`イベント) でイベント ハンドラーには、値が渡され、`CommandName`と`CommandArgument`プロパティ。
 
@@ -296,11 +296,11 @@ LinkButton を`ID`のプロパティの値`ViewCategory`がその`Text`プロパ
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Zack Jones しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](master-detail-filtering-acess-two-pages-datalist-vb.md)
+> [!div class="step-by-step"]
+> [前へ](master-detail-filtering-acess-two-pages-datalist-vb.md)

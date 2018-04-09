@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/performing-simple-validation-cs
-title: "単純な検証 (c#) を実行する |Microsoft ドキュメント"
+title: 単純な検証 (c#) を実行する |Microsoft ドキュメント
 author: StephenWalther
-description: "ASP.NET MVC アプリケーションで検証を実行する方法を説明します。 このチュートリアルでは、Stephen Walther は、モデルの状態にして検証 HTML ヘルパーを紹介しています."
+description: ASP.NET MVC アプリケーションで検証を実行する方法を説明します。 このチュートリアルでは、Stephen Walther は、モデルの状態にして検証 HTML ヘルパーを紹介しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 005872308d9d4d8ac7feb12dd5ab1fc463d0140e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7fc1dcc6935841382215f67a519cd241ac68931a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-simple-validation-c"></a>単純な検証 (c#) を実行します。
 ====================
@@ -71,7 +71,7 @@ Html.ValidationMessage() と Html.ValidationSummary() ヘルパーは、ASP.NET 
 
 次の手順を完了すると、リスト 2 で作成ビューが表示されます。
 
-**2 - Views\Product\Create.aspx を一覧表示します。**
+**Listing 2 - Views\Product\Create.aspx**
 
 [!code-aspx[Main](performing-simple-validation-cs/samples/sample2.aspx)]
 
@@ -126,10 +126,10 @@ HTML の外観入力フィールドは、検証エラーがある場合にも変
 
 エラー メッセージを prebinding これらの外観をカスタマイズする場合は、これらのメッセージのリソース文字列を作成する必要があります。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、ASP.NET MVC フレームワークでの検証の基本的なしくみを説明することでした。 モデルの状態および検証する HTML ヘルパーを使用する方法を学習しました。 私たちも prebinding と検証を postbinding の違いを説明します。 他のチュートリアルでは、コント ローラー アウトし、モデルのクラスに検証コードを移動するためのさまざまな方法について説明します。
 
->[!div class="step-by-step"]
-[前へ](displaying-a-table-of-database-data-cs.md)
-[次へ](validating-with-the-idataerrorinfo-interface-cs.md)
+> [!div class="step-by-step"]
+> [前へ](displaying-a-table-of-database-data-cs.md)
+> [次へ](validating-with-the-idataerrorinfo-interface-cs.md)

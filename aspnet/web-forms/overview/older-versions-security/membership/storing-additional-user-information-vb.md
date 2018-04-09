@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
-title: "追加のユーザー情報 (VB) を格納する |Microsoft ドキュメント"
+title: 追加のユーザー情報 (VB) を格納する |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、非常に基本的なゲストブック アプリケーションを構築してこの質問に回答されます。 そうでは、modeli のさまざまなオプションを確認しています."
+description: このチュートリアルでは、非常に基本的なゲストブック アプリケーションを構築してこの質問に回答されます。 そうでは、modeli のさまざまなオプションを確認しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a40238605e8fb3e26d80264af9156eec634affbe
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 9a8673e764ae94b12fbc01f81ef12ea4c133b7d5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="storing-additional-user-information-vb"></a>追加のユーザー情報 (VB) を格納します。
 ====================
@@ -107,13 +107,13 @@ ASP です。NET のメンバーシップのフレームワークでは、ユー
 
 これに 3 つの列をユーザーのホーム町、ホーム ページ、および彼ゲストブック コメントに表示されるシグネチャを格納するには、各ユーザー アカウントに関連付ける必要があります。 これを実現するさまざまな方法の数。
 
-- **新しい列を追加、* * *`aspnet_Users`* * * または * * *`aspnet_Membership`* * * テーブル。** によって使用されるスキーマを変更するためにこの方法を推奨、I、`SqlMembershipProvider`です。 この決定は、落ちて発言に返される可能性があります。 たとえば、what-if ASP.NET の将来のバージョンを使用して、さまざまな`SqlMembershipProvider`スキーマです。 Microsoft は、ASP.NET 2.0 を移行するためのツールを含めることが`SqlMembershipProvider`ASP.NET 2.0 を変更した場合は、新しいスキーマにデータ`SqlMembershipProvider`スキーマ、変換できない可能性があります。
+- <strong>新しい列を追加、</strong><strong>`aspnet_Users`</strong><strong>または</strong><strong>`aspnet_Membership`</strong><strong>テーブル。</strong> によって使用されるスキーマを変更するためにこの方法を推奨、I、`SqlMembershipProvider`です。 この決定は、落ちて発言に返される可能性があります。 たとえば、what-if ASP.NET の将来のバージョンを使用して、さまざまな`SqlMembershipProvider`スキーマです。 Microsoft は、ASP.NET 2.0 を移行するためのツールを含めることが`SqlMembershipProvider`ASP.NET 2.0 を変更した場合は、新しいスキーマにデータ`SqlMembershipProvider`スキーマ、変換できない可能性があります。
 
 - **ASP を使用します。NET のプロファイルのフレームワーク、ホーム町、ホーム ページ、および署名のプロファイル プロパティを定義します。** ASP.NET には、その他のユーザーに固有のデータを格納するように設計されたプロファイルのフレームワークが含まれています。 メンバーシップ フレームワークと同様に、プロファイルのフレームワークはプロバイダー モデル上に構築されます。 .NET Framework が付属しています、`SqlProfileProvider`ストアが SQL Server データベース内のデータをプロファイルします。 実際には、データベースは既にで使用されるテーブル、 `SqlProfileProvider` (`aspnet_Profile`) で、アプリケーション サービスのバックアップを追加したときに追加された、 [*メンバーシップ スキーマを作成する SQL Server で*](creating-the-membership-schema-in-sql-server-vb.md)チュートリアルです。   
- プロファイルのフレームワークの主な利点は、開発者のプロファイルのプロパティを定義することができる`Web.config`– コードを基になるデータ ストアと、プロファイル データをシリアル化に書き込む必要はありません。 つまり、プロファイルのプロパティのセットを定義して、コードで作業するには驚くほど簡単です。 ただし、プロファイル システム不十分、バージョン管理する際に必要なため、後の時刻、または既存のテーブルを削除または変更されると、追加された新しいユーザーに固有のプロパティを期待するし、プロファイルのフレームワークができない可能性があります、アプリケーションがある場合、 最適なオプションです。 さらに、`SqlProfileProvider`次に不可能にすることをプロファイル データ (など、ユーザーの数では、New York のホーム町がある) に対して直接クエリを実行する、高非正規化方式で、プロファイルのプロパティを格納します。   
- プロファイルのフレームワークの詳細については、このチュートリアルの最後に、「これ以上の測定値」セクションを参照してください。
+  プロファイルのフレームワークの主な利点は、開発者のプロファイルのプロパティを定義することができる`Web.config`– コードを基になるデータ ストアと、プロファイル データをシリアル化に書き込む必要はありません。 つまり、プロファイルのプロパティのセットを定義して、コードで作業するには驚くほど簡単です。 ただし、プロファイル システム不十分、バージョン管理する際に必要なため、後の時刻、または既存のテーブルを削除または変更されると、追加された新しいユーザーに固有のプロパティを期待するし、プロファイルのフレームワークができない可能性があります、アプリケーションがある場合、 最適なオプションです。 さらに、`SqlProfileProvider`次に不可能にすることをプロファイル データ (など、ユーザーの数では、New York のホーム町がある) に対して直接クエリを実行する、高非正規化方式で、プロファイルのプロパティを格納します。   
+  プロファイルのフレームワークの詳細については、このチュートリアルの最後に、「これ以上の測定値」セクションを参照してください。
 
-- **データベースに新しいテーブルにはこれら 3 つの列を追加し、このテーブルの間の一対一の関係を確立し、* * *`aspnet_Users`* * *。** この方法は、プロファイル フレームワークよりも少し多くの作業が含まれますが、追加のユーザー プロパティがデータベースにモデル化方法で最大限の柔軟性を提供しています。 これは、このチュートリアルで使用するオプションです。
+- <strong>データベースに新しいテーブルにはこれら 3 つの列を追加し、このテーブルの間の一対一の関係を確立し、</strong><strong>`aspnet_Users`</strong><strong>です。</strong> この方法は、プロファイル フレームワークよりも少し多くの作業が含まれますが、追加のユーザー プロパティがデータベースにモデル化方法で最大限の柔軟性を提供しています。 これは、このチュートリアルで使用するオプションです。
 
 という名前の新しいテーブルを作成、`UserProfiles`ホーム町、ホーム ページ、および各ユーザーの署名を保存します。 データベース エクスプ ローラー ウィンドウで テーブル フォルダーを右クリックし、新しいテーブルを作成するを選択します。 最初の列の名前を付けます`UserId`にその型を設定および`uniqueidentifier`です。 禁止`NULL`値し、列を主キーとしてマークします。 次に、という名前の列を追加:`HomeTown`型の`nvarchar(50)`です。`HomepageUrl`型の`nvarchar(100)`; 型のシグネチャと`nvarchar(500)`です。 これら 3 つの列のそれぞれを受け入れることができます、`NULL`値。
 
@@ -428,9 +428,9 @@ CreateUserWizard コントロールは、一連の順序を定義するページ
 
 追加のフォーム フィールドを含める CreateUserWizard コントロールのインターフェイスをカスタマイズするには、ことを実行できます。
 
-- **1 つまたは複数を新規作成 * * *`WizardStep`* * * 追加のユーザー インターフェイス要素を格納する s**です。 新しいを追加する`WizardStep`、CreateUserWizard をクリックして、"追加/削除`WizardStep`s"を起動するスマート タグからのリンク、`WizardStep`コレクション エディターです。 そこから追加、削除、またはウィザードの手順の順序を変更することができます。 これは、このチュートリアルのために使用するアプローチです。
+- <strong>1 つまたは複数を新規作成</strong><strong>`WizardStep`</strong><strong>追加のユーザー インターフェイス要素を格納する s</strong>です。 新しいを追加する`WizardStep`、CreateUserWizard をクリックして、"追加/削除`WizardStep`s"を起動するスマート タグからのリンク、`WizardStep`コレクション エディターです。 そこから追加、削除、またはウィザードの手順の順序を変更することができます。 これは、このチュートリアルのために使用するアプローチです。
 
-- **変換、* * *`CreateUserWizardStep`* * *、編集可能なに * * *`WizardStep`* * *。** これに置き換えられます、`CreateUserWizardStep`同等な`WizardStep`をマークアップに一致するユーザー インターフェイスを定義する、 `CreateUserWizardStep`' s。 変換することで、`CreateUserWizardStep`に、`WizardStep`おコントロールの位置を変更したり、このステップに追加のユーザー インターフェイス要素を追加します。 変換する、`CreateUserWizardStep`または`CompleteWizardStep`が編集可能に`WizardStep`コントロールのスマート タグからのリンクを「完了ステップのカスタマイズ」または「をカスタマイズするユーザーの作成ステップ」をクリックします。
+- <strong>変換、</strong><strong>`CreateUserWizardStep`</strong><strong>が編集可能に</strong><strong>`WizardStep`</strong><strong>です。</strong> これに置き換えられます、`CreateUserWizardStep`同等な`WizardStep`をマークアップに一致するユーザー インターフェイスを定義する、 `CreateUserWizardStep`' s。 変換することで、`CreateUserWizardStep`に、`WizardStep`おコントロールの位置を変更したり、このステップに追加のユーザー インターフェイス要素を追加します。 変換する、`CreateUserWizardStep`または`CompleteWizardStep`が編集可能に`WizardStep`コントロールのスマート タグからのリンクを「完了ステップのカスタマイズ」または「をカスタマイズするユーザーの作成ステップ」をクリックします。
 
 - **上記の 2 つのオプションの組み合わせを使用します。**
 
@@ -527,11 +527,11 @@ CreateUserWizard のイベント ハンドラーを追加`ActiveStepChanged`イ�
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>特別に感謝しています.
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[ mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)です。
 
->[!div class="step-by-step"]
-[前へ](user-based-authorization-vb.md)
+> [!div class="step-by-step"]
+> [前へ](user-based-authorization-vb.md)

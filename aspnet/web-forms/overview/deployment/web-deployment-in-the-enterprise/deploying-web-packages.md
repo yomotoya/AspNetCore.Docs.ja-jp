@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
-title: "Web パッケージを展開する |Microsoft ドキュメント"
+title: Web パッケージを展開する |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、インターネット インフォメーション サービス (IIS) Web 配置ツール (Web... を使用して、リモート サーバーに web 配置パッケージを発行する方法について説明します"
+description: このトピックでは、インターネット インフォメーション サービス (IIS) Web 配置ツール (Web... を使用して、リモート サーバーに web 配置パッケージを発行する方法について説明します
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: cd2bfa07262155b68ac4605fc7e9748d276d3193
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 5d3af0fdcc6e7ae20194ba658e0cf72ad22c1234
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-web-packages"></a>Web パッケージを展開します。
 ====================
@@ -43,10 +43,10 @@ ms.lasthandoff: 03/15/2018
 
 実行して、[*プロジェクト名*]*. deploy.cmd*ファイルは web パッケージを配置する最も簡単な方法です。 具体的を使用して、 *. deploy.cmd*ファイルは、これら MSDeploy.exe を直接使用する利点を提供しています。
 
-- Web 配置パッケージ & #x 2014; の場所を指定する必要はありません、 *. deploy.cmd*ファイル既に知っていることができます。
-- 場所を指定する必要はありません、 *SetParameters.xml* file & #x 2014;、 *. deploy.cmd*ファイル既に知っていることができます。
-- ソースと宛先 MSDeploy プロバイダー & #x 2014; を指定する必要はありません、 *. deploy.cmd*ファイルを既に知っているを使用する値を指定します。
-- MSDeploy 操作の設定 & #x 2014; を指定する必要はありません、 *. deploy.cmd*ファイル一般的に必要な値 MSDeploy.exe コマンドを自動的に追加します。
+- Web 配置パッケージの場所を指定する必要はありません&#x2014;、 *. deploy.cmd*ファイル既に知っていることができます。
+- 場所を指定する必要はありません、 *SetParameters.xml*ファイル&#x2014;、 *. deploy.cmd*ファイル既に知っていることができます。
+- 送信元と送信先の MSDeploy プロバイダーを指定する必要はありません&#x2014;、 *. deploy.cmd*ファイルを使用する値を既に知っています。
+- MSDeploy 操作の設定を指定する必要はありません&#x2014;、 *. deploy.cmd*ファイル一般的に必要な値 MSDeploy.exe コマンドを自動的に追加します。
 
 使用する前に、 *. deploy.cmd*ファイル web パッケージを配置することを確認する必要があります。
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 03/15/2018
 この例では、次のように記述されています。
 
 - **/Y**フラグは、実際には、パッケージを展開するではなく実行、試用版を行うことを示します。
-- **/M**フラグは TESTWEB1 をという名前のサーバーにパッケージを展開することを示します。 この値から MSDeploy.exe しようとパッケージ http://TESTWEB1/MSDeployAgentService で Web デプロイのリモート エージェント サービスを展開します。
+- **/M**フラグは TESTWEB1 をという名前のサーバーにパッケージを展開することを示します。 この値から MSDeploy.exe 試みます Web デプロイのリモート エージェントのサービスにパッケージを展開するhttp://TESTWEB1/MSDeployAgentServiceです。
 - **/A**フラグは、NTLM 認証を使用することを示します。 そのため、ユーザー名とパスワードを指定する必要はありません。
 
 説明するために使用して、 *. deploy.cmd*ファイルには、展開プロセスが簡略化され、生成を取得しを実行するときに実行される MSDeploy.exe コマンドを見て*ContactManager.Mvc.deploy.cmd*上記のオプションを使用します。
@@ -105,7 +105,7 @@ ms.lasthandoff: 03/15/2018
 
 ## <a name="using-msdeployexe"></a>Using MSDeploy.exe
 
-使用していますが、 *. deploy.cmd*ファイルが一般に、展開プロセスを簡略化、状況によっては MSDeploy.exe を直接使用することをお勧めときにします。 例:
+使用していますが、 *. deploy.cmd*ファイルが一般に、展開プロセスを簡略化、状況によっては MSDeploy.exe を直接使用することをお勧めときにします。 例えば:
 
 - 使用することはできません、管理者以外のユーザーとしての Web 展開ハンドラーを展開する場合、 *. deploy.cmd*ファイル。 これが原因で Web Deploy 2.0 では、バグの下の説明に従って**エンドポイントに関する考慮事項**です。
 - 別の間で手動で切り替える場合*SetParameters.xml*異なる場所にファイル、MSDeploy.exe を直接使用する望ましい場合もあります。
@@ -117,12 +117,12 @@ MSDeploy.exe を使用する場合は、次の 3 つの重要な情報を提供�
 - A **– dest**にデータを移動する場所を示すパラメーターです。
 - A **– 動詞**パラメーターを示す、[操作](https://technet.microsoft.com/library/dd568989(WS.10).aspx)を実行します。
 
-MSDeploy.exe が依存[Web Deploy プロバイダー](https://technet.microsoft.com/library/dd569040(WS.10).aspx)元とコピー先のデータを処理します。 たとえば、SQL Server データベース、IIS web サーバー、証明書、グローバル アセンブリ キャッシュ (GAC) アセンブリでは、プロバイダーではありません web 配置で使用するアプリケーションとデータのソース & #x 2014 の範囲を表す、プロバイダーの多くが含まれていますさまざまな。異なる構成ファイル、および多数の他のデータ型。 両方の**– ソース**パラメーターおよび**– dest**パラメーターは、フォームで、プロバイダーを指定する必要があります**– ソース**: [*providerName*] = [*場所*] です。 を IIS の web サイトに web パッケージを配置するときに、これらの値を使用する必要があります。
+MSDeploy.exe が依存[Web Deploy プロバイダー](https://technet.microsoft.com/library/dd569040(WS.10).aspx)元とコピー先のデータを処理します。 Web Deploy にで使用するアプリケーションとデータ ソースの範囲を表す、プロバイダーの多くが含まれる&#x2014;などの SQL Server データベース、IIS web サーバー、証明書、グローバル アセンブリ キャッシュ (GAC) アセンブリでは、プロバイダーにはさまざまな異なる構成ファイル、および多数の他のデータ型。 両方の**– ソース**パラメーターおよび**– dest**パラメーターは、フォームで、プロバイダーを指定する必要があります**– ソース**: [*providerName*] = [*場所*] です。 を IIS の web サイトに web パッケージを配置するときに、これらの値を使用する必要があります。
 
-- **– ソース**プロバイダーは、常に[パッケージ](https://technet.microsoft.com/library/dd569019(WS.10).aspx)です。 例:
+- **– ソース**プロバイダーは、常に[パッケージ](https://technet.microsoft.com/library/dd569019(WS.10).aspx)です。 例えば:
 
     [!code-console[Main](deploying-web-packages/samples/sample4.cmd)]
-- **– Dest**プロバイダーは、常に[自動](https://technet.microsoft.com/library/dd569016(WS.10).aspx)です。例:
+- **– Dest**プロバイダーは、常に[自動](https://technet.microsoft.com/library/dd569016(WS.10).aspx)です。例えば:
 
     [!code-console[Main](deploying-web-packages/samples/sample5.cmd)]
 - **– 動詞**は常に**同期**です。
@@ -213,6 +213,6 @@ MSDeploy.exe が依存[Web Deploy プロバイダー](https://technet.microsoft.
 
 作成し、web 配置パッケージのパラメーター化する方法のガイダンスについては、次を参照してください。[パッケージ Web アプリケーション プロジェクトのビルドと](building-and-packaging-web-application-projects.md)と[Web パッケージの展開の構成パラメーター](configuring-parameters-for-web-package-deployment.md)です。 ビルドし、Team Foundation Server (TFS) のインスタンスから web パッケージを配置する方法のガイダンスについては、次を参照してください。 [Web 配置の自動化の Team Foundation Server を構成する](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md)です。 カスタマイズし、展開プロセスをトラブルシューティングする方法については、次を参照してください。[除外ファイルおよびフォルダーの展開から](../advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment.md)です。
 
->[!div class="step-by-step"]
-[前へ](configuring-parameters-for-web-package-deployment.md)
-[次へ](deploying-database-projects.md)
+> [!div class="step-by-step"]
+> [前へ](configuring-parameters-for-web-package-deployment.md)
+> [次へ](deploying-database-projects.md)

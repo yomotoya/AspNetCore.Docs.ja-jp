@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
-title: "Web Farm Framework でサーバー ファームを作成 |Microsoft ドキュメント"
+title: Web Farm Framework でサーバー ファームを作成 |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、Web Farm Framework (WFF) 2.0 を使用して作成し、サーバーのコレクションからの web サーバー ファームを構成する方法について説明します。"
+description: このトピックでは、Web Farm Framework (WFF) 2.0 を使用して作成し、サーバーのコレクションからの web サーバー ファームを構成する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: c592ed78a7332834923ce2290af77919fb3c7576
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 53a91660953795f2c55edcd795b053641d308dfe
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Web Farm Framework によるサーバー ファームの作成
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/15/2018
 > このトピックでは、Web Farm Framework (WFF) 2.0 を使用して作成し、サーバーのコレクションからの web サーバー ファームを構成する方法について説明します。
 
 
-WFF では、複数の負荷分散された web サーバー、web platform 製品とコンポーネント、web アプリケーション、web サイト、および構成設定を同期できます。 ステージングと運用環境と同様に、1 つ以上の web サーバーが必要があるシナリオでこの大幅に、展開と構成プロセスを簡略化することができます。 1 台のサーバー & #x 2014; web アプリケーションを展開することができます、*プライマリ サーバー*& #x 2014; とその web アプリケーション、サーバー ファーム内の他のすべての web サーバーに自動的にレプリケートされる WFF はします。
+WFF では、複数の負荷分散された web サーバー、web platform 製品とコンポーネント、web アプリケーション、web サイト、および構成設定を同期できます。 ステージングと運用環境と同様に、1 つ以上の web サーバーが必要があるシナリオでこの大幅に、展開と構成プロセスを簡略化することができます。 1 台のサーバーに web アプリケーションを展開する&#x2014;、*プライマリ サーバー*&#x2014;WFF はその web アプリケーション、サーバー ファーム内の他のすべての web サーバーに自動的にレプリケートします。
 
 ## <a name="understanding-the-web-farm-framework"></a>Web Farm Framework を理解します。
 
@@ -51,7 +51,7 @@ WFF 2.0 を使用して、プロビジョニング、管理、および web サ�
 
 ## <a name="task-overview"></a>タスクの概要
 
-タスクとこのトピックの「チュートリアルを完了する必要がありますには、少なくとも 3 つのサーバー & #x 2014; WFF コント ローラー、サーバー ファームの 1 つのプライマリ web サーバーおよびサーバー ファームの 1 つ以上のセカンダリの web サーバー。 複数のセカンダリ サーバーは、いつでも WFF サーバー ファームに追加できます。 作成および構成する必要があります、ステージングまたは運用環境に WFF サーバー ファームの高レベル。
+タスクとこのトピックの「チュートリアルを完了するには、少なくとも 3 つサーバーが必要&#x2014;WFF コント ローラー、サーバー ファームの 1 つのプライマリ web サーバーおよびサーバー ファームの 1 つ以上セカンダリの web サーバー。 複数のセカンダリ サーバーは、いつでも WFF サーバー ファームに追加できます。 作成および構成する必要があります、ステージングまたは運用環境に WFF サーバー ファームの高レベル。
 
 - インターネット インフォメーション サービス (IIS) 7.5 および WFF 2.0 をインストールすることでコント ローラーのサーバーを作成します。
 - プライマリおよびセカンダリ サーバーを準備するには、共通の管理者アカウントを作成して、ファイアウォールの例外を構成します。
@@ -78,7 +78,7 @@ WFF コント ローラーのサーバーを作成するには、IIS 7 以降と
 2. 上部にある、 **Web Platform Installer 3.0**ウィンドウで、をクリックして**製品**です。
 3. ナビゲーション ウィンドウで、ウィンドウの左側にあるをクリックして**サーバー**です。
 4. **IIS 7 の推奨構成**行で、をクリックして**追加**です。
-5. **Web ファーム フレームワーク 2。 * * * x*行で、[] をクリック**追加**です。
+5. <strong>Web Farm Framework 2</strong> 。<em>x</em>行で、をクリックして<strong>追加</strong>です。
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image2.png)
 6. **[インストール]**をクリックします。 Web Platform Installer がインストールの一覧にさまざまな他の依存関係と共に、Web 配置ツールを追加していることを確認します。
@@ -96,7 +96,7 @@ WFF サーバー ファームを作成する前に、ファームを構成する
 
 Windows ファイアウォールでこれらのファイアウォール例外を構成する方法の詳細については、次を参照してください。[システムと IIS 7 Web Farm Framework 2.0 のプラットフォーム要件](https://go.microsoft.com/?linkid=9805128)です。 その他のファイアウォール システム、製品のマニュアルを参照してください。
 
-次の手順を使用すると、Windows Server 2008 R2 のローカルの administrators グループにドメイン アカウントを追加します。 サーバー ファーム & #x 2014; に追加するすべてのサーバーでこの手順を実行する必要がありますつまり、プライマリ サーバーと各セカンダリ サーバーのローカル administrators グループに同じドメイン アカウントを追加します。
+次の手順を使用すると、Windows Server 2008 R2 のローカルの administrators グループにドメイン アカウントを追加します。 サーバー ファームに追加するすべてのサーバーでこの手順を実行する必要があります&#x2014;つまり、プライマリ サーバーと各セカンダリ サーバーのローカル administrators グループに同じドメイン アカウントを追加します。
 
 **ローカルの administrators グループにドメイン アカウントを追加するには**
 
@@ -111,7 +111,7 @@ Windows ファイアウォールでこれらのファイアウォール例外を
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image5.png)
 6. **Administrators のプロパティ**ダイアログ ボックスで、をクリックして**OK**です。
 
-サーバーは、サーバー ファームに追加する準備が整いました。 場合は、プライマリ サーバーをサーバー ファーム & #x 2014 を作成した後または前に、アプリケーションの要件を満たすためにサーバーを構成することができますどちらの場合、WFF は、同じ製品、コンポーネントを展開することで、サーバーを同期されますか。セカンダリ サーバーを構成します。 わかりやすくするため、このチュートリアルでは、サーバー ファームの作成が完了したら、プライマリ サーバーを構成します。
+サーバーは、サーバー ファームに追加する準備が整いました。 場合は、プライマリ サーバーをサーバー ファームを作成した後または前に、アプリケーションの要件を満たすためにサーバーを構成することができます&#x2014;どちらの場合、WFF は、同じ製品、コンポーネント、または構成を配置することによって、サーバーが同期されますセカンダリ サーバーです。 わかりやすくするため、このチュートリアルでは、サーバー ファームの作成が完了したら、プライマリ サーバーを構成します。
 
 ## <a name="create-the-wff-server-farm"></a>WFF サーバー ファームを作成します。
 
@@ -225,12 +225,12 @@ ARR で負荷分散を構成する方法の詳細については、次を参照�
 
 ## <a name="conclusion"></a>まとめ
 
-立ち上がっており実行中、WFF サーバー ファームになります。 どのしたい展開アプローチ & #x 2014 をサポートするために、プライマリ サーバーを構成することができます。 サーバー ファーム内の各セカンダリ サーバーでレプリケートされます詳細 & #x 2014; と構成の関連項目」セクションを参照してください。
+立ち上がっており実行中、WFF サーバー ファームになります。 必要に応じてどの展開方法をサポートするために、プライマリ サーバーを構成する&#x2014;詳細については「関連項目を参照してください&#x2014;し、構成は、サーバー ファーム内の各セカンダリ サーバーでレプリケートされます。
 
 ## <a name="further-reading"></a>関連項目
 
 構成と使用、WFF のすべての側面の詳細については、次を参照してください。、 [IIS 7 用の Microsoft Web Farm Framework 2.0](https://go.microsoft.com/?linkid=9805129) web サイトです。
 
->[!div class="step-by-step"]
-[前へ](configuring-a-database-server-for-web-deploy-publishing.md)
-[次へ](configuring-deployment-properties-for-a-target-environment.md)
+> [!div class="step-by-step"]
+> [前へ](configuring-a-database-server-for-web-deploy-publishing.md)
+> [次へ](configuring-deployment-properties-for-a-target-environment.md)

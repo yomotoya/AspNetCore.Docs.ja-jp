@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
-title: "データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォーム - パート 2 |Microsoft ドキュメント"
+title: データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォーム - パート 2 |Microsoft ドキュメント
 author: tdykstra
-description: "Contoso 大学でサンプル web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、."
+description: Contoso 大学でサンプル web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: a549bd62bd78573c368784fd1529a830e009b0d4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a6c95a92aa77e2bb73aa513a207e0469d1aedbd2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォーム - パート 2
 ====================
@@ -71,7 +71,7 @@ ms.lasthandoff: 01/24/2018
 
 [![Image25](the-entity-framework-and-aspnet-getting-started-part-2/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image15.png)
 
-**データの選択を構成**手順で、**人**の値として**EntitySetName**です。 **選択**、ことを確認、  **を選択**ll チェック ボックスをオンします。 更新プログラムを有効化および削除するオプションを選択します。 完了したら、をクリックして**完了**です。
+**データの選択を構成**手順で、**人**の値として**EntitySetName**です。 **選択**、ことを確認、 ** を選択**ll チェック ボックスをオンします。 更新プログラムを有効化および削除するオプションを選択します。 完了したら、をクリックして**完了**です。
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-2/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image17.png)
 
@@ -249,6 +249,6 @@ ms.lasthandoff: 01/24/2018
 
 これで完了使用の概要、`EntityDataSource`コントロール。 このコントロールの操作は、エンティティとテーブルと列ではなくプロパティを参照できるようにする点を除いて一般的に使用可能なその他の ASP.NET データ ソース コントロールから変わりませんいます。 唯一の例外は、ナビゲーション プロパティにアクセスする場合です。 次のチュートリアルが表示されます、構文を使用することで`EntityDataSource`フィルター、グループ、およびデータの並べ替え時にコントロールが他のデータ ソース コントロールから異なるも場合があります。
 
->[!div class="step-by-step"]
-[前へ](the-entity-framework-and-aspnet-getting-started-part-1.md)
-[次へ](the-entity-framework-and-aspnet-getting-started-part-3.md)
+> [!div class="step-by-step"]
+> [前へ](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> [次へ](the-entity-framework-and-aspnet-getting-started-part-3.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
-title: "ASP.NET mvc 4 |Microsoft ドキュメント"
+title: ASP.NET mvc 4 |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このチュートリアルは Visual Studio 2013 を使用して、ここで使用可能な場合は、更新されたバージョンです。 新しいチュートリアルを使用して ASP.NET MVC 5 は、t に対して多くの機能強化を提供しています."
+description: このチュートリアルは Visual Studio 2013 を使用して、ここで使用可能な場合は、更新されたバージョンです。 新しいチュートリアルを使用して ASP.NET MVC 5 は、t に対して多くの機能強化を提供しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 92d9e583b6c26fa8c928d33e14593d280702a269
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 519bac22ba2607931c5f3123b9b567859a2b3d1c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="intro-to-aspnet-mvc-4"></a>ASP.NET mvc 4
 ====================
@@ -88,5 +88,5 @@ F5 キーでは、IIS Express を起動し、web アプリケーションを実�
 
 すぐこの既定テンプレートを使用して自宅、連絡先、についてのページです。 また、登録および、ログ記録のサポートを提供し、Facebook、Twitter へのリンクします。 次の手順では、このアプリケーションの動作を変更し、ASP.NET MVC について少し説明します。 ブラウザーを閉じて、いくつかのコードを変更してみましょう。
 
->[!div class="step-by-step"]
-[次へ](adding-a-controller.md)
+> [!div class="step-by-step"]
+> [次へ](adding-a-controller.md)

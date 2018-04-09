@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
-title: "ビルドの配置をチームのアクセス許可の構成 |Microsoft ドキュメント"
+title: ビルドの配置をチームのアクセス許可の構成 |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、自動 b の一部として、web サーバーおよびデータベース サーバーにコンテンツを展開するようにビルド サーバーを有効にする権限を構成する方法について説明しています."
+description: このトピックでは、自動 b の一部として、web サーバーおよびデータベース サーバーにコンテンツを展開するようにビルド サーバーを有効にする権限を構成する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cb3d013d69e36f97335ea31dd6e4997772ba2d8e
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4698349d664816ec49475bbfe71fb32af79ea96d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>チームのアクセス許可の構成のビルドの配置
 ====================
@@ -27,9 +27,9 @@ ms.lasthandoff: 03/15/2018
 > このトピックでは、自動ビルド プロセスの一環として、web サーバーおよびデータベース サーバーにコンテンツを展開するようにビルド サーバーを有効にする権限を構成する方法について説明します。
 
 
-このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。サンプル ソリューション & #x 2014; このチュートリアルのシリーズを使用して、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; を ASP.NET MVC 3 アプリケーションを Windows のなどの複雑性のレベルが現実的な web アプリケーションを表すCommunication Foundation (WCF) サービスとデータベース プロジェクト。
+このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルの一連のサンプル ソリューションを使用する&#x2014;、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的な ASP.NET MVC 3 アプリケーション、Windows Communication も含め、複雑さのレベルを持つ web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
-説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスで 2 つのプロジェクト ファイル & #x 2014; 1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスでは、2 つのプロジェクト ファイル&#x2014;1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
 
 ## <a name="task-overview"></a>タスクの概要
 
@@ -38,7 +38,7 @@ Team Foundation Server (TFS) 2010年のビルド サービスをインストー�
 ビルド サービス id を使用して、Windows 認証、およびチームがビルドを使用して自動化を計画することを必要とする展開タスクが実行されます。 そのため、ビルド サービス id に、web サーバーと、データベース サーバーに必要なアクセス許可を付与する必要があります。
 
 > [!NOTE]
-> ネットワーク サービス アカウントは、他のコンピューターへの認証にコンピューター アカウントを使用します。 コンピューター アカウントをフォーム * [ドメイン名]\[マシン名] ***$**& #x 2014。 たとえば、 **FABRIKAM\TFSBUILD$**します。 ような場合、ビルド サービスでは、Network Service の id を使用して実行する、ビルド サーバーのコンピューター アカウント id に必要なアクセス許可を付与する必要があります。
+> ネットワーク サービス アカウントは、他のコンピューターへの認証にコンピューター アカウントを使用します。 コンピューター アカウントは、形式をとる * [ドメイン名]\[マシン名] ***$**&#x2014;など**FABRIKAM\TFSBUILD$**です。 ような場合、ビルド サービスでは、Network Service の id を使用して実行する、ビルド サーバーのコンピューター アカウント id に必要なアクセス許可を付与する必要があります。
 
 
 ## <a name="configuring-web-server-permissions"></a>Web サーバーのアクセス許可の構成
@@ -50,7 +50,7 @@ Team Foundation Server (TFS) 2010年のビルド サービスをインストー�
 
 リモート エージェントでは、ここでは 2 つのキーの制限があります。
 
-- リモート エージェントには、NTLM 認証のみがサポートしています。 つまり、展開には、ビルド サービス id & #x 2014 を使用する必要があります。 別のアカウントを偽装することはできません。
+- リモート エージェントには、NTLM 認証のみがサポートしています。 つまり、展開がビルド サービス id を使用する必要があります&#x2014;別のアカウントを偽装することはできません。
 - リモート エージェントを使用するのには、ターゲット サーバーの管理者が展開を実行するアカウントにあります。
 
 同時に、これら 2 つの制限にするようにリモート エージェントのアプローチは自動化されたチーム ビルド展開の望ましくないにします。 このアプローチを使用するのには、ビルド サービスがターゲット web サーバー上の管理者のアカウントを作成する必要があります。
@@ -93,5 +93,5 @@ NTLM 認証または SQL Server 認証を使用して SQL Server インスタン
 
 リモート展開をサポートするために Windows server の環境を構成する方法については、次を参照してください。 [Web 配置のサーバー環境の構成](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)です。
 
->[!div class="step-by-step"]
-[前へ](deploying-a-specific-build.md)
+> [!div class="step-by-step"]
+> [前へ](deploying-a-specific-build.md)

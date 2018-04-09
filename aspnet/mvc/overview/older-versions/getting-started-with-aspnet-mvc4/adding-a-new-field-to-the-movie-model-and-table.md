@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
-title: "ムービーのモデルとテーブルに新しいフィールドを追加する |Microsoft ドキュメント"
+title: ムービーのモデルとテーブルに新しいフィールドを追加する |Microsoft ドキュメント
 author: Rick-Anderson
-description: "注: このチュートリアルの最新バージョンはここで ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全な非常に簡単に従い、デモをお勧めしています."
+description: '注: このチュートリアルの最新バージョンはここで ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全な非常に簡単に従い、デモをお勧めしています.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: 9965c8a755857a8e8cb8ecbc6c467a6c856aa83d
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: d8a42e9acdce687ab6e9742071dd2949f244622f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table"></a>ムービーのモデルとテーブルに新しいフィールドを追加します。
 ====================
@@ -107,7 +107,7 @@ Code First Migrations で別のクラス ファイルの作成、*移行*フォ�
 
 これで、更新した、`Model`クラスも更新する必要が、 *\Views\Movies\Index.cshtml*と*\Views\Movies\Create.cshtml*新しいを表示するためにテンプレートの表示`Rating`ブラウザー ビューのプロパティです。
 
-開く、*\Views\Movies\Index.cshtml*ファイルを追加、`<th>Rating</th>`列見出し直後、**価格**列です。 追加し、`<td>`をレンダリングするテンプレートの末尾付近の列、`@item.Rating`値。 以下はどのような更新*Index.cshtml*ビュー テンプレートはようになります。
+開く、<em>\Views\Movies\Index.cshtml</em>ファイルを追加、`<th>Rating</th>`列見出し直後、<strong>価格</strong>列です。 追加し、`<td>`をレンダリングするテンプレートの末尾付近の列、`@item.Rating`値。 以下はどのような更新<em>Index.cshtml</em>ビュー テンプレートはようになります。
 
 [!code-cshtml[Main](adding-a-new-field-to-the-movie-model-and-table/samples/sample5.cshtml?highlight=26-28,46-48)]
 
@@ -173,6 +173,6 @@ Code First Migrations で別のクラス ファイルの作成、*移行*フォ�
 
 このセクションではモデル オブジェクトを変更し、データベースの変更との同期を維持する方法を説明しました。 また、シナリオを実行するためのサンプル データ、新しく作成されたデータベースに設定する方法も学習しました。 次に、モデル クラスをより詳細な検証ロジックを追加し、適用するビジネス ルールの一部を有効にする方法を見てみましょう。
 
->[!div class="step-by-step"]
-[前へ](examining-the-edit-methods-and-edit-view.md)
-[次へ](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [前へ](examining-the-edit-methods-and-edit-view.md)
+> [次へ](adding-validation-to-the-model.md)

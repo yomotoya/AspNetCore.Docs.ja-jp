@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/scaleout-with-sql-server
-title: "SQL Server での SignalR スケール アウト |Microsoft ドキュメント"
+title: SQL Server での SignalR スケール アウト |Microsoft ドキュメント
 author: MikeWasson
-description: "ここ Visual Studio 2013 .NET 4.5 SignalR で使用するソフトウェアのバージョンはの以前のバージョンについてはこのトピックの以前のバージョンをバージョン 2."
+description: ここ Visual Studio 2013 .NET 4.5 SignalR で使用するソフトウェアのバージョンはの以前のバージョンについてはこのトピックの以前のバージョンをバージョン 2.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: 18ce212f5cb7849d522248f9c462b5b48e3487ed
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b3189c36fc076333c0c6007bd039b12e03d63bc8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="signalr-scaleout-with-sql-server"></a>SQL Server での SignalR スケール アウト
 ====================
@@ -62,7 +62,7 @@ Microsoft SQL Server 2005 以降。 バック プレーンには、SQL Server �
 
     [!code-csharp[Main](scaleout-with-sql-server/samples/sample1.cs)]
 
- このコードの既定値でのバック プレーンの構成[TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx)と[MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx)です。 これらの値を変更する方法については、次を参照してください。 [SignalR パフォーマンス: スケール アウト メトリック](signalr-performance.md#scaleout_metrics)です。 
+   このコードの既定値でのバック プレーンの構成[TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx)と[MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx)です。 これらの値を変更する方法については、次を参照してください。 [SignalR パフォーマンス: スケール アウト メトリック](signalr-performance.md#scaleout_metrics)です。 
 
 ## <a name="configure-the-database"></a>データベースを構成します。
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
-title: "新しいレコード (c#) を追加するときにオプションをアップロードするファイルを含む |Microsoft ドキュメント"
+title: 新しいレコード (c#) を追加するときにオプションをアップロードするファイルを含む |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、両方のテキスト データを入力し、バイナリ ファイルをアップロードするユーザーができる Web インターフェイスを作成する方法を示します。 オプションの使用可能な t について説明しています."
+description: このチュートリアルでは、両方のテキスト データを入力し、バイナリ ファイルをアップロードするユーザーができる Web インターフェイスを作成する方法を示します。 オプションの使用可能な t について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 384251e5d0d72c6d1cc014c929a5d504be11d1d6
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ab63f9b0c536be81fdaa894985bae6a6b9346fa5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>新しいレコード (c#) を追加するときに、ファイルのアップロード オプションを含む
 ====================
@@ -280,12 +280,12 @@ Let s をとって、挿入するインターフェイスをテストし、`Item
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Dave ガードナー、Teresa マーフィー、および「社長補佐 Leigh でした。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](displaying-binary-data-in-the-data-web-controls-cs.md)
-[次へ](updating-and-deleting-existing-binary-data-cs.md)
+> [!div class="step-by-step"]
+> [前へ](displaying-binary-data-in-the-data-web-controls-cs.md)
+> [次へ](updating-and-deleting-existing-binary-data-cs.md)

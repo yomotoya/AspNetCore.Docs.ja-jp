@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
-title: "ASP.NET Web Pages (Razor) トラブルシューティング ガイド |Microsoft ドキュメント"
+title: ASP.NET Web Pages (Razor) トラブルシューティング ガイド |Microsoft ドキュメント
 author: tfitzmac
-description: "この記事では、ASP.NET Web Pages (Razor) と一部の推奨されるソリューションを使用するときにする必要がありますのある問題について説明します。 ASP.NET Web ページのソフトウェア バージョンしています."
+description: この記事では、ASP.NET Web Pages (Razor) と一部の推奨されるソリューションを使用するときにする必要がありますのある問題について説明します。 ASP.NET Web ページのソフトウェア バージョンしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: 2e25e9c7cea937016301e0f11919adb9647ca216
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ec51169ccea0016712de3fdb28a16a174150a8bd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web Pages (Razor) トラブルシューティング ガイド
 ====================
@@ -144,12 +144,12 @@ HTTP エラー 404.17 については、前の説明を参照してください�
     *接続されているパーティが一定の時間、または確立された接続が接続されているホストが応答に失敗しましたが失敗しました。 正しく応答しなかったために、接続試行が失敗しました*
 
     このエラーは通常、アプリケーションが、SMTP サーバーに接続できなかったことを意味します。 サーバー名を確認して、ポート番号。
-- *メールボックスが使用できません。サーバーの応答: 5.1.0 &lt; someuser@invaliddomain &gt;送信者を拒否しました: 無効な送信者のドメイン*
+- <em>メールボックスが使用できません。サーバーの応答: 5.1.0 &lt; someuser@invaliddomain &gt;送信者を拒否しました: 無効な送信者のドメイン</em>
 
     このメッセージは、ことを示すことができます、`From`アドレスが間違っているかがありません。
 - *指定した文字列は、電子メール アドレスのために必要な形式ではありません。*
 
-    このエラーが発生することの値、`To`または`From`プロパティは、電子メール アドレスとして認識されません。 (ASP.NET が電子メール アドレスが有効などの形式が正しくのみになることを確認することはできません *name@domain.com* )。
+    このエラーが発生することの値、`To`または`From`プロパティは、電子メール アドレスとして認識されません。 (ASP.NET が電子メール アドレスが有効などの形式が正しくのみになることを確認することはできません*name@domain.com*)。
 
 > [!NOTE]
 > エラーが表示されるマークアップを削除 (`@errorMessage`) 実際のサイトにページを公開する前にします。 いないユーザーがサーバーから取得するエラー メッセージが表示できるようにすることをお勧めします。

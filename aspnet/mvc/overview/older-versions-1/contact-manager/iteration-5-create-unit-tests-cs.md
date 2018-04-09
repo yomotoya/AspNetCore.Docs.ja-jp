@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-cs
-title: "作成する単体テストのイテレーション 5 – (c#) |Microsoft ドキュメント"
+title: 作成する単体テストのイテレーション 5 – (c#) |Microsoft ドキュメント
 author: microsoft
-description: "5 番目のイテレーションでおやすく、アプリケーションを維持し、単体テストを追加して変更できます。 データ モデル クラスを模擬表示し、o の単体テストをビルドしています."
+description: 5 番目のイテレーションでおやすく、アプリケーションを維持し、単体テストを追加して変更できます。 データ モデル クラスを模擬表示し、o の単体テストをビルドしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f9b2d05ec8756d68f6bd2f387c85faf03abd167e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7a61b5791a40088df9d27f7b1bd37df1831ef22b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-5--create-unit-tests-c"></a>イテレーション #5-単体テストを作成する (c#)
 ====================
@@ -105,15 +105,15 @@ ms.lasthandoff: 11/10/2017
 
 Visual Studio では、モック オブジェクト フレームワークは含まれません。 ただし、いくつかの商用およびオープン ソース モック オブジェクト フレームワーク、.NET framework を使用できます。
 
-1. Moq - このフレームワークはオープン ソース BSD ライセンスの下で使用できます。 Moq をダウンロードする[https://code.google.com/p/moq/](https://code.google.com/p/moq/)です。
-2. Rhino Mocks - このフレームワークは、オープン ソース BSD ライセンスで使用できます。 Rhino が Mocks からダウンロードできます[http://ayende.com/projects/rhino-mocks.aspx](http://ayende.com/projects/rhino-mocks.aspx)です。
-3. Typemock Isolator - これは、商用のフレームワークです。 評価版をダウンロードする[http://www.typemock.com/](http://www.typemock.com/)です。
+1. Moq - このフレームワークはオープン ソース BSD ライセンスの下で使用できます。 Moq をダウンロードする[ https://code.google.com/p/moq/](https://code.google.com/p/moq/)です。
+2. Rhino Mocks - このフレームワークは、オープン ソース BSD ライセンスで使用できます。 Rhino が Mocks からダウンロードできます[ http://ayende.com/projects/rhino-mocks.aspx](http://ayende.com/projects/rhino-mocks.aspx)です。
+3. Typemock Isolator - これは、商用のフレームワークです。 評価版をダウンロードする[ http://www.typemock.com/](http://www.typemock.com/)です。
 
 このチュートリアルでは Moq を使用することにしました。 ただし、同じくらい簡単に使用する Rhino Mocks したり、連絡先のマネージャー アプリケーションのオブジェクトをモックを作成する Typemock Isolator です。
 
 Moq を使用することができます、前に、次の手順を完了する必要があります。
 
-1. 。
+1. である必要があります。
 2. ダウンロードを解凍する前に、ファイルを右クリックしてボタンをクリックすることを確認してください**ブロックを解除する**(図 1 を参照してください)。
 3. ダウンロードを解凍します。
 4. ContactManager.Tests プロジェクトの [参照] フォルダーを右クリックして Moq アセンブリへの参照を追加**参照の追加**です。 参照 タブで、Moq を解凍したフォルダーに移動し、Moq.dll アセンブリを選択します。 クリックして、 **OK**ボタンをクリックします。
@@ -222,7 +222,7 @@ View(); を返す
 
 代わりに、次のようにビューが返されます。
 
-View("Create"); を返す
+return View("Create");
 
 いない場合は明示的なビューを返すときに、ViewResult.ViewName プロパティは、空の文字列を返します。
 
@@ -231,7 +231,7 @@ View("Create"); を返す
 
 [!code-csharp[Main](iteration-5-create-unit-tests-cs/samples/sample6.cs)]
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このイテレーションでは、連絡先のマネージャー アプリケーションの単体テストを作成しました。 アプリケーションが予想される方法で引き続き動作を確認するのには、いつでもこれらの単体テストを実行できます。 単体テストは、安全に後でアプリケーションを変更することを有効にする、アプリケーションの安全策として機能します。
 
@@ -239,6 +239,6 @@ View("Create"); を返す
 
 次のイテレーションで連絡先グループをサポートするように、連絡先のマネージャー アプリケーションを変更します。 この新しい機能をテスト駆動開発と呼ばれるソフトウェアのデザイン プロセスを使用して、アプリケーションに追加します。
 
->[!div class="step-by-step"]
-[前へ](iteration-4-make-the-application-loosely-coupled-cs.md)
-[次へ](iteration-6-use-test-driven-development-cs.md)
+> [!div class="step-by-step"]
+> [前へ](iteration-4-make-the-application-loosely-coupled-cs.md)
+> [次へ](iteration-6-use-test-driven-development-cs.md)

@@ -1,7 +1,7 @@
 ---
-title: "IIS で ASP.NET Core をトラブルシューティングします。"
+title: IIS で ASP.NET Core をトラブルシューティングします。
 author: guardrex
-description: "ASP.NET Core アプリケーションのインターネット インフォメーション サービス (IIS) の展開に関する問題を診断する方法を説明します。"
+description: ASP.NET Core アプリケーションのインターネット インフォメーション サービス (IIS) の展開に関する問題を診断する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 65173e0101a17c64f4cde583e5bbb9fb0a9c7718
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e44892d2022ca1a176cee9d027e220e196c6572d
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS で ASP.NET Core をトラブルシューティングします。
 
@@ -29,7 +29,7 @@ ASP.NET Core プロジェクトは、Visual Studio で、 [IIS Express](/iis/ext
 [Azure App Service での ASP.NET Core のトラブルシューティング](xref:host-and-deploy/azure-apps/troubleshoot)  
 App Service を使用しますが、 [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)し、IIS ホストのアプリを App Service に固有の方法については、専用のトピックを参照してください。
 
-[エラー処理](xref:fundamentals/error-handling)  
+[エラーを処理します。](xref:fundamentals/error-handling)  
 ローカル システムでの開発時に ASP.NET Core アプリケーションでエラーを処理する方法を検出します。
 
 [Visual Studio を使用したデバッグについて理解する](/visualstudio/debugger/getting-started-with-the-debugger)  
@@ -96,20 +96,20 @@ ASP.NET Core モジュールが、既定値で構成されている*startupTimeL
 
 1. ホスト システムに、サイトの展開フォルダに移動します。
 1. 場合、*ログ*フォルダーが存在しない、フォルダーを作成します。 MSBuild を有効にする方法については、作成する、*ログ*展開内のフォルダーは自動的を参照してください、[ディレクトリ構造](xref:host-and-deploy/directory-structure)トピックです。
-1. 編集、 *web.config*ファイル。 設定**stdoutLogEnabled**に`true`を変更して、 **stdoutLogFile**を指すパス、*ログ*フォルダー (たとえば、 `.\logs\stdout`)。 `stdout`パスは、ログ ファイル名のプレフィックスです。 ログが作成されるときは、タイムスタンプ、プロセス id、およびファイルの拡張子が自動的に追加します。 使用して`stdout`一般的なログ ファイルの名前は、ファイル名のプレフィックスとして*stdout_20180205184032_5412.log*です。 
+1. 編集、 *web.config*ファイル。 設定**stdoutLogEnabled**に`true`を変更して、 **stdoutLogFile**を指すパス、*ログ*フォルダー (たとえば、 `.\logs\stdout`)。 `stdout` パスは、ログ ファイル名のプレフィックスです。 ログが作成されるときは、タイムスタンプ、プロセス id、およびファイルの拡張子が自動的に追加します。 使用して`stdout`一般的なログ ファイルの名前は、ファイル名のプレフィックスとして*stdout_20180205184032_5412.log*です。 
 1. 更新された保存*web.config*ファイル。
 1. アプリへの要求を作成します。
 1. 移動し、*ログ*フォルダーです。 検索して、最新の標準出力ログを開きます。
 1. エラー ログを調査します。
 
-**大事な！** 標準出力ログのトラブルシューティングが完了したら無効にします。
+**重要**。 標準出力ログのトラブルシューティングが完了したら無効にします。
 
 1. 編集、 *web.config*ファイル。
 1. 設定**stdoutLogEnabled**に`false`です。
 1. ファイルを保存します。
 
 > [!WARNING]
-> エラーを標準出力ログを無効にするは、アプリケーションまたはサーバーの障害につながります。 ログ ファイルのサイズに制限はありませんか、作成されるログ ファイルの数があります。
+> エラーを標準出力ログを無効にするは、アプリケーションまたはサーバーの障害につながります。 ログ ファイルのサイズまたは作成されるログ ファイルの数に制限はありません。
 >
 > ASP.NET Core アプリケーションの日常的なログ記録、ログ ファイルのサイズを制限し、ログを回転するログ記録ライブラリを使用します。 詳細については、次を参照してください。[サード パーティ製のログ記録プロバイダー](xref:fundamentals/logging/index#third-party-logging-providers)です。
 

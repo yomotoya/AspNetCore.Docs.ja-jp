@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb
-title: "ASP.NET MVC (VB) で 15 分以内にムービー データベース アプリケーションを作成 |Microsoft ドキュメント"
+title: ASP.NET MVC (VB) で 15 分以内にムービー データベース アプリケーションを作成 |Microsoft ドキュメント
 author: StephenWalther
-description: "Stephen Walther は、データベースによる ASP.NET MVC アプリケーション全体が開始されてから完了するを構築します。 このチュートリアルでは新しい t のあるユーザーのための優れた紹介しています."
+description: Stephen Walther は、データベースによる ASP.NET MVC アプリケーション全体が開始されてから完了するを構築します。 このチュートリアルでは新しい t のあるユーザーのための優れた紹介しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b87a69df24a410161dfaf055519eb6137fa76c06
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ecd5892457af5bc14a939672c64eed85fc05ec22
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-vb"></a>ASP.NET MVC (VB) で 15 分以内にムービー データベース アプリケーションを作成します。
 ====================
@@ -48,7 +48,7 @@ Active Server Pages または ASP.NET を使用する場合、しはず ASP.NET 
 アプリケーションを作成するのには、それぞれ、次の手順を完了する必要があります。
 
 1. ASP.NET MVC Web アプリケーション プロジェクトを作成します。
-2. データベースを作成します。
+2. データベースの作成
 3. データベース モデルを作成します。
 4. ASP.NET MVC コント ローラーを作成します。
 5. ASP.NET MVC ビューを作成します。
@@ -366,5 +366,5 @@ Views \home フォルダーに Edit.aspx をという名前の新しいビュー
 
 このチュートリアルでは、ASP.NET MVC フレームワークの最も基本的な機能だけを検査します。 今後のチュートリアルでは、ここをさらに深くコント ローラー、コント ローラーのアクション、ビュー、データの表示、および HTML ヘルパーなどのトピックです。
 
->[!div class="step-by-step"]
-[前へ](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs.md)
+> [!div class="step-by-step"]
+> [前へ](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs.md)

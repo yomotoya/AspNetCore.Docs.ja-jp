@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
-title: "監視と遠隔測定 (Azure と実際のクラウド アプリのビルド) |Microsoft ドキュメント"
+title: 監視と遠隔測定 (Azure と実際のクラウド アプリのビルド) |Microsoft ドキュメント
 author: MikeWasson
-description: "Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています."
+description: Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/09/2015
 ms.topic: article
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: 9baddd1836323385239206a3cf49e5938bbaff58
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d58c495b3888c146a2a9bc831865cf7cc0d94c7b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>監視と遠隔測定 (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -292,6 +292,6 @@ Azure でのログ記録を有効にした後、作成するとき、Visual Stud
 
 - [クラウド サービスの基礎 azure](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)です。 Microsoft Azure カスタマー アドバイス チームによって作成されるサンプル アプリケーションです。 次の記事で説明したように、製品利用統計情報とログ記録のプラクティスの両方を示します。 このサンプルを使用してアプリケーションのログ記録を実装する[NLog](http://nlog-project.org/)です。 関連するドキュメントを参照してください、[一連の製品利用統計情報およびログ記録に関する 4 つの TechNet wiki の記事](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx#Telemetry_coming_soon)です。
 
->[!div class="step-by-step"]
-[前へ](design-to-survive-failures.md)
-[次へ](transient-fault-handling.md)
+> [!div class="step-by-step"]
+> [前へ](design-to-survive-failures.md)
+> [次へ](transient-fault-handling.md)

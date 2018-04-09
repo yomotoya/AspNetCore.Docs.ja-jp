@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-cs
-title: "カスタムの書式設定データ (c#) に基づいて |Microsoft ドキュメント"
+title: カスタムの書式設定データ (c#) に基づいて |Microsoft ドキュメント
 author: rick-anderson
-description: "GridView、DetailsView、またはバインドされているデータに基づくフォーム ビューの形式を調整することは、複数の方法で実現できます。 このチュートリアルでは l します."
+description: GridView、DetailsView、またはバインドされているデータに基づくフォーム ビューの形式を調整することは、複数の方法で実現できます。 このチュートリアルでは l します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 606721b01fae34a7bce85d497a442cb110f1b51e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 31cf628baf2250c2e7e71ab38cd64b218dc927e7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="custom-formatting-based-upon-data-c"></a>データ (c#) に基づくカスタム書式設定
 ====================
@@ -217,19 +217,19 @@ Web コントロールへのプログラムによる参照を作成したら、�
 
 手順 2 GridView は、データ ソースを列挙し、各レコード作成で、`GridViewRow`をインスタンス化し、現在のレコードをバインドします。 各`GridViewRow`GridView に追加された、2 つのイベントが発生します。
 
-- **`RowCreated`**後に起動、`GridViewRow`が作成されました
-- **`RowDataBound`**現在のレコードにバインドされた後に発生、`GridViewRow`です。
+- **`RowCreated`** 後に起動、`GridViewRow`が作成されました
+- **`RowDataBound`** 現在のレコードにバインドされた後に発生、`GridViewRow`です。
 
 GridView し、データ バインディングがより正確に記載されている、次の一連の手順で。
 
 1. GridView の`DataBinding`イベントが発生します。
 2. データが GridView にバインドされます。   
   
- データ ソース内の各レコード 
+   データ ソース内の各レコード 
 
     1. 作成、`GridViewRow`オブジェクト
     2. Fire、`RowCreated`イベント
-    3. レコードにバインドします`GridViewRow`
+    3. レコードにバインドします `GridViewRow`
     4. Fire、`RowDataBound`イベント
     5. 追加、`GridViewRow`を`Rows`コレクション
 3. GridView の`DataBound`イベントが発生します。
@@ -275,12 +275,12 @@ GridView の個々 のレコードの形式をカスタマイズするには、�
 
 使用する場合、`RowDataBound`イベント ハンドラーが GridView は、さまざまな種類の行で構成される、このイベントが発生したことに注意する重要*すべて*行の型。 A`GridViewRow`の型によって決定できる、`RowType`プロパティ、有効な値のいずれかを持つことができます。
 
-- `DataRow`GridView からのレコードにバインドされている行`DataSource`
-- `EmptyDataRow`表示される場合、行、GridView の`DataSource`が空です
-- `Footer`フッター行です。表示されている場合、GridView の`ShowFooter`プロパティに設定`true`
-- `Header`ヘッダー行です。GridView の ShowHeader プロパティが に設定されているかどうかを示す`true`(既定)
-- `Pager`ページング インターフェイスを表示する行のページングを実装する gridview
-- `Separator`GridView は使用されませんで使用される、 `RowType` DataList およびリピータのプロパティを制御する 2 つのデータについて説明します将来的にチュートリアルの Web コントロール
+- `DataRow` GridView からのレコードにバインドされている行 `DataSource`
+- `EmptyDataRow` 表示される場合、行、GridView の`DataSource`が空です
+- `Footer` フッター行です。表示されている場合、GridView の`ShowFooter`プロパティに設定 `true`
+- `Header` ヘッダー行です。GridView の ShowHeader プロパティが に設定されているかどうかを示す`true`(既定)
+- `Pager` ページング インターフェイスを表示する行のページングを実装する gridview
+- `Separator` GridView は使用されませんで使用される、 `RowType` DataList およびリピータのプロパティを制御する 2 つのデータについて説明します将来的にチュートリアルの Web コントロール
 
 `EmptyDataRow`、 `Header`、 `Footer`、および`Pager`にない行が関連付けられている、`DataSource`レコード、これらが常に、`null`値をその`DataItem`プロパティ。 このため、現在の作業を試みる前に`GridViewRow`の`DataItem`プロパティ、お最初を確認してくださいを扱っている、`DataRow`です。 これには、チェックして、`GridViewRow`の`RowType`プロパティ次のようにします。
 
@@ -319,11 +319,11 @@ GridView の個々 のレコードの形式をカスタマイズするには、�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者が E.R. Gilmore、Dennis Patterson と Dan Jagers です。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[次へ](using-templatefields-in-the-gridview-control-cs.md)
+> [!div class="step-by-step"]
+> [次へ](using-templatefields-in-the-gridview-control-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-cs
-title: "DataList でリピータ (c#) カスタム ボタン |Microsoft ドキュメント"
+title: DataList でリピータ (c#) カスタム ボタン |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、リピータを使用して、システムでは、その associ を表示するためのボタンを提供する各カテゴリにカテゴリを一覧表示するインターフェイスを構築しています."
+description: このチュートリアルでは、リピータを使用して、システムでは、その associ を表示するためのボタンを提供する各カテゴリにカテゴリを一覧表示するインターフェイスを構築しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9a072ae18bbb19d086eb825c6e72b68d40b2e429
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d6d07f1dc3f97523da6d9ee1d45302cac06b45d2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-c"></a>DataList でリピータ (c#) カスタム ボタン
 ====================
@@ -104,8 +104,8 @@ Visual Studio が、既定値を作成、DataList コントロールとは異な
 
 DataList またはリピータ内で、ボタンをクリックすることがよくを渡す必要が (であることを複数の両方の編集など、コントロール内のボタンと [削除] ボタンの場合) クリックしてされたボタンおよび追加の情報をおそらくと共に (次のようにプライマリ キーの値のボタンがクリックされたアイテム)。 ボタン、LinkButton、および ImageButton に渡される値を持つ 2 つのプロパティを提供、`ItemCommand`イベントのハンドラー。
 
-- `CommandName`通常、テンプレート内の各ボタンの識別に使用する文字列
-- `CommandArgument`主キーの値など、いくつかのデータ フィールドの値を保持するために一般的に使用
+- `CommandName` 通常、テンプレート内の各ボタンの識別に使用する文字列
+- `CommandArgument` 主キーの値など、いくつかのデータ フィールドの値を保持するために一般的に使用
 
 この例では、設定、LinkButton s `CommandName` ShowProducts と現在のレコードの主キー値をバインドするプロパティ`CategoryID`を`CommandArgument`databinding 構文を使用してプロパティ`CategoryArgument='<%# Eval("CategoryID") %>'`です。 これら 2 つのプロパティを指定してから LinkButton s の宣言構文は次のようになります。
 
@@ -116,10 +116,10 @@ DataList またはリピータ内で、ボタンをクリックすることが�
 
 リピータ s のイベント ハンドラーを作成`ItemCommand`、イベント ハンドラーに渡されたイベントと 2 番目のパラメーター (名前付き`e`)。 この 2 番目のパラメーターの型は[ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx)し、次の 4 つのプロパティします。
 
-- `CommandArgument`クリックされたボタン秒の値`CommandArgument`プロパティ
-- `CommandName`ボタンの秒の値`CommandName`プロパティ
-- `CommandSource`クリックされたボタン コントロールへの参照
-- `Item`参照、 [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx)がクリックされたボタンが含まれている; リピータにバインドされている各レコードとして示されています、`RepeaterItem`
+- `CommandArgument` クリックされたボタン秒の値`CommandArgument`プロパティ
+- `CommandName` ボタンの秒の値`CommandName`プロパティ
+- `CommandSource` クリックされたボタン コントロールへの参照
+- `Item` 参照、 [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx)がクリックされたボタンが含まれている; リピータにバインドされている各レコードとして示されています、 `RepeaterItem`
 
 選択したカテゴリ s 以降`CategoryID`経由で渡される、`CommandArgument`プロパティで選択したカテゴリに関連付けられている製品のセットを取得できます、`ItemCommand`イベント ハンドラー。 BulletedList コントロールにこれらの製品をバインドすることができますし、 `ItemTemplate` (私たちを追加するには、まだしました)。 参照を設定した後、残っている、BulletedList を追加するにはすべて、`ItemCommand`イベント ハンドラー、し、手順 4. で取り上げる、選択したカテゴリの製品のセットをバインドします。
 
@@ -162,11 +162,11 @@ DataList とリピータ コントロールは、任意の数をテンプレー�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Dennis Patterson しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[次へ](custom-buttons-in-the-datalist-and-repeater-vb.md)
+> [!div class="step-by-step"]
+> [次へ](custom-buttons-in-the-datalist-and-repeater-vb.md)

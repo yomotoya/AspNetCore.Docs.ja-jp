@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
-title: "ビジネス ルールの検証とモデルの作成 |Microsoft ドキュメント"
+title: ビジネス ルールの検証とモデルの作成 |Microsoft ドキュメント
 author: microsoft
-description: "手順 3 では、両方のクエリを使用してしたり NerdDinner アプリケーション データベースを更新でくモデルを作成する方法を示します。"
+description: 手順 3 では、両方のクエリを使用してしたり NerdDinner アプリケーション データベースを更新でくモデルを作成する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
 msc.type: authoredcontent
-ms.openlocfilehash: dbe6370979f218988c168df3e80314ef9b338fbd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c5a482474fd2f41836f70952306ada5cd9136455
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="build-a-model-with-business-rule-validations"></a>ビジネス ルールの検証とモデルを構築します。
 ====================
@@ -91,7 +91,7 @@ RSVP オブジェクト コレクションに追加して Dinner の RSVPs 指�
 
 デザイナーのモデルまたはテーブルの関連付けをという名前の方法に満足できない場合は、メソッドをオーバーライドすることができます。 デザイナー内での関連付けの矢印をクリックして、名前の変更、削除または変更するには、プロパティ グリッドを使用してそのプロパティにアクセスだけです。 NerdDinner アプリケーションでは、既定のアソシエーション ルールが構築して、データ モデル クラスの適切に動作して、次の既定の動作を使用できますが、です。
 
-### <a name="nerddinnerdatacontext-class"></a>NerdDinnerDataContext クラス
+### <a name="nerddinnerdatacontext-class"></a>NerdDinnerDataContext Class
 
 Visual Studio では、モデルおよび LINQ to SQL デザイナーを使用して定義されているデータベースのリレーションシップを表す .NET クラスを自動的に作成されます。 各 LINQ to SQL デザイナー ファイルがソリューションに追加の LINQ to SQL DataContext クラスが生成されます。 当社の LINQ to SQL クラスの項目"NerdDinner"という名前を付けて、ために、作成された DataContext クラスには、"NerdDinnerDataContext"が呼び出されます。 この NerdDinnerDataContext クラスは、プライマリ データベースと対話できます。
 
@@ -228,6 +228,6 @@ C# の「の戻り値の生成」機能を使用お任意 RuleViolations のシ�
 
 みましょういくつかのコント ローラーとビューに追加、HTML UI エクスペリエンスをテーブルの周囲に使用できるプロジェクト。
 
->[!div class="step-by-step"]
-[前へ](create-a-database.md)
-[次へ](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
+> [!div class="step-by-step"]
+> [前へ](create-a-database.md)
+> [次へ](use-controllers-and-views-to-implement-a-listingdetails-ui.md)

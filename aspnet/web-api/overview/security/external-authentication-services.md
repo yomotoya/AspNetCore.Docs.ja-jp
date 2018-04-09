@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/external-authentication-services
-title: "ASP.NET Web API の外部認証サービス (c#) |Microsoft ドキュメント"
+title: ASP.NET Web API の外部認証サービス (c#) |Microsoft ドキュメント
 author: rmcmurray
-description: "ASP.NET Web API での外部認証サービスの使用について説明します。"
+description: ASP.NET Web API での外部認証サービスの使用について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: 744396cb0c95d1887f259b1e2e890bd06ef7d049
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 406a85db7055910cb7a4e15fec8ef68dff5a19dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a>ASP.NET Web API の外部認証サービス (c#)
 ====================
@@ -119,7 +119,7 @@ Visual Studio 2013 は、プロジェクトの作成が完了したら、開く�
 <a id="FACEBOOK"></a>
 ## <a name="enabling-facebook-authentication"></a>Facebook 認証を有効にします。
 
-Facebook を使用して、認証では、Facebook 開発者アカウントを作成する必要があり、プロジェクトに必要なアプリケーション ID と Facebook からの秘密キーに機能するためにします。 Facebook 開発者アカウントを作成して、アプリケーション ID と秘密キーの取得については、次を参照してください。 [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)です。
+Facebook を使用して、認証では、Facebook 開発者アカウントを作成する必要があり、プロジェクトに必要なアプリケーション ID と Facebook からの秘密キーに機能するためにします。 Facebook 開発者アカウントを作成して、アプリケーション ID と秘密キーの取得については、次を参照してください。 [ https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)です。
 
 1 回、アプリケーションの ID およびシークレット キーを取得した、web アプリケーションの Facebook 認証を有効にする、次の手順を使用します。
 
@@ -180,7 +180,7 @@ Web アプリケーション用に Google 認証を有効にするには、次�
 <a id="MICROSOFT"></a>
 ## <a name="enabling-microsoft-authentication"></a>Microsoft 認証を有効にします。
 
-Microsoft 認証では、開発者アカウントを作成する必要があり、機能するために、クライアント ID とクライアント シークレットが必要ですが。 Microsoft 開発者アカウントを作成して、クライアント ID およびクライアント シークレットの取得については、次を参照してください。 [https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070)です。
+Microsoft 認証では、開発者アカウントを作成する必要があり、機能するために、クライアント ID とクライアント シークレットが必要ですが。 Microsoft 開発者アカウントを作成して、クライアント ID およびクライアント シークレットの取得については、次を参照してください。 [ https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070)です。
 
 1 回のコンシューマー キーおよびコンシューマー シークレットを取得した、マイクロソフトの web アプリケーションの認証を有効にする、次の手順を使用します。
 
@@ -212,7 +212,7 @@ Microsoft 認証では、開発者アカウントを作成する必要があり�
 <a id="TWITTER"></a>
 ## <a name="enabling-twitter-authentication"></a>Twitter 認証を有効にします。
 
-Twitter 認証では、開発者アカウントを作成する必要があるし、機能するために、コンシューマー キーおよびコンシューマー シークレットと必要なのです。 Twitter 開発者アカウントを作成して、コンシューマー キーおよびコンシューマー シークレットの取得については、次を参照してください。 [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)です。
+Twitter 認証では、開発者アカウントを作成する必要があるし、機能するために、コンシューマー キーおよびコンシューマー シークレットと必要なのです。 Twitter 開発者アカウントを作成して、コンシューマー キーおよびコンシューマー シークレットの取得については、次を参照してください。 [ https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)です。
 
 1 回のコンシューマー キーおよびコンシューマー シークレットを取得した、web アプリケーションの Twitter 認証を有効にする、次の手順を使用します。
 
@@ -260,19 +260,21 @@ OAuth および OpenID を使用するアプリケーションの作成に関す
 
 - 静的な FQDN、HOSTS ファイルのマッピングを追加します。
 
-    1. Windows で、管理者特権のコマンド プロンプトを開きます。
-    2. 次のコマンドを入力します。
+  1. Windows で、管理者特権のコマンド プロンプトを開きます。
+  2. 次のコマンドを入力します。
 
-        <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
-    3. 次のようなエントリを HOSTS ファイルに追加します。
+      <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
+  3. 次のようなエントリを HOSTS ファイルに追加します。
 
-        <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
-    4. 保存し、HOSTS ファイルを閉じます。
+      <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
+  4. 保存し、HOSTS ファイルを閉じます。
+
 - FQDN を使用して Visual Studio プロジェクトを構成するには。
 
-    1. プロジェクトでは Visual Studio 2013 で開き、をクリックして、**プロジェクト**] メニューの [プロジェクトのプロパティを選択します。 たとえば、選択する場合があります**WebApplication1 プロパティ**です。
-    2. 選択、 **Web**タブです。
-    3. FQDN を入力、**プロジェクト Url**です。 たとえば、入力<kbd>http://www.wingtiptoys.com</kbd> HOSTS ファイルに追加した FQDN マッピングとなったかどうか。
+  1. プロジェクトでは Visual Studio 2013 で開き、をクリックして、**プロジェクト**] メニューの [プロジェクトのプロパティを選択します。 たとえば、選択する場合があります**WebApplication1 プロパティ**です。
+  2. 選択、 **Web**タブです。
+  3. FQDN を入力、<strong>プロジェクト Url</strong>です。 たとえば、入力<kbd> <http://www.wingtiptoys.com> </kbd> HOSTS ファイルに追加した FQDN マッピングとなったかどうか。
+
 - IIS Express で、アプリケーションの FQDN を使用するを構成します。
 
     1. Windows で、管理者特権のコマンド プロンプトを開きます。
@@ -283,14 +285,14 @@ OAuth および OpenID を使用するアプリケーションの作成に関す
 
         <kbd>appcmd.exe set config -section:system.applicationHost/sites /+&quot;[name='WebApplication1'].bindings.[protocol='http',bindingInformation='*:80:www.wingtiptoys.com']&quot; /commit:apphost</kbd>
 
- ここで**WebApplication1** 、プロジェクトの名前を指定し、 **bindingInformation**テストに使用するポート番号と FQDN が含まれています。
+  ここで**WebApplication1** 、プロジェクトの名前を指定し、 **bindingInformation**テストに使用するポート番号と FQDN が含まれています。
 
 <a id="OBTAIN"></a>
 ### <a name="how-to-obtain-your-application-settings-for-microsoft-authentication"></a>Microsoft 認証のため、アプリケーションの設定を取得する方法
 
 簡単なプロセスは、Microsoft の認証用の Windows Live にアプリケーションをリンクします。 Windows Live にアプリケーションをリンクしていない場合は、次の手順を使用できます。
 
-1. 参照[https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070) 、Microsoft アカウント名とメッセージが表示されたら、パスワードを入力し、をクリックして**サインイン**:
+1. 参照[ https://go.microsoft.com/fwlink/?LinkID=144070 ](https://go.microsoft.com/fwlink/?LinkID=144070) 、Microsoft アカウント名とメッセージが表示されたら、パスワードを入力し、をクリックして**サインイン**:
 
     [![](external-authentication-services/_static/image64.png "クリックして、イメージの展開")](external-authentication-services/_static/image63.png)
 2. メッセージが表示されたら、アプリケーションの言語と名前を入力し、クリックして**同意**:

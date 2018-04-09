@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
-title: "ソース管理 (Azure と実際のクラウド アプリのビルド) |Microsoft ドキュメント"
+title: ソース管理 (Azure と実際のクラウド アプリのビルド) |Microsoft ドキュメント
 author: MikeWasson
-description: "Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています."
+description: Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/23/2015
 ms.topic: article
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: e3ce68b949199db35c18a09771d99d38562b74e9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0022458fa89a3be7ee8303750ad0e072df3b1bab
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>ソース管理 (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -221,6 +221,6 @@ TFVC (一元化されたバージョン管理) および Git (分散型バージ
 
 その他のソース管理から機密情報を保持しておく方法の詳細については、次を参照してください。 [ASP.NET MVC: ソース管理の設定を秘密保持](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx)です。
 
->[!div class="step-by-step"]
-[前へ](automate-everything.md)
-[次へ](continuous-integration-and-continuous-delivery.md)
+> [!div class="step-by-step"]
+> [前へ](automate-everything.md)
+> [次へ](continuous-integration-and-continuous-delivery.md)

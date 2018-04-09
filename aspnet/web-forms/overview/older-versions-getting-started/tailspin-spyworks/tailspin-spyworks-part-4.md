@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
-title: "パート 4: 製品のリスト |Microsoft ドキュメント"
+title: 'パート 4: 製品のリスト |Microsoft ドキュメント'
 author: JoeStagner
-description: "このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 パート 4 カバーが GridView contr. で製品を一覧表示する."
+description: このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 パート 4 カバーが GridView contr. で製品を一覧表示する.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 420cdbcc002bcbfff619d399a7a374009999d754
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69b26344e6dcdbf27e94da90ad5d6cd79f27ccd3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-4-listing-products"></a>パート 4: 一覧の製品
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 > このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 パート 4 では、GridView コントロールの一覧の製品について説明します。
 
 
-## <a id="_Toc260221670"></a>GridView コントロールでの製品を一覧表示します。
+## <a id="_Toc260221670"></a>  GridView コントロールでの製品を一覧表示します。
 
 "Add"および「新しい項目の」をクリックし、ソリューションでは、「を右クリック」、ProductsList.aspx ページの実装を開始してみましょう。
 
@@ -100,6 +100,6 @@ EntityDataSource コントロールを使用して、データベース内の特
 
 簡単なショッピング カートを作成しているに留意とがショッピング カート表示に、ショッピング カート ロジックを埋め込み価値もです。 完全に独立したビジネス層に、ショッピング カートを実装する場合がありますも選択します。
 
->[!div class="step-by-step"]
-[前へ](tailspin-spyworks-part-3.md)
-[次へ](tailspin-spyworks-part-5.md)
+> [!div class="step-by-step"]
+> [前へ](tailspin-spyworks-part-3.md)
+> [次へ](tailspin-spyworks-part-5.md)

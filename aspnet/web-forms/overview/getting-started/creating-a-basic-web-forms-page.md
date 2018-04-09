@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/creating-a-basic-web-forms-page
-title: "基本的な ASP.NET 4.5 Web フォーム ページの作成を Visual Studio 2013 で |Microsoft ドキュメント"
+title: 基本的な ASP.NET 4.5 Web フォーム ページの作成を Visual Studio 2013 で |Microsoft ドキュメント
 author: Erikre
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/03/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 6b699cc939292b7ab0167dba7cfa6a00b681ef3a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0dbd3063c9be3564637fad34e60f62c1662dcc07
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>基本的な ASP.NET 4.5 Web フォーム ページの作成では、Visual Studio 2013
 ====================
@@ -201,8 +201,8 @@ Visual Studio では、ページ上のコントロールのプロパティを設
 
     > [!NOTE] 
     > 
-    > 内のすべてのコントロールにある、**フォーム**要素、属性を持つ**runat =&quot;サーバー&quot;**です。 **Runat =&quot;サーバー&quot;** 属性および**asp:**プレフィックスは、コントロールのタグは、によって処理される ASP.NET サーバーで、ページの実行時にされるようにコントロールをマークします。 外部コード **&lt;runat を形成 =&quot;サーバー&quot; &gt;** と**&lt;スクリプト runat =&quot;サーバー&quot; &gt;**要素は、ASP.NET コードが持つ開始タグを含む要素内にする必要がありますブラウザーに変更が送信、 **runat =&quot;サーバー&quot;** 属性。
-4. 次に追加のプロパティを追加、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。 後の直後にカーソルを置く**Asp:label**で、  **&lt;Asp:label&gt;** タグ、およびキーを押します**space キー**です。
+    > 内のすべてのコントロールにある、**フォーム**要素、属性を持つ**runat =&quot;サーバー&quot;**です。 **Runat =&quot;サーバー&quot;** 属性および**asp:**プレフィックスは、コントロールのタグは、によって処理される ASP.NET サーバーで、ページの実行時にされるようにコントロールをマークします。 外部コード**&lt;runat を形成 =&quot;サーバー&quot; &gt;**と**&lt;スクリプト runat =&quot;サーバー&quot; &gt;**要素は、ASP.NET コードが持つ開始タグを含む要素内にする必要がありますブラウザーに変更が送信、 **runat =&quot;サーバー&quot;** 属性。
+4. 次に追加のプロパティを追加、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。 後の直後にカーソルを置く**Asp:label**で、 **&lt;Asp:label&gt;**タグ、およびキーを押します**space キー**です。
 
     設定できる使用可能なプロパティの一覧を表示するドロップダウン リストが表示されます、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。 この機能と呼ば**IntelliSense**で役立つ**ソース**サーバー コントロール、HTML 要素、およびその他の項目の構文を使用して、ページのビューです。 次の図は、 **IntelliSense**のドロップダウン リスト、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。
 
@@ -231,7 +231,7 @@ Visual Studio では、ページ上のコントロールのプロパティを設
 2. ダブルクリックして、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロール。
 
     既定では、Visual Studio 分離コード ファイルに切り替わりますおよびのスケルトンのイベント ハンドラーを作成、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールの既定のイベントを[クリックして](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx)イベント。 分離コード ファイルは、サーバー コード (c# など) から (HTML など)、UI のマークアップを分離します。   
-カーソルの位置が、このイベント ハンドラーのコードを追加します。
+   カーソルの位置が、このイベント ハンドラーのコードを追加します。
 
     > [!NOTE] 
     > 
@@ -247,7 +247,7 @@ Visual Studio では、ページ上のコントロールのプロパティを設
 
     [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample2.vb?highlight=2)]
 5. 表示に戻り、**ソース**ビューを右クリックして HTML マークアップの*名前*で、**ソリューション エクスプ ローラー**を選択して**ビューマークアップ**です。
-6. スクロールして、  **&lt;Asp:button&gt;** 要素。 なお、  **&lt;Asp:button&gt;** 要素が属性を持つようになりました**onclick =&quot;Button1\_ をクリックして&quot;**です。
+6. スクロールして、 **&lt;Asp:button&gt;**要素。 なお、 **&lt;Asp:button&gt;**要素が属性を持つようになりました**onclick =&quot;Button1\_ をクリックして&quot;**です。
 
     この属性のバインド ボタンの[クリックして](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx)前の手順でコード化されたハンドラー メソッドへのイベントです。
 
@@ -268,7 +268,7 @@ Visual Studio では、ページ上のコントロールのプロパティを設
     入力した名前が表示されます、[ラベル](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)コントロール。 ボタンをクリックすると、ページは、Web サーバーにポストされたに注意してください。 ASP.NET ページを再作成、コードを実行 (この場合、[ボタン](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx)コントロールの[ をクリックして](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx)イベント ハンドラーが実行される)、し、新しいページをブラウザーに送信します。 ブラウザーで、ステータス バーを監視する場合、ページは、作業を進めているラウンド トリップ Web サーバーに、ボタンをクリックするたびが確認できます。
 3. ブラウザーで、表示、ページを右クリックし、選択を実行しているページのソース**ソースの表示**です。
 
-    ページのソース コードでは、サーバー コードなし HTML を表示します。 具体的には、表示されない、  **&lt;asp:&gt;** で作業していた要素**ソース**ビュー。 ページの実行時に、ASP.NET はサーバー コントロールを処理し、コントロールを表す機能を実行するページに HTML 要素を表示します。 たとえば、  **&lt;Asp:button&gt;** コントロールは HTML としてレンダリングされます**&lt;入力の種類 =&quot;送信&quot;&gt;** 要素。
+    ページのソース コードでは、サーバー コードなし HTML を表示します。 具体的には、表示されない、 **&lt;asp:&gt;**で作業していた要素**ソース**ビュー。 ページの実行時に、ASP.NET はサーバー コントロールを処理し、コントロールを表す機能を実行するページに HTML 要素を表示します。 たとえば、 **&lt;Asp:button&gt;**コントロールは HTML としてレンダリングされます**&lt;入力の種類 =&quot;送信&quot;&gt;** 要素。
 4. ブラウザーを閉じます。
 
 
@@ -297,7 +297,7 @@ Visual Studio では、ページ上のコントロールのプロパティを設
 4. **スキームを選択**一覧で、選択**単純な** をクリックし、 **OK**です。
 5. 切り替える**ソース**ビュー。
 
-    表示することができます、  **&lt;asp: カレンダー&gt;** 要素。 この要素は、先ほど作成した単純なコントロールの要素よりも長い。 これもなどが含まれるサブ要素**&lt;この&gt;**、表示されているさまざまな書式設定します。 次の図は、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)で制御**ソース**ビュー。 (正確なマークアップに表示される**ソース**図からビューが多少異なる場合があります)。
+    表示することができます、 **&lt;asp: カレンダー&gt;**要素。 この要素は、先ほど作成した単純なコントロールの要素よりも長い。 これもなどが含まれるサブ要素**&lt;この&gt;**、表示されているさまざまな書式設定します。 次の図は、[カレンダー](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx)で制御**ソース**ビュー。 (正確なマークアップに表示される**ソース**図からビューが多少異なる場合があります)。
 
     ![ソース ビュー内のコントロールを calendar](creating-a-basic-web-forms-page/_static/image15.png "カレンダーのソース ビュー内のコントロール")
 
@@ -316,10 +316,12 @@ Visual Studio では、ページ上のコントロールのプロパティを設
 2. [完了]、 [SelectionChanged](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selectionchanged.aspx)イベント ハンドラーを次のコード。
 
 
-    [!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
+~~~
+[!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
 
 
-    [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
+[!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
+~~~
 
  上記のコードは、予定表コントロールの選択した日付をラベル コントロールのテキストを設定します。
 

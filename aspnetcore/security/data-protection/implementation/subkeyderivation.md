@@ -1,7 +1,7 @@
 ---
-title: "サブキーから派生し、認証済み暗号化"
+title: サブキーの派生と ASP.NET Core での認証済みの暗号化
 author: rick-anderson
-description: "このドキュメントでは、ASP.NET Core データ保護の実装の詳細はサブキーを派生し、暗号化の認証について説明します。"
+description: ASP.NET Core データ保護の実装の詳細はサブキーを派生し、暗号化の認証について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 4b905bbc7bb064b6ba1741557bd694c8c67ccfa8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8c83da40a524896becc07c94c01d5e2b684e4386
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="subkey-derivation-and-authenticated-encryption"></a>サブキーから派生し、認証済み暗号化
+# <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>サブキーの派生と ASP.NET Core での認証済みの暗号化
 
 <a name="data-protection-implementation-subkey-derivation"></a>
 
@@ -63,7 +63,7 @@ K_E が上記のメカニズムによって生成されるはランダムな初�
 *出力: keyModifier を = | |iv | |E_cbc (K_E、iv、データ) | |HMAC (K_H、iv | |E_cbc (K_E、iv、データ))*
 
 > [!NOTE]
-> `IDataProtector.Protect`実装は[マジック ヘッダーとキーの id を付加](authenticated-encryption-details.md)を呼び出し元に返す前に出力します。 ヘッダーのマジックとキーの id は、暗黙的にするための一部[AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad)MAC で最後に返されるペイロードの各バイトの 1 つが認証されていること、キーの修飾子が、KDF への入力としてが取り込まれるため
+> `IDataProtector.Protect`実装は[マジック ヘッダーとキーの id を付加](xref:security/data-protection/implementation/authenticated-encryption-details)を呼び出し元に返す前に出力します。 ヘッダーのマジックとキーの id は、暗黙的にするための一部[AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad)MAC で最後に返されるペイロードの各バイトの 1 つが認証されていること、キーの修飾子が、KDF への入力としてが取り込まれるため
 
 ## <a name="galoiscounter-mode-encryption--validation"></a>Galois/カウンター モードの暗号化と検証
 
@@ -74,4 +74,4 @@ K_E が上記のメカニズムによって生成されるはランダムな初�
 *output := keyModifier || nonce || E_gcm (K_E,nonce,data) || authTag*
 
 > [!NOTE]
-> GCM ネイティブにサポートされていますが、AAD の概念、おいるまだ給紙 AAD 元の KDF にのみ、AAD パラメーターに GCM に空の文字列を渡すを無効にします。 この理由は、2 つの面です。 最初に、[機敏性をサポートするために](context-headers.md#data-protection-implementation-context-headers)暗号化キーとして直接 K_M を使用することはありません。 さらに、GCM には、その入力に非常に厳格な一意性の要件が適用されます。 GCM 暗号化ルーチンが 2 つのこれまで呼び出されたかより明確である確率を設定 (キー、nonce) 同じ入力データのペアは以内で 2 ^32 です。 K_E も修正する場合実行できませんでした。 複数の 2 ^ 32 の暗号化操作は、2 への実行前に ^-32 を制限します。 これは非常に多数の操作と同様にですが、高トラフィックの web サーバーは、これらのキーの通常の有効期間の範囲内で、単なる日以内に 40億要求を通過できます。 2 の準拠を維持する ^128 ビット キーの修飾子と 96 ビット nonce は、任意指定 K_M の使用可能な操作の数を大幅に拡張を使用してまいります-32 確率制限します。 CBC と GCM 操作間 KDF コード パスを共有おわかりやすくするためのデザインと AAD は既に、KDF で考慮ためには、GCM ルーチンに転送する必要はありません。
+> GCM ネイティブにサポートされていますが、AAD の概念、おいるまだ給紙 AAD 元の KDF にのみ、AAD パラメーターに GCM に空の文字列を渡すを無効にします。 この理由は、2 つの面です。 最初に、[機敏性をサポートするために](xref:security/data-protection/implementation/context-headers#data-protection-implementation-context-headers)暗号化キーとして直接 K_M を使用することはありません。 さらに、GCM には、その入力に非常に厳格な一意性の要件が適用されます。 GCM 暗号化ルーチンが 2 つのこれまで呼び出されたかより明確である確率を設定 (キー、nonce) 同じ入力データのペアは以内で 2 ^32 です。 K_E も修正する場合実行できませんでした。 複数の 2 ^ 32 の暗号化操作は、2 への実行前に ^-32 を制限します。 これは非常に多数の操作と同様にですが、高トラフィックの web サーバーは、これらのキーの通常の有効期間の範囲内で、単なる日以内に 40億要求を通過できます。 2 の準拠を維持する ^128 ビット キーの修飾子と 96 ビット nonce は、任意指定 K_M の使用可能な操作の数を大幅に拡張を使用してまいります-32 確率制限します。 CBC と GCM 操作間 KDF コード パスを共有おわかりやすくするためのデザインと AAD は既に、KDF で考慮ためには、GCM ルーチンに転送する必要はありません。

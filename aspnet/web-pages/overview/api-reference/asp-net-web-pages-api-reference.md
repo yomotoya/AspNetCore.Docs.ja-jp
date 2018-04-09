@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/api-reference/asp-net-web-pages-api-reference
-title: "ASP.NET Web Pages (Razor) API クイック リファレンス |Microsoft ドキュメント"
+title: ASP.NET Web Pages (Razor) API クイック リファレンス |Microsoft ドキュメント
 author: tfitzmac
-description: "このページには、最もよく使用されるオブジェクト、プロパティ、および ASP.NET Web ページ Razor 構文を使用したプログラミング方法の簡単な例を含む一覧が含まれています。"
+description: このページには、最もよく使用されるオブジェクト、プロパティ、および ASP.NET Web ページ Razor 構文を使用したプログラミング方法の簡単な例を含む一覧が含まれています。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/api-reference/asp-net-web-pages-api-reference
 msc.type: authoredcontent
-ms.openlocfilehash: 35f91f4dbea4881d9dabc4ab7c6b96dbb6a01ea2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5f9d84f4d453583d7d4eae12e4fc510275255616
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web Pages (Razor) API クイック リファレンス
 ====================
@@ -158,13 +158,13 @@ ms.lasthandoff: 11/10/2017
 
 ### `Request.Form[key]`
 
-(文字列) として、フォームがポストされたデータを取得します。 `Request[key]`両方のチェック、`Request.Form`と`Request.QueryString`コレクション。
+(文字列) として、フォームがポストされたデータを取得します。 `Request[key]` 両方のチェック、`Request.Form`と`Request.QueryString`コレクション。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample19.cs)]
 
 ### `Request.QueryString[key]`
 
-URL クエリ文字列で指定されているデータを取得します。 `Request[key]`両方のチェック、`Request.Form`と`Request.QueryString`コレクション。
+URL クエリ文字列で指定されているデータを取得します。 `Request[key]` 両方のチェック、`Request.Form`と`Request.QueryString`コレクション。
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample20.cs)]
 
@@ -686,13 +686,13 @@ SMTP サーバーのパスワードを設定します。 このプロパティ�
 ### `WebMail.Send(to, subject, body [, from] [, cc] [, filesToAttach] [, isBodyHtml]`  
  `[, additionalHeaders])`
 
-電子メール メッセージを送信します。
+電子メールを送信します。
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample104.css)]
 
 ### `WebMail.SmtpServer`
 
-SMTP サーバー名を設定します。 このプロパティを設定する通常、*\_AppStart*ページ。
+SMTP サーバー名を設定します。 このプロパティを設定する通常、<em>\_AppStart</em>ページ。
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample105.html)]
 

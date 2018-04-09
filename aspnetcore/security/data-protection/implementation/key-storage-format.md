@@ -1,7 +1,7 @@
 ---
-title: "キー記憶域の形式"
+title: ASP.NET Core でのキー記憶域の形式
 author: tdykstra
-description: "このドキュメントでは、ASP.NET Core データ保護キーの格納形式の実装の詳細について説明します。"
+description: ASP.NET Core データ保護キーの格納形式の実装の詳細を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-storage-format
-ms.openlocfilehash: 66783eb7264a4551eafdd9d5c7d99b014701a6de
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: abe23da3de70107aa4f4d84f4da27aadfe7b2061
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-storage-format"></a>キー記憶域の形式
+# <a name="key-storage-format-in-aspnet-core"></a>ASP.NET Core でのキー記憶域の形式
 
 <a name="data-protection-implementation-key-storage-format"></a>
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 01/30/2018
 
 ## <a name="the-encryptedsecret-element"></a>\<EncryptedSecret > 要素
 
-<encryptedSecret>秘密キー マテリアルの暗号化されたフォームが含まれる要素が存在する場合[静止したシークレットの暗号化が有効になっている](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest)です。 属性 decryptorType IXmlDecryptor を実装する型のアセンブリ修飾名になります。 この型は、内部の読み取りを行う<encryptedKey>要素と回復元のプレーン テキストに復号化します。
+<encryptedSecret>秘密キー マテリアルの暗号化されたフォームが含まれる要素が存在する場合[静止したシークレットの暗号化が有効になっている](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest)です。 属性 decryptorType IXmlDecryptor を実装する型のアセンブリ修飾名になります。 この型は、内部の読み取りを行う<encryptedKey>要素と回復元のプレーン テキストに復号化します。
 
 同様に\<記述子 > の特定の形式、<encryptedSecret>要素が使用されて残りの部分での暗号化メカニズムに依存します。 上記の例では、Windows DPAPI を使用して、コメント、マスター _ キーが暗号化されます。
 

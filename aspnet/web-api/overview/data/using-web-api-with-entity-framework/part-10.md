@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-10
-title: "Azure の Azure App Service にアプリを公開する |Microsoft ドキュメント"
+title: Azure の Azure App Service にアプリを公開する |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-10
 msc.type: authoredcontent
-ms.openlocfilehash: 08994815cb339800619caacdcb8d717e9986f9d5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cc8a9199144e9fac041435938ea8899374ea199f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="publish-the-app-to-azure-azure-app-service"></a>Azure の Azure App Service にアプリを公開します。
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 最後のステップとして Azure にアプリケーションを発行します。 ソリューション エクスプ ローラーでプロジェクトを右クリックし、**発行**です。
 
@@ -51,12 +51,11 @@ Visual Studio では、アプリケーションの展開が完了すると、既
 
 ![](part-10/_static/image9.png)
 
-サイト名を入力します。 Azure サブスクリプションと地域を選択します。 **データベース サーバー****新しいサーバーの作成**、または既存のサーバーを選択します。 
-              **[作成]**をクリックします。
+サイト名を入力します。 Azure サブスクリプションと地域を選択します。 **データベース サーバー****新しいサーバーの作成**、または既存のサーバーを選択します。 **[作成]**をクリックします。
 
 [![](part-10/_static/image11.png)](part-10/_static/image10.png)
 
 クリックして、**設定** タブで確認し、 &quot;Code First Migrations を実行&quot;です。 をクリックして**発行**です。
 
->[!div class="step-by-step"]
-[前へ](part-9.md)
+> [!div class="step-by-step"]
+> [前へ](part-9.md)

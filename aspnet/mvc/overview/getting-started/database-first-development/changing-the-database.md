@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/changing-the-database
-title: "ASP.NET MVC で最初の EF Database: データベースの変更 |Microsoft ドキュメント"
+title: 'ASP.NET MVC で最初の EF Database: データベースの変更 |Microsoft ドキュメント'
 author: tfitzmac
-description: "MVC、Entity Framework と ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアルの seri しています."
+description: MVC、Entity Framework と ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアルの seri しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/changing-the-database
 msc.type: authoredcontent
-ms.openlocfilehash: 1ffe753812e5eef817f03ab488a28ae5fcefd41e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 63ee8768a43dbdac80922e3adbedd3378c10da73
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-changing-the-database"></a>ASP.NET MVC で最初の EF Database: データベースの変更
 ====================
@@ -63,6 +63,6 @@ ms.lasthandoff: 11/10/2017
 
 次のセクションでは、student レコードに関する詳細を表示するビューをカスタマイズするためのコードを追加します。
 
->[!div class="step-by-step"]
-[前へ](generating-views.md)
-[次へ](customizing-a-view.md)
+> [!div class="step-by-step"]
+> [前へ](generating-views.md)
+> [次へ](customizing-a-view.md)

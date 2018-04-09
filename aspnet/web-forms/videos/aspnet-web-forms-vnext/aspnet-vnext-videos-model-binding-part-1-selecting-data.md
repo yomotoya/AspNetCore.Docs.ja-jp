@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-part-1-selecting-data
-title: "ASP.NET vNext ビデオ: モデル バインディング Part 1 - データの選択 |Microsoft ドキュメント"
+title: 'ASP.NET vNext ビデオ: モデル バインディング Part 1 - データの選択 |Microsoft ドキュメント'
 author: DamianEdwards
-description: "このビデオでは、Damian Edwards は、データの選択のデモで見てモデル バインドを開始します。"
+description: このビデオでは、Damian Edwards は、データの選択のデモで見てモデル バインドを開始します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/12/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-part-1-selecting-data
 msc.type: video
-ms.openlocfilehash: fb1e762f2b9cf67e83e2971e82a82b62179e4a89
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d4bd7f2dd9cacff86a991d51f4941f86489c0448
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-vnext-videos-model-binding-part-1---selecting-data"></a>ASP.NET vNext ビデオ: モデル バインディング Part 1 - データの選択
 ====================
@@ -24,8 +24,8 @@ ms.lasthandoff: 11/10/2017
 
 このビデオでは、Damian Edwards は、データの選択のデモで見てモデル バインドを開始します。
 
-[&#9654;です。ビデオ (1 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-vnext-videos-model-binding-part-1-selecting-data)
+[&#9654;ビデオ (1 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-vnext-videos-model-binding-part-1-selecting-data)
 
->[!div class="step-by-step"]
-[前へ](aspnet-vnext-videos-strongly-typed-data-controls.md)
-[次へ](aspnet-vnext-videos-model-binding-part-2-filtering.md)
+> [!div class="step-by-step"]
+> [前へ](aspnet-vnext-videos-strongly-typed-data-controls.md)
+> [次へ](aspnet-vnext-videos-model-binding-part-2-filtering.md)

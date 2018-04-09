@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 927b2490b5c539a79bb9939b88942499b23cc464
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7e1a457c23ef659bf7ee9c15b66dc5c2d8a31416
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-data-access-layer-c"></a>データ アクセス層 (c#) の作成
 ====================
@@ -84,7 +84,7 @@ Web サイトを作成では、次の手順は、Visual Studio のサーバー �
 
 呼び出されると、これらのメソッドはデータベースへの接続、適切なクエリを発行し、結果を返します。 これらの結果を返すどのようにすることが重要です。 データセットまたは DataReader データベース クエリによって設定されますが、これらのメソッドに返されるだけでしたが、理想的にはこれらの結果を返すを使用して*オブジェクトの厳密に型指定された*です。 厳密に型指定されたオブジェクトは、コンパイル時にスキーマを持つが定義されている厳密反対に、厳密に型のオブジェクトは 1 つのスキーマが実行時まで不明です。
 
-たとえば、DataReader し (既定) のデータセットは弱い型指定オブジェクトによってそれらの設定に使用されるデータベース クエリによって返される列のスキーマが定義されているためです。 ような構文を使用する必要があります、弱い型指定の DataTable から特定の列にアクセスする: ***DataTable*です。行[*インデックス*]["*columnName*"]** です。 DataTable のこの例で柔軟な型指定は文字列または序数インデックスを使用して、列名にアクセスする必要がありますという事実によって行われます。 厳密に型指定された DataTable では、その一方が、プロパティとして実装されたその列のそれぞれ次のようなコードで結果として得られる: ***DataTable*です.行[*インデックス*].*columnName*** です。
+たとえば、DataReader し (既定) のデータセットは弱い型指定オブジェクトによってそれらの設定に使用されるデータベース クエリによって返される列のスキーマが定義されているためです。 ような構文を使用する必要があります、弱い型指定の DataTable から特定の列にアクセスする:  <strong><em>DataTable</em>です。行 [<em>インデックス</em>] ["<em>columnName</em>"]</strong>です。 DataTable のこの例で柔軟な型指定は文字列または序数インデックスを使用して、列名にアクセスする必要がありますという事実によって行われます。 厳密に型指定された DataTable では、その一方が、プロパティとして実装されたその列のそれぞれ次のようなコードで結果として得られる:  <strong><em>DataTable</em>です。行 [<em>インデックス</em>].*columnName</strong>*です。
 
 厳密に型指定されたオブジェクトを返すには、開発者は、独自のカスタム ビジネス オブジェクトを作成するか、型指定されたデータセットを使用することができます。 ビジネス オブジェクトは、プロパティを持つは通常、基になるデータベース テーブル、ビジネス オブジェクトの列を反映してクラスを表します。 開発者によって実装されます。 型指定されたデータセットは、データベース スキーマとそのメンバーが厳密に型指定されたこのスキーマによるに基づいて Visual Studio によって生成したクラスです。 型指定されたデータセット自体は、ADO.NET DataSet、DataTable、および DataRow クラスを拡張するクラスで構成されます。 データ テーブルの厳密に型指定されただけでなく型指定されたデータセット今すぐ含めることも、Tableadapter はデータセットのデータ テーブルを設定し、データベースにデータ テーブル内の変更を反映するためのメソッドを持つクラス。
 
@@ -124,7 +124,7 @@ TableAdapter 構成ウィザードを使用するデータベースを選択す�
 **図 5**: ドロップダウン リストから、Northwind データベースを選択 ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-cs/_static/image13.png))
 
 
-データベースを選択し、[次へ] をクリックして、後にするよう求められます内の接続文字列を保存するかどうか、 **Web.config**ファイル。 接続文字列を保存することによってされます必要があるがハード コード化された TableAdapter のクラスが接続文字列が変更された場合、将来の処理を簡素化されます。 配置されている構成ファイルに接続文字列を保存することを選択する場合、  **&lt;connectionStrings&gt;** 可能性があるセクション[オプションで暗号化された](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)改善セキュリティや IIS の GUI 管理ツールでは、管理者にとってより適切な新しい ASP.NET 2.0 プロパティ ページで後で変更されました。
+データベースを選択し、[次へ] をクリックして、後にするよう求められます内の接続文字列を保存するかどうか、 **Web.config**ファイル。 接続文字列を保存することによってされます必要があるがハード コード化された TableAdapter のクラスが接続文字列が変更された場合、将来の処理を簡素化されます。 配置されている構成ファイルに接続文字列を保存することを選択する場合、 **&lt;connectionStrings&gt;**可能性があるセクション[オプションで暗号化された](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)改善セキュリティや IIS の GUI 管理ツールでは、管理者にとってより適切な新しい ASP.NET 2.0 プロパティ ページで後で変更されました。
 
 
 [![Web.config への接続文字列を保存します。](creating-a-data-access-layer-cs/_static/image15.png)](creating-a-data-access-layer-cs/_static/image14.png)
@@ -233,7 +233,7 @@ AllProducts.aspx.cs
 **図 15**: 作成 を選択して、**選択**ステートメントが行を返します ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-cs/_static/image41.png))
 
 
-次の手順では、データにアクセスするために使用する SQL クエリを定義します。 同じ使用を特定のカテゴリに属する製品だけを返すので、**選択**ステートメントから**GetProducts()**、次の追加が**場所**句: **CategoryID 場所 = @CategoryID**です。  **@CategoryID** メソッドを作成していますが、対応する型 (つまり、null 許容の整数) の入力パラメーターを必要とする、TableAdapter ウィザードにパラメーターを示します。
+次の手順では、データにアクセスするために使用する SQL クエリを定義します。 同じ使用を特定のカテゴリに属する製品だけを返すので、<strong>選択</strong>ステートメントから<strong>GetProducts()</strong>、次の追加が<strong>場所</strong>句: <strong>CategoryID 場所 = @CategoryID</strong>です。 <strong>@CategoryID</strong>メソッドを作成していますが、対応する型 (つまり、null 許容の整数) の入力パラメーターを必要とする、TableAdapter ウィザードにパラメーターを示します。
 
 
 [![指定されたカテゴリの製品を返すだけにクエリを入力します](creating-a-data-access-layer-cs/_static/image43.png)](creating-a-data-access-layer-cs/_static/image42.png)
@@ -241,7 +241,7 @@ AllProducts.aspx.cs
 **図 16**: に指定されたカテゴリの製品をのみを返すクエリを入力します ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-cs/_static/image44.png))
 
 
-最後の手順で選択できますデータ アクセス パターンを使用して、できるだけでなく、生成されたメソッドの名前をカスタマイズします。 塗りつぶしのパターンの名前を変更してみましょう**FillByCategoryID**および戻り値の DataTable 戻りパターン (、**取得 * X*** メソッド) を使ってみましょう**GetProductsByCategoryID**.
+最後の手順で選択できますデータ アクセス パターンを使用して、できるだけでなく、生成されたメソッドの名前をカスタマイズします。 塗りつぶしのパターンの名前を変更してみましょう<strong>FillByCategoryID</strong>および戻り値の DataTable 戻りパターン (、<strong>取得*X</strong>* メソッド) を使ってみましょう<strong>GetProductsByCategoryID</strong>です。
 
 
 [![TableAdapter のメソッドの名前を選択します。](creating-a-data-access-layer-cs/_static/image46.png)](creating-a-data-access-layer-cs/_static/image45.png)
@@ -403,48 +403,48 @@ TableAdapter では、既定では、バッチ更新パターンを使用しま�
 
 - **ProductsTableAdapter**
 
-    - **GetProducts**: 
+  - **GetProducts**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample10.sql)]
-    - **GetProductsByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample10.sql)]
+  - **GetProductsByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample11.sql)]
-    - **GetProductsBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample11.sql)]
+  - **GetProductsBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample12.sql)]
-    - **GetProductByProductID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample12.sql)]
+  - **GetProductByProductID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample13.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample13.sql)]
 - **CategoriesTableAdapter**
 
-    - **GetCategories**: 
+  - **GetCategories**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample14.sql)]
-    - **GetCategoryByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample14.sql)]
+  - **GetCategoryByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample15.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample15.sql)]
 - **SuppliersTableAdapter**
 
-    - **GetSuppliers**: 
+  - **GetSuppliers**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample16.sql)]
-    - **GetSuppliersByCountry**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample16.sql)]
+  - **GetSuppliersByCountry**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample17.sql)]
-    - **GetSupplierBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample17.sql)]
+  - **GetSupplierBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample18.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample18.sql)]
 - **EmployeesTableAdapter**
 
-    - **GetEmployees**: 
+  - **GetEmployees**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample19.sql)]
-    - **GetEmployeesByManager**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample19.sql)]
+  - **GetEmployeesByManager**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample20.sql)]
-    - **GetEmployeeByEmployeeID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample20.sql)]
+  - **GetEmployeeByEmployeeID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample21.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample21.sql)]
 
 
 [![次の 4 つの Tableadapter を追加した後、データセット デザイナー](creating-a-data-access-layer-cs/_static/image84.png)](creating-a-data-access-layer-cs/_static/image83.png)
@@ -543,5 +543,5 @@ SuppliersAndProducts.aspx.cs
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Ron 緑、Hilton Giesenow、Dennis Patterson、Liz Shulok、Abel Gomez、および Carlos Santos でした。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[次へ](creating-a-business-logic-layer-cs.md)
+> [!div class="step-by-step"]
+> [次へ](creating-a-business-logic-layer-cs.md)

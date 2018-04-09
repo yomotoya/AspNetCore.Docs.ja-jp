@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
-title: "データ アクセス層を作成 |Microsoft ドキュメント"
+title: データ アクセス層を作成 |Microsoft ドキュメント
 author: Erikre
-description: "このチュートリアルの系列では、お用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルの系列では、お用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: 809609155b06c4632bd4f450082d84c432c7a46f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 671d1bbf661dfb3e56c6ccd67ce0d383990918d6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-the-data-access-layer"></a>データ アクセス層を作成します。
 ====================
@@ -68,13 +68,13 @@ Web フォーム アプリケーションのデータ モデルを定義する�
 
     ![データ アクセス レイヤーでの新しいメニュー項目の作成します。](create_the_data_access_layer/_static/image1.png)
 
- **[新しい項目の追加]** ダイアログ ボックスが表示されます。
+   **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 2. **Visual c#**から、**インストール**左側のウィンドウ、**コード**です。 
 
     ![データ アクセス レイヤーでの新しいメニュー項目の作成します。](create_the_data_access_layer/_static/image2.png)
 3. 選択**クラス**中央のペインからこの新しいクラスの名前と*Product.cs*です。
-4. **[追加]**をクリックします。  
- 新しいクラス ファイルがエディターで表示されます。
+4. **[追加]** をクリックします。  
+   新しいクラス ファイルがエディターで表示されます。
 5. 既定のコードを次のコードに置き換えます。   
 
     [!code-csharp[Main](create_the_data_access_layer/samples/sample1.cs)]
@@ -95,7 +95,7 @@ Web フォーム アプリケーションのデータ モデルを定義する�
 このプロシージャは、新しい c# するコンテキスト クラスを追加、*モデル*フォルダーです。
 
 1. 右クリックし、*モデル*クリックしてフォルダー**追加** - &gt; **新しい項目の**します。   
- **[新しい項目の追加]** ダイアログ ボックスが表示されます。
+   **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 2. 選択**クラス**に中央のペインから名前を付けます*ProductContext.cs*  をクリック**追加**です。
 3. 次のコードでクラスに含まれる既定のコードに置き換えます。   
 
@@ -188,6 +188,6 @@ Entity Framework Code First は生成、データベースの既定の場所に�
 [コードの最初のデータの注釈](https://msdn.microsoft.com/data/gg193958)  
 [Entity Framework 用の生産性の向上](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)
 
->[!div class="step-by-step"]
-[前へ](create-the-project.md)
-[次へ](ui_and_navigation.md)
+> [!div class="step-by-step"]
+> [前へ](create-the-project.md)
+> [次へ](ui_and_navigation.md)

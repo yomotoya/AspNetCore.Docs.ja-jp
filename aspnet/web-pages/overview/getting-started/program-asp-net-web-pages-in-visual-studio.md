@@ -1,8 +1,8 @@
 ---
 uid: aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
-title: "プログラミングの ASP.NET Web Pages (Razor) を使用してクトリ |Microsoft ドキュメント"
+title: プログラミングの ASP.NET Web Pages (Razor) を使用してクトリ |Microsoft ドキュメント
 author: tfitzmac
-description: "この付録では、Razor 構文を使用するプログラミング ASP.NET Web Pages をな Visual Studio 2010 または Visual Web Developer 2010 Express を使用する方法について説明します。"
+description: この付録では、Razor 構文を使用するプログラミング ASP.NET Web Pages をな Visual Studio 2010 または Visual Web Developer 2010 Express を使用する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 5cfeda206eda8fb3fd769d34fb40bae2c3b65093
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eb17c8cc1fab5b552c8495e74bb86ae9dbc5b972
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Visual Studio を使用してプログラミングする ASP.NET Web Pages (Razor)
 ====================
@@ -84,7 +84,7 @@ Visual Studio で、ASP.NET Razor web サイトを作成します。
 4. 選択、 **ASP.NET Web サイト (Razor)**テンプレート。
 
     ![razor サイト](program-asp-net-web-pages-in-visual-studio/_static/image3.png)
-5. **[OK]** をクリックします。
+5. **[OK]**をクリックします。
 
 新しいプロジェクトが存在し、いくつか作業を開始するための既定の web ページが表示されます。
 
@@ -95,9 +95,9 @@ Visual Studio で、ASP.NET Razor web サイトを作成します。
 1. 作成した web サイトで開く、 *Default.cshtml*ページ。
 2. 後に、 `<h3>`  ページで、タグを入力`@ServerInfo.`(ドットを含む)。 IntelliSense で使用できるメソッドを表示する方法に注意してください、`ServerInfo`ドロップダウン リストでヘルパー。 
 
-    ![Intellisense](program-asp-net-web-pages-in-visual-studio/_static/image4.png)
+    ![intellisense](program-asp-net-web-pages-in-visual-studio/_static/image4.png)
 3. 選択、`GetHtml`し、Enter キーを押して、一覧からのメソッドです。 IntelliSense は、メソッドで自動的に入力します。 (C# での任意のメソッドに追加する必要がありますと`()`メソッドの後に文字です)。  
- 完全なコード、`GetHtml`メソッドは次の例のようになります。  
+   完全なコード、`GetHtml`メソッドは次の例のようになります。  
 
     [!code-cshtml[Main](program-asp-net-web-pages-in-visual-studio/samples/sample1.cshtml)]
 4. Ctrl + f5 キーを押してページを実行します。 これは、ページの外観と、ブラウザーに表示されます。 

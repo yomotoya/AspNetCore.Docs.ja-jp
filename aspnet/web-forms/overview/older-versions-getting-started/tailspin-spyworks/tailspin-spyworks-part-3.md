@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
-title: "パート 3: レイアウトとカテゴリ メニュー |Microsoft ドキュメント"
+title: 'パート 3: レイアウトとカテゴリ メニュー |Microsoft ドキュメント'
 author: JoeStagner
-description: "このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 パート 3 は、追加のレイアウトとカテゴリのメニューについて説明します。"
+description: このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 パート 3 は、追加のレイアウトとカテゴリのメニューについて説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 57c0342efb67b94a0d8c8b06dc13a727e7184db8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 27a493173b03f813ee3dcbbfafd8bc52fb0b9771
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-layout-and-category-menu"></a>パート 3: レイアウトとカテゴリのメニュー
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 > このチュートリアルの系列では、すべて Tailspin Spyworks サンプル アプリケーションをビルドする手順について説明します。 パート 3 は、追加のレイアウトとカテゴリのメニューについて説明します。
 
 
-## <a id="_Toc260221669"></a>一部のレイアウトとカテゴリのメニューを追加します。
+## <a id="_Toc260221669"></a>  一部のレイアウトとカテゴリのメニューを追加します。
 
 このサイトのマスター ページで、左側にあるを含む列に、製品カテゴリ メニューの div を追加します。
 
@@ -77,6 +77,6 @@ ASP.NET の構文&lt;%# %&gt;内に含まれるものと、"行"の結果を出�
 
 当社製品カテゴリ メニューに表示されていますしおよび ProductsList.aspx ときにマウス ポインターを移動 メニュー項目のリンク先を実装するには、まだあるページに表示カテゴリ メニュー項目の 1 つという名前を作成した、動的なクエリ文字列引数を含む、 カテゴリ id。
 
->[!div class="step-by-step"]
-[前へ](tailspin-spyworks-part-2.md)
-[次へ](tailspin-spyworks-part-4.md)
+> [!div class="step-by-step"]
+> [前へ](tailspin-spyworks-part-2.md)
+> [次へ](tailspin-spyworks-part-4.md)

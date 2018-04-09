@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
-title: "入れ子になったデータ Web コントロール (c#) |Microsoft ドキュメント"
+title: 入れ子になったデータ Web コントロール (c#) |Microsoft ドキュメント
 author: rick-anderson
-description: "について学びますこのチュートリアルでは、リピータを使用する方法は、別リピータ内に入れ子にします。 内部リピータ両方 d を設定する方法を例しています."
+description: について学びますこのチュートリアルでは、リピータを使用する方法は、別リピータ内に入れ子にします。 内部リピータ両方 d を設定する方法を例しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 69fa0489ff8baed1423d29ee7bfaa3157d35a76b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4957f555691efaeaafa5bcf92141e0bef1cb1de9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nested-data-web-controls-c"></a>入れ子になったデータ Web コントロール (c#)
 ====================
@@ -100,7 +100,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-aspx[Main](nested-data-web-controls-cs/samples/sample3.aspx)]
 
-ObjectDataSource アプローチを使用するときに設定する必要があります、`ProductsByCategoryList`リピータ s`DataSourceID`プロパティを`ID`、ObjectDataSource の (`ProductsByCategoryDataSource`)。 またに注意してください、ObjectDataSource のある、`<asp:Parameter>`を指定する要素、  *`categoryID`* に渡される値、`GetProductsByCategoryID(categoryID)`メソッドです。 しかし、この値を指定する方法をおでしょうか。 理想的には、d にのみ設定できる、`DefaultValue`のプロパティ、`<asp:Parameter>`要素のデータ バインドの構文を使用して次のように。
+ObjectDataSource アプローチを使用するときに設定する必要があります、`ProductsByCategoryList`リピータ s`DataSourceID`プロパティを`ID`、ObjectDataSource の (`ProductsByCategoryDataSource`)。 またに注意してください、ObjectDataSource のある、`<asp:Parameter>`を指定する要素、 *`categoryID`*に渡される値、`GetProductsByCategoryID(categoryID)`メソッドです。 しかし、この値を指定する方法をおでしょうか。 理想的には、d にのみ設定できる、`DefaultValue`のプロパティ、`<asp:Parameter>`要素のデータ バインドの構文を使用して次のように。
 
 
 [!code-aspx[Main](nested-data-web-controls-cs/samples/sample4.aspx)]
@@ -169,7 +169,7 @@ ObjectDataSource アプローチを使用するときに設定する必要があ
 
 常に、ときに渡される 2 つの方法のパフォーマンスの分析、のみとれるメジャーのアプリケーションの一般的なシナリオに対応したコントロールのテストの実行を開始します。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルで方法を説明しましたを 1 つのデータ、別の Web コントロールを入れ子にする具体的には、外部リピータ箇条書きリスト内の各カテゴリの製品を一覧表示する内部のリピータと各カテゴリの項目を表示する方法を確認します。 アクセスと、内部のデータの Web コントロールに正しいデータをバインドには、入れ子になったユーザー インターフェイスの構築で主要な課題があります。 さまざまな手法が使用できますが、このチュートリアルで確認おうち 2 つがあります。 最初の調査方法は、Web コントロールの外部のデータで、ObjectDataSource を使用`ItemTemplate`を使用して内部データ Web コントロールにバインドされていたをその`DataSourceID`プロパティです。 2 番目の手法は、ASP.NET ページの分離コード クラスのメソッドを使用してデータにアクセスします。 このメソッドは、内部データ Web コントロール s にし、バインドできる`DataSource`databinding 構文を使用してプロパティです。
 
@@ -179,12 +179,12 @@ ObjectDataSource アプローチを使用するときに設定する必要があ
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Zack Jones および Liz Shulok がいました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](showing-multiple-records-per-row-with-the-datalist-control-cs.md)
-[次へ](displaying-data-with-the-datalist-and-repeater-controls-vb.md)
+> [!div class="step-by-step"]
+> [前へ](showing-multiple-records-per-row-with-the-datalist-control-cs.md)
+> [次へ](displaying-data-with-the-datalist-and-repeater-controls-vb.md)

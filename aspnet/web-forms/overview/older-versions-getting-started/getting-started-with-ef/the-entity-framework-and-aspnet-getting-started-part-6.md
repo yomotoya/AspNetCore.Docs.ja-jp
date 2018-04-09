@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-6
-title: "データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォームの第 6 部 |Microsoft ドキュメント"
+title: データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォームの第 6 部 |Microsoft ドキュメント
 author: tdykstra
-description: "Contoso 大学でサンプル web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、."
+description: Contoso 大学でサンプル web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 164c2002a119420555d2c7065c5a79a5f433a725
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b76be25501275ba676c9a9acca8e73333439ee70
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-6"></a>データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォームの第 6 部
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="implementing-table-per-hierarchy-inheritance"></a>Table-Per-Hierarchy 継承の実装
 
-前のチュートリアルで使用していた関連するデータを追加してリレーションシップを削除して、既存のエンティティとの関係のある新しいエンティティを追加することによりします。 このチュートリアルでは、データ モデルでの継承を実装する方法を示します。
+前のチュートリアルで使用していた関連するデータを追加してリレーションシップを削除して、既存のエンティティとの関係のある新しいエンティティを追加することによりします。 このチュートリアルでは、データ モデルで継承を実装する方法を示します。
 
 オブジェクト指向プログラミングでは、関連するクラスを使用しやすく継承を使用できます。 たとえば、作成した`Instructor`と`Student`から派生したクラス、`Person`基本クラスです。 Entity Framework では、同じ種類のエンティティ間の継承構造を作成できます。
 
@@ -57,7 +57,7 @@ Entity Framework データ モデルを構成することができるように`O
 
 ## <a name="adding-instructor-and-student-entities"></a>インストラクターと学生エンティティの追加
 
-開く、 *SchoolModel.edmx*ファイルをデザイナーで使用されていない領域を右クリックして**追加**選択してから、**エンティティ***です。*
+開く、 <em>SchoolModel.edmx</em>ファイルをデザイナーで使用されていない領域を右クリックして<strong>追加</strong>選択してから、<strong>エンティティ</strong><em>です。</em>
 
 [![image01](the-entity-framework-and-aspnet-getting-started-part-6/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image5.png)
 
@@ -65,7 +65,7 @@ Entity Framework データ モデルを構成することができるように`O
 
 [![image02](the-entity-framework-and-aspnet-getting-started-part-6/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image7.png)
 
-**[OK]** をクリックします。 デザイナーを作成、`Instructor`から派生するエンティティ、`Person`エンティティです。 新しいエンティティがないすべてのプロパティです。
+**[OK]**をクリックします。 デザイナーを作成、`Instructor`から派生するエンティティ、`Person`エンティティです。 新しいエンティティがないすべてのプロパティです。
 
 [![image03](the-entity-framework-and-aspnet-getting-started-part-6/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image9.png)
 
@@ -161,6 +161,6 @@ Visual Studio デザイナーで、エンティティの種類を指定できま
 
 Entity Framework での継承パターンを実装する方法を見てきましたようになりました。 次のチュートリアルでは、Entity Framework がデータベースにアクセスするより詳細に制御するためにストアド プロシージャを使用する方法を学習します。
 
->[!div class="step-by-step"]
-[前へ](the-entity-framework-and-aspnet-getting-started-part-5.md)
-[次へ](the-entity-framework-and-aspnet-getting-started-part-7.md)
+> [!div class="step-by-step"]
+> [前へ](the-entity-framework-and-aspnet-getting-started-part-5.md)
+> [次へ](the-entity-framework-and-aspnet-getting-started-part-7.md)

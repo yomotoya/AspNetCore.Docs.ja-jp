@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
-title: "ASP.NET MVC 4 のカスタム アクション フィルター |Microsoft ドキュメント"
+title: ASP.NET MVC 4 のカスタム アクション フィルター |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET MVC には、事前にまたはアクション メソッドが呼び出された後にフィルタ リング ロジックを実行するためのアクション フィルターが用意されています。 アクション フィルターは、カスタム属性 tha しています."
+description: ASP.NET MVC には、事前にまたはアクション メソッドが呼び出された後にフィルタ リング ロジックを実行するためのアクション フィルターが用意されています。 アクション フィルターは、カスタム属性 tha しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 639815cc92b7cb5f3dfb4e1a198f6b4c2476dc90
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 8b135b23aea64b0c7c7d4368eef9ee80914159e4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 のカスタム アクション フィルター
 
@@ -139,14 +139,14 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
 
 1. 開く、**開始**ソリューションにある**\Source\Ex01-LoggingActions\Begin**フォルダーです。
 
-    1. 続行する前に、いくつか不足している NuGet パッケージをダウンロードする必要があります。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
-    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
-    3. 最後に、ソリューションをビルドします をクリックして**ビルド** | **ソリューションのビルド**です。
+   1. 続行する前に、いくつか不足している NuGet パッケージをダウンロードする必要があります。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
+   2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
+   3. 最後に、ソリューションをビルドします をクリックして**ビルド** | **ソリューションのビルド**です。
 
-    > [!NOTE]
-    > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
-    > 
-    > 詳細については、この記事を参照してください: [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)です。
+      > [!NOTE]
+      > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
+      > 
+      > 詳細については、この記事を参照してください: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)です。
 2. 新しい c# クラスを追加、**フィルター**フォルダーし名前を付けます*CustomActionFilter.cs*です。 このフォルダーでは、すべてのカスタム フィルターを格納します。
 3. 開いている**CustomActionFilter.cs**への参照を追加および**System.Web.Mvc**と**MvcMusicStore.Models**名前空間。
 
@@ -185,10 +185,10 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample5.cs)]
 
-    > [!NOTE]
-    > フィルターは、コント ローラー クラスに組み込まれてと、そのすべてのアクションは挿入もします。 一連のアクションに対してのみフィルターを適用するには、挿入する必要があります**[CustomActionFilter]**それらのいずれか。
-    > 
-    > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample6.cs)]
+   > [!NOTE]
+   > フィルターは、コント ローラー クラスに組み込まれてと、そのすべてのアクションは挿入もします。 一連のアクションに対してのみフィルターを適用するには、挿入する必要があります**[CustomActionFilter]**それらのいずれか。
+   > 
+   > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample6.cs)]
 
 <a id="Ex1Task3"></a>
 
@@ -204,14 +204,14 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
 
     *ページのアクティビティの前にログの追跡ツールの状態*
 
-    > [!NOTE]
-    > 既定では、1 つの項目、メニューの既存のジャンルを取得するときに生成された常に表示されます。
-    > 
-    > クリーンアップおわかりやすくするための目的で、 **ActionLog**たびに、アプリケーションが実行されるは、それぞれ特定のタスクの検証のログのみが表示するためのテーブルです。
-    > 
-    > 次のコードを削除する必要がありますが、**セッション\_開始**メソッド (で、 **Global.asax**クラス)、ストア内で実行されるすべての操作の履歴ログを保存するのにはコント ローラー。
-    > 
-    > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample7.cs)]
+   > [!NOTE]
+   > 既定では、1 つの項目、メニューの既存のジャンルを取得するときに生成された常に表示されます。
+   > 
+   > クリーンアップおわかりやすくするための目的で、 **ActionLog**たびに、アプリケーションが実行されるは、それぞれ特定のタスクの検証のログのみが表示するためのテーブルです。
+   > 
+   > 次のコードを削除する必要がありますが、**セッション\_開始**メソッド (で、 **Global.asax**クラス)、ストア内で実行されるすべての操作の履歴ログを保存するのにはコント ローラー。
+   > 
+   > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample7.cs)]
 3. いずれかをクリックして、**ジャンル** メニューから使用可能なアルバムを参照するように、操作を実行したりします。
 4. 参照**/ActionLog**され、ログが空のキーを押して**f5 キーを押して**ページを更新します。 訪問が追跡されなかったことを確認します。
 
@@ -232,7 +232,7 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
 
 さらに、各アクション フィルターでは、フィルターのスコープ内の実行順序を決定するために使用する順序プロパティがいます。
 
-カスタム アクション フィルターの実行順序の詳細については、この MSDN の記事をご覧ください: ([https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx](https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx)) です。
+カスタム アクション フィルターの実行順序の詳細については、この MSDN の記事をご覧ください: ([https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx](https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx))。
 
 <a id="Ex2Task1"></a>
 
@@ -250,7 +250,7 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
         > [!NOTE]
         > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
         > 
-        > 詳細については、この記事を参照してください: [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)です。
+        > 詳細については、この記事を参照してください: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)です。
 2. 新しい c# クラスを追加、**フィルター**フォルダーし名前を付けます*MyNewCustomActionFilter.cs*
 3. 開いている**MyNewCustomActionFilter.cs**への参照を追加および**System.Web.Mvc**と**MvcMusicStore.Models**名前空間。
 
@@ -376,9 +376,9 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 a: をインストールする Visual Studio Express 2012 for Web
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、  **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . 次の手順を案内するインストールに必要な手順*Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*です。
+インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順を案内するインストールに必要な手順*Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*です。
 
-1. 移動して[ [https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)です。 または、既に Web Platform Installer をインストールした場合、開くことができ、製品を検索&quot; *Visual Studio Express 2012 for Web と Windows Azure SDK*&quot;です。
+1. 移動して[ [ https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)です。 または、既に Web Platform Installer をインストールした場合、開くことができ、製品を検索&quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;です。
 2. をクリックして**を今すぐインストール**です。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
 3. 1 回**Web Platform Installer**が開いて、をクリックして**インストール**セットアップを開始します。
 
@@ -485,12 +485,12 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
 
     ![クライアントの IP アドレスを追加します。](aspnet-mvc-4-custom-action-filters/_static/image27.png)
 
-    クライアントの IP アドレスを追加します。
+    *クライアントの IP アドレスを追加します。*
 3. 1 回、**クライアント IP アドレス**が許可される IP アドレスに追加一覧で、をクリックして**保存**変更を確認します。
 
     ![変更を確認します。](aspnet-mvc-4-custom-action-filters/_static/image28.png)
 
-    変更を確認します。
+    *変更を確認します。*
 
 <a id="ApxBTask3"></a>
 
@@ -522,14 +522,14 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
     *Web 配置の構成*
 5. 次のように、データベースの接続を構成します。
 
-    - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:*プレフィックス。
-    - **ユーザー名**サーバー管理者のログイン名を入力します。
-    - **パスワード**サーバー管理者のログイン パスワードを入力します。
-    - 新しいデータベース名を入力します。
+   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:*プレフィックス。
+   - **ユーザー名**サーバー管理者のログイン名を入力します。
+   - **パスワード**サーバー管理者のログイン パスワードを入力します。
+   - 新しいデータベース名を入力します。
 
-    ![対象の接続文字列を構成する](aspnet-mvc-4-custom-action-filters/_static/image33.png "対象の接続文字列を構成します。")
+     ![対象の接続文字列を構成する](aspnet-mvc-4-custom-action-filters/_static/image33.png "対象の接続文字列を構成します。")
 
-    *対象の接続文字列を構成します。*
+     *対象の接続文字列を構成します。*
 6. 次に、 **[OK]**をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
 
     ![データベースを作成する](aspnet-mvc-4-custom-action-filters/_static/image34.png "データベース文字列を作成します。")

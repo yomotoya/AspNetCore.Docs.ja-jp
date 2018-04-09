@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
-title: "Visual Studio を使用した ASP.NET Web 展開: データベース更新の展開 |Microsoft ドキュメント"
+title: 'Visual Studio を使用した ASP.NET Web 展開: データベース更新の展開 |Microsoft ドキュメント'
 author: tdykstra
-description: "この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています."
+description: この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 8e875a4282df78ec647579e74c3fbeabd2495fc2
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3020cfa19bf12f21c6d42a77ed257595431b4e86
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Visual Studio を使用した ASP.NET Web 展開: データベース更新の展開
 ====================
@@ -170,6 +170,6 @@ Code First Migrations および dbDacFx プロバイダーの両方を使用し�
 
 次のチュートリアルでは、コマンドラインを使用して、展開を実行する方法を示します。
 
->[!div class="step-by-step"]
-[前へ](deploying-a-code-update.md)
-[次へ](command-line-deployment.md)
+> [!div class="step-by-step"]
+> [前へ](deploying-a-code-update.md)
+> [次へ](command-line-deployment.md)

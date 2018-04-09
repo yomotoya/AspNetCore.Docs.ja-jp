@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
-title: "FTP クライアント (c#) を使用して、サイトを展開する |Microsoft ドキュメント"
+title: FTP クライアント (c#) を使用して、サイトを展開する |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET アプリケーションを配置する最も簡単な方法では、開発環境から運用環境に必要なファイルを手動でコピーします。 Thi しています."
+description: ASP.NET アプリケーションを配置する最も簡単な方法では、開発環境から運用環境に必要なファイルを手動でコピーします。 Thi しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3c53dcf40cde244a9df9afc27b20c9e7ef288198
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3b7add6765374fc3e5dba2c90239102354da3922
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-c"></a>FTP クライアント (c#) を使用して、サイトを展開します。
 ====================
@@ -161,6 +161,6 @@ Web アプリケーションを配置するには、開発環境から運用環�
 - [アプリ\_Offline.htm と「IE フレンドリ エラー」機能を回避します。](https://weblogs.asp.net/scottgu/App_5F00_Offline.htm-and-working-around-the-_2200_IE-Friendly-Errors_2200_-feature)
 - [セッション状態モード](https://msdn.microsoft.com/library/ms178586.aspx)
 
->[!div class="step-by-step"]
-[前へ](determining-what-files-need-to-be-deployed-cs.md)
-[次へ](deploying-your-site-using-visual-studio-cs.md)
+> [!div class="step-by-step"]
+> [前へ](determining-what-files-need-to-be-deployed-cs.md)
+> [次へ](deploying-your-site-using-visual-studio-cs.md)

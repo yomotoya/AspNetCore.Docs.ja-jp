@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
-title: "データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォームの第 7 部 |Microsoft ドキュメント"
+title: データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォームの第 7 部 |Microsoft ドキュメント
 author: tdykstra
-description: "Contoso 大学でサンプル web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、."
+description: Contoso 大学でサンプル web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: aeea122636f5235364e6a40cb6e041b1fe221317
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cb84f4f3e130fedb3e2f1a17d630767ff65bfa05
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォームの第 7 部
 ====================
@@ -51,7 +51,7 @@ Entity Framework では、データベースへのアクセスのストアド �
 
 [![image14](the-entity-framework-and-aspnet-getting-started-part-7/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image3.png)
 
-`Student`エンティティがある 4 つのプロパティ: `PersonID`、 `LastName`、 `FirstName`、および`EnrollmentDate`です。 データベース ID 値を自動的に生成して、ストアド プロシージャは、その他の 3 つのパラメーターを受け取ります。 ストアド プロシージャは、Entity Framework を追跡できますをメモリに保持するエンティティのバージョンように、新しい行のレコードのキーの値を返します。
+`Student` エンティティがある 4 つのプロパティ: `PersonID`、 `LastName`、 `FirstName`、および`EnrollmentDate`です。 データベース ID 値を自動的に生成して、ストアド プロシージャは、その他の 3 つのパラメーターを受け取ります。 ストアド プロシージャは、Entity Framework を追跡できますをメモリに保持するエンティティのバージョンように、新しい行のレコードのキーの値を返します。
 
 保存して、ストアド プロシージャ ウィンドウを閉じます。
 
@@ -139,6 +139,6 @@ Entity Framework は自動的に実行されないストアド プロシージ�
 
 次のチュートリアルでは、Dynamic Data 機能を使用して、プログラムとテスト データの書式設定と検証規則に容易にできるようにする方法を学習します。 などのデータの書式指定文字列には、各 web ページ ルールとフィールドが必要かどうかを指定することではなくデータ モデルのメタデータでこのようなルールを指定することができ、すべてのページに自動的に適用します。
 
->[!div class="step-by-step"]
-[前へ](the-entity-framework-and-aspnet-getting-started-part-6.md)
-[次へ](the-entity-framework-and-aspnet-getting-started-part-8.md)
+> [!div class="step-by-step"]
+> [前へ](the-entity-framework-and-aspnet-getting-started-part-6.md)
+> [次へ](the-entity-framework-and-aspnet-getting-started-part-8.md)

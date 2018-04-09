@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
-title: "パート 3: 作成、管理コント ローラー |Microsoft ドキュメント"
+title: 'パート 3: 作成、管理コント ローラー |Microsoft ドキュメント'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/04/2012
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 6fadfb6e96ae287fc5f81516b7535e03853c7e6a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 588d9d1b5d27759692cd840faabf2c3549c309d6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-creating-an-admin-controller"></a>パート 3: 作成、管理コント ローラー
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="add-an-admin-controller"></a>管理コント ローラーを追加します。
 
@@ -70,11 +70,11 @@ A **DbSet**問い合わせることができるエンティティのセットを
 
 | コント ローラー メソッド | 説明 | URI | HTTP メソッド |
 | --- | --- | --- | --- |
-| GetProducts | すべての製品を取得します。 | api/製品 | GET |
-| GetProduct | ID によって製品を検索します。 | api/製品/*id* | GET |
-| PutProduct | 製品を更新します。 | api/製品/*id* | PUT |
-| PostProduct | 新しい製品を作成します。 | api/製品 | 投稿 |
-| DeleteProduct | 製品を削除します。 | api/製品/*id* | Del |
+| GetProducts | すべての製品を取得します。 | api/products | GET |
+| GetProduct | ID によって製品を検索します。 | api/products/*id* | GET |
+| PutProduct | 製品を更新します。 | api/products/*id* | PUT |
+| PostProduct | 新しい製品を作成します。 | api/products | POST |
+| DeleteProduct | 製品を削除します。 | api/products/*id* | Del |
 
 各メソッドの呼び出しに`OrdersContext`データベースを照会します。 (PUT、POST、および DELETE) のコレクションを変更するメソッドを呼び出す`db.SaveChanges`データベースに変更を保持します。 コント ローラーは HTTP 要求ごとに作成され、メソッドから返される前に、変更を永続化する必要があるため、その後破棄します。
 
@@ -102,6 +102,6 @@ HTTP 要求を送信"`http://localhost:*portnum*/api/admin`です。 最初の�
 
 [!code-console[Main](using-web-api-with-entity-framework-part-3/samples/sample6.cmd)]
 
->[!div class="step-by-step"]
-[前へ](using-web-api-with-entity-framework-part-2.md)
-[次へ](using-web-api-with-entity-framework-part-4.md)
+> [!div class="step-by-step"]
+> [前へ](using-web-api-with-entity-framework-part-2.md)
+> [次へ](using-web-api-with-entity-framework-part-4.md)

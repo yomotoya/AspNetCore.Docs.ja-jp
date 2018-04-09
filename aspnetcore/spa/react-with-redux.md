@@ -1,7 +1,7 @@
 ---
-title: "反応するので-(続編) プロジェクト テンプレートを使用します。"
+title: ASP.NET Core React-で-(続編) プロジェクト テンプレートを使用します。
 author: SteveSandersonMS
-description: "Redux と作成対応アプリとの対応の ASP.NET Core 単一ページ アプリケーション (SPA) プロジェクト テンプレートを使って開始する方法を説明します。"
+description: Redux と作成対応アプリとの対応の ASP.NET Core 単一ページ アプリケーション (SPA) プロジェクト テンプレートを使って開始する方法を説明します。
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react-with-redux
-ms.openlocfilehash: f52f4a866b8bb2adeee19548df32f3e7a91761d1
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 9abfbfe5be69d3145de453d9d9e56ea35eec64ed
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="use-the-react-with-redux-project-template"></a>反応するので-(続編) プロジェクト テンプレートを使用します。
+# <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>ASP.NET Core React-で-(続編) プロジェクト テンプレートを使用します。
 
 > [!NOTE]
 > このドキュメント React-で-(続編) のプロジェクト テンプレートに含まれていない ASP.NET Core 2.0。 手動で更新できる新しい React-で-(続編) テンプレートことです。 既定では ASP.NET Core 2.1 では、テンプレートが含まれます。

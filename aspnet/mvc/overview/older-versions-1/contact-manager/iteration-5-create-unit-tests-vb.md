@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
-title: "5 – のイテレーションを作成する単体テスト (VB) |Microsoft ドキュメント"
+title: 5 – のイテレーションを作成する単体テスト (VB) |Microsoft ドキュメント
 author: microsoft
-description: "5 番目のイテレーションでおやすく、アプリケーションを維持し、単体テストを追加して変更できます。 データ モデル クラスを模擬表示し、o の単体テストをビルドしています."
+description: 5 番目のイテレーションでおやすく、アプリケーションを維持し、単体テストを追加して変更できます。 データ モデル クラスを模擬表示し、o の単体テストをビルドしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ab9ff5629cb468b785f5b82178f9f6247a55cacb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fe59792a1e1a7950a318e7e893b3da12d53a8efa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-5--create-unit-tests-vb"></a>イテレーション #5-単体テストの作成 (VB)
 ====================
@@ -105,15 +105,15 @@ ms.lasthandoff: 11/10/2017
 
 Visual Studio では、モック オブジェクト フレームワークは含まれません。 ただし、いくつかの商用およびオープン ソース モック オブジェクト フレームワーク、.NET framework を使用できます。
 
-1. Moq - このフレームワークはオープン ソース BSD ライセンスの下で使用できます。 Moq をダウンロードする[https://code.google.com/p/moq/](https://code.google.com/p/moq/)です。
-2. Rhino Mocks - このフレームワークは、オープン ソース BSD ライセンスで使用できます。 Rhino が Mocks からダウンロードできます[http://ayende.com/projects/rhino-mocks.aspx](http://ayende.com/projects/rhino-mocks.aspx)です。
-3. Typemock Isolator - これは、商用のフレームワークです。 評価版をダウンロードする[http://www.typemock.com/](http://www.typemock.com/)です。
+1. Moq - このフレームワークはオープン ソース BSD ライセンスの下で使用できます。 Moq をダウンロードする[ https://code.google.com/p/moq/](https://code.google.com/p/moq/)です。
+2. Rhino Mocks - このフレームワークは、オープン ソース BSD ライセンスで使用できます。 Rhino が Mocks からダウンロードできます[ http://ayende.com/projects/rhino-mocks.aspx](http://ayende.com/projects/rhino-mocks.aspx)です。
+3. Typemock Isolator - これは、商用のフレームワークです。 評価版をダウンロードする[ http://www.typemock.com/](http://www.typemock.com/)です。
 
 このチュートリアルでは Moq を使用することにしました。 ただし、同じくらい簡単に使用する Rhino Mocks したり、連絡先のマネージャー アプリケーションのオブジェクトをモックを作成する Typemock Isolator です。
 
 Moq を使用することができます、前に、次の手順を完了する必要があります。
 
-1. 。
+1. である必要があります。
 2. ダウンロードを解凍する前に、ファイルを右クリックしてボタンをクリックすることを確認してください**ブロックを解除する**(図 1 を参照してください)。
 3. ダウンロードを解凍します。
 4. テスト プロジェクトにメニュー オプションを選択して Moq アセンブリへの参照を追加**プロジェクトで、参照の追加**を開くには、**参照の追加**ダイアログ。 参照 タブで、Moq を解凍したフォルダーに移動し、Moq.dll アセンブリを選択します。 クリックして、 **OK** (図 2 を参照してください) ボタンをクリックします。
@@ -230,7 +230,7 @@ CreateValidContact() 単体テストでは、サービス層の次のコード�
 
 [!code-vb[Main](iteration-5-create-unit-tests-vb/samples/sample6.vb)]
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このイテレーションでは、連絡先のマネージャー アプリケーションの単体テストを作成しました。 アプリケーションが予想される方法で引き続き動作を確認するのには、いつでもこれらの単体テストを実行できます。 単体テストは、安全に後でアプリケーションを変更することを有効にする、アプリケーションの安全策として機能します。
 
@@ -238,6 +238,6 @@ CreateValidContact() 単体テストでは、サービス層の次のコード�
 
 次のイテレーションで連絡先グループをサポートするように、連絡先のマネージャー アプリケーションを変更します。 この新しい機能をテスト駆動開発と呼ばれるソフトウェアのデザイン プロセスを使用して、アプリケーションに追加します。
 
->[!div class="step-by-step"]
-[前へ](iteration-4-make-the-application-loosely-coupled-vb.md)
-[次へ](iteration-6-use-test-driven-development-vb.md)
+> [!div class="step-by-step"]
+> [前へ](iteration-4-make-the-application-loosely-coupled-vb.md)
+> [次へ](iteration-6-use-test-driven-development-vb.md)

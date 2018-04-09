@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
-title: "セキュリティの基礎と ASP.NET のサポート (c#) |Microsoft ドキュメント"
+title: セキュリティの基礎と ASP.NET のサポート (c#) |Microsoft ドキュメント
 author: rick-anderson
-description: "これは、一連の認証 partic へのアクセスを承認する訪問者 web フォームを使用するための手法を紹介するチュートリアルの最初のチュートリアルです."
+description: これは、一連の認証 partic へのアクセスを承認する訪問者 web フォームを使用するための手法を紹介するチュートリアルの最初のチュートリアルです.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/13/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4080e3ccaffefd02c76b89a77e320e963f854961
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2b89a8b0dd88505c1d63054db508590c26684158
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="security-basics-and-aspnet-support-c"></a>セキュリティの基礎と ASP.NET のサポート (c#)
 ====================
@@ -188,11 +188,11 @@ Microsoft では、2 つのメンバーシップ プロバイダー クラスは
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客は、このチュートリアルの多くの便利なレビュー担当者によってレビュー済みの系列をでした。 このチュートリアルの潜在顧客レビュー担当者には、Alicja Maziarz、John Suru Teresa マーフィーなどがあります。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[次へ](an-overview-of-forms-authentication-cs.md)
+> [!div class="step-by-step"]
+> [次へ](an-overview-of-forms-authentication-cs.md)

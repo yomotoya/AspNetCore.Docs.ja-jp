@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/nerddinner-wrap-up
-title: "NerdDinner 終り |Microsoft ドキュメント"
+title: NerdDinner 終り |Microsoft ドキュメント
 author: microsoft
-description: "NerdDinner チュートリアルの最後には、この方法の詳細に関する情報を提供します。"
+description: NerdDinner チュートリアルの最後には、この方法の詳細に関する情報を提供します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/nerddinner-wrap-up
 msc.type: authoredcontent
-ms.openlocfilehash: bb55668c714532c0a9ff499511b7a47572314194
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8d418f40f6d2911491c1a4f2498a4f711e9c271c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nerddinner-wrap-up"></a>NerdDinner 終り
 ====================
@@ -43,11 +43,11 @@ ASP.NET MVC 機能の広範なセットを使用して、NerdDinner をビルド
 
 ASP.NET MVC についてさらには、本の残りの部分を読み取ることができます。
 
-チュートリアルとビデオに最適な ASP.NET MVC を検索することも: [https://www.asp.net/mvc](../../../index.md)優れた他の ASP.NET MVC ブックは発行直後。 利用可能になった追加のブックへのリンクを含めるには、このページを更新します。
+チュートリアルとビデオに最適な ASP.NET MVC を検索することも: [ https://www.asp.net/mvc ](../../../index.md)優れた他の ASP.NET MVC ブックは発行直後。 利用可能になった追加のブックへのリンクを含めるには、このページを更新します。
 
 これにより、ことを願ってください。
 
 Scott
 
->[!div class="step-by-step"]
-[前へ](enable-automated-unit-testing.md)
+> [!div class="step-by-step"]
+> [前へ](enable-automated-unit-testing.md)

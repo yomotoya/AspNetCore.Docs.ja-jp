@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
-title: "ショッピング カート |Microsoft ドキュメント"
+title: ショッピング カート |Microsoft ドキュメント
 author: Erikre
-description: "このチュートリアルの系列では、お用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルの系列では、お用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: 9fe6f28685d6a423b03f9c7abe753283b89344e1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a8e96da7737cdf649575711a464c4f7726cb6ded
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="shopping-cart"></a>ショッピング カート
 ====================
@@ -43,7 +43,7 @@ ms.lasthandoff: 01/24/2018
 1. Entity Framework Code First
 2. データの注釈
 3. 厳密に型指定のデータ コントロール
-4. モデル バインディング
+4. モデル バインド
 
 ## <a name="creating-a-shopping-cart"></a>ショッピング カートを作成します。
 
@@ -65,8 +65,8 @@ ms.lasthandoff: 01/24/2018
 
     ![ショッピング カート - 新しいアイテム ダイアログ ボックスを追加](shopping-cart/_static/image2.png)
 3. この新しいクラスの名前を*CartItem.cs*です。
-4. **[追加]**をクリックします。  
- 新しいクラス ファイルがエディターで表示されます。
+4. **[追加]** をクリックします。  
+   新しいクラス ファイルがエディターで表示されます。
 5. 既定のコードを次のコードに置き換えます。   
 
     [!code-csharp[Main](shopping-cart/samples/sample1.cs)]
@@ -136,7 +136,7 @@ ms.lasthandoff: 01/24/2018
 #### <a name="to-create-the-add-to-cart-functionality"></a>カートに追加を作成する機能。
 
 1. **ソリューション エクスプ ローラー**を右クリックし、 **WingtipToys**プロジェクトで、をクリックして**追加** - &gt; **新しい項目の**します。  
- **[新しい項目の追加]** ダイアログ ボックスが表示されます。
+   **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 2. 標準の新しいページ (Web フォーム) をという名前のアプリケーションに追加*AddToCart.aspx*です。 
 
     ![ショッピング カートの Web フォームの追加](shopping-cart/_static/image4.png)
@@ -154,7 +154,7 @@ ms.lasthandoff: 01/24/2018
 *後*ページ、ユーザーがショッピング カートに追加する製品が表示されます。 追加、削除、および、ショッピング カートにアイテムを更新する機能も提供されます。
 
 1. **ソリューション エクスプ ローラー**を右クリックして**WingtipToys**をクリックして**追加** - &gt; **新しい項目の**します。  
- **[新しい項目の追加]** ダイアログ ボックスが表示されます。
+   **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 2. 選択すると、マスター ページを含む新しいページ (Web フォーム) を追加**マスター ページを使用して Web フォーム**です。 新しいページの名前を付けます*後*です。
 3. 選択**Site.Master**に新しく作成されたマスター ページをアタッチする*.aspx*ページ。
 4. *後* ページで、既存のマークアップを次のマークアップに置き換えます。   
@@ -323,6 +323,6 @@ ms.lasthandoff: 01/24/2018
 
 [ASP.NET セッション状態の概要](https://msdn.microsoft.com/library/ms178581.aspx)
 
->[!div class="step-by-step"]
-[前へ](display_data_items_and_details.md)
-[次へ](checkout-and-payment-with-paypal.md)
+> [!div class="step-by-step"]
+> [前へ](display_data_items_and_details.md)
+> [次へ](checkout-and-payment-with-paypal.md)

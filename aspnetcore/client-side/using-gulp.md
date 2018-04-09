@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core で Gulp を使用します。"
+title: ASP.NET Core で Gulp を使用します。
 author: rick-anderson
-description: "ASP.NET Core で Gulp を使用する方法を説明します。"
+description: ASP.NET Core で Gulp を使用する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: 0a3443e8187d46992f55dc537d0f400c6771c50c
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: f776b2025b6ebfeff28d3903aaeac4d7d89665b3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="introduction-to-using-gulp-in-aspnet-core"></a>ASP.NET Core で Gulp を使用の概要 
+# <a name="use-gulp-in-aspnet-core"></a>ASP.NET Core で Gulp を使用します。
 
 によって[Erik Reitan](https://github.com/Erikre)、 [Scott Addie](https://scottaddie.com)、 [Daniel Roth](https://github.com/danroth27)、および[Shayne Boyer](https://twitter.com/spboyer)
 
@@ -183,6 +183,9 @@ gulp.task("min", ["min:js", "min:css"]);
     **タスク ランナー エクスプ ローラー** Gulp タスクの一覧を示しています。 (をクリックする必要があります、**更新**プロジェクト名の左側に表示されるボタンをクリックします)。
     
     ![タスク ランナー エクスプ ローラー](using-gulp/_static/03-TaskRunnerExplorer.png)
+    
+    > [!IMPORTANT]
+    > **タスク ランナー エクスプ ローラー**コンテキスト メニュー項目が表示される場合のみ*gulpfile.js*がルート プロジェクト ディレクトリにします。
 
 4.  下に**タスク**で**タスク ランナー エクスプ ローラー**を右クリックして**クリーン**を選択し、**実行**ポップアップ メニューからです。
 
@@ -228,7 +231,7 @@ Visual Studio でまたはを使用して、コマンド プロンプトから�
 
     ![最初のタスクを実行するタスク ランナー エクスプ ローラー](using-gulp/_static/06-TaskRunner-First.png)
 
-    出力テキストが表示されることが表示されます。 一般的なシナリオの例で必要な場合は、Gulp レシピを参照してください。
+    出力テキストが表示されます。 一般的なシナリオに基づく例を参照してください[Gulp レシピ](#gulp-recipes)です。
 
 ## <a name="defining-and-running-tasks-in-a-series"></a>定義して、系列内のタスクを実行しています。
 
@@ -346,4 +349,4 @@ Gulp コミュニティ提供 Gulp[レシピ](https://github.com/gulpjs/gulp/blo
 
 * [Gulp ドキュメント](https://github.com/gulpjs/gulp/blob/master/docs/README.md)
 * [バンドルと ASP.NET Core の縮小](bundling-and-minification.md)
-* [ASP.NET Core での Grunt の使用](using-grunt.md)
+* [ASP.NET Core で Grunt を使用します。](using-grunt.md)

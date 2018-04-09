@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
-title: "ユーザー コントロールと JavaScript (c#) DynamicPopulate を使って |Microsoft ドキュメント"
+title: ユーザー コントロールと JavaScript (c#) DynamicPopulate を使って |Microsoft ドキュメント
 author: wenz
-description: "ASP.NET AJAX コントロールのツールキットで DynamicPopulate コントロールは、メソッドを呼び出す web サービス (ページ) と、t の対象のコントロールに、結果の値を設定しています."
+description: ASP.NET AJAX コントロールのツールキットで DynamicPopulate コントロールは、メソッドを呼び出す web サービス (ページ) と、t の対象のコントロールに、結果の値を設定しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0d98177561b72ffbe05455f785e156f91e450d36
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: cced645733375de7ab6235efa46b8d20ed262e50
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a>ユーザー コントロールと JavaScript (c#) に DynamicPopulate を使用します。
 ====================
@@ -74,6 +74,6 @@ A &lt; `label` &gt;サーバーから取得したデータを表示する要素�
 
 ユーザー コントロールでのラジオ ボタンが存在する ([フルサイズのイメージを表示するをクリックして](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](dynamically-populating-a-control-using-javascript-code-cs.md)
-[次へ](dynamically-populating-a-control-vb.md)
+> [!div class="step-by-step"]
+> [前へ](dynamically-populating-a-control-using-javascript-code-cs.md)
+> [次へ](dynamically-populating-a-control-vb.md)

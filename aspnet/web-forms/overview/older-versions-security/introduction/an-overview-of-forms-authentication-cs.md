@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
-title: "フォーム認証 (c#) の概要 |Microsoft ドキュメント"
+title: フォーム認証 (c#) の概要 |Microsoft ドキュメント
 author: rick-anderson
-description: "カスタム ルートの作成"
+description: カスタム ルートの作成
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d386a3b6328675fe21f989f8fd36bfc91fc08b32
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1f64384d403f3cf81ffa3327a81b635bc71e2b44
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-forms-authentication-c"></a>フォーム認証 (c#) の概要
 ====================
@@ -43,8 +43,8 @@ ASP.NET ランタイムが ASP.NET ページや ASP.NET Web サービスなど�
 
 *HTTP モジュール*マネージ クラスのコードを持つは要求のライフ サイクルの特定のイベントに応答して実行します。 ASP.NET は、バック グラウンドでの必須のタスクを実行する HTTP モジュールの数が付属しています。 ここに特に関連する 2 つの組み込み HTTP モジュールは次のとおりです。
 
-- **[`FormsAuthenticationModule`](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)**– は、通常、ユーザーのクッキー コレクションに含まれる、フォーム認証チケットを調べることによって、ユーザーを認証します。 フォーム認証チケットが存在しない場合、ユーザーは匿名です。
-- **[`UrlAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)**– 現在のユーザーが要求された URL にアクセスする承認されたかどうかを決定します。 このモジュールは、アプリケーションの構成ファイルで指定された承認規則を参照して、権限を決定します。 ASP.NET も含まれています、 [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx)要求されたファイルの Acl を参照して機関を指定します。
+- **[`FormsAuthenticationModule`](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)** – は、通常、ユーザーのクッキー コレクションに含まれる、フォーム認証チケットを調べることによって、ユーザーを認証します。 フォーム認証チケットが存在しない場合、ユーザーは匿名です。
+- **[`UrlAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)** – 現在のユーザーが要求された URL にアクセスする承認されたかどうかを決定します。 このモジュールは、アプリケーションの構成ファイルで指定された承認規則を参照して、権限を決定します。 ASP.NET も含まれています、 [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx)要求されたファイルの Acl を参照して機関を指定します。
 
 `FormsAuthenticationModule`前にユーザーを認証しようとしています、 `UrlAuthorizationModule` (および`FileAuthorizationModule`) を実行します。 承認モジュールが、要求を終了しを返します、要求を行うユーザーが要求されたリソースにアクセスする権限がない場合、 [HTTP 401 Unauthorized](http://www.checkupdown.com/status/E401.html)状態です。 Windows 認証のシナリオでは、ブラウザーに HTTP 401 ステータスが返されます。 この状態コードは、モーダル ダイアログ ボックスを使用して資格情報をユーザー入力を求めるブラウザーをによりします。 フォーム認証では、ただし、HTTP 401 Unauthorized ステータスは送信されません、ブラウザーに、FormsAuthenticationModule がこの状態が検出され、変更する代わりに、ユーザーをログイン ページにリダイレクトするため (を使用して、 [HTTP 302 リダイレクト](http://www.checkupdown.com/status/E302.html)状態)。
 
@@ -459,7 +459,7 @@ LoginView コントロールできないところで、ログイン状態があ�
 - [ログインの ASP.NET コントロール](https://msdn.microsoft.com/library/d51ttbhx.aspx)
 - [プロフェッショナル向けの ASP.NET 2.0 セキュリティ、メンバーシップ、およびロール管理](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html)(ISBN: 978-0-7645-9698-8)
 - [`<authentication>`要素](https://msdn.microsoft.com/library/532aee0e.aspx)
-- [`<forms>`要素`<authentication>`](https://msdn.microsoft.com/library/1d3t3c61.aspx)
+- [`<forms>`要素 `<authentication>`](https://msdn.microsoft.com/library/1d3t3c61.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>このチュートリアルに含まれるトピックに関するビデオ トレーニング
 
@@ -467,12 +467,12 @@ LoginView コントロールできないところで、ログイン状態があ�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>特別に感謝しています.
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客は、このチュートリアルの多くの便利なレビュー担当者によってレビュー済みの系列をでした。 このチュートリアルの潜在顧客レビュー担当者には、Alicja Maziarz、John Suru Teresa マーフィーなどがあります。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](security-basics-and-asp-net-support-cs.md)
-[次へ](forms-authentication-configuration-and-advanced-topics-cs.md)
+> [!div class="step-by-step"]
+> [前へ](security-basics-and-asp-net-support-cs.md)
+> [次へ](forms-authentication-configuration-and-advanced-topics-cs.md)

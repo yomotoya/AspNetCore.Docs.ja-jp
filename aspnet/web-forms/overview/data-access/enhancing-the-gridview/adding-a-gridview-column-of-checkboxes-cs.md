@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs
-title: "チェック ボックス (c#) の GridView 列を追加する |Microsoft ドキュメント"
+title: チェック ボックス (c#) の GridView 列を追加する |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、チェック ボックスの列を G. の複数の行を選択した場合の直感的な方法をユーザーに提供する GridView コントロールに追加する方法、."
+description: このチュートリアルでは、チェック ボックスの列を G. の複数の行を選択した場合の直感的な方法をユーザーに提供する GridView コントロールに追加する方法、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6f238b8ea8dfbde67dbad7a52d6b4851d67402a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3c9ad4c66c5bdd24df691180acf354f666e6e578
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-gridview-column-of-checkboxes-c"></a>チェック ボックス (c#) の GridView 列を追加します。
 ====================
@@ -158,8 +158,8 @@ GridView 上に配置すること、ページには、2 つのボタンの Web �
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[前へ](adding-a-gridview-column-of-radio-buttons-cs.md)
-[次へ](inserting-a-new-record-from-the-gridview-s-footer-cs.md)
+> [!div class="step-by-step"]
+> [前へ](adding-a-gridview-column-of-radio-buttons-cs.md)
+> [次へ](inserting-a-new-record-from-the-gridview-s-footer-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-cs
-title: "ビュー マスター ページ (c#) のページ レイアウトの作成 |Microsoft ドキュメント"
+title: ビュー マスター ページ (c#) のページ レイアウトの作成 |Microsoft ドキュメント
 author: microsoft
-description: "このチュートリアルでは、ビュー マスター ページを利用して、アプリケーションで複数のページに共通のページ レイアウトを作成する方法を学習します。 使用することができます、."
+description: このチュートリアルでは、ビュー マスター ページを利用して、アプリケーションで複数のページに共通のページ レイアウトを作成する方法を学習します。 使用することができます、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5d564b7e562435e8c6b1151287cbb1aec3d6bd10
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 82500a311e1110713a60604027d018ba16539b65
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-page-layouts-with-view-master-pages-c"></a>ビュー マスター ページ (c#) のページ レイアウトの作成
 ====================
@@ -51,7 +51,7 @@ ms.lasthandoff: 11/10/2017
 
 たとえば、ビュー マスター ページ 1 の一覧表示するのには、2 列のレイアウトを定義します。 2 つが含まれている`<contentplaceholder>`タグ。 1 つ`<ContentPlaceHolder>`列ごとにします。
 
-**1 – を一覧表示します。`Views\Shared\Site.master`**
+**1 – を一覧表示します。 `Views\Shared\Site.master`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample1.aspx)]
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 11/10/2017
 
 Site.master マスター ページに基づいて、新しいビュー コンテンツ ページを作成した後は、2 の一覧でファイルを取得します。
 
-**2 – を一覧表示します。`Views\Home\Index.aspx`**
+**2 – を一覧表示します。 `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample2.aspx)]
 
@@ -97,7 +97,7 @@ Site.master マスター ページに基づいて、新しいビュー コンテ
 
 たとえば、3 の一覧表示するインデックス ビューには 2 つのみ`<asp:Content>`タグ。 各、`<asp:Content>`タグには、いくつかのテキストが含まれています。
 
-**3 – を一覧表示します。`Views\Home\Index.aspx (modified)`**
+**3 – を一覧表示します。 `Views\Home\Index.aspx (modified)`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample3.aspx)]
 
@@ -127,7 +127,7 @@ Site.master マスター ページに基づいて、新しいビュー コンテ
 
 個々 のビューのコンテンツ ページからマスター ページのコンテンツを変更する他の方法で変更する地域をラップする、`<asp:ContentPlaceHolder>`タグ。 たとえば、タイトル、だけでなく、マスター ビュー ページによってレンダリングされるメタ タグを変更することを想像してください。 マスター ビュー ページ 4 の一覧表示するのには、`<asp:ContentPlaceHolder>`タグ内でその`<head>`タグ。
 
-**4 – を一覧表示します。`Views\Shared\Site2.master`**
+**4 – を一覧表示します。 `Views\Shared\Site2.master`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample5.aspx)]
 
@@ -135,14 +135,14 @@ Site.master マスター ページに基づいて、新しいビュー コンテ
 
 リスト 5 内のコンテンツ ビュー ページよりも優先、`<asp:ContentPlaceHolder>`カスタム タイトルとのカスタム メタ タグを表示するためにタグ。
 
-**5 – を一覧表示します。`Views\Home\Index2.aspx`**
+**5 – を一覧表示します。 `Views\Home\Index2.aspx`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-cs/samples/sample6.aspx)]
 
-### <a name="summary"></a>概要
+### <a name="summary"></a>まとめ
 
 このチュートリアルは、マスター ページを表示し、コンテンツ ページを表示するための基本的な概要を提供します。 新しいビュー マスター ページを作成し、それらに基づくコンテンツ ページの表示を作成する方法について学習しました。 特定のビューのコンテンツ ページからビュー マスター ページの内容を変更する方法をも検討します。
 
->[!div class="step-by-step"]
-[前へ](using-the-tagbuilder-class-to-build-html-helpers-cs.md)
-[次へ](passing-data-to-view-master-pages-cs.md)
+> [!div class="step-by-step"]
+> [前へ](using-the-tagbuilder-class-to-build-html-helpers-cs.md)
+> [次へ](passing-data-to-view-master-pages-cs.md)

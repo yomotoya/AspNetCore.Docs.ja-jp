@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-model
-title: "モデル (c#) を追加する |Microsoft ドキュメント"
+title: モデル (c#) を追加する |Microsoft ドキュメント
 author: Rick-Anderson
-description: "注: このチュートリアルの最新バージョンはここで ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全な非常に簡単に従い、デモをお勧めしています."
+description: '注: このチュートリアルの最新バージョンはここで ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全な非常に簡単に従い、デモをお勧めしています.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 32f2fcdae9d92b84dcd9be8746e416cdf9a14c48
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a7f9206ddd43b4a3b4f96240ee48b9414450da22
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-model-c"></a>モデル (c#) を追加します。
 ====================
@@ -91,6 +91,6 @@ ms.lasthandoff: 11/10/2017
 
 新しいビルド次に、`MoviesController`ムービー データを表示し、新しいムービーの一覧を作成できるように使用できるクラスです。
 
->[!div class="step-by-step"]
-[前へ](adding-a-view.md)
-[次へ](accessing-your-models-data-from-a-controller.md)
+> [!div class="step-by-step"]
+> [前へ](adding-a-view.md)
+> [次へ](accessing-your-models-data-from-a-controller.md)

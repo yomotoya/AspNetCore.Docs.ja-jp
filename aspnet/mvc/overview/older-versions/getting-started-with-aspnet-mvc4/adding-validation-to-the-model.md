@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
-title: "モデルの検証の追加 |Microsoft ドキュメント"
+title: モデルの検証の追加 |Microsoft ドキュメント
 author: Rick-Anderson
-description: "注: このチュートリアルの最新バージョンはここで ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全な非常に簡単に従い、デモをお勧めしています."
+description: '注: このチュートリアルの最新バージョンはここで ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全な非常に簡単に従い、デモをお勧めしています.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 6de7d279677c7bbf220b956767a97aaaff8da9a1
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 39d1d9d4cb8b11f7ce5a3a85c51f652115d79db7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-to-the-model"></a>モデルの検証の追加
 ====================
@@ -81,7 +81,7 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 ![8_validationErrors](adding-validation-to-the-model/_static/image1.png)
 
 > [!NOTE]
-> コンマを使用するロケールを英語以外の jQuery 検証をサポートするために (&quot;、&quot;) する必要があります、小数点の*globalize.js*と特定の*cultures/globalize.cultures.js*ファイル (から[https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) および使用する JavaScript`Globalize.parseFloat`です。 次のコードを操作する Views\Movies\Edit.cshtml ファイルへの変更を示しています、 &quot;FR-FR&quot;カルチャ。
+> コンマを使用するロケールを英語以外の jQuery 検証をサポートするために (&quot;、&quot;) する必要があります、小数点の*globalize.js*と特定の*cultures/globalize.cultures.js*ファイル (から[ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) および使用する JavaScript`Globalize.parseFloat`です。 次のコードを操作する Views\Movies\Edit.cshtml ファイルへの変更を示しています、 &quot;FR-FR&quot;カルチャ。
 
 
 [!code-cshtml[Main](adding-validation-to-the-model/samples/sample6.cshtml)]
@@ -94,10 +94,10 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 1. タブのフィールドにします。
 2. いくつかのテキストを入力します。
-3. タブです。
+3. タブを終了します。
 4. フィールドに戻す タブします。
 5. テキストを削除します。
-6. タブです。
+6. タブを終了します。
 
 上の順序は、[送信] ボタンを押すことがなく必要な検証をトリガーします。 単に任意のフィールドを入力することがなく送信 ボタンを押すと、クライアント側の検証がトリガーされます。 クライアント側の検証エラーがなくなるまで、フォーム データはサーバーに送信されません。 これをテストするには、HTTP Post メソッドにブレークポイントを配置するかを使用して、 [fiddler ツール](http://fiddler2.com/fiddler2/)または IE 9 [F12 開発者ツール](https://msdn.microsoft.com/ie/aa740478)です。
 
@@ -165,6 +165,6 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 このシリーズの次のパートでは、アプリケーションを確認し、自動的に生成される `Details` および `Delete` メソッドに対していくつかの改良を行います。
 
->[!div class="step-by-step"]
-[前へ](adding-a-new-field-to-the-movie-model-and-table.md)
-[次へ](examining-the-details-and-delete-methods.md)
+> [!div class="step-by-step"]
+> [前へ](adding-a-new-field-to-the-movie-model-and-table.md)
+> [次へ](examining-the-details-and-delete-methods.md)

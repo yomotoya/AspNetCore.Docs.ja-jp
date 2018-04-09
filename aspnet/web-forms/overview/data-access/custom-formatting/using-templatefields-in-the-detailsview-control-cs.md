@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-cs
-title: "DetailsView コントロール (c#) で TemplateFields の使用 |Microsoft ドキュメント"
+title: DetailsView コントロール (c#) で TemplateFields の使用 |Microsoft ドキュメント
 author: rick-anderson
-description: "GridView で利用できる同じ TemplateFields 機能も DetailsView コントロールで使用できます。 このチュートリアルでは 1 つの製品を表示しています."
+description: GridView で利用できる同じ TemplateFields 機能も DetailsView コントロールで使用できます。 このチュートリアルでは 1 つの製品を表示しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8004937b758ee1bdb2a2df84c5ea40d47e89dd1c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f1d2e8312451c0bd1b3aba448963317f5fe06029
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-templatefields-in-the-detailsview-control-c"></a>DetailsView コントロール (c#) で TemplateFields の使用
 ====================
@@ -183,7 +183,7 @@ CheckBoxField を表示するのではなく可能性があります代わりに
 **図 10**: YES または NO の値は、提供が中止された行に表示されます ([フルサイズのイメージを表示するをクリックして](using-templatefields-in-the-detailsview-control-cs/_static/image30.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 DetailsView コントロールで TemplateField により、データの表示は、他のフィールド コントロールで使用できますが状況に適しているよりも柔軟性の高い場所。
 
@@ -199,12 +199,12 @@ FormView コントロールには、表示される出力の構成で柔軟性�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Dan Jagers しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](using-templatefields-in-the-gridview-control-cs.md)
-[次へ](using-the-formview-s-templates-cs.md)
+> [!div class="step-by-step"]
+> [前へ](using-templatefields-in-the-gridview-control-cs.md)
+> [次へ](using-the-formview-s-templates-cs.md)

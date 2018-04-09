@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core では、Ws-federation でユーザーを認証します。"
+title: ASP.NET Core では、Ws-federation でユーザーを認証します。
 author: chlowell
-description: "このチュートリアルでは、ASP.NET Core アプリケーションで Ws-federation を使用する方法を示します。"
+description: このチュートリアルでは、ASP.NET Core アプリケーションで Ws-federation を使用する方法を示します。
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/ws-federation
-ms.openlocfilehash: 0532f866e9c58b2e45623f522f62438e15017e54
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d4621c7b97678903b9f2562e353da3883334b599
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="authenticate-users-with-ws-federation-in-aspnet-core"></a>ASP.NET Core では、Ws-federation でユーザーを認証します。
 
@@ -111,7 +111,7 @@ ASP.NET Core 2.0 アプリの場合、Ws-federation サポートがによって�
      // ...
     ```
 
-[!INCLUDE[default settings configuration](social/includes/default-settings.md)]
+[!INCLUDE [default settings configuration](social/includes/default-settings.md)]
 
 ### <a name="log-in-with-ws-federation"></a>Ws-federation を使用してログイン
 
@@ -125,7 +125,7 @@ ASP.NET Core 2.0 アプリの場合、Ws-federation サポートがによって�
 
 ## <a name="use-ws-federation-without-aspnet-core-identity"></a>ASP.NET Core Identity せずには、Ws-federation を使用します。
 
-Ws-federation ミドルウェアは、Identity ことがなく使用できます。 例:
+Ws-federation ミドルウェアは、Identity ことがなく使用できます。 例えば:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

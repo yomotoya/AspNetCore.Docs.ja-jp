@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
-title: "データベースの概要 Entity Framework 4.0 最初に、ASP.NET 4 Web フォームの |Microsoft ドキュメント"
+title: データベースの概要 Entity Framework 4.0 最初に、ASP.NET 4 Web フォームの |Microsoft ドキュメント
 author: tdykstra
-description: "Contoso 大学でサンプル web アプリケーションでは、Entity Framework 4.0 および Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法について説明しています."
+description: Contoso 大学でサンプル web アプリケーションでは、Entity Framework 4.0 および Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: ae2fddc81f6f4da866ec0719a0e74516bdd2a4d1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ad504b02d801f9513787f9fde1a4d00d7b0afff0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>データベースの概要 Entity Framework 4.0 最初に、ASP.NET 4 Web フォームします。
 ====================
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 4.0 および Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、架空の Contoso 大学の web サイトです。 学生受付、コースの作成、およびインストラクター割り当てなどの機能が含まれています。
+> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 4.0 および Visual Studio 2010 を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、架空の Contoso 大学の web サイトです。 学生の受け付け、講座の作成、講師の割り当てなどの機能が含まれています。
 > 
 > チュートリアルでは、c# の例を示します。 [ダウンロード可能なサンプル](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a)c# および Visual Basic の両方でコードが含まれています。
 > 
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/24/2018
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-1/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image1.png)
 
-ユーザーでは、表示でき、学生、コース、インストラクターの情報を更新することができます。 作成、画面のいくつかは、以下に示します。
+ユーザーは学生、講座、講師の情報を見たり、更新したりできます。 作成、画面のいくつかは、以下に示します。
 
 [![Image30](the-entity-framework-and-aspnet-getting-started-part-1/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image3.png)
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 01/24/2018
 
     [![Image40](the-entity-framework-and-aspnet-getting-started-part-1/_static/image38.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image37.png)
 
-    ここで、`Person`エンティティ可能性がありますまたは関連付けることはできません`StudentGrade`エンティティです。 A`StudentGrade`エンティティが 1 つに関連付ける必要がある`Person`エンティティです。 `StudentGrade`エンティティが実際にこのデータベースに登録済みのコースを表しますコースに受講者を登録し、グレードがまだない場合、`Grade`プロパティが null です。 つまり、受講者コースに登録されていない可能性がありますをまだ 1 つのコースに登録することがあります。 または複数のコースに登録することがあります。 各学年の登録済みのコースは、1 つだけの学生を適用します。
+    ここで、`Person`エンティティ可能性がありますまたは関連付けることはできません`StudentGrade`エンティティです。 A`StudentGrade`エンティティが 1 つに関連付ける必要がある`Person`エンティティです。 `StudentGrade` エンティティが実際にこのデータベースに登録済みのコースを表しますコースに受講者を登録し、グレードがまだない場合、`Grade`プロパティが null です。 つまり、受講者コースに登録されていない可能性がありますをまだ 1 つのコースに登録することがあります。 または複数のコースに登録することがあります。 各学年の登録済みのコースは、1 つだけの学生を適用します。
 - 多対多のアソシエーションとして表されます"\*「と」\*"です。
 
     [![Image41](the-entity-framework-and-aspnet-getting-started-part-1/_static/image40.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image39.png)
@@ -214,5 +214,5 @@ Entity Framework では、XML を使用して、データベース、データ �
 
 Web サイト、データベース、およびデータ モデルが作成されました。 次のチュートリアルでは、データ モデルと ASP.NET を使用してデータの操作を開始するあります`EntityDataSource`コントロール。
 
->[!div class="step-by-step"]
-[次へ](the-entity-framework-and-aspnet-getting-started-part-2.md)
+> [!div class="step-by-step"]
+> [次へ](the-entity-framework-and-aspnet-getting-started-part-2.md)

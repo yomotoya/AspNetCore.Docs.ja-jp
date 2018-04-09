@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/http-cookies
-title: "ASP.NET Web API で HTTP Cookie |Microsoft ドキュメント"
+title: ASP.NET Web API で HTTP Cookie |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/17/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/http-cookies
 msc.type: authoredcontent
-ms.openlocfilehash: e17c51946a268aa13ec035d18dc516928c9f4419
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 363ca975cf75b635b766a53eeda87cf957eed60c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
 <a name="http-cookies-in-aspnet-web-api"></a>ASP.NET Web API で HTTP Cookie
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
 このトピックでは、Web API で HTTP クッキーを送受信する方法について説明します。
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/10/2017
 
 このセクションでは、HTTP レベルでは cookie を実装する方法の概要を説明します。 詳細についてを参照してください[RFC 6265](http://tools.ietf.org/html/rfc6265)です。
 
-Cookie とは、サーバーは、HTTP 応答で送信されるデータの一部です。 (省略可能) クライアントは、cookie を格納し、subsequet 要求に返します。 これにより、クライアントとサーバー状態を共有できます。 Cookie を設定するには、サーバーは、応答に Set-cookie ヘッダーを含めます。 Cookie の形式は、省略可能な属性の名前と値ペアです。 例:
+Cookie とは、サーバーは、HTTP 応答で送信されるデータの一部です。 (省略可能) クライアントは、cookie を格納し、subsequet 要求に返します。 これにより、クライアントとサーバー状態を共有できます。 Cookie を設定するには、サーバーは、応答に Set-cookie ヘッダーを含めます。 Cookie の形式は、省略可能な属性の名前と値ペアです。 例えば:
 
 [!code-powershell[Main](http-cookies/samples/sample1.ps1)]
 
@@ -36,7 +36,7 @@ Cookie とは、サーバーは、HTTP 応答で送信されるデータの一�
 
 [!code-powershell[Main](http-cookies/samples/sample2.ps1)]
 
-以降の要求で、クッキーをクッキー ヘッダーに、サーバー、クライアント掲載されていますに戻ります。
+戻るには、cookie をサーバーに、クライアントには、以降の要求で、[Cookie] ヘッダーが含まれます。
 
 [!code-console[Main](http-cookies/samples/sample3.cmd)]
 
@@ -79,7 +79,7 @@ A **CookieHeaderValue**のコレクションを格納**CookieState**インスタ
 
 ## <a name="structured-cookie-data"></a>構造化された Cookie のデータ
 
-ブラウザーの多くは、数の cookie が格納されます &#8212; 両方総数、およびドメインあたりの数を制限します。 したがって、複数の cookie を設定する代わりに、1 つの cookie に構造化データを格納すると便利ですができます。
+ブラウザーの多くの制限数の cookie が格納されます&#8212;総数、およびドメインあたりの数の両方です。 したがって、複数の cookie を設定する代わりに、1 つの cookie に構造化データを格納すると便利ですができます。
 
 > [!NOTE]
 > RFC 6265 は、cookie のデータの構造を定義しません。

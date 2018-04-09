@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-1
-title: "Entity Framework 6 と Web API 2 の使用 |Microsoft ドキュメント"
+title: Entity Framework 6 と Web API 2 の使用 |Microsoft ドキュメント
 author: MikeWasson
-description: "このチュートリアル学びますバック エンドを ASP.NET Web API を使用して web アプリケーションの作成の基本。 チュートリアルでは、データ レイアウトの Entity Framework 6 を使用しています."
+description: このチュートリアル学びますバック エンドを ASP.NET Web API を使用して web アプリケーションの作成の基本。 チュートリアルでは、データ レイアウトの Entity Framework 6 を使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-1
 msc.type: authoredcontent
-ms.openlocfilehash: cceefa128f90b4c3e23dd31119f44e6ffc55f46f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8e6d381509a121e3036ca3af91ea3b9bd0be33c2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-web-api-2-with-entity-framework-6"></a>Entity Framework 6 と Web API 2 の使用
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 > このチュートリアル学びますバック エンドを ASP.NET Web API を使用して web アプリケーションの作成の基本。 チュートリアルでは、クライアント側 JavaScript アプリケーションのデータ層と Knockout.js Entity Framework 6 を使用します。 このチュートリアルでは、Azure App Service Web アプリにアプリを配置する方法も示します。
 > 
@@ -59,8 +59,8 @@ AJAX 新しいが、現在では、構築し、高度な SPA の大規模アプ�
 
 Azure アカウントを Azure にこのソリューションを展開する必要があります。 アカウントがない場合は、次のオプションがあります。
 
-- [無料の Azure アカウントを開設](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604)-クレジットを取得するでも使用されているアカウントを維持する最大と使用する無料の Azure サービスおよび有料の Azure サービスを試す使用できます。
-- [MSDN サブスクライバー特典をアクティブ化](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)-お客様の MSDN サブスクリプションでは、クレジット有料の Azure サービスを使用できるすべての月です。
+- [Azure アカウントを無料で開いて](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604)のクレジットを取得する有料の Azure サービスを試すことができますを使用して使用後もアカウントを保持する最大の使用は、Azure のサービスを解放します。
+- [MSDN サブスクリプション会員の特典を有効に](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604)が、MSDN サブスクリプションでは、クレジット毎月 Azure の有料のサービスに使用することができます。
 
 ## <a name="create-the-project"></a>プロジェクトの作成
 
@@ -76,7 +76,7 @@ Visual Studio を開きます。 **ファイル**メニューの **新規**選�
 
 Azure App service プロジェクトをホストする場合のままにして、**クラウド内のホスト**チェック ボックスをオンします。
 
-をクリックして**OK**プロジェクトを作成します。
+**[OK]** をクリックして、プロジェクトを作成します。
 
 ## <a name="configure-azure-settings-optional"></a>(省略可能) Azure の設定を構成します。
 
@@ -88,5 +88,5 @@ Azure にサインインした後 Visual Studio では、web アプリを構成�
 
 [![](part-1/_static/image10.png)](part-1/_static/image9.png)
 
->[!div class="step-by-step"]
-[次へ](part-2.md)
+> [!div class="step-by-step"]
+> [次へ](part-2.md)

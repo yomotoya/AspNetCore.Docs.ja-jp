@@ -1,7 +1,7 @@
 ---
-title: "保護されたペイロードの有効期間を制限します。"
+title: ASP.NET Core で保護されたペイロードの有効期間を制限します。
 author: rick-anderson
-description: "このドキュメントでは、ASP.NET Core データ保護 Api を使用して保護されているペイロードの有効期間を制限する方法について説明します。"
+description: ASP.NET Core データ保護 Api を使用して保護されているペイロードの有効期間を制限する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/limited-lifetime-payloads
-ms.openlocfilehash: d631851b5b933d75c37a308f492840e3442e6f1a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 324887b3d29de989ad855c4e78fd5a235fdb560e
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="limiting-the-lifetime-of-protected-payloads"></a>保護されたペイロードの有効期間を制限します。
+# <a name="limit-the-lifetime-of-protected-payloads-in-aspnet-core"></a>ASP.NET Core で保護されたペイロードの有効期間を制限します。
 
 アプリケーション開発者が一定期間の後に期限切れになる保護されているペイロードを作成しようとした、シナリオがあります。 たとえば、保護されたペイロードは必要があるだけ有効な 1 つの 1 時間以内のパスワード リセット トークンを表す場合があります。 ことが確かに、埋め込みの有効期限日を含む独自のペイロード形式を作成する開発者およびこれを行うか、上級開発者が望まけれども、開発者の大部分の有効期限のこれらの管理を拡張できる面倒
 
@@ -23,11 +23,11 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="api-usage"></a>API の使用方法
 
-`ITimeLimitedDataProtector`インターフェイスは、コア インターフェイスの保護や、時間制限/自己期限切れ間近のペイロードを復号化します。 インスタンスを作成する、 `ITimeLimitedDataProtector`、最初、通常のインスタンスを必要があります[IDataProtector](overview.md)特定の目的で構築します。 1 回、`IDataProtector`インスタンスが使用可能な呼び出し、`IDataProtector.ToTimeLimitedDataProtector`有効期限の組み込み機能を備えたの保護機能を取得する拡張メソッド。
+`ITimeLimitedDataProtector`インターフェイスは、コア インターフェイスの保護や、時間制限/自己期限切れ間近のペイロードを復号化します。 インスタンスを作成する、 `ITimeLimitedDataProtector`、最初、通常のインスタンスを必要があります[IDataProtector](xref:security/data-protection/consumer-apis/overview)特定の目的で構築します。 1 回、`IDataProtector`インスタンスが使用可能な呼び出し、`IDataProtector.ToTimeLimitedDataProtector`有効期限の組み込み機能を備えたの保護機能を取得する拡張メソッド。
 
 `ITimeLimitedDataProtector` 以下の API サーフェスと拡張メソッドを公開します。
 
-* CreateProtector (文字列目的): ITimeLimitedDataProtector - この API は、既存のような`IDataProtectionProvider.CreateProtector`を作成するために使用できる点で[チェーンを目的](purpose-strings.md)ルート期間限定の保護機能からです。
+* CreateProtector (文字列目的): ITimeLimitedDataProtector - この API は、既存のような`IDataProtectionProvider.CreateProtector`を作成するために使用できる点で[チェーンを目的](xref:security/data-protection/consumer-apis/purpose-strings)ルート期間限定の保護機能からです。
 
 * Protect(byte[] plaintext, DateTimeOffset expiration) : byte[]
 
@@ -56,6 +56,6 @@ ms.lasthandoff: 03/02/2018
 >[!WARNING]
 > これがこれらの Api を使用して、永続的または長期の永続化を必要とするペイロードを保護するにはお勧めできません。 「ことを許容できるは回復不能に永続的に、1 か月後に保護されているペイロードですか?」 適切な経験則; として使用できます。回答がある場合、開発者検討してくださいありません代替 Api。
 
-使用して下記のサンプル、 [DI 以外のコード パス](../configuration/non-di-scenarios.md)データ保護システムをインスタンス化するためです。 このサンプルを実行するには、Microsoft.AspNetCore.DataProtection.Extensions パッケージへの参照が最初に追加されたことを確認します。
+使用して下記のサンプル、 [DI 以外のコード パス](xref:security/data-protection/configuration/non-di-scenarios)データ保護システムをインスタンス化するためです。 このサンプルを実行するには、Microsoft.AspNetCore.DataProtection.Extensions パッケージへの参照が最初に追加されたことを確認します。
 
 [!code-csharp[](limited-lifetime-payloads/samples/limitedlifetimepayloads.cs)]

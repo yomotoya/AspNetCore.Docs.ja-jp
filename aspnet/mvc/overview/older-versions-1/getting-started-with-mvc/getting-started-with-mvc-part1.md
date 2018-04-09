@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
-title: "ASP.NET mvc |Microsoft ドキュメント"
+title: ASP.NET mvc |Microsoft ドキュメント
 author: shanselman
-description: "これは、ASP.NET MVC の基本について説明する初心者向けチュートリアルです。 データベースから読み取り/書き込みする単純な web アプリケーションを作成します。"
+description: これは、ASP.NET MVC の基本について説明する初心者向けチュートリアルです。 データベースから読み取り/書き込みする単純な web アプリケーションを作成します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 msc.type: authoredcontent
-ms.openlocfilehash: 08c30f4aab77bff64ed3ab874d13cc5dc863fc99
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 476d832e389b9b5a26fe2d552ca648c79b100056
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="intro-to-aspnet-mvc"></a>ASP.NET mvc
 ====================
@@ -84,5 +84,5 @@ Visual Basic または Visual c# を使用してアプリケーションを作�
 
 すぐは、この既定のテンプレートは、する 2 つのページにアクセスし、基本的なログイン ページを示します。 このアプリケーションの動作を変更して、プロセスで ASP.NET MVC について少し説明しましょう。 ブラウザーを閉じて、いくつかのコードを変更することができます。
 
->[!div class="step-by-step"]
-[次へ](getting-started-with-mvc-part2.md)
+> [!div class="step-by-step"]
+> [次へ](getting-started-with-mvc-part2.md)

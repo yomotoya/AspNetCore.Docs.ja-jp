@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-after-each-other-cs
-title: "複数のアニメーションを実行する (c#) 相互後 |Microsoft ドキュメント"
+title: 複数のアニメーションを実行する (c#) 相互後 |Microsoft ドキュメント
 author: wenz
-description: "アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 これによりに落としたを実行しています."
+description: アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 これによりに落としたを実行しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-after-each-other-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9d4322690132fe3829e3454f0aa7ff38acd8eb04
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 836f0bba890a03e74ae62c2df029b7525b34275c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="executing-several-animations-after-each-other-c"></a>他の (c#) の後にいくつかのアニメーションを実行します。
 ====================
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-css[Main](executing-several-animations-after-each-other-cs/samples/sample3.css)]
 
-次に、追加、`AnimationExtender`のページを提供する、 `ID`、`TargetControlID`属性と、任意`runat="server":`
+次に、追加、`AnimationExtender`のページを提供する、 `ID`、`TargetControlID`属性と、任意 `runat="server":`
 
 [!code-aspx[Main](executing-several-animations-after-each-other-cs/samples/sample4.aspx)]
 
@@ -63,6 +63,6 @@ ms.lasthandoff: 11/10/2017
 
 高さの減少し、([フルサイズのイメージを表示するをクリックして](executing-several-animations-after-each-other-cs/_static/image6.png))
 
->[!div class="step-by-step"]
-[前へ](executing-several-animations-at-the-same-time-cs.md)
-[次へ](animation-depending-on-a-condition-cs.md)
+> [!div class="step-by-step"]
+> [前へ](executing-several-animations-at-the-same-time-cs.md)
+> [次へ](animation-depending-on-a-condition-cs.md)

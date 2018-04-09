@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/project-properties
-title: "Visual Studio を使用した ASP.NET Web 展開: プロジェクト プロパティ |Microsoft ドキュメント"
+title: 'Visual Studio を使用した ASP.NET Web 展開: プロジェクト プロパティ |Microsoft ドキュメント'
 author: tdykstra
-description: "この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています."
+description: この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/project-properties
 msc.type: authoredcontent
-ms.openlocfilehash: 85b6dbcc8d40c168a49513ef6b549f9ec7fa5097
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: fba3f089bf1693eec873b08b4bc50e3accba06ee
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>Visual Studio を使用した ASP.NET Web 展開: プロジェクトのプロパティ
 ====================
@@ -68,6 +68,6 @@ ms.lasthandoff: 01/24/2018
 
 展開セットアップ タスクをすべて完了しました。 チュートリアルでは、[次へ]、Contoso 大学サイトをテスト環境に展開し、テストします。
 
->[!div class="step-by-step"]
-[前へ](web-config-transformations.md)
-[次へ](deploying-to-iis.md)
+> [!div class="step-by-step"]
+> [前へ](web-config-transformations.md)
+> [次へ](deploying-to-iis.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-vb
-title: "複数のアニメーションを実行する、同時に (VB) |Microsoft ドキュメント"
+title: 複数のアニメーションを実行する、同時に (VB) |Microsoft ドキュメント
 author: wenz
-description: "アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 これによりに落としたを実行しています."
+description: アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 これによりに落としたを実行しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8461f5ea303a9e1166f694d4039d4c1aedd1caa8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 823764abd4444b5cb8d9bc6e8e8ed34d6f670310
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="executing-several-animations-at-the-same-time-vb"></a>(VB) 同時に複数のアニメーションを実行します。
 ====================
@@ -62,6 +62,6 @@ ms.lasthandoff: 11/10/2017
 
 パネルがフェードアウトと、(ブラウザーのレンダリング エンジンにより、そのコンテンツを含む) のサイズ変更 ([フルサイズのイメージを表示するをクリックして](executing-several-animations-at-the-same-time-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](adding-animation-to-a-control-vb.md)
-[次へ](executing-several-animations-after-each-other-vb.md)
+> [!div class="step-by-step"]
+> [前へ](adding-animation-to-a-control-vb.md)
+> [次へ](executing-several-animations-after-each-other-vb.md)

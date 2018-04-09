@@ -1,7 +1,7 @@
 ---
-title: "外部ログインの Microsoft アカウントの設定"
+title: ASP.NET Core の Microsoft アカウント外部ログインのセットアップ
 author: rick-anderson
-description: "このチュートリアルでは、Microsoft アカウント ユーザーの認証方式を既存の ASP.NET Core アプリケーションの統合について説明します。"
+description: このチュートリアルでは、Microsoft アカウント ユーザーの認証方式を既存の ASP.NET Core アプリケーションの統合について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 08/24/2017
@@ -9,21 +9,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: d57647da978f7edaaddedba7c9f4c1de8dc07405
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: aabbbe66aee8c8b93140bcc4181b432017cec1d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="configuring-microsoft-account-authentication"></a>Microsoft アカウントの認証を構成します。
+# <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>ASP.NET Core の Microsoft アカウント外部ログインのセットアップ
 
 作成者: [Valeriy Novytskyy](https://github.com/01binary)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このチュートリアルで作成されたサンプルの ASP.NET Core 2.0 プロジェクトを使用して、Microsoft アカウントでサインインするユーザーを有効にする方法を示します、[前のページ](index.md)です。
+このチュートリアルで作成されたサンプルの ASP.NET Core 2.0 プロジェクトを使用して、Microsoft アカウントでサインインするユーザーを有効にする方法を示します、[前のページ](xref:security/authentication/social/index)です。
 
 ## <a name="create-the-app-in-microsoft-developer-portal"></a>Microsoft 開発者ポータルでのアプリを作成します。
 
-* 移動[https://apps.dev.microsoft.com](https://apps.dev.microsoft.com)して作成するか、Microsoft アカウントにサインインします。
+* 移動[ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com)して作成するか、Microsoft アカウントにサインインします。
 
 ![ダイアログをサインインします。](index/_static/MicrosoftDevLogin.png)
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 01/30/2018
 
 ![新しいパスワードの生成 ダイアログ ボックス](index/_static/MicrosoftDevPassword.png)
 
-Microsoft のような機密設定をリンク`Application ID`と`Password`、アプリケーションを使用して構成する、[シークレット Manager](../../app-secrets.md)です。 このチュートリアルの目的で、名前トークン`Authentication:Microsoft:ApplicationId`と`Authentication:Microsoft:Password`です。
+Microsoft のような機密設定をリンク`Application ID`と`Password`、アプリケーションを使用して構成する、[シークレット Manager](xref:security/app-secrets)です。 このチュートリアルの目的で、名前トークン`Authentication:Microsoft:ApplicationId`と`Authentication:Microsoft:Password`です。
 
 ## <a name="configure-microsoft-account-authentication"></a>Microsoft アカウントの認証を構成します。
 
@@ -74,8 +74,7 @@ Microsoft のような機密設定をリンク`Application ID`と`Password`、�
 
    `dotnet add package Microsoft.AspNetCore.Authentication.MicrosoftAccount`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Microsoft アカウントのサービスを追加、`ConfigureServices`メソッド*Startup.cs*ファイル。
 
 ```csharp
@@ -90,10 +89,9 @@ services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 });
 ```
 
-[!INCLUDE[default settings configuration](includes/default-settings.md)]
+[!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Microsoft アカウント ミドルウェアを追加、`Configure`メソッド*Startup.cs*ファイル。
 
 ```csharp
@@ -104,8 +102,7 @@ app.UseMicrosoftAccountAuthentication(new MicrosoftAccountOptions()
 });
 ```
 
----
-
+* * *
 Microsoft 開発者ポータルで使用される用語は、これらのトークンを名前が`ApplicationId`と`Password`、としてそれらを公開している`ClientId`と`ClientSecret`API の構成にします。
 
 参照してください、 [MicrosoftAccountOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.microsoftaccountoptions) Microsoft アカウントの認証でサポートされる構成オプションの詳細についての API リファレンスです。 ユーザーに関するさまざまな情報を要求するために使用できます。
@@ -136,7 +133,7 @@ Microsoft をクリックすると、認証のため Microsoft にリダイレ�
 
 ## <a name="next-steps"></a>次の手順
 
-* この記事では、Microsoft との認証方法を示しました。 記載されているその他のプロバイダーでの認証に同様のアプローチを行うことができる、[前のページ](index.md)です。
+* この記事では、Microsoft との認証方法を示しました。 記載されているその他のプロバイダーでの認証に同様のアプローチを行うことができる、[前のページ](xref:security/authentication/social/index)です。
 
 * 新規に作成する必要があります、web サイトを Azure web アプリに発行した後`Password`Microsoft 開発者ポータルにします。
 

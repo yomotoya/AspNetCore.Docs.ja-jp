@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
-title: "コマンド ファイルの作成と展開を実行 |Microsoft ドキュメント"
+title: コマンド ファイルの作成と展開を実行 |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、ファイルを構築するコマンドの 1 つの手順として、Microsoft Build Engine (MSBuild) プロジェクト ファイルを使用して再展開を実行するために使用する方法について説明しています."
+description: このトピックでは、ファイルを構築するコマンドの 1 つの手順として、Microsoft Build Engine (MSBuild) プロジェクト ファイルを使用して再展開を実行するために使用する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: bc31bf55b29661816e0ca9a50b51b0abc3eb2c98
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: e5fb034a67bc9f2ea549af269eae51a49acc4d98
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-and-running-a-deployment-command-file"></a>作成と展開コマンド ファイルの実行
 ====================
@@ -27,9 +27,9 @@ ms.lasthandoff: 03/15/2018
 > このトピックでは、1 ステップの再現可能なプロセスとして Microsoft Build Engine (MSBuild) プロジェクト ファイルを使用して展開を実行するために使用するコマンド ファイルを作成する方法について説明します。
 
 
-このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルのシリーズを使用してサンプル ソリューション & #x 2014;、[連絡先のマネージャー](the-contact-manager-solution.md)複雑さ、ASP.NET MVC 3 アプリケーション、Windows などの現実的なレベルで web アプリケーションを表すためには、ソリューション & #x 2014;Communication Foundation (WCF) サービスとデータベース プロジェクト。
+このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルの一連のサンプル ソリューションを使用する&#x2014;、[連絡先のマネージャー](the-contact-manager-solution.md)ソリューション&#x2014;現実的な ASP.NET MVC 3 アプリケーション、Windows Communication も含め、複雑さのレベルを持つ web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
-説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[ビルド プロセスの理解](understanding-the-build-process.md)、によって制御されるビルド プロセスで 2 つのプロジェクト ファイル & #x 2014; 1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[ビルド プロセスの理解](understanding-the-build-process.md)、によって制御されるビルド プロセスでは、2 つのプロジェクト ファイル&#x2014;1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
 
 ## <a name="process-overview"></a>プロセスの概要
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/15/2018
 
 ## <a name="create-an-msbuild-command"></a>MSBuild のコマンドを作成します。
 
-」の説明に従って[ビルド プロセスの理解](understanding-the-build-process.md)、環境固有のプロジェクト ファイル & #x 2014; など、 *Env Dev.proj*& #x 2014; にインポートするよう設計されています、環境にもとらわれない*Publish.proj*ビルド時にファイル。 さらに、これら 2 つのファイルには、MSBuild のビルドし、ソリューションを展開する方法を指示する命令の完全なセットが提供されます。
+」の説明に従って[ビルド プロセスの理解](understanding-the-build-process.md)、環境固有のプロジェクト ファイル&#x2014;など*Env Dev.proj*&#x2014;環境に柔軟なにインポートするよう設計されています。*Publish.proj*ビルド時にファイル。 さらに、これら 2 つのファイルには、MSBuild のビルドし、ソリューションを展開する方法を指示する命令の完全なセットが提供されます。
 
 *Publish.proj*ファイルの使用、**インポート**環境固有のプロジェクト ファイルをインポートする要素。
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 03/15/2018
 5. この環境にソリューションを配置した初めての場合は、テスト web server マシン アカウントを追加する必要があります、 **db\_datawriter**と**db\_datareader**上の役割、 **ContactManager**データベース。 この手順で説明されて[Web 配置発行のデータベース サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md)です。
 
     > [!NOTE]
-    > データベースを作成するときに、これらのアクセス許可を割り当てる必要があるだけです。 既定では、ビルド処理はすべての配置 & #x 2014 データベース再作成されません。 代わりを最新のスキーマに既存のデータベースを比較し、必要な変更のみを行います。 結果として、初めてにソリューションを配置するときにこれらのデータベース ロールをマップする必要がありますのみ必要。
+    > データベースを作成するときに、これらのアクセス許可を割り当てる必要があるだけです。 既定では、ビルド プロセスは再作成されませんのそれぞれの配置上のデータベース&#x2014;代わりを最新のスキーマに既存のデータベースを比較し、必要な変更のみを作成します。 結果として、初めてにソリューションを配置するときにこれらのデータベース ロールをマップする必要がありますのみ必要。
 6. Internet Explorer を開き、連絡先のマネージャー アプリケーションの URL に移動 (たとえば、 `http://testweb1:85/ContactManager/`)。
 7. アプリケーションが期待どおりに動作することを確認し、連絡先を追加することができました。
 
@@ -118,6 +118,6 @@ MSBuild 指示を含むコマンド ファイルを作成するビルドと特�
 
 プロパティをオーバーライドするか、MSBuild コマンドで他の各種のスイッチを設定して各環境のビルド プロセスをカスタマイズすることもできます。 詳細については、次を参照してください。 [MSBuild コマンド ライン リファレンス](https://msdn.microsoft.com/library/ms164311.aspx)です。
 
->[!div class="step-by-step"]
-[前へ](deploying-database-projects.md)
-[次へ](manually-installing-web-packages.md)
+> [!div class="step-by-step"]
+> [前へ](deploying-database-projects.md)
+> [次へ](manually-installing-web-packages.md)

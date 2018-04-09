@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-vb
-title: "キャッシュされたページ (VB) への動的なコンテンツの追加 |Microsoft ドキュメント"
+title: キャッシュされたページ (VB) への動的なコンテンツの追加 |Microsoft ドキュメント
 author: microsoft
-description: "同じページで、動的およびキャッシュされたコンテンツを混在させる方法を説明します。 キャッシュ後置換では、バナー広告 o などの動的なコンテンツを表示することができます。"
+description: 同じページで、動的およびキャッシュされたコンテンツを混在させる方法を説明します。 キャッシュ後置換では、バナー広告 o などの動的なコンテンツを表示することができます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f07f4ecec36e71679dbc471b65f26d260349a07e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 89421b4bec2170e408ded87ccc918a7a16844a98
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-dynamic-content-to-a-cached-page-vb"></a>キャッシュされたページ (VB) に動的なコンテンツを追加します。
 ====================
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/10/2017
 
 キャッシュ後置換を利用するには、HttpResponse.WriteSubstitution() メソッドを呼び出します。 WriteSubstitution() メソッドでコードを設定すると、動的コンテンツを含む、キャッシュされたページの領域を置換します。 WriteSubstitution() メソッドがビューを一覧表示する 2 で、ランダムなニュース項目を表示するために使用します。
 
-**2 – Views\Home\Index.aspx を一覧表示します。**
+**Listing 2 – Views\Home\Index.aspx**
 
 [!code-aspx[Main](adding-dynamic-content-to-a-cached-page-vb/samples/sample2.aspx)]
 
@@ -91,12 +91,12 @@ RenderBannerInternal() メソッドは、プライベート メソッドです�
 
 ![clip_image004](adding-dynamic-content-to-a-cached-page-vb/_static/image2.jpg)
 
-#### <a name="summary"></a>概要
+#### <a name="summary"></a>まとめ
 
 このチュートリアルでは、キャッシュされたページのコンテンツを動的に更新する方法について説明します。 HttpResponse.WriteSubstitution() メソッドを使用して、キャッシュされたページに挿入する動的なコンテンツを有効にする方法を学習しました。 HTML ヘルパー メソッド内で WriteSubstitution() メソッドへの呼び出しをカプセル化する方法も学習しました。
 
 利用可能な限り – 持つ、web アプリケーションのパフォーマンスに大幅な影響を受けることができますをキャッシュします。 このチュートリアルで説明、キャッシュ、ページに動的なコンテンツを表示する必要がある場合にも利用できます。
 
->[!div class="step-by-step"]
-[前へ](improving-performance-with-output-caching-vb.md)
-[次へ](creating-a-controller-vb.md)
+> [!div class="step-by-step"]
+> [前へ](improving-performance-with-output-caching-vb.md)
+> [次へ](creating-a-controller-vb.md)

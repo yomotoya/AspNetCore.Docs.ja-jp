@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb
-title: "SqlDataSource コントロール (VB) を使用してデータを照会 |Microsoft ドキュメント"
+title: SqlDataSource コントロール (VB) を使用してデータを照会 |Microsoft ドキュメント
 author: rick-anderson
-description: "前のチュートリアルでは、ObjectDataSource コントロールを使用して、データ アクセス層からプレゼンテーション層を完全に分離します。 この家庭教師としてを開始しています."
+description: 前のチュートリアルでは、ObjectDataSource コントロールを使用して、データ アクセス層からプレゼンテーション層を完全に分離します。 この家庭教師としてを開始しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a3832bd9847ec8e789b71d13b30a673c8779f4ac
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6f886ca85a2a4dea5daeff109370bedc1a3f7265
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="querying-data-with-the-sqldatasource-control-vb"></a>SqlDataSource コントロール (VB) を使用してデータのクエリを実行します。
 ====================
@@ -201,7 +201,7 @@ SqlDataSource コントロールを構成するときに、カスタム SQL ス�
 
 ![ProductsWithCategoryInfoDataSource をという名前の新しい SqlDataSource コントロールを作成します。](querying-data-with-the-sqldatasource-control-vb/_static/image18.gif)
 
-**図 12**: という名前の新しい SqlDataSource コントロールを作成します。`ProductsWithCategoryInfoDataSource`
+**図 12**: という名前の新しい SqlDataSource コントロールを作成します。 `ProductsWithCategoryInfoDataSource`
 
 
 次の画面を使用して、データベースを指定するよう求められます。 図 7 に戻ると、選択、`NORTHWINDConnectionString`ドロップダウン リストからを一覧表示し、[次へ] をクリックします。 ステートメントの選択 画面の構成 では、カスタム SQL ステートメントまたはストアド プロシージャのオプション ボタンを指定してくださいを選択し、次へ をクリックします。 SELECT、UPDATE、INSERT、および DELETE というラベルの付いたタブを提供する、定義のカスタム ステートメントまたはストアド プロシージャ画面が表示されます。 各タブで、テキスト ボックスに、カスタムの SQL ステートメントを入力したり、ストアド プロシージャをドロップダウン リストから選択できます。 このチュートリアルで見ていきます。 カスタム SQL ステートメントを入力します。次のチュートリアルには、ストアド プロシージャを使用する例が含まれています。
@@ -256,12 +256,12 @@ SqlDataSource コントロールを構成するときに、カスタム SQL ス�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Susan Connery、「社長補佐 Leigh および David Suru でした。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
-[次へ](using-parameterized-queries-with-the-sqldatasource-vb.md)
+> [!div class="step-by-step"]
+> [前へ](implementing-optimistic-concurrency-with-the-sqldatasource-cs.md)
+> [次へ](using-parameterized-queries-with-the-sqldatasource-vb.md)

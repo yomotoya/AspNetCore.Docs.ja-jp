@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
-title: "カスタムの書式設定データ (VB) に基づいて |Microsoft ドキュメント"
+title: カスタムの書式設定データ (VB) に基づいて |Microsoft ドキュメント
 author: rick-anderson
-description: "GridView、DetailsView、またはバインドされているデータに基づくフォーム ビューの形式を調整することは、複数の方法で実現できます。 このチュートリアルでは l します."
+description: GridView、DetailsView、またはバインドされているデータに基づくフォーム ビューの形式を調整することは、複数の方法で実現できます。 このチュートリアルでは l します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 43aed94fe5b1095af37abdae2cb4c9e67b7d7f6f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a5c7f99b863697cc49a5bc9831dae861f51e129d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="custom-formatting-based-upon-data-vb"></a>データ (VB) に基づくカスタム書式設定
 ====================
@@ -47,7 +47,7 @@ GridView、DetailsView、またはバインドされているデータに基づ�
 
 ## <a name="step-1-displaying-the-product-information-in-a-detailsview"></a>手順 1: DetailsView で製品情報を表示します。
 
-開く、 `CustomColors.aspx`  ページで、`CustomFormatting`フォルダー、DetailsView コントロールをツールボックスからデザイナーにドラッグして、設定、`ID`プロパティの値を`ExpensiveProductsPriceInBoldItalic`を起動する新しい ObjectDataSource コントロールにバインドし、 `ProductsBLL`クラスの`GetProducts()`メソッドです。 これを実現する詳細な手順は、ここに詳細に調査前のチュートリアルで後簡略化のためここで省略されます。
+開く、 `CustomColors.aspx` ] ページで、`CustomFormatting`フォルダー、DetailsView コントロールをツールボックスからデザイナーにドラッグして、設定、`ID`プロパティの値を`ExpensiveProductsPriceInBoldItalic`を起動する新しい ObjectDataSource コントロールにバインドし、 `ProductsBLL`クラスの`GetProducts()`メソッドです。 これを実現する詳細な手順は、ここに詳細に調査前のチュートリアルで後簡略化のためここで省略されます。
 
 DetailsView に、ObjectDataSource をバインドしたら、実行、フィールドの一覧を変更するのにはすぐになります。 削除する選択した、 `ProductID`、 `SupplierID`、 `CategoryID`、 `UnitsInStock`、 `UnitsOnOrder`、 `ReorderLevel`、および`Discontinued`BoundFields の名前を変更し、残りの BoundFields を再フォーマットします。 消去したも、`Width`と`Height`設定します。 DetailsView には、単一のレコードだけが表示されたら、ためすべての製品を表示するのには、エンドユーザーに許可するためにページングを有効にする必要があります。 DetailsView のスマート タグの表示でページングを有効にするチェック ボックスをオンようになります。
 
@@ -221,19 +221,19 @@ Web コントロールへのプログラムによる参照を作成したら、�
 
 手順 2 GridView は、データ ソースを列挙し、各レコード作成で、`GridViewRow`をインスタンス化し、現在のレコードをバインドします。 各`GridViewRow`GridView に追加された、2 つのイベントが発生します。
 
-- **`RowCreated`**後に起動、`GridViewRow`が作成されました
-- **`RowDataBound`**現在のレコードにバインドされた後に発生、`GridViewRow`です。
+- **`RowCreated`** 後に起動、`GridViewRow`が作成されました
+- **`RowDataBound`** 現在のレコードにバインドされた後に発生、`GridViewRow`です。
 
 GridView し、データ バインディングがより正確に記載されている、次の一連の手順で。
 
 1. GridView の`DataBinding`イベントが発生します。
 2. データが GridView にバインドされます。   
   
- データ ソース内の各レコード 
+   データ ソース内の各レコード 
 
     1. 作成、`GridViewRow`オブジェクト
     2. Fire、`RowCreated`イベント
-    3. レコードにバインドします`GridViewRow`
+    3. レコードにバインドします `GridViewRow`
     4. Fire、`RowDataBound`イベント
     5. 追加、`GridViewRow`を`Rows`コレクション
 3. GridView の`DataBound`イベントが発生します。
@@ -279,12 +279,12 @@ GridView の個々 のレコードの形式をカスタマイズするには、�
 
 使用する場合、`RowDataBound`イベント ハンドラーが GridView は、さまざまな種類の行で構成される、このイベントが発生したことに注意する重要*すべて*行の型。 A`GridViewRow`の型によって決定できる、`RowType`プロパティ、有効な値のいずれかを持つことができます。
 
-- `DataRow`GridView からのレコードにバインドされている行`DataSource`
-- `EmptyDataRow`表示される場合、行、GridView の`DataSource`が空です
-- `Footer`フッター行です。表示されている場合、GridView の`ShowFooter`プロパティに設定`True`
-- `Header`ヘッダー行です。GridView の ShowHeader プロパティが に設定されているかどうかを示す`True`(既定)
-- `Pager`ページング インターフェイスを表示する行のページングを実装する gridview
-- `Separator`GridView は使用されませんで使用される、 `RowType` DataList およびリピータのプロパティを制御する 2 つのデータについて説明します将来的にチュートリアルの Web コントロール
+- `DataRow` GridView からのレコードにバインドされている行 `DataSource`
+- `EmptyDataRow` 表示される場合、行、GridView の`DataSource`が空です
+- `Footer` フッター行です。表示されている場合、GridView の`ShowFooter`プロパティに設定 `True`
+- `Header` ヘッダー行です。GridView の ShowHeader プロパティが [に設定されているかどうかを示す`True`(既定)
+- `Pager` ページング インターフェイスを表示する行のページングを実装する gridview
+- `Separator` GridView は使用されませんで使用される、 `RowType` DataList およびリピータのプロパティを制御する 2 つのデータについて説明します将来的にチュートリアルの Web コントロール
 
 以降、 `EmptyDataRow`、 `Header`、`Footer`と`Pager`にない行が関連付けられている、`DataSource`レコード、これらが常に、値は`Nothing`の`DataItem`プロパティです。 このため、現在の作業を試みる前に`GridViewRow`の`DataItem`プロパティ、お最初を確認してくださいを扱っている、`DataRow`です。 これには、チェックして、`GridViewRow`の`RowType`プロパティ次のようにします。
 
@@ -323,12 +323,12 @@ GridView の個々 のレコードの形式をカスタマイズするには、�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者が E.R. Gilmore、Dennis Patterson と Dan Jagers です。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](displaying-summary-information-in-the-gridview-s-footer-cs.md)
-[次へ](using-templatefields-in-the-gridview-control-vb.md)
+> [!div class="step-by-step"]
+> [前へ](displaying-summary-information-in-the-gridview-s-footer-cs.md)
+> [次へ](using-templatefields-in-the-gridview-control-vb.md)

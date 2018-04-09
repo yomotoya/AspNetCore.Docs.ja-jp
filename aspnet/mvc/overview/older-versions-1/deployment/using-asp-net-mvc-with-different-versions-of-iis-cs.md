@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-cs
-title: "ASP.NET MVC を使用して、さまざまなバージョンの IIS (c#) |Microsoft ドキュメント"
+title: ASP.NET MVC を使用して、さまざまなバージョンの IIS (c#) |Microsoft ドキュメント
 author: microsoft
-description: "このチュートリアルでは、インターネット インフォメーション サービスの異なるバージョンの ASP.NET MVC と URL がルーティングを使用する方法を学習します。 さまざまな方法について説明しています."
+description: このチュートリアルでは、インターネット インフォメーション サービスの異なるバージョンの ASP.NET MVC と URL がルーティングを使用する方法を学習します。 さまざまな方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8f2b98d5e5ae677fdac32336d542202a40290e21
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 73c129c1eaf85cb5b110248fe2a2c0faed0157bc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-c"></a>ASP.NET MVC を使用して、さまざまなバージョンの IIS (c#)
 ====================
@@ -33,7 +33,7 @@ ASP.NET MVC フレームワークは、コント ローラーのアクション�
 - IIS 7.0 (クラシック モード) - ASP.NET のルーティングを使用する特別な構成を実行する必要があります。
 - IIS 6.0 または以下の ASP.NET のルーティングを使用する特別な構成を実行する必要があります。
 
-最新バージョンの IIS では、(Win7) バージョン 7.5 がします。 IIS の IIS 7 は、Windows Server 2008 および VISTA/SP1 に含まれる以降です。 インストールすることもできる IIS 7.0、Vista オペレーティング システムの Home Basic 以外のすべてのバージョンで (を参照してください[https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx))。
+最新バージョンの IIS では、(Win7) バージョン 7.5 がします。 IIS の IIS 7 は、Windows Server 2008 および VISTA/SP1 に含まれる以降です。 インストールすることもできる IIS 7.0、Vista オペレーティング システムの Home Basic 以外のすべてのバージョンで (を参照してください[ https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx ](https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx))。
 
 IIS 7.0 では、要求を処理する 2 つのモードをサポートします。 統合モードまたはクラシック モードを使用することができます。 統合モードで IIS 7.0 を使用する場合は、特別な構成手順を実行する必要はありません。 ただしはクラシック モードで IIS 7.0 を使用する場合は、追加の構成を実行する必要があります。
 
@@ -62,8 +62,8 @@ IIS 7.0 は、2 つの異なる要求の処理モードを使用して要求を�
 
 アプリケーションの編集 ダイアログ ボックス内で要求の処理モードを変更できることに注意してください。 [選択] ボタンをクリックし、アプリケーションに関連付けられているアプリケーション プールを変更します。 ASP.NET アプリケーションをクラシックから統合モードに変更するときに互換性の問題が認識がある注意してください。 詳細については、次の記事を参照してください。
 
-- Windows Vista および Windows Server 2008--上の iis 7.0 ASP.NET 1.1 をアップグレードする[https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008)
-- IIS 7.0 の ASP.NET 統合[https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
+- Windows Vista および Windows Server 2008--上の iis 7.0 ASP.NET 1.1 のアップグレード [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008)
+- IIS 7.0 の ASP.NET 統合 [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
 
 ASP.NET アプリケーションが、DefaultAppPool を使用している場合しない、ASP.NET ルーティングと ASP.NET MVC) 作業を取得する追加の手順を実行する必要があります。 ただし、ASP.NET アプリケーションを構成して、Classic .NET AppPool を使用し、読み取りを保持する場合により多くの作業を行うにを用意します。
 
@@ -103,7 +103,7 @@ IIS 7.0 より古いバージョンの IIS で ASP.NET MVC を使用する必要
 
 そのため、ASP.NET が動作するルーティングを取得する、ASP.NET フレームワークにマップされているファイル拡張子が含まれるように既定のルートを変更する必要がありますおです。
 
-これは、という名前のスクリプトを使用して`registermvc.wsf`です。 ASP.NET MVC 1 リリースには含まれて`C:\Program Files\Microsoft ASP.NET\ASP.NET MVC\Scripts`、ASP.NET 2 の時点でこのスクリプトに移動されました ASP.NET フューチャで使用できますが、 [http://aspnet.codeplex.com/releases/view/39978](http://aspnet.codeplex.com/releases/view/39978)です。
+これは、という名前のスクリプトを使用して`registermvc.wsf`です。 ASP.NET MVC 1 リリースには含まれて`C:\Program Files\Microsoft ASP.NET\ASP.NET MVC\Scripts`、ASP.NET 2 の時点でこのスクリプトに移動されました ASP.NET フューチャで使用できますが、 [ http://aspnet.codeplex.com/releases/view/39978](http://aspnet.codeplex.com/releases/view/39978)です。
 
 このスクリプトを実行すると、新しい .mvc 拡張機能を IIS に登録します。 .Mvc 拡張機能を登録した後は、ルートは、.mvc 拡張機能を使用できるように、Global.asax ファイルで、ルートを変更できます。
 
@@ -212,5 +212,5 @@ IIS 7.0 または IIS 6.0 のいずれかのワイルドカード スクリプ�
 
 2 番目のオプションでは、ワイルドカード スクリプト マップを作成します。 この 2 つ目のオプションの利点は、Url を変更する必要はありません。 この 2 つ目のオプションの欠点は、ASP.NET MVC アプリケーションのパフォーマンスに悪影響です。
 
->[!div class="step-by-step"]
-[次へ](using-asp-net-mvc-with-different-versions-of-iis-vb.md)
+> [!div class="step-by-step"]
+> [次へ](using-asp-net-mvc-with-different-versions-of-iis-vb.md)

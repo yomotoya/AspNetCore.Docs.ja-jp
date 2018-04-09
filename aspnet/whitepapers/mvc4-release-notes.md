@@ -1,22 +1,22 @@
 ---
 uid: whitepapers/mvc4-release-notes
-title: "ASP.NET MVC 4 |Microsoft ドキュメント"
+title: ASP.NET MVC 4 |Microsoft ドキュメント
 author: rick-anderson
-description: "このドキュメントでは、ASP.NET MVC 4 のリリースについて説明します。"
+description: このドキュメントでは、ASP.NET MVC 4 のリリースについて説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/09/2011
 ms.topic: article
 ms.assetid: f014524f-25c0-4094-b8e1-886d99536f00
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
-ms.openlocfilehash: bea6f6112388290a2c6b5ed267626ba28fc36671
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: dbcea6090a0376b8732e02c0891721672bfe50f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -103,7 +103,7 @@ ASP.NET Web API には、次の機能のサポートが含まれています。
 - **Web API プロジェクト テンプレート:**新しい Web API プロジェクトのフォームをすばやく立ち上がっており実行中で ASP.NET Web API の新しい MVC 4 プロジェクト ウィザードを選択します。
 - **スキャフォールディング:**を使用して、**コント ローラーの追加**を迅速に Entity Framework に基づく web API コント ローラーをスキャフォールディングするダイアログ ベースのモデルの種類。
 
-ASP.NET Web API の詳細についてはご参照ください[https://www.asp.net/web-api](../web-api/index.md)です。
+ASP.NET Web API の詳細についてはご参照ください[ https://www.asp.net/web-api](../web-api/index.md)です。
 
 <a id="_Toc303253808"></a>
 ### <a name="enhancements-to-default-project-templates"></a>既定のプロジェクト テンプレートの機能強化
@@ -134,7 +134,7 @@ ASP.NET Web API の詳細についてはご参照ください[https://www.asp.ne
 
 新しい表示モード機能には、要求を行って、ブラウザーによってビューを選択して、アプリケーションができます。 たとえば、デスクトップ ブラウザーでは、ホーム ページを要求している場合、アプリケーションは Views\Home\Index.cshtml テンプレートを使用できます。 モバイル ブラウザーは、ホーム ページを要求している場合、アプリケーションは Views\Home\Index.mobile.cshtml テンプレートを返す場合があります。
 
-レイアウトとパーシャルは、特定のブラウザーの種類を無効にできます。 例:
+レイアウトとパーシャルは、特定のブラウザーの種類を無効にできます。 例えば:
 
 - \Shared フォルダーには、両方が含まれている場合、 \_Layout.cshtml と\_Layout.mobile.cshtml テンプレート、既定では、アプリケーションで使用\_モバイル ブラウザーとからの要求中にLayout.mobile.cshtml\_Layout.cshtml 他の要求時にします。
 - フォルダーには、両方が含まれている場合\_MyPartial.cshtml と\_MyPartial.mobile.cshtml、命令@Html.Partial("\_MyPartial") はレンダリング\_携帯電話からの要求時に MyPartial.mobile.cshtmlブラウザー、および\_MyPartial.cshtml 他の要求時にします。
@@ -234,7 +234,7 @@ ASP.NET MVC 4 Release candidate リリース ノートを参照してくださ�
 - **削除 MediaRangeMapping:**メディア型の範囲が既定のコンテンツ ネゴシエーターによって処理されるようになりました。
 - **単純型のパラメーターの既定のパラメーター バインドが、[FromUri]:**以前のリリースの ASP.NET Web API の既定のパラメーターのバインディングは、単純型のパラメーターは、モデル バインディングを使用します。 単純型のパラメーターの既定のパラメーター バインディングは、今すぐ*[FromUri]*です。
 - **操作の選択は、必要なパラメーター:** ASP.NET Web API の操作の選択のみを選択しますアクション URI に由来するすべての必要なパラメーターを指定する場合。 パラメーターは、アクション メソッドのシグネチャ内の引数に既定値を提供することで、省略可能として指定できます。
-- **HTTP パラメーター バインディングをカスタマイズ:**を使用して、 *ParameterBindingAttribute*を特定のアクション パラメーターのパラメーター バインディングをカスタマイズまたはを使用して、 *ParameterBindingRules*上*HttpConfiguration*パラメーター バインディングをカスタマイズより広範にします。
+- **HTTP パラメーター バインディングをカスタマイズ:**を使用して、 *ParameterBindingAttribute*を特定のアクション パラメーターのパラメーター バインディングをカスタマイズまたはを使用して、 *ParameterBindingRules*で、*HttpConfiguration*パラメーター バインディングをカスタマイズより広範にします。
 - **MediaTypeFormatter の機能強化:**フォーマッタが今すぐに完全にアクセス権を持つ*HttpContent*インスタンス。
 - **ホスト バッファー ポリシーの選択:**を実装し、構成、 *IHostBufferPolicySelector*サービスで ASP.NET Web API を使用するときにバッファリングのポリシーを確認するホストを有効にします。
 - **ホストに依存しない方法でクライアント証明書にアクセスします。**を使用して、 *GetClientCertificate*要求メッセージから、指定されたクライアント証明書を取得する拡張メソッド。
@@ -245,7 +245,7 @@ ASP.NET MVC 4 Release candidate リリース ノートを参照してくださ�
 - **リンクの生成の機能強化:** 、 *UrlHelper*に依存しなく*HttpControllerContext*です。 今すぐアクセスすることができます、 *UrlHelper*任意のコンテキストからここで、 *HttpRequestMessage*は使用できます。
 - **メッセージのハンドラーの実行順序の変更:**逆の順序での代わりに構成されている順序でメッセージのハンドラーが実行されるようになりました。
 - **メッセージのハンドラーを組み立てるヘルパー:**新しい*HttpClientFactory*を接続する*DelegatingHandlers*を作成し、 *HttpClient*で、目的のパイプラインを開始します。 代替の内部ハンドラーを持つを組み立てる機能も用意されています (既定値は*HttpClientHandler*) を使用する場合配線を行うと*HttpMessageInvoker*別または*DelegatingHandler*の代わりに*HttpClient*上部 invoker として。
-- **ASP.NET Web Optimization で Cdn のサポート:** ASP.NET Web 最適化は、CDN の代替パスごとに指定できるようにバンドルのコンテンツ配信ネットワークでその同じリソースをポイントする追加の URL に対する今すぐサポートを提供します。 Cdn をサポートするには、Web アプリケーションの終了のコンシューマーに、スクリプトおよびスタイル バンドル地理的に近い場所を取得することができます。
+- **ASP.NET Web Optimization で Cdn のサポート:** ASP.NET Web 最適化は、CDN の代替パスごとに指定できるようにバンドルのコンテンツ配信ネットワークでその同じリソースをポイントする追加の URL に対する今すぐサポートを提供します。 Cdn をサポートするには、Web アプリケーションの終了のコンシューマーに、スクリプトおよびスタイル バンドル地理的に近い場所を取得することができます。 実稼働アプリでは、CDN が利用できない場合、フォールバックを実装する必要があります。 フォールバックをテストします。
 - **ASP.NET Web API ルーティングし、構成を移動する*WebApiConfig.Register*静的メソッドをテスト コードで再利用することができます。** ASP.NET Web API のルートで追加された以前*RouteConfig.RegisterRoutes*と共に標準的な MVC ルーティングします。 既定の ASP.NET Web API ルーティングと構成が個別で処理されるようになりました*WebApiConfig.Register*メソッドがテストを容易になります。
 
 <a id="_Toc303253815"></a>
@@ -261,7 +261,7 @@ ASP.NET MVC 4 Release candidate リリース ノートを参照してくださ�
     - *MvcCSharpRazorCodeGenerator*
     - *MvcVBRazorCodeParser*
 
- 次の方法も削除されます。 
+  次の方法も削除されます。 
 
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
@@ -275,22 +275,23 @@ ASP.NET MVC 4 Release candidate リリース ノートを参照してくださ�
 
     **必要な更新プログラム**
 
-    1. ルートの Web.config ファイルで追加、新しい *&lt;appSettings&gt;* キーを持つエントリ*webPages:Version*および値*1.0.0.0*です。 
+  1. ルートの Web.config ファイルで追加、新しい*&lt;appSettings&gt;*キーを持つエントリ*webPages:Version*および値*1.0.0.0*です。 
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample7.xml)]
-    2. ソリューション エクスプ ローラーでプロジェクト名を右クリックし、プロジェクトのアンロードを選択します。 [名前を再度右クリックして編集] を選択*ProjectName*.csproj です。
-    3. 次のアセンブリ参照を見つけます。 
+      [!code-xml[Main](mvc4-release-notes/samples/sample7.xml)]
+  2. ソリューション エクスプ ローラーでプロジェクト名を右クリックし、プロジェクトのアンロードを選択します。 [名前を再度右クリックして編集] を選択*ProjectName*.csproj です。
+  3. 次のアセンブリ参照を見つけます。 
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample8.xml)]
+      [!code-xml[Main](mvc4-release-notes/samples/sample8.xml)]
 
-        次のように、それらを置き換えます。
+      次のように、それらを置き換えます。
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample9.xml)]
-    4. 変更を保存、閉じるプロジェクト (.csproj) ファイルを編集、およびし、プロジェクトを右クリックし、再読み込みを選択します。
+      [!code-xml[Main](mvc4-release-notes/samples/sample9.xml)]
+  4. 変更を保存、閉じるプロジェクト (.csproj) ファイルを編集、およびし、プロジェクトを右クリックし、再読み込みを選択します。
+
 - **4.5 からのターゲット 4.0 に ASP.NET MVC 4 プロジェクトを変更する EntityFramework アセンブリ参照を更新しません**EntityFramework アセンブリへの参照がまだ指す 4.5 をターゲットの後に、ターゲット 4.0 に ASP.NET MVC 4 プロジェクトを変更する場合。4.5 バージョンです。 この問題のアンインストールを修正して EntityFramework NuGet パッケージを再インストールします。
-- **4.5 からターゲット 4.0 に変更すると、ASP.NET MVC 4 アプリケーションを Azure で実行されているときに 403 アクセス不可:** 4.5 を対象とした後、ターゲット 4.0 に ASP.NET MVC 4 プロジェクトを変更を Azure に展開すると、実行時に 403 Forbidden エラーを参照してください可能性があります。 回避策には、この問題は、次のように、web.config を追加します。`<modules runAllManagedModulesForAllRequests="true" />`
+- **4.5 からターゲット 4.0 に変更すると、ASP.NET MVC 4 アプリケーションを Azure で実行されているときに 403 アクセス不可:** 4.5 を対象とした後、ターゲット 4.0 に ASP.NET MVC 4 プロジェクトを変更を Azure に展開すると、実行時に 403 Forbidden エラーを参照してください可能性があります。 回避策には、この問題は、次のように、web.config を追加します。 `<modules runAllManagedModulesForAllRequests="true" />`
 - **Visual Studio 2012 クラッシュを入力すると、'\' Razor ファイルに文字列リテラルでします。** 作業を問題を回避文字列リテラルの終わりの引用符を入力してください。
-- **参照する&quot;アカウント/管理&quot;CHS、TRK および CHT 言語の実行時エラーでインターネット テンプレート結果にします。** 問題を修正するを分離するページを変更する *@User.Identity.Name* 内のみのコンテンツとして配置することで、 *&lt;強力な&gt;*タグ。
+- <strong>参照する&quot;アカウント/管理&quot;CHS、TRK および CHT 言語の実行時エラーでインターネット テンプレート結果にします。</strong> 問題を修正するを分離するページを変更する<em>@User.Identity.Name</em>内のみのコンテンツとして配置することで、 <em>&lt;強力な&gt;</em>タグ。
 - **Google および LinkedIn プロバイダーでは、Azure Web サイト内ではサポートされていません。** Azure Web サイトに配置する場合は、代替の認証プロバイダーを使用します。
 - **UriPathExtensionMapping と IIS 8 Express と IIS を使用する場合は、拡張機能を使用しようとしたときに 404 Not Found エラーを受信はします。** 静的ファイル ハンドラーを使用している web Api への要求が妨げられます*UriPathExtensionMappings*です。 設定*runAllManagedModulesForAllRequests = true*問題を回避する web.config でします。
 - **Controller.Execute メソッドが呼び出されない。** すべての MVC コント ローラーは、今すぐ常に非同期的に実行します。

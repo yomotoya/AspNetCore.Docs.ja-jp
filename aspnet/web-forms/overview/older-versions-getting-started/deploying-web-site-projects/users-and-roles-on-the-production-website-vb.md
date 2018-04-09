@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
-title: "ユーザーとロール、実稼働 web サイト (VB) |Microsoft ドキュメント"
+title: ユーザーとロール、実稼働 web サイト (VB) |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET web サイト管理ツール (WSAT) は、メンバーシップとロールの設定を構成して、作成するために web ベースのユーザー インターフェイスを提供、編集、."
+description: ASP.NET web サイト管理ツール (WSAT) は、メンバーシップとロールの設定を構成して、作成するために web ベースのユーザー インターフェイスを提供、編集、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f3bfaa0e14e3e04a7faae1a78b566d7c2067785a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 611a54b9dd5f188fd64c7020bfbf8171fea27a71
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="users-and-roles-on-the-production-website-vb"></a>ユーザーと、実稼働 web サイト (VB) の役割
 ====================
@@ -37,7 +37,7 @@ ASP です。NET のアプリケーション サービスは、特定の実装�
 
 ## <a name="using-the-aspnet-web-site-administration-tool"></a>ASP.NET Web サイト管理ツールを使用します。
 
-ASP.NET には、 [Web サイト管理ツール](https://msdn.microsoft.com/library/yy40ytx0.aspx)(WSAT) を簡単に作成および管理ユーザー アカウントとロールとユーザーおよびロール ベースの承認規則を指定します。 使用して、WSAT、ソリューション エクスプ ローラーで [ASP.NET 構成] アイコンをクリックしてまたは web サイトまたはプロジェクト] メニューの [ASP.NET の構成オプションを選択します。 どちらの方法では、web ブラウザーを起動しのようなアドレスで WSAT を指します。`http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
+ASP.NET には、 [Web サイト管理ツール](https://msdn.microsoft.com/library/yy40ytx0.aspx)(WSAT) を簡単に作成および管理ユーザー アカウントとロールとユーザーおよびロール ベースの承認規則を指定します。 使用して、WSAT、ソリューション エクスプ ローラーで [ASP.NET 構成] アイコンをクリックしてまたは web サイトまたはプロジェクト] メニューの [ASP.NET の構成オプションを選択します。 どちらの方法では、web ブラウザーを起動しのようなアドレスで WSAT を指します。 `http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
 
 WSAT は、3 つのセクションに分かれています。
 
@@ -119,5 +119,5 @@ WSAT アプローチでは、迅速かつ簡単な方法をユーザーおよび
 - [Web サイト管理ツールの概要](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 - [Web サイトのセキュリティのチュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
->[!div class="step-by-step"]
-[前へ](precompiling-your-website-vb.md)
+> [!div class="step-by-step"]
+> [前へ](precompiling-your-website-vb.md)

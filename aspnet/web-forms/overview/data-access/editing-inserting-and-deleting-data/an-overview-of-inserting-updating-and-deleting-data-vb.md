@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb
-title: "挿入、更新、およびデータ (VB) の削除の概要 |Microsoft ドキュメント"
+title: 挿入、更新、およびデータ (VB) の削除の概要 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルではおとが表示され、ObjectDataSource の Insert()、Update() にマップする方法を構成する方法だけでなく、BLL のメソッドに Delete() メソッドがクラス."
+description: このチュートリアルではおとが表示され、ObjectDataSource の Insert()、Update() にマップする方法を構成する方法だけでなく、BLL のメソッドに Delete() メソッドがクラス.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e7552abb30aa26d3aaceb3312c00661c6d4d6cf8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: db77d9ec5b0d4b27259023363e786b26fe736d7b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-vb"></a>挿入、更新、およびデータ (VB) の削除の概要
 ====================
@@ -238,7 +238,7 @@ GridView コントロールは、行レベルの編集および削除するた�
 - 補強、`DeleteProduct`メソッドを指定した製品の注文の詳細を削除するためのロジックを含める
 - TableAdapter を指定した製品の注文の詳細の削除を含めるために使用する SQL クエリを変更します。
 
-説明のみを削除、すべてのレコードから、`Order Details`外部キー制約を回避するためのテーブルです。 Visual Studio でサーバー エクスプ ローラーを右クリックし、`NORTHWND.MDF`ノード、新しいクエリを選択します。 次に、クエリ ウィンドウでは、次の SQL ステートメントを実行します。`DELETE FROM [Order Details]`
+説明のみを削除、すべてのレコードから、`Order Details`外部キー制約を回避するためのテーブルです。 Visual Studio でサーバー エクスプ ローラーを右クリックし、`NORTHWND.MDF`ノード、新しいクエリを選択します。 次に、クエリ ウィンドウでは、次の SQL ステートメントを実行します。 `DELETE FROM [Order Details]`
 
 
 [![Order Details テーブルからすべてのレコードを削除します。](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image35.png)](an-overview-of-inserting-updating-and-deleting-data-vb/_static/image34.png)
@@ -441,8 +441,8 @@ FormView の自動生成で注意が必要です、`InsertItemTemplate`です。
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[前へ](limiting-data-modification-functionality-based-on-the-user-cs.md)
-[次へ](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)
+> [!div class="step-by-step"]
+> [前へ](limiting-data-modification-functionality-based-on-the-user-cs.md)
+> [次へ](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)

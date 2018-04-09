@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-vb
-title: "クライアント コード (VB) から DropShadow プロパティの操作 |Microsoft ドキュメント"
+title: クライアント コード (VB) から DropShadow プロパティの操作 |Microsoft ドキュメント
 author: wenz
-description: "AJAX コントロール ツールキットの DropShadow コントロールは、ドロップ シャドウ付きパネルを拡張します。 クライアント JavaScrip を使用しても、このエクステンダーのプロパティを変更できます."
+description: AJAX コントロール ツールキットの DropShadow コントロールは、ドロップ シャドウ付きパネルを拡張します。 クライアント JavaScrip を使用しても、このエクステンダーのプロパティを変更できます.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 706ccb5a95873aad4c1b9e0942ab06cf4162710a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b5b024811ea511e67ce180169de9f0b7e3ef51d9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="manipulating-dropshadow-properties-from-client-code-vb"></a>クライアント コード (VB) から DropShadow プロパティを操作します。
 ====================
@@ -62,5 +62,5 @@ JavaScript 関数`changeOpacity()`し、最初に検索する必要がありま�
 
 クライアント側の不透明度を変更 ([フルサイズのイメージを表示するをクリックして](manipulating-dropshadow-properties-from-client-code-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](adjusting-the-z-index-of-a-dropshadow-vb.md)
+> [!div class="step-by-step"]
+> [前へ](adjusting-the-z-index-of-a-dropshadow-vb.md)

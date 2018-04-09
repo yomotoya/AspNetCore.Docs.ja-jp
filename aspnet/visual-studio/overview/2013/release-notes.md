@@ -1,22 +1,22 @@
 ---
 uid: visual-studio/overview/2013/release-notes
-title: "ASP.NET および Web Tools for Visual Studio 2013 のリリース ノート |Microsoft ドキュメント"
+title: ASP.NET および Web Tools for Visual Studio 2013 のリリース ノート |Microsoft ドキュメント
 author: microsoft
-description: "このドキュメントでは、ASP.NET および Web ツールの Visual Studio 2013 のリリースについて説明します。"
+description: このドキュメントでは、ASP.NET および Web ツールの Visual Studio 2013 のリリースについて説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 08815768-2702-42ae-ae85-0a59934a11d1
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 7f38a0f2693aeb2a4884b9c03719b583423957a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e9ddd96f186564834ff6bb2c30cf0ed5444cbf1b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET および Web Tools for Visual Studio 2013 のリリース ノート
 ====================
@@ -199,16 +199,16 @@ ASP.NET の Id を使用して認証と id 管理には、MVC プロジェクト
 
 オーバーライド フィルターを指定して特定のアクション メソッドまたはコント ローラーに適用するフィルターをオーバーライドすることができますようになりました。 オーバーライド フィルターは、特定のスコープ (アクションまたはコント ローラー) で実行しないでフィルターの種類のセットを指定します。 これにより、グローバルに適用が、特定のアクションまたはコント ローラーに適用されない特定のグローバル フィルターを除外するフィルターを構成することができます。
 
-### <a name="attribute-routing"></a>属性のルーティング
+### <a name="attribute-routing"></a>属性ルーティング
 
-ASP.NET MVC が Tim McCall の作成者によって貢献感謝の属性がルーティングをサポートして今すぐ[http://attributerouting.net](http://attributerouting.net)です。 属性のルーティングは、アクションとコント ローラーに注釈を付けることによって、ルートを指定できます。
+ASP.NET MVC が Tim McCall の作成者によって貢献感謝の属性がルーティングをサポートして今すぐ[ http://attributerouting.net](http://attributerouting.net)です。 属性のルーティングは、アクションとコント ローラーに注釈を付けることによって、ルートを指定できます。
 
 <a id="TOC11"></a>
 ## <a name="aspnet-web-api-2"></a>ASP.NET Web API 2
 
-### <a name="attribute-routing"></a>属性のルーティング
+### <a name="attribute-routing"></a>属性ルーティング
 
-ASP.NET Web API が Tim McCall の作成者によって貢献感謝の属性がルーティングをサポートして今すぐ[http://attributerouting.net](http://attributerouting.net)です。 属性のルーティングは、次のようにコント ローラー、アクションに注釈を付けるして、Web API ルートを指定できます。
+ASP.NET Web API が Tim McCall の作成者によって貢献感謝の属性がルーティングをサポートして今すぐ[ http://attributerouting.net](http://attributerouting.net)です。 属性のルーティングは、次のようにコント ローラー、アクションに注釈を付けるして、Web API ルートを指定できます。
 
 [!code-csharp[Main](release-notes/samples/sample1.cs)]
 
@@ -284,7 +284,7 @@ Web API 2 は非常に簡単に単体テスト、API コント ローラー。 �
 
 Brock Allen から別の優れた投稿、感謝 ASP.NET 完全がサポートされましたクロス オリジン要求の共有 (CORS)。
 
-ブラウザーのセキュリティは、web ページが別のドメインに AJAX 要求を行うことを防止します。 [CORS](http://www.w3.org/TR/cors/) W3C 標準により、同じオリジンのポリシーを緩和するサーバーです。 CORS を使用して、サーバー明示的に許可できますいくつかのクロス オリジン要求中に、他のユーザーを拒否します。
+ブラウザーのセキュリティは、Web ページが別のドメインに AJAX 要求を行うことを防止します。 [CORS](http://www.w3.org/TR/cors/) W3C 標準により、同じオリジンのポリシーを緩和するサーバーです。 CORS を使用することによって、不明なリクエストは拒否しながら、一部のクロス オリジン要求のみを明示的に許可できるようになります。
 
 Web API 2 は、プレフライト要求の自動処理を含む、CORS をサポートしています。 詳細については、次を参照してください。 [ASP.NET Web API でのクロス オリジン要求の有効化](../../../web-api/overview/security/enabling-cross-origin-requests-in-web-api.md)です。
 
@@ -332,7 +332,7 @@ SignalR 2.0 に完全に構築された[OWIN (.NET の Open Web Interface)](http
 
 ### <a name="maphubs-and-mapconnection-are-now-mapsignalr"></a>MapHubs と MapConnection、MapSignalR
 
-OWIN 標準と互換性のため、これらのメソッドが名前に変更されました`MapSignalR`です。 `MapSignalR`パラメーターは、すべてのハブをマップすることがなく呼び出されます (として`MapHubs`はバージョン 1.x) 以外の場合は個別にマップする**PersistentConnection**オブジェクト、型パラメーターと、URL の拡張機能としての接続として接続の種類を指定する、最初の引数。
+OWIN 標準と互換性のため、これらのメソッドが名前に変更されました`MapSignalR`です。 `MapSignalR` パラメーターは、すべてのハブをマップすることがなく呼び出されます (として`MapHubs`はバージョン 1.x) 以外の場合は個別にマップする**PersistentConnection**オブジェクト、型パラメーターと、URL の拡張機能としての接続として接続の種類を指定する、最初の引数。
 
 `MapSignalR` Owin スタートアップ クラスでメソッドが呼び出されます。 Visual Studio 2013 には、Owin スタートアップ クラスの新しいテンプレートが含まれていますこのテンプレートを使用するには、次の操作を行います。
 
@@ -392,7 +392,7 @@ SignalR 2.0 では、新しい CORS ミドルウェアを追加するには、�
 
 IOS および Android のクライアントから MonoTouch と MonoDroid のコンポーネントを使用してサポートが追加されて、 [Xamarin ライブラリ](https://xamarin.com/)です。 それらの使用方法の詳細については、次を参照してください。[を使用して Xamarin コンポーネント](https://github.com/SignalR/SignalR/wiki/Building-Mono.Mobile.sln)です。 これらのコンポーネントがで使用できる、 [Xamarin ストア](https://store.xamarin.com/)SignalR RTW リリースが使用可能な場合です。
 
-<a id="portable"></a>### ポータブル .NET クライアント
+<a id="portable"></a> ### ポータブル .NET クライアント
 
 効率的に Silverlight を WinRT、クロスプラット フォーム開発を容易にし、Windows Phone クライアントは、次のプラットフォームをサポートする 1 つのポータブル .NET クライアントに置き換えられています。
 
@@ -580,8 +580,8 @@ ASP.NET Razor 3 には、次の新機能が含まれています。
 - タブの編集をサポートします。 Preivously、**ドキュメントのフォーマット**コマンド、自動インデント、および自動の Visual Studio での書式設定が正しく動作しなかったを使用する場合、**タブの保持**オプション。 この変更は、Visual Studio の書式設定 タブの Razor コードの書式設定を修正します。
 - リンクを生成するときに URL 書き換えルールをサポートします。
 - セキュリティ透過的な属性の削除。
- > [!NOTE]
- > これは、重大な変更と Razor 3 互換性のない MVC4 以前のバージョンと Razor 2 は MVC5 MVC5 に対してコンパイルされたアセンブリとの互換性はありません。
+  > [!NOTE]
+  > これは、重大な変更と Razor 3 互換性のない MVC4 以前のバージョンと Razor 2 は MVC5 MVC5 に対してコンパイルされたアセンブリとの互換性はありません。
 
 プレリリース版から Visual Studio 2013 で修正された razor 3 問題はあります[ここ](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Resolved%7cClosed&type=All&priority=All&release=All%7cv5.0%2bPreview%7cv5.0%2bRC%7cv5.0%2bRTM&assignedTo=All&component=Web%2bPages%252fRazor&reasonClosed=Fixed&sortField=LastUpdatedDate&sortDirection=Descending&page=0)です。
 
@@ -603,7 +603,7 @@ ASP.NET アプリの中断は、ユーザー エクスペリエンスと多数�
 
 ### <a name="aspnet-web-api"></a>ASP.NET Web API
 
-1. `ODataQueryOptions<T>.ApplyTo(IQueryable)`返さない`IQueryable<T>`おのサポートが追加されると、常に`$select`と`$expand`です。
+1. `ODataQueryOptions<T>.ApplyTo(IQueryable)` 返さない`IQueryable<T>`おのサポートが追加されると、常に`$select`と`$expand`です。
 
     以前サンプル`ODataQueryOptions<T>`から戻り値を常にキャスト`ApplyTo`に`IQueryable<T>`です。 以前この以前するクエリのオプションのための方法でサポート (`$filter`、 `$orderby`、 `$skip`、 `$top`) クエリの形状を変更しないでください。 これで、サポートされています`$select`と`$expand`からの戻り値`ApplyTo`されません`IQueryable<T>`常にします。
 
@@ -632,7 +632,7 @@ ASP.NET アプリの中断は、ユーザー エクスペリエンスと多数�
 
     *'/' アプリケーションでのサーバー エラーです。*
 
-    *型 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier' または 'http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider' の要求は、指定した ClaimsIdentity に存在しませんでした。クレーム ベース認証を使用した偽造防止トークンのサポートを有効にするには、構成されている要求プロバイダーが提供している生成 ClaimsIdentity インスタンスでこれらの要求の両方をしてくださいを確認します。代わりに、構成されている要求プロバイダーは、一意の識別子として、異なる要求種類を使用する場合は、静的プロパティ AntiForgeryConfig.UniqueClaimTypeIdentifier を設定して構成できます。*
+    <em>種類のクレーム '<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier>'または'<http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider>'、指定した ClaimsIdentity に存在しませんでした。クレーム ベース認証を使用した偽造防止トークンのサポートを有効にするには、構成されている要求プロバイダーが提供している生成 ClaimsIdentity インスタンスでこれらの要求の両方をしてくださいを確認します。代わりに、構成されている要求プロバイダーは、一意の識別子として、異なる要求種類を使用する場合は、静的プロパティ AntiForgeryConfig.UniqueClaimTypeIdentifier を設定して構成できます。</em>
 
     **回避策**:
 
@@ -647,14 +647,14 @@ ASP.NET アプリの中断は、ユーザー エクスペリエンスと多数�
 
     上記のエラーを修正するには、開きます*すべて*プロジェクトとは、次の Web.config ファイル (Views フォルダーにあるものを含む)。
 
-    1. 「5.0.0.0」の"System.Web.Mvc"のバージョン「4.0.0.0」のすべての項目を更新します。
-    2. "System.Web.Helpers"のバージョン「2.0.0.0」のすべての項目を更新&quot;System.Web.WebPages&quot;と&quot;System.Web.WebPages.Razor&quot; 「3.0.0.0」を
+   1. 「5.0.0.0」の"System.Web.Mvc"のバージョン「4.0.0.0」のすべての項目を更新します。
+   2. "System.Web.Helpers"のバージョン「2.0.0.0」のすべての項目を更新&quot;System.Web.WebPages&quot;と&quot;System.Web.WebPages.Razor&quot; 「3.0.0.0」を
 
-    など、上記の変更を加えた後アセンブリ バインドは次のようになります。
+      など、上記の変更を加えた後アセンブリ バインドは次のようになります。
 
-    [!code-xml[Main](release-notes/samples/sample24.xml)]
+      [!code-xml[Main](release-notes/samples/sample24.xml)]
 
-    MVC 5 に MVC 4 プロジェクトをアップグレードする方法については、次を参照してください。 [ASP.NET MVC 5 と Web API 2 に、ASP.NET MVC 4 と Web API プロジェクトをアップグレードする方法](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)です。
+      MVC 5 に MVC 4 プロジェクトをアップグレードする方法については、次を参照してください。 [ASP.NET MVC 5 と Web API 2 に、ASP.NET MVC 4 と Web API プロジェクトをアップグレードする方法](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)です。
 3. 、JQuery 検証の控えめなクライアント側の検証を使用しているときに、検証メッセージが正しくない場合もあります型の HTML input 要素を = 'number' です。 検証エラーに対して必要な値 (「[Age] フィールドが必要」) を表示、適切なメッセージの有効な数値が必要であるではなく無効な数値が入力されている場合。
 
     この問題は一般的に生じるスキャフォールディング コードで作成および編集ビューで整数のプロパティを使用してモデルのです。
@@ -697,13 +697,13 @@ MVC プロジェクトを追加する、Web フォーム、新しいスキャフ
 - MVC のこのエラーを解決する新しいスキャフォールディングされた項目を追加し、MVC 5 の依存関係の選択 (最小または完全のいずれか)。 このプロセスでは、プロジェクトに追加のすべての必要な変更します。
 - Web api には、このエラーを解決します。
 
-    1. WebApiConfig クラスをプロジェクトに追加します。
+  1. WebApiConfig クラスをプロジェクトに追加します。
 
-        [!code-csharp[Main](release-notes/samples/sample25.cs)]
+      [!code-csharp[Main](release-notes/samples/sample25.cs)]
 
-        [!code-vb[Main](release-notes/samples/sample26.vb)]
-    2. アプリケーションで WebApiConfig.Register を構成\_Global.asax で次のようにメソッドを開始します。
+      [!code-vb[Main](release-notes/samples/sample26.vb)]
+  2. アプリケーションで WebApiConfig.Register を構成\_Global.asax で次のようにメソッドを開始します。
 
-        [!code-csharp[Main](release-notes/samples/sample27.cs)]
+      [!code-csharp[Main](release-notes/samples/sample27.cs)]
 
-        [!code-vb[Main](release-notes/samples/sample28.vb)]
+      [!code-vb[Main](release-notes/samples/sample28.vb)]

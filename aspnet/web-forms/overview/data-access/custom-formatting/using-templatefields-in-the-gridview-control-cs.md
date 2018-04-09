@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-cs
-title: "GridView コントロール (c#) で TemplateFields の使用 |Microsoft ドキュメント"
+title: GridView コントロール (c#) で TemplateFields の使用 |Microsoft ドキュメント
 author: rick-anderson
-description: "柔軟性を提供するには、GridView は、テンプレートを使用してレンダリングされると、TemplateField を提供します。 テンプレートは、静的な HTML、Web コントロールの組み合わせを含めることができますとしています."
+description: 柔軟性を提供するには、GridView は、テンプレートを使用してレンダリングされると、TemplateField を提供します。 テンプレートは、静的な HTML、Web コントロールの組み合わせを含めることができますとしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 004f1450937cc6543cb728e01586e3c3529a57d0
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6485cbda50912920808fc0caf41c888493f210dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-templatefields-in-the-gridview-control-c"></a>GridView コントロール (c#) で TemplateFields の使用
 ====================
@@ -94,7 +94,7 @@ CheckBoxField、ImageField、内、および ButtonField フィールドの種�
 
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample2.aspx)]
 
-TemplateField から成る 2 つのテンプレートが表示されるよう、`ItemTemplate`ラベルを持つが`Text`の値に設定されて、`FirstName`データ フィールド、および`EditItemTemplate`いるコントロール、テキスト ボックスと`Text`でもプロパティが設定`FirstName`データ フィールドです。 Databinding 構文 - `<%# Bind("fieldName") %>` -ことを示しますデータ フィールド *`fieldName`*  Web コントロールの指定したプロパティにバインドされています。
+TemplateField から成る 2 つのテンプレートが表示されるよう、`ItemTemplate`ラベルを持つが`Text`の値に設定されて、`FirstName`データ フィールド、および`EditItemTemplate`いるコントロール、テキスト ボックスと`Text`でもプロパティが設定`FirstName`データ フィールドです。 Databinding 構文 - `<%# Bind("fieldName") %>` -ことを示しますデータ フィールド*`fieldName`* Web コントロールの指定したプロパティにバインドされています。
 
 追加する、`LastName`データ フィールドの値をこの TemplateField に別のラベルの Web コントロールを追加する必要があります、`ItemTemplate`バインドとその`Text`プロパティを`LastName`です。 これには、手動でまたはデザイナーを使用します。 手作業で行うと、単純にする適切な宣言の構文を追加、 `ItemTemplate`:
 
@@ -239,7 +239,7 @@ TemplateFields の 3 番目の使用が GridView のに関するメタデータ�
 
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-cs/samples/sample6.aspx)]
 
-`Container.DataItem`返します、`DataRowView`オブジェクトに対応する、`DataSource`にレコードがバインドされている、`GridViewRow`です。 その`Row`プロパティは、厳密に型指定されたを返します`Northwind.EmployeesRow`に渡される、`DisplayDaysOnJob`メソッドです。 このデータ バインド構文で直接表示されることができます、`ItemTemplate`に示すように次の宣言の構文) を割り当てることができるか、 `Text` Label Web コントロールのプロパティです。
+`Container.DataItem` 返します、`DataRowView`オブジェクトに対応する、`DataSource`にレコードがバインドされている、`GridViewRow`です。 その`Row`プロパティは、厳密に型指定されたを返します`Northwind.EmployeesRow`に渡される、`DisplayDaysOnJob`メソッドです。 このデータ バインド構文で直接表示されることができます、`ItemTemplate`に示すように次の宣言の構文) を割り当てることができるか、 `Text` Label Web コントロールのプロパティです。
 
 > [!NOTE]
 > 渡すことの代わりに、代わりに、`EmployeesRow`インスタンス、おでしたに渡すだけ、`HireDate`値を使用して`<%# DisplayDaysOnJob(Eval("HireDate")) %>`です。 ただし、`Eval`メソッドを返します、`object`を変更する必要がありますが、当社`DisplayDaysOnJob`型の入力パラメーターを受け入れるようにメソッド シグネチャ`object`、代わりにします。 無条件キャストおことはできません、`Eval("HireDate")`への呼び出し、`DateTime`ため、`HireDate`内の列、`Employees`テーブルを含めることができます`NULL`値。 そのまま使用する必要がありますはそのため、`object`の入力パラメーターとして、`DisplayDaysOnJob`メソッドは、データベースがあったかどうかかを確認`NULL`値 (を使用して実行する`Convert.IsDBNull(objectToCheck)`)、し、それに応じて。
@@ -276,12 +276,12 @@ GridView コントロール TemplateField により、他のフィールド コ�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Dan Jagers しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](custom-formatting-based-upon-data-cs.md)
-[次へ](using-templatefields-in-the-detailsview-control-cs.md)
+> [!div class="step-by-step"]
+> [前へ](custom-formatting-based-upon-data-cs.md)
+> [次へ](using-templatefields-in-the-detailsview-control-cs.md)

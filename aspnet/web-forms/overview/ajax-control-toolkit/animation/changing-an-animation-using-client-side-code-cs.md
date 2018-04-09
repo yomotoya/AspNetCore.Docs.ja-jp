@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-cs
-title: "クライアント側のコード (c#) を使用してアニメーションを変更する |Microsoft ドキュメント"
+title: クライアント側のコード (c#) を使用してアニメーションを変更する |Microsoft ドキュメント
 author: wenz
-description: "アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 アニメーションこともできます。"
+description: アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 アニメーションこともできます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6dcaeac073f54b0804fe3acf7ec22491b1cbbba5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2f572efeb012d88ab15740bab7b0e4383572f3f7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="changing-an-animation-using-client-side-code-c"></a>クライアント側のコード (c#) を使用してアニメーションを変更します。
 ====================
@@ -78,6 +78,6 @@ ms.lasthandoff: 11/10/2017
 
 マウス クリックしてせず (およびほとんどのマークアップを含む) に、アニメーションがすぐに、実行されます ([フルサイズのイメージを表示するをクリックして](changing-an-animation-using-client-side-code-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](executing-animations-using-client-side-code-cs.md)
-[次へ](animating-an-updatepanel-control-cs.md)
+> [!div class="step-by-step"]
+> [前へ](executing-animations-using-client-side-code-cs.md)
+> [次へ](animating-an-updatepanel-control-cs.md)

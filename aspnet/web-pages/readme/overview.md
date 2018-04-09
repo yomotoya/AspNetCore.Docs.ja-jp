@@ -1,8 +1,8 @@
 ---
 uid: web-pages/readme/overview
-title: "WebMatrix Readme |Microsoft ドキュメント"
+title: WebMatrix Readme |Microsoft ドキュメント
 author: rick-anderson
-description: "WebMatrix と ASP.NET Web Pages (Razor) 1.0 リリースの Readme"
+description: WebMatrix と ASP.NET Web Pages (Razor) 1.0 リリースの Readme
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/06/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: b8402aa3db1b2566878c4d56212facbbb2925eec
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c65ee58b8c13b0b4acb6e7c9b631c8235e791506
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="webmatrix-readme"></a>WebMatrix Readme
 ====================
@@ -126,7 +126,7 @@ ms.lasthandoff: 01/24/2018
 - [変更](#Changes)
 - [問題](#Issues)
 
-#### <a id="NewFeatures"></a>新機能
+#### <a id="NewFeatures"></a>  新機能
 
 #### <a name="new-configuration-setting-added-to-disable-the-package-manager"></a>パッケージ マネージャーを無効にする構成設定が追加された新機能。
 
@@ -135,14 +135,14 @@ ms.lasthandoff: 01/24/2018
 > [!code-xml[Main](overview/samples/sample1.xml)]
 
 
-#### <a id="Changes"></a>変更
+#### <a id="Changes"></a>  変更
 
 #### <a name="change-webpagesadminfoldervirtualpath-key-renamed-to-aspadminfoldervirtualpath"></a>"Asp:adminfoldervirtualpath"に変更の変更:"webPages:AdminFolderVirtualPath"キー
 
 > `webPages:AdminFolderVirtualPath`キーに追加できる、 *web.config*を使用して、パッケージ マネージャーの場所を指定するファイルの名前は、`asp:`名前空間の代わりに、`webPages`名前空間。 この要素を使用している場合は、構成ファイルで変更する必要があります。
 
 
-#### <a id="Issues"></a>既知の問題
+#### <a id="Issues"></a>  既知の問題
 
 #### <a name="issue-passwords-for-membership-users-no-longer-recognized"></a>問題: メンバーシップ、ユーザーのパスワード認識されなくなった
 
@@ -226,7 +226,7 @@ ms.lasthandoff: 01/24/2018
 > .NET Framework version 4 をアンインストールし、再インストールして、Razor 構文を使用して ASP.NET Web Pages は無効になります。 ページ、 *.cshtml*拡張機能が正しく動作しないことです。 ASP.NET Web ページで、マシン ルート アセンブリが登録*web.config*ファイル、および .NET Framework の削除は、そのファイルを削除します。 .NET Framework を再インストール、構成ファイルの新しいバージョンがインストールされますが、ASP.NET Web Pages アセンブリの参照を追加できません。
 > 
 > **回避策**.NET Framework を再インストール後に Razor 構文を使用する ASP.NET Web Pages を再インストールします。 次の要素を追加、 *web.config*マシン ルートでは、次の場所には、通常のファイル。  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config (32-bit)`  
 > `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config (64-bit)`
 > 
@@ -236,9 +236,9 @@ ms.lasthandoff: 01/24/2018
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>問題点: 拡張子のない Url が見つからない IIS 7 や IIS 7.5 で.cshtml/.vbhtml ファイル
 
 > IIS 7 や IIS 7.5 では、次のように URL を使用して要求ができませんがページを検索する、 *.cshtml*または*.vbhtml*拡張機能。  
->   
+> 
 > `http://www.example.com/ExampleSite/ExampleFile`  
->   
+> 
 > URL 書き換えが有効でないため既定の IIS 7 や IIS 7.5、問題が発生します。 考えられるシナリオは IIS Express を使用してローカルでテストするときに問題は表示されないホスティング web サイトに web サイトを展開するときに発生します。
 > 
 > **回避策**
@@ -257,10 +257,11 @@ ms.lasthandoff: 01/24/2018
 > 
 > 1. アセンブリをコピーする、データベース エンジンに、 *Bin*ターゲット コンピューター上のアプリケーションのフォルダー (およびサブフォルダー)。  
 > 
->     - コピー *C:\Program files \microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->         **to** *\Bin*
->     - コピー *C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\x86\\* * * を * * * \Bin\x86*
->     - コピー *C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **に * * * \Bin\amd64*
+>    - コピー *C:\Program files \microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
+>        **to** *\Bin*
+>    - コピー <em>C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>に</em></strong>\Bin\x86*
+>    - コピー <em>C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>に</strong><em>\Bin\amd64</em>
+> 
 > 2. Web サイトのルート フォルダーに作成または開く、 *web.config*ファイル。 (WebMatrix 1.0 では、このファイルの種類がクリックした場合に使用可能な**すべて**で、**ファイルの種類を選択** ダイアログ ボックス)。
 > 3. 次の要素の子として追加、`<configuration>`要素 (内部ではなく、`<system.web>`要素)。
 > 
@@ -279,7 +280,7 @@ ms.lasthandoff: 01/24/2018
 
 #### <a name="issue-applicationpart-resources-are-externally-accessible"></a>問題:"ApplicationPart"のリソースが外部からアクセスできます。
 
-> アセンブリから派生したオブジェクトに含まれる場合、`ApplicationPart`クラス、アセンブリのリソースがによって公開されること、`ResourceRouteHandler`クラスです。 たとえば、次の URL を考慮してください。  
+> アセンブリから派生したオブジェクトに含まれる場合、`ApplicationPart`クラス、アセンブリのリソースがによって公開されること、`ResourceRouteHandler`クラスです。 たとえば、次のような URL があるとします。  
 >   
 > `~/r.ashx/System.Web.WebPages.Administration/Resources/AdminResources.resources`  
 >   
@@ -412,7 +413,7 @@ SQL Server Compact では、次の URL で使用できるは、独自の readme 
 
 WebMatrix の一部として SQL Server Compact のインストールが関係する問題については、次を参照してください。 [WebMatrix のインストールに関する問題](#Known_Issues_Installation)このドキュメントで既に説明します。
 
-### <a id="Known_Issues_Installing_Applications"></a>アプリケーションをインストールします。
+### <a id="Known_Issues_Installing_Applications"></a>  アプリケーションをインストールします。
 
 #### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>問題: アプリケーションをインストールすることができます、長い時間がかかる場合は、ユーザーのマイ ドキュメント フォルダーは、ネットワーク共有にリダイレクト
 
@@ -420,7 +421,7 @@ WebMatrix の一部として SQL Server Compact のインストールが関係�
 > なし。 アプリケーションをインストールするには時間かかる場合がありますが、正常にインストールされます。
 
 
-### <a id="Known_Issues_Publishing_Applications"></a>アプリケーションの発行
+### <a id="Known_Issues_Publishing_Applications"></a>  アプリケーションの発行
 
 #### <a name="issue-required-permissions-cannot-be-acquired-error-when-publishing-a-sql-compact-database"></a>SQL Compact データベースを発行するときの問題:「必要なアクセス許可を取得できません」エラー
 

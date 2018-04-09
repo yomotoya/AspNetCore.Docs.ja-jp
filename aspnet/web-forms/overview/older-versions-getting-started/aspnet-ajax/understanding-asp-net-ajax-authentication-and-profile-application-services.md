@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
-title: "ASP.NET AJAX 認証およびプロファイル アプリケーション サービスを理解する |Microsoft ドキュメント"
+title: ASP.NET AJAX 認証およびプロファイル アプリケーション サービスを理解する |Microsoft ドキュメント
 author: scottcate
-description: "認証サービスは、認証 cookie を受信するために資格情報を提供することができ、ゲートウェイ サービスのカスタム ユーザーを許可するのには、."
+description: 認証サービスは、認証 cookie を受信するために資格情報を提供することができ、ゲートウェイ サービスのカスタム ユーザーを許可するのには、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 182276f9f91b99beb1ce0fc40dcda1f19376669a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0bf6538d0c4ae9488e6ac29ccba6d4b243cf070e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>ASP.NET AJAX 認証およびプロファイル アプリケーション サービスを理解します。
 ====================
@@ -43,7 +43,7 @@ Microsoft ASP.NET プロファイルや認証サービス、ASP.NET フォーム
 
 プロファイル サービスは、自動統合および認証サービスによって提供されるように、メンバーシップに基づくユーザー データの記憶域を使用します。 格納されたデータは、web.config ファイルで指定して、さまざまなプロファイリング サービス プロバイダーがデータの管理を処理します。 認証サービスと同様、AJAX プロファイル サービスは、ページが現在 ASP.NET プロファイル サービスの機能を組み込む必要がありますいないによって損なわれている AJAX のサポートを含むように、標準の ASP.NET プロファイル サービスとの互換性。
 
-このホワイト ペーパーのスコープ外では、ASP.NET 認証とプロファイル サービス自体をアプリケーションに組み込むことです。 トピックの詳細については、MSDN ライブラリを参照してください参照資料にメンバーシップを使用したユーザーを管理する[https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx)です。 ASP.NET には、ASP.NET メンバーシップの既定の認証サービス プロバイダーである SQL Server でのメンバーシップを自動的に設定するためのユーティリティも含まれています。 詳細については、ASP.NET SQL Server の登録ツールの記事を参照してください (Aspnet\_regsql.exe) で[https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
+このホワイト ペーパーのスコープ外では、ASP.NET 認証とプロファイル サービス自体をアプリケーションに組み込むことです。 トピックの詳細については、MSDN ライブラリを参照してください参照資料にメンバーシップを使用したユーザーを管理する[ https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx)です。 ASP.NET には、ASP.NET メンバーシップの既定の認証サービス プロバイダーである SQL Server でのメンバーシップを自動的に設定するためのユーティリティも含まれています。 詳細については、ASP.NET SQL Server の登録ツールの記事を参照してください (Aspnet\_regsql.exe) で[ https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)です。
 
 ## <a name="using-the-aspnet-ajax-authentication-service"></a>*ASP.NET AJAX 認証サービスを使用します。*
 
@@ -131,7 +131,7 @@ Logout() メソッドは、資格情報 cookie を削除し、web アプリケ�
 
 | **パラメーター名** | **意味** |
 | --- | --- |
-| validCredentials | ユーザーが有効な資格情報を指定するかどうかを指定します。 `true`ユーザーが正常にログインした場合それ以外の場合`false`です。 |
+| validCredentials | ユーザーが有効な資格情報を指定するかどうかを指定します。 `true` ユーザーが正常にログインした場合それ以外の場合`false`です。 |
 | userContext | ログイン関数が呼び出されたときを指定されたユーザー コンテキスト情報を指定します。 |
 | methodName | 呼び出し元のメソッドの名前。 |
 
@@ -345,6 +345,6 @@ ASP.NET サービス - 具体的には、プロファイリング、メンバー
 
 Scott カテゴリは、1997 年以降の Microsoft の Web テクノロジの使用されているがあり、myKB.com の代表者 ([www.myKB.com](http://www.myKB.com))、専門分野は、ASP.NET の書き込みの際にベースのアプリケーションのナレッジ ベースのソフトウェア ソリューションに重点を置きます。 Scott が接続時に電子メール[ scott.cate@myKB.com ](mailto:scott.cate@myKB.com)または彼のブログで[ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[前へ](understanding-asp-net-ajax-updatepanel-triggers.md)
-[次へ](understanding-asp-net-ajax-localization.md)
+> [!div class="step-by-step"]
+> [前へ](understanding-asp-net-ajax-updatepanel-triggers.md)
+> [次へ](understanding-asp-net-ajax-localization.md)

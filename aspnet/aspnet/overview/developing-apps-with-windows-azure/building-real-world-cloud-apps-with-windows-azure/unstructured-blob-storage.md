@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
-title: "非構造化 Blob ストレージ (Azure と実際のクラウド アプリのビルド) |Microsoft ドキュメント"
+title: 非構造化 Blob ストレージ (Azure と実際のクラウド アプリのビルド) |Microsoft ドキュメント
 author: MikeWasson
-description: "Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています."
+description: Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/30/2015
 ms.topic: article
 ms.assetid: 9f05ccb1-2004-4661-ad8b-c370e6c09c8e
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
 msc.type: authoredcontent
-ms.openlocfilehash: 489769533a26c99404c6a5186d66f560385dcffd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c2c82a579feb586287c40bb82eba53c5f84afaba
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>非構造化 Blob ストレージ (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -148,6 +148,6 @@ Azure は、地政学的な境界を越えてデータをレプリケートし�
 - [フェール セーフ: スケーラブル、かつ回復力のクラウド サービスの構築](https://channel9.msdn.com/Series/FailSafe)です。 Ulrich Homann、Marc Mercuri、Mark Simms、ビデオ シリーズを 9 つの部分で構成します。 実際のお客様と Microsoft Customer ・ Advisory Team (CAT) エクスペリエンスから抽出されたストーリーで非常にアクセス可能な興味深い方法で高度な概念とアーキテクチャの原則を説明します。 Azure ストレージ サービスと blob の詳細については、35:13 始まるエピソード 5 を参照してください。
 - [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)です。 バレット キー パターンを参照してください。
 
->[!div class="step-by-step"]
-[前へ](data-partitioning-strategies.md)
-[次へ](design-to-survive-failures.md)
+> [!div class="step-by-step"]
+> [前へ](data-partitioning-strategies.md)
+> [次へ](design-to-survive-failures.md)

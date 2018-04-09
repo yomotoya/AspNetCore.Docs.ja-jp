@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-cs
-title: "マスター/詳細の 2 つのページ (c#) にわたってフィルター |Microsoft ドキュメント"
+title: マスター/詳細の 2 つのページ (c#) にわたってフィルター |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは 2 つのページ間でマスター/詳細レポートを分離する方法について説明します。 'Master' のページで、Repeater コントロールを使用して categ の一覧を表示するためにしています."
+description: このチュートリアルでは 2 つのページ間でマスター/詳細レポートを分離する方法について説明します。 'Master' のページで、Repeater コントロールを使用して categ の一覧を表示するためにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bb86db509ca26dde0c24341dee402e7af4355507
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6a3783175218438f2a9f735c3861c56e039a248e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-across-two-pages-c"></a>マスター/詳細の 2 つのページ (c#) にわたってフィルター処理
 ====================
@@ -59,7 +59,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="step-2-turning-the-category-name-into-a-link-to-the-details-page"></a>手順 2: に、カテゴリ名の詳細 ページへのリンク
 
-1 つのカテゴリの「詳細」の情報を表示するユーザーを許可する必要がありますクリックされると、2 ページ目にユーザーを受け取るときに、各箇条書きリスト項目のリンクを追加する (`ProductsForCategoryDetails.aspx`)。 そうすると、この 2 番目のページでは、選択したを DataList を使用してカテゴリの製品が表示されます。 リンクがクリックしてされたカテゴリを決定するために渡す必要がクリックしたカテゴリの`CategoryID`メカニズムによって 2 ページ目にします。 ページ間でスカラー データを転送する最も簡単な最も簡単な方法は、このチュートリアルで使用するオプションは、クエリ文字列を通じてです。 具体的には、`ProductsForCategoryDetails.aspx`ページは、選択を求める *`categoryID`* という名前のクエリ文字列フィールドを介して渡される値を`CategoryID`です。 例については、飲料カテゴリの製品を表示するのには、`CategoryID`は 1 で、ユーザーがアクセスしてください`ProductsForCategoryDetails.aspx?CategoryID=1`です。
+1 つのカテゴリの「詳細」の情報を表示するユーザーを許可する必要がありますクリックされると、2 ページ目にユーザーを受け取るときに、各箇条書きリスト項目のリンクを追加する (`ProductsForCategoryDetails.aspx`)。 そうすると、この 2 番目のページでは、選択したを DataList を使用してカテゴリの製品が表示されます。 リンクがクリックしてされたカテゴリを決定するために渡す必要がクリックしたカテゴリの`CategoryID`メカニズムによって 2 ページ目にします。 ページ間でスカラー データを転送する最も簡単な最も簡単な方法は、このチュートリアルで使用するオプションは、クエリ文字列を通じてです。 具体的には、`ProductsForCategoryDetails.aspx`ページは、選択を求める*`categoryID`*という名前のクエリ文字列フィールドを介して渡される値を`CategoryID`です。 例については、飲料カテゴリの製品を表示するのには、`CategoryID`は 1 で、ユーザーがアクセスしてください`ProductsForCategoryDetails.aspx?CategoryID=1`です。
 
 ハイパーリンク Web コントロール、または HTML アンカー要素が追加する必要がありますリピータで箇条書きリストの各項目のハイパーリンクを作成する (`<a>`) に、`ItemTemplate`です。 シナリオでのハイパーリンクが表示行ごとに同じ、いずれかの方法で十分です。 リピータの (_n)、アンカー要素を使用します。 アンカー要素を使用するにリピータの ItemTemplate を更新します。
 
@@ -166,22 +166,22 @@ ms.lasthandoff: 11/10/2017
 **図 9**: 選択したカテゴリに No 製品属しているものがある場合、メッセージが表示されます ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-acess-two-pages-datalist-cs/_static/image27.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 マスター/詳細レポートを 1 ページにマスター/詳細の両方のレコードが表示されることができます、多くの web サイトで区切られます複数の 2 つの web ページ。 このチュートリアルでは、「マスター」の web ページで、Repeater を使用して、箇条書きリストに示されているカテゴリと [詳細] ページに示される関連付けられている製品で、このようなマスター/詳細レポートを実装する方法について説明しました。 マスターの web ページ内の各リスト項目に渡されます行の詳細ページへのリンクが含まれている`CategoryID`値。
 
-[詳細] ページで、指定された業者のこれらの製品を取得することによって実現されました、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドです。  *`categoryID`* を使用して宣言パラメーターの値が指定された、`CategoryID`パラメーターのソースとしてのクエリ文字列値です。 詳細 ページを使用して、FormView でカテゴリの詳細を表示する方法と、選択したカテゴリに属する製品が存在しなかった場合にメッセージを表示する方法についても説明しました。
+[詳細] ページで、指定された業者のこれらの製品を取得することによって実現されました、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドです。 *`categoryID`*を使用して宣言パラメーターの値が指定された、`CategoryID`パラメーターのソースとしてのクエリ文字列値です。 詳細 ページを使用して、FormView でカテゴリの詳細を表示する方法と、選択したカテゴリに属する製品が存在しなかった場合にメッセージを表示する方法についても説明しました。
 
 満足プログラミング!
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>特別に感謝しています.
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Zack Jones および Liz Shulok がいました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](master-detail-filtering-with-a-dropdownlist-datalist-cs.md)
-[次へ](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
+> [!div class="step-by-step"]
+> [前へ](master-detail-filtering-with-a-dropdownlist-datalist-cs.md)
+> [次へ](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)

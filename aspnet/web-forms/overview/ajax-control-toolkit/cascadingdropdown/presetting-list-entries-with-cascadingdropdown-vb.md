@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-vb
-title: "一覧のエントリ CascadingDropDown (VB) を事前に設定する |Microsoft ドキュメント"
+title: 一覧のエントリ CascadingDropDown (VB) を事前に設定する |Microsoft ドキュメント
 author: wenz
-description: "CascadingDropDown コントロール、AJAX コントロール Toolkit でコントロールを拡張する DropDownList anoth 内の値が 1 つの DropDownList 負荷の変更に関連付けられているようにしています."
+description: CascadingDropDown コントロール、AJAX コントロール Toolkit でコントロールを拡張する DropDownList anoth 内の値が 1 つの DropDownList 負荷の変更に関連付けられているようにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c28c7893c39d9ba9f828c34da7ffdce525ee248e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f74e6ac80b756240870d9406a03db11c610093aa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="presetting-list-entries-with-cascadingdropdown-vb"></a>一覧のエントリ CascadingDropDown (VB) を事前に設定します。
 ====================
@@ -60,6 +60,6 @@ CascadingDropDown extender し、非同期的に呼び出します次のメソ�
 
 リストが入力され、自動的に事前に選択された ([フルサイズのイメージを表示するをクリックして](presetting-list-entries-with-cascadingdropdown-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](using-cascadingdropdown-with-a-database-vb.md)
-[次へ](using-auto-postback-with-cascadingdropdown-vb.md)
+> [!div class="step-by-step"]
+> [前へ](using-cascadingdropdown-with-a-database-vb.md)
+> [次へ](using-auto-postback-with-cascadingdropdown-vb.md)

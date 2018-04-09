@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-vb
-title: "その他のデータ テーブルの列 (VB) を追加する |Microsoft ドキュメント"
+title: その他のデータ テーブルの列 (VB) を追加する |Microsoft ドキュメント
 author: rick-anderson
-description: "TableAdapter ウィザードを使用して、型指定されたデータセットを作成する、対応するデータ テーブルには、主なデータベース クエリによって返される列が含まれています。 しかし、."
+description: TableAdapter ウィザードを使用して、型指定されたデータセットを作成する、対応するデータ テーブルには、主なデータベース クエリによって返される列が含まれています。 しかし、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d357ca7bfe364090ff2c8504b2116e0d99d004bc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b51089057ad1e14901cb09589534d6e575261c3e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-additional-datatable-columns-vb"></a>その他のデータ テーブルの列 (VB) を追加します。
 ====================
@@ -41,9 +41,9 @@ TableAdapter のメインのクエリを反映 DataTable のスキーマを持�
 
 *を作成する新しいストアド プロシージャを型指定されたデータセットの Tableadapter*という名前の型指定されたデータセットを作成したチュートリアル`NorthwindWithSprocs`です。 このデータセットには現在 2 つのデータ テーブルが含まれています:`ProductsDataTable`と`EmployeesDataTable`です。 `ProductsTableAdapter`次の 3 つの方法があります。
 
-- `GetProducts`メインのクエリは、すべてのレコードを返します、`Products`テーブル
-- `GetProductsByCategoryID(categoryID)`-指定したすべての製品を返します*categoryID*です。
-- `GetProductByProductID(productID)`-指定した特定の製品を返します*productID*です。
+- `GetProducts` メインのクエリは、すべてのレコードを返します、`Products`テーブル
+- `GetProductsByCategoryID(categoryID)` -指定したすべての製品を返します*categoryID*です。
+- `GetProductByProductID(productID)` -指定した特定の製品を返します*productID*です。
 
 メインのクエリと 2 つの追加のメソッドは、つまりすべての列のデータ フィールドの同じセットを返す、`Products`テーブル。 相関サブクエリがないか`JOIN`s 関連データを抽出、`Categories`または`Suppliers`テーブル。 したがって、`ProductsDataTable`の各フィールドの対応する列を持つ、`Products`テーブル。
 
@@ -209,12 +209,12 @@ DataTable に列を手動で追加する場合は、TableAdapter がストアド
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、ものです。 Schmidt、武島 Goor、「社長補佐 Leigh および Hilton Giesenow でした。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](updating-the-tableadapter-to-use-joins-vb.md)
-[次へ](working-with-computed-columns-vb.md)
+> [!div class="step-by-step"]
+> [前へ](updating-the-tableadapter-to-use-joins-vb.md)
+> [次へ](working-with-computed-columns-vb.md)

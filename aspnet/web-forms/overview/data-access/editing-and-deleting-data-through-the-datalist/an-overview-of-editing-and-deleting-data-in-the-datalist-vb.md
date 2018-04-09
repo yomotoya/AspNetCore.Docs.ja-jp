@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb
-title: "編集および削除 DataList (VB) 内のデータの概要 |Microsoft ドキュメント"
+title: 編集および削除 DataList (VB) 内のデータの概要 |Microsoft ドキュメント
 author: rick-anderson
-description: "DataList では、組み込みの編集と削除機能がない、ときにこのチュートリアルでは会いしましょうを編集および削除の o をサポートする DataList を作成する方法."
+description: DataList では、組み込みの編集と削除機能がない、ときにこのチュートリアルでは会いしましょうを編集および削除の o をサポートする DataList を作成する方法.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e08b55f763677a40a03503e54a23dc77a10a34f5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6956777e91184a92e189db7aa716a4bd7dbbfccd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-vb"></a>編集および削除 DataList (VB) 内のデータの概要
 ====================
@@ -249,7 +249,7 @@ DataList s 以降`EditCommand`[編集] ボタンがクリックされたとき�
 
 すべての読み取り専用モードで項目をレンダリング DataList は、する必要があります。
 
-1. DataList s 設定[`EditItemIndex`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx)の存在しないインデックスを`DataListItem`インデックス。 `-1`安全な選択肢のためは、`DataListItem`インデックスから始まります`0`です。
+1. DataList s 設定[`EditItemIndex`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx)の存在しないインデックスを`DataListItem`インデックス。 `-1` 安全な選択肢のためは、`DataListItem`インデックスから始まります`0`です。
 2. DataList にデータをバインドします。 No 以降`DataListItem` `ItemIndex` DataList s に対応している es `EditItemIndex`、DataList 全体が読み取り専用モードでレンダリングされます。
 
 次のイベント ハンドラーのコードでは、次の手順を実行できます。
@@ -263,7 +263,7 @@ DataList s 以降`EditCommand`[編集] ボタンがクリックされたとき�
 
 1. 製品のユーザーが入力した名前と価格だけでなく、編集した製品 s をプログラムでアクセス`ProductID`です。
 2. 呼び出して、適切な更新プロセスを開始`UpdateProduct`でオーバー ロード、`ProductsBLL`クラスです。
-3. DataList s 設定[`EditItemIndex`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx)の存在しないインデックスを`DataListItem`インデックス。 `-1`安全な選択肢のためは、`DataListItem`インデックスから始まります`0`です。
+3. DataList s 設定[`EditItemIndex`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx)の存在しないインデックスを`DataListItem`インデックス。 `-1` 安全な選択肢のためは、`DataListItem`インデックスから始まります`0`です。
 4. DataList にデータをバインドします。 No 以降`DataListItem` `ItemIndex` DataList s に対応している es `EditItemIndex`、DataList 全体が読み取り専用モードでレンダリングされます。
 
 手順 1. と 2. はユーザーの変更を保存するため、します。手順 3. および 4. 状態に戻す DataList 事前編集、変更が保存されてされ後で実行した手順と同じ、`CancelCommand`イベント ハンドラー。
@@ -339,12 +339,12 @@ DataList では、ポイントがないし、編集および GridView で楽し�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者には、Zack Jones、Ken Pespisa ものです。 Schmidt がされていました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](customizing-the-datalist-s-editing-interface-cs.md)
-[次へ](performing-batch-updates-vb.md)
+> [!div class="step-by-step"]
+> [前へ](customizing-the-datalist-s-editing-interface-cs.md)
+> [次へ](performing-batch-updates-vb.md)

@@ -1,7 +1,7 @@
 ---
-title: "Visual Studio ASP.NET Core アプリケーションの展開用のプロファイルを発行します。"
+title: Visual Studio ASP.NET Core アプリケーションの展開用のプロファイルを発行します。
 author: rick-anderson
-description: "作成する方法を説明します。 Visual Studio での ASP.NET Core アプリケーションのプロファイルを発行します。"
+description: 作成する方法を説明します。 Visual Studio での ASP.NET Core アプリケーションのプロファイルを発行します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: d2c4ec317f235c6d042bd130dbf79f6cb5e2d47d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 64c96f572c42c56480cfe2bd58f926d54eddf35e
+ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Visual Studio ASP.NET Core アプリケーションの展開用のプロファイルを発行します。
 
@@ -91,7 +91,7 @@ MSBuild または Visual Studio がプロジェクトを読み込むと、次の
 * 発行するファイルを計算する
 * ターゲットにファイルを発行する
 
-### <a name="compute-project-items"></a>プロジェクト項目を比較する
+## <a name="compute-project-items"></a>プロジェクト項目を比較する
 
 プロジェクトが読み込まれると、プロジェクト項目 (ファイル) が計算されます。 `item type` 属性によって、ファイルの処理方法が決まります。 既定で、*.cs* ファイルは `Compile` 項目一覧に含まれています。 `Compile` 項目一覧のファイルがコンパイルされます。
 
@@ -109,7 +109,7 @@ ASP.NET Core プロジェクトの参照と`Microsoft.NET.Sdk.Web`プロジェ�
 
 ## <a name="basic-command-line-publishing"></a>基本的なコマンド ライン発行
 
-コマンド ライン パブリッシングでは、すべての .NET Core のサポートされているプラットフォームで動作し、Visual Studio は必要ありません。 以下のサンプルで、 [dotnet 発行](/dotnet/core/tools/dotnet-publish)プロジェクト ディレクトリからコマンドを実行 (が含まれています、 *.csproj*ファイル)。 指定しない場合、プロジェクト フォルダー内に明示的に渡すプロジェクト ファイルのパスにします。 例:
+コマンド ライン パブリッシングでは、すべての .NET Core のサポートされているプラットフォームで動作し、Visual Studio は必要ありません。 以下のサンプルで、 [dotnet 発行](/dotnet/core/tools/dotnet-publish)プロジェクト ディレクトリからコマンドを実行 (が含まれています、 *.csproj*ファイル)。 指定しない場合、プロジェクト フォルダー内に明示的に渡すプロジェクト ファイルのパスにします。 例えば:
 
 ```console
 dotnet publish c:/webs/web1
@@ -197,11 +197,12 @@ MSBuild プロパティは、次の形式のいずれかを使用して渡すこ
 詳細については、「[状況に適した発行オプション](https://docs.microsoft.com/visualstudio/ide/not-in-toc/web-publish-options)」を参照してください。
 
 Visual Studio が、発行プロファイルを作成するときに、*プロパティ/PublishProfiles/\<発行名 > .pubxml* MSBuild ファイルを作成します。 この *.pubxml* ファイルは MSBuild ファイルであり、発行構成設定が含まれています。 このファイルは、ビルドのカスタマイズし、発行プロセスに変更することができます。 このファイルは、発行プロファイルで読み取られます。 `<LastUsedBuildConfiguration>` 特殊なため、グローバル プロパティであり、ビルドでインポートするすべてのファイルではないはずです。 詳細については、「[MSBuild: how to set the configuration property](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx)」(MSBuild: 構成プロパティの設定方法) を参照してください。
+
 *.Pubxml*に依存しているために、ソース管理にファイルをチェックインしないでください、 *.user*ファイル。 また、*.user* ファイルは、機密情報が含まれている可能性があり、1 ユーザーおよびコンピューターに対してのみ有効なので、ソース コード管理にチェックインしないでください。
 
 機密情報 (発行のパスワードなど) はユーザー/コンピューターごとのレベルで暗号化され、*Properties/PublishProfiles/\<発行名>.pubxml.user* ファイルに保存されます。 このファイルには機密情報が含まれている可能性があるため、ソース コード管理に**チェックインしないでください**。
 
-ASP.NET Core 上の web アプリを公開する方法の概要については、次を参照してください。[ホストを展開および](index.md)です。 [ホストし、展開](index.md)https://github.com/aspnet/websdk でオープン ソース プロジェクトです。
+ASP.NET Core 上の web アプリを公開する方法の概要については、次を参照してください。[ホストを展開および](index.md)です。 [ホストし、展開](index.md)でオープン ソース プロジェクトhttps://github.com/aspnet/websdkです。
 
 `dotnet publish` MSDeploy のフォルダーを使用し、 [KUDU](https://github.com/projectkudu/kudu/wiki)プロファイルの発行します。
  
@@ -272,7 +273,7 @@ MSBuild file.
 </Project>
 ```
 
-`<LastUsedBuildConfiguration>` は `Release` に設定されます。 Visual Studio から発行すると、発行プロセスが開始されたときの値を使用して、`<LastUsedBuildConfiguration>` 構成プロパティ値が設定されます。 `<LastUsedBuildConfiguration>`構成プロパティは特別であり、インポートされた MSBuild ファイル内でオーバーライドすることはできません。 コマンドラインからこのプロパティをオーバーライドすることができます。 例:
+`<LastUsedBuildConfiguration>` は `Release` に設定されます。 Visual Studio から発行すると、発行プロセスが開始されたときの値を使用して、`<LastUsedBuildConfiguration>` 構成プロパティ値が設定されます。 `<LastUsedBuildConfiguration>`構成プロパティは特別であり、インポートされた MSBuild ファイル内でオーバーライドすることはできません。 コマンドラインからこのプロパティをオーバーライドすることができます。 例えば:
 
 `dotnet build -c Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile`
 
@@ -444,7 +445,7 @@ MSBuild file.
 
 他の配置例については、[Web SDK の Readme](https://github.com/aspnet/websdk) を参照してください。
 
-### <a name="run-a-target-before-or-after-publishing"></a>発行の前または後にターゲットを実行する
+## <a name="run-a-target-before-or-after-publishing"></a>発行の前または後にターゲットを実行する
 
 組み込み`BeforePublish`と`AfterPublish`発行先の前後にターゲットを実行するターゲットを使用できます。 次のマークアップを発行プロファイルに追加して、発行の前と後にメッセージのログをコンソールの出力に記録することができます。
 
@@ -457,9 +458,19 @@ MSBuild file.
 </Target>
 ```
 
+## <a name="publish-to-a-server-using-an-untrusted-certificate"></a>信頼されていない証明書を使用してサーバーに発行します。
+
+追加、`<AllowUntrustedCertificate>`の値を持つプロパティ`True`発行プロファイルに。
+
+```xml
+<PropertyGroup>
+  <AllowUntrustedCertificate>True</AllowUntrustedCertificate>
+</PropertyGroup>
+```
+
 ## <a name="the-kudu-service"></a>Kudu サービス
 
-内のファイルを表示する、アプリのサービスを Azure web アプリの展開、使用、 [Kudu サービス](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service)です。 追加、`scm`トークンを web アプリの名前。 例:
+内のファイルを表示する、アプリのサービスを Azure web アプリの展開、使用、 [Kudu サービス](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service)です。 追加、`scm`トークンを web アプリの名前。 例えば:
 
 | URL                                    | 結果      |
 | -------------------------------------- | ----------- |
@@ -471,4 +482,4 @@ MSBuild file.
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [Web Deploy](https://www.iis.net/downloads/microsoft/web-deploy) (MSDeploy) が IIS サーバーへの web サイトと web アプリの展開を簡略化します。
-* [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues): 配置のファイルの問題と要求機能。
+* [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues): ファイルに問題、機能の展開を要求してください。

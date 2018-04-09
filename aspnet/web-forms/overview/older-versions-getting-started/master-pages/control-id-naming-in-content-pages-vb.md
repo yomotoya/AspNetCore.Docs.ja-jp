@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
-title: "ID がコンテンツ ページ (VB) で名前付けを制御 |Microsoft ドキュメント"
+title: ID がコンテンツ ページ (VB) で名前付けを制御 |Microsoft ドキュメント
 author: rick-anderson
-description: "ContentPlaceHolder のコントロールの名前付けコンテナーとして機能し、(FindConrol) を使用して困難なコントロールのプログラムで操作を行うためを示しています。"
+description: ContentPlaceHolder のコントロールの名前付けコンテナーとして機能し、(FindConrol) を使用して困難なコントロールのプログラムで操作を行うためを示しています。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9523fe5b241b6ff45927f142eb844a716822336b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 288afbb6851e23de4725f9e6351ae12ccecefaa5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="control-id-naming-in-content-pages-vb"></a>コンテンツ ページ (VB) で名前のコントロール ID
 ====================
@@ -121,7 +121,7 @@ Visual Studio は、マスター ページの次の 4 つ contentplaceholders �
 
 すべての ASP.NET サーバー コントロールが含まれています、`FindControl("controlID")`という名前のコントロールのコントロールの子孫を検索するメソッド*controlID*です。 このようなコントロールが見つかった場合、それが返されます。一致するコントロールが見つからない場合`FindControl`返します`Nothing`です。
 
-`FindControl`ここでコントロールにアクセスする必要がありますが、それへの直接参照を持っていない場合に便利です。 宣言の構文では、GridView のフィールド内のコントロールが 1 回定義されているデータなどの GridView などの Web コントロールを使用する場合が GridView の行ごとに実行時に、コントロールのインスタンスが作成されました。 その結果、実行時に生成されたコントロールが存在するが、分離コード クラスから使用可能な直接参照はありません。 その結果を使用する必要があります`FindControl`GridView のフィールド内の特定のコントロールをプログラムで操作します。 (使用の詳細について`FindControl`データ Web コントロールのテンプレート内のコントロールにアクセスするを参照してください[カスタム書式指定ベース時にデータ](../../data-access/custom-formatting/custom-formatting-based-upon-data-vb.md)。)。Web フォームに Web コントロールを動的に追加するときに、この同じシナリオが発生すると、トピックに記載[動的のデータ入力のユーザー インターフェイスを作成する](https://msdn.microsoft.com/library/aa479330.aspx)です。
+`FindControl` ここでコントロールにアクセスする必要がありますが、それへの直接参照を持っていない場合に便利です。 宣言の構文では、GridView のフィールド内のコントロールが 1 回定義されているデータなどの GridView などの Web コントロールを使用する場合が GridView の行ごとに実行時に、コントロールのインスタンスが作成されました。 その結果、実行時に生成されたコントロールが存在するが、分離コード クラスから使用可能な直接参照はありません。 その結果を使用する必要があります`FindControl`GridView のフィールド内の特定のコントロールをプログラムで操作します。 (使用の詳細について`FindControl`データ Web コントロールのテンプレート内のコントロールにアクセスするを参照してください[カスタム書式指定ベース時にデータ](../../data-access/custom-formatting/custom-formatting-based-upon-data-vb.md)。)。Web フォームに Web コントロールを動的に追加するときに、この同じシナリオが発生すると、トピックに記載[動的のデータ入力のユーザー インターフェイスを作成する](https://msdn.microsoft.com/library/aa479330.aspx)です。
 
 使用して説明するために、`FindControl`コンテンツ ページでは、内のコントロールを検索する方法は、イベント ハンドラーを作成、`SubmitButton`の`Click`イベント。 イベント ハンドラーに次のコードは、プログラムで参照を追加、 `Age`  テキスト ボックスと`Results`を使用してラベル付け、`FindControl`メソッド内のメッセージを表示および`Results`ユーザーの入力に基づきます。
 
@@ -256,7 +256,7 @@ ASP.NET のページを再呼び出しの名前付けコンテナー、レンダ
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [ASP.NET マスター ページと`FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
+- [ASP.NET マスター ページと `FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
 - [動的なデータ エントリのユーザー インターフェイスの作成](https://msdn.microsoft.com/library/aa479330.aspx)
 - [拡張メソッドで基本型の機能を拡張します。](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
 - [方法: ASP.NET マスター ページのコンテンツの参照](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
@@ -265,12 +265,12 @@ ASP.NET のページを再呼び出しの名前付けコンテナー、レンダ
 
 ### <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、作成者複数受け取ります書籍や 4GuysFromRolla.com の創設者を操作した Microsoft Web テクノロジ 1998 年です。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 3.5 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、作成者複数受け取ります書籍や 4GuysFromRolla.com の創設者を操作した Microsoft Web テクノロジ 1998 年です。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 3.5 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Zack Jones および Suchi Barnerjee がいました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[ mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)です。
 
->[!div class="step-by-step"]
-[前へ](urls-in-master-pages-vb.md)
-[次へ](interacting-with-the-master-page-from-the-content-page-vb.md)
+> [!div class="step-by-step"]
+> [前へ](urls-in-master-pages-vb.md)
+> [次へ](interacting-with-the-master-page-from-the-content-page-vb.md)

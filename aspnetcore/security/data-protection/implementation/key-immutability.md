@@ -1,7 +1,7 @@
 ---
-title: "キーの不変性と設定を変更します。"
+title: キーの ASP.NET Core の不変性とキーの設定
 author: rick-anderson
-description: "このドキュメントでは、ASP.NET Core データ保護キー不変 Api の実装の詳細について説明します。"
+description: ASP.NET Core データ保護キー不変 Api の実装の詳細を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,23 +9,23 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-immutability
-ms.openlocfilehash: 98727c7a0c525edcda4fd8d004e0ac584cf0a5e5
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e918b00562aca9821de87c38f10242177517d8a5
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-immutability-and-changing-settings"></a>キーの不変性と設定を変更します。
+# <a name="key-immutability-and-key-settings-in-aspnet-core"></a>キーの ASP.NET Core の不変性とキーの設定
 
 オブジェクトは、バッキング ストアに永続化した後、形式は永久に固定されます。 バッキング ストアに新しいデータを追加することができますが、既存のデータを変更しないことができます。 この動作の主な目的は、データの破損を防ぐためです。
 
 この動作の 1 つの結果は、こと、キーは、バッキング ストアに書き込まれますが後、は変更できません。 作成、アクティブ化、および有効期限の日付は変更不可能を使用して取り消すことができますが、`IKeyManager`です。 さらに、その基になるアルゴリズム情報、マスター_キー生成情報、および rest プロパティでの暗号化も変更できません。
 
-これらの変更はありません、キーを生成するのいずれかに明示的な呼び出しによって次の時間まで有効に移動する、開発者は、キーの永続性に影響する設定を変更する場合`IKeyManager.CreateNewKey`またはシステム経由で、データ保護の独自[自動キー生成](key-management.md#data-protection-implementation-key-management)動作します。 キーの永続性に影響する設定は次のとおりです。
+これらの変更はありません、キーを生成するのいずれかに明示的な呼び出しによって次の時間まで有効に移動する、開発者は、キーの永続性に影響する設定を変更する場合`IKeyManager.CreateNewKey`またはシステム経由で、データ保護の独自[自動キー生成](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management)動作します。 キーの永続性に影響する設定は次のとおりです。
 
-* [既定キーの有効期間](key-management.md#data-protection-implementation-key-management)
+* [既定キーの有効期間](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management)
 
-* [Rest メカニズムでキーの暗号化](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest)
+* [Rest メカニズムでキーの暗号化](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest)
 
 * [キーに含まれるアルゴリズム情報](xref:security/data-protection/configuration/overview#changing-algorithms-with-usecryptographicalgorithms)
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-vb
-title: "マスター ページ (VB) を使用して、サイト全体のレイアウトを作成 |Microsoft ドキュメント"
+title: マスター ページ (VB) を使用して、サイト全体のレイアウトを作成 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、マスター ページの基本を説明します。 つまり、マスター ページとはどのようにいずれか 1 つの cr をどのようにコンテンツ プレース ホルダーとは、マスター ページを作成しています."
+description: このチュートリアルでは、マスター ページの基本を説明します。 つまり、マスター ページとはどのようにいずれか 1 つの cr をどのようにコンテンツ プレース ホルダーとは、マスター ページを作成しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 29671970dc6f53d0e14170cf6376c02634b7b08e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d18993af7159de552db0c622fbef58e814e36ebb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-vb"></a>マスター ページ (VB) を使用して、サイト全体のレイアウトを作成します。
 ====================
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/24/2018
 
 [![Www.asp.net の web サイトは、すべてのページにわたって一貫したルック アンド フィールを採用します。](creating-a-site-wide-layout-using-master-pages-vb/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image1.png)
 
-**図 01**: www.asp.net の web サイトを使用して、一貫した参照と思われる間でのすべてのページ ([フルサイズのイメージを表示するをクリックして](creating-a-site-wide-layout-using-master-pages-vb/_static/image3.png))
+<strong>図 01</strong>: www.asp.net の web サイトを使用して、一貫した参照と思われる間でのすべてのページ ([フルサイズのイメージを表示するをクリックして](creating-a-site-wide-layout-using-master-pages-vb/_static/image3.png))
 
 
 適切に設計されたサイトの別の属性は、簡単に使用するサイトの外観を変更できます。 図 1 は 2008 年 3 月、時点で www.asp.net のホーム ページを示していますが、ルック アンド フィールをここで、このチュートリアルの文書間変更可能性があります。 おそらく、上部にメニュー項目には、MVC フレームワークの新しいセクションが含まれますが展開されます。 またはおそらくさまざまな色、フォント、およびレイアウトを大幅に新たに設計されません出現します。 サイト全体にこのような変更を適用すると、サイトを構成する web ページの数千の変更が不要な高速で単純な処理をする必要があります。
@@ -281,12 +281,12 @@ ASP.NET エンジンが、ページを組み込む必要がありますコンテ
 
 ### <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、作成者複数受け取ります書籍や 4GuysFromRolla.com の創設者を操作した Microsoft Web テクノロジ 1998 年です。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 3.5 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、作成者複数受け取ります書籍や 4GuysFromRolla.com の創設者を操作した Microsoft Web テクノロジ 1998 年です。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 3.5 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 
 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[ mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)です。
 
->[!div class="step-by-step"]
-[前へ](nested-master-pages-cs.md)
-[次へ](multiple-contentplaceholders-and-default-content-vb.md)
+> [!div class="step-by-step"]
+> [前へ](nested-master-pages-cs.md)
+> [次へ](multiple-contentplaceholders-and-default-content-vb.md)

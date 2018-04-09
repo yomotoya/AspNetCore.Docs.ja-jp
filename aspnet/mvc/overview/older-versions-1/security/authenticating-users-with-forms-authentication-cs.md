@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
-title: "フォーム認証 (c#) を持つユーザーを認証 |Microsoft ドキュメント"
+title: フォーム認証 (c#) を持つユーザーを認証 |Microsoft ドキュメント
 author: microsoft
-description: "[Authorize] 属性を使用する方法について、MVC アプリケーションで特定のページで保護するパスワード。 Web サイトの管理にも使用する方法を学習するとしています."
+description: '[Authorize] 属性を使用する方法について、MVC アプリケーションで特定のページで保護するパスワード。 Web サイトの管理にも使用する方法を学習するとしています.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 17bcf02e1351587d64b72ee2b40393e0f748f23e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e1def84bbf48847339e89b239b026d053640b935
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-forms-authentication-c"></a>フォーム認証 (c#) でユーザーの認証
 ====================
@@ -148,9 +148,9 @@ Microsoft SQL Server Management Studio を使用して、データベースに�
 
 ![clip_image020](authenticating-users-with-forms-authentication-cs/_static/image10.jpg)
 
-#### <a name="summary"></a>概要
+#### <a name="summary"></a>まとめ
 
 このチュートリアルでは、ASP.NET MVC アプリケーションをビルドする際に、フォーム認証を使用する方法について学習しました。 最初に、Web サイト管理ツールを活用して、新しいユーザーとロールを作成する方法を学習します。 次に、[Authorize] 属性を使用して、不正なユーザーがコント ローラーのアクションを呼び出すことを防止する方法を学習します。 最後に、実稼働データベースでユーザーとロール情報を格納する MVC アプリケーションを構成する方法を学習しました。
 
->[!div class="step-by-step"]
-[次へ](authenticating-users-with-windows-authentication-cs.md)
+> [!div class="step-by-step"]
+> [次へ](authenticating-users-with-windows-authentication-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
-title: "計算列 (c#) の使用 |Microsoft ドキュメント"
+title: 計算列 (c#) の使用 |Microsoft ドキュメント
 author: rick-anderson
-description: "Microsoft SQL Server が、式からその値を計算する計算列を定義することができます、データベース テーブルを作成するときに通常、referen しています."
+description: Microsoft SQL Server が、式からその値を計算する計算列を定義することができます、データベース テーブルを作成するときに通常、referen しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 41206f76f9d9ca68971a53d79e84d82349e92333
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7a67abd2a0c140c0503c07f764549a6d90ef7298
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="working-with-computed-columns-c"></a>計算列 (c#) の使用
 ====================
@@ -51,7 +51,7 @@ Northwind データベースには計算列はないのでおは社内で 1 つ�
 SQL の文字列を連結できることに注意してください。 を使用して、`+`演算子。 `CASE`ステートメントは、従来のプログラミング言語で条件付きのように使用することができます。 上記の式で、`CASE`としてステートメントを読み取ることができます: 場合`ContactTitle`は`NULL`し、出力、`ContactTitle`コンマ、それ以外の場合と連結された値を出力何も行われません。 詳細の有用性について、`CASE`ステートメントを参照してください[SQL の電源`CASE`ステートメント](http://www.4guysfromrolla.com/webtech/102704-1.shtml)です。
 
 > [!NOTE]
-> 使用する代わりに、`CASE`ステートメントは、ここではまたは使用することも`ISNULL(ContactTitle, '')`します。 [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx)返します*checkExpression* NULL 以外の場合、それ以外の場合を返します*replacementValue*です。 どちらか一方`ISNULL`または`CASE`は機能、このインスタンスより複雑なシナリオは場所の柔軟性、`CASE`でステートメントを照合することはできません`ISNULL`です。
+> 使用する代わりに、`CASE`ステートメントは、ここではまたは使用することも`ISNULL(ContactTitle, '')`します。 [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx) 返します*checkExpression* NULL 以外の場合、それ以外の場合を返します*replacementValue*です。 どちらか一方`ISNULL`または`CASE`は機能、このインスタンスより複雑なシナリオは場所の柔軟性、`CASE`でステートメントを照合することはできません`ISNULL`です。
 
 
 この計算列を追加した後、画面が図 1 でスクリーン ショットのようになります。
@@ -261,12 +261,12 @@ ObjectDataSource、GridView にこれらの編集を行った後、宣言型マ�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Hilton Geisenow および Teresa マーフィーがいました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](adding-additional-datatable-columns-cs.md)
-[次へ](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
+> [!div class="step-by-step"]
+> [前へ](adding-additional-datatable-columns-cs.md)
+> [次へ](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)

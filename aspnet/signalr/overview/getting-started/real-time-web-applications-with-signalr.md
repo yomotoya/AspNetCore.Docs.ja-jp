@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/real-time-web-applications-with-signalr
-title: "ハンズ オン ラボ: SignalR でリアルタイムの Web アプリケーション |Microsoft ドキュメント"
+title: 'ハンズ オン ラボ: SignalR でリアルタイムの Web アプリケーション |Microsoft ドキュメント'
 author: rick-anderson
-description: "リアルタイムの Web アプリケーションには、サーバー側のように、リアルタイムで接続しているクライアントにコンテンツをプッシュする機能が機能します。 ASP、ASP.NET 開発者向けしています."
+description: リアルタイムの Web アプリケーションには、サーバー側のように、リアルタイムで接続しているクライアントにコンテンツをプッシュする機能が機能します。 ASP、ASP.NET 開発者向けしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 22123a9c61e6830f3f9f66a45182e1e923950341
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5a2bc120ded18ad2302fd6c5cde65a5323e86ca8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>SignalR でリアルタイムの Web アプリケーションをハンズ オン ラボ:
 ====================
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/24/2018
 > 
 > ![SignalR のアーキテクチャ](real-time-web-applications-with-signalr/_static/image1.png)
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit)です。
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit)です。
 
 
 <a id="Overview"></a>
@@ -160,12 +160,12 @@ SignalR をサポートしている**サーバー プッシュ**または**ブ�
 
     *SignalR のパッケージのインストール*
 
-    > [!NOTE]
-    > インストールするときに**SignalR** NuGet パッケージのバージョン 2.0.2 新しい MVC 5 のアプリケーションから、手動で更新する必要が**OWIN** 2.0.1 へのパッケージ (またはそれ以降) SignalR をインストールする前にします。 これを行うに次のスクリプトを実行することができます、 **Package Manager Console**:
-    > 
-    > [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample2.ps1)]
-    > 
-    > SignalR の将来のリリースで OWIN の依存関係が自動的に更新されます。
+   > [!NOTE]
+   > インストールするときに**SignalR** NuGet パッケージのバージョン 2.0.2 新しい MVC 5 のアプリケーションから、手動で更新する必要が**OWIN** 2.0.1 へのパッケージ (またはそれ以降) SignalR をインストールする前にします。 これを行うに次のスクリプトを実行することができます、 **Package Manager Console**:
+   > 
+   > [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample2.ps1)]
+   > 
+   > SignalR の将来のリリースで OWIN の依存関係が自動的に更新されます。
 3. **ソリューション エクスプ ローラー**、展開、**スクリプト**フォルダーとに注意してくださいを SignalR *js*ファイル、ソリューションに追加されました。
 
     ![SignalR JavaScript 参照](real-time-web-applications-with-signalr/_static/image10.png "SignalR JavaScript 参照")

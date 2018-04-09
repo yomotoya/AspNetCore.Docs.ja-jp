@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
-title: "手順 7: メンバーシップと承認 |Microsoft ドキュメント"
+title: '手順 7: メンバーシップと承認 |Microsoft ドキュメント'
 author: jongalloway
-description: "このチュートリアルの系列では、すべての ASP.NET MVC Music Store サンプル アプリケーションをビルドする手順について説明します。 第 7 部では、メンバーシップと承認について説明します。"
+description: このチュートリアルの系列では、すべての ASP.NET MVC Music Store サンプル アプリケーションをビルドする手順について説明します。 第 7 部では、メンバーシップと承認について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: db459de687db862be00a9b59ff5b1b238fa75061
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a0f599da4691c5bb7c8e6f01625fc0e94ce0eac8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-7-membership-and-authorization"></a>手順 7: メンバーシップと承認
 ====================
@@ -110,6 +110,6 @@ ASP.NET MVC 3 Web アプリケーション テンプレートのすべてと、A
 
 新しい管理者アカウントでログオンした後にする前として、アルバムの編集画面に移動することができました。
 
->[!div class="step-by-step"]
-[前へ](mvc-music-store-part-6.md)
-[次へ](mvc-music-store-part-8.md)
+> [!div class="step-by-step"]
+> [前へ](mvc-music-store-part-6.md)
+> [次へ](mvc-music-store-part-8.md)

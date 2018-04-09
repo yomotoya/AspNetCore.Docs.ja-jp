@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-2
-title: "モデルおよびコント ローラーの追加 |Microsoft ドキュメント"
+title: モデルおよびコント ローラーの追加 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 7e09316f0faaf0731e4cdda48040fdaedc0f244a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 015bb9698d81387d03ea8f9629316fb53232e708
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="add-models-and-controllers"></a>モデルおよびコント ローラーを追加します。
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 このセクションでは、データベースのエンティティを定義するモデル クラスを追加します。 それらのエンティティに対する CRUD 操作を実行する Web API コント ローラーを追加します。
 
@@ -65,7 +65,7 @@ Book クラスで、`AuthorId`への外部キーの定義、`Author`テーブル
 
 ![](part-2/_static/image3.png)
 
-**追加 Scaffold**ダイアログで、"Web API 2 Entity Framework を使用してコント ローラーをアクションがある"です。 **[追加]**をクリックします。
+**追加 Scaffold**ダイアログで、"Web API 2 Entity Framework を使用してコント ローラーをアクションがある"です。 **[追加]** をクリックします。
 
 ![](part-2/_static/image4.png)
 
@@ -84,8 +84,8 @@ Book クラスで、`AuthorId`への外部キーの定義、`Author`テーブル
 
 をクリックして**追加**を完了する、**コント ローラーの追加**ダイアログ。 ダイアログ ボックスでは、2 つのクラスをプロジェクトに追加します。
 
-- `AuthorsController`Web API コント ローラーを定義します。 コント ローラーでは、クライアントの作成者の一覧での CRUD 操作を実行に使用する REST API を実装します。
-- `BookServiceContext`実行中に、データベース、変更の追跡、およびデータの永続化から、データベースにデータを使用してオブジェクトの設定が含まれるエンティティ オブジェクトを管理します。 継承`DbContext`です。
+- `AuthorsController` Web API コント ローラーを定義します。 コント ローラーでは、クライアントの作成者の一覧での CRUD 操作を実行に使用する REST API を実装します。
+- `BookServiceContext` 実行中に、データベース、変更の追跡、およびデータの永続化から、データベースにデータを使用してオブジェクトの設定が含まれるエンティティ オブジェクトを管理します。 継承`DbContext`です。
 
 ![](part-2/_static/image7.png)
 
@@ -93,6 +93,6 @@ Book クラスで、`AuthorId`への外部キーの定義、`Author`テーブル
 
 ![](part-2/_static/image8.png)
 
->[!div class="step-by-step"]
-[前へ](part-1.md)
-[次へ](part-3.md)
+> [!div class="step-by-step"]
+> [前へ](part-1.md)
+> [次へ](part-3.md)

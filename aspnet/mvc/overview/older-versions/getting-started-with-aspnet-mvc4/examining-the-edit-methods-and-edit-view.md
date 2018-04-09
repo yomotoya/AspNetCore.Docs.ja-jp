@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view
-title: "編集方法と編集ビューを調べて |Microsoft ドキュメント"
+title: 編集方法と編集ビューを調べて |Microsoft ドキュメント
 author: Rick-Anderson
-description: "注: このチュートリアルの最新バージョンはここで ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全な非常に簡単に従い、デモをお勧めしています."
+description: '注: このチュートリアルの最新バージョンはここで ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全な非常に簡単に従い、デモをお勧めしています.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 315914056c0a666fdf23cf82a314a999e03114b6
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 304d3c1efbce8949fd9385529f2a16b07e05ffdf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>編集方法と編集ビューの確認
 ====================
@@ -212,6 +212,6 @@ ms.lasthandoff: 03/15/2018
 
 このセクションでは、CRUD アクション メソッドと、フレームワークによって生成されたビューを調査します。 アクション メソッドの検索とムービーのタイトル、ジャンルで検索できるようにするビューを作成したとします。 次のセクションでプロパティを追加する方法について見ていきます、`Movie`モデルおよびテスト用データベースが自動的に作成するには初期化子を追加する方法です。
 
->[!div class="step-by-step"]
-[前へ](accessing-your-models-data-from-a-controller.md)
-[次へ](adding-a-new-field-to-the-movie-model-and-table.md)
+> [!div class="step-by-step"]
+> [前へ](accessing-your-models-data-from-a-controller.md)
+> [次へ](adding-a-new-field-to-the-movie-model-and-table.md)

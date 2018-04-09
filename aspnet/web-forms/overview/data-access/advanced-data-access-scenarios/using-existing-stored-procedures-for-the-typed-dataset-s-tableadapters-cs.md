@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
-title: "型指定されたデータセットの Tableadapter (c#) のストアド プロシージャを既存の使用 |Microsoft ドキュメント"
+title: 型指定されたデータセットの Tableadapter (c#) のストアド プロシージャを既存の使用 |Microsoft ドキュメント
 author: rick-anderson
-description: "前のチュートリアルでは、TableAdapter ウィザードを使用して、新しいストアド プロシージャを生成する方法を学習します。 このチュートリアルで学習はどのように同じ TableAdapter しています."
+description: 前のチュートリアルでは、TableAdapter ウィザードを使用して、新しいストアド プロシージャを生成する方法を学習します。 このチュートリアルで学習はどのように同じ TableAdapter しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f95a6868ccce8ce0dfa16a92486e705c42e1db4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: df8a714325ce99db615eddc3d457da5c926919ba
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>型指定されたデータセットの Tableadapter (c#) のストアド プロシージャを既存の使用
 ====================
@@ -56,7 +56,7 @@ Visual Studio では簡単に新しいストアド プロシージャをデー�
 
 実行すると、このスクリプトはという Northwind データベースに新しいストアド プロシージャを追加`Products_SelectByCategoryID`です。 このストアド プロシージャは 1 つの入力パラメーターを受け取ります (`@CategoryID`、型の`int`) を返しますのすべての一致する製品のフィールドと`CategoryID`値。
 
-これを実行する`CREATE PROCEDURE`スクリプトおよびストアド プロシージャをデータベースに追加、ツールバーの [保存] アイコンをクリックしてまたは Ctrl キーを押しながら S キーをヒットします。 これを行った後、ストアド プロシージャのフォルダーの更新、新しく作成されたを示すと、プロシージャが格納されます。 また、ウィンドウ内のスクリプトがから注意を変更`CREATE PROCEDURE dbo.Products_SelectProductByCategoryID`に`ALTER PROCEDURE``dbo.Products_SelectProductByCategoryID`です。 `CREATE PROCEDURE`新しいストアド プロシージャをデータベースに追加中に`ALTER PROCEDURE`既存のものを更新します。 スクリプトの先頭に変更されたため`ALTER PROCEDURE`ストアド プロシージャを変更する入力パラメーターまたは SQL ステートメント、および保存 アイコンをクリックするとすると、ストアド プロシージャがこれらの変更が更新されます。
+これを実行する`CREATE PROCEDURE`スクリプトおよびストアド プロシージャをデータベースに追加、ツールバーの [保存] アイコンをクリックしてまたは Ctrl キーを押しながら S キーをヒットします。 これを行った後、ストアド プロシージャのフォルダーの更新、新しく作成されたを示すと、プロシージャが格納されます。 また、ウィンドウ内のスクリプトがから注意を変更`CREATE PROCEDURE dbo.Products_SelectProductByCategoryID`に`ALTER PROCEDURE``dbo.Products_SelectProductByCategoryID`です。 `CREATE PROCEDURE` 新しいストアド プロシージャをデータベースに追加中に`ALTER PROCEDURE`既存のものを更新します。 スクリプトの先頭に変更されたため`ALTER PROCEDURE`ストアド プロシージャを変更する入力パラメーターまたは SQL ステートメント、および保存 アイコンをクリックするとすると、ストアド プロシージャがこれらの変更が更新されます。
 
 図 2 は、Visual Studio の後に、`Products_SelectByCategoryID`ストアド プロシージャが保存されました。
 
@@ -273,12 +273,12 @@ TableAdapter の s ウィザードでは、ご利用の米国のストアド プ
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者には、Hilton Geisenow、S ren 一 Lauritsen Teresa マーフィーがされていました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
-[次へ](updating-the-tableadapter-to-use-joins-cs.md)
+> [!div class="step-by-step"]
+> [前へ](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
+> [次へ](updating-the-tableadapter-to-use-joins-cs.md)

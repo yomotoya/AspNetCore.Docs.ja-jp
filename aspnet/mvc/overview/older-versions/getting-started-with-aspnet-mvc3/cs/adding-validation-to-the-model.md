@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-validation-to-the-model
-title: "検証 (c#)、モデルを追加する |Microsoft ドキュメント"
+title: 検証 (c#)、モデルを追加する |Microsoft ドキュメント
 author: Rick-Anderson
-description: "コント ローラーの作成"
+description: コント ローラーの作成
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 1e1235972d1e16153faee113af09edaa676d70d8
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: cdfe76f440e34ca7356af193186f90d2231b9db6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-to-the-model-c"></a>検証 (c#)、モデルを追加します。
 ====================
@@ -127,6 +127,6 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 このシリーズの次のパートでは、アプリケーションを確認し、自動的に生成される `Details` および `Delete` メソッドに対していくつかの改良を行います。
 
->[!div class="step-by-step"]
-[前へ](adding-a-new-field.md)
-[次へ](improving-the-details-and-delete-methods.md)
+> [!div class="step-by-step"]
+> [前へ](adding-a-new-field.md)
+> [次へ](improving-the-details-and-delete-methods.md)

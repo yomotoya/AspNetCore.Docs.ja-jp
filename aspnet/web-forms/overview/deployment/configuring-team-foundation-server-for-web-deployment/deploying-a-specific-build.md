@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
-title: "特定のビルドを展開する |Microsoft ドキュメント"
+title: 特定のビルドを展開する |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、web のパッケージとステージングまたは運用環境と同様に、新しい変換先に、特定の以前のビルドからデータベース スクリプトを展開する方法について説明しています."
+description: このトピックでは、web のパッケージとステージングまたは運用環境と同様に、新しい変換先に、特定の以前のビルドからデータベース スクリプトを展開する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
 msc.type: authoredcontent
-ms.openlocfilehash: be1000f0cbc2f509f5014789c2bc47ce2b12fb2f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 271d084b3c69016df5be28ada032973bf7fd5a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-a-specific-build"></a>特定のビルドを展開します。
 ====================
@@ -27,9 +27,9 @@ ms.lasthandoff: 01/24/2018
 > このトピックでは、web のパッケージと、ステージング環境または運用環境のように、新しい変換先に、特定の以前のビルドからデータベース スクリプトを展開する方法について説明します。
 
 
-このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。サンプル ソリューション & #x 2014; このチュートリアルのシリーズを使用して、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; を ASP.NET MVC 3 アプリケーションを Windows のなどの複雑性のレベルが現実的な web アプリケーションを表すCommunication Foundation (WCF) サービスとデータベース プロジェクト。
+このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルの一連のサンプル ソリューションを使用する&#x2014;、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的な ASP.NET MVC 3 アプリケーション、Windows Communication も含め、複雑さのレベルを持つ web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
-説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)で、ビルドおよび配置プロセスが 2 つのプロジェクト ファイル & #x 2014 で制御されている; o各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用されるビルドの手順を含む ne です。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によってビルドおよび配置プロセスが制御されるは、2 つのプロジェクト ファイル&#x2014;いずれか各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用されるビルドの手順を含むです。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
 
 ## <a name="task-overview"></a>タスクの概要
 
@@ -54,13 +54,13 @@ ms.lasthandoff: 01/24/2018
 [!code-xml[Main](deploying-a-specific-build/samples/sample1.xml)]
 
 
-単にオーバーライドする必要があります、プロジェクト ファイルは、web のパッケージとは別の場所 & #x 2014 から以外の場合は、以前の TFS ビルド & #x 2014; の出力のようにデータベース スクリプトを展開する場合、 **OutputRoot**プロパティです。 チーム ビルド サーバーに関連するビルド フォルダーにプロパティの値を設定する必要があります。 値を指定する場合は、コマンドラインから MSBuild を実行していた、でした**OutputRoot**コマンドライン引数として。
+Web パッケージを展開し、データベースを別の場所からスクリプトには、プロジェクト ファイルの場合&#x2014;などの以前の TFS ビルドの出力&#x2014;だけをオーバーライドする必要があります、 **OutputRoot**プロパティです。 チーム ビルド サーバーに関連するビルド フォルダーにプロパティの値を設定する必要があります。 値を指定する場合は、コマンドラインから MSBuild を実行していた、でした**OutputRoot**コマンドライン引数として。
 
 
 [!code-console[Main](deploying-a-specific-build/samples/sample2.cmd)]
 
 
-実際には、ただしはもスキップする、**ビルド**ターゲット & #x 2014; ビルド出力を使用する予定がない場合、ソリューションのビルド場所はありません。 コマンドラインから実行するターゲットを指定して、これを行う可能性があります。
+実際には、ただしはもスキップする、**ビルド**ターゲット&#x2014;ビルド出力を使用する予定がない場合、ソリューションのビルド場所はありません。 コマンドラインから実行するターゲットを指定して、これを行う可能性があります。
 
 
 [!code-console[Main](deploying-a-specific-build/samples/sample3.cmd)]
@@ -72,7 +72,7 @@ ms.lasthandoff: 01/24/2018
 
 次の手順では、ユーザーが 1 つのコマンドを使用してステージング環境に展開をトリガーにできるビルド定義を作成する方法について説明します。
 
-この場合、実際に何も作成するビルド定義をたくない & #x 2014 以外の場合のみ、カスタムのプロジェクト ファイルでデプロイ ロジックを実行するようにします。 *Publish.proj*ファイルにはスキップする条件ロジックが含まれています、**ビルド**ファイルがチーム ビルドで実行されている場合は対象にします。 これは、組み込みを評価することによって、 **BuildingInTeamBuild**に自動的に設定されているプロパティ**true**チーム ビルドでは、プロジェクト ファイルを実行する場合。 その結果、ビルド処理をスキップし、単に既存のビルドを配置するプロジェクト ファイルを実行できます。
+この場合、実際に何も作成するビルド定義をたくない&#x2014;する、カスタムのプロジェクト ファイルでデプロイ ロジックを実行するようにします。 *Publish.proj*ファイルにはスキップする条件ロジックが含まれています、**ビルド**ファイルがチーム ビルドで実行されている場合は対象にします。 これは、組み込みを評価することによって、 **BuildingInTeamBuild**に自動的に設定されているプロパティ**true**チーム ビルドでは、プロジェクト ファイルを実行する場合。 その結果、ビルド処理をスキップし、単に既存のビルドを配置するプロジェクト ファイルを実行できます。
 
 **展開を手動でトリガーするビルド定義を作成するには**
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 01/24/2018
 
     ![](deploying-a-specific-build/_static/image7.png)
 2. **ビルドをキュー**ダイアログ ボックスの**パラメーター**  タブで、展開、**詳細**セクションです。
-3. **の MSBuild 引数**行の値を置き換える、 **OutputRoot**ビルド フォルダーの場所を持つプロパティです。 例:
+3. **の MSBuild 引数**行の値を置き換える、 **OutputRoot**ビルド フォルダーの場所を持つプロパティです。 例えば:
 
     [!code-console[Main](deploying-a-specific-build/samples/sample5.cmd)]
 
@@ -133,6 +133,6 @@ ms.lasthandoff: 01/24/2018
 
 ビルド定義を作成する方法の詳細については、次を参照してください。[基本的なビルド定義を作成する](https://msdn.microsoft.com/library/ms181716.aspx)と[ビルド プロセスの定義](https://msdn.microsoft.com/library/ms181715.aspx)です。 キュー ビルドの詳細については、次を参照してください。[ビルドをキュー](https://msdn.microsoft.com/library/ms181722.aspx)です。
 
->[!div class="step-by-step"]
-[前へ](creating-a-build-definition-that-supports-deployment.md)
-[次へ](configuring-permissions-for-team-build-deployment.md)
+> [!div class="step-by-step"]
+> [前へ](creating-a-build-definition-that-supports-deployment.md)
+> [次へ](configuring-permissions-for-team-build-deployment.md)

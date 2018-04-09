@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-cs
-title: "相互に排他的なチェック ボックス (c#) を作成 |Microsoft ドキュメント"
+title: 相互に排他的なチェック ボックス (c#) を作成 |Microsoft ドキュメント
 author: wenz
-description: "一連のオプションの 1 つのみが選択されるときに、オプション ボタンが通常使用されます。 ただし、欠点がある: グループ内の 1 つのオプション ボタンを選択すると、."
+description: '一連のオプションの 1 つのみが選択されるときに、オプション ボタンが通常使用されます。 ただし、欠点がある: グループ内の 1 つのオプション ボタンを選択すると、.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e165c3784b246effcaeafc0ad4274bc0ca81a99c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c3a5abe7d02ace16f4aaad8d4adfbd0cba8e84ef
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-mutually-exclusive-checkboxes-c"></a>相互に排他的なチェック ボックス (c#) を作成します。
 ====================
@@ -54,5 +54,5 @@ ASP.NET AJAX コントロール Toolkit には、MutuallyExclusiveCheckBox exten
 
 一度に 1 つだけのチェック ボックスを選択することができます ([フルサイズのイメージを表示するをクリックして](creating-mutually-exclusive-checkboxes-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[次へ](creating-mutually-exclusive-checkboxes-vb.md)
+> [!div class="step-by-step"]
+> [次へ](creating-mutually-exclusive-checkboxes-vb.md)

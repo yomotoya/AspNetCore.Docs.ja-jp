@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/security/introduction-to-security
-title: "SignalR のセキュリティの概要 |Microsoft ドキュメント"
+title: SignalR のセキュリティの概要 |Microsoft ドキュメント
 author: pfletcher
-description: "SignalR アプリケーションを開発する場合に考慮する必要があります、セキュリティの問題について説明します。"
+description: SignalR アプリケーションを開発する場合に考慮する必要があります、セキュリティの問題について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 1cb9f15a958028822b50decf4b420c36596ce25e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9a4f09c8036d6d662dfdc44d7c7feaba0101e0c6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-signalr-security"></a>SignalR のセキュリティの概要
 ====================
@@ -115,7 +115,7 @@ CSRF 攻撃の例を次に示します。
 
     [!code-html[Main](introduction-to-security/samples/sample1.html)]
 
- フォームのアクションが悪意のあるサイトではない、脆弱なサイトにポストすることに注意してください。 これは、CSRF の「クロスサイト」の一部です。
+   フォームのアクションが悪意のあるサイトではない、脆弱なサイトにポストすることに注意してください。 これは、CSRF の「クロスサイト」の一部です。
 4. ユーザーは、[送信] ボタンをクリックします。 ブラウザーには、要求と共に認証 cookie が含まれています。
 5. 要求は、ユーザーの認証コンテキストで example.com サーバーで実行されを行うには、認証されたユーザーが許可されている操作を実行します。
 

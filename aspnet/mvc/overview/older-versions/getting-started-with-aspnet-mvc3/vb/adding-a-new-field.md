@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-new-field
-title: "ムービーのモデルとデータベースのテーブル (VB) に新しいフィールドを追加する |Microsoft ドキュメント"
+title: ムービーのモデルとデータベースのテーブル (VB) に新しいフィールドを追加する |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 377c667a56bb5c0d58ecef5c3550ca510ec52546
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5927b7d977e375881fe618b4b844cbd708023ba1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-database-table-vb"></a>ムービーのモデルとデータベースのテーブル (VB) に新しいフィールドを追加します。
 ====================
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/10/2017
 
 これで、更新した、`Model`クラスも更新する必要が、 *\Views\Movies\Index.vbhtml*と*\Views\Movies\Create.vbhtml*新しいをサポートするためにテンプレートの表示`Rating`プロパティです。
 
-開く、*\Views\Movies\Index.vbhtml*ファイルを追加、`<th>Rating</th>`列見出し直後、**価格**列です。 追加し、`<td>`をレンダリングするテンプレートの末尾付近の列、`@item.Rating`値。 以下はどのような更新*Index.vbhtml*ビュー テンプレートはようになります。
+開く、<em>\Views\Movies\Index.vbhtml</em>ファイルを追加、`<th>Rating</th>`列見出し直後、<strong>価格</strong>列です。 追加し、`<td>`をレンダリングするテンプレートの末尾付近の列、`@item.Rating`値。 以下はどのような更新<em>Index.vbhtml</em>ビュー テンプレートはようになります。
 
 [!code-vbhtml[Main](adding-a-new-field/samples/sample3.vbhtml)]
 
@@ -117,13 +117,12 @@ Code First 自動的に削除し、アプリケーションのモデルを変更
 
 [![7_CreateRioII](adding-a-new-field/_static/image5.png)](adding-a-new-field/_static/image4.png)
 
-
-              **[作成]**をクリックします。 この評価を含む、新しいムービーに表示されます、映画を一覧表示します。
+**[作成]**をクリックします。 この評価を含む、新しいムービーに表示されます、映画を一覧表示します。
 
 ![7_ourNewMovie_SM](adding-a-new-field/_static/image6.png)
 
 このセクションではモデル オブジェクトを変更し、データベースの変更との同期を維持する方法を説明しました。 また、シナリオを実行するためのサンプル データ、新しく作成されたデータベースに設定する方法も学習しました。 次に、モデル クラスをより詳細な検証ロジックを追加し、適用するビジネス ルールの一部を有効にする方法を見てみましょう。
 
->[!div class="step-by-step"]
-[前へ](examining-the-edit-methods-and-edit-view.md)
-[次へ](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [前へ](examining-the-edit-methods-and-edit-view.md)
+> [次へ](adding-validation-to-the-model.md)

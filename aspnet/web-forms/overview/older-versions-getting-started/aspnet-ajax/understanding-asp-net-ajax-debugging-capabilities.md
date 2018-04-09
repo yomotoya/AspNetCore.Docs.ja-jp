@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
-title: "ASP.NET AJAX のデバッグ機能を理解する |Microsoft ドキュメント"
+title: ASP.NET AJAX のデバッグ機能を理解する |Microsoft ドキュメント
 author: scottcate
-description: "コードをデバッグする機能は、スキルを使用しているテクノロジに関係なく、備品においてすべての開発者に設定することです。 多くの開発者がいるときにしています."
+description: コードをデバッグする機能は、スキルを使用しているテクノロジに関係なく、備品においてすべての開発者に設定することです。 多くの開発者がいるときにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
 msc.type: authoredcontent
-ms.openlocfilehash: 426d0182978faf7fc7516203fcc84ef0152790ba
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f082e2206f5e691579670e42634f30b57e3b3593
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-debugging-capabilities"></a>ASP.NET AJAX のデバッグ機能を理解します。
 ====================
@@ -58,7 +58,7 @@ Internet Explorer で表示したページをデバッグしようとする前�
 
 デバッグがオンにする、スクリプト デバッガーをという名前の表示 メニューに表示される新しいメニュー項目が表示されます。 次のステートメントで開くと中断を含む使用可能な 2 つのオプションがあります。 開くが選択されているときに Visual Studio 2008 (Visual Web Developer Express 使用できることもデバッグするために注意してください) でページをデバッグする求められます。 Visual Studio .NET は現在実行されている場合は、そのインスタンスを使用する新しいインスタンスを作成するかを選択できます。 次のステートメントで中断が選択されている場合に JavaScript コードを実行すると、ページのデバッグを求められます。 ページのオンロード イベント内の JavaScript コードが実行する場合は、デバッグ セッションをトリガーするページを更新することができます。 ボタンをクリックした後、JavaScript コードが実行される場合は、ボタンがクリックされた後にすぐに、デバッガーは実行されます。
 
-> *>[!NOTE] Windows Vista ユーザー アクセス制御 (UAC) が有効になっているを実行している存在し、設定を管理者として実行する Visual Studio 2008 を Visual Studio は失敗をアタッチするメッセージが表示されたら、プロセスにアタッチします。この問題を回避するには、最初に、Visual Studio を起動し、そのインスタンスを使用してデバッグします。*
+> *> [!NOTE] Windows Vista ユーザー アクセス制御 (UAC) が有効になっているを実行している Visual Studio 2008 が設定を管理者として実行する必要がある場合は、アタッチするメッセージが表示されたら、プロセスにアタッチする Visual Studio は失敗します。この問題を回避するには、最初に、Visual Studio を起動し、そのインスタンスを使用してデバッグします。*
 
 
 次のセクションでは、Visual Studio 2008 内から直接 ASP.NET AJAX ページをデバッグする方法をデモンストレーションします、Internet Explorer スクリプト デバッガー オプションを使用してページが既に開いているより詳細に調査したいときが役立ちます。
@@ -101,7 +101,7 @@ Debugger ステートメントに達すると、Visual Studio .NET を使用し�
 
 Visual Studio .NET に存在しないためことを確認して、ページによって参照されるスクリプトの一部のソース コードを取得する方法は、このダイアログ ボックスが表示されます。 これと手間が非常になるには、最初は、単純な解決策です。 デバッグ セッションを開始し、ブレークポイントにヒットした、デバッグ Windows スクリプト エクスプ ローラー ウィンドウ、Visual Studio 2008 メニューに移動しか、Ctrl + Alt + N ホット キーを使用します。
 
-> *>[!NOTE]表示されているスクリプト エクスプ ローラーのメニューができない場合は、ツールに進みます**カスタマイズ* *Visual Studio .NET メニューのコマンド。[カテゴリ] デバッグ エントリを見つけて利用可能なメニューのすべてのエントリを表示する] をクリックします。コマンドの一覧で [スクリプト エクスプ ローラーまで下にスクロールし、デバッグ ドラッグ* *Windows メニューで既に説明しました。これを行うスクリプト エクスプ ローラーのメニュー項目を使用できるように Visual Studio .NET を実行するたびにします。*
+> *> [!NOTE] 表示されているスクリプト エクスプ ローラーのメニューができない場合は、ツールに進みます**カスタマイズ* *Visual Studio .NET メニューのコマンド。[カテゴリ] デバッグ エントリを見つけて利用可能なメニューのすべてのエントリを表示する] をクリックします。コマンドの一覧で [スクリプト エクスプ ローラーまで下にスクロールし、デバッグ ドラッグ* *Windows メニューで既に説明しました。これを行うスクリプト エクスプ ローラーのメニュー項目を使用できるように Visual Studio .NET を実行するたびにします。*
 
 
 ページで使用されるすべてのスクリプトを表示し、コード エディターで開くことは、スクリプト エクスプ ローラーを使用できます。 スクリプト エクスプ ローラーが開いていると、現在デバッグ中のコード エディター ウィンドウで開く、.aspx ページをダブルクリックします。 スクリプト エクスプ ローラーで示すように、他のスクリプトのすべての同じアクションを実行します。 後のすることができます、コード ウィンドウで開いているすべてのスクリプトは F11 キーを押して (およびその他のデバッグ ホット キーを使用して) コードをステップ実行します。 図 3 は、スクリプト エクスプ ローラーの例を示します。 2 つのカスタム スクリプトと ASP.NET AJAX ScriptManager がページに動的に挿入する 2 つのスクリプトだけでなく、現在デバッグ対象のファイル (Demo.aspx) が一覧表示します。
@@ -116,11 +116,11 @@ Visual Studio .NET に存在しないためことを確認して、ページに�
 
 デバッガーを使用してコードをステップ実行するように割り当てられている値を表示するコード内の変数にマウスを置くことができます。 ただし、スクリプト デバッガー場合によっては表示されません何も特定の JavaScript 変数にマウスを置くとします。 値を表示するには、ステートメントまたはコード エディター ウィンドウに表示し、マウス ポインターをしようとしている変数を選択します。 この手法は、すべての状況で動作しないが何度もことができます、[ローカル] ウィンドウなど、さまざまなデバッグ ウィンドウで検索することがなく、値を表示します。
 
-ここで説明した機能の一部を示すビデオ チュートリアルで表示できる[http://www.xmlforasp.net](http://www.xmlforasp.net)です。
+ここで説明した機能の一部を示すビデオ チュートリアルで表示できる[ http://www.xmlforasp.net](http://www.xmlforasp.net)です。
 
 ## <a name="debugging-with-web-development-helper"></a>Web 開発ヘルパーとデバッグ
 
-Visual Studio 2008 (と Visual Web Developer Express 2008) は非常に対応デバッグ ツールが、追加のオプションも使用できるより軽量であるがあります。 解放される最新のツールの 1 つは、Web 開発ヘルパーです。 Microsoft の Nikhil Kothari (Microsoft のキーの ASP.NET AJAX 設計者の 1 つ) は、HTTP 要求と応答メッセージを表示する簡単なデバッグからさまざまなタスクを実行できる優れたこのツールを書き込みました。 Web 開発ヘルパーをダウンロードできます[http://projects.nikhilk.net/Projects/WebDevHelper.aspx](http://projects.nikhilk.net/Projects/WebDevHelper.aspx)です。
+Visual Studio 2008 (と Visual Web Developer Express 2008) は非常に対応デバッグ ツールが、追加のオプションも使用できるより軽量であるがあります。 解放される最新のツールの 1 つは、Web 開発ヘルパーです。 Microsoft の Nikhil Kothari (Microsoft のキーの ASP.NET AJAX 設計者の 1 つ) は、HTTP 要求と応答メッセージを表示する簡単なデバッグからさまざまなタスクを実行できる優れたこのツールを書き込みました。 Web 開発ヘルパーをダウンロードできます[ http://projects.nikhilk.net/Projects/WebDevHelper.aspx](http://projects.nikhilk.net/Projects/WebDevHelper.aspx)です。
 
 Web 開発ヘルパーを使用するが容易にする Internet Explorer の内部で直接使用できます。 Internet Explorer のメニューから Web 開発ヘルパーのツールを選択して開始します。 これは、HTTP の要求と応答メッセージのログ記録などのいくつかのタスクを実行するブラウザーのままにする必要はありませんので nice ブラウザーの下の部分で、ツールが開きます。 図 4 は、アクション内で Web 開発ヘルパーがどのようにを示します。
 
@@ -201,11 +201,11 @@ HTTP ログの表示は自動的に JSON オブジェクトを解析し、クイ
 **図 8**: HTTP ログ ビューアーを使用して、UpdatePanel 応答メッセージを表示します。  ([フルサイズのイメージを表示するをクリックして](understanding-asp-net-ajax-debugging-capabilities/_static/image24.png))
 
 
-Web 開発ヘルパーだけでなく、要求と応答のメッセージを表示するために使用できるその他のいくつかのツールがあります。 別の適切なオプションは、無料で利用できる Fiddler [http://www.fiddlertool.com](http://www.fiddlertool.com)です。Fiddler はここでは説明されませんがも適して場合にメッセージ ヘッダーおよびデータを徹底的に検査する必要があります。
+Web 開発ヘルパーだけでなく、要求と応答のメッセージを表示するために使用できるその他のいくつかのツールがあります。 別の適切なオプションは、無料で利用できる Fiddler [ http://www.fiddlertool.com](http://www.fiddlertool.com)です。Fiddler はここでは説明されませんがも適して場合にメッセージ ヘッダーおよびデータを徹底的に検査する必要があります。
 
 ## <a name="debugging-with-firefox-and-firebug"></a>Firefox および Firebug でのデバッグ
 
-Internet Explorer は、最も広く使用されているブラウザーでは引き続き、Firefox などの他のブラウザーが非常に一般的になりより多く使用されています。 その結果、表示をデバッグする ASP.NET AJAX ページ Firefox だけでなく Internet Explorer アプリケーションが正しく動作することを確認します。 Firefox は、デバッグ用 Visual Studio 2008 に直接関連付けることはできません、ですが、ページのデバッグに使用できる、Firebug と呼ばれる、拡張子が付きます。 移動して、firebug を無料でダウンロードできる[http://www.getfirebug.com](http://www.getfirebug.com)です。
+Internet Explorer は、最も広く使用されているブラウザーでは引き続き、Firefox などの他のブラウザーが非常に一般的になりより多く使用されています。 その結果、表示をデバッグする ASP.NET AJAX ページ Firefox だけでなく Internet Explorer アプリケーションが正しく動作することを確認します。 Firefox は、デバッグ用 Visual Studio 2008 に直接関連付けることはできません、ですが、ページのデバッグに使用できる、Firebug と呼ばれる、拡張子が付きます。 移動して、firebug を無料でダウンロードできる[ http://www.getfirebug.com](http://www.getfirebug.com)です。
 
 Firebug は、コード 1 行ずつステップ実行により、ページ内で使用されるすべてのスクリプトへのアクセス、DOM の構造を表示、CSS スタイルおよび発生した追跡イベントをページに表示するために使用するフル機能のデバッグ環境を提供します。 インストールされると、ツール、Firebug 開く Firebug メニューをクリックして、Firefox Firebug をアクセスできます。 Web 開発ヘルパーに渡しと同様に、Firebug はスタンドアロン アプリケーションとして使用することもできますが、ブラウザーで直接使用されます。
 
@@ -251,7 +251,7 @@ Sys.Debug クラスでは、トレース、コードのアサーションや表 
 | clearTrace() | トレース操作からのステートメントの出力を消去します。 |
 | fail(message) | プログラムを実行を停止し、デバッガーで中断させます。 失敗の理由を指定するメッセージのパラメーターを使用できます。 |
 | trace(message) | メッセージ パラメーターをトレース出力に書き込みます。 |
-| traceDump (object, name) | 読み取り可能な形式でオブジェクトのデータを出力します。 トレースのダンプのラベルを指定する name パラメーターを使用できます。 ダンプされるオブジェクト内のすべてのサブ オブジェクトは、既定でに書き出されます。 |
+| traceDump(object, name) | 読み取り可能な形式でオブジェクトのデータを出力します。 トレースのダンプのラベルを指定する name パラメーターを使用できます。 ダンプされるオブジェクト内のすべてのサブ オブジェクトは、既定でに書き出されます。 |
 
 クライアント側のトレースは、ASP.NET で使用できるトレース機能とほぼ同じ方法で使用できます。 により、さまざまなメッセージをアプリケーションのフローを中断することがなく簡単に見ることができます。 5 を一覧表示する Sys.Debug.trace 関数を使用して、トレース ログに書き込むの例に示します。 この関数は、単にパラメーターとして出力するか、メッセージを受け取ります。
 
@@ -355,5 +355,5 @@ Dan Wahlin (Microsoft 最も有益な Professional ASP.NET と XML Web サービ
 
 Scott カテゴリは、1997 年以降の Microsoft の Web テクノロジの使用されているがあり、myKB.com の代表者 ([www.myKB.com](http://www.myKB.com))、専門分野は、ASP.NET の書き込みの際にベースのアプリケーションのナレッジ ベースのソフトウェア ソリューションに重点を置きます。 Scott が接続時に電子メール[ scott.cate@myKB.com ](mailto:scott.cate@myKB.com)または彼のブログで[ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[前へ](understanding-asp-net-ajax-web-services.md)
+> [!div class="step-by-step"]
+> [前へ](understanding-asp-net-ajax-web-services.md)

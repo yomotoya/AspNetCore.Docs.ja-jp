@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-razor-syntax-vb
-title: "Razor 構文 (Visual Basic) を使用して ASP.NET Web プログラミングの概要 |Microsoft ドキュメント"
+title: Razor 構文 (Visual Basic) を使用して ASP.NET Web プログラミングの概要 |Microsoft ドキュメント
 author: tfitzmac
-description: "この付録概要を説明する ASP.NET Web pages でのプログラミングの Visual basic で、Razor 構文を使用します。"
+description: この付録概要を説明する ASP.NET Web pages でのプログラミングの Visual basic で、Razor 構文を使用します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8f5d223a5944d8adb9fe65c89e87829d18d1c7ee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 715e52715fb22b92f94d3d602ec58c29a913426c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Razor 構文 (Visual Basic) を使用して ASP.NET Web プログラミングの概要
 ====================
@@ -73,7 +73,7 @@ Razor 構文を使用する ASP.NET Web Pages を使用するほとんどの例�
 
 ### <a name="2-you-enclose-code-blocks-with-codeend-code"></a>2.コードを使って、コード ブロックで囲むとしています.終了コード
 
-コード ブロックが 1 つまたは複数のコード ステートメントが含まれ、キーワードで囲まれた`Code`と`End Code`です。 配置開始`Code`キーワード後すぐに、`@`文字 &#8212; それらの間を空白にすることはできませんがあります。
+コード ブロックが 1 つまたは複数のコード ステートメントが含まれ、キーワードで囲まれた`Code`と`End Code`です。 配置開始`Code`キーワード後すぐに、`@`文字&#8212;間それらを空白にすることはできませんがあります。
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample2.vbhtml)]
 
@@ -125,7 +125,7 @@ Visual Basic 言語では、大文字小文字を区別されません。 プロ
 
 ### <a name="7-much-of-your-coding-involves-working-with-objects"></a>7.コーディングのほとんどには、オブジェクトによる操作が含まれます
 
-オブジェクトは、プログラミングで使用できる点 &#8212; を表します。ページ、テキスト ボックス、ファイル、画像、web 要求、電子メール メッセージ、顧客レコード (データベースの行) などです。オブジェクトの特性 &#8212; を記述するプロパティがあります。テキスト ボックスのオブジェクトが、`Text`プロパティ、要求オブジェクトが、`Url`プロパティ、電子メール メッセージには、`From`プロパティ、および顧客オブジェクトが、`FirstName`プロパティです。 オブジェクトでは、実行されるメソッドもがある、&quot;動詞&quot;それらを実行できます。 例としては、ファイル オブジェクトの`Save`メソッドは、イメージ オブジェクトの`Rotate`メソッド、および電子メール オブジェクトの`Send`メソッドです。
+オブジェクトをプログラミングで使用できることを表す&#8212;ページ、テキスト ボックス、ファイル、画像、web 要求、電子メール メッセージ、顧客レコード (データベースの行) などです。オブジェクトの特性を記述するプロパティがある&#8212;テキスト ボックスのオブジェクトが、`Text`プロパティ、要求オブジェクトが、`Url`プロパティ、電子メール メッセージには、`From`プロパティ、および顧客オブジェクトが、 `FirstName`プロパティ。 オブジェクトでは、実行されるメソッドもがある、&quot;動詞&quot;それらを実行できます。 例としては、ファイル オブジェクトの`Save`メソッドは、イメージ オブジェクトの`Rotate`メソッド、および電子メール オブジェクトの`Send`メソッドです。
 
 使って作業を多くの場合、`Request`ブラウザーの種類の要求を作成、ページや、ユーザー id などの URL (テキスト ボックスなど)、ページ上のフォームの値などの情報を提供するオブジェクトのフィールドです。この例のプロパティにアクセスする方法を示しています、`Request`オブジェクトおよび呼び出す方法、`MapPath`のメソッド、`Request`オブジェクトで、サーバー上のページの絶対パスを表示します。
 
@@ -180,11 +180,11 @@ Visual Basic 言語では、大文字小文字を区別されません。 プロ
 
 ## <a name="visual-basic-language-and-syntax"></a>Visual Basic 言語と構文
 
-ASP.NET web ページを作成する方法とサーバー コードを HTML マークアップを追加する方法の基本的な例は前述です。 ここで、Razor 構文 &#8212; を使用して ASP.NET サーバー コードを記述する Visual Basic を使用しての基礎を学習しますプログラミング言語の規則では、します。
+ASP.NET web ページを作成する方法とサーバー コードを HTML マークアップを追加する方法の基本的な例は前述です。 ここで Visual Basic を使用して、Razor 構文を使用して ASP.NET サーバー コードを記述の基本を学習&#8212;プログラミング言語の規則では、します。
 
 (特に C、C++、c#、Visual Basic、または JavaScript を使用した) 場合のプログラミングを使用した経験が場合、次を参照する新機能の多くについて理解されます。 習熟するのみでのマークアップに WebMatrix のコードを追加する方法が必要*.vbhtml*ファイル。
 
-### <a id="BM_CombiningTextMarkupAndCode"></a>テキスト、マークアップ、およびコード ブロック内のコードを組み合わせること
+### <a id="BM_CombiningTextMarkupAndCode"></a>  テキスト、マークアップ、およびコード ブロック内のコードを組み合わせること
 
 サーバー コード ブロックでは、多くの場合にしておくテキスト、およびページ マークアップを出力します。 サーバー コード ブロックのコードではないとする代わりに表示するかは、テキストが含まれている場合、ASP.NET をコードからそのテキストを識別できる必要があります。 これにはいくつかの方法があります。
 
@@ -207,7 +207,7 @@ ASP.NET web ページを作成する方法とサーバー コードを HTML マ�
     [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample14.vbhtml)]
 
     > [!NOTE]
-    > ここで &#8212; のようにテキストを出力する場合HTML 要素を使用して、`@:`演算子、または`<text>`要素 &#8212;ASP.NET に、HTML エンコード、出力をしません。 (ASP.NET はサーバーのコード式と末尾に挿入されるサーバー コード ブロックの出力はエンコード前に述べたよう`@`、このセクションで説明した特殊なケースでは可します)。
+    > このセクションで示すようにテキストを出力するときに&#8212;、HTML 要素を使用して、`@:`演算子、または`<text>`要素&#8212;ASP.NET は HTML エンコード出力します。 (ASP.NET はサーバーのコード式と末尾に挿入されるサーバー コード ブロックの出力はエンコード前に述べたよう`@`、このセクションで説明した特殊なケースでは可します)。
 
 ### <a name="whitespace"></a>Whitespace
 
@@ -275,31 +275,33 @@ ASP.NET はこのデータ型を自動的に決定できますは通常があり
 
 次の表は、変数の一般的ないくつかの変換とテスト方法を示します。
 
-| **メソッド** | **説明** | **例** |
-| --- | --- | --- |
-| `AsInt(), IsInt()` | 数を示す整数を表す文字列に変換します (など&quot;593&quot;) 整数にします。 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)] |
-| `AsBool(), IsBool()` | ように文字列に変換します&quot;true&quot;または&quot;false&quot; Boolean 型にします。 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)] |
-| `AsFloat(), IsFloat()` | ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を浮動小数点数。 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)] |
-| `AsDecimal(), IsDecimal()` | ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を 10 進数。 (ASP.NET では、10 進数は、浮動小数点数よりも正確です。) | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)] |
-| `AsDateTime(), IsDateTime()` | Asp.net の日付と時刻の値を表す文字列に変換します`DateTime`型です。 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)] |
-| `ToString()` | その他の任意のデータ型を文字列に変換します。 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)] |
+
+|   <strong>メソッド</strong>    |                                                                              <strong>説明</strong>                                                                              |                     <strong>例</strong>                      |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+|      `AsInt(), IsInt()`      |                                                 数を示す整数を表す文字列に変換します (など&quot;593&quot;) 整数にします。                                                 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)] |
+|     `AsBool(), IsBool()`     |                                                    ように文字列に変換します&quot;true&quot;または&quot;false&quot; Boolean 型にします。                                                     | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)] |
+|    `AsFloat(), IsFloat()`    |                                    ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を浮動小数点数。                                    | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)] |
+|  `AsDecimal(), IsDecimal()`  | ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を 10 進数。 (ASP.NET では、10 進数は、浮動小数点数よりも正確です。) | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)] |
+| `AsDateTime(), IsDateTime()` |                                                Asp.net の日付と時刻の値を表す文字列に変換します`DateTime`型です。                                                 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)] |
+|         `ToString()`         |                                                                       その他の任意のデータ型を文字列に変換します。                                                                        | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)] |
 
 ## <a name="operators"></a>演算子
 
 演算子は、キーワードまたは ASP.NET を式の中で実行するコマンドの種類を示す文字です。 Visual Basic は、多くの演算子をサポートしていますが、ASP.NET web pages の開発を開始するいくつかを認識するだけです。 次の表は、最も一般的な演算子をまとめたものです。
 
-| **Operator** | **説明** | **例** |
-| --- | --- | --- |
-| `+ - * /` | 算術演算子: 数値式で使用します。 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)] |
-| `=` | 割り当てと等しいかどうか。 コンテキストに応じて、左側にあるオブジェクトにステートメントの右側にある値を割り当てますか、等しいかどうかの値をチェックします。 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)] |
-| `<>` | 非等値。 返します`True`値が等しくない場合。 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)] |
-| `< > <= >=` | 大きい、小さいよりまたは等しい、およびより大きいまたは等しいよりも小さいです。 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)] |
-| `&` | 連結、文字列の結合に使用します。 | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)] |
-| `+= -=` | インクリメントとデクリメント演算子を追加し、変数から 1 をそれぞれ減算します。 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)] |
-| `.` | ドットします。 オブジェクトとそのプロパティおよびメソッドを区別するために使用されます。 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)] |
-| `()` | かっこです。 、グループ式にパラメーターを渡すメソッド、および配列およびコレクションのメンバーにアクセスするために使用します。 | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)] |
-| `Not` | じゃない。 False またはその逆は真の値を反転させます。 通常、テストするための短縮形方法として使用`False`(用には、いない`True`)。 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)] |
-| `AndAlso OrElse` | 論理 AND 条件をまとめてリンクに使用されるかとします。 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)] |
+
+| <strong>Operator</strong> |                                                                        <strong>説明</strong>                                                                         |                         <strong>例</strong>                         |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+|         `+ - * /`         |                                                                算術演算子: 数値式で使用します。                                                                |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]     |
+|            `=`            | 割り当てと等しいかどうか。 コンテキストに応じて、左側にあるオブジェクトにステートメントの右側にある値を割り当てますか、等しいかどうかの値をチェックします。 |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]     |
+|           `<>`            |                                                           非等値。 返します`True`値が等しくない場合。                                                           |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]     |
+|        `< > <= >=`        |                                                   大きい、小さいよりまたは等しい、およびより大きいまたは等しいよりも小さいです。                                                   |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]     |
+|            `&`            |                                                                連結、文字列の結合に使用します。                                                                | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)] |
+|          `+= -=`          |                                       インクリメントとデクリメント演算子を追加し、変数から 1 をそれぞれ減算します。                                       |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]     |
+|            `.`            |                                                     ドットします。 オブジェクトとそのプロパティおよびメソッドを区別するために使用されます。                                                      |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]     |
+|           `()`            |                           かっこです。 、グループ式にパラメーターを渡すメソッド、および配列およびコレクションのメンバーにアクセスするために使用します。                           | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)] |
+|           `Not`           |                    じゃない。 False またはその逆は真の値を反転させます。 通常、テストするための短縮形方法として使用`False`(用には、いない`True`)。                     |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]     |
+|     `AndAlso OrElse`      |                                                       論理 AND 条件をまとめてリンクに使用されるかとします。                                                       |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]     |
 
 ## <a name="working-with-file-and-folder-paths-in-code"></a>ファイルとフォルダーのパス コードでの操作
 
@@ -443,7 +445,7 @@ ASP.NET の最も基本的なオブジェクトは、ページです。 オブ�
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample52.vbhtml)]
 
-配列、特定のデータ型を宣言するなど`String`、 `Integer`、または`DateTime`です。 変数が配列を含めることができます、宣言で変数名にかっこを追加することを示すために (など`Dim myVar() As String`)。 アイテムの位置 (インデックス) を使用して配列またはを使用してアクセスできます、`For Each`ステートメントです。 配列のインデックスは 0 から始まる &#8212;つまり、最初の項目がある位置 0、2 番目の項目位置は 1 とにします。
+配列、特定のデータ型を宣言するなど`String`、 `Integer`、または`DateTime`です。 変数が配列を含めることができます、宣言で変数名にかっこを追加することを示すために (など`Dim myVar() As String`)。 アイテムの位置 (インデックス) を使用して配列またはを使用してアクセスできます、`For Each`ステートメントです。 配列のインデックスは 0 から始まる&#8212;は、最初の項目がある位置 0、2 番目の項目位置は 1 というようにします。
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample53.vbhtml)]
 
@@ -475,7 +477,7 @@ ASP.NET の最も基本的なオブジェクトは、ページです。 オブ�
 
 このメソッドは、指定した仮想パスに対応するサーバーの物理パスを返します。 次の 3 つのパラメーター、メソッドは、 `virtualPath`、 `baseVirtualDir`、および`allowCrossAppMapping`です。 (宣言では、パラメーターが表示されることを承諾するデータのデータ型とに注意してください)。このメソッドを呼び出すときに、次の 3 つのすべてのパラメーターの値を指定してください。
 
-メソッドにパラメーターを渡すための 2 つのオプションを Visual Basic を使用して、Razor 構文を使用している場合がある:*位置指定パラメーター*または*名前付きパラメーター*です。 位置指定パラメーターを使用して、メソッドを呼び出すには、メソッドの宣言で指定されている厳密な順序でパラメーターを渡します。 (通常わかりますこの順序メソッドのドキュメントを読み取ることによってです。)注文を行う必要があり、パラメーターのいずれかの &#8212; をスキップすることはできません。かどうか必要に応じて、空の文字列を渡す (`""`) または null の値がない位置指定のパラメーターです。
+メソッドにパラメーターを渡すための 2 つのオプションを Visual Basic を使用して、Razor 構文を使用している場合がある:*位置指定パラメーター*または*名前付きパラメーター*です。 位置指定パラメーターを使用して、メソッドを呼び出すには、メソッドの宣言で指定されている厳密な順序でパラメーターを渡します。 (通常わかりますこの順序メソッドのドキュメントを読み取ることによってです。)、順序に従う必要があります、パラメーターのいずれかをスキップすることはできませんと&#8212;かどうか必要に応じて、空の文字列を渡す (`""`) またはの値がない位置指定パラメーターに null です。
 
 次の例は、という名前のフォルダーがある前提としています。*スクリプト*、web サイトにします。 コードの呼び出し、`Request.MapPath`メソッドとパスの値が正しい順序で 3 つのパラメーターです。 結果のマップされたパスが表示されます。
 
@@ -493,7 +495,7 @@ ASP.NET の最も基本的なオブジェクトは、ページです。 オブ�
 
 ### <a name="try-catch-statements"></a>Try-catch ステートメント
 
-ステートメントは、上の理由から、コントロールの外部できない可能性があるコードの多くの場合があります。 例:
+ステートメントは、上の理由から、コントロールの外部できない可能性があるコードの多くの場合があります。 例えば:
 
 - コードは、開く、作成、読み取り、またはファイルの書き込みを試みると、あらゆる種類のエラーが表示される場合があります。 目的のファイルが存在しない可能性があります、ロックされる可能性があります、コード可能性がありますいないアクセス許可を持つし、なります。
 - 同様に、コードでは、データベース内のレコードを更新しようとすると、アクセス許可の問題があります、データベースへの接続を削除する場合があります、無効な場合とに、データを保存する場合があります。

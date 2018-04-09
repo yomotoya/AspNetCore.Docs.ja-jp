@@ -1,7 +1,7 @@
 ---
-title: "Azure App Service の ASP.NET Core をトラブルシューティングします。"
+title: Azure App Service の ASP.NET Core をトラブルシューティングします。
 author: guardrex
-description: "ASP.NET Core Azure App Service の配置に関する問題を診断する方法を学習します。"
+description: ASP.NET Core Azure App Service の配置に関する問題を診断する方法を学習します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: e6a8404d3fe96a0136d7f874107b2cdf63e8e890
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 47056c80c7abf5dd5ad5ae96af7b821d31b21b8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service の ASP.NET Core をトラブルシューティングします。
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
-[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 この記事は、Azure App Service の診断ツールを使用してアプリの起動の問題、ASP.NET Core を診断する方法の手順を説明します。 他のトラブルシューティング アドバイスについては、次を参照してください。 [Azure App Service の診断の概要](/azure/app-service/app-service-diagnostics)と[する方法: Azure App Service でアプリの監視](/azure/app-service/web-sites-monitor)、Azure ドキュメントでします。
 
@@ -105,9 +105,9 @@ ASP.NET Core モジュールは、標準出力ログは、多くの場合、有�
 1. 選択**保存**ファイルを保存します。
 
 > [!WARNING]
-> エラーを標準出力ログを無効にするは、アプリケーションまたはサーバーの障害につながります。 ログ ファイルのサイズまたは作成されるログ ファイルの数に制限はありません。
+> エラーを標準出力ログを無効にするは、アプリケーションまたはサーバーの障害につながります。 ログ ファイルのサイズまたは作成されるログ ファイルの数に制限はありません。 Stdout アプリの起動の問題のトラブルシューティングのログ記録のみを使用します。
 >
-> ASP.NET Core アプリケーションの日常的なログ記録、ログ ファイルのサイズを制限し、ログを回転するログ記録ライブラリを使用します。 詳細については、次を参照してください。[サード パーティ製のログ記録プロバイダー](xref:fundamentals/logging/index#third-party-logging-providers)です。
+> [全般]、ログ記録の ASP.NET Core アプリケーションの起動後に、ログ ファイルのサイズを制限し、ログを回転するログ記録ライブラリを使用します。 詳細については、次を参照してください。[サード パーティ製のログ記録プロバイダー](xref:fundamentals/logging/index#third-party-logging-providers)です。
 
 ## <a name="common-startup-errors"></a>起動の一般的なエラー 
 

@@ -1,26 +1,26 @@
 ---
 uid: aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
-title: "ホストする Azure Worker ロールで OWIN |Microsoft ドキュメント"
+title: ホストする Azure Worker ロールで OWIN |Microsoft ドキュメント
 author: MikeWasson
-description: "このチュートリアルでは、Microsoft Azure ワーカー ロールで OWIN を自己ホストする方法を示します。 Open Web Interface の .NET (OWIN) では、.NET の web サーバー間の抽象化を定義しています."
+description: このチュートリアルでは、Microsoft Azure ワーカー ロールで OWIN を自己ホストする方法を示します。 Open Web Interface の .NET (OWIN) では、.NET の web サーバー間の抽象化を定義しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/11/2014
 ms.topic: article
 ms.assetid: 07aa855a-92ee-4d43-ba66-5bfd7de20ee6
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 8c0fdfdf60ff3bde34b6869adf3f8693b4d9615d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 13bccc4b2d6f1b22c94446deaf6795dab766275b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="host-owin-in-an-azure-worker-role"></a>ホストする Azure Worker ロールで OWIN
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
 > このチュートリアルでは、Microsoft Azure ワーカー ロールで OWIN を自己ホストする方法を示します。
 > 
@@ -119,7 +119,7 @@ WorkerRole.cs の完全なコードを次に示します。
 
 [![](host-owin-in-an-azure-worker-role/_static/image10.png)](host-owin-in-an-azure-worker-role/_static/image9.png)
 
-サービスの展開、展開 [id]、サービスの詳細情報の下の IP アドレスを検索します。 Web ブラウザーを開き、http:// に移動*アドレス*ここで、*アドレス*;、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、`http://127.0.0.1:80`です。 OWIN へようこそ ページを参照する必要があります。
+サービスの展開、展開 [id]、サービスの詳細情報の下の IP アドレスを検索します。 Web ブラウザーを開き、http:// に移動<em>アドレス</em>ここで、<em>アドレス</em>;、コンピューティング エミュレーターによって割り当てられた IP アドレスは、たとえば、`http://127.0.0.1:80`です。 OWIN へようこそ ページを参照する必要があります。
 
 ![](host-owin-in-an-azure-worker-role/_static/image11.png)
 

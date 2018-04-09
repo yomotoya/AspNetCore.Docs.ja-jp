@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-cs
-title: "ASP.NET ホスト オプション (c#) |Microsoft ドキュメント"
+title: ASP.NET ホスト オプション (c#) |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET web アプリケーションでは通常、設計し作成されると、ローカル開発環境でテストし、実稼働環境 o に配置する必要があります."
+description: ASP.NET web アプリケーションでは通常、設計し作成されると、ローカル開発環境でテストし、実稼働環境 o に配置する必要があります.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 34e1f9c7ee1ae22bceb614eeeaa1ebe286c1ccad
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6f8bb0e5a34d84d448af56285e8761c447229f7d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-hosting-options-c"></a>ASP.NET ホスト オプション (c#)
 ====================
@@ -95,5 +95,5 @@ ASP.NET web アプリケーションは通常設計、作成され、ローカ�
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Teresa マーフィーしました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[ mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)です。
 
->[!div class="step-by-step"]
-[次へ](determining-what-files-need-to-be-deployed-cs.md)
+> [!div class="step-by-step"]
+> [次へ](determining-what-files-need-to-be-deployed-cs.md)

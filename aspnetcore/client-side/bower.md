@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core での Bower を使用"
+title: ASP.NET Core での Bower でクライアント側のパッケージを管理します。
 author: rick-anderson
-description: "Bower でクライアント側のパッケージを管理します。"
+description: Bower でクライアント側のパッケージを管理します。
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: 67695843846cfaf1619db11a7bffcc65802e0f69
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 81244cfb71194876071c64899d627c296aad3802
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET Core での Bower でクライアント側のパッケージを管理します。
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/02/2018
 
 * **Bower:\<プロジェクト名\>**ウィンドウで、「参照」 タブをクリックし、入力することで、パッケージ の一覧をフィルター`font-awesome`検索ボックスに。
 
- ![bower パッケージを管理します。](bower/_static/manage-bower-packages.png)
+  ![bower パッケージを管理します。](bower/_static/manage-bower-packages.png)
 
 * いることを確認します"に変更を保存*bower.json*"チェック ボックスをオンします。 ドロップダウン リストからバージョンを選択し、**インストール**ボタンをクリックします。 **出力**ウィンドウは、インストールの詳細を表示します。
 
@@ -100,9 +100,9 @@ Bower でクライアント側のビルド プロセスを使用する一般的�
 
 * 保存、 *bower.json*ファイル。
 
- プロジェクトに含まれることを確認、*ブートス トラップ*と*jQuery*ディレクトリ*wwwroot/lib*です。 Bower 使用して、 *.bowerrc*ファイル内の資産をインストールする*wwwroot/lib*です。
+  プロジェクトに含まれることを確認、*ブートス トラップ*と*jQuery*ディレクトリ*wwwroot/lib*です。 Bower 使用して、 *.bowerrc*ファイル内の資産をインストールする*wwwroot/lib*です。
 
- 注:「Bower パッケージの管理」の UI は、手動ファイルを編集する代わりにを提供します。
+  注:「Bower パッケージの管理」の UI は、手動ファイルを編集する代わりにを提供します。
 
 ### <a name="enable-static-files"></a>静的なファイルを有効にします。
 
@@ -117,10 +117,10 @@ Bower でクライアント側のビルド プロセスを使用する一般的�
 
 * という名前の新しい HTML ページを追加*Index.html*を*wwwroot*フォルダーです。 注: HTML ファイルを追加する必要があります、 *wwwroot*フォルダーです。 既定では、外部の静的なコンテンツを処理できない*wwwroot*です。 参照してください[静的ファイルで作業](xref:fundamentals/static-files)詳細についてはします。
 
- 内容を置き換える*Index.html*次のマークアップ。
+  内容を置き換える*Index.html*次のマークアップ。
 
 [!code-html[](bower/sample/Index.html)]
 
 * アプリを実行してに移動`http://localhost:<port>/Index.html`です。 代わりに、 *Index.html*開くと、キーを押して`Ctrl+Shift+W`です。 Jumbotron スタイルが適用される、jQuery コード応答、ボタンがクリックされたときに、ブートス トラップのボタンが状態を変更することを確認します。
 
- ![適用される jumbotron スタイル](bower/_static/jumbotron.png)
+  ![適用される jumbotron スタイル](bower/_static/jumbotron.png)

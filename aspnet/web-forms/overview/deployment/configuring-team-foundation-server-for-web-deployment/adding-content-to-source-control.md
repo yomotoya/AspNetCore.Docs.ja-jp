@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
-title: "ソース管理へのコンテンツの追加 |Microsoft ドキュメント"
+title: ソース管理へのコンテンツの追加 |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、ソース管理では、Team Foundation Server (TFS) 2010 にコンテンツを追加する方法について説明します。 ソリューションとプロジェクトをチーム プロジェクトに追加する方法を説明しています."
+description: このトピックでは、ソース管理では、Team Foundation Server (TFS) 2010 にコンテンツを追加する方法について説明します。 ソリューションとプロジェクトをチーム プロジェクトに追加する方法を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: d46e2697d10ca27f8e08533350a6e7f2354b4a43
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c9c3a506d2745a6793661453a293732429d3e46e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-content-to-source-control"></a>ソース管理へのコンテンツの追加
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/15/2018
 > このトピックでは、ソース管理では、Team Foundation Server (TFS) 2010 にコンテンツを追加する方法について説明します。 ソリューションとプロジェクトを TFS では、チーム プロジェクトに追加する方法を説明し、フレームワーク、またはアセンブリのような外部の依存関係をソース管理に追加する方法について説明します。
 
 
-このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。サンプル ソリューション & #x 2014; このチュートリアルのシリーズを使用して、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; を ASP.NET MVC 3 アプリケーションを Windows のなどの複雑性のレベルが現実的な web アプリケーションを表すCommunication Foundation (WCF) サービスとデータベース プロジェクト。
+このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルの一連のサンプル ソリューションを使用する&#x2014;、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的な ASP.NET MVC 3 アプリケーション、Windows Communication も含め、複雑さのレベルを持つ web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
 ## <a name="task-overview"></a>タスクの概要
 
@@ -157,6 +157,6 @@ ms.lasthandoff: 03/15/2018
 
 TFS でのソース管理の操作に関する包括的な情報は、次を参照してください。[を使用してバージョン管理](https://msdn.microsoft.com/library/ms181368.aspx)です。
 
->[!div class="step-by-step"]
-[前へ](creating-a-team-project-in-tfs.md)
-[次へ](configuring-a-tfs-build-server-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [前へ](creating-a-team-project-in-tfs.md)
+> [次へ](configuring-a-tfs-build-server-for-web-deployment.md)

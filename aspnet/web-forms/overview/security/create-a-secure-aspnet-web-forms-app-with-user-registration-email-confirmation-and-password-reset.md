@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
-title: "電子メールの確認とパスワードのリセット (c#) でユーザー登録、セキュリティで保護された ASP.NET Web フォーム アプリを作成 |Microsoft ドキュメント"
+title: 電子メールの確認とパスワードのリセット (c#) でユーザー登録、セキュリティで保護された ASP.NET Web フォーム アプリを作成 |Microsoft ドキュメント
 author: Erikre
-description: "このチュートリアルでは、ユーザー登録、確認の電子メール、ASP.NET Identity のメンバーを使用してパスワード リセットと ASP.NET Web フォーム アプリケーションをビルドする方法を示します."
+description: このチュートリアルでは、ユーザー登録、確認の電子メール、ASP.NET Identity のメンバーを使用してパスワード リセットと ASP.NET Web フォーム アプリケーションをビルドする方法を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/02/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: ed39295ed1bcaa924336a1faf52049e291abeadb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1dc7ace69473b45432fd942b9cf1ba32332cb707
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>電子メールの確認とパスワードのリセット (c#) でユーザー登録、セキュリティで保護された ASP.NET Web フォーム アプリを作成します。
 ====================
@@ -104,9 +104,9 @@ ms.lasthandoff: 01/24/2018
 2. **ソリューション エクスプ ローラー**を右クリックして*Default.aspx*選択**スタート ページとして設定**です。
 3. キーを押して、アプリの実行**f5 キーを押します。** ページが表示されたら、クリックして、**登録**登録ページを表示するリンクです。
 4. 電子メールとパスワードを入力し、クリックして、**登録**SendGrid を使用して電子メール メッセージを送信するボタンをクリックします。  
- プロジェクトとコードの現在の状態は、ユーザーが自分のアカウントを確認していない場合でも、登録フォームを完了するログインを許可します。
+   プロジェクトとコードの現在の状態は、ユーザーが自分のアカウントを確認していない場合でも、登録フォームを完了するログインを許可します。
 5. 電子メール アカウントを確認し、電子メールを確認するリンクをクリックします。  
- 登録フォームを送信すると後ログ記録します。  
+   登録フォームを送信すると後ログ記録します。  
     ![サンプル web サイトのサインイン](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/_static/image4.png)
 
 <a id="require"></a>
@@ -146,9 +146,9 @@ ms.lasthandoff: 01/24/2018
 4. キーを押して、アプリの実行**f5 キーを押します。** ページが表示されたら、クリックして、**ログイン**リンクします。
 5. クリックして、**パスワードを忘れた場合ですか?**表示へのリンク、**パスワードを忘れた場合**ページ。
 6. 電子メール アドレスを入力し、をクリックして、**送信**電子メール アドレスに送信する、パスワードをリセットできるボタンをクリックします。   
- 電子メール アカウントを確認し、表示するリンクをクリックして、**パスワードのリセット**ページ。
+   電子メール アカウントを確認し、表示するリンクをクリックして、**パスワードのリセット**ページ。
 7. **パスワードのリセット** ページで、電子メール、パスワード、および確認入力したパスワードを入力します。 次に、キーを押して、**リセット**ボタンをクリックします。  
- パスワードを正常にリセットすると、**パスワード変更**ページが表示されます。 これで、新しいパスワードでログインできます。
+   パスワードを正常にリセットすると、**パスワード変更**ページが表示されます。 これで、新しいパスワードでログインできます。
 
 <a id="rsend"></a>
 ## <a name="resend-email-confirmation-link"></a>再送信する電子メールの確認のリンク
@@ -167,7 +167,7 @@ ms.lasthandoff: 01/24/2018
 4. 内の任意のアカウントを削除、 **AspNetUsers**をテストする電子メールのエイリアスを含むテーブル。
 5. アプリを実行する (**f5 キーを押して**) と、電子メール アドレスを登録します。
 6. だけに送信された電子メールを使用して、新しいアカウントを確認するには、前に、新しいアカウントでログインを試みます。  
- いないことにログインできなくなります、確認の電子メール アカウントに必要なが表示されます。 さらに、電子メール アカウントに今すぐ確認メッセージを再送信することができます。
+   いないことにログインできなくなります、確認の電子メール アカウントに必要なが表示されます。 さらに、電子メール アカウントに今すぐ確認メッセージを再送信することができます。
 7. 電子メール アドレスとパスワードを入力し、キーを押します、**確認を再送信**ボタンをクリックします。
 8. 新しく送信した電子メール メッセージに基づく電子メール アドレスのことを確認したら、アプリにログインします。
 

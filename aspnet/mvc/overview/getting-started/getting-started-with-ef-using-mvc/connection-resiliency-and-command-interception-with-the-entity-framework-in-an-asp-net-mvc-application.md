@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "接続の回復と Entity Framework、ASP.NET MVC アプリケーションでのコマンド インターセプト |Microsoft ドキュメント"
+title: 接続の回復と Entity Framework、ASP.NET MVC アプリケーションでのコマンド インターセプト |Microsoft ドキュメント
 author: tdykstra
-description: "Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています."
+description: Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/13/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 1a28284e203904cc943e5e46b369e8a58ea5c820
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4a43a9120bf3fa69b00b234d65d0f59d3ce9975b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>接続の回復と Entity Framework、ASP.NET MVC アプリケーションでのコマンドの途中受信
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 01/24/2018
 
 [完成したプロジェクトをダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)または[PDF のダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
-> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio 2013 を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 一連のチュートリアルについては、次を参照してください。[系列内の最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。
+> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio 2013 を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
 
 
 これまで、アプリケーションが実行されているローカル IIS Express で開発用コンピューター上。 を実際のアプリケーションを他の人にインターネット経由で使用できるようにするには、web ホスティング プロバイダー、を展開して、データベース サーバーにデータベースを配置する必要があります。
@@ -60,7 +60,7 @@ Windows Azure にアプリケーションを展開するときに Windows Azure 
 3. *StudentController.cs*、追加、`using`の声明`System.Data.Entity.Infrastructure`です。
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
-4. すべての変更、`catch`その catch ブロック`DataException`例外見つけられるように`RetryLimitExceededException`例外代わりにします。 例:
+4. すべての変更、`catch`その catch ブロック`DataException`例外見つけられるように`RetryLimitExceededException`例外代わりにします。 例えば:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs?highlight=1)]
 
@@ -179,6 +179,6 @@ A[ベスト プラクティスのログ記録](../../../../aspnet/overview/devel
 
 その他の Entity Framework リソースへのリンクは含まれて[ASP.NET データ アクセス - リソースのことをお勧め](../../../../whitepapers/aspnet-data-access-content-map.md)です。
 
->[!div class="step-by-step"]
-[前へ](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[次へ](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [前へ](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [次へ](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Async および Entity Framework、ASP.NET MVC アプリケーションでのストアド プロシージャ |Microsoft ドキュメント"
+title: Async および Entity Framework、ASP.NET MVC アプリケーションでのストアド プロシージャ |Microsoft ドキュメント
 author: tdykstra
-description: "Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています."
+description: Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 7412b32ac29179dfa319544781d4c7165c58196b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 84cf427c7da7905444568ac34534e9ed98a7d8c8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Async および Entity Framework、ASP.NET MVC アプリケーションでのストアド プロシージャ
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 01/24/2018
 
 [完成したプロジェクトをダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)または[PDF のダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
-> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio 2013 を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 一連のチュートリアルについては、次を参照してください。[系列内の最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。
+> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio 2013 を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
 
 
 前のチュートリアルでは、読み取りし、同期プログラミング モデルを使用してデータを更新する方法について学習しました。 このチュートリアルでは、非同期プログラミング モデルを実装する方法について参照してください。 非同期コードには、サーバーのリソースを効率的に使用可能になったためにでパフォーマンスが向上するアプリケーションが役立ちます。
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/24/2018
 
 最後に、と共に展開した最初の時刻以降に実装しているデータベースの変更のすべての Azure にアプリケーションを再展開します。
 
-次の図を使って作業するページの一部を表示します。
+以下の図は、使用するページの一部を示しています。
 
 ![部門ページ](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="why-bother-with-asynchronous-code"></a>非同期コードの必要はありません。
 
-Web サーバーは、使用可能なスレッド数を限定を持ち、負荷が高い状況でのすべての利用可能なスレッドがありますで使用します。 そのような場合は、サーバーは、スレッドが解放されるまで新しい要求を処理できません。 同期コードはの I/O 完了を待機しているため、実際には、作業の実行されない中に多数のスレッド関連付ける可能性があります。 非同期コードは、プロセスが完了するには I/O の待機している場合、他の要求を処理するために使用するサーバー用に、スレッドが解放されます。 その結果、非同期のコードより効率的に使用し、遅延なしのより多くのトラフィックを処理するサーバーを有効にするサーバーのリソースが有効です。
+Web サーバーでは、利用できるスレッド数に限りがあります。負荷が高い状況では、利用できるスレッドが全部使われる可能性があります。 その場合、スレッドが解放されるまでサーバーは新しい要求を処理できません。 同期コードの場合、たくさんのスレッドが関連付けられていても、I/O の完了を待っているため、実際には何の作業も行っていないということがあります。 非同期コードの場合、あるプロセスが I/O の完了を待っているとき、多の要求の処理にサーバーが利用できるようにそのスレッドが解放されます。 その結果、非同期のコードより効率的に使用し、遅延なしのより多くのトラフィックを処理するサーバーを有効にするサーバーのリソースが有効です。
 
 .NET の以前のバージョンで作成および非同期コードのテストが複雑で、エラーが発生しやすく、デバッグが困難にします。 .NET 4.5、記述、テスト、および非同期コードのデバッグはずっと簡単に理由がない限り、非同期コードを記述する、一般にする必要があります。 非同期のコードは少量のオーバーヘッドを導入がトラフィックが少ない場合は、パフォーマンスに影響はごくわずかであり、中に大量のトラフィックの場合、潜在的なパフォーマンスが向上大きくします。
 
@@ -99,7 +99,7 @@ Web サーバーは、使用可能なスレッド数を限定を持ち、負荷�
 Entity framework 非同期プログラミングを使用する場合の注意すべき点がいくつか:
 
 - 非同期コードは、スレッド セーフではありません。 つまり、つまり、しないでください、同じコンテキスト インスタンスを使用して並列に複数の操作を実行します。
-- 非同期コードのパフォーマンスの利点を活用、任意のライブラリのパッケージにあるかどうかを確認する場合、(ページングなど) を使用している、データベースに送信されるクエリを Entity Framework メソッドを呼び出す場合にも非同期を使用します。
+- 非同期コードのパフォーマンス上の利点を最大限に活用する場合、(ページングなどのために) ライブラリ パッケージを利用しているのであれば、それがクエリをデータベースに送信させる Entity Framework メソッドを呼び出す場合、非同期を利用する必要があります。
 
 ## <a name="use-stored-procedures-for-inserting-updating-and-deleting"></a>挿入、更新、および削除のストアド プロシージャを使用します。
 
@@ -117,16 +117,16 @@ Entity framework 非同期プログラミングを使用する場合の注意す
     開いている*移行\&lt; タイムスタンプ&gt;\_DepartmentSP.cs*でコードを確認する、`Up`を作成するメソッドの挿入、更新、および Delete ストアド プロシージャ。
 
     [!code-csharp[Main](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs?highlight=3-4,26-27,42-43)]
-- パッケージの管理コンソールで、次のコマンドを入力します。
+3. パッケージの管理コンソールで、次のコマンドを入力します。
 
-    `update-database`
-- アプリケーションをデバッグ モードで実行 をクリックして、**部門** タブをクリックして**新規作成**です。
-- 新しい部門の場合は、データを入力し、クリックして**作成**です。
+     `update-database`
+4. アプリケーションをデバッグ モードで実行 をクリックして、**部門** タブをクリックして**新規作成**です。
+5. 新しい部門の場合は、データを入力し、クリックして**作成**です。
 
-    ![部門を作成します。](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
-- Visual Studio でのログを確認、**出力**を新しい部門行を挿入するストアド プロシージャが使用されたことを表示するウィンドウです。
+     ![部門を作成します。](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
+6. Visual Studio でのログを確認、**出力**を新しい部門行を挿入するストアド プロシージャが使用されたことを表示するウィンドウです。
 
-    ![部門挿入 SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
+     ![部門挿入 SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
 コードは、最初に格納されている既定のプロシージャ名を作成します。 既存のデータベースを使用している場合は、データベースで既に定義されているストアド プロシージャを使用するためにストアド プロシージャ名をカスタマイズする必要があります。 実行する方法については、次を参照してください。 [Entity Framework コード最初挿入/更新/削除ストアド プロシージャ](https://msdn.microsoft.com/data/dn468673)です。
 
@@ -152,6 +152,6 @@ Entity framework 非同期プログラミングを使用する場合の注意す
 
 その他の Entity Framework リソースへのリンクは含まれて、 [ASP.NET データ アクセス - リソースのことをお勧め](../../../../whitepapers/aspnet-data-access-content-map.md)です。
 
->[!div class="step-by-step"]
-[前へ](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[次へ](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [前へ](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [次へ](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)

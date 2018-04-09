@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-vb
-title: "アクション フィルター (VB) を理解する |Microsoft ドキュメント"
+title: アクション フィルター (VB) を理解する |Microsoft ドキュメント
 author: microsoft
-description: "このチュートリアルの目的では、アクション フィルターをについて説明します。 コント ローラーのアクションまたはコント ローラー全体に適用可能な属性をアクション フィルターには."
+description: このチュートリアルの目的では、アクション フィルターをについて説明します。 コント ローラーのアクションまたはコント ローラー全体に適用可能な属性をアクション フィルターには.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 483133ec5db27c2fa1ed4b463e37e17efab12e0f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2796b67cba6a2ddaee7a006a170dfb7e5ff89888
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-action-filters-vb"></a>アクション フィルター (VB) を理解します。
 ====================
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/10/2017
 
 リスト 1 のデータのコント ローラーがという名前のアクションを公開するなど、`Index()`現在の時刻を返します。 この操作で装飾されて、`OutputCache`アクション フィルター。 このフィルターによって、10 秒間キャッシュに保存する操作によって返される値。
 
-**1 – を一覧表示します。`Controllers\DataController.vb`**
+**1 – を一覧表示します。 `Controllers\DataController.vb`**
 
 [!code-vb[Main](understanding-action-filters-vb/samples/sample1.vb)]
 
@@ -103,7 +103,7 @@ ASP.NET MVC フレームワークにはやすくためにカスタム アクシ�
 
 カスタム アクション フィルターを構築する方法がわかるようにするために、Visual Studio 出力ウィンドウをコント ローラーのアクションを処理の段階をログに記録するカスタム アクション フィルターを作成します。 当社`LogActionFilter`2 のリストに含まれています。
 
-**2 – を一覧表示します。`ActionFilters\LogActionFilter.vb`**
+**2 – を一覧表示します。 `ActionFilters\LogActionFilter.vb`**
 
 [!code-vb[Main](understanding-action-filters-vb/samples/sample2.vb)]
 
@@ -117,16 +117,16 @@ ASP.NET MVC フレームワークにはやすくためにカスタム アクシ�
 
 3 の一覧で、Home コント ローラーは、全体のコント ローラー クラスに、ログのアクション フィルターを適用する方法を示しています。 ときに、Home コント ローラーによって公開される操作のいずれかが呼び出される – か、`Index()`メソッドまたは`About()`メソッド – アクションは、Visual Studio の出力ウィンドウにログ記録処理の段階です。
 
-**3 – を一覧表示します。`Controllers\HomeController.vb`**
+**3 – を一覧表示します。 `Controllers\HomeController.vb`**
 
 [!code-vb[Main](understanding-action-filters-vb/samples/sample3.vb)]
 
-### <a name="summary"></a>概要
+### <a name="summary"></a>まとめ
 
 このチュートリアルでは、ASP.NET MVC アクション フィルターに導入されました。 次の 4 つの異なる種類のフィルターについて説明しました。 承認フィルター、アクション フィルター、結果フィルター、および例外フィルター。 基本についても学びました`ActionFilterAttribute`クラスです。
 
 最後に、簡単なアクション フィルターを実装する方法を学習します。 Visual Studio の出力ウィンドウにコント ローラーのアクションを処理の段階をログに記録するログ アクション フィルターを作成しました。
 
->[!div class="step-by-step"]
-[前へ](asp-net-mvc-routing-overview-vb.md)
-[次へ](improving-performance-with-output-caching-vb.md)
+> [!div class="step-by-step"]
+> [前へ](asp-net-mvc-routing-overview-vb.md)
+> [次へ](improving-performance-with-output-caching-vb.md)

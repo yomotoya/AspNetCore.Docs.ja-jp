@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core Identity なしで認証に Cookie を使用します。"
+title: ASP.NET Core Id なしの cookie 認証を使用します。
 author: rick-anderson
-description: "ASP.NET Core Id なしの cookie 認証を使用しての説明"
+description: ASP.NET Core Id なしの cookie 認証を使用しての説明
 manager: wpickett
 ms.author: riande
 ms.date: 10/11/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/cookie
-ms.openlocfilehash: bbc49a0d3ede66ad07ec3f1dea055cae5fec39ff
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 26101d46557c64047f3d121083fe34ad34ff99ea
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="using-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core Identity なしで認証に Cookie を使用します。
+# <a name="use-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core Id なしの cookie 認証を使用します。
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)と[Luke Latham](https://github.com/guardrex)
 
@@ -27,8 +27,7 @@ ASP.NET Core から移行する cookie ベースの認証の詳細について 1
 
 ## <a name="configuration"></a>構成
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 使用しない場合、 [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage)、バージョン 2.0 以降のインストール、 [Microsoft.AspNetCore.Authentication.Cookies](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Cookies/) NuGet パッケージです。
 
 `ConfigureServices`メソッドを使用して、認証ミドルウェア サービスを作成、`AddAuthentication`と`AddCookie`メソッド。
@@ -78,8 +77,7 @@ services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 ASP.NET Core 1.x 使用 cookie[ミドルウェア](xref:fundamentals/middleware/index)暗号化された cookie にユーザー プリンシパルをシリアル化します。 以降の要求でクッキーが検証され、プリンシパルが再作成されに割り当てられている、`HttpContext.User`プロパティです。
 
 インストール、 [Microsoft.AspNetCore.Authentication.Cookies](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Cookies/)プロジェクトでの NuGet パッケージです。 このパッケージには、cookie ミドルウェアが含まれています。
@@ -124,8 +122,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 });
 ```
 
----
-
+* * *
 ## <a name="cookie-policy-middleware"></a>Cookie ポリシー ミドルウェア
 
 [Cookie ポリシー ミドルウェア](/dotnet/api/microsoft.aspnetcore.cookiepolicy.cookiepolicymiddleware)アプリ内で cookie ポリシーの機能を有効にします。 機密性の高い; 順序は、アプリの処理パイプラインにミドルウェアを追加します。パイプラインの後に登録されているコンポーネントのみに影響します。
@@ -167,14 +164,12 @@ Cookie のポリシーのミドルウェアの設定`MinimumSameSitePolicy`の�
 
 ユーザー情報を保持する cookie を作成、構築する必要があります、 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)です。 ユーザー情報がシリアル化され、cookie に格納されています。 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 作成、 [ClaimsIdentity](/dotnet/api/system.security.claims.claimsidentity)で必要な[クレーム](/dotnet/api/system.security.claims.claim)s と呼び出し[SignInAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signinasync?view=aspnetcore-2.0)ユーザーにサインインします。
 
 [!code-csharp[](cookie/sample/Pages/Account/Login.cshtml.cs?name=snippet1)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 呼び出す[SignInAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.signinasync?view=aspnetcore-1.1)ユーザーにサインインします。
 
 ```csharp
@@ -183,22 +178,19 @@ await HttpContext.Authentication.SignInAsync(
     new ClaimsPrincipal(claimsIdentity));
 ```
 
----
-
+* * *
 `SignInAsync` 暗号化された cookie を作成し、現在の応答に追加します。 指定しない場合は、`AuthenticationScheme`既定のスキームを使用します。
 
 背後で使用される暗号化は ASP.NET Core[データ保護](xref:security/data-protection/using-data-protection#security-data-protection-getting-started)システムです。 複数のコンピューター、アプリでは、間における負荷分散または web ファーム上のアプリをホストしているかどうかは、する必要があります[データ保護を構成する](xref:security/data-protection/configuration/overview)同じキーのリングとアプリ id を使用します。
 
 ## <a name="signing-out"></a>サインアウト
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 現在のユーザーをサインアウトし、その cookie を削除、 [SignOutAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signoutasync?view=aspnetcore-2.0):
 
 [!code-csharp[](cookie/sample/Pages/Account/Login.cshtml.cs?name=snippet2)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 現在のユーザーをサインアウトし、その cookie を削除、 [SignOutAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1.signoutasync?view=aspnetcore-1.1):
 
 ```csharp
@@ -206,8 +198,7 @@ await HttpContext.Authentication.SignOutAsync(
     CookieAuthenticationDefaults.AuthenticationScheme);
 ```
 
----
-
+* * *
 使用しない場合`CookieAuthenticationDefaults.AuthenticationScheme`(または"Cookie")、スキーム (たとえば、"ContosoCookie") として認証プロバイダーを構成するときに使用するスキームを指定します。 それ以外の場合、既定のスキームが使用されます。
 
 ## <a name="reacting-to-back-end-changes"></a>バックエンドの変更に反応します。

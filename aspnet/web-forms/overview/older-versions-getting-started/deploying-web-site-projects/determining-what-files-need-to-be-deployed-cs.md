@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-cs
-title: "展開する必要があるファイルを決定する (c#) |Microsoft ドキュメント"
+title: 展開する必要があるファイルを決定する (c#) |Microsoft ドキュメント
 author: rick-anderson
-description: "開発環境から実稼働環境に展開する必要があるファイル一部異なるかどうか、ASP.NET アプリケーションがビルドされた us."
+description: 開発環境から実稼働環境に展開する必要があるファイル一部異なるかどうか、ASP.NET アプリケーションがビルドされた us.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d58956323275a46b44b36d4f19db4d2f607e3916
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ff5f1d7d156efa12d97382db56211a07c43178fd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="determining-what-files-need-to-be-deployed-c"></a>展開する必要があるファイルを決定する (c#)
 ====================
@@ -80,14 +80,14 @@ Microsoft は、Visual Studio 2005 Service Pack 1 を離したときに、Web �
 - 7 つの異なる ASP.NET ページ: 
 
     - ~`/Default.aspx`-サイトのホーム ページです。
-    - ~`/About.aspx`-「はサイトは、」ページ。
-    - ~`/Fiction/Default.aspx`-は確認済みフィクションの書籍を一覧表示するページ。 
+    - ~`/About.aspx` -「はサイトは、」ページ。
+    - ~`/Fiction/Default.aspx` -は確認済みフィクションの書籍を一覧表示するページ。 
 
-        - ~`/Fiction/Blaze.aspx`-Richard Bachman novel のレビュー *Blaze*です。
-    - ~/`Tech/Default.aspx`-確認されているテクノロジ書籍を一覧表示するページ。 
+        - ~`/Fiction/Blaze.aspx` -Richard Bachman novel のレビュー *Blaze*です。
+    - ~/`Tech/Default.aspx` -確認されているテクノロジ書籍を一覧表示するページ。 
 
         - ~/`Tech/CYOW.aspx`-のレビュー*作成独自の web サイトの*します。
-        - ~/`Tech/TYASP35.aspx`-のレビュー*学べる自分で ASP.NET 3.5 24 時間以内に*です。
+        - ~/`Tech/TYASP35.aspx` -のレビュー*学べる自分で ASP.NET 3.5 24 時間以内に*です。
 - 次の 3 つの異なる CSS ファイル、Styles フォルダーにします。
 - 4 つのイメージ ファイルの ASP.NET のロゴ、3 つの確認済みのブックのカバーの画像で Powered - すべてにある、`Images`フォルダーです。
 - A`Web.sitemap`サイト マップを定義し、メニューを表示するために使用するファイル、`Default.aspx`ルート ディレクトリ内のページと`Fiction`と`Tech`フォルダーです。
@@ -185,6 +185,6 @@ Web サイト プロジェクト モデルがわかるように今後のチュ�
 - [Visual Studio 2005 Web サイト プロジェクト システム: の説明となぜこのようなことですか?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
 - [チュートリアル: Web サイト プロジェクトを Visual Studio で Web アプリケーション プロジェクトに変換します。](https://msdn.microsoft.com/library/aa983476.aspx)
 
->[!div class="step-by-step"]
-[前へ](asp-net-hosting-options-cs.md)
-[次へ](deploying-your-site-using-an-ftp-client-cs.md)
+> [!div class="step-by-step"]
+> [前へ](asp-net-hosting-options-cs.md)
+> [次へ](deploying-your-site-using-an-ftp-client-cs.md)

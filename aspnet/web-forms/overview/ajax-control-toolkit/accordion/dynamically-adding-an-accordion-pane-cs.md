@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-cs
-title: "アコーディオンのウィンドウ (c#) を動的に追加する |Microsoft ドキュメント"
+title: アコーディオンのウィンドウ (c#) を動的に追加する |Microsoft ドキュメント
 author: wenz
-description: "AJAX コントロールのツールキットでアコーディオン コントロールは、複数のペインがあり、時にそれらのいずれかを表示することができます。 パネルは通常、w を宣言しています."
+description: AJAX コントロールのツールキットでアコーディオン コントロールは、複数のペインがあり、時にそれらのいずれかを表示することができます。 パネルは通常、w を宣言しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1c6af79186ca21082647beec500c47974a47c35a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ad2fc6ea3d527215c0226f3f594d781163d538b5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-adding-an-accordion-pane-c"></a>アコーディオンのウィンドウ (c#) を動的に追加します。
 ====================
@@ -62,6 +62,6 @@ Pane(s) を最後に、追加する必要があります、`Panes`アコーデ�
 
 アコーディオン内のデータはサーバー側コードによって動的に追加されました ([フルサイズのイメージを表示するをクリックして](dynamically-adding-an-accordion-pane-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](databinding-to-an-accordion-cs.md)
-[次へ](databinding-to-an-accordion-vb.md)
+> [!div class="step-by-step"]
+> [前へ](databinding-to-an-accordion-cs.md)
+> [次へ](databinding-to-an-accordion-vb.md)

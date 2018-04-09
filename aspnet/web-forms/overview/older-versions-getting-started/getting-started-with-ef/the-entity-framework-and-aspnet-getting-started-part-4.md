@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-4
-title: "データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォーム - パート 4 |Microsoft ドキュメント"
+title: データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォーム - パート 4 |Microsoft ドキュメント
 author: tdykstra
-description: "Contoso 大学でサンプル web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、."
+description: Contoso 大学でサンプル web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 06d129384fc78db21ad1b9224781deab6a0e91a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6bea5f4faeb0a9c11a406a7e4e87c4929eda6a18
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-4"></a>データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォーム - パート 4
 ====================
@@ -165,6 +165,6 @@ Office の割り当てのテキスト ボックスへの参照を保持するた
 
 関連するデータを操作する方法はいくつか見てきました。 次のチュートリアルでは、既存のエンティティ間のリレーションシップを追加する方法が学習を既存のエンティティへのリレーションシップを持つ新しいエンティティを追加する方法と、リレーションシップを削除する方法です。
 
->[!div class="step-by-step"]
-[前へ](the-entity-framework-and-aspnet-getting-started-part-3.md)
-[次へ](the-entity-framework-and-aspnet-getting-started-part-5.md)
+> [!div class="step-by-step"]
+> [前へ](the-entity-framework-and-aspnet-getting-started-part-3.md)
+> [次へ](the-entity-framework-and-aspnet-getting-started-part-5.md)

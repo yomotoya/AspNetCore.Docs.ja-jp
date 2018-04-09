@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-cs
-title: "DataList または Repeater コントロール (c#) でデータの並べ替え |Microsoft ドキュメント"
+title: DataList または Repeater コントロール (c#) でデータの並べ替え |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルではあります、DataList およびリピータでのサポートの並べ替えをインクルードする方法とデータを含むことができます、DataList または Repeater を構築する方法を確認しています."
+description: このチュートリアルではあります、DataList およびリピータでのサポートの並べ替えをインクルードする方法とデータを含むことができます、DataList または Repeater を構築する方法を確認しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cfd0cdb0afe3bf71686715c0b1891adfbbd5019a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2f31425a46408d6d544c6cdf2ce169b5547a2dd8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-c"></a>DataList または Repeater コントロール (c#) でデータの並べ替え
 ====================
@@ -231,9 +231,9 @@ ObjectDataSource %s 更新`SelectMethod`プロパティが新しいことを呼�
 
 DataList の例では、非効率的な既定ページング技法を使用してそのデータを 5 つのページの手順に検査されます。 十分に大量のデータのページング、ときに、カスタム ページングを使用することが不可欠です。 戻り、[効率的にから大規模な量のデータのページング](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md)と[カスタム ページングされたデータの並べ替え](../paging-and-sorting/sorting-custom-paged-data-cs.md)の BLL の既定およびカスタム ページングと作成されたメソッドの違いを調べるおチュートリアルについては、カスタム ページングとカスタム ページングされたデータの並べ替えを使用しています。 具体的には、これら 2 つの前のチュートリアルが追加されましたに次の 3 つのメソッド、`ProductsBLL`クラス。
 
-- `GetProductsPaged(startRowIndex, maximumRows)`開始位置としてレコードの特定のサブセットを返します*startRowIndex*を超えないと*maximumRows*です。
-- `GetProductsPagedAndSorted(sortExpression, startRowIndex, maximumRows)`特定の順に並べ替えて、指定されたレコードのサブセットを返します*sortExpression*入力パラメーターです。
-- `TotalNumberOfProducts()`内のレコードの合計数を提供、`Products`データベース テーブルです。
+- `GetProductsPaged(startRowIndex, maximumRows)` 開始位置としてレコードの特定のサブセットを返します*startRowIndex*を超えないと*maximumRows*です。
+- `GetProductsPagedAndSorted(sortExpression, startRowIndex, maximumRows)` 特定の順に並べ替えて、指定されたレコードのサブセットを返します*sortExpression*入力パラメーターです。
+- `TotalNumberOfProducts()` 内のレコードの合計数を提供、`Products`データベース テーブルです。
 
 ページを効率的におよび、DataList またはリピータ コントロールを使用してデータを並べ替えるには、これらのメソッドを使用できます。 これを示すためには、カスタム ページング サポート; Repeater コントロールを作成して開始 s を使用できます。並べ替え機能を追加します。
 
@@ -390,12 +390,12 @@ DataList またはリピータ既にページング サポートを提供する�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客は、David Suru をでした。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](paging-report-data-in-a-datalist-or-repeater-control-cs.md)
-[次へ](paging-report-data-in-a-datalist-or-repeater-control-vb.md)
+> [!div class="step-by-step"]
+> [前へ](paging-report-data-in-a-datalist-or-repeater-control-cs.md)
+> [次へ](paging-report-data-in-a-datalist-or-repeater-control-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
-title: "Web サーバーを構成する web デプロイの発行 (オフライン展開) |Microsoft ドキュメント"
+title: Web サーバーを構成する web デプロイの発行 (オフライン展開) |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、オフライン web 発行および配置をサポートするために IIS web サーバーを構成する方法について説明します。 使用するときにインターネット インフォメーション サービス (すれば..。"
+description: このトピックでは、オフライン web 発行および配置をサポートするために IIS web サーバーを構成する方法について説明します。 使用するときにインターネット インフォメーション サービス (すれば..。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: dfd3ab41e44a3b000bf2c25a5a71db4344617bf2
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: e28bdea26847d4e660d6ee59b15eb38f749d2314
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a>Web デプロイの発行 (オフライン展開) 用の Web サーバーの構成
 ====================
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/15/2018
 > 主な機能、利点、およびこれらのアプローチの欠点の詳細については、次を参照してください。 [Web 配置を右側の方法を選択する](choosing-the-right-approach-to-web-deployment.md)です。
 
 
-ネットワーク インフラストラクチャやセキュリティの制限は、リモート展開を防ぐ場合ははい。 インターネットに接続された運用環境で web サーバーは分離 & #x 2014; ケースである可能性がありますか、物理的にまたはファイアウォールおよびサブネット & #x 2014 以外の場合は、サーバー インフラストラクチャの残りの部分からです。
+ネットワーク インフラストラクチャやセキュリティの制限は、リモート展開を防ぐ場合ははい。 インターネットに接続された運用環境で web サーバーは分離ケースである可能性があります&#x2014;いずれかに物理的にまたはファイアウォールでサブネット&#x2014;、サーバー インフラストラクチャの残りの部分からです。
 
 当然ながら、この方法は、web アプリケーションが、定期的に更新された場合に望ましいになります。 インフラストラクチャで許可されている、可能性がある場合、リモートの展開を有効にしてください Web 展開ハンドラーまたは Web デプロイ リモート エージェント サービスを使用します。
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 03/15/2018
 7. ナビゲーション ウィンドウで **サーバー**です。
 8. **IIS 7 の推奨構成**行で、をクリックして**追加**です。
 9. **Web 配置ツール 2.1**行で、をクリックして**追加**です。
-10. **[インストール]**をクリックします。 Web Platform Installer をインストールするには、関連する依存関係 & #x 2014; と共に; 製品 & #x 2014 の一覧が表示され、ライセンス条項に同意するように求められます。
+10. **[インストール]**をクリックします。 Web Platform Installer が製品の一覧を表示&#x2014;関連する依存関係のいずれかと共に&#x2014;をインストールして、ライセンス条項に同意するように求められます。
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image2.png)
 11. ライセンス条項を確認し、条項に同意した場合にをクリックして**同意**です。
@@ -160,7 +160,7 @@ Web コンテンツを展開するには、サーバーに、前に作成し、�
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image6.png)
 
     > [!NOTE]
-    > 最初のサイトのバインドでは、IP アドレスとポートを使用してローカル サイトにアクセスできます。 または`http://localhost:85`です。 2 つ目のサイト バインドでは、コンピューター名 (たとえば、http://proweb1:85) を使用して、ドメインの他のコンピューターからサイトにアクセスすることができます。
+    > 最初のサイトのバインドでは、IP アドレスとポートを使用してローカル サイトにアクセスできます。 または`http://localhost:85`です。 2 つ目のサイト バインドでは、コンピューター名を使用して、ドメインの他のコンピューターからサイトにアクセスすることができます (たとえば、http://proweb1:85)です。
 13. **サイト バインド**ダイアログ ボックスで、をクリックして**閉じる**です。
 14. **接続** ウィンドウで、をクリックして**アプリケーション プール**です。
 15. **アプリケーション プール** ウィンドウでは、アプリケーション プールの名前を右クリックし、をクリックして**基本設定**です。 既定では、アプリケーション プールの名前が、web サイトの名前に一致 (たとえば、 **DemoSite**)。
@@ -171,11 +171,11 @@ Web コンテンツを展開するには、サーバーに、前に作成し、�
     > [!NOTE]
     > サンプル ソリューションには、.NET Framework 4.0 が必要です。 これは、要件ではありません、Web Deploy の一般にします。
 
-Web サイト コンテンツを提供するためには、アプリケーション プール id 読み取り権限が必要、コンテンツを格納するローカル フォルダーにします。 IIS 7.5、アプリケーション プールは、(ここでアプリケーション プールは通常の実行、Network Service アカウントを使用して、IIS の以前のバージョン) とは異なり、既定では、一意のアプリケーション プール id で実行します。 アプリケーション プール id が実際のユーザー アカウントではないと、ユーザーまたはグループ & #x 2014 のすべてのリストに表示されないです。 代わりに、それが動的に作成、アプリケーション プールが開始されたときにします。 各アプリケーション プール id がローカルに追加**IIS\_IUSRS**セキュリティ グループを非表示のアイテムとして。
+Web サイト コンテンツを提供するためには、アプリケーション プール id 読み取り権限が必要、コンテンツを格納するローカル フォルダーにします。 IIS 7.5、アプリケーション プールは、(ここでアプリケーション プールは通常の実行、Network Service アカウントを使用して、IIS の以前のバージョン) とは異なり、既定では、一意のアプリケーション プール id で実行します。 アプリケーション プール id が実際のユーザー アカウントではありませんし、ユーザーまたはグループのリストに表示されない&#x2014;代わりに、それが動的に作成、アプリケーション プールが開始されたときにします。 各アプリケーション プール id がローカルに追加**IIS\_IUSRS**セキュリティ グループを非表示のアイテムとして。
 
 ファイルまたはフォルダーでのアプリケーション プール id へのアクセス許可を付与するには、2 つのオプションがあります。
 
-- アクセス許可を割り当てるアプリケーション プール id に直接、形式を使用して**IIS AppPool\***[アプリケーション プール名] * (たとえば、 **IIS AppPool\DemoSite**)。
+- アクセス許可を割り当てるアプリケーション プール id に直接、形式を使用して<strong>IIS AppPool\</strong ><em>[アプリケーション プール名]</em>(たとえば、 <strong>IIS AppPool\DemoSite</strong>).
 - アクセス許可を割り当てる、 **IIS\_IUSRS**グループ。
 
 最も一般的な方法は、ローカルに権限を割り当てる、 **IIS\_IUSRS**このアプローチでは、ファイル システム アクセス許可を再構成することがなくアプリケーション プールを変更することができますので、グループ化します。 次の手順では、このグループ ベースのアプローチを使用します。
@@ -193,8 +193,8 @@ Web サイト コンテンツを提供するためには、アプリケーショ
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image8.png)
 5. **ユーザーまたはグループ** ダイアログ ボックスで、「 **IIS\_IUSRS**、 をクリックして**名前の確認**順にクリック**OK**です。
-6. **のアクセス許可 * * * [フォルダー名]*  ダイアログ ボックスで、新しいグループが割り当てられている、**読み取り&amp;実行**、**フォルダー内容の一覧**、および**読み取り**既定のアクセスを許可します。 これを変更せずのままにし、をクリックして**OK**です。
-7. をクリックして**OK**を閉じる、 *[フォルダー名] * * * プロパティ** ダイアログ ボックス。
+6. <strong>のアクセス許可</strong><em>[フォルダー名]</em>  ダイアログ ボックスで、新しいグループが割り当てられている、<strong>読み取り&amp;実行</strong>、<strong>フォルダーの一覧内容</strong>、および<strong>読み取り</strong>既定のアクセスを許可します。 これを変更せずのままにし、をクリックして<strong>OK</strong>です。
+7. をクリックして<strong>OK</strong>を閉じる、 <em>[フォルダー名]</em><strong>プロパティ</strong> ダイアログ ボックス。
 
 ## <a name="disable-the-remote-agent-service"></a>リモート エージェント サービスを無効にします。
 
@@ -226,6 +226,6 @@ Web Deploy をインストールするときに Web Deployment Agent サービ�
 - アプリケーション プール id は、web サイトのソース フォルダーに読み取りアクセスがしますか。
 - Web Deployment Agent サービスを停止していますか。
 
->[!div class="step-by-step"]
-[前へ](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
-[次へ](configuring-a-database-server-for-web-deploy-publishing.md)
+> [!div class="step-by-step"]
+> [前へ](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+> [次へ](configuring-a-database-server-for-web-deploy-publishing.md)

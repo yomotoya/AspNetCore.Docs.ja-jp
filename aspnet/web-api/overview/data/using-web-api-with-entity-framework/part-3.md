@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-3
-title: "Code First Migrations を使用して、データベースのシードを |Microsoft ドキュメント"
+title: Code First Migrations を使用して、データベースのシードを |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 1ca627397f0f100d13388f9afc27ff481886e098
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 33bc6d82daa9ca5f46452a1adf4e2eebea04fa6c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-code-first-migrations-to-seed-the-database"></a>Code First Migrations を使用して、データベースのシードを
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 このセクションでは、使用[Code First Migrations](https://msdn.microsoft.com/data/jj591621)をデータベースにテスト データをプレシードできる EF にします。
 
@@ -102,6 +102,6 @@ Visual Studio では、LocalDB に接続し、SQL Server オブジェクト エ�
 
 ![](part-3/_static/image9.png)
 
->[!div class="step-by-step"]
-[前へ](part-2.md)
-[次へ](part-4.md)
+> [!div class="step-by-step"]
+> [前へ](part-2.md)
+> [次へ](part-4.md)

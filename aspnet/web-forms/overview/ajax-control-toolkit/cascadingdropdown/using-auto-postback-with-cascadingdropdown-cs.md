@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-cs
-title: "CascadingDropDown (c#) での自動ポストバックの使用 |Microsoft ドキュメント"
+title: CascadingDropDown (c#) での自動ポストバックの使用 |Microsoft ドキュメント
 author: wenz
-description: "CascadingDropDown コントロール、AJAX コントロール Toolkit でコントロールを拡張する DropDownList anoth 内の値が 1 つの DropDownList 負荷の変更に関連付けられているようにしています."
+description: CascadingDropDown コントロール、AJAX コントロール Toolkit でコントロールを拡張する DropDownList anoth 内の値が 1 つの DropDownList 負荷の変更に関連付けられているようにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cd103283f46223d5158e58227bb53c00c74bc7d9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 04e0914dd1057f9ce490f68ae3fa9c56766beafb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-auto-postback-with-cascadingdropdown-c"></a>CascadingDropDown (c#) での自動ポストバックの使用
 ====================
@@ -64,6 +64,6 @@ CascadingDropDown extender し、非同期的に呼び出します次のメソ�
 
 ポストバック リスト要素を選択すると、([フルサイズのイメージを表示するをクリックして](using-auto-postback-with-cascadingdropdown-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](presetting-list-entries-with-cascadingdropdown-cs.md)
-[次へ](filling-a-list-using-cascadingdropdown-vb.md)
+> [!div class="step-by-step"]
+> [前へ](presetting-list-entries-with-cascadingdropdown-cs.md)
+> [次へ](filling-a-list-using-cascadingdropdown-vb.md)

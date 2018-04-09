@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
-title: "カスタムの MySQL ASP.NET Identity の記憶域プロバイダーを実装する |Microsoft ドキュメント"
+title: カスタムの MySQL ASP.NET Identity の記憶域プロバイダーを実装する |Microsoft ドキュメント
 author: raquelsa
-description: "ASP.NET Identity は、独自の記憶域プロバイダーを作成し、アプリケーションを再動作せず、アプリケーションに接続することにより、拡張可能なシステムがしています."
+description: ASP.NET Identity は、独自の記憶域プロバイダーを作成し、アプリケーションを再動作せず、アプリケーションに接続することにより、拡張可能なシステムがしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
 ms.topic: article
 ms.assetid: 248f5fe7-39ba-40ea-ab1e-71a69b0bd649
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
 msc.type: authoredcontent
-ms.openlocfilehash: 3bfbccd91705755fc24bb8305fff171baa26f370
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d843b31e011fe520aad6cfdab0beca2d12477f12
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-a-custom-mysql-aspnet-identity-storage-provider"></a>カスタムの MySQL ASP.NET Identity の記憶域プロバイダーの実装
 ====================
@@ -124,7 +124,7 @@ MySQL の記憶域プロバイダーを作成するステップにジャンプ�
 5. IdentityMySQLDemo プロジェクトを右クリックしてで、選択**追加**、**参照、ソリューション、プロジェクト;** AspNet.Identity.MySQL プロジェクトを選択し、をクリックして**OK**です。
 6. IdentityMySQLDemo プロジェクトに対するすべての参照を置き換える  
     `using Microsoft.AspNet.Identity.EntityFramework;`  
- 代入  
+   代入  
      `using AspNet.Identity.MySQL;`
 7. IdentityModels.cs で次のように設定します。 **ApplicationDbContext**から派生する**MySqlDatabase**接続名に 1 つのパラメーターを受け取るコンス トラクターが含まれています。  
 

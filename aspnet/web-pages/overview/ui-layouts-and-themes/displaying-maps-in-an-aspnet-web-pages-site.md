@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
-title: "(Razor) サイト マップを表示する ASP.NET web Pages |Microsoft ドキュメント"
+title: (Razor) サイト マップを表示する ASP.NET web Pages |Microsoft ドキュメント
 author: tfitzmac
-description: "この記事では、Bing、Google、Ma によって提供されるサービスのマッピングに基づいて、ASP.NET Web Pages (Razor) web サイトのページに対話型のマップを表示する方法について説明しています."
+description: この記事では、Bing、Google、Ma によって提供されるサービスのマッピングに基づいて、ASP.NET Web Pages (Razor) web サイトのページに対話型のマップを表示する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: 6f3e6a0cfb8c08cd971e88986d0f059dd8237aab
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 608dab8760bad7b877ab6fd4f89b21e980f5b1db
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトにマップを表示します。
 ====================
@@ -89,9 +89,9 @@ Web ページで表示できますマップ ページを使用して`Maps`ヘル
         > [!NOTE]
         > JQuery ライブラリの別のバージョンを使用している場合のみをポイントしているそのバージョンを正しく確認してください。
     - 呼び出し、`@Maps.GetGoogleHtml`ページの本文にします。 アドレスをマップするには、アドレス文字列を渡す必要があります。 機能の他のマップ エンジンのメソッドは同様の方法で (`@Maps.GetYahooHtml`、 `@Maps.GetMapQuestHtml`)。
-- ページを実行し、アドレスを入力します。 ページは、Google マップ、指定した場所を表示するに基づく、マップを表示します。
+3. ページを実行し、アドレスを入力します。 ページは、Google マップ、指定した場所を表示するに基づく、マップを表示します。
 
-    ![mapping-1](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
+     ![mapping-1](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
 
 ## <a name="creating-a-map-based-on-latitude-and-longitude-coordinates-using-bing"></a>緯度と経度に基づいてマップを作成する座標を (Bing を使用)
 
@@ -103,12 +103,12 @@ Web ページで表示できますマップ ページを使用して`Maps`ヘル
 2. 置き換える`your-key-here`以前に生成した Bing Maps キーを使用します。
 3. 実行、 *MapCoordinates.cshtml*ページ、緯度と経度座標を入力し、クリックして、 **Map It!** ボタンをクリックします。 (任意の座標がわからない場合を再試行してください以下です。 これは Microsoft レッドモンド上の場所です。)
 
-    - Latitude: 47.6781005859375
-    - 経度:-122.158317565918
+   - Latitude: 47.6781005859375
+   - 経度:-122.158317565918
 
-    指定した座標を使用して、ページが表示されます。
+     指定した座標を使用して、ページが表示されます。
 
-    ![マッピング-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
+     ![マッピング-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>その他のリソース

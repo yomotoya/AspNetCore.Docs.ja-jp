@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/net-4/markup-control/aspnet-4-quick-hit-hidden-field-divs
-title: "非表示フィールド Div |Microsoft ドキュメント"
+title: 非表示フィールド Div |Microsoft ドキュメント
 author: JoeStagner
-description: "このビデオでは、どのように非表示フィールドの周囲の div 要素が今すぐスタイル、ユーザーが作成した CSS 規則に影響を与えないようにを学習します。"
+description: このビデオでは、どのように非表示フィールドの周囲の div 要素が今すぐスタイル、ユーザーが作成した CSS 規則に影響を与えないようにを学習します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/16/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/net-4/markup-control/aspnet-4-quick-hit-hidden-field-divs
 msc.type: video
-ms.openlocfilehash: 442b3bd3d463c7f02a3a6b8ca2cfad753cf64255
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ff4b7619246c3145813b350b4c195adfcbbe3d6a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-4-quick-hit---hidden-field-divs"></a>ASP.NET 4"クイック Hit"- 非表示フィールド Div
 ====================
@@ -24,8 +24,8 @@ ms.lasthandoff: 11/10/2017
 
 このビデオでは、どのように非表示フィールドの周囲の div 要素が今すぐスタイル、ユーザーが作成した CSS 規則に影響を与えないようにを学習します。
 
-[&#9654;です。(3 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-hidden-field-divs)
+[&#9654;(3 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-hidden-field-divs)
 
->[!div class="step-by-step"]
-[前へ](aspnet-4-quick-hit-tableless-menu-control.md)
-[次へ](aspnet-4-quick-hit-disabled-control-styling.md)
+> [!div class="step-by-step"]
+> [前へ](aspnet-4-quick-hit-tableless-menu-control.md)
+> [次へ](aspnet-4-quick-hit-disabled-control-styling.md)

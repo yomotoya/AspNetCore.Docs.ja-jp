@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
-title: "AJAX を使用して、マッピングのシナリオを実装する |Microsoft ドキュメント"
+title: AJAX を使用して、マッピングのシナリオを実装する |Microsoft ドキュメント
 author: microsoft
-description: "手順 11 NerdDinner アプリケーションでは、作成、編集または表示ディナー l を表示するユーザーの有効化に AJAX マッピングのサポートを統合する方法を示しています."
+description: 手順 11 NerdDinner アプリケーションでは、作成、編集または表示ディナー l を表示するユーザーの有効化に AJAX マッピングのサポートを統合する方法を示しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: cc55560ce691826b6d52971b16d0515ed73d72a6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4b3f1e46886c4c1f054e43768b0a44695d71bf09
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-ajax-to-implement-mapping-scenarios"></a>AJAX を使用して、マッピングのシナリオを実装するには
 ====================
@@ -115,7 +115,7 @@ AJAX 実装を終えるに近くディナーを視覚的に検索することが
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image7.png)
 
-まず、効率的に検索を実行する、場所ベースの radius ディナーのデータベースとデータのリポジトリ レイヤー内のサポートを実装します。 使用して、新しい[SQL 2008 の地図機能](https://www.microsoft.com/sqlserver/2008/en/us/spatial-data.aspx)、これを実装するか、または Gary Dryden がこちらの記事で説明されている SQL 関数手法を使用してお: [http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx](http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx)とここで LINQ to SQL での使用に関する Rob Conery ブログに投稿: [http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/](http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/)
+まず、効率的に検索を実行する、場所ベースの radius ディナーのデータベースとデータのリポジトリ レイヤー内のサポートを実装します。 使用して、新しい[SQL 2008 の地図機能](https://www.microsoft.com/sqlserver/2008/en/us/spatial-data.aspx)、これを実装するか、または Gary Dryden がこちらの記事で説明されている SQL 関数手法を使用してお: [ http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx ](http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx)と Rob Coneryここで LINQ to SQL での使用に関するブログの投稿しました。 [http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/](http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/)
 
 この手法を実装するのにおは Explorer を開き"サーバー"Visual Studio 内で、NerdDinner データベースを選択し、その下にある「機能」サブ ノードを右クリックし、新しい「スカラー値関数」を作成します。
 
@@ -193,6 +193,6 @@ Dinner タイトルをクリックすると、バブルまたは HTML の一覧�
 
 今すぐ NerdDinner アプリケーションのすべてのアプリケーションの機能を実装しました。 単位の自動今すぐみましょうを達成する方法を見てのテストします。
 
->[!div class="step-by-step"]
-[前へ](use-ajax-to-deliver-dynamic-updates.md)
-[次へ](enable-automated-unit-testing.md)
+> [!div class="step-by-step"]
+> [前へ](use-ajax-to-deliver-dynamic-updates.md)
+> [次へ](enable-automated-unit-testing.md)

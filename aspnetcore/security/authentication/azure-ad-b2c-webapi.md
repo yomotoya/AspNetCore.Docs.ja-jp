@@ -1,7 +1,7 @@
 ---
-title: "Web Api を ASP.NET のコアでアクティブなディレクトリの B2C を Azure クラウド認証"
+title: Web Api を ASP.NET のコアでアクティブなディレクトリの B2C を Azure クラウド認証
 author: camsoper
-description: "ASP.NET Core Web API と Azure Active Directory B2C の認証を設定する方法を検出します。 認証されている web API Postman をテストします。"
+description: ASP.NET Core Web API と Azure Active Directory B2C の認証を設定する方法を検出します。 認証されている web API Postman をテストします。
 ms.author: casoper
 manager: wpickett
 ms.date: 01/25/2018
@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 1213f7eb25fb6525f98d83dff0956a841ae686a7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 621290f7e303f9157577b5c1b32646b750ed5159
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web Api を ASP.NET のコアでアクティブなディレクトリの B2C を Azure クラウド認証
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/15/2018
 [Azure Active Directory の B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) は、web およびモバイル アプリケーションのクラウドのアイデンティティ管理ソリューションです。 サービスは、クラウドとオンプレミスでホストされているアプリの認証を提供します。 認証の種類は、ソーシャル ネットワーク アカウントでは、個々 のアカウントを含めるし、エンタープライズ アカウントをフェデレーションします。 また、Azure AD B2C では、最小構成で多要素認証を提供できます。
 
 > [!TIP]
-> Azure Active Directory (Azure AD) の Azure AD B2C の別の製品サービスしています。 Azure AD テナントは、組織を表し、Azure AD B2C テナントは証明書利用者アプリケーションで使用される id のコレクションを表します。 詳細については、次を参照してください。 [Azure AD B2C: よく寄せられる質問 (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs)です。
+> Azure の Active Directory (Azure AD) と Azure AD B2C は個別の製品を提供します。 Azure AD テナントは、組織を表し、Azure AD B2C テナントは証明書利用者アプリケーションで使用される id のコレクションを表します。 詳細については、次を参照してください。 [Azure AD B2C: よく寄せられる質問 (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs)です。
 
 Web Api には、ユーザー インターフェイスがあるありません、ためにいないユーザーを Azure AD B2C のような場合は、セキュリティ トークン サービスにリダイレクトすることです。 代わりに、この API は、呼び出し元のアプリは、Azure AD B2C を持つユーザーが既に認証からベアラー トークンを渡されます。 API は、ユーザーが直接やり取りせずトークンを検証します。
 
@@ -78,21 +78,21 @@ Visual Studio で。
 1. 新しい ASP.NET Core Web アプリケーションを作成します。 
 2. 選択**Web API**テンプレートの一覧からです。
 3. 選択、**認証の変更**ボタンをクリックします。
-    
+
     ![変更の認証 ボタン](./azure-ad-b2c-webapi/change-auth-button.png)
 
 4. **認証の変更**ダイアログで、**個々 のユーザー アカウント**、し、 **、クラウド内の既存のユーザー ストアへの接続**ドロップダウン リストにします。 
-    
+
     ![認証の変更 ダイアログ](./azure-ad-b2c-webapi/change-auth-dialog.png)
 
 5. 次の値をフォームに入力します。
-    
+
     | 設定                       | [値]                                                 |
     |-------------------------------|-------------------------------------------------------|
     | **ドメイン名**               | *&lt;B2C のテナントのドメイン名&gt;*          |
     | **アプリケーション ID**            | *&lt;アプリケーション ID、クリップボードからの貼り付け&gt;* |
     | **サインアップまたはサイン インのポリシー** | `B2C_1_SiUpIn`                                        |
-    
+
     選択**OK**を閉じる、**認証の変更**ダイアログ。 選択**OK** web アプリを作成します。
 
 Visual Studio では、という名前のコント ローラーで、web API を作成*ValuesController.cs* GET 要求に対してハード コーディングされた値を返します。 クラスを装飾、 [Authorize attribute](xref:security/authorization/simple)ので、すべての要求が認証を必要とします。
@@ -140,17 +140,17 @@ Postman を起動します。 既定では、Postman が表示されます、**�
 **新規作成** ダイアログ。
 
 1. 選択**要求**です。
-    
+
     ![要求 ボタン](./azure-ad-b2c-webapi/postman-create-new.png)
 
 2. 入力*値の取得*で、**要求名**ボックス。
 3. 選択**+ コレクションの作成**要求を格納するための新しいコレクションを作成します。 コレクションの名前を付けます*ASP.NET Core チュートリアル*し、チェック マークを選択します。
-    
+
     ![新しいコレクションを作成します。](./azure-ad-b2c-webapi/postman-create-collection.png)
 
 4. 選択、 **ASP.NET Core チュートリアルへ保存**ボタンをクリックします。
 
-### <a name="test-the-web-api-withoutauthentication"></a>Web API withoutauthentication をテストします。
+### <a name="test-the-web-api-without-authentication"></a>認証を使用せず、web API をテストします。
 
 Web API に認証が必要であることを確認するには、最初に認証を使用しない要求を作成します。
 
@@ -165,34 +165,36 @@ Web API に認証が必要であることを確認するには、最初に認証
 Web API に認証された要求にベアラー トークンが必要です。 Postman 簡単に Azure AD B2C テナントにサインインし、トークンを取得できます。
 
 1. **承認**] タブで、**型**ドロップダウンで、[ **OAuth 2.0**です。 **承認データを追加して**ドロップダウンで、**要求ヘッダー**です。 選択**新しいアクセス トークンを取得**です。
-    
+
     ![[承認] タブの設定](./azure-ad-b2c-webapi/postman-auth-tab.png)
 
 2. 完了、**新しいアクセス トークンの取得**ようダイアログ。
-    
-    | 設定                   | [値]                                                                                         | メモ                                                                                      |
-    |---------------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
-    | **トークン名**            | *&lt;token name&gt;*                                                                          | トークンのわかりやすい名前を入力します。                                                    |
-    | **付与の種類**            | 暗黙的                                                                                      |                                                                                            |
-    | **コールバック URL**          | `https://getpostman.com/postman`                                                              |                                                                                            |
-    | **Auth URL**              | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` | 置き換える*&lt;テナントのドメイン名&gt;*山かっこせず、テナントのドメイン名を使用します。 |
-    | **クライアント ID**             | *&lt;Postman アプリケーションを入力して<b>アプリケーション ID</b>&gt;*                                       |                                                                                            |
-    | **クライアント シークレット**         | *&lt;空白のままに&gt;*                                                                         |                                                                                            |
-    | **スコープ**                 | `https://<tenant domain name>/api/user_impersonation openid offline_access`                   | 置き換える*&lt;テナントのドメイン名&gt;*山かっこせず、テナントのドメイン名を使用します。 |
-    | **クライアント認証** | 本文でクライアントの資格情報を送信します。                                                               |                                                                                            |
-    
+
+
+   |                設定                 |                                             [値]                                             |                                                                                                                                    メモ                                                                                                                                     |
+   |----------------------------------------|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |      <strong>トークン名</strong>       |                                  <em>&lt;token name&gt;</em>                                  |                                                                                                                   トークンのわかりやすい名前を入力します。                                                                                                                    |
+   |      <strong>付与の種類</strong>       |                                           暗黙的                                            |                                                                                                                                                                                                                                                                              |
+   |     <strong>コールバック URL</strong>      |                               `https://getpostman.com/postman`                                |                                                                                                                                                                                                                                                                              |
+   |       <strong>Auth URL</strong>        | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |                                                                                                  置き換える<em>&lt;テナントのドメイン名&gt;</em>テナントのドメイン名を使用します。                                                                                                  |
+   |       <strong>クライアント ID</strong>       |                <em>&lt;Postman アプリケーションを入力して<b>アプリケーション ID</b>&gt;</em>                 |                                                                                                                                                                                                                                                                              |
+   |     <strong>クライアント シークレット</strong>     |                                 <em>&lt;空白のままに&gt;</em>                                  |                                                                                                                                                                                                                                                                              |
+   |         <strong>スコープ</strong>         |         `https://<tenant domain name>/<api>/user_impersonation openid offline_access`         | 置き換える<em>&lt;テナントのドメイン名&gt;</em>テナントのドメイン名を使用します。 置き換える<em>&lt;api&gt;</em>を Web API プロジェクト名です。 アプリケーションの id です。 使用することもできます。 URL のパターンは: <em>https://{tenant}.onmicrosoft.com/{app_name_or_id}/{scope 名}</em>です。 |
+   | <strong>クライアント認証</strong> |                                本文でクライアントの資格情報を送信します。                                |                                                                                                                                                                                                                                                                              |
+
+
 3. 選択、**トークン要求**ボタンをクリックします。
 
 4. Postman には、ダイアログ ボックスで、Azure AD B2C テナントの記号を含む新しいウィンドウが開きます。 (1 つには、ポリシーのテストが作成された) 場合は、既存のアカウントでサインインまたは選択**今すぐサインアップ**新しいアカウントを作成します。 **パスワードを忘れた場合ですか?**忘れてもパスワードをリセットするリンクを使用します。
 
 5. 正常にサインインした後、ウィンドウが閉じられると、**アクセス トークンの管理**ダイアログが表示されます。 クリックし、一番下まで下にスクロール、**使用トークン**ボタンをクリックします。
-    
+
     !["使用 Token"ボタンを検索する場所](./azure-ad-b2c-webapi/postman-access-token.png)
 
 ### <a name="test-the-web-api-with-authentication"></a>認証を使用して、web API をテストします。
 
 選択、**送信**をもう一度要求を送信するボタンをクリックします。 現時点では、応答ステータスが*200 OK* JSON ペイロードが、応答に表示されると**本文** タブ。
-    
+
 ![ペイロードと成功状態](./azure-ad-b2c-webapi/postman-success.png)
 
 ## <a name="next-steps"></a>次の手順

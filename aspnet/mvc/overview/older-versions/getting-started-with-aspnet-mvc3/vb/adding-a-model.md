@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-model
-title: "モデル (VB) を追加する |Microsoft ドキュメント"
+title: モデル (VB) を追加する |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: efc18dd71e29d12dacc6cf84a1d3c7f7e92f520d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e9a271c64347b4004d5cc5d9d91085c4e642e95d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-model-vb"></a>モデル (VB) を追加します。
 ====================
@@ -89,6 +89,6 @@ ms.lasthandoff: 11/10/2017
 
 新しいビルド次に、`MoviesController`ムービー データを表示し、新しいムービーの一覧を作成できるように使用できるクラスです。
 
->[!div class="step-by-step"]
-[前へ](adding-a-view.md)
-[次へ](accessing-your-models-data-from-a-controller.md)
+> [!div class="step-by-step"]
+> [前へ](adding-a-view.md)
+> [次へ](accessing-your-models-data-from-a-controller.md)

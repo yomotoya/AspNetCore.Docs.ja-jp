@@ -1,8 +1,8 @@
 ---
 uid: web-pages/readme/beta3
-title: "マトリックスと ASP.NET Web Pages (Razor) ベータ 3 リリースの Readme を web |Microsoft ドキュメント"
+title: マトリックスと ASP.NET Web Pages (Razor) ベータ 3 リリースの Readme を web |Microsoft ドキュメント
 author: rick-anderson
-description: "Webmatrix と ASP.NET Web Pages (Razor) ベータ 3 リリースの Readme"
+description: Webmatrix と ASP.NET Web Pages (Razor) ベータ 3 リリースの Readme
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/10/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
-ms.openlocfilehash: def2f4b3e54c8de539e10c1b526a1dababeca8fb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5ef7a6f44758cf94fc19d6fbab3cc4b7bce8e8e5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>Webmatrix と ASP.NET Web Pages (Razor) ベータ 3 リリースの Readme
 ====================
@@ -283,9 +283,9 @@ ms.lasthandoff: 01/24/2018
 > .NET Framework version 4 をアンインストールし、再インストールして、Razor 構文を使用して ASP.NET Web Pages は無効になります。 ページ、 *.cshtml*拡張機能が正しく動作しないことです。 ASP.NET Web ページで、マシン ルート アセンブリが登録*Web.config*ファイル、および .NET Framework の削除は、そのファイルを削除します。 .NET Framework を再インストール、構成ファイルの新しいバージョンがインストールされますが、ASP.NET Web Pages アセンブリの参照を追加できません。
 > 
 > **回避策**.NET Framework を再インストール後に Razor 構文を使用する ASP.NET Web Pages を再インストールします。 次の要素を追加、 *Web.config*マシン ルートでは、次の場所には、通常のファイル。  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config (32-bit)`  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config (64-bit)`
 > 
 > [!code-xml[Main](beta3/samples/sample6.xml)]
@@ -302,9 +302,9 @@ ms.lasthandoff: 01/24/2018
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>問題点: 拡張子のない Url が見つからない IIS 7 や IIS 7.5 で.cshtml/.vbhtml ファイル
 
 > IIS 7 や IIS 7.5 では、次のように URL を使用して要求ができませんがページを検索する、 *.cshtml*または*.vbhtml*拡張機能。  
->   
+> 
 > `http://www.example.com/ExampleSite/ExampleFile`  
->   
+> 
 > URL 書き換えが有効でないため既定の IIS 7 や IIS 7.5、問題が発生します。 考えられるシナリオは IIS Express を使用してローカルでテストするときに問題は表示されないホスティング web サイトに web サイトを展開するときに発生します。
 > 
 > **回避策**
@@ -344,7 +344,7 @@ ms.lasthandoff: 01/24/2018
 >     - コピー *C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\x86\\** **に** *\Bin\x86*
 >     - コピー *C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **に** *\Bin\amd64*
 > 2. Web サイトのルート フォルダーに作成または開く、 *Web.config*ファイル。 (WebMatrix ベータ 3 の場合、このファイルの種類は をクリックすると利用可能な**すべて**で、**ファイルの種類を選択** ダイアログ ボックス)。
-> 3. 次の要素の子として追加、 **&lt;構成&gt;**要素 (内部ではなく、  **&lt;system.web&gt;** 要素)。
+> 3. 次の要素の子として追加、 **&lt;構成&gt;**要素 (内部ではなく、 **&lt;system.web&gt;**要素)。
 > 
 > 
 > [!code-xml[Main](beta3/samples/sample10.xml)]
@@ -366,21 +366,21 @@ ms.lasthandoff: 01/24/2018
 > 
 > **回避策**  
 > 使用して、`Encryption Mode`のプロパティ、 `SqlCeConnection` SQL Server Compact 4.0 データベース ファイルを暗号化するクラス。 次の例は、暗号化された SQL Server Compact 4.0 を使用してデータベースを作成する方法を示します、`Encryption Mode`プロパティ。
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample11.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample12.vb)]
 > 
 > 既存の SQL Server Compact 4.0 データベースの暗号化モードを変更するには、次の操作を行います。
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample13.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample14.vb)]
 > 
 > 暗号化されていない SQL Server Compact 4.0 データベースを暗号化するには、次の操作を行います。
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample15.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample16.vb)]
 
 
@@ -537,7 +537,7 @@ ms.lasthandoff: 01/24/2018
 > などのパラメーターのデータ型を明示的に設定`SqlDbType`または`DbType`です。 これは、BLOB データ型の場合に重要 (`image`と`ntext`)。 次のようにコードを使用します。
 > 
 > [!code-sql[Main](beta3/samples/sample20.sql)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample21.vb)]
 
 

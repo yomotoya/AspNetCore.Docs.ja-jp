@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-cs
-title: "ドラッグ アンド ドロップ ReorderList (c#) 経由で |Microsoft ドキュメント"
+title: ドラッグ アンド ドロップ ReorderList (c#) 経由で |Microsoft ドキュメント
 author: wenz
-description: "AJAX コントロールのツールキットで ReorderList コントロール一覧に表示される、ユーザーがドラッグ アンド ドロップで並べ替えることができます。 リストの現在の注文がものとしています."
+description: AJAX コントロールのツールキットで ReorderList コントロール一覧に表示される、ユーザーがドラッグ アンド ドロップで並べ替えることができます。 リストの現在の注文がものとしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6afecfc7330647e6f4944c507e308afec6d2401b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 42464d10f119e0ba51d5eebf2a67e76e3e419bda
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="drag-and-drop-via-reorderlist-c"></a>ドラッグ アンド ドロップを介して ReorderList (c#)
 ====================
@@ -35,16 +35,16 @@ ms.lasthandoff: 11/10/2017
 
 `ReorderList`コントロールは、データベースから、リストへのデータ バインディングをサポートします。 何より、データ ストアに、リスト要素の順序変更を書き込んでいますもサポートします。
 
-このサンプルでは、データ ストアとして Microsoft SQL Server 2005 Express Edition を使用します。 データベースは、express エディションを含む、Visual Studio のインストールの省略可能な (および空き) 部分です。 個別のダウンロードとして入手できますも[https://go.microsoft.com/fwlink/?LinkId=64064](https://go.microsoft.com/fwlink/?LinkId=64064)です。 このサンプルのものと、SQL Server 2005 Express Edition のインスタンスが呼び出される`SQLEXPRESS`web サーバーと同じコンピューター上に存在し、これは既定の設定にもします。 セットアップが異なっている場合は、データベースの接続情報を調整する必要です。
+このサンプルでは、データ ストアとして Microsoft SQL Server 2005 Express Edition を使用します。 データベースは、express エディションを含む、Visual Studio のインストールの省略可能な (および空き) 部分です。 個別のダウンロードとして入手できますも[ https://go.microsoft.com/fwlink/?LinkId=64064](https://go.microsoft.com/fwlink/?LinkId=64064)です。 このサンプルのものと、SQL Server 2005 Express Edition のインスタンスが呼び出される`SQLEXPRESS`web サーバーと同じコンピューター上に存在し、これは既定の設定にもします。 セットアップが異なっている場合は、データベースの接続情報を調整する必要です。
 
 データベースをセットアップする最も簡単な方法は、Microsoft SQL Server Management Studio Express を使用する ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang = en](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en) )。 サーバーへの接続をダブルクリックして`Databases`新しいデータベースを作成し、(を右クリックして`New Database`) と呼ばれる`Tutorials`です。
 
 このデータベースでと呼ばれる新しいテーブルを作成`AJAX`次の 4 つの列を含む。
 
-- `id`(主キー、整数、id は not NULL)
-- `char`(char (1)、NULL)
-- `description`(varchar (50)、NULL)
-- `position`(int, NULL)
+- `id` (主キー、整数、id は not NULL)
+- `char` (char (1)、NULL)
+- `description` (varchar(50), NULL)
+- `position` (int, NULL)
 
 
 [![AJAX のテーブルのレイアウト](drag-and-drop-via-reorderlist-cs/_static/image2.png)](drag-and-drop-via-reorderlist-cs/_static/image1.png)
@@ -90,6 +90,6 @@ AJAX テーブル内の最初のデータ ([フルサイズのイメージを表
 
 新しいリストに従って、データベースで変更データ項目の順序 ([フルサイズのイメージを表示するをクリックして](drag-and-drop-via-reorderlist-cs/_static/image9.png))
 
->[!div class="step-by-step"]
-[前へ](using-postbacks-with-reorderlist-cs.md)
-[次へ](using-postbacks-with-reorderlist-vb.md)
+> [!div class="step-by-step"]
+> [前へ](using-postbacks-with-reorderlist-cs.md)
+> [次へ](using-postbacks-with-reorderlist-vb.md)

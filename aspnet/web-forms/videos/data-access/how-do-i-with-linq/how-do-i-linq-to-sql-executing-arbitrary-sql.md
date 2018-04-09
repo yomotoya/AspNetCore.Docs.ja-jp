@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql
-title: "操作方法: LINQ to SQL: 任意の SQL の実行 |Microsoft ドキュメント"
+title: '操作方法: LINQ to SQL: 任意の SQL の実行 |Microsoft ドキュメント'
 author: scottstanfield
-description: "このビデオでは、ExecuteCommand 構文 DataContext の部分クラスからコードをカプセル化して、任意の SQL を実行する方法を示します。"
+description: このビデオでは、ExecuteCommand 構文 DataContext の部分クラスからコードをカプセル化して、任意の SQL を実行する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql
 msc.type: video
-ms.openlocfilehash: e2ebac4e88a089ba3dea6dfc297e1ab6bc4d6359
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b8ad39a91bb50e9077229ba70ddcd6ded270b09c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-linq-to-sql-executing-arbitrary-sql"></a>操作方法: LINQ to SQL: 任意の SQL の実行
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/10/2017
 
 このビデオでは、ExecuteCommand 構文 DataContext の部分クラスからコードをカプセル化して、任意の SQL を実行する方法を示します。
 
-[&#9654;です。ビデオでは (4 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-linq-to-sql-executing-arbitrary-sql)
+[&#9654;ビデオでは (4 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-linq-to-sql-executing-arbitrary-sql)
 
->[!div class="step-by-step"]
-[前へ](how-do-i-linq-to-sql-updating-with-stored-procedures.md)
+> [!div class="step-by-step"]
+> [前へ](how-do-i-linq-to-sql-updating-with-stored-procedures.md)

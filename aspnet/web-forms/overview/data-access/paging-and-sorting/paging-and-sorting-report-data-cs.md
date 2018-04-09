@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-cs
-title: "ページングや並べ替えのレポートのデータ (c#) |Microsoft ドキュメント"
+title: ページングや並べ替えのレポートのデータ (c#) |Microsoft ドキュメント
 author: rick-anderson
-description: "ページングや並べ替えは、2 つの非常に一般的な機能をオンライン アプリケーションでデータを表示するときにします。 このチュートリアルでは、並べ替えの追加の紹介を移動しますとしています."
+description: ページングや並べ替えは、2 つの非常に一般的な機能をオンライン アプリケーションでデータを表示するときにします。 このチュートリアルでは、並べ替えの追加の紹介を移動しますとしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d5cf45e391a2b32e1d22e160fd2757b754753875
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 06a907f2af0adb2eb8aef5a814c2d767b62db69a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="paging-and-sorting-report-data-c"></a>ページングや並べ替えのレポートのデータ (c#)
 ====================
@@ -115,13 +115,13 @@ DetailsView とフォーム ビューの両方のコントロールでは、1 �
 
 この GridView、DetailsView、および FormView s のページングのインターフェイスをカスタマイズするには、次のプロパティを使用します。
 
-- `PagerStyle`ページング インターフェイスのスタイル情報を示しますなどの設定を指定できます`BackColor`、 `ForeColor`、 `CssClass`、`HorizontalAlign`のようにします。
-- `PagerSettings`一連ページング インターフェイスの機能をカスタマイズ可能なプロパティにはが含まれています`PageButtonCount` (既定値は 10) ページング インターフェイスに表示される数値によるページ番号の最大数を示す; [ `Mode`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx)ページング インターフェイスの動作し、に設定することを示します。 
+- `PagerStyle` ページング インターフェイスのスタイル情報を示しますなどの設定を指定できます`BackColor`、 `ForeColor`、 `CssClass`、`HorizontalAlign`のようにします。
+- `PagerSettings` 一連ページング インターフェイスの機能をカスタマイズ可能なプロパティにはが含まれています`PageButtonCount` (既定値は 10) ページング インターフェイスに表示される数値によるページ番号の最大数を示す; [ `Mode`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx)ページング インターフェイスの動作し、に設定することを示します。 
 
-    - `NextPrevious`前後 1 つのページを一度にステップにユーザーを許可する、次へ および 戻るボタンを示しています
-    - `NextPreviousFirstLast`次へ 戻る ボタン、に加えて最初と最後のボタンも含まれています、ユーザーがデータの最初と最後のページにすばやく移動できるようにします。
-    - `Numeric`一連のユーザーがすぐに任意のページに移動できるように、ページ番号を示しています。
-    - `NumericFirstLast`ページ番号だけでなくユーザーがデータの最初と最後のページにすばやく移動できるように、最初と最後のボタンが含まれています。最初/最後のボタンは、すべての数値によるページ番号が合わないかどうかのみ表示します。
+    - `NextPrevious` 前後 1 つのページを一度にステップにユーザーを許可する、次へ および 戻るボタンを示しています
+    - `NextPreviousFirstLast` 次へ 戻る ボタン、に加えて最初と最後のボタンも含まれています、ユーザーがデータの最初と最後のページにすばやく移動できるようにします。
+    - `Numeric` 一連のユーザーがすぐに任意のページに移動できるように、ページ番号を示しています。
+    - `NumericFirstLast` ページ番号だけでなくユーザーがデータの最初と最後のページにすばやく移動できるように、最初と最後のボタンが含まれています。最初/最後のボタンは、すべての数値によるページ番号が合わないかどうかのみ表示します。
 
 さらに、GridView、DetailsView、および提供すべて FormView、`PageIndex`と`PageCount`プロパティで、現在のページが表示されていると、データのページの合計数をそれぞれ指定します。 `PageIndex`プロパティは、データの最初のページを表示するときに、つまり、0 から始まるインデックスが`PageIndex`0 になります。 `PageCount`、その一方で、開始 1 の位置、つまり`PageIndex`0 までの値に制限されておよび`PageCount - 1`です。
 
@@ -245,7 +245,7 @@ BoundField、CheckBoxField、TemplateField、フィールドのすべての Grid
 
 1. GridView s [Sorting イベントを](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx)発生
 2. GridView s [ `SortExpression`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx)に設定されている、`SortExpression`フィールドの LinkButton がクリックしてされた並べ替えのヘッダー
-3. ObjectDataSource が再 BLL からデータをすべて取得し、GridView s を使用してデータを並べ替えます`SortExpression`
+3. ObjectDataSource が再 BLL からデータをすべて取得し、GridView s を使用してデータを並べ替えます `SortExpression`
 4. GridView の`PageIndex`プロパティを 0 にリセットすると、つまりユーザーを並べ替えるときに返されます (ページングのサポートが実装されていると仮定) データの最初のページ
 5. GridView s [ `Sorted`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx)発生
 
@@ -306,7 +306,7 @@ GridView の各フィールドが自動的にバインドするとき、ObjectDa
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[次へ](efficiently-paging-through-large-amounts-of-data-cs.md)
+> [!div class="step-by-step"]
+> [次へ](efficiently-paging-through-large-amounts-of-data-cs.md)

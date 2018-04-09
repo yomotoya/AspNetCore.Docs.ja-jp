@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
-title: "エンティティ フレームワークのシナリオを高度な MVC Web アプリケーション (10 10) の |Microsoft ドキュメント"
+title: エンティティ フレームワークのシナリオを高度な MVC Web アプリケーション (10 10) の |Microsoft ドキュメント
 author: tdykstra
-description: "Contoso 大学でサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法について説明しています."
+description: Contoso 大学でサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 148a1aa33f6f713ae471ab14c7180f6c08a8679a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 277503b65d9b75a9d3cc05538d5327f9367f45e0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>MVC Web アプリケーション (10 10) の高度なエンティティ フレームワークのシナリオ
 ====================
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 一連のチュートリアルについては、次を参照してください。[系列内の最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。 一連のチュートリアルを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから開始します。
+> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。 一連のチュートリアルを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから開始します。
 > 
 > > [!NOTE] 
 > > 
@@ -53,13 +53,13 @@ ms.lasthandoff: 01/24/2018
 
 Entity Framework コードの最初の API には、データベースに直接 SQL コマンドを渡すことができるようにするメソッドが含まれています。 次のオプションがあります。
 
-- 使用して、`DbSet.SqlQuery`をエンティティ型を返すクエリ メソッド。 返されたオブジェクトで想定されている型でなければなりません、`DbSet`オブジェクト、およびそれらが自動的に追跡データベースのコンテキストによって追跡を無効にする場合を除き、します。 (は、次のセクションを参照してください、`AsNoTracking`メソッドです)。
-- 使用して、`Database.SqlQuery`をエンティティがない型を返すクエリ メソッド。 返されるデータは、エンティティの種類を取得するこのメソッドを使用する場合でもデータベース コンテキストによって追跡されていません。
+- エンティティ型を返すクエリに対して `DbSet.SqlQuery` メソッドを使用します。 返されたオブジェクトで想定されている型でなければなりません、`DbSet`オブジェクト、およびそれらが自動的に追跡データベースのコンテキストによって追跡を無効にする場合を除き、します。 (は、次のセクションを参照してください、`AsNoTracking`メソッドです)。
+- 使用して、`Database.SqlQuery`をエンティティがない型を返すクエリ メソッド。 このメソッドを使用してエンティティ型を取得する場合でも、返されるデータはデータベース コンテキストによって追跡されません。
 - 使用して、 [Database.ExecuteSqlCommand](https://msdn.microsoft.com/library/gg679456(v=vs.103).aspx)非クエリ コマンド。
 
-Entity Framework を使用する利点の 1 つは、コードのデータを格納する特定のメソッドを過度に結び付ける済む点です。 これは、SQL クエリとコマンドの生成も自分で記述することから解放することで実行します。 例外的なシナリオは、手動で作成した特定の SQL クエリを実行する必要がある場合とこれらのメソッドのできるようにすると、このような例外を処理します。
+Entity Framework を使用する利点の 1 つは、データを格納する特定のメソッドにコードを過度に接近させなくてもよい点です。 SQL クエリとコマンドが生成されるため、自分でこれらを記述する必要がなくなります。 例外的なシナリオは、手動で作成した特定の SQL クエリを実行する必要がある場合とこれらのメソッドのできるようにすると、このような例外を処理します。
 
-常に true web アプリケーションで SQL コマンドを実行するときに、としては、SQL インジェクション攻撃からサイトを保護する対策を講じる必要があります。 行うには 1 つの方法では、パラメーター化クエリを使用して、SQL コマンドとして web ページによって送信される文字列を解釈できないことを確認します。 このチュートリアルでは、ユーザー入力をクエリに統合するとき、パラメーター化クエリを使用します。
+Web アプリケーションで SQL コマンドを実行する場合は常に、SQL インジェクション攻撃から自身のサイトを保護する対策を講じる必要があります。 これを行う 1 つの方法として、パラメーター化されたクエリを使用して、Web ページによって送信された文字列が SQL コマンドとして解釈できないことを確認します。 このチュートリアルでは、ユーザー入力をクエリに統合するときに、パラメーター化されたクエリを使用します。
 
 ### <a name="calling-a-query-that-returns-entities"></a>クエリを呼び出すには、エンティティが返されます。
 
@@ -81,7 +81,7 @@ Entity Framework を使用する利点の 1 つは、コードのデータを格
 
 ### <a name="calling-a-query-that-returns-other-types-of-objects"></a>クエリを呼び出すには、その他の種類のオブジェクトが返されます。
 
-以前登録日付ごとの生徒の数が映っているバージョン情報 ページの受講者統計グリッドを作成します。 これを行うコード*HomeController.cs* LINQ を使用します。
+以前に、登録日ごとの学生数を示す About ページ用に、学生の統計グリッドを作成しました。 これを行うコード*HomeController.cs* LINQ を使用します。
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample3.cs)]
 
@@ -91,13 +91,13 @@ LINQ を使用するのではなく、SQL の直接このデータを取得す�
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample4.cs)]
 
-バージョン情報 ページを実行します。 以前と同じ、同じデータが表示されます。
+バージョン情報 ページを実行します。 以前に行ったのと同じデータが表示されます。
 
 ![About_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image4.png)
 
 ### <a name="calling-an-update-query"></a>更新クエリを呼び出す
 
-Contoso 大学管理者がすべてコースのクレジットの数の変更などのデータベースで一括変更を実行することができるようにするとします。 かかる大学のコースの数が多い場合は、できなくなるそれらすべてのエンティティとして取得し、それらを個別に変更が効率的です。 Web ページをすべてのコースのクレジットの数を変更する要素を指定することができますを実装するこのセクションの内容と SQL を実行することによって、変更を行うを`UPDATE`ステートメントです。 Web ページは、次の図のようになります。
+Contoso 大学管理者がすべてコースのクレジットの数の変更などのデータベースで一括変更を実行することができるようにするとします。 大学に多くのコースがある場合は、それらすべてをエンティティとして取得し、それらを個別に変更するのは非効率的です。 Web ページをすべてのコースのクレジットの数を変更する要素を指定することができますを実装するこのセクションの内容と SQL を実行することによって、変更を行うを`UPDATE`ステートメントです。 Web ページは次の図のようになります。
 
 ![Update_Course_Credits_initial_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image5.png)
 
@@ -107,7 +107,7 @@ Contoso 大学管理者がすべてコースのクレジットの数の変更な
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample5.cs)]
 
-*UnitOfWork.cs*、変更、`Course`リポジトリの種類から`GenericRepository<Course>`に`CourseRepository:`
+*UnitOfWork.cs*、変更、`Course`リポジトリの種類から`GenericRepository<Course>`に `CourseRepository:`
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample6.cs)]
 
@@ -131,15 +131,15 @@ Contoso 大学管理者がすべてコースのクレジットの数の変更な
 
 [!code-cshtml[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample9.cshtml)]
 
-実行、`UpdateCourseCredits`メソッドを選択して、**コース** タブで、追加し、"/UpdateCourseCredits"ブラウザーのアドレス バーの URL の末尾に (たとえば: `http://localhost:50205/Course/UpdateCourseCredits`)。 テキスト ボックスに数値を入力します。
+**[Courses]\(コース\)** タブを選択してから、ブラウザーのアドレス バーで URL の末尾に "/UpdateCourseCredits" を追加して (例: `http://localhost:50205/Course/UpdateCourseCredits`)、`UpdateCourseCredits` メソッドを実行します。 テキスト ボックスに数値を入力します。
 
 ![Update_Course_Credits_initial_page_with_2_entered](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image7.png)
 
-**[更新]**をクリックします。 影響を受ける行の数が参照してください。
+**[更新]**をクリックします。 影響を受けた行の数が表示されます。
 
 ![Update_Course_Credits_rows_affected_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image8.png)
 
-をクリックして**一覧に戻る**コースのクレジットの改訂された数との一覧を表示します。
+**[リストに戻る]** をクリックして、単位数が変更されたコースの一覧を表示します。
 
 ![Courses_Index_page_showing_revised_credits](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image9.png)
 
@@ -147,12 +147,12 @@ Contoso 大学管理者がすべてコースのクレジットの数の変更な
 
 ## <a name="no-tracking-queries"></a>No 追跡クエリ
 
-データベース コンテキストは、データベースの行を取得し、それらを表すエンティティ オブジェクトを作成、ときに既定では、追跡データベース内にメモリ内のエンティティが同期されているかどうか。 メモリ内のデータはキャッシュとして機能し、エンティティを更新するときに使用します。 このキャッシュではありません多くの場合、web アプリケーションで必要なコンテキストをインスタンス化は通常短時間 (新しい 1 つが作成され、破棄要求ごとに) とコンテキストを読み取るそのエンティティが再度使用される前に、通常、エンティティが破棄されています。
+データベース コンテキストは、データベースの行を取得し、それらを表すエンティティ オブジェクトを作成、ときに既定では、追跡データベース内にメモリ内のエンティティが同期されているかどうか。 メモリ内のデータはキャッシュとして機能し、エンティティを更新するときに使われます。 Web アプリケーションでは、一般にコンテキスト インスタンスの存続期間は短く (要求ごとに新しいインスタンスが作成されて破棄されます)、通常、エンティティを読み取るコンテキストはエンティティが再び使われる前に破棄されるので、多くの場合、このようなキャッシュは必要ありません。
 
-コンテキストが使用して、クエリのエンティティ オブジェクトを追跡するかどうかを指定することができます、`AsNoTracking`メソッドです。 実行する一般的なシナリオを以下に示します。
+コンテキストが使用して、クエリのエンティティ オブジェクトを追跡するかどうかを指定することができます、`AsNoTracking`メソッドです。 追跡を無効にした方がよい一般的なシナリオを以下に示します。
 
 - クエリでは、大量の追跡を無効にするとパフォーマンスを向上させる著しくするデータを取得します。
-- 前のさまざまな目的は同じエンティティを取得したが、更新するためにエンティティをアタッチする場合します。 エンティティは、データベースのコンテキストによって既に追跡されているが、ために、変更するエンティティをアタッチできません。 これを防ぐ方法の 1 つを使用して、`AsNoTracking`オプションは、以前のクエリを使用します。
+- 前のさまざまな目的は同じエンティティを取得したが、更新するためにエンティティをアタッチする場合します。 エンティティはデータベース コンテキストによって既に追跡されているため、変更するエンティティをアタッチできません。 これを防ぐ方法の 1 つを使用して、`AsNoTracking`オプションは、以前のクエリを使用します。
 
 このセクションの内容を 2 番目のこれらのシナリオを示しています。 ビジネス ロジックを実装します。 具体的には、インストラクターは 1 つ以上の部門の管理者であることを示すビジネス ルールを適用します。
 
@@ -187,7 +187,7 @@ Contoso 大学管理者がすべてコースのクレジットの数の変更な
 
 ## <a name="examining-queries-sent-to-the-database"></a>データベースに送信されるクエリを確認します。
 
-データベースに送信される実際の SQL クエリを表示できるようにすると役立つ場合があります。 これを行うには、デバッガーでクエリ変数を確認またはクエリの呼び出す`ToString`メソッドです。 これを試すをするには、単純なクエリを見てし、このような一括読み込み、フィルター、および並べ替えオプションを追加するように動作を確認します。
+データベースに送信される実際の SQL クエリを確認できると役立つ場合があります。 これを行うには、デバッガーでクエリ変数を確認またはクエリの呼び出す`ToString`メソッドです。 これを試すをするには、単純なクエリを見てし、このような一括読み込み、フィルター、および並べ替えオプションを追加するように動作を確認します。
 
 *コント ローラー/CourseController*、置換、`Index`メソッドを次のコード。
 
@@ -243,7 +243,7 @@ Entity Framework では、エンティティのインスタンス (たとえば�
 
 ## <a name="disabling-automatic-detection-of-changes"></a>変更の自動検出を無効にします。
 
-Entity Framework では、元の値を持つエンティティの現在の値を比較することによってエンティティがどのように変更されたか (およびしたがって、更新プログラムがデータベースに送信する必要があります) を決定します。 元の値は、エンティティがクエリを実行したり、接続されているときに格納されます。 自動の変更の検出が発生する方法の一部を次に示します。
+Entity Framework では、エンティティの現在の値と元の値を比較して、エンティティがどのように変更されたか (およびそれによって、どの更新プログラムをデータベースに送信する必要があるか) を判断します。 元の値は、エンティティがクエリを実行したり、接続されているときに格納されます。 変更の自動検出を行うメソッドには、次のようなものがあります。
 
 - `DbSet.Find`
 - `DbSet.Local`
@@ -271,7 +271,7 @@ Entity Framework では、元の値を持つエンティティの現在の値を
 
 <a id="acknowledgments"></a>
 
-## <a name="acknowledgments"></a>受信確認
+## <a name="acknowledgments"></a>謝辞
 
 - Tom Dykstra はこのチュートリアルの元のバージョンを作成、Microsoft Web プラットフォームとツール コンテンツ チームのシニア プログラミング ライターです。
 - [Rick Anderson](https://blogs.msdn.com/b/rickandy/) (twitter [ @RickAndMSFT ](http://twitter.com/RickAndMSFT)) このチュートリアルを共同で作成し、5 の EF と MVC 4 の更新作業の大半をします。 Rick は、Microsoft Azure と MVC に焦点を当てたのスキルの限られたプログラミング ライターです。
@@ -299,7 +299,7 @@ Entity Framework では、元の値を持つエンティティの現在の値を
 
 エラー メッセージ:
 
-*用語 'データベースの更新' は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前としては認識されません。名のスペルを確認するかパスが含まれている場合、パスが正しいことを確認し、もう一度やり直してください。*(から、  *`Update-Database`*  PMC コマンドです)。
+*用語 'データベースの更新' は、コマンドレット、関数、スクリプト ファイル、または操作可能なプログラムの名前としては認識されません。名のスペルを確認するかパスが含まれている場合、パスが正しいことを確認し、もう一度やり直してください。*(から、 *`Update-Database`* PMC コマンドです)。
 
 解決方法 : 
 
@@ -309,7 +309,7 @@ Visual Studio を終了します。 プロジェクトを開き直すし、も�
 
 エラー メッセージ:
 
-*1 つまたは複数のエンティティの検証に失敗しました。詳細については 'EntityValidationErrors' プロパティを参照してください。* (から、  *`Update-Database`*  PMC コマンドです)。
+*1 つまたは複数のエンティティの検証に失敗しました。詳細については 'EntityValidationErrors' プロパティを参照してください。* (から、 *`Update-Database`* PMC コマンドです)。
 
 解決方法 : 
 
@@ -325,7 +325,7 @@ Visual Studio を終了します。 プロジェクトを開き直すし、も�
 
 このエラーを取得する方法の 1 つは同じポート番号を使用してそれらの各ソリューションの複数のコピーです。 通常、この問題を解決するには、Visual Studio のすべてのインスタンスを終了し、プロジェクトで作業中の再起動します。 それでもうまくいかない場合は、ポート番号を変更してください。 プロジェクト ファイルを右クリックし、[プロパティ] をクリックします。 選択、 **Web**  タブをされているポート番号を変更、**プロジェクト Url**テキスト ボックス。
 
-### <a name="error-locating-sql-server-instance"></a>SQL Server インスタンスの検索エラー
+### <a name="error-locating-sql-server-instance"></a>SQL Server インスタンスの位置を特定しているときのエラー
 
 エラー メッセージ:
 
@@ -335,6 +335,6 @@ Visual Studio を終了します。 プロジェクトを開き直すし、も�
 
 接続文字列を確認します。 データベースを手動で削除する場合は、構築文字列でデータベースの名前を変更します。
 
->[!div class="step-by-step"]
-[前へ](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)
-[次へ](building-the-ef5-mvc4-chapter-downloads.md)
+> [!div class="step-by-step"]
+> [前へ](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)
+> [次へ](building-the-ef5-mvc4-chapter-downloads.md)

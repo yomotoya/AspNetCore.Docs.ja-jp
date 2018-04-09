@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
-title: "NerdDinner チュートリアルの概要 |Microsoft ドキュメント"
+title: NerdDinner チュートリアルの概要 |Microsoft ドキュメント
 author: shanselman
-description: "新しいフレームワークを学習する最善の方法では、何らかの処理をビルドします。 このチュートリアルで ASP.NE を使用するサイズは小さいが完了すると、アプリケーションを構築する方法について説明しています."
+description: 新しいフレームワークを学習する最善の方法では、何らかの処理をビルドします。 このチュートリアルで ASP.NE を使用するサイズは小さいが完了すると、アプリケーションを構築する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 msc.type: authoredcontent
-ms.openlocfilehash: 57eedb224e26867c78cc399b89f91b95f722074d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3d925a7dc89fc0c742468653c5c138a0f1d71231
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-the-nerddinner-tutorial"></a>NerdDinner チュートリアルの概要
 ====================
@@ -88,5 +88,5 @@ ASP.NET MVC、Visual Web Developer 2008 Express、および SQL Server Express (
 
 まずファイルを使用して、&gt;NerdDinner アプリケーションを作成する Visual Studio 内で新しいプロジェクト。
 
->[!div class="step-by-step"]
-[次へ](create-a-new-aspnet-mvc-project.md)
+> [!div class="step-by-step"]
+> [次へ](create-a-new-aspnet-mvc-project.md)

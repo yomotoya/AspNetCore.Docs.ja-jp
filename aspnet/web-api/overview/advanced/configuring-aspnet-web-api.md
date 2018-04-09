@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/configuring-aspnet-web-api
-title: "ASP.NET Web API 2 の構成 |Microsoft ドキュメント"
+title: ASP.NET Web API 2 の構成 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/configuring-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f9b471fe2afdce278869a2e4d9b693a78030324b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: de2396710fb9434c84bf14a2faa37b98154f34d8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-aspnet-web-api-2"></a>ASP.NET Web API 2 の構成
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
 このトピックでは、ASP.NET Web API を構成する方法について説明します。
 
@@ -120,13 +120,13 @@ OWIN の自己ホストの場合は、作成、新しい**HttpConfiguration**イ
 複数のインスタンスのサービス
 
 
-| サービス | 説明 |
-| --- | --- |
-| **IFilterProvider** | コント ローラーのアクションのフィルターの一覧を返します。 |
-| **ModelBinderProvider** | 特定の種類のモデル バインダーを返します。 |
-| **ModelMetadataProvider** | モデルのメタデータを提供します。 |
-| **ModelValidatorProvider** | モデルの検証コントロールを提供します。 |
-| **ValueProviderFactory** | 値プロバイダーを作成します。 詳細については、Mike Stall のブログの投稿を参照してください[WebAPI でカスタム値プロバイダーを作成する方法。](https://blogs.msdn.com/b/jmstall/archive/2012/04/23/how-to-create-a-custom-value-provider-in-webapi.aspx) |である必要があります。
+|                 サービス                 |                                                                                                              説明                                                                                                               |
+|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    <strong>IFilterProvider</strong>     |                                                                                           コント ローラーのアクションのフィルターの一覧を返します。                                                                                           |
+|  <strong>ModelBinderProvider</strong>   |                                                                                                特定の種類のモデル バインダーを返します。                                                                                                |
+| <strong>ModelMetadataProvider</strong>  |                                                                                                     モデルのメタデータを提供します。                                                                                                     |
+| <strong>ModelValidatorProvider</strong> |                                                                                                   モデルの検証コントロールを提供します。                                                                                                    |
+|  <strong>ValueProviderFactory</strong>  | 値プロバイダーを作成します。 詳細については、Mike Stall のブログの投稿を参照してください[WebAPI でカスタム値プロバイダーを作成する方法。](https://blogs.msdn.com/b/jmstall/archive/2012/04/23/how-to-create-a-custom-value-provider-in-webapi.aspx) |
 
 マルチ インスタンスのサービスに、カスタム実装を追加するには、呼び出す**追加**または**挿入**上、 **Services**コレクション。
 

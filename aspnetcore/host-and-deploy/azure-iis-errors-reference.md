@@ -1,7 +1,7 @@
 ---
-title: "Azure App Service と ASP.NET Core を使用した IIS の一般的なエラーのリファレンス"
+title: Azure App Service と ASP.NET Core を使用した IIS の一般的なエラーのリファレンス
 author: guardrex
-description: "Azure アプリのサービスと IIS の ASP.NET Core アプリケーションをホストしているときに、一般的なエラーを識別します。"
+description: Azure アプリのサービスと IIS の ASP.NET Core アプリケーションをホストしているときに、一般的なエラーを識別します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: cd9f8fc310ba0258477db51aa416c03debadeffe
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: fb833ef8797ea7851cbaf53bb5681df248d07a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Azure App Service と ASP.NET Core を使用した IIS の一般的なエラーのリファレンス
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/02/2018
 
 次の一般的なエラー情報を比較します。 一致が見つかった場合は、トラブルシューティングのアドバイスに従います。
 
-[!INCLUDE[Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
 ## <a name="installer-unable-to-obtain-vc-redistributable"></a>インストーラーが VC++ 再頒布可能パッケージを取得できない
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/02/2018
 
 トラブルシューティング:
 
-* サーバー ホスティング バンドルのインストール時にインストーラーがインターネットにアクセスできない場合、インストーラーは *Microsoft Visual C++ 2015 再頒布可能パッケージ*を取得できず、この例外が発生します。 インストーラーを取得、 [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)です。 インストーラーが失敗した場合、サーバーがフレームワークに依存する展開 (FDD) をホストするために、.NET Core ランタイムを受信しません。 場合は、FDD をホストするには、プログラムで、ランタイムがインストールされていることを確認&amp;機能します。 必要な場合からランタイム インストーラーを入手[.NET ダウンロード](https://www.microsoft.com/net/download/core)です。 ランタイムのインストール後、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
+* サーバー ホスティング バンドルのインストール時にインストーラーがインターネットにアクセスできない場合、インストーラーは *Microsoft Visual C++ 2015 再頒布可能パッケージ*を取得できず、この例外が発生します。 インストーラーを取得、 [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)です。 インストーラーが失敗した場合、サーバーがフレームワークに依存する展開 (FDD) をホストするために、.NET Core ランタイムを受信しません。 場合は、FDD をホストするには、プログラムで、ランタイムがインストールされていることを確認&amp;機能します。 必要な場合からランタイム インストーラーを入手[.NET のすべてのダウンロード](https://www.microsoft.com/net/download/all)です。 ランタイムのインストール後、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
 
 ## <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>OS のアップグレードによって 32 ビット ASP.NET Core モジュールが削除された
 
@@ -138,7 +138,7 @@ ms.lasthandoff: 03/02/2018
 
 * FDD が配置されているし、IIS を再起動しなくても .NET Core がインストールされています。 サーバーを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
 
-* ホスト システムに、.NET Core ランタイムをインストールしなくても、FDD が展開された可能性があります。 .NET Core ランタイムがインストールされていない場合は、実行、 **.NET コア Windows Server をホストしているバンドル インストーラー**システムにします。 「[.NET Core Windows Server ホスティング バンドルのインストール](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle)」を参照してください。 場合は、インターネット接続のないシステムで、.NET Core ランタイムをインストールしようとすると、取得、ランタイムから[.NET ダウンロード](https://www.microsoft.com/net/download/core)ASP.NET Core モジュールをインストールするホスティング バンドル インストーラーを実行しています。 インストールを完了するために、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
+* ホスト システムに、.NET Core ランタイムをインストールしなくても、FDD が展開された可能性があります。 .NET Core ランタイムがインストールされていない場合は、実行、 **.NET コア Windows Server をホストしているバンドル インストーラー**システムにします。 「[.NET Core Windows Server ホスティング バンドルのインストール](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle)」を参照してください。 場合は、インターネット接続のないシステムで、.NET Core ランタイムをインストールしようとすると、取得、ランタイムから[.NET のすべてのダウンロード](https://www.microsoft.com/net/download/all)ASP.NET Core モジュールをインストールするホスティング バンドル installer を実行します。 インストールを完了するために、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
 
 * FDD が配置されていると、 *Microsoft Visual C 2015 Redistributable (x64)*システムがインストールされていません。 インストーラーを取得、 [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)です。
 
@@ -211,6 +211,18 @@ ms.lasthandoff: 03/02/2018
 トラブルシューティング
 
 * サブアプリの *web.config* ファイルに `<handlers>` セクションが含まれていないことを確認します。
+
+## <a name="stdout-log-path-incorrect"></a>標準出力ログのパスが正しくありません。
+
+* **ブラウザー:**アプリが通常どおりに応答します。
+
+* **アプリケーションのログ:**警告: stdoutLogFile を作成できませんでした\\? \C:\_apps\app_folder\bin\Release\netcoreapp2.0\win10-x64\publish\logs\path_doesnt_exist\stdout_8748_201831835937.log、ErrorCode = -。2147024893 です。
+
+* **ASP.NET Core モジュールのログ:** ログ ファイルは作成されません
+
+トラブルシューティング
+
+* `stdoutLogFile`で指定されたパス、`<aspNetCore>`要素の*web.config*が存在しません。 詳細については、次を参照してください。、[ログの作成とリダイレクト](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection)ASP.NET Core モジュール構成の参照トピックの「します。
 
 ## <a name="application-configuration-general-issue"></a>アプリケーション構成の一般的な問題
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/batch-deleting-vb
-title: "(VB) を削除するバッチ |Microsoft ドキュメント"
+title: (VB) を削除するバッチ |Microsoft ドキュメント
 author: rick-anderson
-description: "単一の操作で複数のデータベース レコードを削除する方法を説明します。 ユーザー インターフェイス レイヤー内で作成された以前 tut 拡張の GridView に構築しています."
+description: 単一の操作で複数のデータベース レコードを削除する方法を説明します。 ユーザー インターフェイス レイヤー内で作成された以前 tut 拡張の GridView に構築しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cce3876ae0fab66f617d77abdb8777f9865c7514
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0d17ec6ec20be65b3ec9369f1c5a08d5970ec0dd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="batch-deleting-vb"></a>バッチ (VB) を削除します。
 ====================
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/10/2017
 > テストする、`DeleteProductsWithTransaction`メソッド s 原子性で、製品のエントリを手動で追加、`Order Details`の表に、(およびその他) には、その製品を削除しようとします。 関連付けられている注文の製品を削除が方法、その他の選択した製品の削除がロールバックしようとするとき、外部キー制約違反を受け取ります。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 インターフェイスを削除するバッチを作成するには、対応するチェック ボックスの列を含む GridView を追加し、ボタン Web ときを制御するには、クリックされると、1 つのアトミック操作として選択された行のすべてが削除されます。 このチュートリアルでは前の 2 つのチュートリアルで実行された作業を整理してこのようなインターフェイスを作成お[GridView 列のチェック ボックスを追加する](../enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb.md)と[トランザクション内でデータベースの変更をラッピング](wrapping-database-modifications-within-a-transaction-vb.md)です。 チェック ボックスの列を含む GridView で作成した最初のチュートリアルでおよび後者の場合、BLL 内のメソッドを実装しましたを渡されたときに、`List(Of T)`の`ProductID`値、すべてのトランザクションのスコープ内で削除します。
 
@@ -109,12 +109,12 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Hilton Giesenow および Teresa マーフィーがいました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](batch-updating-vb.md)
-[次へ](batch-inserting-vb.md)
+> [!div class="step-by-step"]
+> [前へ](batch-updating-vb.md)
+> [次へ](batch-inserting-vb.md)

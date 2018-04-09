@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
-title: "アカウントの確認と ASP.NET Identity (c#) とパスワードの回復 |Microsoft ドキュメント"
+title: アカウントの確認と ASP.NET Identity (c#) とパスワードの回復 |Microsoft ドキュメント
 author: HaoK
-description: "このチュートリアルを実行する前に、電子メールの確認とパスワードのリセットのログで web アプリの作成をセキュリティで保護された ASP.NET MVC 5 を完了する必要があります。 このチュートリアルには."
+description: このチュートリアルを実行する前に、電子メールの確認とパスワードのリセットのログで web アプリの作成をセキュリティで保護された ASP.NET MVC 5 を完了する必要があります。 このチュートリアルには.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015
 ms.topic: article
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 548baaaa06980fb793c079b66b6edc34422eb579
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0167388cf6b488b72ca36f583a7794690dbf9900
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>アカウントの確認と ASP.NET Identity (c#) とパスワードの回復
 ====================
@@ -88,7 +88,7 @@ ms.lasthandoff: 01/24/2018
   
     ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image10.png)  
   
- この時点で、電子メールが確認されていません。
+   この時点で、電子メールが確認されていません。
 
 ASP.NET Id の既定のデータ ストアは、Entity Framework が、他のデータ ストアを使用して、フィールドを追加することを構成することができます。 参照してください[その他のリソース](#addRes)このチュートリアルの最後のセクションでします。
 
@@ -117,7 +117,7 @@ Id システムを許可するアプリを構成するため、ユーザーの�
 - 2 要素認証 (2 fa)。 別のチュートリアルでは 2 fa と SMS を説明します。
 - 電子メールと SMS サービスをフックします。 (取り上げ、SMS 別のチュートリアルでは)。
 
-`ApplicationUserManager`ジェネリック クラス`UserManager<ApplicationUser>`クラスです。 `ApplicationUser`派生した[IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser.aspx)です。 `IdentityUser`ジェネリックから派生した`IdentityUser`クラス。
+`ApplicationUserManager`ジェネリック クラス`UserManager<ApplicationUser>`クラスです。 `ApplicationUser` 派生した[IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser.aspx)です。 `IdentityUser` ジェネリックから派生した`IdentityUser`クラス。
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample1.cs)]
 
@@ -127,11 +127,11 @@ Id システムを許可するアプリを構成するため、ユーザーの�
 
 ### <a name="applicationuser"></a>ApplicationUser
 
-`ApplicationUser`(`public class ApplicationUserManager : UserManager<ApplicationUser>`) で定義された*Models\IdentityModels.cs*として。
+`ApplicationUser` (`public class ApplicationUserManager : UserManager<ApplicationUser>`) で定義された*Models\IdentityModels.cs*として。
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample2.cs?highlight=8-9)]
 
-上記の強調表示されたコードの生成、 [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx)です。 ASP.NET Identity と OWIN の Cookie 認証クレームに基づく、ため、フレームワークが、アプリを生成する必要があります、`ClaimsIdentity`ユーザー。 `ClaimsIdentity`情報を持つユーザーの名前など、ユーザーのすべての要求について age し、ユーザーが所属するロール。 この段階で、ユーザーのクレームを追加することもできます。
+上記の強調表示されたコードの生成、 [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx)です。 ASP.NET Identity と OWIN の Cookie 認証クレームに基づく、ため、フレームワークが、アプリを生成する必要があります、`ClaimsIdentity`ユーザー。 `ClaimsIdentity` 情報を持つユーザーの名前など、ユーザーのすべての要求について age し、ユーザーが所属するロール。 この段階で、ユーザーのクレームを追加することもできます。
 
 OWIN`AuthenticationManager.SignIn`メソッドでは、渡します、`ClaimsIdentity`し、ユーザーがサインインします。
 
@@ -152,7 +152,7 @@ OWIN`AuthenticationManager.SignIn`メソッドでは、渡します、`ClaimsIde
 
     [!code-console[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample4.cmd)]
 
- このチュートリアルで使用されます[SendGrid](http://sendgrid.com/)電子メールを送信します。 `Identity.Samples`パッケージは操作するコードをインストールします。
+   このチュートリアルで使用されます[SendGrid](http://sendgrid.com/)電子メールを送信します。 `Identity.Samples`パッケージは操作するコードをインストールします。
 3. 設定、 [SSL を使用するプロジェクト](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)です。
 4. クリックすると、アプリを実行して、テストの作成にローカル アカウント、**登録**をリンクして、登録フォームを投稿します。
 5. 確認の電子メールをシミュレートするデモ電子メールのリンクをクリックします。

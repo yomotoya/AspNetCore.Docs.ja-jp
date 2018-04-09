@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/re-use-ui-using-master-pages-and-partials
-title: "マスター ページとパーシャルを使用して UI を再利用 |Microsoft ドキュメント"
+title: マスター ページとパーシャルを使用して UI を再利用 |Microsoft ドキュメント
 author: microsoft
-description: "手順 7 では、部分ビュー テンプレートおよびマスター ページを使用して、コードの重複を除去するには、当社ビュー テンプレート内で 'ドライ原則' を適用した方法で検索します。"
+description: 手順 7 では、部分ビュー テンプレートおよびマスター ページを使用して、コードの重複を除去するには、当社ビュー テンプレート内で 'ドライ原則' を適用した方法で検索します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/re-use-ui-using-master-pages-and-partials
 msc.type: authoredcontent
-ms.openlocfilehash: c42cd6aca40b08a9f8461532fbfd0589901b64ad
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ade655f3a4a429360b678d02fb564ac9cf255d42
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="re-use-ui-using-master-pages-and-partials"></a>マスター ページとパーシャルを使用して UI を再利用します。
 ====================
@@ -71,7 +71,7 @@ ASP.NET MVC には、ページのサブ部分ビューのレンダリング ロ�
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample1.aspx)]
 
-編集および作成するテンプレートの表示、DinnerForm 部分的なテンプレートを呼び出すし、フォームの重複を排除するし、更新することができます。 呼び出し元 Html.RenderPartial("DinnerForm") で、ビュー テンプレート内で実行おできます。
+編集および作成するテンプレートの表示、DinnerForm 部分的なテンプレートを呼び出すし、フォームの重複を排除するし、更新することができます。 We can do this by calling Html.RenderPartial("DinnerForm") within our view templates:
 
 ##### <a name="createaspx"></a>Create.aspx
 
@@ -123,7 +123,7 @@ NerdDinner アプリケーション ("List"、「詳細」、"Edit"、「作成�
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample7.aspx)]
 
-Site.master ファイルと更新を保存して、ブラウザー、ヘッダーを見てみましょうは、アプリケーション内のすべてのビューで表示を変更します。 例:
+Site.master ファイルと更新を保存して、ブラウザー、ヘッダーを見てみましょうは、アプリケーション内のすべてのビューで表示を変更します。 例えば:
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image6.png)
 
@@ -137,6 +137,6 @@ Site.master ファイルと更新を保存して、ブラウザー、ヘッダ�
 
 みましょう今すぐ前に作成した一覧のシナリオを再確認し、スケーラブルなページングのサポートを有効にします。
 
->[!div class="step-by-step"]
-[前へ](use-viewdata-and-implement-viewmodel-classes.md)
-[次へ](implement-efficient-data-paging.md)
+> [!div class="step-by-step"]
+> [前へ](use-viewdata-and-implement-viewmodel-classes.md)
+> [次へ](implement-efficient-data-paging.md)

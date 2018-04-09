@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-cs
-title: "コント ローラー (c#) の作成 |Microsoft ドキュメント"
+title: コント ローラー (c#) の作成 |Microsoft ドキュメント
 author: StephenWalther
-description: "このチュートリアルでは、Stephen Walther は、ASP.NET MVC アプリケーション コント ローラーを追加する方法について説明します。"
+description: このチュートリアルでは、Stephen Walther は、ASP.NET MVC アプリケーション コント ローラーを追加する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9faaff1e00998ef9a77c4928a9eb36fc93ab97f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 86966f1064d09419e2102542c6d14c4162d153e4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-controller-c"></a>コント ローラー (c#) の作成
 ====================
@@ -92,10 +92,10 @@ ASP.NET MVC コント ローラーは、クラスだけです。 場合は、便
 
 `http://localhost:40071/Person`
 
-> [!NOTE] 
+> [!NOTE]
 > 
 > ASP.NET 開発サーバーでは、ランダムなポート番号 (たとえば、40071) を使用します。 コント ローラーを起動する URL を入力するときに、右側のポート番号を指定する必要があります。 Windows 通知領域 (下の画面の右側) で ASP.NET 開発サーバーのアイコンの上にマウスを置くことによって、ポート番号を指定できます。
-
->[!div class="step-by-step"]
-[前へ](adding-dynamic-content-to-a-cached-page-cs.md)
-[次へ](creating-an-action-cs.md)
+> 
+> [!div class="step-by-step"]
+> [前へ](adding-dynamic-content-to-a-cached-page-cs.md)
+> [次へ](creating-an-action-cs.md)

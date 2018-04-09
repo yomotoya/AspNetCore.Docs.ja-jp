@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-vb
-title: "アニメーションをコントロール (VB) に追加する |Microsoft ドキュメント"
+title: アニメーションをコントロール (VB) に追加する |Microsoft ドキュメント
 author: wenz
-description: "アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 このチュートリアルではどのようにしています."
+description: アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 このチュートリアルではどのようにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c2d6971ade89405245c8d23cafb6fd8bb9468639
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3da98e478c45213875b3829e51351d03571a05b8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-animation-to-a-control-vb"></a>アニメーションをコントロール (VB) に追加します。
 ====================
@@ -51,22 +51,22 @@ ms.lasthandoff: 11/10/2017
 
 全体のアニメーションが適用されたは、残念ながら完全には現在サポートされている Visual Studio の IntelliSense によって、XML 構文を使用して宣言します。 ルート ノードは`<Animations>;`アニメーションが場所を take(s) ときを特定するこのノード内で複数のイベントが許可されます。
 
-- `OnClick`(マウス クリック)
-- `OnHoverOut`(ときにマウスがコントロールを離れる)
-- `OnHoverOver`(マウスがコントロール上に置いたときに、停止、`OnHoverOut`アニメーション)
-- `OnLoad`(ページの読み込み時)
-- `OnMouseOut`(ときにマウスがコントロールを離れる)
-- `OnMouseOver`(マウスがコントロール上に置いたときに停止はありません、`OnMouseOut`アニメーション)
+- `OnClick` (マウス クリック)
+- `OnHoverOut` (ときにマウスがコントロールを離れる)
+- `OnHoverOver` (マウスがコントロール上に置いたときに、停止、`OnHoverOut`アニメーション)
+- `OnLoad` (ページの読み込み時)
+- `OnMouseOut` (ときにマウスがコントロールを離れる)
+- `OnMouseOver` (マウスがコントロール上に置いたときに停止はありません、`OnMouseOut`アニメーション)
 
 フレームワークは、アニメーションでは、独自の XML 要素によって表される各 1 つのセットが付属します。 選択範囲を次に示します。
 
-- `<Color>`(色を変更する)
-- `<FadeIn>`(フェードイン)
-- `<FadeOut>`(フェードアウト)
-- `<Property>`(コントロールのプロパティを変更する)
-- `<Pulse>`(いた)
-- `<Resize>`(サイズを変更する)
-- `<Scale>`(サイズを比例的に変更する)
+- `<Color>` (色を変更する)
+- `<FadeIn>` (フェードイン)
+- `<FadeOut>` (フェードアウト)
+- `<Property>` (コントロールのプロパティを変更する)
+- `<Pulse>` (いた)
+- `<Resize>` (サイズを変更する)
+- `<Scale>` (サイズを比例的に変更する)
 
 この例では、パネルはフェードアウトします。アニメーションは 1.5 秒を受け取ります (`Duration`属性)、24 (アニメーション手順) 秒あたりのフレームを表示する (`Fps` attributs)。 ここでは、完全なマークアップを`AnimationExtender`コントロール。
 
@@ -79,6 +79,6 @@ ms.lasthandoff: 11/10/2017
 
 パネルがフェードアウト ([フルサイズのイメージを表示するをクリックして](adding-animation-to-a-control-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](dynamically-controlling-updatepanel-animations-cs.md)
-[次へ](executing-several-animations-at-the-same-time-vb.md)
+> [!div class="step-by-step"]
+> [前へ](dynamically-controlling-updatepanel-animations-cs.md)
+> [次へ](executing-several-animations-at-the-same-time-vb.md)

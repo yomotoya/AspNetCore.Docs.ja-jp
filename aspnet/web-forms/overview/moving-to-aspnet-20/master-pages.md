@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/master-pages
-title: "マスター ページ |Microsoft ドキュメント"
+title: マスター ページ |Microsoft ドキュメント
 author: microsoft
-description: "成功した Web サイトに主要なコンポーネントの 1 つは、一貫したルック アンド フィールです。 ASP.NET で 1.x では、共通のページ elem をレプリケートするに使用されるユーザー コントロールを開発者."
+description: 成功した Web サイトに主要なコンポーネントの 1 つは、一貫したルック アンド フィールです。 ASP.NET で 1.x では、共通のページ elem をレプリケートするに使用されるユーザー コントロールを開発者.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
-ms.openlocfilehash: bd9effd4b73a014d4d7bb825b382b8db34d636f1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f45dd9704f665244d2a48ec000326f6e98984e4f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="master-pages"></a>マスター ページ
 ====================
@@ -74,7 +74,7 @@ ASP.NET そのもののアーキテクチャは、ユーザー コントロー�
 **図 2**: 新しいマスター ページを作成します。
 
 
-マスター ページのファイル拡張子は*.master*です。 これは、通常のページから、マスター ページとは異なる方法のいずれかです。 代わりに、その他の主な違いは、@Pageディレクティブ、マスター ページには、@Masterディレクティブです。 先ほど作成したコードをレビューしてページをソース ビューに、マスターの切り替え。
+マスター ページのファイル拡張子は<em>.master</em>です。 これは、通常のページから、マスター ページとは異なる方法のいずれかです。 代わりに、その他の主な違いは、@Pageディレクティブ、マスター ページには、@Masterディレクティブです。 先ほど作成したコードをレビューしてページをソース ビューに、マスターの切り替え。
 
 新しいマスター ページは、既定では、1 つのプレース ホルダー コントロールがあります。 ほとんどの場合、方が有意義共通のページ要素をまず作成し、ContentPlaceHolder コントロールを挿入するカスタム コンテンツが必要な場合です。 ような場合、開発者する既定のプレース ホルダー コントロールを削除し、ページが作成されると、新しいものを挿入できます。 ContentPlaceHolder コントロールがサイズ変更ハンドルを表示しないでことでも、サイズ変更可能ではありません。 ContentPlaceHolder のコントロールのサイズが 1 つの例外が含まれている内容に基づいて、自動的にテーブルのセルなどブロック要素内でプレース ホルダー コントロールを配置する場合は、要素のサイズに応じてサイズがします。
 
@@ -142,12 +142,12 @@ ASP.NET そのもののアーキテクチャは、ユーザー コントロー�
 
 マスター ページと、コンテンツ ページ間の関連付けは、4 つの方法のいずれかで構成できます。
 
-- **MasterPageFile**の属性、@Pageディレクティブ
+- <strong>MasterPageFile</strong>の属性、@Pageディレクティブ
 - 設定、 **Page.MasterPageFile**コード内のプロパティです。
 - **&lt;ページ&gt;**アプリケーション構成ファイル (アプリケーションのルート フォルダーに web.config) で要素
 - **&lt;ページ&gt;**サブフォルダー構成ファイル (サブフォルダーの web.config) で要素
 
-## <a name="masterpagefile-attribute"></a>MasterPageFile 属性
+## <a name="masterpagefile-attribute"></a>MasterPageFile Attribute
 
 MasterPageFile 属性では、簡単に特定の ASP.NET ページにマスター ページを適用します。 チェックするときに、マスター ページを適用するために使用するメソッドも、**マスター ページの選択**としてするチェック ボックスは、手順 1 ででした。
 
@@ -157,7 +157,7 @@ MasterPageFile 属性では、簡単に特定の ASP.NET ページにマスタ�
 
 ## <a name="using-the-ltpagesgt-element"></a>使用して、&lt;ページ&gt;要素
 
-MasterPageFile 属性を設定して、ページのマスター ページを構成することができます、&lt;ページ&gt;web.config ファイルの要素。 このメソッドを使用する場合は、アプリケーションの構造内の下位の web.config ファイルがこの設定を上書きできますに留意してください。 どの MasterPageFile の属性セット、@Pageディレクティブでは、この設定は上書きもします。 使用して、&lt;ページ&gt;要素を簡単に作成、*マスター*マスター ページを特定のフォルダーまたはファイルに必要な場合はオーバーライドできます。
+MasterPageFile 属性を設定して、ページのマスター ページを構成することができます、&lt;ページ&gt;web.config ファイルの要素。 このメソッドを使用する場合は、アプリケーションの構造内の下位の web.config ファイルがこの設定を上書きできますに留意してください。 どの MasterPageFile の属性セット、@Pageディレクティブでは、この設定は上書きもします。 使用して、&lt;ページ&gt;要素を簡単に作成、<em>マスター</em>マスター ページを特定のフォルダーまたはファイルに必要な場合はオーバーライドできます。
 
 ## <a name="properties-in-master-pages"></a>マスター ページのプロパティ
 

@@ -1,7 +1,7 @@
 ---
-title: "HTTP ハンドラーと ASP.NET Core ミドルウェアにモジュールを移行します。"
+title: ASP.NET Core ミドルウェアへの HTTP ハンドラーとモジュールを移行します。
 author: rick-anderson
-description: 
+description: ''
 manager: wpickett
 ms.author: tdykstra
 ms.date: 12/07/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: 7f08e155491b56933ae183818e9b9ee562ad8286
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e02f3a75269e5e4a4794d1979d3a5add21fe38be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>HTTP ハンドラーと ASP.NET Core ミドルウェアにモジュールを移行します。 
+# <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>ASP.NET Core ミドルウェアへの HTTP ハンドラーとモジュールを移行します。
 
 によって[Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
@@ -173,17 +173,17 @@ ASP.NET Core のプロジェクトで次のようなミドルウェアをこの�
 
 * 使用して、[オプション パターン](xref:fundamentals/configuration/options):
 
-1.  たとえば、ミドルウェアのオプションを保持するクラスを作成します。
+1. たとえば、ミドルウェアのオプションを保持するクラスを作成します。
 
-    [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Options)]
+   [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Options)]
 
-2.  オプションの値を格納します。
+2. オプションの値を格納します。
 
-    構成システムでは、オプション値任意の場所を格納することができます。 ただし、使用を最もサイト*される appsettings.json*ので、その方法を詳しく説明します。
+   構成システムでは、オプション値任意の場所を格納することができます。 ただし、使用を最もサイト*される appsettings.json*ので、その方法を詳しく説明します。
 
-    [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,14-18)]
+   [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,14-18)]
 
-    *MyMiddlewareOptionsSection*セクション名を次に示します。 オプション クラスの名前と同じである必要はありません。
+   *MyMiddlewareOptionsSection*セクション名を次に示します。 オプション クラスの名前と同じである必要はありません。
 
 3. オプションの値を関連付けるオプション クラス
 
@@ -191,25 +191,25 @@ ASP.NET Core のプロジェクトで次のようなミドルウェアをこの�
 
     更新プログラム、`Startup`クラス。
 
-    1.  使用する場合*される appsettings.json*、ビルダーでは、構成を追加、`Startup`コンス トラクター。
+   1. 使用する場合*される appsettings.json*、ビルダーでは、構成を追加、`Startup`コンス トラクター。
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Ctor&highlight=5-6)]
 
-    2.  オプションのサービスを構成します。
+   2. オプションのサービスを構成します。
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_ConfigureServices&highlight=4)]
 
-    3.  オプション クラスと、オプションを関連付けます。
+   3. オプション クラスと、オプションを関連付けます。
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_ConfigureServices&highlight=6-8)]
 
-4.  ミドルウェア コンス トラクターにオプションを挿入します。 これは、コント ローラーにオプションを挿入することに似ています。
+4. ミドルウェア コンス トラクターにオプションを挿入します。 これは、コント ローラーにオプションを挿入することに似ています。
 
-  [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_MiddlewareWithParams&highlight=4,7,10,15-16)]
+   [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_MiddlewareWithParams&highlight=4,7,10,15-16)]
 
-  [UseMiddleware](#http-modules-usemiddleware) 、ミドルウェアに追加する拡張メソッド、`IApplicationBuilder`依存関係の挿入を行います。
+   [UseMiddleware](#http-modules-usemiddleware) 、ミドルウェアに追加する拡張メソッド、`IApplicationBuilder`依存関係の挿入を行います。
 
-  これに限定されません`IOptions`オブジェクト。 ミドルウェアを必要とするその他のオブジェクトには、この方法を挿入できます。
+   これに限定されません`IOptions`オブジェクト。 ミドルウェアを必要とするその他のオブジェクトには、この方法を挿入できます。
 
 ## <a name="loading-middleware-options-through-direct-injection"></a>直接インジェクションを通じてミドルウェアのオプションの読み込み
 
@@ -219,21 +219,21 @@ ASP.NET Core のプロジェクトで次のようなミドルウェアをこの�
 
 解決する実際のオプションの値とオプション オブジェクトを取得するには、`Startup`クラスし、直接ミドルウェアの各インスタンスに渡します。
 
-1.  2 番目のキーを追加*される appsettings.json*
+1. 2 番目のキーを追加*される appsettings.json*
 
-    2 番目のオプションのセットを追加する、*される appsettings.json*ファイルを新しいキーを使用して一意に識別できるを。
+   2 番目のオプションのセットを追加する、*される appsettings.json*ファイルを新しいキーを使用して一意に識別できるを。
 
-    [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,10-18&highlight=2-5)]
+   [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,10-18&highlight=2-5)]
 
-2.  オプションの値を取得し、ミドルウェアに渡したりします。 `Use...` (パイプラインにミドルウェアを追加) する拡張メソッドは、オプションの値で渡す論理的な場所。 
+2. オプションの値を取得し、ミドルウェアに渡したりします。 `Use...` (パイプラインにミドルウェアを追加) する拡張メソッドは、オプションの値で渡す論理的な場所。 
 
-    [!code-csharp[](http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=20-23)]
+   [!code-csharp[](http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=20-23)]
 
-4.  ミドルウェアのオプション パラメーターを受け取ることを有効にします。 オーバー ロードを提供、`Use...`拡張メソッド (オプション パラメーターを使用してに渡します`UseMiddleware`)。 ときに`UseMiddleware`が呼び出されたパラメーターを持つパラメーターに渡して、ミドルウェア コンス トラクター ミドルウェア オブジェクトをインスタンス化時にします。
+3. ミドルウェアのオプション パラメーターを受け取ることを有効にします。 オーバー ロードを提供、`Use...`拡張メソッド (オプション パラメーターを使用してに渡します`UseMiddleware`)。 ときに`UseMiddleware`が呼び出されたパラメーターを持つパラメーターに渡して、ミドルウェア コンス トラクター ミドルウェア オブジェクトをインスタンス化時にします。
 
-    [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Extensions&highlight=9-14)]
+   [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Extensions&highlight=9-14)]
 
-    オプション オブジェクトをラップするこの方法に注意してください、`OptionsWrapper`オブジェクト。 これは、手順で実装`IOptions`ミドルウェア コンス トラクターが予期するとおり、します。
+   オプション オブジェクトをラップするこの方法に注意してください、`OptionsWrapper`オブジェクト。 これは、手順で実装`IOptions`ミドルウェア コンス トラクターが予期するとおり、します。
 
 ## <a name="migrating-to-the-new-httpcontext"></a>新しい HttpContext への移行
 

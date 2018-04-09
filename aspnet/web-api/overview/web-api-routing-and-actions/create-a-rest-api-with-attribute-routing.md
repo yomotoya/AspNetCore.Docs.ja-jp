@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
-title: "属性のルーティングが ASP.NET Web API 2 の REST API の作成 |Microsoft ドキュメント"
+title: 属性のルーティングが ASP.NET Web API 2 の REST API の作成 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: c1d0b3e1644ef7f9ebb4be74c3fdf3df90cf3537
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1f1e90544c9dd8439a522f2196d81d020ea2f4f2
+ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 のルーティングの属性を持つ REST API を作成します。
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
 新しい型をサポートする web API 2 のルーティングでは、次のように呼び出されます。*属性がルーティング*です。 属性のルーティングの一般的な概要については、次を参照してください。 [Web API 2 での属性のルーティング](attribute-routing-in-web-api-2.md)です。 このチュートリアルではルーティングを使用して属性をブックのコレクション用の REST API を作成します。 この API は、次の操作がサポートされます。
 
@@ -184,7 +184,7 @@ Ctrl キーと Shift キーを押しながら B キーを押して、プロジ�
 
 ## <a name="get-books-by-genre"></a>ジャンルでブックを取得します。
 
-特定のジャンルの書籍の一覧を取得する、クライアントへの GET 要求を送信`/api/books/genre`ここで、*ジャンル*ジャンルの名前を指定します。 (たとえば、`/get/books/fantasy`)。
+特定のジャンルの書籍の一覧を取得する、クライアントへの GET 要求を送信`/api/books/genre`ここで、*ジャンル*ジャンルの名前を指定します。 (たとえば、`/api/books/fantasy`)。
 
 次のメソッドを追加`BooksController`です。
 

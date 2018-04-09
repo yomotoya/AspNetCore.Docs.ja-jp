@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-5
-title: "データ転送オブジェクト (Dto) を作成 |Microsoft ドキュメント"
+title: データ転送オブジェクト (Dto) を作成 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-5
 msc.type: authoredcontent
-ms.openlocfilehash: e179dcd52200734a45c84b3c7c3069a4727904c1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 35e01f959072b96204de3e2ce3d507635720e110
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-data-transfer-objects-dtos"></a>データ転送オブジェクト (Dto) を作成します。
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](https://github.com/MikeWasson/BookService)
+[完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
 右側、web API、クライアントへのデータベース エンティティを公開します。 クライアントは、データベース テーブルに直接マップされるデータを受け取ります。 ただし、れていない常にことをお勧めします。 クライアントに送信されるデータの形状を変更する場合があります。 たとえば、次の操作を行います。
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 11/10/2017
 
 > [!NOTE]
 > このチュートリアルではお変換 dtos の使用を手動でのコードにします。 別のオプションはのようなライブラリを使用する[AutoMapper](http://automapper.org/)変換を自動的に処理します。
-
->[!div class="step-by-step"]
-[前へ](part-4.md)
-[次へ](part-6.md)
+> 
+> [!div class="step-by-step"]
+> [前へ](part-4.md)
+> [次へ](part-6.md)

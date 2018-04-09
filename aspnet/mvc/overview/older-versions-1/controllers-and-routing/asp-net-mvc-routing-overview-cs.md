@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs
-title: "ASP.NET MVC ルーティングの概要 (c#) |Microsoft ドキュメント"
+title: ASP.NET MVC ルーティングの概要 (c#) |Microsoft ドキュメント
 author: StephenWalther
-description: "このチュートリアルでは、Stephen Walther は、ASP.NET MVC フレームワークがコント ローラーのアクションをブラウザーの要求をマップする方法を示します。"
+description: このチュートリアルでは、Stephen Walther は、ASP.NET MVC フレームワークがコント ローラーのアクションをブラウザーの要求をマップする方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 714fd1939ffeba11b84a82e80193ecbbe4b12e09
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fa565d2ef253539844f5224df00bdcdc047bb3f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-routing-overview-c"></a>ASP.NET MVC ルーティングの概要 (c#)
 ====================
@@ -47,7 +47,7 @@ MVC アプリケーション最初の開始時、アプリケーション\_Start
 
 Web ブラウザーのアドレス バーに次の URL を入力することを想像してください。
 
-/ホーム/インデックス/3
+/Home/Index/3
 
 既定のルートは、この URL を次のパラメーターにマッピングされます。
 
@@ -55,7 +55,7 @@ Web ブラウザーのアドレス バーに次の URL を入力することを�
 
 - アクション インデックスを =
 
-- Id = 3
+- id = 3
 
 URL/Home、インデックス、3 を要求するときに、次のコードは実行されます。
 
@@ -105,9 +105,9 @@ URL/Home では、リスト 4 HomeController クラスの Index() メソッド�
 
 URL/Home/インデックス/3 一方で、正常に動作だけを一覧表示する 5 でインデックス コント ローラーのアクション。 要求/Home/Index/3 が 3 の値を持つ Id パラメーターを指定して呼び出される Index() メソッドです。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、ASP.NET ルーティングの概要情報を提供しました。 ここには、新しい ASP.NET MVC アプリケーションで得られる既定のルート テーブルが調べられます。 既定のルートが Url をコント ローラーのアクションにマップする方法を学習しました。
 
->[!div class="step-by-step"]
-[次へ](understanding-action-filters-cs.md)
+> [!div class="step-by-step"]
+> [次へ](understanding-action-filters-cs.md)

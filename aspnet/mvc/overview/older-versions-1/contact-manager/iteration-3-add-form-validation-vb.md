@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-vb
-title: "イテレーション 3 – 追加のフォーム検証 (VB) |Microsoft ドキュメント"
+title: イテレーション 3 – 追加のフォーム検証 (VB) |Microsoft ドキュメント
 author: microsoft
-description: "3 番目のイテレーションは、基本フォーム検証を追加します。 おは人が必要なフォームのフィールドを完了しなくても、フォームを送信することを防ぐ。 Emai も検証する."
+description: 3 番目のイテレーションは、基本フォーム検証を追加します。 おは人が必要なフォームのフィールドを完了しなくても、フォームを送信することを防ぐ。 Emai も検証する.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e9ed182fb58addd8c5dadbe6e3d09c391840ca00
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8e30e247bd31dfb800eea517d195025f9e881cd3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-3--add-form-validation-vb"></a>イテレーション 3 – 追加のフォーム検証 (VB)
 ====================
@@ -108,7 +108,7 @@ ms.lasthandoff: 01/24/2018
 
 > [!NOTE] 
 > 
-> 正規表現のリポジトリからの電話番号と電子メール アドレスを検証するための正規表現が[ *http://regexlib.com*](http://regexlib.com)
+> 正規表現のリポジトリからの電話番号と電子メール アドレスを検証するための正規表現が表示されました [*http://regexlib.com*](http://regexlib.com)
 
 
 ## <a name="adding-validation-logic-to-the-edit-action"></a>編集の操作に検証ロジックを追加します。
@@ -129,6 +129,6 @@ Edit() 操作では、連絡先を更新します。 Edit() アクションは�
 
 次のイテレーションで、検証ロジックとデータベース アクセス ロジックをコント ローラー外にリファクタリングがします。 より柔軟に結合し、保守性がアプリケーションを作成することを有効にするソフトウェア設計の原則をいくつかの利点をみましょう。
 
->[!div class="step-by-step"]
-[前へ](iteration-2-make-the-application-look-nice-vb.md)
-[次へ](iteration-4-make-the-application-loosely-coupled-vb.md)
+> [!div class="step-by-step"]
+> [前へ](iteration-2-make-the-application-look-nice-vb.md)
+> [次へ](iteration-4-make-the-application-loosely-coupled-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb
-title: "オプティミスティック同時実行制御 (VB) を実装する |Microsoft ドキュメント"
+title: オプティミスティック同時実行制御 (VB) を実装する |Microsoft ドキュメント
 author: rick-anderson
-description: "複数のユーザーがデータを編集できるように、web アプリケーションを 2 人のユーザーは編集が同じデータ、同時にリスクがあります。 この tutori にしています."
+description: 複数のユーザーがデータを編集できるように、web アプリケーションを 2 人のユーザーは編集が同じデータ、同時にリスクがあります。 この tutori にしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a31ce101c3264d10ec80a45718d9222fc18c093c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 056d907e80b5bdfa1848b4b31cb03702ca823583
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-optimistic-concurrency-vb"></a>オプティミスティック同時実行制御 (VB) を実装します。
 ====================
@@ -259,8 +259,8 @@ ObjectDataSource のチュートリアルについては、以前データの変
 
 BLL メソッドに元の値を正しく渡す ObjectDataSource の順序で実行する必要がある 1 つの最後のプロパティ設定があります。 ObjectDataSource が、 [ConflictDetection プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx)に割り当て可能な[2 つの値のいずれかの](https://msdn.microsoft.com/library/system.web.ui.conflictoptions.aspx):
 
-- `OverwriteChanges`-既定値です。BLL メソッドの元の入力パラメーターには、元の値を送信しません
-- `CompareAllValues`は、BLL メソッドには、元の値を送信オプティミスティック同時実行制御を使用する場合は、このオプションを選択します。
+- `OverwriteChanges` -既定値です。BLL メソッドの元の入力パラメーターには、元の値を送信しません
+- `CompareAllValues` は、BLL メソッドには、元の値を送信オプティミスティック同時実行制御を使用する場合は、このオプションを選択します。
 
 設定に少し時間を取って、`ConflictDetection`プロパティを`CompareAllValues`です。
 
@@ -429,8 +429,8 @@ DB の直接パターンでは、同時実行制御違反が発生した場合�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[前へ](customizing-the-data-modification-interface-vb.md)
-[次へ](adding-client-side-confirmation-when-deleting-vb.md)
+> [!div class="step-by-step"]
+> [前へ](customizing-the-data-modification-interface-vb.md)
+> [次へ](adding-client-side-confirmation-when-deleting-vb.md)

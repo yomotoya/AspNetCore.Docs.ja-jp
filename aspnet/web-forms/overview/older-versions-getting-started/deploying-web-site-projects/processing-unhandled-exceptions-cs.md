@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs
-title: "未処理の例外 (c#) の処理 |Microsoft ドキュメント"
+title: 未処理の例外 (c#) の処理 |Microsoft ドキュメント
 author: rick-anderson
-description: "実稼働環境で web アプリケーションで、実行時エラーが発生したときは、重要なは、開発者に通知して、エラーを記録できるように、la a から診断することがあります."
+description: 実稼働環境で web アプリケーションで、実行時エラーが発生したときは、重要なは、開発者に通知して、エラーを記録できるように、la a から診断することがあります.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dda73ca1878396e04b8ff04a255c25bf26ed4eff
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: fccd529f5c489ed28f3cb01f07ffdc4452ead36d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="processing-unhandled-exceptions-c"></a>未処理の例外 (c#) の処理
 ====================
@@ -167,6 +167,6 @@ ASP.NET web アプリケーションでハンドルされない例外が発生�
 - [ASP.NET を扱う`Global.asax`ファイル](http://articles.techrepublic.com.com/5100-10878_11-5771721.html)
 - [扱う`HttpApplication`インスタンス](https://msdn.microsoft.com/library/a0xez8f2.aspx)
 
->[!div class="step-by-step"]
-[前へ](displaying-a-custom-error-page-cs.md)
-[次へ](logging-error-details-with-asp-net-health-monitoring-cs.md)
+> [!div class="step-by-step"]
+> [前へ](displaying-a-custom-error-page-cs.md)
+> [次へ](logging-error-details-with-asp-net-health-monitoring-cs.md)

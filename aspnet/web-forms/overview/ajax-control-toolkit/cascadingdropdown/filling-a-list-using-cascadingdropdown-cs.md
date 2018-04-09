@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-cs
-title: "CascadingDropDown (c#) を使用して、リストを入力 |Microsoft ドキュメント"
+title: CascadingDropDown (c#) を使用して、リストを入力 |Microsoft ドキュメント
 author: wenz
-description: "CascadingDropDown コントロール、AJAX コントロール Toolkit でコントロールを拡張する DropDownList anoth 内の値が 1 つの DropDownList 負荷の変更に関連付けられているようにしています."
+description: CascadingDropDown コントロール、AJAX コントロール Toolkit でコントロールを拡張する DropDownList anoth 内の値が 1 つの DropDownList 負荷の変更に関連付けられているようにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e5e0f11a815632aff9e17dc0f783f7eba2753995
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c9e47f6484e49013004bf15084f98440ee67558e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="filling-a-list-using-cascadingdropdown-c"></a>CascadingDropDown (c#) を使用して、リストを入力
 ====================
@@ -68,5 +68,5 @@ JavaScript コード、 `CascadingDropDown` extender は、次のシグネチャ
 
 一覧が自動的に入力 ([フルサイズのイメージを表示するをクリックして](filling-a-list-using-cascadingdropdown-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[次へ](using-cascadingdropdown-with-a-database-cs.md)
+> [!div class="step-by-step"]
+> [次へ](using-cascadingdropdown-with-a-database-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
-title: "(C#) アプリケーションの起動時にデータのキャッシュ |Microsoft ドキュメント"
+title: (C#) アプリケーションの起動時にデータのキャッシュ |Microsoft ドキュメント
 author: rick-anderson
-description: "一部のデータが頻繁に使用する Web アプリケーションでと、一部のデータを頻繁に使用されます。 この ASP.NET アプリケーション b のパフォーマンス機能を向上させる."
+description: 一部のデータが頻繁に使用する Web アプリケーションでと、一部のデータを頻繁に使用されます。 この ASP.NET アプリケーション b のパフォーマンス機能を向上させる.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3a618ad702763a59b87336784afd1cb74de06d4c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8d962a182b5136d3e44ce678a355c9679b4c8be1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="caching-data-at-application-startup-c"></a>(C#) アプリケーションの起動時にデータのキャッシュ
 ====================
@@ -129,11 +129,11 @@ Web アプリケーションが初めて起動したときに、コードを実�
 
 既定値`Global.asax`ファイル テンプレートには、サーバー側内の 5 つのメソッドが含まれています。`<script>`タグ。
 
-- **`Application_Start`**web アプリケーションを初めて起動したときに実行します。
-- **`Application_End`**アプリケーションがシャット ダウン中と実行されます。
-- **`Application_Error`**未処理の例外がアプリケーションに到達するたびに実行します。
-- **`Session_Start`**新しいセッションが作成されるときに実行します。
-- **`Session_End`**セッションが期限切れまたは破棄すると実行されます。
+- **`Application_Start`** web アプリケーションを初めて起動したときに実行します。
+- **`Application_End`** アプリケーションがシャット ダウン中と実行されます。
+- **`Application_Error`** 未処理の例外がアプリケーションに到達するたびに実行します。
+- **`Session_Start`** 新しいセッションが作成されるときに実行します。
+- **`Session_End`** セッションが期限切れまたは破棄すると実行されます。
 
 `Application_Start`イベント ハンドラーがアプリケーション ライフ サイクル中に 1 回だけ呼び出されます。 アプリケーションの開始と、最初に、ASP.NET のリソースがアプリケーションから要求されたアプリケーションが再起動されるまで実行を続けるの内容を変更することによって発生することができますが、`/Bin`フォルダー、変更`Global.asax`、変更、内容、`App_Code`フォルダー、または変更する、`Web.config`原因は他の間でのファイルです。 参照してください[ASP.NET アプリケーションのライフ サイクルの概要](https://msdn.microsoft.com/library/ms178473.aspx)詳細についてはアプリケーションのライフ サイクルにします。
 
@@ -194,12 +194,12 @@ Web アプリケーションが初めて起動したときに、コードを実�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Teresa マーフィーおよび Zack Jones がいました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](caching-data-in-the-architecture-cs.md)
-[次へ](using-sql-cache-dependencies-cs.md)
+> [!div class="step-by-step"]
+> [前へ](caching-data-in-the-architecture-cs.md)
+> [次へ](using-sql-cache-dependencies-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
-title: "Web API 2 OData v3 エンドポイントの作成 |Microsoft ドキュメント"
+title: Web API 2 OData v3 エンドポイントの作成 |Microsoft ドキュメント
 author: MikeWasson
-description: "Open Data Protocol (OData) は、web のデータ アクセス プロトコルです。 OData は、データ構造体、データをクエリおよびデータを操作する一貫した方法を提供します。"
+description: Open Data Protocol (OData) は、web のデータ アクセス プロトコルです。 OData は、データ構造体、データをクエリおよびデータを操作する一貫した方法を提供します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2014
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 33fe4d764bf9bf64c852f1269255925b5cc42536
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 227faacd3f42731e08a4cd2b71075776309961b6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Web API 2 OData v3 エンドポイントを作成します。
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > [Open Data Protocol](http://www.odata.org/) (OData) は、web のデータ アクセス プロトコル。 OData にはデータを構造体、データに対するクエリおよび CRUD 操作を通じてデータ セットを操作する方法を統一 (作成、読み取り、更新、および削除) します。 OData は、AtomPub (XML) と JSON 形式の両方をサポートします。 OData では、データに関するメタデータを公開する方法も定義します。 クライアントは、型情報と、データ セットの関係を検出するのにメタデータを使用できます。
 > 
@@ -150,7 +150,7 @@ EDM は、データの抽象モデルです。 EDM は、メタデータ ドキ�
 
 [!code-csharp[Main](creating-an-odata-endpoint/samples/sample4.cs)]
 
-最初のパラメーターは、ルートのフレンドリ名です。 サービスのクライアントでは、この名前は表示されません。 2 番目のパラメーターは、エンドポイントの URI プレフィックスです。 このコードを指定するには、Products エンティティ セットの URI は http://*hostname*odata/製品です。 アプリケーションでは、1 つ以上の OData エンドポイントを持つことができます。 各エンドポイントでは、呼び出す**MapODataRoute**固有のルート名と一意の URI プレフィックスを入力します。
+最初のパラメーターは、ルートのフレンドリ名です。 サービスのクライアントでは、この名前は表示されません。 2 番目のパラメーターは、エンドポイントの URI プレフィックスです。 このコードを指定するには、Products エンティティ セットの URI は http://<em>hostname</em>odata/製品です。 アプリケーションでは、1 つ以上の OData エンドポイントを持つことができます。 各エンドポイントでは、呼び出す<strong>MapODataRoute</strong>固有のルート名と一意の URI プレフィックスを入力します。
 
 <a id="seed-db"></a>
 ## <a name="seed-the-database-optional"></a>(省略可能) のデータベースをシードします。

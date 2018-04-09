@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
-title: "SQL Server compact の Visual Studio を使用して ASP.NET Web アプリケーションの配置: 導入 - 1/12 |Microsoft ドキュメント"
+title: 'SQL Server compact の Visual Studio を使用して ASP.NET Web アプリケーションの配置: 導入 - 1/12 |Microsoft ドキュメント'
 author: tdykstra
-description: "この一連のチュートリアルは、展開する方法を示します (発行)、ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています."
+description: この一連のチュートリアルは、展開する方法を示します (発行)、ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: a0f38c83bd9231dbd37d3d505c90316af521b336
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3f1572bb890ee136cdd746040a5efae2ce537116
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>SQL Server compact の Visual Studio を使用して ASP.NET Web アプリケーションの配置: 12 の第 1 の概要
 ====================
@@ -53,7 +53,7 @@ ms.lasthandoff: 02/12/2018
 
 エンタープライズ環境で継続的インテグレーション プロセスを実装する一般的なと運用環境は通常、会社のサーバーでホストします。 また通常、別のユーザーは、異なる役割を実行します。 エンタープライズ展開については、次を参照してください。[エンタープライズ シナリオで Web アプリケーションの配置](../../deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)です。
 
-あらゆる規模の組織では、azure の web アプリケーションを展開できますもと、このチュートリアルで示す手順のほとんどは、Azure の App Services の Web アプリにも適用されます。 Azure の概要については、次を参照してください。 [https://azure.microsoft.com](https://azure.microsoft.com)です。
+あらゆる規模の組織では、azure の web アプリケーションを展開できますもと、このチュートリアルで示す手順のほとんどは、Azure の App Services の Web アプリにも適用されます。 Azure の概要については、次を参照してください。 [ https://azure.microsoft.com](https://azure.microsoft.com)です。
 
 ## <a name="the-hosting-provider-shown-in-the-tutorials"></a>チュートリアルで示すように、ホスティング プロバイダー
 
@@ -142,5 +142,5 @@ Web サイトのページは、メニュー バーからアクセスできる、
 
 系列の最初のチュートリアルでは、サンプルの Visual Studio プロジェクトをダウンロードし、アプリケーションを展開する方法に影響するサイトの機能を確認しました。 次のチュートリアルでは、展開準備で自動的に処理するのには次の作業の一部を設定します。 他のユーザーを処理する手動でします。
 
->[!div class="step-by-step"]
-[次へ](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+> [!div class="step-by-step"]
+> [次へ](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

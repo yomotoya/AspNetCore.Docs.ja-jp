@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-cs
-title: "データ (c#) に基づく書式 DataList およびリピータ |Microsoft ドキュメント"
+title: データ (c#) に基づく書式 DataList およびリピータ |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルではおをステップ実行ことで、いずれかで書式設定関数を使用して、DataList およびリピータ コントロールの外観を書式設定方法の例を示します."
+description: このチュートリアルではおをステップ実行ことで、いずれかで書式設定関数を使用して、DataList およびリピータ コントロールの外観を書式設定方法の例を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 604aa63919a881e828b6a3620360c3d1133c5830
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 00dac460ad905d34632bca3249e019ddc626e440
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-c"></a>DataList とデータ (c#) に基づくリピータの書式設定
 ====================
@@ -42,19 +42,19 @@ ms.lasthandoff: 01/24/2018
 
 データは、バインド時、DataList s のコントロールにデータをプログラムによって割り当てまたはデータ ソース コントロールから`DataSource`プロパティと呼び出し元の`DataBind()`メソッド、DataList の`DataBinding`イベントを発生させる、列挙、データ ソース各データ レコードは、DataList にバインドします。 DataList の作成、データ ソース内の各レコードに対して、 [ `DataListItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.aspx)オブジェクトを現在のレコードにバインドします。 このプロセス中には、DataList は、2 つのイベントを発生します。
 
-- **`ItemCreated`**後に起動、`DataListItem`が作成されました
-- **`ItemDataBound`**現在のレコードにバインドされた後に発生します`DataListItem`
+- **`ItemCreated`** 後に起動、`DataListItem`が作成されました
+- **`ItemDataBound`** 現在のレコードにバインドされた後に発生します `DataListItem`
 
 次の手順では、DataList コントロール用のデータのバインディング プロセスを示します。
 
 1. DataList s [ `DataBinding`イベント](https://msdn.microsoft.com/library/system.web.ui.control.databinding.aspx)発生
 2. データは、DataList へのバインドします。  
   
- データ ソース内の各レコード 
+   データ ソース内の各レコード 
 
     1. 作成、`DataListItem`オブジェクト
     2. Fire、 [ `ItemCreated`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
-    3. レコードにバインドします`DataListItem`
+    3. レコードにバインドします `DataListItem`
     4. Fire、 [ `ItemDataBound`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
     5. 追加、`DataListItem`を`Items`コレクション
 
@@ -172,7 +172,7 @@ ASP.NET ページの分離コード クラスに追加され、書式設定関�
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-cs/samples/sample5.aspx)]
 
-DataList s で`ItemTemplate`、 `ProductNameLabel` Label Web コントロールを割り当てることによって、s の製品名を表示する現在その`Text`プロパティ結果の`<%# Eval("ProductName") %>`します。 ために必要な場合は、名前と [生産中止]、テキストを表示、割り当てる代わりにするように宣言の構文を更新、`Text`プロパティ値の`DisplayProductNameAndDiscontinuedStatus`メソッドです。 使用して、提供が中止された値と製品の名前で渡す必要がありますこれを行うときに、`Eval("columnName")`構文です。 `Eval`型の値を返します`Object`、ですが、`DisplayProductNameAndDiscontinuedStatus`メソッド型の入力パラメーターが必要ですが`String`と`Boolean`です。 そのため、おによって返される値をキャストする必要があります、`Eval`次のように必要な入力パラメーターの型、メソッド。
+DataList s で`ItemTemplate`、 `ProductNameLabel` Label Web コントロールを割り当てることによって、s の製品名を表示する現在その`Text`プロパティ結果の`<%# Eval("ProductName") %>`します。 ために必要な場合は、名前と [生産中止]、テキストを表示、割り当てる代わりにするように宣言の構文を更新、`Text`プロパティ値の`DisplayProductNameAndDiscontinuedStatus`メソッドです。 使用して、提供が中止された値と製品の名前で渡す必要がありますこれを行うときに、`Eval("columnName")`構文です。 `Eval` 型の値を返します`Object`、ですが、`DisplayProductNameAndDiscontinuedStatus`メソッド型の入力パラメーターが必要ですが`String`と`Boolean`です。 そのため、おによって返される値をキャストする必要があります、`Eval`次のように必要な入力パラメーターの型、メソッド。
 
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-cs/samples/sample6.aspx)]
@@ -200,12 +200,12 @@ DataList s で`ItemTemplate`、 `ProductNameLabel` Label Web コントロール�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Yaakov Ellis、ものです。 Schmidt、および Liz Shulok でした。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](displaying-data-with-the-datalist-and-repeater-controls-cs.md)
-[次へ](showing-multiple-records-per-row-with-the-datalist-control-cs.md)
+> [!div class="step-by-step"]
+> [前へ](displaying-data-with-the-datalist-and-repeater-controls-cs.md)
+> [次へ](showing-multiple-records-per-row-with-the-datalist-control-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-vb
-title: "マスター/詳細フィルターと共に DropDownList (VB) |Microsoft ドキュメント"
+title: マスター/詳細フィルターと共に DropDownList (VB) |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、DropDownLists を使用して、'master' のレコードと、DataList displ に表示する単一の web ページにマスター/詳細レポートを表示する方法を確認しています."
+description: このチュートリアルでは、DropDownLists を使用して、'master' のレコードと、DataList displ に表示する単一の web ページにマスター/詳細レポートを表示する方法を確認しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1f480cfcfb3b02c9398b2db3e66cec432152a05d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e4ece466319e268a74bbe8c4ed96ffc33cff432f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-vb"></a>マスター/詳細 DropDownList (VB) によるフィルター処理
 ====================
@@ -103,12 +103,12 @@ GridView を使用する前に示したを最初に作成したマスター/詳�
 **図 7**: 選択、`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image17.png))
 
 
-[次へ] をクリックすると、ObjectDataSource ウィザードの指示に従って us ソースの値の`GetProductsByCategoryID(categoryID)`メソッドの *`categoryID`* パラメーター。 選択した値を使用する`categories`DropDownList 項目コントロールを処理するパラメーターのソースを設定する`Categories`です。
+[次へ] をクリックすると、ObjectDataSource ウィザードの指示に従って us ソースの値の`GetProductsByCategoryID(categoryID)`メソッドの*`categoryID`*パラメーター。 選択した値を使用する`categories`DropDownList 項目コントロールを処理するパラメーターのソースを設定する`Categories`です。
 
 
 [![カテゴリの DropDownList の値に categoryID パラメーターを設定します。](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image19.png)](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image18.png)
 
-**図 8**: 設定、  *`categoryID`* パラメーターの値を`Categories`DropDownList ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image20.png))
+**図 8**: 設定、 *`categoryID`*パラメーターの値を`Categories`DropDownList ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image20.png))
 
 
 データ ソース構成ウィザードを完了すると、Visual Studio が自動的に生成、 `ItemTemplate` DataList の各データ フィールドの値と名前を表示するためです。 代わりに使用する DataList を強化してみましょう、`ItemTemplate`製品の名前、カテゴリ、供給業者、単位、およびと共に価格ごとの数だけを表示する、`SeparatorTemplate`挿入される、`<hr>`各項目の間の要素。 使用して、`ItemTemplate`の例から、 [DataList とリピータ コントロールのデータの表示](../displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb.md)が、チュートリアルでは、お気軽にどのようなテンプレートのマークアップ最も視覚に訴える検索を使用します。
@@ -164,9 +164,9 @@ DataList とその ObjectDataSource のマークアップがこれらの変更�
 **図 13**: いいえ製品が表示される、"--カテゴリ--"リスト アイテムの選択 を選択すると、([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image31.png))
 
 
-表示ではなく場合*すべて*の製品の「--カテゴリの選択-」オプションを選択すると、値を使用して、`-1`代わりにします。 鋭いリーダーがそのチェックインを思い出してください、*マスター/詳細のフィルター処理で、DropDownList*に更新されたチュートリアル、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドように場合、  *`categoryID`* 値`-1`が渡され、すべての製品レコードが返されました。
+表示ではなく場合*すべて*の製品の「--カテゴリの選択-」オプションを選択すると、値を使用して、`-1`代わりにします。 鋭いリーダーがそのチェックインを思い出してください、*マスター/詳細のフィルター処理で、DropDownList*に更新されたチュートリアル、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドように場合、 *`categoryID`*値`-1`が渡され、すべての製品レコードが返されました。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 階層的に関連するデータを表示するには、マスター/詳細レポート、元のユーザーは、階層の最上位からデータを参照するための開始し、詳細にドリル ダウンを使用してデータを表示する多くの場合、役立ちます。 このチュートリアルでは、選択したカテゴリの製品が表示された単純なマスター/詳細レポートを作成して調査します。 これは、カテゴリと、選択したカテゴリに属する製品用 DataList の一覧については、DropDownList を使用して行われました。
 
@@ -176,12 +176,12 @@ DataList とその ObjectDataSource のマークアップがこれらの変更�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>特別に感謝しています.
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客がものです。 Schmidt しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
-[次へ](master-detail-filtering-acess-two-pages-datalist-vb.md)
+> [!div class="step-by-step"]
+> [前へ](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
+> [次へ](master-detail-filtering-acess-two-pages-datalist-vb.md)

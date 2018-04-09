@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
-title: "バッチ更新 (VB) を実行する |Microsoft ドキュメント"
+title: バッチ更新 (VB) を実行する |Microsoft ドキュメント
 author: rick-anderson
-description: "完全に編集を作成する方法を学習 DataList ですべての項目が編集モードと値を持つはすべて '更新' ボタンをクリックして保存できます、."
+description: 完全に編集を作成する方法を学習 DataList ですべての項目が編集モードと値を持つはすべて '更新' ボタンをクリックして保存できます、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: df22a7c4aedb5e5fef183817e9d2b1e4c4a919ee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4d28a431c2b09de8c46079e888aa191017de4e30
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-batch-updates-vb"></a>バッチ更新 (VB) を実行します。
 ====================
@@ -43,8 +43,8 @@ ms.lasthandoff: 01/24/2018
 
 チュートリアルでは、前、ここで、項目レベルの標準的な編集可能な DataList を作成することを使用した 2 つのテンプレート。
 
-- `ItemTemplate`読み取り専用のユーザー インターフェイス (各製品の名前と価格を表示するためのラベルの Web コントロール) が含まれています。
-- `EditItemTemplate`編集モードのユーザー インターフェイス (2 つのテキスト ボックスの Web コントロール) が含まれています。
+- `ItemTemplate` 読み取り専用のユーザー インターフェイス (各製品の名前と価格を表示するためのラベルの Web コントロール) が含まれています。
+- `EditItemTemplate` 編集モードのユーザー インターフェイス (2 つのテキスト ボックスの Web コントロール) が含まれています。
 
 DataList s`EditItemIndex`プロパティではどのような`DataListItem`(存在する場合) を使用して描画、`EditItemTemplate`です。 具体的には、`DataListItem`が`ItemIndex`値に一致する DataList s`EditItemIndex`を使用してプロパティを表示、`EditItemTemplate`です。 このモデルは、完全に編集可能な DataList を作成するときに、時間が間隔の割合が 1 つだけの項目を編集できる場合に機能します。
 
@@ -163,12 +163,12 @@ ADO.NET DataTable およびデータ アダプターのクラスは、データ�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Zack Jones および Ken Pespisa がいました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
-[次へ](handling-bll-and-dal-level-exceptions-vb.md)
+> [!div class="step-by-step"]
+> [前へ](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
+> [次へ](handling-bll-and-dal-level-exceptions-vb.md)

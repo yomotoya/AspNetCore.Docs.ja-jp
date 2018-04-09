@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
-title: "Visual Studio を使用した ASP.NET Web 展開: フォルダーのアクセス許可の設定 |Microsoft ドキュメント"
+title: 'Visual Studio を使用した ASP.NET Web 展開: フォルダーのアクセス許可の設定 |Microsoft ドキュメント'
 author: tdykstra
-description: "この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています."
+description: この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
 msc.type: authoredcontent
-ms.openlocfilehash: 19bef5ff97fd5b79135df8ca9bd6bd316594cc5e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7efe267975835e889950983126088f1b637c28fb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-setting-folder-permissions"></a>Visual Studio を使用した ASP.NET Web 展開: フォルダーのアクセス許可の設定
 ====================
@@ -67,7 +67,7 @@ Visual Studio 開発サーバー (Cassini) または IIS Express を使用して
 
 ![ELMAH エラー ログ ページ](setting-folder-permissions/_static/image4.png)
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 完了しましたの Contoso 大学のために必要なタスクはすべて、ローカル コンピューター上で IIS で正しく動作します。 チュートリアルでは、[次へ] は、サイト パブリックに利用できるようにする Azure にデプロイします。
 
@@ -77,6 +77,6 @@ Visual Studio 開発サーバー (Cassini) または IIS Express を使用して
 
 アプリケーション プール id へのアクセス許可を付与する方法の詳細については、次を参照してください。[アプリケーション プール Id](https://www.iis.net/learn/manage/configuring-security/application-pool-identities)と[ファイル システム Acl を IIS にコンテンツをセキュリティで保護](https://www.iis.net/learn/get-started/planning-for-security/secure-content-in-iis-through-file-system-acls)IIS.net サイトです。
 
->[!div class="step-by-step"]
-[前へ](deploying-to-iis.md)
-[次へ](deploying-to-production.md)
+> [!div class="step-by-step"]
+> [前へ](deploying-to-iis.md)
+> [次へ](deploying-to-production.md)

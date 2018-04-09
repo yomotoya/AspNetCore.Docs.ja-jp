@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-vb
-title: "ColorPicker コントロール エクステンダー (VB) を使用して |Microsoft ドキュメント"
+title: ColorPicker コントロール エクステンダー (VB) を使用して |Microsoft ドキュメント
 author: microsoft
-description: "ColorPicker は、popup コントロールの UI を使用したクライアント側の色を選択機能を提供する ASP.NET AJAX エクステンダーです。 すべての ASP.NET にアタッチできます."
+description: ColorPicker は、popup コントロールの UI を使用したクライアント側の色を選択機能を提供する ASP.NET AJAX エクステンダーです。 すべての ASP.NET にアタッチできます.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7453845909b2c0bd8d6b476b19d0fbc5050f7460
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3411119f85d7f5c26703b7df40cff24fdf30b81d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-colorpicker-control-extender-vb"></a>ColorPicker コントロール エクステンダー (VB) を使用します。
 ====================
@@ -110,9 +110,9 @@ SampleControlID プロパティは、ColorPicker で選択した色を表示す�
 **図 05**: カラー ピッカー ダイアログ ボタンを表示する ([フルサイズのイメージを表示するをクリックして](using-the-colorpicker-control-extender-vb/_static/image10.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、ColorPicker コントロール エクステンダーを使用して、ポップアップ カラー ピッカー ダイアログ ボックスを表示する方法を学習します。 最初に、テキスト ボックス コントロールにフォーカスを移動、ダイアログ ボックスを表示する方法調べられます。 次に、ボタンがクリックされたときに、カラー ピッカー ダイアログ ボックスを表示するボタンを作成する方法を学習します。
 
->[!div class="step-by-step"]
-[前へ](using-the-colorpicker-control-extender-cs.md)
+> [!div class="step-by-step"]
+> [前へ](using-the-colorpicker-control-extender-cs.md)

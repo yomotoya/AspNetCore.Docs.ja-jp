@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-cs
-title: "追加して、GridView (c#) をボタンに応答して |Microsoft ドキュメント"
+title: 追加して、GridView (c#) をボタンに応答して |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、テンプレートと GridView または DetailsView コントロールのフィールドの両方にカスタム ボタンを追加する方法を紹介します。 具体的には、bui をします."
+description: このチュートリアルでは、テンプレートと GridView または DetailsView コントロールのフィールドの両方にカスタム ボタンを追加する方法を紹介します。 具体的には、bui をします.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4f2a31f406bb1ed98e3620e216b4ad14fe59b32f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 90648e10d5d058ea2e4aa5b3d8c4ed7448ea7166
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-c"></a>GridView (c#) をボタンに応答して追加します。
 ====================
@@ -127,7 +127,7 @@ FormView のテンプレートにすべての製品の中止 ボタンを追加�
 
 [![SupplierID パラメーターから取得するように Suppliers FormView コントロールを示します](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image25.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image24.png)
 
-**図 10**: ことを示すため、  *`supplierID`* からパラメーターを取得する、 `Suppliers` FormView コントロール ([フルサイズのイメージを表示するをクリックして](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image26.png))
+**図 10**: ことを示すため、 *`supplierID`*からパラメーターを取得する、 `Suppliers` FormView コントロール ([フルサイズのイメージを表示するをクリックして](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image26.png))
 
 
 ObjectDataSource ウィザードの完了後は、GridView はの各製品のデータ フィールドのも、BoundField または CheckBoxField に含まれます。 みましょうトリムこれを表示するだけ、`ProductName`と`UnitPrice`と共に BoundFields、 `Discontinued` CheckBoxField; さらに、書式設定してみましょう、 `UnitPrice` BoundField そのテキストが通貨として書式設定されるようです。 GridView と`SuppliersProductsDataSource`ObjectDataSource の宣言型マークアップは、次のマークアップのようになります。
@@ -178,7 +178,7 @@ FormView にボタンを追加するをクリックすると、すべてを停�
 
 [!code-csharp[Main](adding-and-responding-to-buttons-to-a-gridview-cs/samples/sample5.cs)]
 
-下にこのメソッドを呼び出すだけ、`DiscontinueAllProductsForSupplier(supplierID)`メソッドに渡す提供されている、DAL  *`supplierID`* パラメーターの値。 特定の状況で中止された業者の製品のみを実行できる任意のビジネス ルールがある場合、それらのルールを実装するここでは、BLL でします。
+下にこのメソッドを呼び出すだけ、`DiscontinueAllProductsForSupplier(supplierID)`メソッドに渡す提供されている、DAL *`supplierID`*パラメーターの値。 特定の状況で中止された業者の製品のみを実行できる任意のビジネス ルールがある場合、それらのルールを実装するここでは、BLL でします。
 
 > [!NOTE]
 > 異なり、`UpdateProduct`でオーバー ロード、`ProductsBLL`クラス、`DiscontinueAllProductsForSupplier(supplierID)`メソッド シグネチャを含まない、`DataObjectMethodAttribute`属性 (`<System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, Boolean)>`)。 そのため、`DiscontinueAllProductsForSupplier(supplierID)`更新 タブで、ObjectDataSource のデータ ソース構成ウィザードのドロップダウン リストからメソッドです。I ve おを呼び出すためにのこの属性を省略すると、 `DiscontinueAllProductsForSupplier(supplierID)` ASP.NET ページ内のイベント ハンドラーから直接メソッドです。
@@ -198,7 +198,7 @@ FormView にボタンを追加するをクリックすると、すべてを停�
 
 以降、`ItemCommand`イベント ハンドラーお必要があるすべての製品の中止 ボタンがクリックしてされたかどうかを決定する方法、またはその他のいくつかのボタンが、どのようなボタンがクリックされたに関係なく発生します。 これを実現する、設定できるボタン Web コントロールの`CommandName`プロパティを識別するいくつかの値にします。 ときに、ボタンがクリックされた、この`CommandName`に値が渡された、`ItemCommand`すべての製品の中止 ボタンがクリックされたボタンをしたかどうかを判断することを有効にすると、イベント ハンドラー。 設定を中止するすべての製品ボタンの`CommandName`DiscontinueProducts するプロパティです。
 
-最後に、説明を使用して、クライアント側の確認 ダイアログ ボックス、ユーザーが選択されている、業者の商品を中止するどうしても必要があります。 示したように、[削除時にクライアント側の確認を追加する](../editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs.md)チュートリアルでは、これは JavaScript のビットを使用して実行できます。 具体的には、ボタンの Web コントロールの OnClientClick プロパティに設定します。`return confirm('This will mark _all_ of this supplier\'s products as discontinued. Are you certain you want to do this?');`
+最後に、説明を使用して、クライアント側の確認 ダイアログ ボックス、ユーザーが選択されている、業者の商品を中止するどうしても必要があります。 示したように、[削除時にクライアント側の確認を追加する](../editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs.md)チュートリアルでは、これは JavaScript のビットを使用して実行できます。 具体的には、ボタンの Web コントロールの OnClientClick プロパティに設定します。 `return confirm('This will mark _all_ of this supplier\'s products as discontinued. Are you certain you want to do this?');`
 
 これらの変更を加えたら、フォーム ビューの宣言の構文は次のようになります。
 
@@ -304,7 +304,7 @@ GridView、DetailsView、FormView コントロールすべてには、ボタン�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[次へ](adding-and-responding-to-buttons-to-a-gridview-vb.md)
+> [!div class="step-by-step"]
+> [次へ](adding-and-responding-to-buttons-to-a-gridview-vb.md)

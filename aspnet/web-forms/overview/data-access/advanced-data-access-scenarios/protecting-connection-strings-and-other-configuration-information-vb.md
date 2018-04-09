@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-vb
-title: "接続文字列とその他の構成情報 (VB) を保護する |Microsoft ドキュメント"
+title: 接続文字列とその他の構成情報 (VB) を保護する |Microsoft ドキュメント
 author: rick-anderson
-description: "通常、ASP.NET アプリケーションは、Web.config ファイルで構成情報を格納します。 この情報の一部と小文字を区別し、保護することを保証します。 によって定義."
+description: 通常、ASP.NET アプリケーションは、Web.config ファイルで構成情報を格納します。 この情報の一部と小文字を区別し、保護することを保証します。 によって定義.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f1514c4b6d041f6bbd83788e2110a95d3d831ff6
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3372416dd9143afbfd442eaffb39cd807fae0de6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="protecting-connection-strings-and-other-configuration-information-vb"></a>接続文字列とその他の構成情報 (VB) を保護します。
 ====================
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/24/2018
 
 ASP.NET アプリケーションの構成情報は、という名前の XML ファイルに一般的に格納される`Web.config`です。 これらのチュートリアルの過程で更新した、`Web.config`回数のほんの一部です。 作成するときに、`Northwind`に型指定されたデータセット、[の最初のチュートリアル](../introduction/creating-a-data-access-layer-vb.md)、たとえば、接続文字列情報を自動的に追加されたに`Web.config`で、`<connectionStrings>`セクションです。 後の「、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-vb.md)チュートリアルでは、手動で更新された`Web.config`を追加する、`<pages>`要素は、すべてのプロジェクト内の ASP.NET ページを使用することを示す、`DataWebControls`テーマ。
 
-`Web.config`接続文字列などの機密データを含めることがありますが重要の内容`Web.config`セーフである、許可されていないビューアーから非表示に保持します。 既定では、任意の HTTP の要求を持つファイルに、`.config`拡張機能を返す ASP.NET エンジンによって処理される、*この種類のページが処理されない*図 1 に示すメッセージ。 つまり、訪問者を表示できない、 `Web.config` http://www.YourServer.com/Web.config をブラウザーのアドレス バーに入力するだけでファイルのコンテンツ。
+`Web.config`接続文字列などの機密データを含めることがありますが重要の内容`Web.config`セーフである、許可されていないビューアーから非表示に保持します。 既定では、任意の HTTP の要求を持つファイルに、`.config`拡張機能を返す ASP.NET エンジンによって処理される、*この種類のページが処理されない*図 1 に示すメッセージ。 つまり、訪問者を表示できない、 `Web.config` s 内容を入力するだけでファイルhttp://www.YourServer.com/Web.configブラウザーのアドレス バーにします。
 
 
 [![Web.config で、ブラウザーを返しますの種類 ページにアクセスしてもメッセージは処理できません。](protecting-connection-strings-and-other-configuration-information-vb/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-vb/_static/image1.png)
@@ -60,8 +60,8 @@ ASP.NET 2.0 には、構成情報を暗号化および暗号化の保護され�
 
 .NET Framework 2 つの保護構成プロバイダーが付属しています。
 
-- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/library/system.configuration.rsaprotectedconfigurationprovider.aspx)使用、非対称[RSA アルゴリズム](http://en.wikipedia.org/wiki/Rsa)暗号化と復号化します。
-- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx)-Windows を使用して[データ保護 API (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx)暗号化と復号化します。
+- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/library/system.configuration.rsaprotectedconfigurationprovider.aspx) 使用、非対称[RSA アルゴリズム](http://en.wikipedia.org/wiki/Rsa)暗号化と復号化します。
+- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx) -Windows を使用して[データ保護 API (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx)暗号化と復号化します。
 
 保護された構成システムは、プロバイダーのデザイン パターンを実装するためには、独自の保護構成プロバイダーを作成し、アプリケーションに接続することです。 参照してください[保護構成プロバイダーを実装する](https://msdn.microsoft.com/library/wfc2t3az(VS.80).aspx)このプロセスについての詳細。
 
@@ -96,7 +96,7 @@ Let s をプログラムから保護提供側の構成情報を示すために�
 
 [!code-vb[Main](protecting-connection-strings-and-other-configuration-information-vb/samples/sample1.vb)]
 
-`DisplayWebConfig`メソッドを使用、 [ `File`クラス](https://msdn.microsoft.com/library/system.io.file.aspx)を開くには、アプリケーション s`Web.config`ファイル、 [ `StreamReader`クラス](https://msdn.microsoft.com/library/system.io.streamreader.aspx)文字列、および、にその内容を読み取る[`Path`クラス](https://msdn.microsoft.com/library/system.io.path.aspx)への物理パスを生成する、`Web.config`ファイル。 これら 3 つのクラスすべて内にある、 [ `System.IO`名前空間](https://msdn.microsoft.com/library/system.io.aspx)です。 その結果、追加する場合は、`Imports``System.IO`分離コード クラスか、または、これらのクラスと名のプレフィックスの先頭にステートメント`System.IO.`
+`DisplayWebConfig`メソッドを使用、 [ `File`クラス](https://msdn.microsoft.com/library/system.io.file.aspx)を開くには、アプリケーション s`Web.config`ファイル、 [ `StreamReader`クラス](https://msdn.microsoft.com/library/system.io.streamreader.aspx)文字列、および、にその内容を読み取る[`Path`クラス](https://msdn.microsoft.com/library/system.io.path.aspx)への物理パスを生成する、`Web.config`ファイル。 これら 3 つのクラスすべて内にある、 [ `System.IO`名前空間](https://msdn.microsoft.com/library/system.io.aspx)です。 その結果、追加する場合は、`Imports``System.IO`分離コード クラスか、または、これらのクラスと名のプレフィックスの先頭にステートメント `System.IO.`
 
 次に、2 つのボタン コントロールのイベント ハンドラーを追加する必要があります`Click`イベントの暗号化し、復号化に必要なコードを追加し、`<connectionStrings>`セクションのマシン レベル キー DPAPI プロバイダーと共に使用します。 デザイナーで、各ボタンを追加する をダブルクリック、`Click`分離コード内のイベント ハンドラー クラスし、次のコードを追加します。
 
@@ -228,12 +228,12 @@ Integrated Security = True とユーザー名とパスワードの欠如は、Wi
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Teresa マーフィーおよびものです。 Schmidt がいました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb.md)
-[次へ](debugging-stored-procedures-vb.md)
+> [!div class="step-by-step"]
+> [前へ](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb.md)
+> [次へ](debugging-stored-procedures-vb.md)

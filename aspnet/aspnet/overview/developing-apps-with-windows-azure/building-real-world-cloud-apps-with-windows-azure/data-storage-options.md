@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
-title: "データ ストレージ オプション (Azure と実際のクラウド アプリのビルド) |Microsoft ドキュメント"
+title: データ ストレージ オプション (Azure と実際のクラウド アプリのビルド) |Microsoft ドキュメント
 author: MikeWasson
-description: "Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています."
+description: Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: 88f57244bfbfdf33df3bb265d8aa2c93689b2f24
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d638dca331cb24c340a4471e5964a00b75bb608a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>データ ストレージ オプション (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -155,7 +155,7 @@ Azure での PaaS データ ストレージのオプションには、サード 
 
 どのような一般的な推奨事項は、データ記憶域ソリューションを選択する前にこれらの各カテゴリの質問に対する回答がわからない。
 
-さらに、ワークロードには、一部のプラットフォームが他より優れたサポートできる特定の要件があります。 例:
+さらに、ワークロードには、一部のプラットフォームが他より優れたサポートできる特定の要件があります。 例えば:
 
 - 監査機能をアプリケーションの必要なは?
 - データの長期にわたって要件は、新機能--自動のアーカイブや、パージ機能が必要ですか。
@@ -250,7 +250,7 @@ SQL Server と Azure SQL Database、優れている点は、それらの両方�
 | Azure SQL データベース (PaaS) | 仮想マシン (IaaS) で SQL Server |
 | --- | --- |
 | **プロフェッショナル**-作成または Vm を管理、更新、または OS または SQL; 修正プログラムを適用する必要はありませんAzure です。 組み込みの高可用性、データベース レベルの SLA とします。 -(ライセンスが必要) の使用にだけ支払えばよいために、総保有コスト (tco) を低です。 多数の小さいデータベースの処理に適した (&lt;= 500 GB)。 動的に作成する簡単新しいデータベースを有効にするスケール アウトします。 | ***プロフェッショナル***- 内部設置型 SQL server 機能と互換性のあります。 SQL Server の実装- [AlwaysOn 高可用性](https://www.microsoft.com/sqlserver/solutions-technologies/mission-critical-operations/high-availability.aspx)2 + 仮想マシン、VM レベル SLA でします。 -SQL を管理する方法を完全に制御があります。 の既に所有する、または 1 つの時間単位で料金を支払う SQL ライセンスを再利用ことができます。 以下の処理に適してが大きい (1 TB +) データベース。 |
-| **Cons** -一部の機能の内部設置型 SQL Server と比較してギャップ (が不足している[CLR 統合](https://technet.microsoft.com/library/ms131102.aspx)、 [TDE](https://technet.microsoft.com/library/bb934049.aspx)、[圧縮サポート](https://technet.microsoft.com/library/cc280449.aspx)、 [SQLReporting Services](https://technet.microsoft.com/library/ms159106.aspx)など) で 500 GB のデータベース サイズの上限。 | ***Cons*** - 更新プログラム/修正プログラム (OS および SQL) は、ユーザーの責任の作成、Db の管理 (16 データ ドライブ) を使用して約 8000 を上限とするディスクの IOPS (1 秒あたりの入力/出力操作) - ユーザーの責任です。 |
+| **Cons** -一部の機能の内部設置型 SQL Server と比較してギャップ (が不足している[CLR 統合](https://technet.microsoft.com/library/ms131102.aspx)、 [TDE](https://technet.microsoft.com/library/bb934049.aspx)、[圧縮サポート](https://technet.microsoft.com/library/cc280449.aspx)、 [SQL ServerReporting Services](https://technet.microsoft.com/library/ms159106.aspx)など) で 500 GB のデータベース サイズの上限。 | ***Cons*** - 更新プログラム/修正プログラム (OS および SQL) は、ユーザーの責任の作成、Db の管理 (16 データ ドライブ) を使用して約 8000 を上限とするディスクの IOPS (1 秒あたりの入力/出力操作) - ユーザーの責任です。 |
 
 VM で SQL Server を使用する場合は、独自の SQL Server ライセンスを使用するまたはの時間に 1 つの料金を支払うことができます。 たとえば、または REST API を使用して、ポータルでは、SQL Server イメージを使用して新しい VM を作成できます。
 
@@ -301,6 +301,6 @@ HDInsight (Hadoop on Azure):
 - [Hadoop と HDInsight: Azure での Big Data](https://msdn.microsoft.com/magazine/dn385705.aspx)です。 MSDN マガジン アーティクル Bruno Terkaly して Ricardo Villalobos、Hadoop on Azure の概要です。
 - [Microsoft Patterns and Practices - Azure ガイダンス](https://msdn.microsoft.com/library/dn568099.aspx)です。 MapReduce のパターンを参照してください。
 
->[!div class="step-by-step"]
-[前へ](single-sign-on.md)
-[次へ](data-partitioning-strategies.md)
+> [!div class="step-by-step"]
+> [前へ](single-sign-on.md)
+> [次へ](data-partitioning-strategies.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6
-title: "パート 6: 製品と順序コント ローラーの作成 |Microsoft ドキュメント"
+title: 'パート 6: 製品と順序コント ローラーの作成 |Microsoft ドキュメント'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/04/2012
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 3b33543f02479b97112a63eb3879967ae31ccfb3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6bd485d29821af12b9ebe31b2d04a2d9ab826731
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-6-creating-product-and-order-controllers"></a>パート 6: 製品の作成と順序コント ローラー
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="add-a-products-controller"></a>製品のコント ローラーを追加します。
 
@@ -71,7 +71,7 @@ Get メソッドを開いたまま、Post、Put、および削除のメソッド
 
 ![](using-web-api-with-entity-framework-part-6/_static/image2.png)
 
-**[追加]**をクリックします。 OrdersController.cs をという名前のファイルが追加されます。 次に、コント ローラーの既定の実装を変更する必要があります。
+**[追加]** をクリックします。 OrdersController.cs をという名前のファイルが追加されます。 次に、コント ローラーの既定の実装を変更する必要があります。
 
 最初に、削除、`PutOrder`と`DeleteOrder`メソッドです。 このサンプルでは、お客様は変更または既存の注文を削除できません。 実際のアプリケーションでは、このような場合を処理するためのバックエンド ロジックの多くする必要があります。 (たとえばが、既に発送しますか?)
 
@@ -117,6 +117,6 @@ HTTP 応答の数量が製品の配列が含まれます。
 
 これで登録されたユーザーのみを作成したり注文を表示します。
 
->[!div class="step-by-step"]
-[前へ](using-web-api-with-entity-framework-part-5.md)
-[次へ](using-web-api-with-entity-framework-part-7.md)
+> [!div class="step-by-step"]
+> [前へ](using-web-api-with-entity-framework-part-5.md)
+> [次へ](using-web-api-with-entity-framework-part-7.md)

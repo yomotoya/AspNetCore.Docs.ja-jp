@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
-title: "ファイルとフォルダーの展開から除外 |Microsoft ドキュメント"
+title: ファイルとフォルダーの展開から除外 |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、方法できますを除外するファイルとフォルダー web 展開パッケージから作成および web アプリケーション プロジェクトをパッケージ化するときについて説明します。"
+description: このトピックでは、方法できますを除外するファイルとフォルダー web 展開パッケージから作成および web アプリケーション プロジェクトをパッケージ化するときについて説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 80810415bac473a58f60110fb9d08772e0627bd5
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c435448bf057bbef9127d66ffda24a07729f2322
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="excluding-files-and-folders-from-deployment"></a>ファイルとフォルダーの展開から除外
 ====================
@@ -27,9 +27,9 @@ ms.lasthandoff: 03/15/2018
 > このトピックでは、方法できますを除外するファイルとフォルダー web 展開パッケージから作成および web アプリケーション プロジェクトをパッケージ化するときについて説明します。
 
 
-このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。サンプル ソリューション & #x 2014; このチュートリアルのシリーズを使用して、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; を ASP.NET MVC 3 アプリケーションを Windows のなどの複雑性のレベルが現実的な web アプリケーションを表すCommunication Foundation (WCF) サービスとデータベース プロジェクト。
+このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルの一連のサンプル ソリューションを使用する&#x2014;、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的な ASP.NET MVC 3 アプリケーション、Windows Communication も含め、複雑さのレベルを持つ web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
-説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスで 2 つのプロジェクト ファイル & #x 2014; 1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスでは、2 つのプロジェクト ファイル&#x2014;1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
 
 ## <a name="overview"></a>概要
 
@@ -74,7 +74,7 @@ Visual Studio で、web アプリケーション プロジェクトのプロパ�
 1. という名前のカスタム プロジェクト ファイルを作成する*[プロジェクト名].wpp.targets*は、プロジェクト ファイルと同じフォルダーにします。
 
     > [!NOTE]
-    > *. Wpp.targets* web アプリケーション プロジェクト ファイル & #x 2014; と同じフォルダーに移動する必要があるファイルなど、 *ContactManager.Mvc.csproj*(& a) いずれかとして #x; 2014 ではなく、同じフォルダー管理、ビルドおよび展開プロセスを使用するカスタム プロジェクト ファイルです。
+    > *. Wpp.targets*ファイルは、web アプリケーション プロジェクト ファイルと同じフォルダーに移動する必要がある&#x2014;など*ContactManager.Mvc.csproj*&#x2014;任意のカスタムと同じフォルダー内ではなくプロジェクト ファイルを使用してビルドおよび配置プロセスを制御します。
 2. *. Wpp.targets*ファイルに追加し、 **ItemGroup**要素。
 3. **ItemGroup**要素を追加**ExcludeFromPackageFolders**と**ExcludeFromPackageFiles**特定のファイルおよび必要に応じてフォルダーを除外する項目。
 
@@ -106,16 +106,16 @@ Visual Studio で、web アプリケーション プロジェクトのプロパ�
     [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample2.xml)]
 6. Web パッケージからフォルダーを除外する場合は、追加、 **ExcludeFromPackageFolders**要素を**ItemGroup**要素。
 
-    1. **Include**属性を除外するフォルダーのリストをセミコロンで区切って指定します。
-    2. **FromTarget**メタデータ要素の名のように、フォルダーが除外されている理由を示すために意味のある値を指定して、 *. wpp.targets*ファイル。
+   1. **Include**属性を除外するフォルダーのリストをセミコロンで区切って指定します。
+   2. **FromTarget**メタデータ要素の名のように、フォルダーが除外されている理由を示すために意味のある値を指定して、 *. wpp.targets*ファイル。
 
-    [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample3.xml)]
+      [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample3.xml)]
 7. Web パッケージからファイルを除外する場合は、追加、 **ExcludeFromPackageFiles**要素を**ItemGroup**要素。
 
-    1. **Include**属性を除外するファイルのリストをセミコロンで区切って指定します。
-    2. **FromTarget**メタデータ要素理由ファイル除外されているなどの名前を示すために意味のある値を指定して、 *. wpp.targets*ファイル。
+   1. **Include**属性を除外するファイルのリストをセミコロンで区切って指定します。
+   2. **FromTarget**メタデータ要素理由ファイル除外されているなどの名前を示すために意味のある値を指定して、 *. wpp.targets*ファイル。
 
-    [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample4.xml)]
+      [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample4.xml)]
 8. *[プロジェクト名].wpp.targets*ファイルのこのようになります。
 
     [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample5.xml)]
@@ -131,6 +131,6 @@ Visual Studio で、web アプリケーション プロジェクトのプロパ�
 
 カスタムの Microsoft Build Engine (MSBuild) プロジェクト ファイルを使用して、展開プロセスを制御する方法については、次を参照してください。[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)と[ビルド プロセスの理解](../web-deployment-in-the-enterprise/understanding-the-build-process.md)です。 パッケージと展開プロセスの詳細については、次を参照してください[パッケージ Web アプリケーション プロジェクトのビルドと](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md)、 [Web パッケージの展開の構成パラメーター](../web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment.md)、および[。Web パッケージを展開する](../web-deployment-in-the-enterprise/deploying-web-packages.md)です。
 
->[!div class="step-by-step"]
-[前へ](deploying-membership-databases-to-enterprise-environments.md)
-[次へ](taking-web-applications-offline-with-web-deploy.md)
+> [!div class="step-by-step"]
+> [前へ](deploying-membership-databases-to-enterprise-environments.md)
+> [次へ](taking-web-applications-offline-with-web-deploy.md)

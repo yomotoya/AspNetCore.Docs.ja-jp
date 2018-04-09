@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-cs
-title: "データ注釈検証コントロール (c#) を使用した検証 |Microsoft ドキュメント"
+title: データ注釈検証コントロール (c#) を使用した検証 |Microsoft ドキュメント
 author: microsoft
-description: "ASP.NET MVC アプリケーション内での検証を実行するデータの注釈モデル バインダーの手順を利用します。 さまざまな種類の検証コントロールを使用する方法を説明してください."
+description: ASP.NET MVC アプリケーション内での検証を実行するデータの注釈モデル バインダーの手順を利用します。 さまざまな種類の検証コントロールを使用する方法を説明してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/29/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 306dcb0197dfc9317ea9665dd2b1c058ba8bd712
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0aca9472094e6a54c7b7cb4ad4f12df64fe12db2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validation-with-the-data-annotation-validators-c"></a>データ注釈検証コントロール (c#) を使用した検証
 ====================
@@ -78,7 +78,7 @@ Product クラスが 1 つの追加属性を使用する方法を示していま
 
 > [!NOTE] 
 > 
-> 検証コントロールによって表示されるエラー メッセージを完全にカスタマイズする場合は、次のように ErrorMessage プロパティの検証コントロールのカスタム エラー メッセージを割り当てることができます。`<Required(ErrorMessage:="This field needs a value!")>`
+> 検証コントロールによって表示されるエラー メッセージを完全にカスタマイズする場合は、次のように ErrorMessage プロパティの検証コントロールのカスタム エラー メッセージを割り当てることができます。 `<Required(ErrorMessage:="This field needs a value!")>`
 
 
 Product クラスを使用することができます**リスト 1**の Create() コント ローラーのアクションと**を一覧表示する 2**です。 このコント ローラーのアクションでは、モデルの状態には、すべてのエラーが含まれている場合、ビューを作成するが再表示されます。
@@ -149,10 +149,10 @@ Entity Framework によって生成されたクラスでの検証コントロー
 
 **図 6**: Entity Framework での検証コントロールの使用 ([フルサイズのイメージを表示するをクリックして](validation-with-the-data-annotation-validators-cs/_static/image14.png))
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、ASP.NET MVC アプリケーション内での検証を実行するデータの注釈モデル バインダーを活用する方法について学習しました。 など、必要な検証属性や StringLength 属性の種類を使用する方法を学習しました。 また、Microsoft の Entity Framework を使用する場合は、これらの属性を使用する方法も学習しました。
 
->[!div class="step-by-step"]
-[前へ](validating-with-a-service-layer-cs.md)
-[次へ](creating-model-classes-with-the-entity-framework-vb.md)
+> [!div class="step-by-step"]
+> [前へ](validating-with-a-service-layer-cs.md)
+> [次へ](creating-model-classes-with-the-entity-framework-vb.md)

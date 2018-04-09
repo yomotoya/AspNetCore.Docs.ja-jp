@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-cs
-title: "イテレーション 1 – (c#) アプリケーションの作成 |Microsoft ドキュメント"
+title: イテレーション 1 – (c#) アプリケーションの作成 |Microsoft ドキュメント
 author: microsoft
-description: "最初のイテレーションでお連絡先のマネージャー最も簡単な方法で可能なを作成します。 基本的なデータベース操作のサポートを追加します: 作成、読み取り、更新、および D."
+description: '最初のイテレーションでお連絡先のマネージャー最も簡単な方法で可能なを作成します。 基本的なデータベース操作のサポートを追加します: 作成、読み取り、更新、および D.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 12927250595a8f3130328d2fe219280a13349787
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 30f626511164363fea2195a05e73aeee5764933b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-1--create-the-application-c"></a>イテレーション 1 – (c#) アプリケーションを作成します。
 ====================
@@ -80,13 +80,13 @@ ASP.NET MVC フレームワーク。 ASP.NET MVC フレームワークは、次�
 
 このチュートリアルでは、Microsoft の Entity Framework を使用して、データベースにアクセスします。 Entity Framework は、.NET Framework 3.5 Service Pack 1 に含まれています。 この service pack は、次の場所からダウンロードできます。
 
-[https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang = en](https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en)
+[https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en](https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en)
 
 これらのダウンロードを 1 つずつのそれぞれを実行する代わりに、Web Platform Installer (Web PI) の利点を実行できます。 Web PI では、次のアドレスからダウンロードできます。
 
 [https://www.asp.net/downloads/essential/](https://www.asp.net/downloads/essential)
 
-## <a name="aspnet-mvc-project"></a>ASP.NET MVC プロジェクト
+## <a name="aspnet-mvc-project"></a>ASP.NET MVC Project
 
 ASP.NET MVC Web アプリケーション プロジェクト。 Visual Studio を起動し、メニュー オプションを選択**ファイル]、[新しいプロジェクト**です。 **新しいプロジェクト**ダイアログが表示されます (図 1)。 選択、 **Web**プロジェクトの種類と**ASP.NET MVC Web アプリケーション**テンプレート。 新しいプロジェクトの名前を付けます*ContactManager*し、[ok] ボタンをクリックします。
 
@@ -172,10 +172,10 @@ Microsoft SQL Server、Oracle、MySQL、および IBM DB2 データベースを�
 | **列名** | **データ型** | **Null を許容します。** |
 | --- | --- | --- |
 | ID | int | False |
-| FirstName | Nvarchar (50) | False |
-| LastName | Nvarchar (50) | False |
-| 電話番号 | Nvarchar (50) | False |
-| 電子メール | nvarchar (255) | False |
+| FirstName | nvarchar(50) | False |
+| LastName | nvarchar(50) | False |
+| 電話番号 | nvarchar(50) | False |
+| 電子メール | nvarchar(255) | False |
 
 
 最初の列、Id 列は特殊です。 Id 列と主キー列として Id 列をマークする必要があります。 列が Identity 列である列のプロパティ (図 6 の下部にあるを参照) を展開し、Identity の指定 プロパティまでスクロールを指定します。 設定、 **(Is Identity)**プロパティ値を**はい**です。
@@ -298,7 +298,7 @@ Index() メソッドを右クリックし、メニュー オプションを選�
 
 インデックス ビューに 1 つの変更が必要です。 詳細ビューを作成できませんから詳細情報のリンクは削除できます。 検索して、インデックス ビューから、次のコードを削除します。
 
-{id = 項目。Id})&gt;
+{ id=item.Id })%&gt;
 
 インデックス ビューを変更した後、連絡先のマネージャー アプリケーションを実行することができます。 [デバッグ開始] メニュー オプション、デバッグを選択するか、単に F5 キーを押します。 初めてアプリケーションを実行するダイアログ ボックスを図 14 に取得します。 オプションを選択**Web.config ファイルを変更してデバッグを有効にする**し、[ok] ボタンをクリックします。
 
@@ -354,7 +354,7 @@ Create() メソッドの本体、データベースに新しい連絡先を挿�
 
 ビュー作成するにはには、各連絡先クラスのプロパティのフォーム フィールドが含まれています。 ビューを作成するためのコードは、5 の一覧に含まれます。
 
-**5 - Views\Home\Create.aspx を一覧表示します。**
+**Listing 5 - Views\Home\Create.aspx**
 
 [!code-aspx[Main](iteration-1-create-the-application-cs/samples/sample5.aspx)]
 
@@ -390,7 +390,7 @@ Edit() メソッドを右クリックし、追加のビュー メニュー オ�
 
 [追加] ボタンをクリックすると、新しい編集ビューが自動的に生成されます。 生成される HTML フォームには、各連絡先クラス (7 のリストを参照) のプロパティに対応するフィールドが含まれています。
 
-**7 - Views\Home\Edit.aspx を一覧表示します。**
+**Listing 7 - Views\Home\Edit.aspx**
 
 [!code-aspx[Main](iteration-1-create-the-application-cs/samples/sample7.aspx)]
 
@@ -419,7 +419,7 @@ Edit() メソッドを右クリックし、追加のビュー メニュー オ�
 
 (図 21 を参照してください) に連絡先レコードを削除するためのリンクが含まれているように、インデックス ビューを変更する必要があります。 [編集] リンクを含む表のセルに次のコードを追加する必要があります。
 
-Html.ActionLink ({id = 項目。Id})&gt;
+Html.ActionLink( { id=item.Id }) %&gt;
 
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-1-create-the-application-cs/_static/image21.jpg)](iteration-1-create-the-application-cs/_static/image41.png)
@@ -439,7 +439,7 @@ Html.ActionLink ({id = 項目。Id})&gt;
 
 削除ビューの内容は、9 の一覧に含まれます。 このビューには、ことを確認するフォームが含まれています (図 21 を参照してください) を削除するかどうか、特定の連絡先があります。
 
-**9 - Views\Home\Delete.aspx を一覧表示します。**
+**Listing 9 - Views\Home\Delete.aspx**
 
 [!code-aspx[Main](iteration-1-create-the-application-cs/samples/sample9.aspx)]
 
@@ -478,7 +478,7 @@ Home コント ローラーではなく、連絡先のコント ローラーを�
 
 これらの変更を加えた後は、連絡先のマネージャーが正しく実行されます。 ここで、既定のコント ローラーとして連絡先コント ローラーのクラスが使用されます。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 この最初のイテレーションで作成した基本的な連絡先のマネージャー アプリケーション最速の方法で考えられる。 このコント ローラーとビューの初期コードを自動的に生成する Visual Studio の利点を作成しました。 データベース モデル クラスを自動的に生成する Entity Framework を活用してもかかりました。
 
@@ -490,5 +490,5 @@ Home コント ローラーではなく、連絡先のコント ローラーを�
 
 最後に、最も重要なは、連絡先のマネージャー アプリケーションの現在のイテレーション簡単に変更またはできません保持されます。 たとえば、データベース アクセス ロジックに組み込まれて右コント ローラーのアクション。 つまり、コント ローラーを変更することがなく、データ アクセス コードを修正することはできません。 後のイテレーションでは、連絡先のマネージャーの変更を回復力を高めるに実装できるソフトウェア設計パターンについて説明します。
 
->[!div class="step-by-step"]
-[次へ](iteration-2-make-the-application-look-nice-cs.md)
+> [!div class="step-by-step"]
+> [次へ](iteration-2-make-the-application-look-nice-cs.md)

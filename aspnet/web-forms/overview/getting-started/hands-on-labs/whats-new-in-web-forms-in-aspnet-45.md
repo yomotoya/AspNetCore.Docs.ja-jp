@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
-title: "ASP.NET 4.5 のフォームの Web の新機能 |Microsoft ドキュメント"
+title: ASP.NET 4.5 のフォームの Web の新機能 |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET Web フォームの新しいバージョンには、多数のデータを操作するときに、ユーザー エクスペリエンスを向上させることに重点を置いた機能強化が導入されています。 以前のバージョンのしています."
+description: ASP.NET Web フォームの新しいバージョンには、多数のデータを操作するときに、ユーザー エクスペリエンスを向上させることに重点を置いた機能強化が導入されています。 以前のバージョンのしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 560f949f79be8ba4936e4a6f8ee8ee32ef15acbf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: db2658ff1feae1d4c20e4cfd19c36cfdf9492761
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>Asp.net 4.5 Web フォームの新機能
 ====================
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/24/2018
 > 
 > 公式の ASP.NET ポータルで ASP.NET WebForms 4.5 での新機能の例についてを見つけることができます: [ASP.NET 4.5 と Visual Studio 2012 の新](../../../../whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md#_Toc318097385)
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409)です。
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409)です。
 
 
 <a id="Objectives"></a>
@@ -103,12 +103,12 @@ ASP.NET Web フォームの新しいバージョンでは、さまざまなデ�
 
 1. 開く、**開始**ソリューションにある**ソース/Ex1-ModelBinding/開始/**フォルダーです。
 
-    1. いくつか不足している NuGet パッケージをダウンロードする必要がありますが続行前にします。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
-    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
-    3. 最後に、ソリューションをビルドします をクリックして**ビルド** | **ソリューションのビルド**です。
+   1. いくつか不足している NuGet パッケージをダウンロードする必要がありますが続行前にします。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
+   2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
+   3. 最後に、ソリューションをビルドします をクリックして**ビルド** | **ソリューションのビルド**です。
 
-    > [!NOTE]
-    > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
+      > [!NOTE]
+      > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
 2. 開く、 **Customers.aspx**ページ。 メイン コントロールに番号なしのリストを置くし、各顧客の一覧を表示するための内部リピータ コントロールなどがあります。 リピータ名を設定します**customersRepeater**次のコードに示すようにします。
 
     以前のバージョンの Web フォーム、データ バインディングをしているオブジェクトのメンバーの値を出力するデータ バインディングを使用するは式を使用するデータ バインド、Eval メソッドの呼び出しと共に渡すメンバーの名前を文字列として。
@@ -207,12 +207,12 @@ ASP.NET Web フォームの新しいバージョンでは、データ バイン�
 <a id="Task_3_-_Value_Providers_in_Model_Binding"></a>
 #### <a name="task-3---value-providers-in-model-binding"></a>タスク 3 - モデル バインディング内の値プロバイダー
 
-モデル バインドは、データ バインド コントロールで直接データを操作するカスタム メソッドを指定することができますだけでなく、これらのメソッドのパラメーターに、ページからデータをマップすることもできます。 メソッド パラメーターに値のデータ ソースを指定するのに値プロバイダー属性を使用することができます。 例:
+モデル バインドは、データ バインド コントロールで直接データを操作するカスタム メソッドを指定することができますだけでなく、これらのメソッドのパラメーターに、ページからデータをマップすることもできます。 メソッド パラメーターに値のデータ ソースを指定するのに値プロバイダー属性を使用することができます。 例えば:
 
 - ページ上のコントロール
 - クエリ文字列の値
 - データの表示
-- セッションの状態
+- セッション状態
 - クッキー
 - ポストされたフォーム データ
 - ビューの状態
@@ -341,12 +341,12 @@ ASP.NET MVC 4 を使用している場合は、モデル バインディング�
 
 1. 開く**Visual Studio 2012**を開くと、**開始**にソリューションがある、 **Source\Ex2 Validation\Begin**このラボのフォルダーです。 また、前述の手順から既存のソリューションで作業を続行できます。
 
-    1. 指定されたを開いた場合**開始**ソリューションでは、いくつか不足している NuGet パッケージをダウンロードする必要がある前にします。 ソリューション エクスプ ローラーで、これをクリックして、 **WebFormsLab**プロジェクト**NuGet パッケージの管理**です。
-    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
-    3. 最後に、ソリューションをビルドします をクリックして**ビルド** | **ソリューションのビルド**です。
+   1. 指定されたを開いた場合**開始**ソリューションでは、いくつか不足している NuGet パッケージをダウンロードする必要がある前にします。 ソリューション エクスプ ローラーで、これをクリックして、 **WebFormsLab**プロジェクト**NuGet パッケージの管理**です。
+   2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
+   3. 最後に、ソリューションをビルドします をクリックして**ビルド** | **ソリューションのビルド**です。
 
-    > [!NOTE]
-    > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
+      > [!NOTE]
+      > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
 2. キーを押して**f5 キーを押して**web アプリケーションを起動します。 [ページの顧客にしてください] をクリックして、**新しい顧客を追加**リンクします。
 3. ブラウザー ページで、右クリックし **ソースの表示**オプションを開くには、アプリケーションによって生成された HTML コード。
 
@@ -535,12 +535,12 @@ ASP.NET の要求の検証機能は、特定のレベルのクロス サイト �
 
 1. 開いている**Visual Studio 2012**と読み込み、**開始**にソリューションがある**Source\Ex3 Async\Begin**このラボのフォルダーからです。 代わりに、前の演習から既存のソリューションで作業を続行できます。
 
-    1. 指定されたを開いた場合**開始**ソリューションでは、いくつか不足している NuGet パッケージをダウンロードする必要がある前にします。 ソリューション エクスプ ローラーで、これをクリックして、 **WebFormsLab**プロジェクトし、選択**NuGet パッケージの管理**です。
-    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
-    3. 最後に、ソリューションをビルドします をクリックして**ビルド** | **ソリューションのビルド**です。
+   1. 指定されたを開いた場合**開始**ソリューションでは、いくつか不足している NuGet パッケージをダウンロードする必要がある前にします。 ソリューション エクスプ ローラーで、これをクリックして、 **WebFormsLab**プロジェクトし、選択**NuGet パッケージの管理**です。
+   2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
+   3. 最後に、ソリューションをビルドします をクリックして**ビルド** | **ソリューションのビルド**です。
 
-    > [!NOTE]
-    > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
+      > [!NOTE]
+      > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
 2. 開く、 **ProductDetails.aspx**ソース ページし、製品の画像を表示するフォーム ビューの ItemTemplate でフィールドを追加します。
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample30.aspx)]
@@ -562,7 +562,7 @@ ASP.NET の要求の検証機能は、特定のレベルのクロス サイト �
     (コード スニペットの*Web フォーム ラボ - Ex03 - UpdateProductImage 呼び出し*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample34.cs)]
-7. アプリケーションを実行し、製品の画像をアップロードしようとしてください。 たとえば、Office クリップ アートから次の画像の URL を使用することができます: [ [http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
+7. アプリケーションを実行し、製品の画像をアップロードしようとしてください。 たとえば、Office クリップ アートから次の画像の URL を使用できます。 [[http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
 
     ![製品のイメージを設定](whats-new-in-web-forms-in-aspnet-45/_static/image23.png "製品用のイメージの設定")
 
@@ -580,7 +580,9 @@ Web サイトで時間のかかる操作が長時間割り当てられている�
 1. 開く、 **ProductDetails.aspx**ページ。 追加、 **Async**属性、**ページ**要素に設定し、 **true**です。 この属性では、ASP.NET IHttpAsyncHandler インターフェイスを実装するように指示します。
 
 
-    [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
+~~~
 2. ページを実行しているスレッドの詳細を表示するページの下部にラベルを追加します。
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample36.aspx)]
@@ -636,9 +638,9 @@ Web サイトで時間のかかる操作が長時間割り当てられている�
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 a: をインストールする Visual Studio Express 2012 for Web
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、  **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . 次の手順を案内するインストールに必要な手順*Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*です。
+インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順を案内するインストールに必要な手順*Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*です。
 
-1. 移動して[ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)です。 または、既に Web Platform Installer をインストールした場合、開くことができ、製品を検索&quot; *Visual Studio Express 2012 for Web と Azure SDK*&quot;です。
+1. 移動して[ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)です。 または、既に Web Platform Installer をインストールした場合、開くことができ、製品を検索&quot; <em>Visual Studio Express 2012 for Web と Azure SDK</em>&quot;です。
 2. をクリックして**を今すぐインストール**です。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
 3. 1 回**Web Platform Installer**が開いて、をクリックして**インストール**セットアップを開始します。
 
@@ -782,14 +784,14 @@ Web サイトで時間のかかる操作が長時間割り当てられている�
     *Web 配置の構成*
 5. 次のように、データベースの接続を構成します。
 
-    - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:*プレフィックス。
-    - **ユーザー名**サーバー管理者のログイン名を入力します。
-    - **パスワード**サーバー管理者のログイン パスワードを入力します。
-    - 新しいデータベース名を入力します。
+   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:*プレフィックス。
+   - **ユーザー名**サーバー管理者のログイン名を入力します。
+   - **パスワード**サーバー管理者のログイン パスワードを入力します。
+   - 新しいデータベース名を入力します。
 
-    ![対象の接続文字列を構成する](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "対象の接続文字列を構成します。")
+     ![対象の接続文字列を構成する](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "対象の接続文字列を構成します。")
 
-    *対象の接続文字列を構成します。*
+     *対象の接続文字列を構成します。*
 6. 次に、 **[OK]**をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
 
     ![データベースを作成する](whats-new-in-web-forms-in-aspnet-45/_static/image47.png "データベース文字列を作成します。")

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/enhancing-data-validation
-title: "ASP.NET MVC で最初の EF データベース データの検証を拡張 |。Microsoft ドキュメント"
+title: ASP.NET MVC で最初の EF データベース データの検証を拡張 |。Microsoft ドキュメント
 author: tfitzmac
-description: "MVC、Entity Framework と ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアルの seri しています."
+description: MVC、Entity Framework と ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアルの seri しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/29/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 842496c2d3ec56fb81f2409dd7d05d800f83799b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8ea2e94db7956b76c5ccf0a139ac024e38910b49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-enhancing-data-validation"></a>ASP.NET MVC で最初の EF データベース データの検証を拡張。
 ====================
@@ -87,6 +87,6 @@ Metadata.cs でコードを次のコードに置き換えます。
 
 Student.cs ファイルまたは Enrollment.cs ファイルを開くし、以前に適用するデータの検証属性がファイルには不要になったことに注意してください。 ただし、アプリケーションを実行し、検証規則が入力したデータをまだ適用されていることを確認します。
 
->[!div class="step-by-step"]
-[前へ](customizing-a-view.md)
-[次へ](publish-to-azure.md)
+> [!div class="step-by-step"]
+> [前へ](customizing-a-view.md)
+> [次へ](publish-to-azure.md)

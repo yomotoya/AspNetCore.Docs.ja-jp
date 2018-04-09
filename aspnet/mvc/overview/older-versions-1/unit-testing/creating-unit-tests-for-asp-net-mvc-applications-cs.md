@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
-title: "ASP.NET MVC アプリケーション (c#) の単体テストの作成 |Microsoft ドキュメント"
+title: ASP.NET MVC アプリケーション (c#) の単体テストの作成 |Microsoft ドキュメント
 author: StephenWalther
-description: "コント ローラー アクションの単体テストを作成する方法を説明します。 このチュートリアルでは、Stephen Walther はコント ローラーのアクションが、parti を返すかどうかをテストする方法を示します."
+description: コント ローラー アクションの単体テストを作成する方法を説明します。 このチュートリアルでは、Stephen Walther はコント ローラーのアクションが、parti を返すかどうかをテストする方法を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 56c981363f1905c1c9869dbaf2adb6b5ac1c28a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ccd9a1b3aee8379c23c01c5eb7f756a786f6359d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-unit-tests-for-aspnet-mvc-applications-c"></a>ASP.NET MVC アプリケーション (c#) の単体テストの作成
 ====================
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/10/2017
 
 テストしようとするコント ローラーの作成を始めます。 という名前のコント ローラー、 `ProductController`1 のリストに含まれています。
 
-**1 – を一覧表示します。`ProductController.cs`**
+**1 – を一覧表示します。 `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample1.cs)]
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/10/2017
 
 テストすることを想像してくださいかどうか、`ProductController`右側のビューを返します。 確認するときに、`ProductController.Details()`アクションが呼び出されると、詳細ビューが返されます。 リスト 2 でテスト クラスには、テストによって返されるビューの単体テストが含まれています、`ProductController.Details()`アクション。
 
-**2 – を一覧表示します。`ProductControllerTest.cs`**
+**2 – を一覧表示します。 `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample2.cs)]
 
@@ -78,7 +78,7 @@ MVC のコント ローラーと呼ばれるものを使用してビューにデ
 
 変更された`ProductController`リスト 3 の更新が含まれています`Details()`製品を返すアクションです。
 
-**3 – を一覧表示します。`ProductController.cs`**
+**3 – を一覧表示します。 `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample5.cs)]
 
@@ -86,7 +86,7 @@ MVC のコント ローラーと呼ばれるものを使用してビューにデ
 
 単体テストを記述することができます、必要なデータがあるかどうかをテストするデータが含まれて表示されます。 単体テストに、4 の一覧表示するテストで呼び出すときに、ラップトップ コンピューターを表す製品が返されるかどうか、`ProductController Details()`アクション メソッド。
 
-**4 – を一覧表示します。`ProductControllerTest.cs`**
+**4 – を一覧表示します。 `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample6.cs)]
 
@@ -98,19 +98,19 @@ MVC のコント ローラーと呼ばれるものを使用してビューにデ
 
 たとえば、変更された`Details()`5 の一覧でアクションを返します、`Details`アクションに有効な製品 Id を渡す場合に表示します。 1--後にリダイレクトするよりも小さく、無効な製品 Id--値を持つ Id を渡す場合、`Index()`アクション。
 
-**5 – を一覧表示します。`ProductController.cs`**
+**5 – を一覧表示します。 `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample7.cs)]
 
 動作をテストすることができます、`Details()`リスト 6 で、単体テストで操作します。 単体テストを一覧表示する 6 にリダイレクトされていることを確認、`Index`に値が-1 の Id が渡されるときの表示、`Details()`メソッドです。
 
-**6 – を一覧表示します。`ProductControllerTest.cs`**
+**6 – を一覧表示します。 `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample8.cs)]
 
 呼び出すと、`RedirectToAction()`コント ローラーのアクションで、コント ローラーのアクションを返します、`RedirectToRouteResult`です。 テスト チェックするかどうか、`RedirectToRouteResult`という名前のコント ローラー アクションをユーザーをリダイレクト`Index`です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、MVC コント ローラー アクションの単体テストを作成する方法について学習しました。 最初に、右側のビューがコント ローラーのアクションによって返されるかどうかを確認する方法を学習します。 使用する方法を学習しました、`ViewResult.ViewName`プロパティをビューの名前を確認します。
 
@@ -118,5 +118,5 @@ MVC のコント ローラーと呼ばれるものを使用してビューにデ
 
 最後に、さまざまな種類のアクションの結果はコント ローラーのアクションから返されるかどうかをテストする方法について説明します。 コント ローラーを返すかどうかをテストする方法を学習、`ViewResult`または`RedirectToRouteResult`です。
 
->[!div class="step-by-step"]
-[次へ](creating-unit-tests-for-asp-net-mvc-applications-vb.md)
+> [!div class="step-by-step"]
+> [次へ](creating-unit-tests-for-asp-net-mvc-applications-vb.md)

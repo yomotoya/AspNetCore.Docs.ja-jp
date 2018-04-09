@@ -1,7 +1,7 @@
 ---
-title: "バンドルと ASP.NET Core の縮小"
+title: ASP.NET Core でのバンドルと minifiy の静的な資産
 author: scottaddie
-description: "ASP.NET Core web アプリケーションで静的なリソースをバンドルと縮小の手法を適用することによって最適化する方法を説明します。"
+description: ASP.NET Core web アプリケーションで静的なリソースをバンドルと縮小の手法を適用することによって最適化する方法を説明します。
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 6c233d0957ce9974adbc6112e6194c072aab0b41
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="bundling-and-minification"></a>バンドルと縮小
+# <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>ASP.NET Core でのバンドルと minifiy の静的な資産
 
 作成者: [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -79,7 +79,7 @@ MVC および Razor ページのプロジェクト テンプレートは、提�
 
 * `outputFileName`: を出力するバンドル ファイルの名前。 相対パスを含めることができます、 *bundleconfig.json*ファイル。 **必須**
 * `inputFiles`: をまとめるためにファイルの配列。 これらは、構成ファイルへの相対パスです。 **省略可能な**、*、空の値が空の出力ファイルの結果します。 [グロブ](http://www.tldp.org/LDP/abs/html/globbingref.html)パターンがサポートされています。
-* `minify`出力の: サイズ縮小オプションを入力します。 **省略可能な**、*既定 -`minify: { enabled: true }`*
+* `minify`出力の: サイズ縮小オプションを入力します。 **省略可能な**、*既定 - `minify: { enabled: true }`*
   * 出力ファイルの種類ごとの構成オプションのとおりです。
     * [CSS の縮小化](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript の縮小化](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
@@ -220,28 +220,22 @@ dotnet bundle
 
 次`environment`で実行する場合、タグが未処理の CSS ファイルを表示、`Development`環境。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
----
-
+* * *
 次`environment`以外の環境で実行する場合、タグは、バンドルと縮小された CSS ファイルをレンダリング`Development`です。 たとえばで実行されている`Production`または`Staging`これらのスタイル シートのレンダリングのトリガーします。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
----
-
+* * *
 ## <a name="consume-bundleconfigjson-from-gulp"></a>Consume bundleconfig.json from Gulp
 
 アプリのバンドルと縮小のワークフローに追加の処理が必要な場合があります。 例として、画像の最適化、キャッシュが破壊 CDN 資産処理します。 これらの要件を満たすには、Gulp を使用するバンドルと縮小のワークフローに変換できます。
@@ -319,5 +313,5 @@ Visual Studio でプロジェクトをビルドする前に、Gulp 縮小タス�
 
 * [Gulp の使用](xref:client-side/using-gulp)
 * [Grunt の使用](xref:client-side/using-grunt)
-* [複数の環境の使用](xref:fundamentals/environments)
+* [複数の環境で動作します。](xref:fundamentals/environments)
 * [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)

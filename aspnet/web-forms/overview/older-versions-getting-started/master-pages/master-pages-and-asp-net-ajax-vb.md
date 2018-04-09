@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-vb
-title: "マスター ページや ASP.NET AJAX (VB) |Microsoft ドキュメント"
+title: マスター ページや ASP.NET AJAX (VB) |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET AJAX およびマスター ページを使用するためのオプションについて説明します。 ScriptManagerProxy クラスを使用して変更について見てさまざまな JS ファイルに dependi が読み込まれるしくみについて説明しています."
+description: ASP.NET AJAX およびマスター ページを使用するためのオプションについて説明します。 ScriptManagerProxy クラスを使用して変更について見てさまざまな JS ファイルに dependi が読み込まれるしくみについて説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b25234f82c46437d853d1ab5b240f8a688995ccc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2c7d8477d6d9d235749d88d0b657d60454298e53
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="master-pages-and-aspnet-ajax-vb"></a>マスター ページや ASP.NET AJAX (VB)
 ====================
@@ -184,9 +184,9 @@ ASP.NET AJAX framework クライアント ライブラリの必要なスクリ�
 
 ScriptManagerProxy コントロールの動作を表示するで UpdatePanel を拡張してみましょう`ShowRandomProduct.aspx`をクライアント側スクリプトを使用して、一時停止または Timer コントロールを再開するボタンを追加します。 タイマー コントロールでは、この目的の機能を実現するために使用できる 3 つのクライアント側方法があります。
 
-- `_startTimer()`-タイマー コントロールの開始
-- `_raiseTick()`-ポスト バックし、サーバー上には、その Tick イベントを発生させるタイマー コントロールに「ティック」をそれによってさせます
-- `_stopTimer()`-Timer コントロールを停止します。
+- `_startTimer()` -タイマー コントロールの開始
+- `_raiseTick()` -ポスト バックし、サーバー上には、その Tick イベントを発生させるタイマー コントロールに「ティック」をそれによってさせます
+- `_stopTimer()` -Timer コントロールを停止します。
 
 という名前の変数での JavaScript ファイルを作成しましょう`timerEnabled`という名前の関数と`ToggleTimer`です。 `timerEnabled`変数は、タイマー コントロールが現在有効または無効になっているかどうかを示します。 既定値は true です。 `ToggleTimer`関数は、2 つの入力パラメーターを受け取ります。 一時停止/再開 ボタンとクライアント側への参照を`id`タイマー コントロールの値。 この関数の値が切り替わります`timerEnabled`、Timer コントロールへの参照を取得が起動またはタイマーを停止します (の値に応じて`timerEnabled`)、し、「一時停止」または"Resume"に、ボタンの表示テキストを更新します。 この関数は、一時停止/再開 ボタンがクリックされたときに呼び出されます。
 
@@ -228,7 +228,7 @@ ScriptManagerProxy コントロールの動作を表示するで UpdatePanel を
 
 [!code-aspx[Main](master-pages-and-asp-net-ajax-vb/samples/sample10.aspx)]
 
-これには、「一時停止」というテキストとボタンが表示されます。 ときに、クリックすると、JavaScript 関数`ToggleTimer`が呼び出されると、ボタンへの参照で渡すこと、および`id`タイマー コントロールの値 (`ProductTimer`)。 取得するための構文に注意してください、`id`タイマー コントロールの値。 `<%=ProductTimer.ClientID%>`値を出力、`ProductTimer`タイマー コントロールの`ClientID`プロパティです。 コンテンツ ページ [SKM3] のチュートリアルでは名前付けコントロール ID のサーバー側の相違点を説明した`ID`値と、結果として得られるクライアント側`id`値、およびどのように`ClientID`クライアント側を返します`id`です。
+これには、「一時停止」というテキストとボタンが表示されます。 ときに、クリックすると、JavaScript 関数`ToggleTimer`が呼び出されると、ボタンへの参照で渡すこと、および`id`タイマー コントロールの値 (`ProductTimer`)。 取得するための構文に注意してください、`id`タイマー コントロールの値。 `<%=ProductTimer.ClientID%>` 値を出力、`ProductTimer`タイマー コントロールの`ClientID`プロパティです。 コンテンツ ページ [SKM3] のチュートリアルでは名前付けコントロール ID のサーバー側の相違点を説明した`ID`値と、結果として得られるクライアント側`id`値、およびどのように`ClientID`クライアント側を返します`id`です。
 
 図 11 は、最初に、ブラウザーからアクセスされるときに、このページを示します。 タイマーが現在実行されているし、表示されている製品情報を 15 秒おきを更新します。 図 12 は、一時停止 ボタンがクリックしてされた後、画面を示しています。 一時停止 ボタンをクリックすると、タイマーを停止し、"Resume"にボタンのテキストを更新します。 製品情報が更新 (および 15 秒おきに更新を続けます) と、ユーザーが再開をクリックします。
 
@@ -243,7 +243,7 @@ ScriptManagerProxy コントロールの動作を表示するで UpdatePanel を
 **図 12**: タイマーを再起動する [再開] をクリックして ([フルサイズのイメージを表示するをクリックして](master-pages-and-asp-net-ajax-vb/_static/image36.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ASP.NET AJAX フレームワークを使用して AJAX 対応 web アプリケーションを構築するときに、すべての AJAX 対応 web ページに ScriptManager コントロールが含まれている必要があります。 このプロセスを容易に ScriptManager、すべてのコンテンツ ページに ScriptManager を追加する必要があるのではなく、マスター ページに追加できます。 手順 1 では、ScriptManager を手順 2. コンテンツ ページでの AJAX 機能の実装に検査中にマスター ページに追加する方法を示しました。
 
@@ -255,7 +255,7 @@ ASP.NET AJAX フレームワークを使用して AJAX 対応 web アプリケ�
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [ASP.NET AJAX フレームワーク](../../../../ajax/index.md)
+- [ASP.NET AJAX Framework](../../../../ajax/index.md)
 - [ASP.NET AJAX のチュートリアル](../aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax.md)
 - [ASP.NET AJAX のビデオ](../../../videos/aspnet-ajax/index.md)
 - [Microsoft ASP.NET AJAX による対話型ユーザー インターフェイスの構築](http://aspnet.4guysfromrolla.com/articles/101007-1.aspx)
@@ -264,12 +264,12 @@ ASP.NET AJAX フレームワークを使用して AJAX 対応 web アプリケ�
 
 ### <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、作成者複数受け取ります書籍や 4GuysFromRolla.com の創設者を操作した Microsoft Web テクノロジ 1998 年です。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 3.5 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)です。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、作成者複数受け取ります書籍や 4GuysFromRolla.com の創設者を操作した Microsoft Web テクノロジ 1998 年です。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 3.5 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)です。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 
-このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](interacting-with-the-content-page-from-the-master-page-vb.md)
-[次へ](specifying-the-master-page-programmatically-vb.md)
+> [!div class="step-by-step"]
+> [前へ](interacting-with-the-content-page-from-the-master-page-vb.md)
+> [次へ](specifying-the-master-page-programmatically-vb.md)

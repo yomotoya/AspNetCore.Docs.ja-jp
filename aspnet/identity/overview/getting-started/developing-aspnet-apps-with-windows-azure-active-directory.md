@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
-title: "Azure Active Directory と ASP.NET アプリの開発 |Microsoft ドキュメント"
+title: Azure Active Directory と ASP.NET アプリの開発 |Microsoft ドキュメント
 author: Rick-Anderson
-description: "Azure Active Directory 用の Microsoft ASP.NET ツールを簡単に Azure でホストされる web アプリケーションの認証を有効にします。 Azure 認証を使用するを使用することができます。"
+description: Azure Active Directory 用の Microsoft ASP.NET ツールを簡単に Azure でホストされる web アプリケーションの認証を有効にします。 Azure 認証を使用するを使用することができます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2014
 ms.topic: article
 ms.assetid: 457d7eaf-ee76-4ceb-9082-c7c1721435ad
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: 1ef0468d5f5c17480b23ac88983f30fe6f4979c0
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 44bf29e099583bf9d49f2715d3ff4f748728ad8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="developing-aspnet-apps-with-azure-active-directory"></a>Azure Active Directory と ASP.NET アプリの開発
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 01/24/2018
 
 > Microsoft ASP.NET ツールを Azure Active Directory では、ホストされている web アプリケーションの認証を有効にする単純な[Azure](https://www.windowsazure.com/home/features/web-sites/)です。 Azure 認証を使用して、組織、内部設置型 Active Directory から同期された会社のアカウントまたはカスタムの Azure Active Directory ドメインで作成されたユーザーから Office 365 のユーザーを認証することができます。 Windows Azure 認証を有効にすると、1 つを使用してユーザーを認証するアプリケーションを構成[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)テナントです。
 > 
->  このチュートリアルは、Rick Anderson によって書き込まれました[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
+>  このチュートリアルは、Rick Anderson によって書き込まれました [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 
 
 このチュートリアルがによるサインオンの構成されている ASP.NET アプリケーションを作成する方法を示します[Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (Azure AD)。 現在サインインしているユーザーに関する情報を取得する Graph API を呼び出す方法と Azure にアプリケーションを展開する方法も学習します。
@@ -52,7 +52,7 @@ ms.lasthandoff: 01/24/2018
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image4.png)  
   
- パスワードの保存の初回ログオン後にパスワードを変更する必要があります。 次の図は、新しい管理者アカウントを示します。 Azure Active Directory を使用してもこのページに示されている Microsoft アカウントではなく、アプリにログインする必要があります。  
+   パスワードの保存の初回ログオン後にパスワードを変更する必要があります。 次の図は、新しい管理者アカウントを示します。 Azure Active Directory を使用してもこのページに示されている Microsoft アカウントではなく、アプリにログインする必要があります。  
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image5.png)
 
@@ -65,11 +65,11 @@ ms.lasthandoff: 01/24/2018
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image6.png)
 3. **認証の変更**ダイアログで、**組織アカウント**です。 これらのオプションを自動的にするようにアプリケーションを Azure AD に統合できるだけでなく、アプリケーションを Azure AD に自動的に登録できます。 使用する必要はありません、**認証の変更**を登録し、アプリケーションが、これを構成 ダイアログでは、はるかに簡単です。 たとえば Visual Studio 2012 を使用している場合は、手動で Azure 管理ポータルでアプリケーションを登録し、Azure AD と統合する構成を更新します。  
- ドロップダウン メニューで選択**クラウドに 1 つの組織**と**シングル サインオン、ディレクトリ データの読み取り**です。 Azure AD ディレクトリ、たとえば (下のイメージの場合) のドメインを入力する*aricka0yahoo.onmicrosoft.com*、順にクリック**[ok]**です。 Azure ポータルの既定のディレクトリの [ドメイン] タブから、ドメイン名を取得できます (ダウンは、次のイメージを参照してください)。   
+   ドロップダウン メニューで選択**クラウドに 1 つの組織**と**シングル サインオン、ディレクトリ データの読み取り**です。 Azure AD ディレクトリ、たとえば (下のイメージの場合) のドメインを入力する*aricka0yahoo.onmicrosoft.com*、順にクリック**[ok]**です。 Azure ポータルの既定のディレクトリの [ドメイン] タブから、ドメイン名を取得できます (ダウンは、次のイメージを参照してください)。   
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image7.png)  
   
- 次の図は、Azure ポータルからドメイン名を示します。  
+   次の図は、Azure ポータルからドメイン名を示します。  
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image8.png)  
 
@@ -94,11 +94,11 @@ ms.lasthandoff: 01/24/2018
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image13.png)  
   
- エラーが発生した場合は、次のようにします。  
- 値は、null または空にすることはできません。 パラメーター名: linkText   
+   エラーが発生した場合は、次のようにします。  
+   値は、null または空にすることはできません。 パラメーター名: linkText   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image14.png)  
   
- 参照してください、[デバッグ](#dbg)セクションのチュートリアルの最後にします。
+   参照してください、[デバッグ](#dbg)セクションのチュートリアルの最後にします。
 
 ## <a name="basics-of-the-graph-api"></a>Graph API の基本
 

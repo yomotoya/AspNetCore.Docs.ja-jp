@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core での SMS で 2 要素認証"
+title: ASP.NET Core での SMS で 2 要素認証
 author: rick-anderson
-description: "ASP.NET Core のアプリに 2 要素認証 (2 fa) を設定する方法を説明します。"
+description: ASP.NET Core のアプリに 2 要素認証 (2 fa) を設定する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 08/15/2017
@@ -9,25 +9,25 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/2fa
-ms.openlocfilehash: c328c6f4b674695dd1f2db8145a7ac1b8f12d36d
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 1c4acc4e4be593051d30793b7f73ad90ce727283
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>ASP.NET Core での SMS で 2 要素認証
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)と[スイス開発者](https://github.com/Swiss-Devs)
 
-このチュートリアルの ASP.NET Core 対象 1.x のみです。 参照してください[ASP.NET Core でのアプリの認証子の QR コードを有効にすると生成](xref:security/authentication/identity-enable-qrcodes)ASP.NET Core 2.0 以降。
+このチュートリアルの ASP.NET Core 対象 1.x のみです。 参照してください[ASP.NET Core でのアプリの認証子の QR コードを有効にする生成](xref:security/authentication/identity-enable-qrcodes)ASP.NET Core 2.0 以降。
 
-このチュートリアルでは、SMS を使用した 2 要素認証 (2 fa) を設定する方法を示します。 手順が示されて[twilio](https://www.twilio.com/)と[ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/)、他の SMS プロバイダーを使用することができます。 完了したことをお勧め[アカウントの確認とパスワードの回復](accconfirm.md)このチュートリアルを開始する前にします。
+このチュートリアルでは、SMS を使用した 2 要素認証 (2 fa) を設定する方法を示します。 手順が示されて[twilio](https://www.twilio.com/)と[ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/)、他の SMS プロバイダーを使用することができます。 完了したことをお勧め[アカウントの確認とパスワードの回復](xref:security/authentication/accconfirm)このチュートリアルを開始する前にします。
 
 ビュー、[完成したサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/2fa/sample/Web2FA)です。 [ダウンロードする方法](xref:tutorials/index#how-to-download-a-sample)です。
 
 ## <a name="create-a-new-aspnet-core-project"></a>新しい ASP.NET Core プロジェクトを作成します。
 
-という名前の新しい ASP.NET Core web アプリを作成する`Web2FA`個々 のユーザー アカウントにします。 指示に従って、 [ASP.NET Core アプリケーションでは SSL を適用する](xref:security/enforcing-ssl)を設定し、SSL を要求します。
+という名前の新しい ASP.NET Core web アプリを作成する`Web2FA`個々 のユーザー アカウントにします。 指示に従って、 [ASP.NET Core アプリケーションでは SSL を強制](xref:security/enforcing-ssl)を設定し、SSL を要求します。
 
 ### <a name="create-an-sms-account"></a>SMS アカウントを作成します
 
@@ -62,7 +62,7 @@ Twilio アカウントの [ダッシュ ボード] タブから、コピー、**
 
 [!code-csharp[](2fa/sample/Web2FA/Services/SMSoptions.cs)]
 
-設定、 `SMSAccountIdentification`、`SMSAccountPassword`と`SMSAccountFrom`で、[シークレット マネージャー ツール](xref:security/app-secrets)です。 例:
+設定、 `SMSAccountIdentification`、`SMSAccountPassword`と`SMSAccountFrom`で、[シークレット マネージャー ツール](xref:security/app-secrets)です。 例えば:
 
 ```none
 C:/Web2FA/src/WebApp1>dotnet user-secrets set SMSAccountIdentification 12345

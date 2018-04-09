@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
-title: "SqlDataSource (c#) によるオプティミスティック同時実行制御を実装する |Microsoft ドキュメント"
+title: SqlDataSource (c#) によるオプティミスティック同時実行制御を実装する |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルではオプティミスティック同時実行制御の essentials を確認し、SqlDataSource コントロールを使用してそれを実装する方法を調査します。"
+description: このチュートリアルではオプティミスティック同時実行制御の essentials を確認し、SqlDataSource コントロールを使用してそれを実装する方法を調査します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b089a0b25aa5a520f3e20af8ec5212072ad7c7bf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 246e8d0c2aee7358680fbca7229cc9b05ceca1cb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>SqlDataSource (c#) によるオプティミスティック同時実行制御を実装します。
 ====================
@@ -116,7 +116,7 @@ ms.lasthandoff: 01/24/2018
 
 拡張だけでなく、`WHERE`の句、`UpdateCommand`と`DeleteCommand`プロパティ (とそれぞれのパラメーター コレクションに追加のパラメーターを追加する)、オプティミスティック同時実行オプションを調整しますその他の 2 つの使用を選択します。プロパティ:
 
-- 変更、 [ `ConflictDetection`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx)から`OverwriteChanges`(既定) に`CompareAllValues`
+- 変更、 [ `ConflictDetection`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx)から`OverwriteChanges`(既定) に `CompareAllValues`
 - 変更、 [ `OldValuesParameterFormatString`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx){0} (既定) に元から\_{0}。
 
 データの Web コントロールが SqlDataSource s を呼び出す場合`Update()`または`Delete()`元の値で渡す方法、します。 場合は、SqlDataSource s`ConflictDetection`プロパティに設定されている`CompareAllValues`、元の値は、コマンドに追加されます。 `OldValuesParameterFormatString`プロパティはこれらの元の値パラメーターに使用する名前付けパターンを提供します。 データ ソース構成ウィザードを使用して元\_{0} し名前を元のパラメーターごと、`UpdateCommand`と`DeleteCommand`プロパティおよび`UpdateParameters`と`DeleteParameters`コレクションに応じて。
@@ -231,8 +231,8 @@ Web アプリケーションを作成するときに、複数、同時実行ユ�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[前へ](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)
-[次へ](querying-data-with-the-sqldatasource-control-vb.md)
+> [!div class="step-by-step"]
+> [前へ](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)
+> [次へ](querying-data-with-the-sqldatasource-control-vb.md)

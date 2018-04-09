@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "ASP.NET MVC アプリケーション (10 の 7) で Entity Framework での同時実行の処理 |Microsoft ドキュメント"
+title: ASP.NET MVC アプリケーション (10 の 7) で Entity Framework での同時実行の処理 |Microsoft ドキュメント
 author: tdykstra
-description: "Contoso 大学でサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法について説明しています."
+description: Contoso 大学でサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 87bb08a4d16965a10112a42c4e9318c32f192c04
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 609f493845f1d00a47d175a1b623a7f4866d191e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>ASP.NET MVC アプリケーション (10 の 7) で Entity Framework での同時実行の処理
 ====================
 によって[Tom Dykstra](https://github.com/tdykstra)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 一連のチュートリアルについては、次を参照してください。[系列内の最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。 一連のチュートリアルを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから開始します。
+> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 5 Code First と Visual Studio 2012 を使用して ASP.NET MVC 4 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。 一連のチュートリアルを開始するには、最初からまたは[この章のスタート プロジェクトをダウンロード](building-the-ef5-mvc4-chapter-downloads.md)し、ここから開始します。
 > 
 > > [!NOTE] 
 > > 
@@ -39,17 +39,17 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="concurrency-conflicts"></a>同時実行の競合
 
-1 人のユーザーが、編集するために、エンティティのデータを表示し、別のユーザーが最初のユーザーの変更がデータベースに書き込まれる前に、同じエンティティのデータを更新し、同時実行の競合が発生します。 このような競合の検出を有効にしない場合、データベースを更新したユーザーは、他のユーザーの変更を最後上書きされます。 多くのアプリケーションでこのようなリスクが許容可能な: 数名のユーザー、またはいくつかの更新プログラムがある場合、または場合いない本当に重要な場合は、いくつかの変更が上書きされると、同時実行のプログラミングのコストがのメリットを上回る可能性があります。 その場合は、同時実行の競合を処理するアプリケーションを構成する必要はありません。
+あるユーザーがあるエンティティのデータを編集目的で表示したとき、別のユーザーが同じエンティティのデータを最初のユーザーの変更がデータベースに書き込まれる前に更新すると、同時実行の競合が発生します。 このような競合の検出を有効にしないと、最後にデータベースを更新したユーザーが他のユーザーの変更を上書きすることになります。 多くのアプリケーションでは、このリスクが許容されています。ユーザーや更新がわずかであれば、あるいは変更が一部上書きされても大きな問題なければ、同時実行のプログラミングにかかるコストが利点よりも重視されることがあります。 その場合、同時実行の競合を処理するようにアプリケーションを構成する必要はありません。
 
 ### <a name="pessimistic-concurrency-locking"></a>ペシミスティック同時実行制御 (ロック)
 
-場合は、アプリケーションは同時実行シナリオの偶発的なデータ損失を防ぐため、これを行うにはデータベース ロックを使用することができます。 これと呼ばれる*ペシミスティック同時実行制御*です。 たとえば、データベースから行を参照する前にするロックを要求の読み取り専用または更新アクセスします。 場合更新アクセス権の行をロックすると、他のユーザーは許可されませんのいずれかの行をロックする読み取り専用かが変更されているプロセスでデータのコピーを取得するために、アクセスを更新します。 場合は読み取り専用アクセスの行をロックすると、他のユーザーもロックできます読み取り専用アクセス用のではなく更新します。
+同時実行で偶発的にデータが失われる事態をアプリケーションで回避する必要があれば、その方法としてデータベース ロックがあります。 これと呼ばれる*ペシミスティック同時実行制御*です。 たとえば、データベースから行を読む前に、読み取り専用か更新アクセスでロックを要求します。 更新アクセスで行をロックすると、他のユーザーはその行を読み取り専用または更新アクセスでロックできなくなります。変更中のデータのコピーが与えられるためです。 読み取り専用で行をロックすると、他のユーザーはその行を読み取り専用でロックできますが、更新アクセスではロックできません。
 
-ロックの管理、短所があります。 プログラムに複雑なことができます。 必要な管理リソースは大量のデータベース、およびアプリケーションのユーザーの数とパフォーマンスの問題を引き起こす可能性が増加 (つまり、適切にスケールされない)。 これらの理由は、すべてのデータベース管理システムは、ペシミスティック同時実行をサポートします。 Entity Framework には、組み込みのサポートはありません、このチュートリアルは示してそれを実装する方法。
+ロックの利用には短所があります。 プログラムが複雑になります。 必要な管理リソースは大量のデータベース、およびアプリケーションのユーザーの数とパフォーマンスの問題を引き起こす可能性が増加 (つまり、適切にスケールされない)。 そのような理由から、一部のデータベース管理システムはペシミスティック同時実行制御に対応していません。 Entity Framework には、組み込みのサポートはありません、このチュートリアルは示してそれを実装する方法。
 
 ### <a name="optimistic-concurrency"></a>オプティミスティック同時実行制御
 
-ペシミスティック同時実行する代わりに、*オプティミスティック同時実行制御*です。 オプティミスティック同時実行制御は、許可する同時実行の競合が発生する場合は適切に対処を意味します。 John が部門の編集 ページで変更を実行するなど、**予算**$0.00 ドル 350,000.00 から英語部門の量。
+ペシミスティック同時実行する代わりに、*オプティミスティック同時実行制御*です。 オプティミスティック同時実行制御では、同時実行の競合の発生を許し、発生したら適切に対処します。 John が部門の編集 ページで変更を実行するなど、**予算**$0.00 ドル 350,000.00 から英語部門の量。
 
 ![Changing_English_dept_budget_to_100000](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
@@ -57,19 +57,19 @@ John が前に**保存**、加藤さんは、同じページと変更を実行�
 
 ![Changing_English_dept_start_date_to_1999](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
-John が**保存**first と認識し、加藤さん、インデックス ページにブラウザーが返されるときに、変更をクリックした**保存**です。 次の動作は、同時実行の競合を処理する方法によって決まります。 オプションの一部を以下に示します。
+John が**保存**first と認識し、加藤さん、インデックス ページにブラウザーが返されるときに、変更をクリックした**保存**です。 この後の動作は、同時実行の競合の処理方法によって決定します。 次のようなオプションがあります。
 
-- プロパティをユーザーが変更を追跡し、データベースに対応する列のみを更新できます。 例のシナリオで失われるデータなし、2 人のユーザーによって更新されたプロパティが異なるためです。 次に英語版の部門を参照する他のユーザーの John と Jane の両方の変更が表示されます: 2013 年 8 月 8 日の開始日と 0 個のドルの予算します。
+- ユーザーが変更したプロパティを追跡記録し、それに該当する列だけをデータベースで更新できます。 例のシナリオでは、2 人のユーザーが異なるプロパティを更新したため、データは失われません。 次に英語版の部門を参照する他のユーザーの John と Jane の両方の変更が表示されます: 2013 年 8 月 8 日の開始日と 0 個のドルの予算します。
 
-    更新には、このメソッドは、データが失われる可能性のある競合の数を減らすことができますが、エンティティの同じプロパティに競合する変更が加えられた場合は、データ損失を防ぐことことはできません。 この方法を Entity Framework で動作するかどうかは、更新プログラムのコードを実装する方法によって異なります。 必要のエンティティの元のプロパティ値をすべてと新しい値を追跡するためには、大量の状態を維持することができるため、web アプリケーションで現実的では、ほとんどの場合。 大量の状態を保持することと、サーバー リソースが必要ですか、web ページ自体 (たとえば、非表示フィールド) 内に含める必要があるためにアプリケーションのパフォーマンスが影響することができます。
-- John の変更が上書きジェーンの変更することができます。 次に英語版の部門を参照するユーザーが、2013 年 8 月 8 日が表示されますと復元のドル 350,000.00 値。 これと呼ばれる、*クライアントが Wins*または*Wins の最後に*シナリオです。 (クライアントの値よりも優先、データ ストアには、新機能です。)同時実行処理のコーディングそうしない場合は、このセクションの概要で説明したよう、これは自動的に発生します。
-- ジェーンの変更は、データベースで更新されているを妨害することができます。 通常、エラー メッセージが表示、データの現在の状態を表示するユーザー、および彼女ようにする必要がある場合は、自分が加えた変更を再適用できるようにはします。 これと呼ばれる、*ストア Wins*シナリオです。 (データ ストアの値よりも優先、クライアントから送信された値です。)このチュートリアルでは、ストアの Wins のシナリオを実装します。 このメソッドは、何が起こっているかに警告を表示されているユーザーがいない状態の変更が上書きされないことを確認します。
+    この更新方法では、データの損失につながる可能性がある競合の数を減らすことができますが、あるエンティティの同じプロパティに対して行われた変更が競合する場合、データの損失は避けられません。 Entity Framework がこのように動作するかどうかは、更新コードの実装方法に依存します。 これは Web アプリケーションの場合、実用的ではない場合が多いです。あるエンティティの新しい値に加え、元のプロパティ値もすべて追跡記録するため、大量のステータスを更新することになるからです。 大量の状態を保持することと、サーバー リソースが必要ですか、web ページ自体 (たとえば、非表示フィールド) 内に含める必要があるためにアプリケーションのパフォーマンスが影響することができます。
+- John の変更が上書きジェーンの変更することができます。 次に英語版の部門を参照するユーザーが、2013 年 8 月 8 日が表示されますと復元のドル 350,000.00 値。 これは *Client Wins* (クライアント側に合わせる) シナリオまたは *Last in Wins* (最終書き込み者優先) シナリオと呼ばれています。 (クライアントの値よりも優先、データ ストアには、新機能です。)このセクションの冒頭でお伝えしたように、同時実行処理について何のコーディングもしない場合、これが自動的に行われます。
+- ジェーンの変更は、データベースで更新されているを妨害することができます。 通常、エラー メッセージが表示、データの現在の状態を表示するユーザー、および彼女ようにする必要がある場合は、自分が加えた変更を再適用できるようにはします。 これは *Store Wins* (ストア側に合わせる) シナリオと呼ばれています。 (クライアントが送信した値よりデータストアの値が優先されます。)このチュートリアルでは、Store Wins シナリオを実装します。 この手法では、変更が上書きされるとき、それが必ずユーザーに警告されます。
 
 ### <a name="detecting-concurrency-conflicts"></a>同時実行の競合を検出します。
 
-競合を解決するには処理することにより[OptimisticConcurrencyException](https://msdn.microsoft.com/library/system.data.optimisticconcurrencyexception.aspx) Entity Framework がスローする例外。 これらの例外をスローするタイミングを知るために、Entity Framework は、競合を検出できる必要があります。 そのため、データベースとデータ モデルを適切に構成する必要があります。 競合の検出を有効にするためのいくつかのオプションを以下に示します。
+競合を解決するには処理することにより[OptimisticConcurrencyException](https://msdn.microsoft.com/library/system.data.optimisticconcurrencyexception.aspx) Entity Framework がスローする例外。 このような例外がスローされるタイミングを認識する目的で、Entity Framework は競合を検出できなければなりません。 そのため、データベースとデータ モデルを適宜構成する必要があります。 競合検出を有効にするためのオプションには次のようなものがあります。
 
-- データベース テーブルを特定の行が変更されたときに使用できる追跡列を含めます。 その列を含めるに Entity Framework を構成することができますし、 `Where` SQL の句`Update`または`Delete`コマンド。
+- 行が変更されたタイミングを判断するトラッキング列をデータベース テーブルに追加します。 その列を含めるに Entity Framework を構成することができますし、 `Where` SQL の句`Update`または`Delete`コマンド。
 
     追跡列のデータ型は、通常[rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx)です。 [Rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx)値は、行が更新されるたびにインクリメントが連続番号です。 `Update`または`Delete`コマンド、`Where`句には、追跡列 (元の行バージョン) の元の値が含まれています。 更新された行が他のユーザーの値が変更されている場合、`rowversion`列は、元の値と異なるため、`Update`または`Delete`ステートメントがあるため更新する行を見つけることができません、`Where`句。 Entity Framework が、行が更新されていないことを見つけたとき、`Update`または`Delete`コマンドの (つまり、影響を受けた行の数が 0 である場合)、同時実行の競合として解釈します。
 - テーブルのすべての列の元の値を含める Entity Framework の構成、`Where`の句`Update`と`Delete`コマンド。
@@ -90,7 +90,7 @@ John が**保存**first と認識し、加藤さん、インデックス ペー�
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
-プロパティを追加することで変更した場合、データベース モデル別の移行を実行する必要があります。 パッケージ マネージャー コンソール (PMC) では、次のコマンドを入力します。
+プロパティを追加し、データベース モデルを変更したので、別の移行を行う必要があります。 パッケージ マネージャー コンソール (PMC) で、次のコマンドを入力します。
 
 [!code-console[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cmd)]
 
@@ -126,7 +126,7 @@ John が**保存**first と認識し、加藤さん、インデックス ペー�
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs)]
 
-コードの最後に、設定、`RowVersion`の値、`Department`データベースから新しい値にオブジェクトを取得します。 この新しい`RowVersion`ページが表示され、編集および次の時間をユーザーがクリックしたときに非表示のフィールドに保存する値**保存**の編集 ページの再表示が検出されるために発生する同時実行エラーのみです。
+コードの最後に、設定、`RowVersion`の値、`Department`データベースから新しい値にオブジェクトを取得します。 Edit ページが再表示されるとき、この新しい `RowVersion` 値が非表示フィールドに保存されます。今度ユーザーが **[保存]** をクリックすると、Edit ページの再表示後に発生した同時実行エラーのみが取得されます。
 
 *Views\Department\Edit.cshtml*、保存する隠しフィールドを追加、`RowVersion`プロパティの値、用の隠しフィールドの直後、`DepartmentID`プロパティ。
 
@@ -150,7 +150,7 @@ John が**保存**first と認識し、加藤さん、インデックス ペー�
 
 ![Department_Edit_page_1_after_change](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
-ブラウザーでは、変更された値を持つインデックス ページを示します。
+値が変更された Index ページがブラウザーに表示されます。
 
 ![Departments_Index_page_after_first_budget_edit](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
 
@@ -158,29 +158,29 @@ John が**保存**first と認識し、加藤さん、インデックス ペー�
 
 ![Department_Edit_page_2_after_change](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
-をクリックして**保存**2 つ目のブラウザー ウィンドウです。 エラー メッセージを参照してください。
+をクリックして**保存**2 つ目のブラウザー ウィンドウです。 エラー メッセージが表示されます。
 
 ![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
 
-をクリックして**保存**もう一度です。 2 番目のブラウザーで入力した値は、最初のブラウザーで変更するデータの元の値と共に保存されます。 保存された値が表示されるは、インデックス ページが表示されたときです。
+**[保存]** をもう一度クリックします。 2 番目のブラウザーで入力した値は、最初のブラウザーで変更するデータの元の値と共に保存されます。 Index ページが表示されると、保存した値を確認できます。
 
 ![Department_Index_page_with_change_from_second_browser](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image11.png)
 
 ## <a name="updating-the-delete-page"></a>ページの削除 を更新
 
-削除 ページは、Entity Framework は、それ以外の場合と同様の方法で、部門の編集のユーザーによる同時実行の競合を検出します。 ときに、 `HttpGet` `Delete`メソッドは、確認のビューを表示、ビューに含まれる元`RowVersion`隠しフィールドの値。 値が、使用できること、 `HttpPost` `Delete`ユーザー削除を確認するときに呼び出されるメソッド。 Entity Framework が、SQL を作成するときに`DELETE`コマンドが含まれている、`WHERE`を元の句`RowVersion`値。 0 個の行で、コマンドの結果 (つまり、削除の確認 ページが表示された後に、行が変更された)、影響を受ける場合は、同時実行例外がスローされ、および`HttpGet Delete`エラー フラグを設定するメソッドが呼び出された`true`再表示するために、エラー メッセージを確認 ページ。 その場合、別のエラー メッセージが表示されるように、別のユーザーによって行が削除されたため 0 行が影響を受けたこともできます。
+Delete ページの場合、Entity Framework は、同様の方法で部署を編集している他のユーザーが起した同時実行の競合を検出します。 ときに、 `HttpGet` `Delete`メソッドは、確認のビューを表示、ビューに含まれる元`RowVersion`隠しフィールドの値。 値が、使用できること、 `HttpPost` `Delete`ユーザー削除を確認するときに呼び出されるメソッド。 Entity Framework が、SQL を作成するときに`DELETE`コマンドが含まれている、`WHERE`を元の句`RowVersion`値。 0 個の行で、コマンドの結果 (つまり、削除の確認 ページが表示された後に、行が変更された)、影響を受ける場合は、同時実行例外がスローされ、および`HttpGet Delete`エラー フラグを設定するメソッドが呼び出された`true`再表示するために、エラー メッセージを確認 ページ。 その場合、別のエラー メッセージが表示されるように、別のユーザーによって行が削除されたため 0 行が影響を受けたこともできます。
 
 *DepartmentController.cs*、置換、 `HttpGet` `Delete`メソッドを次のコード。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 
-このメソッドは、同時実行エラーの後、ページが表示されされているかどうかを示す省略可能なパラメーターを受け取ります。 このフラグは場合`true`を使用してビューに、エラー メッセージを送信、`ViewBag`プロパティです。
+このメソッドは、同時実行エラー後にページが再表示されたかどうかを示すオプション パラメーターを受け取ります。 このフラグは場合`true`を使用してビューに、エラー メッセージを送信、`ViewBag`プロパティです。
 
 コードで置き換え、 `HttpPost` `Delete`メソッド (名前付き`DeleteConfirmed`) を次のコード。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cs)]
 
-交換したスキャフォールディングのコードでは、このメソッドは、レコード ID のみを使用できます。
+置き換えたスキャフォールディングされたコードで、このメソッドがレコード ID を 1 つだけ受け取りました。
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample14.cs)]
 
@@ -188,11 +188,11 @@ John が**保存**first と認識し、加藤さん、インデックス ペー�
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cs)]
 
-アクション メソッドの名前も変更した`DeleteConfirmed`に`Delete`です。 名前付きスキャフォールディング コード、 `HttpPost` `Delete`メソッド`DeleteConfirmed`を与える、`HttpPost`メソッド固有の署名。 (CLR には、別のメソッドのパラメーターを持つオーバー ロードされたメソッドが必要があります)。署名が一意ではこれでは、MVC 規則のオプションを使用と同じ名前を使用、`HttpPost`と`HttpGet`メソッドを削除します。
+また、アクション メソッドの名前を `DeleteConfirmed` から `Delete` に変更しています。 名前付きスキャフォールディング コード、 `HttpPost` `Delete`メソッド`DeleteConfirmed`を与える、`HttpPost`メソッド固有の署名。 (CLR では、さまざまなメソッド パラメーターを持つために、オーバーロードされたメソッドを必要とします。)署名が一意ではこれでは、MVC 規則のオプションを使用と同じ名前を使用、`HttpPost`と`HttpGet`メソッドを削除します。
 
-同時実行エラーが検出された場合、コードは削除の確認 ページを再表示し、それを示すフラグは同時実行エラー メッセージを表示する必要がありますを提供します。
+同時実行エラーがキャッチされた場合、このコードは削除確認ページを再表示し、同時実行エラー メッセージを表示するかどうかを示すフラグを提供します。
 
-*Views\Department\Delete.cshtml*置換、スキャフォールディング コードを書式設定の一部は、次のコードが変更され、エラー メッセージ フィールドを追加します。 変更が強調表示されます。
+*Views\Department\Delete.cshtml*置換、スキャフォールディング コードを書式設定の一部は、次のコードが変更され、エラー メッセージ フィールドを追加します。 変更が強調表示されています。
 
 [!code-cshtml[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample16.cshtml?highlight=9,37,40,45-46)]
 
@@ -222,18 +222,18 @@ John が**保存**first と認識し、加藤さん、インデックス ペー�
 
 ![Department_Delete_confirmation_page_before_concurrency_error](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image14.png)
 
-同時実行エラー メッセージが表示および部門値が現在のデータベースにあるもので更新します。
+同時実行エラー メッセージが表示されます。Department 値がデータベースの現在の内容で更新されています。
 
 ![Department_Delete_confirmation_page_with_concurrency_error](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image15.png)
 
-クリックすると**削除**もう一度、部門が削除されたことを示しています。 インデックスのページにリダイレクトしています。
+**[削除]** をもう一度クリックすると、Index ページにリダイレクトされます。Index ページには、部署が削除されていることが表示されます。
 
 ## <a name="summary"></a>まとめ
 
-これは、同時実行の競合の処理の概要を完了します。 同時実行のさまざまなシナリオを処理する方法については、次を参照してください。[オプティミスティック同時実行パターン](https://blogs.msdn.com/b/adonet/archive/2011/02/03/using-dbcontext-in-ef-feature-ctp5-part-9-optimistic-concurrency-patterns.aspx)と[プロパティ値を持つ作業](https://blogs.msdn.com/b/adonet/archive/2011/01/30/using-dbcontext-in-ef-feature-ctp5-part-5-working-with-property-values.aspx)Entity Framework チームのブログです。 次のチュートリアルでは、テーブルの階層あたり継承を実装する方法、`Instructor`と`Student`エンティティです。
+同時実行の競合処理の入門編はこれで終わりです。 同時実行のさまざまなシナリオを処理する方法については、次を参照してください。[オプティミスティック同時実行パターン](https://blogs.msdn.com/b/adonet/archive/2011/02/03/using-dbcontext-in-ef-feature-ctp5-part-9-optimistic-concurrency-patterns.aspx)と[プロパティ値を持つ作業](https://blogs.msdn.com/b/adonet/archive/2011/01/30/using-dbcontext-in-ef-feature-ctp5-part-5-working-with-property-values.aspx)Entity Framework チームのブログです。 次のチュートリアルでは、テーブルの階層あたり継承を実装する方法、`Instructor`と`Student`エンティティです。
 
 その他の Entity Framework リソースへのリンクは含まれて、 [ASP.NET データ アクセス コンテンツ マップ](../../../../whitepapers/aspnet-data-access-content-map.md)です。
 
->[!div class="step-by-step"]
-[前へ](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[次へ](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [前へ](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [次へ](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)

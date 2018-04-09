@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-cs
-title: "GridView のフッター (c#) から新しいレコードの挿入 |Microsoft ドキュメント"
+title: GridView のフッター (c#) から新しいレコードの挿入 |Microsoft ドキュメント
 author: rick-anderson
-description: "GridView コントロールでは、データの新しいレコードを挿入するための組み込みのサポートは提供しません、中にこのチュートリアルでは、GridView に含めるを拡張するためには."
+description: GridView コントロールでは、データの新しいレコードを挿入するための組み込みのサポートは提供しません、中にこのチュートリアルでは、GridView に含めるを拡張するためには.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b0208b4df0194abaf37f7f9ac66c9ce24c35d721
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f131280f4769507d169f8ada7568184233591446
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-c"></a>GridView のフッター (c#) から新しいレコードを挿入します。
 ====================
@@ -140,18 +140,18 @@ GridView 以降するでは t 編集をサポート、お気軽に削除、`Edit
 
 次の箇条書きリストは、追加を挿入するインターフェイスを指定する、GridView フィールドを列挙します。
 
-- `ProductID`none です。
-- `ProductName`テキスト ボックスを追加し、設定、`ID`に`NewProductName`です。 RequiredFieldValidator コントロールを追加すると、ユーザーが新しい製品の名の値を入力することを確認します。
-- `SupplierID`none です。
-- `CategoryID`none です。
-- `QuantityPerUnit`設定、テキスト ボックスを追加、`ID`に`NewQuantityPerUnit`です。
-- `UnitPrice`という名前のテキスト ボックスを追加`NewUnitPrice`や入力した値に確実に CompareValidator 通貨の値は 0 以上。
-- `UnitsInStock`テキスト ボックスを使用している`ID`に設定されている`NewUnitsInStock`です。 入力した値がより大きいまたは 0 に等しい整数値であることを確認する CompareValidator が含まれます。
-- `UnitsOnOrder`テキスト ボックスを使用している`ID`に設定されている`NewUnitsOnOrder`です。 入力した値がより大きいまたは 0 に等しい整数値であることを確認する CompareValidator が含まれます。
-- `ReorderLevel`テキスト ボックスを使用している`ID`に設定されている`NewReorderLevel`です。 入力した値がより大きいまたは 0 に等しい整数値であることを確認する CompareValidator が含まれます。
-- `Discontinued`設定のチェック ボックスを追加、`ID`に`NewDiscontinued`です。
-- `CategoryName`DropDownList を追加し、設定、`ID`に`NewCategoryID`です。 という名前の新しい ObjectDataSource にもバインド`CategoriesDataSource`を使用するように構成し、`CategoriesBLL`クラスの`GetCategories()`メソッドです。 DropDownList s がある`ListItem`s の表示、`CategoryName`データ フィールドを使用して、`CategoryID`データ フィールドの値として。
-- `SupplierName`DropDownList を追加し、設定、`ID`に`NewSupplierID`です。 という名前の新しい ObjectDataSource にもバインド`SuppliersDataSource`を使用するように構成し、`SuppliersBLL`クラスの`GetSuppliers()`メソッドです。 DropDownList s がある`ListItem`s の表示、`CompanyName`データ フィールドを使用して、`SupplierID`データ フィールドの値として。
+- `ProductID` None です。
+- `ProductName` テキスト ボックスを追加し、設定、`ID`に`NewProductName`です。 RequiredFieldValidator コントロールを追加すると、ユーザーが新しい製品の名の値を入力することを確認します。
+- `SupplierID` None です。
+- `CategoryID` None です。
+- `QuantityPerUnit` 設定、テキスト ボックスを追加、`ID`に`NewQuantityPerUnit`です。
+- `UnitPrice` という名前のテキスト ボックスを追加`NewUnitPrice`や入力した値に確実に CompareValidator 通貨の値は 0 以上。
+- `UnitsInStock` テキスト ボックスを使用している`ID`に設定されている`NewUnitsInStock`です。 入力した値がより大きいまたは 0 に等しい整数値であることを確認する CompareValidator が含まれます。
+- `UnitsOnOrder` テキスト ボックスを使用している`ID`に設定されている`NewUnitsOnOrder`です。 入力した値がより大きいまたは 0 に等しい整数値であることを確認する CompareValidator が含まれます。
+- `ReorderLevel` テキスト ボックスを使用している`ID`に設定されている`NewReorderLevel`です。 入力した値がより大きいまたは 0 に等しい整数値であることを確認する CompareValidator が含まれます。
+- `Discontinued` 設定のチェック ボックスを追加、`ID`に`NewDiscontinued`です。
+- `CategoryName` DropDownList を追加し、設定、`ID`に`NewCategoryID`です。 という名前の新しい ObjectDataSource にもバインド`CategoriesDataSource`を使用するように構成し、`CategoriesBLL`クラスの`GetCategories()`メソッドです。 DropDownList s がある`ListItem`s の表示、`CategoryName`データ フィールドを使用して、`CategoryID`データ フィールドの値として。
+- `SupplierName` DropDownList を追加し、設定、`ID`に`NewSupplierID`です。 という名前の新しい ObjectDataSource にもバインド`SuppliersDataSource`を使用するように構成し、`SuppliersBLL`クラスの`GetSuppliers()`メソッドです。 DropDownList s がある`ListItem`s の表示、`CompanyName`データ フィールドを使用して、`SupplierID`データ フィールドの値として。
 
 検証コントロールのそれぞれについて、クリア、`ForeColor`プロパティできるように、 `FooterStyle` CSS クラス s 白のフォア グラウンド色が赤の既定の代わりに使用されます。 使用しても、`ErrorMessage`プロパティの詳細についてが設定されて、`Text`プロパティには、アスタリスクをします。 設定を検証コントロールのテキストが原因で、挿入のインターフェイスを 2 つの行に折り返すことを防ぐために、 `FooterStyle` s`Wrap`プロパティを false の列ごとに、`FooterTemplate`検証コントロールを使用します。 最後に、GridView とセットの下に ValidationSummary コントロールを追加、`ShowMessageBox`プロパティを`true`とその`ShowSummary`プロパティを`false`です。
 
@@ -234,7 +234,7 @@ GridView の組み込みの編集機能を利用しているとき、GridView �
 
 [!code-csharp[Main](inserting-a-new-record-from-the-gridview-s-footer-cs/samples/sample9.cs)]
 
-`SendUserToLastPage`初期値をページ レベルのブール値変数に値が代入の`false`します。 GridView s `DataBound` 、イベント ハンドラー場合`SendUserToLastPage`が false の場合、`PageIndex`最後のページをユーザーに送信するプロパティを更新します。
+`SendUserToLastPage` 初期値をページ レベルのブール値変数に値が代入の`false`します。 GridView s `DataBound` 、イベント ハンドラー場合`SendUserToLastPage`が false の場合、`PageIndex`最後のページをユーザーに送信するプロパティを更新します。
 
 
 [!code-csharp[Main](inserting-a-new-record-from-the-gridview-s-footer-cs/samples/sample10.cs)]
@@ -250,7 +250,7 @@ GridView の組み込みの編集機能を利用しているとき、GridView �
 
 いずれかのオプションはも同様に動作します。 過去のチュートリアルを使用して、後者のオプションの複数のオーバー ロードを作成する、`ProductsBLL`クラスの`UpdateProduct`メソッドです。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 GridView DetailsView や FormView、組み込みの挿入機能がないが、若干の手間でフッター行に挿入するインターフェイスを追加できます。 GridView に単にフッター行を表示する次のように設定します。 その`ShowFooter`プロパティを`true`です。 フィールドを TemplateField に変換すると、各フィールドのフッター行の内容をカスタマイズでき、挿入、追加するインターフェイスを`FooterTemplate`です。 このチュートリアルで示したように、`FooterTemplate`ボタン、テキスト ボックス、DropDownLists、チェック ボックス、(DropDownLists) などのデータ ドリブン Web コントロールを設定するためのデータ ソース コントロールと検証コントロールを含めることができます。 ユーザーの入力を収集するため、コントロールと共にボタンの追加、LinkButton、または ImageButton が必要です。
 
@@ -262,12 +262,12 @@ GridView DetailsView や FormView、組み込みの挿入機能がないが、�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客は、「社長補佐 Leigh をでした。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](adding-a-gridview-column-of-checkboxes-cs.md)
-[次へ](adding-a-gridview-column-of-radio-buttons-vb.md)
+> [!div class="step-by-step"]
+> [前へ](adding-a-gridview-column-of-checkboxes-cs.md)
+> [次へ](adding-a-gridview-column-of-radio-buttons-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-cs
-title: "変更 (c#)、サーバー側からアニメーション |Microsoft ドキュメント"
+title: 変更 (c#)、サーバー側からアニメーション |Microsoft ドキュメント
 author: wenz
-description: "アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 アニメーションも可能性があります."
+description: アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 アニメーションも可能性があります.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1f9bda03b3e3edf3bbdc591cde9858944d39321
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6946875552c885ffb1f2a2eb7e728b85d7dd3973
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="modifying-animations-from-the-server-side-c"></a>(C#)、サーバー側からのアニメーションを変更します。
 ====================
@@ -62,6 +62,6 @@ ms.lasthandoff: 11/10/2017
 
 サーバー側の C #/vb のコードを使用して、アニメーションを作成 ([フルサイズのイメージを表示するをクリックして](modifying-animations-from-the-server-side-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](triggering-an-animation-in-another-control-cs.md)
-[次へ](executing-animations-using-client-side-code-cs.md)
+> [!div class="step-by-step"]
+> [前へ](triggering-an-animation-in-another-control-cs.md)
+> [次へ](executing-animations-using-client-side-code-cs.md)

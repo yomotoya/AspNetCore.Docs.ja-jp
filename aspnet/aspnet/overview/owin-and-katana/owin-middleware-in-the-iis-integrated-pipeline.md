@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
-title: "OWIN ミドルウェア iis 統合パイプライン |Microsoft ドキュメント"
+title: OWIN ミドルウェア iis 統合パイプライン |Microsoft ドキュメント
 author: Praburaj
-description: "ここでは、IIS 統合パイプラインの OWIN ミドルウェア コンポーネント (OMCs) を実行する方法を説明し、OMC パイプライン イベントを設定する方法が実行します。 行う必要があります."
+description: ここでは、IIS 統合パイプラインの OWIN ミドルウェア コンポーネント (OMCs) を実行する方法を説明し、OMC パイプライン イベントを設定する方法が実行します。 行う必要があります.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2013
 ms.topic: article
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 5f6ed1ae0309e9bdd3ca4ae229195835f20bc729
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5df70c80084a32c5f61ac9288c8cdbfaaa47f124
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>IIS 統合パイプラインの OWIN ミドルウェア
 ====================
@@ -83,13 +83,13 @@ F5 キーを押して、アプリを実行します。次は、出力ウィン�
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample9.cmd)]
 
- 呼び出す`app.UseStageMarker`渡す`Authenticate`または`PostAuthenticate`受け入れられ、できず、例外はスローされません。 既定では、最新の段階で実行 OMCs`PreHandlerExecute`です。 以前を実行するようにするステージ マーカーが使用されます。 誤順序のステージ マーカーを指定する場合は、以前のマーカーにお丸められます。 つまり、ステージ マーカーを追加することを通知"Run ステージ X 以降"。 OWIN パイプラインの後に追加された最初のステージ マーカーで OMC の実行。
+   呼び出す`app.UseStageMarker`渡す`Authenticate`または`PostAuthenticate`受け入れられ、できず、例外はスローされません。 既定では、最新の段階で実行 OMCs`PreHandlerExecute`です。 以前を実行するようにするステージ マーカーが使用されます。 誤順序のステージ マーカーを指定する場合は、以前のマーカーにお丸められます。 つまり、ステージ マーカーを追加することを通知"Run ステージ X 以降"。 OWIN パイプラインの後に追加された最初のステージ マーカーで OMC の実行。
 4. 呼び出しの最も早いステージ`app.UseStageMarker`wins です。 たとえばの順序を切り替えた場合`app.UseStageMarker`前の例からの呼び出し。
 
     [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample10.cs?highlight=13,19)]
 
- 出力ウィンドウに表示されます。 
+   出力ウィンドウに表示されます。 
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample11.cmd)]
 
- OMCs で動作するように、`AuthenticateRequest`最後 OMC に登録されているため、ステージ、`Authenticate`イベント、および`Authenticate`イベントの前に他のすべてのイベントです。
+   OMCs で動作するように、`AuthenticateRequest`最後 OMC に登録されているため、ステージ、`Authenticate`イベント、および`Authenticate`イベントの前に他のすべてのイベントです。

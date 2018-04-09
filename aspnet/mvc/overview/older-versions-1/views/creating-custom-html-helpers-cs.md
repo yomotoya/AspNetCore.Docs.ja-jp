@@ -1,8 +1,8 @@
 ---
 uid: aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
-title: "カスタム HTML ヘルパー (c#) の作成 |Microsoft ドキュメント"
+title: カスタム HTML ヘルパー (c#) の作成 |Microsoft ドキュメント
 author: microsoft
-description: "このチュートリアルの目的では、MVC ビュー内で使用できるカスタムの HTML ヘルパーの作成方法を示しています。 HTML ヘルパーを活用しています."
+description: このチュートリアルの目的では、MVC ビュー内で使用できるカスタムの HTML ヘルパーの作成方法を示しています。 HTML ヘルパーを活用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a0b6d67eb7aab51ba2b422fab0788e34255f2c8c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ebc9aa2aa8dbc02dc01833d671c3bfd19141ba74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-custom-html-helpers-c"></a>カスタム HTML ヘルパー (c#) の作成
 ====================
@@ -57,7 +57,7 @@ ASP.NET MVC フレームワークには、次の (完全な一覧では無効) �
 **図 01**: HTML ヘルパー ページが表示されます ([フルサイズのイメージを表示するをクリックして](creating-custom-html-helpers-cs/_static/image3.png))
 
 
-**1 – を一覧表示します。`Views\Home\Index.aspx`**
+**1 – を一覧表示します。 `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample1.aspx)]
 
@@ -72,7 +72,7 @@ Html.BeginForm() ヘルパー メソッドを使用開始と終了の HTML の�
 
 ASP.NET MVC フレームワークには、ヘルパーの少数のセットが含まれています。 ほとんどの場合、カスタム HTML ヘルパーに MVC フレームワークを拡張する必要があります。 このチュートリアルの残りの部分では、カスタム HTML ヘルパーの作成の 2 つの方法を学習します。
 
-**2 – を一覧表示します。`Index.aspx Source`**
+**2 – を一覧表示します。 `Index.aspx Source`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample2.aspx)]
 
@@ -80,7 +80,7 @@ ASP.NET MVC フレームワークには、ヘルパーの少数のセットが�
 
 新しい HTML ヘルパーを作成する最も簡単な方法では、文字列を返す静的メソッドを作成します。 たとえば、HTML をレンダリングする新しい HTML ヘルパーの作成を決定すること`<label>`タグ。 表示するために一覧表示する 2 でクラスを使用することができます、`<label>`です。
 
-**2 – を一覧表示します。`Helpers\LabelHelper.cs`**
+**2 – を一覧表示します。 `Helpers\LabelHelper.cs`**
 
 [!code-csharp[Main](creating-custom-html-helpers-cs/samples/sample3.cs)]
 
@@ -88,7 +88,7 @@ ASP.NET MVC フレームワークには、ヘルパーの少数のセットが�
 
 リスト 3 の変更、インデックス ビューを使用して、 `LabelHelper` HTML をレンダリングする`<label>`タグ。 ビューに含まれることに注意してください、`<%@ imports %>`をインポートするディレクティブ、`Application1.Helpers`名前空間。
 
-**2 – を一覧表示します。`Views\Home\Index2.aspx`**
+**2 – を一覧表示します。 `Views\Home\Index2.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample4.aspx)]
 
@@ -100,7 +100,7 @@ ASP.NET MVC フレームワークには、ヘルパーの少数のセットが�
 
 次に、ことに注意しての最初のパラメーター、`Label()`メソッドは、キーワードに続く`this`です。 拡張メソッドの最初のパラメーターでは、拡張メソッドを拡張するクラスを示します。
 
-**3 – を一覧表示します。`Helpers\LabelExtensions.cs`**
+**3 – を一覧表示します。 `Helpers\LabelExtensions.cs`**
 
 [!code-csharp[Main](creating-custom-html-helpers-cs/samples/sample5.cs)]
 
@@ -114,16 +114,16 @@ ASP.NET MVC フレームワークには、ヘルパーの少数のセットが�
 
 インデックス ビューを一覧表示する 4 でのすべてを表示するために Html.Label() 拡張メソッドを使用してその`<label>`タグ。
 
-**4 – を一覧表示します。`Views\Home\Index3.aspx`**
+**4 – を一覧表示します。 `Views\Home\Index3.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-cs/samples/sample6.aspx)]
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、カスタム HTML ヘルパーの作成の 2 つの方法を学習しました。 最初に、カスタムを作成する方法を学習しました`Label()`静的メソッドを作成することで HTML ヘルパーは、文字列を返します。 次に、カスタムを作成する方法を学習しました`Label()`HTML ヘルパー メソッドの拡張メソッドを作成することで、`HtmlHelper`クラスです。
 
 このチュートリアルでは、非常に単純な HTML ヘルパー メソッドを構築に注目しました。 HTML ヘルパーが必要な複雑な作業できることに注意してください。 ツリー ビュー、メニューのまたはデータベースのデータのテーブルなどの豊富なコンテンツを表示する HTML ヘルパーをビルドすることができます。
 
->[!div class="step-by-step"]
-[前へ](asp-net-mvc-views-overview-cs.md)
-[次へ](using-the-tagbuilder-class-to-build-html-helpers-cs.md)
+> [!div class="step-by-step"]
+> [前へ](asp-net-mvc-views-overview-cs.md)
+> [次へ](using-the-tagbuilder-class-to-build-html-helpers-cs.md)

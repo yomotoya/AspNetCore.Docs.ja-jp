@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
-title: "作成した MVC 3 Razor および控えめな JavaScript を持つアプリケーション |Microsoft ドキュメント"
+title: 作成した MVC 3 Razor および控えめな JavaScript を持つアプリケーション |Microsoft ドキュメント
 author: microsoft
-description: "ユーザーの一覧のサンプル web アプリケーションでは、Razor ビュー エンジンを使用して ASP.NET MVC 3 アプリケーションを作成するは簡単な方法を示します。 サンプル アプリケーション s."
+description: ユーザーの一覧のサンプル web アプリケーションでは、Razor ビュー エンジンを使用して ASP.NET MVC 3 アプリケーションを作成するは簡単な方法を示します。 サンプル アプリケーション s.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/01/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: 29b45c07b5498542abbf22c4c3001b1cee41edc9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9b273f6827cad2078b581d6da7b127198dfddaa5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>作成した MVC 3 Razor および控えめな JavaScript を持つアプリケーション
 ====================
@@ -54,7 +54,7 @@ VB と c# の完成したプロジェクトをダウンロードする[ここ](h
 
 ![Soln Exp](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image5.png)
 
-編集、  *\_Layout.cshtml*ファイルし、内部のマークアップを置換、`<div>`という名前の要素`logindisplay`メッセージ *&quot;*ログイン無効&quot;. 次の例では、新しいマークアップを示します。
+編集、  <em>\_Layout.cshtml</em>ファイルし、内部のマークアップを置換、`<div>`という名前の要素`logindisplay`メッセージ <em>&quot;</em>ログイン無効&quot;. 次の例では、新しいマークアップを示します。
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample1.cshtml)]
 
@@ -122,7 +122,7 @@ VB と c# の完成したプロジェクトをダウンロードする[ここ](h
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample8.cs)]
 
-内部を右クリックし、`Details`メソッドと、選択**ビューの追加**です。 いることを確認、**データ クラスを表示**ボックスには **Mvc3Razor.Models.UserModel*** です。* 設定**コンテンツを表示**に**詳細** をクリックし、**追加**です。
+内部を右クリックし、`Details`メソッドと、選択<strong>ビューの追加</strong>です。 いることを確認、<strong>データ クラスを表示</strong>ボックスには<strong>Mvc3Razor.Models.UserModel</strong><em>です。</em> 設定<strong>コンテンツを表示</strong>に<strong>詳細</strong> をクリックし、<strong>追加</strong>です。
 
 ![詳細ビューを追加します。](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image11.png)
 

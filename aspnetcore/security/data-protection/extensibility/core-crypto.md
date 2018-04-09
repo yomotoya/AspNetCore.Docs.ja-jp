@@ -1,7 +1,7 @@
 ---
-title: "コア暗号化の拡張性"
+title: ASP.NET Core の中核となる暗号化の拡張性
 author: rick-anderson
-description: "IAuthenticatedEncryptor、IAuthenticatedEncryptorDescriptor、IAuthenticatedEncryptorDescriptorDeserializer、および最上位のファクトリについて説明します。"
+description: IAuthenticatedEncryptor、IAuthenticatedEncryptorDescriptor、IAuthenticatedEncryptorDescriptorDeserializer、および最上位のファクトリについて説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 8/11/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: ead4012236244d88cff0b0520d000d89f93f3355
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b5a0dbc9120a8032dbb8d8eee74684495a982ac1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="core-cryptography-extensibility"></a>コア暗号化の拡張性
+# <a name="core-cryptography-extensibility-in-aspnet-core"></a>ASP.NET Core の中核となる暗号化の拡張性
 
 <a name="data-protection-extensibility-core-crypto"></a>
 
@@ -123,7 +123,7 @@ IAuthenticatedEncryptor と IAuthenticatedEncryptorDescriptor の主な違いは
 
 記述子は、その ExportToXml ルーチンを使用してシリアル化できます。 このルーチンは、次の 2 つのプロパティが含まれて XmlSerializedDescriptorInfo を返します: 記述子とを表す型の XElement 形式、 [IAuthenticatedEncryptorDescriptorDeserializer](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer)があります指定された対応する XElement この記述子を再生するために使用します。
 
-シリアル化された記述子には、暗号化キー マテリアルなどの機密情報を含めることがあります。 データ保護システムには、これが記憶域に保存される前に、情報を暗号化するための組み込みサポートがあります。 これを利用するには、記述子は (xmlns"http://schemas.asp.net/2015/03/dataProtection")、値"true"を属性名"requiresEncryption"で機密情報を含む要素をマークする必要があります。
+シリアル化された記述子には、暗号化キー マテリアルなどの機密情報を含めることがあります。 データ保護システムには、これが記憶域に保存される前に、情報を暗号化するための組み込みサポートがあります。 記述子活用するためにこれを属性名"requiresEncryption"で機密情報を含む要素をマークする必要があります (xmlns"<http://schemas.asp.net/2015/03/dataProtection>")、"true"の値します。
 
 >[!TIP]
 > この属性を設定するヘルパー API があります。 XElement.MarkAsRequiresEncryption() が Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel 名前空間にある拡張メソッドを呼び出します。
@@ -161,7 +161,7 @@ AlgorithmConfiguration の最上位のファクトリとして考えます。 �
 
 CreateNewDescriptor し、呼ばれ、この呼び出しのためだけに最新のキー マテリアルが作成された新しい IAuthenticatedEncryptorDescriptor が生成されるときに、このキー マテリアル、および、マテリアルを使用する必要な情報をアルゴリズムをラップします。 キー マテリアルでしたするソフトウェアで作成された (メモリ内に保持) と作成され、HSM およびよびな内で保持されている可能性があります。 重要な点は、CreateNewDescriptor への呼び出しの 2 つが等価 IAuthenticatedEncryptorDescriptor インスタンスを作成しないでことです。
 
-AlgorithmConfiguration 型ポイントとして機能、エントリのキーの作成ルーチンなど[自動キーのローリング](../implementation/key-management.md#key-expiration-and-rolling)です。 将来のすべてのキーの実装を変更するには、KeyManagementOptions で AuthenticatedEncryptorConfiguration プロパティを設定します。
+AlgorithmConfiguration 型ポイントとして機能、エントリのキーの作成ルーチンなど[自動キーのローリング](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling)です。 将来のすべてのキーの実装を変更するには、KeyManagementOptions で AuthenticatedEncryptorConfiguration プロパティを設定します。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -173,6 +173,6 @@ IAuthenticatedEncryptorConfiguration の最上位のファクトリとして考�
 
 CreateNewDescriptor し、呼ばれ、この呼び出しのためだけに最新のキー マテリアルが作成された新しい IAuthenticatedEncryptorDescriptor が生成されるときに、このキー マテリアル、および、マテリアルを使用する必要な情報をアルゴリズムをラップします。 キー マテリアルでしたするソフトウェアで作成された (メモリ内に保持) と作成され、HSM およびよびな内で保持されている可能性があります。 重要な点は、CreateNewDescriptor への呼び出しの 2 つが等価 IAuthenticatedEncryptorDescriptor インスタンスを作成しないでことです。
 
-IAuthenticatedEncryptorConfiguration 型ポイントとして機能、エントリのキーの作成ルーチンなど[自動キーのローリング](../implementation/key-management.md#key-expiration-and-rolling)です。 将来のすべてのキーの実装を変更するには、サービス コンテナーに IAuthenticatedEncryptorConfiguration シングルトンを登録します。
+IAuthenticatedEncryptorConfiguration 型ポイントとして機能、エントリのキーの作成ルーチンなど[自動キーのローリング](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling)です。 将来のすべてのキーの実装を変更するには、サービス コンテナーに IAuthenticatedEncryptorConfiguration シングルトンを登録します。
 
 ---

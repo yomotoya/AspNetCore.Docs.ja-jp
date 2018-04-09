@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/introduction/adding-search
-title: "検索 |Microsoft ドキュメント"
+title: 検索 |Microsoft ドキュメント
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: 116f681e14af0a09a4eb1502ef9f057c5db2f97d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8afa72d4dbc4695e7d26c6ef4052be08a7c69080
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="search"></a>検索
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 ## <a name="adding-a-search-method-and-search-view"></a>Search メソッドとの検索ビューの追加
 
@@ -157,6 +157,6 @@ Visual Studio 2013 では、表示およびファイルの表示を編集する�
 
 ここでは、アクション メソッドの検索とムービーのタイトル、ジャンルで検索できるようにするビューを作成します。 次のセクションでプロパティを追加する方法について見ていきます、`Movie`モデルおよびテスト用データベースが自動的に作成するには初期化子を追加する方法です。
 
->[!div class="step-by-step"]
-[前へ](examining-the-edit-methods-and-edit-view.md)
-[次へ](adding-a-new-field.md)
+> [!div class="step-by-step"]
+> [前へ](examining-the-edit-methods-and-edit-view.md)
+> [次へ](adding-a-new-field.md)

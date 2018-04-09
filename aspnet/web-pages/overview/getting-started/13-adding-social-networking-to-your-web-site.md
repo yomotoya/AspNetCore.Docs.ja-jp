@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
-title: "ページ (Razor) サイトの ASP.NET Web へのソーシャル ネットワー キングの追加 |Microsoft ドキュメント"
+title: ページ (Razor) サイトの ASP.NET Web へのソーシャル ネットワー キングの追加 |Microsoft ドキュメント
 author: tfitzmac
-description: "この章では、ソーシャル ネットワーク サービスをサイトを統合する方法について説明します。 この章では、ブックマーク/リンクの web サイトのユーザーに通知する方法を学習しています."
+description: この章では、ソーシャル ネットワーク サービスをサイトを統合する方法について説明します。 この章では、ブックマーク/リンクの web サイトのユーザーに通知する方法を学習しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: 2c43fa7d286e43f3a4581662ce421c7435e1871f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2d1f0074edf473c4be06adaa32598dd828a7552c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-social-networking-to-aspnet-web-pages-razor-sites"></a>ソーシャル ネットワークを ASP.NET Web Pages (Razor) サイトを追加します。
 ====================
@@ -57,10 +57,10 @@ ms.lasthandoff: 11/10/2017
     [!code-cshtml[Main](13-adding-social-networking-to-your-web-site/samples/sample1.cshtml)]
 
     この例では、ときに、`LinkShare`ヘルパーを実行するページのタイトルは、さらに、ソーシャル ネットワーク サイトにページのタイトルを通過するパラメーターとして渡されます。 ただしで使用文字列を渡す可能性があります。 この例では、一覧に含める場合はどのソーシャル ネットワー キング サイトも指定します。 サイトに関連性のあるソーシャル ネットワー キング サイトを指定することができます。
-- 実行、 *ListLinkShare.cshtml*ブラウザーのページです。 (ページが選択されて、必ず、**ファイル**ワークスペースを実行する前にします)。
-- サインインしているサイトのいずれかのグリフをクリックします。 リンクをクリックするページを共有することができます、ソーシャル ネットワークを選択したサイトにリンクします。 たとえば、Reddit リンクをクリックするとが表示される、 `submit to reddit` Reddit web サイトのページです。
+2. 実行、 *ListLinkShare.cshtml*ブラウザーのページです。 (ページが選択されて、必ず、**ファイル**ワークスペースを実行する前にします)。
+3. サインインしているサイトのいずれかのグリフをクリックします。 リンクをクリックするページを共有することができます、ソーシャル ネットワークを選択したサイトにリンクします。 たとえば、Reddit リンクをクリックするとが表示される、 `submit to reddit` Reddit web サイトのページです。
 
-    ![2 番目の画像](13-adding-social-networking-to-your-web-site/_static/image2.jpg)
+     ![2 番目の画像](13-adding-social-networking-to-your-web-site/_static/image2.jpg)
 
 <a id="Adding_a_Twitter_Feed"></a>
 ## <a name="adding-a-twitter-feed"></a>フィード、Twitter の追加
@@ -81,7 +81,7 @@ Facebook 機能 (など、Like のボタン) をサイトに追加するから�
 <a id="Rendering_a_Gravatar_Image"></a>
 ## <a name="rendering-a-gravatar-image"></a>Gravatar イメージを表示
 
-A *Gravatar* (、&quot;グローバルに認識されているアバター&quot;) は、イメージ、アバター &#8212;として複数の web サイトで使用できる。 つまり、するを表すイメージ。 たとえば、Gravatar は投稿では、フォーラム、ブログのコメントに個人を特定しにできます。 (Gravatar の web サイトで、独自の Gravatar を登録する[http://www.gravatar.com/](http://www.gravatar.com/))。Web サイトに個人の名前や電子メール アドレスの横にあるイメージを表示する場合は、Gravatar ヘルパーを使用することができます。
+A *Gravatar* (、&quot;グローバルに認識されているアバター&quot;) は、自分のアバターとして複数の web サイトで使用できるイメージ&#8212;するを表すイメージは、します。 たとえば、Gravatar は投稿では、フォーラム、ブログのコメントに個人を特定しにできます。 (Gravatar の web サイトで、独自の Gravatar を登録する[ http://www.gravatar.com/ ](http://www.gravatar.com/))。Web サイトに個人の名前や電子メール アドレスの横にあるイメージを表示する場合は、Gravatar ヘルパーを使用することができます。
 
 この例では、自分自身を表す単一 Gravatar を使用しています。 Gravatar を使用する別の方法では、サイトに登録するときに、Gravatar アドレスを指定できるようにします。 (ユーザーが登録できるようにする方法を学習できます[追加のセキュリティと ASP.NET Web Pages サイトにメンバーシップ](https://go.microsoft.com/fwlink/?LinkId=202904))。そのユーザーの情報を表示するたびに、ユーザーの名前を表示する、Gravatar だけ追加できます。
 

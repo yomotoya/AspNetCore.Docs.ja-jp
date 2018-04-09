@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
-title: "コント ローラーから、モデルのデータにアクセス |Microsoft ドキュメント"
+title: コント ローラーから、モデルのデータにアクセス |Microsoft ドキュメント
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 91bfa5fe3c5bd3029b7d7c12c8831e1653fb1d2b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d3dfa079c334e04f368531456ec2ec4e9728f893
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>コント ローラーから、モデルのデータにアクセスします。
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 このセクションで作成、新しい`MoviesController`クラスし、ムービー データが取得され、ビュー テンプレートを使用してブラウザーに表示するコードを記述します。
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 01/24/2018
 - 選択**MovieDBContext (MvcMovie.Models)**データ コンテキスト クラスです。
 - コント ローラー名を入力してください。 **MoviesController**です。
 
- 次の図では、完了したダイアログを表示します。  
+  次の図では、完了したダイアログを表示します。  
   
 ![](accessing-your-models-data-from-a-controller/_static/image3.png)   
 
-**[追加]**をクリックします。 (エラーが発生した場合可能性がありますいないアプリケーションを構築するコント ローラーの追加を開始する前にします。)Visual Studio では、次のファイルとフォルダーを作成します。
+**[追加]** をクリックします。 (エラーが発生した場合可能性がありますいないアプリケーションを構築するコント ローラーの追加を開始する前にします。)Visual Studio では、次のファイルとフォルダーを作成します。
 
 - *MoviesController.cs*ファイルで、*コント ローラー*フォルダーです。
 - A *Views\Movies*フォルダーです。
@@ -64,7 +64,7 @@ Visual Studio に自動的に作成された、 [CRUD](http://en.wikipedia.org/w
 ![](accessing-your-models-data-from-a-controller/_static/image5.png)
 
 > [!NOTE]
-> 価格 フィールドに小数点またはコンマを入力することはできません。 コンマを使用するロケールを英語以外の jQuery 検証をサポートするために (&quot;、&quot;) する必要があります、小数点と日付の形式を英語 (米国) 以外の場合は、 *globalize.js*と特定の*cultures/globalize.cultures.js*ファイル (から[https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) および使用する JavaScript`Globalize.parseFloat`です。 次のチュートリアルでこれを行う方法を示します。 ここでは、単に 10 のような整数を入力します。
+> 価格 フィールドに小数点またはコンマを入力することはできません。 コンマを使用するロケールを英語以外の jQuery 検証をサポートするために (&quot;、&quot;) する必要があります、小数点と日付の形式を英語 (米国) 以外の場合は、 *globalize.js*と特定の*cultures/globalize.cultures.js*ファイル (から[ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) および使用する JavaScript`Globalize.parseFloat`です。 次のチュートリアルでこれを行う方法を示します。 ここでは、単に 10 のような整数を入力します。
 
 
 クリックすると、**作成**と、ムービー情報がデータベースに保存されているサーバーにポストするフォームのボタンをクリックします。 リダイレクトしている、 */Movies* URL、一覧に新しく作成したムービーを確認できます。
@@ -157,6 +157,6 @@ Visual Studio が、次を自動的に含め、ムービーのコント ロー�
 
 これで、データを表示、編集、更新および削除できるデータベースができました。 チュートリアルでは、[次へ]、うまくスキャフォールディング コードの残りの部分を確認し、追加、`SearchIndex`メソッドおよび`SearchIndex`ビューをこのデータベースで映画を検索できます。 MVC で Entity Framework の使用の詳細については、次を参照してください。 [、ASP.NET MVC アプリケーション用の Entity Framework データ モデルを作成する](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。
 
->[!div class="step-by-step"]
-[前へ](creating-a-connection-string.md)
-[次へ](examining-the-edit-methods-and-edit-view.md)
+> [!div class="step-by-step"]
+> [前へ](creating-a-connection-string.md)
+> [次へ](examining-the-edit-methods-and-edit-view.md)

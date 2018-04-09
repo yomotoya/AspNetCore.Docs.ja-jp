@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
-title: "ASP.NET の状態 (VB) を監視によるエラーの詳細をログ記録 |Microsoft ドキュメント"
+title: ASP.NET の状態 (VB) を監視によるエラーの詳細をログ記録 |Microsoft ドキュメント
 author: rick-anderson
-description: "Microsoft の正常性の監視システムは、未処理の例外を含むさまざまな、web イベントをログに記録する、簡単かつカスタマイズ可能な方法を提供します。 このチュートリアルでは、ためを使用しています."
+description: Microsoft の正常性の監視システムは、未処理の例外を含むさまざまな、web イベントをログに記録する、簡単かつカスタマイズ可能な方法を提供します。 このチュートリアルでは、ためを使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 83f7504e3aeb02ed222712e7e51f612f7ffd5744
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0a457d4b8773f0f4ed343f5005c76f48a5cc178f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-vb"></a>ASP.NET の状態 (VB) を監視によるエラーの詳細をログ記録
 ====================
@@ -154,6 +154,6 @@ ASP.NET の正常性監視システムは管理者が展開された web アプ�
 - [ASP.NET の正常性の監視を使用する方法](https://msdn.microsoft.com/library/ms998306.aspx)
 - [ASP.NET での監視のヘルス](http://aspnet.4guysfromrolla.com/articles/031407-1.aspx)
 
->[!div class="step-by-step"]
-[前へ](processing-unhandled-exceptions-vb.md)
-[次へ](logging-error-details-with-elmah-vb.md)
+> [!div class="step-by-step"]
+> [前へ](processing-unhandled-exceptions-vb.md)
+> [次へ](logging-error-details-with-elmah-vb.md)

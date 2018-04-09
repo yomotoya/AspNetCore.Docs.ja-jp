@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/collapsiblepanel/collapsing-and-expanding-a-panel-from-javascript-vb
-title: "折りたたみと展開の JavaScript (VB) からパネル |Microsoft ドキュメント"
+title: 折りたたみと展開の JavaScript (VB) からパネル |Microsoft ドキュメント
 author: wenz
-description: "ASP.NET AJAX コントロールのツールキットで CollapsiblePanel コントロール パネルを拡張し、その内容を折りたたんだり、展開する機能を提供する."
+description: ASP.NET AJAX コントロールのツールキットで CollapsiblePanel コントロール パネルを拡張し、その内容を折りたたんだり、展開する機能を提供する.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/collapsiblepanel/collapsing-and-expanding-a-panel-from-javascript-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6adca6771042cad71139977496f985cb8dac63aa
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5cf61cd0d8204a5405ba62cd3884d66ccb21968b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="collapsing-and-expanding-a-panel-from-javascript-vb"></a>折りたたみモードと JavaScript (VB) からのパネルを展開します。
 ====================
@@ -53,7 +53,7 @@ ASP.NET AJAX コントロールのツールキットで CollapsiblePanel コン�
 
 [!code-aspx[Main](collapsing-and-expanding-a-panel-from-javascript-vb/samples/sample5.aspx)]
 
-クライアント側の JavaScript コードで (の使用を開始`<script type="text/javascript">`) では、`$find()`メソッドを使用する必要があるアクセスに、`CollapsiblePanelExtender`です。 `$find("cpe")`参照を返します。 上から、特定のメソッドは、前のタスクを解決します。
+クライアント側の JavaScript コードで (の使用を開始`<script type="text/javascript">`) では、`$find()`メソッドを使用する必要があるアクセスに、`CollapsiblePanelExtender`です。 `$find("cpe")` 参照を返します。 上から、特定のメソッドは、前のタスクを解決します。
 
 メソッド、パネルが呼び出されます (展開) を開くため`_doOpen()`; 次のコードを実装、`doOpen()`関数は、最初のボタンがクリックされたときに呼び出されます。
 
@@ -72,5 +72,5 @@ ASP.NET AJAX コントロールのツールキットで CollapsiblePanel コン�
 
 3 番目のボタン、パネルの状態を変更する: から拡張とバックのために折りたたむ ([フルサイズのイメージを表示するをクリックして](collapsing-and-expanding-a-panel-from-javascript-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](collapsing-and-expanding-a-panel-from-javascript-cs.md)
+> [!div class="step-by-step"]
+> [前へ](collapsing-and-expanding-a-panel-from-javascript-cs.md)

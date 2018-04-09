@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-animations-using-client-side-code-vb
-title: "クライアント側コード (VB) を使用してアニメーションを実行 |Microsoft ドキュメント"
+title: クライアント側コード (VB) を使用してアニメーションを実行 |Microsoft ドキュメント
 author: wenz
-description: "アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 アニメーションの実行."
+description: アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 アニメーションの実行.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-animations-using-client-side-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c97ce87addd566ed1ba63ccdb81206c6449f49a2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e2b8c499edaccc70d439a576feb80e91cb28c1c7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="executing-animations-using-client-side-code-vb"></a>クライアント側コード (VB) を使用して実行中のアニメーション
 ====================
@@ -70,6 +70,6 @@ ms.lasthandoff: 11/10/2017
 
 マウスのクリックしてせずに、アニメーションがすぐに、実行されます ([フルサイズのイメージを表示するをクリックして](executing-animations-using-client-side-code-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](modifying-animations-from-the-server-side-vb.md)
-[次へ](changing-an-animation-using-client-side-code-vb.md)
+> [!div class="step-by-step"]
+> [前へ](modifying-animations-from-the-server-side-vb.md)
+> [次へ](changing-an-animation-using-client-side-code-vb.md)

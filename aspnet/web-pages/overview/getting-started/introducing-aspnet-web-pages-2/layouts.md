@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
-title: "ASP.NET Web Pages の概要 - 一貫したレイアウトを作成 |Microsoft ドキュメント"
+title: ASP.NET Web Pages の概要 - 一貫したレイアウトを作成 |Microsoft ドキュメント
 author: tfitzmac
-description: "このチュートリアルでは、レイアウトを使用して ASP.NET Web Pages を使用するサイトのページに対して一貫した外観を作成する方法を示します。 完了すると想定します."
+description: このチュートリアルでは、レイアウトを使用して ASP.NET Web Pages を使用するサイトのページに対して一貫した外観を作成する方法を示します。 完了すると想定します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
-ms.openlocfilehash: 692adc5a03892f27c91fe8868c8eab6ce08f49cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c2d5c4d8ed8a71979c16d484ab90d283a45de537
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>ASP.NET Web Pages の一貫したレイアウトの作成の概要
 ====================
@@ -149,7 +149,7 @@ ASP.NET に Movies.cshtml ページの内容とマージ、  *\_Layout.cshtml*�
 
 `Page`オブジェクトは、すべての利用*.cshtml*ページ、つまり、この目的では、ページとレイアウトの間で情報を共有します。
 
-開く、*\_Layout.cshtml*ページ。 変更、`<title>`要素のため、このマークアップのようなことを検索します。
+開く、<em>\_Layout.cshtml</em>ページ。 変更、`<title>`要素のため、このマークアップのようなことを検索します。
 
 [!code-html[Main](layouts/samples/sample9.html)]
 
@@ -237,6 +237,6 @@ ASP.NET に Movies.cshtml ページの内容とマージ、  *\_Layout.cshtml*�
 - [一貫性のある参照を作成する](https://go.microsoft.com/fwlink/?LinkID=202891)-レイアウトの操作をいくつかの詳細を提供するアーティクルです。 また、レイアウト ページを表示または一部のコンテンツを非表示に値を渡す方法も説明します。
 - [入れ子になったと Razor レイアウト ページ](http://www.mikesdotnetting.com/Article/164/Nested-Layout-Pages-with-Razor)— Mike Brind ブログをレイアウト ページを入れ子にする方法の例です。 (ページのダウンロードが含まれています)。
 
->[!div class="step-by-step"]
-[前へ](deleting-data.md)
-[次へ](publishing.md)
+> [!div class="step-by-step"]
+> [前へ](deleting-data.md)
+> [次へ](publishing.md)

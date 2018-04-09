@@ -1,22 +1,22 @@
 ---
 uid: whitepapers/aspnet4/breaking-changes
-title: "ASP.NET 4 の重大な変更 |Microsoft ドキュメント"
+title: ASP.NET 4 の重大な変更 |Microsoft ドキュメント
 author: rick-anderson
-description: "このドキュメントでは、行われた .NET Framework のバージョンを使用して作成されたアプリケーションに影響を与える可能性のある 4 つのリリースの変更について説明しています."
+description: このドキュメントでは、行われた .NET Framework のバージョンを使用して作成されたアプリケーションに影響を与える可能性のある 4 つのリリースの変更について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: d601c540-f86b-4feb-890c-20c806b3da6c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: d68723b52ae1ee80142fb1aca3b0b10de34332d1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7eea51add6b05684357314e3d6aa5087383c6408
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 の重大な変更
 ====================
@@ -180,7 +180,7 @@ ASP.NET では、暗号化とハッシュ アルゴリズムの両方を使用�
 
 最初のシナリオの回避策は、アプリケーション レベルの更新を`Web.config`ファイルから定型構成を含めることによって、 `Web.config` Visual Studio 2008 で自動的に生成されたファイルです。
 
-最初のシナリオでは、別の回避策は、コンピューターに Vista または Windows Server 2008 Service Pack 2 をインストールするか、または KB958854 の修正プログラムをインストールする ([https://support.microsoft.com/kb/958854](https://support.microsoft.com/kb/958854)) 無効なを解決するにはIIS の構成システムの構成-マージ動作です。 ただし、これらのアクションのいずれかを実行した後、アプリケーションではこの 2 番目のシナリオについて説明した問題のための構成エラーが検出可能性があります。
+最初のシナリオでは、別の回避策は、コンピューターに Vista または Windows Server 2008 Service Pack 2 をインストールするか、または KB958854 の修正プログラムをインストールする ([https://support.microsoft.com/kb/958854](https://support.microsoft.com/kb/958854)) の不適切な構成のマージの動作を修正しますIIS の構成システムです。 ただし、これらのアクションのいずれかを実行した後、アプリケーションではこの 2 番目のシナリオについて説明した問題のための構成エラーが検出可能性があります。
 
 2 番目のシナリオの回避策が削除またはすべてをコメントには、 **system.web.extensions**構成セクションの定義と構成セクションは、アプリケーション レベルの定義をグループ化`Web.config`ファイル。 これらの定義は、通常、アプリケーション レベルの上部にある`Web.config`ファイルし、を識別できます、 **configSections**要素とその子要素です。
 
@@ -192,8 +192,8 @@ ASP.NET では、暗号化とハッシュ アルゴリズムの両方を使用�
 
 旧バージョンの ASP.NET を実行する子アプリケーションとして構成されている ASP.NET 4 アプリケーションは、構成エラーまたはコンパイル エラーにより起動しない場合があります。 次の例は、影響を受けるアプリケーションのディレクトリ構造を示しています。
 
-`/parentwebapp`(ASP.NET 2.0 または ASP.NET 3.5 を使用するように構成)  
-`/childwebapp`(ASP.NET 4 を使用するように構成)
+`/parentwebapp` (ASP.NET 2.0 または ASP.NET 3.5 を使用するように構成)  
+`/childwebapp` (ASP.NET 4 を使用するように構成)
 
 アプリケーション、`childwebapp`フォルダーは、IIS 7 や IIS 7.5 でを起動し、構成エラーをレポートには失敗します。 エラー テキストには、次のようなメッセージが含まれます。
 
@@ -323,13 +323,13 @@ ASP.NET 2.0 Web サイトを再マップする、または仮想ディレクト�
 
 ## <a name="event-handlers-might-not-be-not-raised-in-a-default-document-in-iis-7-or-iis-75-integrated-mode"></a>イベント ハンドラーは IIS 7 や IIS 7.5 の既定のドキュメントではされません発生しないする可能性が統合モード
 
-ASP.NET 4 には、変更の変更が含まれています。 どのように**アクション**HTML の属性**フォーム**拡張子のない URL が既定のドキュメントに解決されると、要素が表示されます。 既定のドキュメントに解決するには拡張子のない URL の例としては[http://contoso.com/](http://contoso.com/)への要求で結果として得られる、 [http://contoso.com/Default.aspx](http://contoso.com/Default.aspx)です。
+ASP.NET 4 には、変更の変更が含まれています。 どのように**アクション**HTML の属性**フォーム**拡張子のない URL が既定のドキュメントに解決されると、要素が表示されます。 既定のドキュメントに解決するには拡張子のない URL の例としては[ http://contoso.com/](http://contoso.com/)への要求で結果として得られる、 [ http://contoso.com/Default.aspx](http://contoso.com/Default.aspx)です。
 
-ASP.NET 4 は、HTML を表示するようになりました**フォーム**要素の**アクション**がマップされている既定のドキュメントを拡張子のない URL に要求が行われたときに属性値に空の文字列。 たとえば、要求を ASP.NET の以前のリリースで[http://contoso.com](http://contoso.com)への要求になる`Default.aspx`です。 そのドキュメントでは、オープンで**フォーム**タグは、次の例のように表示は。
+ASP.NET 4 は、HTML を表示するようになりました**フォーム**要素の**アクション**がマップされている既定のドキュメントを拡張子のない URL に要求が行われたときに属性値に空の文字列。 たとえば、要求を ASP.NET の以前のリリースで[ http://contoso.com ](http://contoso.com)への要求になる`Default.aspx`です。 そのドキュメントでは、オープンで**フォーム**タグは、次の例のように表示は。
 
 `<form action="Default.aspx" />`
 
-ASP.NET 4 で要求を[http://contoso.com](http://contoso.com)への要求では結果も`Default.aspx`します。 ただし、ASP.NET は、HTML を開くようになりましたを表示**フォーム**次の例のようにタグ。
+ASP.NET 4 で要求を[ http://contoso.com ](http://contoso.com)への要求では結果も`Default.aspx`します。 ただし、ASP.NET は、HTML を開くようになりましたを表示**フォーム**次の例のようにタグ。
 
 `<form action="" />`
 
@@ -370,7 +370,7 @@ ASP.NET 1.1 および 2.0、new を使用しての動作に部分的に信頼さ
 - 1 つのアプリケーション ドメイン内の複数の異なるアクセス許可セットが許可されます。
 - 明示的なアクセス許可のアサーションが ASP.NET またはその他の .NET Framework コードのみがスタック上にあるときに呼び出される、GAC でアセンブリが必要ではありません。
 
-.NET Framework 4 にシナリオの 1 つを元に戻すことはできません: 非 Web 部分信頼アプリケーションでは、System.Web.dll および System.Web.Extensions.dll で特定の Api を呼び出すことができなくします。 .NET Framework の以前のバージョンでが明示的に許可する部分的に信頼されたアプリケーションは Web 以外**AspNetHostingPermission**アクセス許可。 これらのアプリケーションを使用し、でした**System.Web.HttpUtility**、型、 **System.Web.ClientServices\* 。**メンバーシップ、ロール、およびプロファイルに関連する名前空間、および種類です。 部分信頼の以外の Web アプリケーションからこれらの型の呼び出しは、.NET Framework 4 ではサポートされていません。
+.NET Framework 4 にシナリオの 1 つを元に戻すことはできません: 非 Web 部分信頼アプリケーションでは、System.Web.dll および System.Web.Extensions.dll で特定の Api を呼び出すことができなくします。 .NET Framework の以前のバージョンでが明示的に許可する部分的に信頼されたアプリケーションは Web 以外<strong>AspNetHostingPermission</strong>アクセス許可。 これらのアプリケーションを使用し、でした<strong>System.Web.HttpUtility</strong>、型、 <strong>System.Web.ClientServices\< 。/strong > * メンバーシップ、ロール、およびプロファイルに関連する名前空間、および種類です。 部分信頼の以外の Web アプリケーションからこれらの型の呼び出しは、.NET Framework 4 ではサポートされていません。
 
 > [!NOTE]
 > **HtmlEncode**と**HtmlDecode**の機能、 **System.Web.HttpUtility**クラスは、新しい .NET Framework 4 に移動された**System.Net.WebUtility**クラスです。 使用されている唯一の ASP.NET 機能する場合は、アプリケーションのコードを変更、新しい**WebUtility**クラスの代わりにします。

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core アプリケーションで開いているリダイレクト攻撃の防止"
+title: ASP.NET Core で開いているリダイレクト攻撃を防止します。
 author: ardalis
-description: "ASP.NET Core アプリケーションに対して開くリダイレクト攻撃を防止する方法を示します"
+description: ASP.NET Core アプリケーションに対して開くリダイレクト攻撃を防止する方法を示します
 manager: wpickett
 ms.author: riande
 ms.date: 07/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/preventing-open-redirects
-ms.openlocfilehash: d6cd65a2516c4d5e41428f0c1f2dbbe913ac2123
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4a210b8bb8091e7c036d4bc98306e3b3f90d7d46
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="preventing-open-redirect-attacks-in-an-aspnet-core-app"></a>ASP.NET Core アプリケーションで開いているリダイレクト攻撃の防止
+# <a name="prevent-open-redirect-attacks-in-aspnet-core"></a>ASP.NET Core で開いているリダイレクト攻撃を防止します。
 
 クエリ文字列またはフォームのデータなどの要求で指定されている URL にリダイレクトする web アプリ可能性のある改ざんされるおそれがユーザーをリダイレクトする、悪意のある外部の url。 このによって改ざんされると、開いているリダイレクト攻撃が呼び出されます。
 
@@ -57,11 +57,11 @@ public IActionResult SomeAction(string redirectUrl)
 }
 ```
 
-``LocalRedirect``非ローカル URL が指定されている場合、例外がスローされます。 それ以外の場合、動作と同じように、``Redirect``メソッドです。
+``LocalRedirect`` 非ローカル URL が指定されている場合、例外がスローされます。 それ以外の場合、動作と同じように、``Redirect``メソッドです。
 
 ### <a name="islocalurl"></a>IsLocalUrl
 
-使用して、 [IsLocalUrl](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iurlhelper#Microsoft_AspNetCore_Mvc_IUrlHelper_IsLocalUrl_System_String_)をリダイレクトする前に Url をテストするメソッド。
+使用して、 [IsLocalUrl](/dotnet/api/Microsoft.AspNetCore.Mvc.IUrlHelper?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_IUrlHelper_IsLocalUrl_System_String_)をリダイレクトする前に Url をテストするメソッド。
 
 次の例では、リダイレクトする前に、URL がローカルかどうかをチェックする方法を示します。
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
-title: "Web アプリケーションをオフラインでの web 配置 |Microsoft ドキュメント"
+title: Web アプリケーションをオフラインでの web 配置 |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、インターネット インフォメーション サービス (IIS) Web 展開マネージャーを使用する自動展開の間オフライン web アプリケーションを実行する方法について説明しています."
+description: このトピックでは、インターネット インフォメーション サービス (IIS) Web 展開マネージャーを使用する自動展開の間オフライン web アプリケーションを実行する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: 1c262ec7b834107524a18c6552b171f731452c91
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 511201dc5646340b21023430fa319417f2b53ae2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="taking-web-applications-offline-with-web-deploy"></a>Web アプリケーションをオフラインでの web 配置します。
 ====================
@@ -27,9 +27,9 @@ ms.lasthandoff: 03/15/2018
 > このトピックでは、インターネット インフォメーション サービス (IIS) Web 配置ツール (Web 配置) を使用する自動展開の間オフライン web アプリケーションを実行する方法について説明します。 Web アプリケーションを参照するユーザーにリダイレクト、*アプリ\_offline.htm*ファイルの展開が完了するまでです。
 
 
-このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。サンプル ソリューション & #x 2014; このチュートリアルのシリーズを使用して、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; を ASP.NET MVC 3 アプリケーションを Windows のなどの複雑性のレベルが現実的な web アプリケーションを表すCommunication Foundation (WCF) サービスとデータベース プロジェクト。
+このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルの一連のサンプル ソリューションを使用する&#x2014;、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的な ASP.NET MVC 3 アプリケーション、Windows Communication も含め、複雑さのレベルを持つ web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
-説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスで 2 つのプロジェクト ファイル & #x 2014; 1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスでは、2 つのプロジェクト ファイル&#x2014;1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
 
 ## <a name="task-overview"></a>タスクの概要
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 03/15/2018
 2. ルートで**プロジェクト**要素を新規作成**PropertyGroup**の変数を格納する要素、*アプリ\_オフライン*展開。
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample3.xml)]
-3. **SourceRoot**でプロパティが別の場所で定義されている、 *Publish.proj*ファイル。 現在のパス & #x 2014 基準とした; つまりの場所に対する相対、ソース コンテンツのルート フォルダーの場所を示す、 *Publish.proj*ファイル。
+3. **SourceRoot**でプロパティが別の場所で定義されている、 *Publish.proj*ファイル。 現在のパスの基準とした、ソース コンテンツのルート フォルダーの場所を示す&#x2014;の場所への相対言い換えると、 *Publish.proj*ファイル。
 4. **ContentPath**プロバイダー受け入れません相対ファイル パスを展開する前に、ソース ファイルへの絶対パスを取得する必要があります。 使用することができます、 [ConvertToAbsolutePath](https://msdn.microsoft.com/library/bb882668.aspx)これを行うタスクです。
 5. 新しい**ターゲット**という名前の要素**GetAppOfflineAbsolutePath**です。 このターゲット内で使用して、 **ConvertToAbsolutePath**への絶対パスを取得するタスク、*アプリ\_オフライン テンプレート*プロジェクト フォルダー内のファイルです。
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 03/15/2018
 
 ## <a name="adding-an-appoffline-file-to-deployment-packages"></a>アプリの追加\_の展開パッケージにオフライン ファイル
 
-同様に、IIS web アプリケーションの移行先 & #x 2014; で、展開、既存の内容を構成する方法に応じて、*アプリ\_offline.htm* file & #x 2014; web を展開するときに自動的に削除することがあります変換先にパッケージします。 いることを確認する、*アプリ\_offline.htm*ファイルはそのまま残ります、展開中に、ファイルの先頭に直接展開するのにさらに、web 配置パッケージ自体内でファイルをインクルードする必要があります展開プロセスです。
+デプロイの構成方法によって、既存の IIS 転送先にコンテンツ web アプリケーション&#x2014;と同様に、*アプリ\_offline.htm*ファイル&#x2014;web を展開するときに自動的に削除することがあります変換先にパッケージします。 いることを確認する、*アプリ\_offline.htm*ファイルはそのまま残ります、展開中に、ファイルの先頭に直接展開するのにさらに、web 配置パッケージ自体内でファイルをインクルードする必要があります展開プロセスです。
 
 - かどうかは、このトピックで前のタスクを完了済みを追加した、*アプリ\_offline.htm*ファイルを別のファイル名の下にある web アプリケーション プロジェクト (を使用した*アプリ\_オフライン template.htm*) をビルド アクションを設定するありますと**None**です。 これらの変更は、開発に干渉することと、デバッグからファイルを防ぐために必要です。 その結果、ことを確認するパッケージ化プロセスをカスタマイズする必要があります、*アプリ\_offline.htm* web 展開パッケージにファイルが含まれています。
 
@@ -125,7 +125,7 @@ Web 発行パイプライン (WPP) という名前の項目リストを使用し
 1. という名前のカスタム プロジェクト ファイルを作成する*[プロジェクト名].wpp.targets*は、プロジェクト ファイルと同じフォルダーにします。
 
     > [!NOTE]
-    > *. Wpp.targets* web アプリケーション プロジェクト ファイル & #x 2014; と同じフォルダーに移動する必要があるファイルなど、 *ContactManager.Mvc.csproj*(& a) いずれかとして #x; 2014 ではなく、同じフォルダー管理、ビルドおよび展開プロセスを使用するカスタム プロジェクト ファイルです。
+    > *. Wpp.targets*ファイルは、web アプリケーション プロジェクト ファイルと同じフォルダーに移動する必要がある&#x2014;など*ContactManager.Mvc.csproj*&#x2014;任意のカスタムと同じフォルダー内ではなくプロジェクト ファイルを使用してビルドおよび配置プロセスを制御します。
 2. *. Wpp.targets*ファイルを実行する新しい MSBuild ターゲットを作成*する前に*、 **CopyAllFilesToSingleFolderForPackage**ターゲットです。 これは、WPP ビルドするターゲットをパッケージに含める項目の一覧です。
 3. 新しいターゲットを作成、 **ItemGroup**要素。
 4. **ItemGroup**要素を追加、 **FilesForPackagingFromProject**を指定し、*アプリ\_offline.htm*ファイル。
@@ -175,6 +175,6 @@ Web 発行パイプライン (WPP) という名前の項目リストを使用し
 
 これらのチュートリアルで説明されているカスタム MSBuild プロジェクト ファイル アプローチを使用する必要があります、少し異なる方法を使用してアプリケーションを発行中に、オフラインを実行するのではなく、Visual Studio から直接 web アプリケーションを発行する場合プロセスです。 詳細については、次を参照してください。[発行時にオフライン web アプリを実行する](https://go.microsoft.com/?linkid=9805135)(ブログの投稿)。
 
->[!div class="step-by-step"]
-[前へ](excluding-files-and-folders-from-deployment.md)
-[次へ](running-windows-powershell-scripts-from-msbuild-project-files.md)
+> [!div class="step-by-step"]
+> [前へ](excluding-files-and-folders-from-deployment.md)
+> [次へ](running-windows-powershell-scripts-from-msbuild-project-files.md)

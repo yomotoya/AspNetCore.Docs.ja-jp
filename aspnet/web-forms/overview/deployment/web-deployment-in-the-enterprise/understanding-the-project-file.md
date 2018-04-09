@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 msc.type: authoredcontent
-ms.openlocfilehash: 09c3793e9cdddb7c42cf966f2d079245f441540c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 49d1d4fbe48cd4f073e774d8a9c6c0c011bd3319
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-the-project-file"></a>プロジェクト ファイルを理解します。
 ====================
@@ -36,9 +36,9 @@ ms.lasthandoff: 03/15/2018
 
 ## <a name="msbuild-and-the-project-file"></a>MSBuild とプロジェクト ファイル
 
-作成して、Visual Studio でソリューションをビルドしたときに Visual Studio は MSBuild を使用して、ソリューション内の各プロジェクトをビルドします。 すべての Visual Studio プロジェクトには、プロジェクト & #x 2014 の種類を反映するファイル拡張子を持つ、MSBuild プロジェクト ファイルです。 たとえば、c# プロジェクト (.csproj)、Visual Basic.NET プロジェクト (.vbproj) またはデータベース プロジェクト (.dbproj) が含まれています。 プロジェクトをビルドするために MSBuild がプロジェクトに関連付けられているプロジェクト ファイルを処理する必要があります。 プロジェクト ファイルは、すべての情報と MSBuild は、コンテンツを含めるには、プラットフォームの要件、バージョン管理情報、web サーバーまたはデータベース サーバーの設定と同様に、プロジェクトをビルドするために必要がある命令を含む XML ドキュメントとタスクを実行する必要があります。
+作成して、Visual Studio でソリューションをビルドしたときに Visual Studio は MSBuild を使用して、ソリューション内の各プロジェクトをビルドします。 すべての Visual Studio プロジェクトには、プロジェクトの種類を反映するファイル拡張子を持つ、MSBuild プロジェクト ファイルが含まれています。&#x2014;など、c# プロジェクト (.csproj)、Visual Basic.NET プロジェクト (.vbproj) またはデータベース プロジェクト (.dbproj)。 プロジェクトをビルドするために MSBuild がプロジェクトに関連付けられているプロジェクト ファイルを処理する必要があります。 プロジェクト ファイルは、すべての情報と MSBuild は、コンテンツを含めるには、プラットフォームの要件、バージョン管理情報、web サーバーまたはデータベース サーバーの設定と同様に、プロジェクトをビルドするために必要がある命令を含む XML ドキュメントとタスクを実行する必要があります。
 
-MSBuild プロジェクト ファイルがに基づいて、 [MSBuild XML スキーマ](https://msdn.microsoft.com/library/5dy88c2e.aspx)、その結果、ビルド プロセスは完全にオープンで透過的なとします。 さらに、MSBuild エンジン & #x 2014 を使用するために Visual Studio をインストールする必要はありません以外の場合は、MSBuild.exe の実行可能ファイルは、.NET Framework の一部と、コマンド プロンプトから実行することができます。 開発者には、プロジェクトをビルドおよび配置する方法を高度な粒度の細かい制御を強制する MSBuild XML スキーマを使用して、自分の MSBuild プロジェクト ファイル作成できます。 これらのカスタム プロジェクト ファイルは、Visual Studio を自動的に生成されるプロジェクト ファイルとまったく同じ方法で動作します。
+MSBuild プロジェクト ファイルがに基づいて、 [MSBuild XML スキーマ](https://msdn.microsoft.com/library/5dy88c2e.aspx)、その結果、ビルド プロセスは完全にオープンで透過的なとします。 MSBuild エンジンを使用するために Visual Studio をインストールする必要はありませんさらに、&#x2014;MSBuild.exe の実行可能ファイルは、.NET Framework の一部であり、コマンド プロンプトから実行することができます。 開発者には、プロジェクトをビルドおよび配置する方法を高度な粒度の細かい制御を強制する MSBuild XML スキーマを使用して、自分の MSBuild プロジェクト ファイル作成できます。 これらのカスタム プロジェクト ファイルは、Visual Studio を自動的に生成されるプロジェクト ファイルとまったく同じ方法で動作します。
 
 > [!NOTE]
 > チーム ビルド サービスでは、Team Foundation Server (TFS) と MSBuild プロジェクト ファイルを使用することもできます。 たとえば、継続的インテグレーション (CI) シナリオでのプロジェクト ファイルを使用して、新しいコードをチェックインするときに、テスト環境に展開を自動化することができます。 詳細については、次を参照してください。 [Web 配置の自動化の Team Foundation Server を構成する](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md)です。
@@ -93,7 +93,7 @@ ASP.NET web アプリケーションと ASP.NET MVC web アプリケーション
 [!code-xml[Main](understanding-the-project-file/samples/sample2.xml)]
 
 
-プロパティ値を取得するには、形式が使用します **$(***PropertyName***)***。*たとえばの値を取得するため、 **ServerName** プロパティを入力します。
+プロパティ値を取得するには、形式が使用します<strong>$(</strong><em>PropertyName</em><strong>)</strong><em>。</em> 。たとえばの値を取得するため、 <strong>ServerName</strong>プロパティを入力します。
 
 
 [!code-powershell[Main](understanding-the-project-file/samples/sample3.ps1)]
@@ -113,7 +113,7 @@ ASP.NET web アプリケーションと ASP.NET MVC web アプリケーション
 > MSBuild.exe で使用できるスイッチと引数の詳細については、次を参照してください。 [MSBuild コマンド ライン リファレンス](https://msdn.microsoft.com/library/ms164311.aspx)です。
 
 
-環境変数と組み込みのプロジェクトのプロパティの値を取得するのにプロパティと同じ構文を使用することができます。 多数のよく使用されるプロパティが定義した、およびできますして使用する、プロジェクト ファイルに関連するパラメーター名を含むです。 例については、現在のプロジェクト プラットフォーム & #x 2014; を取得するなど、 **x86**または**AnyCpu**& #x 2014; 含めることができます、 **$(Platform)**プロパティ参照でプロジェクト ファイルです。 詳細については、次を参照してください。[のビルドのコマンドとプロパティのマクロ](https://msdn.microsoft.com/library/c02as0cs.aspx)、 [MSBuild プロジェクトの共通プロパティ](https://msdn.microsoft.com/library/bb629394.aspx)、および[予約済みプロパティ](https://msdn.microsoft.com/library/ms164309.aspx)です。
+環境変数と組み込みのプロジェクトのプロパティの値を取得するのにプロパティと同じ構文を使用することができます。 多数のよく使用されるプロパティが定義した、およびできますして使用する、プロジェクト ファイルに関連するパラメーター名を含むです。 たとえば、現在のプロジェクト プラットフォームを取得する&#x2014;など**x86**または**AnyCpu**&#x2014;含めることができます、 **$(Platform)**プロパティ参照でプロジェクト ファイルです。 詳細については、次を参照してください。[のビルドのコマンドとプロパティのマクロ](https://msdn.microsoft.com/library/c02as0cs.aspx)、 [MSBuild プロジェクトの共通プロパティ](https://msdn.microsoft.com/library/bb629394.aspx)、および[予約済みプロパティ](https://msdn.microsoft.com/library/ms164309.aspx)です。
 
 プロパティはと共によく使用*条件*です。 MSBuild のほとんどの要素をサポート、**条件**属性は、MSBuild 基になる要素を評価する条件を指定することができます。 たとえば、このプロパティの定義があるとします。
 
@@ -121,13 +121,13 @@ ASP.NET web アプリケーションと ASP.NET MVC web アプリケーション
 [!code-xml[Main](understanding-the-project-file/samples/sample5.xml)]
 
 
-MSBuild では、このプロパティの定義を処理するとき、まず確認するかどうか、 **$(OutputRoot)**プロパティの値が使用可能な。 プロパティの値は空白 & #x 2014; 場合つまり、ユーザーいない; 指定された値のこのプロパティ & #x 2014 条件の評価が**true**にプロパティの値を設定および**.\Publish\Out**です。条件の評価が場合は、ユーザーは、このプロパティの値を指定するが、 **false**静的プロパティの値が使用されていません。
+MSBuild では、このプロパティの定義を処理するとき、まず確認するかどうか、 **$(OutputRoot)**プロパティの値が使用可能な。 プロパティの値が空白の場合&#x2014;つまり、ユーザーは、このプロパティの値を指定していない&#x2014;条件の評価が**true**にプロパティの値を設定および**.\Publish\Out**です。条件の評価が場合は、ユーザーは、このプロパティの値を指定するが、 **false**静的プロパティの値が使用されていません。
 
 条件を指定するさまざまな方法の詳細については、次を参照してください。 [MSBuild の条件](https://msdn.microsoft.com/library/7szfhaft.aspx)です。
 
 ### <a name="items-and-item-groups"></a>アイテムとアイテム グループ
 
-プロジェクト ファイルの重要な役割の 1 つは、ビルド処理への入力を定義します。 通常、これらの入力ファイル & #x 2014 ですコード ファイル、構成ファイル、コマンド ファイルは、およびその他のファイルとしてコピーまたは処理する必要のある一部のビルド プロセスのです。 MSBuild プロジェクト スキーマでこれらの入力がによって表される[項目](https://msdn.microsoft.com/library/ms164283.aspx)要素。 内で、プロジェクト ファイルの項目を定義する必要があります、 [ItemGroup](https://msdn.microsoft.com/library/646dk05y.aspx)要素。 同じように**プロパティ**要素、名前を指定できます、**項目**要素などのただしです。 ただし、指定する必要があります、 **Include**属性をファイルまたは項目を表すワイルドカードを指定します。
+プロジェクト ファイルの重要な役割の 1 つは、ビルド処理への入力を定義します。 これらの入力ファイルは、通常、&#x2014;コード ファイル、構成ファイル、コマンド ファイルは、およびその他のファイルとしてコピーまたは処理する必要のあるビルド プロセスの一部です。 MSBuild プロジェクト スキーマでこれらの入力がによって表される[項目](https://msdn.microsoft.com/library/ms164283.aspx)要素。 内で、プロジェクト ファイルの項目を定義する必要があります、 [ItemGroup](https://msdn.microsoft.com/library/646dk05y.aspx)要素。 同じように**プロパティ**要素、名前を指定できます、**項目**要素などのただしです。 ただし、指定する必要があります、 **Include**属性をファイルまたは項目を表すワイルドカードを指定します。
 
 
 [!code-xml[Main](understanding-the-project-file/samples/sample6.xml)]
@@ -139,7 +139,7 @@ MSBuild では、このプロパティの定義を処理するとき、まず確
 [!code-xml[Main](understanding-the-project-file/samples/sample7.xml)]
 
 
-この方法で、プロジェクト ファイルが、同じ方法 & #x 2014; で処理する必要のあるファイルのリストを構築するために MSBuild を指示は、**参照**一覧には、ビルドの成功をのためにする必要があるアセンブリが含まれています**。コンパイル**一覧には、コンパイルする必要があるコード ファイルが含まれています。 および**コンテンツ**一覧には、変更せずにコピーする必要があるリソースが含まれます。 ビルド プロセスの参照し、これらの項目を使用して、このトピックの後半に紹介します。
+この方法で、プロジェクト ファイルが同じ方法で処理する必要のあるファイルのリストを構築するために MSBuild を指示が&#x2014;、**参照**一覧には、ビルドの成功のためにする必要があるアセンブリが含まれています、 **コンパイル**一覧には、コンパイルする必要があるコード ファイルが含まれています。 および**コンテンツ**一覧には、変更せずにコピーする必要があるリソースが含まれます。 ビルド プロセスの参照し、これらの項目を使用して、このトピックの後半に紹介します。
 
 項目の要素を含めることも[ItemMetadata](https://msdn.microsoft.com/library/ms164284.aspx)子要素です。 これらはユーザー定義のキー/値ペアであり、本質的にそのアイテムに固有のプロパティを表します。 たとえば、多数の**コンパイル**項目要素をプロジェクト ファイルには、 **DependentUpon**子要素です。
 
@@ -155,7 +155,7 @@ MSBuild では、このプロパティの定義を処理するとき、まず確
 
 ### <a name="targets-and-tasks"></a>ターゲットとタスク
 
-MSBuild スキーマで、[タスク](https://msdn.microsoft.com/library/77f2hx1s.aspx)要素は、個々 のビルド命令 (またはタスク) を表します。 MSBuild には、さまざまな定義済みのタスクが含まれています。 例:
+MSBuild スキーマで、[タスク](https://msdn.microsoft.com/library/77f2hx1s.aspx)要素は、個々 のビルド命令 (またはタスク) を表します。 MSBuild には、さまざまな定義済みのタスクが含まれています。 例えば:
 
 - **コピー**タスクは、新しい場所にファイルをコピーします。
 - **Csc**タスクは、Visual c# コンパイラを起動します。
@@ -195,11 +195,11 @@ MSBuild スキーマで、[タスク](https://msdn.microsoft.com/library/77f2hx1
 
 一般に、便利なタスクとターゲットを作成するときに、プロパティと、プロジェクト ファイルに他の場所で定義した項目を参照する必要があります。
 
-- プロパティ値を使用する入力**$(***PropertyName***)**ここで、 *PropertyName*の名前を指定、**プロパティ**要素またはの名前、パラメーター。
-- 項目を使用する入力**@(***ItemName***)**ここで、 *ItemName*の名前を指定、**項目**要素。
+- プロパティ値を使用する入力<strong>$(</strong><em>PropertyName</em><strong>)</strong>ここで、 <em>PropertyName</em>の名前を指定、 <strong>プロパティ</strong>要素またはパラメーターの名前。
+- 項目を使用する入力<strong>@(</strong><em>ItemName</em><strong>)</strong>ここで、 <em>ItemName</em>の名前を指定、<strong>項目</strong>要素。
 
 > [!NOTE]
-> 同じ名前の複数の項目を作成する場合、リストをビルドすることに注意してください。 これに対し、最後のプロパティ値を指定する必要が同名 & #x 2014 で、前のプロパティを上書きと同じ名前の複数のプロパティを作成する場合は、プロパティは、単一の値のみを含めることができます。
+> 同じ名前の複数の項目を作成する場合、リストをビルドすることに注意してください。 これに対し、同じ名前の複数のプロパティを作成する場合は、最後のプロパティ値を指定する必要がプロパティが上書きされます任意前と同じ名前&#x2014;プロパティは、単一の値のみを含めることができます。
 
 
 たとえば、 *Publish.proj*サンプル ソリューションのファイルを見て、 **BuildProjects**ターゲットです。
@@ -227,7 +227,7 @@ MSBuild スキーマで、[タスク](https://msdn.microsoft.com/library/77f2hx1
 
 ## <a name="splitting-project-files-to-support-multiple-environments"></a>複数の環境をサポートするためにプロジェクト ファイルの分割
 
-テスト サーバー、ステージングのプラットフォームでは、運用環境など、複数の環境にソリューションを展開したいとします。 構成は、これらの環境 & #x 2014 の間で大幅に異なる場合があります。 だけでなくサーバー名、接続文字列、および、の観点からも資格情報、セキュリティ設定、およびその他の要因の多く観点から可能性があります。 これを定期的に実行する必要がある場合は、対象の環境を切り替えるたびに、プロジェクト ファイルで複数のプロパティを編集する非常に便利なことはできません。 最適なソリューションをビルド プロセスに提供するプロパティの値の無限のリストを必要とするでもありません。
+テスト サーバー、ステージングのプラットフォームでは、運用環境など、複数の環境にソリューションを展開したいとします。 構成は、これらの環境間で大幅に異なる場合があります&#x2014;だけでなくサーバー名、接続文字列、およびの観点からも資格情報、セキュリティ設定、およびその他の要因の多く観点から可能性があります。 これを定期的に実行する必要がある場合は、対象の環境を切り替えるたびに、プロジェクト ファイルで複数のプロパティを編集する非常に便利なことはできません。 最適なソリューションをビルド プロセスに提供するプロパティの値の無限のリストを必要とするでもありません。
 
 幸運にもこれとは別です。 MSBuild では、ビルド構成を複数のプロジェクト ファイルに分割することができます。 動作を理解するこの、サンプルのソリューションでは、2 つのカスタム プロジェクト ファイルがあることに注意してください。
 
@@ -266,6 +266,6 @@ MSBuild スキーマで、[タスク](https://msdn.microsoft.com/library/77f2hx1
 
 プロジェクト ファイルと、WPP をより詳細な概要については、次を参照してください。[内の Microsoft Build Engine: MSBuild を使用して、Team Foundation ビルド](http://amzn.com/0735645248)Sayed Ibrahim Hashimi して William Bartholomew、ISBN: 978-0-7356-4524-0 です。
 
->[!div class="step-by-step"]
-[前へ](setting-up-the-contact-manager-solution.md)
-[次へ](understanding-the-build-process.md)
+> [!div class="step-by-step"]
+> [前へ](setting-up-the-contact-manager-solution.md)
+> [次へ](understanding-the-build-process.md)

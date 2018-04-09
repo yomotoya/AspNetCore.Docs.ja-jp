@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
-title: "データの表示項目、詳細 |Microsoft ドキュメント"
+title: データの表示項目、詳細 |Microsoft ドキュメント
 author: Erikre
-description: "このチュートリアルの系列では、お用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルの系列では、お用 ASP.NET 4.5 と Microsoft Visual Studio Express 2013 を使用して ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
 msc.type: authoredcontent
-ms.openlocfilehash: 809d7a9c21a3ddf5dfd07d079eb8fe0d1d81712d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5fea654aa5116193cb7496c1b9020ed8e25fc06f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="display-data-items-and-details"></a>データの表示項目、詳細
 ====================
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="these-are-the-features-introduced-in-the-tutorial"></a>これらは、このチュートリアルで導入された機能です。
 
-- モデル バインディング
+- モデル バインド
 - 値プロバイダー
 
 ## <a name="adding-a-data-control-to-display-products"></a>製品を表示するデータ コントロールを追加します。
@@ -131,7 +131,7 @@ ms.lasthandoff: 11/10/2017
 上記のマークアップをデータベースに接続するには、する追加のコードを追加する必要があります、 *ProductDetails.aspx*コード。
 
 1. **ソリューション エクスプ ローラー**を右クリックして*ProductDetails.aspx*  をクリックし、**コードの表示**です。  
- *ProductDetails.aspx.cs*ファイルが表示されます。
+   *ProductDetails.aspx.cs*ファイルが表示されます。
 2. 既存のコードを次のコードで置換します。   
 
     [!code-csharp[Main](display_data_items_and_details/samples/sample6.cs)]
@@ -152,7 +152,7 @@ ms.lasthandoff: 11/10/2017
     ![データを表示する項目と詳細 - 製品](display_data_items_and_details/_static/image4.png)
 4. ブラウザーを閉じます。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 系列には、このチュートリアルでは、マークアップと製品一覧を表示して、製品の詳細を表示するコードを追加がします。 このプロセス中には、厳密に型指定されたデータ コントロール、モデル バインディング、および値プロバイダーについて学習しました。 チュートリアルでは、[次へ]、ショッピング カートを Wingtip Toys のサンプル アプリケーションに追加します。
 
@@ -160,6 +160,6 @@ ms.lasthandoff: 11/10/2017
 
 [取得して、モデル バインディング機能と web フォームでデータの表示](../../presenting-and-managing-data/model-binding/retrieving-data.md)
 
->[!div class="step-by-step"]
-[前へ](ui_and_navigation.md)
-[次へ](shopping-cart.md)
+> [!div class="step-by-step"]
+> [前へ](ui_and_navigation.md)
+> [次へ](shopping-cart.md)

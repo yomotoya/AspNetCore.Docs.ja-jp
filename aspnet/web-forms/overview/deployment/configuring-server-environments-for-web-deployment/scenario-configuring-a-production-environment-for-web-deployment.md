@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
-title: "シナリオ: Web 配置用の実稼働環境の構成 |Microsoft ドキュメント"
+title: 'シナリオ: Web 配置用の実稼働環境の構成 |Microsoft ドキュメント'
 author: jrjlee
-description: "このトピックでは、運用環境のための一般的な web 展開シナリオを説明し、同様を設定するために完了する必要があるタスクについて説明しています."
+description: このトピックでは、運用環境のための一般的な web 展開シナリオを説明し、同様を設定するために完了する必要があるタスクについて説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cdd13f96ddf08ff86b01ef9de17ea82cf038ab28
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4de5b1f20f3adcb53765c7cb9765c0d90a80e677
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="scenario-configuring-a-production-environment-for-web-deployment"></a>シナリオ: Web 配置用の実稼働環境の構成
 ====================
@@ -59,6 +59,6 @@ ms.lasthandoff: 01/24/2018
 
 開発者の標準的なテスト環境を構成する方法については、次を参照してください。[シナリオ: Web 配置用のテスト環境構成](scenario-configuring-a-test-environment-for-web-deployment.md)です。 標準的なステージング環境を構成する方法については、次を参照してください。[シナリオ: Web 配置用のステージング環境構成](scenario-configuring-a-staging-environment-for-web-deployment.md)です。
 
->[!div class="step-by-step"]
-[前へ](scenario-configuring-a-staging-environment-for-web-deployment.md)
-[次へ](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
+> [!div class="step-by-step"]
+> [前へ](scenario-configuring-a-staging-environment-for-web-deployment.md)
+> [次へ](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)

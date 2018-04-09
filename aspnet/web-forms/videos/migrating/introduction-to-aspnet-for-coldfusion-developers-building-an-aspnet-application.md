@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application
-title: "ASP.NET ColdFusion 開発者向けの概要: ASP.NET アプリケーションのビルド |Microsoft ドキュメント"
+title: 'ASP.NET ColdFusion 開発者向けの概要: ASP.NET アプリケーションのビルド |Microsoft ドキュメント'
 author: microsoft
-description: "この web キャストでは、経験豊富な ColdFusion 開発者を正確にどのようなことを明確に与え、空白のフォームから ASP.NET アプリケーションを構築する方法を示します."
+description: この web キャストでは、経験豊富な ColdFusion 開発者を正確にどのようなことを明確に与え、空白のフォームから ASP.NET アプリケーションを構築する方法を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/25/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application
 msc.type: video
-ms.openlocfilehash: 136bf42b32db280928f6d4d0c716b20a37c9c435
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e4b250bc43778356893095cbeabe927e5478cd68
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application"></a>ASP.NET ColdFusion 開発者向けの概要: ASP.NET アプリケーションのビルド
 ====================
@@ -24,8 +24,8 @@ ms.lasthandoff: 11/10/2017
 
 この web キャストでは、経験豊富な ColdFusion 開発者に何が関係する正確に明確な目的を与え、空白のフォームから ASP.NET アプリケーションを構築する方法を示します。
 
-[&#9654;です。ビデオでは (77 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application)
+[&#9654;ビデオでは (77 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application)
 
->[!div class="step-by-step"]
-[前へ](intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
-[次へ](interop-between-php-and-the-windows-platform.md)
+> [!div class="step-by-step"]
+> [前へ](intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
+> [次へ](interop-between-php-and-the-windows-platform.md)

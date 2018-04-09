@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
-title: "Web 開発のベスト プラクティス (Azure と実際のクラウド アプリのビルド) |Microsoft ドキュメント"
+title: Web 開発のベスト プラクティス (Azure と実際のクラウド アプリのビルド) |Microsoft ドキュメント
 author: MikeWasson
-description: "Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています."
+description: Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 52d6c941-2cd9-442f-9872-2c798d6d90cd
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 msc.type: authoredcontent
-ms.openlocfilehash: de536a0ca39cb752c0962f0c4ae36eb00b586bff
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4c43b256018d91e89b3427f90fc5c6cd018641f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Web 開発のベスト プラクティス (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -165,6 +165,6 @@ CDN:
 - [修正プログラム、サンプル アプリケーションのベスト プラクティス](the-fix-it-sample-application.md#bestpractices)です。 この電子書籍の付録には、修正、アプリケーションで実装されたベスト プラクティスの数が一覧表示します。
 - [Web 開発者のチェックリスト](http://webdevchecklist.com/asp.net)
 
->[!div class="step-by-step"]
-[前へ](continuous-integration-and-continuous-delivery.md)
-[次へ](single-sign-on.md)
+> [!div class="step-by-step"]
+> [前へ](continuous-integration-and-continuous-delivery.md)
+> [次へ](single-sign-on.md)

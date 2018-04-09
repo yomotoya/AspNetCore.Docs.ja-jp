@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-razor-syntax-c
-title: "Razor 構文 (c#) を使用して ASP.NET Web プログラミングの概要 |Microsoft ドキュメント"
+title: Razor 構文 (c#) を使用して ASP.NET Web プログラミングの概要 |Microsoft ドキュメント
 author: tfitzmac
-description: "この章では、するプログラミングの概要については ASP.NET Web Pages を Razor 構文を使用します。 動的な web の pa を実行するための Microsoft のテクノロジを ASP.NET には."
+description: この章では、するプログラミングの概要については ASP.NET Web Pages を Razor 構文を使用します。 動的な web の pa を実行するための Microsoft のテクノロジを ASP.NET には.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 32cdd8d524d783d7ccc3ab076de636ce4a868132
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 430033c06df74cc3661c40ca7f7bd9244cd257c9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor 構文 (c#) を使用して ASP.NET Web プログラミングの概要
 ====================
@@ -122,7 +122,7 @@ A*文字列*テキストとして扱われる文字のシーケンスです。 �
 
 ### <a name="6-code-is-case-sensitive"></a>6.コードは大文字小文字を区別
 
-C# の場合、キーワード (と同様に`var`、 `true`、および`if`) し、変数名では大文字小文字を区別します。 次のコード行が 2 つの異なる変数を作成する`lastName`と`LastName.`
+C# の場合、キーワード (と同様に`var`、 `true`、および`if`) し、変数名では大文字小文字を区別します。 次のコード行が 2 つの異なる変数を作成する`lastName`と `LastName.`
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample8.cshtml)]
 
@@ -134,7 +134,7 @@ C# の場合、キーワード (と同様に`var`、 `true`、および`if`) し
 
 ### <a name="7-much-of-your-coding-involves-objects"></a>7.コーディングのほとんどには、オブジェクトが含まれます
 
-*オブジェクト*プログラミングで使用できる点 &#8212; を表すページ、テキスト ボックス、ファイル、画像、web 要求、電子メール メッセージ、顧客レコード (データベースの行) などです。オブジェクトの特性を記述するプロパティがあり、読み取ることができます、または変更 &#8212;テキスト ボックスのオブジェクトが、 `Text` (など) のプロパティ、要求オブジェクトが、`Url`プロパティ、電子メール メッセージには、`From`プロパティ、および顧客オブジェクトが、`FirstName`プロパティです。 オブジェクトでは、実行されるメソッドもがある、&quot;動詞&quot;それらを実行できます。 例としては、ファイル オブジェクトの`Save`メソッドは、イメージ オブジェクトの`Rotate`メソッド、および電子メール オブジェクトの`Send`メソッドです。
+*オブジェクト*プログラミングで使用できることを表す&#8212;ページ、テキスト ボックス、ファイル、画像、web 要求、電子メール メッセージ、顧客レコード (データベースの行) などです。オブジェクトの特性を記述するプロパティがあると、読み取りまたは変更ができる&#8212;テキスト ボックスのオブジェクトが、 `Text` (など) のプロパティ、要求オブジェクトが、`Url`プロパティ、電子メール メッセージには、`From`プロパティ顧客オブジェクトには、`FirstName`プロパティです。 オブジェクトでは、実行されるメソッドもがある、&quot;動詞&quot;それらを実行できます。 例としては、ファイル オブジェクトの`Save`メソッドは、イメージ オブジェクトの`Rotate`メソッド、および電子メール オブジェクトの`Send`メソッドです。
 
 使って作業を多くの場合、`Request`オブジェクト (フォーム フィールド) のテキスト ボックスの値などの情報を提供する ページで、ブラウザーの種類は、要求、ページや、ユーザー id などの URL を作成します。次の例のプロパティにアクセスする方法を示しています、`Request`オブジェクトおよび呼び出す方法、`MapPath`のメソッド、`Request`オブジェクトで、サーバー上のページの絶対パスを表示します。
 
@@ -199,7 +199,7 @@ C# の場合、キーワード (と同様に`var`、 `true`、および`if`) し
 
 Razor 構文は、web ページで、サーバー ベースのコードを埋め込むための単純なプログラミング構文です。 Razor 構文を使用する web ページは、コンテンツの 2 つの種類: クライアントのコンテンツとサーバー コード。 クライアントにコンテンツを web ページを使用しているものは、: (要素) の HTML マークアップのスタイルを設定、CSS などの情報もなど、JavaScript、およびプレーン テキストの一部のクライアント スクリプトです。
 
-Razor 構文を使用して、このクライアント コンテンツをサーバー コードを追加できます。 ページにサーバー コードがある場合、サーバーは、ブラウザーにページを送信する前に最初に、そのコードを実行します。 サーバーで実行すると、コードは、ためにクライアント コンテンツを単独で、サーバー ベースのデータベースへのアクセスなどを使用してもっと複雑なことができるタスクを実行できます。 最も重要なは、サーバー コードを動的に作成クライアント コンテンツ &#8212;HTML マークアップまたはその他のコンテンツを即座に生成し、ページを含む可能性がある静的な HTML と共にブラウザーに送信できます。 ブラウザーのパースペクティブから、サーバー コードによって生成されたクライアント コンテンツはその他のクライアント コンテンツと違いはありません。 既に説明したように、サーバーが必要なコードは非常にシンプルです。
+Razor 構文を使用して、このクライアント コンテンツをサーバー コードを追加できます。 ページにサーバー コードがある場合、サーバーは、ブラウザーにページを送信する前に最初に、そのコードを実行します。 サーバーで実行すると、コードは、ためにクライアント コンテンツを単独で、サーバー ベースのデータベースへのアクセスなどを使用してもっと複雑なことができるタスクを実行できます。 最も重要なは、サーバー コードをクライアントにコンテンツを動的に作成&#8212;HTML マークアップまたはその他のコンテンツを即座に生成し、ページを含む可能性がある静的な HTML と共にブラウザーに送信します。 ブラウザーのパースペクティブから、サーバー コードによって生成されたクライアント コンテンツはその他のクライアント コンテンツと違いはありません。 既に説明したように、サーバーが必要なコードは非常にシンプルです。
 
 Razor 構文を含む ASP.NET web ページが特別なファイル拡張子を持つ (*.cshtml*または*.vbhtml*)。 サーバーは、これらの拡張機能を認識して、Razor 構文でマークされているし、ブラウザーにページを送信するコードを実行します。
 
@@ -224,7 +224,7 @@ Razor 構文を使用すると、専門知識をしているかどうかは、�
 
 ## <a name="basic-syntax"></a>基本構文
 
-サーバー コードを HTML マークアップを追加する方法と、ASP.NET Web Pages ページを作成する方法の基本的な例は前述です。 ここで、Razor 構文 &#8212; を使用して ASP.NET サーバー コードの記述の基本を学習します。プログラミング言語の規則では、します。
+サーバー コードを HTML マークアップを追加する方法と、ASP.NET Web Pages ページを作成する方法の基本的な例は前述です。 ここで、Razor 構文を使用して ASP.NET サーバー コードの記述の基本を学習&#8212;プログラミング言語の規則では、します。
 
 (特に C、C++、c#、Visual Basic、または JavaScript を使用した) 場合のプログラミングを使用した経験が場合、次を参照する新機能の多くについて理解されます。 習熟するのみでのマークアップにサーバー コードを追加する方法が必要*.cshtml*ファイル。
 
@@ -249,7 +249,7 @@ Razor 構文を使用すると、専門知識をしているかどうかは、�
     最初の例は、前の例を繰り返しますの 1 つのペアを使用して`<text>`タグをレンダリングするテキストを囲みます。 2 番目の例では、`<text>`と`</text>`タグがいくつか含まれていないテキストと一致しない HTML タグがあるすべての 3 つの行を囲みます (`<br />`)、およびサーバー コードと一致した HTML タグ。 もう一度、ごとに 1 行の前でしたも、`@:`演算子以外のいずれかの方法の動作です。
 
     > [!NOTE]
-    > ここで &#8212; のようにテキストを出力する場合HTML 要素を使用して、`@:`演算子、または`<text>`要素 &#8212;ASP.NET に、HTML エンコード、出力をしません。 (ASP.NET はサーバーのコード式と末尾に挿入されるサーバー コード ブロックの出力はエンコード前に述べたよう`@`、このセクションで説明した特殊なケースでは可します)。
+    > このセクションで示すようにテキストを出力するときに&#8212;、HTML 要素を使用して、`@:`演算子、または`<text>`要素&#8212;ASP.NET は HTML エンコード出力します。 (ASP.NET はサーバーのコード式と末尾に挿入されるサーバー コード ブロックの出力はエンコード前に述べたよう`@`、このセクションで説明した特殊なケースでは可します)。
 
 ### <a name="whitespace"></a>Whitespace
 
@@ -343,33 +343,35 @@ ASP.NET はこのデータ型を自動的に決定できますは通常があり
 
 次の表は、変数の一般的ないくつかの変換とテスト方法を示します。
 
-| **メソッド** | **説明** | **例** |
-| --- | --- | --- |
-| `AsInt(), IsInt()` | 整数 (「593」) のような自然数を表す文字列に変換します。 | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)] |
-| `AsBool(), IsBool()` | ように文字列に変換します&quot;true&quot;または&quot;false&quot; Boolean 型にします。 | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)] |
-| `AsFloat(), IsFloat()` | ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を浮動小数点数。 | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)] |
-| `AsDecimal(), IsDecimal()` | ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を 10 進数。 (ASP.NET では、10 進数は、浮動小数点数よりも正確です。) | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)] |
-| `AsDateTime(), IsDateTime()` | Asp.net の日付と時刻の値を表す文字列に変換します`DateTime`型です。 | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)] |
-| `ToString()` | その他の任意のデータ型を文字列に変換します。 | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)] |
+
+|   <strong>メソッド</strong>    |                                                                              <strong>説明</strong>                                                                              |                         <strong>例</strong>                         |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+|      `AsInt(), IsInt()`      |                                                      整数 (「593」) のような自然数を表す文字列に変換します。                                                      |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]   |
+|     `AsBool(), IsBool()`     |                                                    ように文字列に変換します&quot;true&quot;または&quot;false&quot; Boolean 型にします。                                                     |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]   |
+|    `AsFloat(), IsFloat()`    |                                    ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を浮動小数点数。                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]   |
+|  `AsDecimal(), IsDecimal()`  | ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を 10 進数。 (ASP.NET では、10 進数は、浮動小数点数よりも正確です。) |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]   |
+| `AsDateTime(), IsDateTime()` |                                                Asp.net の日付と時刻の値を表す文字列に変換します`DateTime`型です。                                                 |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]   |
+|         `ToString()`         |                                                                       その他の任意のデータ型を文字列に変換します。                                                                        | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)] |
 
 ## <a name="operators"></a>演算子
 
 演算子は、キーワードまたは ASP.NET を式の中で実行するコマンドの種類を示す文字です。 C# 言語 (および基になる Razor 構文) は、多くの演算子をサポートしますが、のみ開始するいくつかを認識する必要があります。 次の表は、最も一般的な演算子をまとめたものです。
 
-| **Operator** | **説明** | **例** |
-| --- | --- | --- |
-| `+` `-` `*` `/` | 算術演算子: 数値式で使用します。 | [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)] |
-| `=` | 代入。 左側にあるオブジェクトにステートメントの右側にある値を割り当てます。 | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)] |
-| `==` | 等値。 返します`true`値が等しい場合。 (上での違いに注意してください、`=`演算子および`==`演算子です)。 | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)] |
-| `!=` | 非等値。 返します`true`値が等しくない場合。 | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)] |
-| `< > <= >=` | 以下のより大きい-より、以下によりも-または-等しく、大きい-よりも-または-等しいかどうか。 | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)] |
-| `+` | 連結、文字列の結合に使用します。 ASP.NET では、この演算子と式のデータ型に基づいて、加算演算子の違いを認識します。 | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)] |
-| `+=` `-=` | インクリメントとデクリメント演算子を追加し、変数から 1 をそれぞれ減算します。 | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)] |
-| `.` | ドットします。 オブジェクトとそのプロパティおよびメソッドを区別するために使用されます。 | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)] |
-| `()` | かっこです。 グループ式とをメソッドにパラメーターを渡すために使用します。 | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)] |
-| `[]` | 角かっこです。 配列またはコレクション内の値にアクセスするために使用します。 | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)] |
-| `!` | じゃない。 逆に、`true`値を`false`およびその逆です。 通常、テストするための短縮形方法として使用`false`(用には、いない`true`)。 | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)] |
-| `&&` <code>&#124;&#124;</code> | 論理 AND 条件をまとめてリンクに使用されるかとします。 | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)] |
+
+|   <strong>Operator</strong>    |                                                                     <strong>説明</strong>                                                                     |                        <strong>例</strong>                         |
+|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+|        `+` `-` `*` `/`         |                                                            算術演算子: 数値式で使用します。                                                             |    [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]    |
+|              `=`               |                                    代入。 左側にあるオブジェクトにステートメントの右側にある値を割り当てます。                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]   |
+|              `==`              |                      等値。 返します`true`値が等しい場合。 (上での違いに注意してください、`=`演算子および`==`演算子です)。                      |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]   |
+|              `!=`              |                                                       非等値。 返します`true`値が等しくない場合。                                                        |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]   |
+|          `< > <= >=`           |                                               以下のより大きい-より、以下によりも-または-等しく、大きい-よりも-または-等しいかどうか。                                                |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]   |
+|              `+`               | 連結、文字列の結合に使用します。 ASP.NET では、この演算子と式のデータ型に基づいて、加算演算子の違いを認識します。 |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]   |
+|           `+=` `-=`            |                                   インクリメントとデクリメント演算子を追加し、変数から 1 をそれぞれ減算します。                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]   |
+|              `.`               |                                                  ドットします。 オブジェクトとそのプロパティおよびメソッドを区別するために使用されます。                                                  |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]   |
+|              `()`              |                                              かっこです。 グループ式とをメソッドにパラメーターを渡すために使用します。                                               | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)] |
+|              `[]`              |                                                    角かっこです。 配列またはコレクション内の値にアクセスするために使用します。                                                     |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]   |
+|              `!`               |               じゃない。 逆に、`true`値を`false`およびその逆です。 通常、テストするための短縮形方法として使用`false`(用には、いない`true`)。               |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]   |
+| `&&` <code>&#124;&#124;</code> |                                                   論理 AND 条件をまとめてリンクに使用されるかとします。                                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]   |
 
 <a id="ID_WorkingWithFileAndFolderPaths"></a>
 ## <a name="working-with-file-and-folder-paths-in-code"></a>ファイルとフォルダーのパス コードでの操作
@@ -461,7 +463,7 @@ ASP.NET サーバー コードでは、条件に基づいて、タスクを実�
 
 ループはで始まり、`for`キーワード、丸かっこ、3 つのステートメントに続くそれぞれをセミコロンで終了します。
 
-- 最初のステートメントでかっこの内側 (`var i=10;`) カウンターを作成し、10 を初期化します。 カウンターの名前を付ける必要はありません`i`&#8212; 任意の変数を使用することができます。 ときに、`for`ループが実行される、カウンターが自動的にインクリメントされます。
+- 最初のステートメントでかっこの内側 (`var i=10;`) カウンターを作成し、10 を初期化します。 カウンターの名前を付ける必要はありません`i`&#8212;任意の変数を使用することができます。 ときに、`for`ループが実行される、カウンターが自動的にインクリメントされます。
 - 2 番目のステートメント (`i < 21;`) をカウントするどの程度の条件を設定します。 ここでは、希望に最大 20 まで移動する (つまり、読み進めて、カウンターが 21 未満)。
 - 3 番目のステートメント (`i++` ) は、インクリメント演算子、単に 1 が加算、ループが実行されるたびにカウンターを使用するを指定します。
 
@@ -515,7 +517,7 @@ A*コレクション*のコレクションなど、同じ種類のオブジェ�
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample59.cshtml)]
 
-配列、特定のデータ型を宣言するなど`string`、 `int`、または`DateTime`です。 変数が配列を含めることができます、宣言に角かっこを追加することを示すために (など`string[]`または`int[]`)。 アイテムの位置 (インデックス) を使用して配列またはを使用してアクセスできます、`foreach`ステートメントです。 配列のインデックスは 0 から始まる &#8212;つまり、最初の項目がある位置 0、2 番目の項目位置は 1 とにします。
+配列、特定のデータ型を宣言するなど`string`、 `int`、または`DateTime`です。 変数が配列を含めることができます、宣言に角かっこを追加することを示すために (など`string[]`または`int[]`)。 アイテムの位置 (インデックス) を使用して配列またはを使用してアクセスできます、`foreach`ステートメントです。 配列のインデックスは 0 から始まる&#8212;は、最初の項目がある位置 0、2 番目の項目位置は 1 というようにします。
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample60.cshtml)]
 
@@ -549,7 +551,7 @@ A*コレクション*のコレクションなど、同じ種類のオブジェ�
 
 このメソッドは、指定した仮想パスに対応するサーバーの物理パスを返します。 次の 3 つのパラメーター、メソッドは、 `virtualPath`、 `baseVirtualDir`、および`allowCrossAppMapping`です。 (宣言では、パラメーターが表示されることを承諾するデータのデータ型とに注意してください)。このメソッドを呼び出すときに、次の 3 つのすべてのパラメーターの値を指定してください。
 
-Razor 構文は、メソッドにパラメーターを渡すための 2 つのオプションを使用:*位置指定パラメーター*と*名前付きパラメーター*です。 位置指定パラメーターを使用して、メソッドを呼び出すには、メソッドの宣言で指定されている厳密な順序でパラメーターを渡します。 (通常わかりますこの順序メソッドのドキュメントを読み取ることによってです。)注文を行う必要があり、パラメーターのいずれかの &#8212; をスキップすることはできません。かどうか必要に応じて、空の文字列を渡す (`""`) または`null`位置指定パラメーターの値がないためです。
+Razor 構文は、メソッドにパラメーターを渡すための 2 つのオプションを使用:*位置指定パラメーター*と*名前付きパラメーター*です。 位置指定パラメーターを使用して、メソッドを呼び出すには、メソッドの宣言で指定されている厳密な順序でパラメーターを渡します。 (通常わかりますこの順序メソッドのドキュメントを読み取ることによってです。)、順序に従う必要があります、パラメーターのいずれかをスキップすることはできませんと&#8212;かどうか必要に応じて、空の文字列を渡す (`""`) または`null`位置指定パラメーターの値がないためです。
 
 次の例は、という名前のフォルダーがある前提としています。*スクリプト*、web サイトにします。 コードの呼び出し、`Request.MapPath`メソッドとパスの値が正しい順序で 3 つのパラメーターです。 結果のマップされたパスが表示されます。
 
@@ -568,7 +570,7 @@ Razor 構文は、メソッドにパラメーターを渡すための 2 つの�
 
 ### <a name="try-catch-statements"></a>Try-catch ステートメント
 
-ステートメントは、上の理由から、コントロールの外部できない可能性があるコードの多くの場合があります。 例:
+ステートメントは、上の理由から、コントロールの外部できない可能性があるコードの多くの場合があります。 例えば:
 
 - コードを作成またはファイルにアクセスしようとすると、あらゆる種類のエラーが表示される場合があります。 目的のファイルが存在しない可能性があります、ロックされる可能性があります、コード可能性がありますいないアクセス許可を持つし、なります。
 - 同様に、コードでは、データベース内のレコードを更新しようとすると、アクセス許可の問題があります、データベースへの接続を削除する場合があります、無効な場合とに、データを保存する場合があります。

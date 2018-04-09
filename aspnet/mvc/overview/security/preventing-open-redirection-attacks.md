@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/preventing-open-redirection-attacks
-title: "開いているリダイレクト攻撃 (c#) |Microsoft ドキュメント"
+title: 開いているリダイレクト攻撃 (c#) |Microsoft ドキュメント
 author: jongalloway
-description: "このチュートリアルでは、ASP.NET MVC アプリケーションで開いているリダイレクト攻撃を防止する方法について説明します。 このチュートリアルでは、加えられた変更について説明しています."
+description: このチュートリアルでは、ASP.NET MVC アプリケーションで開いているリダイレクト攻撃を防止する方法について説明します。 このチュートリアルでは、加えられた変更について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 17944c0600a174176e3e9940f414b34f0835b800
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ec1cd1791eb6d32e7c1ea50bc6626929cad2960e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="preventing-open-redirection-attacks-c"></a>開いているリダイレクト攻撃 (c#)
 ====================
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/30/2018
 
 **図 01**: 開いているリダイレクトとログイン ページ
 
-ReturnUrl querystring パラメーターが検証されていないため、攻撃者は、開いているリダイレクト攻撃を実行するためにパラメーターに任意の URL アドレスを挿入することを変更できます。 ReturnUrl パラメーターを示すためには、変更できる[http://bing.com ](http://bing.com) /アカウント/ログオン結果のログイン URL になるよう、? ReturnUrl http://www.bing.com/ を = です。 ログインすると、サイトに、私たちにリダイレクト[http://bing.com](http://bing.com)です。このリダイレクトが検証されていないため代わりに、ユーザーを騙そうしようとする悪意のあるサイトを指している可能性があります。
+ReturnUrl querystring パラメーターが検証されていないため、攻撃者は、開いているリダイレクト攻撃を実行するためにパラメーターに任意の URL アドレスを挿入することを変更できます。 これを示すためには、ReturnUrl パラメーターを変更できる[ http://bing.com](http://bing.com)ので、結果として得られるログイン URL になります/アカウント/ログオンですか?ReturnUrl =<http://www.bing.com/>です。 ログインすると、サイトに、私たちにリダイレクト[ http://bing.com](http://bing.com)です。このリダイレクトが検証されていないため代わりに、ユーザーを騙そうしようとする悪意のあるサイトを指している可能性があります。
 
 ### <a name="a-more-complex-open-redirection-attack"></a>複雑なオープン リダイレクト攻撃
 
@@ -55,7 +55,7 @@ ReturnUrl querystring パラメーターが検証されていないため、攻�
 
 **図 02**: 開いているリダイレクトと NerdDinner ログイン ページ
 
-ログイン時に正しく、ASP.NET MVC AccountController のログオン操作は私たちを returnUrl querystring パラメーターで指定された URL にリダイレクトします。 この場合、これは、攻撃者が入った URL は[http://nerddiner.com/Account/LogOn](http://nerddiner.com/Account/LogOn)です。 私たちは、攻撃者ことを確認するように注意されているため特にお気付きませんこれには、多くの場合は、非常に高く万一しない限り、偽造ページは、正当なログイン ページと同じように検索します。 このログイン ページには、もう一度ログインして要求するエラー メッセージが含まれています。 扱いにくい、パスワードを間違ってお必要があります。
+ログイン時に正しく、ASP.NET MVC AccountController のログオン操作は私たちを returnUrl querystring パラメーターで指定された URL にリダイレクトします。 この場合、これは、攻撃者が入った URL は[ http://nerddiner.com/Account/LogOn](http://nerddiner.com/Account/LogOn)です。 私たちは、攻撃者ことを確認するように注意されているため特にお気付きませんこれには、多くの場合は、非常に高く万一しない限り、偽造ページは、正当なログイン ページと同じように検索します。 このログイン ページには、もう一度ログインして要求するエラー メッセージが含まれています。 扱いにくい、パスワードを間違ってお必要があります。
 
 [![](preventing-open-redirection-attacks/_static/image6.png)](preventing-open-redirection-attacks/_static/image5.png)
 
@@ -67,13 +67,13 @@ ReturnUrl querystring パラメーターが検証されていないため、攻�
 
 ASP.NET MVC 2 アプリケーションのログオン操作のコードは、以下に示します。 ログインに成功すると、コント ローラーに返されるリダイレクト returnUrl に注意してください。 ReturnUrl パラメーターに対して検証を実行するないことを確認できます。
 
-**1 – で ASP.NET MVC 2 のログオン操作を一覧表示します。`AccountController.cs`**
+**1 – で ASP.NET MVC 2 のログオン操作を一覧表示します。 `AccountController.cs`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample1.cs)]
 
 これで、ASP.NET MVC 3 のログオン操作への変更を見てみましょう。 このコードがという名前の System.Web.Mvc.Url ヘルパー クラスの新しいメソッドを呼び出すことによって returnUrl パラメーターの検証に変更された`IsLocalUrl()`です。
 
-**2 – で ASP.NET MVC 3 のログオン操作を一覧表示します。`AccountController.cs`**
+**2 – で ASP.NET MVC 3 のログオン操作を一覧表示します。 `AccountController.cs`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample2.cs)]
 
@@ -85,7 +85,7 @@ IsLocalUrl() ヘルパー メソッドを追加し、returnUrl パラメータ�
 
 この検証として、System.Web.WebPages 内のメソッドを呼び出す実際には、UrlHelper IsLocalUrl() メソッドは、ASP.NET Web Pages アプリケーションによっても使用されます。
 
-**3 – ASP.NET MVC 3 UrlHelper から IsLocalUrl() メソッドを一覧表示します。`class`**
+**3 – ASP.NET MVC 3 UrlHelper から IsLocalUrl() メソッドを一覧表示します。 `class`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample3.cs)]
 
@@ -107,7 +107,7 @@ IsLocalUrl() メソッドは、配置では、これでお呼び出すことが�
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample6.cs)]
 
-外部戻り先 URL を使用してログインしようとして、開いているリダイレクト攻撃をテストできます。 使用して、アカウント/ログオン? ReturnUrl http://www.bing.com/ をもう一度 = です。
+外部戻り先 URL を使用してログインしようとして、開いているリダイレクト攻撃をテストできます。 /Account/LogOn を利用してみましょう。ReturnUrl =<http://www.bing.com/>もう一度です。
 
 [![](preventing-open-redirection-attacks/_static/image8.png)](preventing-open-redirection-attacks/_static/image7.png)
 

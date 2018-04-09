@@ -1,18 +1,18 @@
 ---
-title: "ASP.NET Core で応答のキャッシュ"
+title: ASP.NET Core で応答のキャッシュ
 author: rick-anderson
-description: "ASP.NET Core アプリケーションのパフォーマンスを向上させるし、応答の下の帯域幅要件にキャッシュを使用する方法について説明します。"
+description: ASP.NET Core アプリケーションのパフォーマンスを向上させるし、応答の下の帯域幅要件にキャッシュを使用する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: c654cfd7c2d291849067bfd3297f940018ccb3d8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cc1ec50155398ba4143a2bf697ca26435c228c49
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core で応答のキャッシュ
 
@@ -64,13 +64,13 @@ ms.lasthandoff: 03/02/2018
 
 キャッシュされたデータを格納するのにサーバーのメモリを使用するメモリ内キャッシュします。 この種類のキャッシュは 1 台のサーバーまたは複数のサーバーを使用するのに適した*スティッキー セッション*です。 スティッキー セッションでは、クライアントからの要求を処理するため、同じサーバーに常にルーティングされることを意味します。
 
-詳細については、次を参照してください。 [ASP.NET Core でのメモリ内キャッシュの概要](xref:performance/caching/memory)です。
+詳細については、次を参照してください。[メモリ内キャッシュ](xref:performance/caching/memory)です。
 
 ### <a name="distributed-cache"></a>分散キャッシュ
 
 分散キャッシュを使用して、アプリが、クラウド サーバー ファームでホストされている場合は、データをメモリに格納します。 キャッシュは、要求を処理するサーバー間で共有されます。 クライアントは、クライアントのキャッシュされたデータが使用可能な場合は、グループ内のサーバーによって処理される要求を送信できます。 ASP.NET Core は、SQL Server と分散 Redis キャッシュを提供します。
 
-詳細については、次を参照してください。[分散キャッシュの使用](xref:performance/caching/distributed)です。
+詳細については、次を参照してください。[分散キャッシュを使用して作業](xref:performance/caching/distributed)です。
 
 ### <a name="cache-tag-helper"></a>キャッシュ タグ ヘルパー
 
@@ -128,7 +128,7 @@ ms.lasthandoff: 03/02/2018
 
 場合`NoStore`は`false`と`Location`は`None`、`Cache-Control`と`Pragma`に設定されている`no-cache`です。
 
-通常は設定`NoStore`に`true`エラー ページにします。 例:
+通常は設定`NoStore`に`true`エラー ページにします。 例えば:
 
 [!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
 
@@ -180,7 +180,7 @@ Cache-Control: public,max-age=60
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [指定から HTTP でのキャッシュ](https://tools.ietf.org/html/rfc7234#section-3)
+* [応答のキャッシュに格納](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [メモリ内キャッシュ](xref:performance/caching/memory)
 * [分散キャッシュの使用](xref:performance/caching/distributed)

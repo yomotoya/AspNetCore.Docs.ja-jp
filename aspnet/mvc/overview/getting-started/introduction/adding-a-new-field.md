@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/introduction/adding-a-new-field
-title: "新しいフィールドを追加する |Microsoft ドキュメント"
+title: 新しいフィールドを追加する |Microsoft ドキュメント
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 453fbf68aa2f3a1d9ea708355c06c53d4f1eabd0
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 0dac798eba586cdcc232cedd262e610b954004df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-field"></a>新しいフィールドの追加
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 このセクションでは、データベースに、変更が適用されるため、モデル クラスにいくつかの変更を移行するのに Entity Framework Code First Migrations を使用します。
 
@@ -62,7 +62,7 @@ Visual Studio を開き、*される Configuration.cs*ファイル。 置換、`
 
 [!code-csharp[Main](adding-a-new-field/samples/sample2.cs)]
 
-> [!NOTE] 
+> [!NOTE]
 > 
 > Code First Migrations 呼び出し、`Seed`メソッドすべての移行した後に (つまり、呼び出し**データベースを更新**パッケージ マネージャー コンソールで)、このメソッドは既に挿入されている、または場合に、それらを挿入する行を更新し、まだ存在していません。
 > 
@@ -71,15 +71,15 @@ Visual Studio を開き、*される Configuration.cs*ファイル。 置換、`
 > [!code-csharp[Main](adding-a-new-field/samples/sample3.cs)]
 > 
 > [シード](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx)メソッドは、すべての移行が実行され、追加しようとしている行が既にありますデータベースを作成する最初の移行後にあるため、データを挿入することはできませんだけです。 "[Upsert](http://en.wikipedia.org/wiki/Upsert)"操作が既に存在する行を挿入しようとする場合に発生するとエラーを防ぐことが、アプリケーションのテスト中に対して行ったデータに対する変更を上書きします。 いくつかのテーブルでのテスト データを使用しない場合発生すること。 場合によってはテスト中にデータを変更すると、変更するデータベースの更新後に残します。 条件付きの挿入操作を実行する場合: 存在しない場合にのみ行を挿入します。   
->   
+> 
 > 渡される最初のパラメーター、 [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドが使用して、行が既に存在するかどうかを確認するプロパティを指定します。 次の情報を提供して、テストのムービー データの`Title`一意では、リスト内の各タイトルために、この目的のプロパティを使用できます。
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample4.cs)]
 > 
 > このコードでは、タイトルが一意であることを前提としています。 タイトルの重複を手動で追加する場合は、次回の移行を実行する次の例外が表示されます。   
->   
+> 
 >  *シーケンスには、複数の要素が含まれています。*  
->   
+> 
 > 詳細については、 [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx)メソッドを参照してください[EF 4.3 AddOrUpdate メソッドを使用して注意](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/).
 
 
@@ -135,7 +135,7 @@ Code First Migrations で別のクラス ファイルの作成、*移行*フォ�
 
 ![](adding-a-new-field/_static/image9.png)  
   
-データベースが作成されたために、'MovieDBContext' コンテキストのバックアップ モデルが変更されました。 Code First Migrations を使用して、データベース (https://go.microsoft.com/fwlink/?LinkId=238269) を更新することを検討してください。
+データベースが作成されたために、'MovieDBContext' コンテキストのバックアップ モデルが変更されました。 Code First Migrations を使用して、データベースを更新するを検討してください (https://go.microsoft.com/fwlink/?LinkId=238269)です。
 
 ![](adding-a-new-field/_static/image10.png)
 
@@ -191,6 +191,6 @@ Code First Migrations で別のクラス ファイルの作成、*移行*フォ�
 
 このセクションではモデル オブジェクトを変更し、データベースの変更との同期を維持する方法を説明しました。 また、シナリオを実行するためのサンプル データ、新しく作成されたデータベースに設定する方法も学習しました。 これが Code First に概要を参照してください[、ASP.NET MVC アプリケーション用の Entity Framework データ モデルを作成する](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)サブジェクトに関するより詳細なチュートリアルについてはします。 次に、モデル クラスをより詳細な検証ロジックを追加し、適用するビジネス ルールの一部を有効にする方法を見てみましょう。
 
->[!div class="step-by-step"]
-[前へ](adding-search.md)
-[次へ](adding-validation.md)
+> [!div class="step-by-step"]
+> [前へ](adding-search.md)
+> [次へ](adding-validation.md)

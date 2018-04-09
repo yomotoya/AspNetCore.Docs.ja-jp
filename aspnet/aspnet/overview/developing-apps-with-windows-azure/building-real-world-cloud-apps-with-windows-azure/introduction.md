@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
-title: "Azure での実際のクラウド アプリの構築 |Microsoft ドキュメント"
+title: Azure での実際のクラウド アプリの構築 |Microsoft ドキュメント
 author: MikeWasson
-description: "この電子書籍を紹介パターン ベースのアプローチを実際のクラウド ソリューションを構築します。 パターンを適用するために、開発プロセスもとして、."
+description: この電子書籍を紹介パターン ベースのアプローチを実際のクラウド ソリューションを構築します。 パターンを適用するために、開発プロセスもとして、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 4de0b52e0b4ae7ce00e7b07bce2decfc5068964a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5a62818a2dc21128bb0a42a8b296ade460e7b060
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-real-world-cloud-apps-with-azure"></a>Azure での実際のクラウド アプリの構築
 ====================
@@ -60,7 +60,7 @@ Scott Guthrie のマークされている人*現実世界クラウド アプリ�
     - ステートレス web 層を保持します。
     - デモ: はスケーリングと Azure App service Web アプリでの自動スケーリングします。
     - セッション状態を回避します。
-    - CDN を使用します。
+    - CDN が利用できない場合は、フォールバック CDN を使用します。
     - 非同期プログラミング モデルを使用します。
     - ASP.NET MVC および Entity Framework でのデモ: 非同期です。
 - [シングル サインオン](single-sign-on.md)です。 
@@ -177,5 +177,5 @@ Scott Guthrie のマークされている人*現実世界クラウド アプリ�
 - [Web サイト アーキテクチャ - Stefan Schackow](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/)です。
 - [Nir Mashkowski と azure の Web サイトの内部構造](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski)です。
 
->[!div class="step-by-step"]
-[次へ](automate-everything.md)
+> [!div class="step-by-step"]
+> [次へ](automate-everything.md)

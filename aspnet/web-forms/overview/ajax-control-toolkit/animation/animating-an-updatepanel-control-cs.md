@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
-title: "UpdatePanel コントロール (c#) をアニメーション化 |Microsoft ドキュメント"
+title: UpdatePanel コントロール (c#) をアニメーション化 |Microsoft ドキュメント
 author: wenz
-description: "アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 内容を."
+description: アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 内容を.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7e6d8954d2ec886994cdd723121e540b471131f6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5d8d5b9c3f15b39045b5e01b455bdddfc9443a24
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="animating-an-updatepanel-control-c"></a>UpdatePanel コントロール (c#) をアニメーション化
 ====================
@@ -43,8 +43,8 @@ ms.lasthandoff: 11/10/2017
 
 マークアップのために必要な`UpdatePanelAnimationExtender`コントロールを使用するマークアップを非常に似ていますが、`AnimationExtender`です。 `TargetControlID`属性を指定した、`ID`の`UpdatePanel`; アニメーション化する内で、`UpdatePanelAnimationExtender`コントロール、`<Animations>`要素は、アニメーションの XML マークアップを保持します。 1 つの違い: イベントとイベント ハンドラーの量は、比較する限られた`AnimationExtender`です。 `UpdatePanels`、2 つだけに存在します。
 
-- `<OnUpdated>`UpdatePanel が更新されたとき
-- `<OnUpdating>`UpdatePanel が更新を開始する場合
+- `<OnUpdated>` UpdatePanel が更新されたとき
+- `<OnUpdating>` UpdatePanel が更新を開始する場合
 
 このシナリオでは、新しい内容で、 `UpdatePanel` (ポストバック) の後のフェードインいてはいけない。 必要なマークアップを次に示します。
 
@@ -57,6 +57,6 @@ ms.lasthandoff: 11/10/2017
 
 ウィザードの次の手順がフェードイン ([フルサイズのイメージを表示するをクリックして](animating-an-updatepanel-control-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](changing-an-animation-using-client-side-code-cs.md)
-[次へ](dynamically-controlling-updatepanel-animations-cs.md)
+> [!div class="step-by-step"]
+> [前へ](changing-an-animation-using-client-side-code-cs.md)
+> [次へ](dynamically-controlling-updatepanel-animations-cs.md)

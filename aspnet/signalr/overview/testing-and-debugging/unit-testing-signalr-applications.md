@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/testing-and-debugging/unit-testing-signalr-applications
-title: "単体テストの SignalR アプリケーションを |Microsoft ドキュメント"
+title: 単体テストの SignalR アプリケーションを |Microsoft ドキュメント
 author: pfletcher
-description: "この記事では、SignalR 2.0 の単体テスト機能を使用する方法について説明します。"
+description: この記事では、SignalR 2.0 の単体テスト機能を使用する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: d767e1a9d27670387133e5a48a8f92f5bdd39d9e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cff866716cb1179e02b930f33cb0f8c33d4a6cf0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="unit-testing-signalr-applications"></a>単体テストの SignalR アプリケーション
 ====================
@@ -72,11 +72,11 @@ SignalR 2 で単体テスト機能を使用して SignalR アプリケーショ�
     ![プロジェクト参照を追加します。](unit-testing-signalr-applications/_static/image3.png)
 6. SignalR、Moq、XUnit パッケージを追加、 **TestLibrary**プロジェクト。 **Package Manager Console**、設定、**プロジェクトの既定の**ドロップダウンを**TestLibrary**です。 コンソール ウィンドウで、次のコマンドを実行します。
 
-    - `Install-Package Microsoft.AspNet.SignalR`
-    - `Install-Package Moq`
-    - `Install-Package XUnit`
+   - `Install-Package Microsoft.AspNet.SignalR`
+   - `Install-Package Moq`
+   - `Install-Package XUnit`
 
-    ![パッケージをインストールします。](unit-testing-signalr-applications/_static/image4.png)
+     ![パッケージをインストールします。](unit-testing-signalr-applications/_static/image4.png)
 7. テスト ファイルを作成します。 右クリックし、 **TestLibrary**プロジェクトし、クリックして**追加しています.**、**クラス**です。 新しいクラスの名前を**Tests.cs**です。
 8. Tests.cs の内容を次のコードに置き換えます。
 

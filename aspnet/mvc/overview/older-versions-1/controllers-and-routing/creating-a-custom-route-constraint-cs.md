@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-cs
-title: "カスタム ルート制約 (c#) を作成する |Microsoft ドキュメント"
+title: カスタム ルート制約 (c#) を作成する |Microsoft ドキュメント
 author: StephenWalther
-description: "Stephen Walther では、カスタム ルート制約を作成する方法について説明します。 単純な実装により、ルートを防止するカスタムの制約に一致する w."
+description: Stephen Walther では、カスタム ルート制約を作成する方法について説明します。 単純な実装により、ルートを防止するカスタムの制約に一致する w.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c31ba3382b9dbe22a6826b9f858944c223efdd9d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4c120a102b117433b6774f2ea7800f1c4a609f8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-custom-route-constraint-c"></a>カスタム ルート制約 (c#) を作成します。
 ====================
@@ -53,6 +53,6 @@ Localhost の制約は、管理者ルートの定義で使用されます。 こ
 
 既定のルート コメント アウトされています、Global.asax ファイルを一覧表示する 2 からに注意してください。 既定のルートを含める場合、既定のルートは、管理コント ローラーに対する要求を一致します。 その場合は、場合でも、その要求が管理者ルートを一致せず、リモート ユーザーは管理コント ローラーのアクションを呼び出すまだでした。
 
->[!div class="step-by-step"]
-[前へ](creating-a-route-constraint-cs.md)
-[次へ](asp-net-mvc-controller-overview-vb.md)
+> [!div class="step-by-step"]
+> [前へ](creating-a-route-constraint-cs.md)
+> [次へ](asp-net-mvc-controller-overview-vb.md)

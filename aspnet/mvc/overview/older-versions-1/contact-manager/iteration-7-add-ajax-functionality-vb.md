@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-vb
-title: "イテレーション #7 – 追加の Ajax 機能 (VB) |Microsoft ドキュメント"
+title: 'イテレーション #7 – 追加の Ajax 機能 (VB) |Microsoft ドキュメント'
 author: microsoft
-description: "7 番目のイテレーションでお、応答性およびパフォーマンスの向上、アプリケーションの Ajax のサポートを追加することで。"
+description: 7 番目のイテレーションでお、応答性およびパフォーマンスの向上、アプリケーションの Ajax のサポートを追加することで。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fa50fdea8ac165be3f8e96322ec049196a511ebe
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 35d961ee39d7b87a31c7208645148b45c7b0c563
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-7--add-ajax-functionality-vb"></a>イテレーション #7 – 追加の Ajax 機能 (VB)
 ====================
@@ -112,7 +112,7 @@ JavaScript をサポートするブラウザーで、連絡先のマネージャ
 
 更新されたインデックス ビューは、一覧表示する 2 に含まれます。
 
-**2 - Views\Contact\Index.aspx を一覧表示します。**
+**Listing 2 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample3.aspx)]
 
@@ -148,7 +148,7 @@ Index() アクションが Ajax 要求によって呼び出されたときにで
 
 アニメーション効果を作成する、Microsoft ASP.NET MVC フレームワークに含まれている jQuery ライブラリが使用されます。 更新されたインデックス ビューは、リスト 4 に含まれます。
 
-**4 - Views\Contact\Index.aspx を一覧表示します。**
+**Listing 4 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample6.aspx)]
 
@@ -176,7 +176,7 @@ ASP.NET AJAX ブラウザーの履歴、3 つの作業を行う必要があり�
 
 更新されたインデックス ビューは、リスト 5 に含まれます。
 
-**5 - Views\Contact\Index.aspx を一覧表示します。**
+**Listing 5 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample8.aspx)]
 
@@ -206,7 +206,7 @@ BeginContactList() メソッドは、連絡先グループをクリックした�
 
 [削除] リンクは、[contactlist] 部分に含まれます。 [Contactlist] 部分の更新バージョンは、6 の一覧に含まれます。
 
-**6 - Views\Contact\ContactList.ascx を一覧表示します。**
+**Listing 6 - Views\Contact\ContactList.ascx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample10.aspx)]
 
@@ -231,7 +231,7 @@ AjaxDelete() アクションは AcceptVerbs 属性で修飾します。 この�
 
 データベース レコードを削除した後は、削除されたレコードが含まれていない連絡先の更新の一覧を表示する必要があります。 AjaxDelete() メソッドは、[contactlist] 部分と連絡先の更新されたリストを返します。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このイテレーションでは、この連絡先のマネージャー アプリケーションに Ajax 機能を追加しました。 Ajax を使用して、応答性とアプリケーションのパフォーマンスが向上しました。
 
@@ -243,5 +243,5 @@ AjaxDelete() アクションは AcceptVerbs 属性で修飾します。 この�
 
 最後に、HTTP DELETE 操作をサポートする [削除] リンクを作成します。 Ajax の削除を実行する追加の削除の確認 ページを要求するユーザーを必要とせずにデータベース レコードを削除するユーザーが有効にします。
 
->[!div class="step-by-step"]
-[前へ](iteration-6-use-test-driven-development-vb.md)
+> [!div class="step-by-step"]
+> [前へ](iteration-6-use-test-driven-development-vb.md)

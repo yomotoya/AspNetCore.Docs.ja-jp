@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-35/how-do-i/how-do-i-use-the-new-entity-data-source
-title: "[How Do i:]新しいエンティティのデータ ソースを使用して |Microsoft ドキュメント"
+title: '[How Do i:]新しいエンティティのデータ ソースを使用して |Microsoft ドキュメント'
 author: divega
-description: "この入門ビデオ Diego ヴェガで取り上げます ASP.NET アプリケーションでエンティティ データ ソースを使用する方法。"
+description: この入門ビデオ Diego ヴェガで取り上げます ASP.NET アプリケーションでエンティティ データ ソースを使用する方法。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-use-the-new-entity-data-source
 msc.type: video
-ms.openlocfilehash: 12585def9bd271de2546ac653f1816806d808155
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7be77b4ea6b1af385cae261789fa46444dcdc78b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-use-the-new-entity-data-source"></a>[How Do i:]新しいエンティティ データ ソースを使用します。
 ====================
@@ -24,8 +24,8 @@ ms.lasthandoff: 11/10/2017
 
 この入門ビデオ Diego ヴェガで取り上げます ASP.NET アプリケーションでエンティティ データ ソースを使用する方法。
 
-[&#9654;です。ビデオでは (11 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-new-entity-data-source)
+[&#9654;ビデオでは (11 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-new-entity-data-source)
 
->[!div class="step-by-step"]
-[前へ](how-do-i-get-started-with-the-entity-framework.md)
-[次へ](how-do-i-serialize-a-graph-with-the-entity-framework.md)
+> [!div class="step-by-step"]
+> [前へ](how-do-i-get-started-with-the-entity-framework.md)
+> [次へ](how-do-i-serialize-a-graph-with-the-entity-framework.md)

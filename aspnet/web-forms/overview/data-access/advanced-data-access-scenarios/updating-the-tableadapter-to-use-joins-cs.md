@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-cs
-title: "使用する TableAdapter の更新に参加させます (c#) |Microsoft ドキュメント"
+title: 使用する TableAdapter の更新に参加させます (c#) |Microsoft ドキュメント
 author: rick-anderson
-description: "データベースを使用する場合は、複数のテーブルに分散される要求のデータに共通します。 2 つの異なるテーブルからデータを取得するにはいずれかを使用しています."
+description: データベースを使用する場合は、複数のテーブルに分散される要求のデータに共通します。 2 つの異なるテーブルからデータを取得するにはいずれかを使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1a24245a3c846d061a528d520f915b8eac3ff475
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: be74be8865b021be1f2e2d8181d2eb42cb74eb75
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-the-tableadapter-to-use-joins-c"></a>使用する TableAdapter の更新に参加させます (c#)
 ====================
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/24/2018
 A`JOIN`いくつかの条件に基づく別のテーブルからレコードを含む 1 つのテーブルからレコードをマージします。 たとえば、上記のクエリで、`LEFT JOIN Categories ON Categories.CategoryID = Products.CategoryID`をマージする各 SQL Server に指示カテゴリの製品レコードがレコードを`CategoryID`値に一致する製品の`CategoryID`値。 マージされた結果には、各製品カテゴリの対応するフィールドを使用することができます (など`CategoryName`)。
 
 > [!NOTE]
-> `JOIN`s はリレーショナル データベースからデータを照会する際によく使用されます。 初めて使用する場合、`JOIN`構文や使用法に関するもう少しを復習する必要があります、d をお勧め、 [SQL の Join チュートリアル](http://www.w3schools.com/sql/sql_join.asp)で[W3 学校](http://www.w3schools.com/)です。 また読み取り価値は、 [ `JOIN`基礎](https://msdn.microsoft.com/library/ms191517.aspx)と[サブクエリの基礎](https://msdn.microsoft.com/library/ms189575.aspx)のセクションでは、 [SQL オンライン ブック](https://msdn.microsoft.com/library/ms130214.aspx)です。
+> `JOIN` s はリレーショナル データベースからデータを照会する際によく使用されます。 初めて使用する場合、`JOIN`構文や使用法に関するもう少しを復習する必要があります、d をお勧め、 [SQL の Join チュートリアル](http://www.w3schools.com/sql/sql_join.asp)で[W3 学校](http://www.w3schools.com/)です。 また読み取り価値は、 [ `JOIN`基礎](https://msdn.microsoft.com/library/ms191517.aspx)と[サブクエリの基礎](https://msdn.microsoft.com/library/ms189575.aspx)のセクションでは、 [SQL オンライン ブック](https://msdn.microsoft.com/library/ms130214.aspx)です。
 
 
 `JOIN` S と相関サブクエリを両方使用できるその他のテーブルから関連するデータを取得する、そのヘッドをスクラッチおよび使用する方法を知り、多くの開発者は残されます。 すべて SQL エキスパートの I はほぼ同じことにしたことされない問題では性能とほぼ同じ実行プランを SQL Server が生成されます。 アドバイスは、次はおよびチームが最も慣れている手法を使用します。 このアドバイスを深めます後にこれらのエキスパートすぐに express の設定に注意してください。 その最もメリットのある`JOIN`相関サブクエリ経由で s。
@@ -96,7 +96,7 @@ TableAdapter がの値がない DataTable には、適切な列が、その`Inse
 **図 4**: `InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ (なし) に設定されます ([フルサイズのイメージを表示するをクリックして](updating-the-tableadapter-to-use-joins-cs/_static/image8.png))
 
 
-この欠点を回避するには、手動で提供できます SQL ステートメントとパラメーターを`InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ ウィンドウを使用してプロパティです。 またはに TableAdapter のメイン クエリを構成することによって開始でした*いない*を含める`JOIN`s。 これにより、 `INSERT`、 `UPDATE`、および`DELETE`うえで自動的に生成されるステートメントです。 ウィザードの完了後に、手動で更新すること、tableadapter`SelectCommand`そのが組み込まれているため、プロパティ ウィンドウから、`JOIN`構文です。
+この欠点を回避するには、手動で提供できます SQL ステートメントとパラメーターを`InsertCommand`、 `UpdateCommand`、および`DeleteCommand`プロパティ] ウィンドウを使用してプロパティです。 またはに TableAdapter のメイン クエリを構成することによって開始でした*いない*を含める`JOIN`s。 これにより、 `INSERT`、 `UPDATE`、および`DELETE`うえで自動的に生成されるステートメントです。 ウィザードの完了後に、手動で更新すること、tableadapter`SelectCommand`そのが組み込まれているため、プロパティ ウィンドウから、`JOIN`構文です。
 
 このアプローチは、中には不安定に非常がの場合、TableAdapter のメイン クエリをいつために、アドホック SQL クエリを使用して、自動生成される、ウィザードを使用して構成し直す`INSERT`、 `UPDATE`、および`DELETE`ステートメントが再作成します。 つまり、すべての後で行ったカスタマイズが失われる TableAdapter を右クリックして、コンテキスト メニューから構成を選択すると、ウィザードをもう一度完了します。
 
@@ -131,7 +131,7 @@ TableAdapter がの値がない DataTable には、適切な列が、その`Inse
 **図 6**: TableAdapter s ストアド プロシージャの名前を付けます ([フルサイズのイメージを表示するをクリックして](updating-the-tableadapter-to-use-joins-cs/_static/image14.png))
 
 
-最後の手順には、TableAdapter のメソッドの名前を付けることが求められます。 使用して`Fill`と`GetEmployees`メソッド名とします。 直接、データベース (GenerateDBDirectMethods) チェック ボックスをオンになって更新を送信するメソッドを作成するままにしておくことを確認できます。
+最後の手順には、TableAdapter のメソッドの名前を付けることが求められます。 使用して`Fill`と`GetEmployees`メソッド名とします。 直接、データベース (GenerateDBDirectMethods)] チェック ボックスをオンになって更新を送信するメソッドを作成するままにしておくことを確認できます。
 
 
 [![TableAdapter のメソッドの塗りつぶしの名前とため](updating-the-tableadapter-to-use-joins-cs/_static/image16.png)](updating-the-tableadapter-to-use-joins-cs/_static/image15.png)
@@ -151,12 +151,12 @@ TableAdapter がの値がない DataTable には、適切な列が、その`Inse
 
 ## <a name="step-2-customizing-the-stored-procedure-to-include-ajoin"></a>手順 2: のカスタマイズ、ストアド プロシージャを含めるには`JOIN`
 
-開始しようとして、サーバー エクスプ ローラー、Northwind データベース %s の Stored Procedures フォルダーへのドリル ダウンを開くと、`Employees_Select`ストアド プロシージャです。 このストアド プロシージャが表示されない場合は、ストアド プロシージャ フォルダーを右クリックし、更新 を選択します。 使用するように、ストアド プロシージャを更新、 `LEFT JOIN` manager s を最初に返されますの姓と名にします。
+開始しようとして、サーバー エクスプ ローラー、Northwind データベース %s の Stored Procedures フォルダーへのドリル ダウンを開くと、`Employees_Select`ストアド プロシージャです。 このストアド プロシージャが表示されない場合は、ストアド プロシージャ] フォルダーを右クリックし、更新] を選択します。 使用するように、ストアド プロシージャを更新、 `LEFT JOIN` manager s を最初に返されますの姓と名にします。
 
 
 [!code-sql[Main](updating-the-tableadapter-to-use-joins-cs/samples/sample5.sql)]
 
-更新した後、`SELECT`ステートメントでは、ファイル メニューの 保存 を選択して変更を保存`Employees_Select`です。 または、ツールバーの [保存] アイコンをクリックしてしたり、Ctrl キーを押しながら S キーを押してできます。 右クリックし、変更内容を保存した後、`Employees_Select`サーバー エクスプ ローラーでストアド プロシージャと実行 を選択します。 これは、ストアド プロシージャを実行され、出力ウィンドウにその結果を表示 (図 9 を参照してください)。
+更新した後、`SELECT`ステートメントでは、ファイル] メニューの [保存] を選択して変更を保存`Employees_Select`です。 または、ツールバーの [保存] アイコンをクリックしてしたり、Ctrl キーを押しながら S キーを押してできます。 右クリックし、変更内容を保存した後、`Employees_Select`サーバー エクスプ ローラーでストアド プロシージャと実行] を選択します。 これは、ストアド プロシージャを実行され、出力ウィンドウにその結果を表示 (図 9 を参照してください)。
 
 
 [![ストアド プロシージャの結果が、出力ウィンドウに表示されます。](updating-the-tableadapter-to-use-joins-cs/_static/image22.png)](updating-the-tableadapter-to-use-joins-cs/_static/image21.png)
@@ -202,7 +202,7 @@ TableAdapter がの値がない DataTable には、適切な列が、その`Inse
 
 ## <a name="step-5-working-with-the-data-in-the-presentation-layer"></a>手順 5: プレゼンテーション層で、データの使用
 
-`EmployeesBLLWithSprocs`お ASP.NET ページから従業員データを処理する準備が完了すると、クラスです。 開く、 `JOINs.aspx`  ページで、`AdvancedDAL`フォルダーと、デザイナーの設定には、ツールボックスからドラッグ、GridView、`ID`プロパティを`Employees`です。 次に、GridView s のスマート タグからグリッドにバインドという名前の新しい ObjectDataSource コントロール`EmployeesDataSource`です。
+`EmployeesBLLWithSprocs`お ASP.NET ページから従業員データを処理する準備が完了すると、クラスです。 開く、 `JOINs.aspx` ] ページで、`AdvancedDAL`フォルダーと、デザイナーの設定には、ツールボックスからドラッグ、GridView、`ID`プロパティを`Employees`です。 次に、GridView s のスマート タグからグリッドにバインドという名前の新しい ObjectDataSource コントロール`EmployeesDataSource`です。
 
 構成を使用する ObjectDataSource、`EmployeesBLLWithSprocs`クラス、タブの中を選択し、削除、ことを確認して、`GetEmployees`と`DeleteEmployee`メソッドは、ドロップダウン リストから選択します。 ObjectDataSource の構成を完了するには、[完了] をクリックします。
 
@@ -260,12 +260,12 @@ TableAdapter 構成ウィザードが自動的に更新を再実行、`Employees
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者には、Hilton Geisenow、David Suru Teresa マーフィーがされていました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
-[次へ](adding-additional-datatable-columns-cs.md)
+> [!div class="step-by-step"]
+> [前へ](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
+> [次へ](adding-additional-datatable-columns-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
-title: "HTML ヘルパー (VB) をビルドする TagBuilder クラスを使用して |Microsoft ドキュメント"
+title: HTML ヘルパー (VB) をビルドする TagBuilder クラスを使用して |Microsoft ドキュメント
 author: StephenWalther
-description: "Stephen Walther には、名前付き TagBuilder クラス、ASP.NET MVC フレームワークで便利なユーティリティ クラスをについて説明します。 クラスを使用して、TagBuilder を簡単にしています."
+description: Stephen Walther には、名前付き TagBuilder クラス、ASP.NET MVC フレームワークで便利なユーティリティ クラスをについて説明します。 クラスを使用して、TagBuilder を簡単にしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 92c003cf929448d0b03f9de76330e9495ac51d20
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 2b72e08dff646f66252f210543230186cab6e641
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-tagbuilder-class-to-build-html-helpers-vb"></a>HTML ヘルパー (VB) をビルドするのに TagBuilder クラスの使用
 ====================
@@ -79,6 +79,6 @@ Index.aspx ビューの上部にあるイメージ ヘルパーに関連付け�
 
 Visual Basic アプリケーションでは、既定の名前空間は、アプリケーションの名前と同じです。
 
->[!div class="step-by-step"]
-[前へ](creating-custom-html-helpers-vb.md)
-[次へ](creating-page-layouts-with-view-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [前へ](creating-custom-html-helpers-vb.md)
+> [次へ](creating-page-layouts-with-view-master-pages-vb.md)

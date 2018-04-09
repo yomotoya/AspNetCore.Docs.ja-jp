@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core での分散キャッシュの使用"
+title: ASP.NET Core での分散キャッシュを使用します。
 author: ardalis
-description: "アプリのパフォーマンスと特にクラウドまたはサーバー ファーム環境でのスケーラビリティを向上させるためにキャッシュされた分散 ASP.NET Core を使用する方法を説明します。"
+description: アプリのパフォーマンスと特にクラウドまたはサーバー ファーム環境でのスケーラビリティを向上させるためにキャッシュされた分散 ASP.NET Core を使用する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: 635c61cbb72a6a9eb822307bbc80936ee73bedc8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d9c7c1c3b2c052ba11f9ea5eaaa424d69bc43eb2
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="working-with-a-distributed-cache-in-aspnet-core"></a>ASP.NET Core での分散キャッシュの使用
+# <a name="work-with-a-distributed-cache-in-aspnet-core"></a>ASP.NET Core での分散キャッシュを使用します。
 
 作成者: [Steve Smith](https://ardalis.com/)
 
@@ -95,7 +95,7 @@ Redis の実装を構成する`ConfigureServices`のインスタンスを要求�
 [!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
 
 > [!NOTE]
-> ローカル コンピューターに Redis をインストールするには、chocolatey パッケージをインストール[https://chocolatey.org/packages/redis-64/](https://chocolatey.org/packages/redis-64/)実行と`redis-server`コマンド プロンプトからです。
+> ローカル コンピューターに Redis をインストールするには、chocolatey パッケージをインストール[ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/)実行と`redis-server`コマンド プロンプトからです。
 
 ## <a name="using-a-sql-server-distributed-cache"></a>SQL Server を使用してキャッシュを分散
 

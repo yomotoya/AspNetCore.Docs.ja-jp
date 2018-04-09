@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
-title: ": ASP.NET Identity EntityFramework MySQL プロバイダーでは (c#) での MySQL ストレージの使用 |Microsoft ドキュメント"
+title: ': ASP.NET Identity EntityFramework MySQL プロバイダーでは (c#) での MySQL ストレージの使用 |Microsoft ドキュメント'
 author: maumar
-description: "このチュートリアルでは、MySQL または EntityFramework (SQL クライアント プロバイダー) と ASP.NET Identity の既定のデータ ストレージ機構を置き換える方法を表示しています."
+description: このチュートリアルでは、MySQL または EntityFramework (SQL クライアント プロバイダー) と ASP.NET Identity の既定のデータ ストレージ機構を置き換える方法を表示しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/10/2013
 ms.topic: article
 ms.assetid: 15253312-a92c-43ba-908e-b5dacd3d08b8
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
 msc.type: authoredcontent
-ms.openlocfilehash: 82341724286a53f7883df324a391beeae3a9e2bd
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 6018b4f62f95f9abffece536f345d7a16d052aac
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>(C#) EntityFramework MySQL プロバイダーと MySQL の記憶域を使用して ASP.NET Id:
 ====================
@@ -42,23 +42,23 @@ ms.lasthandoff: 02/12/2018
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image2.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image1.png)
 3. **アドオンと選択**ウィザードで、 **ClearDB MySQL データベース**、をクリックし、**次**フレームの下部にある矢印。  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image4.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image3.png)
 4. 既定値を保持**空き**の計画、および変更、**名前**に**IdentityMySQLDatabase**地域は、一番近いレベルを選択し、クリックして、 **次へ**フレームの下部にある矢印。  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image6.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image5.png)
 5. クリックして、**購買**データベースの作成を完了するチェック マークします。  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image8.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image7.png)
 6. データベースが作成された後をから管理できる、**アドオン** タブで、管理ポータル。 クリックして、データベースの接続情報を取得する**接続情報**ページの下部にあります。  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image10.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image9.png)
 7. 接続文字列をコピーして [コピー] ボタンをクリックすると、 **CONNECTIONSTRING**フィールドし、保存以外の場合は、MVC アプリケーションのこのチュートリアルの後半では、この情報を使用するは。  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image12.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image11.png)
 
 ## <a name="creating-an-mvc-application-project"></a>MVC アプリケーション プロジェクトを作成します。
@@ -68,15 +68,15 @@ ms.lasthandoff: 02/12/2018
 1. Visual Studio 2103 を開きます。
 2. をクリックして**新しいプロジェクト**から、**開始** ページで、またはする をクリックして、**ファイル**メニューし**新しいプロジェクト**:  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image2.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image1.jpg)
 3. ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、展開**Visual c#** 、テンプレートの一覧でクリックして**Web**を選択し、 **のASP.NETWebアプリケーション**. プロジェクトの名前を付けます**IdentityMySQLDemo**  をクリックし、 **OK**:  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image14.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image13.png)
 4. **新しい ASP.NET プロジェクト**ダイアログで、選択、 **MVC**され、既定のオプションです。 この構成には**個々 のユーザー アカウント**の認証方法として。 をクリックして**OK**:  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image16.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image15.png)
 
 ## <a name="configure-entityframework-to-work-with-a-mysql-database"></a>MySQL データベースを使用する EntityFramework を構成します。
@@ -88,11 +88,11 @@ Visual Studio 2013 のテンプレートから作成された MVC アプリケ�
 1. Visual Studio 2013 では、MVC プロジェクトを開きます。
 2. をクリックして**ツール**をクリックし、**ライブラリ パッケージ マネージャー**、順にクリック**パッケージ マネージャー コンソール**:  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image18.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image17.png)
 3. **Package Manager Console** Visual Studio の下部に表示されます。 型&quot;**更新プログラム パッケージ EntityFramework** &quot; Enter キーを押します。  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image20.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image19.png)
 
 ### <a name="install-the-mysql-provider-for-entityframework"></a>EntityFramework の MySQL プロバイダーをインストールします。
@@ -161,15 +161,15 @@ MySQL のカスタム Entity Framework の初期化子を作成するには、�
 1. キーを押して**ctrl キーを押しながら f5 キーを押して**をビルドして、web アプリケーションを実行します。
 2. クリックして、**登録**ページの上部タブ。  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image4.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image3.jpg)
 3. 新しいユーザー名とパスワードを入力し、クリックして**登録**:  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image24.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image23.png)
 4. この時点で、ASP.NET Identity テーブルは、MySQL データベースにされ、ユーザーが登録されているし、アプリケーションにログインしています。  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image6.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image5.jpg)
 
 ### <a name="installing-mysql-workbench-tool-to-verify-the-data"></a>データを検証する MySQL Workbench ツールのインストール
@@ -180,9 +180,9 @@ MySQL のカスタム Entity Framework の初期化子を作成するには、�
 4. 接続を確立すた後には、検査、 **ASP.NET Identity**で作成されたテーブル、 **IdentityMySQLDatabase です。**
 5. すべての ASP.NET Identity のテーブルには、次の図に示すように、作成に必要なことがわかります。  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image8.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image7.jpg)
 6. 検査、 **aspnetusers**テーブルのインスタンスの新しいユーザーを登録すると、エントリを確認します。  
   
- [展開の次のイメージをクリックします。 ]  
+   [展開の次のイメージをクリックします。 ]  
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image26.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image25.png)

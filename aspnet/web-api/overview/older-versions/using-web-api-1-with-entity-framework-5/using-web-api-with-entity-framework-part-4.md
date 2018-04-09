@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-4
-title: "パート 4: 管理ビューを追加する |Microsoft ドキュメント"
+title: 'パート 4: 管理ビューを追加する |Microsoft ドキュメント'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/04/2012
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 2960eee37201655a9e4632bf0196ba18a0e2e82a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cbf42f1dbd744d7b85dde7d2dcd99a13c6208a13
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-4-adding-an-admin-view"></a>パート 4: 管理ビューを追加します。
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="add-an-admin-view"></a>管理ビューを追加します。
 
@@ -86,6 +86,6 @@ AdminController.cs ファイルを開き、追加、 **Authorize**属性全体�
 
 今すぐ管理者だけでは、[管理] ページを表示できます。 また、管理コント ローラーに HTTP 要求を送信する場合、要求は認証クッキーを含める必要があります。 それ以外の場合は、サーバーは HTTP 401 (未承認) 応答を送信します。 このわかります Fiddler でへの GET 要求を送信することによって`http://localhost:*port*/api/admin`です。
 
->[!div class="step-by-step"]
-[前へ](using-web-api-with-entity-framework-part-3.md)
-[次へ](using-web-api-with-entity-framework-part-5.md)
+> [!div class="step-by-step"]
+> [前へ](using-web-api-with-entity-framework-part-3.md)
+> [次へ](using-web-api-with-entity-framework-part-5.md)

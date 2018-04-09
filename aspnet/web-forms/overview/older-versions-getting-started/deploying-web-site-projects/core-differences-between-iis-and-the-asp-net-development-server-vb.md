@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-vb
-title: "IIS と ASP.NET 開発サーバー (VB) の違いをコア |Microsoft ドキュメント"
+title: IIS と ASP.NET 開発サーバー (VB) の違いをコア |Microsoft ドキュメント
 author: rick-anderson
-description: "ローカルで ASP.NET アプリケーションをテストする場合は、ASP.NET 開発 Web サーバーを使用している可能性があります。 ただし、実稼働 web サイトは、最も可能性の高い pow しています."
+description: ローカルで ASP.NET アプリケーションをテストする場合は、ASP.NET 開発 Web サーバーを使用している可能性があります。 ただし、実稼働 web サイトは、最も可能性の高い pow しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8e8ae3c0fd1d67fba6dff965704b550bdc919c6a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 47b1959f9b92d161da0476b274c8154333ad80dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="core-differences-between-iis-and-the-aspnet-development-server-vb"></a>IIS と ASP.NET 開発サーバー (VB) のコア違い
 ====================
@@ -94,7 +94,7 @@ ASP.NET ランタイムでは、さまざまな (要求元を識別する) 認�
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-vb/samples/sample4.xml)]
 
-ASP.NET 開発サーバーを使用して、サイトにアクセスし、ブラウザーのアドレス バーで PDF ファイルのいずれかに直接の URL を入力します。 : URL ようになりますが、このチュートリアルに関連付けられている web サイトをダウンロードしている場合`http://localhost:portNumber/PrivateDocs/aspnet_tutorial01_Basics_vb.pdf`
+ASP.NET 開発サーバーを使用して、サイトにアクセスし、ブラウザーのアドレス バーで PDF ファイルのいずれかに直接の URL を入力します。 : URL ようになりますが、このチュートリアルに関連付けられている web サイトをダウンロードしている場合 `http://localhost:portNumber/PrivateDocs/aspnet_tutorial01_Basics_vb.pdf`
 
 ファイルの ASP.NET 開発サーバーに要求を送信するブラウザーは、アドレス バーにこの URL を入力します。 ASP.NET 開発サーバーは要求を処理するため、ASP.NET ランタイムに渡します。 そのため、まだログインしていないこと、`Web.config`で、`PrivateDocs`フォルダーが匿名アクセスを拒否するように構成は、ASP.NET ランタイムに自動的にリダイレクト us ログイン ページに`Login.aspx`(図 3 を参照してください)。 ASP.NET には、ログイン ページにユーザーをリダイレクトするときに、 `ReturnUrl` querystring パラメーター ページを示す、ユーザーがしようとして表示します。 ユーザーが正常にログインした後は、このページに戻ってことができます。
 
@@ -140,6 +140,6 @@ ASP.NET 開発サーバーを使用して、サイトにアクセスし、ブラ
 - [IIS 7 でのコンテンツのすべての種類で ASP.NET フォーラムの認証を使用して](https://blogs.iis.net/bills/archive/2007/05/19/using-asp-net-forms-authentication-with-all-types-of-content-with-iis7-video.aspx)(ビデオ)
 - [Visual Web Developer で web サーバー](https://msdn.microsoft.com/library/58wxa9w5.aspx)
 
->[!div class="step-by-step"]
-[前へ](common-configuration-differences-between-development-and-production-vb.md)
-[次へ](deploying-a-database-vb.md)
+> [!div class="step-by-step"]
+> [前へ](common-configuration-differences-between-development-and-production-vb.md)
+> [次へ](deploying-a-database-vb.md)

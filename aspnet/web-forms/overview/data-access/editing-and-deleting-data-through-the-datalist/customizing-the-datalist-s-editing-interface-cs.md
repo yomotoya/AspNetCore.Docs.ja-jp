@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-cs
-title: "DataList のカスタマイズの編集インターフェイス (c#) |Microsoft ドキュメント"
+title: DataList のカスタマイズの編集インターフェイス (c#) |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、DataList DropDownLists とチェック ボックスを含む 1 つの豊富な編集インターフェイスを作成します。"
+description: このチュートリアルでは、DataList DropDownLists とチェック ボックスを含む 1 つの豊富な編集インターフェイスを作成します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/customizing-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ffd649bc5a1af4d211c8b331004cb39c7a591d7a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ad603b7cb80d2266e84d4a521a1748a1e09a5bed
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-the-datalists-editing-interface-c"></a>DataList の編集インターフェイス (c#) のカスタマイズ
 ====================
@@ -182,7 +182,7 @@ DataList s で DropDownLists マークアップ、これらの変更を行った
 
 この変更により、値の`Nothing`に渡される、 `UpdateProduct` BLL メソッド ()、ユーザーが選択しなかった場合は、どちらかに対応するドロップダウン リストのオプション、`NULL`データベースの値。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルより複雑なテキスト ボックス、2 つの DropDownLists と検証コントロールと共にのチェック ボックスを次の 3 つの異なる入力 Web コントロールを含める DataList 編集インターフェイスを作成する方法を説明しました。 編集のインターフェイスを構築するときに、手順は、使用されている Web コントロールに関係なく同じ: DataList s に Web コントロールを追加することによって開始`EditItemTemplate`; に適切な Web に対応するデータ フィールドの値を割り当てるデータ バインドの構文を使用します。コントロールのプロパティです。`UpdateCommand`イベント ハンドラーでは、Web コントロールおよび BLL にその値を渡すこと、適切なプロパティをプログラムでアクセスします。
 
@@ -192,12 +192,12 @@ DataList s で DropDownLists マークアップ、これらの変更を行った
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者には、Dennis Patterson、David Suru ものです。 Schmidt がされていました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](adding-validation-controls-to-the-datalist-s-editing-interface-cs.md)
-[次へ](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
+> [!div class="step-by-step"]
+> [前へ](adding-validation-controls-to-the-datalist-s-editing-interface-cs.md)
+> [次へ](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)

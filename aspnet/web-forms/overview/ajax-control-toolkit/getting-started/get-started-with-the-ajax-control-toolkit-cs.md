@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-cs
-title: "AJAX コントロール ツールキット (c#) を使用して作業を開始 |Microsoft ドキュメント"
+title: AJAX コントロール ツールキット (c#) を使用して作業を開始 |Microsoft ドキュメント
 author: microsoft
-description: "AJAX コントロール ツールキットを使用して作業を開始するために知っておく必要がありますすべてを説明します。"
+description: AJAX コントロール ツールキットを使用して作業を開始するために知っておく必要がありますすべてを説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8d3f4dd26a9f82dce78b1c3665f9da6b54bdacba
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e6a7a8d45f32a33eaacf3c42b52a02d2ada1aab6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="get-started-with-the-ajax-control-toolkit-c"></a>AJAX コントロール Toolkit (c#) の概要します。
 ====================
@@ -89,5 +89,5 @@ AJAX コントロール ツールキットを使用する最も簡単な方法�
 - バイナリには、web サイトの Bin フォルダーから AjaxControlToolkit.dll アセンブリの古いバージョンを削除します。
 - ツールボックス項目では、AJAX コントロール ツールキット タブを削除し、AjaxControlToolkit.dll アセンブリの新しいバージョンで、タブの再作成に上記の手順を実行します。
 
->[!div class="step-by-step"]
-[次へ](using-ajax-control-toolkit-controls-and-control-extenders-cs.md)
+> [!div class="step-by-step"]
+> [次へ](using-ajax-control-toolkit-controls-and-control-extenders-cs.md)

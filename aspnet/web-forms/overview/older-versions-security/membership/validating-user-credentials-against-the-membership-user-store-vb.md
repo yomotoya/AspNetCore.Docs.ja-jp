@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
-title: "メンバーシップ ユーザーのストア (VB) に対してユーザーの資格情報の検証 |Microsoft ドキュメント"
+title: メンバーシップ ユーザーのストア (VB) に対してユーザーの資格情報の検証 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、プログラムによる方法と、ログイン コントロールの両方を使用して、メンバーシップ ユーザー ストアに対してユーザーの資格情報を検証する方法を検討しています."
+description: このチュートリアルでは、プログラムによる方法と、ログイン コントロールの両方を使用して、メンバーシップ ユーザー ストアに対してユーザーの資格情報を検証する方法を検討しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f57bc8c32757c1ea25bf6bbb34539570e4c09aad
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f8d3de9736d901e02096d20345650b47c47897ae
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-vb"></a>メンバーシップ ユーザーのストア (VB) に対してユーザーの資格情報の検証
 ====================
@@ -71,8 +71,8 @@ ms.lasthandoff: 01/24/2018
 
 このようなブルート フォース攻撃を防ぐためには、メンバーシップ フレームワークを一定期間内で失敗したログイン試行数がある場合、ユーザーをロックします。 正確なパラメーターは、次の 2 つのメンバーシップ プロバイダー構成設定で構成できます。
 
-- `maxInvalidPasswordAttempts`-無効なパスワードの数を指定します、アカウントがロックアウトされるまでの期間内のユーザーの試行が許可されます。既定値は 5 です。
-- `passwordAttemptWindow`-分を指定した無効なログイン試行数により、アカウントがロックアウトされるまでの時間を示します。既定値は 10 です。
+- `maxInvalidPasswordAttempts` -無効なパスワードの数を指定します、アカウントがロックアウトされるまでの期間内のユーザーの試行が許可されます。既定値は 5 です。
+- `passwordAttemptWindow` -分を指定した無効なログイン試行数により、アカウントがロックアウトされるまでの時間を示します。既定値は 10 です。
 
 ユーザーがロックアウトされている場合、管理者が自分のアカウントをロック解除まで彼女はログインできません。 ユーザーがロックアウトされた場合、`ValidateUser`メソッドは*常に*返す`False`場合でも、有効な資格情報を入力します。 この動作は、ブルート フォース メソッドによって、サイトにハッカーが中断される可能性が少なくなります、中には、有効なユーザー パスワードを忘れた単にまたは誤って、Capslock にまたは 1 日に無効な入力があるユーザーのロックアウトを終了できます。
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 01/24/2018
 
 ログイン コントロールでは、次の 4 つの要因を使って、ユーザーをリダイレクトして、正常にログインを適切なページを決定します。
 
-- かどうか、ログイン コントロールが、ログイン ページで定義されている`loginUrl`この設定の既定値は、フォーム認証の構成の設定`Login.aspx`
+- かどうか、ログイン コントロールが、ログイン ページで定義されている`loginUrl`この設定の既定値は、フォーム認証の構成の設定 `Login.aspx`
 - 存在、 `ReturnUrl` querystring パラメーター
 - ログイン コントロールの値[`DestinationUrl`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
 - `defaultUrl`フォーム認証の構成設定に指定された値ですこの設定の既定値は、Default.aspx。
@@ -310,12 +310,12 @@ ms.lasthandoff: 01/24/2018
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Teresa マーフィーおよび Michael Olivero がいました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[ mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)です。
 
->[!div class="step-by-step"]
-[前へ](creating-user-accounts-vb.md)
-[次へ](user-based-authorization-vb.md)
+> [!div class="step-by-step"]
+> [前へ](creating-user-accounts-vb.md)
+> [次へ](user-based-authorization-vb.md)

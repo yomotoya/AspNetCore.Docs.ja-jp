@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/batch-updating-vb
-title: "一括更新 (VB) |Microsoft ドキュメント"
+title: 一括更新 (VB) |Microsoft ドキュメント
 author: rick-anderson
-description: "単一の操作で複数のデータベース レコードを更新する方法を説明します。 ユーザー インターフェイス レイヤーは、各行が編集可能 GridView を構築します。 データにしています."
+description: 単一の操作で複数のデータベース レコードを更新する方法を説明します。 ユーザー インターフェイス レイヤーは、各行が編集可能 GridView を構築します。 データにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bcfdf734de0b4a4aa0a11f35bd6e40d6b97719cf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2c5119410057b39e7b9a03eca3a2dbdbc315ce00
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="batch-updating-vb"></a>一括更新 (VB)
 ====================
@@ -185,7 +185,7 @@ DropDownList をツールボックスからドラッグして、 `CategoryName` 
 注方法、 `<asp:ListItem Value="">` --選択 1--がその`Value`属性は、空の文字列に明示的に設定します。 戻って、[データ変更インターフェイスのカスタマイズ](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb.md)の詳細については、この追加の DropDownList の項目が処理に必要な理由のためのチュートリアル、`NULL`ケースとその理由の割り当て、 `Value`空の文字列にプロパティが不可欠です。
 
 > [!NOTE]
-> 問題がある潜在的なパフォーマンスとスケーラビリティここで説明が必要です。 行ごとに使用する DropDownList があるため、 `CategoriesDataSource` 、データ ソースとして、`CategoriesBLL`クラス s`GetCategories`メソッドが呼び出される *n*  1 ページあたりの回数を参照してください、場所 *n*  GridView の行の数です。 これら *n* 呼び出し`GetCategories`結果 *n* データベースに対するクエリ。 要求ごとのキャッシュまたは SQL キャッシュ依存関係または非常に短い形式の時刻ベースの有効期限を使用して、キャッシュ レイヤーを通じて返されるカテゴリをキャッシュすることによって、データベースに対するこの影響を軽減可能性があります。 詳細については、要求ごとのキャッシュ オプションを参照してください[`HttpContext.Items`キャッシュ ストアの 1 秒あたりの要求](http://aspnet.4guysfromrolla.com/articles/060904-1.aspx)です。
+> 問題がある潜在的なパフォーマンスとスケーラビリティここで説明が必要です。 行ごとに使用する DropDownList があるため、 `CategoriesDataSource` 、データ ソースとして、`CategoriesBLL`クラス s`GetCategories`メソッドが呼び出される*n* 1 ページあたりの回数を参照してください、場所*n*の数ですGridView の行。 これら*n*呼び出し`GetCategories`結果*n*データベースに対するクエリ。 要求ごとのキャッシュまたは SQL キャッシュ依存関係または非常に短い形式の時刻ベースの有効期限を使用して、キャッシュ レイヤーを通じて返されるカテゴリをキャッシュすることによって、データベースに対するこの影響を軽減可能性があります。 詳細については、要求ごとのキャッシュ オプションを参照してください[`HttpContext.Items`キャッシュ ストアの 1 秒あたりの要求](http://aspnet.4guysfromrolla.com/articles/060904-1.aspx)です。
 
 
 ## <a name="step-4-completing-the-editing-interface"></a>手順 4: 完了編集インターフェイス
@@ -270,7 +270,7 @@ GridView s 以降編集インターフェイスがで定義されているその
 
 [!code-vb[Main](batch-updating-vb/samples/sample7.vb)]
 
-`BatchMethodAlternate`新しい空を作成して開始`ProductsDataTable`という`products`です。 これは、後、GridView s をステップ実行`Rows`コレクション各行 BLL s を使用して特定の製品情報を取得するのと`GetProductByProductID(productID)`メソッドです。 取得した`ProductsRow`インスタンスと同じ方法で更新のプロパティがあります`BatchUpdate`が、インポートを行を更新した後、 `products` `ProductsDataTable` DataTable s を介して[`ImportRow(DataRow)`メソッド](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
+`BatchMethodAlternate` 新しい空を作成して開始`ProductsDataTable`という`products`です。 これは、後、GridView s をステップ実行`Rows`コレクション各行 BLL s を使用して特定の製品情報を取得するのと`GetProductByProductID(productID)`メソッドです。 取得した`ProductsRow`インスタンスと同じ方法で更新のプロパティがあります`BatchUpdate`が、インポートを行を更新した後、 `products` `ProductsDataTable` DataTable s を介して[`ImportRow(DataRow)`メソッド](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
 
 後に、`For Each`ループが完了すると、 `products` 1 つ含む`ProductsRow`GridView の行ごとのインスタンス。 以降の各、`ProductsRow`インスタンスに追加された、 `products` (の代わりに更新されます)、お無条件に渡す場合、`UpdateWithTransaction`メソッド、`ProductsTableAdatper`各レコードをデータベースに挿入しようとしてがします。 代わりに、それぞれの行が変更されたこと (追加されません) を指定する必要があります。
 
@@ -289,12 +289,12 @@ GridView は、行ごとの組み込みの編集機能を提供が完全に編�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Teresa マーフィーおよび David Suru がいました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](wrapping-database-modifications-within-a-transaction-vb.md)
-[次へ](batch-deleting-vb.md)
+> [!div class="step-by-step"]
+> [前へ](wrapping-database-modifications-within-a-transaction-vb.md)
+> [次へ](batch-deleting-vb.md)

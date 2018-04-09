@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
-title: "Web サーバーを構成する web デプロイの発行 (リモート エージェント) |Microsoft ドキュメント"
+title: Web サーバーを構成する web デプロイの発行 (リモート エージェント) |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、web の発行および IIS Web 配置を使用して配置をサポートするためにインターネット インフォメーション サービス (IIS) web サーバーを構成する方法について説明しています."
+description: このトピックでは、web の発行および IIS Web 配置を使用して配置をサポートするためにインターネット インフォメーション サービス (IIS) web サーバーを構成する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 23195949121cd13ca4b1809b8db91a7320d1fdd2
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 8cad6ee45a8331513c72c4079f300fbb06c1ed77
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Web デプロイの発行 (リモート エージェント) 用の Web サーバーの構成
 ====================
@@ -102,7 +102,7 @@ ms.lasthandoff: 03/15/2018
 7. ナビゲーション ウィンドウで **サーバー**です。
 8. **IIS 7 の推奨構成**行で、をクリックして**追加**です。
 9. **Web 配置ツール 2.1**行で、をクリックして**追加**です。
-10. **[インストール]**をクリックします。 Web Platform Installer をインストールするには、関連する依存関係 & #x 2014; と共に; 製品 & #x 2014 の一覧が表示され、ライセンス条項に同意するように求められます。
+10. **[インストール]**をクリックします。 Web Platform Installer が製品の一覧を表示&#x2014;関連する依存関係のいずれかと共に&#x2014;をインストールして、ライセンス条項に同意するように求められます。
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image2.png)
 11. ライセンス条項を確認し、条項に同意した場合にをクリックして**同意**です。
@@ -165,7 +165,7 @@ Web コンテンツを展開するには、サーバーに、前に作成し、�
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image6.png)
 
     > [!NOTE]
-    > 最初のサイトのバインドでは、IP アドレスとポートを使用してローカル サイトにアクセスできます。 または`http://localhost:85`です。 2 つ目のサイト バインドでは、コンピューター名 (たとえば、http://testweb1:85) を使用して、ドメインの他のコンピューターからサイトにアクセスすることができます。
+    > 最初のサイトのバインドでは、IP アドレスとポートを使用してローカル サイトにアクセスできます。 または`http://localhost:85`です。 2 つ目のサイト バインドでは、コンピューター名を使用して、ドメインの他のコンピューターからサイトにアクセスすることができます (たとえば、http://testweb1:85)です。
 13. **サイト バインド**ダイアログ ボックスで、をクリックして**閉じる**です。
 14. **接続** ウィンドウで、をクリックして**アプリケーション プール**です。
 15. **アプリケーション プール** ウィンドウでは、アプリケーション プールの名前を右クリックし、をクリックして**基本設定**です。 既定では、アプリケーション プールの名前が、web サイトの名前に一致 (たとえば、 **DemoSite**)。
@@ -176,11 +176,11 @@ Web コンテンツを展開するには、サーバーに、前に作成し、�
     > [!NOTE]
     > サンプル ソリューションには、.NET Framework 4.0 が必要です。 これは、要件ではありません、Web Deploy の一般にします。
 
-Web サイト コンテンツを提供するためには、アプリケーション プール id 読み取り権限が必要、コンテンツを格納するローカル フォルダーにします。 IIS 7.5、アプリケーション プールは、(ここでアプリケーション プールは通常の実行、Network Service アカウントを使用して、IIS の以前のバージョン) とは異なり、既定では、一意のアプリケーション プール id で実行します。 アプリケーション プール id が実際のユーザー アカウントではないと、ユーザーまたはグループ & #x 2014 のすべてのリストに表示されないです。 代わりに、それが動的に作成、アプリケーション プールが開始されたときにします。 各アプリケーション プール id がローカルに追加**IIS\_IUSRS**セキュリティ グループを非表示のアイテムとして。
+Web サイト コンテンツを提供するためには、アプリケーション プール id 読み取り権限が必要、コンテンツを格納するローカル フォルダーにします。 IIS 7.5、アプリケーション プールは、(ここでアプリケーション プールは通常の実行、Network Service アカウントを使用して、IIS の以前のバージョン) とは異なり、既定では、一意のアプリケーション プール id で実行します。 アプリケーション プール id が実際のユーザー アカウントではありませんし、ユーザーまたはグループのリストに表示されない&#x2014;代わりに、それが動的に作成、アプリケーション プールが開始されたときにします。 各アプリケーション プール id がローカルに追加**IIS\_IUSRS**セキュリティ グループを非表示のアイテムとして。
 
 ファイルまたはフォルダーでのアプリケーション プール id へのアクセス許可を付与するには、2 つのオプションがあります。
 
-- アクセス許可を割り当てるアプリケーション プール id に直接、形式を使用して**IIS AppPool\***[アプリケーション プール名] * (たとえば、 **IIS AppPool\DemoSite**)。
+- アクセス許可を割り当てるアプリケーション プール id に直接、形式を使用して<strong>IIS AppPool\</strong ><em>[アプリケーション プール名]</em>(たとえば、 <strong>IIS AppPool\DemoSite</strong>).
 - アクセス許可を割り当てる、 **IIS\_IUSRS**グループ。
 
 最も一般的な方法は、ローカルに権限を割り当てる、 **IIS\_IUSRS**このアプローチでは、ファイル システム アクセス許可を再構成することがなくアプリケーション プールを変更することができますので、グループ化します。 次の手順では、このグループ ベースのアプローチを使用します。
@@ -198,8 +198,8 @@ Web サイト コンテンツを提供するためには、アプリケーショ
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image8.png)
 5. **ユーザーまたはグループ** ダイアログ ボックスで、「 **IIS\_IUSRS**、 をクリックして**名前の確認**順にクリック**OK**です。
-6. **のアクセス許可 * * * [フォルダー名]* ダイアログ ボックスで、新しいグループが割り当てられている、**読み取り&amp;実行**、**フォルダー内容の一覧**、および**読み取り**既定のアクセスを許可します。 これを変更せずのままにし、をクリックして**OK**です。
-7. をクリックして**OK**を閉じる、 *[フォルダー名] * * * プロパティ** ダイアログ ボックス。
+6. <strong>のアクセス許可</strong><em>[フォルダー名]</em> ダイアログ ボックスで、新しいグループが割り当てられている、<strong>読み取り&amp;実行</strong>、<strong>フォルダーの一覧内容</strong>、および<strong>読み取り</strong>既定のアクセスを許可します。 これを変更せずのままにし、をクリックして<strong>OK</strong>です。
+7. をクリックして<strong>OK</strong>を閉じる、 <em>[フォルダー名]</em><strong>プロパティ</strong> ダイアログ ボックス。
 
 最後のタスクとして、サーバーにすべての web パッケージを展開する前に行う必要があります Web Deployment Agent サービスが実行されていること。 リモート コンピューターからパッケージを展開するときに Web Deployment Agent サービスが、抽出およびパッケージの内容をインストールします。 サービスは、Web 配置ツールをインストールするときに、既定で開始され、Network Service の id で実行されます。
 
@@ -217,7 +217,7 @@ Web サイト コンテンツを提供するためには、アプリケーショ
 
 既定では、リモート エージェント サービスはこの URL で、TCP ポート 80 でリッスンします。
 
-http://[*server name*]/MSDEPLOYAGENTSERVICE
+http://[<em>server name</em>]/MSDEPLOYAGENTSERVICE
 
 ほとんどの場合、web サーバーが通常リッスン ポート 80 で HTTP 要求のために、リモート エージェント サービスの追加のファイアウォール ルールを構成する必要はありません。 非標準ポートでリッスンするように、インストールをカスタマイズする場合は、必要に応じてファイアウォールの例外を構成する必要があります。
 
@@ -233,6 +233,6 @@ http://[*server name*]/MSDEPLOYAGENTSERVICE
 
 リモート エージェント サービスに web パッケージを配置するカスタムの Microsoft Build Engine (MSBuild) プロジェクト ファイルを構成する方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](configuring-deployment-properties-for-a-target-environment.md)です。
 
->[!div class="step-by-step"]
-[前へ](scenario-configuring-a-production-environment-for-web-deployment.md)
-[次へ](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+> [!div class="step-by-step"]
+> [前へ](scenario-configuring-a-production-environment-for-web-deployment.md)
+> [次へ](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)

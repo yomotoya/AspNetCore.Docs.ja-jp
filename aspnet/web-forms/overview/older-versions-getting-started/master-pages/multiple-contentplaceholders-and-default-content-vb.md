@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-vb
-title: "複数の contentplaceholders と既定のコンテンツ (VB) |Microsoft ドキュメント"
+title: 複数の contentplaceholders と既定のコンテンツ (VB) |Microsoft ドキュメント
 author: rick-anderson
-description: "マスター ページに複数のコンテンツのプレース ホルダーを追加する方法とコンテンツのプレース ホルダーで既定のコンテンツを指定する方法を調べます。"
+description: マスター ページに複数のコンテンツのプレース ホルダーを追加する方法とコンテンツのプレース ホルダーで既定のコンテンツを指定する方法を調べます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ccb65f0b2f16e0c7a67787f7dfab14303daeca1d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fcd1d8f34dba52a04c0d9f6a1961df7b97405b42
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="multiple-contentplaceholders-and-default-content-vb"></a>複数の contentplaceholders と既定のコンテンツ (VB)
 ====================
@@ -169,7 +169,7 @@ ContentPlaceHolder の既定のコンテンツとしてユーザー名とパス�
 **図 08**: 既定のコンテンツを`LeftColumnContent`と`QuickLoginUI`contentplaceholders が表示されます ([フルサイズのイメージを表示するをクリックして](multiple-contentplaceholders-and-default-content-vb/_static/image24.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ASP.NET マスター ページのモデルは、マスター ページの任意の数の contentplaceholders にできます。 Contentplaceholders がない対応する場合に生成されますが、既定のコンテンツを含める詳細は、コンテンツのページにコントロールのコンテンツします。 このチュートリアルでは、新規および既存の ASP.NET ページで新しいこれら contentplaceholders にコンテンツ コントロールを定義する方法と、マスター ページに追加のプレース ホルダー コントロールを含める方法を説明しました。 についても説明しました既定値を指定する ContentPlaceHolder のコンテンツは、それをカスタマイズするページ、必要な少数のみが特定の領域内でコンテンツを標準化する場合に便利です。
 
@@ -179,12 +179,12 @@ ASP.NET マスター ページのモデルは、マスター ページの任意�
 
 ### <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、作成者複数受け取ります書籍や 4GuysFromRolla.com の創設者を操作した Microsoft Web テクノロジ 1998 年です。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 3.5 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、作成者複数受け取ります書籍や 4GuysFromRolla.com の創設者を操作した Microsoft Web テクノロジ 1998 年です。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 3.5 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Suchi Banerjee しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[ mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)です。
 
->[!div class="step-by-step"]
-[前へ](creating-a-site-wide-layout-using-master-pages-vb.md)
-[次へ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)
+> [!div class="step-by-step"]
+> [前へ](creating-a-site-wide-layout-using-master-pages-vb.md)
+> [次へ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)

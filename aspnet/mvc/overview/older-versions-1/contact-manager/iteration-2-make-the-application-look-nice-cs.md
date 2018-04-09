@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-cs
-title: "イテレーション 2 – は、検索 nice (c#) アプリケーションを作成する |。Microsoft ドキュメント"
+title: イテレーション 2 – は、検索 nice (c#) アプリケーションを作成する |。Microsoft ドキュメント
 author: microsoft
-description: "このイテレーションで、アプリケーションの外観を向上させる、既定の ASP.NET MVC ビュー マスター ページを変更し、カスケード スタイル シート。"
+description: このイテレーションで、アプリケーションの外観を向上させる、既定の ASP.NET MVC ビュー マスター ページを変更し、カスケード スタイル シート。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 10379f5321773155aaff4c384d8e0716d7e0e874
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cad28fb6ff02625674e59674d1ec08d52373c269
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-2--make-the-application-look-nice-c"></a>イテレーション 2 – は、検索 nice (c#) アプリケーションを作成します。
 ====================
@@ -115,7 +115,7 @@ ASP.NET MVC デザイン ギャラリーには、さまざまなデザイン ス
 
 ただし、web サイトの完全に独自のデザインを作成する必要があります。 その場合は、意味が web サイト デザイン会社を使用します。 連絡先のマネージャー アプリケーションの設計のためには、この方法を採用することにしました。
 
-私は、イテレーション 1 から連絡先マネージャーを圧縮し、デザイン会社にプロジェクトを送信します。 でした t 問題が発生することが (残念なことにです)、Visual Studio を所有するしなかったされません。 Microsoft Visual Web Developer を無料でダウンロードすることができました、 [https://www.asp.net](https://www.asp.net) web サイトと Visual Web Developer で、連絡先のマネージャー アプリケーションを開きます。 日数のいくつかで図 7 にデザインが生成される必要があります。
+私は、イテレーション 1 から連絡先マネージャーを圧縮し、デザイン会社にプロジェクトを送信します。 でした t 問題が発生することが (残念なことにです)、Visual Studio を所有するしなかったされません。 Microsoft Visual Web Developer を無料でダウンロードすることができました、 [ https://www.asp.net ](https://www.asp.net) web サイトと Visual Web Developer で、連絡先のマネージャー アプリケーションを開きます。 日数のいくつかで図 7 にデザインが生成される必要があります。
 
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-2-make-the-application-look-nice-cs/_static/image7.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image13.png)
@@ -155,7 +155,7 @@ Html.ActionLink() メソッドでは、HTML ハイパーリンク全体を表示
 
 MenuItemHelper クラスを使用して、TagBuilder 内部的に作成する、 &lt;li&gt; HTML タグ。 TagBuilder クラスは、新しい HTML タグを構築する必要がある場合に使用できる非常に便利なユーティリティ クラスです。 属性を追加する、CSS クラスを追加する、Id を生成および s タグを変更するメソッドが含まれていますの内部 HTML。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このイテレーションは、ASP.NET MVC アプリケーションのビジュアル デ ザインを向上します。 最初に、ASP.NET MVC デザイン ギャラリーに導入されています。 ASP.NET MVC アプリケーションで使用できる ASP.NET MVC デザイン ギャラリーから無料のデザインのテンプレートをダウンロードする方法を学習しました。
 
@@ -163,6 +163,6 @@ MenuItemHelper クラスを使用して、TagBuilder 内部的に作成する、
 
 次のイテレーションで検証の非常に重要なサブジェクトに取り組みます。 アプリケーションに検証コードを追加おユーザーできません最初 s の利用者などの必要な値を指定せず新しい連絡先を作成し、姓、名ようにします。
 
->[!div class="step-by-step"]
-[前へ](iteration-1-create-the-application-cs.md)
-[次へ](iteration-3-add-form-validation-cs.md)
+> [!div class="step-by-step"]
+> [前へ](iteration-1-create-the-application-cs.md)
+> [次へ](iteration-3-add-form-validation-cs.md)

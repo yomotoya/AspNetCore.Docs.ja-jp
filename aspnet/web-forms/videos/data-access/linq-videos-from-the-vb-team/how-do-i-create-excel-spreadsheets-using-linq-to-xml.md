@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/data-access/linq-videos-from-the-vb-team/how-do-i-create-excel-spreadsheets-using-linq-to-xml
-title: "[How Do i:]LINQ to XML を使用して Excel スプレッドシートを作成しますか。 | Microsoft Docs"
+title: '[How Do i:]LINQ to XML を使用して Excel スプレッドシートを作成しますか。 | Microsoft Docs'
 author: bethmassi
-description: "Visual Basic 開発者は、SQL Server データベースを作成するために簡単に Excel スプレッドシート、Visual Basic エディターに直接ごクエリする方法を説明しています."
+description: Visual Basic 開発者は、SQL Server データベースを作成するために簡単に Excel スプレッドシート、Visual Basic エディターに直接ごクエリする方法を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team/how-do-i-create-excel-spreadsheets-using-linq-to-xml
 msc.type: video
-ms.openlocfilehash: 5cedd4a279e52fedb41e444d4e330f0edee33772
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5ebf3770360e6e3bbb8bb887a87b79eda427e807
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-create-excel-spreadsheets-using-linq-to-xml"></a>[How Do i:]LINQ to XML を使用して Excel スプレッドシートを作成しますか。
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/10/2017
 
 Visual Basic 開発者では、LINQ to XML を使用して、Visual Basic エディターで直接 Excel スプレッドシートを簡単に作成するために、SQL Server データベースを照会する方法を学習します。
 
-[&#9654;です。ビデオでは (10 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-excel-spreadsheets-using-linq-to-xml)
+[&#9654;ビデオでは (10 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-excel-spreadsheets-using-linq-to-xml)
 
->[!div class="step-by-step"]
-[前へ](how-do-i-create-xml-documents-from-sql-data.md)
+> [!div class="step-by-step"]
+> [前へ](how-do-i-create-xml-documents-from-sql-data.md)

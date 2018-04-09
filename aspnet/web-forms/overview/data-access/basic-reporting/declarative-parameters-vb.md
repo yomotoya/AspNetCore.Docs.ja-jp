@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/basic-reporting/declarative-parameters-vb
-title: "宣言型のパラメーター (VB) |Microsoft ドキュメント"
+title: 宣言型のパラメーター (VB) |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、ハード コーディングされた値に設定パラメーターを使用して、DetailsView コントロールに表示するデータを選択する方法について説明します。"
+description: このチュートリアルでは、ハード コーディングされた値に設定パラメーターを使用して、DetailsView コントロールに表示するデータを選択する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ea1aed2b76eb4196196f8a800c0bdb891bceda91
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 933b7276c6dac5cce0e278fd23ff010c5b4a6fdd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="declarative-parameters-vb"></a>宣言型のパラメーター (VB)
 ====================
@@ -127,7 +127,7 @@ ObjectDataSource の宣言型マークアップと若干異なり、最初の例
 
 ## <a name="showing-all-suppliers-by-default"></a>既定ですべてのサプライヤーの表示
 
-はなく最初のページを表示するときに表示なしサプライヤーのより可能性がありますを表示する*すべて* ボックスで、国の名前を入力して一覧を縮小するユーザーを許可するのには最初、suppliers です。 テキスト ボックスが空で、ときに、`SuppliersBLL`クラスの`GetSuppliersByCountry(country)`メソッドが渡された`Nothing`の *`country`* 入力パラメーターです。 これは、`Nothing`値は、に、DAL の`GetSupplierByCountry(country)`メソッド、データベースに変換されます`NULL`値を`@Country`次のクエリ パラメーター。
+はなく最初のページを表示するときに表示なしサプライヤーのより可能性がありますを表示する*すべて* ボックスで、国の名前を入力して一覧を縮小するユーザーを許可するのには最初、suppliers です。 テキスト ボックスが空で、ときに、`SuppliersBLL`クラスの`GetSuppliersByCountry(country)`メソッドが渡された`Nothing`の*`country`*入力パラメーターです。 これは、`Nothing`値は、に、DAL の`GetSupplierByCountry(country)`メソッド、データベースに変換されます`NULL`値を`@Country`次のクエリ パラメーター。
 
 [!code-sql[Main](declarative-parameters-vb/samples/sample3.sql)]
 
@@ -157,12 +157,12 @@ ObjectDataSource の宣言型マークアップと若干異なり、最初の例
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Hilton Giesenow しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](displaying-data-with-the-objectdatasource-vb.md)
-[次へ](programmatically-setting-the-objectdatasource-s-parameter-values-vb.md)
+> [!div class="step-by-step"]
+> [前へ](displaying-data-with-the-objectdatasource-vb.md)
+> [次へ](programmatically-setting-the-objectdatasource-s-parameter-values-vb.md)

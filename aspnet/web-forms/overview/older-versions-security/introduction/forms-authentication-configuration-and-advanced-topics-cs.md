@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
-title: "フォーム認証の構成と高度なトピック (c#) |Microsoft ドキュメント"
+title: フォーム認証の構成と高度なトピック (c#) |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、さまざまなフォーム認証設定を調べてをフォーム要素を使用して変更する方法を参照してください。 詳細なを伴うこのされます."
+description: このチュートリアルでは、さまざまなフォーム認証設定を調べてをフォーム要素を使用して変更する方法を参照してください。 詳細なを伴うこのされます.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c57722965b510ac4f5cf0c06c7c01c8cea26384f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d6578737478fb86f64be261925becc3adec33247
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-c"></a>フォーム認証の構成と高度なトピック (c#)
 ====================
@@ -41,19 +41,20 @@ Asp.net フォーム認証システムでは、多数のアプリケーション
 
 表 1 でカスタマイズ可能なプロパティをまとめたもの、&lt;フォーム&gt;要素。 Web.config は XML ファイルなので、左の列に属性名は大文字小文字を区別します。
 
-| **属性** | **説明** |
-| --- | --- |
-| cookie なし | この属性は、URL に埋め込まれている中ではなく、cookie にどのような条件下で、認証チケットが格納されているを指定します。 使用可能な値: 既定値です。UseUri です。自動検出します。および UseDeviceProfile (既定)。 手順 2 では、さらに詳しくは、この設定について説明します。 |
-| defaultUrl | ユーザーは、クエリ文字列で指定された RedirectUrl 値が存在しない場合、ログイン ページからサインインした後にリダイレクトされる URL を示します。 既定値は、default.aspx です。 |
-| ドメイン | Cookie ベースの認証チケットを使用する場合、この設定は、cookie のドメイン値を指定します。 既定値は、ブラウザー (www.yourdomain.com) などから発行されたドメインを使用すると、空の文字列です。 この場合、cookie は**されません**admin.yourdomain.com などのサブドメインに要求を作成する場合に送信されます。すべてのサブドメインに渡される cookie をする場合は、ユーザーに設定すると、ドメイン属性をカスタマイズする必要があります。 |
-| enableCrossAppRedirects | 同じサーバー上の他の web アプリケーションの Url にリダイレクトされたときに認証されたユーザーを記憶するかどうかを示すブール値。 既定値は false です。 |
-| loginUrl | ログイン ページの URL です。 既定値は login.aspx です。 |
-| name | ときに、cookie ベースの認証チケット、cookie の名前を使用します。 既定値です。ASPXAUTH です。 |
-| path | Cookie ベースの認証チケットを使用する場合、この設定は、cookie のパス属性を指定します。 Path 属性は、開発者は、特定のディレクトリ階層にクッキーのスコープを制限できます。 既定値は、/、ドメインに加えられたすべての要求に認証チケットを送信するブラウザーに通知します。 |
-| 保護 | どのような手法を使用してフォーム認証チケットを保護することを示します。 使用可能な値: すべて (既定)。暗号化です。[なし] です。および検証します。 これらの設定は、手順 3. で詳しく説明します。 |
-| requireSSL | 認証 cookie の送信に SSL 接続が必要かどうかを示すブール値。 既定値は false です。 |
-| slidingExpiration | ユーザーが 1 つのセッション中にサイトを訪問認証 cookie のタイムアウトがリセットされるたびにするかどうかを示すブール値。 既定値は true です。 認証チケットのタイムアウト ポリシーが、指定することでより詳しく説明されているチケットのタイムアウト値のセクションでします。 |
-| タイムアウト | 認証チケットの有効期限が切れるまでの分単位で時間を指定します。 既定値は 30 です。 認証チケットのタイムアウト ポリシーが、指定することでより詳しく説明されているチケットのタイムアウト値のセクションでします。 |
+
+| <strong>属性</strong> |                                                                                                                                                                                                                                     <strong>説明</strong>                                                                                                                                                                                                                                      |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         cookie なし         |                                                                                                                この属性は、URL に埋め込まれている中ではなく、cookie にどのような条件下で、認証チケットが格納されているを指定します。 使用可能な値: 既定値です。UseUri です。自動検出します。および UseDeviceProfile (既定)。 手順 2 では、さらに詳しくは、この設定について説明します。                                                                                                                |
+|         defaultUrl         |                                                                                                                                                         ユーザーは、クエリ文字列で指定された RedirectUrl 値が存在しない場合、ログイン ページからサインインした後にリダイレクトされる URL を示します。 既定値は、default.aspx です。                                                                                                                                                         |
+|           ドメイン           | Cookie ベースの認証チケットを使用する場合、この設定は、cookie のドメイン値を指定します。 既定値は、ブラウザー (www.yourdomain.com) などから発行されたドメインを使用すると、空の文字列です。 この場合、cookie は<strong>されません</strong>admin.yourdomain.com などのサブドメインに要求を作成する場合に送信されます。すべてのサブドメインに渡される cookie をする場合は、ユーザーに設定すると、ドメイン属性をカスタマイズする必要があります。 |
+|  enableCrossAppRedirects   |                                                                                                                                                                   同じサーバー上の他の web アプリケーションの Url にリダイレクトされたときに認証されたユーザーを記憶するかどうかを示すブール値。 既定値は false です。                                                                                                                                                                   |
+|          loginUrl          |                                                                                                                                                                                                                      ログイン ページの URL です。 既定値は login.aspx です。                                                                                                                                                                                                                      |
+|            name            |                                                                                                                                                                                                   ときに、cookie ベースの認証チケット、cookie の名前を使用します。 既定値です。ASPXAUTH です。                                                                                                                                                                                                   |
+|            path            |                                                                             Cookie ベースの認証チケットを使用する場合、この設定は、cookie のパス属性を指定します。 Path 属性は、開発者は、特定のディレクトリ階層にクッキーのスコープを制限できます。 既定値は、/、ドメインに加えられたすべての要求に認証チケットを送信するブラウザーに通知します。                                                                              |
+|         保護         |                                                                                                                                            どのような手法を使用してフォーム認証チケットを保護することを示します。 使用可能な値: すべて (既定)。暗号化です。[なし] です。および検証します。 これらの設定は、手順 3. で詳しく説明します。                                                                                                                                            |
+|         requireSSL         |                                                                                                                                                                                認証 cookie の送信に SSL 接続が必要かどうかを示すブール値。 既定値は false です。                                                                                                                                                                                |
+|     slidingExpiration      |                                                                                                 ユーザーが 1 つのセッション中にサイトを訪問認証 cookie のタイムアウトがリセットされるたびにするかどうかを示すブール値。 既定値は true です。 認証チケットのタイムアウト ポリシーが、指定することでより詳しく説明されているチケットのタイムアウト値のセクションでします。                                                                                                 |
+|          タイムアウト           |                                                                                                                               認証チケットの有効期限が切れるまでの分単位で時間を指定します。 既定値は 30 です。 認証チケットのタイムアウト ポリシーが、指定することでより詳しく説明されているチケットのタイムアウト値のセクションでします。                                                                                                                               |
 
 **表 1**: の A の概要、&lt;フォーム&gt;要素の属性
 
@@ -166,7 +167,7 @@ Default.aspx に変更を保存し、ブラウザーを使用しを参照して�
 
 `http://localhost:2448/ASPNET\_Security\_Tutorial\_03\_CS/(F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2))/SomePage.aspx`
 
-リンクの URL SomePage.aspx が認証チケットに含まれている URL に自動的に変換されますが書き込むコードがまったくありませんでした。 Http:// で始まらないすべてのハイパーリンクの URL には、フォーム認証チケットが自動的に埋め込まれますまたは/です。 Response.Redirect への呼び出しで、ハイパーリンク コントロール、または HTML アンカー要素にハイパーリンクが表示される場合に重要ではありません (つまり、 &lt;、href =「...」&gt;.&lt;/a&gt;)。 URL は、http://www.someserver.com/SomePage.aspx など/SomePage.aspx 見慣れない、限りは、ご利用の米国フォーム認証チケットが埋め込まれます。
+リンクの URL SomePage.aspx が認証チケットに含まれている URL に自動的に変換されますが書き込むコードがまったくありませんでした。 Http:// で始まらないすべてのハイパーリンクの URL には、フォーム認証チケットが自動的に埋め込まれますまたは/です。 Response.Redirect への呼び出しで、ハイパーリンク コントロール、または HTML アンカー要素にハイパーリンクが表示される場合に重要ではありません (つまり、 &lt;、href =「...」&gt;.&lt;/a&gt;)。 URL のようなものでない限り、http://www.someserver.com/SomePage.aspxまたは/SomePage.aspx、フォーム認証チケットは、ご利用の米国埋め込まれます。
 
 > [!NOTE]
 > Cookie なしのフォーム認証チケットは、クッキー ベースの認証チケットとして同じタイムアウト ポリシーに準拠します。 ただし、cookie なしの認証チケットは、認証チケットが URL に直接埋め込まれているために、リプレイ攻撃を受けやすい。 Web サイトにアクセスでログインし、同僚に電子メールで URL を貼り付けますユーザーを想像してください。 仕事仲間は、有効期限に達する前にそのリンクをクリックすると、それらに記録されます、電子メールを送信したユーザーとして!
@@ -432,12 +433,12 @@ ASP.NET ランタイムは、ご利用の米国、これらのプロパティ値
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Alicja Maziarz しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[ mitchell@4GuysFromRolla.com](mailto:mitchell@4guysfromrolla.com)です。
 
->[!div class="step-by-step"]
-[前へ](an-overview-of-forms-authentication-cs.md)
-[次へ](security-basics-and-asp-net-support-vb.md)
+> [!div class="step-by-step"]
+> [前へ](an-overview-of-forms-authentication-cs.md)
+> [次へ](security-basics-and-asp-net-support-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
-title: "DataList コントロール (VB) を含む行ごとの複数のレコードを示す |Microsoft ドキュメント"
+title: DataList コントロール (VB) を含む行ごとの複数のレコードを示す |Microsoft ドキュメント
 author: rick-anderson
-description: "この短いチュートリアルでは、RepeatColumns と RepeatDirection プロパティを通じて DataList のレイアウトをカスタマイズする方法をについて説明します。"
+description: この短いチュートリアルでは、RepeatColumns と RepeatDirection プロパティを通じて DataList のレイアウトをカスタマイズする方法をについて説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 416178533f022f2a262799e6f042d6009bb9d999
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9c85e5a1d7b88a9ed53ed8392a300d5118363bf8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>DataList コントロール (VB) を含む行ごとの複数のレコードを表示
 ====================
@@ -55,7 +55,7 @@ DataList の例は、お過去の 2 つのチュートリアルで説明しま�
 
 [!code-aspx[Main](showing-multiple-records-per-row-with-the-datalist-control-vb/samples/sample2.aspx)]
 
-通知です ve にで書式指定子が含まれている、`Eval`のデータ バインド構文、`UnitPrice`の通貨として返される値の書式設定`Eval("UnitPrice", "{0:C}").`
+通知です ve にで書式指定子が含まれている、`Eval`のデータ バインド構文、`UnitPrice`の通貨として返される値の書式設定 `Eval("UnitPrice", "{0:C}").`
 
 すぐをブラウザーでページを参照してください。 図 2 では、DataList は製品の複数行の単一列でテーブルとして表示されます。
 
@@ -113,12 +113,12 @@ DataList、既定では、単一 TemplateField GridView のレイアウトを模
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客は、John Suru をでした。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](formatting-the-datalist-and-repeater-based-upon-data-vb.md)
-[次へ](nested-data-web-controls-vb.md)
+> [!div class="step-by-step"]
+> [前へ](formatting-the-datalist-and-repeater-based-upon-data-vb.md)
+> [次へ](nested-data-web-controls-vb.md)

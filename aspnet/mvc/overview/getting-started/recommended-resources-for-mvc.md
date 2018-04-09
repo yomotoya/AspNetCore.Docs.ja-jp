@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/recommended-resources-for-mvc
-title: "MVC リソースをお勧め |Microsoft ドキュメント"
+title: MVC リソースをお勧め |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このトピックでは、ASP.NET MVC 5 のドキュメント リソースへのリンクを提供します。 優れたブログの投稿や stackoverflow のスレッドになるその他のリンクがわかっている場合。"
+description: このトピックでは、ASP.NET MVC 5 のドキュメント リソースへのリンクを提供します。 優れたブログの投稿や stackoverflow のスレッドになるその他のリンクがわかっている場合。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: d08ee5c2bf56611caa483337af0ec1bd7cf982c0
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b328b733914b20b0aa3fe529c9a9f999349171ec
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="mvc-recommended-resources"></a>MVC リソースを推奨
 ====================
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/24/2018
 > このトピックでは、ASP.NET MVC 5 のドキュメント リソースへのリンクを提供します。 Post、優れたブログがわかっている場合[stackoverflow](http://stackoverflow.com/)に便利ですが、送信されるその他のリンクやスレッド[me](mailto:aspnetue@microsoft.com?subject=Great ASP.NET MVC link)記載された電子メールのリンクがします。 ここで指定したリンクは、定期的に更新されます。 古いで見つけることができます (ただし、多くの場合、引き続き関連) で ASP.NET MVC のリンク、 [MSDN コンテンツ マップ](https://msdn.microsoft.com/library/gg416514(v=vs.108).aspx)です。
 > 
 > 質問に対する回答を取得するか、問題の解決策を検索する場所として適して、 [ASP.NET MVC フォーラム](https://forums.asp.net/1146.aspx/1?MVC)または[stackoverflow](http://stackoverflow.com/questions/tagged/mvc+asp.net-mvc)です。
-<a id="gettingstarted"></a>
+> <a id="gettingstarted"></a>
 
 ## <a name="getting-started-with-aspnet-mvc"></a>ASP.NET MVC の概要
 

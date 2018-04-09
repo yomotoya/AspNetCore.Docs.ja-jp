@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
-title: "デプロイの発行設定 Web のデータベース サーバーの構成 |Microsoft ドキュメント"
+title: デプロイの発行設定 Web のデータベース サーバーの構成 |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、web デプロイおよび公開をサポートするために SQL Server 2008 R2 データベース サーバーを構成する方法について説明します。 このトピックで説明するタスクは、co."
+description: このトピックでは、web デプロイおよび公開をサポートするために SQL Server 2008 R2 データベース サーバーを構成する方法について説明します。 このトピックで説明するタスクは、co.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 98fd728f48f6fb64a61686bc58824b9fb3a28b13
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a2340c0d561ed274e281b5f6d942af0a2027315a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Web デプロイの発行用のデータベース サーバーの構成
 ====================
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/15/2018
 
 > このトピックでは、web デプロイおよび公開をサポートするために SQL Server 2008 R2 データベース サーバーを構成する方法について説明します。
 > 
-> このトピックで説明するタスクは、すべての展開シナリオ & #x 2014 に共通です IIS Web 配置ツール (Web 配置) のリモート エージェント サービス、Web 配置ハンドラー、またはオフラインの展開を使用する web サーバーが構成されているかにかかわらず、または。アプリケーションは、1 つの web サーバーまたはサーバー ファームで行われています。 セキュリティ要件およびその他の注意事項に応じて、データベースを展開する方法を変更ことがあります。 たとえば、サンプル データの有無、データベースを展開する場合があり、ユーザー ロールのマッピングを展開または展開後に手動で構成する場合があります。 ただし、データベース サーバーを構成する方法は変わりません。
+> このトピックで説明するタスクは、すべての展開シナリオに共通&#x2014;IIS Web 配置ツール (Web 配置) のリモート エージェント サービス、Web 配置ハンドラー、またはオフラインの展開を使用する web サーバーが構成されているかにかかわらず、またはアプリケーションが 1 つの web サーバーまたはサーバー ファームで実行します。 セキュリティ要件およびその他の注意事項に応じて、データベースを展開する方法を変更ことがあります。 たとえば、サンプル データの有無、データベースを展開する場合があり、ユーザー ロールのマッピングを展開または展開後に手動で構成する場合があります。 ただし、データベース サーバーを構成する方法は変わりません。
 
 
 Web 配置をサポートするためにデータベース サーバーを構成する追加の製品やツールをインストールする必要はありません。 想定されるので、データベース サーバーと web サーバーは、別のコンピューターで実行、単純にする必要があります。
@@ -65,8 +65,8 @@ TCP/IP 経由で通信するために SQL Server を有効にするのにには�
 1. **開始** メニューのをポイント**すべてのプログラム**、 をクリックして**Microsoft SQL Server 2008 R2**、 をクリックして**構成ツール**をクリックし、**SQL Server 構成マネージャー**です。
 2. ツリー ビュー ペインで、展開**SQL Server ネットワーク構成**、クリックして**MSSQLSERVER のプロトコル**です。
 
-    > [!NOTE]
-    > SQL Server の複数のインスタンスをインストールする場合が表示されます、**プロトコル * * * [インスタンス名]*インスタンスごとの項目。 インスタンスで、インスタンスごとにネットワーク設定を構成する必要があります。
+   > [!NOTE]
+   > SQL Server の複数のインスタンスをインストールする場合が表示されます、<strong>プロトコル</strong><em>[インスタンス名]</em>インスタンスごとの項目。 インスタンスで、インスタンスごとにネットワーク設定を構成する必要があります。
 3. 詳細ウィンドウで右クリックし、 **TCP/IP**行をクリックして**を有効にする**です。
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image1.png)
@@ -130,7 +130,7 @@ SQL Server と標準または動的ポート経由の通信を参照して必要
 
 ## <a name="configure-logins-and-database-permissions"></a>ログインを構成し、データベース権限
 
-Web アプリケーションにインターネット インフォメーション サービス (IIS) を展開するときに、アプリケーション プールの id を使用して、アプリケーションが実行されます。 ドメイン環境では、アプリケーション プール id は、ネットワーク リソースにアクセスするが、実行するサーバーのマシン アカウントを使用します。 コンピューター アカウントは、形式をとる * [ドメイン名]***\** * [マシン名]**** $* & #x 2014; たとえば、 **FABRIKAM\TESTWEB1$**します。 Web アプリケーションをネットワーク経由で、データベースへのアクセスを許可するのには、する必要があります。
+Web アプリケーションにインターネット インフォメーション サービス (IIS) を展開するときに、アプリケーション プールの id を使用して、アプリケーションが実行されます。 ドメイン環境では、アプリケーション プール id は、ネットワーク リソースにアクセスするが、実行するサーバーのマシン アカウントを使用します。 コンピューター アカウントは、形式をとる<em>[ドメイン名]</em><strong>\</strong ><em>[マシン名]</em><strong>$</strong>&#x2014;など<strong>FABRIKAM\TESTWEB1$</strong>します。 Web アプリケーションをネットワーク経由で、データベースへのアクセスを許可するのには、する必要があります。
 
 - SQL Server インスタンスに、web サーバーのコンピューター アカウントのログインを追加します。
 - 必要なデータベース ロールにマシン アカウントのログインをマップ (通常**db\_datareader**と**db\_datawriter**)。
@@ -231,6 +231,6 @@ SQL Server ログインを展開するデータベースに依存しないよう
 
 データベース プロジェクトを配置する方法については、次を参照してください。[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)です。 配置後スクリプトを実行してデータベース ロールのメンバーシップを作成する方法のガイダンスについては、次を参照してください。[を展開するデータベース ロール メンバーシップを変更するテスト環境](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)です。 メンバーシップ データベースがもたらされる独自の展開の課題に対応する方法のガイダンスについては、次を参照してください。[エンタープライズ環境にメンバーシップ データベースを展開する](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md)です。
 
->[!div class="step-by-step"]
-[前へ](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
-[次へ](creating-a-server-farm-with-the-web-farm-framework.md)
+> [!div class="step-by-step"]
+> [前へ](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+> [次へ](creating-a-server-farm-with-the-web-farm-framework.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
-title: "場合、何を実行する配置 |Microsoft ドキュメント"
+title: 場合、何を実行する配置 |Microsoft ドキュメント
 author: jrjlee
-description: "このトピック 'what-if' を実行する方法について説明します (またはシミュレート) V、インターネット インフォメーション サービス (IIS) Web 配置ツール (Web 配置) を使用して展開しています."
+description: このトピック 'what-if' を実行する方法について説明します (またはシミュレート) V、インターネット インフォメーション サービス (IIS) Web 配置ツール (Web 配置) を使用して展開しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cea805c86f0764c7443ccc5c9f89248860a6a842
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c1a13f38c8e629bcd615190b00104109e25fb289
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-a-what-if-deployment"></a>"What If"配置の実行
 ====================
@@ -27,9 +27,9 @@ ms.lasthandoff: 03/15/2018
 > このトピックの内容"what-if"を実行する方法について説明します (またはシミュレート) VSDBCMD、インターネット インフォメーション サービス (IIS) Web 配置ツール (Web 配置) を使用して展開します。 これにより、アプリケーションを実際に展開する前に、特定のターゲット環境で、デプロイ ロジックの結果が決定できます。
 
 
-このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。サンプル ソリューション & #x 2014; このチュートリアルのシリーズを使用して、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; を ASP.NET MVC 3 アプリケーションを Windows のなどの複雑性のレベルが現実的な web アプリケーションを表すCommunication Foundation (WCF) サービスとデータベース プロジェクト。
+このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルの一連のサンプル ソリューションを使用する&#x2014;、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的な ASP.NET MVC 3 アプリケーション、Windows Communication も含め、複雑さのレベルを持つ web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
-説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)で、ビルドおよび配置プロセスが 2 つのプロジェクト ファイル & #x 2014 で制御されている; o各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用されるビルドの手順を含む ne です。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によってビルドおよび配置プロセスが制御されるは、2 つのプロジェクト ファイル&#x2014;いずれか各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用されるビルドの手順を含むです。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
 
 ## <a name="performing-a-what-if-deployment-for-web-packages"></a>Web パッケージを"What If"の展開を実行します。
 
@@ -41,7 +41,7 @@ Web Deploy には、"what-if"で展開を実行するための機能 (または�
 
 "What-if"展開実際には変化しません移行先サーバーで、新機能が常にできないため、展開が成功するかどうかを予測します。
 
-」の説明に従って[Web パッケージを展開する](../web-deployment-in-the-enterprise/deploying-web-packages.md)、Web Deploy の 2 つの方法は & #x 2014; MSDeploy.exe コマンド ライン ユーティリティ直接を使用して、またはを実行して、使用して web パッケージを展開することができます、 *. deploy.cmd*ビルド プロセスによって生成されるファイルです。
+」の説明に従って[Web パッケージを展開する](../web-deployment-in-the-enterprise/deploying-web-packages.md)、2 つの方法で Web Deploy を使用して web パッケージを展開する&#x2014;直接、またはを実行して MSDeploy.exe コマンド ライン ユーティリティを使用して、 *. deploy.cmd*ファイルビルド プロセスのことを生成します。
 
 追加することで、"what-if"展開を実行するには MSDeploy.exe を直接使用している場合、 **-whatif**には、コマンド フラグ。 たとえば、ContactManager.Mvc.zip パッケージをステージング環境に展開した場合になるかを評価する MSDeploy コマンドのようになりますこの。
 
@@ -122,7 +122,7 @@ VSDBCMD は、データベースの差分の展開、およびツールを 1 つ
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample6.xml)]
 
 
-同様に、次のターゲットは、データベースを配置するのに VSDBCMD ユーティリティを使用します。 既定では、 **/dd**スイッチは含まれません。 つまり、VSDBCMD では、配置スクリプトが生成されますが、データベース & #x 2014; は展開しません言い換えると、"what-if"シナリオです。 場合、 **WhatIf**プロパティに設定されていない**true**、 **/dd**スイッチが追加され、VSDBCMD は、データベースを展開します。
+同様に、次のターゲットは、データベースを配置するのに VSDBCMD ユーティリティを使用します。 既定では、 **/dd**スイッチは含まれません。 つまり、VSDBCMD では、配置スクリプトが生成されますが、データベースに展開できなくなります&#x2014;言い換えると、"what-if"シナリオです。 場合、 **WhatIf**プロパティに設定されていない**true**、 **/dd**スイッチが追加され、VSDBCMD は、データベースを展開します。
 
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample7.xml)]
@@ -144,6 +144,6 @@ VSDBCMD は、データベースの差分の展開、およびツールを 1 つ
 
 Web Deploy のコマンドライン構文の詳細については、次を参照してください。 [Web Deploy 操作 Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx)です。 コマンド ライン オプションを使用するときのガイダンスについては、 *. deploy.cmd*ファイルを参照してください[する方法: 展開パッケージを使用して、deploy.cmd ファイルをインストール](https://msdn.microsoft.com/library/ff356104.aspx)です。 VSDBCMD コマンドライン構文については、次を参照してください。 [VSDBCMD のコマンド ライン リファレンスです。EXE (配置とスキーマのインポート)](https://msdn.microsoft.com/library/dd193283.aspx)です。
 
->[!div class="step-by-step"]
-[前へ](advanced-enterprise-web-deployment.md)
-[次へ](customizing-database-deployments-for-multiple-environments.md)
+> [!div class="step-by-step"]
+> [前へ](advanced-enterprise-web-deployment.md)
+> [次へ](customizing-database-deployments-for-multiple-environments.md)

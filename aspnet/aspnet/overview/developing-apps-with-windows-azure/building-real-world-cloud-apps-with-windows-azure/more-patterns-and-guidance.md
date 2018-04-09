@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
-title: "複数のパターンやガイダンス (Azure と実際のクラウド アプリのビルド) |Microsoft ドキュメント"
+title: 複数のパターンやガイダンス (Azure と実際のクラウド アプリのビルド) |Microsoft ドキュメント
 author: MikeWasson
-description: "Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています."
+description: Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 7e97cfc3-d830-4002-8ff7-5790d1ff49e6
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: a388f2e0ca3e1f0ce24a6def2a2b91711a7bf5a7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5da5110afc50fa02fcfae551a18741821f18fcbb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>複数のパターンやガイダンス (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -78,7 +78,7 @@ ms.lasthandoff: 01/24/2018
 最後に、実世界のアプリの構築を開始すると、Azure では、それらを実行している、いつか付くでしょうには、専門家の支援が必要です。 など、コミュニティ サイトに質問を依頼することができます[Azure フォーラムまたは StackOverflow](https://azure.microsoft.com/support/forums/)マイクロソフトが Azure サポートに直接お問い合わせできますか。 Microsoft Azure のテクニカル サポートのいくつかのレベルを提供しています: 概要と、オプションの比較では、次を参照してください。 [Azure サポート](https://azure.microsoft.com/support/plans/)です。
 
 <a id="acknowledgments"></a>
-## <a name="acknowledgments"></a>受信確認
+## <a name="acknowledgments"></a>謝辞
 
 このコンテンツは、Tom Dykstra、Rick Anderson、Mike Wasson によって書き込まれました。 ほとんどの元のコンテンツの取得元[Scott Guthrie](https://weblogs.asp.net/scottgu/)、Mark Simms、Microsoft Customer Advisory Team (CAT) から、さらにマテリアルに描画彼とします。
 
@@ -132,6 +132,6 @@ DGAC の他のメンバーは、レビューし、コメントが付加された
 - Roger Whitehead
 - Pawel Wilkosz
 
->[!div class="step-by-step"]
-[前へ](queue-centric-work-pattern.md)
-[次へ](the-fix-it-sample-application.md)
+> [!div class="step-by-step"]
+> [前へ](queue-centric-work-pattern.md)
+> [次へ](the-fix-it-sample-application.md)

@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/getting-started/introduction-to-aspnet-identity
-title: "ASP.NET Id の概要 |Microsoft ドキュメント"
+title: ASP.NET Id の概要 |Microsoft ドキュメント
 author: jongalloway
-description: "ASP.NET メンバーシップ システムで導入された ASP.NET 2.0 背面 2005年では、および変更があった多くの方法の web アプリケーション違ってにし、."
+description: ASP.NET メンバーシップ システムで導入された ASP.NET 2.0 背面 2005年では、および変更があった多くの方法の web アプリケーション違ってにし、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 38717fc1-5989-43cf-952d-4007cc1dd923
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 7c7dcb7903b0d0772acc560161ff39c6869c599a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 59272f4659256e108ee99b22eb3bd3e2583a617c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-aspnet-identity"></a>ASP.NET Id の概要
 ====================
@@ -112,37 +112,37 @@ ASP.NET Identity は、次の手順を使用して実装されます。 この�
 2. 作成したプロジェクトには、ASP.NET Identity の次の 3 つのパッケージが含まれています。
 
     - [`Microsoft.AspNet.Identity.EntityFramework`](http://www.nuget.org/packages/Microsoft.AspNet.Identity.EntityFramework/)  
- このパッケージには、ASP.NET Identity データと SQL Server へのスキーマに保持される ASP.NET Identity の Entity Framework 実装があります。
+   このパッケージには、ASP.NET Identity データと SQL Server へのスキーマに保持される ASP.NET Identity の Entity Framework 実装があります。
     - [`Microsoft.AspNet.Identity.Core`](http://www.nuget.org/packages/Microsoft.AspNet.Identity.Core/)  
- このパッケージには、ASP.NET Identity のコア インターフェイスがあります。 このパッケージを使用して、データベースなどの Azure テーブル ストレージ、NoSQL などさまざまな永続化の対象が格納 ASP.NET Identity の実装を記述します。
+   このパッケージには、ASP.NET Identity のコア インターフェイスがあります。 このパッケージを使用して、データベースなどの Azure テーブル ストレージ、NoSQL などさまざまな永続化の対象が格納 ASP.NET Identity の実装を記述します。
     - [`Microsoft.AspNet.Identity.OWIN`](http://www.nuget.org/packages/Microsoft.AspNet.Identity.Owin/)  
- このパッケージには、ASP.NET アプリケーションで ASP.NET Identity の OWIN 認証で接続に使用される機能が含まれています。 これは、機能で、アプリケーションと cookie を生成する OWIN の Cookie 認証ミドルウェアに呼び出しにログを追加する場合に使用されます。
+   このパッケージには、ASP.NET アプリケーションで ASP.NET Identity の OWIN 認証で接続に使用される機能が含まれています。 これは、機能で、アプリケーションと cookie を生成する OWIN の Cookie 認証ミドルウェアに呼び出しにログを追加する場合に使用されます。
 3. ユーザーを作成します。  
- アプリケーションを起動し、をクリックして、**登録**ユーザーを作成するリンクです。 次の図は、ユーザー名とパスワードを収集する登録ページを示します。  
+   アプリケーションを起動し、をクリックして、**登録**ユーザーを作成するリンクです。 次の図は、ユーザー名とパスワードを収集する登録ページを示します。  
   
     ![](introduction-to-aspnet-identity/_static/image2.png)  
   
- ユーザーがクリックしたとき、**登録**ボタン、`Register`アカウント コント ローラーのアクションは、以下に示すように、ASP.NET Identity API を呼び出すことによって、ユーザーを作成します。
+   ユーザーがクリックしたとき、**登録**ボタン、`Register`アカウント コント ローラーのアクションは、以下に示すように、ASP.NET Identity API を呼び出すことによって、ユーザーを作成します。
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample1.cs?highlight=8-9)]
 4. ログイン。  
- ユーザーが正常に作成された場合、彼女に記録によって、`SignInAsync`メソッドです。  
+   ユーザーが正常に作成された場合、彼女に記録によって、`SignInAsync`メソッドです。  
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample2.cs?highlight=12)]
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample3.cs?highlight=5-6)]
 
- 上での強調表示されたコード、`SignInAsync`メソッドを生成、 [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx)です。 ASP.NET Identity と OWIN の Cookie 認証は要求ベースのシステムであるため、フレームワークには、ユーザーの ClaimsIdentity を生成するアプリが必要です。 ClaimsIdentity には、ユーザーが属するロールなどのユーザーのすべての要求に関する情報があります。 この段階で、ユーザーのクレームを追加することもできます。  
+   上での強調表示されたコード、`SignInAsync`メソッドを生成、 [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx)です。 ASP.NET Identity と OWIN の Cookie 認証は要求ベースのシステムであるため、フレームワークには、ユーザーの ClaimsIdentity を生成するアプリが必要です。 ClaimsIdentity には、ユーザーが属するロールなどのユーザーのすべての要求に関する情報があります。 この段階で、ユーザーのクレームを追加することもできます。  
   
- 強調表示されたコードの下で、 `SignInAsync` OWIN と呼び出し元からの AuthenticationManager を使用して、ユーザーがサインイン メソッド`SignIn`ClaimsIdentity を渡しています。  
+   強調表示されたコードの下で、 `SignInAsync` OWIN と呼び出し元からの AuthenticationManager を使用して、ユーザーがサインイン メソッド`SignIn`ClaimsIdentity を渡しています。  
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample4.cs?highlight=8-11)]
 5. ログオフします。  
- クリックすると、**ログオフ**リンクは、アカウント コント ローラーでログオフ アクションを呼び出します。 
+   クリックすると、**ログオフ**リンクは、アカウント コント ローラーでログオフ アクションを呼び出します。 
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample5.cs?highlight=6)]
 
- 強調表示されたコードの表示上、OWIN`AuthenticationManager.SignOut`メソッドです。 これは、メソッドは[FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx)で使用する方法、 [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) Web フォーム内のモジュール。
+   強調表示されたコードの表示上、OWIN`AuthenticationManager.SignOut`メソッドです。 これは、メソッドは[FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx)で使用する方法、 [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) Web フォーム内のモジュール。
 
 ## <a name="components-of-aspnet-identity"></a>ASP.NET Identity のコンポーネント
 

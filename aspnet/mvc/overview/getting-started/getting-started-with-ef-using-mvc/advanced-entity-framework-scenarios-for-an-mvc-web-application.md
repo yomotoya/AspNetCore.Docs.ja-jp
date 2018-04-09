@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
-title: "Entity Framework 6 のシナリオを高度な MVC 5 Web アプリケーション (12/12) の |Microsoft ドキュメント"
+title: Entity Framework 6 のシナリオを高度な MVC 5 Web アプリケーション (12/12) の |Microsoft ドキュメント
 author: tdykstra
-description: "Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています."
+description: Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 85276377671b96e65406639c8584d9ebf8d77ff7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 50987b30a49173605e7aeb8eb65ff1fe5d5e5753
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="advanced-entity-framework-6-scenarios-for-an-mvc-5-web-application-12-of-12"></a>MVC 5 Web アプリケーション (12/12) の高度な Entity Framework 6 のシナリオ
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 01/24/2018
 
 [完成したプロジェクトをダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)または[PDF のダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
-> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio 2013 を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 一連のチュートリアルについては、次を参照してください。[系列内の最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。
+> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio 2013 を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
 
 
 前のチュートリアルでは、テーブルの階層あたりの継承を実装します。 このチュートリアルでは、Entity Framework Code First を使用する ASP.NET web アプリケーションの開発の基礎を超えたときに認識する便利ないくつかのトピックについて紹介します。 詳細な手順を進めていきますコードと、次のトピックの Visual Studio を使用します。
@@ -59,12 +59,12 @@ ms.lasthandoff: 01/24/2018
 Entity Framework コードの最初の API には、データベースに直接 SQL コマンドを渡すことができるようにするメソッドが含まれています。 次のオプションがあります。
 
 - 使用して、 [DbSet.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.dbset.sqlquery.aspx)をエンティティ型を返すクエリ メソッド。 返されたオブジェクトで想定されている型でなければなりません、`DbSet`オブジェクト、およびそれらが自動的に追跡データベースのコンテキストによって追跡を無効にする場合を除き、します。 (は、次のセクションを参照してください、 [AsNoTracking](https://msdn.microsoft.com/library/system.data.entity.dbextensions.asnotracking.aspx)メソッドです)。
-- 使用して、 [Database.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.database.sqlquery.aspx)をエンティティがない型を返すクエリ メソッド。 返されるデータは、エンティティの種類を取得するこのメソッドを使用する場合でもデータベース コンテキストによって追跡されていません。
+- 使用して、 [Database.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.database.sqlquery.aspx)をエンティティがない型を返すクエリ メソッド。 このメソッドを使用してエンティティ型を取得する場合でも、返されるデータはデータベース コンテキストによって追跡されません。
 - 使用して、 [Database.ExecuteSqlCommand](https://msdn.microsoft.com/library/gg679456.aspx)非クエリ コマンド。
 
-Entity Framework を使用する利点の 1 つは、コードのデータを格納する特定のメソッドを過度に結び付ける済む点です。 これは、SQL クエリとコマンドの生成も自分で記述することから解放することで実行します。 例外的なシナリオは、手動で作成した特定の SQL クエリを実行する必要がある場合とこれらのメソッドのできるようにすると、このような例外を処理します。
+Entity Framework を使用する利点の 1 つは、データを格納する特定のメソッドにコードを過度に接近させなくてもよい点です。 SQL クエリとコマンドが生成されるため、自分でこれらを記述する必要がなくなります。 例外的なシナリオは、手動で作成した特定の SQL クエリを実行する必要がある場合とこれらのメソッドのできるようにすると、このような例外を処理します。
 
-常に true web アプリケーションで SQL コマンドを実行するときに、としては、SQL インジェクション攻撃からサイトを保護する対策を講じる必要があります。 行うには 1 つの方法では、パラメーター化クエリを使用して、SQL コマンドとして web ページによって送信される文字列を解釈できないことを確認します。 このチュートリアルでは、ユーザー入力をクエリに統合するとき、パラメーター化クエリを使用します。
+Web アプリケーションで SQL コマンドを実行する場合は常に、SQL インジェクション攻撃から自身のサイトを保護する対策を講じる必要があります。 これを行う 1 つの方法として、パラメーター化されたクエリを使用して、Web ページによって送信された文字列が SQL コマンドとして解釈できないことを確認します。 このチュートリアルでは、ユーザー入力をクエリに統合するときに、パラメーター化されたクエリを使用します。
 
 ### <a name="calling-a-query-that-returns-entities"></a>クエリを呼び出すには、エンティティが返されます。
 
@@ -74,13 +74,13 @@ Entity Framework を使用する利点の 1 つは、コードのデータを格
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample1.cs?highlight=8-14)]
 
-新しいコードが正しく動作することを確認するには、次のように選択します。、**部門**タブし、**詳細**部門のいずれか。
+新しいコードが正しく動作することを確認するには、**[Departments]\(部門\)** タブを選択し、いずれかの部門の **[Details]\(詳細\)** を選択します。
 
 ![部門の詳細](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image2.png)
 
 ### <a name="calling-a-query-that-returns-other-types-of-objects"></a>クエリを呼び出すには、その他の種類のオブジェクトが返されます。
 
-以前登録日付ごとの生徒の数が映っているバージョン情報 ページの受講者統計グリッドを作成します。 これを行うコード*HomeController.cs* LINQ を使用します。
+以前に、登録日ごとの学生数を示す About ページ用に、学生の統計グリッドを作成しました。 これを行うコード*HomeController.cs* LINQ を使用します。
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample2.cs)]
 
@@ -90,13 +90,13 @@ LINQ を使用するのではなく、SQL の直接このデータを取得す�
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample3.cs?highlight=3-18)]
 
-バージョン情報 ページを実行します。 以前と同じ、同じデータが表示されます。
+バージョン情報 ページを実行します。 以前に行ったのと同じデータが表示されます。
 
 ![About_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image3.png)
 
 ### <a name="calling-an-update-query"></a>更新クエリを呼び出す
 
-Contoso 大学管理者がすべてコースのクレジットの数の変更などのデータベースで一括変更を実行することができるようにするとします。 かかる大学のコースの数が多い場合は、できなくなるそれらすべてのエンティティとして取得し、それらを個別に変更が効率的です。 ユーザーが、すべてのコースのクレジットの数を変更する係数を指定できるようにする web ページを実装するこのセクションの内容と SQL を実行することによって、変更を加えるを`UPDATE`ステートメントです。 Web ページは、次の図のようになります。
+Contoso 大学管理者がすべてコースのクレジットの数の変更などのデータベースで一括変更を実行することができるようにするとします。 大学に多くのコースがある場合は、それらすべてをエンティティとして取得し、それらを個別に変更するのは非効率的です。 ユーザーが、すべてのコースのクレジットの数を変更する係数を指定できるようにする web ページを実装するこのセクションの内容と SQL を実行することによって、変更を加えるを`UPDATE`ステートメントです。 Web ページは次の図のようになります。
 
 ![Update_Course_Credits_initial_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image4.png)
 
@@ -118,15 +118,15 @@ Contoso 大学管理者がすべてコースのクレジットの数の変更な
 
 [!code-cshtml[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample5.cshtml)]
 
-実行、`UpdateCourseCredits`メソッドを選択して、**コース** タブで、追加し、"/UpdateCourseCredits"ブラウザーのアドレス バーの URL の末尾に (たとえば: `http://localhost:50205/Course/UpdateCourseCredits`)。 テキスト ボックスに数値を入力します。
+**[Courses]\(コース\)** タブを選択してから、ブラウザーのアドレス バーで URL の末尾に "/UpdateCourseCredits" を追加して (例: `http://localhost:50205/Course/UpdateCourseCredits`)、`UpdateCourseCredits` メソッドを実行します。 テキスト ボックスに数値を入力します。
 
 ![Update_Course_Credits_initial_page_with_2_entered](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image7.png)
 
-**[更新]**をクリックします。 影響を受ける行の数が参照してください。
+**[更新]**をクリックします。 影響を受けた行の数が表示されます。
 
 ![Update_Course_Credits_rows_affected_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image8.png)
 
-をクリックして**一覧に戻る**コースのクレジットの改訂された数との一覧を表示します。
+**[リストに戻る]** をクリックして、単位数が変更されたコースの一覧を表示します。
 
 ![Courses_Index_page_showing_revised_credits](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image9.png)
 
@@ -135,19 +135,19 @@ Contoso 大学管理者がすべてコースのクレジットの数の変更な
 <a id="notracking"></a>
 ## <a name="no-tracking-queries"></a>No 追跡クエリ
 
-データベース コンテキストは、テーブルの行を取得し、それらを表すエンティティ オブジェクトを作成、ときに既定では、追跡データベース内にメモリ内のエンティティが同期されているかどうか。 メモリ内のデータはキャッシュとして機能し、エンティティを更新するときに使用します。 このキャッシュではありません多くの場合、web アプリケーションで必要なコンテキストをインスタンス化は通常短時間 (新しい 1 つが作成され、破棄要求ごとに) とコンテキストを読み取るそのエンティティが再度使用される前に、通常、エンティティが破棄されています。
+データベース コンテキストは、テーブルの行を取得してそれらを表すエンティティ オブジェクトを作成するとき、既定では、メモリ内のエンティティがデータベース内のデータと同期されているかどうかを追跡します。 メモリ内のデータはキャッシュとして機能し、エンティティを更新するときに使われます。 Web アプリケーションでは、一般にコンテキスト インスタンスの存続期間は短く (要求ごとに新しいインスタンスが作成されて破棄されます)、通常、エンティティを読み取るコンテキストはエンティティが再び使われる前に破棄されるので、多くの場合、このようなキャッシュは必要ありません。
 
-使用してメモリ内のエンティティ オブジェクトの追跡を無効にすることができます、 [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx)メソッドです。 実行する一般的なシナリオを以下に示します。
+使用してメモリ内のエンティティ オブジェクトの追跡を無効にすることができます、 [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx)メソッドです。 追跡を無効にした方がよい一般的なシナリオを以下に示します。
 
 - クエリでは、大量の追跡を無効にするとパフォーマンスを向上させる著しくするデータを取得します。
-- 前のさまざまな目的は同じエンティティを取得したが、更新するためにエンティティをアタッチする場合します。 エンティティは、データベースのコンテキストによって既に追跡されているが、ために、変更するエンティティをアタッチできません。 この状況に対処する方法の 1 つを使用して、`AsNoTracking`オプションは、以前のクエリを使用します。
+- 前のさまざまな目的は同じエンティティを取得したが、更新するためにエンティティをアタッチする場合します。 エンティティはデータベース コンテキストによって既に追跡されているため、変更するエンティティをアタッチできません。 この状況に対処する方法の 1 つを使用して、`AsNoTracking`オプションは、以前のクエリを使用します。
 
 使用する方法を示す例については、 [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx)メソッドを参照してください[このチュートリアルの以前のバージョン](../../older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application.md)します。 チュートリアルのこのバージョンは、必要があるために、メソッドでは、編集、モデル バインダーに作成されたエンティティでの Modified フラグを設定しない`AsNoTracking`です。
 
 <a id="sql"></a>
 ## <a name="examining-sql-sent-to-the-database"></a>データベースに送信する SQL の確認
 
-データベースに送信される実際の SQL クエリを表示できるようにすると役立つ場合があります。 以前のチュートリアルでは、インターセプターのコードで操作する方法を説明今すぐをインターセプター コードを書かずに行うにはいくつかの方法が表示されます。 これを試すをするには、単純なクエリを見てし、このような一括読み込み、フィルター、および並べ替えオプションを追加するように動作を確認します。
+データベースに送信される実際の SQL クエリを確認できると役立つ場合があります。 以前のチュートリアルでは、インターセプターのコードで操作する方法を説明今すぐをインターセプター コードを書かずに行うにはいくつかの方法が表示されます。 これを試すをするには、単純なクエリを見てし、このような一括読み込み、フィルター、および並べ替えオプションを追加するように動作を確認します。
 
 *コント ローラー/CourseController*、置換、`Index`メソッドを一時的に一括読み込みを停止するのには、次のコード。
 
@@ -193,12 +193,12 @@ A`SelectList`ドロップ ダウン リスト ビューにすべての部門を�
 
 <a id="repo"></a>
 
-## <a name="repository-and-unit-of-work-patterns"></a>リポジトリと作業パターンの単位
+## <a name="repository-and-unit-of-work-patterns"></a>Repository パターンと Unit of Work パターン
 
-多くの開発者は、Entity Framework で動作するコードをラップするラッパーとしてリポジトリと作業パターンの単位を実装するコードを記述します。 これらのパターンは、データ アクセス層とアプリケーションのビジネス ロジック層の間で抽象化レイヤーを作成するためのものです。 これらのパターンを実装して、変更によって、データ ストアにアプリケーションを分離できます、自動化された単体テストまたはテスト駆動開発 (TDD) に容易にすることができます。 ただし、これらのパターンを実装する追加のコードの記述は常にいくつかの理由、EF を使用するアプリケーションに最適な選択肢。
+多くの開発者は、Entity Framework で動作するコードをラップするラッパーとして、Repository パターンと Unit of Work パターンを実装するためのコードを記述します。 これらのパターンは、アプリケーションのデータ アクセス層とビジネス ロジック層の間に抽象化レイヤーを作成するためのものです。 これらのパターンを実装すると、データ ストアの変更からアプリケーションを隔離でき、自動化された単体テストやテスト駆動開発 (TDD) を円滑化できます。 ただし、これらのパターンを実装する追加のコードの記述は常にいくつかの理由、EF を使用するアプリケーションに最適な選択肢。
 
-- EF コンテキスト クラス自体は、データ ストア固有のコードからコードを分離します。
-- EF コンテキスト クラスは、データベースの作業単位クラス更新 EF を使用してを実行することで動作できます。
+- EF コンテキスト クラス自体が、コードをデータ ストア固有のコードから隔離します。
+- EF コンテキスト クラスは、EF を使用して行っているデータベースの更新の unit-of-work クラスとして動作できます。
 - Entity Framework 6 で導入された機能をやすくリポジトリ コードを記述することがなく TDD を実装します。
 
 リポジトリと作業パターンの単位を実装する方法の詳細については、次を参照してください。[このチュートリアル シリーズの Entity Framework 5 バージョン](../../older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)します。 Entity Framework 6 で TDD を実装する方法については、次のリソースを参照してください。
@@ -227,9 +227,9 @@ Entity Framework では、エンティティのインスタンス (たとえば�
 詳細については、次を参照してください。[プロキシ扱う](https://msdn.microsoft.com/data/JJ592886.aspx)msdn です。
 
 <a id="changedetection"></a>
-## <a name="automatic-change-detection"></a>自動の変更の検出
+## <a name="automatic-change-detection"></a>変更の自動検出
 
-Entity Framework では、元の値を持つエンティティの現在の値を比較することによってエンティティがどのように変更されたか (およびしたがって、更新プログラムがデータベースに送信する必要があります) を決定します。 元の値は、エンティティがクエリを実行したり、接続されているときに格納されます。 自動の変更の検出が発生する方法の一部を次に示します。
+Entity Framework では、エンティティの現在の値と元の値を比較して、エンティティがどのように変更されたか (およびそれによって、どの更新プログラムをデータベースに送信する必要があるか) を判断します。 元の値は、エンティティが照会されるかアタッチされるときに格納されます。 変更の自動検出を行うメソッドには、次のようなものがあります。
 
 - `DbSet.Find`
 - `DbSet.Local`
@@ -262,7 +262,7 @@ Entity Framework では、元の値を持つエンティティの現在の値を
 
 Entity Framework 6 のソース コードは[GitHub](https://github.com/aspnet/EntityFramework6)です。 バグ、ファイルを作成でき、EF ソース コードに独自の機能強化に協力することができます。
 
-ソース コードは開いているが、Entity Framework が Microsoft の製品としてサポートされます。 Microsoft Entity Framework チームは、コントロール コントリビューションの受け入れを保持し、各リリースの品質を保証するすべてのコード変更をテストします。
+ソース コードは開いているが、Entity Framework が Microsoft の製品としてサポートされます。 Microsoft Entity Framework チームは、各リリースの品質を保証するため、受け入れる投稿を管理し、すべてのコード変更をテストしています。
 
 <a id="summary"></a>
 ## <a name="summary"></a>まとめ
@@ -274,7 +274,7 @@ Entity Framework 6 のソース コードは[GitHub](https://github.com/aspnet/E
 については、認証および承認など、MVC に関連するその他のトピックを参照してください、 [ASP.NET MVC のリソースをお勧め](../recommended-resources-for-mvc.md)です。
 
 <a id="acknowledgments"></a>
-## <a name="acknowledgments"></a>受信確認
+## <a name="acknowledgments"></a>謝辞
 
 - Tom Dykstra このチュートリアルの元のバージョンを作成するには、併置 EF 5 更新プログラムを作成および EF 6 更新プログラムを記述します。 Tom は、Microsoft Web プラットフォームとツール コンテンツ チームのシニア プログラミング ライターです。
 - [Rick Anderson](https://blogs.msdn.com/b/rickandy/) (twitter [ @RickAndMSFT ](http://twitter.com/RickAndMSFT)) 5 の EF と MVC 4 のチュートリアルを更新して作業の大半と併置 EF 6 更新プログラムを作成します。 Rick は、Microsoft Azure と MVC に焦点を当てたのスキルの限られたプログラミング ライターです。
@@ -333,16 +333,16 @@ Visual Studio を終了します。 プロジェクトを開き直すし、も�
 
 このエラーを取得する方法の 1 つは同じポート番号を使用してそれらの各ソリューションの複数のコピーです。 通常、この問題を解決には、Visual Studio のすべてのインスタンスを終了しで作業するプロジェクトを再起動します。 それでもうまくいかない場合は、ポート番号を変更してください。 プロジェクト ファイルを右クリックし、[プロパティ] をクリックします。 選択、 **Web**  タブをされているポート番号を変更、**プロジェクト Url**テキスト ボックス。
 
-### <a name="error-locating-sql-server-instance"></a>SQL Server インスタンスの検索エラー
+### <a name="error-locating-sql-server-instance"></a>SQL Server インスタンスの位置を特定しているときのエラー
 
 エラー メッセージ:
 
-> SQL Server への接続を確立中にネットワーク関連またはインスタンス固有のエラーが発生しました。 サーバーが見つからないかアクセスできません。 インスタンス名が正しいこと、および SQL Server がリモート接続を許可するように構成されていることを確認してください。 (プロバイダー: SQL Network Interfaces、エラー: 26 - エラーの検索のサーバー/インスタンスの指定)
+> SQL Server への接続を確立しているときに、ネットワーク関連またはインスタンス固有のエラーが発生しました。 サーバーが見つからないかアクセスできません。 インスタンス名が正しいこと、および SQL Server がリモート接続を許可するように構成されていることを確認してください。 (プロバイダー: SQL ネットワーク インターフェイス、エラー: 26 - 指定されたサーバーまたはインスタンスの位置を特定しているときにエラーが発生しました)。
 
 
 ソリューション
 
 接続文字列を確認します。 データベースを手動で削除する場合は、構築文字列でデータベースの名前を変更します。
 
->[!div class="step-by-step"]
-[前へ](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [前へ](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)

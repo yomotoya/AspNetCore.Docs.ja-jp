@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
-title: "ASP.NET ページ (c#) で BLL および DAL レベルの例外の処理 |Microsoft ドキュメント"
+title: ASP.NET ページ (c#) で BLL および DAL レベルの例外の処理 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、insert、update、または削除操作の中に例外が発生する必要がありますにわかりやすい、わかりやすいエラー メッセージを表示する方法についておしています."
+description: このチュートリアルでは、insert、update、または削除操作の中に例外が発生する必要がありますにわかりやすい、わかりやすいエラー メッセージを表示する方法についておしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5a0ffde90aa85383d87bd48e16a1c16433465cbf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e7589584f3b0773a739b785c433ec45eeac3607e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-c"></a>ASP.NET ページ (c#) で BLL および DAL レベルの例外処理
 ====================
@@ -155,9 +155,9 @@ ASP.NET ページの設定にラベルを追加して、開始、`ID`プロパ�
 
 このイベント ハンドラーの 2 番目の入力パラメーターの型のオブジェクトは、 [GridViewUpdatedEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx)、例外処理の目的の 3 つのプロパティを持ちます。
 
-- `Exception`スローされた例外への参照このプロパティの値には例外がスローされなかった場合に、`null`
-- `ExceptionHandled`例外が処理されたかどうかを示すブール値、`RowUpdated`イベント ハンドラーです`false`(既定)、例外が再スローされる、最大で ASP.NET ランタイム percolating。
-- `KeepInEditMode`場合設定`true`場合に、編集モードで編集された GridView 行まま`false`(既定)、GridView の行が、読み取り専用モードに戻ります
+- `Exception` スローされた例外への参照このプロパティの値には例外がスローされなかった場合に、 `null`
+- `ExceptionHandled` 例外が処理されたかどうかを示すブール値、`RowUpdated`イベント ハンドラーです`false`(既定)、例外が再スローされる、最大で ASP.NET ランタイム percolating。
+- `KeepInEditMode` 場合設定`true`場合に、編集モードで編集された GridView 行まま`false`(既定)、GridView の行が、読み取り専用モードに戻ります
 
 次に、コードがかどうかをチェックする必要があります`Exception`は`null`操作の実行中に例外が発生したことを意味します。 大文字と小文字の場合は、します。
 
@@ -224,12 +224,12 @@ ASP.NET ページの設定にラベルを追加して、開始、`ID`プロパ�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Liz Shulok しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
-[次へ](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
+> [!div class="step-by-step"]
+> [前へ](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
+> [次へ](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)

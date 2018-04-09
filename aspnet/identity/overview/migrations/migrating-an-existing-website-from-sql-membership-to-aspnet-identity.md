@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
-title: "SQL メンバーシップから ASP.NET の Id への既存の web サイトの移行 |Microsoft ドキュメント"
+title: SQL メンバーシップから ASP.NET の Id への既存の web サイトの移行 |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このチュートリアルでは、ユーザーとロールのデータを新しい ASP.NET Id の SQL メンバーシップを使用して作成された既存の web アプリケーションを移行する手順を示します."
+description: このチュートリアルでは、ユーザーとロールのデータを新しい ASP.NET Id の SQL メンバーシップを使用して作成された既存の web アプリケーションを移行する手順を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/19/2014
 ms.topic: article
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 3638c6779a0fcedaaa49623126b28ecf09a4954f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2790f32bc74cecf450f5a258fc1ff5b280a63923
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>SQL メンバーシップから ASP.NET Identity に既存の web サイトを移行します。
 ====================
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/24/2018
 3. 管理者をという名前のロールを作成し、そのロールのユーザーとして 'oldAdminUser' を追加します。
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image2.png)
-4. Default.aspx で、サイトの管理セクションを作成します。 管理者ロールのユーザーにのみアクセスを有効にするために web.config ファイルで、承認のタグを設定します。 詳細をご覧[https://www.asp.net/web-forms/tutorials/security/roles/role-based-authorization-cs](../../../web-forms/overview/older-versions-security/roles/role-based-authorization-cs.md)
+4. Default.aspx で、サイトの管理セクションを作成します。 管理者ロールのユーザーにのみアクセスを有効にするために web.config ファイルで、承認のタグを設定します。 詳細についてはこちらにあります。 [https://www.asp.net/web-forms/tutorials/security/roles/role-based-authorization-cs](../../../web-forms/overview/older-versions-security/roles/role-based-authorization-cs.md)
 
     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image3.png)
 5. サーバー エクスプ ローラーで SQL メンバーシップ システムによって作成されたテーブルを理解するには、データベースを表示します。 ユーザー ログインのデータは、aspnet で\_ユーザーと"aspnet"\_メンバーシップ テーブルに、aspnet でロールのデータが格納されている\_Roles テーブル。 ユーザーに関する情報がどのロールに属するが、aspnet に格納されている\_UsersInRoles テーブル。 基本メンバーシップの管理用に移植する ASP.NET Identity システムに、上記のテーブル内の情報で十分です。
@@ -67,14 +67,14 @@ ms.lasthandoff: 01/24/2018
 
 1. ソリューション エクスプ ローラーでプロジェクトを右クリックして&gt; **NuGet パッケージの管理**です。 [検索] ボックスで、"Asp.net Identity"を入力します。 結果の一覧で、パッケージを選択し、[インストール] をクリックします。 "I Accept"ボタンをクリックしてライセンス条項に同意します。 このパッケージの依存関係パッケージがインストールされる注: EntityFramework と Microsoft ASP.NET Identity Core です。 同様に、次のパッケージ (ログで OAuth が有効にしたくない場合は、最後の 4 つの OWIN パッケージを省略します) をインストールします。
 
-    - Microsoft.AspNet.Identity.Owin
-    - Microsoft.Owin.Host.SystemWeb
-    - Microsoft.Owin.Security.Facebook
-    - Microsoft.Owin.Security.Google
-    - Microsoft.Owin.Security.MicrosoftAccount
-    - Microsoft.Owin.Security.Twitter
+   - Microsoft.AspNet.Identity.Owin
+   - Microsoft.Owin.Host.SystemWeb
+   - Microsoft.Owin.Security.Facebook
+   - Microsoft.Owin.Security.Google
+   - Microsoft.Owin.Security.MicrosoftAccount
+   - Microsoft.Owin.Security.Twitter
 
-    ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image6.png)
+     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image6.png)
 
 ### <a name="migrate-database-to-the-new-identity-system"></a>データベースを新しい Id システムに移行します。
 
@@ -89,7 +89,7 @@ ASP.NET Identity クラス、ボックスに、データの既存のユーザー
 | **IdentityUser** | **Type** | **IdentityRole** | **IdentityUserRole** | **IdentityUserLogin** | **IdentityUserClaim** |
 | --- | --- | --- | --- | --- | --- |
 | ID | string | ID | RoleId | ProviderKey | ID |
-| ユーザー名 | string | name | UserId | UserId | ClaimType |
+| ユーザー名 | string | 名前 | UserId | UserId | ClaimType |
 | PasswordHash | string |  |  | LoginProvider | ClaimValue |
 | SecurityStamp | string |  |  |  | ユーザー\_Id |
 | 電子メール | string |  |  |  |  |
@@ -193,7 +193,7 @@ SQL メンバーシップ ユーザーの情報は、その他のプロパティ
 
 ### <a name="create-new-account-management-pages"></a>新しいアカウントの管理ページを作成します。
 
-移行するには、次の手順では、により、ユーザーを登録し、ログイン アカウントの管理ページを追加します。 SQL メンバーシップから古いアカウント ページは、新しい Id システムとでは動作しないコントロールを使用します。 管理ページを新しいユーザーを追加するには、次のチュートリアルでは、このリンク[https://www.asp.net/identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project](../getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)ステップから開始 'Web フォームを追加するアプリケーションにユーザーを登録する ' 既にプロジェクトを作成し、NuGet パッケージを追加したのでです。
+移行するには、次の手順では、により、ユーザーを登録し、ログイン アカウントの管理ページを追加します。 SQL メンバーシップから古いアカウント ページは、新しい Id システムとでは動作しないコントロールを使用します。 管理ページを新しいユーザーを追加するには、次のチュートリアルでは、このリンク[ https://www.asp.net/identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project ](../getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)手順 'を追加する Web フォーム アプリケーションにユーザーを登録する' から既にプロジェクトを作成し、NuGet を追加したのでパッケージ。
 
 ここにあるプロジェクトを使用するサンプルの変更を加える必要があります。
 

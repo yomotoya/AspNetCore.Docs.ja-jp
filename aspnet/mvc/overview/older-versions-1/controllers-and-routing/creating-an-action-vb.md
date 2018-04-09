@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-vb
-title: "アクション (VB) の作成 |Microsoft ドキュメント"
+title: アクション (VB) の作成 |Microsoft ドキュメント
 author: microsoft
-description: "ASP.NET MVC のコント ローラーに新しいアクションを追加する方法を説明します。 メソッドをアクションの要件について説明します。"
+description: ASP.NET MVC のコント ローラーに新しいアクションを追加する方法を説明します。 メソッドをアクションの要件について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3d1d355599c17df597f9c08d9d7f129fffc1a2e4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c77e4738444c61d60bdd78a50b36f98be41fc271
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-an-action-vb"></a>アクション (VB) の作成
 ====================
@@ -64,6 +64,6 @@ ms.lasthandoff: 11/10/2017
 
 **図 01**: NonAction メソッドを呼び出す ([フルサイズのイメージを表示するをクリックして](creating-an-action-vb/_static/image2.png))
 
->[!div class="step-by-step"]
-[前へ](creating-a-controller-vb.md)
-[次へ](aspnet-mvc-controllers-overview-cs.md)
+> [!div class="step-by-step"]
+> [前へ](creating-a-controller-vb.md)
+> [次へ](aspnet-mvc-controllers-overview-cs.md)

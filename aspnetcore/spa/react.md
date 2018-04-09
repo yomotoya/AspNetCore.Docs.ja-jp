@@ -1,7 +1,7 @@
 ---
-title: "対応プロジェクト テンプレートを使用します。"
+title: ASP.NET Core React プロジェクト テンプレートを使用します。
 author: SteveSandersonMS
-description: "ASP.NET Core 単一ページ アプリケーション (SPA) プロジェクト テンプレートを使用して対応と作成対応アプリの作業を開始する方法を説明します。"
+description: ASP.NET Core 単一ページ アプリケーション (SPA) プロジェクト テンプレートを使用して対応と作成対応アプリの作業を開始する方法を説明します。
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: cda9f52d1f5fa1d240e210488bf1bd5c76e49be7
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 4dcfef2bbb99873a9d716a4942f39123944f495c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="use-the-react-project-template"></a>対応プロジェクト テンプレートを使用します。
+# <a name="use-the-react-project-template-with-aspnet-core"></a>ASP.NET Core React プロジェクト テンプレートを使用します。
 
 > [!NOTE]
 > このドキュメントに関する対応プロジェクト テンプレートに含まれていない ASP.NET Core 2.0。 手動で更新できる新しい対応テンプレートことです。 既定では ASP.NET Core 2.1 では、テンプレートが含まれます。
@@ -63,9 +63,9 @@ Visual Studio または .NET Core CLI からアプリを実行します。
 
 このテンプレートで作成した対応アプリケーションと CRA 自体によって作成されたものの間のわずかな違いがあります。ただし、アプリの機能は変更されません。 テンプレートによって作成されたアプリが含まれています、[ブートス トラップ](https://getbootstrap.com/)-ベースのレイアウトとルーティングの基本的な例です。
 
-## <a name="install-npm-packages"></a>Npm パッケージをインストールします。
+## <a name="install-npm-packages"></a>npm パッケージをインストールする
 
-サード パーティ製の npm パッケージをインストールするでコマンド プロンプトを使用して、 *ClientApp*サブディレクトリです。 例:
+サード パーティ製の npm パッケージをインストールするでコマンド プロンプトを使用して、 *ClientApp*サブディレクトリです。 例えば:
 
 ```console
 cd ClientApp
@@ -84,7 +84,7 @@ npm install --save <package_name>
 
 プロジェクトが ASP.NET Core アプリケーションの開発モードの開始時に、バック グラウンドで CRA 開発サーバーの独自のインスタンスを開始するように構成します。 これは、機能は、別のサーバーを手動で実行する必要はありませんので便利です。
 
-この既定の設定の欠点があります。 C# コードとアプリを再起動する必要があります、ASP.NET Core を変更するたびに、CRA サーバーを再起動します。 バックアップを開始するには、数秒が必要です。 頻繁に c# コードの編集を加えようとして CRA サーバーを再起動するまで待機しない場合は、ASP.NET Core プロセスとは無関係に外部から、CRA サーバーを実行します。 これを行うには。
+この既定の設定の欠点があります。 C# コードとアプリを再起動する必要があります、ASP.NET Core を変更するたびに、CRA サーバーを再起動します。 バックアップを開始するには、数秒が必要です。 頻繁に c# コードの編集を加えようとして CRA サーバーを再起動するまで待機しない場合は、ASP.NET Core プロセスとは無関係に外部から、CRA サーバーを実行します。 次の手順に従います。
 
 1. コマンド プロンプトでに切り替えると、 *ClientApp*サブディレクトリ、および CRA 開発サーバーの起動。
 

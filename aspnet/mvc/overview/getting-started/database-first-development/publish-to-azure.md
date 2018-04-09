@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/publish-to-azure
-title: "MVC データベースの最初のサイトを Azure に発行 |Microsoft ドキュメント"
+title: MVC データベースの最初のサイトを Azure に発行 |Microsoft ドキュメント
 author: tfitzmac
-description: "MVC、Entity Framework と ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアルの seri しています."
+description: MVC、Entity Framework と ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアルの seri しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/22/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/publish-to-azure
 msc.type: authoredcontent
-ms.openlocfilehash: eadc0f2b08df29f80fe53d03cf88cd3cdcecfb12
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 839bbceba6f0e098303facd40dbb1496bd449ba3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="publish-mvc-database-first-site-to-azure"></a>MVC データベースの最初のサイトを Azure に発行します。
 ====================
@@ -152,7 +152,7 @@ Azure ポータルで Azure アカウントにログインします。
 
 ![新しいテーブル](publish-to-azure/_static/image22.png)
 
-Azure に展開されている web アプリをテストする準備が整いました。 (Http://contosositeexample.azurewebsites.net/) など、Azure で web アプリに移動します。 学生のリストのリンクをクリックし、受講者のインデックス ビューを表示する必要があります。
+Azure に展開されている web アプリをテストする準備が整いました。 Azure で web アプリに移動 (などhttp://contosositeexample.azurewebsites.net/)です。 学生のリストのリンクをクリックし、受講者のインデックス ビューを表示する必要があります。
 
 ![ビュー](publish-to-azure/_static/image23.png)
 
@@ -166,5 +166,5 @@ Code First の開発の導入例は、次を参照してください。 [ASP.NET
 
 高度な例では、次を参照してください。 [ASP.NET MVC 4 アプリケーションを Entity Framework データ モデルを作成する](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。 DbContext API を使用するデータベースを最初にデータを扱うのために、Code First でのデータを操作するために使用する API と同じことに注意してください。 Database First を使用する場合でも、コードの最初のチュートリアルからなど、同時実行の競合を処理、読み取りと、関連するデータの更新などのより複雑なシナリオを処理する方法を確認できます。 唯一の違いは、データベース、コンテキスト クラス、およびエンティティ クラスを作成する方法です。
 
->[!div class="step-by-step"]
-[前へ](enhancing-data-validation.md)
+> [!div class="step-by-step"]
+> [前へ](enhancing-data-validation.md)

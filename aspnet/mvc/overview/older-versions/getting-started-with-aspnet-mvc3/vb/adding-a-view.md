@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
-title: "ビュー (VB) を追加する |Microsoft ドキュメント"
+title: ビュー (VB) を追加する |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 7e8564c743510780b93d56bc1215f4c5b1faeb43
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c9675eb7776116ecbe910d5515abfe9b4391df22
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view-vb"></a>ビュー (VB) を追加します。
 ====================
@@ -65,7 +65,7 @@ HTML を追加、`<h2>`タグ。 変更された*MvcMovie\Views\HelloWorld\Index
 
 最初に、テキストを変更してみましょう&quot;マイ MVC アプリケーション。&quot;そのテキストを使用して、共有は、すべてのページに表示されます。 アプリケーション内の各ページ上にあるいても実際には、プロジェクト内の 1 か所に表示します。 移動して、 */ビュー/共有*フォルダー**ソリューション エクスプ ローラー**を開くと、  *\_Layout.vbhtml*ファイル。 このファイルし、呼ばれ、レイアウト ページ、共有は&quot;シェル&quot;他のすべてのページを使用します。
 
-注、`@RenderBody()`ファイルの下部にあるコードの行。 `RenderBody`場所を作成するすべてのページは表示のプレース ホルダー&quot;ラップ&quot;レイアウト ページでします。 変更、`<h1>`から見出し **&quot;** マイ MVC アプリケーション&quot;に&quot;MVC ムービー アプリ&quot;です。
+注、`@RenderBody()`ファイルの下部にあるコードの行。 `RenderBody` 場所を作成するすべてのページは表示のプレース ホルダー&quot;ラップ&quot;レイアウト ページでします。 変更、`<h1>`から見出し**&quot;**マイ MVC アプリケーション&quot;に&quot;MVC ムービー アプリ&quot;です。
 
 [!code-html[Main](adding-a-view/samples/sample3.html)]
 
@@ -79,7 +79,7 @@ HTML を追加、`<h2>`タグ。 変更された*MvcMovie\Views\HelloWorld\Index
 
 [!code-vbhtml[Main](adding-a-view/samples/sample5.vbhtml)]
 
-開いている*MvcMovie\Views\HelloWorld\Index.vbhtml*です。 2 つの場所を変更する場合がある: 最初に、テキスト表示される、ブラウザーのタイトルにし、セカンダリのヘッダー (、`<h2>`要素)。 しましょうに若干異なるため、どのビット コードの変更、アプリのどの部分を参照してください。
+Open *MvcMovie\Views\HelloWorld\Index.vbhtml*. 2 つの場所を変更する場合がある: 最初に、テキスト表示される、ブラウザーのタイトルにし、セカンダリのヘッダー (、`<h2>`要素)。 しましょうに若干異なるため、どのビット コードの変更、アプリのどの部分を参照してください。
 
 アプリケーションを実行しを参照`http://localhost:xx/HelloWorld`です。 ブラウザーのタイトル、プライマリ見出し、およびセカンダリ見出しが変更されていることに注意してください  ビューに小さな変更を使用してアプリケーションに大きな変更を加えるには簡単です。 (ブラウザーに変更内容が表示されない場合は、キャッシュされたコンテンツを表示している可能性があります。 ブラウザーで Ctrl + F5 キーを押して、サーバーからの応答が強制的に読み込まれるようにしてください)。
 
@@ -111,11 +111,11 @@ HTML を追加、`<h2>`タグ。 変更された*MvcMovie\Views\HelloWorld\Index
 
 [![3AddWelcomeView](adding-a-view/_static/image12.png "3AddWelcomeView")](adding-a-view/_static/image11.png)
 
-次のコードを追加、 `<h2>` 、新しい要素*へようこそ* 。vbhtml ファイルです。 うまくループを作成し、言う&quot;こんにちは&quot;ユーザーの質問がお回数だけです。
+次のコードを追加、 `<h2>` 、新しい要素<em>へようこそ</em> 。vbhtml ファイルです。 うまくループを作成し、言う&quot;こんにちは&quot;ユーザーの質問がお回数だけです。
 
 [!code-vbhtml[Main](adding-a-view/samples/sample8.vbhtml)]
 
-アプリケーションを実行しを参照`http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
+アプリケーションを実行しを参照 `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
 
 今すぐデータが URL から取得され、コント ローラーに自動的に渡されます。 コント ローラーへのデータをパッケージ化、`Model`オブジェクトをビューにオブジェクトを渡します。 ビューよりも、ユーザーに html 形式でデータが表示されます。
 
@@ -123,6 +123,6 @@ HTML を追加、`<h2>`タグ。 変更された*MvcMovie\Views\HelloWorld\Index
 
 種類もの&quot;M&quot;モデルがデータベースの種類ではありません。 学習したことを確認し、ムービーのデータベースを作成してみましょう。
 
->[!div class="step-by-step"]
-[前へ](adding-a-controller.md)
-[次へ](adding-a-model.md)
+> [!div class="step-by-step"]
+> [前へ](adding-a-controller.md)
+> [次へ](adding-a-model.md)

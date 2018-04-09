@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core でのポリシー ベースの承認"
+title: ASP.NET Core でのポリシー ベースの承認
 author: rick-anderson
-description: "作成および ASP.NET Core アプリケーションの承認要件を適用するための承認ポリシーのハンドラーを使用する方法を説明します。"
+description: 作成および ASP.NET Core アプリケーションの承認要件を適用するための承認ポリシーのハンドラーを使用する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/policies
-ms.openlocfilehash: a9ee7e6fd06fa88485d7f578a9df74cbf87d9540
-ms.sourcegitcommit: 7ee6e7582421195cbd675355c970d3d292ee668d
+ms.openlocfilehash: 411fee90bdccfb45c33f5d4ccd7864c83c614e70
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="policy-based-authorization"></a>ポリシー ベースの承認
+# <a name="policy-based-authorization-in-aspnet-core"></a>ASP.NET Core でのポリシー ベースの承認
 
 背後の[ロールベース承認](xref:security/authorization/roles)と[クレーム ベースの承認](xref:security/authorization/claims)要件、要件のハンドラー、および構成済みのポリシーを使用します。 これらのビルド ブロックでは、コードで、式の評価の承認をサポートします。 結果は、豊富な再利用可能なテスト可能な承認構造です。
 
@@ -26,11 +26,11 @@ ms.lasthandoff: 02/14/2018
 
 前の例では、"AtLeast21"ポリシーが作成されます。 1 つの要求がある&mdash;の最小経過期間、要件にパラメーターとして指定します。
 
-使用してポリシーが適用されます、`[Authorize]`ポリシーの名前を持つ属性。 例:
+使用してポリシーが適用されます、`[Authorize]`ポリシーの名前を持つ属性。 例えば:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 承認要件は、現在のユーザー プリンシパルを評価するポリシーで使用するデータのパラメーターのコレクションです。 当社"AtLeast21"ポリシーの要件が 1 つのパラメーター&mdash;最小経過期間。 要件を実装する[IAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement)、これは、空のマーカーのインターフェイスです。 パラメーター化の最低年齢の要件は、次のように実装可能性があります。
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 02/14/2018
 
 ### <a name="handler-registration"></a>ハンドラーの登録
 
-ハンドラーは、構成中にサービスのコレクションに登録されます。 例:
+ハンドラーは、構成中にサービスのコレクションに登録されます。 例えば:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63-65,72)]
 

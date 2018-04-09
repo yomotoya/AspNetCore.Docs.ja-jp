@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
-title: "SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: 12 の 7 - 実稼働環境に展開する |Microsoft ドキュメント"
+title: 'SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: 12 の 7 - 実稼働環境に展開する |Microsoft ドキュメント'
 author: tdykstra
-description: "この一連のチュートリアルは、展開する方法を示します (発行)、ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています."
+description: この一連のチュートリアルは、展開する方法を示します (発行)、ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 4aa6766c2c7765f499f5c5380962a5fe443e8c9d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ab3b7ba332deddae7d04fc37c7aabc72bdb2d17e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: 12 の 7 - 実稼働環境に展開します。
 ====================
@@ -125,7 +125,7 @@ Web ユーザー名とパスワードを入力して発行に使用する資格�
 
 ![公開 Web ウィザードの [接続] タブ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image26.png)
 
-.Publishsettings ファイルは、送信先 URL ボックスに、サイトの計画的な永続的な URL をなりますが、そのドメインをまだ購入していない場合は場合、は、一時的な URL を使用して値を置き換えます。 この例では、URL は *[http://contosouniversity.com.vserver01.cytanium.com](http://contosouniversity.com.vserver01.cytanium.com)です。*このボックスの唯一の目的では、ブラウザーに自動的に開きます後に正常に展開後にどのような URL を指定します。 空のまま、のみの結果がブラウザーを展開後に自動的に起動しません。
+.Publishsettings ファイルは、送信先 URL ボックスに、サイトの計画的な永続的な URL をなりますが、そのドメインをまだ購入していない場合は場合、は、一時的な URL を使用して値を置き換えます。 この例では、URL は *[ http://contosouniversity.com.vserver01.cytanium.com](http://contosouniversity.com.vserver01.cytanium.com)です。*このボックスの唯一の目的では、ブラウザーに自動的に開きます後に正常に展開後にどのような URL を指定します。 空のまま、のみの結果がブラウザーを展開後に自動的に起動しません。
 
 をクリックして**接続の検証**設定が正しいことと、サーバーに接続できることを確認します。 前述の緑のチェック マークは、接続が成功したことを確認します。
 
@@ -137,9 +137,9 @@ Web ユーザー名とパスワードを入力して発行に使用する資格�
 
 **データベース**のセクションで、**設定** タブで、同じ入力発行プロファイルのテスト用に入力した値です。 ドロップダウン リストに必要な接続文字列があります。
 
-- 接続文字列 ボックスで**SchoolContext、**選択`Data Source=|DataDirectory|School-Prod.sdf`
+- 接続文字列 ボックスで**SchoolContext、**選択 `Data Source=|DataDirectory|School-Prod.sdf`
 - **SchoolContext****適用の Code First Migrations**です。
-- 接続文字列 ボックスで**DefaultConnection**を選択`Data Source=|DataDirectory|aspnet-Prod.sdf`
+- 接続文字列 ボックスで**DefaultConnection**を選択 `Data Source=|DataDirectory|aspnet-Prod.sdf`
 - **DefaultConnection**のままにして**データベースの更新**オフにします。
 
 ![公開 Web ウィザードの設定 タブ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image28.png)
@@ -252,6 +252,6 @@ Elmah への書き込みアクセスがあることを確認、 *Elmah*フォル
 
 チュートリアルでは、[次へ]、アプリケーション コードを更新し、変更をテスト環境や実稼働環境に配置されます。
 
->[!div class="step-by-step"]
-[前へ](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
-[次へ](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)
+> [!div class="step-by-step"]
+> [前へ](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
+> [次へ](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)

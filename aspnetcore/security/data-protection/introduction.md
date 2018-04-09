@@ -1,7 +1,7 @@
 ---
-title: "データ保護の概要"
+title: ASP.NET Core データ保護
 author: rick-anderson
-description: "このドキュメントでは、データ保護の概念を紹介し、関連する ASP.NET Core Api の設計原則の概要を示します。"
+description: データ保護の概念および ASP.NET Core データ保護 Api のデザインの原則について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/introduction
-ms.openlocfilehash: acd38679390b92705703111b72816f1a5d3ba848
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5526b517ba9f1ac4b041576156b2964217460726
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction-to-data-protection"></a>データ保護の概要
+# <a name="aspnet-core-data-protection"></a>ASP.NET Core データ保護
 
 多くの場合、web アプリケーションは、セキュリティ上重要なデータを格納する必要があります。 Windows では、デスクトップ アプリケーションの DPAPI が用意されていますが、これは web アプリケーションに適していません。 ASP.NET Core データ保護スタックは、開発者は、キー管理と回転をなど、データの保護を使用して単純で使いやすい暗号化 API を提供します。
 
@@ -45,7 +45,7 @@ ASP.NET Core データ保護スタックの代わりの長期的なとして使�
 
 * 可能であれば残りの部分でキーを保護する必要があります。 システムは、適切な既定保護メカニズムを確認し、自動的に適用する必要があります。
 
-これらの原則を念頭に、単純なを開発しました[使いやすい](using-data-protection.md)データ保護スタック。
+これらの原則を念頭に、単純なを開発しました[使いやすい](xref:security/data-protection/using-data-protection)データ保護スタック。
 
 主に、ASP.NET Core データ保護 Api は社外秘のペイロードの無期限の持続性の目的ではありません。 他のテクノロジと同様に[Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx)と[Azure Rights Management](https://docs.microsoft.com/rights-management/)より永続的ストレージのシナリオに適している、およびこれに対応して強力なキー管理機能があります。 ただし、機密データの長期的な保護の ASP.NET Core データ保護 Api を使用して、開発者を禁止することは nothing を使用する必要があります。
 
@@ -53,11 +53,11 @@ ASP.NET Core データ保護スタックの代わりの長期的なとして使�
 
 データ保護システムは、5 つの主要なパッケージに分割されます。 これらの Api のさまざまな側面の対象 3 つの主な対象ユーザーです。
 
-1. [コンシューマー Api の概要](consumer-apis/overview.md)アプリケーションおよびフレームワークの開発者を対象します。
+1. [コンシューマー Api の概要](xref:security/data-protection/consumer-apis/overview)アプリケーションおよびフレームワークの開発者を対象します。
 
    "しないスタックの動作方法に関するまたはそれを構成する方法について説明します。 単純にする Api を正常に使用する可能性が高い、できるだけ単純なとしてのなんらかの操作方法を実行します。
 
-2. [構成 Api](configuration/overview.md)アプリケーションの開発者およびシステム管理者を対象します。
+2. [構成 Api](xref:security/data-protection/configuration/overview)アプリケーションの開発者およびシステム管理者を対象します。
 
    「に伝える必要データ保護システムの環境には、既定以外のパスまたはの設定が必要である。」
 
@@ -75,6 +75,6 @@ ASP.NET Core データ保護スタックの代わりの長期的なとして使�
 
 * Microsoft.AspNetCore.DataProtection.Extensions には、開発者が役に立つ場合がありますが、コア パッケージに属していませんが、追加の Api が含まれています。 たとえば、このパッケージには、単純な「依存関係の挿入設定のない特定のキー記憶域ディレクトリを指しているシステムをインスタンス化」API (詳細) が含まれています。 保護されたペイロード (詳細) の有効期間を制限するための拡張メソッドも含まれています。
 
-* Microsoft.AspNetCore.DataProtection.SystemWeb をリダイレクトする既存の ASP.NET 4.x アプリケーションにインストールすることができます、<machineKey>代わりに、新しいデータ保護スタックを使用する操作。 参照してください[互換性](compatibility/replacing-machinekey.md#compatibility-replacing-machinekey)詳細についてはします。
+* Microsoft.AspNetCore.DataProtection.SystemWeb をリダイレクトする既存の ASP.NET 4.x アプリケーションにインストールすることができます、<machineKey>代わりに、新しいデータ保護スタックを使用する操作。 参照してください[互換性](xref:security/data-protection/compatibility/replacing-machinekey#compatibility-replacing-machinekey)詳細についてはします。
 
-* Microsoft.AspNetCore.Cryptography.KeyDerivation は PBKDF2 パスワードのルーチンをハッシュの実装を提供し、ユーザーのパスワードを安全に処理する必要があるシステムで使用できます。 参照してください[パスワード ハッシュ](consumer-apis/password-hashing.md)詳細についてはします。
+* Microsoft.AspNetCore.Cryptography.KeyDerivation は PBKDF2 パスワードのルーチンをハッシュの実装を提供し、ユーザーのパスワードを安全に処理する必要があるシステムで使用できます。 参照してください[パスワードをハッシュ](xref:security/data-protection/consumer-apis/password-hashing)詳細についてはします。

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/intro-to-aspnet-mvc-3
-title: "ASP.NET mvc 3 (VB) |Microsoft ドキュメント"
+title: ASP.NET mvc 3 (VB) |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/intro-to-aspnet-mvc-3
 msc.type: authoredcontent
-ms.openlocfilehash: f0717e8d635818322be8b3242efe756a20351340
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3be0de6ea6d49f9c0de659398190b71c36ba222a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="intro-to-aspnet-mvc-3-vb"></a>ASP.NET mvc 3 (VB)
 ====================
@@ -81,7 +81,7 @@ Visual Web Developer は、IDE、または統合開発環境です。 Microsoft 
 
 ![1InternetAppRazor_SM](intro-to-aspnet-mvc-3/_static/image8.png)
 
-**[OK]** をクリックします。 Visual Web Developer では、作成した ASP.NET MVC プロジェクトの既定のテンプレートが使用されるため、何もせず作業アプリケーションが現在ある! これは、単純です"Hello World!" プロジェクト、・ アプリケーションを起動するに適しています。
+**[OK]**をクリックします。 Visual Web Developer では、作成した ASP.NET MVC プロジェクトの既定のテンプレートが使用されるため、何もせず作業アプリケーションが現在ある! これは、単純です"Hello World!" プロジェクト、・ アプリケーションを起動するに適しています。
 
 [![](intro-to-aspnet-mvc-3/_static/image10.png)](intro-to-aspnet-mvc-3/_static/image9.png)
 
@@ -97,5 +97,5 @@ F5 キーでは、開発 web サーバーを起動し、web アプリケーシ�
 
 すぐは、この既定のテンプレートは、する 2 つのページにアクセスし、基本的なログイン ページを示します。 このアプリケーションの動作を変更して、プロセスで ASP.NET MVC について少し説明しましょう。 ブラウザーを閉じて、いくつかのコードを変更してみましょう。
 
->[!div class="step-by-step"]
-[次へ](adding-a-controller.md)
+> [!div class="step-by-step"]
+> [次へ](adding-a-controller.md)

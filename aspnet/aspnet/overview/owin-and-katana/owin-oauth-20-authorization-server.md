@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
-title: "OWIN OAuth 2.0 承認サーバー |Microsoft ドキュメント"
+title: OWIN OAuth 2.0 承認サーバー |Microsoft ドキュメント
 author: hongyes
-description: "このチュートリアルでは、OAuth の OWIN ミドルウェアを使用して OAuth 2.0 承認サーバーを実装する方法について説明します。 これは高度なチュートリアル、その唯一の outlin しています."
+description: このチュートリアルでは、OAuth の OWIN ミドルウェアを使用して OAuth 2.0 承認サーバーを実装する方法について説明します。 これは高度なチュートリアル、その唯一の outlin しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/20/2014
 ms.topic: article
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
 ms.openlocfilehash: e5968f8d19191c3f44e9bd58f8e22a39d8d8faff
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 承認サーバー
 ====================
@@ -104,7 +104,7 @@ OAuth はしないユーザー アカウント情報を管理する方法や場�
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample4.cs?highlight=1)]
 
-`ValidateClientRedirectUri`登録されたリダイレクト URL を使用してクライアントの検証に使用されます。 `ValidateClientAuthentication`基本的なスキームのヘッダーとクライアントの資格情報を取得するフォームの本文を確認します。
+`ValidateClientRedirectUri` 登録されたリダイレクト URL を使用してクライアントの検証に使用されます。 `ValidateClientAuthentication` 基本的なスキームのヘッダーとクライアントの資格情報を取得するフォームの本文を確認します。
 
 ログイン ページは、次に示します。
 
@@ -241,10 +241,10 @@ IETF の OAuth 2 を参照してください[更新トークン](http://tools.ie
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample13.cs)]
 
-- `UseCors`メソッドは、すべてのドメインに対して CORS を使用します。
-- `UseOAuthBearerAuthentication`メソッドは、OAuth ベアラー トークンの認証ミドルウェアを受信し、要求の承認ヘッダーからベアラー トークンを検証できます。
-- `Config.SuppressDefaultHostAuthenticaiton`既定値を非表示のアプリからの認証されたプリンシパルをホストするため、すべての要求がされる匿名この呼び出しの後です。
-- `HostAuthenticationFilter`だけ、指定した認証の種類の認証を有効にします。 この例では、ベアラー認証の種類を勧めします。
+- `UseCors` メソッドは、すべてのドメインに対して CORS を使用します。
+- `UseOAuthBearerAuthentication` メソッドは、OAuth ベアラー トークンの認証ミドルウェアを受信し、要求の承認ヘッダーからベアラー トークンを検証できます。
+- `Config.SuppressDefaultHostAuthenticaiton` 既定値を非表示のアプリからの認証されたプリンシパルをホストするため、すべての要求がされる匿名この呼び出しの後です。
+- `HostAuthenticationFilter` だけ、指定した認証の種類の認証を有効にします。 この例では、ベアラー認証の種類を勧めします。
 
 認証済み id を示すためには、するためには、現在のユーザーの信頼性情報を出力する、ApiController を作成します。
 
@@ -272,7 +272,7 @@ IETF の OAuth 2 を参照してください[更新トークン](http://tools.ie
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample16.cs)]
 
-`DotNetOpenAuth`既定では SSL が必要です。 追加する必要がありますので、このデモは、HTTP を使用して、次の構成ファイルに設定します。
+`DotNetOpenAuth` 既定では SSL が必要です。 追加する必要がありますので、このデモは、HTTP を使用して、次の構成ファイルに設定します。
 
 [!code-xml[Main](owin-oauth-20-authorization-server/samples/sample17.xml?highlight=4-6)]
 

@@ -1,7 +1,7 @@
 ---
-title: "Visual Studio for ASP.NET Core の開発時 IIS サポート"
+title: Visual Studio for ASP.NET Core の開発時 IIS サポート
 author: shirhatti
-description: "Windows Server 上の IIS の背後にある実行時に ASP.NET Core アプリケーションのデバッグのサポートを検出します。"
+description: Windows Server 上の IIS の背後にある実行時に ASP.NET Core アプリケーションのデバッグのサポートを検出します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: a8bdf4c0c0399c62666e6e61e70c0298a42c2c12
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 218bb2653b92cd7b1cf2c6726b2d4bedbf307a62
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Visual Studio for ASP.NET Core の開発時 IIS サポート
 
@@ -24,8 +24,7 @@ ms.lasthandoff: 02/19/2018
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* Visual Studio (2017/バージョン 15.3 以降)
-* ASP.NET および Web 開発ワークロード*または* .NET Core クロスプラットフォームの開発ワークロード
+[!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="enable-iis"></a>IIS を有効にする
 
@@ -33,7 +32,7 @@ IIS を有効にします。 **[コントロール パネル]** > **[プログ�
 
 ![[インターネット インフォメーション サービス] チェックボックスが黒い四角 (チェックマークではない) で選択され、一部の IIS 機能が有効であることが表示されている [Windows の機能]](development-time-iis-support/_static/enable_iis.png)
 
-IIS のインストールには、再起動が必要とする場合は、システムを再起動します。
+IIS のインストールに再起動が必要な場合は、システムを再起動します。
 
 ## <a name="enable-development-time-iis-support"></a>開発時 IIS サポートを有効にする
 
@@ -45,7 +44,7 @@ Visual Studio インストーラーを起動します。 選択、 **IIS サポ�
 
 新しい起動プロファイルを作成して、開発時 IIS サポートを追加します。 Visual Studio の**ソリューション エクスプローラー**で、プロジェクトを右クリックし、**[プロパティ]** をクリックします。 **[デバッグ]** タブを選択します。**[起動]** ドロップダウンから **[IIS]**を選択します。 **[Launch browser]\(ブラウザーの起動\)** 機能が正しい URL で有効になっていることを確認します。
 
-![[デバッグ] タブが選択された、プロジェクト プロパティのウィンドウ。 [プロファイル] と [起動] の設定は [IIS] に設定されます。 [Launch browser]\(ブラウザーの起動\) 機能は http://localhost/WebApplication2 のアドレスで有効になっています。 同じアドレスが、[匿名認証を有効にする] が有効な状態で [Web サーバー設定] の [アプリ URL] フィールドにも入力されます。](development-time-iis-support/_static/project_properties.png)
+![[デバッグ] タブが選択された、プロジェクト プロパティのウィンドウ。 [プロファイル] と [起動] の設定は [IIS] に設定されます。 アドレスの起動ブラウザーの機能が有効になっているhttp://localhost/WebApplication2です。 同じアドレスが、[匿名認証を有効にする] が有効な状態で [Web サーバー設定] の [アプリ URL] フィールドにも入力されます。](development-time-iis-support/_static/project_properties.png)
 
 また、起動プロファイルを手動で追加、 [launchSettings.json](http://json.schemastore.org/launchsettings)アプリ内のファイル。
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/uploading-files-vb
-title: "(VB) のファイルのアップロード |Microsoft ドキュメント"
+title: (VB) のファイルのアップロード |Microsoft ドキュメント
 author: rick-anderson
-description: "サーバーのファイル システムで格納は、Web サイトにユーザー (Word、PDF ドキュメント) などのバイナリ ファイルをアップロードできるようにする方法を説明してください."
+description: サーバーのファイル システムで格納は、Web サイトにユーザー (Word、PDF ドキュメント) などのバイナリ ファイルをアップロードできるようにする方法を説明してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 69586ade54a40aabb55dd507731a6c2820774c04
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: fbc4aaf80ac7e0f960e140b492055fe35cd2b6ce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="uploading-files-vb"></a>ファイルのアップロード (VB)
 ====================
@@ -124,9 +124,9 @@ ms.lasthandoff: 01/24/2018
 
 説明したよう*データ アクセス レイヤーを作成する*、型指定されたデータセットのデータ テーブルは、ビジネス オブジェクトを構成します。 Tableadapter は、データベースとの通信をクエリ結果と共にビジネス オブジェクトを設定するためです。 `CategoriesDataTable`によって設定されますが、 `CategoriesTableAdapter`、3 つのデータ取得方法は。
 
-- `GetCategories()`TableAdapter のメインのクエリを実行し、返します、 `CategoryID`、 `CategoryName`、および`Description`内のすべてのレコードのフィールド、`Categories`テーブル。 メインのクエリが自動生成されたによって使用されるもの`Insert`と`Update`メソッドです。
-- `GetCategoryByCategoryID(categoryID)`返します、 `CategoryID`、 `CategoryName`、および`Description`カテゴリのフィールドが`CategoryID`equals *categoryID*です。
-- `GetCategoriesAndNumberOfProducts()`-を返します、 `CategoryID`、 `CategoryName`、および`Description`内のすべてのレコードのフィールドを`Categories`テーブル。 また、サブクエリを使用して、各カテゴリに関連付けられている製品の数を返します。
+- `GetCategories()` TableAdapter のメインのクエリを実行し、返します、 `CategoryID`、 `CategoryName`、および`Description`内のすべてのレコードのフィールド、`Categories`テーブル。 メインのクエリが自動生成されたによって使用されるもの`Insert`と`Update`メソッドです。
+- `GetCategoryByCategoryID(categoryID)` 返します、 `CategoryID`、 `CategoryName`、および`Description`カテゴリのフィールドが`CategoryID`equals *categoryID*です。
+- `GetCategoriesAndNumberOfProducts()` -を返します、 `CategoryID`、 `CategoryName`、および`Description`内のすべてのレコードのフィールドを`Categories`テーブル。 また、サブクエリを使用して、各カテゴリに関連付けられている製品の数を返します。
 
 これらのクエリの戻り値はする通知、`Categories`表 s`Picture`または`BrochurePath`列もできません、`CategoriesDataTable`提供`DataColumn`秒であり、これらのフィールドです。 画像を操作するためと`BrochurePath`プロパティ、最初に追加する必要があります、`CategoriesDataTable`し、更新、`CategoriesTableAdapter`これらの列を返すためにします。
 
@@ -287,12 +287,12 @@ ASP.NET 2.0 s 新しい[ファイルアップロード Web コントロール](h
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Teresa マーフィーおよび「社長補佐 Leigh がいました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](updating-and-deleting-existing-binary-data-cs.md)
-[次へ](displaying-binary-data-in-the-data-web-controls-vb.md)
+> [!div class="step-by-step"]
+> [前へ](updating-and-deleting-existing-binary-data-cs.md)
+> [次へ](displaying-binary-data-in-the-data-web-controls-vb.md)

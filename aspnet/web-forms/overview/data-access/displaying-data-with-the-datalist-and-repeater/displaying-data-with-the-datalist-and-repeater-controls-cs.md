@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
-title: "リピータ コントロール (c#) と DataList でのデータの表示 |Microsoft ドキュメント"
+title: リピータ コントロール (c#) と DataList でのデータの表示 |Microsoft ドキュメント
 author: rick-anderson
-description: "前のチュートリアルでは、データを表示するのに GridView コントロールを使用しています。 以降では、このチュートリアルを見てで共通のレポート パターンを構築しています."
+description: 前のチュートリアルでは、データを表示するのに GridView コントロールを使用しています。 以降では、このチュートリアルを見てで共通のレポート パターンを構築しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 42203bdd7c22f3885eecab36dbd710d371107285
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a329ff5d598156e613e3b5ef370d9d1147e4ea61
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>リピータ コントロール (c#) と DataList でデータを表示します。
 ====================
@@ -161,12 +161,12 @@ GridView のように、DataList は数多くのスタイル関連プロパテ�
 
 加え、 `ItemTemplate`DataList は、その他の 6 つの省略可能なテンプレートをサポートしています。
 
-- `HeaderTemplate`指定した場合、出力にヘッダー行を追加し、この行を表示するために使用します。
-- `AlternatingItemTemplate`交互の項目を表示するために使用します。
-- `SelectedItemTemplate`選択した項目を表示するために使用します。選択した項目は、DataList s に対応してインデックスを持つ項目[`SelectedIndex`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
-- `EditItemTemplate`編集中の項目を表示するために使用します。
-- `SeparatorTemplate`指定した場合、各項目間の区切り記号を追加し、この区切り記号を表示するために使用します。
-- `FooterTemplate`-指定した場合、出力にフッター行を追加し、この行を表示するために使用します。
+- `HeaderTemplate` 指定した場合、出力にヘッダー行を追加し、この行を表示するために使用します。
+- `AlternatingItemTemplate` 交互の項目を表示するために使用します。
+- `SelectedItemTemplate` 選択した項目を表示するために使用します。選択した項目は、DataList s に対応してインデックスを持つ項目[`SelectedIndex`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
+- `EditItemTemplate` 編集中の項目を表示するために使用します。
+- `SeparatorTemplate` 指定した場合、各項目間の区切り記号を追加し、この区切り記号を表示するために使用します。
+- `FooterTemplate` -指定した場合、出力にフッター行を追加し、この行を表示するために使用します。
 
 指定する場合、`HeaderTemplate`または`FooterTemplate`DataList、表示される出力に追加のヘッダーまたはフッター行を追加します。 ように GridView のヘッダーとフッター行のヘッダーとフッター、DataList にバインドされていないデータ。 そのため、すべてデータ バインドの構文で、`HeaderTemplate`または`FooterTemplate`にバインドされたデータにアクセスしようとは、空の文字列を返します。
 
@@ -210,11 +210,11 @@ GridView のように、DataList は数多くのスタイル関連プロパテ�
 
 HTML を生成したくない場合`<table>`が、ですか? データ Web コントロールによって生成されたマークアップの合計で、完全な制御は、Repeater コントロールは使用する必要があります。 DataList と同様にリピータがテンプレートに基づいて構築されます。 リピータ、ただし、のみには次の 5 つのテンプレート。
 
-- `HeaderTemplate`指定した場合、項目の前に、指定したマークアップを追加します。
-- `ItemTemplate`項目を表示するために使用します。
-- `AlternatingItemTemplate`指定した場合、交互の項目を表示するために使用します。
-- `SeparatorTemplate`指定した場合、各項目の間、指定したマークアップを追加します。
-- `FooterTemplate`-指定した場合、項目の後、指定したマークアップを追加します。
+- `HeaderTemplate` 指定した場合、項目の前に、指定したマークアップを追加します。
+- `ItemTemplate` 項目を表示するために使用します。
+- `AlternatingItemTemplate` 指定した場合、交互の項目を表示するために使用します。
+- `SeparatorTemplate` 指定した場合、各項目の間、指定したマークアップを追加します。
+- `FooterTemplate` -指定した場合、項目の後、指定したマークアップを追加します。
 
 ASP.NET で 1.x では、コントロールがいくつかのデータ ソースからデータを含むが付属して箇条書きリストの表示に使用されたよくリピータします。 このような場合は、`HeaderTemplate`と`FooterTemplates`開始タグと終了が含まれます`<ul>`タグはそれぞれ、while、`ItemTemplate`が含まれます`<li>`databinding 構文を持つ要素。 2 つの例で示したように、この方法を ASP.NET 2.0 の使用ができます、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)チュートリアル。
 
@@ -312,11 +312,11 @@ DataList とリピータ柔軟性が高く、レンダリングされた出力�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Yaakov Ellis、Liz Shulok、ものです。 Schmidt、Stacy 公園でした。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[次へ](formatting-the-datalist-and-repeater-based-upon-data-cs.md)
+> [!div class="step-by-step"]
+> [次へ](formatting-the-datalist-and-repeater-based-upon-data-cs.md)

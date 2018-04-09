@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
-title: "一般的な構成の違い開発および運用 (c#) |Microsoft ドキュメント"
+title: 一般的な構成の違い開発および運用 (c#) |Microsoft ドキュメント
 author: rick-anderson
-description: "前のチュートリアルは展開当社の web サイト開発環境から実稼働環境へのすべての関連するファイルのコピーで。 ただし、しました."
+description: 前のチュートリアルは展開当社の web サイト開発環境から実稼働環境へのすべての関連するファイルのコピーで。 ただし、しました.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 092362e3811213047820dab08efc16e1a1e75020
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2694e0dba774a5bca13b9acc6b14c3e47226a064
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="common-configuration-differences-between-development-and-production-c"></a>一般的な構成の違い開発および運用 (c#)
 ====================
@@ -53,7 +53,7 @@ ASP.NET ページにアクセスするときに、初めて (または変更し�
 Debug 属性は、最も重要な属性での 1 つ、`<compilation>`要素。 場合、`debug`属性がコンパイルされたアセンブリが Visual Studio でアプリケーションをデバッグするときに必要なは、デバッグ シンボルを含めるし、"true"に設定します。 デバッグ シンボルはアセンブリのサイズが大きくなり、コードを実行するときに、追加のメモリ要件を強制します。 さらに、ときに、`debug`属性がによって返されるすべてのコンテンツを"true"に設定されている`WebResource.axd`がキャッシュされていない、つまり、たびに、ユーザー ページにアクセスを再度によって返される静的なコンテンツをダウンロードする必要があります`WebResource.axd`です。
 
 > [!NOTE]
-> `WebResource.axd`組み込みの HTTP ハンドラーで導入された ASP.NET 2.0 サーバー コントロールは、スクリプト ファイル、画像、CSS ファイル、およびその他のコンテンツなどの埋め込みリソースを取得するために使用します。 方法の詳細については`WebResource.axd`および動作を使用して、カスタム サーバー コントロールから埋め込みリソースにアクセスする方法を参照してください。[にアクセスする埋め込みリソースで、URL を使用して`WebResource.axd`](http://aspnet.4guysfromrolla.com/articles/080906-1.aspx)です。
+> `WebResource.axd` 組み込みの HTTP ハンドラーで導入された ASP.NET 2.0 サーバー コントロールは、スクリプト ファイル、画像、CSS ファイル、およびその他のコンテンツなどの埋め込みリソースを取得するために使用します。 方法の詳細については`WebResource.axd`および動作を使用して、カスタム サーバー コントロールから埋め込みリソースにアクセスする方法を参照してください。[にアクセスする埋め込みリソースで、URL を使用して`WebResource.axd`](http://aspnet.4guysfromrolla.com/articles/080906-1.aspx)です。
 
 
 `<compilation>`要素の`debug`属性が通常に設定されている開発環境では"true"です。 実際には、この属性は、web アプリケーションをデバッグするのには、"true"に設定する必要があります。Visual Studio から ASP.NET アプリケーションをデバッグしようとするかどうか、`debug`属性が"false"に設定されている、Visual Studio は、メッセージを説明するまで、アプリケーションをデバッグすることはできませんを表示、`debug`属性が"true"とに設定このように変更するを提供します。
@@ -136,6 +136,6 @@ Web アプリケーションのビルド Web デプロイメント プロジェ�
 - [VS 2008 Web デプロイメント プロジェクト](https://weblogs.asp.net/scottgu/archive/2005/11/06/429723.aspx) | [VS 2008 の Web 配置でプロジェクトのサポートがリリース](https://weblogs.asp.net/scottgu/archive/2008/01/28/vs-2008-web-deployment-project-support-released.aspx)
 - [Web 配置プロジェクト](https://msdn.microsoft.com/magazine/cc163448.aspx)
 
->[!div class="step-by-step"]
-[前へ](deploying-your-site-using-visual-studio-cs.md)
-[次へ](core-differences-between-iis-and-the-asp-net-development-server-cs.md)
+> [!div class="step-by-step"]
+> [前へ](deploying-your-site-using-visual-studio-cs.md)
+> [次へ](core-differences-between-iis-and-the-asp-net-development-server-cs.md)

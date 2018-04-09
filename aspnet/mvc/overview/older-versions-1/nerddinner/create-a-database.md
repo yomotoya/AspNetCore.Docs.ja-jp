@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/create-a-database
-title: "データベースを作成 |Microsoft ドキュメント"
+title: データベースを作成 |Microsoft ドキュメント
 author: microsoft
-description: "手順 2 では、dinner のすべてを保持しているデータベースを作成し、NerdDinner アプリケーション用のデータを RSVP 手順を示します。"
+description: 手順 2 では、dinner のすべてを保持しているデータベースを作成し、NerdDinner アプリケーション用のデータを RSVP 手順を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-database
 msc.type: authoredcontent
-ms.openlocfilehash: 7635722fc357356edd06fb4cff301a8c4dfebbef
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ba28d671bf13ec54b83b876462e2c23f90310037
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-database"></a>データベースを作成します。
 ====================
@@ -131,6 +131,6 @@ RSVP テーブルの各行に関連付けられる Dinner テーブルの行に�
 
 データベースの作成が完了したらです。 クエリを実行し、更新に使用できるモデル クラスを今すぐ作成してみましょう。
 
->[!div class="step-by-step"]
-[前へ](create-a-new-aspnet-mvc-project.md)
-[次へ](build-a-model-with-business-rule-validations.md)
+> [!div class="step-by-step"]
+> [前へ](create-a-new-aspnet-mvc-project.md)
+> [次へ](build-a-model-with-business-rule-validations.md)

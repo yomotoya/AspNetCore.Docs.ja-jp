@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/aspnet-mvc-4-mobile-features
-title: "ASP.NET MVC 4 のモバイル機能 |Microsoft ドキュメント"
+title: ASP.NET MVC 4 のモバイル機能 |Microsoft ドキュメント
 author: Rick-Anderson
-description: "ASP.NET MVC 5 モバイル Web アプリケーションでは、Azure Web サイトの展開でのコード サンプルでは、このチュートリアルの MVC 5 のバージョンがようになりました。"
+description: ASP.NET MVC 5 モバイル Web アプリケーションでは、Azure Web サイトの展開でのコード サンプルでは、このチュートリアルの MVC 5 のバージョンがようになりました。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: f4e0e4eb558e0c7b9e94fc83ede986fa4c666739
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 5f38fcdd8e71ce12f7899214b6b2133e21f9910c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 モバイル機能
 ====================
@@ -190,7 +190,7 @@ ASP.NET MVC 4 において重要な新しい機能は、オーバーライドで
 1. **ツール**メニューの **ライブラリ パッケージ マネージャー**、し、 **Package Manager Console**です。
 
     [![p3_packageMgr](aspnet-mvc-4-mobile-features/_static/image20.png)](aspnet-mvc-4-mobile-features/_static/image19.png)
-2. **Package Manager Console**を入力してください`Install-Package jQuery.Mobile.MVC -version 1.0.0`
+2. **Package Manager Console**を入力してください `Install-Package jQuery.Mobile.MVC -version 1.0.0`
 
 次の図は、追加および NuGet jQuery.Mobile.MVC パッケージによって MvcMobile プロジェクトに変更したファイルを示しています。 ファイル名の後に追加された [追加] が追加されるファイルです。 イメージは、GIF を表示しないおよび PNG ファイルに追加、 *Content\images*フォルダーです。
 
@@ -204,7 +204,7 @@ ASP.NET MVC 4 において重要な新しい機能は、オーバーライドで
 - jQuery モバイルの JavaScript ファイル。
 - JQuery Mobile スタイル レイアウト ファイル (*\shared\\_Layout.Mobile.cshtml*)。
 - ビュー スイッチャー部分ビュー *(MvcMobile\Views\Shared\\_ViewSwitcher.cshtml*) モバイル ビューおよびその逆のデスクトップの表示からを切り替えるには、各ページの上部にあるリンクを提供します。
-- いくつか*.png*と*.gif*イメージ ファイル、 *Content\images*フォルダーです。
+- いくつか<em>.png</em>と<em>.gif</em>イメージ ファイル、 <em>Content\images</em>フォルダーです。
 
 開く、 *Global.asax*ファイルし、の最後の行として次のコードを追加、`Application_Start`メソッドです。
 
@@ -270,7 +270,7 @@ ASP.NET MVC 4 において重要な新しい機能は、オーバーライドで
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample17.cshtml)]
 
-ときに`RequireConsistentDisplayMode`に設定されている`true`、モバイルのレイアウト (*\_Layout.Mobile.cshtml*) はモバイル ビューに対してのみ使用します。 (そのファイルの表示は、フォームの ***ViewName**です。Mobile.cshtml*。)設定することができます`RequireConsistentDisplayMode`に`true`場合は、非モバイル ビューに対して、モバイルのレイアウトは動作しません。 次のスクリーン ショット方法、*スピーカー*ページが表示されるときに`RequireConsistentDisplayMode`に設定されている`true`です。
+ときに`RequireConsistentDisplayMode`に設定されている`true`、モバイルのレイアウト (<em>\_Layout.Mobile.cshtml</em>) はモバイル ビューに対してのみ使用します。 (そのファイルの表示は、フォームの<em>* * ViewName</em><em>です。Mobile.cshtml</em>)。設定することができます`RequireConsistentDisplayMode`に`true`場合は、非モバイル ビューに対して、モバイルのレイアウトは動作しません。 次のスクリーン ショット方法、<em>スピーカー</em>ページが表示されるときに`RequireConsistentDisplayMode`に設定されている`true`です。
 
 [![p3_speakersConsistent](aspnet-mvc-4-mobile-features/_static/image33.png)](aspnet-mvc-4-mobile-features/_static/image32.png)
 
@@ -393,7 +393,7 @@ ASP.NET MVC 4 において重要な新しい機能は、オーバーライドで
 - モバイル ビュー スイッチャー ウィジェット デスクトップ ビューにも表示されるよりもを表示します。
 - IPhone ブラウザーなどの特定のブラウザーをサポートするためのサポート。
 
-## <a name="see-also"></a>参照
+## <a name="see-also"></a>関連項目
 
 - [jQuery Mobile](http://jquerymobile.com)サイトです。
 - [jQuery Mobile の概要](http://jquerymobile.com/demos/1.0b3/docs/about/intro.html)

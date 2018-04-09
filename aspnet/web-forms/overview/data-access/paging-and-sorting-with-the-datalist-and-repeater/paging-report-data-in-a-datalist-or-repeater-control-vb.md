@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-vb
-title: "Datalist コントロールまたは Repeater コントロール (VB) でのレポート データをページング |Microsoft ドキュメント"
+title: Datalist コントロールまたは Repeater コントロール (VB) でのレポート データをページング |Microsoft ドキュメント
 author: rick-anderson
-description: "DataList でも、リピータ オファーの自動ページングや並べ替えのサポート、中には、このチュートリアルは、DataList またはリピータ、ページング サポートを追加する方法を示します."
+description: DataList でも、リピータ オファーの自動ページングや並べ替えのサポート、中には、このチュートリアルは、DataList またはリピータ、ページング サポートを追加する方法を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 66f1065c41352f355dd5f1be43443165df909b93
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 867f2a0a6de6da2ccda1526ef7c1d0edd97431c6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a>DataList または Repeater コントロール (VB) でレポート データのページング
 ====================
@@ -100,10 +100,10 @@ DataList またはリピータ コントロール内の既定のページング�
 
 メソッドを追加する、`ProductsBLL`という名前のクラス`GetProductsAsPagedDataSource`内の整数の 2 つの入力パラメーターを取得します。
 
-- `pageIndex`表示するには、ページのインデックス 0 でインデックスを作成し、
-- `pageSize`ページごとに表示するレコードの数。
+- `pageIndex` 表示するには、ページのインデックス 0 でインデックスを作成し、
+- `pageSize` ページごとに表示するレコードの数。
 
-`GetProductsAsPagedDataSource`取得することによって開始*すべて*からレコードの`GetProducts()`します。 これは、後、作成、`PagedDataSource`オブジェクト、設定、`CurrentPageIndex`と`PageSize`プロパティを渡された内の値に`pageIndex`と`pageSize`パラメーター。 メソッドが終了して返す未構成`PagedDataSource`:
+`GetProductsAsPagedDataSource` 取得することによって開始*すべて*からレコードの`GetProducts()`します。 これは、後、作成、`PagedDataSource`オブジェクト、設定、`CurrentPageIndex`と`PageSize`プロパティを渡された内の値に`pageIndex`と`pageSize`パラメーター。 メソッドが終了して返す未構成`PagedDataSource`:
 
 
 [!code-vb[Main](paging-report-data-in-a-datalist-or-repeater-control-vb/samples/sample2.vb)]
@@ -275,12 +275,12 @@ DataList でも、リピータの出力を提供しています。 DetailsView�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Liz Shulok、Ken Pespisa、および「社長補佐 Leigh でした。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](sorting-data-in-a-datalist-or-repeater-control-cs.md)
-[次へ](sorting-data-in-a-datalist-or-repeater-control-vb.md)
+> [!div class="step-by-step"]
+> [前へ](sorting-data-in-a-datalist-or-repeater-control-cs.md)
+> [次へ](sorting-data-in-a-datalist-or-repeater-control-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
-title: "モバイル デバイスのページ (Razor) サイトを ASP.NET Web をレンダリング |Microsoft ドキュメント"
+title: モバイル デバイスのページ (Razor) サイトを ASP.NET Web をレンダリング |Microsoft ドキュメント
 author: tfitzmac
-description: "この記事では、モバイル デバイスで適切に表示される ASP.NET Web Pages (Razor) サイトのページを作成する方法について説明します。 学習内容: する方法."
+description: 'この記事では、モバイル デバイスで適切に表示される ASP.NET Web Pages (Razor) サイトのページを作成する方法について説明します。 学習内容: する方法.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
 msc.type: authoredcontent
-ms.openlocfilehash: 899bbdef82d689be81cd77ea6805e0484fb614aa
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 641798c5b835be959d02dd0d854b61ca21d83016
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>モバイル デバイス用の ASP.NET Web Pages (Razor) サイトの表示
 ====================
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/15/2018
 
 ASP.NET Web ページを使用して、モバイル デバイスまたはその他のデバイスでのコンテンツ表示のカスタムの表示を作成できます。
 
-ASP.NET Web Pages サイトでデバイスに固有のページを作成する最も簡単な方法は次のようにファイルの名前付けパターンを使用して、:*ファイル名**。Mobile**.cshtml*です。 ページの 2 つのバージョンを作成することができます (たとえば、1 つという名前の*MyFile.cshtml*という名前の 1 つ*MyFile.Mobile.cshtml*)。 実行時に、モバイル デバイスを要求したとき*MyFile.cshtml*、ASP.NET のコンテンツを表示する*MyFile.Mobile.cshtml*です。 それ以外の場合、 *MyFile.cshtml*が表示されます。
+ASP.NET Web Pages サイトでデバイスに固有のページを作成する最も簡単な方法は次のようにファイルの名前付けパターンを使用して、:<em>ファイル名</em>。<em>Mobile</em><em>.cshtml</em>です。 ページの 2 つのバージョンを作成することができます (たとえば、1 つという名前の<em>MyFile.cshtml</em>という名前の 1 つ<em>MyFile.Mobile.cshtml</em>)。 実行時に、モバイル デバイスを要求したとき<em>MyFile.cshtml</em>、ASP.NET のコンテンツを表示する<em>MyFile.Mobile.cshtml</em>です。 それ以外の場合、 <em>MyFile.cshtml</em>が表示されます。
 
 次の例では、モバイル デバイスのコンテンツ ページを追加することで、モバイルのレンダリングを有効にする方法を示します。 *Page1.cshtml*コンテンツにはナビゲーション サイド バーが含まれています。 *Page1.Mobile.cshtml*が同じコンテンツが含まれていますが、サイドバーを省略します。
 

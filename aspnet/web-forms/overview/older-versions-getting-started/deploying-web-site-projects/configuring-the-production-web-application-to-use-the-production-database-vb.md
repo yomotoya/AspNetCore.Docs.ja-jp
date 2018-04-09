@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
-title: "運用データベース (VB) を使用する実稼働 Web アプリケーションの構成 |Microsoft ドキュメント"
+title: 運用データベース (VB) を使用する実稼働 Web アプリケーションの構成 |Microsoft ドキュメント
 author: rick-anderson
-description: "前のチュートリアルで既に説明した、構成については、開発環境と運用環境間で異なるは珍しいことではありません。 これは、es しています."
+description: 前のチュートリアルで既に説明した、構成については、開発環境と運用環境間で異なるは珍しいことではありません。 これは、es しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 60ef1f93efea777e9309ad8c664a2c6645f1ce80
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: b1741807fe02b4e60db7098cfd46922d3ba50ccd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>運用データベース (VB) を使用する実稼働 Web アプリケーションを構成します。
 ====================
@@ -71,7 +71,7 @@ Visual Studio を開き、サーバー エクスプ ローラー ウィンドウ
 
 サーバー エクスプ ローラーで、実稼働環境のデータベースが表示されます。 サーバー エクスプ ローラーからデータベースを選択し、[プロパティ] ウィンドウに移動します。 データベースの接続文字列で接続文字列をという名前のプロパティがあります。 運用環境と、SqlClient プロバイダーでは、Microsoft SQL Server データベースを使用するいると仮定した場合、接続文字列は、次のようになります。
 
-**データ ソース =*serverName*です。Initial Catalog =*databaseName*です。Persist Security Info = Trueユーザー ID =*username*です。パスワード = * パスワード***
+<strong>データ ソース =<em>serverName</em>です。Initial Catalog =<em>databaseName</em>です。Persist Security Info = Trueユーザー ID =<em>username</em>です。パスワード =*パスワード</strong>*
 
 ここで*serverName*、 *databaseName*、 *username*、および*パスワード*データベース サーバー名、データベースの値では、名前、およびユーザー名と、web ホスト会社から提供されたパスワード。
 
@@ -152,6 +152,6 @@ DatabaseConnectionStrings.dev.config ファイルのコピーを作成し、data
 - [Web.config ファイルから設定を移動します。](http://www.asp101.com/tips/index.asp?id=154)
 - [技術ドキュメント、 &lt;connectionStrings&gt;要素](https://msdn.microsoft.com/library/bf7sd233.aspx)
 
->[!div class="step-by-step"]
-[前へ](deploying-a-database-vb.md)
-[次へ](configuring-a-website-that-uses-application-services-vb.md)
+> [!div class="step-by-step"]
+> [前へ](deploying-a-database-vb.md)
+> [次へ](configuring-a-website-that-uses-application-services-vb.md)

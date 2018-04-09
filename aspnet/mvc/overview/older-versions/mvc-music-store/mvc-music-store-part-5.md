@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-5
-title: "手順 5: 編集フォームやテンプレート |Microsoft ドキュメント"
+title: '手順 5: 編集フォームやテンプレート |Microsoft ドキュメント'
 author: jongalloway
-description: "このチュートリアルの系列では、すべての ASP.NET MVC Music Store サンプル アプリケーションをビルドする手順について説明します。 パート 5 は、編集フォームとテンプレートについて説明します。"
+description: このチュートリアルの系列では、すべての ASP.NET MVC Music Store サンプル アプリケーションをビルドする手順について説明します。 パート 5 は、編集フォームとテンプレートについて説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: cde6fe133291254531a797a434a4b2cdd226dd5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d584e614b5a4124044cd9decd2272192ca164643
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-5-edit-forms-and-templating"></a>手順 5: 編集フォームとテンプレート
 ====================
@@ -262,9 +262,9 @@ Razor の@helper構文が行われたら、ビューで使用するための独�
 
 ![](mvc-music-store-part-5/_static/image18.png)
 
-注: を作成して、1 つのビューで、ヘルパーの使用の簡単な例を示します。 サイト全体で使用できるヘルパーの作成に関する詳細については、個人用ブログの投稿を参照してください: [http://bit.ly/mvc3-helper-options。](http://bit.ly/mvc3-helper-options)
+注: を作成して、1 つのビューで、ヘルパーの使用の簡単な例を示します。 サイト全体で使用できるヘルパーの作成に関する詳細については、個人用ブログの投稿を参照してください。 [http://bit.ly/mvc3-helper-options](http://bit.ly/mvc3-helper-options)
 
 
->[!div class="step-by-step"]
-[前へ](mvc-music-store-part-4.md)
-[次へ](mvc-music-store-part-6.md)
+> [!div class="step-by-step"]
+> [前へ](mvc-music-store-part-4.md)
+> [次へ](mvc-music-store-part-6.md)

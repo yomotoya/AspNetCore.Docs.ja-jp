@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-vb
-title: "LINQ to SQL (VB) でモデル クラスを作成する |Microsoft ドキュメント"
+title: LINQ to SQL (VB) でモデル クラスを作成する |Microsoft ドキュメント
 author: microsoft
-description: "このチュートリアルの目的では、ASP.NET MVC アプリケーション用のモデル クラスを作成する方法の 1 つをについて説明します。 このチュートリアルでは、c のモデルを構築する方法を学習しています."
+description: このチュートリアルの目的では、ASP.NET MVC アプリケーション用のモデル クラスを作成する方法の 1 つをについて説明します。 このチュートリアルでは、c のモデルを構築する方法を学習しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 972d5b11049825e84e070ef1c4b2b90116654397
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5438838123c40d82afbda191a48878d6dca80736
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-model-classes-with-linq-to-sql-vb"></a>LINQ to SQL (VB) でモデル クラスを作成します。
 ====================
@@ -53,9 +53,10 @@ MVC モデルには、すべての MVC ビューまたは MVC コント ロー�
 
 新しいデータベースを作成した後は、アプリで MoviesDB.mdf ファイルをダブルクリックして、データベースを開くことができます\_データ フォルダーです。 サーバー エクスプ ローラー ウィンドウを開き、MoviesDB.mdf ファイルをダブルクリックすると (図 2 を参照してください)。
 
-|  | サーバー エクスプ ローラー ウィンドウは Visual Web Developer を使用する場合、データベース エクスプ ローラー ウィンドウと呼ばれます。 |
-| --- | --- |
 
+|   | サーバー エクスプ ローラー ウィンドウは Visual Web Developer を使用する場合、データベース エクスプ ローラー ウィンドウと呼ばれます。 |
+|---|----------------------------------------------------------------------------------------------------|
+|   |                                                                                                    |
 
 [![サーバー エクスプ ローラー ウィンドウの使用](creating-model-classes-with-linq-to-sql-vb/_static/image5.png)](creating-model-classes-with-linq-to-sql-vb/_static/image4.png)
 
@@ -75,8 +76,8 @@ MVC モデルには、すべての MVC ビューまたは MVC コント ロー�
 | **列名** | **データ型** | **Null を許容します。** |
 | --- | --- | --- |
 | ID | Int | False |
-| タイトル | Nvarchar (200) | False |
-| ディレクター | Nvarchar (50) | False |
+| Title | Nvarchar(200) | False |
+| ディレクター | Nvarchar(50) | False |
 
 Id 列に 2 つの特別な作業を行う必要があります。 最初に、テーブル デザイナーで列を選択し、キーのアイコンをクリックすると、主キー列として Id 列をマークする必要があります。 LINQ to SQL では、挿入またはデータベースに対する更新を実行するときに、主キー列を指定する必要があります。
 
@@ -112,7 +113,7 @@ MVC モデルは、LINQ を tblMovie データベース テーブルを表す SQ
 
 最初に、テンプレートを使用するクラスを変更する必要があります。 このクラスは、アプリケーションのコント ローラーのフォルダーにあります。 次の 1 のリスト内のクラス名のように、クラスを変更します。
 
-**1 – を一覧表示します。`Controllers\HomeController.vb`**
+**1 – を一覧表示します。 `Controllers\HomeController.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample1.vb)]
 
@@ -122,7 +123,7 @@ LINQ クエリはすべて、ムービーの tblMovies データベース テー
 
 ムービーを表示するのには次にインデックス ビューを変更する必要があります。 Views\Home\ フォルダーで、インデックス ビューを参照できます。 2 を一覧表示するビューと同様に見えるように、インデックス ビューを更新します。
 
-**2 – を一覧表示します。`Views\Home\Index.aspx`**
+**2 – を一覧表示します。 `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample2.aspx)]
 
@@ -164,19 +165,19 @@ MVC アプリケーションを構築するために将来に適応性のある�
 
 リスト 3 のインターフェイスは IMovieRepository という ListAll() という単一のメソッドを表します。
 
-**3 – を一覧表示します。`Models\IMovieRepository.vb`**
+**3 – を一覧表示します。 `Models\IMovieRepository.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample3.vb)]
 
 リスト 4 リポジトリ クラスは、IMovieRepository インターフェイスを実装します。 IMovieRepository インターフェイスで必要なメソッドに対応する ListAll() をという名前のメソッドが含まれていることを確認します。
 
-**4 – を一覧表示します。`Models\MovieRepository.vb`**
+**4 – を一覧表示します。 `Models\MovieRepository.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample4.vb)]
 
 最後に、コード サンプル 5 MoviesController クラスは、リポジトリ パターンを使用します。 不要になった LINQ to SQL クラスを直接使用します。
 
-**5 – を一覧表示します。`Controllers\MoviesController.vb`**
+**5 – を一覧表示します。 `Controllers\MoviesController.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample5.vb)]
 
@@ -194,12 +195,12 @@ MoviesController クラスには、依存性の注入パターンと呼ばれる
 
 さらに、MoviesController クラスをテストする場合、MoviesController を偽のムービー リポジトリ クラスを渡すことができます。 データベースを実際にはアクセスしませんが、IMovieRepository インターフェイスの必要なメソッドのすべてを含むクラスを含む IMovieRepository クラスを実装することができます。 このように、MoviesController クラスの単体テストを実際には、実際のデータベースにアクセスしなくてもできます。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的を利用してマイクロソフトの LINQ to SQL MVC モデル クラスを作成する方法を示すためでした。 ここには、ASP.NET MVC アプリケーションでデータベースのデータを表示するための 2 つの戦略が調べられます。 最初に、LINQ to SQL クラスが作成し、コント ローラーのアクション内で直接クラスを使用します。 コント ローラー内の SQL クラスを LINQ を使用して、簡単にすることができ、簡単に、MVC アプリケーションでデータベースのデータを表示します。
 
 次に、データベースのデータを表示するため、多少難しいことが確実より好パスを説明します。 リポジトリ パターンを利用し、データベース アクセス ロジックのすべてを別のリポジトリ クラスに配置します。 コント ローラーにご説明したとおりのすべての具象クラスではなくインターフェイスに対して、コード。 リポジトリ パターンの利点は、データベース アクセス テクノロジを後で簡単に変更することにより、簡単にテスト コント ローラー クラスにすることをによりします。
 
->[!div class="step-by-step"]
-[前へ](creating-model-classes-with-the-entity-framework-vb.md)
-[次へ](displaying-a-table-of-database-data-vb.md)
+> [!div class="step-by-step"]
+> [前へ](creating-model-classes-with-the-entity-framework-vb.md)
+> [次へ](displaying-a-table-of-database-data-vb.md)

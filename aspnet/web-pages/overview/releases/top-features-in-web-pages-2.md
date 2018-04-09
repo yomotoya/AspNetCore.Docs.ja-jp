@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/top-features-in-web-pages-2
 msc.type: authoredcontent
-ms.openlocfilehash: e8fc758936953970ff3e9ba289516925dee9ef45
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: f0d32edd3ab54c55aa06c803cd91e01cbbb8f08a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-top-features-in-aspnet-web-pages-2"></a>ASP.NET Web Pages 2 で、上位の特徴
 ====================
@@ -62,9 +62,9 @@ Web ページをインストールするには無料のアプリケーション�
     Internet Explorer を使用する場合は、次の手順に進みます。 Google Chrome、Mozilla Firefox などの別のブラウザーを使用する場合は、保存されたら、 *Webmatrix.exe*ファイルをコンピューターにします。 ファイルを保存し、クリックしてインストーラーを起動します。
 3. インストーラーを実行して、**インストール**ボタンをクリックします。 WebMatrix および Web ページがインストールされます。
 
-## <a id="New_and_Enhanced_Features"></a>新機能および強化された機能
+## <a id="New_and_Enhanced_Features"></a>  新機能および強化された機能
 
-### <a id="Changes_for_the_RC_Version"></a>RC 版 (2012 年 6 月) の変更
+### <a id="Changes_for_the_RC_Version"></a>  RC 版 (2012 年 6 月) の変更
 
 2012 年 6 月の RC バージョンのリリースでは、2012 年 3 月にリリースされたベータ バージョンの更新からのいくつかの変更がします。 これらの変更は次のとおりです。
 
@@ -94,8 +94,8 @@ Web ページをインストールするには無料のアプリケーション�
     `<a href="~/Default.cshtml">Home</a>`
 - `Scripts`資産 (リソース) の管理のヘルパーが置き換えられて、`Assets`ヘルパーで、次のよう、少し異なる方法があります。
 
-    - `Scripts.Add`、使用します。`Assets.AddScript`
-    - `Scripts.GetScriptTags`、使用します。`Assets.GetScripts`
+  - `Scripts.Add`、使用します。 `Assets.AddScript`
+  - `Scripts.GetScriptTags`、使用します。 `Assets.GetScripts`
 
     これは、互換性に影響する変更です。`Scripts`クラスは、ベータ リリースで使用できません。 この変更により、コード例では、このドキュメント資産管理を使用するが更新されました。
 
@@ -149,15 +149,15 @@ Web ページ 1 でに送信されたフォームは、ユーザー入力の検�
 
 次の手順では、サーバー側の検証を実装することがします。 クライアント側の検証を追加する場合は、次の操作をさらにします。
 
-内の次のスクリプト ファイル参照を追加、 `<head>` web ページのセクションです。 最初の 2 つのスクリプト参照は、コンテンツ配信ネットワーク (CDN) サーバー上のリモート ファイルをポイントします。 3 番目の参照は、ローカルのスクリプト ファイルを指します。
+内の次のスクリプト ファイル参照を追加、 `<head>` web ページのセクションです。 最初の 2 つのスクリプト参照は、コンテンツ配信ネットワーク (CDN) サーバー上のリモート ファイルをポイントします。 3 番目の参照は、ローカルのスクリプト ファイルを指します。 実稼働アプリでは、CDN が利用できない場合、フォールバックを実装する必要があります。 フォールバックをテストします。
 
 [!code-html[Main](top-features-in-web-pages-2/samples/sample5.html)]
 
 ローカル コピーを入手する最も簡単な方法、 *jquery.validate.unobtrusive.min.js*ライブラリは、(スターター サイト) などのサイト テンプレートのいずれかに基づいて、新しい Web Pages サイトを作成します。 テンプレートによって作成されたサイトが含まれています*jquery.validate.unobtrusive.js*元となることができますにコピーする、サイト、そのスクリプト フォルダー内のファイルです。
 
-Web サイトで使用する場合、*\_SiteLayout*ページ レイアウトを制御します ページで、検証は、すべてのコンテンツ ページを利用できるように、そのページにこれらのスクリプト参照を含めることができます。 特定のページに対してのみ検証を実行する場合は、これらのページにスクリプトを登録する資産マネージャーを使用できます。 これを行うには、呼び出す`Assets.AddScript(path)`を検証し、各スクリプト ファイルを参照するページ。 呼び出しを追加`Assets.GetScripts`で、  *\_SiteLayout* 、登録されている表示するためにページ`<script>`タグ。 詳細については、セクションを参照して[資産マネージャーを使用してスクリプトを登録する](#resmanagement)です。
+Web サイトで使用する場合、<em>\_SiteLayout</em>ページ レイアウトを制御します ページで、検証は、すべてのコンテンツ ページを利用できるように、そのページにこれらのスクリプト参照を含めることができます。 特定のページに対してのみ検証を実行する場合は、これらのページにスクリプトを登録する資産マネージャーを使用できます。 これを行うには、呼び出す`Assets.AddScript(path)`を検証し、各スクリプト ファイルを参照するページ。 呼び出しを追加`Assets.GetScripts`で、  <em>\_SiteLayout</em> 、登録されている表示するためにページ`<script>`タグ。 詳細については、セクションを参照して[資産マネージャーを使用してスクリプトを登録する](#resmanagement)です。
 
-個々 の要素のマークアップで呼び出して、`Validation.For`メソッドです。 このメソッドは、属性を出力、jQuery クライアント側の検証を提供するためにフックすることができます。 例:
+個々 の要素のマークアップで呼び出して、`Validation.For`メソッドです。 このメソッドは、属性を出力、jQuery クライアント側の検証を提供するためにフックすることができます。 例えば:
 
 [!code-cshtml[Main](top-features-in-web-pages-2/samples/sample6.cshtml)]
 
@@ -172,15 +172,15 @@ Web サイトで使用する場合、*\_SiteLayout*ページ レイアウトを�
 
 ユーザーが有効な入力を送信するときに、ページを次に示します。
 
-[![topSeven-有効 1](top-features-in-web-pages-2/_static/image8.png)](top-features-in-web-pages-2/_static/image7.png)
+[![topSeven-valid-1](top-features-in-web-pages-2/_static/image8.png)](top-features-in-web-pages-2/_static/image7.png)
 
 ユーザーが必要なフィールドを空のままで送信すると、ページを次に示します。
 
-[![有効な 2 topSeven](top-features-in-web-pages-2/_static/image10.png)](top-features-in-web-pages-2/_static/image9.png)
+[![topSeven-valid-2](top-features-in-web-pages-2/_static/image10.png)](top-features-in-web-pages-2/_static/image9.png)
 
 ユーザーを送信することで整数以外のもので、ページをここでは、**クレジット**フィールド。
 
-[![有効な 3 topSeven](top-features-in-web-pages-2/_static/image12.png)](top-features-in-web-pages-2/_static/image11.png)
+[![topSeven-valid-3](top-features-in-web-pages-2/_static/image12.png)](top-features-in-web-pages-2/_static/image11.png)
 
 詳細については、次のブログの投稿を参照してください。
 
@@ -207,7 +207,7 @@ Web サイトで使用する場合、*\_SiteLayout*ページ レイアウトを�
 
 - という名前のカスタム ヘルパー`MakeNote`です。 このヘルパーは、ラップすることで、ボックス内の文字列を表示、`div`周り要素を境界線および追加することによってスタイルが適用&quot;注:&quot;にします。 ヘルパーには、メモに実行時の動作を追加する JavaScript ファイルも呼び出します。 使用してスクリプトを参照するのではなく、`<script>`タグ、ヘルパーが呼び出すことによって、スクリプトを登録`Assets.AddScript`です。
 - JavaScript ファイル。 これは、ファイルは、ヘルパーによって呼び出されると、中にメモ アイテムのフォント サイズを一時的に増加する`mouseover`イベント。
-- 参照するコンテンツ ページ、*\_SiteLayout*  ページで、本文、一部のコンテンツを表示してから、`MakeNote`ヘルパー。
+- 参照するコンテンツ ページ、<em>\_SiteLayout</em>  ページで、本文、一部のコンテンツを表示してから、`MakeNote`ヘルパー。
 - A  *\_SiteLayout*ページ。 このページは、共通のヘッダーとページ レイアウト構造を提供します。 呼び出しも含まれています。 `Assets.GetScripts`、ページ内を呼び出すスクリプトの表示方法は、資産マネージャであります。
 
 このサンプルを実行します。
@@ -288,13 +288,13 @@ Web Pages 2 では、メンバーシップと認証の拡張オプションを�
 
     Web ページは、Google ログイン ページに、要求をリダイレクトします。
 
-    [![topSeven oauth 6](top-features-in-web-pages-2/_static/image18.png)](top-features-in-web-pages-2/_static/image17.png)
+    [![topSeven-oauth-6](top-features-in-web-pages-2/_static/image18.png)](top-features-in-web-pages-2/_static/image17.png)
 3. 既存の Google アカウントの資格情報を入力します。
 4. Google は、するには、アカウントからの情報を使用して、をクリックして Localhost を許可するかどうかを求める場合**許可**です。
 
     コードでは、Google トークンを使用して、ユーザーを認証し、web サイトでこのページに返します。 このページでは、Google ログインを web サイト上の既存のアカウントに関連付けるユーザーまたは新しいアカウントに外部ログインとを関連付けるには、サイトに登録します。
 
-    [![topSeven oauth 5](top-features-in-web-pages-2/_static/image20.png)](top-features-in-web-pages-2/_static/image19.png)
+    [![topSeven-oauth-5](top-features-in-web-pages-2/_static/image20.png)](top-features-in-web-pages-2/_static/image19.png)
 5. 選択、**関連付ける**ボタンをクリックします。 ブラウザーは、アプリケーションのホーム ページに戻ります。
 
     [![topSeven-oauth-3](top-features-in-web-pages-2/_static/image22.png)](top-features-in-web-pages-2/_static/image21.png)
@@ -335,12 +335,12 @@ Facebook ログインをテストできます。
 
     Web ページは、Facebook のログイン ページに、要求をリダイレクトします。
 
-    [![topSeven oauth 2](top-features-in-web-pages-2/_static/image26.png)](top-features-in-web-pages-2/_static/image25.png)
+    [![topSeven-oauth-2](top-features-in-web-pages-2/_static/image26.png)](top-features-in-web-pages-2/_static/image25.png)
 3. Facebook アカウントにログインします。 
 
     コードでは、Facebook トークンを使用してユーザーを認証し、サイトのログインを持つ、Facebook ログインを関連付けることができますページに返します。 ユーザー名または電子メール アドレスを格納、**電子メール**フォームのフィールドです。
 
-    [![topSeven oauth 5](top-features-in-web-pages-2/_static/image28.png)](top-features-in-web-pages-2/_static/image27.png)
+    [![topSeven-oauth-5](top-features-in-web-pages-2/_static/image28.png)](top-features-in-web-pages-2/_static/image27.png)
 4. 選択、**関連付ける**ボタンをクリックします。 
 
     ブラウザーのホーム ページに返しに記録されます。
@@ -387,7 +387,7 @@ Twitter ログインをテストできます。
 3. Twitter アカウントにログインします。
 4. コードは、Twitter のトークンを使用してユーザーを認証し、返すページに関連付けることができます、web サイトのアカウントでログイン。 名前や電子メール アドレスを格納、**電子メール**フォームのフィールドです。
 
-    [![topSeven oauth 5](top-features-in-web-pages-2/_static/image34.png)](top-features-in-web-pages-2/_static/image33.png)
+    [![topSeven-oauth-5](top-features-in-web-pages-2/_static/image34.png)](top-features-in-web-pages-2/_static/image33.png)
 5. 選択、**関連付ける**ボタンをクリックします。 
 
     ブラウザーのホーム ページに返しに記録されます。
@@ -447,7 +447,7 @@ WebMatrix で Web ページ 2 のベータ版をインストールする際に�
 - (既定値、前のポイントと同様に) ではなく、Web ページ バージョン 1 を使用してサイトを実行する場合を行うには、サイトを構成することができます。 サイトを持っていない場合、 *web.config*サイトのルートにファイル、新たに作成し、既存のコンテンツを上書きするのには、次の XML をコピーします。 サイトが既に含まれている場合、 *web.config*ファイルに追加し、`<appSettings>`要素に次のいずれかのように、`<configuration>`セクションです。
 
     [!code-xml[Main](top-features-in-web-pages-2/samples/sample22.xml)]
-'-でバージョンが指定されていない場合、 *web.config*ファイル、サイトはバージョン 2 のサイトとして展開します。 (バージョン 2 のアセンブリにコピー、 *bin*配置済みのサイトのフォルダーです)。
+  '-でバージョンが指定されていない場合、 *web.config*ファイル、サイトはバージョン 2 のサイトとして展開します。 (バージョン 2 のアセンブリにコピー、 *bin*配置済みのサイトのフォルダーです)。
 - Beta 2 がサイトの Web ページ バージョン 2 のアセンブリを含める Web Matrix バージョンでサイト テンプレートを使って作成する新しいアプリケーション*bin*フォルダーです。
 
 NuGet を使用して、サイトに適切なアセンブリをインストールすることによって、サイトで使用する Web ページのバージョンを常に制御する一般に、 *bin*フォルダーです。 パッケージを検索するには、次を参照してください。 [NuGet.org](http://NuGet.org)です。
@@ -459,7 +459,7 @@ Web Pages 2 では、モバイル デバイスまたはその他のデバイス�
 
 `System.Web.WebPages`名前空間には、表示モードで機能するのに便利な次のクラスが含まれています: `DefaultDisplayMode`、 `DisplayInfo`、および`DisplayModes`です。 これらのクラスを直接使用でき、特定のデバイス用の正しい出力を表示するコードを記述することができます。
 
-または、次のようにファイルの名前付けパターンを使用してデバイス固有のページを作成することができます:*ファイル名*。*Mobile**.cshtml*です。 たとえば、ページ、という名前の 2 つのバージョンを作成することができます*MyFile.cshtml*という名前の 1 つ*MyFile.Mobile.cshtml*です。 実行時に、モバイル デバイスを要求したとき*MyFile.cshtml*、Web ページからコンテンツを表示する*MyFile.Mobile.cshtml*です。 それ以外の場合、 *MyFile.cshtml*が表示されます。
+または、次のようにファイルの名前付けパターンを使用してデバイス固有のページを作成することができます:<em>ファイル名</em>。<em>Mobile</em><em>.cshtml</em>です。 たとえば、ページ、という名前の 2 つのバージョンを作成することができます<em>MyFile.cshtml</em>という名前の 1 つ<em>MyFile.Mobile.cshtml</em>です。 実行時に、モバイル デバイスを要求したとき<em>MyFile.cshtml</em>、Web ページからコンテンツを表示する<em>MyFile.Mobile.cshtml</em>です。 それ以外の場合、 <em>MyFile.cshtml</em>が表示されます。
 
 次の例では、モバイル デバイスのコンテンツ ページを追加することで、モバイルのレンダリングを有効にする方法を示します。 *Page1.cshtml*コンテンツにはナビゲーション サイド バーが含まれています。 *Page1.Mobile.cshtml*が同じコンテンツが含まれていますが、サイドバーを省略します。
 
@@ -502,5 +502,5 @@ Web Pages 2 では、モバイル デバイスまたはその他のデバイス�
 ### <a name="webmatrix-resources"></a>WebMatrix のリソース
 
 - [WebMatrix 2 新機能](http://webmatrix.com/next)
-- [Microsoft WebMatrix サイト](https://go.microsoft.com/fwlink/?LinkID=195076)
+- [Microsoft WebMatrix Site](https://go.microsoft.com/fwlink/?LinkID=195076)
 - [Microsoft WebMatrix で Web 開発の開始](https://msdn.microsoft.com/en-us/library/hh145669(v=VS.99).aspx)(前のサンプルの Web ページのアプリケーションが含まれています)

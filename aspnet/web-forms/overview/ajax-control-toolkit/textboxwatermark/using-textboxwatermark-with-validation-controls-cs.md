@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-cs
-title: "(C#) の検証コントロールでの TextBoxWatermark の使用 |Microsoft ドキュメント"
+title: (C#) の検証コントロールでの TextBoxWatermark の使用 |Microsoft ドキュメント
 author: wenz
-description: "AJAX コントロールのツールキットで TextBoxWatermark コントロールは、ボックス内でテキストが表示されないようにテキスト ボックスを拡張します。 ボックスに、ユーザーがクリックしたときに."
+description: AJAX コントロールのツールキットで TextBoxWatermark コントロールは、ボックス内でテキストが表示されないようにテキスト ボックスを拡張します。 ボックスに、ユーザーがクリックしたときに.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 61fa55c8c4580800de1097b7242c7077cda27115
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b5cc7974f3444b54770cba54b991aab7b103f753
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-textboxwatermark-with-validation-controls-c"></a>検証コントロール (c#) で TextBoxWatermark を使用します。
 ====================
@@ -56,6 +56,6 @@ ms.lasthandoff: 11/10/2017
 
 検証エラーが発生 フィールドにテキストがないこと ([フルサイズのイメージを表示するをクリックして](using-textboxwatermark-with-validation-controls-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](using-textboxwatermark-in-a-formview-cs.md)
-[次へ](using-textboxwatermark-in-a-formview-vb.md)
+> [!div class="step-by-step"]
+> [前へ](using-textboxwatermark-in-a-formview-cs.md)
+> [次へ](using-textboxwatermark-in-a-formview-vb.md)

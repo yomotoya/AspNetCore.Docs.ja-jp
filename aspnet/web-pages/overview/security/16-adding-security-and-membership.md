@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/security/16-adding-security-and-membership
-title: "ページ (Razor) サイトの ASP.NET Web へのセキュリティとメンバーシップの追加 |Microsoft ドキュメント"
+title: ページ (Razor) サイトの ASP.NET Web へのセキュリティとメンバーシップの追加 |Microsoft ドキュメント
 author: tfitzmac
-description: "この章では、一部のページがログインするユーザーにのみ使用できるように、web サイトをセキュリティで保護する方法を示します。 (もわかりますページ tha... を作成する方法"
+description: この章では、一部のページがログインするユーザーにのみ使用できるように、web サイトをセキュリティで保護する方法を示します。 (もわかりますページ tha... を作成する方法
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/24/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: af2eeb128cff554e7ae3d903e2117861087344e9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 351368a356a71e85d4abfdceac8d4f84e0b217f4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトへのセキュリティとメンバーシップの追加
 ====================
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/24/2018
 > - ASP.NET Web Helpers Library
 
 
-ユーザーがその &#8212; にログインできるように、web サイトを設定することができます。つまり、サイトをサポートするよう*メンバーシップ*です。 これができます、さまざまな理由です。 たとえば、サイトには、メンバーにのみ利用できるようにページがあります。 場合によっては、ユーザーにフィードバックを送信するか、コメントのままにするためにログインが求められます。
+ユーザーがそこにログインできるように、web サイトを設定することができます&#8212;は、サイトをサポートするよう*メンバーシップ*です。 これができます、さまざまな理由です。 たとえば、サイトには、メンバーにのみ利用できるようにページがあります。 場合によっては、ユーザーにフィードバックを送信するか、コメントのままにするためにログインが求められます。
 
 ユーザーが web サイトにメンバーシップをサポートしている場合でも、サイトの一部のページを使用する前にログインする必要があります。 ログインしていないユーザーと呼ばれる*匿名ユーザー*です。
 
@@ -88,26 +88,26 @@ WebMatrix で使用することができます、**スターター サイト**�
     確認の電子メールを設定しない場合は、この手順と次の手順を省略できます。 SMTP の値が設定されていない場合、新しいアカウントが確認の電子メールなしですぐに利用できます。
 6. コードの次の電子メールに関連する設定を変更します。
 
-    - 設定`WebMail.SmtpServer`へのアクセスが SMTP サーバーの名前にします。
-    - ままにして`WebMail.EnableSsl`'éý'`true`です。 この設定は、暗号化して、SMTP サーバーに送信される資格情報を保護します。
-    - 設定`WebMail.UserName`SMTP サーバーのアカウントのユーザー名にします。
-    - 設定`WebMail.Password`SMTP サーバーのアカウントのパスワードにします。
-    - 設定`WebMail.From`の電子メール アドレス。 これは、メッセージの送信元電子メール アドレスです。
+   - 設定`WebMail.SmtpServer`へのアクセスが SMTP サーバーの名前にします。
+   - ままにして`WebMail.EnableSsl`'éý'`true`です。 この設定は、暗号化して、SMTP サーバーに送信される資格情報を保護します。
+   - 設定`WebMail.UserName`SMTP サーバーのアカウントのユーザー名にします。
+   - 設定`WebMail.Password`SMTP サーバーのアカウントのパスワードにします。
+   - 設定`WebMail.From`の電子メール アドレス。 これは、メッセージの送信元電子メール アドレスです。
 
-    > [!NOTE] 
-    > 
-    > **ヒント:**これらのプロパティの値についての詳細については、次を参照してください。[電子メール設定を構成する](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings)で[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkID=202906)します。
+     > [!NOTE] 
+     > 
+     > **ヒント:**これらのプロパティの値についての詳細については、次を参照してください。[電子メール設定を構成する](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings)で[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkID=202906)します。
 7. 保存して閉じる *\_AppStart.cshtml*です。
 8. 実行、 *Default.cshtml*ブラウザーのページです。
 
     ![security-membership-2](16-adding-security-and-membership/_static/image1.png)
 
-    > [!NOTE]
-    > プロパティのインスタンスである必要があることを示すエラーが発生する場合`ExtendedMembershipProvider`サイトが ASP.NET Web Pages のメンバーシップ システム (SimpleMembership) を使用して構成されていない可能性があります。 ホスティング プロバイダーのサーバーの構成は、ローカル サーバーとは異なる場合があることができます。 この問題を解決するをサイトの次の要素を追加*Web.config*ファイル。
-    > 
-    > [!code-xml[Main](16-adding-security-and-membership/samples/sample2.xml)]
-    > 
-    > この要素の子として追加、`<configuration>`要素とのピアとして、`<system.web>`要素。
+   > [!NOTE]
+   > プロパティのインスタンスである必要があることを示すエラーが発生する場合`ExtendedMembershipProvider`サイトが ASP.NET Web Pages のメンバーシップ システム (SimpleMembership) を使用して構成されていない可能性があります。 ホスティング プロバイダーのサーバーの構成は、ローカル サーバーとは異なる場合があることができます。 この問題を解決するをサイトの次の要素を追加*Web.config*ファイル。
+   > 
+   > [!code-xml[Main](16-adding-security-and-membership/samples/sample2.xml)]
+   > 
+   > この要素の子として追加、`<configuration>`要素とのピアとして、`<system.web>`要素。
 9. ページの右上隅で、クリックして、**登録**リンクします。 *Register.cshtml*ページが表示されます。
 10. ユーザー名とパスワードを入力し、クリックして**登録**です。
 
@@ -120,14 +120,14 @@ WebMatrix で使用することができます、**スターター サイト**�
 12. 自分のアカウントをアクティブ化するハイパーリンクをクリックします。 確認のハイパーリンクは、登録の確認 ページを開きます。
 
     ![security-membership-5](16-adding-security-and-membership/_static/image4.png)
-- クリックして、**ログイン**リンク、および登録したアカウントを使用してサインインします。
+13. クリックして、**ログイン**リンク、および登録したアカウントを使用してサインインします。
 
-    ログインした後、**ログイン**と**登録**はリンクに置き換え、**ログアウト**リンク。 ユーザーのログイン名は、リンクとして表示されます。 (リンクできますページに移動するパスワードを変更することができます。)
+      ログインした後、**ログイン**と**登録**はリンクに置き換え、**ログアウト**リンク。 ユーザーのログイン名は、リンクとして表示されます。 (リンクできますページに移動するパスワードを変更することができます。)
 
-    ![security-membership-6](16-adding-security-and-membership/_static/image5.png)
+      ![security-membership-6](16-adding-security-and-membership/_static/image5.png)
 
-    > [!NOTE]
-    > 既定では、ASP.NET web ページの資格情報をサーバーにクリア テキストで (として送信人間が判読できるテキスト)。 運用サイトは、セキュリティで保護された HTTP を使用する必要があります (https://とも呼ばれる、 *secure socket layer*または SSL) サーバーと交換される機密情報を暗号化します。 必要な電子メールを作成することができます送信されるメッセージを設定して SSL を使用して`WebMail.EnableSsl=true`前の例に示すようにします。 SSL の詳細については、次を参照してください。 [Web 通信のセキュリティ保護: 証明書、SSL、および https://](https://go.microsoft.com/fwlink/?LinkId=208660)です。
+      > [!NOTE]
+      > 既定では、ASP.NET web ページの資格情報をサーバーにクリア テキストで (として送信人間が判読できるテキスト)。 運用サイトは、セキュリティで保護された HTTP を使用する必要があります (https://とも呼ばれる、 *secure socket layer*または SSL) サーバーと交換される機密情報を暗号化します。 必要な電子メールを作成することができます送信されるメッセージを設定して SSL を使用して`WebMail.EnableSsl=true`前の例に示すようにします。 SSL の詳細については、次を参照してください。 [Web 通信のセキュリティ保護: 証明書、SSL、および https://](https://go.microsoft.com/fwlink/?LinkId=208660)です。
 
 ## <a name="additional-membership-functionality-in-the-site"></a>サイトの追加のメンバーシップ機能
 
@@ -165,12 +165,12 @@ WebMatrix で使用することができます、**スターター サイト**�
     (ポート番号 (38366) は、URL の異なる.)
 
     リダイレクトしている、 *Login.cshtml*ページで、ログインしていないためです。
-- 以前に作成したアカウントを使用してをログインします。 リダイレクトしている、 *MembersInformation*ページ。 ログに記録しているため現時点表示ページの内容。
+7. 以前に作成したアカウントを使用してをログインします。 リダイレクトしている、 *MembersInformation*ページ。 ログに記録しているため現時点表示ページの内容。
 
 保護するには複数のページへのアクセスは、これを行うことができます。
 
 - 各ページに、セキュリティ チェックを追加します。
-- 作成、  *\_PageStart.cshtml*  ページで、フォルダー、保護対象のページを保存し、追加セキュリティ チェックがあります。 *\_PageStart.cshtml*ページはフォルダー内のすべてのページの [グローバル] ページの種類として機能します。 この手法がで詳しく説明されている[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access)します。
+- 作成、  *\_PageStart.cshtml*  ページで、フォルダー、保護対象のページを保存し、追加セキュリティ チェックがあります。  *\_PageStart.cshtml*ページはフォルダー内のすべてのページの [グローバル] ページの種類として機能します。 この手法がで詳しく説明されている[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access)します。
 
 ## <a name="creating-security-for-groups-of-users-roles"></a>ユーザー (ロール) のグループのセキュリティを作成します。
 
@@ -227,10 +227,10 @@ ASP.NET メンバーシップ システムは、役割をサポートするを�
 7. 置き換える`PUBLIC_KEY`キーを使用します。
 8. 削除まだしていない場合は、削除、 `<div>` 「には、CAPTCHA の確認 を有効にする」で始まるテキストが含まれる要素です。 (全体を削除`<div>`要素とその内容です)。
 
-1. 実行*Default.cshtml*ブラウザーでします。 クリックして、サイトにログインする場合、**ログアウト**リンクします。
-2. クリックして、**登録**リンクし、CAPTCHA テストを使用して登録をテストします。
+9. 実行*Default.cshtml*ブラウザーでします。 クリックして、サイトにログインする場合、**ログアウト**リンクします。
+10. クリックして、**登録**リンクし、CAPTCHA テストを使用して登録をテストします。
 
-    ![security-membership-10](16-adding-security-and-membership/_static/image9.png)
+     ![security-membership-10](16-adding-security-and-membership/_static/image9.png)
 
 詳細については、`ReCaptcha`ヘルパーに渡しを参照してください[自動プログラムを防ぐ (Bot) を使用して、ASP.NET Web サイトから、CATPCHA を使用して](https://go.microsoft.com/fwlink/?LinkId=251967)です。
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
-title: "ビジネス ロジック層 (VB) を作成 |Microsoft ドキュメント"
+title: ビジネス ロジック層 (VB) を作成 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、t 間のデータ交換の仲介役として機能するビジネス ロジック層 (BLL) に、ビジネス ルールを集中管理する方法を思いますしています."
+description: このチュートリアルでは、t 間のデータ交換の仲介役として機能するビジネス ロジック層 (BLL) に、ビジネス ルールを集中管理する方法を思いますしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 858383203ddbaa9cb895c3368705f90546c8c974
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 150862decbbb69747f3e957a941b71b118b7231c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-business-logic-layer-vb"></a>ビジネス ロジック層 (VB) を作成します。
 ====================
@@ -63,13 +63,13 @@ BLL がで構成されている各 TableAdapter DAL; 内の 1 つ、4 つのク�
 
 `ProductsBLL`クラス 7 つのメソッドの合計を追加する必要があります。
 
-- `GetProducts()`すべての製品を返します
-- `GetProductByProductID(productID)`指定された製品 ID の積を返します
-- `GetProductsByCategoryID(categoryID)`指定されたカテゴリからすべての製品を返します
-- `GetProductsBySupplier(supplierID)`指定された業者からのすべての製品を返します
-- `AddProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued)`値を使用してデータベースに新しい製品を挿入します。 渡されたのです。返します、`ProductID`新しく挿入したレコードの値
-- `UpdateProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued, productID)`渡されたの値を使用して、データベースの既存の製品を更新します。返します`True`正確に 1 つの行が更新された場合`False`それ以外の場合
-- `DeleteProduct(productID)`指定した製品をデータベースから削除します。
+- `GetProducts()` すべての製品を返します
+- `GetProductByProductID(productID)` 指定された製品 ID の積を返します
+- `GetProductsByCategoryID(categoryID)` 指定されたカテゴリからすべての製品を返します
+- `GetProductsBySupplier(supplierID)` 指定された業者からのすべての製品を返します
+- `AddProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued)` 値を使用してデータベースに新しい製品を挿入します。 渡されたのです。返します、`ProductID`新しく挿入したレコードの値
+- `UpdateProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued, productID)` 渡されたの値を使用して、データベースの既存の製品を更新します。返します`True`正確に 1 つの行が更新された場合`False`それ以外の場合
+- `DeleteProduct(productID)` 指定した製品をデータベースから削除します。
 
 ProductsBLL.vb
 
@@ -207,12 +207,12 @@ DAL BLL 完了と、プレゼンテーション層で開始する準備ができ
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Liz Shulok、Dennis Patterson、Carlos Santos および Hilton Giesenow でした。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](creating-a-data-access-layer-vb.md)
-[次へ](master-pages-and-site-navigation-vb.md)
+> [!div class="step-by-step"]
+> [前へ](creating-a-data-access-layer-vb.md)
+> [次へ](master-pages-and-site-navigation-vb.md)

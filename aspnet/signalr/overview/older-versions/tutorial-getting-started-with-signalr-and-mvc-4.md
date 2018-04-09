@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
-title: "チュートリアル: SignalR の概要 1.x と MVC 4 |Microsoft ドキュメント"
+title: 'チュートリアル: SignalR の概要 1.x と MVC 4 |Microsoft ドキュメント'
 author: pfletcher
-description: "ASP.NET SignalR と ASP.NET MVC 4 を使用して、リアルタイムのチャット アプリケーションをビルドします。"
+description: ASP.NET SignalR と ASP.NET MVC 4 を使用して、リアルタイムのチャット アプリケーションをビルドします。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/29/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 632e6098a03eae02f2367c6dc1c293dbdb6b6170
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1ae330be5caf00c3cac7451f326398c0958538af
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>チュートリアル: SignalR の概要 1.x と MVC 4
 ====================
@@ -63,17 +63,17 @@ ms.lasthandoff: 01/24/2018
         > VS 2010 で選択**.NET Framework 4**のフレームワークのバージョンのドロップダウン コントロールでします。 SignalR のコードは、.NET Framework version 4 および 4.5 で実行されます。
 
         ![Mvc web を作成します。](tutorial-getting-started-with-signalr-and-mvc-4/_static/image3.png)
-    2. インターネット アプリケーション テンプレートを選択し、オプションをオフに**単体テスト プロジェクトを作成**、[ok] をクリックします。
+      2. インターネット アプリケーション テンプレートを選択し、オプションをオフに**単体テスト プロジェクトを作成**、[ok] をクリックします。
 
-        ![Mvc のインターネット サイトを作成します。](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
-    3. 開く、**ツール |ライブラリ パッケージ マネージャー |パッケージ マネージャー コンソール**し、次のコマンドを実行します。 この手順では、一連のスクリプト ファイルと SignalR 機能を有効にするアセンブリ参照をプロジェクトに追加します。
+         ![Mvc のインターネット サイトを作成します。](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
+      3. 開く、**ツール |ライブラリ パッケージ マネージャー |パッケージ マネージャー コンソール**し、次のコマンドを実行します。 この手順では、一連のスクリプト ファイルと SignalR 機能を有効にするアセンブリ参照をプロジェクトに追加します。
 
-        `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
-    4. **ソリューション エクスプ ローラー** Scripts フォルダーを展開します。 SignalR のスクリプト ライブラリがプロジェクトに追加されたことに注意してください。
+         `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
+      4. **ソリューション エクスプ ローラー** Scripts フォルダーを展開します。 SignalR のスクリプト ライブラリがプロジェクトに追加されたことに注意してください。
 
-        ![ライブラリの参照](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
-    5. **ソリューション エクスプ ローラー**、プロジェクトを右クリックし、選択**追加 |新しいフォルダー**、という名前の新しいフォルダーを追加および**ハブ**です。
-    6. 右クリックし、**ハブ**フォルダーで、をクリックして**追加 |クラス**、新しい c# という名前のクラスを作成および**ChatHub.cs**です。 このクラスは、すべてのクライアントにメッセージを送信する SignalR サーバー ハブとして使用されます。
+         ![ライブラリの参照](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
+      5. **ソリューション エクスプ ローラー**、プロジェクトを右クリックし、選択**追加 |新しいフォルダー**、という名前の新しいフォルダーを追加および**ハブ**です。
+      6. 右クリックし、**ハブ**フォルダーで、をクリックして**追加 |クラス**、新しい c# という名前のクラスを作成および**ChatHub.cs**です。 このクラスは、すべてのクライアントにメッセージを送信する SignalR サーバー ハブとして使用されます。
 
 > [!NOTE]
 > Visual Studio 2012 を使用してインストールした場合、 [ASP.NET および Web ツール 2012.2 更新](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation)、ハブ クラスを作成する新しい SignalR 項目テンプレートを使用することができます。 右クリックし、**ハブ**フォルダーで、をクリックして**追加 |新しい項目の** **SignalR ハブ クラス (v1)**、クラスの名前と**ChatHub.cs**です。
@@ -117,7 +117,7 @@ ms.lasthandoff: 01/24/2018
 6. 次のスクリーン ショットは、ブラウザーで実行されているチャット アプリケーションを示します。
 
     ![チャット ブラウザー](tutorial-getting-started-with-signalr-and-mvc-4/_static/image11.png)
-7. **ソリューション エクスプ ローラー**、検査、**スクリプト ドキュメント**の実行中のアプリケーション ノード。 お使いのブラウザーとして Internet Explorer を使用している場合、このノードはデバッグ モードに表示されます。 という名前のスクリプト ファイルがある**ハブ**SignalR ライブラリは、実行時に動的に生成します。 このファイルは、jQuery スクリプトとサーバー側コード間の通信を管理します。 Internet Explorer ではないブラウザーを使用する場合は、アクセスすることも、動的**ハブ**を参照して、直接、たとえば http://mywebsite/signalr/hubs ファイル。
+7. **ソリューション エクスプ ローラー**、検査、**スクリプト ドキュメント**の実行中のアプリケーション ノード。 お使いのブラウザーとして Internet Explorer を使用している場合、このノードはデバッグ モードに表示されます。 という名前のスクリプト ファイルがある**ハブ**SignalR ライブラリは、実行時に動的に生成します。 このファイルは、jQuery スクリプトとサーバー側コード間の通信を管理します。 Internet Explorer ではないブラウザーを使用する場合は、アクセスすることも、動的**ハブ**ファイルを参照して、直接、たとえばhttp://mywebsite/signalr/hubsします。
 
     ![生成されたハブのスクリプト](tutorial-getting-started-with-signalr-and-mvc-4/_static/image13.png)
 

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
-title: "追加するメソッドを作成し、ビューを作成 |Microsoft ドキュメント"
+title: 追加するメソッドを作成し、ビューを作成 |Microsoft ドキュメント
 author: shanselman
-description: "これは、ASP.NET MVC の基本について説明する初心者向けチュートリアルです。 データベースから読み取り/書き込みする単純な web アプリケーションを作成します。"
+description: これは、ASP.NET MVC の基本について説明する初心者向けチュートリアルです。 データベースから読み取り/書き込みする単純な web アプリケーションを作成します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
 msc.type: authoredcontent
-ms.openlocfilehash: 36b3d6ef0432292f21ecd8f29ea2d88ee8867436
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 48e656a0c394b9db5baaec9c557ec38c4020d41b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-create-method-and-create-view"></a>追加するメソッドを作成し、ビューを作成します。
 ====================
@@ -65,6 +65,6 @@ MoviesController クラス内で 2 つの Create() メソッド内でこれら 2
 
 おチェックされないかどうか、映画が正しくただし、および、データベースがタイトルなしでムービーを保存することを許可しません。 説明し、ユーザー データベースの前に、エラーをスローした場合は便利になります。 アプリケーションに検証のサポートを追加することで、次を実行します。
 
->[!div class="step-by-step"]
-[前へ](getting-started-with-mvc-part5.md)
-[次へ](getting-started-with-mvc-part7.md)
+> [!div class="step-by-step"]
+> [前へ](getting-started-with-mvc-part5.md)
+> [次へ](getting-started-with-mvc-part7.md)

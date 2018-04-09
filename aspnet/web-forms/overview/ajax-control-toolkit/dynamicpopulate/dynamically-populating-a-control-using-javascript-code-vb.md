@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-using-javascript-code-vb
-title: "JavaScript コード (VB) を使用してコントロールを動的に作成する |Microsoft ドキュメント"
+title: JavaScript コード (VB) を使用してコントロールを動的に作成する |Microsoft ドキュメント
 author: wenz
-description: "ASP.NET AJAX コントロールのツールキットで DynamicPopulate コントロールは、メソッドを呼び出す web サービス (ページ) と、t の対象のコントロールに、結果の値を設定しています."
+description: ASP.NET AJAX コントロールのツールキットで DynamicPopulate コントロールは、メソッドを呼び出す web サービス (ページ) と、t の対象のコントロールに、結果の値を設定しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-using-javascript-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b4090b3a785059c8f09de266df79eba0914e9f13
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 04bbc6fca839c2b1ed5cafd3a4411604b98e187d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-populating-a-control-using-javascript-code-vb"></a>JavaScript コード (VB) を使用してコントロールを動的に作成します。
 ====================
@@ -62,6 +62,6 @@ JavaScript の部分するようになりました。 `$find()` ASP.NET AJAX ラ
 
 ボタンをクリックしてからサーバーの指定された形式で日付を取得する ([フルサイズのイメージを表示するをクリックして](dynamically-populating-a-control-using-javascript-code-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](dynamically-populating-a-control-vb.md)
-[次へ](using-dynamicpopulate-with-a-user-control-and-javascript-vb.md)
+> [!div class="step-by-step"]
+> [前へ](dynamically-populating-a-control-vb.md)
+> [次へ](using-dynamicpopulate-with-a-user-control-and-javascript-vb.md)

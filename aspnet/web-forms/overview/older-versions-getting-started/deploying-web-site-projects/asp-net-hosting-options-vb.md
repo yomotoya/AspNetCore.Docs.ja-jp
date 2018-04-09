@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
-title: "ASP.NET (VB) のオプションをホスティング |Microsoft ドキュメント"
+title: ASP.NET (VB) のオプションをホスティング |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET web アプリケーションでは通常、設計し作成されると、ローカル開発環境でテストし、実稼働環境 o に配置する必要があります."
+description: ASP.NET web アプリケーションでは通常、設計し作成されると、ローカル開発環境でテストし、実稼働環境 o に配置する必要があります.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 54bac82a96a35d871d764849856c8e31f6570666
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0e99423ec803927d0f621c88f3d814578fec11f5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-hosting-options-vb"></a>ASP.NET (VB) のオプションのホスティング
 ====================
@@ -61,7 +61,7 @@ Web アプリケーションの構成情報は、通常、内に、`Web.config`�
 Web アプリケーションの構成の変更だけでなく手順 1. もが増えるため、web サーバーとデータベースの構成。 たとえば、ASP.NET ページが作成、web サーバー上のディレクトリからファイルを削除するかをこれらのファイル システムの変更を許可するように構成する web サーバーが必要です。 同様に、アクセス許可、または認証の設定、データベースに作成する必要がある可能性があります。
 
 
-手順 2 では、一連の不可欠な ASP.NET ページと、開発環境と運用環境の間でのサポート ファイルの同期が含まれます。 ASP の特定のセット。2 つの環境間で同期する必要がある NET に関連するファイルは、Visual Studio で作成し、次のチュートリアルでは、詳細については、プロジェクトの種類によって異なります*[を決定する必要のあるファイル展開](determining-what-files-need-to-be-deployed-vb.md)*。 3 番目と 4 番目のチュートリアル -  *[、サイトを使用して FTP の展開](deploying-your-site-using-an-ftp-client-vb.md)*と*[を展開する、サイトを使用して Visual Studio](deploying-your-site-using-visual-studio-vb.md)*  -確認別のツールとこれらのファイルを同期するための手法です。
+手順 2 では、一連の不可欠な ASP.NET ページと、開発環境と運用環境の間でのサポート ファイルの同期が含まれます。 ASP の特定のセット。2 つの環境間で同期する必要がある NET に関連するファイルは、Visual Studio で作成し、次のチュートリアルでは、詳細については、プロジェクトの種類によって異なります<em>[を決定する必要のあるファイル展開](determining-what-files-need-to-be-deployed-vb.md)</em>。 3 番目と 4 番目のチュートリアル -  <em>[、サイトを使用して FTP の展開](deploying-your-site-using-an-ftp-client-vb.md)</em>と<em>[を展開する、サイトを使用して Visual Studio](deploying-your-site-using-visual-studio-vb.md)</em>  -確認別のツールとこれらのファイルを同期するための手法です。
 
 データ ドリブンのアプリケーションが使用されている通常の 2 つのデータベースを構築するときに: 開発と実稼働環境に 1 つのいずれか。 開発中は、開発用データベースのスキーマは新しいテーブル、列、ストアド プロシージャ、トリガー、およびを含めるように変更することがあります。 またはを削除するか、既存のデータベース オブジェクトの名前を変更するように変更する可能性があります。 これらの変更が行われたとき、アプリケーションが実稼働環境に展開されている時間の間、データベース開発と実稼働データベースは同期されません。この非同期性は、展開プロセス中に修正する必要があります。 今後のチュートリアルでは、これらの課題が検査されます。
 
@@ -95,6 +95,6 @@ ASP.NET web アプリケーションは通常設計、作成され、ローカ�
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Teresa マーフィーしました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[ mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)です。
 
->[!div class="step-by-step"]
-[前へ](users-and-roles-on-the-production-website-cs.md)
-[次へ](determining-what-files-need-to-be-deployed-vb.md)
+> [!div class="step-by-step"]
+> [前へ](users-and-roles-on-the-production-website-cs.md)
+> [次へ](determining-what-files-need-to-be-deployed-vb.md)

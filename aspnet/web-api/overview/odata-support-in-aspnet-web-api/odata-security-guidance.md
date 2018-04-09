@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
-title: "ASP.NET Web API 2 のセキュリティ ガイダンス OData |Microsoft ドキュメント"
+title: ASP.NET Web API 2 のセキュリティ ガイダンス OData |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/06/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 799e2a0c742b545acf3b5cd27531d734aa7def80
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 41b05f2a2f8247853d8358e6cc1246c8b438a6db
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>ASP.NET Web API 2 のセキュリティ ガイダンス OData
 ====================
@@ -70,8 +70,8 @@ ms.lasthandoff: 03/15/2018
     [!code-csharp[Main](odata-security-guidance/samples/sample9.cs)]
 - データベース用にカスタマイズされている検証コントロールを記述して $filter のクエリを制限することを検討してください。 たとえば、これら 2 つのクエリについて考えてみます。 
 
-    - すべてのムービーで最後の名前 'A' で始まるアクターとします。
-    - 1994 年にリリースされたすべてのムービーします。
+  - すべてのムービーで最後の名前 'A' で始まるアクターとします。
+  - 1994 年にリリースされたすべてのムービーします。
 
     ムービーがアクターによってインデックスが作成しない限り、最初のクエリは、ムービーの一覧全体をスキャンする DB エンジンを必要があります。 許容可能な 2 番目のクエリでありと仮定してムービーはリリース年によってインデックスが作成されます。
 

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core でのデータ保護の構成"
+title: ASP.NET Core データ保護を構成します。
 author: rick-anderson
-description: "ASP.NET Core でのデータ保護を構成する方法を説明します。"
+description: ASP.NET Core でのデータ保護を構成する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 07/17/2017
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 0fe1fd7b81a0e5aa00ae14c7e6fdbd9cc88ec4fe
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3a19cec2ce4387ca44ca120f031a072269b93454
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="configuring-data-protection-in-aspnet-core"></a>ASP.NET Core でのデータ保護の構成
+# <a name="configure-aspnet-core-data-protection"></a>ASP.NET Core データ保護を構成します。
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 データ保護システムが初期化されたときに適用される[既定の設定](xref:security/data-protection/configuration/default-settings)運用環境に基づきます。 これらの設定に適した一般的に 1 台のコンピューターで実行されるアプリです。 開発者は複数のコンピューターまたはコンプライアンス上の理由から、アプリが分散しているので、おそらく、既定の設定を変更する必要のあるケースがあります。 このようなシナリオは、データ保護システムは、豊富な構成 API を提供します。
 
-拡張メソッドがある[AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection)を返す、 [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder)です。 `IDataProtectionBuilder`連結できます。 データ保護を構成するオプションの拡張メソッドを公開します。
+拡張メソッドがある[AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection)を返す、 [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder)です。 `IDataProtectionBuilder` 連結できます。 データ保護を構成するオプションの拡張メソッドを公開します。
 
 ## <a name="persistkeystofilesystem"></a>PersistKeysToFileSystem
 

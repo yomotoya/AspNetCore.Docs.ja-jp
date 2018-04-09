@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
-title: "チュートリアル: サーバーは signalr 2 ブロードキャスト |Microsoft ドキュメント"
+title: 'チュートリアル: サーバーは signalr 2 ブロードキャスト |Microsoft ドキュメント'
 author: tdykstra
-description: "このチュートリアルでは、ASP.NET SignalR 2 を使用して、サーバーのブロードキャストの機能を提供する web アプリケーションを作成する方法を示します。 サーバーのブロードキャストでは、その commun を意味しています."
+description: このチュートリアルでは、ASP.NET SignalR 2 を使用して、サーバーのブロードキャストの機能を提供する web アプリケーションを作成する方法を示します。 サーバーのブロードキャストでは、その commun を意味しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 98a7ce4991d58181177cf56976888e9fd1526987
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: de4ccb4f0865e250fa0d78a9707fe5129c78e764
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>チュートリアル: SignalR 2 でサーバーのブロードキャスト
 ====================
@@ -65,7 +65,7 @@ ms.lasthandoff: 01/24/2018
 
 ![StockTicker 初期バージョン](tutorial-server-broadcast-with-signalr/_static/image1.png)
 
-定期的にサーバーをランダムに株価を更新し、更新プログラムをすべて接続されているクライアントにプッシュします。 ブラウザーの数値および内のシンボルで、**変更**と **%** 列は、サーバーからの通知に応答で動的に変化します。 同じ URL に他のブラウザーを開いた場合、同じデータとデータへの同じ変更を同時に、それらはすべて表示します。
+定期的にサーバーをランダムに株価を更新し、更新プログラムをすべて接続されているクライアントにプッシュします。 ブラウザーの数値および内のシンボルで、**変更**と**%**列は、サーバーからの通知に応答で動的に変化します。 同じ URL に他のブラウザーを開いた場合、同じデータとデータへの同じ変更を同時に、それらはすべて表示します。
 
 このチュートリアルでは、次のセクションでは、含まれています。
 
@@ -218,7 +218,7 @@ ms.lasthandoff: 01/24/2018
 
     スクリプト タグは、jQuery スクリプト ファイル、SignalR core スクリプト ファイル、SignalR プロキシ スクリプト ファイル、および後で作成する StockTicker スクリプト ファイルを指定します。 「/Signalr ハブ」URL を指定するには、SignalR プロキシ スクリプト ファイルは、動的に生成され、StockTickerHub.GetAllStocks をここでは、ハブ クラスのメソッドのプロキシ メソッドを定義します。 使用してこの JavaScript ファイルが手動で生成できる場合は、 [SignalR ユーティリティ](http://nuget.org/packages/Microsoft.AspNet.SignalR.Utils/)MapHubs メソッドの呼び出しでの動的なファイルの作成を無効にするとします。
 3. > [!IMPORTANT]
- > JavaScript ファイルを参照するかどうかを確認*StockTicker.html*が正しい。 必ず、スクリプト タグ (1.10.2 の例) で jQuery のバージョンがプロジェクトの jQuery のバージョンと同じ*スクリプト*フォルダー、し、スクリプト タグの SignalR バージョンが、SignalR と同じであるかどうかを確認プロジェクトのバージョン*スクリプト*フォルダーです。 必要な場合は、スクリプト タグのファイル名を変更します。
+   > JavaScript ファイルを参照するかどうかを確認*StockTicker.html*が正しい。 必ず、スクリプト タグ (1.10.2 の例) で jQuery のバージョンがプロジェクトの jQuery のバージョンと同じ*スクリプト*フォルダー、し、スクリプト タグの SignalR バージョンが、SignalR と同じであるかどうかを確認プロジェクトのバージョン*スクリプト*フォルダーです。 必要な場合は、スクリプト タグのファイル名を変更します。
 4. **ソリューション エクスプ ローラー**を右クリックして*StockTicker.html*、クリックして**スタート ページとして設定**です。
 5. プロジェクト フォルダーで新しい JavaScript ファイルを作成し、名前*StockTicker.js*.
 6. テンプレート コードを次のコードに置き換えます。

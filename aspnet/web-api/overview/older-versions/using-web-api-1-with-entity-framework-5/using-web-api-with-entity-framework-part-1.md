@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1
-title: "パート 1: 概要と、プロジェクトの作成 |Microsoft ドキュメント"
+title: 'パート 1: 概要と、プロジェクトの作成 |Microsoft ドキュメント'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/03/2012
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 47af34c72f1959756f5d68e0e80052e700c7b19c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f9cdff0cb0cad9adad546c8f8d46ba9b010e1079
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-1-overview-and-creating-the-project"></a>パート 1: 概要と、プロジェクトを作成します。
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 Entity Framework は、/、オブジェクト リレーショナル マッピング フレームワークです。 ドメイン オブジェクトをコードでは、リレーショナル データベース内のエンティティにマップされます。 ほとんどの場合、必要はありません、データベース レイヤーについて心配する Entity Framework は、処理をするためです。 コードは、オブジェクトを操作し、データベースへの変更は保持します。
 
@@ -94,5 +94,5 @@ Visual Web Developer Express または完全バージョンの Visual Studio を
 
 [!code-css[Main](using-web-api-with-entity-framework-part-1/samples/sample1.css)]
 
->[!div class="step-by-step"]
-[次へ](using-web-api-with-entity-framework-part-2.md)
+> [!div class="step-by-step"]
+> [次へ](using-web-api-with-entity-framework-part-2.md)

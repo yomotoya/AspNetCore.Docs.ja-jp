@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/calling-a-web-api-from-a-net-client
-title: ".NET クライアント (c#) から Web API を呼び出す |Microsoft ドキュメント"
+title: .NET クライアント (c#) から Web API を呼び出す |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/24/2017
@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 44e02888b53ee372ab93db5f90acb691f26b7519
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: a243eeb982ba581e237263c4e31e130d634aff0e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>.NET クライアント (c#) から Web API を呼び出す
 ====================
@@ -37,23 +37,23 @@ ms.lasthandoff: 02/12/2018
 ASP.NET Web API を使用して、この API を実装する方法については [CRUD 操作をサポートする Web API を作成する](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 )です。
 
-説明をシンプルに保つ目的から、このチュートリアルでは Windows コンソール アプリケーションをクライアント アプリケーションとして使用します。 **HttpClient** は Windows Phone や Windows ストア アプリでも同様にサポートされています。 詳しい情報は[Writing Web API Client Code for Multiple Platforms Using Portable Libraries](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx)(ポータブル ライブラリを使用して複数のプラットフォームの Web API クライアント コードを記述する) を参照してください
+わかりやすくするため、このチュートリアルでは、クライアント アプリケーションは、Windows コンソール アプリケーションです。 **HttpClient** Windows Phone や Windows ストア アプリでもサポートされます。 詳細については、次を参照してください[複数のプラットフォームを使用してポータブル ライブラリの Web API クライアント コードの記述。](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx)
 
 <a id="CreateConsoleApp"></a>
-## <a name="create-the-console-application"></a>コンソール アプリケーションを作成する
+## <a name="create-the-console-application"></a>コンソール アプリケーションを作成します。
 
-Visual Studio で **HttpClientSample** という名前の新しい Windows コンソール アプリを作成し、次のコードに貼り付けます:
+Visual Studio で、という名前の新しい Windows コンソール アプリを作成する**HttpClientSample**し、次のコードに貼り付けます。
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_all)]
 
 上記のコードは、完全なクライアント アプリケーションです。
 
-`RunAsync` が起動し、完了するまでブロックされます。 **HttpClient**の多くのメソッドはネットワーク I/O として振る舞うため、非同期です。 すべての非同期タスクは `RunAsync` の内部で完結します。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
+`RunAsync` 実行され、完了するまでブロックされます。 ほとんど**HttpClient**ネットワーク I/O を実行するため、メソッドは非同期、します。 内で行うすべての非同期タスクが`RunAsync`です。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_run)]
 
 <a id="InstallClientLib"></a>
-## <a name="install-the-web-api-client-libraries"></a>Web API のクライアント ライブラリをインストールする
+## <a name="install-the-web-api-client-libraries"></a>Web API のクライアント ライブラリをインストールします。
 
 NuGet パッケージ マネージャーを使用して、Web API Client Libraries パッケージをインストールします。
 
@@ -109,7 +109,7 @@ Json.NET は、.NET の人気のある高パフォーマンス JSON フレーム
 
 **されます**メソッドは、HTTP GET 要求を送信します。 完了時のメソッドを返します、 **HttpResponseMessage** HTTP 応答を格納しています。 応答にステータス コードが成功コードの場合は、応答本文には、製品の JSON 表現が含まれています。 呼び出す**ReadAsAsync** JSON ペイロードを逆シリアル化する、`Product`インスタンス。 **ReadAsAsync**メソッドでは非同期応答の本体は任意の大きさを指定できます。
 
-**HttpClient** HTTP 応答には、エラー コードが含まれている場合、例外はスローされません。 代わりに、 **IsSuccessStatusCode**プロパティは**false**状態がエラー コードの場合。 HTTP エラー コードを例外として処理する場合は、呼び出す[HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) response オブジェクトにします。 `EnsureSuccessStatusCode`ステータス コードが 200 の範囲外になった場合に例外をスロー&ndash;299 です。 注意してください**HttpClient**の他の理由から例外をスローできます&mdash;要求がタイムアウトになる場合などです。
+**HttpClient** HTTP 応答には、エラー コードが含まれている場合、例外はスローされません。 代わりに、 **IsSuccessStatusCode**プロパティは**false**状態がエラー コードの場合。 HTTP エラー コードを例外として処理する場合は、呼び出す[HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) response オブジェクトにします。 `EnsureSuccessStatusCode` ステータス コードが 200 の範囲外になった場合に例外をスロー&ndash;299 です。 注意してください**HttpClient**の他の理由から例外をスローできます&mdash;要求がタイムアウトになる場合などです。
 
 <a id="MediaTypeFormatters"></a>
 ### <a name="media-type-formatters-to-deserialize"></a>逆シリアル化するメディア タイプ フォーマッタ
@@ -167,16 +167,16 @@ GET と同様に DELETE 要求しても、要求本文はありません。 DELE
 
 クライアント アプリをテストします。
 
-1. [ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server)server アプリを実行します。 [ダウンロード命令の](https://docs.microsoft.com/aspnet/core/tutorials/#how-to-download-a-sample)します。 サーバー アプリが動作を確認します。 Exaxmple の`http://localhost:64195/api/products`製品の一覧を返す必要があります。
+1. [ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server)server アプリを実行します。 [ダウンロードの方法はこちらをご覧ください。](https://docs.microsoft.com/aspnet/core/tutorials/#how-to-download-a-sample) サーバー アプリが動作を確認します。 Exaxmple の`http://localhost:64195/api/products`製品の一覧を返す必要があります。
 2. HTTP 要求のベース URI を設定します。 サーバー アプリケーションで使用されるポートにポート番号を変更します。
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 
 3. クライアント アプリを実行します。 次の出力が生成されます。
 
- ```console
- Created at http://localhost:64195/api/products/4
-Name: Gizmo     Price: 100.0    Category: Widgets
-Updating price...
-Name: Gizmo     Price: 80.0     Category: Widgets
-Deleted (HTTP Status = 204)
-```
+   ```console
+   Created at http://localhost:64195/api/products/4
+   Name: Gizmo     Price: 100.0    Category: Widgets
+   Updating price...
+   Name: Gizmo     Price: 80.0     Category: Widgets
+   Deleted (HTTP Status = 204)
+   ```
