@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs
-title: "データベースの変更 (c#)、トランザクション内での折り返し |Microsoft ドキュメント"
+title: データベースの変更 (c#)、トランザクション内での折り返し |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、更新、削除、およびデータのバッチの挿入を参照する 4 つのうちの最初です。 このチュートリアルでは、データベース トランザクションを使用する方法を学習しました."
+description: このチュートリアルでは、更新、削除、およびデータのバッチの挿入を参照する 4 つのうちの最初です。 このチュートリアルでは、データベース トランザクションを使用する方法を学習しました.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e2dafdf9a9414bddfca37ef942856c94096f35b8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a3f8ec2de7b9259e4bb83f4346bde8abfd643fb4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="wrapping-database-modifications-within-a-transaction-c"></a>(C#)、トランザクション内での折り返しデータベースの変更
 ====================
@@ -117,7 +117,7 @@ ms.lasthandoff: 01/24/2018
 
 ![TransactionSupport をという名前のフォルダーと ProductsTableAdapter.TransactionSupport.cs をという名前のクラス ファイルを追加します。](wrapping-database-modifications-within-a-transaction-cs/_static/image4.gif)
 
-**図 4**: という名前のフォルダーを追加`TransactionSupport`とという名前のクラス ファイル`ProductsTableAdapter.TransactionSupport.cs`
+**図 4**: という名前のフォルダーを追加`TransactionSupport`とという名前のクラス ファイル `ProductsTableAdapter.TransactionSupport.cs`
 
 
 次のコードを入力してください、`ProductsTableAdapter.TransactionSupport.cs`ファイル。
@@ -127,7 +127,7 @@ ms.lasthandoff: 01/24/2018
 
 `partial`をコンパイラに追加する内で追加されたメンバーであることを示すクラスの宣言でキーワード、`ProductsTableAdapter`クラス内で、`NorthwindTableAdapters`名前空間。 注、`using System.Data.SqlClient`ファイルの上部にあるステートメントです。 TableAdapter は、SqlClient プロバイダーを使用する構成された、以降内部的に使用して、 [ `SqlDataAdapter` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqldataadapter.aspx)データベースにそのコマンドを実行するオブジェクト。 そのため、使用する必要があります、`SqlTransaction`トランザクションを開始するクラスとそのコミットまたはロールバックするためにします。 Microsoft SQL Server 以外のデータ ストアを使用している場合は、適切なプロバイダーを使用する必要があります。
 
-これらのメソッドは、ロールバックを開始するために必要な構成要素を提供し、トランザクションをコミットします。 マークされている`public`、内から使用することを有効にすると、 `ProductsTableAdapter`DAL に別のクラスまたは BLL など、アーキテクチャの別のレイヤーからです。 `BeginTransaction`内部の tableadapter を開きます`SqlConnection`(必要な場合)、トランザクションを開始し、それを`Transaction`プロパティ、トランザクションを内部に添付`SqlDataAdapter`s`SqlCommand`オブジェクト。 `CommitTransaction`および`RollbackTransaction`を呼び出す、`Transaction`オブジェクト s`Commit`と`Rollback`メソッド、それぞれ、閉じてから、内部`Connection`オブジェクト。
+これらのメソッドは、ロールバックを開始するために必要な構成要素を提供し、トランザクションをコミットします。 マークされている`public`、内から使用することを有効にすると、 `ProductsTableAdapter`DAL に別のクラスまたは BLL など、アーキテクチャの別のレイヤーからです。 `BeginTransaction` 内部の tableadapter を開きます`SqlConnection`(必要な場合)、トランザクションを開始し、それを`Transaction`プロパティ、トランザクションを内部に添付`SqlDataAdapter`s`SqlCommand`オブジェクト。 `CommitTransaction` および`RollbackTransaction`を呼び出す、`Transaction`オブジェクト s`Commit`と`Rollback`メソッド、それぞれ、閉じてから、内部`Connection`オブジェクト。
 
 ## <a name="step-3-adding-methods-to-update-and-delete-data-under-the-umbrella-of-a-transaction"></a>手順 3: トランザクションの傘下にデータを更新および削除メソッドの追加
 
@@ -247,17 +247,17 @@ Let s を GridView のすべての製品を一覧表示し、ボタン Web を�
 
 - [トランザクションでデータベースの整合性を維持します。](http://aspnet.4guysfromrolla.com/articles/072705-1.aspx)
 - [ストアド プロシージャを SQL Server のトランザクションを管理します。](http://www.4guysfromrolla.com/webtech/080305-1.shtml)
-- [トランザクションが簡単に作成します。`System.Transactions`](https://blogs.msdn.com/florinlazar/archive/2004/07/23/192239.aspx)
+- [トランザクションが簡単に作成します。 `System.Transactions`](https://blogs.msdn.com/florinlazar/archive/2004/07/23/192239.aspx)
 - [TransactionScope と Dataadapter](http://andyclymer.blogspot.com/2007/01/transactionscope-and-dataadapters.html)
 - [.NET での Oracle データベースのトランザクションの使用](http://www.oracle.com/technology/pub/articles/price_dbtrans_dotnet.html)
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者には、Dave ガードナー、Hilton Giesenow Teresa マーフィーがされていました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[次へ](batch-updating-cs.md)
+> [!div class="step-by-step"]
+> [次へ](batch-updating-cs.md)

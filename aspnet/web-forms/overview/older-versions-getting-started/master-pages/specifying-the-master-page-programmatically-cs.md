@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
-title: "マスター ページをプログラムで指定する (c#) |Microsoft ドキュメント"
+title: マスター ページをプログラムで指定する (c#) |Microsoft ドキュメント
 author: rick-anderson
-description: "PreInit イベント ハンドラーを使用してプログラムからのコンテンツ ページのマスター ページの設定を見ます。"
+description: PreInit イベント ハンドラーを使用してプログラムからのコンテンツ ページのマスター ページの設定を見ます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 15efb8e2f38b7a405da0c0e12e447e5c3146f025
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2294ee2e58e55901d77958e7cf45dd74fc2a1187
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="specifying-the-master-page-programmatically-c"></a>マスター ページをプログラムで指定する (c#)
 ====================
@@ -139,7 +139,7 @@ PreInit ステージの開始時、`Page`オブジェクト、 [ `PreInit`イベ
 
 ### <a name="testing-the-new-master-page"></a>新しいマスター ページのテスト
 
-この新しいマスター ページの更新プログラムをテストする、`BasePage`クラスの`OnPreInit`メソッドできるように、`MasterPageFile`プロパティの値が割り当てられた"~/Alternate.maser"し、web サイトにアクセスします。 すべてのページが 2 つを除くエラーなし機能する必要があります:`~/Admin/AddProduct.aspx`と`~/Admin/Products.aspx`です。 DetailsView で製品を追加`~/Admin/AddProduct.aspx`結果、`NullReferenceException`マスター ページの設定を試みるコードの行から`GridMessageText`プロパティです。 アクセスすると`~/Admin/Products.aspx`、`InvalidCastException`メッセージ ページの読み込みでスローされます:"型のオブジェクトはキャストできません 'ASP.alternate\_マスター' 型に ' ASP.site\_マスター '。"。
+この新しいマスター ページの更新プログラムをテストする、`BasePage`クラスの`OnPreInit`メソッドできるように、`MasterPageFile`プロパティの値が割り当てられた"~/Alternate.master"し、web サイトにアクセスします。 すべてのページが 2 つを除くエラーなし機能する必要があります:`~/Admin/AddProduct.aspx`と`~/Admin/Products.aspx`です。 DetailsView で製品を追加`~/Admin/AddProduct.aspx`結果、`NullReferenceException`マスター ページの設定を試みるコードの行から`GridMessageText`プロパティです。 アクセスすると`~/Admin/Products.aspx`、`InvalidCastException`メッセージ ページの読み込みでスローされます:"型のオブジェクトはキャストできません 'ASP.alternate\_マスター' 型に ' ASP.site\_マスター '。"。
 
 これらのエラーが発生する、`Site.master`分離コード クラスには、パブリック イベント、プロパティ、およびで定義されていないメソッドが含まれています。`Alternate.master`です。 これら 2 つのページのマークアップの部分である、`@MasterType`を参照するディレクティブ、`Site.master`マスター ページ。
 
@@ -282,12 +282,12 @@ Button Web コントロールをページに追加し、設定、`ID`と`Text`�
 
 ### <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、作成者複数受け取ります書籍や 4GuysFromRolla.com の創設者を操作した Microsoft Web テクノロジ 1998 年です。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 3.5 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)です。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、作成者複数受け取ります書籍や 4GuysFromRolla.com の創設者を操作した Microsoft Web テクノロジ 1998 年です。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 3.5 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco)です。 Scott に到達できる[ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 
-このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Suchi Banerjee しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Suchi Banerjee しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](master-pages-and-asp-net-ajax-cs.md)
-[次へ](nested-master-pages-cs.md)
+> [!div class="step-by-step"]
+> [前へ](master-pages-and-asp-net-ajax-cs.md)
+> [次へ](nested-master-pages-cs.md)

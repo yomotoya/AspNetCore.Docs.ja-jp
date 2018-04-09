@@ -1,7 +1,7 @@
 ---
-title: "応答の ASP.NET Core のミドルウェアのキャッシュ"
+title: 応答の ASP.NET Core のミドルウェアのキャッシュ
 author: guardrex
-description: "構成および ASP.NET Core でのキャッシュ ミドルウェアの応答を使用する方法を説明します。"
+description: 構成および ASP.NET Core でのキャッシュ ミドルウェアの応答を使用する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: e9a74d8f6c3945b1bc8c62d0ab21145a7c5717fb
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: ff92b032fe8bbbcb7bc26a34fdfbc56a0fcc0e2c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>応答の ASP.NET Core のミドルウェアのキャッシュ
 
@@ -88,7 +88,7 @@ if (responseCachingFeature != null)
 | Header | 説明 |
 | ------ | ------- |
 | 承認 | ヘッダーが存在する場合、応答がキャッシュされません。 |
-| Cache-Control | マークされた応答をキャッシュにのみ考慮ミドルウェア、`public`キャッシュ ディレクティブです。 次のパラメーターでキャッシュを制御します。<ul><li>max-age</li><li>max-stale&#8224;</li><li>min 新規</li><li>must-revalidate</li><li>no-cache</li><li>no ストア</li><li>専用の場合のキャッシュ</li><li>private</li><li>public</li><li>s maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224; に制限が指定されていない場合`max-stale`ミドルウェアの動作は行いません。<br>&#8225;です。`proxy-revalidate`と同じ効果を持つ`must-revalidate`します。<br><br>詳細については、次を参照してください。 [RFC 7231: 要求のキャッシュ制御ディレクティブ](https://tools.ietf.org/html/rfc7234#section-5.2.1)です。 |
+| Cache-Control | マークされた応答をキャッシュにのみ考慮ミドルウェア、`public`キャッシュ ディレクティブです。 次のパラメーターでキャッシュを制御します。<ul><li>max-age</li><li>max-stale&#8224;</li><li>min 新規</li><li>must-revalidate</li><li>no-cache</li><li>no ストア</li><li>専用の場合のキャッシュ</li><li>private</li><li>public</li><li>s maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;制限が指定されていない場合`max-stale`ミドルウェアの動作は行いません。<br>&#8225;`proxy-revalidate`同じ効果を持つ`must-revalidate`します。<br><br>詳細については、次を参照してください。 [RFC 7231: 要求のキャッシュ制御ディレクティブ](https://tools.ietf.org/html/rfc7234#section-5.2.1)です。 |
 | プラグマ | A`Pragma: no-cache`要求のヘッダーと同じ効果を生成する`Cache-Control: no-cache`です。 このヘッダーは、関連するディレクティブによってオーバーライド、`Cache-Control`ヘッダーが存在する場合。 Http/1.0 との下位互換性と見なされます。 |
 | Set-Cookie | ヘッダーが存在する場合、応答がキャッシュされません。 |
 | 異なる | `Vary`ヘッダーがキャッシュされた応答を変更する別のヘッダーで使用されます。 などを含めることによってエンコードすることによって応答がキャッシュ、`Vary: Accept-Encoding`ヘッダーで要求に対する応答がキャッシュされているヘッダー`Accept-Encoding: gzip`と`Accept-Encoding: text/plain`とは別にします。 ヘッダーの値を含む応答`*`は保存されません。 |

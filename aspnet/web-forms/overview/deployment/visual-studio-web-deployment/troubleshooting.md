@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
-title: "Visual Studio を使用した ASP.NET Web 展開: のトラブルシューティング |Microsoft ドキュメント"
+title: 'Visual Studio を使用した ASP.NET Web 展開: のトラブルシューティング |Microsoft ドキュメント'
 author: tdykstra
-description: "この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています."
+description: この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/01/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: a7a66e7e67539e4b075da6fc054a7b53984b6ce1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 15bda09c59afaf9e5449c68c5206bb28de245541
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Visual Studio を使用した ASP.NET Web 展開: トラブルシューティング
 ====================
@@ -292,8 +292,8 @@ SQL Server Compact、アプリ内のファイルにそのデータベースを�
 
 正常にされているアプリケーションを配置する発行 1 回のクリックを使用して開始してこのエラーが発生します。
 
-Web deploy タスクに失敗しました。 (完了できませんでした 'https://serverurl.com/msdeploy.axd?site=sitename' リモート エージェントの URL に要求します。)  
- リモート エージェントの URL 'https://url/msdeploy.axd?site=sitename' への要求を完了できませんでした。  
+Web deploy タスクに失敗しました。 (リモート エージェントの URL に要求を完了できませんでした '<https://serverurl.com/msdeploy.axd?site=sitename>' です)。  
+ リモート エージェントの URL に要求を完了できませんでした '<https://url/msdeploy.axd?site=sitename>' です。  
 要求が中止されました: 要求が取り消されました。  
 基になる RCW から分割された COM オブジェクトを使用することはできません。
 
@@ -309,7 +309,7 @@ Web deploy タスクに失敗しました。 (完了できませんでした 'ht
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因と解決策
 
-既定では、Visual Studio の設定、サイトのルート フォルダーに対するアクセス許可の読み取りおよび書き込みアクセス許可アプリ\_データ フォルダーです。 追加することで、この動作を無効にするサイト フォルダの既定のアクセス許可が正しいし、設定する必要はありませんがわかっている場合 **&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;** 発行プロファイル ファイル (1 つのプロファイルに影響を与える)、または (影響を与えるすべてのプロファイル) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[する方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069.aspx)です。
+既定では、Visual Studio の設定、サイトのルート フォルダーに対するアクセス許可の読み取りおよび書き込みアクセス許可アプリ\_データ フォルダーです。 追加することで、この動作を無効にするサイト フォルダの既定のアクセス許可が正しいし、設定する必要はありませんがわかっている場合**&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;**発行プロファイル ファイル (1 つのプロファイルに影響を与える)、または (影響を与えるすべてのプロファイル) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[する方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069.aspx)です。
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>アプリケーションがアプリケーション フォルダーへの書き込みを行うとき、アクセス拒否エラー
 
@@ -319,7 +319,7 @@ Web deploy タスクに失敗しました。 (完了できませんでした 'ht
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因と解決策
 
-既定では、Visual Studio の設定、サイトのルート フォルダーに対するアクセス許可の読み取りおよび書き込みアクセス許可アプリ\_データ フォルダーです。 アプリケーションでは、サブ フォルダーへの書き込みアクセスを必要とする場合は、フォルダーのアクセス許可を設定および展開するこの一連の実稼働環境のチュートリアルは、表示されているとしてそのフォルダーのアクセス許可を設定できます。 ルート フォルダーに追加することで読み取り専用アクセスを設定することを防ぐことがある場合は、アプリケーションでは、サイトのルート フォルダーへの書き込みアクセスが必要な **&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;** 発行プロファイル ファイル (1 つのプロファイルに影響を与える)、または (影響を与えるすべてのプロファイル) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[する方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069.aspx)です。
+既定では、Visual Studio の設定、サイトのルート フォルダーに対するアクセス許可の読み取りおよび書き込みアクセス許可アプリ\_データ フォルダーです。 アプリケーションでは、サブ フォルダーへの書き込みアクセスを必要とする場合は、フォルダーのアクセス許可を設定および展開するこの一連の実稼働環境のチュートリアルは、表示されているとしてそのフォルダーのアクセス許可を設定できます。 ルート フォルダーに追加することで読み取り専用アクセスを設定することを防ぐことがある場合は、アプリケーションでは、サイトのルート フォルダーへの書き込みアクセスが必要な**&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;**発行プロファイル ファイル (1 つのプロファイルに影響を与える)、または (影響を与えるすべてのプロファイル) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[する方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069.aspx)です。
 
 <a id="aspnet45error"></a>
 
@@ -377,5 +377,5 @@ HTTP エラー 404.17 - が見つかりません。
 
 ASP.NET 4.5 をコンピューターにインストールされていない可能性があります。 ASP.NET 4.5 をインストールする方法を説明したこのシリーズのテスト環境のチュートリアルとして IIS に展開の手順を参照してください。
 
->[!div class="step-by-step"]
-[前へ](deploying-extra-files.md)
+> [!div class="step-by-step"]
+> [前へ](deploying-extra-files.md)

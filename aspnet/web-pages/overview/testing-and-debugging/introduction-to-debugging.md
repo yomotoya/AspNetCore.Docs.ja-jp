@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/testing-and-debugging/introduction-to-debugging
-title: "Introduction to デバッグの ASP.NET Web Pages (Razor) サイト |Microsoft ドキュメント"
+title: Introduction to デバッグの ASP.NET Web Pages (Razor) サイト |Microsoft ドキュメント
 author: tfitzmac
-description: "デバッグは、検索、およびコード ページにエラーの修正のプロセスです。 この章ではするが表示されるツールやデバッグに使用できる手法と analyz をしています."
+description: デバッグは、検索、およびコード ページにエラーの修正のプロセスです。 この章ではするが表示されるツールやデバッグに使用できる手法と analyz をしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: 0b6b5a886efe515b434948dade1ae840ddaecd42
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c28d63acda6e585f4aa64f294049c1790faac850
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Introduction to デバッグの ASP.NET Web Pages (Razor) サイト
 ====================
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/24/2018
 > アーティクルで導入された ASP.NET 機能を次に示します。
 > 
 > - `ServerInfo`ヘルパー。
-> - `ObjectInfo`ヘルパー。
+> - `ObjectInfo` ヘルパー。
 >   
 > 
 > ## <a name="software-versions"></a>ソフトウェアのバージョン
@@ -66,12 +66,12 @@ ms.lasthandoff: 01/24/2018
 
     `ServerInfo`ヘルパー ページの情報の 4 つのテーブルが表示されます。
 
-    - サーバーの構成。 このセクションでは、コンピューター名、バージョンの ASP.NET を実行している、ドメイン名、およびサーバーの時刻を含む、ホストする web サーバーに関する情報を提供します。
-    - ASP.NET サーバー変数。 このセクションでは、さまざまな HTTP プロトコル詳細 (と呼ばれる HTTP 変数) の詳細を説明し、値を各 web ページ要求の一部であります。
-    - HTTP ランタイム情報。 このセクションでは、バージョンの web ページが実行されている Microsoft .NET Framework では、パス、キャッシュについての詳細については、について詳しく説明します。 (で学習したよう[Introduction to ASP.NET Web プログラミング構文を使用して、Razor](https://go.microsoft.com/fwlink/?LinkId=202890)構文が広範なソフトウェア上に構築された自体である Microsoft の ASP.NET web サーバー テクノロジに基づいて構築されて Razor を使用して ASP.NET Web ページ開発ライブラリ、.NET Framework と呼ばれます。)
-    - 環境変数。 このセクションでは、web サーバーですべてのローカルの環境変数とその値の一覧を示します。
+   - サーバーの構成。 このセクションでは、コンピューター名、バージョンの ASP.NET を実行している、ドメイン名、およびサーバーの時刻を含む、ホストする web サーバーに関する情報を提供します。
+   - ASP.NET サーバー変数。 このセクションでは、さまざまな HTTP プロトコル詳細 (と呼ばれる HTTP 変数) の詳細を説明し、値を各 web ページ要求の一部であります。
+   - HTTP ランタイム情報。 このセクションでは、バージョンの web ページが実行されている Microsoft .NET Framework では、パス、キャッシュについての詳細については、について詳しく説明します。 (で学習したよう[Introduction to ASP.NET Web プログラミング構文を使用して、Razor](https://go.microsoft.com/fwlink/?LinkId=202890)構文が広範なソフトウェア上に構築された自体である Microsoft の ASP.NET web サーバー テクノロジに基づいて構築されて Razor を使用して ASP.NET Web ページ開発ライブラリ、.NET Framework と呼ばれます。)
+   - 環境変数。 このセクションでは、web サーバーですべてのローカルの環境変数とその値の一覧を示します。
 
-    すべてのサーバーと要求情報の詳細についてはこの記事の範囲外ですがあることがわかります、`ServerInfo`ヘルパーは、多くの診断情報を返します。 値の詳細についてを`ServerInfo`戻り値を参照してください[環境変数の認識](https://technet.microsoft.com/library/dd560744(WS.10).aspx)、Microsoft TechNet web サイトと[IIS サーバー変数](https://msdn.microsoft.com/library/ms524602(VS.90).aspx)MSDN web サイトです。
+     すべてのサーバーと要求情報の詳細についてはこの記事の範囲外ですがあることがわかります、`ServerInfo`ヘルパーは、多くの診断情報を返します。 値の詳細についてを`ServerInfo`戻り値を参照してください[環境変数の認識](https://technet.microsoft.com/library/dd560744(WS.10).aspx)、Microsoft TechNet web サイトと[IIS サーバー変数](https://msdn.microsoft.com/library/ms524602(VS.90).aspx)MSDN web サイトです。
 
 ## <a name="embedding-output-expressions-to-display-page-values"></a>埋め込み式をページの値を表示するには
 
@@ -115,10 +115,10 @@ ms.lasthandoff: 01/24/2018
 
     この例では、`ObjectInfo`ヘルパーには、2 つの項目が表示されます。
 
-    - 型。 最初の変数の型は`DayOfWeek`します。 2 番目の変数の型は`String`します。
-    - 値。 この場合、ページに既にのあいさつの変数の値を表示するため、値が表示されますもう一度に変数を渡すときに`ObjectInfo`です。
+   - 型。 最初の変数の型は`DayOfWeek`します。 2 番目の変数の型は`String`します。
+   - 値。 この場合、ページに既にのあいさつの変数の値を表示するため、値が表示されますもう一度に変数を渡すときに`ObjectInfo`です。
 
-    複雑なオブジェクトの場合、`ObjectInfo`詳細 &#8212;ヘルパーを表示できます。 型とすべてのオブジェクトのプロパティの値を表示、基本的に、します。
+     複雑なオブジェクトの場合、`ObjectInfo`ヘルパーは、詳細情報を表示できます&#8212;型とすべてのオブジェクトのプロパティの値を表示、基本的に、します。
 
 ## <a name="using-debugging-tools-in-visual-studio"></a>Visual Studio でのデバッグ ツールの使用
 

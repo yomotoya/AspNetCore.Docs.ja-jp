@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
-title: "データベース プロジェクトの配置 |Microsoft ドキュメント"
+title: データベース プロジェクトの配置 |Microsoft ドキュメント
 author: jrjlee
-description: "注: エンタープライズ展開シナリオの多くは、する必要が配置されたデータベースに増分更新を公開する機能。 代替手段は、再作成には."
+description: '注: エンタープライズ展開シナリオの多くは、する必要が配置されたデータベースに増分更新を公開する機能。 代替手段は、再作成には.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: 9b1f9a19c76e33b5d996cb4d562cf0c1a3e2f83b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a0b3871ea098b549271bce2b9d5f0c24f9ca8a9c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-database-projects"></a>データベース プロジェクトの配置
 ====================
@@ -92,8 +92,8 @@ VSDBCMD ユーティリティを使用して、データベース スキーマ (
 
 - **/A** (または**/Action**) を行うには VSDBCMD するスイッチを指定します。 これを設定することができます**インポート**または**展開**です。 **インポート**オプションを使用して、既存のデータベースから .dbschema ファイルを生成し、**展開**.dbschema ファイルをターゲット データベースに展開するオプションを使用します。
 - **/Manifest** (または**/ManifestFile**) スイッチを展開する .deploymanifest ファイル名を指定します。 代わりに、.dbschema ファイルを使用する場合は、使用、**モデル/** (または**/ModelFile**) スイッチします。
-- **/Cs** (または**/ConnectionString**) スイッチが対象のデータベース サーバーの接続文字列を提供します。 データベース & #x 2014; の名前は含まれませんことに注意してください。VSDBCMD がデータベースを作成するサーバーに接続する必要があります。個々 のデータベースに接続する必要はありません。 .Deploymanifest ファイルには、接続文字列が含まれている場合は、このスイッチを省略できます。 いずれにしても、スイッチを使用する場合、スイッチの値は .deploymanifest 値をオーバーライドします。
-- **/P:TargetDatabase**プロパティをターゲット データベースの作成時に割り当てる名前を提供します。 値が上書きされます。、 **TargetDatabase** .deploymanifest ファイル内のプロパティです。 使用することができます、 **/p:** *[プロパティ名]*.sqlcmdvars ファイルで宣言されている構文をさまざまな展開のプロパティを設定して、すべての SQLCMD 変数を上書きします。
+- **/Cs** (または**/ConnectionString**) スイッチが対象のデータベース サーバーの接続文字列を提供します。 データベースの名前は含まれませんことに注意してください&#x2014;VSDBCMD がデータベースを作成するサーバーに接続する必要があります個々 のデータベースに接続する必要はありません。 .Deploymanifest ファイルには、接続文字列が含まれている場合は、このスイッチを省略できます。 いずれにしても、スイッチを使用する場合、スイッチの値は .deploymanifest 値をオーバーライドします。
+- <strong>/P:TargetDatabase</strong>プロパティをターゲット データベースの作成時に割り当てる名前を提供します。 値が上書きされます。、 <strong>TargetDatabase</strong> .deploymanifest ファイル内のプロパティです。 使用することができます、 <strong>/p:</strong> <em>[プロパティ名]</em>.sqlcmdvars ファイルで宣言されている構文をさまざまな展開のプロパティを設定して、すべての SQLCMD 変数を上書きします。
 - **/Dd+** (または**/DeployToDatabase+**) スイッチでは、展開を作成し、ターゲット環境に展開することを示します。 指定した場合**/dd-**スイッチは省略または、VSDBCMD は配置スクリプトが生成されますが、ターゲット環境に配置されません。 このスイッチは、混乱の原因は、多くの場合とは、次のセクションで詳しく説明します。
 - **/Script** (または**/DeploymentScriptFile**) スイッチでは、配置スクリプトを生成する場所を指定します。 この値は、展開プロセスには影響しません。
 
@@ -150,6 +150,6 @@ MSDN の以下のトピックより広範なガイダンスと背景情報につ
 - [方法: VSDBCMD を使用して、コマンド プロンプトからの展開をデータベースを準備します。EXE](https://msdn.microsoft.com/library/dd193258.aspx)
 - [データベースのビルドと配置の概要](https://msdn.microsoft.com/library/aa833165.aspx)
 
->[!div class="step-by-step"]
-[前へ](deploying-web-packages.md)
-[次へ](creating-and-running-a-deployment-command-file.md)
+> [!div class="step-by-step"]
+> [前へ](deploying-web-packages.md)
+> [次へ](creating-and-running-a-deployment-command-file.md)

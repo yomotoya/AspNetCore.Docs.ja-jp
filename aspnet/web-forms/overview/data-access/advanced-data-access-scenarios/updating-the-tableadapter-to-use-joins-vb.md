@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
-title: "(VB) を結合に使用する TableAdapter の更新 |Microsoft ドキュメント"
+title: (VB) を結合に使用する TableAdapter の更新 |Microsoft ドキュメント
 author: rick-anderson
-description: "データベースを使用する場合は、複数のテーブルに分散される要求のデータに共通します。 2 つの異なるテーブルからデータを取得するにはいずれかを使用しています."
+description: データベースを使用する場合は、複数のテーブルに分散される要求のデータに共通します。 2 つの異なるテーブルからデータを取得するにはいずれかを使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2e0698269c0a29c234f03dc56f7b63e7bc83d032
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 91d700f3de02dc78692e933644e221e2ac8175a1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-the-tableadapter-to-use-joins-vb"></a>(VB) を結合に使用する TableAdapter の更新
 ====================
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/24/2018
 A`JOIN`いくつかの条件に基づく別のテーブルからレコードを含む 1 つのテーブルからレコードをマージします。 たとえば、上記のクエリで、`LEFT JOIN Categories ON Categories.CategoryID = Products.CategoryID`をマージする各 SQL Server に指示カテゴリの製品レコードがレコードを`CategoryID`値に一致する製品の`CategoryID`値。 マージされた結果には、各製品カテゴリの対応するフィールドを使用することができます (など`CategoryName`)。
 
 > [!NOTE]
-> `JOIN`s はリレーショナル データベースからデータを照会する際によく使用されます。 初めて使用する場合、`JOIN`構文や使用法に関するもう少しを復習する必要があります、d をお勧め、 [SQL の Join チュートリアル](http://www.w3schools.com/sql/sql_join.asp)で[W3 学校](http://www.w3schools.com/)です。 また読み取り価値は、 [ `JOIN`基礎](https://msdn.microsoft.com/library/ms191517.aspx)と[サブクエリの基礎](https://msdn.microsoft.com/library/ms189575.aspx)のセクションでは、 [SQL オンライン ブック](https://msdn.microsoft.com/library/ms130214.aspx)です。
+> `JOIN` s はリレーショナル データベースからデータを照会する際によく使用されます。 初めて使用する場合、`JOIN`構文や使用法に関するもう少しを復習する必要があります、d をお勧め、 [SQL の Join チュートリアル](http://www.w3schools.com/sql/sql_join.asp)で[W3 学校](http://www.w3schools.com/)です。 また読み取り価値は、 [ `JOIN`基礎](https://msdn.microsoft.com/library/ms191517.aspx)と[サブクエリの基礎](https://msdn.microsoft.com/library/ms189575.aspx)のセクションでは、 [SQL オンライン ブック](https://msdn.microsoft.com/library/ms130214.aspx)です。
 
 
 `JOIN` S と相関サブクエリを両方使用できるその他のテーブルから関連するデータを取得する、そのヘッドをスクラッチおよび使用する方法を知り、多くの開発者は残されます。 すべて SQL エキスパートの I はほぼ同じことにしたことされない問題では性能とほぼ同じ実行プランを SQL Server が生成されます。 アドバイスは、次はおよびチームが最も慣れている手法を使用します。 このアドバイスを深めます後にこれらのエキスパートすぐに express の設定に注意してください。 その最もメリットのある`JOIN`相関サブクエリ経由で s。
@@ -260,12 +260,12 @@ TableAdapter 構成ウィザードが自動的に更新を再実行、`Employees
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者には、Hilton Geisenow、David Suru Teresa マーフィーがされていました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
-[次へ](adding-additional-datatable-columns-vb.md)
+> [!div class="step-by-step"]
+> [前へ](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
+> [次へ](adding-additional-datatable-columns-vb.md)

@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
-title: "ハンズオン ラボ: Azure の web サイトの保守が容易な: 変更とスケールを管理する |Microsoft ドキュメント"
+title: 'ハンズオン ラボ: Azure の web サイトの保守が容易な: 変更とスケールを管理する |Microsoft ドキュメント'
 author: rick-anderson
-description: "このラボでは、Microsoft Azure 使用して簡単方法をビルドし、web サイトを実稼働環境にデプロイについて説明します。"
+description: このラボでは、Microsoft Azure 使用して簡単方法をビルドし、web サイトを実稼働環境にデプロイについて説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
 ms.topic: article
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 4bce02b2c592ff04e0dbce78d18004c69268e4fd
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a79921681b4e742b5cd23f7119d19f4dd74c3f83
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>ハンズオン ラボ: Azure の web サイトの保守が容易な: 変更とスケールを管理します。
 ====================
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/30/2018
 > 
 > SQL データベースを使用するには、新しいバージョンのアプリケーションを展開するときに生産性の高いデータベースを最新に保つ必要があります。 感謝**Entity Framework Code First Migrations**、分単位で、環境を更新する、開発と、データ モデルの配置が簡素化されています。 このハンズオン ラボでは、Microsoft Azure で実稼働環境に web アプリを配置するときに発生する可能性がありますのさまざまなトピックを示します。
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit)です。
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit)です。
 > 
 > このトピックの詳しい内容について詳細を参照してください、 [Azure 電子書籍の実際のクラウド アプリのビルド](building-real-world-cloud-apps-with-windows-azure/introduction.md)です。
 
@@ -281,13 +281,13 @@ ms.lasthandoff: 01/30/2018
     *新しい web アプリのカスタマイズ*
 5. データベースの設定の次の情報を指定します。
 
-    - **名前**テキスト ボックスに、データベースの名前を入力 (例: *geekquiz\_db*)
-    - サーバーで**ドロップダウン**一覧で、**新しい SQL データベース サーバー**です。 または、既存のサーバーを選択することができます。
-    - **データベース ユーザー名**と**データベース パスワード**ボックスに、SQL データベース サーバーの管理者のユーザー名とパスワードを入力します。 サーバーを選択する場合は、既に作成して、パスワードを求められます。
+   - **名前**テキスト ボックスに、データベースの名前を入力 (例: *geekquiz\_db*)
+   - サーバーで**ドロップダウン**一覧で、**新しい SQL データベース サーバー**です。 または、既存のサーバーを選択することができます。
+   - **データベース ユーザー名**と**データベース パスワード**ボックスに、SQL データベース サーバーの管理者のユーザー名とパスワードを入力します。 サーバーを選択する場合は、既に作成して、パスワードを求められます。
 
-    ![データベースの設定を指定します。](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
+     ![データベースの設定を指定します。](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
 
-    *データベースの設定を指定します。*
+     *データベースの設定を指定します。*
 6. **[次へ]** をクリックして、続行します。
 7. 選択**ローカル Git リポジトリ**してをクリックして、ソース コントロールの**次**です。
 
@@ -687,7 +687,7 @@ ms.lasthandoff: 01/30/2018
 
 このタスクでは、構成、 **GeekQuiz**イメージを使用するソリューションにアップロードされた Azure Blob ストレージではなく web アプリにあるイメージ) で ASP.NET URL 書き換えルールを追加することによって、 **web.config**ファイル。
 
-1. Visual Studio で開く、 **Web.config**内のファイル、 **GeekQuiz**プロジェクトし、検索、  **&lt;system.webServer&gt;** 要素。
+1. Visual Studio で開く、 **Web.config**内のファイル、 **GeekQuiz**プロジェクトし、検索、 **&lt;system.webServer&gt;**要素。
 2. URL 書き換えルールをストレージ アカウント名のプレース ホルダーの更新を追加するには、次のコードを追加します。
 
     (コード スニペットの*WebSitesInProduction - Ex4 - UrlRewriteRule*)
@@ -785,7 +785,7 @@ ms.lasthandoff: 01/30/2018
     ![WebTest1 への要求の追加](maintainable-azure-websites-managing-change-and-scale/_static/image81.png "WebTest1 への要求の追加")
 
     *WebTest1 への要求の追加*
-4. **プロパティ**ウィンドウ、新しい要求のノードの更新、 **Url** web アプリの URL を参照するプロパティ (例:  *[http://geek-quiz.azurewebsites.net/](http://geek-quiz.azurewebsites.net/)*).
+4. **プロパティ**ウィンドウ、新しい要求のノードの更新、 **Url** web アプリの URL を参照するプロパティ (例: *[ http://geek-quiz.azurewebsites.net/ ](http://geek-quiz.azurewebsites.net/)*).
 
     ![Url プロパティを変更する](maintainable-azure-websites-managing-change-and-scale/_static/image82.png "Url プロパティを変更します。")
 
@@ -797,13 +797,13 @@ ms.lasthandoff: 01/30/2018
     *WebTest1 にループを追加します。*
 6. **条件付き規則の追加と項目をループ**ダイアログ ボックスで、 **For ループ**ルールし、次のプロパティを変更します。
 
-    1. **終了値:** 1000
-    2. **コンテキスト パラメーター名:**反復子
-    3. **増分値:** 1
+   1. **終了値:** 1000
+   2. **コンテキスト パラメーター名:**反復子
+   3. **増分値:** 1
 
-    ![For ループ ルールを選択し、プロパティを更新](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "For ループ ルールを選択し、プロパティの更新")
+      ![For ループ ルールを選択し、プロパティを更新](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "For ループ ルールを選択し、プロパティの更新")
 
-    *For ループ ルールを選択し、プロパティの更新*
+      *For ループ ルールを選択し、プロパティの更新*
 7. 下にある、**ループ内の項目**セクションで、ループの最初と最後の項目にする、以前に作成する要求を選択します。 **[OK]** をクリックして続行します。
 
     ![ループの最初と最後の項目を選択する](maintainable-azure-websites-managing-change-and-scale/_static/image85.png "ループの最初と最後の項目を選択します。")

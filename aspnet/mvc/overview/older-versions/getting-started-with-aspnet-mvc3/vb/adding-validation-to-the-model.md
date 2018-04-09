@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-validation-to-the-model
-title: "検証 (VB) モデルを追加する |Microsoft ドキュメント"
+title: 検証 (VB) モデルを追加する |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています."
+description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: cac86760b90c90a0ea2fad16268f60b5ccf61299
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 86058530aa00ecbc00aeebc6ed7b5cf019fdad72
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-to-the-model-vb"></a>検証 (VB) モデルを追加します。
 ====================
@@ -123,6 +123,6 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 シリーズの次の部分で、アプリケーションを確認し、いくつかの改善を自動的に生成されたおを`Details`と`Delete`メソッド.
 
->[!div class="step-by-step"]
-[前へ](adding-a-new-field.md)
-[次へ](improving-the-details-and-delete-methods.md)
+> [!div class="step-by-step"]
+> [前へ](adding-a-new-field.md)
+> [次へ](improving-the-details-and-delete-methods.md)

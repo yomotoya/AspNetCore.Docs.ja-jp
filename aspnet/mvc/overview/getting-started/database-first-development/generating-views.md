@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/generating-views
-title: "ASP.NET MVC で最初の EF データベース: ビューを生成する |Microsoft ドキュメント"
+title: 'ASP.NET MVC で最初の EF データベース: ビューを生成する |Microsoft ドキュメント'
 author: tfitzmac
-description: "MVC、Entity Framework と ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアルの seri しています."
+description: MVC、Entity Framework と ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアルの seri しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/29/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: 5fccb3c56af0945ec448becff777a3e92dc160d7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b60e89a187a879255eb051dc87241714cef6fa63
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-generating-views"></a>ASP.NET MVC で最初の EF データベース: ビューを生成します。
 ====================
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/10/2017
 
 ![コント ローラーを指定します。](generating-views/_static/image3.png)
 
-**[追加]**をクリックします。
+**[追加]** をクリックします。
 
 エラーが発生した場合は、前のセクションで、プロジェクトをビルドしていない可能性があります。 場合は、プロジェクトをビルドして再度スキャフォールディングの項目を追加ください。
 
@@ -109,6 +109,6 @@ ActionLink メソッドの最初のパラメーターは、リンクに表示す
 
 自動的に生成されたビューが、データベース内のデータをユーザーが操作を有効にすることを確認します。 このシリーズの次のチュートリアルでは、データベースを更新し、web アプリケーションで対応する変更を行います。
 
->[!div class="step-by-step"]
-[前へ](creating-the-web-application.md)
-[次へ](changing-the-database.md)
+> [!div class="step-by-step"]
+> [前へ](creating-the-web-application.md)
+> [次へ](changing-the-database.md)

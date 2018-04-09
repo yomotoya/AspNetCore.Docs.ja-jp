@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-cs
-title: "IDataErrorInfo インターフェイス (c#) の検証 |Microsoft ドキュメント"
+title: IDataErrorInfo インターフェイス (c#) の検証 |Microsoft ドキュメント
 author: StephenWalther
-description: "Stephen Walther では、モデル クラスで IDataErrorInfo インターフェイスを実装することによってカスタムの検証エラー メッセージを表示する方法を示します。"
+description: Stephen Walther では、モデル クラスで IDataErrorInfo インターフェイスを実装することによってカスタムの検証エラー メッセージを表示する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c04088c576481e4a91676d7e6962c03b56e7a8a4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b5028b2e07c4144efa59824885ce96cd8b037dff
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-with-the-idataerrorinfo-interface-c"></a>IDataErrorInfo インターフェイス (c#) を検証します。
 ====================
@@ -37,8 +37,8 @@ ms.lasthandoff: 11/10/2017
 | **列名** | **データ型** | **Null を許容します。** |
 | --- | --- | --- |
 | ID | Int | False |
-| タイトル | nvarchar (100) | False |
-| ディレクター | nvarchar (100) | False |
+| Title | Nvarchar(100) | False |
+| ディレクター | Nvarchar(100) | False |
 | DateReleased | DateTime | False |
 
 
@@ -157,10 +157,10 @@ DefaultModelBinder は IDataErrorInfo.Error プロパティも確認します。
 
 DateReleased 値を自動的に検証することを確認します。 DateReleased プロパティが NULL 値を受理しないため、DefaultModelBinder は、値があるないときに自動的にこのプロパティの検証エラーを生成します。 DateReleased プロパティは、エラー メッセージを変更する場合は、カスタム モデル バインダーを作成する必要があります。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、IDataErrorInfo インターフェイスを使用して、検証エラー メッセージを生成する方法を学習します。 最初に、Entity Framework によって生成された部分的なムービー クラスの機能を拡張する部分ムービー クラスを作成します。 次にムービー クラス OnTitleChanging() と OnDirectorChanging() 部分メソッドに検証ロジックを追加します。 最後に、ASP.NET MVC フレームワークにこれらの検証メッセージを公開するために、IDataErrorInfo インターフェイスを実装しました。
 
->[!div class="step-by-step"]
-[前へ](performing-simple-validation-cs.md)
-[次へ](validating-with-a-service-layer-cs.md)
+> [!div class="step-by-step"]
+> [前へ](performing-simple-validation-cs.md)
+> [次へ](validating-with-a-service-layer-cs.md)

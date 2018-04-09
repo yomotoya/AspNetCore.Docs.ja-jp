@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
-title: "手順 10: 最終的な更新プログラムのナビゲーションおよびサイト設計、結論 |Microsoft ドキュメント"
+title: '手順 10: 最終的な更新プログラムのナビゲーションおよびサイト設計、結論 |Microsoft ドキュメント'
 author: jongalloway
-description: "このチュートリアルの系列では、すべての ASP.NET MVC Music Store サンプル アプリケーションをビルドする手順について説明します。 10 の一部では、ナビゲーションと S を最終的な更新プログラムについて説明."
+description: このチュートリアルの系列では、すべての ASP.NET MVC Music Store サンプル アプリケーションをビルドする手順について説明します。 10 の一部では、ナビゲーションと S を最終的な更新プログラムについて説明.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: 2a65e4b793b615c45cdf31166e0a000ae72ee534
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: b40d194c4d08f3564da59bacde4b5d3d7663373a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>手順 10: 最終的な更新プログラムのナビゲーションおよびサイト設計、結論
 ====================
@@ -138,5 +138,5 @@ GenreMenu コント ローラーのアクションを右クリックし、次に
 ある ASP.NET MVC 簡単これまで見てきたなどのデータベース アクセス、メンバーシップ、AJAX、高度な web サイトを作成します。 非常に短時間です。 おそらくこのチュートリアルが提供されているツールを独自の ASP.NET MVC アプリケーションの構築を開始する必要があります!
 
 
->[!div class="step-by-step"]
-[前へ](mvc-music-store-part-9.md)
+> [!div class="step-by-step"]
+> [前へ](mvc-music-store-part-9.md)

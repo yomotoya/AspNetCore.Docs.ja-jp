@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-vb
-title: "ビュー マスター ページ (VB) にデータを渡す |Microsoft ドキュメント"
+title: ビュー マスター ページ (VB) にデータを渡す |Microsoft ドキュメント
 author: microsoft
-description: "このチュートリアルの目的では、ビュー マスター ページへのコント ローラーからデータを渡す方法について説明します。 ビュー m にデータを渡すための 2 つの方法を説明しています."
+description: このチュートリアルの目的では、ビュー マスター ページへのコント ローラーからデータを渡す方法について説明します。 ビュー m にデータを渡すための 2 つの方法を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d92a1afe46af124e835b3d59f2b2093402742bbd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fcd7c5baacc00490720d1f82252d81e40c097c88
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="passing-data-to-view-master-pages-vb"></a>ビュー マスター ページ (VB) にデータを渡す
 ====================
@@ -53,7 +53,7 @@ MVC アプリケーションで、ビュー マスター ページを含むビ�
 
 リスト 1 のコント ローラーを検討してください。 という名前の 2 つのアクションを公開`Index()`と`Details()`です。 `Index()`アクション メソッドは、映画データベース テーブルですべてのムービーを返します。 `Details()`アクション メソッドは、特定のムービーのカテゴリにどのムービーを返します。
 
-**1 – を一覧表示します。`Controllers\HomeController.vb`**
+**1 – を一覧表示します。 `Controllers\HomeController.vb`**
 
 [!code-vb[Main](passing-data-to-view-master-pages-vb/samples/sample1.vb)]
 
@@ -69,13 +69,13 @@ MVC アプリケーションで、ビュー マスター ページを含むビ�
 
 インデックス ビューは、2 のリストに含まれます。 データの表示の動画アイテムで表されるムービーの一覧を反復処理するだけです。
 
-**2 – を一覧表示します。`Views\Home\Index.aspx`**
+**2 – を一覧表示します。 `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](passing-data-to-view-master-pages-vb/samples/sample2.aspx)]
 
 ビュー マスター ページは、3 の一覧に含まれます。 ビュー マスター ページでは、反復処理し、すべてのデータの表示からカテゴリ項目によって表される映画カテゴリを表示します。
 
-**3 – を一覧表示します。`Views\Shared\Site.master`**
+**3 – を一覧表示します。 `Views\Shared\Site.master`**
 
 [!code-aspx[Main](passing-data-to-view-master-pages-vb/samples/sample3.aspx)]
 
@@ -91,7 +91,7 @@ ApplicationController クラスは、4 の一覧に含まれます。
 
 ApplicationController クラスは、4 の一覧に含まれます。
 
-**4 – を一覧表示します。`Controllers\ApplicationController.vb`**
+**4 – を一覧表示します。 `Controllers\ApplicationController.vb`**
 
 [!code-vb[Main](passing-data-to-view-master-pages-vb/samples/sample4.vb)]
 
@@ -103,7 +103,7 @@ ApplicationController クラスは、4 の一覧に含まれます。
 
 リスト 5 のビデオ コント ローラーは、アプリケーションのコント ローラーから継承します。
 
-**5 – を一覧表示します。`Controllers\MoviesController.vb`**
+**5 – を一覧表示します。 `Controllers\MoviesController.vb`**
 
 [!code-vb[Main](passing-data-to-view-master-pages-vb/samples/sample5.vb)]
 
@@ -111,11 +111,11 @@ ApplicationController クラスは、4 の一覧に含まれます。
 
 ビュー マスター ページのビュー データを追加するには、このソリューションにドライ (しないことを繰り返さない) の原則に違反していないことに注意してください。 1 つの場所にデータを表示するムービーのカテゴリの一覧を追加するためのコードが含まれている: アプリケーションのコント ローラーのコンス トラクターです。
 
-### <a name="summary"></a>概要
+### <a name="summary"></a>まとめ
 
 このチュートリアルでは、コント ローラーからビュー マスター ページ ビュー データを渡す 2 つの方法について説明します。 まず、アプローチを維持するが困難ですが、単純なを調査します。 最初のセクションでは、アプリケーションで各すべてコント ローラーのアクションでビュー マスター ページのビュー データを追加する方法について説明しました。 という結論に達しました (しないことを繰り返さない) ドライ原則に違反しているために、不適切なアプローチがこれことです。
 
 次に、データを表示するビュー マスター ページで必要なデータを追加するためより適切な程度戦略を調査します。 ビュー データを追加する、各コント ローラーのアクションで、代わりに、アプリケーションのコント ローラー内では、ビュー データを 1 回だけを追加しています。 ようにして、ビュー マスター ページ、ASP.NET MVC アプリケーションでデータを渡す場合は、重複するコードを回避できます。
 
->[!div class="step-by-step"]
-[前へ](creating-page-layouts-with-view-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [前へ](creating-page-layouts-with-view-master-pages-vb.md)

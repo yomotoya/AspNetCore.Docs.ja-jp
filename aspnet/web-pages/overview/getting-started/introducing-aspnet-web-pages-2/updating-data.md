@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
-title: "ASP.NET Web Pages の概要 - データベースのデータの更新 |Microsoft ドキュメント"
+title: ASP.NET Web Pages の概要 - データベースのデータの更新 |Microsoft ドキュメント
 author: tfitzmac
-description: "このチュートリアルでは、ASP.NET Web Pages (Razor) を使用する場合は、(変更)、既存のデータベース エントリを更新する方法を示します。 系列を完了すると想定 th しています."
+description: このチュートリアルでは、ASP.NET Web Pages (Razor) を使用する場合は、(変更)、既存のデータベース エントリを更新する方法を示します。 系列を完了すると想定 th しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/02/2018
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: b016231975bf8d359f4c390b0b478edc383117d4
-ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
+ms.openlocfilehash: e889cd27e2267a08f7b6ea708c92e35edbdd7a1a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>ASP.NET Web ページの概要 - データベースのデータの更新
 ====================
@@ -108,7 +108,7 @@ ms.lasthandoff: 01/10/2018
 
 列で構成されます*のみ*のリンクを表示するマークアップをさらにいくつかの情報 (ID) をから抽出された行のデータベース レコードです。
 
-> [!TIP] 
+> [!TIP]
 > 
 > **名前付きパラメーターとメソッドの位置指定パラメーター**
 > 
@@ -120,7 +120,7 @@ ms.lasthandoff: 01/10/2018
 > 
 > このコードは、最初に説明しましたが、各ケースでは、特定の順序のメソッドにパラメーターを渡すしているときに、問題を触れません&mdash;パラメーターがそのメソッドで定義されている順序つまり、します。 `db.Execute`と`Validation.RequireFields`、渡す値の順序を混在している場合は、ページを実行すると、エラー メッセージまたは少なくともいくつか予期しない結果を得られます。 明確でパラメーターを渡す順序を知る必要があります。 (WebMatrix、IntelliSense できますを見つけ出します名前、型、およびパラメーターの順序を学習する。)
 > 
-> 使用して順序の値を渡す代わりに、*名前付きパラメーター*です。 (を使用すると呼ばれる、順序でパラメーターを渡す*位置指定パラメーター*)。名前付きパラメーターは、明示的に名を含めて、パラメーターの値を渡すときにします。 使用した名前付きパラメーター既に何度もこれらのチュートリアルです。 例:
+> 使用して順序の値を渡す代わりに、*名前付きパラメーター*です。 (を使用すると呼ばれる、順序でパラメーターを渡す*位置指定パラメーター*)。名前付きパラメーターは、明示的に名を含めて、パラメーターの値を渡すときにします。 使用した名前付きパラメーター既に何度もこれらのチュートリアルです。 例えば:
 > 
 > [!code-csharp[Main](updating-data/samples/sample8.cs)]
 > 
@@ -173,7 +173,7 @@ ms.lasthandoff: 01/10/2018
 
 このコードは、情報を検証する別の方法を示しています。 使用していた以前のチュートリアルでは、`Validation`ヘルパー。 を検証するフィールドを登録して、ASP.NET は自動的には、検証し、を使用してエラーを表示`Html.ValidationMessage`と`Html.ValidationSummary`です。 この場合、ただし、するしている実際にはユーザー入力を検証します。 代わりに、別の場所からのページに渡された値を検証しています。 `Validation`ヘルパーしないを自動的に行うことです。
 
-そのため、値をチェックする、自分で使用してテスト`if(!Request.QueryString["ID"].IsEmpty()`)。 使用して、エラーを表示するには問題がある場合`Html.ValidationSummary`で行ったよう、`Validation`ヘルパー。 呼び出す`Validation.AddFormError`を表示するメッセージを渡します。 `Validation.AddFormError`組み込みのメソッドに慣れている既に検証システムに関連するカスタム メッセージを定義することができますです。 (このチュートリアルの後半で取り上げます、もう少し堅牢なこの検証プロセスを実行する方法について。)
+そのため、値をチェックする、自分で使用してテスト`if(!Request.QueryString["ID"].IsEmpty()`)。 使用して、エラーを表示するには問題がある場合`Html.ValidationSummary`で行ったよう、`Validation`ヘルパー。 呼び出す`Validation.AddFormError`を表示するメッセージを渡します。 `Validation.AddFormError` 組み込みのメソッドに慣れている既に検証システムに関連するカスタム メッセージを定義することができますです。 (このチュートリアルの後半で取り上げます、もう少し堅牢なこの検証プロセスを実行する方法について。)
 
 ムービーの ID があることを確認したら、コードは、データベースは、1 つのデータベースのアイテムのみを検索してを読み取ります。 (データベース操作の一般的なパターンがおそらく気付き: データベースを開き、SQL ステートメントを定義して、ステートメントを実行します)。この時点では、SQL`Select`ステートメントが含まれる`WHERE ID = @0`です。 ID は一意であり、1 つのレコードが返されます。
 
@@ -311,6 +311,6 @@ ms.lasthandoff: 01/10/2018
 - [Razor 構文を使用して ASP.NET Web プログラミングの概要](../../getting-started/introducing-razor-syntax-c.md)
 - [SQL UPDATE ステートメント](http://www.w3schools.com/sql/sql_update.asp)W3Schools サイト
 
->[!div class="step-by-step"]
-[前へ](entering-data.md)
-[次へ](deleting-data.md)
+> [!div class="step-by-step"]
+> [前へ](entering-data.md)
+> [次へ](deleting-data.md)

@@ -1,7 +1,7 @@
 ---
-title: "コンテキスト ヘッダー"
+title: ASP.NET Core でコンテキスト ヘッダー
 author: rick-anderson
-description: "このドキュメントでは、ASP.NET Core データ保護コンテキスト ヘッダーの実装の詳細について説明します。"
+description: ASP.NET Core データ保護コンテキスト ヘッダーの実装の詳細を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: c047c54efdcdb6192e4d38d2822c1077ee0a73e1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5ba247a74e11408145e1f6e87c7cfa251c66707f
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="context-headers"></a>コンテキスト ヘッダー
+# <a name="context-headers-in-aspnet-core"></a>ASP.NET Core でコンテキスト ヘッダー
 
 <a name="data-protection-implementation-context-headers"></a>
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/30/2018
 
 戻すステップ実行、おされたに近づいていること、問題、誤った方向から用意しました。 OID は、アルゴリズムを示しますが、実際にこの考慮しないことです。 2 つのアルゴリズムで安全に 1 つの entropic 値を使用する必要がある場合、アルゴリズムが実際には何を理解するうえで必要はありません。 どのような実際に配慮して、どのように動作するです。 任意の適切な対称ブロック暗号アルゴリズムも強力な擬似順列 (PRP): (キー、モード、IV、プレーン テキストの組み合わせ) の入力を修正し、暗号化テキストの出力は確率の過負荷になります他の対称ブロック暗号と異なるアルゴリズムは、同じ入力します。 同様に、任意の適切なキー付きハッシュ関数も強力な擬似関数 (PRF) は、特定の固定入力セットの出力は圧倒的になりますの他のキー付きハッシュ関数とは異なります。
 
-コンテキスト ヘッダーを構築するこの強力な PRPs と PRFs の概念を使用します。 このコンテキスト ヘッダーが本質的には、指定された操作に使用するアルゴリズムを安定した拇印として機能し、データ保護システムに必要な暗号化方式の指定を提供します。 このヘッダーは、再現可能なとの一部として後で使用されて、[サブキーの派生プロセス](subkeyderivation.md#data-protection-implementation-subkey-derivation)です。 基になるアルゴリズムの動作モードに応じて、コンテキスト ヘッダーを構築する 2 つの方法があります。
+コンテキスト ヘッダーを構築するこの強力な PRPs と PRFs の概念を使用します。 このコンテキスト ヘッダーが本質的には、指定された操作に使用するアルゴリズムを安定した拇印として機能し、データ保護システムに必要な暗号化方式の指定を提供します。 このヘッダーは、再現可能なとの一部として後で使用されて、[サブキーの派生プロセス](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation)です。 基になるアルゴリズムの動作モードに応じて、コンテキスト ヘッダーを構築する 2 つの方法があります。
 
 ## <a name="cbc-mode-encryption--hmac-authentication"></a>CBC モードの暗号化 + HMAC 認証
 

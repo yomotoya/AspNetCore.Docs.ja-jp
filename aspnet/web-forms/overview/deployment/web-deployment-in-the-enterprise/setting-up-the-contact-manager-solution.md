@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-the-contact-manager-solution
-title: "連絡先のマネージャー ソリューションのセットアップ |Microsoft ドキュメント"
+title: 連絡先のマネージャー ソリューションのセットアップ |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、ダウンロードして、連絡先のマネージャー ソリューション開発用ワークステーションでローカルに実行を構成する方法について説明します。"
+description: このトピックでは、ダウンロードして、連絡先のマネージャー ソリューション開発用ワークステーションでローカルに実行を構成する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: b8176b3b8622e21187a91647323322e55582373c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e8fb24f5b2d96d864d1aa6bc0f78644773de00ab
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="setting-up-the-contact-manager-solution"></a>連絡先のマネージャー ソリューションを設定します。
 ====================
@@ -125,6 +125,6 @@ Visual Studio 2010 を除くには、ダウンロードしてこれらの製品�
 
 次のトピックでは、[プロジェクト ファイルを理解する](understanding-the-project-file.md)、展開プロセスを制御する連絡先のマネージャー ソリューション内では、カスタムの Microsoft Build Engine (MSBuild) プロジェクト ファイルを使用する方法について説明します。
 
->[!div class="step-by-step"]
-[前へ](the-contact-manager-solution.md)
-[次へ](understanding-the-project-file.md)
+> [!div class="step-by-step"]
+> [前へ](the-contact-manager-solution.md)
+> [次へ](understanding-the-project-file.md)

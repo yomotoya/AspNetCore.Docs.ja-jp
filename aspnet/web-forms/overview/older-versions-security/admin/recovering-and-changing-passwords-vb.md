@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
-title: "回復して、パスワード (VB) の変更 |Microsoft ドキュメント"
+title: 回復して、パスワード (VB) の変更 |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET には、復旧し、パスワードの変更を支援するための 2 つの Web コントロールが含まれています。 PasswordRecovery コントロールは、彼失わ pa を回復するビジターを使用しています."
+description: ASP.NET には、復旧し、パスワードの変更を支援するための 2 つの Web コントロールが含まれています。 PasswordRecovery コントロールは、彼失わ pa を回復するビジターを使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b78469858483a9501a0f73d1c894e29ae0a99122
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cffe07eaea5144df82e56c989b0cde7cfd3d194a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="recovering-and-changing-passwords-vb"></a>回復して、パスワード (VB) の変更
 ====================
@@ -86,7 +86,7 @@ ASP.NET ページで PasswordRecovery コントロールの使用を見てみま
 メール配信の構成を指定、 [ `<system.net>`要素](https://msdn.microsoft.com/library/6484zdc1.aspx)の[`<mailSettings>`要素](https://msdn.microsoft.com/library/w355a94k.aspx)です。 使用して、 [ `<smtp>`要素](https://msdn.microsoft.com/library/ms164240.aspx)配信方法とそのアドレスから既定値を示すためにします。 次のマークアップがという名前のネットワークの SMTP サーバーを使用するメールの設定を構成`smtp.example.com`ポート 25 でユーザー名とパスワードのユーザー名/パスワードの資格情報を使用しています。
 
 > [!NOTE]
-> `<system.net>`ルートの子要素は、`<configuration>`要素との兄弟`<system.web>`です。 そのため、配置しない、`<system.net>`内の要素、`<system.web>`要素です。 代わりに、同じレベルに配置します。
+> `<system.net>` ルートの子要素は、`<configuration>`要素との兄弟`<system.web>`です。 そのため、配置しない、`<system.net>`内の要素、`<system.web>`要素です。 代わりに、同じレベルに配置します。
 
 
 [!code-xml[Main](recovering-and-changing-passwords-vb/samples/sample1.xml)]
@@ -165,8 +165,8 @@ HTML 形式の電子メールを送信する次のように設定します。 [ 
 
 制御呼び出しユーザーのパスワード、PasswordRecovery をリセットするときに、`MembershipUser`オブジェクトの[`ResetPassword`メソッド](https://msdn.microsoft.com/library/system.web.security.membershipuser.resetpassword.aspx)です。 このメソッドでは、2 つのオーバー ロードがあります。
 
-- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)**-ユーザーのパスワードをリセットします。 場合、このオーバー ロードを使用して`RequiresQuestionAndAnswer`は False です。
-- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)**-指定されたユーザーの場合にパスワードのみをリセット*securityAnswer*が正しい。 場合、このオーバー ロードを使用して`RequiresQuestionAndAnswer`true を指定します。
+- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)** -ユーザーのパスワードをリセットします。 場合、このオーバー ロードを使用して`RequiresQuestionAndAnswer`は False です。
+- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)** -指定されたユーザーの場合にパスワードのみをリセット*securityAnswer*が正しい。 場合、このオーバー ロードを使用して`RequiresQuestionAndAnswer`true を指定します。
 
 両方のオーバー ロードは、ランダムに生成された新しいパスワードを返します。
 
@@ -300,16 +300,16 @@ ASP.NET には、ユーザーが自分のパスワードを管理できる 2 つ
 - [ChangePassword コントロールのクイック スタート](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/changepassword.aspx)
 - [PasswordRecovery コントロールのクイック スタート](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/passwordrecovery.aspx)
 - [ASP.NET で電子メールを送信します。](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
-- [`System.Net.Mail`よく寄せられる質問](http://www.systemnetmail.com/)
+- [`System.Net.Mail` よく寄せられる質問](http://www.systemnetmail.com/)
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 
-このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者には、Michael Emmings および Suchi Banerjee が含まれます。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者には、Michael Emmings および Suchi Banerjee が含まれます。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](building-an-interface-to-select-one-user-account-from-many-vb.md)
-[次へ](unlocking-and-approving-user-accounts-vb.md)
+> [!div class="step-by-step"]
+> [前へ](building-an-interface-to-select-one-user-account-from-many-vb.md)
+> [次へ](unlocking-and-approving-user-accounts-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "最初にコードを移行し、Entity Framework、ASP.NET MVC アプリケーションと展開 |Microsoft ドキュメント"
+title: 最初にコードを移行し、Entity Framework、ASP.NET MVC アプリケーションと展開 |Microsoft ドキュメント
 author: tdykstra
-description: "Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています."
+description: Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 2294f2aba3f765d7849d1f407e85f424dc8b2518
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 04d393edca0469df140f06a7d083a48aa8f84b65
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="code-first-migrations-and-deployment-with-the-entity-framework-in-an-aspnet-mvc-application"></a>最初にコードを移行し、Entity Framework、ASP.NET MVC アプリケーションと展開
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/10/2017
 
 [完成したプロジェクトをダウンロード](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)または[PDF のダウンロード](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
-> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio 2013 を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 一連のチュートリアルについては、次を参照してください。[系列内の最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。
+> Contoso 大学でサンプル web アプリケーションでは、Entity Framework 6 の Code First と Visual Studio 2013 を使用して ASP.NET MVC 5 アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)をご覧ください。
 
 これまで、アプリケーションが実行されているローカル IIS Express で開発用コンピューター上。 実際のアプリケーションをインターネット経由で使用するには、他のユーザーに使用できるようにするには、web ホスティング プロバイダーに配置する必要があります。 このチュートリアルで、Contoso 大学アプリケーションを Azure でクラウドに展開します。
 
@@ -37,9 +37,9 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="enable-code-first-migrations"></a>Code First Migrations を有効にします。
 
-新しいアプリケーションを開発するときに、データ モデルの変更するたびにし、多くの場合、モデルの変更、データベースとの同期を取得します。 自動的に削除し、データ モデルを変更するたびにデータベースを再作成するには、Entity Framework を構成しておきます。 ときに、追加、削除、またはエンティティ クラスを変更または変更、`DbContext`クラスを次に、アプリケーションを実行したときに自動的に、既存のデータベースを削除すると、作成、モデルと一致し、テスト データのシードを設定するか、新しいです。
+新しいアプリケーションを開発して、データ モデルが頻繁に変更される場合、モデルが変更されるたびに、モデルはデータベースと同期されなくなります。 自動的に削除し、データ モデルを変更するたびにデータベースを再作成するには、Entity Framework を構成しておきます。 ときに、追加、削除、またはエンティティ クラスを変更または変更、`DbContext`クラスを次に、アプリケーションを実行したときに自動的に、既存のデータベースを削除すると、作成、モデルと一致し、テスト データのシードを設定するか、新しいです。
 
-データベースのデータ モデルとの同期を維持するには、このメソッドは、実稼働環境にアプリケーションを配置するまでに適切に動作します。 アプリケーションは、実稼働環境で実行中は、データを保持して、新しい列を追加するなどの変更を加えるたびにすべてのものが失われるしたくないが通常格納されます。 [Code First Migrations](https://msdn.microsoft.com/data/jj591621)機能が Code First を削除して、データベースを再作成ではなく、データベース スキーマを更新するようにすることでこの問題を解決します。 このチュートリアルでは、アプリケーションを展開してを準備するを移行できます。
+このメソッドは、実稼働環境にアプリケーションを展開するまで、データベースとデータ モデルの同期の維持がうまく機能します。 アプリケーションは、実稼働環境で実行中は、データを保持して、新しい列を追加するなどの変更を加えるたびにすべてのものが失われるしたくないが通常格納されます。 [Code First Migrations](https://msdn.microsoft.com/data/jj591621)機能が Code First を削除して、データベースを再作成ではなく、データベース スキーマを更新するようにすることでこの問題を解決します。 このチュートリアルでは、アプリケーションを展開してを準備するを移行できます。
 
 1. 前のコメント アウトまたは削除すると、設定した初期化子を無効にする、`contexts`アプリケーションの Web.config ファイルに追加する要素です。
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/10/2017
 
     [!code-xml[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.xml?highlight=2)]
 
-    この変更は、最初の移行が新しいデータベースを作成できるように、プロジェクトを設定します。 これには必要ありませんが、後述することをお勧めする理由。
+    この変更では、最初の移行で新しいデータベースが作成されるように、プロジェクトを設定します。 これには必要ありませんが、後述することをお勧めする理由。
 3. **ツール** メニューのをクリックして**ライブラリ パッケージ マネージャー**し**Package Manager Console**です。
 
     ![Selecting_Package_Manager_Console](https://asp.net/media/4336350/1pm.png)
@@ -112,11 +112,11 @@ ms.lasthandoff: 11/10/2017
 
 [!code-csharp[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
 
-移行の呼び出し、`Up`移行のためのデータ モデルの変更を実装するメソッド。 更新プログラム、移行の呼び出しをロールバックするためのコマンドを入力すると、`Down`メソッドです。
+移行は、`Up` メソッドを呼び出して、移行のためのデータ モデルの変更を実装します。 更新をロールバックするためのコマンドを入力すると、移行が `Down` メソッドを呼び出します。
 
 これは、入力したときに作成された最初の移行、`add-migration InitialCreate`コマンド。 パラメーター (`InitialCreate`例では)、ファイルで使用される単語または語句、移行で行われている新機能をまとめたものを選択する通常以外の名前を指定し、希望することができます。 たとえば、後で移行を名前可能性があります&quot;AddDepartmentTable&quot;です。
 
-データベースが既に存在する場合、最初の移行を作成した場合は、データベース作成コードが生成されますが、データベースに既にデータ モデルと一致するために実行する必要はありません。 ここで、データベースが存在しない、このコードはまだ実行されて、データベースを作成する別の環境にアプリを展開するときにこれは最初にテストすることをお勧めします。 理由です--前の接続文字列でデータベースの名前を変更した移行は、最初から新しい 1 つを作成できるようにします。
+データベースが既に存在するときに、初期移行を作成した場合、データベースの作成コードが生成されますが、データベースは既にデータと一致しているため、作成コードを実行する必要はありません。 データベースがまだ存在しない別の環境にアプリを展開する場合、データベースを作成するために、このコードが実行されるため、最初にテストを行うことをお勧めします。 これが、移行で新しいデータベースを最初から作成できるように、前の接続文字列でデータベースの名前を変更した理由です。
 
 1. **パッケージ マネージャー コンソール**ウィンドウで、次のコマンドを入力します。
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 11/10/2017
     ![](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
     `update-database`コマンドを実行する、`Up`データベースし、それを作成するメソッドの実行、`Seed`メソッドは、データベースを設定します。 同じプロセス自動的に実行されます実稼働環境で、アプリケーションを展開するように、次のセクションが表示されます。
-- 使用して**サーバー エクスプ ローラー**を最初のチュートリアルで行ったように、データベースを調査し、動作を確認することのすべてが同じまでと同様、アプリケーションを実行します。
+2. 使用して**サーバー エクスプ ローラー**を最初のチュートリアルで行ったように、データベースを調査し、動作を確認することのすべてが同じまでと同様、アプリケーションを実行します。
 
 ## <a name="deploy-to-azure"></a>Azure への配置します。
 
@@ -153,7 +153,7 @@ Azure SQL Database にデータベースを配置します。 SQL データベ�
 
     ![管理ポータルで新しいボタン](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/CreateWeb-Sql.png)
 
- **SQL の作成 (&)、新しい Web アプリ**ウィザードが開きます。
+   **SQL の作成 (&)、新しい Web アプリ**ウィザードが開きます。
 
 2. ブレードで、入力文字列に、**アプリ名**アプリケーションの一意の URL として使用するボックスです。 入力した内容は、ここと Azure アプリのサービスの既定のドメインの完全な URL では (. azurewebsites.net)。 場合、**アプリ名**は既に使用されて、ウィザードは赤いでこれを通知*アプリ名は使用できません*メッセージ。 場合、**アプリ名**が利用可能な表示される緑色のチェック マークします。
 
@@ -175,9 +175,9 @@ Azure SQL Database にデータベースを配置します。 SQL データベ�
 10. 変更[照合](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support)に応じて。
 11. 管理者の入力**SQL 管理者のユーザー名**と**SQL 管理者のパスワード**です。 選択した場合は**新しい SQL データベース サーバー**、既存の名前とパスワードをここに入力していない、新しい名前とデータベースにアクセスするときに後で使用するようになりました定義しているパスワードを入力しているか。 以前作成したサーバーを選択した場合は、そのサーバーの資格情報を入力します。
 12. Application Insights を使用してサービスをアプリに製品利用統計情報のコレクションを有効にすることができます。 ほとんどの構成に application Insights は、重要なイベント、例外、依存関係、要求、およびトレース情報を収集します。 Application Insights の詳細についてを使い始める[Azure Docs](https://azure.microsoft.com/services/application-insights/)です。
-12. をクリックして**作成**が完了したらを示すために、ブレードの下部にあります。
+13. をクリックして**作成**が完了したらを示すために、ブレードの下部にあります。
   
- 管理ポータル ページに戻る、ダッシュ ボード、および**通知**ブレードで、ページの上部にあるが、サイトが作成されていることを示しています。 (通常よりも小さい 1 分間)、しばらくしてから、展開が成功したことを示す通知があります。 左側のナビゲーション バーで、新しい**App Service**に表示されます、 *App Services*セクションと、新しい**SQL データベース**に表示されます、 *SQL データベース*セクションです。
+    管理ポータル ページに戻る、ダッシュ ボード、および**通知**ブレードで、ページの上部にあるが、サイトが作成されていることを示しています。 (通常よりも小さい 1 分間)、しばらくしてから、展開が成功したことを示す通知があります。 左側のナビゲーション バーで、新しい**App Service**に表示されます、 *App Services*セクションと、新しい**SQL データベース**に表示されます、 *SQL データベース*セクションです。
 
 ### <a name="deploy-the-application-to-azure"></a>Azure にアプリケーションを展開します。
 
@@ -195,30 +195,30 @@ Azure SQL Database にデータベースを配置します。 SQL データベ�
 5. プロファイルを構成した後、**接続** タブが表示されます。 をクリックして**接続の検証**設定が正しいことを確認するには
 
     ![接続を検証します。](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Connection.png)
-7. 緑のチェック マークが横に示すように、接続が検証されると、**接続の検証**ボタンをクリックします。 **[次へ]**をクリックします。
+6. 緑のチェック マークが横に示すように、接続が検証されると、**接続の検証**ボタンをクリックします。 **[次へ]**をクリックします。
   
     ![正常に検証された接続](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-SettingsValidated.png)
-8. 開く、**リモート接続文字列**下にあるドロップダウン リスト**SchoolContext**を作成したデータベースの接続文字列を選択します。
-9. 選択**更新データベース**です。
+7. 開く、**リモート接続文字列**下にあるドロップダウン リスト**SchoolContext**を作成したデータベースの接続文字列を選択します。
+8. 選択**更新データベース**です。
 
     ![[設定] タブ](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Settings.png)
 
     この設定により、展開プロセスを自動的にアプリケーションを構成する*Web.config* Code First を使用するように、移行先サーバー上のファイル、`MigrateDatabaseToLatestVersion`初期化子のクラスです。
-10. **[次へ]**をクリックします。
-11. **プレビュー**  タブで、をクリックして**開始プレビュー**です。
+9. **[次へ]**をクリックします。
+10. **プレビュー**  タブで、をクリックして**開始プレビュー**です。
   
     ![[プレビュー] タブで StartPreview ボタン](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Preview.png)
   
- タブには、サーバーにコピーされるファイルの一覧が表示されます。 プレビューを表示する、アプリケーションを発行するため必要はありませんですが便利関数を認識します。 この場合、表示されているファイルの一覧は何もする必要はありません。 このアプリケーションを配置するときに、[次へ] に変更されたファイルだけは、この一覧になります。
+    タブには、サーバーにコピーされるファイルの一覧が表示されます。 プレビューを表示する、アプリケーションを発行するため必要はありませんですが便利関数を認識します。 この場合、表示されているファイルの一覧は何もする必要はありません。 このアプリケーションを配置するときに、[次へ] に変更されたファイルだけは、この一覧になります。
     ![StartPreview ファイル出力](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-PreviewLoaded.png)
 
-12. **[発行]**をクリックします。
- Visual Studio では、Azure サーバーへのファイルのコピーのプロセスを開始します。
-13. **出力**ウィンドウどのような展開アクションを実行した示し、展開の成功した完了を報告します。
+11. **[発行]**をクリックします。
+    Visual Studio では、Azure サーバーへのファイルのコピーのプロセスを開始します。
+12. **出力**ウィンドウどのような展開アクションを実行した示し、展開の成功した完了を報告します。
   
     ![展開の成功を報告 [出力] ウィンドウ](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-BuildOutput.png)
-14. 配置に成功したら、既定のブラウザーは、配置の web サイトの URL を自動的に開きます。
- 作成したアプリケーションは、クラウドで実行されています。 
+13. 配置に成功したら、既定のブラウザーは、配置の web サイトの URL を自動的に開きます。
+    作成したアプリケーションは、クラウドで実行されています。 
   
     ![Students_index_page_with_paging](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Site.png)
 
@@ -250,7 +250,7 @@ Azure SQL Database にデータベースを配置します。 SQL データベ�
 
 初期化子の詳細については、次を参照してください[についてデータベース初期化子の Entity Framework Code First](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm)と書籍の第 6 章[Entity Framework のプログラミング: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman によって。および Rowan Miller です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、移行を有効にしてアプリケーションを展開する方法を説明しました。 次のチュートリアルでは、データ モデルを展開してより高度なトピックを見るが始めます。
 
@@ -258,6 +258,6 @@ Azure SQL Database にデータベースを配置します。 SQL データベ�
 
 その他の Entity Framework リソースへのリンクは含まれて[ASP.NET データ アクセス - リソースのことをお勧め](xref:whitepapers/aspnet-data-access-content-map)です。
 
->[!div class="step-by-step"]
-[前へ](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)
-[次へ](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)
+> [!div class="step-by-step"]
+> [前へ](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)
+> [次へ](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)

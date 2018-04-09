@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/animating-in-response-to-user-interaction-cs
-title: "ユーザーの操作 (c#) への応答でのアニメーション化 |Microsoft ドキュメント"
+title: ユーザーの操作 (c#) への応答でのアニメーション化 |Microsoft ドキュメント
 author: wenz
-description: "アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 アニメーションがスターできます."
+description: アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 アニメーションがスターできます.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-in-response-to-user-interaction-cs
 msc.type: authoredcontent
-ms.openlocfilehash: efb9c34c317ec56b43c498f40a857a9b47fa50b2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 783563f4e33087e99a071cf829ca6bab246ba3b0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="animating-in-response-to-user-interaction-c"></a>ユーザーの操作 (c#) への応答をアニメーション化します。
 ====================
@@ -51,11 +51,11 @@ ms.lasthandoff: 11/10/2017
 
 内で、`<Animations>`ノードはユーザーの操作を使用してアニメーションを開始する 5 つの方法があります (不足している要素は`<OnLoad>`ページ全体が完全に読み込まれた後に実行される)。
 
-- `<OnClick>`(マウスでクリック コントロール)
-- `<OnHoverOut>`(マウスがコントロールを離れる)
-- `<OnHoverOver>`(マウスが停止する、コントロールの上、`<OnHoverOut>`アニメーション)
-- `<OnMouseOut>`(マウスがコントロールを離れる)
-- `<OnMouseOver>`(マウスがないを停止する、コントロールの上、`<OnMouseOut>`アニメーション)
+- `<OnClick>` (マウスでクリック コントロール)
+- `<OnHoverOut>` (マウスがコントロールを離れる)
+- `<OnHoverOver>` (マウスが停止する、コントロールの上、`<OnHoverOut>`アニメーション)
+- `<OnMouseOut>` (マウスがコントロールを離れる)
+- `<OnMouseOver>` (マウスがないを停止する、コントロールの上、`<OnMouseOut>`アニメーション)
 
 このシナリオで`<OnClick>`を使用します。 パネルにユーザーがクリックすると、サイズが変更され、同時にフェードアウトします。
 
@@ -66,6 +66,6 @@ ms.lasthandoff: 11/10/2017
 
 マウスのクリックがアニメーションを開始 ([フルサイズのイメージを表示するをクリックして](animating-in-response-to-user-interaction-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[前へ](picking-one-animation-out-of-a-list-cs.md)
-[次へ](disabling-actions-during-animation-cs.md)
+> [!div class="step-by-step"]
+> [前へ](picking-one-animation-out-of-a-list-cs.md)
+> [次へ](disabling-actions-during-animation-cs.md)

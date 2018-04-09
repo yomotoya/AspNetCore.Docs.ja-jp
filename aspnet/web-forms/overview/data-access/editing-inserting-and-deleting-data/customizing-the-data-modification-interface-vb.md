@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb
-title: "データ変更インターフェイス (VB) のカスタマイズ |Microsoft ドキュメント"
+title: データ変更インターフェイス (VB) のカスタマイズ |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは紹介では、標準のテキスト ボックスに置き換えることで、編集可能な GridView のインターフェイスをカスタマイズする方法と、alternati でチェック ボックスを制御しています."
+description: このチュートリアルでは紹介では、標準のテキスト ボックスに置き換えることで、編集可能な GridView のインターフェイスをカスタマイズする方法と、alternati でチェック ボックスを制御しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4f8023efd4d0b32e81dd3aab70e6e7521066fc84
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7d334a86fcf2fbd1069628527c6e89f3ab655dd5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-the-data-modification-interface-vb"></a>データ変更インターフェイス (VB) のカスタマイズ
 ====================
@@ -262,7 +262,7 @@ RadioButtonList コントロールを割り当てる必要があります`Select
 > 以降、`Discontinued`内の列、`Products`データベースことはできません`NULL`値、お必要はありませんキャプチャについて心配する`NULL`インターフェイスの情報です。 場合、ただし、`Discontinued`列を含めたり`NULL`値は 3 つ目を追加するラジオ ボタンを使用して、リストにその`Value`、空の文字列に設定 (`Value=""`) カテゴリと業者 DropDownLists と同様、します。
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 BoundField と CheckBoxField 読み取り専用で、編集、および挿入のインターフェイスを自動的にレンダリングして、ときに、カスタマイズ機能が不足しています。 多くの場合、ただし、必要があります、編集またはインターフェイスの挿入をカスタマイズする (で示したように前のチュートリアル) の検証コントロールを追加するか (このチュートリアルで示した) ように、データ コレクションのユーザー インターフェイスをカスタマイズしています。 TemplateField を持つインターフェイスをカスタマイズすることができますに要約、次の手順。
 
@@ -276,8 +276,8 @@ BoundField と CheckBoxField 読み取り専用で、編集、および挿入の
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[前へ](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
-[次へ](implementing-optimistic-concurrency-vb.md)
+> [!div class="step-by-step"]
+> [前へ](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
+> [次へ](implementing-optimistic-concurrency-vb.md)

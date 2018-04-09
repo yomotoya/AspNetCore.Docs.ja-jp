@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
-title: "カスタム ルート (VB) の作成 |Microsoft ドキュメント"
+title: カスタム ルート (VB) の作成 |Microsoft ドキュメント
 author: microsoft
-description: "ASP.NET MVC アプリケーションにカスタム ルートを追加する方法を説明します。 このチュートリアルでは、Global.asax ファイルで既定のルート テーブルを変更する方法を学習します。"
+description: ASP.NET MVC アプリケーションにカスタム ルートを追加する方法を説明します。 このチュートリアルでは、Global.asax ファイルで既定のルート テーブルを変更する方法を学習します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3d3161bd1bf74df425d3c53873875a1abcfbfa05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e827725ab7ce54c86ae9f4193d0a8a7ef4af8512
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-custom-routes-vb"></a>(VB) のカスタム ルートを作成します。
 ====================
@@ -49,7 +49,7 @@ ASP.NET MVC アプリケーションでは、既定のルート テーブルが�
 
 - /アーカイブ 2004/10-6-
 
-- /アーカイブ/apple
+- /Archive/apple
 
 カスタム ルートは、Archive というコント ローラーに、受信要求をマップし、Entry() アクションを呼び出します。 Entry() メソッドが呼び出されると、エントリの日付は entryDate をという名前のパラメーターとして渡されます。
 
@@ -69,10 +69,10 @@ ASP.NET MVC アプリケーションでは、既定のルート テーブルが�
 **図 01**: パラメーターの変換からのエラー ([フルサイズのイメージを表示するをクリックして](creating-custom-routes-vb/_static/image2.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、カスタム ルートを作成する方法を示すためにでした。 ブログ エントリを表す Global.asax ファイルでルート テーブルに対するカスタム ルートを追加する方法を学習しました。 ブログ エントリの要求を ArchiveController をという名前、コント ローラーと Entry() をという名前のコント ローラー アクションにマップする方法を説明したとします。
 
->[!div class="step-by-step"]
-[前へ](asp-net-mvc-controller-overview-vb.md)
-[次へ](creating-a-route-constraint-vb.md)
+> [!div class="step-by-step"]
+> [前へ](asp-net-mvc-controller-overview-vb.md)
+> [次へ](creating-a-route-constraint-vb.md)

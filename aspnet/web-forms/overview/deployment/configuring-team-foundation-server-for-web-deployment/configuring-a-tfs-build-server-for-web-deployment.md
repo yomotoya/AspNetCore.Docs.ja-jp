@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
-title: "Web 配置のビルド サーバーに、TFS の構成 |Microsoft ドキュメント"
+title: Web 配置のビルド サーバーに、TFS の構成 |Microsoft ドキュメント
 author: jrjlee
-description: "このトピックでは、ビルドし、チーム ビルドとインターネット Informat を使用して、ソリューションの配置を Team Foundation Server (TFS) ビルド サーバーを準備する方法について説明しています."
+description: このトピックでは、ビルドし、チーム ビルドとインターネット Informat を使用して、ソリューションの配置を Team Foundation Server (TFS) ビルド サーバーを準備する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: de31a9dffb95b863a4ec38b74fd2c6e03f287a7f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7b3130ca7d36ffec457e1871fa62c1077b5e3174
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Web 配置のビルド サーバーに TFS を構成します。
 ====================
@@ -27,9 +27,9 @@ ms.lasthandoff: 01/24/2018
 > このトピックでは、ビルドし、チーム ビルドと、インターネット インフォメーション サービス (IIS) Web 配置ツール (Web 配置) を使用して、ソリューションの配置を Team Foundation Server (TFS) ビルド サーバーを準備する方法について説明します。
 
 
-このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。サンプル ソリューション & #x 2014; このチュートリアルのシリーズを使用して、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; を ASP.NET MVC 3 アプリケーションを Windows のなどの複雑性のレベルが現実的な web アプリケーションを表すCommunication Foundation (WCF) サービスとデータベース プロジェクト。
+このトピックの Fabrikam, Inc. という架空の会社のエンタープライズ展開の要件に関するチュートリアル シリーズの一部を形成します。このチュートリアルの一連のサンプル ソリューションを使用する&#x2014;、 [Contact Manager ソリューション](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;現実的な ASP.NET MVC 3 アプリケーション、Windows Communication も含め、複雑さのレベルを持つ web アプリケーションを表すFoundation (WCF) サービスとデータベース プロジェクト。
 
-説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスで 2 つのプロジェクト ファイル & #x 2014; 1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
+説明されている分割プロジェクト ファイル アプローチに基づいて、これらのチュートリアルの中心に配置メソッド[プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)、によって制御されるビルド プロセスでは、2 つのプロジェクト ファイル&#x2014;1 つを含む各配置先の環境と環境固有のビルドと配置の設定を含む 1 つに適用される手順をビルドします。 ビルド時に環境固有のプロジェクト ファイルは、ビルドの手順の完全なセットを形成する環境に依存しないプロジェクト ファイルにマージされます。
 
 ## <a name="task-overview"></a>タスクの概要
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 01/24/2018
 7. **ASP.NET MVC 3 (Visual Studio 2010)**行で、をクリックして**追加**です。
 8. ナビゲーション ウィンドウで **サーバー**です。
 9. **Web 配置ツール 2.1**行で、をクリックして**追加**です。
-10. **[インストール]**をクリックします。 Web Platform Installer をインストールするには、関連する依存関係 & #x 2014; と共に; 製品 & #x 2014 の一覧が表示され、ライセンス条項に同意するように求められます。
+10. **[インストール]**をクリックします。 Web Platform Installer が製品の一覧を表示&#x2014;関連する依存関係のいずれかと共に&#x2014;をインストールして、ライセンス条項に同意するように求められます。
 11. ライセンス条項を確認し、条項に同意した場合にをクリックして**同意**です。
 12. インストールが完了したらをクリックして**完了**、し、閉じます、 **Web Platform Installer 3.0**ウィンドウです。
 
@@ -116,6 +116,6 @@ ms.lasthandoff: 01/24/2018
 
 チーム ビルドを使用して作業の一般的なガイダンスについては、次を参照してください。 [Team Foundation ビルドの管理](https://msdn.microsoft.com/library/ms252495.aspx)です。
 
->[!div class="step-by-step"]
-[前へ](adding-content-to-source-control.md)
-[次へ](creating-a-build-definition-that-supports-deployment.md)
+> [!div class="step-by-step"]
+> [前へ](adding-content-to-source-control.md)
+> [次へ](creating-a-build-definition-that-supports-deployment.md)

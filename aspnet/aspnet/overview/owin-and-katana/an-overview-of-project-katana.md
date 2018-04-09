@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/owin-and-katana/an-overview-of-project-katana
-title: "プロジェクトの Katana の概要 |Microsoft ドキュメント"
+title: プロジェクトの Katana の概要 |Microsoft ドキュメント
 author: howarddierking
-description: "ASP.NET フレームワークが経ちましたが 10 年以上にわたっており、プラットフォームには、無数の Web サイトとサービスの開発が有効にします。 Web アプリケーションとしています."
+description: ASP.NET フレームワークが経ちましたが 10 年以上にわたっており、プラットフォームには、無数の Web サイトとサービスの開発が有効にします。 Web アプリケーションとしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/30/2013
 ms.topic: article
 ms.assetid: 0ee21741-c1bf-4025-a9b0-24580cae24bc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: ceb7d3a7d1cb1685c0f1e62698f508c9a73e77c2
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3c2bcbbc6e506af759f6d77af17d015278cc0bdf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-project-katana"></a>プロジェクトの Katana の概要
 ====================
@@ -144,7 +144,7 @@ JavaScript および .NET の開発の大きな違いの 1 つは、(または�
 - 基になるプロセスを管理します。
 - サーバーの選択や、どの要求を OWIN パイプラインの構築するためのワークフローの調整が処理されます。
 
- 現時点では、Katana ベース アプリケーション用の 3 つの主要なホスティング オプションがあります。  
+  現時点では、Katana ベース アプリケーション用の 3 つの主要なホスティング オプションがあります。  
   
 **IIS/ASP.NET**: 標準の HttpModule と HttpHandler 型を使用して、OWIN パイプラインで実行できます IIS、ASP.NET 要求フローの一部として。 Web アプリケーション プロジェクトに Microsoft.AspNet.Host.SystemWeb NuGet パッケージをインストールすることで、ASP.NET ホストのサポートが有効です。 さらに、IIS は、ホストとサーバーの両方として動作するため OWIN サーバー/ホスト上の違いは結び付いて SystemWeb ホストを使用する場合、開発者によって、代替サーバー実装置き換えることはできませんので、この NuGet パッケージにします。  
   
@@ -221,7 +221,7 @@ Katana 2.0 のミドルウェア コンポーネント、主に注目してい�
 
 ## <a name="for-more-information-about-katana"></a>Katana の詳細については
 
-- GitHub の Katana プロジェクト: [https://github.com/aspnet/AspNetKatana/](https://github.com/aspnet/AspNetKatana/)です。
+- GitHub の Katana プロジェクト: [ https://github.com/aspnet/AspNetKatana/](https://github.com/aspnet/AspNetKatana/)です。
 - ビデオ: [Katana プロジェクト - ASP.NET の OWIN](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET)、Howard Dierking でします。
 
 ## <a name="acknowledgements"></a>謝辞

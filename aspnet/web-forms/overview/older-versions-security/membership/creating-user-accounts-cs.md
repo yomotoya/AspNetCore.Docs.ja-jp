@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/creating-user-accounts-cs
-title: "ユーザー アカウント (c#) の作成 |Microsoft ドキュメント"
+title: ユーザー アカウント (c#) の作成 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、フレームワークを使用して、メンバーシップ (SqlMembershipProvider) を使用して新しいユーザー アカウントを作成するをについて説明します。 新しい us を作成する方法が表示されます。"
+description: このチュートリアルでは、フレームワークを使用して、メンバーシップ (SqlMembershipProvider) を使用して新しいユーザー アカウントを作成するをについて説明します。 新しい us を作成する方法が表示されます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-user-accounts-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d1bdec096b68a01c36f46765abef00aad319f2c2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e00417639fba71083cbf392db5d5078561ab26e3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-user-accounts-c"></a>ユーザー アカウントの作成 (c#)
 ====================
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/24/2018
 メンバーシップ framework での作業を始める前に、もう一度このポイントに達するに移動しました、重要な手順を確認してみましょう。 使用してメンバーシップ framework を使用する場合、`SqlMembershipProvider`フォーム ベース認証のシナリオで、次の手順は web アプリケーションにメンバーシップ機能を実装する前に実行する必要があります。
 
 1. **フォーム ベース認証を有効にします。** 説明したよう *<a id="_msoanchor_4"> </a>[フォーム認証の概要を](../introduction/an-overview-of-forms-authentication-cs.md)*、編集してフォーム認証が有効になっている`Web.config`と設定、 `<authentication>`要素の`mode`属性を`Forms`です。 フォーム認証が有効になっている、受信要求ごとについて、*フォーム認証チケット*、存在する場合、識別、リクエスターです。
-2. **アプリケーション サービスのスキーマを適切なデータベースに追加します。** 使用する場合、`SqlMembershipProvider`アプリケーション サービスのスキーマをデータベースにインストールする必要があります。 通常このスキーマは、アプリケーションのデータ モデルを保持するのと同じデータベースに追加されます。 *<a id="_msoanchor_5"> </a>[メンバーシップ スキーマを作成する SQL Server で](creating-the-membership-schema-in-sql-server-cs.md)*チュートリアルを使用して調べる、`aspnet_regsql.exe`これを実現するツールです。
+2. **アプリケーション サービスのスキーマを適切なデータベースに追加します。** 使用する場合、`SqlMembershipProvider`アプリケーション サービスのスキーマをデータベースにインストールする必要があります。 通常このスキーマは、アプリケーションのデータ モデルを保持するのと同じデータベースに追加されます。  *<a id="_msoanchor_5"> </a>[メンバーシップ スキーマを作成する SQL Server で](creating-the-membership-schema-in-sql-server-cs.md)*チュートリアルを使用して調べる、`aspnet_regsql.exe`これを実現するツールです。
 3. **手順 2 からデータベースを参照する Web アプリケーションの設定をカスタマイズします。** *メンバーシップ スキーマを作成する SQL Server で*チュートリアルでは、web アプリケーションを構成する 2 つの方法を示しましたできるように、`SqlMembershipProvider`手順 2. で選択したデータベースを使用: 変更することによって、`LocalSqlServer`接続文字列名です。または手順 2 をフレームワークのメンバーシップ プロバイダーの一覧に新しい登録済みのプロバイダーを追加してからデータベースを使用して新しいプロバイダーをカスタマイズします。
 
 Web アプリケーションの構築を使用する場合、`SqlMembershipProvider`フォーム ベース認証する必要がありますを使用する前にこれら 3 つの手順を実行して、`Membership`クラスや ASP.NET ログイン Web コントロールです。 前のチュートリアルで既にこれらの手順を実行してから、メンバーシップ framework の使用を開始する準備ができました!
@@ -143,7 +143,7 @@ ASP.NET には、ユーザー インターフェイスを設計するための�
 
 ## <a name="step-4-removing-the-custom-principal-and-identity-logic"></a>手順 4: カスタム プリンシパルと Id ロジックの削除
 
-*<a id="_msoanchor_7"> </a>[フォーム認証の構成と高度なトピック](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md)*チュートリアルに認証されたユーザーにカスタム プリンシパルと id オブジェクトを関連付ける方法を説明しました。 内のイベント ハンドラーを作成することでこれを実現お`Global.asax`のアプリケーションの`PostAuthenticateRequest`後に発生するイベント、`FormsAuthenticationModule`がユーザーを認証します。 このイベント ハンドラーで置き換えました、`GenericPrincipal`と`FormsIdentity`によって追加されたオブジェクト、`FormsAuthenticationModule`で、`CustomPrincipal`と`CustomIdentity`そのチュートリアルで作成したオブジェクトします。
+ *<a id="_msoanchor_7"> </a>[フォーム認証の構成と高度なトピック](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md)*チュートリアルに認証されたユーザーにカスタム プリンシパルと id オブジェクトを関連付ける方法を説明しました。 内のイベント ハンドラーを作成することでこれを実現お`Global.asax`のアプリケーションの`PostAuthenticateRequest`後に発生するイベント、`FormsAuthenticationModule`がユーザーを認証します。 このイベント ハンドラーで置き換えました、`GenericPrincipal`と`FormsIdentity`によって追加されたオブジェクト、`FormsAuthenticationModule`で、`CustomPrincipal`と`CustomIdentity`そのチュートリアルで作成したオブジェクトします。
 
 カスタム プリンシパル オブジェクトと id オブジェクトはほとんどの場合、特定のシナリオで役に立ちますが、`GenericPrincipal`と`FormsIdentity`オブジェクトで十分です。 したがって、既定の動作に戻るには価値のあることと思います。 削除するか、コメント アウトすることによってこの変更を行う、`PostAuthenticateRequest`イベント ハンドラーまたは削除することによって、`Global.asax`完全ファイルします。
 
@@ -160,17 +160,17 @@ ASP.NET には、ユーザー インターフェイスを設計するための�
 
 これら 4 つのオーバー ロードは、収集される情報の量によって異なります。 最初のオーバー ロードでは、たとえばが必要がユーザー名とパスワードのみ、新しいユーザー アカウントの 2 つ目では、ユーザーの電子メール アドレスも必要です。
 
-新しいユーザー アカウントの作成に必要な情報が、メンバーシップ プロバイダーの構成設定に依存しているために、これらのオーバー ロードが存在します。 *<a id="_msoanchor_8"> </a>[メンバーシップ スキーマを作成する SQL Server で](creating-the-membership-schema-in-sql-server-cs.md)*でメンバーシップ プロバイダーの構成設定の指定を調べるおチュートリアル`Web.config`です。 表 2 には、構成設定の完全な一覧が含まれています。
+新しいユーザー アカウントの作成に必要な情報が、メンバーシップ プロバイダーの構成設定に依存しているために、これらのオーバー ロードが存在します。  *<a id="_msoanchor_8"> </a>[メンバーシップ スキーマを作成する SQL Server で](creating-the-membership-schema-in-sql-server-cs.md)*でメンバーシップ プロバイダーの構成設定の指定を調べるおチュートリアル`Web.config`です。 表 2 には、構成設定の完全な一覧が含まれています。
 
 1 つそのようなメンバーシップ プロバイダーの構成設定にどのような影響を与えます`CreateUser`オーバー ロードを使用することがありますが、`requiresQuestionAndAnswer`設定します。 場合`requiresQuestionAndAnswer`に設定されている`true`(既定)、し、新しいユーザー アカウントを作成するときに、セキュリティの質問と回答を指定お必要があります。 この情報は後で、ユーザーをリセットまたはパスワードを変更する必要がある場合に使用します。 具体的には、その時点でのセキュリティの質問を表示されているとリセットまたはパスワードを変更するために正しい解答を入力する必要があります。 したがって場合、`requiresQuestionAndAnswer`に設定されている`true`最初の 2 つのいずれかを呼び出して、`CreateUser`のセキュリティの質問と回答が見つからないため、例外の結果をオーバー ロードします。 アプリケーションがセキュリティの質問と解答を要求するように現在構成されているためにはユーザーをプログラムで作成するときに、後者の 2 つのオーバー ロードのいずれかを使用する必要があります。
 
 使用して説明するために、`CreateUser`メソッド、ユーザーに、名前、パスワード、電子メール、および定義済みのセキュリティの質問に対する回答を求めるおユーザー インターフェイスを作成してみましょう。 開く、 `CreatingUserAccounts.aspx`  ページで、`Membership`フォルダー コンテンツ コントロールに次の Web コントロールを追加。
 
-- という名前のテキスト ボックス`Username`
-- という名前のテキスト ボックス`Password`が`TextMode`プロパティに設定`Password`
-- という名前のテキスト ボックス`Email`
+- という名前のテキスト ボックス `Username`
+- という名前のテキスト ボックス`Password`が`TextMode`プロパティに設定 `Password`
+- という名前のテキスト ボックス `Email`
 - という名前のラベル`SecurityQuestion`でその`Text`プロパティをクリア
-- という名前のテキスト ボックス`SecurityAnswer`
+- という名前のテキスト ボックス `SecurityAnswer`
 - という名前のボタン`CreateAccountButton`テキスト プロパティが設定される「、ユーザー アカウントを作成する」を
 - という名前のラベル コントロール`CreateAccountResults`でその`Text`プロパティをクリア
 
@@ -192,7 +192,7 @@ ASP.NET には、ユーザー インターフェイスを設計するための�
 
 [!code-csharp[Main](creating-user-accounts-cs/samples/sample6.cs)]
 
-`Click`という名前の変数を定義してイベント ハンドラーを起動`createStatus`型の[ `MembershipCreateStatus`](https://msdn.microsoft.com/library/system.web.security.membershipcreatestatus.aspx)です。 `MembershipCreateStatus`状態を示す列挙体には、`CreateUser`操作します。 たとえば、ユーザー アカウントが正常に作成、表示された`MembershipCreateStatus`インスタンスの値に設定されます`Success`以外の場合は、別のに対して、同じユーザー名を持つユーザーが既に存在するために、操作が失敗した場合の値に設定されます`DuplicateUserName`. `CreateUser`使用のオーバー ロードに渡す必要があります、`MembershipCreateStatus`インスタンスとしてメソッドに、`out`パラメーター。 このパラメーターは内で適切な値に設定されて、`CreateUser`メソッド、およびおは、ユーザー アカウントが正常に作成されたかどうかを決定するメソッドの呼び出し後の値を調べることができます。
+`Click`という名前の変数を定義してイベント ハンドラーを起動`createStatus`型の[ `MembershipCreateStatus`](https://msdn.microsoft.com/library/system.web.security.membershipcreatestatus.aspx)です。 `MembershipCreateStatus` 状態を示す列挙体には、`CreateUser`操作します。 たとえば、ユーザー アカウントが正常に作成、表示された`MembershipCreateStatus`インスタンスの値に設定されます`Success`以外の場合は、別のに対して、同じユーザー名を持つユーザーが既に存在するために、操作が失敗した場合の値に設定されます`DuplicateUserName`. `CreateUser`使用のオーバー ロードに渡す必要があります、`MembershipCreateStatus`インスタンスとしてメソッドに、`out`パラメーター。 このパラメーターは内で適切な値に設定されて、`CreateUser`メソッド、およびおは、ユーザー アカウントが正常に作成されたかどうかを決定するメソッドの呼び出し後の値を調べることができます。
 
 呼び出した後`CreateUser`を渡して、 `createStatus`、`switch`に割り当てられている値に応じて、適切なメッセージを出力するステートメントを使用`createStatus`です。 図 7 は、新しいユーザーが正常に作成されたときに出力を示します。 図 8 と 9 は、ユーザー アカウントを作成していない場合、出力を表示します。 図 8 には、訪問者は、メンバーシップ プロバイダーの構成設定に記述されたパスワードの強度の要件を満たしていない、5 文字のパスワードを入力します。 図 9 に訪問者は既存のユーザー名 (図 7 に作成されたもの) でユーザー アカウントを作成しようとしています。
 
@@ -260,10 +260,10 @@ CreateUserWizard コントロールの既定のインターフェイスと動作
 
 CreateUserWizard コントロールでは、その名前からわかるようにはから派生した、[ウィザード コントロール](https://msdn.microsoft.com/library/s2etd1ek.aspx)です。 ウィザードのコントロールは、インターフェイスを提供する、マルチ ステップ タスクを完了するために設計されています。 ウィザード コントロールでの任意の数を含めることがあります`WizardSteps`それぞれが、HTML を定義するテンプレート、および Web を制御する手順。 ウィザード コントロールは、最初の初期状態が表示されます。 `WizardStep`、ナビゲーション コントロールを次に、1 つのステップから続行するか、前の手順に戻るには、ユーザーを許可するとします。
 
-図 11 では宣言型マークアップは 2 つの CreateUserWizard コントロールの既定のインターフェイスが含まれます`WizardSteps:`
+図 11 では宣言型マークアップは 2 つの CreateUserWizard コントロールの既定のインターフェイスが含まれます `WizardSteps:`
 
-- [`CreateUserWizardStep`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizardstep.aspx)– 新しいユーザー アカウントを作成するための情報を収集するインターフェイスをレンダリングします。 これは、図 11 に示されたステップです。
-- [`CompleteWizardStep`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.completewizardstep.aspx)– アカウントが正常に作成されたことを示すメッセージを表示します。
+- [`CreateUserWizardStep`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizardstep.aspx) – 新しいユーザー アカウントを作成するための情報を収集するインターフェイスをレンダリングします。 これは、図 11 に示されたステップです。
+- [`CompleteWizardStep`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.completewizardstep.aspx) – アカウントが正常に作成されたことを示すメッセージを表示します。
 
 これらの手順のいずれかのテンプレートを変換することで、または独自の追加によって、CreateUserWizard の外観と動作を変更できます`WizardSteps`です。 追加することを見ていきましょう、`WizardStep`で登録インターフェイスを*追加のユーザー情報を格納する*チュートリアルです。
 
@@ -363,7 +363,7 @@ CreateUserWizard コントロールのイベント ハンドラーを次に、�
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [`CreateUser`テクニカル ドキュメント](https://msdn.microsoft.com/library/system.web.security.membershipprovider.createuser.aspx)
+- [`CreateUser` テクニカル ドキュメント](https://msdn.microsoft.com/library/system.web.security.membershipprovider.createuser.aspx)
 - [CreateUserWizard コントロールの概要](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/createuserwizard.aspx)
 - [ファイル システム ベースのサイト マップ プロバイダーを作成します。](http://aspnet.4guysfromrolla.com/articles/020106-1.aspx)
 - [ASP.NET 2.0 のウィザード コントロールでステップ バイ ステップのユーザー インターフェイスの作成](http://aspnet.4guysfromrolla.com/articles/061406-1.aspx)
@@ -373,12 +373,12 @@ CreateUserWizard コントロールのイベント ハンドラーを次に、�
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>特別に感謝しています.
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Teresa マーフィーしました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[ mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)です。
 
->[!div class="step-by-step"]
-[前へ](creating-the-membership-schema-in-sql-server-cs.md)
-[次へ](validating-user-credentials-against-the-membership-user-store-cs.md)
+> [!div class="step-by-step"]
+> [前へ](creating-the-membership-schema-in-sql-server-cs.md)
+> [次へ](validating-user-credentials-against-the-membership-user-store-cs.md)

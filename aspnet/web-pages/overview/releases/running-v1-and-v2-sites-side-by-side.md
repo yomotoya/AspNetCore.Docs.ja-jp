@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/releases/running-v1-and-v2-sites-side-by-side
-title: "異なるバージョンの ASP.NET Web Pages (Razor) サイド バイ サイド実行 |Microsoft ドキュメント"
+title: 異なるバージョンの ASP.NET Web Pages (Razor) サイド バイ サイド実行 |Microsoft ドキュメント
 author: tfitzmac
-description: "この記事では、さまざまなバージョンを使用する web サイトが構成されている場合、同じコンピューターまたはサーバーの ASP.NET Web Pages (Razor) web サイトを実行する方法について説明しています."
+description: この記事では、さまざまなバージョンを使用する web サイトが構成されている場合、同じコンピューターまたはサーバーの ASP.NET Web Pages (Razor) web サイトを実行する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/running-v1-and-v2-sites-side-by-side
 msc.type: authoredcontent
-ms.openlocfilehash: c11399b0bde59d18fa378ed48c15844454c1f956
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1729f3201013926b221afc92d23416b0081d8efb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="running-different-versions-of-aspnet-web-pages-razor-side-by-side"></a>ASP.NET Web Pages (Razor) のさまざまなバージョンをサイド バイ サイドで実行されています。
 ====================
@@ -52,7 +52,7 @@ WebMatrix で Web ページをインストールする際にいくつかの点�
 - 別のバージョンの ASP.NET Web Pages を使用してサイトを実行する場合を行うには、サイトを構成することができます。 サイトを持っていない場合、 *web.config*サイトのルートにファイル、新たに作成し、既存のコンテンツを上書きするのには、次の XML をコピーします。 サイトが既に含まれている場合、 *web.config*ファイルに追加し、`<appSettings>`要素に次のいずれかのように、`<configuration>`セクションです。
 
     [!code-xml[Main](running-v1-and-v2-sites-side-by-side/samples/sample1.xml)]
-'-でバージョンが指定されていない場合、 *web.config*ファイル、サイトの最新バージョンとして配置します。 (、アセンブリにコピー、 *bin*配置済みのサイトのフォルダーです)。
+  '-でバージョンが指定されていない場合、 *web.config*ファイル、サイトの最新バージョンとして配置します。 (、アセンブリにコピー、 *bin*配置済みのサイトのフォルダーです)。
 - Web マトリックス内のサイト テンプレートを使用して作成する新しいアプリケーションが、サイトの Web ページ バージョンのアセンブリを含める*bin*フォルダーです。
 
 NuGet を使用して、サイトに適切なアセンブリをインストールすることによって、サイトで使用する Web ページのバージョンを常に制御する一般に、 *bin*フォルダーです。 パッケージを検索するには、次を参照してください。 [NuGet.org](http://NuGet.org)です。
