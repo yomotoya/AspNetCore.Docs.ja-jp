@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-cs
-title: "Entity Framework (c#) でモデル クラスを作成する |Microsoft ドキュメント"
+title: Entity Framework (c#) でモデル クラスを作成する |Microsoft ドキュメント
 author: microsoft
-description: "このチュートリアルでは、Microsoft の Entity Framework での ASP.NET MVC を使用する方法を学習します。 ウィザードを使用して、エンティティを ADO.NET エンティティ Da を作成する方法を説明するとしています."
+description: このチュートリアルでは、Microsoft の Entity Framework での ASP.NET MVC を使用する方法を学習します。 ウィザードを使用して、エンティティを ADO.NET エンティティ Da を作成する方法を説明するとしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8a897f671de73d9991189e32a5d86b513051ef05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b0a79da580f14d5ae6bcfaaa00d3900234dc662e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-model-classes-with-the-entity-framework-c"></a>Entity Framework (c#) でモデル クラスを作成します。
 ====================
@@ -48,8 +48,8 @@ ASP.NET MVC で Microsoft Entity Framework を使用する方法がわかるよ�
 | 列名 | データの種類 | Null 値を許可しますか。 | プライマリ キーとは |
 | --- | --- | --- | --- |
 | ID | int | False | True |
-| タイトル | nvarchar (100) | False | False |
-| ディレクター | nvarchar (100) | False | False |
+| Title | nvarchar(100) | False | False |
+| ディレクター | nvarchar(100) | False | False |
 
 このテーブルは、次の手順で ASP.NET MVC プロジェクトに追加できます。
 
@@ -139,7 +139,7 @@ TheMoviesDBEntities クラスを Home コント ローラーを使用するの�
 
 2 を一覧表示するビューを使用すると、ムービーのレコードを表示します。
 
-**2 – Views\Home\Index.aspx を一覧表示します。**
+**Listing 2 – Views\Home\Index.aspx**
 
 [!code-aspx[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample3.aspx)]
 
@@ -201,7 +201,7 @@ Entity Framework を使用する場合は、TryUpdateModel または UpdateModel
 
 データベース レコードを編集するときは、データベースの更新を実行するコント ローラーのアクションを編集中のレコードの Id を渡す必要があります。 それ以外の場合、コント ローラーのアクションでは、基になるデータベースで更新するためにどのレコードがわかりません。 5 の一覧に含まれている、編集ビューには、編集中のデータベース レコードの Id を表す隠しフォーム フィールドが含まれています。
 
-**5 – Views\Home\Edit.aspx を一覧表示します。**
+**Listing 5 – Views\Home\Edit.aspx**
 
 [!code-aspx[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample8.aspx)]
 
@@ -209,17 +209,17 @@ Entity Framework を使用する場合は、TryUpdateModel または UpdateModel
 
 このチュートリアルで取り組む必要があります、最終的なデータベースの操作は、データベース レコードを削除しています。 リスト 6 でコント ローラーのアクションを使用すると、特定のデータベース レコードを削除します。
 
-**リスト 6--\Controllers\HomeController.cs (削除アクション)**
+**Listing 6 -- \Controllers\HomeController.cs (Delete action)**
 
 [!code-csharp[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample9.cs)]
 
 Delete() 操作は、アクションに渡される Id と一致するエンティティ、ムービーを最初に取得します。 次に、ムービーは SaveChanges() メソッドを続けて DeleteObject() メソッドを呼び出すことによって、データベースから削除されます。 最後に、インデックス ビューに戻る、ユーザーがリダイレクトされます。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、ASP.NET MVC および Microsoft Entity Framework を活用して、データベースに基づく web アプリケーションを構築する方法を示すためにしました。 使用すると、選択、挿入、更新、アプリケーションを構築およびデータベースのレコードを削除する方法を学習しました。
 
 最初に、Entity Data Model ウィザードを使用して、Visual Studio 内からのエンティティ データ モデルを生成する方法について説明します。 次に、LINQ to Entities を使用して、データベース テーブルから特定のデータベース レコード セットを取得する方法を説明します。 最後に、Entity Framework を使用して挿入、更新、およびデータベースのレコードを削除しました。
 
->[!div class="step-by-step"]
-[次へ](creating-model-classes-with-linq-to-sql-cs.md)
+> [!div class="step-by-step"]
+> [次へ](creating-model-classes-with-linq-to-sql-cs.md)
