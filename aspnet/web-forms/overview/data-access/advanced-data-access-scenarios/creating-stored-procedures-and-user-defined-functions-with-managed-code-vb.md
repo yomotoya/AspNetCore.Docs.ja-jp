@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
-title: "ストアド プロシージャおよびユーザー定義関数を作成するマネージ コード (VB) |Microsoft ドキュメント"
+title: ストアド プロシージャおよびユーザー定義関数を作成するマネージ コード (VB) |Microsoft ドキュメント
 author: rick-anderson
-description: "Microsoft SQL Server 2005 は、開発者はマネージ コードからのデータベース オブジェクトの作成を許可する .NET 共通言語ランタイムと統合できます。 このチュートリアルには."
+description: Microsoft SQL Server 2005 は、開発者はマネージ コードからのデータベース オブジェクトの作成を許可する .NET 共通言語ランタイムと統合できます。 このチュートリアルには.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e30df9ddc094d0390d9e5985ec676713b57feaf4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cb676313b04fab9c7cf9c6d08d08d07852ee1fcb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-vb"></a>ストアド プロシージャとマネージ コード (VB) でユーザー定義関数を作成します。
 ====================
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/24/2018
 
 Microsoft の SQL Server 2005 のようなデータベースを使用して、 [Transact-Structured クエリ言語 (T-SQL)](http://en.wikipedia.org/wiki/Transact-SQL)の挿入、変更、およびデータを取得します。 ほとんどのデータベース システムには、一連の再利用可能な 1 つの単位として実行できる、SQL ステートメントをグループ化構成体が含まれます。 ストアド プロシージャは、1 つの例です。 他にも*ユーザー定義関数*(Udf) は、手順 9. でさらに詳しく検討するコンストラクトです。
 
-基本的に、データのセットを操作するための SQL は設計されています。 `SELECT`、 `UPDATE`、および`DELETE`ステートメントは、本質的に、対応するテーブルのすべてのレコードに適用され、によってのみ制限されます、`WHERE`句。 まだとスカラーのデータを操作するため、一度に 1 つのレコードを操作するために設計された多くの言語機能があります。 [`CURSOR`s](http://www.sqlteam.com/item.asp?ItemID=553)を通じて 1 つずつでループする一連のレコードの対応できるようにします。 文字列操作関数と同様に`LEFT`、 `CHARINDEX`、および`PATINDEX`スカラーのデータを操作します。 SQL は、制御フロー ステートメントのようにも含まれています。`IF`と`WHILE`です。
+基本的に、データのセットを操作するための SQL は設計されています。 `SELECT`、 `UPDATE`、および`DELETE`ステートメントは、本質的に、対応するテーブルのすべてのレコードに適用され、によってのみ制限されます、`WHERE`句。 まだとスカラーのデータを操作するため、一度に 1 つのレコードを操作するために設計された多くの言語機能があります。 [`CURSOR` s](http://www.sqlteam.com/item.asp?ItemID=553)を通じて 1 つずつでループする一連のレコードの対応できるようにします。 文字列操作関数と同様に`LEFT`、 `CHARINDEX`、および`PATINDEX`スカラーのデータを操作します。 SQL は、制御フロー ステートメントのようにも含まれています。`IF`と`WHILE`です。
 
 Microsoft SQL Server 2005 より前のストアド プロシージャおよび Udf でしたのみとして定義する T-SQL ステートメントのコレクション。 SQL Server 2005、ただし、されたように設計との統合を提供する、[共通言語ランタイム (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx)、これは、すべての .NET アセンブリで使用されるランタイム。 その結果、ストアド プロシージャおよび Udf は、SQL Server 2005 データベースで作成できますマネージ コードを使用します。 Visual Basic のクラスのメソッドとしてストアド プロシージャまたは UDF を作成することができます。 これにより、これらのストアド プロシージャおよび Udf を .NET Framework では、独自のカスタム クラスからの機能を利用できます。
 
@@ -424,8 +424,8 @@ UDF のメソッドの入力パラメーターが、対応する SQL 型のメ�
 
 プロジェクトを配置した後は、SQL Server Management Studio に戻り、スカラー値関数のフォルダーを更新しています。 2 つのエントリが表示されます。
 
-- `dbo.udf_ComputeInventoryValue`-手順 9. で T-SQL UDF を作成し、
-- `dbo.udf ComputeInventoryValue_Managed`-だけに展開された手順 10 で管理対象の UDF を作成します。
+- `dbo.udf_ComputeInventoryValue` -手順 9. で T-SQL UDF を作成し、
+- `dbo.udf ComputeInventoryValue_Managed` -だけに展開された手順 10 で管理対象の UDF を作成します。
 
 このマネージ UDF をテストするには、Management Studio 内から次のクエリを実行します。
 
@@ -569,11 +569,11 @@ Visual Studio の SQL Server のプロジェクトの種類には、作成、コ
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が S ren 一 Lauritsen しました。 この記事では、S ren も確認するだけでなくマネージ データベース オブジェクトを手動でコンパイルするためには、この記事のダウンロードに含まれている Visual c# Express Edition プロジェクトを作成します。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](debugging-stored-procedures-vb.md)
+> [!div class="step-by-step"]
+> [前へ](debugging-stored-procedures-vb.md)

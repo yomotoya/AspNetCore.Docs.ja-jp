@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-vb
-title: "ComboBox コントロールの使用方法 (VB) |Microsoft ドキュメント"
+title: ComboBox コントロールの使用方法 (VB) |Microsoft ドキュメント
 author: microsoft
-description: "コンボ ボックスは、ユーザーが選択できるオプションの一覧で、テキスト ボックスの柔軟性を結合する ASP.NET AJAX コントロールです。"
+description: コンボ ボックスは、ユーザーが選択できるオプションの一覧で、テキスト ボックスの柔軟性を結合する ASP.NET AJAX コントロールです。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 54e36cf275dcc4b85253dc3b8bb5b0dbb027af77
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e42844e326cb190502a51c5a85195b4752d7e827
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-use-the-combobox-control-vb"></a>ComboBox コントロールの使用方法 (VB)
 ====================
@@ -168,9 +168,9 @@ ComboBox AutoCompleteMode プロパティを使用して、テキストのコン
 **図 10**: コンボ ボックスを提案し、追加 ([フルサイズのイメージを表示するをクリックして](how-do-i-use-the-combobox-control-vb/_static/image20.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、コンボ ボックス コントロールを使用して項目の固定セットを表示する方法について学習しました。 ComboBox コントロールの両方を項目の設定を静的とデータベース テーブルにバインドされました。 最後に、その DropDownStyle、AutoCompleteMode プロパティを設定して、コンボ ボックスの動作を変更する方法を学習します。
 
->[!div class="step-by-step"]
-[前へ](how-do-i-use-the-combobox-control-cs.md)
+> [!div class="step-by-step"]
+> [前へ](how-do-i-use-the-combobox-control-cs.md)

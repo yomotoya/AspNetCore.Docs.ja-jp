@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core での Razor ページのルートとアプリの規則機能"
+title: ASP.NET Core での Razor ページのルートとアプリの規則機能
 author: guardrex
-description: "ルートとアプリ モデル プロバイダーの規則機能が、ページのルーティング、検出、および処理の制御にどのように役立つかについて確認します。"
+description: ルートとアプリ モデル プロバイダーの規則機能が、ページのルーティング、検出、および処理の制御にどのように役立つかについて確認します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/23/2017
@@ -127,7 +127,7 @@ ms.lasthandoff: 01/30/2018
 
 通常のルート (`/Contact`) またはカスタム ルート (`/TheContactPage`) のいずれかで、[Contact] ページにアクセスします。 追加の `text` ルート セグメントを指定した場合、ページには指定した HTML エンコードのセグメントが示されます。
 
-![URL の 'TextValue' の省略可能な 'text' ルート セグメントを適用する Edge ブラウザーの例。 レンダリングされたページには、'text' セグメントの値が示されています。](razor-pages-convention-features/_static/route-segment-with-custom-route.png)
+![URL の 'TextValue' の省略可能な 'text' ルート セグメントを適用する Microsoft Edge ブラウザーの例。 レンダリングされたページには、'text' セグメントの値が示されています。](razor-pages-convention-features/_static/route-segment-with-custom-route.png)
 
 ## <a name="page-model-action-conventions"></a>ページ モデル アクション規則
 

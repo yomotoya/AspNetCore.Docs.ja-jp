@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-cs
-title: "Toolkit コントロール エクステンダー (c#) を制御するカスタムの AJAX の作成 |Microsoft ドキュメント"
+title: Toolkit コントロール エクステンダー (c#) を制御するカスタムの AJAX の作成 |Microsoft ドキュメント
 author: microsoft
-description: "カスタムのエクステンダーを使用すると、カスタマイズし、新しいクラスを作成することがなく ASP.NET コントロールの機能を拡張できます。"
+description: カスタムのエクステンダーを使用すると、カスタマイズし、新しいクラスを作成することがなく ASP.NET コントロールの機能を拡張できます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2ae03484dd1161c65b77f4718bb8cedb5abfdd82
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dc058d1d19df880109352caf2dc7d1860121a104
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-custom-ajax-control-toolkit-control-extender-c"></a>カスタムの AJAX コントロール Toolkit コントロール エクステンダー (c#) を作成します。
 ====================
@@ -198,7 +198,7 @@ DisabledButton コントロール エクステンダーの作成を完了しま�
 2. ScriptManager をページにドラッグします。
 3. テキスト ボックス コントロールをページにドラッグします。
 4. ボタン コントロールをページにドラッグします。
-5. [プロパティ] ウィンドウでボタン ID プロパティ値を変更*btnSave*し、テキストのプロパティ値を*保存\**です。
+5. [プロパティ] ウィンドウでボタン ID プロパティ値を変更<em>btnSave</em>し、テキストのプロパティ値を*保存\**です。
   
 
 標準の ASP.NET のテキスト ボックスとボタン コントロールと、ページを作成しました。
@@ -234,10 +234,10 @@ DisabledButton コントロール エクステンダーの作成を完了しま�
 **図 07**: アクションで、DisabledButton エクステンダー ([フルサイズのイメージを表示するをクリックして](creating-a-custom-ajax-control-toolkit-control-extender-cs/_static/image27.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルの目的は、カスタムのエクステンダー コントロールの AJAX コントロール ツールキットを拡張する方法を説明することでした。 このチュートリアルでは、単純な DisabledButton コントロール エクステンダーを作成しました。 DisabledButtonExtender クラス、DisabledButtonBehavior JavaScript 動作、および DisabledButtonDesigner クラスを作成することでこのエクステンダーを実装しました。 カスタム コントロール エクステンダーを作成するときに類似した一連の手順に従います。
 
->[!div class="step-by-step"]
-[前へ](using-ajax-control-toolkit-controls-and-control-extenders-cs.md)
-[次へ](get-started-with-the-ajax-control-toolkit-vb.md)
+> [!div class="step-by-step"]
+> [前へ](using-ajax-control-toolkit-controls-and-control-extenders-cs.md)
+> [次へ](get-started-with-the-ajax-control-toolkit-vb.md)

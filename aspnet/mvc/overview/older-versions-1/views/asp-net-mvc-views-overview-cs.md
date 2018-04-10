@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
-title: "ASP.NET MVC ビューの概要 (c#) |Microsoft ドキュメント"
+title: ASP.NET MVC ビューの概要 (c#) |Microsoft ドキュメント
 author: StephenWalther
-description: "ASP.NET MVC ビューとどのように違う HTML ページについて このチュートリアルでは、Stephen Walther はビューについて説明し、t する方法を示しています。"
+description: ASP.NET MVC ビューとどのように違う HTML ページについて このチュートリアルでは、Stephen Walther はビューについて説明し、t する方法を示しています。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9de095b0621af3b6166a2e1cbcb1c63c26a88aa2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5217994168ebac32a4a9754ae09e63e120804813
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-views-overview-c"></a>ASP.NET MVC ビューの概要 (c#)
 ====================
@@ -41,7 +41,7 @@ ASP.NET MVC がブラウザー アプリケーション、入力方向の要求�
 
 ブラウザーのアドレス バーに次の URL を入力して、最初のアクションで Index() アクションを呼び出すことができます。
 
-/Home/index
+/Home/Index
 
 お使いのブラウザーにこのアドレスを入力して、2 つ目の操作を Details() アクションを呼び出すことができます。
 
@@ -61,7 +61,7 @@ View() です。
 
 場合は、ビューの明示的に指定できます。 次のコード行には、Fred をという名前のビューが返されます。
 
-表示 (Fred) です。
+View( Fred );
 
 次のコード行が実行されると、次のパスからビューが返されます。
 
@@ -78,7 +78,7 @@ View() です。
 
 たとえば、2 の一覧表示するビューには、現在の日付と時刻が表示されます。
 
-**2 - を一覧表示する \Views\Home\Index.aspx**
+**Listing 2 - \Views\Home\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample2.aspx)]
 
@@ -90,7 +90,7 @@ View() です。
 
 Response.Write() を頻繁に呼び出すため Microsoft が提供ショートカット Response.Write() メソッドを呼び出すためです。 ビューを一覧表示する 3 で、区切り記号を使用して&lt;% = %&gt; Response.Write() を呼び出すためのショートカットとして。
 
-**3 - Views\Home\Index2.aspx を一覧表示します。**
+**Listing 3 - Views\Home\Index2.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample3.aspx)]
 
@@ -102,7 +102,7 @@ Response.Write() を頻繁に呼び出すため Microsoft が提供ショート�
 
 例については、ビューを一覧表示する 4 - 3 つの HTML ヘルパーの利用には、ログインを生成する--BeginForm() TextBox()、Password() ヘルパーは、(図 1 を参照してください) を形成します。
 
-**リスト 4--\Views\Home\Login.aspx**
+**Listing 4 -- \Views\Home\Login.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample4.aspx)]
 
@@ -118,7 +118,7 @@ Response.Write() を頻繁に呼び出すため Microsoft が提供ショート�
 
 HTML ヘルパー メソッドを使用することはオプションです。 楽に、HTML および記述する必要があるスクリプトの量を減らすことによってです。 ビューを一覧表示する 5 には、HTML ヘルパーを使用せず、正確なと同じ形式を一覧表示する 4 でビューをレンダリングします。
 
-**5 - を一覧表示する \Views\Home\Login.aspx**
+**Listing 5 -- \Views\Home\Login.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample5.aspx)]
 
@@ -136,7 +136,7 @@ HTML ヘルパー メソッドを使用することはオプションです。 �
 
 ビューを一覧表示する 7 には、ビュー データからのメッセージを取得し、ブラウザーにメッセージを表示します。
 
-**7--を一覧表示する \Views\Product\Index.aspx**
+**Listing 7 -- \Views\Product\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample7.aspx)]
 
@@ -148,9 +148,9 @@ HTML ヘルパー メソッドを使用することはオプションです。 �
 
 また、コント ローラーからビューを厳密に型指定されたビュー データを渡すオプションがあります。 チュートリアルのこのトピックの内容をナビゲート**Understanding 厳密に型指定されたデータの表示やビュー**です。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このチュートリアルでは、ASP.NET MVC ビュー、データの表示、および HTML ヘルパーの概要を提供します。 最初のセクションでは、プロジェクトに新しいビューを追加する方法について学習しました。 ビューを特定のコント ローラーから呼び出すために適切なフォルダーに追加する必要がありますを学習しました。 次に、HTML ヘルパーのトピックを説明します。 HTML ヘルパーを使用すると、標準の HTML コンテンツを簡単に生成する方法を学習しました。 最後に、コント ローラーからビューにデータを渡すデータの表示を活用する方法を学習します。
 
->[!div class="step-by-step"]
-[次へ](creating-custom-html-helpers-cs.md)
+> [!div class="step-by-step"]
+> [次へ](creating-custom-html-helpers-cs.md)

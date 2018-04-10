@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC のビュー"
+title: ASP.NET Core MVC のビュー
 author: ardalis
-description: "ビューがアプリのデータ表示と、ASP.NET Core MVC でのユーザー操作を処理する方法について説明します。"
+description: ビューがアプリのデータ表示と、ASP.NET Core MVC でのユーザー操作を処理する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 12/12/2017
@@ -64,7 +64,7 @@ ASP.NET Core MVC では、ビューは、Razor マークアップで [C# プロ�
 
 このアクションが返されると、最後のセクションに表示されている *About.cshtml* ビューが、次の Web ページとしてレンダリングされます。
 
-![Edge ブラウザーでレンダリングされた About ページ](overview/_static/about-page.png)
+![Microsoft Edge ブラウザーでレンダリングされた About ページ](overview/_static/about-page.png)
 
 `View` ヘルパー メソッドには複数のオーバーロードがあります。 必要に応じて以下を指定できます。
 

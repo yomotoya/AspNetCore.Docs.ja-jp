@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
-title: "コント ローラーとビューを使用して、一覧と詳細の UI を実装する |Microsoft ドキュメント"
+title: コント ローラーとビューを使用して、一覧と詳細の UI を実装する |Microsoft ドキュメント
 author: microsoft
-description: "手順 4 では、ユーザー データの一覧/詳細ナビゲーション エクスペリエンスを提供する、モデルの活用したアプリケーションに、コント ローラーを追加する方法を示します."
+description: 手順 4 では、ユーザー データの一覧/詳細ナビゲーション エクスペリエンスを提供する、モデルの活用したアプリケーションに、コント ローラーを追加する方法を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 2f9148a2d419863229e2c5a2a0c98984001fcee5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac3568941eeef24bd9857c5787471aadea15fc7f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>コント ローラーとビューを使用して、一覧と詳細の UI を実装するには
 ====================
@@ -62,7 +62,7 @@ MVC フレームワークの web ベースでは、少し異なる方法で、Ur
 | **URL** | **目的** |
 | --- | --- |
 | */Dinners/* | 今後ディナーの HTML の一覧を表示します。 |
-| */Dinners 詳細/[id]* | これが一致するデータベースに dinner の DinnerID – URL に埋め込まれた"id"パラメーターで指定された特定 dinner に関する詳細を表示します。 例:/Dinners/Details/2 DinnerID 値が 2 Dinner に関する詳細情報を HTML ページが表示されます。 |
+| */Dinners/Details/[id]* | これが一致するデータベースに dinner の DinnerID – URL に埋め込まれた"id"パラメーターで指定された特定 dinner に関する詳細を表示します。 例:/Dinners/Details/2 DinnerID 値が 2 Dinner に関する詳細情報を HTML ページが表示されます。 |
 
 次のように、DinnersController クラスに次の 2 つのパブリック「操作方法」を追加することによってこれらの Url の最初の実装が公開します。
 
@@ -92,16 +92,16 @@ ASP.NET MVC には、多数の Url をコント ローラー クラスにマッ�
 
 "ルート。MapRoute()"メソッドの呼び出しが上記の登録 URL の形式を使用して、コント ローラー クラスを受信した Url にマップする既定のルーティング規則:"/{controller}/{controller}/{id}""controller"には、インスタンス化するコント ローラー クラスの名前:"action"はの名前、パブリック メソッドを呼び出すと、"id"では、メソッドに引数として渡すことが URL に埋め込まれた省略可能なパラメーターです。 "MapRoute()"メソッドの呼び出しに渡される 3 番目のパラメーターは、一連の既定値は URL に存在しないことに、コント ローラーとアクション/id 値に使用する (コント ローラー アクションで =「ホーム」、"Index"、Id = ="") です。
 
-以下は Url のさまざまな方法を示すテーブルが既定値を使用してマップされている"*/{コント ローラー}/{controller}/{id}"*ルート ルール。
+以下は Url のさまざまな方法を示すテーブルが既定値を使用してマップされている"<em>/{コント ローラー}/{controller}/{id}"</em>ルート ルール。
 
 | **URL** | **コント ローラー クラス** | **アクション メソッド** | **渡されたパラメーター** |
 | --- | --- | --- | --- |
-| */ディナー/詳細/2* | DinnersController | Details(id) | id = 2 |
-| */ディナー/編集/5* | DinnersController | Edit(id) | id = 5 |
-| */ディナー/作成* | DinnersController | Create() | N/A |
-| */ディナー* | DinnersController | Index() | N/A |
-| */ホーム* | テンプレートを使用します。 | Index() | N/A |
-| */* | テンプレートを使用します。 | Index() | N/A |
+| */Dinners/Details/2* | DinnersController | Details(id) | id=2 |
+| */Dinners/Edit/5* | DinnersController | Edit(id) | id=5 |
+| */Dinners/Create* | DinnersController | Create() | N/A |
+| */Dinners* | DinnersController | Index() | N/A |
+| */Home* | HomeController | Index() | N/A |
+| */* | HomeController | Index() | N/A |
 
 最後の 3 つの行が既定値を表示 (コント ローラー アクションで = ホーム、インデックス、Id = ="") 使用されています。 1 つ指定されていない場合に、既定のアクション名として"Index"メソッドが登録されているため、"/ディナー"、"/home"Url が Index() アクション メソッドのコント ローラー クラスで呼び出されます。 いずれかが指定されていない場合に既定のコント ローラーとして「ホーム」コント ローラーが登録されているため、「/」URL を作成するテンプレートを使用して、Index() アクション メソッドを呼び出すことで。
 
@@ -301,6 +301,6 @@ Html.ActionLink() ヘルパー メソッドの最初のパラメーターを表�
 
 みましょう CRUD (Create、Read、Update、Delete) データ形式のサポートを編集できるようになりました。
 
->[!div class="step-by-step"]
-[前へ](build-a-model-with-business-rule-validations.md)
-[次へ](provide-crud-create-read-update-delete-data-form-entry-support.md)
+> [!div class="step-by-step"]
+> [前へ](build-a-model-with-business-rule-validations.md)
+> [次へ](provide-crud-create-read-update-delete-data-form-entry-support.md)

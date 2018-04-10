@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/using-ajax-control-toolkit-controls-and-control-extenders-cs
-title: "AJAX コントロール Toolkit コントロールおよびコントロール エクステンダー (c#) を使用して |Microsoft ドキュメント"
+title: AJAX コントロール Toolkit コントロールおよびコントロール エクステンダー (c#) を使用して |Microsoft ドキュメント
 author: microsoft
-description: "ASP.NET ページにコントロールの AJAX コントロール ツールキットおよびエクステンダーを追加する方法を説明します。"
+description: ASP.NET ページにコントロールの AJAX コントロール ツールキットおよびエクステンダーを追加する方法を説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/using-ajax-control-toolkit-controls-and-control-extenders-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 42a210ac41e83e2379aa64979f42ce66c843f878
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3d7cea2452db01ca116849ffb17631db3b935668
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-ajax-control-toolkit-controls-and-control-extenders-c"></a>AJAX コントロール Toolkit コントロールおよびコントロール エクステンダー (c#) を使用してください。
 ====================
@@ -106,6 +106,6 @@ ConfirmButton コントロール エクステンダーを使用して次の手�
 
 1 つの ASP.NET コントロールは、複数のコントロール エクステンダーによって拡張できます。 拡張されるコントロールのプロパティ シートでは、コントロールに関連付けられたコントロール エクステンダーのすべてを一覧表示します。
 
->[!div class="step-by-step"]
-[前へ](get-started-with-the-ajax-control-toolkit-cs.md)
-[次へ](creating-a-custom-ajax-control-toolkit-control-extender-cs.md)
+> [!div class="step-by-step"]
+> [前へ](get-started-with-the-ajax-control-toolkit-cs.md)
+> [次へ](creating-a-custom-ajax-control-toolkit-control-extender-cs.md)

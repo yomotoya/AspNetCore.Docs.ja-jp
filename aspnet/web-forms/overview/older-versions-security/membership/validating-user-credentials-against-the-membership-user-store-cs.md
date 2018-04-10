@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
-title: "メンバーシップ ユーザーのストア (c#) に対してユーザーの資格情報の検証 |Microsoft ドキュメント"
+title: メンバーシップ ユーザーのストア (c#) に対してユーザーの資格情報の検証 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、プログラムによる方法と、ログイン コントロールの両方を使用して、メンバーシップ ユーザー ストアに対してユーザーの資格情報を検証する方法を検討しています."
+description: このチュートリアルでは、プログラムによる方法と、ログイン コントロールの両方を使用して、メンバーシップ ユーザー ストアに対してユーザーの資格情報を検証する方法を検討しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8f8f4db63ba8c1f1c1df7c1c5c1f92184bf6841d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 484a0f16265ee2d887ee08f6ae7ada47047f1f04
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-c"></a>メンバーシップ ユーザーのストア (c#) に対してユーザーの資格情報の検証
 ====================
@@ -39,9 +39,9 @@ ms.lasthandoff: 01/24/2018
 
 フォーム認証を使用する web サイトでは、ユーザー ログオン、web サイトにログイン ページにアクセスし、自分の資格情報を入力します。 これらの資格情報は、ユーザー ストアとし、比較されます。 有効な場合は、ユーザーは、セキュリティ トークンの id と、ユーザーの信頼性を示すのフォーム認証のチケットを許可します。
 
-メンバーシップ フレームワークに対してユーザーを検証するを使用して、`Membership`クラスの[`ValidateUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx)です。 `ValidateUser`メソッドは、2 つの入力パラメーターで使用 *`username`* と *`password`*  -資格情報が有効であるかどうかを示すブール値を返します。 使用するような`CreateUser`メソッドの前のチュートリアルで確認して、`ValidateUser`メソッドは、構成済みのメンバーシップ プロバイダーに実際の検証を代行します。
+メンバーシップ フレームワークに対してユーザーを検証するを使用して、`Membership`クラスの[`ValidateUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx)です。 `ValidateUser`メソッドは、2 つの入力パラメーターで使用*`username`*と*`password`* -資格情報が有効であるかどうかを示すブール値を返します。 使用するような`CreateUser`メソッドの前のチュートリアルで確認して、`ValidateUser`メソッドは、構成済みのメンバーシップ プロバイダーに実際の検証を代行します。
 
-`SqlMembershipProvider`経由で指定したユーザーのパスワードを取得することによって指定された資格情報を検証、`aspnet_Membership_GetPasswordWithFormat`ストアド プロシージャです。 注意してください、 `SqlMembershipProvider` 3 つの形式のいずれかを使用してユーザーのパスワードを格納します。 クリア、暗号化、またはハッシュします。 `aspnet_Membership_GetPasswordWithFormat`ストアド プロシージャは、その生の形式でパスワードを返します。 パスワードの暗号化またはハッシュされたパスワードの`SqlMembershipProvider`変換、  *`password`* に渡された値、`ValidateUser`暗号化をそれと同等のメソッド、または状態をハッシュされから返された結果と比較しますデータベースです。 データベースに格納されているパスワードには、ユーザーが入力した書式設定されたパスワードが一致すると、資格情報が無効です。
+`SqlMembershipProvider`経由で指定したユーザーのパスワードを取得することによって指定された資格情報を検証、`aspnet_Membership_GetPasswordWithFormat`ストアド プロシージャです。 注意してください、 `SqlMembershipProvider` 3 つの形式のいずれかを使用してユーザーのパスワードを格納します。 クリア、暗号化、またはハッシュします。 `aspnet_Membership_GetPasswordWithFormat`ストアド プロシージャは、その生の形式でパスワードを返します。 パスワードの暗号化またはハッシュされたパスワードの`SqlMembershipProvider`変換、 *`password`*に渡された値、`ValidateUser`暗号化をそれと同等のメソッド、または状態をハッシュされから返された結果と比較しますデータベースです。 データベースに格納されているパスワードには、ユーザーが入力した書式設定されたパスワードが一致すると、資格情報が無効です。
 
 それでは、ログイン ページを更新 (~/`Login.aspx`) メンバーシップ framework ユーザー ストアに対して指定された資格情報を検証するようにします。 このログイン ページを作成したに戻り、 <a id="Tutorial02"> </a> [*フォーム認証の概要を*](../introduction/an-overview-of-forms-authentication-cs.md)チュートリアルでは、ユーザー名とパスワードを 2 つのテキスト ボックスで、インターフェイスの作成、次回のため、チェック ボックスと [ログイン] ボタン (図 1 を参照してください)。 コードでは、(Scott/パスワード、Jisun/パスワード、および Sam/パスワード) は、ユーザー名とパスワードのペアのリストがハードコードに対して入力した資格情報を検証します。 <a id="Tutorial03"> </a> [*フォーム認証の構成と高度なトピック*](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md)フォームに追加情報を格納する、ログイン ページのコードに更新されたチュートリアル認証チケットの`UserData`プロパティです。
 
@@ -71,8 +71,8 @@ ms.lasthandoff: 01/24/2018
 
 このようなブルート フォース攻撃を防ぐためには、メンバーシップ フレームワークを一定期間内で失敗したログイン試行数がある場合、ユーザーをロックします。 正確なパラメーターは、次の 2 つのメンバーシップ プロバイダー構成設定で構成できます。
 
-- `maxInvalidPasswordAttempts`-無効なパスワードの数を指定します、アカウントがロックアウトされるまでの期間内のユーザーの試行が許可されます。既定値は 5 です。
-- `passwordAttemptWindow`-分を指定した無効なログイン試行数により、アカウントがロックアウトされるまでの時間を示します。既定値は 10 です。
+- `maxInvalidPasswordAttempts` -無効なパスワードの数を指定します、アカウントがロックアウトされるまでの期間内のユーザーの試行が許可されます。既定値は 5 です。
+- `passwordAttemptWindow` -分を指定した無効なログイン試行数により、アカウントがロックアウトされるまでの時間を示します。既定値は 10 です。
 
 ユーザーがロックアウトされている場合、管理者が自分のアカウントをロック解除まで彼女はログインできません。 ユーザーがロックアウトされた場合、`ValidateUser`メソッドは*常に*返す`false`場合でも、有効な資格情報を入力します。 この動作は、ブルート フォース メソッドによって、サイトにハッカーが中断される可能性が少なくなります、中には、有効なユーザー パスワードを忘れた単にまたは誤って、Capslock にまたは 1 日に無効な入力があるユーザーのロックアウトを終了できます。
 
@@ -110,10 +110,10 @@ ms.lasthandoff: 01/24/2018
 
 ログイン コントロールでは、次の 4 つの要因を使って、ユーザーをリダイレクトして、正常にログインを適切なページを決定します。
 
-- かどうか、ログイン コントロールが、ログイン ページで定義されている`loginUrl`この設定の既定値は、フォーム認証の構成の設定`Login.aspx`
+- かどうか、ログイン コントロールが、ログイン ページで定義されている`loginUrl`この設定の既定値は、フォーム認証の構成の設定 `Login.aspx`
 - 存在、 `ReturnUrl` querystring パラメーター
 - ログイン コントロールの値[`DestinationUrl`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
-- `defaultUrl`フォーム認証の構成設定に指定された値ですこの設定の既定値は。`Default.aspx`
+- `defaultUrl`フォーム認証の構成設定に指定された値ですこの設定の既定値は。 `Default.aspx`
 
 図 4 は、方法を示しています。 ログイン コントロールは、そのページの適切な意思決定に到着するこれら 4 つのパラメーターを使用します。
 
@@ -230,7 +230,7 @@ ms.lasthandoff: 01/24/2018
 
 ### <a name="determining-and-validating-the-supplied-credentials"></a>特定し、指定された資格情報を検証します。
 
-ログイン コントロールの使用[ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx)と[`Password`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx)をユーザーが入力したユーザー名とパスワードの資格情報を確認します。 その他の Web コントロールに入力された値を決定するために (など、 `Email`  ボックスに、前の手順で追加されました)、使用して *`LoginControlID`*  `.FindControl`(" *`controlID`* ") を取得するプログラムへの参照 Web コントロール テンプレートを持つ`ID`プロパティと等しい *`controlID`*です。 たとえばへの参照を取得するため、 `Email`  ボックスに、次のコードを使用します。
+ログイン コントロールの使用[ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx)と[`Password`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx)をユーザーが入力したユーザー名とパスワードの資格情報を確認します。 その他の Web コントロールに入力された値を決定するために (など、 `Email`  ボックスに、前の手順で追加されました)、使用して*`LoginControlID`* `.FindControl`("*`controlID`*") を取得するプログラムへの参照 Web コントロール テンプレートを持つ`ID`プロパティと等しい *`controlID`*です。 たとえばへの参照を取得するため、 `Email`  ボックスに、次のコードを使用します。
 
 `TextBox EmailTextBox = myLogin.FindControl("Email") as TextBox;`
 
@@ -310,12 +310,12 @@ ms.lasthandoff: 01/24/2018
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Teresa マーフィーおよび Michael Olivero がいました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[ mitchell@4GuysFromRolla.com](mailto:mitchell@4guysfromrolla.com)です。
 
->[!div class="step-by-step"]
-[前へ](creating-user-accounts-cs.md)
-[次へ](user-based-authorization-cs.md)
+> [!div class="step-by-step"]
+> [前へ](creating-user-accounts-cs.md)
+> [次へ](user-based-authorization-cs.md)

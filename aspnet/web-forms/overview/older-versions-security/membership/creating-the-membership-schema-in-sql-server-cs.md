@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs
-title: "SQL Server (c#) でのメンバーシップのスキーマの作成 |Microsoft ドキュメント"
+title: SQL Server (c#) でのメンバーシップのスキーマの作成 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルは、データベースに、SqlMembershipProvider を使用するために必要なスキーマを追加するための手法を調べることで開始します。 次に、お wi しています."
+description: このチュートリアルは、データベースに、SqlMembershipProvider を使用するために必要なスキーマを追加するための手法を調べることで開始します。 次に、お wi しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 38fc60b79a348ab198069a9a80a085e0dc4bcb88
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4fa0476ca8336b56340dd177f9816acbe015ef7d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-the-membership-schema-in-sql-server-c"></a>SQL Server (c#) でのメンバーシップのスキーマの作成
 ====================
@@ -158,9 +158,9 @@ SQL Server 2005 Express Edition のインスタンスに接続すると、Manage
 
 3 番目の手順は、データベースについては、メッセージが表示されます。 サーバー名、認証情報、およびデータベース名。 このチュートリアルに従ってされてし、追加されたかどうか、`SecurityTutorials.mdf`データベースを`App_Data`に接続されている`localhost\InstanceName`に、名前を変更`SecurityTutorialsDatabase`、以下の値を使用します。
 
-- サーバー:`localhost\InstanceName`
+- サーバー: `localhost\InstanceName`
 - Windows 認証
-- データベース:`SecurityTutorialsDatabase`
+- データベース: `SecurityTutorialsDatabase`
 
 
 [![データベース情報を入力します。](creating-the-membership-schema-in-sql-server-cs/_static/image26.png)](creating-the-membership-schema-in-sql-server-cs/_static/image25.png)
@@ -204,7 +204,7 @@ ASP.NET アプリケーションでのメンバーシップとロールのフレ
 **図 11**: ユーザー アカウントがするパーティション分割されているアプリケーション間で複数 ([フルサイズのイメージを表示するをクリックして](creating-the-membership-schema-in-sql-server-cs/_static/image33.png))
 
 
-`aspnet_Applications`テーブルは、これらのパーティションの定義内容。 ユーザー アカウント情報を格納するデータベースを使用する各アプリケーションは、このテーブルの行で表されます。 `aspnet_Applications`テーブルには 4 つの列: `ApplicationId`、 `ApplicationName`、 `LoweredApplicationName`、および`Description`です。 `ApplicationId`型は[ `uniqueidentifier` ](https://msdn.microsoft.com/library/ms187942.aspx)であり、テーブルの主キーです。`ApplicationName`アプリケーションごとに一意のわかりやすい名前を提供します。
+`aspnet_Applications`テーブルは、これらのパーティションの定義内容。 ユーザー アカウント情報を格納するデータベースを使用する各アプリケーションは、このテーブルの行で表されます。 `aspnet_Applications`テーブルには 4 つの列: `ApplicationId`、 `ApplicationName`、 `LoweredApplicationName`、および`Description`です。 `ApplicationId` 型は[ `uniqueidentifier` ](https://msdn.microsoft.com/library/ms187942.aspx)であり、テーブルの主キーです。`ApplicationName`アプリケーションごとに一意のわかりやすい名前を提供します。
 
 他のメンバーシップおよびロールに関連するテーブルがリンクに戻す、`ApplicationId`フィールドに`aspnet_Applications`です。 たとえば、`aspnet_Users`ユーザー アカウントごとにレコードを含むテーブルには、`ApplicationId`外部キー フィールド以外の ditto、`aspnet_Roles`テーブル。 `ApplicationId`ユーザー アカウントに、アプリケーション パーティションを指定するこれらのテーブル内のフィールドまたはロールが所属します。
 
@@ -216,7 +216,7 @@ ASP.NET アプリケーションでのメンバーシップとロールのフレ
 - `UserName`
 - `ApplicationId`
 
-`UserId`主キーである (型`uniqueidentifier`)。 `UserName`型は`nvarchar(256)`になり、パスワード、と共に、ユーザーの資格情報をします。 (ユーザーのパスワードに保存される、`aspnet_Membership`テーブルです)。`ApplicationId`で特定のアプリケーションにユーザー アカウントをリンク`aspnet_Applications`です。 ある複合[`UNIQUE`制約](https://msdn.microsoft.com/library/ms191166.aspx)上、`UserName`と`ApplicationId`列です。 こうことをアプリケーションで指定された各ユーザー名は一意でまだこれにより、同じを`UserName`別のアプリケーションに使用します。
+`UserId` 主キーである (型`uniqueidentifier`)。 `UserName` 型は`nvarchar(256)`になり、パスワード、と共に、ユーザーの資格情報をします。 (ユーザーのパスワードに保存される、`aspnet_Membership`テーブルです)。`ApplicationId`で特定のアプリケーションにユーザー アカウントをリンク`aspnet_Applications`です。 ある複合[`UNIQUE`制約](https://msdn.microsoft.com/library/ms191166.aspx)上、`UserName`と`ApplicationId`列です。 こうことをアプリケーションで指定された各ユーザー名は一意でまだこれにより、同じを`UserName`別のアプリケーションに使用します。
 
 `aspnet_Membership`テーブルには、ユーザーのパスワード、電子メール アドレス、最後のログイン日と時間、およびようなど、追加のユーザー アカウント情報が含まれています。 内のレコードは一対一で対応、`aspnet_Users`と`aspnet_Membership`テーブル。 このリレーションシップを保証、`UserId`フィールドに`aspnet_Membership`テーブルの主キーとして機能します。 同様に、`aspnet_Users`テーブル、`aspnet_Membership`が含まれています、`ApplicationId`特定のアプリケーション パーティションにこの情報に結合するフィールドです。
 
@@ -230,7 +230,7 @@ ASP.NET アプリケーションでのメンバーシップとロールのフレ
 
 使用されるパスワード ストレージ方法によって異なります、`SqlMembershipProvider`で指定された設定`Web.config`です。 カスタマイズを見ていきましょう、`SqlMembershipProvider`手順 4. で設定します。 既定の動作では、パスワードのハッシュを格納します。
 
-パスワードを格納する列は`Password`、 `PasswordFormat`、および`PasswordSalt`です。 `PasswordFormat`型のフィールドである`int`値を持つが、パスワードを格納するために使用される手法を示します。 オフの場合は 0 以外の場合は Hashed を 1 以外の場合は暗号化の 2 です。 `PasswordSalt`使用されていません。 パスワードの記憶域手法に関係なく、ランダムに生成された文字列が割り当てられています。値`PasswordSalt`はパスワードのハッシュを計算するときにのみ使用します。 最後に、`Password`列には、実際のパスワード データが含まれています。 を使用して、プレーン テキスト パスワード、パスワード、または暗号化されたパスワードのハッシュ。
+パスワードを格納する列は`Password`、 `PasswordFormat`、および`PasswordSalt`です。 `PasswordFormat` 型のフィールドである`int`値を持つが、パスワードを格納するために使用される手法を示します。 オフの場合は 0 以外の場合は Hashed を 1 以外の場合は暗号化の 2 です。 `PasswordSalt` 使用されていません。 パスワードの記憶域手法に関係なく、ランダムに生成された文字列が割り当てられています。値`PasswordSalt`はパスワードのハッシュを計算するときにのみ使用します。 最後に、`Password`列には、実際のパスワード データが含まれています。 を使用して、プレーン テキスト パスワード、パスワード、または暗号化されたパスワードのハッシュ。
 
 表 1 は、どのようなこれら 3 つの列のようになります、さまざまなストレージ技術の MySecret パスワードを格納する場合を示しています! である必要があります。
 
@@ -254,7 +254,7 @@ ASP.NET アプリケーションでのメンバーシップとロールのフレ
 - `RoleName`
 - `ApplicationId`
 
-`RoleId`主キーである (型`uniqueidentifier`)。 `RoleName` は `nvarchar(256)` 型です。 および`ApplicationId`で特定のアプリケーションにユーザー アカウントをリンク`aspnet_Applications`です。 ある複合`UNIQUE`の制約を`RoleName`と`ApplicationId`列、特定のアプリケーションで各ロール名が一意であることを確認します。
+`RoleId` 主キーである (型`uniqueidentifier`)。 `RoleName` は `nvarchar(256)` 型です。 および`ApplicationId`で特定のアプリケーションにユーザー アカウントをリンク`aspnet_Applications`です。 ある複合`UNIQUE`の制約を`RoleName`と`ApplicationId`列、特定のアプリケーションで各ロール名が一意であることを確認します。
 
 `aspnet_UsersInRoles`テーブルは、ユーザーおよびロールの間のマッピングとして機能します。 -2 つの列がある`UserId`と`RoleId`- し、一緒に複合主キーを構成します。
 
@@ -313,8 +313,8 @@ ASP.NET アプリケーションでのメンバーシップとロールのフレ
 
 アプリケーションのでは、メンバーシップ プロバイダー情報お指定しなかったかどうか`Web.config`ファイル、アプリケーションが登録されている既定のメンバーシップ プロバイダーを使用して`AspNetSqlMembershipProvider`です。 場合、`~/App_Data/aspnet.mdf`データベースが存在しないか、ASP.NET ランタイムが自動的に作成し、アプリケーションのサービス スキーマを追加します。 ただし、ここを使用しない、`aspnet.mdf`データベース; を使用する代わりに、`SecurityTutorials.mdf`手順 2. で作成したデータベースです。 この変更は、2 つの方法のいずれかで実行できます。
 
-- **値を指定、* * *`LocalSqlServer`* * * 接続文字列名に * * *`Web.config`* * *。** 上書きすることによって、`LocalSqlServer`の接続文字列名値`Web.config`は登録されている既定のメンバーシップ プロバイダーを使用することができます (`AspNetSqlMembershipProvider`) で正しく動作させることが、`SecurityTutorials.mdf`データベース。 この方法は、コンテンツで指定された構成設定を使用する場合は問題ありません。`AspNetSqlMembershipProvider`です。 この方法の詳細については、次を参照してください。 [Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ投稿「[を使用して SQL Server 2000 または SQL Server 2005 に ASP.NET 2.0 アプリケーション サービスを構成する](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx)です。
-- **型 * * * の場合は、新しい登録済みプロバイダーの追加`SqlMembershipProvider`* * * を構成して、* * *`connectionStringName`* * * をポイントする設定、* * *`SecurityTutorials.mdf`* * * データベース。** この方法は、データベース接続文字列だけでなく他の構成プロパティをカスタマイズする場合に便利です。 自分のプロジェクトでは常に、その柔軟性と読みやすさのためこの方法を使用します。
+- <strong>値を指定、</strong><strong>`LocalSqlServer`</strong><strong>での接続文字列名</strong><strong>`Web.config`</strong><strong>です。</strong> 上書きすることによって、`LocalSqlServer`の接続文字列名値`Web.config`は登録されている既定のメンバーシップ プロバイダーを使用することができます (`AspNetSqlMembershipProvider`) で正しく動作させることが、`SecurityTutorials.mdf`データベース。 この方法は、コンテンツで指定された構成設定を使用する場合は問題ありません。`AspNetSqlMembershipProvider`です。 この方法の詳細については、次を参照してください。 [Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ投稿「[を使用して SQL Server 2000 または SQL Server 2005 に ASP.NET 2.0 アプリケーション サービスを構成する](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx)です。
+- <strong>型の場合は、新しい登録済みプロバイダーの追加</strong><strong>`SqlMembershipProvider`</strong><strong>構成とその</strong><strong>`connectionStringName`</strong><strong>をポイントする設定</strong><strong>`SecurityTutorials.mdf`</strong><strong>データベース。</strong> この方法は、データベース接続文字列だけでなく他の構成プロパティをカスタマイズする場合に便利です。 自分のプロジェクトでは常に、その柔軟性と読みやすさのためこの方法を使用します。
 
 参照する新しい登録済みのプロバイダーを追加する、`SecurityTutorials.mdf`データベース、まず必要がありますに適切な接続文字列の値を追加する、 `<connectionStrings>` 」の「`Web.config`です。 次のマークアップがという名前の新しい接続文字列を追加`SecurityTutorialsConnectionString`を参照する SQL Server 2005 Express Edition`SecurityTutorials.mdf`データベースに格納されて、`App_Data`フォルダーです。
 
@@ -357,7 +357,7 @@ ASP.NET アプリケーションでのメンバーシップとロールのフレ
 - [`<membership>`要素](https://msdn.microsoft.com/library/1b9hw62f.aspx)
 - [`<providers>`メンバーシップ要素](https://msdn.microsoft.com/library/6d4936ht.aspx)
 - [使用して`<clear />`プロバイダーを追加する場合に](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx)
-- [直接操作します`SqlMembershipProvider`](http://aspnet.4guysfromrolla.com/articles/091207-1.aspx)
+- [直接操作します `SqlMembershipProvider`](http://aspnet.4guysfromrolla.com/articles/091207-1.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>このチュートリアルに含まれるトピックに関するビデオ トレーニング
 
@@ -367,11 +367,11 @@ ASP.NET アプリケーションでのメンバーシップとロールのフレ
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Alicja Maziarz しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[ mitchell@4GuysFromRolla.com](mailto:mitchell@4guysfromrolla.com)です。
 
->[!div class="step-by-step"]
-[次へ](creating-user-accounts-cs.md)
+> [!div class="step-by-step"]
+> [次へ](creating-user-accounts-cs.md)

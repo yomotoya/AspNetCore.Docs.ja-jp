@@ -31,7 +31,7 @@ ms.lasthandoff: 04/06/2018
 > 
 >   
 > 
-> この記事は Youngjune 香港、Rick Anderson によって書き込まれました ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )
+> この記事は Youngjune 香港特別行政区、Rick Anderson によって書き込まれました ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )
 
 
 ## <a name="upgrade-steps"></a>アップグレードの手順

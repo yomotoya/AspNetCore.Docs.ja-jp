@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs
-title: "大量のデータ (c#) を効率的にページング |Microsoft ドキュメント"
+title: 大量のデータ (c#) を効率的にページング |Microsoft ドキュメント
 author: rick-anderson
-description: "大量のデータ、その基になるデータ ソース コントロール retriev として使用するときに、データのプレゼンテーション コントロールの既定のページング オプションは適していません."
+description: 大量のデータ、その基になるデータ ソース コントロール retriev として使用するときに、データのプレゼンテーション コントロールの既定のページング オプションは適していません.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ac16cc79f2ed6b62bf676553a374180cd0165632
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ea1fd06f8eb7c53c3e9e7fb10c46974eb2af2acd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="efficiently-paging-through-large-amounts-of-data-c"></a>効率的に大量のデータ (c#) のページング
 ====================
@@ -122,9 +122,9 @@ DAL と行の開始インデックスを受け入れる BLL でメソッドを�
 - **SQL Server 2005 の s を使用して`ROW_NUMBER()`キーワード**を初めて使用する SQL Server 2005、`ROW_NUMBER()`キーワードは、一部の順序に基づいて返される各レコードを順位付けを関連付けます。 この順位付けは、各行の行のインデックスとして使用できます。
 - **テーブル変数を使用して、 `SET ROWCOUNT`**  SQL Server s [ `SET ROWCOUNT`ステートメント](https://msdn.microsoft.com/library/ms188774.aspx)合計レコードの数です終了する前に、クエリを処理する必要がありますを指定するために使用する。[テーブル変数](http://www.sqlteam.com/item.asp?ItemID=9454)akin を表形式のデータを保持できるローカルの T-SQL 変数[一時テーブル](http://www.sqlteam.com/item.asp?ItemID=2029)です。 このアプローチは均等に Microsoft SQL Server 2005 および SQL Server 2000 の両方 (一方、`ROW_NUMBER()`アプローチは、SQL Server 2005 でのみ機能)。  
   
- 持つテーブル変数を作成するという考え方です、`IDENTITY`列とデータを介してページングされるテーブルの主キーの列です。 これにより、連続する行のインデックスを関連付け、テーブル変数にデータを介してページングされるテーブルの内容をダンプする次に、(を使用して、`IDENTITY`列)、テーブル内の各レコード。 テーブル変数の読み込みが完了した後、`SELECT`のステートメントに、テーブル変数で、特定のレコードをプルする基になるテーブルと結合を実行できます。 `SET ROWCOUNT`インテリジェントなテーブル変数にダンプする必要があるレコードの数を制限するステートメントを使用します。  
+  持つテーブル変数を作成するという考え方です、`IDENTITY`列とデータを介してページングされるテーブルの主キーの列です。 これにより、連続する行のインデックスを関連付け、テーブル変数にデータを介してページングされるテーブルの内容をダンプする次に、(を使用して、`IDENTITY`列)、テーブル内の各レコード。 テーブル変数の読み込みが完了した後、`SELECT`のステートメントに、テーブル変数で、特定のレコードをプルする基になるテーブルと結合を実行できます。 `SET ROWCOUNT`インテリジェントなテーブル変数にダンプする必要があるレコードの数を制限するステートメントを使用します。  
   
- このアプローチの効率性が要求されているページ数に基づくとして、`SET ROWCOUNT`値には、開始行のインデックスと行の最大数の値が割り当てられます。 データのいくつかのページなど、最初のページの番号付きの低をページングするとき、この方法は非常に効率的です。 ただし、末尾付近のページを取得するときに、既定値のページングのようなパフォーマンスが発生します。
+  このアプローチの効率性が要求されているページ数に基づくとして、`SET ROWCOUNT`値には、開始行のインデックスと行の最大数の値が割り当てられます。 データのいくつかのページなど、最初のページの番号付きの低をページングするとき、この方法は非常に効率的です。 ただし、末尾付近のページを取得するときに、既定値のページングのようなパフォーマンスが発生します。
 
 このチュートリアルでは、カスタム ページングを使用して実装する、`ROW_NUMBER()`キーワード。 テーブル変数を使用する方法について、`SET ROWCOUNT`手法を参照してください[A 詳細を効率的に大きな結果セットからページング](http://www.4guysfromrolla.com/webtech/042606-1.shtml)です。
 
@@ -133,7 +133,7 @@ DAL と行の開始インデックスを受け入れる BLL でメソッドを�
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample3.sql)]
 
-`ROW_NUMBER()`指定された順序に関しては、各レコードのランクを指定する数値を返します。 たとえば、製品ごとの多い順にランクを表示する、最小限のコストを使用できます、次のクエリ。
+`ROW_NUMBER()` 指定された順序に関しては、各レコードのランクを指定する数値を返します。 たとえば、製品ごとの多い順にランクを表示する、最小限のコストを使用できます、次のクエリ。
 
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample4.sql)]
@@ -147,7 +147,7 @@ DAL と行の開始インデックスを受け入れる BLL でメソッドを�
 
 
 > [!NOTE]
-> `ROW_NUMBER()`多くの新しい順位付け関数の 1 つは SQL Server 2005 で使用できます。 詳細については`ROW_NUMBER()`、他の順位付け関数と共に読み取り[Microsoft SQL Server 2005 で順位付けされた結果を返す](http://www.4guysfromrolla.com/webtech/010406-1.shtml)です。
+> `ROW_NUMBER()` 多くの新しい順位付け関数の 1 つは SQL Server 2005 で使用できます。 詳細については`ROW_NUMBER()`、他の順位付け関数と共に読み取り[Microsoft SQL Server 2005 で順位付けされた結果を返す](http://www.4guysfromrolla.com/webtech/010406-1.shtml)です。
 
 
 指定した結果を順位付けと`ORDER BY`内の列、`OVER`句 (`UnitPrice`、上記の例では)、SQL Server は、結果を並べ替える必要があります。 これは、結果されている順に並べ替え、列にクラスター化インデックスがある場合は、クイック操作または、カバリングがあるかどうか、インデックスでもかまいません高額それ以外の場合。 十分な大きさのクエリのパフォーマンスを向上させるには、これによって、結果は並べ 列の非クラスター化インデックスを追加することを検討してください。 参照してください[SQL Server 2005 でのパフォーマンスと順位付け関数](http://www.sql-server-performance.com/ak_ranking_functions.asp)パフォーマンスに関する考慮事項の詳細を把握します。
@@ -163,7 +163,7 @@ DAL と行の開始インデックスを受け入れる BLL でメソッドを�
 [!code-html[Main](efficiently-paging-through-large-amounts-of-data-cs/samples/sample6.html)]
 
 > [!NOTE]
-> 紹介するように後でこのチュートリアルでは、  *`StartRowIndex`* によって提供される、ObjectDataSource のインデックスは 0 から始まる一方、 `ROW_NUMBER()` SQL Server 2005 によって返される値は 1 から始まるインデックスします。 そのため、`WHERE`句は、これらのレコードを返します場所`PriceRank`がより厳密に大きい *`StartRowIndex`* 以下と等しい *`StartRowIndex`*   + *`MaximumRows`*.
+> 紹介するように後でこのチュートリアルでは、 *`StartRowIndex`*によって提供される、ObjectDataSource のインデックスは 0 から始まる一方、 `ROW_NUMBER()` SQL Server 2005 によって返される値は 1 から始まるインデックスします。 そのため、`WHERE`句は、これらのレコードを返します場所`PriceRank`がより厳密に大きい*`StartRowIndex`*以下と等しい*`StartRowIndex`*  + *`MaximumRows`*.
 
 
 これまで方法を説明してきた`ROW_NUMBER()`できます、開始行のインデックスと行の最大数の値を指定されたデータの特定のページを取得するために使用、今すぐいただくために DAL BLL 内のメソッドとしてこのロジックを実装します。
@@ -188,7 +188,7 @@ DAL と行の開始インデックスを受け入れる BLL でメソッドを�
 
 ![値を入力して、@startRowIndexと@maximumRowsパラメーター](efficiently-paging-through-large-amounts-of-data-cs/_static/image7.png)
 
-**図 7**: の値を入力して、@startRowIndexと@maximumRowsパラメーター
+<strong>図 7</strong>: の値を入力して、@startRowIndexと@maximumRowsパラメーター
 
 
 後のパラメーターの値を入力してこれらの選択、結果を出力ウィンドウが表示されます。 図 8 の両方を 10 に渡すときに結果を示しています、`@startRowIndex`と`@maximumRows`パラメーター。
@@ -276,9 +276,9 @@ GridView は、ObjectDataSource は両方の値として 0 を現在使用され
 この問題を解決するには、カスタム ページングを使用して、ObjectDataSource を構成する必要があります。 これは、次の手順で実行できます。
 
 1. **集合 ObjectDataSource s`EnablePaging`プロパティを`true`**に渡す必要があります、ObjectDataSource にこれを示します、 `SelectMethod` 2 つのパラメーター: 行の開始インデックスを指定する 1 つ ([ `StartRowIndexParameterName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.startrowindexparametername.aspx))、および行の最大数を指定する 1 つ ([`MaximumRowsParameterName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.maximumrowsparametername.aspx))。
-2. **集合 ObjectDataSource s`StartRowIndexParameterName`と`MaximumRowsParameterName`プロパティに応じて**、`StartRowIndexParameterName`と`MaximumRowsParameterName`に渡される入力パラメーターの名前を指定するプロパティ、`SelectMethod`用カスタム ページング. これらのパラメーター名は、既定では、`startIndexRow`と`maximumRows`、これは、理由を作成するとき、`GetProductsPaged`メソッド、BLL では入力パラメーターのこれらの値を使用しました。 BLL s のさまざまなパラメーター名を使用する場合`GetProductsPaged`などのメソッド`startIndex`と`maxRows`にする必要がありますの例は、ObjectDataSource s を設定、`StartRowIndexParameterName`と`MaximumRowsParameterName`プロパティに応じて (などの startIndex`StartRowIndexParameterName`およびの maxRows `MaximumRowsParameterName`)。
+2. **ObjectDataSource s を設定`StartRowIndexParameterName`と`MaximumRowsParameterName`プロパティに応じて**、`StartRowIndexParameterName`と`MaximumRowsParameterName`プロパティに渡される入力パラメーターの名前を示す、`SelectMethod`用カスタム ページングします。 これらのパラメーター名は、既定では、`startIndexRow`と`maximumRows`、これは、理由を作成するとき、`GetProductsPaged`メソッド、BLL では入力パラメーターのこれらの値を使用しました。 BLL s のさまざまなパラメーター名を使用する場合`GetProductsPaged`などのメソッド`startIndex`と`maxRows`にする必要がありますの例は、ObjectDataSource s を設定、`StartRowIndexParameterName`と`MaximumRowsParameterName`プロパティに応じて (などの startIndex`StartRowIndexParameterName`およびの maxRows `MaximumRowsParameterName`)。
 3. **集合 ObjectDataSource s [ `SelectCountMethod`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selectcountmethod(VS.80).aspx)を合計数のレコードされているページを返すメソッドの名前に (`TotalNumberOfProducts`)**ことに注意してください、`ProductsBLL`クラスの`TotalNumberOfProducts`メソッドを実行する DAL メソッドを使用してページングされるレコードの合計数を返します、`SELECT COUNT(*) FROM Products`クエリ。 この情報には、正しくページング インターフェイスを表示するために、ObjectDataSource が必要です。
-4. **削除、`startRowIndex`と`maximumRows` `<asp:Parameter>` ObjectDataSource s 宣言型マークアップから要素**ウィザード、ObjectDataSource を構成するには、Visual Studio に自動的に追加 2 `<asp:Parameter>`要素、`GetProductsPaged`のメソッドの入力パラメーターです。 設定して`EnablePaging`に`true`、これらのパラメーターが自動的に渡されます;、ObjectDataSource を渡そうとして表示される場合も宣言の構文では、 *4*パラメーターを`GetProductsPaged`メソッド2 つのパラメーターと、`TotalNumberOfProducts`メソッドです。 これらを削除するを忘れた場合`<asp:Parameter>`などのエラー メッセージが表示されます、ブラウザーからページを訪問すると、要素: *ObjectDataSource 'ObjectDataSource1' は、非ジェネリック メソッドの 'TotalNumberOfProducts' を持つを特定できませんでしたパラメーター: startRowIndex、maximumRows*です。
+4. **削除、`startRowIndex`と`maximumRows` `<asp:Parameter>` ObjectDataSource s 宣言型マークアップから要素**ウィザード、ObjectDataSource を構成するには、Visual Studio に自動的に追加 2`<asp:Parameter>`要素`GetProductsPaged`のメソッドの入力パラメーターです。 設定して`EnablePaging`に`true`、これらのパラメーターが自動的に渡されます;、ObjectDataSource を渡そうとして表示される場合も宣言の構文では、 *4*パラメーターを`GetProductsPaged`メソッド2 つのパラメーターと、`TotalNumberOfProducts`メソッドです。 これらを削除するを忘れた場合`<asp:Parameter>`などのエラー メッセージが表示されます、ブラウザーからページを訪問すると、要素: *ObjectDataSource 'ObjectDataSource1' は、非ジェネリック メソッドの 'TotalNumberOfProducts' を持つを特定できませんでしたパラメーター: startRowIndex、maximumRows*です。
 
 これらの変更を加えたら、ObjectDataSource s の宣言構文は次のようになります。
 
@@ -326,7 +326,7 @@ GridView は、ObjectDataSource は両方の値として 0 を現在使用され
 削除すると、最後の製品、GridView*必要があります*8 番目のページに自動的に移動し、このような機能が既定のページングと発生します。 カスタム ページングは、ただし、最後のページの最終製品を削除した後 GridView 単に表示されなくなります画面から完全。 正確な理由*理由*ビットは扱いませんが、このチュートリアルは行われるこれを参照してください[カスタム ページング GridView から最後のページには、最後のレコードを削除する](http://scottonwriting.net/sowblog/posts/7326.aspx)詳細については、低レベルのソースについてこの問題。 要約すると、[削除] ボタンがクリックされたときに、GridView によって実行されるステップの次のシーケンスがあるため s:
 
 1. レコードを削除します。
-2. 指定した表示する適切なレコードを取得`PageIndex`と`PageSize`
+2. 指定した表示する適切なレコードを取得`PageIndex`と `PageSize`
 3. 確認、 `PageIndex` GridView s を減分は、自動的に場合、データ ソース内のデータのページの数を超えない`PageIndex`プロパティ
 4. 手順 2. で取得されたレコードを使用した GridView に、適切なページのデータをバインドします。
 
@@ -377,8 +377,8 @@ GridView は、ObjectDataSource は両方の値として 0 を現在使用され
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[前へ](paging-and-sorting-report-data-cs.md)
-[次へ](sorting-custom-paged-data-cs.md)
+> [!div class="step-by-step"]
+> [前へ](paging-and-sorting-report-data-cs.md)
+> [次へ](sorting-custom-paged-data-cs.md)
