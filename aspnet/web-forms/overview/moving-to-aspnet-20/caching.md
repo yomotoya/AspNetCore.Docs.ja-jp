@@ -16,7 +16,7 @@ ms.openlocfilehash: 90faaae75cc85585efa05e6e50eabe8c990d076e
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="caching"></a>キャッシュ
 ====================
@@ -186,7 +186,7 @@ SQL Server 2005 を SQL キャッシュ依存関係を使用する場合、ポ�
 
 ASP.NET の代替コントロールでは、キャッシュされたのではなく、動的に作成がキャッシュされたページのセクションを指定します。 動的なコンテンツを表示するページ上の場所には、代替コントロールを配置します。 実行時に、代替コントロールは、MethodName プロパティで指定するメソッドを呼び出します。 メソッドは、代替コントロールの内容を置き換える文字列を返す必要があります。 メソッドは、含む Page または UserControl のコントロールの静的メソッドである必要があります。 Substitution コントロールを使用すると、サーバーのキャッシュに変更するクライアント側のキャッシュ ページは、クライアントではキャッシュされません。 これにより、ページを今後の要求が動的コンテンツを生成するためのメソッドを呼び出すことです。
 
-### <a name="substitution-api"></a>代替 API
+### <a name="substitution-api"></a>Substitution API
 
 キャッシュされたページの動的なコンテンツをプログラムで作成するに呼び出せる、 [WriteSubstitution](https://msdn.microsoft.com/library/system.web.httpresponse.writesubstitution.aspx)メソッド ページ コードでメソッドの名前をパラメーターとして渡します。 動的なコンテンツの作成を処理するメソッドは、1 つ[HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)パラメーター文字列を返します。 返される文字列は、指定された場所に置換されるコンテンツです。 Substitution コントロールを宣言して使用する代わりに WriteSubstitution メソッドを呼び出すことの利点は、ことは、ページまたは UserControl オブジェクトの静的メソッドを呼び出すのではなく、任意のオブジェクトのメソッドを呼び出すことができます。
 

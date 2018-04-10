@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/releases/mvc51-release-notes
-title: "ASP.NET MVC 5.1 の新機能 |Microsoft ドキュメント"
+title: ASP.NET MVC 5.1 の新機能 |Microsoft ドキュメント
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/releases/mvc51-release-notes
 msc.type: authoredcontent
 ms.openlocfilehash: be10486c9fd39738f44cdda4fedb409058017601
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/10/2018
 ---
 <a name="whats-new-in-aspnet-mvc-51"></a>ASP.NET MVC 5.1 の新機能
 ====================
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/10/2017
 <a id="documentation"></a>
 ## <a name="documentation"></a>ドキュメント
 
-チュートリアルおよび ASP.NET MVC 5.1 の RTM に関する他の情報は、ASP.NET web サイト (https://www.asp.net) から入手できます。 
+チュートリアルと ASP.NET MVC 5.1 の RTM に関する他の情報は、ASP.NET web サイトから使用可能な (https://www.asp.net)です。 
 
 <a id="new-features"></a>
 ## <a name="new-features-in-aspnet-mvc-51"></a>ASP.NET MVC 5.1 の新機能
@@ -84,7 +84,7 @@ ms.lasthandoff: 11/10/2017
 
 HTML 属性で渡すことを許可おようになりました[EditorFor](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.editorextensions.editorfor(v=vs.100).aspx)として、[匿名オブジェクト](https://msdn.microsoft.com/en-us/library/bb397696.aspx)です。
 
-例:
+例えば:
 
 [!code-cshtml[Main](mvc51-release-notes/samples/sample3.cshtml)]
 
@@ -98,7 +98,7 @@ HTML 属性で渡すことを許可おようになりました[EditorFor](https:
 
 ### <a name="supporting-the-this-context-in-unobtrusive-ajax"></a>控えめな Ajax での 'this' コンテキストのサポート
 
-コールバック関数 (`OnBegin, OnComplete, OnFailure, OnSuccess`) を使用して呼び出し元の要素を検索することができます、`this`コンテキスト。 例:
+コールバック関数 (`OnBegin, OnComplete, OnFailure, OnSuccess`) を使用して呼び出し元の要素を検索することができます、`this`コンテキスト。 例えば:
 
 [!code-html[Main](mvc51-release-notes/samples/sample4.html)]
 

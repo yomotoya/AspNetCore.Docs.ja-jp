@@ -16,7 +16,7 @@ ms.openlocfilehash: 977a6b5a84825ebd087752dcc2ebc0c5410e1657
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 の新機能
 
@@ -927,7 +927,7 @@ IPhone のシミュレートされたデバイスでは、サイトを実行す�
     *WebMatrix 拡張機能の参照*
 4. パッケージの詳細 をクリックして**インストール**拡張機能のインストールを続行します。
 
-    ![iPhone シミュレーター拡張子](whats-new-in-aspnet-mvc-4/_static/image55.png "iPhone シミュレーターの拡張機能")
+    ![iPhone Simulator extension](whats-new-in-aspnet-mvc-4/_static/image55.png "iPhone Simulator extension")
 
     *iPhone シミュレーターの拡張機能*
 5. 読み取りおよび拡張機能の使用許諾契約書に同意します。

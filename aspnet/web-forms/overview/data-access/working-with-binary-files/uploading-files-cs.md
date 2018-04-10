@@ -16,7 +16,7 @@ ms.openlocfilehash: 3c758e94311817d01b17d27083733f805caf600f
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="uploading-files-c"></a>ファイルのアップロード (c#)
 ====================
@@ -110,7 +110,7 @@ ms.lasthandoff: 04/06/2018
 
 現在、Categories テーブルが 4 つだけの列: `CategoryID`、 `CategoryName`、 `Description`、および`Picture`です。 これらのフィールドだけでなく (存在する場合は、カテゴリのパンフレットをポイントするか、新しいを追加する必要があります。 この列を追加するには、サーバー エクスプ ローラーにドリル ダウンするにはテーブルを右クリックを参照してください、`Categories`テーブルし、テーブル定義を開く (図 5 を参照してください)。 サーバー エクスプ ローラーが表示されない場合は、[表示] メニューからサーバー エクスプ ローラーのオプションを選択して表示または Ctrl + Alt + S をヒットします。
 
-新しい`varchar(200)`列を`Categories`という名前のテーブル`BrochurePath`でき、 `NULL` s と保存 アイコンをクリックして (または Ctrl キーを押しながら S キーを押して)。
+新しい`varchar(200)`列を`Categories`という名前のテーブル`BrochurePath`でき、 `NULL` s と保存] アイコンをクリックして (または Ctrl キーを押しながら S キーを押して)。
 
 
 [![Categories テーブルに BrochurePath 列を追加します。](uploading-files-cs/_static/image5.gif)](uploading-files-cs/_static/image5.png)
@@ -132,7 +132,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="adding-thepictureandbrochurepathdatacolumn-s"></a>追加する、`Picture`と`BrochurePath``DataColumn`s
 
-これら 2 つの列を追加して、開始、`CategoriesDataTable`です。 右クリックし、`CategoriesDataTable`のヘッダーのコンテキスト メニューの 追加と Column オプションを選択します。 これは、新しい作成`DataColumn`という名前の DataTable に`Column1`です。 この列の名前を変更`Picture`です。 [プロパティ] ウィンドウから次のように設定します。、 `DataColumn` s`DataType`プロパティを`System.Byte[]`(これは、ドロップダウン リストのオプションではありません; に入力する必要があります)。
+これら 2 つの列を追加して、開始、`CategoriesDataTable`です。 右クリックし、`CategoriesDataTable`のヘッダーのコンテキスト メニューの [追加と Column オプションを選択します。 これは、新しい作成`DataColumn`という名前の DataTable に`Column1`です。 この列の名前を変更`Picture`です。 [プロパティ] ウィンドウから次のように設定します。、 `DataColumn` s`DataType`プロパティを`System.Byte[]`(これは、ドロップダウン リストのオプションではありません; に入力する必要があります)。
 
 
 [![データ型を持つは system.byte[] DataColumn という名前の画像を作成します。](uploading-files-cs/_static/image6.gif)](uploading-files-cs/_static/image7.png)
@@ -154,7 +154,7 @@ TableAdapter のメインのクエリを更新するを右クリックし、`Cat
 **図 7**: で列リストを更新、`SELECT`ステートメントを返すことも`BrochurePath`([フルサイズのイメージを表示するをクリックして](uploading-files-cs/_static/image10.png))
 
 
-Tableadapter をアドホック SQL ステートメントを使用する場合は、すべての列リストを更新、メインのクエリで列リストを更新、`SELECT`クエリは TableAdapter のメソッドです。 つまり、`GetCategoryByCategoryID(categoryID)`を返すメソッドが更新されて、`BrochurePath`列で、意図したと場合があります。 ただし、これも更新で列リスト、`GetCategoriesAndNumberOfProducts()`を各カテゴリの製品の数を返すサブクエリを削除するメソッドです。 そのため、このメソッドを更新する必要があります`SELECT`クエリ。 右クリックし、`GetCategoriesAndNumberOfProducts()`メソッドを構成 を選択し、元に戻す、`SELECT`元の値に戻すクエリ。
+Tableadapter をアドホック SQL ステートメントを使用する場合は、すべての列リストを更新、メインのクエリで列リストを更新、`SELECT`クエリは TableAdapter のメソッドです。 つまり、`GetCategoryByCategoryID(categoryID)`を返すメソッドが更新されて、`BrochurePath`列で、意図したと場合があります。 ただし、これも更新で列リスト、`GetCategoriesAndNumberOfProducts()`を各カテゴリの製品の数を返すサブクエリを削除するメソッドです。 そのため、このメソッドを更新する必要があります`SELECT`クエリ。 右クリックし、`GetCategoriesAndNumberOfProducts()`メソッドを構成] を選択し、元に戻す、`SELECT`元の値に戻すクエリ。
 
 
 [!code-sql[Main](uploading-files-cs/samples/sample2.sql)]
@@ -210,9 +210,9 @@ Tableadapter をアドホック SQL ステートメントを使用する場合�
 
 バイナリ データを収集するときに多くの場合このデータは、エンドユーザーが提供されます。 この情報をキャプチャするには、ユーザーを自分のコンピューターから web サーバーへのファイルをアップロードできる必要があります。 アップロードされたデータは、web サーバーのファイル システムと、データベース内のファイルへのパスの追加またはデータベースに直接バイナリの内容の書き込みにファイルの保存を意味する可能性がありますデータ モデルと統合する必要があります。 このステップでは、ユーザーが各自のコンピューターからサーバーへのファイルをアップロードできるようにする方法を紹介します。 次のチュートリアルでアップロードされたファイルをデータ モデルと統合することに注目有効にします。
 
-ASP.NET 2.0 s 新しい[ファイルアップロード Web コントロール](https://msdn.microsoft.com/library/ms227677(VS.80).aspx)ユーザーは各自のコンピューターから web サーバーにファイルを送信するためのメカニズムを提供します。 ファイルアップロード コントロールとして表示、`<input>`要素が`type`ファイルで、ブラウザーの [参照] ボタンとテキスト ボックスとして表示する属性を設定します。 参照 ボタンをクリックすると、ユーザーがファイルを選択 ダイアログ ボックスが表示されます。 フォームがポストバック時に、選択したファイルの内容がポストバックと共に送信されます。 サーバー側でアップロードされたファイルに関する情報はファイルアップロード コントロールのプロパティを使用してアクセスします。
+ASP.NET 2.0 s 新しい[ファイルアップロード Web コントロール](https://msdn.microsoft.com/library/ms227677(VS.80).aspx)ユーザーは各自のコンピューターから web サーバーにファイルを送信するためのメカニズムを提供します。 ファイルアップロード コントロールとして表示、`<input>`要素が`type`ファイルで、ブラウザーの [参照] ボタンとテキスト ボックスとして表示する属性を設定します。 [参照] ボタンをクリックすると、ユーザーがファイルを選択] ダイアログ ボックスが表示されます。 フォームがポストバック時に、選択したファイルの内容がポストバックと共に送信されます。 サーバー側でアップロードされたファイルに関する情報はファイルアップロード コントロールのプロパティを使用してアクセスします。
 
-ファイルのアップロードを示すためには、開く、 `FileUpload.aspx`  ページで、`BinaryData`フォルダーがファイルアップロード コントロールをツールボックスからデザイナーにドラッグし、制御 s を設定`ID`プロパティを`UploadTest`です。 Button Web コントロールの設定を次に、追加の`ID`と`Text`プロパティ`UploadButton`とそれぞれに選択されたファイルをアップロードします。 最後に、クリア、ボタンの下にラベル Web コントロールを配置、`Text`プロパティとその`ID`プロパティを`UploadDetails`です。
+ファイルのアップロードを示すためには、開く、 `FileUpload.aspx` ] ページで、`BinaryData`フォルダーがファイルアップロード コントロールをツールボックスからデザイナーにドラッグし、制御 s を設定`ID`プロパティを`UploadTest`です。 Button Web コントロールの設定を次に、追加の`ID`と`Text`プロパティ`UploadButton`とそれぞれに選択されたファイルをアップロードします。 最後に、クリア、ボタンの下にラベル Web コントロールを配置、`Text`プロパティとその`ID`プロパティを`UploadDetails`です。
 
 
 [![ASP.NET ページにファイルアップロード コントロールを追加します。](uploading-files-cs/_static/image12.gif)](uploading-files-cs/_static/image17.png)
@@ -220,7 +220,7 @@ ASP.NET 2.0 s 新しい[ファイルアップロード Web コントロール](h
 **図 12**: ファイルアップロード コントロール、ASP.NET ページを追加 ([フルサイズのイメージを表示するをクリックして](uploading-files-cs/_static/image18.png))
 
 
-図 13 では、ブラウザーで表示したときに、このページを示します。 ファイルの選択 ダイアログ ボックスを表示、参照ボタンをクリックすると、ユーザーが各自のコンピューターからファイルを選択できるようにするに注意してください。 ファイルを選択するは、web サーバーに、選択したファイル %s のバイナリ コンテンツを送信するポストバックを発生させる、選択したファイルのアップロード ボタンをクリックします。
+図 13 では、ブラウザーで表示したときに、このページを示します。 ファイルの選択] ダイアログ ボックスを表示、参照ボタンをクリックすると、ユーザーが各自のコンピューターからファイルを選択できるようにするに注意してください。 ファイルを選択するは、web サーバーに、選択したファイル %s のバイナリ コンテンツを送信するポストバックを発生させる、選択したファイルのアップロード] ボタンをクリックします。
 
 
 [![ユーザーが自分のコンピューターからサーバーにアップロードするファイルを選択できます。](uploading-files-cs/_static/image13.gif)](uploading-files-cs/_static/image19.png)
@@ -241,7 +241,7 @@ ASP.NET 2.0 s 新しい[ファイルアップロード Web コントロール](h
 
 ファイルアップロード s`SaveAs(filePath)`を指定されたアップロードされたファイルを保存*filePath*です。 *filePath*する必要があります、*物理パス*(`C:\Websites\Brochures\SomeFile.pdf`) ではなく、*仮想**パス*(`/Brochures/SomeFile.pdf`)。 [ `Server.MapPath(virtPath)`メソッド](https://msdn.microsoft.com/library/system.web.httpserverutility.mappath.aspx)仮想パスを受け取り、対応する物理パスを返します。 仮想パスは、ここでは、`~/Brochures/fileName`ここで、 *fileName*アップロードされたファイルの名前を指定します。 参照してください[を使用して Server.MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml)仮想および物理パスと使用に関する詳細について`Server.MapPath`です。
 
-完了した後、`Click`イベント ハンドラーでは、ブラウザーでページをテストします。 参照 ボタンをクリックして、ハード ドライブからファイルを選択し、選択したファイルのアップロード ボタンをクリックします。 ポストバックは、web サーバーに保存する前に、ファイルの情報が表示されますを選択したファイルの内容を送信、`~/Brochures`フォルダーです。 アップロードした後、ファイル、Visual Studio に戻り、およびソリューション エクスプ ローラーで [更新] ボタンをクリックします。 ~/Brochures フォルダーにアップロードしたファイルを参照してください!
+完了した後、`Click`イベント ハンドラーでは、ブラウザーでページをテストします。 [参照] ボタンをクリックして、ハード ドライブからファイルを選択し、選択したファイルのアップロード] ボタンをクリックします。 ポストバックは、web サーバーに保存する前に、ファイルの情報が表示されますを選択したファイルの内容を送信、`~/Brochures`フォルダーです。 アップロードした後、ファイル、Visual Studio に戻り、およびソリューション エクスプ ローラーで [更新] ボタンをクリックします。 ~/Brochures フォルダーにアップロードしたファイルを参照してください!
 
 
 [![Web サーバーにアップロードされたファイル EvolutionValley.jpg](uploading-files-cs/_static/image14.gif)](uploading-files-cs/_static/image21.png)

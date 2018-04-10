@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
-title: "ASP.NET MVC、Web ページに XSRF/CSRF 防止 |Microsoft ドキュメント"
+title: ASP.NET MVC、Web ページに XSRF/CSRF 防止 |Microsoft ドキュメント
 author: Rick-Anderson
-description: "これにより、悪意のある web サイトに影響を与える、interacti web ホスト アプリケーションへの攻撃をクロスサイト リクエスト フォージェリ (XSRF または CSRF とも呼ばれます) には."
+description: これにより、悪意のある web サイトに影響を与える、interacti web ホスト アプリケーションへの攻撃をクロスサイト リクエスト フォージェリ (XSRF または CSRF とも呼ばれます) には.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2013
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 6cf30daa7ed966b11405cec715c5bc803b567249
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>ASP.NET MVC、Web ページに XSRF/CSRF 防止
 ====================
@@ -108,7 +108,7 @@ ANTI-XSRF トークンを生成するには、呼び出し、 [ @Html.AntiForger
 - セッション トークンとフィールド トークンがスワップされました。
 - セッション トークンとフィールドのトークンには、一致していないセキュリティ トークンが含まれます。
 - フィールドのトークンに埋め込まれたユーザー名では、現在のログインのユーザーのユーザー名が一致しません。
-- *[IAntiForgeryAdditionalDataProvider.ValidateAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.validateadditionaldata(v=vs.111).aspx)* メソッドが返される*false*です。
+- *[IAntiForgeryAdditionalDataProvider.ValidateAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.validateadditionaldata(v=vs.111).aspx)*メソッドが返される*false*です。
 
 ANTI-XSRF 設備もトークンの生成または検証中に追加のチェックを実行して、例外がスロー、これらのチェック中にエラー。 参照してください、 [WIF/ACS/クレーム ベース認証](#_WIF_ACS)と**[構成および機能拡張](#_Configuration_and_extensibility)**詳細については、セクションです。
 
@@ -139,8 +139,8 @@ ANTI-XSRF システムには、「匿名」が定義されているユーザー�
 
 生成するか、トークンを検証する、ASP.NET Web スタック ランタイムは実行時に再試行してください型にバインド。
 
-- `Microsoft.IdentityModel.Claims.IClaimsIdentity, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35`(用、WIF SDK。)
-- `System.Security.Claims.ClaimsIdentity`(For .NET 4.5)。
+- `Microsoft.IdentityModel.Claims.IClaimsIdentity, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35` (用、WIF SDK。)
+- `System.Security.Claims.ClaimsIdentity` (For .NET 4.5)。
 
 これらの型が存在する場合、現在のユーザーの*IIIIdentity*これらのいずれかの型を実装クラスまたはサブクラス、ANTI-XSRF 機能は、(id プロバイダー、名前の識別子) を使用する組を生成するときに、ユーザー名の代わりにし、トークンを検証しています。 このような組が存在しない場合、要求は開発者に、使用中、特定のクレーム ベースの認証メカニズムを理解する ANTI-XSRF システムを構成する方法を説明するエラーで失敗します。 参照してください、 **[構成および機能拡張](#_Configuration_and_extensibility)**詳細についてはします。
 
@@ -175,7 +175,7 @@ ANTI-XSRF システムには、「匿名」が定義されているユーザー�
 
 ### <a name="iantiforgeryadditionaldataprovider"></a>IAntiForgeryAdditionalDataProvider
 
-*[IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx)* 型により、各トークン内の追加データのラウンド トリップで ANTI-XSRF システムの動作を拡張する開発者です。 *GetAdditionalData*メソッドが呼び出された各フィールド トークンが生成され、戻り値が生成されたトークンに含まれています。 実装者は、このメソッドから、タイムスタンプ、nonce、またはユーザーがその他の値を返す可能性があります。
+*[IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx)*型により、各トークン内の追加データのラウンド トリップで ANTI-XSRF システムの動作を拡張する開発者です。 *GetAdditionalData*メソッドが呼び出された各フィールド トークンが生成され、戻り値が生成されたトークンに含まれています。 実装者は、このメソッドから、タイムスタンプ、nonce、またはユーザーがその他の値を返す可能性があります。
 
 同様に、 *ValidateAdditionalData*メソッドが呼び出された各フィールド トークンが検証され、トークン内に埋め込まれた「その他のデータ」文字列は、メソッドに渡されます。 検証ルーチンは、(トークンの作成時に格納されている時間に対して現在の時刻を確認しています) でのタイムアウトを実装する可能性があります、nonce ルーチン、またはその他のチェックに必要なロジック。
 

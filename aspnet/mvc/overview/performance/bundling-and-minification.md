@@ -16,7 +16,7 @@ ms.openlocfilehash: 001ebf89cda66a50cddcd7e4944f27b9396d4450
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="bundling-and-minification"></a>バンドルと縮小
 ====================
@@ -72,7 +72,7 @@ ms.lasthandoff: 04/06/2018
 | **KB 受信** | 388.51 | 530 | 36% |
 | **読み込み時間** | 510 MS | 780 MS | 53% |
 
-送信されたバイト数には、ブラウザーは要求に適用される HTTP ヘッダーを非常に冗長のバンドルを大幅に軽減が必要があります。 受信したバイト数の削減がためサイズの大きなファイル (*Scripts\jquery-ui-1.8.11.min.js*と*Scripts\jquery-1.7.1.min.js*) 縮小は既にです。 注: 使用するサンプル プログラムでタイミング、 [Fiddler](http://www.fiddler2.com/fiddler2/)低速なネットワークをシミュレートするツールです。 (、Fiddler から**ルール**メニューの **パフォーマンス**し**モデム スピードのシミュレート**)。
+送信されたバイト数には、ブラウザーは要求に適用される HTTP ヘッダーを非常に冗長のバンドルを大幅に軽減が必要があります。 受信したバイト数の削減がためサイズの大きなファイル (*Scripts\jquery-ui-1.8.11.min.js*と*Scripts\jquery-1.7.1.min.js*) 縮小は既にです。 注: 使用するサンプル プログラムでタイミング、 [Fiddler](http://www.fiddler2.com/fiddler2/)低速なネットワークをシミュレートするツールです。 (、Fiddler から**ルール**メニューの [**パフォーマンス**し**モデム スピードのシミュレート**)。
 
 ## <a name="debugging-bundled-and-minified-javascript"></a>デバッグとバンドルおよび JavaScript の縮小
 
@@ -98,7 +98,7 @@ F12 開発者ツールでのデバッグの詳細については、MSDN の記�
 [!code-csharp[Main](bundling-and-minification/samples/sample4.cs?highlight=7)]
 
 > [!NOTE]
-> しない限り、`EnableOptimizations`は`true`またはデバッグ属性、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*に設定されているファイル`false`ファイルはバンドルまたは縮小されません。 さらに、.min バージョンのファイルは使用されませんが、完全なデバッグ バージョンが選択されます。 `EnableOptimizations` デバッグの属性をオーバーライドします、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*ファイル
+> しない限り、`EnableOptimizations`は`true`またはデバッグ属性、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*に設定されているファイル`false`ファイルはバンドルまたは縮小されません。 さらに、.min バージョンのファイルは使用されませんが、完全なデバッグ バージョンが選択されます。 `EnableOptimizations` [デバッグの属性をオーバーライドします、 [compilation 要素](https://msdn.microsoft.com/library/s10awwz0.aspx)で、 *Web.config*ファイル
 
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>バンドルを使用して ASP.NET Web フォームと Web ページの縮小
@@ -192,7 +192,7 @@ Render メソッドは、コードの 1 つの行で複数のバンドルを追�
 
 バンドルは、バンドルが作成された時点から 1 年間の有効期限が切れる HTTP ヘッダーを設定します。 前に表示したページ、IE がバンドルの条件付き要求を行わない Fiddler 表示に移動する場合はありません、バンドルの IE から HTTP GET 要求およびサーバーからの HTTP 304 応答はありません。 (各バンドルの HTTP 304 応答に結果として得られる) F5 キーを持つ各バンドルの条件付き要求を行い、IE を強制することができます。 使用して完全更新を強制できます ^ f5 キーを押して (各バンドルの HTTP 200 の応答に結果として得られる)。
 
-次の図は、**キャッシュ**Fiddler 応答 ウィンドウのタブ。
+次の図は、**キャッシュ**Fiddler 応答] ウィンドウのタブ。
 
 ![fiddler キャッシュ イメージ](bundling-and-minification/_static/image8.png)
 

@@ -16,7 +16,7 @@ ms.openlocfilehash: 7b3130ca7d36ffec457e1871fa62c1077b5e3174
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Web 配置のビルド サーバーに TFS を構成します。
 ====================
@@ -72,7 +72,7 @@ ms.lasthandoff: 04/06/2018
 
 一般的な web プラットフォーム コンポーネントをインストールする最善の方法が使用するが、 [Web Platform Installer](https://go.microsoft.com/?linkid=9805118)です。 これにより、各製品の最新バージョンをインストールしても自動的に検出し、各製品の前提条件をインストールします。 場合、[連絡先のマネージャー](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)ソリューションでは、これらの製品とコンポーネントをインストールする、Web Platform Installer を使用する必要があります。
 
-- **.NET Framework 4.0**. これは、このバージョンの .NET Framework で構築されたアプリケーションの実行に必要です。
+- **.NET framework 4.0**です。 これは、このバージョンの .NET Framework で構築されたアプリケーションの実行に必要です。
 - **Web 配置ツール 2.1 以降**です。 これにより、Web Deploy (とその基になる実行可能ファイル、MSDeploy.exe) がサーバーにインストールされます。 このプロセスの一環としてがインストールされ、Web Deployment Agent サービスを開始します。 このサービスでは、リモート コンピューターから web パッケージを展開できます。
 - **ASP.NET MVC 3**. これにより、ASP.NET MVC 3 アプリケーションを実行する必要があるアセンブリがインストールされます。
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 04/06/2018
 
     ![](configuring-a-tfs-build-server-for-web-deployment/_static/image2.png)
 7. **ASP.NET MVC 3 (Visual Studio 2010)**行で、をクリックして**追加**です。
-8. ナビゲーション ウィンドウで **サーバー**です。
+8. ナビゲーション ウィンドウで [**サーバー**です。
 9. **Web 配置ツール 2.1**行で、をクリックして**追加**です。
 10. **[インストール]**をクリックします。 Web Platform Installer が製品の一覧を表示&#x2014;関連する依存関係のいずれかと共に&#x2014;をインストールして、ライセンス条項に同意するように求められます。
 11. ライセンス条項を確認し、条項に同意した場合にをクリックして**同意**です。

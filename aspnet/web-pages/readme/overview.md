@@ -16,9 +16,9 @@ ms.openlocfilehash: c65ee58b8c13b0b4acb6e7c9b631c8235e791506
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
-<a name="webmatrix-readme"></a>WebMatrix Readme
+<a name="webmatrix-readme"></a>WebMatrix の Readme
 ====================
 2011 年 1 月 13日
 
@@ -260,7 +260,7 @@ ms.lasthandoff: 04/06/2018
 >    - コピー *C:\Program files \microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
 >        **to** *\Bin*
 >    - コピー <em>C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>に</em></strong>\Bin\x86*
->    - コピー <em>C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>に</strong><em>\Bin\amd64</em>
+>    - Copy <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>to</strong><em>\Bin\amd64</em>
 > 
 > 2. Web サイトのルート フォルダーに作成または開く、 *web.config*ファイル。 (WebMatrix 1.0 では、このファイルの種類がクリックした場合に使用可能な**すべて**で、**ファイルの種類を選択** ダイアログ ボックス)。
 > 3. 次の要素の子として追加、`<configuration>`要素 (内部ではなく、`<system.web>`要素)。

@@ -16,7 +16,7 @@ ms.openlocfilehash: 9b273f6827cad2078b581d6da7b127198dfddaa5
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>作成した MVC 3 Razor および控えめな JavaScript を持つアプリケーション
 ====================
@@ -43,7 +43,7 @@ VB と c# の完成したプロジェクトをダウンロードする[ここ](h
 
 **新しい ASP.NET MVC 3 プロジェクト**ダイアログで、**インターネット アプリケーション**Razor ビュー エンジンを選択して、をクリックして**OK**です。
 
-![新しい ASP.NET MVC 3 プロジェクト ダイアログ ボックス](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image4.png)
+![新しい ASP.NET MVC 3 プロジェクト] ダイアログ ボックス](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image4.png)
 
 このチュートリアルではない使用する ASP.NET メンバーシップ プロバイダー ログオンおよびメンバーシップに関連付けられているすべてのファイルを削除できるようにします。 **ソリューション エクスプ ローラー**、次のファイルとディレクトリを削除します。
 
@@ -54,7 +54,7 @@ VB と c# の完成したプロジェクトをダウンロードする[ここ](h
 
 ![Soln Exp](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image5.png)
 
-編集、  <em>\_Layout.cshtml</em>ファイルし、内部のマークアップを置換、`<div>`という名前の要素`logindisplay`メッセージ <em>&quot;</em>ログイン無効&quot;. 次の例では、新しいマークアップを示します。
+編集、 <em> \_Layout.cshtml</em>ファイルし、内部のマークアップを置換、`<div>`という名前の要素`logindisplay`メッセージ<em> &quot;</em>ログイン無効&quot;. 次の例では、新しいマークアップを示します。
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample1.cshtml)]
 
@@ -98,7 +98,7 @@ VB と c# の完成したプロジェクトをダウンロードする[ここ](h
 
 ![ビューを追加します。](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image7.png)
 
-選択、**厳密に型指定されたビューを作成する**オプション。 **データ クラスを表示** **Mvc3Razor.Models.UserModel**です。 (表示されない場合**Mvc3Razor.Models.UserModel**で、**データ クラスを表示**ボックスで、プロジェクトをビルドする必要があります)。ビュー エンジンに設定されていることを確認してください**Razor**です。 設定**コンテンツを表示**に**リスト** をクリックし、**追加**です。
+選択、**厳密に型指定されたビューを作成する**オプション。 **データ クラスを表示**[ **Mvc3Razor.Models.UserModel**です。 (表示されない場合**Mvc3Razor.Models.UserModel**で、**データ クラスを表示**ボックスで、プロジェクトをビルドする必要があります)。ビュー エンジンに設定されていることを確認してください**Razor**です。 設定**コンテンツを表示**に**リスト**] をクリックし、**追加**です。
 
 ![インデックス ビューを追加します。](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image8.png)
 
@@ -122,7 +122,7 @@ VB と c# の完成したプロジェクトをダウンロードする[ここ](h
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample8.cs)]
 
-内部を右クリックし、`Details`メソッドと、選択<strong>ビューの追加</strong>です。 いることを確認、<strong>データ クラスを表示</strong>ボックスには<strong>Mvc3Razor.Models.UserModel</strong><em>です。</em> 設定<strong>コンテンツを表示</strong>に<strong>詳細</strong> をクリックし、<strong>追加</strong>です。
+内部を右クリックし、`Details`メソッドと、選択<strong>ビューの追加</strong>です。 いることを確認、<strong>データ クラスを表示</strong>ボックスには<strong>Mvc3Razor.Models.UserModel</strong><em>です。</em> 設定<strong>コンテンツを表示</strong>に<strong>詳細</strong>] をクリックし、<strong>追加</strong>です。
 
 ![詳細ビューを追加します。](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image11.png)
 
@@ -166,7 +166,7 @@ ASP.NET MVC 3 でのクライアント側の検証を有効にするには、2 �
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample13.cs)]
 
-また、レンダリングされるビューに複数の JavaScript ファイルを含める必要があります。 JavaScript は、すべてのビューを簡単に追加するのには、 *\shared\\_Layout.cshtml*ファイル。 置換、`<head>`の要素、  *\_Layout.cshtml*を次のコード ファイル。
+また、レンダリングされるビューに複数の JavaScript ファイルを含める必要があります。 JavaScript は、すべてのビューを簡単に追加するのには、 *\shared\\_Layout.cshtml*ファイル。 置換、`<head>`の要素、 * \_Layout.cshtml*を次のコード ファイル。
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample14.cshtml)]
 
@@ -176,7 +176,7 @@ ASP.NET MVC 3 でのクライアント側の検証を有効にするには、2 �
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample15.cshtml)]
 
-それぞれのクライアント検証規則では、属性が追加、フォームを含む`data-val-rulename="message"`です。 使用して、`City`フィールド前の例で必要なクライアント検証規則を生成、`data-val-required`属性と、メッセージ&quot;、市区町村 フィールドは必須&quot;です。 アプリケーションを実行はユーザーの 1 つを編集およびオフ、`City`フィールドです。 フィールドから移動するとき、クライアント側の検証エラー メッセージを参照してください。
+それぞれのクライアント検証規則では、属性が追加、フォームを含む`data-val-rulename="message"`です。 使用して、`City`フィールド前の例で必要なクライアント検証規則を生成、`data-val-required`属性と、メッセージ&quot;、市区町村] フィールドは必須&quot;です。 アプリケーションを実行はユーザーの 1 つを編集およびオフ、`City`フィールドです。 フィールドから移動するとき、クライアント側の検証エラー メッセージを参照してください。
 
 ![必要な市区町村](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image14.png)
 
@@ -200,7 +200,7 @@ ASP.NET MVC 3 でのクライアント側の検証を有効にするには、2 �
 
 ![Create View](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image15.png)
 
-アプリケーションの実行で、選択、**作成**リンク、および新しいユーザーを追加します。 `Create`メソッドが自動的にクライアント側およびサーバー側の検証を活用を受け取ります。 空白文字を含むユーザー名を入力しようとしています。 &quot;Ben X&quot;です。 ユーザー名フィールドで、クライアント側の検証エラー外 タブと (`White space is not allowed`) が表示されます。
+アプリケーションの実行で、選択、**作成**リンク、および新しいユーザーを追加します。 `Create`メソッドが自動的にクライアント側およびサーバー側の検証を活用を受け取ります。 空白文字を含むユーザー名を入力しようとしています。 &quot;Ben X&quot;です。 ユーザー名フィールドで、クライアント側の検証エラー外] タブと (`White space is not allowed`) が表示されます。
 
 ## <a name="add-the-delete-method"></a>Delete メソッドを追加します。
 

@@ -16,7 +16,7 @@ ms.openlocfilehash: 2ba1b73f40a920e27e4a03d9f703e62054d3f25c
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>コント ローラーから、モデルのデータにアクセスします。
 ====================
@@ -37,13 +37,13 @@ Controllers フォルダーを右クリックし、新しい MoviesController �
 
 お 1984 年の夏の後に発売された映画のみ取得されるように、LINQ クエリを実行します。 映画に戻るには、この一覧を表示、そこでメソッドで右クリックし、それを作成する追加のビューを選択するビュー テンプレートが必要です。
 
-ビューの追加] ダイアログ ボックスでおを示す一覧を渡している&lt;Movies.Models.Movie&gt;テンプレートの表示にします。 前の時間ビューの追加] ダイアログを使用して、"Empty"のテンプレートを作成することを選択とは異なりおすることを示すため、この時点で作成する Visual Studio で自動的に「スキャフォールディング」ビュー テンプレートの既定のコンテンツを。 それでは、"ビューのコンテンツのドロップダウン メニュー内の"List"項目を選択しています。
+ビューの追加 ダイアログ ボックスでおを示す一覧を渡している&lt;Movies.Models.Movie&gt;テンプレートの表示にします。 前の時間ビューの追加 ダイアログを使用して、"Empty"のテンプレートを作成することを選択とは異なりおすることを示すため、この時点で作成する Visual Studio で自動的に「スキャフォールディング」ビュー テンプレートの既定のコンテンツを。 それでは、"ビューのコンテンツのドロップダウン メニュー内の"List"項目を選択しています。
 
-ただしがある場合、作成された新しいクラスをビューの追加] ダイアログ表示するのには、アプリケーションをコンパイルする必要があります。
+ただしがある場合、作成された新しいクラスをビューの追加 ダイアログ表示するのには、アプリケーションをコンパイルする必要があります。
 
 ![ビューを追加します。](getting-started-with-mvc-part5/_static/image3.png)
 
-追加] をクリックし、システムはムービーの一覧を表示するうえでビューのコードを自動的に生成されます。 これは、変更する絶好のタイミング、 &lt;h2&gt;前、Hello World ビューと同じように、「マイ ムービー リスト」のようなものに見出し。
+追加 をクリックし、システムはムービーの一覧を表示するうえでビューのコードを自動的に生成されます。 これは、変更する絶好のタイミング、 &lt;h2&gt;前、Hello World ビューと同じように、「マイ ムービー リスト」のようなものに見出し。
 
 [![映画 - Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
 
@@ -57,7 +57,7 @@ Controllers フォルダーを右クリックし、新しい MoviesController �
 
 [!code-aspx[Main](getting-started-with-mvc-part5/samples/sample2.aspx)]
 
-お必要はありません、リンクの作成ため、この例に削除されます。 いきますの新規作成]、[次へ] であるため! 新機能とその列は削除されて、アプリの外観を次に示します。
+お必要はありません、リンクの作成ため、この例に削除されます。 いきますの新規作成、次へ であるため! 新機能とその列は削除されて、アプリの外観を次に示します。
 
 [![ムービーの一覧]-[Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
 

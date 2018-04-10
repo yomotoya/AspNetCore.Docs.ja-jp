@@ -13,12 +13,12 @@ ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn
 msc.type: content
 ms.openlocfilehash: bc5f40746ad6b1ed8a74bcb75def9ff8f08fb789
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/10/2018
 ---
-<a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax コンテンツ配信ネットワーク
+<a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 ====================
 > [!WARNING]
 > 実稼働アプリケーションは、CDN 資産にハードコーディングによる依存関係を使用しない必要があります。 アプリケーションは、参照、CDN 資産のテストし、CDN が使用できないときに、フォールバック資産を使用する必要があります。 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/03/2018
 ## <a name="table-of-contents"></a>目次
 
 **[ajax.microsoft.com ajax.aspnetcdn.com に変更されました](#ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18)**  
-**[Visual Studio .vsdoc Support](#Visual_Studio_vsdoc_Support_19)**  
+**[Visual Studio .vsdoc サポート](#Visual_Studio_vsdoc_Support_19)**  
 **[CDN から ASP.NET Ajax を使用します。](#Using_ASPNET_Ajax_from_the_CDN_20)**  
 **[CDN から jQuery の使用](#Using_jQuery_from_the_CDN_21)**  
 **[JQuery UI、CDN からの使用](#Using_jQuery_UI_from_the_CDN_22)**  
@@ -609,20 +609,20 @@ JQuery 検証ライブラリの次のリリースは、この CDN でホスト�
 - [jQuery 検証 1.17.0](jquery-validate/cdnjqueryvalidate1170.md "jQuery 検証 1.17.0")
 - [jQuery 検証 1.16.0](jquery-validate/cdnjqueryvalidate1160.md "jQuery 検証 1.16.0")
 - [jQuery 検証 1.15.1](jquery-validate/cdnjqueryvalidate1151.md "jQuery 検証 1.15.1")
-- [jQuery 検証 1.15.0](jquery-validate/cdnjqueryvalidate1150.md "jQuery 検証 1.15.0")
-- [jQuery 検証 1.14.0](jquery-validate/cdnjqueryvalidate1140.md "jQuery 検証 1.14.0")
+- [jQuery Validate 1.15.0](jquery-validate/cdnjqueryvalidate1150.md "jQuery Validation 1.15.0")
+- [jQuery Validate 1.14.0](jquery-validate/cdnjqueryvalidate1140.md "jQuery Validation 1.14.0")
 - [jQuery 検証 1.13.1](jquery-validate/cdnjqueryvalidate1131.md "jQuery 検証 1.13.1")
 - [jQuery 検証 1.13.0](jquery-validate/cdnjqueryvalidate1130.md "jQuery 検証 1.13.0")
-- [jQuery 検証 1.12.0](jquery-validate/cdnjqueryvalidate1120.md "jQuery 検証 1.12.0")
-- [jQuery 検証 1.11.1](jquery-validate/cdnjqueryvalidate1111.md "jQuery 検証 1.11.1")
-- [jQuery 検証 1.11.0](jquery-validate/cdnjqueryvalidate111.md "jQuery 検証 1.11.0")
-- [jQuery 検証 1.10.0](jquery-validate/cdnjqueryvalidate110.md "jQuery 検証 1.10.0")
+- [jQuery Validate 1.12.0](jquery-validate/cdnjqueryvalidate1120.md "jQuery Validation 1.12.0")
+- [jQuery Validate 1.11.1](jquery-validate/cdnjqueryvalidate1111.md "jQuery Validation 1.11.1")
+- [jQuery Validate 1.11.0](jquery-validate/cdnjqueryvalidate111.md "jQuery Validation 1.11.0")
+- [jQuery Validate 1.10.0](jquery-validate/cdnjqueryvalidate110.md "jQuery Validation 1.10.0")
 - [jQuery 検証 1.9](jquery-validate/cdnjqueryvalidate19.md "jquery.validate バージョン 1.9")
 - [jQuery 検証 1.8.1](jquery-validate/cdnjqueryvalidate181.md "jquery.validate バージョン 1.8.1")
 - [jQuery 検証 1.8](jquery-validate/cdnjqueryvalidate18.md "jquery.validate バージョン 1.8")
-- [jQuery Validate 1.7](jquery-validate/cdnjqueryvalidate17.md "jquery.validate version 1.7")
-- [jQuery 検証 1.6](jquery-validate/cdnjqueryvalidate16.md "jQuery 検証 1.6")
-- [jQuery 検証 1.5.5](jquery-validate/cdnjqueryvalidate155.md "jQuery 検証 1.5.5")
+- [jQuery 検証 1.7](jquery-validate/cdnjqueryvalidate17.md "jquery.validate バージョン 1.7")
+- [jQuery Validate 1.6](jquery-validate/cdnjqueryvalidate16.md "jQuery Validate 1.6")
+- [jQuery Validate 1.5.5](jquery-validate/cdnjqueryvalidate155.md "jQuery Validate 1.5.5")
 
 <a id="jQuery_Mobile_Releases_on_the_CDN_4"></a>
 
@@ -641,7 +641,7 @@ JQuery モバイル ライブラリの次のリリースは、この CDN でホ�
 - [jQuery Mobile 1.1.2](jquery-mobile/cdnjquerymobile112.md "jQuery Mobile 1.1.2 Microsoft Ajax CDN を")
 - [jQuery Mobile 1.1.1](jquery-mobile/cdnjquerymobile111.md "jQuery Mobile 1.1.1 Microsoft Ajax CDN を")
 - [jQuery Mobile 1.1.0](jquery-mobile/cdnjquerymobile110.md "jQuery Mobile 1.1.0 Microsoft Ajax CDN を")
-- [jQuery Mobile 1.1.0 RC 2](jquery-mobile/cdnjquerymobile110rc2.md "jQuery Mobile 1.1.0 RC2 Microsoft Ajax CDN を")
+- [jQuery Mobile 1.1.0 RC 2](jquery-mobile/cdnjquerymobile110rc2.md "jQuery Mobile 1.1.0 RC2 on the Microsoft Ajax CDN")
 - [jQuery Mobile 1.0.1](jquery-mobile/cdnjquerymobile101.md "jQuery Mobile 1.0.1 Microsoft Ajax CDN を")
 - [jQuery Mobile 1.0](jquery-mobile/cdnjquerymobile10.md "jQuery Mobile 1.0 Microsoft Ajax CDN を")
 - [jQuery Mobile 1.0 RC 2](jquery-mobile/cdnjquerymobile10rc2.md "Microsoft Ajax CDN の jQuery Mobile 1.0 RC2")
@@ -662,9 +662,9 @@ JQuery テンプレートのプラグインの次のリリースは、この CDN
 
 JQuery サイクル プラグインの次のリリースは、この CDN でホストされています。 実際のファイルの一覧を表示するには、各リンクをクリックします。
 
-- [jQuery サイクル 2.99](jquery-cycle/cdnjquerycycle299.md "jQuery サイクル 2.99")
-- [jQuery サイクル 2.94](jquery-cycle/cdnjquerycycle294.md "jQuery サイクル 2.94")
-- [jQuery サイクル 2.88](jquery-cycle/cdnjquerycycle288.md "jQuery サイクル 2.88")
+- [jQuery Cycle 2.99](jquery-cycle/cdnjquerycycle299.md "jQuery Cycle 2.99")
+- [jQuery Cycle 2.94](jquery-cycle/cdnjquerycycle294.md "jQuery Cycle 2.94")
+- [jQuery Cycle 2.88](jquery-cycle/cdnjquerycycle288.md "jQuery Cycle 2.88")
 
 <a id="jQuery_DataTables_Releases_on_the_CDN_7"></a>
 

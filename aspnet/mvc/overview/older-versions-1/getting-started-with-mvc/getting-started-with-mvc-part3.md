@@ -16,7 +16,7 @@ ms.openlocfilehash: 978d7980274c072ed559b54ed69ab86245b6c5a7
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="adding-a-view"></a>ビューの追加
 ====================
@@ -77,7 +77,7 @@ ms.lasthandoff: 04/06/2018
 
 ここで、インデックス ページのタイトルを変更してみましょう。
 
-Open /HelloWorld/Index.aspx. 2 つの場所を変更するのには 最初に、タイトルに表示される、セカンダリ ヘッダー - H2 - も、ブラウザーのタイトル。 それらをどの少量のコードを確認できるように、若干異なる、アプリのどの部分を変更する各を作成します。
+/HelloWorld/Index.aspx を開きます。 2 つの場所を変更するのには 最初に、タイトルに表示される、セカンダリ ヘッダー - H2 - も、ブラウザーのタイトル。 それらをどの少量のコードを確認できるように、若干異なる、アプリのどの部分を変更する各を作成します。
 
 [!code-aspx[Main](getting-started-with-mvc-part3/samples/sample7.aspx)]
 
@@ -116,7 +116,7 @@ HelloWorldController.cs ファイルに戻り、新しい"WelcomeViewModel"ク�
 
 アプリケーションを実行しを参照してください`http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`もう一度です。 URL からデータを移動しています、これで、コント ローラーに自動的に渡されるという、当社のコント ローラーが、ViewModel にデータをパッケージ化し、ビューには、そのオブジェクトを渡します。 ビューよりも、ユーザーに html 形式でデータが表示されます。
 
-[![Windows Internet Explorer の開始](getting-started-with-mvc-part3/_static/image14.png)](getting-started-with-mvc-part3/_static/image13.png)
+[![Welcome - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image14.png)](getting-started-with-mvc-part3/_static/image13.png)
 
 モデル、"M"の種類が、データベースの種類ではありませんでした。 学んだこと確認し、ムービーのデータベースを作成してみましょう。
 

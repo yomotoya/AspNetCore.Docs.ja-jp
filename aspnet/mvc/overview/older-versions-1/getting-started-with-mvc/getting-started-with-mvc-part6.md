@@ -16,7 +16,7 @@ ms.openlocfilehash: 48e656a0c394b9db5baaec9c557ec38c4020d41b
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="adding-a-create-method-and-create-view"></a>追加するメソッドを作成し、ビューを作成します。
 ====================
@@ -51,7 +51,7 @@ MoviesController クラス内で 2 つの Create() メソッド内でこれら 2
 
 みましょう今すぐ新しいムービーを作成し、データベースに追加します。 これには、アプリケーションを再実行している、うまくし、参照してください、、"/映画"「作成」に新しいビデオを追加するリンクの URL をクリックします。
 
-[![Windows Internet Explorer の作成-](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
+[![Create - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
 
 作成ボタンをクリックしておある投稿するときに戻る (HTTP POST) を介してこのフォームを作成したばかり/Movies/Create メソッド上のデータ。 まったく同様にシステムに自動的に URL から"numTimes"と"name"パラメーターを要したし、前のメソッドのパラメーターにマップして、システムは自動的に投稿からはフォームのフィールドを取得してオブジェクトにマップします。 この場合、"ReleaseDate"や"Title"のような HTML のフィールドの値は、ムービーの新しいインスタンスの正しいプロパティを自動的に配置されます。
 

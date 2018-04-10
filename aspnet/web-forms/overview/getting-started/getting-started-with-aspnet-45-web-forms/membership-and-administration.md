@@ -16,7 +16,7 @@ ms.openlocfilehash: 166bc642ea2083f455be0648e424f0b0ae3b082c
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="membership-and-administration"></a>メンバーシップと管理
 ====================
@@ -67,7 +67,7 @@ ASP.NET の Id を使用して、カスタム ロールを追加してコード�
     [!code-csharp[Main](membership-and-administration/samples/sample2.cs?highlight=11,26-28)]
 6. 注意して`AddUserAndRole`赤い下線が引かれます。 AddUserAndRole コードをダブルクリックします。  
    強調表示されているメソッドの先頭に文字"A"は下線が表示されます。
-7. 文字"A"ポインターを合わせるし、UI のメソッド スタブを生成できるようにする をクリックして、`AddUserAndRole`メソッドです。 
+7. 文字"A"ポインターを合わせるし、UI のメソッド スタブを生成できるようにする] をクリックして、`AddUserAndRole`メソッドです。 
 
     ![メンバーシップと Advministration - メソッド スタブを生成します。](membership-and-administration/_static/image1.png)
 8. という名前のオプションをクリックします。  
@@ -121,7 +121,7 @@ Wingtip Toys のサンプル アプリケーションは、匿名ユーザーと
 2. 新しいフォルダーの名前を付けます*Admin*です。
 3. 右クリックし、 *Admin*クリックしてフォルダー**追加** - &gt; **新しい項目の**します。   
    **[新しい項目の追加]** ダイアログ ボックスが表示されます。
-4. 選択、 <strong>Visual c#</strong> - &gt; <strong>Web</strong>左側のテンプレートのグループです。 中央のリストから選択<strong>マスター ページを含む Web フォーム</strong>、名前を付けます<em>AdminPage.aspx</em><strong>、</strong>し、<strong>追加</strong>です。
+4. 選択、 <strong>Visual c#</strong> - &gt; <strong>Web</strong>左側のテンプレートのグループです。 中央のリストから選択<strong>マスター ページを含む Web フォーム</strong>、名前を付けます<em>AdminPage.aspx</em><strong>、</strong>し、[<strong>追加</strong>です。
 5. 選択、 *Site.Master*クリックしてファイルをマスター ページとして**OK**です。
 
 #### <a name="add-a-webconfig-file"></a>Web.config ファイルを追加します。
@@ -130,7 +130,7 @@ Wingtip Toys のサンプル アプリケーションは、匿名ユーザーと
 
 1. 右クリックし、 *Admin*フォルダーと選択**追加** - &gt; **新しい項目の**します。  
    **[新しい項目の追加]** ダイアログ ボックスが表示されます。
-2. 、Visual c# web テンプレートの一覧から選択<strong>Web 構成ファイル</strong>中央のリストからの既定の名前を受け入れる<em>Web.config</em><strong>、</strong>し、 <strong>追加</strong>です。
+2. 、Visual c# web テンプレートの一覧から選択<strong>Web 構成ファイル</strong>中央のリストからの既定の名前を受け入れる<em>Web.config</em><strong>、</strong>し、[ <strong>追加</strong>です。
 3. 既存の XML の内容を置き換える、 *Web.config*を次のファイル。  
 
     [!code-xml[Main](membership-and-administration/samples/sample4.xml)]
@@ -139,7 +139,7 @@ Wingtip Toys のサンプル アプリケーションは、匿名ユーザーと
 
 ### <a name="including-custom-role-navigation"></a>カスタム ロールのナビゲーションを含む
 
-アプリケーションの管理 セクションに移動する、カスタム"canEdit"ロールのユーザーを有効にするへのリンクを追加する必要があります、 *Site.Master*ページ。 "CanEdit"ロールに属しているユーザーが参照できるのみ、 **Admin**リンクし、[管理] セクションにアクセスします。
+アプリケーションの管理] セクションに移動する、カスタム"canEdit"ロールのユーザーを有効にするへのリンクを追加する必要があります、 *Site.Master*ページ。 "CanEdit"ロールに属しているユーザーが参照できるのみ、 **Admin**リンクし、[管理] セクションにアクセスします。
 
 1. ソリューション エクスプ ローラーで、検索して開く、 *Site.Master*ページ。
 2. "CanEdit"ロールのユーザーへのリンクを作成するには、次の順序なしリストを黄色で強調表示のマークアップを追加`<ul>`要素として一覧が表示されるように依存します。  
@@ -184,7 +184,7 @@ Wingtip Toys のサンプル アプリケーションは、匿名ユーザーと
 
 #### <a name="regular-expressions"></a>正規表現
 
-製品の価格、 *AdminPage.aspx*を使用してページを検証、 **RegularExpressionValidator**コントロール。 このコントロールは、関連付けられた入力コントロール ("AddProductPrice"TextBox) の値が正規表現で指定されたパターンに一致するかどうかを検証します。 正規表現とは、パターン一致表記法をすばやく検索および特定の文字パターンに一致することができます。 **RegularExpressionValidator**コントロールには、という名前のプロパティが含まれています。`ValidationExpression`次に示すように、価格の入力の検証に使用される正規表現を格納しています。
+[製品の価格、 *AdminPage.aspx*を使用してページを検証、 **RegularExpressionValidator**コントロール。 このコントロールは、関連付けられた入力コントロール ("AddProductPrice"TextBox) の値が正規表現で指定されたパターンに一致するかどうかを検証します。 正規表現とは、パターン一致表記法をすばやく検索および特定の文字パターンに一致することができます。 **RegularExpressionValidator**コントロールには、という名前のプロパティが含まれています。`ValidationExpression`次に示すように、価格の入力の検証に使用される正規表現を格納しています。
 
 [!code-aspx[Main](membership-and-administration/samples/sample11.aspx)]
 
@@ -214,7 +214,7 @@ Wingtip Toys のサンプル アプリケーションは、匿名ユーザーと
 
 ### <a name="how-the-application-will-work"></a>アプリケーションがどのように動作
 
-"CanEdit"ロールに属しているユーザーが最初に、ページに移動すると、 `DropDownAddCategory` **DropDownList**前述のようにコントロールが設定されます。 `DropDownRemoveProduct` **DropDownList**コントロールが、これと同じアプローチを使用して製品も表示されます。 "CanEdit"ロールに属しているユーザーは、カテゴリの種類を選択し、製品の詳細を追加します (**名前**、**説明**、**価格**、および**のイメージファイル**). "CanEdit"ロールに属しているユーザーがクリックしたとき、**製品の追加** ボタン、`AddProductButton_Click`のイベント ハンドラーを起動します。 `AddProductButton_Click`イベント ハンドラーが、分離コード ファイルにあります (*AdminPage.aspx.cs*) 許可されているファイルの種類と一致するかどうかを確認するイメージ ファイルをチェック*(.gif*、 *.png*、 *.jpeg*、または*.jpg*)。 その後、イメージ ファイルは、Wingtip Toys のサンプル アプリケーションのフォルダーに保存されます。 次に、新しい製品は、データベースに追加されます。 新しい製品の新しいインスタンスを追加するために、`AddProducts`クラスが作成され、製品をという名前です。 `AddProducts`クラスという名前のメソッドには`AddProduct`、製品オブジェクトが製品をデータベースに追加するには、このメソッドを呼び出します。
+"CanEdit"ロールに属しているユーザーが最初に、ページに移動すると、 `DropDownAddCategory` **DropDownList**前述のようにコントロールが設定されます。 `DropDownRemoveProduct` **DropDownList**コントロールが、これと同じアプローチを使用して製品も表示されます。 "CanEdit"ロールに属しているユーザーは、カテゴリの種類を選択し、製品の詳細を追加します (**名前**、**説明**、**価格**、および**のイメージファイル**). "CanEdit"ロールに属しているユーザーがクリックしたとき、**製品の追加**] ボタン、`AddProductButton_Click`のイベント ハンドラーを起動します。 `AddProductButton_Click`イベント ハンドラーが、分離コード ファイルにあります (*AdminPage.aspx.cs*) 許可されているファイルの種類と一致するかどうかを確認するイメージ ファイルをチェック*(.gif*、 *.png*、 *.jpeg*、または*.jpg*)。 その後、イメージ ファイルは、Wingtip Toys のサンプル アプリケーションのフォルダーに保存されます。 次に、新しい製品は、データベースに追加されます。 新しい製品の新しいインスタンスを追加するために、`AddProducts`クラスが作成され、製品をという名前です。 `AddProducts`クラスという名前のメソッドには`AddProduct`、製品オブジェクトが製品をデータベースに追加するには、このメソッドを呼び出します。
 
 [!code-csharp[Main](membership-and-administration/samples/sample15.cs)]
 
@@ -272,12 +272,12 @@ Wingtip Toys のサンプル アプリケーションは、匿名ユーザーと
 
 ## <a name="summary"></a>まとめ
 
-このチュートリアルでは、カスタムのロールとカスタムのロール ページで、管理フォルダーへのアクセス制限に属しているユーザーを追加し、カスタムのロールに属しているユーザーのナビゲーションを指定しました。 モデル バインディングの設定に使用する、 **DropDownList**コントロールにデータ。 実装する、**ファイルアップロード**コントロールと検証コントロール。 また、追加し、データベースから製品を削除する方法を学習しました。 次のチュートリアルでは、ASP.NET のルーティングを実装する方法を学習します。
+このチュートリアルでは、カスタムのロールとカスタムのロール] ページで、管理フォルダーへのアクセス制限に属しているユーザーを追加し、カスタムのロールに属しているユーザーのナビゲーションを指定しました。 モデル バインディングの設定に使用する、 **DropDownList**コントロールにデータ。 実装する、**ファイルアップロード**コントロールと検証コントロール。 また、追加し、データベースから製品を削除する方法を学習しました。 次のチュートリアルでは、ASP.NET のルーティングを実装する方法を学習します。
 
 ## <a name="additional-resources"></a>その他のリソース
 
 [Web.config で承認要素](https://msdn.microsoft.com/library/8d82143t(v=vs.100).aspx)  
-[ASP.NET Identity](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
+[ASP.NET Id](../../../../identity/overview/getting-started/introduction-to-aspnet-identity.md)  
 [Azure の Web サイトにメンバーシップ、OAuth、SQL データベースでのセキュリティで保護された ASP.NET Web フォーム アプリケーションを展開します。](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
 [Microsoft Azure の無料試用版](https://azure.microsoft.com/pricing/free-trial/)
 

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/4-working-with-forms
-title: "ASP.NET Web Pages (Razor) のサイトでの HTML フォームの使用 |Microsoft ドキュメント"
+title: ASP.NET Web Pages (Razor) のサイトでの HTML フォームの使用 |Microsoft ドキュメント
 author: tfitzmac
-description: "フォームは、テキスト ボックス、チェック ボックス、ラジオ ボタン、およびプルダウンで表示されるリストと同様に、ユーザー入力コントロールを配置する HTML ドキュメントのセクションです。 フォームを使用して修正しています."
+description: フォームは、テキスト ボックス、チェック ボックス、ラジオ ボタン、およびプルダウンで表示されるリストと同様に、ユーザー入力コントロールを配置する HTML ドキュメントのセクションです。 フォームを使用して修正しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
 ms.openlocfilehash: 8579c444fd19d1a366349cc09f9f768de23055f8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) のサイトでの HTML フォームの使用
 ====================
@@ -73,7 +73,7 @@ ms.lasthandoff: 01/24/2018
 
     ![入力した、ページに表示される値を示すスクリーン ショット。](4-working-with-forms/_static/image2.jpg)
 
-    ページのコードを確認します。 最初に使用する、`IsPost`ページがポストされるかどうか &#8212; は、ユーザーがクリックされたかどうかを判断するメソッド、**送信**ボタンをクリックします。 これは、投稿場合`IsPost`は true を返します。 これは、最初の要求 (GET 要求など) またはポストバック (POST 要求) で作業しているかどうかを決定する標準的な方法では、ASP.NET Web ページです。 (GET と POST の詳細についてを参照してください"HTTP GET と POST と IsPost Property"で[ASP.NET Web ページは、Razor 構文を使用プログラミングの概要](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost))。
+    ページのコードを確認します。 最初に使用する、`IsPost`ページがポストされるかどうかを調べます&#8212;、かどうか、ユーザーがクリックされた、**送信**ボタンをクリックします。 これは、投稿場合`IsPost`は true を返します。 これは、最初の要求 (GET 要求など) またはポストバック (POST 要求) で作業しているかどうかを決定する標準的な方法では、ASP.NET Web ページです。 (GET と POST の詳細についてを参照してください"HTTP GET と POST と IsPost Property"で[ASP.NET Web ページは、Razor 構文を使用プログラミングの概要](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost))。
 
     次に、ユーザーから入力される値を取得する、`Request.Form`して、オブジェクトに置く変数後にします。 `Request.Form`オブジェクトには、キーによって識別される各ページに送信されたすべての値が含まれています。 キーは、該当するショートカットを`name`読みたいフォーム フィールドの属性です。 例については、読み取り、`companyname`フィールド (テキスト ボックス) を使用する`Request.Form["companyname"]`です。
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 01/24/2018
 > 
 > HTML エンコードすると、これら予約文字をブラウザーが、適正なシンボルとして解釈するコードに置き換えます。 たとえば、`<`文字で置換されます`&lt;`と`>`文字で置換されます`&gt;`です。 ブラウザーは、置換文字列を表示する文字として表示されます。
 > 
-> HTML エンコード文字列を表示する任意の時間を使用する (入力)、ユーザーから取得したことをお勧めすることをお勧めします。 ない場合は、ユーザーことができます、web ページに悪意のあるスクリプトを実行したり、別のものは、サイトのセキュリティを侵害するか、望ましくないだけであるを取得しようとします。 (これは特に重要です。 ユーザー入力が場所を格納しして後で &#8212;を表示を行う場合、たとえば、ユーザーのブログのコメントとしての確認は、または以下のようなこと)。
+> HTML エンコード文字列を表示する任意の時間を使用する (入力)、ユーザーから取得したことをお勧めすることをお勧めします。 ない場合は、ユーザーことができます、web ページに悪意のあるスクリプトを実行したり、別のものは、サイトのセキュリティを侵害するか、望ましくないだけであるを取得しようとします。 (これは、ユーザー入力を受け取り、場所、保管およびし、後で表示する場合に特に重要&#8212;など、コメント、ユーザーのレビュー、またはそのようなものです)。
 > 
 > 自動的に ASP.NET Web Pages、これらの問題を防ぐために役立つを HTML エンコード任意のテキスト コンテンツをコードから出力します。 たとえば、変数や式などを使用してコードの内容を表示する`@MyVar`、ASP.NET Web Pages は、出力を自動的にエンコードします。
 
@@ -134,7 +134,7 @@ ASP.NET Web ページは、自動的にユーザーがブラウザーで即時�
     `value`の属性、`<input>`要素が動的な読み取りのフィールドの値に設定されて、`Request.Form`オブジェクト。 内の値、最初に、ページが要求される、`Request.Form`オブジェクトがすべて空にします。 これは、しますこのようにして、フォームは空白なので。
 2. お使いのブラウザー内のページを起動、フォーム フィールドの入力または、空白のままにし、 をクリックして**送信**です。 送信された値を表示するページが表示されます。
 
-    ![フォーム 5](4-working-with-forms/_static/image5.jpg)
+    ![forms-5](4-working-with-forms/_static/image5.jpg)
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>その他のリソース

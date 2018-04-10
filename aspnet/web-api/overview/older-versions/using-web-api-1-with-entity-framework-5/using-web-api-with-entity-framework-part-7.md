@@ -16,7 +16,7 @@ ms.openlocfilehash: 2c378e68a1e6600daf655c19afbfe355e89496d4
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="part-7-creating-the-main-page"></a>手順 7: 作成、メイン ページ
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/06/2018
 
 [完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
-## <a name="creating-the-main-page"></a>メインの作成 ページ
+## <a name="creating-the-main-page"></a>メインの作成] ページ
 
 このセクションでは、アプリケーションのメイン ページを作成します。 このページは [管理] ページより複雑になるため、いくつかの手順でアプローチしましょう。 その過程より高度な Knockout.js テクニックをいくつかが表示されます。 ページの基本的なレイアウトを次に示します。
 

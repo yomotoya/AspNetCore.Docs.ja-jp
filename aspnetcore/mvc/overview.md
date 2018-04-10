@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC の概要"
+title: ASP.NET Core MVC の概要
 author: ardalis
-description: "ASP.NET Core MVC が、モデル ビュー コントローラー デザイン パターンを使用して、Web アプリと API をビルドするための豊富なフレームワークであることについて説明します。"
+description: ASP.NET Core MVC が、モデル ビュー コントローラー デザイン パターンを使用して、Web アプリと API をビルドするための豊富なフレームワークであることについて説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 01/08/2018
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/overview
-ms.openlocfilehash: 16fd1b5e71cde4364f02640f504d42218ed680df
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: HT
+ms.openlocfilehash: 1cf48499d3bc0ba63e2f0667740668fad0b13c28
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC の概要
 
@@ -179,19 +179,19 @@ ASP.NET Core には、[依存関係の挿入 (DI)](../fundamentals/dependency-in
 
 ### <a name="areas"></a>区分
 
-[区分](controllers/areas.md)は、大きな ASP.NET Core MVC Web アプリを小さな機能グループに分割するための方法を提供します。 区分は、アプリケーション内の MVC 構造体となります。 MVC プロジェクトでは、モデル、コント ローラー、ビューなどの論理コンポーネントが異なるフォルダーに保持され、MVC では名前付け規則を使用して、これらのコンポーネントの関係を作成します。 大きなアプリでは、アプリを機能の個別の高レベル区分に分割すると便利な場合があります。 たとえば、チェックアウト、請求、検索などの複数のビジネス ユニットを持つ e コマース アプリの場合です。これらのユニットには、それぞれ独自の論理コンポーネント ビュー、コントローラー、およびモデルがあります。
+[区分](controllers/areas.md)は、大きな ASP.NET Core MVC Web アプリを小さな機能グループに分割するための方法を提供します。 区分は、アプリケーション内の MVC 構造体となります。 MVC プロジェクトでは、モデル、コント ローラー、ビューなどの論理コンポーネントが異なるフォルダーに保持され、MVC では名前付け規則を使用して、これらのコンポーネントの関係を作成します。 大きなアプリでは、アプリを機能の個別の高レベル区分に分割すると便利な場合があります。 たとえば、チェックアウト、請求、検索などの複数のビジネス ユニットを持つ e コマース アプリの場合です。これらのユニットにはそれぞれ独自の論理コンポーネント ビュー、コントローラー、およびモデルがあります。
 
 ### <a name="web-apis"></a>Web API
 
 Web サイトのビルドに最適なプラットフォームというだけでなく、ASP.NET Core MVC には Web API のビルドに適したサポートがあります。 ブラウザーやモバイル デバイスなど、さまざまなクライアントに提供されるサービスをビルドできます。
 
-フレームワークには、JSON または XML として [書式のデータ](models/formatting.md)の組み込みサポートと共に、HTTP コンテンツ ネゴシエーションのサポートが含まれます。 [カスタム フォーマッタ](advanced/custom-formatters.md)を作成して、独自の書式のサポートを追加します。
+フレームワークを組み込みサポートを備えた HTTP コンテンツ ネゴシエーションをサポートしています[データを書式設定](xref:web-api/advanced/formatting)JSON または XML として。 [カスタム フォーマッタ](xref:web-api/advanced/custom-formatters)を作成して、独自の書式のサポートを追加します。
 
 リンクの生成を使って、ハイパーメディアのサポートを有効にします。 自分の Web API を複数の Web アプリケーションで共有できるように、[クロス オリジン リソース共有 (CORS)](http://www.w3.org/TR/cors/) のサポートを簡単に有効にできます。
 
 ### <a name="testability"></a>テストの容易性
 
-フレームワークでインターフェイスと依存関係の挿入を使用して、単体テストに適するようにします。また、フレームワークには、[統合テスト](../testing/integration-testing.md)もすばやく簡単にする機能 (Entity Framework の TestHost と InMemory プロバイダーなど) が含まれます。 詳細については、[コントローラー ロジックのテスト](controllers/testing.md)に関するページを参照してください。
+インターフェイスと依存関係の挿入のフレームワークの使用に適してを単体テスト、行い、フレームワークには、構成する (Entity Framework の考えます、InMemory プロバイダー) のような機能が含まれています[統合テスト](../testing/integration-testing.md)クイックと。簡単にもします。 詳細については[コント ローラーのロジックをテストする方法](controllers/testing.md)です。
 
 ### <a name="razor-view-engine"></a>Razor ビュー エンジン
 

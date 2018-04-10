@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: bab08e75652c75b371438581d6e9f56541844a61
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: HT
+ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC のビュー
 
@@ -48,7 +48,7 @@ ASP.NET Core MVC では、ビューは、Razor マークアップで [C# プロ�
 
 コントローラーに固有のビューは、*Views/[ControllerName]* フォルダー内に作成されます。 コントローラー間で共有されるビューは、*Views/Shared* フォルダーに配置されます。 ビューを作成するには、新しいファイルを追加し、このファイルに、関連付けられたコントローラー アクションと同じ名前にファイル拡張子 *.cshtml* を付けた名前を付けます。 *ホーム* コントローラーで、*About* アクションに対応するビューを作成するには、*Views/Home* フォルダー内に *About.cshtml* ファイルを作成します。
 
-[!code-cshtml[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
 *Razor* マークアップは、`@` 記号で始まります。 中かっこ (`{ ... }`) で始まる [Razor コード ブロック](xref:mvc/views/razor#razor-code-blocks)内に C# コードを配置して、C# ステートメントを実行します。 例として、上に示されている `ViewData["Title"]` への "About" の割り当てを参照してください。 `@` 記号を使用して値を参照するだけで、HTML 内に値を表示することができます。 上記の `<h2>` 要素と `<h3>` 要素のコンテンツを参照してください。
 
@@ -60,7 +60,7 @@ ASP.NET Core MVC では、ビューは、Razor マークアップで [C# プロ�
 
 *HomeController.cs*
 
-[!code-csharp[Main](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
+[!code-csharp[](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
 
 このアクションが返されると、最後のセクションに表示されている *About.cshtml* ビューが、次の Web ページとしてレンダリングされます。
 
@@ -92,7 +92,7 @@ ASP.NET Core MVC では、ビューは、Razor マークアップで [C# プロ�
 
 `return View();` を使用して `ViewResult` を暗黙的に返すか、`return View("<ViewName>");` を使用してビュー名を `View` メソッドに明示的に渡すかは関係ありません。 どちらの場合も、ビューの検出は、次の順序で一致するビュー ファイルを検索します。
 
-   1. *Views/\[ControllerName]\[ViewName].cshtml*
+   1. *Views/\[ControllerName]/\[ViewName].cshtml*
    1. *Views/Shared/\[ViewName].cshtml*
 
 ビュー名の代わりに、ビュー ファイル パスを指定できます。 アプリのルートから始まる (必要に応じて"/" または "~/" で始まる) 絶対パスを使用する場合は、*.cshtml* 拡張子を指定する必要があります。

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/data/working-with-files
-title: "ASP.NET Web Pages (Razor) サイト内のファイルの操作 |Microsoft ドキュメント"
+title: ASP.NET Web Pages (Razor) サイト内のファイルの操作 |Microsoft ドキュメント
 author: tfitzmac
-description: "この章では、読み取り、書き込み、追加、削除、およびファイルをアップロードする方法について説明します。"
+description: この章では、読み取り、書き込み、追加、削除、およびファイルをアップロードする方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
 ms.openlocfilehash: 0f119f8fb4873e55292203f21a2efd8f26793ae4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイト内のファイルの操作
 ====================
@@ -93,7 +93,7 @@ ms.lasthandoff: 01/24/2018
 - プロジェクトに戻り、ビューを更新します。
 - 開く、 *data.txt*ファイル。 形式で送信されたデータは、ファイルにです。 
 
-    ![[イメージ]](working-with-files/_static/image2.jpg)
+    ![[image]](working-with-files/_static/image2.jpg)
 - 閉じる、 *data.txt*ファイル。
 
 <a id="Appending_Data"></a>
@@ -113,7 +113,7 @@ ms.lasthandoff: 01/24/2018
 6. プロジェクトに戻り、プロジェクト フォルダーを右クリックし、クリックして**更新**です。
 7. 開く、 *data.txt*ファイル。 これで、入力した新しいデータが含まれています。 
 
-    ![[イメージ]](working-with-files/_static/image3.jpg)
+    ![[image]](working-with-files/_static/image3.jpg)
 
 <a id="Reading_and_Displaying_Data"></a>
 ## <a name="reading-and-displaying-data-from-a-file"></a>読み取りと、ファイルからデータを表示します。
@@ -133,14 +133,14 @@ ms.lasthandoff: 01/24/2018
 
     これを行うコードは、内部、`if`ステートメントです。 使用することをお勧めはファイルを確認するには、ときに、`File.Exists`最初に、ファイルが使用できるかどうかを確認するメソッド。 また、コードは、ファイルが空かどうかを確認します。
 
-    ページの本文には 2 つ`foreach`ループ、いずれかの他の内部に入れ子にします。 外側`foreach`ループは、データ ファイルから、一度に 1 つの行を取得します。 ファイル &#8212; 内の改行によって行を定義するこの例では、つまり、各データ項目は、独自の行です。 外側のループには、新しい項目が作成されます (`<li>`要素)、順序付きリストの内部 (`<ol>`要素)。
+    ページの本文には 2 つ`foreach`ループ、いずれかの他の内部に入れ子にします。 外側`foreach`ループは、データ ファイルから、一度に 1 つの行を取得します。 ファイル内の改行によって行を定義するこの例では、&#8212;は、各データ項目は独自の行。 外側のループには、新しい項目が作成されます (`<li>`要素)、順序付きリストの内部 (`<ol>`要素)。
 
-    内側のループは、区切り記号としてコンマを使用して項目 (フィールド) に各データ行を分割します。 (前の例に基づいて、つまり、各行には、3 つのフィールド &#8212;が含まれている、コンマで区切って名、姓、名、および電子メール アドレス)。また、内側のループを作成、`<ul>`データ行の各フィールドの項目リストと 1 つの一覧を表示します。
+    内側のループは、区切り記号としてコンマを使用して項目 (フィールド) に各データ行を分割します。 (前の例に基づいて、つまり、行ごとに 3 つのフィールドが含まれている&#8212;をコンマで区切って名、姓、名、および電子メール アドレスは、それぞれします)。また、内側のループを作成、`<ul>`データ行の各フィールドの項目リストと 1 つの一覧を表示します。
 
     コードでは、次の 2 つのデータ型、配列を使用する方法を示しています。 および`char`データ型。 配列が必要な`File.ReadAllLines`メソッドを配列としてデータを返します。 `char`ために、データ型が必要、`Split`メソッドを返します、`array`型の各要素は`char`します。 (配列については、次を参照してください[Introduction to ASP.NET Web プログラミング構文を使用して、Razor](https://go.microsoft.com/fwlink/?LinkId=202890#ID_CollectionsAndObjects)。)。
 3. ブラウザーでページを実行します。 前の例については、入力したデータが表示されます。 
 
-    ![[イメージ]](working-with-files/_static/image4.jpg)
+    ![[image]](working-with-files/_static/image4.jpg)
 
 > [!TIP] 
 > 
@@ -173,7 +173,7 @@ ms.lasthandoff: 01/24/2018
     ファイルをコードの呼び出しを削除する、`File.Delete`メソッドを作成した完全なパスを渡します。 マークアップの最後に、コードには、ファイルが削除されたことの確認メッセージが表示されます。
 5. ブラウザーでページを実行します。 
 
-    ![[イメージ]](working-with-files/_static/image5.jpg)
+    ![[image]](working-with-files/_static/image5.jpg)
 6. 削除し、をクリックし、ファイルの名前を入力**送信**です。 ファイルが削除された場合は、ページの下部にあるファイルの名前が表示されます。
 
 <a id="Letting_Users_Upload_a_File"></a>
@@ -190,11 +190,11 @@ ms.lasthandoff: 01/24/2018
 
     ページの本文部分を使用して、`FileUpload`アップロード ボックスとボタンに慣れている可能性がありますを作成するためのヘルパー。
 
-    ![[イメージ]](working-with-files/_static/image6.jpg)
+    ![[image]](working-with-files/_static/image6.jpg)
 
     プロパティの設定を`FileUpload`ヘルパーをアップロードするファイルの 1 つの箱をすることと読み取りに送信 ボタンをすることを指定**アップロード**です。 (複数のボックスは記事の後半で追加されます)。
 
-    ユーザーがクリックしたとき**アップロード**ページの上部にあるコード ファイルを取得し、保存します。 `Request`フォーム フィールドから値を取得するために通常使用オブジェクトもあります、`Files`ファイル (複数可) を格納する配列をアップロードされています。 配列 &#8212; 内の特定の位置からの個々 のファイルを取得することができます。たとえば、最初のアップロードされたファイルを取得するには、取得する`Request.Files[0]`、2 番目のファイルを取得するを取得する`Request.Files[1]`のようにします。 (前に説明をプログラミングでは、通常のカウントは 0 から始まります。
+    ユーザーがクリックしたとき**アップロード**ページの上部にあるコード ファイルを取得し、保存します。 `Request`フォーム フィールドから値を取得するために通常使用オブジェクトもあります、`Files`ファイル (複数可) を格納する配列をアップロードされています。 配列内の特定の位置からの個々 のファイルを取得できます&#8212;取得する最初のアップロードされたファイルを取得するには、たとえば、 `Request.Files[0]`、2 番目のファイルを取得するを取得する`Request.Files[1]`のようにします。 (前に説明をプログラミングでは、通常のカウントは 0 から始まります。
 
     変数に格納する、アップロードされたファイルをフェッチするときに (ここでは、 `uploadedFile`) それを操作することができるようにします。 取得するだけのアップロードされたファイルの名前を確認するには、その`FileName`プロパティです。 ただし、ユーザーが、ファイルをアップロードすると`FileName`全体のパスを含む、ユーザーの元名が含まれています。 これは、次のようになります可能性があります。
 
@@ -209,19 +209,19 @@ ms.lasthandoff: 01/24/2018
     アップロードされたファイルの名前を取得した後、は、web サイトにアップロードされたファイルを格納する新しいパスを構築できます。 この場合を結合する`Server.MapPath`、フォルダーの名前 (*アプリ\_データ/UploadedFiles*)、および新しいパスを作成する新しく除去されたファイル名。 アップロードされたファイルを呼び出すことができますし、`SaveAs`メソッドを実際には、ファイルを保存します。
 5. ブラウザーでページを実行します。 
 
-    ![[イメージ]](working-with-files/_static/image7.jpg)
+    ![[image]](working-with-files/_static/image7.jpg)
 6. をクリックして**参照**しアップロードするファイルを選択します。 
 
-    ![[イメージ]](working-with-files/_static/image8.jpg)
+    ![[image]](working-with-files/_static/image8.jpg)
 
     テキスト ボックスの隣に、**参照**ボタンは、パスとファイルの場所が含まれます。
 
-    ![[イメージ]](working-with-files/_static/image9.jpg)
+    ![[image]](working-with-files/_static/image9.jpg)
 7. **[アップロード]**をクリックします。
 8. Web サイトで、プロジェクト フォルダーを右クリックしをクリックして**更新**です。
 9. 開く、 *UploadedFiles*フォルダーです。 アップロードしたファイルは、フォルダーにです。 
 
-    ![[イメージ]](working-with-files/_static/image10.jpg)
+    ![[image]](working-with-files/_static/image10.jpg)
 
 <a id="Letting_Users_Upload_Multiple_Files"></a>
 ## <a name="letting-users-upload-multiple-files"></a>通知ユーザーは、複数のファイルをアップロードします。
@@ -236,9 +236,9 @@ ms.lasthandoff: 01/24/2018
 
     この例では、`FileUpload`ヘルパー ページの本文には既定でユーザーが 2 つのファイルをアップロードできるように構成されます。 `allowMoreFilesToBeAdded`に設定されている`true`ヘルパーがユーザーが複数のアップロード ボックスを追加できるリンクを表示します。
 
-    ![[イメージ]](working-with-files/_static/image11.jpg)
+    ![[image]](working-with-files/_static/image11.jpg)
 
-    コードをユーザーにアップロードするファイルを処理するには、前の例 &#8212; で使用したのと同じ基本的な手法を使用してください。ファイルを取得`Request.Files`し、保存します。 (さまざまな項目を含む必要があります、正しいファイル名とパスを取得するためです。)イノベーションこの時間は、ユーザーが複数のファイルをアップロードする可能性があります多くかわからないです。 取得することができますを調べるに`Request.Files.Count`です。
+    コードをユーザーにアップロードするファイルを処理するには、前の例で使用したのと同じ基本的な手法を使用して&#8212;からファイルを取得`Request.Files`し、保存します。 (さまざまな項目を含む必要があります、正しいファイル名とパスを取得するためです。)イノベーションこの時間は、ユーザーが複数のファイルをアップロードする可能性があります多くかわからないです。 取得することができますを調べるに`Request.Files.Count`です。
 
     手の形でこの番号をループできます`Request.Files`、さらに、各ファイルをフェッチし、保存します。 コレクションを既知回数をループするには、ときに行うこともできます、`for`ループは、次のようにします。
 
@@ -251,7 +251,7 @@ ms.lasthandoff: 01/24/2018
 5. アップロードする 2 つのファイルを選択します。
 6. をクリックして**別のファイル追加**です。 ページには、新しいアップロードのボックスが表示されます。 
 
-    ![[イメージ]](working-with-files/_static/image12.jpg)
+    ![[image]](working-with-files/_static/image12.jpg)
 7. **[アップロード]**をクリックします。
 8. Web サイトで、プロジェクト フォルダーを右クリックしをクリックして**更新**です。
 9. 開く、 *UploadedFiles*フォルダーを正常にアップロードされたファイルを参照してください。

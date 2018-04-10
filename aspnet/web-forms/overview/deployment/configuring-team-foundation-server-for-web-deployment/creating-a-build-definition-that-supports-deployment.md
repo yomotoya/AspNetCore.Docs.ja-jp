@@ -16,7 +16,7 @@ ms.openlocfilehash: c5ea0bd9f01bb57b96abd349741f304c0093d887
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a>展開をサポートするビルド定義を作成します。
 ====================
@@ -78,9 +78,9 @@ ms.lasthandoff: 04/06/2018
 1. Visual Studio 2010 での**チーム エクスプ ローラー**ウィンドウで、チーム プロジェクト ノードを展開しを右クリックして**ビルド**、順にクリック**ビルド定義の新規**です。
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image2.png)
-2. **全般** タブで、ビルド定義の名前 (たとえば、 **DeployToTest**) とオプションの説明。
-3. **トリガー**  タブで、新しいビルドをトリガーする条件を選択します。 たとえば、次のようにソリューションをビルドし、開発者は新しいコードをチェックインするたびに、テスト環境にデプロイする場合、次のように選択します。**継続的インテグレーション**です。
-4. **ビルドの既定値** タブで、**ビルド出力を次の格納フォルダーにコピー**ボックスで、ドロップ フォルダーの汎用名前付け規則 (UNC) パスを入力 (たとえば、  **\\TFSBUILD\Drops**)。
+2. **全般**] タブで、ビルド定義の名前 (たとえば、 **DeployToTest**) とオプションの説明。
+3. **トリガー** ] タブで、新しいビルドをトリガーする条件を選択します。 たとえば、次のようにソリューションをビルドし、開発者は新しいコードをチェックインするたびに、テスト環境にデプロイする場合、次のように選択します。**継続的インテグレーション**です。
+4. **ビルドの既定値**] タブで、**ビルド出力を次の格納フォルダーにコピー**ボックスで、ドロップ フォルダーの汎用名前付け規則 (UNC) パスを入力 (たとえば、 ** \\TFSBUILD\Drops**)。
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image3.png)
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 04/06/2018
 11. 使用する展開プロセスを制御、ファイルを選択してをクリックして、カスタムのプロジェクト ファイルの場所を参照**OK**です。
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image6.png)
-12. **ビルドする項目** ダイアログ ボックスでは 2 つの項目が表示されるはずです。 **[OK]**をクリックします。
+12. **ビルドする項目**] ダイアログ ボックスでは 2 つの項目が表示されるはずです。 **[OK]**をクリックします。
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image7.png)
 13. **プロセス**] タブの [、**ビルド プロセス パラメーター**テーブルで、展開、**詳細**セクションです。
@@ -112,7 +112,7 @@ ms.lasthandoff: 04/06/2018
 
     1. **DeployOnBuild = true**と**DeployTarget パッケージを =** Contact Manager ソリューションをビルドするときに、引数が必要です。 これにより、web 配置パッケージ各 web アプリケーション プロジェクトのビルド後の説明に従って作成するために MSBuild[パッケージ Web アプリケーション プロジェクトのビルドと](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md)です。
     2. **TargetEnvPropsFile**をビルドすると、引数が必要、 *Publish.proj*ファイル。 」の説明に従って、このプロパティは、環境固有の構成ファイルの場所を示します[ビルド プロセスの理解](../web-deployment-in-the-enterprise/understanding-the-build-process.md)です。
-16. **保有ポリシー**  タブで、必要に応じてを保持する各種類のビルドの数を構成します。
+16. **保有ポリシー** ] タブで、必要に応じてを保持する各種類のビルドの数を構成します。
 17. **[保存]**をクリックします。
 
 ## <a name="queue-a-build"></a>ビルドをキューに配置する
@@ -126,7 +126,7 @@ ms.lasthandoff: 04/06/2018
 
 **手動でビルドをキューに登録**
 
-1. **チーム エクスプ ローラー**  ウィンドウでは、ビルド定義を右クリックし、をクリックして**新しいビルドをキュー**です。
+1. **チーム エクスプ ローラー** ] ウィンドウでは、ビルド定義を右クリックし、をクリックして**新しいビルドをキュー**です。
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image9.png)
 2. **ビルドをキュー**ダイアログ ボックスでは、ビルド プロパティを確認し、をクリックして**キュー**です。
