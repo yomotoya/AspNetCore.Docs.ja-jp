@@ -19,27 +19,27 @@ ms.lasthandoff: 03/22/2018
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このドキュメントで説明する方法。
+このドキュメントでは次の方法について説明します:
 
-- すべての要求には HTTPS が必要です。
-- すべての HTTP 要求を HTTPS にリダイレクトします。
+- すべての要求に HTTPS を必要とさせる。
+- すべての HTTP 要求を HTTPS にリダイレクトさせる。
 
 > [!WARNING]
-> 操作を行います**いない**使用`RequireHttpsAttribute`機密情報を受信する Web Api にします。 `RequireHttpsAttribute` HTTP ステータス コードを使用して、HTTP から HTTPS へのブラウザーをリダイレクトします。 API クライアントの理解または HTTP から HTTPS へのリダイレクトに従うことがありますできません。 このようなクライアントは、HTTP 経由で情報を送信することがあります。 Web Api には、する必要があります。
+> 機密情報を受信する Web Api で `RequireHttpsAttribute` を使用しないでください。 `RequireHttpsAttribute` はブラウザーを HTTP から HTTPS へリダイレクトするために HTTP ステータス コードを使用します。 API クライアントはこれを理解せず、または リダイレクトに従わない可能性があります。 このようなクライアントは、HTTP 経由で情報を送信することがあります。 Web API は次のいずれかの対策を講じるべきです:
 >
->* HTTP をリッスンしません。
->* ステータス コード 400 (Bad Request) との接続を閉じていない要求を処理します。
+>* HTTP をリッスンしない。
+>* ステータス コード 400 (Bad Request) で接続を閉じ、要求に応答しない。
 
 ## <a name="require-https"></a>HTTPS が必要
 
-[RequireHttpsAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.RequireHttpsAttribute) HTTPS を要求するために使用します。 `[RequireHttpsAttribute]` 装飾できるは、メソッドまたはコント ローラーまたはグローバルに適用することができます。 属性をグローバルに適用するには、次のコードを追加`ConfigureServices`で`Startup`:
+[RequireHttpsAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.RequireHttpsAttribute) は HTTPS を必須とさせるために使用します。 `[RequireHttpsAttribute]` はメソッドまたはコントローラーを装飾するか、またはグローバルに適用することができます。 属性をグローバルに適用するには、`Startup` の `ConfigureServices` に次のコードを追加します:
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet2&highlight=4-999)]
 
-前の強調表示されたコードでは、すべての要求を使用して`HTTPS`です。 そのため、HTTP 要求は無視されます。 次の強調表示されたコードは、すべての HTTP 要求を HTTPS にリダイレクトします。
+前の強調表示されたコードは、すべての要求に対して `HTTPS` を使用することを必須とさせています; したがって、HTTP 要求は無視されます。次の強調表示されたコードは、すべての HTTP 要求を HTTPS にリダイレクトさせます。
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
 
-詳細については、次を参照してください。 [URL 書き換えミドルウェア](xref:fundamentals/url-rewriting)です。
+さらに詳しい情報は、[URL 書き換えミドルウェア](xref:fundamentals/url-rewriting) を参照してください。
 
-HTTPS をグローバルに必要とする (`options.Filters.Add(new RequireHttpsAttribute());`) は、セキュリティのベスト プラクティスです。 適用する、`[RequireHttps]`属性をすべてのコント ローラー/Razor ページされていないグローバルに HTTPS を必要とすると、セキュリティで保護されたと見なされます。 保証できません、`[RequireHttps]`属性は、新しいコント ローラーおよび Razor ページが追加されたときに適用します。
+グローバルに HTTPS を必須とさせること (`options.Filters.Add(new RequireHttpsAttribute());`) は、セキュリティのベスト プラクティスです。`[RequireHttps]` 属性をすべてのコントローラー/Razor ページ に適用することは、グローバルに HTTPS を必須とさせることほどセキュアに考慮されていません。新しいコントローラー または Razor ページが追加されたときに `[RequireHttps]` 属性が適用されるとは限らないためです。
