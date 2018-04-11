@@ -2,7 +2,7 @@
 uid: whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 title: '方法: ASP.NET Web フォームにモバイル ページを追加する/MVC アプリケーション |Microsoft ドキュメント'
 author: rick-anderson
-description: ここで説明するページ、ASP.NET Web フォームからのモバイル デバイス用に最適化に提供するさまざまな方法を説明します/MVC アプリケーション、アーキテクチャを提案してとしています。
+description: ここで説明するページ、ASP.NET Web フォームからのモバイル デバイス用に最適化に提供するさまざまな方法を説明します/MVC アプリケーション、アーキテクチャを提案してとしています.。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2011
@@ -16,7 +16,7 @@ ms.openlocfilehash: a8358b91ca424f4f3e576057ab43d850081dda60
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>方法: ASP.NET Web フォームにモバイル ページを追加する/MVC アプリケーション
 ====================
@@ -113,10 +113,10 @@ ASP.NET Web フォームと MVC は、主にサーバー側の両方のテクノ
 プロパティを調べることで ASP.NET Web フォームと MVC の開発者が訪問ブラウザーの重要な特性をすぐに検出、 *Request.Browser*オブジェクト。 たとえばを参照してください。
 
 - Request.Browser.IsMobileDevice
-- Request.Browser.MobileDeviceManufacturer、Request.Browser.MobileDeviceModel
+- Request.Browser.MobileDeviceManufacturer, Request.Browser.MobileDeviceModel
 - Request.Browser.ScreenPixelsWidth
 - Request.Browser.SupportsXmlHttp
-- .. 参照できます他の多くのユーザー
+- ...参照できます他の多くのユーザー
 
 背後では、ASP.NET プラットフォームには、入力方向が一致する*User-agent*に対して一連のブラウザーの定義 XML ファイルでの正規表現 (UA) HTTP ヘッダー。 既定では、プラットフォームには、多くの一般的なモバイル デバイスの定義が含まれます、他のユーザーが認識するカスタムのブラウザー定義ファイルを追加することができます。 詳細については、MSDN のページを参照してください。 [ASP.NET Web サーバー コントロールとブラウザーの機能](https://msdn.microsoft.com/library/x3k2ssx2.aspx)します。
 

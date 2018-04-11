@@ -181,10 +181,10 @@ PayPal から返された後、は、確認し、注文を完了できます。
 
 <strong>C:\Users\</strong><strong><em>&lt;username&gt;</em></strong><strong>\Documents\Visual Studio 2013\Projects</strong>
 
-名前を変更、 ***c#***フォルダー ***WingtipToys***です。
+名前を変更、 ***c#*** フォルダー ***WingtipToys***です。
 
 > [!NOTE]
-> という名前のフォルダーが既にある場合*WingtipToys* Projects フォルダーに名前を一時的にその既存のフォルダーの名前変更する前に、 *c#*フォルダー *WingtipToys*です。
+> という名前のフォルダーが既にある場合*WingtipToys* Projects フォルダーに名前を一時的にその既存のフォルダーの名前変更する前に、 *c#* フォルダー *WingtipToys*です。
 
 
 実行するには、完成したプロジェクトを開く、 *WingtipToys*フォルダーをダブルクリック、 *WingtipToys.sln*ファイル。 Visual Studio 2013 には、プロジェクトが開きます。 次を右クリックし、 *Default.aspx*ソリューション エクスプ ローラー ウィンドウでファイルを右クリック メニューからブラウザーで表示をクリックします。
