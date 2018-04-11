@@ -1,7 +1,7 @@
 ---
-title: "macOS で ASP.NET Core を使用して Razor ページ Web アプリを作成する"
+title: Visual Studio for Mac を使用して macOS で ASP.NET Core による Razor ページ Web アプリを作成する
 author: rick-anderson
-description: "ASP.NET Core と EF Core で Razor ページ Web アプリを作成します。"
+description: ASP.NET Core と EF Core で Razor ページ Web アプリを作成します。
 manager: wpickett
 ms.author: riande
 ms.date: 07/26/2017
@@ -9,26 +9,26 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-mac/index
-ms.openlocfilehash: 468eb267105843cc1c7f490c4db9f8deb055c7ea
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: b83665bb8ffffd52442cd6bf67b2e23d097581db
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="create-a-razor-pages-web-app-with-aspnet-core-and-visual-studio-for-mac"></a><span data-ttu-id="bd39e-103">ASP.NET Core と Visual Studio for Mac で Razor ページ Web アプリを作成する</span><span class="sxs-lookup"><span data-stu-id="bd39e-103">Create a Razor Pages web app with ASP.NET Core and Visual Studio for Mac</span></span>
+# <a name="create-a-razor-pages-web-app-with-aspnet-core-on-macos-with-visual-studio-for-mac"></a><span data-ttu-id="46939-103">Visual Studio for Mac を使用して macOS で ASP.NET Core による Razor ページ Web アプリを作成する</span><span class="sxs-lookup"><span data-stu-id="46939-103">Create a Razor Pages web app with ASP.NET Core on macOS with Visual Studio for Mac</span></span>
 
-<span data-ttu-id="bd39e-104">この機能の作業はまだ進行中です。</span><span class="sxs-lookup"><span data-stu-id="bd39e-104">This is a work in progress.</span></span>
+<span data-ttu-id="46939-104">この機能の作業はまだ進行中です。</span><span class="sxs-lookup"><span data-stu-id="46939-104">This is a work in progress.</span></span>
 
-<span data-ttu-id="bd39e-105">このシリーズでは、macOS で ASP.NET Core を使って Razor ページ Web アプリを作成する基礎について説明します。</span><span class="sxs-lookup"><span data-stu-id="bd39e-105">This series explains the basics of building a Razor Pages web app with ASP.NET Core on macOS.</span></span>
+<span data-ttu-id="46939-105">このシリーズでは、macOS で ASP.NET Core を使って Razor ページ Web アプリを作成する基礎について説明します。</span><span class="sxs-lookup"><span data-stu-id="46939-105">This series explains the basics of building a Razor Pages web app with ASP.NET Core on macOS.</span></span>
 
-1. [<span data-ttu-id="bd39e-106">macOS での Razor ページの概要</span><span class="sxs-lookup"><span data-stu-id="bd39e-106">Get started with Razor Pages on macOS</span></span>](xref:tutorials/razor-pages-mac/razor-pages-start)
-1. [<span data-ttu-id="bd39e-107">Razor ページ アプリへのモデルの追加</span><span class="sxs-lookup"><span data-stu-id="bd39e-107">Adding a model to a Razor Pages app</span></span>](xref:tutorials/razor-pages-mac/model)
-1. [<span data-ttu-id="bd39e-108">スキャフォールディングされた Razor ページ</span><span class="sxs-lookup"><span data-stu-id="bd39e-108">Scaffolded Razor Pages</span></span>](xref:tutorials/razor-pages-mac/page)
-1. [<span data-ttu-id="bd39e-109">SQLite の使用</span><span class="sxs-lookup"><span data-stu-id="bd39e-109">Working with SQLite</span></span>](xref:tutorials/razor-pages-mac/sql)
-1. [<span data-ttu-id="bd39e-110">ページの更新</span><span class="sxs-lookup"><span data-stu-id="bd39e-110">Update the pages</span></span>](xref:tutorials/razor-pages-mac/da1)
-1. [<span data-ttu-id="bd39e-111">検索の追加</span><span class="sxs-lookup"><span data-stu-id="bd39e-111">Adding search</span></span>](xref:tutorials/razor-pages-mac/search)
+1. [<span data-ttu-id="46939-106">macOS での Razor ページの概要</span><span class="sxs-lookup"><span data-stu-id="46939-106">Get started with Razor Pages on macOS</span></span>](xref:tutorials/razor-pages-mac/razor-pages-start)
+1. [<span data-ttu-id="46939-107">Razor ページ アプリへのモデルの追加</span><span class="sxs-lookup"><span data-stu-id="46939-107">Add a model to a Razor Pages app</span></span>](xref:tutorials/razor-pages-mac/model)
+1. [<span data-ttu-id="46939-108">スキャフォールディングされた Razor ページ</span><span class="sxs-lookup"><span data-stu-id="46939-108">Scaffolded Razor Pages</span></span>](xref:tutorials/razor-pages-mac/page)
+1. [<span data-ttu-id="46939-109">SQLite の使用</span><span class="sxs-lookup"><span data-stu-id="46939-109">Work with SQLite</span></span>](xref:tutorials/razor-pages-mac/sql)
+1. [<span data-ttu-id="46939-110">ページの更新</span><span class="sxs-lookup"><span data-stu-id="46939-110">Update the pages</span></span>](xref:tutorials/razor-pages-mac/da1)
+1. [<span data-ttu-id="46939-111">検索の追加</span><span class="sxs-lookup"><span data-stu-id="46939-111">Add search</span></span>](xref:tutorials/razor-pages-mac/search)
 
-<span data-ttu-id="bd39e-112">次のセクションが完成するまでは、Visual Studio for Windows のバージョンに従ってください。</span><span class="sxs-lookup"><span data-stu-id="bd39e-112">Until the next section is complete, follow the Visual Studio for Windows version.</span></span>
+<span data-ttu-id="46939-112">次のセクションが完成するまでは、Visual Studio for Windows のバージョンに従ってください。</span><span class="sxs-lookup"><span data-stu-id="46939-112">Until the next section is complete, follow the Visual Studio for Windows version.</span></span>
 
-1. [<span data-ttu-id="bd39e-113">新しいフィールドの追加</span><span class="sxs-lookup"><span data-stu-id="bd39e-113">Adding a new field</span></span>](xref:tutorials/razor-pages/new-field)
-1. [<span data-ttu-id="bd39e-114">検証の追加</span><span class="sxs-lookup"><span data-stu-id="bd39e-114">Adding validation</span></span>](xref:tutorials/razor-pages/validation)
+1. [<span data-ttu-id="46939-113">新しいフィールドの追加</span><span class="sxs-lookup"><span data-stu-id="46939-113">Add a new field</span></span>](xref:tutorials/razor-pages/new-field)
+1. [<span data-ttu-id="46939-114">検証の追加</span><span class="sxs-lookup"><span data-stu-id="46939-114">Add validation</span></span>](xref:tutorials/razor-pages/validation)
