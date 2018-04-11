@@ -1,7 +1,7 @@
 ---
-title: "Windows で ASP.NET Core MVC を使用して Web アプリを作成する"
+title: Visual Studio を使用して Windows で ASP.NET Core MVC による Web アプリを作成する
 author: rick-anderson
-description: "Windows の Visual Studio を使用する ASP.NET Core MVC の概要の目次をご確認ください。"
+description: Windows の Visual Studio を使用する ASP.NET Core MVC の概要の目次をご確認ください。
 manager: wpickett
 ms.author: riande
 ms.date: 10/26/2017
@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/index
-ms.openlocfilehash: 4e7cf615746acf91ecc50ce3b0e7a5bb451dd65c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 46e98bc0de19ca09921c7505aa0a2f075887cd64
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="create-a-web-app-with-aspnet-core-mvc-using-visual-studio"></a>Visual Studio を使用し、ASP.NET Core MVC Web アプリを作成する
+# <a name="create-a-web-app-with-aspnet-core-mvc-on-windows-with-visual-studio"></a>Visual Studio を使用して Windows で ASP.NET Core MVC による Web アプリを作成する
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 このチュートリアルには 3 つのバージョンがあります。
 

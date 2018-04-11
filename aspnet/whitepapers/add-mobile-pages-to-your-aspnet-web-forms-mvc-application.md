@@ -1,22 +1,22 @@
 ---
 uid: whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
-title: "方法: ASP.NET Web フォームにモバイル ページを追加する/MVC アプリケーション |Microsoft ドキュメント"
+title: '方法: ASP.NET Web フォームにモバイル ページを追加する/MVC アプリケーション |Microsoft ドキュメント'
 author: rick-anderson
-description: "ここで説明するページ、ASP.NET Web フォームからのモバイル デバイス用に最適化に提供するさまざまな方法を説明します/MVC アプリケーション、アーキテクチャを提案してとしています。"
+description: ここで説明するページ、ASP.NET Web フォームからのモバイル デバイス用に最適化に提供するさまざまな方法を説明します/MVC アプリケーション、アーキテクチャを提案してとしています。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2011
 ms.topic: article
 ms.assetid: 3124f28e-cc32-418a-afe3-519fa56f4c36
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: aac359b26c508784793a67260dc2e65c30db687a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a8358b91ca424f4f3e576057ab43d850081dda60
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>方法: ASP.NET Web フォームにモバイル ページを追加する/MVC アプリケーション
 ====================
@@ -185,7 +185,7 @@ ASP の中にします。できない可能性があるのに十分な場合に 
 
     [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample4.cs)]
   
- このコードでは、ページに既定のプロジェクト テンプレートと同様に、LoginUser と呼ばれるログイン サーバー コントロールが前提としています。
+  このコードでは、ページに既定のプロジェクト テンプレートと同様に、LoginUser と呼ばれるログイン サーバー コントロールが前提としています。
 
 ### <a name="working-with-output-caching"></a>出力キャッシュの使用
 
@@ -243,7 +243,7 @@ URL/Mobile HomeController のインデックスの操作をモバイルの領域
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample9.cs)]
 
-退席中、および URL http:// エラーになるようになりました*目的のサイト*http://、デスクトップのホーム ページに到達/*目的のサイト*/mobile/はモバイルのホーム ページにアクセスされます。
+退席中、および URL http:// エラーになるようになりました<em>目的のサイト</em>http://、デスクトップのホーム ページに到達/<em>目的のサイト</em>/mobile/はモバイルのホーム ページにアクセスされます。
 
 ### <a name="redirecting-mobile-visitors-to-your-mobile-area"></a>モバイルお住まいの地域をモバイル閲覧者のリダイレクト
 

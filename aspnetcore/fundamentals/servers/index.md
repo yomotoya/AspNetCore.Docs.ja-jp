@@ -1,41 +1,32 @@
 ---
-title: "ASP.NET Core での Web サーバーの実装"
+title: ASP.NET Core での Web サーバーの実装
 author: tdykstra
-description: "ASP.NET Core の Web サーバー Kestrel と HTTP.sys を検出します。 いずれか 1 つを選択する方法と、リバース プロキシ サーバーでいずれかを使用するタイミングについて説明します。"
+description: ASP.NET Core の Web サーバー Kestrel と HTTP.sys を検出します。 サーバーを選択する方法と、リバース プロキシ サーバーを使用するタイミングについて説明します。
 manager: wpickett
 ms.author: tdykstra
-ms.date: 08/03/2017
+ms.custom: mvc
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/index
-ms.openlocfilehash: b9a7fa4e33c56a5973b4bc35f88ca0ebb3d67101
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cdf6fafce644f424d3cd58395e1fa91e5e6fa2cb
+ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core での Web サーバーの実装
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Steve Smith](https://ardalis.com/)、[Stephen Halter](https://twitter.com/halter73)、[Chris Ross](https://github.com/Tratcher)
 
-ASP.NET Core アプリケーションは、インプロセス HTTP サーバー実装を使用して実行されます。 サーバー実装では HTTP 要求をリッスンし、`HttpContext` に構成された[要求機能](https://docs.microsoft.com/aspnet/core/fundamentals/request-features)のセットとしてアプリケーションに公開します。
+ASP.NET Core アプリは、インプロセス HTTP サーバー実装を使用して実行されます。 サーバー実装は HTTP 要求をリッスンし、[HttpContext](/dotnet/api/system.web.httpcontext) に構成された[要求機能](xref:fundamentals/request-features)のセットとしてアプリに公開します。
 
 ASP.NET Core には次の 2 つのサーバー実装が用意されています。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+* [Kestrel](xref:fundamentals/servers/kestrel) は、クロスプラットフォームの非同期 I/O ライブラリである [libuv](https://github.com/libuv/libuv) に基づくクロスプラットフォームの HTTP サーバーです。
 
-* [Kestrel](kestrel.md) は、クロスプラットフォームの非同期 I/O ライブラリである [libuv](https://github.com/libuv/libuv) に基づくクロスプラットフォームの HTTP サーバーです。
-
-* [HTTP.sys](httpsys.md) は、[Http.Sys カーネル ドライバー](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)に基づく Windows 専用の HTTP サーバーです。
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-* [Kestrel](kestrel.md) は、クロスプラットフォームの非同期 I/O ライブラリである [libuv](https://github.com/libuv/libuv) に基づくクロスプラットフォームの HTTP サーバーです。
-
-* [WebListener](weblistener.md) は、[Http.Sys カーネル ドライバー](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)に基づく Windows 専用の HTTP サーバーです。
-
----
+* [HTTP.sys](xref:fundamentals/servers/httpsys) は、[HTTP.sys カーネル ドライバーおよび HTTP サーバー API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) に基づく Windows 専用の HTTP サーバーです。 (ASP.NET Core 1.x では、HTTP.sys は [WebListener](xref:fundamentals/servers/weblistener) と呼ばれます。)
 
 ## <a name="kestrel"></a>Kestrel
 
@@ -43,7 +34,7 @@ Kestrel は、ASP.NET Core の新しいプロジェクト テンプレートに�
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Kestrel を単独で使用することも、IIS、Nginx、または Apache などの*リバース プロキシ サーバー*と併用することもできます。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。
+Kestrel は単独で使用することも、IIS、Nginx、または Apache などの*リバース プロキシ サーバー*と併用することもできます。 リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。
 
 ![リバース プロキシ サーバーなしでインターネットと直接通信する Kestrel](kestrel/_static/kestrel-to-internet2.png)
 
@@ -51,33 +42,33 @@ Kestrel を単独で使用することも、IIS、Nginx、または Apache な�
 
 いずれの構成 &mdash; リバース プロキシ サーバーがある場合とない場合 &mdash; も、Kestrel が内部ネットワークにのみ公開される場合にも使用できます。
 
-Kestrel とリバース プロキシを併用するタイミングについては、[Kestrel の概要](kestrel.md)に関するページを参照してください。
+詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-アプリケーションが内部ネットワークからの要求のみを受け入れる場合は、Kestrel を単独で使用することができます。
+アプリが内部ネットワークからの要求のみを受け入れる場合は、Kestrel を単独で使用することができます。
 
 ![内部ネットワークと直接通信する Kestrel](kestrel/_static/kestrel-to-internal.png)
 
-アプリケーションをインターネットに公開する場合は、*リバース プロキシ サーバー*として IIS、Nginx、または Apache を使用する必要があります。 以下の図のように、リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。
+アプリをインターネットに公開する場合は、Kestrel が*リバース プロキシ サーバー*として IIS、Nginx、または Apache を使用する必要があります。 以下の図のように、リバース プロキシ サーバーはインターネットから HTTP 要求を受け取り、事前にいくつかの処理を行ってから Kestrel に転送します。
 
 ![IIS、Nginx、または Apache などのリバース プロキシ サーバーを介してインターネットと間接的に通信する Kestrel](kestrel/_static/kestrel-to-internet.png)
 
-エッジ展開 (インターネットからのトラフィックに公開される) でリバース プロキシを使用する最も重要な理由は、セキュリティです。 1.x バージョンの Kestrel には、攻撃に対する防御の全装備が十分ではありません。 これには、適切なタイムアウト、サイズ制限、および同時接続の制限などが含まれます (ただし、これらに限定されない)。
+エッジ展開 (インターネットからのトラフィックに公開される) でリバース プロキシを使用する最も重要な理由は、セキュリティです。 1.x バージョンの Kestrel はインターネットからの攻撃を防御する重要なセキュリティ機能を備えていません。 これには、適切なタイムアウト、要求サイズの制限、および同時接続の制限などが含まれます (ただし、これらに限定されない)。
 
-Kestrel とリバース プロキシを併用するタイミングについては、[Kestrel の概要](kestrel.md)に関するページを参照してください。
+詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
 
 ---
 
-IIS、Nginx、または Apache を Kestrel や[カスタム サーバー実装](#custom-servers)なしで使用することはできません。 ASP.NET Core は、プラットフォーム間で一貫して動作できるように、独自のプロセスで実行するように設計されています。 IIS、Nginx、および Apache では独自のスタートアップ プロセスと環境が指示されます。それらを直接使用するには、ASP.NET Core はそれぞれのニーズに適応する必要があります。 Kestrel などの Web サーバー実装を使用することで、ASP.NET Core はスタートアップ プロセスと環境を制御できます。 したがって、ASP.NET Core を IIS、Nginx、または Apache に適応するのではなく、Kestrel に要求をプロキシするようにこれらの Web サーバーを設定します。 このようにすれば、展開場所に関係なく、`Program.Main` および `Startup` クラスを本質的に同じにすることができます。
+IIS、Nginx、および Apache を Kestrel や[カスタム サーバー実装](#custom-servers)なしで使用することはできません。 ASP.NET Core は、プラットフォーム間で一貫して動作できるように、独自のプロセスで実行するように設計されています。 IIS、Nginx、および Apache では独自のスタートアップ プロシージャと環境が指定されます。 これらのサーバー テクノロジを直接使用するには、ASP.NET Core を各サーバーの要件に適合させる必要があります。 Kestrel などの Web サーバー実装を使用することで、ASP.NET Core は異なるサーバー テクノロジでホストされている場合でもスタートアップ プロセスと環境を制御できます。
 
 ### <a name="iis-with-kestrel"></a>IIS と Kestrel
 
-ASP.NET Core のリバース プロキシとして IIS または IIS Express を使用する場合、ASP.NET Core アプリケーションは IIS ワーカー プロセスとは別のプロセスで実行されます。 IIS プロセスでは、リバース プロキシの関係を調整するために特別な IIS モジュールが実行されます。  これは *ASP.NET Core モジュール*です。 ASP.NET Core モジュールの主な機能は、ASP.NET Core アプリケーションを開始し、クラッシュ時に再始動し、HTTP トラフィックを転送することです。 詳細については、[ASP.NET Core モジュール](aspnet-core-module.md)に関するページを参照してください。 
+ASP.NET Core のリバース プロキシとして [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) または [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) を使用する場合、ASP.NET Core アプリは IIS ワーカー プロセスとは別のプロセスで実行されます。 IIS プロセスで、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がリバース プロキシの関係を調整します。 ASP.NET Core モジュールの主な機能は、ASP.NET Core アプリを開始し、クラッシュ時にアプリを再始動し、HTTP トラフィックをアプリに転送することです。 詳細については、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)に関するページを参照してください。 
 
 ### <a name="nginx-with-kestrel"></a>Nginx と Kestrel
 
-Kestrel のリバース プロキシ サーバーとして Linux で Nginx を使用する方法については、「[Nginx による Linux でのホスト](xref:host-and-deploy/linux-nginx)」を参照してください。
+Kestrel のリバース プロキシ サーバーとして Linux で Nginx を使用する方法については、「[Host on Linux with Nginx](xref:host-and-deploy/linux-nginx)」(Nginx による Linux でのホスト) を参照してください。
 
 ### <a name="apache-with-kestrel"></a>Apache と Kestrel
 
@@ -87,58 +78,46 @@ Kestrel のリバース プロキシ サーバーとして Linux で Apache を�
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Windows で ASP.NET Core アプリを実行する場合は、HTTP.sys を Kestrel の代わりに使用できます。 アプリをインターネットに公開し、Kestrel でサポートされない HTTP.sys 機能が必要なシナリオの場合、HTTP.sys を使用できます。 
+Windows で ASP.NET Core アプリを実行する場合は、HTTP.sys を Kestrel の代わりに使用できます。 最適なパフォーマンスを得るには、通常は Kestrel をお勧めします。 HTTP.sys は、アプリがインターネットに公開されていて、必要な機能が HTTP.sys でサポートされているものの、Kestrel ではサポートされていないシナリオで使用できます。 HTTP.sys の機能については、[HTTP.sys](xref:fundamentals/servers/httpsys) に関するページを参照してください。
 
 ![インターネットと直接通信する HTTP.sys](httpsys/_static/httpsys-to-internet.png)
 
-HTTP.sys は、内部ネットワークにのみ公開されるアプリケーションにも使用できます。 
+HTTP.sys は、内部ネットワークにのみ公開されるアプリにも使用できます。 
 
 ![内部ネットワークと直接通信する HTTP.sys](httpsys/_static/httpsys-to-internal.png)
 
-内部ネットワークのシナリオの場合、最適なパフォーマンスを得るには、一般に Kestrel が推奨されますが、一部のシナリオでは、HTTP.sys のみで提供される機能を使用することもできます。 HTTP.sys の機能については、[HTTP.sys](httpsys.md) に関するページを参照してください。
-
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-ASP.NET Core 1.x では、HTTP.sys は WebListener と呼ばれます。 Windows で ASP.NET Core アプリを実行する場合、アプリをインターネットに公開する際に IIS を使用できないシナリオで WebListener を代わりに使用できます。
+ASP.NET Core 1.x では、HTTP.sys は [WebListener](xref:fundamentals/servers/weblistener) と呼ばれます。 IIS がホストアプリで使用できないシナリオにおいて、Windows で ASP.NET Core アプリを実行する場合は、WebListener を代わりに使用できます。
 
 ![インターネットと直接通信する Weblistener](weblistener/_static/weblistener-to-internet.png)
 
-Kestrel でサポートされない WebListener の機能が必要な場合は、内部ネットワークにのみ公開されるアプリケーションでも Kestrel の代わりに WebListener を使用できます。 
+内部ネットワークにのみ公開されるアプリで、必要な機能が WebListener でサポートされていて、Kestrel でサポートされていない場合は、Kestrel の代わりに WebListener も使用できます。 WebListener の機能については、[WebListener](xref:fundamentals/servers/weblistener) に関するページを参照してください。
 
-![内部ネットワークと直接通信する Weblistener](weblistener/_static/weblistener-to-internal.png)
-
-内部ネットワークのシナリオの場合、最適なパフォーマンスを得るには、一般に Kestrel が推奨されますが、一部のシナリオでは、WebListener のみで提供される機能を使用することもできます。 WebListener の機能については、[WebListener](weblistener.md) に関するページを参照してください。
+![内部ネットワークと直接通信する WebListener](weblistener/_static/weblistener-to-internal.png)
 
 ---
 
-## <a name="notes-about-aspnet-core-server-infrastructure"></a>ASP.NET Core サーバー インフラストラクチャに関する注意事項
+## <a name="aspnet-core-server-infrastructure"></a>ASP.NET Core サーバー インフラストラクチャ
 
-`Startup` クラスの `Configure` メソッドで使用可能な [`IApplicationBuilder`](/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder) は、[`IFeatureCollection`](/aspnet/core/api/microsoft.aspnetcore.http.features.ifeaturecollection) 型の `ServerFeatures` プロパティを公開します。 Kestrel と WebListener はどちらも [`IServerAddressesFeature`](/aspnet/core/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature) という 1 つの機能しか公開しませんが、異なるサーバー実装では追加の機能が公開される可能性があります。
+`Startup.Configure` メソッドで使用できる [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) は、[IFeatureCollection](/dotnet/api/microsoft.aspnetcore.http.features.ifeaturecollection) 型の [ServerFeatures](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.serverfeatures) プロパティを公開します。 Kestrel および HTTP.sys (ASP.NET Core 1.x の WebListener) は、それぞれ単独の機能 [IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature) のみを公開しますが、サーバー実装が異なると追加機能が公開される場合があります。
 
 `IServerAddressesFeature` を使用すれば、実行時にサーバー実装がバインドされたポートを見つけることができます。
 
 ## <a name="custom-servers"></a>カスタム サーバー
 
-組み込みサーバーがニーズに合わない場合は、カスタム サーバー実装を作成できます。 [Nowin](https://github.com/Bobris/Nowin) ベースの [IServer](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.server.iserver) 実装の作成方法については、[Open Web Interface for .NET (OWIN) のガイド](../owin.md)を参照してください。 アプリケーションで必要な機能インターフェイスのみを実装するのは自由です。ただし、少なくとも [IHttpRequestFeature](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.ihttprequestfeature) と [IHttpResponseFeature](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpresponsefeature) をサポートする必要があります。
+組み込みサーバーがアプリの要件に合わない場合は、カスタム サーバー実装を作成できます。 [Nowin](https://github.com/Bobris/Nowin) ベースの [IServer](/dotnet/api/microsoft.aspnetcore.hosting.server.iserver) 実装の作成方法については、[Open Web Interface for .NET (OWIN) のガイド](xref:fundamentals/owin)を参照してください。 実装を必要とするのは、アプリで使用される機能のインターフェイスのみです。ただし、少なくとも [IHttpRequestFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttprequestfeature) と [IHttpResponseFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttpresponsefeature) はサポートされている必要があります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="server-startup"></a>サーバーの起動
 
-詳細については、次のリソースを参照してください。
+[Visual Studio](https://www.visualstudio.com/vs/)、[Visual Studio for Mac](https://www.visualstudio.com/vs/mac/)、または [Visual Studio Code](https://code.visualstudio.com/) を使用する場合、サーバーはアプリが統合開発環境 (IDE) によって開始されたときに起動します。 Windows の Visual Studio では、[IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)またはコンソールで、起動プロファイルを使用してアプリとサーバーを開始することができます。 Visual Studio Code では、CoreCLR デバッガーをアクティブ化する [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode) によって、アプリとサーバーが開始します。 Visual Studio for Mac を使用する場合は、アプリとサーバーが [Mono の Soft-Mode Debugger](http://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/) によって開始します。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+コマンド プロンプトからプロジェクトのフォルダーでアプリを起動する場合、[dotnet run](/dotnet/core/tools/dotnet-run) でアプリとサーバーが起動します (Kestrel および HTTP.sys のみ)。 この構成は、`Debug` (既定) または `Release` のどちらかに設定された `-c|--configuration` オプションによって指定されます。 起動プロファイルが *launchSettings.json* ファイルに存在する場合は、`--launch-profile <NAME>` オプションを使用して起動プロファイルを設定します (`Development`、`Production` など)。 詳細については、[dotnet run](/dotnet/core/tools/dotnet-run) と [.NET Core の配布パッケージ](/dotnet/core/build/distribution-packaging)のトピックを参照してください。
 
-- [Kestrel](kestrel.md)
-- [Kestrel と IIS](aspnet-core-module.md)
-- [Nginx による Linux でのホスト](xref:host-and-deploy/linux-nginx)
-- [Apache による Linux でのホスト](xref:host-and-deploy/linux-apache)
-- [HTTP.sys](httpsys.md)
+## <a name="additional-resources"></a>その他の技術情報
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-- [Kestrel](kestrel.md)
-- [Kestrel と IIS](aspnet-core-module.md)
-- [Nginx による Linux でのホスト](xref:host-and-deploy/linux-nginx)
-- [Apache による Linux でのホスト](xref:host-and-deploy/linux-apache)
-- [WebListener](weblistener.md)
-
----
+* [Kestrel](xref:fundamentals/servers/kestrel)
+* [Kestrel と IIS](xref:fundamentals/servers/aspnet-core-module)
+* [Nginx による Linux でのホスト](xref:host-and-deploy/linux-nginx)
+* [Apache による Linux でのホスト](xref:host-and-deploy/linux-apache)
+* [HTTP.sys](xref:fundamentals/servers/httpsys) (ASP.NET Core 1.x の場合は [WebListener](xref:fundamentals/servers/weblistener) を参照)

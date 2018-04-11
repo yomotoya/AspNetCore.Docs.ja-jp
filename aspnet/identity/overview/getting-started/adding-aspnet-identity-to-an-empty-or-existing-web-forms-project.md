@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
-title: "ASP.NET Identity 空であるか既存の web プロジェクトのフォームを追加する |Microsoft ドキュメント"
+title: ASP.NET Identity 空であるか既存の web プロジェクトのフォームを追加する |Microsoft ドキュメント
 author: raquelsa
-description: "このチュートリアルでは、ASP.NET アプリケーションを ASP.NET Identity (ASP.NET の新しいメンバーシップ システム) を追加する方法を示します。 作成する場合、新しい Web フォームまたは MVC しています."
+description: このチュートリアルでは、ASP.NET アプリケーションを ASP.NET Identity (ASP.NET の新しいメンバーシップ システム) を追加する方法を示します。 作成する場合、新しい Web フォームまたは MVC しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/23/2013
 ms.topic: article
 ms.assetid: 1cbc0ed2-5bd6-4b62-8d34-4c193dcd8b25
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: 3ab67b93a32106c0b79f9e8d739d47835391edb5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8961e596f0d6cc4810e2439be1ec2915bddb8c78
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-aspnet-identity-to-an-empty-or-existing-web-forms-project"></a>追加の ASP.NET Identity 空であるか既存の web プロジェクトをフォームします。
 ====================
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/24/2018
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image2.png)  
   
- 通知、**認証の変更**ボタンが無効になり、このテンプレートでの認証のサポートは提供されません。 Web フォーム、MVC、Web API テンプレートを使用すると、認証方法を選択できます。 詳細については、次を参照してください。[認証の概要](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#auth)です。
+   通知、**認証の変更**ボタンが無効になり、このテンプレートでの認証のサポートは提供されません。 Web フォーム、MVC、Web API テンプレートを使用すると、認証方法を選択できます。 詳細については、次を参照してください。[認証の概要](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#auth)です。
 
 ## <a name="adding-identity-packages-to-your-app"></a>アプリへの Id のパッケージの追加
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 01/24/2018
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image4.png)
 2. **項目の名前を指定** ダイアログ ボックスに、名前の新しい web フォーム**登録**、クリックして**ok**
-3. 生成されたマークアップを置き換える*Register.aspx*次のコードでのファイルです。 コードの変更が強調表示されます。   
+3. 生成されたマークアップを置き換える*Register.aspx*次のコードでのファイルです。 コードの変更が強調表示されています。   
 
     [!code-aspx[Main](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/samples/sample1.aspx?highlight=9,12-40)]
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 01/24/2018
     > 
     > 1. 上記のコードが簡略化、 *Register.aspx.cs*新しい ASP.NET Web フォーム プロジェクトを作成するときに作成されるファイルです。
     > 2. *IdentityUser*クラスは、既定の EntityFramework 実装、 *IUser*インターフェイスです。 *IUser*インターフェイスは、ASP.NET Identity Core 上のユーザーの最小限のインターフェイスです。
-    > 3. *UserStore*クラスは、ユーザー ストアの既定の EntityFramework 実装します。 このクラスは ASP.NET Identity Core の最小限のインターフェイスを実装します*IUserStore*、 *IUserLoginStore*、 *IUserClaimStore*と*IUserRoleStore。*.
+    > 3. *UserStore*クラスは、ユーザー ストアの既定の EntityFramework 実装します。 このクラスは ASP.NET Identity Core の最小限のインターフェイスを実装します*IUserStore*、 *IUserLoginStore*、 *IUserClaimStore*と*IUserRoleStore*。
     > 4. *UserManager*への変更が自動的に保存するクラスが公開ユーザー関連 Api、 *UserStore*です。
     > 5. *IdentityResult*クラス id 操作の結果を表します。
 5. **ソリューション エクスプ ローラー**プロジェクトを右クリックし、クリックして、**追加**、 **ASP.NET フォルダーの追加**し**アプリ\_データ**です。  
@@ -152,20 +152,20 @@ ms.lasthandoff: 01/24/2018
     > - `Page_Load`の現在のユーザーの状態を確認し、に基づいてアクションを今すぐその`Context.User.Identity.IsAuthenticated`状態です。  
     >     **ユーザー名のログインを表示**: 拡張メソッドを追加で、Microsoft ASP.NET Identity Framework[どのオブジェクト タイプも](https://msdn.microsoft.com/library/system.security.principal.iidentity.aspx)を取得することができます、`UserName`と`UserId`用、ユーザーに記録されます。 これらの拡張メソッドが定義されている、`Microsoft.AspNet.Identity.Core`アセンブリ。 これらの拡張メソッドは、置換の[HttpContext.User.Identity.Name](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx)です。
     > - SignIn メソッド:   
-    >     `This`メソッドは、以前に置き換えて`CreateUser_Click`メソッドでこのサンプルと、ユーザーが正常に作成した後、ユーザー サインインようになりました。   
+    >     `This` メソッドは、以前に置き換えて`CreateUser_Click`メソッドでこのサンプルと、ユーザーが正常に作成した後、ユーザー サインインようになりました。   
     >  拡張メソッドを追加で、Microsoft OWIN Framework`System.Web.HttpContext`への参照を取得することができます、`IOwinContext`です。 これらの拡張メソッドが定義されている`Microsoft.Owin.Host.SystemWeb`アセンブリ。 `OwinContext`クラスが公開する`IAuthenticationManager`を現在の要求で使用可能な認証ミドルウェアの機能を表すプロパティ。  
     >  ユーザーをサインインするを使用して、 `AuthenticationManager` OWIN と呼び出し元から`SignIn`およびを渡して、`ClaimsIdentity`上記のようにします。   
     >  フレームワークを生成するアプリを必要とし、ASP.NET Identity OWIN の Cookie 認証は要求ベースのシステムであるため、`ClaimsIdentity`ユーザー。   
     >  `ClaimsIdentity`ユーザーが属するロールなどのユーザーのすべての要求に関する情報が含まれています。 この段階で、ユーザーのクレームを追加することもできます。  
     >  このコードは、ユーザーにサインインしも cookie を生成します。 この呼び出しはに似て[FormAuthentication.SetAuthCookie](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx)によって使用される、 [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)モジュール。
-    > - `SignOut`方法:   
+    > - `SignOut` 方法:   
     >  参照を取得、 `AuthenticationManager` OWIN と呼び出しから`SignOut`です。 これは、メソッドは[FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx)で使用する方法、 [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)モジュール。
 5. キーを押して**ctrl キーを押しながら f5 キーを押して**をビルドして、web アプリケーションを実行します。 新しいユーザー名とパスワードを入力し、をクリックして**登録**です。  
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image13.png)  
- 注: この時点では、新しいユーザーが作成されに記録します。
+   注: この時点では、新しいユーザーが作成されに記録します。
 6. をクリックして**ログアウト**ボタンをクリックします。フォームでログにリダイレクトされます。
 7. 無効なユーザー名またはパスワードとクリックを入力**ログイン**ボタンをクリックします。   
- `UserManager.Find`メソッドは null が返され、エラー メッセージ:"*無効なユーザー名またはパスワード*"が表示されます。  
+   `UserManager.Find`メソッドは null が返され、エラー メッセージ:"*無効なユーザー名またはパスワード*"が表示されます。  
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image14.png)

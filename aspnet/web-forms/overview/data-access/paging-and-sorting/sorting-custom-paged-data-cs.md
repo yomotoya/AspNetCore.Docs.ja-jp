@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
-title: "ページングされたデータ (c#) をカスタムの並べ替え |Microsoft ドキュメント"
+title: ページングされたデータ (c#) をカスタムの並べ替え |Microsoft ドキュメント
 author: rick-anderson
-description: "前のチュートリアルでは、web ページ上のデータを presentating ときに、カスタム ページングを実装する方法について説明しました。 このチュートリアルでは、前に、拡張する方法を参照しています."
+description: 前のチュートリアルでは、web ページ上のデータを presentating ときに、カスタム ページングを実装する方法について説明しました。 このチュートリアルでは、前に、拡張する方法を参照しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a71405bc84304bf7c47f400dfa9886208316d223
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c30f13703ef20cd764785b00cd812ef4486e0f16
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-custom-paged-data-c"></a>ページングされたデータ (c#) をカスタムの並べ替え
 ====================
@@ -178,18 +178,18 @@ GridView で並べ替えを有効にするだけで、並べ替えを有効に�
 
 デザイン時に、結果が並べ替え順序を指定する、カスタム ページングの実装前のチュートリアルで調べることが必要です。 つまり、これは、カスタム ページングの実装を実装しました提供できなかったことを同時に並べ替え機能意味していました。 このチュートリアルでは、最初に含めるストアド プロシージャを拡張することによってこのような制限をたかお、`@sortExpression`入力パラメーターの結果を並べ替える可能性があります。
 
-両方の並べ替えを提供する GridView を実装することとページングを渡す GridView s 現在 ObjectDataSource を構成することによってカスタムでしたこれを作成するにはストアド プロシージャと、DAL と BLL で新しいメソッドを作成するが、後`SortExpression`BLL プロパティ。`SelectMethod`.
+両方の並べ替えを提供する GridView を実装することとページングを渡す GridView s 現在 ObjectDataSource を構成することによってカスタムでしたこれを作成するにはストアド プロシージャと、DAL と BLL で新しいメソッドを作成するが、後`SortExpression`BLL プロパティ`SelectMethod`。
 
 満足プログラミング!
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルのレビュー担当者の潜在顧客が Carlos Santos しました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](efficiently-paging-through-large-amounts-of-data-cs.md)
-[次へ](creating-a-customized-sorting-user-interface-cs.md)
+> [!div class="step-by-step"]
+> [前へ](efficiently-paging-through-large-amounts-of-data-cs.md)
+> [次へ](creating-a-customized-sorting-user-interface-cs.md)

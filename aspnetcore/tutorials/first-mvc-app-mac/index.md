@@ -1,7 +1,7 @@
 ---
-title: "macOS で ASP.NET Core MVC を使用して Web アプリを作成する"
+title: Visual Studio for Mac を使用して macOS で ASP.NET Core MVC による Web アプリを作成する
 author: rick-anderson
-description: "Visual Studio for Mac を使用して ASP.NET Core MVC / Entity Framework アプリを作成する"
+description: Visual Studio for Mac を使用して ASP.NET Core MVC / Entity Framework アプリを作成する
 manager: wpickett
 ms.author: riande
 ms.date: 06/26/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/first-mvc-app-mac/index
-ms.openlocfilehash: 51d62043592fbb7e1edd377c4f3ef3c1693b666a
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 417f5c49a026348a62ef1bff0ed3611578e8d111
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="create-a-web-app-with-aspnet-core-mvc-using-visual-studio-for-mac"></a>Visual Studio for Mac を使用し、ASP.NET Core MVC Web アプリを作成する
+# <a name="create-a-web-app-with-aspnet-core-mvc-on-macos-with-visual-studio-for-mac"></a>Visual Studio for Mac を使用して macOS で ASP.NET Core MVC による Web アプリを作成する
 
 この一連のチュートリアルでは、Visual Studio for Mac を使用して ASP.NET Core MVC Web アプリを構築するための基礎について説明します。 
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 1. [開始するには](xref:tutorials/first-mvc-app-mac/start-mvc)
 1. [コントローラーの追加](xref:tutorials/first-mvc-app-mac/adding-controller)

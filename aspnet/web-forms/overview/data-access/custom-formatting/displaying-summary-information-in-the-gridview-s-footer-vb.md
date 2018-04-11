@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb
-title: "GridView のフッター (VB) で概要情報の表示 |Microsoft ドキュメント"
+title: GridView のフッター (VB) で概要情報の表示 |Microsoft ドキュメント
 author: rick-anderson
-description: "概要情報は多くの場合、概要の行でのレポートの下部に表示されます。 GridView コントロールは、pr にセルを持つことのフッター行を含めることができます."
+description: 概要情報は多くの場合、概要の行でのレポートの下部に表示されます。 GridView コントロールは、pr にセルを持つことのフッター行を含めることができます.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e5b7e39a44d43a857c62842ea3e1dddcacf05c9b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d9a1a3f3c680f367395f984254da6cdcdd3c08d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-summary-information-in-the-gridviews-footer-vb"></a>GridView のフッター (VB) で概要情報を表示します。
 ====================
@@ -67,7 +67,7 @@ GridView のフッターに概要情報を追加するには、自分自身を�
 DropDownList のデータ ソースの構成が元となるいただくためにどのようなデータ フィールドの値を指定してウィザードを表示するかと DropDownList のの値に対応する1つ、ObjectDataSourceを構成した後、ウィザードを返します`ListItem` s。 `CategoryName`フィールドを表示し、使用、`CategoryID`値として。
 
 
-[![テキストと、リスト項目の値として、区分名 と [categoryid] フィールドをそれぞれ使用します。](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image11.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image10.png)
+[![テキストと、リスト項目の値として、区分名と [categoryid] フィールドをそれぞれ使用します。](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image11.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image10.png)
 
 **図 4**: を使用して、`CategoryName`と`CategoryID`フィールドに対する、`Text`と`Value`の`ListItem`s、それぞれ ([フルサイズのイメージを表示するをクリックして](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image12.png))
 
@@ -101,7 +101,7 @@ GridView コントロールをページに、選択したカテゴリの製品�
 
 [![選択したカテゴリの DropDownList から categoryID パラメーターの値を取得します。](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image22.png)
 
-**図 8**: Get、  *`categoryID`* カテゴリの選択した DropDownList からパラメーター値 ([フルサイズのイメージを表示するをクリックして](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))
+**図 8**: Get、 *`categoryID`*カテゴリの選択した DropDownList からパラメーター値 ([フルサイズのイメージを表示するをクリックして](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))
 
 
 ウィザードの完了後、GridView は、製品のプロパティの各 BoundField があります。 これら BoundFields だけがクリーンアップみましょう、 `ProductName`、 `UnitPrice`、 `UnitsInStock`、および`UnitsOnOrder`BoundFields が表示されます。 自由に残りの BoundFields に、フィールド レベルの設定を追加する (書式設定など、`UnitPrice`通貨として)。 これらの変更を加えたら、GridView の宣言型マークアップを次のようになります。
@@ -114,7 +114,7 @@ GridView コントロールをページに、選択したカテゴリの製品�
 
 [![選択したカテゴリの DropDownList から categoryID パラメーターの値を取得します。](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image25.png)
 
-**図 9**: Get、  *`categoryID`* カテゴリの選択した DropDownList からパラメーター値 ([フルサイズのイメージを表示するをクリックして](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))
+**図 9**: Get、 *`categoryID`*カテゴリの選択した DropDownList からパラメーター値 ([フルサイズのイメージを表示するをクリックして](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))
 
 
 ## <a name="step-2-displaying-a-footer-in-the-gridview"></a>手順 2: GridView でフッターを表示します。
@@ -177,10 +177,10 @@ GridView のフッターを表示、私たちが直面する次の課題は、�
 
 実行中の合計を維持するためには、イベント ハンドラーのスコープの外部変数を定義する必要があります。 次の 4 つのページ レベル変数を作成します。
 
-- `_totalUnitPrice`、型の`Decimal`
-- `_totalNonNullUnitPriceCount`、型の`Integer`
-- `_totalUnitsInStock`、型の`Integer`
-- `_totalUnitsOnOrder`、型の`Integer`
+- `_totalUnitPrice`、型の `Decimal`
+- `_totalNonNullUnitPriceCount`、型の `Integer`
+- `_totalUnitsInStock`、型の `Integer`
+- `_totalUnitsOnOrder`、型の `Integer`
 
 次に、各データ行の中に、これら 3 つの変数をインクリメントするコードを記述、`RowDataBound`イベント ハンドラー。
 
@@ -211,7 +211,7 @@ GridView のフッターを表示、私たちが直面する次の課題は、�
 **図 13**: GridView のフッター行が赤の背景色を持つようになりました ([フルサイズのイメージを表示するをクリックして](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image39.png))
 
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 概要データを表示することは一般的なレポート要件および GridView コントロール簡単のフッター行にこのような情報を含めます。 フッター行を表示するときに、GridView の`ShowFooter`プロパティに設定されている`True`設定からプログラムでそのセルにテキストを持つことができます、`RowDataBound`イベント ハンドラー。 集計データを計算するか実行できますまたは ASP.NET ページの分離コード クラスの概要データをプログラムで計算するコードを使用して、データベースのクエリを再実行しています。
 
@@ -221,7 +221,7 @@ GridView のフッターを表示、私たちが直面する次の課題は、�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[前へ](using-the-formview-s-templates-vb.md)
+> [!div class="step-by-step"]
+> [前へ](using-the-formview-s-templates-vb.md)

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core でのキャッシュ"
+title: ASP.NET Core で応答をキャッシュする
 author: ardalis
-description: "キャッシュを使用して ASP.NET Core アプリのパフォーマンスを向上させる方法を説明します。"
+description: キャッシュを使用して ASP.NET Core アプリのパフォーマンスを向上させる方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/index
-ms.openlocfilehash: 3e04beda76c4cd9cdc2d6ef8af3db12f46a6c0b6
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: f5cfdb965cdf8722126305e234c991a4aea1c89e
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="caching-in-aspnet-core"></a>ASP.NET Core でのキャッシュ
+# <a name="cache-responses-in-aspnet-core"></a>ASP.NET Core で応答をキャッシュする
 
 * [メモリ内キャッシュ](xref:performance/caching/memory)
 * [分散キャッシュの使用](xref:performance/caching/distributed)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/user-based-authorization-cs
-title: "ユーザー ベースの承認 (c#) |Microsoft ドキュメント"
+title: ユーザー ベースの承認 (c#) |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、ページへのアクセスを制限して、さまざまな手法によってページ レベルの機能を制限するのになります。"
+description: このチュートリアルでは、ページへのアクセスを制限して、さまざまな手法によってページ レベルの機能を制限するのになります。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5bee98878b5191a096b851c65aaea19ad989f608
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9a0d476ffaf1f176c21b245520fa943f66e8c0d5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="user-based-authorization-c"></a>ユーザー ベースの承認 (c#)
 ====================
@@ -168,7 +168,7 @@ ASP.NET では、簡単に、サイトの別のファイルとフォルダーの
 
 ### <a name="a-look-at-how-theurlauthorizationmoduleuses-the-authorization-rules-to-grant-or-deny-access"></a>見てどの`UrlAuthorizationModule`アクセスを許可または拒否の承認規則の使用
 
-`UrlAuthorizationModule`かどうかを特定の URL の URL 承認を分析して特定の id を承認する規則を最初から開始し、ダウンさかのぼり、一度に 1 つを決定します。 場合によっては、一致が見つかったで、一致が見つかるとすぐに、ユーザーがアクセス許可または拒否する`<allow>`または`<deny>`要素。 **一致するものが見つからない場合、ユーザーがアクセスを許可します。** そのため、アクセスを制限する場合を使用すること、 `<deny>` URL 承認の構成の最後の要素としての要素。 **省略した場合、* * *`<deny>`* * *、要素のすべてのユーザー アクセスが許可されます。**
+`UrlAuthorizationModule`かどうかを特定の URL の URL 承認を分析して特定の id を承認する規則を最初から開始し、ダウンさかのぼり、一度に 1 つを決定します。 場合によっては、一致が見つかったで、一致が見つかるとすぐに、ユーザーがアクセス許可または拒否する`<allow>`または`<deny>`要素。 <strong>一致するものが見つからない場合、ユーザーがアクセスを許可します。</strong> そのため、アクセスを制限する場合を使用すること、 `<deny>` URL 承認の構成の最後の要素としての要素。 <strong>省略した場合、</strong><strong>`<deny>`</strong><strong>要素、すべてのユーザー アクセスが許可されます。</strong>
 
 使用されるプロセスを理解するのには、`UrlAuthorizationModule`機関を確認するのに例を考えてみます URL 承認規則がこの手順について説明しました。 最初のルールを`<allow>`Tito および Scott へのアクセスを可能な要素です。 2 番目のルールは、`<deny>`すべてのユーザーにアクセスを拒否する要素。 匿名ユーザーがアクセスする場合、`UrlAuthorizationModule`調べれば、開始が匿名 Scott または Tito のいずれかですか? 答えは、当然ながらはなし、2 番目のルールに進みます。 すべてのユーザーのセットに匿名ですか。 以降、応答は、[はい]、ここで、`<deny>`とルールが有効で格納されます訪問者がログイン ページにリダイレクトします。 同様に Jisun を訪問している場合は、`UrlAuthorizationModule`質問は Jisun 開始 Scott または Tito しますか? 彼女はではないため、 `UrlAuthorizationModule` 2 番目の質問では、すべてのユーザーのセットには、Jisun に進みますか? 彼女は、彼女は、アクセスが拒否されるようにします。 最後に、Tito 場合、最初の質問はによって引き起こされる、`UrlAuthorizationModule`肯定の応答は Tito はアクセスが許可されます。
 
@@ -382,7 +382,7 @@ LoginView をテキスト ボックスを移動した後`LoggedInTemplate`ペー
 
 ASP.NET ページだけでなく多くのアプリケーションでは、ビジネス ロジックとデータ アクセス レイヤーなど、さまざまな層が含まれています、アーキテクチャもが存在します。 これらのレイヤーでは、一般に、クラス ライブラリとして実装し、クラスとビジネス ロジックとデータに関連する機能を実行するためのメソッドを提供します。 `PrincipalPermission`属性はこれらのレイヤーに承認規則を適用するために役立ちます。
 
-使用する方法について、`PrincipalPermission`属性をクラスやメソッドで承認規則を定義しを参照してください[Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ エントリ[ビジネス レイヤーを使用してデータして承認規則を追加します。`PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx).
+使用する方法について、`PrincipalPermission`属性をクラスやメソッドで承認規則を定義しを参照してください[Scott Guthrie](https://weblogs.asp.net/scottgu/)のブログ エントリ[ビジネス レイヤーを使用してデータして承認規則を追加します`PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)。
 
 ## <a name="summary"></a>まとめ
 
@@ -396,24 +396,24 @@ URL の承認フレームワークでは、ページ単位ごとに承認規則�
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [ビジネスおよびデータ層を使用する承認規則の追加`PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
+- [ビジネスおよびデータ層を使用する承認規則の追加 `PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
 - [ASP.NET の承認](https://msdn.microsoft.com/library/wce3kxhd.aspx)
 - [Iis 6 と iis 7 のセキュリティの変更](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
 - [特定のファイルおよびサブディレクトリを構成します。](https://msdn.microsoft.com/library/6hbkh9s7.aspx)
 - [ユーザーに基づくデータ変更機能を制限します。](../../data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs.md)
 - [LoginView コントロールのクイック スタート](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/loginview.aspx)
 - [IIS7 URL 承認を理解します。](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)
-- [`UrlAuthorizationModule`テクニカル ドキュメント](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)
+- [`UrlAuthorizationModule` テクニカル ドキュメント](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)
 - [ASP.NET 2.0 のデータの操作](../../data-access/index.md)
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[ mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)です。
 
->[!div class="step-by-step"]
-[前へ](validating-user-credentials-against-the-membership-user-store-cs.md)
-[次へ](storing-additional-user-information-cs.md)
+> [!div class="step-by-step"]
+> [前へ](validating-user-credentials-against-the-membership-user-store-cs.md)
+> [次へ](storing-additional-user-information-cs.md)

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core の構成"
+title: ASP.NET Core の構成
 author: rick-anderson
-description: "構成 API を使用して、複数の方法で ASP.NET Core アプリを構成します。"
+description: 構成 API を使用して、複数の方法で ASP.NET Core アプリを構成します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 7c41621db835b452c9aad9463a9ffccdf0c06484
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: f272f9629ab1f9e7f7643cafd0d45f19340d5284
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="configure-an-aspnet-core-app"></a>ASP.NET Core アプリを構成する
+# <a name="configuration-in-aspnet-core"></a>ASP.NET Core の構成
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)、[Mark Michaelis](http://intellitect.com/author/mark-michaelis/)、[Steve Smith](https://ardalis.com/)、[Daniel Roth](https://github.com/danroth27)、[Luke Latham](https://github.com/guardrex)
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/15/2018
 
 [!code-json[](index/sample/ConfigJson/appsettings.json)]
 
-構成は、コロンで区切られたノードの名前と値のペアの階層リストで構成されます。 値を取得するには、対応する項目のキーを使用して `Configuration` インデクサーにアクセスします。
+構成は、コロン (`:`) で区切られたノードの名前と値のペアの階層リストで構成されます。 値を取得するには、対応する項目のキーを使用して `Configuration` インデクサーにアクセスします。
 
 [!code-csharp[](index/sample/ConfigJson/Program.cs?range=21-22)]
 
@@ -105,15 +105,15 @@ ASP.NET Core 1.x アプリは、`AddJsonFile` および [AddEnvironmentVariables
 
 [!code-csharp[](index/sample/StartupConfig.cs?name=snippet&highlight=3,4)]
 
-
-通常、環境は `Development`、`Staging`、または `Production` に設定されます。 詳細については、[「Working with multiple environments」](xref:fundamentals/environments) (複数の環境での使用) をご覧ください。
+通常、環境は `Development`、`Staging`、または `Production` に設定されます。 詳細については、「[Working with multiple environments](xref:fundamentals/environments)」 (複数の環境の使用) を参照してください。
 
 構成に関する考慮事項:
 
-* `IOptionsSnapshot` では、構成データを変更時に再読み込みできます。 詳細については、「[IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot)」を参照してください。
+* [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot) では、構成データを変更時に再読み込みできます。
 * 構成キーでは大文字と小文字が区別**されません**。
-* 構成プロバイダー コードやプレーンテキストの構成ファイルには、パスワードなどの機密データは格納**しないでください**。 開発環境やテスト環境では運用シークレットを使用しないでください。 プロジェクトの外部にシークレットを指定してください。そうすれば、誤ってリソース コード リポジトリにコミットされることはありません。 [複数の環境での作業](xref:fundamentals/environments)および[開発中のアプリ シークレットの安全な格納場所](xref:security/app-secrets)の管理の詳細を確認してください。
-* ご利用のシステムの環境変数でコロン (`:`) を使用できない場合は、コロン (`:`) をアンダースコア 2 つ (`__`) に置き換えてください。
+* 構成プロバイダー コードやプレーンテキストの構成ファイルには、パスワードなどの機密データは格納**しないでください**。 開発環境やテスト環境では運用シークレットを使用しないでください。 プロジェクトの外部にシークレットを指定してください。そうすれば、誤ってリソース コード リポジトリにコミットされることはありません。 [複数の環境での作業方法](xref:fundamentals/environments)および[開発中のアプリ シークレットの安全な格納場所](xref:security/app-secrets)の管理の詳細を確認してください。
+* 環境変数で指定された階層の構成値では、コロン (`:`) が一部のプラットフォームで動作しない可能性があります。 二重のアンダースコア (`__`) はすべてのプラットフォームでサポートされています。
+* 構成 API とやり取りするときは、コロン (`:`) がすべてのプラットフォームで動作します。
 
 ## <a name="in-memory-provider-and-binding-to-a-poco-class"></a>メモリ内プロバイダーと POCO クラスへのバインディング
 
@@ -234,8 +234,7 @@ key3=value_from_json_3
 
 ### <a name="setup-and-use-the-commandline-configuration-provider"></a>CommandLine 構成プロバイダーをセットアップして使用する
 
-# <a name="basic-configurationtabbasicconfiguration"></a>[基本構成](#tab/basicconfiguration)
-
+#### <a name="basic-configurationtabbasicconfiguration"></a>[基本構成](#tab/basicconfiguration/)
 コマンド ライン構成をアクティブにするには、[ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder) のインスタンスで `AddCommandLine` 拡張メソッドを呼び出します。
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program.cs?highlight=18,21)]
@@ -264,8 +263,7 @@ Left: 1979
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program2.cs?range=11-16&highlight=1,5)]
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 一般的な ASP.NET Core 2.x アプリでは、便利な静的メソッド `CreateDefaultBuilder` を使用してホストを構築します。
 
 [!code-csharp[](index/sample_snapshot//Program.cs?highlight=12)]
@@ -282,14 +280,12 @@ Left: 1979
 
 ASP.NET Core 2.x アプリでは、`CreateDefaultBuilder` ではなく [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) を使用できます。 `WebHostBuilder` を使用する場合は、[ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) によって構成を手動で設定します。 詳細については、ASP.NET Core 1.x のタブを参照してください。
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) を作成し、`AddCommandLine` メソッドを呼び出して CommandLine 構成プロバイダーを使用します。 最後にプロバイダーを呼び出すことにより、実行時に渡されたコマンドライン引数で、前に呼び出された他の構成プロバイダーによって設定された構成をオーバーライドできます。 `UseConfiguration` メソッドを使用して、[WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) に構成を適用します。
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program2.cs?highlight=11,15,19)]
 
----
-
+* * *
 ### <a name="arguments"></a>引数
 
 コマンド ラインで渡される引数は、次の表に示すように 2 つの形式のいずれかに準拠する必要があります。
@@ -413,9 +409,52 @@ Left: 1988
 
 IIS または IIS-Express でアプリをホストする場合は、*web.config* ファイルが必要です。 *web.config* を設定することで、[ASP.NET Core Module](xref:fundamentals/servers/aspnet-core-module) を有効にし、アプリを起動して他の IIS 設定とモジュールを構成することができます。 *web.config* ファイルが存在せず、プロジェクト ファイルに `<Project Sdk="Microsoft.NET.Sdk.Web">` が含まれている場合、プロジェクトを発行すると、発行先 (*publish* フォルダー) に *web.config* ファイルが作成されます。 詳細については、「[IIS を使用した Windows での ASP.NET Core のホスト](xref:host-and-deploy/iis/index#webconfig-file)」を参照してください。
 
-## <a name="accessing-configuration-during-startup"></a>起動中に構成にアクセスする
+## <a name="access-configuration-during-startup"></a>起動中に構成にアクセスする
 
 起動中に `ConfigureServices` または `Configure` 内の構成にアクセスするには、[アプリケーションの起動](xref:fundamentals/startup)に関するトピックに示されている例を参照してください。
+
+## <a name="access-configuration-in-a-razor-page-or-mvc-view"></a>Razor ページまたは MVC ビューで構成にアクセスする
+
+Razor ページまたは MVC ビューで構成設定にアクセスするには、[Microsoft.Extensions.Configuration 名前空間](/dotnet/api/microsoft.extensions.configuration)に [using ディレクティブ](xref:mvc/views/razor#using) ([C# リファレンス: using ディレクティブ](/dotnet/csharp/language-reference/keywords/using-directive)) を追加して、[IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) をページまたはビューに注入します。
+
+Razor ページ: 
+
+```cshtml
+@page
+@model IndexModel
+
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index Page</title>
+</head>
+<body>
+    <h1>Access configuration in a Razor Pages page</h1>
+    <p>Configuration[&quot;key&quot;]: @Configuration["key"]</p>
+</body>
+</html>
+```
+
+MVC ビュー: 
+
+```cshtml
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index View</title>
+</head>
+<body>
+    <h1>Access configuration in an MVC view</h1>
+    <p>Configuration[&quot;key&quot;]: @Configuration["key"]</p>
+</body>
+</html>
+```
 
 ## <a name="additional-notes"></a>補足メモ
 
@@ -430,7 +469,7 @@ IIS または IIS-Express でアプリをホストする場合は、*web.config*
 
 * [オプション](xref:fundamentals/configuration/options)
 * [複数の環境の使用](xref:fundamentals/environments)
-* [開発中のアプリ シークレットの安全な保存](xref:security/app-secrets)
+* [開発中のアプリ シークレットの安全な格納](xref:security/app-secrets)
 * [ASP.NET Core でのホスティング](xref:fundamentals/hosting)
 * [依存性の注入](xref:fundamentals/dependency-injection)
 * [Azure Key Vault 構成プロバイダー](xref:security/key-vault-configuration)

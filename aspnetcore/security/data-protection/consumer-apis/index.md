@@ -1,7 +1,7 @@
 ---
-title: "コンシューマー API"
+title: ASP.NET Core のコンシューマー API
 author: rick-anderson
-description: "このドキュメントは、さまざまな ASP.NET Core コンシューマー API のデータ保護トピックの目次として機能します。"
+description: さまざまな ASP.NET Core コンシューマー API のデータ保護のトピックについて説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,22 +9,22 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/index
-ms.openlocfilehash: a36dbaa7c34ed0cd99bfb2b27a9d59b81ffccbcf
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d7ca1104b0a14a330df8d13be58425b3371bff73
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="consumer-apis"></a>コンシューマー API
+# <a name="consumer-apis-for-aspnet-core"></a>ASP.NET Core のコンシューマー API
 
-* [コンシューマー API の概要](overview.md)
+* [コンシューマー API の概要](xref:security/data-protection/consumer-apis/overview)
 
-* [目的文字列](purpose-strings.md)
+* [目的文字列](xref:security/data-protection/consumer-apis/purpose-strings)
 
-* [目的の階層とマルチテナント](purpose-strings-multitenancy.md)
+* [目的の階層とマルチテナント](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)
 
-* [パスワードのハッシュ](password-hashing.md)
+* [パスワードのハッシュ](xref:security/data-protection/consumer-apis/password-hashing)
 
-* [保護されたペイロードの有効期間の制限](limited-lifetime-payloads.md)
+* [保護されたペイロードの有効期間の制限](xref:security/data-protection/consumer-apis/limited-lifetime-payloads)
 
-* [キーが取り消されたペイロードの保護の解除](dangerous-unprotect.md)
+* [キーが取り消されたペイロードの保護の解除](xref:security/data-protection/consumer-apis/dangerous-unprotect)

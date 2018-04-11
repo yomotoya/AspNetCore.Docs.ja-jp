@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core で Razor ページ Web アプリを作成する"
+title: ASP.NET Core で Razor ページ Web アプリを作成する
 author: rick-anderson
-description: "Visual Studio、ASP.NET Core、EF Core を使用して Windows で Razor ページ Web アプリを作成します。"
+description: Visual Studio、ASP.NET Core、EF Core を使用して Windows で Razor ページ Web アプリを作成します。
 manager: wpickett
 ms.author: riande
 ms.date: 09/08/2017
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: a437d98c2229e69bd2b66a7c9c868bf221aea94a
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 9325eafeedd3e78629d6ced29e0c4122c6b394ad
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core"></a>ASP.NET Core で Razor ページ Web アプリを作成する
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/code-editing-in-web-forms-pages
-title: "コードは、Visual Studio 2013 での ASP.NET Web フォームを編集 |Microsoft ドキュメント"
+title: コードは、Visual Studio 2013 での ASP.NET Web フォームを編集 |Microsoft ドキュメント
 author: Erikre
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/03/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 8714f673cb0434189ca23d2dda14035d8652a051
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 79b10df04432490d6338dadb8f7ddd36192beb3e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Visual Studio 2013 でのコードの編集の ASP.NET Web フォームします。
 ====================
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/24/2018
     >   
     > Visual Studio を使用している場合は、このチュートリアルの前提条件が選択されている、 **Web 開発**設定のコレクションを初めて Visual Studio を起動します。 詳細については、次を参照してください。[する方法: Web 開発環境設定の選択](https://msdn.microsoft.com/library/ff521558.aspx)です。
 
- Visual Studio と ASP.NET の概要については、次を参照してください。 [Visual Studio 2013 での基本的な ASP.NET 4.5 Web フォーム ページの作成](creating-a-basic-web-forms-page.md)です。   
+  Visual Studio と ASP.NET の概要については、次を参照してください。 [Visual Studio 2013 での基本的な ASP.NET 4.5 Web フォーム ページの作成](creating-a-basic-web-forms-page.md)です。   
  
 
 ## <a name="creating-a-web-application-project-and-a-page"></a>Web アプリケーション プロジェクトと、ページの作成
@@ -98,19 +98,19 @@ Visual Studio でコード エディターでは、コードを記述すると�
 
 
 1. **デザイン**ビューで、空白のページのハンドラーを作成する をダブルクリック、**ロード**ページのイベントです。   
-一部のコードを記述するのに場所としてのみ、イベント ハンドラーを使用しています。
+   一部のコードを記述するのに場所としてのみ、イベント ハンドラーを使用しています。
 2. ハンドラーの内部エラーおよびキーを押してを含む次の行を入力**ENTER**:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample1.cs)]
 
- 押すと**ENTER**、コード エディターが緑色と赤色の下線を配置 (よくを呼び出す&quot;波&quot;行) に問題があるコードの領域の下。 緑色の下線は、警告を示します。 赤い下線では、解決する必要がありますのあるエラーを示します。 
+   押すと**ENTER**、コード エディターが緑色と赤色の下線を配置 (よくを呼び出す&quot;波&quot;行) に問題があるコードの領域の下。 緑色の下線は、警告を示します。 赤い下線では、解決する必要がありますのあるエラーを示します。 
 
     上にマウス ポインターを置く`myStr`警告に関する説明が表示されるツールヒントを確認します。 また、エラー メッセージを表示する赤い下線の上にマウス ポインターを保持します。
 
     次の図は、下線でコードを示します。
 
     ![デザイン ビューでの開始テキスト](code-editing-in-web-forms-pages/_static/image5.png "デザイン ビューでの開始テキスト")  
- セミコロンを追加することで、エラーを修正する必要があります`;`行の末尾にします。 警告通知するだけで、使用していないこと、`myStr`まだ変数。  
+   セミコロンを追加することで、エラーを修正する必要があります`;`行の末尾にします。 警告通知するだけで、使用していないこと、`myStr`まだ変数。  
 
     > [!NOTE] 
     > 
@@ -137,7 +137,7 @@ Visual Studio でコード エディターでは、コードを記述すると�
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample2.cs?highlight=3-16)]
 
- このコードを作成、 **ArrayList**オブジェクト、ループを使用して値を持つロードおよび別のループを使用して、内容を表示、 **ArrayList**オブジェクト。
+   このコードを作成、 **ArrayList**オブジェクト、ループを使用して値を持つロードおよび別のループを使用して、内容を表示、 **ArrayList**オブジェクト。
 4. キーを押して**ctrl キーを押しながら f5 キーを押して** ページを実行し、をクリックする、**ボタン**次の出力が表示されるかどうかを確認します。   
 
     [!code-html[Main](code-editing-in-web-forms-pages/samples/sample3.html)]
@@ -149,7 +149,7 @@ Visual Studio でコード エディターでは、コードを記述すると�
     **メソッドの抽出** ダイアログ ボックスが表示されます。
 7. **メソッド名を新しい**ボックスに、入力**DisplayArray**、クリックして**[ok]**です。 
 
-    コード エディターがという名前の新しいメソッドを作成`DisplayArray`で新しいメソッドの呼び出しを配置し、  **をクリックして**ループが元のハンドラー。
+    コード エディターがという名前の新しいメソッドを作成`DisplayArray`で新しいメソッドの呼び出しを配置し、 **をクリックして**ループが元のハンドラー。
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample5.cs?highlight=12)]
 8. キーを押して**ctrl キーを押しながら f5 キーを押して**ページを再度実行し、をクリックする、**ボタン**です。
@@ -163,7 +163,7 @@ Visual Studio でコード エディターでは、コードを記述すると�
 ### <a name="to-use-refactoring-to-rename-a-variable"></a>使用してリファクタリングする変数名の変更
 
 
-1. **をクリックして**イベント ハンドラー、次の行を探します。
+1. ** をクリックして**イベント ハンドラー、次の行を探します。
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample6.cs)]
 2. 変数名を右クリックして`alist`、選択**リファクター**を選択し**の名前を変更**です。

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
-title: "提供 CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポート |Microsoft ドキュメント"
+title: 提供 CRUD (作成、読み取り、更新、削除) データ フォーム エントリ サポート |Microsoft ドキュメント
 author: microsoft
-description: "手順 5 では、編集、作成、および関連付けディナーを削除すると、同様のサポートを有効にし、さらに、DinnersController クラスを得る方法を示します。"
+description: 手順 5 では、編集、作成、および関連付けディナーを削除すると、同様のサポートを有効にし、さらに、DinnersController クラスを得る方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
 msc.type: authoredcontent
-ms.openlocfilehash: 5a314a1761527d8a2273166a743e3deac012a557
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bd906282db5c620476966ffbe09cecb5ade66ee4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>提供 CRUD (作成、読み取り、更新、削除) データ フォームのエントリのサポート
 ====================
@@ -39,23 +39,23 @@ ms.lasthandoff: 11/10/2017
 
 2 つの Url のサポートを実装する DinnersController を以前にアクション メソッドを追加しました: */Dinners*と*/Dinners 詳細/[id]*です。
 
-| **URL** | **動詞** | **目的** |
+| **URL** | **VERB** | **目的** |
 | --- | --- | --- |
 | */Dinners/* | GET | 今後ディナーの HTML の一覧を表示します。 |
-| */Dinners 詳細/[id]* | GET | 特定の dinner に関する詳細を表示します。 |
+| */Dinners/Details/[id]* | GET | 特定の dinner に関する詳細を表示します。 |
 
-今すぐに次の 3 つの追加の Url を実装するアクション メソッドを追加します: */Dinners/編集/[id]、ディナー/作成、*と*/Dinners/削除/[id]*です。 これらの Url は、新しいディナーを作成およびディナーを削除する編集の既存ディナーのサポートを有効になります。
+今すぐに次の 3 つの追加の Url を実装するアクション メソッドを追加します: <em>/Dinners/編集/[id]、ディナー/作成、</em>と<em>/Dinners/削除/[id]</em>です。 これらの Url は、新しいディナーを作成およびディナーを削除する編集の既存ディナーのサポートを有効になります。
 
 これらの新しい Url に HTTP GET および HTTP POST 動詞相互作用がサポートされます。 これらの Url に HTTP GET 要求は、(フォームの場合は"edit"Dinner データが設定される、「作成」の場合は空白のフォームおよび「削除」の場合、削除の確認画面) のデータの初期の HTML ビューに表示されます。 これらの Url に HTTP POST 要求は、Dinner データ、DinnerRepository (および、データベースにそこから) を保存/更新/削除になります。
 
-| **URL** | **動詞** | **目的** |
+| **URL** | **VERB** | **目的** |
 | --- | --- | --- |
-| */Dinners/編集/[id]* | GET | Dinner データが設定される編集可能な HTML フォームを表示します。 |
-| 投稿 | データベースに特定 Dinner のフォームの変更を保存します。 |
-| */ディナー/作成* | GET | により、ユーザーが新しいディナーを定義する空の HTML フォームを表示します。 |
-| 投稿 | 新しい Dinner を作成し、データベースに保存します。 |
-| */Dinners/削除/[id]* | GET | 削除の確認画面を表示します。 |
-| 投稿 | 指定された dinner データベースから削除します。 |
+| */Dinners/Edit/[id]* | GET | Dinner データが設定される編集可能な HTML フォームを表示します。 |
+| POST | データベースに特定 Dinner のフォームの変更を保存します。 |
+| */Dinners/Create* | GET | により、ユーザーが新しいディナーを定義する空の HTML フォームを表示します。 |
+| POST | 新しい Dinner を作成し、データベースに保存します。 |
+| */Dinners/Delete/[id]* | GET | 削除の確認画面を表示します。 |
+| POST | 指定された dinner データベースから削除します。 |
 
 ### <a name="edit-support"></a>サポートを編集します。
 
@@ -141,11 +141,11 @@ Html.TextBox() を 3 番目のパラメーターは、追加の HTML 属性を�
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample9.cs)]
 
-[AcceptVerbs] 属性を適用するオーバー ロードされたアクション メソッドに ASP.NET MVC は自動的に入力方向の HTTP 動詞に応じて適切なアクション メソッドにディスパッチ要求を処理します。 HTTP POST 要求を*/Dinners/編集/[id]*を他のすべての HTTP 動詞の要求中に、上記の編集方法に移動する Url */Dinners/編集/[id]*Url に移動する (これが最初の編集メソッドを実装しましたいません [AcceptVerbs] 属性を持つ)。
+[AcceptVerbs] 属性を適用するオーバー ロードされたアクション メソッドに ASP.NET MVC は自動的に入力方向の HTTP 動詞に応じて適切なアクション メソッドにディスパッチ要求を処理します。 HTTP POST 要求を<em>/Dinners/編集/[id]</em>を他のすべての HTTP 動詞の要求中に、上記の編集方法に移動する Url <em>/Dinners/編集/[id]</em>Url に移動する (これが最初の編集メソッドを実装しましたいません [AcceptVerbs] 属性を持つ)。
 
 | **側トピックの内容は、理由、HTTP 動詞を使用して区別しますか。** |
 | --- |
-| 思うかもしれません – はなぜ 1 つの URL を使用して、HTTP 動詞を使用してその動作を区別しますか。 読み込みと編集の変更の保存を処理する 2 つの独立した Url があるだけしないのはなぜですか。 例:/Dinners/編集/[id] と表示するの初期フォーム/Dinners 保存/[id] を保存するためのフォーム post を処理しますか? 発行の 2 つの独立した Url での短所は、/Dinners/Save/2 を投稿し、入力エラーのため、HTML フォームを再表示する必要がありますがの場合、エンドユーザーが終了することを (でしたので、ブラウザーのアドレス バーにディナー/保存/2 の URL を持つURL にポストされたフォーム) です。 場合、エンドユーザーのブラウザーのお気に入りリストに redisplayed このページをブックマークまたは URL のコピー/貼り付けます。 電子メールを友人に、これらは (その URL は、post 値によって異なります) してから後で動作しない URL の保存を終了します。 1 つの URL を公開することで (のような:/Dinners/Edit/[id]) および HTTP 動詞でその処理を区別するの編集 ページをブックマークや他のユーザーに、URL を送信するエンドユーザーのも安全です。 |
+| 思うかもしれません – はなぜ 1 つの URL を使用して、HTTP 動詞を使用してその動作を区別しますか。 読み込みと編集の変更の保存を処理する 2 つの独立した Url があるだけしないのはなぜですか。 例:/Dinners/編集/[id] と表示するの初期フォーム/Dinners 保存/[id] を保存するためのフォーム post を処理しますか? 発行の 2 つの独立した Url での短所は、/Dinners/Save/2 を投稿し、入力エラーのため、HTML フォームを再表示する必要がありますがの場合、エンドユーザーが終了することを (でしたので、ブラウザーのアドレス バーにディナー/保存/2 の URL を持つURL にポストされたフォーム) です。 場合、エンドユーザーのブラウザーのお気に入りリストに redisplayed このページをブックマークまたは URL のコピー/貼り付けます。 電子メールを友人に、これらは (その URL は、post 値によって異なります) してから後で動作しない URL の保存を終了します。 1 つの URL を公開することで (のような:/Dinners/Edit/[id]) および HTTP 動詞でその処理を区別するの編集ページをブックマークや他のユーザーに、URL を送信するエンドユーザーのも安全です。 |
 
 #### <a name="retrieving-form-post-values"></a>フォーム ポスト値を取得します。
 
@@ -231,7 +231,7 @@ Html.ValidationMessage() ヘルパー メソッドには、表示されるエラ
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample18.aspx)]
 
-上記のコードを出力: *&lt;クラスにまたがる =「フィールドの検証エラー」&gt;\*&lt;/span&gt;*エラーの場合、既定のエラー テキストではなく、EventDate プロパティです。
+上記のコードを出力: <em>&lt;クラスにまたがる =「フィールドの検証エラー」&gt;\*&lt;/span&gt;</em>エラーの場合、既定のエラー テキストではなく、EventDate プロパティです。
 
 ##### <a name="htmlvalidationsummary-helper-method"></a>Html.ValidationSummary() ヘルパー メソッド
 
@@ -427,6 +427,6 @@ DinnersController クラス内での実装の基本的な CRUD (作成、読み�
 
 これで、フォームでより豊富な UI を有効にする ViewData および ViewModel クラスを使用できる方法を見てみましょう。
 
->[!div class="step-by-step"]
-[前へ](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
-[次へ](use-viewdata-and-implement-viewmodel-classes.md)
+> [!div class="step-by-step"]
+> [前へ](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
+> [次へ](use-viewdata-and-implement-viewmodel-classes.md)

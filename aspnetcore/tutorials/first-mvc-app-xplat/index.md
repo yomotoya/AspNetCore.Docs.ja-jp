@@ -1,7 +1,7 @@
 ---
-title: "Visual Studio Code を使用して ASP.NET Core MVC アプリを作成する"
+title: Visual Studio Code を使用して ASP.NET Core MVC アプリを作成する
 author: rick-anderson
-description: "Visual Studio Code のチュートリアルでの ASP.NET Core MVC アプリの目次について説明します。"
+description: Visual Studio Code のチュートリアルでの ASP.NET Core MVC アプリの目次について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 05/17/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/index
-ms.openlocfilehash: 4585fa989f79d1c52f5ea5d9d221a39beee93d96
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: b705b590c1fbfe8e220089e2ffcf213de5c4a0f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-an-aspnet-core-mvc-app-with-visual-studio-code"></a>Visual Studio Code を使用して ASP.NET Core MVC アプリを作成する
 
 この一連のチュートリアルでは、Visual Studio Code を使用して ASP.NET Core MVC Web アプリを構築するための基礎について説明します。 
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 1. [開始するには](xref:tutorials/first-mvc-app-xplat/start-mvc)
 1. [コントローラーの追加](xref:tutorials/first-mvc-app-xplat/adding-controller)

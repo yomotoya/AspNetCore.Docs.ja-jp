@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
-title: "付録: 修正プログラム、サンプル アプリケーション (Azure での実際のクラウド アプリの構築) |Microsoft ドキュメント"
+title: '付録: 修正プログラム、サンプル アプリケーション (Azure での実際のクラウド アプリの構築) |Microsoft ドキュメント'
 author: MikeWasson
-description: "Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています."
+description: Azure の電子書籍と構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンと彼をできるベスト プラクティスについて説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: c98e79bf8e9a1fe0899ed6d952c3e411ca472f7e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9a1fa36b34c4783b101bb27bc6931241e9251e10
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>付録: 修正プログラム、サンプル アプリケーション (Azure での実際のクラウド アプリの構築)
 ====================
@@ -100,7 +100,7 @@ ASP.NET は、さまざまな方法が悪意のあるユーザーがユーザー
 
 AutoFac が自動的に破棄することに注意してください、`FixItTaskRepository`インスタンス、ためこれを明示的に破棄する必要はありません。
 
-削除することもできます、`DbContext`からメンバー変数`FixItTaskRepository`、ローカルを代わりに作成および`DbContext`各リポジトリ メソッド内で変数内、`using`ステートメントです。 例:
+削除することもできます、`DbContext`からメンバー変数`FixItTaskRepository`、ローカルを代わりに作成および`DbContext`各リポジトリ メソッド内で変数内、`using`ステートメントです。 例えば:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample2.cs)]
 
@@ -245,18 +245,18 @@ Visual Studio では、新しい web プロジェクトを作成するときの 
 
     Visual Studio 2013 を使用します。
 
-    1. F5 キーを押して FixIt プロジェクトを実行します。
-    2. **ソリューション エクスプ ローラー**MyFixItCloudService プロジェクトを右クリックし、クリックして**デバッグ** -- **新しいインスタンスを開始**です。
+   1. F5 キーを押して FixIt プロジェクトを実行します。
+   2. **ソリューション エクスプ ローラー**MyFixItCloudService プロジェクトを右クリックし、クリックして**デバッグ** -- **新しいインスタンスを開始**です。
 
-    Visual Studio 2013 Express for Web の使用。
+      Visual Studio 2013 Express for Web の使用。
 
-    1. ソリューション エクスプ ローラーで FixIt ソリューションを右クリックし、**プロパティ**です。
-    2. 選択**マルチ スタートアップ プロジェクト**.
-    3. **アクション**MyFixIt と MyFixItCloudService、下にあるドロップダウン リストを選択**開始**です。
-    4. **[OK]**をクリックします。
-    5. 両方のプロジェクトを実行する場合は F5 キーを押します。
+   3. ソリューション エクスプ ローラーで FixIt ソリューションを右クリックし、**プロパティ**です。
+   4. 選択**マルチ スタートアップ プロジェクト**.
+   5. **アクション**MyFixIt と MyFixItCloudService、下にあるドロップダウン リストを選択**開始**です。
+   6. **[OK]**をクリックします。
+   7. 両方のプロジェクトを実行する場合は F5 キーを押します。
 
-    MyFixItCloudService プロジェクトを実行するときに、Visual Studio は、Azure コンピューティング エミュレーターを起動します。 ファイアウォールの構成によっては、エミュレーターがファイアウォールを通過を許可する必要があります。
+      MyFixItCloudService プロジェクトを実行するときに、Visual Studio は、Azure コンピューティング エミュレーターを起動します。 ファイアウォールの構成によっては、エミュレーターがファイアウォールを通過を許可する必要があります。
 
 <a id="deploybase"></a>
 ## <a name="how-to-deploy-the-base-app-to-azure-app-service-web-apps-by-using-the-windows-powershell-scripts"></a>Azure App Service Web Apps を Windows PowerShell スクリプトを使用して基本アプリを展開する方法
@@ -285,7 +285,7 @@ Visual Studio では、新しい web プロジェクトを作成するときの 
     これらの資格情報は、一定の時間後に期限切れし、再実行する必要がある、`Add-AzureAccount`コマンドレット。 この電子書籍が書き込まれると資格情報が期限切れ前に時間制限は 12 時間以内にです。
 5. 複数のサブスクリプションがある場合は、Select-azuresubscription コマンドレットを使用して、テスト環境を作成するサブスクリプションを指定します。
 6. 使用して、同じ Azure サブスクリプションの管理証明書をインポート、`Get-AzurePublishSettingsFile`と`Import-AzurePublishSettingsFile`コマンドレット。 これらのコマンドレットの最初の証明書ファイルをダウンロードして、2 番目の 1 つで、インポートするためにそのファイルの場所を指定します。 > [!IMPORTANT]
- > 安全な場所にダウンロードしたファイルを保持または削除、操作を終了すると、Azure サービスを管理するために使用する証明書が含まれています。
+   > 安全な場所にダウンロードしたファイルを保持または削除、操作を終了すると、Azure サービスを管理するために使用する証明書が含まれています。
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample22.cmd)]
 
@@ -326,7 +326,7 @@ Visual Studio では、新しい web プロジェクトを作成するときの 
     スクリプトが失敗するか、「New-azurewebsite:: 呼び出す Set-azuresubscription と Select-azuresubscription 最初に、」などのエラーが生成される場合は、Azure PowerShell の構成を完了していない可能性があります。
 
     示すように作成されたリソースを表示する、Azure 管理ポータルを使用するには、スクリプトの終了後、[自動化すべて](automate-everything.md)章します。
-10. 新しい Azure 環境に FixIt プロジェクトを配置するには使用、 *AzureWebsite.ps1*スクリプト。 例:
+10. 新しい Azure 環境に FixIt プロジェクトを配置するには使用、 *AzureWebsite.ps1*スクリプト。 例えば:
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample28.cmd)]
 
@@ -399,5 +399,5 @@ MyFixItCloudService\ServiceConfiguration.Cloud.cscfg では、Azure ストレー
 
 クラウド サービスをデプロイする準備が整いました。 ソリューション エクスプ ローラーで MyFixItCloudService プロジェクトを右クリックし **発行**です。 詳細については、次を参照してください。"[を Azure にアプリケーションを配置](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)"、2 部である[このチュートリアル](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36)です。
 
->[!div class="step-by-step"]
-[前へ](more-patterns-and-guidance.md)
+> [!div class="step-by-step"]
+> [前へ](more-patterns-and-guidance.md)

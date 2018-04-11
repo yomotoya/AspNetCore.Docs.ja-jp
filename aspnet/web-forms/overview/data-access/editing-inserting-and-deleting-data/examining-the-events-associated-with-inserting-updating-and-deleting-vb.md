@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb
-title: "挿入、更新、および削除 (VB) に関連付けられているイベントを確認する |Microsoft ドキュメント"
+title: 挿入、更新、および削除 (VB) に関連付けられているイベントを確認する |Microsoft ドキュメント
 author: rick-anderson
-description: "について確認する前に、実行時に、および挿入後に発生するイベントを使用してこのチュートリアルでは、更新、または ASP.NET データ Web コントロールの操作を削除します。 W..."
+description: について確認する前に、実行時に、および挿入後に発生するイベントを使用してこのチュートリアルでは、更新、または ASP.NET データ Web コントロールの操作を削除します。 W...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 88f6beb3f3514c6a9784d4cb936a5b779ce75ae1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9c6a0ff85567b6e41a62feddc58672f38ad0d75b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="examining-the-events-associated-with-inserting-updating-and-deleting-vb"></a>挿入、更新、および削除 (VB) に関連付けられたイベントを確認します。
 ====================
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="introduction"></a>はじめに
 
-組み込みの挿入、編集、または削除、GridView、DetailsView、またはフォーム ビューのコントロールの機能を使用する場合、エンドユーザーが新しいレコードの追加や更新、または既存のレコードを削除するプロセスを完了すると、さまざまな手順が経過します。 説明したよう、[前のチュートリアル](an-overview-of-inserting-updating-and-deleting-data-vb.md)[編集] ボタンが更新し、[キャンセル] ボタンとテキスト ボックスに [BoundFields] 有効化置き換え GridView の行を編集する際に、します。 エンドユーザーは、データを更新し、更新プログラムをクリックすると、次の手順は、ポストバック時に実行されます。
+組み込みの挿入、編集、または削除、GridView、DetailsView、またはフォーム ビューのコントロールの機能を使用する場合、エンドユーザーが新しいレコードの追加や更新、または既存のレコードを削除するプロセスを完了すると、さまざまな手順が経過します。 説明したよう、[前のチュートリアル](an-overview-of-inserting-updating-and-deleting-data-vb.md)[編集] ボタンが更新し、[キャンセル] ボタンとテキスト ボックスに BoundFields 有効化置き換え GridView の行を編集する際に、します。 エンドユーザーは、データを更新し、更新プログラムをクリックすると、次の手順は、ポストバック時に実行されます。
 
 1. GridView を設定、ObjectDataSource の`UpdateParameters`で編集されたレコードの一意の識別フィールド (を使用して、`DataKeyNames`プロパティ)、ユーザーが入力した値と共に
 2. GridView 呼び出します、ObjectDataSource の`Update()`メソッドで、さらに、基になるオブジェクトに適切なメソッドを呼び出します (`ProductsDAL.UpdateProduct`で、前のチュートリアル)
@@ -329,12 +329,12 @@ ObjectDataSource のイベント ハンドラーを作成するには、しば�
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Jackie Goor および Liz Shulok がいました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](an-overview-of-inserting-updating-and-deleting-data-vb.md)
-[次へ](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)
+> [!div class="step-by-step"]
+> [前へ](an-overview-of-inserting-updating-and-deleting-data-vb.md)
+> [次へ](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)

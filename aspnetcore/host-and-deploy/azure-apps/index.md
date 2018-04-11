@@ -1,7 +1,7 @@
 ---
-title: "Azure App Service での ASP.NET Core のホスト"
+title: Azure App Service での ASP.NET Core のホスト
 author: guardrex
-description: "役に立つリソースへのリンクを使用して Azure App Service で ASP.NET Core アプリをホストする方法を説明します。"
+description: 役に立つリソースへのリンクを使用して Azure App Service で ASP.NET Core アプリをホストする方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: cefbc27c8091a2ed1441663e3779d67aae2c64dd
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c2675f73880a41ee75f6ec13155419945387e109
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のホスト
 
 [Azure App Service](https://azure.microsoft.com/services/app-service/) は ASP.NET Core を含む Web アプリをホストするための [Microsoft クラウド コンピューティング プラットフォーム サービス](https://azure.microsoft.com/)です。
-
-[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 ## <a name="useful-resources"></a>役に立つリソース
 
@@ -57,6 +55,10 @@ ASP.NET Core 2.0 以降、[Microsoft.AspNetCore.All metapackage](xref:fundamenta
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) は [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) を実行して、`Microsoft.Extensions.Logging.AzureAppServices` パッケージに Azure App Service 診断ログ記録プロバイダーを追加します。
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) はロガー実装を提供することで、Azure App Service 診断ログとログ ストリーミング機能をサポートします。
 
+## <a name="proxy-server-and-load-balancer-scenarios"></a>プロキシ サーバーとロード バランサーのシナリオ
+
+要求が発生したスキーム (HTTP/HTTPS) とリモート IP アドレスを転送するために、Forwarded Headers Middleware を構成する IIS 統合ミドルウェアと、ASP.NET Core モジュールが構成されます。 追加のプロキシ サーバーとロード バランサーの背後でホストされているアプリでは、追加の構成が必要になる場合があります。 詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。
+
 ## <a name="monitoring-and-logging"></a>監視およびログ記録
 
 監視、ログ記録、トラブルシューティングに関する情報は、次の記事を参照してください。
@@ -89,6 +91,62 @@ Azure App Service/IIS によってホストされるアプリの一般的な配�
 
 詳細については、「[キー記憶域プロバイダー](xref:security/data-protection/implementation/key-storage-providers)」を参照してください。
 
+## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Azure App Service に ASP.NET Core プレビュー リリースを展開する
+
+ASP.NET Core プレビュー アプリは、次の方法で Azure App Service に展開できます。
+
+* [プレビュー サイト拡張機能をインストールする](#site-x)
+* [自己完結型アプリを展開する](#self)
+* [コンテナー用の Web アプリで Docker を使用する](#docker)
+
+プレビュー サイト拡張機能の使用に問題がある場合は、[GitHub](https://github.com/aspnet/azureintegration/issues/new) に問題を投稿してください。
+
+<a name="site-x"></a>
+### <a name="install-the-preview-site-extention"></a>プレビュー サイト拡張機能をインストールする
+
+* Azure Portal から [App Service] ブレードに移動します。
+* 検索ボックスに「ex」と入力します。
+* **[拡張機能]** を選びます。
+* [追加] を選びます。
+
+![前の手順の [Azure App] ブレード](index/_static/x1.png)
+
+* **[ASP.NET Core Runtime Extensions]\(ASP.NET Core ランタイム拡張機能\)** を選びます。
+* **[OK]** > **[OK]** の順に選びます。
+
+追加操作が完了すると、最新の .NET Core 2.1 プレビューがインストールされます。 コンソールで `dotnet --info` を実行すると、インストールを確認することができます。 [App Service] ブレードから: 
+
+* 検索ボックスに「con」と入力します。
+* **[コンソール]** を選びます。
+* コンソールに `dotnet --info` と入力します。
+
+![前の手順の [Azure App] ブレード](index/_static/cons.png)
+
+前の画像は、これが書き込まれた時点での最新です。 別のバージョンが表示される可能性があります。
+
+`dotnet --info` では、プレビューがインストールされているサイトの拡張機能へのパスが表示されます。 アプリが既定の *ProgramFiles* の場所ではなく、サイトの拡張機能から実行されていることが示されます。 *ProgramFiles* が表示される場合は、サイトを再起動して、`dotnet --info` を実行してください。
+
+#### <a name="use-the-preview-site-extention-with-an-arm-template"></a>ARM テンプレートでプレビュー サイト拡張機能を使用する
+
+ARM テンプレートを使用してアプリケーションを作成し、展開している場合は、リソースの種類に `siteextensions` を使用してサイト拡張機能を Web アプリに追加することができます。 例:
+
+[!code-json[Main](index/sample/arm.json?highlight=2)]
+
+<a name="self"></a>
+### <a name="deploy-the-app-self-contained"></a>自己完結型アプリを展開する
+
+展開時にプレビューのランタイムが保持される[自己完結型アプリ](/dotnet/core/deploying/#self-contained-deployments-scd)を展開することができます。 自己完結型アプリを展開する場合: 
+
+* サイトを準備する必要はありません。
+* SDK がサーバーにインストールされたら、アプリを展開する場合と違う方法でアプリケーションを公開する必要があります。
+
+自己完結型のアプリは、すべての .NET Core アプリケーションに対するオプションです。
+
+<a name="docker"></a>
+### <a name="use-docker-with-web-apps-for-containers"></a>コンテナー用の Web アプリで Docker を使用する
+
+[Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) には最新の 2.1 プレビュー Docker イメージが含まれています。 このイメージを基本イメージとして使用して、通常どおりにコンテナー用の Web アプリに展開できます。
+
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [Web Apps の概要 (5 分間の概要ビデオ)](/azure/app-service/app-service-web-overview)
@@ -101,5 +159,5 @@ Windows Server の Azure App Service では[インターネット インフォ�
 * [IIS を使用した Windows での ASP.NET Core のホスト](xref:host-and-deploy/iis/index)
 * [ASP.NET Core モジュールの概要](xref:fundamentals/servers/aspnet-core-module)
 * [ASP.NET Core モジュール構成リファレンス](xref:host-and-deploy/aspnet-core-module)
-* [IIS モジュールと ASP.NET Core の使用](xref:host-and-deploy/iis/modules)
+* [IIS モジュールと ASP.NET Core](xref:host-and-deploy/iis/modules)
 * [Microsoft TechNet ライブラリ: Windows Server](/windows-server/windows-server-versions)

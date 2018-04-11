@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs
-title: "(C#) のユーザーに基づくデータ変更機能を制限する |Microsoft ドキュメント"
+title: (C#) のユーザーに基づくデータ変更機能を制限する |Microsoft ドキュメント
 author: rick-anderson
-description: "ユーザー データを編集できるように、web アプリケーションを別のユーザー アカウントには別のデータ編集権限が必要です。 このチュートリアルで取り上げる方法 t しています."
+description: ユーザー データを編集できるように、web アプリケーションを別のユーザー アカウントには別のデータ編集権限が必要です。 このチュートリアルで取り上げる方法 t しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 44d0c192e082a7ad123096acb57fd053f6dcaeb1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b056536eeaa86ef2c73debe23dd38861f41b2a69
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="limiting-data-modification-functionality-based-on-the-user-c"></a>(C#) のユーザーに基づくデータ変更機能を制限します。
 ====================
@@ -77,7 +77,7 @@ ObjectDataSource ウィザードの完了後の手順を構成して、 `Supplie
 この時点で、DropDownList では、データベースの仕入先の会社名が一覧表示します。 ただしも含める必要は DropDownList する"表示/編集 All"オプション。 これを実現するには設定、 `Suppliers` DropDownList s`AppendDataBoundItems`プロパティを`true`し、追加、`ListItem`が`Text`プロパティは、"表示/編集 All"を値`-1`です。 これによって追加できます宣言型マークアップを使用して直接、またはデザイナーを使用しようとして、[プロパティ] ウィンドウと DropDownList s で省略記号ボタンをクリックすると`Items`プロパティです。
 
 > [!NOTE]
-> 戻って、 [*マスター/詳細のフィルター処理で、DropDownList*](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md)の詳細については、すべての項目をデータ バインディングの DropDownList に追加するためのチュートリアルです。
+> 戻って、 [*マスター/詳細のフィルター処理で、DropDownList* ](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md)の詳細については、すべての項目をデータ バインディングの DropDownList に追加するためのチュートリアルです。
 
 
 後に、`AppendDataBoundItems`プロパティが設定されていると、`ListItem`追加されると、DropDownList s の宣言型マークアップのようになります。
@@ -236,7 +236,7 @@ GridView s のイベント ハンドラーを作成`RowDataBound`イベント。
 
 含まれていません BLL レイヤーそのようなチェックをここでこのチュートリアルでは、ユーザーの権利が BLL クラスにアクセスできない ページでの DropDownList によって決定されるためです。 メンバーシップ システムまたは (Windows 認証の場合) など、ASP.NET によって提供される出力の既定の認証方式のいずれかを使用して、現在ログオンしているユーザーに情報やロール情報をこのようなアクセスをし、それによって、BLL からアクセスできます。プレゼンテーションと BLL レイヤーの両方で可能な権限をチェックします。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 ユーザー アカウントを提供するほとんどのサイトは、ログインしたユーザーに基づくデータ変更のインターフェイスをカスタマイズする必要があります。 管理者以外のユーザーのみを更新または自分で作成したレコードを削除するのに制限できますが、管理ユーザーは削除、および任意のレコードを編集することがあります。 どのようなシナリオがあります、ObjectDataSource を Web コントロールのデータと、拒否、ログオン ユーザーに基づく特定の機能を追加またはビジネス ロジック層クラスを拡張することができます。 このチュートリアルでは、ユーザーが特定の供給業者に関連付けられているかどうか、または、当社の作業したかどうかによっては表示および編集可能なデータを制限する方法を説明しました。
 
@@ -246,8 +246,8 @@ GridView s のイベント ハンドラーを作成`RowDataBound`イベント。
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
->[!div class="step-by-step"]
-[前へ](adding-client-side-confirmation-when-deleting-cs.md)
-[次へ](an-overview-of-inserting-updating-and-deleting-data-vb.md)
+> [!div class="step-by-step"]
+> [前へ](adding-client-side-confirmation-when-deleting-cs.md)
+> [次へ](an-overview-of-inserting-updating-and-deleting-data-vb.md)

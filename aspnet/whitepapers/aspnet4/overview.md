@@ -1,22 +1,22 @@
 ---
 uid: whitepapers/aspnet4/overview
-title: "ASP.NET 4 および Visual Studio 2010 の Web 開発の概要 |Microsoft ドキュメント"
+title: ASP.NET 4 および Visual Studio 2010 の Web 開発の概要 |Microsoft ドキュメント
 author: rick-anderson
-description: "このドキュメントでは、.net Framework 4 におけると Visual Studio 2010 に含まれている ASP.NET の新機能の多くの概要を示します。"
+description: このドキュメントでは、.net Framework 4 におけると Visual Studio 2010 に含まれている ASP.NET の新機能の多くの概要を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 29d5b2f4c04b899b900427ac202c0a4f57f8076f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6ce52c387ff835eda46bc1882b8b974889e2d4af
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 および Visual Studio 2010 の Web 開発の概要
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/30/2018
 
 **目次**
 
-**[サービスのコア](#0.2__Toc253429238 "_Toc253429238")**  
+**[Core Services](#0.2__Toc253429238 "_Toc253429238")**  
 [Web.config ファイルがリファクタリング](#0.2__Toc253429239 "_Toc253429239")  
 [拡張可能な出力キャッシュ](#0.2__Toc253429240 "_Toc253429240")  
 [Web アプリケーションの自動開始](#0.2__Toc253429241 "_Toc253429241")  
@@ -38,21 +38,21 @@ ms.lasthandoff: 01/30/2018
 [オブジェクト キャッシュとキャッシュ機能拡張、オブジェクトを](#0.2__Toc253429246 "_Toc253429246")  
 [拡張可能な HTML、URL、および HTTP ヘッダーのエンコーディング](#0.2__Toc253429247 "_Toc253429247")  
 [1 つのワーカー プロセス内の個々 のアプリケーションのパフォーマンスを監視](#0.2__Toc253429248 "_Toc253429248")  
-[マルチ ターゲット](#0.2__Toc253429249 "_Toc253429249")
+[Multi-Targeting](#0.2__Toc253429249 "_Toc253429249")
 
 **[Ajax](#0.2__Toc253429250 "_Toc253429250")**  
 [含まれる Web フォームと MVC の jQuery](#0.2__Toc253429251 "_Toc253429251")  
 [コンテンツ配信ネットワーク サポート](#0.2__Toc253429252 "_Toc253429252")  
 [ScriptManager の明示的なスクリプト](#0.2__Toc253429253 "_Toc253429253")
 
-**[Web フォーム](#0.2__Toc253429256 "_Toc253429256")**  
+**[Web Forms](#0.2__Toc253429256 "_Toc253429256")**  
 [Page.MetaKeywords と Page.MetaDescription プロパティをメタ タグを設定](#0.2__Toc253429257 "_Toc253429257")  
 [個々 のコントロール ビュー ステートを有効にする](#0.2__Toc253429258 "_Toc253429258")  
 [ブラウザーの機能に変更](#0.2__Toc253429259 "_Toc253429259")  
 [ASP.NET 4 でルーティング](#0.2__Toc253429260 "_Toc253429260")  
 [クライアント Id を設定](#0.2__Toc253429261 "_Toc253429261")  
 [データ コントロールで行の選択を保持する](#0.2__Toc253429262 "_Toc253429262")  
-[ASP.NET のグラフ コントロール](#0.2__Toc253429263 "_Toc253429263")  
+[ASP.NET Chart Control](#0.2__Toc253429263 "_Toc253429263")  
 [QueryExtender コントロールにデータをフィルタ リング](#0.2__Toc253429264 "_Toc253429264")  
 [コード式に html エンコード](#0.2__Toc253429265 "_Toc253429265")  
 [テンプレートの変更をプロジェクト](#0.2__Toc253429266 "_Toc253429266")  
@@ -90,9 +90,9 @@ ms.lasthandoff: 01/30/2018
 [Web.config 変換](#0.2__Toc253429294 "_Toc253429294")  
 [データベース配置](#0.2__Toc253429295 "_Toc253429295")  
 [Web アプリケーション用の 1 回のクリックを公開](#0.2__Toc253429296 "_Toc253429296")  
-[リソース](#0.2__Toc253429297 "_Toc253429297")
+[Resources](#0.2__Toc253429297 "_Toc253429297")
 
-**[免責事項](#0.2__Toc253429298 "_Toc253429298")**
+**[Disclaimer](#0.2__Toc253429298 "_Toc253429298")**
 
 <a id="0.2__Toc224729018"></a><a id="0.2__Toc253429238"></a><a id="0.2__Toc243304612"></a>
 
@@ -205,7 +205,7 @@ ASP.NET 4 では、URL 文字チェックで使用される文字を構成する
 
 [!code-xml[Main](overview/samples/sample11.xml)]
 
-既定では、 *requestPathInvalidChars*属性は無効として 8 文字を定義します。 (に割り当てられている文字列で*requestPathInvalidChars*既定では*、*より小さい (&lt;)、大なり (&gt;)、およびアンパサンド (&amp;) 文字は、エンコードされたため、`Web.config`ファイルは XML ファイルです)。無効な文字のセットは、必要に応じてカスタマイズできます。
+既定では、 <em>requestPathInvalidChars</em>属性は無効として 8 文字を定義します。 (に割り当てられている文字列で<em>requestPathInvalidChars</em>既定では<em>、</em>より小さい (&lt;)、大なり (&gt;)、およびアンパサンド (&amp;) 文字は、エンコードされたため、`Web.config`ファイルは XML ファイルです)。無効な文字のセットは、必要に応じてカスタマイズできます。
 
 > [!NOTE]
 > ASP.NET 4 は 0x00 ~ 0x1F の ASCII の範囲の文字を含む URL のパスを常に拒否の IETF RFC 2396 で定義されているは URL の無効な文字であるため注意してください ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt))。 IIS 6 を実行する Windows Server のバージョンにまたは以降では、http.sys プロトコルのデバイス ドライバーに自動的に拒否 Url これらの文字でします。
@@ -326,6 +326,8 @@ Microsoft Ajax CDN を利用して、Ajax アプリケーションのパフォ�
 
 Microsoft Ajax Content Delivery Network は、Secure Sockets Layer を使用し、web ページを使用する必要がある場合に、SSL (HTTPS) をサポートしています。
 
+CDN が利用できない場合は、フォールバックを実装します。 フォールバックをテストします。
+
 Microsoft Ajax CDN の詳細については、次の web サイトを参照してください。
 
 [https://www.asp.net/ajaxlibrary/CDN.ashx](../../ajax/cdn/overview.md)
@@ -342,7 +344,7 @@ WebResource 属性を使用して、独自の JavaScript ファイル CDN パス
 
 <a id="0.2__Toc253429253"></a><a id="0.2__Toc243304627"></a>
 
-### <a name="scriptmanager-explicit-scripts"></a>ScriptManager の明示的なスクリプト
+### <a name="scriptmanager-explicit-scripts"></a>ScriptManager Explicit Scripts
 
 以前は、ASP.NET ScriptManger を使用した場合、必要があるモノリシックな ASP.NET Ajax ライブラリ全体を読み込めません。 新しい ScriptManager.AjaxFrameworkMode プロパティを利用して、ASP.NET Ajax ライブラリのコンポーネントが読み込まれる完全に制御し、必要な ASP.NET Ajax ライブラリのコンポーネントのみをロードできます。
 
@@ -412,13 +414,13 @@ ASP.NET 4 で追加する 2 つのプロパティ、*ページ*クラス、 *Met
 
 これらの設定の効果は、ページが初めて読み込まれるときに、次の出力がブラウザーで表示されることです。
 
-無効になっています。`: [DynamicValue]`
+無効になっています。 `: [DynamicValue]`
 
 有効になります。`[DynamicValue]`
 
 ポストバックされた後に、次の出力が表示されます。
 
-無効になっています。`: [DeclaredValue]`
+無効になっています。 `: [DeclaredValue]`
 
 有効になります。`[DynamicValue]`
 
@@ -577,9 +579,9 @@ ASP.NET 4 では、 *MapPageRoute*メソッドです。 次の例は、前の例
 
 *MapPageRoute*メソッドは、次のメソッドのオーバー ロードをサポートしています。
 
-- *MapPageRoute (文字列 routeName 文字列 routeUrl、文字列 physicalFile bool checkPhysicalUrlAccess)*
-- *MapPageRoute (文字列 routeName 文字列 routeUrl、文字列 physicalFile、bool checkPhysicalUrlAccess RouteValueDictionary の既定値)*
-- *MapPageRoute (文字列 routeName、文字列 routeUrl、文字列 physicalFile、bool checkPhysicalUrlAccess、RouteValueDictionary の既定値、RouteValueDictionary 制約)*
+- *MapPageRoute(string routeName, string routeUrl, string physicalFile, bool checkPhysicalUrlAccess)*
+- *MapPageRoute(string routeName, string routeUrl, string physicalFile, bool checkPhysicalUrlAccess, RouteValueDictionary defaults)*
+- *MapPageRoute(string routeName, string routeUrl, string physicalFile, bool checkPhysicalUrlAccess, RouteValueDictionary defaults, RouteValueDictionary constraints)*
 
 *CheckPhysicalUrlAccess*パラメーターは、ルートにルーティングされている物理ページの セキュリティ アクセス許可を確認するかどうかを指定します (この場合は、完成しました) と、着信 URL のアクセス許可 (この場合、検索/{searchterm})。 場合の値*checkPhysicalUrlAccess*は*false*、着信 URL のアクセス許可だけがチェックされます。 これらのアクセス許可が定義されている、`Web.config`ファイルの次のように設定を使用します。
 
@@ -629,7 +631,7 @@ ASP.NET は、正しいルートを自動的に機能 (正しい URL を生成�
 
 [!code-aspx[Main](overview/samples/sample46.aspx)]
 
-ルート パラメーター searchterm の値が使用しての例では、@companyname内のパラメーター、*選択*ステートメントです。
+ルート パラメーター searchterm の値が使用しての例では、@companyname内のパラメーター、<em>選択</em>ステートメントです。
 
 <a id="0.2__Toc224729037"></a><a id="0.2__Toc253429261"></a><a id="0.2__Toc243304635"></a>
 
@@ -662,7 +664,7 @@ ASP.NET は、正しいルートを自動的に機能 (正しい URL を生成�
 
 [!code-html[Main](overview/samples/sample49.html)]
 
-場合でも、*入力*マークアップに示される要素 (から、  *テキスト ボックス*コントロール) 2 つの名前付けコンテナーは、ページの深さ (入れ子になった*ContentPlaceholder*コントロール)、マスター ページが処理されるため、最終結果は、次のようにコントロール ID です。
+場合でも、*入力*マークアップに示される要素 (から、 *テキスト ボックス*コントロール) 2 つの名前付けコンテナーは、ページの深さ (入れ子になった*ContentPlaceholder*コントロール)、マスター ページが処理されるため、最終結果は、次のようにコントロール ID です。
 
 [!code-console[Main](overview/samples/sample50.cmd)]
 
@@ -982,10 +984,10 @@ ASP.NET 2.0 とそれ以降のバージョンがシステムに固有の非表�
 
 既定では、テンプレートをサポートする次の ASP.NET Web サーバー コントロールは自動的にインライン スタイルを適用するために使用する外部テーブルでラップされます。
 
-- *フォーム ビュー*
+- *FormView*
 - *ログイン*
 - *PasswordRecovery*
-- *パスワードの変更*
+- *ChangePassword*
 - *ウィザード*
 - *CreateUserWizard*
 
@@ -1363,9 +1365,9 @@ Visual Studio 2010 では、リモート サーバーに Web アプリケーシ�
 
 - [ASP.NET 4](https://msdn.microsoft.com/library/ee532866%28VS.100%29.aspx) -MSDN Web サイトで ASP.NET 4 用の公式のドキュメントです。
 - [https://www.asp.net/](https://www.asp.net/) -ASP.NET チームの Web サイトです。
-- [https://www.asp.net/dynamicdata/](https://msdn.microsoft.com/library/cc488545.aspx)と[ASP.NET 動的データのコンテンツ マップ](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx)-チーム サイトで ASP.NET し ASP.NET 動的データの公式のドキュメントでのオンライン リソース。
-- [https://www.asp.net/ajax/](../../ajax/index.md) -開発の ASP.NET Ajax の Web リソースをメインです。
-- [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/)など、Visual Web Developer チームのブログは、Visual Studio 2010 の機能に関する情報が含まれています。
+- [https://www.asp.net/dynamicdata/](https://msdn.microsoft.com/library/cc488545.aspx) および[ASP.NET 動的データのコンテンツ マップ](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx)-チーム サイトで ASP.NET し ASP.NET 動的データの公式のドキュメントでのオンライン リソース。
+- [https://www.asp.net/ajax/](../../ajax/index.md) -メインの Web リソースを ASP.NET Ajax 開発します。
+- [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/) — Visual Web Developer チーム ブログ Visual Studio 2010 の機能に関する情報が含まれています。
 - [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack) : ASP.NET のプレビュー リリースの Web リソースをメインです。
 
 <a id="0.2__Toc224729061"></a><a id="0.2__Toc253429298"></a><a id="0.2__Toc243304669"></a>

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core のデータ保護"
+title: ASP.NET Core のデータ保護
 author: rick-anderson
-description: "このドキュメントは、さまざまな ASP.NET Core データ保護に関するトピックの目次として機能します。"
+description: このドキュメントは、さまざまな ASP.NET Core データ保護に関するトピックの目次として機能します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,70 +9,70 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/index
-ms.openlocfilehash: e08dea63f012c4a758f2e5561c4930d09cfee0ac
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 83b5bb1e6a4942a4d3e5ec0d445fa6e5a21fb533
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="data-protection-in-aspnet-core-consumer-apis-configuration-extensibility-apis-and-implementation"></a>ASP.NET Core のデータ保護: コンシューマー API、構成、拡張 API と実装
+# <a name="data-protection-in-aspnet-core"></a>ASP.NET Core のデータ保護
 
-* [データ保護の概要](introduction.md)
+* [データ保護の概要](xref:security/data-protection/introduction)
 
-* [データ保護 API の概要](using-data-protection.md)
+* [データ保護 API の概要](xref:security/data-protection/using-data-protection)
 
-* [コンシューマー API](consumer-apis/index.md)
+* [コンシューマー API](xref:security/data-protection/consumer-apis/index)
 
-  * [コンシューマー API の概要](consumer-apis/overview.md)
+  * [コンシューマー API の概要](xref:security/data-protection/consumer-apis/overview)
 
-  * [目的文字列](consumer-apis/purpose-strings.md)
+  * [目的文字列](xref:security/data-protection/consumer-apis/purpose-strings)
 
-  * [目的の階層とマルチテナント](consumer-apis/purpose-strings-multitenancy.md)
+  * [目的の階層とマルチテナント](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)
 
-  * [パスワードのハッシュ](consumer-apis/password-hashing.md)
+  * [パスワードのハッシュ](xref:security/data-protection/consumer-apis/password-hashing)
 
-  * [保護されたペイロードの有効期間の制限](consumer-apis/limited-lifetime-payloads.md)
+  * [保護されたペイロードの有効期間の制限](xref:security/data-protection/consumer-apis/limited-lifetime-payloads)
 
-  * [キーが取り消されたペイロードの保護の解除](consumer-apis/dangerous-unprotect.md)
+  * [キーが取り消されたペイロードの保護の解除](xref:security/data-protection/consumer-apis/dangerous-unprotect)
 
-* [構成](configuration/index.md)
+* [構成](xref:security/data-protection/configuration/index)
 
-  * [データ保護の構成](configuration/overview.md)
+  * [ASP.NET Core データ保護の構成](xref:security/data-protection/configuration/overview)
 
-  * [既定の設定](configuration/default-settings.md)
+  * [既定の設定](xref:security/data-protection/configuration/default-settings)
 
-  * [コンピューター全体のポリシー](configuration/machine-wide-policy.md)
+  * [コンピューター全体のポリシー](xref:security/data-protection/configuration/machine-wide-policy)
 
-  * [DI に対応しないシナリオ](configuration/non-di-scenarios.md)
+  * [DI に対応しないシナリオ](xref:security/data-protection/configuration/non-di-scenarios)
 
-* [拡張性 API](extensibility/index.md)
+* [拡張性 API](xref:security/data-protection/extensibility/index)
 
-  * [Core の暗号の拡張性](extensibility/core-crypto.md)
+  * [Core の暗号の拡張性](xref:security/data-protection/extensibility/core-crypto)
 
-  * [キー管理の拡張性](extensibility/key-management.md)
+  * [キー管理の拡張性](xref:security/data-protection/extensibility/key-management)
 
-  * [その他の API](extensibility/misc-apis.md)
+  * [その他の API](xref:security/data-protection/extensibility/misc-apis)
 
-* [実装](implementation/index.md)
+* [実装](xref:security/data-protection/implementation/index)
 
-  * [認証された暗号化の詳細](implementation/authenticated-encryption-details.md)
+  * [認証された暗号化の詳細](xref:security/data-protection/implementation/authenticated-encryption-details)
 
-  * [サブキーの派生と認証された暗号化](implementation/subkeyderivation.md)
+  * [サブキーの派生と認証された暗号化](xref:security/data-protection/implementation/subkeyderivation)
 
-  * [コンテキスト ヘッダー](implementation/context-headers.md)
+  * [コンテキスト ヘッダー](xref:security/data-protection/implementation/context-headers)
 
-  * [キーの管理](implementation/key-management.md)
+  * [キーの管理](xref:security/data-protection/implementation/key-management)
 
-  * [キー ストレージ プロバイダー](implementation/key-storage-providers.md)
+  * [キー ストレージ プロバイダー](xref:security/data-protection/implementation/key-storage-providers)
 
-  * [保存時のキーの暗号化](implementation/key-encryption-at-rest.md)
+  * [保存時のキーの暗号化](xref:security/data-protection/implementation/key-encryption-at-rest)
 
-  * [キーの不変性と設定の変更](implementation/key-immutability.md)
+  * [キーの不変性と設定](xref:security/data-protection/implementation/key-immutability)
 
-  * [キー ストレージの形式](implementation/key-storage-format.md)
+  * [キー ストレージの形式](xref:security/data-protection/implementation/key-storage-format)
 
-  * [短期データ保護プロバイダー](implementation/key-storage-ephemeral.md)
+  * [短期データ保護プロバイダー](xref:security/data-protection/implementation/key-storage-ephemeral)
 
-* [互換性](compatibility/index.md)
+* [互換性](xref:security/data-protection/compatibility/index)
 
-  * [ASP.NET での <machineKey> の置換](xref:security/data-protection/compatibility/replacing-machinekey)
+  * [ASP.NET Core での ASP.NET <machineKey> の置換](xref:security/data-protection/compatibility/replacing-machinekey)

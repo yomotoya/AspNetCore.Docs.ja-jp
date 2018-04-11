@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core でのデータの操作"
+title: ASP.NET Core でのデータの操作
 author: rick-anderson
-description: "データの操作に関する記事のリンクを紹介します。 多くのユーザーは Entity Framework Core を使用しています。"
+description: データの操作に関する記事のリンクを紹介します。 多くのユーザーは Entity Framework Core を使用しています。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: data/index
-ms.openlocfilehash: 6cdd8b2889a2a53c2767e5a5ebb170c31d2c31a4
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 068c70c15acc8d8da6759020725e48a77946c53e
+ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="working-with-data-in-aspnet-core"></a>ASP.NET Core でのデータの操作 
+# <a name="work-with-data-in-aspnet-core"></a>ASP.NET Core でのデータの操作
 
 * [Visual Studio を使用した Razor ページと Entity Framework Core の概要](xref:data/ef-rp/index)
 

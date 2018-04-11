@@ -2,13 +2,13 @@
 uid: index
 layout: HubPage
 ms.topic: hub-page
-title: "ASP.NET のドキュメント | Microsoft Docs"
-description: 
-ms.openlocfilehash: 4ab928b65bc91a24d02cd0450e143cd6bd3b639b
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+title: ASP.NET のドキュメント | Microsoft Docs
+description: ''
+ms.openlocfilehash: cc887183fba9d3c46fbb1068d13d612a3e1806e6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -23,7 +23,7 @@ ms.lasthandoff: 03/08/2018
                             <li>
                                 <div class="container intro">
                                     <p>ASP.NET Core は、Windows、Mac、または Linux で最新のクラウド ベースの Web アプリケーションをビルドするための、新しいオープン ソースのクロスプラットフォーム .NET Framework です。</p>
-                                    <p>[ASP.NET Core と ASP.NET の両方の利点を確認](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)し、自分に適したものを選択します。</p>
+                                    <p><a href="https://docs.microsoft.com/aspnet/core/choose-aspnet-framework" data-raw-source="[Learn the benefits of both ASP.NET Core and ASP.NET](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)">ASP.NET Core と ASP.NET の両方の利点を確認</a>し、自分に適したものを選択します。</p>
                                 </div>
                             </li>
                             <li>
@@ -153,7 +153,7 @@ ms.lasthandoff: 03/08/2018
                         <ul id="core_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
-                                    <p>お勧めのチュートリアル | [すべての ASP.NET Core チュートリアルの表示](https://docs.microsoft.com/aspnet/core/tutorials/)</p>
+                                    <p>お勧めのチュートリアル | <a href="https://docs.microsoft.com/aspnet/core/tutorials/" data-raw-source="[View all ASP.NET Core tutorials](https://docs.microsoft.com/aspnet/core/tutorials/)">すべての ASP.NET Core チュートリアルの表示</a></p>
                                 </div>
                             </li>
                             <li>
@@ -291,7 +291,7 @@ ms.lasthandoff: 03/08/2018
                             <li>
                                 <div class="container intro">
                                     <p>ASP.NET は、Windows で .NET を使用してエンタープライズ クラスのサーバー ベース Web アプリケーションをビルドするために必要なすべてのサービスを提供する成熟した Web プラットフォームです。</p>
-                                    <p>[ASP.NET Core と ASP.NET の両方の利点を確認](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)し、自分に適したものを選択します。</p>
+                                    <p><a href="https://docs.microsoft.com/aspnet/core/choose-aspnet-framework" data-raw-source="[Learn the benefits of both ASP.NET Core and ASP.NET](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)">ASP.NET Core と ASP.NET の両方の利点を確認</a>し、自分に適したものを選択します。</p>
                                 </div>
                             </li>
                             <li>
@@ -568,7 +568,7 @@ ms.lasthandoff: 03/08/2018
                         <ul id="aspnet_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
-                                    <p>お勧めのチュートリアル | [すべての ASP.NET チュートリアルの表示](https://docs.microsoft.com/aspnet/tutorials/)</p>
+                                    <p>お勧めのチュートリアル | <a href="https://docs.microsoft.com/aspnet/tutorials/" data-raw-source="[View all ASP.NET tutorials](https://docs.microsoft.com/aspnet/tutorials/)">すべての ASP.NET チュートリアルの表示</a></p>
                                 </div>
                             </li>
                             <li>

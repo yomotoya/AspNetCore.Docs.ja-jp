@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb
-title: "DataList への検証コントロールの追加の編集インターフェイス (VB) |Microsoft ドキュメント"
+title: DataList への検証コントロールの追加の編集インターフェイス (VB) |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、DataList の後に編集 int です。 ユーザーより安全な方法で提供するために検証コントロールを追加することがいかに簡単思います."
+description: このチュートリアルでは、DataList の後に編集 int です。 ユーザーより安全な方法で提供するために検証コントロールを追加することがいかに簡単思います.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c2daa0eaca2764dec2d6323bf1f5a4f3af2e6bbe
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 46ff0b18c1ea24dd73c9e3034c1b5e53f2e6d0c2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-vb"></a>DataList の編集インターフェイス (VB) への検証コントロールの追加
 ====================
@@ -144,7 +144,7 @@ CompareValidator s を使用するときに`Currency``Type`、検証対象の入
 
 [キャンセル] ボタンは、このような例を示します。 たとえば、ことユーザー、s の製品名を省略することなどの無効なデータが入力し彼女が t 保存したい製品すべてを決定し、[キャンセル] ボタンをヒットします。 現時点では、キャンセル ボタンは、製品名が不足しているがポストバックを防ぐためであることを報告する ページで、検証コントロールをトリガーします。 ユーザーにテキストを入力するには、 `ProductName`  ボックスに、編集のプロセスをキャンセルするだけです。
 
-さいわい、ボタン、LinkButton、および ImageButton が、 [ `CausesValidation`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.causesvalidation.aspx)ことを示す をクリックするかどうか、ボタンは、検証ロジックを開始する必要があります (既定値は`True`)。 設定は [キャンセル] ボタン s`CausesValidation`プロパティを`False`です。
+さいわい、ボタン、LinkButton、および ImageButton が、 [ `CausesValidation`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.causesvalidation.aspx)ことを示すをクリックするかどうか、ボタンは、検証ロジックを開始する必要があります (既定値は`True`)。 設定は [キャンセル] ボタン s`CausesValidation`プロパティを`False`です。
 
 ## <a name="ensuring-the-inputs-are-valid-in-the-updatecommand-event-handler"></a>有効な UpdateCommand イベント ハンドラーでは、入力のことを確認
 
@@ -189,12 +189,12 @@ ASP.NET には、5 つの検証コントロールのほか、 [ValidationSummary
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 
 このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者には、Dennis Patterson、Ken Pespisa Liz Shulok がされていました。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[前へ](handling-bll-and-dal-level-exceptions-vb.md)
-[次へ](customizing-the-datalist-s-editing-interface-vb.md)
+> [!div class="step-by-step"]
+> [前へ](handling-bll-and-dal-level-exceptions-vb.md)
+> [次へ](customizing-the-datalist-s-editing-interface-vb.md)

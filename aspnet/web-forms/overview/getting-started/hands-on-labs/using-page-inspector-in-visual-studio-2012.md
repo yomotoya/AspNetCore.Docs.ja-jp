@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
-title: "Visual Studio 2012 で Page Inspector を使用して |Microsoft ドキュメント"
+title: Visual Studio 2012 で Page Inspector を使用して |Microsoft ドキュメント
 author: rick-anderson
-description: "このハンズオン ラボでは、新しいツールを見つけて Visual Studio - Page Inspector で web ページの問題を修正することがわかります。 Page Inspector は、新しいツールその b."
+description: このハンズオン ラボでは、新しいツールを見つけて Visual Studio - Page Inspector で web ページの問題を修正することがわかります。 Page Inspector は、新しいツールその b.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 1a9e093faae2cea1c27c582e22aebc908f78addb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 052d29dba170d403c2b1c1667c55fc2c34045615
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/10/2018
 ---
 <a name="using-page-inspector-in-visual-studio-2012"></a>Visual Studio 2012 での Page Inspector の使用
 ====================
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > このラボには、機能強化と軽微な変更を元のフォルダーで提供されるサンプル Web アプリケーションに適用することで前に説明した新しい機能について説明します。
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409)です。
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409)です。
 
 
 <a id="Objectives"></a>
@@ -96,12 +96,12 @@ ms.lasthandoff: 11/10/2017
 
 1. 開く、**開始**ソリューションにある**ソース/Ex1-MVC4/開始/**フォルダーです。
 
-    1. いくつか不足している NuGet パッケージをダウンロードする必要がありますが続行前にします。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
-    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
-    3. 最後に、ソリューションをビルドします をクリックして**ビルド** | **ソリューションのビルド**です。
+   1. いくつか不足している NuGet パッケージをダウンロードする必要がありますが続行前にします。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
+   2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
+   3. 最後に、ソリューションをビルドします をクリックして**ビルド** | **ソリューションのビルド**です。
 
-    > [!NOTE]
-    > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
+      > [!NOTE]
+      > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
 2. ソリューション エクスプ ローラーで**Index.cshtml**下を表示、 **/ビュー/ホーム**プロジェクト フォルダーを右クリックして、選択**Page Inspector で表示**です。
 
     ![Page Inspector 内でプレビューするファイルを選択する](using-page-inspector-in-visual-studio-2012/_static/image1.png "Page Inspector 内でプレビューするファイルを選択します。")
@@ -121,7 +121,7 @@ ms.lasthandoff: 11/10/2017
 
     インデックス ページを作成するすべてのソース ファイルが表示されます。 この機能は、部分ビューとテンプレートを使用している場合は特に、ひとめですべての要素を識別に役立ちます。 開くことができますも各ファイルのリンクをクリックする場合に注意してください。
 
-    ![[ファイル] タブ](using-page-inspector-in-visual-studio-2012/_static/image3.png)
+    ![The-Files-tab](using-page-inspector-in-visual-studio-2012/_static/image3.png)
 
     *[ファイル] タブ*
 5. クリックして、**検査モードを切り替える**タブの左側にあるボタンをクリックします。
@@ -145,7 +145,7 @@ ms.lasthandoff: 11/10/2017
     ![Inspectingelements](using-page-inspector-in-visual-studio-2012/_static/image6.png)
 
     *要素の検査*
-7. クリックして、**検査モードを切り替える**ボタン (![Page Inspector のブラウザーでレンダリングされた HTML コードを表示する HTML タブを選択します](using-page-inspector-in-visual-studio-2012/_static/image7.png "Page Inspector のブラウザーでレンダリングされた HTML コードを表示する HTML タブを選択します。") )、カーソルを無効にします。
+7. クリックして、**検査モードを切り替える**ボタン (![Page Inspector のブラウザーでレンダリングされた HTML コードを表示する HTML タブを選択します]。(using-page-inspector-in-visual-studio-2012/_static/image7.png "Page Inspector のブラウザーでレンダリングされた HTML コードを表示する HTML タブを選択します。") )、カーソルを無効にします。
 8. 選択、 **HTML** Page Inspector のブラウザーでレンダリングされた HTML コードを表示するタブです。
 9. HTML マークアップで Koala リンクのリスト アイテムをクリックして選択します。
 
@@ -221,7 +221,7 @@ ASP.NET MVC 4 の実際の WYSIWYG がないため、スタイルの問題のほ
 2. 選択されている検査モードの切り替え、閉じるをではなく、そのコードを開くための登録のリンクをクリックします。
 
     リンクのソース コードがあることを確認、  **\_LoginPartial.cshtml**ファイル、Index.cshtml いないも\_Layout.cshtml は、最初に探すこともできます。 正しいソース ファイルに直接配置されています。
-3. **スタイル** タブを特定し、をクリックして、  **<section> #login</section>** 項目は、これらのリンクを HTML のコンテナーです。
+3. **スタイル** タブを特定し、をクリックして、 **<section> #login</section>**項目は、これらのリンクを HTML のコンテナーです。
 
     注意して、 **#login**スタイルで自動的にある**Site.css**  をクリックします。 さらに、コードは、ここで強調表示されます。
 
@@ -242,7 +242,7 @@ ASP.NET MVC 4 の実際の WYSIWYG がないため、スタイルの問題のほ
     ![更新されたページ](using-page-inspector-in-visual-studio-2012/_static/image18.png)
 
     *更新されたページ*
-6. いずれかを選択して検査モードを使用して、  **&lt;li&gt;** を含む項目、&quot;登録&quot;と&quot;ログイン&quot;リンクします。 次に、をクリックして、 **&lt;セクション&gt;#login**にアクセスする項目**Styles.css**コード。
+6. いずれかを選択して検査モードを使用して、 **&lt;li&gt;**を含む項目、&quot;登録&quot;と&quot;ログイン&quot;リンクします。 次に、をクリックして、 **&lt;セクション&gt;#login**にアクセスする項目**Styles.css**コード。
 
     ![スタイルを検索する](using-page-inspector-in-visual-studio-2012/_static/image19.png "スタイルを検索します。")
 
@@ -287,12 +287,12 @@ ASP.NET MVC 4 の実際の WYSIWYG がないため、スタイルの問題のほ
 
 1. 開く、**開始**ソリューションにある**ソース/Ex2-WebForms/開始/**フォルダーです。
 
-    1. いくつか不足している NuGet パッケージをダウンロードする必要がありますが続行前にします。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
-    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
-    3. 最後に、ソリューションをビルドします をクリックして**ビルド** | **ソリューションのビルド**です。
+   1. いくつか不足している NuGet パッケージをダウンロードする必要がありますが続行前にします。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
+   2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
+   3. 最後に、ソリューションをビルドします をクリックして**ビルド** | **ソリューションのビルド**です。
 
-    > [!NOTE]
-    > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
+      > [!NOTE]
+      > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
 2. ソリューション エクスプ ローラーで**Default.aspx**  ページで、右クリックし、選択**Page Inspector で表示**です。
 
     ![Page Inspector で Default.aspx を開く](using-page-inspector-in-visual-studio-2012/_static/image24.png "Page Inspector で Default.aspx を開く")
@@ -433,7 +433,7 @@ ASP.NET MVC 4 の実際の WYSIWYG がないため、スタイルの問題のほ
     ![更新されたページ](using-page-inspector-in-visual-studio-2012/_static/image41.png)
 
     *更新されたページ*
-6. いずれかを選択して検査モードを使用して、  **&lt;li&gt;** を含む項目、&quot;登録&quot;と&quot;ログイン&quot;リンクします。 次に、をクリックして、 **&lt;セクション&gt;#login**にアクセスする項目**Styles.css**コード。
+6. いずれかを選択して検査モードを使用して、 **&lt;li&gt;**を含む項目、&quot;登録&quot;と&quot;ログイン&quot;リンクします。 次に、をクリックして、 **&lt;セクション&gt;#login**にアクセスする項目**Styles.css**コード。
 
     ![スタイルを検索する](using-page-inspector-in-visual-studio-2012/_static/image42.png "スタイルを検索します。")
 
@@ -465,7 +465,7 @@ ASP.NET MVC 4 の実際の WYSIWYG がないため、スタイルの問題のほ
 <a id="Summary"></a>
 
 <a id="Summary"></a>
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このハンズオン ラボを完了すると、Page Inspector を使用して、再構築し、ブラウザーで Web サイトを実行することがなく、Web アプリケーションをプレビューする方法を習得がします。 さらに、すばやく発見し、ソース コードに表示される出力から直接アクセスすることでバグを修正する方法を習得がします。
 
@@ -474,9 +474,9 @@ ASP.NET MVC 4 の実際の WYSIWYG がないため、スタイルの問題のほ
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>付録 a: をインストールする Visual Studio Express 2012 for Web
 
-インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、  **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)** . 次の手順を案内するインストールに必要な手順*Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*です。
+インストールすることができます**Microsoft Visual Studio Express 2012 for Web**別または&quot;Express&quot;バージョンを使用して、 **[Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)**. 次の手順を案内するインストールに必要な手順*Visual studio Express 2012 for Web*を使用して*Microsoft Web Platform Installer*です。
 
-1. 移動して[ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)です。 または、既に Web Platform Installer をインストールした場合、開くことができ、製品を検索&quot; *Visual Studio Express 2012 for Web と Windows Azure SDK*&quot;です。
+1. 移動して[ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)です。 または、既に Web Platform Installer をインストールした場合、開くことができ、製品を検索&quot; <em>Visual Studio Express 2012 for Web と Windows Azure SDK</em>&quot;です。
 2. をクリックして**を今すぐインストール**です。 ない場合**Web Platform Installer**をダウンロードして、最初にインストールしてリダイレクトされます。
 3. 1 回**Web Platform Installer**が開いて、をクリックして**インストール**セットアップを開始します。
 

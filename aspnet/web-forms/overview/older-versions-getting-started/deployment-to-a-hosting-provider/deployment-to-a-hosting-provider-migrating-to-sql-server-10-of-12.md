@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
-title: "SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します SQL Server - 12 の 10 への移行 |。Microsoft ドキュメント"
+title: SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します SQL Server - 12 の 10 への移行 |。Microsoft ドキュメント
 author: tdykstra
-description: "この一連のチュートリアルは、展開する方法を示します (発行)、ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています."
+description: この一連のチュートリアルは、展開する方法を示します (発行)、ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: b97834e3e287645151bf927996fde63d93ae8356
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 25a829f1d3c730c7bb3b174f075ce8163999e482
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します SQL Server - 12 の 10 への移行。
 ====================
@@ -268,7 +268,7 @@ Visual Studio では、アプリケーションを展開し、テスト環境で
 
 をテスト環境にデプロイした実稼働環境にデプロイをセットアップする準備が整いました。 同様、テスト環境用に展開するデータベースを作成することで開始します。 概要から学習したように、Cytanium Lite のホスティング プランのみで、単一の SQL Server データベースためはより多くのデータベースを 1 つしかない 2 つを設定にできます。 すべてのテーブルと、メンバーシップおよび学校 SQL Server Compact データベースからのデータは、実稼働環境での 1 つの SQL Server データベースに展開されます。
 
-Cytanium コントロール パネルに移動して[http://panel.cytanium.com](http://panel.cytanium.com)です。マウスで**データベース** をクリックし、 **SQL Server 2008**です。
+Cytanium コントロール パネルに移動して[ http://panel.cytanium.com](http://panel.cytanium.com)です。マウスで**データベース** をクリックし、 **SQL Server 2008**です。
 
 [![Selecting_Databases_in_Control_Panel](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image22.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image21.png)
 
@@ -367,7 +367,7 @@ Cytanium コントロール パネルに移動して[http://panel.cytanium.com](
 
 をクリックして**インポート**、以前にダウンロードした .publishsettings ファイルを選択します。
 
-**接続** タブで、変更、**送信先 URL**正しいの一時的な url では、この例では http://contosouniversity.com.vserver01.cytanium.com します。
+**接続** タブで、変更、**送信先 URL**正しいの一時的な url では、この例ではhttp://contosouniversity.com.vserver01.cytanium.comします。
 
 実稼働環境に、プロファイルの名前を変更します。 (選択、**プロファイル** タブでをクリックし、**プロファイルの管理**を行うには)。
 
@@ -380,7 +380,7 @@ Cytanium コントロール パネルに移動して[http://panel.cytanium.com](
 
 **Web 1 つをクリックして 発行**ツールバー、ことを確認して、**運用**プロファイルを選択して、をクリックして**発行**です。
 
-アップロードした場合*アプリ\_offline.htm* 、パブリッシュする前に、使用する必要が、**ファイル マネージャー**を削除する Cytanium コントロール パネルの ユーティリティ*アプリ\_オフライン*。htm ファイルをテストする前にします。 削除することも、同時に、 *.sdf*ファイルから、*アプリ\_データ*フォルダーです。
+アップロードした場合<em>アプリ\_offline.htm</em> 、パブリッシュする前に、使用する必要が、<strong>ファイル マネージャー</strong>を削除する Cytanium コントロール パネルの ユーティリティ<em>アプリ\_オフライン</em>。htm ファイルをテストする前にします。 削除することも、同時に、 <em>.sdf</em>ファイルから、<em>アプリ\_データ</em>フォルダーです。
 
 ブラウザーを開き、アプリケーションをテストするには、テスト環境に配置した後で実行したのと同様に、パブリックのサイトの URL に移動できるようになりました。
 
@@ -450,6 +450,6 @@ Code First Migrations がデータベースを作成し、AddBirthDate 移行を
 
 SQL Server Express と完全な SQL Server に正常に移行したようになりました。 すれば、別のデータベースの変更、およびするチュートリアルでは、次に、テストおよび実稼働データベースを SQL Server Express と完全な SQL Server を使用すると、データベースに対する変更を配置する方法が表示されます。
 
->[!div class="step-by-step"]
-[前へ](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
-[次へ](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
+> [!div class="step-by-step"]
+> [前へ](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
+> [次へ](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
