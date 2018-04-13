@@ -146,7 +146,7 @@ ANTI-XSRF システムには、「匿名」が定義されているユーザー�
 
 ### <a name="oauth--openid-authentication"></a>OAuth または OpenID 認証
 
-最後に、ANTI-XSRF 機能は、OAuth または OpenID 認証を使用するアプリケーションにとって特別なサポートがします。 このサポートは、ヒューリスティックに基づく: 場合、現在*IIdentity.Name*はユーザー名の比較を実行し、http:// または https://で始まる既定 OrdinalIgnoreCase の比較子ではなく序数の比較子を使用します。
+最後に、ANTI-XSRF 機能は、OAuth または OpenID 認証を使用するアプリケーションにとって特別なサポートがします。 このサポートは、ヒューリスティックに基づく: 場合、現在*IIdentity.Name*はユーザー名の比較を実行し、http:// または https:// で始まる既定 OrdinalIgnoreCase の比較子ではなく序数の比較子を使用します。
 
 <a id="_Configuration_and_extensibility"></a>
 

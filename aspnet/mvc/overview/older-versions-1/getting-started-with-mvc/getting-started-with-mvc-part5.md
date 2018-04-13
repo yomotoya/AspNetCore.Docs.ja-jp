@@ -49,7 +49,7 @@ Controllers フォルダーを右クリックし、新しい MoviesController �
 
 アプリケーションを実行し、アドレス バーに/Movies を参照してください。 これで、コント ローラー内の基本的なクエリを使用して、データベースからデータを取得および映画について認識しているビューにデータが返されますしました。 そのビューは、ムービーの一覧をループし、ご利用の米国のデータのテーブルを作成します。
 
-[![ムービーの一覧]-[Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
+[![ムービーの一覧 - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
 
 おされませんを実装するこのアプリケーションの編集、詳細、および Delete の機能のためご利用の米国 scaffold テンプレートが作成された既定のリンクを必要はありません。 /Movies/Index.aspx ファイルを開き、それらを削除します。
 
@@ -59,7 +59,7 @@ Controllers フォルダーを右クリックし、新しい MoviesController �
 
 お必要はありません、リンクの作成ため、この例に削除されます。 いきますの新規作成、次へ であるため! 新機能とその列は削除されて、アプリの外観を次に示します。
 
-[![ムービーの一覧]-[Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
+[![ムービーの一覧 - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
 
 ムービー データの単純なリスト表示があるようになりました。 ただし、「新規作成」のリンクをクリックしておが表示されますエラー接続されていないようです。 作成アクション メソッドを実装し、ユーザーにデータベースに新しいムービーの入力を有効にしてみましょう。
 

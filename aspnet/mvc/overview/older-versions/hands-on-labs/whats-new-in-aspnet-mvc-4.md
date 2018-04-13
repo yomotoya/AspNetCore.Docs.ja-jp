@@ -580,7 +580,7 @@ jQuery モバイルの既定テーマにはには、文字が与えられてい�
     ![デスクトップ ビューに表示切り替えコントロールの表示](whats-new-in-aspnet-mvc-4/_static/image32.png "デスクトップ ビューに表示されるビュー スイッチャー")
 
     *デスクトップ ビューに表示されるビュー スイッチャー*
-7. もう一度モバイル ビューに切り替えるしを参照<strong>に関する</strong>ページ (http://localhost[port] ホーム/について)。 、About.Mobile.cshtml ビューを作成していない場合でも、バージョン情報 ページが表示されているモバイルのレイアウトを使用してに注意してください (\_Layout.Mobile.cshtml)。
+7. もう一度モバイル ビューに切り替えるしを参照<strong>に関する</strong>ページ (http://localhost[port]/Home/About)。 、About.Mobile.cshtml ビューを作成していない場合でも、バージョン情報 ページが表示されているモバイルのレイアウトを使用してに注意してください (\_Layout.Mobile.cshtml)。
 
     ![ページに関する](whats-new-in-aspnet-mvc-4/_static/image33.png "ページについて")
 

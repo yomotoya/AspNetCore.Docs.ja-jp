@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
-title: "ASP.NET Web Pages の概要 - データベースのデータの削除 |Microsoft ドキュメント"
+title: ASP.NET Web Pages の概要 - データベースのデータの削除 |Microsoft ドキュメント
 author: tfitzmac
-description: "このチュートリアルでは、個々 のデータベース エントリを削除する方法を示します。 ASP.NET Web Pa. 内のデータベース データの更新で、系列を修了を想定しています."
+description: このチュートリアルでは、個々 のデータベース エントリを削除する方法を示します。 ASP.NET Web Pa. 内のデータベース データの更新で、系列を修了を想定しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/02/2018
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: 5bc92b5d40e7a55dcd730d552c71031d913b277e
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 146199e862cd6fa2607671d31633476b1cb67021
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>ASP.NET Web ページの概要 - データベースのデータを削除します。
 ====================
@@ -137,7 +137,7 @@ ms.lasthandoff: 01/03/2018
   
  AND  
   
-`buttonDelete`*ボ**タンがフォームを送信するボタンをクリックします。*
+** `buttonDelete`*ボタンがフォームを送信するボタンをクリックします。*
 
 そのため (実際には、このページ) でのこのフォームにボタンが 1 つだけが含まれていますの追加のテスト`buttonDelete`は技術的には必要ありません。 それでもは、データが完全に削除する操作を実行しようとしています。 したがって、ユーザーが要求して明示的に場合にのみ、操作を実行することができるだけに必ずたいです。 たとえば、このページを後で展開し、その他のボタンを追加します。 場合にのみのムービーを削除するコードの実行後も、 `buttonDelete` button がクリックしてされました。
 
@@ -172,6 +172,6 @@ ms.lasthandoff: 01/03/2018
 - [Razor 構文を使用して ASP.NET Web プログラミングの概要](../introducing-razor-syntax-c.md)
 - [SQL の DELETE ステートメント](http://www.w3schools.com/sql/sql_delete.asp)W3Schools サイト
 
->[!div class="step-by-step"]
-[前へ](updating-data.md)
-[次へ](layouts.md)
+> [!div class="step-by-step"]
+> [前へ](updating-data.md)
+> [次へ](layouts.md)

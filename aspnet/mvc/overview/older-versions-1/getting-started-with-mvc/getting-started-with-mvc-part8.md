@@ -73,7 +73,7 @@ ms.lasthandoff: 04/10/2018
 
 作成 をクリックすると、インデックス ページに送信している、新しいムービーが記載されている場合、新しい評価データベース内の列
 
-[![ムービーの一覧]-[Windows Internet Explorer (12)](getting-started-with-mvc-part8/_static/image11.png)](getting-started-with-mvc-part8/_static/image10.png)
+[![ムービーの一覧 - Windows Internet Explorer (12)](getting-started-with-mvc-part8/_static/image11.png)](getting-started-with-mvc-part8/_static/image10.png)
 
 この基本的なチュートリアルでは、コント ローラー、ビューに関連付けると、ハード コードされたデータを渡すことを行う作業を開始する取得しました。 お作成およびデータベースを設計および一部のデータを格納しでします。 データベースからデータを取得し、HTML テーブルに表示します。 データを追加、データベース自体から Web アプリケーション内でユーザーを許可するフォームの作成が追加されました。 追加の検証、その後、クライアント側で JavaScript を使用して、検証が行われました。 最後に、おに、データの新しい列を含めるデータベースを変更し、作成し、この新しいデータを表示する、2 つのページを更新します。
 

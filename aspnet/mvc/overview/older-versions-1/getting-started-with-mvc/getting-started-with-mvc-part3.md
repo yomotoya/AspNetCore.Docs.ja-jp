@@ -83,7 +83,7 @@ ms.lasthandoff: 04/10/2018
 
 アプリを実行し、/Movies を参照してください。 ブラウザーのタイトル、プライマリ見出しおよびセカンダリの見出しが変更されたことに注意してください。 変更が小さいと、アプリ内のビューに大きな変更を加えるには簡単です。
 
-[![ムービーの一覧]-[Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
+[![ムービーの一覧 - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
 
 "Data"(この場合は、"Hello World!"を少し メッセージ) ハードコードされていた場合。 安心感の V (Views) と、C (コント ローラー) がないの M (モデル) まだきました。 方法を見てみましょう間もなくデータベースを作成し、モデル データを取得します。
 

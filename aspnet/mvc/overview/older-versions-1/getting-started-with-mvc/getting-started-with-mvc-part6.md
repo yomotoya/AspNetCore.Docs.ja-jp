@@ -61,7 +61,7 @@ MoviesController クラス内で 2 つの Create() メソッド内でこれら 2
 
 このムービー オブジェクトが、作成するアクション メソッドの [HttpPost] バージョンに渡された、およびデータベースに保存し、ムービーの一覧で、保存された結果を表示する Index() アクション メソッドに、ユーザーをリダイレクトします。
 
-[![ムービーの一覧]-[Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
+[![ムービーの一覧 - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
 
 おチェックされないかどうか、映画が正しくただし、および、データベースがタイトルなしでムービーを保存することを許可しません。 説明し、ユーザー データベースの前に、エラーをスローした場合は便利になります。 アプリケーションに検証のサポートを追加することで、次を実行します。
 

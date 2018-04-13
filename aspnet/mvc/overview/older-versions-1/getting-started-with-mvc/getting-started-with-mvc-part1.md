@@ -35,7 +35,7 @@ ASP.NET MVC Web アプリケーションを使用して最初を加えてみま�
 
 アプリケーションのビルドの 2 つのスクリーン ショットを次に示します。 さまざまな列を持つムービーの単純なテーブルがあります。
 
-[![ムービーの一覧]-[Windows Internet Explorer (12)](getting-started-with-mvc-part1/_static/image2.png)](getting-started-with-mvc-part1/_static/image1.png)
+[![ムービーの一覧 - Windows Internet Explorer (12)](getting-started-with-mvc-part1/_static/image2.png)](getting-started-with-mvc-part1/_static/image1.png)
 
 ムービーの一覧に追加できるように、フォームの作成が必要があります。
 
