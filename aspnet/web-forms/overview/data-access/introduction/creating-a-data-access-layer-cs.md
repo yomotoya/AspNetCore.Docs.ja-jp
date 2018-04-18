@@ -57,7 +57,7 @@ Web サイトを作成では、次の手順は、Visual Studio のサーバー �
 
 データベースの配置で、**アプリ\_データ**フォルダーは、サーバー エクスプ ローラーに自動的に追加します。 SQL Server 2005 Express Edition がコンピューターにインストールがあると仮定して NORTHWND をという名前のノードが表示されます。サーバー エクスプ ローラーで MDF これを拡張し、そのテーブル、ビュー、ストアド プロシージャ、およびよびな (図 2 を参照してください) を調査することができます。
 
-**アプリ\_データ**フォルダーは、Microsoft Access にも格納できる**.mdb** SQL Server の対応するように自動的に追加サーバー エクスプ ローラーになるファイル。 常にすることが SQL Server のオプションのいずれかを使用しない場合は、 [Microsoft Access バージョンの Northwind データベース ファイルをダウンロード](https://www.microsoft.com/downloads/details.aspx?FamilyID=C6661372-8DBE-422B-8676-C632D66C529C&amp;displaylang=EN)にドロップし、**アプリ\_データ**ディレクトリ。 注意して、ただし、Access データベースがないと機能が豊富で SQL Server と web サイトのシナリオで処理するために設計されていないとします。 さらに、いくつかの 35 + チュートリアルでは、Access によってサポートされていない特定のデータベース レベルの機能が使用されます。
+**アプリ\_データ** フォルダーは、Microsoft Access にも格納できる **.mdb** SQL Server の対応するように自動的に追加サーバー エクスプ ローラーになるファイル。 常にすることが SQL Server のオプションのいずれかを使用しない場合は、 [Microsoft Access バージョンの Northwind データベース ファイルをダウンロード](https://www.microsoft.com/downloads/details.aspx?FamilyID=C6661372-8DBE-422B-8676-C632D66C529C&amp;displaylang=EN)にドロップし、**アプリ\_データ**ディレクトリ。 注意して、ただし、Access データベースがないと機能が豊富で SQL Server と web サイトのシナリオで処理するために設計されていないとします。 さらに、いくつかの 35 + チュートリアルでは、Access によってサポートされていない特定のデータベース レベルの機能が使用されます。
 
 ## <a name="connecting-to-the-database-in-a-microsoft-sql-server-2000-or-2005-database-server"></a>Microsoft SQL Server 2000 または 2005 のデータベース サーバーでデータベースに接続します。
 
@@ -77,14 +77,14 @@ Web サイトを作成では、次の手順は、Visual Studio のサーバー �
 
 データベースへの接続の作成など、基になるデータ ソースに固有のすべてのコードを発行する**選択**、**挿入**、**更新**、および**削除**コマンド、およびなどを DAL に配置する必要があります。 プレゼンテーション層は、このようなデータ アクセス コードへの参照を含めることはできませんが、すべてのデータ要求、DAL に呼び出しを行う代わりにする必要があります。 通常、データ アクセス レイヤーには、基になるデータベースのデータにアクセスするためのメソッドが含まれます。 たとえば、Northwind データベースには**製品**と**カテゴリ**販売およびが所属するカテゴリの製品を記録するテーブル。 DAL などのメソッドをが。
 
-- **GetCategories()、**これには、すべてのカテゴリに関する情報を返します
+- **GetCategories()、** これには、すべてのカテゴリに関する情報を返します
 - **GetProducts()**、これには、すべての製品に関する情報を返します
 - **GetProductsByCategoryID(*categoryID*)**, which will return all products that belong to a specified category
 - **GetProductByProductID(*productID*)**, which will return information about a particular product
 
 呼び出されると、これらのメソッドはデータベースへの接続、適切なクエリを発行し、結果を返します。 これらの結果を返すどのようにすることが重要です。 データセットまたは DataReader データベース クエリによって設定されますが、これらのメソッドに返されるだけでしたが、理想的にはこれらの結果を返すを使用して*オブジェクトの厳密に型指定された*です。 厳密に型指定されたオブジェクトは、コンパイル時にスキーマを持つが定義されている厳密反対に、厳密に型のオブジェクトは 1 つのスキーマが実行時まで不明です。
 
-たとえば、DataReader し (既定) のデータセットは弱い型指定オブジェクトによってそれらの設定に使用されるデータベース クエリによって返される列のスキーマが定義されているためです。 ような構文を使用する必要があります、弱い型指定の DataTable から特定の列にアクセスする:  <strong><em>DataTable</em>です。行 [<em>インデックス</em>] ["<em>columnName</em>"]</strong>です。 DataTable のこの例で柔軟な型指定は文字列または序数インデックスを使用して、列名にアクセスする必要がありますという事実によって行われます。 厳密に型指定された DataTable では、その一方が、プロパティとして実装されたその列のそれぞれ次のようなコードで結果として得られる:  <strong><em>DataTable</em>です。行 [<em>インデックス</em>].*columnName</strong>*です。
+たとえば、DataReader し (既定) のデータセットは弱い型指定オブジェクトによってそれらの設定に使用されるデータベース クエリによって返される列のスキーマが定義されているためです。 ような構文を使用する必要があります、弱い型指定の DataTable から特定の列にアクセスする: <strong><em>DataTable</em>です。行[<em>インデックス</em>]["<em>columnName</em>"]</strong>です。 DataTable のこの例で柔軟な型指定は文字列または序数インデックスを使用して、列名にアクセスする必要がありますという事実によって行われます。 厳密に型指定された DataTable では、その一方が、プロパティとして実装されたその列のそれぞれ次のようなコードで結果として得られる: <strong><em>DataTable</em>です。行[<em>インデックス</em>].*columnName</strong>*です。
 
 厳密に型指定されたオブジェクトを返すには、開発者は、独自のカスタム ビジネス オブジェクトを作成するか、型指定されたデータセットを使用することができます。 ビジネス オブジェクトは、プロパティを持つは通常、基になるデータベース テーブル、ビジネス オブジェクトの列を反映してクラスを表します。 開発者によって実装されます。 型指定されたデータセットは、データベース スキーマとそのメンバーが厳密に型指定されたこのスキーマによるに基づいて Visual Studio によって生成したクラスです。 型指定されたデータセット自体は、ADO.NET DataSet、DataTable、および DataRow クラスを拡張するクラスで構成されます。 データ テーブルの厳密に型指定されただけでなく型指定されたデータセット今すぐ含めることも、Tableadapter はデータセットのデータ テーブルを設定し、データベースにデータ テーブル内の変更を反映するためのメソッドを持つクラス。
 
@@ -124,7 +124,7 @@ TableAdapter 構成ウィザードを使用するデータベースを選択す�
 **図 5**: ドロップダウン リストから、Northwind データベースを選択 ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-cs/_static/image13.png))
 
 
-データベースを選択し、[次へ] をクリックして、後にするよう求められます内の接続文字列を保存するかどうか、 **Web.config**ファイル。 接続文字列を保存することによってされます必要があるがハード コード化された TableAdapter のクラスが接続文字列が変更された場合、将来の処理を簡素化されます。 配置されている構成ファイルに接続文字列を保存することを選択する場合、 **&lt;connectionStrings&gt;**可能性があるセクション[オプションで暗号化された](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)改善セキュリティや IIS の GUI 管理ツールでは、管理者にとってより適切な新しい ASP.NET 2.0 プロパティ ページで後で変更されました。
+データベースを選択し、[次へ] をクリックして、後にするよう求められます内の接続文字列を保存するかどうか、 **Web.config**ファイル。 接続文字列を保存することによってされます必要があるがハード コード化された TableAdapter のクラスが接続文字列が変更された場合、将来の処理を簡素化されます。 配置されている構成ファイルに接続文字列を保存することを選択する場合、 **&lt;connectionStrings&gt;** 可能性があるセクション[オプションで暗号化された](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)改善セキュリティや IIS の GUI 管理ツールでは、管理者にとってより適切な新しい ASP.NET 2.0 プロパティ ページで後で変更されました。
 
 
 [![Web.config への接続文字列を保存します。](creating-a-data-access-layer-cs/_static/image15.png)](creating-a-data-access-layer-cs/_static/image14.png)
@@ -168,12 +168,12 @@ TableAdapter 構成ウィザードを使用するデータベースを選択す�
 
 高度なオプションを確認した後は、最終画面に進むには [次へ] をクリックします。 ここで、TableAdapter に追加するメソッドを選択するように求められます。 データを設定するための 2 つのパターンがあります。
 
-- **Datatable**クエリの結果に基づいて、メソッドが作成を受け取り、パラメーターとして DataTable を設定するこの方法でします。 ADO.NET データ アダプター クラスは、たとえば、このパターンを実装、 **Fill()**メソッドです。
+- **Datatable**クエリの結果に基づいて、メソッドが作成を受け取り、パラメーターとして DataTable を設定するこの方法でします。 ADO.NET データ アダプター クラスは、たとえば、このパターンを実装、 **Fill()** メソッドです。
 - **DataTable を返す**この方法でメソッドを作成する DataTable を入力およびメソッドの戻り値として返します。
 
 これらのパターンの一方または両方を実装して、TableAdapter を持つことができます。 ここで提供されるメソッドの名前を変更することもできます。 みましょうのままにして両方のチェック ボックスがオンになっている場合でも、後者のパターンをこれらのチュートリアル全体で使用するだけです。 また、名前ではなくジェネリック**GetData**メソッドを**GetProducts**です。
 
-オンになっている場合、最終的なチェック ボックスを"GenerateDBDirectMethods、"が作成されます**Insert()**、 **Update()**、および**Delete()** TableAdapter のメソッドです。 このオプションをオフのままにすると、すべての更新する必要があります操作には、TableAdapter の唯一**Update()**メソッド、型指定された DataSet、DataTable、単一の DataRow または Datarow の配列を取得します。 (した場合、このチェック ボックスのオプション図 9 で高度なプロパティをオンになっていない「を生成する挿入、更新、および Delete ステートメント」設定には影響はありません)。このチェック ボックスをオンのままにしてみましょう。
+オンになっている場合、最終的なチェック ボックスを"GenerateDBDirectMethods、"が作成されます**Insert()**、 **Update()**、および**Delete()** TableAdapter のメソッドです。 このオプションをオフのままにすると、すべての更新する必要があります操作には、TableAdapter の唯一 **Update()** メソッド、型指定された DataSet、DataTable、単一の DataRow または Datarow の配列を取得します。 (した場合、このチェック ボックスのオプション図 9 で高度なプロパティをオンになっていない「を生成する挿入、更新、および Delete ステートメント」設定には影響はありません)。このチェック ボックスをオンのままにしてみましょう。
 
 
 [![GetData から GetProducts にメソッド名を変更します。](creating-a-data-access-layer-cs/_static/image30.png)](creating-a-data-access-layer-cs/_static/image29.png)
@@ -189,7 +189,7 @@ TableAdapter 構成ウィザードを使用するデータベースを選択す�
 **図 12**:**製品**DataTable と**ProductsTableAdapter**型指定されたデータセットに追加されている ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-cs/_static/image34.png))
 
 
-この時点で 1 つの DataTable に型指定されたデータセットがある (**Northwind.Products**) と厳密に型指定されたデータ アダプター クラス (**NorthwindTableAdapters.ProductsTableAdapter**) で、 **GetProducts()**メソッドです。 これらのオブジェクトは、リストにアクセスする、すべての製品のようなコードから使用できます。
+この時点で 1 つの DataTable に型指定されたデータセットがある (**Northwind.Products**) と厳密に型指定されたデータ アダプター クラス (**NorthwindTableAdapters.ProductsTableAdapter**) で、 **GetProducts()** メソッドです。 これらのオブジェクトは、リストにアクセスする、すべての製品のようなコードから使用できます。
 
 [!code-html[Main](creating-a-data-access-layer-cs/samples/sample1.html)]
 
@@ -215,9 +215,9 @@ AllProducts.aspx.cs
 
 ## <a name="step-3-adding-parameterized-methods-to-the-data-access-layer"></a>手順 3:、メソッド、データ アクセス レイヤーを追加するパラメーター化されました。
 
-この時点で、 **ProductsTableAdapter**クラスには 1 つのメソッドが**GetProducts()**データベース内のすべての製品が返されます。 すべての製品を使用することは明らかに便利ですが、特定の製品、または特定のカテゴリに属しているすべての製品に関する情報を取得する場合はありますがあります。 データ アクセス層にこのような機能を追加するには、メソッドのパラメーター化された TableAdapter に追加できます。
+この時点で、 **ProductsTableAdapter** クラスには 1 つのメソッドが **GetProducts()** データベース内のすべての製品が返されます。 すべての製品を使用することは明らかに便利ですが、特定の製品、または特定のカテゴリに属しているすべての製品に関する情報を取得する場合はありますがあります。 データ アクセス層にこのような機能を追加するには、メソッドのパラメーター化された TableAdapter に追加できます。
 
-追加してみましょう。、 **GetProductsByCategoryID (*categoryID*)**メソッドです。 データセット デザイナーに戻り、DAL に新しいメソッドを追加するのには右クリック、 **ProductsTableAdapter**セクション、およびクエリの追加を選択します。
+追加してみましょう。、 **GetProductsByCategoryID (*categoryID*)**メソッドです。 データセット デザイナーに戻り、DAL に新しいメソッドを追加するのには右クリック、 **ProductsTableAdapter** セクション、およびクエリの追加を選択します。
 
 
 ![TableAdapter を右クリックして、クエリを追加](creating-a-data-access-layer-cs/_static/image38.png)
@@ -257,7 +257,7 @@ AllProducts.aspx.cs
 **図 18**:、製品ことによってクエリ カテゴリ
 
 
-追加する、 **GetProductByProductID (*productID*)**メソッドと同じ手法を使用します。
+追加する、 **GetProductByProductID(*productID*)** メソッドと同じ手法を使用します。
 
 データセット デザイナーから直接、これらのパラメーター化クエリをテストできます。 TableAdapter のメソッドを右クリックし、データのプレビューを選択します。 次に、パラメーターを使用し、[プレビュー] をクリックする値を入力します。
 
@@ -301,7 +301,7 @@ Beverages.aspx.cs
 **図 22**: 更新メソッドが呼び出されたときに、すべての変更がデータベースと同期されます ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-cs/_static/image60.png))
 
 
-TableAdapter では、既定では、バッチ更新パターンを使用しますも DB 直接パターンをサポートします。 TableAdapter を作成するときに、詳細プロパティから「を生成する挿入、更新、および Delete ステートメント」オプションを選択おため、 **ProductsTableAdapter**が含まれています、 **Update()**メソッドこれは、バッチ更新パターンを実装します。 具体的には、TableAdapter が含まれています、 **Update()**型指定されたデータセットを厳密に型指定された DataTable、または 1 つまたは複数の Datarow に渡すことができるメソッドです。 中断した場合、"GenerateDBDirectMethods"チェック ボックスと DB 直接パターン、TableAdapter を作成してもによって実装されて**Insert()**、 **Update()**、および**Delete()**メソッドです。
+TableAdapter では、既定では、バッチ更新パターンを使用しますも DB 直接パターンをサポートします。 TableAdapter を作成するときに、詳細プロパティから「を生成する挿入、更新、および Delete ステートメント」オプションを選択おため、 **ProductsTableAdapter** が含まれています、 **Update()** メソッドこれは、バッチ更新パターンを実装します。 具体的には、TableAdapter が含まれています、 **Update()**型指定されたデータセットを厳密に型指定された DataTable、または 1 つまたは複数の Datarow に渡すことができるメソッドです。 中断した場合、"GenerateDBDirectMethods"チェック ボックスと DB 直接パターン、TableAdapter を作成してもによって実装されて **Insert()** 、 **Update()** 、および **Delete()** メソッドです。
 
 両方のデータ変更のパターンを使用、TableAdapter の**InsertCommand**、 **UpdateCommand**、および**DeleteCommand**を発行するプロパティ、**挿入**、**更新**、および**削除**コマンドをデータベースにします。 検査および変更できる、 **InsertCommand**、 **UpdateCommand**、および**DeleteCommand**データセット デザイナーで TableAdapter をクリックし、次のプロパティ[プロパティ] ウィンドウにします。 (、TableAdapter とを選択するかどうかを確認、 **ProductsTableAdapter**オブジェクトが 1 つのプロパティ ウィンドウで、ドロップダウン リストで選択します)。
 
@@ -316,7 +316,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用しま�
 
 [![クエリ ビルダーでの挿入、更新、および DELETE ステートメントを構成します。](creating-a-data-access-layer-cs/_static/image65.png)](creating-a-data-access-layer-cs/_static/image64.png)
 
-**図 24**: 構成、**挿入**、**更新**と**削除**クエリ ビルダー内のステートメント ([フルサイズのイメージを表示するをクリックします。](creating-a-data-access-layer-cs/_static/image66.png))
+**図 24**: 構成、 **挿入** 、 **更新** と **削除** クエリ ビルダー内のステートメント ([フルサイズのイメージを表示するをクリックします。](creating-a-data-access-layer-cs/_static/image66.png))
 
 
 次のコード例では、パターンを使用して、バッチ更新は廃止されましたいないおよび在庫以下 25 ユニットがあるすべての製品の価格を倍にする方法を示します。
@@ -339,12 +339,12 @@ TableAdapter では、既定では、バッチ更新パターンを使用しま�
 **図 25**: 新規行を追加するメソッドを作成、**製品**テーブル ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-cs/_static/image69.png))
 
 
-次の画面で、 **InsertCommand**の**CommandText**が表示されます。 追加することでこのクエリを拡張する**選択スコープ\_IDENTITY()**に挿入された最後の id 値を返しますクエリの最後に、 **IDENTITY**同じスコープ内の列です。 (を参照してください、[のテクニカル ドキュメント](https://msdn.microsoft.com/library/ms190315.aspx)の詳細については**スコープ\_IDENTITY()**と多くの場合にその理由[スコープを使用して\_IDENTITY() の代わりに @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).)終了するかどうかを確認、**挿入**ステートメントをセミコロンを追加する前に、**選択**ステートメントです。
+次の画面で、 **InsertCommand**の**CommandText**が表示されます。 追加することでこのクエリを拡張する **選択スコープ\_IDENTITY()** に挿入された最後の id 値を返しますクエリの最後に、 **IDENTITY** 同じスコープ内の列です。 (を参照してください、[のテクニカル ドキュメント](https://msdn.microsoft.com/library/ms190315.aspx)の詳細については **スコープ\_IDENTITY()** と多くの場合にその理由[スコープを使用して\_IDENTITY() の代わりに @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).)終了するかどうかを確認、**挿入**ステートメントをセミコロンを追加する前に、**選択**ステートメントです。
 
 
 [![SCOPE_IDENTITY() 値を返すクエリを拡張します。](creating-a-data-access-layer-cs/_static/image71.png)](creating-a-data-access-layer-cs/_static/image70.png)
 
-**図 26**: 戻り値にクエリを拡張したり、**スコープ\_IDENTITY()**値 ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-cs/_static/image72.png))
+**図 26**: 戻り値にクエリを拡張したり、 **スコープ\_IDENTITY()** 値 ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-cs/_static/image72.png))
 
 
 新しいメソッドの名前を最後に、 **InsertProduct**です。
@@ -373,14 +373,14 @@ TableAdapter では、既定では、バッチ更新パターンを使用しま�
 
 なお、 **ProductsTableAdapters**クラスを返します、 **CategoryID**と**SupplierID**値から、**製品**テーブルが含まれていない、 **CategoryName**列から、**カテゴリ**テーブルまたは**CompanyName**列から、 **Suppliers**テーブル、製品情報を表示するときに表示する必要がある列は可能性があります。 TableAdapter の最初のメソッドを補強できますお**GetProducts()**、両方を含める、 **CategoryName**と**CompanyName**列の値は、更新は、。これらの新しい列を含めるに厳密に型指定された DataTable です。
 
-これで問題が発生、ただしを挿入するため、TableAdapter のメソッドとして、更新され、データの削除は、この最初のメソッドから基づいています。 幸いにも、自動生成されたメソッドの挿入、更新、および削除されないために影響を受けた内のサブクエリ、**選択**句。 によって、クエリに追加するよう注意して**カテゴリ**と**Suppliers**サブクエリとしてではなく**参加**s おことを回避データを変更するため、これらのメソッドを再作成することです。 右クリックし、 **GetProducts()**メソッドで、 **ProductsTableAdapter**構成を選択します。 次に、調整、**選択**句などの想定した見。
+これで問題が発生、ただしを挿入するため、TableAdapter のメソッドとして、更新され、データの削除は、この最初のメソッドから基づいています。 幸いにも、自動生成されたメソッドの挿入、更新、および削除されないために影響を受けた内のサブクエリ、**選択**句。 によって、クエリに追加するよう注意して**カテゴリ**と**Suppliers**サブクエリとしてではなく**参加**s おことを回避データを変更するため、これらのメソッドを再作成することです。 右クリックし、 **GetProducts()** メソッドで、 **ProductsTableAdapter** 構成を選択します。 次に、調整、**選択**句などの想定した見。
 
 [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample9.sql)]
 
 
 [![GetProducts() メソッド用の更新プログラム、SELECT ステートメント](creating-a-data-access-layer-cs/_static/image80.png)](creating-a-data-access-layer-cs/_static/image79.png)
 
-**図 29**: 更新プログラム、**選択**のステートメント、 **GetProducts()**メソッド ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-cs/_static/image81.png))
+**図 29**: 更新プログラム、 **選択** のステートメント、 **GetProducts()** メソッド ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-cs/_static/image81.png))
 
 
 更新した後、 **GetProducts()** DataTable には、次の 2 つの新しい列が含まれます新しいクエリを使用する方法: **CategoryName**と**仕入**です。
@@ -391,7 +391,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用しま�
 **図 30**:**製品**DataTable が 2 つの新しい列
 
 
-更新する、**選択**句、 **GetProductsByCategoryID (*categoryID*)**メソッドもします。
+更新する、 **選択** 句、 **GetProductsByCategoryID(*categoryID*)** メソッドもします。
 
 更新する場合、 **GetProducts()** **選択**を使用して**参加**構文データセット デザイナーが挿入、更新、および削除するためのメソッドを自動生成することはできませんパターンを DB を使用してデータをデータベースにダイレクトします。 代わりに、手動で作成するかなりと同じようにする必要があります、 **InsertProduct**このチュートリアルで先ほどメソッドです。 さらに、手動でする必要がありますを指定、 **InsertCommand**、 **UpdateCommand**、および**DeleteCommand**パターンの更新バッチを使用するプロパティの値します。
 
@@ -399,7 +399,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用しま�
 
 ここでは、までのみを説明しました、単一データベース テーブルの 1 つの TableAdapter を使用します。 ただし、Northwind データベースには、web アプリケーションで使用する必要がありますをいくつかの関連テーブルが含まれています。 データ テーブルに関連する型指定されたデータセットを複数含めることができます。 そのため、当社 DAL を完了するこれらのチュートリアルで使用する他のテーブルのデータ テーブルを追加する必要があります。 型指定されたデータセットに新しい TableAdapter を追加するにはデータセット デザイナーを開く、デザイナーを右クリックし、追加 を選択/TableAdapter。 新しい DataTable と TableAdapter が作成され、このチュートリアルで前に検査して、ウィザードの手順がこれです。
 
-次の Tableadapter と次のクエリを使用してメソッドを作成するのには数分を取得します。 なお内のクエリ、 **ProductsTableAdapter**各製品のカテゴリおよび仕入先名を取得するサブクエリを含めます。 さらに、に従ってしたら、追加している場合既に、 **ProductsTableAdapter**クラスの**GetProducts()**と**GetProductsByCategoryID (*categoryID*)**メソッドです。
+次の Tableadapter と次のクエリを使用してメソッドを作成するのには数分を取得します。 なお内のクエリ、 **ProductsTableAdapter**各製品のカテゴリおよび仕入先名を取得するサブクエリを含めます。 さらに、に従ってしたら、追加している場合既に、 **ProductsTableAdapter** クラスの **GetProducts()** と **GetProductsByCategoryID(*categoryID*)** メソッドです。
 
 - **ProductsTableAdapter**
 
@@ -472,7 +472,7 @@ Tableadapter と型指定されたデータセットに追加された Datatable
 
 自動生成されたコードは、最適な時間の節約が、コードは、多くの場合、非常に一般的なは、アプリケーションのニーズに合わせてカスタマイズする必要があります。 リスクを自動生成されたコードでは、拡張は、「再生成」と、カスタマイズの内容を上書きするときにコードを生成したツールが決定可能性があります。 .NET 2.0 の新しい部分クラスの概念が簡単に複数のファイル、クラスを分割します。 これにより、自動生成されたクラスに、カスタマイズ設定を上書きしてクトリについて心配することがなく、独自のメソッド、プロパティ、およびイベントを追加することができます。
 
-DAL をカスタマイズする方法を示すためには、追加、 **GetProducts()**メソッドを**SuppliersRow**クラスです。 **SuppliersRow**クラスを表します 1 つのレコード、 **Suppliers**テーブル; 各仕入先のことができますプロバイダー 0、多くの製品にように**GetProducts()**ものを返します。指定された業者の製品です。 これを実現するクラスの新しいファイルが作成、**アプリ\_コード**という名前のフォルダー **SuppliersRow.cs**し、次のコードを追加します。
+DAL をカスタマイズする方法を示すためには、追加、 **GetProducts()**メソッドを**SuppliersRow**クラスです。 **SuppliersRow** クラスを表します 1 つのレコード、 **Suppliers** テーブル; 各仕入先のことができますプロバイダー 0、多くの製品にように **GetProducts()** ものを返します。指定された業者の製品です。 これを実現するクラスの新しいファイルが作成、**アプリ\_コード**という名前のフォルダー **SuppliersRow.cs**し、次のコードを追加します。
 
 [!code-csharp[Main](creating-a-data-access-layer-cs/samples/sample22.cs)]
 
@@ -481,17 +481,17 @@ DAL をカスタマイズする方法を示すためには、追加、 **GetProd
 
 ![GetProducts() メソッドは、Northwind.SuppliersRow クラスの一部ようになりました](creating-a-data-access-layer-cs/_static/image90.png)
 
-**図 34**: **GetProducts()**メソッドの一部ではこれで、 **Northwind.SuppliersRow**クラス
+**図 34**: **GetProducts()** メソッドの一部ではこれで、 **Northwind.SuppliersRow** クラス
 
 
-**GetProducts()**として、次のコードに示す特定の業者の製品のセットを列挙するメソッドを使用するようになりました。
+**GetProducts()** として、次のコードに示す特定の業者の製品のセットを列挙するメソッドを使用するようになりました。
 
 [!code-html[Main](creating-a-data-access-layer-cs/samples/sample23.html)]
 
 このデータは、ASP のいずれかにも表示されることができます。NET のデータの Web コントロールです。 次のページは、2 つのフィールドの GridView コントロールを使用します。
 
 - 各仕入先の名前を表示する BoundField と
-- によって返される結果にバインドされている BulletedList コントロールを含む TemplateField、 **GetProducts()**各仕入先のメソッドです。
+- によって返される結果にバインドされている BulletedList コントロールを含む TemplateField、 **GetProducts()** 各仕入先のメソッドです。
 
 今後のチュートリアルでこのようなマスター/詳細レポートを表示する方法について確認します。 追加するカスタム メソッドを使用して説明するためにここでは、この例の目的は、 **Northwind.SuppliersRow**クラスです。
 

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/signalr-performance
-title: "SignalR パフォーマンス |Microsoft ドキュメント"
+title: SignalR パフォーマンス |Microsoft ドキュメント
 author: pfletcher
-description: "SignalR パフォーマンス"
+description: SignalR パフォーマンス
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -142,7 +142,7 @@ SignalR は、さまざまなトランスポートを使用して、クライア
 
 パフォーマンス カウンターは、という SignalR.exe ユーティリティを使用してサーバーに追加できます。 このユーティリティをインストールするには、次の手順を実行します。
 
-1. Visual Studio アプリケーションで次のように選択します**ツール**、**ライブラリ パッケージ マネージャー**、 **Manage NuGet Packages for Solution しています.。**
+1. Visual Studio アプリケーションで次のように選択します**ツール**、**ライブラリ パッケージ マネージャー**、 **Manage NuGet Packages for Solution しています。**
 2. 検索**signalr.utils**インストール を選択します。
 
     ![](signalr-performance/_static/image1.png)

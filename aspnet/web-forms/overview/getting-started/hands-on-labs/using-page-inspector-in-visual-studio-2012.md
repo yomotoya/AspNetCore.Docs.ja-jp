@@ -145,7 +145,7 @@ ms.lasthandoff: 04/10/2018
     ![Inspectingelements](using-page-inspector-in-visual-studio-2012/_static/image6.png)
 
     *要素の検査*
-7. クリックして、**検査モードを切り替える**ボタン (![Page Inspector のブラウザーでレンダリングされた HTML コードを表示する HTML タブを選択します]。(using-page-inspector-in-visual-studio-2012/_static/image7.png "Page Inspector のブラウザーでレンダリングされた HTML コードを表示する HTML タブを選択します。") )、カーソルを無効にします。
+7. クリックして、**検査モードを切り替える**ボタン (![Page Inspector のブラウザーでレンダリングされた HTML コードを表示する HTML タブを選択します.](using-page-inspector-in-visual-studio-2012/_static/image7.png "Page Inspector のブラウザーでレンダリングされた HTML コードを表示する HTML タブを選択します.") ) 、カーソルを無効にします。
 8. 選択、 **HTML** Page Inspector のブラウザーでレンダリングされた HTML コードを表示するタブです。
 9. HTML マークアップで Koala リンクのリスト アイテムをクリックして選択します。
 
@@ -336,7 +336,7 @@ ASP.NET MVC 4 の実際の WYSIWYG がないため、スタイルの問題のほ
     ![要素を検査](using-page-inspector-in-visual-studio-2012/_static/image29.png "要素を検査")
 
     *要素の検査*
-7. クリックして、**検査モードを切り替える**ボタン (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser] 。(using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser です。") )、カーソルを無効にする、Page Inspector のタブにあります。
+7. クリックして、**検査モードを切り替える**ボタン (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.](using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser です.") ) 、カーソルを無効にする、Page Inspector のタブにあります。
 8. 選択、 **HTML** Page Inspector のブラウザーでレンダリングされた HTML コードを表示するタブです。
 9. HTML のコードで Koala リンクのリスト アイテムをクリックして選択します。
 
