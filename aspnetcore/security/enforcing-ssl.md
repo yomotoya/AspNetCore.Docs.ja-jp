@@ -11,7 +11,7 @@ ms.topic: article
 uid: security/enforcing-ssl
 ms.openlocfilehash: 2ebb975e1ea17698cee13ca00d3f5df4a5135e38
 ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
 ---
@@ -19,16 +19,17 @@ ms.lasthandoff: 03/22/2018
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このドキュメントで説明する方法。
+このドキュメントでは次の方法について説明します:
 
-- すべての要求には HTTPS が必要です。
-- すべての HTTP 要求を HTTPS にリダイレクトします。
+- すべての要求に HTTPS を必要とさせる。
+- すべての HTTP 要求を HTTPS にリダイレクトさせる。
 
 > [!WARNING]
-> 操作を行います**いない**使用`RequireHttpsAttribute`機密情報を受信する Web Api にします。 `RequireHttpsAttribute` HTTP ステータス コードを使用して、HTTP から HTTPS へのブラウザーをリダイレクトします。 API クライアントの理解または HTTP から HTTPS へのリダイレクトに従うことがありますできません。 このようなクライアントは、HTTP 経由で情報を送信することがあります。 Web Api には、する必要があります。
+> 機密情報を受信する Web Api で `RequireHttpsAttribute` を使用**しない**でください。 `RequireHttpsAttribute` はブラウザーを HTTP から HTTPS へリダイレクトするために HTTP ステータス コードを使用します。 API クライアントはこれを理解しない場合や、HTTP から HTTPS へのリダイレクトに従わない場合があります。 このようなクライアントは、HTTP 経由で情報を送信することがあります。 Web API は次のいずれかの対策を講じるべきです:
 >
->* HTTP をリッスンしません。
->* ステータス コード 400 (Bad Request) との接続を閉じていない要求を処理します。
+>* HTTP をリッスンしない。
+>* ステータス コード 400 (無効な要求) で接続を閉じ、要求に応答しない。
+
 
 ## <a name="require-https"></a>HTTPS が必要
 
@@ -40,6 +41,6 @@ ms.lasthandoff: 03/22/2018
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
 
-詳細については、次を参照してください。 [URL 書き換えミドルウェア](xref:fundamentals/url-rewriting)です。
+さらに詳しい情報は、[URL 書き換えミドルウェア](xref:fundamentals/url-rewriting) を参照してください。
 
 HTTPS をグローバルに必要とする (`options.Filters.Add(new RequireHttpsAttribute());`) は、セキュリティのベスト プラクティスです。 適用する、`[RequireHttps]`属性をすべてのコント ローラー/Razor ページされていないグローバルに HTTPS を必要とすると、セキュリティで保護されたと見なされます。 保証できません、`[RequireHttps]`属性は、新しいコント ローラーおよび Razor ページが追加されたときに適用します。
