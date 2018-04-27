@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 715e52715fb22b92f94d3d602ec58c29a913426c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aad951a0e4344dbaafbdcc3b3980307a26fa75fc
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Razor 構文 (Visual Basic) を使用して ASP.NET Web プログラミングの概要
 ====================
@@ -182,7 +182,7 @@ Visual Basic 言語では、大文字小文字を区別されません。 プロ
 
 ASP.NET web ページを作成する方法とサーバー コードを HTML マークアップを追加する方法の基本的な例は前述です。 ここで Visual Basic を使用して、Razor 構文を使用して ASP.NET サーバー コードを記述の基本を学習&#8212;プログラミング言語の規則では、します。
 
-(特に C、C++、c#、Visual Basic、または JavaScript を使用した) 場合のプログラミングを使用した経験が場合、次を参照する新機能の多くについて理解されます。 習熟するのみでのマークアップに WebMatrix のコードを追加する方法が必要*.vbhtml*ファイル。
+(特に C、C++、c#、Visual Basic、または JavaScript を使用した) 場合のプログラミングを使用した経験が場合、次を参照する新機能の多くについて理解されます。 習熟するのみでのマークアップに WebMatrix のコードを追加する方法が必要 *.vbhtml*ファイル。
 
 ### <a id="BM_CombiningTextMarkupAndCode"></a>  テキスト、マークアップ、およびコード ブロック内のコードを組み合わせること
 
@@ -276,32 +276,78 @@ ASP.NET はこのデータ型を自動的に決定できますは通常があり
 次の表は、変数の一般的ないくつかの変換とテスト方法を示します。
 
 
-|   <strong>メソッド</strong>    |                                                                              <strong>説明</strong>                                                                              |                     <strong>例</strong>                      |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
-|      `AsInt(), IsInt()`      |                                                 数を示す整数を表す文字列に変換します (など&quot;593&quot;) 整数にします。                                                 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)] |
-|     `AsBool(), IsBool()`     |                                                    ように文字列に変換します&quot;true&quot;または&quot;false&quot; Boolean 型にします。                                                     | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)] |
-|    `AsFloat(), IsFloat()`    |                                    ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を浮動小数点数。                                    | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)] |
-|  `AsDecimal(), IsDecimal()`  | ような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を 10 進数。 (ASP.NET では、10 進数は、浮動小数点数よりも正確です。) | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)] |
-| `AsDateTime(), IsDateTime()` |                                                Asp.net の日付と時刻の値を表す文字列に変換します`DateTime`型です。                                                 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)] |
-|         `ToString()`         |                                                                       その他の任意のデータ型を文字列に変換します。                                                                        | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)] |
+0x%2 行 0x%2 0x%2 列 0x%2<strong>メソッド</strong>0x%2 列終了 0x%2 0x%2 列 0x%2<strong>説明</strong>0x%2 列終了 0x%2 0x%2 列 0x%2<strong>例</strong>0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `AsInt(), IsInt()` 0x%2 列終了 0x%2 0x%2 列 0x%2 数を示す整数を表す文字列に変換します (など&quot;593&quot;) 整数にします。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `AsBool(), IsBool()` 0x%2 列終了 0x%2 0x%2 列 0x%2 のように文字列に変換します&quot;true&quot;または&quot;false&quot; Boolean 型にします。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `AsFloat(), IsFloat()` 0x%2 列終了 0x%2 0x%2 列 0x%2 のような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を浮動小数点数。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `AsDecimal(), IsDecimal()` 0x%2 列終了 0x%2 0x%2 列 0x%2 のような 10 進数の値を持つ文字列に変換します&quot;1.3&quot;または&quot;7.439&quot;を 10 進数。 (ASP.NET では、10 進数は、浮動小数点数よりも正確です。)0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `AsDateTime(), IsDateTime()` 0x%2 列終了 0x%2 0x%2 列 0x%2 を ASP.NET に日付と時刻の値を表す文字列を変換`DateTime`型です。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `ToString()` 0x%2 列終了 0x%2 0x%2 列 0x%2 の他の任意のデータ型を文字列に変換します。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+
 
 ## <a name="operators"></a>演算子
 
 演算子は、キーワードまたは ASP.NET を式の中で実行するコマンドの種類を示す文字です。 Visual Basic は、多くの演算子をサポートしていますが、ASP.NET web pages の開発を開始するいくつかを認識するだけです。 次の表は、最も一般的な演算子をまとめたものです。
 
 
-| <strong>Operator</strong> |                                                                        <strong>説明</strong>                                                                         |                         <strong>例</strong>                         |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
-|         `+ - * /`         |                                                                算術演算子: 数値式で使用します。                                                                |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]     |
-|            `=`            | 割り当てと等しいかどうか。 コンテキストに応じて、左側にあるオブジェクトにステートメントの右側にある値を割り当てますか、等しいかどうかの値をチェックします。 |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]     |
-|           `<>`            |                                                           非等値。 返します`True`値が等しくない場合。                                                           |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]     |
-|        `< > <= >=`        |                                                   大きい、小さいよりまたは等しい、およびより大きいまたは等しいよりも小さいです。                                                   |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]     |
-|            `&`            |                                                                連結、文字列の結合に使用します。                                                                | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)] |
-|          `+= -=`          |                                       インクリメントとデクリメント演算子を追加し、変数から 1 をそれぞれ減算します。                                       |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]     |
-|            `.`            |                                                     ドットします。 オブジェクトとそのプロパティおよびメソッドを区別するために使用されます。                                                      |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]     |
-|           `()`            |                           かっこです。 、グループ式にパラメーターを渡すメソッド、および配列およびコレクションのメンバーにアクセスするために使用します。                           | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)] |
-|           `Not`           |                    じゃない。 False またはその逆は真の値を反転させます。 通常、テストするための短縮形方法として使用`False`(用には、いない`True`)。                     |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]     |
-|     `AndAlso OrElse`      |                                                       論理 AND 条件をまとめてリンクに使用されるかとします。                                                       |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]     |
+0x%2 行 0x%2 0x%2 列 0x%2<strong>演算子</strong>0x%2 列終了 0x%2 0x%2 列 0x%2<strong>説明</strong>0x%2 列終了 0x%2 0x%2 列 0x%2<strong>例</strong>0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `+ - * /` 0x%2 列終了 0x%2 0x%2 列 0x%2 算術演算子が数値式で使用します。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `=` 0x%2 列終了 0x%2 0x%2 列 0x%2 の割り当てと等しいかどうか。 コンテキストに応じて、左側にあるオブジェクトにステートメントの右側にある値を割り当てますか、等しいかどうかの値をチェックします。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `<>` 0x%2 列終了 0x%2 0x%2 列 0x%2 非等値。 返します`True`値が等しくない場合。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `< > <= >=` 0x%2 列終了 0x%2 0x%2 列 0x%2 よりも小さい、大きい、小さいよりまたは等しい、およびより大きいまたは等しい。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `&` 0x%2 列終了 0x%2 0x%2 列 0x%2 連結、文字列を結合するために使用します。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `+= -=` 0x%2 列終了 0x%2 0x%2 列 0x%2、インクリメントとデクリメント演算子を追加し、変数から 1 をそれぞれ減算します。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `.` 0x%2 列終了 0x%2 0x%2 列 0x%2 ドットします。 オブジェクトとそのプロパティおよびメソッドを区別するために使用されます。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `()` 0x%2 列終了 0x%2 0x%2 列 0x%2 かっこです。 、グループ式にパラメーターを渡すメソッド、および配列およびコレクションのメンバーにアクセスするために使用します。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `Not` 0x%2 列終了 0x%2 0x%2 列 0x%2 されません。 False またはその逆は真の値を反転させます。 通常、テストするための短縮形方法として使用`False`(用には、いない`True`)。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
+* * *
+0x%2 行 0x%2 0x%2 列 0x%2 `AndAlso OrElse` 0x%2 列終了 0x%2 0x%2 列 0x%2 論理的かつ条件をまとめてリンクを使用すると、します。
+0x%2 列終了 0x%2 0x%2 列 0x%2 [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]
+    0x%2 列終了 0x%2 0x%2 行の終わり 0x%2
 
 ## <a name="working-with-file-and-folder-paths-in-code"></a>ファイルとフォルダーのパス コードでの操作
 
@@ -329,7 +375,7 @@ Url およびパスの重要な詳細を次に示します。
 
 ### <a name="converting-virtual-to-physical-paths-the-servermappath-method"></a>物理仮想パスに変換する: Server.MapPath メソッド
 
-`Server.MapPath`メソッドは、仮想パスを変換 (と同様に*/default.cshtml*) への絶対物理パス (と同様に*C:\WebSites\MyWebSiteFolder\default.cshtml*)。 このメソッドを使用すると、いつでも、完全な物理パスを作成する必要がありますにします。 典型的な例は、読み取りまたはテキスト ファイルまたは web サーバー上の画像ファイルを作成するときです。
+`Server.MapPath`メソッドは、仮想パスを変換 (と同様に */default.cshtml*) への絶対物理パス (と同様に*C:\WebSites\MyWebSiteFolder\default.cshtml*)。 このメソッドを使用すると、いつでも、完全な物理パスを作成する必要がありますにします。 典型的な例は、読み取りまたはテキスト ファイルまたは web サーバー上の画像ファイルを作成するときです。
 
 通常ホスティング サイトのサーバー上のサイトの絶対物理パスがわからない、このメソッドは、パスを変換できるようにするかが分かって — 仮想パス: サーバー上の対応するパスにします。 ファイルまたはフォルダーをメソッドに仮想パスを渡すし、物理パスを返します。
 
@@ -337,7 +383,7 @@ Url およびパスの重要な詳細を次に示します。
 
 ### <a name="referencing-the-virtual-root-the--operator-and-href-method"></a>仮想ルートを参照している: ~ 演算子と Href メソッド
 
-*.Cshtml*または*.vbhtml*ファイル、仮想ルート パスを使用して、参照することができます、`~`演算子。 これは、機能は、サイトでは、のページを移動することができ、他のページに含まれているすべてのリンクが壊れているされませんので非常に便利です。 これまで、web サイトを別の場所に移動する場合にも便利です。 次にいくつかの例を示します。
+*.Cshtml*または *.vbhtml*ファイル、仮想ルート パスを使用して、参照することができます、`~`演算子。 これは、機能は、サイトでは、のページを移動することができ、他のページに含まれているすべてのリンクが壊れているされませんので非常に便利です。 これまで、web サイトを別の場所に移動する場合にも便利です。 次にいくつかの例を示します。
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample40.vbhtml)]
 

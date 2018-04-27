@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/introduction
-ms.openlocfilehash: 7ba1966dcaf1ce0510f489cfe0ff11501faffa56
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: f969cb26d1fcddeac967b1e3d13e3c06ebc7631f
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="introduction-to-authorization-in-aspnet-core"></a>ASP.NET Core での承認の概要
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 03/22/2018
 
 承認とは、アクションを決定するプロセス、ユーザーが操作を実行できます。 たとえば、管理ユーザーはドキュメント ライブラリの作成、ドキュメントを追加、ドキュメントの編集、およびそれらを削除する許可します。 管理者以外のユーザーが、ライブラリの操作は、ドキュメントを参照する権限がのみ。
 
-承認は、認証は、これは、ユーザーがだれを突き止めるのプロセスから独立しており、直角です。 認証は、現在のユーザーの 1 つまたは複数の id を作成する可能性があります。
+承認は、認証から独立しており、直角です。 ただし、承認には、認証メカニズムが必要です。 認証は、よっては、ユーザーのプロセスです。 認証は、現在のユーザーの 1 つまたは複数の id を作成する可能性があります。
 
 ## <a name="authorization-types"></a>承認の種類
 

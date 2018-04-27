@@ -9,23 +9,31 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 3a19cec2ce4387ca44ca120f031a072269b93454
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 300feb42dff7f1bb86bab6fedf3f657273ced8be
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-aspnet-core-data-protection"></a>ASP.NET Core データ保護を構成します。
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-データ保護システムが初期化されたときに適用される[既定の設定](xref:security/data-protection/configuration/default-settings)運用環境に基づきます。 これらの設定に適した一般的に 1 台のコンピューターで実行されるアプリです。 開発者は複数のコンピューターまたはコンプライアンス上の理由から、アプリが分散しているので、おそらく、既定の設定を変更する必要のあるケースがあります。 このようなシナリオは、データ保護システムは、豊富な構成 API を提供します。
+データ保護システムが初期化されたときに適用される[既定の設定](xref:security/data-protection/configuration/default-settings)運用環境に基づきます。 これらの設定に適した一般的に 1 台のコンピューターで実行されるアプリです。 開発者は、既定の設定を変更する必要のある場合もあります。
 
-拡張メソッドがある[AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection)を返す、 [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder)です。 `IDataProtectionBuilder` 連結できます。 データ保護を構成するオプションの拡張メソッドを公開します。
+* アプリは、複数のコンピューターに展開されます。
+* コンプライアンス上の理由からです。
+
+このようなシナリオは、データ保護システムは、豊富な構成 API を提供します。
+
+> [!WARNING]
+> 構成ファイルと同様に、データ保護キー リングする必要がありますを使用して保護適切なアクセス許可。 休息については、キーを暗号化することもできますが、これを防ぐ攻撃者がキーの新規作成します。 その結果、アプリのセキュリティに影響します。 データ保護が構成されている記憶域の場所は、アプリ自体と同じように構成ファイルを保護するように制限されたアクセスに必要です。 たとえばをキーのリングをディスクに保存する場合は、ファイル システム アクセス許可を使用します。 下にある id のみを確実に読み取り、web アプリを実行する、書き込み、およびそのディレクトリへのアクセスを作成します。 Azure テーブル ストレージを使用する場合、web アプリのみが読み取り、書き込み、またはテーブル ストアなどの新しいエントリを作成する機能に必要です。
+>
+> 拡張メソッド[AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection)を返します、 [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder)です。 `IDataProtectionBuilder` 連結できます。 データ保護を構成するオプションの拡張メソッドを公開します。
 
 ## <a name="persistkeystofilesystem"></a>PersistKeysToFileSystem
 
-代わりに UNC 共有にキーを格納する、 *%localappdata%*既定の場所、構成を使用してシステム[PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem):
+代わりに UNC 共有にキーを格納する、 *%localappdata%* 既定の場所、構成を使用してシステム[PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem):
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -91,7 +99,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="per-application-isolation"></a>アプリケーションごとの分離
 
-データ保護システムは、ASP.NET Core ホストによって提供される、ときに自動的に分離され、そのから、別のアプリの場合でも、それらのアプリが同じワーカー プロセス アカウントで実行されていて、同じマスター キー生成情報を使用しています。 これは、System.Web から IsolateApps 修飾子に似た **\<machineKey >**要素。
+データ保護システムは、ASP.NET Core ホストによって提供される、ときに自動的に分離され、そのから、別のアプリの場合でも、それらのアプリが同じワーカー プロセス アカウントで実行されていて、同じマスター キー生成情報を使用しています。 これは、System.Web から IsolateApps 修飾子に似た **\<machineKey >** 要素。
 
 したがって、独自のテナントとしてローカル コンピューターには、各アプリを考慮して分離メカニズムの動作、 [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector)ルートとする指定したアプリには、アプリ ID は識別子として自動的が含まれています。 アプリの一意の ID は 2 つの場所から取得します。
 

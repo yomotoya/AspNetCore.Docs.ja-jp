@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core モジュール構成の参照"
+title: ASP.NET Core モジュール構成の参照
 author: guardrex
-description: "ASP.NET Core アプリケーションをホストするための ASP.NET Core モジュールを構成する方法を説明します。"
+description: ASP.NET Core アプリケーションをホストするための ASP.NET Core モジュールを構成する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 5aac5cf2b8fd4bc53ba7201645b9bb02a5d1ecae
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 954841a1b1465c80e60d5745ad9e22294a88fdf4
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core モジュール構成の参照
 
@@ -65,6 +65,7 @@ ASP.NET Core モジュールの構成には、`aspNetCore`のセクションで�
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>AspNetCore 要素の属性
 
+::: moniker range="<= aspnetcore-2.0"
 | 属性 | 説明 | 既定値 |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>省略可能な文字列属性。</p><p>指定された実行可能ファイルへの引数**processPath**です。</p>| |
@@ -72,11 +73,26 @@ ASP.NET Core モジュールの構成には、`aspNetCore`のセクションで�
 | `forwardWindowsAuthToken` | true または false。</p><p>True の場合、トークンが 1 回の要求ヘッダー ' MS ASPNETCORE WINAUTHTOKEN' として ASPNETCORE_PORT % でリッスンしている子プロセスに転送されます。 このトークン要求ごとに CloseHandle を呼び出すには、そのプロセスの役割です。</p> | `true` |
 | `processPath` | <p>必須の文字列属性です。</p><p>HTTP 要求をリッスンしているプロセスを起動する実行可能ファイルへのパス。 相対パスがサポートされます。 パスが始まる場合`.`パスはサイトのルートの相対パスであると見なされます。</p> | |
 | `rapidFailsPerMinute` | <p>省略可能な整数属性です。</p><p>プロセスが指定された回数を指定**processPath**は 1 分あたりのクラッシュを許可します。 この制限を超えた場合、モジュールは、1 分間の残りのプロセスの起動を停止します。</p> | `10` |
-| `requestTimeout` | <p>省略可能な timespan 属性です。</p><p>%Aspnetcore_port でリッスンしているプロセスからの応答を ASP.NET Core モジュールが待機する期間を指定します。</p><p>`requestTimeout`必要がありますで指定する整数の分だけ、それ以外の場合、既定値は 2 分です。</p> | `00:02:00` |
+| `requestTimeout` | <p>省略可能な timespan 属性です。</p><p>%Aspnetcore_port でリッスンしているプロセスからの応答を ASP.NET Core モジュールが待機する期間を指定します。</p><p>ASP.NET Core 2.0 またはそれ以前は、リリースに付属していた ASP.NET コア モジュールのバージョンでは、`requestTimeout`必要がありますで指定する整数の分だけ、それ以外の場合、既定値は 2 分です。</p> | `00:02:00` |
 | `shutdownTimeLimit` | <p>省略可能な整数属性です。</p><p>モジュールが、実行可能ファイルを正常にシャット ダウンを待機する秒単位で期間ときに、 *app_offline.htm*ファイルが検出されました。</p> | `10` |
 | `startupTimeLimit` | <p>省略可能な整数属性です。</p><p>モジュールがポートでリッスンしているプロセスを開始する実行可能ファイルを待機する秒単位で期間です。 この制限時間を超えた場合、モジュールには、プロセスが強制終了します。 モジュールが、新しい要求を受信し、アプリの起動に失敗しない限り、後続の受信要求の処理を再開を試行し続け、プロセスを再起動しようとしています**rapidFailsPerMinute** 、最後の回数。分をロールバックしています。</p> | `120` |
 | `stdoutLogEnabled` | <p>省略可能な Boolean 属性です。</p><p>True の場合、 **stdout**と**stderr**で指定されたプロセスの**processPath**で指定されたファイルにリダイレクトされます**stdoutLogFile**です。</p> | `false` |
 | `stdoutLogFile` | <p>省略可能な文字列属性。</p><p>対象の相対パスまたは絶対ファイル パスを指定**stdout**と**stderr**で指定されたプロセスから**processPath**ログに記録されます。 相対パスは、サイトのルートです。 以降で任意のパス`.`は、サイトと相対的なルートとその他のすべてのパスが絶対パスとして扱われます。 モジュール、ログ ファイルを作成するためにパスで提供されるすべてのフォルダーが存在する必要があります。 区切り記号のアンダー スコア、タイムスタンプ、プロセス ID、およびファイル拡張子を使用して (*.log*)、最後のセグメントに追加されます、 **stdoutLogFile**パス。 場合`.\logs\stdout`が指定される値として例を標準出力ログとして保存*stdout_20180205194132_1934.log*で、*ログ*フォルダー 19時 41分: 32 1934年のプロセス id で 2/5/2018 に保存される場合。</p> | `aspnetcore-stdout` |
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+| 属性 | 説明 | 既定値 |
+| --------- | ----------- | :-----: |
+| `arguments` | <p>省略可能な文字列属性。</p><p>指定された実行可能ファイルへの引数**processPath**です。</p>| |
+| `disableStartUpErrorPage` | true または false。</p><p>True の場合、 **502.5 - プロセス エラー**ページは表示されず、502 ステータス コード ページで構成されている、 *web.config*が優先されます。</p> | `false` |
+| `forwardWindowsAuthToken` | true または false。</p><p>True の場合、トークンが 1 回の要求ヘッダー ' MS ASPNETCORE WINAUTHTOKEN' として ASPNETCORE_PORT % でリッスンしている子プロセスに転送されます。 このトークン要求ごとに CloseHandle を呼び出すには、そのプロセスの役割です。</p> | `true` |
+| `processPath` | <p>必須の文字列属性です。</p><p>HTTP 要求をリッスンしているプロセスを起動する実行可能ファイルへのパス。 相対パスがサポートされます。 パスが始まる場合`.`パスはサイトのルートの相対パスであると見なされます。</p> | |
+| `rapidFailsPerMinute` | <p>省略可能な整数属性です。</p><p>プロセスが指定された回数を指定**processPath**は 1 分あたりのクラッシュを許可します。 この制限を超えた場合、モジュールは、1 分間の残りのプロセスの起動を停止します。</p> | `10` |
+| `requestTimeout` | <p>省略可能な timespan 属性です。</p><p>%Aspnetcore_port でリッスンしているプロセスからの応答を ASP.NET Core モジュールが待機する期間を指定します。</p><p>ASP.NET Core 2.1 以降のリリースに付属していた ASP.NET コア モジュールのバージョンでは、`requestTimeout`は時間、分、および秒単位で指定します。</p> | `00:02:00` |
+| `shutdownTimeLimit` | <p>省略可能な整数属性です。</p><p>モジュールが、実行可能ファイルを正常にシャット ダウンを待機する秒単位で期間ときに、 *app_offline.htm*ファイルが検出されました。</p> | `10` |
+| `startupTimeLimit` | <p>省略可能な整数属性です。</p><p>モジュールがポートでリッスンしているプロセスを開始する実行可能ファイルを待機する秒単位で期間です。 この制限時間を超えた場合、モジュールには、プロセスが強制終了します。 モジュールが、新しい要求を受信し、アプリの起動に失敗しない限り、後続の受信要求の処理を再開を試行し続け、プロセスを再起動しようとしています**rapidFailsPerMinute** 、最後の回数。分をロールバックしています。</p> | `120` |
+| `stdoutLogEnabled` | <p>省略可能な Boolean 属性です。</p><p>True の場合、 **stdout**と**stderr**で指定されたプロセスの**processPath**で指定されたファイルにリダイレクトされます**stdoutLogFile**です。</p> | `false` |
+| `stdoutLogFile` | <p>省略可能な文字列属性。</p><p>対象の相対パスまたは絶対ファイル パスを指定**stdout**と**stderr**で指定されたプロセスから**processPath**ログに記録されます。 相対パスは、サイトのルートです。 以降で任意のパス`.`は、サイトと相対的なルートとその他のすべてのパスが絶対パスとして扱われます。 モジュール、ログ ファイルを作成するためにパスで提供されるすべてのフォルダーが存在する必要があります。 区切り記号のアンダー スコア、タイムスタンプ、プロセス ID、およびファイル拡張子を使用して (*.log*)、最後のセグメントに追加されます、 **stdoutLogFile**パス。 場合`.\logs\stdout`が指定される値として例を標準出力ログとして保存*stdout_20180205194132_1934.log*で、*ログ*フォルダー 19時 41分: 32 1934年のプロセス id で 2/5/2018 に保存される場合。</p> | `aspnetcore-stdout` |
+::: moniker-end
 
 ### <a name="setting-environment-variables"></a>環境変数の設定
 
@@ -113,11 +129,15 @@ ASP.NET Core モジュールの構成には、`aspNetCore`のセクションで�
 
 ## <a name="log-creation-and-redirection"></a>ログの作成とリダイレクト
 
-ASP.NET Core モジュール リダイレクト`stdout`と`stderr`場合にディスクにログ、`stdoutLogEnabled`と`stdoutLogFile`の属性、`aspNetCore`要素を設定します。 すべてのフォルダ、`stdoutLogFile`パスは、モジュール、ログ ファイルを作成するために存在する必要があります。 タイムスタンプとファイルの拡張機能は、ログ ファイルの作成時に自動的に追加されます。 プロセスのリサイクル/再起動が発生しない限り、ログは循環されません。 ホストは、ログの使用ディスク領域を制限するの役割です。 使用して、`stdout`ログがアプリの起動に関する問題のトラブルシューティングにのみお勧めします。 一般的なアプリのログ記録の目的で、標準出力ログを使用しないでください。 ASP.NET Core アプリケーションの日常的なログ記録、ログ ファイルのサイズを制限し、ログを回転するログ記録ライブラリを使用します。 詳細については、次を参照してください。[サード パーティ製のログ記録プロバイダー](xref:fundamentals/logging/index#third-party-logging-providers)です。
+ASP.NET Core モジュール リダイレクトの場合はディスクへの stdout と stderr のログ、`stdoutLogEnabled`と`stdoutLogFile`の属性、`aspNetCore`要素を設定します。 すべてのフォルダ、`stdoutLogFile`パスは、モジュール、ログ ファイルを作成するために存在する必要があります。 アプリケーション プールでは、ログが書き込まれる場所に書き込みアクセス権が必要 (を使用して`IIS AppPool\<app_pool_name>`書き込みアクセス許可を提供する)。
 
-ログ ファイルの名前は、タイムスタンプ、プロセス ID、およびファイル拡張子を追加することによって作成されて (*.log*) の最後のセグメントを`stdoutLogFile`パス (通常*stdout*) アンダー スコアで区切られます。 場合、`stdoutLogFile`パスの終わりに*stdout*、1934 2/5/2018 の 19時 42分: 32 時に作成の PID を使用してアプリのログ ファイル名である*stdout_20180205194132_1934.log*です。
+プロセスのリサイクル/再起動が発生しない限り、ログは循環されません。 ホストは、ログの使用ディスク領域を制限するの役割です。
 
-次のサンプル`aspNetCore`要素を構成して`stdout`Azure App Service でホストされているアプリのログ記録します。 ローカル パスまたはネットワーク共有のパスがローカル ログもかまわないです。 AppPool ユーザー id が指定されたパスに書き込む権限を持っていることを確認します。
+標準出力ログを使用するは、アプリの起動に関する問題のトラブルシューティングにのみ推奨されます。 一般的なアプリのログ記録の目的で、標準出力ログを使用しないでください。 ASP.NET Core アプリケーションの日常的なログ記録、ログ ファイルのサイズを制限し、ログを回転するログ記録ライブラリを使用します。 詳細については、次を参照してください。[サード パーティ製のログ記録プロバイダー](xref:fundamentals/logging/index#third-party-logging-providers)です。
+
+タイムスタンプとファイルの拡張機能は、ログ ファイルの作成時に自動的に追加されます。 ログ ファイルの名前は、タイムスタンプ、プロセス ID、およびファイル拡張子を追加することによって作成されて (*.log*) の最後のセグメントを`stdoutLogFile`パス (通常*stdout*) アンダー スコアで区切られます。 場合、`stdoutLogFile`パスの終わりに*stdout*、1934 2/5/2018 の 19時 42分: 32 時に作成の PID を使用してアプリのログ ファイル名である*stdout_20180205194132_1934.log*です。
+
+次のサンプル`aspNetCore`要素は Azure App Service でホストされているアプリの標準出力ログを構成します。 ローカル パスまたはネットワーク共有のパスがローカル ログもかまわないです。 AppPool ユーザー id が指定されたパスに書き込む権限を持っていることを確認します。
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -144,16 +164,16 @@ ASP.NET Core モジュール インストーラーの実行の権限を持つ、
 1. 更新されたエクスポート*applicationHost.config*共有するファイル。
 1. IIS 共有構成を再度有効にします。
 
-## <a name="module-version-and-hosting-bundle-installer-logs"></a>モジュールのバージョンとバンドル インストーラーのログをホストしています。
+## <a name="module-version-and-hosting-bundle-installer-logs"></a>モジュールのバージョンとバンドルをホストしているインストーラーのログ
 
 インストールされている ASP.NET のコア モジュールのバージョンを確認します。
 
-1. ホストのシステム上に移動*%windir%\System32\inetsrv*です。
+1. ホストのシステム上に移動 *%windir%\System32\inetsrv*です。
 1. 検索、 *aspnetcore.dll*ファイル。
 1. ファイルを右クリックし **プロパティ**コンテキスト メニューからです。
 1. 選択、**詳細**タブです。**ファイル バージョン**と**製品バージョン**モジュールのインストールされているバージョンを表します。
 
-モジュールの Windows Server をホストしているバンドル インストーラー ログがある*c:\\ユーザー\\%username%\\AppData\\ローカル\\Temp*です。ファイルの名前は*dd_DotNetCoreWinSvrHosting__\<タイムスタンプ > _000_AspNetCoreModule_x64.log*です。
+モジュールのバンドルをホストしているインストーラーのログがある*c:\\ユーザー\\%username%\\AppData\\ローカル\\Temp*です。ファイルの名前は*dd_DotNetCoreWinSvrHosting__\<タイムスタンプ > _000_AspNetCoreModule_x64.log*です。
 
 ## <a name="module-schema-and-configuration-file-locations"></a>モジュール、スキーマ、および構成ファイルの場所
 

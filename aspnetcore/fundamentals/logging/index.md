@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 4cb2cf5b22ed9f5b84638b5f8c4b07d99a17ce1c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aab1190467c13ae121625c377d0908eac2fe8d95
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET Core でのログ記録
 
@@ -487,37 +487,6 @@ loggerFactory.AddEventSourceLogger()
 このプロバイダーでログに記録されるイベントを収集するように PerfView を構成するには、**[追加プロバイダー]** の一覧に文字列 `*Microsoft-Extensions-Logging` を追加します  (文字列の先頭に忘れずにアスタリスクを付けてください)。
 
 ![Perfview の追加プロバイダー](index/_static/perfview-additional-providers.png)
-
-Nano Server で発生したイベントをキャプチャするには、追加の設定がいくつか必要です。
-
-* PowerShell リモート処理を Nano Server に接続します。
-
-  ```powershell
-  Enter-PSSession [name]
-  ```
-
-* ETW セッションを作成します。
-
-  ```powershell
-  New-EtwTraceSession -Name "MyAppTrace" -LocalFilePath C:\trace.etl
-  ```
-
-* 必要に応じて、[CLR](/dotnet/framework/performance/clr-etw-providers)、ASP.NET Core などの ETW プロバイダーを追加します。 ASP.NET Core プロバイダーの GUID は `3ac73b97-af73-50e9-0822-5da4367920d0` です。 
-
-  ```powershell
-  Add-EtwTraceProvider -Guid "{e13c0d23-ccbc-4e12-931b-d9cc2eee27e4}" -SessionName MyAppTrace
-  Add-EtwTraceProvider -Guid "{3ac73b97-af73-50e9-0822-5da4367920d0}" -SessionName MyAppTrace
-  ```
-
-* サイトを実行し、トレース情報が必要なすべてのアクションを実行します。
-
-* 完了したらトレース セッションを停止します。
-
-  ```powershell
-  Stop-EtwTraceSession -Name "MyAppTrace"
-  ```
-
-他の Windows エディションと同様に、結果の *C:\trace.etl* ファイルは PerfView で分析できます。
 
 <a id="eventlog"></a>
 ### <a name="the-windows-eventlog-provider"></a>Windows EventLog プロバイダー

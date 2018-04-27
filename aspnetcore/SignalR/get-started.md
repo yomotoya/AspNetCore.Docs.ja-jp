@@ -3,6 +3,7 @@ title: ASP.NET Core の SignalR を概要します。
 author: rachelappel
 description: このチュートリアルでは、ASP.NET Core の SignalR を使用してアプリを作成します。
 manager: wpickett
+monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
 ms.date: 03/16/2018
@@ -10,17 +11,17 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: cf120d535c85c7871f5b1f27039018ea2405b9cb
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 03735359bb22cc3085ddc7b34372ecfc9501a940
+ms.sourcegitcommit: 07903a1be39a99dcf538d57981161592d0e658b8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>ASP.NET Core の SignalR を概要します。
 
 作成者: [Rachel Appel](https://twitter.com/rachelappel)
 
-[!INCLUDE [Version notice](../includes/signalr-version-notice.md)]
+[!INCLUDE [2.1 preview notice](~/includes/2.1.md)]
 
 このチュートリアルでは ASP.NET Core の SignalR を使用してリアルタイム アプリの構築の基礎を説明します。
 
@@ -41,14 +42,14 @@ ms.lasthandoff: 04/06/2018
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* [.NET core 2.1.0 Preview 1 SDK](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview1)以降
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) 15.6 またはそれ以降のバージョン、 **ASP.NET および web 開発**ワークロード
+* [.NET core 2.1.0 Preview 2 の SDK](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview2)以降
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) 15.7 またはそれ以降のバージョン、 **ASP.NET および web 開発**ワークロード
 * [npm](https://www.npmjs.com/get-npm)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* [.NET core 2.1.0 Preview 1 SDK](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview1)以降
-* [Visual Studio Code](https://code.visualstudio.com/download) 
+* [.NET core 2.1.0 Preview 2 の SDK](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview2)以降
+* [Visual Studio Code](https://code.visualstudio.com/download)
 * [Visual Studio のコードの C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [npm](https://www.npmjs.com/get-npm)
 
@@ -56,7 +57,8 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="create-an-aspnet-core-project-that-hosts-signalr-client-and-server"></a>SignalR クライアントとサーバーをホストする ASP.NET Core プロジェクトを作成します。
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+
 1. 使用して、**ファイル** > **新しいプロジェクト**メニュー オプションを**ASP.NET Core Web アプリケーション**です。 プロジェクトに名前を*SignalRChat*です。
 
    ![Visual Studio で新しいプロジェクト ダイアログ ボックス](get-started/_static/signalr-new-project-dialog.png)
@@ -65,16 +67,19 @@ ms.lasthandoff: 04/06/2018
 
    ![Visual Studio で新しいプロジェクト ダイアログ ボックス](get-started/_static/signalr-new-project-choose-type.png)
 
-3. プロジェクトを右クリックして**ソリューション エクスプ ローラー** > **追加** > **新しい項目の** > **npm 構成ファイル**. ファイルの名前を付けます*package.json*です。
+Visual Studio が含まれています、`Microsoft.AspNetCore.SignalR`パッケージの一部として、サーバーのライブラリを含むその**ASP.NET Core Web アプリケーション**テンプレート。 使用して SignalR の JavaScript クライアント ライブラリをインストールする必要がありますただし、 *npm*です。
 
-4. 次のコマンドを実行、 **Package Manager Console**ウィンドウで、プロジェクトのルートから。
+3. 次のコマンドを実行、 **Package Manager Console**ウィンドウで、プロジェクトのルートから。
 
     ```console
+      npm init -y
       npm install @aspnet/signalr
-    ```
-5. コピー、 <em>signalr.js</em>ファイルから<em>node_modules\\ @aspnet\signalr\dist\browser</em> を<em>wwwroot\lib</em>プロジェクトのフォルダーにします。
+    ```     
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+4. コピー、 *signalr.js*ファイルから*node_modules\\ @aspnet\signalr\dist\browser* を*lib*プロジェクトのフォルダーにします。
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+
 1. **統合ターミナル**、次のコマンドを実行します。
 
     ```console
@@ -88,21 +93,24 @@ ms.lasthandoff: 04/06/2018
       npm install @aspnet/signalr
     ```
 
-* * *
+-----
+
 ## <a name="create-the-signalr-hub"></a>SignalR ハブを作成します。
 
 ハブは、クライアントとサーバーが互いにメソッドを呼び出すことができる高度なパイプラインとして機能するクラスです。
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+
 1. クラスを選択してプロジェクトに追加**ファイル** > **新規** > **ファイル**を選択して**Visual c# クラス**です。
 
 2. 継承`Microsoft.AspNetCore.SignalR.Hub`です。 `Hub`プロパティおよび接続とグループ、さらに送信側と受信側のデータを管理するためのイベント クラスが含まれています。
 
-3. 作成、`SendMessage`接続されているチャットのすべてのクライアントにメッセージを送信するメソッド。 返すことを確認、[タスク](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task(v=vs.110).aspx)SignalR が非同期であるためです。 非同期コードの拡張性が優れています。
+3. 作成、`SendMessage`接続されているチャットのすべてのクライアントにメッセージを送信するメソッド。 返すことを確認、[タスク](https://msdn.microsoft.com/library/system.threading.tasks.task(v=vs.110).aspx)SignalR が非同期であるためです。 非同期コードの拡張性が優れています。
 
-   [!code-csharp[Startup](get-started/sample/Hubs/ChatHub.cs?range=7-14)]
+   [!code-csharp[Startup](get-started/sample/Hubs/ChatHub.cs)]
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+
 1. 開く、 *SignalRChat* Visual Studio のコード内のフォルダーです。
 
 2. 選択して、プロジェクトにクラスを追加**ファイル** > **新しいファイル** メニューからです。
@@ -111,9 +119,10 @@ ms.lasthandoff: 04/06/2018
 
 4. `SendMessage` メソッドをクラスに追加します。 `SendMessage`メソッドは、接続されているチャットのすべてのクライアントにメッセージを送信します。 返すことを確認、[タスク](/dotnet/api/system.threading.tasks.task)SignalR が非同期であるためです。 非同期コードの拡張性が優れています。
 
-   [!code-csharp[Startup](get-started/sample/Hubs/ChatHub.cs?range=7-14)]
+   [!code-csharp[Startup](get-started/sample/Hubs/ChatHub.cs?range=6-12)]
 
-* * *
+-----
+
 ## <a name="configure-the-project-to-use-signalr"></a>SignalR を使用するプロジェクトを構成します。
 
 SignalR に要求を渡すを認識できるように、SignalR のサーバーを構成する必要があります。
@@ -124,7 +133,9 @@ SignalR に要求を渡すを認識できるように、SignalR のサーバー�
 
 2. 使用して、ハブへのルートを構成する`UseSignalR`です。
 
-   [!code-csharp[Startup](get-started/sample/Startup.cs?highlight=22,40-43)]
+
+   [!code-csharp[Startup](get-started/sample/Startup.cs?highlight=36,56-59)]
+
 
 ## <a name="create-the-signalr-client-code"></a>SignalR クライアント コードを作成します。
 

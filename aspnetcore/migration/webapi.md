@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 2b9d6ac41266e0e6085153e1302d84a34ee85257
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 2f1d0b43f565dbf6189406bfd65158f809e1f18f
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>ASP.NET Web API から ASP.NET Core への移行します。
 
@@ -36,7 +36,7 @@ Web Api は、さまざまなブラウザーやモバイル デバイスを含�
 [!code-csharp[](../migration/webapi/sample/ProductsApp/App_Start/WebApiConfig.cs?highlight=15,16,17,18,19,20)]
 
 
-このクラスを構成[属性がルーティング](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)は実際には、プロジェクトで使用されていますが、します。 また、ASP.NET Web API によって使用される、ルーティング テーブルを構成します。 ASP.NET Web API が形式と一致する Url を期待するこの例では、 */api/{controller}/{id}*で*{id}*される省略可能です。
+このクラスを構成[属性がルーティング](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)は実際には、プロジェクトで使用されていますが、します。 また、ASP.NET Web API によって使用される、ルーティング テーブルを構成します。 ASP.NET Web API が形式と一致する Url を期待するこの例では、 */api/{controller}/{id}* で *{id}* される省略可能です。
 
 *ProductsApp*プロジェクトに含まれる 1 つだけ単純なコント ローラーから継承される`ApiController`と 2 つのメソッドを公開します。
 
@@ -66,13 +66,13 @@ Visual Studio を使用して、新しい、空のソリューションを作成
 
 ASP.NET Core を使用しない*Global.asax*、 *web.config*、または*App_Start*フォルダーです。 すべてのスタートアップ タスクを実行する代わりに、 *Startup.cs* 、プロジェクトのルートで (を参照してください[アプリケーションの起動](../fundamentals/startup.md))。 ASP.NET Core mvc で属性ベースのルーティングはここで既定で含まれてとき`UseMvc()`が呼び出されます。 および、この Web API ルートを構成するための推奨アプローチです (とは、Web API のスタート プロジェクトがルーティングを処理する方法)。
 
-[!code-none[](../migration/webapi/sample/ProductsCore/Startup.cs?highlight=40)]
+[!code-csharp[](../migration/webapi/sample/ProductsCore/Startup.cs?highlight=40)]
 
 属性は、プロジェクトの今後のルーティングを使用すると仮定した場合、追加の構成は必要ありません。 サンプルで行われるように、コント ローラーとアクションに必要な属性を適用`ValuesController`Web API のスタート プロジェクトに含まれているクラス。
 
 [!code-csharp[](../migration/webapi/sample/ProductsCore/Controllers/ValuesController.cs?highlight=9,13,20,27,33,39)]
 
-存在することに注意してください*[コント ローラー]* 8 行です。 これで属性ベースのルーティングをサポートしている特定のトークンなど*[コント ローラー]*と*[アクション]*です。 これらのトークンは置き換えられます実行時に、コント ローラーまたはアクションの名前でそれぞれ、属性が適用されています。 これには、プロジェクトのマジック文字列の数を減らすし、ルート保持される自動名前の変更リファクタリングを適用するときに、対応するコント ローラーとアクションで同期されていることを確認します。
+存在することに注意してください *[コント ローラー]* 8 行です。 これで属性ベースのルーティングをサポートしている特定のトークンなど *[コント ローラー]* と *[アクション]* です。 これらのトークンは置き換えられます実行時に、コント ローラーまたはアクションの名前でそれぞれ、属性が適用されています。 これには、プロジェクトのマジック文字列の数を減らすし、ルート保持される自動名前の変更リファクタリングを適用するときに、対応するコント ローラーとアクションで同期されていることを確認します。
 
 製品の API コント ローラーを移行する必要があります最初にコピー *ProductsController*は新しいプロジェクトにします。 コント ローラーのルート属性を単に含めます。
 
@@ -115,7 +115,7 @@ ASP.NET Core を使用しない*Global.asax*、 *web.config*、または*App_Sta
 
 [!code-csharp[](../migration/webapi/sample/ProductsCore/Controllers/ProductsController.cs?highlight=1,2,6,8,9,27)]
 
-移行されたプロジェクトを実行しを参照することができます*/api 製品*; し、3 つの製品の完全な一覧を表示する必要があります。 参照*/api/products/1*と最初の製品を表示する必要があります。
+移行されたプロジェクトを実行しを参照することができます */api 製品*; し、3 つの製品の完全な一覧を表示する必要があります。 参照 */api/products/1*と最初の製品を表示する必要があります。
 
 ## <a name="summary"></a>まとめ
 

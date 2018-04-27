@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: 05b0d7f31e167e620f2d168109ffd907ba120a49
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: fd893b7c62f38442bf5633a956786983763e6f9f
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>JavaScriptServices を使用して ASP.NET Core の単一ページ アプリケーションを作成するには
 
@@ -95,7 +95,7 @@ ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって�
 
 ### <a name="configuration"></a>構成
 
-タグ ヘルパーは、プロジェクトの名前空間登録を使用して探索可能にされて*_ViewImports.cshtml*ファイル。
+タグ ヘルパーは、プロジェクトの名前空間登録を使用して探索可能にされて *_ViewImports.cshtml*ファイル。
 
 [!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/_ViewImports.cshtml?highlight=3)]
 
@@ -166,7 +166,7 @@ ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって�
 
 ## <a name="hot-module-replacement"></a>ホット モジュールの交換
 
-Webpack を考えてみてください[ホット モジュールの交換](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html)(HMR) 機能の発展として[Webpack デベロッパー ミドルウェア](#webpack-dev-middleware)です。 HMR で利点ではすべて同じしますが、変更をコンパイルした後、ページのコンテンツを自動的に更新することでさらに、開発ワークフローを合理化します。 現在のインメモリ状態と SPA のデバッグ セッションに影響するブラウザーの更新でこれを混同しないでください。 Webpack デベロッパー ミドルウェア サービスと、ブラウザーに変更をプッシュすることを意味すると、ブラウザーの間のライブ リンクがあります。
+Webpack を考えてみてください[ホット モジュールの交換](https://webpack.js.org/concepts/hot-module-replacement/)(HMR) 機能の発展として[Webpack デベロッパー ミドルウェア](#webpack-dev-middleware)です。 HMR で利点ではすべて同じしますが、変更をコンパイルした後、ページのコンテンツを自動的に更新することでさらに、開発ワークフローを合理化します。 現在のインメモリ状態と SPA のデバッグ セッションに影響するブラウザーの更新でこれを混同しないでください。 Webpack デベロッパー ミドルウェア サービスと、ブラウザーに変更をプッシュすることを意味すると、ブラウザーの間のライブ リンクがあります。
 
 ### <a name="prerequisites"></a>必須コンポーネント
 
@@ -226,7 +226,7 @@ app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
 
 ## <a name="creating-a-new-project"></a>新しいプロジェクトを作成します。
 
-JavaScriptServices には、構成済みのアプリケーション テンプレートが用意されています。 SpaServices は、さまざまなフレームワークおよび角、Aurelia、Knockout、対応、および Vue などのライブラリと連携して、これらのテンプレートで使用されます。
+JavaScriptServices には、構成済みのアプリケーション テンプレートが用意されています。 SpaServices は、さまざまなフレームワークおよび角、対応、および Redux などのライブラリと連携して、これらのテンプレートで使用されます。
 
 これらのテンプレートは、次のコマンドを実行して、.NET Core CLI を使用してインストールできます。
 
@@ -239,11 +239,8 @@ dotnet new --install Microsoft.AspNetCore.SpaTemplates::*
 | テンプレート                                 | 短い形式の名前 | 言語 | Tags        |
 |:------------------------------------------|:-----------|:---------|:------------|
 | 角度の MVC の ASP.NET Core             | angular    | [C#]     | Web/MVC/SPA |
-| Aurelia で MVC の ASP.NET Core             | aurelia    | [C#]     | Web/MVC/SPA |
-| Knockout.js で MVC の ASP.NET Core         | knockout   | [C#]     | Web/MVC/SPA |
 | React.js で MVC の ASP.NET Core            | react      | [C#]     | Web/MVC/SPA |
 | MVC の ASP.NET Core React.js と (続編)  | reactredux | [C#]     | Web/MVC/SPA |
-| Vue.js で MVC の ASP.NET Core              | vue        | [C#]     | Web/MVC/SPA | 
 
 SPA テンプレートのいずれかを使用して新しいプロジェクトを作成するには、**短い名前**でテンプレートの[dotnet 新しい](/dotnet/core/tools/dotnet-new)コマンド。 次のコマンドは、サーバー側用に構成された ASP.NET Core MVC と角運動のアプリケーションを作成します。
 
@@ -263,7 +260,7 @@ dotnet new angular
     * ソース マップを除外します。
     * バンドル化と縮小を使用してクライアント側のコードを最適化します。
 
-ASP.NET Core という環境変数を使用して`ASPNETCORE_ENVIRONMENT`構成モードを格納します。 参照してください**[環境の設定](xref:fundamentals/environments#setting-the-environment)**詳細についてはします。
+ASP.NET Core という環境変数を使用して`ASPNETCORE_ENVIRONMENT`構成モードを格納します。 参照してください**[環境の設定](xref:fundamentals/environments#setting-the-environment)** 詳細についてはします。
 
 ### <a name="running-with-net-core-cli"></a>.NET Core CLI で実行します。
 
@@ -295,7 +292,7 @@ Angular アプリケーションを使用して、例として、2 つのジャ�
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/app/components/counter/counter.component.spec.ts?range=15-28)]
 
-プロジェクトのルートにコマンド プロンプトを開き、次のコマンドを実行します。
+コマンド プロンプトを開き、 *ClientApp*ディレクトリ。 次のコマンドを実行します。
 
 ```console
 npm test

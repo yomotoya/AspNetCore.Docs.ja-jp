@@ -11,17 +11,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: a243eeb982ba581e237263c4e31e130d634aff0e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: fdb74b0eb74ce7f387f49a0b25ceebd3fc389da9
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>.NET クライアント (c#) から Web API を呼び出す
 ====================
 作成者[Mike Wasson](https://github.com/MikeWasson)および[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[完成したプロジェクトのダウンロード](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)
+[完成したプロジェクトをダウンロード](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)です。 [ダウンロードの方法はこちらをご覧ください。](/aspnet/core/tutorials/#how-to-download-a-sample) 
 
 このチュートリアルでは[System.Net.Http.HttpClient です。](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)を使用して .NET アプリケーションから web API を呼び出す方法を説明します。
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/06/2018
 | アクション | HTTP メソッド | 相対 URI |
 | --- | --- | --- |
 | ID によって製品を取得します。 | GET | /api/products/*id* |
-| 新しい製品を作成します。 | POST | /api/products |
+| 新しい製品を作成します。 | 投稿 | /api/products |
 | 製品を更新します。 | PUT | /api/products/*id* |
 | 製品を削除します。 | Del | /api/products/*id* |
 
@@ -167,7 +167,7 @@ GET と同様に DELETE 要求しても、要求本文はありません。 DELE
 
 クライアント アプリをテストします。
 
-1. [ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server)server アプリを実行します。 [ダウンロードの方法はこちらをご覧ください。](https://docs.microsoft.com/aspnet/core/tutorials/#how-to-download-a-sample) サーバー アプリが動作を確認します。 Exaxmple の`http://localhost:64195/api/products`製品の一覧を返す必要があります。
+1. [ダウンロード](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server)server アプリを実行します。 [ダウンロードの方法はこちらをご覧ください。](/aspnet/core/tutorials/#how-to-download-a-sample) サーバー アプリが動作を確認します。 Exaxmple の`http://localhost:64195/api/products`製品の一覧を返す必要があります。
 2. HTTP 要求のベース URI を設定します。 サーバー アプリケーションで使用されるポートにポート番号を変更します。
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 

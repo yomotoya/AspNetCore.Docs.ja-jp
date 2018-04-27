@@ -1,22 +1,22 @@
 ---
 uid: signalr/overview/getting-started/supported-platforms
-title: "サポートされているプラットフォーム |Microsoft ドキュメント"
+title: サポートされているプラットフォーム |Microsoft ドキュメント
 author: pfletcher
-description: "この記事では、SignalR でどのようなクライアントとサーバーがサポートについて説明します。"
+description: この記事では、SignalR でどのようなクライアントとサーバーがサポートについて説明します。
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 06/10/2014
+ms.date: 04/18/2018
 ms.topic: article
 ms.assetid: eac31beb-0f46-4afa-9def-e80904dea4f0
 ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: 1379b9fb638f67896d88d7aa4312d95280ef7318
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4d3dc028ff67d0a9cfa03627b5f98f6541ecfff8
+ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 <a name="supported-platforms"></a>サポートされているプラットフォーム
 ====================
@@ -37,8 +37,9 @@ ms.lasthandoff: 01/30/2018
 
 ### <a name="supported-server-operating-systems"></a>サポートされているサーバー オペレーティング システム
 
-次のサーバーまたはクライアントのオペレーティング システムでは、SignalR のサーバー コンポーネントをホストすることができます。 SignalR Websocket を使用するの Windows Server 2012 または Windows 8 が必要です (WebSocket 使えます Windows Azure Web サイトで、サイトの .NET framework バージョン 4.5 に設定されており、Web ソケットが、サイトの構成 ページで有効になっている限り)。
+次のサーバーまたはクライアントのオペレーティング システムでは、SignalR のサーバー コンポーネントをホストすることができます。 SignalR Websocket を使用するの Windows Server 2012、Windows Server 2016 または Windows 8 が必要です (WebSocket 使えます Windows Azure Web サイトで、サイトの .NET framework のバージョンが 4.5 に設定されているし、サイトの [Web ソケットが有効になっている限り、構成] ページ)。
 
+- Windows Server 2016
 - Windows Server 2012
 - Windows Server 2008 r2
 - Windows 10
@@ -125,12 +126,12 @@ SignalR は、Windows ストア アプリケーションと Windows Phone 8 ア�
 
 **Windows ストアおよび Windows Phone のトランスポートの要件**
 
-| Transport | Windows ストア/.NET | Windows ストア/JavaScript | Windows Phone/ IE | Windows Phone/ .NET |
+| Transport | Windows ストア/.NET | Windows ストア/JavaScript | Windows Phone/IE | Windows Phone/ .NET |
 | --- | --- | --- | --- | --- |
-| WebSocket | N/A | Win8+ | 8+ | N/A |
-| 無限フレーム | N/A | Win8+ | 7.5+ | N/A |
-| サーバー送信イベント | Win8+ | N/A | N/A | 8+ |
-| ポーリング時間の長い | Win8+ | Win8+ | 7.5+ | 8+ |
+| WebSocket | N/A | Win8 + | 8+ | N/A |
+| 無限フレーム | N/A | Win8 + | 7.5+ | N/A |
+| サーバー送信イベント | Win8 + | N/A | N/A | 8+ |
+| ポーリング時間の長い | Win8 + | Win8 + | 7.5+ | 8+ |
 
 <a id="updates"></a>
 

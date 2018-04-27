@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 320409cd395384a608a07307a56d18105d45de14
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ded549109ca6e7ad806f1c3f53387766527e5a94
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>ASP.NET Web API の rest ベースの Api をビルドします。
 ====================
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/06/2018
 > 近年、HTTP が HTML ページを提供しているだけではなく、明確になりました。 さらに、いくつかの単純な概念など、いくつかの動詞 (GET、POST、およびなど) を使用して、Web Api を構築するための強力なプラットフォームではも*Uri*と*ヘッダー*です。 ASP.NET Web API は、一連の HTTP プログラミングを簡略化するコンポーネントです。 ASP.NET MVC ランタイム上に用意されているので Web API は、HTTP の低レベルのトランスポートの詳細を自動的に処理します。 同時に、Web API は必然的に HTTP プログラミング モデルを公開します。 Web API の 1 つの目標が、実際には、*いない*実際に HTTP で抽象化します。 その結果、Web API には、柔軟で簡単に拡張の両方ができます。 このハンズオン ラボでは、Web API を使用して、連絡先のマネージャー アプリケーション用の単純な REST API を構築します。 また、API を使用するクライアントをビルドします。 REST アーキテクチャ スタイルが実証されて HTTP - を活用する効果的な方法は確実にありませんが HTTP の唯一の有効なアプローチです。 連絡先のマネージャーを一覧表示する、追加、およびその他の連絡先を削除する RESTful を公開します。 このラボでは、HTTP、REST の基本的な知識が必要で、、HTML、JavaScript、および jQuery の基本的な知識が必要です。
 > 
 > > [!NOTE]
-> > ASP.NET Web サイトで ASP.NET Web API フレームワークに専用の領域がある[ [ https://asp.net/web-api ](https://asp.net/web-api)](https://asp.net/web-api)です。 このサイトは引き続き最新情報、サンプル、および Web API に関連するニュース確認して、頻繁を提供するかどうかは、事実上あらゆるデバイスや開発フレームワークに使用できるカスタムの Web Api の作成の手法をさらに掘り下げてたいです。
+> > ASP.NET Web サイトで ASP.NET Web API フレームワークに専用の領域がある[ https://asp.net/web-api](https://asp.net/web-api)です。 このサイトは引き続き最新情報、サンプル、および Web API に関連するニュース確認して、頻繁を提供するかどうかは、事実上あらゆるデバイスや開発フレームワークに使用できるカスタムの Web Api の作成の手法をさらに掘り下げてたいです。
 > > 
 > > ASP.NET Web API、ASP.NET MVC 4 に似ていますが、比較的簡単に利用可能な依存性の注入フレームワークのいくつか使用できるため、コント ローラーから、サービス レイヤーを分離する観点からは非常に柔軟です。 Msdn からダウンロード可能な ASP.NET Web API プロジェクトの依存関係の挿入に Ninject を使用する方法を示す良い例がある[ここ](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7)です。
 > 
@@ -53,7 +53,7 @@ ms.lasthandoff: 04/06/2018
 
 **コード スニペットをインストールします。**
 
-便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。 実行のコード スニペットをインストールする**.\Source\Setup\CodeSnippets.vsi**ファイル。
+便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。 実行のコード スニペットをインストールする **.\Source\Setup\CodeSnippets.vsi**ファイル。
 
 このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 a: を使用してコード スニペット](#AppendixA)&quot;です。
 
@@ -87,12 +87,12 @@ ms.lasthandoff: 04/06/2018
 このタスクでは、新しい ASP.NET web プロジェクト テンプレートを使用して Web API の web アプリケーションを作成します。
 
 1. 実行**Visual Studio 2012 の Express for Web**を参照してください**開始**および種類**VS Express for Web**キーを押します**Enter**です。
-2. **ファイル**メニューの **新しいプロジェクト**です。 選択、 **Visual c# |Web**プロジェクトの種類がプロジェクトの種類のツリー ビューから、選択、 **ASP.NET MVC 4 Web Application**プロジェクトの種類。 プロジェクトの設定**名前**に*ContactManager*と**ソリューション名**に*開始*、順にクリックして**[ok]**.
+2. **ファイル**メニューの **新しいプロジェクト**です。 選択、 **Visual c# |Web**プロジェクトの種類がプロジェクトの種類のツリー ビューから、選択、 **ASP.NET MVC 4 Web Application**プロジェクトの種類。 プロジェクトの設定**名前**に*ContactManager*と**ソリューション名**に*開始*、順にクリックして **[ok]**.
 
     ![新しい ASP.NET MVC 4.0 Web アプリケーション プロジェクトを作成する](build-restful-apis-with-aspnet-web-api/_static/image1.png "新しい ASP.NET MVC 4.0 Web アプリケーション プロジェクトを作成します。")
 
     *新しい ASP.NET MVC 4.0 Web アプリケーション プロジェクトを作成します。*
-3. ASP.NET MVC 4 プロジェクトの種類 ダイアログ ボックスで、選択、 **Web API**プロジェクトの種類。 **[OK]**をクリックします。
+3. ASP.NET MVC 4 プロジェクトの種類 ダイアログ ボックスで、選択、 **Web API**プロジェクトの種類。 **[OK]** をクリックします。
 
     ![Web API プロジェクトの種類を指定する](build-restful-apis-with-aspnet-web-api/_static/image2.png "Web API プロジェクトの種類を指定します。")
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 04/06/2018
 
 このタスクでは、API のメソッドが存在するコント ローラー クラスを作成します。
 
-1. 右クリックし、**モデル**フォルダーと選択**追加 |クラス.**コンテキスト メニュー。
+1. 右クリックし、**モデル**フォルダーと選択**追加 |クラス.** コンテキスト メニュー。
 
     ![Web アプリケーションに新しいモデルを追加する](build-restful-apis-with-aspnet-web-api/_static/image10.png "web アプリケーションに新しいモデルを追加します。")
 
@@ -210,7 +210,7 @@ ms.lasthandoff: 04/06/2018
     ![作成サービス フォルダー](build-restful-apis-with-aspnet-web-api/_static/image14.png "サービスを作成するフォルダー")
 
     *サービスのフォルダーを作成します。*
-2. 右クリックし、 **Services**フォルダーと選択**追加 |クラス.**コンテキスト メニュー。
+2. 右クリックし、 **Services**フォルダーと選択**追加 |クラス.** コンテキスト メニュー。
 
     ![サービス フォルダーに新しいクラスを追加する](build-restful-apis-with-aspnet-web-api/_static/image15.png "Services フォルダーに新しいクラスを追加します。")
 
@@ -291,7 +291,7 @@ ms.lasthandoff: 04/06/2018
 このタスクでは、ユーザー入力を受け付けることができるように、手順 1 で作成した Web API プロジェクトを強化するために準備します。
 
 1. 実行**Visual Studio 2012 の Express for Web**を参照してください**開始**および種類**VS Express for Web**キーを押します**Enter**です。
-2. 開く、**開始**ソリューションにある**ソース/Ex02-ReadWriteWebAPI/開始/**フォルダーです。 それ以外の場合、作業を続行できますを使用して、**終了**ソリューションは、前の手順を完了して取得します。
+2. 開く、**開始**ソリューションにある**ソース/Ex02-ReadWriteWebAPI/開始/** フォルダーです。 それ以外の場合、作業を続行できますを使用して、**終了**ソリューションは、前の手順を完了して取得します。
 
    1. 指定されたを開いた場合**開始**ソリューションでは、いくつか不足している NuGet パッケージをダウンロードする必要がある前にします。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
@@ -345,7 +345,7 @@ ms.lasthandoff: 04/06/2018
 このタスクでは、HTML ブラウザーで既存の連絡先の一覧を表示する要件をサポートする web アプリケーションの既定のインデックス ビューを変更します。
 
 1. 開く**Visual Studio 2012 の Express for Web**がまだ開いていない場合。
-2. 開く、**開始**ソリューションにある**ソース/Ex03-ConsumingWebAPI/開始/**フォルダーです。 それ以外の場合、作業を続行できますを使用して、**終了**ソリューションは、前の手順を完了して取得します。
+2. 開く、**開始**ソリューションにある**ソース/Ex03-ConsumingWebAPI/開始/** フォルダーです。 それ以外の場合、作業を続行できますを使用して、**終了**ソリューションは、前の手順を完了して取得します。
 
    1. 指定されたを開いた場合**開始**ソリューションでは、いくつか不足している NuGet パッケージをダウンロードする必要がある前にします。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
@@ -652,7 +652,7 @@ ASP.NET Web サイトで ASP.NET Web API フレームワークに専用の領域
     *Web 配置の構成*
 5. 次のように、データベースの接続を構成します。
 
-   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:*プレフィックス。
+   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:* プレフィックス。
    - **ユーザー名**サーバー管理者のログイン名を入力します。
    - **パスワード**サーバー管理者のログイン パスワードを入力します。
    - たとえば、新しいデータベース名を入力: *MVC4SampleDB*です。
@@ -660,12 +660,12 @@ ASP.NET Web サイトで ASP.NET Web API フレームワークに専用の領域
      ![対象の接続文字列を構成する](build-restful-apis-with-aspnet-web-api/_static/image55.png "対象の接続文字列を構成します。")
 
      *対象の接続文字列を構成します。*
-6. 次に、 **[OK]**をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
+6. 次に、 **[OK]** をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
 
     ![データベースを作成する](build-restful-apis-with-aspnet-web-api/_static/image56.png "データベース文字列を作成します。")
 
     *データベースの作成*
-7. 接続の既定のテキスト ボックス内では、Windows azure SQL データベースへの接続に使用する接続文字列が表示されます。 その後、 **[次へ]**をクリックします。
+7. 接続の既定のテキスト ボックス内では、Windows azure SQL データベースへの接続に使用する接続文字列が表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](build-restful-apis-with-aspnet-web-api/_static/image57.png "SQL データベースを指す接続文字列")
 

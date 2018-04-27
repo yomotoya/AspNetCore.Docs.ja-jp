@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: fb833ef8797ea7851cbaf53bb5681df248d07a49
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1500f026c245f80de4120d6db4901cb117552966
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Azure App Service と ASP.NET Core を使用した IIS の一般的なエラーのリファレンス
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 04/06/2018
 
 トラブルシューティング:
 
-* サーバー ホスティング バンドルのインストール時にインストーラーがインターネットにアクセスできない場合、インストーラーは *Microsoft Visual C++ 2015 再頒布可能パッケージ*を取得できず、この例外が発生します。 インストーラーを取得、 [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)です。 インストーラーが失敗した場合、サーバーがフレームワークに依存する展開 (FDD) をホストするために、.NET Core ランタイムを受信しません。 場合は、FDD をホストするには、プログラムで、ランタイムがインストールされていることを確認&amp;機能します。 必要な場合からランタイム インストーラーを入手[.NET のすべてのダウンロード](https://www.microsoft.com/net/download/all)です。 ランタイムのインストール後、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
+* システムがインターネットにアクセスをホストしているバンドルをインストールするときに、この例外が発生、インストーラーが取得できない場合に、 *Microsoft Visual C 2015 Redistributable*です。 インストーラーを取得、 [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)です。 インストーラーが失敗した場合、サーバーがフレームワークに依存する展開 (FDD) をホストするために、.NET Core ランタイムを受信しません。 場合は、FDD をホストするには、プログラムで、ランタイムがインストールされていることを確認&amp;機能します。 必要な場合からランタイム インストーラーを入手[.NET のすべてのダウンロード](https://www.microsoft.com/net/download/all)です。 ランタイムのインストール後、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
 
 ## <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>OS のアップグレードによって 32 ビット ASP.NET Core モジュールが削除された
 
@@ -50,15 +50,15 @@ ms.lasthandoff: 04/06/2018
 
 トラブルシューティング:
 
-* **C:\Windows\SysWOW64\inetsrv** ディレクトリにある OS ファイルでないファイルは、OS アップグレード時に保持されません。 前に、ASP.NET Core モジュールがインストールされている場合、OS のアップグレードと任意の AppPool し、実行 32 ビット モードで OS のアップグレード後に、この問題が発生しました。 OS アップグレード後に ASP.NET Core モジュールを修復してください。 「[.NET Core Windows Server ホスティング バンドルのインストール](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle)」を参照してください。 選択**修復**インストーラーを実行するとします。
+* **C:\Windows\SysWOW64\inetsrv** ディレクトリにある OS ファイルでないファイルは、OS アップグレード時に保持されません。 前に、ASP.NET Core モジュールがインストールされている場合、OS のアップグレードと任意の AppPool し、実行 32 ビット モードで OS のアップグレード後に、この問題が発生しました。 OS アップグレード後に ASP.NET Core モジュールを修復してください。 参照してください[.NET Core のホストのバンドルをインストール](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle)です。 選択**修復**インストーラーを実行するとします。
 
 ## <a name="platform-conflicts-with-rid"></a>プラットフォームが RID と競合している
 
 * **ブラウザー:** HTTP エラー 502.5 - 処理エラー
 
-* **アプリケーション ログ:**アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\{パス}\' commandline でプロセスを開始できませんでした '"c:\\{パス} {アセンブリ} です {。exe | dll}"'、エラー コード = ' 0x80004005: ff します。
+* **アプリケーション ログ:** アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\{パス}\' commandline でプロセスを開始できませんでした '"c:\\{パス} {アセンブリ} です {。exe | dll}"'、エラー コード = ' 0x80004005: ff します。
 
-* **ASP.NET Core モジュールのログ:**未処理の例外: System.BadImageFormatException: を読み込めませんでしたファイルまたはアセンブリ '{アセンブリ} .dll' です。 正しくない形式のプログラムを読み込もうとしました。
+* **ASP.NET Core モジュールのログ:** 未処理の例外: System.BadImageFormatException: を読み込めませんでしたファイルまたはアセンブリ '{アセンブリ} .dll' です。 正しくない形式のプログラムを読み込もうとしました。
 
 トラブルシューティング:
 
@@ -114,15 +114,15 @@ ms.lasthandoff: 04/06/2018
 
 * 適切なロールが有効になっていることを確認します。 「[IIS 構成](xref:host-and-deploy/iis/index#iis-configuration)」を参照してください。
 
-* **[プログラムと機能]** をチェックし、**Microsoft ASP.NET Core モジュール**がインストールされていることを確認します。 インストールされているプログラムの一覧に **Microsoft ASP.NET Core モジュール**が表示されない場合は、モジュールをインストールします。 「[.NET Core Windows Server ホスティング バンドルのインストール](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle)」を参照してください。
+* **[プログラムと機能]** をチェックし、**Microsoft ASP.NET Core モジュール**がインストールされていることを確認します。 インストールされているプログラムの一覧に **Microsoft ASP.NET Core モジュール**が表示されない場合は、モジュールをインストールします。 参照してください[バンドルをホストしている .NET Core のインストール](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle)です。
 
 * 確認して、**アプリケーション プール** > **プロセス モデル** > **Identity**に設定されている**ApplicationPoolIdentity**またはカスタム id は、アプリの配置フォルダーにアクセスする適切なアクセス許可を持っています。
 
-## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>processPath の誤り、PATH 変数の欠如、ホスティング バンドルが未インストール、システムまたは IIS が再起動されていない、VC++ 再頒布可能パッケージが未インストール、dotnet.exe アクセス違反
+## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>正しくない processPath、不足しているパス変数をホストしているバンドルがインストールされていない、システムと IIS の再起動されません、vc++ 再頒布可能パッケージがインストールされていないまたは dotnet.exe アクセス違反
 
 * **ブラウザー:** HTTP エラー 502.5 - 処理エラー
 
-* **アプリケーションのログ:**アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\\{PATH}\' commandline でプロセスを開始できませんでした '".\{アセンブリ} .exe"'、エラー コード = ' 0x80070002: 0。
+* **アプリケーションのログ:** アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\\{PATH}\' commandline でプロセスを開始できませんでした '".\{アセンブリ} .exe"'、エラー コード = ' 0x80070002: 0。
 
 * **ASP.NET Core モジュールのログ:** ログ ファイルが作成されましたが空です
 
@@ -130,7 +130,7 @@ ms.lasthandoff: 04/06/2018
 
 * Kestrel でアプリをローカルに実行できることを確認します。 プロセスのエラーは、アプリ内の問題の結果である可能性があります。 詳細については、次を参照してください。[トラブルシューティング](xref:host-and-deploy/iis/troubleshoot)です。
 
-* チェック、 *processPath*属性を`<aspNetCore>`内の要素*web.config*であることを確認する*dotnet*フレームワークに依存する展開 (FDD) または*.\{アセンブリ} .exe*自己完結型の展開 (SCD)。
+* チェック、 *processPath*属性を`<aspNetCore>`内の要素*web.config*であることを確認する*dotnet*フレームワークに依存する展開 (FDD) または *.\{アセンブリ} .exe*自己完結型の展開 (SCD)。
 
 * FDD の場合、PATH 設定で *dotnet.exe* にアクセスできていない可能性があります。 *C:\Program Files\dotnet\* がシステムの PATH 設定に含まれていることを確認します。
 
@@ -138,17 +138,17 @@ ms.lasthandoff: 04/06/2018
 
 * FDD が配置されているし、IIS を再起動しなくても .NET Core がインストールされています。 サーバーを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
 
-* ホスト システムに、.NET Core ランタイムをインストールしなくても、FDD が展開された可能性があります。 .NET Core ランタイムがインストールされていない場合は、実行、 **.NET コア Windows Server をホストしているバンドル インストーラー**システムにします。 「[.NET Core Windows Server ホスティング バンドルのインストール](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle)」を参照してください。 場合は、インターネット接続のないシステムで、.NET Core ランタイムをインストールしようとすると、取得、ランタイムから[.NET のすべてのダウンロード](https://www.microsoft.com/net/download/all)ASP.NET Core モジュールをインストールするホスティング バンドル installer を実行します。 インストールを完了するために、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
+* ホスト システムに、.NET Core ランタイムをインストールしなくても、FDD が展開された可能性があります。 .NET Core ランタイムがインストールされていない場合は、実行、 **.NET Core をホストしているバンドル インストーラー**システムにします。 参照してください[バンドルをホストしている .NET Core のインストール](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle)です。 場合は、インターネット接続のないシステムで、.NET Core ランタイムをインストールしようとすると、取得、ランタイムから[.NET のすべてのダウンロード](https://www.microsoft.com/net/download/all)ASP.NET Core モジュールをインストールするバンドルをホストしているインストーラーを実行しています。 インストールを完了するために、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
 
-* FDD が配置されていると、 *Microsoft Visual C 2015 Redistributable (x64)*システムがインストールされていません。 インストーラーを取得、 [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)です。
+* FDD が配置されていると、 *Microsoft Visual C 2015 Redistributable (x64)* システムがインストールされていません。 インストーラーを取得、 [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)です。
 
 ## <a name="incorrect-arguments-of-aspnetcore-element"></a>\<aspNetCore\> 要素の引数の誤り
 
 * **ブラウザー:** HTTP エラー 502.5 - 処理エラー
 
-* **アプリケーションのログ:**アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\\{PATH}\' commandline でプロセスを開始できませんでした '"dotnet".\{アセンブリ} .dll '、エラー コード = ' 0x80004005: 80008081 です。
+* **アプリケーションのログ:** アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\\{PATH}\' commandline でプロセスを開始できませんでした '"dotnet".\{アセンブリ} .dll '、エラー コード = ' 0x80004005: 80008081 です。
 
-* **ASP.NET Core モジュールのログ:**を実行するアプリケーションは存在しません: ' パス\{アセンブリ} .dll '
+* **ASP.NET Core モジュールのログ:** を実行するアプリケーションは存在しません: ' パス\{アセンブリ} .dll '
 
 トラブルシューティング:
 
@@ -186,7 +186,7 @@ ms.lasthandoff: 04/06/2018
 
 * **ブラウザー:** HTTP エラー 502.5 - 処理エラー
 
-* **アプリケーションのログ:**アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\\{PATH}\' commandline でプロセスを作成 '"c:\\{PATH}\{アセンブリ} です {。exe | dll}"' がクラッシュまたは応答がありませんでしたまたは指定されたポート {ポート}、ErrorCode でリッスンできませんでした '0x800705b4' を =
+* **アプリケーションのログ:** アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\\{PATH}\' commandline でプロセスを作成 '"c:\\{PATH}\{アセンブリ} です {。exe | dll}"' がクラッシュまたは応答がありませんでしたまたは指定されたポート {ポート}、ErrorCode でリッスンできませんでした '0x800705b4' を =
 
 * **ASP.NET Core モジュールのログ:** ログ ファイルが作成され、正常動作を示しています。
 
@@ -206,7 +206,7 @@ ms.lasthandoff: 04/06/2018
 
 * **アプリケーション ログ:** エントリはありません
 
-* **ASP.NET Core モジュールのログ:**ログ ファイルが作成され、ルート アプリケーションの通常の操作を示します。 ログ ファイルが sub アプリ用に作成されません。
+* **ASP.NET Core モジュールのログ:** ログ ファイルが作成され、ルート アプリケーションの通常の操作を示します。 ログ ファイルが sub アプリ用に作成されません。
 
 トラブルシューティング
 
@@ -214,9 +214,9 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="stdout-log-path-incorrect"></a>標準出力ログのパスが正しくありません。
 
-* **ブラウザー:**アプリが通常どおりに応答します。
+* **ブラウザー:** アプリが通常どおりに応答します。
 
-* **アプリケーションのログ:**警告: stdoutLogFile を作成できませんでした\\? \C:\_apps\app_folder\bin\Release\netcoreapp2.0\win10-x64\publish\logs\path_doesnt_exist\stdout_8748_201831835937.log、ErrorCode = -。2147024893 です。
+* **アプリケーションのログ:** 警告: stdoutLogFile を作成できませんでした\\? \C:\_apps\app_folder\bin\Release\netcoreapp2.0\win10-x64\publish\logs\path_doesnt_exist\stdout_8748_201831835937.log、ErrorCode = -。2147024893 です。
 
 * **ASP.NET Core モジュールのログ:** ログ ファイルは作成されません
 
@@ -228,7 +228,7 @@ ms.lasthandoff: 04/06/2018
 
 * **ブラウザー:** HTTP エラー 502.5 - 処理エラー
 
-* **アプリケーションのログ:**アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\\{PATH}\' commandline でプロセスを作成 '"c:\\{PATH}\{アセンブリ} です {。exe | dll}"' がクラッシュまたは応答がありませんでしたまたは指定されたポート {ポート}、ErrorCode でリッスンできませんでした '0x800705b4' を =
+* **アプリケーションのログ:** アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\\{PATH}\' commandline でプロセスを作成 '"c:\\{PATH}\{アセンブリ} です {。exe | dll}"' がクラッシュまたは応答がありませんでしたまたは指定されたポート {ポート}、ErrorCode でリッスンできませんでした '0x800705b4' を =
 
 * **ASP.NET Core モジュールのログ:** ログ ファイルが作成されましたが空です
 

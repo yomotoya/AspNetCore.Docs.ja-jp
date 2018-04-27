@@ -10,18 +10,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: 81244cfb71194876071c64899d627c296aad3802
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ada8120189baf036296b83f91d20b364ee90d074
+ms.sourcegitcommit: 07903a1be39a99dcf538d57981161592d0e658b8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET Core での Bower でクライアント側のパッケージを管理します。
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)、[ノエル ライス](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)、および[Scott Addie](https://scottaddie.com) 
 
 > [!IMPORTANT]
-> Bower を保持したまま、別のソリューションを使用して、管理者がお勧めします。 Webpack で yarn を 1 つの一般的な代替手段は、[移行手順](https://bower.io/blog/2017/how-to-migrate-away-from-bower/)を利用できます。
+> Bower を保持したまま、別のソリューションを使用して、管理者がお勧めします。 [ライブラリ マネージャー](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (略して LibMan) は、Visual Studio の新しいクライアント側の静的なコンテンツ管理システムです。 Webpack で yarn を 1 つの一般的な代替手段は、[移行手順](https://bower.io/blog/2017/how-to-migrate-away-from-bower/)を利用できます。
 
 [Bower](https://bower.io/) 「web のパッケージ マネージャー」自体を呼び出します。 .NET エコシステム内では、NuGet の静的なコンテンツ ファイルを配信できないことによってまま void が挿入されます。 ASP.NET Core プロジェクトでは、これらの静的ファイルはのようにクライアント側のライブラリに固有[jQuery](http://jquery.com/)と[ブートス トラップ](http://getbootstrap.com/)です。 .NET ライブラリを使用することも[NuGet](https://www.nuget.org/)パッケージ マネージャーです。
 
@@ -33,11 +33,11 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="installation-via-manage-bower-packages-ui"></a>Bower パッケージの管理 UI を使用してインストール
 
-* 新しい ASP.NET Core Web アプリを作成、 **ASP.NET Core Web アプリケーション (.NET Core)**テンプレート。 選択**Web アプリケーション**と**認証なし**です。
+* 新しい ASP.NET Core Web アプリを作成、 **ASP.NET Core Web アプリケーション (.NET Core)** テンプレート。 選択**Web アプリケーション**と**認証なし**です。
 
 * ソリューション エクスプ ローラーでプロジェクトを右クリックし  **Bower パッケージの管理**(また、メイン メニューから**プロジェクト** > **Bowerパッケージの管理**).
 
-* **Bower:\<プロジェクト名\>**ウィンドウで、「参照」 タブをクリックし、入力することで、パッケージ の一覧をフィルター`font-awesome`検索ボックスに。
+* **Bower:\<プロジェクト名\>** ウィンドウで、「参照」 タブをクリックし、入力することで、パッケージ の一覧をフィルター`font-awesome`検索ボックスに。
 
   ![bower パッケージを管理します。](bower/_static/manage-bower-packages.png)
 
@@ -90,7 +90,7 @@ Bower でクライアント側のビルド プロセスを使用する一般的�
 
 パッケージを一覧表示した後、 *bower.json*ファイル、Visual Studio がダウンロードされます。 次の例で Bower を使用して jQuery とブートス トラップを読み込む、 *wwwroot*フォルダーです。
 
-* 新しい ASP.NET Core Web アプリを作成、 **ASP.NET Core Web アプリケーション (.NET Core)**テンプレート。 選択、**空**プロジェクト テンプレートとクリック**OK**です。
+* 新しい ASP.NET Core Web アプリを作成、 **ASP.NET Core Web アプリケーション (.NET Core)** テンプレート。 選択、**空**プロジェクト テンプレートとクリック**OK**です。
 
 * ソリューション エクスプ ローラーでプロジェクトを右クリックして >**新しい項目の追加**選択**Bower 構成ファイル**です。 注: A *.bowerrc*ファイルも追加します。
 
