@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 572b263a5f968b473457771a1dd4075910218c01
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a3527b54d1936bc14e32a1828ac3a2be625107ba
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要
 ====================
@@ -179,7 +179,7 @@ PayPal から返された後、は、確認し、注文を完了できます。
 
 ダウンロードが、 <em>.zip</em>ファイル。 このチュートリアルのシリーズを作成する、完成したプロジェクトで検索と選択を表示する、 <em>c#</em>内のフォルダー、 <em>.zip</em>ファイル。 保存、 <em>c#</em>フォルダーに Visual Studio 2013 プロジェクトの作業を使用するフォルダーです。 既定では、Visual Studio 2013 プロジェクト フォルダーは次のよう
 
-<strong>C:\Users\</strong><strong><em>&lt;username&gt;</em></strong><strong>\Documents\Visual Studio 2013\Projects</strong>
+<strong>C:\Users&#92;</strong><strong><em>&lt;username&gt;</em></strong><strong>\Documents\Visual Studio 2013\Projects</strong>
 
 名前を変更、 ***c#*** フォルダー ***WingtipToys***です。
 
