@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 64eb85f75a6c2e10bf8c39f32eeda5311744f2a2
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.openlocfilehash: 9f164b6e1f3cc520b704cbb5ffdaadb99cebdc57
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
@@ -25,9 +25,7 @@ ms.lasthandoff: 04/03/2018
 次のオペレーティング システムがサポートされています。
 
 * Windows 7 以降
-* Windows Server 2008 R2 以降&#8224;
-
-&#8224;概念的には、このドキュメントで説明する IIS 構成は、Nano Server IIS で ASP.NET Core アプリをホストする場合にも当てはまります。 Nano Server に固有の手順については、「[Nano Server の ASP.NET Core と IIS](xref:tutorials/nano-server)」チュートリアルを参照してください。
+* Windows Server 2008 R2 以降
 
 [HTTP.sys サーバー](xref:fundamentals/servers/httpsys) (以前の名称は [WebListener](xref:fundamentals/servers/weblistener)) が、IIS を含むリバース プロキシ構成で動作しません。 [Kestrel サーバー](xref:fundamentals/servers/kestrel)を使用します。
 
@@ -45,7 +43,7 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
-ASP.NET Core モジュールは、バックエンド プロセスに割り当てる動的なポートを生成します。 `UseIISIntegration` メソッドは、この動的なポートを取得すると共に、`http://locahost:{dynamicPort}/` をリッスンするように Kestrel を構成します。 これにより、`UseUrls` または [Kestrel の Listen API](xref:fundamentals/servers/kestrel#endpoint-configuration) の呼び出しなど、その他の URL 構成が上書きされます。 そのため、モジュールを使用するときに、`UseUrls` または Kestrel の `Listen` API の呼び出しは必要ありません。 `UseUrls` または `Listen` が呼び出されると、IIS なしでアプリを実行するときに指定されたポートで Kestrel が受信を待機します。
+ASP.NET Core モジュールは、バックエンド プロセスに割り当てる動的なポートを生成します。 `UseIISIntegration` メソッドは、この動的なポートを取得すると共に、`http://localhost:{dynamicPort}/` をリッスンするように Kestrel を構成します。 これにより、`UseUrls` または [Kestrel の Listen API](xref:fundamentals/servers/kestrel#endpoint-configuration) の呼び出しなど、その他の URL 構成が上書きされます。 そのため、モジュールを使用するときに、`UseUrls` または Kestrel の `Listen` API の呼び出しは必要ありません。 `UseUrls` または `Listen` が呼び出されると、IIS なしでアプリを実行するときに指定されたポートで Kestrel が受信を待機します。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -169,15 +167,15 @@ ASP.NET Core アプリは、IIS と Kestrel サーバー間のリバース プ�
 
 ---
 
-## <a name="install-the-net-core-windows-server-hosting-bundle"></a>.NET Core Windows Server ホスティング バンドルのインストール
+## <a name="install-the-net-core-hosting-bundle"></a>.NET Core ホスティング バンドルのインストール
 
-1. ホスティング システムに *.NET Core Windows Server ホスティング バンドル*をインストールします。 このバンドルをインストールすることで、.NET Core ランタイム、.NET Core ライブラリ、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がインストールされます。 このモジュールは、IIS と Kestrel サーバーの間にリバース プロキシを作成します。 システムにインターネット接続が設定されていない場合は、.NET Core Windows Server ホスティング バンドルをインストールする前に、[Microsoft Visual C++ 2015 再頒布可能パッケージ](https://www.microsoft.com/download/details.aspx?id=53840)を入手してインストールしてください。
+1. ホスティング システムに *.NET Core ホスティング バンドル*をインストールします。 このバンドルをインストールすることで、.NET Core ランタイム、.NET Core ライブラリ、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がインストールされます。 このモジュールは、IIS と Kestrel サーバーの間にリバース プロキシを作成します。 システムにインターネット接続が設定されていない場合は、.NET Core ホスティング バンドルをインストールする前に、[Microsoft Visual C++ 2015 再頒布可能パッケージ](https://www.microsoft.com/download/details.aspx?id=53840)を入手してインストールしてください。
 
    1. [.NET の「All Downloads」のページ](https://www.microsoft.com/net/download/all)に移動します。
    1. 一覧からプレビューではない最新の .NET Core ランタイム (**[.NET Core]** > **[ランタイム]** > **[.NET Core ランタイム x.y.z]**) を選択します。 プレビュー ソフトウェアと連携する予定がなければ、リンク テキストに "preview" という単語が含まれているランタイムを避けてください。
-   1. **Windows** の .NET Core のランタイムのダウンロード ページで、**サーバー ホスティング インストーラー**のリンクを選択して、*.NET Core Windows Server ホスティング バンドル*をダウンロードします。
+   1. **Windows** の .NET Core のランタイムのダウンロード ページで、**ホスティング バンドル インストーラー**のリンクを選択して、*.NET Core ホスティング バンドル*をダウンロードします。
 
-   **重要**。 ホスティングのバンドルが IIS の前にインストールされている場合、バンドルのインストールを修復する必要があります。 IIS をインストールした後に、ホスティングのバンドルインストーラーをもう一度実行します。
+   **重要**。 ホスティング バンドルが IIS の前にインストールされている場合、バンドルのインストールを修復する必要があります。 IIS をインストールした後に、ホスティング バンドル インストーラーをもう一度実行します。
    
    インストーラーが x86 パッケージを x64 OS 上にインストールしないようにするために、スイッチ `OPT_NO_X86=1` を使用して管理者のコマンド プロンプトからインストーラーを実行します。
 
@@ -196,7 +194,8 @@ ASP.NET Core アプリは、IIS と Kestrel サーバー間のリバース プ�
 
 1. 新しいフォルダー内で、stdout ログが有効になっている場合に ASP.NET Core Module stdout ログを保持するための *logs* フォルダーを作成します。 ペイロードに *logs* フォルダーを含めてアプリを配置する場合は、この手順をスキップします。 プロジェクトがローカルでビルドされるときに、MSBuild を有効にして、*logs* フォルダーを自動的に作成する手順については、「[ディレクトリ構造](xref:host-and-deploy/directory-structure)」のトピックを参照してください。
 
-   **重要**。 stdout ログは、アプリケーションの起動エラーのトラブルシューティングにのみ使用します。 日常的なアプリのログ記録に、stdout ログを使用しないでください。 ログ ファイルのサイズまたは作成されるログ ファイルの数に制限はありません。 stdout ログの詳細については、「[Log creation and redirection](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection)」(ログの作成とリダイレクト) を参照してください。 ASP.NET Core アプリケーションのログ記録の詳細については、「[ログ](xref:fundamentals/logging/index)」のトピックを参照してください。
+   > [!IMPORTANT]
+   > stdout ログは、アプリケーションの起動エラーのトラブルシューティングにのみ使用します。 日常的なアプリのログ記録に、stdout ログを使用しないでください。 ログ ファイルのサイズまたは作成されるログ ファイルの数に制限はありません。 アプリケーション プールは、ログが書き込まれる場所への書き込みアクセス権を持っている必要があります。 ログの場所へのパス上のフォルダーがすべて存在する必要があります。 stdout ログの詳細については、「[Log creation and redirection](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection)」(ログの作成とリダイレクト) を参照してください。 ASP.NET Core アプリケーションのログ記録の詳細については、「[ログ](xref:fundamentals/logging/index)」のトピックを参照してください。
 
 1. **IIS マネージャー**の **[接続]** パネルでサーバーのノードを開きます。 **[サイト]** フォルダーを右クリックします。 コンテキスト メニューで **[Web サイトの追加]** を選択します。
 
@@ -242,6 +241,8 @@ Visual Studio の外部で、コマンド ラインから [Web 配置](/iis/publ
 
 手動コピー、Xcopy、Robocopy、PowerShell などの任意の方法を使用して、ホスティング システムにアプリを移動します。
 
+IIS への ASP.NET Core の展開の詳細については、「[IIS 管理者用の展開リソース](#deployment-resources-for-iis-administrators)」を参照してください。
+
 ## <a name="browse-the-website"></a>Web サイトを閲覧する
 
 ![Microsoft Edge ブラウザーに IIS のスタートアップ ページが読み込まれています。](index/_static/browsewebsite.png)
@@ -250,7 +251,7 @@ Visual Studio の外部で、コマンド ラインから [Web 配置](/iis/publ
 
 アプリが実行中は、展開フォルダー内のファイルがロックされます。 展開中にロックされたファイルを上書きすることはできません。 展開でロックされているファイルをリリースするには、次の**いずれか**の方法を使用してアプリ プールを停止します。
 
-* Web 配置を使用し、プロジェクト ファイル内の `Microsoft.NET.Sdk.Web` を参照して停止します。 *app_offline.htm* ファイルは、Web アプリのディレクトリのルートに配置されます。 ファイルが存在する場合、ASP.NET Core モジュールはアプリを正常にシャットダウンし、展開中に *app_offline.htm* ファイルを提供します。 詳細については、「[ASP.NET Core モジュール構成リファレンス](xref:host-and-deploy/aspnet-core-module#appofflinehtm)」を参照してください。
+* Web 配置を使用し、プロジェクト ファイル内の `Microsoft.NET.Sdk.Web` を参照して停止します。 *app_offline.htm* ファイルは、Web アプリのディレクトリのルートに配置されます。 ファイルが存在する場合、ASP.NET Core モジュールはアプリを正常にシャットダウンし、展開中に *app_offline.htm* ファイルを提供します。 詳細については、「[ASP.NET Core モジュール構成リファレンス](xref:host-and-deploy/aspnet-core-module#app_offlinehtm)」を参照してください。
 * サーバー上の IIS マネージャーで手動によりアプリ プールを停止します。
 * PowerShell を使用して、アプリ プールを停止して再起動します (PowerShell 5 以降が必要)。
 
@@ -409,13 +410,34 @@ ICACLS C:\sites\MyWebApp /grant "IIS AppPool\DefaultAppPool":F
 
 詳細については、「[icacls](/windows-server/administration/windows-commands/icacls)」のトピックを参照してください。
 
+## <a name="deployment-resources-for-iis-administrators"></a>IIS 管理者用の展開リソース
+
+IIS ドキュメントでの IIS の詳細について説明します。  
+[IIS ドキュメント ](/iis)
+
+.NET Core アプリの展開モデルについて説明します。  
+[.NET Core アプリケーションの展開](/dotnet/core/deploying/)
+
+Kestrel Web サーバーが IIS または IIS Express をリバース プロキシ サーバーとして使用できるようにするための ASP.NET Core モジュールについて説明します。  
+[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)
+
+ASP.NET Core アプリをホストするための ASP.NET Core モジュールを構成する方法について説明します。  
+[ASP.NET Core モジュール構成リファレンス](xref:host-and-deploy/aspnet-core-module)
+
+発行された ASP.NET Core アプリのディレクトリ構造について説明します。  
+[ディレクトリの構造](xref:host-and-deploy/directory-structure)
+
+ASP.NET Core アプリに対してアクティブおよび非アクティブな IIS モジュールについて、さらに IIS モジュールの管理方法についてを把握します。  
+[IIS モジュール](xref:host-and-deploy/iis/troubleshoot)
+
+ASP.NET Core アプリの IIS 展開に関する問題を診断する方法について説明します。  
+[トラブルシューティング](xref:host-and-deploy/iis/troubleshoot)
+
+IIS で ASP.NET Core アプリをホストする場合の一般的なエラーを識別します。  
+[Azure App Service と IIS の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)
+
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [IIS での ASP.NET Core のトラブルシューティング](xref:host-and-deploy/iis/troubleshoot)
-* [Azure App Service および IIS と ASP.NET Core の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)
-* [ASP.NET Core モジュールの概要](xref:fundamentals/servers/aspnet-core-module)
-* [ASP.NET Core モジュール構成リファレンス](xref:host-and-deploy/aspnet-core-module)
-* [IIS モジュールと ASP.NET Core](xref:host-and-deploy/iis/modules)
-* [ASP.NET Core の概要](../index.md)
+* [ASP.NET Core の概要](xref:index)
 * [Microsoft IIS 公式サイト](https://www.iis.net/)
-* [Microsoft TechNet ライブラリ: Windows Server](/windows-server/windows-server-versions)
+* [Windows Server テクニカル コンテンツ ライブラリ](/windows-server/windows-server)

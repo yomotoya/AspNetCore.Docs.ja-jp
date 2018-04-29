@@ -1,22 +1,25 @@
 ---
 title: ASP.NET Core SignalR
 author: rachelappel
-description: ASP.NET Core SignalR に関連するトピックを検出します。
+description: ASP.NET Core SignalR に関連するトピックを探索します。
 manager: wpickett
+monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
-ms.date: 03/29/2018
+ms.date: 04/20/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/index
-ms.openlocfilehash: 5ec8d8d1ff7b49281857b0868c289dccf632736d
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
-ms.translationtype: MT
+ms.openlocfilehash: 5918b25f595bc545b020df7f020eee592c6045e7
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="aspnet-core-signalr"></a>ASP.NET Core SignalR
 
-* [ASP.NET Core 用 SignalR を概要します。](xref:signalr/get-started)
-* [ASP.NET Core の SignalR の概要](xref:signalr/introduction)
-* [SignalR Hubs](xref:signalr/hubs)
+* [開始するには](xref:signalr/get-started)
+* [はじめに](xref:signalr/introduction)
+* [ハブ](xref:signalr/hubs)
+* [JavaScript クライアント](xref:signalr/javascript-client)
+* [サポートされているプラットフォーム](xref:signalr/supported-platforms)

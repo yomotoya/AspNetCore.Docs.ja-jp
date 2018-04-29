@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: c2675f73880a41ee75f6ec13155419945387e109
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f53f77d342cc59094a80e8667db6ef345a6e8305
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のホスト
 
@@ -78,11 +78,11 @@ ASP.NET Core アプリを使用した Azure App Service の配置に関する問
 [Azure App Service および IIS と ASP.NET Core の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)  
 Azure App Service/IIS によってホストされるアプリの一般的な配置の構成エラーのトラブルシューティングに関するアドバイスを参照してください。
 
-## <a name="data-protection-key-ring-and-deployment-slots"></a>データ保護キー リングと展開スロット
+## <a name="data-protection-key-ring-and-deployment-slots"></a>データ保護キー リングとデプロイ スロット
 
-[データ保護キー](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management)は *%HOME%\ASP.NET\DataProtection-Keys* フォルダーに保存されます。 このフォルダーはネットワーク ストレージにバックアップされ、アプリをホストしているすべてのマシンで同期されています。 保存中のキーは保護されていません。 このフォルダーから、単一の展開スロットのアプリのすべてのインスタンスにキー リングが提供されます。 ステージングや運用などの別の展開スロットでは、キー リングが共有されません。
+[データ保護キー](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management)は *%HOME%\ASP.NET\DataProtection-Keys* フォルダーに保存されます。 このフォルダーはネットワーク ストレージにバックアップされ、アプリをホストしているすべてのマシンで同期されています。 保存中のキーは保護されていません。 このフォルダーから、単一のデプロイ スロットのアプリのすべてのインスタンスにキー リングが提供されます。 ステージングや運用などの別のデプロイ スロットでは、キー リングが共有されません。
 
-展開スロットを切り替えると、データ保護を使用しているすべてのシステムが前のスロット内のキー リングを使用して格納されたデータを復号化できなくなります。 ASP.NET Cookie ミドルウェアは、その Cookie の保護にデータ保護を使用します。 これにより、ユーザーが標準の ASP.NET Cookie ミドルウェアを使用するアプリからサインアウトします。 スロットに依存しないキー リング ソリューションの場合、次のような外部キー リング プロバイダーを使用します。
+デプロイ スロットを切り替えると、データ保護を使用しているすべてのシステムが前のスロット内のキー リングを使用して格納されたデータを復号化できなくなります。 ASP.NET Cookie ミドルウェアは、その Cookie の保護にデータ保護を使用します。 これにより、ユーザーが標準の ASP.NET Cookie ミドルウェアを使用するアプリからサインアウトします。 スロットに依存しないキー リング ソリューションの場合、次のような外部キー リング プロバイダーを使用します。
 
 * Azure Blob Storage
 * Azure Key Vault
@@ -95,14 +95,13 @@ Azure App Service/IIS によってホストされるアプリの一般的な配�
 
 ASP.NET Core プレビュー アプリは、次の方法で Azure App Service に展開できます。
 
-* [プレビュー サイト拡張機能をインストールする](#site-x)
-* [自己完結型アプリを展開する](#self)
-* [コンテナー用の Web アプリで Docker を使用する](#docker)
+* [プレビュー サイト拡張機能をインストールする](#install-the-preview-site-extension)
+* [自己完結型アプリを展開する](#deploy-the-app-self-contained)
+* [コンテナー用の Web アプリで Docker を使用する](#use-docker-with-web-apps-for-containers)
 
-プレビュー サイト拡張機能の使用に問題がある場合は、[GitHub](https://github.com/aspnet/azureintegration/issues/new) に問題を投稿してください。
+プレビュー サイト拡張機能の使用に関する問題が発生した場合は、[GitHub](https://github.com/aspnet/azureintegration/issues/new) に問題を投稿してください。
 
-<a name="site-x"></a>
-### <a name="install-the-preview-site-extention"></a>プレビュー サイト拡張機能をインストールする
+### <a name="install-the-preview-site-extension"></a>プレビュー サイト拡張機能をインストールする
 
 * Azure Portal から [App Service] ブレードに移動します。
 * 検索ボックスに「ex」と入力します。
@@ -111,10 +110,10 @@ ASP.NET Core プレビュー アプリは、次の方法で Azure App Service �
 
 ![前の手順の [Azure App] ブレード](index/_static/x1.png)
 
-* **[ASP.NET Core Runtime Extensions]\(ASP.NET Core ランタイム拡張機能\)** を選びます。
-* **[OK]** > **[OK]** の順に選びます。
+* **ASP.NET Core 2.1 (x86) ランタイム**または **ASP.NET Core 2.1 (x64) ランタイム**を選択します。
+* **[OK]** を選択します。 もう一度 **[OK]** を選択します。
 
-追加操作が完了すると、最新の .NET Core 2.1 プレビューがインストールされます。 コンソールで `dotnet --info` を実行すると、インストールを確認することができます。 [App Service] ブレードから: 
+追加操作が完了すると、最新の .NET Core 2.1 プレビューがインストールされます。 コンソールで `dotnet --info` を実行してインストールを確認します。 **[App Service]** ブレードから: 
 
 * 検索ボックスに「con」と入力します。
 * **[コンソール]** を選びます。
@@ -126,26 +125,24 @@ ASP.NET Core プレビュー アプリは、次の方法で Azure App Service �
 
 `dotnet --info` では、プレビューがインストールされているサイトの拡張機能へのパスが表示されます。 アプリが既定の *ProgramFiles* の場所ではなく、サイトの拡張機能から実行されていることが示されます。 *ProgramFiles* が表示される場合は、サイトを再起動して、`dotnet --info` を実行してください。
 
-#### <a name="use-the-preview-site-extention-with-an-arm-template"></a>ARM テンプレートでプレビュー サイト拡張機能を使用する
+**ARM テンプレートでプレビュー サイト拡張機能を使用する**
 
-ARM テンプレートを使用してアプリケーションを作成し、展開している場合は、リソースの種類に `siteextensions` を使用してサイト拡張機能を Web アプリに追加することができます。 例:
+ARM テンプレートを使用してアプリを作成し、展開する場合は、リソースの種類として `siteextensions` を使用してサイト拡張機能を Web アプリに追加することができます。 例:
 
 [!code-json[Main](index/sample/arm.json?highlight=2)]
 
-<a name="self"></a>
 ### <a name="deploy-the-app-self-contained"></a>自己完結型アプリを展開する
 
-展開時にプレビューのランタイムが保持される[自己完結型アプリ](/dotnet/core/deploying/#self-contained-deployments-scd)を展開することができます。 自己完結型アプリを展開する場合: 
+プレビュー ランタイムが展開に保持される[自己完結型アプリ](/dotnet/core/deploying/#self-contained-deployments-scd) を展開できます。 自己完結型アプリを展開する場合: 
 
 * サイトを準備する必要はありません。
-* SDK がサーバーにインストールされたら、アプリを展開する場合と違う方法でアプリケーションを公開する必要があります。
+* このアプリの発行は、共有ランタイムとホストがサーバー上に置かれるフレームワーク依存の展開に対する発行とは別に行う必要があります。
 
-自己完結型のアプリは、すべての .NET Core アプリケーションに対するオプションです。
+自己完結型アプリは、すべての ASP.NET Core アプリに対するオプションです。
 
-<a name="docker"></a>
 ### <a name="use-docker-with-web-apps-for-containers"></a>コンテナー用の Web アプリで Docker を使用する
 
-[Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) には最新の 2.1 プレビュー Docker イメージが含まれています。 このイメージを基本イメージとして使用して、通常どおりにコンテナー用の Web アプリに展開できます。
+[Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) には最新の 2.1 プレビュー Docker イメージが含まれています。 イメージを基本イメージとして使用できます。 通常は、イメージを使用して、Web App for Containers に展開します。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
