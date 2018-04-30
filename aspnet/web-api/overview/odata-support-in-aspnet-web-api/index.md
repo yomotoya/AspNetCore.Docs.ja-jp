@@ -26,7 +26,7 @@ ms.lasthandoff: 11/10/2017
 - [OData v4](odata-v4/index.md)
 
     - [OData v4 エンドポイントを作成します。](odata-v4/create-an-odata-v4-endpoint.md)
-    - [OData v4 クライアント アプリでは (c#) を作成します。](odata-v4/create-an-odata-v4-client-app.md)
+    - [OData v4 クライアント アプリ (c#) を作成します。](odata-v4/create-an-odata-v4-client-app.md)
     - [OData v4 でのエンティティ関係](odata-v4/entity-relations-in-odata-v4.md)
     - [アクションと OData v4 に関数](odata-v4/odata-actions-and-functions.md)
     - [OData v4 の包含](odata-v4/odata-containment-in-web-api-22.md)
