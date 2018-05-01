@@ -23,7 +23,7 @@ ms.lasthandoff: 04/26/2018
 
 [完成したプロジェクトをダウンロード](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)です。 [ダウンロードの方法はこちらをご覧ください。](/aspnet/core/tutorials/#how-to-download-a-sample) 
 
-このチュートリアルでは[System.Net.Http.HttpClient です。](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)を使用して .NET アプリケーションから web API を呼び出す方法を説明します。
+このチュートリアルでは [System.Net.Http.HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) を使用して .NET アプリケーションから web API を呼び出す方法を説明します。
 
 このチュートリアルでは、次の web API を使用するクライアント アプリケーションについて書かれています。
 
@@ -34,21 +34,21 @@ ms.lasthandoff: 04/26/2018
 | 製品を更新します。 | PUT | /api/products/*id* |
 | 製品を削除します。 | Del | /api/products/*id* |
 
-ASP.NET Web API を使用して、この API を実装する方法については [CRUD 操作をサポートする Web API を作成する](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-)です。
+ASP.NET Web API を使用して、この API を実装する方法については [CRUD 操作をサポートする Web API の作成](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
+) を参照してください。
 
-わかりやすくするため、このチュートリアルでは、クライアント アプリケーションは、Windows コンソール アプリケーションです。 **HttpClient** Windows Phone や Windows ストア アプリでもサポートされます。 詳細については、次を参照してください[複数のプラットフォームを使用してポータブル ライブラリの Web API クライアント コードの記述。](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx)
+簡潔に示す目的のため、このチュートリアルではクライアント アプリケーションとして Windows コンソール アプリケーションを使用します。 **HttpClient** は Windows Phone や Windows ストア アプリでも同様にサポートされています。 より詳しい情報については [複数のプラットフォームを使用してポータブル ライブラリの Web API クライアント コードの記述。](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx) を参照してください。
 
 <a id="CreateConsoleApp"></a>
 ## <a name="create-the-console-application"></a>コンソール アプリケーションを作成します。
 
-Visual Studio で、という名前の新しい Windows コンソール アプリを作成する**HttpClientSample**し、次のコードに貼り付けます。
+Visual Studio で、**HttpClientSample** という名前の新しい Windows コンソール アプリを作成し、次のコードに貼り付けます。
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_all)]
 
 上記のコードは、完全なクライアント アプリケーションです。
 
-`RunAsync` 実行され、完了するまでブロックされます。 ほとんど**HttpClient**ネットワーク I/O を実行するため、メソッドは非同期、します。 内で行うすべての非同期タスクが`RunAsync`です。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
+`RunAsync` が実行され、完了するまでブロックされます。**HttpClient** メソッドはネットワーク I/O として振る舞うため、多くの場合、非同期です。すべての非同期タスクは `RunAsync` 内で完了します。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_run)]
 
@@ -75,7 +75,7 @@ Json.NET は、.NET の人気のある高パフォーマンス JSON フレーム
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_prod)]
 
-このクラスでは、web API によって使用されるデータ モデルと一致します。 アプリが使用できる**HttpClient**を読み取る、 `Product` HTTP 応答からインスタンス。 逆シリアル化コードを記述する、アプリはありません。
+このクラスでは、web API によって使用されるデータ モデルと一致します。 アプリは **HttpClient** を使用して HTTP レスポンスから `Product` インスタンスを読み取ることができます。 アプリで逆シリアル化コードを記述する必要はありません。
 
 <a id="InitClient"></a>
 ## <a name="create-and-initialize-httpclient"></a>作成および HttpClient の初期化
