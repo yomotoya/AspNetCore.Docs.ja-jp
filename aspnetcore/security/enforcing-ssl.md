@@ -25,10 +25,10 @@ ms.lasthandoff: 03/22/2018
 - すべての HTTP 要求を HTTPS にリダイレクトさせる。
 
 > [!WARNING]
-> 機密情報を受信する Web Api で `RequireHttpsAttribute` を使用しないでください。 `RequireHttpsAttribute` はブラウザーを HTTP から HTTPS へリダイレクトするために HTTP ステータス コードを使用します。 API クライアントはこれを理解せず、または リダイレクトに従わない可能性があります。 このようなクライアントは、HTTP 経由で情報を送信することがあります。 Web API は次のいずれかの対策を講じるべきです:
+> 機密情報を受信する Web Api で `RequireHttpsAttribute` を使用しないでください。 `RequireHttpsAttribute` はブラウザーを HTTP から HTTPS へリダイレクトするために HTTP ステータス コードを使用します。 API クライアントはこれを理解しない場合や、HTTP から HTTPS へのリダイレクトに従わない場合があります。 このようなクライアントは、HTTP 経由で情報を送信することがあります。 Web API は次のいずれかの対策を講じるべきです:
 >
 >* HTTP をリッスンしない。
->* ステータス コード 400 (Bad Request) で接続を閉じ、要求に応答しない。
+>* ステータス コード 400 (無効な要求) で接続を閉じ、要求に応答しない。
 
 ## <a name="require-https"></a>HTTPS が必要
 
@@ -36,10 +36,10 @@ ms.lasthandoff: 03/22/2018
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet2&highlight=4-999)]
 
-前の強調表示されたコードは、すべての要求に対して `HTTPS` を使用することを必須とさせています; したがって、HTTP 要求は無視されます。次の強調表示されたコードは、すべての HTTP 要求を HTTPS にリダイレクトさせます。
+前の強調表示されたコードは、すべての要求に対して `HTTPS` を使用することを必須とさせています。したがって、HTTP 要求は無視されます。次の強調表示されたコードは、すべての HTTP 要求を HTTPS にリダイレクトさせます。
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
 
 さらに詳しい情報は、[URL 書き換えミドルウェア](xref:fundamentals/url-rewriting) を参照してください。
 
-グローバルに HTTPS を必須とさせること (`options.Filters.Add(new RequireHttpsAttribute());`) は、セキュリティのベスト プラクティスです。`[RequireHttps]` 属性をすべてのコントローラー/Razor ページ に適用することは、グローバルに HTTPS を必須とさせることほどセキュアに考慮されていません。新しいコントローラー または Razor ページが追加されたときに `[RequireHttps]` 属性が適用されるとは限らないためです。
+グローバルに HTTPS を必須とさせること (`options.Filters.Add(new RequireHttpsAttribute());`) は、セキュリティのベスト プラクティスです。`[RequireHttps]` 属性をすべてのコントローラー/Razor ページ に適用することは、グローバルに HTTPS を必須とさせることほど安全性が高いとは考えられていません。新しいコントローラー または Razor ページが追加されたときに `[RequireHttps]` 属性が適用されるとは限らないためです。
