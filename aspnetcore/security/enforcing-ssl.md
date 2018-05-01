@@ -1,4 +1,4 @@
----
+﻿---
 title: ASP.NET Core で HTTPS を適用します。
 author: rick-anderson
 description: Web アプリで ASP.NET Core HTTPS/TLS を必要とする方法を示します。
@@ -57,17 +57,16 @@ Web アプリの呼び出しをすべての ASP.NET Core お勧め`UseHttpsRedir
 
 ::: moniker range="< aspnetcore-2.1"
 
-[RequireHttpsAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.RequireHttpsAttribute) HTTPS を要求するために使用します。 `[RequireHttpsAttribute]` 装飾できるは、メソッドまたはコント ローラーまたはグローバルに適用することができます。 属性をグローバルに適用するには、次のコードを追加`ConfigureServices`で`Startup`:
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet2&highlight=4-999)]
 
-前の強調表示されたコードでは、すべての要求を使用して`HTTPS`です。 そのため、HTTP 要求は無視されます。 次の強調表示されたコードは、すべての HTTP 要求を HTTPS にリダイレクトします。
+前の強調表示されたコードは、すべての要求に対して `HTTPS` を使用することを必須とさせています。したがって、HTTP 要求は無視されます。次の強調表示されたコードは、すべての HTTP 要求を HTTPS にリダイレクトさせます。
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
 
 さらに詳しい情報は、[URL 書き換えミドルウェア](xref:fundamentals/url-rewriting) を参照してください。
 
-HTTPS をグローバルに必要とする (`options.Filters.Add(new RequireHttpsAttribute());`) は、セキュリティのベスト プラクティスです。 適用する、`[RequireHttps]`属性をすべてのコント ローラー/Razor ページされていないグローバルに HTTPS を必要とすると、セキュリティで保護されたと見なされます。 保証できません、`[RequireHttps]`属性は、新しいコント ローラーおよび Razor ページが追加されたときに適用します。
+グローバルに HTTPS を必須とさせること (`options.Filters.Add(new RequireHttpsAttribute());`) は、セキュリティのベスト プラクティスです。`[RequireHttps]` 属性をすべてのコントローラー/Razor ページ に適用することは、グローバルに HTTPS を必須とさせることほど安全性が高いとは考えられていません。新しいコントローラー または Razor ページが追加されたときに `[RequireHttps]` 属性が適用されるとは限らないためです。
 
 ::: moniker-end
 
