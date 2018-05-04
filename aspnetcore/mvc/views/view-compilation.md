@@ -1,7 +1,7 @@
 ---
-title: "Razor ビューのコンパイルとプリコンパイル"
+title: ASP.NET Core での Razor ビューのコンパイルとプリコンパイル
 author: rick-anderson
-description: "ASP.NET Core アプリケーションで MVC Razor ビューのコンパイルとプリコンパイルを有効にする方法を説明するリファレンス ドキュメント。"
+description: ASP.NET Core アプリで Razor ビューのコンパイルとプリコンパイルを有効にする方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 12/13/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-compilation
-ms.openlocfilehash: bd3f4470035b0375fc79aa7caa73b60ba6fc4f53
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5d971645106a79497a9902063c7774dc6d546395
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="razor-view-compilation-and-precompilation-in-aspnet-core"></a>ASP.NET Core での Razor ビューのコンパイルとプリコンパイル
 
@@ -31,8 +31,7 @@ Razor ビューは、ビューが呼び出されるときに、実行時にコ�
 
 プリコンパイル済みのビューを展開するには、次のようにします。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 プロジェクトのターゲットが .NET Framework である場合は、次のように [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/) へのパッケージ参照を含めます。
 
 ```xml
@@ -43,17 +42,14 @@ Razor ビューは、ビューが呼び出されるときに、実行時にコ�
 
 ASP.NET Core 2.x プロジェクトのテンプレートでは既定で暗黙的に `MvcRazorCompileOnPublish` が `true` に設定されます。これは、このノードを *.csproj* ファイルから安全に削除できることを意味します。 明示的に `MvcRazorCompileOnPublish` プロパティを `true` に設定しても問題はありません。 次の *.csproj* サンプルでは、この設定が強調表示されています。
 
-[!code-xml[Main](view-compilation\sample\MvcRazorCompileOnPublish2.csproj?highlight=5)]
+[!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish2.csproj?highlight=5)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 `MvcRazorCompileOnPublish` を `true` に設定し、`Microsoft.AspNetCore.Mvc.Razor.ViewCompilation` へのパッケージ参照を含めます。 次の *.csproj* サンプルでは、これらの設定が強調表示されています。
 
-[!code-xml[Main](view-compilation\sample\MvcRazorCompileOnPublish.csproj?highlight=5,12)]
+[!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish.csproj?highlight=5,12)]
 
----
-
-プロジェクト ルートで次のようなコマンドを実行して、[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)用にアプリを準備します。
+[.NET Core CLI publish コマンド](/dotnet/core/tools/dotnet-publish)を使用して、[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)用にアプリを準備します。 たとえば、プロジェクト ルートで、次のコマンドを実行します。
 
 ```console
 dotnet publish -c Release
