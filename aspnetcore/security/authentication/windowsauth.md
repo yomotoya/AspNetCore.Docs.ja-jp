@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: ff47519db4e9d1c5aea8811fef24c84bb564e80e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 876e1ab67fd283a9a8788bb2c7ef0ec111075794
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core で Windows 認証を構成します。
 
@@ -25,7 +25,7 @@ Windows 認証は、IIS でホストされている ASP.NET Core アプリケー
 
 Windows 認証は、ASP.NET Core アプリケーションのユーザーを認証するオペレーティング システムに依存します。 ユーザーを識別する Active Directory ドメインの id またはその他の Windows アカウントを使用して、企業ネットワークで実行されると、サーバーは、Windows 認証を使用することができます。 Windows 認証は、同じ Windows ドメインにユーザー、クライアント アプリケーションおよび web サーバーが属している、イントラネット環境に最も適しています。
 
-[Windows 認証と IIS のインストールの詳細について](https://docs.microsoft.com/iis/configuration/system.webServer/security/authentication/windowsAuthentication/)です。
+[Windows 認証と IIS のインストールの詳細について](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/)です。
 
 ## <a name="enable-windows-authentication-in-an-aspnet-core-app"></a>ASP.NET Core アプリケーションの Windows 認証を有効にします。
 

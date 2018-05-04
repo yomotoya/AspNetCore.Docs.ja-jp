@@ -1,7 +1,7 @@
 ---
-title: "認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成します。"
+title: 認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成します。
 author: rick-anderson
-description: "認証によって保護されているユーザー データと Razor ページ アプリケーションを作成する方法を説明します。 HTTPS、認証、セキュリティ、ASP.NET Core Id が含まれます。"
+description: 認証によって保護されているユーザー データと Razor ページ アプリケーションを作成する方法を説明します。 HTTPS、認証、セキュリティ、ASP.NET Core Id が含まれます。
 manager: wpickett
 ms.author: riande
 ms.date: 01/24/2018
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: 5acb65be078fd39b9e7a17ce2d8167b8f7b7db22
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e42f299efcae7c6a0e3d20b157c591eed98c99d0
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成します。
 
@@ -102,7 +102,7 @@ dotnet ef database update
 
 [!code-csharp[](secure-data/samples/final2/Startup.cs?name=snippet_env)]
 
-`ConfigureServices`のメソッド、 *Startup.cs*ファイルに追加し、 [RequireHttpsAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute)承認フィルター。
+`ConfigureServices`のメソッド、 *Startup.cs*ファイルに追加し、 [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute)承認フィルター。
 
 [!code-csharp[](secure-data/samples/final2/Startup.cs?name=snippet_SSL&highlight=10-999)]
 
@@ -182,7 +182,7 @@ dotnet user-secrets set SeedUserPW <PW>
 
 ## <a name="register-the-authorization-handlers"></a>認証ハンドラーを登録します。
 
-Entity Framework のコアを使用してサービスを登録する必要があります[依存性の注入](xref:fundamentals/dependency-injection)を使用して[AddScoped](/aspnet/core/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions)です。 `ContactIsOwnerAuthorizationHandler` ASP.NET Core を使用して[Identity](xref:security/authentication/identity)、これは Entity Framework Core 上に構築します。 ハンドラー コレクションに登録サービスを使用するため、`ContactsController`を通じて[依存性の注入](xref:fundamentals/dependency-injection)です。 末尾に次のコードを追加`ConfigureServices`:
+Entity Framework のコアを使用してサービスを登録する必要があります[依存性の注入](xref:fundamentals/dependency-injection)を使用して[AddScoped](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions)です。 `ContactIsOwnerAuthorizationHandler` ASP.NET Core を使用して[Identity](xref:security/authentication/identity)、これは Entity Framework Core 上に構築します。 ハンドラー コレクションに登録サービスを使用するため、`ContactsController`を通じて[依存性の注入](xref:fundamentals/dependency-injection)です。 末尾に次のコードを追加`ConfigureServices`:
 
 [!code-csharp[](secure-data/samples/final2/Startup.cs?name=ConfigureServices&highlight=41-999)]
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/cookie
-ms.openlocfilehash: 26101d46557c64047f3d121083fe34ad34ff99ea
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b251aa3ff0b4d0c08f9885cd73a111b7c2008766
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core Id なしの cookie 認証を使用します。
 
@@ -162,7 +162,7 @@ Cookie のポリシーのミドルウェアの設定`MinimumSameSitePolicy`の�
 
 ## <a name="creating-an-authentication-cookie"></a>認証 cookie を作成します。
 
-ユーザー情報を保持する cookie を作成、構築する必要があります、 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)です。 ユーザー情報がシリアル化され、cookie に格納されています。 
+ユーザー情報を保持する cookie を作成、構築する必要があります、 [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal)です。 ユーザー情報がシリアル化され、cookie に格納されています。 
 
 #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 作成、 [ClaimsIdentity](/dotnet/api/system.security.claims.claimsidentity)で必要な[クレーム](/dotnet/api/system.security.claims.claim)s と呼び出し[SignInAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signinasync?view=aspnetcore-2.0)ユーザーにサインインします。

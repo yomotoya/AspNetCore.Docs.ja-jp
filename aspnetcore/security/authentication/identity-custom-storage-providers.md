@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core Id のカスタムの記憶域プロバイダー"
+title: ASP.NET Core Id のカスタムの記憶域プロバイダー
 author: ardalis
-description: "ASP.NET Core Id のカスタムの記憶域プロバイダーを構成する方法を説明します。"
+description: ASP.NET Core Id のカスタムの記憶域プロバイダーを構成する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 05/24/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 559c5c58b416912b1caef1964ff8d7532bd98439
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: bd5e5219765dfea0305fa02e79e5423266ce4df2
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core Id のカスタムの記憶域プロバイダー
 
@@ -21,11 +21,11 @@ ms.lasthandoff: 03/02/2018
 
 ASP.NET Core の Id は、カスタムの記憶域プロバイダーを作成し、アプリに接続することにより拡張可能なシステムです。 このトピックでは、ASP.NET Core Id 用のカスタマイズされた記憶域プロバイダーを作成する方法について説明します。 独自の記憶域プロバイダーを作成するための重要な概念について説明しますが、ステップ バイ ステップ チュートリアルではありません。
 
-[GitHub のサンプルを表示またはダウンロードする](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample)。
+[GitHub のサンプルを表示またはダウンロードしてください](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample)。
 
 ## <a name="introduction"></a>はじめに
 
-既定では、ASP.NET Core Id システムは、Entity Framework のコアを使用して SQL Server データベースにユーザー情報を格納します。 多くのアプリは、このアプローチはします。 ただし、別の永続化メカニズムまたはデータ スキーマを使用することができます。 例:
+既定では、ASP.NET Core Id システムは、Entity Framework のコアを使用して SQL Server データベースにユーザー情報を格納します。 多くのアプリは、このアプローチはします。 ただし、別の永続化メカニズムまたはデータ スキーマを使用することができます。 例えば:
 
 * 使用する[Azure テーブル ストレージ](https://docs.microsoft.com/azure/storage/)または別のデータ ストアです。
 * データベースのテーブルでは、別の構造があります。 
@@ -62,19 +62,19 @@ Web アプリと対話する方法、マネージャー ストアと、データ
 
 ### <a name="users"></a>ユーザー
 
-Web サイトの登録ユーザー。 [IdentityUser](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser)型を拡張または独自のカスタム型の例として使用される可能性があります。 独自のカスタム id の記憶域ソリューションを実装する特定の型から継承する必要はありません。
+Web サイトの登録ユーザー。 [IdentityUser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser)型を拡張または独自のカスタム型の例として使用される可能性があります。 独自のカスタム id の記憶域ソリューションを実装する特定の型から継承する必要はありません。
 
 ### <a name="user-claims"></a>ユーザーの信頼性情報
 
-ステートメントのセット (または[クレーム](https://docs.microsoft.com//dotnet/api/system.security.claims.claim)) をユーザーの id を表すユーザーに関するします。 ロールで実現できるよりも、ユーザーの id の大きい式を有効にできます。
+ステートメントのセット (または[クレーム](/dotnet/api/system.security.claims.claim)) をユーザーの id を表すユーザーに関するします。 ロールで実現できるよりも、ユーザーの id の大きい式を有効にできます。
 
 ### <a name="user-logins"></a>ユーザーのログイン
 
-外部認証プロバイダー (Facebook、Microsoft アカウントなど) に関する情報をユーザーにログインするときに使用します。 [例](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
+外部認証プロバイダー (Facebook、Microsoft アカウントなど) に関する情報をユーザーにログインするときに使用します。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
 
 ### <a name="roles"></a>役割
 
-サイトのグループを承認します。 ロールの Id とロール名 ("Admin"、"Employee"など) が含まれます。 [例](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityrole)
+サイトのグループを承認します。 ロールの Id とロール名 ("Admin"、"Employee"など) が含まれます。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.identityrole)
 
 ## <a name="the-data-access-layer"></a>データ アクセス層
 
@@ -86,29 +86,29 @@ Web サイトの登録ユーザー。 [IdentityUser](https://docs.microsoft.com/
 
 ### <a name="context-class"></a>Context クラス
 
-永続化メカニズムに接続し、クエリを実行する情報をカプセル化します。 いくつかのデータ クラスでは、このクラスは、依存関係の挿入によって提供される通常のインスタンスが必要です。 [例](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1)です。
+永続化メカニズムに接続し、クエリを実行する情報をカプセル化します。 いくつかのデータ クラスでは、このクラスは、依存関係の挿入によって提供される通常のインスタンスが必要です。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1)です。
 
 ### <a name="user-storage"></a>ユーザーのストレージ
 
-格納し、(ユーザー名とパスワードのハッシュ) などのユーザー情報を取得します。 [例](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+格納し、(ユーザー名とパスワードのハッシュ) などのユーザー情報を取得します。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="role-storage"></a>ロールのストレージ
 
-格納し、(ロール名など) のロール情報を取得します。 [例](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1)
+格納し、(ロール名など) のロール情報を取得します。 [例](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1)
 
 ### <a name="userclaims-storage"></a>UserClaims ストレージ
 
-格納し、要求の種類と値の場合) などのユーザー要求の情報を取得します。 [例](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+格納し、要求の種類と値の場合) などのユーザー要求の情報を取得します。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="userlogins-storage"></a>UserLogins ストレージ
 
-格納し、(外部認証プロバイダーの場合) などのユーザーのログイン情報を取得します。 [例](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+格納し、(外部認証プロバイダーの場合) などのユーザーのログイン情報を取得します。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="userrole-storage"></a>UserRole 記憶域
 
-格納し、どのユーザーに割り当てられたロールを取得します。 [例](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+格納し、どのユーザーに割り当てられたロールを取得します。 [例](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
-**ヒント:**のみ、アプリで使用するクラスを実装します。
+**ヒント:** のみ、アプリで使用するクラスを実装します。
 
 データ アクセス クラスでは、永続化メカニズムのデータ操作を実行するコードを提供します。 たとえば、カスタム プロバイダーにする必要がありますで新しいユーザーを作成するには、次のコード、*格納*クラス。
 
@@ -118,7 +118,7 @@ Web サイトの登録ユーザー。 [IdentityUser](https://docs.microsoft.com/
 
 ## <a name="customize-the-user-class"></a>ユーザー クラスをカスタマイズします。
 
-記憶域プロバイダーを実装する場合と同じであるユーザー クラスを作成、 [ `IdentityUser`クラス](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser)です。
+記憶域プロバイダーを実装する場合と同じであるユーザー クラスを作成、 [ `IdentityUser`クラス](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser)です。
 
 少なくとも、ユーザー クラスを含める必要があります、`Id`と`UserName`プロパティです。
 
@@ -126,13 +126,13 @@ Web サイトの登録ユーザー。 [IdentityUser](https://docs.microsoft.com/
 
 ## <a name="customize-the-user-store"></a>ユーザーのストアをカスタマイズします。
 
-作成、`UserStore`ユーザーに対するすべてのデータ操作のメソッドを提供するクラス。 このクラスは、 [UserStore<TUser> ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.userstore-1)クラスです。 `UserStore`クラスを実装`IUserStore<TUser>`と必要とする省略可能なインターフェイスです。 実装する省略可能なインターフェイスを選択すると、アプリで提供される機能に基づいています。
+作成、`UserStore`ユーザーに対するすべてのデータ操作のメソッドを提供するクラス。 このクラスは、 [UserStore<TUser> ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.userstore-1)クラスです。 `UserStore`クラスを実装`IUserStore<TUser>`と必要とする省略可能なインターフェイスです。 実装する省略可能なインターフェイスを選択すると、アプリで提供される機能に基づいています。
 
 ### <a name="optional-interfaces"></a>省略可能なインターフェイス
 
-- IUserRoleStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserrolestore-1
-- IUserClaimStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserclaimstore-1
-- IUserPasswordStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserpasswordstore-1
+- IUserRoleStore/dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1
+- IUserClaimStore/dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1
+- IUserPasswordStore/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1
 - IUserSecurityStampStore <!-- make these all links and remove / -->
 - IUserEmailStore
 - IPhoneNumberStore
@@ -150,29 +150,29 @@ Web サイトの登録ユーザー。 [IdentityUser](https://docs.microsoft.com/
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>ユーザーのストアをカスタマイズするときに実装するインターフェイス
 
 - **IUserStore**  
- [IUserStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserstore-1)インターフェイスは、のみのインターフェイスで、ユーザーのストアを実装する必要があります。 作成、更新、削除、およびユーザーを取得するためのメソッドを定義します。
+ [IUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1)インターフェイスは、のみのインターフェイスで、ユーザーのストアを実装する必要があります。 作成、更新、削除、およびユーザーを取得するためのメソッドを定義します。
 - **IUserClaimStore**  
- [IUserClaimStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserclaimstore-1)インターフェイスがユーザーの信頼性情報を有効にするために実装するメソッドを定義します。 追加、削除、およびユーザーの信頼性情報を取得するためのメソッドが含まれています。
+ [IUserClaimStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1)インターフェイスがユーザーの信頼性情報を有効にするために実装するメソッドを定義します。 追加、削除、およびユーザーの信頼性情報を取得するためのメソッドが含まれています。
 - **IUserLoginStore**  
- [IUserLoginStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserloginstore-1)外部認証プロバイダーを有効にするために実装するメソッドを定義します。 追加、削除、およびユーザーのログインとログイン情報に基づいてユーザーを取得するためのメソッドを取得するためのメソッドが含まれています。
+ [IUserLoginStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1)外部認証プロバイダーを有効にするために実装するメソッドを定義します。 追加、削除、およびユーザーのログインとログイン情報に基づいてユーザーを取得するためのメソッドを取得するためのメソッドが含まれています。
 - **IUserRoleStore**  
- [IUserRoleStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserrolestore-1)インターフェイス ロールにユーザーをマップするために実装するメソッドを定義します。 追加、削除、およびユーザーのロール、およびユーザーがロールに割り当てられているかどうかをチェックするメソッドを取得するメソッドが含まれています。
+ [IUserRoleStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1)インターフェイス ロールにユーザーをマップするために実装するメソッドを定義します。 追加、削除、およびユーザーのロール、およびユーザーがロールに割り当てられているかどうかをチェックするメソッドを取得するメソッドが含まれています。
 - **IUserPasswordStore**  
- [IUserPasswordStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserpasswordstore-1)インターフェイス ハッシュされたパスワードを永続化するために実装するメソッドを定義します。 ハッシュされたパスワード、およびユーザーがパスワードを設定するかどうかを示すメソッド取得および設定のためのメソッドが含まれています。
+ [IUserPasswordStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1)インターフェイス ハッシュされたパスワードを永続化するために実装するメソッドを定義します。 ハッシュされたパスワード、およびユーザーがパスワードを設定するかどうかを示すメソッド取得および設定のためのメソッドが含まれています。
 - **IUserSecurityStampStore**  
- [IUserSecurityStampStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1)インターフェイス セキュリティ スタンプを使用して、ユーザーのアカウント情報が変更されたかどうかを示すために実装するメソッドを定義します。 ユーザーをパスワードを変更または追加または削除のログイン時に、このスタンプが更新されます。 取得およびセキュリティ スタンプを設定するためのメソッドが含まれています。
+ [IUserSecurityStampStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1)インターフェイス セキュリティ スタンプを使用して、ユーザーのアカウント情報が変更されたかどうかを示すために実装するメソッドを定義します。 ユーザーをパスワードを変更または追加または削除のログイン時に、このスタンプが更新されます。 取得およびセキュリティ スタンプを設定するためのメソッドが含まれています。
 - **IUserTwoFactorStore**  
- [IUserTwoFactorStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)インターフェイス 2 要素認証をサポートするために実装するメソッドを定義します。 取得およびユーザーの 2 要素認証が有効になっているかどうかを設定するためのメソッドが含まれています。
+ [IUserTwoFactorStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)インターフェイス 2 要素認証をサポートするために実装するメソッドを定義します。 取得およびユーザーの 2 要素認証が有効になっているかどうかを設定するためのメソッドが含まれています。
 - **IUserPhoneNumberStore**  
- [IUserPhoneNumberStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1)インターフェイスがユーザーの電話番号を格納するために実装するメソッドを定義します。 電話番号および電話番号が確認されているかどうか取得および設定のためのメソッドが含まれています。
+ [IUserPhoneNumberStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1)インターフェイスがユーザーの電話番号を格納するために実装するメソッドを定義します。 電話番号および電話番号が確認されているかどうか取得および設定のためのメソッドが含まれています。
 - **IUserEmailStore**  
- [IUserEmailStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuseremailstore-1)インターフェイスがユーザーの電子メール アドレスを格納するために実装するメソッドを定義します。 電子メール アドレスおよび電子メールが確認されているかどうか取得および設定のためのメソッドが含まれています。
+ [IUserEmailStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1)インターフェイスがユーザーの電子メール アドレスを格納するために実装するメソッドを定義します。 電子メール アドレスおよび電子メールが確認されているかどうか取得および設定のためのメソッドが含まれています。
 - **IUserLockoutStore**  
- [IUserLockoutStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserlockoutstore-1)インターフェイスがアカウントのロックに関する情報を格納するために実装するメソッドを定義します。 失敗したアクセス試行とロックアウトを追跡するためのメソッドが含まれています。
+ [IUserLockoutStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1)インターフェイスがアカウントのロックに関する情報を格納するために実装するメソッドを定義します。 失敗したアクセス試行とロックアウトを追跡するためのメソッドが含まれています。
 - **IQueryableUserStore**  
- [IQueryableUserStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iqueryableuserstore-1)インターフェイスは、クエリ可能なユーザー ストアを提供するメンバーの実装を定義します。
+ [IQueryableUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1)インターフェイスは、クエリ可能なユーザー ストアを提供するメンバーの実装を定義します。
 
-インターフェイスを実装するだけのために必要なアプリでします。 例:
+インターフェイスを実装するだけのために必要なアプリでします。 例えば:
 
 ```csharp
 public class UserStore : IUserStore<IdentityUser>,
@@ -188,7 +188,7 @@ public class UserStore : IUserStore<IdentityUser>,
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim、IdentityUserLogin、および IdentityUserRole
 
-``Microsoft.AspNet.Identity.EntityFramework``名前空間の実装を含む、 [IdentityUserClaim](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1)、 [IdentityUserLogin](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin)、および[IdentityUserRole](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1)クラスです。 これらの機能を使用している場合は、これらのクラスの独自バージョンを作成し、アプリのプロパティを定義することがあります。 ただし、場合もありますがこれらのエンティティを追加または削除、ユーザーの要求) などの基本的な操作を実行するときにメモリに読み込まれないする方が効率的です。 代わりに、バックエンド ストア クラスは、データ ソースで直接これらの操作を実行できます。 たとえば、``UserStore.GetClaimsAsync``メソッドを呼び出すことができます、``userClaimTable.FindByUserId(user.Id)``メソッドでクエリを実行するテーブルの直接要求の一覧を返します。
+``Microsoft.AspNet.Identity.EntityFramework``名前空間の実装を含む、 [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1)、 [IdentityUserLogin](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)、および[IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1)クラスです。 これらの機能を使用している場合は、これらのクラスの独自バージョンを作成し、アプリのプロパティを定義することがあります。 ただし、場合もありますがこれらのエンティティを追加または削除、ユーザーの要求) などの基本的な操作を実行するときにメモリに読み込まれないする方が効率的です。 代わりに、バックエンド ストア クラスは、データ ソースで直接これらの操作を実行できます。 たとえば、``UserStore.GetClaimsAsync``メソッドを呼び出すことができます、``userClaimTable.FindByUserId(user.Id)``メソッドでクエリを実行するテーブルの直接要求の一覧を返します。
 
 ## <a name="customize-the-role-class"></a>Role クラスをカスタマイズします。
 
@@ -200,10 +200,10 @@ public class UserStore : IUserStore<IdentityUser>,
 
 ## <a name="customize-the-role-store"></a>ロール ストアをカスタマイズします。
 
-作成することができます、``RoleStore``ロール上のすべてのデータ操作のメソッドを提供するクラス。 このクラスは、 [RoleStore<TRole> ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1)クラスです。 `RoleStore`クラスを実装する、``IRoleStore<TRole>``し、必要に応じて、``IQueryableRoleStore<TRole>``インターフェイスです。
+作成することができます、``RoleStore``ロール上のすべてのデータ操作のメソッドを提供するクラス。 このクラスは、 [RoleStore<TRole> ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1)クラスです。 `RoleStore`クラスを実装する、``IRoleStore<TRole>``し、必要に応じて、``IQueryableRoleStore<TRole>``インターフェイスです。
 
 - **IRoleStore&lt;TRole&gt;**  
- [IRoleStore](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.irolestore-1)インターフェイスは、ロール ストアのクラスに実装するメソッドを定義します。 作成、更新、削除、およびロールを取得するためのメソッドが含まれています。
+ [IRoleStore](/dotnet/api/microsoft.aspnetcore.identity.irolestore-1)インターフェイスは、ロール ストアのクラスに実装するメソッドを定義します。 作成、更新、削除、およびロールを取得するためのメソッドが含まれています。
 - **RoleStore&lt;TRole&gt;**  
  カスタマイズする`RoleStore`を実装するクラスを作成、`IRoleStore`インターフェイスです。 
 

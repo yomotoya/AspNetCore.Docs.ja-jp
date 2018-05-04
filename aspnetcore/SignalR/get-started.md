@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: 03735359bb22cc3085ddc7b34372ecfc9501a940
-ms.sourcegitcommit: 07903a1be39a99dcf538d57981161592d0e658b8
+ms.openlocfilehash: 8b27e58a66c9030d92f9b9a6b8b2a7ed292e4ca9
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>ASP.NET Core の SignalR を概要します。
 
@@ -92,6 +92,8 @@ Visual Studio が含まれています、`Microsoft.AspNetCore.SignalR`パッケ
       npm init -y
       npm install @aspnet/signalr
     ```
+
+3. コピー、 *signalr.js*ファイルから*node_modules\\ @aspnet\signalr\dist\browser* を*lib*プロジェクトのフォルダーにします。
 
 -----
 

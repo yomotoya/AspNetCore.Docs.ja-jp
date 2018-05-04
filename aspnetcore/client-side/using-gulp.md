@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: f776b2025b6ebfeff28d3903aaeac4d7d89665b3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7a3d7807484b76e40e9728e0c750fa1383cc271f
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-gulp-in-aspnet-core"></a>ASP.NET Core で Gulp を使用します。
 
@@ -63,9 +63,9 @@ paths.concatCssDest = paths.webroot + "css/site.min.css";
 | ----------- | ----------- |
 | gulp        | Gulp ストリーミング ビルド システムです。 詳細については、次を参照してください。 [gulp](https://www.npmjs.com/package/gulp)です。 |
 | rimraf      | ノードの削除モジュール。 詳細については、次を参照してください。 [rimraf](https://www.npmjs.com/package/rimraf)です。 |
-| gulp-concat | オペレーティング システムの改行文字に基づいてファイルを連結するモジュール。 詳細については、次を参照してください。 [gulp concat](https://www.npmjs.com/package/gulp-concat)です。 |
-| gulp-cssmin | CSS ファイルを縮小するモジュール。 詳細については、次を参照してください。 [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin)です。 |
-| gulp uglify します。 | 縮小するモジュール*.js*ファイル。 詳細については、次を参照してください。 [gulp uglify](https://www.npmjs.com/package/gulp-uglify)です。 |
+| gulp concat | オペレーティング システムの改行文字に基づいてファイルを連結するモジュール。 詳細については、次を参照してください。 [gulp concat](https://www.npmjs.com/package/gulp-concat)です。 |
+| gulp cssmin | CSS ファイルを縮小するモジュール。 詳細については、次を参照してください。 [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin)です。 |
+| gulp uglify します。 | 縮小するモジュール *.js*ファイル。 詳細については、次を参照してください。 [gulp uglify](https://www.npmjs.com/package/gulp-uglify)です。 |
 
 必要なモジュールがインポートされると、タスクを指定できます。 ここで 6 つのタスクが登録されている、次のコードで表されます。
 
@@ -199,7 +199,7 @@ gulp.task("min", ["min:js", "min:css"]);
 
     **する前にビルド**バインディングが、プロジェクトの各ビルドの前に自動的に実行するクリーン タスクを構成します。
 
-バインドを設定すると**Task Runner Explorer**の上部にあるコメントの形式で保存されます、 *gulpfile.js*し、Visual Studio でのみ有効です。 Gulp のタスクの自動実行を構成するのには、代わりに Visual Studio を必要としない、 *.csproj*ファイル。 たとえば、これに配置して*.csproj*ファイル。
+バインドを設定すると**Task Runner Explorer**の上部にあるコメントの形式で保存されます、 *gulpfile.js*し、Visual Studio でのみ有効です。 Gulp のタスクの自動実行を構成するのには、代わりに Visual Studio を必要としない、 *.csproj*ファイル。 たとえば、これに配置して *.csproj*ファイル。
 
 ```xml
 <Target Name="MyPreCompileTarget" BeforeTargets="Build">
@@ -267,7 +267,7 @@ IntelliSense には、コード補完機能、パラメーターの説明、お�
 
 ![IntelliSense を gulp します。](using-gulp/_static/08-IntelliSense.png)
 
-IntelliSense の詳細については、次を参照してください。 [JavaScript IntelliSense](https://docs.microsoft.com/visualstudio/ide/javascript-intellisense)です。
+IntelliSense の詳細については、次を参照してください。 [JavaScript IntelliSense](/visualstudio/ide/javascript-intellisense)です。
 
 ## <a name="development-staging-and-production-environments"></a>開発、ステージング、実稼働環境
 
@@ -308,7 +308,7 @@ Gulp 使用すると、ステージングと運用環境のクライアント側
 
 3.  **[デバッグ]** タブをクリックします。
 
-4.  値を設定、**ホスティング環境:**環境変数を`Production`です。
+4.  値を設定、**ホスティング環境:** 環境変数を`Production`です。
 
 5.  キーを押して**f5 キーを押して**ブラウザーで、アプリケーションを実行します。
 
@@ -318,7 +318,7 @@ Gulp 使用すると、ステージングと運用環境のクライアント側
 
 7.  Web アプリを停止するブラウザーを閉じます。
 
-8.  Visual Studio で Web アプリのプロパティ シートに戻るし、変更、**ホスティング環境:**環境変数にバックアップ`Development`です。
+8.  Visual Studio で Web アプリのプロパティ シートに戻るし、変更、**ホスティング環境:** 環境変数にバックアップ`Development`です。
 
 9.  キーを押して**f5 キーを押して**ブラウザーでアプリケーションをもう一度実行します。
 

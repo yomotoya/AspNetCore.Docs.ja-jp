@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-primary-key-configuration
-ms.openlocfilehash: db47055aecc5252dbb3991f29a8255b946deaeb7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ce654492dc7bab6c031c9f82555f877f642171ce
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-identity-primary-key-data-type-in-aspnet-core"></a>ASP.NET Core の Id の主キー データの種類を構成します。
 
@@ -21,11 +21,11 @@ ASP.NET Core の Id では、主キーを表すために使用するデータの
 
 ## <a name="customize-the-primary-key-data-type"></a>主キー データの種類をカスタマイズします。
 
-1. カスタム実装を作成、 [IdentityUser](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuser-1)クラスです。 ユーザー オブジェクトの作成に使用する種類を表します。 次の例では、既定値で`string`型に置き換えられる`Guid`です。
+1. カスタム実装を作成、 [IdentityUser](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuser-1)クラスです。 ユーザー オブジェクトの作成に使用する種類を表します。 次の例では、既定値で`string`型に置き換えられる`Guid`です。
 
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Models/ApplicationUser.cs?highlight=4&range=7-13)]
 
-2. カスタム実装を作成、 [IdentityRole](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.identityrole-1)クラスです。 ロール オブジェクトを作成するために使用する種類を表します。 次の例では、既定値で`string`型に置き換えられる`Guid`です。
+2. カスタム実装を作成、 [IdentityRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityrole-1)クラスです。 ロール オブジェクトを作成するために使用する種類を表します。 次の例では、既定値で`string`型に置き換えられる`Guid`です。
 
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Models/ApplicationRole.cs?highlight=3&range=7-12)]
 

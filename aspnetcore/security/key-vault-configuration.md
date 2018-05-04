@@ -8,11 +8,11 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 09f28ec3792cf137fbcfdecc593e27ce6b2e7e09
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 78a00e04e260863af17d7888ca6bf77d3f915ce1
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core での azure Key Vault の構成プロバイダー
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 04/06/2018
 | アプリケーション設定    | 説明                    | 例                                      |
 | -------------- | ------------------------------ | -------------------------------------------- |
 | `Vault`        | Azure Key Vault の名前           | contosovault                                 |
-| `ClientId`     | Azure Active Directory App Id  | 627e911e-43cc-61d4-992e-12db9c81b413         |
+| `ClientId`     | Azure Active Directory アプリ Id  | 627e911e-43cc-61d4-992e-12db9c81b413         |
 | `ClientSecret` | Azure Active Directory アプリ キー | g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di= |
 
 [!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1&highlight=2,7-10)]
@@ -161,4 +161,4 @@ Configuration.Reload();
 * [Microsoft Azure: Key Vault](https://azure.microsoft.com/services/key-vault/)
 * [Microsoft Azure: Key Vault のドキュメント](https://docs.microsoft.com/azure/key-vault/)
 * [Azure Key Vault のキーを生成し、HSM で保護された転送する方法](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)
-* [KeyVaultClient クラス](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault.keyvaultclient)
+* [KeyVaultClient クラス](/dotnet/api/microsoft.azure.keyvault.keyvaultclient)

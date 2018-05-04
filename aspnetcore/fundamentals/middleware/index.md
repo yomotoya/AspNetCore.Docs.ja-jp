@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: a410d686b6140a487efb9962e94f64cfbec245f2
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: 4c44063fb3385fc625c35c8a3cf06a35b5b0afb7
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core のミドルウェア
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/26/2018
 
 要求デリゲートは、要求パイプラインの構築に使用されます。 要求デリゲートは、各 HTTP 要求を処理します。
 
-要求デリゲートは、[Run](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions)、[Map](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions)、[Use](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions) の各拡張メソッドを使って構成されます。 個々の要求デリゲートは、匿名メソッドとしてインラインで指定するか (インライン ミドルウェアと呼ばれます)、または再利用可能なクラスで定義することができます。 これらの再利用可能なクラスとインラインの匿名メソッドは、"*ミドルウェア*" または "*ミドルウェア コンポーネント*" です。 要求パイプライン内の各ミドルウェア コンポーネントは、パイプラインの次のコンポーネントを呼び出すか、妥当な場合はチェーンをショートさせます。
+要求デリゲートは、[Run](/dotnet/api/microsoft.aspnetcore.builder.runextensions)、[Map](/dotnet/api/microsoft.aspnetcore.builder.mapextensions)、[Use](/dotnet/api/microsoft.aspnetcore.builder.useextensions) の各拡張メソッドを使って構成されます。 個々の要求デリゲートは、匿名メソッドとしてインラインで指定するか (インライン ミドルウェアと呼ばれます)、または再利用可能なクラスで定義することができます。 これらの再利用可能なクラスとインラインの匿名メソッドは、"*ミドルウェア*" または "*ミドルウェア コンポーネント*" です。 要求パイプライン内の各ミドルウェア コンポーネントは、パイプラインの次のコンポーネントを呼び出すか、妥当な場合はチェーンをショートさせます。
 
 [ミドルウェアへの HTTP モジュールの移行](xref:migration/http-modules)に関するページでは、ASP.NET Core と ASP.NET 4.x の要求パイプラインの違いについての説明と、他のミドルウェア サンプルが提供されています。
 
@@ -46,9 +46,9 @@ ASP.NET Core の要求パイプラインは、次の図で示すように (実�
 
 [!code-csharp[](index/sample/Middleware/Startup.cs)]
 
-最初の [app.Run](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions) デリゲートが、パイプラインを終了します。
+最初の [app.Run](/dotnet/api/microsoft.aspnetcore.builder.runextensions) デリゲートが、パイプラインを終了します。
 
-複数の要求デリゲートを [app.Use](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions) と一緒にチェーンすることができます。 `next` パラメーターは、パイプラインの次のデリゲートを表します  (*next* パラメーターを "*呼び出さない*" ことで、パイプラインをショートさせることができることに注意してください)。次の例で示すように、通常は、次のデリゲートの前と後の両方でアクションを実行できます。
+複数の要求デリゲートを [app.Use](/dotnet/api/microsoft.aspnetcore.builder.useextensions) と一緒にチェーンすることができます。 `next` パラメーターは、パイプラインの次のデリゲートを表します  (*next* パラメーターを "*呼び出さない*" ことで、パイプラインをショートさせることができることに注意してください)。次の例で示すように、通常は、次のデリゲートの前と後の両方でアクションを実行できます。
 
 [!code-csharp[](index/sample/Chain/Startup.cs?name=snippet1)]
 
@@ -57,7 +57,7 @@ ASP.NET Core の要求パイプラインは、次の図で示すように (実�
 > - プロトコル違反が発生する可能性があります。 たとえば、示されている `content-length` より多くを書き込んだ場合。
 > - 本文の形式が破損する可能性があります。 たとえば、CSS ファイルに HTML フッターを書き込んだ場合。
 >
-> [HttpResponse.HasStarted](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.httpresponsefeature#Microsoft_AspNetCore_Http_Features_HttpResponseFeature_HasStarted) は、ヘッダーが送信されたかどうかや本文が書き込まれたかどうかを示すために役立つヒントです。
+> [HttpResponse.HasStarted](/dotnet/api/microsoft.aspnetcore.http.features.httpresponsefeature#Microsoft_AspNetCore_Http_Features_HttpResponseFeature_HasStarted) は、ヘッダーが送信されたかどうかや本文が書き込まれたかどうかを示すために役立つヒントです。
 
 ## <a name="ordering"></a>並べ替え
 
@@ -122,7 +122,7 @@ public void Configure(IApplicationBuilder app)
 
 -----------
 
-次の例では、静的ファイルの要求が応答圧縮ミドルウェアの前に静的ファイル ミドルウェアによって処理される、ミドルウェアの順序を示します。 このミドルウェアの順序では、静的なファイルは圧縮されません。 [UseMvcWithDefaultRoute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_) からの MVC 応答を圧縮することができます。
+次の例では、静的ファイルの要求が応答圧縮ミドルウェアの前に静的ファイル ミドルウェアによって処理される、ミドルウェアの順序を示します。 このミドルウェアの順序では、静的なファイルは圧縮されません。 [UseMvcWithDefaultRoute](/dotnet/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_) からの MVC 応答を圧縮することができます。
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -140,7 +140,7 @@ public void Configure(IApplicationBuilder app)
 
 HTTP パイプラインを構成するには、`Use`、`Run`、`Map` を使います。 `Use` メソッドは、パイプラインをショートさせることができます (つまり `next` 要求デリゲートを呼び出さない場合)。 `Run` は規則であり、一部のミドルウェア コンポーネントは、パイプラインの最後に実行される `Run[Middleware]` メソッドを公開することがあります。
 
-`Map*` 拡張メソッドは、パイプラインを分岐する規則として使われます。 [Map](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) は、指定された要求パスの一致に基づいて、要求パイプラインを分岐します。 要求パスが指定されたパスで開始する場合、分岐が実行されます。
+`Map*` 拡張メソッドは、パイプラインを分岐する規則として使われます。 [Map](/dotnet/api/microsoft.aspnetcore.builder.mapextensions) は、指定された要求パスの一致に基づいて、要求パイプラインを分岐します。 要求パスが指定されたパスで開始する場合、分岐が実行されます。
 
 [!code-csharp[](index/sample/Chain/StartupMap.cs?name=snippet1)]
 
@@ -155,7 +155,7 @@ HTTP パイプラインを構成するには、`Use`、`Run`、`Map` を使い�
 
 `Map` を使用すると、一致したパス セグメントが `HttpRequest.Path` から削除され、要求ごとに `HttpRequest.PathBase` に付加されます。
 
-[MapWhen](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapwhenextensions) は、指定された述語の結果に基づいて、要求パイプラインを分岐します。 `Func<HttpContext, bool>` という型の任意の述語を使って、要求をパイプラインの新しい分岐にマップできます。 次の例では、クエリ文字列変数 `branch` の存在を検出するために術後が使用されます。
+[MapWhen](/dotnet/api/microsoft.aspnetcore.builder.mapwhenextensions) は、指定された述語の結果に基づいて、要求パイプラインを分岐します。 `Func<HttpContext, bool>` という型の任意の述語を使って、要求をパイプラインの新しい分岐にマップできます。 次の例では、クエリ文字列変数 `branch` の存在を検出するために術後が使用されます。
 
 [!code-csharp[](index/sample/Chain/StartupMapWhen.cs?name=snippet1)]
 
@@ -225,7 +225,7 @@ ASP.NET Core には、次のミドルウェア コンポーネントおよびそ
 > [!NOTE]
 > ASP.NET Core 1.x では、ミドルウェア `Task` メソッドの名前は `Invoke` である必要があります。 ASP.NET Core 2.0 以降では、名前は `Invoke` でも `InvokeAsync` でも構いません。
 
-次の拡張メソッドは、[IApplicationBuilder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder) を介してミドルウェアを公開します。
+次の拡張メソッドは、[IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) を介してミドルウェアを公開します。
 
 [!code-csharp[](index/sample/Culture/RequestCultureMiddlewareExtensions.cs)]
 
@@ -235,7 +235,7 @@ ASP.NET Core には、次のミドルウェア コンポーネントおよびそ
 
 ミドルウェアは、コンストラクターで依存関係を公開することによって、[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)に従う必要があります。 ミドルウェアは、"*アプリケーションの有効期間*" ごとに 1 回構築されます。 要求内でミドルウェアとサービスを共有する必要がある場合は、下記の「*要求ごとの依存関係*」をご覧ください。
 
-ミドルウェア コンポーネントは、コンストラクター パラメーターにより、依存関係の挿入から依存関係を解決できます。 [`UseMiddleware<T>`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.usemiddlewareextensions#methods_summary) は、追加パラメーターを直接受け入れることもできます。
+ミドルウェア コンポーネントは、コンストラクター パラメーターにより、依存関係の挿入から依存関係を解決できます。 [`UseMiddleware<T>`](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions#methods_summary) は、追加パラメーターを直接受け入れることもできます。
 
 ### <a name="per-request-dependencies"></a>要求ごとの依存関係
 

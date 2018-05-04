@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 166111696a9c4244ede44fca8878dd3725bb3099
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0a04f5762a35426f342b58b8b60288c66c057ae7
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>アプリ シークレットは、ASP.NET Core での開発での安全な格納場所
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 04/06/2018
 
 このドキュメントでは、開発でシークレット マネージャー ツールを使用して、コードからシークレットを保持する方法を示しています。 最も重要な点は、ソース コードで、パスワードや他の機密データを格納する必要がありますしないと、開発およびテスト モードで運用環境の機密情報を使用しないでください。 代わりに使用することができます、[構成](xref:fundamentals/configuration/index)システム環境変数からこれらの値を読み取るまたはシークレット マネージャーを使用して格納されている値からツールです。 シークレット マネージャー ツールでは、機密データがソース管理にチェックインされているを防ぐのに役立ちます。 [構成](xref:fundamentals/configuration/index)システムは、この記事で説明されているシークレット マネージャー ツールを使用して格納されているシークレットを読み取ることができます。
 
-シークレット マネージャー ツールは、開発でのみ使用されます。 Azure のテストおよび運用シークレットを保護することができます、 [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/)構成プロバイダーです。 参照してください[Azure Key Vault の構成プロバイダー](https://docs.microsoft.com/aspnet/core/security/key-vault-configuration)詳細についてはします。
+シークレット マネージャー ツールは、開発でのみ使用されます。 Azure のテストおよび運用シークレットを保護することができます、 [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/)構成プロバイダーです。 参照してください[Azure Key Vault の構成プロバイダー](xref:security/key-vault-configuration)詳細についてはします。
 
 ## <a name="environment-variables"></a>環境変数
 
@@ -46,11 +46,11 @@ ms.lasthandoff: 04/06/2018
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
-ソリューション エクスプ ローラーでプロジェクトを再度右クリックし、選択**管理ユーザーの機密情報**コンテキスト メニュー。 このジェスチャが新しく追加`UserSecretsId`内のノード、`PropertyGroup`の*.csproj*次の例に示すように、ファイル。
+ソリューション エクスプ ローラーでプロジェクトを再度右クリックし、選択**管理ユーザーの機密情報**コンテキスト メニュー。 このジェスチャが新しく追加`UserSecretsId`内のノード、`PropertyGroup`の *.csproj*次の例に示すように、ファイル。
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
-保存、変更された*.csproj*ファイルも開きます、`secrets.json`ファイル テキスト エディターでします。 内容を置き換える、`secrets.json`を次のコード ファイル。
+保存、変更された *.csproj*ファイルも開きます、`secrets.json`ファイル テキスト エディターでします。 内容を置き換える、`secrets.json`を次のコード ファイル。
 
 ```json
 {
@@ -59,7 +59,7 @@ ms.lasthandoff: 04/06/2018
 ```
 
 #### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
-追加`Microsoft.Extensions.SecretManager.Tools`を*.csproj*ファイル実行して[dotnet 復元](/dotnet/core/tools/dotnet-restore)です。 同じ手順を使用するのコマンドラインを使用して、シークレット マネージャー ツールをインストールします。
+追加`Microsoft.Extensions.SecretManager.Tools`を *.csproj*ファイル実行して[dotnet 復元](/dotnet/core/tools/dotnet-restore)です。 同じ手順を使用するのコマンドラインを使用して、シークレット マネージャー ツールをインストールします。
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
@@ -74,9 +74,9 @@ dotnet user-secrets -h
 > [!NOTE]
 > 同じディレクトリにする必要があります、 *.csproj*で定義されているツールを実行するファイル、 *.csproj*ファイルの`DotNetCliToolReference`ノード。
 
-シークレット マネージャー ツールは、ユーザー プロファイルに格納されているプロジェクトに固有の構成設定で動作します。 ユーザーの機密情報を使用するプロジェクトを指定する必要があります、`UserSecretsId`値でその*.csproj*ファイル。 値`UserSecretsId`任意で、一般にプロジェクトに固有です。 開発者が通常の GUID を生成、`UserSecretsId`です。
+シークレット マネージャー ツールは、ユーザー プロファイルに格納されているプロジェクトに固有の構成設定で動作します。 ユーザーの機密情報を使用するプロジェクトを指定する必要があります、`UserSecretsId`値でその *.csproj*ファイル。 値`UserSecretsId`任意で、一般にプロジェクトに固有です。 開発者が通常の GUID を生成、`UserSecretsId`です。
 
-追加、`UserSecretsId`に、プロジェクトの*.csproj*ファイル。
+追加、`UserSecretsId`に、プロジェクトの *.csproj*ファイル。
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
@@ -117,7 +117,7 @@ dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\w
 
 * macOS: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 
-値`userSecretsId`で指定された値に由来*.csproj*ファイル。
+値`userSecretsId`で指定された値に由来 *.csproj*ファイル。
 
 これらの実装の詳細を変更する可能性があります、場所やシークレット マネージャー ツールを使用して保存するデータの形式に依存するコードを記述することはできません。 たとえば、シークレットの値が現在は*いない*今日では、暗号化しますが、いつか可能性があります。
 

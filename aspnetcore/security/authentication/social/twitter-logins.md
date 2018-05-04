@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 3f0eb9abce067108b82cf8b639cea3b120ca4b5a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e0bf0084f8e46f3774fa070602404840aa803661
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="twitter-external-login-setup-with-aspnet-core"></a>Twitter の ASP.NET Core を使用して外部ログインのセットアップ
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="create-the-app-in-twitter"></a>Twitter でのアプリを作成します。
 
-* 移動[ https://apps.twitter.com/ ](https://apps.twitter.com/)してサインインします。 Twitter アカウントがない場合を使用して、 **[今すぐサインアップ](https://twitter.com/signup)**リンクを作成します。 サインインした後、**アプリケーション管理**ページが表示。
+* 移動[ https://apps.twitter.com/ ](https://apps.twitter.com/)してサインインします。 Twitter アカウントがない場合を使用して、 **[今すぐサインアップ](https://twitter.com/signup)** リンクを作成します。 サインインした後、**アプリケーション管理**ページが表示。
 
 ![Twitter のアプリケーション管理の Microsoft Edge で開く](index/_static/TwitterAppManage.png)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/06/2018
 
 ![アプリケーション ページを作成します。](index/_static/TwitterCreate.png)
 
-* 開発 URI を入力と*/signin-twitter*に追加されます、**有効な OAuth リダイレクト Uri**フィールド (例: `https://localhost:44320/signin-twitter`)。 このチュートリアルで後で構成されている Twitter 認証スキームはで、要求を自動的に処理*/signin-twitter* OAuth フローを実装するルート。
+* 開発 URI を入力と */signin-twitter*に追加されます、**有効な OAuth リダイレクト Uri**フィールド (例: `https://localhost:44320/signin-twitter`)。 このチュートリアルで後で構成されている Twitter 認証スキームはで、要求を自動的に処理 */signin-twitter* OAuth フローを実装するルート。
 
 * フォームの残りの部分を入力し、タップ**、Twitter アプリケーションを作成**です。 新しいアプリケーションの詳細が表示されます。
 
@@ -85,7 +85,7 @@ app.UseTwitterAuthentication(new TwitterOptions()
 ```
 
 * * *
-参照してください、 [TwitterOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.twitteroptions) Twitter 認証でサポートされる構成オプションの詳細についての API リファレンスです。 ユーザーに関するさまざまな情報を要求するために使用できます。
+参照してください、 [TwitterOptions](/dotnet/api/microsoft.aspnetcore.builder.twitteroptions) Twitter 認証でサポートされる構成オプションの詳細についての API リファレンスです。 ユーザーに関するさまざまな情報を要求するために使用できます。
 
 ## <a name="sign-in-with-twitter"></a>Twitter でサインイン
 
@@ -105,7 +105,7 @@ Twitter の資格情報を入力した後は、電子メールを設定する we
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
-* **ASP.NET Core 2.x のみ:**呼び出すことによって構成されていない場合の Identity`services.AddIdentity`で`ConfigureServices`、認証を試行することになります*ArgumentException: 'SignInScheme' オプションを指定する必要があります*です。 このチュートリアルで使用されるプロジェクト テンプレートは、これが行われるようにします。
+* **ASP.NET Core 2.x のみ:** 呼び出すことによって構成されていない場合の Identity`services.AddIdentity`で`ConfigureServices`、認証を試行することになります*ArgumentException: 'SignInScheme' オプションを指定する必要があります*です。 このチュートリアルで使用されるプロジェクト テンプレートは、これが行われるようにします。
 * 最初の移行を適用することで、サイト データベースが作成されていない場合、表示される*要求の処理中にデータベース操作が失敗しました*エラーです。 タップ**適用移行**データベースを作成し、エラーを越えて続行を更新します。
 
 ## <a name="next-steps"></a>次の手順

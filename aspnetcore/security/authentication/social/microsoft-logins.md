@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: aabbbe66aee8c8b93140bcc4181b432017cec1d7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 484cee3565fc5b72c19559f3fb907070d8178f9d
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>ASP.NET Core の Microsoft アカウント外部ログインのセットアップ
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 04/06/2018
 
 ![追加プラットフォーム ダイアログ ボックス](index/_static/MicrosoftDevAppPlatform.png)
 
-* 新しい**Web**プラットフォーム セクションで、使用、開発の URL を入力*/signin-microsoft*に追加された、**リダイレクト Url**フィールド (例: `https://localhost:44320/signin-microsoft`)。 このチュートリアルで後で構成されている Microsoft の認証スキームはで、要求を自動的に処理*/signin-microsoft* OAuth フローを実装するルート。
+* 新しい**Web**プラットフォーム セクションで、使用、開発の URL を入力 */signin-microsoft*に追加された、**リダイレクト Url**フィールド (例: `https://localhost:44320/signin-microsoft`)。 このチュートリアルで後で構成されている Microsoft の認証スキームはで、要求を自動的に処理 */signin-microsoft* OAuth フローを実装するルート。
 
 ![Web プラットフォーム セクションの「](index/_static/MicrosoftRedirectUri.png)
 
@@ -105,7 +105,7 @@ app.UseMicrosoftAccountAuthentication(new MicrosoftAccountOptions()
 * * *
 Microsoft 開発者ポータルで使用される用語は、これらのトークンを名前が`ApplicationId`と`Password`、としてそれらを公開している`ClientId`と`ClientSecret`API の構成にします。
 
-参照してください、 [MicrosoftAccountOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.microsoftaccountoptions) Microsoft アカウントの認証でサポートされる構成オプションの詳細についての API リファレンスです。 ユーザーに関するさまざまな情報を要求するために使用できます。
+参照してください、 [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsoftaccountoptions) Microsoft アカウントの認証でサポートされる構成オプションの詳細についての API リファレンスです。 ユーザーに関するさまざまな情報を要求するために使用できます。
 
 ## <a name="sign-in-with-microsoft-account"></a>Microsoft アカウントでサインイン
 
@@ -128,7 +128,7 @@ Microsoft をクリックすると、認証のため Microsoft にリダイレ�
 * 場合は、Microsoft アカウント プロバイダーにリダイレクトするサインインのエラー ページ、エラー タイトルと説明クエリ文字列パラメーターすぐ後ろに注意してください、 `#` (ハッシュタグ) Uri にします。
 
   エラー メッセージでは、マイクロソフトの認証に問題がある、最も一般的な原因は、アプリケーション Uri と一致しない、**のリダイレクト Uri**向けに指定された、 **Web**プラットフォーム.
-* **ASP.NET Core 2.x のみ:**呼び出すことによって構成されていない場合の Identity`services.AddIdentity`で`ConfigureServices`、認証を試行することになります*ArgumentException: 'SignInScheme' オプションを指定する必要があります*です。 このチュートリアルで使用されるプロジェクト テンプレートは、これが行われるようにします。
+* **ASP.NET Core 2.x のみ:** 呼び出すことによって構成されていない場合の Identity`services.AddIdentity`で`ConfigureServices`、認証を試行することになります*ArgumentException: 'SignInScheme' オプションを指定する必要があります*です。 このチュートリアルで使用されるプロジェクト テンプレートは、これが行われるようにします。
 * 最初の移行を適用することで、サイト データベースが作成されていない場合、表示される*要求の処理中にデータベース操作が失敗しました*エラーです。 タップ**適用移行**データベースを作成し、エラーを越えて続行を更新します。
 
 ## <a name="next-steps"></a>次の手順

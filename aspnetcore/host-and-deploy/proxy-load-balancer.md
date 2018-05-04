@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: b153a7406ae1b31a2aa453135c6bd0e5ce0b2997
-ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
+ms.openlocfilehash: f18a5c518edc739e0fe667f3aef6ffd38c06366c
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>プロキシ サーバーを操作して、ロード バランサーに ASP.NET Core の構成します。
 
@@ -33,15 +33,15 @@ ASP.NET Core の推奨構成で、アプリは IIS/ASP.NET コア モジュー�
 
 | Header | 説明 |
 | ------ | ----------- |
-| X-Forwarded-For | 要求とプロキシのチェーン内の後続のプロキシを開始したクライアントに関する情報を保持します。 このパラメーターには、IP アドレス (および、必要に応じて、ポート番号) を含めることがあります。 プロキシ サーバーのチェーンには、最初のパラメーターは、要求が行われた最初のクライアントを示します。 後続のプロキシの識別子に従ってください。 パラメーターの一覧では、チェーン内の最後のプロキシがありません。 最後のプロキシの IP アドレス、および必要に応じて、ポート番号は、トランスポート層でのリモートの IP アドレスとして使用できます。 |
+| X-転送の場合 | 要求とプロキシのチェーン内の後続のプロキシを開始したクライアントに関する情報を保持します。 このパラメーターには、IP アドレス (および、必要に応じて、ポート番号) を含めることがあります。 プロキシ サーバーのチェーンには、最初のパラメーターは、要求が行われた最初のクライアントを示します。 後続のプロキシの識別子に従ってください。 パラメーターの一覧では、チェーン内の最後のプロキシがありません。 最後のプロキシの IP アドレス、および必要に応じて、ポート番号は、トランスポート層でのリモートの IP アドレスとして使用できます。 |
 | X-Forwarded-Proto | 発信元スキーム (HTTP または HTTPS) の値。 値場合もありますスキームの一覧要求が複数のプロキシを通過します。 |
-| X-Forwarded-Host | ホスト ヘッダー フィールドの元の値。 通常、プロキシでは、ホスト ヘッダーを変更しないでください。 参照してください[マイクロソフト セキュリティ アドバイザリ CVE-2018-0787](https://github.com/aspnet/Announcements/issues/295)プロキシを検証しませんシステムに影響を与える権限昇格の脆弱性や既知の適切な値に restict ホスト ヘッダーの詳細についてです。 |
+| X 転送ホスト | ホスト ヘッダー フィールドの元の値。 通常、プロキシでは、ホスト ヘッダーを変更しないでください。 参照してください[マイクロソフト セキュリティ アドバイザリ CVE-2018-0787](https://github.com/aspnet/Announcements/issues/295)プロキシを検証しませんシステムに影響を与える権限昇格の脆弱性や既知の適切な値に restict ホスト ヘッダーの詳細についてです。 |
 
 ヘッダーの転送ミドルウェアから、 [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/)パッケージ化、これらのヘッダーを読み取り、および関連付けられているフィールドに入力[HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext)です。 
 
 ミドルウェアの更新:
 
-* [HttpContext.Connection.RemoteIpAddress](/dotnet/api/microsoft.aspnetcore.http.connectioninfo.remoteipaddress) &ndash; Set using the `X-Forwarded-For` header value. ミドルウェアを設定する方法に影響を与える追加設定`RemoteIpAddress`です。 詳細については、次を参照してください。、[転送ヘッダー ミドルウェアのオプション](#forwarded-headers-middleware-options)です。
+* [HttpContext.Connection.RemoteIpAddress](/dotnet/api/microsoft.aspnetcore.http.connectioninfo.remoteipaddress) &ndash;設定を使用して、`X-Forwarded-For`ヘッダーの値。 ミドルウェアを設定する方法に影響を与える追加設定`RemoteIpAddress`です。 詳細については、次を参照してください。、[転送ヘッダー ミドルウェアのオプション](#forwarded-headers-middleware-options)です。
 * [HttpContext.Request.Scheme](/dotnet/api/microsoft.aspnetcore.http.httprequest.scheme) &ndash;設定を使用して、`X-Forwarded-Proto`ヘッダーの値。
 * [HttpContext.Request.Host](/dotnet/api/microsoft.aspnetcore.http.httprequest.host) &ndash;設定を使用して、`X-Forwarded-Host`ヘッダーの値。
 
@@ -110,6 +110,7 @@ services.Configure<ForwardedHeadersOptions>(options =>
 });
 ```
 
+::: moniker range="<= aspnetcore-2.0"
 | オプション | 説明 |
 | ------ | ----------- |
 | [ForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedforheadername) | このプロパティで指定された 1 つではなくで指定されたヘッダーを使用して[ForwardedHeadersDefaults.XForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedforheadername)です。<br><br>既定値は、`X-Forwarded-For` です。 |
@@ -123,6 +124,23 @@ services.Configure<ForwardedHeadersOptions>(options =>
 | [OriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalhostheadername) | このプロパティで指定された 1 つではなくで指定されたヘッダーを使用して[ForwardedHeadersDefaults.XOriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalhostheadername)です。<br><br>既定値は、`X-Original-Host` です。 |
 | [OriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalprotoheadername) | このプロパティで指定された 1 つではなくで指定されたヘッダーを使用して[ForwardedHeadersDefaults.XOriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalprotoheadername)です。<br><br>既定値は、`X-Original-Proto` です。 |
 | [RequireHeaderSymmetry](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.requireheadersymmetry) | 間に同期するヘッダーの値の数が必要、 [ForwardedHeadersOptions.ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders)処理中です。<br><br>既定の ASP.NET Core 1.x は`true`します。 ASP.NET Core 2.0 またはそれ以降の既定値は`false`します。 |
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+| オプション | 説明 |
+| ------ | ----------- |
+| AllowedHosts | ホストを制限、`X-Forwarded-Host`ヘッダーに指定された値。<ul><li>序数を無視する case を使用する値が比較されます。</li><li>ポート番号を除外する必要があります。</li><li>リストが空、すべてのホストが許可されます。</li><li>最上位のワイルドカード`*`により、すべての空でないホストします。</li><li>サブドメイン ワイルドカードは許可されますが、ルート ドメインが一致しません。 たとえば、`*.contoso.com`サブドメインに一致`foo.contoso.com`がルート ドメインではなく`contoso.com`です。</li><li>Unicode のホスト名が許可されますに変換されます[Punycode](https://tools.ietf.org/html/rfc3492)照合します。</li><li>[IPv6 アドレス](https://tools.ietf.org/html/rfc4291)角かっこの境界し、である必要があります[従来フォーム](https://tools.ietf.org/html/rfc4291#section-2.2)(たとえば、 `[ABCD:EF01:2345:6789:ABCD:EF01:2345:6789]`)。 IPv6 アドレスは、さまざまな形式の間で論理的に等しいかどうかを確認する特別な大文字と小文字がなく、正規化は行われません。</li><li>許可されているホストの制限に失敗する可能性があります、攻撃者は、サービスによって生成されたリンクを偽装します。</li></ul>既定値は、空[IList\<文字列 >](/dotnet/api/system.collections.generic.ilist-1)です。 |
+| [ForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedforheadername) | このプロパティで指定された 1 つではなくで指定されたヘッダーを使用して[ForwardedHeadersDefaults.XForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedforheadername)です。<br><br>既定値は、`X-Forwarded-For` です。 |
+| [ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) | どのフォワーダーを処理するかを識別します。 参照してください、 [ForwardedHeaders Enum](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders)適用されるフィールドの一覧についてはします。 このプロパティに割り当てられている標準値は<code>ForwardedHeaders.XForwardedFor &#124; ForwardedHeaders.XForwardedProto</code>します。<br><br>既定値は[ForwardedHeaders.None](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders)です。 |
+| [ForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedhostheadername) | このプロパティで指定された 1 つではなくで指定されたヘッダーを使用して[ForwardedHeadersDefaults.XForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedhostheadername)です。<br><br>既定値は、`X-Forwarded-Host` です。 |
+| [ForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedprotoheadername) | このプロパティで指定された 1 つではなくで指定されたヘッダーを使用して[ForwardedHeadersDefaults.XForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedprotoheadername)です。<br><br>既定値は、`X-Forwarded-Proto` です。 |
+| [ForwardLimit](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardlimit) | 処理されるヘッダー内のエントリの数を制限します。 設定`null`、制限が、これを無効にする必要がある場合にのみ実行`KnownProxies`または`KnownNetworks`が構成されています。<br><br>既定値は 1 です。 |
+| [KnownNetworks](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownnetworks) | アドレスから転送されたヘッダーをそのまま使用する既知のプロキシの範囲です。 クラスレス ドメイン間ルーティング (CIDR) 表記を使用して IP の範囲を提供します。<br><br>既定値は、 [IList](/dotnet/api/system.collections.generic.ilist-1)\<[ip ネットワーク](/dotnet/api/microsoft.aspnetcore.httpoverrides.ipnetwork)> の 1 つのエントリを含む`IPAddress.Loopback`です。 |
+| [KnownProxies](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownproxies) | 転送されたヘッダーをそのまま使用する既知のプロキシのアドレス。 使用する`KnownProxies`と一致する正確な IP アドレスを指定します。<br><br>既定値は、 [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IPAddress](/dotnet/api/system.net.ipaddress)> の 1 つのエントリを含む`IPAddress.IPv6Loopback`です。 |
+| [OriginalForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalforheadername) | このプロパティで指定された 1 つではなくで指定されたヘッダーを使用して[ForwardedHeadersDefaults.XOriginalForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalforheadername)です。<br><br>既定値は、`X-Original-For` です。 |
+| [OriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalhostheadername) | このプロパティで指定された 1 つではなくで指定されたヘッダーを使用して[ForwardedHeadersDefaults.XOriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalhostheadername)です。<br><br>既定値は、`X-Original-Host` です。 |
+| [OriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalprotoheadername) | このプロパティで指定された 1 つではなくで指定されたヘッダーを使用して[ForwardedHeadersDefaults.XOriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalprotoheadername)です。<br><br>既定値は、`X-Original-Proto` です。 |
+| [RequireHeaderSymmetry](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.requireheadersymmetry) | 間に同期するヘッダーの値の数が必要、 [ForwardedHeadersOptions.ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders)処理中です。<br><br>既定の ASP.NET Core 1.x は`true`します。 ASP.NET Core 2.0 またはそれ以降の既定値は`false`します。 |
+::: moniker-end
 
 ## <a name="scenarios-and-use-cases"></a>シナリオとユース ケース
 

@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: e02f3a75269e5e4a4794d1979d3a5add21fe38be
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cbdef871ffc3269e3118d23ed20306a71b9df030
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>ASP.NET Core ミドルウェアへの HTTP ハンドラーとモジュールを移行します。
 
 によって[Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
-この記事は、既存の ASP.NET を移行する方法を示しています。 [HTTP モジュールとハンドラー system.webserver](https://docs.microsoft.com/iis/configuration/system.webserver/)を ASP.NET Core[ミドルウェア](xref:fundamentals/middleware/index)です。
+この記事は、既存の ASP.NET を移行する方法を示しています。 [HTTP モジュールとハンドラー system.webserver](/iis/configuration/system.webserver/)を ASP.NET Core[ミドルウェア](xref:fundamentals/middleware/index)です。
 
 ## <a name="modules-and-handlers-revisited"></a>モジュールとハンドラーが見直され
 
@@ -29,15 +29,15 @@ ASP.NET Core ミドルウェアを前に、最初に要約 HTTP モジュール�
 
 **ハンドラーは次のとおりです。**
 
-   * 実装するクラス[IHttpHandler](https://docs.microsoft.com/dotnet/api/system.web.ihttphandler)
+   * 実装するクラス[IHttpHandler](/dotnet/api/system.web.ihttphandler)
 
    * など、指定されたファイル名または拡張機能で要求を処理するために使用*レポート*
 
-   * [構成されている](https://docs.microsoft.com//iis/configuration/system.webserver/handlers/)で*Web.config*
+   * [構成されている](/iis/configuration/system.webserver/handlers/)で*Web.config*
 
 **モジュールは次のとおりです。**
 
-   * 実装するクラス[IHttpModule](https://docs.microsoft.com/dotnet/api/system.web.ihttpmodule)
+   * 実装するクラス[IHttpModule](/dotnet/api/system.web.ihttpmodule)
 
    * 要求ごとに呼び出されます
 
@@ -45,11 +45,11 @@ ASP.NET Core ミドルウェアを前に、最初に要約 HTTP モジュール�
 
    * HTTP 応答に追加したり、独自に作成できません。
 
-   * [構成されている](https://docs.microsoft.com//iis/configuration/system.webserver/modules/)で*Web.config*
+   * [構成されている](/iis/configuration/system.webserver/modules/)で*Web.config*
 
 **モジュールが受信要求を処理する順序は、によって決定されます。**
 
-   1. [アプリケーションのライフ サイクル](https://msdn.microsoft.com/library/ms227673.aspx)、ASP.NET によって発生した一連のイベントである: [BeginRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.beginrequest)、 [AuthenticateRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.authenticaterequest), などです。各モジュールには、1 つまたは複数のイベントのハンドラーを作成できます。
+   1. [アプリケーションのライフ サイクル](https://msdn.microsoft.com/library/ms227673.aspx)、ASP.NET によって発生した一連のイベントである: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest)、 [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest), などです。各モジュールには、1 つまたは複数のイベントのハンドラーを作成できます。
 
    2. 同一のイベントで構成されている順序*Web.config*です。
 
@@ -243,7 +243,7 @@ ASP.NET Core のプロジェクトで次のようなミドルウェアをこの�
 public async Task Invoke(HttpContext context)
 ```
 
-`HttpContext` ASP.NET Core で大幅に変更されました。 このセクションでは、の最も一般的に使用されるプロパティに変換する方法を示しています。 [System.Web.HttpContext](https://docs.microsoft.com/dotnet/api/system.web.httpcontext)を新しい`Microsoft.AspNetCore.Http.HttpContext`です。
+`HttpContext` ASP.NET Core で大幅に変更されました。 このセクションでは、の最も一般的に使用されるプロパティに変換する方法を示しています。 [System.Web.HttpContext](/dotnet/api/system.web.httpcontext)を新しい`Microsoft.AspNetCore.Http.HttpContext`です。
 
 ### <a name="httpcontext"></a>HttpContext
 
@@ -299,7 +299,7 @@ public async Task Invoke(HttpContext context)
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Referrer)]
 
-**HttpContext.Request.ContentType** translates to:
+**HttpContext.Request.ContentType**に変換されます。
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Type)]
 
