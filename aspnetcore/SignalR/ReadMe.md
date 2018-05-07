@@ -1,1 +1,0 @@
-<span data-ttu-id="e272f-101">SignalR コンテンツのため場合、このフォルダーです。</span><span class="sxs-lookup"><span data-stu-id="e272f-101">This folder if for SignalR content.</span></span> <span data-ttu-id="e272f-102">最初のファイルがこのディレクトリに追加されたときに、このファイルを削除します。</span><span class="sxs-lookup"><span data-stu-id="e272f-102">Delete this file when the first file is added to this directory.</span></span>
