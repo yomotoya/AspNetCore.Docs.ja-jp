@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value
-title: "$Select を使用すると、$を展開し、ASP.NET Web API 2 OData $value |Microsoft ドキュメント"
+title: "ASP.NET Web API 2 OData で $select, $expand, および $value を使用する |Microsoft ドキュメント"
 author: MikeWasson
 description: 
 ms.author: aspnetcontent
@@ -20,13 +20,13 @@ ms.lasthandoff: 11/10/2017
 ---
 <a name="using-select-expand-and-value-in-aspnet-web-api-2-odata"></a>$Select を使用すると、$を展開し、ASP.NET Web API 2 OData $value
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者 [Mike Wasson](https://github.com/MikeWasson)
 
-Web API 2 は、$ の展開、$select、および OData $value オプションのサポートを追加します。 これらのオプションは、サーバーから返される形式を制御するクライアントを許可します。
+Web API 2 では、OData における $select, $expand, および $value オプションのサポートを追加しています。これらのオプションは、サーバーから返された形式を制御することをクライアントに許可します。
 
-- **$展開**と、関連するエンティティの応答にインラインで含まれます。
-- **$select**応答に含めるプロパティのサブセットを選択します。
-- **$value**プロパティの生の値を取得します。
+- **$expand** は、応答にインラインで含まれる関連するエンティティを発生させます。
+- **$select** は、応答に含めるプロパティのサブセットを選択します。
+- **$value** は、プロパティの未加工の値を取得します。
 
 ## <a name="example-schema"></a>例のスキーマ
 
