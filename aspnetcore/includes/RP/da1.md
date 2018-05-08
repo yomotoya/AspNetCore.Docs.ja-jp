@@ -10,4 +10,4 @@
 
 *Models/Movie.cs* ファイルを開き、下のコードで強調表示されている行を追加します。
 
-[!code-csharp[Main](code/Models/Movie.cs?highlight=2,11-12)]
+[!code-csharp[](code/Models/Movie.cs?highlight=2,11-12)]

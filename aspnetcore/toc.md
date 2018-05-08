@@ -132,6 +132,7 @@
 ### [HTTP.sys](fundamentals/servers/httpsys.md)
 ## [グローバライズとローカライズ](xref:fundamentals/localization)
 ### [Orchard コアで移植可能なオブジェクトのローカライズを構成する](xref:fundamentals/portable-object-localization)
+## [HTTP 要求の開始](xref:fundamentals/http-requests)
 ## [要求機能](fundamentals/request-features.md)
 ## [ホストされるサービスを使用するバックグラウンド タスク](xref:fundamentals/hosted-services)
 ## [Primitives](xref:fundamentals/primitives/index)
@@ -143,9 +144,11 @@
 ## [ASP.NET Core と ASP.NET の選択](choose-aspnet-framework.md)
 
 # [Razor ページ](xref:mvc/razor-pages/index)
-## [ルートとアプリの規則の機能](xref:mvc/razor-pages/razor-pages-convention-features)
 ## [Razor ページのフィルター メソッド](xref:mvc/razor-pages/filter)
+## [Razor クラス ライブラリの作成](xref:mvc/razor-pages/ui-class)
+## [ルートとアプリの規則の機能](xref:mvc/razor-pages/razor-pages-convention-features)
 ## [Razor SDK](xref:mvc/razor-pages/sdk)
+
 
 # [MVC](mvc/overview.md)
 ## [モデル バインド](mvc/models/model-binding.md)
@@ -355,7 +358,7 @@
 ## [ASP.NET Core 1.x から 2.0 へ](xref:migration/1x-to-2x/index)
 ### [認証と ID](xref:migration/1x-to-2x/identity-2x)
 
-# [API リファレンス](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0)
+# [API リファレンス](/dotnet/api/?view=aspnetcore-2.0)
 
 # [2.0 リリース ノート](aspnetcore-2.0.md)
 ## [1.1 リリース ノート](aspnetcore-1.1.md)

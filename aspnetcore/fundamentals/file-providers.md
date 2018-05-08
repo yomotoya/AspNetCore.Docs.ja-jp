@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core でのファイル プロバイダー"
+title: ASP.NET Core でのファイル プロバイダー
 author: ardalis
-description: "ASP.NET Core がファイル プロバイダーを使用してファイル システムへのアクセスを抽象化する方法について説明します。"
+description: ASP.NET Core がファイル プロバイダーを使用してファイル システムへのアクセスを抽象化する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/file-providers
-ms.openlocfilehash: 06197f967e111d75531e9c3bcbcbdb971cb9f99b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cdbffdadd9616fe941809d67dc2c0bbd52149561
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="file-providers-in-aspnet-core"></a>ASP.NET Core でのファイル プロバイダー
 
@@ -50,15 +50,15 @@ IFileInfo fileInfo = provider.GetFileInfo("wwwroot/js/site.js"); // a file under
 
 コントローラーからプロバイダーを要求するには、コントローラーのコンストラクター内でプロバイダーを指定し、ローカル フィールドに割り当てます。 アクション メソッドからのローカル インスタンスを使用します。
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Controllers/HomeController.cs?highlight=5,7,12&range=6-19)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Controllers/HomeController.cs?highlight=5,7,12&range=6-19)]
 
 次に、アプリの `Startup` クラスでプロバイダーを作成します。
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=35,40&range=1-43)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=35,40&range=1-43)]
 
 *Index.cshtml* ビューで、指定された `IDirectoryContents` を繰り返します。
 
-[!code-html[Main](file-providers/sample/src/FileProviderSample/Views/Home/Index.cshtml?highlight=2,7,9,11,15)]
+[!code-html[](file-providers/sample/src/FileProviderSample/Views/Home/Index.cshtml?highlight=2,7,9,11,15)]
 
 結果は次のとおりです。
 
@@ -68,7 +68,7 @@ IFileInfo fileInfo = provider.GetFileInfo("wwwroot/js/site.js"); // a file under
 
 `EmbeddedFileProvider` は、アセンブリに埋め込まれているファイルにアクセスする場合に使用します。 .NET Core では、*.csproj* ファイルの `<EmbeddedResource>` 要素を使用してアセンブリにファイルを埋め込みます。
 
-[!code-json[Main](file-providers/sample/src/FileProviderSample/FileProviderSample.csproj?range=13-18)]
+[!code-json[](file-providers/sample/src/FileProviderSample/FileProviderSample.csproj?range=13-18)]
 
 アセンブリに埋め込むファイルを指定する場合は、[glob パターン](#globbing-patterns)を使用できます。 これらのパターンを使用すれば、1 つまたは複数のファイルを照合することができます。
 
@@ -97,7 +97,7 @@ var embeddedProvider = new EmbeddedFileProvider(Assembly.GetEntryAssembly());
 
 `CompositeFileProvider` は、`IFileProvider` インスタンスを結合し、複数のプロバイダーからのファイルを操作するための 1 つのインターフェイスを公開します。 `CompositeFileProvider` を作成する場合、1 つまたは複数の `IFileProvider` インスタンスをコンストラクターに渡します。
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=3&range=35-37)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=3&range=35-37)]
 
 以前に構成した物理プロバイダーと埋め込みプロバイダーの両方を含んだ `CompositeFileProvider` を使用するようにサンプル アプリを構成すると、次の出力が生成されます。
 
@@ -109,7 +109,7 @@ var embeddedProvider = new EmbeddedFileProvider(Assembly.GetEntryAssembly());
 
 この記事のサンプルでは、テキスト ファイルが変更されるたびにメッセージを表示するようにコンソール アプリケーションが構成されています。
 
-[!code-csharp[Main](file-providers/sample/src/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
+[!code-csharp[](file-providers/sample/src/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
 
 ファイルを複数回保存した後の結果:
 

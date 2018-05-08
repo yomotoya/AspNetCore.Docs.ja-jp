@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core でのファイルのアップロード"
+title: ASP.NET Core でのファイルのアップロード
 author: ardalis
-description: "モデル バインドとストリーミングを使用して、ASP.NET Core MVC でファイルをアップロードする方法。"
+description: モデル バインドとストリーミングを使用して、ASP.NET Core MVC でファイルをアップロードする方法。
 manager: wpickett
 ms.author: riande
 ms.date: 07/05/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 314d585c7bf7f8c95f763babe6cdf93e514ff656
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7ba4f6d9e3901c310fe9fa7a70382d9243d8b347
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>ASP.NET Core でのファイルのアップロード
 
@@ -47,7 +47,7 @@ ASP.NET MVC アクションでは、より小さいファイルの単純なモ�
 
 ![ファイルのアップロード フォーム](file-uploads/_static/upload-form.png)
 
-サーバーにアップロードされた個々のファイルには、[モデル バインド](xref:mvc/models/model-binding)を介して、[IFormFile](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.iformfile) インターフェイスを使用してアクセスできます。 `IFormFile` の構造は次のとおりです。
+サーバーにアップロードされた個々のファイルには、[モデル バインド](xref:mvc/models/model-binding)を介して、[IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) インターフェイスを使用してアクセスできます。 `IFormFile` の構造は次のとおりです。
 
 ```csharp
 public interface IFormFile
@@ -71,7 +71,7 @@ public interface IFormFile
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
 `IFormFile` 手法を使用してアップロードされたファイルは、Web サーバー上のディスクまたはメモリ内にバッファーされてから処理されます。 アクション メソッド内では、`IFormFile` コンテンツにはストリームとしてアクセスできます。 ローカル ファイル システムだけでなく、[Azure BLOB ストレージ](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)または [Entity Framework](https://docs.microsoft.com/ef/core/index) にもファイルをストリーミングすることができます。
 
@@ -151,15 +151,15 @@ public IActionResult Index()
 
 この属性では ASP.NET Core の組み込みの[偽造防止](xref:security/anti-request-forgery)サポートを使用して、要求トークンで cookie を設定します。
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
 
 Angular は、自動的に `X-XSRF-TOKEN` という名前の要求ヘッダーで偽造防止トークンを渡します。 ASP.NET Core MVC アプリは、次のように、*Startup.cs* の構成でこのヘッダーを参照するように構成されます。
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
 
 以下に示す `DisableFormValueModelBinding` 属性は、`Upload` アクション メソッドでモデル バインドを無効にするために使用されます。
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
 
 モデル バインドが無効であるため、`Upload` アクション メソッドではパラメーターを受け入れません。 `ControllerBase` の `Request` プロパティを直接操作します。 `MultipartReader` は各セクションを読み取るために使用されます。 ファイルは GUID ファイル名で保存され、キー/値データは `KeyValueAccumulator` に格納されます。 すべてのセクションが読み込まれた後、`KeyValueAccumulator` のコンテンツはフォーム データをモデル型にバインドするために使用されます。
 
@@ -167,7 +167,7 @@ Angular は、自動的に `X-XSRF-TOKEN` という名前の要求ヘッダー�
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/StreamingController.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Controllers/StreamingController.cs?name=snippet1)]
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
@@ -195,7 +195,7 @@ The request filtering module is configured to deny a request that exceeds the re
 </system.webServer>
 ```
 
-この設定は IIS にのみ適用されます。 Kestrel でホストする場合、既定ではこの動作は発生しません。 詳細については、「[Request Limits \<requestLimits\>](https://docs.microsoft.com/iis/configuration/system.webServer/security/requestFiltering/requestLimits/)」 (要求制限 <requestLimits>) を参照してください。
+この設定は IIS にのみ適用されます。 Kestrel でホストする場合、既定ではこの動作は発生しません。 詳細については、「[Request Limits \<requestLimits\>](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/)」 (要求制限 <requestLimits>) を参照してください。
 
 ### <a name="null-reference-exception-with-iformfile"></a>IFormFile での null 参照例外
 

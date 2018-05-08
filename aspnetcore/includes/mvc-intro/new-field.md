@@ -4,13 +4,13 @@
 
 このチュートリアルでは、`Movies` テーブルに新しいフィールドを追加します。 ここでは、スキーマを変更する (新しいフィールドを追加する) 際にデータベースをドロップし、新しいデータベースを作成します。 このワークフローは、保存する実稼働データがない開発の早い段階に適しています。
 
-アプリが配置され、保存する必要があるデータが存在する状態で、スキーマを変更する必要がある場合は DB をドロップすることはできません。 Entity Framework [Code First Migrations](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) では、スキーマを更新し、データを失うことなくデータベースを移行できます。 Migrations は SQL Server でよく使用される機能ですが、SQLlite では多くの移行スキーマ操作がサポートされないため、実行できるのはごく簡単な移行のみとなります。 詳細については、[SQLite の制限事項](https://docs.microsoft.com/ef/core/providers/sqlite/limitations)に関するページを参照してください。
+アプリが配置され、保存する必要があるデータが存在する状態で、スキーマを変更する必要がある場合は DB をドロップすることはできません。 Entity Framework [Code First Migrations](/ef/core/get-started/aspnetcore/new-db) では、スキーマを更新し、データを失うことなくデータベースを移行できます。 Migrations は SQL Server でよく使用される機能ですが、SQLlite では多くの移行スキーマ操作がサポートされないため、実行できるのはごく簡単な移行のみとなります。 詳細については、[SQLite の制限事項](/ef/core/providers/sqlite/limitations)に関するページを参照してください。
 
 ## <a name="adding-a-rating-property-to-the-movie-model"></a>ムービー モデルへの評価プロパティの追加
 
 *Models/Movie.cs* ファイルを開き、`Rating` プロパティを追加します。
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
 
 新しいフィールドを `Movie` クラスに追加したため、この新しいプロパティが含まれるように、拘束力のあるホワイトリストを更新する必要もあります。 *MoviesController.cs* で、アクション メソッドの `Create` と `Edit` の両方の `[Bind]` 属性を更新し、`Rating` プロパティが含まれるようにします。
 
@@ -22,7 +22,7 @@
 
 */Views/Movies/Index.cshtml* ファイルを編集し、`Rating` フィールドを追加します。
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
 
 */Views/Movies/Create.cshtml* を `Rating` フィールドで更新します。
 
@@ -48,7 +48,7 @@ SqliteException: SQLite Error 1: 'no such column: m.Rating'.
 
 新しい列に値を提供するように、`SeedData` クラスを更新します。 下に変更のサンプルがありますが、`new Movie` ごとにこの変更を行ってください。
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 
 `Rating` フィールドを `Edit`、`Details`、および `Delete` ビューに追加します。
 

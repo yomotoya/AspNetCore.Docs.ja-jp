@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 5e2b53a4771a97b0a4091f593720b9c0e4e345bf
-ms.sourcegitcommit: c4a31aaf902f2e84aaf4a9d882ca980fdf6488c0
+ms.openlocfilehash: 08866543d5b510b86c6af1896a9bd41ae0053ecf
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 
@@ -207,6 +207,38 @@ HTML で削除ボタンがレンダリングされる場合、その `formaction
 * 顧客の連絡先が見つかった場合、その連絡先は顧客の連絡先の一覧から削除されています。 データベースが更新されます。
 * ルート インデックス ページ (`/Index`) にリダイレクトされるように、`RedirectToPage` を呼び出します。
 
+::: moniker range=">= aspnetcore-2.1"
+## <a name="manage-head-requests-with-the-onget-handler"></a>OnGet ハンドラーで HEAD 要求を管理する
+
+通常、HEAD ハンドラーは HEAD 要求に対して作成され、呼び出されます。
+
+```csharp
+public void OnHead()
+{
+    HttpContext.Response.Headers.Add("HandledBy", "Handled by OnHead!");
+}
+```
+
+HEAD ハンドラー (`OnHead`) が定義されていない場合、ASP.NET Core 2.1 以降では、Razor ページは GET ページ ハンドラー (`OnGet`) の呼び出しにフォールバックします。 ASP.NET Core 2.1 から 2.x では、この動作を `Startup.Configure` の [SetCompatibilityVersion メソッド](xref:fundamentals/startup#setcompatibilityversion-for-aspnet-core-mvc)でオプトインします。
+
+```csharp
+services.AddMvc()
+    .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+```
+
+`SetCompatibilityVersion` は実質的に Razor ページのオプション `AllowMappingHeadRequestsToGetHandler` を `true` に設定します。 その動作は、ASP.NET Core 3.0 プレビュー 1 以降がリリースされるまでオプトインされます。 ASP.NET Core の各メジャー バージョンでは、以前のバージョンのすべての修正プログラム リリースの動作が採用されます。
+
+修正プログラムのリリース 2.1 から 2.x のグローバル オプトイン動作は、HEAD 要求を GET ハンドラーにマップするアプリ構成で回避できます。 `Startup.Configure` の `SetCompatibilityVersion` を呼び出さずに `AllowMappingHeadRequestsToGetHandler` Razor ページ オプションを `true` に設定します。
+
+```csharp
+services.AddMvc()
+    .AddRazorPagesOptions(options =>
+    {
+        options.AllowMappingHeadRequestsToGetHandler = true;
+    });
+```
+::: moniker-end
+
 <a name="xsrf"></a>
 
 ## <a name="xsrfcsrf-and-razor-pages"></a>XSRF/CSRF と Razor ページ
@@ -321,7 +353,7 @@ Razor ページからのビュー検索には、*Pages* フォルダーが含ま
 
 ## <a name="tempdata"></a>TempData
 
-ASP.NET Core は [コントローラー](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller)上で [TempData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) プロパティを公開します。 このプロパティは、読み取られるまでデータを格納します。 `Keep` メソッドと `Peek` メソッドは、削除せずにデータを確認するために使用できます。 `TempData` は、複数の要求にデータが必要な場合のリダイレクトに役立ちます。
+ASP.NET Core は [コントローラー](/dotnet/api/microsoft.aspnetcore.mvc.controller)上で [TempData](/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) プロパティを公開します。 このプロパティは、読み取られるまでデータを格納します。 `Keep` メソッドと `Peek` メソッドは、削除せずにデータを確認するために使用できます。 `TempData` は、複数の要求にデータが必要な場合のリダイレクトに役立ちます。
 
 `[TempData]` は ASP.NET Core 2.0 の新しい属性で、コントローラーとページでサポートされています。
 
@@ -364,6 +396,8 @@ public string Message { get; set; }
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml?range=12-13)]
 
 上記のコードを使用すると、`OnPostJoinListAsync` に送信される URL パスは `http://localhost:5000/Customers/CreateFATH?handler=JoinList` になります。 `OnPostJoinListUCAsync` に送信される URL パスは `http://localhost:5000/Customers/CreateFATH?handler=JoinListUC` です。
+
+
 
 ## <a name="customizing-routing"></a>ルーティングのカスタマイズ
 

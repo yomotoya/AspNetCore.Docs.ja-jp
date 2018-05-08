@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC と EF Core - Concurrency - 第 8 回 (全 10 回)"
+title: ASP.NET Core MVC と EF Core - Concurrency - 第 8 回 (全 10 回)
 author: tdykstra
-description: "このチュートリアルでは、複数のユーザーが同じエンティティを同時に更新するときの競合の処理方法について説明します。"
+description: このチュートリアルでは、複数のユーザーが同じエンティティを同時に更新するときの競合の処理方法について説明します。
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: c271488d4da72ba340f3617ac20c7b6da2574c69
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 99c4872719a4e46aa27eb7138eb914dc5954c219
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>同時実行の競合処理 - EF Core と ASP.NET Core MVC チュートリアル、第 8 回 (全 10 回)
+# <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>ASP.NET Core MVC と EF Core - Concurrency - 第 8 回 (全 10 回)
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -89,7 +89,7 @@ Entity Framework がスローする `DbConcurrencyException` 例外を処理す�
 
 *Models/Department.cs* で、RowVersion という名前のトラッキング プロパティを追加します。
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
 `Timestamp` 属性によって、データベースに送信された Update コマンドと Delete コマンドの Where 句にこの列が追加されます。 前のバージョンの SQL Server では、SQL `rowversion` に取って代わられる前、SQL `timestamp` というデータ型が使用されていたため、この属性は `Timestamp` と呼ばれています。 `rowversion` の .NET 型はバイト配列です。
 
@@ -120,7 +120,7 @@ dotnet ef database update
 
 *DepartmentsController.cs* ファイルに 4 回登場する "FirstMidName" をすべて "FullName" に変更します。それにより、部署の管理者のドロップダウン リストに講師の姓だけでなく、姓名が表示されます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
 ## <a name="update-the-departments-index-view"></a>Departments/Index ビューを更新する
 
@@ -128,7 +128,7 @@ dotnet ef database update
 
 *Views/Departments/Index.cshtml* のコードを次のコードに変更します。
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
+[!code-html[](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
 
 これで見出しが "Departments" に変更され、RowVersion 列が削除され、管理者の名ではなく姓名が表示されます。
 
@@ -136,11 +136,11 @@ dotnet ef database update
 
 HttpGet `Edit` メソッドと `Details` メソッドの両方に `AsNoTracking` を追加します。 HttpGet `Edit` メソッドに Administrator の一括読み込みを追加します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
 
 HttpPost `Edit` メソッドの既存コードを次のコードに変更します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
 このコードはまず、更新する部署を読み込みます。 `SingleOrDefaultAsync` が null を返した場合、部署は別のユーザーが削除しています。 その場合、このコードは送信されたフォーム値を利用して部署エンティティを作成します。編集ページはエラー メッセージと共に再表示できます。 あるいは、部署フィールドを再表示せず、エラー メッセージのみを表示するのであれば、部署エンティティを再作成する必要はないでしょう。
 
@@ -154,19 +154,19 @@ _context.Entry(departmentToUpdate).Property("RowVersion").OriginalValue = rowVer
 
 その例外の catch ブロックのコードによって、影響を受けた、例外オブジェクトの `Entries` プロパティから更新後の値が与えられた Department エンティティが取得されます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
 
 `Entries` コレクションには `EntityEntry` オブジェクトが 1 つだけ与えられます。  そのオブジェクトを利用し、ユーザーが入力した新しい値と現在のデータベース値を取得できます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
 
 このコードにより、編集ページでユーザーが入力したものとデータベース値が異なる列ごとにカスタムのエラー メッセージが追加されます (簡潔にするため、ここでは 1 つだけフィールドを示しています)。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
 
 最後になりますが、このコードで `departmentToUpdate` の `RowVersion` 値がデータベースから取得された新しい値に設定されます。 Edit ページが再表示されるとき、この新しい `RowVersion` 値が非表示フィールドに保存されます。今度ユーザーが **[保存]** をクリックすると、Edit ページの再表示後に発生した同時実行エラーのみが取得されます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
 
 `ModelState` の `RowVersion` 値が古いため、`ModelState.Remove` ステートメントが必要になります。 このビューでは、フィールドの `ModelState` 値がモデル プロパティ値より優先されます。
 
@@ -178,7 +178,7 @@ _context.Entry(departmentToUpdate).Property("RowVersion").OriginalValue = rowVer
 
 * ドロップダウン リストに "Select Administrator" オプションを追加します。
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
+[!code-html[](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
 ## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Edit ページ同時実行の競合をテストする
 
@@ -194,7 +194,7 @@ _context.Entry(departmentToUpdate).Property("RowVersion").OriginalValue = rowVer
 
 ![変更後の Department Edit ページ 2](concurrency/_static/edit-after-change-2.png)
 
-**[保存]**をクリックします。 エラー メッセージが表示されます。
+**[保存]** をクリックします。 エラー メッセージが表示されます。
 
 ![Department Edit ページのエラー メッセージ](concurrency/_static/edit-error.png)
 
@@ -208,13 +208,13 @@ Delete ページの場合、Entity Framework は、同様の方法で部署を�
 
 *DepartmentsController.cs* で、HttpGet `Delete` メソッドを次のコードで置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
 
 このメソッドは、同時実行エラー後にページが再表示されたかどうかを示すオプション パラメーターを受け取ります。 このフラグが true のとき、指定の部署が現存していなければ、別のユーザーによって削除されています。 その場合、このコードは Index ページにリダイレクトされます。  このフラグが true のとき、Department が存在すれば、別のユーザーが変更しています。 その場合、このコードは `ViewData` を利用してビューにエラー メッセージを送信します。  
 
 HttpPost `Delete` メソッドのコード (名前は `DeleteConfirmed`) を次のコードで置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
 
 置き換えたスキャフォールディングされたコードで、このメソッドがレコード ID を 1 つだけ受け取りました。
 
@@ -239,7 +239,7 @@ public async Task<IActionResult> Delete(Department department)
 
 *Views/Departments/Delete.cshtml* で、スキャフォールディングされたコードを次のコードで置き換えます。このコードは、DepartmentID プロパティと RowVersion プロパティのエラー メッセージ フィールドと非表示フィールドを追加します。 変更が強調表示されます。
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
+[!code-html[](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
 
 これにより、次の変更が行われます。
 
@@ -269,16 +269,16 @@ Details ビューと Create ビューで、スキャフォールディングさ�
 
 RowVersion 列を削除し、管理者の姓名を表示するように *Views/Departments/Details.cshtml* のコードを置換します。
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
+[!code-html[](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
 
 ドロップダウン リストに Select オプションを追加するように *Views/Departments/Create.cshtml* のコードを置換します。
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
+[!code-html[](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
 ## <a name="summary"></a>まとめ
 
 同時実行の競合処理の入門編はこれで終わりです。 EF Core の同時実行処理の詳細については、[同時実行競合](https://docs.microsoft.com/ef/core/saving/concurrency)に関するページを参照してください。 次のチュートリアルでは、Instructor エンティティと Student エンティティの Table-Per-Hierarchy 継承の実装方法について表示します。
 
->[!div class="step-by-step"]
-[前へ](update-related-data.md)
-[次へ](inheritance.md)  
+> [!div class="step-by-step"]
+> [前へ](update-related-data.md)
+> [次へ](inheritance.md)  

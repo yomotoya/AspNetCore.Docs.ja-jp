@@ -1,6 +1,6 @@
 *Views/HelloWorld/Index.cshtml* Razor ビュー ファイルの内容を次のコードに置き換えます。
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
 
 `http://localhost:xxxx/HelloWorld` に移動します。 `HelloWorldController` の `Index` メソッドでは多くのことは行いませんでした。つまり、ステートメント `return View();` を実行し、メソッドでビュー テンプレート ファイルを使用して、ブラウザーへの応答をレンダリングするよう指定しただけです。 ビュー テンプレート ファイルの名前を明示的に指定しなかったため、MVC では既定で */Views/HelloWorld* フォルダー内の *Index.cshtml* ビュー ファイルが使用されました。 次のイメージは、ビューにハード コーディングされた "Hello from our View Template!"  という文字列を示しています。
 
@@ -18,11 +18,11 @@
 
 ## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>レイアウト ファイルでのタイトルおよびメニュー リンクの変更
 
-タイトル要素で、`MvcMovie` を `Movie App` に変更します。 レイアウト テンプレートのアンカー テキストを `MvcMovie` から `Mvc Movie` に変更し、コントローラーを `Home` から `Movies` に変更します。下の強調表示されている箇所をご覧ください。
+タイトル要素で、`MvcMovie` を `Movie App` に変更します。 レイアウト テンプレートのアンカー テキストを `MvcMovie` から `Movie App` に変更し、コントローラーを `Home` から `Movies` に変更します。下の強調表示されている箇所をご覧ください。
 
 注: ASP.NET Core 2.0 バージョンの場合は若干異なります。 `@inject ApplicationInsights` と `@Html.Raw(JavaScriptSnippet.FullScript)` は含まれていません。
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
 >[!WARNING]
 > `Movies` コントローラーはまだ実装されていないため、そのリンクをクリックすると、404 (見つかりません) エラーが表示されます。
@@ -73,7 +73,7 @@
 
 変更内容を保存して、`http://localhost:xxxx/HelloWorld` に移動します。 ブラウザーのタイトル、プライマリ見出し、およびセカンダリ見出しが変更されていることに注意してください  (ブラウザーに変更内容が表示されない場合は、キャッシュされたコンテンツを表示している可能性があります。 ブラウザーで Ctrl + F5 キーを押して、サーバーからの応答が強制的に読み込まれるようにしてください)。ブラウザーのタイトルは、*Index.cshtml* ビュー テンプレートで設定した `ViewData["Title"]` で作成されます。レイアウト ファイルには "- Movie App" が追加されます。
 
-*Index.cshtml* ビュー テンプレートのコンテンツがどのように *Views/Shared/_Layout.cshtml* ビュー テンプレートにマージされ、1 つの HTML 応答がブラウザーに送信されたかにも注目してください。 レイアウト テンプレートを使用すれば、アプリケーションのすべてのページに適用される変更をとても簡単に行うことができます。 詳細については、「[Layout](../../mvc/views/layout.md)」 (レイアウト) を参照してください。
+*Index.cshtml* ビュー テンプレートのコンテンツがどのように *Views/Shared/_Layout.cshtml* ビュー テンプレートにマージされ、1 つの HTML 応答がブラウザーに送信されたかにも注目してください。 レイアウト テンプレートを使用すれば、アプリケーションのすべてのページに適用される変更をとても簡単に行うことができます。 詳細については、「[Layout](xref:mvc/views/layout)」 (レイアウト) を参照してください。
 
 ![ムービー リスト ビュー](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
 
@@ -89,7 +89,7 @@
 
 *HelloWorldController.cs* ファイルに戻り、`Welcome` メソッドを変更して `Message` および `NumTimes` 値を `ViewData` ディクショナリに追加します。 `ViewData` ディクショナリは動的オブジェクトです。つまり、必要なものを何でも設定できます。`ViewData` オブジェクトは、その内部に何かを設定するまでプロパティは定義されません。 [MVC のモデル バインド システム](xref:mvc/models/model-binding)は、名前付きパラメーター (`name` と `numTimes`) を、アドレス バーのクエリ文字列からメソッドのパラメーターに自動的にマップします。 完全な *HelloWorldController.cs* ファイルは次のようになります。
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
 `ViewData` ディクショナリ オブジェクトには、ビューに渡されるデータが含まれています。 
 
@@ -97,7 +97,7 @@
 
 "Hello" `NumTimes` を表示する *Welcome.cshtml* ビュー テンプレートでループを作成します。 *Views/HelloWorld/Welcome.cshtml* の内容を次のコードに置き換えます。
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
 
 変更内容を保存し、次の URL を参照します。
 

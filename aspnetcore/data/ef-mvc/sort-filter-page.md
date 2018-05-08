@@ -1,24 +1,24 @@
 ---
-title: "ASP.NET Core MVC と EF Core - 並べ替え、フィルター、ページング - 3/10"
+title: ASP.NET Core MVC と EF Core - 並べ替え、フィルター、ページング - 3/10
 author: tdykstra
-description: "このチュートリアルでは、ASP.NET Core および Entity Framework Core を使用して並べ替え、フィルター、およびページング機能をページに追加します。"
+description: このチュートリアルでは、ASP.NET Core および Entity Framework Core を使用して並べ替え、フィルター、ページング機能をページに追加します。
 ms.author: tdykstra
 ms.date: 03/15/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: feb4a50c9e5602064e7d493b6991485949903f47
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: d4fe6386318210a751d1248c87299d414ab563a3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>並べ替え、フィルター、ページング、およびグループ化 -EF Core と ASP.NET Core MVC チュートリアル (3/10)
+# <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a>ASP.NET Core MVC と EF Core - 並べ替え、フィルター、ページング - 3/10
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Contoso 大学のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)を参照してください。
+Contoso University のサンプル Web アプリケーションでは、Entity Framework Core と Visual Studio を使用して ASP.NET Core MVC Web アプリケーションを作成する方法を示します。 チュートリアル シリーズについては、[シリーズの最初のチュートリアル](intro.md)を参照してください。
 
 前のチュートリアルでは、Student エンティティの基本的な CRUD 操作用の Web ページのセットを実装しました。 このチュートリアルでは、Students インデックス ページに並べ替え、フィルター、およびページング機能を追加します。 単純なグループ化を実行するページも作成します。
 
@@ -34,7 +34,7 @@ Students ンデックス ページに並べ替えを追加するには、`Index`
 
 *StudentsController.cs* で、`Index` メソッドを次のコードで置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
 
 このコードは、URL 内の文字列から `sortOrder` パラメーターを受け取ります。 クエリ文字列の値は、ASP.NET Core MVC によってパラメーターとしてアクション メソッドに提供されます。 パラメータは、"Name" または "Date" という文字列で、その後に必要に応じてアンダースコアと降順を指定する文字列 "desc" が続きます。 既定の並べ替え順序は昇順です。
 
@@ -42,7 +42,7 @@ Students ンデックス ページに並べ替えを追加するには、`Index`
 
 2 つの `ViewData` 要素 (NameSortParm と DateSortParm) をビューで使用して、適切なクエリ文字列値を持つ列見出しのハイパーリンクを構成します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
 
 これらは、三項ステートメントです。 最初のステートメントは、`sortOrder` パラメーターが null または空の場合に、NameSortParm を "name_desc" に設定し、それ以外の場合は任意の空の文字列に設定する必要があることを指定します。 これらの 2 つのステートメントを使用して、次のようにビューで列見出しのハイパーリンクの設定することができます。
 
@@ -77,7 +77,7 @@ Students インデックス ページにフィルターを追加するには、�
 
 *StudentsController.cs* で、`Index` メソッドを次のコードで置き換えます (変更部分が強調表示されています)。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
 `searchString` パラメーターを `Index` メソッドに追加しました。 インデックス ビューに追加するテキスト ボックスから検索する文字列値を受け取ります。 さらに LINQ ステートメントに where 句を追加し、姓または名に検索文字列を含む受講者のみを選択します。 where 句を追加するステートメントは、検索する値がある場合にのみ、実行されます。
 
@@ -116,7 +116,7 @@ Students インデックス ページにページングを追加するには、�
 
 プロジェクト フォルダーで、`PaginatedList.cs` を作成し、テンプレートのコードを次のコードに置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
+[!code-csharp[](intro/samples/cu/PaginatedList.cs)]
 
 このコードの `CreateAsync` メソッドは、ページ サイズとページ番号を受け取り、適切な `Skip` および `Take` ステートメントを `IQueryable` に適用します。 `IQueryable` で `ToListAsync` が呼び出されると、要求されたページのみを含むリストを返します。 プロパティ `HasPreviousPage` および `HasNextPage` を使用して、**[Previous]** および **[Next]** ページング ボタンを有効または無効にすることができます。
 
@@ -126,7 +126,7 @@ Students インデックス ページにページングを追加するには、�
 
 *StudentsController.cs* で、`Index` メソッドを次のコードで置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilterPage&highlight=1-5,7,11-18,45-46)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilterPage&highlight=1-5,7,11-18,45-46)]
 
 このコードは、メソッド シグネチャにページ番号パラメーター、現在の並べ替え順序パラメーター、および現在のフィルター パラメーターを追加します。
 
@@ -213,21 +213,21 @@ Contoso 大学の Web サイトの **[About]** ページに、登録日付ごと
 
 新しいフォルダー内に、*EnrollmentDateGroup.cs* という名前のクラス ファイルを追加し、テンプレート コードを次のコードに置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
 ### <a name="modify-the-home-controller"></a>Home コントローラーを変更する
 
 *HomeController.cs* で、ファイルの先頭に次のステートメントを追加します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings1)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings1)]
 
 クラスの左中かっこの直後に、データベース コンテキストのクラス変数を追加し、ASP.NET Core DI からコンテキストのインスタンスを取得します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
 
 `About` メソッドを次のコードで置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 LINQ ステートメントは、登録日で受講者エンティティをグループ化し、各グループ内のエンティティの数を計算して、結果を `EnrollmentDateGroup` ビュー モデル オブジェクトのコレクションに格納します。
 > [!NOTE] 
@@ -247,6 +247,6 @@ LINQ ステートメントは、登録日で受講者エンティティをグル
 
 このチュートリアルでは、並べ替え、フィルター処理、ページング、およびグループ化を実行する方法を説明しました。 次のチュートリアルでは、移行を使用して、データ モデルの変更を処理する方法を学習します。
 
->[!div class="step-by-step"]
-[前へ](crud.md)
-[次へ](migrations.md)  
+> [!div class="step-by-step"]
+> [前へ](crud.md)
+> [次へ](migrations.md)  

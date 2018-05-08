@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC と EF Core - 関連データの読み取り - 6/10"
+title: ASP.NET Core MVC と EF Core - 関連データの読み取り - 6/10
 author: tdykstra
-description: "このチュートリアルでは、関連データ (Entity Framework がナビゲーション プロパティに読み込むデータ) の読み取りと表示を行います。"
+description: このチュートリアルでは、関連データ (Entity Framework がナビゲーション プロパティに読み込むデータ) の読み取りと表示を行います。
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 58b05587458aacad1a633a04f0359a4d2a3605a3
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 6ee4b0db5bf4d1781ce44f1aff8331680ca8686c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>関連データの読み取り - EF Core と ASP.NET Core MVC のチュートリアル (6/10)
+# <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>ASP.NET Core MVC と EF Core - 関連データの読み取り - 6/10
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -65,7 +65,7 @@ Course エンティティには、コースが割り当てられている部門�
 
 `Index` メソッドを、Course エンティティ (`schoolContext` の代わりに `courses`) を返す `IQueryable` により適切な名前を使用する次のコードに置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
 
 *Views/Courses/Index.cshtml* を開いて、テンプレート コードを次のコードに置き換えます。 変更が強調表示されています。
 
@@ -107,7 +107,7 @@ Instructors ページには、3 つの異なるテーブルからデータが表
 
 *SchoolViewModels* フォルダー内に *InstructorIndexData.cs* を作成し、既存のコードを次のコードで置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
 ### <a name="create-the-instructor-controller-and-views"></a>Instructor コントローラーとビューを作成する
 
@@ -117,31 +117,31 @@ Instructors ページには、3 つの異なるテーブルからデータが表
 
 *InstructorsController.cs* を開いて、ViewModels 名前空間に対する using ステートメントを追加します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
 
 Index メソッドを次のコードに置き換えて、関連データの一括読み込みを行い、ビュー モデルに配置します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
 
 メソッドでは、選択したインストラクターと選択したコースの ID 値を指定する、オプションのルート データ (`id`) とクエリ文字列パラメーター (`courseID`) を受け入れます。 パラメーターは、ページの **Select** ハイパーリンクによって指定されます。
 
 このコードは、ビュー モデルのインスタンスを作成し、インストラクターのリストに配置することから始めます。 コードでは、`Instructor.OfficeAssignment` と `Instructor.CourseAssignments` ナビゲーション プロパティに一括読み込みを指定します。 `CourseAssignments` プロパティ内で `Course` プロパティが読み込まれ、そのプロパティ内で `Enrollments` と `Department` プロパティが読み込まれ、各 `Enrollment` エンティティ内で `Student` プロパティが読み込まれます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
 
 ビューには常に OfficeAssignment エンティティが必要なため、同じクエリでフェッチする方が効率的です。 インストラクターが Web ページで選択されたときに、Course エンティティが必要なため、1 つのクエリが複数のクエリよりも適しているのは、ページに選択したコースを含めないよりも、含めて表示することの方が多い場合のみです。
 
 `Course` から 2 つのプロパティが必要なため、コードでは `CourseAssignments` と `Course` を繰り返します。 `ThenInclude` 呼び出しの最初の文字列では、`CourseAssignment.Course`、`Course.Enrollments`、および `Enrollment.Student` を取得します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
 
 コードのその時点で、もう 1 つの `ThenInclude` は、必要としない `Student` のナビゲーション プロパティ用になります。 ただし、`Include` を呼び出すと、`Instructor` プロパティを使ってやり直されるため、もう一度チェーンを順に移動する必要があります。今回は `Course.Enrollments` の代わりに `Course.Department` を指定しています。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
 
 次のコードは、インストラクターが選択されたときに実行されます。 選択されたインストラクターがビュー モデルのインストラクターのリストから取得されます。 ビュー モデルの `Courses` プロパティが Course エンティティと共にそのインストラクターの `CourseAssignments` ナビゲーション プロパティから読み込まれます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
 
 `Where` メソッドはコレクションを返しますが、このケースでは、そのメソッドに渡された条件は、返されている Instructor エンティティの 1 つのみになります。 `Single` メソッドでは、コレクションがエンティティの `CourseAssignments` プロパティへのアクセス権を付与する、1 つの Instructor エンティティに変換されます。 `CourseAssignments` プロパティには、関連する `Course` エンティティのみを必要とする、`CourseAssignment` エンティティが含まれます。
 
@@ -159,7 +159,7 @@ Index メソッドを次のコードに置き換えて、関連データの一�
 
 次に、コースが選択された場合、選択したコースはビュー モデルのコースのリストから取得されます。 次に、ビュー モデルの `Enrollments` プロパティが Enrollment エンティティと共にそのコースの `Enrollments` ナビゲーション プロパティから読み込まれます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
 
 ### <a name="modify-the-instructor-index-view"></a>Instructor インデックス ビューを変更する
 
@@ -231,7 +231,7 @@ Index メソッドを次のコードに置き換えて、関連データの一�
 
 ユーザーは選択したインストラクターとコースの登録内容をほとんど表示する必要がないとします。 その場合は、要求された場合にのみ、登録データを読み取る必要がある可能性があります。 明示的読み込みを行う方法の例を表示するには、`Index` メソッドを次のコードに置き換えます。このコードは、Enrollments の一括読み込みを削除して、そのプロパティを明示的に読み込みます。 コードの変更が強調表示されています。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
 
 新しいコードでは、インストラクター エンティティを取得するコードから登録データを呼び出す *ThenInclude* メソッドを削除します。 インストラクターとコースが選択された場合、強調表示されたコードで選択されたコードの Enrollment エンティティ、および各 Enrollment の Student エンティティを取得します。
 

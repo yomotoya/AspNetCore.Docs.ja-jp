@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC と EF Core - 関連データの更新 - 7/10"
+title: ASP.NET Core MVC と EF Core - 関連データの更新 - 7/10
 author: tdykstra
-description: "このチュートリアルでは、外部キー フィールドとナビゲーション プロパティを更新することで関連データを更新します。"
+description: このチュートリアルでは、外部キー フィールドとナビゲーション プロパティを更新することで関連データを更新します。
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 4085ca9340291f6ab594285360f3b65738699098
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 2501f4c4abdadd47b4910909205a5c798f1b938f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>関連データの更新 - EF Core と ASP.NET Core MVC のチュートリアル (7/10)
+# <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>ASP.NET Core MVC と EF Core - 関連データの更新 - 7/10
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -35,27 +35,27 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
 *CoursesController.cs* で、4 つの Create メソッドと Edit メソッドを削除し、次のコードに置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_CreateGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_CreateGet)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_CreatePost)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_CreatePost)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_EditGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_EditGet)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_EditPost)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_EditPost)]
 
 `Edit` HttpPost メソッドの後に、ドロップダウン リストに部門情報を読み込む新しいメソッドを作成します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_Departments)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_Departments)]
 
 `PopulateDepartmentsDropDownList` メソッドはすべての部門を名前で並べ替えたリストを取得し、ドロップダウン リスト用に `SelectList` コレクションを作成し、そのコレクションを `ViewBag` でビューに渡します。 このメソッドは、ドロップダウン リストがレンダリングされるときに選択される項目を指定するためのコード呼び出しを許可する、省略可能な `selectedDepartment` パラメーターを受け取ります。 ビューが名前 "DepartmentID" を `<select>` タグ ヘルパーに渡すと、ヘルパーは `ViewBag` オブジェクト内で "DepartmentID" という名前の `SelectList` を探すようになります。
 
 新しいコースには部門がまだ確立されていないため、HttpGet `Create` メソッドは、選択した項目を設定せずに `PopulateDepartmentsDropDownList` メソッドを呼び出します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=3&name=snippet_CreateGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?highlight=3&name=snippet_CreateGet)]
 
 HttpGet `Edit` メソッドは、編集中のコースに既に割り当てられている部門の ID に基づいて、選択したアイテムを設定します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=15&name=snippet_EditGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?highlight=15&name=snippet_EditGet)]
 
 `Create` と `Edit` の両方の HttpPost メソッドには、エラーの発生後にページを再表示するときに選択した項目を設定するコードも含まれています。 これにより、エラー メッセージを表示するためにページを再表示するときに、選択されていた部門が選択されたままになることを保証します。
 
@@ -63,27 +63,27 @@ HttpGet `Edit` メソッドは、編集中のコースに既に割り当てら�
 
 Course の Details ページと Delete ページのパフォーマンスを最適化するため、`AsNoTracking` 呼び出しを `Details` メソッドと HttpGet `Delete` メソッドに追加します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=10&name=snippet_Details)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?highlight=10&name=snippet_Details)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=10&name=snippet_DeleteGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?highlight=10&name=snippet_DeleteGet)]
 
 ### <a name="modify-the-course-views"></a>Course ビューを変更する
 
 *Views/Courses/Create.cshtml* で、**[Department]\(部門\)** ドロップダウン リストに [Select Department]\(部門を選択\) オプションを追加し、キャプションを **[DepartmentID]** から **[Department]\(部門\)** に変更し、検証メッセージを追加します。
 
-[!code-html[Main](intro/samples/cu/Views/Courses/Create.cshtml?highlight=2-6&range=29-34)]
+[!code-html[](intro/samples/cu/Views/Courses/Create.cshtml?highlight=2-6&range=29-34)]
 
 *Views/Courses/Edit.cshtml* で、*Create.cshtml* で行ったのと同じ変更を [Department]\(部門\) フィールドに加えます。
 
 また、*Views/Courses/Edit.cshtml* で、**[Title]\(タイトル\)** フィールドの前にコース番号フィールドを追加します。 コース番号は主キーであるため表示されますが、変更することはできません。
 
-[!code-html[Main](intro/samples/cu/Views/Courses/Edit.cshtml?range=15-18)]
+[!code-html[](intro/samples/cu/Views/Courses/Edit.cshtml?range=15-18)]
 
 Edit ビューには、コース番号の隠しフィールド (`<input type="hidden">`) が既にあります。 `<label>` タグ ヘルパーを追加しても、ユーザーが **[Edit]** ページで **[保存]** をクリックしたときに、ポストされたデータにコース番号が含まれないため、隠しフィールドの必要性はなくなりません。
 
 *Views/Courses/Delete.cshtml* で、上部にコース番号フィールドを追加し、部門 ID を部門名に変更します。
 
-[!code-html[Main](intro/samples/cu/Views/Courses/Delete.cshtml?highlight=14-19,36)]
+[!code-html[](intro/samples/cu/Views/Courses/Delete.cshtml?highlight=14-19,36)]
 
 *Views/Courses/Details.cshtml* で、*Delete.cshtml* に行ったのと同じ変更を行います。
 
@@ -93,7 +93,7 @@ Edit ビューには、コース番号の隠しフィールド (`<input type="hi
 
 ![Course/Create ページ](update-related-data/_static/course-create.png)
 
-**[作成]**をクリックします。 Courses/Index ページには、リストに追加された新しいコースが表示されます。 Index ページのリストの部門名は、ナビゲーション プロパティから取得され、リレーションシップが正常に確立されていることを示しています。
+**[作成]** をクリックします。 Courses/Index ページには、リストに追加された新しいコースが表示されます。 Index ページのリストの部門名は、ナビゲーション プロパティから取得され、リレーションシップが正常に確立されていることを示しています。
 
 Courses/Index ページのコースで **[Edit]** をクリックします。
 
@@ -115,11 +115,11 @@ Courses/Index ページのコースで **[Edit]** をクリックします。
 
 *InstructorsController.cs* で、HttpGet `Edit` メソッド内のコードを、Instructor エンティティの `OfficeAssignment` ナビゲーション プロパティを読み込んで `AsNoTracking` を呼び出すように変更します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=9,10&name=snippet_EditGetOA)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=9,10&name=snippet_EditGetOA)]
 
 HttpPost `Edit` メソッドを次のコードで置き換え、オフィスの割り当ての更新を処理します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EditPostOA)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EditPostOA)]
 
 このコードは次のことを行います。
 
@@ -129,7 +129,7 @@ HttpPost `Edit` メソッドを次のコードで置き換え、オフィスの�
 
 -  モデル バインダーからの値を使用して、取得した Instructor エンティティを更新します。 `TryUpdateModel` オーバーロードは、含めたいプロパティをホワイトリストに登録できるようにします。 これにより、[2 番目のチュートリアル](crud.md)で説明したように、過剰ポスティングを防止します。
 
-    <!-- Snippets don't play well with <ul> [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
+    <!-- Snippets don't play well with <ul> [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
 
     ```csharp
     if (await TryUpdateModelAsync<Instructor>(
@@ -155,7 +155,7 @@ HttpPost `Edit` メソッドを次のコードで置き換え、オフィスの�
 
 *Views/Instructors/Edit.cshtml* で、オフィスの場所を編集するための新しいフィールドを、**[Save]\(保存\)** ボタンの直前に追加します。
 
-[!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=30-34)]
+[!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=30-34)]
 
 アプリを実行し、**[Instructors]\(インストラクター\)** タブを選択し、インストラクターで **[Edit]\(編集\)** をクリックします。 **[Office Location]\(オフィスの場所\)** を変更し、**[Save]\(保存\)** をクリックします。
 
@@ -177,11 +177,11 @@ Course エンティティと Instructor エンティティ間には、多対多�
 
 *SchoolViewModels* フォルダー内に *AssignedCourseData.cs* を作成し、既存のコードを次のコードで置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
 
 *InstructorsController.cs* で、HttpGet `Edit` メソッドを次のコードで置き換えます。 変更が強調表示されています。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=10,17,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36&name=snippet_EditGetCourses)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=10,17,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36&name=snippet_EditGetCourses)]
 
 このコードは、`Courses` ナビゲーション プロパティに一括読み込みを追加し、新しい `PopulateAssignedCourseData` メソッドを呼び出して、`AssignedCourseData` ビュー モデル クラスを使用してチェック ボックス配列に情報を提供します。
 
@@ -189,9 +189,9 @@ Course エンティティと Instructor エンティティ間には、多対多�
 
 次に、ユーザーが **[Save]\(保存\)** をクリックしたときに実行されるコードを追加します。 `EditPost` メソッドを次のコードで置き換え、Instructor エンティティの `Courses` ナビゲーション プロパティを更新する新しいメソッドを追加します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=1,3,12,13,25,39-40&name=snippet_EditPostCourses)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=1,3,12,13,25,39-40&name=snippet_EditPostCourses)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_UpdateCourses&highlight=1-31)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_UpdateCourses&highlight=1-31)]
 
 現在、メソッドの署名は HttpGet `Edit`メソッドとは異なっているため、メソッド名を `EditPost` から `Edit` に戻します。
 
@@ -199,17 +199,17 @@ Course エンティティと Instructor エンティティ間には、多対多�
 
 チェック ボックスが選択されていない場合、`UpdateInstructorCourses` のコードは空のコレクションを使用して `CourseAssignments` ナビゲーション プロパティを初期化し、次を返します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_UpdateCourses&highlight=3-7)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_UpdateCourses&highlight=3-7)]
 
 その後コードは、データベース内のすべてのコースをループ処理し、各コースを現在インストラクターに割り当てられているコースとビューで選択されているコースを比較してチェックします。 検索を効率化するため、最後の 2 つのコレクションが `HashSet` オブジェクトに格納されます。
 
 コースのチェック ボックスが選択されたが、そのコースが `Instructor.CourseAssignments`ナビゲーション プロパティにない場合、そのコースがナビゲーション プロパティ内のコレクションに追加されます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=14-20&name=snippet_UpdateCourses)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=14-20&name=snippet_UpdateCourses)]
 
 コースのチェック ボックスが選択さていないが、そのコースが `Instructor.CourseAssignments`ナビゲーション プロパティにある場合、そのコースがナビゲーション プロパティから削除されます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=21-29&name=snippet_UpdateCourses)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=21-29&name=snippet_UpdateCourses)]
 
 ### <a name="update-the-instructor-views"></a>Instructor ビューを更新する
 
@@ -219,7 +219,7 @@ Course エンティティと Instructor エンティティ間には、多対多�
 > [!NOTE] 
 > Visual Studio にコードを貼り付けると、改行がコードを分割するように変更されます。  Ctrl キーを押しながら Z キーを 1 回押して、オート フォーマットを元に戻します。  これにより、改行がここに示されているように修正されます。 インデントは完璧である必要はありませんが、`@</tr><tr>`、`@:<td>`、`@:</td>`、および `@:</tr>` の行は、示されているようにそれぞれ 1 行にする必要があります。そうしないと、ランタイム エラーが発生します。 新しいコードのブロックを選択して、Tab キーを 3 回押して、新しいコードと既存のコードを並べます。 この問題の状態は、[ここ](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html)で確認できます。
 
-[!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
+[!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
 このコードは、3 つの列を含む HTML テーブルを作成します。 各列には、チェック ボックスとその後に続くキャプションがあります。キャプションは、コース番号とタイトルから構成されます。 チェック ボックスはすべて同じ名前 ("selectedCourses") を持ち、これらをグループとして扱うようにモデル バインダーに通知します。 各チェック ボックスの value 属性は `CourseID` の値に設定されます。 ページがポストされると、モデル バインダーは、選択されたチェック ボックスの `CourseID` 値のみで構成される配列をコントローラーに渡します。
 
@@ -238,7 +238,7 @@ Course エンティティと Instructor エンティティ間には、多対多�
 
 *InstructorsController.cs* で、`DeleteConfirmed` メソッドを削除し、その場所に次のコードを挿入します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=5-7,9-12&name=snippet_DeleteConfirmed)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=5-7,9-12&name=snippet_DeleteConfirmed)]
 
 このコードにより、次の変更が行われます。
 
@@ -250,7 +250,7 @@ Course エンティティと Instructor エンティティ間には、多対多�
 
 *InstructorsController.cs* で、HttpPost と HttpGet の `Create` メソッドを削除してから、その場所に次のコードを追加します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Create&highlight=3-5,12,14-22,29)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Create&highlight=3-5,12,14-22,29)]
 
 このコードは、`Edit` メソッドでご覧になったものと似ていますが、最初にコースが選択されていない点が異なります。 HttpGet `Create` メソッドは、`PopulateAssignedCourseData` メソッドを呼び出します。これはコースが選択されている可能性があるからではなく、ビュー内の `foreach` ループに空のコレクションを提供するためです (そうしないと、コードの表示で null 参照例外がスローされる場合があります)。
 
@@ -283,18 +283,18 @@ public ICollection<CourseAssignment> CourseAssignments
 
 *Views/Instructor/Create.cshtml* で、オフィスの場所のテキスト ボックスとチェック ボックスを [Submit]\(送信\) ボタンの前のコースに追加します。 Edit ページの場合と同様に、[コードを貼り付けたときに Visual Studio がコードを再フォーマットする場合は、書式設定を修正します](#notepad)。
 
-[!code-html[Main](intro/samples/cu/Views/Instructors/Create.cshtml?range=29-61)]
+[!code-html[](intro/samples/cu/Views/Instructors/Create.cshtml?range=29-61)]
 
 アプリを実行し、インストラクターを作成して、テストします。 
 
 ## <a name="handling-transactions"></a>トランザクションの処理
 
-[CRUD チュートリアル](crud.md)で説明したように、Entity Framework はトランザクションを暗黙的に実装します。 たとえば、トランザクションで Entity Framework の外部で実行する操作を追加する場合のように、より詳細な制御が必要なシナリオについては、「[Using Transactions](https://docs.microsoft.com/ef/core/saving/transactions)」 (トランザクションの使用) を参照してください。
+[CRUD チュートリアル](crud.md)で説明したように、Entity Framework はトランザクションを暗黙的に実装します。 たとえば、Entity Framework の外部で行われる操作をトランザクションに含めたい場合など、より詳細な制御が必要なシナリオについては、「[Using Transactions](https://docs.microsoft.com/ef/core/saving/transactions)」(トランザクションの使用) をご覧ください。
 
 ## <a name="summary"></a>まとめ
 
 これで、関連データの概要が完了しました。 次のチュートリアルでは、同時実行の競合を処理する方法を説明します。
 
->[!div class="step-by-step"]
-[前へ](read-related-data.md)
-[次へ](concurrency.md)  
+> [!div class="step-by-step"]
+> [前へ](read-related-data.md)
+> [次へ](concurrency.md)  

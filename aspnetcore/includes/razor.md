@@ -4,4 +4,4 @@
 * 使いやすい。
 * 多くの機能をカバーしている。
 
-[Razor ページ](xref:tutorials/razor-pages/razor-pages-start) バージョンでこのチュートリアルを選択する場合は、その理由を説明するメモを残してください。
+[Razor ページ](xref:tutorials/razor-pages/razor-pages-start) バージョンでこのチュートリアルを選択する場合は、[この GitHub の発行](https://github.com/aspnet/Docs/issues/6146)でその理由をお知らせください。
