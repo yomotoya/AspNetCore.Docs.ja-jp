@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
-title: "Entity Framework をモック作成時に単体テストの ASP.NET Web API 2 |Microsoft ドキュメント"
+title: Entity Framework をモック作成時に単体テストの ASP.NET Web API 2 |Microsoft ドキュメント
 author: tfitzmac
-description: "このガイダンスとアプリケーションは、Entity Framework を使用する Web API 2 アプリケーションの単体テストを作成する方法を説明します。 変更する方法を示しますが、."
+description: このガイダンスとアプリケーションは、Entity Framework を使用する Web API 2 アプリケーションの単体テストを作成する方法を説明します。 変更する方法を示しますが、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/13/2013

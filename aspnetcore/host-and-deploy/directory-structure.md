@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core ディレクトリ構造
 author: guardrex
-description: 発行された ASP.NET Core アプリケーションのディレクトリ構造について説明します。
+description: 発行された ASP.NET Core アプリのディレクトリ構造について説明します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: ac9b777bcc7f4a8634161fc1347a4d0fdc3b4784
-ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
+ms.openlocfilehash: a5cc1f23d624643facddc9e2006fb246e5ae66dc
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="aspnet-core-directory-structure"></a>ASP.NET Core ディレクトリ構造
 
@@ -34,7 +34,7 @@ ASP.NET Core、公開されたアプリケーション ディレクトリで*発
 
 *Wwwroot*ディレクトリに存在する場合のみが含まれる静的な資産です。
 
-Stdout*ログ*ディレクトリに次の 2 つの方法のいずれかを使用して、展開を作成することができます。
+Stdout*ログ*次の 2 つの方法のいずれかを使用して、展開のディレクトリを作成できます。
 
 * 次の追加`<Target>`要素をプロジェクト ファイル。
 

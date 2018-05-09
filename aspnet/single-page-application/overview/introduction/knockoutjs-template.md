@@ -1,14 +1,14 @@
 ---
 uid: single-page-application/overview/introduction/knockoutjs-template
-title: "Single Page Application: KnockoutJS テンプレート |Microsoft ドキュメント"
+title: 'Single Page Application: KnockoutJS テンプレート |Microsoft ドキュメント'
 author: MikeWasson
-description: "Knockout テンプレート"
+description: Knockout テンプレート
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/30/2013
 ms.topic: article
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
@@ -46,7 +46,7 @@ AJAX が現在では、JavaScript フレームワークをビルドし、大規�
 
 Visual Studio を起動し、選択**新しいプロジェクト**スタート ページからです。 またはから、**ファイル**メニューの **新規**し**プロジェクト**です。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#**ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。 プロジェクトの名前を指定し、をクリックして**OK**です。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。 プロジェクトの名前を指定し、をクリックして**OK**です。
 
 ![](knockoutjs-template/_static/image2.png)
 
@@ -96,7 +96,7 @@ Visual Studio プロジェクトには、Models フォルダーには、サー�
 
 これらは、Entity Framework Code First のデータベース モデルです。 これらのモデルが互いを指すプロパティを持つことに注意してください。 `ToDoList` ToDoItems、およびそれぞれのコレクションを含む`ToDoItem`がその親 ToDoList への参照。 これらのプロパティと呼ばれるナビゲーションされ、to do リストとそのタスク項目一対多リレーションシップを表します。
 
-`ToDoItem`クラスも使用して、 **[ForeignKey]**ことを指定する属性`ToDoListId`への外部キーは、`ToDoList`テーブル。 これは、データベースに foreign key 制約を追加する EF を示しています。
+`ToDoItem`クラスも使用して、 **[ForeignKey]** ことを指定する属性`ToDoListId`への外部キーは、`ToDoList`テーブル。 これは、データベースに foreign key 制約を追加する EF を示しています。
 
 [!code-csharp[Main](knockoutjs-template/samples/sample1.cs)]
 
@@ -156,7 +156,7 @@ CRUD 操作の Web API の使用に関する詳細については、次を参照
 
 - `GetTodoLists`メソッドでは、LINQ クエリを使用して、ログイン ユーザーの ID で結果をフィルター処理します。 このように、ユーザーには、その人に属するデータのみが表示されます。 また、変換に、Select ステートメントを使用することを確認、`ToDoList`インスタンスを`TodoListDto`インスタンス。
 - PUT や POST メソッドでは、データベースを変更する前にモデルの状態を確認します。 場合**ModelState.IsValid**が false の場合、これらのメソッドは、HTTP 400 Bad Request を返します。 詳しくは、Web API でのモデル検証[モデルの検証](../../../web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api.md)です。
-- コント ローラーのクラスがで装飾されても、 **[Authorize]**属性。 この属性は、HTTP 要求が認証されるかどうかを確認します。 クライアントが HTTP 401 を受け取る場合は、要求が認証されていない権限がありません。 認証の詳細を参照[ASP.NET Web API で認証と承認](../../../web-api/overview/security/authentication-and-authorization-in-aspnet-web-api.md)です。
+- コント ローラーのクラスがで装飾されても、 **[Authorize]** 属性。 この属性は、HTTP 要求が認証されるかどうかを確認します。 クライアントが HTTP 401 を受け取る場合は、要求が認証されていない権限がありません。 認証の詳細を参照[ASP.NET Web API で認証と承認](../../../web-api/overview/security/authentication-and-authorization-in-aspnet-web-api.md)です。
 
 `TodoController`クラスは類似`TodoListController`です。 最も大きな違いは、クライアントは、各タスクの一覧と共に作業アイテムが取得されるため、GET メソッドを定義しません。
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: 2d6cc526b5a0890103e2856a0ca4b58c5f162c79
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 4f53d0f04d17631a12e2c2030d6dbb1f4fcc09d3
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET Core での Bower でクライアント側のパッケージを管理します。
 
@@ -115,7 +115,7 @@ Bower でクライアント側のビルド プロセスを使用する一般的�
 
 このセクションでは、配置したパッケージにアクセスできることを確認する HTML ページを作成します。
 
-* という名前の新しい HTML ページを追加*Index.html*を*wwwroot*フォルダーです。 注: HTML ファイルを追加する必要があります、 *wwwroot*フォルダーです。 既定では、外部の静的なコンテンツを処理できない*wwwroot*です。 参照してください[静的ファイルで作業](xref:fundamentals/static-files)詳細についてはします。
+* という名前の新しい HTML ページを追加*Index.html*を*wwwroot*フォルダーです。 注: HTML ファイルを追加する必要があります、 *wwwroot*フォルダーです。 既定では、外部の静的なコンテンツを処理できない*wwwroot*です。 参照してください[静的ファイル](xref:fundamentals/static-files)詳細についてはします。
 
   内容を置き換える*Index.html*次のマークアップ。
 

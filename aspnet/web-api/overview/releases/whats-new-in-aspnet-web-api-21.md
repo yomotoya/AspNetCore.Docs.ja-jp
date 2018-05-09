@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/releases/whats-new-in-aspnet-web-api-21
-title: "ASP.NET Web API 2.1 の新機能 |Microsoft ドキュメント"
+title: ASP.NET Web API 2.1 の新機能 |Microsoft ドキュメント
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -142,7 +142,7 @@ Web API には、非同期的に実行するフィルターを作成する簡単
 
 属性のルーティングの一致のあいまいさは、最初の一致を選択するのではなく、エラーを報告します。
 
-属性ルートが使用を禁止して、 *{controller}*パラメーターを使用してと、 *{controller}*ルートのパラメーターは、アクションに配置します。 これらのパラメーターと、あいまいさと非常に高いが発生します。
+属性ルートが使用を禁止して、 *{controller}* パラメーターを使用してと、 *{controller}* ルートのパラメーターは、アクションに配置します。 これらのパラメーターと、あいまいさと非常に高いが発生します。
 
 ### <a name="scaffolding-mvcweb-api-into-a-project-with-51-packages-results-in-50-packages-for-ones-that-dont-already-exist-in-the-project"></a>5.0 パッケージをプロジェクトに既に存在しないもので 5.1 パッケージの結果を含むプロジェクトに MVC または Web API のスキャフォールディング
 

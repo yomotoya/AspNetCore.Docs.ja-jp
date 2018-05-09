@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/index
-title: "ASP.NET web API OData |Microsoft ドキュメント"
+title: ASP.NET web API OData |Microsoft ドキュメント
 author: rick-anderson
-description: "Web API の OData エンドポイントを作成する方法。 OData は、web のデータ アクセス プロトコルです。 クエリおよびデータ セットを操作する一貫した方法を提供します。 Web API s."
+description: Web API の OData エンドポイントを作成する方法。 OData は、web のデータ アクセス プロトコルです。 クエリおよびデータ セットを操作する一貫した方法を提供します。 Web API s.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/17/2012

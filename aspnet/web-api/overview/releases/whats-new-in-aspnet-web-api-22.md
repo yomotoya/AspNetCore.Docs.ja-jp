@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/releases/whats-new-in-aspnet-web-api-22
-title: "ASP.NET Web API 2.2 の新機能 |Microsoft ドキュメント"
+title: ASP.NET Web API 2.2 の新機能 |Microsoft ドキュメント
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/25/2014
@@ -144,7 +144,7 @@ URL を含む文字列リテラルは、スラッシュ (%2f) をエンコード
 
 [Queryable] 属性は推奨されません。 新しい OData v3 のアプリケーションで使用する必要があります**System.Web.Http.OData.EnableQueryAttribute**です。
 
-**ODataHttpConfigurationExtensions.EnableQuerySupport**拡張メソッドを今すぐ追加、 **EnableQueryAttribute**をグローバル フィルターのコレクション。 すべてのコント ローラーがある場合、 **[Queryable]**属性、呼び出し`config.EnableQuerySupport()`により、 **[Queryable]**属性が失敗するには
+**ODataHttpConfigurationExtensions.EnableQuerySupport**拡張メソッドを今すぐ追加、 **EnableQueryAttribute**をグローバル フィルターのコレクション。 すべてのコント ローラーがある場合、 **[Queryable]** 属性、呼び出し`config.EnableQuerySupport()`により、 **[Queryable]** 属性が失敗するには
 
 すべてのインスタンスを置き換えるには、この問題を解決することをお勧め**QueryableAttribute**で**System.Web.Http.OData.EnableQueryAttribute**です。
 

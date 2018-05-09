@@ -1,9 +1,9 @@
 ---
 uid: signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role
-title: "SignalR パフォーマンス カウンターを使用して、Azure Web ロールで |Microsoft ドキュメント"
+title: SignalR パフォーマンス カウンターを使用して、Azure Web ロールで |Microsoft ドキュメント
 author: guardrex
-description: "インストールして、Azure Web ロールで SignalR パフォーマンス カウンターを使用する方法です。"
-keywords: "ASP.NET,signalr,performance カウンター、azure web ロール"
+description: インストールして、Azure Web ロールで SignalR パフォーマンス カウンターを使用する方法です。
+keywords: ASP.NET,signalr,performance カウンター、azure web ロール
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/11/2017
@@ -37,7 +37,7 @@ SignalR パフォーマンス カウンターは、Azure Web ロールで、ア�
 
 2. Visual Studio 2015 では、次のように選択します。**ファイル** > **新規** > **プロジェクト**です。
 
-3. **テンプレート**のペイン、**新しいプロジェクト** ウィンドウの下、 **Visual c#**ノードで、選択、**クラウド**ノードを選択、 **Azure クラウド サービス**テンプレート。 アプリの名前を付けます**SignalRPerfCounters**を選択し、 **OK**です。
+3. **テンプレート**のペイン、**新しいプロジェクト** ウィンドウの下、 **Visual c#** ノードで、選択、**クラウド**ノードを選択、 **Azure クラウド サービス**テンプレート。 アプリの名前を付けます**SignalRPerfCounters**を選択し、 **OK**です。
 
    ![新しいクラウド アプリケーション](using-signalr-performance-counters-in-an-azure-web-role/_static/image1.png)
     
@@ -106,7 +106,7 @@ SignalR パフォーマンス カウンターは、Azure Web ロールで、ア�
 
     [!code-cshtml[Main](using-signalr-performance-counters-in-an-azure-web-role/samples/sample6.cshtml)]
     
-21. 新しいフォルダーを作成、 **WebRole1**という名前のプロジェクト*ハブ*です。 右クリックし、*ハブ*フォルダー**ソリューション エクスプ ローラー** **Web** > **SignalR**を選択し、 **SignalR ハブ クラス (v2)**です。 新しいハブの名前を付けます*MyHub.cs*選択**追加**です。
+21. 新しいフォルダーを作成、 **WebRole1**という名前のプロジェクト*ハブ*です。 右クリックし、*ハブ*フォルダー**ソリューション エクスプ ローラー** **Web** > **SignalR**を選択し、 **SignalR ハブ クラス (v2)** です。 新しいハブの名前を付けます*MyHub.cs*選択**追加**です。
 
     ![SignalR ハブ クラス フォルダーへの追加、ハブで新しい項目の追加 ダイアログ](using-signalr-performance-counters-in-an-azure-web-role/_static/image13.png)
 

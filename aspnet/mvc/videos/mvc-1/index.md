@@ -1,6 +1,6 @@
 ---
 uid: mvc/videos/mvc-1/index
-title: "ASP.NET MVC 1 |Microsoft ドキュメント"
+title: ASP.NET MVC 1 |Microsoft ドキュメント
 author: rick-anderson
 description: ASP.NET MVC 1
 ms.author: aspnetcontent

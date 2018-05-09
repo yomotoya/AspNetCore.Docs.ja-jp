@@ -41,7 +41,7 @@ Web API の構成設定が定義されている、 [HttpConfiguration](https://m
 | **Filters** | アクション フィルター。 |
 | **Formatters** | [メディア タイプ フォーマッタ](../formats-and-model-binding/media-formatters.md)です。 |
 | **IncludeErrorDetailPolicy** | サーバーが HTTP 応答メッセージで例外メッセージやスタック トレースなどのエラーの詳細を含めるかどうかを指定します。 参照してください[IncludeErrorDetailPolicy](https://msdn.microsoft.com/library/system.web.http.includeerrordetailpolicy(v=vs.108))です。 |
-| **Initializer** | 最終初期化を実行する関数、 **HttpConfiguration**です。 |
+| **Initializer** | 最終初期化を実行する関数、**HttpConfiguration**です。 |
 | **MessageHandlers** | [HTTP メッセージ ハンドラー](http-message-handlers.md)です。 |
 | **ParameterBindingRules** | コント ローラー アクションのパラメーターをバインドするための規則のコレクション。 |
 | **Properties** | 汎用プロパティ バッグ。 |
@@ -56,7 +56,7 @@ Web API の構成設定が定義されている、 [HttpConfiguration](https://m
 <a id="webhost"></a>
 ## <a name="configuring-web-api-with-aspnet-hosting"></a>ホスティングで ASP.NET Web API の構成
 
-ASP.NET アプリケーションで、**Application\_Start** メソッドから [GlobalConfiguration.Configure](https://msdn.microsoft.com/library/system.web.http.globalconfiguration.configure.aspx) を呼び出して Web API を設定します。 **Configure** メソッドが **HttpConfiguration** 型の 1 つのパラメーターでデリゲートを受け取ります。 デリゲート内の構成のすべてを実行します。
+ASP.NET アプリケーションで、**Application\_Start** メソッドから [GlobalConfiguration.Configure](https://msdn.microsoft.com/library/system.web.http.globalconfiguration.configure.aspx) を呼び出して Web API を設定します。 **構成**メソッドが型の 1 つのパラメーターを持つデリゲートを受け取る**HttpConfiguration**です。 デリゲート内の構成のすべてを実行します。
 
 匿名デリゲートの使用例を次に示します。
 
@@ -73,6 +73,7 @@ Visual Studio 2017 で「ASP.NET Web アプリケーション」のプロジェ�
 [!code-csharp[Main](configuring-aspnet-web-api/samples/sample2.cs?highlight=12)]
 
 プロジェクト テンプレートもからデリゲートを呼び出すコードを追加**Application\_Start**です。
+
 
 [!code-csharp[Main](configuring-aspnet-web-api/samples/sample3.cs?highlight=5)]
 

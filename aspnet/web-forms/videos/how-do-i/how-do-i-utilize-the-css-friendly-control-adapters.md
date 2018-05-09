@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-utilize-the-css-friendly-control-adapters
-title: "[How Do i:]CSS の表示コントロール アダプターを利用しますか。 | Microsoft Docs"
+title: '[How Do i:]CSS の表示コントロール アダプターを利用しますか。 | Microsoft Docs'
 author: rick-anderson
-description: "CSS の表示コントロール アダプターを使用すると、標準の ASP.NET 2.0 サーバー コントロールによって表示される HTML を変更できます。 このビデオでおを説明する、経歴の持ち主しています."
+description: CSS の表示コントロール アダプターを使用すると、標準の ASP.NET 2.0 サーバー コントロールによって表示される HTML を変更できます。 このビデオでおを説明する、経歴の持ち主しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/01/2007

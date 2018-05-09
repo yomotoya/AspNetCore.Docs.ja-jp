@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
-title: "ASP.NET Web API 1 での CRUD 操作の有効化 |Microsoft ドキュメント"
+title: ASP.NET Web API 1 での CRUD 操作の有効化 |Microsoft ドキュメント
 author: MikeWasson
-description: "このチュートリアルでは、ASP.NET Web API を使用して HTTP サービスでの CRUD 操作をサポートする方法を示します。 ソフトウェアのバージョンがチュートリアルの Visual Studio 2012 Web AP で使用しています."
+description: このチュートリアルでは、ASP.NET Web API を使用して HTTP サービスでの CRUD 操作をサポートする方法を示します。 ソフトウェアのバージョンがチュートリアルの Visual Studio 2012 Web AP で使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/28/2012
@@ -74,7 +74,7 @@ CRUD&quot;作成、読み取り、更新、および Delete、&quot;は 4 つの
 
 Visual Studio を実行して起動し、選択**新しいプロジェクト**から、**開始**ページ。 またはから、**ファイル**メニューの **新規**し**プロジェクト**です。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#**ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。 プロジェクトに名前を&quot;ProductStore&quot;  をクリック**OK**です。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。 プロジェクトに名前を&quot;ProductStore&quot;  をクリック**OK**です。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image1.png)
 
@@ -131,7 +131,7 @@ ASP.NET MVC を使用する場合、し、既に慣れているコント ロー�
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image6.png)
 
-**コント ローラーの追加**ウィザードで、名前、コント ローラー &quot;ProductsController&quot;です。 **テンプレート**ドロップダウン リストで、**空の API コント ローラー**です。 次に、 **[追加]**をクリックします。
+**コント ローラーの追加**ウィザードで、名前、コント ローラー &quot;ProductsController&quot;です。 **テンプレート**ドロップダウン リストで、**空の API コント ローラー**です。 次に、 **[追加]** をクリックします。
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image7.png)
 
@@ -194,8 +194,8 @@ GetProduct メソッド型の例外をスロー **HttpResponseException**場合*
 
 この実装は機能しますが、完全なものはありません。 理想的には、HTTP 応答、以下を含むましょう。
 
-- **応答コード:**既定では、Web API フレームワークは 200 (OK) に応答のステータス コードを設定します。 ただし、http/1.1 プロトコルに従って、POST 要求は、リソースの作成時に発生すると、サーバーという応答が 201 (Created) の状態。
-- **場所:**応答の Location ヘッダーの新しいリソースの URI を含める必要があります、サーバーは、リソースを作成したときにします。
+- **応答コード:** 既定では、Web API フレームワークは 200 (OK) に応答のステータス コードを設定します。 ただし、http/1.1 プロトコルに従って、POST 要求は、リソースの作成時に発生すると、サーバーという応答が 201 (Created) の状態。
+- **場所:** 応答の Location ヘッダーの新しいリソースの URI を含める必要があります、サーバーは、リソースを作成したときにします。
 
 ASP.NET Web API 簡単を HTTP 応答メッセージを操作できます。 強化された実装を次に示します。
 

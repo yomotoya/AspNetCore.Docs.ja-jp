@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/configuration
-ms.openlocfilehash: 5bb89401ac54b54810fe5724b293ae8ed7e5afef
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ead4f96aa0041cd919caa972d3bb05bd94a857b3
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="migrate-configuration-to-aspnet-core"></a>ASP.NET Core 構成を移行します。
 
 作成者: [Steve Smith](https://ardalis.com/)、[Scott Addie](https://scottaddie.com)
 
-開始前の記事で[ASP.NET Core MVC に ASP.NET MVC プロジェクトを移行](mvc.md)です。 この記事では、構成を移行します。
+開始前の記事で[ASP.NET Core MVC に ASP.NET MVC プロジェクトを移行](xref:migration/mvc)です。 この記事では、構成を移行します。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/configuration/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
@@ -29,9 +29,9 @@ ASP.NET Core を使用しない、 *Global.asax*と*web.config* ASP.NET の以�
 
 *Web.config* ASP.NET Core でのファイルが置き換えられてもいます。 説明されているアプリケーションのスタートアップ プロシージャの一部として、構成自体を構成ようになりましたことができます*Startup.cs*です。 構成は、XML ファイルにも引き続き使用できますが、通常 ASP.NET Core プロジェクトが配置構成値 JSON 形式のファイルになど*される appsettings.json*です。 ASP.NET Core の構成システムは、環境変数は、提供できますをも簡単にアクセスできます、[よりセキュリティで保護された信頼性の高い場所](xref:security/app-secrets)環境固有の値。 これは、接続文字列およびソース管理にチェックインしないようにする API キーなどの機密情報に特に当てはまります。 参照してください[構成](xref:fundamentals/configuration/index)ASP.NET Core の構成に関する詳細についてはします。
 
-この記事では、私たちは、開始から ASP.NET Core プロジェクトを部分的に移行[前の記事](mvc.md)です。 構成をセットアップで、次のコンス トラクターとプロパティを追加する、 *Startup.cs*プロジェクトのルートにあるファイル。
+この記事では、私たちは、開始から ASP.NET Core プロジェクトを部分的に移行した[前の記事](xref:migration/mvc)です。 構成をセットアップで、次のコンス トラクターとプロパティを追加する、 *Startup.cs*プロジェクトのルートにあるファイル。
 
-[!code-csharp[](configuration/samples/WebApp1/src/WebApp1/Startup.cs?range=11-21)]
+[!code-csharp[](configuration/samples/WebApp1/src/WebApp1/Startup.cs?range=11-16)]
 
 この時点で、メモ、 *Startup.cs*ように、次を追加する必要があります、ファイルはコンパイルされません`using`ステートメント。
 
@@ -49,8 +49,7 @@ ASP.NET MVC プロジェクトに必要なデータベース接続文字列が�
 
 [!code-json[](../migration/configuration/samples/WebApp1/src/WebApp1/appsettings.json?highlight=4)]
 
-
-強調表示された行に上に示されているからデータベースの名前を変更する**_CHANGE_ME**データベースの名前にします。
+強調表示された行に上に示されているからデータベースの名前を変更する **_CHANGE_ME**データベースの名前にします。
 
 ## <a name="summary"></a>まとめ
 

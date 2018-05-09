@@ -1,4 +1,4 @@
-﻿---
+---
 title: ASP.NET Core で HTTPS を適用します。
 author: rick-anderson
 description: Web アプリで ASP.NET Core HTTPS/TLS を必要とする方法を示します。
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: 0509bebe430c6ba213031a2cb7cb91bb7a39566d
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: b324dbcd6d28c1a8505f96da333874728e2e6a18
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="enforce-https-in-an-aspnet-core"></a>ASP.NET Core で HTTPS を適用します。
 
@@ -35,9 +35,6 @@ ms.lasthandoff: 04/18/2018
 ## <a name="require-https"></a>HTTPS が必要
 
 ::: moniker range=">= aspnetcore-2.1"
-
-[!INCLUDE[](~/includes/2.1.md)]
-
 Web アプリの呼び出しをすべての ASP.NET Core お勧め`UseHttpsRedirection`すべての HTTP 要求を HTTPS にリダイレクトします。 場合`UseHsts`と呼ばれますが、アプリで呼び出す必要がある前に`UseHttpsRedirection`です。
 
 次のコード呼び出し`UseHttpsRedirection`で、`Startup`クラス。
@@ -57,16 +54,17 @@ Web アプリの呼び出しをすべての ASP.NET Core お勧め`UseHttpsRedir
 
 ::: moniker range="< aspnetcore-2.1"
 
+[RequireHttpsAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.RequireHttpsAttribute) は HTTPS を必須とさせるために使用します。 `[RequireHttpsAttribute]` はメソッドまたはコントローラーを装飾するか、またはグローバルに適用することができます。 属性をグローバルに適用するには、`ConfigureServices` の `Startup` に次のコードを追加します:
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet2&highlight=4-999)]
 
-前の強調表示されたコードは、すべての要求に対して `HTTPS` を使用することを必須とさせています。したがって、HTTP 要求は無視されます。次の強調表示されたコードは、すべての HTTP 要求を HTTPS にリダイレクトさせます。
+前の強調表示されたコードでは、すべての要求を使用して`HTTPS`です。 そのため、HTTP 要求は無視されます。 次の強調表示されたコードは、すべての HTTP 要求を HTTPS にリダイレクトします。
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
 
 さらに詳しい情報は、[URL 書き換えミドルウェア](xref:fundamentals/url-rewriting) を参照してください。
 
-グローバルに HTTPS を必須とさせること (`options.Filters.Add(new RequireHttpsAttribute());`) は、セキュリティのベスト プラクティスです。`[RequireHttps]` 属性をすべてのコントローラー/Razor ページ に適用することは、グローバルに HTTPS を必須とさせることほど安全性が高いとは考えられていません。新しいコントローラー または Razor ページが追加されたときに `[RequireHttps]` 属性が適用されるとは限らないためです。
+グローバルに HTTPS を必須とさせること (`options.Filters.Add(new RequireHttpsAttribute());`) は、セキュリティのベスト プラクティスです。 `[RequireHttps]`属性をすべてのコントローラー/Razor ページ に適用することは、グローバルに HTTPS を必須とさせることほど安全性が高いとは考えられていません。 新しいコントローラー または Razor ページが追加されたときに `[RequireHttps]` 属性が適用されるとは限らないためです。
 
 ::: moniker-end
 
@@ -125,5 +123,12 @@ dotnet new razor --no-https
 ```
 
 ------
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+## <a name="how-to-setup-a-developer-certificate-for-docker"></a>Docker の開発者の証明書をセットアップする方法
+
+参照してください[この GitHub 問題](https://github.com/aspnet/Docs/issues/6199)です。
 
 ::: moniker-end

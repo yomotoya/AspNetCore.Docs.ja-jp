@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/releases/index
-title: "ASP.NET Web API を解放 |Microsoft ドキュメント"
+title: ASP.NET Web API を解放 |Microsoft ドキュメント
 author: rick-anderson
-description: "最近の Web API の新機能を解放します。"
+description: 最近の Web API の新機能を解放します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/13/2014

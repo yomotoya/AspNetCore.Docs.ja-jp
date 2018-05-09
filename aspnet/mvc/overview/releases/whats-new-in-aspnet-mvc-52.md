@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/releases/whats-new-in-aspnet-mvc-52
-title: "ASP.NET MVC 5.2 の新機能 |Microsoft ドキュメント"
+title: ASP.NET MVC 5.2 の新機能 |Microsoft ドキュメント
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/25/2014

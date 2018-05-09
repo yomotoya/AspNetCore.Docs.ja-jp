@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/10-working-with-video
-title: "ページ (Razor) サイトの ASP.NET Web でのビデオの表示 |Microsoft ドキュメント"
+title: ページ (Razor) サイトの ASP.NET Web でのビデオの表示 |Microsoft ドキュメント
 author: tfitzmac
-description: "この章では、ビデオ、ASP.NET Web Pages で Razor 構文のページを表示する方法について説明します。"
+description: この章では、ビデオ、ASP.NET Web Pages で Razor 構文のページを表示する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -169,7 +169,7 @@ Flash player が名前付きの設定のビデオ モードをサポートして
 <a id="Playing_Silverlight"></a>
 ## <a name="playing-silverlight-videos"></a>Silverlight のビデオの再生
 
-この手順は、Silverlight に含まれているビデオを再生する方法を示します*.xap*という名前のフォルダーには、ページ*メディア*です。
+この手順は、Silverlight に含まれているビデオを再生する方法を示します *.xap*という名前のフォルダーには、ページ*メディア*です。
 
 1. 説明に従って、ASP.NET Web Helpers Library を web サイトに追加[ASP.NET Web Pages サイトをインストールするヘルパー](https://go.microsoft.com/fwlink/?LinkId=252372)まだ行っていない場合は、します。
 2. という名前の新しいページを作成する*SilverlightVideo.cshtml*です。

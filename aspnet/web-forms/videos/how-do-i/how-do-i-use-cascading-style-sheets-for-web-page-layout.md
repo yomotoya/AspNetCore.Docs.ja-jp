@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-cascading-style-sheets-for-web-page-layout
-title: "[How Do i:]Web ページのレイアウトのカスケード スタイル シートを使用しますか。 | Microsoft Docs"
+title: '[How Do i:]Web ページのレイアウトのカスケード スタイル シートを使用しますか。 | Microsoft Docs'
 author: rick-anderson
-description: "このビデオで使用する方法を学習お&amp;lt; div&amp;gt; 要素を web p、堅牢で高いパフォーマンスを作成する、カスケード スタイル シート (CSS) と組み合わせてしています."
+description: このビデオで使用する方法を学習お&amp;lt; div&amp;gt; 要素を web p、堅牢で高いパフォーマンスを作成する、カスケード スタイル シート (CSS) と組み合わせてしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2007

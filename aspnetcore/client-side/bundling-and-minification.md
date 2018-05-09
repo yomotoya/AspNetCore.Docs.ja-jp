@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 381025d1c4a9951349e242482ca9b780c461e588
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>ASP.NET Core でのバンドルと minifiy の静的な資産
 
@@ -77,11 +77,11 @@ MVC および Razor ページのプロジェクト テンプレートは、提�
 
 構成オプションは次のとおりです。
 
-* `outputFileName`: を出力するバンドル ファイルの名前。 相対パスを含めることができます、 *bundleconfig.json*ファイル。 **required**
+* `outputFileName`: を出力するバンドル ファイルの名前。 相対パスを含めることができます、 *bundleconfig.json*ファイル。 **必須**
 * `inputFiles`: をまとめるためにファイルの配列。 これらは、構成ファイルへの相対パスです。 **省略可能な**、*、空の値が空の出力ファイルの結果します。 [グロブ](http://www.tldp.org/LDP/abs/html/globbingref.html)パターンがサポートされています。
 * `minify`出力の: サイズ縮小オプションを入力します。 **省略可能な**、*既定 - `minify: { enabled: true }`*
   * 出力ファイルの種類ごとの構成オプションのとおりです。
-    * [CSS Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
+    * [CSS の縮小化](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript の縮小化](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
     * [HTML の縮小化](https://github.com/madskristensen/BundlerMinifier/wiki)
 * `includeInProject`: プロジェクト ファイルに生成されたファイルを追加するかどうかを示すフラグです。 **省略可能な**、*既定 - false*
@@ -236,7 +236,7 @@ dotnet bundle
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
 * * *
-## <a name="consume-bundleconfigjson-from-gulp"></a>Consume bundleconfig.json from Gulp
+## <a name="consume-bundleconfigjson-from-gulp"></a>Gulp から bundleconfig.json を使用します。
 
 アプリのバンドルと縮小のワークフローに追加の処理が必要な場合があります。 例として、画像の最適化、キャッシュが破壊 CDN 資産処理します。 これらの要件を満たすには、Gulp を使用するバンドルと縮小のワークフローに変換できます。
 
@@ -313,5 +313,5 @@ Visual Studio でプロジェクトをビルドする前に、Gulp 縮小タス�
 
 * [Gulp の使用](xref:client-side/using-gulp)
 * [Grunt の使用](xref:client-side/using-grunt)
-* [複数の環境で動作します。](xref:fundamentals/environments)
+* [複数の環境を使用します。](xref:fundamentals/environments)
 * [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)

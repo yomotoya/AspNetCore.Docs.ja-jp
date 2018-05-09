@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-title: "ASP.NET Web API 2 (C#) を開始します。"
+title: ASP.NET Web API 2 (C#) を開始します。
 author: MikeWasson
-description: "HTTP は、web ページを提供しているだけではなくです。 サービスとデータを公開する Api を構築するための強力なプラットフォームです。 HTTP は、シンプルで柔軟なので、および ubiq には."
+description: HTTP は、web ページを提供しているだけではなくです。 サービスとデータを公開する Api を構築するための強力なプラットフォームです。 HTTP は、シンプルで柔軟なので、および ubiq には.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/28/2017
@@ -43,11 +43,11 @@ ASP.NET Web API は、web Api、.NET Framework 上に構築するためのフレ
 
 Visual Studio を起動し、選択**新しいプロジェクト**から、**開始**ページ。 またはから、**ファイル**メニューの **新規**し**プロジェクト**です。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#**ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET Web アプリケーション**です。 プロジェクト"ProductsApp"の名前し、をクリックして**OK**です。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET Web アプリケーション**です。 プロジェクト"ProductsApp"の名前し、をクリックして**OK**です。
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 
-**新しい ASP.NET プロジェクト**ダイアログで、選択、**空**テンプレート。 &quot;フォルダーを追加し、参照用のコア&quot;、確認**Web API**です。 **[OK]**をクリックします。
+**新しい ASP.NET プロジェクト**ダイアログで、選択、**空**テンプレート。 &quot;フォルダーを追加し、参照用のコア&quot;、確認**Web API**です。 **[OK]** をクリックします。
 
 ![](tutorial-your-first-web-api/_static/image3.png)
 
@@ -80,11 +80,11 @@ Web API では、*コント ローラー* HTTP 要求を処理するオブジェ
 
 ![](tutorial-your-first-web-api/_static/image5.png)
 
-**追加 Scaffold**ダイアログで、 **Web API コント ローラー - 空**です。 **[追加]**をクリックします。
+**追加 Scaffold**ダイアログで、 **Web API コント ローラー - 空**です。 **[追加]** をクリックします。
 
 ![](tutorial-your-first-web-api/_static/image6.png)
 
-**コント ローラーの追加**ダイアログ ボックスで、名前、コント ローラー &quot;ProductsController&quot;です。 **[追加]**をクリックします。
+**コント ローラーの追加**ダイアログ ボックスで、名前、コント ローラー &quot;ProductsController&quot;です。 **[追加]** をクリックします。
 
 ![](tutorial-your-first-web-api/_static/image7.png)
 
@@ -104,7 +104,7 @@ Web API では、*コント ローラー* HTTP 要求を処理するオブジェ
 
 コント ローラーには、製品を返す 2 つのメソッドが定義されています。
 
-- `GetAllProducts`メソッドとして製品の全体の一覧を返します、 **IEnumerable&lt;製品&gt;**型です。
+- `GetAllProducts`メソッドとして製品の全体の一覧を返します、 **IEnumerable&lt;製品&gt;** 型です。
 - `GetProduct`メソッドは、ID によって 1 つの製品を検索
 
 これで完了です。 作業用の web API があります。 コント ローラーの各メソッドは、1 つまたは複数の Uri に対応しています。

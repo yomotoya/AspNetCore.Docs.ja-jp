@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
-title: "ASP.NET Web API で認証と承認 |Microsoft ドキュメント"
+title: ASP.NET Web API で認証と承認 |Microsoft ドキュメント
 author: MikeWasson
-description: "ASP.NET Web API で認証と承認の概要を示します。"
+description: ASP.NET Web API で認証と承認の概要を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/27/2012

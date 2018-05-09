@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: e249be06726b307a1c41a525a132f7e0ab8b50ee
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: b8c913c0a6f47a1c993d508f9baae54981327957
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>ASP.NET MVC から ASP.NET Core MVC への移行します。
 
@@ -26,13 +26,13 @@ ms.lasthandoff: 03/22/2018
 
 ## <a name="create-the-starter-aspnet-mvc-project"></a>スターター ASP.NET MVC プロジェクトを作成します。
 
-アップグレードを示すためには、ASP.NET MVC アプリケーションを作成することで始めます。 名前を使用して作成*WebApp1* ASP.NET Core プロジェクトを作成すると、次の手順には、名前空間に一致するようにします。
+アップグレードを示すためには、ASP.NET MVC アプリケーションを作成することで始めます。 名前を使用して作成*WebApp1*ので、名前空間を作成する、次の手順に ASP.NET Core プロジェクトに一致します。
 
 ![Visual Studio の新しいプロジェクト ダイアログ ボックス](mvc/_static/new-project.png)
 
 ![新しい Web アプリケーション ダイアログ: MVC プロジェクト テンプレートがテンプレートの ASP.NET のパネルで選択されています。](mvc/_static/new-project-select-mvc-template.png)
 
-*省略可能:*からソリューションの名前を変更*WebApp1*に*Mvc5*です。 Visual Studio 新しいソリューション名が表示されます (*Mvc5*)、するやすく次回のプロジェクトからこのプロジェクトに指示します。
+*省略可能:* からソリューションの名前を変更*WebApp1*に*Mvc5*です。 Visual Studio には、新しいソリューション名が表示されます (*Mvc5*)、簡単に次のプロジェクトからこのプロジェクトに指示します。
 
 ## <a name="create-the-aspnet-core-project"></a>ASP.NET Core プロジェクトを作成します。
 
@@ -42,25 +42,19 @@ ms.lasthandoff: 03/22/2018
 
 ![新しい ASP.NET Web アプリケーション ダイアログ ボックス: ASP.NET Core テンプレート パネルで選択した空のプロジェクト テンプレート](mvc/_static/new-project-select-empty-aspnet5-template.png)
 
-* *省略可能:*新しい ASP.NET Core アプリケーションを使用して、作成、 *Web アプリケーション*プロジェクト テンプレート。 プロジェクトに名前を*WebApp1*、認証オプションを選択して**個々 のユーザー アカウント**です。 このアプリの名前を変更*FullAspNetCore*です。 変換では、このプロジェクトは、時間を節約を作成します。 最終的な結果を表示する、または変換プロジェクトにコードをコピーするテンプレートによって生成されたコードを調べることができます。 テンプレートによって生成されたプロジェクトと比較するへの変換ステップに行き詰まった場合にも便利です。
+* *省略可能:* 新しい ASP.NET Core アプリケーションを使用して、作成、 *Web アプリケーション*プロジェクト テンプレート。 プロジェクトに名前を*WebApp1*、認証オプションを選択して**個々 のユーザー アカウント**です。 このアプリの名前を変更*FullAspNetCore*です。 変換では、このプロジェクト、時間の節約を作成します。 最終的な結果を表示する、または変換プロジェクトにコードをコピーするテンプレートによって生成されたコードを調べることができます。 テンプレートによって生成されたプロジェクトと比較するへの変換ステップに行き詰まった場合にも便利です。
 
 ## <a name="configure-the-site-to-use-mvc"></a>MVC を使用するサイトを構成します。
 
-* インストール、`Microsoft.AspNetCore.Mvc`と`Microsoft.AspNetCore.StaticFiles`NuGet パッケージの管理。
+* .NET Core をターゲットとすると、ASP.NET Core metapackage と呼ばれる、プロジェクトに追加`Microsoft.AspNetCore.All`既定です。 このパッケージを含むようにパッケージ`Microsoft.AspNetCore.Mvc`と`Microsoft.AspNetCore.StaticFiles`です。 .NET Framework を対象にする場合、パッケージの参照は *.csproj ファイルに個別に一覧表示する必要があります。
 
-  `Microsoft.AspNetCore.Mvc` ASP.NET Core MVC フレームワークです。 `Microsoft.AspNetCore.StaticFiles` 静的ファイル ハンドラーです。 ASP.NET ランタイムがモジュール、および静的なファイルが機能するように明示的にオプトインする必要があります (を参照してください[静的ファイルで作業](../fundamentals/static-files.md))。
-
-* 開く、 *.csproj*ファイル (でプロジェクトを右クリックして**ソリューション エクスプ ローラー**を選択し、**編集 WebApp1.csproj**) を追加し、`PrepareForPublish`ターゲット。
-
-  [!code-xml[](mvc/sample/WebApp1.csproj?range=21-23)]
-
-  `PrepareForPublish`ターゲットは、Bower を使用してクライアント側のライブラリを取得するために必要です。 後でについてを説明します。
+`Microsoft.AspNetCore.Mvc` ASP.NET Core MVC フレームワークです。 `Microsoft.AspNetCore.StaticFiles` 静的ファイル ハンドラーです。 ASP.NET Core ランタイムがモジュール、および静的なファイルが機能するように明示的にオプトインする必要があります (を参照してください[静的ファイル](xref:fundamentals/static-files))。
 
 * 開く、 *Startup.cs*ファイルを開き、次の一致するようにコードを変更します。
 
-  [!code-csharp[](mvc/sample/Startup.cs?highlight=14,27-34)]
+  [!code-csharp[](mvc/sample/Startup.cs?highlight=13,26-31)]
 
-  `UseStaticFiles`拡張メソッドが静的ファイル ハンドラーを追加します。 前述のように、ASP.NET ランタイムは、モジュール、および静的なファイルが機能するように明示的にオプトインする必要があります。 `UseMvc`ルーティング拡張メソッドを追加します。 詳細については、次を参照してください。[アプリケーションの起動](../fundamentals/startup.md)と[ルーティング](../fundamentals/routing.md)です。
+`UseStaticFiles`拡張メソッドが静的ファイル ハンドラーを追加します。 前述のように、ASP.NET ランタイムは、モジュール、および静的なファイルが機能するように明示的にオプトインする必要があります。 `UseMvc`ルーティング拡張メソッドを追加します。 詳細については、次を参照してください。[アプリケーションの起動](xref:fundamentals/startup)と[ルーティング](xref:fundamentals/routing)です。
 
 ## <a name="add-a-controller-and-view"></a>コント ローラーとビューを追加します。
 
@@ -68,7 +62,7 @@ ms.lasthandoff: 03/22/2018
 
 * 追加、*コント ローラー*フォルダーです。
 
-* 追加、 **MVC コント ローラー クラス**名前を持つ*HomeController.cs*を*コント ローラー*フォルダーです。
+* 追加、**コント ローラー クラス**という*HomeController.cs*を*コント ローラー*フォルダーです。
 
 ![[新しい項目の追加] ダイアログ](mvc/_static/add_mvc_ctl.png)
 
@@ -76,7 +70,7 @@ ms.lasthandoff: 03/22/2018
 
 * 追加、*ビュー/ホーム*フォルダーです。
 
-* 追加、 *Index.cshtml* MVC ビュー ページを*ビュー/ホーム*フォルダーです。
+* 追加、 **Razor ビュー**という*Index.cshtml*を*ビュー/ホーム*フォルダーです。
 
 ![[新しい項目の追加] ダイアログ](mvc/_static/view.png)
 
@@ -92,7 +86,7 @@ ms.lasthandoff: 03/22/2018
 
 アプリを実行します。
 
-![Microsoft Edge で開いている web アプリケーション](mvc/_static/hello-world.png)
+![Web アプリを Microsoft Edge で開いた状態](mvc/_static/hello-world.png)
 
 参照してください[コント ローラー](xref:mvc/controllers/actions)と[ビュー](xref:mvc/views/overview)詳細についてはします。
 
@@ -110,7 +104,7 @@ ms.lasthandoff: 03/22/2018
 
 * フィルター
 
-* ログの/out、id (はこれで次のチュートリアルです。)
+* ログの/out、Id (これは、次のチュートリアルでします。)
 
 ## <a name="controllers-and-views"></a>コント ローラーとビュー
 
@@ -118,7 +112,7 @@ ms.lasthandoff: 03/22/2018
 
 * コピー、 *About.cshtml*、 *Contact.cshtml*、および*Index.cshtml* Razor ビューのファイルを ASP.NET MVC プロジェクトから ASP.NET Core プロジェクト。
 
-* ASP.NET Core アプリケーションを実行し、各メソッドをテストします。 いない移行ファイルのレイアウトやスタイルまだ、レンダリングされるビューはビュー ファイル内のコンテンツのみを含めるようにします。 レイアウトに生成されたファイルへのリンクする必要はありません、`About`と`Contact`ビュー、ブラウザーからそれらを起動する必要がありますので (交換**4492**プロジェクトで使用されるポート番号を持つ)。
+* ASP.NET Core アプリケーションを実行し、各メソッドをテストします。 いない移行ファイルのレイアウトやスタイルまだ、レンダリングされるビューには、ファイルの表示内のコンテンツのみが含まれるようにします。 レイアウトに生成されたファイルへのリンクする必要はありません、`About`と`Contact`ビュー、ブラウザーからそれらを起動する必要がありますので (交換**4492**プロジェクトで使用されるポート番号を持つ)。
 
   * `http://localhost:4492/home/about`
 
@@ -134,21 +128,7 @@ ASP.NET MVC の以前のバージョンでは、静的コンテンツは、web �
 
 * コピー、 *favicon.ico*に古い MVC プロジェクトのファイル、 *wwwroot* ASP.NET Core プロジェクト フォルダーにします。
 
-古い ASP.NET MVC プロジェクトの使用[ブートス トラップ](http://getbootstrap.com/)にファイルをブートス トラップのスタイルとストアの*コンテンツ*と*スクリプト*フォルダーです。 以前の ASP.NET MVC プロジェクトを生成するには、テンプレートを参照して、レイアウト ファイル ブートス トラップ (*Views/Shared/_Layout.cshtml*)。 コピーすることで、 *bootstrap.js*と*bootstrap.css*ファイルから ASP.NET MVC プロジェクトを*wwwroot*フォルダーに、新しいプロジェクトが、その方法を使用しない、ASP.NET Core でのクライアント側の依存関係を管理するための強化メカニズムです。
-
-新しいプロジェクトを使用してブートス トラップ (およびその他のクライアント側ライブラリ) サポートを追加します[Bower](https://bower.io/):
-
-* 追加、 [Bower](https://bower.io/)という名前の構成ファイル*bower.json*プロジェクトのルートに (、プロジェクトを右クリックし、**追加 > 新しい項目の追加 > Bower 構成ファイル**)。 追加[ブートス トラップ](http://getbootstrap.com/)と[jQuery](https://jquery.com/)ファイル (以下の強調表示された行を参照してください)。
-
-  [!code-json[](mvc/sample/bower.json?highlight=5-6)]
-
-ファイルを保存するときに Bower は自動的にダウンロードする依存関係、 *wwwroot/lib*フォルダーです。 使用することができます、**ソリューション エクスプ ローラーの検索**資産のパスを検索するボックス。
-
-![ソリューション エクスプ ローラー検索結果に示される jquery 資産](mvc/_static/search.png)
-
-参照してください[Bower でクライアント側のパッケージを管理](../client-side/bower.md)詳細についてはします。
-
-<a name="migrate-layout-file"></a>
+古い ASP.NET MVC プロジェクトの使用[ブートス トラップ](https://getbootstrap.com/)にファイルをブートス トラップのスタイルとストアの*コンテンツ*と*スクリプト*フォルダーです。 以前の ASP.NET MVC プロジェクトを生成するには、テンプレートを参照して、レイアウト ファイル ブートス トラップ (*Views/Shared/_Layout.cshtml*)。 コピーすることで、 *bootstrap.js*と*bootstrap.css*ファイルから ASP.NET MVC プロジェクトを*wwwroot*新しいプロジェクトのフォルダーです。 代わりに、次のセクションで Cdn を使用してブートス トラップのサポート (およびその他のクライアント側ライブラリ) を追加します。
 
 ## <a name="migrate-the-layout-file"></a>レイアウト ファイルを移行します。
 
@@ -156,71 +136,58 @@ ASP.NET MVC の以前のバージョンでは、静的コンテンツは、web �
 
 * 作成、 *Views/shared*フォルダーです。
 
-* *省略可能:*コピー *_ViewImports.cshtml*から、 *FullAspNetCore* MVC プロジェクトの*ビュー* ASP.NET Core プロジェクトのフォルダー *ビュー*フォルダーです。 任意の名前空間宣言を削除、 *_ViewImports.cshtml*ファイル。 *_ViewImports.cshtml*ファイル ビューのすべてのファイルの名前空間を提供しでによってもたらさ[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)です。 タグ ヘルパーは、新しいレイアウト ファイルで使用されます。 *_ViewImports.cshtml*ファイルが ASP.NET Core の新機能です。
+* *省略可能:* コピー *_ViewImports.cshtml*から、 *FullAspNetCore* MVC プロジェクトの*ビュー* ASP.NET Core プロジェクトのフォルダー *ビュー*フォルダーです。 任意の名前空間宣言を削除、 *_ViewImports.cshtml*ファイル。 *_ViewImports.cshtml*ファイル ビューのすべてのファイルの名前空間を提供しでによってもたらさ[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)です。 タグ ヘルパーは、新しいレイアウト ファイルで使用されます。 *_ViewImports.cshtml*ファイルが ASP.NET Core の新機能です。
 
 * コピー、 *_Layout.cshtml*古い ASP.NET MVC プロジェクトのファイルの*Views/shared* ASP.NET Core プロジェクトのフォルダー *Views/shared*フォルダーです。
 
-開いている*_Layout.cshtml*ファイルし、次の変更 (完了したコードは、以下のとおりです)。
+開いている *_Layout.cshtml*ファイルし、次の変更 (完了したコードは、以下のとおりです)。
 
-   * 置き換える`@Styles.Render("~/Content/css")`で、`<link>`読み込み要素*bootstrap.css* (下記参照)。
+* 置き換える`@Styles.Render("~/Content/css")`で、`<link>`読み込み要素*bootstrap.css* (下記参照)。
 
-   * `@Scripts.Render("~/bundles/modernizr")` を削除します。
+* `@Scripts.Render("~/bundles/modernizr")` を削除します。
 
-   * コメント アウト、`@Html.Partial("_LoginPartial")`行 (では、行を囲む`@*...*@`)。 今後のチュートリアルでを返します。
+* コメント アウト、`@Html.Partial("_LoginPartial")`行 (では、行を囲む`@*...*@`)。 今後のチュートリアルでを返します。
 
-   * 置き換える`@Scripts.Render("~/bundles/jquery")`で、`<script>`要素 (下記参照)。
+* 置き換える`@Scripts.Render("~/bundles/jquery")`で、`<script>`要素 (下記参照)。
 
-   * 置き換える`@Scripts.Render("~/bundles/bootstrap")`で、`<script>`要素 (下記参照).
+* 置き換える`@Scripts.Render("~/bundles/bootstrap")`で、`<script>`要素 (下記参照)。
 
-置換する CSS リンク:
-
-```html
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-```
-
-交換用のスクリプト タグ:
+ブートス トラップ CSS 含める置換マークアップ:
 
 ```html
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
 ```
 
-更新された*_Layout.cshtml*ファイルを次に示します。
+交換用のマークアップ jQuery とブートス トラップの JavaScript の包含を:
 
-[!code-html[](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7,27,39-40)]
+```html
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+```
+
+更新された *_Layout.cshtml*ファイルを次に示します。
+
+[!code-cshtml[](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7-10,29,41-44)]
 
 ブラウザーで、サイトを表示します。 これを場所に必要なスタイルを使用して正しく読み込むようになりました必要があります。
 
-* *省略可能:*新しいレイアウト ファイルを使用して再試行することができます。 このプロジェクトからレイアウト ファイルをコピーすることができます、 *FullAspNetCore*プロジェクト。 新しいレイアウト ファイルを使用して[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)あり、その他の改善。
+* *省略可能:* 新しいレイアウト ファイルを使用して再試行することができます。 このプロジェクトからレイアウト ファイルをコピーすることができます、 *FullAspNetCore*プロジェクト。 新しいレイアウト ファイルを使用して[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)あり、その他の改善。
 
 ## <a name="configure-bundling-and-minification"></a>バンドルと縮小を構成します。
 
 バンドルと縮小を構成する方法については、次を参照してください。 [Bundling and Minification](../client-side/bundling-and-minification.md)です。
 
-## <a name="solving-http-500-errors"></a>HTTP 500 のエラーを解決します。
+## <a name="solve-http-500-errors"></a>HTTP 500 エラーを解決します。
 
-多くの問題 HTTP 500 エラー メッセージを引き起こす可能性のある問題の原因に関する情報が含まれていないことがあります。 たとえば場合、 *Views/_ViewImports.cshtml*ファイルがプロジェクトに存在しない名前空間を含む、HTTP 500 エラーが表示されます。 詳細なエラー メッセージを取得するには、次のコードを追加します。
+多くの問題 HTTP 500 エラー メッセージを引き起こす可能性のある問題の原因に関する情報が含まれていないことがあります。 たとえば場合、 *Views/_ViewImports.cshtml*ファイルがプロジェクトに存在しない名前空間を含む、HTTP 500 エラーが表示されます。 ASP.NET Core アプリの場合は、既定では、`UseDeveloperExceptionPage`に拡張子を追加、`IApplicationBuilder`構成時に実行および*開発*です。 これは、次のコードの詳細を示します。
 
-```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-{
-    if (env.IsDevelopment())
-    {
-         app.UseDeveloperExceptionPage();
-    }
+[!code-csharp[](mvc/sample/Startup.cs?highlight=19-22)]
 
-    app.UseStaticFiles();
-
-    app.UseMvc(routes =>
-    {
-        routes.MapRoute(
-            name: "default",
-            template: "{controller=Home}/{action=Index}/{id?}");
-    });
-}
-```
-
-参照してください**開発者例外ページを使用して**で[エラーの処理](../fundamentals/error-handling.md)詳細についてはします。
+ASP.NET Core は、web アプリで未処理の例外を HTTP 500 エラー応答に変換します。 通常、エラーの詳細は、サーバーの機密性の高い情報の漏えいを防ぐためにこれらの応答に含まれません。 参照してください**開発者例外ページを使用して**で[エラーの処理](../fundamentals/error-handling.md)詳細についてはします。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
