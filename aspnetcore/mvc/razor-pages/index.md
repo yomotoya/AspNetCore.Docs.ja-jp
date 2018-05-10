@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 08866543d5b510b86c6af1896a9bd41ae0053ecf
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: f9484d4806a7430177878b462209ba6608cfdd7d
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 
 [Rick Anderson](https://twitter.com/RickAndMSFT) および [Ryan Nowak](https://github.com/rynowak) 著
 
-Razor ページは、ページ コーディングに重点を置いたシナリオをより簡略化し、生産性を高める ASP.NET Core MVC の新機能です。
+Razor ページは、ページ コーディングに重点を置いたシナリオをより簡略化し、生産性を高める ASP.NET Core MVC の新たな側面です。
 
 モデル ビュー コントローラーのアプローチを使用するチュートリアルをお探しの場合は、「[Get started with ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc)」 (ASP.NET Core MVC の概要) を参照してください。
 
@@ -92,7 +92,7 @@ URL パスのページへの関連付けは、ファイル システム内のペ
 
 ## <a name="writing-a-basic-form"></a>基本フォームの作成
 
-Razor ページ機能は、Web ブラウザーで使用される一般的なパターンを簡単にするために設計されています。 [モデル バインド](xref:mvc/models/model-binding)、[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)、および HTML ヘルパーはすべて、Razor ページ クラスで定義されたプロパティで*機能します*。 `Contact` モデルの基本的な "お問い合わせ" フォームを実装するページを考察します。
+Razor ページは、アプリの構築時に Web ブラウザーで使用される一般的なパターンを実装しやすくするために設計されています。 [モデル バインド](xref:mvc/models/model-binding)、[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)、および HTML ヘルパーはすべて、Razor ページ クラスで定義されたプロパティで*機能します*。 `Contact` モデルの基本的な "お問い合わせ" フォームを実装するページを考察します。
 
 このドキュメントのサンプルでは、[Startup.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/razor-pages/index/sample/RazorPagesContacts/Startup.cs#L15-L16) ファイルで `DbContext` が初期化されます。
 
@@ -147,7 +147,7 @@ db コンテキスト:
 既定では、Razor ページはプロパティを非 GET 動詞とのみバインドします。 プロパティをバインドすることで、記述すべきコードの量を削減できます。 同じプロパティを使用してバインドすることでコードを減らし、フィールド (`<input asp-for="Customer.Name" />`) からレンダリングして入力を受け入れます。
 
 > [!NOTE]
-> セキュリティ上の理由から、ページ モデルのプロパティに対して GET 要求データのバインドを選択する必要があります。 プロパティにマップする前に、ユーザー入力を確認してください。 この動作は、クエリ文字列やルート値に依存する機能をバインドする場合に選択すると便利です。
+> セキュリティ上の理由から、ページ モデルのプロパティに対して GET 要求データのバインドを選択する必要があります。 プロパティにマップする前に、ユーザー入力を確認してください。 この動作は、クエリ文字列やルート値に依存するシナリオに対処する場合に選択すると便利です。
 >
 > GET 要求のプロパティをバインドするには、属性の `[BindProperty]` プロパティを `SupportsGet``true`: `[BindProperty(SupportsGet = true)]` に設定します
 
@@ -248,7 +248,7 @@ services.AddMvc()
 <a name="layout"></a>
 ## <a name="using-layouts-partials-templates-and-tag-helpers-with-razor-pages"></a>Razor ページでのレイアウト、パーシャル、テンプレート、およびタグ ヘルパーの使用
 
-ページは、Razor ビュー エンジンのすべての機能で機能します。 レイアウト、パーシャル、テンプレート、タグ ヘルパー、*_ViewStart.cshtml*、*_ViewImports.cshtml* は、従来の Razor ビューと同じように動作します。
+ページは、Razor ビュー エンジンのすべての機能で動作します。 レイアウト、パーシャル、テンプレート、タグ ヘルパー、*_ViewStart.cshtml*、*_ViewImports.cshtml* は、従来の Razor ビューと同じように動作します。
 
 これらの機能の一部を利用してこのページをまとめてみましょう。
 
@@ -336,7 +336,7 @@ Razor ページからのビュー検索には、*Pages* フォルダーが含ま
 * `<a asp-page="/Index">My Index Page</a>`
 * `RedirectToPage("/Index")`
 
-ページ名は、ルート */Pages* フォルダーからページへのパスです (たとえば `/Index` の場合、先頭の `/` を含みます)。 上記の URL の生成サンプルは、単に URL をハードコーディングするよりもはるかに多機能です。 URL の生成は[ルーティング](xref:mvc/controllers/routing)を使用し、ターゲット パスで定義されたルート方法に従って、パラメーターの生成とエンコードができます。
+ページ名は、先頭の `/` を含む、ルート */Pages* フォルダーからページへのパスです (たとえば `/Index`)。 先述の URL 生成サンプルでは、URL のハードコーディングに関する拡張オプションと機能が提供されます。 URL の生成は[ルーティング](xref:mvc/controllers/routing)を使用し、ターゲット パスで定義されたルート方法に従って、パラメーターの生成とエンコードができます。
 
 ページの URL 生成は、相対名をサポートします。 次の表に、*Pages/Customers/Create.cshtml* の異なる `RedirectToPage` パラメーターで選択されたインデックス ページを示します。
 
@@ -455,5 +455,5 @@ services.AddMvc()
 * [Razor の構文](xref:mvc/views/razor)
 * [Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)
 * [Razor ページの承認規則](xref:security/authorization/razor-pages-authorization)
-* [Razor ページのカスタム ルートとページ モデル プロバイダー](xref:mvc/razor-pages/razor-pages-convention-features)
+* [Razor ページのカスタム ルートとページ モデル プロバイダー](xref:mvc/razor-pages/razor-pages-conventions)
 * [Razor ページの単体テストと統合テスト](xref:testing/razor-pages-testing)

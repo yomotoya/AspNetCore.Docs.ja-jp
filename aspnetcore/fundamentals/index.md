@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: d5b74e213828d1a1f7e09810e5cc72773a821dab
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 223b1906ef9941084e18e0698f007d9564e81f09
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core の基礎
 
@@ -107,7 +107,7 @@ ASP.NET Core アプリで [OWIN](http://owin.org) ベースのミドルウェア
 
 "開発" や "実稼働" などの環境は ASP.NET Core におけるファースト クラスの概念であり、環境変数を使用して設定できます。
 
-詳細については、「[Working with multiple environments](xref:fundamentals/environments)」 (複数の環境の使用) を参照してください。
+詳細については、「[Use multiple environments](xref:fundamentals/environments)」(複数の環境の使用) を参照してください。
 
 ## <a name="configuration"></a>構成
 
@@ -143,7 +143,7 @@ ASP.NET Core は、プラットフォーム間でファイルを操作するた�
 
 静的ファイルのミドルウェアは、HTML、CSS、画像、JavaScript などの静的ファイルを処理します。
 
-詳細については、[静的ファイルの使用](xref:fundamentals/static-files)に関するページを参照してください。
+詳しくは、[静的ファイル](xref:fundamentals/static-files)に関するページをご覧ください。
 
 ## <a name="hosting"></a>ホスト
 

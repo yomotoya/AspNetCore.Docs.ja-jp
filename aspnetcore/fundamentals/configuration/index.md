@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: b1c2b734a2e9b274792b597bfd222c31e661b0d7
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 4637ff6312f32f5887ff0f7a6e74d10f5beb0ca5
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core の構成
 
@@ -105,13 +105,13 @@ ASP.NET Core 1.x アプリは、`AddJsonFile` および [AddEnvironmentVariables
 
 [!code-csharp[](index/sample/StartupConfig.cs?name=snippet&highlight=3,4)]
 
-通常、環境は `Development`、`Staging`、または `Production` に設定されます。 詳細については、「[Working with multiple environments](xref:fundamentals/environments)」 (複数の環境の使用) を参照してください。
+通常、環境は `Development`、`Staging`、または `Production` に設定されます。 詳細については、「[Use multiple environments](xref:fundamentals/environments)」(複数の環境の使用) を参照してください。
 
 構成に関する考慮事項:
 
 * [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot) では、構成データを変更時に再読み込みできます。
 * 構成キーでは大文字と小文字が区別**されません**。
-* 構成プロバイダー コードやプレーンテキストの構成ファイルには、パスワードなどの機密データは格納**しないでください**。 開発環境やテスト環境では運用シークレットを使用しないでください。 プロジェクトの外部にシークレットを指定してください。そうすれば、誤ってリソース コード リポジトリにコミットされることはありません。 [複数の環境での作業方法](xref:fundamentals/environments)および[開発中のアプリ シークレットの安全な格納場所](xref:security/app-secrets)の管理の詳細を確認してください。
+* 構成プロバイダー コードやプレーンテキストの構成ファイルには、パスワードなどの機密データは格納**しないでください**。 開発環境やテスト環境では運用シークレットを使用しないでください。 プロジェクトの外部にシークレットを指定してください。そうすれば、誤ってリソース コード リポジトリにコミットされることはありません。 [複数の環境の使用方法](xref:fundamentals/environments)および[開発中のアプリ シークレットの安全な格納場所](xref:security/app-secrets)の管理の詳細を確認してください。
 * 環境変数で指定された階層の構成値では、コロン (`:`) が一部のプラットフォームで動作しない可能性があります。 二重のアンダースコア (`__`) はすべてのプラットフォームでサポートされています。
 * 構成 API とやり取りするときは、コロン (`:`) がすべてのプラットフォームで動作します。
 
@@ -412,6 +412,10 @@ IIS または IIS-Express でアプリをホストする場合は、*web.config*
 ## <a name="access-configuration-during-startup"></a>起動中に構成にアクセスする
 
 起動中に `ConfigureServices` または `Configure` 内の構成にアクセスするには、[アプリケーションの起動](xref:fundamentals/startup)に関するトピックに示されている例を参照してください。
+
+## <a name="adding-configuration-from-an-external-assembly"></a>外部アセンブリからの構成の追加
+
+[IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) の実装により、アプリの `Startup` クラスの外部にある外部アセンブリからの起動時に拡張機能をアプリに追加できるようになります。 詳細については、「[Enhance an app from an external assembly](xref:fundamentals/configuration/platform-specific-configuration)」(外部アセンブリからアプリを拡張する) を参照してください。
 
 ## <a name="access-configuration-in-a-razor-page-or-mvc-view"></a>Razor ページまたは MVC ビューで構成にアクセスする
 
