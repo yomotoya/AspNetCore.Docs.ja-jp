@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 5a8a035ff3f127d01655888d4f83a871645b0bf5
-ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
+ms.openlocfilehash: 473585f1be180645395c14a154c9c017ca50edab
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Apache 搭載の Linux で ASP.NET Core をホストする
 
@@ -79,7 +79,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 ない場合は[ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions)は指定した、ミドルウェアに転送する既定のヘッダーが`None`です。
 
-追加の構成は、プロキシ サーバーとロード バランサーの背後にホストされているアプリの必要があります。 詳細については、次を参照してください。[にプロキシ サーバーを操作すると、ロード バランサーの ASP.NET Core の構成](xref:host-and-deploy/proxy-load-balancer)です。
+プロキシ サーバーとロード バランサーの背後でホストされているアプリでは、追加の構成が必要になる場合があります。 詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。
 
 ### <a name="install-apache"></a>Apache をインストールする
 
@@ -189,6 +189,13 @@ WantedBy=multi-user.target
 
 > [!NOTE]
 > **ユーザー** &mdash;場合、ユーザー *apache*使用されていない、構成によってユーザー必要があります最初に作成してファイルの適切な所有権を指定します。
+
+> [!NOTE]
+> 環境変数を読み取る構成プロバイダーのいくつかの値 (たとえば、SQL 接続文字列を) をエスケープする必要があります。 構成ファイルで使用するための適切にエスケープされた値を生成するのにには、次のコマンドを使用します。
+>
+> ```console
+> systemd-escape "<value-to-escape>"
+> ```
 
 ファイルを保存し、サービスを有効にします。
 

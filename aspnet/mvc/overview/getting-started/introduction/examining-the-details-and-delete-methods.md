@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: b6939207ee15aa93bfb3ccb9cad553b814896bd1
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f534080fe9aa22eb9092932babc74c5ab96aabbf
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 <a name="examining-the-details-and-delete-methods"></a>詳細とその削除方法を確認します。
 ====================
@@ -42,7 +42,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-csharp[Main](examining-the-details-and-delete-methods/samples/sample2.cs?highlight=17)]
 
-なお、`HTTP Get``Delete`メソッドは、指定したビデオを削除しないを送信することができます、ムービーのビューを返します (`HttpPost`)、削除. GET 要求の応答で削除操作を実行すると (さらに言えば、編集操作、作成操作、データを変更するその他のあらゆる操作を実行すると)、セキュリティに穴が空きます。 詳細については、Stephen Walther のブログ記事を参照してください。 [ASP.NET MVC ヒント #46-セキュリティ ホールを作成するため、削除のリンクを使用しない](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx)です。
+HTTP get`Delete`メソッドは、指定したビデオを削除しないを送信することができます、ムービーのビューを返します (`HttpPost`) 削除します。 GET 要求の応答で削除操作を実行すると (さらに言えば、編集操作、作成操作、データを変更するその他のあらゆる操作を実行すると)、セキュリティに穴が空きます。 詳細については、Stephen Walther のブログ記事を参照してください。 [ASP.NET MVC ヒント #46-セキュリティ ホールを作成するため、削除のリンクを使用しない](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx)です。
 
 データを削除する `HttpPost` メソッドの名前は「`DeleteConfirmed`」になり、HTTP POST メソッドに一意のシグネチャまたは名前が与えられます。 2 つのメソッド シグネチャは下の画像のようになります。
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 04/06/2018
 
 共通言語ランタイム (CLR) は、オーバーロードのメソッドに一意のパラメーター シグネチャを持つことを要求します (メソッド名は同じであるが、パラメーターの一覧が異なる)。 ただし、ここで必要が 2 つの削除のメソッドと POST の 1 つ--GET--同じパラメーター シグネチャを持つ両方ことです。 (いずれも、1 つの整数をパラメーターとして受け取る必要があります。)
 
-この出力を並べ替えるには、いくつかの点を行うことができます。 別の名前を指定してメソッドを 1 つです。 先の例では、スキャフォールディング メカニズムがこれを行いました。 ただし、これは小さな問題を引き起こします。ASP.NET が URL のセグメントをアクション メソッドに名前でマッピングします。メソッドの名前を変更すると、通常、ルーティングでそのメソッドが見つからなくなります。 この解決策はこの例で確認できます。`ActionName("Delete")` 属性を `DeleteConfirmed` メソッドに追加しています。 これが効果的に実行マッピング、ルーティングのシステムの URL を含むように*/Delete/* post 要求を検索は、`DeleteConfirmed`メソッドです。
+この出力を並べ替えるには、いくつかの点を行うことができます。 別の名前を指定してメソッドを 1 つです。 先の例では、スキャフォールディング メカニズムがこれを行いました。 ただし、これは小さな問題を引き起こします。ASP.NET が URL のセグメントをアクション メソッドに名前でマッピングします。メソッドの名前を変更すると、通常、ルーティングでそのメソッドが見つからなくなります。 この解決策はこの例で確認できます。`ActionName("Delete")` 属性を `DeleteConfirmed` メソッドに追加しています。 これが効果的に実行マッピング、ルーティングのシステムの URL を含むように */Delete/* post 要求を検索は、`DeleteConfirmed`メソッドです。
 
 同じ名前とシグネチャを持つメソッドの問題を回避するもう 1 つの一般的な方法を使用すると意図的に未使用のパラメーターを含める POST メソッドのシグネチャを変更します。 一部の開発者がパラメーターの型を追加するなど、 `FormCollection` POST メソッドに渡されると、単にパラメーターを使用しません。
 

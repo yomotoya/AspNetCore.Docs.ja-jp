@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 64093b9fcfa9047145de8f8b142f72fa1515f248
-ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
+ms.openlocfilehash: fe772203e5e3fceb7489e0a5866f60ea914b7329
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Nginx 搭載の Linux で ASP.NET Core をホストする
 
@@ -95,7 +95,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 ない場合は[ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions)は指定した、ミドルウェアに転送する既定のヘッダーが`None`です。
 
-追加の構成は、プロキシ サーバーとロード バランサーの背後にホストされているアプリの必要があります。 詳細については、次を参照してください。[にプロキシ サーバーを操作すると、ロード バランサーの ASP.NET Core の構成](xref:host-and-deploy/proxy-load-balancer)です。
+プロキシ サーバーとロード バランサーの背後でホストされているアプリでは、追加の構成が必要になる場合があります。 詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。
 
 ### <a name="install-nginx"></a>Nginx をインストールする
 
@@ -116,7 +116,7 @@ sudo service nginx start
 
 ### <a name="configure-nginx"></a>Nginx を構成する
 
-ASP.NET Core アプリケーションに要求を転送するリバース プロキシとして Nginx を構成するには、変更*/etc/nginx/sites-available/default*です。 テキスト エディターで開き、中身を次のものに変更します。
+ASP.NET Core アプリケーションに要求を転送するリバース プロキシとして Nginx を構成するには、変更 */etc/nginx/sites-available/default*です。 テキスト エディターで開き、中身を次のものに変更します。
 
 ```nginx
 server {
@@ -182,8 +182,15 @@ Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 WantedBy=multi-user.target
 ```
 
-**注:**場合、ユーザー *www データ*使用されていない、構成によって、ここで定義したユーザー必要がありますで最初に作成されファイルの適切な所有権を指定します。
+**注:** 場合、ユーザー *www データ*使用されていない、構成によって、ここで定義したユーザー必要がありますで最初に作成されファイルの適切な所有権を指定します。
 **注:** Linux には、区別するファイル システム。 設定する ASPNETCORE_ENVIRONMENT"Production"、構成ファイルの検索中に*appsettings です。Production.json*ではなく、 *appsettings.production.json*です。
+
+> [!NOTE]
+> 環境変数を読み取る構成プロバイダーのいくつかの値 (たとえば、SQL 接続文字列を) をエスケープする必要があります。 構成ファイルで使用するための適切にエスケープされた値を生成するのにには、次のコマンドを使用します。
+>
+> ```console
+> systemd-escape "<value-to-escape>"
+> ```
 
 ファイルを保存し、サービスを有効にします。
 
@@ -292,7 +299,7 @@ static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
 
 * ポートで HTTPS トラフィックをリッスンするようにサーバーを構成する`443`を信頼された証明書機関 (CA) によって発行された有効な証明書を指定します。
 
-* 次のプラクティスを採用することによって、セキュリティを強化する*/etc/nginx/nginx.conf*ファイル。 たとえば、強力な暗号を選択したり、HTTP 経由のすべてのトラフィックを HTTPS にリダイレクトしたりします。
+* 次のプラクティスを採用することによって、セキュリティを強化する */etc/nginx/nginx.conf*ファイル。 たとえば、強力な暗号を選択したり、HTTP 経由のすべてのトラフィックを HTTPS にリダイレクトしたりします。
 
 * `HTTP Strict-Transport-Security` (HSTS) ヘッダーを追加すると、クライアントが行う後続のすべての要求が HTTPS 経由のみになります。
 

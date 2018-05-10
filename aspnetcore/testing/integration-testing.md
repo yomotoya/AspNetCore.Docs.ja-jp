@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: 3c618b2bd5919f6536601631eb4d21359a6bc03a
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ac3a9e00edfd4c736ee1e7d5c0c724c3e52d0b6b
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET Core での統合テスト
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/22/2018
 
 ### <a name="the-test-host"></a>テスト ホスト
 
-ASP.NET Core には、統合テスト プロジェクトに追加することができ、アプリケーションで使用される ASP.NET Core のホストに、実際の web ホストの必要としないサービス テストを要求するテスト ホストが含まれています。 提供されたサンプルには、統合テスト プロジェクト使用するように構成されていますにはが含まれています。 [xUnit](https://xunit.github.io)とホストをテストします。 使用して、 `Microsoft.AspNetCore.TestHost` NuGet パッケージです。
+ASP.NET Core には、統合テスト プロジェクトに追加することができ、アプリケーションで使用される ASP.NET Core のホストに、実際の web ホストの必要としないサービス テストを要求するテスト ホストが含まれています。 提供されたサンプルには、統合テスト プロジェクト使用するように構成されていますにはが含まれています。 [xUnit](https://xunit.github.io)とホストをテストします。 使用して、 [Microsoft.AspNetCore.TestHost](https://www.nuget.org/packages/Microsoft.AspNetCore.TestHost/) NuGet パッケージです。
 
 1 回、`Microsoft.AspNetCore.TestHost`パッケージがプロジェクトに含まれる、作成および構成することができます、`TestServer`テストにします。 次のテストは、サイトのルートへの要求が"Hello World!"を返すことを確認する方法を示しています。 必要が正常に実行の既定値に対する Visual Studio によって作成された ASP.NET Core の空の Web テンプレート。
 
