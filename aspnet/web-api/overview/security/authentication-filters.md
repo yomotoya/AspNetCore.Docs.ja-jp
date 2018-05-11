@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/authentication-filters
-title: "ASP.NET Web API 2 の認証フィルター |Microsoft ドキュメント"
+title: ASP.NET Web API 2 の認証フィルター |Microsoft ドキュメント
 author: MikeWasson
-description: "認証フィルターは、HTTP 要求を認証するコンポーネントです。 認証フィルターをサポートして両方 web API 2 と MVC 5 が若干異なるしています."
+description: 認証フィルターは、HTTP 要求を認証するコンポーネントです。 認証フィルターをサポートして両方 web API 2 と MVC 5 が若干異なるしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/25/2014

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-title: "ASP.NET Web API 2 (C#) を開始します。"
+title: ASP.NET Web API 2 (C#) を開始します。
 author: MikeWasson
-description: "HTTP は、web ページを提供しているだけではなくです。 サービスとデータを公開する Api を構築するための強力なプラットフォームです。 HTTP は、シンプルで柔軟なので、および ubiq には."
+description: HTTP は、web ページを提供しているだけではなくです。 サービスとデータを公開する Api を構築するための強力なプラットフォームです。 HTTP は、シンプルで柔軟なので、および ubiq には.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/28/2017
@@ -43,11 +43,11 @@ ms.lasthandoff: 03/15/2018
 
 <span data-ttu-id="c4c77-121">Visual Studio を起動し、選択**新しいプロジェクト**から、**開始**ページ。</span><span class="sxs-lookup"><span data-stu-id="c4c77-121">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="c4c77-122">またはから、**ファイル**メニューの **新規**し**プロジェクト**です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-122">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="c4c77-123">**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#**ノード。</span><span class="sxs-lookup"><span data-stu-id="c4c77-123">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="c4c77-124">**Visual c#** **Web**です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-124">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="c4c77-125">プロジェクト テンプレートの一覧で選択**ASP.NET Web アプリケーション**です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-125">In the list of project templates, select **ASP.NET Web Application**.</span></span> <span data-ttu-id="c4c77-126">プロジェクト"ProductsApp"の名前し、をクリックして**OK**です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-126">Name the project "ProductsApp" and click **OK**.</span></span>
+<span data-ttu-id="c4c77-123">**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。</span><span class="sxs-lookup"><span data-stu-id="c4c77-123">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="c4c77-124">**Visual c#** **Web**です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-124">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="c4c77-125">プロジェクト テンプレートの一覧で選択**ASP.NET Web アプリケーション**です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-125">In the list of project templates, select **ASP.NET Web Application**.</span></span> <span data-ttu-id="c4c77-126">プロジェクト"ProductsApp"の名前し、をクリックして**OK**です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-126">Name the project "ProductsApp" and click **OK**.</span></span>
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 
-<span data-ttu-id="c4c77-127">**新しい ASP.NET プロジェクト**ダイアログで、選択、**空**テンプレート。</span><span class="sxs-lookup"><span data-stu-id="c4c77-127">In the **New ASP.NET Project** dialog, select the **Empty** template.</span></span> <span data-ttu-id="c4c77-128">&quot;フォルダーを追加し、参照用のコア&quot;、確認**Web API**です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-128">Under &quot;Add folders and core references for&quot;, check **Web API**.</span></span> <span data-ttu-id="c4c77-129">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="c4c77-129">Click **OK**.</span></span>
+<span data-ttu-id="c4c77-127">**新しい ASP.NET プロジェクト**ダイアログで、選択、**空**テンプレート。</span><span class="sxs-lookup"><span data-stu-id="c4c77-127">In the **New ASP.NET Project** dialog, select the **Empty** template.</span></span> <span data-ttu-id="c4c77-128">&quot;フォルダーを追加し、参照用のコア&quot;、確認**Web API**です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-128">Under &quot;Add folders and core references for&quot;, check **Web API**.</span></span> <span data-ttu-id="c4c77-129">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="c4c77-129">Click **OK**.</span></span>
 
 ![](tutorial-your-first-web-api/_static/image3.png)
 
@@ -80,11 +80,11 @@ ms.lasthandoff: 03/15/2018
 
 ![](tutorial-your-first-web-api/_static/image5.png)
 
-<span data-ttu-id="c4c77-153">**追加 Scaffold**ダイアログで、 **Web API コント ローラー - 空**です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-153">In the **Add Scaffold** dialog, select **Web API Controller - Empty**.</span></span> <span data-ttu-id="c4c77-154">**[追加]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="c4c77-154">Click **Add**.</span></span>
+<span data-ttu-id="c4c77-153">**追加 Scaffold**ダイアログで、 **Web API コント ローラー - 空**です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-153">In the **Add Scaffold** dialog, select **Web API Controller - Empty**.</span></span> <span data-ttu-id="c4c77-154">**[追加]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="c4c77-154">Click **Add**.</span></span>
 
 ![](tutorial-your-first-web-api/_static/image6.png)
 
-<span data-ttu-id="c4c77-155">**コント ローラーの追加**ダイアログ ボックスで、名前、コント ローラー &quot;ProductsController&quot;です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-155">In the **Add Controller** dialog, name the controller &quot;ProductsController&quot;.</span></span> <span data-ttu-id="c4c77-156">**[追加]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="c4c77-156">Click **Add**.</span></span>
+<span data-ttu-id="c4c77-155">**コント ローラーの追加**ダイアログ ボックスで、名前、コント ローラー &quot;ProductsController&quot;です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-155">In the **Add Controller** dialog, name the controller &quot;ProductsController&quot;.</span></span> <span data-ttu-id="c4c77-156">**[追加]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="c4c77-156">Click **Add**.</span></span>
 
 ![](tutorial-your-first-web-api/_static/image7.png)
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 03/15/2018
 
 <span data-ttu-id="c4c77-164">コント ローラーには、製品を返す 2 つのメソッドが定義されています。</span><span class="sxs-lookup"><span data-stu-id="c4c77-164">The controller defines two methods that return products:</span></span>
 
-- <span data-ttu-id="c4c77-165">`GetAllProducts`メソッドとして製品の全体の一覧を返します、 **IEnumerable&lt;製品&gt;**型です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-165">The `GetAllProducts` method returns the entire list of products as an **IEnumerable&lt;Product&gt;** type.</span></span>
+- <span data-ttu-id="c4c77-165">`GetAllProducts`メソッドとして製品の全体の一覧を返します、 **IEnumerable&lt;製品&gt;** 型です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-165">The `GetAllProducts` method returns the entire list of products as an **IEnumerable&lt;Product&gt;** type.</span></span>
 - <span data-ttu-id="c4c77-166">`GetProduct`メソッドは、ID によって 1 つの製品を検索</span><span class="sxs-lookup"><span data-stu-id="c4c77-166">The `GetProduct` method looks up a single product by its ID.</span></span>
 
 <span data-ttu-id="c4c77-167">これで完了です。</span><span class="sxs-lookup"><span data-stu-id="c4c77-167">That's it!</span></span> <span data-ttu-id="c4c77-168">作業用の web API があります。</span><span class="sxs-lookup"><span data-stu-id="c4c77-168">You have a working web API.</span></span> <span data-ttu-id="c4c77-169">コント ローラーの各メソッドは、1 つまたは複数の Uri に対応しています。</span><span class="sxs-lookup"><span data-stu-id="c4c77-169">Each method on the controller corresponds to one or more URIs:</span></span>

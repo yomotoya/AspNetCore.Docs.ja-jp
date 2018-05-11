@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/index
-title: "ASP.NET MVC 4 ハンズオン ラボ |Microsoft ドキュメント"
+title: ASP.NET MVC 4 ハンズオン ラボ |Microsoft ドキュメント
 author: rick-anderson
-description: "これらの手でラボでの ASP.NET MVC で開発する方法します。"
+description: これらの手でラボでの ASP.NET MVC で開発する方法します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013

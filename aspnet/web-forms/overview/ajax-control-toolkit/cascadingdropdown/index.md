@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/index
-title: "CascadingDropdown |Microsoft ドキュメント"
+title: CascadingDropdown |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルで使用する方法、ユーザーが、選択を行うときに、CascadingDropDown 作成するコントロールを関連するドロップダウンがその更新プログラムを一覧表示します。"
+description: このチュートリアルで使用する方法、ユーザーが、選択を行うときに、CascadingDropDown 作成するコントロールを関連するドロップダウンがその更新プログラムを一覧表示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011

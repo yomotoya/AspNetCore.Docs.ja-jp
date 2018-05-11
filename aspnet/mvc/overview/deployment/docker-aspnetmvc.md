@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/deployment/docker
-title: "Windows コンテナーへの ASP.NET MVC アプリケーションの移行"
-description: "既存の ASP.NET MVC アプリケーションを取得し、Windows Docker コンテナーで実行する方法について説明します。"
+title: Windows コンテナーへの ASP.NET MVC アプリケーションの移行
+description: 既存の ASP.NET MVC アプリケーションを取得し、Windows Docker コンテナーで実行する方法について説明します。
 keywords: Windows Containers,Docker,ASP.NET MVC
 author: BillWagner
 ms.author: wiwagn
