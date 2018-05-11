@@ -11,8 +11,8 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/hubs
-ms.openlocfilehash: 4810b3a1978f05eb0608320750f31b8bb95d71fd
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: cfe9f7a7321094b8f901687d91745df2247e1da6
+ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/10/2018
@@ -35,7 +35,7 @@ SignalR のミドルウェアが一部のサービスでは、呼び出すこと
 
 SignalR の機能を ASP.NET Core アプリケーションを追加する場合は、SignalR のルートをセットアップを呼び出して`app.UseSignalR`で、`Startup.Configure`メソッドです。
 
-[!code-csharp[Configure routes to hubs](hubs/sample/startup.cs?range=56-59)]
+[!code-csharp[Configure routes to hubs](hubs/sample/startup.cs?range=57-60)]
 
 ## <a name="create-and-use-hubs"></a>作成し、ハブの使用
 
@@ -91,4 +91,6 @@ SignalR ハブ API は、提供、`OnConnectedAsync`と`OnDisconnectedAsync`仮�
 
 ## <a name="related-resources"></a>関連資料
 
-[ASP.NET Core SignalR の概要](xref:signalr/introduction)
+* [ASP.NET Core SignalR の概要](xref:signalr/introduction)
+* [JavaScript クライアント](xref:signalr/javascript-client)
+* [Azure に発行する](xref:signalr/publish-to-azure-web-app)

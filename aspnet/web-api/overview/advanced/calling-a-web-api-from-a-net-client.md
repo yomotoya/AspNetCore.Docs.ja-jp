@@ -35,7 +35,7 @@ ms.lasthandoff: 04/26/2018
 | 製品を削除します。 | Del | /api/products/*id* |
 
 ASP.NET Web API を使用して、この API を実装する方法については [CRUD 操作をサポートする Web API の作成](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-) を参照してください。
+)を参照してください。
 
 簡潔に示す目的のため、このチュートリアルではクライアント アプリケーションとして Windows コンソール アプリケーションを使用します。 **HttpClient** は Windows Phone や Windows ストア アプリでも同様にサポートされています。 より詳しい情報については [複数のプラットフォームを使用してポータブル ライブラリの Web API クライアント コードの記述。](https://blogs.msdn.com/b/webdev/archive/2013/07/19/writing-web-api-client-code-for-multiple-platforms-using-portable-libraries.aspx) を参照してください。
 
@@ -44,11 +44,12 @@ ASP.NET Web API を使用して、この API を実装する方法について�
 
 Visual Studio で、**HttpClientSample** という名前の新しい Windows コンソール アプリを作成し、次のコードに貼り付けます。
 
+
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_all)]
 
 上記のコードは、完全なクライアント アプリケーションです。
 
-`RunAsync` が実行され、完了するまでブロックされます。**HttpClient** メソッドはネットワーク I/O として振る舞うため、多くの場合、非同期です。すべての非同期タスクは `RunAsync` 内で完了します。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
+`RunAsync` が実行され、完了するまでブロックされます。 **HttpClient**メソッドはネットワーク I/O として振る舞うため、多くの場合、非同期です。 すべての非同期タスクは `RunAsync` 内で完了します。 通常、アプリは、メイン スレッドをブロックしませんが、このアプリはユーザーとの対話を許可しません。
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_run)]
 

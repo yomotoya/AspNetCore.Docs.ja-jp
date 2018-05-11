@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/index
-ms.openlocfilehash: f0368258d078673ab5eab21c5ce07f2437cb8ea4
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 6afc02c1a966b62d0fcead0349c5f0803309dcbb
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>ASP.NET Core で Web API を構築する
 
@@ -40,7 +40,7 @@ Web API として機能することを目的としたコント ローラー内�
 ::: moniker range=">= aspnetcore-2.1"
 ## <a name="annotate-class-with-apicontrollerattribute"></a>ApiControllerAttribute でクラスに注釈を付ける
 
-ASP.NET Core 2.1 では、Web API コントローラー クラスを表す `[ApiController]` 属性が導入されました。 例:
+ASP.NET Core 2.1 では、Web API コントローラー クラスを表す [[ApiController]](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) 属性が導入されました。 例:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=2)]
 

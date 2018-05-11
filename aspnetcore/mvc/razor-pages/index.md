@@ -5,16 +5,16 @@ description: ASP.NET Core の Razor ページを使用して、ページのコ�
 manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/12/2017
+ms.date: 5/12/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: f9484d4806a7430177878b462209ba6608cfdd7d
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: c848c5d66a9e8141d9d737e8ce9c994587b04916
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 
@@ -208,6 +208,13 @@ HTML で削除ボタンがレンダリングされる場合、その `formaction
 * ルート インデックス ページ (`/Index`) にリダイレクトされるように、`RedirectToPage` を呼び出します。
 
 ::: moniker range=">= aspnetcore-2.1"
+
+## <a name="mark-page-properties-required"></a>マーク ページのプロパティが必要
+
+`PageModel` 上でのプロパティを [必要](/dotnet/api/system.componentmodel.dataannotations.requiredattribute)属性で装飾できます。
+
+[!code-cs[](index/sample/Create.cshtml.cs?highlight=3,15-16)]
+
 ## <a name="manage-head-requests-with-the-onget-handler"></a>OnGet ハンドラーで HEAD 要求を管理する
 
 通常、HEAD ハンドラーは HEAD 要求に対して作成され、呼び出されます。
@@ -226,9 +233,10 @@ services.AddMvc()
     .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 ```
 
-`SetCompatibilityVersion` は実質的に Razor ページのオプション `AllowMappingHeadRequestsToGetHandler` を `true` に設定します。 その動作は、ASP.NET Core 3.0 プレビュー 1 以降がリリースされるまでオプトインされます。 ASP.NET Core の各メジャー バージョンでは、以前のバージョンのすべての修正プログラム リリースの動作が採用されます。
+`SetCompatibilityVersion` は実質的に Razor ページのオプション `AllowMappingHeadRequestsToGetHandler` を `true` に設定します。
 
-修正プログラムのリリース 2.1 から 2.x のグローバル オプトイン動作は、HEAD 要求を GET ハンドラーにマップするアプリ構成で回避できます。 `Startup.Configure` の `SetCompatibilityVersion` を呼び出さずに `AllowMappingHeadRequestsToGetHandler` Razor ページ オプションを `true` に設定します。
+`SetCompatibilityVersion` とのすべての 2.1 動作にオプトインするのではなく、明示的に特定の動作にオプトインすることもできます。 次のコードは、マッピング HEAD 要求から GET ハンドラーへオプトインします。
+
 
 ```csharp
 services.AddMvc()
@@ -267,7 +275,7 @@ services.AddMvc()
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/_ViewStart.cshtml)]
 
-**注:** レイアウトは、*Pages* フォルダー内にあります。 ページは現在のページと同じフォルダーから開始して、階層的に他のビュー (レイアウト、テンプレート、パーシャル) を検索します。 *Pages* フォルダー内のレイアウトは、*Pages* フォルダー配下の任意の Razor ページから使用できます。
+レイアウトは、*Pages* フォルダーにあります。 ページは現在のページと同じフォルダーから開始して、階層的に他のビュー (レイアウト、テンプレート、パーシャル) を検索します。 *Pages* フォルダー内のレイアウトは、*Pages* フォルダー配下の任意の Razor ページから使用できます。
 
 レイアウト ファイルを *Views/Shared* フォルダー内に配置**しない**ことをお勧めします。 *Views/Shared* は MVC ビュー パターンです。 Razor ページは、パス規則ではなく、フォルダー階層に依存することを意図しています。
 
@@ -299,7 +307,7 @@ Razor ページからのビュー検索には、*Pages* フォルダーが含ま
 
 *Pages/Customers/Edit.cshtml* Razor ページの生成された名前空間は、分離コード ファイルと同じです。 `@namespace` ディレクティブは、分離コード ファイルの `@using` ディレクティブを追加しなくても、プロジェクトに追加された C# クラスと、ページ生成したコードが*機能する*ように設計されました。
 
-**注:** `@namespace`は従来の Razor ビューでも機能します。
+`@namespace`  *は従来の Razor ビューでも機能します。*
 
 元の *Pages/Create.cshtml* ビュー ファイル:
 
@@ -350,6 +358,42 @@ Razor ページからのビュー検索には、*Pages* フォルダーが含ま
 `RedirectToPage("Index")`、`RedirectToPage("./Index")`、および `RedirectToPage("../Index")` は<em>相対名</em>です。 `RedirectToPage` パラメーターは現在のページのパスと<em>組み合わされて</em>、ターゲット ページの名前を計算します。  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
 
 相対名のリンクは、複雑な構造を持つサイトを構築する際に役立ちます。 相対名を使用してフォルダー内のページ間をリンクする場合、そのフォルダー名を変更することができます。 すべてのリンクは引き続き機能します (リンクにはフォルダー名が含まれていないため)。
+
+::: moniker range=">= aspnetcore-2.1"
+## <a name="viewdata-attribute"></a>ViewData 属性
+
+データは [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute) とのページに渡すことができます。 コントローラーまたは `[ViewData]` で装飾された Razor ページのモデルのプロパティは、値を [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) に格納し、読み込むことができます。
+
+次の例では、`AboutModel` には `[ViewData]` で装飾された `Title` プロパティが含まれています。 `Title` プロパティは、[About] ページのタイトルに設定されます。
+
+```csharp
+public class AboutModel : PageModel
+{
+    [ViewData]
+    public string Title { get; } = "About";
+
+    public void OnGet()
+    {
+    }
+}
+```
+
+[About] ページでは、モデル プロパティとして `Title` プロパティにアクセスします。
+
+```cshtml
+<h1>@Model.Title</h1>
+```
+
+レイアウトでは、タイトルは ViewData ディクショナリから読み込まれます。
+
+```cshtml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"] - WebApplication</title>
+    ...
+```
+::: moniker-end
 
 ## <a name="tempdata"></a>TempData
 

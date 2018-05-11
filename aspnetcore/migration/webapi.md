@@ -4,16 +4,16 @@ author: ardalis
 description: ASP.NET Web API からの Web API の実装を ASP.NET のコアの MVC に移行する方法について説明します。
 manager: wpickett
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 05/10/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 059e1bc54c57e502ad01fd50d9899dfd0671037f
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 8d842877e49e317323d453e71ebb3302245f388d
+ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>ASP.NET Web API から ASP.NET Core への移行します。
 
@@ -36,7 +36,7 @@ Web Api は、さまざまなブラウザーやモバイル デバイスを含�
 [!code-csharp[](../migration/webapi/sample/ProductsApp/App_Start/WebApiConfig.cs?highlight=15,16,17,18,19,20)]
 
 
-このクラスを構成[属性がルーティング](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)は実際には、プロジェクトで使用されていますが、します。 また、ASP.NET Web API によって使用される、ルーティング テーブルを構成します。 ASP.NET Web API が形式と一致する Url を期待するこの例では、 */api/{controller}/{id}* で *{id}* される省略可能です。
+このクラスを構成[属性がルーティング](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)は実際には、プロジェクトで使用されていますが、します。 また、ASP.NET Web API で使用される、ルーティング テーブルを構成します。 ASP.NET Web API が形式と一致する Url を期待するこの例では、 */api/{controller}/{id}* で *{id}* される省略可能です。
 
 *ProductsApp*プロジェクトに含まれる 1 つだけ単純なコント ローラーから継承される`ApiController`と 2 つのメソッドを公開します。
 
@@ -116,6 +116,37 @@ ASP.NET Core を使用しない*Global.asax*、 *web.config*、または*App_Sta
 [!code-csharp[](../migration/webapi/sample/ProductsCore/Controllers/ProductsController.cs?highlight=1,2,6,8,9,27)]
 
 移行されたプロジェクトを実行しを参照することができます */api 製品*; し、3 つの製品の完全な一覧を表示する必要があります。 参照 */api/products/1*と最初の製品を表示する必要があります。
+
+## <a name="microsoftaspnetcoremvcwebapicompatshim"></a>Microsoft.AspNetCore.Mvc.WebApiCompatShim
+
+移行の ASP.NET Web API プロジェクト ASP.NET Core をときに便利なツールは、 [Microsoft.AspNetCore.Mvc.WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim)ライブラリです。 互換性 shim は、使用する別の Web API 2 規則の数を許可する ASP.NET Core を拡張します。 このドキュメントで以前に移植したサンプルは、基本互換性 shim が必要なことです。 大規模なプロジェクト互換性 shim を使用して役に立ちます一時的にあるギャップを埋める API ASP.NET Core と ASP.NET Web API 2 の間の。
+
+Web API の互換性 shim は、ASP.NET Core に大規模な Web API プロジェクトの移行を容易にするために一時的な措置として使用するものです。 時間の経過と共にパターンを使用する ASP.NET Core 互換性 shim に依存せずにプロジェクトを更新する必要があります。 
+
+Microsoft.AspNetCore.Mvc.WebApiCompatShim に含まれる互換性機能は次のとおりです。
+
+* 追加、`ApiController`コント ローラーの基本データ型を更新する必要があるように入力します。
+* Web API スタイル モデル バインディングを有効にします。 既定では、MVC 5 と同様に ASP.NET Core MVC モデル バインディング機能します。 互換性 shim の変更は、ある Web API 2 モデル バインディング規則に類似したバインドをモデルします。 たとえば、複合型は、要求本文から自動的にバインドされます。
+* モデル バインディングを拡張できるように、型のパラメーターを受け取り、コント ローラーのアクション`HttpRequestMessage`です。
+* 型の結果を返すための操作の結果メッセージ フォーマッタを追加`HttpResponseMessage`です。
+* 応答を提供する Web API 2 の操作を使用した可能性がある追加の応答方法を追加します。
+    * HttpResponseMessage ジェネレーター。
+        * `CreateResponse<T>`
+        * `CreateErrorResponse`
+    * 結果のアクション メソッド。
+        * `BadResuestErrorMessageResult`
+        * `ExceptionResult`
+        * `InternalServerErrorResult`
+        * `InvalidModelStateResult`
+        * `NegotiatedContentResult`
+        * `ResponseMessageResult`
+* インスタンスを追加`IContentNegotiator`アプリの DI コンテナーからの型のネゴシエーションに関連するコンテンツと[Microsoft.AspNet.WebApi.Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/)使用可能な。 ような種類が含まれます`DefaultContentNegotiator`、 `MediaTypeFormatter`, などです。
+
+互換性 shim を使用する必要があります。
+
+* 参照、 [Microsoft.AspNetCore.Mvc.WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) NuGet パッケージです。
+* 呼び出すことによって、アプリの DI コンテナーとの互換性 shim のサービスを登録`services.AddWebApiConventions()`アプリケーションの`Startup.ConfigureServices`メソッドです。
+* 使用して Web API に固有のルートを定義`MapWebApiRoute`上、`IRouteBuilder`アプリケーションの`IApplicationBuilder.UseMvc`呼び出します。
 
 ## <a name="summary"></a>まとめ
 

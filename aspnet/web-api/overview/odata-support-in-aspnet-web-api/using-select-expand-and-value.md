@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value
-title: "ASP.NET Web API 2 OData で $select, $expand, および $value を使用する |Microsoft ドキュメント"
+title: ASP.NET Web API 2 OData で $select, $expand, および $value を使用する |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/11/2013
@@ -18,15 +18,15 @@ ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
 ---
-<a name="using-select-expand-and-value-in-aspnet-web-api-2-odata"></a>$Select を使用すると、$を展開し、ASP.NET Web API 2 OData $value
+<a name="using-select-expand-and-value-in-aspnet-web-api-2-odata"></a>ASP.NET Web API 2 OData で $select, $expand, および $value を使用する
 ====================
-作成者 [Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
-Web API 2 では、OData における $select, $expand, および $value オプションのサポートを追加しています。これらのオプションは、サーバーから返された形式を制御することをクライアントに許可します。
+Web API 2 では、OData における $select, $expand, および $value オプションのサポートを追加しています。 これらのオプションは、サーバーから返された形式を制御することをクライアントに許可します。
 
 - **$expand** は、応答にインラインで含まれる関連するエンティティを発生させます。
-- **$select** は、応答に含めるプロパティのサブセットを選択します。
-- **$value** は、プロパティの未加工の値を取得します。
+- **$select**は、応答に含めるプロパティのサブセットを選択します。
+- **$value**は、プロパティの未加工の値を取得します。
 
 ## <a name="example-schema"></a>例のスキーマ
 
@@ -50,11 +50,11 @@ Visual Studio 2013 では、Web API OData のスキャフォールディング�
 
 [!code-csharp[Main](using-select-expand-and-value/samples/sample2.cs)]
 
-単一のエンティティを返す、 **SingleResult&lt;T&gt;**ここで T は、 **IQueryable** 0 または 1 つのエンティティを格納しています。
+単一のエンティティを返す、 **SingleResult&lt;T&gt;** ここで T は、 **IQueryable** 0 または 1 つのエンティティを格納しています。
 
 [!code-csharp[Main](using-select-expand-and-value/samples/sample3.cs)]
 
-装飾することも、`Get`メソッド、 **[Queryable]**属性、前のコード スニペットで示すようにします。 代わりに、呼び出す**EnableQuerySupport**上、 **HttpConfiguration**スタートアップ時のオブジェクト。 (詳細については、次を参照してください[OData クエリ オプションを有効にすると](supporting-odata-query-options.md#enable)。)。
+装飾することも、`Get`メソッド、 **[Queryable]** 属性、前のコード スニペットで示すようにします。 代わりに、呼び出す**EnableQuerySupport**上、 **HttpConfiguration**スタートアップ時のオブジェクト。 (詳細については、次を参照してください[OData クエリ オプションを有効にすると](supporting-odata-query-options.md#enable)。)。
 
 ## <a name="using-expand"></a>$ を使用して展開
 
@@ -88,7 +88,7 @@ $ は、展開するナビゲーション プロパティのオプションは�
 
 [!code-console[Main](using-select-expand-and-value/samples/sample10.cmd)]
 
-既定では、Web API は、2 に展開の最大の深さを制限します。 妨げているクライアントと同様に複雑な要求を送信する`$expand=Orders/OrderDetails/Product/Supplier/Region`、されない可能性があるクエリを実行し、大規模な応答を作成する効率的です。 既定をオーバーライドするには設定、 **MaxExpansionDepth**プロパティを**[Queryable]**属性。
+既定では、Web API は、2 に展開の最大の深さを制限します。 妨げているクライアントと同様に複雑な要求を送信する`$expand=Orders/OrderDetails/Product/Supplier/Region`、されない可能性があるクエリを実行し、大規模な応答を作成する効率的です。 既定をオーバーライドするには設定、 **MaxExpansionDepth**プロパティを **[Queryable]** 属性。
 
 [!code-csharp[Main](using-select-expand-and-value/samples/sample11.cs)]
 
