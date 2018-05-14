@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
-title: "ハンズ オン ラボ: 1 つの ASP.NET: ASP.NET Web フォーム、MVC、Web API の統合 |Microsoft ドキュメント"
+title: 'ハンズ オン ラボ: 1 つの ASP.NET: ASP.NET Web フォーム、MVC、Web API の統合 |Microsoft ドキュメント'
 author: rick-anderson
-description: "ASP.NET は、Web サイト、アプリケーション、MVC、Web API、およびその他のユーザーなどの特殊なテクノロジを使用してサービスを構築するためのフレームワークです。 で ASP.NET h を拡張しています."
+description: ASP.NET は、Web サイト、アプリケーション、MVC、Web API、およびその他のユーザーなどの特殊なテクノロジを使用してサービスを構築するためのフレームワークです。 で ASP.NET h を拡張しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
 ms.topic: article
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
@@ -102,12 +102,12 @@ ms.lasthandoff: 11/10/2017
 
 このタスクの開始は Visual Studio で新しい Web サイトを作成するに基づいて、 **One ASP.NET**プロジェクトの種類。 **1 つの ASP.NET**にすべての ASP.NET テクノロジをまとめを混在させるし、必要に応じて、それらが一致するオプションを選択できます。 アプリケーション内でサイド バイ サイドで、ライブ Web フォーム、MVC、Web API のさまざまなコンポーネントを識別します。
 
-1. 開いている**Visual Studio Express 2013 for Web**選択**ファイル |新しいプロジェクト.**を新しいソリューションを開始します。
+1. 開いている**Visual Studio Express 2013 for Web**選択**ファイル |新しいプロジェクト.** を新しいソリューションを開始します。
 
     ![新規プロジェクトの作成](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image1.png)
 
     *新しいプロジェクトを作成します。*
-2. **新しいプロジェクト**ダイアログ ボックスで、 **ASP.NET Web アプリケーション**下にある、 **Visual c# |Web** ] タブの [し、確認**.NET Framework 4.5**が選択されています。 プロジェクトに名前を*MyHybridSite*、選択、**場所** をクリック**OK**です。
+2. **新しいプロジェクト**ダイアログ ボックスで、 **ASP.NET Web アプリケーション**下にある、 **Visual c# |Web** ] タブの [し、確認 **.NET Framework 4.5**が選択されています。 プロジェクトに名前を*MyHybridSite*、選択、**場所** をクリック**OK**です。
 
     ![新しい ASP.NET Web アプリケーション プロジェクト](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image2.png)
 
@@ -123,8 +123,8 @@ ms.lasthandoff: 11/10/2017
 
     *生成されたソリューションを調べる*
 
-    1. **アカウント:**このフォルダーには、登録にログインし、アプリケーションのユーザー アカウントを管理するには、Web フォーム ページが含まれています。 このフォルダーが追加されたときに、**個々 のユーザー アカウント**認証オプションは、Web フォーム プロジェクト テンプレートの構成中に選択します。
-    2. **モデル:**このフォルダーは、アプリケーション データを表すクラスに格納されます。
+    1. **アカウント:** このフォルダーには、登録にログインし、アプリケーションのユーザー アカウントを管理するには、Web フォーム ページが含まれています。 このフォルダーが追加されたときに、**個々 のユーザー アカウント**認証オプションは、Web フォーム プロジェクト テンプレートの構成中に選択します。
+    2. **モデル:** このフォルダーは、アプリケーション データを表すクラスに格納されます。
     3. **コント ローラー**と**ビュー**: これらのフォルダーに必要な**ASP.NET MVC**と**ASP.NET Web API**コンポーネントです。 次の演習で MVC および Web API のテクノロジについて学びます。
     4. **Default.aspx**、 **Contact.aspx**と**About.aspx**ファイルに固有のページを構築する開始点として使用できる定義済みの Web フォーム ページは、アプリケーション。 これらのファイルのプログラミング ロジックと呼ばれる別のファイルに含まれて、&quot;分離コード&quot;を持つファイルを&quot;..aspx.vb ファイル&quot;または&quot;. aspx.cs&quot;拡張機能 (によって、使用される言語)。 分離コード ロジックは、サーバー上で実行し、動的に、ページの HTML 出力を生成します。
     5. **Site.Master**と**Site.Mobile.Master**ページ アプリケーションのルック アンド フィールとすべてのページの標準の動作を定義します。
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/10/2017
     *フレンドリな Url*
 
     > [!NOTE]
-    > URL が変更されたことがわかります**にお問い合わせください/**です。 始まる**ASP.NET 4**URL ルーティング機能は、Web フォームに追加された、Url などのため、記述することができます、  *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)*  ではなく*[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*です。 詳細についてを参照してください[URL ルーティング](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md)です。
+    > URL が変更されたことがわかります**にお問い合わせください/** です。 始まる**ASP.NET 4**URL ルーティング機能は、Web フォームに追加された、Url などのため、記述することができます、 *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)* ではなく*[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)* です。 詳細についてを参照してください[URL ルーティング](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md)です。
 3. アプリケーションに統合認証の流れを調査します。 これを行うには、をクリックして**登録**ページの右上隅にします。
 
     ![新しいユーザーを登録します。](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)
@@ -232,7 +232,7 @@ Entity Framework Code First のモデリング ワークフロー使用する EF
     ![ビューおよび Entity Framework を使用した MVC 5 コント ローラーを選択](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image14.png)
 
     *ビューおよび Entity Framework を使用した MVC 5 コント ローラーを選択*
-3. 設定*MvcPersonController*として、**コント ローラー名**、select、**非同期コント ローラー アクションを使用して**をクリックして**人 (MyHybridSite.Models)**として、**モデル クラス**です。
+3. 設定*MvcPersonController*として、**コント ローラー名**、select、**非同期コント ローラー アクションを使用して**をクリックして**人 (MyHybridSite.Models)** として、**モデル クラス**です。
 
     ![スキャフォールディングがある MVC コント ローラーを追加します。](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image15.png)
 
@@ -265,7 +265,7 @@ Entity Framework Code First のモデリング ワークフロー使用する EF
 このタスクではソリューションを実行することを確認するには、もう一度ビュー**人**が想定どおりに機能します。 新しいデータベースに正常に保存することを確認する担当者を追加します。
 
 1. キーを押して**f5 キーを押して**ソリューションを実行します。
-2. 移動**/MvcPerson**です。 ユーザーの一覧を表示するスキャフォールディング ビューが表示されます。
+2. 移動 **/MvcPerson**です。 ユーザーの一覧を表示するスキャフォールディング ビューが表示されます。
 3. をクリックして**新規作成**を新しいユーザーを追加します。
 
     ![スキャフォールディングの MVC ビューへの移動](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image19.png)
@@ -314,7 +314,7 @@ Web API フレームワークでは、ASP.NET スタックの一部であるし�
     ![アクションおよび Entity Framework と Web API 2 コント ローラーを選択すると](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image24.png "を選択すると Web API 2 コント ローラーおよびアクションと Entity Framework")
 
     *アクションおよび Entity Framework と Web API 2 コント ローラーを選択します。*
-4. 設定*ApiPersonController*として、**コント ローラー名**、select、**非同期コント ローラー アクションを使用して**をクリックして**人 (MyHybridSite.Models)**と**PersonContext (MyHybridSite.Models)**として、**モデル**と**データ コンテキスト**それぞれクラスです。 次に、 **[追加]**をクリックします。
+4. 設定*ApiPersonController*として、**コント ローラー名**、select、**非同期コント ローラー アクションを使用して**をクリックして**人 (MyHybridSite.Models)** と**PersonContext (MyHybridSite.Models)** として、**モデル**と**データ コンテキスト**それぞれクラスです。 次に、 **[追加]** をクリックします。
 
     ![スキャフォールディングが Web API コント ローラーを追加する](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image25.png "スキャフォールディングで Web API コント ローラーの追加")
 
@@ -401,7 +401,7 @@ Web API を作成するときは、他の開発者が API を呼び出す方法�
     *[ビルド] タブで、出力セクション*
 6. キーを押して**CTRL** + **S**変更を保存します。
 7. 開く、 **ApiPersonController.cs**ファイルから、**コント ローラー**フォルダーです。
-8. 間に新しい行を入力、 *GetPeople*メソッドのシグネチャと*/api/ApiPerson を取得/*コメントの追加、および 3 つのスラッシュを入力します。
+8. 間に新しい行を入力、 *GetPeople*メソッドのシグネチャと */api/ApiPerson を取得/* コメントの追加、および 3 つのスラッシュを入力します。
 
     > [!NOTE]
     > Visual Studio は、メソッドのドキュメントを定義する XML 要素を自動的に挿入します。
@@ -409,7 +409,7 @@ Web API を作成するときは、他の開発者が API を呼び出す方法�
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample9.cs)]
 10. キーを押して**f5 キーを押して**ソリューションを実行します。
-11. 追加**/help**ヘルプ ページに移動する、アドレス バーに URL にします。
+11. 追加 **/help**ヘルプ ページに移動する、アドレス バーに URL にします。
 
     ![ASP.NET Web API のヘルプ ページ](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image34.png "ヘルプ ページを ASP.NET Web API")
 
