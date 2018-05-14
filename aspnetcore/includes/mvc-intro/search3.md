@@ -13,52 +13,52 @@
 
 --> 
 
-<span data-ttu-id="79b91-101">ここで検索を送信すると、URL に検索クエリ文字列が含まれます。</span><span class="sxs-lookup"><span data-stu-id="79b91-101">Now when you submit a search, the URL contains the search query string.</span></span> <span data-ttu-id="79b91-102">`HttpPost Index` メソッドがある場合でも、検索時には `HttpGet Index` アクション メソッドにも移動します。</span><span class="sxs-lookup"><span data-stu-id="79b91-102">Searching will also go to the `HttpGet Index` action method, even if you have a `HttpPost Index` method.</span></span>
+ここで検索を送信すると、URL に検索クエリ文字列が含まれます。 `HttpPost Index` メソッドがある場合でも、検索時には `HttpGet Index` アクション メソッドにも移動します。
 
 ![URL に searchString=ghost が表示されたブラウザー ウィンドウ。返された Ghostbusters および Ghostbusters 2 というムービーには ghost という単語が含まれています](../../tutorials/first-mvc-app/search/_static/search_get.png)
 
-<span data-ttu-id="79b91-104">次のマークアップは `form` タグの変更を示しています。</span><span class="sxs-lookup"><span data-stu-id="79b91-104">The following markup shows the change to the `form` tag:</span></span>
+次のマークアップは `form` タグの変更を示しています。
 
 ```html
 <form asp-controller="Movies" asp-action="Index" method="get">
    ```
 
-## <a name="adding-search-by-genre"></a><span data-ttu-id="79b91-105">ジャンルによる検索の追加</span><span class="sxs-lookup"><span data-stu-id="79b91-105">Adding Search by genre</span></span>
+## <a name="adding-search-by-genre"></a>ジャンルによる検索の追加
 
-<span data-ttu-id="79b91-106">次の `MovieGenreViewModel` クラスを *Models* フォルダーに追加します。</span><span class="sxs-lookup"><span data-stu-id="79b91-106">Add the following `MovieGenreViewModel` class to the *Models* folder:</span></span>
+次の `MovieGenreViewModel` クラスを *Models* フォルダーに追加します。
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieGenreViewModel.cs)]
 
-<span data-ttu-id="79b91-107">ムービージャンルのビュー モデルには以下が含まれます。</span><span class="sxs-lookup"><span data-stu-id="79b91-107">The movie-genre view model will contain:</span></span>
+ムービージャンルのビュー モデルには以下が含まれます。
 
-   * <span data-ttu-id="79b91-108">ムービーのリスト。</span><span class="sxs-lookup"><span data-stu-id="79b91-108">A list of movies.</span></span>
-   * <span data-ttu-id="79b91-109">ジャンルのリストを含む `SelectList`。</span><span class="sxs-lookup"><span data-stu-id="79b91-109">A `SelectList` containing the list of genres.</span></span> <span data-ttu-id="79b91-110">これにより、ユーザーはリストからジャンルを選択できます。</span><span class="sxs-lookup"><span data-stu-id="79b91-110">This will allow the user to select a genre from the list.</span></span>
-   * <span data-ttu-id="79b91-111">選択されたジャンルを含む、`movieGenre`。</span><span class="sxs-lookup"><span data-stu-id="79b91-111">`movieGenre`, which contains the selected genre.</span></span>
+   * ムービーのリスト。
+   * ジャンルのリストを含む `SelectList`。 これにより、ユーザーはリストからジャンルを選択できます。
+   * 選択されたジャンルを含む、`movieGenre`。
 
-<span data-ttu-id="79b91-112">`MoviesController.cs` の `Index` メソッドを次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="79b91-112">Replace the `Index` method in `MoviesController.cs` with the following code:</span></span>
+`MoviesController.cs` の `Index` メソッドを次のコードに置き換えます。
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchGenre)]
 
-<span data-ttu-id="79b91-113">次のコードは、データベースからすべてのジャンルを取得する `LINQ` クエリです。</span><span class="sxs-lookup"><span data-stu-id="79b91-113">The following code is a `LINQ` query that retrieves all the genres from the database.</span></span>
+次のコードは、データベースからすべてのジャンルを取得する `LINQ` クエリです。
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_LINQ)]
 
-<span data-ttu-id="79b91-114">ジャンルの `SelectList` は、個々のジャンルを投影して作成します (選択リストでジャンルが重複しないようにします)。</span><span class="sxs-lookup"><span data-stu-id="79b91-114">The `SelectList` of genres is created by projecting the distinct genres (we don't want our select list to have duplicate genres).</span></span>
+ジャンルの `SelectList` は、個々のジャンルを投影して作成します (選択リストでジャンルが重複しないようにします)。
 
 ```csharp
 movieGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync())
    ```
 
-## <a name="adding-search-by-genre-to-the-index-view"></a><span data-ttu-id="79b91-115">インデックス ビューへのジャンルによる検索の追加</span><span class="sxs-lookup"><span data-stu-id="79b91-115">Adding search by genre to the Index view</span></span>
+## <a name="adding-search-by-genre-to-the-index-view"></a>インデックス ビューへのジャンルによる検索の追加
 
-<span data-ttu-id="79b91-116">次のように `Index.cshtml` を更新します。</span><span class="sxs-lookup"><span data-stu-id="79b91-116">Update `Index.cshtml` as follows:</span></span>
+次のように `Index.cshtml` を更新します。
 
 [!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexFormGenreNoRating.cshtml?highlight=1,15,16,17,28,31,34,37,43)]
 
-<span data-ttu-id="79b91-117">次の HTML ヘルパーで使用されるラムダ式を確認します。</span><span class="sxs-lookup"><span data-stu-id="79b91-117">Examine the lambda expression used in the following HTML Helper:</span></span>
+次の HTML ヘルパーで使用されるラムダ式を確認します。
 
 `@Html.DisplayNameFor(model => model.movies[0].Title)`
  
-<span data-ttu-id="79b91-118">上のコードでは、`DisplayNameFor` HTML ヘルパーは、ラムダ式で参照される `Title` プロパティを検査し、表示名を判別します。</span><span class="sxs-lookup"><span data-stu-id="79b91-118">In the preceding code, the `DisplayNameFor` HTML Helper inspects the `Title` property referenced in the lambda expression to determine the display name.</span></span> <span data-ttu-id="79b91-119">ラムダ式は評価されるのではなく、検査されるため、`model`、`model.movies`、または `model.movies[0]` が `null` または空である場合にアクセス違反が発生することはありません。</span><span class="sxs-lookup"><span data-stu-id="79b91-119">Since the lambda expression is inspected rather than evaluated, you don't receive an access violation when `model`, `model.movies`, or `model.movies[0]` are `null` or empty.</span></span> <span data-ttu-id="79b91-120">ラムダ式が評価される場合 (`@Html.DisplayFor(modelItem => item.Title)` など)、モデルのプロパティ値が評価されます。</span><span class="sxs-lookup"><span data-stu-id="79b91-120">When the lambda expression is evaluated (for example, `@Html.DisplayFor(modelItem => item.Title)`), the model's property values are evaluated.</span></span>
+上のコードでは、`DisplayNameFor` HTML ヘルパーは、ラムダ式で参照される `Title` プロパティを検査し、表示名を判別します。 ラムダ式は評価されるのではなく、検査されるため、`model`、`model.movies`、または `model.movies[0]` が `null` または空である場合にアクセス違反が発生することはありません。 ラムダ式が評価される場合 (`@Html.DisplayFor(modelItem => item.Title)` など)、モデルのプロパティ値が評価されます。
 
-<span data-ttu-id="79b91-121">ジャンルまたはムービーのタイトル、あるいはその両方で検索して、アプリをテストします。</span><span class="sxs-lookup"><span data-stu-id="79b91-121">Test the app by searching by genre, by movie title, and by both.</span></span>
+ジャンルまたはムービーのタイトル、あるいはその両方で検索して、アプリをテストします。

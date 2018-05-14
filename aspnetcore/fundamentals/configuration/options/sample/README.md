@@ -1,3 +1,3 @@
-# <a name="aspnet-using-options-sample"></a><span data-ttu-id="f38d2-101">オプションのサンプルを使用する ASP.NET</span><span class="sxs-lookup"><span data-stu-id="f38d2-101">ASP.NET Using Options Sample</span></span>
+# <a name="aspnet-using-options-sample"></a>オプションのサンプルを使用する ASP.NET
 
-<span data-ttu-id="f38d2-102">このサンプルでは、ASP.NET Core Razor Pages アプリでのオプション パターンの使用方法を示します。</span><span class="sxs-lookup"><span data-stu-id="f38d2-102">This sample illustrates the use of the Options pattern in an ASP.NET Core Razor Pages app.</span></span> <span data-ttu-id="f38d2-103">このサンプルでは、「[オプション パターン](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)」のトピックで説明している機能について説明します。</span><span class="sxs-lookup"><span data-stu-id="f38d2-103">This sample demonstrates the features described in the [Options pattern](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) topic.</span></span>
+このサンプルでは、ASP.NET Core Razor Pages アプリでのオプション パターンの使用方法を示します。 このサンプルでは、「[オプション パターン](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)」のトピックで説明している機能について説明します。

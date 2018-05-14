@@ -1,13 +1,13 @@
-# <a name="adding-a-view-to-an-aspnet-core-mvc-app"></a><span data-ttu-id="c2a2b-101">ASP.NET Core MVC アプリへのビューの追加</span><span class="sxs-lookup"><span data-stu-id="c2a2b-101">Adding a view to an ASP.NET Core MVC app</span></span>
+# <a name="adding-a-view-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへのビューの追加
 
-<span data-ttu-id="c2a2b-102">作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="c2a2b-102">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-<span data-ttu-id="c2a2b-103">このセクションでは、Razor ビュー テンプレート ファイルを使用して、クライアントへの HTML 応答を生成するプロセスを完全にカプセル化するために `HelloWorldController` クラスを変更します。</span><span class="sxs-lookup"><span data-stu-id="c2a2b-103">In this section you modify the `HelloWorldController` class to use Razor view template files to cleanly encapsulate the process of generating HTML responses to a client.</span></span>
+このセクションでは、Razor ビュー テンプレート ファイルを使用して、クライアントへの HTML 応答を生成するプロセスを完全にカプセル化するために `HelloWorldController` クラスを変更します。
 
-<span data-ttu-id="c2a2b-104">ビュー テンプレート ファイルは Razor を使用して作成します。</span><span class="sxs-lookup"><span data-stu-id="c2a2b-104">You create a view template file using Razor.</span></span> <span data-ttu-id="c2a2b-105">Razor ベースのビュー テンプレートには *.cshtml* ファイル拡張子が含まれています。</span><span class="sxs-lookup"><span data-stu-id="c2a2b-105">Razor-based view templates have a *.cshtml* file extension.</span></span> <span data-ttu-id="c2a2b-106">C# を使用して HTML 出力を作成する洗練された方法が提供されます。</span><span class="sxs-lookup"><span data-stu-id="c2a2b-106">They provide an elegant way to create HTML output using C#.</span></span>
+ビュー テンプレート ファイルは Razor を使用して作成します。 Razor ベースのビュー テンプレートには *.cshtml* ファイル拡張子が含まれています。 C# を使用して HTML 出力を作成する洗練された方法が提供されます。
 
-<span data-ttu-id="c2a2b-107">現在、`Index` メソッドは、コントローラー クラスでハード コーディングされるメッセージを含む文字列を返します。</span><span class="sxs-lookup"><span data-stu-id="c2a2b-107">Currently the `Index` method returns a string with a message that's hard-coded in the controller class.</span></span> <span data-ttu-id="c2a2b-108">`HelloWorldController` クラスでは、`Index` メソッドを次のコードで置き換えます。</span><span class="sxs-lookup"><span data-stu-id="c2a2b-108">In the `HelloWorldController` class, replace the `Index` method with the following code:</span></span>
+現在、`Index` メソッドは、コントローラー クラスでハード コーディングされるメッセージを含む文字列を返します。 `HelloWorldController` クラスでは、`Index` メソッドを次のコードで置き換えます。
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
 
-<span data-ttu-id="c2a2b-109">上のコードは `View` オブジェクトを返します。</span><span class="sxs-lookup"><span data-stu-id="c2a2b-109">The preceding code returns a `View` object.</span></span> <span data-ttu-id="c2a2b-110">ビュー テンプレートを使用して、ブラウザーへの HTML 応答を生成します。</span><span class="sxs-lookup"><span data-stu-id="c2a2b-110">It uses a view template to generate an HTML response to the browser.</span></span> <span data-ttu-id="c2a2b-111">上記の `Index` メソッドなどのコントローラー メソッド (アクション メソッドともいう) は、一般に、string などの型ではなく、[IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) (または `ActionResult` から派生したクラス) を返します。</span><span class="sxs-lookup"><span data-stu-id="c2a2b-111">Controller methods (also known as action methods) such as the `Index` method above, generally return an [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) (or a class derived from `ActionResult`), not a type like string.</span></span>
+上のコードは `View` オブジェクトを返します。 ビュー テンプレートを使用して、ブラウザーへの HTML 応答を生成します。 上記の `Index` メソッドなどのコントローラー メソッド (アクション メソッドともいう) は、一般に、string などの型ではなく、[IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) (または `ActionResult` から派生したクラス) を返します。

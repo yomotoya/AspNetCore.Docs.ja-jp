@@ -1,9 +1,9 @@
-# <a name="how-to-buildrun-secure-user-data-sample"></a><span data-ttu-id="0d013-101">ユーザーのセキュリティで保護されたデータ サンプルをビルド/実行する方法</span><span class="sxs-lookup"><span data-stu-id="0d013-101">How to build/run Secure user data sample</span></span>
+# <a name="how-to-buildrun-secure-user-data-sample"></a>ユーザーのセキュリティで保護されたデータ サンプルをビルド/実行する方法
 
-* <span data-ttu-id="0d013-102">シークレット マネージャー ツールを使用してパスワードを設定します。</span><span class="sxs-lookup"><span data-stu-id="0d013-102">Set password with the Secret Manager tool:</span></span>
+* シークレット マネージャー ツールを使用してパスワードを設定します。
 
   `dotnet user-secrets set SeedUserPW <pw>`
 
-* <span data-ttu-id="0d013-103">データベースを更新します。</span><span class="sxs-lookup"><span data-stu-id="0d013-103">Update the database:</span></span>
+* データベースを更新します。
 
     `dotnet ef database update`

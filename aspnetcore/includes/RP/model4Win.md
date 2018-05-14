@@ -1,24 +1,24 @@
 <a name="scaffold"></a>
-### <a name="scaffold-the-movie-model"></a><span data-ttu-id="984a6-101">ムービー モデルのスキャフォールディング</span><span class="sxs-lookup"><span data-stu-id="984a6-101">Scaffold the Movie model</span></span>
+### <a name="scaffold-the-movie-model"></a>ムービー モデルのスキャフォールディング
 
-* <span data-ttu-id="984a6-102">コマンド ライン (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むプロジェクト ディレクトリ) で次を実行します。</span><span class="sxs-lookup"><span data-stu-id="984a6-102">Run the following from the command line (in the project directory that contains the *Program.cs*, *Startup.cs*, and *.csproj* files):</span></span>
+* コマンド ライン (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むプロジェクト ディレクトリ) で次を実行します。
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
-<span data-ttu-id="984a6-103">エラーが発生した場合は、次のようにします。</span><span class="sxs-lookup"><span data-stu-id="984a6-103">If you get the error:</span></span>
+エラーが発生した場合は、次のようにします。
   ```
 No executable found matching command "dotnet-aspnet-codegenerator"
   ```
 
-<span data-ttu-id="984a6-104">プロジェクト ディレクトリ (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むディレクトリ) のコマンド シェルを開きます。</span><span class="sxs-lookup"><span data-stu-id="984a6-104">Open a command shell to the project directory (The directory that contains the *Program.cs*, *Startup.cs*, and *.csproj* files).</span></span>
+プロジェクト ディレクトリ (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むディレクトリ) のコマンド シェルを開きます。
 
-<span data-ttu-id="984a6-105">エラーが発生した場合は、次のようにします。</span><span class="sxs-lookup"><span data-stu-id="984a6-105">If you get the error:</span></span>
+エラーが発生した場合は、次のようにします。
   ```
   The process cannot access the file 
  'RazorPagesMovie/bin/Debug/netcoreapp2.0/RazorPagesMovie.dll' 
   because it is being used by another process.
   ```
 
-<span data-ttu-id="984a6-106">Visual Studio を終了し、コマンドを再度実行します。</span><span class="sxs-lookup"><span data-stu-id="984a6-106">Exit Visual Studio and run the command again.</span></span>
+Visual Studio を終了し、コマンドを再度実行します。
