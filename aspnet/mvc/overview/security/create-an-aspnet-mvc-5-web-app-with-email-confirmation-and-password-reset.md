@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
-title: "電子メールの確認とパスワードのリセット (c#) で、ログでセキュリティで保護された ASP.NET MVC 5 web アプリを作成 |Microsoft ドキュメント"
+title: 電子メールの確認とパスワードのリセット (c#) で、ログでセキュリティで保護された ASP.NET MVC 5 web アプリを作成 |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このチュートリアルでは、確認の電子メールとパスワード リセット、Asp.net メンバーシップ システムを使用した ASP.NET MVC 5 web アプリケーションをビルドする方法を示します。 . Ca"
+description: このチュートリアルでは、確認の電子メールとパスワード リセット、Asp.net メンバーシップ システムを使用した ASP.NET MVC 5 web アプリケーションをビルドする方法を示します。 . Ca
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015

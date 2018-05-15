@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/improvements-in-visual-studio-2005
-title: "Visual Studio 2005 の機能強化 |Microsoft ドキュメント"
+title: Visual Studio 2005 の機能強化 |Microsoft ドキュメント
 author: microsoft
-description: "Visual Studio 2005 では、Web アプリケーションの開発者の強化機能と Web プロジェクトの機能強化の長い一覧を提供します。"
+description: Visual Studio 2005 では、Web アプリケーションの開発者の強化機能と Web プロジェクトの機能強化の長い一覧を提供します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -170,7 +170,7 @@ ms.lasthandoff: 02/05/2018
 3. <span data-ttu-id="5899f-205">右クリックし、 **FTP サイトの既定の****新規**、し**仮想ディレクトリ**、をクリックして**次へ**です。</span><span class="sxs-lookup"><span data-stu-id="5899f-205">Right-click the **Default FTP Site**, select **New**, then **Virtual Directory**, then click **Next**.</span></span>
 4. <span data-ttu-id="5899f-206">入力**User1**をクリックして、仮想ディレクトリ名の**次**です。</span><span class="sxs-lookup"><span data-stu-id="5899f-206">Enter **User1** for the virtual directory name and click **Next**.</span></span>
 5. <span data-ttu-id="5899f-207">入力**c:/inetpub/wwwroot/User1**クリックとパスの**次**です。</span><span class="sxs-lookup"><span data-stu-id="5899f-207">Enter **c:/inetpub/wwwroot/User1** for the path and click **Next**.</span></span>
-6. <span data-ttu-id="5899f-208">をクリックして**[次へ]**し**完了**ウィザードを完了します。</span><span class="sxs-lookup"><span data-stu-id="5899f-208">Click **Next** and then **Finish** to complete the wizard.</span></span>
+6. <span data-ttu-id="5899f-208">をクリックして **[次へ]** し**完了**ウィザードを完了します。</span><span class="sxs-lookup"><span data-stu-id="5899f-208">Click **Next** and then **Finish** to complete the wizard.</span></span>
 7. <span data-ttu-id="5899f-209">右クリックし、 **User1**既定の FTP サイトと選択対象の仮想ディレクトリ**プロパティ**です。</span><span class="sxs-lookup"><span data-stu-id="5899f-209">Right-click the **User1** virtual directory under Default FTP Site and select **Properties**.</span></span>
 8. <span data-ttu-id="5899f-210">チェック、**書き込み** チェック ボックス をクリック**ok**ダイアログ ボックスを閉じます。</span><span class="sxs-lookup"><span data-stu-id="5899f-210">Check the **Write** checkbox and click **OK** to close the dialog.</span></span>
 9. <span data-ttu-id="5899f-211">右クリック**FTP サイトの既定の**選択**プロパティ**です。</span><span class="sxs-lookup"><span data-stu-id="5899f-211">Right-click **Default FTP Site** and select **Properties**.</span></span>
@@ -188,11 +188,11 @@ ms.lasthandoff: 02/05/2018
 1. <span data-ttu-id="5899f-221">Visual Studio 2005 を開きます。</span><span class="sxs-lookup"><span data-stu-id="5899f-221">Open Visual Studio 2005.</span></span>
 2. <span data-ttu-id="5899f-222">**ファイル**メニューの **新しい Web サイト**です。</span><span class="sxs-lookup"><span data-stu-id="5899f-222">From the **File** menu, select **New Web Site**.</span></span>
 3. <span data-ttu-id="5899f-223">**場所**ドロップダウンで、 **FTP**です。</span><span class="sxs-lookup"><span data-stu-id="5899f-223">In the **Location** dropdown, select **FTP**.</span></span>
-4. <span data-ttu-id="5899f-224">**[参照]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="5899f-224">Click **Browse**.</span></span>
+4. <span data-ttu-id="5899f-224">**[参照]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="5899f-224">Click **Browse**.</span></span>
 5. <span data-ttu-id="5899f-225">入力**localhost**で、**サーバー**  テキスト ボックス。</span><span class="sxs-lookup"><span data-stu-id="5899f-225">Enter **localhost** in the **Server** textbox.</span></span>
 6. <span data-ttu-id="5899f-226">入力**User1**ディレクトリ ボックスで、します。</span><span class="sxs-lookup"><span data-stu-id="5899f-226">Enter **User1** in the Directory textbox.</span></span>
 7. <span data-ttu-id="5899f-227">をクリックして**開く**です。</span><span class="sxs-lookup"><span data-stu-id="5899f-227">Click **Open**.</span></span> <span data-ttu-id="5899f-228">FTP の場所は、新しい Web サイト ダイアログに入力されます。</span><span class="sxs-lookup"><span data-stu-id="5899f-228">The FTP location will be entered into the New Web Site dialog.</span></span>
-8. <span data-ttu-id="5899f-229">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="5899f-229">Click **OK**.</span></span>
+8. <span data-ttu-id="5899f-229">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="5899f-229">Click **OK**.</span></span>
 9. <span data-ttu-id="5899f-230">オフに**匿名ログオンを**FTP ログオン ダイアログ ボックスで、資格情報を入力し、クリックして**OK**です。</span><span class="sxs-lookup"><span data-stu-id="5899f-230">Uncheck **Anonymous log on** in the FTP Log On dialog, enter your credentials, and click **OK**.</span></span>
 10. <span data-ttu-id="5899f-231">プロジェクトの URL とは何ですか。</span><span class="sxs-lookup"><span data-stu-id="5899f-231">What is the URL for the project?</span></span> <span data-ttu-id="5899f-232">(プロジェクトの URL はソリューション エクスプ ローラーで表示されます)。</span><span class="sxs-lookup"><span data-stu-id="5899f-232">(The URL for the project will be displayed in Solution Explorer.)</span></span>
 11. <span data-ttu-id="5899f-233">**ビルド**メニューの  **Web サイトのビルド**または**ソリューションのビルド**です。</span><span class="sxs-lookup"><span data-stu-id="5899f-233">From the **Build** menu, select **Build Web Site** or **Build Solution**.</span></span>
@@ -319,7 +319,7 @@ ms.lasthandoff: 02/05/2018
 > <span data-ttu-id="5899f-310">Aspnet/_compile.exe ユーティリティは、ASP.NET Web アプリケーションをプリコンパイルするも使用できます。</span><span class="sxs-lookup"><span data-stu-id="5899f-310">The aspnet/_compile.exe utility can also be used to pre-compile an ASP.NET Web application.</span></span> <span data-ttu-id="5899f-311">ツールは、モジュール 9 で取り上げます。</span><span class="sxs-lookup"><span data-stu-id="5899f-311">That tool will be covered in module 9.</span></span>
 
 
-<span data-ttu-id="5899f-312">公開 Web サイトをプリコンパイル済みのファイルが格納されている場合 Temporary ASP.NET Files フォルダーに次のようにします。</span><span class="sxs-lookup"><span data-stu-id="5899f-312">When you Publish a Web site, the precompiled files are stored in the Temporary ASP.NET Files folder as shown below.</span></span> <span data-ttu-id="5899f-313">ファイルが、 *.compiled*ファイル拡張子が dll の特定の依存関係を定義する XML ファイルです。</span><span class="sxs-lookup"><span data-stu-id="5899f-313">Files with a *.compiled* file extension are XML files that define dependencies for particular DLLs.</span></span> <span data-ttu-id="5899f-314">Web フォームまたはユーザー コントロールが始まるランダムの Dll にコンパイルされる*アプリ/_Web/_*です。</span><span class="sxs-lookup"><span data-stu-id="5899f-314">Any Webform or user controls are compiled into random DLLs that begin with *App/_Web/_*.</span></span>
+<span data-ttu-id="5899f-312">公開 Web サイトをプリコンパイル済みのファイルが格納されている場合 Temporary ASP.NET Files フォルダーに次のようにします。</span><span class="sxs-lookup"><span data-stu-id="5899f-312">When you Publish a Web site, the precompiled files are stored in the Temporary ASP.NET Files folder as shown below.</span></span> <span data-ttu-id="5899f-313">ファイルが、 *.compiled*ファイル拡張子が dll の特定の依存関係を定義する XML ファイルです。</span><span class="sxs-lookup"><span data-stu-id="5899f-313">Files with a *.compiled* file extension are XML files that define dependencies for particular DLLs.</span></span> <span data-ttu-id="5899f-314">Web フォームまたはユーザー コントロールが始まるランダムの Dll にコンパイルされる*アプリ/_Web/_* です。</span><span class="sxs-lookup"><span data-stu-id="5899f-314">Any Webform or user controls are compiled into random DLLs that begin with *App/_Web/_*.</span></span>
 
 <span data-ttu-id="5899f-315">ままにする場合、*このプリコンパイル済みサイトを更新できるように*チェック ボックスをオンになって、Webforms とユーザー コントロールの内部でのマークアップを展開後に変更を設定するための DLL にコンパイル済みにすることはできません。</span><span class="sxs-lookup"><span data-stu-id="5899f-315">If you leave the *Allow this precompiled site to be updatable* checkbox checked, markup inside of your Webforms and user controls will not be pre-compiled into a DLL allowing you to make changes after deployment.</span></span> <span data-ttu-id="5899f-316">場合は、展開されたコンテンツへの変更は許可されませんが、マークアップをロックする場合は、このボックスをオフにします。</span><span class="sxs-lookup"><span data-stu-id="5899f-316">If you would prefer to lock down the markup so that changes to the deployed content are not allowed, uncheck this box.</span></span>
 

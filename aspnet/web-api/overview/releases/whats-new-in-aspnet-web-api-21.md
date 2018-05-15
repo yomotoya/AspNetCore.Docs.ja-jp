@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/releases/whats-new-in-aspnet-web-api-21
-title: "ASP.NET Web API 2.1 の新機能 |Microsoft ドキュメント"
+title: ASP.NET Web API 2.1 の新機能 |Microsoft ドキュメント
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -142,7 +142,7 @@ ms.lasthandoff: 11/10/2017
 
 <span data-ttu-id="d6d65-168">属性のルーティングの一致のあいまいさは、最初の一致を選択するのではなく、エラーを報告します。</span><span class="sxs-lookup"><span data-stu-id="d6d65-168">Ambiguities in attribute routing matches now report an error rather than choosing the first match.</span></span>
 
-<span data-ttu-id="d6d65-169">属性ルートが使用を禁止して、 *{controller}*パラメーターを使用してと、 *{controller}*ルートのパラメーターは、アクションに配置します。</span><span class="sxs-lookup"><span data-stu-id="d6d65-169">Attribute routes are prohibited from using the *{controller}* parameter, and from using the *{action}* parameter on routes placed on actions.</span></span> <span data-ttu-id="d6d65-170">これらのパラメーターと、あいまいさと非常に高いが発生します。</span><span class="sxs-lookup"><span data-stu-id="d6d65-170">These parameters would very likely cause ambiguities.</span></span>
+<span data-ttu-id="d6d65-169">属性ルートが使用を禁止して、 *{controller}* パラメーターを使用してと、 *{controller}* ルートのパラメーターは、アクションに配置します。</span><span class="sxs-lookup"><span data-stu-id="d6d65-169">Attribute routes are prohibited from using the *{controller}* parameter, and from using the *{action}* parameter on routes placed on actions.</span></span> <span data-ttu-id="d6d65-170">これらのパラメーターと、あいまいさと非常に高いが発生します。</span><span class="sxs-lookup"><span data-stu-id="d6d65-170">These parameters would very likely cause ambiguities.</span></span>
 
 ### <a name="scaffolding-mvcweb-api-into-a-project-with-51-packages-results-in-50-packages-for-ones-that-dont-already-exist-in-the-project"></a><span data-ttu-id="d6d65-171">5.0 パッケージをプロジェクトに既に存在しないもので 5.1 パッケージの結果を含むプロジェクトに MVC または Web API のスキャフォールディング</span><span class="sxs-lookup"><span data-stu-id="d6d65-171">Scaffolding MVC/Web API into a project with 5.1 packages results in 5.0 packages for ones that don't already exist in the project</span></span>
 

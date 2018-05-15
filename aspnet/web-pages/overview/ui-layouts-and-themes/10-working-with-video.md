@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/10-working-with-video
-title: "ページ (Razor) サイトの ASP.NET Web でのビデオの表示 |Microsoft ドキュメント"
+title: ページ (Razor) サイトの ASP.NET Web でのビデオの表示 |Microsoft ドキュメント
 author: tfitzmac
-description: "この章では、ビデオ、ASP.NET Web Pages で Razor 構文のページを表示する方法について説明します。"
+description: この章では、ビデオ、ASP.NET Web Pages で Razor 構文のページを表示する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -169,7 +169,7 @@ ms.lasthandoff: 02/12/2018
 <a id="Playing_Silverlight"></a>
 ## <a name="playing-silverlight-videos"></a><span data-ttu-id="ddae3-208">Silverlight のビデオの再生</span><span class="sxs-lookup"><span data-stu-id="ddae3-208">Playing Silverlight Videos</span></span>
 
-<span data-ttu-id="ddae3-209">この手順は、Silverlight に含まれているビデオを再生する方法を示します*.xap*という名前のフォルダーには、ページ*メディア*です。</span><span class="sxs-lookup"><span data-stu-id="ddae3-209">This procedure shows you how to play video contained in a Silverlight *.xap* page that's in a folder named *Media*.</span></span>
+<span data-ttu-id="ddae3-209">この手順は、Silverlight に含まれているビデオを再生する方法を示します *.xap*という名前のフォルダーには、ページ*メディア*です。</span><span class="sxs-lookup"><span data-stu-id="ddae3-209">This procedure shows you how to play video contained in a Silverlight *.xap* page that's in a folder named *Media*.</span></span>
 
 1. <span data-ttu-id="ddae3-210">説明に従って、ASP.NET Web Helpers Library を web サイトに追加[ASP.NET Web Pages サイトをインストールするヘルパー](https://go.microsoft.com/fwlink/?LinkId=252372)まだ行っていない場合は、します。</span><span class="sxs-lookup"><span data-stu-id="ddae3-210">Add the ASP.NET Web Helpers Library to your website as described in [Installing Helpers in an ASP.NET Web Pages Site](https://go.microsoft.com/fwlink/?LinkId=252372), if you haven't already .</span></span>
 2. <span data-ttu-id="ddae3-211">という名前の新しいページを作成する*SilverlightVideo.cshtml*です。</span><span class="sxs-lookup"><span data-stu-id="ddae3-211">Create a new page named *SilverlightVideo.cshtml*.</span></span>

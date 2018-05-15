@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
-title: "ASP.NET Web API 1 での CRUD 操作の有効化 |Microsoft ドキュメント"
+title: ASP.NET Web API 1 での CRUD 操作の有効化 |Microsoft ドキュメント
 author: MikeWasson
-description: "このチュートリアルでは、ASP.NET Web API を使用して HTTP サービスでの CRUD 操作をサポートする方法を示します。 ソフトウェアのバージョンがチュートリアルの Visual Studio 2012 Web AP で使用しています."
+description: このチュートリアルでは、ASP.NET Web API を使用して HTTP サービスでの CRUD 操作をサポートする方法を示します。 ソフトウェアのバージョンがチュートリアルの Visual Studio 2012 Web AP で使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/28/2012
@@ -74,7 +74,7 @@ ms.lasthandoff: 02/12/2018
 
 <span data-ttu-id="f4cd4-162">Visual Studio を実行して起動し、選択**新しいプロジェクト**から、**開始**ページ。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-162">Start by running Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="f4cd4-163">またはから、**ファイル**メニューの **新規**し**プロジェクト**です。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-163">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="f4cd4-164">**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#**ノード。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-164">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="f4cd4-165">**Visual c#** **Web**です。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-165">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="f4cd4-166">プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-166">In the list of project templates, select **ASP.NET MVC 4 Web Application**.</span></span> <span data-ttu-id="f4cd4-167">プロジェクトに名前を&quot;ProductStore&quot;  をクリック**OK**です。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-167">Name the project &quot;ProductStore&quot; and click **OK**.</span></span>
+<span data-ttu-id="f4cd4-164">**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-164">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="f4cd4-165">**Visual c#** **Web**です。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-165">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="f4cd4-166">プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-166">In the list of project templates, select **ASP.NET MVC 4 Web Application**.</span></span> <span data-ttu-id="f4cd4-167">プロジェクトに名前を&quot;ProductStore&quot;  をクリック**OK**です。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-167">Name the project &quot;ProductStore&quot; and click **OK**.</span></span>
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image1.png)
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 02/12/2018
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image6.png)
 
-<span data-ttu-id="f4cd4-208">**コント ローラーの追加**ウィザードで、名前、コント ローラー &quot;ProductsController&quot;です。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-208">In the **Add Controller** wizard, name the controller &quot;ProductsController&quot;.</span></span> <span data-ttu-id="f4cd4-209">**テンプレート**ドロップダウン リストで、**空の API コント ローラー**です。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-209">In the **Template** drop-down list, select **Empty API Controller**.</span></span> <span data-ttu-id="f4cd4-210">次に、 **[追加]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-210">Then click **Add**.</span></span>
+<span data-ttu-id="f4cd4-208">**コント ローラーの追加**ウィザードで、名前、コント ローラー &quot;ProductsController&quot;です。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-208">In the **Add Controller** wizard, name the controller &quot;ProductsController&quot;.</span></span> <span data-ttu-id="f4cd4-209">**テンプレート**ドロップダウン リストで、**空の API コント ローラー**です。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-209">In the **Template** drop-down list, select **Empty API Controller**.</span></span> <span data-ttu-id="f4cd4-210">次に、 **[追加]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-210">Then click **Add**.</span></span>
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image7.png)
 
@@ -194,8 +194,8 @@ ms.lasthandoff: 02/12/2018
 
 <span data-ttu-id="f4cd4-254">この実装は機能しますが、完全なものはありません。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-254">This implementation will work, but it is not quite complete.</span></span> <span data-ttu-id="f4cd4-255">理想的には、HTTP 応答、以下を含むましょう。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-255">Ideally, we would like the HTTP response to include the following:</span></span>
 
-- <span data-ttu-id="f4cd4-256">**応答コード:**既定では、Web API フレームワークは 200 (OK) に応答のステータス コードを設定します。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-256">**Response code:** By default, the Web API framework sets the response status code to 200 (OK).</span></span> <span data-ttu-id="f4cd4-257">ただし、http/1.1 プロトコルに従って、POST 要求は、リソースの作成時に発生すると、サーバーという応答が 201 (Created) の状態。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-257">But according to the HTTP/1.1 protocol, when a POST request results in the creation of a resource, the server should reply with status 201 (Created).</span></span>
-- <span data-ttu-id="f4cd4-258">**場所:**応答の Location ヘッダーの新しいリソースの URI を含める必要があります、サーバーは、リソースを作成したときにします。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-258">**Location:** When the server creates a resource, it should include the URI of the new resource in the Location header of the response.</span></span>
+- <span data-ttu-id="f4cd4-256">**応答コード:** 既定では、Web API フレームワークは 200 (OK) に応答のステータス コードを設定します。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-256">**Response code:** By default, the Web API framework sets the response status code to 200 (OK).</span></span> <span data-ttu-id="f4cd4-257">ただし、http/1.1 プロトコルに従って、POST 要求は、リソースの作成時に発生すると、サーバーという応答が 201 (Created) の状態。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-257">But according to the HTTP/1.1 protocol, when a POST request results in the creation of a resource, the server should reply with status 201 (Created).</span></span>
+- <span data-ttu-id="f4cd4-258">**場所:** 応答の Location ヘッダーの新しいリソースの URI を含める必要があります、サーバーは、リソースを作成したときにします。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-258">**Location:** When the server creates a resource, it should include the URI of the new resource in the Location header of the response.</span></span>
 
 <span data-ttu-id="f4cd4-259">ASP.NET Web API 簡単を HTTP 応答メッセージを操作できます。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-259">ASP.NET Web API makes it easy to manipulate the HTTP response message.</span></span> <span data-ttu-id="f4cd4-260">強化された実装を次に示します。</span><span class="sxs-lookup"><span data-stu-id="f4cd4-260">Here is the improved implementation:</span></span>
 

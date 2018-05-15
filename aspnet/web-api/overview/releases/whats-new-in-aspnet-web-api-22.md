@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/releases/whats-new-in-aspnet-web-api-22
-title: "ASP.NET Web API 2.2 の新機能 |Microsoft ドキュメント"
+title: ASP.NET Web API 2.2 の新機能 |Microsoft ドキュメント
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/25/2014
@@ -144,7 +144,7 @@ ms.lasthandoff: 11/10/2017
 
 <span data-ttu-id="1932d-183">[Queryable] 属性は推奨されません。</span><span class="sxs-lookup"><span data-stu-id="1932d-183">The [Queryable] attribute is deprecated.</span></span> <span data-ttu-id="1932d-184">新しい OData v3 のアプリケーションで使用する必要があります**System.Web.Http.OData.EnableQueryAttribute**です。</span><span class="sxs-lookup"><span data-stu-id="1932d-184">New OData v3 applications should use **System.Web.Http.OData.EnableQueryAttribute**.</span></span>
 
-<span data-ttu-id="1932d-185">**ODataHttpConfigurationExtensions.EnableQuerySupport**拡張メソッドを今すぐ追加、 **EnableQueryAttribute**をグローバル フィルターのコレクション。</span><span class="sxs-lookup"><span data-stu-id="1932d-185">The **ODataHttpConfigurationExtensions.EnableQuerySupport** extension method now adds an **EnableQueryAttribute** to the global filter collection.</span></span> <span data-ttu-id="1932d-186">すべてのコント ローラーがある場合、 **[Queryable]**属性、呼び出し`config.EnableQuerySupport()`により、 **[Queryable]**属性が失敗するには</span><span class="sxs-lookup"><span data-stu-id="1932d-186">If any controllers have the **[Queryable]** attribute, calling `config.EnableQuerySupport()` will cause the **[Queryable]** attribute to fail</span></span>
+<span data-ttu-id="1932d-185">**ODataHttpConfigurationExtensions.EnableQuerySupport**拡張メソッドを今すぐ追加、 **EnableQueryAttribute**をグローバル フィルターのコレクション。</span><span class="sxs-lookup"><span data-stu-id="1932d-185">The **ODataHttpConfigurationExtensions.EnableQuerySupport** extension method now adds an **EnableQueryAttribute** to the global filter collection.</span></span> <span data-ttu-id="1932d-186">すべてのコント ローラーがある場合、 **[Queryable]** 属性、呼び出し`config.EnableQuerySupport()`により、 **[Queryable]** 属性が失敗するには</span><span class="sxs-lookup"><span data-stu-id="1932d-186">If any controllers have the **[Queryable]** attribute, calling `config.EnableQuerySupport()` will cause the **[Queryable]** attribute to fail</span></span>
 
 <span data-ttu-id="1932d-187">すべてのインスタンスを置き換えるには、この問題を解決することをお勧め**QueryableAttribute**で**System.Web.Http.OData.EnableQueryAttribute**です。</span><span class="sxs-lookup"><span data-stu-id="1932d-187">The recommended way to resolve this issue is to replace all instances of **QueryableAttribute** with **System.Web.Http.OData.EnableQueryAttribute**.</span></span>
 

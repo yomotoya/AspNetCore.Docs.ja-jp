@@ -1,9 +1,9 @@
 ---
 uid: signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role
-title: "SignalR パフォーマンス カウンターを使用して、Azure Web ロールで |Microsoft ドキュメント"
+title: SignalR パフォーマンス カウンターを使用して、Azure Web ロールで |Microsoft ドキュメント
 author: guardrex
-description: "インストールして、Azure Web ロールで SignalR パフォーマンス カウンターを使用する方法です。"
-keywords: "ASP.NET,signalr,performance カウンター、azure web ロール"
+description: インストールして、Azure Web ロールで SignalR パフォーマンス カウンターを使用する方法です。
+keywords: ASP.NET,signalr,performance カウンター、azure web ロール
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/11/2017
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/05/2018
 
 2. <span data-ttu-id="33bdf-116">Visual Studio 2015 では、次のように選択します。**ファイル** > **新規** > **プロジェクト**です。</span><span class="sxs-lookup"><span data-stu-id="33bdf-116">In Visual Studio 2015, select **File** > **New** > **Project**.</span></span>
 
-3. <span data-ttu-id="33bdf-117">**テンプレート**のペイン、**新しいプロジェクト** ウィンドウの下、 **Visual c#**ノードで、選択、**クラウド**ノードを選択、 **Azure クラウド サービス**テンプレート。</span><span class="sxs-lookup"><span data-stu-id="33bdf-117">In the **Templates** pane of the **New Project** window under the **Visual C#** node, select the **Cloud** node and select the **Azure Cloud Service** template.</span></span> <span data-ttu-id="33bdf-118">アプリの名前を付けます**SignalRPerfCounters**を選択し、 **OK**です。</span><span class="sxs-lookup"><span data-stu-id="33bdf-118">Name the app **SignalRPerfCounters** and select **OK**.</span></span>
+3. <span data-ttu-id="33bdf-117">**テンプレート**のペイン、**新しいプロジェクト** ウィンドウの下、 **Visual c#** ノードで、選択、**クラウド**ノードを選択、 **Azure クラウド サービス**テンプレート。</span><span class="sxs-lookup"><span data-stu-id="33bdf-117">In the **Templates** pane of the **New Project** window under the **Visual C#** node, select the **Cloud** node and select the **Azure Cloud Service** template.</span></span> <span data-ttu-id="33bdf-118">アプリの名前を付けます**SignalRPerfCounters**を選択し、 **OK**です。</span><span class="sxs-lookup"><span data-stu-id="33bdf-118">Name the app **SignalRPerfCounters** and select **OK**.</span></span>
 
    ![新しいクラウド アプリケーション](using-signalr-performance-counters-in-an-azure-web-role/_static/image1.png)
     
@@ -106,7 +106,7 @@ ms.lasthandoff: 02/05/2018
 
     [!code-cshtml[Main](using-signalr-performance-counters-in-an-azure-web-role/samples/sample6.cshtml)]
     
-21. <span data-ttu-id="33bdf-160">新しいフォルダーを作成、 **WebRole1**という名前のプロジェクト*ハブ*です。</span><span class="sxs-lookup"><span data-stu-id="33bdf-160">Create a new folder in the **WebRole1** project named *Hubs*.</span></span> <span data-ttu-id="33bdf-161">右クリックし、*ハブ*フォルダー**ソリューション エクスプ ローラー** **Web** > **SignalR**を選択し、 **SignalR ハブ クラス (v2)**です。</span><span class="sxs-lookup"><span data-stu-id="33bdf-161">Right-click the *Hubs* folder in **Solution Explorer**, select **Web** > **SignalR**, and select **SignalR Hub Class (v2)**.</span></span> <span data-ttu-id="33bdf-162">新しいハブの名前を付けます*MyHub.cs*選択**追加**です。</span><span class="sxs-lookup"><span data-stu-id="33bdf-162">Name the new hub *MyHub.cs* and select **Add**.</span></span>
+21. <span data-ttu-id="33bdf-160">新しいフォルダーを作成、 **WebRole1**という名前のプロジェクト*ハブ*です。</span><span class="sxs-lookup"><span data-stu-id="33bdf-160">Create a new folder in the **WebRole1** project named *Hubs*.</span></span> <span data-ttu-id="33bdf-161">右クリックし、*ハブ*フォルダー**ソリューション エクスプ ローラー** **Web** > **SignalR**を選択し、 **SignalR ハブ クラス (v2)** です。</span><span class="sxs-lookup"><span data-stu-id="33bdf-161">Right-click the *Hubs* folder in **Solution Explorer**, select **Web** > **SignalR**, and select **SignalR Hub Class (v2)**.</span></span> <span data-ttu-id="33bdf-162">新しいハブの名前を付けます*MyHub.cs*選択**追加**です。</span><span class="sxs-lookup"><span data-stu-id="33bdf-162">Name the new hub *MyHub.cs* and select **Add**.</span></span>
 
     ![SignalR ハブ クラス フォルダーへの追加、ハブで新しい項目の追加 ダイアログ](using-signalr-performance-counters-in-an-azure-web-role/_static/image13.png)
 
