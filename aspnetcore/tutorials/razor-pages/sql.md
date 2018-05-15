@@ -1,31 +1,32 @@
 ---
-title: "SQL Server LocalDB と ASP.NET Core の使用"
+title: SQL Server LocalDB と ASP.NET Core の使用
 author: rick-anderson
-description: "SQL Server LocalDB と ASP.NET Core の使用について説明します。"
+description: SQL Server LocalDB と ASP.NET Core の使用について説明します。
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 3bec0b7b547443dbb20c7e3a7422262c05f93975
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d1a345fe8c61f6e07ebbe53de6d53e18d6f4c851
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="working-with-sql-server-localdb-and-aspnet-core"></a>SQL Server LocalDB と ASP.NET Core の使用
+# <a name="work-with-sql-server-localdb-and-aspnet-core"></a>SQL Server LocalDB と ASP.NET Core の使用
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) および [Joe Audette](https://twitter.com/joeaudette) 
 
 `MovieContext` オブジェクトは、データベースへの接続と、データベース レコードへの `Movie` オブジェクトのマッピングのタスクを処理します。 データベース コンテキストは、*Startup.cs* ファイルの `ConfigureServices` メソッドで[依存性の注入](xref:fundamentals/dependency-injection)コンテナーに登録されます。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=7-8)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=7-8)]
 
 ASP.NET Core の[構成](xref:fundamentals/configuration/index)システムは `ConnectionString` を読み取ります。 ローカルで開発する場合は、*appsettings.json* ファイルから接続文字列を取得します。
 
-[!code-json[Main](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
+[!code-json[](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
 
 テストまたは実稼働サーバーにアプリを配置する場合は、環境変数または別の方法を使用して、実際の SQL Server に接続文字列を設定できます。 詳細については、[構成](xref:fundamentals/configuration/index)に関するページを参照してください。
 
@@ -54,7 +55,7 @@ LocalDB は、プログラム開発を対象にした、SQL Server Express デ�
 
 *Models* フォルダーに `SeedData` という名前の新しいクラスを作成します。 生成されたコードを次のコードに置き換えます。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/SeedData.cs?name=snippet_1)]
 
 DB にムービーがある場合、シード初期化子が返され、ムービーは追加されません。
 
@@ -69,7 +70,7 @@ if (context.Movie.Any())
 
 次のように、*Program.cs* ファイルで `Main` メソッドの末尾にシード初期化子を追加します。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Program.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Program.cs)]
 
 アプリのテスト
 
@@ -82,8 +83,8 @@ if (context.Movie.Any())
 
     ![コンテキスト メニュー](sql/_static/stopIIS.png)
 
-   * 非デバッグ モードで VS を実行していた場合は、F5 キーを押してデバッグ モードで実行します。
-   * デバッグ モードで VS を実行していた場合は、デバッガーを停止して、F5 キーを押します。
+    * 非デバッグ モードで VS を実行していた場合は、F5 キーを押してデバッグ モードで実行します。
+    * デバッグ モードで VS を実行していた場合は、デバッガーを停止して、F5 キーを押します。
    
 アプリにシードされたデータが表示されます。
 
@@ -91,6 +92,6 @@ if (context.Movie.Any())
 
 次のチュートリアルでは、データの表示をクリーンアップします。
 
->[!div class="step-by-step"]
-[前: スキャフォールディングされた Razor ページ](xref:tutorials/razor-pages/page)
-[次: ページの更新](xref:tutorials/razor-pages/da1)
+> [!div class="step-by-step"]
+> [前: スキャフォールディングされた Razor ページ](xref:tutorials/razor-pages/page)
+> [次: ページの更新](xref:tutorials/razor-pages/da1)

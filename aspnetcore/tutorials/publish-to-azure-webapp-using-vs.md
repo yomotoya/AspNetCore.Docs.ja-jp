@@ -1,25 +1,29 @@
 ---
-title: "Visual Studio を使用して Azure に ASP.NET Core アプリを発行する"
+title: Visual Studio を使用して Azure に ASP.NET Core アプリを発行する
 author: rick-anderson
-description: "Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する方法を説明します。"
-ms.author: riande
+description: Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する方法を説明します。
 manager: wpickett
+ms.author: riande
 ms.date: 12/16/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: d0e64c967ff332365981338809a47faf35d499ab
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e5c213a682c9bf7c64c40fad630cacfff24e23bb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Visual Studio を使用して Azure App Service に ASP.NET Core アプリを発行する
+# <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Visual Studio を使用して Azure に ASP.NET Core アプリを発行する
 
 [Rick Anderson](https://twitter.com/RickAndMSFT)、[Cesar Blum Silveira](https://github.com/cesarbs)、[Rachel Appel](https://twitter.com/rachelappel)
 
-Mac を使用している場合は、[Mac での Visual Studio から Azure への公開](https://blog.xamarin.com/publish-azure-visual-studio-mac/)に関するページを参照してください。
+[!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
+
+macOS を使用している場合は、[Visual Studio for Mac から Azure への公開](https://blog.xamarin.com/publish-azure-visual-studio-mac/)に関するページを参照してください。
+
+App Service デプロイの問題を解決するには、「[Azure App Service での ASP.NET Core のトラブルシューティング](xref:host-and-deploy/azure-apps/troubleshoot)」を参照してください。
 
 ## <a name="set-up"></a>設定
 
@@ -140,7 +144,7 @@ Visual Studio は、Azure で Web アプリと SQL Server を作成します。 
 
 ![[発行] ダイアログ: [設定] パネル](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
-**[発行]**をクリックします。 Visual Studio が Azure にアプリを発行します。 配置が完了すると、ブラウザーでアプリが開きます。
+**[発行]** をクリックします。 Visual Studio が Azure にアプリを発行します。 デプロイが完了すると、ブラウザーでアプリが開きます。
 
 ### <a name="test-your-app-in-azure"></a>Azure でアプリをテストする
 
@@ -185,3 +189,4 @@ Visual Studio は、Azure で Web アプリと SQL Server を作成します。 
 * [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 * [Azure リソース グループ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
 * [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)
+* [Azure App Service での ASP.NET Core のトラブルシューティング](xref:host-and-deploy/azure-apps/troubleshoot)

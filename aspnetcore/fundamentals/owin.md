@@ -1,7 +1,7 @@
 ---
-title: Open Web Interface for .NET (OWIN)
+title: Open Web Interface for .NET (OWIN) と ASP.NET Core
 author: ardalis
-description: "ASP.NET Core が Open Web Interface for .NET (OWIN) をどのようにサポートしているかを確認します。確認することで、Web アプリケーションを Web サーバーから切り離すことができるようになります。"
+description: ASP.NET Core が Open Web Interface for .NET (OWIN) をどのようにサポートしているかを確認します。確認することで、Web アプリケーションを Web サーバーから切り離すことができるようになります。
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/owin
-ms.openlocfilehash: 1a6a49715840d66dc37465758d3a896af96e2976
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 3ff7b6e02284b4f6c61bf5d31013b4edfe8f7f29
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="introduction-to-open-web-interface-for-net-owin"></a>Open Web Interface for .NET (OWIN) の概要
+# <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Open Web Interface for .NET (OWIN) と ASP.NET Core
 
 作成者: [Steve Smith](https://ardalis.com/)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -80,10 +80,10 @@ OWIN パイプライン内で実行する他のアクションを構成できま
 ```csharp
 app.UseOwin(pipeline =>
 {
-    pipeline(next =>
+    pipeline(async (next) =>
     {
         // do something before
-        return OwinHello;
+        await OwinHello(new OwinEnvironment(HttpContext));
         // do something after
     });
 });
@@ -95,7 +95,7 @@ app.UseOwin(pipeline =>
 
 OWIN ベースのサーバーは、ASP.NET アプリケーションをホストできます。 たとえば、.NET OWIN Web サーバーである [Nowin](https://github.com/Bobris/Nowin) です。 この記事のサンプルには ​​Nowin を参照するプロジェクトを含めました。また、それを使用して ASP.NET Core を自己ホスティングできる `IServer` を作成しています。
 
-[!code-csharp[Main](owin/sample/src/NowinSample/Program.cs?highlight=15)]
+[!code-csharp[](owin/sample/src/NowinSample/Program.cs?highlight=15)]
 
 `IServer` は、`Features` プロパティと `Start` メソッドを必要とするインターフェイスです。
 
@@ -134,10 +134,9 @@ namespace Microsoft.AspNetCore.Hosting
 }
 ```
 
-この準備が終わったら、このカスタム サーバーを使用して ASP.NET アプリケーションを実行し、*Program.cs* で拡張機能を呼び出すために必要な作業は次のとおりです。
+これが配置された状態で、*Program.cs* で拡張機能を呼び出し、このカスタム サーバーを利用して ASP.NET Core アプリを実行します。
 
 ```csharp
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -162,7 +161,6 @@ namespace NowinSample
         }
     }
 }
-
 ```
 
 ASP.NET サーバーの詳細については[こちら](servers/index.md)を参照してください。
@@ -223,7 +221,7 @@ public class Startup
 
 ## <a name="owin-environment"></a>OWIN 環境
 
-`HttpContext` を使用して OWIN 環境を構築することができます。
+`HttpContext` を使用して OWIN 環境を構築できます。
 
 ```csharp
 

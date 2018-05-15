@@ -27,7 +27,7 @@
   - 例 (リダイレクト): **/image.jpg** から **/jpg-images/image.jpg** へ
 
 ## <a name="using-a-physicalfileprovider"></a>`PhysicalFileProvider` の使用
-`AddApacheModRewrite()` メソッドと `AddIISUrlRewrite()` のメソッドに渡す、`PhysicalFileProvider` を作成して、`IFileProvider` を取得することもできます。
+`AddApacheModRewrite()` メソッドと `AddIISUrlRewrite()` メソッドに渡す `PhysicalFileProvider` を作成して、`IFileProvider` を取得することもできます。
 ```csharp
 using Microsoft.Extensions.FileProviders;
 PhysicalFileProvider fileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory());
@@ -35,9 +35,11 @@ PhysicalFileProvider fileProvider = new PhysicalFileProvider(Directory.GetCurren
 ## <a name="secure-redirection-extensions"></a>セキュリティで保護されたリダイレクトの拡張機能
 このサンプルには、URL (**https://localhost:5001**、**https://localhost**) とテスト証明書 (**testCert.pfx**) を使用してこれらのリダイレクト メソッドを調べるための `WebHostBuilder` 構成が含まれています。 それらの動作を調べるには、そのいずれかを **Startup.cs** の `RewriteOptions()` に追加します。
 
-メソッド | 状態コード | ポート
---- | :---: | :---:
-`.AddRedirectToHttpsPermanent()` | 301 | null (465)
-`.AddRedirectToHttps()` | 302 | null (465)
-`.AddRedirectToHttps(301)` | 301 | null (465)
-`.AddRedirectToHttps(301, 5001)` | 301 | 5001
+
+|              メソッド              | 状態コード |    ポート    |
+|----------------------------------|:-----------:|:----------:|
+| `.AddRedirectToHttpsPermanent()` |     301     | null (465) |
+|     `.AddRedirectToHttps()`      |     302     | null (465) |
+|    `.AddRedirectToHttps(301)`    |     301     | null (465) |
+| `.AddRedirectToHttps(301, 5001)` |     301     |    5001    |
+

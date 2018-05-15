@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC と EF Core - CRUD - 2/10"
+title: ASP.NET Core MVC と EF Core - CRUD - 2/10
 author: tdykstra
-description: 
+description: ''
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/crud
-ms.openlocfilehash: a7e0d4ff3d57e42dd7e33ffb5f26f2143520be87
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 54f25733126c6de5a3704664bda7c7942a3643a1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>作成、読み取り、更新、削除 - EF Core と ASP.NET Core MVC のチュートリアル (2/10)
+# <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC と EF Core - CRUD - 2/10
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -42,7 +42,7 @@ Students/Index ページのスキャフォールディングされたコード�
 
 *Controllers/StudentsController.cs* に含まれる Details ビューのアクション メソッドでは、`SingleOrDefaultAsync` メソッドを使って 1 つの `Student` エンティティを取得しています。 `Include`、 `ThenInclude`、および `AsNoTracking` メソッドを呼び出すコードを、次の強調表示された部分で示すように追加します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Details&highlight=8-12)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Details&highlight=8-12)]
 
 `Include` メソッドと `ThenInclude` メソッドにより、コンテキストは `Student.Enrollments` ナビゲーション プロパティと、各登録内の `Enrollment.Course` ナビゲーション プロパティを読み込みます。  これらのメソッドについては、[関連データの読み取り](read-related-data.md)チュートリアルをご覧ください。
 
@@ -52,7 +52,7 @@ Students/Index ページのスキャフォールディングされたコード�
 
 `Details` メソッドに渡すキー値は、"*ルート データ*" から取得します。 ルート データは、モデル バインダーが URL のセグメント内で検出したデータです。 たとえば、既定のルートでは、controller、action、id の各セグメントが指定されています。
 
-[!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_Route&highlight=5)]
+[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_Route&highlight=5)]
 
 次の URL では、既定のルートは、Instructor を controller として、Index を action として、1 を id としてマップします。これらがルート データの値です。
 
@@ -114,7 +114,7 @@ Index ページでは、Razor ビューのタグ ヘルパーのステートメ�
 
 *StudentsController.cs* で、HttpPost の `Create` メソッドを変更し、try-catch ブロックを追加して、`Bind` 属性から ID を削除します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
 
 このコードは、ASP.NET MVC モデル バインダーによって作成された Student エンティティを Students エンティティ セットに追加した後、変更をデータベースに保存します  (モデル バインダーとは、フォームによって送信されたデータの操作を容易にする ASP.NET MVC の機能です。モデル バインダーは、ポストされたフォーム値を CLR 型に変換して、パラメーター内のアクション メソッドに渡します。 この例のモデル バインダーは、Form コレクションからのプロパティ値を使って、Student エンティティを自動的にインスタンス化します)。
 
@@ -162,7 +162,7 @@ Web ページに `Secret` フィールドを作らなくても、ハッカーは
 
 これは、既定で作成されるサーバー側の検証です。後のチュートリアルでは、クライアント側検証用コードも生成する属性を追加する方法を示します。 次の強調表示されたコードは、`Create` メソッドでのモデル検証チェックの部分です。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=8)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=8)]
 
 日付を有効な値に変更し、**[Create]** をクリックして、新しい学生が **[Index]** ページに表示されることを確認します。
 
@@ -174,7 +174,7 @@ Web ページに `Secret` フィールドを作らなくても、ハッカーは
 
 HttpPost の Edit アクション メソッドを、次のコードに置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ReadFirst)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ReadFirst)]
 
 これらの変更は、過剰ポスティングを防ぐためのセキュリティのベスト プラクティスを実装します。 スキャフォルダーは、`Bind` 属性を生成し、モデル バインダーによって作成されたエンティティを、`Modified` フラグが設定されたエンティティ セットに追加していました。 そのコードは、`Include` パラメーターにリストされていないフィールド内の既存のデータを `Bind` 属性がクリアするため、多くのシナリオでは推奨されません。
 
@@ -188,7 +188,7 @@ HttpPost の Edit アクション メソッドを、次のコードに置き換�
 
 HttpPost の Edit の推奨されるコードでは、変更された列のみが更新され、モデル バインドに含めたくないプロパティのデータは維持されます。 ただし、読み取り優先アプローチではデータベースの余分な読み取りが必要であり、同時実行の競合を処理するためのコードが複雑になる可能性があります。 代わりの方法としては、モデル バインダーによって作成されたエンティティを EF コンテキストにアタッチし、変更済みとしてマークします  (次のコードはオプションのアプローチを示すためだけに掲載してあるので、このコードでプロジェクトを更新しないでください)。 
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_CreateAndAttach)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_CreateAndAttach)]
 
 この方法は、Web ページの UI にエンティティのすべてのフィールドが含まれ、そのどれでも更新できる場合に使うことができます。
 
@@ -236,7 +236,7 @@ Web アプリでは、最初にエンティティを読み取って編集され�
 
 HttpGet の `Delete` アクション メソッドを、エラー報告を管理する次のコードに置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteGet&highlight=1,9,16-21)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteGet&highlight=1,9,16-21)]
 
 このコードは、変更保存の失敗後にメソッドが呼び出されたかどうかを示す省略可能なパラメーターを受け取ります。 HttpGet `Delete` メソッドが呼び出される前にエラーが発生していない場合、このパラメーターは false に設定されます。 データベース更新エラーに対して HttpPost の `Delete` メソッドがこのメソッドを呼び出した場合、パラメーターは true で、エラー メッセージがビューに渡されます。
 
@@ -244,7 +244,7 @@ HttpGet の `Delete` アクション メソッドを、エラー報告を管理�
 
 HttpPost の `Delete` アクション メソッド (名前は `DeleteConfirmed`) を、次のコードに置き換えます。このコードは、実際の削除操作を実行して、データベース更新エラーをキャッチします。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6,8-11,13-14,18-23)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6,8-11,13-14,18-23)]
 
 このコードは、選択されたエンティティを取得した後、`Remove` メソッドを呼び出して、エンティティの状態を `Deleted` に設定します。 `SaveChanges` が呼び出されると、SQL DELETE コマンドが生成されます。
 
@@ -252,7 +252,7 @@ HttpPost の `Delete` アクション メソッド (名前は `DeleteConfirmed`)
 
 大規模なアプリケーションでのパフォーマンス向上が優先される場合は、主キーの値のみを使って Student エンティティをインスタンス化し、エンティティの状態を `Deleted` に設定することによって、不必要な SQL クエリが実行されないようにすることができます。 エンティティを削除するために Entity Framework に必要なものは主キーの値だけです  (このコードは、代替手段の説明のためにのみ示してあるので、プロジェクトに追加しないでください)。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithoutReadFirst&highlight=7-8)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithoutReadFirst&highlight=7-8)]
 
 エンティティに関連するデータも削除する必要がある場合は、連鎖削除をデータベースで構成します。 このエンティティ削除方法では、削除する関連エンティティがあることを EF が認識しない可能性があります。
 
@@ -296,6 +296,6 @@ HttpPost の `Delete` アクション メソッド (名前は `DeleteConfirmed`)
 
 Student エンティティに対して簡単な CRUD 操作を実行するページの完全なセットができあがりました。 次のチュートリアルでは、並べ替え、フィルター処理、ページングを追加することにより、**[Index]** ページの機能を拡張します。
 
->[!div class="step-by-step"]
-[前へ](intro.md)
-[次へ](sort-filter-page.md)  
+> [!div class="step-by-step"]
+> [前へ](intro.md)
+> [次へ](sort-filter-page.md)  

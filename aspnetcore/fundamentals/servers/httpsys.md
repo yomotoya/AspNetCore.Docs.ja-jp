@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core での HTTP.sys Web サーバーの実装"
+title: ASP.NET Core での HTTP.sys Web サーバーの実装
 author: tdykstra
-description: "Windows 上の ASP.NET Core 用 Web サーバーである HTTP.sys について説明します。 HTTP.sys は、Http.sys カーネル モード ドライバーに基づいて構築された、IIS なしで直接インターネットに接続するために使用できる Kestrel の代替製品です。"
+description: Windows 上の ASP.NET Core 用 Web サーバーである HTTP.sys について説明します。 HTTP.sys は、Http.sys カーネル モード ドライバーに基づいて構築された、IIS なしで直接インターネットに接続するために使用できる Kestrel の代替製品です。
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: d7ae6c070c7eecfd714086e15f32eff96c0943d9
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 1ec309a00b6cb156b0d11ad085eda3b7a772ac94
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core での HTTP.sys Web サーバーの実装
 
@@ -65,7 +65,7 @@ HTTP.sys は、さまざまな種類の攻撃を防ぎ、フル機能の Web サ
 
 1. [Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.All/)) (ASP.NET Core 2.0 以降) を使用する場合は、プロジェクト ファイルのパッケージ参照は必要ありません。 `Microsoft.AspNetCore.All` メタパッケージを使用しない場合は、[Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/) にパッケージ参照を追加します。
 
-1. Web ホストを構築するときに [UseHttpSys](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderhttpsysextensions.usehttpsys) 拡張メソッドを呼び出し、必要な [HTTP.sys オプション](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions)を指定します。
+2. Web ホストを構築するときに [UseHttpSys](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderhttpsysextensions.usehttpsys) 拡張メソッドを呼び出し、必要な [HTTP.sys オプション](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions)を指定します。
 
    [!code-csharp[](httpsys/sample/Program.cs?name=snippet1&highlight=4-12)]
 
@@ -93,7 +93,7 @@ HTTP.sys は、さまざまな種類の攻撃を防ぎ、フル機能の Web サ
    要求本文の最大許容サイズ (バイト単位) です。 `null` に設定する場合、要求本文の最大サイズは制限されません。 この制限は、アップグレード済みの接続 (常に無制限) には影響しません。
 
    1 つの `IActionResult` に対する ASP.NET Core MVC アプリの制限を上書きする方法としては、次のように、アクション メソッドに対して [RequestSizeLimitAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requestsizelimitattribute) 属性を使用することをお勧めします。
-   
+
    ```csharp
    [RequestSizeLimit(100000000)]
    public IActionResult MyActionMethod()
@@ -105,7 +105,7 @@ HTTP.sys は、さまざまな種類の攻撃を防ぎ、フル機能の Web サ
 
    [!code-csharp[](httpsys/sample/Startup.cs?name=snippet1&highlight=6-7)]
 
-1. Visual Studio を使用する場合は、アプリが IIS または IIS Express を実行するように構成されていないことを確認します。
+3. Visual Studio を使用する場合は、アプリが IIS または IIS Express を実行するように構成されていないことを確認します。
 
    Visual Studio では、既定の起動プロファイルは IIS Express 用です。 プロジェクトをコンソール アプリとして実行するには、次のスクリーン ショットに示すように、選択したプロファイルを手動で変更します。
 
@@ -115,10 +115,10 @@ HTTP.sys は、さまざまな種類の攻撃を防ぎ、フル機能の Web サ
 
 1. アプリが[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)である場合は、.NET Core、.NET Framework、またはその両方 (アプリが .NET Framework をターゲットとする .NET Core アプリである場合) をインストールします。
 
-   * **.NET Core** &ndash; アプリが .NET Core を必要とする場合は、[.NET ダウンロード](https://www.microsoft.com/net/download/windows)から .NET Core インストーラーを取得して実行します。
-   * **.NET framework** &ndash; アプリが .NET Framework を必要とする場合は、[.NET Framework のインストール ガイド](/dotnet/framework/install/)に関する記事を参照してインストール手順を確認します。 必要な .NET Framework をインストールします。 最新の .NET Framework のインストーラーは、[.NET ダウンロード](https://www.microsoft.com/net/download/windows)にあります。
+   * **.NET Core** &ndash; アプリが .NET Core を必要とする場合は、[.NET の「All Downloads」](https://www.microsoft.com/net/download/all)から .NET Core インストーラーを取得して実行します。
+   * **.NET framework** &ndash; アプリが .NET Framework を必要とする場合は、[.NET Framework のインストール ガイド](/dotnet/framework/install/)に関する記事を参照してインストール手順を確認します。 必要な .NET Framework をインストールします。 最新の .NET Framework のインストーラーは、[.NET の「All Downloads」](https://www.microsoft.com/net/download/all)にあります。
 
-1. アプリ用の URL とポートを構成します。
+2. アプリ用の URL とポートを構成します。
 
    既定では、ASP.NET Core は `http://localhost:5000` にバインドされます。 URL プレフィックスとポートを構成するには、次のオプションが使用できます。
 
@@ -140,7 +140,7 @@ HTTP.sys は、さまざまな種類の攻撃を防ぎ、フル機能の Web サ
    > [!WARNING]
    > 最上位のワイルドカードのバインド (`http://*:80/` と `http://+:80`) は使用しては**いけません**。 最上位のワイルドカードのバインドは、セキュリティの脆弱性に対してアプリを切り開くことができます。 これは、強力と脆弱の両方のワイルドカードに適用されます。 ワイルドカードではなく、明示的なホスト名を使用します。 全体の親ドメインを制御する場合、サブドメイン ワイルドカード バインド (たとえば、`*.mysub.com`) にこのセキュリティ リスクはありません (脆弱である `*.com` とは対照的)。 詳細については、[rfc7230 セクション-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) を参照してください。
 
-1. HTTP.sys にバインドする URL プレフィックスを事前登録し、x.509 証明書を設定します。
+3. HTTP.sys にバインドする URL プレフィックスを事前登録し、x.509 証明書を設定します。
 
    URL プレフィックスが Windows に事前登録されていない場合は、管理者特権でアプリを実行します。 唯一の例外は、(HTTPS ではなく) HTTPを使用して、1024 より大きいポート番号で、localhost にバインドする場合です。 この場合、管理者特権は必要ありません。
 
@@ -164,11 +164,16 @@ HTTP.sys は、さまざまな種類の攻撃を防ぎ、フル機能の Web サ
       * [Netsh Commands for Hypertext Transfer Protocol (HTTP)](https://technet.microsoft.com/library/cc725882.aspx) (ハイパーテキスト転送プロトコル (HTTP) 用の Netsh コマンド)
       * [UrlPrefix Strings](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx) (UrlPrefix 文字列)
 
-   1. 必要な場合は、自己署名 X.509 証明書を作成します。
+   2. 必要な場合は、自己署名 X.509 証明書を作成します。
 
-     [!INCLUDE[How to make an X.509 cert](../../includes/make-x509-cert.md)]
+      [!INCLUDE [How to make an X.509 cert](../../includes/make-x509-cert.md)]
 
-1. トラフィックが HTTP.sys に到達できるようにファイアウォールのポートを開きます。 *netsh.exe* または [PowerShell コマンドレット](https://technet.microsoft.com/library/jj554906) を使用します。
+
+4. トラフィックが HTTP.sys に到達できるようにファイアウォールのポートを開きます。 *netsh.exe* または [PowerShell コマンドレット](https://technet.microsoft.com/library/jj554906) を使用します。
+
+## <a name="proxy-server-and-load-balancer-scenarios"></a>プロキシ サーバーとロード バランサーのシナリオ
+
+インターネットや企業ネットワークからの要求とやりとりする HTTP.sys でホストされるアプリの場合、プロキシ サーバーやロード バランサーの背後でホストするとき、追加の構成が必要になることがあります。 詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

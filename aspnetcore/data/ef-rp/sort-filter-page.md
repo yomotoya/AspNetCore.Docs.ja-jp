@@ -1,28 +1,28 @@
 ---
-title: "Razor Pages と EF Core - 並べ替え、フィルター、ページング - 3/8"
+title: ASP.NET Core の Razor Pages と EF Core - 並べ替え、フィルター、ページング - 3/8
 author: rick-anderson
-description: "このチュートリアルでは、ASP.NET Core および Entity Framework Core を使用して並べ替え、フィルター、ページング機能をページに追加します。"
+description: このチュートリアルでは、ASP.NET Core および Entity Framework Core を使用して並べ替え、フィルター、ページング機能をページに追加します。
 ms.author: riande
 ms.date: 10/22/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 9c1ee6f8c00f3cd501ea86fbf73f51ae540a010a
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: be7d55bf1a5d3da63ff137ed86f71984dc897eff
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>並べ替え、フィルター、ページング、グループ化 -EF Core と Razor Pages (3/8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET Core の Razor Pages と EF Core - 並べ替え、フィルター、ページング - 3/8
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)、[Jon P Smith](https://twitter.com/thereformedprog)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 このチュートリアルでは、並べ替え、フィルター処理、グループ化、ページング、機能が追加されます。
 
-次の図は、完了したページを示しています。 列見出しは、クリックして列を並べ替えることができます。 列見出しを繰り返しクリックすると、昇順と降順の並べ替え順序が切り替えられます。
+次の図は、完成したページを示しています。 列見出しはクリックできるリンクとなっており、クリックすると列が並べ替えられます。 列見出しを繰り返しクリックすると、昇順と降順の並べ替え順序が切り替えられます。
 
 ![Students インデックス ページ](sort-filter-page/_static/paging.png)
 
@@ -32,12 +32,12 @@ ms.lasthandoff: 01/31/2018
 
 *Students/Index.cshtml.cs* `PageModel` に文字列を追加し並べ替えのパラメーターを格納します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet1&highlight=10-13)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet1&highlight=10-13)]
 
 
 *Students/Index.cshtml.cs* `OnGetAsync` を次のコードで更新します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly)]
 
 前のコードは、URL 内のクエリ文字列から `sortOrder` パラメーターを受け取ります。 (クエリ文字列を含む) URL が[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper
 )によって生成されます。
@@ -48,11 +48,11 @@ ms.lasthandoff: 01/31/2018
 
 `NameSort` および `DateSort` は、Razor Page で、適切なクエリ文字列値を持つ列見出しのハイパーリンクを構成するために使用されます。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=3-4)]
 
 次のコードは、# [?: 演算子](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/conditional-operator)を含んでいます。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
 
 最初の行は、`sortOrder` が null または空の場合に、`NameSort` を "name_desc" に設定することを指定します。 `sortOrder` が null または空**ではない**場合、`NameSort` は空の文字列に設定されます。
 
@@ -69,11 +69,11 @@ ms.lasthandoff: 01/31/2018
 
 このメソッドは、並べ替える列を指定するのに LINQ to Entities を使用します。 このコードは、switch ステートメントの前に `IQueryable<Student> ` を初期化し、switch ステートメントでそれを変更します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-999)]
 
  `IQueryable` が作成または変更されるときには、クエリは、データベースに送信されません。 クエリは、`IQueryable` オブジェクトがコレクションに変換されるまで実行されません。 `IQueryable` は、`ToListAsync` などのメソッドを呼び出すことで、コレクションに変換されます。 そのため、`IQueryable` コードの結果として、次のステートメントまで実行されない 1 つのクエリになります。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnlyRtn)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnlyRtn)]
 
 `OnGetAsync` は、多数の列によって冗長になる可能性があります。
 
@@ -113,7 +113,7 @@ Students インデックス ページにフィルターを追加するには
 
 *Students/Index.cshtml.cs* `OnGetAsync` を次のコードで更新します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
 上のコードでは以下の操作が行われます。
 
@@ -164,7 +164,7 @@ http://localhost:5000/Students?SearchString=an
 
 プロジェクト フォルダーに、次のコードを使用して `PaginatedList.cs` を作成します。
 
-[!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
+[!code-csharp[](intro/samples/cu/PaginatedList.cs)]
 
 前のコードの `CreateAsync` メソッドは、ページ サイズとページ番号を受け取り、適切な `Skip` および `Take` ステートメントを `IQueryable` に適用します。 `IQueryable` で `ToListAsync` が呼び出されると、要求されたページのみを含むリストを返します。 プロパティ `HasPreviousPage` および `HasNextPage` を使用して、**[Previous]** および **[Next]** ページング ボタンを有効または無効にします。
 
@@ -174,15 +174,15 @@ http://localhost:5000/Students?SearchString=an
 
 *Students/Index.cshtml.cs* で、`Student` の型を `IList<Student>` から `PaginatedList<Student>` に更新します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPageType)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPageType)]
 
 *Students/Index.cshtml.cs* `OnGetAsync` を次のコードで更新します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage&highlight=1-4,7-14,41-)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage&highlight=1-4,7-14,41-999)]
 
 上記のコードは、ページ インデックス、現在の `sortOrder`、および `currentFilter` をメソッド シグネチャに追加します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage2)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage2)]
 
 すべてのパラメーターは、次のような場合に null になります。
 
@@ -203,11 +203,11 @@ http://localhost:5000/Students?SearchString=an
 * 検索文字列が変更されます。
 * `searchString` パラメーターは null ではありません。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage3)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage3)]
 
 `PaginatedList.CreateAsync` メソッドが、ページングをサポートするコレクション型の学生の 1 つのページに学生クエリを変換します。 その 1 つの学生のページが Razor Page に渡されます。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage4)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage4)]
 
 `PaginatedList.CreateAsync` の 2 つの疑問符は、[null 合体演算子](https://docs.microsoft.com/ dotnet/csharp/language-reference/operators/null-conditional-operator)を表します。 Null 合体演算子は、null 許容型の既定値を定義します。 式 `(pageIndex ?? 1)` は、値がある場合に、`pageIndex` の値を返すことを意味します。 `pageIndex` に値がない場合は、1 を返します。
 
@@ -215,7 +215,7 @@ http://localhost:5000/Students?SearchString=an
 
 *Students/Index.cshtml* 内のマークアップを更新する 変更が強調表示されています。
 
-[!code-html[](intro/samples/cu/Pages/Students/Index.cshtml?highlight=28-31,37-40,68-)]
+[!code-html[](intro/samples/cu/Pages/Students/Index.cshtml?highlight=28-31,37-40,68-999)]
 
 列ヘッダー リンクは、ユーザーがフィルターの結果内で並べ替えられるように、クエリ文字列を使用して現在の検索文字列を `OnGetAsync` メソッドに渡します。
 
@@ -253,13 +253,13 @@ http://localhost:5000/Students?SearchString=an
 
 次のコードを使用して、*SchoolViewModels* フォルダー内に *EnrollmentDateGroup.cs* を追加します。
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
 ### <a name="update-the-about-page-model"></a>About ページ モデルを更新する
 
 次のコードを使用して、*Pages/About.cshtml.cs* を更新します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/About.cshtml.cs)]
+[!code-csharp[](intro/samples/cu/Pages/About.cshtml.cs)]
 
 LINQ ステートメントは、登録日で受講者エンティティをグループ化し、各グループ内のエンティティの数を計算して、結果を `EnrollmentDateGroup` ビュー モデル オブジェクトのコレクションに格納します。
 
@@ -283,6 +283,6 @@ LINQ ステートメントは、登録日で受講者エンティティをグル
 
 次のチュートリアルでは、アプリは移行を使用してデータ モデルを更新します。
 
->[!div class="step-by-step"]
-[前へ](xref:data/ef-rp/crud)
-[次へ](xref:data/ef-rp/migrations)
+> [!div class="step-by-step"]
+> [前へ](xref:data/ef-rp/crud)
+> [次へ](xref:data/ef-rp/migrations)

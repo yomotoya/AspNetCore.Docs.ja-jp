@@ -1,21 +1,21 @@
 ---
-title: "ASP.NET Core MVC と EF Core - 移行 - 4/10"
+title: ASP.NET Core MVC と EF Core - 移行 - 4/10
 author: tdykstra
-description: "このチュートリアルでは、ASP.NET Core MVC アプリケーションでデータ モデルの変更を管理するための EF Core の移行機能の使用を開始します。"
+description: このチュートリアルでは、ASP.NET Core MVC アプリケーションでデータ モデルの変更を管理するための EF Core の移行機能の使用を開始します。
 manager: wpickett
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 03/15/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: fd466af8a73bf4c568fafe7e7fdcaa82021624da
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: f3f14d6dab1eb03e0ead5edaa9d7ba41a10b21e9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>移行 - EF Core と ASP.NET Core MVC のチュートリアル (4/10)
+# <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>ASP.NET Core MVC と EF Core - 移行 - 4/10
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -43,7 +43,7 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
 *appsettings.json* ファイルで、接続文字列のデータベース名を ContosoUniversity2 に変更するか、使用しているコンピューターではまだ使用していない別の名前に変更します。
 
-[!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
+[!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
 この変更では、最初の移行で新しいデータベースが作成されるように、プロジェクトを設定します。 これは移行の作業を開始するために必要ではありませんが、後でこの設定をお勧めする理由がわかります。
 
@@ -91,7 +91,7 @@ Done. To undo this action, use 'ef migrations remove'
 
 `migrations add` コマンドを実行したときに、EF では最初からデータベースを作成するコードが生成されています。 このコードは、*\<タイムスタンプ>_InitialCreate.cs* という名前のファイルにある *[Migrations]* フォルダー内にあります。 `InitialCreate` クラスの `Up` メソッドでは、データ モデルのエンティティ セットに対応するデータベース テーブルを作成し、`Down` メソッドでは、次の例に示すようにそれらを削除します。
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
+[!code-csharp[](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
 移行は、`Up` メソッドを呼び出して、移行のためのデータ モデルの変更を実装します。 更新をロールバックするためのコマンドを入力すると、移行が `Down` メソッドを呼び出します。
 
@@ -99,15 +99,13 @@ Done. To undo this action, use 'ef migrations remove'
 
 データベースが既に存在するときに、初期移行を作成した場合、データベースの作成コードが生成されますが、データベースは既にデータと一致しているため、作成コードを実行する必要はありません。 データベースがまだ存在しない別の環境にアプリを展開する場合、データベースを作成するために、このコードが実行されるため、最初にテストを行うことをお勧めします。 これが、移行で新しいデータベースを最初から作成できるように、前の接続文字列でデータベースの名前を変更した理由です。
 
-## <a name="examine-the-data-model-snapshot"></a>データ モデルのスナップショットを確認する
+## <a name="the-data-model-snapshot"></a>データ モデルのスナップショット
 
-移行は、現在のデータベース スキーマの*スナップショット*を *Migrations/SchoolContextModelSnapshot.cs* 内にも作成します。 コードは次のようになります。
+移行は、現在のデータベース スキーマの*スナップショット*を *Migrations/SchoolContextModelSnapshot.cs* 内に作成します。 移行を追加するときに、EF は、スナップショット ファイルとデータ モデルを比較することによって変更内容を判断します。
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+移行を削除するには、[dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) コマンドを使用します。 `dotnet ef migrations remove` によって移行が削除され、スナップショットが正しくリセットされたことが確認されます。
 
-現在のデータベース スキーマはコードで表されるため、移行を作成するために、EF Core がデータベースとやり取りする必要はありません。 移行を追加するときに、EF は、スナップショット ファイルとデータ モデルを比較することによって変更内容を判断します。 EF は、データベースを更新する必要がある場合にのみ、データベースとやり取りします。 
-
-スナップショット ファイルは、ファイルを作成する移行と同期され続ける必要があるため、*\<タイムスタンプ>_\<移行>.cs* という名前のファイルを削除するだけでは、移行を削除することはできません。 ファイルを削除すると、残りの移行はデータベースのスナップショット ファイルと同期されなくなります。 最後に追加された移行を削除するには、[dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) コマンドを使用します。
+スナップショット ファイルの使用方法の詳細については、[チーム環境での EF Core 移行](/ef/core/managing-schemas/migrations/teams)に関するページを参照してください。
 
 ## <a name="apply-the-migration-to-the-database"></a>移行をデータベースに適用する
 
@@ -167,6 +165,6 @@ PMC コマンドの詳細については、「[パッケージ マネージャ�
 
 このチュートリアルでは、最初の移行を作成して適用する方法が示されました。 次のチュートリアルでは、データ モデルを展開して、詳細なトピックについて確認します。 その途中で、追加の移行を作成して適用することになります。
 
->[!div class="step-by-step"]
-[前へ](sort-filter-page.md)
-[次へ](complex-data-model.md)  
+> [!div class="step-by-step"]
+> [前へ](sort-filter-page.md)
+> [次へ](complex-data-model.md)  

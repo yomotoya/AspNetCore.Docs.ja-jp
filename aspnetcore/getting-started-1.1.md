@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core 1.1 の概要"
+title: ASP.NET Core 1.1 の概要
 author: rick-anderson
-description: "ASP.NET Core 1.1 を使用して単純な Hello World アプリを作成し、実行する簡単なチュートリアルです。"
+description: ASP.NET Core 1.1 を使用して単純な Hello World アプリを作成し、実行するこの簡単なチュートリアルに従います。
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,18 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: getting-started-1.1
-ms.openlocfilehash: 895e91efbba931923540e4cd182862cbc1851585
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c61a9a918e51bbd6c1f1142a04473393c8fc54ca
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="getting-started-with-aspnet-core-11"></a>ASP.NET Core 1.1 の概要
+# <a name="get-started-with-aspnet-core-11"></a>ASP.NET Core 1.1 の概要
 
 > [!NOTE]
 > ここで説明する手順は ASP.NET Core 1.1 用です。 最新バージョンについては、 [このチュートリアルの最新バージョン](xref:getting-started)を参照してください。
 
-1. [.NET Core 1.0.5 および 1.1.2 SDK 1.0.4 ダウンロード ページ](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.0.5-download.md)から、SDK 1.0.4 の .NET Core **SDK インストーラー**をインストールします。
+1. [.NET の「All Downloads」](https://www.microsoft.com/net/download/all)から、SDK 1.0.4 の .NET Core **SDK インストーラー**をインストールします。
 
 2. 新しい .NET Core プロジェクト用のフォルダーを作成します。
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 01/30/2018
 
 4. アプリを実行します。
 
-   必要に応じて、まず `dotnet run` コマンドでアプリをビルドします。
+   必要に応じて、まず [dotnet run](/dotnet/core/tools/dotnet-run) コマンドでアプリを構築します。
 
    ```terminal
    dotnet run

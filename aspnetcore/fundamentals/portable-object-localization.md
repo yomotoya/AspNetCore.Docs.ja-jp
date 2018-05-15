@@ -1,7 +1,7 @@
 ---
-title: "Portable Object のローカライズを構成する"
+title: ASP.NET Core で Portable Object のローカライズを構成する
 author: sebastienros
-description: "この記事では、Portable Object (PO) ファイルについて紹介します。また、Orchard Core フレームワークを使用する ASP.NET Core アプリケーションで PO ファイルを使用する手順について説明します。"
+description: この記事では、Portable Object (PO) ファイルについて紹介します。また、Orchard Core フレームワークを使用する ASP.NET Core アプリケーションで PO ファイルを使用する手順について説明します。
 manager: wpickett
 ms.author: scaddie
 ms.date: 09/26/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: 6fefbd9b28d481184e358e7d66af68d112c63696
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: fbf2afd6fbc07c8068a21be15816aa45618f28d6
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="configure-portable-object-localization-with-orchard-core"></a>Orchard Core を使用して Portable Object のローカライズを構成する
+# <a name="configure-portable-object-localization-in-aspnet-core"></a>ASP.NET Core で Portable Object のローカライズを構成する
 
 作成者: [Sébastien Ros](https://github.com/sebastienros)、[Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -70,25 +70,25 @@ PO ファイルの仕様については、[こちら](https://www.gnu.org/savann
 
 ### <a name="referencing-the-package"></a>パッケージの参照
 
-`OrchardCore.Localization.Core` NuGet パッケージの参照を追加します。 これは、[MyGet](https://www.myget.org/) のパッケージ ソース https://www.myget.org/F/orchardcore-preview/api/v3/index.json から入手できます。
+`OrchardCore.Localization.Core` NuGet パッケージの参照を追加します。 [MyGet](https://www.myget.org/) のパッケージ ソース https://www.myget.org/F/orchardcore-preview/api/v3/index.json で入手できます。
 
 *.csproj* ファイルに次のような行が追加されました (バージョン番号は異なる可能性があります)。
 
-[!code-xml[Main](localization/sample/POLocalization/POLocalization.csproj?range=9)]
+[!code-xml[](localization/sample/POLocalization/POLocalization.csproj?range=9)]
 
 ### <a name="registering-the-service"></a>サービスの登録
 
 *Startup.cs* の `ConfigureServices` メソッドに必要なサービスを追加します。
 
-[!code-csharp[Main](localization/sample/POLocalization/Startup.cs?name=snippet_ConfigureServices&highlight=4-21)]
+[!code-csharp[](localization/sample/POLocalization/Startup.cs?name=snippet_ConfigureServices&highlight=4-21)]
 
 *Startup.cs* の `Configure` メソッドに必要なミドルウェアを追加します。
 
-[!code-csharp[Main](localization/sample/POLocalization/Startup.cs?name=snippet_Configure&highlight=15)]
+[!code-csharp[](localization/sample/POLocalization/Startup.cs?name=snippet_Configure&highlight=15)]
 
 選択した Razor ビューに次のコードを追加します。 この例では *About.cshtml* を使用します。
 
-[!code-cshtml[Main](localization/sample/POLocalization/Views/Home/About.cshtml)]
+[!code-cshtml[](localization/sample/POLocalization/Views/Home/About.cshtml)]
 
 "Hello world!" というテキストを翻訳するために、`IViewLocalizer` インスタンスが挿入され、使用されます。
 
@@ -96,7 +96,7 @@ PO ファイルの仕様については、[こちら](https://www.gnu.org/savann
 
 アプリケーションのルート フォルダーに *<culture code>.po* というファイルを作成します。 この例では、フランス語が使用されているため、ファイル名は *fr.po* です。
 
-[!code-text[Main](localization/sample/POLocalization/fr.po)]
+[!code-text[](localization/sample/POLocalization/fr.po)]
 
 このファイルには、翻訳する文字列とフランス語で翻訳された文字列の両方が格納されています。 必要に応じて、翻訳は元の親カルチャに戻されます。 この例では、要求されるカルチャが `fr-FR` または `fr-CA` の場合、*fr.po* ファイルが使用されます。
 
@@ -108,7 +108,7 @@ URL `/Home/About?culture=fr-FR` に移動します。 テキスト **Bonjour le 
 
 ## <a name="pluralization"></a>複数形化
 
-PO ファイルは複数形化フォームをサポートしています。これは、基数に基づいて同じ文字列の翻訳を変える必要がある場合に便利です。 各言語で、基数に基づいて使用する文字列を選択するためのカスタム ルールが定義されているため、このタスクは複雑になります。
+PO ファイルは複数形化フォームをサポートしています。これは、カーディナリティに基づいて同じ文字列の翻訳を変える必要がある場合に便利です。 各言語で、カーディナリティに基づいて使用する文字列を選択するためのカスタム ルールが定義されているため、このタスクは複雑になります。
 
 Orchard Localization パッケージには、このような異なる複数形を自動的に呼び出す API が用意されています。
 
@@ -127,13 +127,13 @@ msgstr[1] "Il y a {0} éléments."
 
 ### <a name="adding-a-language-using-different-pluralization-forms"></a>異なる複数形化フォームを使用する言語の追加
 
-前の例では、英語とフランス語の文字列が使用されていました。 英語とフランス語の複数形化フォームは 2 つのみであり、同じフォーム ルールを共有しています。つまり、1 の基数は最初の複数形にマップされます。 その他の基数は 2 番目の複数形にマップされます。
+前の例では、英語とフランス語の文字列が使用されていました。 英語とフランス語の複数形化フォームは 2 つのみであり、同じフォーム ルールを共有しています。つまり、1 のカーディナリティは最初の複数形にマップされます。 その他のカーディナリティは 2 番目の複数形にマップされます。
 
 すべての言語が同じルールを共有するわけではありません。 たとえば、チェコ語の場合は 3 つの複数形があります。
 
 `cs.po` ファイルを次のように作成し、複数形化に 3 つの異なる翻訳がどのように必要かを記述します。
 
-[!code-text[Main](localization/sample/POLocalization/cs.po)]
+[!code-text[](localization/sample/POLocalization/cs.po)]
 
 チェコ語のローカライズを引き受ける場合は、`ConfigureServices` メソッドでサポートされるカルチャのリストに `"cs"` を追加します。
 
@@ -206,7 +206,7 @@ msgstr "Bonjour le monde!"
 
 特定のエントリが特定のファイル コンテキストと一致しない場合、Orchard Core のフォールバック メカニズムによって、コンテキストなしで適切な PO ファイルが検索されます。 *Views/Home/Contact.cshtml* に特定のファイル コンテキストが定義されていない場合、`/Home/Contact?culture=fr-FR` に移動すると、次のような PO ファイルが読み込まれます。
 
-[!code-text[Main](localization/sample/POLocalization/fr.po)]
+[!code-text[](localization/sample/POLocalization/fr.po)]
 
 ### <a name="changing-the-location-of-po-files"></a>PO ファイルの場所の変更
 

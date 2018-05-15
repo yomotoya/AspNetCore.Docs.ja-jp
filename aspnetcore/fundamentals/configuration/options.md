@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core のオプション パターン"
+title: ASP.NET Core のオプション パターン
 author: guardrex
-description: "ASP.NET Core アプリの関連のある設定のグループを表すオプション パターンを使用する方法について説明します。"
+description: ASP.NET Core アプリの関連のある設定のグループを表すオプション パターンを使用する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/options
-ms.openlocfilehash: abb3b92af07a7b3b199712fcfdc459ca283d0017
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 660ee2365e2e186dd93d57ec79628e0bd7d24d52
+ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core のオプション パターン
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
-オプション パターンではオプション クラスを使用して、関連する設定のグループを表します。 構成設定が機能別に個々のオプション クラスに分離されるとき、アプリは次の 2 つのエンジニアリング原則に従います。
+オプション パターンではクラスを使用して、関連する設定のグループを表します。 構成設定が機能別に個々のクラスに分離されるとき、アプリは次の 2 つの重要なソフトウェア エンジニアリング原則に従います。
 
 * [ISP (Interface Segregation Principle/インターフェイス分離の原則)](http://deviq.com/interface-segregation-principle/): それが使用する構成設定にのみ依存する機能 (クラス)。
 * [懸念事項の分離 (Separation of Concerns)](http://deviq.com/separation-of-concerns/): アプリのさまざまな部分の設定が互いに非依存。
@@ -33,23 +33,23 @@ ms.lasthandoff: 01/30/2018
 
 オプション クラスはパラメーターのないパブリック コンストラクターを持った非抽象でなければなりません。 次のクラス `MyOptions` には `Option1` と `Option2` という 2 つのプロパティがあります。 既定値の設定は任意ですが、次の例のクラス コンストラクターは既定値 `Option1` を設定します。 `Option2` には、プロパティを直接初期化することで既定値が設定されます (*Models/MyOptions.cs*)。
 
-[!code-csharp[Main](options/sample/Models/MyOptions.cs?name=snippet1)]
+[!code-csharp[](options/sample/Models/MyOptions.cs?name=snippet1)]
 
 `MyOptions` クラスは [IConfigureOptions&lt;TOptions&gt;](/dotnet/api/microsoft.extensions.options.iconfigureoptions-1) でサービス コンテナーに追加され、次の構成にバインドされます。
 
-[!code-csharp[Main](options/sample/Startup.cs?name=snippet_Example1)]
+[!code-csharp[](options/sample/Startup.cs?name=snippet_Example1)]
 
 次のページ モデルは[コンストラクターの依存関係挿入](xref:fundamentals/dependency-injection#what-is-dependency-injection)と [IOptions&lt;TOptions&gt;](/dotnet/api/Microsoft.Extensions.Options.IOptions-1) を利用し、設定にアクセスします (*Pages/Index.cshtml.cs*)。
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?range=9)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?range=9)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=2,8)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=2,8)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet_Example1)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet_Example1)]
 
 サンプルの *appsettings.json* ファイルは `option1` と `option2` の値を指定します。
 
-[!code-json[Main](options/sample/appsettings.json)]
+[!code-json[](options/sample/appsettings.json)]
 
 アプリの実行時、ページ モデルの `OnGet` メソッドは文字列を返し、オプション クラス値を表示します。
 
@@ -63,19 +63,19 @@ option1 = value1_from_json, option2 = -1
 
 デリゲートを使用し、オプション値を設定します。 サンプル アプリでは、`MyOptionsWithDelegateConfig` クラス (*Models/MyOptionsWithDelegateConfig.cs*) を使用しています。
 
-[!code-csharp[Main](options/sample/Models/MyOptionsWithDelegateConfig.cs?name=snippet1)]
+[!code-csharp[](options/sample/Models/MyOptionsWithDelegateConfig.cs?name=snippet1)]
 
 次のコードでは、2 番目の `IConfigureOptions<TOptions>` サービスがサービス コンテナーに追加されます。 デリゲートを利用し、`MyOptionsWithDelegateConfig` とのバインディングを構成します。
 
-[!code-csharp[Main](options/sample/Startup.cs?name=snippet_Example2)]
+[!code-csharp[](options/sample/Startup.cs?name=snippet_Example2)]
 
 *Index.cshtml.cs*:
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?range=10)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?range=10)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3,9)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3,9)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet_Example2)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet_Example2)]
 
 複数の構成プロバイダーを追加できます。 構成プロバイダーは NuGet パッケージで利用できます。 登録順序で適用されます。
 
@@ -97,25 +97,25 @@ delegate_option1 = value1_configured_by_delgate, delegate_option2 = 500
 
 次のコードでは、3 番目の `IConfigureOptions<TOptions>` サービスがサービス コンテナーに追加されます。 `MySubOptions` を *appsettings.json* ファイルのセクション `subsection` にバインドします。
 
-[!code-csharp[Main](options/sample/Startup.cs?name=snippet_Example3)]
+[!code-csharp[](options/sample/Startup.cs?name=snippet_Example3)]
 
 拡張メソッド `GetSection` は、[Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/) NuGet パッケージを必要とします。 アプリが [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) メタパッケージを使用する場合、このパッケージは自動的に含まれます。
 
 サンプルの *appsettings.json* ファイルは、`suboption1` と `suboption2` のキーで `subsection` メンバーを定義します。
 
-[!code-json[Main](options/sample/appsettings.json?highlight=4-7)]
+[!code-json[](options/sample/appsettings.json?highlight=4-7)]
 
 `MySubOptions` クラスは、`SubOption1` プロパティと `SubOption2` プロパティを定義し、サブオプション値を保持します (*Models/MySubOptions.cs*)。
 
-[!code-csharp[Main](options/sample/Models/MySubOptions.cs?name=snippet1)]
+[!code-csharp[](options/sample/Models/MySubOptions.cs?name=snippet1)]
 
 ページ モデルの `OnGet` メソッドは、文字列とサブオプション値を返します (*Pages/Index.cshtml.cs*)。
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?range=11)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?range=11)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=4,10)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=4,10)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet_Example3)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet_Example3)]
 
 アプリの実行時、`OnGet` メソッドは文字列を返し、サブオプション クラス値を表示します。
 
@@ -129,15 +129,15 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 オプションはビュー モデルで提供するか、ビューに `IOptions<TOptions>` を直接挿入することで提供できます (*Pages/Index.cshtml.cs*)。
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?range=9)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?range=9)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=2,8)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=2,8)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet_Example4)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet_Example4)]
 
 直接挿入の場合、`@inject` ディレクティブで `IOptions<MyOptions>` を挿入します。
 
-[!code-cshtml[Main](options/sample/Pages/Index.cshtml?range=1-10&highlight=5)]
+[!code-cshtml[](options/sample/Pages/Index.cshtml?range=1-10&highlight=5)]
 
 アプリの実行時、レンダリングされたページにオプション値が表示されます。
 
@@ -153,11 +153,11 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 次の例では、*appsettings.json* の変更後、新しい `IOptionsSnapshot` が作成されます (*Pages/Index.cshtml.cs*)。 サーバーに複数の要求が届くと、ファイルが変更され、構成が再読み込みされるまで、*appsettings.json* ファイルによって提供される定数値が返されます。
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?range=12)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?range=12)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=5,11)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=5,11)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet_Example5)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet_Example5)]
 
 次のイメージでは、初期値の `option1` と `option2` が *appsettings.json* ファイルから読み込まれます。
 
@@ -179,15 +179,15 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 *名前付きオプション*をサポートすることで、アプリでは名前付きオプション構成が区別されます。 サンプル アプリでは、名前付きオプションが [ConfigureNamedOptions&lt;TOptions&gt;.Configure](/dotnet/api/microsoft.extensions.options.configurenamedoptions-1.configure) メソッドで宣言されています。
 
-[!code-csharp[Main](options/sample/Startup.cs?name=snippet_Example6)]
+[!code-csharp[](options/sample/Startup.cs?name=snippet_Example6)]
 
 サンプル アプリは [IOptionsSnapshot&lt;TOptions&gt;.Get](/dotnet/api/microsoft.extensions.options.ioptionssnapshot-1.get) で名前付きオプションにアクセスします (*Pages/Index.cshtml.cs*)。
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?range=13-14)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?range=13-14)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=6,12-13)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=6,12-13)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet_Example6)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet_Example6)]
 
 サンプル アプリを実行すると、名前付きオプションが返されます。
 
@@ -218,7 +218,7 @@ named_options_2: option1 = ConfigureAll replacement value, option2 = 5
 ```
 
 > [!NOTE]
-> ASP.NET Core 2.0 以降、すべてのオプションが名前付きインスタンスになります。 既存の `IConfigureOption` インスタンスは、`string.Empty` である、`Options.DefaultName` インスタンスを対象とするものとして処理されます。 `IConfigureNamedOptions` はまた、`IConfigureOptions` を実装します。 [IOptionsFactory&lt;TOptions&gt;](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1) ([reference source](https://github.com/aspnet/Options/blob/release/2.0.0/src/Microsoft.Extensions.Options/OptionsFactory.cs)) の既定の実装には、それぞれを適切に使用するためのロジックが与えられます。 名前付きオプション `null` は、特定の名前付きオプションの代わりにすべての名前付きインスタンスを対象にするときに使用されます ([ConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.configureall) と [PostConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.postconfigureall) ではこの規則が使用されます)。
+> ASP.NET Core 2.0 以降、すべてのオプションが名前付きインスタンスになります。 既存の `IConfigureOption` インスタンスは、`string.Empty` である、`Options.DefaultName` インスタンスを対象とするものとして処理されます。 `IConfigureNamedOptions` はまた、`IConfigureOptions` を実装します。 [IOptionsFactory&lt;TOptions&gt;](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1) ([参照元](https://github.com/aspnet/Options/blob/release/2.0/src/Microsoft.Extensions.Options/IOptionsFactory.cs)) の既定の実装には、それぞれを適切に使用するためのロジックが与えられます。 名前付きオプション `null` は、特定の名前付きオプションの代わりにすべての名前付きインスタンスを対象にするときに使用されます ([ConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.configureall) と [PostConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.postconfigureall) ではこの規則が使用されます)。
 
 ## <a name="ipostconfigureoptions"></a>IPostConfigureOptions
 

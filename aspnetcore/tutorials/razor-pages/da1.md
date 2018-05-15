@@ -1,21 +1,22 @@
 ---
-title: "生成されたページの更新"
+title: ASP.NET Core アプリで生成済みページを更新する
 author: rick-anderson
-description: "生成されたページを更新して、表示をわかりやすくします。"
+description: ASP.NET Core アプリで生成済みページを更新する方法について説明します。
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: a1bb1ab1e4fac9c634f4048947ac3f934af3d625
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 5c188799b7a42bcd5e9d5eab8dfe8cdad8002fe5
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="update-the-generated-pages"></a>生成されたページの更新
+# <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>ASP.NET Core アプリで生成済みページを更新する
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 01/30/2018
 
 *Models/Movie.cs* ファイルを開き、下のコードで強調表示されている行を追加します。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDate.cs?name=snippet_1&highlight=10-11)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDate.cs?name=snippet_1&highlight=10-11)]
 
 赤の波線を右クリックし、[クイック アクションとリファクタリング] を選択します。
 
@@ -39,8 +40,8 @@ ms.lasthandoff: 01/30/2018
 
   Visual Studio により `using System.ComponentModel.DataAnnotations;` が追加されます。
 
-[!INCLUDE[model1](../../includes/RP/da2.md)]
+[!INCLUDE [model1](../../includes/RP/da2.md)]
 
->[!div class="step-by-step"]
-[前: SQL Server LocalDB の使用](xref:tutorials/razor-pages/sql)
-[検索の追加](xref:tutorials/razor-pages/search)
+> [!div class="step-by-step"]
+> [前: SQL Server LocalDB の使用](xref:tutorials/razor-pages/sql)
+> [検索の追加](xref:tutorials/razor-pages/search)

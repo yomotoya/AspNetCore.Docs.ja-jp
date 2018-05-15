@@ -1,7 +1,7 @@
 ---
-title: ".ASP.NET Core MVC アプリへのモデルの追加"
+title: Visual Studio for Mac を使用して ASP.NET Core MVC アプリにモデルを追加する
 author: rick-anderson
-description: "単純な ASP.NET Core アプリケーションにモデルを追加します。"
+description: 単純な ASP.NET Core アプリケーションにモデルを追加します。
 manager: wpickett
 ms.author: riande
 ms.date: 09/22/2017
@@ -10,13 +10,15 @@ ms.prod: .net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-mac/adding-model
-ms.openlocfilehash: bf4d5d289266b585cbdfbb70c7482620fd4ced54
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6792dbc7c9ab063d85c0c4145481b8fd6b40da63
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
+# <a name="add-a-model-to-an-aspnet-core-mvc-app-with-visual-studio-for-mac"></a>Visual Studio for Mac を使用して ASP.NET Core MVC アプリにモデルを追加する
+
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 * *Models* フォルダーを右クリックし、**[追加]** > **[新しいファイル]** の順に選択します。 
 * **[新しいファイル]** ダイアログで次を実行します。
@@ -27,7 +29,7 @@ ms.lasthandoff: 01/30/2018
 
 `Movie` クラスに次のプロパティを追加します。
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
 
 `ID` フィールドは、データベースで主キー用に必要です。
 
@@ -41,17 +43,17 @@ ms.lasthandoff: 01/30/2018
 
 - *MvcMovie.csproj* ファイルに次の強調表示されている NuGet パッケージを追加します。
              
-  [!code-csharp[Main](../first-mvc-app-xplat/start-mvc/sample/MvcMovie/MvcMovie.csproj?highlight=7,10)]
+  [!code-csharp[](../first-mvc-app-xplat/start-mvc/sample/MvcMovie/MvcMovie.csproj?highlight=7,10)]
 
 - ファイルを保存します。
 
-- *Models/MvcMovieContext.cs* ファイルを作成して、次の `MvcMovieContext` クラスを追加します。[!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Models/MvcMovieContext.cs)]
+- *Models/MvcMovieContext.cs* ファイルを作成して、次の `MvcMovieContext` クラスを追加します。[!code-csharp[](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Models/MvcMovieContext.cs)]
    
-- *Startup.cs* ファイルを開き、using を 2 つ追加します。[!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet1&highlight=1,2)]
+- *Startup.cs* ファイルを開き、using を 2 つ追加します。[!code-csharp[](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet1&highlight=1,2)]
 
 - *Startup.cs* ファイルに、次のデータベース コンテキストを追加します。
 
-   [!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet2&highlight=6-7)]
+   [!code-csharp[](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet2&highlight=6-7)]
 
   これは、Entity Framework にデータ モデルにどのモデル クラスが含まれるか示します。 データベースに Movie テーブルとして反映される、Movie オブジェクトの*エンティティ セット*の 1 つを定義します。
 
@@ -96,9 +98,9 @@ dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMo
   * *Views* フォルダーに移動し、*Views\Movies* を選択し、**[開く]** を選択します。
   * **[Select files to add from Movies]\(Movies から追加するファイルを選択\)** ダイアログ ボックスで、**[Include All]\(すべて含める\)**、**[OK]** の順に選択します。
 
-[!INCLUDE[adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
+[!INCLUDE [adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model3.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model3.md)]
 
 これで、データを表示、編集、更新および削除できるデータベースができました。 次のチュートリアルでは、そのデータベースを使用します。
 
@@ -107,6 +109,6 @@ dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMo
 * [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)
 * [グローバライズとローカライズ](xref:fundamentals/localization)
 
->[!div class="step-by-step"]
-[前のチュートリアル ビューの追加](adding-view.md)
-[次のチュートリアル SQL の使用](working-with-sql.md)  
+> [!div class="step-by-step"]
+> [前のチュートリアル ビューの追加](adding-view.md)
+> [次のチュートリアル SQL の使用](working-with-sql.md)  

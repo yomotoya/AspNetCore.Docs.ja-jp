@@ -1,7 +1,7 @@
 ---
-title: "ビューへの依存関係の挿入"
+title: ASP.NET Core でのビューへの依存関係の挿入
 author: ardalis
-description: 
+description: ASP.NET Core で MVC ビューへの依存関係の挿入をサポートする方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 690fdd0fd841341d17de48c0a8c9af121da220de
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cc34b9069ec062f08644c0026c1ccdcd00f667ac
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="dependency-injection-into-views"></a>ビューへの依存関係の挿入
+# <a name="dependency-injection-into-views-in-aspnet-core"></a>ASP.NET Core でのビューへの依存関係の挿入
 
 作成者: [Steve Smith](https://ardalis.com/)
 
@@ -31,15 +31,15 @@ ASP.NET Core では、ビューへの[依存関係の挿入](xref:fundamentals/d
 
 アクションの `@inject` の例:
 
-[!code-csharp[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/ToDo/Index.cshtml?highlight=4,5,15,16,17)]
+[!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/ToDo/Index.cshtml?highlight=4,5,15,16,17)]
 
 このビューでは、全体的な統計を示す概要と共に、`ToDoItem` インスタンスのリストが表示されます。 概要は、挿入された `StatisticsService` から作成されます。 このサービスは、*Startup.cs* 内の `ConfigureServices` の依存関係の挿入に登録されます。
 
-[!code-csharp[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Startup.cs?highlight=6,7&range=15-22)]
+[!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Startup.cs?highlight=6,7&range=15-22)]
 
 `StatisticsService` では、`ToDoItem` インスタンスのセットでいくつかの計算を実行します。これには、次のリポジトリを使用してアクセスします。
 
-[!code-csharp[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/StatisticsService.cs?highlight=15,20,26)]
+[!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/StatisticsService.cs?highlight=15,20,25)]
 
 サンプルのリポジトリでは、メモリ内のコレクションを使用します。 上記の (メモリ内のすべてのデータを操作する) 実装は、大規模なリモートでアクセスされるデータ セットにはお勧めしません。
 
@@ -53,7 +53,7 @@ ASP.NET Core では、ビューへの[依存関係の挿入](xref:fundamentals/d
 
 別のアプローチでは、オプションを取得するために、ビューに直接サービスを挿入します。 これにより、このビュー要素の構築ロジックをビュー自体に移動して、コントローラーから要求されるコードの量を最小限にします。 プロファイルの編集フォームを表示するコントローラー アクションは、フォームにプロファイル インスタンスを渡すためにのみ必要です。
 
-[!code-csharp[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Controllers/ProfileController.cs?highlight=9,19)]
+[!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Controllers/ProfileController.cs?highlight=9,19)]
 
 これらの基本設定を更新するために使用される HTML フォームには、3 つのプロパティのドロップダウン リストが含まれます。
 
@@ -61,11 +61,11 @@ ASP.NET Core では、ビューへの[依存関係の挿入](xref:fundamentals/d
 
 これらのリストは、ビューに挿入されたサービスによって作成されます。
 
-[!code-csharp[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/Profile/Index.cshtml?highlight=4,16,17,21,22,26,27)]
+[!code-cshtml[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/Profile/Index.cshtml?highlight=4,16,17,21,22,26,27)]
 
 `ProfileOptionsService` は、このフォームに必要なデータだけを提供する UI レベルのサービスです。
 
-[!code-csharp[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/ProfileOptionsService.cs?highlight=7,13,24)]
+[!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/ProfileOptionsService.cs?highlight=7,13,24)]
 
 >[!TIP]
 > *Startup.cs* の `ConfigureServices` メソッド内の依存関係の挿入を介して要求する型を登録するのを忘れないでください。
@@ -78,7 +78,7 @@ ASP.NET Core では、ビューへの[依存関係の挿入](xref:fundamentals/d
 
 ご覧のように、既定のフィールドには、`Html`、`Component`、`Url` (さらに、挿入した `StatsService`) が含まれます。 たとえば、既定の HTML ヘルパーを自分のヘルパーに置き換える場合は、`@inject` を使用して簡単に置き換えることができます。
 
-[!code-html[Main](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/Helper/Index.cshtml?highlight=3,11)]
+[!code-cshtml[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/Helper/Index.cshtml?highlight=3,11)]
 
 既存のサービスを拡張する場合、独自に既存の実装から継承したり、ラップしたりするときに、この技術を使用できます。
 

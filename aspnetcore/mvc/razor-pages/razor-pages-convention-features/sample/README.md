@@ -6,7 +6,7 @@
 
 | フィーチャー | サンプル デモ |
 | -------- | ----------- |
-| [ルート モデル規則とアプリ モデル規則の追加](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#add-route-and-app-model-conventions) | アプリのページにルート属性とヘッダーを追加します。 |
+| [モデルの規則](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#model-conventions) | アプリのページにルート属性とヘッダーを追加します。 |
 | [AddPageRoute を使用してページのルートを追加する](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#configure-a-page-route) | 指定したルートを指定したページでページに追加します。 |
 | [ページ モデル アクション規則](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#page-model-action-conventions) | ヘッダーをフォルダー内のページに追加し、ヘッダーを単一ページに追加し、ヘッダーをアプリのページに追加するようにフィルター ファクトリを構成します。 |
 | [既定のページ アプリ モデル プロバイダーを置き換える](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#replace-the-default-page-app-model-provider) | ハンドラーの名前付け規則を変更します。 |

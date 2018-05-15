@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core の静的ファイルの使用"
+title: ASP.NET Core の静的ファイルの使用
 author: rick-anderson
-description: "静的ファイルを提供したり、それをセキュリティで保護したりする方法、および ASP.NET Core Web アプリで静的ファイルをホストするミドルウェアの動作を構成する方法について説明します。"
+description: 静的ファイルを提供したり、それをセキュリティで保護したりする方法、および ASP.NET Core Web アプリで静的ファイルをホストするミドルウェアの動作を構成する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/static-files
-ms.openlocfilehash: 7b156830ab59db3c08fbff6b2c4180d8765a113b
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 46e868910661024ea3b950e78ced02a095896be1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="work-with-static-files-in-aspnet-core"></a>ASP.NET Core の静的ファイルの使用
 
@@ -31,20 +31,17 @@ HTML、CSS、画像、JavaScript などの静的ファイルは、ASP.NET Core �
 
 アプリの Web ホストでは、コンテンツのルート ディレクトリが把握されている必要があります。
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 `WebHost.CreateDefaultBuilder` メソッドでは、コンテンツのルートが現在のディレクトリに設定されます。
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=9)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 `Program.Main` 内で [UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseContentRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) が呼び出され、コンテンツのルートが現在のディレクトリに設定されます。
 
 [!code-csharp[](static-files/samples/1x/Program.cs?name=snippet_ProgramClass&highlight=7)]
 
----
-
+* * *
 静的なファイルには、Web ルートへの相対パスを使用してアクセスできます。 たとえば、**Web アプリケーション** プロジェクト テンプレートには、*wwwroot* フォルダー内の次のいくつかフォルダーが含まれています。
 
 * **wwwroot**
@@ -236,9 +233,9 @@ app.UseFileServer(enableDirectoryBrowsing: true);
 > [!WARNING]
 > `UseDirectoryBrowser` と `UseStaticFiles` では、機密データが漏洩することがあります。 本番では、ディレクトリ参照を無効にすることが、強く推奨されます。 `UseStaticFiles` や `UseDirectoryBrowser` でどのディレクトリが有効になっているか、慎重にご確認ください。 ディレクトリ全体とそのサブディレクトリが、パブリックにアクセス可能になります。 ファイルは、パブリックに提供するのに適した、*\<content_root>/wwwroot* などの専用ディレクトリに格納します。 これらのファイルは、MVC ビュー、Razor ページ (2.x のみ)、構成ファイルなどとは別にします。
 
-* `UseDirectoryBrowser` と `UseStaticFiles` で公開されるコンテンツの URL では、大文字と小文字が区別され、基になるファイル システムの文字制限の影響を受けます。 たとえば、Windows では大文字小文字は区別されますが、Mac と Linux ではされません。
+* `UseDirectoryBrowser` と `UseStaticFiles` で公開されるコンテンツの URL では、大文字と小文字が区別され、基になるファイル システムの文字制限の影響を受けます。 たとえば、Windows では大文字小文字は区別されますが、macOS と Linux ではされません。
 
-* IIS でホストされている ASP.NET Core アプリは、[ASP.NET Core モジュール (ANCM)](xref:fundamentals/servers/aspnet-core-module) を使用して、静的ファイルの要求を含む、すべての要求をアプリに転送します。 IIS 静的ファイル ハンドラーは使用されません。 ANCM によって処理される前に、これで要求が処理されることはありません。
+* IIS でホストされている ASP.NET Core アプリは、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)を使用して、静的ファイルの要求を含む、すべての要求をアプリに転送します。 IIS 静的ファイル ハンドラーは使用されません。 モジュールによって処理される前に、これで要求が処理されることはありません。
 
 * IIS マネージャーで次の手順を実行し、サーバーまたは Web サイト レベルで IIS の静的ファイル ハンドラーを削除します。
     1. **[モジュール]** 機能に移動します。
@@ -246,7 +243,7 @@ app.UseFileServer(enableDirectoryBrowsing: true);
     1. **[アクション]** サイドバーで、**[削除]** をクリックします。
 
 > [!WARNING]
-> IIS の静的ファイル ハンドラーが有効になっており**、**ANCM が正しく構成されていない場合、静的ファイルは提供されます。 これは、たとえば、*web.config* ファイルが配置されていない場合などで発生します。
+> IIS の静的ファイル ハンドラーが有効になっており、**かつ**、ASP.NET Core モジュールが正しく構成されていない場合、静的ファイルにサービスが提供されます。 これは、たとえば、*web.config* ファイルが配置されていない場合などで発生します。
 
 * アプリ プロジェクトの Web ルートの外に、(*.cs* と *.cshtml* を含む) コード ファイルを配置します。 これにより、アプリのクライアント側コンテンツとサーバー ベースのコードの間で、論理的な分離が作成されます。 これによって、サーバー側のコードが漏洩するのを防ぎます。
 

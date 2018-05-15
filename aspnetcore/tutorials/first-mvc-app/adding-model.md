@@ -1,27 +1,29 @@
 ---
-title: "ASP.NET Core MVC アプリへのモデルの追加"
+title: .ASP.NET Core MVC アプリへのモデルの追加
 author: rick-anderson
-description: "単純な ASP.NET Core アプリケーションにモデルを追加します。"
-ms.author: riande
+description: 単純な ASP.NET Core アプリケーションにモデルを追加します。
 manager: wpickett
+ms.author: riande
 ms.date: 12/8/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: bc7f016b734d42a59342cc9896b502624526359a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4204d4e2d474db51692d42751a9f82373e9f0c0d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
+# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>.ASP.NET Core MVC アプリへのモデルの追加
+
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 注: ASP.NET Core 2.0 テンプレートには、*Models* フォルダーが含まれています。
 
 *Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順に選択します。 クラスに **Movie** という名前を付けて、次のプロパティを追加します。
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
 
 `ID` フィールドは、データベースで主キー用に必要です。 
 
@@ -59,7 +61,7 @@ Visual Studio では、次が作成されます。
 
 * Entity Framework Core の[データベース コンテキスト クラス](xref:data/ef-mvc/intro#create-the-database-context)(*Data/MvcMovieContext.cs*)
 * ムービー コントローラー (*Controllers/MoviesController.cs*)
-* 作成、削除、詳細、編集、およびインデックス ページ用の Razor ビュー ファイル (*Views/Movies/&ast;.cshtml*)
+* 作成、削除、詳細、編集、およびインデックス ページ用の Razor ビュー ファイル (<em>Views/Movies/&ast;.cshtml</em>)
 
 データベース コンテキストと [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (作成、読み取り、更新、および削除) アクション メソッドとビューの自動作成は、*スキャフォールディング*と言います。 ムービー データベースを管理できる、完全に機能する Web アプリケーションがすぐに完成します。
 
@@ -113,12 +115,21 @@ Update-Database
   dotnet ef database update
   ```     
   
+  アプリを実行してエラーが表示される場合:
+  
+  ```text
+  SqlException: Cannot open database "Movie" requested by the login.
+  The login failed.
+  Login failed for user 'user name'.
+  ```
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model3.md)]
+` dotnet ef database update` を実行していない可能性があります。
+  
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model3.md)]
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model4.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model4.md)]
 
 ![Intellisense のコンテキスト メニュー (Model アイテムの ID、価格、リリース日、およびタイトル プロパティ)](adding-model/_static/ints.png)
 
@@ -127,6 +138,6 @@ Update-Database
 * [タグ ヘルパー](xref:mvc/views/tag-helpers/intro)
 * [グローバライズとローカライズ](xref:fundamentals/localization)
 
->[!div class="step-by-step"]
-[前のチュートリアル ビューの追加](adding-view.md)
-[次のチュートリアル SQL の使用](working-with-sql.md)  
+> [!div class="step-by-step"]
+> [前のチュートリアル ビューの追加](adding-view.md)
+> [次のチュートリアル SQL の使用](working-with-sql.md)  

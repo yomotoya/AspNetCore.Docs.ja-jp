@@ -1,7 +1,7 @@
 ---
-title: "レイアウト"
+title: ASP.NET Core でのレイアウト
 author: ardalis
-description: 
+description: 共通レイアウトの使用方法、ディレクティブの共有方法、および ASP.NET Core アプリでビューをレンダリングする前に共通コードを実行する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/layout
-ms.openlocfilehash: 3e9e5949d8940a33508e24f0da015b49b7ba468c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8e89c8e6cf18c47abb6bf432cdc6bb6b97e8aeb0
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="layout"></a>レイアウト
+# <a name="layout-in-aspnet-core"></a>ASP.NET Core でのレイアウト
 
 作成者: [Steve Smith](https://ardalis.com/)
 
@@ -37,13 +37,13 @@ ms.lasthandoff: 01/30/2018
 
 `_Layout.cshtml` の例:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
+[!code-html[](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
 
 ## <a name="specifying-a-layout"></a>レイアウトの指定
 
 Razor ビューには `Layout` プロパティがあります。 個々のビューは、このプロパティを設定することでレイアウトを指定します。
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
 指定されたレイアウトは、完全なパス (例: `/Views/Shared/_Layout.cshtml`) または部分的な名前 (例: `_Layout`) を使用できます。 部分的な名前を指定すると、Razor ビュー エンジンが標準の検出プロセスを使用して、レイアウト ファイルを検索します。 コントローラーに関連付けられているフォルダーが最初に検索され、次に `Shared` フォルダーが検索されます。 この検出プロセスは、[部分ビュー](partial.md)の検出に使用されるのと同じプロセスです。
 
@@ -99,7 +99,7 @@ Razor ページ内の本文とすべてのセクションは、レンダリン�
 
 `_ViewImports.cshtml` ファイルのサンプル:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
 ASP.NET Core MVC アプリの `_ViewImports.cshtml` ファイルは、通常、`Views` フォルダーに配置されます。 `_ViewImports.cshtml` ファイルは、任意のフォルダー内に配置できますが、その場合は、そのフォルダーとそのサブフォルダー内にあるビューにのみ適用されます。 `_ViewImports` ファイルは、最初にルート レベルで処理され、その後ビュー自体の場所までフォルダーごとに処理されるため、ルート レベルで指定された設定がフォルダー レベルでオーバーライドされる可能性があります。
 
@@ -127,7 +127,7 @@ ASP.NET Core MVC アプリの `_ViewImports.cshtml` ファイルは、通常、`
 
 `_ViewStart.cshtml` ファイルのサンプル:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
 
 上記のファイルは、すべてのビューで `_Layout.cshtml` レイアウトを使用することを指定します。
 

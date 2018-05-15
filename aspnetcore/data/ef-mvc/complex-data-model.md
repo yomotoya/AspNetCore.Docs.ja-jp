@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC と EF Core - データ モデル - 5/10"
+title: ASP.NET Core MVC と EF Core - データ モデル - 5/10
 author: tdykstra
-description: "このチュートリアルでは、エンティティとリレーションシップをさらに追加し、書式設定、検証、データベース マッピングの規則を指定してデータ モデルをカスタマイズします。"
+description: このチュートリアルでは、エンティティとリレーションシップをさらに追加し、書式設定、検証、マッピングの規則を指定してデータ モデルをカスタマイズします。
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: ac30d9ae5531934ba5163a8d9114b11ac54af8d2
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: ab3d4221b498bb2987105fb36f2c6803f8fe6125
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>複合データ モデルの作成 - EF Core と ASP.NET Core MVC に関するチュートリアル (5/10)
+# <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC と EF Core - データ モデル - 5/10
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -37,7 +37,7 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
 *Models/Student.cs* で、次の例のように、`System.ComponentModel.DataAnnotations` 名前空間の `using` ステートメントを追加し、`DataType` および `DisplayFormat` 属性を `EnrollmentDate` プロパティに追加します。
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
 `DataType` 属性は、データベースの組み込み型よりも具体的なデータ型を指定するために使用されます。 この例では、追跡する必要があるのは、日付と時刻ではなく、日付のみです。 `DataType` 列挙型は、Date、Time、PhoneNumber、Currency、EmailAddress など、多くの型のために用意されています。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 たとえば、`mailto:` リンクを `DataType.EmailAddress` に作成したり、HTML5 をサポートするブラウザーで `DataType.Date` に日付セレクターを提供したりできます。 `DataType` 属性は、HTML 5 ブラウザーが認識できる HTML 5 `data-` ("データ ダッシュ" と読みます) 属性を出力します。 `DataType` 属性では検証が提供されません。
 
@@ -69,7 +69,7 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
 たとえば、ユーザーが 50 文字を超える名前を入力しないようにする必要があるとします。 この制限を追加するには、次の例のように、`StringLength` 属性を `LastName` および `FirstMidName` プロパティに追加します。
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
 `StringLength` 属性では、ユーザーが名前に空白を入力しないようにすることはできません。 `RegularExpression` 属性を使用して、入力に制限を適用することができます。 たとえば、次のコードでは、最初の文字を大文字にし、残りの文字をアルファベット順にすることを要求します。
 
@@ -107,7 +107,7 @@ dotnet ef database update
 
 *Student.cs* ファイルで、以下の強調表示されているコードに示されているように、`System.ComponentModel.DataAnnotations.Schema` の `using` ステートメントを追加し、列名属性を `FirstMidName` プロパティに追加します。
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
 
 `Column` 属性を追加すると、`SchoolContext` をサポートするモデルが変更されるため、データベースと一致しなくなります。
 
@@ -136,7 +136,7 @@ dotnet ef database update
 
 *Models/Student.cs* で、前の手順で追加したコードを以下のコードに置き換えます。 変更が強調表示されます。
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
 
 ### <a name="the-required-attribute"></a>Required 属性
 
@@ -164,7 +164,7 @@ public string LastName { get; set; }
 
 *Models/Instructor.cs* を作成し、テンプレート コードを以下のコードに置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
+[!code-csharp[](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
 
 Student および Instructor エンティティに同じプロパティがいくつかあることに注目してください。 このシリーズの後半の[継承の実装](inheritance.md)に関するチュートリアルでは、冗長さをなくすため、このコードをリファクタリングします。
 
@@ -200,7 +200,7 @@ public OfficeAssignment OfficeAssignment { get; set; }
 
 以下のコードを使用して、*Models/OfficeAssignment.cs* を作成します。
 
-[!code-csharp[Main](intro/samples/cu/Models/OfficeAssignment.cs)]
+[!code-csharp[](intro/samples/cu/Models/OfficeAssignment.cs)]
 
 ### <a name="the-key-attribute"></a>Key 属性
 
@@ -227,7 +227,7 @@ Instructor ナビゲーション プロパティに `[Required]` 属性を配置
 
 *Models/Course.cs* で、前の手順で追加したコードを以下のコードに置き換えます。 変更が強調表示されます。
 
-[!code-csharp[Main](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
+[!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
 
 Course エンティティには外部キー プロパティ `DepartmentID` (関連する Department エンティティを指す) があり、`Department` ナビゲーション プロパティがあります。
 
@@ -277,7 +277,7 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 以下のコードを使用して、*Models/Department.cs* を作成します。
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
 
 ### <a name="the-column-attribute"></a>Column 属性
 
@@ -322,7 +322,7 @@ public ICollection<Course> Courses { get; set; }
 
 *Models/Enrollment.cs* で、前の手順で追加したコードを以下のコードに置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
+[!code-csharp[](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
 
 ### <a name="foreign-key-and-navigation-properties"></a>外部キー プロパティとナビゲーション プロパティ
 
@@ -362,7 +362,7 @@ Enrollment テーブルに成績情報が含まれていなかった場合、含
 
 以下のコードを使用して、*Models/CourseAssignment.cs* を作成します。
 
-[!code-csharp[Main](intro/samples/cu/Models/CourseAssignment.cs)]
+[!code-csharp[](intro/samples/cu/Models/CourseAssignment.cs)]
 
 ### <a name="join-entity-names"></a>結合エンティティの名前
 
@@ -378,7 +378,7 @@ Enrollment テーブルに成績情報が含まれていなかった場合、含
 
 次の強調表示されているコードを *Data/SchoolContext.cs* ファイルに追加します。
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
 
 このコードでは新しいエンティティが追加され、CourseAssignment エンティティの複合主キーが構成されます。
 
@@ -413,7 +413,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 *Data/DbInitializer.cs* ファイルのコードを以下のコードに置き換えて、作成した新しいエンティティのシード データを提供します。
 
-[!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
+[!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
 
 最初のチュートリアルの説明のとおり、このコードのほとんどでは単に新しいエンティティ オブジェクトを作成し、テストで必要な場合にサンプル データをプロパティに読み込みます。 多対多リレーションシップがどのように処理されているかに注目してください。このコードでは、`Enrollments` および `CourseAssignment` 結合エンティティ セットでエンティティを作成して、リレーションシップを作成しています。
 
@@ -444,11 +444,11 @@ Done. To undo this action, use 'ef migrations remove'
 
 * DepartmentID 列を Course テーブルに追加するコードの行をコメントアウトします。
 
-  [!code-csharp[Main](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
+  [!code-csharp[](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
 
 * Department テーブルを作成するコードの後に、次の強調表示されたコードを追加します。
 
-  [!code-csharp[Main](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
+  [!code-csharp[](intro/samples/cu/Migrations/20170215234014_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
 運用アプリケーションでは、コードまたはスクリプトを記述して、Department 行を追加し、Course 行を新しい Department 行に関連付けます。 これで、Course.DepartmentID 列の既定値や "Temp" 学科は不要になります。
 
@@ -495,6 +495,6 @@ dotnet ef database update
 
 これで、より複雑なデータ モデルと対応するデータベースの準備ができました。 次のチュートリアルでは、関連データへのアクセス方法について説明します。
 
->[!div class="step-by-step"]
-[前へ](migrations.md)
-[次へ](read-related-data.md)  
+> [!div class="step-by-step"]
+> [前へ](migrations.md)
+> [次へ](read-related-data.md)  

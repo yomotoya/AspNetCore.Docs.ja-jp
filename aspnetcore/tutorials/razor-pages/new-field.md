@@ -1,21 +1,22 @@
 ---
-title: "Razor ページへの新しいフィールドの追加"
+title: ASP.NET Core で Razor ページに新しいファイルを追加する
 author: rick-anderson
-description: "Entity Framework Core を使用した Razor ページへの新しいフィールドの追加方法"
+description: Entity Framework Core を使用した Razor ページへの新しいフィールドの追加方法
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 36412e9d1f3143f0d1999d0e754e6627f0984ad5
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 45a39defc9480b0e4fe85ae7ed6bfa654a35264a
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="adding-a-new-field-to-a-razor-page"></a>Razor ページへの新しいフィールドの追加
+# <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core で Razor ページに新しいファイルを追加する
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -27,13 +28,13 @@ EF Code First を利用してデータベースを自動作成すると、Code F
 
 *Models/Movie.cs* ファイルを開き、`Rating` プロパティを追加します。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
 
 アプリをビルドします (Ctrl+Shift+B)。
 
 *Pages/Movies/Index.cshtml* を編集し、`Rating` フィールドを追加します。
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=40-42,61-63)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=40-42,61-63)]
 
 [削除] と [詳細] ページに、`Rating` フィールドを追加します。
 
@@ -43,7 +44,7 @@ EF Code First を利用してデータベースを自動作成すると、Code F
 
 次に、`Rating` フィールドがある *Create.cshtml* のコードを示します。
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?highlight=36-40)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?highlight=36-40)]
 
 [編集] ページに、`Rating` フィールドを追加します。
 
@@ -67,7 +68,7 @@ SqlException: Invalid column name 'Rating'.
 
 新しい列に値を提供するように、`SeedData` クラスを更新します。 下に変更のサンプルがありますが、`new Movie` ブロックごとにこの変更を行ってください。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
 
 [完成した SeedData.cs ファイル](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs)を参照してください。
 
@@ -102,6 +103,6 @@ Update-Database
 
 アプリを実行し、`Rating` フィールドでムービーを作成、編集、表示できることを確認します。 データベースがシードされていない場合は IIS Express を停止し、アプリを実行します。
 
->[!div class="step-by-step"]
-[前: 検索の追加](xref:tutorials/razor-pages/search)
-[次: 検証の追加](xref:tutorials/razor-pages/validation)
+> [!div class="step-by-step"]
+> [前: 検索の追加](xref:tutorials/razor-pages/search)
+> [次: 検証の追加](xref:tutorials/razor-pages/validation)

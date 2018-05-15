@@ -1,7 +1,7 @@
 ---
-title: "検証の追加"
+title: ASP.NET Core Razor ページに検証を追加する
 author: rick-anderson
-description: "Razor ページに検証を追加する方法について説明します。"
+description: ASP.NET Core で Razor ページに検証を追加する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,13 +9,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 770b930373888c8b4bd578ba6d2524546549800e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 271a5ce517ae550845d96e3969b39b1eda6ae51b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="adding-validation-to-a-razor-page"></a>Razor ページに検証を追加する
+# <a name="add-validation-to-an-aspnet-core-razor-page"></a>ASP.NET Core Razor ページに検証を追加する
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -33,7 +33,7 @@ Razor ページと Entity Framework が提供している検証のサポート�
 
 `Required`、`StringLength`、`RegularExpression`、および `Range` 検証属性を利用するように `Movie` クラスを更新します。
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 検証属性で、モデルのプロパティに適用されている動作を指定します。
 
@@ -85,7 +85,7 @@ ASP.NET Core で検証規則を自動的に適用すると、アプリをより�
 
 次のコードは、以前のチュートリアルでスキャフォールディング処理した *Create.cshtml* ページの一部です。 [Create] または [Edit] ページで、最初のフォームを表示し、エラーのイベント時にフォームを再表示するために使用されます。
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
 [入力タグ ヘルパー](xref:mvc/views/working-with-forms)は [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) 属性を使用し、クライアント側で jQuery 検証に必要な HTML 属性を生成します。 [検証タグ ヘルパー](xref:mvc/views/working-with-forms#the-validation-tag-helpers)には検証エラーが表示されます。 詳しくは、[検証に関する記事](xref:mvc/models/validation)をご覧ください。
 
@@ -97,7 +97,7 @@ ASP.NET Core で検証規則を自動的に適用すると、アプリをより�
 
 `Movie` クラスを調べます。 `System.ComponentModel.DataAnnotations` 名前空間には、組み込みの検証属性セットに加え、書式設定の属性もあります。 `DataType` 属性は、`ReleaseDate` および `Price` プロパティに適用されます。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
 `DataType` 属性は、ビュー エンジンに対して、データの書式設定のヒントのみを提供します (また、URL の場合に `<a>`、電子メールの場合に `<a href="mailto:EmailAddress.com">` などの属性を提供します)。 `RegularExpression` 属性は、データの書式を検証するために使用されます。 `DataType` 属性は、データベースの組み込み型よりも具体的なデータ型を指定するために使用されます。 `DataType` 属性は、検証属性ではありません。 サンプル アプリケーションでは、日付のみが表示され、時刻は表示されません。
 
@@ -130,9 +130,9 @@ public DateTime ReleaseDate { get; set; }
 
 次のコードは、1 行で複数の属性を組み合わせる例です。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
-[Razor ページと EE Core の概要](xref:data/ef-rp/intro)に関するページでは、Razor ページでの EE Core 操作についてより詳しく説明されています。
+[Razor ページと EF Core の概要](xref:data/ef-rp/intro)に関するページでは、Razor ページでの EF Core 操作についてより詳しく説明されています。
 
 ### <a name="publish-to-azure"></a>Azure に発行する
 
@@ -145,6 +145,6 @@ public DateTime ReleaseDate { get; set; }
 * [Tag Helpers の概要](xref:mvc/views/tag-helpers/intro)
 * [タグ ヘルパーの作成](xref:mvc/views/tag-helpers/authoring)
 
->[!div class="step-by-step"]
-[前: 新しいフィールドの追加](xref:tutorials/razor-pages/new-field)
-[次: ファイルのアップロード](xref:tutorials/razor-pages/uploading-files)
+> [!div class="step-by-step"]
+> [前: 新しいフィールドの追加](xref:tutorials/razor-pages/new-field)
+> [次: ファイルのアップロード](xref:tutorials/razor-pages/uploading-files)

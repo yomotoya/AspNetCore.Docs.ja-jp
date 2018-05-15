@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core で変更トークンを使用して変更を検出する"
+title: ASP.NET Core で変更トークンを使用して変更を検出する
 author: guardrex
-description: "変更トークンを使用して変更を追跡する方法を説明します。"
+description: 変更トークンを使用して変更を追跡する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 11/10/2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 94bf356fcbfab3930804485c1b65e4a0f4c52b8e
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 3055eec91adc412b596d4cc73e8523e18ff63331
+ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>ASP.NET Core で変更トークンを使用して変更を検出する
 
@@ -59,22 +59,22 @@ ms.lasthandoff: 01/31/2018
 
 既定では、ASP.NET Core テンプレートは、[JSON 構成ファイル](xref:fundamentals/configuration/index#json-configuration) (*appsettings.json*、*appsettings.Development.json*、および *appsettings.Production.json*) を使用して、アプリの構成設定を読み込みます。
 
-これらのファイルは、`reloadOnChange` パラメーター (ASP.NET Core 1.1 以降) を受け入れる [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder) 上で [AddJsonFile(IConfigurationBuilder, String, Boolean, Boolean)](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions.addjsonfile?view=aspnetcore-2.0#Microsoft_Extensions_Configuration_JsonConfigurationExtensions_AddJsonFile_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_System_Boolean_System_Boolean_) 拡張メソッドを使用して構成されます。 `reloadOnChange` は、ファイルの変更時に構成を再読み込みするかどうかを示します。 [WebHost](/dotnet/api/microsoft.aspnetcore.webhost) の簡易メソッド [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) ([参照ソース](https://github.com/aspnet/MetaPackages/blob/rel/2.0.3/src/Microsoft.AspNetCore/WebHost.cs#L152-L193)) でこの設定を参照します。
+これらのファイルは、`reloadOnChange` パラメーター (ASP.NET Core 1.1 以降) を受け入れる [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder) 上で [AddJsonFile(IConfigurationBuilder, String, Boolean, Boolean)](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions.addjsonfile?view=aspnetcore-2.0#Microsoft_Extensions_Configuration_JsonConfigurationExtensions_AddJsonFile_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_System_Boolean_System_Boolean_) 拡張メソッドを使用して構成されます。 `reloadOnChange` は、ファイルの変更時に構成を再読み込みするかどうかを示します。 [WebHost](/dotnet/api/microsoft.aspnetcore.webhost) の簡易メソッド [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) でこの設定を参照します。
 
 ```csharp
 config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
       .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
 ```
 
-ファイル ベースの構成は、[FileConfigurationSource](/dotnet/api/microsoft.extensions.configuration.fileconfigurationsource) によって表されます。 `FileConfigurationSource` は、[IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider) ([参照ソース](https://github.com/aspnet/FileSystem/blob/patch/2.0.1/src/Microsoft.Extensions.FileProviders.Abstractions/IFileProvider.cs)) を使用してファイルを監視します。
+ファイル ベースの構成は、[FileConfigurationSource](/dotnet/api/microsoft.extensions.configuration.fileconfigurationsource) によって表されます。 `FileConfigurationSource` はファイルのモニターに、[IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider) を使用します。
 
-既定では、`IFileMonitor` は [PhysicalFileProvider](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider) ([参照ソース](https://github.com/aspnet/Configuration/blob/patch/2.0.1/src/Microsoft.Extensions.Configuration.FileExtensions/FileConfigurationSource.cs#L82)) によって提供されます。これは、[FileSystemWatcher](/dotnet/api/system.io.filesystemwatcher) を使用して、構成ファイルの変更を監視します。
+既定では、`IFileMonitor` は [PhysicalFileProvider](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider) によって提供されます。これは、[FileSystemWatcher](/dotnet/api/system.io.filesystemwatcher) を使用して、構成ファイルの変更を監視します。
 
 サンプル アプリは、構成の変更を監視するための 2 つの実装を示します。 *appsettings.json* ファイルが変更されるか、ファイルの環境バージョンが変更された場合、各実装はカスタム コードを実行します。 サンプル アプリは、コンソールにメッセージを書き込みます。
 
 構成ファイルの `FileSystemWatcher` は、1 つの構成ファイルの変更に対して複数のトークンのコールバックをトリガーできます。 サンプルの実装は、構成ファイルのファイル ハッシュをチェックして、この問題を防ぎます。 ファイル ハッシュを確認することで、カスタム コードを実行する前に、構成ファイルの少なくとも 1 つが変更されたことを確認します。 このサンプルでは、SHA1 ファイル ハッシュ (*Utilities/Utilities.cs*) を使用します。
 
-   [!code-csharp[Main](change-tokens/sample/Utilities/Utilities.cs?name=snippet1)]
+   [!code-csharp[](change-tokens/sample/Utilities/Utilities.cs?name=snippet1)]
 
    再試行は、指数バックオフを使用して実装されます。 再実行が提供されるのは、いずれかのファイルで新しいハッシュの計算を一時的に妨げるファイルのロックが発生する場合があるためです。
 
@@ -82,11 +82,11 @@ config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
 
 構成再読み込みトークン (*Startup.cs*) への変更通知のためにトークン コンシューマー `Action` のコールバックを登録します。
 
-[!code-csharp[Main](change-tokens/sample/Startup.cs?name=snippet2)]
+[!code-csharp[](change-tokens/sample/Startup.cs?name=snippet2)]
 
 `config.GetReloadToken()` はトークンを提供します。 コールバックは、`InvokeChanged` メソッドです。
 
-[!code-csharp[Main](change-tokens/sample/Startup.cs?name=snippet3)]
+[!code-csharp[](change-tokens/sample/Startup.cs?name=snippet3)]
 
 `IHostingEnvironment` で渡すためにコールバックの `state` が使用されます。 これは、監視する正しい *appsettings* 構成 JSON ファイル *appsettings.&lt;Environment&gt;.json* を調べるために役立ちます。 ファイル ハッシュは、構成ファイルが 1 回のみ変更されたときの複数のトークンのコールバックのために `WriteConsole` ステートメントが複数回実行されるのを防ぐために使用されます。
 
@@ -102,11 +102,11 @@ config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
 
 このサンプルは、`IConfigurationMonitor` インターフェイス (*Extensions/ConfigurationMonitor.cs*) を確立します。
 
-[!code-csharp[Main](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet1)]
+[!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet1)]
 
 実装済みのクラスのコンストラクター `ConfigurationMonitor` は、変更通知のコールバックを登録します。
 
-[!code-csharp[Main](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet2)]
+[!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet2)]
 
 `config.GetReloadToken()` はトークンを提供します。 `InvokeChanged` はコールバック メソッドです。 このインスタンスの `state` は、監視の状態を説明する文字列です。 次の 2 つのプロパティが使用されます。
 
@@ -119,21 +119,21 @@ config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
 * `CurrentState` プロパティ文字列をコードが実行された時刻を記録する説明メッセージに設定します。
 * `WriteConsole` 出力の現在の `state` に注意してください。
 
-[!code-csharp[Main](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet3)]
+[!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet3)]
 
 インスタンス `ConfigurationMonitor` は、*Startup.cs* の `ConfigureServices` でサービスとして登録されます。
 
-[!code-csharp[Main](change-tokens/sample/Startup.cs?name=snippet1)]
+[!code-csharp[](change-tokens/sample/Startup.cs?name=snippet1)]
 
 インデックス ページは、ユーザーに構成監視の制御を提供します。 `IConfigurationMonitor` のインスタンスは、`IndexModel` に挿入されます。
 
-[!code-csharp[Main](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet1)]
+[!code-csharp[](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet1)]
 
 ボタンによって監視を有効および無効にします。
 
-[!code-cshtml[Main](change-tokens/sample/Pages/Index.cshtml?range=35)]
+[!code-cshtml[](change-tokens/sample/Pages/Index.cshtml?range=35)]
 
-[!code-csharp[Main](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet2)]
+[!code-csharp[](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet2)]
 
 `OnPostStartMonitoring` がトリガーされると、監視が有効になり、現在の状態がクリアされます。 `OnPostStopMonitoring` がトリガーされると、監視が無効になり、監視が発生していないことを反映するように状態が設定されます。
 
@@ -152,7 +152,7 @@ config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
 
 *Utilities/Utilities.cs*:
 
-[!code-csharp[Main](change-tokens/sample/Utilities/Utilities.cs?name=snippet2)]
+[!code-csharp[](change-tokens/sample/Utilities/Utilities.cs?name=snippet2)]
 
 `FileService` はキャッシュされたファイルの参照の処理するために作成されます。 サービスの `GetFileContent` メソッドの呼び出しは、メモリ内キャッシュからファイルの内容を取得して、呼び出し元 (*Services/FileService.cs*) に戻そうとします。
 
@@ -162,19 +162,19 @@ config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
 1. 変更トークンは、[IFileProviders.Watch](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.watch) を使用してファイル プロバイダーから取得します。 ファイルが変更されたときに、トークンのコールバックがトリガーされます。
 1. ファイルの内容は、[スライド式有効期限](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryoptions.slidingexpiration)の期間キャシュされます。 ファイルがキャッシュされている間に変更された場合、キャッシュ エントリを削除するために、[MemoryCacheEntryExtensions.AddExpirationToken](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryextensions.addexpirationtoken) を使用して変更トークンがアタッチされます。
 
-[!code-csharp[Main](change-tokens/sample/Services/FileService.cs?name=snippet1)]
+[!code-csharp[](change-tokens/sample/Services/FileService.cs?name=snippet1)]
 
 `FileService` がメモリ キャッシュ サービス (*Startup.cs*) と共にサービス コンテナーに登録されます。
 
-[!code-csharp[Main](change-tokens/sample/Startup.cs?name=snippet4)]
+[!code-csharp[](change-tokens/sample/Startup.cs?name=snippet4)]
 
 ページのモデルは、サービス (*Pages/Index.cshtml.cs*) を使用して、ファイルの内容を読み込みます。
 
-[!code-csharp[Main](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet3)]
+[!code-csharp[](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet3)]
 
 ## <a name="compositechangetoken-class"></a>CompositeChangeToken クラス
 
-1 つのオブジェクト内で 1 つまたは複数の `IChangeToken` インスタンスを表すために、[CompositeChangeToken](/dotnet/api/microsoft.extensions.primitives.compositechangetoken)クラス ([参照ソース](https://github.com/aspnet/Common/blob/patch/2.0.1/src/Microsoft.Extensions.Primitives/CompositeChangeToken.cs)) を使用します。
+1 つのオブジェクト内で 1 つまたは複数の `IChangeToken` インスタンスを表すために、[CompositeChangeToken](/dotnet/api/microsoft.extensions.primitives.compositechangetoken) クラスを使用します。
 
 ```csharp
 var firstCancellationTokenSource = new CancellationTokenSource();

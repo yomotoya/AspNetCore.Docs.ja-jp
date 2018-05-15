@@ -1,7 +1,7 @@
 ---
-title: "新しいフィールドの追加"
+title: ASP.NET Core アプリに新しいフィールドを追加する
 author: rick-anderson
-description: 
+description: Entity Framework Code First Migrations を利用し、新しいフィールドをモデルに追加し、その変更をデータベースに移行します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: f8a5f9528d899f75aaabfbca38f075a27763567f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a314115459fedb9561694604509856503c023a5c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="adding-a-new-field"></a>新しいフィールドの追加
+# <a name="add-a-new-field-to-an-aspnet-core-app"></a>ASP.NET Core アプリに新しいフィールドを追加する
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -27,7 +27,7 @@ EF Code First を利用してデータベースを自動作成すると、Code F
 
 *Models/Movie.cs* ファイルを開き、`Rating` プロパティを追加します。
 
-[!code-csharp[Main](start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
+[!code-csharp[](start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
 
 アプリをビルドします (Ctrl+Shift+B)。
 
@@ -41,7 +41,7 @@ EF Code First を利用してデータベースを自動作成すると、Code F
 
 */Views/Movies/Index.cshtml* ファイルを編集し、`Rating` フィールドを追加します。
 
-[!code-HTML[Main](start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
+[!code-HTML[](start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
 
 */Views/Movies/Create.cshtml* を `Rating` フィールドで更新します。 前の "form group" をコピー/貼り付けし、intelliSense にフィールドを更新させることができます。 IntelliSense は[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)と連動します。 注: RTM バージョンの Visual Studio 2017 では、Razor intelliSense の [Razor 言語サービス](https://marketplace.visualstudio.com/items?itemName=ms-madsk.RazorLanguageServices)をインストールする必要があります。 これは次のリリースで修正されます。
 
@@ -65,7 +65,7 @@ DB を更新して新しいフィールドが含まれるようになるまで�
 
 新しい列に値を提供するように、`SeedData` クラスを更新します。 下に変更のサンプルがありますが、`new Movie` ごとにこの変更を行ってください。
 
-[!code-csharp[Main](start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
+[!code-csharp[](start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 
 ソリューションをビルドします。
 
@@ -86,6 +86,6 @@ DB 内のすべてのレコードを削除すると、初期化子は DB にデ�
 
 アプリを実行し、`Rating` フィールドでムービーを作成、編集、表示できることを確認します。 また、`Rating` フィールドはビュー テンプレートの `Edit`、`Details`、`Delete` にも追加してください。
 
->[!div class="step-by-step"]
-[前へ](search.md)
-[次へ](validation.md)  
+> [!div class="step-by-step"]
+> [前へ](search.md)
+> [次へ](validation.md)  

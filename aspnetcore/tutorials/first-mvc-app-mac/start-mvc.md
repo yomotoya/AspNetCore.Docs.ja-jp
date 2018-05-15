@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC と Visual Studio for Mac の概要"
+title: ASP.NET Core MVC と Visual Studio for Mac の概要
 author: rick-anderson
-description: "ASP.NET Core MVC と Visual Studio の概要"
+description: ASP.NET Core MVC と Visual Studio の概要について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 8/23/2017
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: 05a2323851c58c95667066a74c11f1d015405e6f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ffa620f07251c52c785672d8fbeefacac31ed4c1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="getting-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>ASP.NET Core MVC と Visual Studio for Mac の概要
+# <a name="get-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>ASP.NET Core MVC と Visual Studio for Mac の概要
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 このチュートリアルでは、[Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/) を使用した、ASP.NET Core MVC Web アプリの構築の基礎について説明します。 
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 このチュートリアルには 3 つのバージョンがあります。
 
@@ -31,12 +31,7 @@ ms.lasthandoff: 01/30/2018
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-このチュートリアルには、[.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 以降が必要です。
-
-以下をインストールします。
-
-- [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 以降
-- [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+[!INCLUDE [](~/includes/net-core-prereqs-macos.md)]
 
 ## <a name="create-a-web-app"></a>Web アプリの作成
 
@@ -67,5 +62,5 @@ Visual Studio で、**[実行]、[デバッグなしで開始]** の順に選択
 
 このチュートリアルの次のパートでは、MVC について説明し、コードの作成を開始します。
 
->[!div class="step-by-step"]
-[次へ](adding-controller.md)  
+> [!div class="step-by-step"]
+> [次へ](adding-controller.md)  

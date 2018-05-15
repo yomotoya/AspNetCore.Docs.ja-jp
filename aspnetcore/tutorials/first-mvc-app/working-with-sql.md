@@ -1,7 +1,7 @@
 ---
-title: "SQL Server LocalDB の使用"
+title: ASP.NET Core での SQL Server LocalDB の使用
 author: rick-anderson
-description: "単純な MVC アプリでの SQL Server LocalDB の使用"
+description: 単純な ASP.NET Core MVC アプリで SQL Server LocalDB を使用する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
@@ -9,23 +9,23 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: a0aa6fdfa51650628021a4ba6d0533e7e0e39200
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3f69657cb21e163bdf00fb1faea98889046e9b45
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="working-with-sql-server-localdb"></a>SQL Server LocalDB の使用
+# <a name="work-with-sql-server-localdb-in-aspnet-core"></a>ASP.NET Core での SQL Server LocalDB の使用
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `MvcMovieContext` オブジェクトは、データベースへの接続と、データベース レコードへの `Movie` オブジェクトのマッピングのタスクを処理します。 データベース コンテキストは、*Startup.cs* ファイルの `ConfigureServices` メソッドで[依存性の注入](xref:fundamentals/dependency-injection)コンテナーに登録されます。
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
 
 ASP.NET Core の[構成](xref:fundamentals/configuration/index)システムは `ConnectionString` を読み取ります。 ローカルで開発する場合は、*appsettings.json* ファイルから接続文字列を取得します。
 
-[!code-json[Main](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
+[!code-json[](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
 テストまたは実稼働サーバーにアプリを配置する場合は、環境変数または別の方法を使用して、実際の SQL Server に接続文字列を設定できます。 詳細については、[構成](xref:fundamentals/configuration/index)に関するページを参照してください。
 
@@ -55,7 +55,7 @@ LocalDB は、プログラム開発を対象にした、SQL Server Express デ�
 
 *Models* フォルダーに `SeedData` という名前の新しいクラスを作成します。 生成されたコードを次のコードに置き換えます。
 
-[!code-csharp[Main](start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[](start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
 
 DB にムービーがある場合、シード初期化子が返され、ムービーは追加されません。
 
@@ -69,20 +69,17 @@ if (context.Movie.Any())
 <a name="si"></a>
 ### <a name="add-the-seed-initializer"></a>シード初期化子の追加
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 次のように、*Program.cs* ファイルで `Main` メソッドにシード初期化子を追加します。
 
-[!code-csharp[Main](start-mvc/sample/MvcMovie/Program.cs?highlight=6,14-32)]
+[!code-csharp[](start-mvc/sample/MvcMovie/Program.cs?highlight=6,14-32)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 次のように、*Startup.cs* ファイルで `Configure` メソッドの末尾にシード初期化子を追加します。
 
-[!code-csharp[Main](start-mvc/sample/MvcMovie/Startup.cs?highlight=9&name=snippet_seed)]
+[!code-csharp[](start-mvc/sample/MvcMovie/Startup.cs?highlight=9&name=snippet_seed)]
 
----
-
+* * *
 アプリのテスト
 
 * DB 内のすべてのレコードを削除します。 これはブラウザーの削除リンクで行うか、SSOX から行うことができます。
@@ -94,13 +91,13 @@ if (context.Movie.Any())
 
     ![コンテキスト メニュー](working-with-sql/_static/stopIIS.png)
 
-   * 非デバッグ モードで VS を実行していた場合は、F5 キーを押してデバッグ モードで実行します。
-   * デバッグ モードで VS を実行していた場合は、デバッガーを停止して、F5 キーを押します。
-   
+    * 非デバッグ モードで VS を実行していた場合は、F5 キーを押してデバッグ モードで実行します。
+    * デバッグ モードで VS を実行していた場合は、デバッガーを停止して、F5 キーを押します。
+
 アプリにシードされたデータが表示されます。
 
 ![ムービー データが表示された、Microsoft Edge で開かれている MVC ムービー アプリケーション](working-with-sql/_static/m55.png)
 
->[!div class="step-by-step"]
-[前へ](adding-model.md)
-[次へ](controller-methods-views.md)  
+> [!div class="step-by-step"]
+> [前へ](adding-model.md)
+> [次へ](controller-methods-views.md)  

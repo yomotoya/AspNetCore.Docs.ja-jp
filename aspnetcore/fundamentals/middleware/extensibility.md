@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core でのファクトリ ベースのミドルウェアのアクティブ化"
+title: ASP.NET Core でのファクトリ ベースのミドルウェアのアクティブ化
 author: guardrex
-description: "ASP.NET Core で、ファクトリ ベースの厳密に型指定されたミドルウェアをアクティブ化する方法を説明します。"
+description: ASP.NET Core で、ファクトリ ベースの厳密に型指定されたミドルウェアをアクティブ化する方法を説明します。
 ms.author: riande
 manager: wpickett
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware/extensibility
-ms.openlocfilehash: 57ff9db2edbf307f2442443dc14e69b0498f7475
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 76ba257abfb11e0c2950b974f837c6ae5818a6a1
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="factory-based-middleware-activation-in-aspnet-core"></a>ASP.NET Core でのファクトリ ベースのミドルウェアのアクティブ化
 
@@ -35,8 +35,8 @@ ms.lasthandoff: 02/01/2018
 
 このサンプル アプリでは、次でアクティブ化されるミドルウェアを示します。
 
-* 規則 (`ConventionalMiddleware`). 従来のミドルウェアのアクティブ化については、「[ミドルウェア](xref:fundamentals/middleware/index)」のトピックを参照してください。
-* [IMiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.imiddlewarefactory) の実装 (`IMiddlewareMiddleware`)。 既定の [MiddlewareFactory クラス](/dotnet/api/microsoft.aspnetcore.http.middlewarefactory)によってミドルウェアはアクティブ化されます。
+* 規則。 従来のミドルウェアのアクティブ化については、「[ミドルウェア](xref:fundamentals/middleware/index)」のトピックを参照してください。
+* [IMiddleware](/dotnet/api/microsoft.aspnetcore.http.imiddleware) の実装。 既定の [MiddlewareFactory クラス](/dotnet/api/microsoft.aspnetcore.http.middlewarefactory)によってミドルウェアはアクティブ化されます。
 
 ミドルウェアの実装は同一に機能し、クエリ文字列パラメーターで提供された値を記録します (`key`)。 ミドルウェアは、メモリ内データベースにクエリ文字列値を記録するのに、挿入されたデータベース コンテキスト (スコープ化されたサービス) を使用します。
 
@@ -46,15 +46,15 @@ ms.lasthandoff: 02/01/2018
 
 規則でアクティブ化されるミドルウェア:
 
-[!code-csharp[Main](extensibility/sample/Middleware/ConventionalMiddleware.cs?name=snippet1)]
+[!code-csharp[](extensibility/sample/Middleware/ConventionalMiddleware.cs?name=snippet1)]
 
 `MiddlewareFactory` でアクティブ化されるミドルウェア:
 
-[!code-csharp[Main](extensibility/sample/Middleware/IMiddlewareMiddleware.cs?name=snippet1)]
+[!code-csharp[](extensibility/sample/Middleware/IMiddlewareMiddleware.cs?name=snippet1)]
 
 ミドルウェア用に拡張機能が作成されます。
 
-[!code-csharp[Main](extensibility/sample/Middleware/MiddlewareExtensions.cs?name=snippet1)]
+[!code-csharp[](extensibility/sample/Middleware/MiddlewareExtensions.cs?name=snippet1)]
 
 `UseMiddleware` では、ファクトリでアクティブ化されたミドルウェアにオブジェクトを渡すことはできません。
 
@@ -69,11 +69,11 @@ public static IApplicationBuilder UseIMiddlewareMiddleware(
 
 ファクトリでアクティブ化されたミドルウェアは、*Startup.cs* の組み込みのコンテナーに追加されます。
 
-[!code-csharp[Main](extensibility/sample/Startup.cs?name=snippet1&highlight=6)]
+[!code-csharp[](extensibility/sample/Startup.cs?name=snippet1&highlight=6)]
 
 この 2 つのミドルウェアは、要求を処理する `Configure` のパイプラインに登録されます。
 
-[!code-csharp[Main](extensibility/sample/Startup.cs?name=snippet2&highlight=12-13)]
+[!code-csharp[](extensibility/sample/Startup.cs?name=snippet2&highlight=12-13)]
 
 ## <a name="imiddlewarefactory"></a>IMiddlewareFactory
 
@@ -84,3 +84,4 @@ public static IApplicationBuilder UseIMiddlewareMiddleware(
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [ミドルウェア](xref:fundamentals/middleware/index)
+* [サードパーティー コンテナーによるミドルウェアのアクティブ化](xref:fundamentals/middleware/extensibility-third-party-container)

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core のエラー処理"
+title: ASP.NET Core のエラーを処理する
 author: ardalis
-description: "ASP.NET Core アプリケーションでエラーを処理する方法について説明します。"
+description: ASP.NET Core アプリケーションでエラーを処理する方法について説明します。
 manager: wpickett
 ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/error-handling
-ms.openlocfilehash: 5b0cda7b79b8a9523d1ba6a9b321d22d3ccc753a
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 5443cbeb1ef95c579e5fc12b625babbfa27c7ec2
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction-to-error-handling-in-aspnet-core"></a>ASP.NET Core でのエラー処理の概要
+# <a name="handle-errors-in-aspnet-core"></a>ASP.NET Core のエラーを処理する
 
 執筆: [Steve Smith](https://ardalis.com/)、[Tom Dykstra](https://github.com/tdykstra/)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/30/2018
 
 例外に関する詳細を表示するページを表示するようにアプリを構成するには、`Microsoft.AspNetCore.Diagnostics` NuGet パッケージをインストールし、[Startup クラスの Configure メソッド](startup.md)に次の行を追加します。
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
 
 `app.UseMvc` のように、例外をキャッチするミドルウェアの前に `UseDeveloperExceptionPage` を挿入します。
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/30/2018
 
 アプリを `Development` 環境で実行しないときに使用する例外ハンドラー ページを構成することをお勧めします。
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
 MVC アプリでは、`HttpGet` など、HTTP メソッド属性でエラー ハンドラー アクション メソッドを明示的に修飾しないでください。 明示的な動詞を使用すると、要求がメソッドに届かないことがあります。
 
@@ -65,39 +65,44 @@ public IActionResult Index()
 
 ## <a name="configuring-status-code-pages"></a>ステータス コード ページを構成する
 
-アプリは既定で、500 (内部サーバー エラー) や 404 (見つかりません) など、HTTP ステータス コードをリッチ ページで表示しません。 `Configure` メソッドに次の行を追加することで `StatusCodePagesMiddleware` を構成できます。
+アプリは既定で、*404 見つかりません*などの HTTP 状態コードのリッチ状態コード ページを表示しません。 状態コード ページを表示するには、`Startup.Configure` メソッドに行を追加して状態コード ページ ミドルウェアを構成します。
 
 ```csharp
 app.UseStatusCodePages();
 ```
 
-既定では、このミドルウェアは、404 など、一般的なステータス コードに単純なテキストのみのハンドラーを追加します。
+状態コード ページ ミドルウェアは、既定で、404 などの一般的な状態コードに単純なテキストのみのハンドラーを追加します。
 
 ![404 ページ](error-handling/_static/default-404-status-code.png)
 
-ミドルウェアは、さまざまな拡張メソッドに対応しています。 ラムダ式を受け取るものや、コンテンツの種類と書式設定文字列を受け取るものがあります。
+このミドルウェアは、いくつかの拡張メソッドに対応しています。 1 つのメソッドがラムダ式を受け取ります。
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
+
+別のメソッドがコンテンツの種類と書式文字列を受け取ります。
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-リダイレクト拡張メソッドもあります。 302 ステータス コードをクライアントに送信するものや、元のステータス コードをクライアントに返すが、リダイレクト URL のハンドラーを実行するものがあります。
+また、リダイレクトと再実行の拡張メソッドもあります。 リダイレクト メソッドは、クライアントに 302 状態コードを送信します。
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
+
+再実行メソッドは、元の状態コードをクライアントに返しますが、リダイレクト URL のハンドラーも実行します。
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
 ```
 
-特定の要求に対してステータス コード ページを無効にする場合、次の方法で可能です。
+状態コード ページは、Razor ページ ハンドラー メソッドまたは MVC コントローラー内の特定の要求に対して無効にすることができます。 状態コード ページを無効にするには、要求の [HttpContext.Features](/dotnet/api/microsoft.aspnetcore.http.httpcontext.features) コレクションから [IStatusCodePagesFeature](/dotnet/api/microsoft.aspnetcore.diagnostics.istatuscodepagesfeature) を取得し、機能が有効な場合は無効にします。
 
 ```csharp
-var statusCodePagesFeature = context.Features.Get<IStatusCodePagesFeature>();
+var statusCodePagesFeature = HttpContext.Features.Get<IStatusCodePagesFeature>();
+
 if (statusCodePagesFeature != null)
 {
-  statusCodePagesFeature.Enabled = false;
+    statusCodePagesFeature.Enabled = false;
 }
 ```
 
@@ -109,13 +114,15 @@ if (statusCodePagesFeature != null)
 
 ## <a name="server-exception-handling"></a>サーバー例外処理
 
-アプリの例外処理ロジックに加え、アプリをホストしている[サーバー](servers/index.md)がいくつかの例外処理を実行します。 サーバーがヘッダーの送信前に例外をキャッチすると、サーバーは 500 内部サーバー エラーを本文なしで送信します。 サーバーがヘッダーの送信後に例外をキャッチすると、サーバーは接続を閉じます。 アプリで処理されない要求はサーバーで処理されます。 例外が発生すると、サーバーの例外処理で処理されます。 カスタムのエラー ページ、例外処理ミドルウェア、フィルターを構成しても、この動作は変わりません。
+アプリの例外処理ロジックに加え、アプリをホストしている[サーバー](servers/index.md)がいくつかの例外処理を実行します。 サーバーがヘッダーの送信前に例外をキャッチすると、サーバーは *500 内部サーバー エラー*を本文なしで送信します。 サーバーがヘッダーの送信後に例外をキャッチすると、サーバーは接続を閉じます。 アプリで処理されない要求はサーバーで処理されます。 例外が発生すると、サーバーの例外処理で処理されます。 カスタムのエラー ページ、例外処理ミドルウェア、フィルターを構成しても、この動作は変わりません。
 
 ## <a name="startup-exception-handling"></a>起動時の例外処理
 
 アプリの起動中に起こる例外はホスティング層だけが処理できます。 `captureStartupErrors` と `detailedErrors` キーを利用し、[起動中のエラーに対するホストの動作を構成](hosting.md#detailed-errors)できます。
 
-ホスティングでは、ホスト アドレス/ポート バインディング後にエラーが発生した場合のみ、キャプチャされた起動時エラーに対してエラー ページを表示できます。 何らかの理由でバインディングに失敗した場合、ホスティング層は重要な例外をログに記録し、dotnet プロセスがクラッシュします。エラー ページは表示されません。
+ホスティングでは、ホスト アドレス/ポート バインディング後にエラーが発生した場合のみ、キャプチャされた起動時エラーに対してエラー ページを表示できます。 何らかの理由でバインディングに失敗した場合、ホスティング層は重要な例外をログに記録し、dotnet プロセスがクラッシュします。[Kestrel](xref:fundamentals/servers/kestrel) サーバー上でアプリが実行されている場合、エラー ページは表示されません。
+
+[IIS](/iis) または [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) 上で実行されている場合、プロセスを開始できなければ、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)から *502.5 プロセス エラー*が返されます。 [IIS 上での ASP.NET Core のトラブルシューティング](xref:host-and-deploy/iis/troubleshoot)に関するトピックのトラブルシューティングのアドバイスに従ってください。
 
 ## <a name="aspnet-mvc-error-handling"></a>ASP.NET MVC エラー処理
 

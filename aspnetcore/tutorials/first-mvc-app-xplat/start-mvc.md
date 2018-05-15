@@ -1,7 +1,7 @@
 ---
-title: "Mac、Linux、Windows の ASP.NET Core MVC の概要"
+title: macOS、Linux、Windows の ASP.NET Core MVC の概要
 author: rick-anderson
-description: "Mac、Linux、Windows の ASP.NET Core MVC と Visual Studio Code の概要"
+description: macOS、Linux、Windows の ASP.NET Core MVC と Visual Studio Code の使用を開始する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 07/07/2017
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/start-mvc
-ms.openlocfilehash: 4771555b66f328a819f17a32eb3959f9ecf33d44
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 50fbd54c6b0cc1146271afda7e45a0dab590dd7d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="getting-started-with-aspnet-core-mvc--on-mac-linux-or-windows"></a>Mac、Linux、Windows の ASP.NET Core MVC の概要
+# <a name="introduction-to-aspnet-core-mvc-on-macos-linux-or-windows"></a>macOS、Linux、Windows の ASP.NET Core MVC の概要
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 このチュートリアルでは、[Visual Studio Code](https://code.visualstudio.com) (VS Code) を使用した、ASP.NET Core MVC Web アプリの構築の基礎について説明します。 このチュートリアルは VS Code の知識があることを前提としています。 詳細については、[VS Code の概要](https://code.visualstudio.com/docs)、および [Visual Studio Code のヘルプ](#visual-studio-code-help)に関するページを参照してください。 
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 このチュートリアルには 3 つのバージョンがあります。
 
@@ -29,15 +29,9 @@ ms.lasthandoff: 01/30/2018
 * Windows: [Visual Studio を使用して ASP.NET Core MVC アプリを作成する](xref:tutorials/first-mvc-app/start-mvc)
 * macOS、Linux、Windows: [Visual Studio Code を使用して ASP.NET Core MVC アプリを作成する](xref:tutorials/first-mvc-app-xplat/start-mvc) 
 
-## <a name="install-vs-code-and-net-core"></a>VS Code と .NET Core のインストール
+## <a name="prerequisites"></a>必須コンポーネント
 
-このチュートリアルには、[.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 以降が必要です。 ASP.NET Core 1.1 バージョンについては、[この PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf) をご覧ください。
-
-以下をインストールします。
-
-* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 以降。
-* [Visual Studio Code](https://code.visualstudio.com)
-* VS Code [C# 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
+[!INCLUDE [](~/includes/net-core-prereqs-vscode.md)]
 
 ## <a name="create-a-web-app-with-dotnet"></a>dotnet での Web アプリの作成
 
@@ -75,9 +69,9 @@ VS Code で [Kestrel](xref:fundamentals/servers/kestrel) Web サーバーが起�
 - [統合ターミナル](https://code.visualstudio.com/docs/editor/integrated-terminal)
 - [ショートカット キー](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
 
-  - [Mac ショートカット キー](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+  - [macOS ショートカット キー](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
   - [Linux ショートカット キー](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
   - [Windows ショートカット キー](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
->[!div class="step-by-step"]
-[次 - コントローラーの追加](adding-controller.md)
+> [!div class="step-by-step"]
+> [次 - コントローラーの追加](adding-controller.md)

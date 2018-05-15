@@ -12,7 +12,7 @@
 No executable found matching command "dotnet-aspnet-codegenerator"
   ```
 
-プロジェクト ディレクトリ (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むディレクトリ) のコマンド シェルを開きます。
+前のエラーは、間違ったディレクトリにいる場合に発生します。 プロジェクト ディレクトリ (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むディレクトリ) のコマンド シェルを開いて、前のコマンドを実行します。
 
 エラーが発生した場合は、次のようにします。
   ```

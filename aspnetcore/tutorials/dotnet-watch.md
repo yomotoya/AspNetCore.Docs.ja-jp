@@ -1,7 +1,7 @@
 ---
-title: "dotnet watch を使用した ASP.NET Core アプリの開発"
+title: dotnet watch を使用した ASP.NET Core アプリの開発
 author: rick-anderson
-description: "このチュートリアルでは、.NET Core CLI のファイル ウォッチャー (dotnet watch) ツールをインストールし、ASP.NET Core アプリケーションで使用する方法について説明します。"
+description: このチュートリアルでは、.NET Core CLI のファイル ウォッチャー (dotnet watch) ツールをインストールし、ASP.NET Core アプリケーションで使用する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/05/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: cb15e28cb98ea82091cf5ddeed12df8926079e52
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c3ece3a5b936b2ea7b7772eee10e598cb557b361
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="developing-aspnet-core-apps-using-dotnet-watch"></a>dotnet watch を使用した ASP.NET Core アプリの開発
+# <a name="develop-aspnet-core-apps-using-dotnet-watch"></a>dotnet watch を使用した ASP.NET Core アプリの開発
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) と [Victor Hurdugaci](https://twitter.com/victorhurdugaci)
 
@@ -95,7 +95,7 @@ public static int Product(int a, int b)
 
 1. *MathController.cs* の `Product` メソッドを元に戻して合計を返すようにし、ファイルを保存します。
 1. コマンド シェルで、*WebAppTests* フォルダーに移動します。
-1. `dotnet restore` を実行します。
+1. [dotnet restore](/dotnet/core/tools/dotnet-restore) を実行します。
 1. `dotnet watch test` を実行します。 テストに失敗し、ウォッチャーがファイル変更を待っていることが出力に示されます。
 
      ```console

@@ -1,23 +1,23 @@
 ---
-title: "部分ビュー"
+title: ASP.NET Core での部分ビュー
 author: ardalis
-description: "ASP.NET Core MVC での部分ビューの使用"
+description: 部分ビューが別のビュー内でどのようにレンダリングされるビューか、ASP.NET Core アプリでどのような場合に使用すべきかについて説明します。
 manager: wpickett
 ms.author: riande
-ms.date: 03/14/2017
+ms.date: 03/14/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/partial
-ms.openlocfilehash: 169948e5d7dc8068463ed61114666148b785b217
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3deaaeb666e5443d0784f2ac6977e58e1b25d711
+ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/20/2018
 ---
-# <a name="partial-views"></a>部分ビュー
+# <a name="partial-views-in-aspnet-core"></a>ASP.NET Core での部分ビュー
 
-著者: [Steve Smith](https://ardalis.com/)、[Maher JENDOUBI](https://twitter.com/maherjend)、[Rick Anderson](https://twitter.com/RickAndMSFT)
+作成者: [Steve Smith](https://ardalis.com/)、[Maher JENDOUBI](https://twitter.com/maherjend)、[Rick Anderson](https://twitter.com/RickAndMSFT)、[Scott Sauber](https://twitter.com/scottsauber)
 
 ASP.NET Core MVC では部分ビューがサポートされます。これらのビューは、さまざまなビューで共有する Web ページの一部を再利用できる場合に便利です。
 
@@ -41,19 +41,17 @@ ASP.NET Core MVC では部分ビューがサポートされます。これらの
 
 ## <a name="referencing-a-partial-view"></a>部分ビューの参照
 
-ビュー ページ内から、部分ビューをレンダリングできる方法がいくつかあります。 最も単純な方法は、`Html.Partial` を使用することです。この場合、`IHtmlString` を返し、呼び出しの前に `@` を指定して参照できます。
+ビュー ページ内から、部分ビューをレンダリングできる方法がいくつかあります。 ベスト プラクティスは、`Html.PartialAsync` を使用することです。この場合、`IHtmlString` を返し、呼び出しの前に `@` を指定して参照できます。
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=9)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=8)]
 
-`PartialAsync` メソッドは、非同期コードを含む部分ビューで使用できます (ただし、ビューのコードは一般的にはお勧めできません)。
+`RenderPartialAsync` を使用して、部分ビューをレンダリングできます。 このメソッドは結果を返しません。レンダリングされた出力を直接応答にストリーミングします。 結果を返さないため、Razor コード ブロック内で呼び出す必要があります。
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=8)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=11-13)]
 
-`RenderPartial` を使用して、部分ビューをレンダリングできます。 このメソッドは結果を返しません。レンダリングされた出力を直接応答にストリーミングします。 結果を返さないため、Razor コード ブロック内で呼び出す必要があります (必要に応じて、`RenderPartialAsync` を呼び出すこともできます)。
+結果を直接ストリーミングするため、一部のシナリオでは `RenderPartialAsync` のパフォーマンスが向上する場合がありますが、 `PartialAsync` を使用することをお勧めします。
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=10-12)]
-
-結果を直接ストリーミングするため、一部のシナリオでは `RenderPartial` と `RenderPartialAsync` のパフォーマンスが向上する場合があります。 ただし、ほとんどの場合は、`Partial` と `PartialAsync` を使用することをお勧めします。
+`Html.PartialAsync` (`Html.Partial`) と `Html.RenderPartialAsync` (`Html.RenderPartial`) という同期相当の機能がありますが、デッドロックが発生するシナリオがあるため、同期相当の機能の使用はお勧めしません。 今後のバージョンでは、この同期方法は使用されなくなる予定です。
 
 > [!NOTE]
 > ビューでコードを実行する必要がある場合は、部分ビューの代わりに[ビュー コンポーネント](view-components.md)を使用するパターンをお勧めします。
@@ -62,21 +60,21 @@ ASP.NET Core MVC では部分ビューがサポートされます。これらの
 
 部分ビューを参照するときに、いくつかの方法でその場所を参照することができます。
 
-```text
+```cshtml
 // Uses a view in current folder with this name
 // If none is found, searches the Shared folder
-@Html.Partial("ViewName")
+@await Html.PartialAsync("ViewName")
 
 // A view with this name must be in the same folder
-@Html.Partial("ViewName.cshtml")
+@await Html.PartialAsync("ViewName.cshtml")
 
 // Locate the view based on the application root
 // Paths that start with "/" or "~/" refer to the application root
-@Html.Partial("~/Views/Folder/ViewName.cshtml")
-@Html.Partial("/Views/Folder/ViewName.cshtml")
+@await Html.PartialAsync("~/Views/Folder/ViewName.cshtml")
+@await Html.PartialAsync("/Views/Folder/ViewName.cshtml")
 
 // Locate the view using relative paths
-@Html.Partial("../Account/LoginPartial.cshtml")
+@await Html.PartialAsync("../Account/LoginPartial.cshtml")
 ```
 
 別のビュー フォルダーで同じ名前の別の部分ビューを使用することができます。 名前 (ファイル拡張子なし) でビューを参照する場合、各フォルダー内のビューではそれと同じフォルダーの部分ビューを使用します。 *Shared* フォルダーに配置して、使用する既定の部分ビューを指定することもできます。 共有部分ビューは、部分ビューの独自のバージョンがないすべてのビューで使用されます。 親ビューと同じフォルダーの同じ名前の部分ビューによってオーバーライドされる、既定の部分ビューを (*Shared* 内で) 使用できます。
@@ -92,31 +90,31 @@ ASP.NET Core MVC では部分ビューがサポートされます。これらの
 
 `ViewDataDictionary` のインスタンスを部分ビューに渡すことができます。
 
-```csharp
-@Html.Partial("PartialName", customViewData)
-   ```
+```cshtml
+@await Html.PartialAsync("PartialName", customViewData)
+```
 
-部分ビューにモデルを渡すこともできます。 これは、ページのビュー モデル、その一部、またはカスタム オブジェクトの場合があります。 モデルを `Partial`、`PartialAsync`、`RenderPartial`、または `RenderPartialAsync` に渡すことができます。
+部分ビューにモデルを渡すこともできます。 これは、ページのビュー モデルまたはカスタム オブジェクトの場合があります。 モデルを `PartialAsync` または `RenderPartialAsync` に渡すことができます。
 
-```csharp
-@Html.Partial("PartialName", viewModel)
-   ```
+```cshtml
+@await Html.PartialAsync("PartialName", viewModel)
+```
 
 `ViewDataDictionary` のインスタンスとビュー モデルを部分ビューに渡すことができます。
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml?range=15-16)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml?range=15-16)]
 
 以下のマークアップは、2 つの部分ビューを含む *Views/Articles/Read.cshtml* ビューを示しています。 2 番目の部分ビューは、モデルと `ViewData` を部分ビューに渡します。 以下の強調表示されている `ViewDataDictionary` のコンストラクター オーバーロードを使用する場合、既存の `ViewData` を維持したまま、新しい `ViewData` ディクショナリを渡すことができます。
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml)]
 
 *Views/Shared/AuthorPartial*:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Shared/AuthorPartial.cshtml)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Shared/AuthorPartial.cshtml)]
 
 *ArticleSection* 部分:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/ArticleSection.cshtml)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/ArticleSection.cshtml)]
 
 実行時に、この部分は親ビューにレンダリングされます。親ビュー自体は共有されている *_Layout.cshtml* 内にレンダリングされます。
 

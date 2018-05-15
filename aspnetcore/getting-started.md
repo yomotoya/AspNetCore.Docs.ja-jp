@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core 2.0 の概要"
+title: ASP.NET Core の概要
 author: rick-anderson
-description: "ASP.NET Core を使用して単純な Hello World アプリを作成し、実行する簡単なチュートリアルです。"
+description: ASP.NET Core を使用して単純な Hello World アプリを作成し、実行する簡単なチュートリアルです。
 manager: wpickett
 ms.author: riande
 ms.date: 10/18/2017
@@ -9,18 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: getting-started
-ms.openlocfilehash: eb1fd748029743ca6991927cc95b612ed1975338
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c2f18c69901a5a6503314d508a776e6985872681
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-aspnet-core"></a>ASP.NET Core の概要
 
 > [!NOTE]
-> ここで説明する手順は最新バージョンの ASP.NET Core 用です。 以前のバージョンの概要については、 [このチュートリアルの 1.1 バージョン](xref:getting-started-1.1)を参照してください。
+> ここで説明する手順は最新バージョンの ASP.NET Core 用です。 このドキュメントの 1.1 バージョンについては、「[ASP.NET Core 1.1 の概要](xref:getting-started-1.1)」を参照してください。
 
-1. [.NET Core](https://www.microsoft.com/net/core/) をインストールします。
+1. [!INCLUDE [](~/includes/net-core-sdk-download-link.md)] をインストールします。
 
 2. 新しい .NET Core プロジェクトを作成します。
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/30/2018
     dotnet new razor -o aspnetcoreapp
     ```
     
-4. アプリを実行します。
+3. アプリを実行します。
 
     次のコマンドを使用してアプリを実行します。
 
@@ -39,13 +39,13 @@ ms.lasthandoff: 01/30/2018
     dotnet run
     ```
 
-5. [http://localhost:5000](http://localhost:5000) に移動します。
+4. [http://localhost:5000](http://localhost:5000) を参照します。
 
-6. *Pages/About.cshtml* を開き、"Hello, world! サーバー上の時刻は @DateTime.Now です" というメッセージが表示されるようにページを修正します。
+5. <em>Pages/About.cshtml</em> を開き、"Hello, world! サーバー上の時刻は @DateTime.Now です" というメッセージが表示されるようにページを修正します。
 
-    [!code-html[Main](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+    [!code-html[](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 
-7. [http://localhost:5000/About](http://localhost:5000/About) を表示し、変更内容を確認します。
+6. [http://localhost:5000/About](http://localhost:5000/About) を参照して、変更を確認します。
 
 ### <a name="next-steps"></a>次の手順
 

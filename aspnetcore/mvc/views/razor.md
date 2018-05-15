@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core の Razor 構文リファレンス"
+title: ASP.NET Core の Razor 構文リファレンス
 author: rick-anderson
-description: "Web ページにサーバー ベースのコードを埋め込むための Razor マークアップの構文について説明します。"
+description: Web ページにサーバー ベースのコードを埋め込むための Razor マークアップの構文について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/18/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/razor
-ms.openlocfilehash: 98021cc76555f0c1402764c845471a4730b01b20
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9c96ea34071bf3009f1ec53ed9af9206439aa229
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="razor-syntax-for-aspnet-core"></a>ASP.NET Core の Razor 構文
+# <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core の Razor 構文リファレンス
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)、[Luke Latham](https://github.com/guardrex)、[Taylor Mullen](https://twitter.com/ntaylormullen)、[Dan Vicarel](https://github.com/Rabadash8820)
 
@@ -89,7 +89,7 @@ C# の `await` キーワードを除き、暗黙的な式にスペースを含�
 
 前のセクションで説明した暗黙的な式は、一般に、スペースを含むことはできません。 次のコードでは、現在時刻から 1 週間は減算されません。
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact.cshtml?range=17)]
+[!code-cshtml[](razor/sample/Views/Home/Contact.cshtml?range=17)]
 
 このコードでは、次のような HTML がレンダリングされます。
 
@@ -109,19 +109,7 @@ C# の `await` キーワードを除き、暗黙的な式にスペースを含�
 
 明示的な式を使わないと、`<p>Age@joe.Age</p>` はメール アドレスとして扱われ、`<p>Age@joe.Age</p>` がレンダリングされます。 明示的な式として記述すると、`<p>Age33</p>` がレンダリングされます。
 
-
-明示的な式を使うと、ジェネリック メソッドから *.cshtml* ファイルに出力できます。 暗黙的な式では、山かっこ (`<>`) の内側の文字は HTML タグとして解釈されます。 次のマークアップは、有効な Razor では**ありません**。
-
-```cshtml
-<p>@GenericMethod<int>()</p>
-```
-
-上記のコードでは、次のいずれかのようなコンパイラ エラーが生成されます。
-
- * The "int" element wasn't closed. All elements must be either self-closing or have a matching end tag. ("int" 要素が閉じられませんでした。すべての要素は、自己終了するか、対応する終了タグが存在する必要があります。)
- *  メソッド グループ 'GenericMethod' を非デリゲート型 'object' に変換することはできません。 このメソッドを呼び出しますか? 
- 
- 次のマークアップは、このコードの適切な書き方を示したものです。 コードは明示的な式として書き込まれます。
+明示的な式を使うと、ジェネリック メソッドから *.cshtml* ファイルに出力できます。 次のマークアップは、C# ジェネリックの山かっこによって発生した前述のエラーを修正する方法について示します。 コードは明示的な式として書き込まれます。
 
 ```cshtml
 <p>@(GenericMethod<int>())</p>
@@ -370,7 +358,7 @@ C# では、オブジェクトを確実に破棄するために `using` オブ�
 
 例外処理は C# に似ています。
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact7.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact7.cshtml)]
 
 ### <a name="lock"></a>@lock
 
@@ -419,7 +407,7 @@ Razor のディレクティブは、`@` 記号の後の予約キーワードに�
 
 Razor がビューのコードを生成する方法を理解すると、ディレクティブの動作を理解しやすくなります。
 
-[!code-html[Main](razor/sample/Views/Home/Contact8.cshtml)]
+[!code-html[](razor/sample/Views/Home/Contact8.cshtml)]
 
 上のコードでは、次のようなクラスが生成されます。
 
@@ -439,11 +427,12 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 
 後の「[ビューに対して生成された Razor C# クラスの表示](#viewing-the-razor-c-class-generated-for-a-view)」セクションでは、この生成されたクラスを表示する方法について説明します。
 
+<a name="using"></a>
 ### <a name="using"></a>@using
 
 `@using` ディレクティブは、生成されるビューに C# の `using` ディレクティブを追加します。
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact9.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact9.cshtml)]
 
 ### <a name="model"></a>@model
 
@@ -471,7 +460,7 @@ Razor では、ビューに渡されるモデルにアクセスするための `
 <div>The Login Email: @Model.Email</div>
 ```
 
-`@model` ディレクティブは、このプロパティの型を指定します。 ディレクティブでは、ビューが派生する生成されたクラスの `T` を `RazorPage<T>` で指定します。 `@model` ディレクティブが指定されていない場合、`Model` プロパティは `dynamic` 型になります。 モデルの値は、コントローラーからビューに渡されます。 詳しくは、「厳密に型指定されたモデルと @model キーワード」をご覧ください。
+`@model` ディレクティブは、このプロパティの型を指定します。 ディレクティブでは、ビューが派生する生成されたクラスの `T` を `RazorPage<T>` で指定します。 `@model` ディレクティブが指定されていない場合、`Model` プロパティは `dynamic` 型になります。 モデルの値は、コントローラーからビューに渡されます。 詳細については、「[厳密に型指定されたモデルと &commat;model キーワード](xref:tutorials/first-mvc-app/adding-model#strongly-typed-models-and-the--keyword)」を参照してください。
 
 ### <a name="inherits"></a>@inherits
 
@@ -483,11 +472,11 @@ Razor では、ビューに渡されるモデルにアクセスするための `
 
 次のコードは、カスタム Razor ページ型です。
 
-[!code-csharp[Main](razor/sample/Classes/CustomRazorPage.cs)]
+[!code-csharp[](razor/sample/Classes/CustomRazorPage.cs)]
 
 `CustomText` がビューに表示されます。
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact10.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact10.cshtml)]
 
 このコードでは、次のような HTML がレンダリングされます。
 
@@ -497,11 +486,11 @@ Razor では、ビューに渡されるモデルにアクセスするための `
 
  `@model` と `@inherits` は同じビューで使うことができます。 `@inherits` は、ビューがインポートする *_ViewImports.cshtml* ファイルで指定できます。
 
-[!code-cshtml[Main](razor/sample/Views/_ViewImportsModel.cshtml)]
+[!code-cshtml[](razor/sample/Views/_ViewImportsModel.cshtml)]
 
 次のコードは、厳密に型指定されたビューの例です。
 
-[!code-cshtml[Main](razor/sample/Views/Home/Login1.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Login1.cshtml)]
 
 モデルに rick@contoso.com が渡された場合、ビューは次の HTML マークアップを生成します。
 
@@ -517,7 +506,7 @@ Razor では、ビューに渡されるモデルにアクセスするための `
 
 ### <a name="functions"></a>@functions
 
-`@functions` ディレクティブを使うと、Razor ページで関数レベルのコンテンツをビューに追加できます。
+`@functions` ディレクティブを使うと、Razor ページで C# コード ブロックをビューに追加できます。
 
 ```cshtml
 @functions { // C# Code }
@@ -525,7 +514,7 @@ Razor では、ビューに渡されるモデルにアクセスするための `
 
 例:
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact6.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact6.cshtml)]
 
 このコードは、次の HTML マークアップを生成します。
 
@@ -535,7 +524,7 @@ Razor では、ビューに渡されるモデルにアクセスするための `
 
 次のコードは、生成された Razor C# クラスです。
 
-[!code-csharp[Main](razor/sample/Classes/Views_Home_Test_cshtml.cs?range=1-19)]
+[!code-csharp[](razor/sample/Classes/Views_Home_Test_cshtml.cs?range=1-19)]
 
 ### <a name="section"></a>@section
 
@@ -547,9 +536,9 @@ Razor では、ビューに渡されるモデルにアクセスするための `
 
 | ディレクティブ | 関数 |
 | --------- | -------- |
-| [@addTagHelper](xref:mvc/views/tag-helpers/intro#add-helper-label) | ビューでタグ ヘルパーを使えるようにします。 |
-| [@removeTagHelper](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | 前に追加したタグ ヘルパーをビューから削除します。 |
-| [@tagHelperPrefix](xref:mvc/views/tag-helpers/intro#prefix-razor-directives-label) | タグ プレフィックスを指定して、タグ ヘルパーのサポートを有効にしたり、タグ ヘルパーの使用を明示的にしたりします。 |
+| [&commat;addTagHelper](xref:mvc/views/tag-helpers/intro#add-helper-label) | ビューでタグ ヘルパーを使えるようにします。 |
+| [&commat;removeTagHelper](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | 前に追加したタグ ヘルパーをビューから削除します。 |
+| [&commat;tagHelperPrefix](xref:mvc/views/tag-helpers/intro#prefix-razor-directives-label) | タグ プレフィックスを指定して、タグ ヘルパーのサポートを有効にしたり、タグ ヘルパーの使用を明示的にしたりします。 |
 
 ## <a name="razor-reserved-keywords"></a>Razor の予約済みキーワード
 
@@ -592,11 +581,11 @@ C# Razor のキーワードは、`@(@C# Razor Keyword)` で二重にエスケー
 
 次のクラスを ASP.NET Core MVC プロジェクトに追加します。
 
-[!code-csharp[Main](razor/sample/Utilities/CustomTemplateEngine.cs)]
+[!code-csharp[](razor/sample/Utilities/CustomTemplateEngine.cs)]
 
 MVC によって追加された `RazorTemplateEngine` を `CustomTemplateEngine` クラスでオーバーライドします。
 
-[!code-csharp[Main](razor/sample/Startup.cs?highlight=4&range=10-14)]
+[!code-csharp[](razor/sample/Startup.cs?highlight=4&range=10-14)]
 
 `CustomTemplateEngine` の `return csharpDocument` ステートメントにブレークポイントを設定します。 プログラムの実行がブレークポイントで停止したら、`generatedCode` の値を表示します。
 
