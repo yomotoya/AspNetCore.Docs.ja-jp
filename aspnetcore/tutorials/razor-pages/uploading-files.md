@@ -1,21 +1,22 @@
 ---
-title: "SP.NET Core で Razor ページにファイルをアップロードする"
+title: ASP.NET Core で Razor ページにファイルをアップロードする
 author: guardrex
-description: "Razor ページにファイルをアップロードする方法を説明します。"
+description: Razor ページにファイルをアップロードする方法を説明します。
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/12/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 4a2c6da6ed698d1a65ee51bd00a557e607f012da
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 5f86164b3d227e55e11244da7600394809b6a4a7
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/26/2018
 ---
-# <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>SP.NET Core で Razor ページにファイルをアップロードする
+# <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core で Razor ページにファイルをアップロードする
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 02/01/2018
 
 ファイル アップロードのペアを処理する Razor ページを作成します。 `FileUpload` クラスを追加して、スケジュール データを取得するページにバインドします。 *Models* フォルダーを右クリックします。 **[追加]**、**[クラス]** の順に選択します。 クラスに **FileUpload** という名前を付けて、次のプロパティを追加します。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
 
 このクラスには、スケジュールのタイトルのプロパティと 2 つあるスケジュールのバージョンのそれぞれのプロパティが含まれます。 3 つのプロパティはすべて必須であり、タイトルの長さは 3 ～ 60 文字にする必要があります。
 
@@ -55,20 +56,44 @@ ms.lasthandoff: 02/01/2018
 
 アップロード済みのスケジュール ファイルを処理するコード重複を回避するために、静的なヘルパー メソッドを先に追加します。 アプリで *Utilities* フォルダーを作成し、次のコンテンツを含む *FileHelpers.cs* ファイルを追加します。 ヘルパー メソッドの `ProcessFormFile` は [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) と [ModelStateDictionary](/api/microsoft.aspnetcore.mvc.modelbinding.modelstatedictionary) を受け取り、ファイルのサイズとコンテンツが含まれる文字列を返します。 コンテンツの種類と長さが確認されます。 ファイルが検証チェックに合格しなければ、エラーが `ModelState` に追加されます。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Utilities/FileHelpers.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Utilities/FileHelpers.cs)]
 
 ### <a name="save-the-file-to-disk"></a>ファイルをディスクに保存する
 
-このサンプル アプリでは、データベース フィールドにファイルの内容が保存されます。 ファイルの内容をディスクに保存するには、[FileStream](/dotnet/api/system.io.filestream) を使用します。
+このサンプル アプリでは、アップロードされたファイルはデータベース フィールドに保存されます。 ファイルをディスクに保存するには、[FileStream](/dotnet/api/system.io.filestream) を使用します。 次の例では、`FileUpload.UploadPublicSchedule` によって保持されているファイルは、`OnPostAsync` メソッドの `FileStream` にコピーされます。 `FileStream` は、指定されている `<PATH-AND-FILE-NAME>` にあるディスクにファイルを書き込みます。
 
 ```csharp
-using (var fileStream = new FileStream(filePath, FileMode.Create))
+public async Task<IActionResult> OnPostAsync()
 {
-    await formFile.CopyToAsync(fileStream);
+    // Perform an initial check to catch FileUpload class attribute violations.
+    if (!ModelState.IsValid)
+    {
+        return Page();
+    }
+
+    var filePath = "<PATH-AND-FILE-NAME>";
+
+    using (var fileStream = new FileStream(filePath, FileMode.Create))
+    {
+        await FileUpload.UploadPublicSchedule.CopyToAsync(fileStream);
+    }
+
+    return RedirectToPage("./Index");
 }
 ```
 
 ワーカー プロセスには、`filePath` によって指定された場所への書き込みアクセス許可が必要です。
+
+> [!NOTE]
+> `filePath` にはファイル名が*必要*です。 ファイル名が指定されていない場合、実行時に [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception) がスローされます。
+
+> [!WARNING]
+> アプリと同じディレクトリ ツリーには、アップロードしたファイルを保持しないでください。
+>
+> このコード例には、悪意のあるファイルのアップロードに対する、サーバー側での保護はありません。 ユーザーからファイルを受け入れる際の外部アクセスによる攻撃を減らす方法については、次の資料を参照してください。
+>
+> * [Unrestricted File Upload (ファイルの無制限のアップロード)](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+> * [Azure セキュリティ: ユーザーから受け入れるファイルに適切な管理制御を整備する](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 ### <a name="save-the-file-to-azure-blob-storage"></a>Azure Blob ストレージにファイルを保存する
 
@@ -78,7 +103,7 @@ using (var fileStream = new FileStream(filePath, FileMode.Create))
 
 *Models* フォルダーを右クリックします。 **[追加]**、**[クラス]** の順に選択します。 クラスに **Schedule** という名前を付けて、次のプロパティを追加します。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/Schedule.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/Schedule.cs)]
 
 このクラスは `Display` 属性と `DisplayFormat` 属性を使用します。この 2 つの属性は、スケジュール データがレンダリングされるとき、わかりやすい名前を生成し、書式を設定します。
 
@@ -86,7 +111,7 @@ using (var fileStream = new FileStream(filePath, FileMode.Create))
 
 このスケジュールは、`MovieContext` (*Models/MovieContext.cs*) で `DbSet` を指定します。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13)]
 
 ## <a name="add-the-schedule-table-to-the-database"></a>Schedule テーブルをデータベースに追加する
 
@@ -105,7 +130,7 @@ Update-Database
 
 *Pages* フォルダーで、*Schedules* フォルダーを作成します。 *Schedules* フォルダーで、*Index.cshtml* という名前のページを作成します。次のコンテンツでスケジュールをアップロードするためのページです。
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml)]
 
 各フォーム グループには、**\<label>** が含まれます。これは各クラス プロパティの名前を表示します。 `FileUpload` モデルの `Display` 属性は、ラベルの表示値を与えます。 たとえば、`UploadPublicSchedule` プロパティの表示名は `[Display(Name="Public Schedule")]` で設定されます。そのため、フォームがレンダリングされると、ラベルに "Public Schedule" と表示されます。
 
@@ -115,43 +140,43 @@ Update-Database
 
 *Schedules* フォルダーにページ モデル (*Index.cshtml.cs*) を追加します。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs)]
 
 ページ モデル (*Index.cshtml.cs* の `IndexModel`) は `FileUpload` クラスをバインドします。
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet1)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet1)]
 
 このモデルはまた、スケジュールの一覧 (`IList<Schedule>`) を利用し、ページのデータベースに保存されているスケジュールを表示します。
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet2)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet2)]
 
 ページが `OnGetAsync` で読み込まれると、データベースから `Schedules` が入力され、読み込まれたスケジュールの HTML テーブルが生成されます。
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet3)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet3)]
 
 フォームがサーバーに投稿されると、`ModelState` がチェックされます。 無効な場合、`Schedule` が再ビルドされます。ページがレンダリングされ、ページ検証に失敗した理由を伝える検証メッセージが表示されます。 有効な場合、`FileUpload` プロパティが *OnPostAsync* で使用され、バージョンが 2 つあるスケジュール ファイルがアップロードされ、データを保存するための新しい `Schedule` オブジェクトが作成されます。 スケジュールがデータベースに保存されます。
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet4)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet4)]
 
 ## <a name="link-the-file-upload-razor-page"></a>ファイル アップロード Razor ページをリンクする
 
 *_Layout.cshtml* を開き、ファイル アップロード ページにアクセスするためのリンクをナビゲーション バーに追加します。
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=31-38&highlight=4)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=31-38&highlight=4)]
 
 ## <a name="add-a-page-to-confirm-schedule-deletion"></a>スケジュール削除を確定するためのページを追加する
 
 ユーザーがスケジュールを削除するボタンをクリックすると、削除を取り消すことができます。 削除確定ページ (*Delete.cshtml*) を *Schedules* フォルダーに追加します。
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
 
 このページ モデル (*Delete.cshtml.cs*) は、要求のルート データの `id` によって識別される 1 つのスケジュールを読み込みます。 *Delete.cshtml.cs* ファイルを *Schedules* フォルダーに追加します。
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs)]
 
 `OnPostAsync` メソッドは、その `id` によるスケジュール削除を処理します。
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs?name=snippet1&highlight=8,12-13)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs?name=snippet1&highlight=8,12-13)]
 
 スケジュールが削除されると、`RedirectToPage` はユーザーをスケジュール *Index.cshtml* ページに戻します。
 
@@ -179,12 +204,12 @@ Update-Database
 
 `IFormFile` アップロードの問題を解決する方法については、「[ASP.NET でのファイルのアップロード](xref:mvc/models/file-uploads#troubleshooting)」の「トラブルシューティング」セクションを参照してください。
 
-このたびは、この Razor ページの紹介を最後までお読みいただきありがとうございました。 貴重なご意見をお寄せいただき心より感謝いたします。 このチュートリアルの後は、「[Getting started with MVC and EF Core](xref:data/ef-mvc/intro)」 (MVC と EF Core の概要) にお進みいただくことが推奨されます。
+このたびは、この Razor ページの紹介を最後までお読みいただきありがとうございました。 貴重なご意見をお寄せいただき心より感謝いたします。 このチュートリアルの後は、「[Get started with MVC and EF Core](xref:data/ef-mvc/intro)」(MVC と EF Core の概要) にお進みいただくことが推奨されます。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [ASP.NET Core でのファイルのアップロード](xref:mvc/models/file-uploads)
 * [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile)
 
->[!div class="step-by-step"]
-[前: 検証](xref:tutorials/razor-pages/validation)
+> [!div class="step-by-step"]
+> [前: 検証](xref:tutorials/razor-pages/validation)

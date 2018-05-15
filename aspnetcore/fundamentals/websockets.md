@@ -1,53 +1,57 @@
 ---
-title: "ASP.NET Core での Websocket のサポート"
+title: ASP.NET Core での Websocket のサポート
 author: tdykstra
-description: "ASP.NET Core で Websocket の使用を開始する方法を説明します。"
+description: ASP.NET Core で Websocket の使用を開始する方法を説明します。
 manager: wpickett
 ms.author: tdykstra
-ms.date: 03/25/2017
+ms.custom: mvc
+ms.date: 02/15/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/websockets
-ms.openlocfilehash: 306eca28b9f1f66e1ccaf185ccae87db8dea1b01
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e744ab5b81ff85f48edb012a86b55003cc74929c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction-to-websockets-in-aspnet-core"></a>ASP.NET Core での WebSockets の概要
+# <a name="websockets-support-in-aspnet-core"></a>ASP.NET Core での Websocket のサポート
 
 作成者: [Tom Dykstra](https://github.com/tdykstra) および [Andrew Stanton-Nurse](https://github.com/anurse)
 
-この記事では、ASP.NET Core で Websocket の使用を開始する方法について説明します。 [WebSocket](https://wikipedia.org/wiki/WebSocket) は TCP 接続を使用した双方向の永続的通信チャネルを有効にするプロトコルです。 これは、チャット、株価情報、ゲームなどのアプリケーション、また Web アプリケーションでリアルタイム機能が必要とされる場所で使用されます。
+この記事では、ASP.NET Core で Websocket の使用を開始する方法について説明します。 [WebSocket](https://wikipedia.org/wiki/WebSocket) ([RFC 6455](https://tools.ietf.org/html/rfc6455)) は、TCP 接続を使用した双方向の永続的通信チャネルを有効にするプロトコルです。 このプロトコルは、チャット、ダッシュボード、ゲーム アプリなど、高速かつリアルタイムのコミュニケーションを活用するアプリで使用されます。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。 詳細については、「[次の手順](#next-steps)」のセクションを参照してください。
 
-
 ## <a name="prerequisites"></a>必須コンポーネント
 
-* ASP.NET Core 1.1 (1.0 では動作しません)
-* ASP.NET Core を実行できる次の任意の OS:
+* ASP.NET Core 1.1 以降
+* ASP.NET Core をサポートする任意の OS:
   
   * Windows 7 / Windows Server 2008 以降
   * Linux
   * macOS
-
-* **例外**: アプリが IIS または WebListener を含む Windows 上で実行される場合、次を使用する必要があります。
+  
+* アプリが IIS を含む Windows 上で実行されている場合:
 
   * Windows 8 / Windows Server 2012 以降
   * IIS 8 / IIS 8 Express
-  * IIS で WebSocket を有効にする必要があります
+  * WebSockets は IIS で有効にされる必要があります (「[IIS/IIS Express のサポート](#iisiis-express-support)」セクションを参照してください。)
+  
+* アプリが [HTTP.sys](xref:fundamentals/servers/httpsys) で実行されている場合:
 
-* サポートされているブラウザーについては、http://caniuse.com/#feat=websockets を参照してください。
+  * Windows 8 / Windows Server 2012 以降
 
-## <a name="when-to-use-it"></a>使用する状況
+* サポートされているブラウザーについては、https://caniuse.com/#feat=websockets を参照してください。
 
-Websocket は、ソケット接続を直接使用する必要がある場合に使用します。 たとえば、リアルタイムのゲームで最高のパフォーマンスが必要な場合などです。
+## <a name="when-to-use-websockets"></a>WebSockets を使用する場合
 
-リアルタイムの機能には、[ASP.NET SignalR](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr) の方がアプリケーション モデルとしてはより充実していますが、これは ASP.NET でのみ実行できるものであり、ASP.NET Core では実行できません。 SignalR の Core バージョンは現在開発中です。進捗を確認するには、「[GitHub repository for SignalR Core](https://github.com/aspnet/SignalR)」 (SignalR Core の GitHub リポジトリ) を参照してください。
+Websocket を使用して、ソケット接続を直接使用します。 たとえば、リアルタイムのゲームで最高のパフォーマンスが必要な場合に WebSockets を使用します。
 
-SignalR Core を待つことができない場合は、そのまま Websocket を使用できます。 ただし、次などの SignalR が提供する機能を開発する必要がある場合があります。
+リアルタイムの機能には、[ASP.NET SignalR](/aspnet/signalr/overview/getting-started/introduction-to-signalr) の方がアプリ モデルとして充実していますが、これは ASP.NET 4.x でのみ実行できるものであり、ASP.NET Core では実行できません。 SignalR の ASP.NET Core バージョンは、ASP.NET Core 2.1 でリリースされる予定です。 「[ASP.NET Core 2.1 high-level planning](https://github.com/aspnet/Announcements/issues/288)」 (ASP.NET Core 2.1 の高度なプラン) を参照してください。
+
+SignalR Core がリリースされるまで、WebSockets を使用することができます。 ただし、SignalR が提供する機能は、開発者が提供またはサポートする必要があります。 例:
 
 * 他の転送方法への自動フォールバックが使用された、より多くのブラウザ バージョンのサポート。
 * 切断された場合の自動接続。
@@ -70,7 +74,7 @@ SignalR Core を待つことができない場合は、そのまま Websocket �
 次の設定を構成できます。
 
 * `KeepAliveInterval`: プロキシの接続の維持を保証する、クライアントに "ping" フレームを送信する頻度。
-* `ReceiveBufferSize`: データの受信に使用されるバッファーのサイズ。 これは、上級ユーザーのみが、データのサイズに応じたパフォーマンス調整のために変更する必要があります。
+* `ReceiveBufferSize`: データの受信に使用されるバッファーのサイズ。 これは、上級ユーザーが、データのサイズに応じたパフォーマンス調整のために変更する必要がある場合があります。
 
 [!code-csharp[](websockets/sample/Startup.cs?name=UseWebSocketsOptions)]
 
@@ -78,7 +82,7 @@ SignalR Core を待つことができない場合は、そのまま Websocket �
 
 以降の要求ライフサイクルのどこかで (たとえば、以降の `Configure` メソッドまたは MVC アクションで)、それが WebSocket 要求であるかを確認し、WebSocket 要求を受け入れます。
 
-この例は、以降の `Configure` メソッドから抜粋したものです。
+次の例は、以降の `Configure` メソッドから抜粋したものです。
 
 [!code-csharp[](websockets/sample/Startup.cs?name=AcceptWebSocket&highlight=7)]
 
@@ -86,20 +90,51 @@ WebSocket 要求はどの URL からも受け取る場合がありますが、�
 
 ### <a name="send-and-receive-messages"></a>メッセージの送受信
 
-`AcceptWebSocketAsync` メソッドは、TCP 接続を WebSocket 接続にアップグレードし、[WebSocket](https://docs.microsoft.com/dotnet/core/api/system.net.websockets.websocket) オブジェクトを渡します。 メッセージの送受信に、WebSocket オブジェクトを使用します。
+`AcceptWebSocketAsync` メソッドは、TCP 接続を WebSocket 接続にアップグレードし、[WebSocket](/dotnet/core/api/system.net.websockets.websocket) オブジェクトを提供します。 メッセージの送受信に、`WebSocket` オブジェクトを使用します。
 
-前に示した、WebSocket 要求を受け入れるコードが、`WebSocket` オブジェクトを `Echo` メソッドに渡します (ここでは、`Echo` メソッドです)。 このコードは、メッセージを受信し、同じメッセージをすぐに送信します。 クライアントが接続を閉じるまで、これを継続しループ内に存在し続けます。 
+前に示した、WebSocket 要求を受け入れるコードが、`WebSocket` オブジェクトを `Echo` メソッドに渡します。 このコードは、メッセージを受信し、同じメッセージをすぐに送信します。 クライアントが接続を閉じるまで、メッセージがループで送受信されます。
 
 [!code-csharp[](websockets/sample/Startup.cs?name=Echo)]
 
-このループを開始する前に、WebSocket を受け入れた場合、ミドルウェア パイプラインは終了します。  ソケットを閉じると、パイプラインはアンワインドされます。 つまり、WebSocket 受け入れると、たとえば、MVC アクションにヒットしたときのように、要求がパイプラインで前進しなくなります。  ただし、このループを終了し、ソケットを閉じると、要求はパイプラインを遡って進みます。
+このループを開始する前に、WebSocket 接続を受け入れた場合、ミドルウェア パイプラインは終了します。 ソケットを閉じると、パイプラインはアンワインドされます。 つまり、WebSocket を受け入れると、要求はパイプラインでの先への移動を中止します。 ループを終了し、ソケットを閉じた場合、要求はパイプラインのバックアップを続けます。
+
+## <a name="iisiis-express-support"></a>IIS/IIS Express のサポート
+
+IIS/IIS Express 8 以降を含む、Windows Server 2012 以降および Windows 8 以降では、WebSocket プロトコルをサポートします。
+
+Windows Server 2012 以降で WebSocket プロトコルのサポートを有効にするには
+
+1. **[管理]** メニューから**役割と機能の追加**ウィザードを使用するか、**サーバー マネージャー**にあるリンクを使用します。
+1. **[役割ベースまたは機能ベースのインストール]** を選択します。 **[次へ]** を選択します。
+1. 適切なサーバーを選択します (既定では、ローカル サーバーが選択されます)。 **[次へ]** を選択します。
+1. **[役割]** ツリーで **[Web サーバー (IIS)]** を展開し、**[Web サーバー]**、**[アプリケーション開発]** の順に展開します。
+1. **[WebSocket プロトコル]** を選択します。 **[次へ]** を選択します。
+1. 追加機能が不要な場合は、**[次へ]** を選択します。
+1. **[インストール]** を選択します。
+1. インストールが完了したら、**[閉じる]** を選択してウィザードを終了します。
+
+Windows 8 以降で WebSocket プロトコルのサポートを有効にするには
+
+1. **[コントロール パネル]** > **[プログラム]** > **[プログラムと機能]** > **[Windows の機能の有効化または無効化]** (画面の左側) に移動します。
+1. 次のノード: **[インターネット インフォメーション サービス]** > **[World Wide Web サービス]** > **[アプリケーション開発機能]** を開きます。
+1. **[WebSocket プロトコル]** 機能を選択します。 **[OK]** を選択します。
+
+**node.js で socket.io を使用する場合に WebSocket を無効にする**
+
+[Node.js](https://nodejs.org/) の [socket.io](https://socket.io/) で WebSocket サポートを使用する場合、`webSocket` 要素を使用する既定の WebSocket モジュールを *web.config* または *applicationHost.config* で無効にします。この手順が実行されない場合、IIS WebSocket モジュールは Node.js とアプリ以外の WebSocket コミュニケーションを処理しようとします。
+
+```xml
+<system.webServer>
+  <webSocket enabled="false" />
+</system.webServer>
+```
 
 ## <a name="next-steps"></a>次の手順
 
-この記事に付属している[サンプル アプリケーション](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample)は、単純なエコー アプリケーションです。 これには、WebSocket 接続を作成する Web ページがあり、サーバーが受け取るすべてのメッセージを単純にクライアントに再送信します。 これをコマンド プロンプトから実行し (IIS Express を使用した Visual Studio からは実行するように設定されていません)、http://localhost:5000 に移動します。 Web ページの左上に、接続の状態が示されます。
+この記事に添えられている[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample)は、エコー アプリです。 これには、WebSocket 接続を作成する Web ページがあり、サーバーが受け取るすべてのメッセージをクライアントに再送信します。 コマンド プロンプトからアプリを実行し (IIS Express を使用した Visual Studio からは実行するように設定されていません)、http://localhost:5000 に移動します。 Web ページの左上に、接続の状態が示されます。
 
 ![Web ページの初期状態](websockets/_static/start.png)
 
-**[接続]** を選択し、表示されている URL に WebSocket 要求を送信します。  テスト メッセージを入力し、**[送信]** を選択します。 完了したら、**[Close Socket]\(ソケットを閉じる\)** を選択します。 **[Communication Log]\(コミュニケーション ログ\)** セクションに、発生した各オープン、送信、クローズのアクションが表示されます。
+**[接続]** を選択し、表示されている URL に WebSocket 要求を送信します。 テスト メッセージを入力し、**[送信]** を選択します。 完了したら、**[Close Socket]\(ソケットを閉じる\)** を選択します。 **[Communication Log]\(コミュニケーション ログ\)** セクションに、発生した各オープン、送信、クローズのアクションが表示されます。
 
 ![Web ページの初期状態](websockets/_static/end.png)
