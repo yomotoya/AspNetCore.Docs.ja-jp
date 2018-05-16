@@ -27,7 +27,7 @@ ms.lasthandoff: 04/06/2018
 「[Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic)」 (VSTS と継続的配置で Azure Web アプリをビルドし、公開する) も併せてご覧ください。Visual Studio Team Services を利用した、[Azure App Service](/azure/app-service/app-service-web-overview) の継続的デリバリー (CD) ワークフローの構成方法を紹介しています。 Team Services で azure の継続的な配信には、Azure App Service でホストされているアプリの更新プログラムを発行する配置の堅牢パイプラインの設定が簡略化します。 パイプラインは、ビルド、テストを実行する、ステージング スロットにデプロイし、実稼働環境に展開するには、Azure ポータルから構成できます。
 
 > [!NOTE]
-> このチュートリアルを完了するには、Microsoft Azure アカウントが必要です。 アカウントを取得する[MSDN サブスクライバー特典をアクティブ化](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F)または[無料試用版にサインアップする](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)です。
+> このチュートリアルを完了するには、Microsoft Azure アカウントが必要です。 アカウントを取得するには [MSDN サブスクライバー特典をアクティブ化](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F) または [無料試用版にサインアップ](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) してください。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -68,11 +68,11 @@ ms.lasthandoff: 04/06/2018
 
 次の手順では、Azure ポータルで web アプリを作成します。
 
-1. ログインに、 [Azure ポータル](https://portal.azure.com)です。
+1. [Azure ポータル](https://portal.azure.com) にログインします。
 
-1. 選択**新規**でポータルのインターフェイスの左上です。
+1. ポータルのインターフェイスの左上にある **新規** を選択します。
 
-1. 選択**Web + モバイル** > **Web アプリ**です。
+1. **Web + モバイル** > **Web アプリ** を選択します。
 
    ![Microsoft Azure Portal: [新規作成] ボタン: [Marketplace] の [Web + モバイル]: [おすすめアプリ] の [Web アプリ] ボタン](azure-continuous-deployment/_static/05-azure-newwebapp.png)
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 04/06/2018
    ![[Web アプリ] ブレード](azure-continuous-deployment/_static/06-azure-newappblade.png)
 
    > [!NOTE]
-   > **アプリ サービス名**名前は一意である必要があります。 ポータルは、名前を指定した場合、このルールを適用します。 別の値を提供する場合の発生するたびにその値に置き換えます**SampleWebAppDemo**このチュートリアルでします。
+   > **アプリ サービス名**名前は一意である必要があります。名前が指定されたとき、ポータルはこのルールを適用します。別の値を使用する場合、このチュートリアルで **SampleWebAppDemo** が言及される都度、その値に置き換えて使用してください。
 
    **[Web アプリ]** ブレードではまた、既存の **[App Service プラン/場所]** を選択するか、新しい App Service プラン/場所を作成できます。 新しいプランを作成する場合は、価格レベル、場所、およびその他のオプションを選択します。 App Service プランの詳細については、次を参照してください。 [Azure App Service プランの詳細な概要](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)です。
 
@@ -93,9 +93,9 @@ ms.lasthandoff: 04/06/2018
 
 Git は、Azure App Service web アプリを配置するために使用する分散型バージョン管理システムです。 Web アプリ コードが、ローカルの Git リポジトリに格納されているし、コードがリモート リポジトリにプッシュして Azure に展開します。
 
-1. ログイン、 [Azure ポータル](https://portal.azure.com)です。
+1. [Azure ポータル](https://portal.azure.com) にログインします。
 
-1. 選択**App Services** Azure サブスクリプションに関連付けられているアプリ サービスの一覧を表示します。
+1. **App Services** を選択して、Azure サブスクリプションに関連付けられているアプリ サービスの一覧を表示します。
 
 1. このチュートリアルの前のセクションで作成された web アプリを選択します。
 
@@ -105,15 +105,15 @@ Git は、Azure App Service web アプリを配置するために使用する分
 
 1. **[OK]** を選択します。
 
-1. 場合は、web アプリまたはその他の App Service アプリを発行のデプロイ資格情報を設定していない、ここで設定します。
+1. Web アプリまたはその他の App Service アプリを発行するためのデプロイ資格情報を以前に設定していない場合は、ここで設定してください。
 
-   * 選択**設定** > **デプロイ資格情報**です。 **デプロイ資格情報を設定**ブレードが表示されます。
+   * **設定** > **デプロイ資格情報** を選択します。 **デプロイ資格情報を設定**ブレードが表示されます。
    * ユーザー名とパスワードを作成します。 Git を設定するときは、後で使用するパスワードを保存します。
    * **[保存]** を選択します。
 
-1. **Web アプリ**ブレードで、**設定** > **プロパティ**です。 展開するリモート Git リポジトリの URL が下に表示された**GIT URL**です。
+1. **Web アプリ**ブレードで、**設定** > **プロパティ**です。 **GIT URL** の下に展開するリモート Git リポジトリの URL が表示されます。
 
-1. **GIT URL** の値をコピーします。後で使用します。
+1. このチュートリアルの後で使用するため **GIT URL** の値をコピーします。
 
    ![Azure Portal: アプリケーションの [プロパティ] ブレード](azure-continuous-deployment/_static/09-azure-giturl.png)
 
@@ -131,7 +131,7 @@ Git は、Azure App Service web アプリを配置するために使用する分
 
 1. **チーム エクスプローラー**で、**[ホーム]** (ホーム アイコン)、**[設定]**、**[リポジトリ設定]** の順に選択します。
 
-1. **リモコン**のセクションで、**レポジトリ設定****追加**です。 **リモート追加** ダイアログ ボックスが表示されます。
+1. **レポジトリ設定** の **リモート** のセクションで **追加** を選択します。 **リモート追加** ダイアログ ボックスが表示されます。
 
 1. リモートの **[名前]** を **[Azure-SampleApp]** に設定します。
 
@@ -185,7 +185,7 @@ Git は、Azure App Service web アプリを配置するために使用する分
 
 ローカルの環境から Azure に、web アプリ転送が成功したことを確認します。
 
-[Azure Portal](https://portal.azure.com)、web アプリを選択します。 選択**展開** > **展開オプション**です。
+[Azure Portal](https://portal.azure.com) で Web アプリを選択します。 **展開** > **展開オプション** を選択します。
 
 ![Azure Portal: [設定] ブレード: [デプロイ] ブレードにデプロイ成功が表示されています](azure-continuous-deployment/_static/13-verify-deployment.png)
 
