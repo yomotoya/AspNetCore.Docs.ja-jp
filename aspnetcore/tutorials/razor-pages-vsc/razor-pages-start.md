@@ -1,21 +1,22 @@
 ---
-title: "Visual Studio Code を使用する ASP.NET Core の Razor ページの概要"
+title: Visual Studio Code を使用する ASP.NET Core の Razor ページの概要
 author: rick-anderson
-description: "Visual Studio Code を使用する ASP.NET Core の Razor ページの概要"
+description: Visual Studio Code を使用して ASP.NET Core の Razor ページ Web アプリを構築する方法の基礎について説明します。
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/27/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: 7c01d802e59951281c86c8eab64b7c6b9d646fbf
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0ad008b4f2b2e74dcf7f3d6c83798d5f03d1d315
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="getting-started-with-razor-pages-in-aspnet-core-with-visual-studio-code"></a>Visual Studio Code を使用する ASP.NET Core の Razor ページの概要
+# <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Visual Studio Code を使用する ASP.NET Core の Razor ページの概要
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -23,11 +24,7 @@ ms.lasthandoff: 01/30/2018
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-以下をインストールします。
-
-* [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 以降
-* [Visual Studio Code](https://code.visualstudio.com)
-* VS Code [C# 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
+[!INCLUDE [](~/includes/net-core-prereqs-vscode.md)]
 
 ## <a name="create-a-razor-web-app"></a>Razor Web アプリの作成
 
@@ -43,7 +40,7 @@ dotnet run
 
 ![ホームまたはインデックス ページ](../razor-pages/razor-pages-start/_static/home.png)
 
-[!INCLUDE[razor-pages-start](../../includes/RP/razor-pages-start.md)]
+[!INCLUDE [razor-pages-start](../../includes/RP/razor-pages-start.md)]
 
 ## <a name="open-the-project"></a>プロジェクトを開く
 
@@ -60,5 +57,5 @@ Ctrl + F5 キーを押して、デバッグを行わずにアプリを開始し�
 
 次のチュートリアルでは、プロジェクトにモデルを追加します。 
 
->[!div class="step-by-step"]
-[次: モデルの追加](xref:tutorials/razor-pages-vsc/model)  
+> [!div class="step-by-step"]
+> [次: モデルの追加](xref:tutorials/razor-pages-vsc/model)  

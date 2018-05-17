@@ -1,22 +1,22 @@
 ---
-title: "ASP.NET Core のタグ ヘルパー"
+title: ASP.NET Core のタグ ヘルパー
 author: rick-anderson
-description: "タグ ヘルパーと、ASP.NET Core でのその使用方法について説明します。"
+description: タグ ヘルパーと、ASP.NET Core でのその使用方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 7/14/2017
+ms.date: 2/14/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 939eccd45ec437f379fb9349c24246cc0683528b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0c66b700f9bb3e6349fe2e0c8a7e254b8e7903a5
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="introduction-to-tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパーの概要 
+# <a name="tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパー
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -32,19 +32,32 @@ ms.lasthandoff: 01/30/2018
 
 **生産性を高め、サーバーでのみ使用可能な情報を使用することで、より堅牢で信頼できる保守しやすいコードを生成できる方法** たとえば、これまでは、イメージを変更する際にそのイメージ名を変更することがイメージ更新の理念でした。 パフォーマンス上の理由から、イメージを積極的にキャッシュする必要があり、イメージの名前を変更しない限り、クライアントが古いコピーを取得する危険性があります。 これまでは、イメージの編集後に、名前を変更する必要があり、Web アプリでのイメージへの各参照を更新する必要がありました。 これは非常に労力がかかるだけでなく、エラーが発生しやくなります (参照が見つからなかったり、誤って間違った文字列を入力したりする場合がある)。組み込みの `ImageTagHelper` ではこれを自動的に行うことができます。 `ImageTagHelper` ではイメージ名にバージョン番号を追加できるため、イメージが変更されるたびに、サーバーはそのイメージに対して新しい一意のバージョンを自動的に生成します。 クライアントは現在のイメージを確実に取得できます。 `ImageTagHelper` を使用することで、このような堅牢性と省力化を基本的に自由に実現できます。
 
-組み込みのタグ ヘルパーのほとんどは既存の HTML 要素をターゲットとし、要素に対してサーバー側の属性を提供します。 たとえば、*Views/Account* フォルダーの多くのビューで使用される `<input>` 要素には `asp-for` 属性が含まれており、指定されたモデル プロパティの名前をレンダリングされる HTML に抽出します。 次の Razor マークアップでは、
+ほとんどの組み込みタグ ヘルパーは、標準の HTML 要素をターゲットとし、要素に対してサーバー側の属性を提供します。 たとえば、*Views/Account* フォルダーの多くのビューで使用される `<input>` 要素には、`asp-for` 属性が含まれて この属性は、指定されたモデル プロパティの名前をレンダリングされる HTML に抽出します 次のようなモデルの Razor ビューを考慮します。
+
+```csharp
+public class Movie
+{
+    public int ID { get; set; }
+    public string Title { get; set; }
+    public DateTime ReleaseDate { get; set; }
+    public string Genre { get; set; }
+    public decimal Price { get; set; }
+}
+```
+
+次の Razor マークアップでは、
 
 ```cshtml
-<label asp-for="Email"></label>
+<label asp-for="Movie.Title"></label>
 ```
 
 次の HTML が生成されます。
 
-```cshtml
-<label for="Email">Email</label>
+```html
+<label for="Movie_Title">Title</label>
 ```
 
-`asp-for` 属性は、`LabelTagHelper` の `For` プロパティで使用できます。 詳細については、「[タグ ヘルパーの作成](authoring.md)」を参照してください。
+`asp-for` 属性は、[LabelTagHelper](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.labeltaghelper?view=aspnetcore-2.0) の `For` プロパティで使用できます。 詳しくは、[タグ ヘルパーの作成](xref:mvc/views/tag-helpers/authoring)に関するページをご覧ください。
 
 ## <a name="managing-tag-helper-scope"></a>タグ ヘルパーのスコープの管理
 
@@ -56,13 +69,13 @@ ms.lasthandoff: 01/30/2018
 
 *AuthoringTagHelpers* という名前の新しい ASP.NET Core Web アプリを作成する場合 (認証なし)、以下の *Views/_ViewImports.cshtml* ファイルがプロジェクトに追加されます。
 
-[!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
+[!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
 `@addTagHelper` ディレクティブにより、ビューでタグ ヘルパーが使用可能になります。 この場合、ビュー ファイルは *Views/_ViewImports.cshtml* であり、既定では *Views* フォルダーとサブディレクトリのすべてのビュー ファイルによって継承され、タグ ヘルパーが使用可能になります。 上記のコードではワイルドカード構文 ("\*") を使用して、指定されたアセンブリ (*Microsoft.AspNetCore.Mvc.TagHelpers*) 内のすべてのタグ ヘルパーが、*Views* ディレクトリまたはサブディレクトリ内のすべてのビュー ファイルで使用可能になるように指定します。 `@addTagHelper` の後の最初のパラメーターでは読み込むタグ ヘルパーを指定し (すべてのタグ ヘルパーに対して "\*" を使用)、2 番目のパラメーター "Microsoft.AspNetCore.Mvc.TagHelpers" ではタグ ヘルパーを含むアセンブリを指定します。 *Microsoft.AspNetCore.Mvc.TagHelpers* は、組み込み ASP.NET Core タグ ヘルパーのアセンブリです。
 
 すべてのタグ ヘルパーをこのプロジェクト (*AuthoringTagHelpers* という名前のアセンブリを作成する) で公開するには、以下を使用します。
 
-[!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
+[!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
 
 プロジェクトに既定の名前空間がある `EmailTagHelper` が含まれている場合は (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`)、タグ ヘルパーの完全修飾名 (FQN) を指定できます。
 
@@ -148,7 +161,7 @@ IntelliSense ステートメント入力候補では、Tab キーを入力して
 
 ![イメージ](intro/_static/labelaspfor2.png)
 
-Visual Studio の *CompleteWord* ショートカット ([既定](https://docs.microsoft.com/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio)は Ctrl + Space) を二重引用符 ("") 内に入力することができ、C# クラスの場合と同じように C# で使用できるようになりました。 IntelliSense では、ページ モデルですべてのメソッドとプロパティが表示されます。 プロパティの種類が `ModelExpression` であるため、メソッドとプロパティを使用できます。 次のイメージでは、`Register` ビューを編集するため、`RegisterViewModel` を使用できます。
+Visual Studio の *CompleteWord* ショートカット ([既定](/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio)は Ctrl + Space) を二重引用符 ("") 内に入力することができ、C# クラスの場合と同じように C# で使用できるようになりました。 IntelliSense では、ページ モデルですべてのメソッドとプロパティが表示されます。 プロパティの種類が `ModelExpression` であるため、メソッドとプロパティを使用できます。 次のイメージでは、`Register` ビューを編集するため、`RegisterViewModel` を使用できます。
 
 ![イメージ](intro/_static/intellemail.png)
 
@@ -166,13 +179,13 @@ IntelliSense では、ページのモデルで使用可能なプロパティと�
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
-アットマーク (`@`) は、Razor にこれがコードの先頭であることを示します。 次の 2 つのパラメーター ("FirstName" と "First Name:") は文字列であるため、[IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) では対応できません。 以下が最後の引数です。
+アットマーク (`@`) は、Razor にこれがコードの先頭であることを示します。 次の 2 つのパラメーター ("FirstName" と "First Name:") は文字列であるため、[IntelliSense](/visualstudio/ide/using-intellisense) では対応できません。 以下が最後の引数です。
 
 ```cshtml
 new {@class="caption"}
 ```
 
-これは属性を表すために使用される匿名オブジェクトです。 **class** は C# の予約済みのキーワードであるため、`@` シンボルを使用して、C# で強制的に "@class=" をシンボル (プロパティ名) として解釈するようにします。 フロント エンドのデザイナー (HTML/CSS/JavaScript とその他のクライアント テクノロジには慣れているものの、C# や Razor には慣れていないデザイナー) には、行のほとんどが馴染みのないものです。 IntelliSense に頼らずに行全体を作成する必要があります。
+これは属性を表すために使用される匿名オブジェクトです。 <strong>class</strong> は C# の予約済みのキーワードであるため、`@` シンボルを使用して、C# で強制的に "@class=" をシンボル (プロパティ名) として解釈するようにします。 フロント エンドのデザイナー (HTML/CSS/JavaScript とその他のクライアント テクノロジには慣れているものの、C# や Razor には慣れていないデザイナー) には、行のほとんどが馴染みのないものです。 IntelliSense に頼らずに行全体を作成する必要があります。
 
 `LabelTagHelper` を使用すれば、以下と同じマークアップを書き込むことができます。
 
@@ -186,7 +199,7 @@ IntelliSense は行全体を書き込む場合に役立ちます。 `LabelTagHel
 
 ![イメージ](intro/_static/label2.png)
 
-次のように生成されます。
+この場合、次のように生成されます。
 
 ```cshtml
 <label class="caption" for="FirstName">First Name</label>
@@ -220,7 +233,7 @@ HTML ヘルパーの方法よりも、マークアップがわかりやすく、
 
 たとえば、以下の *Email* グループについて考えてみます。
 
-[!code-csharp[Main](intro/sample/Register.cshtml?range=12-18)]
+[!code-csharp[](intro/sample/Register.cshtml?range=12-18)]
 
 "asp-" 属性にはそれぞれ "Email" の値がありますが、"Email" は文字列ではありません。 このコンテキストでは、"Email" は `RegisterViewModel` の C# モデル式のプロパティとなります。
 
@@ -236,13 +249,13 @@ Visual Studio エディターは登録フォームのタグ ヘルパーの方�
 
 * Web サーバー コントロールには自動ブラウザー検出が含まれます。 タグ ヘルパーではブラウザーが認識されません。
 
-* 複数のタグ ヘルパーを同じ要素で実行できますが ([タグ ヘルパーの競合の回避](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/authoring#avoiding-tag-helper-conflicts)に関するページを参照)、通常は Web サーバー コントロールを構成できません。
+* 複数のタグ ヘルパーを同じ要素で実行できますが ([タグ ヘルパーの競合の回避](xref:mvc/views/tag-helpers/authoring#avoid-tag-helper-conflicts)に関するページを参照)、通常は Web サーバー コントロールを構成できません。
 
 * タグ ヘルパーではスコープとなる HTML 要素のタグとコンテンツを変更できますが、ページ上の他のものを直接変更しません。 Web サーバー コントロールではスコープが限定されないため、ページの他の部分に影響を与えるアクションを実行して、予想外の結果となる場合があります。
 
 * Web サーバー コントロールでは型コンバーターを使用して、文字列をオブジェクトに変換します。 タグ ヘルパーの場合、C# でネイティブに作業するため、型を変換する必要はありません。
 
-* Web サーバー コントロールでは [System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel) 名前空間を使用して、コンポーネントやコントロールの実行時動作およびデザイン時動作を実装します。 `System.ComponentModel` には、属性と型コンバーターの実装、データ ソースへのバインド、コンポーネントのライセンス処理のための基底クラスと基底インターフェイスが含まれています。 通常は `TagHelper` から派生するタグ ヘルパーとは異なり、`TagHelper` 基底クラスでは `Process` と `ProcessAsync` の 2 つのメソッドのみを公開します。
+* Web サーバー コントロールでは [System.ComponentModel](/dotnet/api/system.componentmodel) 名前空間を使用して、コンポーネントやコントロールの実行時動作およびデザイン時動作を実装します。 `System.ComponentModel` には、属性と型コンバーターの実装、データ ソースへのバインド、コンポーネントのライセンス処理のための基底クラスと基底インターフェイスが含まれています。 通常は `TagHelper` から派生するタグ ヘルパーとは異なり、`TagHelper` 基底クラスでは `Process` と `ProcessAsync` の 2 つのメソッドのみを公開します。
 
 ## <a name="customizing-the-tag-helper-element-font"></a>タグ ヘルパー要素のフォントのカスタマイズ
 
@@ -255,4 +268,3 @@ Visual Studio エディターは登録フォームのタグ ヘルパーの方�
 * [タグ ヘルパーの作成](xref:mvc/views/tag-helpers/authoring)
 * [フォームの操作](xref:mvc/views/working-with-forms)
 * [GitHub の TagHelperSamples](https://github.com/dpaquette/TagHelperSamples) には、[ブートストラップ](http://getbootstrap.com/)を操作するためのタグ ヘルパーのサンプルが含まれています。
-* [フォームの操作](xref:mvc/views/working-with-forms)

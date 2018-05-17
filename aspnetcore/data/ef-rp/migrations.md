@@ -1,7 +1,7 @@
 ---
-title: "Razor ページと EF Core - 移行 - 4/8"
+title: ASP.NET Core の Razor ページと EF Core - 移行 - 4/8
 author: rick-anderson
-description: "このチュートリアルでは、ASP.NET Core MVC アプリでデータ モデルの変更を管理するための EF Core の移行機能の使用を開始します。"
+description: このチュートリアルでは、ASP.NET Core MVC アプリでデータ モデルの変更を管理するための EF Core の移行機能の使用を開始します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/15/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: e89d95702cb94556bc6e5dc73253c51acaa11578
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 690beaabeab098cf9b764730b1bf1bd04bf6b003
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>移行 - EF コアと Razor ページのチュートリアル (4/8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>ASP.NET Core の Razor ページと EF Core - 移行 - 4/8
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Jon P Smith](https://twitter.com/thereformedprog)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 このチュートリアルでは、データ モデルの変更を管理するための EF Core の移行機能を使用します。
 
@@ -52,7 +52,7 @@ https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/S
 
 *appsettings.json* ファイルで、接続文字列内のデータベースの名前を ContosoUniversity2 に変更します。
 
-[!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
+[!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
 接続文字列でデータベース名を変更すると、最初の移行で新しいデータベースが作成されます。 新しいデータベースが作成されるのは、その名前のデータベースが存在していないためです。 移行で開始するには、接続文字列を変更する必要はありません。
 
@@ -100,7 +100,7 @@ Done. To undo this action, use 'ef migrations remove'
 
 EF Core コマンド `migrations add` は、データベースの作成元のコードを生成しました。 この移行コードは *Migrations\<timestamp>_InitialCreate.cs* ファイルにあります。 `InitialCreate` クラスの `Up` メソッドは、データ モデルのエンティティ セットに対応するデータベース テーブルを作成します。 次の例で示すように、`Down` メソッドは、それらを削除します。
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20171026010210_InitialCreate.cs?range=8-24,77-)]
+[!code-csharp[](intro/samples/cu/Migrations/20171026010210_InitialCreate.cs?range=8-24,77-)]
 
 移行は、`Up` メソッドを呼び出して、移行のためのデータ モデルの変更を実装します。 更新をロールバックするためのコマンドを入力すると、移行が `Down` メソッドを呼び出します。
 
@@ -115,15 +115,13 @@ EF Core コマンド `migrations add` は、データベースの作成元のコ
 
 接続文字列は前にデータベースの新しい名前を使用するように変更されました。 指定されたデータベースが存在しないため、移行は、データベースを作成します。
 
-### <a name="examine-the-data-model-snapshot"></a>データ モデルのスナップショットを確認する
+### <a name="the-data-model-snapshot"></a>データ モデルのスナップショット
 
-移行は、現在のデータベース スキーマの*スナップショット*を *Migrations/SchoolContextModelSnapshot.cs* 内に作成します。
+移行は、現在のデータベース スキーマの*スナップショット*を *Migrations/SchoolContextModelSnapshot.cs* 内に作成します。 移行を追加するときに、EF は、スナップショット ファイルとデータ モデルを比較することによって変更内容を判断します。
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+移行を削除するには、[dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) コマンドを使用します。 `dotnet ef migrations remove` によって移行が削除され、スナップショットが正しくリセットされたことが確認されます。
 
-現在のデータベース スキーマはコードで表されるため、移行を作成するために、EF Core がデータベースとやり取りする必要はありません。 移行を追加するときに、EF Core は、スナップショット ファイルとデータ モデルを比較することによって変更内容を判断します。 EF Core は、データベースを更新する必要がある場合にのみ、データベースとやり取りします。
-
-スナップショット ファイルは、その作成元の移行と同期されている必要があります。 *\<timestamp>_\<migrationname>.cs* というファイルを削除することによって移行を削除することはできません。 そのファイルが削除された場合、残りの移行は、データベース スナップショット ファイルと同期されなくなります。 最後に追加された移行を削除するには、[dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) コマンドを使用します。
+スナップショット ファイルの使用方法の詳細については、「[EF Core Migrations in Team Environments](/ef/core/managing-schemas/migrations/teams)」 (チーム環境での EF Core 移行) を参照してください。
 
 ## <a name="remove-ensurecreated"></a>Remove EnsureCreated
 
@@ -181,15 +179,15 @@ info: Microsoft.EntityFrameworkCore.Database.Command[200101]
 Done.
 ```
 
-ログ メッセージの詳細レベルを下げるために、 *appsettings.Development.json* ファイルでログ レベルを変更できます。 詳細については、「[Introduction to Logging](xref:fundamentals/logging/index)」 (ログ記録の概要) を参照してください。
+ログ メッセージの詳細レベルを下げるために、*appsettings.Development.json* ファイルでログ レベルを変更できます。 詳細については、[ログ記録の概要](xref:fundamentals/logging/index)に関するページを参照してください。
 
 **SQL Server オブジェクト エクスプローラー**を使用してデータベースを検査します。 `__EFMigrationsHistory` テーブルが追加されていることに注意してください。 `__EFMigrationsHistory` テーブルは、どの移行がデータベースに適用されたかを追跡します。 `__EFMigrationsHistory` テーブルのデータを表示すると、最初の移行の 1 つの行が表示されます。 前の CLI の出力例の最後のログは、この行を作成する INSERT ステートメントを示しています。
 
 アプリを実行して、すべてが適切に機能していることを確認します。
 
-## <a name="appling-migrations-in-production"></a>実稼働環境で移行を適用する
+## <a name="applying-migrations-in-production"></a>運用環境で移行を適用する
 
-実稼働アプリケーションでは、アプリケーションの起動時に [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) を**呼び出さない**ことをお勧めします。 `Migrate` をサーバー ファームのアプリから呼び出すことはできません。 たとえば、アプリがスケールアウト (アプリの複数のインスタンスを実行する) を使用してクラウドに展開されている場合があります。
+実稼働アプリケーションでは、アプリケーションの起動時に [Database.Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) を**呼び出さない**ことをお勧めします。 `Migrate` をサーバー ファームのアプリから呼び出すことはできません。 たとえば、アプリがスケールアウト (アプリの複数のインスタンスを実行する) を使用してクラウドに展開されている場合があります。
 
 データベースの移行は、展開の一部として制御された方法で行う必要があります。 実稼働データベースの移行には次の方法があります。
 
@@ -224,7 +222,7 @@ https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/S
 アプリは次の例外を生成します。
 
 ```text
-`SqlException: Cannot open database "ContosoUniversity" requested by the login.
+SqlException: Cannot open database "ContosoUniversity" requested by the login.
 The login failed.
 Login failed for user 'user name'.
 ```
@@ -236,6 +234,6 @@ Solution: Run `dotnet ef database update`
 * コマンドをもう一度実行します。
 * ページの下部にメッセージを残します。
 
->[!div class="step-by-step"]
-[前へ](xref:data/ef-rp/sort-filter-page)
-[次へ](xref:data/ef-rp/complex-data-model)
+> [!div class="step-by-step"]
+> [前へ](xref:data/ef-rp/sort-filter-page)
+> [次へ](xref:data/ef-rp/complex-data-model)

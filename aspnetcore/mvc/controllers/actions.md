@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC でコントローラーで要求を処理する"
+title: ASP.NET Core MVC でコントローラーで要求を処理する
 author: ardalis
-description: 
+description: ''
 manager: wpickett
 ms.author: riande
 ms.date: 07/03/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/actions
-ms.openlocfilehash: 1c6bf5ad92a43274af351652d240e2fa8873a956
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 187ac69322545685380ad8f810bb65208c093d82
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC でコントローラーで要求を処理する
+# <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC でコントローラーで要求を処理する
 
 作成者: [Steve Smith](https://ardalis.com/)、[Scott Addie](https://github.com/scottaddie)
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/30/2018
 
 **M**odel-**V**iew-**C**ontroller パターン内では、コントローラーは要求の初回処理とモデルのインスタンス化を担います。 一般的に、ビジネスの決定はモデル内で実行するべきです。
 
-コントローラーはモデルの処理の結果を受け取り (結果があれば)、適切なビューとそれに関連付けられるビュー データを返すか、API 呼び出しの結果を返します。 詳細については、「[ASP.NET Core MVC の概要](xref:mvc/overview)」と「[ASP.NET Core MVC と Visual Studio の概要](xref:tutorials/first-mvc-app/start-mvc)」を参照してください。
+コントローラーはモデルの処理の結果を受け取り (結果があれば)、適切なビューとそれに関連付けられるビュー データを返すか、API 呼び出しの結果を返します。 詳細については、「[Overview of ASP.NET Core MVC](xref:mvc/overview)」(ASP.NET Core MVC の概要) と「[ASP.NET Core MVC と Visual Studio の概要](xref:tutorials/first-mvc-app/start-mvc)」を参照してください。
 
 コントローラーは *UI レベル*の抽象化です。 その役目は、要求データの有効性を確保することと返すビュー (あるいは、API の結果) を選択することです。 要素が十分に考慮されたアプリの場合、データ アクセスやビジネス ロジックは直接含まれません。 そうではなく、コントローラーはサービスにそのような役目を委任します。
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/30/2018
 
 ### <a name="controller-helper-methods"></a>コントローラー ヘルパー メソッド
 
-コントローラーは通常、[コントローラー](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller)から継承します。ただし、これは必須ではありません。 `Controller` から派生することで、次の 3 つのカテゴリのヘルパー メソッドにアクセスできます。
+コントローラーは通常、[コントローラー](/dotnet/api/microsoft.aspnetcore.mvc.controller)から継承します。ただし、これは必須ではありません。 `Controller` から派生することで、次の 3 つのカテゴリのヘルパー メソッドにアクセスできます。
 
 #### <a name="1-methods-resulting-in-an-empty-response-body"></a>1.応答の本文が空になるメソッド
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 01/30/2018
 
 このカテゴリのヘルパー メソッドの多くには `ContentType` プロパティが含まれ、`Content-Type` 応答ヘッダーを設定し、応答本文を記述できます。
 
-このカテゴリには 2 種類の結果があります。[ビュー](xref:mvc/views/overview)と[書式設定された応答](xref:mvc/models/formatting)です。
+このカテゴリには 2 種類の結果があります。[ビュー](xref:mvc/views/overview)と[書式設定された応答](xref:web-api/advanced/formatting)です。
 
 * **表示**
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 01/30/2018
 
 #### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3.クライアントとネゴシエーションしたコンテンツの種類で書式設定された空ではない応答本文を生成するメソッド
 
-このカテゴリは、**コンテンツ ネゴシエーション**として知られています。 [コンテンツ ネゴシエーション](xref:mvc/models/formatting#content-negotiation)は、アクションが [ObjectResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.objectresult) 型を返すか、[IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) 実装以外の何かを返すときに適用されます。 非 `IActionResult` の実装 (`object` など) を返すアクションは、書式設定された応答も返します。
+このカテゴリは、**コンテンツ ネゴシエーション**として知られています。 [コンテンツ ネゴシエーション](xref:web-api/advanced/formatting#content-negotiation)は、アクションが [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult) 型を返すか、[IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) 実装以外の何かを返すときに適用されます。 非 `IActionResult` の実装 (`object` など) を返すアクションは、書式設定された応答も返します。
 
 この種類のヘルパー メソッドには `BadRequest`、`CreatedAtRoute`、`Ok` などがあります。 このようなメソッドの例として、それぞれ `return BadRequest(modelState);`、`return CreatedAtRoute("routename", values, newobject);`、`return Ok(value);` があります。 `BadRequest` と `Ok` は、値が渡されたときにのみ、コンテンツ ネゴシエーションを実行します。値が渡されなければ、代わりに HTTP ステータス コードという結果の種類としてサービスを提供します。 一方、`CreatedAtRoute` メソッドは常にコンテンツ ネゴシエーションを実行します。そのあらゆるオーバーロードにおいて、値を渡すことが必要になるためです。
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 01/30/2018
 `[Authorize]` など、フィルター属性の多くは、求められる詳細度に基づき、コントローラーまたはアクション レベルで適用できます。
 
 エラー処理と応答キャッシュは多くの場合、横断的な問題です。
-   * [エラー処理](xref:mvc/controllers/filters#exception-filters)
+   * [エラーの処理](xref:mvc/controllers/filters#exception-filters)
    * [応答キャッシュ](xref:performance/caching/response)
 
-横断的な問題の多くはフィルターやカスタム [ミドルウェア](xref:fundamentals/middleware)の利用で処理できます。
+横断的な問題の多くはフィルターやカスタム [ミドルウェア](xref:fundamentals/middleware/index)の利用で処理できます。

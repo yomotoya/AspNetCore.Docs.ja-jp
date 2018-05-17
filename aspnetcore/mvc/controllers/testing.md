@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core のコントローラーのロジックをテストする"
+title: ASP.NET Core のコントローラーのロジックをテストする
 author: ardalis
-description: "Moq と xUnit を使って ASP.NET Core のコントローラーのロジックをテストする方法を説明します。"
+description: Moq と xUnit を使って ASP.NET Core のコントローラーのロジックをテストする方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: cabb1d2498e6c993b327c2fb9719525ec2181f9e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 51b7a02c697807c9e3504b70f89370126ee0e781
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="testing-controller-logic-in-aspnet-core"></a>ASP.NET Core のコントローラーのロジックをテストする
+# <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core のコントローラーのロジックをテストする
 
 作成者: [Steve Smith](https://ardalis.com/)
 
@@ -40,20 +40,20 @@ ASP.NET MVC アプリのコントローラーは、小さく、ユーザー イ�
 
 ## <a name="unit-testing"></a>単体テスト
 
-[単体テスト](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)では、アプリの一部をインフラストラクチャや依存関係から切り離してテストします。 コントローラー ロジックの単体テストを行うときは、それが依存しているものやフレームワーク自体の動作ではなく、単一のアクションの内容のみをテストします。 コントローラーのアクションの単体テストでは、その動作にだけ注目するようにします。 コントローラーの単体テストからは、[フィルター](filters.md)、[ルーティング](../../fundamentals/routing.md)、[モデル バインド](../models/model-binding.md)などに関することは除外します。 1 つの事柄だけに注目してテストすることにより、一般に、単体テストを簡単に作成してすばやく実行できるようになります。 適切に記述された一連の単体テストは、大きなオーバーヘッドなしに頻繁に実行できます。 ただし、単体テストではコンポーネント間の相互作用の問題は検出しません。これは、[統合テスト](xref:mvc/controllers/testing#integration-testing)の目的です。
+[単体テスト](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)では、アプリの一部をインフラストラクチャや依存関係から切り離してテストします。 コントローラー ロジックの単体テストを行うときは、それが依存しているものやフレームワーク自体の動作ではなく、単一のアクションの内容のみをテストします。 コントローラーのアクションの単体テストでは、その動作にだけ注目するようにします。 コントローラーの単体テストからは、[フィルター](filters.md)、[ルーティング](../../fundamentals/routing.md)、[モデル バインド](../models/model-binding.md)などに関することは除外します。 1 つの事柄だけに注目してテストすることにより、一般に、単体テストを簡単に作成してすばやく実行できるようになります。 適切に記述された一連の単体テストは、大きなオーバーヘッドなしに頻繁に実行できます。 ただし、単体テストではコンポーネント間の相互作用の問題は検出しません。これは、[統合テスト](xref:mvc/controllers/testing#integration-testing)の目的です。
 
 カスタム フィルターやルートなどを作成している場合は、それらの単体テストを行う必要がありますが、コントローラーの特定のアクションに対するテストの一部としてではありません。 これらは、切り離してテストする必要があります。
 
 > [!TIP]
-> [Visual Studio で単体テストを作成して実行します](https://docs.microsoft.com/visualstudio/test/unit-test-your-code)。
+> [Visual Studio で単体テストを作成して実行します](/visualstudio/test/unit-test-your-code)。
 
 単体テストの方法を説明するための実例として、次のコントローラーを使います。 このコントローラーは、ブレーンストーミング セッションの一覧を表示し、POST を使って新しいブレーンストーミング セッションを作成できます。
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?highlight=12,16,21,42,43)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?highlight=12,16,21,42,43)]
 
 このコントローラーは、[明示的な依存関係の原則](http://deviq.com/explicit-dependencies-principle/)に従い、依存関係の挿入を使って `IBrainstormSessionRepository` のインスタンスを提供されるものと想定しています。 これにより、[Moq](https://www.nuget.org/packages/Moq/) などのモック オブジェクト フレームワークを使ったテストが非常に簡単になります。 `HTTP GET Index` メソッドにはループや分岐はなく、1 つのメソッドを呼び出すだけです。 この `Index` メソッドをテストするには、リポジトリの `List` メソッドからの `ViewModel` で、`ViewResult` が返されることを確認する必要があります。
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=17-18&range=1-33,76-95)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=17-18&range=1-33,76-95)]
 
 `HomeController` `HTTP POST Index` メソッド (上記) では、次のことを確認する必要があります。
 
@@ -63,7 +63,7 @@ ASP.NET MVC アプリのコントローラーは、小さく、ユーザー イ�
 
 以下の最初のテストで示すように、`AddModelError` を使ってエラーを追加することで、無効なモデルの状態をテストできます。
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
 最初のテストでは、`ModelState` が有効ではないときに、`GET` 要求の場合と同じ `ViewResult` が返されることを確認します。 テストでは無効なモデルを渡そうとしていないことに注意してください。 モデル バインドが動作していないので、いずれにしてもうまくいきません (ただし、[統合テスト](xref:mvc/controllers/testing#integration-testing)では演習のモデル バインドを使います)。 この場合、モデル バインドはテストされていません。 これらの単体テストでは、アクション メソッドのコードだけをテストしています。
 
@@ -74,23 +74,23 @@ ASP.NET MVC アプリのコントローラーは、小さく、ユーザー イ�
 
 アプリの別のコントローラーでは、特定のブレーンストーミング セッションに関する情報が表示されます。 無効な ID 値を扱うためのロジックが含まれています。
 
-[!code-csharp[Main](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
+[!code-csharp[](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
 
 コントローラーのアクションには、各 `return` ステートメントに 1 つずつ、3 つのテスト ケースがあります。
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?highlight=27,28,29,46,47,64,65,66,67,68)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?highlight=27,28,29,46,47,64,65,66,67,68)]
 
 アプリでは、Web API として機能が公開されています (ブレーンストーミング セッションに関連付けられているアイデアの一覧と、新しいアイデアをセッションに追加するためのメソッド)。
 
 <a name="ideas-controller"></a>
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
 
 `ForSession` メソッドは、`IdeaDTO` 型の一覧を返します。 API の呼び出しで直接ビジネス ドメイン エンティティを返さないでください。ビジネス ドメイン エンティティには API クライアントが要求しているもの以外のデータが含まれることが多く、アプリの内部ドメイン モデルと外部に公開される API との間に必要のない結合が生じます。 ドメイン エンティティと、ネットワーク経由で戻される型の間のマッピングは、手動で (ここで示すように LINQ `Select` を使って)、または [AutoMapper](https://github.com/AutoMapper/AutoMapper) などのライブラリを使って、行うことができます。
 
 API メソッド `Create` と `ForSession` の単体テストは次のとおりです。
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?highlight=18,23,29,33,38-39,43,50,58-59,68-70,76-78&range=1-83,121-135)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?highlight=18,23,29,33,38-39,43,50,58-59,68-70,76-78&range=1-83,121-135)]
 
 前に説明したように、`ModelState` が無効のときのメソッドの動作をテストするには、テストの一部としてコントローラーにモデル エラーを追加します。 単体テストでは、モデルの検証またはモデル バインドのテストを試さないでください。`ModelState` の特定の値に遭遇したときのアクション メソッドの動作だけをテストしてください。
 
@@ -112,7 +112,7 @@ API メソッド `Create` と `ForSession` の単体テストは次のとおり�
 
 `Startup` クラス:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
 
 以下の統合テストでは、`GetTestSession` メソッドが頻繁に使われていることがわかります。
 
@@ -127,11 +127,11 @@ The view 'Index' wasn't found. The following locations were searched:
 
 この問題を解決するには、テスト対象プロジェクトのビューを見つけることができるように、サーバーのコンテンツ ルートを構成する必要があります。 これは、次に示すように、`TestFixture` クラスの `UseContentRoot` を呼び出すことによって行います。
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
 
 `TestFixture` クラスは、`TestServer` を構成および作成し、`TestServer` と通信するように `HttpClient` を設定します。 各統合テストは、`Client` プロパティを使ってテスト サーバーに接続し、要求を行います。
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
 
 上の最初のテストでは、`responseString` がビューから実際にレンダリングされた HTML を保持しており、それを調べることによって期待どおりの結果が含まれることを確認できます。
 
@@ -143,7 +143,7 @@ The view 'Index' wasn't found. The following locations were searched:
 
 次の一連のテストでは、上で示した [IdeasController](xref:mvc/controllers/testing#ideas-controller) クラスの `Create` メソッドが対象になっています。
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
 
 HTML ビューを返すアクションの統合テストとは異なり、結果を返す Web API メソッドは、通常、上の最後のテストで示されているように、厳密に型指定されたオブジェクトとして逆シリアル化できます。 この場合、テストでは、結果を `BrainstormSession` インスタンスに逆シリアル化して、アイデアのコレクションにアイデアが正しく追加されていることを確認します。
 

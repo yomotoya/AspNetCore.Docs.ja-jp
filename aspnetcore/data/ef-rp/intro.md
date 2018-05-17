@@ -1,7 +1,7 @@
 ---
-title: "Razor ページと Entity Framework Core - チュートリアル 1 (全 8 回)"
+title: ASP.NET Core での Razor ページと Entity Framework Core - チュートリアル 1/8
 author: rick-anderson
-description: "Entity Framework Core を使用して Razor ページ アプリを作成する方法について説明します"
+description: Entity Framework Core を使用して Razor ページ アプリを作成する方法について説明します
 manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/intro
-ms.openlocfilehash: 091f34da347d52ba8e3e87779ddc4aeb790c2800
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 99a8d158c896566c2f6e6c22e4b37b1956e21cbf
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Visual Studio を使用した Razor ページと Entity Framework Core の概要、第 1 回 (全 8 回)
+# <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core での Razor ページと Entity Framework Core - チュートリアル 1/8
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -27,13 +27,13 @@ Contoso University のサンプル Web アプリでは、Entity Framework (EF) C
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-[!INCLUDE[install 2.0](../../includes/install2.0.md)]
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 [Razor ページ](xref:mvc/razor-pages/index)に関する知識。 Razor ページのプログラミングが初めての場合、このシリーズを始める前に[こちらの入門編](xref:tutorials/razor-pages/razor-pages-start)を完了してください。
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
-解決できない問題に遭遇した場合、通常、[完了したステージ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots)や[完成したプロジェクト](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu-final)と自分のコードを比較することで解決策がわかります。 一般的なエラーとその解決方法の一覧については、[チュートリアル シリーズの後半に登場するトラブルシューティング セクション](xref:data/ef-mvc/advanced#common-errors)をご覧ください。 そこで必要な答えが見つからない場合、[StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) で [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) または [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core) に関する質問を投稿できます。
+解決できない問題に遭遇した場合、通常、[完成したステージ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots)と自分のコードを比較することで解決策がわかります。 一般的なエラーとその解決方法の一覧については、[チュートリアル シリーズの後半に登場するトラブルシューティング セクション](xref:data/ef-mvc/advanced#common-errors)をご覧ください。 そこで必要な答えが見つからない場合、[StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) で [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) または [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core) に関する質問を投稿できます。
 
 > [!TIP]
 > このチュートリアル シリーズは、前のチュートリアルの内容を基盤にしています。 チュートリアルが完了したら、毎回、プロジェクトのコピーを保存するようお勧めします。 問題に遭遇したとき、前のチュートリアルから始めることができます。最初まで戻る必要がありません。 [完了したステージ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots)をダウンロードし、それを利用してやり直すことができます。
@@ -98,9 +98,9 @@ Contoso University アプリのエンティティ クラスを作成します。
 
 *[Models]* フォルダーを作成します。 以下のコードを使用して、*[Models]* フォルダーで、"*Student.cs*" という名前のクラス ファイルを作成します。
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
 
-`ID` プロパティは、このクラスに相当するデータベース (DB) テーブルの主キー列になります。 既定では、EF Core は、`ID` または `classnameID` という名前のプロパティを主キーとして解釈します。
+`ID` プロパティは、このクラスに相当するデータベース (DB) テーブルの主キー列になります。 既定では、EF Core は、`ID` または `classnameID` という名前のプロパティを主キーとして解釈します。 `classnameID` で、`classname` は、前述の `Student` の例のとおりクラス名です。
 
 `Enrollments` プロパティはナビゲーション プロパティです。 ナビゲーション プロパティには、このエンティティに関連する他のエンティティにリンクします。 この例では、`Student entity` の `Enrollments` プロパティで、その `Student` に関連するすべての `Enrollment` エンティティが保持されます。 たとえば、DB の Student 行に関連する Enrollment 行が 2 つある場合、`Enrollments` ナビゲーション プロパティにその 2 つの `Enrollment` エンティティが含まれます。 関連する `Enrollment` 行は、`StudentID` 列にその学生の主キー値を含む行になります。 たとえば、ID=1 の学生には、`Enrollment` テーブルに行が 2 つあるとします。 `Enrollment` テーブルには、`StudentID` = 1 の行が 2 つあります。 `StudentID` は `Enrollment` テーブルの外部キーであり、`Student` テーブルの学生を指定します。
 
@@ -112,7 +112,7 @@ Contoso University アプリのエンティティ クラスを作成します。
 
 以下のコードを使用して、*[Models]* フォルダーで、*Enrollment.cs* を作成します。
 
-[!code-csharp[Main](intro/samples/cu/Models/Enrollment.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Models/Enrollment.cs?name=snippet_Intro)]
 
 `EnrollmentID` プロパティは主キーです。 このエンティティでは、`Student` エンティティのような `ID` ではなく、`classnameID` パターンを使用します。 一般的に、開発者は 1 つのパターンを選択し、データ モデル全体でそれを使用します。 後のチュートリアルでは、クラス名なしの ID を利用し、データ モデルに継承を簡単に実装します。
 
@@ -130,7 +130,7 @@ EF Core は名前が `<navigation property name><primary key property name>` で
 
 以下のコードを使用して、*[Models]* フォルダーで、*Course.cs* を作成します。
 
-[!code-csharp[Main](intro/samples/cu/Models/Course.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Intro)]
 
 `Enrollments` プロパティはナビゲーション プロパティです。 1 つの `Course` エンティティにたくさんの `Enrollment` エンティティを関連付けることができます。
 
@@ -144,7 +144,7 @@ EF Core は名前が `<navigation property name><primary key property name>` で
 
 *[データ]* フォルダーで、次のコードで *SchoolContext.cs* を作成します。
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
 
 このコードによって、エンティティ セットごとに `DbSet` プロパティが作成されます。 EF Core 用語で:
 
@@ -155,7 +155,7 @@ EF Core は名前が `<navigation property name><primary key property name>` で
 
 DB が作成されると、EF Core によって、`DbSet` プロパティと同じ名前を持つテーブルが作成されます。 コレクションのプロパティ名は通常、複数形になります (Student ではなく Students)。 テーブル名を複数形にするかどうかについては、開発者の間で意見が分かれます。 このチュートリアル シリーズでは、DbContext に単数のテーブル名を指定して既定の動作をオーバーライドします。 単数形のテーブル名を指定するには、次の強調表示されているコードを追加します。
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
 
 ## <a name="register-the-context-with-dependency-injection"></a>依存関係の挿入にコンテキストを登録する
 
@@ -163,19 +163,19 @@ ASP.NET Core には、[依存関係挿入](xref:fundamentals/dependency-injectio
 
 `SchoolContext` をサービスとして登録するには、*Startup.cs* を開き、強調表示されている行を `ConfigureServices` メソッドに追加します。
 
-[!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
 
 `DbContextOptionsBuilder` オブジェクトでメソッドが呼び出され、接続文字列の名前がコンテキストに渡されます。 ローカル開発の場合、[ASP.NET Core 構成システム](xref:fundamentals/configuration/index)が *appsettings.json* ファイルから接続文字列を読み取ります。
 
 名前空間の `using` と `ContosoUniversity.Data` に `Microsoft.EntityFrameworkCore` ステートメントを追加します。 プロジェクトをビルドします。
 
-[!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_Usings)]
+[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_Usings)]
 
 *appsettings.json* ファイルを開き、次のコードのように接続文字列を追加します。
 
 [!code-json[](./intro/samples/cu/appsettings1.json?highlight=2-4)]
 
-先の接続文字列では、[SQLClient](https://docs.microsoft.com/dotnet/framework/data/adonet/ef/sqlclient-for-the-entity-framework) が停止しないように `ConnectRetryCount=0` を使用します。
+先の接続文字列では、[SQLClient](/dotnet/framework/data/adonet/ef/sqlclient-for-the-entity-framework) が停止しないように `ConnectRetryCount=0` を使用します。
 
 ### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
@@ -187,7 +187,7 @@ EF Core によって空の DB が作成されます。 このセクションで�
 
 *[データ]* フォルダーで、*DbInitializer.cs* という名前の新しいクラス ファイルを作成し、次のコードを追加します。
 
-[!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
 
 このコードは、DB に学生が存在するかどうかを確認します。 DB に学生が存在しない場合、DB にテスト データが入力されます。 `List<T>` コレクションではなく配列にテスト データを読み込み、パフォーマンスを最適化します。
 
@@ -201,7 +201,7 @@ EF Core によって空の DB が作成されます。 このセクションで�
 
 次は、更新された *Program.cs* ファイルのコードです。
 
-[!code-csharp[Main](intro/samples/cu/ProgramOriginal.cs?name=snippet)]
+[!code-csharp[](intro/samples/cu/ProgramOriginal.cs?name=snippet)]
 
 初めてアプリを実行すると、DB が作成され、テスト データが入力されます。 データ モデルが更新されたら、次の操作を行います。
 * DB を削除します。
@@ -226,7 +226,7 @@ Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Utils
 
 先のコマンドでは、*.csproj ファイルに NuGet パッケージが追加されます。
 
-[!code-csharp[Main](intro/samples/cu/ContosoUniversity1_csproj.txt?highlight=7-8)]
+[!code-csharp[](intro/samples/cu/ContosoUniversity1_csproj.txt?highlight=7-8)]
 
 <a name="scaffold"></a>
 ## <a name="scaffold-the-model"></a>モデルのスキャフォールディング
@@ -239,18 +239,6 @@ Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Utils
 dotnet restore
 dotnet aspnet-codegenerator razorpage -m Student -dc SchoolContext -udl -outDir Pages\Students --referenceScriptLibraries
  ```
- 
-次のエラーが生成されます。
-
-```text
-Unhandled Exception: System.IO.FileNotFoundException: 
-Could not load file or assembly 
-'Microsoft.VisualStudio.Web.CodeGeneration.Utils, 
-Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'.
-The system cannot find the file specified.
-```
-
-コマンドを再実行し、ページの一番下にコメントを残します。
 
 エラーが発生した場合は、次のようにします。
   ```
@@ -266,7 +254,7 @@ No executable found matching command "dotnet-aspnet-codegenerator"
 
  `_context.Student` を `_context.Students` にグローバルに変更します (つまり、"s" を `Student` に追加します)。 7 回の出現が見つかり、更新されます。 次のリリースで[このバグ](https://github.com/aspnet/Scaffolding/issues/633)を解決する予定です。
 
-[!INCLUDE[model4tbl](../../includes/RP/model4tbl.md)]
+[!INCLUDE [model4tbl](../../includes/RP/model4tbl.md)]
 
  <a name="test"></a>
 ### <a name="test-the-app"></a>アプリのテスト
@@ -288,7 +276,7 @@ SSOX で、**(localdb)\MSSQLLocalDB > Databases > ContosoUniversity1** をクリ
 
 **[Student]** テーブルを右クリックし、**[データの表示]** をクリックすると、作成された列とテーブルに挿入された行が表示されます。
 
-*.mdf* ファイルと *.ldf* DB ファイルは *C:\Users\\<yourusername>* フォルダーにあります。
+<em>.mdf</em> ファイルと <em>.ldf</em> DB ファイルは <em>C:\Users\\<yourusername></em> フォルダーにあります。
 
 アプリの起動時に `EnsureCreated` が呼び出され、次のワークフローが可能になります。
 
@@ -322,12 +310,12 @@ Web サーバーでは、利用できるスレッド数に限りがあります�
 
 次のコードでは、キーワード `async`、戻り値 `Task<T>`、キーワード `await`、メソッド `ToListAsync` によりコードの実行が非同期になります。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_ScaffoldedIndex)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_ScaffoldedIndex)]
 
 * キーワード `async` は次のことをコンパイラに指示します。
 
   * メソッド本文の一部にコールバックを生成する。
-  * 返された [Task](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task?view=netframework-4.7) オブジェクトを自動作成する。 詳細については、「[Task の戻り値の型](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/async-return-types#BKMK_TaskReturnType)」を参照してください。
+  * 返された [Task](/dotnet/api/system.threading.tasks.task?view=netframework-4.7) オブジェクトを自動作成する。 詳細については、「[Task の戻り値の型](/dotnet/csharp/programming-guide/concepts/async/async-return-types#BKMK_TaskReturnType)」を参照してください。
 
 * 暗黙の戻り値の型 `Task` は進行中の作業を表します。
 
@@ -343,9 +331,9 @@ EF Core を利用する非同期コードの記述で注意すべき点:
 
 * 非同期コードのパフォーマンス上の利点を最大限に活用するには、クエリをデータベースに送信させる EF Core メソッドを (ページングなどのための) ライブラリ パッケージで呼び出す場合、そのライブラリ パッケージで非同期が利用されていることを確認します。
 
-.NET の非同期プログラミングについては、「[非同期の概要](https://docs.microsoft.com/dotnet/articles/standard/async)」を参照してください。
+.NET の非同期プログラミングについては、「[非同期の概要](/dotnet/articles/standard/async)」を参照してください。
 
 次のチュートリアルでは、基本的な CRUD (作成、読み取り、更新、削除) の操作について説明します。
 
->[!div class="step-by-step"]
-[次へ](xref:data/ef-rp/crud)
+> [!div class="step-by-step"]
+> [次へ](xref:data/ef-rp/crud)

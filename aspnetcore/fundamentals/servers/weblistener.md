@@ -1,19 +1,19 @@
 ---
-title: "ASP.NET Core への WebListener Web サーバーの実装"
+title: ASP.NET Core への WebListener Web サーバーの実装
 author: rick-anderson
-description: "Windows 上の ASP.NET Core 用 Web サーバーである WebListener について紹介します。 WebListener は、Http.Sys カーネル モード ドライバーに基づいて構築され、IIS なしでインターネットに直接接続するために使用できる Kestrel の代替製品です。"
+description: IIS なしでインターネットに直接接続するために使用できる Windows 上の ASP.NET Core の Web サーバーである WebListener について説明します。
 manager: wpickett
 ms.author: riande
-ms.date: 08/07/2017
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: fb2e0621645a48f4e603d754d8babbc07a78cae4
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d40243454632550147a7d42ab26a8f1d2d100db2
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET Core への WebListener Web サーバーの実装
 
@@ -78,7 +78,7 @@ WebListener は、Kestrel を使用して取得できない機能のいずれか
 
 * NuGet パッケージ [Microsoft.AspNetCore.Server.WebListener](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.WebListener/) をインストールします。 これで、依存関係として [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) もインストールされます。
 
-* 次の例で示すように、必要な WebListener [オプション](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs)と[設定](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs)を指定して、`Main` メソッド内で [WebHostBuilder](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) に対して `UseWebListener` 拡張メソッドを呼び出します。
+* 次の例で示すように、必要な WebListener [オプション](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs)と[設定](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs)を指定して、`Main` メソッド内で [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) に対して `UseWebListener` 拡張メソッドを呼び出します。
 
   [!code-csharp[](weblistener/sample/Program.cs?name=snippet_Main&highlight=13-17)]
 
@@ -87,6 +87,9 @@ WebListener は、Kestrel を使用して取得できない機能のいずれか
   既定では ASP.NET Core は `http://localhost:5000` にバインドされます。 URL プレフィックスとポートを構成するには、`UseURLs` 拡張メソッド、`urls` コマンド ライン引数、または ASP.NET Core 構成システムを使用できます。 詳細については、[ホスティング](../../fundamentals/hosting.md)に関するページを参照してください。
 
   Web Listener は、[Http.Sys プレフィックス文字列形式](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)を使用します。 WebListener に固有のプレフィックス文字列形式の要件はありません。
+
+  > [!WARNING]
+  > 最上位のワイルドカードのバインド (`http://*:80/` と `http://+:80`) は使用しては**いけません**。 最上位のワイルドカードのバインドは、セキュリティの脆弱性に対してアプリを切り開くことができます。 これは、強力と脆弱の両方のワイルドカードに適用されます。 ワイルドカードではなく、明示的なホスト名を使用します。 全体の親ドメインを制御する場合、サブドメイン ワイルドカード バインド (たとえば、`*.mysub.com`) にこのセキュリティ リスクはありません (脆弱である `*.com` とは対照的)。 詳細については、[rfc7230 セクション-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) を参照してください。
 
   > [!NOTE]
   > サーバーで事前登録する `UseUrls` に同じプレフィックス文字列を指定してください。 
@@ -145,7 +148,7 @@ netsh http add urlacl url=https://+:443/ user=Users
 次の例は、SSL 証明書を割り当てる方法を示しています。
 
 ```console
-netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={00000000-0000-0000-0000-000000000000}".
+netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid="{00000000-0000-0000-0000-000000000000}".
 ```
 
 公式のリファレンス ドキュメントは次のとおりです。
@@ -163,7 +166,7 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={000000
 netsh.exe コマンド ラインよりも使いやすいサードパーティ製ツールをいくつか紹介します。 これらのツールは Microsoft 製ではなく、Microsoft が推奨するものでもありません。 netsh.exe 自体に管理者特権が必要なので、これらのツールは既定で管理者として実行されます。
 
 * [http.sys Manager](http://httpsysmanager.codeplex.com/) には、SSL 証明書とオプション、プレフィックス予約、および証明書信頼リストを一覧表示および設定するための UI があります。 
-* [HttpConfig](http://www.stevestechspot.com/ABetterHttpcfg.aspx) では、SSL 証明書と URL プレフィックスを一覧表示し、設定することができます。 UI は http.sys Manager より洗練されており、公開されている構成オプションも少し多いのですが、その他の機能は同様です。 新しい証明書信頼リスト (CTL) を作成することはできませんが、既存の証明書信頼リストを割り当てることができます。
+* [HttpConfig](http://www.stevestechspot.com/ABetterHttpcfg.aspx) では、SSL 証明書と URL プレフィックスを一覧表示したり、設定することができます。 UI は http.sys Manager より洗練されており、公開されている構成オプションも少し多くなっていますが、その他の機能は同様です。 新しい証明書信頼リスト (CTL) を作成することはできませんが、既存の証明書信頼リストを割り当てることができます。
 
 自己署名 SSL 証明書を生成する場合は、Microsoft が提供するコマンド ラインツールである [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968) と PowerShell コマンドレットの [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pki/new-selfsignedcertificate) を利用できます。 また、自己署名 SSL 証明書を簡単に生成できるサードパーティ製 UI ツールもあります。
 

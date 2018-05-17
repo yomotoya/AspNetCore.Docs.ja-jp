@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-primary-key-configuration
-ms.openlocfilehash: ce654492dc7bab6c031c9f82555f877f642171ce
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 49d5ef94abeb5bd616c5ddbcdd4358a58a8e63a4
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="configure-identity-primary-key-data-type-in-aspnet-core"></a>ASP.NET Core の Id の主キー データの種類を構成します。
 
@@ -35,17 +35,20 @@ ASP.NET Core の Id では、主キーを表すために使用するデータの
 
 4. アプリのスタートアップ クラスで、Id サービスを追加するときに、データベースのカスタム コンテキスト クラスを登録します。
 
-   #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
-    `AddEntityFrameworkStores`メソッドを使用しない、 `TKey` ASP.NET Core では引数が行っていた 1.x です。 分析することによって、主キーのデータ型を推論、`DbContext`オブジェクト。
+   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-    [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-PrimaryKeysConfig/Startup.cs?highlight=6-8&range=25-37)]
+   `AddEntityFrameworkStores`メソッドを使用しない、 `TKey` ASP.NET Core では引数が行っていた 1.x です。 分析することによって、主キーのデータ型を推論、`DbContext`オブジェクト。
 
-   #### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-    `AddEntityFrameworkStores`メソッドを受け入れる、`TKey`主キーのデータ型を示す引数。
+   [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-PrimaryKeysConfig/Startup.cs?highlight=6-8&range=25-37)]
 
-    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Startup.cs?highlight=9-11&range=39-55)]
+   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
-   * * *
+   `AddEntityFrameworkStores`メソッドを受け入れる、`TKey`主キーのデータ型を示す引数。
+
+   [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Startup.cs?highlight=9-11&range=39-55)]
+
+   ---
+
 ## <a name="test-the-changes"></a>変更をテストします
 
 完了すると、構成の変更、主キーを表すプロパティには、新しいデータ型が反映されます。 次の例では、MVC コント ローラーのプロパティへのアクセスを示します。

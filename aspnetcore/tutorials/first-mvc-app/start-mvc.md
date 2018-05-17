@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC と Visual Studio の概要"
+title: ASP.NET Core MVC と Visual Studio の概要
 author: rick-anderson
-description: "ASP.NET Core MVC と Visual Studio の概要"
+description: ASP.NET Core MVC と Visual Studio の概要について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/07/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: d07d133aa0ed83962b6dc60b9fa0c42993f87843
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1dba6eaceb6b69cf92cb8a831df9dc8d70a005d4
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="getting-started-with-aspnet-core-mvc-and-visual-studio"></a>ASP.NET Core MVC と Visual Studio の概要
+# <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>ASP.NET Core MVC と Visual Studio の概要
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 このチュートリアルには 3 つのバージョンがあります。
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 01/30/2018
 
 ## <a name="install-visual-studio-and-net-core"></a>Visual Studio と .NET Core のインストール
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-[!INCLUDE[install 2.0](../../includes/install2.0.md)]
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
 Visual Studio Community 2017 をインストールします。 コミュニティ ダウンロードを選択します。 Visual Studio 2017 をインストールしている場合は、この手順をスキップします。
 
@@ -65,7 +65,6 @@ Visual Studio で **[ファイル]、[新規作成]、[プロジェクト]** の
 
 ![[新しいプロジェクト] ダイアログ、左ウィンドウの .NET Core、ASP.NET Core Web ](start-mvc/_static/new_project2.png)
 
-
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 **[ASP.NET Core Web Application (.NET Core) - MvcMovie]** ダイアログを次のように設定します。
@@ -95,7 +94,7 @@ Visual Studio は、作成した MVC プロジェクトの既定のテンプレ�
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
 ![実行中のアプリ](start-mvc/_static/1.png)
 
-* Visual Studio で [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) が開始され、アプリが実行されます。 アドレス バーには、`example.com` などではなく、`localhost:port#` が表示されます。 これは、`localhost` がローカル コンピューターの標準のホスト名であるためです。 Visual Studio が Web プロジェクトを作成する場合は、Web サーバーにランダム ポートが使用されます。 上の図で、ポート番号は 5000 です。 ブラウザーの URL は `localhost:5000` を示します。 アプリを実行する際には、別のポート番号が表示されます。
+* Visual Studio で [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) が開始され、アプリが実行されます。 アドレス バーには、`example.com` などではなく、`localhost:port#` が表示されます。 これは、`localhost` がローカル コンピューターの標準のホスト名であるためです。 Visual Studio が Web プロジェクトを作成する場合は、Web サーバーにランダム ポートが使用されます。 上の図で、ポート番号は 5000 です。 ブラウザーの URL は `localhost:5000` を示します。 アプリを実行する際には、別のポート番号が表示されます。
 * **Ctrl + F5** キー (非デバッグ モード) でアプリを起動することで、コードの変更、ファイルの保存、ブラウザーの更新、およびコード変更の確認を行うことができます。 多くの開発者は、すばやくアプリを起動し、変更を確認できる非デバッグ モードの使用を好みます。
 * **[デバッグ]** メニュー項目から、デバッグ モードまたは非デバッグ モードでアプリを起動できます。
 
@@ -113,5 +112,5 @@ Visual Studio は、作成した MVC プロジェクトの既定のテンプレ�
 
 このチュートリアルの次のパートでは、MVC について説明し、コードの作成を開始します。
 
->[!div class="step-by-step"]
-[次へ](adding-controller.md)  
+> [!div class="step-by-step"]
+> [次へ](adding-controller.md)  

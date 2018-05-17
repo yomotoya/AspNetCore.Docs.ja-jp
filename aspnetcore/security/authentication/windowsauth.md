@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 876e1ab67fd283a9a8788bb2c7ef0ec111075794
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: a481951812e3498a1172dea98aaa162149b86f2b
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core で Windows 認証を構成します。
 
@@ -84,17 +84,20 @@ Windows 認証が動作していることを確認するアプリを起動しま
 
 ## <a name="enable-windows-authentication-with-httpsys-or-weblistener"></a>HTTP.sys や WebListener で Windows 認証を有効にします。
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Kestrel が Windows 認証をサポートしていないは使用できます[HTTP.sys](xref:fundamentals/servers/httpsys) Windows では自己ホスト型のシナリオをサポートするためにします。 次の例は、Windows 認証での HTTP.sys を使用するアプリの web ホストを構成します。
 
 [!code-csharp[](windowsauth/sample/Program2x.cs?highlight=9-14)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Kestrel が Windows 認証をサポートしていないは使用できます[WebListener](xref:fundamentals/servers/weblistener) Windows では自己ホスト型のシナリオをサポートするためにします。 次の例は、Windows 認証で WebListener を使用するアプリの web ホストを構成します。
 
 [!code-csharp[](windowsauth/sample/Program1x.cs?highlight=6-11)]
 
-* * *
+---
+
 ## <a name="work-with-windows-authentication"></a>Windows 認証を使用します。
 
 匿名アクセスの構成の状態を決定する方法、`[Authorize]`と`[AllowAnonymous]`属性は、アプリで使用します。 次の 2 つのセクションでは、匿名アクセスの許可されていないと許可されている構成の状態を処理する方法について説明します。

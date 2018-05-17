@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 9af08d8fcbd91a9189fe1f4c6cedd644361773f7
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC のビュー
 
@@ -56,7 +56,7 @@ ASP.NET Core MVC では、ビューは、Razor マークアップで [C# プロ�
 
 ## <a name="how-controllers-specify-views"></a>コントローラーがビューを指定する方法
 
-ビューは通常、[ActionResult](/aspnet/core/api/microsoft.aspnetcore.mvc.actionresult) の型である [ViewResult](/aspnet/core/api/microsoft.aspnetcore.mvc.viewresult) としてアクションから返されます。 アクション メソッドで `ViewResult` を作成して直接返すことはできますが、一般的には行われていません。 ほとんどのコントローラーは [Controller](/aspnet/core/api/microsoft.aspnetcore.mvc.controller) から継承されるため、`View` ヘルパー メソッドを使って `ViewResult` を返します。
+ビューは通常、[ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) の型である [ViewResult](/dotnet/api/microsoft.aspnetcore.mvc.viewresult) としてアクションから返されます。 アクション メソッドで `ViewResult` を作成して直接返すことはできますが、一般的には行われていません。 ほとんどのコントローラーは [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controller) から継承されるため、`View` ヘルパー メソッドを使って `ViewResult` を返します。
 
 *HomeController.cs*
 
@@ -115,7 +115,7 @@ return View("./About");
 
 [部分ビュー](xref:mvc/views/partial)と[ビュー コンポーネント](xref:mvc/views/view-components)は、まったく同じではありませんが、同様の検出メカニズムを使用します。
 
-カスタムの [IViewLocationExpander](/aspnet/core/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander) を使用して、ビューをアプリ内に配置する方法の既定の規則をカスタマイズすることができます。
+カスタムの [IViewLocationExpander](/dotnet/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander) を使用して、ビューをアプリ内に配置する方法の既定の規則をカスタマイズすることができます。
 
 ビューの検出は、ファイル名によるビュー ファイルの検出に依存しています。 基になるファイル システムが大文字と小文字を区別する場合は、ビューの名前も大文字と小文字を区別する可能性があります。 オペレーティング システム間の互換性のため、コントローラー、アクション名、関連するビュー フォルダー、ファイル名の間で、大文字と小文字の区別を一致させます。 大文字と小文字を区別するファイル システムを使用していて、ビュー ファイルが見つからないというエラーが発生する場合は、要求されたビュー ファイルと実際のビュー ファイルの名前の大文字と小文字が一致していることを確認します。
 
@@ -205,7 +205,7 @@ namespace WebApplication1.ViewModels
 
 **ViewData**
 
-`ViewData` は `string` キーを介してアクセスされる [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) オブジェクトです。 文字列データは、格納してキャストなしで直接使用できますが、特定の型を抽出するときには、他の `ViewData` オブジェクトの値をこれらの型にキャストする必要があります。 `ViewData` を使用して、データをコントローラーからビューとビュー内部 ([部分ビュー](xref:mvc/views/partial)および[レイアウト](xref:mvc/views/layout)を含む) に渡すことができます。
+`ViewData` は `string` キーを介してアクセスされる [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) オブジェクトです。 文字列データは、格納してキャストなしで直接使用できますが、特定の型を抽出するときには、他の `ViewData` オブジェクトの値をこれらの型にキャストする必要があります。 `ViewData` を使用して、データをコントローラーからビューとビュー内部 ([部分ビュー](xref:mvc/views/partial)および[レイアウト](xref:mvc/views/layout)を含む) に渡すことができます。
 
 次の例では、1 つのアクションで `ViewData` を使用して、あいさつ文とアドレスに値を設定します。
 
@@ -247,7 +247,7 @@ public IActionResult SomeAction()
 
 注: `ViewBag` は Razor ページでは使用できません。
 
-`ViewBag` は、`ViewData` に格納されているオブジェクトへの動的アクセスを提供する [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) オブジェクトです。 `ViewBag` はキャストを必要としないため、より簡単に使用できます。 次の例は、上記の `ViewData` を使用した時と同じ結果になるように、`ViewBag` を使用する方法を示しています。
+`ViewBag` は、`ViewData` に格納されているオブジェクトへの動的アクセスを提供する [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) オブジェクトです。 `ViewBag` はキャストを必要としないため、より簡単に使用できます。 次の例は、上記の `ViewData` を使用した時と同じ結果になるように、`ViewBag` を使用する方法を示しています。
 
 ```csharp
 public IActionResult SomeAction()
@@ -321,11 +321,11 @@ public IActionResult SomeAction()
  `ViewBag` は Razor ページでは使用できません。
 
 * `ViewData`
-  * [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) から派生するため、`ContainsKey`、`Add`、`Remove`、`Clear` などの役に立つディクショナリ プロパティがあります。
+  * [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) から派生するため、`ContainsKey`、`Add`、`Remove`、`Clear` などの役に立つディクショナリ プロパティがあります。
   * ディクショナリ内のキーは文字列なので、空白が許可されます。 例 : `ViewData["Some Key With Whitespace"]`
   * `ViewData` を使用するには、ビューで `string` 以外のすべての型をキャストする必要があります。
 * `ViewBag`
-  * [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) から派生するため、ドット表記 (`@ViewBag.SomeKey = <value or object>`) を使用して動的プロパティを作成できます。キャストは必要ありません。 `ViewBag` の構文は、コントローラーとビューへの追加を高速化します。
+  * [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) から派生するため、ドット表記 (`@ViewBag.SomeKey = <value or object>`) を使用して動的プロパティを作成できます。キャストは必要ありません。 `ViewBag` の構文は、コントローラーとビューへの追加を高速化します。
   * null 値のチェックを簡素化します。 例 : `@ViewBag.Person?.Name`
 
 **ViewData または ViewBag を使用する場合**

@@ -1,6 +1,6 @@
 ---
 title: Windows サービスで ASP.NET Core をホストします。
-author: tdykstra
+author: rick-anderson
 description: Windows サービスで ASP.NET Core アプリケーションをホストする方法を説明します。
 manager: wpickett
 ms.author: tdykstra
@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: b0b27f274de1ca88b20bf582127132527b553ce0
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 29f83ee585c73aeb57a09f70ea8e28650c05ce69
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows サービスで ASP.NET Core をホストします。
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/06/2018
 
   [!code-xml[](windows-service/sample/AspNetCoreService.csproj?range=3-6)]
 
-  Visual Studio で、プロジェクトを作成するときに使用して、 **ASP.NET Core アプリケーション (.NET Framework)**テンプレート。
+  Visual Studio で、プロジェクトを作成するときに使用して、 **ASP.NET Core アプリケーション (.NET Framework)** テンプレート。
 
 * アプリは、(内部ネットワーク) からだけでなく、インターネットから要求を受け取る場合は使用する必要があります、 [HTTP.sys](xref:fundamentals/servers/httpsys) web サーバー (以前の[WebListener](xref:fundamentals/servers/weblistener) 1.x アプリの ASP.NET Core)ではなく[Kestrel](xref:fundamentals/servers/kestrel)です。 IIS は推奨リバース プロキシ サーバーとして使用する Kestrel でエッジに導入されます。 詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
 
@@ -46,13 +46,15 @@ ms.lasthandoff: 04/06/2018
 
    * コードを呼び出す場合`UseContentRoot`、パスの代わりに、発行場所を使用する`Directory.GetCurrentDirectory()`です。
 
-   #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
    [!code-csharp[](windows-service/sample/Program.cs?name=ServiceOnly&highlight=3-4,7,12)]
 
-   #### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
    [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=ServiceOnly&highlight=3-4,8,14)]
 
-   * * *
+   ---
 
 3. フォルダーに、アプリを発行します。 使用して[dotnet 発行](/dotnet/articles/core/tools/dotnet-publish)または[発行プロファイルを Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles)フォルダーに発行します。
 
@@ -77,13 +79,16 @@ ms.lasthandoff: 04/06/2018
 
 テストおよびが通常の操作を呼び出すコードを追加するために、サービスの外部で実行中にデバッグしやすく`RunAsService`特定の条件下でのみです。 コンソール アプリとしてアプリを実行できますなど、`--console`コマンドライン引数や、デバッガーがアタッチされているかどうか。
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-csharp[](windows-service/sample/Program.cs?name=ServiceOrConsole)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=ServiceOrConsole)]
 
-* * *
+---
+
 ## <a name="handle-stopping-and-starting-events"></a>停止および開始イベントを処理します。
 
 処理するために`OnStarting`、 `OnStarted`、および`OnStopping`イベントでは、次の変更、追加します。
@@ -98,20 +103,23 @@ ms.lasthandoff: 04/06/2018
 
 3. `Program.Main`、新しい拡張メソッドを呼び出し、`RunAsCustomService`の代わりに`RunAsService`:
 
-   #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+   # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
    [!code-csharp[](windows-service/sample/Program.cs?name=HandleStopStart&highlight=24)]
 
-   #### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+   # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
    [!code-csharp[](windows-service/sample_snapshot/Program.cs?name=HandleStopStart&highlight=26)]
 
-   * * *
+   ---
+
 場合、カスタム`WebHostService`コード (ロガー) などの依存関係の挿入からサービスを必要と、これからは取得、`Services`プロパティ`IWebHost`:
 
 [!code-csharp[](windows-service/sample/CustomWebHostService.cs?name=Logging&highlight=7)]
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>プロキシ サーバーとロード バランサーのシナリオ
 
-インターネットや企業ネットワークからの要求との対話しプロキシの背後にある、またはロード バランサーをサービスには、追加の構成を必要があります。 詳細については、次を参照してください。[にプロキシ サーバーを操作すると、ロード バランサーの ASP.NET Core の構成](xref:host-and-deploy/proxy-load-balancer)です。
+インターネットや企業ネットワークからの要求との対話しプロキシの背後にある、またはロード バランサーをサービスには、追加の構成を必要があります。 詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。
 
 ## <a name="acknowledgments"></a>謝辞
 

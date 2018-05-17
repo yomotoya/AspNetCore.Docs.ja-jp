@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: e0bf0084f8e46f3774fa070602404840aa803661
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: f6b03c01ae0da1cc8fb3bc2e0546c0d9752ddf75
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="twitter-external-login-setup-with-aspnet-core"></a>Twitter の ASP.NET Core を使用して外部ログインのセットアップ
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/03/2018
 
 * 開発 URI を入力と */signin-twitter*に追加されます、**有効な OAuth リダイレクト Uri**フィールド (例: `https://localhost:44320/signin-twitter`)。 このチュートリアルで後で構成されている Twitter 認証スキームはで、要求を自動的に処理 */signin-twitter* OAuth フローを実装するルート。
 
-* フォームの残りの部分を入力し、タップ**、Twitter アプリケーションを作成**です。 新しいアプリケーションの詳細が表示されます。
+* フォームの残りの部分を入力し、タップ **、Twitter アプリケーションを作成**です。 新しいアプリケーションの詳細が表示されます。
 
 ![[アプリケーション] ページの [詳細] タブ](index/_static/TwitterAppDetails.png)
 
@@ -56,7 +56,8 @@ Twitter などの機密設定をリンク`Consumer Key`と`Consumer Secret`、�
 
    `dotnet add package Microsoft.AspNetCore.Authentication.Twitter`
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Twitter のサービスを追加、`ConfigureServices`メソッド*Startup.cs*ファイル。
 
 ```csharp
@@ -73,7 +74,8 @@ services.AddAuthentication().AddTwitter(twitterOptions =>
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Twitter ミドルウェア内の追加、`Configure`メソッド*Startup.cs*ファイル。
 
 ```csharp
@@ -84,7 +86,8 @@ app.UseTwitterAuthentication(new TwitterOptions()
 });
 ```
 
-* * *
+---
+
 参照してください、 [TwitterOptions](/dotnet/api/microsoft.aspnetcore.builder.twitteroptions) Twitter 認証でサポートされる構成オプションの詳細についての API リファレンスです。 ユーザーに関するさまざまな情報を要求するために使用できます。
 
 ## <a name="sign-in-with-twitter"></a>Twitter でサインイン

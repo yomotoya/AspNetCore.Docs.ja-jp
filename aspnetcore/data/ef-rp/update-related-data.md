@@ -1,7 +1,7 @@
 ---
-title: "Razor ページと EF Core - 関連データの更新 - 7/8"
+title: ASP.NET Core の Razor ページと EF Core - 関連データの更新 - 7/8
 author: rick-anderson
-description: "このチュートリアルでは、外部キー フィールドとナビゲーション プロパティを更新することで関連データを更新します。"
+description: このチュートリアルでは、外部キー フィールドとナビゲーション プロパティを更新することで関連データを更新します。
 manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 5c91c91ab938f3aa4abc55049c54f399469f6163
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 2eff6cd5f4bb737cb79875c9b04c889914376cd0
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="updating-related-data---ef-core-razor-pages-7-of-8"></a>関連データの更新 - EF Core と Razor ページ (7/8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>ASP.NET Core の Razor ページと EF Core - 関連データの更新 - 7/8
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 このチュートリアルでは、関連データの更新を示します。 解決できない問題が発生した場合は、[このステージの完成したアプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part7)をダウンロードしてください。
 
@@ -34,9 +34,9 @@ ms.lasthandoff: 01/31/2018
 
 Courses/Create ページと Courses/Edit ページにはそれぞれ部門名のリストが必要です。 Create ページと Edit ページ用に *Pages/Courses/DepartmentNamePageModel.cshtml.cs* 基底クラスを作成します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/DepartmentNamePageModel.cshtml.cs?highlight=9,11,20-21)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/DepartmentNamePageModel.cshtml.cs?highlight=9,11,20-21)]
 
-上記のコードは、部門名のリストを格納するための [SelectList](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0) を作成します。 `selectedDepartment` を指定すると、`SelectList` でその部門が選択されます。
+上記のコードは、部門名のリストを格納するための [SelectList](/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0) を作成します。 `selectedDepartment` を指定すると、`SelectList` でその部門が選択されます。
 
 Create と Edit のページ モデル クラスは、`DepartmentNamePageModel` から派生します。
 
@@ -48,7 +48,7 @@ Create と Edit のページ モデル クラスは、`DepartmentNamePageModel` 
 
 次のコードを使用して、Create ページ モデルを更新します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Create.cshtml.cs?highlight=7,18,32-)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Create.cshtml.cs?highlight=7,18,32-999)]
 
 上のコードでは以下の操作が行われます。
 
@@ -62,7 +62,7 @@ Create と Edit のページ モデル クラスは、`DepartmentNamePageModel` 
 
 次のマークアップを使用して *Pages/Courses/Create.cshtml* を更新します。
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Courses/Create.cshtml?highlight=29-34)]
+[!code-cshtml[](intro/samples/cu/Pages/Courses/Create.cshtml?highlight=29-34)]
 
 上記のマークアップは、次の変更を加えます。
 
@@ -73,7 +73,7 @@ Create と Edit のページ モデル クラスは、`DepartmentNamePageModel` 
 
 Razor ページは[選択タグ ヘルパー](xref:mvc/views/working-with-forms#the-select-tag-helper)を使用します。
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Courses/Create.cshtml?range=28-35&highlight=3-6)]
+[!code-cshtml[](intro/samples/cu/Pages/Courses/Create.cshtml?range=28-35&highlight=3-6)]
 
 Create ページをテストします。 Create ページには、部門 ID ではなく、部門名が表示されます。
 
@@ -81,13 +81,13 @@ Create ページをテストします。 Create ページには、部門 ID で�
 
 次のコードを使用して、Edit ページ モデルを更新します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Edit.cshtml.cs?highlight=8,28,35,36,40,47-)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Edit.cshtml.cs?highlight=8,28,35,36,40,47-999)]
 
 変更は、Create ページ モデルで行われたものと似ています。 上記のコードでは、ドロップダウン リストで指定された部門を選択する `PopulateDepartmentsDropDownList` が DepartmentID で渡されます。
 
 次のマークアップを使用して *Pages/Courses/Edit.cshtml* を更新します。
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Courses/Edit.cshtml?highlight=17-20,32-35)]
+[!code-cshtml[](intro/samples/cu/Pages/Courses/Edit.cshtml?highlight=17-20,32-35)]
 
 上記のマークアップは、次の変更を加えます。
 
@@ -103,19 +103,19 @@ Create ページをテストします。 Create ページには、部門 ID で�
 
 ## <a name="add-asnotracking-to-the-details-and-delete-page-models"></a>AsNoTracking を Details (詳細) と Delete (削除) のページ モデルに追加する
 
-[AsNoTracking](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) は、追跡が必要ない場合に、パフォーマンスを向上させることができます。 `AsNoTracking` を Details と Delete のページ モデルに追加します。 次のコードは、更新された Delete ページ モデルを示しています。
+[AsNoTracking](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) は、追跡が必要ない場合に、パフォーマンスを向上させることができます。 `AsNoTracking` を Details と Delete のページ モデルに追加します。 次のコードは、更新された Delete ページ モデルを示しています。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Delete.cshtml.cs?name=snippet&highlight=21,23,40,41)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Delete.cshtml.cs?name=snippet&highlight=21,23,40,41)]
 
 *Pages/Courses/Details.cshtml.cs* ファイルで `OnGetAsync` メソッドを更新します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Details.cshtml.cs?name=snippet)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Details.cshtml.cs?name=snippet)]
 
 ### <a name="modify-the-delete-and-details-pages"></a>Delete ページと Details ページを変更する
 
 次のマークアップを使用して、Delete Razor ページを更新します。
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Courses/Delete.cshtml?highlight=15-20)]
+[!code-cshtml[](intro/samples/cu/Pages/Courses/Delete.cshtml?highlight=15-20)]
 
 Details ページに同じ変更を行います。
 
@@ -137,7 +137,7 @@ Create、Edit、Details、Delete の各ページをテストします。
 
 次のコードを使用して、Instructors/Edit ページ モデルを更新します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Edit1.cshtml.cs?name=snippet&highlight=20-23,32,39-)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Edit1.cshtml.cs?name=snippet&highlight=20-23,32,39-999)]
 
 上のコードでは以下の操作が行われます。
 
@@ -149,7 +149,7 @@ Create、Edit、Details、Delete の各ページをテストします。
 
 オフィスの場所で *Pages/Instructors/Edit.cshtml* を更新します。
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Instructors/Edit1.cshtml?highlight=29-33)]
+[!code-cshtml[](intro/samples/cu/Pages/Instructors/Edit1.cshtml?highlight=29-33)]
 
 インストラクターのオフィスの場所を変更できることを確認します。
 
@@ -170,27 +170,27 @@ Create、Edit、Details、Delete の各ページをテストします。
 
 次のコードを使用して、*SchoolViewModels/AssignedCourseData.cs* を作成します。
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
 
 `AssignedCourseData` クラスには、インストラクターごとの割り当てられたコースのチェック ボックスを作成するデータが含まれています。
 
 *Pages/Instructors/InstructorCoursesPageModel.cshtml.cs* 基底クラスを作成します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/InstructorCoursesPageModel.cshtml.cs)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/InstructorCoursesPageModel.cshtml.cs)]
 
-`InstructorCoursesPageModel` は、Edit と Create のページ モデルに使用する基底クラスです。 `PopulateAssignedCourseData` は、`AssignedCourseDataList` に設定するためのすべての `Course` エンティティを読み取ります。 コースごとに、コードは `CourseID`、タイトル、およびインストラクターがコースに割り当てられているかどうかを設定します。 効率的な参照を作成するために [HashSet](https://docs.microsoft.com/dotnet/api/system.collections.generic.hashset-1) が使用されています。
+`InstructorCoursesPageModel` は、Edit と Create のページ モデルに使用する基底クラスです。 `PopulateAssignedCourseData` は、`AssignedCourseDataList` に設定するためのすべての `Course` エンティティを読み取ります。 コースごとに、コードは `CourseID`、タイトル、およびインストラクターがコースに割り当てられているかどうかを設定します。 効率的な参照を作成するために [HashSet](/dotnet/api/system.collections.generic.hashset-1) が使用されています。
 
 ### <a name="instructors-edit-page-model"></a>Instructors/Edit ページ モデル
 
 次のコードを使用して、Instructors/Edit ページ モデルを更新します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Edit.cshtml.cs?name=snippet&highlight=1,20-24,30,34,41-)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Edit.cshtml.cs?name=snippet&highlight=1,20-24,30,34,41-999)]
 
 上記のコードでは、オフィスの割り当て変更を処理します。
 
 Instructor Razor ビューを更新します。
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Instructors/Edit.cshtml?highlight=34-59)]
+[!code-cshtml[](intro/samples/cu/Pages/Instructors/Edit.cshtml?highlight=34-59)]
 
 <a id="notepad"></a>
 > [!NOTE]
@@ -208,13 +208,13 @@ Instructor Razor ビューを更新します。
 
 次のコードを使用して、Instructors/Create ページ モデルを更新します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Create.cshtml.cs)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Create.cshtml.cs)]
 
 上記のコードは、*Pages/Instructors/Edit.cshtml.cs* コードに似ています。
 
 次のマークアップを使用して、Instructors/Create Razor ページを更新します。
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Instructors/Create.cshtml?highlight=32-62)]
+[!code-cshtml[](intro/samples/cu/Pages/Instructors/Create.cshtml?highlight=32-62)]
 
 Instructors/Create ページをテストします。
 
@@ -222,7 +222,7 @@ Instructors/Create ページをテストします。
 
 次のコードを使用して、Delete ページ モデルを更新します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Delete.cshtml.cs?highlight=5,40-)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Delete.cshtml.cs?highlight=5,40-999)]
 
 上記のコードは、次の変更を加えます。
 
@@ -230,6 +230,6 @@ Instructors/Create ページをテストします。
 
 * 削除されるインストラクターが任意の部門の管理者として割り当てられている場合、インストラクターの割り当てをその部門から削除します。
 
->[!div class="step-by-step"]
-[前へ](xref:data/ef-rp/read-related-data)
-[次へ](xref:data/ef-rp/concurrency)
+> [!div class="step-by-step"]
+> [前へ](xref:data/ef-rp/read-related-data)
+> [次へ](xref:data/ef-rp/concurrency)

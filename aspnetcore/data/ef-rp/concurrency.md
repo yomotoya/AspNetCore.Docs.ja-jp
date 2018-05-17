@@ -1,7 +1,7 @@
 ---
-title: "Razor ページと EF Core - 同時実行 - 8/8"
+title: ASP.NET Core の Razor ページと EF Core - 同時実行 - 8/8
 author: rick-anderson
-description: "このチュートリアルでは、複数のユーザーが同じエンティティを同時に更新するときの競合の処理方法について説明します。"
+description: このチュートリアルでは、複数のユーザーが同じエンティティを同時に更新するときの競合の処理方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 1c6cdefa1410839606711d7460a8f4d0f1d6c72b
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: b6a8354bf438895f5188290013afefd883c4dd0a
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/03/2018
 ---
 en-us/
 
-# <a name="handling-concurrency-conflicts---ef-core-with-razor-pages-8-of-8"></a>同時実行競合の処理 - EF Core と Razor ページ (8/8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET Core の Razor ページと EF Core - 同時実行 - 8/8
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)、[Tom Dykstra](https://github.com/tdykstra)、[Jon P Smith](https://twitter.com/thereformedprog)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 このチュートリアルでは、複数のユーザーがエンティティを同時に更新するときの競合の処理方法について説明します。 解決できない問題が発生した場合は、[このステージの完成したアプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part8)をダウンロードしてください。
 
@@ -57,38 +57,38 @@ John が Edit ページの **[保存]** をクリックします。このとき�
 
 * ユーザーが変更したプロパティを追跡記録し、それに該当する列だけをデータベースで更新します。
 
- このシナリオでは、データは失われません。 2 人のユーザーが別のプロパティを更新しました。 今度誰かが English 部署を閲覧すると、Jane の変更と John の変更が両方とも表示されます。 この更新方法では、データが失われる原因となる競合の数を減らすことができます。 このアプローチでは、次が可能です。* 競合する変更が同じプロパティに加えられた場合、データの損失を回避することはできません。
+  このシナリオでは、データは失われません。 2 人のユーザーが別のプロパティを更新しました。 今度誰かが English 部署を閲覧すると、Jane の変更と John の変更が両方とも表示されます。 この更新方法では、データが失われる原因となる競合の数を減らすことができます。 このアプローチでは、次が可能です。* 競合する変更が同じプロパティに加えられた場合、データの損失を回避することはできません。
         * Web アプリでは、一般的に実用的ではありません。 フェッチされたすべての値と新しい値を追跡するために、かなりのステータスを維持することが必要になります。 大量のステータスを保守管理することになると、アプリケーションのパフォーマンスに影響が出ます。
         * エンティティでの同時実行の検出と比較して、アプリは複雑になります。
 
 * John の変更で Jane の変更を上書きするように指定できます。
 
- 今度誰かが English 部署を閲覧すると、9/1/2013 の日付と、フェッチされた $350,000.00 の値が表示されます。 このアプローチは *Client Wins* (クライアント側に合わせる) シナリオまたは *Last in Wins* (最終書き込み者優先) シナリオと呼ばれています。 (クライアントからの値がすべて、データ ストアの値より優先されます。)同時実行処理に対してコーディングを行わない場合、自動的にクライアント側に合わせられます。
+  今度誰かが English 部署を閲覧すると、9/1/2013 の日付と、フェッチされた $350,000.00 の値が表示されます。 このアプローチは *Client Wins* (クライアント側に合わせる) シナリオまたは *Last in Wins* (最終書き込み者優先) シナリオと呼ばれています。 (クライアントからの値がすべて、データ ストアの値より優先されます。)同時実行処理に対してコーディングを行わない場合、自動的にクライアント側に合わせられます。
 
 * データベースで John の変更が更新されないようにできます。 通常、アプリでは次が発生します。* エラー メッセージが表示されます。
         * データの現在のステータスが表示されます。
         * ユーザーが変更を再適用できるようになります。
 
- これは *Store Wins* (ストア側に合わせる) シナリオと呼ばれています。 (クライアントが送信した値よりデータストアの値が優先されます。)このチュートリアルでは、Store Wins シナリオを実装します。 この手法では、変更が上書きされるとき、それが必ずユーザーに警告されます。
+  これは *Store Wins* (ストア側に合わせる) シナリオと呼ばれています。 (クライアントが送信した値よりデータストアの値が優先されます。)このチュートリアルでは、Store Wins シナリオを実装します。 この手法では、変更が上書きされるとき、それが必ずユーザーに警告されます。
 
 ## <a name="handling-concurrency"></a>同時実行の処理 
 
 プロパティが[同時実行トークン](https://docs.microsoft.com/ef/core/modeling/concurrency)として構成されている場合、次が実行されます。
 
-* EF Core によって、フェッチ後にプロパティが変更されていないことが確認されます。 このチェックは、[SaveChanges](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) または [SaveChangesAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) が呼び出されたときに発生します。
-* フェッチ後にプロパティが変更されていると、[DbUpdateConcurrencyException](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) がスローされます。 
+* EF Core によって、フェッチ後にプロパティが変更されていないことが確認されます。 このチェックは、[SaveChanges](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) または [SaveChangesAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) が呼び出されたときに発生します。
+* フェッチ後にプロパティが変更されていると、[DbUpdateConcurrencyException](/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) がスローされます。 
 
 データベースとデータ モデルは、`DbUpdateConcurrencyException` のスローをサポートするように構成される必要があります。
 
 ### <a name="detecting-concurrency-conflicts-on-a-property"></a>プロパティの同時実行競合の検出
 
-同時実行の競合は、[ConcurrencyCheck](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) 属性を使用し、プロパティ レベルで検出できます。 この属性は、モデルの複数のプロパティに適用できます。 詳細については、「[データの注釈 - ConcurrencyCheck](https://docs.microsoft.com/ef/core/modeling/concurrency#data-annotations)」を参照してください。
+同時実行の競合は、[ConcurrencyCheck](/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) 属性を使用し、プロパティ レベルで検出できます。 この属性は、モデルの複数のプロパティに適用できます。 詳細については、「[データの注釈 - ConcurrencyCheck](/ef/core/modeling/concurrency#data-annotations)」を参照してください。
 
 このチュートリアルでは、`[ConcurrencyCheck]` 属性は使用しません。
 
 ### <a name="detecting-concurrency-conflicts-on-a-row"></a>行の同時実行競合の検出
 
-同時実行競合を検出するために、モデルに [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) 追跡列が追加されました。  `rowversion` は、次のとおりです。
+同時実行競合を検出するために、モデルに [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) 追跡列が追加されました。  `rowversion` は、次のとおりです。
 
 * SQL Server 専用です。 他のデータベースには、似たような機能がない場合があります。
 * データベースからフェッチされた以降、エンティティに変更がないことを決定するために使用されます。 
@@ -105,9 +105,9 @@ EF Core では、`Update` または `Delete` コマンドで行が更新され�
 
 *Models/Department.cs* で、RowVersion という名前のトラッキング プロパティを追加します。
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
-[Timestamp](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.timestampattribute) 属性では、この列は、`Update` および `Delete` コマンドの `Where` 句に含まれることを指定します。 前のバージョンの SQL Server では、SQL `rowversion` 型に取って代わられる前、SQL `timestamp` というデータ型が使用されていたため、この属性は `Timestamp` と呼ばれています。
+[Timestamp](/dotnet/api/system.componentmodel.dataannotations.timestampattribute) 属性では、この列は、`Update` および `Delete` コマンドの `Where` 句に含まれることを指定します。 前のバージョンの SQL Server では、SQL `rowversion` 型に取って代わられる前、SQL `timestamp` というデータ型が使用されていたため、この属性は `Timestamp` と呼ばれています。
 
 Fluent API でも、トラッキング プロパティを指定できます。
 
@@ -127,7 +127,7 @@ modelBuilder.Entity<Department>()
 
 [!code-sql[](intro/samples/sql.txt?highlight=4-6)]
 
-[@@ROWCOUNT](https://docs.microsoft.com/sql/t-sql/functions/rowcount-transact-sql) では、最後のステートメントの影響を受けた行数を返します。 更新された行がない場合、EF Core は `DbUpdateConcurrencyException` をスローします。
+[@@ROWCOUNT](/sql/t-sql/functions/rowcount-transact-sql) では、最後のステートメントの影響を受けた行数を返します。 更新された行がない場合、EF Core は `DbUpdateConcurrencyException` をスローします。
 
 Visual Studio の出力ウィンドウでは、EF Core が生成する T-SQL を確認できます。
 
@@ -147,7 +147,7 @@ dotnet ef database update
 * *Migrations/{time stamp}_RowVersion.cs* 移行ファイルが追加されます。
 * *Migrations/SchoolContextModelSnapshot.cs* ファイルが更新されます。 更新により、次の強調表示されたコードが `BuildModel` メソッドに追加されます。
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
+[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
 
 * データベースを更新するために移行が実行されます。
 
@@ -158,9 +158,9 @@ dotnet ef database update
 * プロジェクト ディレクトリ (*Program.cs*、*Startup.cs*、および *.csproj* ファイルを含むディレクトリ) でコマンド ウィンドウを開きます。
 * 次のコマンドを実行します。
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
+  ```
 
 上記のコマンドは、`Department` モデルをスキャフォールディングします。 Visual Studio でプロジェクトを開きます。
 
@@ -193,9 +193,9 @@ Index ページを更新するために、次を実行します。
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
-同時実行の問題を検出するために、フェッチされたエンティティの [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) が `rowVersion` 値で更新されます。 EF Core では、WHERE 句に元の `RowVersion` 値が含まれる、SQL の UPDATE コマンドが生成されます。 UPDATE コマンドの影響を受ける行がない場合 (元の `RowVersion` 値が含まれる行がない)、`DbUpdateConcurrencyException` 例外がスローされます。
+同時実行の問題を検出するために、フェッチされたエンティティの [OriginalValue](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) が `rowVersion` 値で更新されます。 EF Core では、WHERE 句に元の `RowVersion` 値が含まれる、SQL の UPDATE コマンドが生成されます。 UPDATE コマンドの影響を受ける行がない場合 (元の `RowVersion` 値が含まれる行がない)、`DbUpdateConcurrencyException` 例外がスローされます。
 
-[!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-)]
+[!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-999)]
 
 上のコードでは、エンティティがフェッチされたときの値は、`Department.RowVersion` です。 このメソッドで `FirstOrDefaultAsync` が呼び出されましたときのデータベース内の値は、`OriginalValue` です。
 
@@ -246,7 +246,7 @@ Index ページが、値が変更され、rowVersion インジケーターが更
 
 ![変更後の Department Edit ページ 2](concurrency/_static/edit-after-change-2.png)
 
-**[保存]**をクリックします。 データベースの値と一致しないすべてのフィールドに、エラー メッセージが表示されます。
+**[保存]** をクリックします。 データベースの値と一致しないすべてのフィールドに、エラー メッセージが表示されます。
 
 ![Department Edit ページのエラー メッセージ](concurrency/_static/edit-error.png)
 
@@ -305,8 +305,8 @@ Index ページが、値が変更され、rowVersion インジケーターが更
 
 ### <a name="additional-resources"></a>その他の技術情報
 
-* [同時実行制御トークン](https://docs.microsoft.com/ef/core/modeling/concurrency)
-* [同時実行の処理](https://docs.microsoft.com/ef/core/saving/concurrency)
+* [同時実行制御トークン](/ef/core/modeling/concurrency)
+* [EF Core の同時実行の処理](/ef/core/saving/concurrency)
 
->[!div class="step-by-step"]
-[前へ](xref:data/ef-rp/update-related-data)
+> [!div class="step-by-step"]
+> [前へ](xref:data/ef-rp/update-related-data)

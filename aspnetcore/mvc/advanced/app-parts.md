@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core のアプリケーション パーツ"
+title: ASP.NET Core のアプリケーション パーツ
 author: ardalis
-description: "アプリのリソースで抽象化されたものである、アプリケーション パーツを使用して、アセンブリからの機能の検出または読み込みを回避するようアプリを構成する方法について説明します。"
+description: アプリのリソースで抽象化されたものである、アプリケーション パーツを使用して、アセンブリからの機能の検出または読み込みを回避する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 01/04/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 6b855f8725dacc89a7e0607224ef3c19ab9f5676
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8f7aeadc7a1218bf203575add8c82c95faf137b4
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="application-parts-in-aspnet-core"></a>ASP.NET Core のアプリケーション パーツ
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 01/30/2018
 
 ## <a name="introducing-application-parts"></a>アプリケーション パーツの概要
 
-MVC アプリはその機能を[アプリケーション パーツ](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart)から読み込みます。 たとえば、[AssemblyPart](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) クラスは、アセンブリでバックアップされるアプリケーション パーツを表します。 これらのクラスを使用して、コントローラー、ビュー コンポーネント、タグ ヘルパー、Razor コンパイル ソースなどの MBV 機能を検出して読み込むことができます。 [ApplicationPartManager](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) は、MVC アプリで使用できるアプリケーション パーツと機能プロバイダーの追跡を担当します。 MVC の構成時に `Startup` の `ApplicationPartManager` を操作できます。
+MVC アプリはその機能を[アプリケーション パーツ](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart)から読み込みます。 たとえば、[AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) クラスは、アセンブリでバックアップされるアプリケーション パーツを表します。 これらのクラスを使用して、コントローラー、ビュー コンポーネント、タグ ヘルパー、Razor コンパイル ソースなどの MBV 機能を検出して読み込むことができます。 [ApplicationPartManager](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) は、MVC アプリで使用できるアプリケーション パーツと機能プロバイダーの追跡を担当します。 MVC の構成時に `Startup` の `ApplicationPartManager` を操作できます。
 
 ```csharp
 // create an assembly part from a class's assembly
@@ -35,7 +35,7 @@ services.AddMvc()
 var assembly = typeof(Startup).GetTypeInfo().Assembly;
 var part = new AssemblyPart(assembly);
 services.AddMvc()
-    .ConfigureApplicationPartManager(apm => p.ApplicationParts.Add(part));
+    .ConfigureApplicationPartManager(apm => apm.ApplicationParts.Add(part));
 ```
 
 既定では、MVC は依存関係ツリーを検索し、コントローラーを見つけます (他のアセンブリでも同様)。 任意のアセンブリを (たとえば、コンパイル時に参照されないプラグインから) 読み込む場合は、アプリケーション パーツを使用できます。
@@ -46,9 +46,9 @@ services.AddMvc()
 
 ```csharp
 services.AddMvc()
-    .ConfigureApplicationPartManager(p =>
+    .ConfigureApplicationPartManager(apm =>
     {
-        var dependentLibrary = p.ApplicationParts
+        var dependentLibrary = apm.ApplicationParts
             .FirstOrDefault(part => part.Name == "DependentLibrary");
 
         if (dependentLibrary != null)
@@ -64,10 +64,10 @@ services.AddMvc()
 
 アプリケーション機能プロバイダーはアプリケーション パーツを調べ、これらのパーツの機能を提供します。 次の MVC 機能には組み込みの機能プロバイダーがあります。
 
-* [コントローラー](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
-* [メタデータ参照](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.compilation.metadatareferencefeatureprovider)
-* [タグ ヘルパー](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
-* [ビュー コンポーネント](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)
+* [コントローラー](/dotnet/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
+* [メタデータ参照](/dotnet/api/microsoft.aspnetcore.mvc.razor.compilation.metadatareferencefeatureprovider)
+* [タグ ヘルパー](/dotnet/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
+* [ビュー コンポーネント](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)
 
 機能プロバイダーは `IApplicationFeatureProvider<T>` から継承されます。ここで `T` は機能の種類です。 上にリストされている MVC の機能のいずれかの種類に対して、独自の機能プロバイダーを実装することができます。 `ApplicationPartManager.FeatureProviders` コレクションでの機能プロバイダーの順序は重要な場合があります。前のプロバイダーによって行われたアクションに後のプロバイダーが反応する可能性があるためです。
 
@@ -75,27 +75,27 @@ services.AddMvc()
 
 既定では、ASP.NET Core MVC は汎用コントローラー (`SomeController<T>` など) を無視します。 このサンプルでは、既定のプロバイダーの後に実行されるコントローラー機能プロバイダーを使用して、指定された型のリスト (`EntityTypes.Types` で定義) に対して汎用コントローラー インスタンスを追加します。
 
-[!code-csharp[Main](./app-parts/sample/AppPartsSample/GenericControllerFeatureProvider.cs?highlight=13&range=18-36)]
+[!code-csharp[](./app-parts/sample/AppPartsSample/GenericControllerFeatureProvider.cs?highlight=13&range=18-36)]
 
 エンティティ型:
 
-[!code-csharp[Main](./app-parts/sample/AppPartsSample/Model/EntityTypes.cs?range=6-16)]
+[!code-csharp[](./app-parts/sample/AppPartsSample/Model/EntityTypes.cs?range=6-16)]
 
 機能プロバイダーは `Startup` で追加されます。
 
 ```csharp
 services.AddMvc()
-    .ConfigureApplicationPartManager(p => 
-        p.FeatureProviders.Add(new GenericControllerFeatureProvider()));
+    .ConfigureApplicationPartManager(apm => 
+        apm.FeatureProviders.Add(new GenericControllerFeatureProvider()));
 ```
 
 既定では、ルーティングに使用される汎用コントローラー名の形式は、*Widget* ではなく、*GenericController`1[Widget]* になります。 次の属性は、コントローラーで使用されるジェネリック型に対応する名前を変更するために使用します。
 
-[!code-csharp[Main](./app-parts/sample/AppPartsSample/GenericControllerNameConvention.cs)]
+[!code-csharp[](./app-parts/sample/AppPartsSample/GenericControllerNameConvention.cs)]
 
 `GenericController` クラス:
 
-[!code-csharp[Main](./app-parts/sample/AppPartsSample/GenericController.cs?highlight=5-6)]
+[!code-csharp[](./app-parts/sample/AppPartsSample/GenericController.cs?highlight=5-6)]
 
 一致するルートが要求された場合の結果:
 
@@ -105,7 +105,7 @@ services.AddMvc()
 
 [依存関係の挿入](../../fundamentals/dependency-injection.md)で `ApplicationPartManager` を要求し、それを使用して適切な機能のインスタンスを取り込むことで、アプリで使用可能な取り込まれた機能を反復処理することができます。
 
-[!code-csharp[Main](./app-parts/sample/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
+[!code-csharp[](./app-parts/sample/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
 
 出力例:
 

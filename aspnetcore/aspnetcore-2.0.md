@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core 2.0 の新機能"
+title: ASP.NET Core 2.0 の新機能
 author: rick-anderson
-description: "ASP.NET Core 2.0 の新機能"
+description: ASP.NET Core 2.0 の新機能について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 07/10/2017
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: 35d57abd07e83cd5b190572962fbf43aef03a534
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b4ac500888ce134e8f4f0d4bf16efa4e95f24c15
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2.0 の新機能
 
@@ -38,7 +38,7 @@ Razor ページは、ページ コーディングに重点を置いたシナリ�
 
 `Microsoft.AspNetCore.All` メタパッケージを使用するアプリケーションでは、新しい .NET Core ランタイム ストアが自動的に利用されます。 このストアには、ASP.NET Core 2.0 アプリケーションの実行に必要なすべてのランタイム アセットが含まれています。 `Microsoft.AspNetCore.All` メタパッケージを使用する場合、参照される ASP.NET Core NuGet パッケージの資産は、既にターゲット システム上にあるため、アプリケーションと共に配置されません。 ランタイム ストア内の資産は、アプリケーションの起動時間を向上させるためにプリコンパイルもされています。
 
-詳細については、「[Runtime Store](https://docs.microsoft.com/dotnet/core/deploying/runtime-store)」 (ランタイム ストア) を参照してください。
+詳細については、「[Runtime Store](/dotnet/core/deploying/runtime-store)」 (ランタイム ストア) を参照してください。
 
 ## <a name="net-standard-20"></a>.NET Standard 2.0
 
@@ -62,7 +62,7 @@ ASP.NET Core 2.0 には、既定で依存性の注入 (DI) システムにログ
 
 新しい認証モデルにより、DI を使用するアプリケーションでの認証の構成が容易になりました。
 
-[Azure AD B2C] を使用し (https://azure.microsoft.com/services/active-directory-b2c/)、Web アプリおよび Web API 用に認証を構成できる、新しいテンプレートが利用できるようになりました。
+[Azure AD B2C] を使用し (https://azure.microsoft.com/services/active-directory-b2c/))、Web アプリと Web API 用に認証を構成できる、新しいテンプレートが利用できるようになりました。
 
 計画されているドキュメントの状態については、「[GitHub issue](https://github.com/aspnet/Docs/issues/3054)」 (GitHub の問題) を参照してください。
 
@@ -78,7 +78,7 @@ ASP.NET Core 2.0 で ID を使用し、簡単に安全な Web API を作成で�
 
 ## <a name="spa-templates"></a>SPA テンプレート
 
-Angular、Aurelia、Knockout.js、React.js、Redux 用 React.js で、シングル ページ アプリケーション (SPA) プロジェクト テンプレートが利用できるようになりました。 Angular テンプレートは、Angular 4 に更新されました。 Angular と React テンプレートは既定で使用可能です。その他のテンプレートの入手方法については、「[Creating a new SPA project](xref:client-side/spa-services#creating-a-new-project)」 (新しい SPA プロジェクトを作成する) を参照してください。 ASP.NET Core で SPA を構築する方法については、「[Using JavaScriptServices for Creating Single Page Applications](xref:client-side/spa-services)」 (シングル ページ アプリケーション用の JavaScriptServices の使用) を参照してください。
+Angular、Aurelia、Knockout.js、React.js、Redux 用 React.js で、シングル ページ アプリケーション (SPA) プロジェクト テンプレートが利用できるようになりました。 Angular テンプレートは、Angular 4 に更新されました。 Angular と React テンプレートは既定で使用可能です。その他のテンプレートの入手方法については、[新しい SPA プロジェクトを作成する](xref:client-side/spa-services#creating-a-new-project)方法に関するページを参照してください。 ASP.NET Core で SPA を構築する方法については、[シングル ページ アプリケーションで JavaScriptServices を使用する](xref:client-side/spa-services)方法に関するページを参照してください。
 
 ## <a name="kestrel-improvements"></a>Kestrel の機能強化
 
@@ -122,11 +122,13 @@ ASP.NET Core 2.0 では、Visual Studio でのデバッグ時および Azure App
 
 ASP.NET Core では、常にコンテンツの HTML エンコードを既定で支援してきましたが、新しいバージョンでは、クロスサイト リクエスト フォージェリ (XSRF) 攻撃を防ぐための手段もさらに講じられています。 ASP.NET Core では、既定で偽造防止トークンが生成されるようになり、追加の構成をしなくても、フォーム POST アクションとページでそれらが検証されるようになりました。
 
-詳細については、「[Preventing Cross-Site Request Forgery (XSRF/CSRF) Attacks in ASP.NET Core](xref:security/anti-request-forgery)」 (ASP.NET Core でのクロスサイト リクエスト フォージェリ (XSRF/CSRF) の防止) を参照してください。
+詳細については、「[Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks](xref:security/anti-request-forgery)」(クロスサイト リクエスト フォージェリ (XSRF/CSRF) 攻撃の防止) を参照してください。
 
 ## <a name="automatic-precompilation"></a>自動でのプリコンパイル
 
 Razor ビューのプリコンパイルは発行時に既定で有効になっています。これにより、発行の出力サイズが縮小され、アプリケーションの起動時間が削減されます。
+
+詳細については、[ASP.NET Core での Razor ビューのコンパイルとプリコンパイル](xref:mvc/views/view-compilation)に関するページを参照してください。
 
 ## <a name="razor-support-for-c-71"></a>C# 7.1 での Razor サポート
 
@@ -144,7 +146,7 @@ C# 7.1 機能の状態については、「[Roslyn GitHub repository](https://gi
 * [キーの管理](xref:security/data-protection/implementation/key-management)
 * [Facebook 認証の構成](xref:security/authentication/facebook-logins)
 * [Twitter 認証の構成](xref:security/authentication/twitter-logins)
-* [Google 認証の構成](xref:security/authentication/google-logins)
+* [Googler 認証の構成](xref:security/authentication/google-logins)
 * [Microsoft アカウント認証の構成](xref:security/authentication/microsoft-logins)
 
 ## <a name="migration-guidance"></a>移行ガイダンス

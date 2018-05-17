@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 081a71ef67a6eee6c84058c30f9e15301afbed23
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 57477cf15bf6755523f28356d5384517bea24982
+ms.sourcegitcommit: 5ae0c125ee3bbd324edef3818d1d160f4dd84602
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 モデルおよびデータ アクセス
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 04/06/2018
 
 **コード スニペットをインストールします。**
 
-便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。 実行のコード スニペットをインストールする**.\Source\Setup\CodeSnippets.vsi**ファイル。
+便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。 実行のコード スニペットをインストールする **.\Source\Setup\CodeSnippets.vsi**ファイル。
 
 このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 c: を使用してコード スニペット](#AppendixC)&quot;です。
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 04/06/2018
 
 このタスクでは、ソリューションに MusicStore アプリケーションのメイン テーブルを作成済みのデータベースを追加します。
 
-1. 開く、**開始**ソリューションにある**ソース/Ex1-AddingADatabaseDBFirst/開始/**フォルダーです。
+1. 開く、**開始**ソリューションにある**ソース/Ex1-AddingADatabaseDBFirst/開始/** フォルダーです。
 
    1. いくつか不足している NuGet パッケージをダウンロードする必要がありますが続行前にします。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
@@ -235,12 +235,14 @@ ms.lasthandoff: 04/06/2018
 
 ~~~
 [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample2.cs)]
+~~~
 
 > [!NOTE]
-> You are using a capability of .NET called **LINQ** (language-integrated query) to write strongly-typed query expressions against these collections - which will execute code against the database and return objects that you can program against.
+> .Net と呼ばれる機能を使用している**LINQ** (言語統合クエリ) は、データベースに対してコードを実行し、返されますが、これらのコレクションに対して厳密に型指定されたクエリ式を作成するオブジェクトをプログラミングできます比較
 > 
-> For more information about LINQ, please visit the [msdn site](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
-~~~
+> LINQ の概要の詳細については、次を参照してください、 [msdn サイト](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx)です。
+
+
 3. 更新**インデックス**アクション メソッドは、すべてのジャンルを取得します。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex1 ストア インデックス*)
@@ -297,7 +299,7 @@ ms.lasthandoff: 04/06/2018
 
 このタスクの作成時に初期状態で 1 コード優先を使用してデータベースにサンプル データを読み込みます。
 
-1. 開く、**開始**ソリューションにある**ソース/Ex2-CreatingADatabaseCodeFirst/開始/**フォルダーです。 それ以外の場合、作業を続行できますを使用して、**終了**ソリューションは、前の手順を完了して取得します。
+1. 開く、**開始**ソリューションにある**ソース/Ex2-CreatingADatabaseCodeFirst/開始/** フォルダーです。 それ以外の場合、作業を続行できますを使用して、**終了**ソリューションは、前の手順を完了して取得します。
 
    1. 指定されたを開いた場合**開始**ソリューションでは、いくつか不足している NuGet パッケージをダウンロードする必要がある前にします。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
@@ -318,7 +320,7 @@ ms.lasthandoff: 04/06/2018
 ~~~
 [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample5.cs)]
 ~~~
-4. **アプリケーション\_Start()**メソッドは、データベース初期化子を設定する次の行を追加します。
+4. **アプリケーション\_Start()** メソッドは、データベース初期化子を設定する次の行を追加します。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex2 グローバル Asax SetInitializer*)
 
@@ -334,7 +336,7 @@ ms.lasthandoff: 04/06/2018
 
 プロジェクトにデータベースが既に追加されたに記述、 **Web.config**ファイルの接続文字列。
 
-1. 接続文字列を追加する**Web.config**です。実行するには、開く**Web.config**プロジェクトのルートと置換、接続文字列を次の行で DefaultConnection をという名前で、 **&lt;connectionStrings&gt;**セクション。
+1. 接続文字列を追加する**Web.config**です。実行するには、開く**Web.config**プロジェクトのルートと置換、接続文字列を次の行で DefaultConnection をという名前で、 **&lt;connectionStrings&gt;** セクション。
 
     ![Web.config ファイルの場所](aspnet-mvc-4-models-and-data-access/_static/image19.png "Web.config ファイルの場所")
 
@@ -537,7 +539,7 @@ ms.lasthandoff: 04/06/2018
 
     ![ジャンル参照](aspnet-mvc-4-models-and-data-access/_static/image24.png "ジャンルの閲覧")
 
-    *Browsing /Store/Browse?genre=Pop*
+    *参照/ストア/参照? ジャンル Pop を =*
 
 <a id="Ex3Task3"></a>
 
@@ -564,7 +566,7 @@ ms.lasthandoff: 04/06/2018
 このタスクでは、web ブラウザーでアプリケーションを実行し、その id でアルバムの詳細の取得
 
 1. キーを押して**f5 キーを押して**アプリケーションを実行します。
-2. ホーム ページで、プロジェクトを開始します。 URL を変更して**/Store/Details/51**か、ジャンルを参照し、結果をデータベースから取得することを確認するアルバムを選択します。
+2. ホーム ページで、プロジェクトを開始します。 URL を変更して **/Store/Details/51**か、ジャンルを参照し、結果をデータベースから取得することを確認するアルバムを選択します。
 
     ![詳細情報を閲覧](aspnet-mvc-4-models-and-data-access/_static/image25.png "の詳細を参照")
 
@@ -740,7 +742,7 @@ ASP.NET MVC モデルおよびデータ アクセスの基礎を学習したこ�
     *Web 配置の構成*
 5. 次のように、データベースの接続を構成します。
 
-   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:*プレフィックス。
+   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:* プレフィックス。
    - **ユーザー名**サーバー管理者のログイン名を入力します。
    - **パスワード**サーバー管理者のログイン パスワードを入力します。
    - 新しいデータベース名を入力します。
@@ -748,12 +750,12 @@ ASP.NET MVC モデルおよびデータ アクセスの基礎を学習したこ�
      ![対象の接続文字列を構成する](aspnet-mvc-4-models-and-data-access/_static/image47.png "対象の接続文字列を構成します。")
 
      *対象の接続文字列を構成します。*
-6. 次に、 **[OK]**をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
+6. 次に、 **[OK]** をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
 
     ![データベースを作成する](aspnet-mvc-4-models-and-data-access/_static/image48.png "データベース文字列を作成します。")
 
     *データベースの作成*
-7. 接続の既定のテキスト ボックス内では、Windows azure SQL データベースへの接続に使用する接続文字列が表示されます。 その後、 **[次へ]**をクリックします。
+7. 接続の既定のテキスト ボックス内では、Windows azure SQL データベースへの接続に使用する接続文字列が表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](aspnet-mvc-4-models-and-data-access/_static/image49.png "SQL データベースを指す接続文字列")
 

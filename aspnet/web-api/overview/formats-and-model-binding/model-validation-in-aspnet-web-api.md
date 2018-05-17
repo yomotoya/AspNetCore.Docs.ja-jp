@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
-title: "モデルの ASP.NET Web API での検証 |Microsoft ドキュメント"
+title: モデルの ASP.NET Web API での検証 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/20/2012
@@ -12,21 +12,21 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 45b519af4073b62c8be1ca8951e44d6cf3cbe075
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 409a91eceb8baa48a7dded1b850d59a27cec2c60
+ms.sourcegitcommit: 5ae0c125ee3bbd324edef3818d1d160f4dd84602
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/17/2018
 ---
 <a name="model-validation-in-aspnet-web-api"></a>ASP.NET Web API でのモデルの検証
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
 クライアントは、web API へのデータを送信するときに多くの場合、検証するデータ処理を実行する前にします。 この記事に、モデルの注釈を付け、データ検証のため、注釈を使用して、web API で検証エラーの処理方法を示します。
 
 ## <a name="data-annotations"></a>データの注釈
 
-ASP.NET Web API から属性を使用することができます、 [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)名前空間をモデルに検証規則のプロパティを設定します。 次のようなモデルを考慮してください。
+ASP.NET Web API から属性を使用することができます、 [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations)名前空間をモデルに検証規則のプロパティを設定します。 次のようなモデルを考慮してください。
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample1.cs)]
 
@@ -54,11 +54,11 @@ ASP.NET MVC のモデルの検証を使用した場合、使い慣れたこれ�
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample5.cs?highlight=1-2)]
 
-**"過剰ポスティング**: クライアントが送信も*詳細*予想以上にデータ。 例:
+**"過剰ポスティング**: クライアントが送信も*詳細*予想以上にデータ。 例えば:
 
 [!code-json[Main](model-validation-in-aspnet-web-api/samples/sample6.json)]
 
-ここでは、JSON がの存在しないプロパティ ("Color") が含まれます、`Product`モデル。 この例では、JSON フォーマッタでは、単にこの値を無視します。 (XML フォーマッタは同じです。)過剰な投稿では、モデルにプロパティが読み取り専用にしようとしたものがある場合に問題が発生します。 例:
+ここでは、JSON がの存在しないプロパティ ("Color") が含まれます、`Product`モデル。 この例では、JSON フォーマッタでは、単にこの値を無視します。 (XML フォーマッタは同じです。)過剰な投稿では、モデルにプロパティが読み取り専用にしようとしたものがある場合に問題が発生します。 例えば:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample7.cs)]
 

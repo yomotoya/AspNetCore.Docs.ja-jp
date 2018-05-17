@@ -58,7 +58,7 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
 
 **コード スニペットをインストールします。**
 
-便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。 実行のコード スニペットをインストールする**.\Source\Setup\CodeSnippets.vsi**ファイル。
+便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。 実行のコード スニペットをインストールする **.\Source\Setup\CodeSnippets.vsi**ファイル。
 
 このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 c: を使用してコード スニペット](#AppendixC)&quot;です。
 
@@ -181,12 +181,12 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
 1. 開く、 **StoreController**で**MvcMusicStore\Controllers**への参照を追加し、**フィルター**名前空間。
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample4.cs)]
-2. カスタム フィルターを挿入**CustomActionFilter**に**StoreController**クラスを追加して**[CustomActionFilter]**クラス宣言の前に、の属性です。
+2. カスタム フィルターを挿入**CustomActionFilter**に**StoreController**クラスを追加して **[CustomActionFilter]** クラス宣言の前に、の属性です。
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample5.cs)]
 
    > [!NOTE]
-   > フィルターは、コント ローラー クラスに組み込まれてと、そのすべてのアクションは挿入もします。 一連のアクションに対してのみフィルターを適用するには、挿入する必要があります**[CustomActionFilter]**それらのいずれか。
+   > フィルターは、コント ローラー クラスに組み込まれてと、そのすべてのアクションは挿入もします。 一連のアクションに対してのみフィルターを適用するには、挿入する必要があります **[CustomActionFilter]** それらのいずれか。
    > 
    > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample6.cs)]
 
@@ -198,7 +198,7 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
 このタスクでは、ログ記録フィルターが機能しているかをテストします。 アプリケーションを起動して、ストアにアクセスしようし、ログに記録されたアクティビティはチェックします。
 
 1. **F5** キーを押してアプリケーションを実行します。
-2. 参照**/ActionLog**ログ ビューの初期状態を確認します。
+2. 参照 **/ActionLog**ログ ビューの初期状態を確認します。
 
     ![ログの追跡ツールの状態 ページのアクティビティの前に](aspnet-mvc-4-custom-action-filters/_static/image3.png "ログの追跡ツールの状態 ページのアクティビティの前に")
 
@@ -213,7 +213,7 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
    > 
    > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample7.cs)]
 3. いずれかをクリックして、**ジャンル** メニューから使用可能なアルバムを参照するように、操作を実行したりします。
-4. 参照**/ActionLog**され、ログが空のキーを押して**f5 キーを押して**ページを更新します。 訪問が追跡されなかったことを確認します。
+4. 参照 **/ActionLog**され、ログが空のキーを押して**f5 キーを押して**ページを更新します。 訪問が追跡されなかったことを確認します。
 
     ![ログ記録アクティビティのアクション ログ](aspnet-mvc-4-custom-action-filters/_static/image4.png "ログに記録するアクティビティのアクション ログ")
 
@@ -264,7 +264,7 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample9.cs)]
 
     > [!NOTE]
-    > このカスタム アクション フィルターは、前述の手順で作成されたものよりもほぼ同じです。 主な違いがある、 *&quot;によってログに記録&quot;*状態フィルターを識別するこの新しいクラスの名前で更新された属性には、ログが登録されています。
+    > このカスタム アクション フィルターは、前述の手順で作成されたものよりもほぼ同じです。 主な違いがある、 *&quot;によってログに記録&quot;* 状態フィルターを識別するこの新しいクラスの名前で更新された属性には、ログが登録されています。
 
 <a id="Ex2Task2"></a>
 
@@ -277,7 +277,7 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample10.cs)]
 2. ここで、これら 2 つのカスタム アクション フィルターの動作を確認するためにアプリケーションを実行します。 これを行うには、キーを押して**f5 キーを押して**あり、アプリケーションが開始されるまで待機します。
-3. 参照**/ActionLog**ログ ビューの初期状態を確認します。
+3. 参照 **/ActionLog**ログ ビューの初期状態を確認します。
 
     ![ログの追跡ツールの状態 ページのアクティビティの前に](aspnet-mvc-4-custom-action-filters/_static/image5.png "ログの追跡ツールの状態 ページのアクティビティの前に")
 
@@ -301,7 +301,7 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample11.cs)]
 2. ここで、その Order プロパティの値に応じて、フィルターを実行する方法を確認します。 最小の注文の値を含むフィルターと考えることが (**CustomActionFilter**) が実行される最初の 1 つです。 キーを押して**f5 キーを押して**あり、アプリケーションが開始されるまで待機します。
-3. 参照**/ActionLog**ログ ビューの初期状態を確認します。
+3. 参照 **/ActionLog**ログ ビューの初期状態を確認します。
 
     ![ログの追跡ツールの状態 ページのアクティビティの前に](aspnet-mvc-4-custom-action-filters/_static/image7.png "ログの追跡ツールの状態 ページのアクティビティの前に")
 
@@ -330,7 +330,7 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
 
 このタスクでは、新しいフィルターを登録するようにソリューションを更新します (**MyNewCustomActionFilter**) グローバル フィルターとして。 これにより、これはすべての操作実行前のタスクと同様に StoreController ものだけでなくと、アプリケーションでによってトリガーされます。
 
-1. **StoreController**クラス、削除**[MyNewCustomActionFilter]**属性と元の order プロパティ**[CustomActionFilter]**です。 次のようになります。
+1. **StoreController**クラス、削除 **[MyNewCustomActionFilter]** 属性と元の order プロパティ **[CustomActionFilter]** です。 次のようになります。
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample13.cs)]
 2. 開いている**Global.asax**ファイルし、検索、**アプリケーション\_開始**メソッドです。 呼び出してグローバル フィルターを登録するたびに、アプリケーションが開始されることに注意してください**RegisterGlobalFilters**メソッド内で**FilterConfig**クラスです。
@@ -347,7 +347,7 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample15.cs)]
 6. キーを押してアプリケーションを実行**f5 キーを押して**です。
 7. いずれかをクリックして、**ジャンル** メニューから使用可能なアルバムを参照するように、操作を実行したりします。
-8. チェックされている**[MyNewCustomActionFilter]**すぎる HomeController および ActionLogController で挿入するがします。
+8. チェックされている **[MyNewCustomActionFilter]** すぎる HomeController および ActionLogController で挿入するがします。
 
     ![ログ記録アクティビティのアクション ログ](aspnet-mvc-4-custom-action-filters/_static/image11.png "ログに記録するアクティビティのアクション ログ")
 
@@ -522,7 +522,7 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
     *Web 配置の構成*
 5. 次のように、データベースの接続を構成します。
 
-   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:*プレフィックス。
+   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:* プレフィックス。
    - **ユーザー名**サーバー管理者のログイン名を入力します。
    - **パスワード**サーバー管理者のログイン パスワードを入力します。
    - 新しいデータベース名を入力します。
@@ -530,12 +530,12 @@ ASP.NET MVC には、事前にまたはアクション メソッドが呼び出�
      ![対象の接続文字列を構成する](aspnet-mvc-4-custom-action-filters/_static/image33.png "対象の接続文字列を構成します。")
 
      *対象の接続文字列を構成します。*
-6. 次に、 **[OK]**をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
+6. 次に、 **[OK]** をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
 
     ![データベースを作成する](aspnet-mvc-4-custom-action-filters/_static/image34.png "データベース文字列を作成します。")
 
     *データベースの作成*
-7. 接続の既定のテキスト ボックス内では、Windows azure SQL データベースへの接続に使用する接続文字列が表示されます。 その後、 **[次へ]**をクリックします。
+7. 接続の既定のテキスト ボックス内では、Windows azure SQL データベースへの接続に使用する接続文字列が表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](aspnet-mvc-4-custom-action-filters/_static/image35.png "SQL データベースを指す接続文字列")
 

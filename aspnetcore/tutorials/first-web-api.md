@@ -1,23 +1,28 @@
 ---
-title: "ASP.NET Core と Visual Studio for Windows で Web API を作成する"
+title: ASP.NET Core と Visual Studio for Windows で Web API を作成する
 author: rick-anderson
-description: "ASP.NET Core MVC と Visual Studio for Windows で Web API を構築する"
+description: ASP.NET Core MVC と Visual Studio for Windows で Web API を構築する
 manager: wpickett
 ms.author: riande
-ms.date: 08/15/2017
+ms.custom: mvc
+ms.date: 04/27/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api
-ms.openlocfilehash: 1146132693681eca8f92beb00ebabd7296534688
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 962c24a7e654328df7e8893e589e45b19e87b931
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-#<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>ASP.NET Core と Visual Studio for Windows で Web API を作成する
+# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>ASP.NET Core と Visual Studio for Windows で Web API を作成する
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) と [Mike Wasson](https://github.com/mikewasson)
+
+::: moniker range="= aspnetcore-2.1"
+[!INCLUDE[](~/includes/2.1.md)]
+::: moniker-end
 
 このチュートリアルでは、"to-do" 項目の一覧を管理する Web API を構築します。 ユーザー インターフェイス (UI) は作成されません。
 
@@ -33,27 +38,21 @@ ms.lasthandoff: 01/30/2018
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-[!INCLUDE[install 2.0](../includes/install2.0.md)]
-
-ASP.NET Core 1.1 バージョンについては、[この PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-web-api/_static/_webAPI.pdf) をご覧ください。
+[!INCLUDE[](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="create-the-project"></a>プロジェクトの作成
 
-Visual Studio で、**[ファイル]** メニュー、**[新規]** > **[プロジェクト]** の順に選択します。
+Visual Studio で次の手順を実行します。
 
-**[ASP.NET Core Web アプリケーション (.NET Core)]** プロジェクト テンプレートを選択します。 プロジェクトに `TodoApi` という名前を付け、**[OK]** をクリックします。
-
-![[新しいプロジェクト] ダイアログ](first-web-api/_static/new-project.png)
-
-**[New ASP.NET Core Web Application - TodoApi]\(新しい ASP.NET Core Web アプリケーション - TodoApi\)** ダイアログで、**[Web API]** テンプレートを選択します。 **[OK]** を選択します。 **[Enable Docker Support]\(Docker サポートを有効にする\)** は**選択しないで**ください。
-
-![[新しい ASP.NET Core Web アプリケーション] ダイアログ。ASP.NET Core テンプレートから Web API プロジェクト テンプレートが選択されています。](first-web-api/_static/web-api-project.png)
+* **[ファイル]** メニューで、**[新規作成]**、**[プロジェクト]** の順に作成します。
+* **[ASP.NET Core Web アプリケーション]** テンプレートを選択します。 プロジェクトに「*TodoApi*」という名前を付け、**[OK]** をクリックます。
+* **[New ASP.NET Core Web Application - TodoApi]\(新しい ASP.NET Core Web アプリケーション - TodoApi\)** ダイアログで、ASP.NET Core のバージョンを選択します。 **API** テンプレートを選択し、**[OK]** をクリックします。 **[Enable Docker Support]\(Docker サポートを有効にする\)** は**選択しないで**ください。
 
 ### <a name="launch-the-app"></a>アプリの起動
 
-Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動します。 Visual Studio でブラウザーが起動し、`http://localhost:port/api/values` にアクセスします。*ポート*はランダムに選択されたポート番号になります。 Chrome、Microsoft Edge、Firefox では次の出力が表示されます。
+Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動します。 Visual Studio でブラウザーが起動し、`http://localhost:<port>/api/values` にアクセスします。ここで、`<port>` はランダムに選択されたポート番号になります。 Chrome、Microsoft Edge、Firefox では次の出力が表示されます。
 
-```
+```json
 ["value1","value2"]
 ```
 
@@ -61,15 +60,16 @@ Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動し
 
 モデルは、アプリのデータを表すオブジェクトです。 ここでは、唯一のモデルが to-do 項目です。
 
-"Models" という名前のフォルダーを追加します。 ソリューション エクスプローラーで、プロジェクトを右クリックします。 **[追加]** > **[新しいフォルダー]** の順に選択します。 フォルダーに *Models* という名前を付けます。
+ソリューション エクスプローラーで、プロジェクトを右クリックします。 **[追加]** > **[新しいフォルダー]** の順に選択します。 フォルダーに *Models* という名前を付けます。
 
-注: モデル クラスはプロジェクト内のどこでも使用できます。 通例として、モデル クラス用に *Models* フォルダーを使用しています。
+> [!NOTE]
+> モデル クラスはプロジェクト内のどこでも使用できます。 通例として、モデル クラス用に *Models* フォルダーを使用しています。
 
-`TodoItem` クラスを追加します。 *Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順にクリックします。 クラスに `TodoItem` という名前を付け、**[追加]** を選択します。
+ソリューション エクスプローラーで、*[Models]* フォルダーを右クリックし、**[追加]**、**[クラス]** の順に選択します。 クラスに「*TodoItem*」という名前を付け、**[追加]** をクリックします。
 
 `TodoItem` クラスを次のコードで更新します。
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
+[!code-csharp[](first-web-api/samples/2.0/TodoApi/Models/TodoItem.cs)]
 
 `TodoItem` が作成されるとき、データベースは `Id` を生成します。
 
@@ -77,17 +77,17 @@ Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動し
 
 *データベース コンテキスト*は、所与のデータ モデルに対し、Entity Framework 機能を調整するメイン クラスです。 このクラスは `Microsoft.EntityFrameworkCore.DbContext` クラスから派生させて作成します。
 
-`TodoContext` クラスを追加します。 *Models* フォルダーを右クリックし、**[追加]** > **[クラス]** の順にクリックします。 クラスに `TodoContext` という名前を付け、**[追加]** を選択します。
+ソリューション エクスプローラーで、*[Models]* フォルダーを右クリックし、**[追加]**、**[クラス]** の順に選択します。 クラスに「*TodoContext*」という名前を付け、**[追加]** をクリックします。
 
 このクラスを次のコードで置き換えます。
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
+[!code-csharp[](first-web-api/samples/2.0/TodoApi/Models/TodoContext.cs)]
 
-[!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
+[!INCLUDE [Register the database context](../includes/webApi/register_dbContext.md)]
 
 ### <a name="add-a-controller"></a>コントローラーの追加
 
-ソリューション エクスプローラーで、*Controllers* フォルダーを右クリックします。 **[追加]** > **[新しい項目]** の順に選択します。 **[新しい項目の追加]** ダイアログで、**[Web API コントローラー クラス]** テンプレートを選択します。 クラスに `TodoController` という名前を付けます。
+ソリューション エクスプローラーで、*Controllers* フォルダーを右クリックします。 **[追加]** > **[新しい項目]** の順に選択します。 **[新しい項目の追加]** ダイアログで、**[API コントローラー クラス]** テンプレートを選択します。 クラスに「*TodoController*」という名前を付け、**[追加]** をクリックします。
 
 ![[新しい項目の追加] ダイアログ。検索ボックスに「controller」と入力されています。Web API コントローラーが選択されています。](first-web-api/_static/new_controller.png)
 
@@ -97,9 +97,10 @@ Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動し
 
 ### <a name="launch-the-app"></a>アプリの起動
 
-Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動します。 Visual Studio でブラウザーが起動し、`http://localhost:port/api/values` にアクセスします。*ポート*はランダムに選択されたポート番号になります。 `http://localhost:port/api/todo` の `Todo` コントローラーに移動します。
+Visual Studio で、CTRL を押しながら F5 を押し、アプリを起動します。 Visual Studio でブラウザーが起動し、`http://localhost:<port>/api/values` にアクセスします。ここで、`<port>` はランダムに選択されたポート番号になります。 `http://localhost:<port>/api/todo` の `Todo` コントローラーに移動します。
 
 [!INCLUDE[last part of web API](../includes/webApi/end.md)]
 
-[!INCLUDE[next steps](../includes/webApi/next.md)]
+[!INCLUDE[jQuery](../includes/webApi/add-jquery.md)]
 
+[!INCLUDE[next steps](../includes/webApi/next.md)]

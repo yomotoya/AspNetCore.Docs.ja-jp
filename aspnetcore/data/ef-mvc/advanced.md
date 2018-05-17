@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC と EF Core - 上級 - 10/10"
-author: tdykstra
-description: "このチュートリアルでは、Entity Framework Core を使用するより高度な ASP.NET Web アプリケーションを開発する際に、注意すべきいくつかのトピックを紹介します。"
+title: ASP.NET Core MVC と EF Core - 上級 - 10/10
+author: rick-anderson
+description: このチュートリアルでは、Entity Framework Core を使用するより高度な ASP.NET Core Web アプリを開発する際に、活用できるいくつかのトピックを紹介します。
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 458f2dc8a67f8c706d043f0d9d7cb7ce962e52ce
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 95500686052a3f75dd71244bc9da500300416dec
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>高度なトピック - EF Core と ASP.NET Core MVC のチュートリアル (10/10)
+# <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC と EF Core - 上級 - 10/10
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -41,7 +41,7 @@ Web アプリケーションで SQL コマンドを実行する場合は常に�
 
 *DepartmentsController.cs* の `Details` メソッドで、次の強調表示されたコードに示されているように、部門を取得するコードを `FromSql` メソッドの呼び出しに置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
 
 新しいコードが正しく動作することを確認するには、**[Departments]\(部門\)** タブを選択し、いずれかの部門の **[Details]\(詳細\)** を選択します。
 
@@ -53,11 +53,11 @@ Web アプリケーションで SQL コマンドを実行する場合は常に�
 
 *HomeController.cs* で、`About` メソッドを次のコードで置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
 
 using ステートメントを追加します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
 
 アプリを実行して [About] ページに移動します。 以前に行ったのと同じデータが表示されます。
 
@@ -71,9 +71,9 @@ Contoso University の管理者が、すべてのコースの単位数を変更�
 
 *CoursesContoller.cs* で、HttpGet および HttpPost に UpdateCourseCredits メソッドを追加します。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
 
 コントローラーが HttpGet 要求を処理するときに、`ViewData["RowsAffected"]` では何も返されず、前の図に示されているように、ビューに空のテキスト ボックスと、[送信] ボタンが表示されます。
 
@@ -85,13 +85,13 @@ Contoso University の管理者が、すべてのコースの単位数を変更�
 
 *Views/Courses/UpdateCourseCredits.cshtml* で、テンプレート コードを次のコードに置き換えます。
 
-[!code-html[Main](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
+[!code-html[](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
 
 **[Courses]\(コース\)** タブを選択してから、ブラウザーのアドレス バーで URL の末尾に "/UpdateCourseCredits" を追加して (例: `http://localhost:5813/Courses/UpdateCourseCredits`)、`UpdateCourseCredits` メソッドを実行します。 テキスト ボックスに数値を入力します。
 
 ![Course Credits ページを更新する](advanced/_static/update-credits.png)
 
-**[更新]**をクリックします。 影響を受けた行の数が表示されます。
+**[更新]** をクリックします。 影響を受けた行の数が表示されます。
 
 ![Course Credits ページの更新で影響を受けた行](advanced/_static/update-credits-rows-affected.png)
 
@@ -149,7 +149,7 @@ ORDER BY [t].[ID]
 
 Repository パターンと Unit of Work パターンを実装する方法については、[このチュートリアル シリーズの Entity Framework 5 バージョン](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)を参照してください。
 
-Entity Framework Core は、テストに使用できる In-Memory データベース プロバイダーを実装します。 詳細については、「[InMemory のテスト](https://docs.microsoft.com/ef/core/miscellaneous/testing/in-memory)」を参照してください。
+Entity Framework Core は、テストに使用できる In-Memory データベース プロバイダーを実装します。 詳細については、[InMemory を使ったテスト](https://docs.microsoft.com/ef/core/miscellaneous/testing/in-memory)に関するページを参照してください。
 
 ## <a name="automatic-change-detection"></a>変更の自動検出
 
@@ -169,7 +169,7 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 ## <a name="entity-framework-core-source-code-and-development-plans"></a>Entity Framework Core のソース コードと開発計画
 
-Entity Framework Core ソースは、[https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore) にあります。 EF Core リポジトリには、夜間ビルド、問題追跡、機能仕様、設計ミーティング メモ、および[将来の開発のためのロードマップ](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap)が含まれています。 バグを見つけて報告したり、投稿することができます。
+Entity Framework Core のソースは、[https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore) にあります。 EF Core リポジトリには、夜間ビルド、問題追跡、機能仕様、設計ミーティング メモ、および[将来の開発のためのロードマップ](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap)が含まれています。 バグを見つけて報告したり、投稿することができます。
 
 ソース コードはオープンですが、Entity Framework Core はマイクロソフト製品として完全にサポートされています。 Microsoft Entity Framework チームは、各リリースの品質を保証するため、受け入れる投稿を管理し、すべてのコード変更をテストしています。
 
@@ -182,7 +182,7 @@ Entity Framework Core ソースは、[https://github.com/aspnet/EntityFrameworkC
 
 [このシリーズの 3 番目のチュートリアル](sort-filter-page.md)では、`switch`ステートメントで列名をハード コーディングすることで、LINQ コードを記述する方法を示しています。 選択する列が 2 つの場合は正常に機能しますが、多数の列がある場合は、コードが冗長になる可能性があります。 この問題を解決するため、`EF.Property` メソッドを使用して、プロパティの名前を文字列として指定できます。 この方法を試すには、`StudentsController` の `Index` メソッドを次のコードで置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
 
 ## <a name="next-steps"></a>次の手順
 
@@ -192,7 +192,7 @@ EF Core の詳細については、「[Entity Framework Core 概要](https://doc
 
 Web アプリの展開方法については、「[ASP.NET Core のホストと展開](xref:host-and-deploy/index)」を参照してください。
 
-認証および承認などの、ASP.NET Core MVC に関連するその他のトピックについては、「[ASP.NET Core](https://docs.microsoft.com/aspnet/core/)」を参照してください。
+認証および承認などの、ASP.NET Core MVC に関連するその他のトピックについては、「[ASP.NET Core](xref:index)」を参照してください。
 
 ## <a name="acknowledgments"></a>謝辞
 
@@ -244,5 +244,5 @@ dotnet ef database drop
 
 接続文字列を確認します。 データベース ファイルを手動で削除した場合は、構築文字列でデータベースの名前を変更して、新しいデータベースで最初からやり直します。
 
->[!div class="step-by-step"]
-[前へ](inheritance.md)
+> [!div class="step-by-step"]
+> [前へ](inheritance.md)

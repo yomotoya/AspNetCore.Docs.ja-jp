@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: e3956bedbc243578f6dfdc09f5f043327de7c66b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b4e48f40c3d4e3167e7fdb3534d2c33b3544592c
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>ASP.NET Core 角運動のプロジェクト テンプレートを使用します。
 
@@ -39,12 +39,14 @@ cd my-new-app
 
 Visual Studio または .NET Core CLI からアプリを実行します。
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
-開く、生成された*.csproj*ファイル、およびそこから通常の方法でアプリを実行します。
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+
+開く、生成された *.csproj*ファイル、およびそこから通常の方法でアプリを実行します。
 
 ビルド プロセスでは、数分かかることが、最初の実行で npm の依存関係を復元します。 後続のビルドは非常に高速です。
 
-#### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
+
 という環境変数があることを確認`ASPNETCORE_Environment`の値を持つ`Development`します。 Windows PowerShell 以外の入力を要求) の「、で実行される`SET ASPNETCORE_Environment=Development`です。 Linux または macOS、実行`export ASPNETCORE_Environment=Development`です。
 
 実行[dotnet ビルド](/dotnet/core/tools/dotnet-build)正しくビルドするのには、アプリを確認してください。 最初の実行には、ビルド プロセスは、数分かかることが npm の依存関係を復元します。 後続のビルドは非常に高速です。
@@ -57,9 +59,10 @@ Now listening on: http://localhost:<port>
 
 ブラウザーでこの URL に移動します。
 
-アプリは、バック グラウンドで角度 CLI サーバーのインスタンスを開始します。 次のようなメッセージが記録されます: <em>NG ライブ開発サーバーは、localhost でリッスンしている:&lt;otherport&gt;でブラウザーを開いてhttp://localhost: &lt;otherport&gt; /</em>. このメッセージは無視&mdash;が<strong>いない</strong>結合された ASP.NET Core と角運動 CLI アプリの URL。
+アプリは、バック グラウンドで角度 CLI サーバーのインスタンスを開始します。 次のようなメッセージが記録されます: <em>NG ライブ開発サーバーは、localhost でリッスンしている:&lt;otherport&gt;でブラウザーを開いてhttp://localhost:&lt; otherport&gt; /</em> . このメッセージは無視&mdash;が<strong>いない</strong>結合された ASP.NET Core と角運動 CLI アプリの URL。
 
-* * *
+---
+
 プロジェクト テンプレートは、ASP.NET Core アプリケーションと角運動のアプリを作成します。 ASP.NET Core アプリケーションがデータ アクセス、承認、およびその他のサーバー側の懸念事項に使用するためのものです。 内に存在する角度のアプリ、 *ClientApp*サブディレクトリがすべての UI に関する注意事項を使用するためです。
 
 ## <a name="add-pages-images-styles-modules-etc"></a>ページ、画像、スタイル、モジュールなどを追加します。
@@ -152,13 +155,13 @@ SSR を有効にするには、多数のプロジェクトへの追加を行う�
 
 このモジュールは、クライアント側から継承`app.module`SSR 中に使用可能な余分な Angular モジュールを定義しています。
 
-注意してください、新しい`ssr`内のエントリ*.angular cli.json*というエントリ ポイント ファイルを参照*main.server.ts*です。 そのファイルをまだ追加していないし、ここは、これを行うにします。 新しいファイルを作成*ClientApp/src/main.server.ts* (既存と共に*main.ts*)、次を含みます。
+注意してください、新しい`ssr`内のエントリ *.angular cli.json*というエントリ ポイント ファイルを参照*main.server.ts*です。 そのファイルをまだ追加していないし、ここは、これを行うにします。 新しいファイルを作成*ClientApp/src/main.server.ts* (既存と共に*main.ts*)、次を含みます。
 
 [!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/main.server.ts)]
 
 このファイルのコードはどのような ASP.NET Core 実行要求ごとに実行すると、`UseSpaPrerendering`に追加したミドルウェア、*スタートアップ*クラスです。 受信を扱う`params`(など、URL 要求されている)、.NET コードと結果の HTML を取得する角度 SSR Api を呼び出すからです。 
 
-厳密に言うと、これは開発モードで SSR を有効にするだけで十分です。 1 つの最終的な変更がようにするアプリが正常に発行する際に重要です。 アプリのメインの*.csproj*ファイル、設定、`BuildServerSideRenderer`プロパティの値を`true`:
+厳密に言うと、これは開発モードで SSR を有効にするだけで十分です。 1 つの最終的な変更がようにするアプリが正常に発行する際に重要です。 アプリのメインの *.csproj*ファイル、設定、`BuildServerSideRenderer`プロパティの値を`true`:
 
 [!code-xml[](sample/AngularServerSideRendering/AngularServerSideRendering.csproj?name=snippet_EnableBuildServerSideRenderer)]
 

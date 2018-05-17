@@ -2,7 +2,7 @@
 
 このセクションでは、jQuery を使用して Web API を呼び出す、HTML ページが追加されます。 jQuery で要求を開始し、API の応答からの詳細を含むページを更新します。
 
-静的ファイルを提供し、既定のファイル マッピングを有効にするようにプロジェクトを構成します。 これには、*Startup.Configure* で [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) と [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) 拡張メソッドを呼び出します。 詳細については、「[ASP.NET Core の静的ファイルの使用](xref:fundamentals/static-files)」を参照してください。
+静的ファイルを提供し、既定のファイル マッピングを有効にするようにプロジェクトを構成します。 これには、*Startup.Configure* で [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) と [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) 拡張メソッドを呼び出します。 詳しくは、[静的ファイル](xref:fundamentals/static-files)に関するページをご覧ください。
 
 [!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup2.cs?name=snippet_Configure&highlight=3-4)]
 

@@ -1,7 +1,7 @@
 ---
-title: "Razor ページと EF Core - CRUD - 2/8"
+title: ASP.NET Core の Razor ページと EF Core - CRUD - 2/8
 author: rick-anderson
-description: "EF Core で作成、読み取り、更新、削除を行う方法を示します"
+description: EF Core で作成、読み取り、更新、削除を行う方法を示します
 manager: wpickett
 ms.author: riande
 ms.date: 10/15/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: 757aeb713b645cea0fe633b150784184d2d3571e
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: b3f170ad35bcff7c662fb0205b0bff2e98b4724c
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>作成、読み取り、更新、削除 - EF Core と Razor ページ (2/8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>ASP.NET Core の Razor ページと EF Core - CRUD - 2/8
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Jon P Smith](https://twitter.com/thereformedprog)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 このチュートリアルでは、スキャフォールディング CRUD (作成、読み取り、更新、削除) コードのレビューとカスタマイズを行います。
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/31/2018
 
 ## <a name="replace-singleordefaultasync-with-firstordefaultasync"></a>SingleOrDefaultAsync を FirstOrDefaultAsync に置換する
 
-生成したコードは、[SingleOrDefaultAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleOrDefaultAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) を使用することで、要求されたエンティティを取得します。 [FirstOrDefaultAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstOrDefaultAsync__1_System_Linq_IQueryable___0__System_Threading_CancellationToken_) は、次の場合、1 つのエンティティをフェッチする際により効率的です。
+生成したコードは、[SingleOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleOrDefaultAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) を使用することで、要求されたエンティティを取得します。 [FirstOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstOrDefaultAsync__1_System_Linq_IQueryable___0__System_Threading_CancellationToken_) は、次の場合、1 つのエンティティをフェッチする際により効率的です。
 
 * クエリから返されるエンティティが 1 つ以下であることを、コードで検証する必要がない。 
 * `SingleOrDefaultAsync` がより多くのデータをフェッチし、不要な作業を行う。
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/31/2018
 <a name="FindAsync"></a>
 ### <a name="findasync"></a>FindAsync
 
-スキャフォールディング コードの多くでは、`FirstOrDefaultAsync` または `SingleOrDefaultAsync` ではなく、[FindAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.findasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_FindAsync_System_Type_System_Object___) を使用することができます。 
+スキャフォールディング コードの多くでは、`FirstOrDefaultAsync` または `SingleOrDefaultAsync` ではなく、[FindAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.findasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_FindAsync_System_Type_System_Object___) を使用することができます。 
 
 `FindAsync`:
 
@@ -59,14 +59,14 @@ ms.lasthandoff: 01/31/2018
 * 単純で簡潔です。
 * 単一のエンティティを検索するように最適化されます。
 * 一部のシナリオではパフォーマンスの利点を得られますが、通常の Web シナリオではほとんど利点がありません。
-* [SingleAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) ではなく、[FirstAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) を暗黙的に使用します。
+* [SingleAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) ではなく、[FirstAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) を暗黙的に使用します。
 ただし、他のエンティティを追加する場合、Find はもはや適切ではありません。 つまり、アプリの進行状況に応じて、Find を破棄しクエリに移行することが必要な場合があります。
 
 ## <a name="customize-the-details-page"></a>[詳細] ページをカスタマイズする
 
 `Pages/Students` ページを参照します。 **[編集]**、**[詳細]**、**[削除]** の各リンクは、*Pages/Students/Index.cshtml* ファイルで[アンカー タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)によって生成されます。
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Index1.cshtml?range=40-44)]
+[!code-cshtml[](intro/samples/cu/Pages/Students/Index1.cshtml?range=40-44)]
 
 [詳細] リンクを選択します。 URL の形式は、`http://localhost:5000/Students/Details?id=2` です。 クエリ文字列 (`?id=2`) によって受講者 ID が渡されます。
 
@@ -90,7 +90,7 @@ Students インデックス ページのスキャフォールディング コー
 
 *Pages/Students/Details.cshtml.cs* の `OnGetAsync` メソッドでは、`FirstOrDefaultAsync` メソッドを使用して単一の `Student` エンティティを取得します。 次の強調表示されたコードを追加します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Details.cshtml.cs?name=snippet_Details&highlight=8-12)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Details.cshtml.cs?name=snippet_Details&highlight=8-12)]
 
 `Include` メソッドと `ThenInclude` メソッドにより、コンテキストは `Student.Enrollments` ナビゲーション プロパティと、各登録内の `Enrollment.Course` ナビゲーション プロパティを読み込みます。 これらのメソッドは、データの読み取りに関連するチュートリアルで詳しく検討します。
 
@@ -101,7 +101,7 @@ Students インデックス ページのスキャフォールディング コー
 *Pages/Students/Details.cshtml* を開きます。 登録の一覧を表示するために、次の強調表示されたコードを追加します。
 
  <!--2do ricka. if doesn't change, remove dup -->
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
+[!code-cshtml[](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
 
 コードを貼り付けた後でコードのインデントが乱れた場合は、CTRL + D + K キーを押してそれを修正します。
 
@@ -113,16 +113,16 @@ Students インデックス ページのスキャフォールディング コー
 
 次のコードを使用して、*Pages/Students/Create.cshtml.cs* 内の `OnPostAsync` メソッドを更新します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_OnPostAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_OnPostAsync)]
 
 <a name="TryUpdateModelAsync"></a>
 ### <a name="tryupdatemodelasync"></a>TryUpdateModelAsync
 
-次の [TryUpdateModelAsync](https://docs.microsoft.com/ dotnet/api/microsoft.aspnetcore.mvc.controllerbase.tryupdatemodelasync?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_ControllerBase_TryUpdateModelAsync_System_Object_System_Type_System_String_) コードを検討します。
+次の [TryUpdateModelAsync](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.tryupdatemodelasync#Microsoft_AspNetCore_Mvc_ControllerBase_TryUpdateModelAsync_System_Object_System_Type_System_String_) コードを検討します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_TryUpdateModelAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_TryUpdateModelAsync)]
 
-上記のコードで、`TryUpdateModelAsync<Student>` は、[PageModel](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel?view=aspnetcore-2.0) の [PageContext](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.pagecontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_PageContext) プロパティからのポストされたフォームの値を使用して `emptyStudent` オブジェクトの更新を試みます。 `TryUpdateModelAsync` は、リストされたプロパティのみを更新します (`s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate`)。
+上記のコードで、`TryUpdateModelAsync<Student>` は、[PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel?view=aspnetcore-2.0) の [PageContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.pagecontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_PageContext) プロパティからのポストされたフォームの値を使用して `emptyStudent` オブジェクトの更新を試みます。 `TryUpdateModelAsync` は、リストされたプロパティのみを更新します (`s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate`)。
 
 上記のサンプルについて:
 
@@ -134,7 +134,7 @@ Students インデックス ページのスキャフォールディング コー
 
 ポストされた値を持つフィールドを更新するために `TryUpdateModel` を使用することは、過剰ポスティングの防止につながり、セキュリティ上のベスト プラクティスとなります。 たとえば、Student エンティティには、この Web ページで更新または追加できない `Secret` プロパティが含まれています。
 
-[!code-csharp[Main](intro/samples/cu/Models/StudentZsecret.cs?name=snippet_Intro&highlight=7)]
+[!code-csharp[](intro/samples/cu/Models/StudentZsecret.cs?name=snippet_Intro&highlight=7)]
 
 アプリの [作成]/[更新] Razor ページに `Secret` フィールドが含まれていない場合でも、ハッカーは過剰ポスティングによって `Secret` を設定することが可能です。 ハッカーは、Fiddler などのツールを使用するか、または何らかの JavaScript を作成して、`Secret` フォーム値をポストすることが可能です。 元のコードでは、Student インスタンスの作成時にモデル バインダーによって使用されるフィールドを制限していません。
 
@@ -149,31 +149,31 @@ Students インデックス ページのスキャフォールディング コー
 
 ビュー モデルには、通常、アプリケーションで使用されるモデルに含まれるプロパティのサブセットが含まれています。 アプリケーション モデルは、しばしばドメイン モデルと呼ばれます。 ドメイン モデルには、通常、データベース内の対応するエンティティによって必要とされるすべてのプロパティが含まれています。 ビュー モデルには、UI レイヤーで必要なプロパティのみが含まれています (たとえば、[作成] ページ)。 一部のアプリでは、ビュー モデルに加えて、Razor ページのページ モデル クラスとブラウザーとの間でデータを渡すためにバインド モデルまたは入力モデルも使用します。 次の `Student` ビュー モデルを考えてみます。
 
-[!code-csharp[Main](intro/samples/cu/Models/StudentVM.cs)]
+[!code-csharp[](intro/samples/cu/Models/StudentVM.cs)]
 
 ビュー モデルは、過剰ポスティングを防ぐもう 1 つの方法を提供します。 ビュー モデルには、表示または更新されるプロパティのみが含まれています。
 
 次のコードでは、`StudentVM` ビュー モデルを使用して新しい受講生を作成します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/CreateVM.cshtml.cs?name=snippet_OnPostAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/CreateVM.cshtml.cs?name=snippet_OnPostAsync)]
 
-[SetValues](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) メソッドでは、このオブジェクトの値を設定するために、別の [PropertyValues](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues) オブジェクトから値を読み取ります。 `SetValues` では一致するプロパティ名が使用されます。 ビュー モデルの型はモデルの型に関連している必要はなく、プロパティが一致している必要があるだけです。
+[SetValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) メソッドでは、このオブジェクトの値を設定するために、別の [PropertyValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues) オブジェクトから値を読み取ります。 `SetValues` では一致するプロパティ名が使用されます。 ビュー モデルの型はモデルの型に関連している必要はなく、プロパティが一致している必要があるだけです。
 
 `StudentVM` を使用するには、`Student` ではなく `StudentVM` を使用するように [CreateVM.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Students/CreateVM.cshtml) を更新する必要があります。
 
 Razor ページで、`PageModel` 派生クラスはビュー モデルです。 
 
-## <a name="update-the-edit-page"></a>[編集] ページを更新する
+## <a name="update-the-edit-page"></a>Edit ページを更新する
 
-[編集] ページのページ モデルを更新します。
+[編集] ページのページ モデルを更新します。 大きな変更点が強調表示されています。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
 
 コードの変更は [作成] ページに似ています。ただし、次のようないくつかの例外があります。
 
 * `OnPostAsync` には省略可能な `id` パラメーターがあります。
 * 現在の受講者は、空の受講者を作成するのではなく、DB からフェッチされます。
-* `FirstOrDefaultAsync` は、[FindAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1.findasync?view=efcore-2.0) に置換されています。 主キーからエンティティを選択する場合は、`FindAsync` をお勧めします。 詳細については、「[FindAsync](#FindAsync)」を参照してください。
+* `FirstOrDefaultAsync` は、[FindAsync](/dotnet/api/microsoft.entityframeworkcore.dbset-1.findasync?view=efcore-2.0) に置換されています。 主キーからエンティティを選択する場合は、`FindAsync` をお勧めします。 詳細については、「[FindAsync](#FindAsync)」を参照してください。
 
 ### <a name="test-the-edit-and-create-pages"></a>[編集] ページと [作成] ページをテストする
 
@@ -203,11 +203,11 @@ Web アプリにおいて、エンティティを読み取り、データを表�
 
 このセクションでは、`SaveChanges` の呼び出しが失敗したときにカスタム エラー メッセージを実装するためのコードが追加されます。 考えられるエラー メッセージを含められるように文字列を追加します。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
 
 `OnGetAsync` メソッドを次のコードで置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnGetAsync&highlight=1,9,17-20)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnGetAsync&highlight=1,9,17-20)]
 
 上記のコードには、省略可能なパラメーター `saveChangesError` が含まれています。 `saveChangesError` は、受講者オブジェクトの削除に失敗した後で、メソッドが呼び出されたかどうかを示します。 一時的なネットワークの問題により、削除操作が失敗する可能性があります。 一時的なネットワーク エラーが高い可能性でクラウド内に発生しています。 [削除] ページの `OnGetAsync` が UI から呼び出された場合、`saveChangesError` は false です。 `OnPostAsync` によって `OnGetAsync` が呼び出された場合 (削除操作が失敗したため)、`saveChangesError` パラメーターは true です。
 
@@ -215,7 +215,7 @@ Web アプリにおいて、エンティティを読み取り、データを表�
 
 `OnPostAsync` を次のコードに置き換えます。
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnPostAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnPostAsync)]
 
 上記のコードでは、選択されたエンティティを取得してから、`Remove` メソッドを呼び出してエンティティの状態を `Deleted` に設定しています。 `SaveChanges` が呼び出されると、SQL DELETE コマンドが生成されます。 `Remove` が失敗した場合:
 
@@ -226,7 +226,7 @@ Web アプリにおいて、エンティティを読み取り、データを表�
 
 次の強調表示されたエラー メッセージを [削除] Razor ページに追加します。
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Delete.cshtml?range=1-13&highlight=10)]
+[!code-cshtml[](intro/samples/cu/Pages/Students/Delete.cshtml?range=1-13&highlight=10)]
 
 [削除] をテストします。
 
@@ -242,6 +242,6 @@ Razor ページに正しい `@page` ディレクティブが含まれている�
 
 各 Razor ページには、`@page` ディレクティブを含める必要があります。
 
->[!div class="step-by-step"]
-[前へ](xref:data/ef-rp/intro)
-[次へ](xref:data/ef-rp/sort-filter-page)
+> [!div class="step-by-step"]
+> [前へ](xref:data/ef-rp/intro)
+> [次へ](xref:data/ef-rp/sort-filter-page)

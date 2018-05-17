@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core のルーティング"
+title: ASP.NET Core のルーティング
 author: ardalis
-description: "ASP.NET Core のルーティング機能が受信要求をルート ハンドラーにマッピングするしくみについて説明します。"
+description: ASP.NET Core のルーティング機能が受信要求をルート ハンドラーにマッピングするしくみについて説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: d35c24347e8e06ed85e2af8addcc1f8cf28dc47a
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 2e1257639ec41f657093439c5245b50adbad34dc
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core のルーティング
 
@@ -22,13 +22,13 @@ ms.lasthandoff: 02/01/2018
 ルーティング機能は受信要求をルート ハンドラーにマッピングします。 ルートは ASP.NET アプリに定義され、アプリの起動時に構成されます。 ルートは、要求に含まれている URL から値を任意で抽出できます。その値を要求処理に利用できます。 ルーティング機能は、ASP.NET アプリからのルート情報を利用し、ルート ハンドラーにマッピングする URL を生成することもできます。 そのため、ルーティングでは URL に基づいて、つまり、ルート ハンドラー情報によって指定されるルート ハンドラーに対応する URL に基づいてルート ハンドラーを見つけることができます。
 
 >[!IMPORTANT]
-> 本文では、ASP.NET Core ルーティングについて詳しく取り上げます。 ASP.NET Core MVC ルーティングについては、「[コントローラー アクションへのルーティング](../mvc/controllers/routing.md)」を参照してください。
+> 本文では、ASP.NET Core ルーティングについて詳しく取り上げます。 ASP.NET Core MVC ルーティングについては、[コントローラー アクションへのルーティング](../mvc/controllers/routing.md)に関するページを参照してください。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="routing-basics"></a>ルーティングの基本
 
-ルーティングにおける*ルート* ([IRouter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.routing.irouter) の実装) の利用目的:
+ルーティングにおける*ルート* ([IRouter](/dotnet/api/microsoft.aspnetcore.routing.irouter) の実装) の利用目的:
 
 * 受信要求を*ルート ハンドラー*にマッピングする
 
@@ -88,7 +88,7 @@ URL 生成は同様の繰り返しプロセスに従いますが、最初にユ�
 
 ほとんどのアプリケーションは、`MapRoute` を呼び出すか、`IRouteBuilder` で定義されている同様の拡張メソッドの 1 つを呼び出してルートを作成します。 これらのメソッドはいずれも、`Route` のインスタンスを作成し、それをルート コレクションに追加します。
 
-注: `MapRoute` はルート ハンドラー パラメーターを受け取りません。`DefaultHandler` によって処理されるルートを追加するだけです。 既定のハンドラーは `IRouter` であるため、要求を処理しないように決定されることがあります。 たとえば、ASP.NET MVC は通常、利用できるコントローラーやアクションに一致する要求のみを処理する既定のハンドラーとして構成されます。 MVC にルーティングする方法については、「[コントローラー アクションへのルーティング](../mvc/controllers/routing.md)」を参照してください。
+注: `MapRoute` はルート ハンドラー パラメーターを受け取りません。`DefaultHandler` によって処理されるルートを追加するだけです。 既定のハンドラーは `IRouter` であるため、要求を処理しないように決定されることがあります。 たとえば、ASP.NET MVC は通常、利用できるコントローラーやアクションに一致する要求のみを処理する既定のハンドラーとして構成されます。 MVC にルーティングする方法については、[コントローラー アクションへのルーティング](../mvc/controllers/routing.md)に関するページを参照してください。
 
 一般的な ASP.NET MVC ルート定義によって使用される `MapRoute` 呼び出しの例:
 
@@ -187,7 +187,7 @@ NuGet パッケージ "Microsoft.AspNetCore.Routing" を追加します。
 
 *Startup.cs* でサービス コンテナーにルーティングを追加した例:
 
-[!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
+[!code-csharp[](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
 
 ルートは `Startup` クラスの `Configure` メソッドに設定する必要があります。 下のサンプルで使用されている API:
 
@@ -321,7 +321,7 @@ URL パターンで任意のファイル拡張子が付いたファイル名を�
 
 ## <a name="regular-expressions"></a>正規表現 
 
-ASP.NET Core フレームワークでは、正規表現コンストラクターに `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` が追加されます。 これらのメンバーの説明については、「[RegexOptions Enumeration](https://docs.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions)」(RegexOptions 列挙) を参照してください。
+ASP.NET Core フレームワークでは、正規表現コンストラクターに `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` が追加されます。 これらのメンバーの説明については、「[RegexOptions Enumeration](/dotnet/api/system.text.regularexpressions.regexoptions)」(RegexOptions 列挙) を参照してください。
 
 正規表現では、ルーティングや C# 言語で使用されるものに似た区切り記号とトークンが使用されます。 正規表現トークンはエスケープする必要があります。 たとえば、ルーティングで正規表現 `^\d{3}-\d{2}-\d{4}$` を使用するには、C# ソース ファイルで `\` 文字を `\\` のように入力し、文字列エスケープ文字である `\` をエスケープする必要があります ([逐語的な文字列リテラル](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string)を使用しない限り)。 `{`、`}`、'['、']' 文字は、二回入力することでエスケープし、ルーティング パラメーター区切り文字をエスケープする必要があります。  次の表は、正規表現とエスケープ適用後の表示をまとめたものです。
 
@@ -351,7 +351,7 @@ ASP.NET Core フレームワークでは、正規表現コンストラクター�
 
 下の例では、ルートのリンクを生成する方法を確認できます。ルート値のディクショナリと `RouteCollection` が指定されています。
 
-[!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
+[!code-csharp[](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
 
 上のサンプルの終わりで生成された `VirtualPath` は `/package/create/123` です。
 

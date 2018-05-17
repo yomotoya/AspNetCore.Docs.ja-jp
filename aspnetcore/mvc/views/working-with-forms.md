@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core のフォームでのタグ ヘルパー"
+title: ASP.NET Core のフォームのタグ ヘルパー
 author: rick-anderson
-description: "フォームで使用される組み込みのタグ ヘルパーについて説明します。"
+description: フォームで使用される組み込みのタグ ヘルパーについて説明します。
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 805c2ba5b3a9669d5547e1c595883436eea0d11a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9155bd54bc211c8be0678065e857f73d8a139365
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core のフォームでタグ ヘルパーを使用する方法の概要
+# <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core のフォームのタグ ヘルパー
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)、[Dave Paquette](https://twitter.com/Dave_Paquette)、[Jerrie Pelser](https://github.com/jerriep)
 
@@ -40,15 +40,15 @@ ms.lasthandoff: 01/30/2018
 
 サンプル:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Demo/RegisterFormOnly.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Demo/RegisterFormOnly.cshtml)]
 
 上記のフォーム タグ ヘルパーで、次の HTML が生成されます。
 
 ```HTML
 <form method="post" action="/Demo/Register">
-     <!-- Input and Submit elements -->
-     <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
-    </form>
+    <!-- Input and Submit elements -->
+    <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+</form>
 ```
 
 MVC ランタイムで、フォーム タグ ヘルパーの属性 `asp-controller` と `asp-action` から `action` 属性値が生成されます。 また、フォーム タグ ヘルパーも、クロスサイト リクエスト フォージェリを防ぐために、非表示の[要求検証トークン](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)を生成します (HTTP POST アクション メソッドで `[ValidateAntiForgeryToken]` 属性と共に使用する場合)。 純粋な HTML フォームをクロスサイト リクエスト フォージェリから保護することは難しいため、フォーム タグ ヘルパーが提供するサービスを利用してください。
@@ -57,9 +57,9 @@ MVC ランタイムで、フォーム タグ ヘルパーの属性 `asp-controll
 
 `asp-route` タグ ヘルパー属性で、HTML `action` 属性のマークアップを生成することもできます。 `register` という名前の[ルート](../../fundamentals/routing.md)を持つアプリケーションは、登録ページに次のマークアップを使用できます。
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
-*Views/Account* フォルダー (*個々のユーザー アカウント*を使用して新しい Web アプリケーションを作成するときに生成されるフォルダー) のビューの多くには、[asp-route-returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms) 属性が含まれています。
+*Views/Account* フォルダー (*個々のユーザー アカウント*を使用して新しい Web アプリケーションを作成するときに生成されるフォルダー) のビューの多くには、[asp-route-returnurl](xref:mvc/views/working-with-forms) 属性が含まれています。
 
 ```cshtml
 <form asp-controller="Account" asp-action="Login"
@@ -84,11 +84,11 @@ MVC ランタイムで、フォーム タグ ヘルパーの属性 `asp-controll
 
 * `asp-for` 属性で指定された式の名前の `id` および `name` HTML 属性を生成します。 `asp-for="Property1.Property2"` は `m => m.Property1.Property2` と同じです。 式の名前は、`asp-for` 属性値に使用されるものです。 詳細については、「[式の名前](#expression-names)」セクションを参照してください。
 
-* モデル プロパティに適用されているモデル型と[データ注釈](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)に基づいて HTML `type` 属性値を設定します
+* モデル プロパティに適用されているモデル型と[データ注釈](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)に基づいて HTML `type` 属性値を設定します
 
 * HTML `type` 属性値が指定されている場合は、上書きしません
 
-* モデル プロパティに適用された[データ注釈](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)属性から [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) 検証属性を生成します
+* モデル プロパティに適用された[データ注釈](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)属性から [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) 検証属性を生成します
 
 * `Html.TextBoxFor` および `Html.EditorFor` と重複する HTML ヘルパー機能があります。 詳細については、「**入力タグ ヘルパーの代替となる HTML ヘルパー**」セクションを参照してください。
 
@@ -117,7 +117,7 @@ Type expected
 |Single、Double|type=”number”|
 
 
-次の表は、入力タグ ヘルパーが特定の入力の型にマップする一般的な[データ注釈](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)属性の一部をまとめたものです (すべての検証属性を網羅した一覧ではありません)。
+次の表は、入力タグ ヘルパーが特定の入力の型にマップする一般的な[データ注釈](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)属性の一部をまとめたものです (すべての検証属性を網羅した一覧ではありません)。
 
 
 |属性|入力の型|
@@ -133,9 +133,9 @@ Type expected
 
 サンプル:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Demo/RegisterInput.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Demo/RegisterInput.cshtml)]
 
 上記のコードで、次の HTML が生成されます。
 
@@ -189,17 +189,22 @@ Type expected
 
 `i` の値が `23` の場合、`asp-for="CollectionProperty[23].Member"` はコレクションのプロパティを使用して、`asp-for="CollectionProperty[i].Member"` と同じ名前を生成します。
 
+ASP.NET Core MVC で `ModelExpression` の値が計算されるとき、`ModelState` を含む、いくつかのソースが検査されます。 `<input type="text" asp-for="@Name" />` を検討します。 計算された `value` 属性は、次のうちの最初の非 null 値です。
+
+* キー "Name" を持つ `ModelState` エントリ。
+* 式 `Model.Name` の結果。
+
 ### <a name="navigating-child-properties"></a>子プロパティの移動
 
 ビュー モデルのプロパティ パスを使用して、子プロパティに移動することもできます。 子 `Address` プロパティを含むより複雑なモデル クラスを考えてみましょう。
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/AddressViewModel.cs?highlight=1,2,3,4&range=5-8)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/AddressViewModel.cs?highlight=1,2,3,4&range=5-8)]
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/RegisterAddressViewModel.cs?highlight=8&range=5-13)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/RegisterAddressViewModel.cs?highlight=8&range=5-13)]
 
 このビューでは、`Address.AddressLine1` にバインドしています。
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterAddress.cshtml?highlight=6)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterAddress.cshtml?highlight=6)]
 
 `Address.AddressLine1` に対して次の HTML が生成されます。
 
@@ -211,7 +216,7 @@ Type expected
 
 `Colors` の配列を含むサンプル モデル:
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/Person.cs?highlight=3&range=5-10)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/Person.cs?highlight=3&range=5-10)]
 
 アクション メソッド:
 
@@ -225,23 +230,23 @@ public IActionResult Edit(int id, int colorIndex)
 
 次の Razor は、特定の `Color` 要素にアクセスする方法を示しています。
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Demo/EditColor.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Demo/EditColor.cshtml)]
 
 *Views/Shared/EditorTemplates/String.cshtml* テンプレート:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/String.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/String.cshtml)]
 
 `List<T>` を使用するサンプル:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/ToDoItem.cs?range=3-8)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/ToDoItem.cs?range=3-8)]
 
 次の Razor は、コレクションに対して反復処理を実行する方法を示しています。
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Demo/Edit.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Demo/Edit.cshtml)]
 
 *Views/Shared/EditorTemplates/ToDoItem.cshtml* テンプレート:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
 
 >[!NOTE]
@@ -264,9 +269,9 @@ public IActionResult Edit(int id, int colorIndex)
 
 サンプル:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/DescriptionViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/DescriptionViewModel.cs)]
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterTextArea.cshtml?highlight=4)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterTextArea.cshtml?highlight=4)]
 
 次の HTML が生成されます。
 
@@ -300,9 +305,9 @@ public IActionResult Edit(int id, int colorIndex)
 
 サンプル:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/SimpleViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/SimpleViewModel.cs)]
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterLabel.cshtml?highlight=4)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterLabel.cshtml?highlight=4)]
 
 `<label>` 要素に対して次の HTML が生成されます。
 
@@ -370,9 +375,9 @@ public IActionResult Edit(int id, int colorIndex)
 
 次の例では、データ モデルは `DataAnnotation` 属性で修飾され、`<input>` 要素に関する検証エラー メッセージが生成されます。  検証エラーが発生すると、検証タグ ヘルパーはエラー メッセージを表示します。
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterValidation.cshtml?highlight=4,6,8&range=1-10)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterValidation.cshtml?highlight=4,6,8&range=1-10)]
 
 生成される HTML (モデルが有効な場合):
 
@@ -403,23 +408,23 @@ public IActionResult Edit(int id, int colorIndex)
 
 `Select Tag Helper` `asp-for` は [select](https://www.w3.org/wiki/HTML/Elements/select) 要素のモデル プロパティ名を指定し、`asp-items` は [option](https://www.w3.org/wiki/HTML/Elements/option) 要素を指定します。  例:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
+[!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
 サンプル:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/CountryViewModel.cs)]
 
 `Index` メソッドは `CountryViewModel` を初期化し、選択された国を設定し、それを `Index` ビューに渡します。
 
-[!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
 HTTP POST `Index` メソッドによって選択内容が表示されます。
 
-[!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=15-27)]
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=15-27)]
 
 `Index` ビュー:
 
-[!code-cshtml[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
+[!code-cshtml[](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
 
 次の HTML が生成されます ("CA" が選択されている場合)。
 
@@ -440,7 +445,7 @@ HTTP POST `Index` メソッドによって選択内容が表示されます。
 
 `asp-for` 属性値は特殊なケースであり、(`asp-items` などの) 他のタグ ヘルパー属性とは異なり、`Model` プレフィックスは必須ではありません
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
+[!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
 ### <a name="enum-binding"></a>Enum バインディング
 
@@ -448,17 +453,17 @@ HTTP POST `Index` メソッドによって選択内容が表示されます。
 
 サンプル:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryEnumViewModel.cs?range=3-7)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnumViewModel.cs?range=3-7)]
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryEnum.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnum.cs)]
 
 `GetEnumSelectList` メソッドは列挙型の場合に `SelectList` オブジェクトを生成します。
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEnum.cshtml?highlight=5)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEnum.cshtml?highlight=5)]
 
 より高機能な UI にするために、列挙子リストを `Display` 属性で修飾することができます。
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryEnum.cs?highlight=5,7)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnum.cs?highlight=5,7)]
 
 次の HTML が生成されます。
 
@@ -484,7 +489,7 @@ HTML の [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) 要素は
 
 `CountryViewModelGroup` は `SelectListItem` 要素を "北米" グループと "ヨーロッパ" グループに分けます。
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelGroup.cs?highlight=5,6,14,20,26,32,38,44&range=6-56)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelGroup.cs?highlight=5,6,14,20,26,32,38,44&range=6-56)]
 
 この 2 つのグループを次に示します。
 
@@ -515,11 +520,11 @@ HTML の [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) 要素は
 
 `asp-for` 属性に指定されているプロパティが `IEnumerable` の場合、選択タグ ヘルパーは [multiple = "multiple"](http://w3c.github.io/html-reference/select.html) 属性を自動的に生成します。 たとえば、次のようなモデルがあるとします。
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelIEnumerable.cs?highlight=6)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelIEnumerable.cs?highlight=6)]
 
 次のビューを対象にします。
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexMultiSelect.cshtml?highlight=4)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexMultiSelect.cshtml?highlight=4)]
 
 次の HTML が生成されます。
 
@@ -543,17 +548,17 @@ HTML の [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) 要素は
 
 複数のページで "未指定" オプションを使用しているとわかった場合は、テンプレートを作成して HTML の繰り返しを除去することができます。
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEmptyTemplate.cshtml?highlight=5)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEmptyTemplate.cshtml?highlight=5)]
 
 *Views/Shared/EditorTemplates/CountryViewModel.cshtml* テンプレート:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
 
 HTML の [\<option>](https://www.w3.org/wiki/HTML/Elements/option) 要素の追加は、*選択なし*の場合に限定されません。 たとえば、次のビューおよびアクション メソッドで、上記のコードのような HTML が生成されます。
 
-[!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Home/IndexOption.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Home/IndexOption.cshtml)]
 
 現在の `Country` 値に応じて、(`selected="selected"` 属性を含む) 正しい `<option>` 要素が選択されます。
 
@@ -578,4 +583,4 @@ HTML の [\<option>](https://www.w3.org/wiki/HTML/Elements/option) 要素の追�
 * [モデル バインド](xref:mvc/models/model-binding)
 * [モデルの検証](xref:mvc/models/validation)
 * [IAttributeAdapter インターフェイス](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
-* [このドキュメントのコード スニペット](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample)
+* [このドキュメントのコード スニペット](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)

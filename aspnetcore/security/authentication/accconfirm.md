@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 8ad2a63ce007a68eac3b607db454c6b4fc834444
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e0bca48fcaa9a29847fdda714698ed8562d30707
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>アカウントの確認と ASP.NET Core でのパスワードの回復
 
@@ -79,7 +79,7 @@ dotnet new mvc --auth Individual
 For Visual Studio は。
 
 * **ビュー**メニューの  **SQL Server オブジェクト エクスプ ローラー** (SSOX)。
-* 移動**(localdb) MSSQLLocalDB (SQL Server 13)**です。 右クリックして**dbo します。AspNetUsers** > **データ表示**:
+* 移動 **(localdb) MSSQLLocalDB (SQL Server 13)** です。 右クリックして**dbo します。AspNetUsers** > **データ表示**:
 
 ![SQL Server オブジェクト エクスプ ローラー AspNetUsers テーブルのコンテキスト メニュー](accconfirm/_static/ssox.png)
 
@@ -138,13 +138,16 @@ Windows では、シークレット マネージャーが内のキー/値ペア�
 
 追加`AuthMessageSenderOptions`サービス コンテナーの最後に、`ConfigureServices`メソッドで、 *Startup.cs*ファイル。
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!code-csharp[](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet2&highlight=28)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 [!code-csharp[](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
 
-* * *
+---
+
 ### <a name="configure-the-authmessagesender-class"></a>AuthMessageSender クラスを構成します。
 
 このチュートリアルを使用して電子メール通知を追加する方法を示しています。 [SendGrid](https://sendgrid.com/)、SMTP、およびその他のメカニズムを使用して電子メールを送信することができますが、します。
@@ -163,22 +166,26 @@ Windows では、シークレット マネージャーが内のキー/値ペア�
 
 #### <a name="configure-sendgrid"></a>SendGrid を構成します。
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 SendGrid を構成するには、次のようなコードを追加*Services/EmailSender.cs*:
 
 [!code-csharp[](accconfirm/sample/WebPWrecover/Services/EmailSender.cs)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 * コードを追加*Services/MessageServices.cs* SendGrid を構成するには、次のようにします。
 
 [!code-csharp[](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
 
-* * *
+---
+
 ## <a name="enable-account-confirmation-and-password-recovery"></a>アカウントの確認とパスワードの回復を有効にします。
 
 テンプレートは、アカウントの確認とパスワードの回復用コードを持っています。 検索、`OnPostAsync`メソッド*Pages/Account/Register.cshtml.cs*です。
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 新しく登録されたユーザーが次の行をコメント アウトして自動ログオンされているようにします。
 
 ```csharp
@@ -189,12 +196,13 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 
 [!code-csharp[](accconfirm/sample/WebPWrecover/Pages/Account/Register.cshtml.cs?highlight=16&name=snippet_Register)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 アカウントの確認を有効にするには、次のコードをコメントを解除します。
 
 [!code-csharp[](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=16-25&name=snippet_Register)]
 
-**注:**コードなると、新しく登録されたユーザーは、次の行をコメント アウトして自動ログオンされているが妨げ。
+**注:** コードなると、新しく登録されたユーザーは、次の行をコメント アウトして自動ログオンされているが妨げ。
 
 ```csharp
 //await _signInManager.SignInAsync(user, isPersistent: false);
@@ -208,7 +216,8 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 
 [!code-cshtml[](accconfirm/sample/WebApp1/Views/Account/ForgotPassword.cshtml?highlight=7-10,12,28)]
 
-* * *
+---
+
 ## <a name="register-confirm-email-and-reset-password"></a>登録、確認電子メール、およびパスワードのリセット
 
 Web アプリを実行し、アカウントの確認とパスワードの回復フローをテストします。
@@ -228,7 +237,7 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 
 ユーザー名を確認して、ナビゲーションバーを展開する必要があります。
 
-![navbar](accconfirm/_static/x.png)
+![ナビゲーション バー](accconfirm/_static/x.png)
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -246,7 +255,7 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 ### <a name="test-password-reset"></a>テストのパスワードのリセット
 
 * ログインしている場合は、選択**ログアウト**です。
-* 選択、**ログイン**リンクを選択して、**パスワードを忘れた場合ですか?**リンクします。
+* 選択、**ログイン**リンクを選択して、**パスワードを忘れた場合ですか?** リンクします。
 * アカウントの登録に使用したメール アドレスを入力します。
 * パスワードをリセットするリンクを含む電子メールが送信されます。 電子メールを確認し、パスワードをリセットするリンクをクリックします。 パスワードが正常にリセットされると後、は、電子メールと新しいパスワードを使用してログインすることができます。
 
