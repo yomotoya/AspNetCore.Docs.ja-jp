@@ -58,7 +58,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="6917a-125">**コード スニペットをインストールします。**</span><span class="sxs-lookup"><span data-stu-id="6917a-125">**Installing Code Snippets**</span></span>
 
-<span data-ttu-id="6917a-126">便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。</span><span class="sxs-lookup"><span data-stu-id="6917a-126">For convenience, much of the code you will be managing along this lab is available as Visual Studio code snippets.</span></span> <span data-ttu-id="6917a-127">実行のコード スニペットをインストールする**.\Source\Setup\CodeSnippets.vsi**ファイル。</span><span class="sxs-lookup"><span data-stu-id="6917a-127">To install the code snippets run **.\Source\Setup\CodeSnippets.vsi** file.</span></span>
+<span data-ttu-id="6917a-126">便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。</span><span class="sxs-lookup"><span data-stu-id="6917a-126">For convenience, much of the code you will be managing along this lab is available as Visual Studio code snippets.</span></span> <span data-ttu-id="6917a-127">実行のコード スニペットをインストールする **.\Source\Setup\CodeSnippets.vsi**ファイル。</span><span class="sxs-lookup"><span data-stu-id="6917a-127">To install the code snippets run **.\Source\Setup\CodeSnippets.vsi** file.</span></span>
 
 <span data-ttu-id="6917a-128">このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 c: を使用してコード スニペット](#AppendixC)&quot;です。</span><span class="sxs-lookup"><span data-stu-id="6917a-128">If you are not familiar with the Visual Studio Code Snippets, and want to learn how to use them, you can refer to the appendix from this document &quot;[Appendix C: Using Code Snippets](#AppendixC)&quot;.</span></span>
 
@@ -181,12 +181,12 @@ ms.lasthandoff: 04/06/2018
 1. <span data-ttu-id="6917a-194">開く、 **StoreController**で**MvcMusicStore\Controllers**への参照を追加し、**フィルター**名前空間。</span><span class="sxs-lookup"><span data-stu-id="6917a-194">Open the **StoreController** at **MvcMusicStore\Controllers** and add a reference to the **Filters** namespace:</span></span>
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample4.cs)]
-2. <span data-ttu-id="6917a-195">カスタム フィルターを挿入**CustomActionFilter**に**StoreController**クラスを追加して**[CustomActionFilter]**クラス宣言の前に、の属性です。</span><span class="sxs-lookup"><span data-stu-id="6917a-195">Inject the custom filter **CustomActionFilter** into **StoreController** class by adding **[CustomActionFilter]** attribute before the class declaration.</span></span>
+2. <span data-ttu-id="6917a-195">カスタム フィルターを挿入**CustomActionFilter**に**StoreController**クラスを追加して **[CustomActionFilter]** クラス宣言の前に、の属性です。</span><span class="sxs-lookup"><span data-stu-id="6917a-195">Inject the custom filter **CustomActionFilter** into **StoreController** class by adding **[CustomActionFilter]** attribute before the class declaration.</span></span>
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample5.cs)]
 
    > [!NOTE]
-   > <span data-ttu-id="6917a-196">フィルターは、コント ローラー クラスに組み込まれてと、そのすべてのアクションは挿入もします。</span><span class="sxs-lookup"><span data-stu-id="6917a-196">When a filter is injected into a controller class, all its actions are also injected.</span></span> <span data-ttu-id="6917a-197">一連のアクションに対してのみフィルターを適用するには、挿入する必要があります**[CustomActionFilter]**それらのいずれか。</span><span class="sxs-lookup"><span data-stu-id="6917a-197">If you would like to apply the filter only for a set of actions, you would have to inject **[CustomActionFilter]** to each one of them:</span></span>
+   > <span data-ttu-id="6917a-196">フィルターは、コント ローラー クラスに組み込まれてと、そのすべてのアクションは挿入もします。</span><span class="sxs-lookup"><span data-stu-id="6917a-196">When a filter is injected into a controller class, all its actions are also injected.</span></span> <span data-ttu-id="6917a-197">一連のアクションに対してのみフィルターを適用するには、挿入する必要があります **[CustomActionFilter]** それらのいずれか。</span><span class="sxs-lookup"><span data-stu-id="6917a-197">If you would like to apply the filter only for a set of actions, you would have to inject **[CustomActionFilter]** to each one of them:</span></span>
    > 
    > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample6.cs)]
 
@@ -198,7 +198,7 @@ ms.lasthandoff: 04/06/2018
 <span data-ttu-id="6917a-199">このタスクでは、ログ記録フィルターが機能しているかをテストします。</span><span class="sxs-lookup"><span data-stu-id="6917a-199">In this task, you will test that the logging filter is working.</span></span> <span data-ttu-id="6917a-200">アプリケーションを起動して、ストアにアクセスしようし、ログに記録されたアクティビティはチェックします。</span><span class="sxs-lookup"><span data-stu-id="6917a-200">You will start the application and visit the store, and then you will check logged activities.</span></span>
 
 1. <span data-ttu-id="6917a-201">**F5** キーを押してアプリケーションを実行します。</span><span class="sxs-lookup"><span data-stu-id="6917a-201">Press **F5** to run the application.</span></span>
-2. <span data-ttu-id="6917a-202">参照**/ActionLog**ログ ビューの初期状態を確認します。</span><span class="sxs-lookup"><span data-stu-id="6917a-202">Browse to **/ActionLog** to see log view initial state:</span></span>
+2. <span data-ttu-id="6917a-202">参照 **/ActionLog**ログ ビューの初期状態を確認します。</span><span class="sxs-lookup"><span data-stu-id="6917a-202">Browse to **/ActionLog** to see log view initial state:</span></span>
 
     <span data-ttu-id="6917a-203">![ログの追跡ツールの状態 ページのアクティビティの前に](aspnet-mvc-4-custom-action-filters/_static/image3.png "ログの追跡ツールの状態 ページのアクティビティの前に")</span><span class="sxs-lookup"><span data-stu-id="6917a-203">![Log tracker status before page activity](aspnet-mvc-4-custom-action-filters/_static/image3.png "Log tracker status before page activity")</span></span>
 
@@ -213,7 +213,7 @@ ms.lasthandoff: 04/06/2018
    > 
    > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample7.cs)]
 3. <span data-ttu-id="6917a-208">いずれかをクリックして、**ジャンル** メニューから使用可能なアルバムを参照するように、操作を実行したりします。</span><span class="sxs-lookup"><span data-stu-id="6917a-208">Click one of the **Genres** from the menu and perform some actions there, like browsing an available album.</span></span>
-4. <span data-ttu-id="6917a-209">参照**/ActionLog**され、ログが空のキーを押して**f5 キーを押して**ページを更新します。</span><span class="sxs-lookup"><span data-stu-id="6917a-209">Browse to **/ActionLog** and if the log is empty press **F5** to refresh the page.</span></span> <span data-ttu-id="6917a-210">訪問が追跡されなかったことを確認します。</span><span class="sxs-lookup"><span data-stu-id="6917a-210">Check that your visits were tracked:</span></span>
+4. <span data-ttu-id="6917a-209">参照 **/ActionLog**され、ログが空のキーを押して**f5 キーを押して**ページを更新します。</span><span class="sxs-lookup"><span data-stu-id="6917a-209">Browse to **/ActionLog** and if the log is empty press **F5** to refresh the page.</span></span> <span data-ttu-id="6917a-210">訪問が追跡されなかったことを確認します。</span><span class="sxs-lookup"><span data-stu-id="6917a-210">Check that your visits were tracked:</span></span>
 
     <span data-ttu-id="6917a-211">![ログ記録アクティビティのアクション ログ](aspnet-mvc-4-custom-action-filters/_static/image4.png "ログに記録するアクティビティのアクション ログ")</span><span class="sxs-lookup"><span data-stu-id="6917a-211">![Action log with activity logged](aspnet-mvc-4-custom-action-filters/_static/image4.png "Action log with activity logged")</span></span>
 
@@ -264,7 +264,7 @@ ms.lasthandoff: 04/06/2018
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample9.cs)]
 
     > [!NOTE]
-    > <span data-ttu-id="6917a-239">このカスタム アクション フィルターは、前述の手順で作成されたものよりもほぼ同じです。</span><span class="sxs-lookup"><span data-stu-id="6917a-239">This Custom Action Filter is almost the same than the one you created in the previous exercise.</span></span> <span data-ttu-id="6917a-240">主な違いがある、 *&quot;によってログに記録&quot;*状態フィルターを識別するこの新しいクラスの名前で更新された属性には、ログが登録されています。</span><span class="sxs-lookup"><span data-stu-id="6917a-240">The main difference is that it has the *&quot;Logged By&quot;* attribute updated with this new class' name to identify wich filter registered the log.</span></span>
+    > <span data-ttu-id="6917a-239">このカスタム アクション フィルターは、前述の手順で作成されたものよりもほぼ同じです。</span><span class="sxs-lookup"><span data-stu-id="6917a-239">This Custom Action Filter is almost the same than the one you created in the previous exercise.</span></span> <span data-ttu-id="6917a-240">主な違いがある、 *&quot;によってログに記録&quot;* 状態フィルターを識別するこの新しいクラスの名前で更新された属性には、ログが登録されています。</span><span class="sxs-lookup"><span data-stu-id="6917a-240">The main difference is that it has the *&quot;Logged By&quot;* attribute updated with this new class' name to identify wich filter registered the log.</span></span>
 
 <a id="Ex2Task2"></a>
 
@@ -277,7 +277,7 @@ ms.lasthandoff: 04/06/2018
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample10.cs)]
 2. <span data-ttu-id="6917a-244">ここで、これら 2 つのカスタム アクション フィルターの動作を確認するためにアプリケーションを実行します。</span><span class="sxs-lookup"><span data-stu-id="6917a-244">Now, run the application in order to see how these two Custom Action Filters work.</span></span> <span data-ttu-id="6917a-245">これを行うには、キーを押して**f5 キーを押して**あり、アプリケーションが開始されるまで待機します。</span><span class="sxs-lookup"><span data-stu-id="6917a-245">To do this, press **F5** and wait until the application starts.</span></span>
-3. <span data-ttu-id="6917a-246">参照**/ActionLog**ログ ビューの初期状態を確認します。</span><span class="sxs-lookup"><span data-stu-id="6917a-246">Browse to **/ActionLog** to see log view initial state.</span></span>
+3. <span data-ttu-id="6917a-246">参照 **/ActionLog**ログ ビューの初期状態を確認します。</span><span class="sxs-lookup"><span data-stu-id="6917a-246">Browse to **/ActionLog** to see log view initial state.</span></span>
 
     <span data-ttu-id="6917a-247">![ログの追跡ツールの状態 ページのアクティビティの前に](aspnet-mvc-4-custom-action-filters/_static/image5.png "ログの追跡ツールの状態 ページのアクティビティの前に")</span><span class="sxs-lookup"><span data-stu-id="6917a-247">![Log tracker status before page activity](aspnet-mvc-4-custom-action-filters/_static/image5.png "Log tracker status before page activity")</span></span>
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 04/06/2018
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample11.cs)]
 2. <span data-ttu-id="6917a-257">ここで、その Order プロパティの値に応じて、フィルターを実行する方法を確認します。</span><span class="sxs-lookup"><span data-stu-id="6917a-257">Now, verify how the filters are executed depending on its Order property's value.</span></span> <span data-ttu-id="6917a-258">最小の注文の値を含むフィルターと考えることが (**CustomActionFilter**) が実行される最初の 1 つです。</span><span class="sxs-lookup"><span data-stu-id="6917a-258">You will find that the filter with the smallest Order value (**CustomActionFilter**) is the first one that is executed.</span></span> <span data-ttu-id="6917a-259">キーを押して**f5 キーを押して**あり、アプリケーションが開始されるまで待機します。</span><span class="sxs-lookup"><span data-stu-id="6917a-259">Press **F5** and wait until the application starts.</span></span>
-3. <span data-ttu-id="6917a-260">参照**/ActionLog**ログ ビューの初期状態を確認します。</span><span class="sxs-lookup"><span data-stu-id="6917a-260">Browse to **/ActionLog** to see log view initial state.</span></span>
+3. <span data-ttu-id="6917a-260">参照 **/ActionLog**ログ ビューの初期状態を確認します。</span><span class="sxs-lookup"><span data-stu-id="6917a-260">Browse to **/ActionLog** to see log view initial state.</span></span>
 
     <span data-ttu-id="6917a-261">![ログの追跡ツールの状態 ページのアクティビティの前に](aspnet-mvc-4-custom-action-filters/_static/image7.png "ログの追跡ツールの状態 ページのアクティビティの前に")</span><span class="sxs-lookup"><span data-stu-id="6917a-261">![Log tracker status before page activity](aspnet-mvc-4-custom-action-filters/_static/image7.png "Log tracker status before page activity")</span></span>
 
@@ -330,7 +330,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="6917a-275">このタスクでは、新しいフィルターを登録するようにソリューションを更新します (**MyNewCustomActionFilter**) グローバル フィルターとして。</span><span class="sxs-lookup"><span data-stu-id="6917a-275">In this task, you will update the solution to register the new filter (**MyNewCustomActionFilter**) as a global filter.</span></span> <span data-ttu-id="6917a-276">これにより、これはすべての操作実行前のタスクと同様に StoreController ものだけでなくと、アプリケーションでによってトリガーされます。</span><span class="sxs-lookup"><span data-stu-id="6917a-276">By doing this, it will be triggered by all the actions perfomed in the application and not only in the StoreController ones as in the previous task.</span></span>
 
-1. <span data-ttu-id="6917a-277">**StoreController**クラス、削除**[MyNewCustomActionFilter]**属性と元の order プロパティ**[CustomActionFilter]**です。</span><span class="sxs-lookup"><span data-stu-id="6917a-277">In **StoreController** class, remove **[MyNewCustomActionFilter]** attribute and the order property from **[CustomActionFilter]**.</span></span> <span data-ttu-id="6917a-278">次のようになります。</span><span class="sxs-lookup"><span data-stu-id="6917a-278">It should look like the following:</span></span>
+1. <span data-ttu-id="6917a-277">**StoreController**クラス、削除 **[MyNewCustomActionFilter]** 属性と元の order プロパティ **[CustomActionFilter]** です。</span><span class="sxs-lookup"><span data-stu-id="6917a-277">In **StoreController** class, remove **[MyNewCustomActionFilter]** attribute and the order property from **[CustomActionFilter]**.</span></span> <span data-ttu-id="6917a-278">次のようになります。</span><span class="sxs-lookup"><span data-stu-id="6917a-278">It should look like the following:</span></span>
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample13.cs)]
 2. <span data-ttu-id="6917a-279">開いている**Global.asax**ファイルし、検索、**アプリケーション\_開始**メソッドです。</span><span class="sxs-lookup"><span data-stu-id="6917a-279">Open **Global.asax** file and locate the **Application\_Start** method.</span></span> <span data-ttu-id="6917a-280">呼び出してグローバル フィルターを登録するたびに、アプリケーションが開始されることに注意してください**RegisterGlobalFilters**メソッド内で**FilterConfig**クラスです。</span><span class="sxs-lookup"><span data-stu-id="6917a-280">Notice that each time the application starts it is registering the global filters by calling **RegisterGlobalFilters** method within **FilterConfig** class.</span></span>
@@ -347,7 +347,7 @@ ms.lasthandoff: 04/06/2018
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample15.cs)]
 6. <span data-ttu-id="6917a-287">キーを押してアプリケーションを実行**f5 キーを押して**です。</span><span class="sxs-lookup"><span data-stu-id="6917a-287">Run the application by pressing **F5**.</span></span>
 7. <span data-ttu-id="6917a-288">いずれかをクリックして、**ジャンル** メニューから使用可能なアルバムを参照するように、操作を実行したりします。</span><span class="sxs-lookup"><span data-stu-id="6917a-288">Click one of the **Genres** from the menu and perform some actions there, like browsing an available album.</span></span>
-8. <span data-ttu-id="6917a-289">チェックされている**[MyNewCustomActionFilter]**すぎる HomeController および ActionLogController で挿入するがします。</span><span class="sxs-lookup"><span data-stu-id="6917a-289">Check that now **[MyNewCustomActionFilter]** is being injected in HomeController and ActionLogController too.</span></span>
+8. <span data-ttu-id="6917a-289">チェックされている **[MyNewCustomActionFilter]** すぎる HomeController および ActionLogController で挿入するがします。</span><span class="sxs-lookup"><span data-stu-id="6917a-289">Check that now **[MyNewCustomActionFilter]** is being injected in HomeController and ActionLogController too.</span></span>
 
     <span data-ttu-id="6917a-290">![ログ記録アクティビティのアクション ログ](aspnet-mvc-4-custom-action-filters/_static/image11.png "ログに記録するアクティビティのアクション ログ")</span><span class="sxs-lookup"><span data-stu-id="6917a-290">![Action log with activity logged](aspnet-mvc-4-custom-action-filters/_static/image11.png "Action log with activity logged")</span></span>
 
@@ -522,7 +522,7 @@ ms.lasthandoff: 04/06/2018
     <span data-ttu-id="6917a-395">*Web 配置の構成*</span><span class="sxs-lookup"><span data-stu-id="6917a-395">*Web deploy configuration*</span></span>
 5. <span data-ttu-id="6917a-396">次のように、データベースの接続を構成します。</span><span class="sxs-lookup"><span data-stu-id="6917a-396">Configure the database connection as follows:</span></span>
 
-   - <span data-ttu-id="6917a-397">**サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:*プレフィックス。</span><span class="sxs-lookup"><span data-stu-id="6917a-397">In the **Server name** type your SQL Database server URL using the *tcp:* prefix.</span></span>
+   - <span data-ttu-id="6917a-397">**サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:* プレフィックス。</span><span class="sxs-lookup"><span data-stu-id="6917a-397">In the **Server name** type your SQL Database server URL using the *tcp:* prefix.</span></span>
    - <span data-ttu-id="6917a-398">**ユーザー名**サーバー管理者のログイン名を入力します。</span><span class="sxs-lookup"><span data-stu-id="6917a-398">In **User name** type your server administrator login name.</span></span>
    - <span data-ttu-id="6917a-399">**パスワード**サーバー管理者のログイン パスワードを入力します。</span><span class="sxs-lookup"><span data-stu-id="6917a-399">In **Password** type your server administrator login password.</span></span>
    - <span data-ttu-id="6917a-400">新しいデータベース名を入力します。</span><span class="sxs-lookup"><span data-stu-id="6917a-400">Type a new database name.</span></span>
@@ -530,12 +530,12 @@ ms.lasthandoff: 04/06/2018
      <span data-ttu-id="6917a-401">![対象の接続文字列を構成する](aspnet-mvc-4-custom-action-filters/_static/image33.png "対象の接続文字列を構成します。")</span><span class="sxs-lookup"><span data-stu-id="6917a-401">![Configuring destination connection string](aspnet-mvc-4-custom-action-filters/_static/image33.png "Configuring destination connection string")</span></span>
 
      <span data-ttu-id="6917a-402">*対象の接続文字列を構成します。*</span><span class="sxs-lookup"><span data-stu-id="6917a-402">*Configuring destination connection string*</span></span>
-6. <span data-ttu-id="6917a-403">次に、 **[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="6917a-403">Then click **OK**.</span></span> <span data-ttu-id="6917a-404">データベースをクリックを作成するように求められたら**はい**です。</span><span class="sxs-lookup"><span data-stu-id="6917a-404">When prompted to create the database click **Yes**.</span></span>
+6. <span data-ttu-id="6917a-403">次に、 **[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="6917a-403">Then click **OK**.</span></span> <span data-ttu-id="6917a-404">データベースをクリックを作成するように求められたら**はい**です。</span><span class="sxs-lookup"><span data-stu-id="6917a-404">When prompted to create the database click **Yes**.</span></span>
 
     <span data-ttu-id="6917a-405">![データベースを作成する](aspnet-mvc-4-custom-action-filters/_static/image34.png "データベース文字列を作成します。")</span><span class="sxs-lookup"><span data-stu-id="6917a-405">![Creating the database](aspnet-mvc-4-custom-action-filters/_static/image34.png "Creating the database string")</span></span>
 
     <span data-ttu-id="6917a-406">*データベースの作成*</span><span class="sxs-lookup"><span data-stu-id="6917a-406">*Creating the database*</span></span>
-7. <span data-ttu-id="6917a-407">接続の既定のテキスト ボックス内では、Windows azure SQL データベースへの接続に使用する接続文字列が表示されます。</span><span class="sxs-lookup"><span data-stu-id="6917a-407">The connection string you will use to connect to SQL Database in Windows Azure is shown within Default Connection textbox.</span></span> <span data-ttu-id="6917a-408">その後、 **[次へ]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="6917a-408">Then click **Next**.</span></span>
+7. <span data-ttu-id="6917a-407">接続の既定のテキスト ボックス内では、Windows azure SQL データベースへの接続に使用する接続文字列が表示されます。</span><span class="sxs-lookup"><span data-stu-id="6917a-407">The connection string you will use to connect to SQL Database in Windows Azure is shown within Default Connection textbox.</span></span> <span data-ttu-id="6917a-408">その後、 **[次へ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="6917a-408">Then click **Next**.</span></span>
 
     <span data-ttu-id="6917a-409">![SQL データベースを指す接続文字列](aspnet-mvc-4-custom-action-filters/_static/image35.png "SQL データベースを指す接続文字列")</span><span class="sxs-lookup"><span data-stu-id="6917a-409">![Connection string pointing to SQL Database](aspnet-mvc-4-custom-action-filters/_static/image35.png "Connection string pointing to SQL Database")</span></span>
 
