@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: testing/troubleshoot
-ms.openlocfilehash: f2c785bfe27ddd67db0313b8ee1c077a8cc06e05
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 3bba085c69ee96b5725331b14dcf15350d66e4a4
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>ASP.NET Core プロジェクトをトラブルシューティングします。
 
@@ -66,3 +66,15 @@ ms.lasthandoff: 05/08/2018
 
 * インストールまたは .NET Core SDK がインストールされていることを確認します。
 * 確認、`PATH`環境変数が SDK のインストール場所をポイントします。 インストーラーが通常の設定、`PATH`です。
+
+::: moniker range=">= aspnetcore-2.1"
+
+### <a name="use-of-ihtmlhelperpartial-may-result-in-application-deadlocks"></a>IHtmlHelper.Partial の使い方がアプリケーションにデッドロックになる可能性があります。
+
+ASP.NET Core 2.1 以降では、呼び出す`Html.Partial`デッドロックの可能性があるのため、アナライザー警告が表示されます。 警告メッセージは次のとおりです。
+
+*IHtmlHelper.Partial を使用すると、アプリケーションにデッドロックの可能性があります。使用を検討して`<partial>`タグ ヘルパーまたは`IHtmlHelper.PartialAsync`です。*
+
+呼び出す`@Html.Partial`で置き換える必要があります`@await Html.PartialAsync`または部分的なタグ ヘルパー`<partial name="_Partial" />`です。
+
+::: moniker-end

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 1500f026c245f80de4120d6db4901cb117552966
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 995890a5e6b0cc1d9cebc21486917a7a39587076
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Azure App Service と ASP.NET Core を使用した IIS の一般的なエラーのリファレンス
 
@@ -198,7 +198,7 @@ ms.lasthandoff: 04/18/2018
   * IIS 統合ミドルウェアが参照する呼び出し、`UseIISIntegration`メソッドをアプリの`WebHostBuilder`(ASP.NET Core 1.x)
   * アプリの使用、`CreateDefaultBuilder`メソッド (ASP.NET Core 2.x)。
   
-  詳細については、「[ASP.NET Core でのホスティング](xref:fundamentals/hosting)」を参照してください。
+  参照してください[ASP.NET Core でのホスト](xref:fundamentals/host/index)詳細についてはします。
 
 ## <a name="sub-application-includes-a-handlers-section"></a>サブアプリケーションに \<handlers\> セクションが含まれている
 

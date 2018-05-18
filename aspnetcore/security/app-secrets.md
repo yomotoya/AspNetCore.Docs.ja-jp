@@ -1,129 +1,262 @@
 ---
 title: アプリ シークレットは、ASP.NET Core での開発での安全な格納場所
 author: rick-anderson
-description: 開発中に機密情報を安全に格納する方法を示します
+description: 保存し、アプリ シークレットは、ASP.NET Core アプリケーションの開発時に重要な情報を取得する方法を説明します。
 manager: wpickett
-ms.author: riande
-ms.date: 09/15/2017
+ms.author: scaddie
+ms.custom: mvc
+ms.date: 05/16/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: a268fd76a303dc1185b451e4f678fc2fe761e80a
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
-ms.translationtype: HT
+ms.openlocfilehash: 4db09d3d41b705597f93d05af91077f2b9236b7e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>アプリ シークレットは、ASP.NET Core での開発での安全な格納場所
 
-によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Daniel Roth](https://github.com/danroth27)、および[Scott Addie](https://scottaddie.com) 
+によって[Rick Anderson](https://twitter.com/RickAndMSFT)、 [Daniel Roth](https://github.com/danroth27)、および[Scott Addie](https://github.com/scottaddie)
 
-このドキュメントでは、開発でシークレット マネージャー ツールを使用して、コードからシークレットを保持する方法を示しています。 最も重要な点は、ソース コードで、パスワードや他の機密データを格納する必要がありますしないと、開発およびテスト モードで運用環境の機密情報を使用しないでください。 代わりに使用することができます、[構成](xref:fundamentals/configuration/index)システム環境変数からこれらの値を読み取るまたはシークレット マネージャーを使用して格納されている値からツールです。 シークレット マネージャー ツールでは、機密データがソース管理にチェックインされているを防ぐのに役立ちます。 [構成](xref:fundamentals/configuration/index)システムは、この記事で説明されているシークレット マネージャー ツールを使用して格納されているシークレットを読み取ることができます。
+::: moniker range="<= aspnetcore-1.1"
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/app-secrets/samples/1.1)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+::: moniker-end
+::: moniker range=">= aspnetcore-2.0"
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/app-secrets/samples/2.1)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+::: moniker-end
 
-シークレット マネージャー ツールは、開発でのみ使用されます。 Azure のテストおよび運用シークレットを保護することができます、 [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/)構成プロバイダーです。 参照してください[Azure Key Vault の構成プロバイダー](xref:security/key-vault-configuration)詳細についてはします。
+このドキュメントでは、格納および ASP.NET Core アプリケーションの開発中に機密データを取得するためのテクニックについて説明します。 ソース コードで、パスワードや他の機密データを格納する必要がありますしない、モードをテストまたは開発で実稼働の機密情報を使用することはできません。 格納しと Azure のテストおよび運用シークレットを保護することができます、 [Azure Key Vault の構成プロバイダー](xref:security/key-vault-configuration)です。
 
 ## <a name="environment-variables"></a>環境変数
 
-コードまたはローカルの構成ファイルでは、アプリ シークレットを格納するを回避するのには、環境変数に機密情報を保存します。 セットアップすることができます、[構成](xref:fundamentals/configuration/index)を呼び出して環境変数から値を読み取るために、フレームワーク`AddEnvironmentVariables`です。 環境変数を使用して以前に指定した構成のすべてのソースの構成値を上書きできます。
+環境変数は、アプリ シークレットは、コードまたはでローカルの構成ファイルの格納を避けるために使用されます。 環境変数は、以前に指定した構成のすべてのソースの構成値をオーバーライドします。
 
-個々 のユーザー アカウントを持つ新しい ASP.NET Core web アプリを作成する場合に、追加するなど、既定の接続文字列を*される appsettings.json*キーを持つプロジェクト ファイルで`DefaultConnection`です。 既定の接続文字列は、ユーザー モードで実行され、パスワードを必要としない LocalDB を使用するセットアップです。 オーバーライドすることができます、アプリケーションをテストまたは実稼働サーバーを展開するときに、`DefaultConnection`で環境変数の設定をテストまたは実稼働データベースの (場合によっては資格情報の機密)、接続文字列を含むキーの値サーバー。
+::: moniker range="<= aspnetcore-1.1"
+環境変数の値の読み取りを呼び出すことによって構成[AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables)で、`Startup`コンス トラクター。
 
->[!WARNING]
-> 環境変数は、プレーン テキストで格納されると、暗号化されていません。 コンピューターまたはプロセスが侵害された場合、環境変数は信頼されていないパーティによってアクセスできます。 追加の手段をユーザーの機密情報の漏えいを防ぐためには、必要な可能性があります。
+[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=10)]
+::: moniker-end
+
+ASP.NET Core web アプリを検討してください**個々 のユーザー アカウント**セキュリティが有効にします。 プロジェクトの既定のデータベース接続文字列が含まれている*される appsettings.json*キーを持つファイル`DefaultConnection`です。 既定の接続文字列では、LocalDB では、ユーザー モードで実行され、パスワードを必要としないのです。 アプリの展開中に、`DefaultConnection`キーの値を環境変数の値で上書きすることができます。 環境変数には、機密性の高い資格情報を持つ完全な接続文字列を格納できます。
+
+> [!WARNING]
+> 環境変数は、暗号化されていないプレーン テキストに一般的に格納されます。 コンピューターまたはプロセスが侵害された場合、環境変数は、信頼されていないパーティによってアクセスできます。 追加の手段をユーザーの機密情報の漏えいを防ぐためには、必要な可能性があります。
 
 ## <a name="secret-manager"></a>シークレット マネージャー
 
-シークレット マネージャー ツールは、プロジェクト ツリーの外部で開発作業の機密データを格納します。 シークレット マネージャー ツールは、開発中に .NET Core プロジェクトの機密情報を格納するために使用できるプロジェクト ツールです。 シークレット マネージャー ツール アプリ シークレットは、特定のプロジェクトに関連付けるでき、それらを複数のプロジェクト間で共有できます。
+シークレット マネージャー ツールは、ASP.NET Core プロジェクトの開発中に機密データを格納します。 このコンテキストでは、機密データの一部は、アプリのシークレットがします。 アプリ シークレットは、プロジェクト ツリーから別の場所に格納されます。 アプリ シークレットは、特定のプロジェクトに関連付けられているか、いくつかのプロジェクト間で共有します。 アプリ シークレットは、ソース管理にチェックインされません。
 
->[!WARNING]
+> [!WARNING]
 > シークレット マネージャー ツールは、保存されたシークレットを暗号化しないし、信頼できるストアとして扱われるべきではありません。 これは、開発目的でのみです。 キーと値は、ユーザーのプロファイル ディレクトリに JSON 構成ファイルに格納されます。
 
-## <a name="installing-the-secret-manager-tool"></a>シークレット マネージャー ツールをインストールします。
+## <a name="how-the-secret-manager-tool-works"></a>シークレット マネージャー ツールの動作
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+値が格納されている場所と方法など、実装の詳細を抽象シークレット Manager ツール。 これらの実装の詳細を知ることがなくツールを使用することができます。 値が格納されている、 [JSON](https://json.org/)システムで保護されたユーザー プロファイル フォルダーにローカル コンピューター上の構成ファイル。
 
-ソリューション エクスプ ローラーでプロジェクトを右クリックし **編集\<project_name\>.csproj**コンテキスト メニュー。 強調表示された行を追加、 *.csproj*ファイル、および関連付けられている NuGet パッケージを復元する保存します。
+* Windows: `%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json`
+* Linux と macOS: `~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`
 
-[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
+上記の「ファイル パス、それぞれ置き換えます`<user_secrets_id>`で、`UserSecretsId`で指定された値、 *.csproj*ファイル。
 
-ソリューション エクスプ ローラーでプロジェクトを再度右クリックし、選択**管理ユーザーの機密情報**コンテキスト メニュー。 このジェスチャが新しく追加`UserSecretsId`内のノード、`PropertyGroup`の *.csproj*次の例に示すように、ファイル。
+場所またはシークレット マネージャー ツールを使用して保存されたデータの形式に依存するコードを記述しません。 これらの実装の詳細を変更することがあります。 たとえば、秘密の値は暗号化されませんが、後である可能性があります。
 
-[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+::: moniker range="<= aspnetcore-2.0"
+## <a name="install-the-secret-manager-tool"></a>シークレット マネージャー ツールをインストールします。
 
-保存、変更された *.csproj*ファイルも開きます、`secrets.json`ファイル テキスト エディターでします。 内容を置き換える、`secrets.json`を次のコード ファイル。
+シークレット マネージャー ツールには、.NET Core SDK 2.1 では、.NET Core CLI が付属しています。 .NET Core SDK 2.0 と前に、ツールのインストールは必要があります。
 
-```json
-{
-    "MySecret": "ValueOfMySecret"
-}
-```
+インストール、 [Microsoft.Extensions.SecretManager.Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) ASP.NET Core プロジェクトでの NuGet パッケージ。
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+[!code-xml[](app-secrets/samples/1.1/UserSecrets/UserSecrets.csproj?name=snippet_CsprojFile&highlight=13-14)]
 
-追加`Microsoft.Extensions.SecretManager.Tools`を *.csproj*ファイル実行して[dotnet 復元](/dotnet/core/tools/dotnet-restore)です。 同じ手順を使用するのコマンドラインを使用して、シークレット マネージャー ツールをインストールします。
-
-[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
-
-次のコマンドを実行して、シークレット マネージャー ツールをテストします。
+ツールのインストールを検証するコマンド シェルで、次のコマンドを実行します。
 
 ```console
 dotnet user-secrets -h
 ```
 
-シークレット マネージャー ツールは、使用、オプションおよびコマンドのヘルプに表示されます。
+シークレット マネージャー ツールには、サンプルの使用方法、オプション、およびコマンドのヘルプが表示されます。
+
+```console
+Usage: dotnet user-secrets [options] [command]
+
+Options:
+  -?|-h|--help                        Show help information
+  --version                           Show version information
+  -v|--verbose                        Show verbose output
+  -p|--project <PROJECT>              Path to project. Defaults to searching the current directory.
+  -c|--configuration <CONFIGURATION>  The project configuration to use. Defaults to 'Debug'.
+  --id                                The user secret ID to use.
+
+Commands:
+  clear   Deletes all the application secrets
+  list    Lists all the application secrets
+  remove  Removes the specified user secret
+  set     Sets the user secret to the specified value
+
+Use "dotnet user-secrets [command] --help" for more information about a command.
+```
 
 > [!NOTE]
-> 同じディレクトリにする必要があります、 *.csproj*で定義されているツールを実行するファイル、 *.csproj*ファイルの`DotNetCliToolReference`ノード。
+> 同じディレクトリにする必要があります、 *.csproj*で定義されているツールを実行するファイル、 *.csproj*ファイルの`DotNetCliToolReference`要素。
+::: moniker-end
 
-シークレット マネージャー ツールは、ユーザー プロファイルに格納されているプロジェクトに固有の構成設定で動作します。 ユーザーの機密情報を使用するプロジェクトを指定する必要があります、`UserSecretsId`値でその *.csproj*ファイル。 値`UserSecretsId`任意で、一般にプロジェクトに固有です。 開発者が通常の GUID を生成、`UserSecretsId`です。
+## <a name="set-a-secret"></a>シークレットを設定します。
 
-追加、`UserSecretsId`に、プロジェクトの *.csproj*ファイル。
+シークレット マネージャー ツールは、ユーザー プロファイルに格納されているプロジェクトに固有の構成設定で動作します。 ユーザーの機密情報を使用して、定義、`UserSecretsId`内の要素、`PropertyGroup`の *.csproj*ファイル。 値`UserSecretsId`任意で、プロジェクトに固有です。 開発者が通常の GUID を生成、`UserSecretsId`です。
 
-[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+::: moniker range="<= aspnetcore-1.1"
+[!code-xml[](app-secrets/samples/1.1/UserSecrets/UserSecrets.csproj?name=snippet_PropertyGroup&highlight=3)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.0"
+[!code-xml[](app-secrets/samples/2.1/UserSecrets/UserSecrets.csproj?name=snippet_PropertyGroup&highlight=3)]
+::: moniker-end
 
-シークレット マネージャー ツールを使用すると、機密情報を設定します。 たとえば、コマンド ウィンドウで、プロジェクト ディレクトリから、次のように入力します。
+> [!TIP]
+> Visual Studio で、ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**管理ユーザーの機密情報**コンテキスト メニュー。 このジェスチャを追加、`UserSecretsId`要素、GUID に設定、 *.csproj*ファイル。 Visual Studio を開き、 *secrets.json*ファイル テキスト エディターでします。 内容を置き換える*secrets.json*を格納するキー/値ペアにします。 例: [!INCLUDE[secrets.json file](~/includes/app-secrets/secrets-json-file.md)]
+
+キーとその値で構成されるアプリのシークレットを定義します。 シークレットは、プロジェクトの関連付けられた`UserSecretsId`値。 たとえば、次のコマンドを実行するディレクトリから、 *.csproj*ファイルが存在します。
 
 ```console
-dotnet user-secrets set MySecret ValueOfMySecret
+dotnet user-secrets set "Movies:ServiceApiKey" "12345"
 ```
 
-その他のディレクトリからシークレット マネージャー ツールを実行することができますが、使用する必要があります、`--project`へのパスに渡すオプション、 *.csproj*ファイル。
+この例では、コロンのあることを意味`Movies`オブジェクトでリテラルでは、`ServiceApiKey`プロパティです。
+
+シークレット マネージャー ツールは、その他のディレクトリからも使用できます。 使用して、`--project`をファイル システム パスを指定するオプション、 *.csproj*ファイルが存在します。 例えば:
 
 ```console
-dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\webapp1
+dotnet user-secrets set "Movies:ServiceApiKey" "12345" --project "C:\apps\WebApp1\src\WebApp1"
 ```
 
-シークレット マネージャー ツールを使用して、一覧を削除し、アプリのシークレットをオフにすることができますも。
+## <a name="set-multiple-secrets"></a>複数の機密情報を設定します。
 
----
+JSON をパイプして機密データのバッチを設定することができます、`set`コマンド。 次の例で、 *input.json*ファイルの内容は、パイプを使用して、`set`コマンドを Windows で。
 
-## <a name="accessing-user-secrets-via-configuration"></a>構成を使用してユーザーの機密情報にアクセスします。
+```console
+type .\input.json | dotnet user-secrets set
+```
 
-構成システムを介したシークレット Manager の機密情報にアクセスします。 追加、`Microsoft.Extensions.Configuration.UserSecrets`パッケージ化し、実行[dotnet 復元](/dotnet/core/tools/dotnet-restore)です。
+MacOS および Linux では、次のコマンドを使用します。
 
-ユーザーの機密情報の構成ソースを追加、`Startup`メソッド。
+```console
+cat ./input.json | dotnet user-secrets set
+```
 
-[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
+## <a name="access-a-secret"></a>シークレットをアクセスします。
 
-構成 API を使用してユーザーの機密情報にアクセスすることができます。
+[ASP.NET Core の構成 API](xref:fundamentals/configuration/index)シークレット Manager の機密情報へのアクセスを提供します。 かどうか .NET Core をターゲットとする 1.x または .NET Framework をインストール、 [Microsoft.Extensions.Configuration.UserSecrets](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.UserSecrets) NuGet パッケージです。
 
-[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
+::: moniker range="<= aspnetcore-1.1"
+ユーザーの機密情報の構成ソースを追加、`Startup`コンス トラクター。
 
-## <a name="how-the-secret-manager-tool-works"></a>シークレット マネージャー ツールの動作
+[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=5-8)]
+::: moniker-end
 
-値が格納されている場所と方法など、実装の詳細を抽象シークレット Manager ツール。 これらの実装の詳細を知ることがなくツールを使用することができます。 現在のバージョンで、値が格納されている、 [JSON](http://json.org/)ユーザーのプロファイル ディレクトリに構成ファイル。
+ユーザーの機密情報を取得できます、 `Configuration` API:
 
-* Windows: `%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json`
+::: moniker range="<= aspnetcore-1.1"
+[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup.cs?name=snippet_StartupClass&highlight=23)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.0"
+[!code-csharp[](app-secrets/samples/2.1/UserSecrets/Startup.cs?name=snippet_StartupClass&highlight=14)]
+::: moniker-end
 
-* Linux: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+## <a name="string-replacement-with-secrets"></a>シークレットの文字列の置換
 
-* macOS: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+パスワードがプレーン テキストで格納することは危険です。 たとえば、データベース接続文字列の格納*される appsettings.json*指定したユーザーのパスワードを含めることができます。
 
-値`userSecretsId`で指定された値に由来 *.csproj*ファイル。
+[!code-json[](app-secrets/samples/2.1/UserSecrets/appsettings-unsecure.json?highlight=3)]
 
-これらの実装の詳細を変更する可能性があります、場所やシークレット マネージャー ツールを使用して保存するデータの形式に依存するコードを記述することはできません。 たとえば、シークレットの値が現在は*いない*今日では、暗号化しますが、いつか可能性があります。
+安全な方法では、シークレットとしてパスワードを格納します。 例えば:
+
+```console
+dotnet user-secrets set "DbPassword" "pass123"
+```
+
+パスワードを置き換える*される appsettings.json*プレース ホルダーです。 次の例では、`{0}`フォームにプレース ホルダーとして使用される、[複合書式指定文字列](/dotnet/standard/base-types/composite-formatting#composite-format-string)です。
+
+[!code-json[](app-secrets/samples/2.1/UserSecrets/appsettings.json?highlight=3)]
+
+シークレットの値は、接続文字列を完了するプレース ホルダーに挿入できます。
+
+::: moniker range="<= aspnetcore-1.1"
+[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=23-25)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.0"
+[!code-csharp[](app-secrets/samples/2.1/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=14-16)]
+::: moniker-end
+
+## <a name="list-the-secrets"></a>シークレットを一覧します。
+
+[!INCLUDE[secrets.json file](~/includes/app-secrets/secrets-json-file-and-text.md)]
+
+ディレクトリから次のコマンドを実行、 *.csproj*ファイルが存在します。
+
+```console
+dotnet user-secrets list
+```
+
+次の出力が表示されます。
+
+```console
+Movies:ServiceApiKey = 12345
+Movies:ConnectionString = Server=(localdb)\mssqllocaldb;Database=Movie-1;Trusted_Connection=True;MultipleActiveResultSets=true
+```
+
+前の例では、キー名にコロンは内でオブジェクト階層を表します。 *secrets.json*です。
+
+## <a name="remove-a-single-secret"></a>1 つのシークレットを削除します。
+
+[!INCLUDE[secrets.json file](~/includes/app-secrets/secrets-json-file-and-text.md)]
+
+ディレクトリから次のコマンドを実行、 *.csproj*ファイルが存在します。
+
+```console
+dotnet user-secrets remove "Movies:ConnectionString"
+```
+
+アプリの*secrets.json*に関連付けられているキー/値ペアを削除するファイルが変更された、`MoviesConnectionString`キー。
+
+```json
+{
+  "Movies": {
+    "ServiceApiKey": "12345"
+  }
+}
+```
+
+実行している`dotnet user-secrets list`次のメッセージが表示されます。
+
+```console
+Movies:ServiceApiKey = 12345
+```
+
+## <a name="remove-all-secrets"></a>すべてのシークレットを削除します。
+
+[!INCLUDE[secrets.json file](~/includes/app-secrets/secrets-json-file-and-text.md)]
+
+ディレクトリから次のコマンドを実行、 *.csproj*ファイルが存在します。
+
+```console
+dotnet user-secrets clear
+```
+
+アプリのすべてのユーザーの機密情報はから削除されている、 *secrets.json*ファイル。
+
+```json
+{}
+```
+
+実行している`dotnet user-secrets list`次のメッセージが表示されます。
+
+```console
+No secrets configured for this application.
+```
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [構成](xref:fundamentals/configuration/index)
+* <xref:fundamentals/configuration/index>
+* <xref:security/key-vault-configuration>
