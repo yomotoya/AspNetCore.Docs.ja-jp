@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 977a6b5a84825ebd087752dcc2ebc0c5410e1657
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 485d2ba7a1274bbb36cfbcbca9322cecc8c8d77c
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 の新機能
 
@@ -152,13 +152,10 @@ ASP.NET MVC 4 は、安定したデザイン パターンと、ASP.NET と .NET 
 6. ファイルを開く**AuthConfig.cs**の下にある、**アプリ\_開始**フォルダーです。
 7. Google クライアントを登録する最後の行からコメントを削除する*OAuth*認証します。
 
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample1.cs)]
 
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample1.cs)]
-
-> [!NOTE]
-> Notice you can easily enable authentication using any OpenID or OAuth service like Facebook, Twitter, Microsoft, etc.
-~~~
+    > [!NOTE]
+    > Facebook、Twitter、Microsoft などの任意の OpenID または OAuth サービスを使用して認証を簡単に有効にすることができますに注意してください。
 8. キーを押して**f5 キーを押して**ソリューションを実行し、ログイン ページに移動します。
 9. 選択**Google**サービスにログインします。
 
@@ -230,20 +227,16 @@ ASP.NET MVC 4 には、モバイル web サイトやタブレットのブラウ�
 9. 開いている **\_Layout.cshtml**内にある、**ビュー |共有**フォルダー、およびコメント、ビューポートのメタ タグ。 アプリケーションを実行しない場合既に開き、相違点を確認します。
 
 
-~~~
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample2.cshtml)]
 
-![The site after commenting the viewport meta tag](whats-new-in-aspnet-mvc-4/_static/image15.png "The site after commenting the viewport meta tag")
+![ビューポートのメタ タグをコメント化した後、サイト](whats-new-in-aspnet-mvc-4/_static/image15.png "ビューポートのメタ タグをコメント化した後、サイト")
 
-*The site after commenting the viewport meta tag*
-~~~
+*ビューポートのメタ タグをコメント化した後、サイト*
 10. Visual Studio で、キーを押します。 **shift キーを押し** + **f5 キーを押して**アプリケーションのデバッグを停止します。
 11. ビューポートのメタ タグのコメントを解除します。
 
 
-~~~
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample3.cshtml)]
-~~~
 
 <a id="Task_3_-_Using_Adaptive_Rendering"></a>
 #### <a name="task-3---using-adaptive-rendering"></a>タスク 3 - アダプティブ レンダリングを使用します。
@@ -326,10 +319,7 @@ ASP.NET MVC 4 には、モバイル web サイトやタブレットのブラウ�
 
     (コード スニペットの*ASP.NET MVC 4 ラボ - Ex02 - ギャラリー アクション*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample4.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample4.cs)]
 7. キーを押して**f5 キーを押して**ソリューションを実行し、モック フォト サービスをテストするために、次の URL を参照する: `http://localhost:[port]/photo/gallery` ([ポート] の値は、アプリケーションが起動される現在のポートによって異なります)。 この URL に要求のコンテンツを取得する必要があります、 **Photos.json**ファイル。
 
     ![モック フォト サービスのテスト](whats-new-in-aspnet-mvc-4/_static/image20.png "モック フォト サービスのテスト")
@@ -349,37 +339,25 @@ ASP.NET MVC 4 には、モバイル web サイトやタブレットのブラウ�
 
     (コード スニペットの*ASP.NET MVC 4 ラボ - Ex02 - フォト モデル*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample5.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample5.cs)]
 4. **Controllers** フォルダーから **HomeController.cs** ファイルを開きます。
 5. 次の using ステートメントを追加します。
 
     (コード スニペットの*ASP.NET MVC 4 ラボ - Ex02 - HomeController Using*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample6.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample6.cs)]
 6. 更新プログラム、**インデックス**で使用するアクション**HttpClient**ギャラリーのデータを取得し、使用して、 **JavaScriptSerializer**ビュー モデルにシリアル化を解除します。
 
     (コード スニペットの*ASP.NET MVC 4 ラボ - Ex02 - インデックス アクション*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample7.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample7.cs)]
 7. 開く、 **Index.cshtml**の下にあるファイル、 **views \home**フォルダーと次のコードでのすべてのコンテンツを置換します。
 
     このコードは、サービスから取得したすべての写真をループし、それらが順序なしのリストに表示されます。
 
     (コード スニペットの*ASP.NET MVC 4 ラボ - Ex02 - フォト一覧*)
 
-
-~~~
-[!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample8.cshtml)]
-~~~
+    [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample8.cshtml)]
 8. **ソリューション エクスプ ローラー**を右クリックし、**コンテンツ**フォルダー、プロジェクト、および選択の**追加 |既存の項目**です。 参照、 **Source\Assets\Content**このラボのフォルダーを追加し、 **Site.css**ファイル。 それに置き換わることを確認する必要があります。 ある場合、 **Site.css**ファイルを開く、また、ファイルを再読み込みすることを確認する必要があります。
 9. ファイル エクスプ ローラーを開き、全体をコピー**写真**フォルダーの下にある、 **Source\Assets**ソリューション エクスプ ローラーでプロジェクトのルート フォルダーには、このラボのフォルダーです。
 10. アプリケーションを実行します。 ギャラリーで写真を表示するホーム ページが表示されます。
@@ -399,7 +377,7 @@ ASP.NET MVC 4 のキーの更新の 1 つは、モバイル開発のサポート
 <a id="Task_1_-_Installing_jQuery_Mobile_in_an_ASPNET_MVC_4_Application"></a>
 #### <a name="task-1---installing-jquery-mobile-in-an-aspnet-mvc-4-application"></a>タスク 1 - ASP.NET MVC 4 アプリケーションで jQuery Mobile をインストールします。
 
-1. 開く、**開始**ソリューションにある**ソース/Ex3-MobileSupport/開始/**フォルダーです。 それ以外の場合、作業を続行できますを使用して、**終了**ソリューションは、前の手順を完了して取得します。
+1. 開く、**開始**ソリューションにある**ソース/Ex3-MobileSupport/開始/** フォルダーです。 それ以外の場合、作業を続行できますを使用して、**終了**ソリューションは、前の手順を完了して取得します。
 
    1. 指定されたを開いた場合**開始**ソリューションでは、いくつか不足している NuGet パッケージをダウンロードする必要がある前にします。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
@@ -434,12 +412,9 @@ ASP.NET MVC 4 のキーの更新の 1 つは、モバイル開発のサポート
 
     (コード スニペットの*ASP.NET MVC 4 ラボ - Ex03 - 登録モバイル バンドル*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample10.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample10.cs)]
 5. デスクトップの web ブラウザーを使用してアプリケーションを実行します。
-6. 開く、 **Windows Phone 7 エミュレーター**にある**[スタート] メニュー |すべてのプログラム |Windows Phone SDK 7.1 |Windows Phone エミュレーター。**
+6. 開く、 **Windows Phone 7 エミュレーター**にある **[スタート] メニュー |すべてのプログラム |Windows Phone SDK 7.1 |Windows Phone エミュレーター。**
 7. Phone のスタート画面で Internet Explorer を開きます。 アプリケーションの開始 URL を確認し、電話のブラウザーでその URL を参照 (例: `http://localhost:[PortNumber]/`)。
 
     JQuery.Mobile.MVC がモバイル デバイス用に最適化されたビューを表示する、プロジェクトに新しい資産を作成するように、アプリケーションを Windows Phone エミュレーターで、異なるが表示されることがわかります。
@@ -462,22 +437,19 @@ ASP.NET MVC 4 のキーの更新の 1 つは、モバイル開発のサポート
 1. コピー、 **Views\Home\Index.cshtml**を表示し、コピーを作成、新しいファイルの名前を変更する貼り付けます**Index.Mobile.cshtml**です。
 2. 開いている、新しく作成された**Index.Mobile.cshtml**を表示し、既存の置換&lt;ul&gt;このコードを持つタグ。 これにより、更新されます。、 &lt;ul&gt;から jQuery モバイルのテーマを使用して jQuery モバイル データ注釈を使用したタグです。
 
+    [!code-html[Main](whats-new-in-aspnet-mvc-4/samples/sample11.html)]
 
-~~~
-[!code-html[Main](whats-new-in-aspnet-mvc-4/samples/sample11.html)]
-
-> [!NOTE] 
-> 
-> Notice that:
-> 
-> - The **data-role** attribute set to **listview** will render the list using the listview styles.
-> 
-> - The **data-inset** attribute set to true will show the list with rounded border and margin.
-> 
-> - The **data-filter** attribute set to **true** will generate a search box.
-> 
-> You can learn more about jQuery Mobile conventions in the project documentation: [[http://jquerymobile.com/demos/1.1.1/](http://jquerymobile.com/demos/1.1.1/)](http://jquerymobile.com/demos/1.1.1/)
-~~~
+    > [!NOTE] 
+    > 
+    > 以下の点に注意してください。
+    > 
+    > - **データ ロール**属性に設定**listview** listview スタイルを使用して一覧を表示します。
+    > 
+    > - **データ埋め込み**属性が true に設定が丸みのある境界線と余白の一覧に表示されます。
+    > 
+    > - **データ フィルター**属性に設定**true**検索ボックスを生成します。
+    > 
+    > プロジェクトのドキュメント内の jQuery モバイル規則の詳細を学習できます。 [[http://jquerymobile.com/demos/1.1.1/](http://jquerymobile.com/demos/1.1.1/)](http://jquerymobile.com/demos/1.1.1/)
 3. キーを押して**ctrl キーを押しながら S**変更を保存します。
 4. 切り替えて、 **Windows Phone エミュレーター**と、サイトを更新します。 一番上にある新しい検索ボックスと同様に、ギャラリーのリストの新しいルック アンド フィールに注意してください。 検索ボックスに単語を入力し、(たとえば、 **Tulips**) フォト ギャラリーで検索を開始します。
 
@@ -512,10 +484,7 @@ jQuery モバイルの既定テーマにはには、文字が与えられてい�
 2. 開く、  **\_Layout.Mobile.cshtml**にあるファイル**\shared**です。
 3. 設定のデータの役割を持つ div 要素を検索&quot;ページ&quot;し、更新、**データ テーマ**に&quot; **e**&quot;です。
 
-
-~~~
-[!code-html[Main](whats-new-in-aspnet-mvc-4/samples/sample13.html)]
-~~~
+    [!code-html[Main](whats-new-in-aspnet-mvc-4/samples/sample13.html)]
 4. キーを押して**ctrl キーを押しながら S**変更を保存します。
 5. サイトを更新、 **Windows Phone エミュレーター**し、新しい色スキームのことを確認します。
 
@@ -553,8 +522,8 @@ jQuery モバイルの既定テーマにはには、文字が与えられてい�
     *ViewSwitcher 部分ビュー*
 4. 開く、 **ViewSwitcherController.cs**クラス、**コント ローラー**フォルダーです。 チェック アウトする SwitchView アクションは ViewSwitcher コンポーネント内のリンクによって呼び出され、新しい HttpContext メソッドに注意してください。
 
-    - **HttpContext.ClearOverridenBrowser()**メソッドは現在の要求に対するすべてのオーバーライドされたユーザー エージェントを削除します。
-    - **HttpContext.SetOverridenBrowser()**メソッドは、指定されたユーザー エージェントを使用して、要求の実際のユーザー エージェント値をオーバーライドします。  
+    - **HttpContext.ClearOverridenBrowser()** メソッドは現在の要求に対するすべてのオーバーライドされたユーザー エージェントを削除します。
+    - **HttpContext.SetOverridenBrowser()** メソッドは、指定されたユーザー エージェントを使用して、要求の実際のユーザー エージェント値をオーバーライドします。  
         ![ViewSwitcher コント ローラー](whats-new-in-aspnet-mvc-4/_static/image31.png "ViewSwitcher コント ローラー")  
 *ViewSwitcher コント ローラー*
 
@@ -570,10 +539,7 @@ jQuery モバイルの既定テーマにはには、文字が与えられてい�
 3. Visual Studio に戻り、開く、  **\_Layout.cshtml**ビュー。
 4. ログイン セクションを検索して表示するために呼び出しを挿入、  **\_ViewSwitcher**部分ビューの下、  **\_LogOnPartial**部分ビュー。 次に、キーを押して**ctrl キーを押しながら S**変更を保存します。
 
-
-~~~
-[!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample14.cshtml)]
-~~~
+    [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample14.cshtml)]
 5. キーを押して**ctrl キーを押しながら S**変更を保存します。
 6. Windows Phone エミュレーターでページを更新し、拡大する画面をダブルクリックします。 ホーム ページの表示通知、**モバイル ビュー**モバイルからデスクトップ ビューに切り替えるリンクします。
 
@@ -603,39 +569,32 @@ jQuery モバイルの既定テーマにはには、文字が与えられてい�
 1. Visual Studio で、キーを押します。 **shift キーを押し** + **f5 キーを押して**アプリケーションのデバッグを停止します。
 2. 開いている**Global.asax.cs**に次の追加およびステートメントを使用します。
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample15.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample15.cs)]
 3. アプリケーションに次の強調表示されたコードを追加\_メソッドを開始します。
 
     (コード スニペットの*ASP.NET MVC 4 ラボ - Ex03 - iPhone DisplayMode*)
 
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample16.cs)]
 
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample16.cs)]
+新しい登録されている**という DefaultDisplayMode &quot;iPhone&quot;**、静的内で**DisplayModeProvider.Instance.Modes**に対して照合される静的な一覧は、受信要求ごとにします。 受信要求には、文字列が含まれている場合&quot;iPhone&quot;、ASP.NET MVC は名前を含むビューを検索、 &quot;iPhone&quot;サフィックス。 パラメーターに 0 では、特定が新しいモードにあることを示しますたとえば、このビューは、一般的なよりも限定&quot;.mobile&quot;モバイル デバイスからの要求と一致するルール。
 
-You have registered a new **DefaultDisplayMode named &quot;iPhone&quot;**, within the static **DisplayModeProvider.Instance.Modes** static list, that will be matched against each incoming request. If the incoming request contains the string &quot;iPhone&quot;, ASP.NET MVC will find the views whose name contain the &quot;iPhone&quot; suffix. The 0 parameter indicates how specific is the new mode; for instance, this view is more specific than the general &quot;.mobile&quot; rule that matches requests from mobile devices.
-
-After this code runs, when an iPhone browser generates a request, your application will use the **Views\Shared\\_Layout.iPhone.cshtml** layout you will create in the next steps.
+このコードを実行すた後 iPhone ブラウザーの要求を生成するときに、アプリケーションで使用、 **\shared\\_Layout.iPhone.cshtml**レイアウトを次の手順で作成されます。
 
 > [!NOTE]
-> This way of testing the request for iPhone has been simplified for demo purposes and might not work as expected for every iPhone user agent string (for example test is case sensitive).
-~~~
+> この方法で iPhone のデモのために簡略化され、可能性がありますが正しく機能しない iPhone のすべてのユーザー エージェント文字列の (テストの例は、大文字小文字を区別) の要求をテストします。
+
 4. コピーを作成、  **\_Layout.Mobile.cshtml**ファイルで、 **\shared**フォルダーへのコピーの名前を変更および&quot;  **\_Layout.iPhone.csthml**&quot;.
 5. 開いている **\_Layout.iPhone.csthml**前の手順で作成します。
 6. データ ロールの属性に設定された div 要素を検索**ページ**を変更して、**データ テーマ**属性を&quot; **、**&quot;です。
 
 
-~~~
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample17.cshtml)]
 
-Now you have 3 layouts in your ASP.NET MVC 4 application:
+これで、ASP.NET MVC 4 アプリケーションに 3 つのレイアウトがあります。
 
-1. **\_Layout.cshtml**: default layout used for desktop browsers.
-2. **\_Layout.mobile.cshtml**: default layout used for mobile devices.
-3. **\_Layout.iPhone.cshtml**: specific layout for iPhone devices, using a different color scheme to differentiate from \_Layout.mobile.cshtml.
-~~~
+1. **\_Layout.cshtml**: 既定のレイアウトをデスクトップ ブラウザーのために使用します。
+2. **\_Layout.mobile.cshtml**: 既定のレイアウトがモバイル デバイスのために使用します。
+3. **\_Layout.iPhone.cshtml**: から区別するために別の配色を使用して、iPhone デバイス用の特定のレイアウト\_Layout.mobile.cshtml です。
 7. キーを押して**f5 キーを押して**アプリケーションを実行し、サイトの参照を**Windows Phone エミュレーター**です。
 8. 開いている、 **iPhone シミュレーター** (を参照してください[付録 C](#AppendixC)インストールして iPhone シミュレーターを構成する方法について)、サイトを参照するすぎるとします。 各電話番号が、特定のテンプレートを使用することに注意してください。
 
@@ -655,7 +614,7 @@ Microsoft .NET Framework 4.5 では、.NET プログラミングでの非同期�
 <a id="Task_1_-_Implementing_an_Asynchronous_Controller"></a>
 #### <a name="task-1---implementing-an-asynchronous-controller"></a>タスク 1 - 非同期コント ローラーを実装します。
 
-1. 開く、**開始**ソリューションにある**ソース/Ex4-Async/開始/**フォルダーです。 それ以外の場合、作業を続行できますを使用して、**終了**ソリューションは、前の手順を完了して取得します。
+1. 開く、**開始**ソリューションにある**ソース/Ex4-Async/開始/** フォルダーです。 それ以外の場合、作業を続行できますを使用して、**終了**ソリューションは、前の手順を完了して取得します。
 
    1. 指定されたを開いた場合**開始**ソリューションでは、いくつか不足している NuGet パッケージをダウンロードする必要がある前にします。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
@@ -666,46 +625,31 @@ Microsoft .NET Framework 4.5 では、.NET プログラミングでの非同期�
 2. 開く、 **HomeController.cs**クラス、**コント ローラー**フォルダーです。
 3. 次の追加ステートメントを使用します。
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample18.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample18.cs)]
 4. 更新プログラム、 **HomeController**クラスから継承する**AsyncController**です。 AsyncController から派生したコント ローラーが非同期の要求の処理に ASP.NET を有効にしてサービスの同期アクション メソッドは、できます。
 
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample19.cs)]
+5. 追加、 **async**キーワードを**インデックス**メソッド型を返すと**タスク&lt;ActionResult&gt;** です。
 
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample19.cs)]
-~~~
-5. 追加、 **async**キーワードを**インデックス**メソッド型を返すと**タスク&lt;ActionResult&gt;**です。
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample20.cs)]
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample20.cs)]
-
-> [!NOTE]
-> The **async** keyword is one of the new keywords the .NET Framework 4.5 provides; it tells the compiler that this method contains asynchronous code. A **Task** object represents an asynchronous operation that may complete at some point in the future.
-~~~
-6. 置換、**クライアント。GetAsync()**次のように、完全非同期バージョンを使用して、使用して呼び出し await キーワード。
+    > [!NOTE]
+    > **Async**キーワードは、.NET Framework 4.5 は、新しいキーワードのいずれかです。 このメソッドが非同期コードを含むことをコンパイラに伝えます。 A**タスク**オブジェクトは、今後のいつか完了可能性がある非同期操作を表します。
+6. 置換、**クライアント。GetAsync()** 次のように、完全非同期バージョンを使用して、使用して呼び出し await キーワード。
 
     (コード スニペットの*ASP.NET MVC 4 ラボ - Ex04 - されます*)
 
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample21.cs)]
 
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample21.cs)]
-
-> [!NOTE]
-> In the previous version, you were using the **Result** property from the **Task** object to block the thread until the result is returned (sync version).
-> 
-> Adding the **await** keyword tells the compiler to asynchronously wait for the task returned from the method call. This means that the rest of the code will be executed as a callback only after the awaited method completes. Another thing to notice is that you do not need to change your try-catch block in order to make this work: the exceptions that happen in background or in foreground will still be caught without any extra work using a handler provided by the framework.
-~~~
+    > [!NOTE]
+    > 以前のバージョンで使用していた、**結果**プロパティから、**タスク**結果には、(同期バージョン) が返されるまでスレッドをブロックするオブジェクト。
+    > 
+    > 追加する、 **await**キーワード メソッドの呼び出しから返されるタスクを非同期的に待つようにコンパイラに指示します。 これは待機中のメソッドが完了した後にのみ、コードの残りの部分は、コールバックとして実行されることを意味します。 もう 1 つ点は、この作業を行うために、try-catch ブロックを変更する必要はありません: バック グラウンドで、またはフォア グラウンドで発生した例外は、フレームワークによって提供されるハンドラーを使用して追加の作業なし引き続きキャッチできます。
 7. 次に示すように、新しいコードで行を置き換えることで、非同期実装を続行するコードを変更します。
 
     (コード スニペットの*ASP.NET MVC 4 ラボ - Ex04 - ReadAsStringAsync*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample22.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample22.cs)]
 8. アプリケーションを実行します。 わかりますなし、主要な変更がコードでは、サーバー リソースの使用率の向上を行うと、パフォーマンスの向上は、スレッド プールのスレッドはブロックされません。
 
     > [!NOTE]
@@ -719,44 +663,26 @@ Microsoft .NET Framework 4.5 では、.NET プログラミングでの非同期�
 1. Visual Studio とキーを押してに戻って**shift キーを押しながら f5 キーを押して**デバッグを停止します。
 2. 以下を追加するステートメントを使用して、 **HomeController.cs**ファイル。
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample23.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample23.cs)]
 3. 更新を受信するインデックス アクション、 **CancellationToken**引数。
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample24.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample24.cs)]
 4. 更新プログラム、**されます**キャンセル トークンを渡してへの呼び出しです。
 
     (コード スニペットの*CancellationToken に ASP.NET MVC 4 ラボ - Ex04 - SendAsync*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample25.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample25.cs)]
 5. 装飾、*インデックス*メソッドを**AsyncTimeout**属性は 500 ミリ秒に設定し、 **HandleError**属性を処理するように構成**TaskCanceledException**にリダイレクトすることで、 **TimedOut**ビュー。
 
     (コード スニペットの*ASP.NET MVC 4 ラボ - Ex04 - 属性*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample26.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample26.cs)]
 6. 開く、 **PhotoController**クラスと更新プログラム、**ギャラリー**実行時間の長いタスクをシミュレートするために実行 1000 ミリ秒 (1 秒) を遅延するメソッド。
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample27.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample27.cs)]
 7. 開く、 **Web.config**ファイルし、次の要素を追加することによってカスタム エラーを有効にします。
 
-
-~~~
-[!code-xml[Main](whats-new-in-aspnet-mvc-4/samples/sample28.xml)]
-~~~
+    [!code-xml[Main](whats-new-in-aspnet-mvc-4/samples/sample28.xml)]
 8. 新しいビューを作成**\shared**という**TimedOut**および既定のレイアウトを使用します。 ソリューション エクスプ ローラーで右クリックし、 **\shared**フォルダーと選択**追加 |ビュー**です。
 
     ![各モバイル デバイスのさまざまなビューを使用して](whats-new-in-aspnet-mvc-4/_static/image36.png "各モバイル デバイスのさまざまなビューを使用します。")
@@ -764,10 +690,7 @@ Microsoft .NET Framework 4.5 では、.NET プログラミングでの非同期�
     *各モバイル デバイスのさまざまなビューを使用します。*
 9. 更新プログラム、 **TimedOut**次に示すようにコンテンツを表示します。
 
-
-~~~
-[!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample29.cshtml)]
-~~~
+    [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample29.cshtml)]
 10. アプリケーションを実行し、ルートの URL に移動します。 追加したときに、 **Thread.Sleep** 1000 ミリ秒のによって生成された、タイムアウト エラーが表示されます、 **AsyncTimeout**属性し catch、 **HandleError**属性です。
 
     ![処理のタイムアウト例外](whats-new-in-aspnet-mvc-4/_static/image37.png "処理のタイムアウト例外")
@@ -927,7 +850,7 @@ IPhone のシミュレートされたデバイスでは、サイトを実行す�
     *WebMatrix 拡張機能の参照*
 4. パッケージの詳細 をクリックして**インストール**拡張機能のインストールを続行します。
 
-    ![iPhone Simulator extension](whats-new-in-aspnet-mvc-4/_static/image55.png "iPhone Simulator extension")
+    ![iPhone シミュレーター拡張子](whats-new-in-aspnet-mvc-4/_static/image55.png "iPhone シミュレーターの拡張機能")
 
     *iPhone シミュレーターの拡張機能*
 5. 読み取りおよび拡張機能の使用許諾契約書に同意します。
@@ -1084,7 +1007,7 @@ IPhone のシミュレートされたデバイスでは、サイトを実行す�
     *Web 配置の構成*
 5. 次のように、データベースの接続を構成します。
 
-   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:*プレフィックス。
+   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:* プレフィックス。
    - **ユーザー名**サーバー管理者のログイン名を入力します。
    - **パスワード**サーバー管理者のログイン パスワードを入力します。
    - たとえば、新しいデータベース名を入力: *MVC4SampleDB*です。
@@ -1092,12 +1015,12 @@ IPhone のシミュレートされたデバイスでは、サイトを実行す�
      ![対象の接続文字列を構成する](whats-new-in-aspnet-mvc-4/_static/image77.png "対象の接続文字列を構成します。")
 
      *対象の接続文字列を構成します。*
-6. 次に、 **[OK]**をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
+6. 次に、 **[OK]** をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
 
     ![データベースを作成する](whats-new-in-aspnet-mvc-4/_static/image78.png "データベース文字列を作成します。")
 
     *データベースの作成*
-7. 接続の既定のテキスト ボックス内では、Windows azure SQL データベースへの接続に使用する接続文字列が表示されます。 その後、 **[次へ]**をクリックします。
+7. 接続の既定のテキスト ボックス内では、Windows azure SQL データベースへの接続に使用する接続文字列が表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](whats-new-in-aspnet-mvc-4/_static/image79.png "SQL データベースを指す接続文字列")
 

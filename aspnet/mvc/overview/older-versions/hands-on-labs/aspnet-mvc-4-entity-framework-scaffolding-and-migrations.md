@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 548afe1926eed49841251832d54dc213da0cb753
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 42a12ee39223a06054382dbe9b4784196a706216
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 エンティティ フレームワークのスキャフォールディングと移行
 
@@ -57,7 +57,7 @@ ASP.NET MVC 4 コント ローラーのメソッドに慣れているか、完�
 
 **コード スニペットをインストールします。**
 
-便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。 実行のコード スニペットをインストールする**.\Source\Setup\CodeSnippets.vsi**ファイル。
+便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。 実行のコード スニペットをインストールする **.\Source\Setup\CodeSnippets.vsi**ファイル。
 
 このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 b: を使用してコード スニペット](#AppendixB)&quot;です。
 
@@ -93,7 +93,7 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
 #### <a name="task-1--creating-a-new-aspnet-mvc-4-project-using-scaffolding"></a>スキャフォールディングを使用してタスク 1 で作成する新しい ASP.NET MVC 4 プロジェクト
 
 1. まだ開いていない場合は開始**Visual Studio 2012**です。
-2. 選択**ファイル |新しいプロジェクト**です。 [新規プロジェクト] ダイアログで、 **Visual c# |Web**セクションで、 **ASP.NET MVC 4 Web Application**です。 プロジェクトに名前を**MVC4andEFMigrations**の場所を設定および**Source\Ex1 UsingMVC4ScaffoldingEFMigrations**このラボのフォルダーです。 設定、**ソリューション名**に**開始**を確認してください**ソリューションのディレクトリを作成**がオンになっています。 **[OK]**をクリックします。
+2. 選択**ファイル |新しいプロジェクト**です。 [新規プロジェクト] ダイアログで、 **Visual c# |Web**セクションで、 **ASP.NET MVC 4 Web Application**です。 プロジェクトに名前を**MVC4andEFMigrations**の場所を設定および**Source\Ex1 UsingMVC4ScaffoldingEFMigrations**このラボのフォルダーです。 設定、**ソリューション名**に**開始**を確認してください**ソリューションのディレクトリを作成**がオンになっています。 **[OK]** をクリックします。
 
     ![新しい ASP.NET MVC 4 プロジェクト ダイアログ ボックス](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image1.png "新しい ASP.NET MVC 4 プロジェクト ダイアログ ボックス")
 
@@ -108,10 +108,7 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
 
     (コード スニペットの*ASP.NET MVC 4 および Entity Framework の移行 - Ex1 Person プロパティ*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample1.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample1.cs)]
 6. をクリックして**ビルド |ソリューションをビルド**変更を保存し、プロジェクトをビルドします。
 
     ![アプリケーションのビルド](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image3.png "アプリケーションのビルド")
@@ -147,7 +144,7 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
 この時点では、データベースはまだは作成されません。 このタスクでは、最初にアプリケーションを実行し、CRUD 操作をテストします。 データベースは、Code First で即座に作成されます。
 
 1. **F5** キーを押してアプリケーションを実行します。
-2. ブラウザーで、追加**/Person**ユーザー ページを開くための URL にします。
+2. ブラウザーで、追加 **/Person**ユーザー ページを開くための URL にします。
 
     ![アプリケーションの初回実行](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image7.png "アプリケーションの初回実行")
 
@@ -196,16 +193,10 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
     *Migrations フォルダー*
 3. 開く、**される Configuration.cs** Migrations フォルダー内のファイルです。 クラスのコンス トラクターを検索し、変更、 **AutomaticMigrationsEnabled**値*true*です。
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample3.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample3.cs)]
 4. ユーザー クラスを開き、個人のミドル ネームの属性を追加します。 この新しい属性を持つモデルも変更されます。
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample4.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample4.cs)]
 5. 選択**ビルド |ソリューションをビルド**メニューにアプリケーションをビルドします。
 
     ![アプリケーションのビルド](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image13.png "アプリケーションのビルド")
@@ -263,7 +254,7 @@ ASP.NET MVC のスキャフォールディングでは、により、アプリ�
 #### <a name="task4--running-the-application"></a>Task4 - アプリケーションの実行
 
 1. **F5** キーを押してアプリケーションを実行します。
-2. 開いている**/Person**です。 データが保持されて、ミドル ネーム列が追加されたときに注意してください。
+2. 開いている **/Person**です。 データが保持されて、ミドル ネーム列が追加されたときに注意してください。
 
     ![追加のミドル ネーム](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image20.png "ミドル ネームの追加")
 

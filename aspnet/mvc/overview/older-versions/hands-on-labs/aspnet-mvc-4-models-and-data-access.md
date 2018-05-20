@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 57477cf15bf6755523f28356d5384517bea24982
-ms.sourcegitcommit: 5ae0c125ee3bbd324edef3818d1d160f4dd84602
+ms.openlocfilehash: 88b3316b116962dd35031f4b971dbfe31ed0e010
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 モデルおよびデータ アクセス
 
@@ -224,41 +224,27 @@ ms.lasthandoff: 05/17/2018
 
     (コード スニペットの*モデルおよびデータ アクセス-Ex1 storeDB*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample1.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample1.cs)]
 2. **MusicStoreEntities**クラスは、データベース内の各テーブルのコレクション プロパティを公開します。 更新**参照**アクションを取得する方法ですべてのジャンル、**アルバム**です。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex1 ストア参照*)
 
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample2.cs)]
 
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample2.cs)]
-~~~
-
-> [!NOTE]
-> .Net と呼ばれる機能を使用している**LINQ** (言語統合クエリ) は、データベースに対してコードを実行し、返されますが、これらのコレクションに対して厳密に型指定されたクエリ式を作成するオブジェクトをプログラミングできます比較
-> 
-> LINQ の概要の詳細については、次を参照してください、 [msdn サイト](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx)です。
-
-
+    > [!NOTE]
+    > .Net と呼ばれる機能を使用している**LINQ** (言語統合クエリ) は、データベースに対してコードを実行し、返されますが、これらのコレクションに対して厳密に型指定されたクエリ式を作成するオブジェクトをプログラミングできます比較
+    > 
+    > LINQ の概要の詳細については、次を参照してください、 [msdn サイト](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx)です。
 3. 更新**インデックス**アクション メソッドは、すべてのジャンルを取得します。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex1 ストア インデックス*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample3.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample3.cs)]
 4. 更新**インデックス**アクション メソッドのすべてのジャンルを取得し、一覧にコレクションを変換します。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex1 ストア GenreMenu*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample4.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample4.cs)]
 
 <a id="Ex1Task5"></a>
 
@@ -316,18 +302,12 @@ ms.lasthandoff: 05/17/2018
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex2 グローバル Asax Using*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample5.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample5.cs)]
 4. **アプリケーション\_Start()** メソッドは、データベース初期化子を設定する次の行を追加します。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex2 グローバル Asax SetInitializer*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample6.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample6.cs)]
 
 <a id="Ex2Task2"></a>
 
@@ -342,10 +322,7 @@ ms.lasthandoff: 05/17/2018
 
     *web.config ファイルの場所*
 
-
-~~~
-[!code-xml[Main](aspnet-mvc-4-models-and-data-access/samples/sample7.xml)]
-~~~
+    [!code-xml[Main](aspnet-mvc-4-models-and-data-access/samples/sample7.xml)]
 
 <a id="Ex2Task3"></a>
 
@@ -354,39 +331,29 @@ ms.lasthandoff: 05/17/2018
 
 データベースへの接続を構成しておくことは、データベース テーブルを使用してモデルをリンクします。 このタスクでは、Code First でデータベースにリンクするクラスを作成します。 変更する必要がある、既存モデルの POCO クラスがあることに注意してください。
 
-   > [!NOTE]
+> [!NOTE]
 > 演習 1 を完了する場合は、ウィザードによって、この手順が行われたことがわかります。 Code First によりデータ エンティティにリンクするクラスを手動で作成されます。
-
 
 1. POCO モデル クラスを開く**ジャンル**から**モデル**フォルダーをプロジェクトし、ID を含める Int 型のプロパティを使用して、名前を持つ**GenreId**です。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex2 コードの最初のジャンル*)
 
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample8.cs)]
 
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample8.cs)]
-
-> [!NOTE]
-> To work with Code First conventions, the class Genre must have a primary key property that will be automatically detected.
-> 
-> You can read more about Code First Conventions in this [msdn article](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
-~~~
+    > [!NOTE]
+    > Code First 規約に従ってを操作するには、自動的に検出される主キーのプロパティがクラス ジャンルに必要です。
+    > 
+    > 詳細を読み取ることができます First 規約に従ってこのコードに関する[msdn の記事](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx)です。
 2. これで、POCO のモデル クラスを開く**アルバム**から**モデル**プロジェクト フォルダーと外部キーが含まれて、名前のプロパティを作成する**GenreId**と**ArtistId**です。 このクラスが既にある、 **GenreId**の主キー。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex2 コードの最初のアルバム*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample9.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample9.cs)]
 3. POCO モデル クラスを開く**アーティスト**を含めると、 **ArtistId**プロパティです。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex2 コードの最初のアーティスト*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample10.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample10.cs)]
 4. 右クリックし、**モデル**プロジェクト フォルダーを選択**追加 |クラス**です。 ファイルの名前を付けます**MusicStoreEntities.cs**です。 をクリックし、**追加します。**
 
     ![クラスの追加](aspnet-mvc-4-models-and-data-access/_static/image20.png "クラスの追加")
@@ -398,21 +365,15 @@ ms.lasthandoff: 05/17/2018
     *クラスの追加*
 5. 先ほど作成したクラスを開く**MusicStoreEntities.cs**、名前空間を含めると**System.Data.Entity**と**System.Data.Entity.Infrastructure**です。
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample11.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample11.cs)]
 6. 拡張するクラスの宣言を置き換える、 **DbContext**クラス: パブリックに宣言**DBSet**オーバーライドと**OnModelCreating**メソッドです。 この手順の後に、Entity Framework でモデルをリンクしているドメイン クラスが表示されます。 そのためには、次のようにクラス コードを置き換えます。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex2 コード最初 MusicStoreEntities*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
 
 > [!NOTE]
-> With Entity Framework **DbContext** and **DBSet** you will be able to query the POCO class Genre. By extending **OnModelCreating** method, you are specifying in the **code** how Genre will be mapped to a database table. You can find more information about DBContext and DBSet in this msdn article: [link](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
-~~~
+> Entity Framework と**DbContext**と**DBSet** POCO クラス ジャンルを照会することができます。 拡張することによって**OnModelCreating**メソッドで指定する、**コード**ジャンルがデータベース テーブルにマップする方法です。 Msdn の「の詳細については、DBContext および DBSet を見つけることができます:[リンク](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
 
 <a id="Ex2Task4"></a>
 
@@ -431,39 +392,27 @@ ms.lasthandoff: 05/17/2018
 
     (コード スニペットの*モデルおよびデータ アクセス-Ex1 storeDB*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample13.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample13.cs)]
 2. **MusicStoreEntities**クラスは、データベース内の各テーブルのコレクション プロパティを公開します。 更新**参照**アクションを取得する方法ですべてのジャンル、**アルバム**です。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex2 ストア参照*)
 
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample14.cs)]
 
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample14.cs)]
-
-> [!NOTE]
-> You are using a capability of .NET called **LINQ** (language-integrated query) to write strongly-typed query expressions against these collections - which will execute code against the database and return objects that you can program against.
-> 
-> For more information about LINQ, please visit the [msdn site](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx).
-~~~
+    > [!NOTE]
+    > .Net と呼ばれる機能を使用している**LINQ** (言語統合クエリ) は、データベースに対してコードを実行し、返されますが、これらのコレクションに対して厳密に型指定されたクエリ式を作成するオブジェクトをプログラミングできます比較
+    > 
+    > LINQ の概要の詳細については、次を参照してください、 [msdn サイト](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx)です。
 3. 更新**インデックス**アクション メソッドは、すべてのジャンルを取得します。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex2 ストア インデックス*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample15.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample15.cs)]
 4. 更新**インデックス**アクション メソッドのすべてのジャンルを取得し、一覧にコレクションを変換します。
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex2 ストア GenreMenu*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample16.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample16.cs)]
 
 <a id="Ex2Task5"></a>
 
@@ -494,7 +443,6 @@ ms.lasthandoff: 05/17/2018
 > [!NOTE]
 > クエリ結果のシェイプの詳細については、次を参照してください。 [msdn の記事](https://msdn.microsoft.com/library/bb896272&amp;#040;v=vs.100&amp;#041;.aspx)です。
 
-
 <a id="Ex3Task1"></a>
 
 <a id="Task_1_-_Modifying_StoreController_to_Retrieve_Albums_from_Database"></a>
@@ -515,17 +463,14 @@ ms.lasthandoff: 05/17/2018
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex3 StoreController BrowseMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample17.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample17.cs)]
 
 > [!NOTE]
-> To populate a collection of the entity, you need to use the **Include** method to specify you want to retrieve the albums too. You can use the .**Single()** extension in LINQ because in this case only one genre is expected for an album. The **Single()** method takes a Lambda expression as a parameter, which in this case specifies a single Genre object such that its name matches the value defined.
+> エンティティのコレクションを指定するには、使用する必要があります、 **Include**すぎる、アルバムを取得するを指定します。 使用することができます、します。**Single()** LINQ の拡張機能アルバムの 1 つだけジャンルがここで予想されるためです。 **Single()** メソッドは、ここでは、名前が定義されている値と一致するように 1 つのジャンル オブジェクトを指定するパラメーターとしてラムダ式を受け取ります。
 > 
-> You will take advantage of a feature that allows you to indicate other related entities you want loaded as well when the Genre object is retrieved. This feature is called **Query Result Shaping**, and enables you to reduce the number of times needed to access the database to retrieve information. In this scenario, you will want to pre-fetch the Albums for the Genre you retrieve.
+> ジャンル オブジェクトを取得するときにもアンロードするその他の関連エンティティを示すために使用できる機能の利用されます。 この機能が呼び出されます**クエリ結果の整形**情報を取得するデータベースにアクセスするために必要な回数を削減することができます。 このシナリオを取得するジャンルのアルバムをプリフェッチするされます。
 > 
-> The query includes **Genres.Include(&quot;Albums&quot;)** to indicate that you want related albums as well. This will result in a more efficient application, since it will retrieve both Genre and Album data in a single database request.
-~~~
+> クエリが含まれる**Genres.Include (&quot;アルバム&quot;)** を関連するアルバムもすることを示します。 これが 1 つのデータベースの要求でジャンルとアルバムの両方のデータが取得されますのでより効率的なアプリケーションで発生します。
 
 <a id="Ex3Task2"></a>
 
@@ -553,10 +498,7 @@ ms.lasthandoff: 05/17/2018
 
     (コード スニペットの*モデルおよびデータ アクセス - Ex3 StoreController DetailsMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample18.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample18.cs)]
 
 <a id="Ex3Task4"></a>
 
@@ -574,7 +516,6 @@ ms.lasthandoff: 05/17/2018
 
 > [!NOTE]
 > Windows Azure Web サイトの次にこのアプリケーションを展開するさらに、[付録 b: 公開 Web Deploy を使用して ASP.NET MVC 4 アプリケーション](#AppendixB)です。
-
 
 * * *
 

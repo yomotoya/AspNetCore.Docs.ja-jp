@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: ded549109ca6e7ad806f1c3f53387766527e5a94
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: cb02288e93be801a1e55852741ed1443d8d3617d
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>ASP.NET Web API の rest ベースの Api をビルドします。
 ====================
@@ -171,10 +171,7 @@ ms.lasthandoff: 04/26/2018
 
     (コード スニペットの*Web API ラボ - Ex01 - 連絡先クラス*)
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample2.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample2.cs)]
 4. **ContactController**クラス、単語を選択して**文字列**のメソッドの定義で、**取得**メソッド、および、word 型*連絡先*です。 単語を入力すると、インジケーターがという単語の先頭に表示されます**連絡先**です。 いずれかを押しながら、 **Ctrl**キーしピリオド (.) キーを押すかマウスを使用する、コード エディターで、によって自動的に入力アシスタンス ダイアログ ボックスを開く アイコンをクリックして、**を使用して**のモデルのディレクティブ名前空間です。
 
     ![名前空間の宣言の Intellisense の機能を使用します。](build-restful-apis-with-aspnet-web-api/_static/image12.png)
@@ -222,10 +219,7 @@ ms.lasthandoff: 04/26/2018
     *連絡先リポジトリ サービス層のコードを格納するクラス ファイルを作成します。*
 4. 使用して、追加するディレクティブ、 **ContactRepository.cs**モデル名前空間を含めるファイルです。
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample4.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample4.cs)]
 5. 次の強調表示されたコードを追加、 **ContactRepository.cs** GetAllContacts メソッドを実装するファイル。
 
     (コード スニペットの*Web API ラボ - Ex01 - 連絡先リポジトリ*)
@@ -234,10 +228,7 @@ ms.lasthandoff: 04/26/2018
 6. 開く、 **ContactController.cs**ファイルがまだ開いていない場合。
 7. 次の追加、ファイルの名前空間の宣言セクションにステートメントを使用します。
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample6.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample6.cs)]
 8. 次の強調表示されたコードを追加、 **ContactController.cs**サービス実装のメンバーが作成できるクラスの残りの部分を使用できるように、リポジトリのインスタンスを表すプライベート フィールドを追加するクラス。
 
     (コード スニペットの*Web API ラボ - Ex01 - 連絡先コント ローラー*)
@@ -356,16 +347,10 @@ ms.lasthandoff: 04/26/2018
 3. 開く、 **Index.cshtml**にあるファイル**ビュー/ホーム**フォルダーです。
 4. Id を持つ div 要素の HTML コードを置き換える**本文**次のコードのように見えるようにします。
 
-
-~~~
-[!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample13.html)]
-~~~
+    [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample13.html)]
 5. Web API への HTTP 要求を実行するファイルの下部にある次の Javascript コードを追加します。
 
-
-~~~
-[!code-cshtml[Main](build-restful-apis-with-aspnet-web-api/samples/sample14.cshtml)]
-~~~
+    [!code-cshtml[Main](build-restful-apis-with-aspnet-web-api/samples/sample14.cshtml)]
 6. 開く、 **ContactController.cs**ファイルがまだ開いていない場合。
 7. ブレークポイントを配置、**取得**のメソッド、 **ContactController**クラスです。
 
@@ -400,17 +385,11 @@ ms.lasthandoff: 04/26/2018
 
     (コード スニペットの*Web API ラボ - Ex03 - Post メソッド*)
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample15.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample15.cs)]
 3. 開く、 **Index.cshtml**がまだ開いていない場合、Visual Studio でのファイルです。
 4. 直後に、前のタスクで追加した順序なしリストをファイルに次の HTML コードを追加します。
 
-
-~~~
-[!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample16.html)]
-~~~
+    [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample16.html)]
 5. ドキュメントの下部にあるスクリプト要素内では、データに投稿、Web API HTTP POST 呼び出しを使用する ボタンのクリック イベントを処理する次の強調表示されたコードを追加します。
 
     [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample17.html)]

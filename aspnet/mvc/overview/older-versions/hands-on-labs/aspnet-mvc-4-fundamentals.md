@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: a0dd32280321938aba84a2aed5273d80750ed774
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 225dff4663e0e556cfb8966f1078848b4c2b47a5
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 の基礎
 
@@ -47,11 +47,11 @@ ASP.NET MVC 3 のバージョンのチュートリアル アプリケーショ�
 <a id="ASPNET_MVC_4_Essentials"></a>
 ### <a name="aspnet-mvc-4-essentials"></a>ASP.NET MVC 4 Essentials
 
-使用して音楽ストア アプリケーションがビルドされます**モデル ビュー コント ローラー (MVC)**アプリケーションを次の 3 つの主なコンポーネントを分離するアーキテクチャ パターン。
+使用して音楽ストア アプリケーションがビルドされます**モデル ビュー コント ローラー (MVC)** アプリケーションを次の 3 つの主なコンポーネントを分離するアーキテクチャ パターン。
 
 - **モデル**: モデル オブジェクトは、ドメイン ロジックを実装するアプリケーションの部分です。 多くの場合、モデル オブジェクトも取得し、モデルの状態をデータベースに格納します。
-- **ビュー:**ビューは、アプリケーションのユーザー インターフェイス (UI) を表示するコンポーネントです。 通常、この UI は、モデル データから作成されます。 例には、テキスト ボックスやアルバム オブジェクトの現在の状態に基づいて、ボックスの一覧を表示するアルバムの編集ビューがあります。
-- **コント ローラー:**コント ローラーは、コンポーネントのユーザーとの対話を処理して、モデルを操作し、最終的には、UI をレンダリングするビューを選択します。 MVC アプリケーションでは、ビューは情報のみを表示し、コントローラーがユーザーの入力と操作を処理して応答します。
+- **ビュー:** ビューは、アプリケーションのユーザー インターフェイス (UI) を表示するコンポーネントです。 通常、この UI は、モデル データから作成されます。 例には、テキスト ボックスやアルバム オブジェクトの現在の状態に基づいて、ボックスの一覧を表示するアルバムの編集ビューがあります。
+- **コント ローラー:** コント ローラーは、コンポーネントのユーザーとの対話を処理して、モデルを操作し、最終的には、UI をレンダリングするビューを選択します。 MVC アプリケーションでは、ビューは情報のみを表示し、コントローラーがユーザーの入力と操作を処理して応答します。
 
 MVC パターンでは、これらの要素間の疎結合を提供しつつ、アプリケーション (入力ロジック、ビジネス ロジック、および UI ロジック) のさまざまな側面を分離するアプリケーションを作成するのに役立ちます。 この分離では、一度に実装の 1 つの側面に注目することができます、アプリケーションをビルドするときに、複雑さを管理できます。 さらに、MVC パターンしやすいアプリケーションを作成するためのテスト駆動開発 (TDD) の使用を促進もアプリケーションをテストします。
 
@@ -89,7 +89,7 @@ MVC パターンでは、これらの要素間の疎結合を提供しつつ、�
 
 **コード スニペットをインストールします。**
 
-便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。 実行のコード スニペットをインストールする**.\Source\Setup\CodeSnippets.vsi**ファイル。
+便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。 実行のコード スニペットをインストールする **.\Source\Setup\CodeSnippets.vsi**ファイル。
 
 このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 c: を使用してコード スニペット](#AppendixC)&quot;です。
 
@@ -130,12 +130,12 @@ MVC パターンでは、これらの要素間の疎結合を提供しつつ、�
 2. **[ファイル]** メニューの **[新しいプロジェクト]** をクリックします。
 3. **新しいプロジェクト**ダイアログ ボックスの 、 **ASP.NET MVC 4 Web Application** 、プロジェクトの種類の下にある**Visual C# の場合、** **Web**テンプレート一覧です。
 4. 変更、**名前**に*MvcMusicStore*です。
-5. 新しいソリューションの場所を設定**開始**例については、この手順のソース フォルダー内のフォルダー **[、HOL PATH] \Source\Ex01-CreatingMusicStoreProject\Begin**です。 **[OK]**をクリックします。
+5. 新しいソリューションの場所を設定**開始**例については、この手順のソース フォルダー内のフォルダー **[、HOL PATH] \Source\Ex01-CreatingMusicStoreProject\Begin**です。 **[OK]** をクリックします。
 
     ![[新しいプロジェクト] ダイアログ ボックスを作成する](aspnet-mvc-4-fundamentals/_static/image2.png "新しいプロジェクト ダイアログ ボックスを作成します。")
 
     *[新しいプロジェクト] ダイアログ ボックスを作成します。*
-6. **新しい ASP.NET MVC 4 プロジェクト**ダイアログ ボックスの 、**基本**テンプレートことを確認し、**ビュー エンジン**が選択されている**Razor**です。 **[OK]**をクリックします。
+6. **新しい ASP.NET MVC 4 プロジェクト**ダイアログ ボックスの 、**基本**テンプレートことを確認し、**ビュー エンジン**が選択されている**Razor**です。 **[OK]** をクリックします。
 
     ![新しい ASP.NET MVC 4 プロジェクト ダイアログ ボックス](aspnet-mvc-4-fundamentals/_static/image3.png "新しい ASP.NET MVC 4 プロジェクト ダイアログ ボックス")
 
@@ -191,10 +191,7 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex1 HomeController インデックス*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample1.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample1.cs)]
 
 <a id="Ex1Task4"></a>
 
@@ -259,18 +256,12 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex2 StoreController インデックス*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample2.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample2.cs)]
 2. 追加**参照**と**詳細**メソッドです。 これを行うには、次のコードを追加、 **StoreController**:
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex2 StoreController BrowseAndDetails*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample3.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample3.cs)]
 
 <a id="Ex2Task3"></a>
 
@@ -282,9 +273,9 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
 1. キーを押して**f5 キーを押して**アプリケーションを実行します。
 2. プロジェクトを起動、**ホーム**ページ。 各アクションの実装を確認する URL を変更します。
 
-    1. **/Store**です。 表示されます **&quot;Store.Index() からこんにちは&quot;**です。
-    2. **/ストア/参照**です。 表示されます **&quot;Store.Browse() からこんにちは&quot;**です。
-    3. **/ストア/詳細**です。 表示されます **&quot;Store.Details() からこんにちは&quot;**です。
+    1. **/Store**です。 表示されます **&quot;Store.Index() からこんにちは&quot;** です。
+    2. **/ストア/参照**です。 表示されます **&quot;Store.Browse() からこんにちは&quot;** です。
+    3. **/ストア/詳細**です。 表示されます **&quot;Store.Details() からこんにちは&quot;** です。
 
         ![参照 StoreBrowse](aspnet-mvc-4-fundamentals/_static/image9.png "StoreBrowse をブラウズ")
 
@@ -319,15 +310,12 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex3 StoreController BrowseMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample4.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample4.cs)]
 
 > [!NOTE]
-> You are using the **HttpUtility.HtmlEncode** utility method to prevents users from injecting Javascript into the View with a link like **/Store/Browse?Genre=&lt;script&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt;/script&gt;**.
+> 使用している、 **HttpUtility.HtmlEncode**するユーティリティ メソッドがのようなリンクを使用して、ビューに Javascript を挿入できないように**ストア/参照しますか?ジャンル =&lt;スクリプト&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt;/script&gt;** です。
 > 
-> For further explanation, please visit [this msdn article](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
-~~~
+> 詳細についてを参照してください[この msdn 記事](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx)です。
 
 <a id="Ex3Task2"></a>
 
@@ -337,7 +325,7 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
 このタスクでは、web ブラウザーでアプリケーションを試してみるしを使用して、**ジャンル**パラメーター。
 
 1. キーを押して**f5 キーを押して**アプリケーションを実行します。
-2. プロジェクトを起動、**ホーム**ページ。 URL を変更して  */格納/参照しますか?ジャンル Disco を =*アクションがジャンル パラメーターを受け取ることを確認します。
+2. プロジェクトを起動、**ホーム**ページ。 URL を変更して  */格納/参照しますか?ジャンル Disco を =* アクションがジャンル パラメーターを受け取ることを確認します。
 
     ![参照 StoreBrowseGenre Disco を =](aspnet-mvc-4-fundamentals/_static/image10.png "StoreBrowseGenre をブラウズ Disco を =")
 
@@ -355,10 +343,7 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex3 StoreController DetailsMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample5.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample5.cs)]
 
 <a id="Ex3Task4"></a>
 
@@ -368,7 +353,7 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
 このタスクでは、web ブラウザーでアプリケーションを試してみるしを使用して、 **Id**パラメーター。
 
 1. キーを押して**f5 キーを押して**アプリケーションを実行します。
-2. プロジェクトを起動、**ホーム**ページ。 URL を変更して*/Store/Details/5*アクションが、id パラメーターを受け取っていることを確認します。
+2. プロジェクトを起動、**ホーム**ページ。 URL を変更して */Store/Details/5*アクションが、id パラメーターを受け取っていることを確認します。
 
     ![参照 StoreDetails5](aspnet-mvc-4-fundamentals/_static/image11.png "StoreDetails5 をブラウズ")
 
@@ -388,7 +373,7 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
 <a id="Task_1_-_Modifying_the_file__layoutcshtml"></a>
 #### <a name="task-1---modifying-the-file-layoutcshtml"></a>タスク 1 - ファイルを変更する\_layout.cshtml
 
-ファイル**~/Views/Shared/\_layout.cshtml**一般的な HTML web サイト全体にわたって使用するためのテンプレートをセットアップすることができます。 このタスクでは、ホーム ページおよびストアの領域にリンクに共通のヘッダーでレイアウトのマスター ページを追加します。
+ファイル **~/Views/Shared/\_layout.cshtml**一般的な HTML web サイト全体にわたって使用するためのテンプレートをセットアップすることができます。 このタスクでは、ホーム ページおよびストアの領域にリンクに共通のヘッダーでレイアウトのマスター ページを追加します。
 
 1. まだ開いていない場合は開始**VS Express for Web**です。
 2. **ファイル**] メニューの [選択**プロジェクトを開く**です。 プロジェクトを開くダイアログ ボックスを参照**Source\Ex04 CreatingAView\Begin****[Begin.sln]** をクリック**開く**です。 代わりに、前の手順の完了後に取得したソリューションは、引き続き行えます。
@@ -412,7 +397,7 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample8.cshtml)]
 
     > [!NOTE]
-    > ご存知でしたか。 Visual Studio 2012 では、HTML やコード ファイルで一般的に使用されるコードを追加しやすいスニペットが。 」と入力して試して**&lt;div&gt;**キーを押して**タブ**完全な挿入を 2 回**div**タグ。
+    > ご存知でしたか。 Visual Studio 2012 では、HTML やコード ファイルで一般的に使用されるコードを追加しやすいスニペットが。 」と入力して試して**&lt;div&gt;** キーを押して**タブ**完全な挿入を 2 回**div**タグ。
 
 <a id="Ex4Task2"></a>
 
@@ -437,14 +422,11 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
 
 このタスクでは、レイアウトのマスター ページを使用して HTML 応答を生成するテンプレートの表示を追加し、CSS は、この手順で追加します。
 
-1. サイトのホーム ページを参照するときに、ビュー テンプレートを使用して、まず必要があることを示す文字列を返す代わりに、 **HomeController インデックス**メソッドは、**ビュー**です。 開いている**HomeController**クラスし、変更、**インデックス**を返すメソッドを**ActionResult**、してそれを返す**View()**です。
+1. サイトのホーム ページを参照するときに、ビュー テンプレートを使用して、まず必要があることを示す文字列を返す代わりに、 **HomeController インデックス**メソッドは、**ビュー**です。 開いている**HomeController**クラスし、変更、**インデックス**を返すメソッドを**ActionResult**、してそれを返す**View()** です。
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex4 HomeController インデックス*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample9.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample9.cs)]
 2. ここで、適切なビュー テンプレートを追加する必要があります。 これを行う**を右クリックして**内、**インデックス**アクション メソッドを選択**ビューの追加**です。 これが表示されます、**ビューの追加**ダイアログ。
 
     ![インデックス メソッド内からビューを追加する](aspnet-mvc-4-fundamentals/_static/image13.png "インデックス メソッド内からビューを追加します。")
@@ -469,10 +451,7 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
     > これにより、ASP.NET MVC は、この名前付け規則を使用して、ビューを取得するときに、名前またはビュー テンプレートの場所を明示的に指定することで回避できます。
 5. 生成されたビュー テンプレートがに基づいて、  **\_layout.cshtml**以前に定義されているテンプレートです。 ViewBag.Title するプロパティを更新**ホーム**、主な内容の変更と**これは、ホーム ページ**次のコードに示すように。
 
-
-~~~
-[!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample10.cshtml)]
-~~~
+    [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample10.cshtml)]
 6. 選択**MvcMusicStore**キーを押して、ソリューション エクスプ ローラーでプロジェクト**f5 キーを押して**アプリケーションを実行します。
 
 <a id="Ex4Task4"></a>
@@ -550,13 +529,10 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex5 StoreIndexViewModel プロパティ*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample11.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample11.cs)]
 
 > [!NOTE]
-> The **{ get; set; }** notation makes use of C#'s auto-implemented properties feature. It provides the benefits of a property without requiring us to declare a backing field.
-~~~
+> **{Get; に設定}** 表記法では、# の使用により、自動実装プロパティの機能です。 バッキング フィールドを宣言することを必要とせず、プロパティの利点を提供します。
 
 <a id="Ex5Task3"></a>
 
@@ -576,10 +552,7 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: ViewModels を使用して Ex5 StoreIndexViewModel*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample12.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample12.cs)]
 3. 変更、 **StoreController**の**インデックス**アクション メソッドを作成して設定ように、 **StoreIndexViewModel**オブジェクトし、をビュー テンプレートに渡します関連付けを HTML 応答を生成します。
 
     > [!NOTE]
@@ -590,13 +563,10 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex5 StoreController インデックス メソッド*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample13.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample13.cs)]
 
 > [!NOTE]
-> If you're unfamiliar with C#, you may assume that using **var** means that the **viewModel** variable is late-bound. That's not correct - the C# compiler is using type-inference based on what you assign to the variable to determine that **viewModel** is of type **StoreIndexViewModel**. Also, by compiling the local **viewModel** variable as a **StoreIndexViewModel** type you get compile-time checking and Visual Studio code-editor support.
-~~~
+> 使用するを想定する可能性があります (C#) を使い慣れていない場合は、 **var**ことを意味、 **viewModel**変数は遅延バインディング。 正しくありません - c# コンパイラに使用されている型推論、変数に代入する新機能に基づくことがわかった**viewModel**の種類は**StoreIndexViewModel**です。 ローカルをコンパイルしても、 **viewModel**変数として、 **StoreIndexViewModel** get コンパイル時のチェックと Visual Studio コード エディターのサポートを入力します。
 
 <a id="Ex5Task4"></a>
 
@@ -615,7 +585,7 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
     ![ビューを追加する](aspnet-mvc-4-fundamentals/_static/image23.png "ビューを追加します。")
 
     *ビューの追加*
-3. **ビューの追加 ダイアログ**から呼び出された、 **StoreController**、既定では、ビュー テンプレートが追加、 **\Views\Store\Index.cshtml**ファイル。 チェック、**ビューを作成する厳密に型指定された -**チェック ボックスをオンし、 **StoreIndexViewModel**として、**モデル クラス**です。 また、必ず選択されているビュー エンジンが**Razor**です。 **[追加]** をクリックします。
+3. **ビューの追加 ダイアログ**から呼び出された、 **StoreController**、既定では、ビュー テンプレートが追加、 **\Views\Store\Index.cshtml**ファイル。 チェック、**ビューを作成する厳密に型指定された -** チェック ボックスをオンし、 **StoreIndexViewModel**として、**モデル クラス**です。 また、必ず選択されているビュー エンジンが**Razor**です。 **[追加]** をクリックします。
 
     ![[追加] ダイアログの表示](aspnet-mvc-4-fundamentals/_static/image24.png "追加ビュー ダイアログ ボックス")
 
@@ -633,29 +603,25 @@ MVC フレームワークを使用して ASP.NET アプリケーションでは�
 > [!NOTE]
 > @ 構文を使用する (と呼ばれます&quot;コード ナゲット&quot;) ビュー テンプレート内でコードを実行します。
 
-
 1. **Index.cshtml**ファイル内で、**ストア**フォルダー、そのコードを次に置き換えます。
 
-
-~~~
 [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample14.cshtml)]
 
-> [!NOTE]
-> As soon as you finish typing the period after the word **Model**, Visual Studio's Intellisense will show a list of possible properties and methods to choose from.
-> 
-> ![](aspnet-mvc-4-fundamentals/_static/image25.png)
-> 
-> *Getting Model properties and methods with Visual Studio's IntelliSense*
-> 
-> The **Model** property references the **StoreIndexViewModel** object that the Controller passed to the View template. This means that you can access all of the data passed from the Controller to the View template via the **Model** property, and format it into an appropriate HTML response within the View template.
-> 
-> You can just select the **NumberOfGenres** property from the Intellisense list rather than typing it in and then it will auto-complete it by pressing the **tab key**.
-~~~
-2. ジャンルの一覧をループ**StoreIndexViewModel** HTML を作成および**&lt;ul&gt;**を使用して、 **foreach**ループします。
+    > [!NOTE]
+    > As soon as you finish typing the period after the word **Model**, Visual Studio's Intellisense will show a list of possible properties and methods to choose from.
+    > 
+    > ![](aspnet-mvc-4-fundamentals/_static/image25.png)
+    > 
+    > *Getting Model properties and methods with Visual Studio's IntelliSense*
+    > 
+    > The **Model** property references the **StoreIndexViewModel** object that the Controller passed to the View template. This means that you can access all of the data passed from the Controller to the View template via the **Model** property, and format it into an appropriate HTML response within the View template.
+    > 
+    > You can just select the **NumberOfGenres** property from the Intellisense list rather than typing it in and then it will auto-complete it by pressing the **tab key**.
+2. ジャンルの一覧をループ**StoreIndexViewModel** HTML を作成および**&lt;ul&gt;** を使用して、 **foreach**ループします。
    (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample15.cshtml)]
-3. キーを押して**f5 キーを押して**アプリケーションを実行し、[参照] を**/格納**です。 渡されたジャンルの一覧が表示されます、 **StoreIndexViewModel**オブジェクトから、 **StoreController**ビュー テンプレートにします。
+3. キーを押して**f5 キーを押して**アプリケーションを実行し、[参照] を **/格納**です。 渡されたジャンルの一覧が表示されます、 **StoreIndexViewModel**オブジェクトから、 **StoreController**ビュー テンプレートにします。
 
     ![ジャンルの一覧を表示するビュー](aspnet-mvc-4-fundamentals/_static/image26.png "ジャンルの一覧を表示するビュー")
 
@@ -698,19 +664,13 @@ ViewModels、単に情報を渡すコント ローラーからビューに作成
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex6 ジャンル*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample16.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample16.cs)]
 5. 次の前と同じ手順を追加、**アルバム**クラスです。 これを行うを右クリックし、**モデル**フォルダーに、**ソリューション エクスプ ローラー****追加**し、**新しい項目の**オプション。 **コード**、選択、**クラス**項目し、ファイルの名前*Album.cs*、順にクリックして**追加**です。
 6. アルバム クラスに次の 2 つのプロパティを追加:**ジャンル**と**タイトル**です。 これを行うには、次のコードを追加します。
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex6 アルバム*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample17.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample17.cs)]
 
 <a id="Ex6Task2"></a>
 
@@ -724,25 +684,19 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex6 UsingModel*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample18.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample18.cs)]
 3. 2 つのプロパティを追加**StoreBrowseViewModel**クラス:**ジャンル**と**アルバム**です。 これを行うには、次のコードを追加します。
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex6 ModelProperties*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample19.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample19.cs)]
 
 > [!NOTE]
-> What is **List&lt;Album&gt;** ?: This definition is using the **List&lt;T&gt;** type, where **T** constrains the type to which elements of this **List** belong to, in this case **Album** (or any of its descendants).
+> 新機能**リスト&lt;アルバム&gt;** ?: この定義を使用して、**リスト&lt;T&gt;** 型、場所**T**制約、この要素を型**リスト**ここに属している**アルバム**(またはその子孫のいずれか)。
 > 
-> This ability to design classes and methods that defer the specification of one or more types until the class or method is declared and instantiated by client code is a feature of the C# language called **Generics**.
+> このクラスまたはメソッドが宣言されているし、c# 言語の機能は、クライアント コードでインスタンス化されるまでに 1 つまたは複数の種類の仕様を延期するクラスとメソッドをデザインする機能と呼ばれる**ジェネリック**です。
 > 
-> **List&lt;T&gt;** is the generic equivalent of the **ArrayList** type and is available in the **System.Collections.Generic** namespace. One of the benefits of using **generics** is that since the type is specified, you do not need to take care of type checking operations such as casting the elements into **Album** as you would do with an **ArrayList**.
-~~~
+> **リスト&lt;T&gt;** ジェネリックと同等は、 **ArrayList**を入力しで使用できるは、 **System.Collections.Generic**名前空間。 使用する利点の 1 つ**ジェネリック**いるため、型を指定すると、する必要がない型に要素をキャストなどの操作のチェックを処理する**アルバム**で行うよう**ArrayList**です。
 
 <a id="Ex6Task3"></a>
 
@@ -755,26 +709,17 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex6 UsingModelInController*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample20.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample20.cs)]
 2. 置換、**参照**アクション メソッドを使用する、 **StoreViewBrowseController**クラスです。 ダミーのデータをジャンル、および新しいアルバムの 2 つのオブジェクトを作成します (次のハンズオン ラボでデータベースの実際のデータで使用します)。 これを行うには、置換、**参照**メソッドを次のコード。
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex6 BrowseMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample21.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample21.cs)]
 3. 置換、**詳細**アクション メソッドを使用する、 **StoreViewBrowseController**クラスです。 新規に作成する、**アルバム**に返されるオブジェクト、**ビュー**です。 これを行うには、置換、**詳細**メソッドを次のコード。
 
     (コード スニペットの*ASP.NET MVC 4 の基礎: Ex6 DetailsMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample22.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample22.cs)]
 
 <a id="Ex6Task4"></a>
 
@@ -785,7 +730,7 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
 
 1. 新しいテンプレートの表示を作成する前に、プロジェクトをビルドする必要がありますできるように、**ビューの追加**ダイアログを知って、 **ViewModel**クラスを使用します。 選択して、プロジェクトをビルド、**ビルド**メニュー項目し**ビルド MvcMusicStore**です。
 2. 追加、**参照**ビュー。 これを行うには、右クリックし、**参照**のアクション メソッド、 **StoreController**  をクリック**ビューの追加**です。
-3. **ビューの追加** ダイアログ ボックスで、ビュー名があることを確認**参照**です。 チェック、**厳密に型指定されたビューを作成する** チェック ボックスを選択し、 **StoreBrowseViewModel**から、**モデル クラス**ドロップダウンします。 既定値は、他のフィールドのままにします。 次に、 **[追加]**をクリックします。
+3. **ビューの追加** ダイアログ ボックスで、ビュー名があることを確認**参照**です。 チェック、**厳密に型指定されたビューを作成する** チェック ボックスを選択し、 **StoreBrowseViewModel**から、**モデル クラス**ドロップダウンします。 既定値は、他のフィールドのままにします。 次に、 **[追加]** をクリックします。
 
     ![[参照] ビューを追加する](aspnet-mvc-4-fundamentals/_static/image29.png "参照ビューの追加")
 
@@ -802,7 +747,7 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
 このタスクは、テストを**参照**メソッドからアルバムの取得、**参照**メソッドのアクション。
 
 1. キーを押して**f5 キーを押して**アプリケーションを実行します。
-2. ホーム ページで、プロジェクトを開始します。 URL を変更して  **/格納/参照しますか?ジャンル Disco を =**アクションが 2 つのアルバムを返すことを確認します。
+2. ホーム ページで、プロジェクトを開始します。 URL を変更して  **/格納/参照しますか?ジャンル Disco を =** アクションが 2 つのアルバムを返すことを確認します。
 
     ![ストア Disco アルバムを閲覧](aspnet-mvc-4-fundamentals/_static/image30.png "ストア Disco アルバムを参照")
 
@@ -816,7 +761,7 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
 このタスクでは、実装、**ストア/詳細**特定のアルバムに関する情報を表示するビュー。 このハンズオン ラボでは、そのアルバムに関する表示すべてに既に含まれて、**ビュー**テンプレート。 作成する代わりに、 **StoreDetailsViewModel**クラスは現在使用して**StoreBrowseViewModel**アルバムを渡すテンプレート。
 
 1. Visual Studio のウィンドウに戻るには、必要な場合は、ブラウザーを閉じます。 新しい**詳細**の表示、 **StoreController**の**詳細**アクション メソッド。 これを行うを右クリックし、**詳細**メソッドで、 **StoreController**クラスし、をクリックして**ビューの追加**です。
-2. **ビューの追加**ダイアログ ボックスで、いることを確認、**ビュー名**は**詳細**です。 チェック、**厳密に型指定されたビューを作成する** チェック ボックスを選択し、**アルバム**から、**モデル クラス**ドロップダウンします。 既定値は、他のフィールドのままにします。 次に、 **[追加]**をクリックします。 これが作成され、 **\Views\Store\Details.cshtml**ファイル。
+2. **ビューの追加**ダイアログ ボックスで、いることを確認、**ビュー名**は**詳細**です。 チェック、**厳密に型指定されたビューを作成する** チェック ボックスを選択し、**アルバム**から、**モデル クラス**ドロップダウンします。 既定値は、他のフィールドのままにします。 次に、 **[追加]** をクリックします。 これが作成され、 **\Views\Store\Details.cshtml**ファイル。
 
     ![詳細ビューを追加する](aspnet-mvc-4-fundamentals/_static/image31.png "詳細ビューを追加します。")
 
@@ -833,7 +778,7 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
 このタスクは、テストを**詳細**ビューからアルバムの情報を取得する、**アクションの詳細を**メソッドです。
 
 1. キーを押して**f5 キーを押して**アプリケーションを実行します。
-2. プロジェクトを起動、**ホーム**ページ。 URL を変更して**/Store/Details/5**アルバムの情報を確認します。
+2. プロジェクトを起動、**ホーム**ページ。 URL を変更して **/Store/Details/5**アルバムの情報を確認します。
 
     ![アルバムの詳細を参照](aspnet-mvc-4-fundamentals/_static/image32.png "アルバムの詳細を参照")
 
@@ -847,16 +792,16 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
 このタスクでは、適切な各ジャンル名にリンクがあるストア ビューでリンクを追加します**ストア/参照**URL。 これにより、たとえば、ジャンルをクリックすると**Disco**に移動**ストア/参照? ジャンル Disco を =** URL。
 
 1. Visual Studio のウィンドウに戻るには、必要な場合は、ブラウザーを閉じます。 更新プログラム、**インデックス**へのリンクを追加するページ、**参照**ページ。 これを行うで、**ソリューション エクスプ ローラー**展開、**ビュー**フォルダー、**ストア**フォルダーをダブルクリック、 **Index.cshtml**ページ。
-2. 選択したジャンルを示す参照ビューへのリンクを追加します。 これを行うには、次の強調表示されたコード内を置き換える、 **&lt;li&gt;**タグ: (c#)
+2. 選択したジャンルを示す参照ビューへのリンクを追加します。 これを行うには、次の強調表示されたコード内を置き換える、 **&lt;li&gt;** タグ: (c#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample25.cshtml)]
 
    > [!NOTE]
    > 別の方法としては ページで、次のようなコードに直接リンクは。
    > 
-   > &lt;a href=&quot;/Store/Browse?genre=@genreName&quot;&gt;@genreName&lt;/a&gt;
+   > &lt;href =&quot;ストア/参照? ジャンル =@genreName&quot;&gt;@genreName&lt;/a&gt;
    > 
-   > このアプローチでも動作しますが、ハードコーディングされた文字列に依存します。 コント ローラーを後で変更した場合は、この命令を手動で変更する必要があります。 優れた代替手段は、使用する、 **HTML ヘルパー**メソッドです。 ASP.NET MVC には、このようなタスクを使用できる HTML ヘルパー メソッドが含まれています。 **Html.ActionLink()**ヘルパー メソッドでは、容易に HTML を構築する**&lt;、&gt;**リンク、URL パスは、正しく URL エンコードされていることを確認します。
+   > このアプローチでも動作しますが、ハードコーディングされた文字列に依存します。 コント ローラーを後で変更した場合は、この命令を手動で変更する必要があります。 優れた代替手段は、使用する、 **HTML ヘルパー**メソッドです。 ASP.NET MVC には、このようなタスクを使用できる HTML ヘルパー メソッドが含まれています。 **Html.ActionLink()** ヘルパー メソッドでは、容易に HTML を構築する**&lt;、&gt;** リンク、URL パスは、正しく URL エンコードされていることを確認します。
    > 
    > Htlm.ActionLink には、いくつかのオーバー ロードがあります。 この演習では、次の 3 つのパラメーターを受け取るいずれかを使用します。
    > 
@@ -872,7 +817,7 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
 このタスクで各ジャンルに適切なへのリンクが表示されることをテストは**ストア/参照**URL。
 
 1. キーを押して**f5 キーを押して**アプリケーションを実行します。
-2. ホーム ページで、プロジェクトを開始します。 URL を変更して**/格納**を適切な各ジャンルにリンクしていることを確認する**ストア/参照**URL。
+2. ホーム ページで、プロジェクトを開始します。 URL を変更して **/格納**を適切な各ジャンルにリンクしていることを確認する**ストア/参照**URL。
 
     ![[参照] ページへのリンクをジャンルをブラウズ](aspnet-mvc-4-fundamentals/_static/image33.png "と参照ページへのリンクのジャンルの参照")
 
@@ -889,14 +834,11 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
 
 1. Visual Studio のウィンドウに戻るには、必要な場合は、ブラウザーを閉じます。 開いている**StoreController.cs**および変更**インデックス**の一覧を作成するメソッドでは、ジャンルを放映 ViewModel コレクションに。
 
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample26.cs)]
 
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample26.cs)]
-
-> [!NOTE]
-> You could also use the syntax **ViewBag[&quot;Starred&quot;]** to access the properties.
-~~~
-2. 星アイコン**&quot;starred.png&quot;**に含まれる、 **Source\Assets\Images**このラボのフォルダーです。 これをアプリケーションに追加するためにからコンテンツをドラッグして、 **Windows エクスプ ローラー**ウィンドウに、**ソリューション エクスプ ローラー** Visual Web Developer Express、次に示すように。
+    > [!NOTE]
+    > 構文を使用することも**ViewBag [&quot;Starred&quot;]** プロパティにアクセスします。
+2. 星アイコン**&quot;starred.png&quot;** に含まれる、 **Source\Assets\Images**このラボのフォルダーです。 これをアプリケーションに追加するためにからコンテンツをドラッグして、 **Windows エクスプ ローラー**ウィンドウに、**ソリューション エクスプ ローラー** Visual Web Developer Express、次に示すように。
 
     ![ソリューションに追加するスター イメージ](aspnet-mvc-4-fundamentals/_static/image34.png "をソリューションに追加するスター イメージ")
 
@@ -914,7 +856,7 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
 このタスクでは、星印が付いてジャンルが星形のアイコンを表示することをテストします。
 
 1. キーを押して**f5 キーを押して**アプリケーションを実行します。
-2. プロジェクトを起動、**ホーム**ページ。 URL を変更して**/格納**おすすめ各ジャンルに重視のラベルがあることを確認します。
+2. プロジェクトを起動、**ホーム**ページ。 URL を変更して **/格納**おすすめ各ジャンルに重視のラベルがあることを確認します。
 
     ![星印が付いて要素を持つジャンルをブラウズ](aspnet-mvc-4-fundamentals/_static/image35.png "星印が付いて要素を持つジャンルの参照")
 
@@ -969,7 +911,7 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
 
     *ASP.NET MVC 4 インターネット アプリケーション プロジェクト テンプレート*
 
-   1. **HTML5 markup**
+   1. **HTML5 マークアップ**
 
        テンプレート ビューを開くなど、新しいテーマ マークアップを調べるには参照**About.cshtml**内で表示**ホーム**フォルダーです。
 
@@ -1178,7 +1120,7 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
     *Web 配置の構成*
 5. 次のように、データベースの接続を構成します。
 
-   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:*プレフィックス。
+   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:* プレフィックス。
    - **ユーザー名**サーバー管理者のログイン名を入力します。
    - **パスワード**サーバー管理者のログイン パスワードを入力します。
    - たとえば、新しいデータベース名を入力: *MVC4SampleDB*です。
@@ -1186,12 +1128,12 @@ A **StoreBrowseViewModel**は選択したジャンルに一致するアルバム
      ![対象の接続文字列を構成する](aspnet-mvc-4-fundamentals/_static/image64.png "対象の接続文字列を構成します。")
 
      *対象の接続文字列を構成します。*
-6. 次に、 **[OK]**をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
+6. 次に、 **[OK]** をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
 
     ![データベースを作成する](aspnet-mvc-4-fundamentals/_static/image65.png "データベース文字列を作成します。")
 
     *データベースの作成*
-7. 接続の既定のテキスト ボックス内では、Windows azure SQL データベースへの接続に使用する接続文字列が表示されます。 その後、 **[次へ]**をクリックします。
+7. 接続の既定のテキスト ボックス内では、Windows azure SQL データベースへの接続に使用する接続文字列が表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](aspnet-mvc-4-fundamentals/_static/image66.png "SQL データベースを指す接続文字列")
 

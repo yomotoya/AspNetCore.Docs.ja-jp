@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 00b43cc548df44edded925521991a095ed856494
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f447dc0108dffb36ed6d627fb83b3117fd22c94c
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>ASP.NET および Visual Studio 2012 での Web 開発の新機能
 ====================
@@ -112,7 +112,7 @@ Visual Studio には、開発者にアクセスし、作業、CSS スタイル �
     ![Css 階層的な配置](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image10.png "CSS 内の階層の配置")
 
     *CSS 内の階層の配置*
-7. 内**.main div**クラスの末尾にカーソルを置いて**境界線: 0 px;**とキーを押します**Enter** IntelliSense の一覧を表示します。 入力を開始**上部**し、一覧がフィルター処理する方法を入力するように注意してください。 一覧を含む要素が表示されます**上部**という単語の一部に (Visual Studio の以前のバージョンでは、一覧は、項目でフィルター処理を*開始*という用語と)。
+7. 内 **.main div**クラスの末尾にカーソルを置いて**境界線: 0 px;** とキーを押します**Enter** IntelliSense の一覧を表示します。 入力を開始**上部**し、一覧がフィルター処理する方法を入力するように注意してください。 一覧を含む要素が表示されます**上部**という単語の一部に (Visual Studio の以前のバージョンでは、一覧は、項目でフィルター処理を*開始*という用語と)。
 
     ![Css IntelliSense の機能強化](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image11.png "css IntelliSense の機能強化")
 
@@ -125,7 +125,7 @@ Visual Studio には、開発者にアクセスし、作業、CSS スタイル �
 
 このタスクでは、Visual Studio IntelliSense に統合されて、新しい CSS カラー ピッカーを検出します。
 
-1. **Site.css、**ヘッダー クラス定義 (.header) を見つけて、カーソルを置き、横に**背景色**属性間、 &quot;:&quot;と&quot; #&quot;の文字のコード行を**です。**
+1. **Site.css、** ヘッダー クラス定義 (.header) を見つけて、カーソルを置き、横に**背景色**属性間、 &quot;:&quot;と&quot; #&quot;の文字のコード行を**です。**
 
     ![カーソルを検索する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image12.png "カーソルを検索します。")
 
@@ -147,7 +147,7 @@ Visual Studio には、開発者にアクセスし、作業、CSS スタイル �
     *カラー ピッカーの不透明度*
 
     > [!NOTE]
-    > CSS3 で RGBA (赤、緑、青、Alpha) 色定義では、1 つの項目の色の不透明度の値を定義することができます。 異なり**不透明度 -**のような CSS 属性**-** RGBA 色は、最新のブラウザーと互換性があります。
+    > CSS3 で RGBA (赤、緑、青、Alpha) 色定義では、1 つの項目の色の不透明度の値を定義することができます。 異なり**不透明度 -** のような CSS 属性**-** RGBA 色は、最新のブラウザーと互換性があります。
 
 <a id="Ex1Task3"></a>
 
@@ -156,7 +156,7 @@ Visual Studio には、開発者にアクセスし、作業、CSS スタイル �
 
 このタスクでは、web サイトでいくつかの機能を実装するためにクロス ブラウザーの互換性のある CSS3 スニペットを使用する方法を学習します。
 
-1. **Site.css**ファイルを調べ、**ヘッダー** CSS クラス定義 (.header) および下にカーソルを置き、  **/\*罫線 radius\* /**新しいスニペットを追加するプレース ホルダーです。 キーを押して**Enter** 、IntelliSense の一覧を表示し**radius**一覧をフィルター処理します。 選択、**罫線 radius**二重のクリックで、一覧からオプションをクリックして、**タブ**スニペットを挿入するキー。 Radius サイズを入力し、ピクセルとキーを押して**Enter**です。 たとえば、入力**15px**です。
+1. **Site.css**ファイルを調べ、**ヘッダー** CSS クラス定義 (.header) および下にカーソルを置き、  **/\*罫線 radius\* /** 新しいスニペットを追加するプレース ホルダーです。 キーを押して**Enter** 、IntelliSense の一覧を表示し**radius**一覧をフィルター処理します。 選択、**罫線 radius**二重のクリックで、一覧からオプションをクリックして、**タブ**スニペットを挿入するキー。 Radius サイズを入力し、ピクセルとキーを押して**Enter**です。 たとえば、入力**15px**です。
 
     スニペットによって追加された CSS3 属性は、Mozilla WebKit ベースのブラウザーなど、ほとんどの HTML5 対応ブラウザーに境界線を曲線で表示されます。
 
@@ -188,7 +188,7 @@ Visual Studio には、開発者にアクセスし、作業、CSS スタイル �
     CSS
 
     [!code-css[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample3.css)]
-8. 型**変換**キーを押すと、**タブ**変換スニペットを挿入するために 2 回のキー。 次に、入力**rotate(-15deg)**イメージが置かれているときに、回転の角度の値を変更します。
+8. 型**変換**キーを押すと、**タブ**変換スニペットを挿入するために 2 回のキー。 次に、入力**rotate(-15deg)** イメージが置かれているときに、回転の角度の値を変更します。
 
     CSS
 
@@ -202,7 +202,7 @@ Visual Studio には、開発者にアクセスし、作業、CSS スタイル �
     > [!NOTE]
     > Internet Explorer 10 を使用するいるし、シャドウを表示することはできません、ドキュメント モードが IE10 標準に設定されていることを確認します。 キーを押して**F12**を Internet Explorer developer tools を開き、をクリックして**ドキュメント モード**IE10 標準に変更します。
 
-    ![about-us](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image21.png)
+    ![に関する-us](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image21.png)
 
 <a id="Exercise2"></a>
 
@@ -259,10 +259,7 @@ Visual Studio では、開く、または相互に一致するように編集し
 
 1. **Default.aspx**  ページで、追加、 **H3**タイトル (たとえば、Visual Studio 2012 もの!) を持つ要素。
 
-
-~~~
-[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample5.aspx)]
-~~~
+    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample5.aspx)]
 2. 変更、 **H3**タグおよび種類**H2**または**H1 です。**
 
     終了タグが自動的に更新することを確認します。 開始タグを更新するそれに応じてすぎるを表示する終了タグを変更することもできます。
@@ -288,13 +285,10 @@ Visual Studio には、いくつかの HTML5 のコード スニペットが含�
     *HTML5 のコード スニペットの挿入*
 3. 既存のオーディオ ファイルを指すオーディオのソースを更新します。
 
+    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample6.aspx)]
 
-~~~
-[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample6.aspx)]
-
-> [!NOTE]
-> You will need to add the audio file to the solution.
-~~~
+    > [!NOTE]
+    > オーディオ ファイルをソリューションに追加する必要があります。
 4. キーを押して**f5 キーを押して**サイトを実行して、オーディオを再生します。
 
     ![オーディオ コントロールを実行している](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image29.png "オーディオ コントロールの実行")
@@ -303,7 +297,7 @@ Visual Studio には、いくつかの HTML5 のコード スニペットが含�
 
     > [!NOTE]
     > ビデオ、図など、Visual Studio に含まれている複数のスニペットを試すこともできます。
-5. ここで、コントロールを挿入するページの一部で再試行してください。 挿入しようとするなど、 **GridView**コントロールが入力する代わりに **&lt;Gri、**の入力を開始 **&lt;GV**。 IntelliSense の一覧を示す通知、 **asp: GridView**コントロール。
+5. ここで、コントロールを挿入するページの一部で再試行してください。 挿入しようとするなど、 **GridView**コントロールが入力する代わりに **&lt;Gri、** の入力を開始 **&lt;GV**。 IntelliSense の一覧を示す通知、 **asp: GridView**コントロール。
 
     HTML エディターでの IntelliSense は、タイトル文字種の検索と部分一致する (要素を取得するすべての用語を含む) を提供します。
 
@@ -371,7 +365,7 @@ Visual Studio には、いくつかの HTML5 のコード スニペットが含�
     ![ユーザー コントロールのメニュー オプションに抽出](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image35.png "ユーザー コントロールのメニュー オプションに抽出")
 
     *ユーザー コントロールのメニュー オプションに抽出します。*
-3. 新しいユーザー コントロールの名前を入力します。 たとえば、 **Jukebox.ascx**、クリックして**[ok]**です。
+3. 新しいユーザー コントロールの名前を入力します。 たとえば、 **Jukebox.ascx**、クリックして **[ok]** です。
 
     ![展開されたユーザー コントロールを保存](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image36.png "展開されたユーザー コントロールの保存")
 
@@ -408,7 +402,7 @@ Visual Studio には、コード モードにアクセスして整理する約�
 
     *ページ カウンター*
 3. ブラウザーを終了し、Visual Studio に戻ります。
-4. 開く、 **JavaScript.aspx**ページし、検索、 **&lt;スクリプト&gt;**ブロック (下図参照)。
+4. 開く、 **JavaScript.aspx**ページし、検索、 **&lt;スクリプト&gt;** ブロック (下図参照)。
 
     次のコードを格納する HTML5 のローカル ストレージを使用して、 *pageLoadCount*ページが現在のユーザーがアクセスした回数を格納する変数。 ローカル ストレージは、標準の HTML5 で導入されたクライアント側のキー値データベースです。 データは、ユーザーのブラウザー内のローカルのコンピューターに保存されます。
 
@@ -453,7 +447,7 @@ Visual Studio には、コード モードにアクセスして整理する約�
     ![JavaScript の検証エラー メッセージ](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image42.png "JavaScript の検証エラー メッセージ")
 
     *JavaScript の検証エラー メッセージ*
-3. コメント アウト、 **&quot;を使用して厳密な&quot;**方向とエラーが非表示になりますが、警告まま残っていることを確認します。
+3. コメント アウト、 **&quot;を使用して厳密な&quot;** 方向とエラーが非表示になりますが、警告まま残っていることを確認します。
 4. ファイルの最後の行でのような任意の文字列に書き込む**&quot;テスト&quot;** (引用符は文字列であることを示すを含む)。 IntelliSense の一覧を表示し、選択する文字列の横にあるピリオドを書き込み、**トリム**オプション。
 
     ECMAScript5 標準で文字列値および変数も文字列の方法があります定義、トリミング、大文字、検索し、置換と同じようにします。
@@ -492,7 +486,7 @@ Visual Studio には、コード モードにアクセスして整理する約�
     ![オーバー ロードでは XML ドキュメント](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image47.png "オーバー ロードでは XML ドキュメント")
 
     *オーバー ロードでは XML ドキュメント*
-6. 開いている**GotoDefinition.js**ファイルし、検索、 **$().html()**関数呼び出しです。 カーソルを置いて**html**です。
+6. 開いている**GotoDefinition.js**ファイルし、検索、 **$().html()** 関数呼び出しです。 カーソルを置いて**html**です。
 7. キーを押して**F12**定義に移動します。 今すぐアクセスしを使用せず、JavaScript コードを参照することができますに注意してください、**検索**ツールです。
 8. コード ファイルの下部にある署名ブロックの前に、jQuery 命令にカーソルを配置します。 キーを押して**F12**です。 JQuery ライブラリ ファイルに移動します。 使用して jQuery ファイルを移動することもわかります**F12**です。
 
@@ -549,37 +543,25 @@ Visual Studio には、コード モードにアクセスして整理する約�
 
     注意して、新しい**Microsoft.Web.Optimization**名前空間は、ファイルの先頭にコメント アウトされています。 使用して、コメントを解除バンドルと縮小の機能をインクルードします。
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample10.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample10.cs)]
 4. 検索、**アプリケーション\_開始**メソッドです。
 
     次のスニペットに示すようには、このメソッドで EnableDefaultBundles 呼び出しをコメント解除します。 これにより、そのフォルダーへのパスを使用して、フォルダー内の CSS ファイルのバンドル コレクションを参照すると、 &quot;CSS&quot;または&quot;JS&quot;サフィックス。
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample11.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample11.cs)]
 5. 開く、 **Optimization.aspx**ファイルし、のコンテンツ コントロールを探して**HeadContent**です。
 
     CSS ファイルと参照されているタグが 1 つ JS ファイルに注意してください。
 
+    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample12.aspx)]
 
-~~~
-[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample12.aspx)]
-
-> [!NOTE]
-> This code is for demo purposes. Ideally, you will reference the bundles in the Site.Master file. In this sample code, you will find that some of the bundled files are also being referenced by the Site.Master file, making this last reference redundant.
-~~~
+    > [!NOTE]
+    > このコードは、デモの目的でです。 理想的には、Site.Master ファイル内のバンドルを参照します。 このサンプル コードで表示されます、バンドルされているファイルの一部もによって参照されている Site.Master ファイル冗長この最後の参照を作成します。
 6. リンクが内のバンドルの規則を使用していることを確認、 **href**スタイルと Scripts\custom からすべての CSS または JS ファイルを取得する属性フォルダーそれぞれします。
 
     パスを使用することができます**スクリプト/カスタム/JS**をバンドルして、内のすべての JS ファイルを縮小する次のように、**スクリプトまたはカスタム**フォルダーです。 これは、既定のバンドルで既定の動作です。
 
-
-~~~
-[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample13.aspx)]
-~~~
+    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample13.aspx)]
 7. 開く、 **Styles\Site.css**ファイル。
 
     元の CSS ファイルには、インデントされたコード、空白文字と、ファイルを大きくコメントが含まれていることを確認します。 (また、JavaScript ファイルが含まれていますの空白文字とコメント)。
@@ -620,18 +602,12 @@ Visual Studio には、コード モードにアクセスして整理する約�
 
     ファイルが同じ位置に固定; に存在しないことに注意してください。これは、既定のバンドル経由のもう 1 つの利点です。
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample14.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample14.cs)]
 4. 開く、 **Optimization.aspx**ファイル。
 
     注意してへのリンク**静的 JS バンドル**Global.asax.cs ファイルで、静的なバンドルの構成時に宣言されているパスを使用して: **/StaticBundle**です。
 
-
-~~~
-[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample15.aspx)]
-~~~
+    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample15.aspx)]
 5. キーを押して**f5 キーを押して**アプリケーションを実行しに移動する、**最適化**ページ。
 6. をクリックして、**静的 JS バンドル**ファイルを開くためのリンク。
 
@@ -656,10 +632,7 @@ Visual Studio には、コード モードにアクセスして整理する約�
 
     使用する動的フォルダー バンドルを定義する、 **CoffeeMinify**を使用したファイルにのみ適用されるカスタムの縮小プロセッサ、 &quot; **.coffee** &quot;拡張機能 (CoffeeScript ファイル)。 同様に、フォルダー内にバンドルするファイルを選択し、検索パターンを使用することができますに注意してください '\*.coffee' です。
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample16.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample16.cs)]
 3. NuGet パッケージ マネージャー コンソールを開きます。 これを行うには、メニューを使用して**ビュー** | **その他のウィンドウ** | **Package Manager Console**です。
 4. **Package Manager Console**型**Install-package CoffeeSharp**とキーを押します**ENTER**です。
 5. クリックして、 **すべてのファイル**ボタンをクリックして、**ソリューション エクスプ ローラー**ウィンドウ
@@ -676,10 +649,7 @@ Visual Studio には、コード モードにアクセスして整理する約�
 
     このクラスは、JavaScript の出力 CoffeeScript コードのコンパイルから結果を縮小する JsMinify から継承します。 最初に、JavaScript コードを生成する CoffeeScript コンパイラを呼び出すし、その、結果のコードを縮小する JsMinify.Process メソッドにします。
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample17.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample17.cs)]
 8. 開く、 **Script1.coffee**と**Script2.coffee**ファイルから、**スクリプト/バンドル**フォルダーです。
 
     これらのファイルは、CoffeeMinify クラスとのバンドルを実行中にコンパイルする CoffeScript コードが含まれます。
@@ -694,16 +664,13 @@ Visual Studio には、コード モードにアクセスして整理する約�
     > [CofeeScript](https://github.com/jashkenas/coffeescript/)の JavaScript コードを記述、JavaScript の簡潔さと読みやすさの向上だけでなく配列の理解とパターンに一致するようにその他の機能を追加する単純な構文を提供します。
 9. 開く、 **Optimization.aspx**ファイルし、バンドルのリンクを検索します。
 
-    注意してへのリンク**動的 JS バンドル**を参照している、**スクリプト/バンドル**フォルダーを使用して、 **コーヒー/**動的フォルダー バンドルの構成されているサフィックス。
+    注意してへのリンク**動的 JS バンドル**を参照している、**スクリプト/バンドル**フォルダーを使用して、 **コーヒー/** 動的フォルダー バンドルの構成されているサフィックス。
 
-
-~~~
-[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample18.aspx)]
-~~~
+    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample18.aspx)]
 10. キーを押して**f5 キーを押して**アプリケーションを実行しに移動する、**最適化**ページ。
 11. をクリックして、**動的 JS バンドル**生成されたファイルを開くためのリンク。
 
-    このバンドルに含まれているコンテンツのみを含む通知**.coffee**ファイル。 CoffeeScript コードが JavaScript にコンパイルされたこと、およびコメント アウトされた行が削除されてもわかります。
+    このバンドルに含まれているコンテンツのみを含む通知 **.coffee**ファイル。 CoffeeScript コードが JavaScript にコンパイルされたこと、およびコメント アウトされた行が削除されてもわかります。
 
     ![動的な JS ファイルをバンドル](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image58.png "動的 JS ファイル バンドル")
 
@@ -873,7 +840,7 @@ Visual Studio には、コード モードにアクセスして整理する約�
     *Web 配置の構成*
 5. 次のように、データベースの接続を構成します。
 
-   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:*プレフィックス。
+   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:* プレフィックス。
    - **ユーザー名**サーバー管理者のログイン名を入力します。
    - **パスワード**サーバー管理者のログイン パスワードを入力します。
    - たとえば、新しいデータベース名を入力: *MVC4SampleDB*です。
@@ -881,12 +848,12 @@ Visual Studio には、コード モードにアクセスして整理する約�
      ![対象の接続文字列を構成する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image80.png "対象の接続文字列を構成します。")
 
      *対象の接続文字列を構成します。*
-6. 次に、 **[OK]**をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
+6. 次に、 **[OK]** をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
 
     ![データベースを作成する](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image81.png "データベース文字列を作成します。")
 
     *データベースの作成*
-7. 接続の既定のテキスト ボックス内では、Windows azure SQL データベースへの接続に使用する接続文字列が表示されます。 その後、 **[次へ]**をクリックします。
+7. 接続の既定のテキスト ボックス内では、Windows azure SQL データベースへの接続に使用する接続文字列が表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image82.png "SQL データベースを指す接続文字列")
 
