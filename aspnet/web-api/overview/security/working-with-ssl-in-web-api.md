@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/working-with-ssl-in-web-api
-title: "Web API での SSL の操作 |Microsoft ドキュメント"
+title: Web API での SSL の操作 |Microsoft ドキュメント
 author: MikeWasson
-description: "SSL クライアント証明書の使用など、ASP.NET Web API で SSL を使用する方法を示します。"
+description: SSL クライアント証明書の使用など、ASP.NET Web API で SSL を使用する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/12/2012
@@ -87,7 +87,7 @@ ms.lasthandoff: 01/24/2018
 5. <span data-ttu-id="916ab-156">ナビゲーション ペインの下には、「信頼されたルート証明機関」ノードを展開します。</span><span class="sxs-lookup"><span data-stu-id="916ab-156">Under the navigation pane, expand the "Trusted Root Certification Authorities" node.</span></span>
 6. <span data-ttu-id="916ab-157">**アクション** メニューのをポイント**すべてのタスク**、クリックして**インポート**証明書のインポート ウィザードを起動します。</span><span class="sxs-lookup"><span data-stu-id="916ab-157">On the **Action** menu, point to **All Tasks**, and then click **Import** to start the Certificate Import Wizard.</span></span>
 7. <span data-ttu-id="916ab-158">TempCA.cer を証明書ファイルを参照します。</span><span class="sxs-lookup"><span data-stu-id="916ab-158">Browse to the certificate file, TempCA.cer.</span></span>
-8. <span data-ttu-id="916ab-159">をクリックして**開く**、順にクリックして**[次へ]**ウィザードを完了します。</span><span class="sxs-lookup"><span data-stu-id="916ab-159">Click **Open**, then click **Next** and complete the wizard.</span></span> <span data-ttu-id="916ab-160">(求められます、パスワードを再入力します。)</span><span class="sxs-lookup"><span data-stu-id="916ab-160">(You will be prompted to re-enter the password.)</span></span>
+8. <span data-ttu-id="916ab-159">をクリックして**開く**、順にクリックして **[次へ]** ウィザードを完了します。</span><span class="sxs-lookup"><span data-stu-id="916ab-159">Click **Open**, then click **Next** and complete the wizard.</span></span> <span data-ttu-id="916ab-160">(求められます、パスワードを再入力します。)</span><span class="sxs-lookup"><span data-stu-id="916ab-160">(You will be prompted to re-enter the password.)</span></span>
 
 <span data-ttu-id="916ab-161">最初の証明書によって署名されているクライアント証明書を作成します。</span><span class="sxs-lookup"><span data-stu-id="916ab-161">Now create a client certificate that is signed by the first certificate:</span></span>
 

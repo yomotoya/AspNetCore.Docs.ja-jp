@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/deployment/using-signalr-with-azure-web-sites
-title: "Azure App Service で Web アプリを使用して SignalR を使用して |Microsoft ドキュメント"
+title: Azure App Service で Web アプリを使用して SignalR を使用して |Microsoft ドキュメント
 author: pfletcher
-description: "このドキュメントでは、Microsoft Azure で実行されている SignalR アプリケーションを構成する方法について説明します。 ソフトウェアのバージョンは、Visual Studio 2013 または Vis. に、このチュートリアルで使用される."
+description: このドキュメントでは、Microsoft Azure で実行されている SignalR アプリケーションを構成する方法について説明します。 ソフトウェアのバージョンは、Visual Studio 2013 または Vis. に、このチュートリアルで使用される.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/01/2015
@@ -76,7 +76,7 @@ ms.lasthandoff: 01/24/2018
 5. <span data-ttu-id="f2a29-141">"既存の Web サイトの選択 ダイアログ ボックスで、をクリックして**新規**です。</span><span class="sxs-lookup"><span data-stu-id="f2a29-141">In the "Select Existing Web Site" dialog, click **New**.</span></span>
 
     ![[新しい Web サイト]](using-signalr-with-azure-web-sites/_static/image4.png)
-6. <span data-ttu-id="f2a29-143">「Windows Azure でサイトを作成する」ダイアログ ボックスで、一意のアプリ名を入力します。</span><span class="sxs-lookup"><span data-stu-id="f2a29-143">In the "Create site on Windows Azure" dialog, enter a unique app name.</span></span> <span data-ttu-id="f2a29-144">領域のドロップダウン内で自分に最も近い地域を選択します。</span><span class="sxs-lookup"><span data-stu-id="f2a29-144">Select the region closest to you in the Region dropdown.</span></span> <span data-ttu-id="f2a29-145">**[作成]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="f2a29-145">Click **Create**.</span></span>
+6. <span data-ttu-id="f2a29-143">「Windows Azure でサイトを作成する」ダイアログ ボックスで、一意のアプリ名を入力します。</span><span class="sxs-lookup"><span data-stu-id="f2a29-143">In the "Create site on Windows Azure" dialog, enter a unique app name.</span></span> <span data-ttu-id="f2a29-144">領域のドロップダウン内で自分に最も近い地域を選択します。</span><span class="sxs-lookup"><span data-stu-id="f2a29-144">Select the region closest to you in the Region dropdown.</span></span> <span data-ttu-id="f2a29-145">**[作成]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="f2a29-145">Click **Create**.</span></span>
 
     ![Azure でサイトを作成します。](using-signalr-with-azure-web-sites/_static/image5.png)
 7. <span data-ttu-id="f2a29-147">"Web の発行 ダイアログ ボックスで、をクリックして**発行**です。</span><span class="sxs-lookup"><span data-stu-id="f2a29-147">In the "Publish Web" dialog, click **Publish**.</span></span>

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
-title: "SignalR の頻度が高いリアルタイム 1.x |Microsoft ドキュメント"
+title: SignalR の頻度が高いリアルタイム 1.x |Microsoft ドキュメント
 author: pfletcher
-description: "このチュートリアルでは、ASP.NET SignalR を使用して、頻度が高いメッセージング機能を提供する web アプリケーションを作成する方法を示します。 高周波数のメッセージングには."
+description: このチュートリアルでは、ASP.NET SignalR を使用して、頻度が高いメッセージング機能を提供する web アプリケーションを作成する方法を示します。 高周波数のメッセージングには.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/16/2013

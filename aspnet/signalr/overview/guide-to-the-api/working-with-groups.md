@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/guide-to-the-api/working-with-groups
-title: "SignalR でグループの操作 |Microsoft ドキュメント"
+title: SignalR でグループの操作 |Microsoft ドキュメント
 author: pfletcher
-description: "このトピックでは、ハブ API でのグループ メンバーシップ情報を永続化する方法について説明します。"
+description: このトピックでは、ハブ API でのグループ メンバーシップ情報を永続化する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -87,7 +87,7 @@ ms.lasthandoff: 01/24/2018
 - <span data-ttu-id="1eaa5-148">**すべて**指定したグループ内のクライアントを接続します。</span><span class="sxs-lookup"><span data-stu-id="1eaa5-148">**All** connected clients in a specified group.</span></span> 
 
     [!code-css[Main](working-with-groups/samples/sample3.css)]
-- <span data-ttu-id="1eaa5-149">指定したグループ内のクライアントが接続されているすべて**、指定されたクライアントを除く**接続 ID によって識別されます。</span><span class="sxs-lookup"><span data-stu-id="1eaa5-149">All connected clients in a specified group **except the specified clients**, identified by connection ID.</span></span> 
+- <span data-ttu-id="1eaa5-149">指定したグループ内のクライアントが接続されているすべて **、指定されたクライアントを除く**接続 ID によって識別されます。</span><span class="sxs-lookup"><span data-stu-id="1eaa5-149">All connected clients in a specified group **except the specified clients**, identified by connection ID.</span></span> 
 
     [!code-csharp[Main](working-with-groups/samples/sample4.cs)]
 - <span data-ttu-id="1eaa5-150">指定したグループ内のクライアントが接続されているすべて**呼び出し元のクライアントを除く**です。</span><span class="sxs-lookup"><span data-stu-id="1eaa5-150">All connected clients in a specified group **except the calling client**.</span></span> 

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
-title: "ASP.NET web API 2 OData アクションをサポートする |Microsoft ドキュメント"
+title: ASP.NET web API 2 OData アクションをサポートする |Microsoft ドキュメント
 author: MikeWasson
-description: "OData では、アクションは、エンティティに対する CRUD 操作として簡単に定義されていないサーバー側の動作を追加する方法です。 などのアクションを使用する一部: を実装しています."
+description: 'OData では、アクションは、エンティティに対する CRUD 操作として簡単に定義されていないサーバー側の動作を追加する方法です。 などのアクションを使用する一部: を実装しています.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2014
@@ -78,7 +78,7 @@ ms.lasthandoff: 11/10/2017
 - <span data-ttu-id="70c4f-140">*キー*: 速度に製品のキー。</span><span class="sxs-lookup"><span data-stu-id="70c4f-140">*key*: The key for the product to rate.</span></span>
 - <span data-ttu-id="70c4f-141">*パラメーター*: アクション パラメーターの値のディクショナリ。</span><span class="sxs-lookup"><span data-stu-id="70c4f-141">*parameters*: A dictionary of action parameter values.</span></span>
 
-<span data-ttu-id="70c4f-142">既定のルーティング規則を使用している場合キー パラメーターを「キー」という必要があります。</span><span class="sxs-lookup"><span data-stu-id="70c4f-142">If you are using the default routing conventions, the key parameter must be named "key".</span></span> <span data-ttu-id="70c4f-143">含める必要も、 **[FromOdataUri]**属性が示すようにします。</span><span class="sxs-lookup"><span data-stu-id="70c4f-143">It is also important to include the **[FromOdataUri]** attribute, as shown.</span></span> <span data-ttu-id="70c4f-144">この属性では、Web API 要求 URI のキーを解析する場合は、OData 構文の規則を使用するように指示します。</span><span class="sxs-lookup"><span data-stu-id="70c4f-144">This attribute tells Web API to use OData syntax rules when it parses the key from the request URI.</span></span>
+<span data-ttu-id="70c4f-142">既定のルーティング規則を使用している場合キー パラメーターを「キー」という必要があります。</span><span class="sxs-lookup"><span data-stu-id="70c4f-142">If you are using the default routing conventions, the key parameter must be named "key".</span></span> <span data-ttu-id="70c4f-143">含める必要も、 **[FromOdataUri]** 属性が示すようにします。</span><span class="sxs-lookup"><span data-stu-id="70c4f-143">It is also important to include the **[FromOdataUri]** attribute, as shown.</span></span> <span data-ttu-id="70c4f-144">この属性では、Web API 要求 URI のキーを解析する場合は、OData 構文の規則を使用するように指示します。</span><span class="sxs-lookup"><span data-stu-id="70c4f-144">This attribute tells Web API to use OData syntax rules when it parses the key from the request URI.</span></span>
 
 <span data-ttu-id="70c4f-145">使用して、*パラメーター*アクション パラメーターを取得するためのディクショナリ。</span><span class="sxs-lookup"><span data-stu-id="70c4f-145">Use the *parameters* dictionary to get the action parameters:</span></span>
 

@@ -71,14 +71,14 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="67e43-143">特定のファイルとフォルダーを除外するプロジェクト ファイルを操作することが簡単な方法は。</span><span class="sxs-lookup"><span data-stu-id="67e43-143">Although you could manipulate your project files to exclude specific files and folders, there is an easier way.</span></span> <span data-ttu-id="67e43-144">WPP にはという名前の項目リストを構築して、ファイルとフォルダーを除外するためのメカニズムが含まれています**ExcludeFromPackageFolders**と**ExcludeFromPackageFiles**です。</span><span class="sxs-lookup"><span data-stu-id="67e43-144">The WPP includes a mechanism to exclude files and folders by building item lists named **ExcludeFromPackageFolders** and **ExcludeFromPackageFiles**.</span></span> <span data-ttu-id="67e43-145">このメカニズムは、これらのリストに、独自の項目を追加することによって拡張できます。</span><span class="sxs-lookup"><span data-stu-id="67e43-145">You can extend this mechanism by adding your own items to these lists.</span></span> <span data-ttu-id="67e43-146">これを行うには、これらの大まかな手順を完了する必要があります。</span><span class="sxs-lookup"><span data-stu-id="67e43-146">To do this, you need to complete these high-level steps:</span></span>
 
-1. <span data-ttu-id="67e43-147">という名前のカスタム プロジェクト ファイルを作成する*[プロジェクト名].wpp.targets*は、プロジェクト ファイルと同じフォルダーにします。</span><span class="sxs-lookup"><span data-stu-id="67e43-147">Create a custom project file named *[project name].wpp.targets* in the same folder as your project file.</span></span>
+1. <span data-ttu-id="67e43-147">という名前のカスタム プロジェクト ファイルを作成する *[プロジェクト名].wpp.targets*は、プロジェクト ファイルと同じフォルダーにします。</span><span class="sxs-lookup"><span data-stu-id="67e43-147">Create a custom project file named *[project name].wpp.targets* in the same folder as your project file.</span></span>
 
     > [!NOTE]
     > <span data-ttu-id="67e43-148">*. Wpp.targets*ファイルは、web アプリケーション プロジェクト ファイルと同じフォルダーに移動する必要がある&#x2014;など*ContactManager.Mvc.csproj*&#x2014;任意のカスタムと同じフォルダー内ではなくプロジェクト ファイルを使用してビルドおよび配置プロセスを制御します。</span><span class="sxs-lookup"><span data-stu-id="67e43-148">The *.wpp.targets* file needs to go in the same folder as your web application project file&#x2014;for example, *ContactManager.Mvc.csproj*&#x2014;rather than in the same folder as any custom project files you use to control the build and deployment process.</span></span>
 2. <span data-ttu-id="67e43-149">*. Wpp.targets*ファイルに追加し、 **ItemGroup**要素。</span><span class="sxs-lookup"><span data-stu-id="67e43-149">In the *.wpp.targets* file, add an **ItemGroup** element.</span></span>
 3. <span data-ttu-id="67e43-150">**ItemGroup**要素を追加**ExcludeFromPackageFolders**と**ExcludeFromPackageFiles**特定のファイルおよび必要に応じてフォルダーを除外する項目。</span><span class="sxs-lookup"><span data-stu-id="67e43-150">In the **ItemGroup** element, add **ExcludeFromPackageFolders** and **ExcludeFromPackageFiles** items to exclude specific files and folders as required.</span></span>
 
-<span data-ttu-id="67e43-151">これは、この基本的な構造*. wpp.targets*ファイル。</span><span class="sxs-lookup"><span data-stu-id="67e43-151">This is the basic structure of this *.wpp.targets* file:</span></span>
+<span data-ttu-id="67e43-151">これは、この基本的な構造 *. wpp.targets*ファイル。</span><span class="sxs-lookup"><span data-stu-id="67e43-151">This is the basic structure of this *.wpp.targets* file:</span></span>
 
 
 [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample1.xml)]
@@ -95,7 +95,7 @@ ms.lasthandoff: 04/06/2018
 1. <span data-ttu-id="67e43-157">Visual Studio 2010 でソリューションを開きます。</span><span class="sxs-lookup"><span data-stu-id="67e43-157">Open your solution in Visual Studio 2010.</span></span>
 2. <span data-ttu-id="67e43-158">**ソリューション エクスプ ローラー**ウィンドウで、web アプリケーションのプロジェクト ノードを右クリックし (たとえば、 **ContactManager.Mvc**)、 をポイント**追加**をクリックして**新しい項目の**します。</span><span class="sxs-lookup"><span data-stu-id="67e43-158">In the **Solution Explorer** window, right-click your web application project node (for example, **ContactManager.Mvc**), point to **Add**, and then click **New Item**.</span></span>
 3. <span data-ttu-id="67e43-159">**新しい項目の追加**ダイアログ ボックスで、 **XML ファイル**テンプレート。</span><span class="sxs-lookup"><span data-stu-id="67e43-159">In the **Add New Item** dialog box, select the **XML File** template.</span></span>
-4. <span data-ttu-id="67e43-160">**名前**ボックスに、入力*[プロジェクト名] * * *.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**)、をクリックして**追加**.</span><span class="sxs-lookup"><span data-stu-id="67e43-160">In the **Name** box, type *[project name]***.wpp.targets** (for example, **ContactManager.Mvc.wpp.targets**), and then click **Add**.</span></span>
+4. <span data-ttu-id="67e43-160">**名前**ボックスに、入力 *[プロジェクト名] * * *.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**)、をクリックして**追加**.</span><span class="sxs-lookup"><span data-stu-id="67e43-160">In the **Name** box, type *[project name]***.wpp.targets** (for example, **ContactManager.Mvc.wpp.targets**), and then click **Add**.</span></span>
 
     ![](excluding-files-and-folders-from-deployment/_static/image3.png)
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="conclusion"></a><span data-ttu-id="67e43-174">まとめ</span><span class="sxs-lookup"><span data-stu-id="67e43-174">Conclusion</span></span>
 
-<span data-ttu-id="67e43-175">このトピックには、カスタムを作成することで、web のパッケージをビルドするときに、特定のファイルとフォルダーを除外する方法が説明されている*. wpp.targets* web アプリケーション プロジェクト ファイルと同じフォルダー内のファイルです。</span><span class="sxs-lookup"><span data-stu-id="67e43-175">This topic described how to exclude specific files and folders when you build a web package, by creating a custom *.wpp.targets* file in the same folder as your web application project file.</span></span>
+<span data-ttu-id="67e43-175">このトピックには、カスタムを作成することで、web のパッケージをビルドするときに、特定のファイルとフォルダーを除外する方法が説明されている *. wpp.targets* web アプリケーション プロジェクト ファイルと同じフォルダー内のファイルです。</span><span class="sxs-lookup"><span data-stu-id="67e43-175">This topic described how to exclude specific files and folders when you build a web package, by creating a custom *.wpp.targets* file in the same folder as your web application project file.</span></span>
 
 ## <a name="further-reading"></a><span data-ttu-id="67e43-176">関連項目</span><span class="sxs-lookup"><span data-stu-id="67e43-176">Further Reading</span></span>
 

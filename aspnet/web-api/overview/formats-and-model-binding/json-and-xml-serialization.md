@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/json-and-xml-serialization
-title: "JSON と ASP.NET Web API での XML シリアル化 |Microsoft ドキュメント"
+title: JSON と ASP.NET Web API での XML シリアル化 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2012
@@ -233,7 +233,7 @@ ms.lasthandoff: 01/24/2018
 
 [!code-xml[Main](json-and-xml-serialization/samples/sample21.xml)]
 
-<span data-ttu-id="5d2e0-233">別のオプションがある場合は、モデル クラスで属性を回避するには、: 新しい型固有の作成**DataContractSerializer**をインスタンス化し、設定*preserveObjectReferences*に**は true。**コンス トラクターでします。</span><span class="sxs-lookup"><span data-stu-id="5d2e0-233">If you want to avoid attributes on your model class, there is another option: Create a new type-specific **DataContractSerializer** instance and set *preserveObjectReferences* to **true** in the constructor.</span></span> <span data-ttu-id="5d2e0-234">このインスタンスの種類のシリアライザーとして XML メディアの種類のフォーマッタに設定します。</span><span class="sxs-lookup"><span data-stu-id="5d2e0-234">Then set this instance as a per-type serializer on the XML media-type formatter.</span></span> <span data-ttu-id="5d2e0-235">次のコードでは、これを行う方法を示します。</span><span class="sxs-lookup"><span data-stu-id="5d2e0-235">The following code show how to do this:</span></span>
+<span data-ttu-id="5d2e0-233">別のオプションがある場合は、モデル クラスで属性を回避するには、: 新しい型固有の作成**DataContractSerializer**をインスタンス化し、設定*preserveObjectReferences*に**は true。** コンス トラクターでします。</span><span class="sxs-lookup"><span data-stu-id="5d2e0-233">If you want to avoid attributes on your model class, there is another option: Create a new type-specific **DataContractSerializer** instance and set *preserveObjectReferences* to **true** in the constructor.</span></span> <span data-ttu-id="5d2e0-234">このインスタンスの種類のシリアライザーとして XML メディアの種類のフォーマッタに設定します。</span><span class="sxs-lookup"><span data-stu-id="5d2e0-234">Then set this instance as a per-type serializer on the XML media-type formatter.</span></span> <span data-ttu-id="5d2e0-235">次のコードでは、これを行う方法を示します。</span><span class="sxs-lookup"><span data-stu-id="5d2e0-235">The following code show how to do this:</span></span>
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample22.cs?highlight=3)]
 

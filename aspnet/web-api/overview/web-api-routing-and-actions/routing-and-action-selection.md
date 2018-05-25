@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/routing-and-action-selection
-title: "ルーティングと ASP.NET Web API の操作の選択 |Microsoft ドキュメント"
+title: ルーティングと ASP.NET Web API の操作の選択 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2012
@@ -150,7 +150,7 @@ ms.lasthandoff: 01/24/2018
     2. <span data-ttu-id="663fd-200">この一覧から、ルート ディクショナリまたは URI クエリ文字列内に各パラメーターの名前の一致を見つけようとします。</span><span class="sxs-lookup"><span data-stu-id="663fd-200">From this list, try to find a match for each parameter name, either in the route dictionary or in the URI query string.</span></span> <span data-ttu-id="663fd-201">一致は、大文字と小文字パラメーターの順序に依存しません。</span><span class="sxs-lookup"><span data-stu-id="663fd-201">Matches are case insensitive and do not depend on the parameter order.</span></span>
     3. <span data-ttu-id="663fd-202">リスト内のすべてのパラメーターが URI で一致するものがアクションを選択します。</span><span class="sxs-lookup"><span data-stu-id="663fd-202">Select an action where every parameter in the list has a match in the URI.</span></span>
     4. <span data-ttu-id="663fd-203">複数のアクションがこれらの条件を満たしている場合は、ほとんどのパラメーターと一致すると、1 つを選択します。</span><span class="sxs-lookup"><span data-stu-id="663fd-203">If more that one action meets these criteria, pick the one with the most parameter matches.</span></span>
-4. <span data-ttu-id="663fd-204">使って操作を無視する、 **[NonAction]**属性。</span><span class="sxs-lookup"><span data-stu-id="663fd-204">Ignore actions with the **[NonAction]** attribute.</span></span>
+4. <span data-ttu-id="663fd-204">使って操作を無視する、 **[NonAction]** 属性。</span><span class="sxs-lookup"><span data-stu-id="663fd-204">Ignore actions with the **[NonAction]** attribute.</span></span>
 
 <span data-ttu-id="663fd-205">手順 3 では最も難しい可能性があります。</span><span class="sxs-lookup"><span data-stu-id="663fd-205">Step #3 is probably the most confusing.</span></span> <span data-ttu-id="663fd-206">基本的な考え方は、パラメーターは、URI、要求本文からまたはカスタム バインドからはその値を取得できます。</span><span class="sxs-lookup"><span data-stu-id="663fd-206">The basic idea is that a parameter can get its value either from the URI, from the request body, or from a custom binding.</span></span> <span data-ttu-id="663fd-207">URI に由来するパラメーターの場合、URI が (ルート ディクショナリ) 経由でパスまたはクエリ文字列にそのパラメーターの値には実際に含まれていることを確認することができます。</span><span class="sxs-lookup"><span data-stu-id="663fd-207">For parameters that come from the URI, we want to ensure that the URI actually contains a value for that parameter, either in the path (via the route dictionary) or in the query string.</span></span>
 

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
-title: "ASP.NET Web API でのバインディング パラメーター |Microsoft ドキュメント"
+title: ASP.NET Web API でのバインディング パラメーター |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2013
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="using-fromuri"></a><span data-ttu-id="f9c2a-121">[FromUri] を使用します。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-121">Using [FromUri]</span></span>
 
-<span data-ttu-id="f9c2a-122">Web API を URI から複合型を読み取るには、追加、 **[FromUri]**属性をパラメーター。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-122">To force Web API to read a complex type from the URI, add the **[FromUri]** attribute to the parameter.</span></span> <span data-ttu-id="f9c2a-123">次の例では定義、`GeoPoint`型を取得するコント ローラー メソッドと共に、 `GeoPoint` URI からです。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-123">The following example defines a `GeoPoint` type, along with a controller method that gets the `GeoPoint` from the URI.</span></span>
+<span data-ttu-id="f9c2a-122">Web API を URI から複合型を読み取るには、追加、 **[FromUri]** 属性をパラメーター。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-122">To force Web API to read a complex type from the URI, add the **[FromUri]** attribute to the parameter.</span></span> <span data-ttu-id="f9c2a-123">次の例では定義、`GeoPoint`型を取得するコント ローラー メソッドと共に、 `GeoPoint` URI からです。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-123">The following example defines a `GeoPoint` type, along with a controller method that gets the `GeoPoint` from the URI.</span></span>
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample2.cs)]
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="using-frombody"></a><span data-ttu-id="f9c2a-126">[FromBody] を使用します。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-126">Using [FromBody]</span></span>
 
-<span data-ttu-id="f9c2a-127">要求本文から単純型の読み取りに Web API には、追加、 **[FromBody]**パラメーターに属性します。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-127">To force Web API to read a simple type from the request body, add the **[FromBody]** attribute to the parameter:</span></span>
+<span data-ttu-id="f9c2a-127">要求本文から単純型の読み取りに Web API には、追加、 **[FromBody]** パラメーターに属性します。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-127">To force Web API to read a simple type from the request body, add the **[FromBody]** attribute to the parameter:</span></span>
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample3.cs)]
 
@@ -71,11 +71,11 @@ ms.lasthandoff: 01/24/2018
 
 <span data-ttu-id="f9c2a-136">作成することで Web API (Web API は、URI からバインドしようとしています) できるように、単純型としてクラスを処理を行うことができます、 **TypeConverter**し、文字列の変換を提供します。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-136">You can make Web API treat a class as a simple type (so that Web API will try to bind it from the URI) by creating a **TypeConverter** and providing a string conversion.</span></span>
 
-<span data-ttu-id="f9c2a-137">次のコードは、 `GeoPoint` 、地理的なポイントを表すクラスと**TypeConverter**を文字列から変換する`GeoPoint`インスタンス。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-137">The following code shows a `GeoPoint` class that represents a geographical point, plus a **TypeConverter** that converts from strings to `GeoPoint` instances.</span></span> <span data-ttu-id="f9c2a-138">`GeoPoint`でクラスを装飾、 **[TypeConverter]**属性を型コンバーターを指定します。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-138">The `GeoPoint` class is decorated with a **[TypeConverter]** attribute to specify the type converter.</span></span> <span data-ttu-id="f9c2a-139">(この例は、Mike Stall のブログの投稿で触発されました[MVC/WebAPI のアクション シグネチャでのカスタム オブジェクトをバインドする方法](https://blogs.msdn.com/b/jmstall/archive/2012/04/20/how-to-bind-to-custom-objects-in-action-signatures-in-mvc-webapi.aspx))。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-139">(This example was inspired by Mike Stall's blog post [How to bind to custom objects in action signatures in MVC/WebAPI](https://blogs.msdn.com/b/jmstall/archive/2012/04/20/how-to-bind-to-custom-objects-in-action-signatures-in-mvc-webapi.aspx).)</span></span>
+<span data-ttu-id="f9c2a-137">次のコードは、 `GeoPoint` 、地理的なポイントを表すクラスと**TypeConverter**を文字列から変換する`GeoPoint`インスタンス。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-137">The following code shows a `GeoPoint` class that represents a geographical point, plus a **TypeConverter** that converts from strings to `GeoPoint` instances.</span></span> <span data-ttu-id="f9c2a-138">`GeoPoint`でクラスを装飾、 **[TypeConverter]** 属性を型コンバーターを指定します。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-138">The `GeoPoint` class is decorated with a **[TypeConverter]** attribute to specify the type converter.</span></span> <span data-ttu-id="f9c2a-139">(この例は、Mike Stall のブログの投稿で触発されました[MVC/WebAPI のアクション シグネチャでのカスタム オブジェクトをバインドする方法](https://blogs.msdn.com/b/jmstall/archive/2012/04/20/how-to-bind-to-custom-objects-in-action-signatures-in-mvc-webapi.aspx))。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-139">(This example was inspired by Mike Stall's blog post [How to bind to custom objects in action signatures in MVC/WebAPI](https://blogs.msdn.com/b/jmstall/archive/2012/04/20/how-to-bind-to-custom-objects-in-action-signatures-in-mvc-webapi.aspx).)</span></span>
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample6.cs)]
 
-<span data-ttu-id="f9c2a-140">これで、Web API は扱います`GeoPoint`として単純型、つまりバインドを試みます`GeoPoint`URI からのパラメーターです。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-140">Now Web API will treat `GeoPoint` as a simple type, meaning it will try to bind `GeoPoint` parameters from the URI.</span></span> <span data-ttu-id="f9c2a-141">含める必要はありません**[FromUri]**パラメーターにします。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-141">You don't need to include **[FromUri]** on the parameter.</span></span>
+<span data-ttu-id="f9c2a-140">これで、Web API は扱います`GeoPoint`として単純型、つまりバインドを試みます`GeoPoint`URI からのパラメーターです。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-140">Now Web API will treat `GeoPoint` as a simple type, meaning it will try to bind `GeoPoint` parameters from the URI.</span></span> <span data-ttu-id="f9c2a-141">含める必要はありません **[FromUri]** パラメーターにします。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-141">You don't need to include **[FromUri]** on the parameter.</span></span>
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample7.cs)]
 
@@ -113,11 +113,11 @@ ms.lasthandoff: 01/24/2018
 
 <span data-ttu-id="f9c2a-163">**モデル バインダーを設定**</span><span class="sxs-lookup"><span data-stu-id="f9c2a-163">**Setting the Model Binder**</span></span>
 
-<span data-ttu-id="f9c2a-164">モデル バインダーを設定するいくつかの方法はあります。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-164">There are several ways to set a model binder.</span></span> <span data-ttu-id="f9c2a-165">最初に、追加、 **[拡大する ModelBinder]**属性をパラメーター。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-165">First, you can add a **[ModelBinder]** attribute to the parameter.</span></span>
+<span data-ttu-id="f9c2a-164">モデル バインダーを設定するいくつかの方法はあります。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-164">There are several ways to set a model binder.</span></span> <span data-ttu-id="f9c2a-165">最初に、追加、 **[拡大する ModelBinder]** 属性をパラメーター。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-165">First, you can add a **[ModelBinder]** attribute to the parameter.</span></span>
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample10.cs)]
 
-<span data-ttu-id="f9c2a-166">追加することも、 **[拡大する ModelBinder]**属性を型にします。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-166">You can also add a **[ModelBinder]** attribute to the type.</span></span> <span data-ttu-id="f9c2a-167">Web API は、その型のすべてのパラメーターの指定したモデル バインダーを使用します。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-167">Web API will use the specified model binder for all parameters of that type.</span></span>
+<span data-ttu-id="f9c2a-166">追加することも、 **[拡大する ModelBinder]** 属性を型にします。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-166">You can also add a **[ModelBinder]** attribute to the type.</span></span> <span data-ttu-id="f9c2a-167">Web API は、その型のすべてのパラメーターの指定したモデル バインダーを使用します。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-167">Web API will use the specified model binder for all parameters of that type.</span></span>
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample11.cs)]
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 01/24/2018
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample12.cs)]
 
-<span data-ttu-id="f9c2a-173">モデル バインド プロバイダーを使用する必要がありますを追加、 **[拡大する ModelBinder]**属性をパラメーターへのモデル バインダーおよびメディア タイプ フォーマッタではないのどちらを使用するように Web API を通知します。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-173">With a model-binding provider, you still need to add the **[ModelBinder]** attribute to the parameter, to tell Web API that it should use a model binder and not a media-type formatter.</span></span> <span data-ttu-id="f9c2a-174">ただし、属性にモデル バインダーの型を指定する必要はありませんようになりました。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-174">But now you don't need to specify the type of model binder in the attribute:</span></span>
+<span data-ttu-id="f9c2a-173">モデル バインド プロバイダーを使用する必要がありますを追加、 **[拡大する ModelBinder]** 属性をパラメーターへのモデル バインダーおよびメディア タイプ フォーマッタではないのどちらを使用するように Web API を通知します。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-173">With a model-binding provider, you still need to add the **[ModelBinder]** attribute to the parameter, to tell Web API that it should use a model binder and not a media-type formatter.</span></span> <span data-ttu-id="f9c2a-174">ただし、属性にモデル バインダーの型を指定する必要はありませんようになりました。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-174">But now you don't need to specify the type of model binder in the attribute:</span></span>
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample13.cs)]
 
@@ -153,7 +153,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a name="httpparameterbinding"></a><span data-ttu-id="f9c2a-184">HttpParameterBinding</span><span class="sxs-lookup"><span data-stu-id="f9c2a-184">HttpParameterBinding</span></span>
 
-<span data-ttu-id="f9c2a-185">モデル バインダーは、一般的なメカニズムの特定のインスタンスです。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-185">Model binders are a specific instance of a more general mechanism.</span></span> <span data-ttu-id="f9c2a-186">確認する場合、 **[拡大する ModelBinder]**属性が表示されます、抽象型から派生して**ParameterBindingAttribute**クラスです。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-186">If you look at the **[ModelBinder]** attribute, you will see that it derives from the abstract **ParameterBindingAttribute** class.</span></span> <span data-ttu-id="f9c2a-187">このクラスは、1 つのメソッドを定義**GetBinding**、返された、 **HttpParameterBinding**オブジェクト。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-187">This class defines a single method, **GetBinding**, which returns an **HttpParameterBinding** object:</span></span>
+<span data-ttu-id="f9c2a-185">モデル バインダーは、一般的なメカニズムの特定のインスタンスです。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-185">Model binders are a specific instance of a more general mechanism.</span></span> <span data-ttu-id="f9c2a-186">確認する場合、 **[拡大する ModelBinder]** 属性が表示されます、抽象型から派生して**ParameterBindingAttribute**クラスです。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-186">If you look at the **[ModelBinder]** attribute, you will see that it derives from the abstract **ParameterBindingAttribute** class.</span></span> <span data-ttu-id="f9c2a-187">このクラスは、1 つのメソッドを定義**GetBinding**、返された、 **HttpParameterBinding**オブジェクト。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-187">This class defines a single method, **GetBinding**, which returns an **HttpParameterBinding** object:</span></span>
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample18.cs)]
 
@@ -195,12 +195,12 @@ ms.lasthandoff: 01/24/2018
 
 <span data-ttu-id="f9c2a-208">全体のパラメーター バインディング プロセスは、プラグ可能なサービスによって制御されます**IActionValueBinder**です。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-208">The entire parameter-binding process is controlled by a pluggable service, **IActionValueBinder**.</span></span> <span data-ttu-id="f9c2a-209">既定の実装**IActionValueBinder**は次の実行します。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-209">The default implementation of **IActionValueBinder** does the following:</span></span>
 
-1. <span data-ttu-id="f9c2a-210">探して、 **ParameterBindingAttribute**パラメーターにします。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-210">Look for a **ParameterBindingAttribute** on the parameter.</span></span> <span data-ttu-id="f9c2a-211">これが含まれます**[FromBody]**、 **[FromUri]**、および**[拡大する ModelBinder]**、またはカスタム属性です。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-211">This includes **[FromBody]**, **[FromUri]**, and **[ModelBinder]**, or custom attributes.</span></span>
+1. <span data-ttu-id="f9c2a-210">探して、 **ParameterBindingAttribute**パラメーターにします。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-210">Look for a **ParameterBindingAttribute** on the parameter.</span></span> <span data-ttu-id="f9c2a-211">これが含まれます **[FromBody]**、 **[FromUri]**、および **[拡大する ModelBinder]**、またはカスタム属性です。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-211">This includes **[FromBody]**, **[FromUri]**, and **[ModelBinder]**, or custom attributes.</span></span>
 2. <span data-ttu-id="f9c2a-212">それ以外の場合、ファイルの場所**HttpConfiguration.ParameterBindingRules**を null 以外を返す関数の**HttpParameterBinding**です。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-212">Otherwise, look in **HttpConfiguration.ParameterBindingRules** for a function that returns a non-null **HttpParameterBinding**.</span></span>
 3. <span data-ttu-id="f9c2a-213">それ以外の場合、先ほど説明した既定の規則を使用します。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-213">Otherwise, use the default rules that I described previously.</span></span> 
 
-    - <span data-ttu-id="f9c2a-214">パラメーターの型「単純」が、型コンバーターがいる場合は、URI からバインドします。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-214">If the parameter type is "simple"or has a type converter, bind from the URI.</span></span> <span data-ttu-id="f9c2a-215">これは配置することに相当、 **[FromUri]**パラメーターの属性です。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-215">This is equivalent to putting the **[FromUri]** attribute on the parameter.</span></span>
-    - <span data-ttu-id="f9c2a-216">それ以外の場合、メッセージ本文からパラメーターの読み取りを再試行してください。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-216">Otherwise, try to read the parameter from the message body.</span></span> <span data-ttu-id="f9c2a-217">これは配置することに相当**[FromBody]**パラメーターにします。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-217">This is equivalent to putting **[FromBody]** on the parameter.</span></span>
+    - <span data-ttu-id="f9c2a-214">パラメーターの型「単純」が、型コンバーターがいる場合は、URI からバインドします。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-214">If the parameter type is "simple"or has a type converter, bind from the URI.</span></span> <span data-ttu-id="f9c2a-215">これは配置することに相当、 **[FromUri]** パラメーターの属性です。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-215">This is equivalent to putting the **[FromUri]** attribute on the parameter.</span></span>
+    - <span data-ttu-id="f9c2a-216">それ以外の場合、メッセージ本文からパラメーターの読み取りを再試行してください。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-216">Otherwise, try to read the parameter from the message body.</span></span> <span data-ttu-id="f9c2a-217">これは配置することに相当 **[FromBody]** パラメーターにします。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-217">This is equivalent to putting **[FromBody]** on the parameter.</span></span>
 
 <span data-ttu-id="f9c2a-218">全体を置換できなかった場合は、 **IActionValueBinder**サービス、カスタム実装です。</span><span class="sxs-lookup"><span data-stu-id="f9c2a-218">If you wanted, you could replace the entire **IActionValueBinder** service with a custom implementation.</span></span>
 

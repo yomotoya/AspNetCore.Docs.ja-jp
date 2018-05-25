@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api
-title: "ASP.NET Web API でルーティング |Microsoft ドキュメント"
+title: ASP.NET Web API でルーティング |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/11/2012
@@ -61,9 +61,9 @@ ms.lasthandoff: 11/10/2017
 
 <span data-ttu-id="4045c-133">一致するルートが見つかると、Web API は、コント ローラーとアクションを選択します。</span><span class="sxs-lookup"><span data-stu-id="4045c-133">Once a matching route is found, Web API selects the controller and the action:</span></span>
 
-- <span data-ttu-id="4045c-134">Web API を追加するコント ローラーを検索するには、&quot;コント ローラー&quot;の値に、 *{controller}*変数。</span><span class="sxs-lookup"><span data-stu-id="4045c-134">To find the controller, Web API adds &quot;Controller&quot; to the value of the *{controller}* variable.</span></span>
+- <span data-ttu-id="4045c-134">Web API を追加するコント ローラーを検索するには、&quot;コント ローラー&quot;の値に、 *{controller}* 変数。</span><span class="sxs-lookup"><span data-stu-id="4045c-134">To find the controller, Web API adds &quot;Controller&quot; to the value of the *{controller}* variable.</span></span>
 - <span data-ttu-id="4045c-135">アクションを検索するには、Web API HTTP メソッドと調べ操作の対応する HTTP メソッド名で始まる名前を検索します。</span><span class="sxs-lookup"><span data-stu-id="4045c-135">To find the action, Web API looks at the HTTP method, and then looks for an action whose name begins with that HTTP method name.</span></span> <span data-ttu-id="4045c-136">たとえば、GET 要求で Web API 検索で始まるアクション&quot;を取得しています.&quot;など&quot;GetContact&quot;または&quot;GetAllContacts&quot;です。</span><span class="sxs-lookup"><span data-stu-id="4045c-136">For example, with a GET request, Web API looks for an action that starts with &quot;Get...&quot;, such as &quot;GetContact&quot; or &quot;GetAllContacts&quot;.</span></span> <span data-ttu-id="4045c-137">この規則は、取得、POST、PUT、および削除メソッドにのみ適用されます。</span><span class="sxs-lookup"><span data-stu-id="4045c-137">This convention applies only to GET, POST, PUT, and DELETE methods.</span></span> <span data-ttu-id="4045c-138">その他の HTTP メソッドを有効にするには、コント ローラーの属性を使用します。</span><span class="sxs-lookup"><span data-stu-id="4045c-138">You can enable other HTTP methods by using attributes on your controller.</span></span> <span data-ttu-id="4045c-139">その例が後で表示されます。</span><span class="sxs-lookup"><span data-stu-id="4045c-139">We'll see an example of that later.</span></span>
-- <span data-ttu-id="4045c-140">ルート テンプレートでは、その他のプレース ホルダー変数など*{id},*アクション パラメーターにマップされます。</span><span class="sxs-lookup"><span data-stu-id="4045c-140">Other placeholder variables in the route template, such as *{id},* are mapped to action parameters.</span></span>
+- <span data-ttu-id="4045c-140">ルート テンプレートでは、その他のプレース ホルダー変数など *{id},* アクション パラメーターにマップされます。</span><span class="sxs-lookup"><span data-stu-id="4045c-140">Other placeholder variables in the route template, such as *{id},* are mapped to action parameters.</span></span>
 
 <span data-ttu-id="4045c-141">例を見てみましょう。</span><span class="sxs-lookup"><span data-stu-id="4045c-141">Let's look at an example.</span></span> <span data-ttu-id="4045c-142">次のコント ローラーを定義するとします。</span><span class="sxs-lookup"><span data-stu-id="4045c-142">Suppose that you define the following controller:</span></span>
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/10/2017
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample5.cs)]
 
-<span data-ttu-id="4045c-176">このルート テンプレートで、 *{controller}*パラメーター名、コント ローラー アクション メソッド。</span><span class="sxs-lookup"><span data-stu-id="4045c-176">In this route template, the *{action}* parameter names the action method on the controller.</span></span> <span data-ttu-id="4045c-177">ルーティングのこのスタイルでは、許可される HTTP メソッドを指定するのに属性を使用します。</span><span class="sxs-lookup"><span data-stu-id="4045c-177">With this style of routing, use attributes to specify the allowed HTTP methods.</span></span> <span data-ttu-id="4045c-178">たとえば、コント ローラーに次のメソッドがあるとします。</span><span class="sxs-lookup"><span data-stu-id="4045c-178">For example, suppose your controller has the following method:</span></span>
+<span data-ttu-id="4045c-176">このルート テンプレートで、 *{controller}* パラメーター名、コント ローラー アクション メソッド。</span><span class="sxs-lookup"><span data-stu-id="4045c-176">In this route template, the *{action}* parameter names the action method on the controller.</span></span> <span data-ttu-id="4045c-177">ルーティングのこのスタイルでは、許可される HTTP メソッドを指定するのに属性を使用します。</span><span class="sxs-lookup"><span data-stu-id="4045c-177">With this style of routing, use attributes to specify the allowed HTTP methods.</span></span> <span data-ttu-id="4045c-178">たとえば、コント ローラーに次のメソッドがあるとします。</span><span class="sxs-lookup"><span data-stu-id="4045c-178">For example, suppose your controller has the following method:</span></span>
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample6.cs)]
 

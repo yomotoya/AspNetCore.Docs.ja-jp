@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
-title: "ASP.NET および Web ツール 2013.1 for Visual Studio 2012 のリリース ノート |Microsoft ドキュメント"
+title: ASP.NET および Web ツール 2013.1 for Visual Studio 2012 のリリース ノート |Microsoft ドキュメント
 author: microsoft
-description: "このドキュメントでは、Visual Studio 2012 用の ASP.NET および Web ツール 2013.1 のリリースについて説明します。"
+description: このドキュメントでは、Visual Studio 2012 用の ASP.NET および Web ツール 2013.1 のリリースについて説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2013
 ms.topic: article
 ms.assetid: ca26e5bb-630e-41d2-8512-2a9386c431cb
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
@@ -181,7 +181,7 @@ ms.lasthandoff: 01/24/2018
 
 <span data-ttu-id="feb48-201">ASP.NET Razor 3 または ASP.NET MVC 5 にアップグレードすると、tilde(~) 表記が正しく動作しなく URL 書き換えを使用している場合。</span><span class="sxs-lookup"><span data-stu-id="feb48-201">After upgrading to ASP.NET Razor 3 or ASP.NET MVC 5, the tilde(~) notation may no longer work correctly if you are using URL rewrites.</span></span> <span data-ttu-id="feb48-202">URL 書き換えなど HTML 要素の tilde(~) 表記に影響&lt;A/&gt;、&lt;スクリプト/&gt;、&lt;リンク/&gt;、され、その結果、チルダが不要になったルート ディレクトリにマップします。</span><span class="sxs-lookup"><span data-stu-id="feb48-202">The URL rewrite affects the tilde(~) notation in HTML elements such as &lt;A/&gt;, &lt;SCRIPT/&gt;, &lt;LINK/&gt;, and as a result the tilde no longer maps to the root directory.</span></span>
 
-<span data-ttu-id="feb48-203">たとえば、要求を書き直してください**asp.net/content**に**asp.net**、href 属性に&lt;A href ="~/content/"/&gt;に解決される**/content/コンテンツ/**の代わりに **/**です。</span><span class="sxs-lookup"><span data-stu-id="feb48-203">For example, if you rewrite requests for **asp.net/content** to **asp.net**, the href attribute in &lt;A href="~/content/"/&gt; resolves to **/content/content/** instead of **/**.</span></span> <span data-ttu-id="feb48-204">この変更を抑制するには設定、 **IIS\_WasUrlRewritten**を各 Web ページまたは false コンテキスト**アプリケーション\_BeginRequest** Global.asax でします。</span><span class="sxs-lookup"><span data-stu-id="feb48-204">To suppress this change, you can set the **IIS\_WasUrlRewritten** context to false in each Web Page or in **Application\_BeginRequest** in Global.asax.</span></span>
+<span data-ttu-id="feb48-203">たとえば、要求を書き直してください**asp.net/content**に**asp.net**、href 属性に&lt;A href ="~/content/"/&gt;に解決される **/content/コンテンツ/** の代わりに **/** です。</span><span class="sxs-lookup"><span data-stu-id="feb48-203">For example, if you rewrite requests for **asp.net/content** to **asp.net**, the href attribute in &lt;A href="~/content/"/&gt; resolves to **/content/content/** instead of **/**.</span></span> <span data-ttu-id="feb48-204">この変更を抑制するには設定、 **IIS\_WasUrlRewritten**を各 Web ページまたは false コンテキスト**アプリケーション\_BeginRequest** Global.asax でします。</span><span class="sxs-lookup"><span data-stu-id="feb48-204">To suppress this change, you can set the **IIS\_WasUrlRewritten** context to false in each Web Page or in **Application\_BeginRequest** in Global.asax.</span></span>
 
 <a id="templateissue"></a>
 ### <a name="templates"></a><span data-ttu-id="feb48-205">テンプレート</span><span class="sxs-lookup"><span data-stu-id="feb48-205">Templates</span></span>

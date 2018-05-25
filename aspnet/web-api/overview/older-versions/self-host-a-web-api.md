@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/self-host-a-web-api
-title: "ASP.NET Web API 1 (c#) を自己ホスト |Microsoft ドキュメント"
+title: ASP.NET Web API 1 (c#) を自己ホスト |Microsoft ドキュメント
 author: MikeWasson
-description: "ASP.NET Web API には、IIS は不要です。 自己ホスト プロセスを独自の web API をホストできます。 このチュートリアルでは、applic コンソール内の web API をホストする方法を説明しています."
+description: ASP.NET Web API には、IIS は不要です。 自己ホスト プロセスを独自の web API をホストできます。 このチュートリアルでは、applic コンソール内の web API をホストする方法を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2012
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/24/2018
 
 <span data-ttu-id="e1d87-116">Visual Studio を起動し、選択**新しいプロジェクト**から、**開始**ページ。</span><span class="sxs-lookup"><span data-stu-id="e1d87-116">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="e1d87-117">またはから、**ファイル**メニューの **新規**し**プロジェクト**です。</span><span class="sxs-lookup"><span data-stu-id="e1d87-117">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="e1d87-118">**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#**ノード。</span><span class="sxs-lookup"><span data-stu-id="e1d87-118">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="e1d87-119">**Visual c#** **Windows**です。</span><span class="sxs-lookup"><span data-stu-id="e1d87-119">Under **Visual C#**, select **Windows**.</span></span> <span data-ttu-id="e1d87-120">プロジェクト テンプレートの一覧で選択**コンソール アプリケーション**です。</span><span class="sxs-lookup"><span data-stu-id="e1d87-120">In the list of project templates, select **Console Application**.</span></span> <span data-ttu-id="e1d87-121">プロジェクトに名前を&quot;SelfHost&quot;  をクリック**OK**です。</span><span class="sxs-lookup"><span data-stu-id="e1d87-121">Name the project &quot;SelfHost&quot; and click **OK**.</span></span>
+<span data-ttu-id="e1d87-118">**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。</span><span class="sxs-lookup"><span data-stu-id="e1d87-118">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="e1d87-119">**Visual c#** **Windows**です。</span><span class="sxs-lookup"><span data-stu-id="e1d87-119">Under **Visual C#**, select **Windows**.</span></span> <span data-ttu-id="e1d87-120">プロジェクト テンプレートの一覧で選択**コンソール アプリケーション**です。</span><span class="sxs-lookup"><span data-stu-id="e1d87-120">In the list of project templates, select **Console Application**.</span></span> <span data-ttu-id="e1d87-121">プロジェクトに名前を&quot;SelfHost&quot;  をクリック**OK**です。</span><span class="sxs-lookup"><span data-stu-id="e1d87-121">Name the project &quot;SelfHost&quot; and click **OK**.</span></span>
 
 ![](self-host-a-web-api/_static/image1.png)
 
@@ -156,7 +156,7 @@ ms.lasthandoff: 01/24/2018
 - <span data-ttu-id="e1d87-190">選択**参照の追加**です。</span><span class="sxs-lookup"><span data-stu-id="e1d87-190">Select **Add Reference**.</span></span>
 - <span data-ttu-id="e1d87-191">**参照マネージャー** ] ダイアログで、**ソリューション**[**プロジェクト**です。</span><span class="sxs-lookup"><span data-stu-id="e1d87-191">In the **Reference Manager** dialog, under **Solution**, select **Projects**.</span></span>
 - <span data-ttu-id="e1d87-192">自己ホスト型プロジェクトを選択します。</span><span class="sxs-lookup"><span data-stu-id="e1d87-192">Select the SelfHost project.</span></span>
-- <span data-ttu-id="e1d87-193">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="e1d87-193">Click **OK**.</span></span>
+- <span data-ttu-id="e1d87-193">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="e1d87-193">Click **OK**.</span></span>
 
 ![](self-host-a-web-api/_static/image6.png)
 

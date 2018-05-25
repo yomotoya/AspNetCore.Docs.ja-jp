@@ -60,7 +60,7 @@ ms.lasthandoff: 04/06/2018
 1. 1. <span data-ttu-id="5a9f8-127">Visual Studio で ASP.NET MVC 4 アプリケーションを作成し、SignalRChat、という名前を [ok] をクリックします。</span><span class="sxs-lookup"><span data-stu-id="5a9f8-127">In Visual Studio create an ASP.NET MVC 4 application, name it SignalRChat, and click OK.</span></span>
 
         > [!NOTE]
-        > <span data-ttu-id="5a9f8-128">VS 2010 で選択**.NET Framework 4**のフレームワークのバージョンのドロップダウン コントロールでします。</span><span class="sxs-lookup"><span data-stu-id="5a9f8-128">In VS 2010, select **.NET Framework 4** in the Framework version dropdown control.</span></span> <span data-ttu-id="5a9f8-129">SignalR のコードは、.NET Framework version 4 および 4.5 で実行されます。</span><span class="sxs-lookup"><span data-stu-id="5a9f8-129">SignalR code runs on .NET Framework versions 4 and 4.5.</span></span>
+        > <span data-ttu-id="5a9f8-128">VS 2010 で選択 **.NET Framework 4**のフレームワークのバージョンのドロップダウン コントロールでします。</span><span class="sxs-lookup"><span data-stu-id="5a9f8-128">In VS 2010, select **.NET Framework 4** in the Framework version dropdown control.</span></span> <span data-ttu-id="5a9f8-129">SignalR のコードは、.NET Framework version 4 および 4.5 で実行されます。</span><span class="sxs-lookup"><span data-stu-id="5a9f8-129">SignalR code runs on .NET Framework versions 4 and 4.5.</span></span>
 
         ![Mvc web を作成します。](tutorial-getting-started-with-signalr-and-mvc-4/_static/image3.png)
       2. <span data-ttu-id="5a9f8-131">インターネット アプリケーション テンプレートを選択し、オプションをオフに**単体テスト プロジェクトを作成**、[ok] をクリックします。</span><span class="sxs-lookup"><span data-stu-id="5a9f8-131">Select the Internet Application template, clear the option to **Create a unit test project**, and click OK.</span></span>

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr
-title: "チュートリアル: SignalR 2 の概要 |Microsoft ドキュメント"
+title: 'チュートリアル: SignalR 2 の概要 |Microsoft ドキュメント'
 author: pfletcher
-description: "このチュートリアルでは、SignalR を使用してリアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を空の ASP.NET web アプリケーションに追加し、HTML pa を作成しています."
+description: このチュートリアルでは、SignalR を使用してリアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を空の ASP.NET web アプリケーションに追加し、HTML pa を作成しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -102,7 +102,7 @@ ms.lasthandoff: 01/24/2018
 2. <span data-ttu-id="5c9e7-158">**新しい ASP.NET プロジェクト** ウィンドウのままにして**空**を選択し、をクリックして**プロジェクトの作成**です。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-158">In the **New ASP.NET Project** window, leave **Empty** selected and click **Create Project**.</span></span>
 
     ![空の web を作成します。](tutorial-getting-started-with-signalr/_static/image3.png)
-3. <span data-ttu-id="5c9e7-160">**ソリューション エクスプ ローラー**、プロジェクトを右クリックし、選択**追加 |SignalR ハブ クラス (v2)**です。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-160">In **Solution Explorer**, right-click the project, select **Add | SignalR Hub Class (v2)**.</span></span> <span data-ttu-id="5c9e7-161">クラスの名前を付けます**ChatHub.cs**し、プロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-161">Name the class **ChatHub.cs** and add it to the project.</span></span> <span data-ttu-id="5c9e7-162">この手順で作成、 **ChatHub**クラスし、一連のスクリプト ファイルと SignalR をサポートするアセンブリ参照がプロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-162">This step creates the **ChatHub** class and adds to the project a set of script files and assembly references that support SignalR.</span></span>
+3. <span data-ttu-id="5c9e7-160">**ソリューション エクスプ ローラー**、プロジェクトを右クリックし、選択**追加 |SignalR ハブ クラス (v2)** です。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-160">In **Solution Explorer**, right-click the project, select **Add | SignalR Hub Class (v2)**.</span></span> <span data-ttu-id="5c9e7-161">クラスの名前を付けます**ChatHub.cs**し、プロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-161">Name the class **ChatHub.cs** and add it to the project.</span></span> <span data-ttu-id="5c9e7-162">この手順で作成、 **ChatHub**クラスし、一連のスクリプト ファイルと SignalR をサポートするアセンブリ参照がプロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-162">This step creates the **ChatHub** class and adds to the project a set of script files and assembly references that support SignalR.</span></span>
 
     > [!NOTE]
     > <span data-ttu-id="5c9e7-163">開き、プロジェクトに SignalR を追加することも、**ツール |ライブラリ パッケージ マネージャー |パッケージ マネージャー コンソール**コマンドを実行しているとします。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-163">You can also add SignalR to a project by opening the **Tools | Library Package Manager | Package Manager Console** and running a command:</span></span>
@@ -112,7 +112,7 @@ ms.lasthandoff: 01/24/2018
     <span data-ttu-id="5c9e7-164">コンソールを使用して SignalR を追加する場合は、SignalR を追加した後に、別のステップとして SignalR ハブ クラスを作成します。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-164">If you use the console to add SignalR, create the SignalR hub class as a separate step after you add SignalR.</span></span>
 
     > [!NOTE]
-    > <span data-ttu-id="5c9e7-165">Visual Studio 2012 を使用している場合、 **SignalR ハブ クラス (v2)**テンプレートは使用できません。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-165">If you are using Visual Studio 2012, the **SignalR Hub Class (v2)** template will not be available.</span></span> <span data-ttu-id="5c9e7-166">形式を追加する**クラス**と呼ばれる`ChatHub`代わりにします。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-166">You can add a plain **Class** called `ChatHub` instead.</span></span>
+    > <span data-ttu-id="5c9e7-165">Visual Studio 2012 を使用している場合、 **SignalR ハブ クラス (v2)** テンプレートは使用できません。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-165">If you are using Visual Studio 2012, the **SignalR Hub Class (v2)** template will not be available.</span></span> <span data-ttu-id="5c9e7-166">形式を追加する**クラス**と呼ばれる`ChatHub`代わりにします。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-166">You can add a plain **Class** called `ChatHub` instead.</span></span>
 4. <span data-ttu-id="5c9e7-167">**ソリューション エクスプ ローラー**、[スクリプト] ノードを展開します。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-167">In **Solution Explorer**, expand the Scripts node.</span></span> <span data-ttu-id="5c9e7-168">JQuery、および SignalR のスクリプト ライブラリは、プロジェクトに表示されます。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-168">Script libraries for jQuery and SignalR are visible in the project.</span></span>
 5. <span data-ttu-id="5c9e7-169">新しいコードを置き換える**ChatHub**クラスを次のコード。</span><span class="sxs-lookup"><span data-stu-id="5c9e7-169">Replace the code in the new **ChatHub** class with the following code.</span></span>
 

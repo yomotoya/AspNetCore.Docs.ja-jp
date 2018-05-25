@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/troubleshooting
-title: "SignalR のトラブルシューティング (SignalR 1.x) |Microsoft ドキュメント"
+title: SignalR のトラブルシューティング (SignalR 1.x) |Microsoft ドキュメント
 author: pfletcher
-description: "この記事では、SignalR アプリケーションを開発の一般的な問題について説明します。"
+description: この記事では、SignalR アプリケーションを開発の一般的な問題について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/05/2013
@@ -160,8 +160,8 @@ ms.lasthandoff: 11/10/2017
 
 <span data-ttu-id="5a1dd-191">この問題のいくつかの原因があります。</span><span class="sxs-lookup"><span data-stu-id="5a1dd-191">There are several causes for this issue.</span></span> <span data-ttu-id="5a1dd-192">次のすべてを確認します。</span><span class="sxs-lookup"><span data-stu-id="5a1dd-192">Verify all of the following:</span></span>
 
-- <span data-ttu-id="5a1dd-193">**ハブ プロキシ アドレスの参照が正しくフォーマットされていません:**このエラーは生成されたハブ プロキシのアドレスへの参照が正しくフォーマットされていない場合も表示されます。</span><span class="sxs-lookup"><span data-stu-id="5a1dd-193">**Hub proxy address reference not formatted correctly:** This error is commonly seen if the reference to the generated hub proxy address is not formatted correctly.</span></span> <span data-ttu-id="5a1dd-194">ハブのアドレスへの参照が正しく行われたことを確認します。</span><span class="sxs-lookup"><span data-stu-id="5a1dd-194">Verify that the reference to the hub address is made properly.</span></span> <span data-ttu-id="5a1dd-195">参照してください[を動的に生成されたプロキシを参照する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy)詳細についてはします。</span><span class="sxs-lookup"><span data-stu-id="5a1dd-195">See [How to reference the dynamically generated proxy](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) for details.</span></span>
-- <span data-ttu-id="5a1dd-196">**ハブ ルートを追加する前に、アプリケーションへのルートの追加:**場合、アプリケーションでは、他のルートを使用することを確認追加された最初のルートへの呼び出し`MapHubs`です。</span><span class="sxs-lookup"><span data-stu-id="5a1dd-196">**Adding routes to application before adding the hub route:** If your application uses other routes, verify that the first route added is the call to `MapHubs`.</span></span>
+- <span data-ttu-id="5a1dd-193">**ハブ プロキシ アドレスの参照が正しくフォーマットされていません:** このエラーは生成されたハブ プロキシのアドレスへの参照が正しくフォーマットされていない場合も表示されます。</span><span class="sxs-lookup"><span data-stu-id="5a1dd-193">**Hub proxy address reference not formatted correctly:** This error is commonly seen if the reference to the generated hub proxy address is not formatted correctly.</span></span> <span data-ttu-id="5a1dd-194">ハブのアドレスへの参照が正しく行われたことを確認します。</span><span class="sxs-lookup"><span data-stu-id="5a1dd-194">Verify that the reference to the hub address is made properly.</span></span> <span data-ttu-id="5a1dd-195">参照してください[を動的に生成されたプロキシを参照する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy)詳細についてはします。</span><span class="sxs-lookup"><span data-stu-id="5a1dd-195">See [How to reference the dynamically generated proxy](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) for details.</span></span>
+- <span data-ttu-id="5a1dd-196">**ハブ ルートを追加する前に、アプリケーションへのルートの追加:** 場合、アプリケーションでは、他のルートを使用することを確認追加された最初のルートへの呼び出し`MapHubs`です。</span><span class="sxs-lookup"><span data-stu-id="5a1dd-196">**Adding routes to application before adding the hub route:** If your application uses other routes, verify that the first route added is the call to `MapHubs`.</span></span>
 
 ### <a name="500-internal-server-error"></a><span data-ttu-id="5a1dd-197">「500 内部サーバー エラー」</span><span class="sxs-lookup"><span data-stu-id="5a1dd-197">"500 Internal Server Error"</span></span>
 

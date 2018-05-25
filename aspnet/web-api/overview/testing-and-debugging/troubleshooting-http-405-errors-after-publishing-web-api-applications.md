@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
-title: "トラブルシューティング HTTP 405 エラー発行後に Web API 2 アプリケーション |Microsoft ドキュメント"
+title: トラブルシューティング HTTP 405 エラー発行後に Web API 2 アプリケーション |Microsoft ドキュメント
 author: rmcmurray
-description: "このチュートリアルでは、実稼働 web サーバーに Web API アプリケーションの発行後に HTTP 405 エラーをトラブルシューティングする方法について説明します。"
+description: このチュートリアルでは、実稼働 web サーバーに Web API アプリケーションの発行後に HTTP 405 エラーをトラブルシューティングする方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2014
@@ -76,7 +76,7 @@ ms.lasthandoff: 12/15/2017
 [!code-console[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample2.cmd)]
 
 
-<span data-ttu-id="b909d-148">この例では HTTP クライアント、web サーバー上の Web API アプリケーションの URL に有効な JSON 要求を送信するが、サーバーは PUT メソッドが、URL を使用できないことを示す HTTP 405 エラー メッセージを返しました。</span><span class="sxs-lookup"><span data-stu-id="b909d-148">In this example, the HTTP client sent a valid JSON request to the URL for a Web API application on a web server, but the server returned an HTTP 405 error message which indicates that the PUT method was not allowed for the URL.</span></span> <span data-ttu-id="b909d-149">これに対し、要求 URI で Web API アプリケーションのルートが一致しなかった場合、サーバーが返す HTTP 404***が見つかりません。***エラーです。</span><span class="sxs-lookup"><span data-stu-id="b909d-149">In contrast, if the request URI did not match a route for the Web API application, the server would return an HTTP 404 ***Not Found*** error.</span></span>
+<span data-ttu-id="b909d-148">この例では HTTP クライアント、web サーバー上の Web API アプリケーションの URL に有効な JSON 要求を送信するが、サーバーは PUT メソッドが、URL を使用できないことを示す HTTP 405 エラー メッセージを返しました。</span><span class="sxs-lookup"><span data-stu-id="b909d-148">In this example, the HTTP client sent a valid JSON request to the URL for a Web API application on a web server, but the server returned an HTTP 405 error message which indicates that the PUT method was not allowed for the URL.</span></span> <span data-ttu-id="b909d-149">これに対し、要求 URI で Web API アプリケーションのルートが一致しなかった場合、サーバーが返す HTTP 404***が見つかりません。*** エラーです。</span><span class="sxs-lookup"><span data-stu-id="b909d-149">In contrast, if the request URI did not match a route for the Web API application, the server would return an HTTP 404 ***Not Found*** error.</span></span>
 
 ## <a name="resolving-http-405-errors"></a><span data-ttu-id="b909d-150">HTTP 405 の解決エラー</span><span class="sxs-lookup"><span data-stu-id="b909d-150">Resolving HTTP 405 Errors</span></span>
 

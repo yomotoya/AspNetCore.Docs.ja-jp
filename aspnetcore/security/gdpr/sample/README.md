@@ -1,0 +1,6 @@
+# <a name="gdpr-sample"></a><span data-ttu-id="27cae-101">GDPR サンプル</span><span class="sxs-lookup"><span data-stu-id="27cae-101">GDPR Sample</span></span>
+
+* <span data-ttu-id="27cae-102">*される appsettings.json*設定、`CheckNotConsentNeeded`に`false`; の同意を要求するようにそれ以外の場合省略または場合に true に設定します。</span><span class="sxs-lookup"><span data-stu-id="27cae-102">In *appsettings.json*, set `CheckNotConsentNeeded` to `false` to require consent; otherwise set to true or omit.</span></span> <span data-ttu-id="27cae-103">使用してアプリをテスト`CheckNotConsentNeeded`'éý'`false`に設定および`true`です。</span><span class="sxs-lookup"><span data-stu-id="27cae-103">Test the app with `CheckNotConsentNeeded` set to `false` and set to `true`.</span></span>
+* <span data-ttu-id="27cae-104">各バリエーションの重要なと不要なクッキーを作成`CheckConsentNeeded`条項に同意を許可します。</span><span class="sxs-lookup"><span data-stu-id="27cae-104">Create essential and non-essential cookies with each variation of `CheckConsentNeeded` and consent granted.</span></span>
+* <span data-ttu-id="27cae-105">ユーザーを登録します。</span><span class="sxs-lookup"><span data-stu-id="27cae-105">Register a user.</span></span>
+* <span data-ttu-id="27cae-106">Cookie を削除します。</span><span class="sxs-lookup"><span data-stu-id="27cae-106">Delete cookies.</span></span>

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
-title: "チュートリアル: 頻度が高いリアルタイム signalr 2 |Microsoft ドキュメント"
+title: 'チュートリアル: 頻度が高いリアルタイム signalr 2 |Microsoft ドキュメント'
 author: pfletcher
-description: "このチュートリアルでは、ASP.NET SignalR を使用して、頻度が高いメッセージング機能を提供する web アプリケーションを作成する方法を示します。 高周波数のメッセージングには."
+description: このチュートリアルでは、ASP.NET SignalR を使用して、頻度が高いメッセージング機能を提供する web アプリケーションを作成する方法を示します。 高周波数のメッセージングには.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -102,7 +102,7 @@ ms.lasthandoff: 01/24/2018
 2. <span data-ttu-id="f1528-157">**新しい ASP.NET プロジェクト** ウィンドウのままにして**空**を選択し、をクリックして**プロジェクトの作成**です。</span><span class="sxs-lookup"><span data-stu-id="f1528-157">In the **New ASP.NET Project** window, leave **Empty** selected and click **Create Project**.</span></span>
 
     ![空の web を作成します。](tutorial-high-frequency-realtime-with-signalr/_static/image3.png)
-3. <span data-ttu-id="f1528-159">**ソリューション エクスプ ローラー**、プロジェクトを右クリックし、選択**追加 |SignalR ハブ クラス (v2)**です。</span><span class="sxs-lookup"><span data-stu-id="f1528-159">In **Solution Explorer**, right-click the project, select **Add | SignalR Hub Class (v2)**.</span></span> <span data-ttu-id="f1528-160">クラスの名前を付けます**MoveShapeHub.cs**し、プロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="f1528-160">Name the class **MoveShapeHub.cs** and add it to the project.</span></span> <span data-ttu-id="f1528-161">この手順で作成、 **MoveShapeHub**クラスし、一連のスクリプト ファイルと SignalR をサポートするアセンブリ参照がプロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="f1528-161">This step creates the **MoveShapeHub** class and adds to the project a set of script files and assembly references that support SignalR.</span></span>
+3. <span data-ttu-id="f1528-159">**ソリューション エクスプ ローラー**、プロジェクトを右クリックし、選択**追加 |SignalR ハブ クラス (v2)** です。</span><span class="sxs-lookup"><span data-stu-id="f1528-159">In **Solution Explorer**, right-click the project, select **Add | SignalR Hub Class (v2)**.</span></span> <span data-ttu-id="f1528-160">クラスの名前を付けます**MoveShapeHub.cs**し、プロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="f1528-160">Name the class **MoveShapeHub.cs** and add it to the project.</span></span> <span data-ttu-id="f1528-161">この手順で作成、 **MoveShapeHub**クラスし、一連のスクリプト ファイルと SignalR をサポートするアセンブリ参照がプロジェクトに追加します。</span><span class="sxs-lookup"><span data-stu-id="f1528-161">This step creates the **MoveShapeHub** class and adds to the project a set of script files and assembly references that support SignalR.</span></span>
 
     > [!NOTE]
     > <span data-ttu-id="f1528-162">クリックして、プロジェクトに SignalR を追加することも**ツール |ライブラリ パッケージ マネージャー |パッケージ マネージャー コンソール**コマンドを実行しているとします。</span><span class="sxs-lookup"><span data-stu-id="f1528-162">You can also add SignalR to a project by clicking **Tools | Library Package Manager | Package Manager Console** and running a command:</span></span>

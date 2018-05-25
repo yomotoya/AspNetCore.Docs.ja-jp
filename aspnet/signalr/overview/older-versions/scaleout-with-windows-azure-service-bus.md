@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
-title: "Azure Service Bus での SignalR スケール アウト (SignalR 1.x) |Microsoft ドキュメント"
+title: Azure Service Bus での SignalR スケール アウト (SignalR 1.x) |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2013
@@ -72,7 +72,7 @@ ms.lasthandoff: 01/24/2018
 
 <span data-ttu-id="6ef41-136">Visual Studio を起動します。</span><span class="sxs-lookup"><span data-stu-id="6ef41-136">Start Visual Studio.</span></span> <span data-ttu-id="6ef41-137">**ファイル** メニューをクリックして**新しいプロジェクト**です。</span><span class="sxs-lookup"><span data-stu-id="6ef41-137">From the **File** menu, click **New Project**.</span></span>
 
-<span data-ttu-id="6ef41-138">**新しいプロジェクト** ダイアログ ボックスで、展開**Visual c#**です。</span><span class="sxs-lookup"><span data-stu-id="6ef41-138">In the **New Project** dialog box, expand **Visual C#**.</span></span> <span data-ttu-id="6ef41-139">**インストールされたテンプレート****クラウド**し、 **Windows Azure クラウド サービス**です。</span><span class="sxs-lookup"><span data-stu-id="6ef41-139">Under **Installed Templates**, select **Cloud** and then select **Windows Azure Cloud Service**.</span></span> <span data-ttu-id="6ef41-140">既定値を .NET Framework 4.5 を保持します。</span><span class="sxs-lookup"><span data-stu-id="6ef41-140">Keep the default .NET Framework 4.5.</span></span> <span data-ttu-id="6ef41-141">ChatService アプリケーションの名前を指定し、をクリックして**OK**です。</span><span class="sxs-lookup"><span data-stu-id="6ef41-141">Name the application ChatService and click **OK**.</span></span>
+<span data-ttu-id="6ef41-138">**新しいプロジェクト** ダイアログ ボックスで、展開**Visual c#** です。</span><span class="sxs-lookup"><span data-stu-id="6ef41-138">In the **New Project** dialog box, expand **Visual C#**.</span></span> <span data-ttu-id="6ef41-139">**インストールされたテンプレート****クラウド**し、 **Windows Azure クラウド サービス**です。</span><span class="sxs-lookup"><span data-stu-id="6ef41-139">Under **Installed Templates**, select **Cloud** and then select **Windows Azure Cloud Service**.</span></span> <span data-ttu-id="6ef41-140">既定値を .NET Framework 4.5 を保持します。</span><span class="sxs-lookup"><span data-stu-id="6ef41-140">Keep the default .NET Framework 4.5.</span></span> <span data-ttu-id="6ef41-141">ChatService アプリケーションの名前を指定し、をクリックして**OK**です。</span><span class="sxs-lookup"><span data-stu-id="6ef41-141">Name the application ChatService and click **OK**.</span></span>
 
 ![](scaleout-with-windows-azure-service-bus/_static/image4.png)
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 01/24/2018
 
 ![](scaleout-with-windows-azure-service-bus/_static/image5.png)
 
-<span data-ttu-id="6ef41-147">**新しい ASP.NET MVC 4 プロジェクト**ウィザードで、**インターネット アプリケーション**です。</span><span class="sxs-lookup"><span data-stu-id="6ef41-147">In the **New ASP.NET MVC 4 Project** wizard, select **Internet Application**.</span></span> <span data-ttu-id="6ef41-148">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="6ef41-148">Click **OK**.</span></span> <span data-ttu-id="6ef41-149">チーム プロジェクト ウィザードでは、2 つのプロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="6ef41-149">The project wizard creates two projects:</span></span>
+<span data-ttu-id="6ef41-147">**新しい ASP.NET MVC 4 プロジェクト**ウィザードで、**インターネット アプリケーション**です。</span><span class="sxs-lookup"><span data-stu-id="6ef41-147">In the **New ASP.NET MVC 4 Project** wizard, select **Internet Application**.</span></span> <span data-ttu-id="6ef41-148">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="6ef41-148">Click **OK**.</span></span> <span data-ttu-id="6ef41-149">チーム プロジェクト ウィザードでは、2 つのプロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="6ef41-149">The project wizard creates two projects:</span></span>
 
 - <span data-ttu-id="6ef41-150">ChatService: このプロジェクトは、Windows Azure アプリケーションです。</span><span class="sxs-lookup"><span data-stu-id="6ef41-150">ChatService: This project is the Windows Azure application.</span></span> <span data-ttu-id="6ef41-151">これは、Azure のロールとその他の構成オプションを定義します。</span><span class="sxs-lookup"><span data-stu-id="6ef41-151">It defines the Azure roles and other configuration options.</span></span>
 - <span data-ttu-id="6ef41-152">SignalRChat: このプロジェクトは、ASP.NET MVC 4 プロジェクトです。</span><span class="sxs-lookup"><span data-stu-id="6ef41-152">SignalRChat: This project is your ASP.NET MVC 4 project.</span></span>
@@ -135,11 +135,11 @@ ms.lasthandoff: 01/24/2018
 
 <span data-ttu-id="6ef41-175">をクリックして**インポート**をダウンロードした発行設定ファイルを選択します。</span><span class="sxs-lookup"><span data-stu-id="6ef41-175">Click **Import** and select the publish settings file that you downloaded.</span></span>
 
-<span data-ttu-id="6ef41-176">**[次へ]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="6ef41-176">Click **Next**.</span></span> <span data-ttu-id="6ef41-177">**発行設定**ダイアログで、**クラウド サービス**、先ほど作成したクラウド サービスを選択します。</span><span class="sxs-lookup"><span data-stu-id="6ef41-177">In the **Publish Settings** dialog, under **Cloud Service**, select the cloud service that you created earlier.</span></span>
+<span data-ttu-id="6ef41-176">**[次へ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="6ef41-176">Click **Next**.</span></span> <span data-ttu-id="6ef41-177">**発行設定**ダイアログで、**クラウド サービス**、先ほど作成したクラウド サービスを選択します。</span><span class="sxs-lookup"><span data-stu-id="6ef41-177">In the **Publish Settings** dialog, under **Cloud Service**, select the cloud service that you created earlier.</span></span>
 
 ![](scaleout-with-windows-azure-service-bus/_static/image12.png)
 
-<span data-ttu-id="6ef41-178">**[発行]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="6ef41-178">Click **Publish**.</span></span> <span data-ttu-id="6ef41-179">アプリケーションを展開し、Vm を起動するまで数分かかることができます。</span><span class="sxs-lookup"><span data-stu-id="6ef41-179">It can take a few minutes to deploy the application and start the VMs.</span></span>
+<span data-ttu-id="6ef41-178">**[発行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="6ef41-178">Click **Publish**.</span></span> <span data-ttu-id="6ef41-179">アプリケーションを展開し、Vm を起動するまで数分かかることができます。</span><span class="sxs-lookup"><span data-stu-id="6ef41-179">It can take a few minutes to deploy the application and start the VMs.</span></span>
 
 <span data-ttu-id="6ef41-180">今すぐチャット アプリケーションを実行すると、ロール インスタンスは、Service Bus トピックを使用して、Azure Service Bus を通じて通信します。</span><span class="sxs-lookup"><span data-stu-id="6ef41-180">Now when you run the chat application, the role instances communicate through Azure Service Bus, using a Service Bus topic.</span></span> <span data-ttu-id="6ef41-181">トピックは、複数のサブスクライバーを許可するメッセージ キューです。</span><span class="sxs-lookup"><span data-stu-id="6ef41-181">A topic is a message queue that allows multiple subscribers.</span></span>
 

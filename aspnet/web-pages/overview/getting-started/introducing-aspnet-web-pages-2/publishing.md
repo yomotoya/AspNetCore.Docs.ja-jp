@@ -92,7 +92,7 @@ ms.lasthandoff: 04/06/2018
 
 ![変更されたサイト名](publishing/_static/image6.png)
 
-<span data-ttu-id="2545b-168">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="2545b-168">Click **OK**.</span></span>
+<span data-ttu-id="2545b-168">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="2545b-168">Click **OK**.</span></span>
 
 <span data-ttu-id="2545b-169">WebMatrix performss がかどうか、サーバー、サイトとの互換性をテストします。</span><span class="sxs-lookup"><span data-stu-id="2545b-169">WebMatrix performss a test to determine if the server is compatible with your site.</span></span>
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 04/06/2018
 
 ![メッセージの公開プロセスのテストを実行する内容](publishing/_static/image17.png)
 
-<span data-ttu-id="2545b-224">**[はい]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="2545b-224">Click **Yes**.</span></span> <span data-ttu-id="2545b-225">WebMatrix は、ホスティング プロバイダーにいくつかのサンプル ファイルをアップロードします。</span><span class="sxs-lookup"><span data-stu-id="2545b-225">WebMatrix uploads some sample files to the hosting provider.</span></span> <span data-ttu-id="2545b-226">互換性テストを完了すると、WebMatrix は、結果をレポートします。</span><span class="sxs-lookup"><span data-stu-id="2545b-226">When the compatibility test is done, WebMatrix reports the results:</span></span>
+<span data-ttu-id="2545b-224">**[はい]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="2545b-224">Click **Yes**.</span></span> <span data-ttu-id="2545b-225">WebMatrix は、ホスティング プロバイダーにいくつかのサンプル ファイルをアップロードします。</span><span class="sxs-lookup"><span data-stu-id="2545b-225">WebMatrix uploads some sample files to the hosting provider.</span></span> <span data-ttu-id="2545b-226">互換性テストを完了すると、WebMatrix は、結果をレポートします。</span><span class="sxs-lookup"><span data-stu-id="2545b-226">When the compatibility test is done, WebMatrix reports the results:</span></span>
 
 ![公開のテストの結果](publishing/_static/image18.png)
 
@@ -176,7 +176,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="2545b-231">発行するファイルの一覧と同様に作成した web ページが含まれています。 *Movies.cshtml*です。</span><span class="sxs-lookup"><span data-stu-id="2545b-231">The list of files to publish includes the web pages that you've created like *Movies.cshtml*.</span></span> <span data-ttu-id="2545b-232">一覧には、ヘルパーをインストールしたが、データベースの SQL Server Compact Edition を実行するために、ファイルのファイルも含まれています。</span><span class="sxs-lookup"><span data-stu-id="2545b-232">The list also includes files for helpers that you've installed, the files to run SQL Server Compact Edition for your database, and so on.</span></span> <span data-ttu-id="2545b-233">初期公開のプロセスの結果として、大幅に節約できます。</span><span class="sxs-lookup"><span data-stu-id="2545b-233">As a result, the initial publish process can be substantial.</span></span>
 
-<span data-ttu-id="2545b-234">**[続行]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="2545b-234">Click **Continue**.</span></span> <span data-ttu-id="2545b-235">WebMatrix は、ホスティング プロバイダーのサーバーに、ファイルをコピーします。</span><span class="sxs-lookup"><span data-stu-id="2545b-235">WebMatrix copies your files to the hosting provider's server.</span></span> <span data-ttu-id="2545b-236">実行されると、結果は、ステータス バーに報告されます。</span><span class="sxs-lookup"><span data-stu-id="2545b-236">When it's done, the results are reported in the status bar:</span></span>
+<span data-ttu-id="2545b-234">**[続行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="2545b-234">Click **Continue**.</span></span> <span data-ttu-id="2545b-235">WebMatrix は、ホスティング プロバイダーのサーバーに、ファイルをコピーします。</span><span class="sxs-lookup"><span data-stu-id="2545b-235">WebMatrix copies your files to the hosting provider's server.</span></span> <span data-ttu-id="2545b-236">実行されると、結果は、ステータス バーに報告されます。</span><span class="sxs-lookup"><span data-stu-id="2545b-236">When it's done, the results are reported in the status bar:</span></span>
 
 ![発行プロセスが正常に完了すると、ステータス バー メッセージ](publishing/_static/image20.png)
 
@@ -200,7 +200,7 @@ ms.lasthandoff: 04/06/2018
 > <span data-ttu-id="2545b-251">既定では、WebMatrix は、データベースを発行 (*.sdf*ファイル) だけで最初にサイトを発行します。</span><span class="sxs-lookup"><span data-stu-id="2545b-251">By default, WebMatrix publishes your database (*.sdf* file) only the first time you publish the site.</span></span> <span data-ttu-id="2545b-252">サイトが公開され、ユーザーが、web サイトと対話する、実際のサイトのデータベースは通常、サイトの実際のデータを持っています。</span><span class="sxs-lookup"><span data-stu-id="2545b-252">Once your site is published and people are interacting with the website, the database on the live site typically has the site's real data.</span></span> <span data-ttu-id="2545b-253">ライブ データベースを上書きしないように十分に注意する必要がある、 *.sdf*通常テスト データだけが含まれますコンピューターにインストールされているファイル。</span><span class="sxs-lookup"><span data-stu-id="2545b-253">You have to be very careful not to overwrite the live database with the *.sdf* file that's on your computer, which usually contains only test data.</span></span> <span data-ttu-id="2545b-254">理由です、警告が表示**発行は、リモート データベースを上書き**と理由のチェック ボックスを*WebPagesMovies.sdf*既定ではオフです。</span><span class="sxs-lookup"><span data-stu-id="2545b-254">That's why you see the warning **Publishing will overwrite any remote databases**, and why the check box for *WebPagesMovies.sdf* is cleared by default.</span></span>
 
 
-<span data-ttu-id="2545b-255">**[続行]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="2545b-255">Click **Continue**.</span></span> <span data-ttu-id="2545b-256">WebMatrix を使用して、変更されたファイルを発行、発行した最初の時間と同じように、成功メッセージを示します。</span><span class="sxs-lookup"><span data-stu-id="2545b-256">WebMatrix publishes the changed files and shows you a success message, like it did the first time you published.</span></span>
+<span data-ttu-id="2545b-255">**[続行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="2545b-255">Click **Continue**.</span></span> <span data-ttu-id="2545b-256">WebMatrix を使用して、変更されたファイルを発行、発行した最初の時間と同じように、成功メッセージを示します。</span><span class="sxs-lookup"><span data-stu-id="2545b-256">WebMatrix publishes the changed files and shows you a success message, like it did the first time you published.</span></span>
 
 <span data-ttu-id="2545b-257">実際のサイト (リンクをクリック、成功メッセージがまだ表示されている場合) に移動し、変更が発行されていることを確認します。</span><span class="sxs-lookup"><span data-stu-id="2545b-257">Go to the live site (you can click the link in the success message if it's still showing) and verify that your change has been published.</span></span>
 

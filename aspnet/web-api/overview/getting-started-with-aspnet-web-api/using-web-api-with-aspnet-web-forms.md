@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
-title: "ASP.NET Web フォームで Web API の使用 |Microsoft ドキュメント"
+title: ASP.NET Web フォームで Web API の使用 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2012
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/01/2017
 
 <span data-ttu-id="fe63c-111">Visual Studio を起動し、選択**新しいプロジェクト**から、**開始**ページ。</span><span class="sxs-lookup"><span data-stu-id="fe63c-111">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="fe63c-112">またはから、**ファイル**メニューの **新規**し**プロジェクト**です。</span><span class="sxs-lookup"><span data-stu-id="fe63c-112">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="fe63c-113">**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#**ノード。</span><span class="sxs-lookup"><span data-stu-id="fe63c-113">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="fe63c-114">**Visual c#** **Web**です。</span><span class="sxs-lookup"><span data-stu-id="fe63c-114">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="fe63c-115">プロジェクト テンプレートの一覧で選択**ASP.NET Web フォーム アプリケーション**です。</span><span class="sxs-lookup"><span data-stu-id="fe63c-115">In the list of project templates, select **ASP.NET Web Forms Application**.</span></span> <span data-ttu-id="fe63c-116">プロジェクトの名前を入力し、クリックして**OK**です。</span><span class="sxs-lookup"><span data-stu-id="fe63c-116">Enter a name for the project and click **OK**.</span></span>
+<span data-ttu-id="fe63c-113">**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。</span><span class="sxs-lookup"><span data-stu-id="fe63c-113">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="fe63c-114">**Visual c#** **Web**です。</span><span class="sxs-lookup"><span data-stu-id="fe63c-114">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="fe63c-115">プロジェクト テンプレートの一覧で選択**ASP.NET Web フォーム アプリケーション**です。</span><span class="sxs-lookup"><span data-stu-id="fe63c-115">In the list of project templates, select **ASP.NET Web Forms Application**.</span></span> <span data-ttu-id="fe63c-116">プロジェクトの名前を入力し、クリックして**OK**です。</span><span class="sxs-lookup"><span data-stu-id="fe63c-116">Enter a name for the project and click **OK**.</span></span>
 
 ![](using-web-api-with-aspnet-web-forms/_static/image1.png)
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/01/2017
 
 ![](using-web-api-with-aspnet-web-forms/_static/image2.png)
 
-<span data-ttu-id="fe63c-125">**インストールされたテンプレート**、展開**Visual c#**選択**Web**です。</span><span class="sxs-lookup"><span data-stu-id="fe63c-125">Under **Installed Templates**, expand **Visual C#** and select **Web**.</span></span> <span data-ttu-id="fe63c-126">次に、テンプレートの一覧から次のように選択します。 **Web API コント ローラー クラス**です。</span><span class="sxs-lookup"><span data-stu-id="fe63c-126">Then, from the list of templates, select **Web API Controller Class**.</span></span> <span data-ttu-id="fe63c-127">コント ローラー"ProductsController"という名前をクリックして**追加**です。</span><span class="sxs-lookup"><span data-stu-id="fe63c-127">Name the controller "ProductsController" and click **Add**.</span></span>
+<span data-ttu-id="fe63c-125">**インストールされたテンプレート**、展開**Visual c#** 選択**Web**です。</span><span class="sxs-lookup"><span data-stu-id="fe63c-125">Under **Installed Templates**, expand **Visual C#** and select **Web**.</span></span> <span data-ttu-id="fe63c-126">次に、テンプレートの一覧から次のように選択します。 **Web API コント ローラー クラス**です。</span><span class="sxs-lookup"><span data-stu-id="fe63c-126">Then, from the list of templates, select **Web API Controller Class**.</span></span> <span data-ttu-id="fe63c-127">コント ローラー"ProductsController"という名前をクリックして**追加**です。</span><span class="sxs-lookup"><span data-stu-id="fe63c-127">Name the controller "ProductsController" and click **Add**.</span></span>
 
 ![](using-web-api-with-aspnet-web-forms/_static/image3.png)
 
