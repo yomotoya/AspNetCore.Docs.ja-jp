@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/twitter-helper
-title: "Twitter の ASP.NET Web Pages でヘルパー |Microsoft ドキュメント"
+title: Twitter の ASP.NET Web Pages でヘルパー |Microsoft ドキュメント
 author: tfitzmac
-description: "このトピックおよびアプリケーションは、Twitter Helper を WebMatrix 3 プロジェクトに追加する方法を示します。 Twitter のヘルパー コードを含むし、ヘルパーを呼び出す方法を示しています."
+description: このトピックおよびアプリケーションは、Twitter Helper を WebMatrix 3 プロジェクトに追加する方法を示します。 Twitter のヘルパー コードを含むし、ヘルパーを呼び出す方法を示しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/07/2014
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/twitter-helper
 msc.type: authoredcontent
 ms.openlocfilehash: 07d9c4d485c42b78a42c54c9740af5f67cb44763
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/25/2018
 ---
 <a name="twitter-helper-with-aspnet-web-pages"></a>Twitter でヘルパーを ASP.NET Web ページ
 ====================
@@ -67,24 +67,24 @@ Twitter.cshtml の既定のコードを次のコードに置き換えます。
 
 ### <a name="follow-button"></a>次のボタン
 
-[次の@aspnet)](https://twitter.com/aspnet)<script>! (d、s、id) 関数 {var js、fjs d.getElementsByTagName(s) [0], p =/^http:/.test(d.location) を = ですか?'http': 'https';場合 (! d.getElementById(id)) {js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore (js、fjs);}}(ドキュメント、'script'、' twitter wjs');</script>
+[次の@aspnet)](https://twitter.com/aspnet)<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
 
 ### <a name="tweet-button"></a>ツイート ボタン
 
-[ツイート](https://twitter.com/share)<script>! (d、s、id) 関数 {var js、fjs d.getElementsByTagName(s) [0], p =/^http:/.test(d.location) を = ですか?'http': 'https';場合 (! d.getElementById(id)) {js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore (js、fjs);}}(ドキュメント、'script'、' twitter wjs');</script>
+[ツイート](https://twitter.com/share)<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
 
 ### <a name="user-timeline-profile"></a>ユーザー タイムライン (プロファイル)
 
-[によってツイート@aspnet ](https://twitter.com/aspnet) <script>! (d、s、id) 関数 {var js、fjs d.getElementsByTagName(s) [0], p =/^http:/.test(d.location) を = ですか?'http': 'https';場合 (! d.getElementById(id)) {js = d.createElement(s); js.id = id; js.src = p +"://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore (js、fjs);}}(ドキュメント、"script"、"twitter wjs") です。</script>
+[によってツイート @aspnet](https://twitter.com/aspnet)<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
 
 ### <a name="favorites"></a>お気に入り
 
-[お気に入りツイート@Microsoft ](https://twitter.com/Microsoft/favorites) <script>! (d、s、id) 関数 {var js、fjs d.getElementsByTagName(s) [0], p =/^http:/.test(d.location) を = ですか?'http': 'https';場合 (! d.getElementById(id)) {js = d.createElement(s); js.id = id; js.src = p +"://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore (js、fjs);}}(ドキュメント、"script"、"twitter wjs") です。</script>
+[お気に入りツイート @Microsoft](https://twitter.com/Microsoft/favorites)<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
 
 ### <a name="list"></a>リスト
 
-[ツイート@Microsoft/MS\_コンシューマー\_バンド](https://twitter.com/microsoft/ms-consumer-brands/)<script>! (d、s、id) 関数 {var js、fjs d.getElementsByTagName(s) [0], p =/^http:/.test(d.location) を = ですか?'http': 'https';場合 (! d.getElementById(id)) {js = d.createElement(s); js.id = id; js.src = p +"://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore (js、fjs);}}(ドキュメント、"script"、"twitter wjs") です。</script>
+[ツイート@Microsoft/MS\_コンシューマー\_バンド](https://twitter.com/microsoft/ms-consumer-brands/)<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
 
 ### <a name="search"></a>検索
 
-[に関するツイート&quot;#asp.net&quot;](https://twitter.com/search?q=%23asp.net)<script>! (d、s、id) 関数 {var js、fjs d.getElementsByTagName(s) [0], p =/^http:/.test(d.location) を = ですか?'http': 'https';場合 (! d.getElementById(id)) {js = d.createElement(s); js.id = id; js.src = p +"://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore (js、fjs);}}(ドキュメント、"script"、"twitter wjs") です。</script>
+[に関するツイート&quot;#asp.net&quot;](https://twitter.com/search?q=%23asp.net)<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
