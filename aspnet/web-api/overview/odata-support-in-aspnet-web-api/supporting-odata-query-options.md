@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
-title: "ASP.NET Web API 2 OData クエリ オプションをサポートする |Microsoft ドキュメント"
+title: ASP.NET Web API 2 OData クエリ オプションをサポートする |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/04/2013
@@ -26,7 +26,7 @@ OData は、OData のクエリを変更するために使用するパラメー�
 
 `http://localhost/Products?$orderby=Name`
 
-OData の仕様は、これらのパラメーターを呼び出す*クエリ オプション*です。 プロジェクト &#8212; で任意の Web API コント ローラーの OData クエリ オプションを有効にすることができます。コント ローラーは、OData エンドポイントである必要はありません。 これにより、フィルター処理および並べ替えを任意の Web API アプリケーションなどの機能を追加する便利な方法です。
+OData の仕様は、これらのパラメーターを呼び出す*クエリ オプション*です。 プロジェクト & #8212; で任意の Web API コント ローラーの OData クエリ オプションを有効にすることができます。コント ローラーは、OData エンドポイントである必要はありません。 これにより、フィルター処理および並べ替えを任意の Web API アプリケーションなどの機能を追加する便利な方法です。
 
 トピックを参照してください。 クエリのオプションを有効にする前に[OData セキュリティ ガイダンス](odata-security-guidance.md)です。
 
@@ -58,7 +58,7 @@ OData クエリ オプションをグローバルに有効にするを呼び出�
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample1.cs)]
 
-**EnableQuerySupport**メソッドを返すコント ローラーのアクションのグローバル クエリ オプションを有効にする**IQueryable**型です。 クエリ オプションをアプリケーション全体に対して有効にしない場合を有効にすることの特定のコント ローラー アクションの追加、 **[Queryable]**属性をアクション メソッドにします。
+**EnableQuerySupport**メソッドを返すコント ローラーのアクションのグローバル クエリ オプションを有効にする**IQueryable**型です。 クエリ オプションをアプリケーション全体に対して有効にしない場合を有効にすることの特定のコント ローラー アクションの追加、 **[Queryable]** 属性をアクション メソッドにします。
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample2.cs)]
 
@@ -131,7 +131,7 @@ JSON 応答の例を次に示します。
 <a id="limiting_query_options"></a>
 ## <a name="limiting-the-query-options"></a>クエリ オプションを制限します。
 
-クエリ オプションは、クライアントに多数のサーバーで実行されるクエリに制御を提供します。 場合によっては、セキュリティやパフォーマンス上の理由から使用可能なオプションを制限することができます。 **[Queryable]**属性がいくつかビルド プロパティでこのです。 以下に例をいくつか示します。
+クエリ オプションは、クライアントに多数のサーバーで実行されるクエリに制御を提供します。 場合によっては、セキュリティやパフォーマンス上の理由から使用可能なオプションを制限することができます。 **[Queryable]** 属性がいくつかビルド プロパティでこのです。 以下に例をいくつか示します。
 
 ページングとそれ以外のものをサポートするために $skip と $top、のみを許可します。
 
@@ -156,7 +156,7 @@ JSON 応答の例を次に示します。
 <a id="ODataQueryOptions"></a>
 ## <a name="invoking-query-options-directly"></a>クエリ オプションの直接呼び出し
 
-使用する代わりに、 **[Queryable]**属性に、コント ローラーで直接クエリ オプションを呼び出すことができます。 これを行うには、追加、 **ODataQueryOptions**コント ローラー メソッドへのパラメーターです。 この場合、する必要はありません、 **[Queryable]**属性。
+使用する代わりに、 **[Queryable]** 属性に、コント ローラーで直接クエリ オプションを呼び出すことができます。 これを行うには、追加、 **ODataQueryOptions**コント ローラー メソッドへのパラメーターです。 この場合、する必要はありません、 **[Queryable]** 属性。
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample13.cs)]
 
@@ -167,7 +167,7 @@ Web API には追加、 **ODataQueryOptions** URI からクエリ文字列。 �
 <a id="query-validation"></a>
 ## <a name="query-validation"></a>クエリの検証
 
-**[Queryable]**属性は、実行する前に、クエリを検証します。 検証のステップは、実行、 **QueryableAttribute.ValidateQuery**メソッドです。 検証プロセスをカスタマイズすることもできます。
+**[Queryable]** 属性は、実行する前に、クエリを検証します。 検証のステップは、実行、 **QueryableAttribute.ValidateQuery**メソッドです。 検証プロセスをカスタマイズすることもできます。
 
 参照してください[OData セキュリティ ガイダンス](odata-security-guidance.md)です。
 
@@ -175,7 +175,7 @@ Web API には追加、 **ODataQueryOptions** URI からクエリ文字列。 �
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample14.cs)]
 
-サブクラス、 **[Queryable]**をオーバーライドする属性、 **ValidateQuery**メソッドです。
+サブクラス、 **[Queryable]** をオーバーライドする属性、 **ValidateQuery**メソッドです。
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample15.cs)]
 

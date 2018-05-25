@@ -4,16 +4,16 @@ author: rick-anderson
 description: ASP.NET と ASP.NET Core のどちらかを選択する方法について説明します。
 manager: wpickett
 ms.author: riande
-ms.date: 03/14/2018
+ms.date: 05/11/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: e6ac9f54ef623895b81eea33d90791e5f0ad5120
-ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
+ms.openlocfilehash: 0c6924d40b7327d2032a0278c56a0b4fa41d15a1
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="choose-between-aspnet-and-aspnet-core"></a>ASP.NET と ASP.NET Core の選択
 
@@ -25,14 +25,16 @@ ASP.NET Core は、Windows、macOS、または Linux で最新のクラウド �
 
 ## <a name="aspnet"></a>ASP.NET
 
-ASP.NET は成熟したフレームワークであり、Windows でエンタープライズ クラスのサーバー ベース Web アプリを構築するために必要なすべてのサービスを提供します。
+ASP.NET は成熟したフレームワークであり、Windows でエンタープライズ グレードのサーバー ベース Web アプリを構築するために必要なすべてのサービスを提供します。
 
-## <a name="which-one-is-right-for-me"></a>どちらが適していますか?
+## <a name="framework-selection"></a>フレームワークの選択
+
+次の表で、どのフレームワークが最もニーズに適しているかをご確認ください。
 
 | ASP.NET Core | ASP.NET |
 |---|---|
 |Windows、macOS、Linux が対象|Windows が対象|
-|[Razor ページ](xref:mvc/razor-pages/index)は、ASP.NET Core 2.x の時点で Web UI を作成する場合に推奨される方法です。 [MVC](xref:mvc/overview)、[Web API](xref:tutorials/first-web-api)、[SignalR](xref:signalr/introduction) についても参照してください。|[Web フォーム](/aspnet/web-forms)、[SignalR](/aspnet/signalr)、[MVC](/aspnet/mvc)、[Web API](/aspnet/web-api/)、または [Web ページ](/aspnet/web-pages)を使います|
+|[Razor ページ](xref:mvc/razor-pages/index)は、ASP.NET Core 2.x の時点で Web UI を作成する場合に推奨される方法です。 [MVC](xref:mvc/overview)、[Web API](xref:tutorials/first-web-api)、[SignalR](xref:signalr/introduction) についても参照してください。|[Web フォーム](/aspnet/web-forms)、[SignalR](/aspnet/signalr)、[MVC](/aspnet/mvc)、[Web API](/aspnet/web-api/)、[WebHooks](/aspnet/webhooks/)、または [Web ページ](/aspnet/web-pages)を使います。|
 |コンピューターごとに複数のバージョン|コンピューターごとに 1 つのバージョン|
 |Visual Studio、[Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)、または [Visual Studio Code](https://code.visualstudio.com/) で C# または F# を使って開発します|Visual Studio で C#、VB、または F# を使って開発します|
 |ASP.NET より高いパフォーマンス|よいパフォーマンス|
@@ -40,7 +42,6 @@ ASP.NET は成熟したフレームワークであり、Windows でエンター�
 
 ## <a name="aspnet-core-scenarios"></a>ASP.NET Core のシナリオ
 
-<!-- update link to Razor Pages mvc movie series when done -->
 * [Razor ページ](xref:mvc/razor-pages/index)は、ASP.NET Core 2.x の時点で Web UI を作成する場合に推奨される方法です。
 * [Web サイト](xref:tutorials/first-mvc-app/index)
 * [API](xref:tutorials/first-web-api)

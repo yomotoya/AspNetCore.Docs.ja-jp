@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations
-title: "Web API 2 OData v3 のエンティティ関係をサポートする |Microsoft ドキュメント"
+title: Web API 2 OData v3 のエンティティ関係をサポートする |Microsoft ドキュメント
 author: MikeWasson
-description: "ほとんどのデータ セットは、エンティティ間のリレーションを定義します。 お客様が設定されている順序です。ブックがある作成者です。製品では、仕入先があります。 OData を使用すると、クライアントは、経由で移動することができます."
+description: ほとんどのデータ セットは、エンティティ間のリレーションを定義します。 お客様が設定されている順序です。ブックがある作成者です。製品では、仕入先があります。 OData を使用すると、クライアントは、経由で移動することができます.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2014
@@ -68,9 +68,9 @@ WebApiConfig.cs では、EDM モデルを"Suppliers"エンティティを追加�
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample6.cs)]
 
-*キー*パラメーターは、製品のキー。 メソッドを返します、関連するエンティティ &#8212;ここで、`Supplier`インスタンス。 メソッド名とパラメーター名はどちらも重要です。 一般に、ナビゲーション プロパティが"X"をという名前の場合は、「getx メソッド」という名前のメソッドを追加する必要があります。 メソッドは、という名前のパラメーターを受け取る必要があります"*キー*"親のキーのデータ型に一致します。
+*キー*パラメーターは、製品のキー。 メソッドを返します、関連するエンティティ & #8212 ここで、`Supplier`インスタンス。 メソッド名とパラメーター名はどちらも重要です。 一般に、ナビゲーション プロパティが"X"をという名前の場合は、「getx メソッド」という名前のメソッドを追加する必要があります。 メソッドは、という名前のパラメーターを受け取る必要があります"*キー*"親のキーのデータ型に一致します。
 
-含める必要も、 **[FromOdataUri]**属性、*キー*パラメーター。 この属性では、Web API 要求 URI のキーを解析する場合は、OData 構文の規則を使用するように指示します。
+含める必要も、 **[FromOdataUri]** 属性、*キー*パラメーター。 この属性では、Web API 要求 URI のキーを解析する場合は、OData 構文の規則を使用するように指示します。
 
 ## <a name="creating-and-deleting-links"></a>作成して、リンクを削除します。
 

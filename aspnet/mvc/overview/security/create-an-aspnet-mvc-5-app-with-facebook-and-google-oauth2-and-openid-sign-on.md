@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
 ms.openlocfilehash: c289c209b50f0c2c1f2d8b15a3aedeaebf671d0b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/21/2018
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook、Twitter、LinkedIn および Google OAuth2 サイン オン (c#) で ASP.NET MVC 5 アプリを作成します。
 ====================
@@ -48,7 +48,7 @@ ms.lasthandoff: 04/06/2018
 <a id="1st"></a>
 ## <a name="creating-your-first-application"></a>初めてアプリケーションの作成
 
-をクリックして**新しいプロジェクト**選択してから、 **Visual c#**し、左側の**Web**し、 **ASP.NET Web アプリケーション**です。 プロジェクト"MvcAuth"の名前を指定し、をクリックして**OK**です。
+をクリックして**新しいプロジェクト**選択してから、 **Visual c#** し、左側の**Web**し、 **ASP.NET Web アプリケーション**です。 プロジェクト"MvcAuth"の名前を指定し、をクリックして**OK**です。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image2.png)
 

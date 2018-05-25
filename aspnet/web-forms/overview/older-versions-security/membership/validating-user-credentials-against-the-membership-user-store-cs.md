@@ -39,9 +39,9 @@ ms.lasthandoff: 04/06/2018
 
 フォーム認証を使用する web サイトでは、ユーザー ログオン、web サイトにログイン ページにアクセスし、自分の資格情報を入力します。 これらの資格情報は、ユーザー ストアとし、比較されます。 有効な場合は、ユーザーは、セキュリティ トークンの id と、ユーザーの信頼性を示すのフォーム認証のチケットを許可します。
 
-メンバーシップ フレームワークに対してユーザーを検証するを使用して、`Membership`クラスの[`ValidateUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx)です。 `ValidateUser`メソッドは、2 つの入力パラメーターで使用*`username`*と*`password`* -資格情報が有効であるかどうかを示すブール値を返します。 使用するような`CreateUser`メソッドの前のチュートリアルで確認して、`ValidateUser`メソッドは、構成済みのメンバーシップ プロバイダーに実際の検証を代行します。
+メンバーシップ フレームワークに対してユーザーを検証するを使用して、`Membership`クラスの[`ValidateUser`メソッド](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx)です。 `ValidateUser`メソッドは、2 つの入力パラメーターで使用*`username`* と*`password`* -資格情報が有効であるかどうかを示すブール値を返します。 使用するような`CreateUser`メソッドの前のチュートリアルで確認して、`ValidateUser`メソッドは、構成済みのメンバーシップ プロバイダーに実際の検証を代行します。
 
-`SqlMembershipProvider`経由で指定したユーザーのパスワードを取得することによって指定された資格情報を検証、`aspnet_Membership_GetPasswordWithFormat`ストアド プロシージャです。 注意してください、 `SqlMembershipProvider` 3 つの形式のいずれかを使用してユーザーのパスワードを格納します。 クリア、暗号化、またはハッシュします。 `aspnet_Membership_GetPasswordWithFormat`ストアド プロシージャは、その生の形式でパスワードを返します。 パスワードの暗号化またはハッシュされたパスワードの`SqlMembershipProvider`変換、 *`password`*に渡された値、`ValidateUser`暗号化をそれと同等のメソッド、または状態をハッシュされから返された結果と比較しますデータベースです。 データベースに格納されているパスワードには、ユーザーが入力した書式設定されたパスワードが一致すると、資格情報が無効です。
+`SqlMembershipProvider`経由で指定したユーザーのパスワードを取得することによって指定された資格情報を検証、`aspnet_Membership_GetPasswordWithFormat`ストアド プロシージャです。 注意してください、 `SqlMembershipProvider` 3 つの形式のいずれかを使用してユーザーのパスワードを格納します。 クリア、暗号化、またはハッシュします。 `aspnet_Membership_GetPasswordWithFormat`ストアド プロシージャは、その生の形式でパスワードを返します。 パスワードの暗号化またはハッシュされたパスワードの`SqlMembershipProvider`変換、 *`password`* に渡された値、`ValidateUser`暗号化をそれと同等のメソッド、または状態をハッシュされから返された結果と比較しますデータベースです。 データベースに格納されているパスワードには、ユーザーが入力した書式設定されたパスワードが一致すると、資格情報が無効です。
 
 それでは、ログイン ページを更新 (~/`Login.aspx`) メンバーシップ framework ユーザー ストアに対して指定された資格情報を検証するようにします。 このログイン ページを作成したに戻り、 <a id="Tutorial02"> </a> [*フォーム認証の概要を*](../introduction/an-overview-of-forms-authentication-cs.md)チュートリアルでは、ユーザー名とパスワードを 2 つのテキスト ボックスで、インターフェイスの作成、次回のため、チェック ボックスと [ログイン] ボタン (図 1 を参照してください)。 コードでは、(Scott/パスワード、Jisun/パスワード、および Sam/パスワード) は、ユーザー名とパスワードのペアのリストがハードコードに対して入力した資格情報を検証します。 <a id="Tutorial03"> </a> [*フォーム認証の構成と高度なトピック*](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md)フォームに追加情報を格納する、ログイン ページのコードに更新されたチュートリアル認証チケットの`UserData`プロパティです。
 
@@ -230,7 +230,7 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="determining-and-validating-the-supplied-credentials"></a>特定し、指定された資格情報を検証します。
 
-ログイン コントロールの使用[ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx)と[`Password`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx)をユーザーが入力したユーザー名とパスワードの資格情報を確認します。 その他の Web コントロールに入力された値を決定するために (など、 `Email`  ボックスに、前の手順で追加されました)、使用して*`LoginControlID`* `.FindControl`("*`controlID`*") を取得するプログラムへの参照 Web コントロール テンプレートを持つ`ID`プロパティと等しい *`controlID`*です。 たとえばへの参照を取得するため、 `Email`  ボックスに、次のコードを使用します。
+ログイン コントロールの使用[ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx)と[`Password`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx)をユーザーが入力したユーザー名とパスワードの資格情報を確認します。 その他の Web コントロールに入力された値を決定するために (など、 `Email`  ボックスに、前の手順で追加されました)、使用して*`LoginControlID`* `.FindControl`("*`controlID`*") を取得するプログラムへの参照 Web コントロール テンプレートを持つ`ID`プロパティと等しい *`controlID`* です。 たとえばへの参照を取得するため、 `Email`  ボックスに、次のコードを使用します。
 
 `TextBox EmailTextBox = myLogin.FindControl("Email") as TextBox;`
 
@@ -310,7 +310,7 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 

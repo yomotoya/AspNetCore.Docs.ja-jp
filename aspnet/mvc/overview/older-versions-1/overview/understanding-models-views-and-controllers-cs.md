@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-cs
-title: "Understanding モデル、ビュー、およびコント ローラー (c#) |Microsoft ドキュメント"
+title: Understanding モデル、ビュー、およびコント ローラー (c#) |Microsoft ドキュメント
 author: StephenWalther
-description: "モデル、ビュー、およびコント ローラーに関する混乱しますか。 このチュートリアルでは Stephen Walther について説明しています、ASP.NET MVC アプリケーションのさまざまな部分です。"
+description: モデル、ビュー、およびコント ローラーに関する混乱しますか。 このチュートリアルでは Stephen Walther について説明しています、ASP.NET MVC アプリケーションのさまざまな部分です。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008

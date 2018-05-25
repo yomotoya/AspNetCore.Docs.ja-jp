@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
-title: "ASP.NET および Web ツール 2013.1 for Visual Studio 2012 のリリース ノート |Microsoft ドキュメント"
+title: ASP.NET および Web ツール 2013.1 for Visual Studio 2012 のリリース ノート |Microsoft ドキュメント
 author: microsoft
-description: "このドキュメントでは、Visual Studio 2012 用の ASP.NET および Web ツール 2013.1 のリリースについて説明します。"
+description: このドキュメントでは、Visual Studio 2012 用の ASP.NET および Web ツール 2013.1 のリリースについて説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2013
 ms.topic: article
 ms.assetid: ca26e5bb-630e-41d2-8512-2a9386c431cb
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
@@ -181,7 +181,7 @@ Visual Studio 2012 (または Visual Studio 2012 MVC 5 の場合、作成され�
 
 ASP.NET Razor 3 または ASP.NET MVC 5 にアップグレードすると、tilde(~) 表記が正しく動作しなく URL 書き換えを使用している場合。 URL 書き換えなど HTML 要素の tilde(~) 表記に影響&lt;A/&gt;、&lt;スクリプト/&gt;、&lt;リンク/&gt;、され、その結果、チルダが不要になったルート ディレクトリにマップします。
 
-たとえば、要求を書き直してください**asp.net/content**に**asp.net**、href 属性に&lt;A href ="~/content/"/&gt;に解決される**/content/コンテンツ/**の代わりに **/**です。 この変更を抑制するには設定、 **IIS\_WasUrlRewritten**を各 Web ページまたは false コンテキスト**アプリケーション\_BeginRequest** Global.asax でします。
+たとえば、要求を書き直してください**asp.net/content**に**asp.net**、href 属性に&lt;A href ="~/content/"/&gt;に解決される **/content/コンテンツ/** の代わりに **/** です。 この変更を抑制するには設定、 **IIS\_WasUrlRewritten**を各 Web ページまたは false コンテキスト**アプリケーション\_BeginRequest** Global.asax でします。
 
 <a id="templateissue"></a>
 ### <a name="templates"></a>テンプレート

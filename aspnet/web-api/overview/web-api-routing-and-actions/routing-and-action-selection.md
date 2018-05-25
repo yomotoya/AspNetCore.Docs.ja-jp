@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/routing-and-action-selection
-title: "ルーティングと ASP.NET Web API の操作の選択 |Microsoft ドキュメント"
+title: ルーティングと ASP.NET Web API の操作の選択 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2012
@@ -150,7 +150,7 @@ URI のパスが「api/ルート/8」の場合は、2 つの値がディクシ�
     2. この一覧から、ルート ディクショナリまたは URI クエリ文字列内に各パラメーターの名前の一致を見つけようとします。 一致は、大文字と小文字パラメーターの順序に依存しません。
     3. リスト内のすべてのパラメーターが URI で一致するものがアクションを選択します。
     4. 複数のアクションがこれらの条件を満たしている場合は、ほとんどのパラメーターと一致すると、1 つを選択します。
-4. 使って操作を無視する、 **[NonAction]**属性。
+4. 使って操作を無視する、 **[NonAction]** 属性。
 
 手順 3 では最も難しい可能性があります。 基本的な考え方は、パラメーターは、URI、要求本文からまたはカスタム バインドからはその値を取得できます。 URI に由来するパラメーターの場合、URI が (ルート ディクショナリ) 経由でパスまたはクエリ文字列にそのパラメーターの値には実際に含まれていることを確認することができます。
 

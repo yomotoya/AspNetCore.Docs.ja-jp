@@ -77,7 +77,7 @@ ms.lasthandoff: 04/06/2018
 
 
 > [!NOTE]
-> **/Fl**スイッチ (の略**/fileLogger**) ビルドの出力をという名前のファイルに記録*msbuild.log になります*現在のディレクトリにします。 詳細については、次を参照してください。、 [MSBuild コマンド ライン リファレンス](https://msdn.microsoft.com/library/ms164311.aspx)です。
+> **/Fl**スイッチ (の略 **/fileLogger**) ビルドの出力をという名前のファイルに記録*msbuild.log になります*現在のディレクトリにします。 詳細については、次を参照してください。、 [MSBuild コマンド ライン リファレンス](https://msdn.microsoft.com/library/ms164311.aspx)です。
 
 
 この時点では、MSBuild の実行を開始、ロード、 *Publish.proj*ファイル、およびその中の手順の処理を開始します。 最初の命令が MSBuild プロジェクトをインポートするように指示ファイルを**TargetEnvPropsFile**パラメーターを指定します。
@@ -94,7 +94,7 @@ MSBuild がマージされたプロジェクト ファイルで発生する次�
 [!code-xml[Main](understanding-the-build-process/samples/sample3.xml)]
 
 
-MSBuild が 1 つ目を処理するときに**OutputRoot**要素、同様に名前付きパラメーターを提供することが指定されていませんの値を設定、 **OutputRoot**プロパティを**.\Publish\Out**です。2 つ目が出現したとき**OutputRoot**に条件が評価された場合、要素**true**の値は、上書きされます、 **OutputRoot**プロパティの値と、**OutDir**パラメーター。
+MSBuild が 1 つ目を処理するときに**OutputRoot**要素、同様に名前付きパラメーターを提供することが指定されていませんの値を設定、 **OutputRoot**プロパティを **.\Publish\Out**です。2 つ目が出現したとき**OutputRoot**に条件が評価された場合、要素**true**の値は、上書きされます、 **OutputRoot**プロパティの値と、**OutDir**パラメーター。
 
 MSBuild が発生した次の要素は、という名前の項目を含む、1 つの項目グループ**ProjectsToBuild**です。
 
@@ -193,7 +193,7 @@ MSBuild では、この命令を処理という名前の項目リストを構築
 [!code-xml[Main](understanding-the-build-process/samples/sample10.xml)]
 
 
-これは、例の*ターゲットのバッチ*です。 MSBuild プロジェクト ファイルでは、バッチ処理は、コレクションを反復処理するための手法です。 値、**出力**属性、 **「% (DbPublishPackages.Identity)」**を参照、 **Identity**のメタデータのプロパティ、 **DbPublishPackages**項目のリスト。 この表記 **Outputs=%***(ItemList.ItemMetadataName)*、として変換されます。
+これは、例の*ターゲットのバッチ*です。 MSBuild プロジェクト ファイルでは、バッチ処理は、コレクションを反復処理するための手法です。 値、**出力**属性、 **「% (DbPublishPackages.Identity)」** を参照、 **Identity**のメタデータのプロパティ、 **DbPublishPackages**項目のリスト。 この表記 **Outputs=%***(ItemList.ItemMetadataName)*、として変換されます。
 
 - 内の項目を分割**DbPublishPackages**同じが含まれる項目のバッチに**Identity**メタデータ値。
 - バッチごとに 1 回のターゲットが実行されます。
@@ -210,7 +210,7 @@ MSBuild では、この命令を処理という名前の項目リストを構築
 [!code-xml[Main](understanding-the-build-process/samples/sample11.xml)]
 
 
-この場合、 **%(DbPublishPackages.DatabaseConnectionString)**、 **%(DbPublishPackages.TargetDatabase)**、および**%(DbPublishPackages.FullPath)**すべてを参照してくださいメタデータの値、 **DbPublishPackages**項目のコレクション。  **\_Cmd**プロパティを使用、 **Exec**タスクは、コマンドを呼び出します。
+この場合、 **%(DbPublishPackages.DatabaseConnectionString)**、 **%(DbPublishPackages.TargetDatabase)**、および **%(DbPublishPackages.FullPath)** すべてを参照してくださいメタデータの値、 **DbPublishPackages**項目のコレクション。 **\_Cmd**プロパティを使用、 **Exec**タスクは、コマンドを呼び出します。
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample12.xml)]

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/troubleshooting
-title: "SignalR のトラブルシューティング (SignalR 1.x) |Microsoft ドキュメント"
+title: SignalR のトラブルシューティング (SignalR 1.x) |Microsoft ドキュメント
 author: pfletcher
-description: "この記事では、SignalR アプリケーションを開発の一般的な問題について説明します。"
+description: この記事では、SignalR アプリケーションを開発の一般的な問題について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/05/2013
@@ -160,8 +160,8 @@ SignalR は自動的に JSON シリアル化に使用、メソッド パラメ�
 
 この問題のいくつかの原因があります。 次のすべてを確認します。
 
-- **ハブ プロキシ アドレスの参照が正しくフォーマットされていません:**このエラーは生成されたハブ プロキシのアドレスへの参照が正しくフォーマットされていない場合も表示されます。 ハブのアドレスへの参照が正しく行われたことを確認します。 参照してください[を動的に生成されたプロキシを参照する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy)詳細についてはします。
-- **ハブ ルートを追加する前に、アプリケーションへのルートの追加:**場合、アプリケーションでは、他のルートを使用することを確認追加された最初のルートへの呼び出し`MapHubs`です。
+- **ハブ プロキシ アドレスの参照が正しくフォーマットされていません:** このエラーは生成されたハブ プロキシのアドレスへの参照が正しくフォーマットされていない場合も表示されます。 ハブのアドレスへの参照が正しく行われたことを確認します。 参照してください[を動的に生成されたプロキシを参照する方法](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy)詳細についてはします。
+- **ハブ ルートを追加する前に、アプリケーションへのルートの追加:** 場合、アプリケーションでは、他のルートを使用することを確認追加された最初のルートへの呼び出し`MapHubs`です。
 
 ### <a name="500-internal-server-error"></a>「500 内部サーバー エラー」
 

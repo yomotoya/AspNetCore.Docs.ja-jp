@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/working-with-ssl-in-web-api
-title: "Web API での SSL の操作 |Microsoft ドキュメント"
+title: Web API での SSL の操作 |Microsoft ドキュメント
 author: MikeWasson
-description: "SSL クライアント証明書の使用など、ASP.NET Web API で SSL を使用する方法を示します。"
+description: SSL クライアント証明書の使用など、ASP.NET Web API で SSL を使用する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/12/2012
@@ -87,7 +87,7 @@ Makecert は、秘密キーのパスワードを入力することを求めら�
 5. ナビゲーション ペインの下には、「信頼されたルート証明機関」ノードを展開します。
 6. **アクション** メニューのをポイント**すべてのタスク**、クリックして**インポート**証明書のインポート ウィザードを起動します。
 7. TempCA.cer を証明書ファイルを参照します。
-8. をクリックして**開く**、順にクリックして**[次へ]**ウィザードを完了します。 (求められます、パスワードを再入力します。)
+8. をクリックして**開く**、順にクリックして **[次へ]** ウィザードを完了します。 (求められます、パスワードを再入力します。)
 
 最初の証明書によって署名されているクライアント証明書を作成します。
 

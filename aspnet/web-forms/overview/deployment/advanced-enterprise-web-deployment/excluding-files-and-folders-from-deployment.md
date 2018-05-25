@@ -71,14 +71,14 @@ Visual Studio で、web アプリケーション プロジェクトのプロパ�
 
 特定のファイルとフォルダーを除外するプロジェクト ファイルを操作することが簡単な方法は。 WPP にはという名前の項目リストを構築して、ファイルとフォルダーを除外するためのメカニズムが含まれています**ExcludeFromPackageFolders**と**ExcludeFromPackageFiles**です。 このメカニズムは、これらのリストに、独自の項目を追加することによって拡張できます。 これを行うには、これらの大まかな手順を完了する必要があります。
 
-1. という名前のカスタム プロジェクト ファイルを作成する*[プロジェクト名].wpp.targets*は、プロジェクト ファイルと同じフォルダーにします。
+1. という名前のカスタム プロジェクト ファイルを作成する *[プロジェクト名].wpp.targets*は、プロジェクト ファイルと同じフォルダーにします。
 
     > [!NOTE]
     > *. Wpp.targets*ファイルは、web アプリケーション プロジェクト ファイルと同じフォルダーに移動する必要がある&#x2014;など*ContactManager.Mvc.csproj*&#x2014;任意のカスタムと同じフォルダー内ではなくプロジェクト ファイルを使用してビルドおよび配置プロセスを制御します。
 2. *. Wpp.targets*ファイルに追加し、 **ItemGroup**要素。
 3. **ItemGroup**要素を追加**ExcludeFromPackageFolders**と**ExcludeFromPackageFiles**特定のファイルおよび必要に応じてフォルダーを除外する項目。
 
-これは、この基本的な構造*. wpp.targets*ファイル。
+これは、この基本的な構造 *. wpp.targets*ファイル。
 
 
 [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample1.xml)]
@@ -95,7 +95,7 @@ Visual Studio で、web アプリケーション プロジェクトのプロパ�
 1. Visual Studio 2010 でソリューションを開きます。
 2. **ソリューション エクスプ ローラー**ウィンドウで、web アプリケーションのプロジェクト ノードを右クリックし (たとえば、 **ContactManager.Mvc**)、 をポイント**追加**をクリックして**新しい項目の**します。
 3. **新しい項目の追加**ダイアログ ボックスで、 **XML ファイル**テンプレート。
-4. **名前**ボックスに、入力*[プロジェクト名] * * *.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**)、をクリックして**追加**.
+4. **名前**ボックスに、入力 *[プロジェクト名] * * *.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**)、をクリックして**追加**.
 
     ![](excluding-files-and-folders-from-deployment/_static/image3.png)
 
@@ -125,7 +125,7 @@ Visual Studio で、web アプリケーション プロジェクトのプロパ�
 
 ## <a name="conclusion"></a>まとめ
 
-このトピックには、カスタムを作成することで、web のパッケージをビルドするときに、特定のファイルとフォルダーを除外する方法が説明されている*. wpp.targets* web アプリケーション プロジェクト ファイルと同じフォルダー内のファイルです。
+このトピックには、カスタムを作成することで、web のパッケージをビルドするときに、特定のファイルとフォルダーを除外する方法が説明されている *. wpp.targets* web アプリケーション プロジェクト ファイルと同じフォルダー内のファイルです。
 
 ## <a name="further-reading"></a>関連項目
 

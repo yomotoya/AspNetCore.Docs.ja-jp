@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/aspnet-web-pages-razor-faq
-title: "ASP.NET Web Pages (Razor) FAQ |Microsoft ドキュメント"
+title: ASP.NET Web Pages (Razor) FAQ |Microsoft ドキュメント
 author: tfitzmac
-description: "この記事は、WebMatrix と ASP.NET Web Pages (Razor) に関するいくつかのよく寄せられる質問を一覧表示します。 ソフトウェアのバージョンが、チュートリアル ASP.NET Web Pages で使用 (R..."
+description: この記事は、WebMatrix と ASP.NET Web Pages (Razor) に関するいくつかのよく寄せられる質問を一覧表示します。 ソフトウェアのバージョンが、チュートリアル ASP.NET Web Pages で使用 (R...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/07/2014
@@ -74,17 +74,17 @@ ms.lasthandoff: 01/24/2018
 - IIS Express (web サーバー)
 - Microsoft SQL Server Compact 4.0 (データベース)
 
-テキスト エディターを使用して編集する*.cshtml* (または*.vbhtml*) ページ。
+テキスト エディターを使用して編集する *.cshtml* (または *.vbhtml*) ページ。
 
-SQL Server Compact データベースの管理 (*.sdf*ファイル) を含まないツールは少し難しくなります。 管理するための visual Studio containds ツール*.sdf*データベース。 多くの SQL Server 管理タスクを実行するコードでの SQL コマンドを実行することもできます。
+SQL Server Compact データベースの管理 (*.sdf*ファイル) を含まないツールは少し難しくなります。 管理するための visual Studio containds ツール *.sdf*データベース。 多くの SQL Server 管理タスクを実行するコードでの SQL コマンドを実行することもできます。
 
-テストする*.cshtml*ページ統合開発環境 (IDE) を使用せず、展開したりできますライブ サーバーにします。 (を参照してください[WebMatrix を使用せず、ASP.NET Web Pages サイトを展開できますか](#Can_I_deploy_an_ASP.NET_Web_Pages_site_without_using_WebMatrix))。
+テストする *.cshtml*ページ統合開発環境 (IDE) を使用せず、展開したりできますライブ サーバーにします。 (を参照してください[WebMatrix を使用せず、ASP.NET Web Pages サイトを展開できますか](#Can_I_deploy_an_ASP.NET_Web_Pages_site_without_using_WebMatrix))。
 
 ### <a name="running-iis-express-without-using-an-ide"></a>IIS Express、IDE を使用せずに実行します。
 
-Web サーバーとしてコンピューターに IIS Express をインストールする場合は、ページをテストすることを使用できます。 コマンドラインからの IIS Express の実行し、特定のポート番号を関連付けることができます。 要求するときに、そのポートを指定する*.cshtml*お使いのブラウザー内のファイルです。
+Web サーバーとしてコンピューターに IIS Express をインストールする場合は、ページをテストすることを使用できます。 コマンドラインからの IIS Express の実行し、特定のポート番号を関連付けることができます。 要求するときに、そのポートを指定する *.cshtml*お使いのブラウザー内のファイルです。
 
-Windows では、管理者特権でコマンド プロンプトを開くし、変更*C:\Program Files\IIS Express です。* (64 ビット システムでは、フォルダーを使用して*C:\Program Files (x86) \IIS Express です)。*サイトに実際のパスを使用して、次のコマンドを入力します。
+Windows では、管理者特権でコマンド プロンプトを開くし、変更*C:\Program Files\IIS Express です。* (64 ビット システムでは、フォルダーを使用して*C:\Program Files (x86) \IIS Express です)。* サイトに実際のパスを使用して、次のコマンドを入力します。
 
 `iisexpress.exe /port:35896 /path:C:\BasicWebSite`
 
@@ -116,14 +116,14 @@ Windows 認証を使用する方法については、ブログの投稿を参照
 <a id="Does_ASP.NET_Web_Pages_support_HTML5"></a>
 ## <a name="does-aspnet-web-pages-support-html5"></a>ASP.NET Web Pages は HTML5 をサポートしますか。
 
-はい。 ASP.NET Web Pages を作成するページ (*.cshtml*または*.vbhtml*ページ) も、ページが表示される前に、サーバー上で実行されるコードが含まれる HTML ページは基本的にします。 HTML5 の要素を使用して、ユーザーのブラウザーが HTML5 をサポートしている限り、 *.cshtml*または*.vbhtml*ページ。
+はい。 ASP.NET Web Pages を作成するページ (*.cshtml*または *.vbhtml*ページ) も、ページが表示される前に、サーバー上で実行されるコードが含まれる HTML ページは基本的にします。 HTML5 の要素を使用して、ユーザーのブラウザーが HTML5 をサポートしている限り、 *.cshtml*または *.vbhtml*ページ。
 
 <a id="Can_I_use_JavaScript_and_jQuery_with_Web_Pages"></a>
 ## <a name="can-i-use-javascript-and-jquery-with-web-pages"></a>Web ページで JavaScript と jQuery を使用できますか。
 
-もちろん、できます。 ASP.NET Web Pages を作成するページ (*.cshtml*または*.vbhtml*ページ) にサーバー コードで HTML ページだけです。 そのため、何も行うことができます、標準の HTML ページに JavaScript または jQuery を使用して行うことができますも、 *.cshtml*または*.vbhtml*ページ。
+もちろん、できます。 ASP.NET Web Pages を作成するページ (*.cshtml*または *.vbhtml*ページ) にサーバー コードで HTML ページだけです。 そのため、何も行うことができます、標準の HTML ページに JavaScript または jQuery を使用して行うことができますも、 *.cshtml*または *.vbhtml*ページ。
 
-**スターター サイト**WebMatrix でテンプレートには、多く jQuery ライブラリにはが含まれています。 そのテンプレートを使用して、サイトを作成する場合、*スクリプト*フォルダーには、jQuery コア ライブラリが含まれています (*jquery 1.6.2.js)*および jQuery 検証のためのライブラリ (*jquery.validate.js*, などです。)。
+**スターター サイト**WebMatrix でテンプレートには、多く jQuery ライブラリにはが含まれています。 そのテンプレートを使用して、サイトを作成する場合、*スクリプト*フォルダーには、jQuery コア ライブラリが含まれています (*jquery 1.6.2.js)* および jQuery 検証のためのライブラリ (*jquery.validate.js*, などです。)。
 
 ASP.NET Web Pages を jQuery を使用する方法を説明した一部のブログ投稿を次に示します。
 

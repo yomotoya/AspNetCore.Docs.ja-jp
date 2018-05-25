@@ -71,7 +71,7 @@ Visual Web Developer Express または完全バージョンの Visual Studio を
 
 **開始**] ページで [**新しいプロジェクト**です。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#**ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。 プロジェクト"ProductStore"の名前し、をクリックして**OK**です。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。 プロジェクト"ProductStore"の名前し、をクリックして**OK**です。
 
 ![](using-web-api-with-entity-framework-part-1/_static/image5.png)
 

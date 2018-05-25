@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr
-title: "チュートリアル: SignalR の概要 1.x |Microsoft ドキュメント"
+title: 'チュートリアル: SignalR の概要 1.x |Microsoft ドキュメント'
 author: pfletcher
-description: "HTML ページにリアルタイムのチャット アプリケーションをビルドするのにには、ASP.NET SignalR を使用します。"
+description: HTML ページにリアルタイムのチャット アプリケーションをビルドするのにには、ASP.NET SignalR を使用します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013

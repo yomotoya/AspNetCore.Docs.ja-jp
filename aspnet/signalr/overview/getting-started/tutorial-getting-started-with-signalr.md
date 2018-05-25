@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr
-title: "チュートリアル: SignalR 2 の概要 |Microsoft ドキュメント"
+title: 'チュートリアル: SignalR 2 の概要 |Microsoft ドキュメント'
 author: pfletcher
-description: "このチュートリアルでは、SignalR を使用してリアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を空の ASP.NET web アプリケーションに追加し、HTML pa を作成しています."
+description: このチュートリアルでは、SignalR を使用してリアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を空の ASP.NET web アプリケーションに追加し、HTML pa を作成しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -102,7 +102,7 @@ SignalR では、このセクションでは、Visual Studio 2013、SignalR バ�
 2. **新しい ASP.NET プロジェクト** ウィンドウのままにして**空**を選択し、をクリックして**プロジェクトの作成**です。
 
     ![空の web を作成します。](tutorial-getting-started-with-signalr/_static/image3.png)
-3. **ソリューション エクスプ ローラー**、プロジェクトを右クリックし、選択**追加 |SignalR ハブ クラス (v2)**です。 クラスの名前を付けます**ChatHub.cs**し、プロジェクトに追加します。 この手順で作成、 **ChatHub**クラスし、一連のスクリプト ファイルと SignalR をサポートするアセンブリ参照がプロジェクトに追加します。
+3. **ソリューション エクスプ ローラー**、プロジェクトを右クリックし、選択**追加 |SignalR ハブ クラス (v2)** です。 クラスの名前を付けます**ChatHub.cs**し、プロジェクトに追加します。 この手順で作成、 **ChatHub**クラスし、一連のスクリプト ファイルと SignalR をサポートするアセンブリ参照がプロジェクトに追加します。
 
     > [!NOTE]
     > 開き、プロジェクトに SignalR を追加することも、**ツール |ライブラリ パッケージ マネージャー |パッケージ マネージャー コンソール**コマンドを実行しているとします。
@@ -112,7 +112,7 @@ SignalR では、このセクションでは、Visual Studio 2013、SignalR バ�
     コンソールを使用して SignalR を追加する場合は、SignalR を追加した後に、別のステップとして SignalR ハブ クラスを作成します。
 
     > [!NOTE]
-    > Visual Studio 2012 を使用している場合、 **SignalR ハブ クラス (v2)**テンプレートは使用できません。 形式を追加する**クラス**と呼ばれる`ChatHub`代わりにします。
+    > Visual Studio 2012 を使用している場合、 **SignalR ハブ クラス (v2)** テンプレートは使用できません。 形式を追加する**クラス**と呼ばれる`ChatHub`代わりにします。
 4. **ソリューション エクスプ ローラー**、[スクリプト] ノードを展開します。 JQuery、および SignalR のスクリプト ライブラリは、プロジェクトに表示されます。
 5. 新しいコードを置き換える**ChatHub**クラスを次のコード。
 

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
-title: "ルーティング規約の ASP.NET Web API 2 Odata |Microsoft ドキュメント"
+title: ルーティング規約の ASP.NET Web API 2 Odata |Microsoft ドキュメント
 author: MikeWasson
-description: "この記事では、OData エンドポイントの Web API を使用するルーティング規則について説明します。"
+description: この記事では、OData エンドポイントの Web API を使用するルーティング規則について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/31/2013
@@ -127,9 +127,9 @@ Web API の OData ルーティング規約を説明する前に、OData の Uri 
 
 - アクションがという名前のパラメーターを持つ場合は、パスには、キーが含まれています、*キー*です。
 - アクションがという名前のパラメーターを持つ場合は、パスには、ナビゲーション プロパティにキーが含まれています、 *relatedKey*です。
-- 装飾*キー*と*relatedKey*を持つパラメーター、 **[FromODataUri]**パラメーター。
+- 装飾*キー*と*relatedKey*を持つパラメーター、 **[FromODataUri]** パラメーター。
 - POST および PUT 要求は、エンティティ型のパラメーターを受け取ります。
-- PATCH 要求は、型のパラメーターを受け取る**デルタ&lt;T&gt;**ここで、 *T*は、エンティティ型です。
+- PATCH 要求は、型のパラメーターを受け取る**デルタ&lt;T&gt;** ここで、 *T*は、エンティティ型です。
 
 リファレンスについては、組み込みの OData ルーティング規約ですべてのメソッドのシグネチャを説明する例を次に示します。
 
@@ -147,7 +147,7 @@ Web API の OData ルーティング規約を説明する前に、OData の Uri 
 
 両方の方法、その要求に規則が適用されない場合、メソッド必要があります null を返します。
 
-**ODataPath**パラメーターが解析された OData リソース パスを表します。 一覧が含まれている **[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)** リソース パスのセグメントごとに 1 つのインスタンスします。 **ODataPathSegment** 、抽象クラスです。 各セグメントの種類がから派生したクラスによって表される**ODataPathSegment**です。
+**ODataPath**パラメーターが解析された OData リソース パスを表します。 一覧が含まれている**[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)** リソース パスのセグメントごとに 1 つのインスタンスします。 **ODataPathSegment** 、抽象クラスです。 各セグメントの種類がから派生したクラスによって表される**ODataPathSegment**です。
 
 **ODataPath.TemplatePath**プロパティは、文字列を連結したものを表すすべてのパス セグメント。 たとえば、次の URI が`/Products(1)/Supplier`、パス テンプレートは&quot;~/entityset/key/navigation&quot;です。 セグメントが URI セグメントに直接対応していないことに注意してください。 たとえば、エンティティ キー (1) は、独自として表されます。 **ODataPathSegment**です。
 
@@ -169,7 +169,7 @@ Web API の OData ルーティング規約を説明する前に、OData の Uri 
 
 1. 派生した**EntitySetRoutingConvention**であるため、 **SelectController**そのクラスのメソッドは、この新しいルーティング規約の適切な。 つまり、再実装する必要はありません**SelectController**です。
 2. GET 要求にのみ、およびパス テンプレートが場合にのみ、規則が適用される&quot;~/entityset/key/navigation/key&quot;です。
-3. アクション名が&quot;{EntityType} を取得&quot;ここで、 *{EntityType}*ナビゲーション コレクションの種類です。 たとえば、 &quot;GetSupplier&quot;です。 任意の名前付け規則を &#8212; を使用することができます。確認、コント ローラーのアクションと一致します。
+3. アクション名が&quot;{EntityType} を取得&quot;ここで、 *{EntityType}* ナビゲーション コレクションの種類です。 たとえば、 &quot;GetSupplier&quot;です。 任意の名前付け規則を & #8212; を使用することができます。確認、コント ローラーのアクションと一致します。
 4. アクションという 2 つのパラメーターは、*キー*と*relatedKey*です。 (一部の定義済みのパラメーター名の一覧は、次を参照してください[ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx)。)。
 
 次の手順では、ルーティング規則の一覧に新しい規則を追加します。 これは、次のコードに示すように場合に、構成時に発生します。

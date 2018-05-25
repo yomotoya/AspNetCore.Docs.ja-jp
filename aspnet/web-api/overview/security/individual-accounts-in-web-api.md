@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/individual-accounts-in-web-api
-title: "個々 のアカウントと ASP.NET Web API 2.2 でローカルのログインを使用して Web API をセキュリティで保護された |Microsoft ドキュメント"
+title: 個々 のアカウントと ASP.NET Web API 2.2 でローカルのログインを使用して Web API をセキュリティで保護された |Microsoft ドキュメント
 author: MikeWasson
-description: "このトピックでは、メンバーシップ データベースに対する認証に OAuth2 を使用して web API をセキュリティで保護する方法を示します。 ソフトウェアのバージョンが、チュートリアルの Visual Studio 201 で使用しています."
+description: このトピックでは、メンバーシップ データベースに対する認証に OAuth2 を使用して web API をセキュリティで保護する方法を示します。 ソフトウェアのバージョンが、チュートリアルの Visual Studio 201 で使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/15/2014
@@ -88,7 +88,7 @@ Visual Studio 2013 で、Web API プロジェクト テンプレートを使用�
 
 ![](individual-accounts-in-web-api/_static/image4.png)
 
-このシナリオでは、Web API コント ローラーは、リソース サーバーとして機能します。 認証フィルターがアクセス トークンを検証し、 **[Authorize]**属性を使用してリソースを保護します。 コント ローラーまたはアクションが持っている場合、 **[Authorize]**属性がすべての要求にそのコント ローラーまたはアクションを認証する必要があります。 それ以外の場合、承認が拒否され、Web API には、401 (未承認) のエラーが返されます。
+このシナリオでは、Web API コント ローラーは、リソース サーバーとして機能します。 認証フィルターがアクセス トークンを検証し、 **[Authorize]** 属性を使用してリソースを保護します。 コント ローラーまたはアクションが持っている場合、 **[Authorize]** 属性がすべての要求にそのコント ローラーまたはアクションを認証する必要があります。 それ以外の場合、承認が拒否され、Web API には、401 (未承認) のエラーが返されます。
 
 承認サーバーと両方呼び出せる認証フィルター、 [OWIN ミドルウェア](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)OAuth2 の詳細を処理するコンポーネントです。 このチュートリアルで後ほど詳しくデザインを説明します。
 
@@ -249,7 +249,7 @@ OAuth ミドルウェアは、ユーザー アカウントの設定を認識し�
 1. **HostAuthentication**フィルターは、トークンを検証する OAuth ミドルウェアを呼び出します。
 2. ミドルウェアは、トークンを要求の id に変換します。
 3. この時点では、要求が*認証*ではなく*承認*です。
-4. 承認フィルターは、要求の id を検査します。 クレームは、そのリソースのユーザーを承認する要求が承認されています。 既定では、 **[Authorize]**属性は、認証されているすべての要求が承認されます。 ただし、ロールまたはその他の要求を承認できます。 詳細については、次を参照してください。 [Web API で認証と承認](authentication-and-authorization-in-aspnet-web-api.md)です。
+4. 承認フィルターは、要求の id を検査します。 クレームは、そのリソースのユーザーを承認する要求が承認されています。 既定では、 **[Authorize]** 属性は、認証されているすべての要求が承認されます。 ただし、ロールまたはその他の要求を承認できます。 詳細については、次を参照してください。 [Web API で認証と承認](authentication-and-authorization-in-aspnet-web-api.md)です。
 5. 前の手順が成功した場合は、コント ローラーは、保護されたリソースを返します。 それ以外の場合、クライアントは、401 (未承認) のエラーを受け取ります。
 
 [![](individual-accounts-in-web-api/_static/image18.png)](individual-accounts-in-web-api/_static/image17.png)

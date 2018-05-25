@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
-title: "トラブルシューティング HTTP 405 エラー発行後に Web API 2 アプリケーション |Microsoft ドキュメント"
+title: トラブルシューティング HTTP 405 エラー発行後に Web API 2 アプリケーション |Microsoft ドキュメント
 author: rmcmurray
-description: "このチュートリアルでは、実稼働 web サーバーに Web API アプリケーションの発行後に HTTP 405 エラーをトラブルシューティングする方法について説明します。"
+description: このチュートリアルでは、実稼働 web サーバーに Web API アプリケーションの発行後に HTTP 405 エラーをトラブルシューティングする方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2014
@@ -76,7 +76,7 @@ HTTP 応答:
 [!code-console[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample2.cmd)]
 
 
-この例では HTTP クライアント、web サーバー上の Web API アプリケーションの URL に有効な JSON 要求を送信するが、サーバーは PUT メソッドが、URL を使用できないことを示す HTTP 405 エラー メッセージを返しました。 これに対し、要求 URI で Web API アプリケーションのルートが一致しなかった場合、サーバーが返す HTTP 404***が見つかりません。***エラーです。
+この例では HTTP クライアント、web サーバー上の Web API アプリケーションの URL に有効な JSON 要求を送信するが、サーバーは PUT メソッドが、URL を使用できないことを示す HTTP 405 エラー メッセージを返しました。 これに対し、要求 URI で Web API アプリケーションのルートが一致しなかった場合、サーバーが返す HTTP 404***が見つかりません。*** エラーです。
 
 ## <a name="resolving-http-405-errors"></a>HTTP 405 の解決エラー
 

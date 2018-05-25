@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/signalr-1x-hubs-api-guide-javascript-client
-title: "SignalR 1.x Hubs API ガイド - JavaScript クライアント |Microsoft ドキュメント"
+title: SignalR 1.x Hubs API ガイド - JavaScript クライアント |Microsoft ドキュメント
 author: pfletcher
-description: "このドキュメントでは、SignalR ブラウザーや Windows ストア (WinJS) applic などの JavaScript クライアントのバージョン 1.1 のハブ API を使用して紹介しています."
+description: このドキュメントでは、SignalR ブラウザーや Windows ストア (WinJS) applic などの JavaScript クライアントのバージョン 1.1 のハブ API を使用して紹介しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/17/2013
@@ -428,7 +428,7 @@ Web プロジェクトをデバッグ モードでの Visual Studio 2012 で実�
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-javascript-client/samples/sample44.cs?highlight=3)]
 
-**使用される Stock クラス、**戻り値
+**使用される Stock クラス、** 戻り値
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-javascript-client/samples/sample45.cs?highlight=1)]
 

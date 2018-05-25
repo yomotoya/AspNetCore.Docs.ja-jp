@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 8cad6ee45a8331513c72c4079f300fbb06c1ed77
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9f3a55c5e68e61a2d7907c765209d3786e05a485
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/24/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Web デプロイの発行 (リモート エージェント) 用の Web サーバーの構成
 ====================
 によって[Jason lee 著](https://github.com/jrjlee)
 
-[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、web の発行および IIS Web 配置ツール (Web 配置) のリモート エージェント サービスを使用して配置をサポートするためにインターネット インフォメーション サービス (IIS) web サーバーを構成する方法について説明します。
 > 
@@ -74,10 +74,10 @@ ms.lasthandoff: 04/06/2018
 
 この場合、これらをインストールする必要があります。
 
-- **IIS 7 の推奨構成**です。 これにより、 **Web サーバー (IIS)**ロール、web サーバー上の IIS モジュールおよび ASP.NET アプリケーションをホストするために必要なコンポーネントのセットをインストールします。
-- **.NET Framework 4.0**. これは、このバージョンの .NET Framework で構築されたアプリケーションの実行に必要です。
+- **IIS 7 の推奨構成**です。 これにより、 **Web サーバー (IIS)** ロール、web サーバー上の IIS モジュールおよび ASP.NET アプリケーションをホストするために必要なコンポーネントのセットをインストールします。
+- **.NET framework 4.0**です。 これは、このバージョンの .NET Framework で構築されたアプリケーションの実行に必要です。
 - **Web 配置ツール 2.1 以降**です。 これにより、Web Deploy (とその基になる実行可能ファイル、MSDeploy.exe) がサーバーにインストールされます。 このプロセスの一環としてがインストールされ、Web Deployment Agent サービスを開始します。 このサービスでは、リモート コンピューターから web パッケージを展開できます。
-- **ASP.NET MVC 3**. これは、MVC 3 アプリケーションを実行する必要があるアセンブリをインストールします。
+- **ASP.NET MVC 3**です。 これは、MVC 3 アプリケーションを実行する必要があるアセンブリをインストールします。
 
 > [!NOTE]
 > このチュートリアルでは、Web Platform Installer をインストールして、必要なコンポーネントの構成の使用について説明します。 Web Platform Installer を使用できますが、自動的に依存関係を検出して、常に製品の最新バージョンを取得することを確認して、インストール プロセスが簡略化します。 詳細については、次を参照してください。 [Microsoft Web Platform Installer 3.0](https://go.microsoft.com/?linkid=9805118)です。
@@ -98,11 +98,11 @@ ms.lasthandoff: 04/06/2018
     > 既にインストールしている Windows Update から .NET Framework 4.0。 製品またはコンポーネントがインストール済みの場合、Web Platform Installer は、これに置き換えることで、**追加**ボタン テキストを**インストール**です。
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image1.png)
-6. **ASP.NET MVC 3 (Visual Studio 2010)**行で、をクリックして**追加**です。
+6. **ASP.NET MVC 3 (Visual Studio 2010)** 行で、をクリックして**追加**です。
 7. ナビゲーション ウィンドウで **サーバー**です。
 8. **IIS 7 の推奨構成**行で、をクリックして**追加**です。
 9. **Web 配置ツール 2.1**行で、をクリックして**追加**です。
-10. **[インストール]**をクリックします。 Web Platform Installer が製品の一覧を表示&#x2014;関連する依存関係のいずれかと共に&#x2014;をインストールして、ライセンス条項に同意するように求められます。
+10. **[インストール]** をクリックします。 Web Platform Installer が製品の一覧を表示&#x2014;関連する依存関係のいずれかと共に&#x2014;をインストールして、ライセンス条項に同意するように求められます。
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image2.png)
 11. ライセンス条項を確認し、条項に同意した場合にをクリックして**同意**です。
@@ -160,7 +160,7 @@ Web コンテンツを展開するには、サーバーに、前に作成し、�
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image5.png)
 11. **サイト バインドの追加**ダイアログ ボックスで、設定、 **IP アドレス**と**ポート**既存サイトの構成に一致するようにします。
-12. **ホスト名**ボックス、web サーバーの名前を入力 (たとえば、 **TESTWEB1**)、をクリックし、 **[ok]**です。
+12. **ホスト名**ボックス、web サーバーの名前を入力 (たとえば、 **TESTWEB1**)、をクリックし、 **[ok]** です。
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image6.png)
 
@@ -207,7 +207,7 @@ Web サイト コンテンツを提供するためには、アプリケーショ
 
 **Web Deployment Agent サービスが実行されていることを確認するには**
 
-1. **[スタート]** メニューで、 **[管理ツール]**をポイントして、 **[サービス]**をクリックします。
+1. **[スタート]** メニューで、 **[管理ツール]** をポイントして、 **[サービス]** をクリックします。
 2. 検索、 **Web Deployment Agent サービス**行をしていることを確認、**ステータス**に設定されている**Started**です。
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image9.png)
@@ -217,7 +217,7 @@ Web サイト コンテンツを提供するためには、アプリケーショ
 
 既定では、リモート エージェント サービスはこの URL で、TCP ポート 80 でリッスンします。
 
-http://[<em>server name</em>]/MSDEPLOYAGENTSERVICE
+<http://servername.com/MSDEPLOYAGENTSERVICE>
 
 ほとんどの場合、web サーバーが通常リッスン ポート 80 で HTTP 要求のために、リモート エージェント サービスの追加のファイアウォール ルールを構成する必要はありません。 非標準ポートでリッスンするように、インストールをカスタマイズする場合は、必要に応じてファイアウォールの例外を構成する必要があります。
 

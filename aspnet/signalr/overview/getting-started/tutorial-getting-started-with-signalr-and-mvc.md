@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
-title: "チュートリアル: SignalR 2 と MVC 5 の概要 |Microsoft ドキュメント"
+title: 'チュートリアル: SignalR 2 と MVC 5 の概要 |Microsoft ドキュメント'
 author: pfletcher
-description: "このチュートリアルでは、ASP.NET SignalR 2 を使用して、リアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を MVC 5 アプリケーションに追加され、チャット ビューを作成しています."
+description: このチュートリアルでは、ASP.NET SignalR 2 を使用して、リアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を MVC 5 アプリケーションに追加され、チャット ビューを作成しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -107,7 +107,7 @@ ms.lasthandoff: 01/24/2018
 
     ![Scripts フォルダー](tutorial-getting-started-with-signalr-and-mvc/_static/image5.png)
 7. **ソリューション エクスプ ローラー**、プロジェクトを右クリックし、選択**追加 |新しいフォルダー**、という名前の新しいフォルダーを追加および**ハブ**です。
-8. 右クリックし、**ハブ**フォルダーで、をクリックして**追加 |新しい項目の**、select、 **Visual c# |Web |SignalR**内のノード、**インストール**ペインで、 **SignalR ハブ クラス (v2)**中央のウィンドウからという名前の新しいハブの作成と**ChatHub.cs**です。 このクラスは、すべてのクライアントにメッセージを送信する SignalR サーバー ハブとして使用されます。
+8. 右クリックし、**ハブ**フォルダーで、をクリックして**追加 |新しい項目の**、select、 **Visual c# |Web |SignalR**内のノード、**インストール**ペインで、 **SignalR ハブ クラス (v2)** 中央のウィンドウからという名前の新しいハブの作成と**ChatHub.cs**です。 このクラスは、すべてのクライアントにメッセージを送信する SignalR サーバー ハブとして使用されます。
 
     ![新しいハブを作成します。](tutorial-getting-started-with-signalr-and-mvc/_static/image6.png)
 9. コードで置き換え、 **ChatHub**クラスを次のコード。

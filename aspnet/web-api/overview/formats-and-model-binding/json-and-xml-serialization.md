@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/json-and-xml-serialization
-title: "JSON と ASP.NET Web API での XML シリアル化 |Microsoft ドキュメント"
+title: JSON と ASP.NET Web API での XML シリアル化 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2012
@@ -233,7 +233,7 @@ XML 内のオブジェクト参照を保持するには、次の 2 つのオプ�
 
 [!code-xml[Main](json-and-xml-serialization/samples/sample21.xml)]
 
-別のオプションがある場合は、モデル クラスで属性を回避するには、: 新しい型固有の作成**DataContractSerializer**をインスタンス化し、設定*preserveObjectReferences*に**は true。**コンス トラクターでします。 このインスタンスの種類のシリアライザーとして XML メディアの種類のフォーマッタに設定します。 次のコードでは、これを行う方法を示します。
+別のオプションがある場合は、モデル クラスで属性を回避するには、: 新しい型固有の作成**DataContractSerializer**をインスタンス化し、設定*preserveObjectReferences*に**は true。** コンス トラクターでします。 このインスタンスの種類のシリアライザーとして XML メディアの種類のフォーマッタに設定します。 次のコードでは、これを行う方法を示します。
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample22.cs?highlight=3)]
 

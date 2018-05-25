@@ -6,24 +6,20 @@ helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Serv
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/27/2018
+ms.date: 05/08/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 46050f4bbd6ae821c03d92c8750e839d491328cd
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 699fbbf54abf1dc5c4156c559761110cdb375558
+ms.sourcegitcommit: c867d7427bd4a88a78b2322e156367733b532730
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/09/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a>ASP.NET Core と Visual Studio for Mac で Web API を作成する
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) と [Mike Wasson](https://github.com/mikewasson)
-
-::: moniker range="= aspnetcore-2.1"
-[!INCLUDE[](~/includes/2.1.md)]
-::: moniker-end
 
 このチュートリアルでは、"to-do" 項目の一覧を管理する Web API を構築します。 UI が構成されていません。
 
@@ -121,7 +117,7 @@ Visual Studio で、**[実行]**、**[デバッグありで開始]** の順に�
 ["value1","value2"]
 ```
 
-`http://localhost:<port>/api/todo` の `Todo` コントローラーに移動します。
+`http://localhost:<port>/api/todo` の `Todo` コントローラーに移動します。 次の JSON が返されます。
 
 ```json
 [{"key":1,"name":"Item1","isComplete":false}]

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
-title: "Page Inspector を使用して ASP.NET Web での Visual Studio 2012 のフォームの |Microsoft ドキュメント"
+title: Page Inspector を使用して ASP.NET Web での Visual Studio 2012 のフォームの |Microsoft ドキュメント
 author: rick-anderson
-description: "Visual Studio 2012 用の Page Inspector は、統合ブラウザーで web 開発ツールです。 統合のブラウザーと Page Inspector でいずれかの要素を選択してください."
+description: Visual Studio 2012 用の Page Inspector は、統合ブラウザーで web 開発ツールです。 統合のブラウザーと Page Inspector でいずれかの要素を選択してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -67,7 +67,7 @@ Page Inspector には、Microsoft Web Developer Tools が付属しています�
 
 ![新しい Web フォーム アプリケーション](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image1.png)
 
-**[OK]**をクリックします。
+**[OK]** をクリックします。
 
 アプリケーションが開かれた**ソース**ビュー。
 
@@ -249,7 +249,7 @@ Visual Studio 2012 で CSS エディターには、カラー ピッカーを容�
 
 ![Intellisense フィルターの値](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image24.png)
 
-コロンを入力します。 実行すると、全体の背景色のプロパティ名が挿入されます。 型 **#** または**rgb (**、カラー ピッカーのバーが表示されます。
+コロンを入力します。 実行すると、全体の背景色のプロパティ名が挿入されます。 型**#** または**rgb (**、カラー ピッカーのバーが表示されます。
 
 ![CSS カラー ピッカー バー](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image25.png)
 

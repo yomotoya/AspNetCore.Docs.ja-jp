@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
-title: "Azure Service Bus での SignalR スケール アウト (SignalR 1.x) |Microsoft ドキュメント"
+title: Azure Service Bus での SignalR スケール アウト (SignalR 1.x) |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2013
@@ -72,7 +72,7 @@ Service Bus バック プレーンでは、トピックを使用して、メッ�
 
 Visual Studio を起動します。 **ファイル** メニューをクリックして**新しいプロジェクト**です。
 
-**新しいプロジェクト** ダイアログ ボックスで、展開**Visual c#**です。 **インストールされたテンプレート****クラウド**し、 **Windows Azure クラウド サービス**です。 既定値を .NET Framework 4.5 を保持します。 ChatService アプリケーションの名前を指定し、をクリックして**OK**です。
+**新しいプロジェクト** ダイアログ ボックスで、展開**Visual c#** です。 **インストールされたテンプレート****クラウド**し、 **Windows Azure クラウド サービス**です。 既定値を .NET Framework 4.5 を保持します。 ChatService アプリケーションの名前を指定し、をクリックして**OK**です。
 
 ![](scaleout-with-windows-azure-service-bus/_static/image4.png)
 
@@ -82,7 +82,7 @@ Visual Studio を起動します。 **ファイル** メニューをクリック
 
 ![](scaleout-with-windows-azure-service-bus/_static/image5.png)
 
-**新しい ASP.NET MVC 4 プロジェクト**ウィザードで、**インターネット アプリケーション**です。 **[OK]**をクリックします。 チーム プロジェクト ウィザードでは、2 つのプロジェクトを作成します。
+**新しい ASP.NET MVC 4 プロジェクト**ウィザードで、**インターネット アプリケーション**です。 **[OK]** をクリックします。 チーム プロジェクト ウィザードでは、2 つのプロジェクトを作成します。
 
 - ChatService: このプロジェクトは、Windows Azure アプリケーションです。 これは、Azure のロールとその他の構成オプションを定義します。
 - SignalRChat: このプロジェクトは、ASP.NET MVC 4 プロジェクトです。
@@ -135,11 +135,11 @@ Windows Azure に最初に発行する、この場合は、資格情報をダウ
 
 をクリックして**インポート**をダウンロードした発行設定ファイルを選択します。
 
-**[次へ]**をクリックします。 **発行設定**ダイアログで、**クラウド サービス**、先ほど作成したクラウド サービスを選択します。
+**[次へ]** をクリックします。 **発行設定**ダイアログで、**クラウド サービス**、先ほど作成したクラウド サービスを選択します。
 
 ![](scaleout-with-windows-azure-service-bus/_static/image12.png)
 
-**[発行]**をクリックします。 アプリケーションを展開し、Vm を起動するまで数分かかることができます。
+**[発行]** をクリックします。 アプリケーションを展開し、Vm を起動するまで数分かかることができます。
 
 今すぐチャット アプリケーションを実行すると、ロール インスタンスは、Service Bus トピックを使用して、Azure Service Bus を通じて通信します。 トピックは、複数のサブスクライバーを許可するメッセージ キューです。
 

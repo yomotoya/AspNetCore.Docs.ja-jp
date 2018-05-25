@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: ce79118fa025f912d7f04e2c9bff481a04489674
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 97c0b289b259332d57f8175e05020fe03d505723
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core の基礎
 
@@ -155,7 +155,7 @@ ASP.NET Core は、プラットフォーム間でファイルを操作するた�
 
 ASP.NET Core アプリは、アプリの起動と有効期間の管理を担当する*ホスト*を構成して起動します。
 
-詳細については、[ホスティング](xref:fundamentals/hosting)に関するページを参照してください。
+詳細については、「[Host in ASP.NET Core](xref:fundamentals/host/index)」(ASP.NET Core でのホスティング) を参照してください。
 
 ## <a name="session-and-application-state"></a>セッションとアプリケーションの状態
 
@@ -189,7 +189,7 @@ HTTP の要求と応答に関連する Web サーバーの実装の詳細が、�
 
 バックグラウンド タスクは*ホストされるサービス*として実装されます。 ホストされるサービスは、[IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice) インターフェイスを実装するバックグラウンド タスク ロジックを持つクラスです。
 
-詳細については、「[Background tasks with hosted services](xref:fundamentals/hosted-services)」(ホストされるタスクを使用するバックグラウンド タスク) を参照してください。
+詳細については、「[Background tasks with hosted services](xref:fundamentals/host/hosted-services)」(ホストされるタスクを使用するバックグラウンド タスク) を参照してください。
 
 ## <a name="open-web-interface-for-net-owin"></a>Open Web Interface for .NET (OWIN)
 

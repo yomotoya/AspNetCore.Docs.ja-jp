@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/guide-to-the-api/working-with-groups
-title: "SignalR でグループの操作 |Microsoft ドキュメント"
+title: SignalR でグループの操作 |Microsoft ドキュメント
 author: pfletcher
-description: "このトピックでは、ハブ API でのグループ メンバーシップ情報を永続化する方法について説明します。"
+description: このトピックでは、ハブ API でのグループ メンバーシップ情報を永続化する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -87,7 +87,7 @@ SignalR でグループは、接続しているクライアントの指定され
 - **すべて**指定したグループ内のクライアントを接続します。 
 
     [!code-css[Main](working-with-groups/samples/sample3.css)]
-- 指定したグループ内のクライアントが接続されているすべて**、指定されたクライアントを除く**接続 ID によって識別されます。 
+- 指定したグループ内のクライアントが接続されているすべて **、指定されたクライアントを除く**接続 ID によって識別されます。 
 
     [!code-csharp[Main](working-with-groups/samples/sample4.cs)]
 - 指定したグループ内のクライアントが接続されているすべて**呼び出し元のクライアントを除く**です。 

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/self-host-a-web-api
-title: "ASP.NET Web API 1 (c#) を自己ホスト |Microsoft ドキュメント"
+title: ASP.NET Web API 1 (c#) を自己ホスト |Microsoft ドキュメント
 author: MikeWasson
-description: "ASP.NET Web API には、IIS は不要です。 自己ホスト プロセスを独自の web API をホストできます。 このチュートリアルでは、applic コンソール内の web API をホストする方法を説明しています."
+description: ASP.NET Web API には、IIS は不要です。 自己ホスト プロセスを独自の web API をホストできます。 このチュートリアルでは、applic コンソール内の web API をホストする方法を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2012
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/24/2018
 
 Visual Studio を起動し、選択**新しいプロジェクト**から、**開始**ページ。 またはから、**ファイル**メニューの **新規**し**プロジェクト**です。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#**ノード。 **Visual c#** **Windows**です。 プロジェクト テンプレートの一覧で選択**コンソール アプリケーション**です。 プロジェクトに名前を&quot;SelfHost&quot;  をクリック**OK**です。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#** **Windows**です。 プロジェクト テンプレートの一覧で選択**コンソール アプリケーション**です。 プロジェクトに名前を&quot;SelfHost&quot;  をクリック**OK**です。
 
 ![](self-host-a-web-api/_static/image1.png)
 
@@ -156,7 +156,7 @@ ClientApp で自己ホスト型プロジェクトへの参照を追加します�
 - 選択**参照の追加**です。
 - **参照マネージャー** ] ダイアログで、**ソリューション**[**プロジェクト**です。
 - 自己ホスト型プロジェクトを選択します。
-- **[OK]**をクリックします。
+- **[OK]** をクリックします。
 
 ![](self-host-a-web-api/_static/image6.png)
 

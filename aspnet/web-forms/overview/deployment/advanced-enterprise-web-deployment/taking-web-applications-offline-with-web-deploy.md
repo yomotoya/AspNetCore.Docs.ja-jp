@@ -103,7 +103,7 @@ ms.lasthandoff: 04/06/2018
 7. という名前の新しいターゲットを追加**DeployAppOffline**です。 このターゲット内には、展開する場合、MSDeploy.exe コマンドを呼び出す、*アプリ\_オフライン*ファイルを移行先の web サーバー。
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample5.xml)]
-8. この例では、 **ContactManagerIisPath**プロパティがプロジェクト ファイルで別の場所で定義されています。 これは、単に、IIS アプリケーション パス、フォームで*[IIS web サイト名]/[アプリケーション名]*です。 ターゲットの条件を含めることができますを切り替える、*アプリ\_オフライン*プロパティ値の変更またはコマンド ライン パラメーターを提供することによって、オンまたはオフを展開します。
+8. この例では、 **ContactManagerIisPath**プロパティがプロジェクト ファイルで別の場所で定義されています。 これは、単に、IIS アプリケーション パス、フォームで *[IIS web サイト名]/[アプリケーション名]* です。 ターゲットの条件を含めることができますを切り替える、*アプリ\_オフライン*プロパティ値の変更またはコマンド ライン パラメーターを提供することによって、オンまたはオフを展開します。
 9. という名前の新しいターゲットを追加**DeleteAppOffline**です。 このターゲット内を削除する場合、MSDeploy.exe コマンドを呼び出す、*アプリ\_オフライン*ターゲット web サーバーからファイルです。
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample6.xml)]
@@ -122,7 +122,7 @@ ms.lasthandoff: 04/06/2018
 
 Web 発行パイプライン (WPP) という名前の項目リストを使用して**FilesForPackagingFromProject** web 展開パッケージに含める必要があるファイルの一覧を作成します。 この一覧に、独自の項目を追加することで、web のパッケージの内容をカスタマイズできます。 これを行うには、これらの大まかな手順を完了する必要があります。
 
-1. という名前のカスタム プロジェクト ファイルを作成する*[プロジェクト名].wpp.targets*は、プロジェクト ファイルと同じフォルダーにします。
+1. という名前のカスタム プロジェクト ファイルを作成する *[プロジェクト名].wpp.targets*は、プロジェクト ファイルと同じフォルダーにします。
 
     > [!NOTE]
     > *. Wpp.targets*ファイルは、web アプリケーション プロジェクト ファイルと同じフォルダーに移動する必要がある&#x2014;など*ContactManager.Mvc.csproj*&#x2014;任意のカスタムと同じフォルダー内ではなくプロジェクト ファイルを使用してビルドおよび配置プロセスを制御します。
@@ -141,14 +141,14 @@ Web 発行パイプライン (WPP) という名前の項目リストを使用し
 - **BeforeTargets**属性を挿入する直前に実行するかを指定することによって、WPP にこのターゲット、 **CopyAllFilesToSingleFolderForPackage**ターゲットです。
 - **FilesForPackagingFromProject**項目の使用、 **DestinationRelativePath**からファイルの名前を変更するメタデータ値*アプリ\_オフライン template.htm**アプリ\_offline.htm*ように、一覧に追加されます。
 
-次の手順は、これを追加する方法を示します*. wpp.targets*ファイルを web アプリケーション プロジェクト。
+次の手順は、これを追加する方法を示します *. wpp.targets*ファイルを web アプリケーション プロジェクト。
 
 **追加する、です web 配置パッケージに wpp.targets ファイル。**
 
 1. Visual Studio 2010 でソリューションを開きます。
 2. **ソリューション エクスプ ローラー**ウィンドウで、web アプリケーションのプロジェクト ノードを右クリックし (たとえば、 **ContactManager.Mvc**)、 をポイント**追加**をクリックして**新しい項目の**します。
 3. **新しい項目の追加**ダイアログ ボックスで、 **XML ファイル**テンプレート。
-4. **名前**ボックスに、入力*[プロジェクト名] * * *.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**)、をクリックして**追加**.
+4. **名前**ボックスに、入力 *[プロジェクト名] * * *.wpp.targets** (たとえば、 **ContactManager.Mvc.wpp.targets**)、をクリックして**追加**.
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image4.png)
 

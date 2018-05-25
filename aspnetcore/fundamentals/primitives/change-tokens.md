@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 3055eec91adc412b596d4cc73e8523e18ff63331
-ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
+ms.openlocfilehash: 06751e713fbd579a944333cc3c3b2c0c0ad51eba
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>ASP.NET Core で変更トークンを使用して変更を検出する
 
@@ -108,7 +108,7 @@ config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet2)]
 
-`config.GetReloadToken()` はトークンを提供します。 `InvokeChanged` はコールバック メソッドです。 このインスタンスの `state` は、監視の状態を説明する文字列です。 次の 2 つのプロパティが使用されます。
+`config.GetReloadToken()` はトークンを提供します。 `InvokeChanged` はコールバック メソッドです。 このインスタンスの `state` は、監視の状態にアクセスするために使用される `IConfigurationMonitor` インスタンスへの参照です。 次の 2 つのプロパティが使用されます。
 
 * `MonitoringEnabled` は、コールバックでカスタム コードを実行する必要があるかどうかを示します。
 * `CurrentState` は、UI で使用するための現在の監視状態を説明します。
@@ -116,7 +116,6 @@ config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
 `InvokeChanged` メソッドは、次の点を除けば、前の方法に似ています。
 
 * `MonitoringEnabled` が `true` ではない限りコードを実行しません。
-* `CurrentState` プロパティ文字列をコードが実行された時刻を記録する説明メッセージに設定します。
 * `WriteConsole` 出力の現在の `state` に注意してください。
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet3)]
@@ -201,7 +200,6 @@ var compositeChangeToken =
 
 * [メモリ内キャッシュ](xref:performance/caching/memory)
 * [分散キャッシュの使用](xref:performance/caching/distributed)
-* [変更トークンを使用する変更の検出](xref:fundamentals/primitives/change-tokens)
 * [応答キャッシュ](xref:performance/caching/response)
 * [応答キャッシュ ミドルウェア](xref:performance/caching/middleware)
 * [キャッシュ タグ ヘルパー](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

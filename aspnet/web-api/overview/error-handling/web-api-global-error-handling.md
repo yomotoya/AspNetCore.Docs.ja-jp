@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/error-handling/web-api-global-error-handling
-title: "グローバルのエラー処理 ASP.NET Web API 2 |Microsoft ドキュメント"
+title: グローバルのエラー処理 ASP.NET Web API 2 |Microsoft ドキュメント
 author: davidmatson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/03/2014

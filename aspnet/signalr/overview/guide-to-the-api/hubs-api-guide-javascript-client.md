@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
-title: "ASP.NET SignalR ハブ API ガイド - JavaScript クライアント |Microsoft ドキュメント"
+title: ASP.NET SignalR ハブ API ガイド - JavaScript クライアント |Microsoft ドキュメント
 author: pfletcher
-description: "このドキュメントでは、SignalR ブラウザーや Windows ストア (WinJS) applicat など、JavaScript クライアントで、バージョン 2 のハブ API を使用して紹介しています."
+description: このドキュメントでは、SignalR ブラウザーや Windows ストア (WinJS) applicat など、JavaScript クライアントで、バージョン 2 のハブ API を使用して紹介しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2015
@@ -229,7 +229,7 @@ SignalR で 1.x では、クロス ドメイン要求が単一 EnableCrossDomain
 
 設定を明示的に有効にする必要があります JSONP が必要な場合、クライアントで (古いブラウザーでは、クロス ドメイン要求をサポート)、`EnableJSONP`上、`HubConfiguration`オブジェクトを`true`次のように、します。 CORS より安全であるために、既定では、JSONP が無効です。
 
-**Microsoft.Owin.Cors をプロジェクトに追加する:**このライブラリをインストールするには、パッケージ マネージャー コンソールで、次のコマンドを実行します。
+**Microsoft.Owin.Cors をプロジェクトに追加する:** このライブラリをインストールするには、パッケージ マネージャー コンソールで、次のコマンドを実行します。
 
 `Install-Package Microsoft.Owin.Cors`
 
@@ -449,7 +449,7 @@ SignalR で 1.x では、クロス ドメイン要求が単一 EnableCrossDomain
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample42.cs?highlight=3)]
 
-**使用される Stock クラス、**戻り値
+**使用される Stock クラス、** 戻り値
 
 [!code-csharp[Main](hubs-api-guide-javascript-client/samples/sample43.cs?highlight=1)]
 

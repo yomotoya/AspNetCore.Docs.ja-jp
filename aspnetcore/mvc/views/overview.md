@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: 9af08d8fcbd91a9189fe1f4c6cedd644361773f7
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: b9947de03942bd71616e4bf12263befd9f784915
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC のビュー
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 05/03/2018
 
 このドキュメントでは、ASP.NET Core MVC アプリケーションで使用されるビューについて説明します。 Razor ページについては、「[ASP.NET Core での Razor ページの概要](xref:mvc/razor-pages/index)」を参照してください。
 
-**M**odel-**V**iew-**C**ontroller (MVC) パターンでは、*ビュー*がアプリのデータ表示とユーザー操作を処理します。 ビューは、[Razor マークアップ](xref:mvc/views/razor)が埋め込まれた HTML テンプレートてです。 Razor マークアップは、クライアントに送信する Web ページを生成するために HTML マークアップと対話するコードです。
+Model-View-Controller (MVC) パターンでは、*ビュー*がアプリのデータ表示とユーザー操作を処理します。 ビューは、[Razor マークアップ](xref:mvc/views/razor)が埋め込まれた HTML テンプレートてです。 Razor マークアップは、クライアントに送信する Web ページを生成するために HTML マークアップと対話するコードです。
 
 ASP.NET Core MVC では、ビューは、Razor マークアップで [C# プログラミング言語](/dotnet/csharp/)を使用する *.cshtml* ファイルです。 通常、ビュー ファイルは、各アプリの[コントローラー](xref:mvc/controllers/actions)の名前が付いたフォルダーにグループ化されます。 これらのフォルダーは、アプリのルートにある *Views* フォルダーに格納されます。
 
@@ -37,7 +37,7 @@ ASP.NET Core MVC では、ビューは、Razor マークアップで [C# プロ�
 
 ## <a name="benefits-of-using-views"></a>ビューを使用するメリット
 
-ビューは、ユーザー インターフェイス マークアップをアプリの他の部分から分離することで、MVC アプリ内で [**S**eparation **o**f **C**oncerns (SoC) 設計](http://deviq.com/separation-of-concerns/)を確立することに役立ちます。 SoC 設計に従うことで、アプリをモジュール化することができます。これにより次のような複数のメリットがもたらされます。
+ビューは、ユーザー インターフェイス マークアップをアプリの他の部分から分離して、MVC アプリ内で [Separation of Concerns (SoC) 設計](http://deviq.com/separation-of-concerns/)を確立するのに役立ちます。 SoC 設計に従うことで、アプリをモジュール化することができます。これにより次のような複数のメリットがもたらされます。
 
 * より効率的に整理されるため、アプリの維持が容易になります。 ビューは通常、アプリの機能によってグループ化されます。 これにより、機能を使用する際に、関連するビューが見つけやすくなります。
 * アプリの部分は弱く結合されています。 ビジネス ロジックとデータ アクセス コンポーネントと切り離して、アプリのビューをビルドおよび更新できます。 アプリの他の部分を更新しなくても、アプリのビューを変更できます。
@@ -123,7 +123,16 @@ return View("./About");
 
 ## <a name="passing-data-to-views"></a>ビューにデータを渡す
 
-いくつかの方法を使用して、ビューにデータを渡すことができます。 最も確実な方法は、ビューで[モデル](xref:mvc/models/model-binding)の型を指定することです。 このモデルは、一般的に *viewmodel* と呼ばれます。 viewmodel 型のインスタンスをアクションからビューに渡します。
+ビューにデータを渡すには、いくつかの方法があります。
+
+* 厳密に型指定されたデータ: viewmodel
+* 弱い型指定のデータ
+  - `ViewData` (`ViewDataAttribute`)
+  - `ViewBag`
+
+### <a name="strongly-typed-data-viewmodel"></a>厳密に型指定されたデータ (viewmodel)
+
+最も確実な方法は、ビューで[モデル](xref:mvc/models/model-binding)の型を指定することです。 このモデルは、一般的に *viewmodel* と呼ばれます。 viewmodel 型のインスタンスをアクションからビューに渡します。
 
 viewmodel を使用してデータをビューに渡すことで、ビューで*厳密な*型チェックを利用できるようになります。 *厳密な型指定* (または*厳密に型指定された*) は、すべての変数および定数に明示的に定義された型 (`string`、`int`、または `DateTime` など) があることを意味します。 ビューで使用される型の妥当性は、コンパイル時にチェックされます。
 
@@ -162,7 +171,7 @@ public IActionResult Contact()
 }
 ```
 
-ビューに提供できるモデルの型に制限はありません。 **P**lain **O**ld **C**LR **O**bject (POCO) viewmodel を、動作 (メソッド) をほとんど定義せずに使用することをお勧めします。 通常、viewmodel クラスは、*Models* フォルダーまたはアプリのルートにある個別の *ViewModels* フォルダーのいずれかに格納されます。 上記の例で使用されている *Address* viewmodel は、*Address.cs* という名前のファイルに格納されている POCO viewmodel です。
+ビューに提供できるモデルの型に制限はありません。 Plain Old CLR Object (POCO) viewmodel を、動作 (メソッド) をほとんど定義せずに使用することをお勧めします。 通常、viewmodel クラスは、*Models* フォルダーまたはアプリのルートにある個別の *ViewModels* フォルダーのいずれかに格納されます。 上記の例で使用されている *Address* viewmodel は、*Address.cs* という名前のファイルに格納されている POCO viewmodel です。
 
 ```csharp
 namespace WebApplication1.ViewModels
@@ -178,15 +187,13 @@ namespace WebApplication1.ViewModels
 }
 ```
 
-> [!NOTE]
-> viewmodel 型とビジネス モデル型の両方に同じクラスを使用することを妨げるものはありません。 しかし、別のモデルを使用することで、ビジネス ロジックとアプリのデータ アクセス部分からは独立して、ビューを変えることができます。 モデルと viewmodel を分離することで、モデルが[モデル バインディング](xref:mvc/models/model-binding)と[検証](xref:mvc/models/validation)を使用する際に、ユーザーによってアプリに送信されるデータに対してセキュリティ上の利点ももたらされます。
-
+viewmodel 型とビジネス モデル型の両方に同じクラスを使用することを妨げるものはありません。 しかし、別のモデルを使用することで、ビジネス ロジックとアプリのデータ アクセス部分からは独立して、ビューを変えることができます。 モデルと viewmodel を分離することで、モデルが[モデル バインディング](xref:mvc/models/model-binding)と[検証](xref:mvc/models/validation)を使用する際に、ユーザーによってアプリに送信されるデータに対してセキュリティ上の利点ももたらされます。
 
 <a name="VD_VB"></a>
 
-### <a name="weakly-typed-data-viewdata-and-viewbag"></a>弱い型指定のデータ (ViewData と ViewBag)
+### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>弱い型指定のデータ (ViewData、ViewData 属性、ViewBag)
 
-注: `ViewBag` は Razor ページでは使用できません。
+`ViewBag`  *は Razor ページでは使用できません。*
 
 厳密に型指定されたビューに加え、ビューはデータの*弱い型指定* (*緩く型指定された*とも呼ばれます) のコレクションにもアクセスできます。 厳密な型とは異なり、*弱い型* (または*緩い型*) は、使用するデータの型を明示的に宣言しないことを意味します。 弱い型指定のデータのコレクションを使用して、少量のデータをコントローラーとビュー間でやり取りすることができます。
 
@@ -199,7 +206,6 @@ namespace WebApplication1.ViewModels
 このコレクションは、コントローラーおよびビューで `ViewData` または `ViewBag` のいずれかのプロパティを通じて参照できます。 `ViewData` プロパティは、弱い型指定のオブジェクトのディクショナリです。 `ViewBag` プロパティは、基になる `ViewData` コレクションに動的プロパティを提供する `ViewData` をラップするラッパーです。
 
 `ViewData` および `ViewBag` は実行時に動的に解決されます。 これらはコンパイル時の型チェックを提供していないため、どちらも viewmodel を使用する場合よりも一般的にエラーが発生しやすくなります。 そのため、開発者の中には、`ViewData` および `ViewBag` の使用を最小限に抑えるか、まったく使用しない人もいます。
-
 
 <a name="VD"></a>
 
@@ -243,9 +249,49 @@ public IActionResult SomeAction()
 </address>
 ```
 
+::: moniker range=">= aspnetcore-2.1"
+**ViewData 属性**
+
+[ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) を使用するもう 1 つの方法は [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute) です。 コントローラーまたは `[ViewData]` で装飾された Razor ページのモデルのプロパティは、値をディクショナリに格納し、読み込むことができます。
+
+次の例では、Home コントローラーには `[ViewData]` で装飾された `Title` プロパティが含まれています。 `About` メソッドは、About ビューのタイトルを設定します。
+
+```csharp
+public class HomeController : Controller
+{
+    [ViewData]
+    public string Title { get; set; }
+
+    public IActionResult About()
+    {
+        Title = "About Us";
+        ViewData["Message"] = "Your application description page.";
+
+        return View();
+    }
+}
+```
+
+About ビューでは、モデル プロパティとして `Title` プロパティにアクセスします。
+
+```cshtml
+<h1>@Model.Title</h1>
+```
+
+レイアウトでは、タイトルは ViewData ディクショナリから読み込まれます。
+
+```cshtml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"] - WebApplication</title>
+    ...
+```
+::: moniker-end
+
 **ViewBag**
 
-注: `ViewBag` は Razor ページでは使用できません。
+`ViewBag`  *は Razor ページでは使用できません。*
 
 `ViewBag` は、`ViewData` に格納されているオブジェクトへの動的アクセスを提供する [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) オブジェクトです。 `ViewBag` はキャストを必要としないため、より簡単に使用できます。 次の例は、上記の `ViewData` を使用した時と同じ結果になるように、`ViewBag` を使用する方法を示しています。
 
@@ -278,7 +324,7 @@ public IActionResult SomeAction()
 
 **ViewBag、ViewData を同時に使用する**
 
-注: `ViewBag` は Razor ページでは使用できません。
+`ViewBag`  *は Razor ページでは使用できません。*
 
 `ViewData` と `ViewBag` は基になる同じ `ViewData` コレクションを参照しているため、値を読み書きするときに、`ViewData` と `ViewBag` の両方を使用して、それらを組み合わせることができます。
 

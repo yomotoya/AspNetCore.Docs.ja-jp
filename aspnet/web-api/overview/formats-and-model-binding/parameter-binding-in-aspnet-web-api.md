@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
-title: "ASP.NET Web API でのバインディング パラメーター |Microsoft ドキュメント"
+title: ASP.NET Web API でのバインディング パラメーター |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2013
@@ -41,7 +41,7 @@ URI から値を取得するには、Web API は、ルート データと URI �
 
 ## <a name="using-fromuri"></a>[FromUri] を使用します。
 
-Web API を URI から複合型を読み取るには、追加、 **[FromUri]**属性をパラメーター。 次の例では定義、`GeoPoint`型を取得するコント ローラー メソッドと共に、 `GeoPoint` URI からです。
+Web API を URI から複合型を読み取るには、追加、 **[FromUri]** 属性をパラメーター。 次の例では定義、`GeoPoint`型を取得するコント ローラー メソッドと共に、 `GeoPoint` URI からです。
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample2.cs)]
 
@@ -51,7 +51,7 @@ Web API を URI から複合型を読み取るには、追加、 **[FromUri]**�
 
 ## <a name="using-frombody"></a>[FromBody] を使用します。
 
-要求本文から単純型の読み取りに Web API には、追加、 **[FromBody]**パラメーターに属性します。
+要求本文から単純型の読み取りに Web API には、追加、 **[FromBody]** パラメーターに属性します。
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample3.cs)]
 
@@ -71,11 +71,11 @@ Web API を URI から複合型を読み取るには、追加、 **[FromUri]**�
 
 作成することで Web API (Web API は、URI からバインドしようとしています) できるように、単純型としてクラスを処理を行うことができます、 **TypeConverter**し、文字列の変換を提供します。
 
-次のコードは、 `GeoPoint` 、地理的なポイントを表すクラスと**TypeConverter**を文字列から変換する`GeoPoint`インスタンス。 `GeoPoint`でクラスを装飾、 **[TypeConverter]**属性を型コンバーターを指定します。 (この例は、Mike Stall のブログの投稿で触発されました[MVC/WebAPI のアクション シグネチャでのカスタム オブジェクトをバインドする方法](https://blogs.msdn.com/b/jmstall/archive/2012/04/20/how-to-bind-to-custom-objects-in-action-signatures-in-mvc-webapi.aspx))。
+次のコードは、 `GeoPoint` 、地理的なポイントを表すクラスと**TypeConverter**を文字列から変換する`GeoPoint`インスタンス。 `GeoPoint`でクラスを装飾、 **[TypeConverter]** 属性を型コンバーターを指定します。 (この例は、Mike Stall のブログの投稿で触発されました[MVC/WebAPI のアクション シグネチャでのカスタム オブジェクトをバインドする方法](https://blogs.msdn.com/b/jmstall/archive/2012/04/20/how-to-bind-to-custom-objects-in-action-signatures-in-mvc-webapi.aspx))。
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample6.cs)]
 
-これで、Web API は扱います`GeoPoint`として単純型、つまりバインドを試みます`GeoPoint`URI からのパラメーターです。 含める必要はありません**[FromUri]**パラメーターにします。
+これで、Web API は扱います`GeoPoint`として単純型、つまりバインドを試みます`GeoPoint`URI からのパラメーターです。 含める必要はありません **[FromUri]** パラメーターにします。
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample7.cs)]
 
@@ -113,11 +113,11 @@ Web API の既定値のプロバイダーは、ルート データおよびク�
 
 **モデル バインダーを設定**
 
-モデル バインダーを設定するいくつかの方法はあります。 最初に、追加、 **[拡大する ModelBinder]**属性をパラメーター。
+モデル バインダーを設定するいくつかの方法はあります。 最初に、追加、 **[拡大する ModelBinder]** 属性をパラメーター。
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample10.cs)]
 
-追加することも、 **[拡大する ModelBinder]**属性を型にします。 Web API は、その型のすべてのパラメーターの指定したモデル バインダーを使用します。
+追加することも、 **[拡大する ModelBinder]** 属性を型にします。 Web API は、その型のすべてのパラメーターの指定したモデル バインダーを使用します。
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample11.cs)]
 
@@ -125,7 +125,7 @@ Web API の既定値のプロバイダーは、ルート データおよびク�
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample12.cs)]
 
-モデル バインド プロバイダーを使用する必要がありますを追加、 **[拡大する ModelBinder]**属性をパラメーターへのモデル バインダーおよびメディア タイプ フォーマッタではないのどちらを使用するように Web API を通知します。 ただし、属性にモデル バインダーの型を指定する必要はありませんようになりました。
+モデル バインド プロバイダーを使用する必要がありますを追加、 **[拡大する ModelBinder]** 属性をパラメーターへのモデル バインダーおよびメディア タイプ フォーマッタではないのどちらを使用するように Web API を通知します。 ただし、属性にモデル バインダーの型を指定する必要はありませんようになりました。
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample13.cs)]
 
@@ -153,7 +153,7 @@ Web API がすべての値プロバイダーのために合成モデル バイ�
 
 ## <a name="httpparameterbinding"></a>HttpParameterBinding
 
-モデル バインダーは、一般的なメカニズムの特定のインスタンスです。 確認する場合、 **[拡大する ModelBinder]**属性が表示されます、抽象型から派生して**ParameterBindingAttribute**クラスです。 このクラスは、1 つのメソッドを定義**GetBinding**、返された、 **HttpParameterBinding**オブジェクト。
+モデル バインダーは、一般的なメカニズムの特定のインスタンスです。 確認する場合、 **[拡大する ModelBinder]** 属性が表示されます、抽象型から派生して**ParameterBindingAttribute**クラスです。 このクラスは、1 つのメソッドを定義**GetBinding**、返された、 **HttpParameterBinding**オブジェクト。
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample18.cs)]
 
@@ -195,12 +195,12 @@ ETag を取得するかどうかを示すために列挙体を定義してあり
 
 全体のパラメーター バインディング プロセスは、プラグ可能なサービスによって制御されます**IActionValueBinder**です。 既定の実装**IActionValueBinder**は次の実行します。
 
-1. 探して、 **ParameterBindingAttribute**パラメーターにします。 これが含まれます**[FromBody]**、 **[FromUri]**、および**[拡大する ModelBinder]**、またはカスタム属性です。
+1. 探して、 **ParameterBindingAttribute**パラメーターにします。 これが含まれます **[FromBody]**、 **[FromUri]**、および **[拡大する ModelBinder]**、またはカスタム属性です。
 2. それ以外の場合、ファイルの場所**HttpConfiguration.ParameterBindingRules**を null 以外を返す関数の**HttpParameterBinding**です。
 3. それ以外の場合、先ほど説明した既定の規則を使用します。 
 
-    - パラメーターの型「単純」が、型コンバーターがいる場合は、URI からバインドします。 これは配置することに相当、 **[FromUri]**パラメーターの属性です。
-    - それ以外の場合、メッセージ本文からパラメーターの読み取りを再試行してください。 これは配置することに相当**[FromBody]**パラメーターにします。
+    - パラメーターの型「単純」が、型コンバーターがいる場合は、URI からバインドします。 これは配置することに相当、 **[FromUri]** パラメーターの属性です。
+    - それ以外の場合、メッセージ本文からパラメーターの読み取りを再試行してください。 これは配置することに相当 **[FromBody]** パラメーターにします。
 
 全体を置換できなかった場合は、 **IActionValueBinder**サービス、カスタム実装です。
 

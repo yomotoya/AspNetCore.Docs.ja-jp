@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
-title: "ASP.NET web API 2 OData アクションをサポートする |Microsoft ドキュメント"
+title: ASP.NET web API 2 OData アクションをサポートする |Microsoft ドキュメント
 author: MikeWasson
-description: "OData では、アクションは、エンティティに対する CRUD 操作として簡単に定義されていないサーバー側の動作を追加する方法です。 などのアクションを使用する一部: を実装しています."
+description: 'OData では、アクションは、エンティティに対する CRUD 操作として簡単に定義されていないサーバー側の動作を追加する方法です。 などのアクションを使用する一部: を実装しています.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2014
@@ -78,7 +78,7 @@ POST 要求のデータだけで、製品評価しています。
 - *キー*: 速度に製品のキー。
 - *パラメーター*: アクション パラメーターの値のディクショナリ。
 
-既定のルーティング規則を使用している場合キー パラメーターを「キー」という必要があります。 含める必要も、 **[FromOdataUri]**属性が示すようにします。 この属性では、Web API 要求 URI のキーを解析する場合は、OData 構文の規則を使用するように指示します。
+既定のルーティング規則を使用している場合キー パラメーターを「キー」という必要があります。 含める必要も、 **[FromOdataUri]** 属性が示すようにします。 この属性では、Web API 要求 URI のキーを解析する場合は、OData 構文の規則を使用するように指示します。
 
 使用して、*パラメーター*アクション パラメーターを取得するためのディクショナリ。
 

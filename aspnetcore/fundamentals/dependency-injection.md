@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 8a105f835dddfcd0e9f32059e644f60dc1fdbbe1
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 067d9bd09f6d5e54bbafd953eea169d2df2be34e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core での依存関係の挿入
 
@@ -72,7 +72,7 @@ public CharactersController(ICharacterRepository characterRepository, string tit
 
 ## <a name="using-framework-provided-services"></a>フレームワークが提供するサービスの使用
 
-`Startup` クラスの `ConfigureServices` メソッドでは、Entity Framework Core や ASP.NET Core MVC といったプラットフォーム機能など、アプリケーションが使うサービスを定義する必要があります。 最初に、`ConfigureServices` に提供される `IServiceCollection` では、次のサービスが定義されています ([ホストの構成方法](xref:fundamentals/hosting)に依存します)。
+`Startup` クラスの `ConfigureServices` メソッドでは、Entity Framework Core や ASP.NET Core MVC といったプラットフォーム機能など、アプリケーションが使うサービスを定義する必要があります。 最初に、`ConfigureServices` に提供される `IServiceCollection` では、次のサービスが定義されています ([ホストの構成方法](xref:fundamentals/host/index)に依存します)。
 
 | サービスの種類 | 有効期間 |
 | ----- | ------- |
@@ -235,7 +235,7 @@ public static void Main(string[] args)
 
 スコープ サービスは、それを作成したコンテナーによって破棄されます。 ルート コンテナーにスコープ サービスが作成されると、サービスはアプリ/サーバーのシャットダウン時に、ルート コンテナーによってのみ破棄されるため、サービスの有効期間は実質的にシングルトンに昇格されます。 `BuildServiceProvider` が呼び出されると、サービス スコープの検証がこれらの状況をキャッチします。
 
-詳細については、[ホスティングのトピックのスコープ検証](xref:fundamentals/hosting#scope-validation)に関する説明を参照してください。
+詳細については、[Web ホストのトピックのスコープ検証](xref:fundamentals/host/web-host#scope-validation)に関する説明を参照してください。
 
 ## <a name="request-services"></a>要求サービス
 
@@ -245,7 +245,7 @@ public static void Main(string[] args)
 
 要求サービスは、アプリケーションの一部として構成および要求するサービスを表します。 オブジェクトで依存関係を指定すると、これらは `ApplicationServices` ではなく `RequestServices` で検出された型で満たされます。
 
-一般に、これらのプロパティを直接使ってはいけません。代わりに、クラスのコンストラクターを使ってクラスで必要な型を要求し、フレームワークにこれらの依存関係を挿入させます。 このようにすると、クラスはテストしやすくなり (「[テストとデバッグ](../testing/index.md)」を参照)、より弱い結合になります。
+一般に、これらのプロパティを直接使ってはいけません。代わりに、クラスのコンストラクターを使ってクラスで必要な型を要求し、フレームワークにこれらの依存関係を挿入させます。 このようにすると、クラスはテストしやすくなり (「[テストとデバッグ](xref:testing/index)」を参照)、より弱い結合になります。
 
 > [!NOTE]
 > コンストラクターのパラメーターとして依存関係を要求し、`RequestServices` コレクションにアクセスするようにします。
@@ -351,13 +351,15 @@ public class DefaultModule : Module
 
 * `HttpContext` への静的なアクセスを行わないようにします。
 
-> [!NOTE]
-> どのような推奨事項でも、無視する必要がある状況が発生する可能性があります。 例外はまれであることがわかっており、ほとんどはフレームワーク自体内での非常に特殊なケースです。
+どのような推奨事項でも、無視する必要がある状況が発生する可能性があります。 例外はまれであることがわかっており、ほとんどはフレームワーク自体内での非常に特殊なケースです。
 
-依存関係の挿入は静的/グローバル オブジェクト アクセス パターンの "*代替機能*" であることを憶えておいてください。 静的オブジェクト アクセスと併用した場合、DI のメリットを実現することはできません。
+依存関係の挿入は静的/グローバル オブジェクト アクセス パターンの*代替機能*です。 静的オブジェクト アクセスと併用した場合、DI のメリットを実現することはできません。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
+* [ビューへの依存性の注入](xref:mvc/views/dependency-injection)
+* [コントローラーへの依存性の注入](xref:mvc/controllers/dependency-injection)
+* [要件ハンドラーでの依存性の注入](xref:security/authorization/dependencyinjection)
 * [アプリケーションの起動](xref:fundamentals/startup)
 * [テストとデバッグ](xref:testing/index)
 * [ファクトリ ベースのミドルウェアのアクティブ化](xref:fundamentals/middleware/extensibility)

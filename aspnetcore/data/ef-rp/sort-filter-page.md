@@ -8,11 +8,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: be7d55bf1a5d3da63ff137ed86f71984dc897eff
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 26f516716864bdce81cf3acdacb0f9d2f98407b7
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET Core の Razor Pages と EF Core - 並べ替え、フィルター、ページング - 3/8
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 04/06/2018
 
 `?: operator` は三項演算子とも呼ばれます。
 
-これらの 2 つのステートメントを使用して、次のようにビューで列見出しのハイパーリンクの設定することができます。
+これらの 2 つのステートメントを使用して、次のようにページで列見出しのハイパーリンクを設定することができます。
 
 | 既定の並べ替え順 | 姓のハイパーリンク | 日付のハイパーリンク |
 |:--------------------:|:-------------------:|:--------------:|
@@ -77,7 +77,7 @@ ms.lasthandoff: 04/06/2018
 
 `OnGetAsync` は、多数の列によって冗長になる可能性があります。
 
-### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>列見出しハイパーリンクを Student インデックス ビューに追加する
+### <a name="add-column-heading-hyperlinks-to-the-student-index-page"></a>列見出しハイパーリンクを Student インデックス ページに追加する
 
 *Students/Index.cshtml* のコードを次の強調表示されたコードに置き換えます。
 
@@ -133,9 +133,9 @@ Students インデックス ページにフィルターを追加するには
 
 `ToUpper` を呼び出すとパフォーマンスが低下します。 `ToUpper` コードは、TSQL SELECT ステートメントの WHERE 句に関数を追加します。 関数が追加されると、オプティマイザーがインデックスを使用できなくなります。 大文字小文字を区別しないように SQL がインストールされている場合、不要な場合は `ToUpper` を呼び出さないようにすることをお勧めします。
 
-### <a name="add-a-search-box-to-the-student-index-view"></a>Students インデックス ビューに [検索] ボックスを追加する
+### <a name="add-a-search-box-to-the-student-index-page"></a>Students インデックス ページに [検索] ボックスを追加する
 
-*Views/Student/Index.cshtml* で、次の強調表示されたコードを追加し、**[Search]** ボタンと各種のクロムを追加します。
+*Pages/Students/Index.cshtml* で、次の強調表示されたコードを追加し、**[検索]** ボタンと各種のクロムを追加します。
 
 [!code-html[](intro/samples/cu/Pages/Students/Index3.cshtml?highlight=14-23&range=1-25)]
 
@@ -267,7 +267,7 @@ LINQ ステートメントは、登録日で受講者エンティティをグル
 
 ### <a name="modify-the-about-razor-page"></a>About Razor Page ページを変更します。
 
-*Views/Home/About.cshtml* ファイルのコードを次のコードに置き換えます。
+*Pages/About.cshtml* ファイルのコードを次のコードに置き換えます。
 
 [!code-html[](intro/samples/cu/Pages/About.cshtml)]
 

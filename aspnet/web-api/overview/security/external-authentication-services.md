@@ -90,7 +90,7 @@ Visual Studio 2013 の選択を開始**新しいプロジェクト**スタート
 
 [![](external-authentication-services/_static/image6.png "クリックして、イメージの展開")](external-authentication-services/_static/image5.png)
 
-ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、選択**インストール****テンプレート**展開**Visual c#**です。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET Web アプリケーション**です。 プロジェクトの名前を入力し、クリックして**OK**です。
+ときに、**新しいプロジェクト** ダイアログ ボックスが表示されたら、選択**インストール****テンプレート**展開**Visual c#** です。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET Web アプリケーション**です。 プロジェクトの名前を入力し、クリックして**OK**です。
 
 [![](external-authentication-services/_static/image8.png "クリックして、イメージの展開")](external-authentication-services/_static/image7.png)
 

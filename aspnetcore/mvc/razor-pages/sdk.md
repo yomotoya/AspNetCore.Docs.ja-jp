@@ -10,17 +10,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: mvc/razor-pages/sdk
-ms.openlocfilehash: 2cbebb12ccd1098e1950aa7eeb22fab4ffc689e6
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: acc049a69574968d1e304d6c504cb89243387d6c
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core の Razor SDK
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-[!INCLUDE[](~/includes/2.1.md)]
 
 [!INCLUDE[](~/includes/2.1-SDK.md)] には、`Microsoft.NET.Sdk.Razor` MSBuild SDK (Razor SDK) が含まれています。 Razor SDK とは、次のとおりです。
 
@@ -66,7 +64,7 @@ Razor SDK への入力および出力は、次のプロパティおよび項目�
 | ------------                                  | -------------                                                                 |
 | RazorGenerate                                 | コードの生成対象に入力する項目要素 (*.cshtml* ファイル) です。 |
 | RazorCompile                                  | Razor コンパイル対象への入力である項目要素 (.cs ファイル) です。 Razor アセンブリに追加でコンパイルするファイルを指定するには、この ItemGroup を使用します。 |
-| RazorAssemblyAttribute                        | Razor アセンブリ用の属性をコード生成するために使用する項目要素です。 例:  <br />`<RazorAssemblyAttribute ` <br />  `Include="System.Reflection.AssemblyMetadataAttribute"`<br />`  _Parameter1="BuildSource" _Parameter2="https://docs.asp.net/">` |
+| RazorTargetAssemblyAttribute                  | Razor アセンブリ用の属性をコード生成するために使用する項目要素です。 例:  <br />`<RazorAssemblyAttribute ` <br />  `Include="System.Reflection.AssemblyMetadataAttribute"`<br />`  _Parameter1="BuildSource" _Parameter2="https://docs.asp.net/">` |
 | RazorEmbeddedResource                         | 生成された Razor アセンブリに埋め込みのリソースとして追加される項目要素です。 |
 
 | プロパティ                                      | 説明                                                                   |

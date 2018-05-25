@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api
-title: "ASP.NET Web API でルーティング |Microsoft ドキュメント"
+title: ASP.NET Web API でルーティング |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/11/2012
@@ -61,9 +61,9 @@ Web API フレームワークでは、HTTP 要求を受信、ルーティング 
 
 一致するルートが見つかると、Web API は、コント ローラーとアクションを選択します。
 
-- Web API を追加するコント ローラーを検索するには、&quot;コント ローラー&quot;の値に、 *{controller}*変数。
+- Web API を追加するコント ローラーを検索するには、&quot;コント ローラー&quot;の値に、 *{controller}* 変数。
 - アクションを検索するには、Web API HTTP メソッドと調べ操作の対応する HTTP メソッド名で始まる名前を検索します。 たとえば、GET 要求で Web API 検索で始まるアクション&quot;を取得しています.&quot;など&quot;GetContact&quot;または&quot;GetAllContacts&quot;です。 この規則は、取得、POST、PUT、および削除メソッドにのみ適用されます。 その他の HTTP メソッドを有効にするには、コント ローラーの属性を使用します。 その例が後で表示されます。
-- ルート テンプレートでは、その他のプレース ホルダー変数など*{id},*アクション パラメーターにマップされます。
+- ルート テンプレートでは、その他のプレース ホルダー変数など *{id},* アクション パラメーターにマップされます。
 
 例を見てみましょう。 次のコント ローラーを定義するとします。
 
@@ -105,7 +105,7 @@ Web API では、既定のルーティング テンプレートで、HTTP メソ
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample5.cs)]
 
-このルート テンプレートで、 *{controller}*パラメーター名、コント ローラー アクション メソッド。 ルーティングのこのスタイルでは、許可される HTTP メソッドを指定するのに属性を使用します。 たとえば、コント ローラーに次のメソッドがあるとします。
+このルート テンプレートで、 *{controller}* パラメーター名、コント ローラー アクション メソッド。 ルーティングのこのスタイルでは、許可される HTTP メソッドを指定するのに属性を使用します。 たとえば、コント ローラーに次のメソッドがあるとします。
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample6.cs)]
 

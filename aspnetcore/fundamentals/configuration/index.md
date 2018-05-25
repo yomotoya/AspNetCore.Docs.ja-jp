@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: afff36ffc232b00389c52d9e751ae398555c9656
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: f4b0af39ea865d5d8b47a7b385de72e616c13cd7
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core の構成
 
@@ -478,6 +478,6 @@ MVC ビュー:
 * [オプション](xref:fundamentals/configuration/options)
 * [複数の環境の使用](xref:fundamentals/environments)
 * [開発中のアプリ シークレットの安全な格納](xref:security/app-secrets)
-* [ASP.NET Core でのホスティング](xref:fundamentals/hosting)
+* [ASP.NET Core でのホスティング](xref:fundamentals/host/index)
 * [依存性の注入](xref:fundamentals/dependency-injection)
 * [Azure Key Vault 構成プロバイダー](xref:security/key-vault-configuration)

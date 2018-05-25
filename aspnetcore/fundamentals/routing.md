@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 2e1257639ec41f657093439c5245b50adbad34dc
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: d9d5a26b08f67fe4ee39d6b974027826a93e5d5f
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core のルーティング
 
@@ -74,7 +74,7 @@ URL 生成は同様の繰り返しプロセスに従いますが、最初にユ�
 
 ヒント: `Values` は、`AmbientValues` のオーバーライド セットであると考えてください。 URL 生成では、現在の要求からのルート値を再利用するように試行されます。同じルートまたはルート値を利用することで、リンクの URL 生成を簡単にするのが目的です。
 
-`GetVirtualPath` の出力は `VirtualPathData` です。 `VirtualPathData` は `RouteData` の並列です。これには出力 URL として `VirtualPath` が含まれ、また、ルートで設定する追加プロパティがいくつか含まれます。
+`GetVirtualPath` の出力は `VirtualPathData` です。 `VirtualPathData` は `RouteData` の並列です。これには出力 URL として `VirtualPath` が含まれ、ルートで設定する追加プロパティがいくつか含まれます。
 
 `VirtualPathData.VirtualPath` プロパティには、ルートによって生成された*仮想パス*が含まれます。 必要に応じて、パスをさらに処理する必要があります。 たとえば、生成された URL を HTML で表示するには、アプリケーションの基礎パスを先頭に追加する必要があります。
 

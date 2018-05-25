@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: a3614024c7f776e4502bc049180ae1c965e31db4
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: cdf44fc15ac64497b2589e8b7b289beb94c5b2c4
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET Core のビュー コンポーネント
 
@@ -21,9 +21,11 @@ ms.lasthandoff: 05/03/2018
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-## <a name="introducing-view-components"></a>ビュー コンポーネントの概要
+## <a name="view-components"></a>ビュー コンポーネント
 
-ASP.NET Core MVC を初めてお使いの場合、ビュー コンポーネントは部分ビューと似ていますが、はるかに強力なものです。 ビュー コンポーネントでは、モデル バインドを使用せず、呼び出すときに指定されたデータのみに依存します。 ビュー コンポーネントの特徴は次のとおりです。
+ビュー コンポーネントは部分ビューと似ていますが、はるかに強力なものです。 ビュー コンポーネントでは、モデル バインドを使用せず、呼び出すときに指定されたデータのみに依存します。 この記事は ASP.NET Core MVC を使用して作成されましたが、ビュー コンポーネントは Razor ページでも利用できます。
+
+ビュー コンポーネントの特徴は次のとおりです。
 
 * 応答全体ではなく、チャンクをレンダリングします。
 * コントローラーとビューの間にあるのと同じ関心の分離とテストの容易性の利点があります。

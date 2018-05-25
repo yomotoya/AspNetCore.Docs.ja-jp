@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/views/using-page-inspector-in-aspnet-mvc
-title: "ASP.NET MVC での Page Inspector の使用 |Microsoft ドキュメント"
+title: ASP.NET MVC での Page Inspector の使用 |Microsoft ドキュメント
 author: rick-anderson
-description: "Visual Studio 2012 での Page Inspector は、統合されたブラウザーと web 開発ツールです。 統合のブラウザーと Page Inspector i でいずれかの要素を選択してください."
+description: Visual Studio 2012 での Page Inspector は、統合されたブラウザーと web 開発ツールです。 統合のブラウザーと Page Inspector i でいずれかの要素を選択してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -62,7 +62,7 @@ Page Inspector には、Microsoft Web Developer Tools が付属しています�
 
 ![新しい ASP.NET MVC アプリケーション](using-page-inspector-in-aspnet-mvc/_static/image2.png)
 
-**[OK]**をクリックします。
+**[OK]** をクリックします。
 
 **新しい ASP.NET MVC 4 プロジェクト**ダイアログ ボックスで、**インターネット アプリケーション**です。 ままにして**Razor**既定のビュー エンジンとして。
 
@@ -202,7 +202,7 @@ Page Inspector のブラウザーの「ホーム ページ」セクションま�
 
 Visual Studio 2012 で CSS エディターには、カラー ピッカーを容易に選択し、色を挿入するものがあります。 カラー ピッカーは、標準色パレットが含まれています、標準的な色の名前、ハッシュ コード、RGB、RGBA、HSL、および HSLA の色をサポートし、ドキュメントで最も最近使用した色の一覧を保持します。
 
-値を変更して、前のセクションで、`background-color`プロパティです。 カラー ピッカーを起動するには、プロパティの名前と型の後にカーソルを置きます **#** または**rgb (**です。
+値を変更して、前のセクションで、`background-color`プロパティです。 カラー ピッカーを起動するには、プロパティの名前と型の後にカーソルを置きます**#** または**rgb (** です。
 
 ![CSS カラー ピッカー バー](using-page-inspector-in-aspnet-mvc/_static/image36.png)
 
@@ -243,7 +243,7 @@ Page Inspector への変更をすぐに検出、 *Site.css*更新バーで、ア
 > SPA テンプレートが必要です、 [ASP.NET および Web ツール 2012.2](https://go.microsoft.com/fwlink/?LinkId=282650)を更新します。
 
 
-Visual Studio で、次のように選択します。**ファイル** &gt; **新しいプロジェクト**です。 展開し、左側の**Visual c#** **Web**、し、 **ASP.NET MVC4 Web アプリケーション**です。 **[OK]**をクリックします。
+Visual Studio で、次のように選択します。**ファイル** &gt; **新しいプロジェクト**です。 展開し、左側の**Visual c#** **Web**、し、 **ASP.NET MVC4 Web アプリケーション**です。 **[OK]** をクリックします。
 
 **新しい ASP.NET MVC 4 プロジェクト**ダイアログで、 **Single Page Application**です。
 

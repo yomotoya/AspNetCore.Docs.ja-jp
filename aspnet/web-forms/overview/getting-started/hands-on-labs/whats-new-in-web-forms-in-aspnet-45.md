@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: db2658ff1feae1d4c20e4cfd19c36cfdf9492761
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e230faac0dc81b67d74945dc98eee80f83205f65
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>Asp.net 4.5 Web フォームの新機能
 ====================
@@ -70,7 +70,7 @@ ms.lasthandoff: 04/06/2018
 
 **コード スニペットをインストールします。**
 
-便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。 実行のコード スニペットをインストールする**.\Source\Setup\CodeSnippets.vsi**ファイル。
+便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。 実行のコード スニペットをインストールする **.\Source\Setup\CodeSnippets.vsi**ファイル。
 
 このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 c: を使用してコード スニペット](#AppendixC)&quot;です。
 
@@ -101,7 +101,7 @@ ASP.NET Web フォームの新しいバージョンでは、さまざまなデ�
 
 このタスクでは、新しい厳密に型指定されたバインド ASP.NET 4.5 で利用可能なことがわかります。
 
-1. 開く、**開始**ソリューションにある**ソース/Ex1-ModelBinding/開始/**フォルダーです。
+1. 開く、**開始**ソリューションにある**ソース/Ex1-ModelBinding/開始/** フォルダーです。
 
    1. いくつか不足している NuGet パッケージをダウンロードする必要がありますが続行前にします。 これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。
    2. **NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。
@@ -238,7 +238,7 @@ ASP.NET MVC 4 を使用している場合は、モデル バインディング�
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample14.cs)]
 
-    新しい**[コントロール]**属性を**minProductsCount**引数が ASP.NET ページにコントロールを使用して、その値を設定する必要が次のトピックを使用できます。 ASP.NET の引数 (minProductsCount) の名前に一致する任意のコントロールを検索および、必要なマッピングとコントロールの値を持つパラメーターを入力への変換を実行します。
+    新しい **[コントロール]** 属性を**minProductsCount**引数が ASP.NET ページにコントロールを使用して、その値を設定する必要が次のトピックを使用できます。 ASP.NET の引数 (minProductsCount) の名前に一致する任意のコントロールを検索および、必要なマッピングとコントロールの値を持つパラメーターを入力への変換を実行します。
 
     また、属性は、値を取得する場所からコントロールを指定することができますをオーバー ロードされたコンス トラクターを提供します。
 
@@ -280,7 +280,7 @@ ASP.NET MVC 4 を使用している場合は、モデル バインディング�
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample19.cs)]
 
     > [!NOTE]
-    > 注意して、 **[QueryString]**属性を使用して、クエリ文字列内の productId パラメーターからメソッド パラメーターを入力します。
+    > 注意して、 **[QueryString]** 属性を使用して、クエリ文字列内の productId パラメーターからメソッド パラメーターを入力します。
 6. キーを押して**f5 キーを押して**サイトのデバッグを開始し、[製品] ページに移動します。 GridView のカテゴリから任意のカテゴリを選択し、GridView の製品が更新されることに注意してください。
 
     ![選択したカテゴリの製品を示す](whats-new-in-web-forms-in-aspnet-45/_static/image6.png "選択したカテゴリの製品を表示")
@@ -579,10 +579,7 @@ Web サイトで時間のかかる操作が長時間割り当てられている�
 
 1. 開く、 **ProductDetails.aspx**ページ。 追加、 **Async**属性、**ページ**要素に設定し、 **true**です。 この属性では、ASP.NET IHttpAsyncHandler インターフェイスを実装するように指示します。
 
-
-~~~
-[!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
-~~~
+    [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
 2. ページを実行しているスレッドの詳細を表示するページの下部にラベルを追加します。
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample36.aspx)]
@@ -784,7 +781,7 @@ Web サイトで時間のかかる操作が長時間割り当てられている�
     *Web 配置の構成*
 5. 次のように、データベースの接続を構成します。
 
-   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:*プレフィックス。
+   - **サーバー名**SQL データベース サーバーの URL を使用して、入力、 *tcp:* プレフィックス。
    - **ユーザー名**サーバー管理者のログイン名を入力します。
    - **パスワード**サーバー管理者のログイン パスワードを入力します。
    - 新しいデータベース名を入力します。
@@ -792,12 +789,12 @@ Web サイトで時間のかかる操作が長時間割り当てられている�
      ![対象の接続文字列を構成する](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "対象の接続文字列を構成します。")
 
      *対象の接続文字列を構成します。*
-6. 次に、 **[OK]**をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
+6. 次に、 **[OK]** をクリックします。 データベースをクリックを作成するように求められたら**はい**です。
 
     ![データベースを作成する](whats-new-in-web-forms-in-aspnet-45/_static/image47.png "データベース文字列を作成します。")
 
     *データベースの作成*
-7. 接続の既定のテキスト ボックス内では、Azure の SQL データベースへの接続に使用する接続文字列が表示されます。 その後、 **[次へ]**をクリックします。
+7. 接続の既定のテキスト ボックス内では、Azure の SQL データベースへの接続に使用する接続文字列が表示されます。 その後、 **[次へ]** をクリックします。
 
     ![SQL データベースを指す接続文字列](whats-new-in-web-forms-in-aspnet-45/_static/image48.png "SQL データベースを指す接続文字列")
 

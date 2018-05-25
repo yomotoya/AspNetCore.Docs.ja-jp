@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
-title: "ASP.NET Web フォームで Web API の使用 |Microsoft ドキュメント"
+title: ASP.NET Web フォームで Web API の使用 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2012
@@ -35,7 +35,7 @@ ASP.NET Web API は、ASP.NET MVC にパッケージ化されては簡単に Web
 
 Visual Studio を起動し、選択**新しいプロジェクト**から、**開始**ページ。 またはから、**ファイル**メニューの **新規**し**プロジェクト**です。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#**ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET Web フォーム アプリケーション**です。 プロジェクトの名前を入力し、クリックして**OK**です。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET Web フォーム アプリケーション**です。 プロジェクトの名前を入力し、クリックして**OK**です。
 
 ![](using-web-api-with-aspnet-web-forms/_static/image1.png)
 
@@ -53,7 +53,7 @@ Visual Studio を起動し、選択**新しいプロジェクト**から、**開
 
 ![](using-web-api-with-aspnet-web-forms/_static/image2.png)
 
-**インストールされたテンプレート**、展開**Visual c#**選択**Web**です。 次に、テンプレートの一覧から次のように選択します。 **Web API コント ローラー クラス**です。 コント ローラー"ProductsController"という名前をクリックして**追加**です。
+**インストールされたテンプレート**、展開**Visual c#** 選択**Web**です。 次に、テンプレートの一覧から次のように選択します。 **Web API コント ローラー クラス**です。 コント ローラー"ProductsController"という名前をクリックして**追加**です。
 
 ![](using-web-api-with-aspnet-web-forms/_static/image3.png)
 

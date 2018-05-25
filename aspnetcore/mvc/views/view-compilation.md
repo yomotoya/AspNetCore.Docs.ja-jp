@@ -9,20 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 5d971645106a79497a9902063c7774dc6d546395
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 013ca0d149c6415b5e6825aa5a48e93ae48f6728
+ms.sourcegitcommit: 0063338c2e130409081bb60fcffa0c3f190cd46a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="razor-view-compilation-and-precompilation-in-aspnet-core"></a>ASP.NET Core での Razor ビューのコンパイルとプリコンパイル
+# <a name="razor-file-cshtml-compilation-in-aspnet-core"></a>ASP.NET Core での Razor ファイル (.cshtml) のコンパイル
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Razor ビューは、ビューが呼び出されるときに、実行時にコンパイルされます。 ASP.NET Core 1.1.0 以降では、必要に応じて Razor ビューをコンパイルし、それらをアプリを使用して展開します (プリコンパイルというプロセス)。 ASP.NET Core 2.x プロジェクトのテンプレートでは、既定でプリコンパイルが有効になります。
+Razor ビューは、ビューが呼び出されるときに、実行時にコンパイルされます。 ASP.NET Core 2.1.0 以降では、[Razor Sdk](/aspnetcore/mvc/razor-pages/sdk) を使用してビューをビルド時または発行時にコンパイルします。 ASP.NET Core 1.1 および ASP.NET Core 2.0 では、ビューはオプションで発行時にコンパイルして、アプリ &mdash; でプリコンパイル ツールを使用して展開できます。 
 
-> [!IMPORTANT]
-> ASP.NET Core 2.0 で[自己完結型の展開 (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) を実行する場合、現時点では Razor ビューのプリコンパイルを使用できません。 この機能は 2.1 のリリース時に SCD で使用可能になります。 詳細については、「[View compilation fails when cross-compiling for Linux on Windows](https://github.com/aspnet/MvcPrecompilation/issues/102)」 (Windows の Linux のクロス コンパイル時にビューをコンパイルできない) を参照してください。
+
 
 プリコンパイルに関する考慮事項:
 
@@ -31,7 +30,14 @@ Razor ビューは、ビューが呼び出されるときに、実行時にコ�
 
 プリコンパイル済みのビューを展開するには、次のようにします。
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-21tabaspnetcore21"></a>[ASP.NET Core 2.1](#tab/aspnetcore21/)
+Razor ファイルのビルドおよび発行時のコンパイルは、既定で Razor Sdk によって有効になっています。 更新後の Razor ファイルの編集は、ビルド時にサポートされています。 既定では、cshtml ファイルなしのコンパイルされた *Views.dll* のみがアプリケーションと展開されます。 
+    
+> [!IMPORTANT]
+> Razor Sdk は、プロジェクト ファイルにプリコンパイル固有のプロパティが設定されていない場合のみ有効です。 たとえば、*.csproj* ファイルで `MvcRazorCompileOnPublish` を設定すると、Razor Sdk が無効になります。
+
+# <a name="aspnet-core-20tabaspnetcore20"></a>[ASP.NET Core 2.0](#tab/aspnetcore20/)
+
 プロジェクトのターゲットが .NET Framework である場合は、次のように [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/) へのパッケージ参照を含めます。
 
 ```xml
@@ -40,14 +46,10 @@ Razor ビューは、ビューが呼び出されるときに、実行時にコ�
 
 プロジェクトのターゲットが .NET Core である場合、変更する必要はありません。
 
-ASP.NET Core 2.x プロジェクトのテンプレートでは既定で暗黙的に `MvcRazorCompileOnPublish` が `true` に設定されます。これは、このノードを *.csproj* ファイルから安全に削除できることを意味します。 明示的に `MvcRazorCompileOnPublish` プロパティを `true` に設定しても問題はありません。 次の *.csproj* サンプルでは、この設定が強調表示されています。
-
-[!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish2.csproj?highlight=5)]
-
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-`MvcRazorCompileOnPublish` を `true` に設定し、`Microsoft.AspNetCore.Mvc.Razor.ViewCompilation` へのパッケージ参照を含めます。 次の *.csproj* サンプルでは、これらの設定が強調表示されています。
-
-[!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish.csproj?highlight=5,12)]
+ASP.NET Core 2.x プロジェクトのテンプレートでは既定で暗黙的に `MvcRazorCompileOnPublish` が `true` に設定されます。これは、このノードを *.csproj* ファイルから安全に削除できることを意味します。
+    
+> [!IMPORTANT]
+> ASP.NET Core 2.0 で[自己完結型の展開 (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) を実行する場合、Razor ビューのプリコンパイルを使用できません。 
 
 [.NET Core CLI publish コマンド](/dotnet/core/tools/dotnet-publish)を使用して、[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)用にアプリを準備します。 たとえば、プロジェクト ルートで、次のコマンドを実行します。
 
@@ -58,3 +60,12 @@ dotnet publish -c Release
 コンパイル済みの Razor ビューを含む、*<project_name>.PrecompiledViews.dll* ファイルは、プリコンパイルが正常に行われたときに生成されます。 たとえば、次のスクリーンショットは、*WebApplication1.PrecompiledViews.dll* 内の *Index.cshtml* のコンテンツを示しています。
 
 ![DLL 内の Razor ビュー](view-compilation/_static/razor-views-in-dll.png)
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
+`MvcRazorCompileOnPublish` を `true` に設定し、`Microsoft.AspNetCore.Mvc.Razor.ViewCompilation` へのパッケージ参照を含めます。 次の *.csproj* サンプルでは、これらの設定が強調表示されています。
+
+[!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish.csproj?highlight=5,12)]
+
+---
+

@@ -10,7 +10,7 @@
 
 | ファイルまたはフォルダー              | 目的 |
 | ----------------- | ------------ | 
-| wwwroot | 静的ファイルが含まれています。 [静的ファイルの使用](xref:fundamentals/static-files)に関するページを参照してください。 |
+| wwwroot | 静的ファイルが含まれています。 [静的ファイル](xref:fundamentals/static-files)に関するページを参照してください。 |
 | ページ数 | [Razor ページ](xref:mvc/razor-pages/index)のフォルダー。 | 
 | *appsettings.json* | [構成](xref:fundamentals/configuration/index) |
 | *Program.cs* | ASP.NET Core アプリを[ホスト](xref:fundamentals/hosting)します。|

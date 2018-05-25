@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: d55b34135d5bab98ab8de31cc4b12dcc272cbc0a
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: bfa5d52019be81374c7a544e255ab7ffb301fa7b
+ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 05/22/2018
 ---
 <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>電子メールの確認とパスワードのリセット (c#) で、ログでセキュリティで保護された ASP.NET MVC 5 web アプリを作成します。
 ====================
@@ -62,7 +62,7 @@ ms.lasthandoff: 02/20/2018
 
 このチュートリアルはのみを使用して電子メール通知を追加する方法を示しますが[SendGrid](http://sendgrid.com/)、SMTP、およびその他のメカニズムを使用して電子メールを送信することができます (を参照してください[その他のリソース](#addRes))。
 
-1. パッケージ マネージャー コンソールで、次を入力して、次のコマンド。 
+1. パッケージ マネージャー コンソールで、次のコマンドを入力します。 
 
     [!code-console[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample1.cmd)]
 2. 移動して、 [Azure SendGrid のサインアップ ページ](https://go.microsoft.com/fwlink/?linkid=271033&clcid=0x409)し、SendGrid の無料のアカウントに登録します。 SendGrid を構成するのには、次のようなコードを追加することによって*App_Start/IdentityConfig.cs*:
@@ -108,7 +108,7 @@ ms.lasthandoff: 02/20/2018
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample8.cshtml)]
 
-追加、 [Authorize attribute](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.118).aspx)を`Contact`Home コント ローラーのアクション メソッド。 クリックを使用することができます、**連絡先**リンク匿名ユーザーがアクセスを持っていないし、認証されたユーザーがアクセスを確認します。
+追加、 [Authorize attribute](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.118).aspx)を`Contact`Home コント ローラーのアクション メソッド。 クリックすると、**連絡先**リンク匿名ユーザーがアクセスを持っていないし、認証されたユーザーがアクセスを確認します。
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample9.cs?highlight=1)]
 
@@ -148,18 +148,18 @@ ms.lasthandoff: 02/20/2018
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample15.cs?highlight=17)]
 
-ログイン メソッドを更新して、パスワードを再送信するときに、ユーザー アカウントが確認されていない場合。
+ユーザー アカウントが確認されていない場合は、パスワードを再送信するログイン メソッドを更新します。
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample16.cs?highlight=20)]
 
 <a id="combine"></a>
 ## <a name="combine-social-and-local-login-accounts"></a>ソーシャルとローカルのログイン アカウントを結合します。
 
-電子メールのリンクをクリックすると、ローカルおよびソーシャルのアカウントを組み合わせることができます。 次の順序で **RickAndMSFT@gmail.com** が最初に、ローカル ログインとして作成しますが、最初に、ソーシャル ログインとしてアカウントを作成し、ローカル ログインを追加することができます。
+電子メールのリンクをクリックすると、ローカルおよびソーシャルのアカウントを組み合わせることができます。 次の順序で**RickAndMSFT@gmail.com**が最初に、ローカル ログインとして作成しますが、最初に、ソーシャル ログインとしてアカウントを作成し、ローカル ログインを追加することができます。
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image5.png)
 
-をクリックして、**管理**リンクします。 このアカウントに関連付けられた 0 外部 (ソーシャル ログイン) に注意してください。
+をクリックして、**管理**リンクします。 注、**外部ログイン: 0**このアカウントに関連付けられています。
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image6.png)
 
