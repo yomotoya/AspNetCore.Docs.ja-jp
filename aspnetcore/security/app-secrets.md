@@ -5,16 +5,16 @@ description: 保存し、アプリ シークレットは、ASP.NET Core アプ�
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 9e9b548e5572da2c347bc874c473a02d8691e738
-ms.sourcegitcommit: 300a1127957dcdbce1b6ad79a7b9dc676f571510
-ms.translationtype: HT
+ms.openlocfilehash: ece2bf541df2b4acac60a88767cc57ede473bd49
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>アプリ シークレットは、ASP.NET Core での開発での安全な格納場所
 
@@ -48,7 +48,7 @@ ASP.NET Core web アプリを検討してください**個々 のユーザー �
 
 ## <a name="how-the-secret-manager-tool-works"></a>シークレット マネージャー ツールの動作
 
-値が格納されている場所と方法など、実装の詳細を抽象シークレット Manager ツール。 これらの実装の詳細を知ることがなくツールを使用することができます。 値が格納されている、 [JSON](https://json.org/)システムで保護されたユーザー プロファイル フォルダーにローカル コンピューター上の構成ファイル。
+値が格納されている場所と方法など、実装の詳細を抽象シークレット Manager ツール。 これらの実装の詳細を知ることがなくツールを使用することができます。 値は、ローカル コンピューター上のシステムで保護されたユーザー プロファイル フォルダーに JSON 構成ファイルに格納されます。
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -77,9 +77,18 @@ ASP.NET Core web アプリを検討してください**個々 のユーザー �
 ::: moniker range="<= aspnetcore-2.0"
 ## <a name="install-the-secret-manager-tool"></a>シークレット マネージャー ツールをインストールします。
 
-シークレット マネージャー ツールには、.NET Core SDK 2.1 では、.NET Core CLI が付属しています。 .NET Core SDK 2.0 と前に、ツールのインストールは必要があります。
+シークレット マネージャー ツールには、.NET Core SDK 2.1.300 時点で、.NET Core CLI が付属しています。 2.1.300 より前に、のバージョンを .NET Core SDK、ツールのインストールする必要があります。
 
-インストール、 [Microsoft.Extensions.SecretManager.Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) ASP.NET Core プロジェクトでの NuGet パッケージ。
+> [!TIP]
+> 実行`dotnet --version`インストールされている .NET Core SDK バージョン番号を表示するコマンド シェルからです。
+
+使用されている、.NET Core SDK には、ツールが含まれている場合は、警告が表示されます。
+
+```console
+The tool 'Microsoft.Extensions.SecretManager.Tools' is now included in the .NET Core SDK. Information on resolving this warning is available at (https://aka.ms/dotnetclitools-in-box).
+```
+
+インストール、 [Microsoft.Extensions.SecretManager.Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) ASP.NET Core プロジェクトでの NuGet パッケージです。 例えば:
 
 [!code-xml[](app-secrets/samples/1.x/UserSecrets/UserSecrets.csproj?name=snippet_CsprojFile&highlight=13-14)]
 
