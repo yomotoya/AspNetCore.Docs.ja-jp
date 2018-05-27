@@ -4,16 +4,17 @@ author: rick-anderson
 description: ASP.NET Core でのデータ保護を構成する方法を説明します。
 manager: wpickett
 ms.author: riande
+ms.custom: mvc
 ms.date: 07/17/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 300feb42dff7f1bb86bab6fedf3f657273ced8be
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 803b81f5f69496900791ca1d1976f70f8c266f29
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="configure-aspnet-core-data-protection"></a>ASP.NET Core データ保護を構成します。
 
@@ -30,6 +31,33 @@ ms.lasthandoff: 04/18/2018
 > 構成ファイルと同様に、データ保護キー リングする必要がありますを使用して保護適切なアクセス許可。 休息については、キーを暗号化することもできますが、これを防ぐ攻撃者がキーの新規作成します。 その結果、アプリのセキュリティに影響します。 データ保護が構成されている記憶域の場所は、アプリ自体と同じように構成ファイルを保護するように制限されたアクセスに必要です。 たとえばをキーのリングをディスクに保存する場合は、ファイル システム アクセス許可を使用します。 下にある id のみを確実に読み取り、web アプリを実行する、書き込み、およびそのディレクトリへのアクセスを作成します。 Azure テーブル ストレージを使用する場合、web アプリのみが読み取り、書き込み、またはテーブル ストアなどの新しいエントリを作成する機能に必要です。
 >
 > 拡張メソッド[AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection)を返します、 [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder)です。 `IDataProtectionBuilder` 連結できます。 データ保護を構成するオプションの拡張メソッドを公開します。
+
+::: moniker range=">= aspnetcore-2.1"
+
+## <a name="protectkeyswithazurekeyvault"></a>ProtectKeysWithAzureKeyVault
+
+内のキーを格納する[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)を使用してシステムを構成する[ProtectKeysWithAzureKeyVault](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault)で、`Startup`クラス。
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDataProtection()
+        .PersistKeysToAzureBlobStorage(new Uri("<blobUriWithSasToken>"))
+        .ProtectKeysWithAzureKeyVault("<keyIdentifier>", "<clientId>", "<clientSecret>");
+}
+```
+
+キー リング記憶域の場所を設定 (たとえば、 [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage))。 呼び出すために、場所を設定する必要があります`ProtectKeysWithAzureKeyVault`を実装する[IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor)キー リング記憶域の場所を含む、データの自動保護設定を無効にします。 前の例では、Azure Blob ストレージを使用して、キー リングを永続化します。 詳細については、次を参照してください。[キー ストレージ プロバイダー: Azure と Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis)です。 ローカルにキー リングを保持することも[PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system)です。
+
+`keyIdentifier`キーの暗号化に使用する資格情報コンテナー キーの識別子 (たとえば、 `https://contosokeyvault.vault.azure.net/keys/dataprotection/`)。
+
+`ProtectKeysWithAzureKeyVault` オーバー ロードします。
+
+* [ProtectKeysWithAzureKeyVault (IDataProtectionBuilder、KeyVaultClient、String)](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault#Microsoft_AspNetCore_DataProtection_AzureDataProtectionBuilderExtensions_ProtectKeysWithAzureKeyVault_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder_Microsoft_Azure_KeyVault_KeyVaultClient_System_String_)の使用を許可、 [KeyVaultClient](/dotnet/api/microsoft.azure.keyvault.keyvaultclient) key vault を使用するデータ保護システムを有効にします。
+* [ProtectKeysWithAzureKeyVault (IDataProtectionBuilder、, String, X509Certificate2)](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault#Microsoft_AspNetCore_DataProtection_AzureDataProtectionBuilderExtensions_ProtectKeysWithAzureKeyVault_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder_System_String_System_String_System_Security_Cryptography_X509Certificates_X509Certificate2_)の使用を許可、`ClientId`と[X509Certificate](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) key vault を使用するデータ保護システムを有効にします。
+* [ProtectKeysWithAzureKeyVault (IDataProtectionBuilder、文字列、String, String)](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault#Microsoft_AspNetCore_DataProtection_AzureDataProtectionBuilderExtensions_ProtectKeysWithAzureKeyVault_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder_System_String_System_String_System_String_)の使用を許可、`ClientId`と`ClientSecret`key vault を使用するデータ保護システムを有効にします。
+
+::: moniker-end
 
 ## <a name="persistkeystofilesystem"></a>PersistKeysToFileSystem
 
