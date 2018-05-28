@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 3a9479dc1bb09218ebb4a5a76078ea514041d751
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 6b2c3334798861ebdb14787205480422d7d536ea
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
@@ -113,7 +113,7 @@ Web SDK ファイルの変換を無効にすると、 *processPath*と*引数*�
 
 ### <a name="webconfig-file-location"></a>web.config ファイルの場所
 
-ASP.NET Core アプリは、IIS と Kestrel サーバー間のリバース プロキシでホストされます。 リバース プロキシを作成するためには、展開されるアプリのコンテンツ ルート パス (通常は、アプリ ベース パス) に *web.config* ファイルが存在する必要があります。 これは、IIS に提供される web サイトの物理パスと同じ場所です。 *Web.config* ファイルは、Web 配置を使用して複数のアプリの発行を有効にするため、アプリのルートで必要です。
+IIS と Kestrel サーバーの間にリバース プロキシを作成するには、展開されるアプリのコンテンツ ルート パス (通常は、アプリ ベース パス) に *web.config* ファイルが存在する必要があります。 これは、IIS に提供される web サイトの物理パスと同じ場所です。 *Web.config* ファイルは、Web 配置を使用して複数のアプリの発行を有効にするため、アプリのルートで必要です。
 
 アプリの物理パスには、*\<assembly>.runtimeconfig.json*、*\<assembly>.xml* (XML ドキュメントのコメント)、*\<assembly>.deps.json* などの機密性の高いファイルが存在します。 *web.config* ファイルが存在し、サイトは通常どおり起動した場合、IIS は、これらの機密性の高いファイルが要求された場合にファイルを提供しません。 *web.config*ファイルが存在しないか、不適切な名前が付けられているか、または通常の起動用にサイトを構成できない場合、IIS が機密性の高いファイルを公開する可能性があります。
 
@@ -172,7 +172,7 @@ ASP.NET Core アプリは、IIS と Kestrel サーバー間のリバース プ�
 1. ホスティング システムに *.NET Core ホスティング バンドル*をインストールします。 このバンドルをインストールすることで、.NET Core ランタイム、.NET Core ライブラリ、[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)がインストールされます。 このモジュールは、IIS と Kestrel サーバーの間にリバース プロキシを作成します。 システムにインターネット接続が設定されていない場合は、.NET Core ホスティング バンドルをインストールする前に、[Microsoft Visual C++ 2015 再頒布可能パッケージ](https://www.microsoft.com/download/details.aspx?id=53840)を入手してインストールしてください。
 
    1. [.NET の「All Downloads」のページ](https://www.microsoft.com/net/download/all)に移動します。
-   1. 一覧からプレビューではない最新の .NET Core ランタイム (**[.NET Core]** > **[ランタイム]** > **[.NET Core ランタイム x.y.z]**) を選択します。 プレビュー ソフトウェアと連携する予定がなければ、リンク テキストに "preview" という単語が含まれているランタイムを避けてください。
+   1. 一覧からプレビューではない最新の .NET Core ランタイム (**[.NET Core]** > **[ランタイム]** > **[.NET Core ランタイム x.y.z]**) を選択します。 プレビュー ソフトウェアと連携しない限り、そのリンク テキストで "Preview" という単語または "rc" (リリース候補) を回避します。
    1. **Windows** の .NET Core のランタイムのダウンロード ページで、**ホスティング バンドル インストーラー**のリンクを選択して、*.NET Core ホスティング バンドル*をダウンロードします。
 
    **重要**。 ホスティング バンドルが IIS の前にインストールされている場合、バンドルのインストールを修復する必要があります。 IIS をインストールした後に、ホスティング バンドル インストーラーをもう一度実行します。
