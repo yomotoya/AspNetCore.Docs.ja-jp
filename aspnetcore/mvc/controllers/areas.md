@@ -43,11 +43,11 @@ ms.lasthandoff: 03/22/2018
 
 区分の作成および使用方法を示す例を見てましょう。 たとえば、ストア アプリに製品とサービスという、コントローラーとビューの 2 つの異なるグループがあるとします。 MVC 区分を使用する場合の一般的なフォルダー構造は次のようになります。
 
-* プロジェクト名
+* Project name
 
-  * 区分
+  * Areas
 
-    * 製品
+    * Products
 
       * Controllers
 
@@ -55,23 +55,23 @@ ms.lasthandoff: 03/22/2018
 
         * ManageController.cs
 
-      * ビュー
+      * Views
 
         * Home
 
           * Index.cshtml
 
-        * 管理
+        * Manage
 
           * Index.cshtml
 
-    * サービス
+    * Services
 
       * Controllers
 
         * HomeController.cs
 
-      * ビュー
+      * Views
 
         * Home
 
