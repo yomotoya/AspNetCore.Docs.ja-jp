@@ -1,7 +1,7 @@
 ---
 title: Nginx 搭載の Linux で ASP.NET Core をホストする
 author: rick-anderson
-description: Ubuntu 16.04 Kestrel で実行されている ASP.NET Core web アプリへの HTTP トラフィックを転送にリバース プロキシとして Nginx をセットアップする方法について説明します。
+description: Ubuntu 16.04 でリバース プロキシとして Nginx をセットアップし、Kestrel で実行している ASP.NET Core Web アプリに HTTP トラフィックを転送する方法について説明します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: fe772203e5e3fceb7489e0a5866f60ea914b7329
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
-ms.translationtype: MT
+ms.openlocfilehash: d37aa25c712d715aa4134587a84e5923f9cb5b79
+ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/22/2018
+ms.locfileid: "34452556"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Nginx 搭載の Linux で ASP.NET Core をホストする
 
@@ -23,46 +24,46 @@ ms.lasthandoff: 05/10/2018
 このガイドでは、Ubuntu 16.04 サーバーで本稼働対応の ASP.NET Core 環境をセットアップする方法について説明します。
 
 > [!NOTE]
-> Ubuntu 14.04 の*supervisord* Kestrel プロセスを監視するためのソリューションとしてはお勧めします。 *systemd* Ubuntu 14.04 では使用できません。 [このドキュメントの以前のバージョンを参照してください](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md)です。
+> Ubuntu 14.04 の場合、Kestrel プロセスを監視するためのソリューションとして *supervisord* が推奨されます。 *systemd* は Ubuntu 14.04 ではご利用いただけません。 [このドキュメントの前のバージョンをご覧ください](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md)。
 
 このガイドでは:
 
-* リバース プロキシ サーバーの背後にある既存の ASP.NET Core アプリケーションを配置します。
-* リバース プロキシ サーバーを設定すると、Kestrel web サーバーに要求を転送します。
-* デーモンとしての起動時に web アプリが実行されることを確認します。
-* Web アプリを再起動するプロセスの管理ツールを構成します。
+* リバース プロキシ サーバーの背後に既存の ASP.NET Core アプリを配置します。
+* Kestrel Web サーバーに要求を転送するようにリバース プロキシ サーバーを設定します。
+* Web アプリを起動時にデーモンとして実行します。
+* Web アプリの再起動に役立つようにプロセス管理ツールを構成します。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
 1. Ubuntu 16.04 サーバーへのアクセスと sudo 特権が与えられた標準ユーザー アカウント
-1. 既存の ASP.NET Core アプリケーション
+1. 既存の ASP.NET Core アプリ
 
-## <a name="copy-over-the-app"></a>アプリ経由でコピーします。
+## <a name="copy-over-the-app"></a>アプリをコピーする
 
-実行[dotnet 発行](/dotnet/core/tools/dotnet-publish)サーバーで実行できる自己完結型のディレクトリに、アプリのパッケージを開発環境からです。
+開発環境から [dotnet publish](/dotnet/core/tools/dotnet-publish) を実行し、サーバーで実行可能な自己完結型ディレクトリにアプリをパッケージ化します。
 
-どのようなツールを使用してサーバーに ASP.NET Core アプリケーションのコピーは、組織のワークフロー (たとえば、SCP、FTP など) に統合します。 次のようにアプリをテストします。
+組織のワークフローに統合されているツール (SCP や FTP など) を使用して、サーバーに ASP.NET Core アプリをコピーします。 次のようにアプリをテストします。
 
-* コマンドラインから実行`dotnet <app_assembly>.dll`です。
+* コマンド ラインから `dotnet <app_assembly>.dll` を実行します。
 * ブラウザーで、`http://<serveraddress>:<port>` に移動し、アプリが Linux で動作することを検証します。 
  
 ## <a name="configure-a-reverse-proxy-server"></a>リバース プロキシ サーバーを構成する
 
-リバース プロキシは、動的な web アプリの送信用の共通のセットアップです。 リバース プロキシは、HTTP 要求を終了し、ASP.NET Core アプリケーションに転送します。
+リバース プロキシは、動的 Web アプリを提供するための一般的な仕組みです。 リバース プロキシは HTTP 要求を終了させ、ASP.NET Core アプリに転送します。
 
 ### <a name="why-use-a-reverse-proxy-server"></a>リバース プロキシ サーバーを利用する理由
 
-Kestrel は、ASP.NET Core から動的なコンテンツを提供しているに便利です。 ただし、web サービス機能は、IIS、Apache、Nginx などのサーバーと豊富な機能としてはありません。 リバース プロキシ サーバーは、静的なコンテンツ、要求をキャッシュ、要求、および HTTP サーバーからの SSL ターミネーションを圧縮するなどの作業をオフロードできます。 リバース プロキシ サーバーは専用コンピューター上に置かれることもあれば、HTTP サーバーと並んで展開されることもあります。
+Kestrel は、ASP.NET Core から動的なコンテンツを提供するのに役立ちます。 ただし、Web サーバーとしての機能は、IIS、Apache、Nginx などのサーバーと比べると制限されます。 リバース プロキシ サーバーは、静的コンテンツ サービス、要求のキャッシュ、要求の圧縮、HTTP サーバーからの SSL 終了などの作業の負荷を軽減します。 リバース プロキシ サーバーは専用コンピューター上に置かれることもあれば、HTTP サーバーと並んで展開されることもあります。
 
-このガイドの目的のために、単一インスタンスの Nginx が使用されます。 HTTP サーバーと並んで、同じサーバー上で実行されます。 要件に基づき、異なる設定が選択すること。
+このガイドの目的のために、単一インスタンスの Nginx が使用されます。 HTTP サーバーと並んで、同じサーバー上で実行されます。 要件に応じて、別のセットアップを選択することも可能です。
 
-要求は、リバース プロキシによって転送される、ためから転送されるヘッダー ミドルウェアを使用して、 [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/)パッケージです。 ミドルウェアの更新プログラム、`Request.Scheme`を使用して、`X-Forwarded-Proto`ヘッダー、そのリダイレクト Uri とその他のセキュリティ ポリシーが正常に動作するようにします。
+要求はリバース プロキシによって転送されます。そのため、[Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) パッケージの Forwarded Headers Middleware を使用します。 リダイレクト URI とその他のセキュリティ ポリシーを正しく機能させるために、このミドルウェアは、`X-Forwarded-Proto` ヘッダーを利用して、`Request.Scheme` を更新します。
 
-認証ミドルウェアの任意の型を使用する場合、転送ヘッダー ミドルウェアが最初に実行する必要があります。 この順序により、認証ミドルウェアがヘッダーの値を使用して正しくリダイレクト Uri を生成することができます。
+任意の認証ミドルウェアを使用する場合は、Forwarded Headers Middleware を最初に実行する必要があります。 この順序により、認証ミドルウェアはヘッダーの値を利用して、正しいリダイレクト URI を生成できます。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-呼び出す、 [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders)メソッド`Startup.Configure`呼び出す前に[UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication)または類似の認証スキームのミドルウェア。 転送するミドルウェアを構成、`X-Forwarded-For`と`X-Forwarded-Proto`ヘッダー。
+[UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication) や同様の認証スキームのミドルウェアを呼び出す前に、`Startup.Configure` で [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) メソッドを呼び出します。 ミドルウェアを構成して、`X-Forwarded-For` および `X-Forwarded-Proto` ヘッダーを転送します。
 
 ```csharp
 app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -75,7 +76,7 @@ app.UseAuthentication();
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-呼び出す、 [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders)メソッド`Startup.Configure`呼び出す前に[UseIdentity](/dotnet/api/microsoft.aspnetcore.builder.builderextensions.useidentity)と[UseFacebookAuthentication](/dotnet/api/microsoft.aspnetcore.builder.facebookappbuilderextensions.usefacebookauthentication)または同様の認証スキームミドルウェア。 転送するミドルウェアを構成、`X-Forwarded-For`と`X-Forwarded-Proto`ヘッダー。
+[UseIdentity](/dotnet/api/microsoft.aspnetcore.builder.builderextensions.useidentity) や [UseFacebookAuthentication](/dotnet/api/microsoft.aspnetcore.builder.facebookappbuilderextensions.usefacebookauthentication)、または同様の認証スキームのミドルウェアを呼び出す前に、`Startup.Configure` で [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) メソッドを呼び出します。 ミドルウェアを構成して、`X-Forwarded-For` および `X-Forwarded-Proto` ヘッダーを転送します。
 
 ```csharp
 app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -93,7 +94,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 ---
 
-ない場合は[ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions)は指定した、ミドルウェアに転送する既定のヘッダーが`None`です。
+ミドルウェアに対して [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) が指定されていない場合、転送される既定のヘッダーは `None` です。
 
 プロキシ サーバーとロード バランサーの背後でホストされているアプリでは、追加の構成が必要になる場合があります。 詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。
 
@@ -104,7 +105,7 @@ sudo apt-get install nginx
 ```
 
 > [!NOTE]
-> 省略可能な Nginx モジュールをインストールする場合ソースから Nginx を構築する必要があります。
+> オプションの Nginx モジュールをインストールする場合、Nginx をソースからビルドする必要がある場合があります。
 
 `apt-get` を利用し、Nginx をインストールします。 インストーラーにより System V init スクリプトが作成されます。このスクリプトがシステム起動時に Nginx をデーモンとして実行します。 Nginx は初めてのインストールとなるので、次を実行して明示的に起動します。
 
@@ -116,7 +117,7 @@ sudo service nginx start
 
 ### <a name="configure-nginx"></a>Nginx を構成する
 
-ASP.NET Core アプリケーションに要求を転送するリバース プロキシとして Nginx を構成するには、変更 */etc/nginx/sites-available/default*です。 テキスト エディターで開き、中身を次のものに変更します。
+Nginx をリバース プロキシとして構成し、ASP.NET Core アプリに要求を転送するには、*/etc/nginx/sites-available/default* を変更します。 テキスト エディターで開き、中身を次のものに変更します。
 
 ```nginx
 server {
@@ -133,7 +134,7 @@ server {
 }
 ```
 
-ない場合`server_name`Nginx の一致が既定のサーバーを使用します。 既定のサーバーが定義されていない場合、最初のサーバー構成ファイルでは、既定のサーバーです。 ベスト プラクティスとして、構成ファイルで 444 のステータス コードを返す特定の既定のサーバーを追加します。 既定のサーバーの構成例を示します。
+`server_name` が一致しない場合、Nginx では既定のサーバーが使用されます。 既定のサーバーが定義されていない場合、構成ファイルの最初のサーバーが既定のサーバーとなります。 ベスト プラクティスとして、構成ファイルで 444 の状態コードを返す既定のサーバーを具体的に追加します。 既定のサーバーの構成例は次のとおりです。
 
 ```nginx
 server {
@@ -143,16 +144,16 @@ server {
 }
 ```
 
-上記の構成ファイルと、既定のサーバーと Nginx はホスト ヘッダーを持つポート 80 でパブリック トラフィックを受け付ける`example.com`または`*.example.com`です。 これらのホストと一致しない要求 Kestrel に転送されません。 Nginx で Kestrel に一致する要求を転送する`http://localhost:5000`です。 参照してください[nginx が要求をどのように処理するか](https://nginx.org/docs/http/request_processing.html)詳細についてはします。
+上記の構成ファイルと既定のサーバーでは、Nginx は、ホスト ヘッダー `example.com` または `*.example.com` で、ポート 80 でパブリック トラフィックを受け入れます。 これらのホストと一致しない要求は、Kestrel に転送されません。 Nginx は一致する要求を Kestrel (`http://localhost:5000`) に転送します。 詳細については、「[How nginx processes a request](https://nginx.org/docs/http/request_processing.html)」(Nginx が要求を処理する方法) をご覧ください。
 
 > [!WARNING]
-> 適切なを指定する[server_name ディレクティブ](https://nginx.org/docs/http/server_names.html)セキュリティの脆弱性にアプリを公開します。 サブドメイン ワイルドカード バインド (たとえば、 `*.example.com`) 全体の親ドメインを制御する場合、このセキュリティ上のリスクは発生しません (to `*.com`、に対して脆弱である)。 詳細については、[rfc7230 セクション-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) を参照してください。
+> 適切な [server_name directive](https://nginx.org/docs/http/server_names.html) を指定しないと、アプリにセキュリティ上の脆弱性が生じます。 親ドメイン全体を制御する場合、サブドメイン ワイルドカード バインド (たとえば、`*.example.com`) にこのセキュリティ リスクはありません (脆弱である `*.com` とは対照的)。 詳細については、[rfc7230 セクション-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) を参照してください。
 
-Nginx 構成が確立されると、実行`sudo nginx -t`構成ファイルの構文を確認します。 構成ファイルのテストが成功した場合は、強制的に実行して、変更を取得する Nginx`sudo nginx -s reload`です。
+Nginx の構成を確立したら、`sudo nginx -t` を実行して構成ファイルの構文を確認します。 構成ファイルがテストに合格したら、`sudo nginx -s reload` を実行することで、強制的に Nginx に変更を反映させます。
 
 ## <a name="monitoring-the-app"></a>アプリの監視
 
-サーバーがセットアップへの要求を転送する`http://<serveraddress>:80`で Kestrel で実行されている ASP.NET Core アプリケーションにログオン`http://127.0.0.1:5000`です。 ただし、Nginx は Kestrel プロセスを管理するセットアップをされていません。 *systemd*を起動し、基になる web アプリを監視するサービス ファイルを作成するために使用できます。 *systemd* は init システムであり、プロセスを起動、停止、管理するためのさまざまな高性能機能を提供します。 
+サーバーは、`http://<serveraddress>:80` に対する要求を Kestrel で実行されている ASP.NET Core アプリ (`http://127.0.0.1:5000`) に転送するようにセットアップされました。 ただし、Nginx は Kestrel プロセスを管理するようには設定されていません。 *systemd* を使用してサービス ファイルを作成し、基になる Web アプリを起動して監視できます。 *systemd* は init システムであり、プロセスを起動、停止、管理するためのさまざまな高性能機能を提供します。 
 
 ### <a name="create-the-service-file"></a>サービス ファイルを作成する
 
@@ -182,11 +183,12 @@ Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 WantedBy=multi-user.target
 ```
 
-**注:** 場合、ユーザー *www データ*使用されていない、構成によって、ここで定義したユーザー必要がありますで最初に作成されファイルの適切な所有権を指定します。
-**注:** Linux には、区別するファイル システム。 設定する ASPNETCORE_ENVIRONMENT"Production"、構成ファイルの検索中に*appsettings です。Production.json*ではなく、 *appsettings.production.json*です。
+ユーザー *www-data* が構成で使用されない場合、ここで定義するユーザーを先に作成し、ファイルの適切な所有権を与える必要があります。
+
+Linux のファイル システムは大文字と小文字を区別します。 ASPNETCORE_ENVIRONMENT を "Production" に設定すると、構成ファイル *appsettings.Production.json* が検索されます。*appsettings.production.json* ではありません。
 
 > [!NOTE]
-> 環境変数を読み取る構成プロバイダーのいくつかの値 (たとえば、SQL 接続文字列を) をエスケープする必要があります。 構成ファイルで使用するための適切にエスケープされた値を生成するのにには、次のコマンドを使用します。
+> 構成プロバイダーが環境変数を読み取れるようにするために、一部の値 (たとえば SQL の接続文字列) をエスケープする必要があります。 次のコマンドを使用して、構成ファイルで使用するために適切にエスケープされた値を生成します。
 >
 > ```console
 > systemd-escape "<value-to-escape>"
@@ -198,7 +200,7 @@ WantedBy=multi-user.target
 systemctl enable kestrel-hellomvc.service
 ```
 
-サービスを開始して、実行されていることを確認してください。
+サービスを起動し、動作を確認します。
 
 ```
 systemctl start kestrel-hellomvc.service
@@ -212,7 +214,7 @@ Main PID: 9021 (dotnet)
             └─9021 /usr/local/bin/dotnet /var/aspnetcore/hellomvc/hellomvc.dll
 ```
 
-リバース プロキシの構成および Kestrel systemd を介して管理されている場合、web アプリが完全に構成されているし、にローカル コンピューター上のブラウザーからアクセスできる`http://localhost`です。 妨げている可能性があるすべてのファイアウォールがなければ、リモート コンピューターからアクセスできることもです。 応答ヘッダーの検査、`Server`ヘッダー Kestrel によって処理される ASP.NET Core アプリケーションを示しています。
+リバース プロキシが構成され、Kestrel は systemd 経由で管理されます。これで Web アプリは完全に構成され、`http://localhost` でローカル コンピューター上のブラウザーからアクセスできます。 妨げとなるファイアウォールがなければ、リモート コンピューターからもアクセスできます。 応答ヘッダーを調べると、ASP.NET Core アプリが Kestrel によってサービス提供されていることが `Server` ヘッダーに示されています。
 
 ```text
 HTTP/1.1 200 OK
@@ -225,7 +227,7 @@ Transfer-Encoding: chunked
 
 ### <a name="viewing-logs"></a>ログを表示する
 
-Web アプリから Kestrel を使用して、使用して管理`systemd`、すべてのイベントとプロセスは、一元的な履歴に記録されます。 ただし、このジャーナルには、`systemd` が管理するすべてのサービスとプロセスのすべてのエントリが含まれます。 `kestrel-hellomvc.service` 固有の項目を表示するには、次のコマンドを使用します。
+Kestrel を利用する Web アプリは `systemd` を使用して管理されるため、すべてのイベントとプロセスが記録され、中心的ジャーナルが生成されます。 ただし、このジャーナルには、`systemd` が管理するすべてのサービスとプロセスのすべてのエントリが含まれます。 `kestrel-hellomvc.service` 固有の項目を表示するには、次のコマンドを使用します。
 
 ```bash
 sudo journalctl -fu kestrel-hellomvc.service
@@ -237,15 +239,15 @@ sudo journalctl -fu kestrel-hellomvc.service
 sudo journalctl -fu kestrel-hellomvc.service --since "2016-10-18" --until "2016-10-18 04:00"
 ```
 
-## <a name="securing-the-app"></a>アプリをセキュリティで保護します。
+## <a name="securing-the-app"></a>アプリのセキュリティ保護
 
 ### <a name="enable-apparmor"></a>AppArmor を有効にする
 
-Linux セキュリティ モジュール (LSM) は、Linux 2.6 以降では Linux カーネルの一部であるフレームワークです。 LSM は、セキュリティ モジュールのさまざまな実装に対応しています。 [AppArmor](https://wiki.ubuntu.com/AppArmor) は Mandatory Access Control システムを実装する LSM です。このシステムは、プログラムのリソース範囲を限定できます。 AppArmor が有効であり、正しく構成されていることを確認します。
+Linux Security Modules (LSM) は、Linux 2.6 以降の Linux カーネルに含まれるフレームワークです。 LSM は、セキュリティ モジュールのさまざまな実装に対応しています。 [AppArmor](https://wiki.ubuntu.com/AppArmor) は Mandatory Access Control システムを実装する LSM です。このシステムは、プログラムのリソース範囲を限定できます。 AppArmor が有効であり、正しく構成されていることを確認します。
 
-### <a name="configuring-the-firewall"></a>ファイアウォールを構成します。
+### <a name="configuring-the-firewall"></a>ファイアウォールの構成
 
-使用されていないすべての外部ポートを閉じます。 ufw (uncomplicated firewall/複雑ではないファイアウォール) は `iptables` のフロント エンドとなり、ファイアウォールを構成するためのコマンド ライン インターフェイスを提供します。 いることを確認`ufw`必要なポートのトラフィックを許可するように構成します。
+使用されていないすべての外部ポートを閉じます。 ufw (uncomplicated firewall/複雑ではないファイアウォール) は `iptables` のフロント エンドとなり、ファイアウォールを構成するためのコマンド ライン インターフェイスを提供します。 必要なポートすべてでトラフィックを許可するように `ufw` が構成されていることを確認します。
 
 ```bash
 sudo apt-get install ufw
@@ -284,7 +286,7 @@ static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
 
 正規表現には PCRE ライブラリが必要です。 正規表現は、ngx_http_rewrite_module の場所ディレクティブで使用されます。 http_ssl_module により HTTPS プロトコル サポートが追加されます。
 
-ように web アプリケーション ファイアウォールの使用を検討*ModSecurity*にアプリを強化します。
+アプリのセキュリティを強化するために、*ModSecurity* のような Web アプリのファイアウォールの使用を検討してください。
 
 ```bash
 ./configure
@@ -297,13 +299,13 @@ static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
 
 #### <a name="configure-ssl"></a>SSL を構成する
 
-* ポートで HTTPS トラフィックをリッスンするようにサーバーを構成する`443`を信頼された証明書機関 (CA) によって発行された有効な証明書を指定します。
+* 信頼できる証明機関 (CA) が発行した、有効な証明書を指定することで、ポート `443` で HTTPS トラフィックを待ち受けるようにサーバーを構成します。
 
-* 次のプラクティスを採用することによって、セキュリティを強化する */etc/nginx/nginx.conf*ファイル。 たとえば、強力な暗号を選択したり、HTTP 経由のすべてのトラフィックを HTTPS にリダイレクトしたりします。
+* 次の */etc/nginx/nginx.conf* ファイルで示されているプラクティスの一部を採用することで、セキュリティを強化します。 たとえば、強力な暗号を選択したり、HTTP 経由のすべてのトラフィックを HTTPS にリダイレクトしたりします。
 
 * `HTTP Strict-Transport-Security` (HSTS) ヘッダーを追加すると、クライアントが行う後続のすべての要求が HTTPS 経由のみになります。
 
-* Strict トランスポート セキュリティ ヘッダーを追加しないが、適切な選択または`max-age`場合は SSL は、今後は無効にします。
+* Strict-Transport-Security ヘッダーを追加しないでください。または、今後 SSL を利用できないことがあれば、適切な `max-age` を選択してください。
 
 */etc/nginx/proxy.conf* 構成ファイルを追加します。
 
@@ -314,7 +316,7 @@ static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
 [!code-nginx[](linux-nginx/nginx.conf?highlight=2)]
 
 #### <a name="secure-nginx-from-clickjacking"></a>Nginx をクリックジャッキングから守る
-クリックジャッキングは、感染したユーザーのクリックを集めるという悪意のある手法です。 クリックジャッキングは被害者 (訪問者) をだまし、感染したサイトでクリックさせます。 X-フレームのオプションを使用、サイトをセキュリティで保護します。
+クリックジャッキングは、感染したユーザーのクリックを集めるという悪意のある手法です。 クリックジャッキングは被害者 (訪問者) をだまし、感染したサイトでクリックさせます。 X-FRAME-OPTIONS を使用して、サイトをセキュリティで保護します。
 
 *nginx.conf* ファイルを編集します。
 

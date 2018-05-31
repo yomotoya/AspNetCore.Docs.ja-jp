@@ -1,7 +1,7 @@
 ---
-title: Azure App Service と ASP.NET Core を使用した IIS の一般的なエラーのリファレンス
+title: ASP.NET Core を使用した Azure App Service および IIS の一般的なエラーのリファレンス
 author: guardrex
-description: Azure アプリのサービスと IIS の ASP.NET Core アプリケーションをホストしているときに、一般的なエラーを識別します。
+description: Azure Apps Service と IIS で ASP.NET Core アプリをホストする場合の一般的なエラーを区別します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -12,23 +12,24 @@ ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
 ms.openlocfilehash: 995890a5e6b0cc1d9cebc21486917a7a39587076
 ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34233340"
 ---
-# <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Azure App Service と ASP.NET Core を使用した IIS の一般的なエラーのリファレンス
+# <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>ASP.NET Core を使用した Azure App Service および IIS の一般的なエラーのリファレンス
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
-次の一覧に含まれていないエラーもあります。 ここでは、表示されていないエラーが発生した場合[新しい懸案事項を開く](https://github.com/aspnet/Docs/issues/new)エラーを再現する詳細な指示を伴うです。
+次の一覧に含まれていないエラーもあります。 ここにリストされていないエラーが発生した場合は、エラーを再現するための詳しい手順と共に[新しい問題を開いてください](https://github.com/aspnet/Docs/issues/new)。
 
 次の情報を収集します。
 
 * ブラウザーの動作
-* アプリケーション イベント ログ エントリ
-* ASP.NET Core モジュール stdout ログ エントリ
+* アプリケーション イベント ログのエントリ
+* ASP.NET Core モジュールの stdout ログのエントリ
 
-次の一般的なエラー情報を比較します。 一致が見つかった場合は、トラブルシューティングのアドバイスに従います。
+情報を、次の一般的なエラーと比較します。 一致が見つかった場合は、トラブルシューティングのアドバイスに従います。
 
 [!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
@@ -42,7 +43,7 @@ ms.lasthandoff: 05/17/2018
 
 トラブルシューティング:
 
-* システムがインターネットにアクセスをホストしているバンドルをインストールするときに、この例外が発生、インストーラーが取得できない場合に、 *Microsoft Visual C 2015 Redistributable*です。 インストーラーを取得、 [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)です。 インストーラーが失敗した場合、サーバーがフレームワークに依存する展開 (FDD) をホストするために、.NET Core ランタイムを受信しません。 場合は、FDD をホストするには、プログラムで、ランタイムがインストールされていることを確認&amp;機能します。 必要な場合からランタイム インストーラーを入手[.NET のすべてのダウンロード](https://www.microsoft.com/net/download/all)です。 ランタイムのインストール後、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
+* ホスティング バンドルのインストール時にインストーラーがインターネットにアクセスできない場合、インストーラーは *Microsoft Visual C++ 2015 再頒布可能パッケージ*を取得できず、この例外が発生します。 [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)からインストーラーを入手します。 インストーラーが失敗する場合、フレームワークに依存する展開 (FDD) をホストするために必要な .NET Core ランタイムをサーバーが受け取っていない可能性があります。 FDD をホストしている場合は、[プログラムと機能] でランタイムがインストールされていることを確認してください。 ランタイム インストーラーが必要な場合は、[.NET の「All Downloads」](https://www.microsoft.com/net/download/all)から入手します。 ランタイムのインストール後、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
 
 ## <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>OS のアップグレードによって 32 ビット ASP.NET Core モジュールが削除された
 
@@ -50,23 +51,23 @@ ms.lasthandoff: 05/17/2018
 
 トラブルシューティング:
 
-* **C:\Windows\SysWOW64\inetsrv** ディレクトリにある OS ファイルでないファイルは、OS アップグレード時に保持されません。 前に、ASP.NET Core モジュールがインストールされている場合、OS のアップグレードと任意の AppPool し、実行 32 ビット モードで OS のアップグレード後に、この問題が発生しました。 OS アップグレード後に ASP.NET Core モジュールを修復してください。 参照してください[.NET Core のホストのバンドルをインストール](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle)です。 選択**修復**インストーラーを実行するとします。
+* **C:\Windows\SysWOW64\inetsrv** ディレクトリにある OS ファイルでないファイルは、OS アップグレード時に保持されません。 OS アップグレードより前に ASP.NET Core モジュールをインストールしていた場合、OS アップグレード後に 32 ビット モードで AppPool を実行しようとすると、この問題が発生します。 OS アップグレード後に ASP.NET Core モジュールを修復してください。 「[.NET Core ホスティング バンドルのインストール](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle)」をご覧ください。 インストーラーを実行するときに **[修復]** を選択します。
 
 ## <a name="platform-conflicts-with-rid"></a>プラットフォームが RID と競合している
 
 * **ブラウザー:** HTTP エラー 502.5 - 処理エラー
 
-* **アプリケーション ログ:** アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\{パス}\' commandline でプロセスを開始できませんでした '"c:\\{パス} {アセンブリ} です {。exe | dll}"'、エラー コード = ' 0x80004005: ff します。
+* **アプリケーション ログ:** Application 'MACHINE/WEBROOT/APPHOST/{ASSEMBLY}' with physical root 'C:\{PATH}\' failed to start process with commandline '"C:\\{PATH}{assembly}.{exe|dll}" ', ErrorCode = '0x80004005 : ff. (物理ルート 'C:\{PATH}' でのアプリケーション 'MACHINE/WEBROOT/APPHOST/{ASSEMBLY}' は、コマンドライン '"C:\{PATH}{assembly}.{exe|dll}" ' でプロセスを開始できませんでした。ErrorCode = '0x80004005 : ff)
 
-* **ASP.NET Core モジュールのログ:** 未処理の例外: System.BadImageFormatException: を読み込めませんでしたファイルまたはアセンブリ '{アセンブリ} .dll' です。 正しくない形式のプログラムを読み込もうとしました。
+* **ASP.NET Core モジュールのログ:** ハンドルされない例外: System.BadImageFormatException: Could not load file or assembly '{assembly}.dll'. (ファイルまたはアセンブリ '{assembly}.dll' が読み込めませんでした) 正しくない形式のプログラムを読み込もうとしました。
 
 トラブルシューティング:
 
-* Kestrel でアプリをローカルに実行できることを確認します。 プロセスのエラーは、アプリ内の問題の結果である可能性があります。 詳細については、次を参照してください。[トラブルシューティング](xref:host-and-deploy/iis/troubleshoot)です。
+* Kestrel でアプリをローカルに実行できることを確認します。 プロセスのエラーは、アプリ内の問題の結果である可能性があります。 詳細については、[トラブルシューティングのヒント](xref:host-and-deploy/iis/troubleshoot)に関するページをご覧ください。
 
-* いることを確認、`<PlatformTarget>`で、 *.csproj* RID には抵触しません。 などを指定しない、`<PlatformTarget>`の`x86`と、RID のパブリッシュ`win10-x64`、いずれかを使用して*dotnet 発行-c リリース-r win10 x64*かを設定して、`<RuntimeIdentifiers>`で、 *.csproj*に`win10-x64`です。 プロジェクトは警告やエラーにならずに発行されますが、上記のログに記録されたシステムの例外によって失敗します。
+* *.csproj* 内の `<PlatformTarget>` が RID と競合していないことを確認します。 たとえば、`x86` の `<PlatformTarget>` を指定した場合は、*dotnet publish -c Release -r win10-x64* を使用するか、*.csproj* で `<RuntimeIdentifiers>` を `win10-x64` に設定するかを問わず、`win10-x64` の RID を使用して発行しないでください。 プロジェクトは警告やエラーにならずに発行されますが、上記のログに記録されたシステムの例外によって失敗します。
 
-* この例外は、アプリをアップグレードするときに Azure のアプリ展開の場合に発生し、以前の展開からすべてのファイルを手動で削除、新しいアセンブリを展開する場合。 アップグレードしたアプリを展開するとき、互換性のないアセンブリが残っていると、`System.BadImageFormatException` 例外が発生します。
+* Azure Apps 展開で、アプリケーションをアップグレードして新しいアセンブリを展開しようとしたときにこの例外が発生した場合は、以前の展開からすべてのファイルを手動で削除してください。 アップグレードしたアプリを展開するとき、互換性のないアセンブリが残っていると、`System.BadImageFormatException` 例外が発生します。
 
 ## <a name="uri-endpoint-wrong-or-stopped-website"></a>URI のエンドポイントが間違っているか、Web サイトが停止している
 
@@ -78,9 +79,9 @@ ms.lasthandoff: 05/17/2018
 
 トラブルシューティング:
 
-* アプリ用の正しい URI エンドポイントが使用されていることを確認します。 バインドを確認してください。
+* アプリに対して正しい URI エンドポイントが使用されていることを確認します。 バインドを確認します。
 
-* IIS web サイトがないことを確認、 *Stopped*状態です。
+* IIS Web サイトが *[停止]* 状態でないことを確認します。
 
 ## <a name="corewebengine-or-w3svc-server-features-disabled"></a>CoreWebEngine または W3SVC サーバー機能が無効
 
@@ -90,7 +91,7 @@ ms.lasthandoff: 05/17/2018
 
 * 適切な役割と機能が有効になっていることを確認します。 「[IIS 構成](xref:host-and-deploy/iis/index#iis-configuration)」を参照してください。
 
-## <a name="incorrect-website-physical-path-or-app-missing"></a>不適切な web サイトの物理パス、またはアプリがありません。
+## <a name="incorrect-website-physical-path-or-app-missing"></a>Web サイト物理パスが間違っているか、アプリが見つからない
 
 * **ブラウザー:** 403 許可されていません - アクセスが拒否されました **--または--** 403.14 許可されていません - Web サーバーは、このディレクトリの内容の一覧を表示しないように構成されています。
 
@@ -100,7 +101,7 @@ ms.lasthandoff: 05/17/2018
 
 トラブルシューティング:
 
-* IIS web サイトを確認**基本設定**と物理アプリ フォルダーです。 アプリが、IIS web サイトにあるフォルダーにあることを確認**物理パス**です。
+* IIS Web サイトの**基本設定**と物理アプリのフォルダーを確認します。 アプリが IIS Web サイトの**物理パス**にあるフォルダー内に配置されていることを確認します。
 
 ## <a name="incorrect-role-module-not-installed-or-incorrect-permissions"></a>役割が正しくない、モジュールがインストールされていない、または不適切なアクセス許可
 
@@ -112,55 +113,55 @@ ms.lasthandoff: 05/17/2018
 
 トラブルシューティング:
 
-* 適切なロールが有効になっていることを確認します。 「[IIS 構成](xref:host-and-deploy/iis/index#iis-configuration)」を参照してください。
+* 適切な役割が有効になっていることを確認します。 「[IIS 構成](xref:host-and-deploy/iis/index#iis-configuration)」を参照してください。
 
-* **[プログラムと機能]** をチェックし、**Microsoft ASP.NET Core モジュール**がインストールされていることを確認します。 インストールされているプログラムの一覧に **Microsoft ASP.NET Core モジュール**が表示されない場合は、モジュールをインストールします。 参照してください[バンドルをホストしている .NET Core のインストール](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle)です。
+* **[プログラムと機能]** をチェックし、**Microsoft ASP.NET Core モジュール**がインストールされていることを確認します。 インストールされているプログラムの一覧に **Microsoft ASP.NET Core モジュール**が表示されない場合は、モジュールをインストールします。 「[.NET Core ホスティング バンドルのインストール](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle)」をご覧ください。
 
-* 確認して、**アプリケーション プール** > **プロセス モデル** > **Identity**に設定されている**ApplicationPoolIdentity**またはカスタム id は、アプリの配置フォルダーにアクセスする適切なアクセス許可を持っています。
+* **[アプリケーション プール]** > **[プロセス モデル]** > **[ID]** が **ApplicationPoolIdentity** に設定されていることを確認します。または、アプリの展開フォルダーにアクセスするための正しいアクセス許可がカスタム ID に設定されていることを確認します。
 
-## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>正しくない processPath、不足しているパス変数をホストしているバンドルがインストールされていない、システムと IIS の再起動されません、vc++ 再頒布可能パッケージがインストールされていないまたは dotnet.exe アクセス違反
+## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>processPath の誤り、PATH 変数の欠如、ホスティング バンドルが未インストール、システムまたは IIS が再起動されていない、VC++ 再頒布可能パッケージが未インストール、dotnet.exe アクセス違反
 
 * **ブラウザー:** HTTP エラー 502.5 - 処理エラー
 
-* **アプリケーションのログ:** アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\\{PATH}\' commandline でプロセスを開始できませんでした '".\{アセンブリ} .exe"'、エラー コード = ' 0x80070002: 0。
+* **アプリケーション ログ:** Application 'MACHINE/WEBROOT/APPHOST/{ASSEMBLY}' with physical root 'C:\\{PATH}\' failed to start process with commandline '".\{assembly}.exe" ', ErrorCode = '0x80070002 : 0. (物理ルート 'C:\{PATH}' でのアプリケーション 'MACHINE/WEBROOT/APPHOST/{ASSEMBLY}' は、コマンドライン '".\{assembly}.exe" ' でプロセスを開始できませんでした。ErrorCode = '0x80070002 : 0)
 
 * **ASP.NET Core モジュールのログ:** ログ ファイルが作成されましたが空です
 
 トラブルシューティング:
 
-* Kestrel でアプリをローカルに実行できることを確認します。 プロセスのエラーは、アプリ内の問題の結果である可能性があります。 詳細については、次を参照してください。[トラブルシューティング](xref:host-and-deploy/iis/troubleshoot)です。
+* Kestrel でアプリをローカルに実行できることを確認します。 プロセスのエラーは、アプリ内の問題の結果である可能性があります。 詳細については、[トラブルシューティングのヒント](xref:host-and-deploy/iis/troubleshoot)に関するページをご覧ください。
 
-* チェック、 *processPath*属性を`<aspNetCore>`内の要素*web.config*であることを確認する*dotnet*フレームワークに依存する展開 (FDD) または *.\{アセンブリ} .exe*自己完結型の展開 (SCD)。
+* *web.config* で `<aspNetCore>` 要素の *processPath* 属性を調べ、フレームワークに依存する展開 (FDD) を示す *dotnet*、または自己完結型の展開 (SCD) を示す *.\{assembly}.exe* になっていることを確認します。
 
 * FDD の場合、PATH 設定で *dotnet.exe* にアクセスできていない可能性があります。 *C:\Program Files\dotnet\* がシステムの PATH 設定に含まれていることを確認します。
 
-* FDD では、アプリケーション プールのユーザー ID で *dotnet.exe* にアクセスできていない可能性があります。 AppPool ユーザー ID に、*C:\Program Files\dotnet* ディレクトリへのアクセス許可が設定されていることを確認します。 上の AppPool ユーザー id に対して構成された拒否ルールがないことを確認、 *C:\Program Files\dotnet*とアプリのディレクトリ。
+* FDD では、アプリケーション プールのユーザー ID で *dotnet.exe* にアクセスできていない可能性があります。 AppPool ユーザー ID に、*C:\Program Files\dotnet* ディレクトリへのアクセス許可が設定されていることを確認します。 *C:\Program Files\dotnet* とアプリのディレクトリに、AppPool ユーザー ID に対する拒否ルールが構成されていないことを確認します。
 
-* FDD が配置されているし、IIS を再起動しなくても .NET Core がインストールされています。 サーバーを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
+* FDD を配置し、IIS を再起動せずに .NET Core をインストールした可能性があります。 サーバーを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
 
-* ホスト システムに、.NET Core ランタイムをインストールしなくても、FDD が展開された可能性があります。 .NET Core ランタイムがインストールされていない場合は、実行、 **.NET Core をホストしているバンドル インストーラー**システムにします。 参照してください[バンドルをホストしている .NET Core のインストール](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle)です。 場合は、インターネット接続のないシステムで、.NET Core ランタイムをインストールしようとすると、取得、ランタイムから[.NET のすべてのダウンロード](https://www.microsoft.com/net/download/all)ASP.NET Core モジュールをインストールするバンドルをホストしているインストーラーを実行しています。 インストールを完了するために、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
+* ホスト システムで、 .NET Core ランタイムをインストールせずに、FDD を配置した可能性があります。 .NET Core ランタイムがインストールされていない場合は、システムで **.NET Core ホスティング バンドルのインストーラー**を実行します。 「[.NET Core ホスティング バンドルのインストール](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle)」をご覧ください。 インターネットに接続せずに、.NET Core ランタイムをシステムにインストールする場合は、[.NET の「All Downloads」](https://www.microsoft.com/net/download/all)のページからランタイムを入手し、ホスティング バンドル インストーラーを実行して ASP.NET Core モジュールをインストールします。 インストールを完了するために、システムを再起動するか、コマンド プロンプトから **net stop was /y** に続けて **net start w3svc** を実行して IIS を再起動します。
 
-* FDD が配置されていると、 *Microsoft Visual C 2015 Redistributable (x64)* システムがインストールされていません。 インストーラーを取得、 [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)です。
+* FDD を配置し、*Microsoft Visual C++ 2015 再頒布可能パッケージ (x64)* がシステムにインストールされていない可能性があります。 [Microsoft ダウンロード センター](https://www.microsoft.com/download/details.aspx?id=53840)からインストーラーを入手します。
 
 ## <a name="incorrect-arguments-of-aspnetcore-element"></a>\<aspNetCore\> 要素の引数の誤り
 
 * **ブラウザー:** HTTP エラー 502.5 - 処理エラー
 
-* **アプリケーションのログ:** アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\\{PATH}\' commandline でプロセスを開始できませんでした '"dotnet".\{アセンブリ} .dll '、エラー コード = ' 0x80004005: 80008081 です。
+* **アプリケーション ログ:** Application 'MACHINE/WEBROOT/APPHOST/{ASSEMBLY}' with physical root 'C:\\{PATH}\' failed to start process with commandline '"dotnet" .\{assembly}.dll', ErrorCode = '0x80004005 : 80008081. (物理ルート 'C:\{PATH}' でのアプリケーション 'MACHINE/WEBROOT/APPHOST/{ASSEMBLY}' は、コマンドライン '"dotnet" .\{assembly}.dll' でプロセスを開始できませんでした。ErrorCode = '0x80004005 : 80008081)
 
-* **ASP.NET Core モジュールのログ:** を実行するアプリケーションは存在しません: ' パス\{アセンブリ} .dll '
+* **ASP.NET Core モジュールのログ:** The application to execute does not exist: 'PATH\{assembly}.dll' (実行するアプリケーションが存在しません: 'PATH\{assembly}.dll')
 
 トラブルシューティング:
 
-* Kestrel でアプリをローカルに実行できることを確認します。 プロセスのエラーは、アプリ内の問題の結果である可能性があります。 詳細については、次を参照してください。[トラブルシューティング](xref:host-and-deploy/iis/troubleshoot)です。
+* Kestrel でアプリをローカルに実行できることを確認します。 プロセスのエラーは、アプリ内の問題の結果である可能性があります。 詳細については、[トラブルシューティングのヒント](xref:host-and-deploy/iis/troubleshoot)に関するページをご覧ください。
 
-* 確認、*引数*属性を`<aspNetCore>`内の要素*web.config*したことを確認するかを (a) *.\{アセンブリ} .dll*のフレームワークに依存する展開 (FDD); か、(b) ではない、空の文字列 (*引数 =""*)、またはアプリの引数の一覧 (*引数"arg1 arg2,..."を =*)自己完結型の展開 (SCD)。
+* *web.config* で `<aspNetCore>` 要素の *arguments* 属性を調べ、次のいずれかになっていることを確認します。(a) フレームワークに依存する展開 (FDD) の場合は *.\{assembly}.dll*、または (b) 自己完結型の展開 (SCD) の場合は、未指定の空の文字列 (*arguments=""*) か、アプリの引数のリスト (*arguments="arg1, arg2, ..."*)。
 
 ## <a name="missing-net-framework-version"></a>.NET Framework バージョンの欠落
 
 * **ブラウザー:** 502.3 ゲートウェイが正しくありません - There was a connection error while trying to route the request. (要求のルーティング中に接続エラーが発生しました。)
 
-* **アプリケーションのログ:** ErrorCode アプリケーション = 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\\{PATH}\' commandline でプロセスを開始できませんでした '"dotnet".\{アセンブリ} .dll '、エラー コード = ' 0x80004005: 80008081 です。
+* **アプリケーション ログ:** ErrorCode = Application 'MACHINE/WEBROOT/APPHOST/{ASSEMBLY}' with physical root 'C:\\{PATH}\' failed to start process with commandline '"dotnet" .\{assembly}.dll', ErrorCode = '0x80004005 : 80008081. (ErrorCode = 物理ルート 'C:\{PATH}' でのアプリケーション 'MACHINE/WEBROOT/APPHOST/{ASSEMBLY}' は、コマンドライン '"dotnet" .\{assembly}.dll' でプロセスを開始できませんでした。ErrorCode = '0x80004005 : 80008081)
 
 * **ASP.NET Core モジュールのログ:** メソッド、ファイル、またはアセンブリの欠如の例外。 例外で特定されたメソッド、ファイル、またはアセンブリは、.NET Framework のメソッド、ファイル、またはアセンブリです。
 
@@ -168,7 +169,7 @@ ms.lasthandoff: 05/17/2018
 
 * システムにない .NET Framework のバージョンをインストールします。
 
-* フレームワークに依存する展開 (FDD) は、適切なランタイムがシステムにインストールされていることを確認します。 2.0 では、ホストのシステムに配置する 1.1 からプロジェクトをアップグレードすると、この例外により、2.0 framework がホスト システム上にあることを確認します。
+* フレームワークに依存する展開 (FDD) では、正しいランタイムがシステムにインストールされていることを確認します。 プロジェクトを 1.1 から 2.0 にアップグレードして、ホスト システムに展開したときに、この例外が発生した場合は、ホスト システムに 2.0 Framework が存在することを確認します。
 
 ## <a name="stopped-application-pool"></a>アプリケーション プールの停止
 
@@ -180,25 +181,25 @@ ms.lasthandoff: 05/17/2018
 
 トラブルシューティング
 
-* アプリケーション プールされていないことを確認、 *Stopped*状態です。
+* アプリケーション プールが *[停止]* 状態でないことを確認します。
 
 ## <a name="iis-integration-middleware-not-implemented"></a>IIS 統合ミドルウェアが未実装
 
 * **ブラウザー:** HTTP エラー 502.5 - 処理エラー
 
-* **アプリケーションのログ:** アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\\{PATH}\' commandline でプロセスを作成 '"c:\\{PATH}\{アセンブリ} です {。exe | dll}"' がクラッシュまたは応答がありませんでしたまたは指定されたポート {ポート}、ErrorCode でリッスンできませんでした '0x800705b4' を =
+* **アプリケーション ログ:** Application 'MACHINE/WEBROOT/APPHOST/{ASSEMBLY}' with physical root 'C:\\{PATH}\' created process with commandline '"C:\\{PATH}\{assembly}.{exe|dll}" ' but either crashed or did not reponse or did not listen on the given port '{PORT}', ErrorCode = '0x800705b4' (物理ルート 'C:\{PATH}' でのアプリケーション 'MACHINE/WEBROOT/APPHOST/{ASSEMBLY}' は、コマンド ライン '"C:\{PATH}\{assembly}.{exe|dll}" ' でプロセスを作成しましたが、クラッシュしたか、応答しなかったか、指定されたポート '{PORT}' でリッスンしていません。ErrorCode = '0x800705b4')
 
 * **ASP.NET Core モジュールのログ:** ログ ファイルが作成され、正常動作を示しています。
 
 トラブルシューティング
 
-* Kestrel でアプリをローカルに実行できることを確認します。 プロセスのエラーは、アプリ内の問題の結果である可能性があります。 詳細については、次を参照してください。[トラブルシューティング](xref:host-and-deploy/iis/troubleshoot)です。
+* Kestrel でアプリをローカルに実行できることを確認します。 プロセスのエラーは、アプリ内の問題の結果である可能性があります。 詳細については、[トラブルシューティングのヒント](xref:host-and-deploy/iis/troubleshoot)に関するページをご覧ください。
 
-* か、いることを確認します。
-  * IIS 統合ミドルウェアが参照する呼び出し、`UseIISIntegration`メソッドをアプリの`WebHostBuilder`(ASP.NET Core 1.x)
-  * アプリの使用、`CreateDefaultBuilder`メソッド (ASP.NET Core 2.x)。
+* 次のいずれかを確認します。
+  * アプリの `WebHostBuilder` で `UseIISIntegration` メソッドを呼び出すことによって、IIS 統合ミドルウェアが参照される (ASP.NET Core 1.x)。
+  * アプリが `CreateDefaultBuilder` メソッドを使用する (ASP.NET Core 2.x)。
   
-  参照してください[ASP.NET Core でのホスト](xref:fundamentals/host/index)詳細についてはします。
+  詳細については、「[ASP.NET Core でのホスティング](xref:fundamentals/host/index)」をご覧ください。
 
 ## <a name="sub-application-includes-a-handlers-section"></a>サブアプリケーションに \<handlers\> セクションが含まれている
 
@@ -206,32 +207,32 @@ ms.lasthandoff: 05/17/2018
 
 * **アプリケーション ログ:** エントリはありません
 
-* **ASP.NET Core モジュールのログ:** ログ ファイルが作成され、ルート アプリケーションの通常の操作を示します。 ログ ファイルが sub アプリ用に作成されません。
+* **ASP.NET Core モジュールのログ:** ルート アプリに対してログ ファイルが作成され、正常動作を示します。 サブアプリに対してはログ ファイルは作成されません。
 
 トラブルシューティング
 
 * サブアプリの *web.config* ファイルに `<handlers>` セクションが含まれていないことを確認します。
 
-## <a name="stdout-log-path-incorrect"></a>標準出力ログのパスが正しくありません。
+## <a name="stdout-log-path-incorrect"></a>stdout ログのパスが正しくありません
 
-* **ブラウザー:** アプリが通常どおりに応答します。
+* **ブラウザー:** アプリは通常どおりに応答します。
 
-* **アプリケーションのログ:** 警告: stdoutLogFile を作成できませんでした\\? \C:\_apps\app_folder\bin\Release\netcoreapp2.0\win10-x64\publish\logs\path_doesnt_exist\stdout_8748_201831835937.log、ErrorCode = -。2147024893 です。
+* **アプリケーション ログ:** Warning: Could not create stdoutLogFile \\?\C:\_apps\app_folder\bin\Release\netcoreapp2.0\win10-x64\publish\logs\path_doesnt_exist\stdout_8748_201831835937.log, ErrorCode = -2147024893. (警告: stdoutLogFile \?\C:\_apps\app_folder\bin\Release\netcoreapp2.0\win10-x64\publish\logs\path_doesnt_exist\stdout_8748_201831835937.log を作成できませんでした。ErrorCode = -2147024893.)
 
 * **ASP.NET Core モジュールのログ:** ログ ファイルは作成されません
 
 トラブルシューティング
 
-* `stdoutLogFile`で指定されたパス、`<aspNetCore>`要素の*web.config*が存在しません。 詳細については、次を参照してください。、[ログの作成とリダイレクト](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection)ASP.NET Core モジュール構成の参照トピックの「します。
+* *web.config* の `<aspNetCore>` 要素で指定された `stdoutLogFile` パスが存在しません。 詳細については、ASP.NET Core モジュール構成の参照トピックの「[ログの作成とリダイレクト](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection)」セクションをご覧ください。
 
 ## <a name="application-configuration-general-issue"></a>アプリケーション構成の一般的な問題
 
 * **ブラウザー:** HTTP エラー 502.5 - 処理エラー
 
-* **アプリケーションのログ:** アプリケーション 'APPHOST WEBROOT/コンピューター//{アセンブリ}' と物理ルート' c:\\{PATH}\' commandline でプロセスを作成 '"c:\\{PATH}\{アセンブリ} です {。exe | dll}"' がクラッシュまたは応答がありませんでしたまたは指定されたポート {ポート}、ErrorCode でリッスンできませんでした '0x800705b4' を =
+* **アプリケーション ログ:** Application 'MACHINE/WEBROOT/APPHOST/{ASSEMBLY}' with physical root 'C:\\{PATH}\' created process with commandline '"C:\\{PATH}\{assembly}.{exe|dll}" ' but either crashed or did not reponse or did not listen on the given port '{PORT}', ErrorCode = '0x800705b4' (物理ルート 'C:\{PATH}' でのアプリケーション 'MACHINE/WEBROOT/APPHOST/{ASSEMBLY}' は、コマンド ライン '"C:\{PATH}\{assembly}.{exe|dll}" ' でプロセスを作成しましたが、クラッシュしたか、応答しなかったか、指定されたポート '{PORT}' でリッスンしていません。ErrorCode = '0x800705b4')
 
 * **ASP.NET Core モジュールのログ:** ログ ファイルが作成されましたが空です
 
 トラブルシューティング
 
-* この一般的な例外は、開始するほとんどの場合、アプリの構成の問題のために、処理が失敗したことを示します。 参照する[ディレクトリ構造](xref:host-and-deploy/directory-structure)アプリの構成ファイルが存在して、アプリの配置ファイルとフォルダーが適切であることを確認し、アプリおよび環境の正しい設定が含まれています。 詳細については、次を参照してください。[トラブルシューティング](xref:host-and-deploy/iis/troubleshoot)です。
+* この一般例外はプロセスを開始できなかったことを示し、ほとんどの場合はアプリケーション構成の問題が原因です。 [ディレクトリ構造](xref:host-and-deploy/directory-structure)に関する説明を参照して、アプリの展開済みファイルとフォルダーが適切であることと、アプリの構成ファイルが存在し、そのファイルにアプリと環境に対する正しい設定が含まれていることを確認します。 詳細については、[トラブルシューティングのヒント](xref:host-and-deploy/iis/troubleshoot)に関するページをご覧ください。
