@@ -1,5 +1,5 @@
 ---
-title: Visual Studio で Azure と ASP.NET Core での Git に継続的なデプロイ
+title: Visual Studio および Git と ASP.NET Core を組み合わせた Azure への継続的配置
 author: rick-anderson
 description: Visual Studio で ASP.NET Core Web アプリを作成し、それを Azure App Service に配置する方法について説明します。Git を利用し、継続的に配置します。
 manager: wpickett
@@ -12,26 +12,27 @@ ms.topic: article
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
 ms.openlocfilehash: 4de1893e8c1f7f2f4d9af7278a110067ea777c61
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897892"
 ---
-# <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Visual Studio で Azure と ASP.NET Core での Git に継続的なデプロイ
+# <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Visual Studio および Git と ASP.NET Core を組み合わせた Azure への継続的配置
 
 作成者: [Erik Reitan](https://github.com/Erikre)
 
 [!INCLUDE [Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
-このチュートリアルでは、継続的なデプロイを使用して Visual Studio を使用して ASP.NET Core web アプリを作成し、Visual Studio から Azure App Service に配置する方法を示します。
+このチュートリアルでは、Visual Studio で ASP.NET Core Web アプリを作成し、それを Visual Studio から Azure App Service に継続的に配置する方法について説明します。
 
-「[Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic)」 (VSTS と継続的配置で Azure Web アプリをビルドし、公開する) も併せてご覧ください。Visual Studio Team Services を利用した、[Azure App Service](/azure/app-service/app-service-web-overview) の継続的デリバリー (CD) ワークフローの構成方法を紹介しています。 Team Services で azure の継続的な配信には、Azure App Service でホストされているアプリの更新プログラムを発行する配置の堅牢パイプラインの設定が簡略化します。 パイプラインは、ビルド、テストを実行する、ステージング スロットにデプロイし、実稼働環境に展開するには、Azure ポータルから構成できます。
+「[Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic)」 (VSTS と継続的配置で Azure Web アプリをビルドし、公開する) も併せてご覧ください。Visual Studio Team Services を利用した、[Azure App Service](/azure/app-service/app-service-web-overview) の継続的デリバリー (CD) ワークフローの構成方法を紹介しています。 チーム サービスの Azure 継続的デリバリーを利用すると、Azure App Service でホストされているアプリの更新プログラムを公開するための堅牢な配置パイプラインの設定が簡単になります。 Azure Portal で、このパイプラインのビルド、テスト実行、ステージング スロットへの配置、運用への配置を構成できます。
 
 > [!NOTE]
-> このチュートリアルを完了するには、Microsoft Azure アカウントが必要です。 アカウントを取得するには [MSDN サブスクライバー特典をアクティブ化](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F) または [無料試用版にサインアップ](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) してください。
+> このチュートリアルを完了するには、Microsoft Azure アカウントが必要です。 アカウントを持っていない場合は、[MSDN サブスクライバー特典を有効にする](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F)か、[無料試用版にサインアップ](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)してください。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-このチュートリアルでは、次のソフトウェアがインストールされている前提としています。
+このチュートリアルでは、次のソフトウェアがインストールされていることを前提としています。
 
 * [Visual Studio](https://www.visualstudio.com)
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
@@ -43,7 +44,7 @@ ms.lasthandoff: 04/06/2018
 
 1. **[ファイル]** メニューで、**[新規作成]**、**[プロジェクト]** の順に作成します。
 
-1. **[ASP.NET Core Web アプリケーション]** プロジェクト テンプレートを選択します。 このテンプレートは、**[インストール済み]** > **[テンプレート]** > **[Visual C#]** > **[.NET Core]** の下にあります。 プロジェクトに `SampleWebAppDemo` という名前を付けます。 選択、**新しい Git リポジトリの作成**オプションし、をクリックして**OK**です。
+1. **[ASP.NET Core Web アプリケーション]** プロジェクト テンプレートを選択します。 このテンプレートは、**[インストール済み]** > **[テンプレート]** > **[Visual C#]** > **[.NET Core]** の下にあります。 プロジェクトに `SampleWebAppDemo` という名前を付けます。 **[新しい Git リポジトリの作成]** オプションを選択し、**[OK]** をクリックします。
 
    ![[新しいプロジェクト] ダイアログ](azure-continuous-deployment/_static/01-new-project.png)
 
@@ -56,23 +57,23 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="running-the-web-app-locally"></a>Web アプリのローカル実行
 
-1. Visual Studio でアプリの作成が完了したら、**[デバッグ]**、**[デバッグの開始]** の順に選択し、アプリを実行します。 代わりに、キーを押して**f5 キーを押して**です。
+1. Visual Studio でアプリの作成が完了したら、**[デバッグ]**、**[デバッグの開始]** の順に選択し、アプリを実行します。 または、**F5** キーを押します。
 
-   Visual Studio と新しいアプリの初期化に時間がかかる場合があります。 これが完了したら、ブラウザーは、実行中のアプリを示します。
+   Visual Studio と新しいアプリの初期化に時間がかかる場合があります。 完了すると、ブラウザーに実行中のアプリが表示されます。
 
    ![ブラウザー ウィンドウの実行中のアプリに 'Hello World!' と表示されます。](azure-continuous-deployment/_static/04-browser-runapp.png)
 
-1. 実行中の Web アプリを確認すると、ブラウザーを終了し、アプリを停止する Visual Studio のツールバーで、「デバッグの停止」アイコンを選択します。
+1. 実行中の Web アプリを確認したら、ブラウザーを閉じ、Visual Studio のツール バーにある "デバッグの停止" アイコンを選択してアプリを停止します。
 
 ## <a name="create-a-web-app-in-the-azure-portal"></a>Azure Portal で Web アプリを作成する
 
-次の手順では、Azure ポータルで web アプリを作成します。
+Azure Portal で次の手順を実行して Web アプリを作成します。
 
-1. [Azure ポータル](https://portal.azure.com) にログインします。
+1. [Azure Portal](https://portal.azure.com) にログインします。
 
-1. ポータルのインターフェイスの左上にある **新規** を選択します。
+1. Portal インターフェイスの左上にある **[新規作成]** を選択します。
 
-1. **Web + モバイル** > **Web アプリ** を選択します。
+1. **[Web + モバイル]** > **[Web アプリ]** の順に選択します。
 
    ![Microsoft Azure Portal: [新規作成] ボタン: [Marketplace] の [Web + モバイル]: [おすすめアプリ] の [Web アプリ] ボタン](azure-continuous-deployment/_static/05-azure-newwebapp.png)
 
@@ -81,23 +82,23 @@ ms.lasthandoff: 04/06/2018
    ![[Web アプリ] ブレード](azure-continuous-deployment/_static/06-azure-newappblade.png)
 
    > [!NOTE]
-   > **アプリ サービス名**の名前は一意である必要があります。名前が指定されると、ポータルではこのルールが適用されます。別の値を使用する場合、このチュートリアルで **SampleWebAppDemo** が言及されるたびにその値に置き換えて使用してください。
+   > **[App Service の名前]** の名前は一意にする必要があります。 名前を入力する場合、この規則が適用されます。 別の値を入力する場合は、このチュートリアルで **SampleWebAppDemo** が出てくるたびに、その値を置き換えてください。
 
-   **[Web アプリ]** ブレードではまた、既存の **[App Service プラン/場所]** を選択するか、新しい App Service プラン/場所を作成できます。 新しいプランを作成する場合は、価格レベル、場所、およびその他のオプションを選択します。 App Service プランの詳細については、次を参照してください。 [Azure App Service プランの詳細な概要](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)です。
+   **[Web アプリ]** ブレードではまた、既存の **[App Service プラン/場所]** を選択するか、新しい App Service プラン/場所を作成できます。 新しいプランを作成した場合、価格レベル、場所、その他のオプションを選択します。 App Service プランに関する詳細については、「[Azure App Service プランの概要](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)」を参照してください。
 
-1. **[作成]** を選択します。 Azure がプロビジョニングされ、web アプリが開始されます。
+1. **[作成]** を選択します。 Web アプリがプロビジョニングされ、起動します。
 
    ![Azure Portal: サンプル Web アプリ デモ 01 の [要点] ブレード](azure-continuous-deployment/_static/07-azure-webappblade.png)
 
 ## <a name="enable-git-publishing-for-the-new-web-app"></a>新しい Web アプリに対して Git 公開を有効にする
 
-Git は、Azure App Service web アプリを配置するために使用する分散型バージョン管理システムです。 Web アプリ コードが、ローカルの Git リポジトリに格納されているし、コードがリモート リポジトリにプッシュして Azure に展開します。
+Git は分散型バージョン管理システムであり、これを利用して Azure App Service Web アプリを展開できます。 Web アプリ コードはローカルの Git リポジトリに格納されます。また、コードはリモート リポジトリにプッシュすることによって Azure に展開されます。
 
-1. [Azure ポータル](https://portal.azure.com) にログインします。
+1. [Azure Portal](https://portal.azure.com) にログインします。
 
-1. **App Services** を選択して、Azure サブスクリプションに関連付けられているアプリ サービスの一覧を表示します。
+1. **[App Services]** を選択し、Azure サブスクリプションに関連付けられているアプリ サービスの一覧を表示します。
 
-1. このチュートリアルの前のセクションで作成された web アプリを選択します。
+1. このチュートリアルの前のセクションで作成した Web アプリを選択します。
 
 1. **[デプロイ]** ブレードで、**[デプロイ オプション]** > **[ソースの選択]** > **[ローカル Git リポジトリ]** の順に選択します。
 
@@ -105,69 +106,69 @@ Git は、Azure App Service web アプリを配置するために使用する分
 
 1. **[OK]** を選択します。
 
-1. Web アプリまたはその他の App Service アプリを発行するためのデプロイ資格情報を以前に設定していない場合は、ここで設定してください。
+1. Web アプリや他の App Service アプリを公開するための展開の資格情報を設定していない場合は、ここで設定してください。
 
-   * **設定** > **デプロイ資格情報** を選択します。 **デプロイ資格情報を設定**ブレードが表示されます。
-   * ユーザー名とパスワードを作成します。 Git を設定するときは、後で使用するパスワードを保存します。
+   * **[設定]** > **[デプロイ資格情報]** の順に選択します。 **[デプロイ資格情報の設定]** ブレードが表示されます。
+   * ユーザー名とパスワードを作成します。 後で Git を設定するときに使用するパスワードを保存します。
    * **[保存]** を選択します。
 
-1. **Web アプリ**ブレードで、**設定** > **プロパティ**を選択します。 **GIT URL** の下に展開するリモート Git リポジトリの URL が表示されます。
+1. **[Web アプリ]** ブレードで、**[設定]** > **[プロパティ]** の順に選択します。 展開するリモート Git リポジトリの URL が **[GIT URL]** の下に表示されます。
 
-1. このチュートリアルの後で使用するため **GIT URL** の値をコピーします。
+1. **GIT URL** の値をコピーします。後で使用します。
 
    ![Azure Portal: アプリケーションの [プロパティ] ブレード](azure-continuous-deployment/_static/09-azure-giturl.png)
 
-## <a name="publish-the-web-app-to-azure-app-service"></a>Azure App Service に web アプリを公開します。
+## <a name="publish-the-web-app-to-azure-app-service"></a>Azure App Service に Web アプリを発行する
 
-このセクションを使用して Visual Studio とプッシュ リポジトリから Azure に web アプリを展開して、ローカル Git リポジトリを作成します。 実行する必要がある手順は、次のとおりです。
+このセクションでは、Visual Studio でローカル Git リポジトリを作成し、そのリポジトリから Azure にプッシュし、Web アプリを展開します。 実行する必要がある手順は、次のとおりです。
 
-* 値を使用して、GIT の URL、ローカル リポジトリを Azure にデプロイできるようにリモート リポジトリの設定を追加します。
+* ローカル リポジトリを Azure に展開できるように、GIT URL 値を使用してリモート リポジトリ設定を追加します。
 * プロジェクトの変更をコミットします。
-* Azure で、プロジェクトの変更をローカル リポジトリからリモート リポジトリにプッシュします。
+* ローカル リポジトリから Azure のリモート リポジトリにプロジェクトの変更をプッシュします。
 
-1. **ソリューション エクスプローラー**で **[ソリューション 'SampleWebAppDemo']** を右クリックし、**[コミット]** を選択します。 **チーム エクスプ ローラー**が表示されます。
+1. **ソリューション エクスプローラー**で **[ソリューション 'SampleWebAppDemo']** を右クリックし、**[コミット]** を選択します。 **チーム エクスプローラー**が表示されます。
 
    ![[チーム エクスプローラー接続] タブ](azure-continuous-deployment/_static/10-team-explorer.png)
 
 1. **チーム エクスプローラー**で、**[ホーム]** (ホーム アイコン)、**[設定]**、**[リポジトリ設定]** の順に選択します。
 
-1. **レポジトリ設定** の **リモート** のセクションで **追加** を選択します。 **リモートの追加** ダイアログ ボックスが表示されます。
+1. **[リポジトリ設定]** の **[リモート]** セクションで、**[追加]** を選択します。 **[リモートの追加]** ダイアログ ボックスが表示されます。
 
 1. リモートの **[名前]** を **[Azure-SampleApp]** に設定します。
 
-1. 値を設定**フェッチ**を**Git URL**このチュートリアルで前に、Azure からコピーします。 これは **.git** で終わる URL であることにご注意ください。
+1. **[フェッチ]** の値を先にこのチュートリアルで Azure からコピーした **Git URL** に設定します。 これは **.git** で終わる URL であることにご注意ください。
 
    ![[リモートの編集] ダイアログ](azure-continuous-deployment/_static/11-add-remote.png)
 
    > [!NOTE]
-   > 代わりに、リモート リポジトリからの指定、**コマンド ウィンドウ**を開いて、**コマンド ウィンドウ**、プロジェクト ディレクトリに変更して、コマンドを入力します。 例:
+   > あるいは、**コマンド ウィンドウ**からリモート リポジトリを指定できます。**コマンド ウィンドウ**を開き、プロジェクト ディレクトリに移動し、コマンドを入力します。 例:
    >
    > `git remote add Azure-SampleApp https://me@sampleapp.scm.azurewebsites.net:443/SampleApp.git`
 
-1. **[ホーム]** (ホーム アイコン)、**[設定]**、**[グローバル設定]** の順に選択します。 名前と電子メール アドレスが設定されていることを確認します。 選択**更新**必要な場合です。
+1. **[ホーム]** (ホーム アイコン)、**[設定]**、**[グローバル設定]** の順に選択します。 名前と電子メール アドレスが設定されていることを確認します。 必要に応じて **[更新]** を選択します。
 
 1. **[ホーム]**、**[変更]** の順に選択し、**[変更]** ビューに戻ります。
 
-1. コミット メッセージを入力します。**最初プッシュ 1**選択**コミット**です。 この操作を作成、*コミット*ローカルです。
+1. 「**Initial Push #1**」のようなコミット メッセージを入力し、**[コミット]** を選択します。 このアクションによりローカルで*コミット*されます。
 
    ![[チーム エクスプローラー接続] タブ](azure-continuous-deployment/_static/12-initial-commit.png)
 
    > [!NOTE]
-   > コミットに変更する代わりに、**コマンド ウィンドウ**を開いて、**コマンド ウィンドウ**、プロジェクト ディレクトリに変更して、git コマンドを入力します。 例:
+   > あるいは、**コマンド ウィンドウ**から変更をコミットできます。**コマンド ウィンドウ**を開き、プロジェクト ディレクトリに移動し、git コマンドを入力します。 例:
    >
    > `git add .`
    >
    > `git commit -am "Initial Push #1"`
 
-1. **[ホーム]**、**[同期]**、**[アクション]**、**[コマンド プロンプトを開く]** の順に選択します。 プロジェクト ディレクトリに、コマンド プロンプトを開きます。
+1. **[ホーム]**、**[同期]**、**[アクション]**、**[コマンド プロンプトを開く]** の順に選択します。 コマンド プロンプトでプロジェクト ディレクトリが開きます。
 
 1. コマンド ウィンドウで次のコマンドを入力します。
 
    `git push -u Azure-SampleApp master`
 
-1. Azure の入力**デプロイ資格情報**パスワードを Azure の前半で作成します。
+1. Azure で先に作成した Azure **デプロイ資格情報**パスワードを入力します。
 
-   このコマンドは、ローカルのプロジェクト ファイルを Azure にプッシュするというプロセスを開始します。 上記のコマンドからの出力は、展開が成功したメッセージで終了します。
+   このコマンドによりローカル プロジェクト ファイルを Azure にプッシュするプロセスが開始されます。 上記のコマンドからの出力は、展開が成功したというメッセージで終わります。
 
    ```
    remote: Finished successfully.
@@ -179,28 +180,28 @@ Git は、Azure App Service web アプリを配置するために使用する分
    ```
 
    > [!NOTE]
-   > プロジェクトで共同作業が必要な場合へのプッシュを検討して[GitHub](https://github.com)を Azure にプッシュする前にします。
+   > プロジェクトのコラボレーションが必要な場合は、Azure にプッシュする前に [GitHub](https://github.com) にプッシュすることを検討してください。
  
 ### <a name="verify-the-active-deployment"></a>アクティブ デプロイを検証する
 
-ローカルの環境から Azure に、web アプリ転送が成功したことを確認します。
+ローカル環境から Azure への Web アプリの転送が成功していることを確認します。
 
-[Azure Portal](https://portal.azure.com) で Web アプリを選択します。 **展開** > **展開オプション** を選択します。
+[Azure Portal](https://portal.azure.com) で、Web アプリを選択します。 **[デプロイ]** > **[デプロイ オプション]** の順に選択します。
 
 ![Azure Portal: [設定] ブレード: [デプロイ] ブレードにデプロイ成功が表示されています](azure-continuous-deployment/_static/13-verify-deployment.png)
 
 ## <a name="run-the-app-in-azure"></a>Azure でアプリを実行する
 
-Azure に web アプリを配置すると、これで、アプリを実行します。
+Web アプリが Azure に展開されたら、アプリを実行します。
 
-これは、2 つの方法で実行できます。
+その方法は 2 つあります。
 
-* Azure ポータルでは、web アプリ、web アプリのブレードを探します。 選択**参照**を既定のブラウザーでアプリを表示します。
-* ブラウザーを開き、web アプリの URL を入力します。 例 : `http://SampleWebAppDemo.azurewebsites.net`
+* Azure Portal で、Web アプリ用の Web アプリ ブレードを探します。 **[参照]** を選択して、既定のブラウザーでアプリを表示します。
+* ブラウザーを開き、Web アプリの URL を入力します。 例 : `http://SampleWebAppDemo.azurewebsites.net`
 
-## <a name="update-the-web-app-and-republish"></a>Web アプリを更新および再パブリッシュ
+## <a name="update-the-web-app-and-republish"></a>Web アプリを更新し、再発行する
 
-ローカルのコードに変更を行った後、再パブリッシュします。
+ローカル コードを変更した後は、再発行します。
 
 1. Visual Studio の**ソリューション エクスプローラー**で、*Startup.cs* ファイルを開きます。
 
@@ -210,26 +211,26 @@ Azure に web アプリを配置すると、これで、アプリを実行しま
    await context.Response.WriteAsync("Hello World! Deploy to Azure.");
    ```
 
-1. 変更を保存*Startup.cs*です。
+1. 変更を *Startup.cs* に保存します。
 
-1. **ソリューション エクスプローラー**で **[ソリューション 'SampleWebAppDemo']** を右クリックし、**[コミット]** を選択します。 **チーム エクスプ ローラー**が表示されます。
+1. **ソリューション エクスプローラー**で **[ソリューション 'SampleWebAppDemo']** を右クリックし、**[コミット]** を選択します。 **チーム エクスプローラー**が表示されます。
 
-1. コミット メッセージを入力します。`Update #2`です。
+1. `Update #2` のようなコミット メッセージを入力します。
 
 1. **[コミット]** ボタンを押し、プロジェクトの変更をコミットします。
 
 1. **[ホーム]**、**[同期]**、**[アクション]**、**[プッシュ]** の順に選択します。
 
 > [!NOTE]
-> 代わりからの変更をプッシュ、**コマンド ウィンドウ**を開いて、**コマンド ウィンドウ**、プロジェクト ディレクトリに変更して、git コマンドを入力します。 例:
+> あるいは、**コマンド ウィンドウ**から変更をプッシュできます。**コマンド ウィンドウ**を開き、プロジェクト ディレクトリに移動し、git コマンドを入力します。 例:
 > 
 > `git push -u Azure-SampleApp master`
 
 ## <a name="view-the-updated-web-app-in-azure"></a>Azure で更新後の Web アプリを表示する
 
-選択して、更新された web アプリを表示**参照**またはブラウザーを開き、web アプリの URL を入力して、Azure ポータルでは、web アプリのブレードからです。 例 : `http://SampleWebAppDemo.azurewebsites.net`
+更新後の Web アプリを表示します。Azure Portal の Web アプリ ブレードから **[参照]** を選択するか、ブラウザーを開き、Web アプリの URL を入力します。 例 : `http://SampleWebAppDemo.azurewebsites.net`
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [VSTS を使用してビルドし、継続的なデプロイを Azure Web アプリを公開するには](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic)
+* [VSTS で継続的配置を使用して Azure Web アプリをビルドし、発行する](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic)
 * [プロジェクト Kudu](https://github.com/projectkudu/kudu/wiki)
