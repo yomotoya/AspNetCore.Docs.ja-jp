@@ -1,8 +1,9 @@
 ---
-title: ASP.NET Core React-で-(続編) プロジェクト テンプレートを使用します。
+title: ASP.NET Core で React-with-Redux プロジェクト テンプレートを使用する
 author: SteveSandersonMS
-description: Redux と作成対応アプリとの対応の ASP.NET Core 単一ページ アプリケーション (SPA) プロジェクト テンプレートを使って開始する方法を説明します。
+description: React with Redux と create-react-app 用の ASP.NET Core シングル ページ アプリケーション (SPA) プロジェクト テンプレートの使用を開始する方法について説明します。
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
@@ -11,17 +12,22 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react-with-redux
-ms.openlocfilehash: 9abfbfe5be69d3145de453d9d9e56ea35eec64ed
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
-ms.translationtype: MT
+ms.openlocfilehash: 7ec4f6d53a4723ace087b1dc256de7845cb44cc6
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555223"
 ---
-# <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>ASP.NET Core React-で-(続編) プロジェクト テンプレートを使用します。
+# <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>ASP.NET Core で React-with-Redux プロジェクト テンプレートを使用する
+
+::: moniker range="= aspnetcore-2.0"
 
 > [!NOTE]
-> このドキュメント React-で-(続編) のプロジェクト テンプレートに含まれていない ASP.NET Core 2.0。 手動で更新できる新しい React-で-(続編) テンプレートことです。 既定では ASP.NET Core 2.1 では、テンプレートが含まれます。
+> このドキュメントは、ASP.NET Core 2.0 に含まれている React-with-Redux プロジェクト テンプレートについて説明するものではありません。 手動で更新できる新しい React-with-Redux テンプレートについて説明するものです。 このテンプレートは、ASP.NET Core 2.1 に既定で含まれています。
 
-更新の対応-Redux とプロジェクト テンプレートは、便利な開始点を使用して ASP.NET Core アプリに対応し、Redux、および[作成対応アプリ](https://github.com/facebookincubator/create-react-app)豊富なクライアント側のユーザー インターフェイス (UI) を実装する (CRA) 規則。
+::: moniker-end
 
-プロジェクト作成コマンドを除くすべてテンプレートについては、React-で-(続編) は、対応のテンプレートとして同じです。 このプロジェクトの種類を作成する実行`dotnet new reactredux`の代わりに`dotnet new react`です。 両方の反応するベース テンプレートに共通の機能の詳細については、次を参照してください。[テンプレートのドキュメントを React](xref:spa/react)です。
+更新された React-with-Redux プロジェクト テンプレートは、React、Redux、および [create-react-app](https://github.com/facebookincubator/create-react-app) (CRA) 規則を使用してリッチなクライアント側ユーザー インターフェイス (UI) を実装する ASP.NET Core アプリを開発する場合に、便利な開始点として利用できます。
+
+プロジェクト作成コマンドを除き、React-with-Redux テンプレートに関するすべての情報は React テンプレートと同じです。 このプロジェクトの種類を作成するには、`dotnet new react` の代わりに `dotnet new reactredux` を実行します。 両方の React ベースのテンプレートに共通する機能の詳細については、[React テンプレートのドキュメント](xref:spa/react)を参照してください。

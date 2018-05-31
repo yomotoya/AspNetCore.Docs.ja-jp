@@ -1,5 +1,5 @@
 ---
-title: Azure App Service の ASP.NET Core をトラブルシューティングします。
+title: Azure App Service での ASP.NET Core のトラブルシューティング
 author: guardrex
 description: ASP.NET Core Azure App Service の配置に関する問題を診断する方法を学習します。
 manager: wpickett
@@ -12,177 +12,178 @@ ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
 ms.openlocfilehash: 47056c80c7abf5dd5ad5ae96af7b821d31b21b8b
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897430"
 ---
-# <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service の ASP.NET Core をトラブルシューティングします。
+# <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のトラブルシューティング
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE [Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
-この記事は、Azure App Service の診断ツールを使用してアプリの起動の問題、ASP.NET Core を診断する方法の手順を説明します。 他のトラブルシューティング アドバイスについては、次を参照してください。 [Azure App Service の診断の概要](/azure/app-service/app-service-diagnostics)と[する方法: Azure App Service でアプリの監視](/azure/app-service/web-sites-monitor)、Azure ドキュメントでします。
+この記事では、Azure App Service の診断ツールを使って ASP.NET Core アプリの起動時の問題を診断する方法の手順を説明します。 トラブルシューティングの役に立つ他の情報については、Azure ドキュメントの「[Azure App Service 診断の概要](/azure/app-service/app-service-diagnostics)」および「[Azure App Service でアプリを監視する方法](/azure/app-service/web-sites-monitor)」をご覧ください。
 
-## <a name="app-startup-errors"></a>アプリの起動エラー
+## <a name="app-startup-errors"></a>アプリ起動時のエラー
 
-**502.5 プロセス障害**  
-ワーカー プロセスは失敗します。 アプリが起動しません。
+**502.5 処理エラー**  
+ワーカー プロセスが失敗します。 アプリは起動しません。
 
-[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)ワーカー プロセスを開始する試行の開始に失敗します。 多くの場合、アプリケーション イベント ログを調べることは、この種の問題のトラブルシューティングに役立ちます。 」で説明されて、ログへのアクセス、[アプリケーション イベント ログ](#application-event-log)セクションです。
+[ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)はワーカー プロセスの開始を試みますが、開始に失敗します。 この種の問題のトラブルシューティングには、アプリケーション イベント ログを調べると役に立つことがよくあります。 ログへのアクセスについては、「[アプリケーション イベント ログ](#application-event-log)」セクションで説明します。
 
-*502.5 プロセス エラー*正しく構成されていないアプリにより、ワーカー プロセスが失敗する場合、エラー ページが返されます。
+正しく構成されていないアプリによりワーカー プロセスが失敗する場合、"*502.5 処理エラー*" のエラー ページが返されます。
 
-![ブラウザー ウィンドウ 502.5 プロセスのエラー ページの表示](troubleshoot/_static/process-failure-page.png)
+![502.5 処理エラー ページが表示されているブラウザー ウィンドウ](troubleshoot/_static/process-failure-page.png)
 
 **500 内部サーバー エラー**  
-アプリが起動、エラーが発生して、サーバー要求を満たすことができます。
+アプリは起動しますが、エラーのためにサーバーは要求を満たすことができません。
 
-このエラーは、スタートアップ時または応答の作成中に、アプリのコード内で発生します。 応答にコンテンツを含んでいない可能性がありますか、応答が表示されます、 *500 Internal Server Error*ブラウザーにします。 アプリケーション イベント ログは、通常、アプリが正常に開始されたことを示しています。 サーバーの観点からは正しい動作です。 アプリが起動しますが、有効な応答を生成できません。 [Kudu コンソールで、アプリを実行](#run-the-app-in-the-kudu-console)または[ASP.NET コア モジュールの標準出力ログを有効にする](#aspnet-core-module-stdout-log)して問題をトラブルシューティングします。
+このエラーは、起動時または応答の作成中に、アプリのコード内で発生します。 応答にコンテンツが含まれていないか、またはブラウザーに "*500 内部サーバー エラー*" という応答が表示される可能性があります。 通常、アプリケーション イベント ログではアプリが正常に起動したことが示されます。 サーバーから見るとそれは正しいことです。 アプリは起動しましたが、有効な応答を生成できません。 問題のトラブルシューティングを行うには、[Kudu コンソールでアプリを実行する](#run-the-app-in-the-kudu-console)か、または [ASP.NET Core モジュールの stdout ログを有効にします](#aspnet-core-module-stdout-log)。
 
 **接続のリセット**
 
-サーバーが送信するためには遅すぎるはヘッダーが送信された後にエラーが発生した場合、 **500 Internal Server Error**エラーが発生します。 これは多くの場合、複合オブジェクトの応答のシリアル化中にエラーが発生したときに発生します。 としてこの種類のエラーが表示されます、*接続のリセット*クライアントでエラーが発生します。 [アプリケーションのログ記録](xref:fundamentals/logging/index)この種のエラーのトラブルシューティングに役立つことができます。
+ヘッダー送信後にエラーが発生した場合、サーバーが **500 内部サーバー エラー**を送信するには遅すぎます。 このような状況は、応答に対する複雑なオブジェクトのシリアル化中にエラーが起きたときによく発生します。 この種のエラーは、クライアントでは "*接続リセット*" エラーとして表示されます。 この種のエラーのトラブルシューティングには、[アプリケーション ログ](xref:fundamentals/logging/index)が役に立つことがあります。
 
-## <a name="default-startup-limits"></a>既定のスタートアップの制限
+## <a name="default-startup-limits"></a>既定の起動制限
 
-ASP.NET Core モジュールが、既定値で構成されている*startupTimeLimit* 120 秒です。 既定値のままにするとアプリ、モジュール、プロセスのエラーをログに記録する前に開始に最大 2 分かかる場合があります。 モジュールを構成する方法の詳細については、次を参照してください。 [aspNetCore 要素の属性](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element)です。
+ASP.NET Core モジュールの *startupTimeLimit* は、既定では 120 秒に構成されます。 既定値のままにした場合、モジュールで処理エラーが記録されるまでに、アプリは最大で 2 分を起動にかけることができます。 モジュールを構成について詳しくは、「[AspNetCore 要素の属性](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element)」をご覧ください。
 
-## <a name="troubleshoot-app-startup-errors"></a>アプリの起動エラーをトラブルシューティングします。
+## <a name="troubleshoot-app-startup-errors"></a>アプリの起動エラーのトラブルシューティング
 
 ### <a name="application-event-log"></a>アプリケーション イベント ログ
 
-アプリケーション イベント ログにアクセスするには、使用、**診断し、問題を解決して**ブレードで、Azure ポータルで。
+アプリケーション イベント ログにアクセスするには、Azure portal の **[問題の診断と解決]** ブレードを使います。
 
-1. Azure ポータルでのアプリのブレードを開く、 **App Services**ブレードです。
-1. 選択、**診断し、問題を解決して**ブレードです。
-1. **問題カテゴリの選択**、select、 **Web アプリを**ボタンをクリックします。
-1. **推奨されるソリューション**のウィンドウを開く**アプリケーション イベント ログを開く**です。 選択、**アプリケーション イベント ログを開く**ボタンをクリックします。
-1. によって提供される最新のエラーを調べて、 *IIS AspNetCoreModule*で、**ソース**列です。
+1. Azure portal の **[App Services]** ブレードで、アプリのブレードを開きます。
+1. **[問題の診断と解決]** ブレードを選びます。
+1. **[SELECT PROBLEM CATEGORY]\(問題カテゴリの選択\)** で、**[Web App Down]\(Web アプリのダウン\)** ボタンを選びます。
+1. **[Suggested Solutions]\(推奨される解決方法\)** で、, open the pane for **[Open Application Event Logs]\(アプリケーション イベント ログを開く\)** のウィンドウを開きます。 **[Open Application Event Logs]\(アプリケーション イベント ログを開く\)** ボタンを選びます。
+1. **[Source]\(ソース\)** 列で、*IIS AspNetCoreModule* によって提供された最新のエラーを調べます。
 
-使用する代わりに、**診断し、問題を解決して**を使用して直接アプリケーション イベント ログ ファイルを調べるには、ブレード[Kudu](https://github.com/projectkudu/kudu/wiki):
+**[問題の診断と解決]** ブレードを使う代わりに、[Kudu](https://github.com/projectkudu/kudu/wiki) を使ってアプリケーション イベント ログ ファイルを直接調べることもできます。
 
-1. 選択、**高度なツール**ブレードに、**開発ツール**領域。 選択、**移動&rarr;**ボタンをクリックします。 Kudu コンソールは、新しいブラウザー タブまたはウィンドウで開きます。
-1. ページの上部にあるナビゲーション バーを使用して開きます**デバッグ コンソール**選択**CMD**です。
-1. 開く、 **LogFiles**フォルダーです。
-1. の横にある鉛筆アイコンを選択、 *eventlog.xml*ファイル。
-1. ログを調べます。 最新のイベントのログの末尾までスクロールします。
+1. **[開発ツール]** 領域で **[高度なツール]** ブレードを選びます。 **[Go&rarr;]** ボタンを選びます。 新しいブラウザー タブまたはウィンドウで Kudu コンソールが開きます。
+1. ページの上部にあるナビゲーション バーを使って **[デバッグ コンソール]** を開き、**[CMD]** を選びます。
+1. **LogFiles** フォルダーを開きます。
+1. *eventlog.xml* ファイルの横にある鉛筆アイコンを選びます。
+1. ログを調べます。 ログの末尾までスクロールし、最新のイベントを確認します。
 
-### <a name="run-the-app-in-the-kudu-console"></a>Kudu コンソールで、アプリを実行します。
+### <a name="run-the-app-in-the-kudu-console"></a>Kudu コンソールでアプリを実行します。
 
-多くのスタートアップ エラーは、アプリケーション イベント ログでの有用な情報を得られない。 アプリを実行することができます、 [Kudu](https://github.com/projectkudu/kudu/wiki)エラーを検出するリモートの実行コンソール。
+多くの起動時エラーでは、アプリケーション イベント ログに役に立つ情報が生成されません。 [Kudu](https://github.com/projectkudu/kudu/wiki) のリモート実行コンソールでアプリを実行すると、エラーを検出することができます。
 
-1. 選択、**高度なツール**ブレードに、**開発ツール**領域。 選択、**移動&rarr;**ボタンをクリックします。 Kudu コンソールは、新しいブラウザー タブまたはウィンドウで開きます。
-1. ページの上部にあるナビゲーション バーを使用して開きます**デバッグ コンソール**選択**CMD**です。
-1. パスのフォルダーを開いて**サイト** > **wwwroot**です。
-1. コンソールで、アプリのアセンブリを実行することによって、アプリを実行します。
-   * アプリの場合、[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)でのアプリのアセンブリを実行*dotnet.exe*です。 次のコマンドでのアプリのアセンブリの名前に置き換えます`<assembly_name>`: `dotnet .\<assembly_name>.dll`
-   * アプリの場合、[自己完結型の配置](/dotnet/core/deploying/#self-contained-deployments-scd)、実行、アプリの実行可能ファイルです。 次のコマンドでのアプリのアセンブリの名前に置き換えます`<assembly_name>`: `<assembly_name>.exe`
-1. コンソール アプリから、すべてのエラーを示す出力は、Kudu コンソールにパイプします。
+1. **[開発ツール]** 領域で **[高度なツール]** ブレードを選びます。 **[Go&rarr;]** ボタンを選びます。 新しいブラウザー タブまたはウィンドウで Kudu コンソールが開きます。
+1. ページの上部にあるナビゲーション バーを使って **[デバッグ コンソール]** を開き、**[CMD]** を選びます。
+1. パス **site** > **wwwroot** へのフォルダーを開きます。
+1. コンソールで、アプリのアセンブリを実行することによってアプリを実行します。
+   * アプリが[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)である場合、*dotnet.exe* を使ってアプリのアセンブリを実行します。 次のコマンドで、`<assembly_name>` をアプリのアセンブリの名前に置き換えます。`dotnet .\<assembly_name>.dll`
+   * アプリが[自己完結型の展開](/dotnet/core/deploying/#self-contained-deployments-scd)である場合は、アプリの実行可能ファイルを実行します。 次のコマンドで、`<assembly_name>` をアプリのアセンブリの名前に置き換えます。`<assembly_name>.exe`
+1. エラーを示すアプリからのコンソール出力はすべて、Kudu コンソールにパイプされます。
 
-### <a name="aspnet-core-module-stdout-log"></a>ASP.NET Core モジュール stdout ログ
+### <a name="aspnet-core-module-stdout-log"></a>ASP.NET Core モジュールの stdout ログ
 
-ASP.NET Core モジュールは、標準出力ログは、多くの場合、有用なエラー メッセージがアプリケーション イベント ログが見つかりません。 を記録します。 有効にし、標準出力ログを表示します。
+ASP.NET Core モジュールの stdout には、アプリケーション イベント ログでは見つからない有用なエラー メッセージが記録されることがよくあります。 stdout ログを有効にして表示するには:
 
-1. 移動し、**診断し、問題を解決して**ブレードで、Azure ポータルでします。
-1. **問題カテゴリの選択**、select、 **Web アプリを**ボタンをクリックします。
-1. **推奨されるソリューション** > **標準出力ログのリダイレクトを有効にする**、ボタンをクリックして**Web.Config を編集する Kudu コンソールを開く**です。
-1. Kudu**診断コンソール**、パスにフォルダーを開く**サイト** > **wwwroot**です。 公開まで下にスクロール、 *web.config*一覧の下部にあるファイルです。
-1. 次に、鉛筆アイコンをクリックして、 *web.config*ファイル。
-1. 設定**stdoutLogEnabled**に`true`を変更して、 **stdoutLogFile**へのパス:`\\?\%home%\LogFiles\stdout`です。
-1. 選択**保存**を保存、更新された*web.config*ファイル。
-1. アプリへの要求を作成します。
-1. Azure ポータルに戻ります。 選択、**高度なツール**ブレードに、**開発ツール**領域。 選択、**移動&rarr;**ボタンをクリックします。 Kudu コンソールは、新しいブラウザー タブまたはウィンドウで開きます。
-1. ページの上部にあるナビゲーション バーを使用して開きます**デバッグ コンソール**選択**CMD**です。
-1. 選択、 **LogFiles**フォルダーです。
-1. 検査、 **Modified**最新の変更日にログに記録列と、標準出力を編集する鉛筆アイコンを選択します。
-1. ログ ファイルが開き、エラーが表示されます。
+1. Azure portal で **[問題の診断と解決]** ブレードに移動します。
+1. **[SELECT PROBLEM CATEGORY]\(問題カテゴリの選択\)** で、**[Web App Down]\(Web アプリのダウン\)** ボタンを選びます。
+1. **[Suggested Solutions]\(推奨される解決方法\)** > **[Enable Stdout Log Redirection]\(Stdout ログのリダイレクトを有効にする\)** で、ボタンをクリックして **[Open Kudu Console to edit Web.Config]\(Kudu コンソールを開いて Web.Config を編集する\)** ボタンを選びます。
+1. Kudu の**診断コンソール**で、パス **site** > **wwwroot** へのフォルダーを開きます。 下にスクロールして、一覧の最後にある *web.config* ファイルを表示します。
+1. *web.config* ファイルの隣の鉛筆アイコンをクリックします。
+1. **stdoutLogEnabled** を `true` に設定し、**stdoutLogFile** パスを `\\?\%home%\LogFiles\stdout` に変更します。
+1. **[保存]** を選んで、更新した *web.config* ファイルを保存します。
+1. アプリに対して要求します。
+1. Azure portal に戻ります。 **[開発ツール]** 領域で **[高度なツール]** ブレードを選びます。 **[Go&rarr;]** ボタンを選びます。 新しいブラウザー タブまたはウィンドウで Kudu コンソールが開きます。
+1. ページの上部にあるナビゲーション バーを使って **[デバッグ コンソール]** を開き、**[CMD]** を選びます。
+1. **LogFiles** フォルダーを選びます。
+1. **[Modified]\(変更日\)** 列を調べて、変更日が最新の stdout ログの鉛筆アイコンを選んで編集します。
+1. ログ ファイルが開くと、エラーが表示されます。
 
-**重要**。 標準出力ログのトラブルシューティングが完了したら無効にします。
+**重要**。 トラブルシューティングが完了したら、stdout ログを無効にします。
 
-1. Kudu**診断コンソール**パスに戻り、**サイト** > **wwwroot**を表示する、 *web.config*ファイル。 開く、 **web.config**鉛筆アイコンを選択してもう一度ファイル。
-1. 設定**stdoutLogEnabled**に`false`です。
-1. 選択**保存**ファイルを保存します。
+1. Kudu の**診断コンソール** で、パス **site** > **wwwroot** に戻り、*web.config* ファイルを表示します。 鉛筆アイコンを選んで **web.config** ファイルを再び開きます。
+1. **stdoutLogEnabled** を `false` に設定します。
+1. **[保存]** を選んでファイルを保存します。
 
 > [!WARNING]
-> エラーを標準出力ログを無効にするは、アプリケーションまたはサーバーの障害につながります。 ログ ファイルのサイズまたは作成されるログ ファイルの数に制限はありません。 Stdout アプリの起動の問題のトラブルシューティングのログ記録のみを使用します。
+> stdout ログを無効にしないと、アプリまたはサーバーで障害が発生する可能性があります。 ログ ファイルのサイズまたは作成されるログ ファイルの数に制限はありません。 stdout ログは、アプリ起動時の問題のトラブルシューティングにのみ使ってください。
 >
-> [全般]、ログ記録の ASP.NET Core アプリケーションの起動後に、ログ ファイルのサイズを制限し、ログを回転するログ記録ライブラリを使用します。 詳細については、次を参照してください。[サード パーティ製のログ記録プロバイダー](xref:fundamentals/logging/index#third-party-logging-providers)です。
+> 起動後の ASP.NET Core アプリでの一般的なログの場合は、ログ ファイルのサイズを制限し、ログをローテーションするログ ライブラリを使います。 詳しくは、「[サードパーティ製のログ プロバイダー](xref:fundamentals/logging/index#third-party-logging-providers)」をご覧ください。
 
-## <a name="common-startup-errors"></a>起動の一般的なエラー 
+## <a name="common-startup-errors"></a>起動時の一般的なエラー 
 
-参照してください、 [ASP.NET Core の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)です。 ほとんどのアプリの起動を妨げる一般的な問題は、リファレンス トピックについて説明します。
+[ASP.NET Core の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)に関するページをご覧ください。 このリファレンス トピックでは、アプリの起動を妨げる一般的な問題のほとんどが説明されています。
 
-## <a name="slow-or-hanging-app"></a>速度低下またはハングしているアプリ
+## <a name="slow-or-hanging-app"></a>アプリの速度低下またはハング
 
-参照するアプリでは、応答が遅くなると、要求でハング、 [Azure App Service のトラブルシューティング低速の web アプリケーション パフォーマンスの問題](/azure/app-service/app-service-web-troubleshoot-performance-degradation)のガイダンスをデバッグします。
+要求に対してアプリの応答が遅いとき、またはアプリがハングするときのデバッグ ガイダンスについては、「[Azure App Service での Web アプリのパフォーマンス低下に関する問題のトラブルシューティング](/azure/app-service/app-service-web-troubleshoot-performance-degradation)」をご覧ください。
 
 ## <a name="remote-debugging"></a>リモート デバッグ
 
 次のトピックを参照してください。
 
-* [リモート デバッグのトラブルシューティング: Visual Studio を使用して Azure App service web アプリの web アプリ セクション](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug)(Azure のドキュメント)
-* [Visual Studio 2017 で Azure での IIS でのリモート デバッグ ASP.NET Core](/visualstudio/debugger/remote-debugging-azure) (Visual Studio のドキュメント)
+* [「Visual Studio を使用した Azure App Service のトラブルシューティング」の「Web アプリのリモート デバッグ」セクション](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug) (Azure ドキュメント)
+* [Visual Studio 2017 を使用して Azure 内の IIS 上の ASP.NET Core をリモート デバッグする](/visualstudio/debugger/remote-debugging-azure) (Visual Studio ドキュメント)
 
 ## <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/)エラー ログとレポート機能を含む、Azure App Service でホストされているアプリから製品利用統計情報を提供します。 Application Insights は、アプリケーションのログ記録機能が使用可能になるときに、アプリの起動後に発生したエラーに関するレポートのみできます。 詳細については、次を参照してください。 [ASP.NET Core の Application Insights](/azure/application-insights/app-insights-asp-net-core)です。
+[Application Insights](https://azure.microsoft.com/services/application-insights/) は、Azure App Service でホストされているアプリからのテレメトリを提供し、エラー ログやレポート機能を備えています。 Application Insights は、アプリのログ機能が使用可能になってアプリが起動した後で発生したエラーのみをレポートできます。 詳しくは、「[Application Insights for ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)」をご覧ください。
 
-## <a name="monitoring-blades"></a>ブレードの監視
+## <a name="monitoring-blades"></a>監視ブレード
 
-監視ブレードでは、このトピックで説明した方法にエクスペリエンスをトラブルシューティング代替手段を提供します。 このブレードは、500 番台のエラーの診断に使用できます。
+監視ブレードでは、このトピックでこれまでに説明した方法に代わるトラブルシューティング エクスペリエンスが提供されます。 これらのブレードは、500 番台のエラーの診断に使用できます。
 
-ASP.NET Core Extensions がインストールされていることを確認します。 拡張機能がインストールされていない場合は、手動でインストールします。
+ASP.NET Core 拡張機能がインストールされていることを確認してください。 拡張機能がインストールされていない場合は、手動でインストールします。
 
-1. **開発ツール**ブレード セクションで、select、**拡張**ブレードです。
-1. **ASP.NET Core Extensions**一覧に表示する必要があります。
-1. 拡張機能がインストールされていない場合は、選択、**追加**ボタンをクリックします。
-1. 選択、 **ASP.NET Core Extensions**一覧からです。
-1. 選択**OK**法的条項に同意します。
-1. 選択**OK**上、**拡張機能を追加**ブレードです。
-1. 情報のポップアップ メッセージは、拡張機能が正常にインストールされている場合を示します。
+1. **[開発ツール]** ブレード セクションで、**[拡張機能]** ブレードを選びます。
+1. **[ASP.NET Core Extensions]\(ASP.NET Core 拡張機能\)** が一覧に表示されます。
+1. 拡張機能がインストールされていない場合は、**[追加]** ボタンを選びます。
+1. 一覧から **[ASP.NET Core Extensions]\(ASP.NET Core 拡張機能\)** を選びます。
+1. **[OK]** を選んで法的条項に同意します。
+1. **[拡張機能の追加]** ブレードで **[OK]** を選びます。
+1. 拡張機能が正常にインストールされると、情報ポップアップ メッセージで通知されます。
 
-Stdout のログ記録が有効でない場合は、次の手順に従います。
+stdout ログが有効になっていない場合は、次の手順のようにします。
 
-1. Azure ポータルで、選択、**高度なツール**ブレードに、**開発ツール**領域。 選択、**移動&rarr;**ボタンをクリックします。 Kudu コンソールは、新しいブラウザー タブまたはウィンドウで開きます。
-1. ページの上部にあるナビゲーション バーを使用して開きます**デバッグ コンソール**選択**CMD**です。
-1. パスのフォルダーを開いて**サイト** > **wwwroot**表示まで下にスクロールし、 *web.config*一覧の下部にあるファイルです。
-1. 次に、鉛筆アイコンをクリックして、 *web.config*ファイル。
-1. 設定**stdoutLogEnabled**に`true`を変更して、 **stdoutLogFile**へのパス:`\\?\%home%\LogFiles\stdout`です。
-1. 選択**保存**を保存、更新された*web.config*ファイル。
+1. Azure portal の **[開発ツール]** 領域で **[高度なツール]** ブレードを選びます。 **[Go&rarr;]** ボタンを選びます。 新しいブラウザー タブまたはウィンドウで Kudu コンソールが開きます。
+1. ページの上部にあるナビゲーション バーを使って **[デバッグ コンソール]** を開き、**[CMD]** を選びます。
+1. パス **site** > **wwwroot** へのフォルダーを開き、下にスクロールして、一覧の最後にある *web.config* ファイルを表示します。
+1. *web.config* ファイルの隣の鉛筆アイコンをクリックします。
+1. **stdoutLogEnabled** を `true` に設定し、**stdoutLogFile** パスを `\\?\%home%\LogFiles\stdout` に変更します。
+1. **[保存]** を選んで、更新した *web.config* ファイルを保存します。
 
-診断ログの記録をアクティブ化する手順に従います。
+続けて診断ログをアクティブにします。
 
-1. Azure ポータルで、選択、**診断ログ**ブレードです。
-1. 選択、**で**スイッチを**アプリケーションのログ記録 (ファイル システム)**と**エラー メッセージの詳細な**です。 選択、**保存**ブレードの上部にあるボタンをクリックします。
-1. 失敗要求イベントのバッファリング (FREB) ログ記録とも呼ばれる、失敗した要求トレースを含めるには 、**で**の切り替える**失敗した要求トレース**です。 
-1. 選択、**ログ ストリーム**ブレードで、すぐに 下にある、**診断ログ**ポータルのブレードです。
-1. アプリへの要求を作成します。
+1. Azure portal で **[診断ログ]** ブレードを選びます。
+1. **[アプリケーション ログ (ファイル システム)]** および **[詳細なエラー メッセージ]** の **[オン]** スイッチを選びます。 ブレードの上部にある **[保存]** ボタンを選びます。
+1. 失敗した要求イベントのバッファ処理 (FREB) とも呼ばれる失敗した要求のトレースを含めるには、**[失敗した要求のトレース]** で **[オン]** スイッチを選びます。 
+1. ポータルで **[診断ログ]** ブレードのすぐ下にある **[ログ ストリーム]** ブレードを選びます。
+1. アプリに対して要求します。
 1. ログ ストリーム データ内で、エラーの原因が示されます。
 
-**重要**。 標準出力ログのトラブルシューティングが完了したら無効にすることを確認します。 手順を参照して、 [ASP.NET Core モジュール stdout ログ](#aspnet-core-module-stdout-log)セクションです。
+**重要**。 トラブルシューティングが完了したら、stdout ログを無効にしてください。 「[ASP.NET Core モジュールの stdout ログ](#aspnet-core-module-stdout-log)」セクションの説明をご覧ください。
 
-失敗した要求トレース ログ (FREB ログ) を参照してください。
+失敗した要求のトレース ログ (FREB ログ) を見るには:
 
-1. 移動し、**診断し、問題を解決して**ブレードで、Azure ポータルでします。
-1. 選択**失敗した要求トレース ログ**から、 **SUPPORT TOOLS**サイド バーの領域。
+1. Azure portal で **[問題の診断と解決]** ブレードに移動します。
+1. サイド バーの **[SUPPORT TOOLS]\(サポート ツール\)** 領域で、**[Failed Request Tracing Logs]\(失敗した要求のトレース ログ\)** を選びます。
 
-参照してください[失敗した要求トレースのセクションのトピックの Azure App Service web アプリの診断ログを有効に](/azure/app-service/web-sites-enable-diagnostic-log#failed-request-traces)と[Azure で Web アプリのアプリケーションのパフォーマンスに関する Faq: 失敗した要求トレースを有効にする方法ですか?](/azure/app-service/app-service-web-availability-performance-application-issues-faq#how-do-i-turn-on-failed-request-tracing)詳細についてはします。
+詳しくは、[「Azure App Service の Web アプリの診断ログの有効化」トピックの「失敗した要求トレース」セクション](/azure/app-service/web-sites-enable-diagnostic-log#failed-request-traces)および[「Azure での Web アプリのアプリケーションパフォーマンスに関するよくあるご質問」の「失敗した要求トレースをオンにするにはどうすればよいですか?」](/azure/app-service/app-service-web-availability-performance-application-issues-faq#how-do-i-turn-on-failed-request-tracing)をご覧ください。
 
-詳細については、次を参照してください。 [Azure App service web アプリの診断ログ記録を有効にする](/azure/app-service/web-sites-enable-diagnostic-log)です。
+詳しくは、「[Azure App Service の Web アプリの診断ログの有効化](/azure/app-service/web-sites-enable-diagnostic-log)」をご覧ください。
 
 > [!WARNING]
-> エラーを標準出力ログを無効にするは、アプリケーションまたはサーバーの障害につながります。 ログ ファイルのサイズまたは作成されるログ ファイルの数に制限はありません。
+> stdout ログを無効にしないと、アプリまたはサーバーで障害が発生する可能性があります。 ログ ファイルのサイズまたは作成されるログ ファイルの数に制限はありません。
 >
-> ASP.NET Core アプリケーションの日常的なログ記録、ログ ファイルのサイズを制限し、ログを回転するログ記録ライブラリを使用します。 詳細については、次を参照してください。[サード パーティ製のログ記録プロバイダー](xref:fundamentals/logging/index#third-party-logging-providers)です。
+> ASP.NET Core アプリでのルーチン ログの場合は、ログ ファイルのサイズを制限し、ログをローテーションするログ ライブラリを使います。 詳しくは、「[サードパーティ製のログ プロバイダー](xref:fundamentals/logging/index#third-party-logging-providers)」をご覧ください。
 
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [ASP.NET Core でのエラー処理の概要](xref:fundamentals/error-handling)
 * [Azure App Service および IIS と ASP.NET Core の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)
-* [Visual Studio を使用して Azure App service web アプリをトラブルシューティングします。](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
-* [「502 無効なゲートウェイ」と「503 サービス利用不可」では、Azure web アプリの HTTP エラーをトラブルシューティングします。](/app-service/app-service-web-troubleshoot-http-502-http-503)
-* [Azure App Service で低速の web アプリのパフォーマンスに関する問題をトラブルシューティングします。](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
-* [Azure で Web アプリのアプリケーションのパフォーマンスに関する Faq](/azure/app-service/app-service-web-availability-performance-application-issues-faq)
-* [Azure Web アプリのサンド ボックス (アプリ サービス ランタイムの実行の制限事項)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)
+* [Visual Studio を使用した Azure App Service での Web アプリのトラブルシューティング](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
+* [Azure Web Apps での "502 bad gateway" および "503 service unavailable" の HTTP エラーのトラブルシューティング](/app-service/app-service-web-troubleshoot-http-502-http-503)
+* [Azure App Service での Web アプリのパフォーマンス低下に関する問題のトラブルシューティング](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
+* [Azure での Web アプリのアプリケーションパフォーマンスに関するよくあるご質問](/azure/app-service/app-service-web-availability-performance-application-issues-faq)
+* [Azure Web アプリのサンドボックス (App Service ランタイムの実行の制限)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)
 * [Azure Friday: Azure App Service の診断とトラブルシューティング (12 分間のビデオ)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)

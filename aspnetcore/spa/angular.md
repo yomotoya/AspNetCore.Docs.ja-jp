@@ -1,8 +1,9 @@
 ---
-title: ASP.NET Core 角運動のプロジェクト テンプレートを使用します。
+title: ASP.NET Core で Angular プロジェクト テンプレートを使用する
 author: SteveSandersonMS
-description: 角速度と角運動の CLI for ASP.NET Core 単一ページ アプリケーション (SPA) プロジェクト テンプレートを使って開始する方法を説明します。
+description: Angular と Angular CLI 用の ASP.NET Core シングル ページ アプリケーション (SPA) プロジェクト テンプレートの使用を開始する方法を説明します。
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
@@ -11,26 +12,31 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: b4e48f40c3d4e3167e7fdb3534d2c33b3544592c
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
-ms.translationtype: MT
+ms.openlocfilehash: 244fece83279ae4d9ead9b345fcdd66ad6ed4225
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555431"
 ---
-# <a name="use-the-angular-project-template-with-aspnet-core"></a>ASP.NET Core 角運動のプロジェクト テンプレートを使用します。
+# <a name="use-the-angular-project-template-with-aspnet-core"></a>ASP.NET Core で Angular プロジェクト テンプレートを使用する
+
+::: moniker range="= aspnetcore-2.0"
 
 > [!NOTE]
-> このドキュメント角運動のプロジェクト テンプレートに含まれていない ASP.NET Core 2.0。 手動で更新できる新しい Angular テンプレートことです。 既定では ASP.NET Core 2.1 では、テンプレートが含まれます。
+> このドキュメントは、ASP.NET Core 2.0 に含まれている Angular プロジェクト テンプレートについて説明するものではありません。 手動で更新できる新しい Angular テンプレートについて説明するものです。 このテンプレートは、ASP.NET Core 2.1 に既定で含まれています。
 
-更新された角度のプロジェクト テンプレートは、角速度と角運動の CLI を使用して、クライアント側の豊富なユーザー インターフェイス (UI) を実装するアプリケーション、ASP.NET Core の便利な開始点を提供します。
+::: moniker-end
 
-テンプレートは、ASP.NET Core プロジェクト API バックエンドとして機能して、UI として機能する角度 CLI プロジェクトの作成と同じです。 テンプレートは、1 つのアプリ プロジェクトの両方のプロジェクト タイプをホストしているの利便性を提供します。 その結果、アプリ プロジェクトをビルドおよび 1 つの単位として公開します。
+更新された Angular プロジェクト テンプレートは、Angular と Angular CLI を使用してリッチなクライアント側ユーザー インターフェイス (UI) を実装する ASP.NET Core アプリのための便利な開始点を提供します。
 
-## <a name="create-a-new-app"></a>新しいアプリを作成します。
+このテンプレートは、API バックエンドとして機能する ASP.NET Core プロジェクトと、UI として機能する Angular CLI プロジェクトの作成に相当します。 このテンプレートは、1 つのアプリ プロジェクトの中で、両方のプロジェクトの種類をホストするという利便性を提供します。 その結果、アプリ プロジェクトを 1 つのユニットとしてビルドして発行できます。
 
-ASP.NET Core 2.0 を使用する場合は、いることを確認[角運動の更新されたプロジェクト テンプレートがインストールされている](xref:spa/index#installation)です。 ASP.NET Core 2.1 があれば、それをインストールする必要はありません。
+## <a name="create-a-new-app"></a>新しいアプリを作成する
 
-コマンドを使用してコマンド プロンプトから、新しいプロジェクトを作成する`dotnet new angular`空のディレクトリにします。 次のコマンドがでアプリを作成するなど、 *my-新しい-アプリ*ディレクトリとそのディレクトリへの切り替え。
+ASP.NET Core 2.0 を使用している場合は、[更新された Angular プロジェクト テンプレートをインストールしている](xref:spa/index#installation)ことを確認します。 ASP.NET Core 2.1 の場合は、インストールする必要はありません。
+
+コマンド プロンプトで `dotnet new angular` コマンドを使用して、空のディレクトリの中に新しいプロジェクトを作成します。 たとえば、次のコマンドは、*my-new-app* ディレクトリにアプリを作成し、そのディレクトリに切り替えます。
 
 ```console
 dotnet new angular -o my-new-app
@@ -41,17 +47,17 @@ Visual Studio または .NET Core CLI からアプリを実行します。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-開く、生成された *.csproj*ファイル、およびそこから通常の方法でアプリを実行します。
+生成された *.csproj* ファイルを開き、そこから通常の方法でアプリを実行します。
 
-ビルド プロセスでは、数分かかることが、最初の実行で npm の依存関係を復元します。 後続のビルドは非常に高速です。
+ビルド プロセスは、初回の実行で npm の依存関係を復元します。これには数分かかる可能性があります。 以降のビルドは非常に高速になります。
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
-という環境変数があることを確認`ASPNETCORE_Environment`の値を持つ`Development`します。 Windows PowerShell 以外の入力を要求) の「、で実行される`SET ASPNETCORE_Environment=Development`です。 Linux または macOS、実行`export ASPNETCORE_Environment=Development`です。
+値が `Development` である `ASPNETCORE_Environment` という名前の環境変数があることを確認します。 Windows では、PowerShell 以外のプロンプトで `SET ASPNETCORE_Environment=Development` を実行します。 Linux または macOS では、`export ASPNETCORE_Environment=Development` を実行します。
 
-実行[dotnet ビルド](/dotnet/core/tools/dotnet-build)正しくビルドするのには、アプリを確認してください。 最初の実行には、ビルド プロセスは、数分かかることが npm の依存関係を復元します。 後続のビルドは非常に高速です。
+[dotnet build](/dotnet/core/tools/dotnet-build) を実行して、アプリが正しくビルドされていることを確認します。 ビルド プロセスは、初回の実行で npm の依存関係を復元します。これには数分かかる可能性があります。 以降のビルドは非常に高速になります。
 
-実行[実行 dotnet](/dotnet/core/tools/dotnet-run)でアプリを起動します。 次のようなメッセージが記録されます。
+[dotnet run](/dotnet/core/tools/dotnet-run) を実行してアプリを起動します。 次のようなメッセージがログに記録されます。
 
 ```console
 Now listening on: http://localhost:<port>
@@ -59,33 +65,33 @@ Now listening on: http://localhost:<port>
 
 ブラウザーでこの URL に移動します。
 
-アプリは、バック グラウンドで角度 CLI サーバーのインスタンスを開始します。 次のようなメッセージが記録されます: <em>NG ライブ開発サーバーは、localhost でリッスンしている:&lt;otherport&gt;でブラウザーを開いてhttp://localhost:&lt; otherport&gt; /</em> . このメッセージは無視&mdash;が<strong>いない</strong>結合された ASP.NET Core と角運動 CLI アプリの URL。
+アプリは、Angular CLI サーバーのインスタンスをバックグラウンドで開始します。 次のようなメッセージがログに記録されます。*NG Live Development Server is listening on localhost:&lt;otherport&gt;, open your browser on http://localhost:&lt;otherport&gt;/*。 このメッセージは無視してください。それは、結合された ASP.NET Core と Angular CLI アプリの URLでは**ありません**。
 
 ---
 
-プロジェクト テンプレートは、ASP.NET Core アプリケーションと角運動のアプリを作成します。 ASP.NET Core アプリケーションがデータ アクセス、承認、およびその他のサーバー側の懸念事項に使用するためのものです。 内に存在する角度のアプリ、 *ClientApp*サブディレクトリがすべての UI に関する注意事項を使用するためです。
+プロジェクト テンプレートは、ASP.NET Core アプリと Angular アプリを作成します。 ASP.NET Core アプリは、データ アクセス、承認、およびその他のサーバー側の操作で使用することを目的としています。 *ClientApp* サブディレクトリ内の Angular アプリは、UI に関するすべての 操作で使用することを目的としています。
 
-## <a name="add-pages-images-styles-modules-etc"></a>ページ、画像、スタイル、モジュールなどを追加します。
+## <a name="add-pages-images-styles-modules-etc"></a>ページ、画像、スタイル、モジュールなどを追加する
 
-*ClientApp*ディレクトリには、標準的な角度 CLI アプリが含まれています。 公式を参照してください[Angular ドキュメント](https://github.com/angular/angular-cli/wiki)詳細についてはします。
+*ClientApp* ディレクトリには、標準的な Angular CLI アプリが含まれます。 詳細については、公式の [Angular ドキュメント](https://github.com/angular/angular-cli/wiki)を参照してください。
 
-このテンプレートで作成した角度のアプリと角運動の CLI 自体によって作成された 1 つのわずかな違いがあります (を介して`ng new`)。 ただし、アプリの機能は変更されていません。 テンプレートによって作成されたアプリが含まれています、[ブートス トラップ](https://getbootstrap.com/)-ベースのレイアウトとルーティングの基本的な例です。
+このテンプレートによって作成される Angular アプリと Angular CLI 自体によって (`ng new` で) 作成されるアプリにはわずかな違いがありますが、アプリの機能は変わりません。 テンプレートによって作成されるアプリには、[ブートストラップ](https://getbootstrap.com/)ベースのレイアウトと基本的なルーティングの例が含まれます。
 
-## <a name="run-ng-commands"></a>Ng コマンドを実行します
+## <a name="run-ng-commands"></a>ng コマンドを実行する
 
-コマンド プロンプトでに切り替えると、 *ClientApp*サブディレクトリ。
+コマンド プロンプトで、*ClientApp* サブディレクトリに切り替えます。
 
 ```console
 cd ClientApp
 ```
 
-ある場合、`ng`グローバルにインストールされているツールを実行してそのコマンドのです。 たとえば、実行`ng lint`、 `ng test`、またはその他の[Angular CLI コマンド](https://github.com/angular/angular-cli/wiki#additional-commands)です。 実行する必要はありません`ng serve`しかし、ASP.NET Core アプリケーションがサービス中のアプリのサーバー側とクライアント側の両方の部分を処理するためです。 使用して内部的には、`ng serve`開発します。
+`ng` ツールがグローバルにインストールされている場合は、そのコマンドのすべてを実行できます。 たとえば、`ng lint`、`ng test`、またはその他の [Angular CLI コマンド](https://github.com/angular/angular-cli/wiki#additional-commands) を実行できます。 ただし、`ng serve` を実行する必要はありません。これは、アプリのサーバー側とクライアント側の両方に関わる部分は、ASP.NET Core アプリが処理するためです。 内部的には、それは、開発時に `ng serve` を使用します。
 
-いない場合、`ng`ツールをインストールするには、実行`npm run ng`代わりにします。 たとえば、実行`npm run ng lint`または`npm run ng test`です。
+`ng` ツールがインストールされていない場合は、代わりに `npm run ng` を実行します。 たとえば、`npm run ng lint` または `npm run ng test` を実行できます。
 
 ## <a name="install-npm-packages"></a>npm パッケージをインストールする
 
-サード パーティ製の npm パッケージをインストールするでコマンド プロンプトを使用して、 *ClientApp*サブディレクトリです。 例えば:
+サードパーティ製の npm パッケージをインストールするには、*ClientApp* サブディレクトリでコマンド プロンプトを使用します。 例:
 
 ```console
 cd ClientApp
@@ -94,19 +100,19 @@ npm install --save <package_name>
 
 ## <a name="publish-and-deploy"></a>発行と配置
 
-開発中のアプリは、開発者の利便性の最適化モードで実行されます。 たとえば、JavaScript のバンドルは、(をデバッグする場合は、元の TypeScript コードを確認できます) をソース マップを含めます。 アプリはディスク上の TypeScript、HTML および CSS ファイルの変更を監視し、自動的にコンパイルされそれらのファイルの変更が発生したときに再読み込みされます。
+開発中、アプリは、開発者に便利なように最適化されたモードで実行されます。 たとえば、JavaScript バンドルには、ソース マップが含まれます (デバッグ時に元の TypeScript コードを確認できるようにするためです)。 アプリは、ディスク上の TypeScript、HTML および CSS ファイルの変更を監視し、これらのファイルの変更が発生した場合は、再コンパイルと再読み込みを自動的に実行します。
 
-実稼働環境でパフォーマンスが最適化された、アプリのバージョンを提供します。 これは、自動的に実行される構成されます。 パブリッシュすると、ビルド構成を生成、縮小された、先行時間 (AoT) は、クライアント側コードのビルドをコンパイルします。 運用環境ビルド開発ビルドとは異なり、サーバーにインストールされている Node.js を必要としない (有効にしている場合を除き、[サーバー側の事前](#server-side-rendering))。
+運用時は、パフォーマンスが最適化されたバージョンのアプリが提供されます。 これは、自動的に実行されるように構成されています。 発行すると、ビルド構成によって、クライアント側コードの縮小された Ahead Of Time (AoT) コンパイルが行われたビルドが生成されます。 開発ビルドとは異なり、運用ビルドは、サーバーへの Node.js のインストールを必要としません ([サーバー側の事前レンダリング](#server-side-rendering)を有効にしている場合は除きます)。
 
-標準を使用する[ASP.NET Core のホストと展開方法](xref:host-and-deploy/index)です。
+標準的な [ASP.NET Core のホストと展開方法](xref:host-and-deploy/index)を使用できます。
 
-## <a name="run-ng-serve-independently"></a>"Ng serve"を個別に実行します。
+## <a name="run-ng-serve-independently"></a>"ng serve" を個別に実行する
 
-プロジェクトが ASP.NET Core アプリケーションの開発モードの開始時に、バック グラウンドで角度 CLI サーバーの独自のインスタンスを開始するように構成します。 これは、機能は、別のサーバーを手動で実行する必要がないため便利です。
+ASP.NET Core アプリが開発モードで起動された場合、プロジェクトは、Angular CLI サーバーの独自のインスタンスをバックグラウンドで開始するように構成されます。 これが便利なのは、別のサーバーを手動で実行する必要がないためです。
 
-この既定の設定の欠点があります。 C# コードとアプリを再起動する必要があります、ASP.NET Core を変更するたびに、角運動 CLI サーバーを再起動します。 バックアップを開始するには、約 10 秒が必要です。 頻繁に c# コードの編集を加えようとしての角度の CLI を再起動するまで待機しない場合は、ASP.NET Core プロセスとは無関係に Angular CLI server 外部でを実行します。 次の手順に従います。
+この既定の設定には欠点があります。 C# コードを変更し、ASP.NET Core アプリを再起動する必要がある場合、Angular CLI サーバーが毎回再起動します。 再起動には、約 10 秒必要です。 C# コードを何度も編集するが、Angular CLI が再起動するまで待ちたくない場合は、ASP.NET Core プロセスから独立した Angular CLI サーバーを外部で実行します。 次の手順に従います。
 
-1. コマンド プロンプトでに切り替えると、 *ClientApp*サブディレクトリ、および角度 CLI 開発サーバーの起動。
+1. コマンド プロンプトで、*ClientApp* サブディレクトリに切り替え、Angular CLI 開発サーバーを起動します。
 
     ```console
     cd ClientApp
@@ -114,64 +120,64 @@ npm install --save <package_name>
     ```
 
     > [!IMPORTANT]
-    > 使用して`npm start`いない Angular CLI 開発サーバーを起動する`ng serve`いるためで構成*package.json*尊重します。 Angular CLI サーバーに追加のパラメーターを渡すにそれらに関連する追加`scripts`線、 *package.json*ファイル。
+    > Angular CLI 開発サーバーを起動するには、`ng serve` ではなく `npm start` を使用して、*package.json* の構成が使用されるようにします。 Angular CLI サーバーに追加パラメーターを渡すには、*package.json* ファイルの関連する `scripts` 行にそれらを追加します。
 
-2. 独自のいずれかを起動せずに外部の角度 CLI インスタンスを使用する ASP.NET Core アプリケーションを変更します。 *スタートアップ*クラス、置換、`spa.UseAngularCliServer`を次の呼び出し。
+2. 独自のインスタンスを起動する代わりに外部の Angular CLI インスタンスを使用するように ASP.NET Core アプリケーションを変更します。 *Startup* クラスで、`spa.UseAngularCliServer` の呼び出しを以下に置き換えます。
 
     ```csharp
     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
     ```
 
-ASP.NET Core アプリを起動するときに Angular CLI サーバーを起動ことはありません。 手動で開始したインスタンスが使用されます。 これにより、起動し、再起動を高速にできます。 Angular CLI たびに、クライアント アプリを再構築するを待機してが不要になった。
+ASP.NET Core アプリの起動時に Angular CLI サーバーが起動されなくなります。 代わりに、手動で開始したインスタンスが使用されます。 これにより、起動と再起動を高速化できます。 Angular CLI がクライアント アプリを毎回リビルドするまで待つ必要はなくなります。
 
 ## <a name="server-side-rendering"></a>サーバー側のレンダリング
 
-パフォーマンス機能としては、あらかじめサーバーだけでなく、クライアントで実行することで角運動のアプリを表示するために選択できます。 これは、ブラウザーがダウンロードして、JavaScript のバンドルを実行する前に表示するようにするために、アプリの初期の UI を表す HTML マークアップを受信することを意味します。 この実装の大部分と呼ばれる角度の機能から取得[Angular ユニバーサル](https://universal.angular.io/)です。
+パフォーマンス機能として、クライアントでの実行に加え、サーバーでの Angular アプリの事前レンダリングを選択できます。 これは、ブラウザーがアプリの初期 UI を表す HTML マークアップを受信して、JavaScript バンドルをダウンロードして実行する前に UI を表示できることを意味します。 この実装の大半は、[Angular Universal](https://universal.angular.io/) と呼ばれる Angular 機能によって実現されます。
 
 > [!TIP]
-> サーバー側のレンダリングを有効にする (SSR) には、開発および展開時に余分な複雑さを両方の数が導入されています。 読み取り[SSR の欠点](#drawbacks-of-ssr)SSR が適合、要件を満たすかどうかを決定します。
+> サーバー側のレンダリング (SSR) を有効にすると、開発時と配置時の両方で作業が複雑になります。 「[SSR の欠点](#drawbacks-of-ssr)」を参照して、SSR が要件に適しているかどうかを判断してください。
 
-SSR を有効にするには、多数のプロジェクトへの追加を行う必要があります。
+SSR を有効にするには、プロジェクトに多数の追加を行う必要があります。
 
-*スタートアップ*クラス、*後*を構成する行`spa.Options.SourcePath`、および*する前に*への呼び出し`UseAngularCliServer`または`UseProxyToSpaDevelopmentServer`次の追加。
+*Startup* クラスで、`spa.Options.SourcePath` を構成する行の "*後ろ*" で、`UseAngularCliServer` または `UseProxyToSpaDevelopmentServer` への呼び出しの "*前*" の位置に、以下を追加します。
 
 [!code-csharp[](sample/AngularServerSideRendering/Startup.cs?name=snippet_Call_UseSpa&highlight=5-12)]
 
-開発モードでこのコードがスクリプトを実行して、SSR バンドルが作成されます`build:ssr`で定義されている*ClientApp\package.json*です。 これにより、ビルドという名前の角度アプリ`ssr`がまだ定義されていません。 
+開発モードでは、このコードは、*ClientApp\package.json* に定義されている `build:ssr` スクリプトを実行して、SSR バンドルのビルドを試みます。 これにより、`ssr` という名前の Angular アプリがビルドされますが、これはまだ定義されていません。
 
-最後に、`apps`配列*ClientApp/.angular-cli.json*、名前の余分なアプリを定義する`ssr`です。 次のオプションを使用します。
+*ClientApp/.angular-cli.json* の `apps` 配列の最後に、`ssr` という名前の追加アプリを定義します。 次のオプションを使用します。
 
 [!code-json[](sample/AngularServerSideRendering/ClientApp/.angular-cli.json?range=24-41)]
 
-この新しい SSR 対応アプリの構成には、さらに 2 つのファイルが必要です: *tsconfig.server.json*と*main.server.ts*です。 *Tsconfig.server.json*ファイルは、TypeScript のコンパイル オプションを指定します。 *Main.server.ts* SSR 中に、ファイルがコードのエントリ ポイントとして機能します。
+この新しい SSR 対応アプリの構成には、さらに 2 つのファイルが必要です (*tsconfig.server.json* と *main.server.ts*)。 *tsconfig.server.json* ファイルは、TypeScript のコンパイル オプションを指定します。 *main.server.ts* ファイルは、SSR 中のコードのエントリ ポイントとして機能します。
 
-という名前の新しいファイルを追加*tsconfig.server.json*内*ClientApp/src* (既存と共に*tsconfig.app.json*)、次を含みます。
+*tsconfig.server.json* という名前の新しいファイルを、*ClientApp/src* に (既存の *tsconfig.app.json* のそばに) 追加します。ファイルの内容は以下のとおりです。
 
 [!code-json[](sample/AngularServerSideRendering/ClientApp/src/tsconfig.server.json)]
 
-このファイルの構成と呼ばれるモジュールを検索する角の AoT コンパイラ`app.server.module`です。 これで新しいファイルを作成して追加*ClientApp/src/app/app.server.module.ts* (既存と共に*app.module.ts*)、次を含みます。 
+このファイルは、`app.server.module` という名前のモジュールを検索する Angular の AoT コンパイラを構成します。 *ClientApp/src/app/app.server.module.ts* で (既存の *app.module.ts* のそばに) 以下の内容の新しいファイルを 作成することで、これを追加します。
 
 [!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/app/app.server.module.ts)]
 
-このモジュールは、クライアント側から継承`app.module`SSR 中に使用可能な余分な Angular モジュールを定義しています。
+このモジュールは、クライアント側の `app.module` を継承し、SSR 中に使用できる追加の Angular モジュールを定義します。
 
-注意してください、新しい`ssr`内のエントリ *.angular cli.json*というエントリ ポイント ファイルを参照*main.server.ts*です。 そのファイルをまだ追加していないし、ここは、これを行うにします。 新しいファイルを作成*ClientApp/src/main.server.ts* (既存と共に*main.ts*)、次を含みます。
+*.angular cli.json* 内の新しい `ssr` エントリは、*main.server.ts* という名前のエントリ ポイント ファイルを参照することを思い出してください。 そのファイルはまだ追加していません。ここで、それを実行します。 *ClientApp/src/main.server.ts* で (既存の *main.ts* のそばに) 以下の内容の新しいファイルを 作成します。
 
 [!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/main.server.ts)]
 
-このファイルのコードはどのような ASP.NET Core 実行要求ごとに実行すると、`UseSpaPrerendering`に追加したミドルウェア、*スタートアップ*クラスです。 受信を扱う`params`(など、URL 要求されている)、.NET コードと結果の HTML を取得する角度 SSR Api を呼び出すからです。 
+このファイルのコードは、ASP.NET Core が *Startup* クラスに追加された `UseSpaPrerendering` ミドルウェアを実行するときに、各要求で何を実行するかを指定します。 それは、.NET コードから `params` (要求されている URL など) の受信と、結果の HTML を取得するための Angular SSR API を呼び出しを処理します。
 
-厳密に言うと、これは開発モードで SSR を有効にするだけで十分です。 1 つの最終的な変更がようにするアプリが正常に発行する際に重要です。 アプリのメインの *.csproj*ファイル、設定、`BuildServerSideRenderer`プロパティの値を`true`:
+厳密に言うと、開発モードで SSR を有効にするにはこれで十分です。 アプリが発行されたときに正常に動作するように、最後に 1 つ変更を行うことが重要です。 アプリのメインの *.csproj* ファイルで、`BuildServerSideRenderer` プロパティの値を `true` に設定します。
 
 [!code-xml[](sample/AngularServerSideRendering/AngularServerSideRendering.csproj?name=snippet_EnableBuildServerSideRenderer)]
 
-これにより、構成、ビルド プロセスの実行を`build:ssr`発行時に SSR ファイルをサーバーに配置するとします。 これを有効にしない場合は、実稼働環境で SSR が失敗します。
+これにより、発行時に `build:ssr` を実行し、SSR ファイルをサーバーに配置するようにビルド プロセスが構成されます。 これを有効にしない場合、SSR は運用環境では失敗します。
 
-アプリを開発または実稼働モードで実行すると角運動のコードでは、事前としてレンダリング HTML サーバーにします。 クライアント側のコードは、通常どおり実行します。
+アプリを開発または運用モードで実行す場合、Angular コードは、サーバー上で HTML として事前レンダリングされます。 クライアント側のコードは、通常どおり実行されます。
 
-### <a name="pass-data-from-net-code-into-typescript-code"></a>TypeScript コードに .NET コードからデータを渡す
+### <a name="pass-data-from-net-code-into-typescript-code"></a>.NET コードから TypeScript コードに データを渡す
 
-SSR、中に、要求ごとのデータを ASP.NET Core アプリから Angular アプリに渡すことができます。 たとえば、cookie 情報を渡すことがまたはデータベースから読み取られたものです。 これを行うには、編集、*スタートアップ*クラスです。 コールバックで`UseSpaPrerendering`の値を設定`options.SupplyData`次など。
+SSR 中は、要求ごとのデータを ASP.NET Core アプリから Angular アプリに渡すことができます。 たとえば、cookie 情報やデータベースから読み取ったデータを渡すことができます。 これを行うには、*Startup* クラスを編集します。 `UseSpaPrerendering` のコールバックに、次のような `options.SupplyData` の値を設定します。
 
 ```csharp
 options.SupplyData = (context, data) =>
@@ -181,17 +187,17 @@ options.SupplyData = (context, data) =>
 };
 ```
 
-`SupplyData`任意渡すコールバックにより、要求ごとの JSON でシリアル化データ (例、文字列、ブール値、または数値)。 *Main.server.ts*コードを受け取るとして`params.data`です。 たとえば、上記のコード サンプルにとしてブール値が渡されます`params.data.isHttpsRequest`に、`createServerRenderer`コールバック。 これは、角でサポートされる任意の方法で、アプリの他の部分を渡すことができます。 たとえばを参照してください方法*main.server.ts*渡します、`BASE_URL`それを受信するコンス トラクターが宣言されたどのコンポーネントの値。
+`SupplyData` コールバックでは、任意の要求ごとの JSON でシリアル可能なデータ (文字列、ブール値、数値など) を渡すことができます。 *main.server.ts* コードは、これを `params.data` として受け取ります。 たとえば、上記のコード サンプルは、ブール値を `params.data.isHttpsRequest` として `createServerRenderer` コールバックに渡しています。 Angular でサポートされている方法で、アプリの他の部分にこれを渡すことができます。 たとえば、*main.server.ts* が、`BASE_URL` 値をコンストラクターが受け取ることを宣言されているコンポーネントにその値を渡す方法を参照してください。
 
 ### <a name="drawbacks-of-ssr"></a>SSR の欠点
 
-すべてのアプリ SSR を享受できます。 主な利点は、見かけ上のパフォーマンスです。 フェッチまたは JavaScript のバンドルを解析する、時間がかかる場合でも、訪問者が低速ネットワーク接続または低速のモバイル デバイスでアプリに到達するを迅速に、初期の UI 参照してください。 ただし、多くの SPAs は主に使用高速なコンピューターに高速、内部の会社のネットワーク経由でアプリがほぼ瞬時に表示します。
+すべてのアプリが SSR から利益を得られるわけではありません。 主な利益は、見かけ上のパフォーマンスです。 JavaScript バンドルのフェッチまたは解析にしばらく時間がかかる場合でも、低速のネットワーク接続または低速のモバイル デバイスでアプリに到達したユーザーに、初期 UI がすぐに表示されます。 ただし、多くの SPA は、主に高速の社内ネットワーク コンピューターで使用されているため、アプリはほぼ瞬時に表示されます。
 
-同時には、SSR を有効にする重要な欠点があります。 複雑さを開発プロセスに追加します。 2 つの環境でコードを実行する必要があります。 クライアント側およびサーバー側 (Node.js 環境で ASP.NET Core から呼び出されます。 念頭にいくつかの点を次に示します。
+同時に、SSR の有効化には重大な欠点があります。 それは、開発プロセスの複雑さを深めます。 ASP.NET Core から呼び出される Node.js 環境の中で、クライアント側とサーバー側 という 2 つの異なる環境でコードを実行する必要があります。 考慮すべき点を次に示します。
 
-* SSR には、実稼働サーバー上の Node.js のインストールが必要です。 これは、Azure App Services などの一部の展開シナリオについては、Azure Service Fabric など、他のケースでは自動的にです。
-* 有効にすると、`BuildServerSideRenderer`フラグの原因をビルド、 *node_modules*を公開するディレクトリ。 このフォルダーには、20,000 + ファイル、配置時間が増加するが含まれています。
-* Node.js 環境で、コードを実行することに依存できないブラウザー固有の JavaScript Api の存在など`window`または`localStorage`です。 コード (または参照するいくつかのサード パーティ製ライブラリ) は、これらの Api を使用すると、SSR 中にエラーが表示されます。 多くの場所でブラウザー固有の Api を参照しているために、jQuery がなど、使用しないでください。 エラーを防ぐためには、SSR を回避するか、または、ブラウザーに固有の Api またはライブラリを回避する必要があります。 SSR 中に呼び出すことがないことを確認するためのチェックでこのような Api への呼び出しをラップすることができます。 たとえば、JavaScript または TypeScript コードで、次のようなチェックを使用します。
+* SSR では、運用サーバー上に Node.js をインストールする必要があります。 これは、Azure App Services などの一部のデプロイ シナリオでは自動的に実行されますが、Azure Service Fabric などの他のシナリオではそうではありません。
+* `BuildServerSideRenderer` ビルド フラグを有効にすると、*node_modules* ディレクトリが発行されます。 このフォルダーには、20,000 以上のファイルが含まれているため、配置時間が増加します。
+* Node.js 環境でコードを実行するために、`window` や `localStorage` などのブラウザー固有の JavaScript API の存在に頼ることはできません。 コード (または参照された一部のサードパーティ製ライブラリ) がこれらの API を使用しようとすると、SSR 中にエラーが発生します。 たとえば、jQuery は多くの場所でブラウザー固有の API を参照するため、それを使用しないでください。 エラーを防ぐには、SSR を有効にしないか、ブラウザー固有の API またはライブラリを使用しないようにする必要があります。 SSR 中に呼び出されることがないように、このような API への呼び出しをチェックしてラップできます。 たとえば、JavaScript または TypeScript コードで、次のようなチェックを使用します。
 
     ```javascript
     if (typeof window !== 'undefined') {

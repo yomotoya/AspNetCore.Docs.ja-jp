@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core ディレクトリ構造
+title: ASP.NET Core のディレクトリ構造
 author: guardrex
 description: 発行された ASP.NET Core アプリのディレクトリ構造について説明します。
 manager: wpickett
@@ -12,31 +12,32 @@ ms.topic: article
 uid: host-and-deploy/directory-structure
 ms.openlocfilehash: a5cc1f23d624643facddc9e2006fb246e5ae66dc
 ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33838437"
 ---
-# <a name="aspnet-core-directory-structure"></a>ASP.NET Core ディレクトリ構造
+# <a name="aspnet-core-directory-structure"></a>ASP.NET Core のディレクトリ構造
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
-ASP.NET Core、公開されたアプリケーション ディレクトリで*発行*、アプリケーション ファイル、構成ファイル、静的なアセット、パッケージ、およびランタイムで構成されます (の[自己完結型の展開](/dotnet/core/deploying/#self-contained-deployments-scd))。
+ASP.NET Core では、公開されるアプリケーション ディレクトリ *publish* は、アプリケーション ファイル、構成ファイル、静的資産、パッケージ、およびランタイムで構成されます ([自己完結型の展開](/dotnet/core/deploying/#self-contained-deployments-scd)の場合)。
 
 
-| アプリの種類 | ディレクトリ構造 |
+| アプリの種類 | ディレクトリの構造 |
 | -------- | ------------------- |
-| [フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>発行&dagger;<ul><li>ログ&dagger;(標準出力ログを受信するために必要な場合を除き、省略可能)</li><li>ビュー&dagger; (MVC アプリ; ビューをプリコンパイルいない場合)</li><li>ページ&dagger;(MVC または Razor ページ アプリですページをプリコンパイルいない場合)。</li><li>wwwroot&dagger;</li><li>*\.dll ファイル</li><li>\<アセンブリ名 >. deps.json</li><li>\<アセンブリ名 > .dll</li><li>\<アセンブリ名 > .pdb</li><li>\<アセンブリ名 >。PrecompiledViews.dll</li><li>\<アセンブリ名 >。PrecompiledViews.pdb</li><li>\<アセンブリ名 >. runtimeconfig.json</li><li>web.config (IIS 展開)</li></ul></li></ul> |
-| [自己完結型の配置](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>発行&dagger;<ul><li>ログ&dagger;(標準出力ログを受信するために必要な場合を除き、省略可能)</li><li>refs&dagger;</li><li>ビュー&dagger; (MVC アプリ; ビューをプリコンパイルいない場合)</li><li>ページ&dagger;(MVC または Razor ページ アプリですページをプリコンパイルいない場合)。</li><li>wwwroot&dagger;</li><li>\*.dll ファイル</li><li>\<アセンブリ名 >. deps.json</li><li>\<アセンブリ名 > .exe</li><li>\<アセンブリ名 > .pdb</li><li>\<アセンブリ名 >。PrecompiledViews.dll</li><li>\<アセンブリ名 >。PrecompiledViews.pdb</li><li>\<アセンブリ名 >. runtimeconfig.json</li><li>web.config (IIS 展開)</li></ul></li></ul> |
+| [フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>publish&dagger;<ul><li>logs&dagger; (stdout ログを受け取るために必要な場合を除きオプション)</li><li>Views&dagger; (MVC アプリ、ビューがプリコンパイルされていない場合)</li><li>Pages&dagger; (MVC または Razor ページ アプリ、ページがプリコンパイルされていない場合)</li><li>wwwroot&dagger;</li><li>*\.dll ファイル</li><li>\<アセンブリ名>.deps.json</li><li>\<アセンブリ名>.dll</li><li>\<アセンブリ名>.pdb</li><li>\<アセンブリ名>.PrecompiledViews.dll</li><li>\<アセンブリ名>.PrecompiledViews.pdb</li><li>\<アセンブリ名>.runtimeconfig.json</li><li>web.config (IIS 展開)</li></ul></li></ul> |
+| [自己完結型の展開](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>publish&dagger;<ul><li>logs&dagger; (stdout ログを受け取るために必要な場合を除きオプション)</li><li>refs&dagger;</li><li>Views&dagger; (MVC アプリ、ビューがプリコンパイルされていない場合)</li><li>Pages&dagger; (MVC または Razor ページ アプリ、ページがプリコンパイルされていない場合)</li><li>wwwroot&dagger;</li><li>\*.dll ファイル</li><li>\<アセンブリ名>.deps.json</li><li>\<アセンブリ名>.exe</li><li>\<アセンブリ名>.pdb</li><li>\<アセンブリ名>.PrecompiledViews.dll</li><li>\<アセンブリ名>.PrecompiledViews.pdb</li><li>\<アセンブリ名>.runtimeconfig.json</li><li>web.config (IIS 展開)</li></ul></li></ul> |
 
-&dagger;ディレクトリを示します
+&dagger; ディレクトリを示します
 
-*発行*ディレクトリを表します、*コンテンツのルート パス*もという、*アプリケーション ベース パス*デプロイのです。 任意の名前が指定された、*発行*サーバーに配置されたアプリのディレクトリの場所がホスト型アプリへのサーバーの物理パスとして機能します。
+*publish* ディレクトリは、展開の "*コンテンツ ルート パス*" ("*アプリケーション ベース パス*" とも呼ばれます) を表します。 サーバー上で展開されたアプリの *publish* ディレクトリにどのような名前が指定されても、その場所がホストされたアプリへのサーバーの物理パスとして機能します。
 
-*Wwwroot*ディレクトリに存在する場合のみが含まれる静的な資産です。
+*Wwwroot* ディレクトリが存在する場合は、静的資産のみが含まれます。
 
-Stdout*ログ*次の 2 つの方法のいずれかを使用して、展開のディレクトリを作成できます。
+stdout の *logs* ディレクトリは、次の 2 つの方法のいずれかを使って展開用に作成できます。
 
-* 次の追加`<Target>`要素をプロジェクト ファイル。
+* プロジェクト ファイルに次の `<Target>` 要素を追加します。
 
    ```xml
    <Target Name="CreateLogsFolder" AfterTargets="Publish">
@@ -49,8 +50,8 @@ Stdout*ログ*次の 2 つの方法のいずれかを使用して、展開のデ
    </Target>
    ```
 
-   `<MakeDir>`要素は、空を作成*ログ*公開済みの出力内のフォルダーです。 要素を使用して、`PublishDir`フォルダーを作成するため、ターゲットの場所を決定するプロパティです。 Web Deploy などのいくつかの展開方法は、配置時に空のフォルダーをスキップします。 `<WriteLinesToFile>`要素内のファイルを生成する、*ログ*フォルダーで、サーバー フォルダーの展開を保証します。 ワーカー プロセスは、ターゲット フォルダーに書き込みアクセス権を持っていない場合、まだフォルダーの作成が失敗することに注意してください。
+   `<MakeDir>` 要素は、公開される出力に空の *Logs* フォルダーを作成します。 この要素は、`PublishDir` プロパティを使って、フォルダーを作成するためのターゲットの場所を決定します。 Web 配置などの複数の展開方法は、展開の間に空のフォルダーをスキップします。 `<WriteLinesToFile>` 要素は *Logs* フォルダーにファイルを生成します。これは、サーバーへのフォルダーの展開を保証します。 ワーカー プロセスにターゲット フォルダーへの書き込みアクセス許可がない場合、フォルダーの作成が失敗する可能性があることに注意してください。
 
-* 物理的な作成、*ログ*ディレクトリ展開内のサーバーにします。
+* 展開内のサーバー上に *Logs* ディレクトリを物理的に作成します。
 
-配置ディレクトリには、読み取り/実行アクセス許可が必要です。 *ログ*ディレクトリが読み取り/書き込み権限が必要です。 ファイルが書き込まれる追加のディレクトリでは、読み取り/書き込み権限が必要です。
+展開ディレクトリには、読み取り/実行アクセス許可が必要です。 *Logs* ディレクトリには、読み取り/書き込みアクセス許可が必要です。 ファイルが書き込まれる追加のディレクトリには、読み取り/書き込みアクセス許可が必要です。

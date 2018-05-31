@@ -1,6 +1,6 @@
 ---
 title: Apache 搭載の Linux で ASP.NET Core をホストする
-description: Kestrel で実行されている ASP.NET Core web アプリへの HTTP トラフィックをリダイレクトする CentOS にリバース プロキシ サーバーとして Apache を設定する方法を説明します。
+description: CentOS 上にリバース プロキシ サーバーとして Apache をセットアップし、Kestrel 上で実行されている ASP.NET Core Web アプリに HTTP トラフィックを転送する方法について説明します。
 author: spboyer
 manager: wpickett
 ms.author: spboyer
@@ -12,41 +12,42 @@ ms.topic: article
 uid: host-and-deploy/linux-apache
 ms.openlocfilehash: 473585f1be180645395c14a154c9c017ca50edab
 ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33962818"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Apache 搭載の Linux で ASP.NET Core をホストする
 
 作成者: [Shayne Boyer](https://github.com/spboyer)
 
-このガイドを使用して設定する方法を学習[Apache](https://httpd.apache.org/)にリバース プロキシ サーバーとして[CentOS 7](https://www.centos.org/)で実行されている ASP.NET Core web アプリへの HTTP トラフィックをリダイレクトする[Kestrel](xref:fundamentals/servers/kestrel)です。 [Mod_proxy 拡張子](http://httpd.apache.org/docs/2.4/mod/mod_proxy.html)関連モジュールが、サーバーのリバース プロキシを作成します。
+このガイドでは、[CentOS 7](https://www.centos.org/) 上にリバース プロキシ サーバーとして [Apache](https://httpd.apache.org/) をセットアップし、[Kestrel](xref:fundamentals/servers/kestrel) 上で実行されている ASP.NET Core Web アプリに HTTP トラフィックを転送する方法について説明します。 [mod_proxy 拡張機能](http://httpd.apache.org/docs/2.4/mod/mod_proxy.html)および関連するモジュールは、サーバーのリバース プロキシを作成します。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-1. Sudo 権限を持つ標準ユーザー アカウントを使用して CentOS 7 を実行しているサーバー
-2. ASP.NET Core アプリケーション
+1. CentOS 7 を実行しているサーバーと、sudo 特権を持つ標準ユーザー アカウント
+2. ASP.NET Core アプリ
 
 ## <a name="publish-the-app"></a>アプリの発行
 
-アプリを発行すると、[自己完結型の配置](/dotnet/core/deploying/#self-contained-deployments-scd)CentOS 7 ランタイムのリリースの構成で (`centos.7-x64`)。 内容をコピー、 *bin/Release/netcoreapp2.0/centos.7-x64/publish* SCP、FTP、またはその他のファイルの転送方法を使用してサーバーのフォルダーです。
+リリース構成の[自己完結型の展開](/dotnet/core/deploying/#self-contained-deployments-scd)として CentOS 7 ランタイム (`centos.7-x64`) にアプリを発行します。 *bin/Release/netcoreapp2.0/centos.7-x64/publish* フォルダーの内容を、SCP、FTP、またはその他のファイル転送方法を使ってサーバーにコピーします。
 
 > [!NOTE]
-> 運用展開シナリオでは、継続的インテグレーション ワークフローは、アプリを発行し、サーバーへの資産のコピーの作業を行います。 
+> 運用展開シナリオの場合、継続的インテグレーション ワークフローが、アプリの発行処理とサーバーへの資産のコピーを行います。 
 
 ## <a name="configure-a-proxy-server"></a>プロキシ サーバーを構成する
 
-リバース プロキシは、動的な web アプリの送信用の共通のセットアップです。 リバース プロキシは、HTTP 要求を終了し、ASP.NET アプリケーションに転送します。
+リバース プロキシは、動的 Web アプリを提供するための一般的な仕組みです。 リバース プロキシは HTTP 要求を終了させ、ASP.NET アプリに転送します。
 
-プロキシ サーバーは、要求を満たせません自体ではなく別のサーバーにクライアント要求を転送する 1 つです。 リバース プロキシは、一般的に任意のクライアントに代わって固定の送信先に転送します。 このガイドでは、Apache は Kestrel ASP.NET Core アプリケーションが機能していること、同じサーバーで実行されているリバース プロキシとして構成されます。
+プロキシ サーバーは、クライアント要求を処理せずに他のサーバーに転送するサーバーです。 リバース プロキシは、一般的に任意のクライアントに代わって固定の送信先に転送します。 このガイドでは、Kestrel が ASP.NET Core アプリを提供しているものと同じサーバー上で実行されるリバース プロキシとして Apache を構成します。
 
-要求は、リバース プロキシによって転送される、ためから転送されるヘッダー ミドルウェアを使用して、 [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/)パッケージです。 ミドルウェアの更新プログラム、`Request.Scheme`を使用して、`X-Forwarded-Proto`ヘッダー、そのリダイレクト Uri とその他のセキュリティ ポリシーが正常に動作するようにします。
+要求はリバース プロキシによって転送されます。そのため、[Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) パッケージの Forwarded Headers Middleware を使用します。 リダイレクト URI とその他のセキュリティ ポリシーを正しく機能させるために、このミドルウェアは、`X-Forwarded-Proto` ヘッダーを利用して、`Request.Scheme` を更新します。
 
-認証ミドルウェアの任意の型を使用する場合、転送ヘッダー ミドルウェアが最初に実行する必要があります。 この順序により、認証ミドルウェアがヘッダーの値を使用して正しくリダイレクト Uri を生成することができます。
+任意の認証ミドルウェアを使用する場合は、Forwarded Headers Middleware を最初に実行する必要があります。 この順序により、認証ミドルウェアはヘッダーの値を利用して、正しいリダイレクト URI を生成できます。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-呼び出す、 [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders)メソッド`Startup.Configure`呼び出す前に[UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication)または類似の認証スキームのミドルウェア。 転送するミドルウェアを構成、`X-Forwarded-For`と`X-Forwarded-Proto`ヘッダー。
+[UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication) や同様の認証スキームのミドルウェアを呼び出す前に、`Startup.Configure` で [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) メソッドを呼び出します。 ミドルウェアを構成して、`X-Forwarded-For` および `X-Forwarded-Proto` ヘッダーを転送します。
 
 ```csharp
 app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -59,7 +60,7 @@ app.UseAuthentication();
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-呼び出す、 [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders)メソッド`Startup.Configure`呼び出す前に[UseIdentity](/dotnet/api/microsoft.aspnetcore.builder.builderextensions.useidentity)と[UseFacebookAuthentication](/dotnet/api/microsoft.aspnetcore.builder.facebookappbuilderextensions.usefacebookauthentication)または同様の認証スキームミドルウェア。 転送するミドルウェアを構成、`X-Forwarded-For`と`X-Forwarded-Proto`ヘッダー。
+[UseIdentity](/dotnet/api/microsoft.aspnetcore.builder.builderextensions.useidentity) や [UseFacebookAuthentication](/dotnet/api/microsoft.aspnetcore.builder.facebookappbuilderextensions.usefacebookauthentication)、または同様の認証スキームのミドルウェアを呼び出す前に、`Startup.Configure` で [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) メソッドを呼び出します。 ミドルウェアを構成して、`X-Forwarded-For` および `X-Forwarded-Proto` ヘッダーを転送します。
 
 ```csharp
 app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -77,25 +78,25 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 ---
 
-ない場合は[ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions)は指定した、ミドルウェアに転送する既定のヘッダーが`None`です。
+ミドルウェアに対して [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) が指定されていない場合、転送される既定のヘッダーは `None` です。
 
 プロキシ サーバーとロード バランサーの背後でホストされているアプリでは、追加の構成が必要になる場合があります。 詳細については、「[プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)」を参照してください。
 
 ### <a name="install-apache"></a>Apache をインストールする
 
-CentOS パッケージを最新の安定したバージョンに更新プログラム:
+CentOS パッケージを最新の安定したバージョンに更新します。
 
 ```bash
 sudo yum update -y
 ```
 
-1 つの CentOS に Apache web サーバーをインストール`yum`コマンド。
+1 つの `yum` コマンドで、CentOS に Apache Web サーバーをインストールします。
 
 ```bash
 sudo yum -y install httpd mod_ssl
 ```
 
-コマンドの実行後の出力例:
+コマンド実行後の出力例:
 
 ```bash
 Downloading packages:
@@ -114,13 +115,13 @@ Complete!
 ```
 
 > [!NOTE]
-> この例では、出力は、CentOS 7 バージョンが 64 ビットであるために httpd.86_64 を反映します。 Apache がインストールされている場所を確認するには、コマンド プロンプトから `whereis httpd` を実行します。
+> この例では、CentOS 7 のバージョンが 64 ビットなので、出力は httpd.86_64 を反映しています。 Apache がインストールされている場所を確認するには、コマンド プロンプトから `whereis httpd` を実行します。
 
 ### <a name="configure-apache-for-reverse-proxy"></a>Apache をリバース プロキシとして構成する
 
-Apache の構成ファイルは、`/etc/httpd/conf.d/` ディレクトリ内にあります。 ファイルのいずれか、 *.conf*拡張機能が、モジュール構成ファイルでだけでなくアルファベット順に処理される`/etc/httpd/conf.modules.d/`、ファイルのモジュールを読み込むために必要な構成が含まれています。
+Apache の構成ファイルは、`/etc/httpd/conf.d/` ディレクトリ内にあります。 `/etc/httpd/conf.modules.d/` 内のモジュール構成ファイルに加え、拡張子が *.conf* のファイルがアルファベット順で処理されます。このディレクトリには、モジュールの読み込みに必要な構成ファイルが含まれています。
 
-という名前の構成ファイルを作成する*hellomvc.conf*アプリの。
+アプリ用に *hellomvc.conf* という名前の構成ファイルを作成します。
 
 ```
 <VirtualHost *:80>
@@ -134,12 +135,12 @@ Apache の構成ファイルは、`/etc/httpd/conf.d/` ディレクトリ内に�
 </VirtualHost>
 ```
 
-`VirtualHost`ブロックは、サーバー上の 1 つまたは複数のファイルに複数回を表示することができます。 上記の構成ファイルでは、Apache は、ポート 80 でパブリック トラフィックを受け入れます。 ドメイン`www.example.com`が提供される、および`*.example.com`エイリアスが同じ web サイトに解決されます。 参照してください[仮想ホストの名前に基づくサポート](https://httpd.apache.org/docs/current/vhosts/name-based.html)詳細についてはします。 要求は、ポート 5000 127.0.0.1 のサーバーのルートにあるプロキシ。 双方向通信の`ProxyPass`と`ProxyPassReverse`が必要です。
+`VirtualHost` ブロックは、サーバー上の 1 つまたは複数のファイルに複数回出現することができます。 上記の構成ファイルでは、Apache はポート 80 でパブリック トラフィックを受け入れます。 ドメイン `www.example.com` が提供されており、別名 `*.example.com` は同じ Web サイトに解決されます。 詳しくは、「[名前ベースのバーチャル ホスト](https://httpd.apache.org/docs/current/vhosts/name-based.html)」をご覧ください。 要求は、ルートにおいて、127.0.0.1 にあるサーバーのポート 5000 にプロキシされます。 双方向通信の場合は、`ProxyPass` と `ProxyPassReverse` が必要です。
 
 > [!WARNING]
-> 適切なを指定する[ServerName ディレクティブ](https://httpd.apache.org/docs/current/mod/core.html#servername)で、 **VirtualHost**ブロックはセキュリティの脆弱性にアプリを公開します。 サブドメイン ワイルドカード バインド (たとえば、 `*.example.com`) 全体の親ドメインを制御する場合、このセキュリティ上のリスクは発生しません (to `*.com`、に対して脆弱である)。 詳細については、[rfc7230 セクション-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) を参照してください。
+> **VirtualHost** ブロックで適切な [ServerName ディレクティブ](https://httpd.apache.org/docs/current/mod/core.html#servername)を指定しないと、アプリにセキュリティ上の脆弱性が生じます。 親ドメイン全体を制御する場合、サブドメイン ワイルドカード バインド (たとえば、`*.example.com`) にこのセキュリティ リスクはありません (脆弱である `*.com` とは対照的)。 詳細については、[rfc7230 セクション-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) を参照してください。
 
-ごとにログ記録を構成できる`VirtualHost`を使用して`ErrorLog`と`CustomLog`ディレクティブです。 `ErrorLog` サーバーが、エラーをログの場所と`CustomLog`ファイル名とログ ファイルの形式を設定します。 この場合、要求の情報が記録される場所はします。 要求ごとに行が表示されます。
+`ErrorLog` および `CustomLog` ディレクティブを使って、`VirtualHost` ごとにログを構成できます。 `ErrorLog` は、サーバーがエラーをログに記録する場所です。`CustomLog` には、ログ ファイルのファイル名と形式を設定します。 この例では、要求の情報がログに記録される場所です。 1 つの要求につき 1 行が記録されます。
 
 ファイルを保存し、構成をテストします。 すべてに合格すると、応答は `Syntax [OK]` になります。
 
@@ -156,7 +157,7 @@ sudo systemctl enable httpd
 
 ## <a name="monitoring-the-app"></a>アプリの監視
 
-Apache がへの要求を転送するセットアップでは今すぐ`http://localhost:80`で Kestrel で実行されている ASP.NET Core アプリケーションに`http://127.0.0.1:5000`です。  ただし、Apache は Kestrel プロセスを管理するセットアップをされていません。 使用して*systemd*を起動し、基になる web アプリを監視するサービス ファイルを作成します。 *systemd* は init システムであり、プロセスを起動、停止、管理するためのさまざまな高性能機能を提供します。 
+これで、`http://localhost:80` に対して行われた要求を Kestrel で実行されている ASP.NET Core アプリ (`http://127.0.0.1:5000`) に転送するように Apache が設定されました。  ただし、Apache は Kestrel プロセスを管理するようには設定されていません。 *systemd* を使って、基礎 Web アプリを起動して監視するサービス ファイルを作成します。 *systemd* は init システムであり、プロセスを起動、停止、管理するためのさまざまな高性能機能を提供します。 
 
 
 ### <a name="create-the-service-file"></a>サービス ファイルを作成する
@@ -167,7 +168,7 @@ Apache がへの要求を転送するセットアップでは今すぐ`http://lo
 sudo nano /etc/systemd/system/kestrel-hellomvc.service
 ```
 
-アプリのサービス ファイルの例:
+アプリのサービス ファイルの例を次に示します。
 
 ```
 [Unit]
@@ -188,10 +189,10 @@ WantedBy=multi-user.target
 ```
 
 > [!NOTE]
-> **ユーザー** &mdash;場合、ユーザー *apache*使用されていない、構成によってユーザー必要があります最初に作成してファイルの適切な所有権を指定します。
+> **ユーザー** &mdash; *apache* が構成で使用されない場合、ユーザーを先に作成し、ファイルの適切な所有権を与える必要があります。
 
 > [!NOTE]
-> 環境変数を読み取る構成プロバイダーのいくつかの値 (たとえば、SQL 接続文字列を) をエスケープする必要があります。 構成ファイルで使用するための適切にエスケープされた値を生成するのにには、次のコマンドを使用します。
+> 構成プロバイダーが環境変数を読み取れるようにするために、一部の値 (たとえば SQL の接続文字列) をエスケープする必要があります。 次のコマンドを使用して、構成ファイルで使用するために適切にエスケープされた値を生成します。
 >
 > ```console
 > systemd-escape "<value-to-escape>"
@@ -203,7 +204,7 @@ WantedBy=multi-user.target
 systemctl enable kestrel-hellomvc.service
 ```
 
-サービスを開始し、実行されていることを確認します。
+サービスを起動し、動作を確認します。
 
 ```bash
 systemctl start kestrel-hellomvc.service
@@ -217,7 +218,7 @@ Main PID: 9021 (dotnet)
             └─9021 /usr/local/bin/dotnet /var/aspnetcore/hellomvc/hellomvc.dll
 ```
 
-リバース プロキシが構成されているとを通じて管理 Kestrel *systemd*、web アプリが完全に構成されているし、ローカルのコンピューター上のブラウザーからアクセスできる`http://localhost`です。 応答ヘッダーの検査、**サーバー**ヘッダーは、ASP.NET Core アプリケーションが Kestrel によって処理されることを示します。
+リバース プロキシが構成され、Kestrel は *systemd* 経由で管理されます。これで Web アプリは完全に構成され、`http://localhost` でローカル コンピューター上のブラウザーからアクセスできます。 応答ヘッダーを調べると、**Server** ヘッダーでは ASP.NET Core アプリが Kestrel によって提供されていることが示されています。
 
 ```
 HTTP/1.1 200 OK
@@ -230,36 +231,36 @@ Transfer-Encoding: chunked
 
 ### <a name="viewing-logs"></a>ログを表示する
 
-Web アプリから Kestrel を使用して管理を使用して*systemd*イベントとプロセスは、一元的な履歴に記録されます。 ただし、このジャーナルには、サービスとプロセスによって管理されるすべてのエントリが含まれます*systemd*です。 `kestrel-hellomvc.service` 固有の項目を表示するには、次のコマンドを使用します。
+Kestrel を使う Web アプリは *systemd* を使って管理されるため、イベントとプロセスは中央のジャーナルに記録されます。 ただし、このジャーナルには、*systemd* によって管理されるすべてのサービスとプロセスのエントリが含まれます。 `kestrel-hellomvc.service` 固有の項目を表示するには、次のコマンドを使用します。
 
 ```bash
 sudo journalctl -fu kestrel-hellomvc.service
 ```
 
-時間のフィルタ リング、コマンドを使用して時間のオプションを指定します。 たとえば、使用して`--since today`を現在の日付のフィルター処理または`--until 1 hour ago`前の 1 時間のエントリを参照します。 詳細については、次を参照してください。、 [journalctl についてマニュアル](https://www.unix.com/man-page/centos/1/journalctl/)です。
+時間フィルタリングの場合は、コマンドで時間のオプションを指定します。 たとえば、現在の日付でフィルター処理するには `--since today` を使い、前の 1 時間のエントリを参照するには `--until 1 hour ago` を使います。 詳しくは、[journalctl の man ページ](https://www.unix.com/man-page/centos/1/journalctl/)をご覧ください。
 
 ```bash
 sudo journalctl -fu kestrel-hellomvc.service --since "2016-10-18" --until "2016-10-18 04:00"
 ```
 
-## <a name="securing-the-app"></a>アプリをセキュリティで保護します。
+## <a name="securing-the-app"></a>アプリのセキュリティ保護
 
 ### <a name="configure-firewall"></a>ファイアウォールを構成する
 
-*Firewalld*動的デーモンでネットワーク ゾーンのサポートされたファイアウォールを管理します。 ポートとパケット フィルタ リングは、iptables によって引き続き管理できます。 *Firewalld*既定でインストールする必要があります。 `yum` パッケージをインストールまたはがインストールされていることを確認するために使用します。
+*Firewalld* は、ネットワーク ゾーンをサポートするファイアウォールを管理するための動的デーモンです。 ポートとパケットのフィルター処理は、iptables によって引き続き管理できます。 *Firewalld* は既定でインストールされます。 `yum` を使ってパッケージをインストールしたり、インストールされていることを確認したりできます。
 
 ```bash
 sudo yum install firewalld -y
 ```
 
-使用して`firewalld`を開くには、アプリに必要なポートのみです。 この場合、ポート 80 と 443 が使用されています。 次のコマンドでは、ポート 80 と 443 を開くには完全に設定します。
+アプリに必要なポートのみを開くには、`firewalld` を使います。 この場合、ポート 80 と 443 が使用されています。 次のコマンドは、ポート 80 と 443 が永続的に開かれるように設定します。
 
 ```bash
 sudo firewall-cmd --add-port=80/tcp --permanent
 sudo firewall-cmd --add-port=443/tcp --permanent
 ```
 
-ファイアウォールの設定を再読み込みされます。 使用可能なサービスと、既定のゾーン内のポートを確認してください。 検査することによってオプションがある`firewall-cmd -h`です。
+ファイアウォールの設定を再度読み込みます。 既定のゾーンで使用できるサービスとポートを確認します。 オプションは `firewall-cmd -h` を調べることで使用できます。
 
 ```bash 
 sudo firewall-cmd --reload
@@ -280,18 +281,18 @@ rich rules:
 
 ### <a name="ssl-configuration"></a>SSL の構成
 
-Ssl は、Apache を構成する、 *mod_ssl*モジュールを使用します。 ときに、 *httpd*モジュールがインストールされている、 *mod_ssl*モジュールもインストールするとします。 インストールされている場合を使用して`yum`構成に追加します。
+SSL 用に Apache を構成するには、*mod_ssl* モジュールを使います。 *httpd* モジュールがインストールされていると、*mod_ssl* モジュールもインストールされています。 インストールされていない場合は、`yum` を使って構成に追加します。
 
 ```bash
 sudo yum install mod_ssl
 ```
-SSL を強制するのには、インストール、 `mod_rewrite` URL 書き換えを有効にするモジュール。
+SSL を強制するには、`mod_rewrite` モジュールをインストールして URL の書き換えを有効にします。
 
 ```bash
 sudo yum install mod_rewrite
 ```
 
-変更、 *hellomvc.conf* URL 書き換えを有効にして、ポート 443 での通信をセキュリティで保護するファイル。
+*hellomvc.conf* ファイルを変更して、URL の書き換えを有効にし、ポート 443 での通信をセキュリティで保護します。
 
 ```
 <VirtualHost *:80>
@@ -315,7 +316,7 @@ sudo yum install mod_rewrite
 ```
 
 > [!NOTE]
-> この例は、ローカルに生成された証明書を使用します。 **SSLCertificateFile**ドメイン名のプライマリ証明書ファイルでなければなりません。 **SSLCertificateKeyFile**生成するか、キー ファイル CSR を作成します。 **SSLCertificateChainFile** (存在する場合)、中間証明書ファイルをする必要があります証明機関から提供されています。
+> この例では、ローカルで生成された証明書を使います。 **SSLCertificateFile** は、ドメイン名のプライマリ証明書ファイルです。 **SSLCertificateKeyFile** は、CSR の作成時に生成されるキー ファイルです。 **SSLCertificateChainFile** は、証明機関から提供された中間証明書ファイル (存在する場合) です。
 
 ファイルを保存し、構成をテストします。
 
@@ -331,47 +332,47 @@ sudo systemctl restart httpd
 
 ## <a name="additional-apache-suggestions"></a>Apache に関するその他の推奨事項
 
-### <a name="additional-headers"></a>追加のヘッダー
+### <a name="additional-headers"></a>その他のヘッダー
 
-悪意のある攻撃からセキュリティで保護するためには、いくつかのヘッダーをする必要がありますか、変更または追加できます。 いることを確認、`mod_headers`モジュールがインストールされています。
+悪意のある攻撃から防御するために、変更または追加する必要があるヘッダーがいくつかあります。 必ず `mod_headers` モジュールをインストールします。
 
 ```bash
 sudo yum install mod_headers
 ```
 
-#### <a name="secure-apache-from-clickjacking-attacks"></a>Clickjacking の攻撃からセキュリティで保護された Apache
+#### <a name="secure-apache-from-clickjacking-attacks"></a>Apache をクリックジャッキング攻撃から保護する
 
-[Clickjacking](https://blog.qualys.com/securitylabs/2015/10/20/clickjacking-a-common-implementation-mistake-that-can-put-your-websites-in-danger)とも呼ばれる、 *UI redress 攻撃*、悪意のある攻撃は、ここで web サイトの訪問者は、騙されてクリックしてリンクやボタンは別のページをしている現在のページです。 使用して`X-FRAME-OPTIONS`サイトをセキュリティで保護します。
+[クリックジャッキング](https://blog.qualys.com/securitylabs/2015/10/20/clickjacking-a-common-implementation-mistake-that-can-put-your-websites-in-danger)は "*UI 着せ替え攻撃*" とも呼ばれ、Web サイトの訪問者を騙して現在訪れているものとは異なるページのリンクやボタンをクリックさせる悪意のある攻撃です。 サイトをセキュリティで保護するには、`X-FRAME-OPTIONS` を使います。
 
-編集、 *httpd.conf*ファイル。
+*httpd.conf* ファイルを編集します。
 
 ```bash
 sudo nano /etc/httpd/conf/httpd.conf
 ```
 
-行を追加`Header append X-FRAME-OPTIONS "SAMEORIGIN"`です。 ファイルを保存します。 Apache を再起動します。
+行 `Header append X-FRAME-OPTIONS "SAMEORIGIN"` を追加します。 ファイルを保存します。 Apache を再起動します。
 
 #### <a name="mime-type-sniffing"></a>MIME タイプ スニッフィング
 
-`X-Content-Type-Options`ヘッダーにより、Internet Explorer から*MIME スニッフィング*(ファイルの決定`Content-Type`ファイルの内容から)。 サーバーを設定する場合、`Content-Type`ヘッダーを`text/html`で、 `nosniff` Internet Explorer、オプションのセットとして内容を表示する`text/html`ファイルの内容に関係なく。
+`X-Content-Type-Options` ヘッダーは、Internet Explorer を "*MIME スニッフィング*" から防ぎます (ファイルの内容からファイルの `Content-Type` を判断します)。 サーバーが `nosniff` オプションを指定して `Content-Type` ヘッダーを `text/html` に設定すると、Internet Explorer はファイルの内容に関係なく `text/html` として内容をレンダリングします。
 
-編集、 *httpd.conf*ファイル。
+*httpd.conf* ファイルを編集します。
 
 ```bash
 sudo nano /etc/httpd/conf/httpd.conf
 ```
 
-行を追加`Header set X-Content-Type-Options "nosniff"`です。 ファイルを保存します。 Apache を再起動します。
+行 `Header set X-Content-Type-Options "nosniff"` を追加します。 ファイルを保存します。 Apache を再起動します。
 
 ### <a name="load-balancing"></a>負荷分散 
 
-この例では、同じインスタンス コンピューターに CentOS 7 と Kestrel をインストールし、Apache をセットアップおよび構成する方法を示します。 ためにないの単一障害点です。使用して*mod_proxy_balancer*を変更して、 **VirtualHost**なります Apache プロキシ サーバーの背後に web アプリの複数のインスタンスを管理するためです。
+この例では、同じインスタンス コンピューターに CentOS 7 と Kestrel をインストールし、Apache をセットアップおよび構成する方法を示します。 単一障害点を持たないように、*mod_proxy_balancer* を使い、**VirtualHost** を変更することで、Apache プロキシ サーバーの背後で複数インスタンスの Web アプを管理できるようにします。
 
 ```bash
 sudo yum install mod_proxy_balancer
 ```
 
-追加のインスタンスの次に示す構成ファイルで、`hellomvc`アプリは 5001 ポート上で実行するセットアップです。 *プロキシ*セクションは、負荷を分散する 2 つのメンバー バランサー構成で設定が*byrequests*です。
+次に示す構成ファイルでは、ポート 5001 上で実行するように `hellomvc` アプリの追加インスタンスを設定しています。 *Proxy* セクションは、2 メンバーのバランサー構成を使って *byrequests* を負荷分散するように設定されています。
 
 ```
 <VirtualHost *:80>
@@ -406,12 +407,12 @@ sudo yum install mod_proxy_balancer
 ```
 
 ### <a name="rate-limits"></a>速度の制限
-使用して*mod_ratelimit*に含まれている、 *httpd*モジュールのクライアントの帯域幅は制限されることができます。
+*httpd* モジュールに含まれる *mod_ratelimit* を使って、クライアントの帯域幅を制限できます。
 
 ```bash
 sudo nano /etc/httpd/conf.d/ratelimit.conf
 ```
-ファイルの例では、600 KB/秒 ルートの場所として帯域幅を制限します。
+次のファイルの例では、ルートの場所の下での帯域幅を 600 KB/秒に制限しています。
 
 ```
 <IfModule mod_ratelimit.c>
