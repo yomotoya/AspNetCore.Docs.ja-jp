@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: edc2e9460eb68febe25e8dd60e3872e5ab28e9e9
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 49e51a867e47ce375a5048cae5979360c4103365
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555405"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core フィルター
 
@@ -66,7 +67,7 @@ ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプ�
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?name=snippet1)]
 
-非同期フィルターは、1 つの On*Stage*ExecutionAsync メソッドを定義します。 このメソッドは、フィルターのパイプライン ステージを実行する *FilterType*ExecutionDelegate デリゲートを取得します。 たとえば、`ActionExecutionDelegate` はアクション メソッドを呼び出すので、その呼び出しの前後でコードを実行できます。
+非同期フィルターは、1 つの On*Stage*ExecutionAsync メソッドを定義します。 このメソッドは、フィルターのパイプライン ステージを実行する *FilterType*ExecutionDelegate デリゲートを取得します。 たとえば、`ActionExecutionDelegate` はアクション メソッドまたは次のアクション フィルターを呼び出すので、その呼び出しの前後でコードを実行できます。
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleAsyncActionFilter.cs?highlight=6,8-10,13)]
 
@@ -171,7 +172,7 @@ ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプ�
 | 5 | コントローラー | 1  | `OnActionExecuted` |
 | 6 | メソッド | 0  | `OnActionExecuted` |
 
-フィルターの実行順序を決定するときに、`Order` プロパティはスコープより優先されます。 最初に順序でフィルターが並べ替えられ、次に同じ順位の優先度を決めるためにスコープが使用されます。 組み込みのフィルターはすべて `IOrderedFilter` を実装し、既定の `Order` 値を 0 に設定します。 組み込みのフィルターの場合、`Order` をゼロ以外の値に設定しない限り、範囲によって順序が決定されます。
+フィルターの実行順序を決定するときに、`Order` プロパティはスコープより優先されます。 最初に順序でフィルターが並べ替えられ、次に同じ順位の優先度を決めるためにスコープが使用されます。 組み込みのフィルターはすべて `IOrderedFilter` を実装し、既定の `Order` 値を 0 に設定します。 組み込みのフィルターの場合、`Order` をゼロ以外の値に設定しない限り、スコープによって順序が決定されます。
 
 ## <a name="cancellation-and-short-circuiting"></a>キャンセルとショート サーキット
 

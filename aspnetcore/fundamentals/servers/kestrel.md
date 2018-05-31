@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: a1162da01fad67f3e8ccb1e70bd646b39c38997f
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 1c5d229614e6d6ca6889d19a5f3dc145da01bc04
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555327"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core への Kestrel Web サーバーの実装
 
@@ -42,7 +43,7 @@ Kestrel を単独で使用することも、IIS、Nginx、または Apache な�
 
 ![IIS、Nginx、または Apache などのリバース プロキシ サーバーを介してインターネットと間接的に通信する Kestrel](kestrel/_static/kestrel-to-internet.png)
 
-Kestrel が内部ネットワークに対してのみ公開されている場合を除き、リバース プロキシ サーバーと共に Kestrel を使うことをお勧めします。
+リバース プロキシ サーバーの有無に関わらず、いずれの構成も有効で、ASP.NET Core 2.0 またはそれ以降のアプリ用にホスティング構成がサポートされている必要があります。
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -276,7 +277,7 @@ Kestrel は、`http://localhost:5000` と `https://localhost:5001` (既定の証
 * `urls` ホスト構成キー。
 * `UseUrls` 拡張メソッド。
 
-詳しくは、「[サーバーの URL](xref:fundamentals/hosting#server-urls)」および「[構成のオーバーライド](xref:fundamentals/hosting#overriding-configuration)」をご覧ください。
+詳しくは、「[サーバーの URL](xref:fundamentals/host/web-host#server-urls)」および「[構成のオーバーライド](xref:fundamentals/host/web-host#override-configuration)」をご覧ください。
 
 これらの方法を使うと、1 つまたは複数の HTTP エンドポイントおよび HTTPS エンドポイント (既定の証明書が使用可能な場合は HTTPS) を指定できます。 セミコロン区切りのリストとして値を構成します (例: `"Urls": "http://localhost:8000;http://localhost:8001"`)。
 
@@ -438,9 +439,9 @@ WebHost.CreateDefaultBuilder()
 
 [Listen](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) メソッドは TCP ソケットにバインドし、オプションのラムダにより SSL 証明書を構成できます。
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_DefaultBuilder&highlight=9-16)]
+[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_TCPSocket&highlight=9-16)]
 
-この例では、[ListenOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions) を使用して特定のエンドポイントに対して SSL を構成する方法を示しています。 同じ API を使用して、特定のエンドポイントに対する他の Kestrel 設定を構成します。
+例では、[ListenOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions) を使用して、エンドポイントに対する SSL が構成されます。 同じ API を使用して、特定のエンドポイントに対する他の Kestrel 設定を構成します。
 
 [!INCLUDE [How to make an X.509 cert](~/includes/make-x509-cert.md)]
 
@@ -489,7 +490,7 @@ IIS を使用するときは、IIS オーバーライド バインドに対す�
 * `urls` ホスト構成キー
 * ASP.NET Core 構成システム (`ASPNETCORE_URLS` 環境変数など)
 
-これらのメソッドについて詳しくは、[ホスティング](xref:fundamentals/hosting)に関するページをご覧ください。
+これらのメソッドについて詳しくは、[ホスティング](xref:fundamentals/host/index)に関するページをご覧ください。
 
 **IIS エンドポイントの構成**
 

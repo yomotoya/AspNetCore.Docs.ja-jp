@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/application-model
-ms.openlocfilehash: f61d04f6cf0aa054566d9f48a030cf268f2ba72a
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: a0e38b041f428f8b519fd726643b3214761fb44e
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555353"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>ASP.NET Core のアプリケーション モデルの使用
 
@@ -168,7 +169,7 @@ ASP.NET Core MVC は、[IApplicationModelProvider](/dotnet/api/microsoft.aspnetc
 ASP.NET Core MVC と ASP.NET Web API 2 とでは使用する規則のセットが異なります。 カスタム規則を使用すると、Web API アプリの動作と一致するように、ASP.NET Core MVC アプリの動作を変更できます。 Microsoft では、この目的専用に [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim/) を出荷しています。
 
 > [!NOTE]
-> [ASP.NET Web API からの移行](xref:migration/webapi)に関するページを参照してください。
+> [ASP.NET Web API からの移行](xref:migration/webapi)に関するページをご覧ください。
 
 Web API Compatibility Shim を使用するには、プロジェクトにパッケージを追加し、`Startup` の `AddWebApiConventions` を呼び出して MVC に規則を追加する必要があります。
 

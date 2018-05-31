@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core での Razor ページと Entity Framework Core - チュートリアル 1/8
+title: ASP.NET Core での Entity Framework Core を使用した Razor ページ - チュートリアル 1/8
 author: rick-anderson
 description: Entity Framework Core を使用して Razor ページ アプリを作成する方法について説明します
 manager: wpickett
@@ -14,16 +14,17 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32740726"
 ---
-# <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core での Razor ページと Entity Framework Core - チュートリアル 1/8
+# <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core での Entity Framework Core を使用した Razor ページ - チュートリアル 1/8
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Contoso University のサンプル Web アプリでは、Entity Framework (EF) Core 2.0 と Visual Studio 2017 を使用して ASP.NET Core 2.0 MVC Web アプリケーションを作成する方法を示します。
 
-サンプル アプリは架空の Contoso University の Web サイトです。 学生の受け付け、講座の作成、講師の割り当てなどの機能が含まれています。 このページは、Contoso University のサンプル アプリを作成する方法を説明するチュートリアル シリーズの 1 回目です。
+このサンプル アプリは架空の Contoso University の Web サイトです。 学生の受け付け、講座の作成、講師の割り当てなどの機能が含まれています。 このページは、Contoso University のサンプル アプリを作成する方法を説明するチュートリアル シリーズの 1 回目です。
 
-[完成したアプリをダウンロードまたは表示する。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [ダウンロードの方法はこちらをご覧ください。](xref:tutorials/index#how-to-download-a-sample)
+[完成したアプリをダウンロードまたは表示します。](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [ダウンロードの方法はこちらをご覧ください。](xref:tutorials/index#how-to-download-a-sample)
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -33,27 +34,27 @@ Contoso University のサンプル Web アプリでは、Entity Framework (EF) C
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
-解決できない問題に遭遇した場合、通常、[完成したステージ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots)と自分のコードを比較することで解決策がわかります。 一般的なエラーとその解決方法の一覧については、[チュートリアル シリーズの後半に登場するトラブルシューティング セクション](xref:data/ef-mvc/advanced#common-errors)をご覧ください。 そこで必要な答えが見つからない場合、[StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) で [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) または [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core) に関する質問を投稿できます。
+解決できない問題に遭遇した場合、通常、[完成したステージ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots)と自分のコードを比較することで解決策がわかります。 一般的なエラーとその解決方法の一覧については、[このシリーズの最後のチュートリアルにあるトラブルシューティングのセクション](xref:data/ef-mvc/advanced#common-errors)をご覧ください。 そこで必要な答えが見つからない場合、[StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) で [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) または [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core) に関する質問を投稿できます。
 
 > [!TIP]
-> このチュートリアル シリーズは、前のチュートリアルの内容を基盤にしています。 チュートリアルが完了したら、毎回、プロジェクトのコピーを保存するようお勧めします。 問題に遭遇したとき、前のチュートリアルから始めることができます。最初まで戻る必要がありません。 [完了したステージ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots)をダウンロードし、それを利用してやり直すことができます。
+> このチュートリアル シリーズは、前のチュートリアルで行った内容を基に構築されています。 チュートリアルが完了したら、毎回、プロジェクトのコピーを保存するようお勧めします。 問題に遭遇したとき、前のチュートリアルから始めることができます。最初まで戻る必要がありません。 あるいは[完了したステージ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots)をダウンロードし、それを利用してやり直すこともできます。
 
 ## <a name="the-contoso-university-web-app"></a>Contoso University Web アプリ
 
 このチュートリアル シリーズで作成するアプリは、大学向けの基本的な Web サイトです。
 
-ユーザーは学生、講座、講師の情報を見たり、更新したりできます。 チュートリアルで作成した画面は次のようになります。
+ユーザーは学生、講座、講師の情報を見たり、更新したりできます。 チュートリアルで作成する画面は次のようになります。
 
 ![Students インデックス ページ](intro/_static/students-index.png)
 
 ![Students 編集ページ](intro/_static/student-edit.png)
 
-このサイトの UI スタイルは、組み込みのテンプレートによって生成されたものに近いです。 チュートリアルでは、UI ではなく、EF Core と Razor ページに集中的に取り組みます。
+このサイトの UI スタイルは、組み込みのテンプレートによって生成されるものに類似しています。 このチュートリアルでは、UI ではなく、EF Core と Razor ページに重点を置きます。
 
-## <a name="create-a-razor-pages-web-app"></a>Razor ページ Web アプリの作成
+## <a name="create-a-razor-pages-web-app"></a>Razor ページ Web アプリを作成する
 
 * Visual Studio の **[ファイル]** メニューから、**[新規作成]**、**[プロジェクト]** の順に選択します。
-* 新しい ASP.NET Core Web アプリケーションを作成します。 プロジェクトに **ContosoUniversity** という名前を付けます。 このプロジェクトに *ContosoUniversity* という名前を付けることは重要です。コードがコピー/貼り付けのとき、名前空間が一致します。
+* 新しい ASP.NET Core Web アプリケーションを作成します。 プロジェクトに **ContosoUniversity** という名前を付けます。 このプロジェクトに *ContosoUniversity* という名前を付けることは重要です。そうすることでコードをコピーしたり貼り付けるときに名前空間が一致します。
  ![新しい ASP.NET Core Web アプリケーション](intro/_static/np.png)
 * ドロップダウン リストで **[ASP.NET Core 2.0]** を選択してから、**[Web アプリケーション]** を選択します。
  ![Web アプリケーション (Razor ページ)](../../mvc/razor-pages/index/_static/np2.png)
@@ -82,11 +83,11 @@ Ctrl キーを押しながら F5 キーを押してプロジェクトを実行�
 
 ![Contoso University のホーム ページ](intro/_static/home-page.png)
 
-## <a name="create-the-data-model"></a>データ モデルの作成
+## <a name="create-the-data-model"></a>データ モデルを作成する
 
 Contoso University アプリのエンティティ クラスを作成します。 次の 3 つのエンティティから始めます。
 
-![講座、登録、学生からなるデータ モデルの図](intro/_static/data-model-diagram.png)
+![Course、Enrollment、Student からなるデータ モデルの図](intro/_static/data-model-diagram.png)
 
 `Student` エンティティと `Enrollment` エンティティの間には一対多の関係があります。 `Course` エンティティと `Enrollment` エンティティの間には一対多の関係があります。 1 人の学生をさまざまな講座に登録できます。 1 つの講座に任意の数の学生を登録できます。
 
@@ -96,13 +97,13 @@ Contoso University アプリのエンティティ クラスを作成します。
 
 ![Student エンティティの図](intro/_static/student-entity.png)
 
-*[Models]* フォルダーを作成します。 以下のコードを使用して、*[Models]* フォルダーで、"*Student.cs*" という名前のクラス ファイルを作成します。
+*Models* フォルダーを作成します。 以下のコードを使用して、*Models* フォルダーで、*Student.cs* という名前のクラス ファイルを作成します。
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
 
 `ID` プロパティは、このクラスに相当するデータベース (DB) テーブルの主キー列になります。 既定では、EF Core は、`ID` または `classnameID` という名前のプロパティを主キーとして解釈します。 `classnameID` で、`classname` は、前述の `Student` の例のとおりクラス名です。
 
-`Enrollments` プロパティはナビゲーション プロパティです。 ナビゲーション プロパティには、このエンティティに関連する他のエンティティにリンクします。 この例では、`Student entity` の `Enrollments` プロパティで、その `Student` に関連するすべての `Enrollment` エンティティが保持されます。 たとえば、DB の Student 行に関連する Enrollment 行が 2 つある場合、`Enrollments` ナビゲーション プロパティにその 2 つの `Enrollment` エンティティが含まれます。 関連する `Enrollment` 行は、`StudentID` 列にその学生の主キー値を含む行になります。 たとえば、ID=1 の学生には、`Enrollment` テーブルに行が 2 つあるとします。 `Enrollment` テーブルには、`StudentID` = 1 の行が 2 つあります。 `StudentID` は `Enrollment` テーブルの外部キーであり、`Student` テーブルの学生を指定します。
+`Enrollments` プロパティはナビゲーション プロパティです。 ナビゲーション プロパティは、このエンティティに関連する他のエンティティにリンクします。 この例では、`Student entity` の `Enrollments` プロパティによって、その `Student` に関連するすべての `Enrollment` エンティティが保持されます。 たとえば、DB 内のある Student 行に 2 つ関連する Enrollment 行がある場合、`Enrollments` ナビゲーション プロパティにその 2 つの `Enrollment` エンティティが含まれます。 関連する `Enrollment` 行とは、その学生の主キー値を `StudentID` 列に含む行です。 たとえば、ID=1 の学生には、`Enrollment` テーブルに行が 2 つあるとします。 その `Enrollment` テーブルには、`StudentID` = 1 の行が 2 つあります。 `StudentID` は `Enrollment` テーブルの外部キーであり、`Student` テーブルでその学生を指定します。
 
 あるナビゲーション プロパティが複数のエンティティを保持できる場合、そのナビゲーション プロパティは `ICollection<T>` のようなリスト型にする必要があります。 `ICollection<T>` を指定するか、`List<T>` や `HashSet<T>` のような型を指定できます。 `ICollection<T>` を使用する場合、EF Core で `HashSet<T>` コレクションが既定で作成されます。 複数のエンティティを保持するナビゲーション プロパティは、多対多または一対多の関係から発生します。
 
@@ -110,31 +111,31 @@ Contoso University アプリのエンティティ クラスを作成します。
 
 ![Enrollment エンティティの図](intro/_static/enrollment-entity.png)
 
-以下のコードを使用して、*[Models]* フォルダーで、*Enrollment.cs* を作成します。
+以下のコードを使用して、*Models* フォルダーで、*Enrollment.cs* を作成します。
 
 [!code-csharp[](intro/samples/cu/Models/Enrollment.cs?name=snippet_Intro)]
 
 `EnrollmentID` プロパティは主キーです。 このエンティティでは、`Student` エンティティのような `ID` ではなく、`classnameID` パターンを使用します。 一般的に、開発者は 1 つのパターンを選択し、データ モデル全体でそれを使用します。 後のチュートリアルでは、クラス名なしの ID を利用し、データ モデルに継承を簡単に実装します。
 
-`Grade` プロパティは `enum` です。 型宣言 `Grade` の後の疑問符は、`Grade` プロパティが null 許容であることを示します。 null という成績は 0 点とは異なります。null は点数がわからないことか、まだ採点されていないことを意味します。
+`Grade` プロパティは `enum` です。 `Grade` の型宣言の後の疑問符は、`Grade` プロパティが null 許容であることを示します。 null という成績は、0 の成績とは異なります。null は成績がわからないことか、まだ評価されていないことを意味します。
 
-`StudentID` プロパティは外部キーです。それに対応するナビゲーション プロパティは `Student` です。 `Enrollment` エンティティは 1 つの `Student`エンティティに関連付けられます。そのプロパティには、`Student` エンティティが 1 つ含まれます。 `Student` エンティティは、複数の `Enrollment` エンティティが含まれる `Student.Enrollments` ナビゲーション エンティティとは異なります。
+`StudentID` プロパティは外部キーです。それに対応するナビゲーション プロパティは `Student` です。 `Enrollment` エンティティは 1 つの `Student`エンティティに関連付けられますので、このプロパティには `Student` エンティティが 1 つ含まれます。 `Student` エンティティは、複数の `Enrollment` エンティティが含まれる `Student.Enrollments` ナビゲーション プロパティとは異なります。
 
 `CourseID` プロパティは外部キーです。それに対応するナビゲーション プロパティは `Course` です。 `Enrollment` エンティティは 1 つの `Course` エンティティに関連付けられます。
 
-EF Core は名前が `<navigation property name><primary key property name>` であれば、プロパティを外部キーとして解釈します。 たとえば、`Student` ナビゲーション プロパティの `StudentID` です。`Student` エンティティの主キーは `ID` です。 外部キーのプロパティには `<primary key property name>` という名前を付けることもできます。 たとえば、`CourseID` にします。`Course` エンティティの主キーが `CourseID` であるからです。
+EF Core は、プロパティの名前が `<navigation property name><primary key property name>` であれば、それを外部キーとして解釈します。 たとえば、`Student` ナビゲーション プロパティの `StudentID` です。`Student` エンティティの主キーは `ID` であるからです。 外部キーのプロパティには `<primary key property name>` という名前を付けることもできます。 たとえば、`CourseID` にします。`Course` エンティティの主キーが `CourseID` であるからです。
 
 ### <a name="the-course-entity"></a>Course エンティティ
 
 ![Course エンティティの図](intro/_static/course-entity.png)
 
-以下のコードを使用して、*[Models]* フォルダーで、*Course.cs* を作成します。
+以下のコードを使用して、*Models* フォルダーで、*Course.cs* を作成します。
 
 [!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Intro)]
 
 `Enrollments` プロパティはナビゲーション プロパティです。 1 つの `Course` エンティティにたくさんの `Enrollment` エンティティを関連付けることができます。
 
-`DatabaseGenerated` 属性によって、DB に生成させるのではなく、アプリで主キーを指定できます。
+`DatabaseGenerated` 属性によって、アプリで主キーを指定できます。DB に生成させるのではありません。
 
 ## <a name="create-the-schoolcontext-db-context"></a>SchoolContext DB コンテキストを作成する
 
@@ -142,7 +143,7 @@ EF Core は名前が `<navigation property name><primary key property name>` で
 
 プロジェクト フォルダーで、*Data* という名前のフォルダーを作成します。
 
-*[データ]* フォルダーで、次のコードで *SchoolContext.cs* を作成します。
+*Data* フォルダーで、次のコードで *SchoolContext.cs* を作成します。
 
 [!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
 
@@ -151,15 +152,15 @@ EF Core は名前が `<navigation property name><primary key property name>` で
 * エンティティ セットは通常、DB テーブルに対応します。
 * エンティティはテーブル内の行に対応します。
 
-`DbSet<Enrollment>` と `DbSet<Course>` は省略できます。 EF Core にはそれらが暗黙的に含まれることがあります。`Student` エンティティが `Enrollment` エンティティを参照し、`Enrollment` エンティティが `Course` エンティティを参照するためです。 このチュートリアルでは、`SchoolContext` に `DbSet<Enrollment>` と `DbSet<Course>` を残します。
+`DbSet<Enrollment>` と `DbSet<Course>` は省略できます。 EF Core にはそれらが暗黙的に含まれます。`Student` エンティティが `Enrollment` エンティティを参照し、`Enrollment` エンティティが `Course` エンティティを参照するためです。 このチュートリアルでは、`SchoolContext` に `DbSet<Enrollment>` と `DbSet<Course>` を残します。
 
-DB が作成されると、EF Core によって、`DbSet` プロパティと同じ名前を持つテーブルが作成されます。 コレクションのプロパティ名は通常、複数形になります (Student ではなく Students)。 テーブル名を複数形にするかどうかについては、開発者の間で意見が分かれます。 このチュートリアル シリーズでは、DbContext に単数のテーブル名を指定して既定の動作をオーバーライドします。 単数形のテーブル名を指定するには、次の強調表示されているコードを追加します。
+DB が作成されると、EF Core によって、`DbSet` プロパティと同じ名前を持つテーブルが作成されます。 コレクションのプロパティ名は通常、複数形になります (Student ではなく Students)。 テーブル名を複数形にするかどうかについては、開発者の間で意見が分かれます。 このチュートリアル シリーズでは、DbContext に単数形のテーブル名を指定して既定の動作をオーバーライドします。 単数形のテーブル名を指定するには、次の強調表示されているコードを追加します。
 
 [!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
 
-## <a name="register-the-context-with-dependency-injection"></a>依存関係の挿入にコンテキストを登録する
+## <a name="register-the-context-with-dependency-injection"></a>依存関係挿入にコンテキストを登録する
 
-ASP.NET Core には、[依存関係挿入](xref:fundamentals/dependency-injection)が含まれています。 サービス (EF Core DB コンテキストなど) は、アプリケーションの起動時に依存関係の挿入に登録されます。 これらのサービス (Razor ページなど) を必要とするコンポーネントには、コンストラクターのパラメーターを介してこれらのサービスが指定されます。 チュートリアルの後半では、db コンテキスト インスタンスを取得するコンストラクター コードを示します。
+ASP.NET Core には、[依存関係挿入](xref:fundamentals/dependency-injection)が含まれています。 サービス (EF Core DB コンテキストなど) は、アプリケーションの起動時に依存関係挿入に登録されます。 これらのサービスを必要とするコンポーネント (Razor ページなど) には、コンストラクターのパラメーターを介してこれらのサービスが指定されます。 db コンテキスト インスタンスを取得するコンストラクター コードは、チュートリアルの後半で示します。
 
 `SchoolContext` をサービスとして登録するには、*Startup.cs* を開き、強調表示されている行を `ConfigureServices` メソッドに追加します。
 
@@ -167,7 +168,7 @@ ASP.NET Core には、[依存関係挿入](xref:fundamentals/dependency-injectio
 
 `DbContextOptionsBuilder` オブジェクトでメソッドが呼び出され、接続文字列の名前がコンテキストに渡されます。 ローカル開発の場合、[ASP.NET Core 構成システム](xref:fundamentals/configuration/index)が *appsettings.json* ファイルから接続文字列を読み取ります。
 
-名前空間の `using` と `ContosoUniversity.Data` に `Microsoft.EntityFrameworkCore` ステートメントを追加します。 プロジェクトをビルドします。
+`using` ステートメントを名前空間 `ContosoUniversity.Data` と `Microsoft.EntityFrameworkCore` に追加します。 プロジェクトをビルドします。
 
 [!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_Usings)]
 
@@ -183,9 +184,9 @@ ASP.NET Core には、[依存関係挿入](xref:fundamentals/dependency-injectio
 
 ## <a name="add-code-to-initialize-the-db-with-test-data"></a>テスト データで DB を初期化するコードを追加する
 
-EF Core によって空の DB が作成されます。 このセクションでは、テスト データを入力するために *Seed* メソッドを記述します。
+EF Core によって空の DB が作成されます。 このセクションでは、それにテスト データを入力するために *Seed* メソッドを記述します。
 
-*[データ]* フォルダーで、*DbInitializer.cs* という名前の新しいクラス ファイルを作成し、次のコードを追加します。
+*Data* フォルダーで、*DbInitializer.cs* という名前の新しいクラス ファイルを作成し、次のコードを追加します。
 
 [!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
 
@@ -259,22 +260,22 @@ No executable found matching command "dotnet-aspnet-codegenerator"
  <a name="test"></a>
 ### <a name="test-the-app"></a>アプリのテスト
 
-アプリを実行し、**[Students]** リンクを選択します。 ブラウザーの幅にもよりますが、**[Students]** リンクはページの一番上に表示されます。 **[Students]** リンクが表示されない場合、右上隅にあるナビゲーション リンクをクリックしてください。
+アプリを実行し、**[Students]\(学生\)** リンクを選択します。 ブラウザーの幅にもよりますが、**[Students]\(学生\)** リンクはページの一番上に表示されます。 **[Students]\(学生\)** リンクが表示されない場合、右上隅にあるナビゲーション アイコンをクリックしてください。
 
 ![Contoso University のホーム ページ (ウィンドウ幅が狭いとき)](intro/_static/home-page-narrow.png)
 
-**[作成]**、**[編集]**、**[詳細]** リンクをテストします。
+**[Create]\(作成\)**、**[Edit]\(編集\)**、**[Details]\(詳細\)** リンクをテストします。
 
-## <a name="view-the-db"></a>DB の表示
+## <a name="view-the-db"></a>DB を表示する
 
 アプリが起動すると、`DbInitializer.Initialize` は `EnsureCreated` を呼び出します。 `EnsureCreated` は DB の存在を検出し、必要に応じて DB を作成します。 DB に学生が入っていない場合、`Initialize` メソッドによって学生が追加されます。
 
-Visual Studio の **[表示]** メニューから **SQL Server オブジェクト エクスプローラー** (SSOX) を開くことができます。
+Visual Studio の **[表示]** メニューから **SQL Server オブジェクト エクスプローラー** (SSOX) を開きます。
 SSOX で、**(localdb)\MSSQLLocalDB > Databases > ContosoUniversity1** をクリックします。
 
-**Tables** ノードを展開します。
+**[Tables]\(テーブル\)** ノードを展開します。
 
-**[Student]** テーブルを右クリックし、**[データの表示]** をクリックすると、作成された列とテーブルに挿入された行が表示されます。
+**[Student]\(学生\)** テーブルを右クリックし、**[View Data]\(データの表示\)** をクリックすると、作成された列とテーブルに挿入された行が表示されます。
 
 <em>.mdf</em> ファイルと <em>.ldf</em> DB ファイルは <em>C:\Users\\<yourusername></em> フォルダーにあります。
 
@@ -284,7 +285,7 @@ SSOX で、**(localdb)\MSSQLLocalDB > Databases > ContosoUniversity1** をクリ
 * DB スキーマを変更します (たとえば、`EmailAddress` フィールドを追加します)。
 * アプリを実行します。
 
-`EnsureCreated` によって、DB と `EmailAddress` 列が作成されます。
+`EnsureCreated` によって、`EmailAddress` 列を含む DB が作成されます。
 
 ## <a name="conventions"></a>規約
 
@@ -298,15 +299,15 @@ SSOX で、**(localdb)\MSSQLLocalDB > Databases > ContosoUniversity1** をクリ
 
 * *<navigation property name><primary key property name>* という名前が付いている場合、プロパティは外部キー プロパティとして解釈されます。たとえば、`Student` ナビゲーション プロパティの `StudentID` です。`Student` エンティティの主キーが `ID` であるためです。 外部キーには「*<primary key property name>*」という名前を付けることができます。たとえば、`EnrollmentID` です。`Enrollment` エンティティの主キーが `EnrollmentID` であるためです。
 
-従来の動作をオーバーライドできます。 たとえば、このチュートリアルで先に示したように、テーブル名を明示的に指定できます。 列名を明示的に設定できます。 主キーと外部キーを明示的に設定できます。
+規約の動作はオーバーライドできます。 たとえば、このチュートリアルで先に示したように、テーブル名を明示的に指定できます。 列名を明示的に設定できます。 主キーと外部キーを明示的に設定できます。
 
 ## <a name="asynchronous-code"></a>非同期コード
 
 ASP.NET Core と EF Core では、非同期プログラミングが既定のモードです。
 
-Web サーバーでは、利用できるスレッド数に限りがあります。負荷が高い状況では、利用できるスレッドが全部使われる可能性があります。 その場合、スレッドが解放されるまでサーバーは新しい要求を処理できません。 同期コードの場合、たくさんのスレッドが関連付けられていても、I/O の完了を待っているため、実際には何の作業も行っていないということがあります。 非同期コードの場合、あるプロセスが I/O の完了を待っているとき、多の要求の処理にサーバーが利用できるようにそのスレッドが解放されます。 結果として、非同期コードの場合、サーバー リソースをより効率的に利用できます。サーバーは、より多くのトラフィックを遅延なく処理できます。
+Web サーバーでは、利用できるスレッド数に限りがあります。負荷が高い状況では、利用できるスレッドが全部使われる可能性があります。 その場合、スレッドが解放されるまでサーバーは新しい要求を処理できません。 同期コードの場合、たくさんのスレッドが関連付けられていても、I/O の完了を待っているため、実際には何の作業も行っていないということがあります。 非同期コードの場合、あるプロセスが I/O の完了を待っているとき、そのスレッドは解放され、サーバーによって他の要求の処理に利用できます。 結果として、非同期コードの場合、サーバー リソースをより効率的に利用できます。サーバーは、より多くのトラフィックを遅延なく処理できます。
 
-非同期コードは、実行時、少量のオーバーヘッドを発生させます。 トラフィックが少ない場合、パフォーマンスに与える影響は無視して構わない程度です。トラフィックが多い場合、相当なパフォーマンス改善が見込まれます。
+非同期コードが実行時に発生させるオーバーヘッドは少量です。 トラフィックが少ない場合、パフォーマンスに与える影響は無視して構わない程度です。トラフィックが多い場合、相当なパフォーマンス改善が見込まれます。
 
 次のコードでは、キーワード `async`、戻り値 `Task<T>`、キーワード `await`、メソッド `ToListAsync` によりコードの実行が非同期になります。
 
@@ -315,7 +316,7 @@ Web サーバーでは、利用できるスレッド数に限りがあります�
 * キーワード `async` は次のことをコンパイラに指示します。
 
   * メソッド本文の一部にコールバックを生成する。
-  * 返された [Task](/dotnet/api/system.threading.tasks.task?view=netframework-4.7) オブジェクトを自動作成する。 詳細については、「[Task の戻り値の型](/dotnet/csharp/programming-guide/concepts/async/async-return-types#BKMK_TaskReturnType)」を参照してください。
+  * 返された [Task](/dotnet/api/system.threading.tasks.task?view=netframework-4.7) オブジェクトを自動作成する。 詳細については、[Task の戻り値の型](/dotnet/csharp/programming-guide/concepts/async/async-return-types#BKMK_TaskReturnType)に関する記事を参照してください。
 
 * 暗黙の戻り値の型 `Task` は進行中の作業を表します。
 
