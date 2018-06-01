@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: a0b96f480aaa3941cf63b25780c5a1d9d4b2dbb0
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: cabb5acc6e593c02c20b3403b39c601ce26a4d99
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34688984"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET Core で Facebook 外部ログインのセットアップ
 
@@ -23,7 +24,7 @@ ms.lasthandoff: 05/12/2018
 
 ## <a name="create-the-app-in-facebook"></a>Facebook でのアプリを作成します。
 
-*  移動し、 [Facebook Developers アプリ](https://developers.facebook.com/apps/)ページし、サインインします。 既に Facebook アカウントを持っていない場合は使用して、 **Facebook にサインアップする**作成するのにはログイン ページにリンクします。
+* 移動し、 [Facebook Developers アプリ](https://developers.facebook.com/apps/)ページし、サインインします。 既に Facebook アカウントを持っていない場合は使用して、 **Facebook にサインアップする**作成するのにはログイン ページにリンクします。
 
 * タップして、**アプリを追加する新しい**新しいアプリ ID を作成する右上隅のボタン
 
@@ -87,6 +88,8 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 ```
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
+
+[!INCLUDE[](~/includes/chain-auth-providers.md)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 

@@ -10,17 +10,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/gdpr
-ms.openlocfilehash: 3adfd1703dbf6446356886a662168bf1dbf65d56
-ms.sourcegitcommit: 300a1127957dcdbce1b6ad79a7b9dc676f571510
-ms.translationtype: HT
+ms.openlocfilehash: 92a7000f4f8e4c2097065cb530fe106ef0e98545
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34688628"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>ASP.NET Core でのヨーロッパ一般的なデータ保護規制 (GDPR) のサポート
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core 提供の Api とテンプレートの一部を達成するために、 [UE 一般的なデータ保護規制 (GDPR)](https://www.eugdpr.org/)要件。
+ASP.NET Core 提供の Api とテンプレートの一部を達成するために、[ヨーロッパ一般的なデータ保護規制 (GDPR)](https://www.eugdpr.org/)要件。
 
 * プロジェクト テンプレートには、拡張点およびプライバシーと cookie を使用してポリシーを置き換えることができますスタブのマークアップが含まれます。
 * Cookie 同意機能は使用すると、同意を求める (および追跡) を個人情報を格納するため、ユーザーから使用できます。 ユーザーがデータの収集に同意したいないと、アプリが設定されている場合[CheckConsentNeeded](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.checkconsentneeded?view=aspnetcore-2.1#Microsoft_AspNetCore_Builder_CookiePolicyOptions_CheckConsentNeeded)に`true`不要な cookie はブラウザーに送信されません。
@@ -28,9 +29,9 @@ ASP.NET Core 提供の Api とテンプレートの一部を達成するため�
 * [TempData とセッションの cookie](#tempdata)追跡が無効にした場合は機能しません。
 * [Identity 管理](#pd)をダウンロードして、ユーザー データを削除するリンクを提供します。
 
-[サンプル アプリ](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr)GDPR 拡張点および ASP.NET Core 2.1 テンプレートに追加された Api のほとんどをテストすることができます。 参照してください、 [ReadMe](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr)指示をテストするためのファイルです。
+[サンプル アプリ](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample)GDPR 拡張点および ASP.NET Core 2.1 テンプレートに追加された Api のほとんどをテストすることができます。 参照してください、 [ReadMe](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample)指示をテストするためのファイルです。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 ## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>テンプレートの ASP.NET Core GDPR サポートで生成されたコード
 
@@ -38,7 +39,7 @@ Razor ページと MVC プロジェクト テンプレートで作成したプ�
 
 * [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions?view=aspnetcore-2.0)と[UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_CookiePolicyAppBuilderExtensions_UseCookiePolicy_Microsoft_AspNetCore_Builder_IApplicationBuilder_)で設定されている`Startup`です。
 * *_CookieConsentPartial.cshtml* [部分ビュー](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)です。
-* *Pages/Privacy.cshtml*または*Home/rivacy.cshtml*ビューには、サイトのプライバシー ポリシーの詳細のページが用意されています。 *_CookieConsentPartial.cshtml*ファイルには、プライバシーに関するページへのリンクが生成されます。
+* *Pages/Privacy.cshtml*または*Home/Privacy.cshtml*ビューには、サイトのプライバシー ポリシーの詳細のページが用意されています。 *_CookieConsentPartial.cshtml*ファイルには、プライバシーに関するページへのリンクが生成されます。
 * アプリケーションの個々 のユーザー アカウントで作成された場合は、管理 ページをダウンロードして、削除するへのリンクを示します。[ユーザーの個人データ](#pd)です。
 
 ### <a name="cookiepolicyoptions-and-usecookiepolicy"></a>CookiePolicyOptions と UseCookiePolicy

@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: a481951812e3498a1172dea98aaa162149b86f2b
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: dbcef095561fe656bdd28c4fa6560c6b269a2db0
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34689010"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core で Windows 認証を構成します。
 
@@ -56,7 +57,7 @@ Visual Studio プロジェクト**プロパティ**ページの**デバッグ** 
 
 ## <a name="enable-windows-authentication-with-iis"></a>IIS での Windows 認証を有効にします。
 
-IIS を使用して、 [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)ASP.NET Core アプリケーションをホストします。 モジュール フロー Windows 認証を IIS に既定でします。 Windows 認証は、アプリケーションではなく、IIS で構成されます。 次のセクションでは、IIS マネージャーを使用して、Windows 認証を使用する ASP.NET Core アプリケーションを構成する方法を示します。
+IIS を使用して、 [ASP.NET Core モジュール](xref:fundamentals/servers/aspnet-core-module)ASP.NET Core アプリケーションをホストします。 モジュールは、既定では IIS にフローする Windows 認証を許可します。 Windows 認証は、アプリケーションではなく、IIS で構成されます。 次のセクションでは、IIS マネージャーを使用して、Windows 認証を使用する ASP.NET Core アプリケーションを構成する方法を示します。
 
 ### <a name="create-a-new-iis-site"></a>新しい IIS サイトを作成します。
 

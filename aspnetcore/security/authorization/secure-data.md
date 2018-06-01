@@ -9,11 +9,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: e42f299efcae7c6a0e3d20b157c591eed98c99d0
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 36475776966cfb0cb3bb40477798f6e24df9725d
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34688453"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成します。
 
@@ -303,9 +304,21 @@ Visual Studio のコードを使用してローカルのプラットフォーム
   * 使用してアプリを作成する**個々 のユーザー アカウント**です。
   * 名前を付けます"ContactManager"ので、名前空間のサンプルで使用される名前空間に一致します。
 
+::: moniker range=">= aspnetcore-2.1"
+
+  ```console
+  dotnet new webapp -o ContactManager -au Individual -uld
+  ```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
   ```console
   dotnet new razor -o ContactManager -au Individual -uld
   ```
+
+::: moniker-end
 
   * `-uld` SQLite ではなく LocalDB を指定します
 
