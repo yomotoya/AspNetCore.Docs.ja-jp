@@ -11,12 +11,12 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: eb14fbf42f5c18ccdc3ca42af8fd8bcfaa15c623
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: 880abd87805990baf8dd977c340a60582e54d2df
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34688589"
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729503"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>ASP.NET Core の SignalR を概要します。
 
@@ -75,7 +75,7 @@ Visual Studio が含まれています、`Microsoft.AspNetCore.SignalR`パッケ
     npm install @aspnet/signalr
     ```     
 
-4. コピー、 *signalr.js*ファイルから*node_modules\\ @aspnet\signalr\dist\browser* を*lib*プロジェクトのフォルダーにします。
+4. 内に"signalr"をという名前の新しいフォルダーを作成、 *lib*プロジェクトのフォルダーにします。 コピーし、 *signalr.js*ファイルから*node_modules\\ @aspnet\signalr\dist\browser* このフォルダーにします。
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -102,7 +102,7 @@ Visual Studio が含まれています、`Microsoft.AspNetCore.SignalR`パッケ
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-1. クラスを選択してプロジェクトに追加**ファイル** > **新規** > **ファイル**を選択して**Visual c# クラス**です。
+1. クラスを選択してプロジェクトに追加**ファイル** > **新規** > **ファイル**を選択して**Visual c# クラス**です。 ファイルの名前を付けます*ChatHub*です。 
 
 2. 継承`Microsoft.AspNetCore.SignalR.Hub`です。 `Hub`プロパティおよび接続とグループ、さらに送信側と受信側のデータを管理するためのイベント クラスが含まれています。
 

@@ -12,11 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: cee5fded4d8005df6054ab921f39882c3e5f21b8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5b3b9b82fa64155c1dfd2a49649def10d7dae87e
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729182"
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4 での非同期メソッドの使用
 ====================
@@ -43,7 +44,7 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 
 ## <a name="processing-asynchronous-requests"></a>非同期要求の処理
 
-多数の起動時に同時要求を表示または (ここで同時実行制御が増える突然) バースト負荷が用意されている web アプリケーションでは、これらの web サービス呼び出しを非同期に作成すると、アプリケーションの応答性が向上します。 非同期の要求には、同期要求として処理には同じ時間がかかります。 たとえば、要求によって、web サービスを呼び出す場合に、2 秒完了するには、要求が 2 秒間同期または非同期で実行されるかどうかが必要です。 ただし、非同期の呼び出し中に、スレッドはブロックされません、最初の要求を完了するまで待機する間、他の要求に応答します。 そのため、非同期要求は、実行時間の長い操作の呼び出しの多くの同時要求がある場合に、要求キューおよびスレッド プールの拡張を防ぐ。
+起動時に同時要求数が多いを参照してくださいまたは (ここで同時実行制御が増える突然) バースト負荷が用意されている web アプリケーションでは、これらの web サービス呼び出しを非同期に作成すると、アプリケーションの応答性が向上します。 非同期の要求には、同期要求として処理には同じ時間がかかります。 たとえば、要求によって、web サービスを呼び出す場合に、2 秒完了するには、要求が 2 秒間同期または非同期で実行されるかどうかが必要です。 ただし、非同期の呼び出し中に、スレッドはブロックされません、最初の要求を完了するまで待機する間、他の要求に応答します。 そのため、非同期要求は、実行時間の長い操作の呼び出しの多くの同時要求がある場合に、要求キューおよびスレッド プールの拡張を防ぐ。
 
 ## <a id="ChoosingSyncVasync"></a>  同期または非同期アクション メソッドを選択します。
 
@@ -61,7 +62,7 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 - 操作があるネットワーク バインドまたは I/O-バインドではなく CPU 主体です。
 - 並列処理は、コードの単純化よりも重要です。
 - ユーザーが実行時間の長い要求をキャンセルできるメカニズムを提供します。
-- ときにスレッドを切り替えるの利点には、コンテキストの切り替えのコストが重み付けされます。 一般に、する必要がありますメソッド非同期作業を行っていないときに、ASP.NET 要求スレッドで、同期メソッドが待機する場合。 呼び出しを非同期に行うには、ASP.NET 要求スレッドが停止していないなしの作業を行う web サービス要求が完了するまで待機するときにします。
+- ときにスレッドを切り替えるの利点は、コンテキストの切り替えのコストを上回ります。 一般に、する必要がありますメソッド非同期作業を行っていないときに、ASP.NET 要求スレッドで、同期メソッドが待機する場合。 呼び出しを非同期に行うには、ASP.NET 要求スレッドが停止していないなしの作業を行う web サービス要求が完了するまで待機するときにします。
 - テストは、ブロック操作は、サイトのパフォーマンスのボトルネックであるし、IIS で非同期メソッドのようなブロッキング呼び出しを使用してより多くの要求を処理できることを示します。
 
   ダウンロード可能なサンプルでは、非同期アクション メソッドを効果的に使用する方法を示します。 このサンプルでは、.NET 4.5 を使用して ASP.NET MVC 4 での非同期プログラミングの簡単なデモを提供するよう設計されました。 このサンプルは、ASP.NET MVC での非同期プログラミングの参照アーキテクチャではありません。 サンプル プログラム呼び出し[ASP.NET Web API](../../../web-api/index.md)メソッドを呼び出している[Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx)実行時間の長い web サービス呼び出しをシミュレートするためにします。 ほとんどの実稼働アプリケーションでは、非同期アクション メソッドを使用するこのような明らかな利点は表示されません。   
@@ -89,7 +90,7 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 `GizmoService GetGizmos`メソッドは、装置のデータの一覧を返す ASP.NET Web API HTTP サービスに URI を渡します。 *WebAPIpgw*プロジェクトには、Web API の実装が含まれている`gizmos, widget`と`product`コント ローラー。  
 次の図では、サンプル プロジェクトからの装置を表示します。
 
-![Gizmos](using-asynchronous-methods-in-aspnet-mvc-4/_static/image1.png)
+![装置](using-asynchronous-methods-in-aspnet-mvc-4/_static/image1.png)
 
 ## <a id="CreatingAsynchGizmos"></a>  装置の非同期アクション メソッドを作成します。
 

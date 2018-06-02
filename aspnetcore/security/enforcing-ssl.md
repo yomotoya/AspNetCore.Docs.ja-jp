@@ -9,53 +9,80 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: 0433ddb3bf1ef0074c683903ad4553cd6a0b4741
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: 24ab83192ded381b46fab337a986f51fb22b2227
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34687819"
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729501"
 ---
-# <a name="enforce-https-in-an-aspnet-core"></a>ASP.NET Core で HTTPS を適用します。
+# <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core で HTTPS を適用します。
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 このドキュメントでは次の方法について説明します:
 
-- すべての要求に HTTPS を必要とさせる。
-- すべての HTTP 要求を HTTPS にリダイレクトさせる。
+* すべての要求に HTTPS を必要とさせる。
+* すべての HTTP 要求を HTTPS にリダイレクトさせる。
 
 > [!WARNING]
-> 機密情報を受信する Web Api で `RequireHttpsAttribute` を使用**しない**でください。 `RequireHttpsAttribute` はブラウザーを HTTP から HTTPS へリダイレクトするために HTTP ステータス コードを使用します。 API クライアントはこれを理解しない場合や、HTTP から HTTPS へのリダイレクトに従わない場合があります。 このようなクライアントは、HTTP 経由で情報を送信することがあります。 Web API は次のいずれかの対策を講じるべきです:
+> 操作を行います**いない**使用[RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute)機密情報を受信する Web Api にします。 `RequireHttpsAttribute` はブラウザーを HTTP から HTTPS へリダイレクトするために HTTP ステータス コードを使用します。 API クライアントはこれを理解しない場合や、HTTP から HTTPS へのリダイレクトに従わない場合があります。 このようなクライアントは、HTTP 経由で情報を送信することがあります。 Web API は次のいずれかの対策を講じるべきです:
 >
->* HTTP をリッスンしない。
->* ステータス コード 400 (無効な要求) で接続を閉じ、要求に応答しない。
+> * HTTP をリッスンしない。
+> * ステータス コード 400 (無効な要求) で接続を閉じ、要求に応答しない。
 
 
 <a name="require"></a>
 ## <a name="require-https"></a>HTTPS が必要
 
 ::: moniker range=">= aspnetcore-2.1"
-Web アプリの呼び出しをすべての ASP.NET Core お勧め`UseHttpsRedirection`すべての HTTP 要求を HTTPS にリダイレクトします。 場合`UseHsts`と呼ばれますが、アプリで呼び出す必要がある前に`UseHttpsRedirection`です。
+
+すべての ASP.NET Core web アプリケーションが HTTPS のリダイレクトのミドルウェアを呼び出すことをお勧め ([UseHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpspolicybuilderextensions.usehttpsredirection)) すべての HTTP 要求を HTTPS にリダイレクトします。
 
 次のコード呼び出し`UseHttpsRedirection`で、`Startup`クラス。
 
-[!code-csharp[sample](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=13)]
+[!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=13)]
 
+次のコード呼び出し[AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpsredirectionservicesextensions.addhttpsredirection)ミドルウェアのオプションを構成します。
 
-コード例を次に示します。
+[!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=14-99)]
 
-[!code-csharp[sample](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=14-99)]
+上記の強調表示されたコード。
 
-* セット`RedirectStatusCode`です。
+* セット[HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode)です。
 * 5001 を HTTPS ポートを設定します。
+
+次のメカニズムでは、ポートが自動的に設定します。
+
+* ミドルウェアを使用してポートを検出できる[IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature)次の条件を適用する場合。
+  - HTTPS エンドポイントを直接 kestrel または HTTP.sys を使用 (Visual Studio のコードのデバッガーでは、アプリの実行にも適用されます)。
+  - のみ**1 つの HTTPS ポート**アプリで使用します。
+* Visual Studio を使用します。
+  - IIS Express、HTTPS 対応があります。
+  - *launchSettings.json*設定、 `sslPort` IIS Express 用です。
+
+> [!NOTE]
+> (たとえば、IIS、IIS Express) は、リバース プロキシの背後にあるアプリの実行時に`IServerAddressesFeature`は使用できません。 ポートを手動で構成する必要があります。 ポートが設定されていない、ときに要求をリダイレクトされません。
+
+設定して、ポートを構成することができます、します。
+
+* `ASPNETCORE_HTTPS_PORT` 環境変数。
+* `http_port` ホストの構成のキー (などを介して*hostsettings.json*またはコマンドライン引数)。
+* [HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport)です。 5001 にポートを設定する方法を示しています。 前の例を参照してください。
+
+> [!NOTE]
+> ポートを設定することが直接使用して URL を設定して、`ASPNETCORE_URLS`環境変数。 環境変数は、サーバーを構成し、ミドルウェア直接、検出されません経由の HTTPS ポート`IServerAddressesFeature`です。
+
+ポートが設定されていない: 場合
+
+* 要求がリダイレクトされません。
+* ミドルウェアは、警告を記録します。
 
 ::: moniker-end
 
-
 ::: moniker range="< aspnetcore-2.1"
 
-[RequireHttpsAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.RequireHttpsAttribute) は HTTPS を必須とさせるために使用します。 `[RequireHttpsAttribute]` はメソッドまたはコントローラーを装飾するか、またはグローバルに適用することができます。 属性をグローバルに適用するには、`ConfigureServices` の `Startup` に次のコードを追加します:
+[RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) は HTTPS を必須とさせるために使用します。 `[RequireHttpsAttribute]` はメソッドまたはコントローラーを装飾するか、またはグローバルに適用することができます。 属性をグローバルに適用するには、`ConfigureServices` の `Startup` に次のコードを追加します:
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet2&highlight=4-999)]
 
@@ -70,6 +97,7 @@ Web アプリの呼び出しをすべての ASP.NET Core お勧め`UseHttpsRedir
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 <a name="hsts"></a>
 ## <a name="http-strict-transport-security-protocol-hsts"></a>HTTP 厳密なトランスポート セキュリティ プロトコル (HSTS)
 
@@ -77,13 +105,13 @@ Web アプリの呼び出しをすべての ASP.NET Core お勧め`UseHttpsRedir
 
 ASP.NET Core 2.1 以降と HSTS を実装して、`UseHsts`拡張メソッド。 次のコード呼び出し`UseHsts`にアプリがないとき[開発モード](xref:fundamentals/environments):
 
-[!code-csharp[sample](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=10)]
+[!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=10)]
 
 `UseHsts` 開発のことをお勧めためには HSTS ヘッダーがブラウザーでキャッシュ可能な高度です。 既定では、UseHsts はローカル ループバック アドレスを除外します。
 
 コード例を次に示します。
 
-[!code-csharp[sample](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=5-12)]
+[!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=5-12)]
 
 * Strict トランスポート セキュリティ ヘッダーのプリロード パラメーターを設定します。 プリロードされていないの一部、 [RFC HSTS 仕様](https://tools.ietf.org/html/rfc6797)が新規インストールで HSTS サイトをプリロードする web ブラウザーでサポートされています。 詳細については、「[https://hstspreload.org/](https://hstspreload.org/)」を参照してください。
 * により、 [includeSubDomain](https://tools.ietf.org/html/rfc6797#section-6.1.2)、HSTS ポリシー サブドメインをホストに適用されます。 
@@ -99,12 +127,12 @@ ASP.NET Core 2.1 以降と HSTS を実装して、`UseHsts`拡張メソッド。
 前の例では、他のホストを追加する方法を示します。
 ::: moniker-end
 
-
 ::: moniker range=">= aspnetcore-2.1"
+
 <a name="https"></a>
 ## <a name="opt-out-of-https-on-project-creation"></a>オプトアウト HTTPS でプロジェクトの作成
 
-ASP.NET Core 2.1 とそれ以降の web アプリケーション テンプレート (Visual Studio dotnet コマンドラインから) を有効にする[HTTPS リダイレクト](#require)と[HSTS](#hsts)です。 HTTPS は必要ありません、展開にすることができますオプトアウト HTTPS です。 たとえば、ここで HTTPS を処理している外部で、エッジに各ノードで HTTPS を使用して一部のバックエンド サービスは必要ありません。
+(Visual Studio または dotnet コマンド ライン) から ASP.NET Core 2.1 以降の web アプリケーション テンプレートを使用する[HTTPS リダイレクト](#require)と[HSTS](#hsts)です。 HTTPS は必要ありません、展開にすることができますオプトアウト HTTPS です。 たとえば、ここで HTTPS を処理している外部で、エッジに各ノードで HTTPS を使用して一部のバックエンド サービスは必要ありません。
 
 無効にするは、HTTPS:
 
@@ -127,6 +155,7 @@ dotnet new webapp --no-https
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 ## <a name="how-to-setup-a-developer-certificate-for-docker"></a>Docker の開発者の証明書をセットアップする方法
 
 参照してください[この GitHub 問題](https://github.com/aspnet/Docs/issues/6199)です。
