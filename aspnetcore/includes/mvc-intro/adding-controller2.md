@@ -1,63 +1,63 @@
-*Controllers/HelloWorldController.cs* の内容を次のように置き換えます。
+<span data-ttu-id="30796-101">*Controllers/HelloWorldController.cs* の内容を次のように置き換えます。</span><span class="sxs-lookup"><span data-stu-id="30796-101">Replace the contents of *Controllers/HelloWorldController.cs* with the following:</span></span>
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
 
-コントローラーのすべての `public` メソッドが、HTTP エンドポイントとして呼び出されます。 上のサンプルでは、両方のメソッドが文字列を返します。  各メソッドの前のコメントに注意してください。
+<span data-ttu-id="30796-102">コントローラーのすべての `public` メソッドが、HTTP エンドポイントとして呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="30796-102">Every `public` method in a controller is callable as an HTTP endpoint.</span></span> <span data-ttu-id="30796-103">上のサンプルでは、両方のメソッドが文字列を返します。</span><span class="sxs-lookup"><span data-stu-id="30796-103">In the sample above, both methods return a string.</span></span>  <span data-ttu-id="30796-104">各メソッドの前のコメントに注意してください。</span><span class="sxs-lookup"><span data-stu-id="30796-104">Note the comments preceding each method.</span></span>
 
-HTTP エンドポイントは、Web アプリケーション内のターゲット設定可能な URL (`http://localhost:1234/HelloWorld` など) であり、使われているプロトコル (`HTTP`)、Web サーバーの (TCP ポートを含む) ネットワーク上の場所 (`localhost:1234`)、ターゲットの URI (`HelloWorld`) を組み合わせたものです。
+<span data-ttu-id="30796-105">HTTP エンドポイントは、Web アプリケーション内のターゲット設定可能な URL (`http://localhost:1234/HelloWorld` など) であり、使われているプロトコル (`HTTP`)、Web サーバーの (TCP ポートを含む) ネットワーク上の場所 (`localhost:1234`)、ターゲットの URI (`HelloWorld`) を組み合わせたものです。</span><span class="sxs-lookup"><span data-stu-id="30796-105">An HTTP endpoint is a targetable URL in the web application, such as `http://localhost:1234/HelloWorld`, and combines the protocol used: `HTTP`, the network location of the web server (including the TCP port): `localhost:1234` and the target URI `HelloWorld`.</span></span>
 
-1 番目のコメントは、これが [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) メソッドであり、ベース URL に "/HelloWorld/" を追加することによって呼び出されることを示しています。 2 番目のコメントは、URL に "/HelloWorld/Welcome/" を追加することによって呼び出される [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) メソッドを示しています。 このチュートリアルではこの後、スキャフォールディング エンジンを使って `HTTP POST` メソッドを生成します。
+<span data-ttu-id="30796-106">1 番目のコメントは、これが [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) メソッドであり、ベース URL に "/HelloWorld/" を追加することによって呼び出されることを示しています。</span><span class="sxs-lookup"><span data-stu-id="30796-106">The first comment states this is an [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) method that's invoked by appending "/HelloWorld/" to the base URL.</span></span> <span data-ttu-id="30796-107">2 番目のコメントは、URL に "/HelloWorld/Welcome/" を追加することによって呼び出される [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) メソッドを示しています。</span><span class="sxs-lookup"><span data-stu-id="30796-107">The second comment specifies an [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) method that's invoked by appending "/HelloWorld/Welcome/" to the URL.</span></span> <span data-ttu-id="30796-108">このチュートリアルではこの後、スキャフォールディング エンジンを使って `HTTP POST` メソッドを生成します。</span><span class="sxs-lookup"><span data-stu-id="30796-108">Later on in the tutorial you'll use the scaffolding engine to generate `HTTP POST` methods.</span></span>
 
-非デバッグ モードでアプリを実行し、アドレス バーのパスに "HelloWorld" を追加します。 `Index` メソッドが文字列を返します。
+<span data-ttu-id="30796-109">非デバッグ モードでアプリを実行し、アドレス バーのパスに "HelloWorld" を追加します。</span><span class="sxs-lookup"><span data-stu-id="30796-109">Run the app in non-debug mode and append "HelloWorld" to the path in the address bar.</span></span> <span data-ttu-id="30796-110">`Index` メソッドが文字列を返します。</span><span class="sxs-lookup"><span data-stu-id="30796-110">The `Index` method returns a string.</span></span>
 
-!["This is my default action" というアプリケーションの応答が表示されているブラウザー ウィンドウ](../../tutorials/first-mvc-app/adding-controller/_static/hell1.png)
+!["This is my default action" というアプリケーションの応答が表示されているブラウザー ウィンドウ](~/tutorials/first-mvc-app/adding-controller/_static/hell1.png)
 
-MVC は、着信 URL に応じてコントローラー クラス (およびそれらに含まれるアクション メソッド) を呼び出します。 MVC によって使われる既定の [URL ルーティング ロジック](xref:mvc/controllers/routing)では、次のような形式を使って呼び出すコードが決定されます。
+<span data-ttu-id="30796-112">MVC は、着信 URL に応じてコントローラー クラス (およびそれらに含まれるアクション メソッド) を呼び出します。</span><span class="sxs-lookup"><span data-stu-id="30796-112">MVC invokes controller classes (and the action methods within them) depending on the incoming URL.</span></span> <span data-ttu-id="30796-113">MVC によって使われる既定の [URL ルーティング ロジック](xref:mvc/controllers/routing)では、次のような形式を使って呼び出すコードが決定されます。</span><span class="sxs-lookup"><span data-stu-id="30796-113">The default [URL routing logic](xref:mvc/controllers/routing) used by MVC uses a format like this to determine what code to invoke:</span></span>
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-ルーティングの形式は、*Startup.cs* ファイル内の`Configure` メソッドで設定します。
+<span data-ttu-id="30796-114">ルーティングの形式は、*Startup.cs* ファイル内の`Configure` メソッドで設定します。</span><span class="sxs-lookup"><span data-stu-id="30796-114">You set the format for routing in the `Configure` method in *Startup.cs* file.</span></span>
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
-URL セグメントを指定しないでアプリを実行すると、既定により、"Home" コントローラーと "Index" メソッドが、上の強調表示されている template 行で指定されます。
+<span data-ttu-id="30796-115">URL セグメントを指定しないでアプリを実行すると、既定により、"Home" コントローラーと "Index" メソッドが、上の強調表示されている template 行で指定されます。</span><span class="sxs-lookup"><span data-stu-id="30796-115">When you run the app and don't supply any URL segments, it defaults to the "Home" controller and the "Index" method specified in the template line highlighted above.</span></span>
 
-1 番目の URL セグメントでは、実行するコントローラー クラスが決定されます。 したがって、`localhost:xxxx/HelloWorld` は `HelloWorldController` クラスにマップします。 URL セグメントの 2 番目の部分では、クラスのアクション メソッドが決定されます。 したがって、`localhost:xxxx/HelloWorld/Index` では `HelloWorldController` クラスの `Index` メソッドが実行されます。 参照する必要があるのは `localhost:xxxx/HelloWorld` だけであり、`Index` メソッドは既定で呼び出されることに注意してください。 これは、`Index` はメソッド名が明示的に指定されていない場合にコントローラーで呼び出される既定のメソッドであるためです。 URL セグメントの 3 番目の部分 (`id`) はルート データ用です。 ルート データについては後で説明します。
+<span data-ttu-id="30796-116">1 番目の URL セグメントでは、実行するコントローラー クラスが決定されます。</span><span class="sxs-lookup"><span data-stu-id="30796-116">The first URL segment determines the controller class to run.</span></span> <span data-ttu-id="30796-117">したがって、`localhost:xxxx/HelloWorld` は `HelloWorldController` クラスにマップします。</span><span class="sxs-lookup"><span data-stu-id="30796-117">So `localhost:xxxx/HelloWorld` maps to the `HelloWorldController` class.</span></span> <span data-ttu-id="30796-118">URL セグメントの 2 番目の部分では、クラスのアクション メソッドが決定されます。</span><span class="sxs-lookup"><span data-stu-id="30796-118">The second part of the URL segment determines the action method on the class.</span></span> <span data-ttu-id="30796-119">したがって、`localhost:xxxx/HelloWorld/Index` では `HelloWorldController` クラスの `Index` メソッドが実行されます。</span><span class="sxs-lookup"><span data-stu-id="30796-119">So `localhost:xxxx/HelloWorld/Index` would cause the `Index` method of the `HelloWorldController` class to run.</span></span> <span data-ttu-id="30796-120">参照する必要があるのは `localhost:xxxx/HelloWorld` だけであり、`Index` メソッドは既定で呼び出されることに注意してください。</span><span class="sxs-lookup"><span data-stu-id="30796-120">Notice that you only had to browse to `localhost:xxxx/HelloWorld` and the `Index` method was called by default.</span></span> <span data-ttu-id="30796-121">これは、`Index` はメソッド名が明示的に指定されていない場合にコントローラーで呼び出される既定のメソッドであるためです。</span><span class="sxs-lookup"><span data-stu-id="30796-121">This is because `Index` is the default method that will be called on a controller if a method name isn't explicitly specified.</span></span> <span data-ttu-id="30796-122">URL セグメントの 3 番目の部分 (`id`) はルート データ用です。</span><span class="sxs-lookup"><span data-stu-id="30796-122">The third part of the URL segment ( `id`) is for route data.</span></span> <span data-ttu-id="30796-123">ルート データについては後で説明します。</span><span class="sxs-lookup"><span data-stu-id="30796-123">You'll see route data later on in this tutorial.</span></span>
 
-`http://localhost:xxxx/HelloWorld/Welcome` を参照します。 `Welcome` メソッドが実行され、"This is the Welcome action method..." という文字列を返します。 この URL では、コントローラーは `HelloWorld` で、`Welcome` がアクション メソッドです。 URL の `[Parameters]` の部分はまだ使っていません。
+<span data-ttu-id="30796-124">`http://localhost:xxxx/HelloWorld/Welcome` を参照します。</span><span class="sxs-lookup"><span data-stu-id="30796-124">Browse to `http://localhost:xxxx/HelloWorld/Welcome`.</span></span> <span data-ttu-id="30796-125">`Welcome` メソッドが実行され、"This is the Welcome action method..." という文字列を返します。</span><span class="sxs-lookup"><span data-stu-id="30796-125">The `Welcome` method runs and returns the string "This is the Welcome action method...".</span></span> <span data-ttu-id="30796-126">この URL では、コントローラーは `HelloWorld` で、`Welcome` がアクション メソッドです。</span><span class="sxs-lookup"><span data-stu-id="30796-126">For this URL, the controller is `HelloWorld` and `Welcome` is the action method.</span></span> <span data-ttu-id="30796-127">URL の `[Parameters]` の部分はまだ使っていません。</span><span class="sxs-lookup"><span data-stu-id="30796-127">You haven't used the `[Parameters]` part of the URL yet.</span></span>
 
-!["This is the Welcome action method" というアプリケーションの応答が表示されているブラウザー ウィンドウ](../../tutorials/first-mvc-app/adding-controller/_static/welcome.png)
+!["This is the Welcome action method" というアプリケーションの応答が表示されているブラウザー ウィンドウ](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
-URL からコントローラーにいくつかのパラメーター情報を渡すように、コードを変更します。 たとえば、`/HelloWorld/Welcome?name=Rick&numtimes=4` のようにします。 次のコードで示すように、2 つのパラメーターを含むように `Welcome` メソッドを変更します。 
+<span data-ttu-id="30796-129">URL からコントローラーにいくつかのパラメーター情報を渡すように、コードを変更します。</span><span class="sxs-lookup"><span data-stu-id="30796-129">Modify the code to pass some parameter information from the URL to the controller.</span></span> <span data-ttu-id="30796-130">たとえば、`/HelloWorld/Welcome?name=Rick&numtimes=4` のようにします。</span><span class="sxs-lookup"><span data-stu-id="30796-130">For example, `/HelloWorld/Welcome?name=Rick&numtimes=4`.</span></span> <span data-ttu-id="30796-131">次のコードで示すように、2 つのパラメーターを含むように `Welcome` メソッドを変更します。</span><span class="sxs-lookup"><span data-stu-id="30796-131">Change the `Welcome` method to include two parameters as shown in the following code.</span></span> 
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 
-上のコードでは以下の操作が行われます。
+<span data-ttu-id="30796-132">上のコードでは以下の操作が行われます。</span><span class="sxs-lookup"><span data-stu-id="30796-132">The preceding code:</span></span>
 
-* C# のオプション パラメーター機能を使って、`numTimes` パラメーターに値が渡されない場合の既定値が 1 であることを示します。
-* `HtmlEncoder.Default.Encode` を使って、悪意のある入力 (つまり JavaScript) からアプリを保護します。 
-* [補間文字列](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings) を使います。
+* <span data-ttu-id="30796-133">C# のオプション パラメーター機能を使って、`numTimes` パラメーターに値が渡されない場合の既定値が 1 であることを示します。</span><span class="sxs-lookup"><span data-stu-id="30796-133">Uses the C# optional-parameter feature to indicate that the `numTimes` parameter defaults to 1 if no value is passed for that parameter.</span></span>
+* <span data-ttu-id="30796-134">`HtmlEncoder.Default.Encode` を使って、悪意のある入力 (つまり JavaScript) からアプリを保護します。</span><span class="sxs-lookup"><span data-stu-id="30796-134">Uses`HtmlEncoder.Default.Encode` to protect the app from malicious input (namely JavaScript).</span></span> 
+* <span data-ttu-id="30796-135">[補間文字列](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings) を使います。</span><span class="sxs-lookup"><span data-stu-id="30796-135">Uses [Interpolated Strings](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings).</span></span>
 
-アプリを実行して次の URL を参照します。
+<span data-ttu-id="30796-136">アプリを実行して次の URL を参照します。</span><span class="sxs-lookup"><span data-stu-id="30796-136">Run your app and browse to:</span></span>
 
    `http://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-(xxxx は実際のポート番号に置き換えます)URL の `name` と `numtimes` に違う値を指定してみてください。 MVC の[モデル バインド](xref:mvc/models/model-binding) システムは、名前付きパラメーターを、アドレス バーのクエリ文字列からメソッドのパラメーターに自動的にマップします。 詳しくは、「[モデル バインド](xref:mvc/models/model-binding)」をご覧ください。
+<span data-ttu-id="30796-137">(xxxx は実際のポート番号に置き換えます)URL の `name` と `numtimes` に違う値を指定してみてください。</span><span class="sxs-lookup"><span data-stu-id="30796-137">(Replace xxxx with your port number.) You can try different values for `name` and `numtimes` in  the URL.</span></span> <span data-ttu-id="30796-138">MVC の[モデル バインド](xref:mvc/models/model-binding) システムは、名前付きパラメーターを、アドレス バーのクエリ文字列からメソッドのパラメーターに自動的にマップします。</span><span class="sxs-lookup"><span data-stu-id="30796-138">The MVC [model binding](xref:mvc/models/model-binding) system automatically maps the named parameters from  the query string in the address bar to parameters in your method.</span></span> <span data-ttu-id="30796-139">詳しくは、「[モデル バインド](xref:mvc/models/model-binding)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="30796-139">See [Model Binding](xref:mvc/models/model-binding) for more information.</span></span>
 
-!["Hello Rick, NumTimes is: 4" というアプリケーションの応答が表示されているブラウザー ウィンドウ](../../tutorials/first-mvc-app/adding-controller/_static/rick4.png)
+!["Hello Rick, NumTimes is: 4" というアプリケーションの応答が表示されているブラウザー ウィンドウ](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
-上の図では、URL セグメント (`Parameters`) は使われておらず、`name` および `numTimes` パラメーターは[クエリ文字列](https://wikipedia.org/wiki/Query_string)として渡されています。 上の URL の `?` (疑問符) は区切り記号であり、後にクエリ文字列が続きます。 `&` 文字は、クエリ文字列を区切ります。
+<span data-ttu-id="30796-141">上の図では、URL セグメント (`Parameters`) は使われておらず、`name` および `numTimes` パラメーターは[クエリ文字列](https://wikipedia.org/wiki/Query_string)として渡されています。</span><span class="sxs-lookup"><span data-stu-id="30796-141">In the image above, the URL segment (`Parameters`) isn't used, the `name` and `numTimes` parameters are passed as [query strings](https://wikipedia.org/wiki/Query_string).</span></span> <span data-ttu-id="30796-142">上の URL の `?` (疑問符) は区切り記号であり、後にクエリ文字列が続きます。</span><span class="sxs-lookup"><span data-stu-id="30796-142">The `?` (question mark) in the above URL is a separator, and the query strings follow.</span></span> <span data-ttu-id="30796-143">`&` 文字は、クエリ文字列を区切ります。</span><span class="sxs-lookup"><span data-stu-id="30796-143">The `&` character separates query strings.</span></span>
 
-`Welcome` メソッドを次のコードで置き換えます。
+<span data-ttu-id="30796-144">`Welcome` メソッドを次のコードで置き換えます。</span><span class="sxs-lookup"><span data-stu-id="30796-144">Replace the `Welcome` method with the following code:</span></span>
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
-アプリを実行し、次の URL を入力します。`http://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+<span data-ttu-id="30796-145">アプリを実行し、次の URL を入力します。`http://localhost:xxx/HelloWorld/Welcome/3?name=Rick`</span><span class="sxs-lookup"><span data-stu-id="30796-145">Run the app and enter the following URL:  `http://localhost:xxx/HelloWorld/Welcome/3?name=Rick`</span></span>
 
-!["Hello Rick, ID: 3" というアプリケーションの応答が表示されているブラウザー ウィンドウ](../../tutorials/first-mvc-app/adding-controller/_static/rick_routedata.png)
+!["Hello Rick, ID: 3" というアプリケーションの応答が表示されているブラウザー ウィンドウ](~/tutorials/first-mvc-app/adding-controller/_static/rick_routedata.png)
 
-今度は、3 番目の URL セグメントがルート パラメーター `id` と一致しました。 `Welcome` メソッドには、`MapRoute` メソッドの URL テンプレートと一致したパラメーター `id` が含まれます。 末尾の `?` (`id?`) は、`id` パラメーターが省略可能であることを示します。
+<span data-ttu-id="30796-147">今度は、3 番目の URL セグメントがルート パラメーター `id` と一致しました。</span><span class="sxs-lookup"><span data-stu-id="30796-147">This time the third URL segment  matched the route parameter `id`.</span></span> <span data-ttu-id="30796-148">`Welcome` メソッドには、`MapRoute` メソッドの URL テンプレートと一致したパラメーター `id` が含まれます。</span><span class="sxs-lookup"><span data-stu-id="30796-148">The `Welcome`  method contains a parameter  `id` that matched the URL template in the `MapRoute` method.</span></span> <span data-ttu-id="30796-149">末尾の `?` (`id?`) は、`id` パラメーターが省略可能であることを示します。</span><span class="sxs-lookup"><span data-stu-id="30796-149">The trailing `?`  (in `id?`) indicates the `id` parameter is optional.</span></span>
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
-これらの例では、コントローラーは MVC の "VC" 部分を実行しています。つまり、ビューとコントローラーが動作します。 コントローラーは HTML を直接返しています。 一般に、コントローラーが HTML を直接返すのは、コーディングと保守が非常に面倒になるので、望ましくありません。 代わりに、通常は、別の Razor ビュー テンプレート ファイルを使って、HTML 応答の生成を支援します。 これは次のチュートリアルで行います。
+<span data-ttu-id="30796-150">これらの例では、コントローラーは MVC の "VC" 部分を実行しています。つまり、ビューとコントローラーが動作します。</span><span class="sxs-lookup"><span data-stu-id="30796-150">In these examples the controller has been doing the "VC" portion  of MVC - that is, the view and controller work.</span></span> <span data-ttu-id="30796-151">コントローラーは HTML を直接返しています。</span><span class="sxs-lookup"><span data-stu-id="30796-151">The controller is returning HTML  directly.</span></span> <span data-ttu-id="30796-152">一般に、コントローラーが HTML を直接返すのは、コーディングと保守が非常に面倒になるので、望ましくありません。</span><span class="sxs-lookup"><span data-stu-id="30796-152">Generally you don't want controllers returning HTML directly, since  that becomes very cumbersome to code and maintain.</span></span> <span data-ttu-id="30796-153">代わりに、通常は、別の Razor ビュー テンプレート ファイルを使って、HTML 応答の生成を支援します。</span><span class="sxs-lookup"><span data-stu-id="30796-153">Instead you typically use a separate Razor view template file to help generate the HTML response.</span></span> <span data-ttu-id="30796-154">これは次のチュートリアルで行います。</span><span class="sxs-lookup"><span data-stu-id="30796-154">You do that in the next tutorial.</span></span>
