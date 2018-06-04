@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 397d8bf04abf6be811ad8c91d52565251ac61678
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: b6dbe234973431448c18d3cc82a6ac98d4f53a3b
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34688971"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34730452"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>アカウントの確認と ASP.NET Core でのパスワードの回復
 
@@ -110,7 +110,7 @@ For Visual Studio は。
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>確認の電子メールが必要
 
-新しいユーザーの登録の電子メール アドレスを確認することをお勧めします。 電子メールの他のユーザー偽装はいないしていることを確認するために確認役立ちます (つまり、まだに登録されている他のユーザーの電子メール)。 ディスカッション フォーラムいてしないようにすると仮定します"yli@example.com"として登録する"fromnolivetto@contoso.com"。 電子メールの確認なし"nolivetto@contoso.com"は、アプリから不要な電子メールを受け取ることができます。 ユーザーが誤ってとして登録されていると仮定します"ylo@example.com""yli"のスペル ミスを認識していたとします。 できなく、アプリは、正しいメール アドレスがある見つからないために、パスワードの回復を使用します。 確認の電子メールは、bot から保護には制限を提供します。 確認の電子メールは、多くの電子メール アカウントを持つ悪意のあるユーザーから保護を提供しません。
+新しいユーザーの登録の電子メール アドレスを確認することをお勧めします。 電子メールの他のユーザー偽装はいないしていることを確認するために確認役立ちます (つまり、まだに登録されている他のユーザーの電子メール)。 ディスカッション フォーラムいてしないようにすると仮定します"yli@example.com"として登録する"fromnolivetto@contoso.com"です。 電子メールの確認なし"nolivetto@contoso.com"は、アプリから不要な電子メールを受け取ることができます。 ユーザーが誤ってとして登録されていると仮定します"ylo@example.com""yli"のスペル ミスを認識していたとします。 できなく、アプリは、正しいメール アドレスがある見つからないために、パスワードの回復を使用します。 確認の電子メールは、bot から保護には制限を提供します。 確認の電子メールは、多くの電子メール アカウントを持つ悪意のあるユーザーから保護を提供しません。
 
 一般にする新しいユーザーが確認された電子メールがある前に、web サイトにデータを投稿するを防ぐ。
 
@@ -307,7 +307,7 @@ Web アプリを実行し、アカウントの確認とパスワードの回復�
 
 ## <a name="enable-account-confirmation-after-a-site-has-users"></a>後のサイトがあるユーザー アカウントの確認を有効にします。
 
-有効にするアカウントの確認、サイトでユーザーとは、既存のすべてのユーザーをロックします。 自分のアカウントが確認されないために、既存のユーザーはロックアウトされます。 ユーザーのロックアウトの終了を回避するには、次の方法のいずれかの手順に従います。
+有効にするアカウントの確認、サイトでユーザーとは、既存のすべてのユーザーをロックします。 自分のアカウントが確認されないために、既存のユーザーはロックアウトされます。 既存ユーザーのロックアウトを回避するには、次の方法のいずれかを使用します。
 
 * 確認されているすべての既存ユーザーを示すためにデータベースを更新します。
 * 既存のユーザーを確認します。 たとえば、バッチ送信確認リンクによる電子メールのです。
