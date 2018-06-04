@@ -1,14 +1,14 @@
 *Views/HelloWorld/Index.cshtml* Razor ビュー ファイルの内容を次のコードに置き換えます。
 
-[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
 
 `http://localhost:xxxx/HelloWorld` に移動します。 `HelloWorldController` の `Index` メソッドでは多くのことは行いませんでした。つまり、ステートメント `return View();` を実行し、メソッドでビュー テンプレート ファイルを使用して、ブラウザーへの応答をレンダリングするよう指定しただけです。 ビュー テンプレート ファイルの名前を明示的に指定しなかったため、MVC では既定で */Views/HelloWorld* フォルダー内の *Index.cshtml* ビュー ファイルが使用されました。 次のイメージは、ビューにハード コーディングされた "Hello from our View Template!"  という文字列を示しています。
 
-![ブラウザー ウィンドウ](../../tutorials/first-mvc-app/adding-view/_static/hell_template.png)
+![ブラウザー ウィンドウ](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
 ブラウザー ウィンドウが小さい場合 (モバイル デバイスなどの場合) は、右上にある [Bootstrap のナビゲーション ボタン](http://getbootstrap.com/components/#navbar)を切り替えて (タップして)、**[ホーム]**、**[バージョン情報]**、および **[連絡先]** リンクを表示する必要がある場合があります。
 
-![Bootstrap のナビゲーション ボタンが強調表示されているブラウザー ウィンドウ](../../tutorials/first-mvc-app/adding-view/_static/1.png)
+![Bootstrap のナビゲーション ボタンが強調表示されているブラウザー ウィンドウ](~/tutorials/first-mvc-app/adding-view/_static/1.png)
 
 ## <a name="changing-views-and-layout-pages"></a>ビューとレイアウト ページの変更
 
@@ -20,16 +20,21 @@
 
 タイトル要素で、`MvcMovie` を `Movie App` に変更します。 レイアウト テンプレートのアンカー テキストを `MvcMovie` から `Movie App` に変更し、コントローラーを `Home` から `Movies` に変更します。下の強調表示されている箇所をご覧ください。
 
-注: ASP.NET Core 2.0 バージョンの場合は若干異なります。 `@inject ApplicationInsights` と `@Html.Raw(JavaScriptSnippet.FullScript)` は含まれていません。
+::: moniker range="<= aspnetcore-2.0"
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
-[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=6,29)]
+::: moniker-end
 
 >[!WARNING]
 > `Movies` コントローラーはまだ実装されていないため、そのリンクをクリックすると、404 (見つかりません) エラーが表示されます。
 
 変更内容を保存して、**[バージョン情報]** リンクをタップします。 ここでブラウザー タブのタイトルが、**About - Mvc Movie** ではなく、**About - Movie App** になっていることに注目してください: 
 
-![[バージョン情報]タブ](../../tutorials/first-mvc-app/adding-view/_static/about2.png)
+![[バージョン情報]タブ](~/tutorials/first-mvc-app/adding-view/_static/about2.png)
 
 **[連絡先]** リンクをタップし、タイトルとアンカー テキストにも **[Movie App]** と表示されていることを確認してください。 レイアウト テンプレートで一度変更しただけで、サイト上のすべてのページに新しいリンク テキストと新しいタイトルが反映できました。
 
@@ -75,7 +80,7 @@
 
 *Index.cshtml* ビュー テンプレートのコンテンツがどのように *Views/Shared/_Layout.cshtml* ビュー テンプレートにマージされ、1 つの HTML 応答がブラウザーに送信されたかにも注目してください。 レイアウト テンプレートを使用すれば、アプリケーションのすべてのページに適用される変更をとても簡単に行うことができます。 詳細については、「[Layout](xref:mvc/views/layout)」 (レイアウト) を参照してください。
 
-![ムービー リスト ビュー](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+![ムービー リスト ビュー](~/tutorials/first-mvc-app/adding-view/_static/hell3.png)
 
 ここでは、"データ" のごく一部 (この場合は "Hello from our View Template!" というメッセージ) を ハード コーディングしました。 MVC アプリケーションには "V" (ビュー) があり、"C" (コントローラー) もありますが、"M" (モデル) はまだありません。
 
@@ -89,7 +94,7 @@
 
 *HelloWorldController.cs* ファイルに戻り、`Welcome` メソッドを変更して `Message` および `NumTimes` 値を `ViewData` ディクショナリに追加します。 `ViewData` ディクショナリは動的オブジェクトです。つまり、必要なものを何でも設定できます。`ViewData` オブジェクトは、その内部に何かを設定するまでプロパティは定義されません。 [MVC のモデル バインド システム](xref:mvc/models/model-binding)は、名前付きパラメーター (`name` と `numTimes`) を、アドレス バーのクエリ文字列からメソッドのパラメーターに自動的にマップします。 完全な *HelloWorldController.cs* ファイルは次のようになります。
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
 `ViewData` ディクショナリ オブジェクトには、ビューに渡されるデータが含まれています。 
 
@@ -97,7 +102,7 @@
 
 "Hello" `NumTimes` を表示する *Welcome.cshtml* ビュー テンプレートでループを作成します。 *Views/HelloWorld/Welcome.cshtml* の内容を次のコードに置き換えます。
 
-[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
 
 変更内容を保存し、次の URL を参照します。
 
@@ -105,7 +110,7 @@
 
 データは URL から取得され、[MVC モデル バインダー](xref:mvc/models/model-binding)を使用してコントローラーに渡されます。 コントローラーはデータを `ViewData` ディクショナリにパッケージ化し、そのオブジェクトをビューに渡します。 その後、ビューでブラウザーに HTML としてデータがレンダリングされます。
 
-![[ようこそ] ラベルと、Hello Rick という語句が 4 つ示された [バージョン情報] ビュー](../../tutorials/first-mvc-app/adding-view/_static/rick2.png)
+![[ようこそ] ラベルと、Hello Rick という語句が 4 つ示された [バージョン情報] ビュー](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
 上のサンプルでは、`ViewData` ディクショナリを使用して、コントローラーからビューにデータを渡しました。 チュートリアルの後半で、ビュー モデルを使用して、コントローラーからビューにデータを渡します。 一般には、`ViewData` ディクショナリを使用する方法より、ビュー モデルを使用してデータを渡す方法が推奨されます。 詳細については、「[ViewModel vs ViewData vs ViewBag vs TempData vs Session in MVC](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc)」 (MVC の ViewModel、ViewData、ViewBag、TempData、Session の比較) を参照してください。
 

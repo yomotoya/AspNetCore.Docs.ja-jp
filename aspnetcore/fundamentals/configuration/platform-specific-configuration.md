@@ -11,11 +11,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 793169b491596cd7326d747a3f19d7fdaf7e2b65
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 618cb4349dcff696db37012af3aee844b82974f2
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729052"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>IHostingStartup を使用して ASP.NET Core の外部アセンブリからアプリを拡張する
 
@@ -68,7 +69,7 @@ ms.lasthandoff: 05/17/2018
 
 ### <a name="update-the-dependencies-file"></a>依存関係ファイルの更新
 
-ランタイムの場所は、*\*.deps.json* ファイルで指定されます。 拡張機能をアクティブ化するには、`runtime` 要素で拡張機能のランタイム アセンブリの場所を指定する必要があります。 `runtime` の場所には `lib/netcoreapp2.0/` のプレフィックスを付けます。
+ランタイムの場所は、*\*.deps.json* ファイルで指定されます。 拡張機能をアクティブ化するには、`runtime` 要素で拡張機能のランタイム アセンブリの場所を指定する必要があります。 `runtime` の場所には `lib/<TARGET_FRAMEWORK_MONIKER>/` のプレフィックスを付けます。
 
 [!code-json[](platform-specific-configuration/snapshot_sample/StartupEnhancement2.deps.json?range=2-13&highlight=8)]
 
@@ -83,13 +84,13 @@ ms.lasthandoff: 05/17/2018
 ユーザーごとに使用する場合は、ユーザー プロファイルのプロファイルのランタイム ストアにアセンブリを配置します。
 
 ```
-<DRIVE>\Users\<USER>\.dotnet\store\x64\netcoreapp2.0\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\netcoreapp2.0\
+<DRIVE>\Users\<USER>\.dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
 ```
 
 グローバルに使用する場合は、.NET Core インストールのランタイム ストアにアセンブリを配置します。
 
 ```
-<DRIVE>\Program Files\dotnet\store\x64\netcoreapp2.0\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\netcoreapp2.0\
+<DRIVE>\Program Files\dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
 ```
 
 アセンブリをランタイム ストアに配置するときに、シンボル ファイルも配置されますが、拡張機能を機能させるためには必要ありません。
@@ -101,16 +102,16 @@ ms.lasthandoff: 05/17/2018
 ユーザーごとに使用する場合は、ユーザー プロファイルの `.dotnet` 設定の `additonalDeps` フォルダーにファイルを配置します。 
 
 ```
-<DRIVE>\Users\<USER>\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.0.0\
+<DRIVE>\Users\<USER>\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.1.0\
 ```
 
 グローバルに使用する場合は、.NET Core インストールの `additonalDeps` フォルダーにファイルを配置します。
 
 ```
-<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.0.0\
+<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.1.0\
 ```
 
-バージョン (`2.0.0`) には、ターゲット アプリが使用する共有ランタイムのバージョンを反映することに注意してください。 共有ランタイムは、*\*.runtimeconfig.json* ファイルに示されます。 サンプル アプリでは、共有ランタイムは、*HostingStartupSample.runtimeconfig.json* ファイルで指定されます。
+バージョン (`2.1.0`) には、ターゲット アプリが使用する共有ランタイムのバージョンを反映することに注意してください。 共有ランタイムは、*\*.runtimeconfig.json* ファイルに示されます。 サンプル アプリでは、共有ランタイムは、*HostingStartupSample.runtimeconfig.json* ファイルで指定されます。
 
 **環境変数の設定**
 
@@ -135,7 +136,7 @@ DOTNET\_ADDITIONAL\_DEPS
 ファイルがグローバルに使用するために .NET Core インストールに配置される場合は、ファイルに完全なパスを指定します。
 
 ```
-<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.0.0\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
+<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.1.0\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
 ```
 
 サンプル アプリではこの値を次のように設定します。

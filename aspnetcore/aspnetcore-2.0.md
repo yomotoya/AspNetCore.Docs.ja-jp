@@ -3,17 +3,19 @@ title: ASP.NET Core 2.0 の新機能
 author: rick-anderson
 description: ASP.NET Core 2.0 の新機能について説明します。
 manager: wpickett
+monikerRange: = aspnetcore-2.0
 ms.author: riande
 ms.date: 07/10/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: b4ac500888ce134e8f4f0d4bf16efa4e95f24c15
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 87089eda0204fab8d1de85cbe3334a6db8d9e248
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729065"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2.0 の新機能
 

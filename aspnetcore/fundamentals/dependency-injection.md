@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 067d9bd09f6d5e54bbafd953eea169d2df2be34e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 14c3d464773fe78a563a27776bfcd124c22df134
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34566959"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core での依存関係の挿入
 
@@ -245,7 +246,7 @@ public static void Main(string[] args)
 
 要求サービスは、アプリケーションの一部として構成および要求するサービスを表します。 オブジェクトで依存関係を指定すると、これらは `ApplicationServices` ではなく `RequestServices` で検出された型で満たされます。
 
-一般に、これらのプロパティを直接使ってはいけません。代わりに、クラスのコンストラクターを使ってクラスで必要な型を要求し、フレームワークにこれらの依存関係を挿入させます。 このようにすると、クラスはテストしやすくなり (「[テストとデバッグ](xref:testing/index)」を参照)、より弱い結合になります。
+一般に、これらのプロパティを直接使ってはいけません。代わりに、クラスのコンストラクターを使ってクラスで必要な型を要求し、フレームワークにこれらの依存関係を挿入させます。 このようにすると、クラスはテストしやすくなり (「[テストとデバッグ](xref:test/index)」を参照)、より弱い結合になります。
 
 > [!NOTE]
 > コンストラクターのパラメーターとして依存関係を要求し、`RequestServices` コレクションにアクセスするようにします。
@@ -361,7 +362,7 @@ public class DefaultModule : Module
 * [コントローラーへの依存性の注入](xref:mvc/controllers/dependency-injection)
 * [要件ハンドラーでの依存性の注入](xref:security/authorization/dependencyinjection)
 * [アプリケーションの起動](xref:fundamentals/startup)
-* [テストとデバッグ](xref:testing/index)
+* [テストとデバッグ](xref:test/index)
 * [ファクトリ ベースのミドルウェアのアクティブ化](xref:fundamentals/middleware/extensibility)
 * [依存関係の挿入による ASP.NET Core でのクリーンなコードの作成 (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [コンテナー管理アプリケーションの設計、前段階: コンテナーはどこに属していますか](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)

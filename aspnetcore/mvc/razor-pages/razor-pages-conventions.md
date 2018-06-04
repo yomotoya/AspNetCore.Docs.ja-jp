@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/razor-pages/razor-pages-conventions
-ms.openlocfilehash: 15bb0687ffef777b82ea9374fdc3b92f3af7818b
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: eba3422fbf46ac181a783b7f8cc605c2a549b4b7
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729744"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>ASP.NET Core での Razor ページのルートとアプリの規則
 
@@ -104,8 +105,6 @@ Razor ページ オプション ([規則](/dotnet/api/microsoft.aspnetcore.mvc.r
 
 ::: moniker range=">= aspnetcore-2.1"
 **すべてのページにハンドラー モデル規則を追加する**
-
-
 
 [規則](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions)を使用して、[IPageHandlerModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipagehandlermodelconvention) を作成し、ページ ハンドラー モデルの構築中に適用される [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) インスタンスのコレクションに追加します。
 
@@ -342,6 +341,6 @@ Razor ページはハンドラー メソッドを使用するため、MVC [ア�
 
 ページ フィルター ([IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter)) は、Razor ページに適用されるフィルターです。 詳細については、[Razor ページのフィルター メソッド](xref:mvc/razor-pages/filter)に関するページを参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="additional-resources"></a>その他の技術情報
 
 * [Razor ページの承認規則](xref:security/authorization/razor-pages-authorization)

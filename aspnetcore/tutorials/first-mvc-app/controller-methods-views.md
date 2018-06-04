@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 6fe0a0e71079bebcbd3a76abee0f2917f562e766
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3f84d242a41bc482110d87ff342fa5b5d8c870ff
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729854"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>ASP.NET Core のコントローラーのメソッドとビュー
 
@@ -25,30 +26,14 @@ ms.lasthandoff: 04/06/2018
 
 *Models/Movie.cs* ファイルを開き、下の画像で強調表示されている行を追加します。
 
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](start-mvc/sample/MvcMovie21/Models/MovieDateFixed.cs?name=snippet_1&highlight=2,3,12-13,17)]
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
 [!code-csharp[](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]
+::: moniker-end
 
-赤の波線を右クリックし、**[クイック アクションとリファクタリング]** を選択します。
-
-  ![コンテキスト メニューに **[クイック アクションとリファクタリング]** が表示されます。](controller-methods-views/_static/qa.png)
-
-
-`using System.ComponentModel.DataAnnotations;` をタップします。
-
-  ![一覧の一番上にある System.ComponentModel.DataAnnotations を使用する](controller-methods-views/_static/da.png)
-
-  Visual Studio により `using System.ComponentModel.DataAnnotations;` が追加されます。
-
-不要な `using` ステートメントを削除しましょう。 既定では、明るい灰色のフォントで表示されます。 *Movie.cs* ファイル内をどこでもよいので右クリックし、**[using の削除と並べ替え]** を選択します。
-
-![using の削除と並べ替え](controller-methods-views/_static/rm.png)
-
-変更後のコード:
-
-[!code-csharp[](./start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1)]
-
-<!-- include start -->
-
-[!INCLUDE [adding-model](../../includes/mvc-intro/controller-methods-views.md)]
+[!INCLUDE [adding-model](~/includes/mvc-intro/controller-methods-views.md)]
 
 > [!div class="step-by-step"]
 > [前へ](working-with-sql.md)

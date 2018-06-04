@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 95500686052a3f75dd71244bc9da500300416dec
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: fffb78e4d66c8a798d5f952ba9e4506c8cb666ca
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34566933"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC と EF Core - 上級 - 10/10
 
@@ -147,9 +148,9 @@ ORDER BY [t].[ID]
 
 * リポジトリ コードを記述しなくても、EF には TDD を実装するための機能が含まれています。
 
-Repository パターンと Unit of Work パターンを実装する方法については、[このチュートリアル シリーズの Entity Framework 5 バージョン](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)を参照してください。
+Repository パターンと Unit of Work パターンを実装する方法については、[このチュートリアル シリーズの Entity Framework 5 バージョン](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application)を参照してください。
 
-Entity Framework Core は、テストに使用できる In-Memory データベース プロバイダーを実装します。 詳細については、[InMemory を使ったテスト](https://docs.microsoft.com/ef/core/miscellaneous/testing/in-memory)に関するページを参照してください。
+Entity Framework Core は、テストに使用できる In-Memory データベース プロバイダーを実装します。 詳細については、[InMemory を使ったテスト](/ef/core/miscellaneous/testing/in-memory)に関するページを参照してください。
 
 ## <a name="automatic-change-detection"></a>変更の自動検出
 

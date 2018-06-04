@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: 51b7a02c697807c9e3504b70f89370126ee0e781
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: a0073e4de361c37a6854ceaf54ffd9eaea4837d4
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34567050"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core のコントローラーのロジックをテストする
 
@@ -74,7 +75,7 @@ ASP.NET MVC アプリのコントローラーは、小さく、ユーザー イ�
 
 アプリの別のコントローラーでは、特定のブレーンストーミング セッションに関する情報が表示されます。 無効な ID 値を扱うためのロジックが含まれています。
 
-[!code-csharp[](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
 
 コントローラーのアクションには、各 `return` ステートメントに 1 つずつ、3 つのテスト ケースがあります。
 
@@ -100,7 +101,7 @@ API メソッド `Create` と `ForSession` の単体テストは次のとおり�
 
 ## <a name="integration-testing"></a>統合テスト
 
-[統合テスト](../../testing/integration-testing.md)は、アプリ内の異なるモジュールが正常に連携することを確認するために行われます。 一般に、単体テストでテストできるものはすべて、統合テストでもテストできますが、逆は正しくありません。 ただし、統合テストは単体テストより非常に遅い傾向があります。 したがって、可能なものはすべて単体テストで行い、複数のコラボレーターが関係するシナリオには統合テストを使うのが最善の方法です。
+[統合テスト](xref:test/integration-tests)は、アプリ内の異なるモジュールが正常に連携することを確認するために行われます。 一般に、単体テストでテストできるものはすべて、統合テストでもテストできますが、逆は正しくありません。 ただし、統合テストは単体テストより非常に遅い傾向があります。 したがって、可能なものはすべて単体テストで行い、複数のコラボレーターが関係するシナリオには統合テストを使うのが最善の方法です。
 
 モック オブジェクトは、統合テストでも役に立つことはありますが、ほとんど使われません。 単体テストでは、モック オブジェクトは、テスト対象のユニットの外部にいるコラボレーターがテストの目的に関してどのように振る舞うかを制御するのに効果的な方法です。 統合テストでは、実際のコラボレーターを使って、サブシステム全体が正しく連携することを確認します。
 

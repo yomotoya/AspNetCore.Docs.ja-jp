@@ -9,17 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: 62a2736c57dee5210253ba8f7b62ca7791abacd3
-ms.sourcegitcommit: c4a31aaf902f2e84aaf4a9d882ca980fdf6488c0
+ms.openlocfilehash: 3aa0275ae37eaef3a0dca8be70c701a50ccd7d48
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34687767"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリにコントローラーを追加する
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE [adding-controller1](../../includes/mvc-intro/adding-controller1.md)]
+[!INCLUDE [adding-controller1](~/includes/mvc-intro/adding-controller1.md)]
 
 * **ソリューション エクスプローラー**で、**[Controllers] を右クリックし、[追加]、[新しい項目]** の順に選択します。
 
@@ -30,10 +31,10 @@ ms.lasthandoff: 04/23/2018
 
 ![MVC コント ローラーを追加し、名前を付けます](adding-controller/_static/ac.png)
 
-[!INCLUDE [adding-controller2](../../includes/mvc-intro/adding-controller2.md)]
+[!INCLUDE [adding-controller2](~/includes/mvc-intro/adding-controller2.md)]
 
 Visual Studio の非デバッグ モード (Ctrl+F5) では、コードの変更後にアプリをビルドする必要がありません。 ファイルを保存し、ブラウザーを更新すれば、変更を確認できます。
 
 > [!div class="step-by-step"]
 > [前へ](start-mvc.md)
-> [次へ](adding-view.md)  
+> [次へ](adding-view.md)

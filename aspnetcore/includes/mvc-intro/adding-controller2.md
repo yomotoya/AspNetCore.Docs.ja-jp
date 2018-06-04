@@ -1,6 +1,6 @@
 *Controllers/HelloWorldController.cs* の内容を次のように置き換えます。
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
 
 コントローラーのすべての `public` メソッドが、HTTP エンドポイントとして呼び出されます。 上のサンプルでは、両方のメソッドが文字列を返します。  各メソッドの前のコメントに注意してください。
 
@@ -10,7 +10,7 @@ HTTP エンドポイントは、Web アプリケーション内のターゲッ�
 
 非デバッグ モードでアプリを実行し、アドレス バーのパスに "HelloWorld" を追加します。 `Index` メソッドが文字列を返します。
 
-!["This is my default action" というアプリケーションの応答が表示されているブラウザー ウィンドウ](../../tutorials/first-mvc-app/adding-controller/_static/hell1.png)
+!["This is my default action" というアプリケーションの応答が表示されているブラウザー ウィンドウ](~/tutorials/first-mvc-app/adding-controller/_static/hell1.png)
 
 MVC は、着信 URL に応じてコントローラー クラス (およびそれらに含まれるアクション メソッド) を呼び出します。 MVC によって使われる既定の [URL ルーティング ロジック](xref:mvc/controllers/routing)では、次のような形式を使って呼び出すコードが決定されます。
 
@@ -18,7 +18,7 @@ MVC は、着信 URL に応じてコントローラー クラス (およびそ�
 
 ルーティングの形式は、*Startup.cs* ファイル内の`Configure` メソッドで設定します。
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 URL セグメントを指定しないでアプリを実行すると、既定により、"Home" コントローラーと "Index" メソッドが、上の強調表示されている template 行で指定されます。
 
@@ -26,11 +26,11 @@ URL セグメントを指定しないでアプリを実行すると、既定に�
 
 `http://localhost:xxxx/HelloWorld/Welcome` を参照します。 `Welcome` メソッドが実行され、"This is the Welcome action method..." という文字列を返します。 この URL では、コントローラーは `HelloWorld` で、`Welcome` がアクション メソッドです。 URL の `[Parameters]` の部分はまだ使っていません。
 
-!["This is the Welcome action method" というアプリケーションの応答が表示されているブラウザー ウィンドウ](../../tutorials/first-mvc-app/adding-controller/_static/welcome.png)
+!["This is the Welcome action method" というアプリケーションの応答が表示されているブラウザー ウィンドウ](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
 URL からコントローラーにいくつかのパラメーター情報を渡すように、コードを変更します。 たとえば、`/HelloWorld/Welcome?name=Rick&numtimes=4` のようにします。 次のコードで示すように、2 つのパラメーターを含むように `Welcome` メソッドを変更します。 
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 
 上のコードでは以下の操作が行われます。
 
@@ -44,20 +44,20 @@ URL からコントローラーにいくつかのパラメーター情報を渡�
 
 (xxxx は実際のポート番号に置き換えます)URL の `name` と `numtimes` に違う値を指定してみてください。 MVC の[モデル バインド](xref:mvc/models/model-binding) システムは、名前付きパラメーターを、アドレス バーのクエリ文字列からメソッドのパラメーターに自動的にマップします。 詳しくは、「[モデル バインド](xref:mvc/models/model-binding)」をご覧ください。
 
-!["Hello Rick, NumTimes is: 4" というアプリケーションの応答が表示されているブラウザー ウィンドウ](../../tutorials/first-mvc-app/adding-controller/_static/rick4.png)
+!["Hello Rick, NumTimes is: 4" というアプリケーションの応答が表示されているブラウザー ウィンドウ](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
 上の図では、URL セグメント (`Parameters`) は使われておらず、`name` および `numTimes` パラメーターは[クエリ文字列](https://wikipedia.org/wiki/Query_string)として渡されています。 上の URL の `?` (疑問符) は区切り記号であり、後にクエリ文字列が続きます。 `&` 文字は、クエリ文字列を区切ります。
 
 `Welcome` メソッドを次のコードで置き換えます。
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
 アプリを実行し、次の URL を入力します。`http://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
 
-!["Hello Rick, ID: 3" というアプリケーションの応答が表示されているブラウザー ウィンドウ](../../tutorials/first-mvc-app/adding-controller/_static/rick_routedata.png)
+!["Hello Rick, ID: 3" というアプリケーションの応答が表示されているブラウザー ウィンドウ](~/tutorials/first-mvc-app/adding-controller/_static/rick_routedata.png)
 
 今度は、3 番目の URL セグメントがルート パラメーター `id` と一致しました。 `Welcome` メソッドには、`MapRoute` メソッドの URL テンプレートと一致したパラメーター `id` が含まれます。 末尾の `?` (`id?`) は、`id` パラメーターが省略可能であることを示します。
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 これらの例では、コントローラーは MVC の "VC" 部分を実行しています。つまり、ビューとコントローラーが動作します。 コントローラーは HTML を直接返しています。 一般に、コントローラーが HTML を直接返すのは、コーディングと保守が非常に面倒になるので、望ましくありません。 代わりに、通常は、別の Razor ビュー テンプレート ファイルを使って、HTML 応答の生成を支援します。 これは次のチュートリアルで行います。

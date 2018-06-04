@@ -9,13 +9,14 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: 772409f11a43e1d130265d8bba3bad1da5a41b86
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aee1682755385d9fa292f9ba0814d5d3602f3881
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729909"
 ---
-[!INCLUDE [adding-model](../../includes/mvc-intro/search1.md)]
+[!INCLUDE [adding-model](~/includes/mvc-intro/search1.md)]
 
 **rename** コマンドで `searchString` パラメーターの名前を `id` に簡単に変更できます。 `searchString` を右クリックし、**[名前の変更]** をクリックします。
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/06/2018
 
 ![コード エディター。変数が ID に変更されています。](search/_static/rename3.png)
 
-[!INCLUDE [adding-model](../../includes/mvc-intro/search2.md)]
+[!INCLUDE [adding-model](~/includes/mvc-intro/search2.md)]
 
 intelliSense がマークアップの更新に役立ちます。
 
@@ -37,11 +38,11 @@ intelliSense がマークアップの更新に役立ちます。
 
 ![Intellisense コンテキスト メニュー。メソッド属性値の一覧で get が選択されています。](search/_static/int_get.png)
 
-`<form>` タグの特徴的なフォントにご注意ください。 このタグが[タグ ヘルパー](../../mvc/views/tag-helpers/intro.md)対応であることを示しています。
+`<form>` タグの特徴的なフォントにご注意ください。 このタグが[タグ ヘルパー](~/mvc/views/tag-helpers/intro.md)対応であることを示しています。
 
 ![紫色のテキストを含む form タグ](search/_static/th_font.png)
 
-[!INCLUDE [adding-model](../../includes/mvc-intro/search3.md)]
+[!INCLUDE [adding-model](~/includes/mvc-intro/search3.md)]
 
 > [!div class="step-by-step"]
 > [前へ](controller-methods-views.md)

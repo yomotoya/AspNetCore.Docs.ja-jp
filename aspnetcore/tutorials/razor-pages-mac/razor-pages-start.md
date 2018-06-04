@@ -10,11 +10,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-mac/razor-pages-start
-ms.openlocfilehash: 2da9b34f797758c02132d5cf6cc2f2fb2fe6f05a
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 8da34f0a59976032747edcaf482f75c087ca8d8d
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34688271"
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core-on-macos-with-visual-studio-for-mac"></a>Visual Studio for Mac を使用し、macOS で ASP.NET Core Razor ページを構築する方法の概要
 
@@ -30,11 +31,25 @@ ms.lasthandoff: 04/18/2018
 
 端末から、次のコマンドを実行します。
 
+::: moniker range=">= aspnetcore-2.1"
+
+```console
+dotnet new webapp -o RazorPagesMovie
+cd RazorPagesMovie
+dotnet run
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 ```console
 dotnet new razor -o RazorPagesMovie
 cd RazorPagesMovie
 dotnet run
 ```
+
+::: moniker-end
 
 上のコマンドでは [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/dotnet) を使用して、Razor ページ プロジェクトを作成して実行します。 ブラウザーを開いて http://localhost:5000 にアクセスし、アプリケーションを表示します。
 
