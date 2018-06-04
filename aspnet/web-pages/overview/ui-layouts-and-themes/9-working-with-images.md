@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26530151"
 ---
 <a name="working-with-images-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトに画像の操作
 ====================
@@ -62,7 +63,7 @@ HTML を使用するイメージとは、サイトで既に使用可能なペー
 
 このセクションの手順では、ユーザーがイメージ名の一覧からイメージのファイル名を指定して実行時にイメージを表示する方法を示します。 を、ドロップダウン リストから、イメージの名前を選択して、ページを送信すると、選択したイメージが表示されます。
 
-![[イメージ]] (9-working-with-images/_static/image1.jpg "ch9images 1.jpg")
+![[イメージ]](9-working-with-images/_static/image1.jpg "ch9images 1.jpg")
 
 1. WebMatrix では、新しい web サイトを作成します。
 2. という名前の新しいページを追加*DynamicImage.cshtml*です。
@@ -92,7 +93,7 @@ HTML を使用するイメージとは、サイトで既に使用可能なペー
 
 前の例は、イメージを動的に表示する方法を示しましたが、web サイトに存在したイメージでのみ機能しました。 この手順では、ユーザーがページに表示されるイメージをアップロードできるようにする方法を示します。 ASP.NET を使用して、実行時にイメージを操作することができます、`WebImage`ヘルパーで、作成、操作、および画像を保存できるメソッドがあります。 `WebImage`ヘルパーは、すべて共通 web イメージ ファイルの種類を含むをサポートしている *.jpg*、 *.png*、および *.bmp*です。 この記事全体で使用する *.jpg*が、イメージはイメージの種類のいずれかで使用できます。
 
-![[イメージ]] (9-working-with-images/_static/image2.jpg "ch9images 2.jpg")
+![[イメージ]](9-working-with-images/_static/image2.jpg "ch9images 2.jpg")
 
 1. 新しいページを追加し、名前を付けます*UploadImage.cshtml*です。
 2. ページで、既存のコンテンツを次のように置き換えます。 
@@ -144,7 +145,7 @@ Web サイトがユーザーからのイメージを受け入れる場合は、�
 
 この手順では、サムネイルを作成し、web サイトの縮小版および元のイメージを保存するアップロードされたイメージのサイズを変更する方法を示します。 ページのサムネイルを表示し、ハイパーリンクを使用して、フルサイズのイメージにユーザーをリダイレクトします。
 
-![[イメージ]] (9-working-with-images/_static/image3.jpg "ch9images 3.jpg")
+![[イメージ]](9-working-with-images/_static/image3.jpg "ch9images 3.jpg")
 
 1. という名前の新しいページを追加*Thumbnail.cshtml*です。
 2. *イメージ*フォルダー、という名前のサブフォルダーを作成する*親指*です。
@@ -165,7 +166,7 @@ Web サイトがユーザーからのイメージを受け入れる場合は、�
 
 `WebImage`ヘルパーすることもできます反転と回転イメージ。 この手順では、サーバーから取得して、イメージ、イメージを上下 (垂直方向に反転、保存し、ページに反転イメージを表示する方法を示します。 この例では、サーバーに既にあるファイルを使用しているだけ (*Photo2.jpg*)。 実際のアプリケーションでは、前の例で行ったように、動的に取得する名前を持つイメージを反転させるは可能性があります。
 
-![[イメージ]] (9-working-with-images/_static/image4.jpg "ch9images 4.jpg")
+![[イメージ]](9-working-with-images/_static/image4.jpg "ch9images 4.jpg")
 
 1. という名前の新しいページを追加*FlipImage.cshtml*です。
 2. ページで、既存のコンテンツを次のように置き換えます。 
@@ -189,7 +190,7 @@ Web サイトがユーザーからのイメージを受け入れる場合は、�
 
 Web サイトにイメージを追加するときに保存したり、ページ上に表示する前に、イメージに透かしを追加する場合があります。 ユーザーは、著作権情報をイメージに追加するか、ビジネス名を提供する多くの場合、ウォーターマークを使用します。
 
-![[イメージ]] (9-working-with-images/_static/image5.jpg "ch9images 5.jpg")
+![[イメージ]](9-working-with-images/_static/image5.jpg "ch9images 5.jpg")
 
 1. という名前の新しいページを追加*Watermark.cshtml*です。
 2. ページで、既存のコンテンツを次のように置き換えます。 
@@ -206,7 +207,7 @@ Web サイトにイメージを追加するときに保存したり、ページ�
 
 透かしのテキストではなく、別のイメージを使用することができます。 ユーザーは、透かしとして会社のロゴのようにイメージを使用することがあります。 または著作権情報のテキストではなくウォーターマークの画像を使用します。
 
-![[イメージ]] (9-working-with-images/_static/image6.jpg "ch9images 6.jpg")
+![[イメージ]](9-working-with-images/_static/image6.jpg "ch9images 6.jpg")
 
 1. という名前の新しいページを追加*ImageWatermark.cshtml*です。
 2. イメージの追加、*イメージ*フォルダーのロゴとして使用して、イメージの名前を変更できます*MyCompanyLogo.jpg*です。 このイメージは、表示されていることが明確に 20 ピクセル、高さ、幅 80 ピクセルに設定されているときにイメージを使用する必要があります。
