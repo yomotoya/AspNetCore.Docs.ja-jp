@@ -12,12 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 5b3b9b82fa64155c1dfd2a49649def10d7dae87e
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
-ms.translationtype: HT
+ms.openlocfilehash: 65ba01dd1b0ed5a43ca5c868608f2858f86b4b59
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729182"
+ms.locfileid: "34734537"
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4 での非同期メソッドの使用
 ====================
@@ -44,7 +44,7 @@ Web サーバーでは、.NET Framework は、ASP.NET 要求をサービスに�
 
 ## <a name="processing-asynchronous-requests"></a>非同期要求の処理
 
-起動時に同時要求数が多いを参照してくださいまたは (ここで同時実行制御が増える突然) バースト負荷が用意されている web アプリケーションでは、これらの web サービス呼び出しを非同期に作成すると、アプリケーションの応答性が向上します。 非同期の要求には、同期要求として処理には同じ時間がかかります。 たとえば、要求によって、web サービスを呼び出す場合に、2 秒完了するには、要求が 2 秒間同期または非同期で実行されるかどうかが必要です。 ただし、非同期の呼び出し中に、スレッドはブロックされません、最初の要求を完了するまで待機する間、他の要求に応答します。 そのため、非同期要求は、実行時間の長い操作の呼び出しの多くの同時要求がある場合に、要求キューおよびスレッド プールの拡張を防ぐ。
+Web アプリで多数の起動時に同時要求を表示または (ここで同時実行制御が増える突然) バースト負荷が用意されている、web サービス呼び出しを非同期に行うと、アプリの応答性が向上します。 非同期の要求には、同期要求として処理には同じ時間がかかります。 要求によって、web サービスを呼び出す場合は、完了の場合は、同期または非同期で実行されるかどうか、要求が 2 秒間に 2 秒間に必要です。 ただし、非同期呼び出し中に、スレッドがブロックされない最初の要求を完了を待機している間、他の要求に応答します。 そのため、非同期要求は、実行時間の長い操作の呼び出しの多くの同時要求がある場合に、要求キューおよびスレッド プールの拡張を防ぐ。
 
 ## <a id="ChoosingSyncVasync"></a>  同期または非同期アクション メソッドを選択します。
 

@@ -8,11 +8,12 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 78a00e04e260863af17d7888ca6bf77d3f915ce1
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: cf56515a2a7116f399af7e671547fc81b616619c
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734706"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core での azure Key Vault の構成プロバイダー
 
@@ -30,16 +31,18 @@ ms.lasthandoff: 05/03/2018
 1.x のサンプル コードを表示またはダウンロードします。
 
 * [基本的なサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/1.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))- 秘密の値をアプリに読み込みます。
-* [キー名のプレフィックス サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/1.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample)) - アプリのバージョン毎に異なるシークレット値のセットを読み込むことができるように、アプリのバージョンを表すキー名のプレフィックスを使用して、シークレット値を読み取ります。 
+* [キー名のプレフィックス サンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/1.x)([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample)) - アプリのバージョン毎に異なるシークレット値のセットを読み込むことができるように、アプリのバージョンを表すキー名のプレフィックスを使用して、シークレット値を読み取ります。
 
 ---
 
 このドキュメントの使用方法を説明します、 [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/)構成プロバイダーを Azure Key Vault シークレットからアプリケーションの構成値を読み込めません。 Azure Key Vault は、クラウド ベース サービス暗号化キーやアプリやサービスによって使用されるシークレットを保護するのに役立ちます。 一般的なシナリオは、機密性の高い構成データにアクセスを制御して、FIPS 140-2 の要件を満たすレベル 2 検証ハードウェア セキュリティ モジュール (HSM) の構成データを格納する場合。 この機能は、以降の ASP.NET Core 1.1 を対象とするアプリケーションで使用可能です。
 
 ## <a name="package"></a>Package
+
 使用するには、プロバイダーへの参照を追加、 [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/)パッケージです。
 
 ## <a name="application-configuration"></a>アプリケーション構成
+
 使用してプロバイダーを調べることができます、[アプリのサンプル](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples)です。 Key vault を確立し、資格情報コンテナー内の機密情報を作成すると、サンプル アプリでは、安全にシークレットの値の構成に読み込んで web ページに表示します。
 
 プロバイダーを追加、`ConfigurationBuilder`で、`AddAzureKeyVault`拡張機能です。 アプリでは、サンプル、拡張機能はから読み込まれた 3 つの構成値を使用して、*される appsettings.json*ファイル。
@@ -50,9 +53,10 @@ ms.lasthandoff: 05/03/2018
 | `ClientId`     | Azure Active Directory アプリ Id  | 627e911e-43cc-61d4-992e-12db9c81b413         |
 | `ClientSecret` | Azure Active Directory アプリ キー | g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di= |
 
-[!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1&highlight=2,7-10)]
+[!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1)]
 
 ## <a name="creating-key-vault-secrets-and-loading-configuration-values-basic-sample"></a>シークレットの資格情報コンテナーを作成および構成値 (basic サンプル) の読み込み
+
 1. Key vault の作成し、ガイダンスに従って、アプリケーションの Azure Active Directory (Azure AD) を設定[Azure Key Vault の使用開始](https://azure.microsoft.com/documentation/articles/key-vault-get-started/)です。
    * 使用して、資格情報コンテナーに機密情報を追加、 [AzureRM キー資格情報コンテナー PowerShell モジュール](/powershell/module/azurerm.keyvault)から使用可能な[PowerShell ギャラリー](https://www.powershellgallery.com/packages/AzureRM.KeyVault)、 [Azure Key Vault REST API](/rest/api/keyvault/)、または、 [Azure ポータル](https://portal.azure.com/)です。 機密情報は、いずれかとして作成*手動*または*証明書*シークレット。 *証明書*シークレットはアプリやサービスで使用する証明書が、構成プロバイダーによってサポートされていません。 使用する必要があります、*手動*構成プロバイダーを使用するための名前と値のペアの機密情報を作成するオプションです。
      * 単純なシークレットは、名前と値のペアとして作成されます。 Azure Key Vault のシークレット名は、英数字とハイフンに制限されます。
@@ -75,6 +79,7 @@ ms.lasthandoff: 05/03/2018
 ![Azure キー資格情報コンテナーの構成プロバイダー経由で読み込まれているシークレットの値を表示されているブラウザー ウィンドウ](key-vault-configuration/_static/sample1.png)
 
 ## <a name="creating-prefixed-key-vault-secrets-and-loading-configuration-values-key-name-prefix-sample"></a>プレフィックスが指定された資格情報コンテナーの機密情報を作成および構成の値 (キーの名前のプレフィックス-サンプル) の読み込み
+
 `AddAzureKeyVault` 実装を受け入れるオーバー ロードも提供`IKeyVaultSecretManager`構成のキーに変換がどのキー資格情報コンテナーの機密情報を制御することができます。 たとえば、アプリの起動時に指定したプレフィックス値に基づいてシークレットの値を読み込むインターフェイスを実装することができます。 これにより、たとえば、アプリのバージョンに基づくシークレットを読み込めません。
 
 > [!WARNING]
@@ -82,7 +87,7 @@ ms.lasthandoff: 05/03/2018
 
 Key vault にシークレットを作成する 2 つ目のサンプル アプリを使用して`5000-AppSecret`(key vault のシークレット名で許可されていない期間) を表すバージョン 5.0.0.0 のアプリのアプリのシークレット。 シークレットを作成する別のバージョン、5.1.0.0、`5100-AppSecret`です。 各アプリのバージョンを読み込みます独自秘密の値としてその構成`AppSecret`、機密情報が読み込まれるバージョンを削除します。 サンプルの実装を次に示します。
 
-[!code-csharp[Configuration builder](key-vault-configuration/samples/key-name-prefix-sample/2.x/Program.cs?name=snippet1&highlight=12)]
+[!code-csharp[Configuration builder](key-vault-configuration/samples/key-name-prefix-sample/2.x/Program.cs?name=snippet1&highlight=20)]
 
 [!code-csharp[PrefixKeyVaultSecretManager](key-vault-configuration/samples/key-name-prefix-sample/2.x/Startup.cs?name=snippet1)]
 
@@ -116,6 +121,7 @@ Key vault にシークレットを作成する 2 つ目のサンプル アプリ
    ![ブラウザー ウィンドウが、アプリのバージョンが 5.1.0.0 である場合は、Azure キー資格情報コンテナーの構成プロバイダー経由で読み込まれる秘密の値を表示](key-vault-configuration/_static/sample2-2.png)
 
 ## <a name="controlling-access-to-the-clientsecret"></a>ClientSecret へのアクセスを制御
+
 使用して、[シークレット マネージャー ツール](xref:security/app-secrets)維持するために、`ClientSecret`プロジェクト ソース ツリーの外部でします。 シークレット マネージャーでは、アプリ シークレットは、特定のプロジェクトに関連付けるしてそれらを複数のプロジェクト間で共有します。
 
 証明書をサポートする環境での .NET Framework アプリを開発するときは、X.509 証明書を Azure Key Vault に認証できます。 X.509 証明書の秘密キーは、オペレーティング システムによって管理されます。 詳細については、次を参照してください。[クライアント シークレットではなく、証明書による認証](https://docs.microsoft.com/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret)です。 使用して、`AddAzureKeyVault`を受け入れるオーバー ロード、`X509Certificate2`です。
@@ -136,6 +142,7 @@ Configuration = builder.Build();
 ```
 
 ## <a name="reloading-secrets"></a>シークレットの再読み込み
+
 シークレットはまでキャッシュ`IConfigurationRoot.Reload()`と呼びます。 期限切れ、無効になっている、およびアプリケーションまでで、key vault に更新されたシークレットが守られていない`Reload`を実行します。
 
 ```csharp
@@ -143,10 +150,13 @@ Configuration.Reload();
 ```
 
 ## <a name="disabled-and-expired-secrets"></a>無効になっており、有効期限が切れたシークレット
+
 無効になっており、期限切れのシークレットをスロー、`KeyVaultClientException`です。 アプリを防ぐためがスローされることから、アプリを交換または無効/有効期限が切れてシークレットを更新します。
 
 ## <a name="troubleshooting"></a>トラブルシューティング
+
 アプリケーションは、プロバイダーを使用して構成の読み込みに失敗すると、エラー メッセージに書き込まれます。、 [ASP.NET のログ記録インフラストラクチャ](xref:fundamentals/logging/index)です。 次の条件には、構成を読み込めないは禁止します。
+
 * アプリは、Azure Active Directory に正しく構成されていません。
 * Azure Key Vault に資格情報コンテナーが存在しません。
 * アプリは、key vault にアクセスする承認されていません。
@@ -157,6 +167,7 @@ Configuration.Reload();
 * ロードしようとしている値のアプリの構成キー (名前) が正しくないです。
 
 ## <a name="additional-resources"></a>その他の技術情報
+
 * [構成](xref:fundamentals/configuration/index)
 * [Microsoft Azure: Key Vault](https://azure.microsoft.com/services/key-vault/)
 * [Microsoft Azure: Key Vault のドキュメント](https://docs.microsoft.com/azure/key-vault/)

@@ -3,39 +3,41 @@ title: 応答の ASP.NET Core のミドルウェアのキャッシュ
 author: guardrex
 description: 構成および ASP.NET Core でのキャッシュ ミドルウェアの応答を使用する方法を説明します。
 manager: wpickett
+monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 8296d535725d95682fa5904a43ab196e21b4f83c
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 7ceccffa39baf5f13d63c26e78c64a595bb42f60
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734498"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>応答の ASP.NET Core のミドルウェアのキャッシュ
 
 によって[Luke Latham](https://github.com/guardrex)と[John Luo](https://github.com/JunTaoLuo)
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[ASP.NET Core 2.1 サンプル コードを表示または](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples)([をダウンロードする方法](xref:tutorials/index#how-to-download-a-sample))
 
 この記事では、ASP.NET Core アプリケーションの応答のキャッシュのミドルウェアを構成する方法について説明します。 ミドルウェアは、応答がキャッシュ可能な場合、ストア応答、およびキャッシュからの応答の機能を決定します。 HTTP キャッシュの概要について、`ResponseCache`属性は、「[応答のキャッシュ](xref:performance/caching/response)です。
 
 ## <a name="package"></a>Package
 
-プロジェクトに含める、ミドルウェアへの参照を追加、 [ `Microsoft.AspNetCore.ResponseCaching` ](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/)パッケージまたはを使用して、 [ `Microsoft.AspNetCore.All` ](https://www.nuget.org/packages/Microsoft.AspNetCore.All/)パッケージ (ASP.NET Core 2.0 または .NET Core をターゲットとするときに後で)。
+ミドルウェアをプロジェクトに含めるへの参照を追加、 [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/)パッケージまたはを使用して、 [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app)で使用するにはASP.NET Core 2.1 以降。
 
 ## <a name="configuration"></a>構成
 
 `ConfigureServices`ミドルウェアをサービスのコレクションに追加します。
 
-[!code-csharp[](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=9)]
 
 ミドルウェアを使用するアプリの構成、`UseResponseCaching`要求処理パイプラインにミドルウェアが追加される拡張メソッド。 サンプル アプリを追加、 [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2)を 10 秒間キャッシュ可能な応答をキャッシュする応答ヘッダー。 サンプルでは送信、 [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4)をキャッシュされた応答の場合にのみを処理するミドルウェアを構成するヘッダー、 [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4)後続の要求のヘッダーの元の要求と一致します。 、次のコード例で[CacheControlHeaderValue](/dotnet/api/microsoft.net.http.headers.cachecontrolheadervalue)と[HeaderNames](/dotnet/api/microsoft.net.http.headers.headernames)を必要とする`using`のステートメント、 [Microsoft.Net.Http.Headers](/dotnet/api/microsoft.net.http.headers)名前空間です。
 
-[!code-csharp[](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=17,21-28)]
 
 キャッシュ ミドルウェアの応答のみ 200 (OK) ステータス コードと、サーバーの応答をキャッシュします。 など、その他の応答[エラー ページ](xref:fundamentals/error-handling)、ミドルウェアによって無視されます。
 
@@ -46,10 +48,10 @@ ms.lasthandoff: 05/03/2018
 
 ミドルウェアは、応答のキャッシュを制御する 3 つのオプションを提供します。
 
-| オプション                | 既定値 |
-| --------------------- | ------------- |
-| UseCaseSensitivePaths | 大文字小文字を区別パスで応答がキャッシュされるかどうかを判断します。</p><p>既定値は `false` です。 |
-| MaximumBodySize       | (バイト単位)、応答本文の最大キャッシュ サイズ。</p>既定値は`64 * 1024 * 1024`64 MB です。 |
+| オプション                | 説明 |
+| --------------------- | ----------- |
+| UseCaseSensitivePaths | 大文字小文字を区別パスで応答がキャッシュされるかどうかを判断します。 既定値は `false` です。 |
+| MaximumBodySize       | (バイト単位)、応答本文の最大キャッシュ サイズ。 既定値は`64 * 1024 * 1024`64 MB です。 |
 | SizeLimit             | 応答キャッシュ ミドルウェア (バイト単位) のサイズの制限。 既定値は`100 * 1024 * 1024`100 MB です。 |
 
 次の例では、ミドルウェアを構成します。
