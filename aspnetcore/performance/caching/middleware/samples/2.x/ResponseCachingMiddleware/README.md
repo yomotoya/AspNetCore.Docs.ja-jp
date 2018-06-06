@@ -1,0 +1,7 @@
+# <a name="aspnet-core-response-caching-sample"></a><span data-ttu-id="6b7b7-101">ASP.NET Core 応答キャッシュのサンプル</span><span class="sxs-lookup"><span data-stu-id="6b7b7-101">ASP.NET Core Response Caching Sample</span></span>
+
+<span data-ttu-id="6b7b7-102">このサンプルは、ASP.NET Core の使用方法を示しています。[応答キャッシュ ミドルウェア](https://docs.microsoft.com/aspnet/core/performance/caching/middleware)です。</span><span class="sxs-lookup"><span data-stu-id="6b7b7-102">This sample illustrates the usage of ASP.NET Core [Response Caching Middleware](https://docs.microsoft.com/aspnet/core/performance/caching/middleware).</span></span>
+
+<span data-ttu-id="6b7b7-103">アプリは、インデックス ページで応答を含む、`Cache-Control`キャッシュ動作を構成するヘッダー。</span><span class="sxs-lookup"><span data-stu-id="6b7b7-103">The app responds with its Index page, including a `Cache-Control` header to configure caching behavior.</span></span> <span data-ttu-id="6b7b7-104">また、アプリを設定、`Vary`機能の場合にのみ応答するようにキャッシュを構成するヘッダー、`Accept-Encoding`後続の要求のヘッダーと一致する元の要求。</span><span class="sxs-lookup"><span data-stu-id="6b7b7-104">The app also sets the `Vary` header to configure the cache to serve the response only if the `Accept-Encoding` header of subsequent requests matches that from the original request.</span></span>
+
+<span data-ttu-id="6b7b7-105">サンプルを実行するときに、インデックス ページが格納され、最大 10 秒間にキャッシュ時にキャッシュから提供されます。</span><span class="sxs-lookup"><span data-stu-id="6b7b7-105">When running the sample, the Index page is served from cache when stored and cached for up to 10 seconds.</span></span>
