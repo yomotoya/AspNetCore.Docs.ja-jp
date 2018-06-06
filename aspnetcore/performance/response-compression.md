@@ -11,12 +11,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/response-compression
-ms.openlocfilehash: 152799500577dd09247bcee8c87cde39ca20aa79
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
-ms.translationtype: HT
+ms.openlocfilehash: e970e74547f1f3efaf719c1f9e26918f34788005
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729575"
+ms.locfileid: "34734628"
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>ASP.NET core 圧縮ミドルウェアの応答
 
@@ -83,21 +83,15 @@ IIS、Apache、または Nginx サーバー ベースの応答の圧縮テクノ
 
 ## <a name="package"></a>Package
 
-::: moniker range="< aspnetcore-2.0"
+::: moniker range="< aspnetcore-2.1"
 
 ミドルウェアをプロジェクトに含めるへの参照を追加、 [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/)パッケージです。 この機能は、ASP.NET Core 1.1.0 以上をターゲットとするアプリで使用できます。
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.0"
+::: moniker range=">= aspnetcore-2.1"
 
-ミドルウェアをプロジェクトに含めるへの参照を追加、 [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/)パッケージまたはを使用して、 [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage)です。
-
-::: moniker-end
-
-::: moniker range="> aspnetcore-2.0"
-
-ミドルウェアをプロジェクトに含めるへの参照を追加、 [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/)パッケージまたはを使用して、 [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app)です。
+ミドルウェアをプロジェクトに含めるへの参照を追加、 [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/)パッケージまたはを使用して、 [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 以降)。
 
 ::: moniker-end
 
