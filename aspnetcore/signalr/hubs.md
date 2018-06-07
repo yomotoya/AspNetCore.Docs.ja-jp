@@ -11,11 +11,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/hubs
-ms.openlocfilehash: 5c477dd64c4cf8b7d6da1f121a290b00f3864f45
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 495aa156dd5e4641d688d7b16df1e5814c9607f4
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819085"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>ASP.NET Core の SignalR でハブを使用します。
 
@@ -63,12 +64,12 @@ SignalR の機能を ASP.NET Core アプリケーションを追加する場合�
 | `AllExcept` | 指定された接続を除くすべての接続されているクライアントのメソッドを呼び出す |
 | `Client` | 特定の接続されているクライアントのメソッドを呼び出す |
 | `Clients` | 特定の接続されているクライアントのメソッドを呼び出す |
-| `Group` | 指定したグループ内のすべての接続にメッセージを送信します。  |
-| `GroupExcept` | 指定した接続を除く、指定したグループ内のすべての接続にメッセージを送信します。 |
-| `Groups` | 接続の複数のグループにメッセージを送信します。  |
-| `OthersInGroup` | ハブ メソッドを呼び出したクライアントを除く、接続のグループにメッセージを送信します。  |
-| `User` | 特定のユーザーに関連付けられているすべての接続にメッセージを送信します。 |
-| `Users` | 指定されたユーザーに関連付けられているすべての接続にメッセージを送信します。 |
+| `Group` | 指定されたグループのすべての接続にメソッドを呼び出す  |
+| `GroupExcept` | 指定した接続を除く、指定されたグループのすべての接続にメソッドを呼び出す |
+| `Groups` | 接続の複数のグループにメソッドを呼び出します  |
+| `OthersInGroup` | ハブ メソッドを呼び出したクライアントを除く、接続のグループにメソッドを呼び出します  |
+| `User` | 特定のユーザーに関連付けられているすべての接続にメソッドを呼び出します |
+| `Users` | 指定されたユーザーに関連付けられているすべての接続にメソッドを呼び出します |
 
 各プロパティまたは上記のテーブル内のメソッドを持つオブジェクトを返します、`SendAsync`メソッドです。 `SendAsync`メソッドを呼び出すクライアント メソッドのパラメーターと名前を指定することができます。
 

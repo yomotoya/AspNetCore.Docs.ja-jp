@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: ece2bf541df2b4acac60a88767cc57ede473bd49
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: fd5cf5cdffd7281d7f4e0d96e8230b60be64a7c3
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819137"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>アプリ シークレットは、ASP.NET Core での開発での安全な格納場所
 
@@ -214,7 +215,7 @@ ASP.NET Core 2.0 以降では、ユーザーの機密情報の構成ソースが
 
 ## <a name="string-replacement-with-secrets"></a>シークレットの文字列の置換
 
-パスワードがプレーン テキストで格納することは危険です。 たとえば、データベース接続文字列の格納*される appsettings.json*指定したユーザーのパスワードを含めることができます。
+パスワードがプレーン テキストで格納することは、安全ではありません。 たとえば、データベース接続文字列の格納*される appsettings.json*指定したユーザーのパスワードを含めることができます。
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings-unsecure.json?highlight=3)]
 
@@ -224,17 +225,17 @@ ASP.NET Core 2.0 以降では、ユーザーの機密情報の構成ソースが
 dotnet user-secrets set "DbPassword" "pass123"
 ```
 
-パスワードを置き換える*される appsettings.json*プレース ホルダーです。 次の例では、`{0}`フォームにプレース ホルダーとして使用される、[複合書式指定文字列](/dotnet/standard/base-types/composite-formatting#composite-format-string)です。
+削除、`Password`キー/値ペア内の接続文字列から*される appsettings.json*です。 例えば:
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings.json?highlight=3)]
 
-シークレットの値は、接続文字列を完了するプレース ホルダーに挿入できます。
+シークレットの値を設定することができます、 [SqlConnectionStringBuilder](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder)オブジェクトの[パスワード](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.password)するには、接続文字列のプロパティ。
 
 ::: moniker range="<= aspnetcore-1.1"
-[!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=23-25)]
+[!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=26-29)]
 ::: moniker-end
 ::: moniker range=">= aspnetcore-2.0"
-[!code-csharp[](app-secrets/samples/2.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=14-16)]
+[!code-csharp[](app-secrets/samples/2.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=14-17)]
 ::: moniker-end
 
 ## <a name="list-the-secrets"></a>シークレットを一覧します。

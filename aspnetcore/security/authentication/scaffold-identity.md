@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 8933cf9c4063bd94f7f3a9ba53b5372b443eb7c8
-ms.sourcegitcommit: d4cefc0c63550c64a8040b11867cc05efcfb7e86
+ms.openlocfilehash: 6202cb4d28cc8d77c1f83c8cee8c90892deef26e
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34758753"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818978"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>ASP.NET Core プロジェクトに scaffold Id
 
@@ -27,7 +27,7 @@ ASP.NET Core 2.1 以降提供[ASP.NET Core Id](xref:security/authentication/iden
 
 Scaffolder に必要なコードのほとんどが生成されますが、プロセスを完了するようにプロジェクトを更新する必要があります。 このドキュメントでは、Identity スキャフォールディング更新を完了するために必要な手順について説明します。
 
-Identity scaffolder を実行すると、 *ScaffoldingReadme.txt*プロジェクト ディレクトリにファイルを作成します。 *ScaffoldingReadme.txt*ファイルには、Id のスキャフォールディング更新を完了に必要な条件での一般的な手順が含まれています。 このドキュメントには、読み取りよりも詳細な手順が含まれています、 *ScaffoldingReadme.txt*ファイル。
+Identity scaffolder を実行すると、 *ScaffoldingReadme.txt*プロジェクト ディレクトリにファイルを作成します。 *ScaffoldingReadme.txt*ファイルには、Id のスキャフォールディング更新を完了に必要な条件での一般的な手順が含まれています。 このドキュメントより詳細な手順が含まれています、 *ScaffoldingReadme.txt*ファイル。
 
 ファイルの相違点を表示し、変更を取り消すには、ソース管理システムを使用することをお勧めします。 Identity scaffolder を実行した後、変更を検査します。
 

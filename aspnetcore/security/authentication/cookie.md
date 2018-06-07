@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/cookie
-ms.openlocfilehash: f84d69f84cb0b80418bbb6de6bfcd7e2172f65ef
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 82f826bbc2bb19339851d5e25c539ea2c03acfb3
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734615"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819111"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core Id なしの cookie 認証を使用します。
 
@@ -22,7 +22,7 @@ ms.locfileid: "34734615"
 
 以前の認証のトピックで説明したように[ASP.NET Core Id](xref:security/authentication/identity) 、フル機能の完全な認証プロバイダーを作成してログインを維持するため、します。 ただし、cookie ベースの認証時に、独自のカスタム認証ロジックを使用することがあります。 ASP.NET Core Id せず、スタンドアロンの認証プロバイダーとしては、クッキー ベースの認証を使用できます。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/samples)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 サンプル アプリでは、デモンストレーションのため、Maria ロドリゲス架空ユーザーのユーザー アカウントは、アプリへのハードコードされたです。 電子メールのユーザー名を使用して"maria.rodriguez@contoso.com"とユーザーのサインインに任意のパスワード。 ユーザーが認証されて、`AuthenticateUser`メソッドで、 *Pages/Account/Login.cshtml.cs*ファイル。 実際の例では、ユーザーは、データベースに対する認証は。
 

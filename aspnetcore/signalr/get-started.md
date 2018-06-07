@@ -11,12 +11,12 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: 880abd87805990baf8dd977c340a60582e54d2df
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: ba1db640e5608fd9f5e7fa024283a651bf7772c2
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729503"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819059"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>ASP.NET Core の SignalR を概要します。
 
@@ -75,7 +75,7 @@ Visual Studio が含まれています、`Microsoft.AspNetCore.SignalR`パッケ
     npm install @aspnet/signalr
     ```     
 
-4. 内に"signalr"をという名前の新しいフォルダーを作成、 *lib*プロジェクトのフォルダーにします。 コピーし、 *signalr.js*ファイルから*node_modules\\ @aspnet\signalr\dist\browser* このフォルダーにします。
+4. 内に"signalr"をという名前の新しいフォルダーを作成、 *lib*プロジェクトのフォルダーにします。 コピー、 *signalr.js*ファイルから*node_modules\\ @aspnet\signalr\dist\browser* このフォルダーにします。
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -92,7 +92,7 @@ Visual Studio が含まれています、`Microsoft.AspNetCore.SignalR`パッケ
     npm install @aspnet/signalr
     ```
 
-3. コピー、 *signalr.js*ファイルから*node_modules\\ @aspnet\signalr\dist\browser* を*lib*プロジェクトのフォルダーにします。
+3. 内に"signalr"をという名前の新しいフォルダーを作成、 *lib*プロジェクトのフォルダーにします。 コピー、 *signalr.js*ファイルから*node_modules\\ @aspnet\signalr\dist\browser* このフォルダーにします。
 
 -----
 
@@ -140,15 +140,16 @@ SignalR に要求を渡すを認識できるように、SignalR のサーバー�
 
 ## <a name="create-the-signalr-client-code"></a>SignalR クライアント コードを作成します。
 
-1. コンテンツを置き換える*Pages\Index.cshtml*を次のコード。
+1. という名前の JavaScript ファイルを追加*chat.js*を*wwwroot\js*フォルダーです。 これに次のコードを追加します。
+
+   [!code-javascript[Index](get-started/sample/wwwroot/js/chat.js)]
+
+2. コンテンツを置き換える*Pages\Index.cshtml*を次のコード。
 
    [!code-cshtml[Index](get-started/sample/Pages/Index.cshtml)]
 
    上記の HTML では、名前とメッセージ フィールド、および送信ボタンが表示されます。 下部にあるスクリプト参照に注意してください: SignalR への参照と*chat.js*です。
 
-2. という名前の JavaScript ファイルを追加*chat.js*を*wwwroot\js*フォルダーです。 これに次のコードを追加します。
-
-   [!code-javascript[Index](get-started/sample/wwwroot/js/chat.js)]
 
 ## <a name="run-the-app"></a>アプリを実行する
 

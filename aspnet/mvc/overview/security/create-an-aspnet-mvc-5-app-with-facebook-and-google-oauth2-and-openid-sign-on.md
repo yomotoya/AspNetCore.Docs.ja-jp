@@ -12,11 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: c289c209b50f0c2c1f2d8b15a3aedeaebf671d0b
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: aa4c91865f7b720846a5e8deb4281c3ca6933c8e
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819098"
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook、Twitter、LinkedIn および Google OAuth2 サイン オン (c#) で ASP.NET MVC 5 アプリを作成します。
 ====================
@@ -174,7 +175,7 @@ Facebook の OAuth2 認証では、Facebook で作成したアプリケーショ
     ![新しいアプリを作成します。](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image22.png)
 4. 入力、**アプリ名**と**カテゴリ**、順にクリックして**のアプリの作成**です。
 
-    Facebook で一意であるこの必要があります。 <strong>アプリ Namespace</strong>アプリが認証に Facebook アプリケーションへのアクセスに使用する URL の一部である (たとえば、 https://apps.facebook.com/{App Namespace})。 指定しない場合は、<strong>アプリ Namespace</strong>、<strong>アプリ ID</strong> URL に使用されます。 <strong>アプリ ID</strong>はシステムによって生成された時間の数が次の手順で表示されます。
+    <strong>アプリ Namespace</strong>アプリが認証に Facebook アプリケーションへのアクセスに使用する URL の一部である (たとえば https\://apps.facebook.com/{App Namespace})。 指定しない場合は、<strong>アプリ Namespace</strong>、<strong>アプリ ID</strong> URL に使用されます。 <strong>アプリ ID</strong>はシステムによって生成された時間の数が次の手順で表示されます。
 
     ![新しいアプリ ダイアログを作成します。](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image23.png)
 5. 標準的なセキュリティ チェックを送信します。
