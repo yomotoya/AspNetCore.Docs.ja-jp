@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 55109723e566a9f7c66c1a59414377b05dbec760
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26507121"
 ---
 <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>ハンズ オン ラボ: 1 つの ASP.NET: ASP.NET Web フォーム、MVC、Web API の統合
 ====================
@@ -28,7 +29,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > Visual Studio 2013 には、アプリケーションを作成したり、すべての ASP.NET テクノロジを 1 つのプロジェクトで使用する新しい統合プロジェクト システムが導入されています。 この機能は、プロジェクトと関連付け、スティックの開始時に 1 つのテクノロジを選択する必要がある、代わりに 1 つのプロジェクト内の複数の ASP.NET フレームワークの使用が推奨します。
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit)です。
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit)です。
 
 
 <a id="Overview"></a>
@@ -60,7 +61,7 @@ ms.lasthandoff: 11/10/2017
 
 1. 開いている Windows エクスプ ローラーおよびテスト環境の参照**ソース**フォルダーです。
 2. 右クリックして**Setup.cmd**選択と**管理者として実行**を環境を構成して、このラボ用の Visual Studio のコード スニペットをインストールするセットアップ プロセスを起動します。
-3. ユーザー アカウント制御 ダイアログ ボックスが表示されている場合は、続行するアクションを確認します。
+3. ユーザー アカウント制御ダイアログ ボックスが表示されている場合は、続行するアクションを確認します。
 
 > [!NOTE]
 > セットアップを実行する前に、このラボのすべての依存関係をチェックしたことを確認してください。
@@ -161,7 +162,7 @@ ms.lasthandoff: 11/10/2017
     *フレンドリな Url*
 
     > [!NOTE]
-    > URL が変更されたことがわかります**にお問い合わせください/** です。 始まる**ASP.NET 4**URL ルーティング機能は、Web フォームに追加された、Url などのため、記述することができます、 *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)* ではなく*[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)* です。 詳細についてを参照してください[URL ルーティング](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md)です。
+    > URL が変更されたことがわかります**にお問い合わせください/** です。 始まる**ASP.NET 4**URL ルーティング機能は、Web フォームに追加された、Url などのため、記述することができます、 *[ http://www.mysite.com/products/software ](http://www.mysite.com/products/software)* の代わりに *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. 詳細についてを参照してください[URL ルーティング](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md)です。
 3. アプリケーションに統合認証の流れを調査します。 これを行うには、をクリックして**登録**ページの右上隅にします。
 
     ![新しいユーザーを登録します。](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)
@@ -433,7 +434,7 @@ Web API を作成するときは、他の開発者が API を呼び出す方法�
 * * *
 
 <a id="Summary"></a>
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このハンズオン ラボを完了して学習した方法。
 

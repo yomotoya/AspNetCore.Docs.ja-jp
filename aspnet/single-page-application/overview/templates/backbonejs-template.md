@@ -1,22 +1,23 @@
 ---
 uid: single-page-application/overview/templates/backbonejs-template
-title: "Backbone テンプレート |Microsoft ドキュメント"
+title: Backbone テンプレート |Microsoft ドキュメント
 author: madskristensen
-description: "Backbone.js SPA テンプレート"
+description: Backbone.js SPA テンプレート
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/04/2013
 ms.topic: article
 ms.assetid: 00aca413-f067-4108-9bd1-cf21e64a2646
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/backbonejs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 3b8eabd3cefcb96dc40bbf6cc6e3ee81accb0d7c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26506681"
 ---
 <a name="backbone-template"></a>Backbone テンプレート
 ====================
@@ -39,7 +40,7 @@ Backbone.js SPA テンプレートを使用して対話型のクライアント�
 
 ダウンロードし、上記の [ダウンロード] ボタンをクリックして、テンプレートをインストールします。 テンプレートは、Visual Studio Extension (VSIX) ファイルとしてパッケージされています。 Visual Studio を再起動する必要があります。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#**ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。 プロジェクトの名前を指定し、をクリックして**OK**です。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。 プロジェクトの名前を指定し、をクリックして**OK**です。
 
 ![](backbonejs-template/_static/image1.png)
 
@@ -61,7 +62,7 @@ Ctrl キーを押し、f5 キーを押してビルドおよびデバッグせず
 
 **アプリケーション**
 
-`Application`application.ts で定義されます。 このオブジェクトは、アプリケーションを初期化し、ルート名前空間として機能します。 ユーザーがサインインしているかどうかなど、アプリケーション全体で共有されている構成と状態の情報を保持します。
+`Application` application.ts で定義されます。 このオブジェクトは、アプリケーションを初期化し、ルート名前空間として機能します。 ユーザーがサインインしているかどうかなど、アプリケーション全体で共有されている構成と状態の情報を保持します。
 
 `application.start`メソッドは、モーダル ビューを作成し、ユーザー サインインなど、アプリケーション レベルのイベントのイベント ハンドラーをアタッチします。 次に、既定のルーターを作成し、任意のクライアント側の URL が指定されているかどうかを確認します。 既定の url にリダイレクトされていない場合 (#!/)。
 
@@ -121,7 +122,7 @@ Flashbar.ts プラグインでは、さまざまな種類のフィードバッ�
 
 [!code-csharp[Main](backbonejs-template/samples/sample8.cs)]
 
-## <a name="views"></a>ビュー
+## <a name="views"></a>Views
 
 ビューはモジュール形式であるように設計されています。 ページの各セクションでは、独自の専用のビューです。 単一ページ アプリケーションに共通する任意の対応するコント ローラーを持たないビューを含めるは。 呼び出して、ビューを含めることができます`@Html.Partial('myView')`、面倒でこれを取得します。 テンプレートが、ヘルパー メソッドを定義しやすくにするには、 `IncludeClientViews`、すべての指定したフォルダーにビューを表示します。
 

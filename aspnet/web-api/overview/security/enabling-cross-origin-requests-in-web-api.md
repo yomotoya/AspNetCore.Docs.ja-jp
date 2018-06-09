@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/enabling-cross-origin-requests-in-web-api
-title: "ASP.NET Web API 2 でのクロス オリジン要求の有効化 |Microsoft ドキュメント"
+title: ASP.NET Web API 2 でのクロス オリジン要求の有効化 |Microsoft ドキュメント
 author: MikeWasson
-description: "ASP.NET Web API でクロス オリジン リソース共有 (CORS) をサポートする方法を示します。"
+description: ASP.NET Web API でクロス オリジン リソース共有 (CORS) をサポートする方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/15/2014
@@ -13,18 +13,19 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 453ad29ff4f10f9660f3aa8bab358519b4cfd48b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26508381"
 ---
 <a name="enabling-cross-origin-requests-in-aspnet-web-api-2"></a>ASP.NET Web API 2 でのクロス オリジン要求を有効にします。
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
-> ブラウザーのセキュリティは、web ページが別のドメインに AJAX 要求を行うことを防止します。 この制限が呼び出された、*同一生成元ポリシー*、悪意のあるサイトが別のサイトから機密データを読み取ることを防ぎます。 ただし、場合もあります可能性がある、web API を呼び出す他のサイトを使用できます。
+> ブラウザーのセキュリティは、Web ページが別のドメインに AJAX 要求を行うことを防止します。 この制限は*同一生成元ポリシー*と呼ばれ、悪意のあるサイトが別のサイトから機密データを読み取れないようにします。 ただし、場合もあります可能性がある、web API を呼び出す他のサイトを使用できます。
 > 
-> [クロス オリジン リソース共有](http://www.w3.org/TR/cors/)(CORS) は、W3C 標準により、同じオリジンのポリシーを緩和するサーバーです。 CORS を使用して、サーバー明示的に許可できますいくつかのクロス オリジン要求中に、他のユーザーを拒否します。 CORS などがより安全なと以前の手法より柔軟な[JSONP](http://en.wikipedia.org/wiki/JSONP)です。 このチュートリアルでは、Web API アプリケーションで CORS を有効にする方法を示します。
+> [クロス オリジン リソース共有](http://www.w3.org/TR/cors/)(CORS) は、サーバーに同一生成元ポリシーの制限を緩和させる W3C 標準の１つです。 CORS を使用することによって、不明なリクエストは拒否しながら、一部のクロス オリジン要求のみを明示的に許可できるようになります。 CORS は [JSONP](http://en.wikipedia.org/wiki/JSONP) のようなかつての技術より安全でフレキシブルなものです。 このチュートリアルでは、Web API アプリケーションで CORS を有効にする方法を示します。
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
 > 
@@ -42,19 +43,19 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="what-is-same-origin"></a>「同じ発生元」とは何ですか。
 
-2 つの Url では、同じスキーム、ホスト、およびポートがある場合の原点が同じがあります。 ([RFC 6454](http://tools.ietf.org/html/rfc6454))
+2 つの URL のスキーム、ホスト、ポートが同じである場合、その URL は同一生成元となります。 ([RFC 6454](http://tools.ietf.org/html/rfc6454))
 
-これら 2 つの Url は、原点が同じであります。
+次の 2 つの URL は生成元が同じです。
 
 - `http://example.com/foo.html`
 - `http://example.com/bar.html`
 
-これらの Url は、2 つよりも前の別の原点をあります。
+次の URL は、上の URL とは生成元が異なります。
 
-- `http://example.net`-別のドメイン
-- `http://example.com:9000/foo.html`-別のポート
-- `https://example.com/foo.html`-別のスキーム
-- `http://www.example.com/foo.html`-別のサブドメイン
+- `http://example.net` - 異なるドメイン 
+- `http://example.com:9000/foo.html` - 異なるポート
+- `https://example.com/foo.html` - 異なるスキーム
+- `http://www.example.com/foo.html` - 異なるサブドメイン
 
 > [!NOTE]
 > Internet Explorer では、元のドメインを比較するときに、ポートは考慮されません。
@@ -115,11 +116,11 @@ ASP.NET Web アプリケーションの別のプロジェクトを作成し、�
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample4.cs?highlight=9)]
 
-次に、追加、 **[EnableCors]**属性を`TestController`クラス。
+次に、追加、 **[EnableCors]** 属性を`TestController`クラス。
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample5.cs?highlight=3,7)]
 
-*オリジン*パラメーター、WebClient アプリケーションを配置した URI を使用します。 これにより、クロス オリジン要求から WebClient、まだ他のすべてのクロス ドメイン要求を許可中にします。 パラメーターを後で説明します**[EnableCors]**で詳しく説明します。
+*オリジン*パラメーター、WebClient アプリケーションを配置した URI を使用します。 これにより、クロス オリジン要求から WebClient、まだ他のすべてのクロス ドメイン要求を許可中にします。 パラメーターを後で説明します **[EnableCors]** で詳しく説明します。
 
 末尾にスラッシュを含めないでください、*オリジン*URL。
 
@@ -130,7 +131,7 @@ ASP.NET Web アプリケーションの別のプロジェクトを作成し、�
 <a id="how-it-works"></a>
 ## <a name="how-cors-works"></a>CORS のしくみ
 
-このセクションでは、HTTP メッセージのレベルでの CORS 要求での動作について説明します。 構成できるようにするために、CORS のしくみを理解することが重要、 **[EnableCors]**正しく、属性し、期待どおりに機能しない場合のトラブルシューティングを行います。
+このセクションでは、HTTP メッセージのレベルでの CORS 要求での動作について説明します。 構成できるようにするために、CORS のしくみを理解することが重要、 **[EnableCors]** 正しく、属性し、期待どおりに機能しない場合のトラブルシューティングを行います。
 
 CORS の仕様には、クロス オリジン要求を有効にするいくつかの新しい HTTP ヘッダーが導入されています。 ブラウザーでは、CORS をサポートする場合、クロス オリジン要求を自動的にこれらのヘッダーを設定します。JavaScript コードで特別な何もする必要はありません。
 
@@ -182,13 +183,13 @@ CORS の仕様には、クロス オリジン要求を有効にするいくつ�
 
 **アクションごと**
 
-1 つのアクションで CORS を有効にする設定、 **[EnableCors]**アクション メソッドの属性です。 次の例の CORS の有効、`GetItem`メソッドのみです。
+1 つのアクションで CORS を有効にする設定、 **[EnableCors]** アクション メソッドの属性です。 次の例の CORS の有効、`GetItem`メソッドのみです。
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample10.cs)]
 
 **コント ローラーあたり**
 
-設定した場合**[EnableCors]**コント ローラー クラスに、コント ローラーのすべてのアクションに適用します。 アクションの CORS を無効にする追加の**[DisableCors]**属性をアクションにします。 次の例では、CORS を有効を除くすべてのメソッドに対する`PutItem`です。
+設定した場合 **[EnableCors]** コント ローラー クラスに、コント ローラーのすべてのアクションに適用します。 アクションの CORS を無効にする追加の **[DisableCors]** 属性をアクションにします。 次の例では、CORS を有効を除くすべてのメソッドに対する`PutItem`です。
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample11.cs)]
 
@@ -200,14 +201,14 @@ CORS の仕様には、クロス オリジン要求を有効にするいくつ�
 
 優先順位の順序は、1 つ以上のスコープ内で属性を設定する場合です。
 
-1. 操作
+1. アクション
 2. コントローラー
 3. Global
 
 <a id="allowed-origins"></a>
 ## <a name="set-the-allowed-origins"></a>許可されるオリジンを設定します。
 
-*オリジン*のパラメーター、 **[EnableCors]**属性は、どのオリジンはリソースへのアクセス許可を指定します。 値は、許可されるオリジンのコンマ区切りの一覧です。
+*オリジン*のパラメーター、 **[EnableCors]** 属性は、どのオリジンはリソースへのアクセス許可を指定します。 値は、許可されるオリジンのコンマ区切りの一覧です。
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample13.cs)]
 
@@ -220,14 +221,14 @@ CORS の仕様には、クロス オリジン要求を有効にするいくつ�
 <a id="allowed-methods"></a>
 ## <a name="set-the-allowed-http-methods"></a>許可される HTTP メソッドを設定します。
 
-*メソッド*のパラメーター、 **[EnableCors]**属性は、どの HTTP メソッドは、リソースへのアクセス許可を指定します。 すべてのメソッドを許可するワイルドカード値を使用"\*"です。 次の例では、GET および POST 要求だけを許可します。
+*メソッド*のパラメーター、 **[EnableCors]** 属性は、どの HTTP メソッドは、リソースへのアクセス許可を指定します。 すべてのメソッドを許可するワイルドカード値を使用"\*"です。 次の例では、GET および POST 要求だけを許可します。
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample15.cs)]
 
 <a id="allowed-request-headers"></a>
 ## <a name="set-the-allowed-request-headers"></a>許可されている要求ヘッダーを設定します。
 
-既に説明しましたプレフライト要求が、アクセス コントロール-要求ヘッダー ヘッダーが含まれて、アプリケーションによって設定される HTTP ヘッダーの一覧を表示する (いわゆる"要求ヘッダーを author") です。 *ヘッダー*のパラメーター、 **[EnableCors]**属性を指定する作成者要求ヘッダーが許可されます。 すべてのヘッダーは、次のように設定します。*ヘッダー*に"\*"です。 ホワイト リストの特定のヘッダーを次のように設定します。*ヘッダー*許可されたヘッダーのコンマ区切りの一覧にします。
+既に説明しましたプレフライト要求が、アクセス コントロール-要求ヘッダー ヘッダーが含まれて、アプリケーションによって設定される HTTP ヘッダーの一覧を表示する (いわゆる"要求ヘッダーを author") です。 *ヘッダー*のパラメーター、 **[EnableCors]** 属性を指定する作成者要求ヘッダーが許可されます。 すべてのヘッダーは、次のように設定します。*ヘッダー*に"\*"です。 ホワイト リストの特定のヘッダーを次のように設定します。*ヘッダー*許可されたヘッダーのコンマ区切りの一覧にします。
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample16.cs)]
 
@@ -242,12 +243,12 @@ CORS の仕様には、クロス オリジン要求を有効にするいくつ�
 
 - キャッシュ制御
 - コンテンツの言語
-- コンテンツの種類
+- Content-Type
 - 有効期限が切れる
-- 最終更新
+- Last-Modified
 - プラグマ
 
-CORS の仕様を呼び出す[単純な応答ヘッダー](https://dvcs.w3.org/hg/cors/raw-file/tip/Overview.html#simple-response-header)です。 その他のヘッダーをアプリケーションで使用できるようにする設定、 *exposedHeaders*のパラメーター **[EnableCors]**です。
+CORS の仕様を呼び出す[単純な応答ヘッダー](https://dvcs.w3.org/hg/cors/raw-file/tip/Overview.html#simple-response-header)です。 その他のヘッダーをアプリケーションで使用できるようにする設定、 *exposedHeaders*のパラメーター **[EnableCors]** です。
 
 次の例で、コント ローラーの`Get`メソッドが 'X カスタム ヘッダー' という名前のカスタム ヘッダーを設定します。 既定では、ブラウザーでクロス オリジン要求では、このヘッダーは公開されません。 ヘッダーを使用できるようにするに 'X カスタム ヘッダー' を含める*exposedHeaders*です。
 
@@ -266,7 +267,7 @@ JQuery: で
 
 [!code-javascript[Main](enabling-cross-origin-requests-in-web-api/samples/sample19.js)]
 
-さらに、サーバーは、資格情報を許可する必要があります。 Web API のクロス オリジンの資格情報を許可する設定、 **SupportsCredentials**プロパティは true を**[EnableCors]**属性。
+さらに、サーバーは、資格情報を許可する必要があります。 Web API のクロス オリジンの資格情報を許可する設定、 **SupportsCredentials**プロパティは true を **[EnableCors]** 属性。
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample20.cs)]
 
@@ -279,11 +280,11 @@ JQuery: で
 <a id="cors-policy-providers"></a>
 ## <a name="custom-cors-policy-providers"></a>カスタムの CORS ポリシー プロバイダー
 
-**[EnableCors]**属性を実装して、 **ICorsPolicyProvider**インターフェイスです。 派生するクラスを作成して、独自の実装を指定できます**属性**を実装して**ICorsProlicyProvider**です。
+**[EnableCors]** 属性を実装して、 **ICorsPolicyProvider**インターフェイスです。 派生するクラスを作成して、独自の実装を指定できます**属性**を実装して**ICorsProlicyProvider**です。
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample21.cs)]
 
-これで、任意の場所にする場合は、属性を適用する**[EnableCors]**です。
+これで、任意の場所にする場合は、属性を適用する **[EnableCors]** です。
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample22.cs)]
 

@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
 msc.type: authoredcontent
 ms.openlocfilehash: 7d0486b4cab85ffe77fda87d4b34dd3ec0a9e8fe
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30874227"
 ---
 <a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Windows Phone 8 アプリケーション (c#) からの Web API の呼び出し
 ====================
@@ -58,7 +59,7 @@ ASP.NET Web API などの rESTful サービスは、サーバー側とクライ�
    |                                                                画像をクリックすると、展開                                                                |
 
 
-4. 強調表示**ASP.NET Web アプリケーション**、入力**BookStore**プロジェクト名、およびクリック**[ok]**です。
+4. 強調表示**ASP.NET Web アプリケーション**、入力**BookStore**プロジェクト名、およびクリック **[ok]** です。
 5. ときに、**新しい ASP.NET プロジェクト** ダイアログ ボックスが表示されたら、選択、 **Web API**テンプレート、およびクリック**OK**です。
 
 
@@ -163,7 +164,7 @@ ASP.NET Web API などの rESTful サービスは、サーバー側とクライ�
 
 ### <a name="step-3-testing-the-end-to-end-solution"></a>手順 3: エンド ツー エンド ソリューションをテストします。
 
-説明したように、*の前提条件*このチュートリアルでは、Web API と Windows Phone 8 の間の接続をテストするときのセクションでは、ローカル システムでプロジェクトの場合はで手順に従う必要があります、  *[ローカル コンピューター上の Web API アプリケーションを Windows Phone 8 エミュレーターを接続する](https://go.microsoft.com/fwlink/?LinkId=324014)*アーティクルをテスト環境を設定します。
+説明したように、*の前提条件*このチュートリアルでは、Web API と Windows Phone 8 の間の接続をテストするときのセクションでは、ローカル システムでプロジェクトの場合はで手順に従う必要があります、  *[ローカル コンピューター上の Web API アプリケーションを Windows Phone 8 エミュレーターを接続する](https://go.microsoft.com/fwlink/?LinkId=324014)* アーティクルをテスト環境を設定します。
 
 構成されているテスト環境を作成したら、Windows Phone アプリケーションをスタートアップ プロジェクトとして設定する必要があります。 これを行うには、強調表示、 **BookCatalog**をクリックして、ソリューション エクスプ ローラーで、アプリケーション**スタートアップ プロジェクトとして設定**:
 

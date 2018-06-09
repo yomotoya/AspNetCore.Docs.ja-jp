@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-view
 msc.type: authoredcontent
 ms.openlocfilehash: 50ce4a2024ffd9e2bbb5526717052d486689ff38
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30873171"
 ---
 <a name="adding-a-view-c"></a>ビュー (c#) を追加します。
 ====================
@@ -91,7 +92,7 @@ HTML を追加、`<h2>`タグ。 変更された*MvcMovie\Views\HelloWorld\Index
 
 ここで、インデックス ページ (ビュー) のタイトルを変更してみましょう。
 
-Open *MvcMovie\Views\HelloWorld\Index.cshtml*. 2 つの場所を変更する場合がある: 最初に、テキスト表示される、ブラウザーのタイトルにし、セカンダリのヘッダー (、`<h2>`要素)。 これを少し変えれば、コードのどの部分でアプリのどの部分が変更されるかを確認することができます。
+開いている*MvcMovie\Views\HelloWorld\Index.cshtml*です。 2 つの場所を変更する場合がある: 最初に、テキスト表示される、ブラウザーのタイトルにし、セカンダリのヘッダー (、`<h2>`要素)。 これを少し変えれば、コードのどの部分でアプリのどの部分が変更されるかを確認することができます。
 
 [!code-cshtml[Main](adding-a-view/samples/sample5.cshtml)]
 

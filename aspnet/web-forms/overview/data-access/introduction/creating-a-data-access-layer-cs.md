@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 7e1a457c23ef659bf7ee9c15b66dc5c2d8a31416
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30891472"
 ---
 <a name="creating-a-data-access-layer-c"></a>データ アクセス層 (c#) の作成
 ====================
@@ -80,7 +81,7 @@ Web サイトを作成では、次の手順は、Visual Studio のサーバー �
 - **GetCategories()、** これには、すべてのカテゴリに関する情報を返します
 - **GetProducts()**、これには、すべての製品に関する情報を返します
 - **GetProductsByCategoryID(*categoryID*)**, which will return all products that belong to a specified category
-- **GetProductByProductID(*productID*)**, which will return information about a particular product
+- **GetProductByProductID (*productID*)**、これは、特定の製品に関する情報を返します
 
 呼び出されると、これらのメソッドはデータベースへの接続、適切なクエリを発行し、結果を返します。 これらの結果を返すどのようにすることが重要です。 データセットまたは DataReader データベース クエリによって設定されますが、これらのメソッドに返されるだけでしたが、理想的にはこれらの結果を返すを使用して*オブジェクトの厳密に型指定された*です。 厳密に型指定されたオブジェクトは、コンパイル時にスキーマを持つが定義されている厳密反対に、厳密に型のオブジェクトは 1 つのスキーマが実行時まで不明です。
 
@@ -181,7 +182,7 @@ TableAdapter 構成ウィザードを使用するデータベースを選択す�
 **図 11**: からメソッド名を変更**GetData**に**GetProducts** ([フルサイズのイメージを表示するをクリックして](creating-a-data-access-layer-cs/_static/image31.png))
 
 
-[完了] をクリックして、ウィザードを完了します。 ウィザードを閉じた後、データ テーブルを示し、先ほど作成したデータセット デザイナーに戻ります。 内の列の一覧を表示することができます、**製品**DataTable (**ProductID**、 **ProductName**など) のメソッドだけでなく、 **ProductsTableAdapter** (**Fill()**と**GetProducts()**)。
+[完了] をクリックして、ウィザードを完了します。 ウィザードを閉じた後、データ テーブルを示し、先ほど作成したデータセット デザイナーに戻ります。 内の列の一覧を表示することができます、**製品**DataTable (**ProductID**、 **ProductName**など) のメソッドだけでなく、 **ProductsTableAdapter** (**Fill()** と**GetProducts()**)。
 
 
 [![製品の DataTable と ProductsTableAdapter が型指定されたデータセットに追加されました](creating-a-data-access-layer-cs/_static/image33.png)](creating-a-data-access-layer-cs/_static/image32.png)
@@ -195,7 +196,7 @@ TableAdapter 構成ウィザードを使用するデータベースを選択す�
 
 このコードでは、データ アクセスに固有のコードの 1 つのビットを記述する必要ありませんでした。 すべての ADO.NET クラスのインスタンスを作成する必要がない、任意の SQL クエリでは、接続文字列を参照する必要がありませんでしたまたはストアド プロシージャおです。 代わりに、TableAdapter は、ご利用の米国の下位レベルのデータ アクセス コードを提供します。
 
-この例で使用される各オブジェクトは、厳密に型指定された、Visual Studio IntelliSense およびコンパイル時の型チェックを提供できるようにもします。 TableAdapter によって返されるすべてのデータ テーブルの最適な ASP.NET データなど、GridView、DetailsView、DropDownList、CheckBoxList、およびその他のいくつかの Web コントロールにバインドできます。 によって返される DataTable をバインドする例を紹介します**GetProducts()**メソッドだけの十分な 3 行のコード内での GridView を**ページ\_ロード**イベント ハンドラー。
+この例で使用される各オブジェクトは、厳密に型指定された、Visual Studio IntelliSense およびコンパイル時の型チェックを提供できるようにもします。 TableAdapter によって返されるすべてのデータ テーブルの最適な ASP.NET データなど、GridView、DetailsView、DropDownList、CheckBoxList、およびその他のいくつかの Web コントロールにバインドできます。 によって返される DataTable をバインドする例を紹介します**GetProducts()** メソッドだけの十分な 3 行のコード内での GridView を**ページ\_ロード**イベント ハンドラー。
 
 AllProducts.aspx
 
@@ -329,7 +330,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用しま�
 
 ## <a name="creating-custom-insert-update-and-delete-methods"></a>作成するカスタム Insert、Update、および Delete メソッド
 
-**Insert()**、 **Update()**、および**Delete()** DB 直接メソッドによって作成されたメソッドを扱い、特に多くの列を含むテーブルのことができます。 IntelliSense のヘルプが明確ではない特に何せず、上記のコード例を見て**製品**テーブル列に各入力パラメーターに対応する、 **Update()**と**Insert()**メソッドです。 ときにのみが必要する 1 つの列または 2、更新、カスタマイズされた時間がある可能性があります**Insert()**は、おそらく、メソッドは、新しく挿入されるレコードの値を返す**IDENTITY** (自動インクリメント)フィールドです。
+**Insert()**、 **Update()**、および**Delete()** DB 直接メソッドによって作成されたメソッドを扱い、特に多くの列を含むテーブルのことができます。 IntelliSense のヘルプが明確ではない特に何せず、上記のコード例を見て**製品**テーブル列に各入力パラメーターに対応する、 **Update()** と**Insert()** メソッドです。 ときにのみが必要する 1 つの列または 2、更新、カスタマイズされた時間がある可能性があります**Insert()** は、おそらく、メソッドは、新しく挿入されるレコードの値を返す**IDENTITY** (自動インクリメント)フィールドです。
 
 このようなカスタム メソッドを作成するには、データセット デザイナーに戻ります。 TableAdapter を右クリックし、TableAdapter ウィザードに戻って、追加のクエリを選択します。 2 番目の画面には、作成するクエリの種類おを示します。 新しい製品を追加し、後の新しく追加されたレコードの値を返すメソッドを作成しましょう**ProductID**です。 そのため、作成すること、**挿入**クエリ。
 
@@ -436,7 +437,7 @@ TableAdapter では、既定では、バッチ更新パターンを使用しま�
       [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample18.sql)]
 - **EmployeesTableAdapter**
 
-  - **GetEmployees**: 
+  - **ため**: 
 
       [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample19.sql)]
   - **GetEmployeesByManager**: 
@@ -472,11 +473,11 @@ Tableadapter と型指定されたデータセットに追加された Datatable
 
 自動生成されたコードは、最適な時間の節約が、コードは、多くの場合、非常に一般的なは、アプリケーションのニーズに合わせてカスタマイズする必要があります。 リスクを自動生成されたコードでは、拡張は、「再生成」と、カスタマイズの内容を上書きするときにコードを生成したツールが決定可能性があります。 .NET 2.0 の新しい部分クラスの概念が簡単に複数のファイル、クラスを分割します。 これにより、自動生成されたクラスに、カスタマイズ設定を上書きしてクトリについて心配することがなく、独自のメソッド、プロパティ、およびイベントを追加することができます。
 
-DAL をカスタマイズする方法を示すためには、追加、 **GetProducts()**メソッドを**SuppliersRow**クラスです。 **SuppliersRow** クラスを表します 1 つのレコード、 **Suppliers** テーブル; 各仕入先のことができますプロバイダー 0、多くの製品にように **GetProducts()** ものを返します。指定された業者の製品です。 これを実現するクラスの新しいファイルが作成、**アプリ\_コード**という名前のフォルダー **SuppliersRow.cs**し、次のコードを追加します。
+DAL をカスタマイズする方法を示すためには、追加、 **GetProducts()** メソッドを**SuppliersRow**クラスです。 **SuppliersRow** クラスを表します 1 つのレコード、 **Suppliers** テーブル; 各仕入先のことができますプロバイダー 0、多くの製品にように **GetProducts()** ものを返します。指定された業者の製品です。 これを実現するクラスの新しいファイルが作成、**アプリ\_コード**という名前のフォルダー **SuppliersRow.cs**し、次のコードを追加します。
 
 [!code-csharp[Main](creating-a-data-access-layer-cs/samples/sample22.cs)]
 
-この部分クラスがコンパイラに指示する場合を構築、 **Northwind.SuppliersRow**クラスを含める、 **GetProducts()**メソッドが定義したばかりです。 プロジェクトをビルドして、クラス ビューに戻るかどうかわかります**GetProducts()**のメソッドとして表示されるようになりました**Northwind.SuppliersRow**です。
+この部分クラスがコンパイラに指示する場合を構築、 **Northwind.SuppliersRow**クラスを含める、 **GetProducts()** メソッドが定義したばかりです。 プロジェクトをビルドして、クラス ビューに戻るかどうかわかります**GetProducts()** のメソッドとして表示されるようになりました**Northwind.SuppliersRow**です。
 
 
 ![GetProducts() メソッドは、Northwind.SuppliersRow クラスの一部ようになりました](creating-a-data-access-layer-cs/_static/image90.png)
@@ -537,7 +538,7 @@ SuppliersAndProducts.aspx.cs
 
 ## <a name="about-the-author"></a>作成者について
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com) 彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
 
 ## <a name="special-thanks-to"></a>感謝の特別な
 

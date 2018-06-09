@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-actions-and-functions
-title: "アクションと ASP.NET Web API 2.2 を使用して OData v4 に関数 |Microsoft ドキュメント"
+title: アクションと ASP.NET Web API 2.2 を使用して OData v4 に関数 |Microsoft ドキュメント
 author: MikeWasson
-description: "OData では、アクションと関数は、エンティティに対する CRUD 操作として簡単に定義されていないサーバー側の動作を追加する方法です。 このチュートリアルで説明する方法."
+description: OData では、アクションと関数は、エンティティに対する CRUD 操作として簡単に定義されていないサーバー側の動作を追加する方法です。 このチュートリアルで説明する方法.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/27/2014
@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-actions-and-functions
 msc.type: authoredcontent
 ms.openlocfilehash: 532362f0c0faaaf0cb0c04726856f0497e5261b5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26508231"
 ---
 <a name="actions-and-functions-in-odata-v4-using-aspnet-web-api-22"></a>アクションと ASP.NET Web API 2.2 を使用して OData v4 に関数
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
 > OData では、アクションと関数は、エンティティに対する CRUD 操作として簡単に定義されていないサーバー側の動作を追加する方法です。 このチュートリアルでは、Web API 2.2 を使用して、OData v4 エンドポイントをアクションと関数を追加する方法を示します。 このチュートリアルは、チュートリアルに基づいて[OData v4 エンドポイントを使用する ASP.NET Web API 2 の作成](create-an-odata-v4-endpoint.md)
 > 
@@ -88,7 +89,7 @@ WebApiConfig.cs では、次のコードを追加します。
 
 [!code-csharp[Main](odata-actions-and-functions/samples/sample6.cs)]
 
-メソッド名が、アクションの名前と一致することに注意してください。 **[HttpPost]**属性は、メソッドが HTTP POST メソッドを指定します。
+メソッド名が、アクションの名前と一致することに注意してください。 **[HttpPost]** 属性は、メソッドが HTTP POST メソッドを指定します。
 
 アクションを呼び出すには、クライアントは、次のように HTTP POST 要求を送信します。
 
@@ -116,7 +117,7 @@ WebApiConfig.cs では、次のコードを追加します。
 
 [!code-csharp[Main](odata-actions-and-functions/samples/sample11.cs)]
 
-メソッド名が、関数名と一致することに注意してください。 **[HttpGet]**属性は、メソッドが HTTP GET メソッドを指定します。
+メソッド名が、関数名と一致することに注意してください。 **[HttpGet]** 属性は、メソッドが HTTP GET メソッドを指定します。
 
 HTTP 応答を次に示します。
 
@@ -136,7 +137,7 @@ WebApiConfig ファイルでは、EDM に関数を追加します。
 
 [!code-csharp[Main](odata-actions-and-functions/samples/sample14.cs)]
 
-どの Web API コント ローラーでこのメソッドを配置する必要はありません。 内に配置できなかった`ProductsController`、または別のコント ローラーを定義します。 **[ODataRoute]**属性は、関数の URI テンプレートを定義します。
+どの Web API コント ローラーでこのメソッドを配置する必要はありません。 内に配置できなかった`ProductsController`、または別のコント ローラーを定義します。 **[ODataRoute]** 属性は、関数の URI テンプレートを定義します。
 
 クライアント要求の例を次に示します。
 

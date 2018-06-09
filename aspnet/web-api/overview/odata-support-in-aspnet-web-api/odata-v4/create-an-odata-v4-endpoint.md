@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
-title: "ASP.NET Web API 2.2 を使用して OData v4 エンドポイントを作成 |Microsoft ドキュメント"
+title: ASP.NET Web API 2.2 を使用して OData v4 エンドポイントを作成 |Microsoft ドキュメント
 author: MikeWasson
-description: "Open Data Protocol (OData) は、web のデータ アクセス プロトコルです。 OData は、クエリおよび CRUD 操作からのデータ セットを操作する一貫した方法を提供しています."
+description: Open Data Protocol (OData) は、web のデータ アクセス プロトコルです。 OData は、クエリおよび CRUD 操作からのデータ セットを操作する一貫した方法を提供しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/24/2014
@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
 ms.openlocfilehash: a3f94818f9674b0e1e9a45b2a6cc9455edc79726
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26508051"
 ---
 <a name="create-an-odata-v4-endpoint-using-aspnet-web-api-22"></a>ASP.NET Web API 2.2 を使用して OData v4 エンドポイントを作成します。
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
 > Open Data Protocol (OData) は、web のデータ アクセス プロトコルです。 OData クエリおよび CRUD 操作からのデータ セットを操作する一貫した方法には (作成、読み取り、更新、および削除) します。
 > 
@@ -152,7 +153,7 @@ ProductsController.cs で定型コードを次のように置き換えます。
 
 パラメーターなしのバージョンの`Get`メソッド全体の製品のコレクションを返します。 `Get`メソッドを*キー*パラメーターがキーを使用して、製品を検索 (ここで、`Id`プロパティ)。
 
-**[EnableQuery]**属性により、クライアントは、$filter、$sort、$page などのクエリ オプションを使用して、クエリを変更します。 詳細については、次を参照してください。 [OData クエリ オプションをサポートする](../supporting-odata-query-options.md)です。
+**[EnableQuery]** 属性により、クライアントは、$filter、$sort、$page などのクエリ オプションを使用して、クエリを変更します。 詳細については、次を参照してください。 [OData クエリ オプションをサポートする](../supporting-odata-query-options.md)です。
 
 ## <a name="adding-an-entity-to-the-entity-set"></a>エンティティ セットにエンティティを追加します。
 

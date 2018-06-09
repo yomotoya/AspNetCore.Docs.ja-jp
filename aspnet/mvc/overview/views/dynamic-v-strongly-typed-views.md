@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/views/dynamic-v-strongly-typed-views
-title: "Dynamic v します。 ビューを厳密に型指定 |Microsoft ドキュメント"
+title: Dynamic v します。 ビューを厳密に型指定 |Microsoft ドキュメント
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2011
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/views/dynamic-v-strongly-typed-views
 msc.type: authoredcontent
 ms.openlocfilehash: 8a96d43e04a0a50d5176c10c26aa49918a0e56ef
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26504091"
 ---
 <a name="dynamic-v-strongly-typed-views"></a>Dynamic v します。 厳密に型指定されたビュー
 ====================
@@ -53,7 +54,7 @@ IndexNotStonglyTyped() メソッドを右クリックし、Razor ビューを追
 [!code-csharp[Main](dynamic-v-strongly-typed-views/samples/sample5.cs)]
 
 
-正確に、同じ戻り View(topBlogs); であることを確認します。非厳密に型指定されたビューを呼び出します。 内側を右クリックして*StonglyTypedIndex()*選択**ビューの追加**です。 この時間を選択、**ブログ**モデル クラスを選択**リスト**Scaffold テンプレートとして。
+正確に、同じ戻り View(topBlogs); であることを確認します。非厳密に型指定されたビューを呼び出します。 内側を右クリックして*StonglyTypedIndex()* 選択**ビューの追加**です。 この時間を選択、**ブログ**モデル クラスを選択**リスト**Scaffold テンプレートとして。
 
 [![5658.StrongView [1]](dynamic-v-strongly-typed-views/_static/image6.png)](dynamic-v-strongly-typed-views/_static/image5.png)
 

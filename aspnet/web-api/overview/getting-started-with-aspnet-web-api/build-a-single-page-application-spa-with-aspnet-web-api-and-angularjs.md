@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
 ms.openlocfilehash: 9a748628d53878be380869ac5327de0111d2284d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26507261"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>ハンズ オン ラボ: ビルドと ASP.NET Web API および Angular.js シングル ページ アプリケーション (SPA)
 ====================
@@ -32,7 +33,7 @@ ms.lasthandoff: 11/10/2017
 > 
 > この手の形でラボでは、マニア クイズ、SPA 概念に基づいてトリビア web サイトを実装するこれらのテクノロジの利点がかかります。 まず、質問を取得し、回答を保存するに必要なエンドポイントを公開する ASP.NET Web API とサービス層を実装します。 次に、AngularJS および css3 用の変換の効果を使用してや応答性の機能豊富な UI をビルドします。
 > 
-> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit)です。
+> すべてのサンプル コードとスニペットがで使用可能な Web キャンプ トレーニング キットに含まれている[ http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit)です。
 
 
 ## <a name="overview"></a>概要
@@ -60,7 +61,7 @@ ms.lasthandoff: 11/10/2017
 
 1. 開いている Windows エクスプ ローラーおよびテスト環境の参照**ソース**フォルダーです。
 2. 右クリックして**Setup.cmd**選択と**管理者として実行**を環境を構成して、このラボ用の Visual Studio のコード スニペットをインストールするセットアップ プロセスを起動します。
-3. ユーザー アカウント制御 ダイアログ ボックスが表示されている場合は、続行するアクションを確認します。
+3. ユーザー アカウント制御ダイアログ ボックスが表示されている場合は、続行するアクションを確認します。
 
 > [!NOTE]
 > セットアップを実行する前に、このラボのすべての依存関係をチェックしたことを確認してください。
@@ -307,7 +308,7 @@ Visual Studio によって提供される ASP.NET スキャフォールディン
 Visual Studio のパッケージ マネージャー コンソールから AngularJS をインストールすることで始めます。 その後、マニア クイズ アプリと、クイズの質問と回答 AngularJS テンプレート エンジンを使用して表示するビューの動作を提供するコント ローラーを作成します。
 
 > [!NOTE]
-> AngularJS の詳細についてを参照してください[ [http://angularjs.org/](http://angularjs.org/)](http://angularjs.org/)です。
+> AngularJS の詳細についてを参照してください[ [ http://angularjs.org/ ](http://angularjs.org/)](http://angularjs.org/)です。
 
 
 1. 開く**Visual Studio Express 2013 for Web**を開くと、 **GeekQuiz.sln**にソリューションがある、**ソース/Ex2-CreatingASPAInterface/開始**フォルダーです。 代わりに、前の手順で取得した、ソリューションを続行できます。
@@ -439,7 +440,7 @@ Visual Studio のパッケージ マネージャー コンソールから Angula
 * * *
 
 <a id="Summary"></a>
-## <a name="summary"></a>概要
+## <a name="summary"></a>まとめ
 
 このハンズオン ラボを完了して学習した方法。
 

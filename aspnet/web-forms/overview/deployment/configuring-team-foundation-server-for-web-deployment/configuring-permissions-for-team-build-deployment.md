@@ -13,16 +13,17 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 4698349d664816ec49475bbfe71fb32af79ea96d
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30890282"
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>チームのアクセス許可の構成のビルドの配置
 ====================
 によって[Jason lee 著](https://github.com/jrjlee)
 
-[PDF をダウンロードします。](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF のダウンロード](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > このトピックでは、自動ビルド プロセスの一環として、web サーバーおよびデータベース サーバーにコンテンツを展開するようにビルド サーバーを有効にする権限を構成する方法について説明します。
 
@@ -38,7 +39,7 @@ Team Foundation Server (TFS) 2010年のビルド サービスをインストー�
 ビルド サービス id を使用して、Windows 認証、およびチームがビルドを使用して自動化を計画することを必要とする展開タスクが実行されます。 そのため、ビルド サービス id に、web サーバーと、データベース サーバーに必要なアクセス許可を付与する必要があります。
 
 > [!NOTE]
-> ネットワーク サービス アカウントは、他のコンピューターへの認証にコンピューター アカウントを使用します。 コンピューター アカウントは、形式をとる * [ドメイン名]\[マシン名] ***$**&#x2014;など**FABRIKAM\TFSBUILD$**です。 ような場合、ビルド サービスでは、Network Service の id を使用して実行する、ビルド サーバーのコンピューター アカウント id に必要なアクセス許可を付与する必要があります。
+> ネットワーク サービス アカウントは、他のコンピューターへの認証にコンピューター アカウントを使用します。 コンピューター アカウントは、形式をとる * [ドメイン名]\[マシン名] ***$**&#x2014;など**FABRIKAM\TFSBUILD$** です。 ような場合、ビルド サービスでは、Network Service の id を使用して実行する、ビルド サーバーのコンピューター アカウント id に必要なアクセス許可を付与する必要があります。
 
 
 ## <a name="configuring-web-server-permissions"></a>Web サーバーのアクセス許可の構成

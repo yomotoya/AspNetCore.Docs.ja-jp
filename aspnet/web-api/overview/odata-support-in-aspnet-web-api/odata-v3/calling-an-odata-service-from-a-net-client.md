@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
-title: ".NET クライアント (c#) から OData サービスを呼び出す |Microsoft ドキュメント"
+title: .NET クライアント (c#) から OData サービスを呼び出す |Microsoft ドキュメント
 author: MikeWasson
-description: "このチュートリアルでは、c# クライアント アプリケーションから OData サービスを呼び出す方法を示します。 チュートリアルの Visual Studio 2013 (Visual S. と連携.. で使用されているソフトウェアのバージョン"
+description: このチュートリアルでは、c# クライアント アプリケーションから OData サービスを呼び出す方法を示します。 チュートリアルの Visual Studio 2013 (Visual S. と連携.. で使用されているソフトウェアのバージョン
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2014
@@ -13,16 +13,17 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
 ms.openlocfilehash: 497102cfa98680f2156a56ff9e36d84b7c820020
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28042395"
 ---
 <a name="calling-an-odata-service-from-a-net-client-c"></a>.NET クライアント (c#) から OData サービスを呼び出す
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > このチュートリアルでは、c# クライアント アプリケーションから OData サービスを呼び出す方法を示します。
 > 
@@ -48,7 +49,7 @@ ms.lasthandoff: 01/24/2018
 - [Web API 2 OData エンティティ関係](working-with-entity-relations.md)
 - [Web API 2 の OData アクション](odata-actions.md)
 
-## <a name="generate-the-service-proxy"></a>サービス プロキシを生成します。
+## <a name="generate-the-service-proxy"></a>サービス プロキシを生成する
 
 最初の手順では、サービス プロキシを生成します。 サービス プロキシは、OData サービスにアクセスするためのメソッドを定義する .NET クラスです。 プロキシは、HTTP 要求にメソッド呼び出しを変換します。
 
@@ -76,7 +77,7 @@ Visual Studio での OData サービス プロジェクトを開くことで開�
 
 **Namespace**、"ProductService"を入力します。 このオプションは、プロキシ クラスの名前空間を定義します。
 
-**[検索]**をクリックします。 Visual Studio では、サービス内のエンティティを検出する OData メタデータ ドキュメントを読み取ります。
+**[検索]** をクリックします。 Visual Studio では、サービス内のエンティティを検出する OData メタデータ ドキュメントを読み取ります。
 
 [![](calling-an-odata-service-from-a-net-client/_static/image7.png)](calling-an-odata-service-from-a-net-client/_static/image6.png)
 

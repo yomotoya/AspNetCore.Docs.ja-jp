@@ -1,8 +1,8 @@
 ---
 uid: mvc/mvc3
-title: "ASP.NET MVC 3 |Microsoft ドキュメント"
+title: ASP.NET MVC 3 |Microsoft ドキュメント
 author: rick-anderson
-description: "(2011 年 4 月が含まれています Tools Update)ASP.NET MVC 3 では、安定したデザイン パターンを使用して、スケーラブルな標準ベースの web アプリケーションを構築するためのフレームワークがしています."
+description: (2011 年 4 月が含まれています Tools Update)ASP.NET MVC 3 では、安定したデザイン パターンを使用して、スケーラブルな標準ベースの web アプリケーションを構築するためのフレームワークがしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2010
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc3
 msc.type: content
 ms.openlocfilehash: c7eee987b28a5d7f8b40fe89a7bf7517ec06646f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28034738"
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -128,8 +129,8 @@ ASP.NET MVC 3 Razor で次の利点がありますをという名前の新しい
 
 Razor の新機能の一部を以下に示します。
 
-- `@model`ビューに渡される型を指定する構文があります。
-- `@* *@`コメント構文です。
+- `@model` ビューに渡される型を指定する構文があります。
+- `@* *@` コメント構文です。
 - 既定値を指定する機能 (など`layoutpage`) サイト全体に対して 1 回です。
 - `Html.Raw` HTML エンコードせずにテキストを表示するためのメソッドにします。
 - 複数のビューの間でのコードを共有するためのサポート (*\_viewstart.cshtml*または *\_viewstart.vbhtml*ファイル)。
@@ -140,7 +141,7 @@ Razor には、次のような新しい HTML ヘルパーも含まれます。
 - `WebGrid`。 ページングや並べ替えの機能を備えたデータ グリッドを表示します。
 - `Crypto`。 ハッシュを正しく作成するアルゴリズムを使用では、ソルトし、パスワードをハッシュします。
 - `WebImage`。 イメージを表示します。
-- `WebMail`。 電子メール メッセージを送信します。
+- `WebMail`。 電子メールを送信します。
 
 Razor の詳細については、次のリソースを参照してください。
 
@@ -274,7 +275,7 @@ NuGet の詳細については、[NuGet のドキュメント](https://docs.micr
 
 ### <a name="partial-page-output-caching"></a>部分ページ出力キャッシュ
 
-ASP.NET MVC は出力が 1 のバージョン以降のページ全体の応答のキャッシュをサポートされています。 MVC 3 もサポートしています部分ページ出力キャッシュを簡単にキャッシュ領域または応答の断片です。 キャッシュの詳細については、次を参照してください、**部分ページ出力キャッシュ**のセクション[MVC 3 のリリース候補に Scott Guthrie のブログの投稿](https://weblogs.asp.net/scottgu/archive/2010/11/09/announcing-the-asp-net-mvc-3-release-candidate.aspx)と**子アクションの出力キャッシュ。**のセクションで、 [MVC 3 のリリース ノート](../whitepapers/mvc3-release-notes.md)です。
+ASP.NET MVC は出力が 1 のバージョン以降のページ全体の応答のキャッシュをサポートされています。 MVC 3 もサポートしています部分ページ出力キャッシュを簡単にキャッシュ領域または応答の断片です。 キャッシュの詳細については、次を参照してください、**部分ページ出力キャッシュ**のセクション[MVC 3 のリリース候補に Scott Guthrie のブログの投稿](https://weblogs.asp.net/scottgu/archive/2010/11/09/announcing-the-asp-net-mvc-3-release-candidate.aspx)と**子アクションの出力キャッシュ。** のセクションで、 [MVC 3 のリリース ノート](../whitepapers/mvc3-release-notes.md)です。
 
 ### <a name="granular-control-over-request-validation"></a>要求の検証をきめ細かく制御
 

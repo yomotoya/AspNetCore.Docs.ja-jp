@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
-title: "ASP.NET Identity のユーザーのプライマリ キーの変更 |Microsoft ドキュメント"
+title: ASP.NET Identity のユーザーのプライマリ キーの変更 |Microsoft ドキュメント
 author: tfitzmac
-description: "Visual Studio 2013 では、既定の web アプリケーションは、ユーザー アカウントのキーの文字列値を使用します。 ASP.NET Id では、型を変更することができます、."
+description: Visual Studio 2013 では、既定の web アプリケーションは、ユーザー アカウントのキーの文字列値を使用します。 ASP.NET Id では、型を変更することができます、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/30/2014
 ms.topic: article
 ms.assetid: 44925849-5762-4504-a8cd-8f0cd06f6dc3
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 79812efb4de2461fad3765d6005bbd20393e62b2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26498231"
 ---
 <a name="change-primary-key-for-users-in-aspnet-identity"></a>ASP.NET Identity のユーザーのプライマリ キーの変更
 ====================
@@ -98,7 +99,7 @@ Startup.Auth.cs では、次の強調表示されているように、OnValidate
 
 プロジェクトが、ジェネリック型の実装を認識しないかどうか、 **GetUserId**メソッド、バージョン 2.1 に、ASP.NET Identity の NuGet パッケージを更新する必要があります
 
-ASP.NET Id で使用されるインフラストラクチャ クラスに多数の変更を加えた。 プロジェクトをコンパイルしようとすると、多くのエラーがわかります。 しかし、残りのエラーは、すべてと似ています。 Id クラスは、キーの整数が必要ですが、コント ローラー (または Web フォーム) が文字列値を渡すことです。 各ケースで呼び出すことによって、文字列と整数から変換する必要があります。 **GetUserId&lt;int&gt;**です。 コンパイルすることで、エラー一覧を使用するか、以下の変更を追跡します。
+ASP.NET Id で使用されるインフラストラクチャ クラスに多数の変更を加えた。 プロジェクトをコンパイルしようとすると、多くのエラーがわかります。 しかし、残りのエラーは、すべてと似ています。 Id クラスは、キーの整数が必要ですが、コント ローラー (または Web フォーム) が文字列値を渡すことです。 各ケースで呼び出すことによって、文字列と整数から変換する必要があります。 **GetUserId&lt;int&gt;** です。 コンパイルすることで、エラー一覧を使用するか、以下の変更を追跡します。
 
 残りの変更は、プロジェクトを作成して、Visual Studio でインストールした更新プログラムの種類によって異なります。 次のリンクから該当するセクションに直接移動することができます。
 
@@ -120,7 +121,7 @@ AccountController.cs ファイルを開きます。 次の方法を変更する�
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample10.cs?highlight=5,9)]
 
-**Manage(ManageUserViewModel)**メソッド
+**Manage(ManageUserViewModel)** メソッド
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample11.cs?highlight=11,17,41)]
 
@@ -275,7 +276,7 @@ Update 2 の Web フォーム、するには、次のページを変更する必
 <a id="other"></a>
 ## <a name="other-resources"></a>その他のリソース
 
-- [ASP.NET Id のカスタムの記憶域プロバイダーの概要](overview-of-custom-storage-providers-for-aspnet-identity.md)
-- [SQL メンバーシップから ASP.NET Identity に既存の web サイトを移行します。](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [ASP.NET Identity のカスタム ストレージ プロバイダーの概要](overview-of-custom-storage-providers-for-aspnet-identity.md)
+- [既存 Web サイトを SQL メンバーシップから ASP.NET Identity に移行する](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
 - [メンバーシップと ASP.NET Identity のユーザー プロファイル用のユニバーサル プロバイダー データの移行](../migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
 - [サンプル アプリケーション](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/ChangePK/readme.txt)変更された主キーを持つ

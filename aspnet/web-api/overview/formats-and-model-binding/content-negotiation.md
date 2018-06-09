@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/content-negotiation
-title: "コンテンツの ASP.NET Web API でネゴシエーション |Microsoft ドキュメント"
+title: コンテンツの ASP.NET Web API でネゴシエーション |Microsoft ドキュメント
 author: MikeWasson
-description: "ASP.NET Web API HTTP コンテンツ ネゴシエーションを実装する方法について説明します。"
+description: ASP.NET Web API HTTP コンテンツ ネゴシエーションを実装する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/20/2012
@@ -13,23 +13,24 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/content-negotiation
 msc.type: authoredcontent
 ms.openlocfilehash: ca373af6754e82889dc100b63f73b76aaa4e4f27
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26507021"
 ---
 <a name="content-negotiation-in-aspnet-web-api"></a>ASP.NET Web API でコンテンツ ネゴシエーション
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
 この記事では、ASP.NET Web API がコンテンツ ネゴシエーションを実装する方法について説明します。
 
 HTTP の仕様 (RFC 2616)「使用可能な複数の表現が存在する場合は、指定された応答の最適な形式を選択した場合のプロセスです」としてコンテンツ ネゴシエーションを定義します。 HTTP でコンテンツ ネゴシエーションを主要なメカニズムは、これらの要求ヘッダーです。
 
-- **受信:**どのメディアの種類は"application/json に"など、応答として受け入れ可能な"application/xml、"またはカスタムのメディアの種類など、 &quot;application/vnd.example+xml&quot;
-- **受け入れる Charset:**どの文字セットは許容できますが、utf-8 または ISO 8859-1 などです。
-- **Accept-encoding:**コンテンツのエンコード方式は gzip など、許容されます。
-- **ブラウザーの言語:**優先される自然言語など"en-us"です。
+- **受信:** どのメディアの種類は"application/json に"など、応答として受け入れ可能な"application/xml、"またはカスタムのメディアの種類など、 &quot;application/vnd.example+xml&quot;
+- **受け入れる Charset:** どの文字セットは許容できますが、utf-8 または ISO 8859-1 などです。
+- **Accept-encoding:** コンテンツのエンコード方式は gzip など、許容されます。
+- **ブラウザーの言語:** 優先される自然言語など"en-us"です。
 
 サーバーは、HTTP 要求の他の部分にも確認できます。 たとえば、要求に X-要求-とヘッダーが含まれている場合、AJAX 要求を示すサーバーが既定値を JSON に Accept ヘッダーが存在しない場合。
 
@@ -95,7 +96,7 @@ Web API コント ローラーには、CLR 型として、リソースが返さ�
 - **SupportedMediaTypes**コレクションで、サポートされているメディアの種類の一覧が含まれています。 コンテンツ ネゴシエーターでは、この一覧に対して、要求の Accept ヘッダーを照合します。 Accept ヘッダーが範囲を含めることができますに注意してください。 たとえば、テキストと一致するは「テキスト/プレーン」/\*または\* /\*です。
 - **MediaTypeMappings**のリストを含むコレクション**MediaTypeMapping**オブジェクト。 **MediaTypeMapping**クラスには、メディアの種類が HTTP 要求を一致するように汎用的な方法が用意されています。 たとえば、カスタム HTTP ヘッダーを特定のメディアの種類にマップことでした。
 
-複数ある場合と一致する、最高品質係数 wins と一致します。 例:
+複数ある場合と一致する、最高品質係数 wins と一致します。 例えば:
 
 [!code-console[Main](content-negotiation/samples/sample6.cmd)]
 

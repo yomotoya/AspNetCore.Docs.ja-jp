@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
-title: "ASP.NET Web API 2 のルーティングを属性 |Microsoft ドキュメント"
+title: ASP.NET Web API 2 のルーティングを属性 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
 ms.openlocfilehash: 173add73a150d3e13ae243d6548463da912dadee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28038050"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 での属性のルーティング
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
 *ルーティング*Web API がアクションへの URI に一致します。 新しい型をサポートする web API 2 のルーティングでは、次のように呼び出されます。*属性がルーティング*です。 名前からわかるようには、ルートを定義するのに属性を使用する属性がルーティングされます。 属性がルーティングすること、Uri より詳細に制御での web API。 たとえば、リソースの階層構造を記述する Uri を簡単に作成できます。
 
@@ -151,11 +152,11 @@ Web API には、要求 (GET、POST など) の HTTP メソッドに基づいた
 <a id="prefixes"></a>
 ## <a name="route-prefixes"></a>ルート プレフィックス
 
-多くの場合、コント ローラーが同じプレフィックスで始まるすべてのルートです。 例:
+多くの場合、コント ローラーが同じプレフィックスで始まるすべてのルートです。 例えば:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample10.cs)]
 
-使用して、全体のコント ローラーの共通プレフィックスを設定することができます、 **[RoutePrefix]**属性。
+使用して、全体のコント ローラーの共通プレフィックスを設定することができます、 **[RoutePrefix]** 属性。
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample11.cs)]
 
@@ -170,7 +171,7 @@ Web API には、要求 (GET、POST など) の HTTP メソッドに基づいた
 <a id="constraints"></a>
 ## <a name="route-constraints"></a>ルート制約
 
-ルート制約を使用して、ルート テンプレートでは、パラメーターの照合方法を制限できます。 一般的な構文は&quot;{パラメーター: 制約}&quot;です。 例:
+ルート制約を使用して、ルート テンプレートでは、パラメーターの照合方法を制限できます。 一般的な構文は&quot;{パラメーター: 制約}&quot;です。 例えば:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample14.cs)]
 
@@ -180,22 +181,22 @@ Web API には、要求 (GET、POST など) の HTTP メソッドに基づいた
 
 | 制約 | 説明 | 例 |
 | --- | --- | --- |
-| アルファ | 一致の大文字またはラテン語アルファベットの小文字 (a ~ z、A ~ Z) | {x:alpha} |
+| アルファ | 一致の大文字またはラテン語アルファベットの小文字 (a ~ z、A ~ Z) | {x: アルファ} |
 | bool | ブール値と一致します。 | {x:bool} |
 | datetime | 一致する、 **DateTime**値。 | {x:datetime} |
 | decimal | 10 進値と一致します。 | {x:decimal} |
 | double | 64 ビットの浮動小数点値に一致します。 | {x:double} |
 | float | 32 ビット浮動小数点値に一致します。 | {x:float} |
-| guid | GUID 値に一致します。 | {x:guid} |
+| guid | GUID 値に一致します。 | x: {guid} |
 | int | 32 ビット整数値に一致します。 | {x:int} |
-| 長さ | 指定した長さで、または、指定された範囲の長さの文字列と一致します。 | {x:length(6)} {x:length(1,20)} |
+| 長さ | 指定した長さで、または、指定された範囲の長さの文字列と一致します。 | {x: length(6)}{x: length(1,20)} |
 | long | 64 ビット整数値に一致します。 | {x:long} |
 | max | 整数で最大値と一致します。 | {x:max(10)} |
 | maxlength | 最大長を持つ文字列と一致します。 | {x:maxlength(10)} |
-| 分 | 整数、最小値と一致します。 | {x:min(10)} |
-| minlength | 最小長の文字列と一致します。 | {x:minlength(10)} |
+| 分 | 整数、最小値と一致します。 | {x: min(10)} |
+| minlength | 最小長の文字列と一致します。 | {x: minlength(10)} |
 | range | 整数値の範囲内に一致します。 | {x:range(10,50)} |
-| regex | 正規表現と一致します。 | {x:regex(^\d{3}-\d{3}-\d{4}$)} |
+| regex | 正規表現と一致します。 | {x: regex(^\d{3}-\d{3}-\d{4}$)} |
 
 通知、制約の一部など&quot;min&quot;かっこで囲まれた引数を受け取ります。 コロンで区切られた、パラメーターには、複数の制約を適用できます。
 
@@ -269,7 +270,7 @@ Web API では、すべてのルートは、名を持ちます。 ルート名�
 
 これらのルートの順序が次のとおりです。
 
-1. orders/details
+1. orders/詳細
 2. orders/{id}
 3. orders/{customerName}
 4. orders/{\*date}

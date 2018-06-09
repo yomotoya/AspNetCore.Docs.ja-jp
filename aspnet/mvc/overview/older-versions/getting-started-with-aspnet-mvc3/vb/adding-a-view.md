@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
 msc.type: authoredcontent
 ms.openlocfilehash: c9675eb7776116ecbe910d5515abfe9b4391df22
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30873353"
 ---
 <a name="adding-a-view-vb"></a>ビュー (VB) を追加します。
 ====================
@@ -65,7 +66,7 @@ HTML を追加、`<h2>`タグ。 変更された*MvcMovie\Views\HelloWorld\Index
 
 最初に、テキストを変更してみましょう&quot;マイ MVC アプリケーション。&quot;そのテキストを使用して、共有は、すべてのページに表示されます。 アプリケーション内の各ページ上にあるいても実際には、プロジェクト内の 1 か所に表示します。 移動して、 */ビュー/共有*フォルダー**ソリューション エクスプ ローラー**を開くと、  *\_Layout.vbhtml*ファイル。 このファイルし、呼ばれ、レイアウト ページ、共有は&quot;シェル&quot;他のすべてのページを使用します。
 
-注、`@RenderBody()`ファイルの下部にあるコードの行。 `RenderBody` 場所を作成するすべてのページは表示のプレース ホルダー&quot;ラップ&quot;レイアウト ページでします。 変更、`<h1>`から見出し**&quot;**マイ MVC アプリケーション&quot;に&quot;MVC ムービー アプリ&quot;です。
+注、`@RenderBody()`ファイルの下部にあるコードの行。 `RenderBody` 場所を作成するすべてのページは表示のプレース ホルダー&quot;ラップ&quot;レイアウト ページでします。 変更、`<h1>`から見出し**&quot;** マイ MVC アプリケーション&quot;に&quot;MVC ムービー アプリ&quot;です。
 
 [!code-html[Main](adding-a-view/samples/sample3.html)]
 

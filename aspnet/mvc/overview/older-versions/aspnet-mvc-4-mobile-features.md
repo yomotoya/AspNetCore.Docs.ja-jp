@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
 ms.openlocfilehash: 5f38fcdd8e71ce12f7899214b6b2133e21f9910c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30876840"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 モバイル機能
 ====================
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/06/2018
 
 開始する前に、以下に示す前提条件がインストールされていることを確認してください。
 
-- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (推奨) または Visual Studio Web Developer Express SP1。 Visual Studio 2012 contains ASP.NET MVC 4. Visual Web Developer 2010 を使用している場合は、インストールする必要あります[ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)です。
+- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (推奨) または Visual Studio Web Developer Express SP1。 Visual Studio 2012 には、ASP.NET MVC 4 が含まれています。 Visual Web Developer 2010 を使用している場合は、インストールする必要あります[ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)です。
 
 モバイル ブラウザー エミュレーターも必要になります。 次のいずれか、動作します。
 
@@ -125,7 +126,7 @@ ASP.NET MVC 4 において重要な新しい機能は、オーバーライドで
 
 このセクションでは、mobile に固有のレイアウト ファイルを作成します。
 
-を開始するコピー *\shared\\_Layout.cshtml*に*\shared\\_Layout.Mobile.cshtml*です。 開いている *\_Layout.Mobile.cshtml*からタイトルを変更**MVC4 会議**に**会議 (モバイル)**です。
+を開始するコピー *\shared\\_Layout.cshtml*に*\shared\\_Layout.Mobile.cshtml*です。 開いている *\_Layout.Mobile.cshtml*からタイトルを変更**MVC4 会議**に**会議 (モバイル)** です。
 
 各`Html.ActionLink`呼び出し、それぞれのリンクに「によって参照」を削除*ActionLink*です。 次のコードは、モバイルのレイアウト ファイルの完了の body セクションを示しています。
 

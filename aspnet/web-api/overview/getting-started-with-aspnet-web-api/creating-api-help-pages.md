@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
-title: "ASP.NET Web API のヘルプ ページの作成 |Microsoft ドキュメント"
+title: ASP.NET Web API のヘルプ ページの作成 |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2013
@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 37fd26ebaea192cb540c443eff8a07343ab8c15b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28037904"
 ---
 <a name="creating-help-pages-for-aspnet-web-api"></a>ASP.NET Web API のヘルプ ページの作成
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
 Web API を作成するときに便利ですヘルプ ページを作成する他の開発者が API を呼び出す方法を知ること。 すべてのドキュメントを手動で作成する可能性がありますが、できるだけ多くの自動生成することをお勧めします。
 
@@ -60,9 +61,9 @@ Web API を作成するときに便利ですヘルプ ページを作成する�
 
 **ツール**メニューの **ライブラリ パッケージ マネージャー**、し、 **Package Manager Console**です。 [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)ウィンドウで、次のコマンドのいずれかを入力します。
 
-**C#**アプリケーション。`Install-Package Microsoft.AspNet.WebApi.HelpPage`
+**C#** アプリケーション。 `Install-Package Microsoft.AspNet.WebApi.HelpPage`
 
-**Visual Basic**アプリケーション。`Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
+**Visual Basic**アプリケーション。 `Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
 
 C# と Visual Basic 用の 2 つのパッケージがあります。 プロジェクトに一致するものを使用することを確認してください。
 
@@ -88,7 +89,7 @@ XML ドキュメントを有効にするようになりました。 ソリュー
 
 ![](creating-api-help-pages/_static/image7.png)
 
-次に、コードを開き、 `ValuesController` /Controllers/ValuesControler.cs で定義されている API コント ローラー。 コント ローラーのメソッドをいくつかのドキュメントのコメントを追加します。 例:
+次に、コードを開き、 `ValuesController` /Controllers/ValuesControler.cs で定義されている API コント ローラー。 コント ローラーのメソッドをいくつかのドキュメントのコメントを追加します。 例えば:
 
 [!code-csharp[Main](creating-api-help-pages/samples/sample4.cs)]
 
@@ -106,7 +107,7 @@ XML ドキュメントを有効にするようになりました。 ソリュー
 
 ヘルプ ページがの上に構築された、 **ApiExplorer**クラスは、Web API フレームワークの一部です。 **ApiExplorer**クラスは、ヘルプ ページを作成するため、原材料を提供します。 各 api **ApiExplorer**が含まれています、 **ApiDescription**を API について説明します。 このため、"API"は、HTTP メソッドと相対 URI の組み合わせとして定義されます。 たとえば、一部の個別の Api を次に示します。
 
-- GET /api/Products
+- /Api/Products を取得します。
 - GET /api/Products/{id}
 - /Api 製品を投稿します。
 

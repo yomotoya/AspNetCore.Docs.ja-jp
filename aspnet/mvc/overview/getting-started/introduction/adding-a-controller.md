@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-controller
 msc.type: authoredcontent
 ms.openlocfilehash: 3864bab284661b0c44f9e4cb363c2d60eccc7c66
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30869622"
 ---
 <a name="adding-a-controller"></a>コントローラーを追加する
 ====================
@@ -71,7 +72,7 @@ ASP.NET MVC では、着信 URL に応じて別のコント ローラー クラ�
 
 アプリケーションを実行し、URL セグメントを指定しないで、既定値は「ホーム」コント ローラーと"Index"アクション メソッドが上記のコードの既定値 セクションで指定されます。
 
-URL の最初の部分を実行するコント ローラー クラスを決定します。 したがって*/HelloWorld*にマップ、`HelloWorldController`クラスです。 URL の 2 番目の部分では、実行するには、クラスにアクション メソッドを判断します。 したがって*HelloWorld/インデックス*が切り替わるところ、`Index`のメソッド、`HelloWorldController`を実行するクラス。 のみを参照しなければならなかったことを確認*/HelloWorld*と`Index`メソッドは、既定で使用されました。 これは、という名前のメソッドであるため`Index`いずれかが明示的に指定されていない場合に、コント ローラーで呼び出される既定の方法です。 URL セグメントの 3 番目の部分 (`Parameters`) はルート データ用です。 ルート データは、このチュートリアルで後で表示されます。
+URL の最初の部分を実行するコント ローラー クラスを決定します。 したがって */HelloWorld*にマップ、`HelloWorldController`クラスです。 URL の 2 番目の部分では、実行するには、クラスにアクション メソッドを判断します。 したがって*HelloWorld/インデックス*が切り替わるところ、`Index`のメソッド、`HelloWorldController`を実行するクラス。 のみを参照しなければならなかったことを確認 */HelloWorld*と`Index`メソッドは、既定で使用されました。 これは、という名前のメソッドであるため`Index`いずれかが明示的に指定されていない場合に、コント ローラーで呼び出される既定の方法です。 URL セグメントの 3 番目の部分 (`Parameters`) はルート データ用です。 ルート データは、このチュートリアルで後で表示されます。
 
 `http://localhost:xxxx/HelloWorld/Welcome` を参照します。 `Welcome`メソッドが実行され、文字列を返します&quot;へようこそ のアクション メソッドは、このしています.&quot;. 既定の MVC マッピングは`/[Controller]/[ActionName]/[Parameters]`します。 この URL では、コントローラーは `HelloWorld` で、`Welcome` がアクション メソッドです。 URL の `[Parameters]` の部分はまだ使っていません。
 

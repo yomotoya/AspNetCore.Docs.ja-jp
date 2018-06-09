@@ -13,16 +13,17 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
 ms.openlocfilehash: 69b7d5453b6ff36d6e28a69428b016cb8cfd06e9
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "29153009"
 ---
 <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1 での CRUD 操作を有効にします。
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-c4761894)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-c4761894)
 
 > このチュートリアルでは、ASP.NET Web API を使用して HTTP サービスでの CRUD 操作をサポートする方法を示します。
 > 
@@ -42,7 +43,7 @@ CRUD&quot;作成、読み取り、更新、および Delete、&quot;は 4 つの
 | アクション | HTTP メソッド | 相対 URI |
 | --- | --- | --- |
 | すべての製品の一覧を取得します。 | GET | /api/products |
-| ID の製品を取得します。 | GET | /api/products/*id* |
+| ID によって製品を取得します。 | GET | /api/products/*id* |
 | カテゴリによって製品を取得します。 | GET | /api/products?category=*category* |
 | 新しい製品を作成します。 | POST | /api/products |
 | 製品を更新します。 | PUT | /api/products/*id* |
@@ -158,14 +159,14 @@ ProductStore API では、いくつかは公開&quot;読み取り&quot;HTTP GET 
 | アクション | HTTP メソッド | 相対 URI |
 | --- | --- | --- |
 | すべての製品の一覧を取得します。 | GET | /api/products |
-| ID の製品を取得します。 | GET | /api/products/*id* |
+| ID によって製品を取得します。 | GET | /api/products/*id* |
 | カテゴリによって製品を取得します。 | GET | /api/products?category=*category* |
 
 すべての製品の一覧を取得するには、このメソッドは追加、`ProductsController`クラス。
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample6.cs)]
 
-メソッドの名前が始まる&quot;取得&quot;慣例 GET 要求にマップするため、します。 また、メソッドにパラメーターがあるないためにマップを含まない URI、  *&quot;id&quot;* パス内のセグメント。
+メソッドの名前が始まる&quot;取得&quot;慣例 GET 要求にマップするため、します。 また、メソッドにパラメーターがあるないためにマップを含まない URI、 *&quot;id&quot;* パス内のセグメント。
 
 ID によって製品を入手するには、このメソッドは追加、`ProductsController`クラス。
 

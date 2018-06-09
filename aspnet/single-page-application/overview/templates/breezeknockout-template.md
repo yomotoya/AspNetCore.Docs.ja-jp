@@ -1,22 +1,23 @@
 ---
 uid: single-page-application/overview/templates/breezeknockout-template
-title: "簡単/Knockout テンプレート |Microsoft ドキュメント"
+title: 簡単/Knockout テンプレート |Microsoft ドキュメント
 author: madskristensen
-description: "簡単/Knockout 単一ページ アプリケーション テンプレート"
+description: 簡単/Knockout 単一ページ アプリケーション テンプレート
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/30/2013
 ms.topic: article
 ms.assetid: 3bd94827-3c59-448f-abc3-36e6df4858db
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/breezeknockout-template
 msc.type: authoredcontent
 ms.openlocfilehash: 07ec099a0381458fe42c1972a2554f76fd34638c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26506701"
 ---
 <a name="breezeknockout-template"></a>簡単/Knockout テンプレート
 ====================
@@ -57,7 +58,7 @@ BreezeJS ライブラリは、解放する最も重要なアプリケーショ�
 
 ダウンロードし、上記の [ダウンロード] ボタンをクリックして、テンプレートをインストールします。 テンプレートは、Visual Studio Extension (VSIX) ファイルとしてパッケージされています。 Visual Studio を再起動する必要があります。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#**ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。 プロジェクトの名前を指定し、をクリックして**OK**です。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。 プロジェクトの名前を指定し、をクリックして**OK**です。
 
 **新しいプロジェクト**ウィザードで、**簡単 Knockout SPA**です。
 

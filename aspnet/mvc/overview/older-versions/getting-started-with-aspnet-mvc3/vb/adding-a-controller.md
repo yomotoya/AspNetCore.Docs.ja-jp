@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-controller
 msc.type: authoredcontent
 ms.openlocfilehash: 9a433083c31c7929f7599e52800c887f301d7727
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30870610"
 ---
 <a name="adding-a-controller-vb"></a>コント ローラー (VB) の追加
 ====================
@@ -63,7 +64,7 @@ ASP.NET MVC では、着信 URL に応じて別のコント ローラー クラ�
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-URL の最初の部分を実行するコント ローラー クラスを決定します。 したがって*/HelloWorld*にマップ、`HelloWorldController`クラスです。 URL の 2 番目の部分では、実行するには、クラスにアクション メソッドを判断します。 したがって*HelloWorld/インデックス*が切り替わるところ、`Index`のメソッド、`HelloWorldController`を実行するクラス。 のみを参照してくださいしなければならなかったことを確認*/HelloWorld*上と`Index`メソッドは、既定で使用されました。 これは、という名前のメソッドであるため`Index`いずれかが明示的に指定されていない場合に、コント ローラーで呼び出される既定の方法です。
+URL の最初の部分を実行するコント ローラー クラスを決定します。 したがって */HelloWorld*にマップ、`HelloWorldController`クラスです。 URL の 2 番目の部分では、実行するには、クラスにアクション メソッドを判断します。 したがって*HelloWorld/インデックス*が切り替わるところ、`Index`のメソッド、`HelloWorldController`を実行するクラス。 のみを参照してくださいしなければならなかったことを確認 */HelloWorld*上と`Index`メソッドは、既定で使用されました。 これは、という名前のメソッドであるため`Index`いずれかが明示的に指定されていない場合に、コント ローラーで呼び出される既定の方法です。
 
 `http://localhost:xxxx/HelloWorld/Welcome` を参照します。 `Welcome`メソッドが実行され、文字列を返します&quot;へようこそ のアクション メソッドは、このしています.&quot;. 既定の MVC マッピングは`/[Controller]/[ActionName]/[Parameters]`します。 コント ローラーは、この URL の`HelloWorld`と`Welcome`メソッドです。 使用していない、`[Parameters]`まだ URL の一部です。
 

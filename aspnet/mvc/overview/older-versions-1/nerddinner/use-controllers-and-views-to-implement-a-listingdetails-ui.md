@@ -13,16 +13,17 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
 ms.openlocfilehash: ac3568941eeef24bd9857c5787471aadea15fc7f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30875735"
 ---
 <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>コント ローラーとビューを使用して、一覧と詳細の UI を実装するには
 ====================
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF をダウンロードします。](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > これは、無料の手順 4 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク-にする方法を小規模の構築が完了すると、ASP.NET MVC 1 を使用して web アプリケーションです。
 > 
@@ -62,7 +63,7 @@ MVC フレームワークの web ベースでは、少し異なる方法で、Ur
 | **URL** | **目的** |
 | --- | --- |
 | */Dinners/* | 今後ディナーの HTML の一覧を表示します。 |
-| */Dinners/Details/[id]* | これが一致するデータベースに dinner の DinnerID – URL に埋め込まれた"id"パラメーターで指定された特定 dinner に関する詳細を表示します。 例:/Dinners/Details/2 DinnerID 値が 2 Dinner に関する詳細情報を HTML ページが表示されます。 |
+| */Dinners 詳細/[id]* | これが一致するデータベースに dinner の DinnerID – URL に埋め込まれた"id"パラメーターで指定された特定 dinner に関する詳細を表示します。 例:/Dinners/Details/2 DinnerID 値が 2 Dinner に関する詳細情報を HTML ページが表示されます。 |
 
 次のように、DinnersController クラスに次の 2 つのパブリック「操作方法」を追加することによってこれらの Url の最初の実装が公開します。
 
@@ -99,7 +100,7 @@ ASP.NET MVC には、多数の Url をコント ローラー クラスにマッ�
 | */Dinners/Details/2* | DinnersController | Details(id) | id=2 |
 | */Dinners/Edit/5* | DinnersController | Edit(id) | id=5 |
 | */Dinners/Create* | DinnersController | Create() | N/A |
-| */Dinners* | DinnersController | Index() | N/A |
+| */ディナー* | DinnersController | Index() | N/A |
 | */Home* | HomeController | Index() | N/A |
 | */* | HomeController | Index() | N/A |
 

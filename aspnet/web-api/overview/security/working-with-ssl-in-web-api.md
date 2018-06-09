@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 127b336cb628e55bd59481ecb1c4df83960dc25b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036165"
 ---
 <a name="working-with-ssl-in-web-api"></a>Web API での SSL の操作
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
 いくつかの一般的な認証方式は、プレーンな HTTP では安全ではありません。 具体的には、基本認証とフォーム認証は、暗号化されていない資格情報を送信します。 をセキュリティで保護するこれらの認証スキーム*必要があります*SSL を使用します。 さらに、SSL クライアント証明書は、クライアントの認証に使用できます。
 

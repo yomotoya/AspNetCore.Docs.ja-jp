@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
 ms.openlocfilehash: c11e2ef9c33b0cae1f196690533094ce1c342da5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036428"
 ---
 <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>ASP.NET および Web ツール 2013.1 for Visual Studio 2012 のリリース ノート
 ====================
@@ -168,7 +169,7 @@ Entity Framework (Web API 2 コント ローラーなどのアクション、Ent
 <a id="browseissue"></a>
 #### <a name="viewing-cshtml-file-withbrowse-withorf5causes-a-server-error"></a>Cshtml ファイル withBrowse WithorF5causes サーバー エラーを表示します。
 
-Visual Studio 2012 (または Visual Studio 2012 MVC 5 の場合、作成されたプロジェクトを Visual Studio 2013 で開きます) で MVC 5 のプロジェクトを作成し、Browse With または f5 キーを使用して、cshtml ファイルを表示しようとすると、ときにエラーが発生状態 - を**でサーバー エラー'/' アプリケーション**です。 サーバーに移動しようとしました。`http://localhost:XXXX/Views/../XXXX.cshtml`
+Visual Studio 2012 (または Visual Studio 2012 MVC 5 の場合、作成されたプロジェクトを Visual Studio 2013 で開きます) で MVC 5 のプロジェクトを作成し、Browse With または f5 キーを使用して、cshtml ファイルを表示しようとすると、ときにエラーが発生状態 - を**でサーバー エラー'/' アプリケーション**です。 サーバーに移動しようとしました。 `http://localhost:XXXX/Views/../XXXX.cshtml`
 
 この問題を解決するには、変更、**開始動作**に、プロジェクトで設定**特定のページ**です。 ページの値を指定する必要はありません。
 

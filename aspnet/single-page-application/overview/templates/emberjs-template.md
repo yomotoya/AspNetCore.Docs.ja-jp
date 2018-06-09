@@ -1,22 +1,23 @@
 ---
 uid: single-page-application/overview/templates/emberjs-template
-title: "EmberJS テンプレート |Microsoft ドキュメント"
+title: EmberJS テンプレート |Microsoft ドキュメント
 author: xqiu
-description: "EmberJS テンプレート"
+description: EmberJS テンプレート
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/30/2013
 ms.topic: article
 ms.assetid: 04d5f142-5f62-494a-b5ea-4f3d068d34cb
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/emberjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 1fb7633aee288be648d4f9681b43c8911b7dbab9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26506801"
 ---
 <a name="emberjs-template"></a>EmberJS テンプレート
 ====================
@@ -43,7 +44,7 @@ EmberJS SPA テンプレートを使用して、 [Ember](http://emberjs.com/) AJ
 
 ダウンロードし、上記の [ダウンロード] ボタンをクリックして、テンプレートをインストールします。 Visual Studio を再起動する必要があります。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#**ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。 プロジェクトの名前を指定し、をクリックして**OK**です。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。 プロジェクトの名前を指定し、をクリックして**OK**です。
 
 ![](emberjs-template/_static/image2.png)
 
@@ -98,7 +99,7 @@ EmberJS SPA テンプレート スクリプトを 8 つのレイヤーに整理�
 
 [!code-javascript[Main](emberjs-template/samples/sample4.js)]
 
-## <a name="views"></a>ビュー
+## <a name="views"></a>Views
 
 ビューは、スクリプト/アプリケーション/ビュー フォルダーで定義されます。 ビューは、アプリケーションの UI からのイベントを変換します。 イベント ハンドラーは、コント ローラーの機能をコールバックまたはデータ コンテキストを直接呼び出します。
 
@@ -134,7 +135,7 @@ TodoListRoute.js は、setupController 関数をオーバーライドするこ�
 
 [!code-javascript[Main](emberjs-template/samples/sample11.js)]
 
-Ember では、名前付け規則を使用して、Url、ルート名、コント ローラー、およびテンプレートに一致します。 詳細については、次を参照してください。 [http://emberjs.com/guides/routing/defining-your-routes/](http://emberjs.com/guides/routing/defining-your-routes/) EmberJS ドキュメントを参照します。
+Ember では、名前付け規則を使用して、Url、ルート名、コント ローラー、およびテンプレートに一致します。 詳細については、次を参照してください。 [ http://emberjs.com/guides/routing/defining-your-routes/ ](http://emberjs.com/guides/routing/defining-your-routes/) EmberJS ドキュメントを参照します。
 
 ## <a name="templates"></a>テンプレート
 
@@ -146,7 +147,7 @@ Ember では、名前付け規則を使用して、Url、ルート名、コン�
 - todoList.hbs: テンプレートを"/todo"のルートです。
 - \_navbar.hbs: テンプレートは、ナビゲーション メニューを定義します。
 
-アプリケーション テンプレートは、マスター ページと同様に動作します。 ヘッダー、フッター、および「{{コンセント}}」のルートによってでは、その他のテンプレートを挿入するが含まれています。 Ember のアプリケーション テンプレートの詳細については、次を参照してください。 [http://guides.emberjs.com/v1.10.0/templates/the-application-template//](http://guides.emberjs.com/v1.10.0/templates/the-application-template/)です。
+アプリケーション テンプレートは、マスター ページと同様に動作します。 ヘッダー、フッター、および「{{コンセント}}」のルートによってでは、その他のテンプレートを挿入するが含まれています。 Ember のアプリケーション テンプレートの詳細については、次を参照してください。 [ http://guides.emberjs.com/v1.10.0/templates/the-application-template//](http://guides.emberjs.com/v1.10.0/templates/the-application-template/)です。
 
 "/TodoList"テンプレートには、2 つのループ式が含まれています。 外側のループは`{{#each controller}}`、および内部ループは`{{#each todos}}`します。 次のコードは、組み込み`Ember.Checkbox`、表示、カスタマイズされた`App.TodoItemEditView`とのリンク、`deleteTodo`アクション。
 

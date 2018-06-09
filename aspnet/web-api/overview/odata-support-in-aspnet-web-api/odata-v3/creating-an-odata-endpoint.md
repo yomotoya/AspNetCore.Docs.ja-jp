@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
 ms.openlocfilehash: 227faacd3f42731e08a4cd2b71075776309961b6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30874630"
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Web API 2 OData v3 エンドポイントを作成します。
 ====================
-作成者 [Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
 [完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
@@ -61,7 +62,7 @@ Visual Studio を起動し、選択**新しいプロジェクト**スタート �
 
 ![](creating-an-odata-endpoint/_static/image1.png)
 
-**新しい ASP.NET プロジェクト**ダイアログで、選択、**空**テンプレート。 &quot;フォルダーを追加し、コアを参照しています.&quot;、確認**Web API**です。 **[OK]**をクリックします。
+**新しい ASP.NET プロジェクト**ダイアログで、選択、**空**テンプレート。 &quot;フォルダーを追加し、コアを参照しています.&quot;、確認**Web API**です。 **[OK]** をクリックします。
 
 ![](creating-an-odata-endpoint/_static/image2.png)
 
@@ -107,7 +108,7 @@ A*コント ローラー* HTTP 要求を処理するクラスです。 各エン
 
 ![](creating-an-odata-endpoint/_static/image7.png)
 
-クリックして、**新しいデータ コンテキストしています.**ボタンをクリックします。 データ コンテキスト型の既定の名前のままにし、をクリックして**追加**です。
+クリックして、**新しいデータ コンテキストしています.** ボタンをクリックします。 データ コンテキスト型の既定の名前のままにし、をクリックして**追加**です。
 
 ![](creating-an-odata-endpoint/_static/image8.png)
 
@@ -241,7 +242,7 @@ OData には、いくつかのシリアル化形式がサポートされてい�
 
 - Atom Pub (XML)
 - JSON"light"(OData v3 で導入されました)
-- JSON "verbose" (OData v2)
+- JSON"verbose"(OData v2)
 
 既定では、Web API は、AtomPubJSON"light"形式を使用します。 
 

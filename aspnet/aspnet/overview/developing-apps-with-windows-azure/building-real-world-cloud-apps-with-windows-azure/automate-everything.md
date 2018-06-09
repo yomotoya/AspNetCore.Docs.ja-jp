@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
 ms.openlocfilehash: 2e30ab7831a10f215a08f74e61adf2d147e76543
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30875176"
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>(Azure での実際のクラウド アプリの構築) すべてを自動化します。
 ====================
@@ -195,7 +196,7 @@ Azure のすべての環境の作成スクリプトを格納、`appSettings`と`
 
 プロセスの最後に、環境の作成スクリプトは、展開スクリプトにより使用されるファイルを作成する 2 つの関数を呼び出します。
 
-発行プロファイルを作成するこれらの関数のいずれかの*(&lt;websitename&gt;.pubxml*ファイル)。 発行設定を取得する Azure REST API を呼び出すコードとの情報は、保存、 *.publishsettings*ファイル。 テンプレート ファイルとそのファイルから情報を使用して、(*pubxml.template*) を作成する、 *.pubxml*発行プロファイルを含むファイルです。 Visual Studio で行うこの 2 段階のプロセスをシミュレート: ダウンロード、 *.publishsettings*ファイルし、インポートすると、発行プロファイルを作成します。
+発行プロファイルを作成するこれらの関数のいずれかの *(&lt;websitename&gt;.pubxml*ファイル)。 発行設定を取得する Azure REST API を呼び出すコードとの情報は、保存、 *.publishsettings*ファイル。 テンプレート ファイルとそのファイルから情報を使用して、(*pubxml.template*) を作成する、 *.pubxml*発行プロファイルを含むファイルです。 Visual Studio で行うこの 2 段階のプロセスをシミュレート: ダウンロード、 *.publishsettings*ファイルし、インポートすると、発行プロファイルを作成します。
 
 その他の関数では、別のテンプレート ファイル (web サイト environment.template) を使用して、作成、 *web サイト environment.xml*と共に配置スクリプトで使用する設定を格納しているファイル、 *.pubxml*ファイル。
 

@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
 ms.openlocfilehash: b48a7b04701b69f68a492c0f7e08da4a37a92a48
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036441"
 ---
 <a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>Azure Service Bus での SignalR スケール アウト (SignalR 1.x)
 ====================
@@ -113,7 +114,7 @@ Service bus の接続文字列を取得する必要があります。 Azure ポ�
 
 [!code-csharp[Main](scaleout-with-windows-azure-service-bus/samples/sample4.cs)]
 
-## <a name="deploy-to-azure"></a>Azure への配置します。
+## <a name="deploy-to-azure"></a>Azure に配置する
 
 ソリューション エクスプ ローラーで、展開、**ロール**ChatService プロジェクト内のフォルダーです。
 

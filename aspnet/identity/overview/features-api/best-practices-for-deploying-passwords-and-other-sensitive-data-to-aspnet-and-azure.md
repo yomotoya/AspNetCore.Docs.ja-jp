@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
-title: "ASP.NET と Azure App Service へのパスワードなどの機密データの展開のベスト プラクティス |Microsoft ドキュメント"
+title: ASP.NET と Azure App Service へのパスワードなどの機密データの展開のベスト プラクティス |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このチュートリアルでは、どのようにコードに安全に格納してセキュリティで保護された情報にアクセスします。 最も重要な点は、パスワードやその他の送信を保存しないでください."
+description: このチュートリアルでは、どのようにコードに安全に格納してセキュリティで保護された情報にアクセスします。 最も重要な点は、パスワードやその他の送信を保存しないでください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2015
 ms.topic: article
 ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
 ms.openlocfilehash: 995d9a088e3095f36a01d2adb19ec08e6a6d1b3e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28033022"
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>ASP.NET と Azure App Service にパスワードや他の機密データを展開するためのベスト プラクティス
 ====================
@@ -75,7 +76,7 @@ Visual Studio を使用する新しい ASP.NET プロジェクトを作成する
 
 
 > [!NOTE]
-> **機密データ ファイルにセキュリティ警告:**開発、テストや実稼働の機密情報を使用しないようにお勧めします。 これらの機密情報をリークをテストまたは開発で実稼働のパスワードを使用します。
+> **機密データ ファイルにセキュリティ警告:** 開発、テストや実稼働の機密情報を使用しないようにお勧めします。 これらの機密情報をリークをテストまたは開発で実稼働のパスワードを使用します。
 
 
 <a id="wj"></a>
@@ -90,7 +91,7 @@ Visual Studio を使用する新しい ASP.NET プロジェクトを作成する
 
 Azure に web アプリを展開するとき、 *AppSettingsSecrets.config* (つまり目的) ファイルを展開されません。 移動する可能性があります、 [Azure Management Portal](https://azure.microsoft.com/services/management-portal/)を行うには、手動で設定するとします。
 
-1. 移動して[https://portal.azure.com](https://portal.azure.com)、し、Azure の資格情報でサインインします。
+1. 移動して[ https://portal.azure.com ](https://portal.azure.com)、し、Azure の資格情報でサインインします。
 2. をクリックして**参照&gt;Web Apps**、web アプリの名前をクリックします。
 3. をクリックして**すべて設定&gt;アプリケーション設定**です。
 

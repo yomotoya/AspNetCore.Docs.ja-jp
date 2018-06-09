@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
 ms.openlocfilehash: 1f1e90544c9dd8439a522f2196d81d020ea2f4f2
-ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30223263"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 のルーティングの属性を持つ REST API を作成します。
 ====================
-作成者 [Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
 新しい型をサポートする web API 2 のルーティングでは、次のように呼び出されます。*属性がルーティング*です。 属性のルーティングの一般的な概要については、次を参照してください。 [Web API 2 での属性のルーティング](attribute-routing-in-web-api-2.md)です。 このチュートリアルではルーティングを使用して属性をブックのコレクション用の REST API を作成します。 この API は、次の操作がサポートされます。
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 03/28/2018
 
 Visual Studio を実行して開始します。 **ファイル**メニューの **新規**し、**プロジェクト**です。
 
-**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#**ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。 プロジェクトに名前を&quot;BooksAPI&quot;です。
+**テンプレート**ペインで、**インストールされたテンプレート**を展開し、 **Visual c#** ノード。 **Visual c#** **Web**です。 プロジェクト テンプレートの一覧で選択**ASP.NET MVC 4 Web Application**です。 プロジェクトに名前を&quot;BooksAPI&quot;です。
 
 ![](create-a-rest-api-with-attribute-routing/_static/image1.png)
 
@@ -159,7 +160,7 @@ Ctrl キーと Shift キーを押しながら B キーを押して、プロジ�
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample11.cs?highlight=1)]
 
-追加し、 **[ルート]**コント ローラーのアクションを次のように属性します。
+追加し、 **[ルート]** コント ローラーのアクションを次のように属性します。
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample12.cs?highlight=1,7)]
 
@@ -172,7 +173,7 @@ Ctrl キーと Shift キーを押しながら B キーを押して、プロジ�
 
 ## <a name="get-book-details"></a>書籍の詳細を取得します。
 
-書籍の詳細を取得するには、クライアントがへの GET 要求を送信`/api/books/{id}/details`ここで、 *{id}*書籍の id を指定します。
+書籍の詳細を取得するには、クライアントがへの GET 要求を送信`/api/books/{id}/details`ここで、 *{id}* 書籍の id を指定します。
 
 `BooksController` クラスに次のメソッドを追加します。
 
@@ -236,7 +237,7 @@ Ctrl キーと Shift キーを押しながら B キーを押して、プロジ�
 
 形式で日付を今すぐのみ&quot;yyyy mm dd&quot;は一致します。 実際の日付を取得したことを検証する正規表現を使用しないことに注意してください。 Web API への URI セグメントに変換しようとするときに処理する、 **DateTime**インスタンス。 無効な日付など ' 2012-47-99' は、変換に失敗し、クライアントには、404 エラーが発生します。
 
-スラッシュの区切り記号をサポートすることも (`/api/books/date/yyyy/mm/dd`) 別の操作を追加することによって**[ルート]**属性さまざまな正規表現を使用します。
+スラッシュの区切り記号をサポートすることも (`/api/books/date/yyyy/mm/dd`) 別の操作を追加することによって **[ルート]** 属性さまざまな正規表現を使用します。
 
 [!code-html[Main](create-a-rest-api-with-attribute-routing/samples/sample20.html)]
 

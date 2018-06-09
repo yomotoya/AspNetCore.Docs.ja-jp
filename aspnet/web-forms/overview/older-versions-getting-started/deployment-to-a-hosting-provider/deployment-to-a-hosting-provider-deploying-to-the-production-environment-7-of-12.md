@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: ab3b7ba332deddae7d04fc37c7aabc72bdb2d17e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30889684"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: 12 の 7 - 実稼働環境に展開します。
 ====================
@@ -125,7 +126,7 @@ Web ユーザー名とパスワードを入力して発行に使用する資格�
 
 ![公開 Web ウィザードの [接続] タブ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image26.png)
 
-.Publishsettings ファイルは、送信先 URL ボックスに、サイトの計画的な永続的な URL をなりますが、そのドメインをまだ購入していない場合は場合、は、一時的な URL を使用して値を置き換えます。 この例では、URL は *[ http://contosouniversity.com.vserver01.cytanium.com](http://contosouniversity.com.vserver01.cytanium.com)です。*このボックスの唯一の目的では、ブラウザーに自動的に開きます後に正常に展開後にどのような URL を指定します。 空のまま、のみの結果がブラウザーを展開後に自動的に起動しません。
+.Publishsettings ファイルは、送信先 URL ボックスに、サイトの計画的な永続的な URL をなりますが、そのドメインをまだ購入していない場合は場合、は、一時的な URL を使用して値を置き換えます。 この例では、URL は *[ http://contosouniversity.com.vserver01.cytanium.com](http://contosouniversity.com.vserver01.cytanium.com)です。* このボックスの唯一の目的では、ブラウザーに自動的に開きます後に正常に展開後にどのような URL を指定します。 空のまま、のみの結果がブラウザーを展開後に自動的に起動しません。
 
 をクリックして**接続の検証**設定が正しいことと、サーバーに接続できることを確認します。 前述の緑のチェック マークは、接続が成功したことを確認します。
 
@@ -133,18 +134,18 @@ Web ユーザー名とパスワードを入力して発行に使用する資格�
 
 ![証明書のエラー](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image27.png)
 
-**[次へ]**をクリックします。
+**[次へ]** をクリックします。
 
 **データベース**のセクションで、**設定** タブで、同じ入力発行プロファイルのテスト用に入力した値です。 ドロップダウン リストに必要な接続文字列があります。
 
-- 接続文字列 ボックスで**SchoolContext、**選択 `Data Source=|DataDirectory|School-Prod.sdf`
+- 接続文字列 ボックスで**SchoolContext、** 選択 `Data Source=|DataDirectory|School-Prod.sdf`
 - **SchoolContext****適用の Code First Migrations**です。
 - 接続文字列 ボックスで**DefaultConnection**を選択 `Data Source=|DataDirectory|aspnet-Prod.sdf`
 - **DefaultConnection**のままにして**データベースの更新**オフにします。
 
 ![公開 Web ウィザードの設定 タブ](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image28.png)
 
-**[次へ]**をクリックします。
+**[次へ]** をクリックします。
 
 **プレビュー**  タブで、をクリックして**開始プレビュー**コピーされるファイルの一覧を表示します。 先ほど見たとき、ローカル コンピューター上の IIS に配置されたものと同じ一覧が参照してください。
 
@@ -156,7 +157,7 @@ Web ユーザー名とパスワードを入力して発行に使用する資格�
 
 ![Web 発行プロファイル ダイアログ ボックスを編集します。](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image30.png)
 
-**[発行]**をクリックします。
+**[発行]** をクリックします。
 
 アプリケーションは、ホスティング プロバイダーに発行されます。 結果を示しています、**出力**ウィンドウです。
 
@@ -246,7 +247,7 @@ Elmah への書き込みアクセスがあることを確認、 *Elmah*フォル
 
 `User-agent`行は、ファイル内のルールがすべて検索エンジン web クローラー (ロボット) に適用される検索エンジンに指示し、`Disallow`行は、サイトのページをクロールないことを指定します。
 
-おそらくたくを運用環境のデプロイからこのファイルを除外する必要があるため、実稼働サイトをカタログ化する検索エンジンです。 そのためには、次を参照してください。**できますものを除外する特定のファイルまたはフォルダーの展開から?**で[ASP.NET Web アプリケーション プロジェクトの展開に関する FAQ](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment)です。 発行プロファイルの運用環境用にのみ、排他領域を指定することを確認します。
+おそらくたくを運用環境のデプロイからこのファイルを除外する必要があるため、実稼働サイトをカタログ化する検索エンジンです。 そのためには、次を参照してください。**できますものを除外する特定のファイルまたはフォルダーの展開から?** で[ASP.NET Web アプリケーション プロジェクトの展開に関する FAQ](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment)です。 発行プロファイルの運用環境用にのみ、排他領域を指定することを確認します。
 
 2 つ目のホスト アカウントの作成は、テスト環境は必要ありませんが、追加の経費価値がありますを使用するアプローチです。 次のチュートリアルでは、IIS を使用して、テスト環境に進みます。
 
