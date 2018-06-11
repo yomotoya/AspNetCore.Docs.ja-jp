@@ -183,7 +183,7 @@ JSON をパイプして機密データのバッチを設定することができ
 
 ---
 
-## <a name="access-a-secret"></a>シークレットをアクセスします。
+## <a name="access-a-secret"></a>シークレットにアクセスします。
 
 ::: moniker range="<= aspnetcore-1.1"
 [ASP.NET Core の構成 API](xref:fundamentals/configuration/index)シークレット Manager の機密情報へのアクセスを提供します。 インストール、 [Microsoft.Extensions.Configuration.UserSecrets](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.UserSecrets) NuGet パッケージです。
