@@ -11,12 +11,12 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: ba1db640e5608fd9f5e7fa024283a651bf7772c2
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: c71d98f86c15a4c6fbbe400f912123419b4ad076
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34819059"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252205"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>ASP.NET Core の SignalR を概要します。
 
@@ -85,6 +85,8 @@ Visual Studio が含まれています、`Microsoft.AspNetCore.SignalR`パッケ
     dotnet new webapp -o SignalRChat
     ```
 
+    [!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
 2. JavaScript クライアント ライブラリを使用して、インストール*npm*です。
 
     ```console
@@ -94,7 +96,7 @@ Visual Studio が含まれています、`Microsoft.AspNetCore.SignalR`パッケ
 
 3. 内に"signalr"をという名前の新しいフォルダーを作成、 *lib*プロジェクトのフォルダーにします。 コピー、 *signalr.js*ファイルから*node_modules\\ @aspnet\signalr\dist\browser* このフォルダーにします。
 
------
+---
 
 ## <a name="create-the-signalr-hub"></a>SignalR ハブを作成します。
 
