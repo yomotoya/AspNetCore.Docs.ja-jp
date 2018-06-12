@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: 9cd14a47a512c2a887614e617dd914dbdb25cb9d
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: 019224e86f1f5583ce0f212d8be70e8829274c7e
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34688440"
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core チュートリアル
 
@@ -39,7 +40,7 @@ ASP.NET Core アプリケーションの開発に関する以下のステップ 
 * [Visual Studio を使用した ASP.NET Core と Entity Framework Core の概要](xref:data/ef-mvc/index)
 * [タグ ヘルパーの作成](xref:mvc/views/tag-helpers/authoring)
 * [単純なビュー コンポーネントの作成](xref:mvc/views/view-components#walkthrough-creating-a-simple-view-component)
-* [dotnet watch を使用した ASP.NET Core アプリの開発](xref:tutorials/dotnet-watch)
+* [ファイル監視を使用したアプリ開発](xref:tutorials/dotnet-watch)
 
 ## <a name="build-web-apis"></a>Web API の構築
 * ASP.NET Core で Web API を作成する

@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 651d47ce20f3269340f0796f487e2f1a2a155710
-ms.sourcegitcommit: 0063338c2e130409081bb60fcffa0c3f190cd46a
+ms.openlocfilehash: c8611ef9218711410cde9e142202fa25c3e51862
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729459"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core での Razor ページの概要
 
@@ -40,17 +41,47 @@ Visual Studio を使用して Razor ページ プロジェクトを作成する�
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio for Mac](#tab/visual-studio-mac)
 
+::: moniker range=">= aspnetcore-2.1"
+
+コマンド ラインから `dotnet new webapp` を実行します。
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 コマンド ラインから `dotnet new razor` を実行します。
+
+::: moniker-end
 
 Visual Studio for Mac から生成された *.csproj* ファイルを開きます。
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
 
+::: moniker range=">= aspnetcore-2.1"
+
+コマンド ラインから `dotnet new webapp` を実行します。
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 コマンド ラインから `dotnet new razor` を実行します。
+
+::: moniker-end
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
+::: moniker range=">= aspnetcore-2.1"
+
+コマンド ラインから `dotnet new webapp` を実行します。
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 コマンド ラインから `dotnet new razor` を実行します。
+
+::: moniker-end
 
 ---
 
@@ -116,7 +147,7 @@ db コンテキスト:
 
 規則により、`PageModel` クラスは `<PageName>Model` と呼ばれ、ページと同じ名前空間にあります。
 
-`PageModel` クラスでは、ページの表示からロジックを分離できます。 これは、ページに送信される要求のページ ハンドラーと、ページのレンダリングに使用されるデータを定義します。 この分離により、ユーザーは[依存関係の挿入](xref:fundamentals/dependency-injection)を通じてページの依存関係を管理し、ページの[単体テスト](xref:testing/razor-pages-testing)を実行できます。
+`PageModel` クラスでは、ページの表示からロジックを分離できます。 これは、ページに送信される要求のページ ハンドラーと、ページのレンダリングに使用されるデータを定義します。 この分離により、ユーザーは[依存関係の挿入](xref:fundamentals/dependency-injection)を通じてページの依存関係を管理し、ページの[単体テスト](xref:test/razor-pages-tests)を実行できます。
 
 このページには、(ユーザーがフォームを投稿したときに) `POST` 要求で実行される `OnPostAsync` *ハンドラー メソッド*があります。 任意の HTTP 動詞のハンドラー メソッドを追加できます。 最も一般的なハンドラーは次のとおりです。
 
@@ -502,4 +533,4 @@ services.AddMvc()
 * [Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)
 * [Razor ページの承認規則](xref:security/authorization/razor-pages-authorization)
 * [Razor ページのカスタム ルートとページ モデル プロバイダー](xref:mvc/razor-pages/razor-pages-conventions)
-* [Razor ページの単体テストと統合テスト](xref:testing/razor-pages-testing)
+* [Razor ページの単体テスト](xref:test/razor-pages-tests)
