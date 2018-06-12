@@ -1,22 +1,23 @@
 ---
 uid: visual-studio/overview/2013/creating-web-projects-in-visual-studio
-title: "Visual Studio 2013 での ASP.NET Web プロジェクトの作成 |Microsoft ドキュメント"
+title: Visual Studio 2013 での ASP.NET Web プロジェクトの作成 |Microsoft ドキュメント
 author: tdykstra
-description: "このトピックでは、Visual Studio 2013 更新プログラム 3 は、ここでの ASP.NET web プロジェクトを作成するためのオプションは、web 開発 c の新機能の一部について説明しています."
+description: このトピックでは、Visual Studio 2013 更新プログラム 3 は、ここでの ASP.NET web プロジェクトを作成するためのオプションは、web 開発 c の新機能の一部について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/01/2014
 ms.topic: article
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
 ms.openlocfilehash: aacae7a9ccf483b21d3c6796c0411d558fa3c75b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28038866"
 ---
 <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Visual Studio 2013 で ASP.NET Web プロジェクトの作成
 ====================
@@ -124,7 +125,7 @@ Visual Studio 2013 では、.NET 4.5 または .NET framework の以降のバー
 <a id="empty"></a>
 ### <a name="empty-template"></a>空のテンプレート
 
-空のテンプレートは、ベア最小フォルダーとプロジェクト ファイルなど、ASP.NET web アプリのファイル (*.csproj*または*。vbproj*) および*Web.config*ファイル。 下のチェック ボックスを使用して、Web フォーム、MVC、または Web API のサポートを追加することができます、**フォルダーを追加し、コアの参照:**ラベル。
+空のテンプレートは、ベア最小フォルダーとプロジェクト ファイルなど、ASP.NET web アプリのファイル (*.csproj*または *。vbproj*) および*Web.config*ファイル。 下のチェック ボックスを使用して、Web フォーム、MVC、または Web API のサポートを追加することができます、**フォルダーを追加し、コアの参照:** ラベル。
 
 空のテンプレートの認証オプションはありません。 サンプル アプリケーションで認証機能は実装され、空のテンプレートは、サンプル アプリケーションを作成できません。
 
@@ -243,7 +244,7 @@ Visual Studio 2013 プロジェクト テンプレートを使用して[ブー�
 
 ブートス トラップのテーマの機能は、アプリケーションの外観の変更を簡単に影響するを使用することもできます。 たとえば、テーマを変更する次の手順を行うことができます。
 
-1. ブラウザーでに移動[http://Bootswatch.com](http://Bootswatch.com)、テーマを選択し、クリックして**ダウンロード**です。 (これにより、ダウンロード*bootstrap.min.css*既定では、CSS コードを調べる場合が取得*bootstrap.css*縮小されたバージョンではなくです)。
+1. ブラウザーでに移動[ http://Bootswatch.com ](http://Bootswatch.com)、テーマを選択し、クリックして**ダウンロード**です。 (これにより、ダウンロード*bootstrap.min.css*既定では、CSS コードを調べる場合が取得*bootstrap.css*縮小されたバージョンではなくです)。
 2. ダウンロードした CSS ファイルの内容をコピーします。
 3. Visual Studio で、新しい**スタイル シート**という名前のファイル*ブートス トラップ theme.css*で、*コンテンツ*フォルダーと貼り付け、ダウンロードした CSS のコードにします。
 4. 開いている*アプリ\_Start/Bundle.config*変更と*bootstrap.css*に*ブートス トラップ theme.css*です。
@@ -265,7 +266,7 @@ Visual Studio で Web フォーム デザイナーを使用する場合は、デ
 
 ![フレームワークを追加します。](creating-web-projects-in-visual-studio/_static/image22.png)
 
-プロジェクトが作成されるときに、そのフレームワークのサポートを追加するために、テンプレートに含まれていない、フレームワークのチェック ボックスを選択します。 たとえば、Web フォームの使用を有効にする*.aspx* MVC テンプレートを選択したときに、ページの選択、 **Web フォーム**チェック ボックスをオンします。 Web フォーム テンプレートを使用している場合は、MVC を有効化、 をクリックして、 **MVC**チェック ボックスをオンします。 フレームワークを追加すると、デザイン時と実行時のサポートができます。 たとえば、Web フォーム プロジェクトに MVC サポートを追加する場合は、コント ローラーとビューをスキャフォールディングすることができます。
+プロジェクトが作成されるときに、そのフレームワークのサポートを追加するために、テンプレートに含まれていない、フレームワークのチェック ボックスを選択します。 たとえば、Web フォームの使用を有効にする *.aspx* MVC テンプレートを選択したときに、ページの選択、 **Web フォーム**チェック ボックスをオンします。 Web フォーム テンプレートを使用している場合は、MVC を有効化、 をクリックして、 **MVC**チェック ボックスをオンします。 フレームワークを追加すると、デザイン時と実行時のサポートができます。 たとえば、Web フォーム プロジェクトに MVC サポートを追加する場合は、コント ローラーとビューをスキャフォールディングすることができます。
 
 プロジェクト内に Web フォームと MVC を組み合わせるし、有効にするかどうかは[フレンドリな Url](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx) Web フォームである可能性がありますいないルーティングの問題 1 つの URL が複数の可能なターゲットを持つ予期されます。 ルート定義を最初に優先されます。 ある場合など、`Home`コント ローラーと*Home.aspx*  ページで、 `http://contoso.com/home` URL に移動する*Home.aspx*を呼び出す場合は、`EnableFriendlyUrls`メソッド、を呼び出す前に`MapRoute`メソッド*RouteConfig.cs*、同一の URL がの既定のビューに移動するか、`Home`コント ローラーを呼び出す場合`MapRoute`する前に`EnableFriendlyUrls`です。
 
@@ -321,7 +322,7 @@ ASP.NET Identity は、これは主に外部の顧客のインターネット we
 
 個々 のユーザー アカウント オプションの詳細については、次のリソースを参照してください。
 
-- [www.asp.net/identity](../../../identity/index.md). ASP.NET web サイトで ASP.NET Id に関するドキュメントです。
+- [www.asp.net/identity](../../../identity/index.md)です。 ASP.NET web サイトで ASP.NET Id に関するドキュメントです。
 - [ASP.NET MVC 5 アプリを作成すると Facebook、Google OAuth2 OpenID サインオン](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)です。 ユーザー プロファイル データをカスタマイズする方法も示します。
 - [Web API の外部認証サービス](../../../web-api/overview/security/external-authentication-services.md)
 - [Visual Studio 2013 で ASP.NET アプリケーションに外部ログインを追加します。](https://blogs.msdn.com/b/webdev/archive/2013/06/27/adding-external-logins-to-your-asp-net-application-in-visual-studio-2013.aspx)
@@ -426,4 +427,4 @@ AD を使用してこのアプリケーションを識別または Visual Studio
 <a id="nextsteps"></a>
 ## <a name="next-steps"></a>次の手順
 
-このドキュメントには、Visual Studio 2013 で新しい ASP.NET web プロジェクトを作成するための基本的なヘルプが提供されます。 Web 開発用の Visual Studio の使用に関する詳細については、次を参照してください。 [https://www.asp.net/visual-studio/](../../index.md)です。
+このドキュメントには、Visual Studio 2013 で新しい ASP.NET web プロジェクトを作成するための基本的なヘルプが提供されます。 Web 開発用の Visual Studio の使用に関する詳細については、次を参照してください。 [ https://www.asp.net/visual-studio/](../../index.md)です。
