@@ -10,17 +10,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: ad50f8b261447d40ccc24c0ee006239aa976bf20
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.openlocfilehash: 3bca96f4a2e247eeeb93140df93221371d88d4d3
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341861"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET Core を防ぐクロスサイト リクエスト フォージェリ (XSRF/CSRF) 攻撃
 
 によって[Steve Smith](https://ardalis.com/)、 [Fiyaz Hasan](https://twitter.com/FiyazBinHasan)、および[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-クロスサイト リクエスト フォージェリ (とも呼ばれる XSRF または CSRF、発音*「surf*) は、これにより、悪意のある web アプリに影響を与える、クライアント ブラウザーと web アプリを信頼している間の相互作用 web ホスト型アプリへの攻撃ブラウザー。 Web ブラウザーの web サイトにいくつかの種類の認証トークンに自動的にすべての要求を送信するため、このような攻撃が可能です。 この形式の脆弱性攻撃とも呼ばれます、 *1 回のクリック攻撃*または*乗るセッション*セッション、ユーザーの認証に以前の攻撃を活用するためです。
+クロスサイト リクエスト フォージェリ (とも呼ばれる XSRF または CSRF、発音 *「surf*) は、これにより、悪意のある web アプリに影響を与える、クライアント ブラウザーと web アプリを信頼している間の相互作用 web ホスト型アプリへの攻撃ブラウザー。 Web ブラウザーの web サイトにいくつかの種類の認証トークンに自動的にすべての要求を送信するため、このような攻撃が可能です。 この形式の脆弱性攻撃とも呼ばれます、 *1 回のクリック攻撃*または*乗るセッション*セッション、ユーザーの認証に以前の攻撃を活用するためです。
 
 CSRF 攻撃の例:
 
@@ -43,11 +44,13 @@ CSRF 攻撃の例:
 1. ユーザーは、[送信] ボタンを選択します。 ブラウザーが、要求を行うし、要求されたドメインの認証クッキーを自動的に含まれます`www.good-banking-site.com`です。
 1. 要求が実行されて、`www.good-banking-site.com`ユーザーの認証コンテキストを持つサーバーと、認証されたユーザーの実行が許可されているすべてのアクションを実行することができます。
 
-ユーザーがフォームを送信するボタンを選択すると、悪意のあるサイトことができます。
+ユーザーがフォームを送信するボタンを選択したシナリオだけでなく、悪意のあるサイトでは次のことができます。
 
 * フォームを自動的に送信するスクリプトを実行します。
-* フォームの送信を AJAX 要求として送信します。 
-* CSS を非表示のフォームを使用します。 
+* フォームの送信を AJAX 要求として送信します。
+* CSS を使用してフォームを非表示にします。
+
+これらの代替シナリオは、すべての操作や悪意のあるサイトに最初にアクセスする別のユーザーからの入力を必要としません。
 
 HTTPS を使用して CSRF 攻撃を阻止しません。 悪意のあるサイトが送信できる、`https://www.good-banking-site.com/`同じくらい簡単に保護されていない要求を送信できるように要求します。
 

@@ -9,12 +9,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: 1ffa44d1816284d563b80b2d9a02b7b816116ee1
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 0b67d4aef198aa418b54fb92db76d331ffa2785a
+ms.sourcegitcommit: 0d6f151e69c159d776ed0142773279e645edbc0a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252114"
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35415034"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>認証によって保護されているユーザー データと ASP.NET Core アプリケーションを作成します。
 
@@ -111,7 +111,7 @@ Visual Studio を使用している場合は、HTTPS を有効にします。
 
 HTTP 要求を HTTPS にリダイレクトするを参照してください。 [URL 書き換えミドルウェア](xref:fundamentals/url-rewriting)です。 Visual Studio のコードを使用してローカルのプラットフォームでテストしている場合は、テスト証明書を HTTPS に含まれていません。
 
-  設定`"LocalTest:skipSSL": true`で、 *appsettings です。Developement.json*ファイル。
+  設定`"LocalTest:skipHTTPS": true`で、 *appsettings です。Developement.json*ファイル。
 
 ### <a name="require-authenticated-users"></a>ユーザーが認証されている必要があります。
 
@@ -273,7 +273,7 @@ Entity Framework のコアを使用してサービスを登録する必要があ
 
 Visual Studio のコードを使用してローカルのプラットフォームでテストしている場合は、テスト証明書を HTTPS に含まれていません。
 
-* 設定`"LocalTest:skipSSL": true`で、 *appsettings です。Developement.json* HTTPS 要件をスキップするファイル。 開発用コンピューターでのみ Skip HTTPS です。
+* 設定`"LocalTest:skipHTTPS": true`で、 *appsettings です。Developement.json* HTTPS 要件をスキップするファイル。 開発用コンピューターでのみ Skip HTTPS です。
 
 場合は、アプリには、連絡先があります。
 
