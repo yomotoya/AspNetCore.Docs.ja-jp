@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: 69ce182855878e4d05bff95139fefb9e1312f3d5
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 48a25b7ba7affe84cfa6fe16096409239c510221
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252075"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652189"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core で HTTPS を適用します。
 
@@ -49,8 +49,8 @@ ms.locfileid: "35252075"
 
 上記の強調表示されたコード。
 
-* セット[HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode)です。
-* 5001 を HTTPS ポートを設定します。
+* セット[HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode)に`Status307TemporaryRedirect`、これは、既定値です。 実稼働アプリケーションで呼び出す必要があります[UseHsts](#hsts)です。
+* 5001 を HTTPS ポートを設定します。 既定値は 443 です。
 
 次のメカニズムでは、ポートが自動的に設定します。
 
@@ -78,6 +78,11 @@ ms.locfileid: "35252075"
 * 要求がリダイレクトされません。
 * ミドルウェアは、警告を記録します。
 
+> [!NOTE]
+> HTTPS のリダイレクトのミドルウェアを使用する代わりに (`UseHttpsRedirection`) は、URL 書き換えミドルウェアを使用する (`AddRedirectToHttps`)。 `AddRedirectToHttps` 設定できます、ステータス コードとポートのリダイレクトを実行するとします。 さらに詳しい情報は、[URL 書き換えミドルウェア](xref:fundamentals/url-rewriting) を参照してください。
+>
+> HTTPS のリダイレクトのミドルウェアの使用をお勧めを HTTPS にリダイレクトする、追加のリダイレクト ルールを必要としない、ときに (`UseHttpsRedirection`) このトピックで説明します。
+
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.1"
@@ -90,7 +95,7 @@ ms.locfileid: "35252075"
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
 
-さらに詳しい情報は、[URL 書き換えミドルウェア](xref:fundamentals/url-rewriting) を参照してください。
+さらに詳しい情報は、[URL 書き換えミドルウェア](xref:fundamentals/url-rewriting) を参照してください。 ミドルウェアは、アプリのリダイレクトを実行すると、ステータス コードまたはステータス コードと、ポートを設定することもできます。
 
 グローバルに HTTPS を必須とさせること (`options.Filters.Add(new RequireHttpsAttribute());`) は、セキュリティのベスト プラクティスです。 `[RequireHttps]`属性をすべてのコントローラー/Razor ページ に適用することは、グローバルに HTTPS を必須とさせることほど安全性が高いとは考えられていません。 新しいコントローラー または Razor ページが追加されたときに `[RequireHttps]` 属性が適用されるとは限らないためです。
 

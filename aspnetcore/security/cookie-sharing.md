@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cookie-sharing
-ms.openlocfilehash: f6d62d5f6e446e3e2001ed6bde72a6c409aa2833
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: c22db501a2689feb8c16649eba4866e1190361a4
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734680"
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613019"
 ---
 # <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>ASP.NET および ASP.NET Core とアプリ間で cookie を共有します。
 
@@ -141,19 +141,15 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 
 ASP.NET Core cookie 認証ミドルウェアと互換性がある認証 cookie を生成するを Katana cookie 認証ミドルウェアを使用する ASP.NET 4.x アプリを構成することができます。 これにより、サイト全体で滑らかな SSO エクスペリエンスを提供しつつ、段階的な部分、大規模なサイトの個々 のアプリケーションをアップグレードできます。
 
-> [!TIP]
-> アプリは、Katana cookie 認証ミドルウェアを使用しているときに呼び出す`UseCookieAuthentication`プロジェクトの*Startup.Auth.cs*ファイル。 ASP.NET 4.x web アプリのプロジェクトでは、Visual Studio 2013 で作成され、後で、既定では、Katana cookie 認証ミドルウェアを使用しています。
+アプリは、Katana cookie 認証ミドルウェアを使用しているときに呼び出す`UseCookieAuthentication`プロジェクトの*Startup.Auth.cs*ファイル。 ASP.NET 4.x web アプリのプロジェクトでは、Visual Studio 2013 で作成され、後で、既定では、Katana cookie 認証ミドルウェアを使用しています。 `UseCookieAuthentication`廃止され、呼び出しの ASP.NET Core アプリケーションのサポートは、 `UseCookieAuthentication` Katana を使用する ASP.NET 4.x アプリで cookie 認証ミドルウェアが無効です。
 
-> [!NOTE]
-> ASP.NET 4.x アプリが .NET Framework 4.5.1 を対象する必要がありますまたはそれ以降。 それ以外の場合、必要な NuGet パッケージは、インストールに失敗します。
+ASP.NET 4.x アプリが .NET Framework 4.5.1 を対象する必要がありますまたはそれ以降。 それ以外の場合、必要な NuGet パッケージは、インストールに失敗します。
 
-ASP.NET 4.x 用アプリと ASP.NET Core の間での認証クッキーを共有するには、前述のように ASP.NET Core アプリケーションを構成するし、以下の手順に従って、ASP.NET 4.x アプリを構成します。
+ASP.NET 4.x アプリと ASP.NET Core アプリケーションの間の認証クッキーを共有するには、前述のように ASP.NET Core アプリケーションを構成するし、次の手順で、ASP.NET 4.x アプリを構成します。
 
 1. パッケージをインストール[Microsoft.Owin.Security.Interop](https://www.nuget.org/packages/Microsoft.Owin.Security.Interop/)各 ASP.NET 4.x アプリにします。
 
 2. *Startup.Auth.cs*への呼び出しを見つける`UseCookieAuthentication`し、次のように変更します。 ASP.NET Core cookie 認証ミドルウェアで使用される名前と一致する cookie の名前を変更します。 インスタンスを提供する`DataProtectionProvider`一般的なデータ保護キー記憶域の場所を初期化します。 アプリ名が、cookie を共有しているすべてのアプリで使用される共通のアプリ名 に設定されていることを確認してください`SharedCookieApp`サンプル アプリでします。
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.NETFramework/CookieAuthWithIdentity.NETFramework/App_Start/Startup.Auth.cs?name=snippet1)]
 
@@ -164,32 +160,6 @@ ASP.NET 4.x 用アプリと ASP.NET Core の間での認証クッキーを共有
 *Models/IdentityModels.cs*:
 
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.NETFramework/CookieAuthWithIdentity.NETFramework/Models/IdentityModels.cs?name=snippet1)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-設定、`CookieManager`相互運用`ChunkingCookieManager`チャンク形式は互換性のあるようにします。
-
-```csharp
-app.UseCookieAuthentication(new CookieAuthenticationOptions
-{
-    AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-    CookieName = ".AspNetCore.Cookies",
-    // CookieName = ".AspNetCore.ApplicationCookie", (if using ASP.NET Identity)
-    // CookiePath = "...", (if necessary)
-    // ...
-    TicketDataFormat = new AspNetTicketDataFormat(
-        new DataProtectorShim(
-            DataProtectionProvider.Create(
-                new DirectoryInfo(@"PATH_TO_KEY_RING_FOLDER"))
-            .CreateProtector(
-                "Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationMiddleware",
-                "Cookies", 
-                "v2"))),
-    CookieManager = new ChunkingCookieManager()
-});
-```
-
----
 
 ## <a name="use-a-common-user-database"></a>一般的なユーザー データベースを使用します。
 

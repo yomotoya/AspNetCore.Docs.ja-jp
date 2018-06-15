@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: c61918d42b407b01484b67d740edc7a682c3a4b0
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 463c1c7b3aef624622e34943f1a7a518e658a037
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613035"
 ---
 # <a name="enable-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>ASP.NET Core でのアプリの認証子の QR コード生成を有効にします。
 
@@ -89,4 +90,4 @@ QR コードを正しく書式設定された URL はで使用します。
 
 ## <a name="totp-client-and-server-time-skew"></a>TOTP クライアントとサーバー時間のずれ
 
-TOTP 認証は、正確な時間のあるサーバーと認証子の両方のデバイスに依存します。 トークンの寿命は 30 秒です。 TOTP 2 fa ログインが失敗した場合は、サーバーの時刻が、精度は、可能であれば正確な NTP サービスに同期されることを確認します。
+TOTP (ワンタイム パスワードの時間に基づく) 認証は、正確な時間のあるサーバーと認証子の両方のデバイスに依存します。 トークンの寿命は 30 秒です。 TOTP 2 fa ログインが失敗した場合は、サーバーの時刻が、精度は、可能であれば正確な NTP サービスに同期されることを確認します。

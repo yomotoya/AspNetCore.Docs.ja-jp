@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: cabb5acc6e593c02c20b3403b39c601ce26a4d99
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: f9c28930c1f8a9c54792a2f689d890f16d795a55
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34688984"
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613110"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET Core で Facebook 外部ログインのセットアップ
 
@@ -47,6 +47,9 @@ ms.locfileid: "34688984"
 ![クライアントの OAuth 設定 ページ](index/_static/FBOAuthSetup.png)
 
 * 開発 URI を入力と */signin-facebook*に追加されます、**有効な OAuth リダイレクト Uri**フィールド (例: `https://localhost:44320/signin-facebook`)。 このチュートリアルで後で構成されている Facebook 認証はで、要求を自動的に処理 */signin-facebook* OAuth フローを実装するルート。
+
+> [!NOTE]
+> URI */signin-facebook* Facebook の認証プロバイダーの既定のコールバックとして設定されます。 既定のコールバック URI を変更するには、継承を使用して Facebook の認証ミドルウェアの構成中に[RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath)のプロパティ、 [FacebookOptions](/dotnet/api/microsoft.aspnetcore.authentication.facebook.facebookoptions)クラス。
 
 * をクリックして**変更を保存**です。
 
