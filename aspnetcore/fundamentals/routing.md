@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: d9d5a26b08f67fe4ee39d6b974027826a93e5d5f
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: a23e2e1a1dd25a57e5d6189bbd5938c48078515b
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341783"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core のルーティング
 
@@ -262,7 +263,6 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
 URL パターンで任意のファイル拡張子が付いたファイル名をキャプチャするとき、追加の考慮事項があります。 たとえば、テンプレート `files/{filename}.{ext?}` の使用です。`filename` と `ext` が両方存在するとき、両方の値が入力されます。 URL に `filename` だけが存在する場合、末尾のピリオド `.` は任意のため、このルートは一致となります。 次の URL はこのルートに一致します。
 
 * `/files/myFile.txt`
-* `/files/myFile.`
 * `/files/myFile`
 
 ルート パラメーターのプレフィックスとして `*` 文字を使用し、URI の残りの部分にバインドできます。これは*キャッチオール* パラメーターと呼ばれています。 たとえば、`blog/{*slug}` は、`/blog` で始まり、その後に (ルート値 `slug` に割り当てられる) 任意の値が続くあらゆる URI に一致します。 キャッチオール パラメーターは空の文字列に一致することもあります。

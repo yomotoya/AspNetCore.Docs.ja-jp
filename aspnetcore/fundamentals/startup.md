@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/startup
-ms.openlocfilehash: a61f78b2d0e5c6c171a26690fcce256462a82508
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 58ced0ae11f462bc309526b7db7bda7897c33009
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "34233171"
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core でのアプリケーションのスタートアップ
 
@@ -46,7 +47,7 @@ ASP.NET Core アプリケーションでは `Startup` クラスが使用され�
 
 `IHostingEnvironment` を挿入する代わりに、規約ベースのアプローチがあります。 アプリケーションでは、環境 (たとえば `StartupDevelopment`) ごとに個別の `Startup` クラスを定義することができます。実行時に適切な startup クラスが選択されます。 名前のサフィックスが現在の環境と一致するクラスが優先されます。 アプリケーションが Development 環境で実行され、`Startup` クラスと `StartupDevelopment` クラスの両方が含まれている場合は、`StartupDevelopment` クラスが使用されます。 詳細については、「[Use multiple environments](xref:fundamentals/environments#startup-conventions)」(複数の環境の使用) を参照してください。
 
-`WebHostBuilder` の詳細については、[ホスティング](xref:fundamentals/hosting)に関するトピックを参照してください。 スタートアップ時のエラー処理については、「[Startup exception handling](xref:fundamentals/error-handling#startup-exception-handling)」(スタートアップ例外処理) を参照してください。
+`WebHostBuilder` の詳細については、[ホスティング](xref:fundamentals/host/index)に関するトピックを参照してください。 スタートアップ時のエラー処理については、「[Startup exception handling](xref:fundamentals/error-handling#startup-exception-handling)」(スタートアップ例外処理) を参照してください。
 
 ## <a name="the-configureservices-method"></a>ConfigureServices メソッド
 
@@ -58,7 +59,7 @@ ASP.NET Core アプリケーションでは `Startup` クラスが使用され�
 
 サービス コンテナーにサービスを追加すると、アプリケーション内と `Configure` メソッド内でサービスを利用できるようになります。 サービスは、[依存関係挿入](xref:fundamentals/dependency-injection)を介して、または [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices) から解決されます。
 
-Web ホストでは、`Startup` メソッドが呼び出される前にいくつかのサービスを構成することができます。 詳細については、[ホスティング](xref:fundamentals/hosting)に関するトピックを参照してください。
+Web ホストでは、`Startup` メソッドが呼び出される前にいくつかのサービスを構成することができます。 詳細については、[ASP.NET Core](xref:fundamentals/host/index) に関するトピックを参照してください。
 
 多くの設定が必要な機能には、[IServiceCollection](/dotnet/api/Microsoft.Extensions.DependencyInjection.IServiceCollection) 上の `Add[Service]` 拡張メソッドがあります。 一般的な Web アプリケーションは、Entity Framework、Identity、および MVC のサービスを登録します。
 
@@ -164,7 +165,7 @@ Web ホストには、`Startup` クラス コンストラクターに使用で�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [ホスティング](xref:fundamentals/hosting)
+* [ホスティング](xref:fundamentals/host/index)
 * [複数の環境の使用](xref:fundamentals/environments)
 * [ミドルウェア](xref:fundamentals/middleware/index)
 * [ログ](xref:fundamentals/logging/index)
