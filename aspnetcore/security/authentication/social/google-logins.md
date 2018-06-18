@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/google-logins
-ms.openlocfilehash: ccb771dbefefb007aede1bdf05ab50ec363a3089
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 878c0b16e24f48a0ee84f93393af67af1728e284
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34689036"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725966"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET Core で Google 外部ログインのセットアップ
 
@@ -61,7 +61,10 @@ ms.locfileid: "34689036"
 
 * 1 つの機能 (サインイン) を入力するには同じで Google + プロジェクトを作成するため**名前**OAuth 2.0 クライアント ID のプロジェクトを使用したものとします。
 
-* 開発 URI を入力と */signin-google*に追加されます、**承認されているリダイレクト Uri**フィールド (例: `https://localhost:44320/signin-google`)。 このチュートリアルで後で構成されている Google の認証はで、要求を自動的に処理 */signin-google* OAuth フローを実装するルート。
+* 開発 URI を入力と`/signin-google`に追加されます、**承認されているリダイレクト Uri**フィールド (例: `https://localhost:44320/signin-google`)。 このチュートリアルで後で構成されている Google の認証はで、要求を自動的に処理`/signin-google`OAuth フローを実装するルート。
+
+> [!NOTE]
+> URI セグメント`/signin-google`は Google の認証プロバイダーの既定のコールバックとして設定します。 既定のコールバック URI を変更するには、継承を使用して Google の認証ミドルウェアの構成中に[RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath)のプロパティ、 [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions)クラスです。
 
 * Tab キーを追加する、**承認されているリダイレクト Uri**エントリです。
 

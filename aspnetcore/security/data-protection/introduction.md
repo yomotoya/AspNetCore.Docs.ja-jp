@@ -9,17 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/introduction
-ms.openlocfilehash: 5526b517ba9f1ac4b041576156b2964217460726
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 56876f43ed48b577f4d870825fd9230f526baec3
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725953"
 ---
 # <a name="aspnet-core-data-protection"></a>ASP.NET Core データ保護
 
 多くの場合、web アプリケーションは、セキュリティ上重要なデータを格納する必要があります。 Windows では、デスクトップ アプリケーションの DPAPI が用意されていますが、これは web アプリケーションに適していません。 ASP.NET Core データ保護スタックは、開発者は、キー管理と回転をなど、データの保護を使用して単純で使いやすい暗号化 API を提供します。
 
-ASP.NET Core データ保護スタックの代わりの長期的なとして使用するものでは、 <machineKey> ASP.NET 内の要素 1.x - 4.x です。 大部分の最新のアプリケーションが発生する可能性の高いユース ケースのボックスのソリューションを提供しつつ、古い暗号化スタックの欠点の多くに対処することがあります。
+ASP.NET Core データ保護スタックの代わりの長期的なとして使用するものでは、 &lt;machineKey&gt; ASP.NET 内の要素 1.x - 4.x です。 大部分の最新のアプリケーションが発生する可能性の高いユース ケースのボックスのソリューションを提供しつつ、古い暗号化スタックの欠点の多くに対処することがあります。
 
 ## <a name="problem-statement"></a>問題の説明
 
@@ -69,12 +70,12 @@ ASP.NET Core データ保護スタックの代わりの長期的なとして使�
 
 データ保護スタックは、5 つのパッケージで構成されます。
 
-* Microsoft.AspNetCore.DataProtection.Abstractions contains the basic IDataProtectionProvider and IDataProtector interfaces. これらの種類 (IDataProtector.Protect のオーバー ロードなど) で作業を支援できる便利拡張メソッドも含まれています。 詳細については、コンシューマー インターフェイスのセクションを参照してください。 場合は、他のユーザーの責任者、データ保護システムをインスタンス化して、Api を使用しているだけで、参照 Microsoft.AspNetCore.DataProtection.Abstractions にします。
+* Microsoft.AspNetCore.DataProtection.Abstractions には、基本的な IDataProtectionProvider および IDataProtector インターフェイスが含まれています。 これらの種類 (IDataProtector.Protect のオーバー ロードなど) で作業を支援できる便利拡張メソッドも含まれています。 詳細については、コンシューマー インターフェイスのセクションを参照してください。 場合は、他のユーザーの責任者、データ保護システムをインスタンス化して、Api を使用しているだけで、参照 Microsoft.AspNetCore.DataProtection.Abstractions にします。
 
 * Microsoft.AspNetCore.DataProtection には、暗号化操作の中核となる、キー管理、構成、および機能拡張を含む、データ保護システムの基本的な実装が含まれています。 データ保護システムをインスタンス化を担当する場合 (たとえばに追加する、IServiceCollection) Microsoft.AspNetCore.DataProtection の参照にする変更、またはその動作を拡張する、または。
 
 * Microsoft.AspNetCore.DataProtection.Extensions には、開発者が役に立つ場合がありますが、コア パッケージに属していませんが、追加の Api が含まれています。 たとえば、このパッケージには、単純な「依存関係の挿入設定のない特定のキー記憶域ディレクトリを指しているシステムをインスタンス化」API (詳細) が含まれています。 保護されたペイロード (詳細) の有効期間を制限するための拡張メソッドも含まれています。
 
-* Microsoft.AspNetCore.DataProtection.SystemWeb をリダイレクトする既存の ASP.NET 4.x アプリケーションにインストールすることができます、<machineKey>代わりに、新しいデータ保護スタックを使用する操作。 参照してください[互換性](xref:security/data-protection/compatibility/replacing-machinekey#compatibility-replacing-machinekey)詳細についてはします。
+* Microsoft.AspNetCore.DataProtection.SystemWeb をリダイレクトする既存の ASP.NET 4.x アプリケーションにインストールすることができます、 &lt;machineKey&gt;代わりに、新しいデータ保護スタックを使用する操作。 参照してください[互換性](xref:security/data-protection/compatibility/replacing-machinekey#compatibility-replacing-machinekey)詳細についてはします。
 
 * Microsoft.AspNetCore.Cryptography.KeyDerivation は PBKDF2 パスワードのルーチンをハッシュの実装を提供し、ユーザーのパスワードを安全に処理する必要があるシステムで使用できます。 参照してください[パスワードをハッシュ](xref:security/data-protection/consumer-apis/password-hashing)詳細についてはします。

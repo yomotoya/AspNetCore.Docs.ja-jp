@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 3f59f7d1bf0280cef8f7757e8cd57d4872769b3d
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 440695f98714f33cff9e4bf97bfc09477901e14c
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34688997"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725992"
 ---
 # <a name="twitter-external-login-setup-with-aspnet-core"></a>Twitter の ASP.NET Core を使用して外部ログインのセットアップ
 
@@ -32,7 +32,10 @@ ms.locfileid: "34688997"
 
 ![アプリケーション ページを作成します。](index/_static/TwitterCreate.png)
 
-* 開発 URI を入力と */signin-twitter*に追加されます、**有効な OAuth リダイレクト Uri**フィールド (例: `https://localhost:44320/signin-twitter`)。 このチュートリアルで後で構成されている Twitter 認証スキームはで、要求を自動的に処理 */signin-twitter* OAuth フローを実装するルート。
+* 開発 URI を入力と`/signin-twitter`に追加されます、**有効な OAuth リダイレクト Uri**フィールド (例: `https://localhost:44320/signin-twitter`)。 このチュートリアルで後で構成されている Twitter 認証スキームはで、要求を自動的に処理`/signin-twitter`OAuth フローを実装するルート。
+
+> [!NOTE]
+> URI セグメント`/signin-twitter`Twitter 認証プロバイダーの既定のコールバックとして設定されます。 既定のコールバック URI を変更するには、継承を使用して Twitter 認証ミドルウェアの構成中に[RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath)のプロパティ、 [TwitterOptions](/dotnet/api/microsoft.aspnetcore.authentication.twitter.twitteroptions)クラス。
 
 * フォームの残りの部分を入力し、タップ **、Twitter アプリケーションを作成**です。 新しいアプリケーションの詳細が表示されます。
 

@@ -10,18 +10,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: e7a2cf3633ed48a0d2030739cdc092441fcae2ff
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 80cd39af61e856d3ce92db1c26e70788bcdca83d
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252036"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725820"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>ASP.NET Core プロジェクトに scaffold Id
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core 2.1 以降提供[ASP.NET Core Id](xref:security/authentication/identity)として、 [Razor クラス ライブラリ](xref:mvc/razor-pages/ui-class)です。 Id を含むアプリケーションでは、選択的に Identity Razor クラス ライブラリ (RCL) に含まれるソース コードを追加する scaffolder を適用できます。 コードを変更して、動作を変更できるように、ソース コードを生成する可能性があります。 たとえば、scaffolder 登録で使用するコードを生成するように指示できます。 生成されたコードは、Identity RCL で同じコードよりも優先されます。
+ASP.NET Core 2.1 以降提供[ASP.NET Core Id](xref:security/authentication/identity)として、 [Razor クラス ライブラリ](xref:mvc/razor-pages/ui-class)です。 Id を含むアプリケーションでは、選択的に Identity Razor クラス ライブラリ (RCL) に含まれるソース コードを追加する scaffolder を適用できます。 コードを変更して、動作を変更できるように、ソース コードを生成する可能性があります。 たとえば、scaffolder 登録で使用するコードを生成するように指示できます。 生成されたコードは、Identity RCL で同じコードよりも優先されます。 既定の RCL 使用しないと、UI のフル コントロールが得、セクションを参照して[完全な id UI ソースの作成](#full)です。
 
 実行するアプリケーション**いない**含める認証 RCL Identity パッケージを追加する scaffolder を適用できます。 生成される Id コードを選択した場合のオプションがあります。
 
@@ -144,3 +144,24 @@ dotnet aspnet-codegenerator identity -dc MvcAuth.Data.ApplicationDbContext --fil
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
 
 削除、*ページ/共有*フォルダーとそのフォルダー内のファイルです。
+
+<a name="full"></a>
+
+## <a name="create-full-identity-ui-source"></a>完全な id UI ソースを作成します。
+
+Identity UI を完全に制御を維持するには、Identity scaffolder の実行を選択して**すべてのファイルを上書き**です。
+
+ASP.NET Core 2.1 web app での Id を持つ既定の Identity の UI を置換する変更を次の強調表示されたコードに示します。 この Identity UI を完全に制御する可能性があります。
+
+[!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet1&highlight=13-14,17-999)]
+
+既定の Id は、次のコードで置き換えられます。 [!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet2)]
+
+次のコードは、承認を必要とする Identity ページを承認するために ASP.NET Core を構成します。 [!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet3)]
+
+次 Identity ページへの正しいパスを使用する Id cookie を設定します。
+[!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet3)]
+
+登録、`IEmailSender`例については、実装します。
+
+[!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet4)]

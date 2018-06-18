@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: a9bf7b49b1cfdfff65c639eed1e14c94c5432350
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 46973f8a82034bd99a6e6634bbd6da06b1b14f25
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34689023"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35726031"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>ASP.NET Core の Microsoft アカウント外部ログインのセットアップ
 
@@ -46,9 +46,12 @@ ms.locfileid: "34689023"
 
 ![追加プラットフォーム ダイアログ ボックス](index/_static/MicrosoftDevAppPlatform.png)
 
-* 新しい**Web**プラットフォーム セクションで、使用、開発の URL を入力 */signin-microsoft*に追加された、**リダイレクト Url**フィールド (例: `https://localhost:44320/signin-microsoft`)。 このチュートリアルで後で構成されている Microsoft の認証スキームはで、要求を自動的に処理 */signin-microsoft* OAuth フローを実装するルート。
+* 新しい**Web**プラットフォーム セクションで、使用、開発の URL を入力`/signin-microsoft`に追加された、**リダイレクト Url**フィールド (例: `https://localhost:44320/signin-microsoft`)。 このチュートリアルで後で構成されている Microsoft の認証スキームはで、要求を自動的に処理`/signin-microsoft`OAuth フローを実装するルート。
 
 ![Web プラットフォーム セクションの「](index/_static/MicrosoftRedirectUri.png)
+
+> [!NOTE]
+> URI セグメント`/signin-microsoft`は Microsoft の認証プロバイダーの既定のコールバックとして設定します。 既定のコールバック URI を変更するには、継承を使用して、Microsoft の認証ミドルウェアの構成中に[RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath)のプロパティ、 [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.authentication.microsoftaccount.microsoftaccountoptions)クラスです。
 
 * タップ**URL の追加**URL が追加されたことを確認します。
 
