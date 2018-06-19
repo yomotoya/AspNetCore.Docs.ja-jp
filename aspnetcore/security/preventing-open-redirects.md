@@ -14,6 +14,7 @@ ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33851210"
 ---
 # <a name="prevent-open-redirect-attacks-in-aspnet-core"></a>ASP.NET Core で開いているリダイレクト攻撃を防止します。
 

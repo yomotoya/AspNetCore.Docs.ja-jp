@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885846"
 ---
 <a name="updating-deleting-and-creating-data-with-model-binding-and-web-forms"></a>更新、削除、およびモデル バインディングと web フォームをデータの作成
 ====================
@@ -105,7 +106,7 @@ GridView コントロールは含まれません、 **InsertMethod**プロパテ
 
 次に、マスター ページを使用して新しい web フォームを追加し、名前**AddStudent**です。 マスター ページとして Site.Master を選択します。
 
-使用して、新しい受講者を追加するためのフィールドを表示する、 **DynamicEntity**コントロール。 DynamicEntity コントロールは、その ItemType プロパティで指定されたクラスの編集可能なプロパティを表示します。 学生 Id プロパティとして設定されていた、 **[ScaffoldColumn(false)]**属性のためはレンダリングされません。 メインのプレース ホルダー AddStudent ページのでは、次のコードを追加します。
+使用して、新しい受講者を追加するためのフィールドを表示する、 **DynamicEntity**コントロール。 DynamicEntity コントロールは、その ItemType プロパティで指定されたクラスの編集可能なプロパティを表示します。 学生 Id プロパティとして設定されていた、 **[ScaffoldColumn(false)]** 属性のためはレンダリングされません。 メインのプレース ホルダー AddStudent ページのでは、次のコードを追加します。
 
 [!code-aspx[Main](updating-deleting-and-creating-data/samples/sample6.aspx)]
 

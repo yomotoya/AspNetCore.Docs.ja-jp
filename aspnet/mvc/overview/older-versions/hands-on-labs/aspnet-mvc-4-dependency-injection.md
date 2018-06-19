@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877659"
 ---
 # <a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4 の依存関係の挿入
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/06/2018
 
 依存関係の挿入パターンは、制御の反転の特定の実装です。 **反転 (IoC) のコントロールの**オブジェクトが依存している仕事をするその他のオブジェクトを作成しないことを意味します。 代わりに、外部ソース (たとえば、xml 構成ファイル) に必要なオブジェクトを取得します。
 
-**依存関係の挿入 (DI)**つまりこれは通常はコンス トラクターのパラメーターを渡す framework コンポーネントによって、オブジェクトの介入なし行われます、プロパティを設定します。
+**依存関係の挿入 (DI)** つまりこれは通常はコンス トラクターのパラメーターを渡す framework コンポーネントによって、オブジェクトの介入なし行われます、プロパティを設定します。
 
 <a id="The_Dependency_Injection_DI_Design_Pattern"></a>
 ### <a name="the-dependency-injection-di-design-pattern"></a>依存関係挿入 (DI) デザイン パターン
@@ -90,7 +91,7 @@ ms.lasthandoff: 04/06/2018
 
 **コード スニペットをインストールします。**
 
-便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。 実行のコード スニペットをインストールする**.\Source\Setup\CodeSnippets.vsi**ファイル。
+便宜上、このラボに沿ったを管理するコードの多くは、Visual Studio のコード スニペットとして利用できます。 実行のコード スニペットをインストールする **.\Source\Setup\CodeSnippets.vsi**ファイル。
 
 このドキュメントの付録を参照することができます、Visual Studio のコード スニペットとその使用方法を学習するに慣れていない場合&quot;[付録 b: を使用してコード スニペット](#AppendixB)&quot;です。
 
@@ -238,7 +239,7 @@ ms.lasthandoff: 04/06/2018
     ![依存関係の挿入でアプリケーションを実行している](aspnet-mvc-4-dependency-injection/_static/image6.png "アプリケーション依存関係の挿入を実行")
 
     *依存関係の挿入を実行中のアプリケーション*
-2. 参照**/格納**です。 これを呼び出す**StoreController**を使用してこれは今すぐ作成**Unity**です。
+2. 参照 **/格納**です。 これを呼び出す**StoreController**を使用してこれは今すぐ作成**Unity**です。
 
     ![MVC Music Store](aspnet-mvc-4-dependency-injection/_static/image7.png "MVC 音楽ストア")
 
@@ -273,7 +274,7 @@ ms.lasthandoff: 04/06/2018
       > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
       > 
       > 詳細については、この記事を参照してください: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)です。
-2. 含める、 **MessageService.cs**と**IMessageService.cs**クラスに格納、 **\Assets をソース**フォルダーに**/サービス**です。 これを行うを右クリックして**Services**フォルダーと選択**既存項目の追加**です。 ファイルの場所を参照し、それらを含めます。
+2. 含める、 **MessageService.cs**と**IMessageService.cs**クラスに格納、 **\Assets をソース**フォルダーに **/サービス**です。 これを行うを右クリックして**Services**フォルダーと選択**既存項目の追加**です。 ファイルの場所を参照し、それらを含めます。
 
     ![メッセージのサービスとサービスのインターフェイスを追加する](aspnet-mvc-4-dependency-injection/_static/image8.png "メッセージ サービスとサービスのインターフェイスを追加します。")
 
@@ -281,12 +282,12 @@ ms.lasthandoff: 04/06/2018
 
     > [!NOTE]
     > **IMessageService**インターフェイスによって実装される 2 つのプロパティを定義する、 **MessageService**クラスです。 これらのプロパティ -**メッセージ**と**ImageUrl**-を表示するには、メッセージとイメージの URL を格納します。
-3. フォルダーを作成して**ページ/**プロジェクトのルート フォルダー、および既存のクラスを追加**MyBasePage.cs**から**Source\Assets**です。 継承する基本ページには、次のような構造があります。
+3. フォルダーを作成して**ページ/** プロジェクトのルート フォルダー、および既存のクラスを追加**MyBasePage.cs**から**Source\Assets**です。 継承する基本ページには、次のような構造があります。
 
     ![ページ フォルダー](aspnet-mvc-4-dependency-injection/_static/image9.png "ページ フォルダー")
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample7.cs)]
-4. 開いている**Browse.cshtml**から表示**/ビュー/ストア**フォルダーから継承して**MyBasePage.cs**です。
+4. 開いている**Browse.cshtml**から表示 **/ビュー/ストア**フォルダーから継承して**MyBasePage.cs**です。
 
     [!code-cshtml[Main](aspnet-mvc-4-dependency-injection/samples/sample8.cshtml)]
 5. **参照**ビューで、呼び出しを追加して**MessageService**イメージと、サービスによって取得したメッセージを表示します。
@@ -316,13 +317,13 @@ ms.lasthandoff: 04/06/2018
 
 
 1. 作成、/**ファクトリ**プロジェクトのルート フォルダー内のフォルダーです。
-2. 含める**CustomViewPageActivator.cs**からソリューションに**ソース資産//**に**ファクトリ**フォルダーです。 右クリックし、 **/Factories**フォルダーを選択**追加 |既存の項目**し、 **CustomViewPageActivator.cs**です。 このクラスは、実装、 **IViewPageActivator** Unity コンテナーを保持するインターフェイスです。
+2. 含める**CustomViewPageActivator.cs**からソリューションに**ソース資産//** に**ファクトリ**フォルダーです。 右クリックし、 **/Factories**フォルダーを選択**追加 |既存の項目**し、 **CustomViewPageActivator.cs**です。 このクラスは、実装、 **IViewPageActivator** Unity コンテナーを保持するインターフェイスです。
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample12.cs)]
 
     > [!NOTE]
     > **CustomViewPageActivator** Unity コンテナーを使用して、ビューの作成の管理を担当します。
-3. 含める**UnityDependencyResolver.cs**ファイルから**ソース/資産**に**/Factories**フォルダーです。 右クリックし、 **/Factories**フォルダーを選択**追加 |既存の項目**し、 **UnityDependencyResolver.cs**ファイル。
+3. 含める**UnityDependencyResolver.cs**ファイルから**ソース/資産**に **/Factories**フォルダーです。 右クリックし、 **/Factories**フォルダーを選択**追加 |既存の項目**し、 **UnityDependencyResolver.cs**ファイル。
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample13.cs)]
 
@@ -412,7 +413,7 @@ ms.lasthandoff: 04/06/2018
       > NuGet を使用する利点の 1 つは、ことがない、プロジェクト内のすべてのライブラリを出荷するプロジェクトのサイズを減らすことです。 NuGet Power Tools で Packages.config ファイル内のパッケージのバージョンを指定することによってことができますを初めてのプロジェクトを実行する必要なすべてのライブラリをダウンロードします。 これは、このラボから既存のソリューションを開いた後に、次の手順を実行する必要が理由です。
       > 
       > 詳細については、この記事を参照してください: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)です。
-2. 含める**TraceActionFilter.cs**ファイルから**ソース/資産**に**フィルター/**フォルダーです。
+2. 含める**TraceActionFilter.cs**ファイルから**ソース/資産**に**フィルター/** フォルダーです。
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample18.cs)]
 
@@ -476,7 +477,7 @@ ms.lasthandoff: 04/06/2018
     ![Music Store](aspnet-mvc-4-dependency-injection/_static/image11.png "音楽ストア")
 
     *Music Store*
-3. 参照**/Trace.axd**  ページで、クリックして、アプリケーション トレースを表示する**詳細を表示する**です。
+3. 参照 **/Trace.axd**  ページで、クリックして、アプリケーション トレースを表示する**詳細を表示する**です。
 
     ![アプリケーションのトレース ログ](aspnet-mvc-4-dependency-injection/_static/image12.png "アプリケーションのトレース ログ")
 

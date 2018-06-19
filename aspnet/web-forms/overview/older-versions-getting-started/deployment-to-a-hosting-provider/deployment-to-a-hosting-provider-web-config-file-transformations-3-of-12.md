@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888137"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-webconfig-file-transformations---3-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します Web.Config ファイルの変換、3/12。
 ====================
@@ -136,7 +137,7 @@ Contoso 大学 web ページで設定されている値の読み取り`appSettin
 
 ## <a name="setting-connection-strings"></a>接続文字列の設定
 
-ほとんどの場合する必要はありません、接続文字列の変換を設定するため、発行プロファイルで接続文字列を指定することができます。 SQL Server Compact データベースを配置するときに例外があるし、Entity Framework Code First Migrations を使用して、移行先サーバー上のデータベースを更新します。 このシナリオでは、データベース スキーマを更新するため、サーバーで使用される追加の接続文字列を指定する必要があります。 この変換をセットアップするには追加、 **&lt;connectionStrings&gt;**要素の開始後すぐに**&lt;構成&gt;**両方でタグ*Web.Test.config*と*Web.Production.config*ファイルに変換します。
+ほとんどの場合する必要はありません、接続文字列の変換を設定するため、発行プロファイルで接続文字列を指定することができます。 SQL Server Compact データベースを配置するときに例外があるし、Entity Framework Code First Migrations を使用して、移行先サーバー上のデータベースを更新します。 このシナリオでは、データベース スキーマを更新するため、サーバーで使用される追加の接続文字列を指定する必要があります。 この変換をセットアップするには追加、 **&lt;connectionStrings&gt;** 要素の開始後すぐに**&lt;構成&gt;** 両方でタグ*Web.Test.config*と*Web.Production.config*ファイルに変換します。
 
 [!code-xml[Main](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12/samples/sample7.xml)]
 

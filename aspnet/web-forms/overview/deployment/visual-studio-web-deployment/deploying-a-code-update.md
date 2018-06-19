@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881335"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Visual Studio を使用した ASP.NET Web 展開: コードの更新を展開します。
 ====================
@@ -114,7 +115,7 @@ URL は、Azure 管理ポータルで、web サイトのダッシュ ボード �
 2. **ダッシュ ボード** ページで、検索での FTP ホストの名前まで下にスクロール、 **Quick Glance**セクションです。
 
     ![FTP ホスト名](deploying-a-code-update/_static/image5.png)
-3. ステージングを開く*.publishsettings*メモ帳または別のテキスト エディターでファイル。
+3. ステージングを開く *.publishsettings*メモ帳または別のテキスト エディターでファイル。
 4. 検索、 `publishProfile` FTP プロファイルの要素。
 5. コピー、`userName`と`userPWD`値。
 
@@ -168,7 +169,7 @@ Visual Studio 2012 は個々 のファイルを展開することも提供しま
 
     ダブルクリックする場合、 *Web.config*ファイル、**変更のプレビュー**ダイアログ変換の構成、ビルドの効果を示していて、発行プロファイルの変換。 この時点で実行していない原因は、 *Web.config*を変更すると、変更が表示されないため、サーバー上のファイルです。 ただし、**変更のプレビュー**ウィンドウが 2 つの変更を正しく表示します。 2 つの XML 要素が削除するようです。 選択すると、発行プロセスでこれらの要素が追加された**実行 Code First Migrations アプリケーション開始時に**Code First コンテキスト クラスです。 発行プロセスが削除されませんが、取り消されるように見えるために、それらの要素を追加する前に、比較が行われます。 このエラーは、将来のリリースで修正される予定です。
 5. **[閉じる]** をクリックします。
-6. **[発行]**をクリックします。
+6. **[発行]** をクリックします。
 7. テスト サイトのホーム ページを開くと、ブラウザー、CTRL + f5 キーを押して CSS の変更の結果を確認するためにハード更新が発生します。
 
     ![CSS の変更の結果](deploying-a-code-update/_static/image11.png)

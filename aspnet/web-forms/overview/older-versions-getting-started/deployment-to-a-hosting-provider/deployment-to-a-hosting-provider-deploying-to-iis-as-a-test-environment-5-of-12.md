@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889671"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-iis-as-a-test-environment---5-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します 5/12 - テスト環境として IIS に展開する。
 ====================
@@ -97,7 +98,7 @@ Windows から**開始**メニューの **実行**"inetmgr"を入力し、クリ
 
 [![Inetmgr_selecting_Basic_Settings_for_app_pool](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image6.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image5.png)
 
-**アプリケーション プールの編集** ダイアログ ボックスで、変更**.NET Framework のバージョン**に**.NET Framework v4.0.30319**  をクリック**OK**です。
+**アプリケーション プールの編集** ダイアログ ボックスで、変更 **.NET Framework のバージョン**に **.NET Framework v4.0.30319**  をクリック**OK**です。
 
 [![Selecting_.NET_4_for_DefaultAppPool](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image8.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image7.png)
 
@@ -177,7 +178,7 @@ IIS に発行する準備が整いました。
 
 ![Publish_Web_wizard_Preview_tab_Test_with_file_list](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image15.png)
 
-**[発行]**をクリックします。
+**[発行]** をクリックします。
 
 Visual Studio が管理者モードでない場合は、アクセス許可エラーを示すエラー メッセージを取得可能性があります。 その場合は、Visual Studio を閉じます、管理者モードで開き、再度発行します。
 

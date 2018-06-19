@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879518"
 ---
 <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>チュートリアル: サーバーが ASP.NET SignalR でブロードキャスト 1.x
 ====================
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/06/2018
 
 ![StockTicker 初期バージョン](tutorial-server-broadcast-with-aspnet-signalr/_static/image1.png)
 
-定期的にサーバーをランダムに株価を更新し、更新プログラムをすべて接続されているクライアントにプッシュします。 ブラウザーの数値および内のシンボルで、**変更**と**%**列は、サーバーからの通知に応答で動的に変化します。 同じ URL に他のブラウザーを開いた場合、同じデータとデータへの同じ変更を同時に、それらはすべて表示します。
+定期的にサーバーをランダムに株価を更新し、更新プログラムをすべて接続されているクライアントにプッシュします。 ブラウザーの数値および内のシンボルで、**変更**と**%** 列は、サーバーからの通知に応答で動的に変化します。 同じ URL に他のブラウザーを開いた場合、同じデータとデータへの同じ変更を同時に、それらはすべて表示します。
 
 このチュートリアルでは、次のセクションでは、含まれています。
 
@@ -115,7 +116,7 @@ SignalR 機能は、NuGet パッケージをインストールしてプロジェ
 のみを行う各 StockTickerHub インスタンスからシングルトン StockTicker インスタンスへの参照を設定する必要がありますので、サーバー上で実行する StockTicker クラスの 1 つのインスタンス。 StockTicker がハブ クラスではありませんが、株価データを持ちの更新をトリガーするために、クライアントにブロードキャストできる StockTicker クラスにあります。 したがって、SignalR ハブ接続のコンテキストのオブジェクトへの参照を取得する StockTicker クラスがあります。 SignalR 接続コンテキスト オブジェクトを使用して、クライアントにブロードキャストをそのことができます。
 
 1. **ソリューション エクスプ ローラー**プロジェクトを右クリックし、クリックして、**新しい項目の追加**です。
-2. Visual Studio 2012 とした場合、 [ASP.NET および Web ツール 2012.2 Update](https://go.microsoft.com/fwlink/?LinkId=279941)、] をクリックして**Web** [ **Visual c#**を選択し、 **SignalRハブクラス**項目テンプレート。 それ以外の場合、選択、**クラス**テンプレート。
+2. Visual Studio 2012 とした場合、 [ASP.NET および Web ツール 2012.2 Update](https://go.microsoft.com/fwlink/?LinkId=279941)、] をクリックして**Web** [ **Visual c#** を選択し、 **SignalRハブクラス**項目テンプレート。 それ以外の場合、選択、**クラス**テンプレート。
 3. 新しいクラスの名前を*StockTickerHub.cs*、クリックして**追加**です。
 
     ![StockTickerHub.cs を追加します。](tutorial-server-broadcast-with-aspnet-signalr/_static/image5.png)

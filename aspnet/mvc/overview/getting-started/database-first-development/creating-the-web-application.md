@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878777"
 ---
 <a name="ef-database-first-with-aspnet-mvc-creating-the-web-application-and-data-models"></a>ASP.NET MVC で最初の EF データベース: Web アプリケーションとデータ モデルを作成します。
 ====================
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/06/2018
 
 ![プロジェクトを作成します。](creating-the-web-application/_static/image1.png)
 
-**[OK]**をクリックします。
+**[OK]** をクリックします。
 
 新しい ASP.NET プロジェクト ウィンドウで、選択、 **MVC**テンプレート。 オフにすることができます、**クラウド内のホスト**後でアプリケーションをクラウドに展開するために、ここではオプションです。 をクリックして**OK**アプリケーションを作成します。
 
@@ -63,29 +64,29 @@ Entity Framework モデルをデータベース テーブルから作成され�
 
 ![データベースから生成します。](creating-the-web-application/_static/image6.png)
 
-**[次へ]**をクリックします。
+**[次へ]** をクリックします。
 
 場合は、開発環境内で定義されているデータベースの接続がある場合は、事前に選択したこれらの接続のいずれかを参照してください可能性があります。 ただし、このチュートリアルの最初の部分で作成したデータベースへの新しい接続を作成します。 クリックして、**新しい接続**ボタンをクリックします。
 
 ![データベースへの接続します。](creating-the-web-application/_static/image7.png)
 
-接続のプロパティ ウィンドウで作成されたデータベースのローカル サーバーの名前を指定します (ここでは**(localdb) \ProjectsV12**)。 サーバー名を入力すた後には、使用可能なデータベースから、ContosoUniversityData を選択します。
+接続のプロパティ ウィンドウで作成されたデータベースのローカル サーバーの名前を指定します (ここでは **(localdb) \ProjectsV12**)。 サーバー名を入力すた後には、使用可能なデータベースから、ContosoUniversityData を選択します。
 
 ![接続プロパティの設定](creating-the-web-application/_static/image8.png)
 
-**[OK]**をクリックします。
+**[OK]** をクリックします。
 
 正しい接続プロパティが表示されます。 Web.Config ファイルで接続の既定の名前を使用することができます。
 
 ![接続の設定](creating-the-web-application/_static/image9.png)
 
-**[次へ]**をクリックします。
+**[次へ]** をクリックします。
 
 選択**テーブル**をすべて次の 3 つのテーブルのモデルを生成します。
 
 ![テーブルを選択します。](creating-the-web-application/_static/image10.png)
 
-**[完了]**をクリックします。
+**[完了]** をクリックします。
 
 セキュリティの警告を受信する場合は、選択**OK**テンプレートの実行を続行します。
 

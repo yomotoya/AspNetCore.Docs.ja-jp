@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887287"
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>デプロイの発行設定 Web 用 Web サーバーの構成 (Web Deploy ハンドラー)
 ====================
@@ -76,7 +77,7 @@ ContactManager サンプル ソリューションを具体的にはホストに�
 
 この場合、これらをインストールする必要があります。
 
-- **IIS 7 の推奨構成**です。 これにより、 **Web サーバー (IIS)**ロール、web サーバー上の IIS モジュールおよび ASP.NET アプリケーションをホストするために必要なコンポーネントのセットをインストールします。
+- **IIS 7 の推奨構成**です。 これにより、 **Web サーバー (IIS)** ロール、web サーバー上の IIS モジュールおよび ASP.NET アプリケーションをホストするために必要なコンポーネントのセットをインストールします。
 - **IIS: 管理サービス**です。 これにより、IIS で Web 管理サービス (WMSvc) がインストールされます。 このサービスは、IIS web サイトのリモート管理を有効にし、クライアントに Web 配置ハンドラー エンドポイントを公開します。
 - **IIS: 基本認証**です。 これには、基本認証の IIS モジュールがインストールされます。 これにより、Web 管理サービス (WMSvc) は、指定した資格情報を認証します。
 - **Web 配置ツール 2.1 以降**です。 これにより、Web Deploy (とその基になる実行可能ファイル、MSDeploy.exe) がサーバーにインストールされます。 このプロセスの一環として、Web 配置のハンドラーをインストールし、Web 管理サービスと統合します。
@@ -102,13 +103,13 @@ ContactManager サンプル ソリューションを具体的にはホストに�
     > 既にインストールしている Windows Update から .NET Framework 4.0。 製品またはコンポーネントがインストール済みの場合、Web Platform Installer は、これに置き換えることで、**追加**ボタン テキストを**インストール**です。
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image1.png)
-6. **ASP.NET MVC 3 (Visual Studio 2010)**行で、をクリックして**追加**です。
+6. **ASP.NET MVC 3 (Visual Studio 2010)** 行で、をクリックして**追加**です。
 7. ナビゲーション ウィンドウで **サーバー**です。
 8. **IIS 7 の推奨構成**行で、をクリックして**追加**です。
 9. **Web 配置ツール 2.1**行で、をクリックして**追加**です。
 10. **IIS: 基本認証**行で、をクリックして**追加**です。
 11. **IIS: 管理サービス**行で、をクリックして**追加**です。
-12. **[インストール]**をクリックします。 Web Platform Installer が製品の一覧を表示&#x2014;関連する依存関係のいずれかと共に&#x2014;をインストールして、ライセンス条項に同意するように求められます。
+12. **[インストール]** をクリックします。 Web Platform Installer が製品の一覧を表示&#x2014;関連する依存関係のいずれかと共に&#x2014;をインストールして、ライセンス条項に同意するように求められます。
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image2.png)
 13. ライセンス条項を確認し、条項に同意した場合にをクリックして**同意**です。
@@ -216,7 +217,7 @@ Web コンテンツを展開するには、サーバーに、前に作成し、�
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image12.png)
 11. **サイト バインドの追加**ダイアログ ボックスで、設定、 **IP アドレス**と**ポート**既存サイトの構成に一致するようにします。
-12. **ホスト名**ボックス、web サーバーの名前を入力 (たとえば、 **STAGEWEB1**)、をクリックし、 **[ok]**です。
+12. **ホスト名**ボックス、web サーバーの名前を入力 (たとえば、 **STAGEWEB1**)、をクリックし、 **[ok]** です。
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image13.png)
 

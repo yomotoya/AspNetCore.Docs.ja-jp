@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886915"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-code-only-update---8-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: 12 の 8 - Code-Only 更新の展開
 ====================
@@ -77,7 +78,7 @@ Visual Studio 更新済みのアプリケーションを配置して、ブラウ
 
 実際のアプリケーションでユーザーが、最初の展開後に、実稼働サイトと対話およびデータベースには、ライブ データが挿入されます。 そのため、すべてのライブ データをワイプすると、初期状態で、メンバーシップ データベースを再配置したくないです。 SQL Server Compact データベースが内のファイルであるため、*アプリ\_データ*フォルダー内のファイルを展開の設定を変更することによってこれを防ぐにする必要がある、*アプリ\_データ*フォルダー展開されません。
 
-開く、**プロジェクト プロパティ**を選択して ContosoUniversity プロジェクト ウィンドウ、**パッケージ化/発行 Web**  タブ。確認して、**構成**ドロップ ダウン ボックスにはいずれかの**アクティブ (リリース)**または**リリース**選択すると、選択**アプリからファイルを除外する\_データ フォルダー**です。
+開く、**プロジェクト プロパティ**を選択して ContosoUniversity プロジェクト ウィンドウ、**パッケージ化/発行 Web**  タブ。確認して、**構成**ドロップ ダウン ボックスにはいずれかの**アクティブ (リリース)** または**リリース**選択すると、選択**アプリからファイルを除外する\_データ フォルダー**です。
 
 ![Exclude_files_from_the_App_Data_folder](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image9.png)
 

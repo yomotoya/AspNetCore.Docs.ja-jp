@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30898971"
 ---
 <a name="webmatrix-readme"></a>WebMatrix の Readme
 ====================
@@ -177,7 +178,7 @@ ms.lasthandoff: 04/10/2018
 
 #### <a name="issue-files-that-contains-package-manager-resources-or-package-manager-passwords-are-servable-under-iis-60-and-earlier"></a>問題点: パッケージ マネージャーのリソースまたはパッケージ マネージャーのパスワードを含むファイルは IIS 6.0 で含んだおよびそれ以前
 
-> RC2 リリースを使用してビルドされた ASP.NET Web Pages (Razor) アプリケーションを展開する場合と、アプリケーションが含まれている場合、 *password.txt*または*packagesources.txt*下にあるファイル*/App\_データ管理/*、IIS 6.0 が要求されると、パッケージ マネージャー インスタンスのパスワードを公開する可能性がある場合、ファイルにサービスを提供します。 
+> RC2 リリースを使用してビルドされた ASP.NET Web Pages (Razor) アプリケーションを展開する場合と、アプリケーションが含まれている場合、 *password.txt*または*packagesources.txt*下にあるファイル */App\_データ管理/*、IIS 6.0 が要求されると、パッケージ マネージャー インスタンスのパスワードを公開する可能性がある場合、ファイルにサービスを提供します。 
 > 
 > **回避策**の名前を変更、 *password.txt*または*packagesources.txt*ファイルの名前を*password.config*または*packagesources.configに変更*.既定では、IIS 6.0 ファイルを処理しませんが、 *.config*拡張機能です。 (IIS 7 でのファイルはありません、*アプリ\_データ*フォルダーが提供されるは、ので、ファイルの名前を変更する必要はありません)。
 
@@ -235,7 +236,7 @@ ms.lasthandoff: 04/10/2018
 
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>問題点: 拡張子のない Url が見つからない IIS 7 や IIS 7.5 で.cshtml/.vbhtml ファイル
 
-> IIS 7 や IIS 7.5 では、次のように URL を使用して要求ができませんがページを検索する、 *.cshtml*または*.vbhtml*拡張機能。  
+> IIS 7 や IIS 7.5 では、次のように URL を使用して要求ができませんがページを検索する、 *.cshtml*または *.vbhtml*拡張機能。  
 > 
 > `http://www.example.com/ExampleSite/ExampleFile`  
 > 
@@ -270,7 +271,7 @@ ms.lasthandoff: 04/10/2018
 
 #### <a name="issue-database-and-webgrid-helpers-do-not-work-in-medium-trust-in-visual-basic"></a>問題: Visual Basic で中程度の信頼で「データベース」と"の WebGrid"ヘルパーは機能しません
 
-> Visual Basic を使用している場合 (作成*.vbhtml*ファイル)、`Database`と`WebGrid`中程度の信頼を使用する、アプリケーションが設定されている場合、ヘルパーは機能しません。
+> Visual Basic を使用している場合 (作成 *.vbhtml*ファイル)、`Database`と`WebGrid`中程度の信頼を使用する、アプリケーションが設定されている場合、ヘルパーは機能しません。
 > 
 > **回避策**  
 > Visual Studio 2010 を使用する場合は、Service Pack 1 リリースをインストールすることによってこの問題を解決できます。 SP1 からのベータ版をダウンロードするには SP1 のリリースの最終バージョンを使用するまで、 [Microsoft Visual Studio 2010 Service Pack 1 Beta](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=11ea69cb-cf12-4842-a3d7-b32a1e5642e2&amp;displaylang=en) Microsoft ダウンロード センターのページです。   
@@ -522,7 +523,7 @@ WebMatrix の一部として SQL Server Compact のインストールが関係�
 #### <a name="issue-some-links-in-atomsite-are-broken-after-you-download-a-published-site"></a>問題: AtomSite で一部のリンクが壊れている発行されたサイトをダウンロードした後
 
 > **回避策**  
-> *Service.config*ファイル、 *users.config*ファイル、およびすべて*.xml*ファイル、URL 文字列を置換する (たとえば、 `http://myhost.com/atomsite`) ローカル サイトの (たとえば、 `http://localhost:1239`).
+> *Service.config*ファイル、 *users.config*ファイル、およびすべて *.xml*ファイル、URL 文字列を置換する (たとえば、 `http://myhost.com/atomsite`) ローカル サイトの (たとえば、 `http://localhost:1239`).
 
 
 #### <a name="issue-mysql-based-applications-like-wordpress-fail-to-publish-and-report-a-database-error"></a>発行し、データベース エラーを報告する問題点: WordPress と同様に、MySQL ベースのアプリケーションが失敗します。

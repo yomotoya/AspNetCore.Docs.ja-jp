@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879986"
 ---
 <a name="performing-a-what-if-deployment"></a>"What If"配置の実行
 ====================
@@ -68,17 +69,17 @@ Web Deploy には、"what-if"で展開を実行するための機能 (または�
 
 
 > [!NOTE]
-> コマンド ライン オプションについて*. deploy.cmd*ファイルを参照してください[する方法: 展開パッケージを使用して、deploy.cmd ファイルをインストール](https://msdn.microsoft.com/library/ff356104.aspx)です。 実行する場合、 *. deploy.cmd*ファイル、コマンド プロンプトを任意のフラグを指定することがなく使用可能なフラグの一覧が表示されます。
+> コマンド ライン オプションについて *. deploy.cmd*ファイルを参照してください[する方法: 展開パッケージを使用して、deploy.cmd ファイルをインストール](https://msdn.microsoft.com/library/ff356104.aspx)です。 実行する場合、 *. deploy.cmd*ファイル、コマンド プロンプトを任意のフラグを指定することがなく使用可能なフラグの一覧が表示されます。
 
 
 ## <a name="performing-a-what-if-deployment-for-databases"></a>データベースの"What If"展開を実行します。
 
 このセクションでは、VSDBCMD ユーティリティを使用して、増分、スキーマ ベースのデータベースの配置を実行していることを前提としています。 このアプローチがで詳しく説明されている[データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)です。 理解このトピックでは、ここで説明する概念を適用する前にすることをお勧めします。
 
-VSDBCMD を使用する場合**展開**モードでは、行うこともできます、 **/dd** (または**/DeployToDatabase**) VSDBCMD が実際には、データベースを展開またはだけを生成するかどうかを制御するフラグを設定します。配置スクリプト。 .Dbschema ファイルを配置する場合、動作を示します。
+VSDBCMD を使用する場合**展開**モードでは、行うこともできます、 **/dd** (または **/DeployToDatabase**) VSDBCMD が実際には、データベースを展開またはだけを生成するかどうかを制御するフラグを設定します。配置スクリプト。 .Dbschema ファイルを配置する場合、動作を示します。
 
-- 指定した場合**/dd+**または**/dd**VSDBCMD は配置スクリプトを生成し、データベースを展開します。
-- 指定した場合**/dd-**またはスイッチは省略、VSDBCMD のみ配置スクリプトが生成されます。
+- 指定した場合 **/dd+** または **/dd**VSDBCMD は配置スクリプトを生成し、データベースを展開します。
+- 指定した場合 **/dd-** またはスイッチは省略、VSDBCMD のみ配置スクリプトが生成されます。
 
 > [!NOTE]
 > .Dbschema ファイルの動作ではなく、.deploymanifest ファイルを配置する場合、 **/dd**スイッチがはるかに複雑です。 VSDBCMD 基本的には、値は無視されます、 **/dd**切り替える .deploymanifest ファイルが含まれる場合、 **DeployToDatabase**の値を持つ要素**True**です。 [データベース プロジェクトの配置](../web-deployment-in-the-enterprise/deploying-database-projects.md)完全には、この動作について説明します。
@@ -95,7 +96,7 @@ VSDBCMD は、データベースの差分の展開、およびツールを 1 つ
 - 既存のテーブルを削除するかどうかと、データが失われるとなるかどうか。
 - 操作の順序はたとえば、データ損失のリスクを実行するかどうか、分割またはテーブルを結合する場合は。
 
-配置スクリプトに満足したら場合に、VSDBCMD を繰り返すことができます、 **/dd+**フラグの変更を行います。 また、お客様の要件を満たしているし、データベース サーバーに手動で実行するには、配置スクリプトを編集できます。
+配置スクリプトに満足したら場合に、VSDBCMD を繰り返すことができます、 **/dd+** フラグの変更を行います。 また、お客様の要件を満たしているし、データベース サーバーに手動で実行するには、配置スクリプトを編集できます。
 
 ## <a name="integrating-what-if-functionality-into-custom-project-files"></a>カスタム プロジェクト ファイルへの"What If"機能の統合
 

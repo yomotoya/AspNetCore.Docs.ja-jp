@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887504"
 ---
 <a name="deploying-web-packages"></a>Web パッケージを展開します。
 ====================
@@ -59,7 +60,7 @@ ms.lasthandoff: 04/06/2018
 [!code-console[Main](deploying-web-packages/samples/sample1.cmd)]
 
 
-どちらかを指定する必要があります、 **/T**フラグまたは**/Y**試行または実際の展開をそれぞれ実行するかどうかを示すために、フラグ (同じコマンド内に両方のフラグを使用しないでください)。 次の表では、これらのフラグの目的について説明します。
+どちらかを指定する必要があります、 **/T**フラグまたは **/Y**試行または実際の展開をそれぞれ実行するかどうかを示すために、フラグ (同じコマンド内に両方のフラグを使用しないでください)。 次の表では、これらのフラグの目的について説明します。
 
 | フラグ | 説明 |
 | --- | --- |
@@ -73,10 +74,10 @@ ms.lasthandoff: 04/06/2018
 | **/G** | 使用してパッケージを配置することを指定します、 [tempAgent プロバイダー設定](https://technet.microsoft.com/library/ee517345(WS.10).aspx)です。 省略した場合、 **/G**フラグを既定値は**false**です。 |
 
 > [!NOTE]
-> という名前のファイルも作成、ビルド処理では、web のパッケージを作成するたびに*[プロジェクト名] .deploy readme.txt*これらの展開オプションをについて説明します。
+> という名前のファイルも作成、ビルド処理では、web のパッケージを作成するたびに *[プロジェクト名] .deploy readme.txt*これらの展開オプションをについて説明します。
 
 
-これらのフラグだけでなく追加として Web Deploy 操作の設定を指定できます*. deploy.cmd*パラメーター。 指定する追加の設定は、基になる MSDeploy.exe コマンドを単純にを通して渡されます。 これらの設定の詳細については、次を参照してください。 [Web Deploy 操作 Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx)です。
+これらのフラグだけでなく追加として Web Deploy 操作の設定を指定できます *. deploy.cmd*パラメーター。 指定する追加の設定は、基になる MSDeploy.exe コマンドを単純にを通して渡されます。 これらの設定の詳細については、次を参照してください。 [Web Deploy 操作 Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx)です。
 
 実行して、テスト環境に ContactManager.Mvc web アプリケーション プロジェクトを展開すると、 *. deploy.cmd*ファイル。 Web デプロイのリモート エージェント サービスを使用して、テスト環境が構成されている」の説明に従って[Web 配置発行 (リモート エージェント) の Web サーバーを構成する](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)です。 Web アプリケーションを展開するには、次の手順を完了する必要があります。
 
@@ -117,7 +118,7 @@ MSDeploy.exe を使用する場合は、次の 3 つの重要な情報を提供�
 - A **– dest**にデータを移動する場所を示すパラメーターです。
 - A **– 動詞**パラメーターを示す、[操作](https://technet.microsoft.com/library/dd568989(WS.10).aspx)を実行します。
 
-MSDeploy.exe が依存[Web Deploy プロバイダー](https://technet.microsoft.com/library/dd569040(WS.10).aspx)元とコピー先のデータを処理します。 Web Deploy にで使用するアプリケーションとデータ ソースの範囲を表す、プロバイダーの多くが含まれる&#x2014;などの SQL Server データベース、IIS web サーバー、証明書、グローバル アセンブリ キャッシュ (GAC) アセンブリでは、プロバイダーにはさまざまな異なる構成ファイル、および多数の他のデータ型。 両方の**– ソース**パラメーターおよび**– dest**パラメーターは、フォームで、プロバイダーを指定する必要があります**– ソース**: [*providerName*] = [*場所*] です。 を IIS の web サイトに web パッケージを配置するときに、これらの値を使用する必要があります。
+MSDeploy.exe が依存[Web Deploy プロバイダー](https://technet.microsoft.com/library/dd569040(WS.10).aspx)元とコピー先のデータを処理します。 Web Deploy にで使用するアプリケーションとデータ ソースの範囲を表す、プロバイダーの多くが含まれる&#x2014;などの SQL Server データベース、IIS web サーバー、証明書、グローバル アセンブリ キャッシュ (GAC) アセンブリでは、プロバイダーにはさまざまな異なる構成ファイル、および多数の他のデータ型。 両方の **– ソース**パラメーターおよび **– dest**パラメーターは、フォームで、プロバイダーを指定する必要があります **– ソース**: [*providerName*] = [*場所*] です。 を IIS の web サイトに web パッケージを配置するときに、これらの値を使用する必要があります。
 
 - **– ソース**プロバイダーは、常に[パッケージ](https://technet.microsoft.com/library/dd569019(WS.10).aspx)です。 例えば:
 
@@ -143,7 +144,7 @@ MSDeploy.exe が依存[Web Deploy プロバイダー](https://technet.microsoft.
 この例では、次のように記述されています。
 
 - **– ソース**パラメーターを指定します、**パッケージ**プロバイダー、web のパッケージの場所を示します。
-- **– Dest**パラメーターを指定します、**自動**プロバイダー。 **ComputerName**設定が移行先サーバーで、Web 配置のハンドラーのサービスの URL を提供します。 **空の authtype**設定ことを示し、基本認証を使用するよう指定する必要があります、 **username**と**パスワード**です。 最後に、 **includeAcls ="False"**設定は、移行先サーバーに、ソース web アプリケーションで、ファイルのアクセス制御リスト (Acl) をコピーしないことを示します。
+- **– Dest**パラメーターを指定します、**自動**プロバイダー。 **ComputerName**設定が移行先サーバーで、Web 配置のハンドラーのサービスの URL を提供します。 **空の authtype**設定ことを示し、基本認証を使用するよう指定する必要があります、 **username**と**パスワード**です。 最後に、 **includeAcls ="False"** 設定は、移行先サーバーに、ソース web アプリケーションで、ファイルのアクセス制御リスト (Acl) をコピーしないことを示します。
 - **– 動詞: 同期**引数は、移行先サーバー上のソース コンテンツをレプリケートすることを示します。
 - **– DisableLink**引数は、アプリケーション プール、仮想ディレクトリの構成、または移行先サーバーで Secure Sockets Layer (SSL) 証明書をレプリケートしないことを示します。 詳細については、次を参照してください。 [Web 展開リンク拡張](https://technet.microsoft.com/library/dd569028(WS.10).aspx)です。
 - **– SetParamFile**パラメーターの場所を提供する、 *SetParameters.xml*ファイル。
@@ -153,7 +154,7 @@ MSDeploy.exe が依存[Web Deploy プロバイダー](https://technet.microsoft.
 
 多数のエンタープライズ シナリオでは、大規模なシングル ステップまたは自動化された展開の一部として、web のパッケージを配置するします。 実行して、web のパッケージを配置を選択するかどうかに関係なく、 *. deploy.cmd*ファイルまたは MSDeploy.exe を直接使用すると、コマンドをパラメーター化し Microsoft Build Engine (MSBuild) 内のターゲットからこれらを呼び出すプロジェクト ファイルです。
 
-連絡先のマネージャーのサンプル ソリューションで見て、 **PublishWebPackages**ターゲットを*Publish.proj*ファイル。 このターゲットは、それぞれに 1 回実行*. deploy.cmd*という名前の項目リストで識別されるファイル**PublishPackages**です。 ターゲットの各引数の値の完全なセットを構築するプロパティと項目のメタデータを使用して*. deploy.cmd*ファイルおよび、使用、 **Exec**コマンドを実行するタスク。
+連絡先のマネージャーのサンプル ソリューションで見て、 **PublishWebPackages**ターゲットを*Publish.proj*ファイル。 このターゲットは、それぞれに 1 回実行 *. deploy.cmd*という名前の項目リストで識別されるファイル**PublishPackages**です。 ターゲットの各引数の値の完全なセットを構築するプロパティと項目のメタデータを使用して *. deploy.cmd*ファイルおよび、使用、 **Exec**コマンドを実行するタスク。
 
 
 [!code-xml[Main](deploying-web-packages/samples/sample8.xml)]

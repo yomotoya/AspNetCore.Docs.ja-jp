@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899202"
 ---
 <a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) サイトのサイト全体の動作のカスタマイズ
 ====================
@@ -131,7 +132,7 @@ ASP.NET の階層を作成することができます *\_PageStart.cshtml*ファ
 
 [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample7.cshtml)]
 
-実行すると*/myfolder/default.cshtml*次が表示されます。
+実行すると */myfolder/default.cshtml*次が表示されます。
 
 [!code-console[Main](18-customizing-site-wide-behavior/samples/sample8.cmd)]
 
@@ -164,7 +165,7 @@ ASP.NET の階層を作成することができます *\_PageStart.cshtml*ファ
 
 ## <a name="using-pagestartcshtml-to-handle-errors"></a>使用して\_PageStart.cshtml エラーを処理するには
 
-別なを使用して、  *\_PageStart.cshtml*ファイルは、いずれかで発生する可能性がプログラミング エラー (例外) を処理する方法を作成する*.cshtml*フォルダー内のページです。 この例では、これを行う 1 つの方法を示します。
+別なを使用して、  *\_PageStart.cshtml*ファイルは、いずれかで発生する可能性がプログラミング エラー (例外) を処理する方法を作成する *.cshtml*フォルダー内のページです。 この例では、これを行う 1 つの方法を示します。
 
 1. ルート フォルダーにという名前のフォルダーを作成する*InitCatch*です。
 2. *InitCatch*という名前のファイルの作成、web サイトのフォルダー  *\_PageStart.cshtml*次に、既存のマークアップとコードを置き換えます。 

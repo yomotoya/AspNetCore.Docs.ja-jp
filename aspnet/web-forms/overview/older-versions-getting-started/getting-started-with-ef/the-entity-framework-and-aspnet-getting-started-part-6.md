@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888800"
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-6"></a>データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォームの第 6 部
 ====================
@@ -65,7 +66,7 @@ Entity Framework データ モデルを構成することができるように`O
 
 [![image02](the-entity-framework-and-aspnet-getting-started-part-6/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image7.png)
 
-**[OK]**をクリックします。 デザイナーを作成、`Instructor`から派生するエンティティ、`Person`エンティティです。 新しいエンティティがないすべてのプロパティです。
+**[OK]** をクリックします。 デザイナーを作成、`Instructor`から派生するエンティティ、`Person`エンティティです。 新しいエンティティがないすべてのプロパティです。
 
 [![image03](the-entity-framework-and-aspnet-getting-started-part-6/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image9.png)
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887523"
 ---
 <a name="core-differences-between-iis-and-the-aspnet-development-server-c"></a>IIS と ASP.NET 開発サーバー (c#) のコア違い
 ====================

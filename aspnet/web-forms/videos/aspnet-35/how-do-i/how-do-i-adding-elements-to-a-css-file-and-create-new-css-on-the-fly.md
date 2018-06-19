@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884124"
 ---
 <a name="how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly"></a>[How Do i:]CSS 要素を追加するファイルし、即座に新しい CSS を作成
 ====================

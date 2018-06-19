@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887253"
 ---
 <a name="masterdetail-filtering-with-two-dropdownlists-c"></a>マスター/詳細のフィルター処理を次の 2 つの DropDownLists (c#)
 ====================
@@ -102,12 +103,12 @@ ObjectDataSource を構成すた後必要がありますでデータ ソース �
 **図 9**: 構成を使用する ObjectDataSource、`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-two-dropdownlists-cs/_static/image27.png))
 
 
-値を指定しなければ、ウィザードの最後の手順で、 *`categoryID`*パラメーター。 このパラメーターをから選択した項目に割り当てる、 `Categories` DropDownList です。
+値を指定しなければ、ウィザードの最後の手順で、 *`categoryID`* パラメーター。 このパラメーターをから選択した項目に割り当てる、 `Categories` DropDownList です。
 
 
 [![カテゴリの DropDownList から categoryID パラメーターの値をプルします。](master-detail-filtering-with-two-dropdownlists-cs/_static/image29.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image28.png)
 
-**図 10**: プル、 *`categoryID`*からパラメーター値、 `Categories` DropDownList ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-two-dropdownlists-cs/_static/image30.png))
+**図 10**: プル、 *`categoryID`* からパラメーター値、 `Categories` DropDownList ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-two-dropdownlists-cs/_static/image30.png))
 
 
 構成 ObjectDataSource には、ディスプレイと DropDownList の項目の値の使用がどのようなデータ ソースのフィールドを指定します。 表示、`ProductName`フィールドに使用して、`ProductID`値としてフィールドです。
@@ -141,7 +142,7 @@ ObjectDataSource と`ProductsByCategory`DropDownList には、ページが構成
 
 ## <a name="step-3-using-a-detailsview-to-display-details-for-the-selected-product"></a>手順 3: を DetailsView を使用して、選択した製品の詳細を表示するには
 
-最後の手順では、DetailsView で選択した製品の詳細を表示します。 これを追加する、DetailsView のページに次のように設定します。 その`ID`プロパティを`ProductDetails`、し、その新しい ObjectDataSource を作成します。 構成からそのデータを取得するには、この ObjectDataSource、`ProductsBLL`クラスの`GetProductByProductID(productID)`メソッドの選択した値を使用して、`ProductsByCategory`の DropDownList の値の*`productID`*パラメーター。
+最後の手順では、DetailsView で選択した製品の詳細を表示します。 これを追加する、DetailsView のページに次のように設定します。 その`ID`プロパティを`ProductDetails`、し、その新しい ObjectDataSource を作成します。 構成からそのデータを取得するには、この ObjectDataSource、`ProductsBLL`クラスの`GetProductByProductID(productID)`メソッドの選択した値を使用して、`ProductsByCategory`の DropDownList の値の*`productID`* パラメーター。
 
 
 [![ProductsBLL クラスを使用します。](master-detail-filtering-with-two-dropdownlists-cs/_static/image44.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image43.png)
@@ -156,7 +157,7 @@ ObjectDataSource と`ProductsByCategory`DropDownList には、ページが構成
 
 [![ProductsByCategory DropDownList から productID パラメーターの値をプルします。](master-detail-filtering-with-two-dropdownlists-cs/_static/image50.png)](master-detail-filtering-with-two-dropdownlists-cs/_static/image49.png)
 
-**図 17**: プル、 *`productID`*からパラメーター値、 `ProductsByCategory` DropDownList ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-two-dropdownlists-cs/_static/image51.png))
+**図 17**: プル、 *`productID`* からパラメーター値、 `ProductsByCategory` DropDownList ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-two-dropdownlists-cs/_static/image51.png))
 
 
 DetailsView で表示可能なフィールドのいずれかを選択できます。 削除する選択した、 `ProductID`、 `SupplierID`、および`CategoryID`フィールドし順序を変更およびその他のフィールドを書式設定します。 さらを消去した DetailsView のアウト`Height`と`Width`プロパティ、指定されたサイズに制限があるのではなく、そのデータの表示を最適に必要な幅に拡大する DetailsView を許可します。 マークアップを完全には、以下が表示されます。

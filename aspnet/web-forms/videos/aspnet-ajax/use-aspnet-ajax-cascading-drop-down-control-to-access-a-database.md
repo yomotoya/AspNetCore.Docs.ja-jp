@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886652"
 ---
 <a name="use-aspnet-ajax-cascading-drop-down-control-to-access-a-database"></a>ASP.NET AJAX カスケード ドロップダウン コントロールを使用して、データベースにアクセスするには
 ====================

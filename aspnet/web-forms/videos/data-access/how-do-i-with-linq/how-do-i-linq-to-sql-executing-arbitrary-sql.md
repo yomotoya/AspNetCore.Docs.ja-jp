@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885715"
 ---
 <a name="how-do-i-linq-to-sql-executing-arbitrary-sql"></a>操作方法: LINQ to SQL: 任意の SQL の実行
 ====================

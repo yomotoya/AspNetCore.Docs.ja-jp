@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876749"
 ---
 <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>提供 CRUD (作成、読み取り、更新、削除) データ フォームのエントリのサポート
 ====================
@@ -37,7 +38,7 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="urls-handled-by-dinnerscontroller"></a>DinnersController によって処理される Url
 
-2 つの Url のサポートを実装する DinnersController を以前にアクション メソッドを追加しました: */Dinners*と*/Dinners 詳細/[id]*です。
+2 つの Url のサポートを実装する DinnersController を以前にアクション メソッドを追加しました: */Dinners*と */Dinners 詳細/[id]* です。
 
 | **URL** | **VERB** | **目的** |
 | --- | --- | --- |
@@ -67,7 +68,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample1.cs)]
 
-上記のコードは、Dinner オブジェクトを取得するのに、DinnerRepository を使用します。 ビューを Dinner オブジェクトを使用してテンプレートをレンダリングします。 テンプレート名を明示的に渡されたしていないため、 *View()*ヘルパー メソッドに使用する規約に基づく既定のパス テンプレートの表示を解決するには:/Views/Dinners/Edit.aspx です。
+上記のコードは、Dinner オブジェクトを取得するのに、DinnerRepository を使用します。 ビューを Dinner オブジェクトを使用してテンプレートをレンダリングします。 テンプレート名を明示的に渡されたしていないため、 *View()* ヘルパー メソッドに使用する規約に基づく既定のパス テンプレートの表示を解決するには:/Views/Dinners/Edit.aspx です。
 
 このテンプレートの表示を今すぐ作成してみましょう。 このが作業を行う編集メソッド内で右クリックし、「ビューの追加」のコンテキスト メニュー コマンドを選択します。
 
@@ -155,7 +156,7 @@ Html.TextBox() を 3 番目のパラメーターは、追加の HTML 属性を�
 
 上記の方法が少し verbose、ただし、特にエラー処理ロジックを追加します。
 
-このシナリオでは、組み込みの利用のより優れた方法*UpdateModel()*コント ローラーの基本クラスのヘルパー メソッドです。 受信フォーム パラメーターを使用して渡すオブジェクトのプロパティの更新をサポートします。 リフレクションを使用して、オブジェクトのプロパティの名前を決定し自動的に変換し、クライアントから送信された入力値に基づいて値を割り当てます。
+このシナリオでは、組み込みの利用のより優れた方法*UpdateModel()* コント ローラーの基本クラスのヘルパー メソッドです。 受信フォーム パラメーターを使用して渡すオブジェクトのプロパティの更新をサポートします。 リフレクションを使用して、オブジェクトのプロパティの名前を決定し自動的に変換し、クライアントから送信された入力値に基づいて値を割り当てます。
 
 UpdateModel() メソッドを使用して、HTTP POST の編集を使用してアクションこのコードを簡略化する可能性があります。
 
@@ -193,7 +194,7 @@ ASP.NET MVC には、エラー処理とフォームの再表示を簡単にで�
 
 コント ローラー クラスには、エラーがビューに渡されるモデル オブジェクトに存在することを指定する手段を提供する"ModelState"プロパティ コレクションがあります。 ModelState コレクション内のエラーのエントリでは、モデル プロパティの名前を特定の問題に (例:「タイトル」、"EventDate"または"ContactPhone")、わかりやすいエラー メッセージを指定することができ (例:「タイトルが必要」) です。
 
-*UpdateModel()*ヘルパー メソッドは、モデル オブジェクトのプロパティをフォームの値を割り当てようとするとエラーが発生したときに自動的に ModelState コレクションを設定します。 たとえば、Dinner オブジェクトの EventDate プロパティは DateTime 型です。 UpdateModel() メソッドは、上記のシナリオで"BOGUS"の文字列値を割り当てることができませんが、そのプロパティを使用して割り当てエラーを示す ModelState コレクションにエントリが発生しました、UpdateModel() メソッドが追加されます。
+*UpdateModel()* ヘルパー メソッドは、モデル オブジェクトのプロパティをフォームの値を割り当てようとするとエラーが発生したときに自動的に ModelState コレクションを設定します。 たとえば、Dinner オブジェクトの EventDate プロパティは DateTime 型です。 UpdateModel() メソッドは、上記のシナリオで"BOGUS"の文字列値を割り当てることができませんが、そのプロパティを使用して割り当てエラーを示す ModelState コレクションにエントリが発生しました、UpdateModel() メソッドが追加されます。
 
 開発者が行っている下ブロック内で、"catch"エラー処理のアクティブな規則違反に基づいてエントリ ModelState コレクションの読み込みはこれと同じように明示的に ModelState コレクション内のエラー エントリを追加するコードを記述できますも、Dinner オブジェクト:
 
@@ -275,7 +276,7 @@ DinnersController クラスの"Edit"動作を実装することが完了しま�
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample23.cs)]
 
-上記のコードは、新しい Dinner オブジェクトを作成し、今後 1 週間である場合は、その EventDate プロパティを割り当てます。 新しい Dinner オブジェクトに基づいているビューをレンダリングします。 名前を明示的に渡されたしていないため、 *View()*ヘルパー メソッドに使用する規約に基づく既定のパス テンプレートの表示を解決するには:/Views/Dinners/Create.aspx です。
+上記のコードは、新しい Dinner オブジェクトを作成し、今後 1 週間である場合は、その EventDate プロパティを割り当てます。 新しい Dinner オブジェクトに基づいているビューをレンダリングします。 名前を明示的に渡されたしていないため、 *View()* ヘルパー メソッドに使用する規約に基づく既定のパス テンプレートの表示を解決するには:/Views/Dinners/Create.aspx です。
 
 このテンプレートの表示を今すぐ作成してみましょう。 作成アクション メソッド内で右クリックし、「ビューの追加」のコンテキスト メニュー コマンドを選択してこの作業を行うことができます。 「ビューの追加」ダイアログ ボックスでをビュー テンプレートに Dinner オブジェクトを渡すことはおこと、および自動 scaffold の「作成」テンプレートを選択を示します。
 
@@ -289,7 +290,7 @@ DinnersController クラスの"Edit"動作を実装することが完了しま�
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample24.aspx)]
 
-今すぐ実行するとき、マイクロソフトのアプリケーションとアクセスと、 *「ディナー/作成」*今回作成アクションの実装から次のような UI を表示する、ブラウザー内の URL:
+今すぐ実行するとき、マイクロソフトのアプリケーションとアクセスと、 *「ディナー/作成」* 今回作成アクションの実装から次のような UI を表示する、ブラウザー内の URL:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image14.png)
 
@@ -303,7 +304,7 @@ DinnersController クラスの"Edit"動作を実装することが完了しま�
 
 これは、さまざまな方法は、HTTP POST が有効になっている「作成」のメソッド内で、ポストされたフォーム パラメーターにアクセスできます。
 
-新しい Dinner オブジェクトを作成し、使用する方法が、 *UpdateModel()*ヘルパー メソッド (と編集の操作)、ポストされたフォーム値を設定します。 お、DinnerRepository に追加する、データベースに保持し、次のコードを使用して新しく作成された Dinner を表示するには、この詳細アクションにユーザーをリダイレクトします。、
+新しい Dinner オブジェクトを作成し、使用する方法が、 *UpdateModel()* ヘルパー メソッド (と編集の操作)、ポストされたフォーム値を設定します。 お、DinnerRepository に追加する、データベースに保持し、次のコードを使用して新しく作成された Dinner を表示するには、この詳細アクションにユーザーをリダイレクトします。、
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample26.cs)]
 
@@ -347,7 +348,7 @@ Delete アクション メソッド内で右クリックし、「ビューの追
 
 上記のコードは、削除する Dinner と出力のタイトルを表示、&lt;フォーム&gt;をエンドユーザーが内で、[削除] ボタンをクリックした場合、/Dinners/削除/[id] URL に POST を行う要素。
 
-このアプリケーションとアクセスを実行するとき、 *"/ディナー/削除/[id]"*オブジェクトの有効な夕食の URL を以下のような UI が表示されます。
+このアプリケーションとアクセスを実行するとき、 *"/ディナー/削除/[id]"* オブジェクトの有効な夕食の URL を以下のような UI が表示されます。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image18.png)
 
@@ -369,11 +370,11 @@ Delete アクション メソッドの HTTP POST バージョンは、削除す�
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample31.aspx)]
 
-今すぐ実行するとき、マイクロソフトのアプリケーションとアクセスと、 *"/ディナー/削除/[id]"*夕食をレンダリングするオブジェクトの削除の確認の有効な夕食の URL が以下のような画面します。
+今すぐ実行するとき、マイクロソフトのアプリケーションとアクセスと、 *"/ディナー/削除/[id]"* 夕食をレンダリングするオブジェクトの削除の確認の有効な夕食の URL が以下のような画面します。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image19.png)
 
-[削除] ボタンをクリックしたときに HTTP POST が実行されます、 */Dinners/削除/[id]*の URL をデータベースから Dinner を削除し、「削除済み」ビューのテンプレートを表示します。
+[削除] ボタンをクリックしたときに HTTP POST が実行されます、 */Dinners/削除/[id]* の URL をデータベースから Dinner を削除し、「削除済み」ビューのテンプレートを表示します。
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image20.png)
 

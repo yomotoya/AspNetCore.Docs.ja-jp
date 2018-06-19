@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876710"
 ---
 <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>MVC Web アプリケーション (10 10) の高度なエンティティ フレームワークのシナリオ
 ====================
@@ -135,7 +136,7 @@ Contoso 大学管理者がすべてコースのクレジットの数の変更な
 
 ![Update_Course_Credits_initial_page_with_2_entered](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image7.png)
 
-**[更新]**をクリックします。 影響を受けた行の数が表示されます。
+**[更新]** をクリックします。 影響を受けた行の数が表示されます。
 
 ![Update_Course_Credits_rows_affected_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image8.png)
 

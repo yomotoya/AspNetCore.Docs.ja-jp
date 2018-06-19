@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883753"
 ---
 <a name="intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire"></a>ColdFusion 開発者向けの ASP.NET の概要: レパートリーに ASP.NET を追加します。
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889645"
 ---
 <a name="processing-unhandled-exceptions-c"></a>未処理の例外 (c#) の処理
 ====================

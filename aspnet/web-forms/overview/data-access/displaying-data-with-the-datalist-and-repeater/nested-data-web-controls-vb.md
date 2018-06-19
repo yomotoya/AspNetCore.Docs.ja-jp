@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882963"
 ---
 <a name="nested-data-web-controls-vb"></a>入れ子になったデータ Web コントロール (VB)
 ====================
@@ -93,14 +94,14 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="accessing-the-data-declaratively-with-an-objectdatasource-control-and-theitemdataboundevent-handler"></a>ObjectDataSource コントロールを使用して宣言によってデータにアクセスして、`ItemDataBound`イベント ハンドラー
 
-以降このチュートリアル シリーズの次の例は、ObjectDataSource のオプションを使用するデータにアクセスするための最も自然な選択全体を通じて広く ObjectDataSource も使用しました。 `ProductsBLL`クラスには、`GetProductsByCategoryID(categoryID)`を指定したに属している製品に関する情報を返すメソッド *`categoryID`*です。 ObjectDataSource を追加できるため、`CategoryList`リピータの`ItemTemplate`し、このクラスのメソッドからそのデータにアクセスするように構成します。
+以降このチュートリアル シリーズの次の例は、ObjectDataSource のオプションを使用するデータにアクセスするための最も自然な選択全体を通じて広く ObjectDataSource も使用しました。 `ProductsBLL`クラスには、`GetProductsByCategoryID(categoryID)`を指定したに属している製品に関する情報を返すメソッド *`categoryID`* です。 ObjectDataSource を追加できるため、`CategoryList`リピータの`ItemTemplate`し、このクラスのメソッドからそのデータにアクセスするように構成します。
 
 残念ながら、リピータされないのためこの ObjectDataSource コントロールの宣言の構文を手動で追加する必要はデザイン ビューで編集するには、そのテンプレートを許可します。 次の構文に示す、`CategoryList`リピータ s`ItemTemplate`この新しい ObjectDataSource を追加した後 (`ProductsByCategoryDataSource`)。
 
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample3.aspx)]
 
-ObjectDataSource アプローチを使用するときに設定する必要があります、`ProductsByCategoryList`リピータ s`DataSourceID`プロパティを`ID`、ObjectDataSource の (`ProductsByCategoryDataSource`)。 またに注意してください、ObjectDataSource のある、`<asp:Parameter>`を指定する要素、 *`categoryID`*に渡される値、`GetProductsByCategoryID(categoryID)`メソッドです。 しかし、この値を指定する方法をおでしょうか。 理想的には、d にのみ設定できる、`DefaultValue`のプロパティ、`<asp:Parameter>`要素のデータ バインドの構文を使用して次のように。
+ObjectDataSource アプローチを使用するときに設定する必要があります、`ProductsByCategoryList`リピータ s`DataSourceID`プロパティを`ID`、ObjectDataSource の (`ProductsByCategoryDataSource`)。 またに注意してください、ObjectDataSource のある、`<asp:Parameter>`を指定する要素、 *`categoryID`* に渡される値、`GetProductsByCategoryID(categoryID)`メソッドです。 しかし、この値を指定する方法をおでしょうか。 理想的には、d にのみ設定できる、`DefaultValue`のプロパティ、`<asp:Parameter>`要素のデータ バインドの構文を使用して次のように。
 
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample4.aspx)]
@@ -133,7 +134,7 @@ ObjectDataSource アプローチを使用するときに設定する必要があ
 
 リピータ s`DataSource`プロパティは、そのデータの取得元を示すためにデータ バインド構文を使用して、`GetProductsInCategory(categoryID)`メソッドです。 `Eval("CategoryID")`型の値を返します`Object`、オブジェクトにキャストして、`Integer`に渡す前に、`GetProductsInCategory(categoryID)`メソッドです。 注意してください、`CategoryID`ここで、データ バインドを介して構文がアクセスされる、`CategoryID`で、*外部*リピータ (`CategoryList`)、1 つのレコードにバインドされている s、`Categories`テーブル。 そのため、それがわかった`CategoryID`データベースは使用できません`NULL`お無条件にキャストできる値、`Eval`場合をチェックせずメソッドを処理する re お、`DBNull`です。
 
-この方法で作成する必要があります、`GetProductsInCategory(categoryID)`メソッドの指定された、指定された製品の適切なセットを取得することと *`categoryID`*です。 単に返すことによってこの作業を行うことができます、`ProductsDataTable`によって返される、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドです。 %S を作成できるように、`GetProductsInCategory(categoryID)`の分離コード クラスのメソッド、`NestedControls.aspx`ページ。 次のコードを使用するための操作を行います。
+この方法で作成する必要があります、`GetProductsInCategory(categoryID)`メソッドの指定された、指定された製品の適切なセットを取得することと *`categoryID`* です。 単に返すことによってこの作業を行うことができます、`ProductsDataTable`によって返される、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドです。 %S を作成できるように、`GetProductsInCategory(categoryID)`の分離コード クラスのメソッド、`NestedControls.aspx`ページ。 次のコードを使用するための操作を行います。
 
 
 [!code-vb[Main](nested-data-web-controls-vb/samples/sample7.vb)]

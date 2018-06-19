@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885017"
 ---
 <a name="how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c"></a>VB または C# の場合に、命令型のロジックを持つカスタム フィールドの検証を実装する方法
 ====================

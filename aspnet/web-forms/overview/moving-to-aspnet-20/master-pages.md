@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885118"
 ---
 <a name="master-pages"></a>マスター ページ
 ====================
@@ -144,8 +145,8 @@ ASP.NET そのもののアーキテクチャは、ユーザー コントロー�
 
 - <strong>MasterPageFile</strong>の属性、@Pageディレクティブ
 - 設定、 **Page.MasterPageFile**コード内のプロパティです。
-- **&lt;ページ&gt;**アプリケーション構成ファイル (アプリケーションのルート フォルダーに web.config) で要素
-- **&lt;ページ&gt;**サブフォルダー構成ファイル (サブフォルダーの web.config) で要素
+- **&lt;ページ&gt;** アプリケーション構成ファイル (アプリケーションのルート フォルダーに web.config) で要素
+- **&lt;ページ&gt;** サブフォルダー構成ファイル (サブフォルダーの web.config) で要素
 
 ## <a name="masterpagefile-attribute"></a>MasterPageFile Attribute
 

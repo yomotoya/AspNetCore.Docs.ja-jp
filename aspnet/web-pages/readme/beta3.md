@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892882"
 ---
 <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>Webmatrix と ASP.NET Web Pages (Razor) ベータ 3 リリースの Readme
 ====================
@@ -301,7 +302,7 @@ ms.lasthandoff: 04/06/2018
 
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>問題点: 拡張子のない Url が見つからない IIS 7 や IIS 7.5 で.cshtml/.vbhtml ファイル
 
-> IIS 7 や IIS 7.5 では、次のように URL を使用して要求ができませんがページを検索する、 *.cshtml*または*.vbhtml*拡張機能。  
+> IIS 7 や IIS 7.5 では、次のように URL を使用して要求ができませんがページを検索する、 *.cshtml*または *.vbhtml*拡張機能。  
 > 
 > `http://www.example.com/ExampleSite/ExampleFile`  
 > 
@@ -344,7 +345,7 @@ ms.lasthandoff: 04/06/2018
 >     - コピー *C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\x86\\** **に** *\Bin\x86*
 >     - コピー *C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **に** *\Bin\amd64*
 > 2. Web サイトのルート フォルダーに作成または開く、 *Web.config*ファイル。 (WebMatrix ベータ 3 の場合、このファイルの種類は をクリックすると利用可能な**すべて**で、**ファイルの種類を選択** ダイアログ ボックス)。
-> 3. 次の要素の子として追加、 **&lt;構成&gt;**要素 (内部ではなく、 **&lt;system.web&gt;**要素)。
+> 3. 次の要素の子として追加、 **&lt;構成&gt;** 要素 (内部ではなく、 **&lt;system.web&gt;** 要素)。
 > 
 > 
 > [!code-xml[Main](beta3/samples/sample10.xml)]
@@ -352,7 +353,7 @@ ms.lasthandoff: 04/06/2018
 
 #### <a name="issue-database-and-webgrid-helpers-do-not-work-in-medium-trust-in-visual-basic"></a>問題: Visual Basic で中程度の信頼でデータベースとの WebGrid ヘルパーは機能しません
 
-> Visual Basic を使用している場合 (作成*.vbhtml*ファイル)、`Database`と`WebGrid`中程度の信頼を使用する、アプリケーションが設定されている場合、ヘルパーは機能しません。
+> Visual Basic を使用している場合 (作成 *.vbhtml*ファイル)、`Database`と`WebGrid`中程度の信頼を使用する、アプリケーションが設定されている場合、ヘルパーは機能しません。
 > 
 > **回避策**  
 > 完全な信頼を使用するアプリケーションを一時的に設定します。

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889148"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio を使用した ASP.NET Web 展開: データベースの配置の準備
 ====================
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/06/2018
 
 サンプル アプリケーションでは、SQL Server Express LocalDB を使用します。 SQL Server Express は、SQL Server の無償のエディションです。 完全バージョンの SQL Server と同じデータベース エンジンに基づいているための開発中に通常使用されます。 SQL Server Express を使ってテストし、アプリケーションが動作する SQL Server のエディション間で異なる場合の機能の一部の例外を除き、実稼働環境で同じ確実に実行します。
 
-LocalDB は SQL Server Express データベースを対象として使用することができますの特殊な実行モード*.mdf*ファイル。 LocalDB のデータベース ファイルを保持する、通常、*アプリ\_データ*web プロジェクトのフォルダーです。 SQL Server express ユーザー インスタンスの機能でを操作することもできます*.mdf*は、ファイル、ユーザー インスタンス機能は推奨されません。 そのため、LocalDB を使用するため推奨*.mdf*ファイル。
+LocalDB は SQL Server Express データベースを対象として使用することができますの特殊な実行モード *.mdf*ファイル。 LocalDB のデータベース ファイルを保持する、通常、*アプリ\_データ*web プロジェクトのフォルダーです。 SQL Server express ユーザー インスタンスの機能でを操作することもできます *.mdf*は、ファイル、ユーザー インスタンス機能は推奨されません。 そのため、LocalDB を使用するため推奨 *.mdf*ファイル。
 
 通常実稼働 web アプリケーションの SQL Server Express は使用されません。 LocalDB 具体的には、ために推奨されませんを実稼働用 web アプリケーションと IIS を使用するものはありません。
 
@@ -185,7 +186,7 @@ SQL Server インストール センターの最初のページで、をクリ�
 ### <a name="create-the-development-database-script"></a>開発データベース スクリプトを作成します。
 
 1. SSMS を実行します。
-2. **サーバーへの接続** ダイアログ ボックスで、入力*(localdb) \v11.0*として、**サーバー名**のままにして**認証** 'éý'**Windows 認証**、クリックして**接続**です。
+2. **サーバーへの接続** ダイアログ ボックスで、入力 *(localdb) \v11.0*として、**サーバー名**のままにして**認証** 'éý'**Windows 認証**、クリックして**接続**です。
 
     ![SSMS は、サーバーに接続します。](preparing-databases/_static/image10.png)
 3. **オブジェクト エクスプ ローラー**ウィンドウで、展開**データベース**を右クリックして**aspnet ContosoUniversity**、 をクリックして**タスク**をクリックし、**スクリプトの生成**です。
@@ -201,12 +202,12 @@ SQL Server インストール センターの最初のページで、をクリ�
 7. 変更**を使用してデータベースのスクリプトを**に**False**です。 ステートメントを使用する Azure SQL Database の有効ながなく、テスト環境で SQL Server Express への展開の不要な。
 
     ![SSMS スクリプトのデータのみ、使用するステートメントのないです。](preparing-databases/_static/image13.png)
-8. **[OK]**をクリックします。
+8. **[OK]** をクリックします。
 9. **公開スクリプトの生成と** ダイアログ ボックスで、**ファイル名**ボックスは、スクリプトを作成する場所を指定します。 パスをソリューション フォルダー (、ContosoUniversity.sln ファイルがあるフォルダー) とファイルの名前に変更*aspnet データ-dev.sql*です。
 10. をクリックして**次へ**に移動する、**概要** タブをクリックして**次へ**スクリプトを作成するには、もう一度です。
 
     ![SSMS スクリプトの作成](preparing-databases/_static/image14.png)
-11. **[完了]**をクリックします。
+11. **[完了]** をクリックします。
 
 ### <a name="create-the-production-database-script"></a>実稼働データベース スクリプトを作成します。
 
@@ -218,7 +219,7 @@ SQL Server インストール センターの最初のページで、をクリ�
 2. **データベースのアタッチ**ダイアログ ボックスで、をクリックして**追加**に移動し、 *aspnet ContosoUniversity-Prod.mdf*ファイルを*アプリ\_データ*フォルダーです。
 
      ![アタッチする .mdf ファイルを SSMS の追加](preparing-databases/_static/image16.png)
-3. **[OK]**をクリックします。
+3. **[OK]** をクリックします。
 4. 以前に使用した、実稼働ファイルのスクリプトを作成する同じ手順に従います。 スクリプト ファイルの名前を付けます*aspnet データ-prod.sql*です。
 
 ## <a name="summary"></a>まとめ

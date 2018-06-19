@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888670"
 ---
 <a name="determining-what-files-need-to-be-deployed-c"></a>展開する必要があるファイルを決定する (c#)
 ====================
@@ -54,7 +55,7 @@ ASP.NET エンジン ページのコードの部分は、このページの要�
 | 明示的なコンパイル | [はい] | いいえ | [はい] |
 | 自動のコンパイル | [はい] | [はい] | はい (存在する場合) |
 
-**表 1:**を展開するファイルは、使用コンパイル モデルによって異なります。
+**表 1:** を展開するファイルは、使用コンパイル モデルによって異なります。
 
 ## <a name="taking-a-trip-down-memory-lane"></a>メモリのレーンを旅行の取得
 
@@ -110,7 +111,7 @@ Microsoft は、Visual Studio 2005 Service Pack 1 を離したときに、Web �
 このチュートリアルのダウンロード、web アプリケーションの 2 つのコピーには、別の Visual Studio プロジェクトの種類としてそれぞれ実装: BookReviewsWAP、Web アプリケーション プロジェクト、および BookReviewsWSP、Web サイト プロジェクト。 両方のプロジェクトでは、Visual Web Developer 2008 SP1 で作成され、ASP.NET 3.5 SP1 を使用します。 使用するには、は、これらのプロジェクトは、デスクトップにコンテンツを解凍して起動します。 Web アプリケーション プロジェクトを開き (BookReviewsWAP)、BookReviewsWAP フォルダーに移動し、ソリューション ファイルをダブルクリック`BookReviewsWAP.sln`です。 Web サイト プロジェクト (BookReviewsWSP) を開くには、Visual Studio を起動し、次に、ファイル メニューからオプションを選択、Web サイトを開くを参照、`BookReviewsWSP`デスクトップ上のフォルダーと、ok をクリックします。
 
 
-このチュートリアルの外観にどのようなファイルで残りの 2 つのセクションをアプリケーションを展開するときに、運用環境にコピーする必要があります。 次の 2 つのチュートリアル -  *[、サイトを使用して FTP の展開](deploying-your-site-using-an-ftp-client-cs.md)*と*[を展開する、サイトを使用して Visual Studio](deploying-your-site-using-visual-studio-cs.md)*  -するさまざまな方法を表示します。web ホスト プロバイダーには、これらのファイルをコピーします。
+このチュートリアルの外観にどのようなファイルで残りの 2 つのセクションをアプリケーションを展開するときに、運用環境にコピーする必要があります。 次の 2 つのチュートリアル -  *[、サイトを使用して FTP の展開](deploying-your-site-using-an-ftp-client-cs.md)* と*[を展開する、サイトを使用して Visual Studio](deploying-your-site-using-visual-studio-cs.md)*  -するさまざまな方法を表示します。web ホスト プロバイダーには、これらのファイルをコピーします。
 
 ## <a name="determining-the-files-to-deploy-for-the-web-application-project"></a>Web アプリケーション プロジェクトを配置するファイルを決定します。
 

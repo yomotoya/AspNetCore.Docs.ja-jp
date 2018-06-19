@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888995"
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-c"></a>編集および削除 DataList (c#) 内のデータの概要
 ====================
@@ -86,11 +87,11 @@ ms.lasthandoff: 04/06/2018
 
 残念ながら、DataList では、この組み込みの機能のいずれかの用意されていません。 ObjectDataSource のパラメーターにユーザー秒の値が割り当てられていることを確認する責任はその`Update()`メソッドが呼び出されます。 私たちを役立てるため、この作業は、DataList は、次のプロパティとイベントを提供します。
 
-- **[ `DataKeyField`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basedatalist.datakeyfield.aspx)**更新または削除すると、DataList 内の各項目を一意に識別できる必要があります。 このプロパティは、表示されるデータの主キー フィールドに設定します。 DataList s を表示するように[`DataKeys`コレクション](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basedatalist.datakeys.aspx)、指定した`DataKeyField`DataList の各項目の値。
-- **[ `EditCommand`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.editcommand.aspx)**ボタン、LinkButton、または ImageButton ときに発生が`CommandName`プロパティに設定されている編集をクリックします。
-- **[ `CancelCommand`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.cancelcommand.aspx)**ボタン、LinkButton、または ImageButton ときに発生が`CommandName`プロパティに設定されている [キャンセル] をクリックします。
-- **[ `UpdateCommand`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.updatecommand.aspx)**ボタン、LinkButton、または ImageButton ときに発生が`CommandName`プロパティに設定されている更新プログラムをクリックします。
-- **[ `DeleteCommand`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.deletecommand.aspx)**ボタン、LinkButton、または ImageButton ときに発生が`CommandName`プロパティに設定されている Delete をクリックします。
+- **[ `DataKeyField`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basedatalist.datakeyfield.aspx)** 更新または削除すると、DataList 内の各項目を一意に識別できる必要があります。 このプロパティは、表示されるデータの主キー フィールドに設定します。 DataList s を表示するように[`DataKeys`コレクション](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basedatalist.datakeys.aspx)、指定した`DataKeyField`DataList の各項目の値。
+- **[ `EditCommand`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.editcommand.aspx)** ボタン、LinkButton、または ImageButton ときに発生が`CommandName`プロパティに設定されている編集をクリックします。
+- **[ `CancelCommand`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.cancelcommand.aspx)** ボタン、LinkButton、または ImageButton ときに発生が`CommandName`プロパティに設定されている [キャンセル] をクリックします。
+- **[ `UpdateCommand`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.updatecommand.aspx)** ボタン、LinkButton、または ImageButton ときに発生が`CommandName`プロパティに設定されている更新プログラムをクリックします。
+- **[ `DeleteCommand`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.deletecommand.aspx)** ボタン、LinkButton、または ImageButton ときに発生が`CommandName`プロパティに設定されている Delete をクリックします。
 
 これらのプロパティとイベントを使用して、4 つの方法お使用して更新し、DataList からデータを削除できます。
 

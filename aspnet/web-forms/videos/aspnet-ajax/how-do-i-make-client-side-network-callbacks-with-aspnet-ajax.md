@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882989"
 ---
 <a name="how-do-i-make-client-side-network-callbacks-with-aspnet-ajax"></a>[How Do i:]ASP.NET AJAX を使用したクライアント側のネットワークのコールバックを設定できますか。
 ====================

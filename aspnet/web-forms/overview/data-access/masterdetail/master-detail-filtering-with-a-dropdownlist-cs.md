@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880636"
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>マスター/詳細 DropDownList (c#) によるフィルター処理
 ====================
@@ -87,12 +88,12 @@ DropDownList でどのようなデータ ソースのフィールドを表示す
 **図 7**: 選択、`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-a-dropdownlist-cs/_static/image21.png))
 
 
-このメソッドを選択すると、ObjectDataSource ウィザードの指示に従って us メソッドの値の*`categoryID`*パラメーター。 選択した値を使用する`categories`DropDownList 項目コントロールを処理するパラメーターのソースを設定する`Categories`です。
+このメソッドを選択すると、ObjectDataSource ウィザードの指示に従って us メソッドの値の*`categoryID`* パラメーター。 選択した値を使用する`categories`DropDownList 項目コントロールを処理するパラメーターのソースを設定する`Categories`です。
 
 
 [![カテゴリの DropDownList の値に categoryID パラメーターを設定します。](master-detail-filtering-with-a-dropdownlist-cs/_static/image23.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image22.png)
 
-**図 8**: 設定、 *`categoryID`*パラメーターの値を`Categories`DropDownList ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-a-dropdownlist-cs/_static/image24.png))
+**図 8**: 設定、 *`categoryID`* パラメーターの値を`Categories`DropDownList ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-a-dropdownlist-cs/_static/image24.png))
 
 
 すぐをブラウザーで作業の進行状況を確認します。 これらの製品が、選択したカテゴリに属している場合、最初のページへのアクセス、(飲み物) が表示されます (図 9) が DropDownList を変更すると、データが更新されません。 これは、ため、更新する GridView のポストバックが発生したときです。 これを行うには、2 つのオプション (うちどちらが必要、コードを記述) があります。
@@ -145,11 +146,11 @@ DropDownList でどのようなデータ ソースのフィールドを表示す
 **図 13**: での初期ページ負荷なし製品が表示されます ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-a-dropdownlist-cs/_static/image37.png))
 
 
-製品が表示されていない場合、"--カテゴリ--"リスト アイテムの選択 が選択されているため理由がその値があるためには`-1`でデータベースに製品がいなくなると、`CategoryID`の`-1`します。 これは、動作する場合はこの時点で完了したら、! ただし、表示する場合は、*すべて*、カテゴリ、"--カテゴリ--"リスト アイテムの選択 を選択すると、戻り値を`ProductsBLL`クラスし、カスタマイズ、`GetProductsByCategoryID(categoryID)`メソッドを呼び出すので、`GetProducts()`メソッド場合渡されたで*`categoryID`*パラメーターが 0 より小さい。
+製品が表示されていない場合、"--カテゴリ--"リスト アイテムの選択 が選択されているため理由がその値があるためには`-1`でデータベースに製品がいなくなると、`CategoryID`の`-1`します。 これは、動作する場合はこの時点で完了したら、! ただし、表示する場合は、*すべて*、カテゴリ、"--カテゴリ--"リスト アイテムの選択 を選択すると、戻り値を`ProductsBLL`クラスし、カスタマイズ、`GetProductsByCategoryID(categoryID)`メソッドを呼び出すので、`GetProducts()`メソッド場合渡されたで*`categoryID`* パラメーターが 0 より小さい。
 
 [!code-csharp[Main](master-detail-filtering-with-a-dropdownlist-cs/samples/sample2.cs)]
 
-ここで使用される手法はすべてのサプライヤーの表示に使用したアプローチに似ていますに戻り、[宣言型のパラメーター](../basic-reporting/declarative-parameters-cs.md)が、この例を使用して、値は、チュートリアル`-1`を示すすべてのレコードをする必要がありますなく取得`null`です。 これは、ため、 *`categoryID`*のパラメーター、`GetProductsByCategoryID(categoryID)`メソッドが必要ですが、渡される整数値として宣言型のパラメーターのチュートリアルでは、文字列の入力パラメーターに渡していた一方です。
+ここで使用される手法はすべてのサプライヤーの表示に使用したアプローチに似ていますに戻り、[宣言型のパラメーター](../basic-reporting/declarative-parameters-cs.md)が、この例を使用して、値は、チュートリアル`-1`を示すすべてのレコードをする必要がありますなく取得`null`です。 これは、ため、 *`categoryID`* のパラメーター、`GetProductsByCategoryID(categoryID)`メソッドが必要ですが、渡される整数値として宣言型のパラメーターのチュートリアルでは、文字列の入力パラメーターに渡していた一方です。
 
 図 14 のスクリーン ショットに示します`FilterByDropDownList.aspx`「--カテゴリの選択-」オプションを選択するとします。 ここでは、既定では、すべての製品が表示され、ユーザーが特定のカテゴリを選択して、表示を絞ることができます。
 

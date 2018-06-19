@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886730"
 ---
 <a name="how-to-use-attribute-validation-in-aspnet-dynamic-data-applications"></a>ASP.NET 動的データ アプリケーションで属性の検証を使用する方法
 ====================

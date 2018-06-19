@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886941"
 ---
 <a name="creating-a-business-logic-layer-c"></a>ビジネス ロジック層 (c#) を作成します。
 ====================

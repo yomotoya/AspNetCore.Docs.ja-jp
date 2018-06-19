@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875813"
 ---
 <a name="examining-the-edit-methods-and-edit-view-c"></a>編集方法と編集ビュー (c#) の確認
 ====================
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/06/2018
 
 このセクションで、生成されたアクション メソッドと、ムービーのコント ローラーのビューを確認します。 カスタムの検索ページを追加します。
 
-アプリケーションを実行しを参照、`Movies`コント ローラーを追加して*/Movies*お使いのブラウザーのアドレス バーの URL にします。 上にマウス ポインターを置く、**編集**にリンクする URL を表示するリンクです。
+アプリケーションを実行しを参照、`Movies`コント ローラーを追加して */Movies*お使いのブラウザーのアドレス バーの URL にします。 上にマウス ポインターを置く、**編集**にリンクする URL を表示するリンクです。
 
 [![EditLink_sm](examining-the-edit-methods-and-edit-view/_static/image2.png)](examining-the-edit-methods-and-edit-view/_static/image1.png)
 
@@ -136,7 +137,7 @@ ASP.NET フレームワークのモデル バインダーは、ポストされ�
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample10.cshtml)]
 
-アプリケーションを実行しに移動*/ビデオ/SearchIndex*です。 `?searchString=ghost` などのクエリ文字列を URL に追加します。 フィルターされたムービーが表示されます。
+アプリケーションを実行しに移動 */ビデオ/SearchIndex*です。 `?searchString=ghost` などのクエリ文字列を URL に追加します。 フィルターされたムービーが表示されます。
 
 [![SearchQryStr](examining-the-edit-methods-and-edit-view/_static/image14.png)](examining-the-edit-methods-and-edit-view/_static/image13.png)
 
@@ -216,7 +217,7 @@ ASP.NET フレームワークのモデル バインダーは、ポストされ�
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample21.cshtml)]
 
-アプリケーションを実行しを参照*/ビデオ/SearchIndex*です。 ジャンル、ムービーの名前、および両方の条件は、検索を再試行してください。
+アプリケーションを実行しを参照 */ビデオ/SearchIndex*です。 ジャンル、ムービーの名前、および両方の条件は、検索を再試行してください。
 
 このセクションでは、CRUD アクション メソッドと、フレームワークによって生成されたビューを調査します。 アクション メソッドの検索とムービーのタイトル、ジャンルで検索できるようにするビューを作成したとします。 次のセクションでプロパティを追加する方法について見ていきます、`Movie`モデルおよびテスト用データベースが自動的に作成するには初期化子を追加する方法です。
 
