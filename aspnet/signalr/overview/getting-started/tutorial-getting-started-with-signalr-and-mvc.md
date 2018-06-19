@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28033848"
 ---
 <a name="tutorial-getting-started-with-signalr-2-and-mvc-5"></a><span data-ttu-id="b773e-104">チュートリアル: SignalR 2 と MVC 5 の概要</span><span class="sxs-lookup"><span data-stu-id="b773e-104">Tutorial: Getting Started with SignalR 2 and MVC 5</span></span>
 ====================

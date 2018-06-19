@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892310"
 ---
 <a name="building-and-packaging-web-application-projects"></a><span data-ttu-id="5d6ad-103">ビルドおよび Web アプリケーション プロジェクトをパッケージ化</span><span class="sxs-lookup"><span data-stu-id="5d6ad-103">Building and Packaging Web Application Projects</span></span>
 ====================
@@ -79,7 +80,7 @@ ms.lasthandoff: 04/06/2018
 
 ![](building-and-packaging-web-application-projects/_static/image2.png)
 
-<span data-ttu-id="5d6ad-154">ビルド プロセスがという名前のファイルを生成する web アプリケーション プロジェクトをビルドするときに*[プロジェクト名]。SourceManifest.xml*です。</span><span class="sxs-lookup"><span data-stu-id="5d6ad-154">When you build a web application project, the build process generates a file named *[project name].SourceManifest.xml*.</span></span> <span data-ttu-id="5d6ad-155">プロジェクト ファイルとビルド出力と一緒にこの*です。SourceManifest.xml*ファイル指示 Web Deploy web 展開パッケージに含める必要があること。</span><span class="sxs-lookup"><span data-stu-id="5d6ad-155">Along with the project file and the build output, this *.SourceManifest.xml* file tells Web Deploy what it needs to include in the web deployment package.</span></span> <span data-ttu-id="5d6ad-156">これらの入力を使用して、という名前の web 配置パッケージを生成 Web Deploy *[プロジェクト名] .zip*です。</span><span class="sxs-lookup"><span data-stu-id="5d6ad-156">Using these inputs, Web Deploy generates a web deployment package named *[project name].zip*.</span></span>
+<span data-ttu-id="5d6ad-154">ビルド プロセスがという名前のファイルを生成する web アプリケーション プロジェクトをビルドするときに *[プロジェクト名]。SourceManifest.xml*です。</span><span class="sxs-lookup"><span data-stu-id="5d6ad-154">When you build a web application project, the build process generates a file named *[project name].SourceManifest.xml*.</span></span> <span data-ttu-id="5d6ad-155">プロジェクト ファイルとビルド出力と一緒にこの*です。SourceManifest.xml*ファイル指示 Web Deploy web 展開パッケージに含める必要があること。</span><span class="sxs-lookup"><span data-stu-id="5d6ad-155">Along with the project file and the build output, this *.SourceManifest.xml* file tells Web Deploy what it needs to include in the web deployment package.</span></span> <span data-ttu-id="5d6ad-156">これらの入力を使用して、という名前の web 配置パッケージを生成 Web Deploy *[プロジェクト名] .zip*です。</span><span class="sxs-lookup"><span data-stu-id="5d6ad-156">Using these inputs, Web Deploy generates a web deployment package named *[project name].zip*.</span></span>
 
 <span data-ttu-id="5d6ad-157">Web 配置パッケージと共にビルド プロセスには、パッケージを使用するのに役立つ 2 つのファイルが生成されます。</span><span class="sxs-lookup"><span data-stu-id="5d6ad-157">Alongside the web deployment package, the build process generates two files that can help you to use the package:</span></span>
 

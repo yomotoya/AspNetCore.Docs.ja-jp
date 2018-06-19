@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-save-and-load-view-state-information-for-a-custom-web-server-control
-title: "[How Do i:]ユーザー定義のビューステートの読み込み情報の保存と Web サーバー コントロール |Microsoft ドキュメント"
+title: '[How Do i:]ユーザー定義のビューステートの読み込み情報の保存と Web サーバー コントロール |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では、永続化およびカスタム ユーザー コントロールの ViewState の情報を復元する方法が表示されます。 まず、単純な値を永続化する方法を学習してください."
+description: このビデオ Chris Pels では、永続化およびカスタム ユーザー コントロールの ViewState の情報を復元する方法が表示されます。 まず、単純な値を永続化する方法を学習してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525571"
 ---
 <a name="how-do-i-save-and-load-view-state-information-for-a-custom-web-server-control"></a><span data-ttu-id="580e8-104">[How Do i:]保存して、カスタム Web サーバー コントロールのビューステートの読み込み情報</span><span class="sxs-lookup"><span data-stu-id="580e8-104">[How Do I:] Save and Load View State Information for a Custom Web Server Control</span></span>
 ====================

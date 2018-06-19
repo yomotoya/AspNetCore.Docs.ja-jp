@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/data-source-controls
-title: "データ ソース コントロール |Microsoft ドキュメント"
+title: データ ソース コントロール |Microsoft ドキュメント
 author: microsoft
-description: "DataGrid コントロール ASP.NET 1.x としてマークされている Web アプリケーションでのデータ アクセスでは、優れた向上します。 ただし、した可能性がありますと、わかりやすいでした."
+description: DataGrid コントロール ASP.NET 1.x としてマークされている Web アプリケーションでのデータ アクセスでは、優れた向上します。 ただし、した可能性がありますと、わかりやすいでした.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885896"
 ---
 <a name="data-source-controls"></a><span data-ttu-id="bb694-104">データ ソース コントロール</span><span class="sxs-lookup"><span data-stu-id="bb694-104">Data Source Controls</span></span>
 ====================
@@ -175,7 +176,7 @@ ms.lasthandoff: 01/30/2018
 
 [!code-xml[Main](data-source-controls/samples/sample5.xml)]
 
-<span data-ttu-id="bb694-231">指定された xmldatasource 上での XPath プロパティを使用することを確認*/方*にフィルターを適用するためにだけ、&lt;人&gt;ノード。</span><span class="sxs-lookup"><span data-stu-id="bb694-231">Notice that the XmlDataSource uses an XPath property of *People/Person* in order to filter on just the &lt;Person&gt; nodes.</span></span> <span data-ttu-id="bb694-232">DropDownList、DataTextField プロパティを使用して LastName 属性にデータをバインドします。</span><span class="sxs-lookup"><span data-stu-id="bb694-232">The DropDownList then data-binds to the LastName attribute using the DataTextField property.</span></span>
+<span data-ttu-id="bb694-231">指定された xmldatasource 上での XPath プロパティを使用することを確認 */方*にフィルターを適用するためにだけ、&lt;人&gt;ノード。</span><span class="sxs-lookup"><span data-stu-id="bb694-231">Notice that the XmlDataSource uses an XPath property of *People/Person* in order to filter on just the &lt;Person&gt; nodes.</span></span> <span data-ttu-id="bb694-232">DropDownList、DataTextField プロパティを使用して LastName 属性にデータをバインドします。</span><span class="sxs-lookup"><span data-stu-id="bb694-232">The DropDownList then data-binds to the LastName attribute using the DataTextField property.</span></span>
 
 <span data-ttu-id="bb694-233">XmlDataSource コントロールは読み取り専用の XML データへのデータ バインドに使用される、主は、XML データ ファイルを編集することです。</span><span class="sxs-lookup"><span data-stu-id="bb694-233">While the XmlDataSource control is primarily used to data-bind to read-only XML data, it is possible to edit the XML data file.</span></span> <span data-ttu-id="bb694-234">このような場合、自動挿入、更新、および XML ファイル内の情報の削除が動作しない自動的には他のデータ ソース コントロールに注意してください。</span><span class="sxs-lookup"><span data-stu-id="bb694-234">Note that in such cases, automatic insertion, updating, and deletion of information in the XML file does not happen automatically as it does with other data source controls.</span></span> <span data-ttu-id="bb694-235">代わりに、XmlDataSource コントロールの次のメソッドを使用してデータを手動で編集するコードを記述する必要があります。</span><span class="sxs-lookup"><span data-stu-id="bb694-235">Instead, you will have to write code to manually edit the data using the following methods of the XmlDataSource control.</span></span>
 

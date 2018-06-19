@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core の環境タグ ヘルパー"
+title: ASP.NET Core の環境タグ ヘルパー
 author: pkellner
-description: "すべてのプロパティを含む、定義済みの ASP.NET Core 環境タグ ヘルパー"
+description: すべてのプロパティを含む、定義済みの ASP.NET Core 環境タグ ヘルパー
 manager: wpickett
 ms.author: riande
 ms.date: 07/14/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28901184"
 ---
 # <a name="environment-tag-helper-in-aspnet-core"></a><span data-ttu-id="2714e-103">ASP.NET Core の環境タグ ヘルパー</span><span class="sxs-lookup"><span data-stu-id="2714e-103">Environment Tag Helper in ASP.NET Core</span></span>
 

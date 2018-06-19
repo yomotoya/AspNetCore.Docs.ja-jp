@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891179"
 ---
 <a name="creating-and-running-a-deployment-command-file"></a><span data-ttu-id="9792c-103">作成と展開コマンド ファイルの実行</span><span class="sxs-lookup"><span data-stu-id="9792c-103">Creating and Running a Deployment Command File</span></span>
 ====================

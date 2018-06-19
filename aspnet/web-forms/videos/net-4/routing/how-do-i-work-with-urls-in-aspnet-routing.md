@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893886"
 ---
 <a name="how-do-i-work-with-urls-in-aspnet-routing"></a><span data-ttu-id="d3293-105">ASP.NET ルーティングで Url を持つ操作方法: 動作しますか。</span><span class="sxs-lookup"><span data-stu-id="d3293-105">How Do I: Work with URLs in ASP.NET Routing?</span></span>
 ====================

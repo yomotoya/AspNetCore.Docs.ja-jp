@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897320"
 ---
 <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a><span data-ttu-id="3bd5d-104">モバイル デバイス用の ASP.NET Web Pages (Razor) サイトの表示</span><span class="sxs-lookup"><span data-stu-id="3bd5d-104">Rendering ASP.NET Web Pages (Razor) Sites for Mobile Devices</span></span>
 ====================
@@ -51,7 +52,7 @@ ms.lasthandoff: 04/06/2018
 
     [!code-html[Main](rendering-aspnet-web-pages-sites-for-mobile-devices/samples/sample2.html)]
 3. <span data-ttu-id="3bd5d-123">デスクトップのブラウザーを実行しを参照*Page1.cshtml*です。</span><span class="sxs-lookup"><span data-stu-id="3bd5d-123">Run a desktop browser and browse to *Page1.cshtml*.</span></span> <span data-ttu-id="3bd5d-124">![mobilesites-1](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="3bd5d-124">![mobilesites-1](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image1.png)</span></span>
-4. <span data-ttu-id="3bd5d-125">モバイル ブラウザー (または、モバイル デバイス エミュレーター) を実行しを参照*Page1.cshtml*です。</span><span class="sxs-lookup"><span data-stu-id="3bd5d-125">Run a mobile browser (or a mobile device emulator) and browse to *Page1.cshtml*.</span></span> <span data-ttu-id="3bd5d-126">(含めないようにすることを確認*.mobile です。*</span><span class="sxs-lookup"><span data-stu-id="3bd5d-126">(Notice that you do not include *.mobile.*</span></span> <span data-ttu-id="3bd5d-127">URL の一部として、します。)要求内容がにもかかわらず*Page1.cshtml*、ASP.NET 表示*Page1.Mobile.cshtml*です。</span><span class="sxs-lookup"><span data-stu-id="3bd5d-127">as part of the URL.) Even though the request is to *Page1.cshtml*, ASP.NET renders *Page1.Mobile.cshtml*.</span></span>
+4. <span data-ttu-id="3bd5d-125">モバイル ブラウザー (または、モバイル デバイス エミュレーター) を実行しを参照*Page1.cshtml*です。</span><span class="sxs-lookup"><span data-stu-id="3bd5d-125">Run a mobile browser (or a mobile device emulator) and browse to *Page1.cshtml*.</span></span> <span data-ttu-id="3bd5d-126">(含めないようにすることを確認 *.mobile です。*</span><span class="sxs-lookup"><span data-stu-id="3bd5d-126">(Notice that you do not include *.mobile.*</span></span> <span data-ttu-id="3bd5d-127">URL の一部として、します。)要求内容がにもかかわらず*Page1.cshtml*、ASP.NET 表示*Page1.Mobile.cshtml*です。</span><span class="sxs-lookup"><span data-stu-id="3bd5d-127">as part of the URL.) Even though the request is to *Page1.cshtml*, ASP.NET renders *Page1.Mobile.cshtml*.</span></span>
 
     ![mobilesites-2](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image2.png)
 

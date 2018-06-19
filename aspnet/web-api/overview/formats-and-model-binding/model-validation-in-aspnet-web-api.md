@@ -17,6 +17,7 @@ ms.sourcegitcommit: 5ae0c125ee3bbd324edef3818d1d160f4dd84602
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34224727"
 ---
 <a name="model-validation-in-aspnet-web-api"></a><span data-ttu-id="f9238-102">ASP.NET Web API でのモデルの検証</span><span class="sxs-lookup"><span data-stu-id="f9238-102">Model Validation in ASP.NET Web API</span></span>
 ====================

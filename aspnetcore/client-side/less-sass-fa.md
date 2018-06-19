@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30073524"
 ---
 # <a name="less-sass-and-font-awesome-in-aspnet-core"></a><span data-ttu-id="8341c-103">以下であるため、Sass、および ASP.NET Core の優れたフォント</span><span class="sxs-lookup"><span data-stu-id="8341c-103">Less, Sass, and Font Awesome in ASP.NET Core</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891881"
 ---
 <a name="caching"></a><span data-ttu-id="41c68-104">キャッシュ</span><span class="sxs-lookup"><span data-stu-id="41c68-104">Caching</span></span>
 ====================

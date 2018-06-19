@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895091"
 ---
 <a name="tailspin-spyworks---intro-ui-and-edm"></a><span data-ttu-id="3b0b9-103">Tailspin Spyworks - イントロ UI と EDM</span><span class="sxs-lookup"><span data-stu-id="3b0b9-103">Tailspin Spyworks - Intro UI and EDM</span></span>
 ====================

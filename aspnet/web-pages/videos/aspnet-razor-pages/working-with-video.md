@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895424"
 ---
 <a name="working-with-video"></a><span data-ttu-id="6cfc0-103">ビデオの操作</span><span class="sxs-lookup"><span data-stu-id="6cfc0-103">Working with Video</span></span>
 ====================

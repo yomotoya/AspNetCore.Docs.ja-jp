@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
-title: "ページ (Razor) サイトの ASP.NET Web で一貫したレイアウトを作成 |Microsoft ドキュメント"
+title: ページ (Razor) サイトの ASP.NET Web で一貫したレイアウトを作成 |Microsoft ドキュメント
 author: tfitzmac
-description: "これをサイトの web ページを作成する方が効率的にするには、するには、web サイト、および c を (ヘッダーやフッター) などのコンテンツの再利用可能なブロックを作成しています."
+description: これをサイトの web ページを作成する方が効率的にするには、するには、web サイト、および c を (ヘッダーやフッター) などのコンテンツの再利用可能なブロックを作成しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26530241"
 ---
 <a name="creating-a-consistent-layout-in-aspnet-web-pages-razor-sites"></a><span data-ttu-id="bd1b3-103">ASP.NET Web Pages (Razor) のサイトで一貫したレイアウトを作成します。</span><span class="sxs-lookup"><span data-stu-id="bd1b3-103">Creating a Consistent Layout in ASP.NET Web Pages (Razor) Sites</span></span>
 ====================

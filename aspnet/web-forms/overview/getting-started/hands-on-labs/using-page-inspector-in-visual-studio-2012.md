@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891244"
 ---
 <a name="using-page-inspector-in-visual-studio-2012"></a><span data-ttu-id="c5b4a-104">Visual Studio 2012 での Page Inspector の使用</span><span class="sxs-lookup"><span data-stu-id="c5b4a-104">Using Page Inspector in Visual Studio 2012</span></span>
 ====================
@@ -94,7 +95,7 @@ ms.lasthandoff: 04/10/2018
 
 <span data-ttu-id="c5b4a-146">このタスクでは、フォト ギャラリーを表示する ASP.NET MVC 4 プロジェクトのコンテキストで Page Inspector を使用する方法を学習します。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-146">In this task, you will learn how to use the Page Inspector in the context of an ASP.NET MVC 4 project that shows a photo gallery.</span></span>
 
-1. <span data-ttu-id="c5b4a-147">開く、**開始**ソリューションにある**ソース/Ex1-MVC4/開始/**フォルダーです。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-147">Open the **Begin** solution located at **Source/Ex1-MVC4/Begin/** folder.</span></span>
+1. <span data-ttu-id="c5b4a-147">開く、**開始**ソリューションにある**ソース/Ex1-MVC4/開始/** フォルダーです。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-147">Open the **Begin** solution located at **Source/Ex1-MVC4/Begin/** folder.</span></span>
 
    1. <span data-ttu-id="c5b4a-148">いくつか不足している NuGet パッケージをダウンロードする必要がありますが続行前にします。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-148">You will need to download some missing NuGet packages before continue.</span></span> <span data-ttu-id="c5b4a-149">これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-149">To do this, click the **Project** menu and select **Manage NuGet Packages**.</span></span>
    2. <span data-ttu-id="c5b4a-150">**NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-150">In the **Manage NuGet Packages** dialog, click **Restore** in order to download missing packages.</span></span>
@@ -221,7 +222,7 @@ ms.lasthandoff: 04/10/2018
 2. <span data-ttu-id="c5b4a-246">選択されている検査モードの切り替え、閉じるをではなく、そのコードを開くための登録のリンクをクリックします。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-246">With Toggle Inspection Mode selected, click close to, but not on, the Register link to open its code.</span></span>
 
     <span data-ttu-id="c5b4a-247">リンクのソース コードがあることを確認、  **\_LoginPartial.cshtml**ファイル、Index.cshtml いないも\_Layout.cshtml は、最初に探すこともできます。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-247">Notice that the source code of the links is located in the **\_LoginPartial.cshtml** file, not the Index.cshtml nor the \_Layout.cshtml, which are the places you might look in first place.</span></span> <span data-ttu-id="c5b4a-248">正しいソース ファイルに直接配置されています。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-248">You have been placed directly in the correct source file.</span></span>
-3. <span data-ttu-id="c5b4a-249">**スタイル** タブを特定し、をクリックして、 **<section> #login</section>**項目は、これらのリンクを HTML のコンテナーです。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-249">In the **Styles** tab, locate and click the **<section> #login</section>** item, which is the HTML container for these links.</span></span>
+3. <span data-ttu-id="c5b4a-249">**スタイル** タブを特定し、をクリックして、 **<section> #login</section>** 項目は、これらのリンクを HTML のコンテナーです。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-249">In the **Styles** tab, locate and click the **<section> #login</section>** item, which is the HTML container for these links.</span></span>
 
     <span data-ttu-id="c5b4a-250">注意して、 **#login**スタイルで自動的にある**Site.css**  をクリックします。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-250">Notice that the **#login** style is automatically located in **Site.css** after you click.</span></span> <span data-ttu-id="c5b4a-251">さらに、コードは、ここで強調表示されます。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-251">Moreover, the code is now highlighted.</span></span>
 
@@ -242,12 +243,12 @@ ms.lasthandoff: 04/10/2018
     ![更新されたページ](using-page-inspector-in-visual-studio-2012/_static/image18.png)
 
     <span data-ttu-id="c5b4a-263">*更新されたページ*</span><span class="sxs-lookup"><span data-stu-id="c5b4a-263">*Updated page*</span></span>
-6. <span data-ttu-id="c5b4a-264">いずれかを選択して検査モードを使用して、 **&lt;li&gt;**を含む項目、&quot;登録&quot;と&quot;ログイン&quot;リンクします。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-264">Using the inspection mode, select any of the **&lt;li&gt;** items that contain the &quot;Register&quot; and &quot;Log in&quot; links.</span></span> <span data-ttu-id="c5b4a-265">次に、をクリックして、 **&lt;セクション&gt;#login**にアクセスする項目**Styles.css**コード。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-265">Then, click the **&lt;section&gt; #login** item to access **Styles.css** code.</span></span>
+6. <span data-ttu-id="c5b4a-264">いずれかを選択して検査モードを使用して、 **&lt;li&gt;** を含む項目、&quot;登録&quot;と&quot;ログイン&quot;リンクします。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-264">Using the inspection mode, select any of the **&lt;li&gt;** items that contain the &quot;Register&quot; and &quot;Log in&quot; links.</span></span> <span data-ttu-id="c5b4a-265">次に、をクリックして、 **&lt;セクション&gt;#login**にアクセスする項目**Styles.css**コード。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-265">Then, click the **&lt;section&gt; #login** item to access **Styles.css** code.</span></span>
 
     <span data-ttu-id="c5b4a-266">![スタイルを検索する](using-page-inspector-in-visual-studio-2012/_static/image19.png "スタイルを検索します。")</span><span class="sxs-lookup"><span data-stu-id="c5b4a-266">![Finding the style](using-page-inspector-in-visual-studio-2012/_static/image19.png "Finding the style")</span></span>
 
     <span data-ttu-id="c5b4a-267">*スタイルを検索します。*</span><span class="sxs-lookup"><span data-stu-id="c5b4a-267">*Finding the style*</span></span>
-7. <span data-ttu-id="c5b4a-268">**Style.css**、用のコードのコメントを解除**#login li**項目。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-268">In **Style.css**, uncomment the code for **#login li** items.</span></span> <span data-ttu-id="c5b4a-269">追加するスタイルの項目を非表示にされ、アイテムの水平方向に表示されます。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-269">The style you are adding will hide the bullet and display the items horizontally.</span></span>
+7. <span data-ttu-id="c5b4a-268">**Style.css**、用のコードのコメントを解除 **#login li**項目。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-268">In **Style.css**, uncomment the code for **#login li** items.</span></span> <span data-ttu-id="c5b4a-269">追加するスタイルの項目を非表示にされ、アイテムの水平方向に表示されます。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-269">The style you are adding will hide the bullet and display the items horizontally.</span></span>
 
     <span data-ttu-id="c5b4a-270">![スタイルの変更、ログイン リンク](using-page-inspector-in-visual-studio-2012/_static/image20.png "ログイン リンク スタイルの変更")</span><span class="sxs-lookup"><span data-stu-id="c5b4a-270">![Restyling the login links](using-page-inspector-in-visual-studio-2012/_static/image20.png "Restyling the login links")</span></span>
 
@@ -285,7 +286,7 @@ ms.lasthandoff: 04/10/2018
 
 <span data-ttu-id="c5b4a-292">このタスクでは、フォト ギャラリーを表示する WebForms プロジェクトのコンテキストで Page Inspector の機能を使用する方法を学習します。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-292">In this task, you will learn how to use the Page Inspector features in the context of a WebForms project that shows a photo gallery.</span></span>
 
-1. <span data-ttu-id="c5b4a-293">開く、**開始**ソリューションにある**ソース/Ex2-WebForms/開始/**フォルダーです。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-293">Open the **Begin** solution located at **Source/Ex2-WebForms/Begin/** folder.</span></span>
+1. <span data-ttu-id="c5b4a-293">開く、**開始**ソリューションにある**ソース/Ex2-WebForms/開始/** フォルダーです。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-293">Open the **Begin** solution located at **Source/Ex2-WebForms/Begin/** folder.</span></span>
 
    1. <span data-ttu-id="c5b4a-294">いくつか不足している NuGet パッケージをダウンロードする必要がありますが続行前にします。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-294">You will need to download some missing NuGet packages before continue.</span></span> <span data-ttu-id="c5b4a-295">これを行うをクリックして、**プロジェクト**メニュー **NuGet パッケージの管理**です。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-295">To do this, click the **Project** menu and select **Manage NuGet Packages**.</span></span>
    2. <span data-ttu-id="c5b4a-296">**NuGet パッケージの管理**ダイアログ ボックスで、をクリックして**復元**足りないパッケージをダウンロードするためにします。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-296">In the **Manage NuGet Packages** dialog, click **Restore** in order to download missing packages.</span></span>
@@ -366,7 +367,7 @@ ms.lasthandoff: 04/10/2018
     <span data-ttu-id="c5b4a-353">![有効にして、CSS styles2 を無効化](using-page-inspector-in-visual-studio-2012/_static/image34.png "の有効化と CSS スタイルを無効にします。")</span><span class="sxs-lookup"><span data-stu-id="c5b4a-353">![Enabling and disabling CSS styles2](using-page-inspector-in-visual-studio-2012/_static/image34.png "Enabling and disabling CSS styles")</span></span>
 
     <span data-ttu-id="c5b4a-354">*有効にして、CSS スタイルを無効化*</span><span class="sxs-lookup"><span data-stu-id="c5b4a-354">*Enabling and disabling CSS styles*</span></span>
-13. <span data-ttu-id="c5b4a-355">をクリックして、'**、** **ここにロゴ '**検査モードを使用して、ヘッダーのテキスト。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-355">Now, click the '**your** **logo here'** text on the header using the inspection mode.</span></span>
+13. <span data-ttu-id="c5b4a-355">をクリックして、'**、** **ここにロゴ '** 検査モードを使用して、ヘッダーのテキスト。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-355">Now, click the '**your** **logo here'** text on the header using the inspection mode.</span></span>
 14. <span data-ttu-id="c5b4a-356">**スタイル** タブで、検索、**フォント サイズ**CSS 属性の下にある、 **.site タイトル**グループ。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-356">In the **Styles** tab, locate the **font-size** CSS attribute under the **.site-title** group.</span></span> <span data-ttu-id="c5b4a-357">値を編集するには、1 回の属性をダブルクリックします。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-357">Double-click the attribute once to edit its value.</span></span> <span data-ttu-id="c5b4a-358">置換、2.3em 値**3em**、ENTER キーを押します。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-358">Replace the 2.3em value with **3em**, and then press ENTER.</span></span> <span data-ttu-id="c5b4a-359">タイトルに大きく見えることに注意してください。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-359">Notice that the title looks bigger.</span></span>
 
     <span data-ttu-id="c5b4a-360">![ページ Inspector2 CSS 値を変更する](using-page-inspector-in-visual-studio-2012/_static/image35.png "Page Inspector 内で変更する CSS の値")</span><span class="sxs-lookup"><span data-stu-id="c5b4a-360">![Changing CSS values in the Page Inspector2](using-page-inspector-in-visual-studio-2012/_static/image35.png "Changing CSS values in the Page Inspector")</span></span>
@@ -433,12 +434,12 @@ ms.lasthandoff: 04/10/2018
     ![更新されたページ](using-page-inspector-in-visual-studio-2012/_static/image41.png)
 
     <span data-ttu-id="c5b4a-410">*更新されたページ*</span><span class="sxs-lookup"><span data-stu-id="c5b4a-410">*Updated page*</span></span>
-6. <span data-ttu-id="c5b4a-411">いずれかを選択して検査モードを使用して、 **&lt;li&gt;**を含む項目、&quot;登録&quot;と&quot;ログイン&quot;リンクします。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-411">Using the inspection mode, select any of the **&lt;li&gt;** items that contain the &quot;Register&quot; and &quot;Log in&quot; links.</span></span> <span data-ttu-id="c5b4a-412">次に、をクリックして、 **&lt;セクション&gt;#login**にアクセスする項目**Styles.css**コード。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-412">Then, click the **&lt;section&gt; #login** item to access **Styles.css** code.</span></span>
+6. <span data-ttu-id="c5b4a-411">いずれかを選択して検査モードを使用して、 **&lt;li&gt;** を含む項目、&quot;登録&quot;と&quot;ログイン&quot;リンクします。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-411">Using the inspection mode, select any of the **&lt;li&gt;** items that contain the &quot;Register&quot; and &quot;Log in&quot; links.</span></span> <span data-ttu-id="c5b4a-412">次に、をクリックして、 **&lt;セクション&gt;#login**にアクセスする項目**Styles.css**コード。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-412">Then, click the **&lt;section&gt; #login** item to access **Styles.css** code.</span></span>
 
     <span data-ttu-id="c5b4a-413">![スタイルを検索する](using-page-inspector-in-visual-studio-2012/_static/image42.png "スタイルを検索します。")</span><span class="sxs-lookup"><span data-stu-id="c5b4a-413">![Finding the style](using-page-inspector-in-visual-studio-2012/_static/image42.png "Finding the style")</span></span>
 
     <span data-ttu-id="c5b4a-414">*スタイルを検索します。*</span><span class="sxs-lookup"><span data-stu-id="c5b4a-414">*Finding the style*</span></span>
-7. <span data-ttu-id="c5b4a-415">**Style.css**、用のコードのコメントを解除**#login li**項目。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-415">In **Style.css**, uncomment the code for **#login li** items.</span></span> <span data-ttu-id="c5b4a-416">追加するスタイルの項目を非表示にされ、アイテムの水平方向に表示されます。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-416">The style you are adding will hide the bullet and display the items horizontally.</span></span>
+7. <span data-ttu-id="c5b4a-415">**Style.css**、用のコードのコメントを解除 **#login li**項目。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-415">In **Style.css**, uncomment the code for **#login li** items.</span></span> <span data-ttu-id="c5b4a-416">追加するスタイルの項目を非表示にされ、アイテムの水平方向に表示されます。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-416">The style you are adding will hide the bullet and display the items horizontally.</span></span>
 
     <span data-ttu-id="c5b4a-417">![スタイルの変更、ログイン リンク](using-page-inspector-in-visual-studio-2012/_static/image43.png "ログイン リンク スタイルの変更")</span><span class="sxs-lookup"><span data-stu-id="c5b4a-417">![Restyling the login links](using-page-inspector-in-visual-studio-2012/_static/image43.png "Restyling the login links")</span></span>
 
@@ -448,7 +449,7 @@ ms.lasthandoff: 04/10/2018
     <span data-ttu-id="c5b4a-421">![リンクが右側に整列](using-page-inspector-in-visual-studio-2012/_static/image44.png "へのリンクが、右側に配置")</span><span class="sxs-lookup"><span data-stu-id="c5b4a-421">![Links aligned to the right side](using-page-inspector-in-visual-studio-2012/_static/image44.png "Links aligned to the right side")</span></span>
 
     <span data-ttu-id="c5b4a-422">*右揃えで配置へのリンク*</span><span class="sxs-lookup"><span data-stu-id="c5b4a-422">*Links aligned to the right side*</span></span>
-9. <span data-ttu-id="c5b4a-423">最後に、ヘッダーのタイトルを変更します。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-423">Finally, you will change the header title.</span></span> <span data-ttu-id="c5b4a-424">検索する代わりに、'**ここにロゴ '**すべてのファイル内のテキストでは、検査モードを使用してテキストをクリックし、生成されたソース コードを取得します。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-424">Instead of searching for the '**your logo here'** text in all the files, use the inspection mode to click the text and get to source code that generates it.</span></span>
+9. <span data-ttu-id="c5b4a-423">最後に、ヘッダーのタイトルを変更します。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-423">Finally, you will change the header title.</span></span> <span data-ttu-id="c5b4a-424">検索する代わりに、'**ここにロゴ '** すべてのファイル内のテキストでは、検査モードを使用してテキストをクリックし、生成されたソース コードを取得します。</span><span class="sxs-lookup"><span data-stu-id="c5b4a-424">Instead of searching for the '**your logo here'** text in all the files, use the inspection mode to click the text and get to source code that generates it.</span></span>
 
     <span data-ttu-id="c5b4a-425">![サイトのタイトルを検索する](using-page-inspector-in-visual-studio-2012/_static/image45.png "サイトのタイトルを検索します。")</span><span class="sxs-lookup"><span data-stu-id="c5b4a-425">![Finding the site title](using-page-inspector-in-visual-studio-2012/_static/image45.png "Finding the site title")</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891270"
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-c"></a><span data-ttu-id="45a20-104">マスター ページ (c#) を使用して、サイト全体のレイアウトを作成します。</span><span class="sxs-lookup"><span data-stu-id="45a20-104">Creating a Site-Wide Layout Using Master Pages (C#)</span></span>
 ====================

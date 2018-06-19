@@ -14,6 +14,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30076008"
 ---
 # <a name="consumer-apis-overview-for-aspnet-core"></a><span data-ttu-id="2c9f6-103">ASP.NET Core のコンシューマー Api の概要</span><span class="sxs-lookup"><span data-stu-id="2c9f6-103">Consumer APIs overview for ASP.NET Core</span></span>
 

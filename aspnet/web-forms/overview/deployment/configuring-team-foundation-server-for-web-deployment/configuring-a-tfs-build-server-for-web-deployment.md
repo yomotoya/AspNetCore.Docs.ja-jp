@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30892518"
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a><span data-ttu-id="34ae4-103">Web 配置のビルド サーバーに TFS を構成します。</span><span class="sxs-lookup"><span data-stu-id="34ae4-103">Configuring a TFS Build Server for Web Deployment</span></span>
 ====================
@@ -97,10 +98,10 @@ ms.lasthandoff: 04/10/2018
     > <span data-ttu-id="34ae4-170">既にインストールしている Windows Update から .NET Framework 4.0。</span><span class="sxs-lookup"><span data-stu-id="34ae4-170">You may have already installed the .NET Framework 4.0 through Windows Update.</span></span> <span data-ttu-id="34ae4-171">製品またはコンポーネントがインストール済みの場合、Web Platform Installer は、これに置き換えることで、**追加**ボタン テキストを**インストール**です。</span><span class="sxs-lookup"><span data-stu-id="34ae4-171">If a product or component is already installed, the Web Platform Installer will indicate this by replacing the **Add** button with the text **Installed**.</span></span>
 
     ![](configuring-a-tfs-build-server-for-web-deployment/_static/image2.png)
-7. <span data-ttu-id="34ae4-172">**ASP.NET MVC 3 (Visual Studio 2010)**行で、をクリックして**追加**です。</span><span class="sxs-lookup"><span data-stu-id="34ae4-172">In the **ASP.NET MVC 3 (Visual Studio 2010)** row, click **Add**.</span></span>
+7. <span data-ttu-id="34ae4-172">**ASP.NET MVC 3 (Visual Studio 2010)** 行で、をクリックして**追加**です。</span><span class="sxs-lookup"><span data-stu-id="34ae4-172">In the **ASP.NET MVC 3 (Visual Studio 2010)** row, click **Add**.</span></span>
 8. <span data-ttu-id="34ae4-173">ナビゲーション ウィンドウで [**サーバー**です。</span><span class="sxs-lookup"><span data-stu-id="34ae4-173">In the navigation pane, click **Server**.</span></span>
 9. <span data-ttu-id="34ae4-174">**Web 配置ツール 2.1**行で、をクリックして**追加**です。</span><span class="sxs-lookup"><span data-stu-id="34ae4-174">In the **Web Deployment Tool 2.1** row, click **Add**.</span></span>
-10. <span data-ttu-id="34ae4-175">**[インストール]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="34ae4-175">Click **Install**.</span></span> <span data-ttu-id="34ae4-176">Web Platform Installer が製品の一覧を表示&#x2014;関連する依存関係のいずれかと共に&#x2014;をインストールして、ライセンス条項に同意するように求められます。</span><span class="sxs-lookup"><span data-stu-id="34ae4-176">The Web Platform Installer will show you a list of products&#x2014;together with any associated dependencies&#x2014;to be installed and will prompt you to accept the license terms.</span></span>
+10. <span data-ttu-id="34ae4-175">**[インストール]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="34ae4-175">Click **Install**.</span></span> <span data-ttu-id="34ae4-176">Web Platform Installer が製品の一覧を表示&#x2014;関連する依存関係のいずれかと共に&#x2014;をインストールして、ライセンス条項に同意するように求められます。</span><span class="sxs-lookup"><span data-stu-id="34ae4-176">The Web Platform Installer will show you a list of products&#x2014;together with any associated dependencies&#x2014;to be installed and will prompt you to accept the license terms.</span></span>
 11. <span data-ttu-id="34ae4-177">ライセンス条項を確認し、条項に同意した場合にをクリックして**同意**です。</span><span class="sxs-lookup"><span data-stu-id="34ae4-177">Review the license terms, and if you consent to the terms, click **I Accept**.</span></span>
 12. <span data-ttu-id="34ae4-178">インストールが完了したらをクリックして**完了**、し、閉じます、 **Web Platform Installer 3.0**ウィンドウです。</span><span class="sxs-lookup"><span data-stu-id="34ae4-178">When the installation is complete, click **Finish**, and then close the **Web Platform Installer 3.0** window.</span></span>
 

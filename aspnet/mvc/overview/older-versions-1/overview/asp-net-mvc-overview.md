@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/overview/asp-net-mvc-overview
-title: "ASP.NET MVC の概要 |Microsoft ドキュメント"
+title: ASP.NET MVC の概要 |Microsoft ドキュメント
 author: microsoft
-description: "ASP.NET MVC アプリケーションと ASP.NET Web フォーム アプリケーションの違いについて説明します。 ASP.NET MVC アプリケーションを構築する時期を決定する方法を説明します。"
+description: ASP.NET MVC アプリケーションと ASP.NET Web フォーム アプリケーションの違いについて説明します。 ASP.NET MVC アプリケーションを構築する時期を決定する方法を説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26500871"
 ---
 <a name="aspnet-mvc-overview"></a><span data-ttu-id="c3e55-104">ASP.NET MVC の概要</span><span class="sxs-lookup"><span data-stu-id="c3e55-104">ASP.NET MVC Overview</span></span>
 ====================

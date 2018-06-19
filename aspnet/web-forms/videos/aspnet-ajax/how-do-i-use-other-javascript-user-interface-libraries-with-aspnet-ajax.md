@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882713"
 ---
 <a name="how-do-i-use-other-javascript-user-interface-libraries-with-aspnet-ajax"></a><span data-ttu-id="547b3-104">[How Do i:]ASP.NET AJAX を使用したその他の JavaScript のユーザー インターフェイスのライブラリを使用しますか。</span><span class="sxs-lookup"><span data-stu-id="547b3-104">[How Do I:] Use Other JavaScript User Interface Libraries with ASP.NET AJAX?</span></span>
 ====================

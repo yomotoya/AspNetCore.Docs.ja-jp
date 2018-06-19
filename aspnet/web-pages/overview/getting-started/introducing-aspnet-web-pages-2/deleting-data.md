@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897435"
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a><span data-ttu-id="2a44a-104">ASP.NET Web ページの概要 - データベースのデータを削除します。</span><span class="sxs-lookup"><span data-stu-id="2a44a-104">Introducing ASP.NET Web Pages - Deleting Database Data</span></span>
 ====================
@@ -113,7 +114,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="2a44a-165">このマークアップは、対応するコードと同じ、 *EditMovie*ページ。</span><span class="sxs-lookup"><span data-stu-id="2a44a-165">This markup is the same as the corresponding code in the *EditMovie* page.</span></span> <span data-ttu-id="2a44a-166">クエリ文字列からムービー ID を取得し、データベースからレコードを読み取るための ID を使用します。</span><span class="sxs-lookup"><span data-stu-id="2a44a-166">It gets the movie ID out of the query string and uses the ID to read a record from the database.</span></span> <span data-ttu-id="2a44a-167">コードには検証テストが含まれています (`IsInt()`と`row != null`) ページに渡されるムービー ID が有効であるかどうかを確認します。</span><span class="sxs-lookup"><span data-stu-id="2a44a-167">The code includes the validation test (`IsInt()` and `row != null`) to make sure that the movie ID being passed to the page is valid.</span></span>
 
-<span data-ttu-id="2a44a-168">このコードは、最初に実行、ページにのみ実行する必要がありますに注意してください。</span><span class="sxs-lookup"><span data-stu-id="2a44a-168">Remember that this code should only run the first time the page runs.</span></span> <span data-ttu-id="2a44a-169">ユーザーがクリックしたときに、ムービーのレコードをデータベースからを再読み込みしたくない、**削除ムービー**ボタンをクリックします。</span><span class="sxs-lookup"><span data-stu-id="2a44a-169">You don't want to re-read the movie record from the database when the user clicks the **Delete Movie** button.</span></span> <span data-ttu-id="2a44a-170">そのため、コードと表示されているテスト内ではビデオを読めない`if(!IsPost)` &mdash; 、*かどうか、要求は post 操作 (フォームの送信)*です。</span><span class="sxs-lookup"><span data-stu-id="2a44a-170">Therefore, code to read the movie is inside a test that says `if(!IsPost)` &mdash; that is, *if the request is not a post operation (form submission)*.</span></span>
+<span data-ttu-id="2a44a-168">このコードは、最初に実行、ページにのみ実行する必要がありますに注意してください。</span><span class="sxs-lookup"><span data-stu-id="2a44a-168">Remember that this code should only run the first time the page runs.</span></span> <span data-ttu-id="2a44a-169">ユーザーがクリックしたときに、ムービーのレコードをデータベースからを再読み込みしたくない、**削除ムービー**ボタンをクリックします。</span><span class="sxs-lookup"><span data-stu-id="2a44a-169">You don't want to re-read the movie record from the database when the user clicks the **Delete Movie** button.</span></span> <span data-ttu-id="2a44a-170">そのため、コードと表示されているテスト内ではビデオを読めない`if(!IsPost)` &mdash; 、*かどうか、要求は post 操作 (フォームの送信)* です。</span><span class="sxs-lookup"><span data-stu-id="2a44a-170">Therefore, code to read the movie is inside a test that says `if(!IsPost)` &mdash; that is, *if the request is not a post operation (form submission)*.</span></span>
 
 ## <a name="adding-code-to-delete-the-selected-movie"></a><span data-ttu-id="2a44a-171">選択したムービーを削除するコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="2a44a-171">Adding Code to Delete the Selected Movie</span></span>
 

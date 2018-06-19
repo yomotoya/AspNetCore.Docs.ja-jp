@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077654"
 ---
 # <a name="purpose-strings-in-aspnet-core"></a><span data-ttu-id="0b81f-103">ASP.NET Core で目的の文字列</span><span class="sxs-lookup"><span data-stu-id="0b81f-103">Purpose strings in ASP.NET Core</span></span>
 

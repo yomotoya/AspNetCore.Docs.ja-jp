@@ -15,6 +15,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153706"
 ---
 # <a name="aspnet-core-module"></a><span data-ttu-id="c9c15-103">ASP.NET Core モジュール</span><span class="sxs-lookup"><span data-stu-id="c9c15-103">ASP.NET Core Module</span></span>
 

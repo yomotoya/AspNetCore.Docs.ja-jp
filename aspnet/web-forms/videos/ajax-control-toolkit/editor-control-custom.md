@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892401"
 ---
 <a name="editor-control-custom"></a><span data-ttu-id="bc960-103">エディター コントロールのユーザー設定</span><span class="sxs-lookup"><span data-stu-id="bc960-103">Editor Control Custom</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet
-title: "[How Do i:]ASP.NET のイベントの監視のヘルスのテンプレート化された電子メールを送信 |Microsoft ドキュメント"
+title: '[How Do i:]ASP.NET のイベントの監視のヘルスのテンプレート化された電子メールを送信 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオでは、Chris Pels は、t のテンプレートを利用する状態監視イベントが発生すると、電子メールを送信する、TemplatedEmailWebEventProvider を使用する方法を示します。"
+description: このビデオでは、Chris Pels は、t のテンプレートを利用する状態監視イベントが発生すると、電子メールを送信する、TemplatedEmailWebEventProvider を使用する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/18/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521791"
 ---
 <a name="how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet"></a><span data-ttu-id="b69db-103">[How Do i:]ASP.NET のイベントの監視のヘルスのテンプレート化された電子メールを送信します。</span><span class="sxs-lookup"><span data-stu-id="b69db-103">[How Do I:] Send Templated Emails for Health Monitoring Events in ASP.NET</span></span>
 ====================

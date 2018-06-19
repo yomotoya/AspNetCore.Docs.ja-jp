@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899789"
 ---
 <a name="displaying-data-in-a-chart-part-1"></a><span data-ttu-id="0ca37-103">グラフ (パート 1) でデータを表示します。</span><span class="sxs-lookup"><span data-stu-id="0ca37-103">Displaying Data in a Chart (Part 1)</span></span>
 ====================

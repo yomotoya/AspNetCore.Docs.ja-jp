@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/scaleout-with-redis
-title: "Redis で SignalR スケール アウト (SignalR 1.x) |Microsoft ドキュメント"
+title: Redis で SignalR スケール アウト (SignalR 1.x) |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28035734"
 ---
 <a name="signalr-scaleout-with-redis-signalr-1x"></a><span data-ttu-id="bf050-102">Redis で SignalR スケール アウト (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="bf050-102">SignalR Scaleout with Redis (SignalR 1.x)</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/guide-to-the-api/mapping-users-to-connections
-title: "SignalR のユーザー接続にマップ |Microsoft ドキュメント"
+title: SignalR のユーザー接続にマップ |Microsoft ドキュメント
 author: tfitzmac
-description: "このトピックでは、ユーザーとの接続に関する情報を保持する方法を示します。 このトピックの内容を書き込む Patrick Fletcher に役に立ちます。 ソフトウェアのバージョンがこのトピックで使用しています."
+description: このトピックでは、ユーザーとの接続に関する情報を保持する方法を示します。 このトピックの内容を書き込む Patrick Fletcher に役に立ちます。 ソフトウェアのバージョンがこのトピックで使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/30/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036415"
 ---
 <a name="mapping-signalr-users-to-connections"></a><span data-ttu-id="3a580-105">接続に SignalR ユーザーのマッピング</span><span class="sxs-lookup"><span data-stu-id="3a580-105">Mapping SignalR Users to Connections</span></span>
 ====================

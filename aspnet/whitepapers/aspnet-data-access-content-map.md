@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/aspnet-data-access-content-map
-title: "ASP.NET データ アクセス - 推奨リソース |Microsoft ドキュメント"
+title: ASP.NET データ アクセス - 推奨リソース |Microsoft ドキュメント
 author: rick-anderson
-description: "このトピックでは、Entity Framework および SQL Se を使用して、主に ASP.NET web アプリケーションのデータにアクセスする方法に関するドキュメント リソースへのリンクを提供しています."
+description: このトピックでは、Entity Framework および SQL Se を使用して、主に ASP.NET web アプリケーションのデータにアクセスする方法に関するドキュメント リソースへのリンクを提供しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/25/2013
 ms.topic: article
 ms.assetid: f8157be1-4ab9-469e-ad3a-0ccc80b56c00
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet-data-access-content-map
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28048260"
 ---
 <a name="aspnet-data-access---recommended-resources"></a><span data-ttu-id="e655c-103">ASP.NET データ アクセス - リソースを推奨</span><span class="sxs-lookup"><span data-stu-id="e655c-103">ASP.NET Data Access - Recommended Resources</span></span>
 ====================

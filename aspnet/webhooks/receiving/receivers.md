@@ -15,6 +15,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896297"
 ---
 # <a name="aspnet-webhooks-receivers"></a><span data-ttu-id="71778-103">ASP.NET Webhook レシーバー</span><span class="sxs-lookup"><span data-stu-id="71778-103">ASP.NET WebHooks receivers</span></span>
 
@@ -38,7 +39,7 @@ https://<host>/api/webhooks/incoming/<receiver>/{id}
 
 <span data-ttu-id="71778-117"><em> <receiver> </em>コンポーネントは、受信者の名前。 たとえば<em>github</em>または<em>slack</em>です。</span><span class="sxs-lookup"><span data-stu-id="71778-117">The <em><receiver></em> component is the name of the receiver, for example <em>github</em> or <em>slack</em>.</span></span>
 
-<span data-ttu-id="71778-118">*{Id}*特定 WebHook 受信側の構成を識別するために使用する省略可能な識別子です。</span><span class="sxs-lookup"><span data-stu-id="71778-118">The *{id}* is an optional identifier which can be used to identify a particular WebHook receiver configuration.</span></span> <span data-ttu-id="71778-119">特定の受信者に N Webhook を登録するために使用できます。</span><span class="sxs-lookup"><span data-stu-id="71778-119">This can be used to register N WebHooks with a particular receiver.</span></span> <span data-ttu-id="71778-120">たとえば、次の 3 つの Uri は、次の 3 つの独立した Webhook の登録を使用できます。</span><span class="sxs-lookup"><span data-stu-id="71778-120">For example, the following three URIs can be used to register for three independent WebHooks:</span></span>
+<span data-ttu-id="71778-118">*{Id}* 特定 WebHook 受信側の構成を識別するために使用する省略可能な識別子です。</span><span class="sxs-lookup"><span data-stu-id="71778-118">The *{id}* is an optional identifier which can be used to identify a particular WebHook receiver configuration.</span></span> <span data-ttu-id="71778-119">特定の受信者に N Webhook を登録するために使用できます。</span><span class="sxs-lookup"><span data-stu-id="71778-119">This can be used to register N WebHooks with a particular receiver.</span></span> <span data-ttu-id="71778-120">たとえば、次の 3 つの Uri は、次の 3 つの独立した Webhook の登録を使用できます。</span><span class="sxs-lookup"><span data-stu-id="71778-120">For example, the following three URIs can be used to register for three independent WebHooks:</span></span>
 
 ```
 https://<host>/api/webhooks/incoming/github
@@ -66,7 +67,7 @@ https://<host>/api/webhooks/incoming/github/54321
 MS_WebHookReceiverSecret_<receiver>
 ```
 
-<span data-ttu-id="71778-132">値は、一致する値のコンマ区切りのリスト、 *{id}*する Webhook 登録されているなどの値。</span><span class="sxs-lookup"><span data-stu-id="71778-132">The value is a comma-separated list of values matching the *{id}* values for which WebHooks have been registered, for example:</span></span>
+<span data-ttu-id="71778-132">値は、一致する値のコンマ区切りのリスト、 *{id}* する Webhook 登録されているなどの値。</span><span class="sxs-lookup"><span data-stu-id="71778-132">The value is a comma-separated list of values matching the *{id}* values for which WebHooks have been registered, for example:</span></span>
 
 ```
 MS_WebHookReceiverSecret_GitHub = <secret1>, 12345=<secret2>, 54321=<secret3>

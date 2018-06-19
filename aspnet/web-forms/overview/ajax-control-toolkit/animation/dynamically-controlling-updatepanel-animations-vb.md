@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871546"
 ---
 <a name="dynamically-controlling-updatepanel-animations-vb"></a><span data-ttu-id="3539f-104">UpdatePanel アニメーション (VB) を動的に制御します。</span><span class="sxs-lookup"><span data-stu-id="3539f-104">Dynamically Controlling UpdatePanel Animations (VB)</span></span>
 ====================

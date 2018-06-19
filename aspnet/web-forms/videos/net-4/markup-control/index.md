@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/net-4/markup-control/index
-title: "マークアップのコントロール |Microsoft ドキュメント"
+title: マークアップのコントロール |Microsoft ドキュメント
 author: rick-anderson
-description: "このビデオ シリーズでは、ASP.NET 4 Web フォーム ページのコントロールの機能強化について説明します。"
+description: このビデオ シリーズでは、ASP.NET 4 Web フォーム ページのコントロールの機能強化について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/net-4/markup-control
 msc.type: chapter
 ms.openlocfilehash: 48bb88cad6362adab51561eaba2d603bac49c9c7
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528141"
 ---
 <a name="markup-control"></a><span data-ttu-id="9397a-103">マークアップのコントロール</span><span class="sxs-lookup"><span data-stu-id="9397a-103">Markup Control</span></span>
 ====================

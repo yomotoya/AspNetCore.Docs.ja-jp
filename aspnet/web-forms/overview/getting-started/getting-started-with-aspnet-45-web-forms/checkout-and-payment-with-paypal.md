@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891894"
 ---
 <a name="checkout-and-payment-with-paypal"></a><span data-ttu-id="ef6df-103">チェック アウトおよび PayPal の支払い</span><span class="sxs-lookup"><span data-stu-id="ef6df-103">Checkout and Payment with PayPal</span></span>
 ====================
@@ -294,7 +295,7 @@ ms.lasthandoff: 04/10/2018
 
 1. <span data-ttu-id="ef6df-333">Wingtip Toys サンプル アプリケーションの Visual Studio 内で右クリックし、**ロジック**クリックしてフォルダー**追加** - &gt; **新しい項目の**します。</span><span class="sxs-lookup"><span data-stu-id="ef6df-333">In the Wingtip Toys sample application within Visual Studio, right-click the **Logic** folder and then select **Add** -&gt; **New Item**.</span></span>   
    <span data-ttu-id="ef6df-334">**[新しい項目の追加]** ダイアログ ボックスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="ef6df-334">The **Add New Item** dialog box is displayed.</span></span>
-2. <span data-ttu-id="ef6df-335">**Visual c#**から、**インストール**左側のウィンドウ、[**コード**です。</span><span class="sxs-lookup"><span data-stu-id="ef6df-335">Under **Visual C#** from the **Installed** pane on the left, select **Code**.</span></span>
+2. <span data-ttu-id="ef6df-335">**Visual c#** から、**インストール**左側のウィンドウ、[**コード**です。</span><span class="sxs-lookup"><span data-stu-id="ef6df-335">Under **Visual C#** from the **Installed** pane on the left, select **Code**.</span></span>
 3. <span data-ttu-id="ef6df-336">中央のペインでは、次のように選択します。**クラス**です。</span><span class="sxs-lookup"><span data-stu-id="ef6df-336">From the middle pane, select **Class**.</span></span> <span data-ttu-id="ef6df-337">この新しいクラスの名前を**PayPalFunctions.cs**です。</span><span class="sxs-lookup"><span data-stu-id="ef6df-337">Name this new class **PayPalFunctions.cs**.</span></span>
 4. <span data-ttu-id="ef6df-338">**[追加]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="ef6df-338">Click **Add**.</span></span>  
    <span data-ttu-id="ef6df-339">新しいクラス ファイルがエディターで表示されます。</span><span class="sxs-lookup"><span data-stu-id="ef6df-339">The new class file is displayed in the editor.</span></span>

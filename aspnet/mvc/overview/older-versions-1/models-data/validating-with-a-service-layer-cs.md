@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869037"
 ---
 <a name="validating-with-a-service-layer-c"></a><span data-ttu-id="925df-104">サービス層 (c#)</span><span class="sxs-lookup"><span data-stu-id="925df-104">Validating with a Service Layer (C#)</span></span>
 ====================

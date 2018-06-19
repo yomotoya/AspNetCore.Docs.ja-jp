@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881465"
 ---
 <a name="create-the-data-access-layer"></a><span data-ttu-id="fbaa0-103">データ アクセス層を作成します。</span><span class="sxs-lookup"><span data-stu-id="fbaa0-103">Create the Data Access Layer</span></span>
 ====================
@@ -69,7 +70,7 @@ ms.lasthandoff: 04/06/2018
     ![データ アクセス レイヤーでの新しいメニュー項目の作成します。](create_the_data_access_layer/_static/image1.png)
 
    <span data-ttu-id="fbaa0-155">**[新しい項目の追加]** ダイアログ ボックスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="fbaa0-155">The **Add New Item** dialog box is displayed.</span></span>
-2. <span data-ttu-id="fbaa0-156">**Visual c#**から、**インストール**左側のウィンドウ、**コード**です。</span><span class="sxs-lookup"><span data-stu-id="fbaa0-156">Under **Visual C#** from the **Installed** pane on the left, select **Code**.</span></span> 
+2. <span data-ttu-id="fbaa0-156">**Visual c#** から、**インストール**左側のウィンドウ、**コード**です。</span><span class="sxs-lookup"><span data-stu-id="fbaa0-156">Under **Visual C#** from the **Installed** pane on the left, select **Code**.</span></span> 
 
     ![データ アクセス レイヤーでの新しいメニュー項目の作成します。](create_the_data_access_layer/_static/image2.png)
 3. <span data-ttu-id="fbaa0-158">選択**クラス**中央のペインからこの新しいクラスの名前と*Product.cs*です。</span><span class="sxs-lookup"><span data-stu-id="fbaa0-158">Select **Class** from the middle pane and name this new class *Product.cs*.</span></span>

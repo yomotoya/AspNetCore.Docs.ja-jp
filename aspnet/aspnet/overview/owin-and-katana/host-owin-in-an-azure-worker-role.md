@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868426"
 ---
 <a name="host-owin-in-an-azure-worker-role"></a><span data-ttu-id="8cdff-104">ホストする Azure Worker ロールで OWIN</span><span class="sxs-lookup"><span data-stu-id="8cdff-104">Host OWIN in an Azure Worker Role</span></span>
 ====================
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/06/2018
 
 [![](host-owin-in-an-azure-worker-role/_static/image2.png)](host-owin-in-an-azure-worker-role/_static/image1.png)
 
-<span data-ttu-id="8cdff-121">**新しい Windows Azure のクラウド サービス**ダイアログ ボックスをダブルクリックして**ワーカー ロール**です。</span><span class="sxs-lookup"><span data-stu-id="8cdff-121">In the **New Windows Azure Cloud Service** dialog, double-click **Worker Role**.</span></span> <span data-ttu-id="8cdff-122">既定の名前 ("WorkerRole1") のままにします。</span><span class="sxs-lookup"><span data-stu-id="8cdff-122">Leave the default name ("WorkerRole1").</span></span> <span data-ttu-id="8cdff-123">この手順は、ワーカー ロールをソリューションに追加します。</span><span class="sxs-lookup"><span data-stu-id="8cdff-123">This step adds a worker role to the solution.</span></span> <span data-ttu-id="8cdff-124">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="8cdff-124">Click **OK**.</span></span>
+<span data-ttu-id="8cdff-121">**新しい Windows Azure のクラウド サービス**ダイアログ ボックスをダブルクリックして**ワーカー ロール**です。</span><span class="sxs-lookup"><span data-stu-id="8cdff-121">In the **New Windows Azure Cloud Service** dialog, double-click **Worker Role**.</span></span> <span data-ttu-id="8cdff-122">既定の名前 ("WorkerRole1") のままにします。</span><span class="sxs-lookup"><span data-stu-id="8cdff-122">Leave the default name ("WorkerRole1").</span></span> <span data-ttu-id="8cdff-123">この手順は、ワーカー ロールをソリューションに追加します。</span><span class="sxs-lookup"><span data-stu-id="8cdff-123">This step adds a worker role to the solution.</span></span> <span data-ttu-id="8cdff-124">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="8cdff-124">Click **OK**.</span></span>
 
 [![](host-owin-in-an-azure-worker-role/_static/image4.png)](host-owin-in-an-azure-worker-role/_static/image3.png)
 
@@ -139,11 +140,11 @@ ms.lasthandoff: 04/06/2018
 
 [![](host-owin-in-an-azure-worker-role/_static/image16.png)](host-owin-in-an-azure-worker-role/_static/image15.png)
 
-<span data-ttu-id="8cdff-172">クラウド サービスの名前を入力し、地域を選択します。</span><span class="sxs-lookup"><span data-stu-id="8cdff-172">Enter a name for the cloud service and choose a region.</span></span> <span data-ttu-id="8cdff-173">**[作成]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="8cdff-173">Click **Create**.</span></span>
+<span data-ttu-id="8cdff-172">クラウド サービスの名前を入力し、地域を選択します。</span><span class="sxs-lookup"><span data-stu-id="8cdff-172">Enter a name for the cloud service and choose a region.</span></span> <span data-ttu-id="8cdff-173">**[作成]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="8cdff-173">Click **Create**.</span></span>
 
 ![](host-owin-in-an-azure-worker-role/_static/image17.png)
 
-<span data-ttu-id="8cdff-174">**[発行]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="8cdff-174">Click **Publish**.</span></span>
+<span data-ttu-id="8cdff-174">**[発行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="8cdff-174">Click **Publish**.</span></span>
 
 [![](host-owin-in-an-azure-worker-role/_static/image19.png)](host-owin-in-an-azure-worker-role/_static/image18.png)
 

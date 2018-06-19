@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876801"
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a><span data-ttu-id="7b485-103">ASP.NET Id のカスタムの記憶域プロバイダーの概要</span><span class="sxs-lookup"><span data-stu-id="7b485-103">Overview of Custom Storage Providers for ASP.NET Identity</span></span>
 ====================

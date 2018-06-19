@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873496"
 ---
 <a name="using-ajax-control-toolkit-controls-and-control-extenders-c"></a><span data-ttu-id="73e5a-103">AJAX コントロール Toolkit コントロールおよびコントロール エクステンダー (c#) を使用してください。</span><span class="sxs-lookup"><span data-stu-id="73e5a-103">Using AJAX Control Toolkit Controls and Control Extenders (C#)</span></span>
 ====================

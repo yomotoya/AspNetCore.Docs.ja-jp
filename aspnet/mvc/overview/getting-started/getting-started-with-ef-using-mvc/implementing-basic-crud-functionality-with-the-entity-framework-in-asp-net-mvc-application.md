@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876645"
 ---
 <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application"></a><span data-ttu-id="7bde2-103">ASP.NET MVC アプリケーションで Entity Framework で基本的な CRUD 機能を実装します。</span><span class="sxs-lookup"><span data-stu-id="7bde2-103">Implementing Basic CRUD Functionality with the Entity Framework in ASP.NET MVC Application</span></span>
 ====================

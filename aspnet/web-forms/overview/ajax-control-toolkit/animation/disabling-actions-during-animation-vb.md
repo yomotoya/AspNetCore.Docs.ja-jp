@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868647"
 ---
 <a name="disabling-actions-during-animation-vb"></a><span data-ttu-id="04c71-104">アニメーション (VB) 中のアクションを無効にします。</span><span class="sxs-lookup"><span data-stu-id="04c71-104">Disabling Actions during Animation (VB)</span></span>
 ====================

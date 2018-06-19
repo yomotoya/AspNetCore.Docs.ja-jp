@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876138"
 ---
 <a name="two-factor-authentication-using-sms-and-email-with-aspnet-identity"></a><span data-ttu-id="3bf50-104">SMS と電子メール ASP.NET の Id を使用した 2 要素認証</span><span class="sxs-lookup"><span data-stu-id="3bf50-104">Two-factor authentication using SMS and email with ASP.NET Identity</span></span>
 ====================

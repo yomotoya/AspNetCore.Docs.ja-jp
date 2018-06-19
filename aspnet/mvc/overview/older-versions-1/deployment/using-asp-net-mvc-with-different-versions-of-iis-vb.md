@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874032"
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a><span data-ttu-id="d97c2-104">別のバージョンの IIS (VB) での ASP.NET MVC の使用</span><span class="sxs-lookup"><span data-stu-id="d97c2-104">Using ASP.NET MVC with Different Versions of IIS (VB)</span></span>
 ====================

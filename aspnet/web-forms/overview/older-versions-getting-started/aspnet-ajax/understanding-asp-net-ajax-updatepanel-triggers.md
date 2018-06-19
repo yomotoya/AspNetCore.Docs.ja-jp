@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890750"
 ---
 <a name="understanding-aspnet-ajax-updatepanel-triggers"></a><span data-ttu-id="6a52d-104">ASP.NET AJAX UpdatePanel トリガーをについてください。</span><span class="sxs-lookup"><span data-stu-id="6a52d-104">Understanding ASP.NET AJAX UpdatePanel Triggers</span></span>
 ====================

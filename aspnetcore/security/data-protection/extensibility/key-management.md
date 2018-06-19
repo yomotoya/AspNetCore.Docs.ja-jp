@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30074165"
 ---
 # <a name="key-management-extensibility-in-aspnet-core"></a><span data-ttu-id="8fec7-103">ASP.NET Core のキー管理の拡張機能</span><span class="sxs-lookup"><span data-stu-id="8fec7-103">Key management extensibility in ASP.NET Core</span></span>
 

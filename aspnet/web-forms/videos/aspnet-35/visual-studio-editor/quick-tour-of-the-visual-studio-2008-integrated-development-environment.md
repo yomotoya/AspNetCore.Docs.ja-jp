@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892609"
 ---
 <a name="quick-tour-of-the-visual-studio-2008-integrated-development-environment"></a><span data-ttu-id="3429c-104">Visual Studio 2008 の統合開発環境のクイック ツアー</span><span class="sxs-lookup"><span data-stu-id="3429c-104">Quick Tour of the Visual Studio 2008 Integrated Development Environment</span></span>
 ====================

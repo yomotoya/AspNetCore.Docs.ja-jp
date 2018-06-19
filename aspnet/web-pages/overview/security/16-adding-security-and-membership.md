@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898860"
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a><span data-ttu-id="c8f88-104">ASP.NET Web Pages (Razor) サイトへのセキュリティとメンバーシップの追加</span><span class="sxs-lookup"><span data-stu-id="c8f88-104">Adding Security and Membership to an ASP.NET Web Pages (Razor) Site</span></span>
 ====================
@@ -96,7 +97,7 @@ ms.lasthandoff: 04/06/2018
 
      > [!NOTE] 
      > 
-     > <span data-ttu-id="c8f88-168">**ヒント:**これらのプロパティの値についての詳細については、次を参照してください。[電子メール設定を構成する](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings)で[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkID=202906)します。</span><span class="sxs-lookup"><span data-stu-id="c8f88-168">**Tip** For additional information about the values for these properties, see [Configuring Email Settings](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings) in [Customizing Site-Wide Behavior for ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkID=202906).</span></span>
+     > <span data-ttu-id="c8f88-168">**ヒント:** これらのプロパティの値についての詳細については、次を参照してください。[電子メール設定を構成する](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings)で[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkID=202906)します。</span><span class="sxs-lookup"><span data-stu-id="c8f88-168">**Tip** For additional information about the values for these properties, see [Configuring Email Settings](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings) in [Customizing Site-Wide Behavior for ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkID=202906).</span></span>
 7. <span data-ttu-id="c8f88-169">保存して閉じる *\_AppStart.cshtml*です。</span><span class="sxs-lookup"><span data-stu-id="c8f88-169">Save and close *\_AppStart.cshtml*.</span></span>
 8. <span data-ttu-id="c8f88-170">実行、 *Default.cshtml*ブラウザーのページです。</span><span class="sxs-lookup"><span data-stu-id="c8f88-170">Run the *Default.cshtml* page in a browser.</span></span>
 

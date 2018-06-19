@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879245"
 ---
 <a name="using-the-slider-control-with-auto-postback-c"></a><span data-ttu-id="972e8-104">自動ポストバック (c#) でスライダー コントロールの使用</span><span class="sxs-lookup"><span data-stu-id="972e8-104">Using the Slider Control With Auto-Postback (C#)</span></span>
 ====================

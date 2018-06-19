@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-35/how-do-i/index
-title: "How Do I |Microsoft ドキュメント"
+title: How Do I |Microsoft ドキュメント
 author: rick-anderson
-description: "このマルチパート ビデオ シリーズでは、ASP.NET 3.5 および Visual Studio 2008 の新機能を活用する方法を示します。"
+description: このマルチパート ビデオ シリーズでは、ASP.NET 3.5 および Visual Studio 2008 の新機能を活用する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i
 msc.type: chapter
 ms.openlocfilehash: 0556f497692e1c9b2c871512b9467b7686c62a4a
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520641"
 ---
 <a name="how-do-i"></a><span data-ttu-id="b8b5e-103">操作方法</span><span class="sxs-lookup"><span data-stu-id="b8b5e-103">How Do I</span></span>
 ====================

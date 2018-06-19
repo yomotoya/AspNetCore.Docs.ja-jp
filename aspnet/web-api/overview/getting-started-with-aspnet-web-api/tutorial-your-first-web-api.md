@@ -16,6 +16,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29905037"
 ---
 <a name="get-started-with-aspnet-web-api-2-c"></a><span data-ttu-id="c4c77-105">ASP.NET Web API 2 (C#) を開始します。</span><span class="sxs-lookup"><span data-stu-id="c4c77-105">Get Started with ASP.NET Web API 2 (C#)</span></span>
 ====================

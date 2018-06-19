@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30075395"
 ---
 # <a name="performance-in-aspnet-core"></a><span data-ttu-id="96343-103">ASP.NET Core のパフォーマンス</span><span class="sxs-lookup"><span data-stu-id="96343-103">Performance in ASP.NET Core</span></span>
 

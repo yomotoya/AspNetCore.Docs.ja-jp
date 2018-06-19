@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890555"
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a><span data-ttu-id="fefe8-104">データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォーム - パート 2</span><span class="sxs-lookup"><span data-stu-id="fefe8-104">Getting Started with Entity Framework 4.0 Database First and ASP.NET 4 Web Forms - Part 2</span></span>
 ====================
@@ -63,7 +64,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="fefe8-131">[![Image01](the-entity-framework-and-aspnet-getting-started-part-2/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image11.png)</span><span class="sxs-lookup"><span data-stu-id="fefe8-131">[![Image01](the-entity-framework-and-aspnet-getting-started-part-2/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image11.png)</span></span>
 
-<span data-ttu-id="fefe8-132">**構成 ObjectContext**ウィザード ステップで、 **SchoolEntities**の値として**という名前の接続**を選択して**SchoolEntities**として、 **DefaultContainerName**値。</span><span class="sxs-lookup"><span data-stu-id="fefe8-132">In the **Configure ObjectContext** wizard step, select **SchoolEntities** as the value for **Named Connection**, and select **SchoolEntities** as the **DefaultContainerName** value.</span></span> <span data-ttu-id="fefe8-133">その後、 **[次へ]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="fefe8-133">Then click **Next**.</span></span>
+<span data-ttu-id="fefe8-132">**構成 ObjectContext**ウィザード ステップで、 **SchoolEntities**の値として**という名前の接続**を選択して**SchoolEntities**として、 **DefaultContainerName**値。</span><span class="sxs-lookup"><span data-stu-id="fefe8-132">In the **Configure ObjectContext** wizard step, select **SchoolEntities** as the value for **Named Connection**, and select **SchoolEntities** as the **DefaultContainerName** value.</span></span> <span data-ttu-id="fefe8-133">その後、 **[次へ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="fefe8-133">Then click **Next**.</span></span>
 
 <span data-ttu-id="fefe8-134">[![Image02](the-entity-framework-and-aspnet-getting-started-part-2/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image13.png)</span><span class="sxs-lookup"><span data-stu-id="fefe8-134">[![Image02](the-entity-framework-and-aspnet-getting-started-part-2/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image13.png)</span></span>
 
@@ -231,7 +232,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="fefe8-273">[![Image16](the-entity-framework-and-aspnet-getting-started-part-2/_static/image48.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image47.png)</span><span class="sxs-lookup"><span data-stu-id="fefe8-273">[![Image16](the-entity-framework-and-aspnet-getting-started-part-2/_static/image48.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image47.png)</span></span>
 
-<span data-ttu-id="fefe8-274">**データ ソースを選択**手順で、 **DepartmentsEntityDataSource**をクリックして、データ ソースとして**スキーマの更新**、し、**名前**として表示するデータ フィールドと**DepartmentID**値のデータ フィールドとします。</span><span class="sxs-lookup"><span data-stu-id="fefe8-274">In the **Choose a Data Source** step, select **DepartmentsEntityDataSource** as the data source, click **Refresh Schema**, and then select **Name** as the data field to display and **DepartmentID** as the value data field.</span></span> <span data-ttu-id="fefe8-275">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="fefe8-275">Click **OK**.</span></span>
+<span data-ttu-id="fefe8-274">**データ ソースを選択**手順で、 **DepartmentsEntityDataSource**をクリックして、データ ソースとして**スキーマの更新**、し、**名前**として表示するデータ フィールドと**DepartmentID**値のデータ フィールドとします。</span><span class="sxs-lookup"><span data-stu-id="fefe8-274">In the **Choose a Data Source** step, select **DepartmentsEntityDataSource** as the data source, click **Refresh Schema**, and then select **Name** as the data field to display and **DepartmentID** as the value data field.</span></span> <span data-ttu-id="fefe8-275">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="fefe8-275">Click **OK**.</span></span>
 
 <span data-ttu-id="fefe8-276">[![Image17](the-entity-framework-and-aspnet-getting-started-part-2/_static/image50.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image49.png)</span><span class="sxs-lookup"><span data-stu-id="fefe8-276">[![Image17](the-entity-framework-and-aspnet-getting-started-part-2/_static/image50.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image49.png)</span></span>
 

@@ -18,6 +18,7 @@ ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/05/2018
+ms.locfileid: "28988017"
 ---
 # <a name="using-signalr-performance-counters-in-an-azure-web-role"></a><span data-ttu-id="33bdf-104">SignalR パフォーマンス カウンターを使用して、Azure の Web ロール</span><span class="sxs-lookup"><span data-stu-id="33bdf-104">Using SignalR performance counters in an Azure Web Role</span></span>
 

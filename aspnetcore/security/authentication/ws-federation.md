@@ -15,6 +15,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898805"
 ---
 # <a name="authenticate-users-with-ws-federation-in-aspnet-core"></a><span data-ttu-id="d2746-103">ASP.NET Core では、Ws-federation でユーザーを認証します。</span><span class="sxs-lookup"><span data-stu-id="d2746-103">Authenticate users with WS-Federation in ASP.NET Core</span></span>
 
@@ -52,13 +53,13 @@ ms.lasthandoff: 04/06/2018
 > [!NOTE]
 > <span data-ttu-id="d2746-129">これは、HTTPS URL でなければなりません。</span><span class="sxs-lookup"><span data-stu-id="d2746-129">This must be an HTTPS URL.</span></span> <span data-ttu-id="d2746-130">IIS Express と、開発時にアプリをホストする場合に自己署名証明書を提供できます。</span><span class="sxs-lookup"><span data-stu-id="d2746-130">IIS Express can provide a self-signed certificate when hosting the app during development.</span></span> <span data-ttu-id="d2746-131">Kestrel には、証明書の手動構成が必要です。</span><span class="sxs-lookup"><span data-stu-id="d2746-131">Kestrel requires manual certificate configuration.</span></span> <span data-ttu-id="d2746-132">参照してください、 [Kestrel ドキュメント](xref:fundamentals/servers/kestrel)詳細についてはします。</span><span class="sxs-lookup"><span data-stu-id="d2746-132">See the [Kestrel documentation](xref:fundamentals/servers/kestrel) for more details.</span></span>
 
-* <span data-ttu-id="d2746-133">をクリックして**[次へ]**ウィザードの残りの手順と**閉じる**最後にします。</span><span class="sxs-lookup"><span data-stu-id="d2746-133">Click **Next** through the rest of the wizard and **Close** at the end.</span></span>
+* <span data-ttu-id="d2746-133">をクリックして **[次へ]** ウィザードの残りの手順と**閉じる**最後にします。</span><span class="sxs-lookup"><span data-stu-id="d2746-133">Click **Next** through the rest of the wizard and **Close** at the end.</span></span>
 
 * <span data-ttu-id="d2746-134">ASP.NET Core Id が必要です、**名前 ID**要求します。</span><span class="sxs-lookup"><span data-stu-id="d2746-134">ASP.NET Core Identity requires a **Name ID** claim.</span></span> <span data-ttu-id="d2746-135">1 つ追加、**要求規則の編集** ダイアログ。</span><span class="sxs-lookup"><span data-stu-id="d2746-135">Add one from the **Edit Claim Rules** dialog:</span></span>
 
 ![要求規則を編集します。](ws-federation/_static/EditClaimRules.png)
 
-* <span data-ttu-id="d2746-137">**変換要求規則ウィザードの追加**、既定値のままにして**要求として LDAP 属性を送信**、選択したテンプレートとクリック**[次へ]**です。</span><span class="sxs-lookup"><span data-stu-id="d2746-137">In the **Add Transform Claim Rule Wizard**, leave the default **Send LDAP Attributes as Claims** template selected, and click **Next**.</span></span> <span data-ttu-id="d2746-138">ルールのマッピングを追加、 **SAM アカウント名**LDAP 属性を**名前 ID**出力方向の要求。</span><span class="sxs-lookup"><span data-stu-id="d2746-138">Add a rule mapping the **SAM-Account-Name** LDAP attribute to the **Name ID** outgoing claim:</span></span>
+* <span data-ttu-id="d2746-137">**変換要求規則ウィザードの追加**、既定値のままにして**要求として LDAP 属性を送信**、選択したテンプレートとクリック **[次へ]** です。</span><span class="sxs-lookup"><span data-stu-id="d2746-137">In the **Add Transform Claim Rule Wizard**, leave the default **Send LDAP Attributes as Claims** template selected, and click **Next**.</span></span> <span data-ttu-id="d2746-138">ルールのマッピングを追加、 **SAM アカウント名**LDAP 属性を**名前 ID**出力方向の要求。</span><span class="sxs-lookup"><span data-stu-id="d2746-138">Add a rule mapping the **SAM-Account-Name** LDAP attribute to the **Name ID** outgoing claim:</span></span>
 
 ![要求規則の構成変換要求規則のウィザードを追加します。](ws-federation/_static/AddTransformClaimRule.png)
 

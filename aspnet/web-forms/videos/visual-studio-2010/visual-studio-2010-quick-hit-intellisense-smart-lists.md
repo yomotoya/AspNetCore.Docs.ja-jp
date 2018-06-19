@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895065"
 ---
 <a name="visual-studio-2010-quick-hit---intellisense-smart-lists"></a><span data-ttu-id="8847f-103">Visual Studio 2010「クイック ヒット」- IntelliSense スマートを一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="8847f-103">Visual Studio 2010 "Quick Hit" - IntelliSense Smart Lists</span></span>
 ====================

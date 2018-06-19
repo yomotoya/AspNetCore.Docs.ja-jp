@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892557"
 ---
 <a name="deploying-database-role-memberships-to-test-environments"></a><span data-ttu-id="6cf54-104">データベース ロール メンバーシップをテスト環境に展開します。</span><span class="sxs-lookup"><span data-stu-id="6cf54-104">Deploying Database Role Memberships to Test Environments</span></span>
 ====================

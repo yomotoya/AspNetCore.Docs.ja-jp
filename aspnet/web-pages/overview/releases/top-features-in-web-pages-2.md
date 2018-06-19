@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899383"
 ---
 <a name="the-top-features-in-aspnet-web-pages-2"></a><span data-ttu-id="c3d31-103">ASP.NET Web Pages 2 で、上位の特徴</span><span class="sxs-lookup"><span data-stu-id="c3d31-103">The Top Features in ASP.NET Web Pages 2</span></span>
 ====================
@@ -164,7 +165,7 @@ ms.lasthandoff: 04/06/2018
 <span data-ttu-id="c3d31-218">次の例では、ユーザーがフォームに入力を検証するページを示します。</span><span class="sxs-lookup"><span data-stu-id="c3d31-218">The following example shows a page that validates user input on a form.</span></span> <span data-ttu-id="c3d31-219">を実行してこの検証コードをテストするには、これの操作を行います。</span><span class="sxs-lookup"><span data-stu-id="c3d31-219">To run and test this validation code, do this:</span></span>
 
 1. <span data-ttu-id="c3d31-220">含む WebMatrix 2 サイト テンプレートのいずれかを使用して新しい web サイトを作成、*スクリプト*フォルダーなど、**スターター サイト**テンプレート。</span><span class="sxs-lookup"><span data-stu-id="c3d31-220">Create a new web site using one of the WebMatrix 2 site templates that includes a *Scripts* folder, such as the **Starter Site** template.</span></span>
-2. <span data-ttu-id="c3d31-221">新しいサイトで作成、新しい*.cshtml*ページ、およびページの内容を次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="c3d31-221">In the new site, create a new *.cshtml* page, and replace the contents of the page with the following code.</span></span>
+2. <span data-ttu-id="c3d31-221">新しいサイトで作成、新しい *.cshtml*ページ、およびページの内容を次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="c3d31-221">In the new site, create a new *.cshtml* page, and replace the contents of the page with the following code.</span></span>
 3. <span data-ttu-id="c3d31-222">ブラウザーでページを実行します。</span><span class="sxs-lookup"><span data-stu-id="c3d31-222">Run the page in a browser.</span></span> <span data-ttu-id="c3d31-223">検証の効果を確認する有効および無効な値を入力します。</span><span class="sxs-lookup"><span data-stu-id="c3d31-223">Enter valid and invalid values to see the effects on validation.</span></span> <span data-ttu-id="c3d31-224">たとえば、必須フィールドを空白のままにまたはの文字を入力、**クレジット**フィールドです。</span><span class="sxs-lookup"><span data-stu-id="c3d31-224">For example, leave a required field blank or enter a letter in the **Credits** field.</span></span>
 
 

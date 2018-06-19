@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890578"
 ---
 <a name="configuring-a-website-that-uses-application-services-vb"></a><span data-ttu-id="82362-103">アプリケーション サービス (VB) を使用する web サイトを構成します。</span><span class="sxs-lookup"><span data-stu-id="82362-103">Configuring a Website that Uses Application Services (VB)</span></span>
 ====================

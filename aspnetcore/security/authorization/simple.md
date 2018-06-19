@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30078245"
 ---
 # <a name="simple-authorization-in-aspnet-core"></a><span data-ttu-id="00082-103">ASP.NET Core での単純な承認</span><span class="sxs-lookup"><span data-stu-id="00082-103">Simple authorization in ASP.NET Core</span></span>
 

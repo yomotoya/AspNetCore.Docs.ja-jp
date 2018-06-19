@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892622"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a><span data-ttu-id="543ed-103">Visual Studio を使用した ASP.NET Web 展開: データベース更新の展開</span><span class="sxs-lookup"><span data-stu-id="543ed-103">ASP.NET Web Deployment using Visual Studio: Deploying a Database Update</span></span>
 ====================
@@ -99,9 +100,9 @@ ms.lasthandoff: 04/06/2018
 ### <a name="add-a-column-to-a-table-in-the-membership-database"></a><span data-ttu-id="543ed-152">メンバーシップ データベース内のテーブルに列を追加します。</span><span class="sxs-lookup"><span data-stu-id="543ed-152">Add a column to a table in the membership database</span></span>
 
 1. <span data-ttu-id="543ed-153">Visual Studio で開く**SQL Server オブジェクト エクスプ ローラー**です。</span><span class="sxs-lookup"><span data-stu-id="543ed-153">In Visual Studio, open **SQL Server Object Explorer**.</span></span>
-2. <span data-ttu-id="543ed-154">展開**(localdb) \v11.0**、展開**データベース**、展開**aspnet ContosoUniversity** (いない**aspnet ContosoUniversity 本番**)展開し、**テーブル**です。</span><span class="sxs-lookup"><span data-stu-id="543ed-154">Expand **(localdb)\v11.0**, expand **Databases**, expand **aspnet-ContosoUniversity** (not **aspnet-ContosoUniversity-Prod**) and then expand **Tables**.</span></span>
+2. <span data-ttu-id="543ed-154">展開 **(localdb) \v11.0**、展開**データベース**、展開**aspnet ContosoUniversity** (いない**aspnet ContosoUniversity 本番**)展開し、**テーブル**です。</span><span class="sxs-lookup"><span data-stu-id="543ed-154">Expand **(localdb)\v11.0**, expand **Databases**, expand **aspnet-ContosoUniversity** (not **aspnet-ContosoUniversity-Prod**) and then expand **Tables**.</span></span>
 
-    <span data-ttu-id="543ed-155">表示されない場合**(localdb) \v11.0**下にある、 **SQL Server**  ノードを右クリックし、 **SQL Server**ノードをクリック**SQL Server の追加**です。</span><span class="sxs-lookup"><span data-stu-id="543ed-155">If you don't see **(localdb)\v11.0** under the **SQL Server** node, right-click the **SQL Server** node and click **Add SQL Server**.</span></span> <span data-ttu-id="543ed-156">**サーバーへの接続** ダイアログ ボックスに「 *(localdb) \v11.0*として、**サーバー名**、クリックして**接続**です。</span><span class="sxs-lookup"><span data-stu-id="543ed-156">In the **Connect to Server** dialog box enter *(localdb)\v11.0* as the **Server name**, and then click **Connect**.</span></span>
+    <span data-ttu-id="543ed-155">表示されない場合 **(localdb) \v11.0**下にある、 **SQL Server**  ノードを右クリックし、 **SQL Server**ノードをクリック**SQL Server の追加**です。</span><span class="sxs-lookup"><span data-stu-id="543ed-155">If you don't see **(localdb)\v11.0** under the **SQL Server** node, right-click the **SQL Server** node and click **Add SQL Server**.</span></span> <span data-ttu-id="543ed-156">**サーバーへの接続** ダイアログ ボックスに「 *(localdb) \v11.0*として、**サーバー名**、クリックして**接続**です。</span><span class="sxs-lookup"><span data-stu-id="543ed-156">In the **Connect to Server** dialog box enter *(localdb)\v11.0* as the **Server name**, and then click **Connect**.</span></span>
 
     <span data-ttu-id="543ed-157">表示されない場合**aspnet ContosoUniversity**、プロジェクトを実行しを使用してログイン、 *admin*資格情報 (パスワードが*devpwd*)、し、更新、 **SQL Server オブジェクト エクスプ ローラー**ウィンドウです。</span><span class="sxs-lookup"><span data-stu-id="543ed-157">If you don't see **aspnet-ContosoUniversity**, run the project and log in using the *admin* credentials (password is *devpwd*), and then refresh the **SQL Server Object Explorer** window.</span></span>
 3. <span data-ttu-id="543ed-158">右クリックし、**ユーザー**テーブル、およびクリックして**ビュー デザイナー**です。</span><span class="sxs-lookup"><span data-stu-id="543ed-158">Right-click the **Users** table, and then click **View Designer**.</span></span>

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890035"
 ---
 <a name="aspnet-ajax-a-demonstration-of-aspnet-ajax"></a><span data-ttu-id="725b8-103">ASP.NET AJAX: ASP.NET AJAX のデモンストレーション</span><span class="sxs-lookup"><span data-stu-id="725b8-103">ASP.NET AJAX: A demonstration of ASP.NET AJAX</span></span>
 ====================

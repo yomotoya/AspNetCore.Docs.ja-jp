@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core での要求機能"
+title: ASP.NET Core での要求機能
 author: ardalis
-description: "ASP.NET Core のインターフェイスに定義されている HTTP 要求と応答に関連する Web サーバーの実装に関する詳細を学習します。"
+description: ASP.NET Core のインターフェイスに定義されている HTTP 要求と応答に関連する Web サーバーの実装に関する詳細を学習します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28913573"
 ---
 # <a name="request-features-in-aspnet-core"></a><span data-ttu-id="8d52a-103">ASP.NET Core での要求機能</span><span class="sxs-lookup"><span data-stu-id="8d52a-103">Request Features in ASP.NET Core</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868114"
 ---
 <a name="triggering-an-animation-in-another-control-c"></a><span data-ttu-id="8011b-104">別のコントロール (c#) でのアニメーションをトリガーします。</span><span class="sxs-lookup"><span data-stu-id="8011b-104">Triggering an Animation in another Control (C#)</span></span>
 ====================

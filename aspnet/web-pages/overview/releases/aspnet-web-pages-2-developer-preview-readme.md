@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899091"
 ---
 <a name="aspnet-web-pages-2-developer-preview-readme"></a><span data-ttu-id="74ba2-102">ASP.NET Web Pages 2 開発者プレビューのリリース ノート</span><span class="sxs-lookup"><span data-stu-id="74ba2-102">ASP.NET Web Pages 2 Developer Preview ReadMe</span></span>
 ====================

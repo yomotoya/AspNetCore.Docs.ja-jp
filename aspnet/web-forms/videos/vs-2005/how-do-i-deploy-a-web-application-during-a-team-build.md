@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895317"
 ---
 <a name="how-do-i-deploy-a-web-application-during-a-team-build"></a><span data-ttu-id="f6639-105">[How Do i:]チーム ビルド中に Web アプリケーションを展開しますか。</span><span class="sxs-lookup"><span data-stu-id="f6639-105">[How Do I:] Deploy a Web Application during a Team Build?</span></span>
 ====================

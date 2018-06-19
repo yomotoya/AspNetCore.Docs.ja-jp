@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894055"
 ---
 <a name="introduction-to-unit-testing-with-team-system"></a><span data-ttu-id="6b501-103">Team System を使用した単体テストの概要</span><span class="sxs-lookup"><span data-stu-id="6b501-103">Introduction to Unit Testing with Team System</span></span>
 ====================

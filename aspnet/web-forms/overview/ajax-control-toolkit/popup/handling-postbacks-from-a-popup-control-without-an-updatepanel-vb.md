@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871364"
 ---
 <a name="handling-postbacks-from-a-popup-control-without-an-updatepanel-vb"></a><span data-ttu-id="1a6cf-104">UpdatePanel (VB) なしのポップアップ コントロールからのポストバックを処理します。</span><span class="sxs-lookup"><span data-stu-id="1a6cf-104">Handling Postbacks from A Popup Control Without an UpdatePanel (VB)</span></span>
 ====================

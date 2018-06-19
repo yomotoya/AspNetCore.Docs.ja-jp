@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
-title: "単体テストの ASP.NET Web API 2 |Microsoft ドキュメント"
+title: 単体テストの ASP.NET Web API 2 |Microsoft ドキュメント
 author: tfitzmac
-description: "このガイダンスとアプリケーションは、単純な単体テスト、Web API 2 アプリケーションを作成する方法を説明します。 このチュートリアルでは、単体テスト プロジェクトを含める方法を説明しています."
+description: このガイダンスとアプリケーションは、単純な単体テスト、Web API 2 アプリケーションを作成する方法を説明します。 このチュートリアルでは、単体テスト プロジェクトを含める方法を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/05/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28042746"
 ---
 <a name="unit-testing-aspnet-web-api-2"></a><span data-ttu-id="2f8c8-104">単体テストの ASP.NET Web API 2</span><span class="sxs-lookup"><span data-stu-id="2f8c8-104">Unit Testing ASP.NET Web API 2</span></span>
 ====================

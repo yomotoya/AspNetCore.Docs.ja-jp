@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30899044"
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a><span data-ttu-id="c6c2f-103">ASP.NET 4 および Visual Studio 2010 の Web 開発の概要</span><span class="sxs-lookup"><span data-stu-id="c6c2f-103">ASP.NET 4 and Visual Studio 2010 Web Development Overview</span></span>
 ====================
@@ -833,7 +834,7 @@ ms.lasthandoff: 04/10/2018
 
 [!code-aspx[Main](overview/samples/sample67.aspx)]
 
-<span data-ttu-id="c6c2f-669">たとえば、 &lt;%: 要求 ["UserInput"] %&gt; HTML エンコーディングの値を実行*要求 ["UserInput"]*です。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-669">For example, &lt;%: Request["UserInput"] %&gt; performs HTML encoding on the value of *Request["UserInput"]*.</span></span>
+<span data-ttu-id="c6c2f-669">たとえば、 &lt;%: 要求 ["UserInput"] %&gt; HTML エンコーディングの値を実行*要求 ["UserInput"]* です。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-669">For example, &lt;%: Request["UserInput"] %&gt; performs HTML encoding on the value of *Request["UserInput"]*.</span></span>
 
 <span data-ttu-id="c6c2f-670">この機能の目的は、新しい構文を使用する各手順で決定する強制されないように、古い構文のすべてのインスタンスを置換できるようにすることです。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-670">The goal of this feature is to make it possible to replace all instances of the old syntax with the new syntax so that you are not forced to decide at every step which one to use.</span></span> <span data-ttu-id="c6c2f-671">ただし、場合があります出力されているテキストが HTML を使用するものではまたは既にエンコードされている場合にダブル エンコードする可能性が。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-671">However, there are cases in which the text being output is meant to be HTML or is already encoded, in which case this could lead to double encoding.</span></span>
 
@@ -1222,7 +1223,7 @@ ms.lasthandoff: 04/10/2018
 
 ### <a name="new-field-templates-for-urls-and-email-addresses"></a><span data-ttu-id="c6c2f-897">Url および電子メール アドレスの新しいフィールド テンプレート</span><span class="sxs-lookup"><span data-stu-id="c6c2f-897">New Field Templates for URLs and Email Addresses</span></span>
 
-<span data-ttu-id="c6c2f-898">ASP.NET 4 では、次の 2 つの新しい組み込みフィールド テンプレート`EmailAddress.ascx`と`Url.ascx`です。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-898">ASP.NET 4 introduces two new built-in field templates, `EmailAddress.ascx` and `Url.ascx`.</span></span> <span data-ttu-id="c6c2f-899">これらのテンプレートとしてマークされているフィールドの使用は*EmailAddress*または*Url*で、 *DataType*属性。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-899">These templates are used for fields that are marked as *EmailAddress* or *Url* with the *DataType* attribute.</span></span> <span data-ttu-id="c6c2f-900">*EmailAddress*オブジェクトを使用して作成されるハイパーリンクとして、フィールドが表示されます、 *mailto:*プロトコルです。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-900">For *EmailAddress* objects, the field is displayed as a hyperlink that is created by using the *mailto:* protocol.</span></span> <span data-ttu-id="c6c2f-901">ユーザーは、リンクをクリックして、それとが開き、ユーザーの電子メール クライアント スケルトンのメッセージを作成します。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-901">When users click the link, it opens the user's email client and creates a skeleton message.</span></span> <span data-ttu-id="c6c2f-902">オブジェクトとして型指定された*Url*は通常のハイパーリンクとして表示されます。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-902">Objects typed as *Url* are displayed as ordinary hyperlinks.</span></span>
+<span data-ttu-id="c6c2f-898">ASP.NET 4 では、次の 2 つの新しい組み込みフィールド テンプレート`EmailAddress.ascx`と`Url.ascx`です。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-898">ASP.NET 4 introduces two new built-in field templates, `EmailAddress.ascx` and `Url.ascx`.</span></span> <span data-ttu-id="c6c2f-899">これらのテンプレートとしてマークされているフィールドの使用は*EmailAddress*または*Url*で、 *DataType*属性。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-899">These templates are used for fields that are marked as *EmailAddress* or *Url* with the *DataType* attribute.</span></span> <span data-ttu-id="c6c2f-900">*EmailAddress*オブジェクトを使用して作成されるハイパーリンクとして、フィールドが表示されます、 *mailto:* プロトコルです。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-900">For *EmailAddress* objects, the field is displayed as a hyperlink that is created by using the *mailto:* protocol.</span></span> <span data-ttu-id="c6c2f-901">ユーザーは、リンクをクリックして、それとが開き、ユーザーの電子メール クライアント スケルトンのメッセージを作成します。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-901">When users click the link, it opens the user's email client and creates a skeleton message.</span></span> <span data-ttu-id="c6c2f-902">オブジェクトとして型指定された*Url*は通常のハイパーリンクとして表示されます。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-902">Objects typed as *Url* are displayed as ordinary hyperlinks.</span></span>
 
 <span data-ttu-id="c6c2f-903">次の例では、フィールドとマークする方法を示します。</span><span class="sxs-lookup"><span data-stu-id="c6c2f-903">The following example shows how fields would be marked.</span></span>
 

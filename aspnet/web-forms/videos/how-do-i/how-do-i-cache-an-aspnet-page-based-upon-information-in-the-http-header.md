@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-cache-an-aspnet-page-based-upon-information-in-the-http-header
-title: "[How Do i:] ASP.NET ページが HTTP ヘッダーの情報に基づくキャッシュ |Microsoft ドキュメント"
+title: '[How Do i:] ASP.NET ページが HTTP ヘッダーの情報に基づくキャッシュ |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では、ページの HTTP ヘッダーの情報に基づく ASP.NET 出力キャッシュ内のページを保持する方法を示します。 最初に、潜在的な HTTP hea しています."
+description: このビデオ Chris Pels では、ページの HTTP ヘッダーの情報に基づく ASP.NET 出力キャッシュ内のページを保持する方法を示します。 最初に、潜在的な HTTP hea しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882218"
 ---
 <a name="how-do-i--cache-an-aspnet-page-based-upon-information-in-the-http-header"></a><span data-ttu-id="3b4c9-104">[How Do i:] ASP.NET ページが HTTP ヘッダーの情報に基づくキャッシュ</span><span class="sxs-lookup"><span data-stu-id="3b4c9-104">[How Do I:]  Cache an ASP.NET Page Based Upon Information in the HTTP Header</span></span>
 ====================

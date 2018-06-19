@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30076989"
 ---
 # <a name="get-started-with-the-data-protection-apis-in-aspnet-core"></a><span data-ttu-id="4440f-103">ASP.NET Core のデータ保護 Api の概要します。</span><span class="sxs-lookup"><span data-stu-id="4440f-103">Get started with the Data Protection APIs in ASP.NET Core</span></span>
 

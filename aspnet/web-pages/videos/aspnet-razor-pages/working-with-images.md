@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896195"
 ---
 <a name="working-with-images"></a><span data-ttu-id="afb6f-103">イメージの処理</span><span class="sxs-lookup"><span data-stu-id="afb6f-103">Working with Images</span></span>
 ====================

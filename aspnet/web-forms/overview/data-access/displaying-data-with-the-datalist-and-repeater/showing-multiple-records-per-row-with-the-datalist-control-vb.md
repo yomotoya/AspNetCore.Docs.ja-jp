@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889996"
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a><span data-ttu-id="5f24b-103">DataList コントロール (VB) を含む行ごとの複数のレコードを表示</span><span class="sxs-lookup"><span data-stu-id="5f24b-103">Showing Multiple Records per Row with the DataList Control (VB)</span></span>
 ====================

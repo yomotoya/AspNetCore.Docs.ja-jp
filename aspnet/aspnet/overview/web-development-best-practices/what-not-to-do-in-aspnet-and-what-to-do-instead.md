@@ -1,14 +1,14 @@
 ---
 uid: aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
-title: "ASP.NET では、操作を行わないとください |Microsoft ドキュメント"
+title: ASP.NET では、操作を行わないとください |Microsoft ドキュメント
 author: tfitzmac
-description: "このトピックでは、ASP.NET web プロジェクト内のユーザーが、いくつかの一般的な誤りを説明します。 これらの commo を避けるために行う必要がありますの推奨事項を提供しています."
+description: このトピックでは、ASP.NET web プロジェクト内のユーザーが、いくつかの一般的な誤りを説明します。 これらの commo を避けるために行う必要がありますの推奨事項を提供しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2014
 ms.topic: article
 ms.assetid: c39b9965-545c-4b04-8f55-21be7f28a9e5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28034921"
 ---
 <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a><span data-ttu-id="08f29-104">ASP.NET では、操作を行わないと何を代わりに行うには</span><span class="sxs-lookup"><span data-stu-id="08f29-104">What not to do in ASP.NET, and what to do instead</span></span>
 ====================

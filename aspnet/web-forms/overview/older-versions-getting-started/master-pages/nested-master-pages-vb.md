@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891820"
 ---
 <a name="nested-master-pages-vb"></a><span data-ttu-id="473de-103">入れ子になったマスター ページ (VB)</span><span class="sxs-lookup"><span data-stu-id="473de-103">Nested Master Pages (VB)</span></span>
 ====================

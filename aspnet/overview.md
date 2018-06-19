@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "29793741"
 ---
 # <a name="aspnet-overview"></a><span data-ttu-id="b8051-103">ASP.NET の概要</span><span class="sxs-lookup"><span data-stu-id="b8051-103">ASP.NET overview</span></span>
 

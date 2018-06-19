@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-understand-and-defend-against-script-injection-attacks-in-aspnet
-title: "ASP.NET 内の攻撃の方法は理解し、スクリプト インジェクションを防ぐ |Microsoft ドキュメント"
+title: ASP.NET 内の攻撃の方法は理解し、スクリプト インジェクションを防ぐ |Microsoft ドキュメント
 author: JoeStagner
-description: "クロス サイト スクリプト (XSS) は、おそらく、web 開発者は最近に取り組む、特に問題になるセキュリティ上の問題です。 このビデオでは、Microsoft の行える pro でしています."
+description: クロス サイト スクリプト (XSS) は、おそらく、web 開発者は最近に取り組む、特に問題になるセキュリティ上の問題です。 このビデオでは、Microsoft の行える pro でしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882231"
 ---
 <a name="how-do-i-understand-and-defend-against-script-injection-attacks-in-aspnet"></a><span data-ttu-id="360f2-104">ASP.NET 内の攻撃の方法は理解し、スクリプト インジェクションを防ぐ</span><span class="sxs-lookup"><span data-stu-id="360f2-104">How Do I Understand and Defend Against Script Injection Attacks in ASP.NET</span></span>
 ====================

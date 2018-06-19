@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891218"
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-c"></a><span data-ttu-id="e991d-103">DataList コントロール (c#) を含む行ごとの複数のレコードを表示</span><span class="sxs-lookup"><span data-stu-id="e991d-103">Showing Multiple Records per Row with the DataList Control (C#)</span></span>
 ====================

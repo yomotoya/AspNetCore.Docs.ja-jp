@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892739"
 ---
 <a name="adding-a-gridview-column-of-checkboxes-vb"></a><span data-ttu-id="a3cd8-103">(VB) のチェック ボックスの GridView 列を追加します。</span><span class="sxs-lookup"><span data-stu-id="a3cd8-103">Adding a GridView Column of Checkboxes (VB)</span></span>
 ====================

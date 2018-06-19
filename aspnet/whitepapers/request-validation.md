@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/request-validation
-title: "要求の検証 - スクリプト攻撃の防止 |Microsoft ドキュメント"
+title: 要求の検証 - スクリプト攻撃の防止 |Microsoft ドキュメント
 author: rick-anderson
-description: "このペーパーでは、ここで、既定では、アプリケーションが回避エンコードされていない HTML コンテンツして処理から ASP.NET の要求の検証機能について説明しています."
+description: このペーパーでは、ここで、既定では、アプリケーションが回避エンコードされていない HTML コンテンツして処理から ASP.NET の要求の検証機能について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: fa429113-5f8f-4ef4-97c5-5c04900a19fa
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28883556"
 ---
 <a name="request-validation---preventing-script-attacks"></a><span data-ttu-id="b0aac-103">要求の検証 - スクリプト攻撃の防止</span><span class="sxs-lookup"><span data-stu-id="b0aac-103">Request Validation - Preventing Script Attacks</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876905"
 ---
 <a name="using-templatefields-in-the-gridview-control-vb"></a><span data-ttu-id="fe971-104">GridView コントロール (VB) で TemplateFields の使用</span><span class="sxs-lookup"><span data-stu-id="fe971-104">Using TemplateFields in the GridView Control (VB)</span></span>
 ====================

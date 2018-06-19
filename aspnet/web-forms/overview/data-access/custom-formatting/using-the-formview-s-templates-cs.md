@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875826"
 ---
 <a name="using-the-formviews-templates-c"></a><span data-ttu-id="e2161-105">FormView のテンプレート (c#) を使用します。</span><span class="sxs-lookup"><span data-stu-id="e2161-105">Using the FormView's Templates (C#)</span></span>
 ====================

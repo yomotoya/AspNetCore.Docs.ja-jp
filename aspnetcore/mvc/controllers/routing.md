@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29905206"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a><span data-ttu-id="9e04b-103">ASP.NET Core でのコントローラー アクションへのルーティング</span><span class="sxs-lookup"><span data-stu-id="9e04b-103">Routing to controller actions in ASP.NET Core</span></span>
 

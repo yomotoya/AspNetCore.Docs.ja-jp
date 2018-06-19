@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877035"
 ---
 <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-c"></a><span data-ttu-id="8fa39-104">ASP.NET MVC (c#) で 15 分以内にムービー データベース アプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="8fa39-104">Create a Movie Database Application in 15 Minutes with ASP.NET MVC (C#)</span></span>
 ====================
@@ -228,7 +229,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="8fa39-259">という名前の新しいプライベート フィールドが含まれているように 2 の一覧でテンプレートを使用するクラスを変更しました\_db します。</span><span class="sxs-lookup"><span data-stu-id="8fa39-259">I've modified the HomeController class in Listing 2 so that it contains a new private field named \_db.</span></span> <span data-ttu-id="8fa39-260">MoviesDBEntities クラスは、データベース モデルを表し、このクラスを使用して、データベースと通信します。</span><span class="sxs-lookup"><span data-stu-id="8fa39-260">The MoviesDBEntities class represents our database model and we'll use this class to communicate with our database.</span></span>
 
-<span data-ttu-id="8fa39-261">また、Index() メソッドを一覧表示する 2 を変更しました。</span><span class="sxs-lookup"><span data-stu-id="8fa39-261">I've also modified the Index() method in Listing 2.</span></span> <span data-ttu-id="8fa39-262">Index() メソッドでは、MoviesDBEntities クラスを使用して、映画データベース テーブルからすべてのムービーのレコードを取得します。</span><span class="sxs-lookup"><span data-stu-id="8fa39-262">The Index() method uses the MoviesDBEntities class to retrieve all of the movie records from the Movies database table.</span></span> <span data-ttu-id="8fa39-263">式 *\_db します。MovieSet.ToList()*映画データベース テーブルからすべてのムービーのレコードの一覧を返します。</span><span class="sxs-lookup"><span data-stu-id="8fa39-263">The expression *\_db.MovieSet.ToList()* returns a list of all of the movie records from the Movies database table.</span></span>
+<span data-ttu-id="8fa39-261">また、Index() メソッドを一覧表示する 2 を変更しました。</span><span class="sxs-lookup"><span data-stu-id="8fa39-261">I've also modified the Index() method in Listing 2.</span></span> <span data-ttu-id="8fa39-262">Index() メソッドでは、MoviesDBEntities クラスを使用して、映画データベース テーブルからすべてのムービーのレコードを取得します。</span><span class="sxs-lookup"><span data-stu-id="8fa39-262">The Index() method uses the MoviesDBEntities class to retrieve all of the movie records from the Movies database table.</span></span> <span data-ttu-id="8fa39-263">式 *\_db します。MovieSet.ToList()* 映画データベース テーブルからすべてのムービーのレコードの一覧を返します。</span><span class="sxs-lookup"><span data-stu-id="8fa39-263">The expression *\_db.MovieSet.ToList()* returns a list of all of the movie records from the Movies database table.</span></span>
 
 <span data-ttu-id="8fa39-264">ムービーの一覧は、ビューに渡されます。</span><span class="sxs-lookup"><span data-stu-id="8fa39-264">The list of movies is passed to the view.</span></span> <span data-ttu-id="8fa39-265">データの表示と、ビューに渡さ View() メソッドに渡されたものを取得します。</span><span class="sxs-lookup"><span data-stu-id="8fa39-265">Anything that gets passed to the View() method gets passed to the view as view data.</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894331"
 ---
 <a name="connecting-your-web-application-to-sql-server-2005-express-edition"></a><span data-ttu-id="4b9f6-103">SQL Server 2005 Express Edition に Web アプリケーションを接続します。</span><span class="sxs-lookup"><span data-stu-id="4b9f6-103">Connecting your Web Application to SQL Server 2005 Express Edition</span></span>
 ====================

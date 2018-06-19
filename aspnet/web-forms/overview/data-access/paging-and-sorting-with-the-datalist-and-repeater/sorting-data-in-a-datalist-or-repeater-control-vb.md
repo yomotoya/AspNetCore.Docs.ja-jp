@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891527"
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a><span data-ttu-id="bcf6a-103">DataList またはリピータ コントロール (VB) のデータの並べ替え</span><span class="sxs-lookup"><span data-stu-id="bcf6a-103">Sorting Data in a DataList or Repeater Control (VB)</span></span>
 ====================

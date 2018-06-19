@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891969"
 ---
 <a name="creating-a-data-access-layer-vb"></a><span data-ttu-id="2f07f-103">データ アクセス層 (VB) の作成</span><span class="sxs-lookup"><span data-stu-id="2f07f-103">Creating a Data Access Layer (VB)</span></span>
 ====================

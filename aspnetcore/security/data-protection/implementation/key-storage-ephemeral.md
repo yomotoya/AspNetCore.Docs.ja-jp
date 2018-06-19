@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30076135"
 ---
 # <a name="ephemeral-data-protection-providers-in-aspnet-core"></a><span data-ttu-id="7fd6c-103">ASP.NET Core での短期のデータ保護プロバイダー</span><span class="sxs-lookup"><span data-stu-id="7fd6c-103">Ephemeral data protection providers in ASP.NET Core</span></span>
 

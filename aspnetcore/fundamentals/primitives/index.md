@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core のプリミティブ"
+title: ASP.NET Core のプリミティブ
 author: guardrex
-description: "独自のコードで使用できるフレームワーク拡張機能で共有される ASP.NET Core 構成ブロックに関する記事を見つけます。"
+description: 独自のコードで使用できるフレームワーク拡張機能で共有される ASP.NET Core 構成ブロックに関する記事を見つけます。
 manager: wpickett
 ms.author: riande
 ms.date: 10/28/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882712"
 ---
 # <a name="primitives-in-aspnet-core"></a><span data-ttu-id="a1de6-103">ASP.NET Core のプリミティブ</span><span class="sxs-lookup"><span data-stu-id="a1de6-103">Primitives in ASP.NET Core</span></span>
 

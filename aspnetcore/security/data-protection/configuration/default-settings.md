@@ -1,7 +1,7 @@
 ---
-title: "データ保護キーの管理および ASP.NET Core の有効期間"
+title: データ保護キーの管理および ASP.NET Core の有効期間
 author: rick-anderson
-description: "データ保護キーの管理および ASP.NET Core の有効期間について説明します。"
+description: データ保護キーの管理および ASP.NET Core の有効期間について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28887291"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a><span data-ttu-id="7c968-103">データ保護キーの管理および ASP.NET Core の有効期間</span><span class="sxs-lookup"><span data-stu-id="7c968-103">Data Protection key management and lifetime in ASP.NET Core</span></span>
 
@@ -34,7 +35,7 @@ ms.lasthandoff: 01/30/2018
 
 1. <span data-ttu-id="7c968-119">これらの条件のいずれも一致しない場合、キーは、現在のプロセスの外部で永続化されます。</span><span class="sxs-lookup"><span data-stu-id="7c968-119">If none of these conditions match, keys aren't persisted outside of the current process.</span></span> <span data-ttu-id="7c968-120">プロセスがシャット ダウン、生成されたすべてのキーが失われます。</span><span class="sxs-lookup"><span data-stu-id="7c968-120">When the process shuts down, all generated keys are lost.</span></span>
 
-<span data-ttu-id="7c968-121">開発者は常にフル コントロールであり、キーの格納場所と方法をオーバーライドできます。</span><span class="sxs-lookup"><span data-stu-id="7c968-121">The developer is always in full control and can override how and where keys are stored.</span></span> <span data-ttu-id="7c968-122">上記の最初の 3 つのオプションは、ほとんどのアプリ方法と似ています適切な既定値を提供する必要があります、ASP.NET  **\<machineKey >**過去で自動生成ルーチンが機能していた。</span><span class="sxs-lookup"><span data-stu-id="7c968-122">The first three options above should provide good defaults for most apps similar to how the ASP.NET **\<machineKey>** auto-generation routines worked in the past.</span></span> <span data-ttu-id="7c968-123">最後に、フォールバック オプションを指定する、開発者が必要な唯一のシナリオは、[構成](xref:security/data-protection/configuration/overview)キーの永続化したいが、このフォールバックはまれな状況でのみ発生する場合は、先行します。</span><span class="sxs-lookup"><span data-stu-id="7c968-123">The final, fallback option is the only scenario that requires the developer to specify [configuration](xref:security/data-protection/configuration/overview) upfront if they want key persistence, but this fallback only occurs in rare situations.</span></span>
+<span data-ttu-id="7c968-121">開発者は常にフル コントロールであり、キーの格納場所と方法をオーバーライドできます。</span><span class="sxs-lookup"><span data-stu-id="7c968-121">The developer is always in full control and can override how and where keys are stored.</span></span> <span data-ttu-id="7c968-122">上記の最初の 3 つのオプションは、ほとんどのアプリ方法と似ています適切な既定値を提供する必要があります、ASP.NET  **\<machineKey >** 過去で自動生成ルーチンが機能していた。</span><span class="sxs-lookup"><span data-stu-id="7c968-122">The first three options above should provide good defaults for most apps similar to how the ASP.NET **\<machineKey>** auto-generation routines worked in the past.</span></span> <span data-ttu-id="7c968-123">最後に、フォールバック オプションを指定する、開発者が必要な唯一のシナリオは、[構成](xref:security/data-protection/configuration/overview)キーの永続化したいが、このフォールバックはまれな状況でのみ発生する場合は、先行します。</span><span class="sxs-lookup"><span data-stu-id="7c968-123">The final, fallback option is the only scenario that requires the developer to specify [configuration](xref:security/data-protection/configuration/overview) upfront if they want key persistence, but this fallback only occurs in rare situations.</span></span>
 
 <span data-ttu-id="7c968-124">Docker ボリュームの共有ボリューム (ホストでマウントされたボリューム コンテナーの有効期間を超えて保持) であるフォルダーでキーを保持するか、Docker コンテナーでホストしている、または外部プロバイダーのように[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)または[Redis](https://redis.io/)です。</span><span class="sxs-lookup"><span data-stu-id="7c968-124">When hosting in a Docker container, keys should be persisted in a folder that's a Docker volume (a shared volume or a host-mounted volume that persists beyond the container's lifetime) or in an external provider, such as [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) or [Redis](https://redis.io/).</span></span> <span data-ttu-id="7c968-125">外部プロバイダーは、アプリがネットワークの共有ボリュームにアクセスできない場合にも web ファームのシナリオで役に立ちます (を参照してください[PersistKeysToFileSystem](xref:security/data-protection/configuration/overview#persistkeystofilesystem)詳細については)。</span><span class="sxs-lookup"><span data-stu-id="7c968-125">An external provider is also useful in web farm scenarios if apps can't access a shared network volume (see [PersistKeysToFileSystem](xref:security/data-protection/configuration/overview#persistkeystofilesystem) for more information).</span></span>
 

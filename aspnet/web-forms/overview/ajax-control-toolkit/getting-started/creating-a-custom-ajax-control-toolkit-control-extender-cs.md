@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875917"
 ---
 <a name="creating-a-custom-ajax-control-toolkit-control-extender-c"></a><span data-ttu-id="1c8c1-103">カスタムの AJAX コントロール Toolkit コントロール エクステンダー (c#) を作成します。</span><span class="sxs-lookup"><span data-stu-id="1c8c1-103">Creating a Custom AJAX Control Toolkit Control Extender (C#)</span></span>
 ====================
@@ -198,7 +199,7 @@ ms.lasthandoff: 04/06/2018
 2. <span data-ttu-id="1c8c1-225">ScriptManager をページにドラッグします。</span><span class="sxs-lookup"><span data-stu-id="1c8c1-225">Drag a ScriptManager onto the page.</span></span>
 3. <span data-ttu-id="1c8c1-226">テキスト ボックス コントロールをページにドラッグします。</span><span class="sxs-lookup"><span data-stu-id="1c8c1-226">Drag a TextBox control onto the page.</span></span>
 4. <span data-ttu-id="1c8c1-227">ボタン コントロールをページにドラッグします。</span><span class="sxs-lookup"><span data-stu-id="1c8c1-227">Drag a Button control onto the page.</span></span>
-5. <span data-ttu-id="1c8c1-228">[プロパティ] ウィンドウでボタン ID プロパティ値を変更<em>btnSave</em>し、テキストのプロパティ値を*保存\**です。</span><span class="sxs-lookup"><span data-stu-id="1c8c1-228">In the Properties window, change the Button ID property to the value <em>btnSave</em> and the Text property to the value *Save\**.</span></span>
+5. <span data-ttu-id="1c8c1-228">[プロパティ] ウィンドウでボタン ID プロパティ値を変更<em>btnSave</em>し、テキストのプロパティ値を*保存\** です。</span><span class="sxs-lookup"><span data-stu-id="1c8c1-228">In the Properties window, change the Button ID property to the value <em>btnSave</em> and the Text property to the value *Save\**.</span></span>
   
 
 <span data-ttu-id="1c8c1-229">標準の ASP.NET のテキスト ボックスとボタン コントロールと、ページを作成しました。</span><span class="sxs-lookup"><span data-stu-id="1c8c1-229">We created a page with a standard ASP.NET TextBox and Button control.</span></span>

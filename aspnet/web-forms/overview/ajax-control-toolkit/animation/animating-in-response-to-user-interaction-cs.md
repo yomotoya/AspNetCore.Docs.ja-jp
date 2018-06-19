@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870948"
 ---
 <a name="animating-in-response-to-user-interaction-c"></a><span data-ttu-id="2ea07-104">ユーザーの操作 (c#) への応答をアニメーション化します。</span><span class="sxs-lookup"><span data-stu-id="2ea07-104">Animating in Response To User Interaction (C#)</span></span>
 ====================

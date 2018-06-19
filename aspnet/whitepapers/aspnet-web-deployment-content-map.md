@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/aspnet-web-deployment-content-map
-title: "ASP.NET Web 展開 - 推奨リソース |Microsoft ドキュメント"
+title: ASP.NET Web 展開 - 推奨リソース |Microsoft ドキュメント
 author: rick-anderson
-description: "このトピックでは、ドキュメントへのリンクを展開する方法に関するリソース (発行) ASP.NET web アプリケーションを Visual Studio 2010、Visual Web De を使用して IIS をしています."
+description: このトピックでは、ドキュメントへのリンクを展開する方法に関するリソース (発行) ASP.NET web アプリケーションを Visual Studio 2010、Visual Web De を使用して IIS をしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2014
 ms.topic: article
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28048169"
 ---
 <a name="aspnet-web-deployment---recommended-resources"></a><span data-ttu-id="1e4d8-103">ASP.NET Web 展開 - 推奨リソース</span><span class="sxs-lookup"><span data-stu-id="1e4d8-103">ASP.NET Web Deployment - Recommended Resources</span></span>
 ====================

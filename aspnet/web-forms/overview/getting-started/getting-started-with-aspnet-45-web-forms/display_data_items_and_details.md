@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892570"
 ---
 <a name="display-data-items-and-details"></a><span data-ttu-id="a25e0-103">データの表示項目、詳細</span><span class="sxs-lookup"><span data-stu-id="a25e0-103">Display Data Items and Details</span></span>
 ====================

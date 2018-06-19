@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890217"
 ---
 <a name="manually-installing-web-packages"></a><span data-ttu-id="4172f-104">Web パッケージを手動でインストールします。</span><span class="sxs-lookup"><span data-stu-id="4172f-104">Manually Installing Web Packages</span></span>
 ====================
@@ -59,7 +60,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="4172f-135">**アプローチ 2: MSBuild を使用して、ビルド プロセスの一部としてパッケージを作成します。**</span><span class="sxs-lookup"><span data-stu-id="4172f-135">**Approach 2: Create a package as part of the build process with MSBuild**</span></span>
 
-<span data-ttu-id="4172f-136">MSBuild を使用して直接、カスタム MSBuild プロジェクト ファイルまたはコマンドラインから、web アプリケーション プロジェクトをビルドする場合、ビルド プロセスの一部としての web 配置パッケージする作成を含めることによって、 **DeployOnBuildはtrueを=**と**DeployTarget パッケージを =**コマンド内のプロパティです。</span><span class="sxs-lookup"><span data-stu-id="4172f-136">If you build your web application project by using MSBuild directly, either through a custom MSBuild project file or from the command line, you can create a web deployment package as part of the build process by including the **DeployOnBuild=true** and **DeployTarget=Package** properties in your command.</span></span> <span data-ttu-id="4172f-137">このプロセスについては、「[ビルド プロセスの理解](understanding-the-build-process.md)です。</span><span class="sxs-lookup"><span data-stu-id="4172f-137">This process is described in [Understanding the Build Process](understanding-the-build-process.md).</span></span>
+<span data-ttu-id="4172f-136">MSBuild を使用して直接、カスタム MSBuild プロジェクト ファイルまたはコマンドラインから、web アプリケーション プロジェクトをビルドする場合、ビルド プロセスの一部としての web 配置パッケージする作成を含めることによって、 **DeployOnBuildはtrueを=** と**DeployTarget パッケージを =** コマンド内のプロパティです。</span><span class="sxs-lookup"><span data-stu-id="4172f-136">If you build your web application project by using MSBuild directly, either through a custom MSBuild project file or from the command line, you can create a web deployment package as part of the build process by including the **DeployOnBuild=true** and **DeployTarget=Package** properties in your command.</span></span> <span data-ttu-id="4172f-137">このプロセスについては、「[ビルド プロセスの理解](understanding-the-build-process.md)です。</span><span class="sxs-lookup"><span data-stu-id="4172f-137">This process is described in [Understanding the Build Process](understanding-the-build-process.md).</span></span>
 
 <span data-ttu-id="4172f-138">**アプローチ 3: Visual Studio でのオンデマンドのパッケージを作成します。**</span><span class="sxs-lookup"><span data-stu-id="4172f-138">**Approach 3: Create a package on demand in Visual Studio**</span></span>
 
@@ -115,7 +116,7 @@ ms.lasthandoff: 04/06/2018
 
         > [!NOTE]
         > <span data-ttu-id="4172f-174">どこから取得されるこれらのパラメーターの詳細については、次を参照してください。 [Web パッケージの展開の構成パラメーター](configuring-parameters-for-web-package-deployment.md)です。</span><span class="sxs-lookup"><span data-stu-id="4172f-174">For more information on where these parameters come from, see [Configuring Parameters for Web Package Deployment](configuring-parameters-for-web-package-deployment.md).</span></span>
-6. <span data-ttu-id="4172f-175">**[次へ]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="4172f-175">Click **Next**.</span></span>
+6. <span data-ttu-id="4172f-175">**[次へ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="4172f-175">Click **Next**.</span></span>
 7. <span data-ttu-id="4172f-176">これはこの web サイトにアプリケーションを配置した最初の時間ではない場合、インストールする前にすべての既存コンテンツを削除するかどうかを指定する求められます。</span><span class="sxs-lookup"><span data-stu-id="4172f-176">If this is not the first time you've deployed the application to this website, you'll be prompted to specify whether you want to delete all existing content prior to installation.</span></span> <span data-ttu-id="4172f-177">要件を適切なオプションを選択し、クリックして**次**です。</span><span class="sxs-lookup"><span data-stu-id="4172f-177">Choose the option that's appropriate for your requirements, and then click **Next**.</span></span>
 
     ![](manually-installing-web-packages/_static/image6.png)

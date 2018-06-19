@@ -15,6 +15,7 @@ ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31483345"
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core-and-visual-studio-code"></a><span data-ttu-id="9999e-103">ASP.NET Core と Visual Studio Code で Razor ページ Web アプリを作成する</span><span class="sxs-lookup"><span data-stu-id="9999e-103">Create a Razor Pages web app with ASP.NET Core and Visual Studio Code</span></span>
 

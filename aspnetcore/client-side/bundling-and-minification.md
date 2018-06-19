@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34094646"
 ---
 # <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a><span data-ttu-id="28c78-103">ASP.NET Core でのバンドルと minifiy の静的な資産</span><span class="sxs-lookup"><span data-stu-id="28c78-103">Bundle and minifiy static assets in ASP.NET Core</span></span>
 

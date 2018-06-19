@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876385"
 ---
 <a name="caching-data-in-the-architecture-vb"></a><span data-ttu-id="f6fa5-104">アーキテクチャ (VB) でデータのキャッシュ</span><span class="sxs-lookup"><span data-stu-id="f6fa5-104">Caching Data in the Architecture (VB)</span></span>
 ====================

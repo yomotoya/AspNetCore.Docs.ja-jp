@@ -1,22 +1,23 @@
 ---
 uid: whitepapers/index
-title: "ホワイト ペーパー |Microsoft ドキュメント"
+title: ホワイト ペーパー |Microsoft ドキュメント
 author: rick-anderson
-description: "このページでは、ホワイト ペーパーをインストールし、ASP.NET を構成して、セキュリティで保護された、高速、柔軟な ASP.NET アプリケーションを作成することを支援するためが表示されます。"
+description: このページでは、ホワイト ペーパーをインストールし、ASP.NET を構成して、セキュリティで保護された、高速、柔軟な ASP.NET アプリケーションを作成することを支援するためが表示されます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2011
 ms.topic: article
 ms.assetid: 3824e2d7-446f-406b-9c8b-5a1634359a78
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
-msc.legacyurl: 
+msc.legacyurl: ''
 msc.type: content
 ms.openlocfilehash: 5d335017a28f3dcbb8332b5361a2b068bddd2cce
 ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28883804"
 ---
 <a name="whitepapers"></a><span data-ttu-id="dbcad-103">ホワイト ペーパー</span><span class="sxs-lookup"><span data-stu-id="dbcad-103">Whitepapers</span></span>
 ====================

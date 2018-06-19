@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077549"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a><span data-ttu-id="ef0cc-103">ASP.NET Core でのクロス オリジン要求 (CORS) を有効にします。</span><span class="sxs-lookup"><span data-stu-id="ef0cc-103">Enable Cross-Origin Requests (CORS) in ASP.NET Core</span></span>
 
@@ -62,7 +63,7 @@ ms.lasthandoff: 03/22/2018
 
 [!code-csharp[](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
 
-<span data-ttu-id="ef0cc-132">**注:**URL は末尾にスラッシュを付けずに指定される必要があります (`/`)。</span><span class="sxs-lookup"><span data-stu-id="ef0cc-132">**Note:** The URL must be specified without a trailing slash (`/`).</span></span> <span data-ttu-id="ef0cc-133">URL が `/`で終了する場合、比較時に`false`が返され、ヘッダーが返されません。</span><span class="sxs-lookup"><span data-stu-id="ef0cc-133">If the URL terminates with `/`, the comparison will return `false` and no header will be returned.</span></span>
+<span data-ttu-id="ef0cc-132">**注:** URL は末尾にスラッシュを付けずに指定される必要があります (`/`)。</span><span class="sxs-lookup"><span data-stu-id="ef0cc-132">**Note:** The URL must be specified without a trailing slash (`/`).</span></span> <span data-ttu-id="ef0cc-133">URL が `/`で終了する場合、比較時に`false`が返され、ヘッダーが返されません。</span><span class="sxs-lookup"><span data-stu-id="ef0cc-133">If the URL terminates with `/`, the comparison will return `false` and no header will be returned.</span></span>
 
 <span data-ttu-id="ef0cc-134">ラムダは、`CorsPolicyBuilder` オブジェクトをとります。</span><span class="sxs-lookup"><span data-stu-id="ef0cc-134">The lambda takes a `CorsPolicyBuilder` object.</span></span> <span data-ttu-id="ef0cc-135">[構成オプション](#cors-policy-options)のリストはこのトピックで後述します。</span><span class="sxs-lookup"><span data-stu-id="ef0cc-135">You'll find a list of the [configuration options](#cors-policy-options) later in this topic.</span></span> <span data-ttu-id="ef0cc-136">この例では、ポリシーは `http://example.com` からのクロス オリジン要求を許可し、他の生成元からの要求は許可しません。</span><span class="sxs-lookup"><span data-stu-id="ef0cc-136">In this example, the policy allows cross-origin requests from `http://example.com` and no other origins.</span></span>
 

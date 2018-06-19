@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34094542"
 ---
 # <a name="static-files-in-aspnet-core"></a><span data-ttu-id="d52f5-103">ASP.NET Core の静的ファイル</span><span class="sxs-lookup"><span data-stu-id="d52f5-103">Static files in ASP.NET Core</span></span>
 

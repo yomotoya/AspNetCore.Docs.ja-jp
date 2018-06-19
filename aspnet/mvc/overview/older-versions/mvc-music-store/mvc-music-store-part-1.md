@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868972"
 ---
 <a name="part-1-overview-and-file-new-project"></a><span data-ttu-id="d833c-104">パート 1: 概要と新しいプロジェクト]-> [ファイル</span><span class="sxs-lookup"><span data-stu-id="d833c-104">Part 1: Overview and File->New Project</span></span>
 ====================

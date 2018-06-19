@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889821"
 ---
 <a name="updating-and-deleting-existing-binary-data-c"></a><span data-ttu-id="c8b6e-104">既存のバイナリ データ (c#) 更新および削除</span><span class="sxs-lookup"><span data-stu-id="c8b6e-104">Updating and Deleting Existing Binary Data (C#)</span></span>
 ====================

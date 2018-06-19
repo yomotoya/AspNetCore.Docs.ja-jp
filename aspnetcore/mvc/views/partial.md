@@ -14,6 +14,7 @@ ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/20/2018
+ms.locfileid: "30000903"
 ---
 # <a name="partial-views-in-aspnet-core"></a><span data-ttu-id="d7301-103">ASP.NET Core での部分ビュー</span><span class="sxs-lookup"><span data-stu-id="d7301-103">Partial Views in ASP.NET Core</span></span>
 

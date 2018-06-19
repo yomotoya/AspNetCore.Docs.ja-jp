@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892752"
 ---
 <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a><span data-ttu-id="8bbad-104">モデル バインディング機能と web フォームを使用するプロジェクトに追加するビジネス ロジック層</span><span class="sxs-lookup"><span data-stu-id="8bbad-104">Adding business logic layer to a project that uses model binding and web forms</span></span>
 ====================

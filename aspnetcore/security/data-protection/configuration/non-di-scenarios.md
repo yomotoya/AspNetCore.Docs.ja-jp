@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core でのデータ保護のための非 DI 対応したシナリオ"
+title: ASP.NET Core でのデータ保護のための非 DI 対応したシナリオ
 author: rick-anderson
-description: "データ保護のシナリオをすることはできませんまたは依存関係の挿入によって提供されるサービスを使用したくない位置をサポートする方法を説明します。"
+description: データ保護のシナリオをすることはできませんまたは依存関係の挿入によって提供されるサービスを使用したくない位置をサポートする方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29727247"
 ---
 # <a name="non-di-aware-scenarios-for-data-protection-in-aspnet-core"></a><span data-ttu-id="fbb73-103">ASP.NET Core でのデータ保護のための非 DI 対応したシナリオ</span><span class="sxs-lookup"><span data-stu-id="fbb73-103">Non-DI aware scenarios for Data Protection in ASP.NET Core</span></span>
 

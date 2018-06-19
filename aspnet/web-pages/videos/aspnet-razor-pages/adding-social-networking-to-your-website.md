@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893935"
 ---
 <a name="adding-social-networking-to-your-website"></a><span data-ttu-id="42158-103">Web サイトへのソーシャル ネットワー キングの追加</span><span class="sxs-lookup"><span data-stu-id="42158-103">Adding Social Networking to Your Website</span></span>
 ====================

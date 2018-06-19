@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884029"
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a><span data-ttu-id="49961-104">Web デプロイの発行 (オフライン展開) 用の Web サーバーの構成</span><span class="sxs-lookup"><span data-stu-id="49961-104">Configuring a Web Server for Web Deploy Publishing (Offline Deployment)</span></span>
 ====================
@@ -69,7 +70,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="49961-143">この場合、これらをインストールする必要があります。</span><span class="sxs-lookup"><span data-stu-id="49961-143">In this case, you need to install these things:</span></span>
 
-- <span data-ttu-id="49961-144">**IIS 7 の推奨構成**です。</span><span class="sxs-lookup"><span data-stu-id="49961-144">**IIS 7 Recommended Configuration**.</span></span> <span data-ttu-id="49961-145">これにより、 **Web サーバー (IIS)**ロール、web サーバー上の IIS モジュールおよび ASP.NET アプリケーションをホストするために必要なコンポーネントのセットをインストールします。</span><span class="sxs-lookup"><span data-stu-id="49961-145">This enables the **Web Server (IIS)** role on your web server and installs the set of IIS modules and components that you need in order to host an ASP.NET application.</span></span>
+- <span data-ttu-id="49961-144">**IIS 7 の推奨構成**です。</span><span class="sxs-lookup"><span data-stu-id="49961-144">**IIS 7 Recommended Configuration**.</span></span> <span data-ttu-id="49961-145">これにより、 **Web サーバー (IIS)** ロール、web サーバー上の IIS モジュールおよび ASP.NET アプリケーションをホストするために必要なコンポーネントのセットをインストールします。</span><span class="sxs-lookup"><span data-stu-id="49961-145">This enables the **Web Server (IIS)** role on your web server and installs the set of IIS modules and components that you need in order to host an ASP.NET application.</span></span>
 - <span data-ttu-id="49961-146">**.NET Framework 4.0**.</span><span class="sxs-lookup"><span data-stu-id="49961-146">**.NET Framework 4.0**.</span></span> <span data-ttu-id="49961-147">これは、このバージョンの .NET Framework で構築されたアプリケーションの実行に必要です。</span><span class="sxs-lookup"><span data-stu-id="49961-147">This is required to run applications that were built on this version of the .NET Framework.</span></span>
 - <span data-ttu-id="49961-148">**Web 配置ツール 2.1 以降**です。</span><span class="sxs-lookup"><span data-stu-id="49961-148">**Web Deployment Tool 2.1 or later**.</span></span> <span data-ttu-id="49961-149">これにより、Web Deploy (とその基になる実行可能ファイル、MSDeploy.exe) がサーバーにインストールされます。</span><span class="sxs-lookup"><span data-stu-id="49961-149">This installs Web Deploy (and its underlying executable, MSDeploy.exe) on your server.</span></span> <span data-ttu-id="49961-150">Web Deploy では、IIS と統合され、web のパッケージ インポートおよびエクスポートできます。</span><span class="sxs-lookup"><span data-stu-id="49961-150">Web Deploy integrates with IIS and lets you import and export web packages.</span></span>
 - <span data-ttu-id="49961-151">**ASP.NET MVC 3**.</span><span class="sxs-lookup"><span data-stu-id="49961-151">**ASP.NET MVC 3**.</span></span> <span data-ttu-id="49961-152">これは、MVC 3 アプリケーションを実行する必要があるアセンブリをインストールします。</span><span class="sxs-lookup"><span data-stu-id="49961-152">This installs the assemblies you need to run MVC 3 applications.</span></span>
@@ -93,11 +94,11 @@ ms.lasthandoff: 04/06/2018
     > <span data-ttu-id="49961-164">既にインストールしている Windows Update から .NET Framework 4.0。</span><span class="sxs-lookup"><span data-stu-id="49961-164">You may have already installed the .NET Framework 4.0 through Windows Update.</span></span> <span data-ttu-id="49961-165">製品またはコンポーネントがインストール済みの場合、Web Platform Installer は、これに置き換えることで、**追加**ボタン テキストを**インストール**です。</span><span class="sxs-lookup"><span data-stu-id="49961-165">If a product or component is already installed, the Web Platform Installer will indicate this by replacing the **Add** button with the text **Installed**.</span></span>
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image1.png)
-6. <span data-ttu-id="49961-166">**ASP.NET MVC 3 (Visual Studio 2010)**行で、をクリックして**追加**です。</span><span class="sxs-lookup"><span data-stu-id="49961-166">In the **ASP.NET MVC 3 (Visual Studio 2010)** row, click **Add**.</span></span>
+6. <span data-ttu-id="49961-166">**ASP.NET MVC 3 (Visual Studio 2010)** 行で、をクリックして**追加**です。</span><span class="sxs-lookup"><span data-stu-id="49961-166">In the **ASP.NET MVC 3 (Visual Studio 2010)** row, click **Add**.</span></span>
 7. <span data-ttu-id="49961-167">ナビゲーション ウィンドウで **サーバー**です。</span><span class="sxs-lookup"><span data-stu-id="49961-167">In the navigation pane, click **Server**.</span></span>
 8. <span data-ttu-id="49961-168">**IIS 7 の推奨構成**行で、をクリックして**追加**です。</span><span class="sxs-lookup"><span data-stu-id="49961-168">In the **IIS 7 Recommended Configuration** row, click **Add**.</span></span>
 9. <span data-ttu-id="49961-169">**Web 配置ツール 2.1**行で、をクリックして**追加**です。</span><span class="sxs-lookup"><span data-stu-id="49961-169">In the **Web Deployment Tool 2.1** row, click **Add**.</span></span>
-10. <span data-ttu-id="49961-170">**[インストール]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="49961-170">Click **Install**.</span></span> <span data-ttu-id="49961-171">Web Platform Installer が製品の一覧を表示&#x2014;関連する依存関係のいずれかと共に&#x2014;をインストールして、ライセンス条項に同意するように求められます。</span><span class="sxs-lookup"><span data-stu-id="49961-171">The Web Platform Installer will show you a list of products&#x2014;together with any associated dependencies&#x2014;to be installed and will prompt you to accept the license terms.</span></span>
+10. <span data-ttu-id="49961-170">**[インストール]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="49961-170">Click **Install**.</span></span> <span data-ttu-id="49961-171">Web Platform Installer が製品の一覧を表示&#x2014;関連する依存関係のいずれかと共に&#x2014;をインストールして、ライセンス条項に同意するように求められます。</span><span class="sxs-lookup"><span data-stu-id="49961-171">The Web Platform Installer will show you a list of products&#x2014;together with any associated dependencies&#x2014;to be installed and will prompt you to accept the license terms.</span></span>
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image2.png)
 11. <span data-ttu-id="49961-172">ライセンス条項を確認し、条項に同意した場合にをクリックして**同意**です。</span><span class="sxs-lookup"><span data-stu-id="49961-172">Review the license terms, and if you consent to the terms, click **I Accept**.</span></span>
@@ -155,7 +156,7 @@ ms.lasthandoff: 04/06/2018
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image5.png)
 11. <span data-ttu-id="49961-211">**サイト バインドの追加**ダイアログ ボックスで、設定、 **IP アドレス**と**ポート**既存サイトの構成に一致するようにします。</span><span class="sxs-lookup"><span data-stu-id="49961-211">In the **Add Site Binding** dialog box, set the **IP address** and **Port** to match your existing site configuration.</span></span>
-12. <span data-ttu-id="49961-212">**ホスト名**ボックス、web サーバーの名前を入力 (たとえば、 **PROWEB1**)、をクリックし、 **[ok]**です。</span><span class="sxs-lookup"><span data-stu-id="49961-212">In the **Host name** box, type the name of your web server (for example, **PROWEB1**), and then click **OK**.</span></span>
+12. <span data-ttu-id="49961-212">**ホスト名**ボックス、web サーバーの名前を入力 (たとえば、 **PROWEB1**)、をクリックし、 **[ok]** です。</span><span class="sxs-lookup"><span data-stu-id="49961-212">In the **Host name** box, type the name of your web server (for example, **PROWEB1**), and then click **OK**.</span></span>
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image6.png)
 
@@ -208,7 +209,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="49961-250">**停止し、リモート エージェント サービスを無効にします。**</span><span class="sxs-lookup"><span data-stu-id="49961-250">**To stop and disable the remote agent service**</span></span>
 
-1. <span data-ttu-id="49961-251">**[スタート]** メニューで、 **[管理ツール]**をポイントして、 **[サービス]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="49961-251">On the **Start** menu, point to **Administrative Tools**, and then click **Services**.</span></span>
+1. <span data-ttu-id="49961-251">**[スタート]** メニューで、 **[管理ツール]** をポイントして、 **[サービス]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="49961-251">On the **Start** menu, point to **Administrative Tools**, and then click **Services**.</span></span>
 2. <span data-ttu-id="49961-252">サービス コンソールで、検索、 **Web Deployment Agent サービス**行です。</span><span class="sxs-lookup"><span data-stu-id="49961-252">In the Services console, locate the **Web Deployment Agent Service** row.</span></span>
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image9.png)

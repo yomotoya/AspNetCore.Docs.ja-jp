@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878517"
 ---
 <a name="building-the-chapter-downloads-for-the-ef-5-mvc-4-tutorials"></a><span data-ttu-id="9c35d-103">この章のビルドのダウンロードを EF 5 MVC 4 のチュートリアル</span><span class="sxs-lookup"><span data-stu-id="9c35d-103">Building the Chapter Downloads for the EF 5 MVC 4 Tutorials</span></span>
 ====================

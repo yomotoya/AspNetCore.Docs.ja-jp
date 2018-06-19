@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879609"
 ---
 <a name="ef-database-first-with-aspnet-mvc-enhancing-data-validation"></a><span data-ttu-id="58982-104">ASP.NET MVC で最初の EF データベース データの検証を拡張。</span><span class="sxs-lookup"><span data-stu-id="58982-104">EF Database First with ASP.NET MVC: Enhancing Data Validation</span></span>
 ====================

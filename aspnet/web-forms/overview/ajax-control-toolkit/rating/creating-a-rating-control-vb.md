@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868413"
 ---
 <a name="creating-a-rating-control-vb"></a><span data-ttu-id="bf034-104">評価コントロール (VB) を作成します。</span><span class="sxs-lookup"><span data-stu-id="bf034-104">Creating a Rating Control (VB)</span></span>
 ====================

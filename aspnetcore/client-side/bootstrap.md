@@ -14,6 +14,7 @@ ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31483712"
 ---
 # <a name="build-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a><span data-ttu-id="a1855-103">ブートス トラップと ASP.NET Core 美しい、応答性の高いサイトを構築します。</span><span class="sxs-lookup"><span data-stu-id="a1855-103">Build beautiful, responsive sites with Bootstrap and ASP.NET Core</span></span>
 

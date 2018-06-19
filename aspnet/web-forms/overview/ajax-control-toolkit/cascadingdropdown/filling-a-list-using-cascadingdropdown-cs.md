@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870974"
 ---
 <a name="filling-a-list-using-cascadingdropdown-c"></a><span data-ttu-id="efce4-103">CascadingDropDown (c#) を使用して、リストを入力</span><span class="sxs-lookup"><span data-stu-id="efce4-103">Filling a List Using CascadingDropDown (C#)</span></span>
 ====================

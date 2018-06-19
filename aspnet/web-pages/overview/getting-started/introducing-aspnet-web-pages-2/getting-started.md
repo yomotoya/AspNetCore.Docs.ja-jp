@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898100"
 ---
 <a name="introducing-aspnet-web-pages---getting-started"></a><span data-ttu-id="39f64-105">ASP.NET Web ページ - 作業の開始の概要</span><span class="sxs-lookup"><span data-stu-id="39f64-105">Introducing ASP.NET Web Pages - Getting Started</span></span>
 ====================
@@ -61,7 +62,7 @@ ms.lasthandoff: 04/06/2018
 <span data-ttu-id="39f64-128">慣れているものと仮定します。</span><span class="sxs-lookup"><span data-stu-id="39f64-128">We're assuming that you're familiar with:</span></span>
 
 - <span data-ttu-id="39f64-129">**HTML**.</span><span class="sxs-lookup"><span data-stu-id="39f64-129">**HTML**.</span></span> <span data-ttu-id="39f64-130">深い専門知識は必要ありません。</span><span class="sxs-lookup"><span data-stu-id="39f64-130">No in-depth expertise is required.</span></span> <span data-ttu-id="39f64-131">HTML、については説明しませんが、私たちもないものを使用して複雑です。</span><span class="sxs-lookup"><span data-stu-id="39f64-131">We won't explain HTML, but we also don't use anything complex.</span></span> <span data-ttu-id="39f64-132">便利思います HTML チュートリアルへのリンクを提供します。</span><span class="sxs-lookup"><span data-stu-id="39f64-132">We'll provide links to HTML tutorials where we think they're useful.</span></span>
-- <span data-ttu-id="39f64-133">**カスケード スタイル シート (CSS)**です。</span><span class="sxs-lookup"><span data-stu-id="39f64-133">**Cascading style sheets (CSS)**.</span></span> <span data-ttu-id="39f64-134">同じ html です。</span><span class="sxs-lookup"><span data-stu-id="39f64-134">Same as with HTML.</span></span>
+- <span data-ttu-id="39f64-133">**カスケード スタイル シート (CSS)** です。</span><span class="sxs-lookup"><span data-stu-id="39f64-133">**Cascading style sheets (CSS)**.</span></span> <span data-ttu-id="39f64-134">同じ html です。</span><span class="sxs-lookup"><span data-stu-id="39f64-134">Same as with HTML.</span></span>
 - <span data-ttu-id="39f64-135">**基本的なデータベース アイデア**です。</span><span class="sxs-lookup"><span data-stu-id="39f64-135">**Basic database ideas**.</span></span> <span data-ttu-id="39f64-136">データのスプレッドシートを使用し、並べ替えを専門知識のレベルにあるデータをフィルター処理した場合、このチュートリアルのセットの仮定一般にします。</span><span class="sxs-lookup"><span data-stu-id="39f64-136">If you've used a spreadsheet for data and sorted and filtered the data, that's the level of expertise we're generally assuming for this tutorial set.</span></span>
 
 <span data-ttu-id="39f64-137">基本的なプログラミングの学習に該当するものもと仮定します。</span><span class="sxs-lookup"><span data-stu-id="39f64-137">We're also assuming that you're interested in learning basic programming.</span></span> <span data-ttu-id="39f64-138">ASP.NET Web ページは、c# と呼ばれるプログラミング言語を使用します。</span><span class="sxs-lookup"><span data-stu-id="39f64-138">ASP.NET Web Pages use a programming language called C#.</span></span> <span data-ttu-id="39f64-139">任意の背景に関係するだけのプログラミングではありません。</span><span class="sxs-lookup"><span data-stu-id="39f64-139">You don't have to have any background in programming, just an interest in it.</span></span> <span data-ttu-id="39f64-140">前に web ページで、JavaScript を作成したこと場合、は、バック グラウンドの十分なを取得したらです。</span><span class="sxs-lookup"><span data-stu-id="39f64-140">If you've ever written any JavaScript in a web page before, you've got plenty of background.</span></span>
@@ -145,7 +146,7 @@ ms.lasthandoff: 04/06/2018
 
 ![](getting-started/_static/image5.png)
 
-<span data-ttu-id="39f64-207">WebMatrix をインストールする準備ができて、Web Platform Installer が表示されます。</span><span class="sxs-lookup"><span data-stu-id="39f64-207">The Web Platform Installer appears, ready to install WebMatrix.</span></span> <span data-ttu-id="39f64-208">**[インストール]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="39f64-208">Click **Install**.</span></span>
+<span data-ttu-id="39f64-207">WebMatrix をインストールする準備ができて、Web Platform Installer が表示されます。</span><span class="sxs-lookup"><span data-stu-id="39f64-207">The Web Platform Installer appears, ready to install WebMatrix.</span></span> <span data-ttu-id="39f64-208">**[インストール]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="39f64-208">Click **Install**.</span></span>
 
 ![](getting-started/_static/image6.png)
 
@@ -177,7 +178,7 @@ ms.lasthandoff: 04/06/2018
 
 ![空のサイト テンプレートが選択されていると WebMatrix のクイック スタート ウィンドウ](getting-started/_static/image10.png)
 
-<span data-ttu-id="39f64-235">**[次へ]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="39f64-235">Click **Next**.</span></span>
+<span data-ttu-id="39f64-235">**[次へ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="39f64-235">Click **Next**.</span></span>
 
 <span data-ttu-id="39f64-236">Microsoft アカウントにサインインしている場合は、Azure でサイトを作成することが表示されます。</span><span class="sxs-lookup"><span data-stu-id="39f64-236">If you have signed in to your Microsoft account, you will be given the opportunity to create the site on Azure.</span></span> <span data-ttu-id="39f64-237">既定の名前、サイトの名前に基づく**WebPagesMovies.azurewebsites.net**をお勧めします。 ただし、感嘆符はこの名前が Windows Azure で使用できないことを示します。</span><span class="sxs-lookup"><span data-stu-id="39f64-237">Based on the name of your site, the default name of **WebPagesMovies.azurewebsites.net** is suggested; however, the exclamation point indicates that this name is not available on Windows Azure.</span></span> <span data-ttu-id="39f64-238">わかりやすくするため、次のように選択します。 **Skip**を Azure に web サイトを作成すると、今すぐをバイパスします。</span><span class="sxs-lookup"><span data-stu-id="39f64-238">For simplicity, select **Skip** to bypass creating the web site on Azure right now.</span></span> <span data-ttu-id="39f64-239">この系列に後で Azure にサイトが公開します。</span><span class="sxs-lookup"><span data-stu-id="39f64-239">Later in this series, we will publish the site to Azure.</span></span>
 
@@ -207,7 +208,7 @@ ms.lasthandoff: 04/06/2018
 
 ![名前付き HelloWorld.cshtml の新しい CSHTML ページの作成](getting-started/_static/image15.png)
 
-<span data-ttu-id="39f64-261">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="39f64-261">Click **OK**.</span></span>
+<span data-ttu-id="39f64-261">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="39f64-261">Click **OK**.</span></span>
 
 <span data-ttu-id="39f64-262">WebMatrix は、ページが作成され、エディターで開きます。</span><span class="sxs-lookup"><span data-stu-id="39f64-262">WebMatrix creates the page and opens it in the editor.</span></span>
 

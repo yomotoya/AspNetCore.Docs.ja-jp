@@ -14,6 +14,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893161"
 ---
 # <a name="create-a-web-app-with-aspnet-core-mvc-on-macos-with-visual-studio-for-mac"></a><span data-ttu-id="bef67-103">Visual Studio for Mac を使用して macOS で ASP.NET Core MVC による Web アプリを作成する</span><span class="sxs-lookup"><span data-stu-id="bef67-103">Create a web app with ASP.NET Core MVC on macOS with Visual Studio for Mac</span></span>
 

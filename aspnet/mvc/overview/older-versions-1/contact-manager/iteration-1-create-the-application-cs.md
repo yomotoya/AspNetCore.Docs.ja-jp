@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877386"
 ---
 <a name="iteration-1--create-the-application-c"></a><span data-ttu-id="a0ced-104">イテレーション 1 – (c#) アプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="a0ced-104">Iteration #1 – Create the Application (C#)</span></span>
 ====================
@@ -178,7 +179,7 @@ ms.lasthandoff: 04/06/2018
 | <span data-ttu-id="a0ced-230">電子メール</span><span class="sxs-lookup"><span data-stu-id="a0ced-230">Email</span></span> | <span data-ttu-id="a0ced-231">nvarchar(255)</span><span class="sxs-lookup"><span data-stu-id="a0ced-231">nvarchar(255)</span></span> | <span data-ttu-id="a0ced-232">False</span><span class="sxs-lookup"><span data-stu-id="a0ced-232">false</span></span> |
 
 
-<span data-ttu-id="a0ced-233">最初の列、Id 列は特殊です。</span><span class="sxs-lookup"><span data-stu-id="a0ced-233">The first column, the Id column, is special.</span></span> <span data-ttu-id="a0ced-234">Id 列と主キー列として Id 列をマークする必要があります。</span><span class="sxs-lookup"><span data-stu-id="a0ced-234">You need to mark the Id column as an Identity column and a Primary Key column.</span></span> <span data-ttu-id="a0ced-235">列が Identity 列である列のプロパティ (図 6 の下部にあるを参照) を展開し、Identity の指定 プロパティまでスクロールを指定します。</span><span class="sxs-lookup"><span data-stu-id="a0ced-235">You indicate that a column is an Identity column by expanding Column Properites (look at the bottom of Figure 6) and scrolling down to the Identity Specification property.</span></span> <span data-ttu-id="a0ced-236">設定、 **(Is Identity)**プロパティ値を**はい**です。</span><span class="sxs-lookup"><span data-stu-id="a0ced-236">Set the **(Is Identity)** property to the value **Yes**.</span></span>
+<span data-ttu-id="a0ced-233">最初の列、Id 列は特殊です。</span><span class="sxs-lookup"><span data-stu-id="a0ced-233">The first column, the Id column, is special.</span></span> <span data-ttu-id="a0ced-234">Id 列と主キー列として Id 列をマークする必要があります。</span><span class="sxs-lookup"><span data-stu-id="a0ced-234">You need to mark the Id column as an Identity column and a Primary Key column.</span></span> <span data-ttu-id="a0ced-235">列が Identity 列である列のプロパティ (図 6 の下部にあるを参照) を展開し、Identity の指定 プロパティまでスクロールを指定します。</span><span class="sxs-lookup"><span data-stu-id="a0ced-235">You indicate that a column is an Identity column by expanding Column Properites (look at the bottom of Figure 6) and scrolling down to the Identity Specification property.</span></span> <span data-ttu-id="a0ced-236">設定、 **(Is Identity)** プロパティ値を**はい**です。</span><span class="sxs-lookup"><span data-stu-id="a0ced-236">Set the **(Is Identity)** property to the value **Yes**.</span></span>
 
 <span data-ttu-id="a0ced-237">主キー列として列を選択し、キーのアイコンが付いたボタンをクリックして列をマークするとします。</span><span class="sxs-lookup"><span data-stu-id="a0ced-237">You mark a column as a Primary Key column by selecting the column and clicking the button with the icon of a key.</span></span> <span data-ttu-id="a0ced-238">列が主キー列としてマークされているキーのアイコンが、列の横に表示されます (図 6 を参照してください)。</span><span class="sxs-lookup"><span data-stu-id="a0ced-238">After a column is marked as a Primary Key column, an icon of a key appears next to the column (see Figure 6).</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892700"
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a><span data-ttu-id="9b7be-103">電子メールの確認とパスワードのリセット (c#) でユーザー登録、セキュリティで保護された ASP.NET Web フォーム アプリを作成します。</span><span class="sxs-lookup"><span data-stu-id="9b7be-103">Create a secure ASP.NET Web Forms app with user registration, email confirmation and password reset (C#)</span></span>
 ====================
@@ -144,7 +145,7 @@ ms.lasthandoff: 04/06/2018
 
     [!code-csharp[Main](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/samples/sample9.cs?highlight=5)]
 4. <span data-ttu-id="9b7be-193">キーを押して、アプリの実行**f5 キーを押します。**</span><span class="sxs-lookup"><span data-stu-id="9b7be-193">Run the app by pressing **F5.**</span></span> <span data-ttu-id="9b7be-194">ページが表示されたら、クリックして、**ログイン**リンクします。</span><span class="sxs-lookup"><span data-stu-id="9b7be-194">After the page is displayed, click the **Log in** link.</span></span>
-5. <span data-ttu-id="9b7be-195">クリックして、**パスワードを忘れた場合ですか?**表示へのリンク、**パスワードを忘れた場合**ページ。</span><span class="sxs-lookup"><span data-stu-id="9b7be-195">Click the **Forgot your password?** link to display the **Forgot Password** page.</span></span>
+5. <span data-ttu-id="9b7be-195">クリックして、**パスワードを忘れた場合ですか?** 表示へのリンク、**パスワードを忘れた場合**ページ。</span><span class="sxs-lookup"><span data-stu-id="9b7be-195">Click the **Forgot your password?** link to display the **Forgot Password** page.</span></span>
 6. <span data-ttu-id="9b7be-196">電子メール アドレスを入力し、をクリックして、**送信**電子メール アドレスに送信する、パスワードをリセットできるボタンをクリックします。</span><span class="sxs-lookup"><span data-stu-id="9b7be-196">Enter your email address and click the **Submit** button to send an email to your address which will allow you to reset your password.</span></span>   
    <span data-ttu-id="9b7be-197">電子メール アカウントを確認し、表示するリンクをクリックして、**パスワードのリセット**ページ。</span><span class="sxs-lookup"><span data-stu-id="9b7be-197">Check your email account and click on the link to display the **Reset Password** page.</span></span>
 7. <span data-ttu-id="9b7be-198">**パスワードのリセット** ページで、電子メール、パスワード、および確認入力したパスワードを入力します。</span><span class="sxs-lookup"><span data-stu-id="9b7be-198">On the **Reset Password** page, enter your email, password, and confirmed password.</span></span> <span data-ttu-id="9b7be-199">次に、キーを押して、**リセット**ボタンをクリックします。</span><span class="sxs-lookup"><span data-stu-id="9b7be-199">Then, press the **Reset** button.</span></span>  

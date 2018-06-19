@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890721"
 ---
 <a name="shopping-cart"></a><span data-ttu-id="9031f-103">ショッピング カート</span><span class="sxs-lookup"><span data-stu-id="9031f-103">Shopping Cart</span></span>
 ====================
@@ -156,7 +157,7 @@ ms.lasthandoff: 04/06/2018
 1. <span data-ttu-id="9031f-227">**ソリューション エクスプ ローラー**を右クリックして**WingtipToys**をクリックして**追加** - &gt; **新しい項目の**します。</span><span class="sxs-lookup"><span data-stu-id="9031f-227">In **Solution Explorer**, right-click **WingtipToys**, click **Add** -&gt; **New Item**.</span></span>  
    <span data-ttu-id="9031f-228">**[新しい項目の追加]** ダイアログ ボックスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="9031f-228">The **Add New Item** dialog box is displayed.</span></span>
 2. <span data-ttu-id="9031f-229">選択すると、マスター ページを含む新しいページ (Web フォーム) を追加**マスター ページを使用して Web フォーム**です。</span><span class="sxs-lookup"><span data-stu-id="9031f-229">Add a new page (Web Form) that includes a master page by selecting **Web Form using Master Page**.</span></span> <span data-ttu-id="9031f-230">新しいページの名前を付けます*後*です。</span><span class="sxs-lookup"><span data-stu-id="9031f-230">Name the new page *ShoppingCart.aspx*.</span></span>
-3. <span data-ttu-id="9031f-231">選択**Site.Master**に新しく作成されたマスター ページをアタッチする*.aspx*ページ。</span><span class="sxs-lookup"><span data-stu-id="9031f-231">Select **Site.Master** to attach the master page to the newly created *.aspx* page.</span></span>
+3. <span data-ttu-id="9031f-231">選択**Site.Master**に新しく作成されたマスター ページをアタッチする *.aspx*ページ。</span><span class="sxs-lookup"><span data-stu-id="9031f-231">Select **Site.Master** to attach the master page to the newly created *.aspx* page.</span></span>
 4. <span data-ttu-id="9031f-232">*後* ページで、既存のマークアップを次のマークアップに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="9031f-232">In the *ShoppingCart.aspx* page, replace the existing markup with the following markup:</span></span>   
 
     [!code-aspx[Main](shopping-cart/samples/sample5.aspx)]

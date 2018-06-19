@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890503"
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a><span data-ttu-id="55fcb-103">Web 配置の適切なアプローチを選択します。</span><span class="sxs-lookup"><span data-stu-id="55fcb-103">Choosing the Right Approach to Web Deployment</span></span>
 ====================
@@ -69,7 +70,7 @@ ms.lasthandoff: 04/06/2018
 
 
 > [!NOTE]
-> <span data-ttu-id="55fcb-155">Web Deploy のコマンドライン構文についての詳細と*. deploy.cmd*ファイルを参照してください[する方法: 展開パッケージを使用して、deploy.cmd ファイルをインストール](https://msdn.microsoft.com/library/ff356104.aspx)です。</span><span class="sxs-lookup"><span data-stu-id="55fcb-155">For more information on Web Deploy command-line syntax and *.deploy.cmd* files, see [How to: Install a Deployment Package Using the deploy.cmd File](https://msdn.microsoft.com/library/ff356104.aspx).</span></span>
+> <span data-ttu-id="55fcb-155">Web Deploy のコマンドライン構文についての詳細と *. deploy.cmd*ファイルを参照してください[する方法: 展開パッケージを使用して、deploy.cmd ファイルをインストール](https://msdn.microsoft.com/library/ff356104.aspx)です。</span><span class="sxs-lookup"><span data-stu-id="55fcb-155">For more information on Web Deploy command-line syntax and *.deploy.cmd* files, see [How to: Install a Deployment Package Using the deploy.cmd File](https://msdn.microsoft.com/library/ff356104.aspx).</span></span>
 
 
 <span data-ttu-id="55fcb-156">リモート エージェントがリモートの場所からコンテンツを展開する簡単な方法を提供し、この方法でも 1 回のクリックまたは自動の展開でうまく機能します。</span><span class="sxs-lookup"><span data-stu-id="55fcb-156">The remote agent offers a straightforward way to deploy content from a remote location, and this approach can work well with one-click or automated deployment.</span></span> <span data-ttu-id="55fcb-157">ただし、展開コマンドを実行するユーザーにも必要があります、ドメイン管理者または移行先サーバーでローカルの administrators グループのメンバーのいずれか。</span><span class="sxs-lookup"><span data-stu-id="55fcb-157">However, the user who runs the deployment command must also be either a domain administrator or a member of the local administrators group on the destination server.</span></span> <span data-ttu-id="55fcb-158">さらに、コマンドラインで代替資格情報を渡すことはできませんので、リモート エージェントは、基本認証をサポートしていません。</span><span class="sxs-lookup"><span data-stu-id="55fcb-158">In addition, the remote agent doesn't support basic authentication, so you can't pass alternative credentials on the command line.</span></span>

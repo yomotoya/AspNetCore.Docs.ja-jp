@@ -15,6 +15,7 @@ ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "32006129"
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a><span data-ttu-id="e1270-103">ASP.NET Core で Razor ページにファイルをアップロードする</span><span class="sxs-lookup"><span data-stu-id="e1270-103">Upload files to a Razor Page in ASP.NET Core</span></span>
 

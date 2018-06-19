@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/24/2018
+ms.locfileid: "34473195"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a><span data-ttu-id="8551f-104">ASP.NET Core での Web サーバーの実装</span><span class="sxs-lookup"><span data-stu-id="8551f-104">Web server implementations in ASP.NET Core</span></span>
 

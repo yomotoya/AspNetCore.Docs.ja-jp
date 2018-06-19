@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET のコアでアクティブなディレクトリの B2C を Azure クラウド認証"
+title: ASP.NET のコアでアクティブなディレクトリの B2C を Azure クラウド認証
 author: camsoper
-description: "ASP.NET Core での Azure Active Directory B2C の認証を設定する方法を検出します。"
+description: ASP.NET Core での Azure Active Directory B2C の認証を設定する方法を検出します。
 manager: wpickett
 ms.date: 01/25/2018
 ms.topic: tutorial
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29905076"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a><span data-ttu-id="b159f-103">ASP.NET のコアでアクティブなディレクトリの B2C を Azure クラウド認証</span><span class="sxs-lookup"><span data-stu-id="b159f-103">Cloud authentication with Azure Active Directory B2C in ASP.NET Core</span></span>
 
@@ -114,7 +115,7 @@ ms.lasthandoff: 03/15/2018
 
 ![アプリへのサインインします。](./azure-ad-b2c/_static/signin.png)
 
-<span data-ttu-id="b159f-194">ブラウザーは、Azure AD B2C テナントにリダイレクトします。</span><span class="sxs-lookup"><span data-stu-id="b159f-194">The browser redirects to the Azure AD B2C tenant.</span></span> <span data-ttu-id="b159f-195">(1 つには、ポリシーのテストが作成された) 場合は、既存のアカウントでサインインまたは選択**今すぐサインアップ**新しいアカウントを作成します。</span><span class="sxs-lookup"><span data-stu-id="b159f-195">Sign in with an existing account (if one was created testing the policies) or select **Sign up now** to create a new account.</span></span> <span data-ttu-id="b159f-196">**パスワードを忘れた場合ですか?**忘れてもパスワードをリセットするリンクを使用します。</span><span class="sxs-lookup"><span data-stu-id="b159f-196">The **Forgot your password?** link is used to reset a forgotten password.</span></span>
+<span data-ttu-id="b159f-194">ブラウザーは、Azure AD B2C テナントにリダイレクトします。</span><span class="sxs-lookup"><span data-stu-id="b159f-194">The browser redirects to the Azure AD B2C tenant.</span></span> <span data-ttu-id="b159f-195">(1 つには、ポリシーのテストが作成された) 場合は、既存のアカウントでサインインまたは選択**今すぐサインアップ**新しいアカウントを作成します。</span><span class="sxs-lookup"><span data-stu-id="b159f-195">Sign in with an existing account (if one was created testing the policies) or select **Sign up now** to create a new account.</span></span> <span data-ttu-id="b159f-196">**パスワードを忘れた場合ですか?** 忘れてもパスワードをリセットするリンクを使用します。</span><span class="sxs-lookup"><span data-stu-id="b159f-196">The **Forgot your password?** link is used to reset a forgotten password.</span></span>
 
 ![Azure AD B2C ログイン](./azure-ad-b2c/_static/b2csts.png)
 

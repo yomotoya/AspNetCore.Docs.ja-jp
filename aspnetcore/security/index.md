@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30074355"
 ---
 # <a name="overview-of-aspnet-core-security"></a><span data-ttu-id="c0dd0-103">ASP.NET Core Security の概要</span><span class="sxs-lookup"><span data-stu-id="c0dd0-103">Overview of ASP.NET Core Security</span></span>
 

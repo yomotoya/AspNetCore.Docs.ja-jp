@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/membership
-title: "メンバーシップ |Microsoft ドキュメント"
+title: メンバーシップ |Microsoft ドキュメント
 author: microsoft
-description: "ASP.NET から ASP.NET メンバーシップが、成功すると、フォーム認証モデルの構築 1.x です。 ASP.NET フォーム認証では、incorp する便利な手段を提供しています."
+description: ASP.NET から ASP.NET メンバーシップが、成功すると、フォーム認証モデルの構築 1.x です。 ASP.NET フォーム認証では、incorp する便利な手段を提供しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885580"
 ---
 <a name="membership"></a><span data-ttu-id="6f09f-104">メンバーシップ</span><span class="sxs-lookup"><span data-stu-id="6f09f-104">Membership</span></span>
 ====================

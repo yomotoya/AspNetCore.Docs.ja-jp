@@ -14,6 +14,7 @@ ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33851444"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core"></a><span data-ttu-id="969f4-103">ASP.NET Core への認証と Id を移行します。</span><span class="sxs-lookup"><span data-stu-id="969f4-103">Migrate Authentication and Identity to ASP.NET Core</span></span>
 

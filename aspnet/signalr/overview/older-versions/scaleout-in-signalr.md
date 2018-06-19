@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/scaleout-in-signalr
-title: "SignalR でスケール アウトの概要 1.x |Microsoft ドキュメント"
+title: SignalR でスケール アウトの概要 1.x |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/29/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28043747"
 ---
 <a name="introduction-to-scaleout-in-signalr-1x"></a><span data-ttu-id="491df-102">SignalR でスケール アウトの概要 1.x</span><span class="sxs-lookup"><span data-stu-id="491df-102">Introduction to Scaleout in SignalR 1.x</span></span>
 ====================

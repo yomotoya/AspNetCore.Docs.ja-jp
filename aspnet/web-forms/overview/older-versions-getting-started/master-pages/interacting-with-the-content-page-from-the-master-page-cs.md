@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891088"
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-c"></a><span data-ttu-id="cd189-103">マスター ページ (c#) からコンテンツ ページと対話します。</span><span class="sxs-lookup"><span data-stu-id="cd189-103">Interacting with the Content Page from the Master Page (C#)</span></span>
 ====================

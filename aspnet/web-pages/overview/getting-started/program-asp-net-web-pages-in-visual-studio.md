@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896584"
 ---
 <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a><span data-ttu-id="208b9-103">Visual Studio を使用してプログラミングする ASP.NET Web Pages (Razor)</span><span class="sxs-lookup"><span data-stu-id="208b9-103">Programming ASP.NET Web Pages (Razor) Using Visual Studio</span></span>
 ====================
@@ -81,10 +82,10 @@ ms.lasthandoff: 04/06/2018
 
     ![新しい web サイトを作成します。](program-asp-net-web-pages-in-visual-studio/_static/image2.png)
 3. <span data-ttu-id="208b9-154">**新しい Web サイト** ダイアログ ボックスで、(Visual c# または Visual Basic) を使用する言語を選択します。</span><span class="sxs-lookup"><span data-stu-id="208b9-154">In the **New Web Site** dialog box, select the language to use (Visual C# or Visual Basic).</span></span>
-4. <span data-ttu-id="208b9-155">選択、 **ASP.NET Web サイト (Razor)**テンプレート。</span><span class="sxs-lookup"><span data-stu-id="208b9-155">Select the **ASP.NET Web Site (Razor)** template.</span></span>
+4. <span data-ttu-id="208b9-155">選択、 **ASP.NET Web サイト (Razor)** テンプレート。</span><span class="sxs-lookup"><span data-stu-id="208b9-155">Select the **ASP.NET Web Site (Razor)** template.</span></span>
 
     ![razor サイト](program-asp-net-web-pages-in-visual-studio/_static/image3.png)
-5. <span data-ttu-id="208b9-157">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="208b9-157">Click **OK**.</span></span>
+5. <span data-ttu-id="208b9-157">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="208b9-157">Click **OK**.</span></span>
 
 <span data-ttu-id="208b9-158">新しいプロジェクトが存在し、いくつか作業を開始するための既定の web ページが表示されます。</span><span class="sxs-lookup"><span data-stu-id="208b9-158">Your new project exists and is populated with some default web pages to help you get started.</span></span>
 

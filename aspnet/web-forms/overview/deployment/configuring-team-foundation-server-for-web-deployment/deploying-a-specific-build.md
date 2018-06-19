@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880038"
 ---
 <a name="deploying-a-specific-build"></a><span data-ttu-id="1662d-103">特定のビルドを展開します。</span><span class="sxs-lookup"><span data-stu-id="1662d-103">Deploying a Specific Build</span></span>
 ====================
@@ -103,7 +104,7 @@ ms.lasthandoff: 04/06/2018
 
     > [!NOTE]
     > <span data-ttu-id="1662d-156">オーバーライドする必要があります、 **OutputRoot**たびにビルドをキューの値します。</span><span class="sxs-lookup"><span data-stu-id="1662d-156">You'll need to override the **OutputRoot** value every time you queue a build.</span></span> <span data-ttu-id="1662d-157">これについては、次の手順で説明します。</span><span class="sxs-lookup"><span data-stu-id="1662d-157">This is covered in the next procedure.</span></span>
-13. <span data-ttu-id="1662d-158">**[保存]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="1662d-158">Click **Save**.</span></span>
+13. <span data-ttu-id="1662d-158">**[保存]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="1662d-158">Click **Save**.</span></span>
 
 <span data-ttu-id="1662d-159">ビルドをトリガーするときに更新する必要があります、 **OutputRoot**プロパティを展開するビルドをポイントします。</span><span class="sxs-lookup"><span data-stu-id="1662d-159">When you trigger a build, you need to update the **OutputRoot** property to point to the build you want to deploy.</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893630"
 ---
 <a name="designing-relational-database-tables"></a><span data-ttu-id="fe108-104">リレーショナル データベース テーブルのデザイン</span><span class="sxs-lookup"><span data-stu-id="fe108-104">Designing Relational Database Tables</span></span>
 ====================

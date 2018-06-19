@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892096"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a><span data-ttu-id="4dbb8-103">SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します SQL Server - 12 の 10 への移行。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-103">Deploying an ASP.NET Web Application with SQL Server Compact using Visual Studio or Visual Web Developer: Migrating to SQL Server - 10 of 12</span></span>
 ====================
@@ -108,7 +109,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="4dbb8-172">開く、**プロジェクト プロパティ**ウィンドウを選択、**パッケージ化/発行 SQL**タブです。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-172">Open the **Project Properties** window and select the **Package/Publish SQL** tab.</span></span>
 
-<span data-ttu-id="4dbb8-173">確認して**アクティブ (リリース)**または**リリース**でが選択されている、**構成**ドロップダウン リスト。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-173">Make sure that **Active (Release)** or **Release** is selected in the **Configuration** drop-down list.</span></span>
+<span data-ttu-id="4dbb8-173">確認して**アクティブ (リリース)** または**リリース**でが選択されている、**構成**ドロップダウン リスト。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-173">Make sure that **Active (Release)** or **Release** is selected in the **Configuration** drop-down list.</span></span>
 
 <span data-ttu-id="4dbb8-174">をクリックして**このページを有効にする**です。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-174">Click **Enable this Page**.</span></span>
 
@@ -250,7 +251,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="4dbb8-269">**送信先 URL**ボックスに、入力`http://localhost/ContosoUniversity/`です。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-269">In the **Destination URL** box, enter `http://localhost/ContosoUniversity/`.</span></span>
 
-<span data-ttu-id="4dbb8-270">**[次へ]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-270">Click **Next**.</span></span>
+<span data-ttu-id="4dbb8-270">**[次へ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-270">Click **Next**.</span></span>
 
 <span data-ttu-id="4dbb8-271">**設定** タブに警告すること、**パッケージ化/発行 SQL**  タブが構成済みであり、有効にする をクリックして、新しいデータベース発行機能強化をオーバーライドする機会を提供します。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-271">The **Settings** tab warns you that the **Package/Publish SQL** tab has been configured, and it gives you an opportunity to override them by clicking enable the new database publishing improvements.</span></span> <span data-ttu-id="4dbb8-272">この展開のたくを上書きする、**パッケージ化/発行 SQL**タブの設定をクリックするだけのため**次**です。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-272">For this deployment you don't want to override the **Package/Publish SQL** tab settings, so just click **Next**.</span></span>
 
@@ -258,7 +259,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="4dbb8-274">メッセージ、**プレビュー**  タブには、ことを示します**パブリッシュするデータベースが選択されていない**、のみつまり、データベースの発行が、発行プロファイルで構成されていないことができます。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-274">A message on the **Preview** tab indicates that **No databases are selected to publish**, but this only means that database publishing is not configured in the publish profile.</span></span>
 
-<span data-ttu-id="4dbb8-275">**[発行]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-275">Click **Publish**.</span></span>
+<span data-ttu-id="4dbb8-275">**[発行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-275">Click **Publish**.</span></span>
 
 ![Publish_Web_wizard_Preview_tab_Migrate](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image20.png)
 
@@ -297,7 +298,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="4dbb8-306">これで、データベースでのデプロイ設定を設定する準備ができたら、**パッケージ化/発行 SQL**  タブで、テスト環境の前に行ったようにします。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-306">Now you're ready to set up database deployment settings in the **Package/Publish SQL** tab, as you did earlier for the test environment.</span></span>
 
-<span data-ttu-id="4dbb8-307">開く、**プロジェクトのプロパティ**ウィンドウで、**パッケージ化/発行 SQL**  タブを確認して**アクティブ (リリース)**または**リリース**は選択された状態で、**構成**ドロップダウン リスト。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-307">Open the **Project Properties** window, select the **Package/Publish SQL** tab, and make sure that **Active (Release)** or **Release** is selected in the **Configuration** drop-down list.</span></span>
+<span data-ttu-id="4dbb8-307">開く、**プロジェクトのプロパティ**ウィンドウで、**パッケージ化/発行 SQL**  タブを確認して**アクティブ (リリース)** または**リリース**は選択された状態で、**構成**ドロップダウン リスト。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-307">Open the **Project Properties** window, select the **Package/Publish SQL** tab, and make sure that **Active (Release)** or **Release** is selected in the **Configuration** drop-down list.</span></span>
 
 <span data-ttu-id="4dbb8-308">各データベースのデプロイ設定を構成するときに運用環境とテスト環境の場合の重要な違いが、接続文字列を構成する方法です。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-308">When you configure deployment settings for each database, the key difference between what you do for production and test environments is in how you configure connection strings.</span></span> <span data-ttu-id="4dbb8-309">テスト環境の別のインストール先データベースの接続文字列を入力したが、運用環境のコピー先の接続文字列は、両方のデータベースの同じです。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-309">For the test environment you entered different destination database connection strings, but for the production environment the destination connection string will be the same for both databases.</span></span> <span data-ttu-id="4dbb8-310">実稼働環境で 1 つのデータベースを両方のデータベースを展開しているためにです。</span><span class="sxs-lookup"><span data-stu-id="4dbb8-310">This is because you are deploying both databases to one database in production.</span></span>
 

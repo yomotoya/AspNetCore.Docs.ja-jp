@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871507"
 ---
 <a name="creating-custom-html-helpers-vb"></a><span data-ttu-id="c50ba-104">カスタム HTML ヘルパー (VB) の作成</span><span class="sxs-lookup"><span data-stu-id="c50ba-104">Creating Custom HTML Helpers (VB)</span></span>
 ====================

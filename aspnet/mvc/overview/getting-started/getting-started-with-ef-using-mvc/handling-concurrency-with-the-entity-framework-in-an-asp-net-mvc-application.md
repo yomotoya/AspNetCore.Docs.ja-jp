@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875657"
 ---
 <a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a><span data-ttu-id="70c72-103">ASP.NET MVC 5 アプリケーション (10/12) で、Entity Framework 6 と同時実行の処理</span><span class="sxs-lookup"><span data-stu-id="70c72-103">Handling Concurrency with the Entity Framework 6 in an ASP.NET MVC 5 Application (10 of 12)</span></span>
 ====================
@@ -144,7 +145,7 @@ ms.lasthandoff: 04/06/2018
 
 ![Department_Index_page_before_edits](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
 
-<span data-ttu-id="70c72-206">右クリックして、**編集**ハイパーリンクをクリックし、英語版の部門**[新規] タブで開く**順にクリックして、**編集**英語部門のハイパーリンクのです。</span><span class="sxs-lookup"><span data-stu-id="70c72-206">Right click the **Edit** hyperlink for the English department and select **Open in new tab,** then click the **Edit** hyperlink for the English department.</span></span> <span data-ttu-id="70c72-207">2 つのタブは、同じ情報を表示します。</span><span class="sxs-lookup"><span data-stu-id="70c72-207">The two tabs display the same information.</span></span>
+<span data-ttu-id="70c72-206">右クリックして、**編集**ハイパーリンクをクリックし、英語版の部門 **[新規] タブで開く**順にクリックして、**編集**英語部門のハイパーリンクのです。</span><span class="sxs-lookup"><span data-stu-id="70c72-206">Right click the **Edit** hyperlink for the English department and select **Open in new tab,** then click the **Edit** hyperlink for the English department.</span></span> <span data-ttu-id="70c72-207">2 つのタブは、同じ情報を表示します。</span><span class="sxs-lookup"><span data-stu-id="70c72-207">The two tabs display the same information.</span></span>
 
 ![Department_Edit_page_before_changes](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
@@ -210,7 +211,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-cshtml[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample20.cshtml)]
 
-<span data-ttu-id="70c72-244">部門のインデックス ページを実行します。</span><span class="sxs-lookup"><span data-stu-id="70c72-244">Run the Departments Index page.</span></span> <span data-ttu-id="70c72-245">右クリックして、**削除**ハイパーリンクをクリックし、英語版の部門**[新規] タブで開く**最初のタブをクリックして、**編集**英語部門のハイパーリンクのです。</span><span class="sxs-lookup"><span data-stu-id="70c72-245">Right click the **Delete** hyperlink for the English department and select **Open in new tab,** then in the first tab click the **Edit** hyperlink for the English department.</span></span>
+<span data-ttu-id="70c72-244">部門のインデックス ページを実行します。</span><span class="sxs-lookup"><span data-stu-id="70c72-244">Run the Departments Index page.</span></span> <span data-ttu-id="70c72-245">右クリックして、**削除**ハイパーリンクをクリックし、英語版の部門 **[新規] タブで開く**最初のタブをクリックして、**編集**英語部門のハイパーリンクのです。</span><span class="sxs-lookup"><span data-stu-id="70c72-245">Right click the **Delete** hyperlink for the English department and select **Open in new tab,** then in the first tab click the **Edit** hyperlink for the English department.</span></span>
 
 <span data-ttu-id="70c72-246">最初のウィンドウで、値のいずれかを変更し、クリックして**保存**:</span><span class="sxs-lookup"><span data-stu-id="70c72-246">In the first window, change one of the values, and click **Save** :</span></span>
 
