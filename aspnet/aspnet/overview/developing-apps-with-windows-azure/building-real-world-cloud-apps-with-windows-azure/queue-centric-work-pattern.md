@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875436"
 ---
 <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>キューを中心とした作業のパターン (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -135,11 +136,11 @@ Web アプリは、突発トラフィックを受けやすくなりますが多�
 
 次の手順では、ロールのプロジェクトを標準的な web プロジェクトを含むソリューションに、ワーカーを追加する方法を示します。 修正したプロジェクトをダウンロードすることができます、これらの手順は既に実行されています。
 
-最初にクラウド サービス プロジェクトを Visual Studio ソリューションに追加します。 ソリューションを右クリックし **追加**、し**新しいプロジェクト**です。 左側のウィンドウで展開**Visual c#**選択**クラウド**です。
+最初にクラウド サービス プロジェクトを Visual Studio ソリューションに追加します。 ソリューションを右クリックし **追加**、し**新しいプロジェクト**です。 左側のウィンドウで展開**Visual c#** 選択**クラウド**です。
 
 [![](queue-centric-work-pattern/_static/image5.png)](queue-centric-work-pattern/_static/image4.png)
 
-**新しい Azure クラウド サービス**ダイアログ ボックスで、展開、 **Visual c#**左側のウィンドウでノード。 選択**ワーカー ロール**右矢印アイコンをクリックします。
+**新しい Azure クラウド サービス**ダイアログ ボックスで、展開、 **Visual c#** 左側のウィンドウでノード。 選択**ワーカー ロール**右矢印アイコンをクリックします。
 
 ![](queue-centric-work-pattern/_static/image6.png)
 

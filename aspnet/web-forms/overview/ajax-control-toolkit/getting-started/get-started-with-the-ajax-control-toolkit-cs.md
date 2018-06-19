@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879180"
 ---
 <a name="get-started-with-the-ajax-control-toolkit-c"></a>AJAX コントロール Toolkit (c#) の概要します。
 ====================
@@ -71,7 +72,7 @@ AJAX コントロール ツールキットを使用する最も簡単な方法�
 
 次に、新しいタブに AJAX コントロール Toolkit コントロールを追加する必要があります。この場合は、以下の手順に従ってください。
 
-- AJAX コントロール ツールキット] タブの下を右クリックし、メニュー オプションを選択**[アイテムの選択 (図 5 を参照してください)**です。
+- AJAX コントロール ツールキット] タブの下を右クリックし、メニュー オプションを選択 **[アイテムの選択 (図 5 を参照してください)** です。
 - AJAX コントロール ツールキットを解凍し、選択 AjaxControlToolkit.dll アセンブリの場所を参照します。
 
 

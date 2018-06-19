@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871559"
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table-c"></a>新しいフィールドを追加すると、ムービーのモデルとテーブル (c#)
 ====================
@@ -127,7 +128,7 @@ Code First 自動的に削除し、アプリケーションのモデルを変更
 
 [![7_CreateRioII](adding-a-new-field/_static/image7.png)](adding-a-new-field/_static/image6.png)
 
-**[作成]**をクリックします。 この評価を含む、新しいムービーに表示されます、映画を一覧表示します。
+**[作成]** をクリックします。 この評価を含む、新しいムービーに表示されます、映画を一覧表示します。
 
 [![7_ourNewMovie_SM](adding-a-new-field/_static/image9.png)](adding-a-new-field/_static/image8.png)
 

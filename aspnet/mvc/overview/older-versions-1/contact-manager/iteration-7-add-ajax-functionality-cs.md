@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875527"
 ---
 <a name="iteration-7--add-ajax-functionality-c"></a>イテレーション #7 – 追加の Ajax 機能 (c#)
 ====================

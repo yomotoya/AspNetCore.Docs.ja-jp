@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875384"
 ---
 <a name="authenticating-users-with-windows-authentication-c"></a>Windows 認証 (c#) を使用してユーザーを認証
 ====================

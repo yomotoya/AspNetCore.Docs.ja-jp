@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878296"
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-c"></a>GridView (c#) をボタンに応答して追加します。
 ====================
@@ -127,7 +128,7 @@ FormView のテンプレートにすべての製品の中止 ボタンを追加�
 
 [![SupplierID パラメーターから取得するように Suppliers FormView コントロールを示します](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image25.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image24.png)
 
-**図 10**: ことを示すため、 *`supplierID`*からパラメーターを取得する、 `Suppliers` FormView コントロール ([フルサイズのイメージを表示するをクリックして](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image26.png))
+**図 10**: ことを示すため、 *`supplierID`* からパラメーターを取得する、 `Suppliers` FormView コントロール ([フルサイズのイメージを表示するをクリックして](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image26.png))
 
 
 ObjectDataSource ウィザードの完了後は、GridView はの各製品のデータ フィールドのも、BoundField または CheckBoxField に含まれます。 みましょうトリムこれを表示するだけ、`ProductName`と`UnitPrice`と共に BoundFields、 `Discontinued` CheckBoxField; さらに、書式設定してみましょう、 `UnitPrice` BoundField そのテキストが通貨として書式設定されるようです。 GridView と`SuppliersProductsDataSource`ObjectDataSource の宣言型マークアップは、次のマークアップのようになります。
@@ -154,7 +155,7 @@ FormView にボタンを追加するをクリックすると、すべてを停�
 **図 12**: アドホック SQL ステートメントを使用して、DAL メソッドを作成 ([フルサイズのイメージを表示するをクリックして](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image32.png))
 
 
-次に、ウィザードの指示に従ってに関してどのようなクエリの種類を作成することです。 以降、`DiscontinueAllProductsForSupplier(supplierID)`メソッドは更新する必要があります、`Products`設定、データベース テーブル、 `Discontinued`  フィールドを指定したによって提供されるすべての製品の 1  *`supplierID`*データを更新するクエリを作成する必要があります。
+次に、ウィザードの指示に従ってに関してどのようなクエリの種類を作成することです。 以降、`DiscontinueAllProductsForSupplier(supplierID)`メソッドは更新する必要があります、`Products`設定、データベース テーブル、 `Discontinued`  フィールドを指定したによって提供されるすべての製品の 1  *`supplierID`* データを更新するクエリを作成する必要があります。
 
 
 [![更新クエリ タイプを選択します。](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image34.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image33.png)
@@ -178,7 +179,7 @@ FormView にボタンを追加するをクリックすると、すべてを停�
 
 [!code-csharp[Main](adding-and-responding-to-buttons-to-a-gridview-cs/samples/sample5.cs)]
 
-下にこのメソッドを呼び出すだけ、`DiscontinueAllProductsForSupplier(supplierID)`メソッドに渡す提供されている、DAL *`supplierID`*パラメーターの値。 特定の状況で中止された業者の製品のみを実行できる任意のビジネス ルールがある場合、それらのルールを実装するここでは、BLL でします。
+下にこのメソッドを呼び出すだけ、`DiscontinueAllProductsForSupplier(supplierID)`メソッドに渡す提供されている、DAL *`supplierID`* パラメーターの値。 特定の状況で中止された業者の製品のみを実行できる任意のビジネス ルールがある場合、それらのルールを実装するここでは、BLL でします。
 
 > [!NOTE]
 > 異なり、`UpdateProduct`でオーバー ロード、`ProductsBLL`クラス、`DiscontinueAllProductsForSupplier(supplierID)`メソッド シグネチャを含まない、`DataObjectMethodAttribute`属性 (`<System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, Boolean)>`)。 そのため、`DiscontinueAllProductsForSupplier(supplierID)`更新 タブで、ObjectDataSource のデータ ソース構成ウィザードのドロップダウン リストからメソッドです。I ve おを呼び出すためにのこの属性を省略すると、 `DiscontinueAllProductsForSupplier(supplierID)` ASP.NET ページ内のイベント ハンドラーから直接メソッドです。

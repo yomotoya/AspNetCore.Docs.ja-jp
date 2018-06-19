@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878764"
 ---
 <a name="an-overview-of-project-katana"></a>プロジェクトの Katana の概要
 ====================
@@ -133,7 +134,7 @@ JavaScript および .NET の開発の大きな違いの 1 つは、(または�
 
 ## <a name="katana-architecture"></a>Katana アーキテクチャ
 
- Katana コンポーネントのアーキテクチャは、次のようにアプリケーションを次の 4 つの論理層を分割:*ホスト、サーバー、ミドルウェア、*と*アプリケーション*です。 コンポーネントのアーキテクチャは、これらのレイヤーの実装に簡単にで置換できる、多くの場合、アプリケーションの再コンパイルせずこのような方法で考慮されます。   
+ Katana コンポーネントのアーキテクチャは、次のようにアプリケーションを次の 4 つの論理層を分割:*ホスト、サーバー、ミドルウェア、* と*アプリケーション*です。 コンポーネントのアーキテクチャは、これらのレイヤーの実装に簡単にで置換できる、多くの場合、アプリケーションの再コンパイルせずこのような方法で考慮されます。   
 
 ![](an-overview-of-project-katana/_static/image3.png)
 

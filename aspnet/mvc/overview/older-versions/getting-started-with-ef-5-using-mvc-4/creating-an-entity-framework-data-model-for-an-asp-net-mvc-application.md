@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877932"
 ---
 <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>ASP.NET MVC アプリケーション (10 の 1) 用の Entity Framework データ モデルの作成
 ====================
@@ -84,7 +85,7 @@ Visual Studio をインストールした場合、上記のリンクは不足し
 
 ## <a name="create-an-mvc-web-application"></a>MVC Web アプリケーションを作成します。
 
-Visual Studio を開き、プロジェクトを作成、新しい c#"ContosoUniversity"を使用して名前付き、 **ASP.NET MVC 4 Web Application**テンプレート。 対象にするかどうかを確認**.NET Framework 4.5** (使用する[`enum`プロパティ](https://msdn.microsoft.com/data/hh859576.aspx)、.NET 4.5 を必要として)。
+Visual Studio を開き、プロジェクトを作成、新しい c#"ContosoUniversity"を使用して名前付き、 **ASP.NET MVC 4 Web Application**テンプレート。 対象にするかどうかを確認 **.NET Framework 4.5** (使用する[`enum`プロパティ](https://msdn.microsoft.com/data/hh859576.aspx)、.NET 4.5 を必要として)。
 
 ![New_project_dialog_box](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image3.png)
 
@@ -92,7 +93,7 @@ Visual Studio を開き、プロジェクトを作成、新しい c#"ContosoUniv
 
 ままにして、 **Razor**を選択すると、エンジンを表示およびのままにして、**単体テスト プロジェクトを作成**チェック ボックスをオフします。
 
-**[OK]**をクリックします。
+**[OK]** をクリックします。
 
 ![Project_template_options](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image4.png)
 
@@ -191,7 +192,7 @@ Visual Studio を開き、プロジェクトを作成、新しい c#"ContosoUniv
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-[LocalDB](https://blogs.msdn.com/b/sqlexpress/archive/2011/07/12/introducing-localdb-a-better-sql-express.aspx) SQL Server Express データベース エンジンの要求時に開始され、ユーザー モードで実行される軽量バージョンです。 LocalDB は、SQL Server Express データベースを対象として使用することができますの特殊な実行モードで実行*.mdf*ファイル。 LocalDB のデータベース ファイルを保持する、通常、*アプリ\_データ*web プロジェクトのフォルダーです。 SQL Server express ユーザー インスタンスの機能でを操作することもできます*.mdf*は、ファイル、ユーザー インスタンス機能は推奨されません。 そのため、LocalDB を使用するため推奨*.mdf*ファイル。
+[LocalDB](https://blogs.msdn.com/b/sqlexpress/archive/2011/07/12/introducing-localdb-a-better-sql-express.aspx) SQL Server Express データベース エンジンの要求時に開始され、ユーザー モードで実行される軽量バージョンです。 LocalDB は、SQL Server Express データベースを対象として使用することができますの特殊な実行モードで実行 *.mdf*ファイル。 LocalDB のデータベース ファイルを保持する、通常、*アプリ\_データ*web プロジェクトのフォルダーです。 SQL Server express ユーザー インスタンスの機能でを操作することもできます *.mdf*は、ファイル、ユーザー インスタンス機能は推奨されません。 そのため、LocalDB を使用するため推奨 *.mdf*ファイル。
 
 通常実稼働 web アプリケーションの SQL Server Express は使用されません。 LocalDB 具体的には、ために推奨されませんを実稼働用 web アプリケーションと IIS を使用するものはありません。
 
@@ -283,7 +284,7 @@ Visual Studio 2012 およびそれ以降のバージョンで LocalDB は既定�
 
     `update-database`コマンドを実行する、`Up`データベースし、それを作成するメソッドの実行、`Seed`メソッドは、データベースを設定します。
 
-SQL Server データベース、データ モデルに作成されました。 データベースの名前は*ContosoUniversity*、および*.mdf*ファイルは、プロジェクトの*アプリ\_データ*フォルダーで指定したものであるため、接続文字列です。
+SQL Server データベース、データ モデルに作成されました。 データベースの名前は*ContosoUniversity*、および *.mdf*ファイルは、プロジェクトの*アプリ\_データ*フォルダーで指定したものであるため、接続文字列です。
 
 いずれかを使用する**サーバー エクスプ ローラー**または**SQL Server オブジェクト エクスプ ローラー** Visual Studio でデータベースを表示するには、(SSOX)。 このチュートリアルで使用する**サーバー エクスプ ローラー**です。 Visual Studio Express 2012 for Web で**サーバー エクスプ ローラー**が呼び出された**データベース エクスプ ローラー**です。
 
@@ -294,7 +295,7 @@ SQL Server データベース、データ モデルに作成されました。 �
 3. メッセージが表示されたら、**データ ソースの選択**ダイアログ ボックスで、をクリックして**Microsoft SQL Server**、順にクリック**続行**です。  
   
     ![](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image16.png)
-4. **接続の追加** ダイアログ ボックスで、入力**(localdb) \v11.0**の**サーバー名**です。 **を選択するか、データベースの名前を入力** **ContosoUniversity です。**  
+4. **接続の追加** ダイアログ ボックスで、入力 **(localdb) \v11.0**の**サーバー名**です。 **を選択するか、データベースの名前を入力** **ContosoUniversity です。**  
   
     ![](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image17.png)
 5. **[OK]** をクリックします。
@@ -313,9 +314,9 @@ SQL Server データベース、データ モデルに作成されました。 �
 
    - コント ローラー名: **StudentController**です。
    - テンプレート:**読み取り/書き込みアクションと Entity Framework を使用して、ビューの MVC コント ローラー**です。
-   - モデル クラス:**学生 (ContosoUniversity.Models)**です。 (プロジェクトのビルド ドロップダウン リストでは、このオプションが表示されない場合、およびもう一度やり直してください。)
-   - データ コンテキスト クラス: **SchoolContext (ContosoUniversity.Models)**です。
-   - ビュー: **Razor (CSHTML)**です。 (既定値です。)
+   - モデル クラス:**学生 (ContosoUniversity.Models)** です。 (プロジェクトのビルド ドロップダウン リストでは、このオプションが表示されない場合、およびもう一度やり直してください。)
+   - データ コンテキスト クラス: **SchoolContext (ContosoUniversity.Models)** です。
+   - ビュー: **Razor (CSHTML)** です。 (既定値です。)
 
      ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image20.png)
 2. Visual Studio を開き、 *Controllers\StudentController.cs*ファイル。 データベース コンテキストのオブジェクトをインスタンス化するクラスの変数が作成されてが表示されます。

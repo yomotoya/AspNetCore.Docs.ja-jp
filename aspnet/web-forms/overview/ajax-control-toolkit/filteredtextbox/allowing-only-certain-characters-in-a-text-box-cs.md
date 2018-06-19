@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869739"
 ---
 <a name="allowing-only-certain-characters-in-a-text-box-c"></a>(C#) のテキスト ボックス内の特定の文字のみを許可します。
 ====================

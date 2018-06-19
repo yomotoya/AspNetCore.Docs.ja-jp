@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875046"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>編集方法と編集ビューの確認
 ====================
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/06/2018
 
 このセクションで、生成されたアクション メソッドと、ムービーのコント ローラーのビューを確認します。 カスタムの検索ページを追加します。
 
-アプリケーションを実行しを参照、`Movies`コント ローラーを追加して*/Movies*お使いのブラウザーのアドレス バーの URL にします。 上にマウス ポインターを置く、**編集**にリンクする URL を表示するリンクです。
+アプリケーションを実行しを参照、`Movies`コント ローラーを追加して */Movies*お使いのブラウザーのアドレス バーの URL にします。 上にマウス ポインターを置く、**編集**にリンクする URL を表示するリンクです。
 
 ![EditLink_sm](examining-the-edit-methods-and-edit-view/_static/image1.png)
 
@@ -122,7 +123,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample12.cshtml)]
 
-アプリケーションを実行しに移動*/ビデオ/SearchIndex*です。 `?searchString=ghost` などのクエリ文字列を URL に追加します。 フィルターされたムービーが表示されます。
+アプリケーションを実行しに移動 */ビデオ/SearchIndex*です。 `?searchString=ghost` などのクエリ文字列を URL に追加します。 フィルターされたムービーが表示されます。
 
 ![SearchQryStr](examining-the-edit-methods-and-edit-view/_static/image6.png)
 
@@ -206,7 +207,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample24.cshtml?highlight=4)]
 
-アプリケーションを実行しを参照*/ビデオ/SearchIndex*です。 ジャンル、ムービーの名前、および両方の条件は、検索を再試行してください。
+アプリケーションを実行しを参照 */ビデオ/SearchIndex*です。 ジャンル、ムービーの名前、および両方の条件は、検索を再試行してください。
 
 ![](examining-the-edit-methods-and-edit-view/_static/image12.png)
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874851"
 ---
 <a name="part-3-views-and-viewmodels"></a>パート 3: ビューと ViewModels
 ====================
@@ -229,7 +230,7 @@ HTML 応答を生成する、アルバムを使用する表示テンプレート
 
 ## <a name="adding-links-between-pages"></a>ページ間のリンクの追加
 
-当社/Store URL を現在ジャンルの一覧を表示するには、単にプレーン テキストとしてジャンル名が一覧表示します。 みましょうようにプレーン テキストではなく代わりに、ジャンル名へのリンク、適切なストア/参照 URL されるように変更音楽のジャンル"Disco"をストア/参照に移動などをクリックするとしますか? ジャンル Disco URL を = です。 当社 \Views\Store\Index.cshtml ビュー テンプレートを使用してこれらのリンクは以下のようなコードの出力を更新すること**(これには入力しないで - は、パフォーマンスを向上すること)**:
+当社/Store URL を現在ジャンルの一覧を表示するには、単にプレーン テキストとしてジャンル名が一覧表示します。 みましょうようにプレーン テキストではなく代わりに、ジャンル名へのリンク、適切なストア/参照 URL されるように変更音楽のジャンル"Disco"をストア/参照に移動などをクリックするとしますか? ジャンル Disco URL を = です。 当社 \Views\Store\Index.cshtml ビュー テンプレートを使用してこれらのリンクは以下のようなコードの出力を更新すること **(これには入力しないで - は、パフォーマンスを向上すること)**:
 
 [!code-html[Main](mvc-music-store-part-3/samples/sample19.html)]
 
