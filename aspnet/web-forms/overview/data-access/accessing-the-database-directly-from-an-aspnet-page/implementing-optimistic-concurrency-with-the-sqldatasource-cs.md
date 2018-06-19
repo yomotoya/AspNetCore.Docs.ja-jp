@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876164"
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a><span data-ttu-id="683b2-103">SqlDataSource (c#) によるオプティミスティック同時実行制御を実装します。</span><span class="sxs-lookup"><span data-stu-id="683b2-103">Implementing Optimistic Concurrency with the SqlDataSource (C#)</span></span>
 ====================

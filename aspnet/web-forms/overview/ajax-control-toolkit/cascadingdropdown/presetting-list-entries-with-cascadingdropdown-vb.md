@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869895"
 ---
 <a name="presetting-list-entries-with-cascadingdropdown-vb"></a><span data-ttu-id="08aa2-103">一覧のエントリ CascadingDropDown (VB) を事前に設定します。</span><span class="sxs-lookup"><span data-stu-id="08aa2-103">Presetting List Entries with CascadingDropDown (VB)</span></span>
 ====================

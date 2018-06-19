@@ -1,20 +1,21 @@
 ---
 uid: webhooks/source
-title: "ASP.NET の Webhook のソース コードと NuGet パッケージの管理 |Microsoft ドキュメント"
+title: ASP.NET の Webhook のソース コードと NuGet パッケージの管理 |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET の Webhook のソース コードと NuGet パッケージへのリンク"
+description: ASP.NET の Webhook のソース コードと NuGet パッケージへのリンク
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: 91a62bfa-ea3a-41f9-a2e1-e90d2c8fc8ca
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: 733a0839c77bcfc96214bdf235ce8fe22ee2d3cf
 ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/09/2018
+ms.locfileid: "27709971"
 ---
 # <a name="aspnet-webhooks-source-code-and-nuget-packages"></a><span data-ttu-id="c4e2e-103">ASP.NET の Webhook のソース コードと NuGet パッケージ</span><span class="sxs-lookup"><span data-stu-id="c4e2e-103">ASP.NET WebHooks source code and NuGet packages</span></span>
 

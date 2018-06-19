@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875046"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a><span data-ttu-id="3a562-104">編集方法と編集ビューの確認</span><span class="sxs-lookup"><span data-stu-id="3a562-104">Examining the Edit Methods and Edit View</span></span>
 ====================
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="3a562-108">このセクションで、生成されたアクション メソッドと、ムービーのコント ローラーのビューを確認します。</span><span class="sxs-lookup"><span data-stu-id="3a562-108">In this section, you'll examine the generated action methods and views for the movie controller.</span></span> <span data-ttu-id="3a562-109">カスタムの検索ページを追加します。</span><span class="sxs-lookup"><span data-stu-id="3a562-109">Then you'll add a custom search page.</span></span>
 
-<span data-ttu-id="3a562-110">アプリケーションを実行しを参照、`Movies`コント ローラーを追加して*/Movies*お使いのブラウザーのアドレス バーの URL にします。</span><span class="sxs-lookup"><span data-stu-id="3a562-110">Run the application and browse to the `Movies` controller by appending */Movies* to the URL in the address bar of your browser.</span></span> <span data-ttu-id="3a562-111">上にマウス ポインターを置く、**編集**にリンクする URL を表示するリンクです。</span><span class="sxs-lookup"><span data-stu-id="3a562-111">Hold the mouse pointer over an **Edit** link to see the URL that it links to.</span></span>
+<span data-ttu-id="3a562-110">アプリケーションを実行しを参照、`Movies`コント ローラーを追加して */Movies*お使いのブラウザーのアドレス バーの URL にします。</span><span class="sxs-lookup"><span data-stu-id="3a562-110">Run the application and browse to the `Movies` controller by appending */Movies* to the URL in the address bar of your browser.</span></span> <span data-ttu-id="3a562-111">上にマウス ポインターを置く、**編集**にリンクする URL を表示するリンクです。</span><span class="sxs-lookup"><span data-stu-id="3a562-111">Hold the mouse pointer over an **Edit** link to see the URL that it links to.</span></span>
 
 ![EditLink_sm](examining-the-edit-methods-and-edit-view/_static/image1.png)
 
@@ -122,7 +123,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample12.cshtml)]
 
-<span data-ttu-id="3a562-199">アプリケーションを実行しに移動*/ビデオ/SearchIndex*です。</span><span class="sxs-lookup"><span data-stu-id="3a562-199">Run the application and navigate to */Movies/SearchIndex*.</span></span> <span data-ttu-id="3a562-200">`?searchString=ghost` などのクエリ文字列を URL に追加します。</span><span class="sxs-lookup"><span data-stu-id="3a562-200">Append a query string such as `?searchString=ghost` to the URL.</span></span> <span data-ttu-id="3a562-201">フィルターされたムービーが表示されます。</span><span class="sxs-lookup"><span data-stu-id="3a562-201">The filtered movies are displayed.</span></span>
+<span data-ttu-id="3a562-199">アプリケーションを実行しに移動 */ビデオ/SearchIndex*です。</span><span class="sxs-lookup"><span data-stu-id="3a562-199">Run the application and navigate to */Movies/SearchIndex*.</span></span> <span data-ttu-id="3a562-200">`?searchString=ghost` などのクエリ文字列を URL に追加します。</span><span class="sxs-lookup"><span data-stu-id="3a562-200">Append a query string such as `?searchString=ghost` to the URL.</span></span> <span data-ttu-id="3a562-201">フィルターされたムービーが表示されます。</span><span class="sxs-lookup"><span data-stu-id="3a562-201">The filtered movies are displayed.</span></span>
 
 ![SearchQryStr](examining-the-edit-methods-and-edit-view/_static/image6.png)
 
@@ -206,7 +207,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample24.cshtml?highlight=4)]
 
-<span data-ttu-id="3a562-247">アプリケーションを実行しを参照*/ビデオ/SearchIndex*です。</span><span class="sxs-lookup"><span data-stu-id="3a562-247">Run the application and browse to */Movies/SearchIndex*.</span></span> <span data-ttu-id="3a562-248">ジャンル、ムービーの名前、および両方の条件は、検索を再試行してください。</span><span class="sxs-lookup"><span data-stu-id="3a562-248">Try a search by genre, by movie name, and by both criteria.</span></span>
+<span data-ttu-id="3a562-247">アプリケーションを実行しを参照 */ビデオ/SearchIndex*です。</span><span class="sxs-lookup"><span data-stu-id="3a562-247">Run the application and browse to */Movies/SearchIndex*.</span></span> <span data-ttu-id="3a562-248">ジャンル、ムービーの名前、および両方の条件は、検索を再試行してください。</span><span class="sxs-lookup"><span data-stu-id="3a562-248">Try a search by genre, by movie name, and by both criteria.</span></span>
 
 ![](examining-the-edit-methods-and-edit-view/_static/image12.png)
 

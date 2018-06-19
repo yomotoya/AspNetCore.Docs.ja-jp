@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872924"
 ---
 <a name="adding-validation-to-the-model-vb"></a><span data-ttu-id="735a5-103">検証 (VB) モデルを追加します。</span><span class="sxs-lookup"><span data-stu-id="735a5-103">Adding Validation to the Model (VB)</span></span>
 ====================

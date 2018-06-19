@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872885"
 ---
 <a name="displaying-a-table-of-database-data-c"></a><span data-ttu-id="1e27d-104">データベースのデータ (c#) のテーブルを表示します。</span><span class="sxs-lookup"><span data-stu-id="1e27d-104">Displaying a Table of Database Data (C#)</span></span>
 ====================
@@ -109,7 +110,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="1e27d-172">MvcApplication1.Models; を使用します。</span><span class="sxs-lookup"><span data-stu-id="1e27d-172">using MvcApplication1.Models;</span></span>
 
-<span data-ttu-id="1e27d-173">式*エンティティです。MovieSet.ToList()*映画データベース テーブルからすべてのムービーのセットを返します。</span><span class="sxs-lookup"><span data-stu-id="1e27d-173">The expression *entities.MovieSet.ToList()* returns the set of all movies from the Movies database table.</span></span>
+<span data-ttu-id="1e27d-173">式*エンティティです。MovieSet.ToList()* 映画データベース テーブルからすべてのムービーのセットを返します。</span><span class="sxs-lookup"><span data-stu-id="1e27d-173">The expression *entities.MovieSet.ToList()* returns the set of all movies from the Movies database table.</span></span>
 
 ## <a name="create-the-view"></a><span data-ttu-id="1e27d-174">ビューを作成します。</span><span class="sxs-lookup"><span data-stu-id="1e27d-174">Create the View</span></span>
 

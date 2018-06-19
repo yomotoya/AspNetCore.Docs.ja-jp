@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875618"
 ---
 <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a><span data-ttu-id="472af-103">ASP.NET MVC アプリケーションに Entity Framework と関連するデータの更新</span><span class="sxs-lookup"><span data-stu-id="472af-103">Updating Related Data with the Entity Framework in an ASP.NET MVC Application</span></span>
 ====================
@@ -87,7 +88,7 @@ ms.lasthandoff: 04/06/2018
 
 ![Course_create_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
-<span data-ttu-id="472af-141">**[作成]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="472af-141">Click **Create**.</span></span> <span data-ttu-id="472af-142">一覧に追加された新しいコース コース インデックス ページが表示されます。</span><span class="sxs-lookup"><span data-stu-id="472af-142">The Course Index page is displayed with the new course added to the list.</span></span> <span data-ttu-id="472af-143">Index ページのリストの部門名は、ナビゲーション プロパティから取得され、リレーションシップが正常に確立されていることを示しています。</span><span class="sxs-lookup"><span data-stu-id="472af-143">The department name in the Index page list comes from the navigation property, showing that the relationship was established correctly.</span></span>
+<span data-ttu-id="472af-141">**[作成]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="472af-141">Click **Create**.</span></span> <span data-ttu-id="472af-142">一覧に追加された新しいコース コース インデックス ページが表示されます。</span><span class="sxs-lookup"><span data-stu-id="472af-142">The Course Index page is displayed with the new course added to the list.</span></span> <span data-ttu-id="472af-143">Index ページのリストの部門名は、ナビゲーション プロパティから取得され、リレーションシップが正常に確立されていることを示しています。</span><span class="sxs-lookup"><span data-stu-id="472af-143">The department name in the Index page list comes from the navigation property, showing that the relationship was established correctly.</span></span>
 
 ![Course_Index_page_showing_new_course](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
 

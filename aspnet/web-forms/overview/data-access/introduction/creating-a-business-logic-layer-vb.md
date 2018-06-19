@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892765"
 ---
 <a name="creating-a-business-logic-layer-vb"></a><span data-ttu-id="21a90-103">ビジネス ロジック層 (VB) を作成します。</span><span class="sxs-lookup"><span data-stu-id="21a90-103">Creating a Business Logic Layer (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878140"
 ---
 <a name="using-parameterized-queries-with-the-sqldatasource-vb"></a><span data-ttu-id="b3674-104">SqlDataSource (VB) でパラメーター化クエリの使用</span><span class="sxs-lookup"><span data-stu-id="b3674-104">Using Parameterized Queries with the SqlDataSource (VB)</span></span>
 ====================

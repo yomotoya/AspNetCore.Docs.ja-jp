@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874110"
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="f4c5f-104">障害 (Azure と実際のクラウド アプリのビルド) にも対処デザインします。</span><span class="sxs-lookup"><span data-stu-id="f4c5f-104">Design to Survive Failures (Building Real-World Cloud Apps with Azure)</span></span>
 ====================

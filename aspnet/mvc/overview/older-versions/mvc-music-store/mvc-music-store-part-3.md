@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874851"
 ---
 <a name="part-3-views-and-viewmodels"></a><span data-ttu-id="2893a-104">パート 3: ビューと ViewModels</span><span class="sxs-lookup"><span data-stu-id="2893a-104">Part 3: Views and ViewModels</span></span>
 ====================
@@ -229,7 +230,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="adding-links-between-pages"></a><span data-ttu-id="2893a-218">ページ間のリンクの追加</span><span class="sxs-lookup"><span data-stu-id="2893a-218">Adding Links between pages</span></span>
 
-<span data-ttu-id="2893a-219">当社/Store URL を現在ジャンルの一覧を表示するには、単にプレーン テキストとしてジャンル名が一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="2893a-219">Our /Store URL that lists Genres currently lists the Genre names simply as plain text.</span></span> <span data-ttu-id="2893a-220">みましょうようにプレーン テキストではなく代わりに、ジャンル名へのリンク、適切なストア/参照 URL されるように変更音楽のジャンル"Disco"をストア/参照に移動などをクリックするとしますか? ジャンル Disco URL を = です。</span><span class="sxs-lookup"><span data-stu-id="2893a-220">Let's change this so that instead of plain text we instead have the Genre names link to the appropriate /Store/Browse URL, so that clicking on a music genre like "Disco" will navigate to the /Store/Browse?genre=Disco URL.</span></span> <span data-ttu-id="2893a-221">当社 \Views\Store\Index.cshtml ビュー テンプレートを使用してこれらのリンクは以下のようなコードの出力を更新すること**(これには入力しないで - は、パフォーマンスを向上すること)**:</span><span class="sxs-lookup"><span data-stu-id="2893a-221">We could update our \Views\Store\Index.cshtml View template to output these links using code like below **(don't type this in - we're going to improve on it)**:</span></span>
+<span data-ttu-id="2893a-219">当社/Store URL を現在ジャンルの一覧を表示するには、単にプレーン テキストとしてジャンル名が一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="2893a-219">Our /Store URL that lists Genres currently lists the Genre names simply as plain text.</span></span> <span data-ttu-id="2893a-220">みましょうようにプレーン テキストではなく代わりに、ジャンル名へのリンク、適切なストア/参照 URL されるように変更音楽のジャンル"Disco"をストア/参照に移動などをクリックするとしますか? ジャンル Disco URL を = です。</span><span class="sxs-lookup"><span data-stu-id="2893a-220">Let's change this so that instead of plain text we instead have the Genre names link to the appropriate /Store/Browse URL, so that clicking on a music genre like "Disco" will navigate to the /Store/Browse?genre=Disco URL.</span></span> <span data-ttu-id="2893a-221">当社 \Views\Store\Index.cshtml ビュー テンプレートを使用してこれらのリンクは以下のようなコードの出力を更新すること **(これには入力しないで - は、パフォーマンスを向上すること)**:</span><span class="sxs-lookup"><span data-stu-id="2893a-221">We could update our \Views\Store\Index.cshtml View template to output these links using code like below **(don't type this in - we're going to improve on it)**:</span></span>
 
 [!code-html[Main](mvc-music-store-part-3/samples/sample19.html)]
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875436"
 ---
 <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="85b67-104">キューを中心とした作業のパターン (Azure と実際のクラウド アプリのビルド)</span><span class="sxs-lookup"><span data-stu-id="85b67-104">Queue-Centric Work Pattern (Building Real-World Cloud Apps with Azure)</span></span>
 ====================
@@ -135,11 +136,11 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="85b67-222">次の手順では、ロールのプロジェクトを標準的な web プロジェクトを含むソリューションに、ワーカーを追加する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="85b67-222">The following steps show how to add a worker role project to a solution that has a standard web project.</span></span> <span data-ttu-id="85b67-223">修正したプロジェクトをダウンロードすることができます、これらの手順は既に実行されています。</span><span class="sxs-lookup"><span data-stu-id="85b67-223">These steps have already been done in the Fix It project that you can download.</span></span>
 
-<span data-ttu-id="85b67-224">最初にクラウド サービス プロジェクトを Visual Studio ソリューションに追加します。</span><span class="sxs-lookup"><span data-stu-id="85b67-224">First add a Cloud Service project to the Visual Studio solution.</span></span> <span data-ttu-id="85b67-225">ソリューションを右クリックし **追加**、し**新しいプロジェクト**です。</span><span class="sxs-lookup"><span data-stu-id="85b67-225">Right-click the solution and select **Add**, then **New Project**.</span></span> <span data-ttu-id="85b67-226">左側のウィンドウで展開**Visual c#**選択**クラウド**です。</span><span class="sxs-lookup"><span data-stu-id="85b67-226">In the left pane, expand **Visual C#** and select **Cloud**.</span></span>
+<span data-ttu-id="85b67-224">最初にクラウド サービス プロジェクトを Visual Studio ソリューションに追加します。</span><span class="sxs-lookup"><span data-stu-id="85b67-224">First add a Cloud Service project to the Visual Studio solution.</span></span> <span data-ttu-id="85b67-225">ソリューションを右クリックし **追加**、し**新しいプロジェクト**です。</span><span class="sxs-lookup"><span data-stu-id="85b67-225">Right-click the solution and select **Add**, then **New Project**.</span></span> <span data-ttu-id="85b67-226">左側のウィンドウで展開**Visual c#** 選択**クラウド**です。</span><span class="sxs-lookup"><span data-stu-id="85b67-226">In the left pane, expand **Visual C#** and select **Cloud**.</span></span>
 
 [![](queue-centric-work-pattern/_static/image5.png)](queue-centric-work-pattern/_static/image4.png)
 
-<span data-ttu-id="85b67-227">**新しい Azure クラウド サービス**ダイアログ ボックスで、展開、 **Visual c#**左側のウィンドウでノード。</span><span class="sxs-lookup"><span data-stu-id="85b67-227">In the **New Azure Cloud Service** dialog, expand the **Visual C#** node on the left pane.</span></span> <span data-ttu-id="85b67-228">選択**ワーカー ロール**右矢印アイコンをクリックします。</span><span class="sxs-lookup"><span data-stu-id="85b67-228">Select **Worker Role** and click the right-arrow icon.</span></span>
+<span data-ttu-id="85b67-227">**新しい Azure クラウド サービス**ダイアログ ボックスで、展開、 **Visual c#** 左側のウィンドウでノード。</span><span class="sxs-lookup"><span data-stu-id="85b67-227">In the **New Azure Cloud Service** dialog, expand the **Visual C#** node on the left pane.</span></span> <span data-ttu-id="85b67-228">選択**ワーカー ロール**右矢印アイコンをクリックします。</span><span class="sxs-lookup"><span data-stu-id="85b67-228">Select **Worker Role** and click the right-arrow icon.</span></span>
 
 ![](queue-centric-work-pattern/_static/image6.png)
 

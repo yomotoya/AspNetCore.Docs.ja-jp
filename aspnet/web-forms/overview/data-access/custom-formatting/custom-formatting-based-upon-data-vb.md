@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876944"
 ---
 <a name="custom-formatting-based-upon-data-vb"></a><span data-ttu-id="ee3d3-104">データ (VB) に基づくカスタム書式設定</span><span class="sxs-lookup"><span data-stu-id="ee3d3-104">Custom Formatting Based Upon Data (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878764"
 ---
 <a name="an-overview-of-project-katana"></a><span data-ttu-id="e2ecb-104">プロジェクトの Katana の概要</span><span class="sxs-lookup"><span data-stu-id="e2ecb-104">An Overview of Project Katana</span></span>
 ====================
@@ -133,7 +134,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="katana-architecture"></a><span data-ttu-id="e2ecb-231">Katana アーキテクチャ</span><span class="sxs-lookup"><span data-stu-id="e2ecb-231">Katana Architecture</span></span>
 
- <span data-ttu-id="e2ecb-232">Katana コンポーネントのアーキテクチャは、次のようにアプリケーションを次の 4 つの論理層を分割:*ホスト、サーバー、ミドルウェア、*と*アプリケーション*です。</span><span class="sxs-lookup"><span data-stu-id="e2ecb-232">The Katana component architecture divides an application into four logical layers, as depicted below: *host, server, middleware,* and *application*.</span></span> <span data-ttu-id="e2ecb-233">コンポーネントのアーキテクチャは、これらのレイヤーの実装に簡単にで置換できる、多くの場合、アプリケーションの再コンパイルせずこのような方法で考慮されます。</span><span class="sxs-lookup"><span data-stu-id="e2ecb-233">The component architecture is factored in such a way that implementations of these layers can be easily substituted, in many cases, without requiring recompilation of the application.</span></span>   
+ <span data-ttu-id="e2ecb-232">Katana コンポーネントのアーキテクチャは、次のようにアプリケーションを次の 4 つの論理層を分割:*ホスト、サーバー、ミドルウェア、* と*アプリケーション*です。</span><span class="sxs-lookup"><span data-stu-id="e2ecb-232">The Katana component architecture divides an application into four logical layers, as depicted below: *host, server, middleware,* and *application*.</span></span> <span data-ttu-id="e2ecb-233">コンポーネントのアーキテクチャは、これらのレイヤーの実装に簡単にで置換できる、多くの場合、アプリケーションの再コンパイルせずこのような方法で考慮されます。</span><span class="sxs-lookup"><span data-stu-id="e2ecb-233">The component architecture is factored in such a way that implementations of these layers can be easily substituted, in many cases, without requiring recompilation of the application.</span></span>   
 
 ![](an-overview-of-project-katana/_static/image3.png)
 

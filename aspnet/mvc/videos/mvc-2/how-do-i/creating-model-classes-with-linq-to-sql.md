@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876177"
 ---
 <a name="creating-model-classes-with-linq-to-sql"></a><span data-ttu-id="a65c7-104">LINQ to SQL のモデル クラスを作成します。</span><span class="sxs-lookup"><span data-stu-id="a65c7-104">Creating Model Classes with LINQ to SQL</span></span>
 ====================

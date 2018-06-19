@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872755"
 ---
 <a name="authentication-and-authorization-for-signalr-hubs"></a><span data-ttu-id="ad4e5-104">SignalR ハブの認証と承認</span><span class="sxs-lookup"><span data-stu-id="ad4e5-104">Authentication and Authorization for SignalR Hubs</span></span>
 ====================

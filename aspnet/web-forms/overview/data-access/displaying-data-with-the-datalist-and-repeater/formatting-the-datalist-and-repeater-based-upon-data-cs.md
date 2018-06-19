@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876216"
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-c"></a><span data-ttu-id="b4df3-103">DataList とデータ (c#) に基づくリピータの書式設定</span><span class="sxs-lookup"><span data-stu-id="b4df3-103">Formatting the DataList and Repeater Based Upon Data (C#)</span></span>
 ====================

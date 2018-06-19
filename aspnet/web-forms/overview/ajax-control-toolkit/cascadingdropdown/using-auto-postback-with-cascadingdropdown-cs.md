@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872469"
 ---
 <a name="using-auto-postback-with-cascadingdropdown-c"></a><span data-ttu-id="d1531-103">CascadingDropDown (c#) での自動ポストバックの使用</span><span class="sxs-lookup"><span data-stu-id="d1531-103">Using Auto-Postback with CascadingDropDown (C#)</span></span>
 ====================

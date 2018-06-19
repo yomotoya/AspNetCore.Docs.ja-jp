@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893278"
 ---
 <a name="using-the-load-test-agent"></a><span data-ttu-id="3295d-104">ロード テスト エージェントを使用します。</span><span class="sxs-lookup"><span data-stu-id="3295d-104">Using the Load Test Agent</span></span>
 ====================

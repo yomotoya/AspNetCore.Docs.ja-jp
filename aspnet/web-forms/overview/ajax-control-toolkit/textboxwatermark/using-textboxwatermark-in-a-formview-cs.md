@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870779"
 ---
 <a name="using-textboxwatermark-in-a-formview-c"></a><span data-ttu-id="46e8d-104">TextBoxWatermark を使用して、フォーム ビュー (c#)</span><span class="sxs-lookup"><span data-stu-id="46e8d-104">Using TextBoxWatermark in a FormView (C#)</span></span>
 ====================

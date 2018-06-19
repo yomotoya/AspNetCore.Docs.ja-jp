@@ -15,6 +15,7 @@ ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34306648"
 ---
 # <a name="session-and-application-state-in-aspnet-core"></a><span data-ttu-id="0e11e-103">ASP.NET Core のセッションとアプリケーションの状態</span><span class="sxs-lookup"><span data-stu-id="0e11e-103">Session and application state in ASP.NET Core</span></span>
 

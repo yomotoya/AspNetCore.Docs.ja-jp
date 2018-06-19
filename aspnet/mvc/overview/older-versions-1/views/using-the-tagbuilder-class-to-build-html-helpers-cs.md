@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870389"
 ---
 <a name="using-the-tagbuilder-class-to-build-html-helpers-c"></a><span data-ttu-id="2b74f-104">HTML ヘルパー (c#) をビルドするのに TagBuilder クラスの使用</span><span class="sxs-lookup"><span data-stu-id="2b74f-104">Using the TagBuilder Class to Build HTML Helpers (C#)</span></span>
 ====================
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="2b74f-112">TagBuilder クラスは、System.Web.Mvc 名前空間に含まれています。</span><span class="sxs-lookup"><span data-stu-id="2b74f-112">The TagBuilder class is contained in the System.Web.Mvc namespace.</span></span> <span data-ttu-id="2b74f-113">5 つの方法があります。</span><span class="sxs-lookup"><span data-stu-id="2b74f-113">It has five methods:</span></span>
 
-- <span data-ttu-id="2b74f-114">AddCssClass() - を使用すると、新しい*クラス =""*属性をタグにします。</span><span class="sxs-lookup"><span data-stu-id="2b74f-114">AddCssClass() - Enables you to add a new *class=""* attribute to a tag.</span></span>
+- <span data-ttu-id="2b74f-114">AddCssClass() - を使用すると、新しい*クラス =""* 属性をタグにします。</span><span class="sxs-lookup"><span data-stu-id="2b74f-114">AddCssClass() - Enables you to add a new *class=""* attribute to a tag.</span></span>
 - <span data-ttu-id="2b74f-115">GenerateId() - には、id 属性をタグに追加することができます。</span><span class="sxs-lookup"><span data-stu-id="2b74f-115">GenerateId() - Enables you to add an id attribute to a tag.</span></span> <span data-ttu-id="2b74f-116">このメソッドは、id でピリオドを自動的に置き換えられます (既定では、ピリオド、アンダー スコアに置き換え)</span><span class="sxs-lookup"><span data-stu-id="2b74f-116">This method automatically replaces periods in the id (by default, periods are replaced by underscores)</span></span>
 - <span data-ttu-id="2b74f-117">MergeAttribute() - には、タグに属性を追加することができます。</span><span class="sxs-lookup"><span data-stu-id="2b74f-117">MergeAttribute() - Enables you to add attributes to a tag.</span></span> <span data-ttu-id="2b74f-118">このメソッドの複数のオーバー ロードがあります。</span><span class="sxs-lookup"><span data-stu-id="2b74f-118">There are multiple overloads of this method.</span></span>
 - <span data-ttu-id="2b74f-119">SetInnerText() - には、タグの内部テキ ストを設定することができます。</span><span class="sxs-lookup"><span data-stu-id="2b74f-119">SetInnerText() - Enables you to set the inner text of the tag.</span></span> <span data-ttu-id="2b74f-120">その内部テキ ストは、HTML が自動的にエンコードします。</span><span class="sxs-lookup"><span data-stu-id="2b74f-120">The inner text is HTML encode automatically.</span></span>

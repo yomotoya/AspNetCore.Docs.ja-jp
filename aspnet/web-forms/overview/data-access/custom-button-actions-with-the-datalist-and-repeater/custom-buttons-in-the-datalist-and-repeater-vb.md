@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876086"
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a><span data-ttu-id="342f7-103">DataList でリピータ (VB) カスタム ボタン</span><span class="sxs-lookup"><span data-stu-id="342f7-103">Custom Buttons in the DataList and Repeater (VB)</span></span>
 ====================
