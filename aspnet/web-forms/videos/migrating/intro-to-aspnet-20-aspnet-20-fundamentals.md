@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886044"
 ---
 <a name="intro-to-aspnet-20-aspnet-20-fundamentals"></a><span data-ttu-id="42465-103">[ASP.NET 2.0 の概要:]ASP.NET 2.0 の基礎</span><span class="sxs-lookup"><span data-stu-id="42465-103">[Intro to ASP.NET 2.0:] ASP.NET 2.0 Fundamentals</span></span>
 ====================

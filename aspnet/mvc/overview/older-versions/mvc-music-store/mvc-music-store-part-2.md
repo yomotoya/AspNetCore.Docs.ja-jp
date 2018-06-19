@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878699"
 ---
 <a name="part-2-controllers"></a><span data-ttu-id="1ae1f-104">パート 2: コント ローラー</span><span class="sxs-lookup"><span data-stu-id="1ae1f-104">Part 2: Controllers</span></span>
 ====================

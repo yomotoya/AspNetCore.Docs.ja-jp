@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874097"
 ---
 <a name="introduction-to-aspnet-identity"></a><span data-ttu-id="192a2-103">ASP.NET Id の概要</span><span class="sxs-lookup"><span data-stu-id="192a2-103">Introduction to ASP.NET Identity</span></span>
 ====================

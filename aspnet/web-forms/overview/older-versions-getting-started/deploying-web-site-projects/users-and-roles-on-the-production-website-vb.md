@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886993"
 ---
 <a name="users-and-roles-on-the-production-website-vb"></a><span data-ttu-id="1dbf2-103">ユーザーと、実稼働 web サイト (VB) の役割</span><span class="sxs-lookup"><span data-stu-id="1dbf2-103">Users and Roles On The Production Website (VB)</span></span>
 ====================

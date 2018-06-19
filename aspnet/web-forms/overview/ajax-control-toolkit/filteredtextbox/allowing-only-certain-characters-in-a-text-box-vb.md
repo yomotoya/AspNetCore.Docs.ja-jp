@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870155"
 ---
 <a name="allowing-only-certain-characters-in-a-text-box-vb"></a><span data-ttu-id="50359-104">テキスト ボックス (VB) 内の特定の文字のみを許可します。</span><span class="sxs-lookup"><span data-stu-id="50359-104">Allowing Only Certain Characters in a Text Box (VB)</span></span>
 ====================

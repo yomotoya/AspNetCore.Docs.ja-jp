@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874383"
 ---
 <a name="secure-applications-using-authentication-and-authorization"></a><span data-ttu-id="43d06-103">認証と承認を使用してアプリケーションをセキュリティ保護します。</span><span class="sxs-lookup"><span data-stu-id="43d06-103">Secure Applications Using Authentication and Authorization</span></span>
 ====================
@@ -51,7 +52,7 @@ ms.lasthandoff: 04/06/2018
 
 ![](secure-applications-using-authentication-and-authorization/_static/image1.png)
 
-<span data-ttu-id="43d06-128">[ログオン] リンクをクリックすると、ユーザーを*/アカウント/ログオン*URL:</span><span class="sxs-lookup"><span data-stu-id="43d06-128">Clicking the "Log On" link takes a user to the */Account/LogOn* URL:</span></span>
+<span data-ttu-id="43d06-128">[ログオン] リンクをクリックすると、ユーザーを */アカウント/ログオン*URL:</span><span class="sxs-lookup"><span data-stu-id="43d06-128">Clicking the "Log On" link takes a user to the */Account/LogOn* URL:</span></span>
 
 ![](secure-applications-using-authentication-and-authorization/_static/image2.png)
 

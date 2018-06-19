@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889593"
 ---
 <a name="strategies-for-database-development-and-deployment-vb"></a><span data-ttu-id="dcc31-104">データベースの開発と配置 (VB) の戦略</span><span class="sxs-lookup"><span data-stu-id="dcc31-104">Strategies for Database Development and Deployment (VB)</span></span>
 ====================

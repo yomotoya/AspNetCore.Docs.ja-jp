@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879011"
 ---
 <a name="creating-a-controller-vb"></a><span data-ttu-id="7412d-103">コント ローラー (VB) の作成</span><span class="sxs-lookup"><span data-stu-id="7412d-103">Creating a Controller (VB)</span></span>
 ====================

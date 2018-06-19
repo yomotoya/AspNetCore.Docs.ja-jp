@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872871"
 ---
 <a name="launching-a-modal-popup-window-from-server-code-vb"></a><span data-ttu-id="a0e8e-104">サーバー コード (VB) からのモーダル ポップアップ ウィンドウを起動します。</span><span class="sxs-lookup"><span data-stu-id="a0e8e-104">Launching a Modal Popup Window from Server Code (VB)</span></span>
 ====================

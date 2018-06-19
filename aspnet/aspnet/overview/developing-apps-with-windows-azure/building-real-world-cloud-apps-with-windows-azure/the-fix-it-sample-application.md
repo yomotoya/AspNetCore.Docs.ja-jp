@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876476"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="1fd7c-104">付録: 修正プログラム、サンプル アプリケーション (Azure での実際のクラウド アプリの構築)</span><span class="sxs-lookup"><span data-stu-id="1fd7c-104">Appendix: The Fix It Sample Application (Building Real-World Cloud Apps with Azure)</span></span>
 ====================
@@ -253,7 +254,7 @@ ms.lasthandoff: 04/06/2018
    3. <span data-ttu-id="1fd7c-269">ソリューション エクスプ ローラーで FixIt ソリューションを右クリックし、**プロパティ**です。</span><span class="sxs-lookup"><span data-stu-id="1fd7c-269">In Solution Explorer, right-click the FixIt solution and select **Properties**.</span></span>
    4. <span data-ttu-id="1fd7c-270">選択**マルチ スタートアップ プロジェクト**.</span><span class="sxs-lookup"><span data-stu-id="1fd7c-270">Select **Multiple Startup Projects**..</span></span>
    5. <span data-ttu-id="1fd7c-271">**アクション**MyFixIt と MyFixItCloudService、下にあるドロップダウン リストを選択**開始**です。</span><span class="sxs-lookup"><span data-stu-id="1fd7c-271">In the **Action** dropdown list under MyFixIt and MyFixItCloudService, select **Start**.</span></span>
-   6. <span data-ttu-id="1fd7c-272">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="1fd7c-272">Click **OK**.</span></span>
+   6. <span data-ttu-id="1fd7c-272">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="1fd7c-272">Click **OK**.</span></span>
    7. <span data-ttu-id="1fd7c-273">両方のプロジェクトを実行する場合は F5 キーを押します。</span><span class="sxs-lookup"><span data-stu-id="1fd7c-273">Press F5 to run both projects.</span></span>
 
       <span data-ttu-id="1fd7c-274">MyFixItCloudService プロジェクトを実行するときに、Visual Studio は、Azure コンピューティング エミュレーターを起動します。</span><span class="sxs-lookup"><span data-stu-id="1fd7c-274">When you run the MyFixItCloudService project, Visual Studio starts the Azure compute emulator.</span></span> <span data-ttu-id="1fd7c-275">ファイアウォールの構成によっては、エミュレーターがファイアウォールを通過を許可する必要があります。</span><span class="sxs-lookup"><span data-stu-id="1fd7c-275">Depending on your firewall configuration, you might need to allow the emulator through the firewall.</span></span>

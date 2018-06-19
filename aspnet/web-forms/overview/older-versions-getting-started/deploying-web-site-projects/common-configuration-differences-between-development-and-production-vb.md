@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889372"
 ---
 <a name="common-configuration-differences-between-development-and-production-vb"></a><span data-ttu-id="81afc-104">開発および運用 (VB) の間で共通の構成の相違点</span><span class="sxs-lookup"><span data-stu-id="81afc-104">Common Configuration Differences Between Development and Production (VB)</span></span>
 ====================

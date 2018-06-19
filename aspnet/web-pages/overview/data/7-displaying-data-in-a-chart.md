@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899724"
 ---
 <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a><span data-ttu-id="01f60-105">ASP.NET Web Pages (Razor) を持つグラフ データを表示します。</span><span class="sxs-lookup"><span data-stu-id="01f60-105">Displaying Data in a Chart with ASP.NET Web Pages (Razor)</span></span>
 ====================
@@ -111,7 +112,7 @@ ms.lasthandoff: 04/06/2018
 2. <span data-ttu-id="01f60-175">既存の XML を架空の会社の従業員に関する XML データの一部であると、次に置き換えます。</span><span class="sxs-lookup"><span data-stu-id="01f60-175">Replace the existing XML with the following, which is some XML data about employees in a fictional company.</span></span> 
 
     [!code-xml[Main](7-displaying-data-in-a-chart/samples/sample5.xml)]
-3. <span data-ttu-id="01f60-176">*アプリ\_データ*フォルダー、という名前の新しい XML ファイルを作成する*data.xsd*です。</span><span class="sxs-lookup"><span data-stu-id="01f60-176">In the *App\_Data* folder, create a new XML file named *data.xsd*.</span></span> <span data-ttu-id="01f60-177">(この時間は、拡張機能を*.xsd*)。</span><span class="sxs-lookup"><span data-stu-id="01f60-177">(Note that the extension this time is *.xsd*.)</span></span>
+3. <span data-ttu-id="01f60-176">*アプリ\_データ*フォルダー、という名前の新しい XML ファイルを作成する*data.xsd*です。</span><span class="sxs-lookup"><span data-stu-id="01f60-176">In the *App\_Data* folder, create a new XML file named *data.xsd*.</span></span> <span data-ttu-id="01f60-177">(この時間は、拡張機能を *.xsd*)。</span><span class="sxs-lookup"><span data-stu-id="01f60-177">(Note that the extension this time is *.xsd*.)</span></span>
 4. <span data-ttu-id="01f60-178">次のように既存の XML に置き換えます。</span><span class="sxs-lookup"><span data-stu-id="01f60-178">Replace the existing XML with the following:</span></span> 
 
     [!code-xml[Main](7-displaying-data-in-a-chart/samples/sample6.xml)]
@@ -154,7 +155,7 @@ ms.lasthandoff: 04/06/2018
 > 
 > [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample8.cshtml)]
 > 
-> <span data-ttu-id="01f60-214">追加することができます`using`その他の .NET Framework 名前空間を参照するためのステートメント。</span><span class="sxs-lookup"><span data-stu-id="01f60-214">You can add `using` statements for any other .NET Framework namespaces that you want to reference.</span></span> <span data-ttu-id="01f60-215">ただし、前述のように、必要はありませんこれを行う多くの場合、ほとんどの演習ではクラスで使用するために、ASP.NET によって自動的にインポートされる名前空間であるため*.cshtml*と*.vbhtml*ページ。</span><span class="sxs-lookup"><span data-stu-id="01f60-215">However, as noted, you won't need to do this often, because most of the classes that you'll work with are in namespaces that are imported automatically by ASP.NET for use in *.cshtml* and *.vbhtml* pages.</span></span>
+> <span data-ttu-id="01f60-214">追加することができます`using`その他の .NET Framework 名前空間を参照するためのステートメント。</span><span class="sxs-lookup"><span data-stu-id="01f60-214">You can add `using` statements for any other .NET Framework namespaces that you want to reference.</span></span> <span data-ttu-id="01f60-215">ただし、前述のように、必要はありませんこれを行う多くの場合、ほとんどの演習ではクラスで使用するために、ASP.NET によって自動的にインポートされる名前空間であるため *.cshtml*と *.vbhtml*ページ。</span><span class="sxs-lookup"><span data-stu-id="01f60-215">However, as noted, you won't need to do this often, because most of the classes that you'll work with are in namespaces that are imported automatically by ASP.NET for use in *.cshtml* and *.vbhtml* pages.</span></span>
 
 
 <a id="Displaying_Charts"></a>
@@ -162,7 +163,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="01f60-217">例で、これまで、グラフを作成して、そのグラフがグラフィックとしてブラウザーに直接表示されます。</span><span class="sxs-lookup"><span data-stu-id="01f60-217">In the examples you've seen so far, you create a chart and then the chart is rendered directly to the browser as a graphic.</span></span> <span data-ttu-id="01f60-218">多くの場合、ただし、するブラウザーでそれ自体ではなく、ページの一部として、グラフが表示されます。</span><span class="sxs-lookup"><span data-stu-id="01f60-218">In many cases, though, you want to display a chart as part of a page, not just by itself in the browser.</span></span> <span data-ttu-id="01f60-219">これを行うには、2 段階のプロセスが必要です。</span><span class="sxs-lookup"><span data-stu-id="01f60-219">To do that requires a two-step process.</span></span> <span data-ttu-id="01f60-220">最初の手順では、既に説明したように、グラフを生成するページを作成します。</span><span class="sxs-lookup"><span data-stu-id="01f60-220">The first step is to create a page that generates the chart, as you've already seen.</span></span>
 
-<span data-ttu-id="01f60-221">2 番目の手順では、別のページで、結果のイメージを表示します。</span><span class="sxs-lookup"><span data-stu-id="01f60-221">The second step is to display the resulting image in another page.</span></span> <span data-ttu-id="01f60-222">イメージを表示するには、HTML を使用する`<img>`同じ内の要素とすべてのイメージを表示する方法です。</span><span class="sxs-lookup"><span data-stu-id="01f60-222">To display the image, you use an HTML `<img>` element, in the same way you would to display any image.</span></span> <span data-ttu-id="01f60-223">参照するのではなく、ただし、 *.jpg*または*.png*ファイル、`<img>`要素の参照、 *.cshtml*を含むファイル、`Chart`ヘルパーをグラフを作成します。</span><span class="sxs-lookup"><span data-stu-id="01f60-223">However, instead of referencing a *.jpg* or *.png* file, the `<img>` element references the *.cshtml* file that contains the `Chart` helper that creates the chart.</span></span> <span data-ttu-id="01f60-224">表示ページを実行すると、`<img>`要素の出力の取得、`Chart`ヘルパーし、グラフを表示します。</span><span class="sxs-lookup"><span data-stu-id="01f60-224">When the display page runs, the `<img>` element gets the output of the `Chart` helper and renders the chart.</span></span>
+<span data-ttu-id="01f60-221">2 番目の手順では、別のページで、結果のイメージを表示します。</span><span class="sxs-lookup"><span data-stu-id="01f60-221">The second step is to display the resulting image in another page.</span></span> <span data-ttu-id="01f60-222">イメージを表示するには、HTML を使用する`<img>`同じ内の要素とすべてのイメージを表示する方法です。</span><span class="sxs-lookup"><span data-stu-id="01f60-222">To display the image, you use an HTML `<img>` element, in the same way you would to display any image.</span></span> <span data-ttu-id="01f60-223">参照するのではなく、ただし、 *.jpg*または *.png*ファイル、`<img>`要素の参照、 *.cshtml*を含むファイル、`Chart`ヘルパーをグラフを作成します。</span><span class="sxs-lookup"><span data-stu-id="01f60-223">However, instead of referencing a *.jpg* or *.png* file, the `<img>` element references the *.cshtml* file that contains the `Chart` helper that creates the chart.</span></span> <span data-ttu-id="01f60-224">表示ページを実行すると、`<img>`要素の出力の取得、`Chart`ヘルパーし、グラフを表示します。</span><span class="sxs-lookup"><span data-stu-id="01f60-224">When the display page runs, the `<img>` element gets the output of the `Chart` helper and renders the chart.</span></span>
 
 ![](7-displaying-data-in-a-chart/_static/image11.jpg)
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879050"
 ---
 <a name="adding-additional-datatable-columns-vb"></a><span data-ttu-id="19db0-104">その他のデータ テーブルの列 (VB) を追加します。</span><span class="sxs-lookup"><span data-stu-id="19db0-104">Adding Additional DataTable Columns (VB)</span></span>
 ====================

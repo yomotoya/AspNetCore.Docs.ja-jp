@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881429"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-nobot-control"></a><span data-ttu-id="5215c-105">[How Do i:]ASP.NET AJAX NoBot コントロールを使用しますか。</span><span class="sxs-lookup"><span data-stu-id="5215c-105">[How Do I:] Use the ASP.NET AJAX NoBot Control?</span></span>
 ====================

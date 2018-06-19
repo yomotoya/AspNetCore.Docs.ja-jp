@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888251"
 ---
 <a name="batch-updating-vb"></a><span data-ttu-id="a499f-105">一括更新 (VB)</span><span class="sxs-lookup"><span data-stu-id="a499f-105">Batch Updating (VB)</span></span>
 ====================

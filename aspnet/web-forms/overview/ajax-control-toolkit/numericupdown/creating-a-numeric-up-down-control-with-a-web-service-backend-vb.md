@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871390"
 ---
 <a name="creating-a-numeric-updown-control-with-a-web-service-backend-vb"></a><span data-ttu-id="5d128-103">Web サービス バックエンド (VB) と数値のアップダウン コントロールを作成します。</span><span class="sxs-lookup"><span data-stu-id="5d128-103">Creating a Numeric Up/Down Control with a Web Service Backend (VB)</span></span>
 ====================

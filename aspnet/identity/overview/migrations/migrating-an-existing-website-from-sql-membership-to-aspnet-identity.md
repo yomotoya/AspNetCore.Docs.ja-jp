@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874994"
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a><span data-ttu-id="0d47c-103">SQL メンバーシップから ASP.NET Identity に既存の web サイトを移行します。</span><span class="sxs-lookup"><span data-stu-id="0d47c-103">Migrating an Existing Website from SQL Membership to ASP.NET Identity</span></span>
 ====================

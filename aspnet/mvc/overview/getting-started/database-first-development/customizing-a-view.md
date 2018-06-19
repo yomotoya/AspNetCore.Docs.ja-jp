@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867659"
 ---
 <a name="ef-database-first-with-aspnet-mvc-customizing-a-view"></a><span data-ttu-id="d9490-104">ASP.NET MVC で最初の EF データベース: ビューをカスタマイズします。</span><span class="sxs-lookup"><span data-stu-id="d9490-104">EF Database First with ASP.NET MVC: Customizing a View</span></span>
 ====================

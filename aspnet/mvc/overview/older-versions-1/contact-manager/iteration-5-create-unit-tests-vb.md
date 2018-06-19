@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875280"
 ---
 <a name="iteration-5--create-unit-tests-vb"></a><span data-ttu-id="37078-104">イテレーション #5-単体テストの作成 (VB)</span><span class="sxs-lookup"><span data-stu-id="37078-104">Iteration #5 – Create unit tests (VB)</span></span>
 ====================
@@ -184,7 +185,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="37078-258">残りのテストいることを確認無効な連絡先と CreateContact() メソッドが呼び出されたときに、メソッドが false を返します、予想される検証エラー メッセージがモデルの状態に追加します。</span><span class="sxs-lookup"><span data-stu-id="37078-258">The remaining tests verify that when the CreateContact() method is called with an invalid Contact then the method returns false and the expected validation error message is added to model state.</span></span> <span data-ttu-id="37078-259">たとえば、CreateContactRequiredFirstName() テストは、その FirstName プロパティに空の文字列を連絡先クラスのインスタンスを作成します。</span><span class="sxs-lookup"><span data-stu-id="37078-259">For example, the CreateContactRequiredFirstName() test creates an instance of the Contact class with an empty string for its FirstName property.</span></span> <span data-ttu-id="37078-260">次に、無効な連絡先と CreateContact() メソッドが呼び出されます。</span><span class="sxs-lookup"><span data-stu-id="37078-260">Next, the CreateContact() method is called with the invalid Contact.</span></span> <span data-ttu-id="37078-261">最後を検証 CreateContact() が false を返すことと、モデルの状態が含まれている予期された検証エラー メッセージには「名が必要」です。</span><span class="sxs-lookup"><span data-stu-id="37078-261">Finally, the test verifies that CreateContact() returns false and that model state contains the expected validation error message "First name is required."</span></span>
 
-<span data-ttu-id="37078-262">メニュー オプションを選択してリスト 1 の単体テストを実行することができます**(CTRL + R、A) のソリューション内のすべてのテストを実行します。 テスト**です。</span><span class="sxs-lookup"><span data-stu-id="37078-262">You can run the unit tests in Listing 1 by selecting the menu option **Test, Run, All Tests in Solution (CTRL+R, A)**.</span></span> <span data-ttu-id="37078-263">テスト結果 ウィンドウで、テストの結果が表示されます (図 4 を参照してください)。</span><span class="sxs-lookup"><span data-stu-id="37078-263">The results of the tests are displayed in the Test Results window (see Figure 4).</span></span>
+<span data-ttu-id="37078-262">メニュー オプションを選択してリスト 1 の単体テストを実行することができます **(CTRL + R、A) のソリューション内のすべてのテストを実行します。 テスト**です。</span><span class="sxs-lookup"><span data-stu-id="37078-262">You can run the unit tests in Listing 1 by selecting the menu option **Test, Run, All Tests in Solution (CTRL+R, A)**.</span></span> <span data-ttu-id="37078-263">テスト結果 ウィンドウで、テストの結果が表示されます (図 4 を参照してください)。</span><span class="sxs-lookup"><span data-stu-id="37078-263">The results of the tests are displayed in the Test Results window (see Figure 4).</span></span>
 
 
 <span data-ttu-id="37078-264">[![テスト結果](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)</span><span class="sxs-lookup"><span data-stu-id="37078-264">[![Test Results](iteration-5-create-unit-tests-vb/_static/image4.jpg)](iteration-5-create-unit-tests-vb/_static/image7.png)</span></span>

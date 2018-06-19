@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873886"
 ---
 <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="d48ea-104">シングル サインオン (Azure と実際のクラウド アプリのビルド)</span><span class="sxs-lookup"><span data-stu-id="d48ea-104">Single Sign-On (Building Real-World Cloud Apps with Azure)</span></span>
 ====================
@@ -110,7 +111,7 @@ ms.lasthandoff: 04/06/2018
 
 ![WAAD 同期ツール構成ウィザード](single-sign-on/_static/image15.png)
 
-<span data-ttu-id="d48ea-172">をクリックして**[次へ]**、し、内部設置型を入力し、AD の資格情報。</span><span class="sxs-lookup"><span data-stu-id="d48ea-172">Click **Next**, and then enter your on-premises AD credentials.</span></span>
+<span data-ttu-id="d48ea-172">をクリックして **[次へ]**、し、内部設置型を入力し、AD の資格情報。</span><span class="sxs-lookup"><span data-stu-id="d48ea-172">Click **Next**, and then enter your on-premises AD credentials.</span></span>
 
 ![WAAD 同期ツール構成ウィザード](single-sign-on/_static/image16.png)
 

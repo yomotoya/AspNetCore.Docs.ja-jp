@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883142"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-timer-control"></a><span data-ttu-id="bedb8-104">[How Do i:]ASP.NET AJAX Timer コントロールを使用しますか。</span><span class="sxs-lookup"><span data-stu-id="bedb8-104">[How Do I:] Use the ASP.NET AJAX Timer Control?</span></span>
 ====================

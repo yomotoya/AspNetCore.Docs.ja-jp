@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888706"
 ---
 <a name="wrapping-database-modifications-within-a-transaction-vb"></a><span data-ttu-id="696ab-104">トランザクション (VB) 内での折り返しデータベースの変更</span><span class="sxs-lookup"><span data-stu-id="696ab-104">Wrapping Database Modifications within a Transaction (VB)</span></span>
 ====================

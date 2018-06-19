@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877113"
 ---
 <a name="querying-data-with-the-sqldatasource-control-c"></a><span data-ttu-id="f519d-104">SqlDataSource コントロール (c#) を使用してデータのクエリを実行します。</span><span class="sxs-lookup"><span data-stu-id="f519d-104">Querying Data with the SqlDataSource Control (C#)</span></span>
 ====================

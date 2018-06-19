@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882466"
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a><span data-ttu-id="9ddba-103">Web Farm Framework によるサーバー ファームの作成</span><span class="sxs-lookup"><span data-stu-id="9ddba-103">Creating a Server Farm with the Web Farm Framework</span></span>
 ====================
@@ -81,7 +82,7 @@ ms.lasthandoff: 04/06/2018
 5. <span data-ttu-id="9ddba-157"><strong>Web Farm Framework 2</strong> 。<em>x</em>行で、をクリックして<strong>追加</strong>です。</span><span class="sxs-lookup"><span data-stu-id="9ddba-157">In the <strong>Web Farm Framework 2.</strong><em>x</em> row, click <strong>Add</strong>.</span></span>
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image2.png)
-6. <span data-ttu-id="9ddba-158">**[インストール]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="9ddba-158">Click **Install**.</span></span> <span data-ttu-id="9ddba-159">Web Platform Installer がインストールの一覧にさまざまな他の依存関係と共に、Web 配置ツールを追加していることを確認します。</span><span class="sxs-lookup"><span data-stu-id="9ddba-159">Notice that the Web Platform Installer has added the Web Deployment Tool, along with various other dependencies, to the installation list.</span></span>
+6. <span data-ttu-id="9ddba-158">**[インストール]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="9ddba-158">Click **Install**.</span></span> <span data-ttu-id="9ddba-159">Web Platform Installer がインストールの一覧にさまざまな他の依存関係と共に、Web 配置ツールを追加していることを確認します。</span><span class="sxs-lookup"><span data-stu-id="9ddba-159">Notice that the Web Platform Installer has added the Web Deployment Tool, along with various other dependencies, to the installation list.</span></span>
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image3.png)
 7. <span data-ttu-id="9ddba-160">ライセンス条項を確認し、条項に同意した場合にをクリックして**同意**です。</span><span class="sxs-lookup"><span data-stu-id="9ddba-160">Review the license terms, and if you consent to the terms, click **I Accept**.</span></span>
@@ -131,7 +132,7 @@ ms.lasthandoff: 04/06/2018
 4. <span data-ttu-id="9ddba-192">ユーザー名と各サーバーでローカルの administrators グループに追加したドメイン アカウントのパスワードを入力します。</span><span class="sxs-lookup"><span data-stu-id="9ddba-192">Type the user name and password of the domain account that you added to the local administrators group on each server.</span></span>
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image6.png)
-5. <span data-ttu-id="9ddba-193">**[次へ]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="9ddba-193">Click **Next**.</span></span>
+5. <span data-ttu-id="9ddba-193">**[次へ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="9ddba-193">Click **Next**.</span></span>
 6. <span data-ttu-id="9ddba-194">**サーバーの追加** ページの選択、プライマリ サーバーの完全修飾ドメイン名 (FQDN) を入力**プライマリ サーバー**、クリックして**追加**です。</span><span class="sxs-lookup"><span data-stu-id="9ddba-194">On the **Add Servers** page, type the fully qualified domain name (FQDN) of the primary server, select **Primary Server**, and then click **Add**.</span></span>
 7. <span data-ttu-id="9ddba-195">この時点では、WFF しようとすると、指定された資格情報を使用してプライマリ サーバーに接続します。</span><span class="sxs-lookup"><span data-stu-id="9ddba-195">At this point, WFF will attempt to contact the primary server using the credentials you provided.</span></span> <span data-ttu-id="9ddba-196">接続に成功した場合、プライマリ サーバーが追加されるテーブルに上、**サーバーの追加**ページ。</span><span class="sxs-lookup"><span data-stu-id="9ddba-196">If the connection succeeds, the primary server will be added to the table on the **Add Servers** page.</span></span>
 

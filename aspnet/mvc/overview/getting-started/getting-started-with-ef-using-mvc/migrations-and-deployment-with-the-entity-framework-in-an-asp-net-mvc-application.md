@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879557"
 ---
 <a name="code-first-migrations-and-deployment-with-the-entity-framework-in-an-aspnet-mvc-application"></a><span data-ttu-id="499a4-103">最初にコードを移行し、Entity Framework、ASP.NET MVC アプリケーションと展開</span><span class="sxs-lookup"><span data-stu-id="499a4-103">Code First Migrations and Deployment with the Entity Framework in an ASP.NET MVC Application</span></span>
 ====================
@@ -195,7 +196,7 @@ ms.lasthandoff: 04/06/2018
 5. <span data-ttu-id="499a4-262">プロファイルを構成した後、**接続** タブが表示されます。</span><span class="sxs-lookup"><span data-stu-id="499a4-262">After the Profile has been configured, the **Connection** tab will be shown.</span></span> <span data-ttu-id="499a4-263">をクリックして**接続の検証**設定が正しいことを確認するには</span><span class="sxs-lookup"><span data-stu-id="499a4-263">Click **Validate Connection** to make sure that the settings are correct</span></span>
 
     ![接続を検証します。](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Connection.png)
-6. <span data-ttu-id="499a4-265">緑のチェック マークが横に示すように、接続が検証されると、**接続の検証**ボタンをクリックします。</span><span class="sxs-lookup"><span data-stu-id="499a4-265">When the connection has been validated, a green check mark is shown next to the **Validate Connection** button.</span></span> <span data-ttu-id="499a4-266">**[次へ]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="499a4-266">Click **Next**.</span></span>
+6. <span data-ttu-id="499a4-265">緑のチェック マークが横に示すように、接続が検証されると、**接続の検証**ボタンをクリックします。</span><span class="sxs-lookup"><span data-stu-id="499a4-265">When the connection has been validated, a green check mark is shown next to the **Validate Connection** button.</span></span> <span data-ttu-id="499a4-266">**[次へ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="499a4-266">Click **Next**.</span></span>
   
     ![正常に検証された接続](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-SettingsValidated.png)
 7. <span data-ttu-id="499a4-268">開く、**リモート接続文字列**下にあるドロップダウン リスト**SchoolContext**を作成したデータベースの接続文字列を選択します。</span><span class="sxs-lookup"><span data-stu-id="499a4-268">Open the **Remote connection string** drop-down list under **SchoolContext** and select the connection string for the database you created.</span></span>
@@ -204,7 +205,7 @@ ms.lasthandoff: 04/06/2018
     ![[設定] タブ](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Settings.png)
 
     <span data-ttu-id="499a4-271">この設定により、展開プロセスを自動的にアプリケーションを構成する*Web.config* Code First を使用するように、移行先サーバー上のファイル、`MigrateDatabaseToLatestVersion`初期化子のクラスです。</span><span class="sxs-lookup"><span data-stu-id="499a4-271">This setting causes the deployment process to automatically configure the application *Web.config* file on the destination server so that Code First uses the `MigrateDatabaseToLatestVersion` initializer class.</span></span>
-9. <span data-ttu-id="499a4-272">**[次へ]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="499a4-272">Click **Next**.</span></span>
+9. <span data-ttu-id="499a4-272">**[次へ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="499a4-272">Click **Next**.</span></span>
 10. <span data-ttu-id="499a4-273">**プレビュー**  タブで、をクリックして**開始プレビュー**です。</span><span class="sxs-lookup"><span data-stu-id="499a4-273">In the **Preview** tab, click **Start Preview**.</span></span>
   
     ![[プレビュー] タブで StartPreview ボタン](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Preview.png)
@@ -212,7 +213,7 @@ ms.lasthandoff: 04/06/2018
     <span data-ttu-id="499a4-275">タブには、サーバーにコピーされるファイルの一覧が表示されます。</span><span class="sxs-lookup"><span data-stu-id="499a4-275">The tab displays a list of the files that will be copied to the server.</span></span> <span data-ttu-id="499a4-276">プレビューを表示する、アプリケーションを発行するため必要はありませんですが便利関数を認識します。</span><span class="sxs-lookup"><span data-stu-id="499a4-276">Displaying the preview isn't required to publish the application but is a useful function to be aware of.</span></span> <span data-ttu-id="499a4-277">この場合、表示されているファイルの一覧は何もする必要はありません。</span><span class="sxs-lookup"><span data-stu-id="499a4-277">In this case, you don't need to do anything with the list of files that is displayed.</span></span> <span data-ttu-id="499a4-278">このアプリケーションを配置するときに、[次へ] に変更されたファイルだけは、この一覧になります。</span><span class="sxs-lookup"><span data-stu-id="499a4-278">The next time you deploy this application, only the files that have changed will be in this list.</span></span>
     <span data-ttu-id="499a4-279">![StartPreview ファイル出力](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-PreviewLoaded.png)</span><span class="sxs-lookup"><span data-stu-id="499a4-279">![StartPreview file output](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-PreviewLoaded.png)</span></span>
 
-11. <span data-ttu-id="499a4-280">**[発行]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="499a4-280">Click **Publish**.</span></span>
+11. <span data-ttu-id="499a4-280">**[発行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="499a4-280">Click **Publish**.</span></span>
     <span data-ttu-id="499a4-281">Visual Studio では、Azure サーバーへのファイルのコピーのプロセスを開始します。</span><span class="sxs-lookup"><span data-stu-id="499a4-281">Visual Studio begins the process of copying the files to the Azure server.</span></span>
 12. <span data-ttu-id="499a4-282">**出力**ウィンドウどのような展開アクションを実行した示し、展開の成功した完了を報告します。</span><span class="sxs-lookup"><span data-stu-id="499a4-282">The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.</span></span>
   
@@ -222,11 +223,11 @@ ms.lasthandoff: 04/06/2018
   
     ![Students_index_page_with_paging](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Site.png)
 
-<span data-ttu-id="499a4-287">この時点で、 *SchoolContext*データベースが作成された Azure SQL データベースで選択したので、**実行 Code First Migrations (アプリの起動時に実行)**です。</span><span class="sxs-lookup"><span data-stu-id="499a4-287">At this point your *SchoolContext* database has been created in the Azure SQL Database because you selected **Execute Code First Migrations (runs on app start)**.</span></span> <span data-ttu-id="499a4-288">*Web.config*配置済みの web サイト内のファイルが変更されたできるように、 [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx)初期化子は初めてコード データ読み取りまたは書き込み (これが発生したデータベースでの実行選択した場合、**受講者** タブ)。</span><span class="sxs-lookup"><span data-stu-id="499a4-288">The *Web.config* file in the deployed web site has been changed so that the [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) initializer runs the first time your code reads or writes data in the database (which happened when you selected the **Students** tab):</span></span>
+<span data-ttu-id="499a4-287">この時点で、 *SchoolContext*データベースが作成された Azure SQL データベースで選択したので、**実行 Code First Migrations (アプリの起動時に実行)** です。</span><span class="sxs-lookup"><span data-stu-id="499a4-287">At this point your *SchoolContext* database has been created in the Azure SQL Database because you selected **Execute Code First Migrations (runs on app start)**.</span></span> <span data-ttu-id="499a4-288">*Web.config*配置済みの web サイト内のファイルが変更されたできるように、 [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx)初期化子は初めてコード データ読み取りまたは書き込み (これが発生したデータベースでの実行選択した場合、**受講者** タブ)。</span><span class="sxs-lookup"><span data-stu-id="499a4-288">The *Web.config* file in the deployed web site has been changed so that the [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) initializer runs the first time your code reads or writes data in the database (which happened when you selected the **Students** tab):</span></span>
 
 ![](https://asp.net/media/4367421/mig.png)
 
-<span data-ttu-id="499a4-289">展開プロセスは、新しい接続文字列も作成*(SchoolContext\_DatabasePublish*) の Code First Migrations データベース スキーマの更新と、データベースのシード処理に使用します。</span><span class="sxs-lookup"><span data-stu-id="499a4-289">The deployment process also created a new connection string *(SchoolContext\_DatabasePublish*) for Code First Migrations to use for updating the database schema and seeding the database.</span></span>
+<span data-ttu-id="499a4-289">展開プロセスは、新しい接続文字列も作成 *(SchoolContext\_DatabasePublish*) の Code First Migrations データベース スキーマの更新と、データベースのシード処理に使用します。</span><span class="sxs-lookup"><span data-stu-id="499a4-289">The deployment process also created a new connection string *(SchoolContext\_DatabasePublish*) for Code First Migrations to use for updating the database schema and seeding the database.</span></span>
 
 ![Database_Publish 接続文字列](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image26.png)
 

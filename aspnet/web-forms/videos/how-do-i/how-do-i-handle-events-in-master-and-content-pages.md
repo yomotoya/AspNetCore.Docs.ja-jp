@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-handle-events-in-master-and-content-pages
-title: "[How Do i:]マスター ページとコンテンツ ページでイベントを処理 |Microsoft ドキュメント"
+title: '[How Do i:]マスター ページとコンテンツ ページでイベントを処理 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels はマスターと個々 のコンテンツ ページでイベントを処理する方法を表示します。 にもかかわらずマスターと個々 のコンテの最終結果しています."
+description: このビデオ Chris Pels はマスターと個々 のコンテンツ ページでイベントを処理する方法を表示します。 にもかかわらずマスターと個々 のコンテの最終結果しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526001"
 ---
 <a name="how-do-i-handle-events-in-master-and-content-pages"></a><span data-ttu-id="fa6e5-104">[How Do i:]マスター ページとコンテンツ ページでイベントを処理します。</span><span class="sxs-lookup"><span data-stu-id="fa6e5-104">[How Do I:] Handle Events in Master and Content Pages</span></span>
 ====================

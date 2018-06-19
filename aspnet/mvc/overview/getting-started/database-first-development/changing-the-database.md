@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879323"
 ---
 <a name="ef-database-first-with-aspnet-mvc-changing-the-database"></a><span data-ttu-id="00390-104">ASP.NET MVC で最初の EF Database: データベースの変更</span><span class="sxs-lookup"><span data-stu-id="00390-104">EF Database First with ASP.NET MVC: Changing the Database</span></span>
 ====================
@@ -47,7 +48,7 @@ ms.lasthandoff: 04/06/2018
 
 ![更新ウィザード](changing-the-database/_static/image4.png)
 
-<span data-ttu-id="00390-128">**[完了]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="00390-128">Click **Finish**.</span></span>
+<span data-ttu-id="00390-128">**[完了]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="00390-128">Click **Finish**.</span></span>
 
 <span data-ttu-id="00390-129">データベース ダイアグラムには、新しい更新プロセスが完了したら、 **MiddleName**プロパティです。</span><span class="sxs-lookup"><span data-stu-id="00390-129">After the update process is finished, the database diagram includes the new **MiddleName** property.</span></span> <span data-ttu-id="00390-130">保存、 **ContosoModel.edmx**ファイル。</span><span class="sxs-lookup"><span data-stu-id="00390-130">Save the **ContosoModel.edmx** file.</span></span> <span data-ttu-id="00390-131">新しいプロパティに反映されるまでのこのファイルを保存する必要があります、 **Student.cs**クラスです。</span><span class="sxs-lookup"><span data-stu-id="00390-131">You must save this file for the new property to be propagated to the **Student.cs** class.</span></span> <span data-ttu-id="00390-132">データベースとモデルを更新したようになりました。</span><span class="sxs-lookup"><span data-stu-id="00390-132">You have now updated the database and the model.</span></span>
 

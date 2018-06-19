@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879336"
 ---
 <a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a><span data-ttu-id="8a0f6-104">Entity Framework 6 Database First MVC 5 を使用すると作業の開始</span><span class="sxs-lookup"><span data-stu-id="8a0f6-104">Getting Started with Entity Framework 6 Database First using MVC 5</span></span>
 ====================
@@ -97,7 +98,7 @@ ms.lasthandoff: 04/06/2018
 
 ![出力を表示します。](setting-up-database/_static/image7.png)
 
-<span data-ttu-id="8a0f6-171">新しいデータベースが作成されたことを表示するには、開く**SQL Server オブジェクト エクスプ ローラー**し、適切なローカル データベース サーバーで、プロジェクトの名前を探します (ここでは**(localdb) \ProjectsV12**)。</span><span class="sxs-lookup"><span data-stu-id="8a0f6-171">To see that the new database has been created, open **SQL Server Object Explorer** and look for the name of the project in the correct local database server (in this case **(localdb)\ProjectsV12**).</span></span>
+<span data-ttu-id="8a0f6-171">新しいデータベースが作成されたことを表示するには、開く**SQL Server オブジェクト エクスプ ローラー**し、適切なローカル データベース サーバーで、プロジェクトの名前を探します (ここでは **(localdb) \ProjectsV12**)。</span><span class="sxs-lookup"><span data-stu-id="8a0f6-171">To see that the new database has been created, open **SQL Server Object Explorer** and look for the name of the project in the correct local database server (in this case **(localdb)\ProjectsV12**).</span></span>
 
 ![新しいデータベースを表示します。](setting-up-database/_static/image8.png)
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880051"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-slider-control"></a><span data-ttu-id="3fbe2-105">[How Do i:]ASP.NET AJAX のスライダー コントロールを使用しますか。</span><span class="sxs-lookup"><span data-stu-id="3fbe2-105">[How Do I:] Use the ASP.NET AJAX Slider Control?</span></span>
 ====================

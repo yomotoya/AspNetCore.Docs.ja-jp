@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888579"
 ---
 <a name="deploying-a-database-vb"></a><span data-ttu-id="25a59-104">データベース (VB) の配置</span><span class="sxs-lookup"><span data-stu-id="25a59-104">Deploying a Database (VB)</span></span>
 ====================

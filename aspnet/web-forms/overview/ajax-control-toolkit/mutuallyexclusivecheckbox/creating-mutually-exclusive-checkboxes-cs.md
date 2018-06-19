@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871806"
 ---
 <a name="creating-mutually-exclusive-checkboxes-c"></a><span data-ttu-id="da3af-104">相互に排他的なチェック ボックス (c#) を作成します。</span><span class="sxs-lookup"><span data-stu-id="da3af-104">Creating Mutually Exclusive Checkboxes (C#)</span></span>
 ====================

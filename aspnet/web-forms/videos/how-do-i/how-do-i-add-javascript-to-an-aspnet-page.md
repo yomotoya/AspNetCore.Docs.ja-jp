@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-add-javascript-to-an-aspnet-page
-title: "[How Do i:]ASP.NET ページに JavaScript を追加 |Microsoft ドキュメント"
+title: '[How Do i:]ASP.NET ページに JavaScript を追加 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオでは Chris Pels は豊富なおよびより堅牢なユーザー エクスペリエンスを提供するクライアントのページで使用する ASP.NET ページに JavaScript をインクルードする方法を表示しています."
+description: このビデオでは Chris Pels は豊富なおよびより堅牢なユーザー エクスペリエンスを提供するクライアントのページで使用する ASP.NET ページに JavaScript をインクルードする方法を表示しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525551"
 ---
 <a name="how-do-i-add-javascript-to-an-aspnet-page"></a><span data-ttu-id="ae524-103">[How Do i:]ASP.NET ページに JavaScript を追加します。</span><span class="sxs-lookup"><span data-stu-id="ae524-103">[How Do I:] Add JavaScript to An ASP.NET Page</span></span>
 ====================

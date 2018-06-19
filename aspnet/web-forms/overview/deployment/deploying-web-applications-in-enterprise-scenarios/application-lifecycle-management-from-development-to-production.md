@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887286"
 ---
 <a name="application-lifecycle-management-from-development-to-production"></a><span data-ttu-id="f53cc-103">アプリケーション ライフ サイクル管理: 実稼働環境に開発から</span><span class="sxs-lookup"><span data-stu-id="f53cc-103">Application Lifecycle Management: From Development to Production</span></span>
 ====================
@@ -132,7 +133,7 @@ ms.lasthandoff: 04/06/2018
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample1.cmd)]
 
 
-<span data-ttu-id="f53cc-190">**DeployOnBuild = true**と**DeployTarget パッケージを =**プロパティは、ソリューション内のプロジェクト チーム ビルドによって作成されるときに使用されます。</span><span class="sxs-lookup"><span data-stu-id="f53cc-190">The **DeployOnBuild=true** and **DeployTarget=package** properties are used when Team Build builds the projects within the solution.</span></span> <span data-ttu-id="f53cc-191">Web アプリケーション プロジェクトをプロジェクトには、これらのプロパティは、プロジェクトの web 配置パッケージを作成するために MSBuild を指示します。</span><span class="sxs-lookup"><span data-stu-id="f53cc-191">When the project is a web application project, these properties instruct MSBuild to create a web deployment package for the project.</span></span> <span data-ttu-id="f53cc-192">**TargetEnvPropsFile**プロパティは、通知、 *Publish.proj*ファイルをインポートする環境に固有のプロジェクト ファイルを検索します。</span><span class="sxs-lookup"><span data-stu-id="f53cc-192">The **TargetEnvPropsFile** property tells the *Publish.proj* file where to find the environment-specific project file to import.</span></span>
+<span data-ttu-id="f53cc-190">**DeployOnBuild = true**と**DeployTarget パッケージを =** プロパティは、ソリューション内のプロジェクト チーム ビルドによって作成されるときに使用されます。</span><span class="sxs-lookup"><span data-stu-id="f53cc-190">The **DeployOnBuild=true** and **DeployTarget=package** properties are used when Team Build builds the projects within the solution.</span></span> <span data-ttu-id="f53cc-191">Web アプリケーション プロジェクトをプロジェクトには、これらのプロパティは、プロジェクトの web 配置パッケージを作成するために MSBuild を指示します。</span><span class="sxs-lookup"><span data-stu-id="f53cc-191">When the project is a web application project, these properties instruct MSBuild to create a web deployment package for the project.</span></span> <span data-ttu-id="f53cc-192">**TargetEnvPropsFile**プロパティは、通知、 *Publish.proj*ファイルをインポートする環境に固有のプロジェクト ファイルを検索します。</span><span class="sxs-lookup"><span data-stu-id="f53cc-192">The **TargetEnvPropsFile** property tells the *Publish.proj* file where to find the environment-specific project file to import.</span></span>
 
 > [!NOTE]
 > <span data-ttu-id="f53cc-193">次のようにビルド定義を作成する方法の詳細なチュートリアルについては、次を参照してください。[ビルド定義をサポートする展開を作成する](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md)です。</span><span class="sxs-lookup"><span data-stu-id="f53cc-193">For a detailed walkthrough on how to create a build definition like this, see [Creating a Build Definition that Supports Deployment](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).</span></span>

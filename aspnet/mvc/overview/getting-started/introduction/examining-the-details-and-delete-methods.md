@@ -17,6 +17,7 @@ ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33962429"
 ---
 <a name="examining-the-details-and-delete-methods"></a><span data-ttu-id="b1d38-102">詳細とその削除方法を確認します。</span><span class="sxs-lookup"><span data-stu-id="b1d38-102">Examining the Details and Delete Methods</span></span>
 ====================

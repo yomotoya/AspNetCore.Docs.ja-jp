@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883568"
 ---
 <a name="getting-started-with-dynamic-data"></a><span data-ttu-id="54f46-103">動的なデータの概要</span><span class="sxs-lookup"><span data-stu-id="54f46-103">Getting Started with Dynamic Data</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885381"
 ---
 <a name="how-do-i-use-an-aspnet-ajax-scriptmanagerproxy"></a><span data-ttu-id="a992b-104">[How Do i:]ASP.NET AJAX ScriptManagerProxy を使用しますか。</span><span class="sxs-lookup"><span data-stu-id="a992b-104">[How Do I:] Use an ASP.NET AJAX ScriptManagerProxy?</span></span>
 ====================

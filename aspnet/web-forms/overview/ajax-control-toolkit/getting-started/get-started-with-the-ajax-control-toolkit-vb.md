@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870207"
 ---
 <a name="get-started-with-the-ajax-control-toolkit-vb"></a><span data-ttu-id="53eb3-103">AJAX コントロール Toolkit (VB) の概要します。</span><span class="sxs-lookup"><span data-stu-id="53eb3-103">Get Started with the AJAX Control Toolkit (VB)</span></span>
 ====================
@@ -71,7 +72,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="53eb3-131">次に、新しいタブに AJAX コントロール Toolkit コントロールを追加する必要があります。この場合は、以下の手順に従ってください。</span><span class="sxs-lookup"><span data-stu-id="53eb3-131">Next, you need to add the AJAX Control Toolkit controls to the new tab. Follow these steps:</span></span>
 
-- <span data-ttu-id="53eb3-132">AJAX コントロール ツールキット] タブの下を右クリックし、メニュー オプションを選択**[アイテムの選択 (図 5 を参照してください)**です。</span><span class="sxs-lookup"><span data-stu-id="53eb3-132">Right-click beneath the AJAX Control Toolkit tab and select the menu option **Choose Items (see Figure 5)**.</span></span>
+- <span data-ttu-id="53eb3-132">AJAX コントロール ツールキット] タブの下を右クリックし、メニュー オプションを選択 **[アイテムの選択 (図 5 を参照してください)** です。</span><span class="sxs-lookup"><span data-stu-id="53eb3-132">Right-click beneath the AJAX Control Toolkit tab and select the menu option **Choose Items (see Figure 5)**.</span></span>
 - <span data-ttu-id="53eb3-133">AJAX コントロール ツールキットを解凍し、選択 AjaxControlToolkit.dll アセンブリの場所を参照します。</span><span class="sxs-lookup"><span data-stu-id="53eb3-133">Browse to the location where you unzipped the AJAX Control Toolkit and select the AjaxControlToolkit.dll assembly.</span></span>
 
 

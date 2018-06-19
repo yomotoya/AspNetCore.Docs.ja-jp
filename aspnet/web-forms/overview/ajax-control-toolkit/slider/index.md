@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/slider/index
-title: "スライダー |Microsoft ドキュメント"
+title: スライダー |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、スライダー コントロールを使用して、ユーザーがマウスを使用して制御できるグラフィカルなスライダーを表示する方法を示します。"
+description: このチュートリアルでは、スライダー コントロールを使用して、ユーザーがマウスを使用して制御できるグラフィカルなスライダーを表示する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider
 msc.type: chapter
 ms.openlocfilehash: 52b6fda01b6ef9931c3557b57b5ebd216a7f2eda
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26511631"
 ---
 <a name="slider"></a><span data-ttu-id="7df30-103">スライダー</span><span class="sxs-lookup"><span data-stu-id="7df30-103">Slider</span></span>
 ====================

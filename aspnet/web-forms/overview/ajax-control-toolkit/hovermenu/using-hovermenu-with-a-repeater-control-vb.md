@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868400"
 ---
 <a name="using-hovermenu-with-a-repeater-control-vb"></a><span data-ttu-id="ba5b3-103">リピータ コントロール (VB) で HoverMenu の使い方</span><span class="sxs-lookup"><span data-stu-id="ba5b3-103">Using HoverMenu with a Repeater Control (VB)</span></span>
 ====================

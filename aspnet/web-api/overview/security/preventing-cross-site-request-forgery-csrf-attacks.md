@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
-title: "ASP.NET Web API でクロスサイト リクエスト フォージェリ (CSRF) 攻撃を防ぐ |Microsoft ドキュメント"
+title: ASP.NET Web API でクロスサイト リクエスト フォージェリ (CSRF) 攻撃を防ぐ |Microsoft ドキュメント
 author: MikeWasson
-description: "クロスサイト リクエスト フォージェリ (CSRF) 攻撃と ASP.NET Web API でアンチ CSRF メジャーを実装する方法について説明します。"
+description: クロスサイト リクエスト フォージェリ (CSRF) 攻撃と ASP.NET Web API でアンチ CSRF メジャーを実装する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/12/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508151"
 ---
 <a name="preventing-cross-site-request-forgery-csrf-attacks-in-aspnet-web-api"></a><span data-ttu-id="d6142-103">ASP.NET Web API でクロスサイト リクエスト フォージェリ (CSRF) 攻撃の防止</span><span class="sxs-lookup"><span data-stu-id="d6142-103">Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET Web API</span></span>
 ====================

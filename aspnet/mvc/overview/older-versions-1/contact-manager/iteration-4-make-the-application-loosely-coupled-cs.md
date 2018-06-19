@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873980"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-c"></a><span data-ttu-id="01300-104">4 番目の反復処理する疎結合アプリケーション (c#)</span><span class="sxs-lookup"><span data-stu-id="01300-104">Iteration #4 – Make the application loosely coupled (C#)</span></span>
 ====================

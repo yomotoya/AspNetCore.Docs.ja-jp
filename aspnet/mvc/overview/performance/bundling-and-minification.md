@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30877484"
 ---
 <a name="bundling-and-minification"></a><span data-ttu-id="a7a6c-104">バンドルと縮小</span><span class="sxs-lookup"><span data-stu-id="a7a6c-104">Bundling and Minification</span></span>
 ====================
@@ -114,7 +115,7 @@ ms.lasthandoff: 04/10/2018
 
 [!code-csharp[Main](bundling-and-minification/samples/sample5.cs)]
 
-<span data-ttu-id="a7a6c-189">上記のコードでは、という名前の新しい JavaScript バンドル*~/bundles/jquery*適切なすべてが含まれている (デバッグまたはが縮小する*。vsdoc*) 内のファイル、*スクリプト*ワイルドカード文字列"~/Scripts/jquery-{バージョン} .js"に一致するフォルダーです。</span><span class="sxs-lookup"><span data-stu-id="a7a6c-189">The  preceding code creates a new JavaScript bundle named *~/bundles/jquery* that includes all the appropriate (that is debug or minified but not .*vsdoc*) files in the *Scripts* folder that match the wild card string "~/Scripts/jquery-{version}.js".</span></span> <span data-ttu-id="a7a6c-190">ASP.NET MVC 4 では、つまり、デバッグ構成では、ファイル*jquery 1.7.1.js*バンドルに追加されます。</span><span class="sxs-lookup"><span data-stu-id="a7a6c-190">For ASP.NET MVC 4, this means with a debug configuration, the file *jquery-1.7.1.js* will be added to the bundle.</span></span> <span data-ttu-id="a7a6c-191">構成では、リリース、 *jquery 1.7.1.min.js*追加されます。</span><span class="sxs-lookup"><span data-stu-id="a7a6c-191">In a release configuration, *jquery-1.7.1.min.js* will be added.</span></span> <span data-ttu-id="a7a6c-192">バンドルのフレームワークにはなどのいくつかの一般的な規則が次に示します。</span><span class="sxs-lookup"><span data-stu-id="a7a6c-192">The bundling framework follows several common conventions such as:</span></span>
+<span data-ttu-id="a7a6c-189">上記のコードでは、という名前の新しい JavaScript バンドル *~/bundles/jquery*適切なすべてが含まれている (デバッグまたはが縮小する *。vsdoc*) 内のファイル、*スクリプト*ワイルドカード文字列"~/Scripts/jquery-{バージョン} .js"に一致するフォルダーです。</span><span class="sxs-lookup"><span data-stu-id="a7a6c-189">The  preceding code creates a new JavaScript bundle named *~/bundles/jquery* that includes all the appropriate (that is debug or minified but not .*vsdoc*) files in the *Scripts* folder that match the wild card string "~/Scripts/jquery-{version}.js".</span></span> <span data-ttu-id="a7a6c-190">ASP.NET MVC 4 では、つまり、デバッグ構成では、ファイル*jquery 1.7.1.js*バンドルに追加されます。</span><span class="sxs-lookup"><span data-stu-id="a7a6c-190">For ASP.NET MVC 4, this means with a debug configuration, the file *jquery-1.7.1.js* will be added to the bundle.</span></span> <span data-ttu-id="a7a6c-191">構成では、リリース、 *jquery 1.7.1.min.js*追加されます。</span><span class="sxs-lookup"><span data-stu-id="a7a6c-191">In a release configuration, *jquery-1.7.1.min.js* will be added.</span></span> <span data-ttu-id="a7a6c-192">バンドルのフレームワークにはなどのいくつかの一般的な規則が次に示します。</span><span class="sxs-lookup"><span data-stu-id="a7a6c-192">The bundling framework follows several common conventions such as:</span></span>
 
 - <span data-ttu-id="a7a6c-193">"FileX.min.js"と"FileX.js"が存在する場合は、".min"リリースのファイルを選択します。</span><span class="sxs-lookup"><span data-stu-id="a7a6c-193">Selecting ".min" file for release when "FileX.min.js" and "FileX.js" exist.</span></span>
 - <span data-ttu-id="a7a6c-194">デバッグ用の非".min"バージョンを選択します。</span><span class="sxs-lookup"><span data-stu-id="a7a6c-194">Selecting the non ".min" version for debug.</span></span>

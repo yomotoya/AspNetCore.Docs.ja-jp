@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880402"
 ---
 <a name="configuring-parameters-for-web-package-deployment"></a><span data-ttu-id="7736d-103">Web パッケージの展開のパラメーターの構成</span><span class="sxs-lookup"><span data-stu-id="7736d-103">Configuring Parameters for Web Package Deployment</span></span>
 ====================
@@ -110,7 +111,7 @@ ms.lasthandoff: 04/06/2018
 > <span data-ttu-id="7736d-168">サーバー環境の環境に固有のプロジェクト ファイルをカスタマイズする方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)です。</span><span class="sxs-lookup"><span data-stu-id="7736d-168">For guidance on how to customize the environment-specific project files for your own server environments, see [Configure Deployment Properties for a Target Environment](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).</span></span>
 
 
-<span data-ttu-id="7736d-169">次に、 *Publish.proj*ファイルは、これらのプロパティをインポートします。</span><span class="sxs-lookup"><span data-stu-id="7736d-169">Next, the *Publish.proj* file imports these properties.</span></span> <span data-ttu-id="7736d-170">各*SetParameters.xml*ファイルに関連付けられている、 *. deploy.cmd*ファイル、最終的にする、プロジェクト ファイルをそれぞれ呼び出す*. deploy.cmd*ファイル、プロジェクトファイルを作成、MSBuild*項目*ごと*. deploy.cmd*ファイルし、としての目的のプロパティを定義*項目メタデータ*です。</span><span class="sxs-lookup"><span data-stu-id="7736d-170">Because each *SetParameters.xml* file is associated with a *.deploy.cmd* file, and we ultimately want the project file to invoke each *.deploy.cmd* file, the project file creates an MSBuild *item* for each *.deploy.cmd* file and defines the properties of interest as *item metadata*.</span></span>
+<span data-ttu-id="7736d-169">次に、 *Publish.proj*ファイルは、これらのプロパティをインポートします。</span><span class="sxs-lookup"><span data-stu-id="7736d-169">Next, the *Publish.proj* file imports these properties.</span></span> <span data-ttu-id="7736d-170">各*SetParameters.xml*ファイルに関連付けられている、 *. deploy.cmd*ファイル、最終的にする、プロジェクト ファイルをそれぞれ呼び出す *. deploy.cmd*ファイル、プロジェクトファイルを作成、MSBuild*項目*ごと *. deploy.cmd*ファイルし、としての目的のプロパティを定義*項目メタデータ*です。</span><span class="sxs-lookup"><span data-stu-id="7736d-170">Because each *SetParameters.xml* file is associated with a *.deploy.cmd* file, and we ultimately want the project file to invoke each *.deploy.cmd* file, the project file creates an MSBuild *item* for each *.deploy.cmd* file and defines the properties of interest as *item metadata*.</span></span>
 
 
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample5.xml)]

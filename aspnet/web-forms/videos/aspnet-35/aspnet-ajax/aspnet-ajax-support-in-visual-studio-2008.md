@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880207"
 ---
 <a name="aspnet-ajax-support-in-visual-studio-2008"></a><span data-ttu-id="d40a0-104">Visual Studio 2008 での ASP.NET AJAX のサポート</span><span class="sxs-lookup"><span data-stu-id="d40a0-104">ASP.NET AJAX Support in Visual Studio 2008</span></span>
 ====================

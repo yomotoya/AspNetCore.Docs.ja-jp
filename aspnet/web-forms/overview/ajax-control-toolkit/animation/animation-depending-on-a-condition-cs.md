@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878569"
 ---
 <a name="animation-depending-on-a-condition-c"></a><span data-ttu-id="e2ccd-104">アニメーションによっては、条件 (c#)</span><span class="sxs-lookup"><span data-stu-id="e2ccd-104">Animation Depending On a Condition (C#)</span></span>
 ====================

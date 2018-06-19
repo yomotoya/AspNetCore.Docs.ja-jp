@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880753"
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a><span data-ttu-id="00fd2-102">Visual Studio 2013 でのコードの編集の ASP.NET Web フォームします。</span><span class="sxs-lookup"><span data-stu-id="00fd2-102">Code Editing ASP.NET Web Forms in Visual Studio 2013</span></span>
 ====================
@@ -147,7 +148,7 @@ ms.lasthandoff: 04/06/2018
 6. <span data-ttu-id="00fd2-188">選択範囲を右クリックし、をクリックして**リファクター**を選択し**メソッドの抽出**です。</span><span class="sxs-lookup"><span data-stu-id="00fd2-188">Right-click the selection, click **Refactor**, and then choose **Extract Method**.</span></span> 
 
     <span data-ttu-id="00fd2-189">**メソッドの抽出** ダイアログ ボックスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="00fd2-189">The **Extract Method** dialog box appears.</span></span>
-7. <span data-ttu-id="00fd2-190">**メソッド名を新しい**ボックスに、入力**DisplayArray**、クリックして**[ok]**です。</span><span class="sxs-lookup"><span data-stu-id="00fd2-190">In the **New Method Name** box, type **DisplayArray**, and then click **OK**.</span></span> 
+7. <span data-ttu-id="00fd2-190">**メソッド名を新しい**ボックスに、入力**DisplayArray**、クリックして **[ok]** です。</span><span class="sxs-lookup"><span data-stu-id="00fd2-190">In the **New Method Name** box, type **DisplayArray**, and then click **OK**.</span></span> 
 
     <span data-ttu-id="00fd2-191">コード エディターがという名前の新しいメソッドを作成`DisplayArray`で新しいメソッドの呼び出しを配置し、 **をクリックして**ループが元のハンドラー。</span><span class="sxs-lookup"><span data-stu-id="00fd2-191">The code editor creates a new method named `DisplayArray`, and puts a call to the new method in the **Click** handler where the loop was originally.</span></span>
 
@@ -169,7 +170,7 @@ ms.lasthandoff: 04/06/2018
 2. <span data-ttu-id="00fd2-201">変数名を右クリックして`alist`、選択**リファクター**を選択し**の名前を変更**です。</span><span class="sxs-lookup"><span data-stu-id="00fd2-201">Right-click the variable name `alist`, choose **Refactor**, and then choose **Rename**.</span></span>
 
     <span data-ttu-id="00fd2-202">**の名前を変更** ダイアログ ボックスが表示されます。</span><span class="sxs-lookup"><span data-stu-id="00fd2-202">The **Rename** dialog box appears.</span></span>
-3. <span data-ttu-id="00fd2-203">**新しい名前**ボックスに、入力**ArrayList1**ことを確認し、**参照の変更のプレビュー**  チェック ボックスが選択されています。</span><span class="sxs-lookup"><span data-stu-id="00fd2-203">In the **New name** box, type **ArrayList1** and make sure the **Preview reference changes** checkbox has been selected.</span></span> <span data-ttu-id="00fd2-204">次に、 **[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="00fd2-204">Then click **OK**.</span></span>
+3. <span data-ttu-id="00fd2-203">**新しい名前**ボックスに、入力**ArrayList1**ことを確認し、**参照の変更のプレビュー**  チェック ボックスが選択されています。</span><span class="sxs-lookup"><span data-stu-id="00fd2-203">In the **New name** box, type **ArrayList1** and make sure the **Preview reference changes** checkbox has been selected.</span></span> <span data-ttu-id="00fd2-204">次に、 **[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="00fd2-204">Then click **OK**.</span></span>
 
     <span data-ttu-id="00fd2-205">**変更のプレビュー**  ダイアログ ボックスが表示され、名前を変更する変数へのすべての参照を含むツリーが表示されます。</span><span class="sxs-lookup"><span data-stu-id="00fd2-205">The **Preview Changes** dialog box appears, and displays a tree that contains all references to the variable that you are renaming.</span></span>
 4. <span data-ttu-id="00fd2-206">をクリックして**適用**を閉じる、**変更のプレビュー**  ダイアログ ボックス。</span><span class="sxs-lookup"><span data-stu-id="00fd2-206">Click **Apply** to close the **Preview Changes** dialog box.</span></span>

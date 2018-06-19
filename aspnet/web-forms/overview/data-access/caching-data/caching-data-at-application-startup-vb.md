@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876346"
 ---
 <a name="caching-data-at-application-startup-vb"></a><span data-ttu-id="c6124-104">アプリケーションの起動 (VB) でデータのキャッシュ</span><span class="sxs-lookup"><span data-stu-id="c6124-104">Caching Data at Application Startup (VB)</span></span>
 ====================

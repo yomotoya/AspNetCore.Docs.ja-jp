@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873249"
 ---
 <a name="implement-efficient-data-paging"></a><span data-ttu-id="13033-103">効率的なデータのページングを実装します。</span><span class="sxs-lookup"><span data-stu-id="13033-103">Implement Efficient Data Paging</span></span>
 ====================
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="nerddinner-step-8-paging-support"></a><span data-ttu-id="13033-109">NerdDinner 手順 8: ページングのサポート</span><span class="sxs-lookup"><span data-stu-id="13033-109">NerdDinner Step 8: Paging Support</span></span>
 
-<span data-ttu-id="13033-110">サイトが成功した場合は、今後ディナー数千になります。</span><span class="sxs-lookup"><span data-stu-id="13033-110">If our site is successful, it will have thousands of upcoming dinners.</span></span> <span data-ttu-id="13033-111">UI がすべてこれらディナーの処理を拡張し、により、ユーザーはそれらを参照することを確認する必要があります。</span><span class="sxs-lookup"><span data-stu-id="13033-111">We need to make sure that our UI scales to handle all of these dinners, and allows users to browse them.</span></span> <span data-ttu-id="13033-112">ページング サポートを追加すると、これを有効にするには、当社*/Dinners*のみありますに 1 回、おディナーの 1,000 件を表示する方法の代わりに URL を一度に - 10 今後ディナーを表示し、エンドユーザーがページの背面とのすべてのリストを転送するを許可します。SEO フレンドリな方法です。</span><span class="sxs-lookup"><span data-stu-id="13033-112">To enable this, we'll add paging support to our */Dinners* URL so that instead of displaying 1000s of dinners at once, we'll only display 10 upcoming dinners at a time - and allow end-users to page back and forward through the entire list in an SEO friendly way.</span></span>
+<span data-ttu-id="13033-110">サイトが成功した場合は、今後ディナー数千になります。</span><span class="sxs-lookup"><span data-stu-id="13033-110">If our site is successful, it will have thousands of upcoming dinners.</span></span> <span data-ttu-id="13033-111">UI がすべてこれらディナーの処理を拡張し、により、ユーザーはそれらを参照することを確認する必要があります。</span><span class="sxs-lookup"><span data-stu-id="13033-111">We need to make sure that our UI scales to handle all of these dinners, and allows users to browse them.</span></span> <span data-ttu-id="13033-112">ページング サポートを追加すると、これを有効にするには、当社 */Dinners*のみありますに 1 回、おディナーの 1,000 件を表示する方法の代わりに URL を一度に - 10 今後ディナーを表示し、エンドユーザーがページの背面とのすべてのリストを転送するを許可します。SEO フレンドリな方法です。</span><span class="sxs-lookup"><span data-stu-id="13033-112">To enable this, we'll add paging support to our */Dinners* URL so that instead of displaying 1000s of dinners at once, we'll only display 10 upcoming dinners at a time - and allow end-users to page back and forward through the entire list in an SEO friendly way.</span></span>
 
 ### <a name="index-action-method-recap"></a><span data-ttu-id="13033-113">Index() アクション メソッドの要約</span><span class="sxs-lookup"><span data-stu-id="13033-113">Index() Action Method Recap</span></span>
 
@@ -67,7 +68,7 @@ ms.lasthandoff: 04/06/2018
 
 #### <a name="using-a-querystring-value"></a><span data-ttu-id="13033-130">クエリ文字列値を使用します。</span><span class="sxs-lookup"><span data-stu-id="13033-130">Using a Querystring value</span></span>
 
-<span data-ttu-id="13033-131">次のコードは、クエリ文字列パラメーターをサポートすると同様に Url を有効にする、Index() アクション メソッドを更新お方法を示します*/Dinners しますか? ページ 2 =*:</span><span class="sxs-lookup"><span data-stu-id="13033-131">The code below demonstrates how we can update our Index() action method to support a querystring parameter and enable URLs like */Dinners?page=2*:</span></span>
+<span data-ttu-id="13033-131">次のコードは、クエリ文字列パラメーターをサポートすると同様に Url を有効にする、Index() アクション メソッドを更新お方法を示します */Dinners しますか? ページ 2 =*:</span><span class="sxs-lookup"><span data-stu-id="13033-131">The code below demonstrates how we can update our Index() action method to support a querystring parameter and enable URLs like */Dinners?page=2*:</span></span>
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample4.cs)]
 
@@ -93,11 +94,11 @@ ms.lasthandoff: 04/06/2018
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample6.cs)]
 
-<span data-ttu-id="13033-150">今すぐおアプリケーションを実行および入力*/Dinners*最初の 10 個の今後のディナー後ほどお見せします。</span><span class="sxs-lookup"><span data-stu-id="13033-150">And now when we run the application and type in */Dinners* we'll see the first 10 upcoming dinners:</span></span>
+<span data-ttu-id="13033-150">今すぐおアプリケーションを実行および入力 */Dinners*最初の 10 個の今後のディナー後ほどお見せします。</span><span class="sxs-lookup"><span data-stu-id="13033-150">And now when we run the application and type in */Dinners* we'll see the first 10 upcoming dinners:</span></span>
 
 ![](implement-efficient-data-paging/_static/image3.png)
 
-<span data-ttu-id="13033-151">ときに入力することと*/Dinners/Page/1*おディナーの次のページが表示されます。</span><span class="sxs-lookup"><span data-stu-id="13033-151">And when we type in */Dinners/Page/1* we'll see the next page of dinners:</span></span>
+<span data-ttu-id="13033-151">ときに入力することと */Dinners/Page/1*おディナーの次のページが表示されます。</span><span class="sxs-lookup"><span data-stu-id="13033-151">And when we type in */Dinners/Page/1* we'll see the next page of dinners:</span></span>
 
 ![](implement-efficient-data-paging/_static/image4.png)
 

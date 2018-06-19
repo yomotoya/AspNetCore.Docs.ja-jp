@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874253"
 ---
 <a name="creating-mutually-exclusive-checkboxes-vb"></a><span data-ttu-id="edaf2-104">相互に排他的なチェック ボックス (VB) を作成します。</span><span class="sxs-lookup"><span data-stu-id="edaf2-104">Creating Mutually Exclusive Checkboxes (VB)</span></span>
 ====================

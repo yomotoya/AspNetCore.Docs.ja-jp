@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876034"
 ---
 <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a><span data-ttu-id="0ddf0-104">アカウントの確認と ASP.NET Identity (c#) とパスワードの回復</span><span class="sxs-lookup"><span data-stu-id="0ddf0-104">Account Confirmation and Password Recovery with ASP.NET Identity (C#)</span></span>
 ====================

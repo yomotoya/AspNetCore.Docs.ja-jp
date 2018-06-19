@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872690"
 ---
 <a name="handling-entity-relations"></a><span data-ttu-id="0b04c-102">処理のエンティティ関係</span><span class="sxs-lookup"><span data-stu-id="0b04c-102">Handling Entity Relations</span></span>
 ====================

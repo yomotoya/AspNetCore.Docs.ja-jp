@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880272"
 ---
 <a name="adding-client-side-confirmation-when-deleting-c"></a><span data-ttu-id="6aae3-104">(C#) を削除するときに、クライアント側の確認を追加します。</span><span class="sxs-lookup"><span data-stu-id="6aae3-104">Adding Client-Side Confirmation When Deleting (C#)</span></span>
 ====================

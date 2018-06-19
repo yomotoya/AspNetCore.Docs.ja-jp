@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873652"
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a><span data-ttu-id="0281e-104">ASP.NET Web API 2 の Azure ワーカー ロールをホストします。</span><span class="sxs-lookup"><span data-stu-id="0281e-104">Host ASP.NET Web API 2 in an Azure Worker Role</span></span>
 ====================
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/06/2018
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image2.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image1.png)
 
-<span data-ttu-id="0281e-120">**新しい Windows Azure のクラウド サービス**ダイアログ ボックスをダブルクリックして**ワーカー ロール**です。</span><span class="sxs-lookup"><span data-stu-id="0281e-120">In the **New Windows Azure Cloud Service** dialog, double-click **Worker Role**.</span></span> <span data-ttu-id="0281e-121">既定の名前 ("WorkerRole1") のままにします。</span><span class="sxs-lookup"><span data-stu-id="0281e-121">Leave the default name ("WorkerRole1").</span></span> <span data-ttu-id="0281e-122">この手順は、ワーカー ロールをソリューションに追加します。</span><span class="sxs-lookup"><span data-stu-id="0281e-122">This step adds a worker role to the solution.</span></span> <span data-ttu-id="0281e-123">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="0281e-123">Click **OK**.</span></span>
+<span data-ttu-id="0281e-120">**新しい Windows Azure のクラウド サービス**ダイアログ ボックスをダブルクリックして**ワーカー ロール**です。</span><span class="sxs-lookup"><span data-stu-id="0281e-120">In the **New Windows Azure Cloud Service** dialog, double-click **Worker Role**.</span></span> <span data-ttu-id="0281e-121">既定の名前 ("WorkerRole1") のままにします。</span><span class="sxs-lookup"><span data-stu-id="0281e-121">Leave the default name ("WorkerRole1").</span></span> <span data-ttu-id="0281e-122">この手順は、ワーカー ロールをソリューションに追加します。</span><span class="sxs-lookup"><span data-stu-id="0281e-122">This step adds a worker role to the solution.</span></span> <span data-ttu-id="0281e-123">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="0281e-123">Click **OK**.</span></span>
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image4.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image3.png)
 
@@ -151,11 +152,11 @@ ms.lasthandoff: 04/06/2018
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image17.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image16.png)
 
-<span data-ttu-id="0281e-180">クラウド サービスの名前を入力し、地域を選択します。</span><span class="sxs-lookup"><span data-stu-id="0281e-180">Enter a name for the cloud service and choose a region.</span></span> <span data-ttu-id="0281e-181">**[作成]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="0281e-181">Click **Create**.</span></span>
+<span data-ttu-id="0281e-180">クラウド サービスの名前を入力し、地域を選択します。</span><span class="sxs-lookup"><span data-stu-id="0281e-180">Enter a name for the cloud service and choose a region.</span></span> <span data-ttu-id="0281e-181">**[作成]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="0281e-181">Click **Create**.</span></span>
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image18.png)
 
-<span data-ttu-id="0281e-182">**[発行]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="0281e-182">Click **Publish**.</span></span>
+<span data-ttu-id="0281e-182">**[発行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="0281e-182">Click **Publish**.</span></span>
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image20.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image19.png)
 

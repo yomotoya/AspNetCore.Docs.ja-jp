@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873759"
 ---
 <a name="executing-several-animations-after-each-other-vb"></a><span data-ttu-id="85d1a-104">他の (VB) の後にいくつかのアニメーションを実行します。</span><span class="sxs-lookup"><span data-stu-id="85d1a-104">Executing Several Animations after Each Other (VB)</span></span>
 ====================

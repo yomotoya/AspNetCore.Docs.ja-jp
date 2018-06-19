@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876814"
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a><span data-ttu-id="aac6b-104">チュートリアル: SignalR 2 でサーバーのブロードキャスト</span><span class="sxs-lookup"><span data-stu-id="aac6b-104">Tutorial: Server Broadcast with SignalR 2</span></span>
 ====================
@@ -65,7 +66,7 @@ ms.lasthandoff: 04/06/2018
 
 ![StockTicker 初期バージョン](tutorial-server-broadcast-with-signalr/_static/image1.png)
 
-<span data-ttu-id="aac6b-133">定期的にサーバーをランダムに株価を更新し、更新プログラムをすべて接続されているクライアントにプッシュします。</span><span class="sxs-lookup"><span data-stu-id="aac6b-133">Periodically the server randomly updates stock prices and pushes the updates to all connected clients.</span></span> <span data-ttu-id="aac6b-134">ブラウザーの数値および内のシンボルで、**変更**と**%**列は、サーバーからの通知に応答で動的に変化します。</span><span class="sxs-lookup"><span data-stu-id="aac6b-134">In the browser the numbers and symbols in the **Change** and **%** columns dynamically change in response to notifications from the server.</span></span> <span data-ttu-id="aac6b-135">同じ URL に他のブラウザーを開いた場合、同じデータとデータへの同じ変更を同時に、それらはすべて表示します。</span><span class="sxs-lookup"><span data-stu-id="aac6b-135">If you open additional browsers to the same URL, they all show the same data and the same changes to the data simultaneously.</span></span>
+<span data-ttu-id="aac6b-133">定期的にサーバーをランダムに株価を更新し、更新プログラムをすべて接続されているクライアントにプッシュします。</span><span class="sxs-lookup"><span data-stu-id="aac6b-133">Periodically the server randomly updates stock prices and pushes the updates to all connected clients.</span></span> <span data-ttu-id="aac6b-134">ブラウザーの数値および内のシンボルで、**変更**と**%** 列は、サーバーからの通知に応答で動的に変化します。</span><span class="sxs-lookup"><span data-stu-id="aac6b-134">In the browser the numbers and symbols in the **Change** and **%** columns dynamically change in response to notifications from the server.</span></span> <span data-ttu-id="aac6b-135">同じ URL に他のブラウザーを開いた場合、同じデータとデータへの同じ変更を同時に、それらはすべて表示します。</span><span class="sxs-lookup"><span data-stu-id="aac6b-135">If you open additional browsers to the same URL, they all show the same data and the same changes to the data simultaneously.</span></span>
 
 <span data-ttu-id="aac6b-136">このチュートリアルでは、次のセクションでは、含まれています。</span><span class="sxs-lookup"><span data-stu-id="aac6b-136">This tutorial contains the following sections:</span></span>
 
@@ -127,7 +128,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="aac6b-177">のみを行う各 StockTickerHub インスタンスからシングルトン StockTicker インスタンスへの参照を設定する必要がありますので、サーバー上で実行する StockTicker クラスの 1 つのインスタンス。</span><span class="sxs-lookup"><span data-stu-id="aac6b-177">You only want one instance of the StockTicker class to run on the server, so you'll need to set up a reference from each StockTickerHub instance to the singleton StockTicker instance.</span></span> <span data-ttu-id="aac6b-178">StockTicker がハブ クラスではありませんが、株価データを持ちの更新をトリガーするために、クライアントにブロードキャストできる StockTicker クラスにあります。</span><span class="sxs-lookup"><span data-stu-id="aac6b-178">The StockTicker class has to be able to broadcast to clients because it has the stock data and triggers updates, but StockTicker is not a Hub class.</span></span> <span data-ttu-id="aac6b-179">したがって、SignalR ハブ接続のコンテキストのオブジェクトへの参照を取得する StockTicker クラスがあります。</span><span class="sxs-lookup"><span data-stu-id="aac6b-179">Therefore, the StockTicker class has to get a reference to the SignalR Hub connection context object.</span></span> <span data-ttu-id="aac6b-180">SignalR 接続コンテキスト オブジェクトを使用して、クライアントにブロードキャストをそのことができます。</span><span class="sxs-lookup"><span data-stu-id="aac6b-180">It can then use the SignalR connection context object to broadcast to clients.</span></span>
 
-1. <span data-ttu-id="aac6b-181">**ソリューション エクスプ ローラー**プロジェクトを右クリックし、クリックして、**追加 |SignalR ハブ クラス (v2)**です。</span><span class="sxs-lookup"><span data-stu-id="aac6b-181">In **Solution Explorer**, right-click the project and click **Add | SignalR Hub Class (v2)**.</span></span>
+1. <span data-ttu-id="aac6b-181">**ソリューション エクスプ ローラー**プロジェクトを右クリックし、クリックして、**追加 |SignalR ハブ クラス (v2)** です。</span><span class="sxs-lookup"><span data-stu-id="aac6b-181">In **Solution Explorer**, right-click the project and click **Add | SignalR Hub Class (v2)**.</span></span>
 2. <span data-ttu-id="aac6b-182">新しいハブの名前を付けます*StockTickerHub.cs*、クリックして**追加**です。</span><span class="sxs-lookup"><span data-stu-id="aac6b-182">Name the new hub *StockTickerHub.cs*, and then click **Add**.</span></span> <span data-ttu-id="aac6b-183">SignalR の NuGet パッケージは、プロジェクトに追加されます。</span><span class="sxs-lookup"><span data-stu-id="aac6b-183">SignalR NuGet packages will be added to your project.</span></span>
 3. <span data-ttu-id="aac6b-184">テンプレート コードを次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="aac6b-184">Replace the template code with the following code:</span></span>
 

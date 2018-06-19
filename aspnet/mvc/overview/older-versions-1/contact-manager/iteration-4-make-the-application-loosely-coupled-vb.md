@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873941"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-vb"></a><span data-ttu-id="711ca-104">4 番目のイテレーションが疎結合アプリケーション (VB) を作成します。</span><span class="sxs-lookup"><span data-stu-id="711ca-104">Iteration #4 – Make the application loosely coupled (VB)</span></span>
 ====================

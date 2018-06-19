@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886824"
 ---
 <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a><span data-ttu-id="15ab4-104">モデル バインディングと web フォームをデータのフィルター選択するクエリ文字列の値を使用します。</span><span class="sxs-lookup"><span data-stu-id="15ab4-104">Using query string values to filter data with model binding and web forms</span></span>
 ====================

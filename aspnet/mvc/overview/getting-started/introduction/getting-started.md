@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868322"
 ---
 <a name="getting-started-with-aspnet-mvc-5"></a><span data-ttu-id="3c62b-104">ASP.NET MVC 5 の概要</span><span class="sxs-lookup"><span data-stu-id="3c62b-104">Getting Started with ASP.NET MVC 5</span></span>
 ====================
@@ -47,7 +48,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="creating-your-first-application"></a><span data-ttu-id="3c62b-119">初めてアプリケーションの作成</span><span class="sxs-lookup"><span data-stu-id="3c62b-119">Creating Your First Application</span></span>
 
-<span data-ttu-id="3c62b-120">をクリックして**新しいプロジェクト**、クリックして Visual C# の場合、左側の**Web**し、 **ASP.NET Web アプリケーション (.NET Framework)**です。</span><span class="sxs-lookup"><span data-stu-id="3c62b-120">Click **New Project**, then select Visual C# on the left, then **Web** and then select **ASP.NET Web Application (.NET Framework)**.</span></span> <span data-ttu-id="3c62b-121">プロジェクト"MvcMovie"の名前を指定し、をクリックして**OK**です。</span><span class="sxs-lookup"><span data-stu-id="3c62b-121">Name your project "MvcMovie" and then click **OK**.</span></span>
+<span data-ttu-id="3c62b-120">をクリックして**新しいプロジェクト**、クリックして Visual C# の場合、左側の**Web**し、 **ASP.NET Web アプリケーション (.NET Framework)** です。</span><span class="sxs-lookup"><span data-stu-id="3c62b-120">Click **New Project**, then select Visual C# on the left, then **Web** and then select **ASP.NET Web Application (.NET Framework)**.</span></span> <span data-ttu-id="3c62b-121">プロジェクト"MvcMovie"の名前を指定し、をクリックして**OK**です。</span><span class="sxs-lookup"><span data-stu-id="3c62b-121">Name your project "MvcMovie" and then click **OK**.</span></span>
 
 ![](getting-started/_static/image2.png)
 

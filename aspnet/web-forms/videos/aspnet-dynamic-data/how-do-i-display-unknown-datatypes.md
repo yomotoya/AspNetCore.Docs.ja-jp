@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881602"
 ---
 <a name="how-do-i-display-unknown-datatypes"></a><span data-ttu-id="e5279-104">操作方法の表示が不明なデータ型</span><span class="sxs-lookup"><span data-stu-id="e5279-104">How do I Display Unknown datatypes?</span></span>
 ====================

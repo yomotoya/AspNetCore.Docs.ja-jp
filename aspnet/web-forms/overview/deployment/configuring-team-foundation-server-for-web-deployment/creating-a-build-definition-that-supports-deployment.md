@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30880363"
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a><span data-ttu-id="1583b-104">展開をサポートするビルド定義を作成します。</span><span class="sxs-lookup"><span data-stu-id="1583b-104">Creating a Build Definition That Supports Deployment</span></span>
 ====================
@@ -99,7 +100,7 @@ ms.lasthandoff: 04/10/2018
 11. <span data-ttu-id="1583b-162">使用する展開プロセスを制御、ファイルを選択してをクリックして、カスタムのプロジェクト ファイルの場所を参照**OK**です。</span><span class="sxs-lookup"><span data-stu-id="1583b-162">Browse to the location of the custom project file with which you control the deployment process, select the file, and then click **OK**.</span></span>
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image6.png)
-12. <span data-ttu-id="1583b-163">**ビルドする項目**] ダイアログ ボックスでは 2 つの項目が表示されるはずです。</span><span class="sxs-lookup"><span data-stu-id="1583b-163">The **Items to Build** dialog box should now show two items.</span></span> <span data-ttu-id="1583b-164">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="1583b-164">Click **OK**.</span></span>
+12. <span data-ttu-id="1583b-163">**ビルドする項目**] ダイアログ ボックスでは 2 つの項目が表示されるはずです。</span><span class="sxs-lookup"><span data-stu-id="1583b-163">The **Items to Build** dialog box should now show two items.</span></span> <span data-ttu-id="1583b-164">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="1583b-164">Click **OK**.</span></span>
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image7.png)
 13. <span data-ttu-id="1583b-165">**プロセス**] タブの [、**ビルド プロセス パラメーター**テーブルで、展開、**詳細**セクションです。</span><span class="sxs-lookup"><span data-stu-id="1583b-165">On the **Process** tab, in the **Build process parameters** table, expand the **Advanced** section.</span></span>
@@ -113,7 +114,7 @@ ms.lasthandoff: 04/10/2018
     1. <span data-ttu-id="1583b-169">**DeployOnBuild = true**と**DeployTarget パッケージを =** Contact Manager ソリューションをビルドするときに、引数が必要です。</span><span class="sxs-lookup"><span data-stu-id="1583b-169">The **DeployOnBuild=true** and **DeployTarget=package** arguments are required when you build the Contact Manager solution.</span></span> <span data-ttu-id="1583b-170">これにより、web 配置パッケージ各 web アプリケーション プロジェクトのビルド後の説明に従って作成するために MSBuild[パッケージ Web アプリケーション プロジェクトのビルドと](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md)です。</span><span class="sxs-lookup"><span data-stu-id="1583b-170">This instructs MSBuild to create web deployment packages after building each web application project, as described in [Building and Packaging Web Application Projects](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md).</span></span>
     2. <span data-ttu-id="1583b-171">**TargetEnvPropsFile**をビルドすると、引数が必要、 *Publish.proj*ファイル。</span><span class="sxs-lookup"><span data-stu-id="1583b-171">The **TargetEnvPropsFile** argument is required when you build the *Publish.proj* file.</span></span> <span data-ttu-id="1583b-172">」の説明に従って、このプロパティは、環境固有の構成ファイルの場所を示します[ビルド プロセスの理解](../web-deployment-in-the-enterprise/understanding-the-build-process.md)です。</span><span class="sxs-lookup"><span data-stu-id="1583b-172">This property indicates the location of the environment-specific configuration file, as described in [Understanding the Build Process](../web-deployment-in-the-enterprise/understanding-the-build-process.md).</span></span>
 16. <span data-ttu-id="1583b-173">**保有ポリシー** ] タブで、必要に応じてを保持する各種類のビルドの数を構成します。</span><span class="sxs-lookup"><span data-stu-id="1583b-173">On the **Retention Policy** tab, configure how many builds of each type you want to retain as required.</span></span>
-17. <span data-ttu-id="1583b-174">**[保存]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="1583b-174">Click **Save**.</span></span>
+17. <span data-ttu-id="1583b-174">**[保存]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="1583b-174">Click **Save**.</span></span>
 
 ## <a name="queue-a-build"></a><span data-ttu-id="1583b-175">ビルドをキューに配置する</span><span class="sxs-lookup"><span data-stu-id="1583b-175">Queue a Build</span></span>
 

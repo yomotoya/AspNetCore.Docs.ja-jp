@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875683"
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-c"></a><span data-ttu-id="583b8-104">プログラムによって設定 ObjectDataSource のパラメーターの値 (c#)</span><span class="sxs-lookup"><span data-stu-id="583b8-104">Programmatically Setting the ObjectDataSource's Parameter Values (C#)</span></span>
 ====================
@@ -124,7 +125,7 @@ ms.lasthandoff: 04/06/2018
 <span data-ttu-id="583b8-166">**図 9**: Web コントロールのイベントを一覧表示する [プロパティ] ウィンドウで表示される稲妻アイコンをクリックして</span><span class="sxs-lookup"><span data-stu-id="583b8-166">**Figure 9**: Click on the Lightning Bolt Icon in the Properties Window to List a Web Control's Events</span></span>
 
 
-<span data-ttu-id="583b8-167">両方の方法では、新しいイベント ハンドラーを追加、ObjectDataSource の`Selecting`ページの分離コード クラスをイベント。</span><span class="sxs-lookup"><span data-stu-id="583b8-167">Both approaches add a new event handler for the ObjectDataSource's `Selecting` event to the page's code-behind class.</span></span> <span data-ttu-id="583b8-168">このイベント ハンドラー内には、読み取りし、書き込みを使用してパラメーターの値おできます`e.InputParameters[parameterName]`ここで、 *`parameterName`*の値は、`Name`属性、`<asp:Parameter>`タグ (、`InputParameters`コレクションすることもできます序数に基づく、としてのインデックス付き`e.InputParameters[index]`)。</span><span class="sxs-lookup"><span data-stu-id="583b8-168">In this event handler we can read and write to the parameter values using `e.InputParameters[parameterName]`, where *`parameterName`* is the value of the `Name` attribute in the `<asp:Parameter>` tag (the `InputParameters` collection can also be indexed ordinally, as in `e.InputParameters[index]`).</span></span> <span data-ttu-id="583b8-169">設定する、`month`現在の月にパラメーターを追加するには、次の`Selecting`イベントのハンドラー。</span><span class="sxs-lookup"><span data-stu-id="583b8-169">To set the `month` parameter to the current month, add the following to the `Selecting` event handler:</span></span>
+<span data-ttu-id="583b8-167">両方の方法では、新しいイベント ハンドラーを追加、ObjectDataSource の`Selecting`ページの分離コード クラスをイベント。</span><span class="sxs-lookup"><span data-stu-id="583b8-167">Both approaches add a new event handler for the ObjectDataSource's `Selecting` event to the page's code-behind class.</span></span> <span data-ttu-id="583b8-168">このイベント ハンドラー内には、読み取りし、書き込みを使用してパラメーターの値おできます`e.InputParameters[parameterName]`ここで、 *`parameterName`* の値は、`Name`属性、`<asp:Parameter>`タグ (、`InputParameters`コレクションすることもできます序数に基づく、としてのインデックス付き`e.InputParameters[index]`)。</span><span class="sxs-lookup"><span data-stu-id="583b8-168">In this event handler we can read and write to the parameter values using `e.InputParameters[parameterName]`, where *`parameterName`* is the value of the `Name` attribute in the `<asp:Parameter>` tag (the `InputParameters` collection can also be indexed ordinally, as in `e.InputParameters[index]`).</span></span> <span data-ttu-id="583b8-169">設定する、`month`現在の月にパラメーターを追加するには、次の`Selecting`イベントのハンドラー。</span><span class="sxs-lookup"><span data-stu-id="583b8-169">To set the `month` parameter to the current month, add the following to the `Selecting` event handler:</span></span>
 
 
 [!code-csharp[Main](programmatically-setting-the-objectdatasource-s-parameter-values-cs/samples/sample3.cs)]

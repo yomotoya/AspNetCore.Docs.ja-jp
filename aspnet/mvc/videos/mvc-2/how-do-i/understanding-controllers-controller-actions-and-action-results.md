@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879284"
 ---
 <a name="understanding-controllers-controller-actions-and-action-results"></a><span data-ttu-id="11736-104">Understanding コント ローラー、コント ローラーのアクションおよびアクションの結果</span><span class="sxs-lookup"><span data-stu-id="11736-104">Understanding Controllers, Controller Actions, and Action Results</span></span>
 ====================

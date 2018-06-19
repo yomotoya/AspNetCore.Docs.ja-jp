@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889792"
 ---
 <a name="security-basics-and-aspnet-support-c"></a><span data-ttu-id="1b29d-103">セキュリティの基礎と ASP.NET のサポート (c#)</span><span class="sxs-lookup"><span data-stu-id="1b29d-103">Security Basics and ASP.NET Support (C#)</span></span>
 ====================

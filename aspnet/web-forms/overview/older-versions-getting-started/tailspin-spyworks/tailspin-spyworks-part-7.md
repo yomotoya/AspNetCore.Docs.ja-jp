@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888394"
 ---
 <a name="part-7-adding-features"></a><span data-ttu-id="79d09-104">手順 7: 追加の機能</span><span class="sxs-lookup"><span data-stu-id="79d09-104">Part 7: Adding Features</span></span>
 ====================

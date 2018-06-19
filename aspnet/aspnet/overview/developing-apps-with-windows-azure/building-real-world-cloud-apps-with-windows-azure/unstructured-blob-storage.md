@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872573"
 ---
 <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="ad3bf-104">非構造化 Blob ストレージ (Azure と実際のクラウド アプリのビルド)</span><span class="sxs-lookup"><span data-stu-id="ad3bf-104">Unstructured Blob Storage (Building Real-World Cloud Apps with Azure)</span></span>
 ====================

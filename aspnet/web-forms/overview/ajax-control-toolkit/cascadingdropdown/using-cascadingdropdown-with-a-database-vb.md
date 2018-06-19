@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873587"
 ---
 <a name="using-cascadingdropdown-with-a-database-vb"></a><span data-ttu-id="1b1f8-103">データベース (VB) で CascadingDropDown の使用</span><span class="sxs-lookup"><span data-stu-id="1b1f8-103">Using CascadingDropDown with a Database (VB)</span></span>
 ====================

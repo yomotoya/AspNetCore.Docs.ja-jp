@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879713"
 ---
 <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="c26e1-104">データ ストレージ オプション (Azure と実際のクラウド アプリのビルド)</span><span class="sxs-lookup"><span data-stu-id="c26e1-104">Data Storage Options (Building Real-World Cloud Apps with Azure)</span></span>
 ====================
@@ -116,7 +117,7 @@ ms.lasthandoff: 04/06/2018
 
 ![Azure でのデータ記憶域オプション](data-storage-options/_static/image5.png)
 
-<span data-ttu-id="c26e1-217">IaaS オプションには、ほぼ無制限データ記憶域オプション、およびそれらの多くは事前構成済みイメージを使用して Vm を作成するため、特に簡単に使用します。</span><span class="sxs-lookup"><span data-stu-id="c26e1-217">The IaaS option gives you almost unlimited data storage options, and many of them are especially easy to use because you can create VMs using preconfigured images.</span></span> <span data-ttu-id="c26e1-218">たとえば、管理ポータルに移動**仮想マシン**、] をクリックして、**イメージ**タブをクリックし、をクリックして**[VM Depot の参照**です。</span><span class="sxs-lookup"><span data-stu-id="c26e1-218">For example, in the management portal go to **Virtual Machines**, click the **Images** tab, and click **Browse VM Depot**.</span></span>
+<span data-ttu-id="c26e1-217">IaaS オプションには、ほぼ無制限データ記憶域オプション、およびそれらの多くは事前構成済みイメージを使用して Vm を作成するため、特に簡単に使用します。</span><span class="sxs-lookup"><span data-stu-id="c26e1-217">The IaaS option gives you almost unlimited data storage options, and many of them are especially easy to use because you can create VMs using preconfigured images.</span></span> <span data-ttu-id="c26e1-218">たとえば、管理ポータルに移動**仮想マシン**、] をクリックして、**イメージ**タブをクリックし、をクリックして **[VM Depot の参照**です。</span><span class="sxs-lookup"><span data-stu-id="c26e1-218">For example, in the management portal go to **Virtual Machines**, click the **Images** tab, and click **Browse VM Depot**.</span></span>
 
 ![VM Depot を参照します。](data-storage-options/_static/image6.png)
 

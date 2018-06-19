@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882658"
 ---
 <a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a><span data-ttu-id="febc7-104">[How Do i:]カスケード スタイル シートの機能と管理に進める</span><span class="sxs-lookup"><span data-stu-id="febc7-104">[How Do I:] Advance Cascading Style Sheet Features and Management</span></span>
 ====================

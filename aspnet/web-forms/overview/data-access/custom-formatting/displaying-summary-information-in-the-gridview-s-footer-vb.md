@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877617"
 ---
 <a name="displaying-summary-information-in-the-gridviews-footer-vb"></a><span data-ttu-id="27df9-104">GridView のフッター (VB) で概要情報を表示します。</span><span class="sxs-lookup"><span data-stu-id="27df9-104">Displaying Summary Information in the GridView's Footer (VB)</span></span>
 ====================
@@ -101,7 +102,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="27df9-156">[![選択したカテゴリの DropDownList から categoryID パラメーターの値を取得します。](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image22.png)</span><span class="sxs-lookup"><span data-stu-id="27df9-156">[![Get the categoryID Parameter Value from the Selected Categories DropDownList](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image22.png)</span></span>
 
-<span data-ttu-id="27df9-157">**図 8**: Get、 *`categoryID`*カテゴリの選択した DropDownList からパラメーター値 ([フルサイズのイメージを表示するをクリックして](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))</span><span class="sxs-lookup"><span data-stu-id="27df9-157">**Figure 8**: Get the *`categoryID`* Parameter Value from the Selected Categories DropDownList ([Click to view full-size image](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))</span></span>
+<span data-ttu-id="27df9-157">**図 8**: Get、 *`categoryID`* カテゴリの選択した DropDownList からパラメーター値 ([フルサイズのイメージを表示するをクリックして](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))</span><span class="sxs-lookup"><span data-stu-id="27df9-157">**Figure 8**: Get the *`categoryID`* Parameter Value from the Selected Categories DropDownList ([Click to view full-size image](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))</span></span>
 
 
 <span data-ttu-id="27df9-158">ウィザードの完了後、GridView は、製品のプロパティの各 BoundField があります。</span><span class="sxs-lookup"><span data-stu-id="27df9-158">After completing the wizard the GridView will have a BoundField for each of the product properties.</span></span> <span data-ttu-id="27df9-159">これら BoundFields だけがクリーンアップみましょう、 `ProductName`、 `UnitPrice`、 `UnitsInStock`、および`UnitsOnOrder`BoundFields が表示されます。</span><span class="sxs-lookup"><span data-stu-id="27df9-159">Let's clean up these BoundFields so that only the `ProductName`, `UnitPrice`, `UnitsInStock`, and `UnitsOnOrder` BoundFields are displayed.</span></span> <span data-ttu-id="27df9-160">自由に残りの BoundFields に、フィールド レベルの設定を追加する (書式設定など、`UnitPrice`通貨として)。</span><span class="sxs-lookup"><span data-stu-id="27df9-160">Feel free to add any field-level settings to the remaining BoundFields (such as formatting the `UnitPrice` as a currency).</span></span> <span data-ttu-id="27df9-161">これらの変更を加えたら、GridView の宣言型マークアップを次のようになります。</span><span class="sxs-lookup"><span data-stu-id="27df9-161">After making these changes, the GridView's declarative markup should look similar to the following:</span></span>
@@ -114,7 +115,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="27df9-163">[![選択したカテゴリの DropDownList から categoryID パラメーターの値を取得します。](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image25.png)</span><span class="sxs-lookup"><span data-stu-id="27df9-163">[![Get the categoryID Parameter Value from the Selected Categories DropDownList](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image25.png)</span></span>
 
-<span data-ttu-id="27df9-164">**図 9**: Get、 *`categoryID`*カテゴリの選択した DropDownList からパラメーター値 ([フルサイズのイメージを表示するをクリックして](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))</span><span class="sxs-lookup"><span data-stu-id="27df9-164">**Figure 9**: Get the *`categoryID`* Parameter Value from the Selected Categories DropDownList ([Click to view full-size image](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))</span></span>
+<span data-ttu-id="27df9-164">**図 9**: Get、 *`categoryID`* カテゴリの選択した DropDownList からパラメーター値 ([フルサイズのイメージを表示するをクリックして](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))</span><span class="sxs-lookup"><span data-stu-id="27df9-164">**Figure 9**: Get the *`categoryID`* Parameter Value from the Selected Categories DropDownList ([Click to view full-size image](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))</span></span>
 
 
 ## <a name="step-2-displaying-a-footer-in-the-gridview"></a><span data-ttu-id="27df9-165">手順 2: GridView でフッターを表示します。</span><span class="sxs-lookup"><span data-stu-id="27df9-165">Step 2: Displaying a Footer in the GridView</span></span>

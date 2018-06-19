@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884988"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-roundedcorners-extender"></a><span data-ttu-id="5f998-104">[How Do i:]ASP.NET AJAX RoundedCorners Extender を使用しますか。</span><span class="sxs-lookup"><span data-stu-id="5f998-104">[How Do I:] Use the ASP.NET AJAX RoundedCorners Extender?</span></span>
 ====================

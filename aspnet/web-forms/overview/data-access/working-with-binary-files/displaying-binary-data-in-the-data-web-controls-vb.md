@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886928"
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-vb"></a><span data-ttu-id="1f16b-103">Web コントロール (VB) の データのバイナリ データを表示します。</span><span class="sxs-lookup"><span data-stu-id="1f16b-103">Displaying Binary Data in the Data Web Controls (VB)</span></span>
 ====================

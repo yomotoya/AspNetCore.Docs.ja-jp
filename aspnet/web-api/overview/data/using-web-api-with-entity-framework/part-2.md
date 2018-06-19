@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879583"
 ---
 <a name="add-models-and-controllers"></a><span data-ttu-id="9987d-102">モデルおよびコント ローラーを追加します。</span><span class="sxs-lookup"><span data-stu-id="9987d-102">Add Models and Controllers</span></span>
 ====================

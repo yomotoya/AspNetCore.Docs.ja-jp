@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885575"
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a><span data-ttu-id="45fa8-104">Web デプロイの発行用のデータベース サーバーの構成</span><span class="sxs-lookup"><span data-stu-id="45fa8-104">Configuring a Database Server for Web Deploy Publishing</span></span>
 ====================
@@ -114,7 +115,7 @@ ms.lasthandoff: 04/06/2018
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image6.png)
 3. <span data-ttu-id="45fa8-182">**アクション**ペイン、下にある**受信の規則**、 をクリックして**新しいルール**です。</span><span class="sxs-lookup"><span data-stu-id="45fa8-182">In the **Actions** pane, under **Inbound Rules**, click **New Rule**.</span></span>
-4. <span data-ttu-id="45fa8-183">新規の受信の規則ウィザードでの**規則の種類**] ページで、[**ポート**、順にクリック**[次へ]**。</span><span class="sxs-lookup"><span data-stu-id="45fa8-183">In the New Inbound Rule Wizard, on the **Rule Type** page, select **Port**, and then click **Next**.</span></span>
+4. <span data-ttu-id="45fa8-183">新規の受信の規則ウィザードでの**規則の種類**] ページで、[**ポート**、順にクリック **[次へ]**。</span><span class="sxs-lookup"><span data-stu-id="45fa8-183">In the New Inbound Rule Wizard, on the **Rule Type** page, select **Port**, and then click **Next**.</span></span>
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image7.png)
 5. <span data-ttu-id="45fa8-184">**プロトコルおよびポート**いることを確認] ページで、 **TCP**が選択されているし、[、**特定のローカル ポート**ボックスに、入力**1433**をクリックし、**次**です。</span><span class="sxs-lookup"><span data-stu-id="45fa8-184">On the **Protocol and Ports** page, ensure that **TCP** is selected, and in the **Specific local ports** box, type **1433**, and then click **Next**.</span></span>
@@ -158,7 +159,7 @@ ms.lasthandoff: 04/06/2018
 4. <span data-ttu-id="45fa8-209">**ログイン-新規** ダイアログ ボックスで、**ログイン名**ボックスに、web サーバー マシン アカウントの名前を入力 (たとえば、 **FABRIKAM\TESTWEB1$**)。</span><span class="sxs-lookup"><span data-stu-id="45fa8-209">In the **Login – New** dialog box, in the **Login name** box, type the name of your web server machine account (for example, **FABRIKAM\TESTWEB1$**).</span></span>
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image11.png)
-5. <span data-ttu-id="45fa8-210">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="45fa8-210">Click **OK**.</span></span>
+5. <span data-ttu-id="45fa8-210">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="45fa8-210">Click **OK**.</span></span>
 
 <span data-ttu-id="45fa8-211">この時点では、データベース サーバーは、Web Deploy の発行可能な状態です。</span><span class="sxs-lookup"><span data-stu-id="45fa8-211">At this point, your database server is ready for Web Deploy publishing.</span></span> <span data-ttu-id="45fa8-212">ただし、展開するソリューションは、必要なデータベース ロールにマシン アカウントのログインをマップするまでに動作しません。</span><span class="sxs-lookup"><span data-stu-id="45fa8-212">However, any solutions you deploy won't work until you map the machine account login to the required database roles.</span></span> <span data-ttu-id="45fa8-213">考えるより多くのデータベース ロールにログインにマッピングが必要です、することはできません後まで、マップのロール配置したデータベースです。</span><span class="sxs-lookup"><span data-stu-id="45fa8-213">Mapping the login to database roles requires a lot more thought, as you can't map roles until after you've deployed the database.</span></span> <span data-ttu-id="45fa8-214">必要なデータベース ロールにマシン アカウントのログインをマップするには、方法があります。</span><span class="sxs-lookup"><span data-stu-id="45fa8-214">To map the machine account login to the required database roles, you can either:</span></span>
 
@@ -175,10 +176,10 @@ ms.lasthandoff: 04/06/2018
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image12.png)
 3. <span data-ttu-id="45fa8-223">**ログイン プロパティ**ダイアログ ボックスで、をクリックして**ユーザー マッピング**です。</span><span class="sxs-lookup"><span data-stu-id="45fa8-223">In the **Login Properties** dialog box, click **User Mapping**.</span></span>
 4. <span data-ttu-id="45fa8-224">**このログインにマップされたユーザー**テーブルで、データベースの名前を選択 (たとえば、 **ContactManager**)。</span><span class="sxs-lookup"><span data-stu-id="45fa8-224">In the **Users mapped to this login** table, select the name of your database (for example, **ContactManager**).</span></span>
-5. <span data-ttu-id="45fa8-225">**データベース ロールのメンバーシップ:** *[データベース名]*一覧で、必要なアクセス許可を選択します。</span><span class="sxs-lookup"><span data-stu-id="45fa8-225">In the **Database role membership for:** *[database name]* list, select the permissions required.</span></span> <span data-ttu-id="45fa8-226">選択する必要があります、連絡先のマネージャーのサンプル ソリューションの場合、 **db\_datareader**と**db\_datawriter**ロール。</span><span class="sxs-lookup"><span data-stu-id="45fa8-226">In the case of the Contact Manager sample solution, you must select the **db\_datareader** and **db\_datawriter** roles.</span></span>
+5. <span data-ttu-id="45fa8-225">**データベース ロールのメンバーシップ:** *[データベース名]* 一覧で、必要なアクセス許可を選択します。</span><span class="sxs-lookup"><span data-stu-id="45fa8-225">In the **Database role membership for:** *[database name]* list, select the permissions required.</span></span> <span data-ttu-id="45fa8-226">選択する必要があります、連絡先のマネージャーのサンプル ソリューションの場合、 **db\_datareader**と**db\_datawriter**ロール。</span><span class="sxs-lookup"><span data-stu-id="45fa8-226">In the case of the Contact Manager sample solution, you must select the **db\_datareader** and **db\_datawriter** roles.</span></span>
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image13.png)
-6. <span data-ttu-id="45fa8-227">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="45fa8-227">Click **OK**.</span></span>
+6. <span data-ttu-id="45fa8-227">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="45fa8-227">Click **OK**.</span></span>
 
 <span data-ttu-id="45fa8-228">データベース ロールを手動でマッピングでは、テスト環境の複数の適切な多くの場合は、ステージング環境または実稼働環境に自動または 1 回のクリックは展開の望ましいです。</span><span class="sxs-lookup"><span data-stu-id="45fa8-228">While manually mapping database roles is often more than adequate for test environments, it's less desirable for automated or one-click deployments to staging or production environments.</span></span> <span data-ttu-id="45fa8-229">詳細についてはこの種の配置後のスクリプトを使用して作業を自動化することで見つかります[を展開するデータベース ロール メンバーシップを変更するテスト環境](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)です。</span><span class="sxs-lookup"><span data-stu-id="45fa8-229">You can find more information on automating this kind of task using post-deployment scripts in [Deploying Database Role Memberships to Test Environments](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md).</span></span>
 
@@ -212,10 +213,10 @@ ms.lasthandoff: 04/06/2018
 2. <span data-ttu-id="45fa8-247">**オブジェクト エクスプ ローラー**ウィンドウで、展開、**セキュリティ**ノード、展開、**ログイン**ノード、マシン アカウントのログインをダブルクリックし、(たとえば、 **FABRIKAM\matt**)。</span><span class="sxs-lookup"><span data-stu-id="45fa8-247">In the **Object Explorer** window, expand the **Security** node, expand the **Logins** node, and then double-click the machine account login (for example, **FABRIKAM\matt**).</span></span>
 3. <span data-ttu-id="45fa8-248">**ログイン プロパティ**ダイアログ ボックスで、をクリックして**ユーザー マッピング**です。</span><span class="sxs-lookup"><span data-stu-id="45fa8-248">In the **Login Properties** dialog box, click **User Mapping**.</span></span>
 4. <span data-ttu-id="45fa8-249">**このログインにマップされたユーザー**テーブルで、データベースの名前を選択 (たとえば、 **ContactManager**)。</span><span class="sxs-lookup"><span data-stu-id="45fa8-249">In the **Users mapped to this login** table, select the name of your database (for example, **ContactManager**).</span></span>
-5. <span data-ttu-id="45fa8-250">**データベース ロールのメンバーシップ:** *[データベース名]*一覧で、、 **db\_所有者**ロール。</span><span class="sxs-lookup"><span data-stu-id="45fa8-250">In the **Database role membership for:** *[database name]* list, select the **db\_owner** role.</span></span>
+5. <span data-ttu-id="45fa8-250">**データベース ロールのメンバーシップ:** *[データベース名]* 一覧で、、 **db\_所有者**ロール。</span><span class="sxs-lookup"><span data-stu-id="45fa8-250">In the **Database role membership for:** *[database name]* list, select the **db\_owner** role.</span></span>
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image15.png)
-6. <span data-ttu-id="45fa8-251">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="45fa8-251">Click **OK**.</span></span>
+6. <span data-ttu-id="45fa8-251">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="45fa8-251">Click **OK**.</span></span>
 
 ## <a name="conclusion"></a><span data-ttu-id="45fa8-252">まとめ</span><span class="sxs-lookup"><span data-stu-id="45fa8-252">Conclusion</span></span>
 

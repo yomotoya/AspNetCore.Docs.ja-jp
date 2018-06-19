@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885407"
 ---
 <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a><span data-ttu-id="f63b3-104">並べ替え、ページング、およびモデル バインディング機能と web フォームを使用してデータをフィルター処理</span><span class="sxs-lookup"><span data-stu-id="f63b3-104">Sorting, paging, and filtering data with model binding and web forms</span></span>
 ====================

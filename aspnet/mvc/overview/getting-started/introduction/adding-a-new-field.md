@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874185"
 ---
 <a name="adding-a-new-field"></a><span data-ttu-id="99aa5-102">新しいフィールドの追加</span><span class="sxs-lookup"><span data-stu-id="99aa5-102">Adding a New Field</span></span>
 ====================
@@ -91,7 +92,7 @@ ms.lasthandoff: 04/06/2018
 
 ![](adding-a-new-field/_static/image6.png)
 
-<span data-ttu-id="99aa5-139">Code First Migrations で別のクラス ファイルの作成、*移行*フォルダー (名前を持つ*{日付スタンプ}\_Initial.cs* )、このクラスには、データベース スキーマを作成するコードが含まれています。</span><span class="sxs-lookup"><span data-stu-id="99aa5-139">Code First Migrations creates another class file in the *Migrations* folder (with the name *{DateStamp}\_Initial.cs* ), and this class contains code that creates the database schema.</span></span> <span data-ttu-id="99aa5-140">移行ファイル名は、順序付けに役立てるために事前、タイムスタンプを持つ固定されています。</span><span class="sxs-lookup"><span data-stu-id="99aa5-140">The migration filename is pre-fixed with a timestamp to help with ordering.</span></span> <span data-ttu-id="99aa5-141">確認、 *{日付スタンプ}\_Initial.cs*ファイルを作成する手順がある、`Movies`ムービー DB のテーブルです。</span><span class="sxs-lookup"><span data-stu-id="99aa5-141">Examine the *{DateStamp}\_Initial.cs* file, it contains the instructions to create the `Movies` table for the Movie DB.</span></span> <span data-ttu-id="99aa5-142">以下、この手順では、データベースを更新すると*{日付スタンプ}\_Initial.cs*ファイルが実行され、データベースのスキーマを作成します。</span><span class="sxs-lookup"><span data-stu-id="99aa5-142">When you update the database in the instructions below, this *{DateStamp}\_Initial.cs* file will run and create the DB schema.</span></span> <span data-ttu-id="99aa5-143">続いて、**シード**DB にテスト データを設定するメソッドが実行されます。</span><span class="sxs-lookup"><span data-stu-id="99aa5-143">Then the **Seed** method will run to populate the DB with test data.</span></span>
+<span data-ttu-id="99aa5-139">Code First Migrations で別のクラス ファイルの作成、*移行*フォルダー (名前を持つ *{日付スタンプ}\_Initial.cs* )、このクラスには、データベース スキーマを作成するコードが含まれています。</span><span class="sxs-lookup"><span data-stu-id="99aa5-139">Code First Migrations creates another class file in the *Migrations* folder (with the name *{DateStamp}\_Initial.cs* ), and this class contains code that creates the database schema.</span></span> <span data-ttu-id="99aa5-140">移行ファイル名は、順序付けに役立てるために事前、タイムスタンプを持つ固定されています。</span><span class="sxs-lookup"><span data-stu-id="99aa5-140">The migration filename is pre-fixed with a timestamp to help with ordering.</span></span> <span data-ttu-id="99aa5-141">確認、 *{日付スタンプ}\_Initial.cs*ファイルを作成する手順がある、`Movies`ムービー DB のテーブルです。</span><span class="sxs-lookup"><span data-stu-id="99aa5-141">Examine the *{DateStamp}\_Initial.cs* file, it contains the instructions to create the `Movies` table for the Movie DB.</span></span> <span data-ttu-id="99aa5-142">以下、この手順では、データベースを更新すると *{日付スタンプ}\_Initial.cs*ファイルが実行され、データベースのスキーマを作成します。</span><span class="sxs-lookup"><span data-stu-id="99aa5-142">When you update the database in the instructions below, this *{DateStamp}\_Initial.cs* file will run and create the DB schema.</span></span> <span data-ttu-id="99aa5-143">続いて、**シード**DB にテスト データを設定するメソッドが実行されます。</span><span class="sxs-lookup"><span data-stu-id="99aa5-143">Then the **Seed** method will run to populate the DB with test data.</span></span>
 
 <span data-ttu-id="99aa5-144">**Package Manager Console**、コマンドを入力して`update-database`データベースを作成および実行する、`Seed`メソッドです。</span><span class="sxs-lookup"><span data-stu-id="99aa5-144">In the **Package Manager Console**, enter the command `update-database` to create the database and run the `Seed` method.</span></span>
 
@@ -179,7 +180,7 @@ ms.lasthandoff: 04/06/2018
 
 ![7_CreateRioII](adding-a-new-field/_static/image13.png)
 
-<span data-ttu-id="99aa5-196">**[作成]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="99aa5-196">Click **Create**.</span></span> <span data-ttu-id="99aa5-197">この評価を含む、新しいムービーに表示されます、映画を一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="99aa5-197">The new movie, including the rating, now shows up in the movies listing:</span></span>
+<span data-ttu-id="99aa5-196">**[作成]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="99aa5-196">Click **Create**.</span></span> <span data-ttu-id="99aa5-197">この評価を含む、新しいムービーに表示されます、映画を一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="99aa5-197">The new movie, including the rating, now shows up in the movies listing:</span></span>
 
 ![7_ourNewMovie_SM](adding-a-new-field/_static/image14.png)
 

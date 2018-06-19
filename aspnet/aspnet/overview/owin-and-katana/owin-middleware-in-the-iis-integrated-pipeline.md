@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871494"
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a><span data-ttu-id="2bf31-104">IIS 統合パイプラインの OWIN ミドルウェア</span><span class="sxs-lookup"><span data-stu-id="2bf31-104">OWIN Middleware in the IIS integrated pipeline</span></span>
 ====================
