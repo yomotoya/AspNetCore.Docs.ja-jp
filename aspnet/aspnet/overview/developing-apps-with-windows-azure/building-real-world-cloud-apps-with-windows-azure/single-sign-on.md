@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873886"
 ---
 <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>シングル サインオン (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -110,7 +111,7 @@ Azure アカウントに自動的に 1 つの Azure AD テナントがあるし�
 
 ![WAAD 同期ツール構成ウィザード](single-sign-on/_static/image15.png)
 
-をクリックして**[次へ]**、し、内部設置型を入力し、AD の資格情報。
+をクリックして **[次へ]**、し、内部設置型を入力し、AD の資格情報。
 
 ![WAAD 同期ツール構成ウィザード](single-sign-on/_static/image16.png)
 

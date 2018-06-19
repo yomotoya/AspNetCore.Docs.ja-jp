@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874383"
 ---
 <a name="secure-applications-using-authentication-and-authorization"></a>認証と承認を使用してアプリケーションをセキュリティ保護します。
 ====================
@@ -51,7 +52,7 @@ ASP.NET MVC の既定の Visual Studio プロジェクト テンプレートは�
 
 ![](secure-applications-using-authentication-and-authorization/_static/image1.png)
 
-[ログオン] リンクをクリックすると、ユーザーを*/アカウント/ログオン*URL:
+[ログオン] リンクをクリックすると、ユーザーを */アカウント/ログオン*URL:
 
 ![](secure-applications-using-authentication-and-authorization/_static/image2.png)
 

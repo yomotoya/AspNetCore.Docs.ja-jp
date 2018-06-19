@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874185"
 ---
 <a name="adding-a-new-field"></a>新しいフィールドの追加
 ====================
@@ -91,7 +92,7 @@ Visual Studio を開き、*される Configuration.cs*ファイル。 置換、`
 
 ![](adding-a-new-field/_static/image6.png)
 
-Code First Migrations で別のクラス ファイルの作成、*移行*フォルダー (名前を持つ*{日付スタンプ}\_Initial.cs* )、このクラスには、データベース スキーマを作成するコードが含まれています。 移行ファイル名は、順序付けに役立てるために事前、タイムスタンプを持つ固定されています。 確認、 *{日付スタンプ}\_Initial.cs*ファイルを作成する手順がある、`Movies`ムービー DB のテーブルです。 以下、この手順では、データベースを更新すると*{日付スタンプ}\_Initial.cs*ファイルが実行され、データベースのスキーマを作成します。 続いて、**シード**DB にテスト データを設定するメソッドが実行されます。
+Code First Migrations で別のクラス ファイルの作成、*移行*フォルダー (名前を持つ *{日付スタンプ}\_Initial.cs* )、このクラスには、データベース スキーマを作成するコードが含まれています。 移行ファイル名は、順序付けに役立てるために事前、タイムスタンプを持つ固定されています。 確認、 *{日付スタンプ}\_Initial.cs*ファイルを作成する手順がある、`Movies`ムービー DB のテーブルです。 以下、この手順では、データベースを更新すると *{日付スタンプ}\_Initial.cs*ファイルが実行され、データベースのスキーマを作成します。 続いて、**シード**DB にテスト データを設定するメソッドが実行されます。
 
 **Package Manager Console**、コマンドを入力して`update-database`データベースを作成および実行する、`Seed`メソッドです。
 
@@ -179,7 +180,7 @@ Code First Migrations で別のクラス ファイルの作成、*移行*フォ�
 
 ![7_CreateRioII](adding-a-new-field/_static/image13.png)
 
-**[作成]**をクリックします。 この評価を含む、新しいムービーに表示されます、映画を一覧表示します。
+**[作成]** をクリックします。 この評価を含む、新しいムービーに表示されます、映画を一覧表示します。
 
 ![7_ourNewMovie_SM](adding-a-new-field/_static/image14.png)
 

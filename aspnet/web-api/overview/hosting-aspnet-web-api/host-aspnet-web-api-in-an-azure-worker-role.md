@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873652"
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>ASP.NET Web API 2 の Azure ワーカー ロールをホストします。
 ====================
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/06/2018
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image2.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image1.png)
 
-**新しい Windows Azure のクラウド サービス**ダイアログ ボックスをダブルクリックして**ワーカー ロール**です。 既定の名前 ("WorkerRole1") のままにします。 この手順は、ワーカー ロールをソリューションに追加します。 **[OK]**をクリックします。
+**新しい Windows Azure のクラウド サービス**ダイアログ ボックスをダブルクリックして**ワーカー ロール**です。 既定の名前 ("WorkerRole1") のままにします。 この手順は、ワーカー ロールをソリューションに追加します。 **[OK]** をクリックします。
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image4.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image3.png)
 
@@ -151,11 +152,11 @@ Azure アカウントにサインインしていない場合はクリックし�
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image17.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image16.png)
 
-クラウド サービスの名前を入力し、地域を選択します。 **[作成]**をクリックします。
+クラウド サービスの名前を入力し、地域を選択します。 **[作成]** をクリックします。
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image18.png)
 
-**[発行]**をクリックします。
+**[発行]** をクリックします。
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image20.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image19.png)
 

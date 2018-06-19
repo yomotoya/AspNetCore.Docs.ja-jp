@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881104"
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-vb"></a>マスター/詳細詳細 DetailView (VB) で選択可能なマスター GridView の使用
 ====================
@@ -136,7 +137,7 @@ CommandField を追加、選択範囲を有効にする チェック、 `Product
 
 [![GridView の SelectedValue プロパティに、productID パラメーターを設定します。](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb/_static/image29.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb/_static/image28.png)
 
-**図 10**: 設定、 *`productID`*パラメーターを GridView の`SelectedValue`プロパティ ([フルサイズのイメージを表示するをクリックして](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb/_static/image30.png))
+**図 10**: 設定、 *`productID`* パラメーターを GridView の`SelectedValue`プロパティ ([フルサイズのイメージを表示するをクリックして](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb/_static/image30.png))
 
 
 1 回、 `productDetailsDataSource` ObjectDataSource を正しく構成されていて、DetailsView にバインドされている、このチュートリアルは終了です。 ページが初めてアクセスしたときに行が選択されていないため、GridView の`SelectedValue`プロパティから返される`Nothing`です。 製品ではないため、 `NULL` `ProductID`値、レコードは返されませんでしたが、 `GetProductByProductID(productID)` DetailsView が表示されていないことを意味しているメソッド (図 11 を参照してください)。 GridView の行の選択 ボタンをクリックすると、ポストバックに陥ります、DetailsView は更新されます。 今回は、GridView の`SelectedValue`プロパティから返される、`ProductID`選択した行の`GetProductByProductID(productID)`メソッドを返します。、`ProductsDataTable`に関する情報を特定の製品、および DetailsView には、これらの詳細を示しています (図 12 を参照してください)。

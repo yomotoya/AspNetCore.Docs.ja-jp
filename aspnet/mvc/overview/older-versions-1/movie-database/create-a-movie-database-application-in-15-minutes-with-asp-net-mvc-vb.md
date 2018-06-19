@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876203"
 ---
 <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-vb"></a>ASP.NET MVC (VB) で 15 分以内にムービー データベース アプリケーションを作成します。
 ====================
@@ -228,7 +229,7 @@ Index() メソッドを使用して、ムービーのデータベース テー�
 
 という名前の新しいプライベート フィールドが含まれているように 2 の一覧でテンプレートを使用するクラスを変更しました\_db します。 MoviesDBEntities クラスは、データベース モデルを表し、このクラスを使用して、データベースと通信します。
 
-また、Index() メソッドを一覧表示する 2 を変更しました。 Index() メソッドでは、MoviesDBEntities クラスを使用して、映画データベース テーブルからすべてのムービーのレコードを取得します。 式 *\_db します。MovieSet.ToList()*映画データベース テーブルからすべてのムービーのレコードの一覧を返します。
+また、Index() メソッドを一覧表示する 2 を変更しました。 Index() メソッドでは、MoviesDBEntities クラスを使用して、映画データベース テーブルからすべてのムービーのレコードを取得します。 式 *\_db します。MovieSet.ToList()* 映画データベース テーブルからすべてのムービーのレコードの一覧を返します。
 
 ムービーの一覧は、ビューに渡されます。 データの表示と、ビューに渡さ View() メソッドに渡されたものを取得します。
 

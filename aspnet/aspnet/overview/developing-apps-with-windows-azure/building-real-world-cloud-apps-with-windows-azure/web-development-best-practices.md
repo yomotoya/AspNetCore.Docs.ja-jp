@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873522"
 ---
 <a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Web 開発のベスト プラクティス (Azure と実際のクラウド アプリのビルド)
 ====================

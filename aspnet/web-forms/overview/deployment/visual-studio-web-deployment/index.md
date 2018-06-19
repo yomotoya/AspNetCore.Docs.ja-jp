@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/index
-title: "Visual Studio を使用して ASP.NET Web 配置 |Microsoft ドキュメント"
+title: Visual Studio を使用して ASP.NET Web 配置 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルの系列では、t に展開することで、インターネット経由で SQL Server (いない SQL Server Compact) 利用可能なを使用する ASP.NET web アプリケーションを作成する方法を示します."
+description: このチュートリアルの系列では、t に展開することで、インターネット経由で SQL Server (いない SQL Server Compact) 利用可能なを使用する ASP.NET web アプリケーションを作成する方法を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment
 msc.type: chapter
 ms.openlocfilehash: de7898f13c132f82b64403061558ba04684f523c
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26515201"
 ---
 <a name="aspnet-web-deployment-using-visual-studio"></a>Visual Studio を使用して ASP.NET Web 配置
 ====================

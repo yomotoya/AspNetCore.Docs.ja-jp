@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885575"
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Web デプロイの発行用のデータベース サーバーの構成
 ====================
@@ -114,7 +115,7 @@ SQL Server の既定のインスタンスを使用するいると想定される
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image6.png)
 3. **アクション**ペイン、下にある**受信の規則**、 をクリックして**新しいルール**です。
-4. 新規の受信の規則ウィザードでの**規則の種類**] ページで、[**ポート**、順にクリック**[次へ]**。
+4. 新規の受信の規則ウィザードでの**規則の種類**] ページで、[**ポート**、順にクリック **[次へ]**。
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image7.png)
 5. **プロトコルおよびポート**いることを確認] ページで、 **TCP**が選択されているし、[、**特定のローカル ポート**ボックスに、入力**1433**をクリックし、**次**です。
@@ -158,7 +159,7 @@ SQL Server ログインを展開するデータベースに依存しないよう
 4. **ログイン-新規** ダイアログ ボックスで、**ログイン名**ボックスに、web サーバー マシン アカウントの名前を入力 (たとえば、 **FABRIKAM\TESTWEB1$**)。
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image11.png)
-5. **[OK]**をクリックします。
+5. **[OK]** をクリックします。
 
 この時点では、データベース サーバーは、Web Deploy の発行可能な状態です。 ただし、展開するソリューションは、必要なデータベース ロールにマシン アカウントのログインをマップするまでに動作しません。 考えるより多くのデータベース ロールにログインにマッピングが必要です、することはできません後まで、マップのロール配置したデータベースです。 必要なデータベース ロールにマシン アカウントのログインをマップするには、方法があります。
 
@@ -175,10 +176,10 @@ SQL Server ログインを展開するデータベースに依存しないよう
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image12.png)
 3. **ログイン プロパティ**ダイアログ ボックスで、をクリックして**ユーザー マッピング**です。
 4. **このログインにマップされたユーザー**テーブルで、データベースの名前を選択 (たとえば、 **ContactManager**)。
-5. **データベース ロールのメンバーシップ:** *[データベース名]*一覧で、必要なアクセス許可を選択します。 選択する必要があります、連絡先のマネージャーのサンプル ソリューションの場合、 **db\_datareader**と**db\_datawriter**ロール。
+5. **データベース ロールのメンバーシップ:** *[データベース名]* 一覧で、必要なアクセス許可を選択します。 選択する必要があります、連絡先のマネージャーのサンプル ソリューションの場合、 **db\_datareader**と**db\_datawriter**ロール。
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image13.png)
-6. **[OK]**をクリックします。
+6. **[OK]** をクリックします。
 
 データベース ロールを手動でマッピングでは、テスト環境の複数の適切な多くの場合は、ステージング環境または実稼働環境に自動または 1 回のクリックは展開の望ましいです。 詳細についてはこの種の配置後のスクリプトを使用して作業を自動化することで見つかります[を展開するデータベース ロール メンバーシップを変更するテスト環境](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)です。
 
@@ -212,10 +213,10 @@ SQL Server ログインを展開するデータベースに依存しないよう
 2. **オブジェクト エクスプ ローラー**ウィンドウで、展開、**セキュリティ**ノード、展開、**ログイン**ノード、マシン アカウントのログインをダブルクリックし、(たとえば、 **FABRIKAM\matt**)。
 3. **ログイン プロパティ**ダイアログ ボックスで、をクリックして**ユーザー マッピング**です。
 4. **このログインにマップされたユーザー**テーブルで、データベースの名前を選択 (たとえば、 **ContactManager**)。
-5. **データベース ロールのメンバーシップ:** *[データベース名]*一覧で、、 **db\_所有者**ロール。
+5. **データベース ロールのメンバーシップ:** *[データベース名]* 一覧で、、 **db\_所有者**ロール。
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image15.png)
-6. **[OK]**をクリックします。
+6. **[OK]** をクリックします。
 
 ## <a name="conclusion"></a>まとめ
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881589"
 ---
 <a name="configuring-deployment-properties-for-a-target-environment"></a>ターゲット環境の展開のプロパティを構成します。
 ====================

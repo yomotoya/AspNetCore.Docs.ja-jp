@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30877484"
 ---
 <a name="bundling-and-minification"></a>バンドルと縮小
 ====================
@@ -114,7 +115,7 @@ F12 開発者ツールでのデバッグの詳細については、MSDN の記�
 
 [!code-csharp[Main](bundling-and-minification/samples/sample5.cs)]
 
-上記のコードでは、という名前の新しい JavaScript バンドル*~/bundles/jquery*適切なすべてが含まれている (デバッグまたはが縮小する*。vsdoc*) 内のファイル、*スクリプト*ワイルドカード文字列"~/Scripts/jquery-{バージョン} .js"に一致するフォルダーです。 ASP.NET MVC 4 では、つまり、デバッグ構成では、ファイル*jquery 1.7.1.js*バンドルに追加されます。 構成では、リリース、 *jquery 1.7.1.min.js*追加されます。 バンドルのフレームワークにはなどのいくつかの一般的な規則が次に示します。
+上記のコードでは、という名前の新しい JavaScript バンドル *~/bundles/jquery*適切なすべてが含まれている (デバッグまたはが縮小する *。vsdoc*) 内のファイル、*スクリプト*ワイルドカード文字列"~/Scripts/jquery-{バージョン} .js"に一致するフォルダーです。 ASP.NET MVC 4 では、つまり、デバッグ構成では、ファイル*jquery 1.7.1.js*バンドルに追加されます。 構成では、リリース、 *jquery 1.7.1.min.js*追加されます。 バンドルのフレームワークにはなどのいくつかの一般的な規則が次に示します。
 
 - "FileX.min.js"と"FileX.js"が存在する場合は、".min"リリースのファイルを選択します。
 - デバッグ用の非".min"バージョンを選択します。

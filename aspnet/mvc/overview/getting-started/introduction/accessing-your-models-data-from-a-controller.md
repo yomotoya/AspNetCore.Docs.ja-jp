@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873558"
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>コント ローラーから、モデルのデータにアクセスします。
 ====================
@@ -36,8 +37,8 @@ ms.lasthandoff: 04/06/2018
 
 ![](accessing-your-models-data-from-a-controller/_static/image2.png)
 
-- 選択**ムービー (MvcMovie.Models)**モデル クラス。
-- 選択**MovieDBContext (MvcMovie.Models)**データ コンテキスト クラスです。
+- 選択**ムービー (MvcMovie.Models)** モデル クラス。
+- 選択**MovieDBContext (MvcMovie.Models)** データ コンテキスト クラスです。
 - コント ローラー名を入力してください。 **MoviesController**です。
 
   次の図では、完了したダイアログを表示します。  
@@ -52,7 +53,7 @@ ms.lasthandoff: 04/06/2018
 
 Visual Studio に自動的に作成された、 [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) (作成、読み取り、更新、および削除) のアクション メソッドと (CRUD アクション メソッドとビューの自動作成はスキャフォールディングと呼ばれます) のビューです。 作成、一覧表示、編集、およびムービーのエントリを削除することができますを完全に機能の web アプリケーションがあるようになりました。
 
-アプリケーションを実行し、をクリックして、 **MVC ムービー**リンク (を参照または、`Movies`コント ローラーを追加して*/Movies*お使いのブラウザーのアドレス バーの URL に)。 既定のルーティングにアプリケーションが依存するため (で定義されている、*アプリ\_Start\RouteConfig.cs*ファイル)、ブラウザーの要求`http://localhost:xxxxx/Movies`は既定値にルーティング`Index`のアクションメソッド`Movies`コント ローラー。 ブラウザー要求言い換えれば、`http://localhost:xxxxx/Movies`ブラウザーの要求と同じでは、事実上`http://localhost:xxxxx/Movies/Index`です。 いずれかがまだ追加されているため、ムービーの空のリストになります。
+アプリケーションを実行し、をクリックして、 **MVC ムービー**リンク (を参照または、`Movies`コント ローラーを追加して */Movies*お使いのブラウザーのアドレス バーの URL に)。 既定のルーティングにアプリケーションが依存するため (で定義されている、*アプリ\_Start\RouteConfig.cs*ファイル)、ブラウザーの要求`http://localhost:xxxxx/Movies`は既定値にルーティング`Index`のアクションメソッド`Movies`コント ローラー。 ブラウザー要求言い換えれば、`http://localhost:xxxxx/Movies`ブラウザーの要求と同じでは、事実上`http://localhost:xxxxx/Movies/Index`です。 いずれかがまだ追加されているため、ムービーの空のリストになります。
 
 ![](accessing-your-models-data-from-a-controller/_static/image4.png)
 

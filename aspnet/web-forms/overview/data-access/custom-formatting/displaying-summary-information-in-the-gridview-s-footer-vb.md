@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877617"
 ---
 <a name="displaying-summary-information-in-the-gridviews-footer-vb"></a>GridView のフッター (VB) で概要情報を表示します。
 ====================
@@ -101,7 +102,7 @@ GridView コントロールをページに、選択したカテゴリの製品�
 
 [![選択したカテゴリの DropDownList から categoryID パラメーターの値を取得します。](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image22.png)
 
-**図 8**: Get、 *`categoryID`*カテゴリの選択した DropDownList からパラメーター値 ([フルサイズのイメージを表示するをクリックして](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))
+**図 8**: Get、 *`categoryID`* カテゴリの選択した DropDownList からパラメーター値 ([フルサイズのイメージを表示するをクリックして](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))
 
 
 ウィザードの完了後、GridView は、製品のプロパティの各 BoundField があります。 これら BoundFields だけがクリーンアップみましょう、 `ProductName`、 `UnitPrice`、 `UnitsInStock`、および`UnitsOnOrder`BoundFields が表示されます。 自由に残りの BoundFields に、フィールド レベルの設定を追加する (書式設定など、`UnitPrice`通貨として)。 これらの変更を加えたら、GridView の宣言型マークアップを次のようになります。
@@ -114,7 +115,7 @@ GridView コントロールをページに、選択したカテゴリの製品�
 
 [![選択したカテゴリの DropDownList から categoryID パラメーターの値を取得します。](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image25.png)
 
-**図 9**: Get、 *`categoryID`*カテゴリの選択した DropDownList からパラメーター値 ([フルサイズのイメージを表示するをクリックして](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))
+**図 9**: Get、 *`categoryID`* カテゴリの選択した DropDownList からパラメーター値 ([フルサイズのイメージを表示するをクリックして](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))
 
 
 ## <a name="step-2-displaying-a-footer-in-the-gridview"></a>手順 2: GridView でフッターを表示します。

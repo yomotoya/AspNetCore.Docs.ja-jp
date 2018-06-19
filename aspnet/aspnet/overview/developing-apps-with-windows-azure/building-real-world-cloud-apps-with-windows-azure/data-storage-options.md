@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879713"
 ---
 <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>データ ストレージ オプション (Azure と実際のクラウド アプリのビルド)
 ====================
@@ -116,7 +117,7 @@ IaaS、たとえば、VM 上に読み込むことができます何もを実行�
 
 ![Azure でのデータ記憶域オプション](data-storage-options/_static/image5.png)
 
-IaaS オプションには、ほぼ無制限データ記憶域オプション、およびそれらの多くは事前構成済みイメージを使用して Vm を作成するため、特に簡単に使用します。 たとえば、管理ポータルに移動**仮想マシン**、] をクリックして、**イメージ**タブをクリックし、をクリックして**[VM Depot の参照**です。
+IaaS オプションには、ほぼ無制限データ記憶域オプション、およびそれらの多くは事前構成済みイメージを使用して Vm を作成するため、特に簡単に使用します。 たとえば、管理ポータルに移動**仮想マシン**、] をクリックして、**イメージ**タブをクリックし、をクリックして **[VM Depot の参照**です。
 
 ![VM Depot を参照します。](data-storage-options/_static/image6.png)
 

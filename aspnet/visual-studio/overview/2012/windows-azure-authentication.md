@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874825"
 ---
 <a name="windows-azure-authentication"></a>Windows Azure の認証
 ====================
@@ -69,7 +70,7 @@ Windows Azure Active Directory テナントのグローバル管理者特権が�
 ![](windows-azure-authentication/_static/image6.png)
 
 ダイアログ ボックスが表示されます、**ドメイン**、**アプリケーションのプリンシパル Id**と**応答 URL** Azure Active Directory とアプリケーションのプロビジョニングに必要な理念です。 アプリケーションをプロビジョニングするための十分な特権を持つユーザーにこの情報を提供する必要があります。 参照してください[Windows Azure Active Directory の ASP.NET アプリケーションにシングル サインオンを実装する方法](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect)コマンドレットを使用して手動でサービス プリンシパルを作成する方法の詳細。  
-アプリケーションが正常にプロビジョニングされるをクリックすると**、選択した設定を web.config の更新を続行**です。 クリックして、発生する可能性にプロビジョニングするための待機中にアプリケーションの開発を続行する場合**プロジェクト ファイルで設定を保存するに近い**です。 次回を有効にする Windows Azure 認証を呼び出すし、プロビジョニングのチェック ボックスをオフに同じ設定が表示されますをクリックして**続行**、クリックして、 **web.configでこれらの設定を適用**.
+アプリケーションが正常にプロビジョニングされるをクリックすると **、選択した設定を web.config の更新を続行**です。 クリックして、発生する可能性にプロビジョニングするための待機中にアプリケーションの開発を続行する場合**プロジェクト ファイルで設定を保存するに近い**です。 次回を有効にする Windows Azure 認証を呼び出すし、プロビジョニングのチェック ボックスをオフに同じ設定が表示されますをクリックして**続行**、クリックして、 **web.configでこれらの設定を適用**.
 
 1. アプリケーションが Windows Azure の認証用に構成され、Windows Azure Active Directory でプロビジョニングされています。
 2. アプリケーションの Windows Azure 認証を有効にすると、クリックして**閉じる。** 

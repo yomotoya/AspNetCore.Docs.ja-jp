@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882378"
 ---
 <a name="two-simple-techniques-for-triggering-updates-to-update-panels"></a>パネルを更新する更新プログラムをトリガーするための 2 つの簡単な方法
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873249"
 ---
 <a name="implement-efficient-data-paging"></a>効率的なデータのページングを実装します。
 ====================
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="nerddinner-step-8-paging-support"></a>NerdDinner 手順 8: ページングのサポート
 
-サイトが成功した場合は、今後ディナー数千になります。 UI がすべてこれらディナーの処理を拡張し、により、ユーザーはそれらを参照することを確認する必要があります。 ページング サポートを追加すると、これを有効にするには、当社*/Dinners*のみありますに 1 回、おディナーの 1,000 件を表示する方法の代わりに URL を一度に - 10 今後ディナーを表示し、エンドユーザーがページの背面とのすべてのリストを転送するを許可します。SEO フレンドリな方法です。
+サイトが成功した場合は、今後ディナー数千になります。 UI がすべてこれらディナーの処理を拡張し、により、ユーザーはそれらを参照することを確認する必要があります。 ページング サポートを追加すると、これを有効にするには、当社 */Dinners*のみありますに 1 回、おディナーの 1,000 件を表示する方法の代わりに URL を一度に - 10 今後ディナーを表示し、エンドユーザーがページの背面とのすべてのリストを転送するを許可します。SEO フレンドリな方法です。
 
 ### <a name="index-action-method-recap"></a>Index() アクション メソッドの要約
 
@@ -67,7 +68,7 @@ IQueryable&lt;Dinner&gt; FindUpcomingDinners() メソッドによって返され
 
 #### <a name="using-a-querystring-value"></a>クエリ文字列値を使用します。
 
-次のコードは、クエリ文字列パラメーターをサポートすると同様に Url を有効にする、Index() アクション メソッドを更新お方法を示します*/Dinners しますか? ページ 2 =*:
+次のコードは、クエリ文字列パラメーターをサポートすると同様に Url を有効にする、Index() アクション メソッドを更新お方法を示します */Dinners しますか? ページ 2 =*:
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample4.cs)]
 
@@ -93,11 +94,11 @@ IQueryable&lt;Dinner&gt; FindUpcomingDinners() メソッドによって返され
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample6.cs)]
 
-今すぐおアプリケーションを実行および入力*/Dinners*最初の 10 個の今後のディナー後ほどお見せします。
+今すぐおアプリケーションを実行および入力 */Dinners*最初の 10 個の今後のディナー後ほどお見せします。
 
 ![](implement-efficient-data-paging/_static/image3.png)
 
-ときに入力することと*/Dinners/Page/1*おディナーの次のページが表示されます。
+ときに入力することと */Dinners/Page/1*おディナーの次のページが表示されます。
 
 ![](implement-efficient-data-paging/_static/image4.png)
 

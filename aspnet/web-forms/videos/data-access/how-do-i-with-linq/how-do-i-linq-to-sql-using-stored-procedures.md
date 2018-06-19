@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881959"
 ---
 <a name="how-do-i-linq-to-sql-using-stored-procedures"></a>[How Do i:]LINQ to SQL: ストアド プロシージャの使用
 ====================

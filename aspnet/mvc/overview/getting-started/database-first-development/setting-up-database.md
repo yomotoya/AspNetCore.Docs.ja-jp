@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879336"
 ---
 <a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a>Entity Framework 6 Database First MVC 5 を使用すると作業の開始
 ====================
@@ -97,7 +98,7 @@ Visual Studio を起動し、作成、 **SQL Server データベース プロジ
 
 ![出力を表示します。](setting-up-database/_static/image7.png)
 
-新しいデータベースが作成されたことを表示するには、開く**SQL Server オブジェクト エクスプ ローラー**し、適切なローカル データベース サーバーで、プロジェクトの名前を探します (ここでは**(localdb) \ProjectsV12**)。
+新しいデータベースが作成されたことを表示するには、開く**SQL Server オブジェクト エクスプ ローラー**し、適切なローカル データベース サーバーで、プロジェクトの名前を探します (ここでは **(localdb) \ProjectsV12**)。
 
 ![新しいデータベースを表示します。](setting-up-database/_static/image8.png)
 

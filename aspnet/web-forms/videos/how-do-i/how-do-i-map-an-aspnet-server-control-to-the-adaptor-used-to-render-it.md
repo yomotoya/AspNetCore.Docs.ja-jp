@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it
-title: "[How Do i:]ASP.NET サーバー コントロールをレンダリングするために使用するアダプターにマップ |Microsoft ドキュメント"
+title: '[How Do i:]ASP.NET サーバー コントロールをレンダリングするために使用するアダプターにマップ |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels ではコントロール アダプターを使用して、c を実際に変更することがなく ASP.NET サーバー コントロールのさまざまなレンダリングを提供する方法を表示しています."
+description: このビデオ Chris Pels ではコントロール アダプターを使用して、c を実際に変更することがなく ASP.NET サーバー コントロールのさまざまなレンダリングを提供する方法を表示しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526061"
 ---
 <a name="how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it"></a>[How Do i:]ASP.NET サーバー コントロールをレンダリングするために使用するアダプターにマップします。
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875592"
 ---
 <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>ASP.NET mvc の DropDownList ヘルパーの使用
 ====================
@@ -57,7 +58,7 @@ Ctrl キーを押しながら f5 キーを押してアプリケーションを�
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image3.png)
 
-選択、**ムービーのカテゴリを選択する (単純)**リンクします。 ムービーの種類の選択のリストが表示され、コメディ、選択した値。
+選択、**ムービーのカテゴリを選択する (単純)** リンクします。 ムービーの種類の選択のリストが表示され、コメディ、選択した値。
 
 ![](using-the-dropdownlist-helper-with-aspnet-mvc/_static/image4.png)
 
@@ -75,7 +76,7 @@ Ctrl キーを押しながら f5 キーを押してアプリケーションを�
 
 [!code-csharp[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample2.cs)]
 
-[DropDownList](https://msdn.microsoft.com/library/dd492738.aspx) HTML 選択リストの作成に使用されるヘルパーが必要です、 **IEnumerable&lt;SelectListItem &gt;** 、明示的または暗黙的にします。 つまりに渡すことができます、 **IEnumerable&lt;SelectListItem &gt;** 明示的に、 [DropDownList](https://msdn.microsoft.com/library/dd492738.aspx)ヘルパーを追加したり、 **IEnumerable&lt;SelectListItem &gt;** を[ViewBag](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx)に同じ名前を使用して、 **SelectListItem**モデル プロパティとします。 渡して、 **SelectListItem**暗黙的および明示的については、チュートリアルの次の部分で説明します。 上記のコードが作成する最も簡単な方法を示します、 **IEnumerable&lt;SelectListItem &gt;** し、テキストと値を設定します。 注、 `Comedy` [SelectListItem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx)が、[選択](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.selected.aspx)プロパティに設定**true;**これにより、レンダリングされた選択リストを表示する**コメディ** 、一覧で選択したアイテムとして。
+[DropDownList](https://msdn.microsoft.com/library/dd492738.aspx) HTML 選択リストの作成に使用されるヘルパーが必要です、 **IEnumerable&lt;SelectListItem &gt;** 、明示的または暗黙的にします。 つまりに渡すことができます、 **IEnumerable&lt;SelectListItem &gt;** 明示的に、 [DropDownList](https://msdn.microsoft.com/library/dd492738.aspx)ヘルパーを追加したり、 **IEnumerable&lt;SelectListItem &gt;** を[ViewBag](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx)に同じ名前を使用して、 **SelectListItem**モデル プロパティとします。 渡して、 **SelectListItem**暗黙的および明示的については、チュートリアルの次の部分で説明します。 上記のコードが作成する最も簡単な方法を示します、 **IEnumerable&lt;SelectListItem &gt;** し、テキストと値を設定します。 注、 `Comedy` [SelectListItem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx)が、[選択](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.selected.aspx)プロパティに設定**true;** これにより、レンダリングされた選択リストを表示する**コメディ** 、一覧で選択したアイテムとして。
 
 **IEnumerable&lt;SelectListItem &gt;** 作成以降に追加、 [ViewBag](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx) MovieType 名前を持つ。 これは、ここを渡す方法、 **IEnumerable&lt;SelectListItem &gt;** に暗黙的に、 [DropDownList](https://msdn.microsoft.com/library/dd492738.aspx)次に示すヘルパー。
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884569"
 ---
 <a name="enable-in-line-editing-in-aspnet-dynamic-data-applications"></a>ASP.NET 動的データ アプリケーションでインラインでの編集を有効にします。
 ====================

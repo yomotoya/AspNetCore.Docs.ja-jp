@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881751"
 ---
 <a name="how-do-i-implement-the-ajax-after-processing-pattern"></a>[How Do i:]パターンを処理した後、AJAX を実装しますか。
 ====================

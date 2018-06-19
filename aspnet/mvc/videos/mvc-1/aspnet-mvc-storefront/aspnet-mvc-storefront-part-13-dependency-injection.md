@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871039"
 ---
 <a name="aspnet-mvc-storefront-part-13-dependency-injection"></a>ASP.NET MVC Storefront パート 13: 依存関係の挿入
 ====================

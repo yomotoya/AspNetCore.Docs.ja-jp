@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879323"
 ---
 <a name="ef-database-first-with-aspnet-mvc-changing-the-database"></a>ASP.NET MVC で最初の EF Database: データベースの変更
 ====================
@@ -47,7 +48,7 @@ ms.lasthandoff: 04/06/2018
 
 ![更新ウィザード](changing-the-database/_static/image4.png)
 
-**[完了]**をクリックします。
+**[完了]** をクリックします。
 
 データベース ダイアグラムには、新しい更新プロセスが完了したら、 **MiddleName**プロパティです。 保存、 **ContosoModel.edmx**ファイル。 新しいプロパティに反映されるまでのこのファイルを保存する必要があります、 **Student.cs**クラスです。 データベースとモデルを更新したようになりました。
 

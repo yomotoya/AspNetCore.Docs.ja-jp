@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872947"
 ---
 <a name="using-modalpopup-with-a-repeater-control-c"></a>リピータ コントロール (c#) で ModalPopup の使い方
 ====================

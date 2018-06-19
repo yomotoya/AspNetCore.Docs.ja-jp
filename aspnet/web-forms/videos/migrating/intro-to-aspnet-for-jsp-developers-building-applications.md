@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885069"
 ---
 <a name="intro-to-aspnet-for-jsp-developers-building-applications"></a>JSP 開発者向けの ASP.NET の概要: アプリケーションの構築
 ====================

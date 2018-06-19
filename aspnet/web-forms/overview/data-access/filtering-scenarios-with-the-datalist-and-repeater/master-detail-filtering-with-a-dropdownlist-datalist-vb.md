@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880688"
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-vb"></a>マスター/詳細 DropDownList (VB) によるフィルター処理
 ====================
@@ -103,12 +104,12 @@ GridView を使用する前に示したを最初に作成したマスター/詳�
 **図 7**: 選択、`GetProductsByCategoryID(categoryID)`メソッド ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image17.png))
 
 
-[次へ] をクリックすると、ObjectDataSource ウィザードの指示に従って us ソースの値の`GetProductsByCategoryID(categoryID)`メソッドの*`categoryID`*パラメーター。 選択した値を使用する`categories`DropDownList 項目コントロールを処理するパラメーターのソースを設定する`Categories`です。
+[次へ] をクリックすると、ObjectDataSource ウィザードの指示に従って us ソースの値の`GetProductsByCategoryID(categoryID)`メソッドの*`categoryID`* パラメーター。 選択した値を使用する`categories`DropDownList 項目コントロールを処理するパラメーターのソースを設定する`Categories`です。
 
 
 [![カテゴリの DropDownList の値に categoryID パラメーターを設定します。](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image19.png)](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image18.png)
 
-**図 8**: 設定、 *`categoryID`*パラメーターの値を`Categories`DropDownList ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image20.png))
+**図 8**: 設定、 *`categoryID`* パラメーターの値を`Categories`DropDownList ([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image20.png))
 
 
 データ ソース構成ウィザードを完了すると、Visual Studio が自動的に生成、 `ItemTemplate` DataList の各データ フィールドの値と名前を表示するためです。 代わりに使用する DataList を強化してみましょう、`ItemTemplate`製品の名前、カテゴリ、供給業者、単位、およびと共に価格ごとの数だけを表示する、`SeparatorTemplate`挿入される、`<hr>`各項目の間の要素。 使用して、`ItemTemplate`の例から、 [DataList とリピータ コントロールのデータの表示](../displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb.md)が、チュートリアルでは、お気軽にどのようなテンプレートのマークアップ最も視覚に訴える検索を使用します。
@@ -164,7 +165,7 @@ DataList とその ObjectDataSource のマークアップがこれらの変更�
 **図 13**: いいえ製品が表示される、"--カテゴリ--"リスト アイテムの選択 を選択すると、([フルサイズのイメージを表示するをクリックして](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image31.png))
 
 
-表示ではなく場合*すべて*の製品の「--カテゴリの選択-」オプションを選択すると、値を使用して、`-1`代わりにします。 鋭いリーダーがそのチェックインを思い出してください、*マスター/詳細のフィルター処理で、DropDownList*に更新されたチュートリアル、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドように場合、 *`categoryID`*値`-1`が渡され、すべての製品レコードが返されました。
+表示ではなく場合*すべて*の製品の「--カテゴリの選択-」オプションを選択すると、値を使用して、`-1`代わりにします。 鋭いリーダーがそのチェックインを思い出してください、*マスター/詳細のフィルター処理で、DropDownList*に更新されたチュートリアル、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドように場合、 *`categoryID`* 値`-1`が渡され、すべての製品レコードが返されました。
 
 ## <a name="summary"></a>まとめ
 

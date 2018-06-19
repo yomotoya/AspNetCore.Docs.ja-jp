@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
-title: "パフォーマンス向上のためのページ (Razor) サイトの ASP.NET Web のデータ キャッシュ |Microsoft ドキュメント"
+title: パフォーマンス向上のためのページ (Razor) サイトの ASP.NET Web のデータ キャッシュ |Microsoft ドキュメント
 author: tfitzmac
-description: "時間を短縮できます web サイトをストア - は、キャッシュのデータを取得または処理にかなりの時間を通常の結果をしています."
+description: 時間を短縮できます web サイトをストア - は、キャッシュのデータを取得または処理にかなりの時間を通常の結果をしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/14/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28039197"
 ---
 <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a>パフォーマンス向上のための ASP.NET Web Pages (Razor) サイトのデータのキャッシュ
 ====================

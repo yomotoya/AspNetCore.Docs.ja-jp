@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872232"
 ---
 <a name="using-the-tagbuilder-class-to-build-html-helpers-vb"></a>HTML ヘルパー (VB) をビルドするのに TagBuilder クラスの使用
 ====================
@@ -31,7 +32,7 @@ ASP.NET MVC フレームワークには、名前付き TagBuilder クラス HTML
 
 TagBuilder クラスは、System.Web.Mvc 名前空間に含まれています。 5 つの方法があります。
 
-- AddCssClass() – を使用すると、新しい*クラス =""*属性をタグにします。
+- AddCssClass() – を使用すると、新しい*クラス =""* 属性をタグにします。
 - GenerateId() – では、id 属性をタグに追加することができます。 このメソッドは、id でピリオドを自動的に置き換えられます (既定では、ピリオド、アンダー スコアに置き換え)
 - MergeAttribute() – では、タグに属性を追加することができます。 このメソッドの複数のオーバー ロードがあります。
 - SetInnerText() – では、タグの内部テキ ストを設定することができます。 その内部テキ ストは、HTML が自動的にエンコードします。

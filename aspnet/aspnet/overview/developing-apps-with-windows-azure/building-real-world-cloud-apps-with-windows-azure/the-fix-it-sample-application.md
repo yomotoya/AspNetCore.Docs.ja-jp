@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876476"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>付録: 修正プログラム、サンプル アプリケーション (Azure での実際のクラウド アプリの構築)
 ====================
@@ -253,7 +254,7 @@ Visual Studio では、新しい web プロジェクトを作成するときの 
    3. ソリューション エクスプ ローラーで FixIt ソリューションを右クリックし、**プロパティ**です。
    4. 選択**マルチ スタートアップ プロジェクト**.
    5. **アクション**MyFixIt と MyFixItCloudService、下にあるドロップダウン リストを選択**開始**です。
-   6. **[OK]**をクリックします。
+   6. **[OK]** をクリックします。
    7. 両方のプロジェクトを実行する場合は F5 キーを押します。
 
       MyFixItCloudService プロジェクトを実行するときに、Visual Studio は、Azure コンピューティング エミュレーターを起動します。 ファイアウォールの構成によっては、エミュレーターがファイアウォールを通過を許可する必要があります。

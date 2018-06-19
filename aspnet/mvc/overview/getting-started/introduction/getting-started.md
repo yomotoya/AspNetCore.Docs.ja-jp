@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868322"
 ---
 <a name="getting-started-with-aspnet-mvc-5"></a>ASP.NET MVC 5 の概要
 ====================
@@ -47,7 +48,7 @@ Visual Studio は、IDE、または統合開発環境です。 Microsoft Word �
 
 ## <a name="creating-your-first-application"></a>初めてアプリケーションの作成
 
-をクリックして**新しいプロジェクト**、クリックして Visual C# の場合、左側の**Web**し、 **ASP.NET Web アプリケーション (.NET Framework)**です。 プロジェクト"MvcMovie"の名前を指定し、をクリックして**OK**です。
+をクリックして**新しいプロジェクト**、クリックして Visual C# の場合、左側の**Web**し、 **ASP.NET Web アプリケーション (.NET Framework)** です。 プロジェクト"MvcMovie"の名前を指定し、をクリックして**OK**です。
 
 ![](getting-started/_static/image2.png)
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/caching-data/index
-title: "データのキャッシュ |Microsoft ドキュメント"
+title: データのキャッシュ |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルのセットは、サイト パフォーマンス、および、ObjectDataSource コントロールを使用してプレゼンテーション層へのキャッシュを適用する方法を向上することができます、キャッシュを説明しています."
+description: このチュートリアルのセットは、サイト パフォーマンス、および、ObjectDataSource コントロールを使用してプレゼンテーション層へのキャッシュを適用する方法を向上することができます、キャッシュを説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/caching-data
 msc.type: chapter
 ms.openlocfilehash: 0b14ecdd4a8cab1d61bf9b7c238fc32330d54e52
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26512621"
 ---
 <a name="caching-data"></a>キャッシュされたデータ
 ====================

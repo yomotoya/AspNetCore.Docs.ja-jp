@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/index
-title: "バッチ化されたデータを扱う |Microsoft ドキュメント"
+title: バッチ化されたデータを扱う |Microsoft ドキュメント
 author: rick-anderson
-description: "これらのチュートリアルは、更新、削除、およびトランザクションを使用してデータのバッチの挿入を見てください。"
+description: これらのチュートリアルは、更新、削除、およびトランザクションを使用してデータのバッチの挿入を見てください。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data
 msc.type: chapter
 ms.openlocfilehash: 1a6af028c2d4ac8b6085a34bec16893d1e1632af
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514761"
 ---
 <a name="working-with-batched-data"></a>バッチ化されたデータの操作
 ====================

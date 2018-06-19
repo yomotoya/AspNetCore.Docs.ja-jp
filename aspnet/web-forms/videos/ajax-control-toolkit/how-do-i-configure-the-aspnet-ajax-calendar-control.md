@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884367"
 ---
 <a name="how-do-i-configure-the-aspnet-ajax-calendar-control"></a>[How Do i:]ASP.NET AJAX のカレンダー コントロールを構成しますか。
 ====================

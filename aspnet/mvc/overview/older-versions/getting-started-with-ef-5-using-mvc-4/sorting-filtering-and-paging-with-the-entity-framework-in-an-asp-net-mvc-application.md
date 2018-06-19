@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878231"
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>並べ替え、フィルター、および ASP.NET MVC アプリケーション (10 の 3) で Entity Framework でのページング
 ====================
@@ -254,7 +255,7 @@ LINQ ステートメントは、登録日で受講者エンティティをグル
 
 ### <a name="using-code-first-migrations-to-deploy-the-database"></a>Code First Migrations を使用して、データベースを展開するには
 
-データベースを展開するには、Code First Migrations を使用します。 設定を構成する Visual Studio から展開するために使用する発行プロファイルを作成するときに、というラベルが付いたチェック ボックスをオンします**実行 Code First Migrations (アプリケーション開始時に実行されます)**です。 この設定により、展開プロセスを自動的にアプリケーションを構成する*Web.config* Code First を使用するように、移行先サーバー上のファイル、`MigrateDatabaseToLatestVersion`初期化子のクラスです。
+データベースを展開するには、Code First Migrations を使用します。 設定を構成する Visual Studio から展開するために使用する発行プロファイルを作成するときに、というラベルが付いたチェック ボックスをオンします**実行 Code First Migrations (アプリケーション開始時に実行されます)** です。 この設定により、展開プロセスを自動的にアプリケーションを構成する*Web.config* Code First を使用するように、移行先サーバー上のファイル、`MigrateDatabaseToLatestVersion`初期化子のクラスです。
 
 Visual Studio は、展開プロセス中に、データベースのすべてのものを実行してされません。 展開後に初めてアクセスするデータベースと、展開されたアプリケーション、Code First 自動的にデータベースを作成またはデータベース スキーマを最新バージョンに更新します。 アプリケーションには、移行が実装されている場合`Seed`メソッド、メソッドの実行後、データベースが作成されるか、スキーマを更新します。
 
@@ -332,7 +333,7 @@ Windows Azure SQL データベースとは、SQL Server テクノロジに基づ
 
     ![sub をダウンロードします。](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image23.png)
 
-    e. **[インポート]**をクリックします。
+    e. **[インポート]** をクリックします。
 
     ![import](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image24.png)
 4. **発行プロファイルのインポート**ダイアログ ボックスで、 **Windows Azure web サイトからのインポート**ドロップダウン リストから、web サイトを選択して、をクリックして**OK**です。  
@@ -341,15 +342,15 @@ Windows Azure SQL データベースとは、SQL Server テクノロジに基づ
 5. **接続** タブで、をクリックして**接続の検証**設定が正しいことを確認します。  
   
     ![接続を検証します。](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image26.png)
-6. 緑のチェック マークが横に示すように、接続が検証されると、**接続の検証**ボタンをクリックします。 **[次へ]**をクリックします。  
+6. 緑のチェック マークが横に示すように、接続が検証されると、**接続の検証**ボタンをクリックします。 **[次へ]** をクリックします。  
   
     ![正常に検証された接続](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image27.png)
 7. 開く、**リモート接続文字列**下にあるドロップダウン リスト**SchoolContext**を作成したデータベースの接続文字列を選択します。
-8. 選択**実行 Code First Migrations (アプリケーション開始時に実行されます)**です。
-9. オフにして**実行時にこの接続文字列を使用して**の**UserContext (DefaultConnection)**このアプリケーションは、メンバーシップ データベースを使用していないため、します。   
+8. 選択**実行 Code First Migrations (アプリケーション開始時に実行されます)** です。
+9. オフにして**実行時にこの接続文字列を使用して**の**UserContext (DefaultConnection)** このアプリケーションは、メンバーシップ データベースを使用していないため、します。   
   
     ![[設定] タブ](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image28.png)
-10. **[次へ]**をクリックします。
+10. **[次へ]** をクリックします。
 11. **プレビュー**  タブで、をクリックして**開始プレビュー**です。  
   
     ![[プレビュー] タブで StartPreview ボタン](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image29.png)  
@@ -357,7 +358,7 @@ Windows Azure SQL データベースとは、SQL Server テクノロジに基づ
     タブには、サーバーにコピーされるファイルの一覧が表示されます。 プレビューを表示する、アプリケーションを発行するため必要はありませんですが便利関数を認識します。 この場合、表示されているファイルの一覧は何もする必要はありません。 このアプリケーションを配置するときに、[次へ] に変更されたファイルだけは、この一覧になります。  
   
     ![StartPreview ファイル出力](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image30.png)
-12. **[発行]**をクリックします。  
+12. **[発行]** をクリックします。  
     Visual Studio では、Windows Azure サーバーへのファイルのコピーのプロセスを開始します。
 13. **出力**ウィンドウどのような展開アクションを実行した示し、展開の成功した完了を報告します。  
   
@@ -367,11 +368,11 @@ Windows Azure SQL データベースとは、SQL Server テクノロジに基づ
   
     ![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image32.png)
 
-この時点で、 *SchoolContext*データベースが作成された Windows Azure SQL データベースで選択したので、**実行 Code First Migrations (アプリの起動時に実行)**です。 *Web.config*配置済みの web サイト内のファイルが変更されたできるように、 [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx)初期化子が最初の実行、コードが読み取るか、またはデータベースにデータを書き込みます (選択したときに発生した、**受講者** タブ)。
+この時点で、 *SchoolContext*データベースが作成された Windows Azure SQL データベースで選択したので、**実行 Code First Migrations (アプリの起動時に実行)** です。 *Web.config*配置済みの web サイト内のファイルが変更されたできるように、 [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx)初期化子が最初の実行、コードが読み取るか、またはデータベースにデータを書き込みます (選択したときに発生した、**受講者** タブ)。
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image33.png)
 
-展開プロセスは、新しい接続文字列も作成*(SchoolContext\_DatabasePublish*) の Code First Migrations データベース スキーマの更新と、データベースのシード処理に使用します。
+展開プロセスは、新しい接続文字列も作成 *(SchoolContext\_DatabasePublish*) の Code First Migrations データベース スキーマの更新と、データベースのシード処理に使用します。
 
 ![Database_Publish 接続文字列](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image34.png)
 

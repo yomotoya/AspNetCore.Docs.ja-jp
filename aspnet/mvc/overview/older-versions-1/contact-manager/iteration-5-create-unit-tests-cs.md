@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875579"
 ---
 <a name="iteration-5--create-unit-tests-c"></a>イテレーション #5-単体テストを作成する (c#)
 ====================
@@ -185,7 +186,7 @@ CreateContact()、という名前を最初の単体テストでは、こと Crea
 
 残りのテストいることを確認無効な連絡先と CreateContact() メソッドが呼び出されたときに、メソッドが false を返します、予想される検証エラー メッセージがモデルの状態に追加します。 たとえば、CreateContactRequiredFirstName() テストは、その FirstName プロパティに空の文字列を連絡先クラスのインスタンスを作成します。 次に、無効な連絡先と CreateContact() メソッドが呼び出されます。 最後を検証 CreateContact() が false を返すことと、モデルの状態が含まれている予期された検証エラー メッセージには「名が必要」です。
 
-メニュー オプションを選択してリスト 1 の単体テストを実行することができます**(CTRL + R、A) のソリューション内のすべてのテストを実行します。 テスト**です。 テスト結果 ウィンドウで、テストの結果が表示されます (図 4 を参照してください)。
+メニュー オプションを選択してリスト 1 の単体テストを実行することができます **(CTRL + R、A) のソリューション内のすべてのテストを実行します。 テスト**です。 テスト結果 ウィンドウで、テストの結果が表示されます (図 4 を参照してください)。
 
 
 [![テスト結果](iteration-5-create-unit-tests-cs/_static/image4.jpg)](iteration-5-create-unit-tests-cs/_static/image7.png)

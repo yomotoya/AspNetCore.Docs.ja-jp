@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879557"
 ---
 <a name="code-first-migrations-and-deployment-with-the-entity-framework-in-an-aspnet-mvc-application"></a>最初にコードを移行し、Entity Framework、ASP.NET MVC アプリケーションと展開
 ====================
@@ -195,7 +196,7 @@ Azure SQL Database にデータベースを配置します。 SQL データベ�
 5. プロファイルを構成した後、**接続** タブが表示されます。 をクリックして**接続の検証**設定が正しいことを確認するには
 
     ![接続を検証します。](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Connection.png)
-6. 緑のチェック マークが横に示すように、接続が検証されると、**接続の検証**ボタンをクリックします。 **[次へ]**をクリックします。
+6. 緑のチェック マークが横に示すように、接続が検証されると、**接続の検証**ボタンをクリックします。 **[次へ]** をクリックします。
   
     ![正常に検証された接続](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-SettingsValidated.png)
 7. 開く、**リモート接続文字列**下にあるドロップダウン リスト**SchoolContext**を作成したデータベースの接続文字列を選択します。
@@ -204,7 +205,7 @@ Azure SQL Database にデータベースを配置します。 SQL データベ�
     ![[設定] タブ](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Settings.png)
 
     この設定により、展開プロセスを自動的にアプリケーションを構成する*Web.config* Code First を使用するように、移行先サーバー上のファイル、`MigrateDatabaseToLatestVersion`初期化子のクラスです。
-9. **[次へ]**をクリックします。
+9. **[次へ]** をクリックします。
 10. **プレビュー**  タブで、をクリックして**開始プレビュー**です。
   
     ![[プレビュー] タブで StartPreview ボタン](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Preview.png)
@@ -212,7 +213,7 @@ Azure SQL Database にデータベースを配置します。 SQL データベ�
     タブには、サーバーにコピーされるファイルの一覧が表示されます。 プレビューを表示する、アプリケーションを発行するため必要はありませんですが便利関数を認識します。 この場合、表示されているファイルの一覧は何もする必要はありません。 このアプリケーションを配置するときに、[次へ] に変更されたファイルだけは、この一覧になります。
     ![StartPreview ファイル出力](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-PreviewLoaded.png)
 
-11. **[発行]**をクリックします。
+11. **[発行]** をクリックします。
     Visual Studio では、Azure サーバーへのファイルのコピーのプロセスを開始します。
 12. **出力**ウィンドウどのような展開アクションを実行した示し、展開の成功した完了を報告します。
   
@@ -222,11 +223,11 @@ Azure SQL Database にデータベースを配置します。 SQL データベ�
   
     ![Students_index_page_with_paging](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Site.png)
 
-この時点で、 *SchoolContext*データベースが作成された Azure SQL データベースで選択したので、**実行 Code First Migrations (アプリの起動時に実行)**です。 *Web.config*配置済みの web サイト内のファイルが変更されたできるように、 [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx)初期化子は初めてコード データ読み取りまたは書き込み (これが発生したデータベースでの実行選択した場合、**受講者** タブ)。
+この時点で、 *SchoolContext*データベースが作成された Azure SQL データベースで選択したので、**実行 Code First Migrations (アプリの起動時に実行)** です。 *Web.config*配置済みの web サイト内のファイルが変更されたできるように、 [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx)初期化子は初めてコード データ読み取りまたは書き込み (これが発生したデータベースでの実行選択した場合、**受講者** タブ)。
 
 ![](https://asp.net/media/4367421/mig.png)
 
-展開プロセスは、新しい接続文字列も作成*(SchoolContext\_DatabasePublish*) の Code First Migrations データベース スキーマの更新と、データベースのシード処理に使用します。
+展開プロセスは、新しい接続文字列も作成 *(SchoolContext\_DatabasePublish*) の Code First Migrations データベース スキーマの更新と、データベースのシード処理に使用します。
 
 ![Database_Publish 接続文字列](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image26.png)
 

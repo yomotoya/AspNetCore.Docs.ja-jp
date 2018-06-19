@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876294"
 ---
 <a name="iteration-6--use-test-driven-development-c"></a>イテレーション 6-テスト駆動開発 (c#) を使用します。
 ====================

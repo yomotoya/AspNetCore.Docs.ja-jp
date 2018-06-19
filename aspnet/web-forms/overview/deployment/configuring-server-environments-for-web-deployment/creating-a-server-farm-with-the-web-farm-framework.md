@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882466"
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Web Farm Framework によるサーバー ファームの作成
 ====================
@@ -81,7 +82,7 @@ WFF コント ローラーのサーバーを作成するには、IIS 7 以降と
 5. <strong>Web Farm Framework 2</strong> 。<em>x</em>行で、をクリックして<strong>追加</strong>です。
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image2.png)
-6. **[インストール]**をクリックします。 Web Platform Installer がインストールの一覧にさまざまな他の依存関係と共に、Web 配置ツールを追加していることを確認します。
+6. **[インストール]** をクリックします。 Web Platform Installer がインストールの一覧にさまざまな他の依存関係と共に、Web 配置ツールを追加していることを確認します。
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image3.png)
 7. ライセンス条項を確認し、条項に同意した場合にをクリックして**同意**です。
@@ -131,7 +132,7 @@ Windows ファイアウォールでこれらのファイアウォール例外を
 4. ユーザー名と各サーバーでローカルの administrators グループに追加したドメイン アカウントのパスワードを入力します。
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image6.png)
-5. **[次へ]**をクリックします。
+5. **[次へ]** をクリックします。
 6. **サーバーの追加** ページの選択、プライマリ サーバーの完全修飾ドメイン名 (FQDN) を入力**プライマリ サーバー**、クリックして**追加**です。
 7. この時点では、WFF しようとすると、指定された資格情報を使用してプライマリ サーバーに接続します。 接続に成功した場合、プライマリ サーバーが追加されるテーブルに上、**サーバーの追加**ページ。
 

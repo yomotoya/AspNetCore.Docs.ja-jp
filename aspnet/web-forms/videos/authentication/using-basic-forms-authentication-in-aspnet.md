@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887643"
 ---
 <a name="using-basic-forms-authentication-in-aspnet"></a>ASP.NET で基本的なフォーム認証の使用
 ====================

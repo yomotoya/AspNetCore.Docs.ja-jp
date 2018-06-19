@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873145"
 ---
 <a name="accessing-your-models-data-from-a-controller-vb"></a>コント ローラー (VB) から、モデルのデータにアクセスします。
 ====================
@@ -39,9 +40,9 @@ ms.lasthandoff: 04/06/2018
 
 - コント ローラー名: **MoviesController**です。 (これは、既定値です)。
 - テンプレート: **Entity Framework を使用して読み取り/書き込みアクションと、ビュー、コント ローラー**です。
-- モデル クラス:**ムービー (MvcMovie.Models)**です。
-- データ コンテキスト クラス: **MovieDBContext (MvcMovie.Models)**です。
-- ビュー: **Razor (CSHTML)**です。 (既定値です。)
+- モデル クラス:**ムービー (MvcMovie.Models)** です。
+- データ コンテキスト クラス: **MovieDBContext (MvcMovie.Models)** です。
+- ビュー: **Razor (CSHTML)** です。 (既定値です。)
 
 [![5addMovieController](accessing-your-models-data-from-a-controller/_static/image2.png)](accessing-your-models-data-from-a-controller/_static/image1.png)
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 04/06/2018
 
 ASP.NET MVC 3 のスキャフォールディング機構自動的に作成された、CRUD (作成、読み取り、更新、および削除) のアクション メソッドとするためのビューです。 作成、一覧表示、編集、およびムービーのエントリを削除することができますを完全に機能の web アプリケーションがあるようになりました。
 
-アプリケーションを実行しを参照、`Movies`コント ローラーを追加して*/Movies*お使いのブラウザーのアドレス バーの URL にします。 既定のルーティングにアプリケーションが依存するため (で定義されている、 *Global.asax*ファイル)、ブラウザーの要求`http://localhost:xxxxx/Movies`は既定値にルーティング`Index`のアクション メソッド、`Movies`コント ローラー。 ブラウザー要求言い換えれば、`http://localhost:xxxxx/Movies`ブラウザーの要求と同じでは、事実上`http://localhost:xxxxx/Movies/Index`です。 いずれかがまだ追加されているため、ムービーの空のリストになります。
+アプリケーションを実行しを参照、`Movies`コント ローラーを追加して */Movies*お使いのブラウザーのアドレス バーの URL にします。 既定のルーティングにアプリケーションが依存するため (で定義されている、 *Global.asax*ファイル)、ブラウザーの要求`http://localhost:xxxxx/Movies`は既定値にルーティング`Index`のアクション メソッド、`Movies`コント ローラー。 ブラウザー要求言い換えれば、`http://localhost:xxxxx/Movies`ブラウザーの要求と同じでは、事実上`http://localhost:xxxxx/Movies/Index`です。 いずれかがまだ追加されているため、ムービーの空のリストになります。
 
 ![](accessing-your-models-data-from-a-controller/_static/image5.png)
 

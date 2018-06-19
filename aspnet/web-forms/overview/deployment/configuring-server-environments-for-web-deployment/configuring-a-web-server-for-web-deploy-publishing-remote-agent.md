@@ -17,6 +17,7 @@ ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/24/2018
+ms.locfileid: "34473208"
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Web デプロイの発行 (リモート エージェント) 用の Web サーバーの構成
 ====================

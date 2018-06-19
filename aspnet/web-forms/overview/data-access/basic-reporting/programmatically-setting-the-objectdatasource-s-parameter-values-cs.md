@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875683"
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-c"></a>プログラムによって設定 ObjectDataSource のパラメーターの値 (c#)
 ====================
@@ -124,7 +125,7 @@ ms.lasthandoff: 04/06/2018
 **図 9**: Web コントロールのイベントを一覧表示する [プロパティ] ウィンドウで表示される稲妻アイコンをクリックして
 
 
-両方の方法では、新しいイベント ハンドラーを追加、ObjectDataSource の`Selecting`ページの分離コード クラスをイベント。 このイベント ハンドラー内には、読み取りし、書き込みを使用してパラメーターの値おできます`e.InputParameters[parameterName]`ここで、 *`parameterName`*の値は、`Name`属性、`<asp:Parameter>`タグ (、`InputParameters`コレクションすることもできます序数に基づく、としてのインデックス付き`e.InputParameters[index]`)。 設定する、`month`現在の月にパラメーターを追加するには、次の`Selecting`イベントのハンドラー。
+両方の方法では、新しいイベント ハンドラーを追加、ObjectDataSource の`Selecting`ページの分離コード クラスをイベント。 このイベント ハンドラー内には、読み取りし、書き込みを使用してパラメーターの値おできます`e.InputParameters[parameterName]`ここで、 *`parameterName`* の値は、`Name`属性、`<asp:Parameter>`タグ (、`InputParameters`コレクションすることもできます序数に基づく、としてのインデックス付き`e.InputParameters[index]`)。 設定する、`month`現在の月にパラメーターを追加するには、次の`Selecting`イベントのハンドラー。
 
 
 [!code-csharp[Main](programmatically-setting-the-objectdatasource-s-parameter-values-cs/samples/sample3.cs)]

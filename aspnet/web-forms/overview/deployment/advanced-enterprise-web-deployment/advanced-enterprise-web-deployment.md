@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879934"
 ---
 <a name="advanced-enterprise-web-deployment"></a>高度なエンタープライズ Web 配置
 ====================

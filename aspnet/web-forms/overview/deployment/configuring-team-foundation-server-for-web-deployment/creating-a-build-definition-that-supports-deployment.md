@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30880363"
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a>展開をサポートするビルド定義を作成します。
 ====================
@@ -99,7 +100,7 @@ ms.lasthandoff: 04/10/2018
 11. 使用する展開プロセスを制御、ファイルを選択してをクリックして、カスタムのプロジェクト ファイルの場所を参照**OK**です。
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image6.png)
-12. **ビルドする項目**] ダイアログ ボックスでは 2 つの項目が表示されるはずです。 **[OK]**をクリックします。
+12. **ビルドする項目**] ダイアログ ボックスでは 2 つの項目が表示されるはずです。 **[OK]** をクリックします。
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image7.png)
 13. **プロセス**] タブの [、**ビルド プロセス パラメーター**テーブルで、展開、**詳細**セクションです。
@@ -113,7 +114,7 @@ ms.lasthandoff: 04/10/2018
     1. **DeployOnBuild = true**と**DeployTarget パッケージを =** Contact Manager ソリューションをビルドするときに、引数が必要です。 これにより、web 配置パッケージ各 web アプリケーション プロジェクトのビルド後の説明に従って作成するために MSBuild[パッケージ Web アプリケーション プロジェクトのビルドと](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md)です。
     2. **TargetEnvPropsFile**をビルドすると、引数が必要、 *Publish.proj*ファイル。 」の説明に従って、このプロパティは、環境固有の構成ファイルの場所を示します[ビルド プロセスの理解](../web-deployment-in-the-enterprise/understanding-the-build-process.md)です。
 16. **保有ポリシー** ] タブで、必要に応じてを保持する各種類のビルドの数を構成します。
-17. **[保存]**をクリックします。
+17. **[保存]** をクリックします。
 
 ## <a name="queue-a-build"></a>ビルドをキューに配置する
 

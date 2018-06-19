@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899724"
 ---
 <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>ASP.NET Web Pages (Razor) を持つグラフ データを表示します。
 ====================
@@ -111,7 +112,7 @@ ms.lasthandoff: 04/06/2018
 2. 既存の XML を架空の会社の従業員に関する XML データの一部であると、次に置き換えます。 
 
     [!code-xml[Main](7-displaying-data-in-a-chart/samples/sample5.xml)]
-3. *アプリ\_データ*フォルダー、という名前の新しい XML ファイルを作成する*data.xsd*です。 (この時間は、拡張機能を*.xsd*)。
+3. *アプリ\_データ*フォルダー、という名前の新しい XML ファイルを作成する*data.xsd*です。 (この時間は、拡張機能を *.xsd*)。
 4. 次のように既存の XML に置き換えます。 
 
     [!code-xml[Main](7-displaying-data-in-a-chart/samples/sample6.xml)]
@@ -154,7 +155,7 @@ ms.lasthandoff: 04/06/2018
 > 
 > [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample8.cshtml)]
 > 
-> 追加することができます`using`その他の .NET Framework 名前空間を参照するためのステートメント。 ただし、前述のように、必要はありませんこれを行う多くの場合、ほとんどの演習ではクラスで使用するために、ASP.NET によって自動的にインポートされる名前空間であるため*.cshtml*と*.vbhtml*ページ。
+> 追加することができます`using`その他の .NET Framework 名前空間を参照するためのステートメント。 ただし、前述のように、必要はありませんこれを行う多くの場合、ほとんどの演習ではクラスで使用するために、ASP.NET によって自動的にインポートされる名前空間であるため *.cshtml*と *.vbhtml*ページ。
 
 
 <a id="Displaying_Charts"></a>
@@ -162,7 +163,7 @@ ms.lasthandoff: 04/06/2018
 
 例で、これまで、グラフを作成して、そのグラフがグラフィックとしてブラウザーに直接表示されます。 多くの場合、ただし、するブラウザーでそれ自体ではなく、ページの一部として、グラフが表示されます。 これを行うには、2 段階のプロセスが必要です。 最初の手順では、既に説明したように、グラフを生成するページを作成します。
 
-2 番目の手順では、別のページで、結果のイメージを表示します。 イメージを表示するには、HTML を使用する`<img>`同じ内の要素とすべてのイメージを表示する方法です。 参照するのではなく、ただし、 *.jpg*または*.png*ファイル、`<img>`要素の参照、 *.cshtml*を含むファイル、`Chart`ヘルパーをグラフを作成します。 表示ページを実行すると、`<img>`要素の出力の取得、`Chart`ヘルパーし、グラフを表示します。
+2 番目の手順では、別のページで、結果のイメージを表示します。 イメージを表示するには、HTML を使用する`<img>`同じ内の要素とすべてのイメージを表示する方法です。 参照するのではなく、ただし、 *.jpg*または *.png*ファイル、`<img>`要素の参照、 *.cshtml*を含むファイル、`Chart`ヘルパーをグラフを作成します。 表示ページを実行すると、`<img>`要素の出力の取得、`Chart`ヘルパーし、グラフを表示します。
 
 ![](7-displaying-data-in-a-chart/_static/image11.jpg)
 

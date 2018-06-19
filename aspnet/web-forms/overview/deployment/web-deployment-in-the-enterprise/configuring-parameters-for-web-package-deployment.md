@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880402"
 ---
 <a name="configuring-parameters-for-web-package-deployment"></a>Web パッケージの展開のパラメーターの構成
 ====================
@@ -110,7 +111,7 @@ Web アプリケーションのパッケージを手動で展開する予定の�
 > サーバー環境の環境に固有のプロジェクト ファイルをカスタマイズする方法のガイダンスについては、次を参照してください。[ターゲット環境の配置プロパティを構成する](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md)です。
 
 
-次に、 *Publish.proj*ファイルは、これらのプロパティをインポートします。 各*SetParameters.xml*ファイルに関連付けられている、 *. deploy.cmd*ファイル、最終的にする、プロジェクト ファイルをそれぞれ呼び出す*. deploy.cmd*ファイル、プロジェクトファイルを作成、MSBuild*項目*ごと*. deploy.cmd*ファイルし、としての目的のプロパティを定義*項目メタデータ*です。
+次に、 *Publish.proj*ファイルは、これらのプロパティをインポートします。 各*SetParameters.xml*ファイルに関連付けられている、 *. deploy.cmd*ファイル、最終的にする、プロジェクト ファイルをそれぞれ呼び出す *. deploy.cmd*ファイル、プロジェクトファイルを作成、MSBuild*項目*ごと *. deploy.cmd*ファイルし、としての目的のプロパティを定義*項目メタデータ*です。
 
 
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample5.xml)]

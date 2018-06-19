@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881894"
 ---
 <a name="how-do-i-associate-ajax-client-behavior-with-an-aspnet-server-control"></a>[How Do i:]ASP.NET サーバー コントロールの AJAX クライアント動作を関連付けるか。
 ====================

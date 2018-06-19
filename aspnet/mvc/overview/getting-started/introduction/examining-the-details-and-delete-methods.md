@@ -17,6 +17,7 @@ ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33962429"
 ---
 <a name="examining-the-details-and-delete-methods"></a>詳細とその削除方法を確認します。
 ====================
