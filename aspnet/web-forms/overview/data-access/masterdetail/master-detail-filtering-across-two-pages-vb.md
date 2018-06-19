@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887006"
 ---
 <a name="masterdetail-filtering-across-two-pages-vb"></a><span data-ttu-id="ead92-104">マスター/詳細の 2 つのページ (VB) の間でフィルター処理</span><span class="sxs-lookup"><span data-stu-id="ead92-104">Master/Detail Filtering Across Two Pages (VB)</span></span>
 ====================

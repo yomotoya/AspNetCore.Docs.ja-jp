@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889398"
 ---
 <a name="examining-the-events-associated-with-inserting-updating-and-deleting-c"></a><span data-ttu-id="57a0d-104">挿入、更新、および削除する (c#) に関連付けられたイベントを確認します。</span><span class="sxs-lookup"><span data-stu-id="57a0d-104">Examining the Events Associated with Inserting, Updating, and Deleting (C#)</span></span>
 ====================

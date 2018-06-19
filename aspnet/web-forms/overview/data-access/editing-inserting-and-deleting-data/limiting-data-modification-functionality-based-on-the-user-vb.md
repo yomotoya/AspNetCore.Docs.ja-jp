@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887874"
 ---
 <a name="limiting-data-modification-functionality-based-on-the-user-vb"></a><span data-ttu-id="d800e-104">(VB) のユーザーに基づくデータ変更機能を制限します。</span><span class="sxs-lookup"><span data-stu-id="d800e-104">Limiting Data Modification Functionality Based on the User (VB)</span></span>
 ====================

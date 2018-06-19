@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887240"
 ---
 <a name="paging-and-sorting-report-data-vb"></a><span data-ttu-id="ad85e-104">ページングとレポート データ (VB) の並べ替え</span><span class="sxs-lookup"><span data-stu-id="ad85e-104">Paging and Sorting Report Data (VB)</span></span>
 ====================

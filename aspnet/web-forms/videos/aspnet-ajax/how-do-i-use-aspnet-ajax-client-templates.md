@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886343"
 ---
 <a name="how-do-i-use-aspnet-ajax-client-templates"></a><span data-ttu-id="0c949-104">操作方法: ASP.NET AJAX クライアント テンプレートを使用</span><span class="sxs-lookup"><span data-stu-id="0c949-104">How Do I: Use ASP.NET AJAX Client Templates</span></span>
 ====================

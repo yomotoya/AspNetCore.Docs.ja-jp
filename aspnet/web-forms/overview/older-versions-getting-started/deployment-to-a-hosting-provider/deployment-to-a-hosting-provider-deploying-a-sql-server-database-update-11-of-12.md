@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887331"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-sql-server-database-update---11-of-12"></a><span data-ttu-id="cbad4-103">SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します SQL Server データベースの更新 - 11/12 を展開する。</span><span class="sxs-lookup"><span data-stu-id="cbad4-103">Deploying an ASP.NET Web Application with SQL Server Compact using Visual Studio or Visual Web Developer: Deploying a SQL Server Database Update - 11 of 12</span></span>
 ====================
@@ -85,7 +86,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-console[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample5.cmd)]
 
-<span data-ttu-id="cbad4-140">選択**実行 Code First Migrations (アプリケーション開始時に実行されます)**です。</span><span class="sxs-lookup"><span data-stu-id="cbad4-140">Select **Execute Code First Migrations (runs on application start)**.</span></span> <span data-ttu-id="cbad4-141">(チェック ボックスにラベルを付けることがあります、バージョンの Visual Studio で**適用の Code First Migrations**)。</span><span class="sxs-lookup"><span data-stu-id="cbad4-141">(In your version of Visual Studio, the check box might be labeled **Apply Code First Migrations**.)</span></span>
+<span data-ttu-id="cbad4-140">選択**実行 Code First Migrations (アプリケーション開始時に実行されます)** です。</span><span class="sxs-lookup"><span data-stu-id="cbad4-140">Select **Execute Code First Migrations (runs on application start)**.</span></span> <span data-ttu-id="cbad4-141">(チェック ボックスにラベルを付けることがあります、バージョンの Visual Studio で**適用の Code First Migrations**)。</span><span class="sxs-lookup"><span data-stu-id="cbad4-141">(In your version of Visual Studio, the check box might be labeled **Apply Code First Migrations**.)</span></span>
 
 <span data-ttu-id="cbad4-142">接続文字列 ボックスで**DefaultConnection**で使用したものと同じ値を入力、 *Web.Test.config*前のチュートリアルでの変換ファイル。</span><span class="sxs-lookup"><span data-stu-id="cbad4-142">In the connection string box for **DefaultConnection**, enter the same value that you used in the *Web.Test.config* transformation file in the previous tutorial:</span></span>
 
@@ -93,7 +94,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="cbad4-143">ままにして**更新データベース**オフにします。</span><span class="sxs-lookup"><span data-stu-id="cbad4-143">Leave **Update database** cleared.</span></span>
 
-<span data-ttu-id="cbad4-144">**[発行]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="cbad4-144">Click **Publish**.</span></span>
+<span data-ttu-id="cbad4-144">**[発行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="cbad4-144">Click **Publish**.</span></span>
 
 <span data-ttu-id="cbad4-145">Visual Studio では、コードの変更をテスト環境に展開し、Contoso 大学のホーム ページにブラウザーを開きます。</span><span class="sxs-lookup"><span data-stu-id="cbad4-145">Visual Studio deploys the code changes to the test environment and opens the browser to the Contoso University home page.</span></span>
 
@@ -123,7 +124,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="cbad4-168">**接続** タブで、変更**送信先 URL**一時的な URL を使用している場合は、適切な値にします。</span><span class="sxs-lookup"><span data-stu-id="cbad4-168">On the **Connection** tab, change **Destination URL** to the appropriate value if you are using a temporary URL.</span></span>
 
-<span data-ttu-id="cbad4-169">**[次へ]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="cbad4-169">Click **Next**.</span></span>
+<span data-ttu-id="cbad4-169">**[次へ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="cbad4-169">Click **Next**.</span></span>
 
 <span data-ttu-id="cbad4-170">**設定** タブで、をクリックして**の機能強化を公開する新しいデータベースを有効にする**です。</span><span class="sxs-lookup"><span data-stu-id="cbad4-170">On the **Settings** tab, click **enable the new database publishing improvements**.</span></span>
 
@@ -131,7 +132,7 @@ ms.lasthandoff: 04/06/2018
 
 ![Selecting_Cytanium_connection_string](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image5.png)
 
-<span data-ttu-id="cbad4-173">選択**実行 Code First migrations (アプリケーション開始時に実行されます)**です。</span><span class="sxs-lookup"><span data-stu-id="cbad4-173">Select **Execute Code First migrations (runs on application start)**.</span></span>
+<span data-ttu-id="cbad4-173">選択**実行 Code First migrations (アプリケーション開始時に実行されます)** です。</span><span class="sxs-lookup"><span data-stu-id="cbad4-173">Select **Execute Code First migrations (runs on application start)**.</span></span>
 
 <span data-ttu-id="cbad4-174">接続文字列 ドロップダウン リストに**DefaultConnection**、Cytanium 接続文字列を選択します。</span><span class="sxs-lookup"><span data-stu-id="cbad4-174">In the connection string drop-down list for **DefaultConnection**, select the Cytanium connection string.</span></span>
 
@@ -139,7 +140,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="cbad4-176">発行プロファイルを変更を保存するを閉じてから、もう一度開きます。</span><span class="sxs-lookup"><span data-stu-id="cbad4-176">Close the publish profile to save the change, then open it again.</span></span>
 
-<span data-ttu-id="cbad4-177">**[発行]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="cbad4-177">Click **Publish**.</span></span> <span data-ttu-id="cbad4-178">(コピーする実際の運用 web サイト、*アプリ\_offline.htm*と put の実稼働環境に発行する前に、プロジェクト フォルダーでを削除して、展開が完了するとします)。</span><span class="sxs-lookup"><span data-stu-id="cbad4-178">(For a real production website, you would copy *app\_offline.htm* to production and put it in your project folder before publishing, then remove it when deployment is complete.)</span></span>
+<span data-ttu-id="cbad4-177">**[発行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="cbad4-177">Click **Publish**.</span></span> <span data-ttu-id="cbad4-178">(コピーする実際の運用 web サイト、*アプリ\_offline.htm*と put の実稼働環境に発行する前に、プロジェクト フォルダーでを削除して、展開が完了するとします)。</span><span class="sxs-lookup"><span data-stu-id="cbad4-178">(For a real production website, you would copy *app\_offline.htm* to production and put it in your project folder before publishing, then remove it when deployment is complete.)</span></span>
 
 <span data-ttu-id="cbad4-179">Visual Studio では、コードの変更をテスト環境に展開し、Contoso 大学のホーム ページにブラウザーを開きます。</span><span class="sxs-lookup"><span data-stu-id="cbad4-179">Visual Studio deploys the code changes to the test environment and opens the browser to the Contoso University home page.</span></span>
 

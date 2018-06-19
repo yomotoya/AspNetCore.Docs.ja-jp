@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886915"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-code-only-update---8-of-12"></a><span data-ttu-id="de28c-103">SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: 12 の 8 - Code-Only 更新の展開</span><span class="sxs-lookup"><span data-stu-id="de28c-103">Deploying an ASP.NET Web Application with SQL Server Compact using Visual Studio or Visual Web Developer: Deploying a Code-Only Update - 8 of 12</span></span>
 ====================
@@ -77,7 +78,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="de28c-138">実際のアプリケーションでユーザーが、最初の展開後に、実稼働サイトと対話およびデータベースには、ライブ データが挿入されます。</span><span class="sxs-lookup"><span data-stu-id="de28c-138">In a real application, users interact with your production site after your initial deployment, and the databases are populated with live data.</span></span> <span data-ttu-id="de28c-139">そのため、すべてのライブ データをワイプすると、初期状態で、メンバーシップ データベースを再配置したくないです。</span><span class="sxs-lookup"><span data-stu-id="de28c-139">Therefore, you don't want to redeploy the membership database in its initial state, which would wipe out all of the live data.</span></span> <span data-ttu-id="de28c-140">SQL Server Compact データベースが内のファイルであるため、*アプリ\_データ*フォルダー内のファイルを展開の設定を変更することによってこれを防ぐにする必要がある、*アプリ\_データ*フォルダー展開されません。</span><span class="sxs-lookup"><span data-stu-id="de28c-140">Since SQL Server Compact databases are files in the *App\_Data* folder, you have to prevent this by changing deployment settings so that files in the *App\_Data* folder aren't deployed.</span></span>
 
-<span data-ttu-id="de28c-141">開く、**プロジェクト プロパティ**を選択して ContosoUniversity プロジェクト ウィンドウ、**パッケージ化/発行 Web**  タブ。確認して、**構成**ドロップ ダウン ボックスにはいずれかの**アクティブ (リリース)**または**リリース**選択すると、選択**アプリからファイルを除外する\_データ フォルダー**です。</span><span class="sxs-lookup"><span data-stu-id="de28c-141">Open the **Project Properties** window for the ContosoUniversity project, and select the **Package/Publish Web** tab. Make sure that the **Configuration** drop-down box has either **Active (Release)** or **Release** selected, select **Exclude files from the App\_Data folder**.</span></span>
+<span data-ttu-id="de28c-141">開く、**プロジェクト プロパティ**を選択して ContosoUniversity プロジェクト ウィンドウ、**パッケージ化/発行 Web**  タブ。確認して、**構成**ドロップ ダウン ボックスにはいずれかの**アクティブ (リリース)** または**リリース**選択すると、選択**アプリからファイルを除外する\_データ フォルダー**です。</span><span class="sxs-lookup"><span data-stu-id="de28c-141">Open the **Project Properties** window for the ContosoUniversity project, and select the **Package/Publish Web** tab. Make sure that the **Configuration** drop-down box has either **Active (Release)** or **Release** selected, select **Exclude files from the App\_Data folder**.</span></span>
 
 ![Exclude_files_from_the_App_Data_folder](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image9.png)
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885846"
 ---
 <a name="updating-deleting-and-creating-data-with-model-binding-and-web-forms"></a><span data-ttu-id="572b4-104">更新、削除、およびモデル バインディングと web フォームをデータの作成</span><span class="sxs-lookup"><span data-stu-id="572b4-104">Updating, deleting, and creating data with model binding and web forms</span></span>
 ====================
@@ -105,7 +106,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="572b4-167">次に、マスター ページを使用して新しい web フォームを追加し、名前**AddStudent**です。</span><span class="sxs-lookup"><span data-stu-id="572b4-167">Then, add a new web form using a master page, and name it **AddStudent**.</span></span> <span data-ttu-id="572b4-168">マスター ページとして Site.Master を選択します。</span><span class="sxs-lookup"><span data-stu-id="572b4-168">Select Site.Master as the master page.</span></span>
 
-<span data-ttu-id="572b4-169">使用して、新しい受講者を追加するためのフィールドを表示する、 **DynamicEntity**コントロール。</span><span class="sxs-lookup"><span data-stu-id="572b4-169">You will render the fields for adding a new student by using a **DynamicEntity** control.</span></span> <span data-ttu-id="572b4-170">DynamicEntity コントロールは、その ItemType プロパティで指定されたクラスの編集可能なプロパティを表示します。</span><span class="sxs-lookup"><span data-stu-id="572b4-170">The DynamicEntity control renders that editable properties in the class specified in the ItemType property.</span></span> <span data-ttu-id="572b4-171">学生 Id プロパティとして設定されていた、 **[ScaffoldColumn(false)]**属性のためはレンダリングされません。</span><span class="sxs-lookup"><span data-stu-id="572b4-171">The StudentID property was marked with the **[ScaffoldColumn(false)]** attribute so it is not rendered.</span></span> <span data-ttu-id="572b4-172">メインのプレース ホルダー AddStudent ページのでは、次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="572b4-172">In the MainContent placeholder of the AddStudent page, add the following code.</span></span>
+<span data-ttu-id="572b4-169">使用して、新しい受講者を追加するためのフィールドを表示する、 **DynamicEntity**コントロール。</span><span class="sxs-lookup"><span data-stu-id="572b4-169">You will render the fields for adding a new student by using a **DynamicEntity** control.</span></span> <span data-ttu-id="572b4-170">DynamicEntity コントロールは、その ItemType プロパティで指定されたクラスの編集可能なプロパティを表示します。</span><span class="sxs-lookup"><span data-stu-id="572b4-170">The DynamicEntity control renders that editable properties in the class specified in the ItemType property.</span></span> <span data-ttu-id="572b4-171">学生 Id プロパティとして設定されていた、 **[ScaffoldColumn(false)]** 属性のためはレンダリングされません。</span><span class="sxs-lookup"><span data-stu-id="572b4-171">The StudentID property was marked with the **[ScaffoldColumn(false)]** attribute so it is not rendered.</span></span> <span data-ttu-id="572b4-172">メインのプレース ホルダー AddStudent ページのでは、次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="572b4-172">In the MainContent placeholder of the AddStudent page, add the following code.</span></span>
 
 [!code-aspx[Main](updating-deleting-and-creating-data/samples/sample6.aspx)]
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30889073"
 ---
 <a name="displaying-a-custom-error-page-c"></a><span data-ttu-id="b358c-104">カスタム エラー ページ (c#) を表示します。</span><span class="sxs-lookup"><span data-stu-id="b358c-104">Displaying a Custom Error Page (C#)</span></span>
 ====================

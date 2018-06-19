@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888001"
 ---
 <a name="understanding-the-build-process"></a><span data-ttu-id="91c97-104">ビルド プロセスの理解</span><span class="sxs-lookup"><span data-stu-id="91c97-104">Understanding the Build Process</span></span>
 ====================

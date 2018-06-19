@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879505"
 ---
 <a name="part-7-membership-and-authorization"></a><span data-ttu-id="3f997-104">手順 7: メンバーシップと承認</span><span class="sxs-lookup"><span data-stu-id="3f997-104">Part 7: Membership and Authorization</span></span>
 ====================

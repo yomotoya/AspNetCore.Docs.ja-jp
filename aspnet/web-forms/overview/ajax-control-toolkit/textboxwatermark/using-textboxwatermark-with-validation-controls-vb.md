@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879232"
 ---
 <a name="using-textboxwatermark-with-validation-controls-vb"></a><span data-ttu-id="ac0b4-104">検証コントロール (VB) で TextBoxWatermark を使用します。</span><span class="sxs-lookup"><span data-stu-id="ac0b4-104">Using TextBoxWatermark With Validation Controls (VB)</span></span>
 ====================

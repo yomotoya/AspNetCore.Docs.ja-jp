@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892336"
 ---
 <a name="handling-bll--and-dal-level-exceptions-c"></a><span data-ttu-id="ac884-103">BLL および DAL レベルの例外 (c#) の処理</span><span class="sxs-lookup"><span data-stu-id="ac884-103">Handling BLL- and DAL-Level Exceptions (C#)</span></span>
 ====================

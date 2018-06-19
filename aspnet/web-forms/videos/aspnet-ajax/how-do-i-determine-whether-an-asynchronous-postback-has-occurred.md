@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882170"
 ---
 <a name="how-do-i-determine-whether-an-asynchronous-postback-has-occurred"></a><span data-ttu-id="e0c61-105">[How Do i:]かどうかを非同期ポストバックが発生したかを調べる</span><span class="sxs-lookup"><span data-stu-id="e0c61-105">[How Do I:] Determine Whether an Asynchronous Postback has Occurred?</span></span>
 ====================

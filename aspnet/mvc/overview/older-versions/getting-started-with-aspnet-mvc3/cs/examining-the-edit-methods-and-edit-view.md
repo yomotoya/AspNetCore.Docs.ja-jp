@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875813"
 ---
 <a name="examining-the-edit-methods-and-edit-view-c"></a><span data-ttu-id="c54e3-103">編集方法と編集ビュー (c#) の確認</span><span class="sxs-lookup"><span data-stu-id="c54e3-103">Examining the Edit Methods and Edit View (C#)</span></span>
 ====================
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="c54e3-118">このセクションで、生成されたアクション メソッドと、ムービーのコント ローラーのビューを確認します。</span><span class="sxs-lookup"><span data-stu-id="c54e3-118">In this section, you'll examine the generated action methods and views for the movie controller.</span></span> <span data-ttu-id="c54e3-119">カスタムの検索ページを追加します。</span><span class="sxs-lookup"><span data-stu-id="c54e3-119">Then you'll add a custom search page.</span></span>
 
-<span data-ttu-id="c54e3-120">アプリケーションを実行しを参照、`Movies`コント ローラーを追加して*/Movies*お使いのブラウザーのアドレス バーの URL にします。</span><span class="sxs-lookup"><span data-stu-id="c54e3-120">Run the application and browse to the `Movies` controller by appending */Movies* to the URL in the address bar of your browser.</span></span> <span data-ttu-id="c54e3-121">上にマウス ポインターを置く、**編集**にリンクする URL を表示するリンクです。</span><span class="sxs-lookup"><span data-stu-id="c54e3-121">Hold the mouse pointer over an **Edit** link to see the URL that it links to.</span></span>
+<span data-ttu-id="c54e3-120">アプリケーションを実行しを参照、`Movies`コント ローラーを追加して */Movies*お使いのブラウザーのアドレス バーの URL にします。</span><span class="sxs-lookup"><span data-stu-id="c54e3-120">Run the application and browse to the `Movies` controller by appending */Movies* to the URL in the address bar of your browser.</span></span> <span data-ttu-id="c54e3-121">上にマウス ポインターを置く、**編集**にリンクする URL を表示するリンクです。</span><span class="sxs-lookup"><span data-stu-id="c54e3-121">Hold the mouse pointer over an **Edit** link to see the URL that it links to.</span></span>
 
 <span data-ttu-id="c54e3-122">[![EditLink_sm](examining-the-edit-methods-and-edit-view/_static/image2.png)](examining-the-edit-methods-and-edit-view/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="c54e3-122">[![EditLink_sm](examining-the-edit-methods-and-edit-view/_static/image2.png)](examining-the-edit-methods-and-edit-view/_static/image1.png)</span></span>
 
@@ -136,7 +137,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample10.cshtml)]
 
-<span data-ttu-id="c54e3-211">アプリケーションを実行しに移動*/ビデオ/SearchIndex*です。</span><span class="sxs-lookup"><span data-stu-id="c54e3-211">Run the application and navigate to */Movies/SearchIndex*.</span></span> <span data-ttu-id="c54e3-212">`?searchString=ghost` などのクエリ文字列を URL に追加します。</span><span class="sxs-lookup"><span data-stu-id="c54e3-212">Append a query string such as `?searchString=ghost` to the URL.</span></span> <span data-ttu-id="c54e3-213">フィルターされたムービーが表示されます。</span><span class="sxs-lookup"><span data-stu-id="c54e3-213">The filtered movies are displayed.</span></span>
+<span data-ttu-id="c54e3-211">アプリケーションを実行しに移動 */ビデオ/SearchIndex*です。</span><span class="sxs-lookup"><span data-stu-id="c54e3-211">Run the application and navigate to */Movies/SearchIndex*.</span></span> <span data-ttu-id="c54e3-212">`?searchString=ghost` などのクエリ文字列を URL に追加します。</span><span class="sxs-lookup"><span data-stu-id="c54e3-212">Append a query string such as `?searchString=ghost` to the URL.</span></span> <span data-ttu-id="c54e3-213">フィルターされたムービーが表示されます。</span><span class="sxs-lookup"><span data-stu-id="c54e3-213">The filtered movies are displayed.</span></span>
 
 <span data-ttu-id="c54e3-214">[![SearchQryStr](examining-the-edit-methods-and-edit-view/_static/image14.png)](examining-the-edit-methods-and-edit-view/_static/image13.png)</span><span class="sxs-lookup"><span data-stu-id="c54e3-214">[![SearchQryStr](examining-the-edit-methods-and-edit-view/_static/image14.png)](examining-the-edit-methods-and-edit-view/_static/image13.png)</span></span>
 
@@ -216,7 +217,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample21.cshtml)]
 
-<span data-ttu-id="c54e3-259">アプリケーションを実行しを参照*/ビデオ/SearchIndex*です。</span><span class="sxs-lookup"><span data-stu-id="c54e3-259">Run the application and browse to */Movies/SearchIndex*.</span></span> <span data-ttu-id="c54e3-260">ジャンル、ムービーの名前、および両方の条件は、検索を再試行してください。</span><span class="sxs-lookup"><span data-stu-id="c54e3-260">Try a search by genre, by movie name, and by both criteria.</span></span>
+<span data-ttu-id="c54e3-259">アプリケーションを実行しを参照 */ビデオ/SearchIndex*です。</span><span class="sxs-lookup"><span data-stu-id="c54e3-259">Run the application and browse to */Movies/SearchIndex*.</span></span> <span data-ttu-id="c54e3-260">ジャンル、ムービーの名前、および両方の条件は、検索を再試行してください。</span><span class="sxs-lookup"><span data-stu-id="c54e3-260">Try a search by genre, by movie name, and by both criteria.</span></span>
 
 <span data-ttu-id="c54e3-261">このセクションでは、CRUD アクション メソッドと、フレームワークによって生成されたビューを調査します。</span><span class="sxs-lookup"><span data-stu-id="c54e3-261">In this section you examined the CRUD action methods and views generated by the framework.</span></span> <span data-ttu-id="c54e3-262">アクション メソッドの検索とムービーのタイトル、ジャンルで検索できるようにするビューを作成したとします。</span><span class="sxs-lookup"><span data-stu-id="c54e3-262">You created a search action method and view that let users search by movie title and genre.</span></span> <span data-ttu-id="c54e3-263">次のセクションでプロパティを追加する方法について見ていきます、`Movie`モデルおよびテスト用データベースが自動的に作成するには初期化子を追加する方法です。</span><span class="sxs-lookup"><span data-stu-id="c54e3-263">In the next section, you'll look at how to add a property to the `Movie` model and how to add an initializer that will automatically create a test database.</span></span>
 

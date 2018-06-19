@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895741"
 ---
 <a name="measuring-the-business-value-of-ajax"></a><span data-ttu-id="0f662-104">AJAX のビジネス価値を測定します。</span><span class="sxs-lookup"><span data-stu-id="0f662-104">Measuring the Business Value of AJAX</span></span>
 ====================

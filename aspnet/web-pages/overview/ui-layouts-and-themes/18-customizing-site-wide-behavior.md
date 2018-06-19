@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899202"
 ---
 <a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a><span data-ttu-id="fe035-103">ASP.NET Web Pages (Razor) サイトのサイト全体の動作のカスタマイズ</span><span class="sxs-lookup"><span data-stu-id="fe035-103">Customizing Site-Wide Behavior for ASP.NET Web Pages (Razor) Sites</span></span>
 ====================
@@ -131,7 +132,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample7.cshtml)]
 
-<span data-ttu-id="fe035-190">実行すると*/myfolder/default.cshtml*次が表示されます。</span><span class="sxs-lookup"><span data-stu-id="fe035-190">When you run */myfolder/default.cshtml*, you'll see the following:</span></span>
+<span data-ttu-id="fe035-190">実行すると */myfolder/default.cshtml*次が表示されます。</span><span class="sxs-lookup"><span data-stu-id="fe035-190">When you run */myfolder/default.cshtml*, you'll see the following:</span></span>
 
 [!code-console[Main](18-customizing-site-wide-behavior/samples/sample8.cmd)]
 
@@ -164,7 +165,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="using-pagestartcshtml-to-handle-errors"></a><span data-ttu-id="fe035-205">使用して\_PageStart.cshtml エラーを処理するには</span><span class="sxs-lookup"><span data-stu-id="fe035-205">Using \_PageStart.cshtml to Handle Errors</span></span>
 
-<span data-ttu-id="fe035-206">別なを使用して、  *\_PageStart.cshtml*ファイルは、いずれかで発生する可能性がプログラミング エラー (例外) を処理する方法を作成する*.cshtml*フォルダー内のページです。</span><span class="sxs-lookup"><span data-stu-id="fe035-206">Another good use for the *\_PageStart.cshtml* file is to create a way to handle programming errors (exceptions) that might occur in any *.cshtml* page in a folder.</span></span> <span data-ttu-id="fe035-207">この例では、これを行う 1 つの方法を示します。</span><span class="sxs-lookup"><span data-stu-id="fe035-207">This example shows you one way to do this.</span></span>
+<span data-ttu-id="fe035-206">別なを使用して、  *\_PageStart.cshtml*ファイルは、いずれかで発生する可能性がプログラミング エラー (例外) を処理する方法を作成する *.cshtml*フォルダー内のページです。</span><span class="sxs-lookup"><span data-stu-id="fe035-206">Another good use for the *\_PageStart.cshtml* file is to create a way to handle programming errors (exceptions) that might occur in any *.cshtml* page in a folder.</span></span> <span data-ttu-id="fe035-207">この例では、これを行う 1 つの方法を示します。</span><span class="sxs-lookup"><span data-stu-id="fe035-207">This example shows you one way to do this.</span></span>
 
 1. <span data-ttu-id="fe035-208">ルート フォルダーにという名前のフォルダーを作成する*InitCatch*です。</span><span class="sxs-lookup"><span data-stu-id="fe035-208">In the root folder, create a folder named *InitCatch*.</span></span>
 2. <span data-ttu-id="fe035-209">*InitCatch*という名前のファイルの作成、web サイトのフォルダー  *\_PageStart.cshtml*次に、既存のマークアップとコードを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="fe035-209">In the *InitCatch* folder of your website, create a file named *\_PageStart.cshtml* and replace the existing markup and code with the following:</span></span> 

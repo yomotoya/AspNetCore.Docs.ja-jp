@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874422"
 ---
 <a name="improving-performance-with-output-caching-vb"></a><span data-ttu-id="b331f-104">出力 (VB) のキャッシュによるパフォーマンスの向上</span><span class="sxs-lookup"><span data-stu-id="b331f-104">Improving Performance with Output Caching (VB)</span></span>
 ====================

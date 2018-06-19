@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885511"
 ---
 <a name="validating-users-manually"></a><span data-ttu-id="11828-104">ユーザーを手動で検証します。</span><span class="sxs-lookup"><span data-stu-id="11828-104">Validating Users Manually</span></span>
 ====================

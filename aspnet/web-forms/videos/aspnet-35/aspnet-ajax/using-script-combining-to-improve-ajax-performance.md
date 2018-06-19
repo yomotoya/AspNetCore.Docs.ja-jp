@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886798"
 ---
 <a name="using-script-combining-to-improve-ajax-performance"></a><span data-ttu-id="5ecb9-103">AJAX のパフォーマンスを向上させるためにスクリプトの結合を使用してください。</span><span class="sxs-lookup"><span data-stu-id="5ecb9-103">Using Script Combining to improve AJAX performance</span></span>
 ====================

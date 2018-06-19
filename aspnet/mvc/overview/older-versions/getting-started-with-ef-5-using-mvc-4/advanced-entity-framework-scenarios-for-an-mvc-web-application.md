@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876710"
 ---
 <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a><span data-ttu-id="c1c57-103">MVC Web アプリケーション (10 10) の高度なエンティティ フレームワークのシナリオ</span><span class="sxs-lookup"><span data-stu-id="c1c57-103">Advanced Entity Framework Scenarios for an MVC Web Application (10 of 10)</span></span>
 ====================
@@ -135,7 +136,7 @@ ms.lasthandoff: 04/06/2018
 
 ![Update_Course_Credits_initial_page_with_2_entered](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image7.png)
 
-<span data-ttu-id="c1c57-184">**[更新]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="c1c57-184">Click **Update**.</span></span> <span data-ttu-id="c1c57-185">影響を受けた行の数が表示されます。</span><span class="sxs-lookup"><span data-stu-id="c1c57-185">You see the number of rows affected:</span></span>
+<span data-ttu-id="c1c57-184">**[更新]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="c1c57-184">Click **Update**.</span></span> <span data-ttu-id="c1c57-185">影響を受けた行の数が表示されます。</span><span class="sxs-lookup"><span data-stu-id="c1c57-185">You see the number of rows affected:</span></span>
 
 ![Update_Course_Credits_rows_affected_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image8.png)
 

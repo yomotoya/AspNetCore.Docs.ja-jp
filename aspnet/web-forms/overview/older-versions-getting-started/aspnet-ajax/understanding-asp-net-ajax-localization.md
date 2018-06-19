@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30888040"
 ---
 <a name="understanding-aspnet-ajax-localization"></a><span data-ttu-id="3284b-104">ASP.NET AJAX のローカライズを理解します。</span><span class="sxs-lookup"><span data-stu-id="3284b-104">Understanding ASP.NET AJAX Localization</span></span>
 ====================

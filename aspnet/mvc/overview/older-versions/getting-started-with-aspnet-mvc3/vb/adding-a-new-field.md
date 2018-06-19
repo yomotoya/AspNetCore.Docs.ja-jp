@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877321"
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-database-table-vb"></a><span data-ttu-id="65a1d-103">ムービーのモデルとデータベースのテーブル (VB) に新しいフィールドを追加します。</span><span class="sxs-lookup"><span data-stu-id="65a1d-103">Adding a New Field to the Movie Model and Database Table (VB)</span></span>
 ====================
@@ -117,7 +118,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="65a1d-170">[![7_CreateRioII](adding-a-new-field/_static/image5.png)](adding-a-new-field/_static/image4.png)</span><span class="sxs-lookup"><span data-stu-id="65a1d-170">[![7_CreateRioII](adding-a-new-field/_static/image5.png)](adding-a-new-field/_static/image4.png)</span></span>
 
-<span data-ttu-id="65a1d-171">**[作成]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="65a1d-171">Click **Create**.</span></span> <span data-ttu-id="65a1d-172">この評価を含む、新しいムービーに表示されます、映画を一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="65a1d-172">The new movie, including the rating, now shows up in the movies listing:</span></span>
+<span data-ttu-id="65a1d-171">**[作成]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="65a1d-171">Click **Create**.</span></span> <span data-ttu-id="65a1d-172">この評価を含む、新しいムービーに表示されます、映画を一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="65a1d-172">The new movie, including the rating, now shows up in the movies listing:</span></span>
 
 ![7_ourNewMovie_SM](adding-a-new-field/_static/image6.png)
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884809"
 ---
 <a name="how-do-i-retrieve-values-from-server-side-ajax-controls"></a><span data-ttu-id="b4ce5-103">[How Do i:]サーバー側の AJAX コントロールの値を取得します。</span><span class="sxs-lookup"><span data-stu-id="b4ce5-103">[How Do I:] Retrieve Values From Server Side AJAX Controls</span></span>
 ====================

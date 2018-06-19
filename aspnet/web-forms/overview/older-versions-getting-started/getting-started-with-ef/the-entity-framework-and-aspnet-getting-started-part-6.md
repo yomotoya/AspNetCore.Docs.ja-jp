@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888800"
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-6"></a><span data-ttu-id="987f0-104">データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォームの第 6 部</span><span class="sxs-lookup"><span data-stu-id="987f0-104">Getting Started with Entity Framework 4.0 Database First and ASP.NET 4 Web Forms - Part 6</span></span>
 ====================
@@ -65,7 +66,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="987f0-141">[![image02](the-entity-framework-and-aspnet-getting-started-part-6/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image7.png)</span><span class="sxs-lookup"><span data-stu-id="987f0-141">[![image02](the-entity-framework-and-aspnet-getting-started-part-6/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image7.png)</span></span>
 
-<span data-ttu-id="987f0-142">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="987f0-142">Click **OK**.</span></span> <span data-ttu-id="987f0-143">デザイナーを作成、`Instructor`から派生するエンティティ、`Person`エンティティです。</span><span class="sxs-lookup"><span data-stu-id="987f0-143">The designer creates an `Instructor` entity that derives from the `Person` entity.</span></span> <span data-ttu-id="987f0-144">新しいエンティティがないすべてのプロパティです。</span><span class="sxs-lookup"><span data-stu-id="987f0-144">The new entity does not yet have any properties.</span></span>
+<span data-ttu-id="987f0-142">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="987f0-142">Click **OK**.</span></span> <span data-ttu-id="987f0-143">デザイナーを作成、`Instructor`から派生するエンティティ、`Person`エンティティです。</span><span class="sxs-lookup"><span data-stu-id="987f0-143">The designer creates an `Instructor` entity that derives from the `Person` entity.</span></span> <span data-ttu-id="987f0-144">新しいエンティティがないすべてのプロパティです。</span><span class="sxs-lookup"><span data-stu-id="987f0-144">The new entity does not yet have any properties.</span></span>
 
 <span data-ttu-id="987f0-145">[![image03](the-entity-framework-and-aspnet-getting-started-part-6/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image9.png)</span><span class="sxs-lookup"><span data-stu-id="987f0-145">[![image03](the-entity-framework-and-aspnet-getting-started-part-6/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image9.png)</span></span>
 

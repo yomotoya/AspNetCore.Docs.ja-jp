@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892297"
 ---
 <a name="configuring-server-environments-for-web-deployment"></a><span data-ttu-id="30613-103">Web 配置のサーバー環境の構成</span><span class="sxs-lookup"><span data-stu-id="30613-103">Configuring Server Environments for Web Deployment</span></span>
 ====================

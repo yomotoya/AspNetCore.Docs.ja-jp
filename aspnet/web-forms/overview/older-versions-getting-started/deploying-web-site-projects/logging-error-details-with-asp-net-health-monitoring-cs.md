@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888524"
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-c"></a><span data-ttu-id="51fc6-104">ASP.NET の正常性の監視 (c#) によるエラーの詳細をログ記録</span><span class="sxs-lookup"><span data-stu-id="51fc6-104">Logging Error Details with ASP.NET Health Monitoring (C#)</span></span>
 ====================

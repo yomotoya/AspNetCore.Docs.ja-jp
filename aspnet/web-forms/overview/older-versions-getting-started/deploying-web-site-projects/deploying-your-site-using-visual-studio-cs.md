@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888826"
 ---
 <a name="deploying-your-site-using-visual-studio-c"></a><span data-ttu-id="4bce6-104">Visual Studio (c#) を使用して、サイトを展開します。</span><span class="sxs-lookup"><span data-stu-id="4bce6-104">Deploying Your Site Using Visual Studio (C#)</span></span>
 ====================

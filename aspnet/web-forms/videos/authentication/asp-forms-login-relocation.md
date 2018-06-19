@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887019"
 ---
 <a name="asp-forms-login-relocation"></a><span data-ttu-id="c56ec-103">ASP フォーム ログインの再配置</span><span class="sxs-lookup"><span data-stu-id="c56ec-103">ASP Forms Login Relocation</span></span>
 ====================

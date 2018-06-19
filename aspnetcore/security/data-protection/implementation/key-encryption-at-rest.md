@@ -14,6 +14,7 @@ ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33851119"
 ---
 # <a name="key-encryption-at-rest-in-aspnet-core"></a><span data-ttu-id="784c1-103">ASP.NET Core でのキーの暗号化</span><span class="sxs-lookup"><span data-stu-id="784c1-103">Key encryption at rest in ASP.NET Core</span></span>
 

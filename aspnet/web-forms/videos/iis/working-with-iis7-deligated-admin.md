@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884705"
 ---
 <a name="working-with-iis7-delegated-admin"></a><span data-ttu-id="1c7a7-104">IIS7 で作業管理を委任します。</span><span class="sxs-lookup"><span data-stu-id="1c7a7-104">Working with IIS7 Delegated Admin</span></span>
 ====================

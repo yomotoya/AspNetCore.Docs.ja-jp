@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888615"
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a><span data-ttu-id="6b91f-104">新しいレコード (c#) を追加するときに、ファイルのアップロード オプションを含む</span><span class="sxs-lookup"><span data-stu-id="6b91f-104">Including a File Upload Option When Adding a New Record (C#)</span></span>
 ====================

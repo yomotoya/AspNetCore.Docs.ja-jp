@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888332"
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-vb"></a><span data-ttu-id="0de7e-103">DataList の編集インターフェイス (VB) への検証コントロールの追加</span><span class="sxs-lookup"><span data-stu-id="0de7e-103">Adding Validation Controls to the DataList's Editing Interface (VB)</span></span>
 ====================

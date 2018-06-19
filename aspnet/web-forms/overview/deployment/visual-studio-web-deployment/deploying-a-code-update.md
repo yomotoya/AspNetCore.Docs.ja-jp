@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881335"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a><span data-ttu-id="a5e2f-103">Visual Studio を使用した ASP.NET Web 展開: コードの更新を展開します。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-103">ASP.NET Web Deployment using Visual Studio: Deploying a Code Update</span></span>
 ====================
@@ -114,7 +115,7 @@ ms.lasthandoff: 04/06/2018
 2. <span data-ttu-id="a5e2f-174">**ダッシュ ボード** ページで、検索での FTP ホストの名前まで下にスクロール、 **Quick Glance**セクションです。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-174">On the **Dashboard** page, scroll down to find the FTP host name in the **Quick Glance** section.</span></span>
 
     ![FTP ホスト名](deploying-a-code-update/_static/image5.png)
-3. <span data-ttu-id="a5e2f-176">ステージングを開く*.publishsettings*メモ帳または別のテキスト エディターでファイル。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-176">Open the staging *.publishsettings* file in Notepad or another text editor.</span></span>
+3. <span data-ttu-id="a5e2f-176">ステージングを開く *.publishsettings*メモ帳または別のテキスト エディターでファイル。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-176">Open the staging *.publishsettings* file in Notepad or another text editor.</span></span>
 4. <span data-ttu-id="a5e2f-177">検索、 `publishProfile` FTP プロファイルの要素。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-177">Find the `publishProfile` element for the FTP profile.</span></span>
 5. <span data-ttu-id="a5e2f-178">コピー、`userName`と`userPWD`値。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-178">Copy the `userName` and `userPWD` values.</span></span>
 
@@ -168,7 +169,7 @@ ms.lasthandoff: 04/06/2018
 
     <span data-ttu-id="a5e2f-211">ダブルクリックする場合、 *Web.config*ファイル、**変更のプレビュー**ダイアログ変換の構成、ビルドの効果を示していて、発行プロファイルの変換。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-211">If you double-click the *Web.config* file, the **Preview changes** dialog shows the effect of your build configuration transformations and publish profile transformations.</span></span> <span data-ttu-id="a5e2f-212">この時点で実行していない原因は、 *Web.config*を変更すると、変更が表示されないため、サーバー上のファイルです。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-212">At this point you have not done anything that would cause the *Web.config* file on the server to change, so you expect to see no changes.</span></span> <span data-ttu-id="a5e2f-213">ただし、**変更のプレビュー**ウィンドウが 2 つの変更を正しく表示します。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-213">However, the **Preview changes** window incorrectly shows two changes.</span></span> <span data-ttu-id="a5e2f-214">2 つの XML 要素が削除するようです。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-214">It looks like two XML elements will be removed.</span></span> <span data-ttu-id="a5e2f-215">選択すると、発行プロセスでこれらの要素が追加された**実行 Code First Migrations アプリケーション開始時に**Code First コンテキスト クラスです。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-215">These elements are added by the publish process when you select **Execute Code First Migrations on application start** for a Code First context class.</span></span> <span data-ttu-id="a5e2f-216">発行プロセスが削除されませんが、取り消されるように見えるために、それらの要素を追加する前に、比較が行われます。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-216">The comparison is done before the publish process adds those elements, so it looks like they are being removed although they will not be removed.</span></span> <span data-ttu-id="a5e2f-217">このエラーは、将来のリリースで修正される予定です。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-217">This error will be corrected in a future release.</span></span>
 5. <span data-ttu-id="a5e2f-218">**[閉じる]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-218">Click **Close**.</span></span>
-6. <span data-ttu-id="a5e2f-219">**[発行]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-219">Click **Publish**.</span></span>
+6. <span data-ttu-id="a5e2f-219">**[発行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-219">Click **Publish**.</span></span>
 7. <span data-ttu-id="a5e2f-220">テスト サイトのホーム ページを開くと、ブラウザー、CTRL + f5 キーを押して CSS の変更の結果を確認するためにハード更新が発生します。</span><span class="sxs-lookup"><span data-stu-id="a5e2f-220">When the browser opens to the home page of the Test site, press CTRL+F5 to cause a hard refresh in order to see the effect of the CSS change.</span></span>
 
     ![CSS の変更の結果](deploying-a-code-update/_static/image11.png)

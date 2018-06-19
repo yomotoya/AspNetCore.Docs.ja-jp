@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889148"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a><span data-ttu-id="5fef3-103">Visual Studio を使用した ASP.NET Web 展開: データベースの配置の準備</span><span class="sxs-lookup"><span data-stu-id="5fef3-103">ASP.NET Web Deployment using Visual Studio: Preparing for Database Deployment</span></span>
 ====================
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="5fef3-116">サンプル アプリケーションでは、SQL Server Express LocalDB を使用します。</span><span class="sxs-lookup"><span data-stu-id="5fef3-116">The sample application uses SQL Server Express LocalDB.</span></span> <span data-ttu-id="5fef3-117">SQL Server Express は、SQL Server の無償のエディションです。</span><span class="sxs-lookup"><span data-stu-id="5fef3-117">SQL Server Express is the free edition of SQL Server.</span></span> <span data-ttu-id="5fef3-118">完全バージョンの SQL Server と同じデータベース エンジンに基づいているための開発中に通常使用されます。</span><span class="sxs-lookup"><span data-stu-id="5fef3-118">It is commonly used during development because it is based on the same database engine as full versions of SQL Server.</span></span> <span data-ttu-id="5fef3-119">SQL Server Express を使ってテストし、アプリケーションが動作する SQL Server のエディション間で異なる場合の機能の一部の例外を除き、実稼働環境で同じ確実に実行します。</span><span class="sxs-lookup"><span data-stu-id="5fef3-119">You can test with SQL Server Express and be assured that the application will behave the same in production, with a few exceptions for features that vary between SQL Server Editions.</span></span>
 
-<span data-ttu-id="5fef3-120">LocalDB は SQL Server Express データベースを対象として使用することができますの特殊な実行モード*.mdf*ファイル。</span><span class="sxs-lookup"><span data-stu-id="5fef3-120">LocalDB is a special execution mode of SQL Server Express that enables you to work with databases as *.mdf* files.</span></span> <span data-ttu-id="5fef3-121">LocalDB のデータベース ファイルを保持する、通常、*アプリ\_データ*web プロジェクトのフォルダーです。</span><span class="sxs-lookup"><span data-stu-id="5fef3-121">Typically, LocalDB database files are kept in the *App\_Data* folder of a web project.</span></span> <span data-ttu-id="5fef3-122">SQL Server express ユーザー インスタンスの機能でを操作することもできます*.mdf*は、ファイル、ユーザー インスタンス機能は推奨されません。 そのため、LocalDB を使用するため推奨*.mdf*ファイル。</span><span class="sxs-lookup"><span data-stu-id="5fef3-122">The user instance feature in SQL Server Express also enables you to work with *.mdf* files, but the user instance feature is deprecated; therefore, LocalDB is recommended for working with *.mdf* files.</span></span>
+<span data-ttu-id="5fef3-120">LocalDB は SQL Server Express データベースを対象として使用することができますの特殊な実行モード *.mdf*ファイル。</span><span class="sxs-lookup"><span data-stu-id="5fef3-120">LocalDB is a special execution mode of SQL Server Express that enables you to work with databases as *.mdf* files.</span></span> <span data-ttu-id="5fef3-121">LocalDB のデータベース ファイルを保持する、通常、*アプリ\_データ*web プロジェクトのフォルダーです。</span><span class="sxs-lookup"><span data-stu-id="5fef3-121">Typically, LocalDB database files are kept in the *App\_Data* folder of a web project.</span></span> <span data-ttu-id="5fef3-122">SQL Server express ユーザー インスタンスの機能でを操作することもできます *.mdf*は、ファイル、ユーザー インスタンス機能は推奨されません。 そのため、LocalDB を使用するため推奨 *.mdf*ファイル。</span><span class="sxs-lookup"><span data-stu-id="5fef3-122">The user instance feature in SQL Server Express also enables you to work with *.mdf* files, but the user instance feature is deprecated; therefore, LocalDB is recommended for working with *.mdf* files.</span></span>
 
 <span data-ttu-id="5fef3-123">通常実稼働 web アプリケーションの SQL Server Express は使用されません。</span><span class="sxs-lookup"><span data-stu-id="5fef3-123">Typically SQL Server Express is not used for production web applications.</span></span> <span data-ttu-id="5fef3-124">LocalDB 具体的には、ために推奨されませんを実稼働用 web アプリケーションと IIS を使用するものはありません。</span><span class="sxs-lookup"><span data-stu-id="5fef3-124">LocalDB in particular is not recommended for production use with a web application because it is not designed to work with IIS.</span></span>
 
@@ -185,7 +186,7 @@ ms.lasthandoff: 04/06/2018
 ### <a name="create-the-development-database-script"></a><span data-ttu-id="5fef3-243">開発データベース スクリプトを作成します。</span><span class="sxs-lookup"><span data-stu-id="5fef3-243">Create the development database script</span></span>
 
 1. <span data-ttu-id="5fef3-244">SSMS を実行します。</span><span class="sxs-lookup"><span data-stu-id="5fef3-244">Run SSMS.</span></span>
-2. <span data-ttu-id="5fef3-245">**サーバーへの接続** ダイアログ ボックスで、入力*(localdb) \v11.0*として、**サーバー名**のままにして**認証** 'éý'**Windows 認証**、クリックして**接続**です。</span><span class="sxs-lookup"><span data-stu-id="5fef3-245">In the **Connect to Server** dialog box, enter *(localdb)\v11.0* as the **Server name**, leave **Authentication** set to **Windows Authentication**, and then click **Connect**.</span></span>
+2. <span data-ttu-id="5fef3-245">**サーバーへの接続** ダイアログ ボックスで、入力 *(localdb) \v11.0*として、**サーバー名**のままにして**認証** 'éý'**Windows 認証**、クリックして**接続**です。</span><span class="sxs-lookup"><span data-stu-id="5fef3-245">In the **Connect to Server** dialog box, enter *(localdb)\v11.0* as the **Server name**, leave **Authentication** set to **Windows Authentication**, and then click **Connect**.</span></span>
 
     ![SSMS は、サーバーに接続します。](preparing-databases/_static/image10.png)
 3. <span data-ttu-id="5fef3-247">**オブジェクト エクスプ ローラー**ウィンドウで、展開**データベース**を右クリックして**aspnet ContosoUniversity**、 をクリックして**タスク**をクリックし、**スクリプトの生成**です。</span><span class="sxs-lookup"><span data-stu-id="5fef3-247">In the **Object Explorer** window, expand **Databases**, right-click **aspnet-ContosoUniversity**, click **Tasks**, and then click **Generate Scripts**.</span></span>
@@ -201,12 +202,12 @@ ms.lasthandoff: 04/06/2018
 7. <span data-ttu-id="5fef3-254">変更**を使用してデータベースのスクリプトを**に**False**です。</span><span class="sxs-lookup"><span data-stu-id="5fef3-254">Change **Script USE DATABASE** to **False**.</span></span> <span data-ttu-id="5fef3-255">ステートメントを使用する Azure SQL Database の有効ながなく、テスト環境で SQL Server Express への展開の不要な。</span><span class="sxs-lookup"><span data-stu-id="5fef3-255">USE statements aren't valid for Azure SQL Database and aren't needed for deployment to SQL Server Express in the test environment.</span></span>
 
     ![SSMS スクリプトのデータのみ、使用するステートメントのないです。](preparing-databases/_static/image13.png)
-8. <span data-ttu-id="5fef3-257">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="5fef3-257">Click **OK**.</span></span>
+8. <span data-ttu-id="5fef3-257">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="5fef3-257">Click **OK**.</span></span>
 9. <span data-ttu-id="5fef3-258">**公開スクリプトの生成と** ダイアログ ボックスで、**ファイル名**ボックスは、スクリプトを作成する場所を指定します。</span><span class="sxs-lookup"><span data-stu-id="5fef3-258">In the **Generate and Publish Scripts** dialog box, the **File name** box specifies where the script will be created.</span></span> <span data-ttu-id="5fef3-259">パスをソリューション フォルダー (、ContosoUniversity.sln ファイルがあるフォルダー) とファイルの名前に変更*aspnet データ-dev.sql*です。</span><span class="sxs-lookup"><span data-stu-id="5fef3-259">Change the path to your solution folder (the folder that has your ContosoUniversity.sln file) and the file name to *aspnet-data-dev.sql*.</span></span>
 10. <span data-ttu-id="5fef3-260">をクリックして**次へ**に移動する、**概要** タブをクリックして**次へ**スクリプトを作成するには、もう一度です。</span><span class="sxs-lookup"><span data-stu-id="5fef3-260">Click **Next** to go to the **Summary** tab, and then click **Next** again to create the script.</span></span>
 
     ![SSMS スクリプトの作成](preparing-databases/_static/image14.png)
-11. <span data-ttu-id="5fef3-262">**[完了]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="5fef3-262">Click **Finish**.</span></span>
+11. <span data-ttu-id="5fef3-262">**[完了]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="5fef3-262">Click **Finish**.</span></span>
 
 ### <a name="create-the-production-database-script"></a><span data-ttu-id="5fef3-263">実稼働データベース スクリプトを作成します。</span><span class="sxs-lookup"><span data-stu-id="5fef3-263">Create the production database script</span></span>
 
@@ -218,7 +219,7 @@ ms.lasthandoff: 04/06/2018
 2. <span data-ttu-id="5fef3-268">**データベースのアタッチ**ダイアログ ボックスで、をクリックして**追加**に移動し、 *aspnet ContosoUniversity-Prod.mdf*ファイルを*アプリ\_データ*フォルダーです。</span><span class="sxs-lookup"><span data-stu-id="5fef3-268">In the **Attach Databases** dialog box, click **Add** and then navigate to the *aspnet-ContosoUniversity-Prod.mdf* file in the *App\_Data* folder.</span></span>
 
      ![アタッチする .mdf ファイルを SSMS の追加](preparing-databases/_static/image16.png)
-3. <span data-ttu-id="5fef3-270">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="5fef3-270">Click **OK**.</span></span>
+3. <span data-ttu-id="5fef3-270">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="5fef3-270">Click **OK**.</span></span>
 4. <span data-ttu-id="5fef3-271">以前に使用した、実稼働ファイルのスクリプトを作成する同じ手順に従います。</span><span class="sxs-lookup"><span data-stu-id="5fef3-271">Follow the same procedure you used earlier to create a script for the production file.</span></span> <span data-ttu-id="5fef3-272">スクリプト ファイルの名前を付けます*aspnet データ-prod.sql*です。</span><span class="sxs-lookup"><span data-stu-id="5fef3-272">Name the script file *aspnet-data-prod.sql*.</span></span>
 
 ## <a name="summary"></a><span data-ttu-id="5fef3-273">まとめ</span><span class="sxs-lookup"><span data-stu-id="5fef3-273">Summary</span></span>

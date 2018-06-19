@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885823"
 ---
 <a name="creating-a-customized-sorting-user-interface-c"></a><span data-ttu-id="119e9-104">カスタマイズされた並べ替えのユーザー インターフェイス (c#) を作成します。</span><span class="sxs-lookup"><span data-stu-id="119e9-104">Creating a Customized Sorting User Interface (C#)</span></span>
 ====================

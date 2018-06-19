@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889489"
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a><span data-ttu-id="b0db7-103">データベースの概要 Entity Framework 4.0 最初に、ASP.NET 4 Web フォームします。</span><span class="sxs-lookup"><span data-stu-id="b0db7-103">Getting Started with Entity Framework 4.0 Database First and ASP.NET 4 Web Forms</span></span>
 ====================
@@ -100,7 +101,7 @@ ms.lasthandoff: 04/06/2018
 
 `%PROGRAMFILES%\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA`
 
-<span data-ttu-id="b0db7-163">(この場所の*.mdf*ファイルでは、SQL Server 2008 Express を使用している前提としています)。</span><span class="sxs-lookup"><span data-stu-id="b0db7-163">(This location of the *.mdf* file assumes you're using SQL Server 2008 Express.)</span></span>
+<span data-ttu-id="b0db7-163">(この場所の *.mdf*ファイルでは、SQL Server 2008 Express を使用している前提としています)。</span><span class="sxs-lookup"><span data-stu-id="b0db7-163">(This location of the *.mdf* file assumes you're using SQL Server 2008 Express.)</span></span>
 
 <span data-ttu-id="b0db7-164">スクリプトからデータベースを作成する場合は、データベース ダイアグラムを作成する次の手順を実行します。</span><span class="sxs-lookup"><span data-stu-id="b0db7-164">If you create the database from a script, perform the following steps to create a database diagram:</span></span>
 
@@ -132,7 +133,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="b0db7-182">[![Image05](the-entity-framework-and-aspnet-getting-started-part-1/_static/image26.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image25.png)</span><span class="sxs-lookup"><span data-stu-id="b0db7-182">[![Image05](the-entity-framework-and-aspnet-getting-started-part-1/_static/image26.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image25.png)</span></span>
 
-<span data-ttu-id="b0db7-183">これは、Entity Data Model ウィザードを起動します。</span><span class="sxs-lookup"><span data-stu-id="b0db7-183">This starts the Entity Data Model Wizard.</span></span> <span data-ttu-id="b0db7-184">ウィザードの最初の手順で、**データベースから生成**オプションは既定で選択します。</span><span class="sxs-lookup"><span data-stu-id="b0db7-184">In the first wizard step, the **Generate from database** option is selected by default.</span></span> <span data-ttu-id="b0db7-185">**[次へ]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="b0db7-185">Click **Next**.</span></span>
+<span data-ttu-id="b0db7-183">これは、Entity Data Model ウィザードを起動します。</span><span class="sxs-lookup"><span data-stu-id="b0db7-183">This starts the Entity Data Model Wizard.</span></span> <span data-ttu-id="b0db7-184">ウィザードの最初の手順で、**データベースから生成**オプションは既定で選択します。</span><span class="sxs-lookup"><span data-stu-id="b0db7-184">In the first wizard step, the **Generate from database** option is selected by default.</span></span> <span data-ttu-id="b0db7-185">**[次へ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="b0db7-185">Click **Next**.</span></span>
 
 <span data-ttu-id="b0db7-186">[![Image06](the-entity-framework-and-aspnet-getting-started-part-1/_static/image28.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image27.png)</span><span class="sxs-lookup"><span data-stu-id="b0db7-186">[![Image06](the-entity-framework-and-aspnet-getting-started-part-1/_static/image28.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image27.png)</span></span>
 

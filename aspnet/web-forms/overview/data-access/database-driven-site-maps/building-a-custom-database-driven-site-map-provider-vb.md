@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877971"
 ---
 <a name="building-a-custom-database-driven-site-map-provider-vb"></a><span data-ttu-id="f36d7-104">カスタム データベース駆動型サイト マップ プロバイダー (VB) のビルド</span><span class="sxs-lookup"><span data-stu-id="f36d7-104">Building a Custom Database-Driven Site Map Provider (VB)</span></span>
 ====================

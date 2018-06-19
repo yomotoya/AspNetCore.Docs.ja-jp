@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876749"
 ---
 <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a><span data-ttu-id="9894d-103">提供 CRUD (作成、読み取り、更新、削除) データ フォームのエントリのサポート</span><span class="sxs-lookup"><span data-stu-id="9894d-103">Provide CRUD (Create, Read, Update, Delete) Data Form Entry Support</span></span>
 ====================
@@ -37,7 +38,7 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="urls-handled-by-dinnerscontroller"></a><span data-ttu-id="9894d-112">DinnersController によって処理される Url</span><span class="sxs-lookup"><span data-stu-id="9894d-112">URLs handled by DinnersController</span></span>
 
-<span data-ttu-id="9894d-113">2 つの Url のサポートを実装する DinnersController を以前にアクション メソッドを追加しました: */Dinners*と*/Dinners 詳細/[id]*です。</span><span class="sxs-lookup"><span data-stu-id="9894d-113">We previously added action methods to DinnersController that implemented support for two URLs: */Dinners* and */Dinners/Details/[id]*.</span></span>
+<span data-ttu-id="9894d-113">2 つの Url のサポートを実装する DinnersController を以前にアクション メソッドを追加しました: */Dinners*と */Dinners 詳細/[id]* です。</span><span class="sxs-lookup"><span data-stu-id="9894d-113">We previously added action methods to DinnersController that implemented support for two URLs: */Dinners* and */Dinners/Details/[id]*.</span></span>
 
 | <span data-ttu-id="9894d-114">**URL**</span><span class="sxs-lookup"><span data-stu-id="9894d-114">**URL**</span></span> | <span data-ttu-id="9894d-115">**VERB**</span><span class="sxs-lookup"><span data-stu-id="9894d-115">**VERB**</span></span> | <span data-ttu-id="9894d-116">**目的**</span><span class="sxs-lookup"><span data-stu-id="9894d-116">**Purpose**</span></span> |
 | --- | --- | --- |
@@ -67,7 +68,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample1.cs)]
 
-<span data-ttu-id="9894d-152">上記のコードは、Dinner オブジェクトを取得するのに、DinnerRepository を使用します。</span><span class="sxs-lookup"><span data-stu-id="9894d-152">The code above uses the DinnerRepository to retrieve a Dinner object.</span></span> <span data-ttu-id="9894d-153">ビューを Dinner オブジェクトを使用してテンプレートをレンダリングします。</span><span class="sxs-lookup"><span data-stu-id="9894d-153">It then renders a View template using the Dinner object.</span></span> <span data-ttu-id="9894d-154">テンプレート名を明示的に渡されたしていないため、 *View()*ヘルパー メソッドに使用する規約に基づく既定のパス テンプレートの表示を解決するには:/Views/Dinners/Edit.aspx です。</span><span class="sxs-lookup"><span data-stu-id="9894d-154">Because we haven't explicitly passed a template name to the *View()* helper method, it will use the convention based default path to resolve the view template: /Views/Dinners/Edit.aspx.</span></span>
+<span data-ttu-id="9894d-152">上記のコードは、Dinner オブジェクトを取得するのに、DinnerRepository を使用します。</span><span class="sxs-lookup"><span data-stu-id="9894d-152">The code above uses the DinnerRepository to retrieve a Dinner object.</span></span> <span data-ttu-id="9894d-153">ビューを Dinner オブジェクトを使用してテンプレートをレンダリングします。</span><span class="sxs-lookup"><span data-stu-id="9894d-153">It then renders a View template using the Dinner object.</span></span> <span data-ttu-id="9894d-154">テンプレート名を明示的に渡されたしていないため、 *View()* ヘルパー メソッドに使用する規約に基づく既定のパス テンプレートの表示を解決するには:/Views/Dinners/Edit.aspx です。</span><span class="sxs-lookup"><span data-stu-id="9894d-154">Because we haven't explicitly passed a template name to the *View()* helper method, it will use the convention based default path to resolve the view template: /Views/Dinners/Edit.aspx.</span></span>
 
 <span data-ttu-id="9894d-155">このテンプレートの表示を今すぐ作成してみましょう。</span><span class="sxs-lookup"><span data-stu-id="9894d-155">Let's now create this view template.</span></span> <span data-ttu-id="9894d-156">このが作業を行う編集メソッド内で右クリックし、「ビューの追加」のコンテキスト メニュー コマンドを選択します。</span><span class="sxs-lookup"><span data-stu-id="9894d-156">We will do this by right-clicking within the Edit method and selecting the "Add View" context menu command:</span></span>
 
@@ -155,7 +156,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="9894d-205">上記の方法が少し verbose、ただし、特にエラー処理ロジックを追加します。</span><span class="sxs-lookup"><span data-stu-id="9894d-205">The above approach is a little verbose, though, especially once we add error handling logic.</span></span>
 
-<span data-ttu-id="9894d-206">このシナリオでは、組み込みの利用のより優れた方法*UpdateModel()*コント ローラーの基本クラスのヘルパー メソッドです。</span><span class="sxs-lookup"><span data-stu-id="9894d-206">A better approach for this scenario is to leverage the built-in *UpdateModel()* helper method on the Controller base class.</span></span> <span data-ttu-id="9894d-207">受信フォーム パラメーターを使用して渡すオブジェクトのプロパティの更新をサポートします。</span><span class="sxs-lookup"><span data-stu-id="9894d-207">It supports updating the properties of an object we pass it using the incoming form parameters.</span></span> <span data-ttu-id="9894d-208">リフレクションを使用して、オブジェクトのプロパティの名前を決定し自動的に変換し、クライアントから送信された入力値に基づいて値を割り当てます。</span><span class="sxs-lookup"><span data-stu-id="9894d-208">It uses reflection to determine the property names on the object, and then automatically converts and assigns values to them based on the input values submitted by the client.</span></span>
+<span data-ttu-id="9894d-206">このシナリオでは、組み込みの利用のより優れた方法*UpdateModel()* コント ローラーの基本クラスのヘルパー メソッドです。</span><span class="sxs-lookup"><span data-stu-id="9894d-206">A better approach for this scenario is to leverage the built-in *UpdateModel()* helper method on the Controller base class.</span></span> <span data-ttu-id="9894d-207">受信フォーム パラメーターを使用して渡すオブジェクトのプロパティの更新をサポートします。</span><span class="sxs-lookup"><span data-stu-id="9894d-207">It supports updating the properties of an object we pass it using the incoming form parameters.</span></span> <span data-ttu-id="9894d-208">リフレクションを使用して、オブジェクトのプロパティの名前を決定し自動的に変換し、クライアントから送信された入力値に基づいて値を割り当てます。</span><span class="sxs-lookup"><span data-stu-id="9894d-208">It uses reflection to determine the property names on the object, and then automatically converts and assigns values to them based on the input values submitted by the client.</span></span>
 
 <span data-ttu-id="9894d-209">UpdateModel() メソッドを使用して、HTTP POST の編集を使用してアクションこのコードを簡略化する可能性があります。</span><span class="sxs-lookup"><span data-stu-id="9894d-209">We could use the UpdateModel() method to simplify our HTTP-POST Edit Action using this code:</span></span>
 
@@ -193,7 +194,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="9894d-235">コント ローラー クラスには、エラーがビューに渡されるモデル オブジェクトに存在することを指定する手段を提供する"ModelState"プロパティ コレクションがあります。</span><span class="sxs-lookup"><span data-stu-id="9894d-235">Controller classes have a "ModelState" property collection which provides a way to indicate that errors exist with a model object being passed to a View.</span></span> <span data-ttu-id="9894d-236">ModelState コレクション内のエラーのエントリでは、モデル プロパティの名前を特定の問題に (例:「タイトル」、"EventDate"または"ContactPhone")、わかりやすいエラー メッセージを指定することができ (例:「タイトルが必要」) です。</span><span class="sxs-lookup"><span data-stu-id="9894d-236">Error entries within the ModelState collection identify the name of the model property with the issue (for example: "Title", "EventDate", or "ContactPhone"), and allow a human-friendly error message to be specified (for example: "Title is required").</span></span>
 
-<span data-ttu-id="9894d-237">*UpdateModel()*ヘルパー メソッドは、モデル オブジェクトのプロパティをフォームの値を割り当てようとするとエラーが発生したときに自動的に ModelState コレクションを設定します。</span><span class="sxs-lookup"><span data-stu-id="9894d-237">The *UpdateModel()* helper method automatically populates the ModelState collection when it encounters errors while trying to assign form values to properties on the model object.</span></span> <span data-ttu-id="9894d-238">たとえば、Dinner オブジェクトの EventDate プロパティは DateTime 型です。</span><span class="sxs-lookup"><span data-stu-id="9894d-238">For example, our Dinner object's EventDate property is of type DateTime.</span></span> <span data-ttu-id="9894d-239">UpdateModel() メソッドは、上記のシナリオで"BOGUS"の文字列値を割り当てることができませんが、そのプロパティを使用して割り当てエラーを示す ModelState コレクションにエントリが発生しました、UpdateModel() メソッドが追加されます。</span><span class="sxs-lookup"><span data-stu-id="9894d-239">When the UpdateModel() method was unable to assign the string value "BOGUS" to it in the scenario above, the UpdateModel() method added an entry to the ModelState collection indicating an assignment error had occurred with that property.</span></span>
+<span data-ttu-id="9894d-237">*UpdateModel()* ヘルパー メソッドは、モデル オブジェクトのプロパティをフォームの値を割り当てようとするとエラーが発生したときに自動的に ModelState コレクションを設定します。</span><span class="sxs-lookup"><span data-stu-id="9894d-237">The *UpdateModel()* helper method automatically populates the ModelState collection when it encounters errors while trying to assign form values to properties on the model object.</span></span> <span data-ttu-id="9894d-238">たとえば、Dinner オブジェクトの EventDate プロパティは DateTime 型です。</span><span class="sxs-lookup"><span data-stu-id="9894d-238">For example, our Dinner object's EventDate property is of type DateTime.</span></span> <span data-ttu-id="9894d-239">UpdateModel() メソッドは、上記のシナリオで"BOGUS"の文字列値を割り当てることができませんが、そのプロパティを使用して割り当てエラーを示す ModelState コレクションにエントリが発生しました、UpdateModel() メソッドが追加されます。</span><span class="sxs-lookup"><span data-stu-id="9894d-239">When the UpdateModel() method was unable to assign the string value "BOGUS" to it in the scenario above, the UpdateModel() method added an entry to the ModelState collection indicating an assignment error had occurred with that property.</span></span>
 
 <span data-ttu-id="9894d-240">開発者が行っている下ブロック内で、"catch"エラー処理のアクティブな規則違反に基づいてエントリ ModelState コレクションの読み込みはこれと同じように明示的に ModelState コレクション内のエラー エントリを追加するコードを記述できますも、Dinner オブジェクト:</span><span class="sxs-lookup"><span data-stu-id="9894d-240">Developers can also write code to explicitly add error entries into the ModelState collection like we are doing below within our "catch" error handling block, which is populating the ModelState collection with entries based on the active Rule Violations in the Dinner object:</span></span>
 
@@ -275,7 +276,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample23.cs)]
 
-<span data-ttu-id="9894d-276">上記のコードは、新しい Dinner オブジェクトを作成し、今後 1 週間である場合は、その EventDate プロパティを割り当てます。</span><span class="sxs-lookup"><span data-stu-id="9894d-276">The code above creates a new Dinner object, and assigns its EventDate property to be one week in the future.</span></span> <span data-ttu-id="9894d-277">新しい Dinner オブジェクトに基づいているビューをレンダリングします。</span><span class="sxs-lookup"><span data-stu-id="9894d-277">It then renders a View that is based on the new Dinner object.</span></span> <span data-ttu-id="9894d-278">名前を明示的に渡されたしていないため、 *View()*ヘルパー メソッドに使用する規約に基づく既定のパス テンプレートの表示を解決するには:/Views/Dinners/Create.aspx です。</span><span class="sxs-lookup"><span data-stu-id="9894d-278">Because we haven't explicitly passed a name to the *View()* helper method, it will use the convention based default path to resolve the view template: /Views/Dinners/Create.aspx.</span></span>
+<span data-ttu-id="9894d-276">上記のコードは、新しい Dinner オブジェクトを作成し、今後 1 週間である場合は、その EventDate プロパティを割り当てます。</span><span class="sxs-lookup"><span data-stu-id="9894d-276">The code above creates a new Dinner object, and assigns its EventDate property to be one week in the future.</span></span> <span data-ttu-id="9894d-277">新しい Dinner オブジェクトに基づいているビューをレンダリングします。</span><span class="sxs-lookup"><span data-stu-id="9894d-277">It then renders a View that is based on the new Dinner object.</span></span> <span data-ttu-id="9894d-278">名前を明示的に渡されたしていないため、 *View()* ヘルパー メソッドに使用する規約に基づく既定のパス テンプレートの表示を解決するには:/Views/Dinners/Create.aspx です。</span><span class="sxs-lookup"><span data-stu-id="9894d-278">Because we haven't explicitly passed a name to the *View()* helper method, it will use the convention based default path to resolve the view template: /Views/Dinners/Create.aspx.</span></span>
 
 <span data-ttu-id="9894d-279">このテンプレートの表示を今すぐ作成してみましょう。</span><span class="sxs-lookup"><span data-stu-id="9894d-279">Let's now create this view template.</span></span> <span data-ttu-id="9894d-280">作成アクション メソッド内で右クリックし、「ビューの追加」のコンテキスト メニュー コマンドを選択してこの作業を行うことができます。</span><span class="sxs-lookup"><span data-stu-id="9894d-280">We can do this by right-clicking within the Create action method and selecting the "Add View" context menu command.</span></span> <span data-ttu-id="9894d-281">「ビューの追加」ダイアログ ボックスでをビュー テンプレートに Dinner オブジェクトを渡すことはおこと、および自動 scaffold の「作成」テンプレートを選択を示します。</span><span class="sxs-lookup"><span data-stu-id="9894d-281">Within the "Add View" dialog we'll indicate that we are passing a Dinner object to the view template, and choose to auto-scaffold a "Create" template:</span></span>
 
@@ -289,7 +290,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample24.aspx)]
 
-<span data-ttu-id="9894d-284">今すぐ実行するとき、マイクロソフトのアプリケーションとアクセスと、 *「ディナー/作成」*今回作成アクションの実装から次のような UI を表示する、ブラウザー内の URL:</span><span class="sxs-lookup"><span data-stu-id="9894d-284">And now when we run our application and access the *"/Dinners/Create"* URL within the browser it will render UI like below from our Create action implementation:</span></span>
+<span data-ttu-id="9894d-284">今すぐ実行するとき、マイクロソフトのアプリケーションとアクセスと、 *「ディナー/作成」* 今回作成アクションの実装から次のような UI を表示する、ブラウザー内の URL:</span><span class="sxs-lookup"><span data-stu-id="9894d-284">And now when we run our application and access the *"/Dinners/Create"* URL within the browser it will render UI like below from our Create action implementation:</span></span>
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image14.png)
 
@@ -303,7 +304,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="9894d-290">これは、さまざまな方法は、HTTP POST が有効になっている「作成」のメソッド内で、ポストされたフォーム パラメーターにアクセスできます。</span><span class="sxs-lookup"><span data-stu-id="9894d-290">There are a variety of ways we can access the posted form parameters within our HTTP-POST enabled "Create" method.</span></span>
 
-<span data-ttu-id="9894d-291">新しい Dinner オブジェクトを作成し、使用する方法が、 *UpdateModel()*ヘルパー メソッド (と編集の操作)、ポストされたフォーム値を設定します。</span><span class="sxs-lookup"><span data-stu-id="9894d-291">One approach is to create a new Dinner object and then use the *UpdateModel()* helper method (like we did with the Edit action) to populate it with the posted form values.</span></span> <span data-ttu-id="9894d-292">お、DinnerRepository に追加する、データベースに保持し、次のコードを使用して新しく作成された Dinner を表示するには、この詳細アクションにユーザーをリダイレクトします。、</span><span class="sxs-lookup"><span data-stu-id="9894d-292">We can then add it to our DinnerRepository, persist it to the database, and redirect the user to our Details action to show the newly created Dinner using the code below:</span></span>
+<span data-ttu-id="9894d-291">新しい Dinner オブジェクトを作成し、使用する方法が、 *UpdateModel()* ヘルパー メソッド (と編集の操作)、ポストされたフォーム値を設定します。</span><span class="sxs-lookup"><span data-stu-id="9894d-291">One approach is to create a new Dinner object and then use the *UpdateModel()* helper method (like we did with the Edit action) to populate it with the posted form values.</span></span> <span data-ttu-id="9894d-292">お、DinnerRepository に追加する、データベースに保持し、次のコードを使用して新しく作成された Dinner を表示するには、この詳細アクションにユーザーをリダイレクトします。、</span><span class="sxs-lookup"><span data-stu-id="9894d-292">We can then add it to our DinnerRepository, persist it to the database, and redirect the user to our Details action to show the newly created Dinner using the code below:</span></span>
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample26.cs)]
 
@@ -347,7 +348,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="9894d-320">上記のコードは、削除する Dinner と出力のタイトルを表示、&lt;フォーム&gt;をエンドユーザーが内で、[削除] ボタンをクリックした場合、/Dinners/削除/[id] URL に POST を行う要素。</span><span class="sxs-lookup"><span data-stu-id="9894d-320">The code above displays the title of the Dinner to be deleted, and outputs a &lt;form&gt; element that does a POST to the /Dinners/Delete/[id] URL if the end-user clicks the "Delete" button within it.</span></span>
 
-<span data-ttu-id="9894d-321">このアプリケーションとアクセスを実行するとき、 *"/ディナー/削除/[id]"*オブジェクトの有効な夕食の URL を以下のような UI が表示されます。</span><span class="sxs-lookup"><span data-stu-id="9894d-321">When we run our application and access the *"/Dinners/Delete/[id]"* URL for a valid Dinner object it renders UI like below:</span></span>
+<span data-ttu-id="9894d-321">このアプリケーションとアクセスを実行するとき、 *"/ディナー/削除/[id]"* オブジェクトの有効な夕食の URL を以下のような UI が表示されます。</span><span class="sxs-lookup"><span data-stu-id="9894d-321">When we run our application and access the *"/Dinners/Delete/[id]"* URL for a valid Dinner object it renders UI like below:</span></span>
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image18.png)
 
@@ -369,11 +370,11 @@ ms.lasthandoff: 04/06/2018
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample31.aspx)]
 
-<span data-ttu-id="9894d-339">今すぐ実行するとき、マイクロソフトのアプリケーションとアクセスと、 *"/ディナー/削除/[id]"*夕食をレンダリングするオブジェクトの削除の確認の有効な夕食の URL が以下のような画面します。</span><span class="sxs-lookup"><span data-stu-id="9894d-339">And now when we run our application and access the *"/Dinners/Delete/[id]"* URL for a valid Dinner object it will render our Dinner delete confirmation screen like below:</span></span>
+<span data-ttu-id="9894d-339">今すぐ実行するとき、マイクロソフトのアプリケーションとアクセスと、 *"/ディナー/削除/[id]"* 夕食をレンダリングするオブジェクトの削除の確認の有効な夕食の URL が以下のような画面します。</span><span class="sxs-lookup"><span data-stu-id="9894d-339">And now when we run our application and access the *"/Dinners/Delete/[id]"* URL for a valid Dinner object it will render our Dinner delete confirmation screen like below:</span></span>
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image19.png)
 
-<span data-ttu-id="9894d-340">[削除] ボタンをクリックしたときに HTTP POST が実行されます、 */Dinners/削除/[id]*の URL をデータベースから Dinner を削除し、「削除済み」ビューのテンプレートを表示します。</span><span class="sxs-lookup"><span data-stu-id="9894d-340">When we click the "Delete" button it will perform an HTTP-POST to the */Dinners/Delete/[id]* URL, which will delete the Dinner from our database, and display our "Deleted" view template:</span></span>
+<span data-ttu-id="9894d-340">[削除] ボタンをクリックしたときに HTTP POST が実行されます、 */Dinners/削除/[id]* の URL をデータベースから Dinner を削除し、「削除済み」ビューのテンプレートを表示します。</span><span class="sxs-lookup"><span data-stu-id="9894d-340">When we click the "Delete" button it will perform an HTTP-POST to the */Dinners/Delete/[id]* URL, which will delete the Dinner from our database, and display our "Deleted" view template:</span></span>
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image20.png)
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881813"
 ---
 <a name="setting-up-the-contact-manager-solution"></a><span data-ttu-id="cdbd0-103">連絡先のマネージャー ソリューションを設定します。</span><span class="sxs-lookup"><span data-stu-id="cdbd0-103">Setting Up the Contact Manager Solution</span></span>
 ====================
@@ -58,13 +59,13 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="cdbd0-126">**アプリケーション サービス データベースを作成するには**</span><span class="sxs-lookup"><span data-stu-id="cdbd0-126">**To create the application services database**</span></span>
 
-1. <span data-ttu-id="cdbd0-127">Visual Studio 2010 コマンド プロンプトを開きます。</span><span class="sxs-lookup"><span data-stu-id="cdbd0-127">Open a Visual Studio 2010 command prompt.</span></span> <span data-ttu-id="cdbd0-128">、これを行う、**開始** メニューのをポイント**すべてのプログラム**、 をクリックして**Microsoft Visual Studio 2010**、をクリックして**Visual Studio Tools**、し、をクリックして**Visual Studio コマンド プロンプト (2010)**です。</span><span class="sxs-lookup"><span data-stu-id="cdbd0-128">To do this, on the **Start** menu, point to **All Programs**, click **Microsoft Visual Studio 2010**, click **Visual Studio Tools**, and then click **Visual Studio Command Prompt (2010)**.</span></span>
+1. <span data-ttu-id="cdbd0-127">Visual Studio 2010 コマンド プロンプトを開きます。</span><span class="sxs-lookup"><span data-stu-id="cdbd0-127">Open a Visual Studio 2010 command prompt.</span></span> <span data-ttu-id="cdbd0-128">、これを行う、**開始** メニューのをポイント**すべてのプログラム**、 をクリックして**Microsoft Visual Studio 2010**、をクリックして**Visual Studio Tools**、し、をクリックして**Visual Studio コマンド プロンプト (2010)** です。</span><span class="sxs-lookup"><span data-stu-id="cdbd0-128">To do this, on the **Start** menu, point to **All Programs**, click **Microsoft Visual Studio 2010**, click **Visual Studio Tools**, and then click **Visual Studio Command Prompt (2010)**.</span></span>
 2. <span data-ttu-id="cdbd0-129">コマンド プロンプトでこのコマンドを入力し、Enter キーを押します。</span><span class="sxs-lookup"><span data-stu-id="cdbd0-129">At the command prompt, type this command, and then press Enter:</span></span>
 
     [!code-console[Main](setting-up-the-contact-manager-solution/samples/sample1.cmd)]
 
     1. <span data-ttu-id="cdbd0-130">使用して、 **– C**スイッチを使用するデータベース サーバーの接続文字列を指定します。</span><span class="sxs-lookup"><span data-stu-id="cdbd0-130">Use the **–C** switch to specify the connection string for your database server.</span></span>
-    2. <span data-ttu-id="cdbd0-131">使用して、 **–**アプリケーション サービス データベースに追加する機能を指定するスイッチです。</span><span class="sxs-lookup"><span data-stu-id="cdbd0-131">Use the **–A** switch to specify the application services features you want to add to the database.</span></span> <span data-ttu-id="cdbd0-132">この場合、 **m**メンバーシップ プロバイダーのサポートを追加することを示すと**r**ロール マネージャーのサポートを追加することを示します。</span><span class="sxs-lookup"><span data-stu-id="cdbd0-132">In this case, **m** indicates that you want to add support for the membership provider and **r** indicates that you want to add support for the role manager.</span></span>
+    2. <span data-ttu-id="cdbd0-131">使用して、 **–** アプリケーション サービス データベースに追加する機能を指定するスイッチです。</span><span class="sxs-lookup"><span data-stu-id="cdbd0-131">Use the **–A** switch to specify the application services features you want to add to the database.</span></span> <span data-ttu-id="cdbd0-132">この場合、 **m**メンバーシップ プロバイダーのサポートを追加することを示すと**r**ロール マネージャーのサポートを追加することを示します。</span><span class="sxs-lookup"><span data-stu-id="cdbd0-132">In this case, **m** indicates that you want to add support for the membership provider and **r** indicates that you want to add support for the role manager.</span></span>
     3. <span data-ttu-id="cdbd0-133">使用して、 **– d**アプリケーション サービス データベースの名前を指定するスイッチです。</span><span class="sxs-lookup"><span data-stu-id="cdbd0-133">Use the **–d** switch to specify a name for your application services database.</span></span> <span data-ttu-id="cdbd0-134">このスイッチを省略した場合、ユーティリティの既定の名前とデータベースが作成されます**aspnetdb**です。</span><span class="sxs-lookup"><span data-stu-id="cdbd0-134">If you omit this switch, the utility will create a database with the default name of **aspnetdb**.</span></span>
 3. <span data-ttu-id="cdbd0-135">データベースが正常に作成されて、コマンド プロンプトに、確認メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="cdbd0-135">When the database has been created successfully, the command prompt will show a confirmation.</span></span>
 

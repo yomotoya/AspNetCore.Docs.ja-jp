@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884871"
 ---
 <a name="customizing-the-datalists-editing-interface-vb"></a><span data-ttu-id="d2614-103">DataList の編集インターフェイス (VB) のカスタマイズ</span><span class="sxs-lookup"><span data-stu-id="d2614-103">Customizing the DataList's Editing Interface (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895153"
 ---
 <a name="the-effects-of-caching"></a><span data-ttu-id="4ae11-103">キャッシュの効果</span><span class="sxs-lookup"><span data-stu-id="4ae11-103">The Effects of Caching</span></span>
 ====================

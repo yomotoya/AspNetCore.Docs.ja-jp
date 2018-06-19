@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882794"
 ---
 <a name="configuring-sql-to-work-with-membership-schemas"></a><span data-ttu-id="2e5e4-103">メンバーシップ スキーマと作業を SQL の構成</span><span class="sxs-lookup"><span data-stu-id="2e5e4-103">Configuring SQL To Work with Membership Schemas</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885898"
 ---
 <a name="how-do-i-enable-xml-intellisense-and-use-xml-namespaces"></a><span data-ttu-id="38b8f-104">[How Do i:]XML IntelliSense を有効にして、XML 名前空間を使用しますか。</span><span class="sxs-lookup"><span data-stu-id="38b8f-104">[How Do I:] Enable XML IntelliSense and Use XML Namespaces?</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885118"
 ---
 <a name="master-pages"></a><span data-ttu-id="62602-104">マスター ページ</span><span class="sxs-lookup"><span data-stu-id="62602-104">Master Pages</span></span>
 ====================
@@ -144,8 +145,8 @@ ms.lasthandoff: 04/06/2018
 
 - <span data-ttu-id="62602-214"><strong>MasterPageFile</strong>の属性、@Pageディレクティブ</span><span class="sxs-lookup"><span data-stu-id="62602-214">The <strong>MasterPageFile</strong> attribute of the @Page directive</span></span>
 - <span data-ttu-id="62602-215">設定、 **Page.MasterPageFile**コード内のプロパティです。</span><span class="sxs-lookup"><span data-stu-id="62602-215">Setting the **Page.MasterPageFile** property in code.</span></span>
-- <span data-ttu-id="62602-216">**&lt;ページ&gt;**アプリケーション構成ファイル (アプリケーションのルート フォルダーに web.config) で要素</span><span class="sxs-lookup"><span data-stu-id="62602-216">The **&lt;pages&gt;** element in the applications configuration file (web.config in the root folder of the application)</span></span>
-- <span data-ttu-id="62602-217">**&lt;ページ&gt;**サブフォルダー構成ファイル (サブフォルダーの web.config) で要素</span><span class="sxs-lookup"><span data-stu-id="62602-217">The **&lt;pages&gt;** element in a subfolders configuration file (web.config in a subfolder)</span></span>
+- <span data-ttu-id="62602-216">**&lt;ページ&gt;** アプリケーション構成ファイル (アプリケーションのルート フォルダーに web.config) で要素</span><span class="sxs-lookup"><span data-stu-id="62602-216">The **&lt;pages&gt;** element in the applications configuration file (web.config in the root folder of the application)</span></span>
+- <span data-ttu-id="62602-217">**&lt;ページ&gt;** サブフォルダー構成ファイル (サブフォルダーの web.config) で要素</span><span class="sxs-lookup"><span data-stu-id="62602-217">The **&lt;pages&gt;** element in a subfolders configuration file (web.config in a subfolder)</span></span>
 
 ## <a name="masterpagefile-attribute"></a><span data-ttu-id="62602-218">MasterPageFile Attribute</span><span class="sxs-lookup"><span data-stu-id="62602-218">MasterPageFile Attribute</span></span>
 

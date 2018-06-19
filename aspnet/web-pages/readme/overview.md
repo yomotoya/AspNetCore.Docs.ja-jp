@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30898971"
 ---
 <a name="webmatrix-readme"></a><span data-ttu-id="e8981-103">WebMatrix の Readme</span><span class="sxs-lookup"><span data-stu-id="e8981-103">WebMatrix Readme</span></span>
 ====================
@@ -177,7 +178,7 @@ ms.lasthandoff: 04/10/2018
 
 #### <a name="issue-files-that-contains-package-manager-resources-or-package-manager-passwords-are-servable-under-iis-60-and-earlier"></a><span data-ttu-id="e8981-200">問題点: パッケージ マネージャーのリソースまたはパッケージ マネージャーのパスワードを含むファイルは IIS 6.0 で含んだおよびそれ以前</span><span class="sxs-lookup"><span data-stu-id="e8981-200">Issue: Files that contains package-manager resources or package-manager passwords are servable under IIS 6.0 and earlier</span></span>
 
-> <span data-ttu-id="e8981-201">RC2 リリースを使用してビルドされた ASP.NET Web Pages (Razor) アプリケーションを展開する場合と、アプリケーションが含まれている場合、 *password.txt*または*packagesources.txt*下にあるファイル*/App\_データ管理/*、IIS 6.0 が要求されると、パッケージ マネージャー インスタンスのパスワードを公開する可能性がある場合、ファイルにサービスを提供します。</span><span class="sxs-lookup"><span data-stu-id="e8981-201">If you deploy an ASP.NET Web Pages (Razor) application that was built using the RC2 release, and if the application contains a *password.txt* or *packagesources.txt* file under */App\_Data/admin*, IIS 6.0 will serve the file if requested, potentially exposing the passwords for your package manager instance.</span></span> 
+> <span data-ttu-id="e8981-201">RC2 リリースを使用してビルドされた ASP.NET Web Pages (Razor) アプリケーションを展開する場合と、アプリケーションが含まれている場合、 *password.txt*または*packagesources.txt*下にあるファイル */App\_データ管理/*、IIS 6.0 が要求されると、パッケージ マネージャー インスタンスのパスワードを公開する可能性がある場合、ファイルにサービスを提供します。</span><span class="sxs-lookup"><span data-stu-id="e8981-201">If you deploy an ASP.NET Web Pages (Razor) application that was built using the RC2 release, and if the application contains a *password.txt* or *packagesources.txt* file under */App\_Data/admin*, IIS 6.0 will serve the file if requested, potentially exposing the passwords for your package manager instance.</span></span> 
 > 
 > <span data-ttu-id="e8981-202">**回避策**の名前を変更、 *password.txt*または*packagesources.txt*ファイルの名前を*password.config*または*packagesources.configに変更*.既定では、IIS 6.0 ファイルを処理しませんが、 *.config*拡張機能です。</span><span class="sxs-lookup"><span data-stu-id="e8981-202">**Workaround** Rename the *password.txt* or *packagesources.txt* file to *password.config* or *packagesources.config*. By default, IIS 6.0 does not serve files that have the *.config* extension.</span></span> <span data-ttu-id="e8981-203">(IIS 7 でのファイルはありません、*アプリ\_データ*フォルダーが提供されるは、ので、ファイルの名前を変更する必要はありません)。</span><span class="sxs-lookup"><span data-stu-id="e8981-203">(In IIS 7, no files in the *App\_Data* folder are served, so you do not need to rename the files.)</span></span>
 
@@ -235,7 +236,7 @@ ms.lasthandoff: 04/10/2018
 
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a><span data-ttu-id="e8981-236">問題点: 拡張子のない Url が見つからない IIS 7 や IIS 7.5 で.cshtml/.vbhtml ファイル</span><span class="sxs-lookup"><span data-stu-id="e8981-236">Issue: Extensionless URLs do not find .cshtml/.vbhtml files on IIS 7 or IIS 7.5</span></span>
 
-> <span data-ttu-id="e8981-237">IIS 7 や IIS 7.5 では、次のように URL を使用して要求ができませんがページを検索する、 *.cshtml*または*.vbhtml*拡張機能。</span><span class="sxs-lookup"><span data-stu-id="e8981-237">On IIS 7 or IIS 7.5, requests with a URL like the following are not able to find pages that have the *.cshtml* or *.vbhtml* extension:</span></span>  
+> <span data-ttu-id="e8981-237">IIS 7 や IIS 7.5 では、次のように URL を使用して要求ができませんがページを検索する、 *.cshtml*または *.vbhtml*拡張機能。</span><span class="sxs-lookup"><span data-stu-id="e8981-237">On IIS 7 or IIS 7.5, requests with a URL like the following are not able to find pages that have the *.cshtml* or *.vbhtml* extension:</span></span>  
 > 
 > `http://www.example.com/ExampleSite/ExampleFile`  
 > 
@@ -270,7 +271,7 @@ ms.lasthandoff: 04/10/2018
 
 #### <a name="issue-database-and-webgrid-helpers-do-not-work-in-medium-trust-in-visual-basic"></a><span data-ttu-id="e8981-255">問題: Visual Basic で中程度の信頼で「データベース」と"の WebGrid"ヘルパーは機能しません</span><span class="sxs-lookup"><span data-stu-id="e8981-255">Issue: "Database" and "WebGrid" helpers do not work in Medium Trust in Visual Basic</span></span>
 
-> <span data-ttu-id="e8981-256">Visual Basic を使用している場合 (作成*.vbhtml*ファイル)、`Database`と`WebGrid`中程度の信頼を使用する、アプリケーションが設定されている場合、ヘルパーは機能しません。</span><span class="sxs-lookup"><span data-stu-id="e8981-256">If you are using Visual Basic (creating *.vbhtml* files), the `Database` and `WebGrid` helpers will not work if the application is set to use Medium Trust.</span></span>
+> <span data-ttu-id="e8981-256">Visual Basic を使用している場合 (作成 *.vbhtml*ファイル)、`Database`と`WebGrid`中程度の信頼を使用する、アプリケーションが設定されている場合、ヘルパーは機能しません。</span><span class="sxs-lookup"><span data-stu-id="e8981-256">If you are using Visual Basic (creating *.vbhtml* files), the `Database` and `WebGrid` helpers will not work if the application is set to use Medium Trust.</span></span>
 > 
 > <span data-ttu-id="e8981-257">**回避策**</span><span class="sxs-lookup"><span data-stu-id="e8981-257">**Workaround**</span></span>  
 > <span data-ttu-id="e8981-258">Visual Studio 2010 を使用する場合は、Service Pack 1 リリースをインストールすることによってこの問題を解決できます。</span><span class="sxs-lookup"><span data-stu-id="e8981-258">If you use Visual Studio 2010, you can resolve this problem by installing the Service Pack 1 release.</span></span> <span data-ttu-id="e8981-259">SP1 からのベータ版をダウンロードするには SP1 のリリースの最終バージョンを使用するまで、 [Microsoft Visual Studio 2010 Service Pack 1 Beta](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=11ea69cb-cf12-4842-a3d7-b32a1e5642e2&amp;displaylang=en) Microsoft ダウンロード センターのページです。</span><span class="sxs-lookup"><span data-stu-id="e8981-259">Until the final version of the SP1 release is available, you can download the Beta version of SP1 from the [Microsoft Visual Studio 2010 Service Pack 1 Beta](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=11ea69cb-cf12-4842-a3d7-b32a1e5642e2&amp;displaylang=en) page on the Microsoft Download Center.</span></span>   
@@ -522,7 +523,7 @@ ms.lasthandoff: 04/10/2018
 #### <a name="issue-some-links-in-atomsite-are-broken-after-you-download-a-published-site"></a><span data-ttu-id="e8981-402">問題: AtomSite で一部のリンクが壊れている発行されたサイトをダウンロードした後</span><span class="sxs-lookup"><span data-stu-id="e8981-402">Issue: Some links in AtomSite are broken after you download a published site</span></span>
 
 > <span data-ttu-id="e8981-403">**回避策**</span><span class="sxs-lookup"><span data-stu-id="e8981-403">**Workaround**</span></span>  
-> <span data-ttu-id="e8981-404">*Service.config*ファイル、 *users.config*ファイル、およびすべて*.xml*ファイル、URL 文字列を置換する (たとえば、 `http://myhost.com/atomsite`) ローカル サイトの (たとえば、 `http://localhost:1239`).</span><span class="sxs-lookup"><span data-stu-id="e8981-404">In the *service.config* file, *users.config* file, and all *.xml* files, replace the URL string (for example, `http://myhost.com/atomsite`) with the local one (for example, `http://localhost:1239`).</span></span>
+> <span data-ttu-id="e8981-404">*Service.config*ファイル、 *users.config*ファイル、およびすべて *.xml*ファイル、URL 文字列を置換する (たとえば、 `http://myhost.com/atomsite`) ローカル サイトの (たとえば、 `http://localhost:1239`).</span><span class="sxs-lookup"><span data-stu-id="e8981-404">In the *service.config* file, *users.config* file, and all *.xml* files, replace the URL string (for example, `http://myhost.com/atomsite`) with the local one (for example, `http://localhost:1239`).</span></span>
 
 
 #### <a name="issue-mysql-based-applications-like-wordpress-fail-to-publish-and-report-a-database-error"></a><span data-ttu-id="e8981-405">発行し、データベース エラーを報告する問題点: WordPress と同様に、MySQL ベースのアプリケーションが失敗します。</span><span class="sxs-lookup"><span data-stu-id="e8981-405">Issue: MySQL-based applications like WordPress fail to publish and report a database error</span></span>

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892882"
 ---
 <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a><span data-ttu-id="66a6d-103">Webmatrix と ASP.NET Web Pages (Razor) ベータ 3 リリースの Readme</span><span class="sxs-lookup"><span data-stu-id="66a6d-103">Web Matrix and ASP.NET Web Pages (Razor) Beta 3 Release Readme</span></span>
 ====================
@@ -301,7 +302,7 @@ ms.lasthandoff: 04/06/2018
 
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a><span data-ttu-id="66a6d-273">問題点: 拡張子のない Url が見つからない IIS 7 や IIS 7.5 で.cshtml/.vbhtml ファイル</span><span class="sxs-lookup"><span data-stu-id="66a6d-273">Issue: Extensionless URLs do not find .cshtml/.vbhtml files on IIS 7 or IIS 7.5</span></span>
 
-> <span data-ttu-id="66a6d-274">IIS 7 や IIS 7.5 では、次のように URL を使用して要求ができませんがページを検索する、 *.cshtml*または*.vbhtml*拡張機能。</span><span class="sxs-lookup"><span data-stu-id="66a6d-274">On IIS 7 or IIS 7.5, requests with a URL like the following are not able to find pages that have the *.cshtml* or *.vbhtml* extension:</span></span>  
+> <span data-ttu-id="66a6d-274">IIS 7 や IIS 7.5 では、次のように URL を使用して要求ができませんがページを検索する、 *.cshtml*または *.vbhtml*拡張機能。</span><span class="sxs-lookup"><span data-stu-id="66a6d-274">On IIS 7 or IIS 7.5, requests with a URL like the following are not able to find pages that have the *.cshtml* or *.vbhtml* extension:</span></span>  
 > 
 > `http://www.example.com/ExampleSite/ExampleFile`  
 > 
@@ -344,7 +345,7 @@ ms.lasthandoff: 04/06/2018
 >     - <span data-ttu-id="66a6d-293">コピー *C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\x86\\*\* **に** *\Bin\x86*</span><span class="sxs-lookup"><span data-stu-id="66a6d-293">Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\*\* **to** *\Bin\x86*</span></span>
 >     - <span data-ttu-id="66a6d-294">コピー *C:\Program files \microsoft SQL Server Compact Edition\v4.0\Private\amd64\\*\* **に** *\Bin\amd64*</span><span class="sxs-lookup"><span data-stu-id="66a6d-294">Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\*\* **to** *\Bin\amd64*</span></span>
 > 2. <span data-ttu-id="66a6d-295">Web サイトのルート フォルダーに作成または開く、 *Web.config*ファイル。</span><span class="sxs-lookup"><span data-stu-id="66a6d-295">In the root folder of the website, create or open a *Web.config* file.</span></span> <span data-ttu-id="66a6d-296">(WebMatrix ベータ 3 の場合、このファイルの種類は をクリックすると利用可能な**すべて**で、**ファイルの種類を選択** ダイアログ ボックス)。</span><span class="sxs-lookup"><span data-stu-id="66a6d-296">(In WebMatrix Beta 3, this file type is available if you click **All** in the **Choose a File Type** dialog box.)</span></span>
-> 3. <span data-ttu-id="66a6d-297">次の要素の子として追加、 **&lt;構成&gt;**要素 (内部ではなく、 **&lt;system.web&gt;**要素)。</span><span class="sxs-lookup"><span data-stu-id="66a6d-297">Add the following element as a child of the **&lt;configuration&gt;** element (not inside the **&lt;system.web&gt;** element):</span></span>
+> 3. <span data-ttu-id="66a6d-297">次の要素の子として追加、 **&lt;構成&gt;** 要素 (内部ではなく、 **&lt;system.web&gt;** 要素)。</span><span class="sxs-lookup"><span data-stu-id="66a6d-297">Add the following element as a child of the **&lt;configuration&gt;** element (not inside the **&lt;system.web&gt;** element):</span></span>
 > 
 > 
 > [!code-xml[Main](beta3/samples/sample10.xml)]
@@ -352,7 +353,7 @@ ms.lasthandoff: 04/06/2018
 
 #### <a name="issue-database-and-webgrid-helpers-do-not-work-in-medium-trust-in-visual-basic"></a><span data-ttu-id="66a6d-298">問題: Visual Basic で中程度の信頼でデータベースとの WebGrid ヘルパーは機能しません</span><span class="sxs-lookup"><span data-stu-id="66a6d-298">Issue: Database and WebGrid helpers do not work in Medium Trust in Visual Basic</span></span>
 
-> <span data-ttu-id="66a6d-299">Visual Basic を使用している場合 (作成*.vbhtml*ファイル)、`Database`と`WebGrid`中程度の信頼を使用する、アプリケーションが設定されている場合、ヘルパーは機能しません。</span><span class="sxs-lookup"><span data-stu-id="66a6d-299">If you are using Visual Basic (creating *.vbhtml* files), the `Database` and `WebGrid` helpers will not work if the application is set to use Medium Trust.</span></span>
+> <span data-ttu-id="66a6d-299">Visual Basic を使用している場合 (作成 *.vbhtml*ファイル)、`Database`と`WebGrid`中程度の信頼を使用する、アプリケーションが設定されている場合、ヘルパーは機能しません。</span><span class="sxs-lookup"><span data-stu-id="66a6d-299">If you are using Visual Basic (creating *.vbhtml* files), the `Database` and `WebGrid` helpers will not work if the application is set to use Medium Trust.</span></span>
 > 
 > <span data-ttu-id="66a6d-300">**回避策**</span><span class="sxs-lookup"><span data-stu-id="66a6d-300">**Workaround**</span></span>  
 > <span data-ttu-id="66a6d-301">完全な信頼を使用するアプリケーションを一時的に設定します。</span><span class="sxs-lookup"><span data-stu-id="66a6d-301">Temporarily set the application to use Full Trust.</span></span>

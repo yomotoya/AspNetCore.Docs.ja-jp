@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880857"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-draggable-panel-extender"></a><span data-ttu-id="e690c-104">[How Do i:]ASP.NET AJAX ドラッグ可能なパネル Extender を使用しますか。</span><span class="sxs-lookup"><span data-stu-id="e690c-104">[How Do I:] Use the ASP.NET AJAX Draggable Panel Extender?</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886811"
 ---
 <a name="part-6-aspnet-membership"></a><span data-ttu-id="0f9b0-104">パート 6: ASP.NET メンバーシップ</span><span class="sxs-lookup"><span data-stu-id="0f9b0-104">Part 6: ASP.NET Membership</span></span>
 ====================

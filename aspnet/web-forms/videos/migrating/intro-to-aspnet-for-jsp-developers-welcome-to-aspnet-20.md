@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882684"
 ---
 <a name="intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20"></a><span data-ttu-id="202d1-103">JSP 開発者向けの ASP.NET の概要: ASP.NET 2.0 へようこそ</span><span class="sxs-lookup"><span data-stu-id="202d1-103">Intro to ASP.NET for JSP Developers: Welcome to ASP.NET 2.0</span></span>
 ====================

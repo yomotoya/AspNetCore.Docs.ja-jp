@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881026"
 ---
 <a name="aspnet-dynamic-data-custom-form-formatting"></a><span data-ttu-id="b6af0-103">ASP.NET 動的データのカスタム フォームが書式設定</span><span class="sxs-lookup"><span data-stu-id="b6af0-103">ASP.NET Dynamic Data Custom Form Formatting</span></span>
 ====================

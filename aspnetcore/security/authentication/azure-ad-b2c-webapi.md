@@ -15,6 +15,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897805"
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a><span data-ttu-id="1e21f-104">Web Api を ASP.NET のコアでアクティブなディレクトリの B2C を Azure クラウド認証</span><span class="sxs-lookup"><span data-stu-id="1e21f-104">Cloud authentication in web APIs with Azure Active Directory B2C in ASP.NET Core</span></span>
 
@@ -126,7 +127,7 @@ ms.lasthandoff: 04/06/2018
 <span data-ttu-id="1e21f-211">新しく登録されている web アプリでは、ユーザーの代理で web API にアクセスする権限が必要です。</span><span class="sxs-lookup"><span data-stu-id="1e21f-211">The newly registered web app needs permission to access the web API on the user's behalf.</span></span>  
 
 1. <span data-ttu-id="1e21f-212">選択**Postman**クリックしてアプリの一覧で**API アクセス**左側のメニュー。</span><span class="sxs-lookup"><span data-stu-id="1e21f-212">Select **Postman** in the list of apps and then select **API access** from the menu on the left.</span></span>
-2. <span data-ttu-id="1e21f-213">選択**+ 追加**です。</span><span class="sxs-lookup"><span data-stu-id="1e21f-213">Select **+ Add**.</span></span>
+2. <span data-ttu-id="1e21f-213">選択 **+ 追加**です。</span><span class="sxs-lookup"><span data-stu-id="1e21f-213">Select **+ Add**.</span></span>
 3. <span data-ttu-id="1e21f-214">**選択 API**ドロップダウン リストで、web API の名前を選択します。</span><span class="sxs-lookup"><span data-stu-id="1e21f-214">In the **Select API** dropdown, select the name of the web API.</span></span>
 4. <span data-ttu-id="1e21f-215">**選択スコープ**ドロップダウン リストで、すべてのスコープが選択されていることを確認します。</span><span class="sxs-lookup"><span data-stu-id="1e21f-215">In the **Select Scopes** dropdown, ensure all scopes are selected.</span></span>
 5. <span data-ttu-id="1e21f-216">選択**Ok**です。</span><span class="sxs-lookup"><span data-stu-id="1e21f-216">Select **Ok**.</span></span>
@@ -144,7 +145,7 @@ ms.lasthandoff: 04/06/2018
     ![要求 ボタン](./azure-ad-b2c-webapi/postman-create-new.png)
 
 2. <span data-ttu-id="1e21f-225">入力*値の取得*で、**要求名**ボックス。</span><span class="sxs-lookup"><span data-stu-id="1e21f-225">Enter *Get Values* in the **Request name** box.</span></span>
-3. <span data-ttu-id="1e21f-226">選択**+ コレクションの作成**要求を格納するための新しいコレクションを作成します。</span><span class="sxs-lookup"><span data-stu-id="1e21f-226">Select **+ Create Collection** to create a new collection for storing the request.</span></span> <span data-ttu-id="1e21f-227">コレクションの名前を付けます*ASP.NET Core チュートリアル*し、チェック マークを選択します。</span><span class="sxs-lookup"><span data-stu-id="1e21f-227">Name the collection *ASP.NET Core tutorials* and then select the checkmark.</span></span>
+3. <span data-ttu-id="1e21f-226">選択 **+ コレクションの作成**要求を格納するための新しいコレクションを作成します。</span><span class="sxs-lookup"><span data-stu-id="1e21f-226">Select **+ Create Collection** to create a new collection for storing the request.</span></span> <span data-ttu-id="1e21f-227">コレクションの名前を付けます*ASP.NET Core チュートリアル*し、チェック マークを選択します。</span><span class="sxs-lookup"><span data-stu-id="1e21f-227">Name the collection *ASP.NET Core tutorials* and then select the checkmark.</span></span>
 
     ![新しいコレクションを作成します。](./azure-ad-b2c-webapi/postman-create-collection.png)
 
@@ -185,7 +186,7 @@ ms.lasthandoff: 04/06/2018
 
 3. <span data-ttu-id="1e21f-268">選択、**トークン要求**ボタンをクリックします。</span><span class="sxs-lookup"><span data-stu-id="1e21f-268">Select the **Request Token** button.</span></span>
 
-4. <span data-ttu-id="1e21f-269">Postman には、ダイアログ ボックスで、Azure AD B2C テナントの記号を含む新しいウィンドウが開きます。</span><span class="sxs-lookup"><span data-stu-id="1e21f-269">Postman opens a new window containing the Azure AD B2C tenant's sign in dialog.</span></span> <span data-ttu-id="1e21f-270">(1 つには、ポリシーのテストが作成された) 場合は、既存のアカウントでサインインまたは選択**今すぐサインアップ**新しいアカウントを作成します。</span><span class="sxs-lookup"><span data-stu-id="1e21f-270">Sign in with an existing account (if one was created testing the policies) or select **Sign up now** to create a new account.</span></span> <span data-ttu-id="1e21f-271">**パスワードを忘れた場合ですか?**忘れてもパスワードをリセットするリンクを使用します。</span><span class="sxs-lookup"><span data-stu-id="1e21f-271">The **Forgot your password?** link is used to reset a forgotten password.</span></span>
+4. <span data-ttu-id="1e21f-269">Postman には、ダイアログ ボックスで、Azure AD B2C テナントの記号を含む新しいウィンドウが開きます。</span><span class="sxs-lookup"><span data-stu-id="1e21f-269">Postman opens a new window containing the Azure AD B2C tenant's sign in dialog.</span></span> <span data-ttu-id="1e21f-270">(1 つには、ポリシーのテストが作成された) 場合は、既存のアカウントでサインインまたは選択**今すぐサインアップ**新しいアカウントを作成します。</span><span class="sxs-lookup"><span data-stu-id="1e21f-270">Sign in with an existing account (if one was created testing the policies) or select **Sign up now** to create a new account.</span></span> <span data-ttu-id="1e21f-271">**パスワードを忘れた場合ですか?** 忘れてもパスワードをリセットするリンクを使用します。</span><span class="sxs-lookup"><span data-stu-id="1e21f-271">The **Forgot your password?** link is used to reset a forgotten password.</span></span>
 
 5. <span data-ttu-id="1e21f-272">正常にサインインした後、ウィンドウが閉じられると、**アクセス トークンの管理**ダイアログが表示されます。</span><span class="sxs-lookup"><span data-stu-id="1e21f-272">After successfully signing in, the window closes and the **MANAGE ACCESS TOKENS** dialog appears.</span></span> <span data-ttu-id="1e21f-273">クリックし、一番下まで下にスクロール、**使用トークン**ボタンをクリックします。</span><span class="sxs-lookup"><span data-stu-id="1e21f-273">Scroll down to the bottom and select the **Use Token** button.</span></span>
 

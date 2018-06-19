@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883285"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a><span data-ttu-id="dfff3-103">SQL Server compact の Visual Studio を使用して ASP.NET Web アプリケーションの配置: 12 の第 1 の概要</span><span class="sxs-lookup"><span data-stu-id="dfff3-103">Deploying an ASP.NET Web Application with SQL Server Compact using Visual Studio: Introduction - 1 of 12</span></span>
 ====================

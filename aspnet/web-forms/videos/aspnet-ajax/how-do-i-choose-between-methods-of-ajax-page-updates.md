@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885537"
 ---
 <a name="how-do-i-choose-between-methods-of-ajax-page-updates"></a><span data-ttu-id="ead09-105">[How Do i:]AJAX のメソッド間を選択ページの更新しますか?</span><span class="sxs-lookup"><span data-stu-id="ead09-105">[How Do I:] Choose Between Methods of AJAX Page Updates?</span></span>
 ====================

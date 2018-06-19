@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889671"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-iis-as-a-test-environment---5-of-12"></a><span data-ttu-id="99be4-103">SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します 5/12 - テスト環境として IIS に展開する。</span><span class="sxs-lookup"><span data-stu-id="99be4-103">Deploying an ASP.NET Web Application with SQL Server Compact using Visual Studio or Visual Web Developer: Deploying to IIS as a Test Environment - 5 of 12</span></span>
 ====================
@@ -97,7 +98,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="99be4-164">[![Inetmgr_selecting_Basic_Settings_for_app_pool](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image6.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image5.png)</span><span class="sxs-lookup"><span data-stu-id="99be4-164">[![Inetmgr_selecting_Basic_Settings_for_app_pool](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image6.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image5.png)</span></span>
 
-<span data-ttu-id="99be4-165">**アプリケーション プールの編集** ダイアログ ボックスで、変更**.NET Framework のバージョン**に**.NET Framework v4.0.30319**  をクリック**OK**です。</span><span class="sxs-lookup"><span data-stu-id="99be4-165">In the **Edit Application Pool** dialog box, change **.NET Framework version** to **.NET Framework v4.0.30319** and click **OK**.</span></span>
+<span data-ttu-id="99be4-165">**アプリケーション プールの編集** ダイアログ ボックスで、変更 **.NET Framework のバージョン**に **.NET Framework v4.0.30319**  をクリック**OK**です。</span><span class="sxs-lookup"><span data-stu-id="99be4-165">In the **Edit Application Pool** dialog box, change **.NET Framework version** to **.NET Framework v4.0.30319** and click **OK**.</span></span>
 
 <span data-ttu-id="99be4-166">[![Selecting_.NET_4_for_DefaultAppPool](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image8.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image7.png)</span><span class="sxs-lookup"><span data-stu-id="99be4-166">[![Selecting_.NET_4_for_DefaultAppPool](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image8.png)](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image7.png)</span></span>
 
@@ -177,7 +178,7 @@ ms.lasthandoff: 04/06/2018
 
 ![Publish_Web_wizard_Preview_tab_Test_with_file_list](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image15.png)
 
-<span data-ttu-id="99be4-216">**[発行]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="99be4-216">Click **Publish**.</span></span>
+<span data-ttu-id="99be4-216">**[発行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="99be4-216">Click **Publish**.</span></span>
 
 <span data-ttu-id="99be4-217">Visual Studio が管理者モードでない場合は、アクセス許可エラーを示すエラー メッセージを取得可能性があります。</span><span class="sxs-lookup"><span data-stu-id="99be4-217">If Visual Studio is not in administrator mode, you might get an error message that indicates a permissions error.</span></span> <span data-ttu-id="99be4-218">その場合は、Visual Studio を閉じます、管理者モードで開き、再度発行します。</span><span class="sxs-lookup"><span data-stu-id="99be4-218">In that case, close Visual Studio, open it in administrator mode, and try to publish again.</span></span>
 

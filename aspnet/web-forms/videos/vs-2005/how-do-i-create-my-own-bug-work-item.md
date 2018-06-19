@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896271"
 ---
 <a name="how-do-i-create-my-own-bug-work-item"></a><span data-ttu-id="6a361-105">[How Do i:]自分のバグ作業項目を作成しますか。</span><span class="sxs-lookup"><span data-stu-id="6a361-105">[How Do I:] Create My Own Bug Work Item?</span></span>
 ====================

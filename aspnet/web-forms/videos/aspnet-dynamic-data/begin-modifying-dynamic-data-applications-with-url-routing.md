@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883493"
 ---
 <a name="begin-modifying-dynamic-data-applications-with-url-routing"></a><span data-ttu-id="fdcbd-103">URL ルーティングでの動的なデータ アプリケーションの変更を開始します。</span><span class="sxs-lookup"><span data-stu-id="fdcbd-103">Begin Modifying Dynamic Data Applications with URL Routing</span></span>
 ====================
