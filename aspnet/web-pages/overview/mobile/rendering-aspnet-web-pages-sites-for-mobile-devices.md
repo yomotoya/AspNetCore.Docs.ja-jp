@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897320"
 ---
 <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>モバイル デバイス用の ASP.NET Web Pages (Razor) サイトの表示
 ====================
@@ -51,7 +52,7 @@ ASP.NET Web Pages サイトでデバイスに固有のページを作成する�
 
     [!code-html[Main](rendering-aspnet-web-pages-sites-for-mobile-devices/samples/sample2.html)]
 3. デスクトップのブラウザーを実行しを参照*Page1.cshtml*です。 ![mobilesites-1](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image1.png)
-4. モバイル ブラウザー (または、モバイル デバイス エミュレーター) を実行しを参照*Page1.cshtml*です。 (含めないようにすることを確認*.mobile です。* URL の一部として、します。)要求内容がにもかかわらず*Page1.cshtml*、ASP.NET 表示*Page1.Mobile.cshtml*です。
+4. モバイル ブラウザー (または、モバイル デバイス エミュレーター) を実行しを参照*Page1.cshtml*です。 (含めないようにすることを確認 *.mobile です。* URL の一部として、します。)要求内容がにもかかわらず*Page1.cshtml*、ASP.NET 表示*Page1.Mobile.cshtml*です。
 
     ![mobilesites-2](rendering-aspnet-web-pages-sites-for-mobile-devices/_static/image2.png)
 

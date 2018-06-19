@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29153273"
 ---
 <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>ASP.NET web API OData v4 の種類を開く
 ====================

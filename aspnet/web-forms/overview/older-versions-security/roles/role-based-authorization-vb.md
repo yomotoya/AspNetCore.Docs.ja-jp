@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892154"
 ---
 <a name="role-based-authorization-vb"></a>ロール ベースの承認 (VB)
 ====================
@@ -158,7 +159,7 @@ URL 承認の作成が簡単に粗い承認を指定するルールの状態に�
 GridView では、システム内のすべてのユーザー アカウントを一覧するページを作成してみましょう。 GridView は、各ユーザーのユーザー名、電子メール アドレス、最後のログイン日時、およびユーザーについてのコメントが含まれます。 ユーザーごとの情報を表示するだけでなく、GridView は編集を含めるし、機能を削除します。 編集のこのページを作成し、すべてのユーザーに使用可能な機能を削除おは最初にします。 「LoginView コントロールを使用して、」と「プログラムで制限する機能」のセクションで有効するにまたはアクセスしたユーザーのロールに基づくこれら機能無効にする方法が表示されます。
 
 > [!NOTE]
-> ビルドには ASP.NET ページは、ユーザー アカウントを表示するのに GridView コントロールを使用します。 このチュートリアルでは、系列は、フォーム認証、承認、ユーザー アカウント、およびロールに焦点を当てています、以降しない GridView コントロールの内部動作をについて説明する時間をかけるにします。 このチュートリアルでは、このページを設定するための特定の詳細な手順についてはの特定の選択肢が行われた理由または影響の特定のプロパティが表示される出力が詳細には掘り下げてされません。 GridView コントロールの詳細については、チェック アウト my  *[ASP.NET 2.0 のデータを扱う](../../data-access/index.md)*一連のチュートリアルです。
+> ビルドには ASP.NET ページは、ユーザー アカウントを表示するのに GridView コントロールを使用します。 このチュートリアルでは、系列は、フォーム認証、承認、ユーザー アカウント、およびロールに焦点を当てています、以降しない GridView コントロールの内部動作をについて説明する時間をかけるにします。 このチュートリアルでは、このページを設定するための特定の詳細な手順についてはの特定の選択肢が行われた理由または影響の特定のプロパティが表示される出力が詳細には掘り下げてされません。 GridView コントロールの詳細については、チェック アウト my  *[ASP.NET 2.0 のデータを扱う](../../data-access/index.md)* 一連のチュートリアルです。
 
 
 開いて開始、 `RoleBasedAuthorization.aspx`  ページで、`Roles`フォルダーです。 ページから、デザイナーとセットに GridView をドラッグしてその`ID`に`UserGrid`です。 すぐを呼び出すコードを記述して、`Membership`です。`GetAllUsers` メソッドと、その結果をバインド`MembershipUserCollection`GridView するオブジェクト。 `MembershipUserCollection`が含まれています、`MembershipUser`システム内の各ユーザー アカウントのオブジェクト`MembershipUser`オブジェクトと同様にプロパティがある`UserName`、`Email`、`LastLoginDate`となります。
@@ -387,7 +388,7 @@ ASP.NET ページだけでなく多くのアプリケーションでは、ビジ
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>特別に感謝しています.
 

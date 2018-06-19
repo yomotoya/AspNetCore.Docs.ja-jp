@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET のコアでアクティブなディレクトリの B2C を Azure クラウド認証"
+title: ASP.NET のコアでアクティブなディレクトリの B2C を Azure クラウド認証
 author: camsoper
-description: "ASP.NET Core での Azure Active Directory B2C の認証を設定する方法を検出します。"
+description: ASP.NET Core での Azure Active Directory B2C の認証を設定する方法を検出します。
 manager: wpickett
 ms.date: 01/25/2018
 ms.topic: tutorial
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29905076"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>ASP.NET のコアでアクティブなディレクトリの B2C を Azure クラウド認証
 
@@ -114,7 +115,7 @@ Visual Studio で、キーを押して**f5 キーを押して**アプリをビ�
 
 ![アプリへのサインインします。](./azure-ad-b2c/_static/signin.png)
 
-ブラウザーは、Azure AD B2C テナントにリダイレクトします。 (1 つには、ポリシーのテストが作成された) 場合は、既存のアカウントでサインインまたは選択**今すぐサインアップ**新しいアカウントを作成します。 **パスワードを忘れた場合ですか?**忘れてもパスワードをリセットするリンクを使用します。
+ブラウザーは、Azure AD B2C テナントにリダイレクトします。 (1 つには、ポリシーのテストが作成された) 場合は、既存のアカウントでサインインまたは選択**今すぐサインアップ**新しいアカウントを作成します。 **パスワードを忘れた場合ですか?** 忘れてもパスワードをリセットするリンクを使用します。
 
 ![Azure AD B2C ログイン](./azure-ad-b2c/_static/b2csts.png)
 

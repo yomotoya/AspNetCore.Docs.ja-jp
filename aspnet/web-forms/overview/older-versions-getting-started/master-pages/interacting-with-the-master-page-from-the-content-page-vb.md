@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891283"
 ---
 <a name="interacting-with-the-master-page-from-the-content-page-vb"></a>コンテンツ ページ (VB) から、マスター ページと対話します。
 ====================

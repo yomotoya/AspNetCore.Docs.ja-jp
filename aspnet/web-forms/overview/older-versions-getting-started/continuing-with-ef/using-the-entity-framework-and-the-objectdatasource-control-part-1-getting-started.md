@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892083"
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Entity Framework 4.0 ObjectDataSource コントロールを使用して、パート 1: 作業の開始
 ====================
@@ -50,7 +51,7 @@ ms.lasthandoff: 04/06/2018
 > チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET Entity Framework フォーラム](https://forums.asp.net/1227.aspx)、 [Entity Framework でも LINQ to Entities フォーラム](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/)、または[StackOverflow.com](http://stackoverflow.com/)です。
 
 
-`EntityDataSource`コントロールでは、非常に短時間は、アプリケーションを作成することができますが、通常必要な膨大量のビジネス ロジックとデータ アクセス ロジックを保持すること、 *.aspx*ページ。 作成するために開発時間が増加が前もって投資できます複雑化し、継続的なメンテナンスを必要とするアプリケーションの場合、 *n 層*または*層*アプリケーション構造保守が簡単です。 このアーキテクチャを実装するのには、ビジネス ロジック層 (BLL) およびデータ アクセス層 (DAL) からプレゼンテーション層を分離します。 この構造体を実装する方法の 1 つを使用して、`ObjectDataSource`制御の代わりに、`EntityDataSource`コントロール。 使用すると、`ObjectDataSource`コントロール、データ アクセス コードを実装して、呼び出すことで*.aspx*ページが多くの同じコントロールを使用して他のデータ ソース コントロールの機能です。 これにより、n 層のアプローチの利点をデータにアクセスする Web フォーム コントロールを使用する利点と組み合わせるできます。
+`EntityDataSource`コントロールでは、非常に短時間は、アプリケーションを作成することができますが、通常必要な膨大量のビジネス ロジックとデータ アクセス ロジックを保持すること、 *.aspx*ページ。 作成するために開発時間が増加が前もって投資できます複雑化し、継続的なメンテナンスを必要とするアプリケーションの場合、 *n 層*または*層*アプリケーション構造保守が簡単です。 このアーキテクチャを実装するのには、ビジネス ロジック層 (BLL) およびデータ アクセス層 (DAL) からプレゼンテーション層を分離します。 この構造体を実装する方法の 1 つを使用して、`ObjectDataSource`制御の代わりに、`EntityDataSource`コントロール。 使用すると、`ObjectDataSource`コントロール、データ アクセス コードを実装して、呼び出すことで *.aspx*ページが多くの同じコントロールを使用して他のデータ ソース コントロールの機能です。 これにより、n 層のアプローチの利点をデータにアクセスする Web フォーム コントロールを使用する利点と組み合わせるできます。
 
 `ObjectDataSource`制御することをより柔軟での他の方法でも同様です。 独自のデータ アクセス コードを記述するためが容易になりますは単読み取り、挿入、更新、または特定のエンティティの種類を削除、タスクは、これを`EntityDataSource`コントロールを実行するように設計されています。 たとえば、エンティティが更新されるたびにログ記録を実行、エンティティを削除すると、または自動的に確認および更新に関連するデータ外部キーの値を持つ行を挿入するときに必要なときにデータをアーカイブできます。
 
@@ -130,7 +131,7 @@ Visual studio で作成した Contoso 大学 web アプリケーションを開�
 
 [![Image08](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image18.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image17.png)
 
-**[完了]**をクリックします。
+**[完了]** をクリックします。
 
 ツールが作成されたことが表示されて、デザイナーで、`vInstructorName`エンティティとの関連付けを新しく、`Department`と`Person`エンティティです。
 

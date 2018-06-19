@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891920"
 ---
 <a name="user-based-authorization-c"></a>ユーザー ベースの承認 (c#)
 ====================
@@ -217,7 +218,7 @@ URL 承認簡単粗い承認規則を指定できます。 手順 1. で説明�
 GridView 内の特定のディレクトリ内のファイルを一覧するページを作成してみましょう。 GridView がある 2 つの列を含める各ファイルの名前、サイズ、およびその他の情報を一覧表示する、と共に: いずれかのビュー「and」というタイトルが付けられた 1 つの削除。 ビューの LinkButton がクリックされた場合、選択したファイルの内容が表示されます。削除の LinkButton がクリックされた場合は、ファイルが削除されます。 そのビューおよび delete の機能をすべてのユーザーに使用できるように、このページを最初に作成してみましょう。 使用方法で LoginView コントロールおよび機能をプログラムで制限するセクションでは、有効にするにまたはページにアクセスするユーザーに基づくこれらの機能を無効にする方法が表示されます。
 
 > [!NOTE]
-> ビルドには ASP.NET ページは、ファイルの一覧を表示するのに GridView コントロールを使用します。 このチュートリアルでは、系列は、フォーム認証、承認、ユーザー アカウント、およびロールに焦点を当てています、以降しない GridView コントロールの内部動作をについて説明する時間をかけるにします。 このチュートリアルでは、このページを設定するための特定の詳細な手順についてはの特定の選択肢が行われた理由または影響の特定のプロパティが表示される出力が詳細には掘り下げてされません。 GridView コントロールの詳細についてを参照してください   *[ASP.NET 2.0 のデータを扱う](../../data-access/index.md)*一連のチュートリアルです。
+> ビルドには ASP.NET ページは、ファイルの一覧を表示するのに GridView コントロールを使用します。 このチュートリアルでは、系列は、フォーム認証、承認、ユーザー アカウント、およびロールに焦点を当てています、以降しない GridView コントロールの内部動作をについて説明する時間をかけるにします。 このチュートリアルでは、このページを設定するための特定の詳細な手順についてはの特定の選択肢が行われた理由または影響の特定のプロパティが表示される出力が詳細には掘り下げてされません。 GridView コントロールの詳細についてを参照してください   *[ASP.NET 2.0 のデータを扱う](../../data-access/index.md)* 一連のチュートリアルです。
 
 
 開いて開始、`UserBasedAuthorization.aspx`ファイルで、`Membership`フォルダーとという名前のページへの GridView コントロールの追加`FilesGrid`です。 GridView のスマート タグで、[フィールド] ダイアログ ボックスを起動する列の編集リンクをクリックします。 ここでは、左下隅で自動生成のフィールドのチェック ボックスをオフにします。 次に、左上隅 (Select および削除のボタンで見つかります CommandField 型) から選択 ボタン、削除 ボタン、および 2 つの BoundFields を追加します。 [選択] ボタンを設定`SelectText`プロパティを表示し、最初の BoundField の`HeaderText`と`DataField`プロパティ名にします。 2 番目の BoundField の設定`HeaderText`プロパティ サイズ (バイト単位) をその`DataField`プロパティの長さをその`DataFormatString`{0: n0} プロパティとその`HtmlEncode`プロパティを False にします。
@@ -408,7 +409,7 @@ URL の承認フレームワークでは、ページ単位ごとに承認規則�
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 

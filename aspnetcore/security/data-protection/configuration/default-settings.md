@@ -1,7 +1,7 @@
 ---
-title: "データ保護キーの管理および ASP.NET Core の有効期間"
+title: データ保護キーの管理および ASP.NET Core の有効期間
 author: rick-anderson
-description: "データ保護キーの管理および ASP.NET Core の有効期間について説明します。"
+description: データ保護キーの管理および ASP.NET Core の有効期間について説明します。
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28887291"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>データ保護キーの管理および ASP.NET Core の有効期間
 
@@ -34,7 +35,7 @@ ms.lasthandoff: 01/30/2018
 
 1. これらの条件のいずれも一致しない場合、キーは、現在のプロセスの外部で永続化されます。 プロセスがシャット ダウン、生成されたすべてのキーが失われます。
 
-開発者は常にフル コントロールであり、キーの格納場所と方法をオーバーライドできます。 上記の最初の 3 つのオプションは、ほとんどのアプリ方法と似ています適切な既定値を提供する必要があります、ASP.NET  **\<machineKey >**過去で自動生成ルーチンが機能していた。 最後に、フォールバック オプションを指定する、開発者が必要な唯一のシナリオは、[構成](xref:security/data-protection/configuration/overview)キーの永続化したいが、このフォールバックはまれな状況でのみ発生する場合は、先行します。
+開発者は常にフル コントロールであり、キーの格納場所と方法をオーバーライドできます。 上記の最初の 3 つのオプションは、ほとんどのアプリ方法と似ています適切な既定値を提供する必要があります、ASP.NET  **\<machineKey >** 過去で自動生成ルーチンが機能していた。 最後に、フォールバック オプションを指定する、開発者が必要な唯一のシナリオは、[構成](xref:security/data-protection/configuration/overview)キーの永続化したいが、このフォールバックはまれな状況でのみ発生する場合は、先行します。
 
 Docker ボリュームの共有ボリューム (ホストでマウントされたボリューム コンテナーの有効期間を超えて保持) であるフォルダーでキーを保持するか、Docker コンテナーでホストしている、または外部プロバイダーのように[Azure Key Vault](https://azure.microsoft.com/services/key-vault/)または[Redis](https://redis.io/)です。 外部プロバイダーは、アプリがネットワークの共有ボリュームにアクセスできない場合にも web ファームのシナリオで役に立ちます (を参照してください[PersistKeysToFileSystem](xref:security/data-protection/configuration/overview#persistkeystofilesystem)詳細については)。
 

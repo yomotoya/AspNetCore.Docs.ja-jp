@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077418"
 ---
 # <a name="unprotect-payloads-whose-keys-have-been-revoked-in-aspnet-core"></a>ASP.NET Core で失効したキーを持つペイロードの保護を解除します。
 

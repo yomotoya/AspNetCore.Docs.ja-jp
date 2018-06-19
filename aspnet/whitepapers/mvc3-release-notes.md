@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30899104"
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -303,7 +304,7 @@ JQuery には、ファイル名にバージョン番号が含まれているた�
 - 原因をソリューション フォルダー内の新しい ASP.NET MVC 3 プロジェクトを作成する、 *NullReferenceException*エラーです。 回避策は、ソリューションのルートに ASP.NET MVC 3 プロジェクトを作成し、ソリューション フォルダーに移動します。
 - Razor 構文の IntelliSense では、ReSharper がインストールされている場合は機能しません。 ReSharper をインストールして ASP.NET MVC 3 Razor IntelliSense サポートのメリットを利用する場合、エントリを参照してください。 [Razor Intellisense and ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) Hadi Hariri のブログでは、現時点で併用する方法について説明します。
 - インストール中に、使用許諾契約書への同意 ダイアログ ボックスでは、ものよりも小さいウィンドウをライセンス条項が表示されます。
-- Razor ビューを編集する場合 (.cshtml または*。vbhtml*ファイル) を表示します。 ASP.NET MVC 3 では、Razor ビューのスニペットは含まれません。スニペットを aspxselecting ASP.NET MVC 用のコード スニペットが表示されます。
+- Razor ビューを編集する場合 (.cshtml または *。vbhtml*ファイル) を表示します。 ASP.NET MVC 3 では、Razor ビューのスニペットは含まれません。スニペットを aspxselecting ASP.NET MVC 用のコード スニペットが表示されます。
 - For Visual Web Developer Express で Visual Studio がインストールされていない、コンピューターに ASP.NET MVC 3 をインストールし、後で Visual Studio をインストールした場合、ASP.NET MVC 3 を再インストールする必要があります。 Visual Studio と Visual Web Developer Express は、ASP.NET MVC 3 インストーラーによってアップグレードされるコンポーネントを共有します。 Visual Web Developer Express があるし、後で Visual Web Developer Express インストール コンピューターに Visual Studio for ASP.NET MVC 3 をインストールする場合、同じ問題が適用されます。
 
 <a id="MVC3RTM"></a>

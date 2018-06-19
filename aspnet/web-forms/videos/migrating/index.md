@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/migrating/index
-title: "移行 |Microsoft ドキュメント"
+title: 移行 |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET への移行"
+description: ASP.NET への移行
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/migrating
 msc.type: chapter
 ms.openlocfilehash: dba2b033efb8f6e38b8634bb842b83ff4168b88f
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525861"
 ---
 <a name="migrating"></a>移行します。
 ====================

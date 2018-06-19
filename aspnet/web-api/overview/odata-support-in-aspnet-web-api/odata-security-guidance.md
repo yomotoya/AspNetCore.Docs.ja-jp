@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868709"
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>ASP.NET Web API 2 のセキュリティ ガイダンス OData
 ====================
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/06/2018
 
 クエリのセマンティクスは、基になるモデル型ではなく entity data model (EDM) に基づきます。 EDM からプロパティを除外することし、クエリに表示されません。 たとえば、モデルには、給与プロパティを持つ従業員タイプが含まれるとします。 クライアントから非表示にする、EDM からこのプロパティを除外することがあります。
 
-除外する 2 つの方法 EDM からプロパティ。 設定することができます、 **[IgnoreDataMember]**モデル クラスのプロパティの属性。
+除外する 2 つの方法 EDM からプロパティ。 設定することができます、 **[IgnoreDataMember]** モデル クラスのプロパティの属性。
 
 [!code-csharp[Main](odata-security-guidance/samples/sample1.cs)]
 
@@ -40,7 +41,7 @@ ms.lasthandoff: 04/06/2018
 
 悪意のある、または単純なクライアントを実行する非常に長い時間がかかるクエリを作成することがあります。 最悪の場合に、サービスへのアクセスをこのが中断されることができます。
 
-**[Queryable]**属性は、アクション フィルターを解析して、検証し、クエリを適用します。 フィルターは、クエリ オプションを LINQ 式に変換します。 OData コント ローラーを返す場合、 **IQueryable**の種類、 **IQueryable** LINQ プロバイダーは、クエリを LINQ 式に変換します。 そのため、パフォーマンスは、使用されている LINQ プロバイダーとも、データセットやデータベース スキーマの特定の特性によって異なります。
+**[Queryable]** 属性は、アクション フィルターを解析して、検証し、クエリを適用します。 フィルターは、クエリ オプションを LINQ 式に変換します。 OData コント ローラーを返す場合、 **IQueryable**の種類、 **IQueryable** LINQ プロバイダーは、クエリを LINQ 式に変換します。 そのため、パフォーマンスは、使用されている LINQ プロバイダーとも、データセットやデータベース スキーマの特定の特性によって異なります。
 
 詳細については、ASP.NET Web API での OData クエリ オプションを使用して、次を参照してください。 [OData クエリ オプションをサポートする](supporting-odata-query-options.md)です。
 
@@ -56,7 +57,7 @@ ms.lasthandoff: 04/06/2018
 - $Orderby をクラスター化インデックスのプロパティに制限することを検討してください。 クラスター化インデックスを大規模なデータの並べ替えは低速です。 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample5.cs)]
-- ノードの最大数: **MaxNodeCount**プロパティ**[Queryable]** $filter 構文ツリー内で許可されている最大の数値ノードを設定します。 既定値は 100、ですが、多数のノードをコンパイルに時間がかかることができるのでを下限の値を設定することがあります。 これは LINQ to Objects (中級者向けの LINQ プロバイダーを使用せず、メモリ内コレクションに対して LINQ クエリなど) を使用している場合に特に当てはまります。 
+- ノードの最大数: **MaxNodeCount**プロパティ **[Queryable]** $filter 構文ツリー内で許可されている最大の数値ノードを設定します。 既定値は 100、ですが、多数のノードをコンパイルに時間がかかることができるのでを下限の値を設定することがあります。 これは LINQ to Objects (中級者向けの LINQ プロバイダーを使用せず、メモリ内コレクションに対して LINQ クエリなど) を使用している場合に特に当てはまります。 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample6.cs)]
 - 遅くなることが、any() と all() と関数の無効化を検討します。 

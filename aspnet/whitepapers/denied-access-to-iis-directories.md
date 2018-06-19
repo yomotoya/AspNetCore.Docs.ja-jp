@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30070772"
 ---
 <a name="aspnet-denied-access-to-iis-directories"></a>ASP.NET は、IIS ディレクトリへのアクセスを拒否します。
 ====================

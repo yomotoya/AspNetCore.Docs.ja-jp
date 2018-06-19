@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898860"
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトへのセキュリティとメンバーシップの追加
 ====================
@@ -96,7 +97,7 @@ WebMatrix で使用することができます、**スターター サイト**�
 
      > [!NOTE] 
      > 
-     > **ヒント:**これらのプロパティの値についての詳細については、次を参照してください。[電子メール設定を構成する](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings)で[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkID=202906)します。
+     > **ヒント:** これらのプロパティの値についての詳細については、次を参照してください。[電子メール設定を構成する](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings)で[サイト全体の動作をカスタマイズする ASP.NET Web Pages の](https://go.microsoft.com/fwlink/?LinkID=202906)します。
 7. 保存して閉じる *\_AppStart.cshtml*です。
 8. 実行、 *Default.cshtml*ブラウザーのページです。
 

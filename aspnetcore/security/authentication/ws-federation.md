@@ -15,6 +15,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898805"
 ---
 # <a name="authenticate-users-with-ws-federation-in-aspnet-core"></a>ASP.NET Core では、Ws-federation でユーザーを認証します。
 
@@ -52,13 +53,13 @@ ASP.NET Core 2.0 アプリの場合、Ws-federation サポートがによって�
 > [!NOTE]
 > これは、HTTPS URL でなければなりません。 IIS Express と、開発時にアプリをホストする場合に自己署名証明書を提供できます。 Kestrel には、証明書の手動構成が必要です。 参照してください、 [Kestrel ドキュメント](xref:fundamentals/servers/kestrel)詳細についてはします。
 
-* をクリックして**[次へ]**ウィザードの残りの手順と**閉じる**最後にします。
+* をクリックして **[次へ]** ウィザードの残りの手順と**閉じる**最後にします。
 
 * ASP.NET Core Id が必要です、**名前 ID**要求します。 1 つ追加、**要求規則の編集** ダイアログ。
 
 ![要求規則を編集します。](ws-federation/_static/EditClaimRules.png)
 
-* **変換要求規則ウィザードの追加**、既定値のままにして**要求として LDAP 属性を送信**、選択したテンプレートとクリック**[次へ]**です。 ルールのマッピングを追加、 **SAM アカウント名**LDAP 属性を**名前 ID**出力方向の要求。
+* **変換要求規則ウィザードの追加**、既定値のままにして**要求として LDAP 属性を送信**、選択したテンプレートとクリック **[次へ]** です。 ルールのマッピングを追加、 **SAM アカウント名**LDAP 属性を**名前 ID**出力方向の要求。
 
 ![要求規則の構成変換要求規則のウィザードを追加します。](ws-federation/_static/AddTransformClaimRule.png)
 

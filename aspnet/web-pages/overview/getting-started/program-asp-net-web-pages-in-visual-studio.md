@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896584"
 ---
 <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Visual Studio を使用してプログラミングする ASP.NET Web Pages (Razor)
 ====================
@@ -81,10 +82,10 @@ Visual Studio で、ASP.NET Razor web サイトを作成します。
 
     ![新しい web サイトを作成します。](program-asp-net-web-pages-in-visual-studio/_static/image2.png)
 3. **新しい Web サイト** ダイアログ ボックスで、(Visual c# または Visual Basic) を使用する言語を選択します。
-4. 選択、 **ASP.NET Web サイト (Razor)**テンプレート。
+4. 選択、 **ASP.NET Web サイト (Razor)** テンプレート。
 
     ![razor サイト](program-asp-net-web-pages-in-visual-studio/_static/image3.png)
-5. **[OK]**をクリックします。
+5. **[OK]** をクリックします。
 
 新しいプロジェクトが存在し、いくつか作業を開始するための既定の web ページが表示されます。
 

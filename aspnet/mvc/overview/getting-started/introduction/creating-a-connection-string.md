@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867919"
 ---
 <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>接続文字列を作成し、SQL Server LocalDB 協力
 ====================
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-[LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb) SQL Server Express データベース エンジンの要求時に開始され、ユーザー モードで実行される軽量バージョンです。 LocalDB は、SQL Server Express データベースを対象として使用することができますの特殊な実行モードで実行*.mdf*ファイル。 LocalDB のデータベース ファイルを保持する、通常、*アプリ\_データ*web プロジェクトのフォルダーです。
+[LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb) SQL Server Express データベース エンジンの要求時に開始され、ユーザー モードで実行される軽量バージョンです。 LocalDB は、SQL Server Express データベースを対象として使用することができますの特殊な実行モードで実行 *.mdf*ファイル。 LocalDB のデータベース ファイルを保持する、通常、*アプリ\_データ*web プロジェクトのフォルダーです。
 
 SQL Server Express は、実稼働 web アプリケーションでの使用は推奨されません。 LocalDB 具体的には指定しないで web アプリケーションと運用環境のため、IIS を使用するものはありません。 ただし、SQL Server または SQL Azure に LocalDB データベースを簡単に移行できます。
 

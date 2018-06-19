@@ -15,6 +15,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896297"
 ---
 # <a name="aspnet-webhooks-receivers"></a>ASP.NET Webhook レシーバー
 
@@ -38,7 +39,7 @@ https://<host>/api/webhooks/incoming/<receiver>/{id}
 
 <em> <receiver> </em>コンポーネントは、受信者の名前。 たとえば<em>github</em>または<em>slack</em>です。
 
-*{Id}*特定 WebHook 受信側の構成を識別するために使用する省略可能な識別子です。 特定の受信者に N Webhook を登録するために使用できます。 たとえば、次の 3 つの Uri は、次の 3 つの独立した Webhook の登録を使用できます。
+*{Id}* 特定 WebHook 受信側の構成を識別するために使用する省略可能な識別子です。 特定の受信者に N Webhook を登録するために使用できます。 たとえば、次の 3 つの Uri は、次の 3 つの独立した Webhook の登録を使用できます。
 
 ```
 https://<host>/api/webhooks/incoming/github
@@ -66,7 +67,7 @@ WebHook のレシーバーは構成、 [IWebHookReceiverConfig](https://github.c
 MS_WebHookReceiverSecret_<receiver>
 ```
 
-値は、一致する値のコンマ区切りのリスト、 *{id}*する Webhook 登録されているなどの値。
+値は、一致する値のコンマ区切りのリスト、 *{id}* する Webhook 登録されているなどの値。
 
 ```
 MS_WebHookReceiverSecret_GitHub = <secret1>, 12345=<secret2>, 54321=<secret3>

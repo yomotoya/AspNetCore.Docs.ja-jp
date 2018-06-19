@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891907"
 ---
 <a name="an-overview-of-forms-authentication-vb"></a>フォーム認証 (VB) の概要
 ====================
@@ -103,7 +104,7 @@ Visual Studio 2008 の Microsoft の無料版の最も長い可能な対象ユ�
 **図 03**: マスター ページという Site.master、web サイトに追加 ([フルサイズのイメージを表示するをクリックして](an-overview-of-forms-authentication-vb/_static/image9.png))
 
 
-マスター ページで、ここで、サイト全体のページ レイアウトを定義します。 デザイン ビューを使用して、必要なレイアウトまたは Web コントロールを追加または、ソース ビューで手動でマークアップを手動で追加することができます。 使用されるレイアウトを模倣するために、マスター ページのレイアウトを構造化した my  *[ASP.NET 2.0 のデータを扱う](../../data-access/index.md)*チュートリアル シリーズの (図 4 を参照してください)。 マスター ページを使用して[カスケード スタイル シート](http://www.w3schools.com/css/default.asp)の配置とスタイル (このチュートリアルの関連するダウンロードに含まれています) を Style.css ファイルで定義された CSS 設定を使用します。 CSS 規則が定義されているマークアップを次に示すのかを判断できないときにするよう、ナビゲーション&lt;div&gt;の左側に表示し、200 ピクセルの固定幅ができるように、コンテンツが絶対位置に配置します。
+マスター ページで、ここで、サイト全体のページ レイアウトを定義します。 デザイン ビューを使用して、必要なレイアウトまたは Web コントロールを追加または、ソース ビューで手動でマークアップを手動で追加することができます。 使用されるレイアウトを模倣するために、マスター ページのレイアウトを構造化した my  *[ASP.NET 2.0 のデータを扱う](../../data-access/index.md)* チュートリアル シリーズの (図 4 を参照してください)。 マスター ページを使用して[カスケード スタイル シート](http://www.w3schools.com/css/default.asp)の配置とスタイル (このチュートリアルの関連するダウンロードに含まれています) を Style.css ファイルで定義された CSS 設定を使用します。 CSS 規則が定義されているマークアップを次に示すのかを判断できないときにするよう、ナビゲーション&lt;div&gt;の左側に表示し、200 ピクセルの固定幅ができるように、コンテンツが絶対位置に配置します。
 
 [!code-aspx[Main](an-overview-of-forms-authentication-vb/samples/sample1.aspx)]
 
@@ -221,7 +222,7 @@ Login.aspx に 2 つのテキスト ボックスを追加し、ユーザー名�
 
 ASP.NET 2.0 では、前に開発者が独自のユーザー ストアの両方を実装して、ストアに対して指定された資格情報を検証するコードの記述を担当します。 ほとんどの開発者ストアを実装ユーザー データベースでは、ユーザー名、パスワード、電子メール、LastLoginDate などのように列を持つユーザーをという名前のテーブルを作成します。 次に、次の表は、ユーザー アカウントごとに 1 つのレコードがあります。 ユーザーの指定された資格情報の検証が行われます。 一致するユーザー名のデータベースのクエリを実行して、データベース内のパスワードが指定されたパスワードに当てはめて考えることを確認します。
 
-ASP.NET 2.0 では、開発者必要がありますを使用してメンバーシップ プロバイダーのいずれかのユーザー ストアを管理します。 このチュートリアルの系列に使用するユーザー ストアの SQL Server データベースを使用すると、SqlMembershipProvider です。 SqlMembershipProvider を使用する場合、テーブル、ビュー、およびプロバイダーで想定されているストアド プロシージャを含む特定のデータベース スキーマを実装する必要があります。 このスキーマを実装する方法については、 *[メンバーシップ スキーマを作成する SQL Server で](../membership/creating-the-membership-schema-in-sql-server-vb.md)*チュートリアルです。 インプレース メンバーシップ プロバイダーは、ユーザーの資格情報を検証するほど単純では呼び出すことと、[メンバーシップ クラス](https://msdn.microsoft.com/library/system.web.security.membership.aspx)の[ValidateUser (*username*、*パスワード*)メソッド](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx)を示すブール値を返すことをするかどうかの有効性、 *username*と*パスワード*の組み合わせ。 おを実装していない SqlMembershipProvider のユーザーのストア、表示されるようにこの時点でのメンバーシップ クラスは、ValidateUser メソッドを使用することはできません。
+ASP.NET 2.0 では、開発者必要がありますを使用してメンバーシップ プロバイダーのいずれかのユーザー ストアを管理します。 このチュートリアルの系列に使用するユーザー ストアの SQL Server データベースを使用すると、SqlMembershipProvider です。 SqlMembershipProvider を使用する場合、テーブル、ビュー、およびプロバイダーで想定されているストアド プロシージャを含む特定のデータベース スキーマを実装する必要があります。 このスキーマを実装する方法については、 *[メンバーシップ スキーマを作成する SQL Server で](../membership/creating-the-membership-schema-in-sql-server-vb.md)* チュートリアルです。 インプレース メンバーシップ プロバイダーは、ユーザーの資格情報を検証するほど単純では呼び出すことと、[メンバーシップ クラス](https://msdn.microsoft.com/library/system.web.security.membership.aspx)の[ValidateUser (*username*、*パスワード*)メソッド](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx)を示すブール値を返すことをするかどうかの有効性、 *username*と*パスワード*の組み合わせ。 おを実装していない SqlMembershipProvider のユーザーのストア、表示されるようにこの時点でのメンバーシップ クラスは、ValidateUser メソッドを使用することはできません。
 
 時間がかかる場合、テーブルの構築に自社カスタム ユーザー データベース (お、SqlMembershipProvider が実装された後に古いなります) をみましょう代わりにハード コードではなくログイン内で有効な資格情報ページします。 ログイン ボタンのでは、イベント ハンドラーをクリックして、次のコードを追加します。
 
@@ -270,7 +271,7 @@ Web サーバーにインターネット経由で (自分のパスワードを�
 Web サイトに機密情報が含まれている場合を除き、ここで、ユーザーのパスワードはそれ以外の場合、送信されますプレーン テキストでネットワーク経由でのログイン ページで、他のページで SSL を使用する必要はだけです。 以降、既定では、これは両方暗号化およびデジタル署名 (改ざんを防ぐため)、フォーム認証チケットのセキュリティ保護について心配する必要はありません。 フォーム認証チケットのセキュリティの詳細については、以下のチュートリアルに表示されます。
 
 > [!NOTE]
-> SSL を使用する財務や医療の多くの web サイトが構成されている*すべて*ページにアクセスできるユーザーを認証します。 このような web サイトを構築する場合は、フォーム認証チケットがセキュリティで保護された接続を介して転送のみをフォーム認証システムを構成できます。 次のチュートリアルでは、さまざまなフォーム認証の構成オプションで注目は*[フォーム認証の構成と高度なトピック](../membership/creating-the-membership-schema-in-sql-server-vb.md)*です。
+> SSL を使用する財務や医療の多くの web サイトが構成されている*すべて*ページにアクセスできるユーザーを認証します。 このような web サイトを構築する場合は、フォーム認証チケットがセキュリティで保護された接続を介して転送のみをフォーム認証システムを構成できます。 次のチュートリアルでは、さまざまなフォーム認証の構成オプションで注目は*[フォーム認証の構成と高度なトピック](../membership/creating-the-membership-schema-in-sql-server-vb.md)* です。
 
 
 ## <a name="step-4-detecting-authenticated-visitors-and-determining-their-identity"></a>手順 4: 認証されたユーザーを検出して、自身の Id を決定します。
@@ -470,7 +471,7 @@ LoginView コントロールできないところで、ログイン状態があ�
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 

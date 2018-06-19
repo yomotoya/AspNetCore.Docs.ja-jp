@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890555"
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>データベースの概要 Entity Framework 4.0 最初および ASP.NET 4 Web フォーム - パート 2
 ====================
@@ -63,7 +64,7 @@ ms.lasthandoff: 04/06/2018
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-2/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image11.png)
 
-**構成 ObjectContext**ウィザード ステップで、 **SchoolEntities**の値として**という名前の接続**を選択して**SchoolEntities**として、 **DefaultContainerName**値。 その後、 **[次へ]**をクリックします。
+**構成 ObjectContext**ウィザード ステップで、 **SchoolEntities**の値として**という名前の接続**を選択して**SchoolEntities**として、 **DefaultContainerName**値。 その後、 **[次へ]** をクリックします。
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-2/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image13.png)
 
@@ -231,7 +232,7 @@ ms.lasthandoff: 04/06/2018
 
 [![Image16](the-entity-framework-and-aspnet-getting-started-part-2/_static/image48.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image47.png)
 
-**データ ソースを選択**手順で、 **DepartmentsEntityDataSource**をクリックして、データ ソースとして**スキーマの更新**、し、**名前**として表示するデータ フィールドと**DepartmentID**値のデータ フィールドとします。 **[OK]**をクリックします。
+**データ ソースを選択**手順で、 **DepartmentsEntityDataSource**をクリックして、データ ソースとして**スキーマの更新**、し、**名前**として表示するデータ フィールドと**DepartmentID**値のデータ フィールドとします。 **[OK]** をクリックします。
 
 [![Image17](the-entity-framework-and-aspnet-getting-started-part-2/_static/image50.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image49.png)
 

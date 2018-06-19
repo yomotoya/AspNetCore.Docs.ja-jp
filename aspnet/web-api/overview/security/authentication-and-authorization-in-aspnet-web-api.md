@@ -17,6 +17,7 @@ ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29726759"
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>ASP.NET Web API で認証と承認
 ====================

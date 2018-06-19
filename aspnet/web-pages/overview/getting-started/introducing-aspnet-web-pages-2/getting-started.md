@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898100"
 ---
 <a name="introducing-aspnet-web-pages---getting-started"></a>ASP.NET Web ページ - 作業の開始の概要
 ====================
@@ -61,7 +62,7 @@ ms.lasthandoff: 04/06/2018
 慣れているものと仮定します。
 
 - **HTML**. 深い専門知識は必要ありません。 HTML、については説明しませんが、私たちもないものを使用して複雑です。 便利思います HTML チュートリアルへのリンクを提供します。
-- **カスケード スタイル シート (CSS)**です。 同じ html です。
+- **カスケード スタイル シート (CSS)** です。 同じ html です。
 - **基本的なデータベース アイデア**です。 データのスプレッドシートを使用し、並べ替えを専門知識のレベルにあるデータをフィルター処理した場合、このチュートリアルのセットの仮定一般にします。
 
 基本的なプログラミングの学習に該当するものもと仮定します。 ASP.NET Web ページは、c# と呼ばれるプログラミング言語を使用します。 任意の背景に関係するだけのプログラミングではありません。 前に web ページで、JavaScript を作成したこと場合、は、バック グラウンドの十分なを取得したらです。
@@ -145,7 +146,7 @@ Microsoft Web Platform Installer を使用して、すべてのものをイン�
 
 ![](getting-started/_static/image5.png)
 
-WebMatrix をインストールする準備ができて、Web Platform Installer が表示されます。 **[インストール]**をクリックします。
+WebMatrix をインストールする準備ができて、Web Platform Installer が表示されます。 **[インストール]** をクリックします。
 
 ![](getting-started/_static/image6.png)
 
@@ -177,7 +178,7 @@ WebMatrix を初めて起動すると、Microsoft アカウントで Microsoft A
 
 ![空のサイト テンプレートが選択されていると WebMatrix のクイック スタート ウィンドウ](getting-started/_static/image10.png)
 
-**[次へ]**をクリックします。
+**[次へ]** をクリックします。
 
 Microsoft アカウントにサインインしている場合は、Azure でサイトを作成することが表示されます。 既定の名前、サイトの名前に基づく**WebPagesMovies.azurewebsites.net**をお勧めします。 ただし、感嘆符はこの名前が Windows Azure で使用できないことを示します。 わかりやすくするため、次のように選択します。 **Skip**を Azure に web サイトを作成すると、今すぐをバイパスします。 この系列に後で Azure にサイトが公開します。
 
@@ -207,7 +208,7 @@ WebMatrix には、ファイルの種類の一覧が表示されます。 選択
 
 ![名前付き HelloWorld.cshtml の新しい CSHTML ページの作成](getting-started/_static/image15.png)
 
-**[OK]**をクリックします。
+**[OK]** をクリックします。
 
 WebMatrix は、ページが作成され、エディターで開きます。
 

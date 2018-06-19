@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29153681"
 ---
 <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトにビデオを表示します。
 ====================

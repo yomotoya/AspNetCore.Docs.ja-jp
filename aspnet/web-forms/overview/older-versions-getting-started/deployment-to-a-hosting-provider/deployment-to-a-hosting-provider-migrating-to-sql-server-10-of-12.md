@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892096"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します SQL Server - 12 の 10 への移行。
 ====================
@@ -108,7 +109,7 @@ Contoso 大学アプリケーションが 2 つの SQL Server Compact データ�
 
 開く、**プロジェクト プロパティ**ウィンドウを選択、**パッケージ化/発行 SQL**タブです。
 
-確認して**アクティブ (リリース)**または**リリース**でが選択されている、**構成**ドロップダウン リスト。
+確認して**アクティブ (リリース)** または**リリース**でが選択されている、**構成**ドロップダウン リスト。
 
 をクリックして**このページを有効にする**です。
 
@@ -250,7 +251,7 @@ SqlServerCompact NuGet パッケージは、SQL Server Compact データベー�
 
 **送信先 URL**ボックスに、入力`http://localhost/ContosoUniversity/`です。
 
-**[次へ]**をクリックします。
+**[次へ]** をクリックします。
 
 **設定** タブに警告すること、**パッケージ化/発行 SQL**  タブが構成済みであり、有効にする をクリックして、新しいデータベース発行機能強化をオーバーライドする機会を提供します。 この展開のたくを上書きする、**パッケージ化/発行 SQL**タブの設定をクリックするだけのため**次**です。
 
@@ -258,7 +259,7 @@ SqlServerCompact NuGet パッケージは、SQL Server Compact データベー�
 
 メッセージ、**プレビュー**  タブには、ことを示します**パブリッシュするデータベースが選択されていない**、のみつまり、データベースの発行が、発行プロファイルで構成されていないことができます。
 
-**[発行]**をクリックします。
+**[発行]** をクリックします。
 
 ![Publish_Web_wizard_Preview_tab_Migrate](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image20.png)
 
@@ -297,7 +298,7 @@ Cytanium コントロール パネルに移動して[ http://panel.cytanium.com]
 
 これで、データベースでのデプロイ設定を設定する準備ができたら、**パッケージ化/発行 SQL**  タブで、テスト環境の前に行ったようにします。
 
-開く、**プロジェクトのプロパティ**ウィンドウで、**パッケージ化/発行 SQL**  タブを確認して**アクティブ (リリース)**または**リリース**は選択された状態で、**構成**ドロップダウン リスト。
+開く、**プロジェクトのプロパティ**ウィンドウで、**パッケージ化/発行 SQL**  タブを確認して**アクティブ (リリース)** または**リリース**は選択された状態で、**構成**ドロップダウン リスト。
 
 各データベースのデプロイ設定を構成するときに運用環境とテスト環境の場合の重要な違いが、接続文字列を構成する方法です。 テスト環境の別のインストール先データベースの接続文字列を入力したが、運用環境のコピー先の接続文字列は、両方のデータベースの同じです。 実稼働環境で 1 つのデータベースを両方のデータベースを展開しているためにです。
 

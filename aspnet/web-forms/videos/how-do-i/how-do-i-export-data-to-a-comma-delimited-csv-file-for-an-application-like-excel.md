@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel
-title: "[How Do i:]Excel のようなアプリケーションのデータをコンマ区切り (CSV) ファイルにエクスポート |Microsoft ドキュメント"
+title: '[How Do i:]Excel のようなアプリケーションのデータをコンマ区切り (CSV) ファイルにエクスポート |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオでは、Chris Pels は、データベースまたはその他のソースからデータを取得し、アプリケーション li で使用できるをコンマで区切られたファイルにエクスポートする方法を示します."
+description: このビデオでは、Chris Pels は、データベースまたはその他のソースからデータを取得し、アプリケーション li で使用できるをコンマで区切られたファイルにエクスポートする方法を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/22/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525641"
 ---
 <a name="how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel"></a>[How Do i:]Excel のようなアプリケーションのデータをコンマ区切り (CSV) ファイルにエクスポートします。
 ====================

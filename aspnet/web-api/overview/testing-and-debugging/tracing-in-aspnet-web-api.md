@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
-title: "ASP.NET Web API 2 のトレース |Microsoft ドキュメント"
+title: ASP.NET Web API 2 のトレース |Microsoft ドキュメント
 author: MikeWasson
-description: "ASP.NET Web API でのトレースを有効にする方法を示します。"
+description: ASP.NET Web API でのトレースを有効にする方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28044209"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 のトレース
 ====================

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core の組み込みタグ ヘルパー"
+title: ASP.NET Core の組み込みタグ ヘルパー
 author: pkellner
-description: "タグ ヘルパーに組み込まれた ASP.NET Core によって生産性がどのように向上するかをご確認ください。"
+description: タグ ヘルパーに組み込まれた ASP.NET Core によって生産性がどのように向上するかをご確認ください。
 manager: wpickett
 ms.author: riande
 ms.date: 09/13/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29903209"
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>ASP.NET Core の組み込みタグ ヘルパー
 

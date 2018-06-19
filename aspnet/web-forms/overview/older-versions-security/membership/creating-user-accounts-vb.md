@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892070"
 ---
 <a name="creating-user-accounts-vb"></a>ユーザー アカウント (VB) の作成
 ====================
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/06/2018
 
 <a id="_msoanchor_1"> </a>[前のチュートリアル](creating-the-membership-schema-in-sql-server-vb.md)アプリケーション サービスのスキーマのデータベースで、追加のテーブル、ビュー、およびストアド プロシージャで必要なインストール、`SqlMembershipProvider`と`SqlRoleProvider`です。 これにより、このシリーズのチュートリアルの残りの必要がありますが、インフラストラクチャが作成されます。 このチュートリアルではについて学びますメンバーシップ フレームワークを使用して (を使用して、 `SqlMembershipProvider`) 新しいユーザー アカウントを作成します。 新しいユーザーを作成し、ASP プログラムと方法が表示されます。NET の組み込みの CreateUserWizard コントロール。
 
-新しいユーザー アカウントを作成する方法を学習するには、だけでなくも必要になりますで最初に作成したデモの web サイトを更新、  *<a id="_msoanchor_2"> </a>[フォーム認証の概要を](../introduction/an-overview-of-forms-authentication-vb.md)*チュートリアルおよび強化し、  *<a id="_msoanchor_3"> </a>[フォーム認証の構成と高度なトピック](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)*チュートリアルです。 デモ web アプリケーションには、ハード コーディングされたユーザー名とパスワードの組み合わせに対してユーザーの資格情報を検証するログイン ページがあります。 さらに、`Global.asax`カスタムを作成するコードが含まれています`IPrincipal`と`IIdentity`認証済みユーザーのオブジェクト。 メンバーシップ framework に対するユーザーの資格情報を検証し、プリンシパルと id のカスタム ロジックを削除するログイン ページを更新します。
+新しいユーザー アカウントを作成する方法を学習するには、だけでなくも必要になりますで最初に作成したデモの web サイトを更新、  *<a id="_msoanchor_2"> </a>[フォーム認証の概要を](../introduction/an-overview-of-forms-authentication-vb.md)* チュートリアルおよび強化し、  *<a id="_msoanchor_3"> </a>[フォーム認証の構成と高度なトピック](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)* チュートリアルです。 デモ web アプリケーションには、ハード コーディングされたユーザー名とパスワードの組み合わせに対してユーザーの資格情報を検証するログイン ページがあります。 さらに、`Global.asax`カスタムを作成するコードが含まれています`IPrincipal`と`IIdentity`認証済みユーザーのオブジェクト。 メンバーシップ framework に対するユーザーの資格情報を検証し、プリンシパルと id のカスタム ロジックを削除するログイン ページを更新します。
 
 開始しましょう!
 
@@ -40,7 +41,7 @@ ms.lasthandoff: 04/06/2018
 メンバーシップ framework での作業を始める前に、もう一度このポイントに達するに移動しました、重要な手順を確認してみましょう。 使用してメンバーシップ framework を使用する場合、`SqlMembershipProvider`フォーム ベース認証のシナリオで、次の手順は web アプリケーションにメンバーシップ機能を実装する前に実行する必要があります。
 
 1. **フォーム ベース認証を有効にします。** 説明したよう *<a id="_msoanchor_4"> </a>[フォーム認証の概要を](../introduction/an-overview-of-forms-authentication-vb.md)*、編集してフォーム認証が有効になっている`Web.config`と設定、 `<authentication>`要素の`mode`属性を`Forms`です。 フォーム認証が有効になっている、受信要求ごとについて、*フォーム認証チケット*、存在する場合、識別、リクエスターです。
-2. **アプリケーション サービスのスキーマを適切なデータベースに追加します。** 使用する場合、`SqlMembershipProvider`アプリケーション サービスのスキーマをデータベースにインストールする必要があります。 通常このスキーマは、アプリケーションのデータ モデルを保持するのと同じデータベースに追加されます。  *<a id="_msoanchor_5"> </a>[メンバーシップ スキーマを作成する SQL Server で](creating-the-membership-schema-in-sql-server-vb.md)*チュートリアルを使用して調べる、`aspnet_regsql.exe`これを実現するツールです。
+2. **アプリケーション サービスのスキーマを適切なデータベースに追加します。** 使用する場合、`SqlMembershipProvider`アプリケーション サービスのスキーマをデータベースにインストールする必要があります。 通常このスキーマは、アプリケーションのデータ モデルを保持するのと同じデータベースに追加されます。  *<a id="_msoanchor_5"> </a>[メンバーシップ スキーマを作成する SQL Server で](creating-the-membership-schema-in-sql-server-vb.md)* チュートリアルを使用して調べる、`aspnet_regsql.exe`これを実現するツールです。
 3. **手順 2 からデータベースを参照する Web アプリケーションの設定をカスタマイズします。** *メンバーシップ スキーマを作成する SQL Server で*チュートリアルでは、web アプリケーションを構成する 2 つの方法を示しましたできるように、`SqlMembershipProvider`手順 2. で選択したデータベースを使用: 変更することによって、`LocalSqlServer`接続文字列名です。または手順 2 をフレームワークのメンバーシップ プロバイダーの一覧に新しい登録済みのプロバイダーを追加してからデータベースを使用して新しいプロバイダーをカスタマイズします。
 
 Web アプリケーションの構築を使用する場合、`SqlMembershipProvider`フォーム ベース認証する必要がありますを使用する前にこれら 3 つの手順を実行して、`Membership`クラスや ASP.NET ログイン Web コントロールです。 前のチュートリアルで既にこれらの手順を実行してから、メンバーシップ framework の使用を開始する準備ができました!
@@ -69,7 +70,7 @@ Web アプリケーションの構築を使用する場合、`SqlMembershipProvi
 
 [!code-aspx[Main](creating-user-accounts-vb/samples/sample1.aspx)]
 
-注意してください、 `LoginContent` ContentPlaceHolder の既定のマークアップにログオンするか、いったんログオフして、ユーザーが認証されるかどうかに応じて、サイトからへのリンクが表示されます。 存在、`Content2`コンテンツ コントロール、ただし、マスター ページの既定のマークアップをオーバーライドします。 説明したよう *<a id="_msoanchor_6"> </a>[フォーム認証の概要を](../introduction/an-overview-of-forms-authentication-vb.md)*チュートリアルでは、これはページの左の列にログインに関連するオプションを表示しない場所おで役に立ちます。
+注意してください、 `LoginContent` ContentPlaceHolder の既定のマークアップにログオンするか、いったんログオフして、ユーザーが認証されるかどうかに応じて、サイトからへのリンクが表示されます。 存在、`Content2`コンテンツ コントロール、ただし、マスター ページの既定のマークアップをオーバーライドします。 説明したよう *<a id="_msoanchor_6"> </a>[フォーム認証の概要を](../introduction/an-overview-of-forms-authentication-vb.md)* チュートリアルでは、これはページの左の列にログインに関連するオプションを表示しない場所おで役に立ちます。
 
 これらの 5 ページでは、ただし、表示することのマスター ページの既定のマークアップ、 `LoginContent` ContentPlaceHolder です。 このため、削除の宣言型マークアップ、`Content2`コンテンツ コントロールです。 その後、1 つだけのコンテンツ コントロールを含めるそれぞれ 5 つのページのマークアップの必要があります。
 
@@ -107,7 +108,7 @@ XML サイト マップ ファイルは、階層構造として、web サイト�
 
 ASP.NET には、ユーザー インターフェイスを設計するためのナビゲーション関連の Web コントロールの数が含まれています。 これらには、メニューの TreeView、およびサイト マップ パス コントロールが含まれます。 メニューを TreeView のコントロールは、サイト マップ パスには、その先祖と参照される現在のノードを示す階層リンクが表示されますが、それぞれメニューや、ツリー内のサイト マップ構造をレンダリングします。 サイト マップ データが Web コントロール、SiteMapDataSource を使用してその他のデータにバインドでき、経由でプログラムからアクセスできる、`SiteMap`クラスです。
 
-サイト マップ フレームワークとナビゲーション コントロールの完全な詳細については、このチュートリアル シリーズの範囲外ですが、以降ではなくみましょう独自移動ユーザー インターフェイスの作成時間をかけて代わりに借用で使用される my  *[ASP.NET 2.0 のデータを扱う](../../data-access/index.md)*チュートリアル シリーズは、図 4 に示すように、ナビゲーション リンクの 2 つが深い箇条書きリストを表示する Repeater コントロールを使用します。
+サイト マップ フレームワークとナビゲーション コントロールの完全な詳細については、このチュートリアル シリーズの範囲外ですが、以降ではなくみましょう独自移動ユーザー インターフェイスの作成時間をかけて代わりに借用で使用される my  *[ASP.NET 2.0 のデータを扱う](../../data-access/index.md)* チュートリアル シリーズは、図 4 に示すように、ナビゲーション リンクの 2 つが深い箇条書きリストを表示する Repeater コントロールを使用します。
 
 ### <a name="adding-a-two-level-list-of-links-in-the-left-column"></a>左の列に 2 つのレベルのリンクの一覧を追加します。
 
@@ -143,7 +144,7 @@ ASP.NET には、ユーザー インターフェイスを設計するための�
 
 ## <a name="step-4-removing-the-custom-principal-and-identity-logic"></a>手順 4: カスタム プリンシパルと Id ロジックの削除
 
- *<a id="_msoanchor_7"> </a>[フォーム認証の構成と高度なトピック](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)*チュートリアルに認証されたユーザーにカスタム プリンシパルと id オブジェクトを関連付ける方法を説明しました。 内のイベント ハンドラーを作成することでこれを実現お`Global.asax`のアプリケーションの`PostAuthenticateRequest`後に発生するイベント、`FormsAuthenticationModule`がユーザーを認証します。 このイベント ハンドラーで置き換えました、`GenericPrincipal`と`FormsIdentity`によって追加されたオブジェクト、`FormsAuthenticationModule`で、`CustomPrincipal`と`CustomIdentity`そのチュートリアルで作成したオブジェクトします。
+ *<a id="_msoanchor_7"> </a>[フォーム認証の構成と高度なトピック](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)* チュートリアルに認証されたユーザーにカスタム プリンシパルと id オブジェクトを関連付ける方法を説明しました。 内のイベント ハンドラーを作成することでこれを実現お`Global.asax`のアプリケーションの`PostAuthenticateRequest`後に発生するイベント、`FormsAuthenticationModule`がユーザーを認証します。 このイベント ハンドラーで置き換えました、`GenericPrincipal`と`FormsIdentity`によって追加されたオブジェクト、`FormsAuthenticationModule`で、`CustomPrincipal`と`CustomIdentity`そのチュートリアルで作成したオブジェクトします。
 
 カスタム プリンシパル オブジェクトと id オブジェクトはほとんどの場合、特定のシナリオで役に立ちますが、`GenericPrincipal`と`FormsIdentity`オブジェクトで十分です。 したがって、既定の動作に戻るには価値のあることと思います。 削除するか、コメント アウトすることによってこの変更を行う、`PostAuthenticateRequest`イベント ハンドラーまたは削除することによって、`Global.asax`完全ファイルします。
 
@@ -164,7 +165,7 @@ ASP.NET には、ユーザー インターフェイスを設計するための�
 
 これら 4 つのオーバー ロードは、収集される情報の量によって異なります。 最初のオーバー ロードでは、たとえばが必要がユーザー名とパスワードのみ、新しいユーザー アカウントの 2 つ目では、ユーザーの電子メール アドレスも必要です。
 
-新しいユーザー アカウントの作成に必要な情報が、メンバーシップ プロバイダーの構成設定に依存しているために、これらのオーバー ロードが存在します。  *<a id="_msoanchor_8"> </a>[メンバーシップ スキーマを作成する SQL Server で](creating-the-membership-schema-in-sql-server-vb.md)*でメンバーシップ プロバイダーの構成設定の指定を調べるおチュートリアル`Web.config`です。 表 2 には、構成設定の完全な一覧が含まれています。
+新しいユーザー アカウントの作成に必要な情報が、メンバーシップ プロバイダーの構成設定に依存しているために、これらのオーバー ロードが存在します。  *<a id="_msoanchor_8"> </a>[メンバーシップ スキーマを作成する SQL Server で](creating-the-membership-schema-in-sql-server-vb.md)* でメンバーシップ プロバイダーの構成設定の指定を調べるおチュートリアル`Web.config`です。 表 2 には、構成設定の完全な一覧が含まれています。
 
 1 つそのようなメンバーシップ プロバイダーの構成設定にどのような影響を与えます`CreateUser`オーバー ロードを使用することがありますが、`requiresQuestionAndAnswer`設定します。 場合`requiresQuestionAndAnswer`に設定されている`true`(既定)、し、新しいユーザー アカウントを作成するときに、セキュリティの質問と回答を指定お必要があります。 この情報は後で、ユーザーをリセットまたはパスワードを変更する必要がある場合に使用します。 具体的には、その時点でのセキュリティの質問を表示されているとリセットまたはパスワードを変更するために正しい解答を入力する必要があります。 したがって場合、`requiresQuestionAndAnswer`に設定されている`true`最初の 2 つのいずれかを呼び出して、`CreateUser`のセキュリティの質問と回答が見つからないため、例外の結果をオーバー ロードします。 アプリケーションがセキュリティの質問と解答を要求するように現在構成されているためにはユーザーをプログラムで作成するときに、後者の 2 つのオーバー ロードのいずれかを使用する必要があります。
 
@@ -231,7 +232,7 @@ ASP.NET には、ユーザー インターフェイスを設計するための�
 メンバーシップ ユーザーのストアは今すぐ、ブルースと Tito のアカウントの情報が含まれていますが、まだを実装しなければならなくブルースまたは Tito サイトにログオンできるようにする機能。 現時点では、`Login.aspx`ユーザーの資格情報を検証は 1 組のユーザー名/パスワードのハードコーディング セットに対して*いない*メンバーシップ フレームワークに対して指定された資格情報を検証します。 今すぐに新しいユーザー アカウントを表示するため、`aspnet_Users`と`aspnet_Membership`で十分にテーブルになります。 チュートリアルでは、[次へ]、  *<a id="_msoanchor_9"> </a>[を検証するユーザー資格情報に対して、メンバーシップ ユーザー ストア](validating-user-credentials-against-the-membership-user-store-vb.md)*、メンバーシップ ストアに対して検証へのログイン ページを更新します。
 
 > [!NOTE]
-> すべてのユーザーが表示されない場合、`SecurityTutorials.mdf`データベースである可能性があります、web アプリケーションが既定のメンバーシップ プロバイダーを使用しているため`AspNetSqlMembershipProvider`が使用される、`ASPNETDB.mdf`ユーザー ストアとしてのデータベースです。 この問題を特定するのには、ソリューション エクスプ ローラーで [更新] ボタンをクリックします。 という名前のデータベース`ASPNETDB.mdf`に追加された、`App_Data`フォルダーで、これが問題です。 手順 4 に戻り、  *<a id="_msoanchor_10"> </a>[メンバーシップ スキーマを作成する SQL Server で](creating-the-membership-schema-in-sql-server-vb.md)*手順については、メンバーシップ プロバイダーを正しく構成する方法のチュートリアルです。
+> すべてのユーザーが表示されない場合、`SecurityTutorials.mdf`データベースである可能性があります、web アプリケーションが既定のメンバーシップ プロバイダーを使用しているため`AspNetSqlMembershipProvider`が使用される、`ASPNETDB.mdf`ユーザー ストアとしてのデータベースです。 この問題を特定するのには、ソリューション エクスプ ローラーで [更新] ボタンをクリックします。 という名前のデータベース`ASPNETDB.mdf`に追加された、`App_Data`フォルダーで、これが問題です。 手順 4 に戻り、  *<a id="_msoanchor_10"> </a>[メンバーシップ スキーマを作成する SQL Server で](creating-the-membership-schema-in-sql-server-vb.md)* 手順については、メンバーシップ プロバイダーを正しく構成する方法のチュートリアルです。
 
 
 ほとんどのユーザー アカウントのシナリオを作成、ユーザー名、パスワード、電子メール、および新しいアカウントを作成する時点で、必要なその他の情報を入力するいくつかのインターフェイスの訪問者が表示されます。 このステップでおを手動でこのようなインターフェイスの構築に検査しを使用する方法を説明し、`Membership.CreateUser`をプログラムで新しいユーザー アカウントを追加する方法、ユーザーの入力を基にします。 このコードは、新しいユーザー アカウントを作成しました。 補足情報だけが作成したユーザー アカウントでは、サイトにユーザーのログインまたはユーザーに確認の電子メールを送信するなどの操作は実行しませんでした。 追加の手順で、ボタンのコードを追加が必要になります`Click`イベント ハンドラー。
@@ -350,7 +351,7 @@ CreateUserWizard コントロールのイベント ハンドラーを次に、�
 
 
 > [!NOTE]
-> CreateUserWizard コントロールの使用例を見ていきます`CreatedUser`内のイベント、  *<a id="_msoanchor_11"> </a>[追加のユーザー情報を格納する](storing-additional-user-information-vb.md)*チュートリアルです。
+> CreateUserWizard コントロールの使用例を見ていきます`CreatedUser`内のイベント、  *<a id="_msoanchor_11"> </a>[追加のユーザー情報を格納する](storing-additional-user-information-vb.md)* チュートリアルです。
 
 
 ## <a name="summary"></a>まとめ
@@ -377,7 +378,7 @@ CreateUserWizard コントロールのイベント ハンドラーを次に、�
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890698"
 ---
 <a name="efficiently-paging-through-large-amounts-of-data-vb"></a>効率的に大量のデータ (VB) のページング
 ====================
@@ -163,7 +164,7 @@ DAL と行の開始インデックスを受け入れる BLL でメソッドを�
 [!code-html[Main](efficiently-paging-through-large-amounts-of-data-vb/samples/sample6.html)]
 
 > [!NOTE]
-> 紹介するように後でこのチュートリアルでは、 *`StartRowIndex`*によって提供される、ObjectDataSource のインデックスは 0 から始まる一方、 `ROW_NUMBER()` SQL Server 2005 によって返される値は 1 から始まるインデックスします。 そのため、`WHERE`句は、これらのレコードを返します場所`PriceRank`がより厳密に大きい*`StartRowIndex`*以下と等しい*`StartRowIndex`*  + *`MaximumRows`*.
+> 紹介するように後でこのチュートリアルでは、 *`StartRowIndex`* によって提供される、ObjectDataSource のインデックスは 0 から始まる一方、 `ROW_NUMBER()` SQL Server 2005 によって返される値は 1 から始まるインデックスします。 そのため、`WHERE`句は、これらのレコードを返します場所`PriceRank`がより厳密に大きい*`StartRowIndex`* 以下と等しい*`StartRowIndex`*  + *`MaximumRows`*.
 
 
 これまで方法を説明してきた`ROW_NUMBER()`できます、開始行のインデックスと行の最大数の値を指定されたデータの特定のページを取得するために使用、今すぐいただくために DAL BLL 内のメソッドとしてこのロジックを実装します。
@@ -275,9 +276,9 @@ GridView は、ObjectDataSource は両方の値として 0 を現在使用され
 
 この問題を解決するには、カスタム ページングを使用して、ObjectDataSource を構成する必要があります。 これは、次の手順で実行できます。
 
-1. **集合 ObjectDataSource s`EnablePaging`プロパティを`true`**に渡す必要があります、ObjectDataSource にこれを示します、 `SelectMethod` 2 つのパラメーター: 行の開始インデックスを指定する 1 つ ([ `StartRowIndexParameterName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.startrowindexparametername.aspx))、および行の最大数を指定する 1 つ ([`MaximumRowsParameterName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.maximumrowsparametername.aspx))。
+1. **集合 ObjectDataSource s`EnablePaging`プロパティを`true`** に渡す必要があります、ObjectDataSource にこれを示します、 `SelectMethod` 2 つのパラメーター: 行の開始インデックスを指定する 1 つ ([ `StartRowIndexParameterName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.startrowindexparametername.aspx))、および行の最大数を指定する 1 つ ([`MaximumRowsParameterName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.maximumrowsparametername.aspx))。
 2. **ObjectDataSource s を設定`StartRowIndexParameterName`と`MaximumRowsParameterName`プロパティに応じて**、`StartRowIndexParameterName`と`MaximumRowsParameterName`プロパティに渡される入力パラメーターの名前を示す、`SelectMethod`用カスタム ページングします。 これらのパラメーター名は、既定では、`startIndexRow`と`maximumRows`、これは、理由を作成するとき、`GetProductsPaged`メソッド、BLL では入力パラメーターのこれらの値を使用しました。 BLL s のさまざまなパラメーター名を使用する場合`GetProductsPaged`などのメソッド`startIndex`と`maxRows`にする必要がありますの例は、ObjectDataSource s を設定、`StartRowIndexParameterName`と`MaximumRowsParameterName`プロパティに応じて (などの startIndex`StartRowIndexParameterName`およびの maxRows `MaximumRowsParameterName`)。
-3. **集合 ObjectDataSource s [ `SelectCountMethod`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selectcountmethod(VS.80).aspx)を合計数のレコードされているページを返すメソッドの名前に (`TotalNumberOfProducts`)**ことに注意してください、`ProductsBLL`クラスの`TotalNumberOfProducts`メソッドを実行する DAL メソッドを使用してページングされるレコードの合計数を返します、`SELECT COUNT(*) FROM Products`クエリ。 この情報には、正しくページング インターフェイスを表示するために、ObjectDataSource が必要です。
+3. **集合 ObjectDataSource s [ `SelectCountMethod`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selectcountmethod(VS.80).aspx)を合計数のレコードされているページを返すメソッドの名前に (`TotalNumberOfProducts`)** ことに注意してください、`ProductsBLL`クラスの`TotalNumberOfProducts`メソッドを実行する DAL メソッドを使用してページングされるレコードの合計数を返します、`SELECT COUNT(*) FROM Products`クエリ。 この情報には、正しくページング インターフェイスを表示するために、ObjectDataSource が必要です。
 4. **削除、`startRowIndex`と`maximumRows` `<asp:Parameter>` ObjectDataSource s 宣言型マークアップから要素**ウィザード、ObjectDataSource を構成するには、Visual Studio に自動的に追加 2`<asp:Parameter>`要素`GetProductsPaged`のメソッドの入力パラメーターです。 設定して`EnablePaging`に`true`、これらのパラメーターが自動的に渡されます;、ObjectDataSource を渡そうとして表示される場合も宣言の構文では、 *4*パラメーターを`GetProductsPaged`メソッド2 つのパラメーターと、`TotalNumberOfProducts`メソッドです。 これらを削除するを忘れた場合`<asp:Parameter>`などのエラー メッセージが表示されます、ブラウザーからページを訪問すると、要素: *ObjectDataSource 'ObjectDataSource1' は、非ジェネリック メソッドの 'TotalNumberOfProducts' を持つを特定できませんでしたパラメーター: startRowIndex、maximumRows*です。
 
 これらの変更を加えたら、ObjectDataSource s の宣言構文は次のようになります。

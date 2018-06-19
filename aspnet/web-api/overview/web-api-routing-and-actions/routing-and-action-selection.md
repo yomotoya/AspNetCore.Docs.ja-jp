@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28043419"
 ---
 <a name="routing-and-action-selection-in-aspnet-web-api"></a>ルーティングと ASP.NET Web API の操作の選択
 ====================

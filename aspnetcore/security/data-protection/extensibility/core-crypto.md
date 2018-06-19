@@ -14,6 +14,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896827"
 ---
 # <a name="core-cryptography-extensibility-in-aspnet-core"></a>ASP.NET Core の中核となる暗号化の拡張性
 

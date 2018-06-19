@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/using-a-singleton-in-an-odata-endpoint-in-web-api-22
-title: "Web API 2.2 を使用して OData v4 のシングルトンを作成 |Microsoft ドキュメント"
+title: Web API 2.2 を使用して OData v4 のシングルトンを作成 |Microsoft ドキュメント
 author: rick-anderson
-description: "このトピックでは、Web API 2.2 で OData エンドポイントでシングルトンを定義する方法を示します。"
+description: このトピックでは、Web API 2.2 で OData エンドポイントでシングルトンを定義する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/27/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508211"
 ---
 <a name="create-a-singleton-in-odata-v4-using-web-api-22"></a>Web API 2.2 を使用して OData v4 のシングルトンを作成します。
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890867"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio を使用して ASP.NET Web 配置: テストへの展開
 ====================
@@ -82,7 +83,7 @@ IIS をインストールすると、実行**IIS マネージャー** .NET Frame
 6. **アプリケーション プール** ウィンドウで、をクリックして**DefaultAppPool**、し、、**アクション**ペイン をクリック**基本設定**です。
 
     [![Inetmgr_selecting_Basic_Settings_for_app_pool](deploying-to-iis/_static/image5.png)](deploying-to-iis/_static/image4.png)
-7. **アプリケーション プールの編集** ダイアログ ボックスで、変更**.NET Framework のバージョン**に**.NET Framework v4.0.30319**  をクリック**OK**です。
+7. **アプリケーション プールの編集** ダイアログ ボックスで、変更 **.NET Framework のバージョン**に **.NET Framework v4.0.30319**  をクリック**OK**です。
 
     [![Selecting_.NET_4_for_DefaultAppPool](deploying-to-iis/_static/image7.png)](deploying-to-iis/_static/image6.png)
 
@@ -142,10 +143,10 @@ Contoso 大学アプリケーションが 2 つのデータベース: メンバ�
 スクリプトを実行する、grant、メンバーシップ データベース内の展開時にそのデータベースの配置が dbDacFx プロバイダーを使用するため、発行プロファイルを構成することができます。 これは、アプリケーション データベースを配置する方法、Code First Migrations 展開時にスクリプトを実行することはできません。 そのため、アプリケーション データベースに手動で展開する前にスクリプトを実行する必要があります。
 
 1. Visual Studio で開く、 *Grant.sql*先ほど作成したファイルです。
-2. **[接続]**をクリックします。 
+2. **[接続]** をクリックします。 
 
     ![[接続] ボタン](deploying-to-iis/_static/image11.png)
-3. **サーバーへの接続** ダイアログ ボックスに、入力*. \SQLExpress*として、**サーバー名**、クリックして**接続**です。
+3. **サーバーへの接続** ダイアログ ボックスに、入力 *. \SQLExpress*として、**サーバー名**、クリックして**接続**です。
 4. データベースのボックスの一覧で選択**ContosoUniversity**、クリックして**Execute**です。 
 
     ![](deploying-to-iis/_static/image12.png)
@@ -163,7 +164,7 @@ Contoso 大学アプリケーションが 2 つのデータベース: メンバ�
 
 プロセスを経てきましたを自動化する Visual Studio を設定する前のチュートリアルでの展開タスクがこれらのメソッドのすべてに適用されます。 これらのチュートリアルでは、これらのメソッドの最初の 2 つを使用します。 展開パッケージを使用する方法の詳細については、次を参照してください。[作成し、web 配置パッケージをインストールした web アプリケーションの配置](https://go.microsoft.com/fwlink/p/?LinkId=282413#package)で Visual Studio と ASP.NET の Web 展開のコンテンツ マップします。
 
-発行前に、管理者モードで Visual Studio を実行していることを確認します。 表示されない場合**(管理者)**タイトル バーで、Visual Studio を閉じます。 Windows 8 で**開始**ページまたは Windows 7**開始**メニューで、ご使用の Visual Studio のバージョンのアイコンを右クリックして**管理者として実行**です。 管理者モードでは、のみときにパブリッシュする IIS、ローカル コンピューター上の発行に必要です。
+発行前に、管理者モードで Visual Studio を実行していることを確認します。 表示されない場合 **(管理者)** タイトル バーで、Visual Studio を閉じます。 Windows 8 で**開始**ページまたは Windows 7**開始**メニューで、ご使用の Visual Studio のバージョンのアイコンを右クリックして**管理者として実行**です。 管理者モードでは、のみときにパブリッシュする IIS、ローカル コンピューター上の発行に必要です。
 
 ### <a name="create-the-publish-profile"></a>発行プロファイルを作成します。
 
@@ -244,7 +245,7 @@ Visual Studio で Entity Framework が検出された場合`DbContext`内のエ�
     展開プロセスは、ために、展開済みの Web.config ファイルのこの接続文字列を格納する**実行時にこの接続文字列を使用して**が選択されています。
 
     アプリケーションのデータベース接続文字列を取得することもできます。**サーバー エクスプ ローラー**同様のメンバーシップを取得したデータベース接続文字列。
-2. 選択**実行 Code First Migrations (アプリケーション開始時に実行されます)**です。
+2. 選択**実行 Code First Migrations (アプリケーション開始時に実行されます)** です。
 
     このオプションの設定により、展開プロセスを指定する展開済みの Web.config ファイルを構成するのには、`MigrateDatabaseToLatestVersion`初期化子。 この初期化子を使用最新バージョンにアプリケーションの展開後に最初に、データベースにアクセスするときのデータベースが自動的に更新します。
 
@@ -277,7 +278,7 @@ Visual Studio で Entity Framework が検出された場合`DbContext`内のエ�
     ![プレビューを公開します。](deploying-to-iis/_static/image19.png)
 
     クリックすることも、**プレビューのデータベース**メンバーシップ データベースで実行されるスクリプトを表示するリンクです。 (スクリプトは実行されません Code First Migrations 展開のため、アプリケーション データベースをプレビューするものはありません。)
-3. **[発行]**をクリックします。
+3. **[発行]** をクリックします。
 
     Visual Studio が管理者モードでない場合は、アクセス許可エラーを示すエラー メッセージを取得可能性があります。 その場合は、Visual Studio を閉じます、管理者モードで開き、再度発行します。
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892700"
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>電子メールの確認とパスワードのリセット (c#) でユーザー登録、セキュリティで保護された ASP.NET Web フォーム アプリを作成します。
 ====================
@@ -144,7 +145,7 @@ ms.lasthandoff: 04/06/2018
 
     [!code-csharp[Main](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/samples/sample9.cs?highlight=5)]
 4. キーを押して、アプリの実行**f5 キーを押します。** ページが表示されたら、クリックして、**ログイン**リンクします。
-5. クリックして、**パスワードを忘れた場合ですか?**表示へのリンク、**パスワードを忘れた場合**ページ。
+5. クリックして、**パスワードを忘れた場合ですか?** 表示へのリンク、**パスワードを忘れた場合**ページ。
 6. 電子メール アドレスを入力し、をクリックして、**送信**電子メール アドレスに送信する、パスワードをリセットできるボタンをクリックします。   
    電子メール アカウントを確認し、表示するリンクをクリックして、**パスワードのリセット**ページ。
 7. **パスワードのリセット** ページで、電子メール、パスワード、および確認入力したパスワードを入力します。 次に、キーを押して、**リセット**ボタンをクリックします。  

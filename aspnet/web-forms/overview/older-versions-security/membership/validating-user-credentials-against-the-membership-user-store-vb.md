@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891335"
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-vb"></a>メンバーシップ ユーザーのストア (VB) に対してユーザーの資格情報の検証
 ====================
@@ -230,7 +231,7 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="determining-and-validating-the-supplied-credentials"></a>特定し、指定された資格情報を検証します。
 
-ログイン コントロールの使用[ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx)と[`Password`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx)をユーザーが入力したユーザー名とパスワードの資格情報を確認します。 その他の Web コントロールに入力された値を決定するために (など、 `Email`  ボックスに、前の手順で追加されました)、使用`LoginControlID.FindControl`("*`controlID`*") を Web 参照をプログラムで取得するにはテンプレートにいるコントロール`ID`プロパティと等しい *`controlID`*です。 たとえばへの参照を取得するため、 `Email`  ボックスに、次のコードを使用します。
+ログイン コントロールの使用[ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx)と[`Password`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx)をユーザーが入力したユーザー名とパスワードの資格情報を確認します。 その他の Web コントロールに入力された値を決定するために (など、 `Email`  ボックスに、前の手順で追加されました)、使用`LoginControlID.FindControl`("*`controlID`*") を Web 参照をプログラムで取得するにはテンプレートにいるコントロール`ID`プロパティと等しい *`controlID`* です。 たとえばへの参照を取得するため、 `Email`  ボックスに、次のコードを使用します。
 
 `Dim EmailTextBox As TextBox = CType(myLogin.FindControl("Email"), TextBox)`
 
@@ -310,7 +311,7 @@ ms.lasthandoff: 04/06/2018
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 

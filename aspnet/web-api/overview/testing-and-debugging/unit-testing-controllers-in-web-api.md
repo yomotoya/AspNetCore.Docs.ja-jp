@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api
-title: "単体テストの ASP.NET web API 2 コント ローラー |Microsoft ドキュメント"
+title: 単体テストの ASP.NET web API 2 コント ローラー |Microsoft ドキュメント
 author: MikeWasson
-description: "このトピックでは、単体テストの Web API 2 コント ローラーの特定の方法について説明します。 このトピックを読む前に単位のチュートリアルを読みたい場合があります."
+description: このトピックでは、単体テストの Web API 2 コント ローラーの特定の方法について説明します。 このトピックを読む前に単位のチュートリアルを読みたい場合があります.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/11/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28039545"
 ---
 <a name="unit-testing-controllers-in-aspnet-web-api-2"></a>単体テストの ASP.NET web API 2 コント ローラー
 ====================

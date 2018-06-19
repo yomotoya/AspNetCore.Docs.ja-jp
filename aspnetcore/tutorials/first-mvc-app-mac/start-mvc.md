@@ -14,6 +14,7 @@ ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/21/2018
+ms.locfileid: "30896641"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>ASP.NET Core MVC と Visual Studio for Mac の概要
 

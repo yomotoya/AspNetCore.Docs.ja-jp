@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877074"
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>型指定されたデータセットの Tableadapter (c#) のストアド プロシージャを既存の使用
 ====================

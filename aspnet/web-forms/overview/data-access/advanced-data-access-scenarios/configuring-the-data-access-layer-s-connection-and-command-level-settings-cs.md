@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876112"
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>データ アクセス層の接続とコマンド レベルの設定 (c#) を構成します。
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/releases/upgrading-signalr-1x-projects-to-20
-title: "バージョン 2 に SignalR 1.x プロジェクトのアップグレード |Microsoft ドキュメント"
+title: バージョン 2 に SignalR 1.x プロジェクトのアップグレード |Microsoft ドキュメント
 author: pfletcher
-description: "SignalR に既存の SignalR 1.x プロジェクトをアップグレードする方法を説明 2.x、およびアップグレードの処理中に発生する可能性のある問題をトラブルシューティングする方法."
+description: SignalR に既存の SignalR 1.x プロジェクトをアップグレードする方法を説明 2.x、およびアップグレードの処理中に発生する可能性のある問題をトラブルシューティングする方法.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26505741"
 ---
 <a name="upgrading-signalr-1x-projects-to-version-2"></a>SignalR 1.x プロジェクトをバージョン 2 にアップグレードします。
 ====================
@@ -68,7 +69,7 @@ SignalR 2 にアプリケーションをアップグレードすることをお�
 
 このセクションで作成したアプリケーションを更新するされます、[チュートリアル入門の SignalR 1.x バージョン](../older-versions/index.md)SignalR 2 を使用します。
 
-1. チュートリアル入門が終了したら後、プロジェクトを右クリックし、選択**プロパティ**です。 いることを確認、**ターゲット フレームワーク**に設定されている**.NET Framework 4.5。**
+1. チュートリアル入門が終了したら後、プロジェクトを右クリックし、選択**プロパティ**です。 いることを確認、**ターゲット フレームワーク**に設定されている **.NET Framework 4.5。**
 2. パッケージ マネージャー コンソールを開きます。 SignalR を削除する、次のコマンドを使用してプロジェクトから 1.x:
 
     [!code-powershell[Main](upgrading-signalr-1x-projects-to-20/samples/sample1.ps1)]

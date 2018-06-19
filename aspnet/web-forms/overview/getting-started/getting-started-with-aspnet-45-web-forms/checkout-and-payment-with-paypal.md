@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891894"
 ---
 <a name="checkout-and-payment-with-paypal"></a>チェック アウトおよび PayPal の支払い
 ====================
@@ -294,7 +295,7 @@ PayPal のテスト環境を使用するのには、作成し、開発者のテ�
 
 1. Wingtip Toys サンプル アプリケーションの Visual Studio 内で右クリックし、**ロジック**クリックしてフォルダー**追加** - &gt; **新しい項目の**します。   
    **[新しい項目の追加]** ダイアログ ボックスが表示されます。
-2. **Visual c#**から、**インストール**左側のウィンドウ、[**コード**です。
+2. **Visual c#** から、**インストール**左側のウィンドウ、[**コード**です。
 3. 中央のペインでは、次のように選択します。**クラス**です。 この新しいクラスの名前を**PayPalFunctions.cs**です。
 4. **[追加]** をクリックします。  
    新しいクラス ファイルがエディターで表示されます。

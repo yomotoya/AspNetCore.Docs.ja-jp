@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-detect-browser-capabilities-in-aspnet-web-pages
-title: "[How Do i:]ASP.NET Web Pages でのブラウザーの機能の検出 |Microsoft ドキュメント"
+title: '[How Do i:]ASP.NET Web Pages でのブラウザーの機能の検出 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオでは、Chris Pels としては、ユーザーのブラウザーが ASP.NET web サイトでページを表示するときにどのような機能を判断する方法を示します。 まず、学習 acc. 方法."
+description: このビデオでは、Chris Pels としては、ユーザーのブラウザーが ASP.NET web サイトでページを表示するときにどのような機能を判断する方法を示します。 まず、学習 acc. 方法.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28884092"
 ---
 <a name="how-do-i-detect-browser-capabilities-in-aspnet-web-pages"></a>[How Do i:]ASP.NET Web ページでブラウザーの機能を検出します。
 ====================

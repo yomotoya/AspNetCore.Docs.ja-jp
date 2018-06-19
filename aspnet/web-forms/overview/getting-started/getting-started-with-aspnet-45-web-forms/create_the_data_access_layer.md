@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881465"
 ---
 <a name="create-the-data-access-layer"></a>データ アクセス層を作成します。
 ====================
@@ -69,7 +70,7 @@ Web フォーム アプリケーションのデータ モデルを定義する�
     ![データ アクセス レイヤーでの新しいメニュー項目の作成します。](create_the_data_access_layer/_static/image1.png)
 
    **[新しい項目の追加]** ダイアログ ボックスが表示されます。
-2. **Visual c#**から、**インストール**左側のウィンドウ、**コード**です。 
+2. **Visual c#** から、**インストール**左側のウィンドウ、**コード**です。 
 
     ![データ アクセス レイヤーでの新しいメニュー項目の作成します。](create_the_data_access_layer/_static/image2.png)
 3. 選択**クラス**中央のペインからこの新しいクラスの名前と*Product.cs*です。

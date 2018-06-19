@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/application-level-objects
-title: "アプリケーション レベルのオブジェクト |Microsoft ドキュメント"
+title: アプリケーション レベルのオブジェクト |Microsoft ドキュメント
 author: JoeStagner
-description: "このビデオではアプリケーション レベルのイベントおよびオブジェクトの導入し、の概念を説明&quot;スコープ&quot;それらに関連しています。"
+description: このビデオではアプリケーション レベルのイベントおよびオブジェクトの導入し、の概念を説明&quot;スコープ&quot;それらに関連しています。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521561"
 ---
 <a name="application-level-objects"></a>アプリケーション レベルのオブジェクト
 ====================

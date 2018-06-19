@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876671"
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-vb"></a>ObjectDataSource のパラメーター値 (VB) のプログラムで設定
 ====================
@@ -124,7 +125,7 @@ ms.lasthandoff: 04/06/2018
 **図 9**: Web コントロールのイベントを一覧表示する [プロパティ] ウィンドウで表示される稲妻アイコンをクリックして
 
 
-次の 3 つの方法はすべて、ObjectDataSource を新しいイベント ハンドラーを追加する`Selecting`ページの分離コード クラスをイベント。 このイベント ハンドラー内には、読み取りし、書き込みを使用してパラメーターの値おできます`e.InputParameters(parameterName)`ここで、 *`parameterName`*の値は、`Name`属性、`<asp:Parameter>`タグ (、`InputParameters`コレクションすることもできます序数に基づく、としてのインデックス付き`e.InputParameters(index)`)。 設定する、`month`現在の月にパラメーターを追加するには、次の`Selecting`イベントのハンドラー。
+次の 3 つの方法はすべて、ObjectDataSource を新しいイベント ハンドラーを追加する`Selecting`ページの分離コード クラスをイベント。 このイベント ハンドラー内には、読み取りし、書き込みを使用してパラメーターの値おできます`e.InputParameters(parameterName)`ここで、 *`parameterName`* の値は、`Name`属性、`<asp:Parameter>`タグ (、`InputParameters`コレクションすることもできます序数に基づく、としてのインデックス付き`e.InputParameters(index)`)。 設定する、`month`現在の月にパラメーターを追加するには、次の`Selecting`イベントのハンドラー。
 
 
 [!code-vb[Main](programmatically-setting-the-objectdatasource-s-parameter-values-vb/samples/sample3.vb)]

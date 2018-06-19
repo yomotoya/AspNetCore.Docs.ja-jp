@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891348"
 ---
 <a name="control-id-naming-in-content-pages-c"></a>コンテンツ ページ (c#) で名前のコントロール ID
 ====================
@@ -143,7 +144,7 @@ Visual Studio は、マスター ページの次の 4 つ contentplaceholders �
 
 ブレークポイントを設定した場合、`SubmitButton_Click`イベント ハンドラーの両方を呼び出すことがわかります`FindControl`を返す、`null`値。 `NullReferenceException`にアクセスするときに発生するが、`Age`テキスト ボックスの`Text`プロパティです。
 
-問題は`Control.FindControl`のみ検索*コントロール*の子孫である*、同じ名前付けコンテナー*です。 マスター ページは、新しい名前付けコンテナーへの呼び出しを占めて`Page.FindControl("controlID")`マスター ページのオブジェクトが決して permeates`ctl00`です。 (表示コントロールの階層を表示する図 4 に戻って、`Page`マスター ページのオブジェクトの親としてオブジェクト`ctl00`)。したがって、`Results`ラベルと`Age` テキスト ボックスが見つからないと`ResultsLabel`と`AgeTextBox`の値が割り当てられます`null`です。
+問題は`Control.FindControl`のみ検索*コントロール*の子孫である *、同じ名前付けコンテナー*です。 マスター ページは、新しい名前付けコンテナーへの呼び出しを占めて`Page.FindControl("controlID")`マスター ページのオブジェクトが決して permeates`ctl00`です。 (表示コントロールの階層を表示する図 4 に戻って、`Page`マスター ページのオブジェクトの親としてオブジェクト`ctl00`)。したがって、`Results`ラベルと`Age` テキスト ボックスが見つからないと`ResultsLabel`と`AgeTextBox`の値が割り当てられます`null`です。
 
 この課題に 2 つの回避策がある: おドリルダウンできます、名前付けコンテナーを 1 つずつ、適切なコントロール作成できるよう、自分または`FindControl`名前付けコンテナーを permeates メソッドです。 これらの各オプションを調べてみましょう。
 

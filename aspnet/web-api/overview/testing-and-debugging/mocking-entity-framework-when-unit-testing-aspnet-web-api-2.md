@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29152866"
 ---
 <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Entity Framework をモック作成時に単体テストの ASP.NET Web API 2
 ====================

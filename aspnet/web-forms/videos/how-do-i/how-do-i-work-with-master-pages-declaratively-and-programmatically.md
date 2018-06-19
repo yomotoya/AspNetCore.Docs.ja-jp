@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-work-with-master-pages-declaratively-and-programmatically
-title: "[How Do i:]宣言またはプログラムによって、マスター ページの操作 |Microsoft ドキュメント"
+title: '[How Do i:]宣言またはプログラムによって、マスター ページの操作 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels で定義して、マスター ページを使用して ASP.NET web サイトでのいくつかの側面が表示されます。 最初に、マスター ページ declarati を作成する方法を参照してください."
+description: このビデオ Chris Pels で定義して、マスター ページを使用して ASP.NET web サイトでのいくつかの側面が表示されます。 最初に、マスター ページ declarati を作成する方法を参照してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526521"
 ---
 <a name="how-do-i-work-with-master-pages-declaratively-and-programmatically"></a>[How Do i:]宣言またはプログラムによって、マスター ページを操作します。
 ====================

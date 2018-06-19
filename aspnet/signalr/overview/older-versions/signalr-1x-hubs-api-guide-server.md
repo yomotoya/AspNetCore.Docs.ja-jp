@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/signalr-1x-hubs-api-guide-server
-title: "ASP.NET SignalR ハブ API ガイド - サーバー (SignalR 1.x) |Microsoft ドキュメント"
+title: ASP.NET SignalR ハブ API ガイド - サーバー (SignalR 1.x) |Microsoft ドキュメント
 author: pfletcher
-description: "このドキュメントでは、SignalR バージョン 1.1 では、コード サンプル demonstratin と for ASP.NET SignalR ハブ API のサーバー側のプログラミングを紹介しています."
+description: このドキュメントでは、SignalR バージョン 1.1 では、コード サンプル demonstratin と for ASP.NET SignalR ハブ API のサーバー側のプログラミングを紹介しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/17/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28044183"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-signalr-1x"></a>ASP.NET SignalR ハブ API ガイド - サーバー (SignalR 1.x)
 ====================

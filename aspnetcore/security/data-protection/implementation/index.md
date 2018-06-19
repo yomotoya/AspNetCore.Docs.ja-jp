@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30075325"
 ---
 # <a name="aspnet-core-data-protection-implementation"></a>ASP.NET Core データ保護の実装
 

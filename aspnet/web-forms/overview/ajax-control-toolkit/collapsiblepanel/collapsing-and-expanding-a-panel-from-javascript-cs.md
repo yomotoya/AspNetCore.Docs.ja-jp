@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875540"
 ---
 <a name="collapsing-and-expanding-a-panel-from-javascript-c"></a>折りたたみモードと JavaScript (c#) からのパネルを展開します。
 ====================

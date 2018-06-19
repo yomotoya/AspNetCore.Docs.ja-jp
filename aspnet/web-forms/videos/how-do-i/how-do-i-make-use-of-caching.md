@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-make-use-of-caching
-title: "[How Do i:]使用する Caching のですか。 | Microsoft Docs"
+title: '[How Do i:]使用する Caching のですか。 | Microsoft Docs'
 author: microsoft
-description: "SQL Server 2000 と SQL Server 2005 の新しいデータベースのキャッシュのサポートの概要を続けてページ出力キャッシュのデモをご覧ください。"
+description: SQL Server 2000 と SQL Server 2005 の新しいデータベースのキャッシュのサポートの概要を続けてページ出力キャッシュのデモをご覧ください。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526301"
 ---
 <a name="how-do-i-make-use-of-caching"></a>[How Do i:]使用する Caching のですか。
 ====================

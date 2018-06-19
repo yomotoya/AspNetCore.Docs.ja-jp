@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-aspnet-to-send-email-from-a-web-site
-title: "[How Do i:]ASP.NET を使用して Web サイトからの電子メール送信 |Microsoft ドキュメント"
+title: '[How Do i:]ASP.NET を使用して Web サイトからの電子メール送信 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels で作成し、ASP.NET web サイトで電子メールを送信する方法を示しています。 まず、System.Net.Mail 名前空間 f のコア クラスについて説明してください."
+description: このビデオ Chris Pels で作成し、ASP.NET web サイトで電子メールを送信する方法を示しています。 まず、System.Net.Mail 名前空間 f のコア クラスについて説明してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526051"
 ---
 <a name="how-do-i-use-aspnet-to-send-email-from-a-web-site"></a>[How Do i:]ASP.NET を使用して Web サイトからの電子メール送信
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/data-source-controls
-title: "データ ソース コントロール |Microsoft ドキュメント"
+title: データ ソース コントロール |Microsoft ドキュメント
 author: microsoft
-description: "DataGrid コントロール ASP.NET 1.x としてマークされている Web アプリケーションでのデータ アクセスでは、優れた向上します。 ただし、した可能性がありますと、わかりやすいでした."
+description: DataGrid コントロール ASP.NET 1.x としてマークされている Web アプリケーションでのデータ アクセスでは、優れた向上します。 ただし、した可能性がありますと、わかりやすいでした.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885896"
 ---
 <a name="data-source-controls"></a>データ ソース コントロール
 ====================
@@ -175,7 +176,7 @@ AccessDataSource は System.Data.OleDb を基本 SqlDataSource の ProviderName 
 
 [!code-xml[Main](data-source-controls/samples/sample5.xml)]
 
-指定された xmldatasource 上での XPath プロパティを使用することを確認*/方*にフィルターを適用するためにだけ、&lt;人&gt;ノード。 DropDownList、DataTextField プロパティを使用して LastName 属性にデータをバインドします。
+指定された xmldatasource 上での XPath プロパティを使用することを確認 */方*にフィルターを適用するためにだけ、&lt;人&gt;ノード。 DropDownList、DataTextField プロパティを使用して LastName 属性にデータをバインドします。
 
 XmlDataSource コントロールは読み取り専用の XML データへのデータ バインドに使用される、主は、XML データ ファイルを編集することです。 このような場合、自動挿入、更新、および XML ファイル内の情報の削除が動作しない自動的には他のデータ ソース コントロールに注意してください。 代わりに、XmlDataSource コントロールの次のメソッドを使用してデータを手動で編集するコードを記述する必要があります。
 

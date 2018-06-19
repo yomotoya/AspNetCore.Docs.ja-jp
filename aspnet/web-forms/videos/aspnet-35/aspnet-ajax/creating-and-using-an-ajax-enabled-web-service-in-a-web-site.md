@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890165"
 ---
 <a name="creating-and-using-an-ajax-enabled-web-service-in-a-web-site"></a>作成して、Web サイトでの AJAX 対応 Web サービスの使用
 ====================

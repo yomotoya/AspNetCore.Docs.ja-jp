@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/what-is-new-in-aspnet-mvc
-title: "ASP.NET MVC 2 の新機能 |Microsoft ドキュメント"
+title: ASP.NET MVC 2 の新機能 |Microsoft ドキュメント
 author: rick-anderson
-description: "このドキュメントでは、新しい機能と ASP.NET MVC 2 で導入された機能強化について説明します。 このドキュメントはダウンロードもできます。"
+description: このドキュメントでは、新しい機能と ASP.NET MVC 2 で導入された機能強化について説明します。 このドキュメントはダウンロードもできます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2010
 ms.topic: article
 ms.assetid: 69a8d6f8-4b10-4602-8822-2d6c05fc432b
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/what-is-new-in-aspnet-mvc
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885233"
 ---
 <a name="whats-new-in-aspnet-mvc-2"></a>ASP.NET MVC 2 の新機能
 ====================

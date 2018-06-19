@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893847"
 ---
 <a name="custom-extraction-rules-and-coded-web-tests"></a>カスタム抽出規則とコード化された Web テスト
 ====================

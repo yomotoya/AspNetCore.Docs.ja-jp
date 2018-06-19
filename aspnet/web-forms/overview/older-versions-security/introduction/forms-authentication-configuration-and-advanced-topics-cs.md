@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891781"
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-c"></a>フォーム認証の構成と高度なトピック (c#)
 ====================
@@ -179,7 +180,7 @@ Default.aspx に変更を保存し、ブラウザーを使用しを参照して�
 
 チケットのデータのプライバシーを保護するには、フォーム認証システムがチケット データを暗号化できます。 チケット データを暗号化する障害は、プレーン テキストでネットワーク経由で機密性の高い情報を送信します。
 
-チケットの信頼性を保証するために、フォーム認証システムがある必要があります*検証*チケット。 検証は、特定のデータが変更されていないと、によって実現されます。 保証するための、 *[メッセージ認証コード (MAC)](http://en.wikipedia.org/wiki/Message_authentication_code)*です。 簡単に言うと、MAC は、(この場合は、チケット) を検証する必要があるデータを識別する情報の断片です。 MAC で表されるデータを変更する場合、MAC とデータが一致しません。 さらに、ハッカーが両方のデータを変更し、変更されたデータに対応するためには、自分の MAC を生成する計算量が非常に困難です。
+チケットの信頼性を保証するために、フォーム認証システムがある必要があります*検証*チケット。 検証は、特定のデータが変更されていないと、によって実現されます。 保証するための、 *[メッセージ認証コード (MAC)](http://en.wikipedia.org/wiki/Message_authentication_code)* です。 簡単に言うと、MAC は、(この場合は、チケット) を検証する必要があるデータを識別する情報の断片です。 MAC で表されるデータを変更する場合、MAC とデータが一致しません。 さらに、ハッカーが両方のデータを変更し、変更されたデータに対応するためには、自分の MAC を生成する計算量が非常に困難です。
 
 作成 (または変更する) ときに、チケット、フォーム認証システムは、MAC を作成し、チケットのデータにアタッチします。 後続の要求が到着すると、フォーム認証システムはチケット データの信頼性を検証する MAC とチケットのデータを比較します。 図 3 は、このワークフローを視覚的に示します。
 
@@ -433,7 +434,7 @@ ASP.NET ランタイムは、ご利用の米国、これらのプロパティ値
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>感謝の特別な
 

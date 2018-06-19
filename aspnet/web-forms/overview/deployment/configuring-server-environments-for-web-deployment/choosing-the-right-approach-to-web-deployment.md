@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890503"
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Web 配置の適切なアプローチを選択します。
 ====================
@@ -69,7 +70,7 @@ Web 配置の移行先サーバーで、既定の設定を使用してをイン�
 
 
 > [!NOTE]
-> Web Deploy のコマンドライン構文についての詳細と*. deploy.cmd*ファイルを参照してください[する方法: 展開パッケージを使用して、deploy.cmd ファイルをインストール](https://msdn.microsoft.com/library/ff356104.aspx)です。
+> Web Deploy のコマンドライン構文についての詳細と *. deploy.cmd*ファイルを参照してください[する方法: 展開パッケージを使用して、deploy.cmd ファイルをインストール](https://msdn.microsoft.com/library/ff356104.aspx)です。
 
 
 リモート エージェントがリモートの場所からコンテンツを展開する簡単な方法を提供し、この方法でも 1 回のクリックまたは自動の展開でうまく機能します。 ただし、展開コマンドを実行するユーザーにも必要があります、ドメイン管理者または移行先サーバーでローカルの administrators グループのメンバーのいずれか。 さらに、コマンドラインで代替資格情報を渡すことはできませんので、リモート エージェントは、基本認証をサポートしていません。

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897970"
 ---
 <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>ASP.NET Web Pages の概要 - フォームを使用してデータベースのデータを入力します。
 ====================
@@ -222,7 +223,7 @@ ASP.NET Web ページには、ヘルパーが含まれています。 &mdash; �
 
 [!code-cshtml[Main](entering-data/samples/sample13.cshtml?highlight=4-17)]
 
-別のスタイル情報を通常おそらく put *.css*ファイル、わかりやすくするために配置できます ページで今のところですが。 (このチュートリアルのセットの後で移動、CSS 規則別に*.css*ファイルです)。
+別のスタイル情報を通常おそらく put *.css*ファイル、わかりやすくするために配置できます ページで今のところですが。 (このチュートリアルのセットの後で移動、CSS 規則別に *.css*ファイルです)。
 
 検証エラーがある場合、`Html.ValidationMessage`メソッドでの表示、`<span>`を含む要素`class="field-validation-error"`です。 そのクラスのスタイル定義を追加すると、メッセージの外観を構成できます。 エラーがある場合、`ValidationSummary`メソッドは、属性を動的に同様にレンダリング`class="validation-summary-errors"`です。
 
@@ -238,7 +239,7 @@ ASP.NET Web ページには、ヘルパーが含まれています。 &mdash; �
 
 [!code-cshtml[Main](entering-data/samples/sample14.cshtml)]
 
-ASP.NET を解釈する前に説明したとおり、`~`演算子として、web サイトのルートです。 使用する必要はありません、`~`演算子; マークアップを使用する可能性があります`<a href="./AddMovie">Add a movie</a>`または HTML を理解しているパスを定義するその他の何らかの方法です。 ですが、`~`演算子は有効な一般的なアプローチ Razor ページのリンクを作成するときに、サイトをより柔軟なため、リンクに移動するものサブフォルダーに、現在のページを移動する場合、 *AddMovie*ページ。 (ことに注意して、`~`演算子でのみ機能*.cshtml*ページ。 ASP.NET が理解できるようにが標準の HTML ではありません)。
+ASP.NET を解釈する前に説明したとおり、`~`演算子として、web サイトのルートです。 使用する必要はありません、`~`演算子; マークアップを使用する可能性があります`<a href="./AddMovie">Add a movie</a>`または HTML を理解しているパスを定義するその他の何らかの方法です。 ですが、`~`演算子は有効な一般的なアプローチ Razor ページのリンクを作成するときに、サイトをより柔軟なため、リンクに移動するものサブフォルダーに、現在のページを移動する場合、 *AddMovie*ページ。 (ことに注意して、`~`演算子でのみ機能 *.cshtml*ページ。 ASP.NET が理解できるようにが標準の HTML ではありません)。
 
 完了したら、実行、*映画*ページ。 このページのようになります。
 

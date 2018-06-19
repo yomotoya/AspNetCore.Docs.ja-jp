@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876762"
 ---
 <a name="updating-the-tableadapter-to-use-joins-c"></a>使用する TableAdapter の更新に参加させます (c#)
 ====================

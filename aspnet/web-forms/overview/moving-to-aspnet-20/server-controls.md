@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/server-controls
-title: "サーバー コントロール |Microsoft ドキュメント"
+title: サーバー コントロール |Microsoft ドキュメント
 author: microsoft
-description: "ASP.NET 2.0 では、さまざまな方法でサーバー コントロールを強化します。 このモジュールで、ASP.NET 2.0 の方法と Visual Studio 200 にアーキテクチャの変更の一部について説明します."
+description: ASP.NET 2.0 では、さまざまな方法でサーバー コントロールを強化します。 このモジュールで、ASP.NET 2.0 の方法と Visual Studio 200 にアーキテクチャの変更の一部について説明します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885194"
 ---
 <a name="server-controls"></a>サーバー コントロール
 ====================

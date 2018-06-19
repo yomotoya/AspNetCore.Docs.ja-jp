@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077549"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET Core でのクロス オリジン要求 (CORS) を有効にします。
 
@@ -62,7 +63,7 @@ CORS ミドルウェアを追加するときに`CorsPolicyBuilder`クラスを�
 
 [!code-csharp[](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
 
-**注:**URL は末尾にスラッシュを付けずに指定される必要があります (`/`)。 URL が `/`で終了する場合、比較時に`false`が返され、ヘッダーが返されません。
+**注:** URL は末尾にスラッシュを付けずに指定される必要があります (`/`)。 URL が `/`で終了する場合、比較時に`false`が返され、ヘッダーが返されません。
 
 ラムダは、`CorsPolicyBuilder` オブジェクトをとります。 [構成オプション](#cors-policy-options)のリストはこのトピックで後述します。 この例では、ポリシーは `http://example.com` からのクロス オリジン要求を許可し、他の生成元からの要求は許可しません。
 

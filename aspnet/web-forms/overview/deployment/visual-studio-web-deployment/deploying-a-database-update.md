@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892622"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Visual Studio を使用した ASP.NET Web 展開: データベース更新の展開
 ====================
@@ -99,9 +100,9 @@ DbDacFx プロバイダーを使用してデータベースを更新する方法
 ### <a name="add-a-column-to-a-table-in-the-membership-database"></a>メンバーシップ データベース内のテーブルに列を追加します。
 
 1. Visual Studio で開く**SQL Server オブジェクト エクスプ ローラー**です。
-2. 展開**(localdb) \v11.0**、展開**データベース**、展開**aspnet ContosoUniversity** (いない**aspnet ContosoUniversity 本番**)展開し、**テーブル**です。
+2. 展開 **(localdb) \v11.0**、展開**データベース**、展開**aspnet ContosoUniversity** (いない**aspnet ContosoUniversity 本番**)展開し、**テーブル**です。
 
-    表示されない場合**(localdb) \v11.0**下にある、 **SQL Server**  ノードを右クリックし、 **SQL Server**ノードをクリック**SQL Server の追加**です。 **サーバーへの接続** ダイアログ ボックスに「 *(localdb) \v11.0*として、**サーバー名**、クリックして**接続**です。
+    表示されない場合 **(localdb) \v11.0**下にある、 **SQL Server**  ノードを右クリックし、 **SQL Server**ノードをクリック**SQL Server の追加**です。 **サーバーへの接続** ダイアログ ボックスに「 *(localdb) \v11.0*として、**サーバー名**、クリックして**接続**です。
 
     表示されない場合**aspnet ContosoUniversity**、プロジェクトを実行しを使用してログイン、 *admin*資格情報 (パスワードが*devpwd*)、し、更新、 **SQL Server オブジェクト エクスプ ローラー**ウィンドウです。
 3. 右クリックし、**ユーザー**テーブル、およびクリックして**ビュー デザイナー**です。

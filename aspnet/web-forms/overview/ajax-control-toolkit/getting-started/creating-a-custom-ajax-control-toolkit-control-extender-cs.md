@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875917"
 ---
 <a name="creating-a-custom-ajax-control-toolkit-control-extender-c"></a>カスタムの AJAX コントロール Toolkit コントロール エクステンダー (c#) を作成します。
 ====================
@@ -198,7 +199,7 @@ DisabledButton コントロール エクステンダーの作成を完了しま�
 2. ScriptManager をページにドラッグします。
 3. テキスト ボックス コントロールをページにドラッグします。
 4. ボタン コントロールをページにドラッグします。
-5. [プロパティ] ウィンドウでボタン ID プロパティ値を変更<em>btnSave</em>し、テキストのプロパティ値を*保存\**です。
+5. [プロパティ] ウィンドウでボタン ID プロパティ値を変更<em>btnSave</em>し、テキストのプロパティ値を*保存\** です。
   
 
 標準の ASP.NET のテキスト ボックスとボタン コントロールと、ページを作成しました。

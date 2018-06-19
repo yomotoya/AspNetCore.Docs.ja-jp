@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30899044"
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 および Visual Studio 2010 の Web 開発の概要
 ====================
@@ -833,7 +834,7 @@ ASP.NET 4 には、次の新しい構文のコード式が導入されていま�
 
 [!code-aspx[Main](overview/samples/sample67.aspx)]
 
-たとえば、 &lt;%: 要求 ["UserInput"] %&gt; HTML エンコーディングの値を実行*要求 ["UserInput"]*です。
+たとえば、 &lt;%: 要求 ["UserInput"] %&gt; HTML エンコーディングの値を実行*要求 ["UserInput"]* です。
 
 この機能の目的は、新しい構文を使用する各手順で決定する強制されないように、古い構文のすべてのインスタンスを置換できるようにすることです。 ただし、場合があります出力されているテキストが HTML を使用するものではまたは既にエンコードされている場合にダブル エンコードする可能性が。
 
@@ -1222,7 +1223,7 @@ ASP.NET 4 での動的データ サポートの主な目標は、ASP.NET アプ�
 
 ### <a name="new-field-templates-for-urls-and-email-addresses"></a>Url および電子メール アドレスの新しいフィールド テンプレート
 
-ASP.NET 4 では、次の 2 つの新しい組み込みフィールド テンプレート`EmailAddress.ascx`と`Url.ascx`です。 これらのテンプレートとしてマークされているフィールドの使用は*EmailAddress*または*Url*で、 *DataType*属性。 *EmailAddress*オブジェクトを使用して作成されるハイパーリンクとして、フィールドが表示されます、 *mailto:*プロトコルです。 ユーザーは、リンクをクリックして、それとが開き、ユーザーの電子メール クライアント スケルトンのメッセージを作成します。 オブジェクトとして型指定された*Url*は通常のハイパーリンクとして表示されます。
+ASP.NET 4 では、次の 2 つの新しい組み込みフィールド テンプレート`EmailAddress.ascx`と`Url.ascx`です。 これらのテンプレートとしてマークされているフィールドの使用は*EmailAddress*または*Url*で、 *DataType*属性。 *EmailAddress*オブジェクトを使用して作成されるハイパーリンクとして、フィールドが表示されます、 *mailto:* プロトコルです。 ユーザーは、リンクをクリックして、それとが開き、ユーザーの電子メール クライアント スケルトンのメッセージを作成します。 オブジェクトとして型指定された*Url*は通常のハイパーリンクとして表示されます。
 
 次の例では、フィールドとマークする方法を示します。
 

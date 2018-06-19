@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072699"
 ---
 # <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>ASP.NET Core での特定のスキームを承認します。
 

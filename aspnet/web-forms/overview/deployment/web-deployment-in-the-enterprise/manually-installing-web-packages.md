@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890217"
 ---
 <a name="manually-installing-web-packages"></a>Web パッケージを手動でインストールします。
 ====================
@@ -59,7 +60,7 @@ IIS に web 配置パッケージをインポートするこれらの高度な�
 
 **アプローチ 2: MSBuild を使用して、ビルド プロセスの一部としてパッケージを作成します。**
 
-MSBuild を使用して直接、カスタム MSBuild プロジェクト ファイルまたはコマンドラインから、web アプリケーション プロジェクトをビルドする場合、ビルド プロセスの一部としての web 配置パッケージする作成を含めることによって、 **DeployOnBuildはtrueを=**と**DeployTarget パッケージを =**コマンド内のプロパティです。 このプロセスについては、「[ビルド プロセスの理解](understanding-the-build-process.md)です。
+MSBuild を使用して直接、カスタム MSBuild プロジェクト ファイルまたはコマンドラインから、web アプリケーション プロジェクトをビルドする場合、ビルド プロセスの一部としての web 配置パッケージする作成を含めることによって、 **DeployOnBuildはtrueを=** と**DeployTarget パッケージを =** コマンド内のプロパティです。 このプロセスについては、「[ビルド プロセスの理解](understanding-the-build-process.md)です。
 
 **アプローチ 3: Visual Studio でのオンデマンドのパッケージを作成します。**
 
@@ -115,7 +116,7 @@ Web 配置パッケージをサポートするために IIS web サーバーを�
 
         > [!NOTE]
         > どこから取得されるこれらのパラメーターの詳細については、次を参照してください。 [Web パッケージの展開の構成パラメーター](configuring-parameters-for-web-package-deployment.md)です。
-6. **[次へ]**をクリックします。
+6. **[次へ]** をクリックします。
 7. これはこの web サイトにアプリケーションを配置した最初の時間ではない場合、インストールする前にすべての既存コンテンツを削除するかどうかを指定する求められます。 要件を適切なオプションを選択し、クリックして**次**です。
 
     ![](manually-installing-web-packages/_static/image6.png)

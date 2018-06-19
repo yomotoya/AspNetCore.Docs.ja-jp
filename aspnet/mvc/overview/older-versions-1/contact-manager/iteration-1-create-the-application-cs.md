@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877386"
 ---
 <a name="iteration-1--create-the-application-c"></a>イテレーション 1 – (c#) アプリケーションを作成します。
 ====================
@@ -178,7 +179,7 @@ Microsoft SQL Server、Oracle、MySQL、および IBM DB2 データベースを�
 | 電子メール | nvarchar(255) | False |
 
 
-最初の列、Id 列は特殊です。 Id 列と主キー列として Id 列をマークする必要があります。 列が Identity 列である列のプロパティ (図 6 の下部にあるを参照) を展開し、Identity の指定 プロパティまでスクロールを指定します。 設定、 **(Is Identity)**プロパティ値を**はい**です。
+最初の列、Id 列は特殊です。 Id 列と主キー列として Id 列をマークする必要があります。 列が Identity 列である列のプロパティ (図 6 の下部にあるを参照) を展開し、Identity の指定 プロパティまでスクロールを指定します。 設定、 **(Is Identity)** プロパティ値を**はい**です。
 
 主キー列として列を選択し、キーのアイコンが付いたボタンをクリックして列をマークするとします。 列が主キー列としてマークされているキーのアイコンが、列の横に表示されます (図 6 を参照してください)。
 

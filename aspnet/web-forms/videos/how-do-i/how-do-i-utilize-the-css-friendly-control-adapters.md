@@ -17,6 +17,7 @@ ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/05/2018
+ms.locfileid: "28988082"
 ---
 <a name="how-do-i-utilize-the-css-friendly-control-adapters"></a>[How Do i:]CSS の表示コントロール アダプターを利用しますか。
 ====================

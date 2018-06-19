@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889918"
 ---
 <a name="determining-what-files-need-to-be-deployed-vb"></a>(VB) を展開する必要があるファイルを決定します。
 ====================

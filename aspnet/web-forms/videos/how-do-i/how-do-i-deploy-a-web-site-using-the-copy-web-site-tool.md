@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool
-title: "[How Do i:]Web サイトのコピー ツールを使用して Web サイトの展開 |Microsoft ドキュメント"
+title: '[How Do i:]Web サイトのコピー ツールを使用して Web サイトの展開 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では、Visual Studio で Web サイトのコピー ツールを使用して web サイトを展開する方法が表示されます。 リモート web サイトに接続する方法が初めて表示としています."
+description: このビデオ Chris Pels では、Visual Studio で Web サイトのコピー ツールを使用して web サイトを展開する方法が表示されます。 リモート web サイトに接続する方法が初めて表示としています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525671"
 ---
 <a name="how-do-i-deploy-a-web-site-using-the-copy-web-site-tool"></a>[How Do i:]Web サイトのコピー ツールを使用して Web サイトの展開します。
 ====================

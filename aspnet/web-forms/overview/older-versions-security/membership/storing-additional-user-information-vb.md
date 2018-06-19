@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891982"
 ---
 <a name="storing-additional-user-information-vb"></a>追加のユーザー情報 (VB) を格納します。
 ====================
@@ -131,7 +132,7 @@ ASP です。NET のメンバーシップのフレームワークでは、ユー
 
 これは、さまざまな方法は現在ログオンしているユーザーが自分のホームの町、ホーム ページ、および署名情報を表示および編集できるようにします。 テキスト ボックスと、ユーザー インターフェイスを手動で作成する可能性がありますおよびラベル コントロールまたはおが使用データ DetailsView コントロールなどの Web コントロールのいずれか。 データベースを実行する`SELECT`と`UPDATE`ADO.NET 作成ステートメントは、ページの分離コード クラス内のコードまたは、代わりに、SqlDataSource による宣言型の方法を使用します。 理想的には、アプリケーションには、おでしたか、プログラムで起動または宣言によって、ページの分離コード クラスから、ObjectDataSource コントロールを使用して、階層化されたアーキテクチャが含まれます。
 
-このチュートリアルの系列では、フォーム認証、承認、ユーザー アカウント、およびロールに焦点を当てています、以降はありませんこれらのさまざまなデータ アクセス オプションまたは理由階層化されたアーキテクチャよりもが望ましい直接 SQL ステートメントを実行する方法についてASP.NET ページです。 順を追って DetailsView と SqlDataSource (最も速いと最も簡単なオプション) を使用するつもりが説明する概念は、別の Web コントロールとデータ アクセス ロジックに確実に適用できます。 ASP.NET 内のデータ処理の詳細についてを参照してください   *[ASP.NET 2.0 のデータを扱う](../../data-access/index.md)*一連のチュートリアルです。
+このチュートリアルの系列では、フォーム認証、承認、ユーザー アカウント、およびロールに焦点を当てています、以降はありませんこれらのさまざまなデータ アクセス オプションまたは理由階層化されたアーキテクチャよりもが望ましい直接 SQL ステートメントを実行する方法についてASP.NET ページです。 順を追って DetailsView と SqlDataSource (最も速いと最も簡単なオプション) を使用するつもりが説明する概念は、別の Web コントロールとデータ アクセス ロジックに確実に適用できます。 ASP.NET 内のデータ処理の詳細についてを参照してください   *[ASP.NET 2.0 のデータを扱う](../../data-access/index.md)* 一連のチュートリアルです。
 
 開いている、 `AdditionalUserInfo.aspx`  ページで、`Membership`フォルダー ページで、ID プロパティを設定する DetailsView コントロールを追加する`UserProfile`を消去して、`Width`と`Height`プロパティです。 DetailsView のスマート タグを展開し、新しいデータ ソース コントロールにバインドを選択します。 これは、データ ソース構成ウィザードが起動 (図 7 を参照してください)。 最初の手順では、データ ソースの種類を指定するよう求められます。 直接接続するので、`SecurityTutorials`データベース、データベース アイコンを選択を指定する、`ID`として`UserProfileDataSource`です。
 
@@ -527,7 +528,7 @@ CreateUserWizard のイベント ハンドラーを追加`ActiveStepChanged`イ�
 
 ### <a name="about-the-author"></a>作成者について
 
-Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
+Scott Mitchell、複数の受け取りますブックの作成者と 4GuysFromRolla.com の創設者は、Microsoft の Web テクノロジと 1998 年取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書 *[Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)* です。 Scott に到達できる[ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com)または彼のブログでを介して[ http://ScottOnWriting.NET](http://scottonwriting.net/)です。
 
 ### <a name="special-thanks-to"></a>特別に感謝しています.
 

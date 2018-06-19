@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890386"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-troubleshooting-12-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します (12/12) のトラブルシューティング。
 ====================
@@ -290,7 +291,7 @@ SQL Server Compact、アプリ内のファイルにそのデータベースを�
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因と解決策
 
-既定では、Visual Studio の設定、サイトのルート フォルダーに対するアクセス許可の読み取りおよび書き込みアクセス許可アプリ\_データ フォルダーです。 追加することで、この動作を無効にするサイト フォルダの既定のアクセス許可が正しいし、設定する必要はありませんがわかっている場合**&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;**発行プロファイル ファイル (1 つのプロファイルに影響を与える)、または (影響を与えるすべてのプロファイル) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[する方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069.aspx)です。 
+既定では、Visual Studio の設定、サイトのルート フォルダーに対するアクセス許可の読み取りおよび書き込みアクセス許可アプリ\_データ フォルダーです。 追加することで、この動作を無効にするサイト フォルダの既定のアクセス許可が正しいし、設定する必要はありませんがわかっている場合**&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;** 発行プロファイル ファイル (1 つのプロファイルに影響を与える)、または (影響を与えるすべてのプロファイル) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[する方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069.aspx)です。 
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>アプリケーションがアプリケーション フォルダーへの書き込みを行うとき、アクセス拒否エラー
 
@@ -300,7 +301,7 @@ SQL Server Compact、アプリ内のファイルにそのデータベースを�
 
 ### <a name="possible-cause-and-solution"></a>考えられる原因と解決策
 
-既定では、Visual Studio の設定、サイトのルート フォルダーに対するアクセス許可の読み取りおよび書き込みアクセス許可アプリ\_データ フォルダーです。 示すように、そのフォルダーのアクセス許可を設定するアプリケーションでは、サブ フォルダーへの書き込みアクセスを必要とする場合、[フォルダー アクセス許可の設定](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)と[実稼働環境に展開する](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)チュートリアルです。 ルート フォルダーに追加することで読み取り専用アクセスを設定することを防ぐことがある場合は、アプリケーションでは、サイトのルート フォルダーへの書き込みアクセスが必要な**&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;**発行プロファイル ファイル (1 つのプロファイルに影響を与える)、または (影響を与えるすべてのプロファイル) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[する方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069.aspx)です。 <a id="aspnet45error"></a>
+既定では、Visual Studio の設定、サイトのルート フォルダーに対するアクセス許可の読み取りおよび書き込みアクセス許可アプリ\_データ フォルダーです。 示すように、そのフォルダーのアクセス許可を設定するアプリケーションでは、サブ フォルダーへの書き込みアクセスを必要とする場合、[フォルダー アクセス許可の設定](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)と[実稼働環境に展開する](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)チュートリアルです。 ルート フォルダーに追加することで読み取り専用アクセスを設定することを防ぐことがある場合は、アプリケーションでは、サイトのルート フォルダーへの書き込みアクセスが必要な**&lt;IncludeSetACLProviderOn 先&gt;False&lt;/IncludeSetACLProviderOnDestination&gt;** 発行プロファイル ファイル (1 つのプロファイルに影響を与える)、または (影響を与えるすべてのプロファイル) wpp.targets ファイル。 これらのファイルを編集する方法については、次を参照してください。[する方法: プロファイル (.pubxml) ファイルでの展開設定の編集](https://msdn.microsoft.com/library/ff398069.aspx)です。 <a id="aspnet45error"></a>
 
 ## <a name="configuration-error---targetframework-attribute-references-a-version-that-is-later-than-the-installed-version-of-the-net-framework"></a>構成エラー - targetFramework 属性は、.NET Framework のインストールされているバージョンより後のバージョンを参照します。
 
@@ -318,7 +319,7 @@ ASP.NET 4.5 を対象とする web プロジェクトを正常に発行された
 
 サーバーは、ASP.NET 4.5 をサポートしていません。 ASP.NET 4.5 用のサポートを追加できるかどうかを決定するホスティング プロバイダーに問い合わせてください。 ASP.NET 4 以降を対象とする web プロジェクトを配置する必要がある場合は、サーバーをアップグレードすることは、オプションではありません、代わりにします。同じ送信先に ASP.NET 4 または以前の web プロジェクトを展開する場合は、選択、**先で追加ファイルを削除する**チェック ボックスをオン、**設定**のタブ、 **Web の発行**ウィザード。 選択しない場合**先で追加ファイルを削除する**、引き続き構成エラー ページを取得することができます。
 
-プロジェクト**プロパティ**windows には、ターゲット フレームワーク ドロップダウン リストが含まれていますが、だけを変更することによってこの問題を解決することはできません**.NET Framework 4.5**に**.NET Framework 4**. 以前のフレームワーク バージョンにターゲット フレームワークを変更する場合、プロジェクトが framework の以降のバージョンのアセンブリへの参照が残っているしは実行されません。 手動でこれらの参照を変更または .NET Framework 4 以前を対象とする新しいプロジェクトを作成する必要があります。 詳細については、次を参照してください。 [Web サイトの .NET Framework のターゲット](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx)です。
+プロジェクト**プロパティ**windows には、ターゲット フレームワーク ドロップダウン リストが含まれていますが、だけを変更することによってこの問題を解決することはできません **.NET Framework 4.5**に **.NET Framework 4**. 以前のフレームワーク バージョンにターゲット フレームワークを変更する場合、プロジェクトが framework の以降のバージョンのアセンブリへの参照が残っているしは実行されません。 手動でこれらの参照を変更または .NET Framework 4 以前を対象とする新しいプロジェクトを作成する必要があります。 詳細については、次を参照してください。 [Web サイトの .NET Framework のターゲット](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx)です。
 
 > [!div class="step-by-step"]
 > [前へ](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)

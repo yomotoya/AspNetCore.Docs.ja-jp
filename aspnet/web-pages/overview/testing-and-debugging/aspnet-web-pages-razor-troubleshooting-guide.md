@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898513"
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web Pages (Razor) トラブルシューティング ガイド
 ====================
@@ -46,7 +47,7 @@ ms.lasthandoff: 04/06/2018
 <a id="Issues_Running_.cshtml_Pages"></a>
 ## <a name="issues-with-running-pages"></a>ページの実行に関する問題
 
-さまざまな問題を防ぐことができます*.cshtml*と*.vbhtml*ページから正常に実行します。 このセクションでは、一般的なエラー メッセージを一覧表示し、可能性のある原因です。
+さまざまな問題を防ぐことができます *.cshtml*と *.vbhtml*ページから正常に実行します。 このセクションでは、一般的なエラー メッセージを一覧表示し、可能性のある原因です。
 
 ### <a name="http-error-403---forbidden-access-is-denied"></a>HTTP エラー 403 - アクセス不可: アクセスが拒否されました
 
@@ -54,9 +55,9 @@ ms.lasthandoff: 04/06/2018
 
 このエラーは、サーバーに .NET Framework の正しいバージョンが実行されていない場合に発生することができます。 (ローカルまたはリモート)、サーバーを実行しているコンピューターに少なくとも .NET Framework 4 をインストールすることを確認します。 また、適切なバージョンを実行する、アプリケーション自体が構成されていることを確認します。
 
-WebMatrix で作業中にこの問題をローカルで発生する場合にクリックして、**サイト** ワークスペースで、し、ツリー ビューのをクリックして**設定**です。 **.NET Framework のバージョンの選択**一覧で、選択**.NET 4 (Integrated)**です。 このバージョンは既に設定されている場合は、管理者として WebMatrix を実行してください。
+WebMatrix で作業中にこの問題をローカルで発生する場合にクリックして、**サイト** ワークスペースで、し、ツリー ビューのをクリックして**設定**です。 **.NET Framework のバージョンの選択**一覧で、選択 **.NET 4 (Integrated)** です。 このバージョンは既に設定されている場合は、管理者として WebMatrix を実行してください。
 
-Web サイトのルートが少なくとも 1 つであること確認*.cshtml*ファイル。
+Web サイトのルートが少なくとも 1 つであること確認 *.cshtml*ファイル。
 
 Web サーバーがリモート サーバーにこのエラーが発生する場合は、サーバー管理者に問い合わせてください。 サーバーに .NET Framework 4 があることを確認または後でインストールされているようにします。 また、アプリケーションが.net Framework のバージョンを使用するように構成されるアプリケーション プールで実行されていることを確認します。
 
@@ -78,7 +79,7 @@ Web サーバーがリモート サーバーにこのエラーが発生する場
 
 *要求フィルター モジュールはファイル拡張子の拒否するように構成します。*
 
-場合、このエラーが発生する可能性が*.cshtml*または*.vbhtml*サーバーで、拡張機能を明示的にブロックされています。 拡張機能を含む Url が含まれないときに、この問題の症状がその Url 作業*.cshtml*または*.vbhtml*機能しません。 考えられる解決方法は、サイトの拡張機能を再度有効にする*Web.config*ファイル。 次の例は、有効にする方法を示しています、 *.cshtml*拡張機能です。
+場合、このエラーが発生する可能性が *.cshtml*または *.vbhtml*サーバーで、拡張機能を明示的にブロックされています。 拡張機能を含む Url が含まれないときに、この問題の症状がその Url 作業 *.cshtml*または *.vbhtml*機能しません。 考えられる解決方法は、サイトの拡張機能を再度有効にする*Web.config*ファイル。 次の例は、有効にする方法を示しています、 *.cshtml*拡張機能です。
 
 [!code-xml[Main](aspnet-web-pages-razor-troubleshooting-guide/samples/sample1.xml?highlight=5-6)]
 

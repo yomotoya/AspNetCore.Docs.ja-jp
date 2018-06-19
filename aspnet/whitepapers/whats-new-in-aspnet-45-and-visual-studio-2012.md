@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
-title: "ASP.NET 4.5 と Visual Studio 2012 の新機能 |Microsoft ドキュメント"
+title: ASP.NET 4.5 と Visual Studio 2012 の新機能 |Microsoft ドキュメント
 author: rick-anderson
-description: "このドキュメントでは、新しい機能と ASP.NET 4.5 で導入された機能強化について説明します。 Web 開発の強化についても説明しています."
+description: このドキュメントでは、新しい機能と ASP.NET 4.5 で導入された機能強化について説明します。 Web 開発の強化についても説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/29/2012
 ms.topic: article
 ms.assetid: ba1fabb4-31a3-4ebf-8327-41a6bbba6eaf
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28886443"
 ---
 <a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>ASP.NET 4.5 と Visual Studio 2012 の新機能
 ====================
@@ -408,7 +409,7 @@ ASP.NET 4.5 では、Web フォームには、データを操作するための�
 
 [!code-aspx[Main](whats-new-in-aspnet-45-and-visual-studio-2012/samples/sample22.aspx)]
 
-作成する、 *GetCategories*ページのコード内のメソッドです。 単純な選択操作のメソッドはパラメーターを必要し、返す必要があります、 *IEnumerable*または*IQueryable*オブジェクト。 場合、新しい*ItemType*プロパティの設定 (有効にする厳密に型指定、データ バインディング式で説明した方法[データ コントロールを厳密に型指定された](#_Toc318097386)以前)、これらのインターフェイスのジェネリック バージョン返される必要があります: *IEnumerable&lt;T&gt;* または*IQueryable&lt;T&gt;*で、 *T*型と一致するパラメーター、 *ItemType*プロパティ (たとえば、 *IQueryable&lt;カテゴリ&gt;*)。
+作成する、 *GetCategories*ページのコード内のメソッドです。 単純な選択操作のメソッドはパラメーターを必要し、返す必要があります、 *IEnumerable*または*IQueryable*オブジェクト。 場合、新しい*ItemType*プロパティの設定 (有効にする厳密に型指定、データ バインディング式で説明した方法[データ コントロールを厳密に型指定された](#_Toc318097386)以前)、これらのインターフェイスのジェネリック バージョン返される必要があります: *IEnumerable&lt;T&gt;* または*IQueryable&lt;T&gt;* で、 *T*型と一致するパラメーター、 *ItemType*プロパティ (たとえば、 *IQueryable&lt;カテゴリ&gt;*)。
 
 次の例のコードを示しています、 *GetCategories*メソッドです。 この例では、Northwind サンプル データベースで Entity Framework Code First モデルを使用します。 コードは、クエリがによって各カテゴリに関連する製品の詳細を返すことを確認して、 *Include*メソッドです。 (これにより、 *TemplateField*マークアップ内の要素では、各カテゴリの製品の数を表示を必要とせず、 [n + 1 選択](http://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem))。
 
@@ -583,11 +584,11 @@ ASP.NET では、ルーティングをサポートするためにアプリケー
 
 [!code-xml[Main](whats-new-in-aspnet-45-and-visual-studio-2012/samples/sample34.xml?highlight=3)]
 
-ときに**runAllManagedModulesForAllRequests**は true、ような URL`http://mysite/myapp/home`があっても、ASP.NET にはない*.aspx*、 *.mvc*、またはで同様の拡張機能、URL です。
+ときに**runAllManagedModulesForAllRequests**は true、ような URL`http://mysite/myapp/home`があっても、ASP.NET にはない *.aspx*、 *.mvc*、またはで同様の拡張機能、URL です。
 
 IIS 7 に加えられた更新プログラム、 **runAllManagedModulesForAllRequests**不要な設定と、ASP.NET ルーティングでネイティブにサポートしています。 (更新プログラムについては、マイクロソフト サポートの記事を参照してください[更新プログラムを処理する IIS 7.0 または IIS 7.5 のハンドラーの要求の Url を特定の有効期間で終わっていないことがある](https://support.microsoft.com/kb/980368))。
 
-IIS 7 で web サイトが実行されると、IIS が更新された場合は設定する必要はありません**runAllManagedModulesForAllRequests** true に設定します。 実際には、true に設定するとは使用しないで、不要な処理オーバーヘッド要求に追加されるためです。 この設定が true の場合を含め、すべての要求*.htm*、 *.jpg*、その他の静的ファイル経由させることも、ASP.NET 要求パイプラインとします。
+IIS 7 で web サイトが実行されると、IIS が更新された場合は設定する必要はありません**runAllManagedModulesForAllRequests** true に設定します。 実際には、true に設定するとは使用しないで、不要な処理オーバーヘッド要求に追加されるためです。 この設定が true の場合を含め、すべての要求 *.htm*、 *.jpg*、その他の静的ファイル経由させることも、ASP.NET 要求パイプラインとします。
 
 Visual Studio 2012 RC に用意されているテンプレートを使用して、新しい ASP.NET 4.5 web サイトを作成する場合、web サイトの構成は含まれません、 **runAllManagedModulesForAllRequests**設定します。 つまり、既定では、設定がある場合は false。
 
@@ -632,7 +633,7 @@ ASP.NET Web フォーム コントロールのスマート タスクに表示さ
 
 ![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image10.png)
 
-WAI ARIA 標準が付いている属性も導入されています。 *aria-*のセマンティクスが HTML5 ドキュメントに追加するためです。 これらは、visual Studio が完全にサポート*aria-*属性。
+WAI ARIA 標準が付いている属性も導入されています。 *aria-* のセマンティクスが HTML5 ドキュメントに追加するためです。 これらは、visual Studio が完全にサポート*aria-* 属性。
 
 ![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image11.png) ![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image12.png)
 
@@ -750,7 +751,7 @@ Go to Definition コマンドでは、関数または変数のソースにジャ
 <a id="_Toc318097413"></a>
 #### <a name="vsdoc-signature-overloads"></a>VSDOC 署名のオーバー ロード
 
-IntelliSense の詳細なコメントは今すぐ、new を使用して JavaScript 関数の別のオーバー ロードの宣言された*&lt;署名&gt;*要素は、この例で示すようにします。
+IntelliSense の詳細なコメントは今すぐ、new を使用して JavaScript 関数の別のオーバー ロードの宣言された*&lt;署名&gt;* 要素は、この例で示すようにします。
 
 [!code-csharp[Main](whats-new-in-aspnet-45-and-visual-studio-2012/samples/sample35.cs)]
 

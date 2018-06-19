@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890084"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: を展開する SQL Server Compact データベース - 12 の 2
 ====================
@@ -151,7 +152,7 @@ Code First コンテキスト クラスを含むプロジェクトで"enable-mig
 
 プロジェクトをビルドするには CTRL-shift キーを押し-B を押します。
 
-次の手順が作成するには、`DbMigration`初期の移行のためのクラスです。 既に存在するデータベースを削除する必要があるため、新しいデータベースを作成するには、この移行ができます。 SQL Server Compact データベースが含まれている*.sdf*内のファイル、*アプリ\_データ*フォルダーです。 **ソリューション エクスプ ローラー**、展開*アプリ\_データ*ContosoUniversity プロジェクトで 2 つの SQL Server Compact データベースを表示する、これがによって表されます*.sdf*。ファイル。
+次の手順が作成するには、`DbMigration`初期の移行のためのクラスです。 既に存在するデータベースを削除する必要があるため、新しいデータベースを作成するには、この移行ができます。 SQL Server Compact データベースが含まれている *.sdf*内のファイル、*アプリ\_データ*フォルダーです。 **ソリューション エクスプ ローラー**、展開*アプリ\_データ*ContosoUniversity プロジェクトで 2 つの SQL Server Compact データベースを表示する、これがによって表されます *.sdf*。ファイル。
 
 右クリックし、 *School.sdf*ファイルし、クリックして**削除**です。
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894026"
 ---
 <a name="how-do-i-implement-continuous-integration-with-team-foundation"></a>[How Do i:]Team Foundation の使用の継続的な統合を実装しますか。
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30892518"
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Web 配置のビルド サーバーに TFS を構成します。
 ====================
@@ -97,10 +98,10 @@ ms.lasthandoff: 04/10/2018
     > 既にインストールしている Windows Update から .NET Framework 4.0。 製品またはコンポーネントがインストール済みの場合、Web Platform Installer は、これに置き換えることで、**追加**ボタン テキストを**インストール**です。
 
     ![](configuring-a-tfs-build-server-for-web-deployment/_static/image2.png)
-7. **ASP.NET MVC 3 (Visual Studio 2010)**行で、をクリックして**追加**です。
+7. **ASP.NET MVC 3 (Visual Studio 2010)** 行で、をクリックして**追加**です。
 8. ナビゲーション ウィンドウで [**サーバー**です。
 9. **Web 配置ツール 2.1**行で、をクリックして**追加**です。
-10. **[インストール]**をクリックします。 Web Platform Installer が製品の一覧を表示&#x2014;関連する依存関係のいずれかと共に&#x2014;をインストールして、ライセンス条項に同意するように求められます。
+10. **[インストール]** をクリックします。 Web Platform Installer が製品の一覧を表示&#x2014;関連する依存関係のいずれかと共に&#x2014;をインストールして、ライセンス条項に同意するように求められます。
 11. ライセンス条項を確認し、条項に同意した場合にをクリックして**同意**です。
 12. インストールが完了したらをクリックして**完了**、し、閉じます、 **Web Platform Installer 3.0**ウィンドウです。
 

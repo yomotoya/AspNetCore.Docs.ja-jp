@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878348"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>ハンズオン ラボ: Azure の web サイトの保守が容易な: 変更とスケールを管理します。
 ====================
@@ -170,12 +171,12 @@ ms.lasthandoff: 04/06/2018
     ![SQL Server オブジェクト エクスプ ローラーで開く](maintainable-azure-websites-managing-change-and-scale/_static/image4.png "SQL Server オブジェクト エクスプ ローラーで開く")
 
     *SQL Server オブジェクト エクスプ ローラーで開く*
-9. **SQL Server オブジェクト エクスプ ローラー**  ウィンドウを右クリックして、LocalDB インスタンスに接続、 **SQL Server**ノードを選択して**SQL サーバーを追加しています.**オプション。
+9. **SQL Server オブジェクト エクスプ ローラー**  ウィンドウを右クリックして、LocalDB インスタンスに接続、 **SQL Server**ノードを選択して**SQL サーバーを追加しています.** オプション。
 
     ![SQL Server インスタンスを追加する](maintainable-azure-websites-managing-change-and-scale/_static/image5.png "SQL Server インスタンスを追加します。")
 
     *SQL Server オブジェクト エクスプ ローラーに SQL Server インスタンスを追加します。*
-10. 設定、**サーバー名**に*(localdb) \v11.0*のままにして**Windows 認証**認証モードとして。 をクリックして**接続**を続行します。
+10. 設定、**サーバー名**に *(localdb) \v11.0*のままにして**Windows 認証**認証モードとして。 をクリックして**接続**を続行します。
 
     ![LocalDB への接続](maintainable-azure-websites-managing-change-and-scale/_static/image6.png "LocalDB への接続")
 
@@ -237,7 +238,7 @@ ms.lasthandoff: 04/06/2018
     ![生成される SQL ステートメントの列を alter](maintainable-azure-websites-managing-change-and-scale/_static/image11.png "Alter column SQL ステートメントの生成")
 
     *生成された列の SQL ステートメントを変更します。*
-11. **SQL Server オブジェクト エクスプ ローラー**、更新、 **dbo します。TriviaQuestions**テーブルが表示されことを確認、**ヒント**列の型が**nvarchar(150)**です。
+11. **SQL Server オブジェクト エクスプ ローラー**、更新、 **dbo します。TriviaQuestions**テーブルが表示されことを確認、**ヒント**列の型が**nvarchar(150)** です。
 
     ![新しい制約を示す](maintainable-azure-websites-managing-change-and-scale/_static/image12.png "新しい制約を示す")
 
@@ -359,7 +360,7 @@ ms.lasthandoff: 04/06/2018
     *許可される IP アドレス*
 8. をクリックして**保存**手順を実行するページの下部にあります。
 9. Visual Studio に切り替えます。
-10. **Package Manager Console**、次のコマンドの置換を実行*[、接続文字列]*プレース ホルダーを Azure からコピーした接続文字列
+10. **Package Manager Console**、次のコマンドの置換を実行 *[、接続文字列]* プレース ホルダーを Azure からコピーした接続文字列
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample10.ps1)]
 
@@ -400,7 +401,7 @@ ms.lasthandoff: 04/06/2018
     ![ステージングされた発行を確認する](maintainable-azure-websites-managing-change-and-scale/_static/image35.png "ステージングされた発行を有効にするには、[はい] をクリックすると")
 
     *ステージングされた発行を確認します。*
-6. Web アプリの一覧で、ステージング サイト スロットを表示する web アプリ名の左側に、マークを展開します。 続けて、web アプリの名前を持つ***(ステージング)***です。 管理ページに移動するステージング サイトをクリックします。
+6. Web アプリの一覧で、ステージング サイト スロットを表示する web アプリ名の左側に、マークを展開します。 続けて、web アプリの名前を持つ ***(ステージング)*** です。 管理ページに移動するステージング サイトをクリックします。
 
     ![ステージングの web アプリに移動する](maintainable-azure-websites-managing-change-and-scale/_static/image36.png "ステージングの web アプリに移動します。")
 
@@ -410,7 +411,7 @@ ms.lasthandoff: 04/06/2018
     ![Git の URL の値をコピー](maintainable-azure-websites-managing-change-and-scale/_static/image37.png)
 
     *Git の URL の値をコピー*
-8. 新しく開きます**Git Bash**コンソールし、次のコマンドを実行します。 更新プログラム、 *[、アプリケーション パス]*へのパスのプレース ホルダー、 **GeekQuiz**ソリューションにある、 **Source\Ex1 DeployingWebSiteToStaging\Begin**のフォルダーこの演習です。
+8. 新しく開きます**Git Bash**コンソールし、次のコマンドを実行します。 更新プログラム、 *[、アプリケーション パス]* へのパスのプレース ホルダー、 **GeekQuiz**ソリューションにある、 **Source\Ex1 DeployingWebSiteToStaging\Begin**のフォルダーこの演習です。
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample11.cmd)]
 
@@ -429,7 +430,7 @@ ms.lasthandoff: 04/06/2018
     > コンテンツを FTP ホストや GIT リポジトリ web アプリを展開するときに使用して認証する必要があります、**デプロイ資格情報**から web アプリの作成した**クイック スタート**または**ダッシュ ボード**管理ページ。 デプロイ資格情報がわからない場合、管理ポータルを使用して簡単にリセットできます。 Web アプリを開き、**ダッシュ ボード**ページ、をクリックし、**デプロイ資格情報をリセット**リンクします。 新しいパスワードを指定して、をクリックして**OK**です。 デプロイ資格情報は、お客様のサブスクリプションに関連付けられているすべての web アプリを使用して使用に対して有効です。
 10. Azure に web アプリを正常にプッシュすることを確認するために、管理ポータルに戻り、をクリックして**Websites**です。
 11. Web アプリを見つけて、ステージング サイト スロットを表示するエントリを展開します。 クリックしてその**名前**管理ページに移動します。
-12. をクリックして**展開**を表示する、**デプロイ履歴**です。 あることを確認してください、**アクティブなデプロイ**で、 *&quot;初期コミット&quot;*です。
+12. をクリックして**展開**を表示する、**デプロイ履歴**です。 あることを確認してください、**アクティブなデプロイ**で、 *&quot;初期コミット&quot;* です。
 
     ![アクティブな展開](maintainable-azure-websites-managing-change-and-scale/_static/image40.png)
 
@@ -526,7 +527,7 @@ ms.lasthandoff: 04/06/2018
 運用環境に新しい展開をトリガーする、リポジトリに前のタスクで加えた変更をプッシュするようになりました。 次を使用して、問題のトラブルシューティングは、 **F12 開発ツール**Internet Explorer によって提供され、Azure 管理ポータルから、以前のデプロイをロールバックを実行します。
 
 1. 新しく開きます**Git Bash** Azure App Service に更新されたアプリケーションを配置するコンソール。
-2. 変更を Azure にプッシュするには、次のコマンドを実行します。 更新プログラム、 *[、アプリケーション パス]*へのパスのプレース ホルダー、 **GeekQuiz**ソリューションです。 展開パスワードを求められます。
+2. 変更を Azure にプッシュするには、次のコマンドを実行します。 更新プログラム、 *[、アプリケーション パス]* へのパスのプレース ホルダー、 **GeekQuiz**ソリューションです。 展開パスワードを求められます。
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample15.cmd)]
 
@@ -687,7 +688,7 @@ ms.lasthandoff: 04/06/2018
 
 このタスクでは、構成、 **GeekQuiz**イメージを使用するソリューションにアップロードされた Azure Blob ストレージではなく web アプリにあるイメージ) で ASP.NET URL 書き換えルールを追加することによって、 **web.config**ファイル。
 
-1. Visual Studio で開く、 **Web.config**内のファイル、 **GeekQuiz**プロジェクトし、検索、 **&lt;system.webServer&gt;**要素。
+1. Visual Studio で開く、 **Web.config**内のファイル、 **GeekQuiz**プロジェクトし、検索、 **&lt;system.webServer&gt;** 要素。
 2. URL 書き換えルールをストレージ アカウント名のプレース ホルダーの更新を追加するには、次のコードを追加します。
 
     (コード スニペットの*WebSitesInProduction - Ex4 - UrlRewriteRule*)
@@ -698,7 +699,7 @@ ms.lasthandoff: 04/06/2018
     > URL の書き換えは、受信 Web 要求を受け取り、別のリソースへの要求のリダイレクトのプロセスです。 URL 書き換えルールは、要求をリダイレクトする必要がある場合と、リダイレクト先にする、書き換えエンジンを指示します。 書き換え規則が 2 つの文字列で構成されます: 要求された URL 内で検索するパターン (通常は、正規表現を使用して) 場合は、そのパターンを置換する文字列が検出されたとします。 詳細については、次を参照してください。 [ASP.NET の URL の書き換え](https://msdn.microsoft.com/library/ms972974.aspx)です。
 3. キーを押して**ctrl キーを押しながら S**変更を保存します。
 4. 新しく開きます**Git Bash** Azure App Service に更新されたアプリケーションを配置するコンソール。
-5. 変更を Azure にプッシュするには、次のコマンドを実行します。 更新プログラム、 *[、アプリケーション パス]*へのパスのプレース ホルダー、 **GeekQuiz**ソリューションです。 展開パスワードを求められます。
+5. 変更を Azure にプッシュするには、次のコマンドを実行します。 更新プログラム、 *[、アプリケーション パス]* へのパスのプレース ホルダー、 **GeekQuiz**ソリューションです。 展開パスワードを求められます。
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample18.cmd)]
 
@@ -770,12 +771,12 @@ ms.lasthandoff: 04/06/2018
 
 これで**自動スケール**された構成を作成、 **Web パフォーマンスとロード テストのプロジェクト**web アプリである程度の CPU 負荷を生成する Visual Studio でします。
 
-1. 開いている**Visual Studio Ultimate 2013**選択**ファイル |新しい |プロジェクトの追加.**を新しいソリューションを開始します。
+1. 開いている**Visual Studio Ultimate 2013**選択**ファイル |新しい |プロジェクトの追加.** を新しいソリューションを開始します。
 
     ![新しいプロジェクトを作成する](maintainable-azure-websites-managing-change-and-scale/_static/image79.png "新規プロジェクトの作成")
 
     *新しいプロジェクトを作成します。*
-2. **新しいプロジェクト**ダイアログ ボックスで、 **Web パフォーマンスとロード テストのプロジェクト**下にある、 **Visual c# |テスト**タブです。確認してください**.NET Framework 4.5**がプロジェクトに名前を選択すると、 *WebAndLoadTestProject*を選択、**場所** をクリック**OK**です。
+2. **新しいプロジェクト**ダイアログ ボックスで、 **Web パフォーマンスとロード テストのプロジェクト**下にある、 **Visual c# |テスト**タブです。確認してください **.NET Framework 4.5**がプロジェクトに名前を選択すると、 *WebAndLoadTestProject*を選択、**場所** をクリック**OK**です。
 
     ![新しい Web およびロード テスト プロジェクトを作成する](maintainable-azure-websites-managing-change-and-scale/_static/image80.png "Web とロード テスト プロジェクトを新規作成")
 
@@ -798,7 +799,7 @@ ms.lasthandoff: 04/06/2018
 6. **条件付き規則の追加と項目をループ**ダイアログ ボックスで、 **For ループ**ルールし、次のプロパティを変更します。
 
    1. **終了値:** 1000
-   2. **コンテキスト パラメーター名:**反復子
+   2. **コンテキスト パラメーター名:** 反復子
    3. **増分値:** 1
 
       ![For ループ ルールを選択し、プロパティを更新](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "For ループ ルールを選択し、プロパティの更新")
@@ -824,7 +825,7 @@ ms.lasthandoff: 04/06/2018
     ![待ち時間を使用しないことを選択すると](maintainable-azure-websites-managing-change-and-scale/_static/image88.png "待ち時間を使用しないように選択します。")
 
     *待ち時間を使用しないことを選択します。*
-11. **ロード パターン** ページで、ことを確認して、**持続ロード**オプションを選択します。 変更、**ユーザー カウント**設定を**250**ユーザーとクリック**[次へ]**です。
+11. **ロード パターン** ページで、ことを確認して、**持続ロード**オプションを選択します。 変更、**ユーザー カウント**設定を**250**ユーザーとクリック **[次へ]** です。
 
     ![ユーザー カウントを 250 に変更する](maintainable-azure-websites-managing-change-and-scale/_static/image89.png "250 に、ユーザーの数を変更します。")
 
@@ -834,7 +835,7 @@ ms.lasthandoff: 04/06/2018
     ![テスト ミックス モデルを選択すると](maintainable-azure-websites-managing-change-and-scale/_static/image90.png "テスト ミックス モデルを選択します。")
 
     *テスト ミックス モデルを選択します。*
-13. **テスト ミックス モデル**] ページで [**追加しています.**テストをミックスに追加します。
+13. **テスト ミックス モデル**] ページで [**追加しています.** テストをミックスに追加します。
 
     ![テストをテスト ミックスに追加する](maintainable-azure-websites-managing-change-and-scale/_static/image91.png "テストをテスト ミックスに追加します。")
 
@@ -872,7 +873,7 @@ ms.lasthandoff: 04/06/2018
 20. **ソリューション エクスプ ローラー**をダブルクリックして、 **Local.settings**テストの設定を表示するファイル。 既定では、Visual Studio は、ローカル コンピューターを使用してテストを実行します。
 
     > [!NOTE]
-    > 使用して、クラウドでロード テストを実行するテスト プロジェクトを構成する代わりに、 **Visual Studio Online (VSO)**です。 VSO より現実的なロードをシミュレートするサービスのテスト、CPU の使用率、使用可能なメモリ、ネットワーク帯域幅などのローカル環境の制約を回避するクラウド ベースのロードを提供します。 VSO を使用してロード テストを実行する方法の詳細については、次を参照してください。[この資料](https://www.visualstudio.com/get-started/load-test-your-app-vs)です。
+    > 使用して、クラウドでロード テストを実行するテスト プロジェクトを構成する代わりに、 **Visual Studio Online (VSO)** です。 VSO より現実的なロードをシミュレートするサービスのテスト、CPU の使用率、使用可能なメモリ、ネットワーク帯域幅などのローカル環境の制約を回避するクラウド ベースのロードを提供します。 VSO を使用してロード テストを実行する方法の詳細については、次を参照してください。[この資料](https://www.visualstudio.com/get-started/load-test-your-app-vs)です。
 
     ![テストの設定](maintainable-azure-websites-managing-change-and-scale/_static/image98.png)
 

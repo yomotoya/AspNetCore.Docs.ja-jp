@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/dependency-injection
-title: "ASP.NET Web API 2 の依存関係の挿入 |Microsoft ドキュメント"
+title: ASP.NET Web API 2 の依存関係の挿入 |Microsoft ドキュメント
 author: MikeWasson
-description: "このチュートリアルでは、ASP.NET Web API コント ローラーに依存関係を挿入する方法を示します。 ソフトウェアのバージョンがチュートリアル Web API 2 Unity アプリケーション ブロックで使用しています."
+description: このチュートリアルでは、ASP.NET Web API コント ローラーに依存関係を挿入する方法を示します。 ソフトウェアのバージョンがチュートリアル Web API 2 Unity アプリケーション ブロックで使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036516"
 ---
 <a name="dependency-injection-in-aspnet-web-api-2"></a>ASP.NET Web API 2 の依存関係の挿入
 ====================

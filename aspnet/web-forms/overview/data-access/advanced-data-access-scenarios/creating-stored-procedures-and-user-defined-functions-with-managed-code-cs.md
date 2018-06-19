@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877438"
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-c"></a>作成するストアド プロシージャおよびユーザー定義関数をマネージ コード (c#)
 ====================

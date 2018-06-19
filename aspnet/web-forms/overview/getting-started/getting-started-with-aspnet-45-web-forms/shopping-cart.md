@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890721"
 ---
 <a name="shopping-cart"></a>ショッピング カート
 ====================
@@ -156,7 +157,7 @@ ms.lasthandoff: 04/06/2018
 1. **ソリューション エクスプ ローラー**を右クリックして**WingtipToys**をクリックして**追加** - &gt; **新しい項目の**します。  
    **[新しい項目の追加]** ダイアログ ボックスが表示されます。
 2. 選択すると、マスター ページを含む新しいページ (Web フォーム) を追加**マスター ページを使用して Web フォーム**です。 新しいページの名前を付けます*後*です。
-3. 選択**Site.Master**に新しく作成されたマスター ページをアタッチする*.aspx*ページ。
+3. 選択**Site.Master**に新しく作成されたマスター ページをアタッチする *.aspx*ページ。
 4. *後* ページで、既存のマークアップを次のマークアップに置き換えます。   
 
     [!code-aspx[Main](shopping-cart/samples/sample5.aspx)]

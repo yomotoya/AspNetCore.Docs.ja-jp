@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880038"
 ---
 <a name="deploying-a-specific-build"></a>特定のビルドを展開します。
 ====================
@@ -103,7 +104,7 @@ Web パッケージを展開し、データベースを別の場所からスク�
 
     > [!NOTE]
     > オーバーライドする必要があります、 **OutputRoot**たびにビルドをキューの値します。 これについては、次の手順で説明します。
-13. **[保存]**をクリックします。
+13. **[保存]** をクリックします。
 
 ビルドをトリガーするときに更新する必要があります、 **OutputRoot**プロパティを展開するビルドをポイントします。
 

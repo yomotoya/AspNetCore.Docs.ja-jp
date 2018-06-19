@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882502"
 ---
 <a name="deploying-database-projects"></a>データベース プロジェクトの配置
 ====================
@@ -90,12 +91,12 @@ VSDBCMD ユーティリティを使用して、データベース スキーマ (
 
 この場合、次のようになります。
 
-- **/A** (または**/Action**) を行うには VSDBCMD するスイッチを指定します。 これを設定することができます**インポート**または**展開**です。 **インポート**オプションを使用して、既存のデータベースから .dbschema ファイルを生成し、**展開**.dbschema ファイルをターゲット データベースに展開するオプションを使用します。
-- **/Manifest** (または**/ManifestFile**) スイッチを展開する .deploymanifest ファイル名を指定します。 代わりに、.dbschema ファイルを使用する場合は、使用、**モデル/** (または**/ModelFile**) スイッチします。
-- **/Cs** (または**/ConnectionString**) スイッチが対象のデータベース サーバーの接続文字列を提供します。 データベースの名前は含まれませんことに注意してください&#x2014;VSDBCMD がデータベースを作成するサーバーに接続する必要があります個々 のデータベースに接続する必要はありません。 .Deploymanifest ファイルには、接続文字列が含まれている場合は、このスイッチを省略できます。 いずれにしても、スイッチを使用する場合、スイッチの値は .deploymanifest 値をオーバーライドします。
+- **/A** (または **/Action**) を行うには VSDBCMD するスイッチを指定します。 これを設定することができます**インポート**または**展開**です。 **インポート**オプションを使用して、既存のデータベースから .dbschema ファイルを生成し、**展開**.dbschema ファイルをターゲット データベースに展開するオプションを使用します。
+- **/Manifest** (または **/ManifestFile**) スイッチを展開する .deploymanifest ファイル名を指定します。 代わりに、.dbschema ファイルを使用する場合は、使用、**モデル/** (または **/ModelFile**) スイッチします。
+- **/Cs** (または **/ConnectionString**) スイッチが対象のデータベース サーバーの接続文字列を提供します。 データベースの名前は含まれませんことに注意してください&#x2014;VSDBCMD がデータベースを作成するサーバーに接続する必要があります個々 のデータベースに接続する必要はありません。 .Deploymanifest ファイルには、接続文字列が含まれている場合は、このスイッチを省略できます。 いずれにしても、スイッチを使用する場合、スイッチの値は .deploymanifest 値をオーバーライドします。
 - <strong>/P:TargetDatabase</strong>プロパティをターゲット データベースの作成時に割り当てる名前を提供します。 値が上書きされます。、 <strong>TargetDatabase</strong> .deploymanifest ファイル内のプロパティです。 使用することができます、 <strong>/p:</strong> <em>[プロパティ名]</em>.sqlcmdvars ファイルで宣言されている構文をさまざまな展開のプロパティを設定して、すべての SQLCMD 変数を上書きします。
-- **/Dd+** (または**/DeployToDatabase+**) スイッチでは、展開を作成し、ターゲット環境に展開することを示します。 指定した場合**/dd-**スイッチは省略または、VSDBCMD は配置スクリプトが生成されますが、ターゲット環境に配置されません。 このスイッチは、混乱の原因は、多くの場合とは、次のセクションで詳しく説明します。
-- **/Script** (または**/DeploymentScriptFile**) スイッチでは、配置スクリプトを生成する場所を指定します。 この値は、展開プロセスには影響しません。
+- **/Dd+** (または **/DeployToDatabase+**) スイッチでは、展開を作成し、ターゲット環境に展開することを示します。 指定した場合 **/dd-** スイッチは省略または、VSDBCMD は配置スクリプトが生成されますが、ターゲット環境に配置されません。 このスイッチは、混乱の原因は、多くの場合とは、次のセクションで詳しく説明します。
+- **/Script** (または **/DeploymentScriptFile**) スイッチでは、配置スクリプトを生成する場所を指定します。 この値は、展開プロセスには影響しません。
 
 VSDBCMD の詳細については、次を参照してください。 [VSDBCMD のコマンド ライン リファレンスです。EXE (配置とスキーマのインポート)](https://msdn.microsoft.com/library/dd193283.aspx)と[する方法: VSDBCMD を使用して、コマンド プロンプトからの展開をデータベースを準備します。EXE](https://msdn.microsoft.com/library/dd193258.aspx)です。
 
@@ -103,10 +104,10 @@ MSBuild プロジェクト ファイルから VSDBCMD を使用する方法の�
 
 ## <a name="understanding-the-deploytodatabase-switch"></a>DeployToDatabase スイッチを理解します。
 
-動作、 **/dd**または**/DeployToDatabase**スイッチは、VSDBCMD .dbschema ファイルまたは .deploymanifest ファイルで使用するかどうかによって異なります。 .Dbschema ファイルを使用している場合の動作は非常に簡単です。
+動作、 **/dd**または **/DeployToDatabase**スイッチは、VSDBCMD .dbschema ファイルまたは .deploymanifest ファイルで使用するかどうかによって異なります。 .Dbschema ファイルを使用している場合の動作は非常に簡単です。
 
-- 指定した場合**/dd+**または**/dd**VSDBCMD は配置スクリプトを生成し、データベースを展開します。
-- 指定した場合**/dd-**またはスイッチは省略、VSDBCMD のみ配置スクリプトが生成されます。
+- 指定した場合 **/dd+** または **/dd**VSDBCMD は配置スクリプトを生成し、データベースを展開します。
+- 指定した場合 **/dd-** またはスイッチは省略、VSDBCMD のみ配置スクリプトが生成されます。
 
 .Deploymanifest ファイルを使用している場合の動作ははるかに複雑です。 これは .deploymanifest ファイルには、プロパティ名が含まれる**DeployToDatabase**もデータベースが配置されたかどうかを決定します。
 
@@ -128,8 +129,8 @@ MSBuild プロジェクト ファイルから VSDBCMD を使用する方法の�
 
 ときに、 **DeployToDatabase**プロパティが指定されて、 **/dd**プロパティの値がある場合は、スイッチに、プロパティはオーバーライドのみ**false**:
 
-- 場合、 **DeployToDatabase**プロパティは**False**を指定して**/dd+**または**/dd**、VSDBCMD よりも優先されます、 **DeployToDatabase**プロパティおよびデータベースを展開します。
-- 場合、 **DeployToDatabase**プロパティは**False**を指定して**/dd-**またはスイッチは省略、VSDBCMD データベースに展開できなくなります。
+- 場合、 **DeployToDatabase**プロパティは**False**を指定して **/dd+** または **/dd**、VSDBCMD よりも優先されます、 **DeployToDatabase**プロパティおよびデータベースを展開します。
+- 場合、 **DeployToDatabase**プロパティは**False**を指定して **/dd-** またはスイッチは省略、VSDBCMD データベースに展開できなくなります。
 - 場合、 **DeployToDatabase**プロパティは**True**VSDBCMD は、スイッチは無視され、データベースを展開します。
 - データベースを配置するかどうかに関係なく、各ケースでは、配置スクリプトが生成されます。
 

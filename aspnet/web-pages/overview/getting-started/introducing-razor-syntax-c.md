@@ -17,6 +17,7 @@ ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31483686"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor 構文 (c#) を使用して ASP.NET Web プログラミングの概要
 ====================

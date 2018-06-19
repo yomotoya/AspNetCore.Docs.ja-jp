@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897585"
 ---
 <a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web Pages (Razor) API クイック リファレンス
 ====================
@@ -587,7 +588,7 @@ ReCAPTCHA テストの結果を返します。
 
 ### `Video.Silverlight(filename, width, height)`
 
-指定された Silverlight プレーヤーをレンダリング*.xap*必要な幅と高さを持つファイルです。
+指定された Silverlight プレーヤーをレンダリング *.xap*必要な幅と高さを持つファイルです。
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample88.cshtml)]
 

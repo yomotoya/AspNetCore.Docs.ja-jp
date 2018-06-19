@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892310"
 ---
 <a name="building-and-packaging-web-application-projects"></a>ビルドおよび Web アプリケーション プロジェクトをパッケージ化
 ====================
@@ -79,7 +80,7 @@ Web 配置パッケージが生成されると、さまざまな方法で IIS we
 
 ![](building-and-packaging-web-application-projects/_static/image2.png)
 
-ビルド プロセスがという名前のファイルを生成する web アプリケーション プロジェクトをビルドするときに*[プロジェクト名]。SourceManifest.xml*です。 プロジェクト ファイルとビルド出力と一緒にこの*です。SourceManifest.xml*ファイル指示 Web Deploy web 展開パッケージに含める必要があること。 これらの入力を使用して、という名前の web 配置パッケージを生成 Web Deploy *[プロジェクト名] .zip*です。
+ビルド プロセスがという名前のファイルを生成する web アプリケーション プロジェクトをビルドするときに *[プロジェクト名]。SourceManifest.xml*です。 プロジェクト ファイルとビルド出力と一緒にこの*です。SourceManifest.xml*ファイル指示 Web Deploy web 展開パッケージに含める必要があること。 これらの入力を使用して、という名前の web 配置パッケージを生成 Web Deploy *[プロジェクト名] .zip*です。
 
 Web 配置パッケージと共にビルド プロセスには、パッケージを使用するのに役立つ 2 つのファイルが生成されます。
 

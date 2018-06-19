@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875657"
 ---
 <a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>ASP.NET MVC 5 アプリケーション (10/12) で、Entity Framework 6 と同時実行の処理
 ====================
@@ -144,7 +145,7 @@ Fluent API を使用する場合は、使用、 [IsConcurrencyToken](https://msd
 
 ![Department_Index_page_before_edits](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
 
-右クリックして、**編集**ハイパーリンクをクリックし、英語版の部門**[新規] タブで開く**順にクリックして、**編集**英語部門のハイパーリンクのです。 2 つのタブは、同じ情報を表示します。
+右クリックして、**編集**ハイパーリンクをクリックし、英語版の部門 **[新規] タブで開く**順にクリックして、**編集**英語部門のハイパーリンクのです。 2 つのタブは、同じ情報を表示します。
 
 ![Department_Edit_page_before_changes](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
@@ -210,7 +211,7 @@ Delete ページの場合、Entity Framework は、同様の方法で部署を�
 
 [!code-cshtml[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample20.cshtml)]
 
-部門のインデックス ページを実行します。 右クリックして、**削除**ハイパーリンクをクリックし、英語版の部門**[新規] タブで開く**最初のタブをクリックして、**編集**英語部門のハイパーリンクのです。
+部門のインデックス ページを実行します。 右クリックして、**削除**ハイパーリンクをクリックし、英語版の部門 **[新規] タブで開く**最初のタブをクリックして、**編集**英語部門のハイパーリンクのです。
 
 最初のウィンドウで、値のいずれかを変更し、クリックして**保存**:
 
