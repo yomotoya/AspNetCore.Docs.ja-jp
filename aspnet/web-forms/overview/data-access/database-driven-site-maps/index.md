@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/database-driven-site-maps/index
-title: "サイト マップのデータベースに基づく |Microsoft ドキュメント"
+title: サイト マップのデータベースに基づく |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、データベース内の情報に基づく動的なサイト マップを作成する方法について説明します。"
+description: このチュートリアルでは、データベース内の情報に基づく動的なサイト マップを作成する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps
 msc.type: chapter
 ms.openlocfilehash: a237409281885cbec652de091c6e1d690b24061c
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26513031"
 ---
 <a name="database-driven-site-maps"></a><span data-ttu-id="96ca4-103">サイトのデータベースに基づくマップ</span><span class="sxs-lookup"><span data-stu-id="96ca4-103">Database-Driven Site Maps</span></span>
 ====================

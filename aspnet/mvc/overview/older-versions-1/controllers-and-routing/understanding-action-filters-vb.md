@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869817"
 ---
 <a name="understanding-action-filters-vb"></a><span data-ttu-id="1bc94-104">アクション フィルター (VB) を理解します。</span><span class="sxs-lookup"><span data-stu-id="1bc94-104">Understanding Action Filters (VB)</span></span>
 ====================

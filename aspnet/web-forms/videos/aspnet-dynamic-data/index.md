@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/index
-title: "ASP.NET 動的データ |Microsoft ドキュメント"
+title: ASP.NET 動的データ |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET 動的データを使用して自動的にデータ アクセスを実行する方法を知っているスキャフォールディングのアプリケーションを作成する方法。"
+description: ASP.NET 動的データを使用して自動的にデータ アクセスを実行する方法を知っているスキャフォールディングのアプリケーションを作成する方法。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/aspnet-dynamic-data
 msc.type: chapter
 ms.openlocfilehash: a2fc937d18572ac2e1bc41cd28b98569a2490a61
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26522511"
 ---
 <a name="aspnet-dynamic-data"></a><span data-ttu-id="35db9-103">ASP.NET 動的データ</span><span class="sxs-lookup"><span data-stu-id="35db9-103">ASP.NET Dynamic Data</span></span>
 ====================

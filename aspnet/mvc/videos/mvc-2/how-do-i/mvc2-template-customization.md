@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871140"
 ---
 <a name="mvc2---template-customization"></a><span data-ttu-id="34498-104">MVC2 - テンプレートのカスタマイズ</span><span class="sxs-lookup"><span data-stu-id="34498-104">MVC2 - Template Customization</span></span>
 ====================

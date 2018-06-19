@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/deployment/tutorial-signalr-self-host
-title: "チュートリアル: 自己ホスト SignalR |Microsoft ドキュメント"
+title: 'チュートリアル: 自己ホスト SignalR |Microsoft ドキュメント'
 author: pfletcher
-description: "このチュートリアルでは、自己ホスト型の SignalR 2 サーバーを作成する方法と、JavaScript クライアントでそれに接続する方法を説明します。 ソフトウェアのバージョンが V チュートリアルで使用しています."
+description: このチュートリアルでは、自己ホスト型の SignalR 2 サーバーを作成する方法と、JavaScript クライアントでそれに接続する方法を説明します。 ソフトウェアのバージョンが V チュートリアルで使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036779"
 ---
 <a name="tutorial-signalr-self-host"></a><span data-ttu-id="b483d-104">チュートリアル: SignalR の自己ホスト</span><span class="sxs-lookup"><span data-stu-id="b483d-104">Tutorial: SignalR Self-Host</span></span>
 ====================
@@ -74,7 +75,7 @@ ms.lasthandoff: 01/24/2018
 
 <span data-ttu-id="b483d-136">このチュートリアルでは、コンソール アプリケーションでホストされているサーバーを作成しますが、あらゆる種類の Windows サービスまたは Azure ワーカー ロールなどのプロセスで、サーバーをホストできます。</span><span class="sxs-lookup"><span data-stu-id="b483d-136">In this tutorial, you'll create a server that's hosted in a console application, but the server can be hosted in any sort of process, such as a Windows service or Azure worker role.</span></span> <span data-ttu-id="b483d-137">SignalR のサーバーに Windows サービスをホストするためのサンプル コードを参照してください。 [Windows サービスで Self-Hosting SignalR](https://code.msdn.microsoft.com/SignalR-self-hosted-in-6ff7e6c3)です。</span><span class="sxs-lookup"><span data-stu-id="b483d-137">For sample code for hosting a SignalR server in a Windows Service, see [Self-Hosting SignalR in a Windows Service](https://code.msdn.microsoft.com/SignalR-self-hosted-in-6ff7e6c3).</span></span>
 
-1. <span data-ttu-id="b483d-138">管理者特権で Visual Studio 2013 を開きます。</span><span class="sxs-lookup"><span data-stu-id="b483d-138">Open Visual Studio 2013 with administrator privileges.</span></span> <span data-ttu-id="b483d-139">選択**ファイル**、**新しいプロジェクト**です。</span><span class="sxs-lookup"><span data-stu-id="b483d-139">Select **File**, **New Project**.</span></span> <span data-ttu-id="b483d-140">選択**Windows**下にある、 **Visual c#**内のノード、**テンプレート**ペイン、および選択、**コンソール アプリケーション**テンプレート。</span><span class="sxs-lookup"><span data-stu-id="b483d-140">Select **Windows** under the **Visual C#** node in the **Templates** pane, and select the **Console Application** template.</span></span> <span data-ttu-id="b483d-141">新しいプロジェクトの名前を"SignalRSelfHost"し、をクリックして**OK**です。</span><span class="sxs-lookup"><span data-stu-id="b483d-141">Name the new project "SignalRSelfHost" and click **OK**.</span></span>
+1. <span data-ttu-id="b483d-138">管理者特権で Visual Studio 2013 を開きます。</span><span class="sxs-lookup"><span data-stu-id="b483d-138">Open Visual Studio 2013 with administrator privileges.</span></span> <span data-ttu-id="b483d-139">選択**ファイル**、**新しいプロジェクト**です。</span><span class="sxs-lookup"><span data-stu-id="b483d-139">Select **File**, **New Project**.</span></span> <span data-ttu-id="b483d-140">選択**Windows**下にある、 **Visual c#** 内のノード、**テンプレート**ペイン、および選択、**コンソール アプリケーション**テンプレート。</span><span class="sxs-lookup"><span data-stu-id="b483d-140">Select **Windows** under the **Visual C#** node in the **Templates** pane, and select the **Console Application** template.</span></span> <span data-ttu-id="b483d-141">新しいプロジェクトの名前を"SignalRSelfHost"し、をクリックして**OK**です。</span><span class="sxs-lookup"><span data-stu-id="b483d-141">Name the new project "SignalRSelfHost" and click **OK**.</span></span>
 
     ![](tutorial-signalr-self-host/_static/image1.png)
 2. <span data-ttu-id="b483d-142">選択して、ライブラリ パッケージ マネージャー コンソールを開きます**ツール**、**ライブラリ パッケージ マネージャー**、 **Package Manager Console**です。</span><span class="sxs-lookup"><span data-stu-id="b483d-142">Open the library package manager console by selecting **Tools**, **Library Package Manager**, **Package Manager Console**.</span></span>

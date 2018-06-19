@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/index
-title: "Entity Framework 6 と Web API 2 の使用 |Microsoft ドキュメント"
+title: Entity Framework 6 と Web API 2 の使用 |Microsoft ドキュメント
 author: rick-anderson
-description: "データベースの永続性の Entity Framework を使用する Web API アプリケーションを作成する方法。"
+description: データベースの永続性の Entity Framework を使用する Web API アプリケーションを作成する方法。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/03/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework
 msc.type: chapter
 ms.openlocfilehash: 560a12f2625366947efa2afd00bbb184d9060e1e
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506651"
 ---
 <a name="using-web-api-2-with-entity-framework-6"></a><span data-ttu-id="33f04-103">Entity Framework 6 と Web API 2 の使用</span><span class="sxs-lookup"><span data-stu-id="33f04-103">Using Web API 2 with Entity Framework 6</span></span>
 ====================

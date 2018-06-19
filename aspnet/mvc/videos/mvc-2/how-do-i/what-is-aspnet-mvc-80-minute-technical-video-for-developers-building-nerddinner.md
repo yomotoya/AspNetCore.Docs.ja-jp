@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868179"
 ---
 <a name="what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner"></a><span data-ttu-id="aeba4-105">ASP.NET MVC とは何ですか。</span><span class="sxs-lookup"><span data-stu-id="aeba4-105">What is ASP.NET MVC?</span></span> <span data-ttu-id="aeba4-106">NerdDinner を構築する、開発者にとって 80 分間の技術的なビデオ</span><span class="sxs-lookup"><span data-stu-id="aeba4-106">80 minute technical video for developers, building NerdDinner</span></span>
 ====================

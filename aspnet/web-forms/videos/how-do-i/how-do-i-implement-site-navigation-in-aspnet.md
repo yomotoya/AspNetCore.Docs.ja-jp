@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-site-navigation-in-aspnet
-title: "[How Do i:]ASP.NET で、サイトのナビゲーションを実装しますか。 | Microsoft Docs"
+title: '[How Do i:]ASP.NET で、サイトのナビゲーションを実装しますか。 | Microsoft Docs'
 author: rick-anderson
-description: "このビデオでは、マップを定義し、メニュー、TreeView、Sitemap サーバー コントロールで使用する方法について説明します。 マスター ページで、サイト マップを使用する方法を確認しています."
+description: このビデオでは、マップを定義し、メニュー、TreeView、Sitemap サーバー コントロールで使用する方法について説明します。 マスター ページで、サイト マップを使用する方法を確認しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/18/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525691"
 ---
 <a name="how-do-i-implement-site-navigation-in-aspnet"></a><span data-ttu-id="02b71-105">[How Do i:]ASP.NET で、サイトのナビゲーションを実装しますか。</span><span class="sxs-lookup"><span data-stu-id="02b71-105">[How Do I:] Implement Site Navigation in ASP.NET?</span></span>
 ====================

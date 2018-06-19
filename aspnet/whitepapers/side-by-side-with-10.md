@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/side-by-side-with-10
-title: ".NET Framework 1.0 および 1.1 の ASP.NET サイド バイ サイド実行 |Microsoft ドキュメント"
+title: .NET Framework 1.0 および 1.1 の ASP.NET サイド バイ サイド実行 |Microsoft ドキュメント
 author: rick-anderson
-description: "このホワイト ペーパーでは、ASP.NET Web アプリケーションを fram のいずれかのバージョンで実行することにより、コンピューターに .NET 1.0 と .NET 1.1 の両方をインストールする方法について説明しています."
+description: このホワイト ペーパーでは、ASP.NET Web アプリケーションを fram のいずれかのバージョンで実行することにより、コンピューターに .NET 1.0 と .NET 1.1 の両方をインストールする方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: bdea2003-e964-4db5-9092-d56cc7560616
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/side-by-side-with-10
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26530181"
 ---
 <a name="aspnet-side-by-side-execution-of-net-framework-10-and-11"></a><span data-ttu-id="935cf-103">.NET Framework 1.0 および 1.1 の ASP.NET サイド バイ サイド実行</span><span class="sxs-lookup"><span data-stu-id="935cf-103">ASP.NET Side-by-Side Execution of .NET Framework 1.0 and 1.1</span></span>
 ====================
@@ -57,7 +58,7 @@ ms.lasthandoff: 11/10/2017
 4. <span data-ttu-id="935cf-133">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="935cf-133">Click **OK**.</span></span>  
   
     ![](side-by-side-with-10/_static/image1.gif)
-5. <span data-ttu-id="935cf-134">コマンド プロンプトから、.NET Framework のインストールを開始する次の行を入力: **Dotnetfx.exe 展開/c"/noaspupgrade をインストールしますか?**です。</span><span class="sxs-lookup"><span data-stu-id="935cf-134">From the command prompt, type the following line to start the installation of the .NET Framework: **Dotnetfx.exe /c:"install /noaspupgrade?**.</span></span>  
+5. <span data-ttu-id="935cf-134">コマンド プロンプトから、.NET Framework のインストールを開始する次の行を入力: **Dotnetfx.exe 展開/c"/noaspupgrade をインストールしますか?** です。</span><span class="sxs-lookup"><span data-stu-id="935cf-134">From the command prompt, type the following line to start the installation of the .NET Framework: **Dotnetfx.exe /c:"install /noaspupgrade?**.</span></span>  
   
     ![](side-by-side-with-10/_static/image2.gif)
 6. <span data-ttu-id="935cf-135">をクリックして**はい**Microsoft .NET Framework 1.1 のセットアップにします。</span><span class="sxs-lookup"><span data-stu-id="935cf-135">Click **Yes** in the Microsoft .NET Framework 1.1 Setup.</span></span> <span data-ttu-id="935cf-136">これにより、.NET Framework 1.1 のセットアップ処理が開始されます。</span><span class="sxs-lookup"><span data-stu-id="935cf-136">This will start the setup process of the .NET Framework 1.1.</span></span>  
@@ -119,7 +120,7 @@ ms.lasthandoff: 11/10/2017
 6. <span data-ttu-id="935cf-166">[プロパティ] ウィンドウで、選択**構成します。**</span><span class="sxs-lookup"><span data-stu-id="935cf-166">From the Property window, select **Configuration.**</span></span>  
   
     ![](side-by-side-with-10/_static/image10.gif)
-7. <span data-ttu-id="935cf-167">このアプリケーションのマッピング テーブルから選択**.aspx**、 をクリック**編集**です。</span><span class="sxs-lookup"><span data-stu-id="935cf-167">From the application mapping table, select **.aspx**, and click **Edit**.</span></span>  
+7. <span data-ttu-id="935cf-167">このアプリケーションのマッピング テーブルから選択 **.aspx**、 をクリック**編集**です。</span><span class="sxs-lookup"><span data-stu-id="935cf-167">From the application mapping table, select **.aspx**, and click **Edit**.</span></span>  
   
     ![](side-by-side-with-10/_static/image11.gif)
 8. <span data-ttu-id="935cf-168">**実行可能ファイル**テキスト ボックス、スクロールしてバージョンのディレクトリを確認します。</span><span class="sxs-lookup"><span data-stu-id="935cf-168">From the **Executable** text box, look at the version directory by scrolling.</span></span> <span data-ttu-id="935cf-169">バージョンのディレクトリが v.1.1.4322 の場合は、アプリケーションが .NET Framework 1.1 にマップされます。</span><span class="sxs-lookup"><span data-stu-id="935cf-169">If the version directory is v.1.1.4322, the application is mapped to .NET Framework 1.1.</span></span> <span data-ttu-id="935cf-170">逆に、バージョンのディレクトリが v1.0.3705 の場合は、アプリケーションが .NET Framework 1.0 にマップされます。</span><span class="sxs-lookup"><span data-stu-id="935cf-170">Conversely, if the version directory is v1.0.3705, the application is mapped to .NET Framework 1.0.</span></span>  

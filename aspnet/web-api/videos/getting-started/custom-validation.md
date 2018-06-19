@@ -1,8 +1,8 @@
 ---
 uid: web-api/videos/getting-started/custom-validation
-title: "ASP.NET Web API、パート 5: カスタム検証 |Microsoft ドキュメント"
+title: 'ASP.NET Web API、パート 5: カスタム検証 |Microsoft ドキュメント'
 author: jongalloway
-description: "注: このビデオに ASP.NET Web API のプレリリース版からの情報が含まれています"
+description: '注: このビデオに ASP.NET Web API のプレリリース版からの情報が含まれています'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26509011"
 ---
 <a name="aspnet-web-api-part-5-custom-validation"></a><span data-ttu-id="410d6-103">ASP.NET Web API、パート 5: カスタム検証</span><span class="sxs-lookup"><span data-stu-id="410d6-103">ASP.NET Web API, Part 5: Custom Validation</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-3/mvc-3-razor-view-engine
-title: "MVC 3 の Razor ビュー エンジン |Microsoft ドキュメント"
+title: MVC 3 の Razor ビュー エンジン |Microsoft ドキュメント
 author: jongalloway
-description: "このビデオでは、ASP.NET MVC 3 に含まれる新しい Razor ビュー エンジンの基本を学習します。"
+description: このビデオでは、ASP.NET MVC 3 に含まれる新しい Razor ビュー エンジンの基本を学習します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/04/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503821"
 ---
 <a name="mvc-3---razor-view-engine"></a><span data-ttu-id="f06ec-103">MVC 3 の Razor ビュー エンジン</span><span class="sxs-lookup"><span data-stu-id="f06ec-103">MVC 3 - Razor View Engine</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/index
-title: "ASP.NET 4 - SQL Server compact の Visual Studio を使用して Web 配置 |Microsoft ドキュメント"
+title: ASP.NET 4 - SQL Server compact の Visual Studio を使用して Web 配置 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルの系列では、サード パーティ製 ~ h を展開することで、インターネット経由で、SQL Server Compact 使用可能なを使用する ASP.NET web アプリケーションを作成する方法を示します."
+description: このチュートリアルの系列では、サード パーティ製 ~ h を展開することで、インターネット経由で、SQL Server Compact 使用可能なを使用する ASP.NET web アプリケーションを作成する方法を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/29/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-
 msc.type: chapter
 ms.openlocfilehash: 2674550e6e69c2b8b9f463c5e9cb2d1d3e0713af
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26518101"
 ---
 <a name="aspnet-4---web-deployment-with-sql-server-compact-using-visual-studio"></a><span data-ttu-id="b6df9-103">ASP.NET 4 - SQL Server compact の Visual Studio を使用して Web 配置</span><span class="sxs-lookup"><span data-stu-id="b6df9-103">ASP.NET 4 - Web Deployment with SQL Server Compact using Visual Studio</span></span>
 ====================

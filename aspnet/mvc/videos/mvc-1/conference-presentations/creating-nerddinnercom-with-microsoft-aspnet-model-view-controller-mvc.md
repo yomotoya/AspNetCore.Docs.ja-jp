@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-1/conference-presentations/creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc
-title: "Microsoft ASP.NET モデル ビュー コント ローラー (MVC) による NerdDinner.com の作成 |Microsoft ドキュメント"
+title: Microsoft ASP.NET モデル ビュー コント ローラー (MVC) による NerdDinner.com の作成 |Microsoft ドキュメント
 author: shanselman
-description: "スライドします。 コードだけです。 ファイル-新しいでを起動し、実際の Web サイトで ASP.NET、ASP.NET AJAX、認証、承認、MVC、Microsoft SQL Server のビルドとしています."
+description: スライドします。 コードだけです。 ファイル-新しいでを起動し、実際の Web サイトで ASP.NET、ASP.NET AJAX、認証、承認、MVC、Microsoft SQL Server のビルドとしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503451"
 ---
 <a name="creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc"></a><span data-ttu-id="ade89-105">Microsoft ASP.NET モデル ビュー コント ローラー (MVC) と NerdDinner.com を作成します。</span><span class="sxs-lookup"><span data-stu-id="ade89-105">Creating NerdDinner.com with Microsoft ASP.NET Model View Controller (MVC)</span></span>
 ====================

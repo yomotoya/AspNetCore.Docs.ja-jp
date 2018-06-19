@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869674"
 ---
 <a name="creating-unit-tests-for-aspnet-mvc-applications-vb"></a><span data-ttu-id="06444-104">ASP.NET MVC アプリケーション (VB) の単体テストの作成</span><span class="sxs-lookup"><span data-stu-id="06444-104">Creating Unit Tests for ASP.NET MVC Applications (VB)</span></span>
 ====================
@@ -74,7 +75,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="testing-the-view-data-returned-by-a-controller"></a><span data-ttu-id="06444-144">コント ローラーによって返されるデータの表示のテスト</span><span class="sxs-lookup"><span data-stu-id="06444-144">Testing the View Data returned by a Controller</span></span>
 
-<span data-ttu-id="06444-145">MVC のコント ローラーと呼ばれるものを使用してビューにデータを渡します *`View Data`*です。</span><span class="sxs-lookup"><span data-stu-id="06444-145">An MVC controller passes data to a view by using something called *`View Data`*.</span></span> <span data-ttu-id="06444-146">たとえばを呼び出すときは、特定の製品の詳細を表示すること、`ProductController Details()`アクション。</span><span class="sxs-lookup"><span data-stu-id="06444-146">For example, imagine that you want to display the details for a particular product when you invoke the `ProductController Details()` action.</span></span> <span data-ttu-id="06444-147">インスタンスを作成する場合は、 `Product` (モデルで定義されている) クラスをインスタンスに渡すと、`Details`活用してビュー`View Data`です。</span><span class="sxs-lookup"><span data-stu-id="06444-147">In that case, you can create an instance of a `Product` class (defined in your model) and pass the instance to the `Details` view by taking advantage of `View Data`.</span></span>
+<span data-ttu-id="06444-145">MVC のコント ローラーと呼ばれるものを使用してビューにデータを渡します *`View Data`* です。</span><span class="sxs-lookup"><span data-stu-id="06444-145">An MVC controller passes data to a view by using something called *`View Data`*.</span></span> <span data-ttu-id="06444-146">たとえばを呼び出すときは、特定の製品の詳細を表示すること、`ProductController Details()`アクション。</span><span class="sxs-lookup"><span data-stu-id="06444-146">For example, imagine that you want to display the details for a particular product when you invoke the `ProductController Details()` action.</span></span> <span data-ttu-id="06444-147">インスタンスを作成する場合は、 `Product` (モデルで定義されている) クラスをインスタンスに渡すと、`Details`活用してビュー`View Data`です。</span><span class="sxs-lookup"><span data-stu-id="06444-147">In that case, you can create an instance of a `Product` class (defined in your model) and pass the instance to the `Details` view by taking advantage of `View Data`.</span></span>
 
 <span data-ttu-id="06444-148">変更された`ProductController`リスト 3 の更新が含まれています`Details()`製品を返すアクションです。</span><span class="sxs-lookup"><span data-stu-id="06444-148">The modified `ProductController` in Listing 3 includes an updated `Details()` action that returns a Product.</span></span>
 

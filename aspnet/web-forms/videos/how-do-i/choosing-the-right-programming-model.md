@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/choosing-the-right-programming-model
-title: "右側のプログラミング モデルの選択 |Microsoft ドキュメント"
+title: 右側のプログラミング モデルの選択 |Microsoft ドキュメント
 author: shanselman
-description: "Microsoft の Scott Hanselman では、ASP.NET Web フォーム、ASP.NET MVC または ASP.NET Web Pages が適しているかを決定する必要がある情報を示します。"
+description: Microsoft の Scott Hanselman では、ASP.NET Web フォーム、ASP.NET MVC または ASP.NET Web Pages が適しているかを決定する必要がある情報を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/10/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525441"
 ---
 <a name="choosing-the-right-programming-model"></a><span data-ttu-id="d0173-103">右側のプログラミング モデルを選択します。</span><span class="sxs-lookup"><span data-stu-id="d0173-103">Choosing the Right Programming Model</span></span>
 ====================

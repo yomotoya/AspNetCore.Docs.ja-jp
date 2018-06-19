@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26504101"
 ---
 <a name="whats-new-in-aspnet-mvc-52"></a><span data-ttu-id="12609-102">ASP.NET MVC 5.2 の新機能</span><span class="sxs-lookup"><span data-stu-id="12609-102">What’s New in ASP.NET MVC 5.2</span></span>
 ====================

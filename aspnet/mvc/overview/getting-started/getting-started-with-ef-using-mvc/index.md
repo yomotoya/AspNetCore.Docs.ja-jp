@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/index
-title: "Entity Framework 6 の Code First MVC 5 を使用すると作業の開始 |Microsoft ドキュメント"
+title: Entity Framework 6 の Code First MVC 5 を使用すると作業の開始 |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET MVC 5 アプリケーションでデータを表示して編集するための Entity Framework 6 の使用の基礎です。"
+description: ASP.NET MVC 5 アプリケーションでデータを表示して編集するための Entity Framework 6 の使用の基礎です。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc
 msc.type: chapter
 ms.openlocfilehash: 547ceac45d17c6eb2a3dc8404c5507a243657118
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26499181"
 ---
 <a name="getting-started-with-entity-framework-6-code-first-using-mvc-5"></a><span data-ttu-id="893ba-103">MVC 5 を使用する Entity Framework 6 Code First の概要</span><span class="sxs-lookup"><span data-stu-id="893ba-103">Getting Started with Entity Framework 6 Code First using MVC 5</span></span>
 ====================

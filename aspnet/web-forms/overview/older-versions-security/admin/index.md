@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/index
-title: "ASP.NET 3.5 - セキュリティの管理 |Microsoft ドキュメント"
+title: ASP.NET 3.5 - セキュリティの管理 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルの系列では、ユーザーおよびロールを管理できる管理ページを作成する方法を示します。"
+description: このチュートリアルの系列では、ユーザーおよびロールを管理できる管理ページを作成する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-security/admin
 msc.type: chapter
 ms.openlocfilehash: 8a280ab8b6a7ee6d4c0a43592512976b89d1b723
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519041"
 ---
 <a name="aspnet-35---security-administration"></a><span data-ttu-id="de0f4-103">ASP.NET 3.5 - セキュリティの管理</span><span class="sxs-lookup"><span data-stu-id="de0f4-103">ASP.NET 3.5 - Security Administration</span></span>
 ====================

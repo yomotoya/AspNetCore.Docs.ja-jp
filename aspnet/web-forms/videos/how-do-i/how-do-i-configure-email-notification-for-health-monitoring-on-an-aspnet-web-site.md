@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site
-title: "[How Do i:]ASP.NET Web サイトのヘルスを監視するための電子メール通知の構成 |Microsoft ドキュメント"
+title: '[How Do i:]ASP.NET Web サイトのヘルスを監視するための電子メール通知の構成 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では、状態監視の ASP.NET web サイトでの電子メール通知を構成する方法を示します。 最初に、電子メールの送信を構成する方法を参照してください."
+description: このビデオ Chris Pels では、状態監視の ASP.NET web サイトでの電子メール通知を構成する方法を示します。 最初に、電子メールの送信を構成する方法を参照してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/11/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521761"
 ---
 <a name="how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site"></a><span data-ttu-id="35550-104">[How Do i:]電子メール通知の正常性の ASP.NET Web サイトの監視の構成します。</span><span class="sxs-lookup"><span data-stu-id="35550-104">[How Do I:] Configure Email Notification for Health Monitoring on an ASP.NET Web Site</span></span>
 ====================

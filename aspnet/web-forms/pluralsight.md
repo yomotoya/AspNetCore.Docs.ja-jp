@@ -1,8 +1,8 @@
 ---
 uid: web-forms/pluralsight
-title: "Pluralsight によるビデオ トレーニングをフォームに web |Microsoft ドキュメント"
+title: Pluralsight によるビデオ トレーニングをフォームに web |Microsoft ドキュメント
 author: rick-anderson
-description: "Pluralsight この ASP.NET Web フォーム開発コースから web フォーム ビデオ トレーニングでは、.NET 開発用として認識する必要があります。 複数のキー テクノロジについて説明."
+description: Pluralsight この ASP.NET Web フォーム開発コースから web フォーム ビデオ トレーニングでは、.NET 開発用として認識する必要があります。 複数のキー テクノロジについて説明.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/16/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520141"
 ---
 <a name="web-forms-video-training-from-pluralsight"></a><span data-ttu-id="1aab2-103">Pluralsight によるビデオ トレーニングをフォームに web</span><span class="sxs-lookup"><span data-stu-id="1aab2-103">Web Forms Video Training from Pluralsight</span></span>
 ====================

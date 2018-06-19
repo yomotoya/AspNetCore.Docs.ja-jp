@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/mvc-learning-sequence
-title: "MVC 推奨チュートリアルと記事 |Microsoft ドキュメント"
+title: MVC 推奨チュートリアルと記事 |Microsoft ドキュメント
 author: Rick-Anderson
-description: "このページには、ASP.NET MVC のチュートリアルとそれに従うに推奨されるシーケンスへのリンクが含まれています。"
+description: このページには、ASP.NET MVC のチュートリアルとそれに従うに推奨されるシーケンスへのリンクが含まれています。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28032642"
 ---
 <a name="mvc-recommended-tutorials-and-articles"></a><span data-ttu-id="59b71-103">MVC のチュートリアルと記事の推奨</span><span class="sxs-lookup"><span data-stu-id="59b71-103">MVC recommended tutorials and articles</span></span>
 ====================

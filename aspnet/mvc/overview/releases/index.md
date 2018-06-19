@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/releases/index
-title: "リリース |Microsoft ドキュメント"
+title: リリース |Microsoft ドキュメント
 author: rick-anderson
-description: "MVC の最近のリリースの新機能です。"
+description: MVC の最近のリリースの新機能です。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/09/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/releases
 msc.type: chapter
 ms.openlocfilehash: 095b8f601fb994e6efc877981bfe92583bd3ee1d
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503331"
 ---
 <a name="releases"></a><span data-ttu-id="5d1a5-103">リリース</span><span class="sxs-lookup"><span data-stu-id="5d1a5-103">Releases</span></span>
 ====================

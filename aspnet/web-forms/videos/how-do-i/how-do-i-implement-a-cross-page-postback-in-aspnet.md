@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-a-cross-page-postback-in-aspnet
-title: "[How Do i:]ASP.NET の間のページのポストバックを実装して |Microsoft ドキュメント"
+title: '[How Do i:]ASP.NET の間のページのポストバックを実装して |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では、ASP.NET では、[ソース] ページのコントロールが別のターゲットに対してポストバック イベントを発生させますクロス ページのポストバックを作成する方法を示します."
+description: このビデオ Chris Pels では、ASP.NET では、[ソース] ページのコントロールが別のターゲットに対してポストバック イベントを発生させますクロス ページのポストバックを作成する方法を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/10/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526311"
 ---
 <a name="how-do-i-implement-a-cross-page-postback-in-aspnet"></a><span data-ttu-id="be44b-103">[How Do i:]ASP.NET の間のページのポストバックを実装します。</span><span class="sxs-lookup"><span data-stu-id="be44b-103">[How Do I:] Implement a Cross Page PostBack in ASP.NET</span></span>
 ====================

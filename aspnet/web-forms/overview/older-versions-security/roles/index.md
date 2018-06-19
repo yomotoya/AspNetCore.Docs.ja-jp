@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/roles/index
-title: "ASP.NET 3.5 - 役割 |Microsoft ドキュメント"
+title: ASP.NET 3.5 - 役割 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルのシリーズには、ロールにユーザーを割り当てる方法、およびロールによって承認を作成し、ロールを削除する方法について説明します。"
+description: このチュートリアルのシリーズには、ロールにユーザーを割り当てる方法、およびロールによって承認を作成し、ロールを削除する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-security/roles
 msc.type: chapter
 ms.openlocfilehash: 9fc5695f18d3624d07e2457c1bb33f15911eac96
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519491"
 ---
 <a name="aspnet-35---roles"></a><span data-ttu-id="e4385-103">ASP.NET 3.5 - ロール</span><span class="sxs-lookup"><span data-stu-id="e4385-103">ASP.NET 3.5 - Roles</span></span>
 ====================

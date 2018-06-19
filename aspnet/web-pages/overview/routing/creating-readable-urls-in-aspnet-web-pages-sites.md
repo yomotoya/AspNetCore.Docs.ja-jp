@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/routing/creating-readable-urls-in-aspnet-web-pages-sites
-title: "ページ (Razor) サイトの ASP.NET Web で読み取り可能な Url を作成する |Microsoft ドキュメント"
+title: ページ (Razor) サイトの ASP.NET Web で読み取り可能な Url を作成する |Microsoft ドキュメント
 author: tfitzmac
-description: "この記事では、ASP.NET Web Pages (Razor) の web サイト、およびこれを使用する方法を読みやすく、優れた SEO の Url を使用してルーティングについて説明します。 新機能を学習しています."
+description: この記事では、ASP.NET Web Pages (Razor) の web サイト、およびこれを使用する方法を読みやすく、優れた SEO の Url を使用してルーティングについて説明します。 新機能を学習しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529751"
 ---
 <a name="creating-readable-urls-in-aspnet-web-pages-razor-sites"></a><span data-ttu-id="80902-104">ASP.NET Web Pages (Razor) のサイトで読み取り可能な Url を作成します。</span><span class="sxs-lookup"><span data-stu-id="80902-104">Creating Readable URLs in ASP.NET Web Pages (Razor) Sites</span></span>
 ====================
@@ -68,11 +69,11 @@ ms.lasthandoff: 11/10/2017
 
 <span data-ttu-id="80902-133">検索は、次のようになります。</span><span class="sxs-lookup"><span data-stu-id="80902-133">The search goes like this:</span></span>
 
-1. <span data-ttu-id="80902-134">名前とパスを持つファイルがある*/a/b/c.cshtml*しますか?</span><span class="sxs-lookup"><span data-stu-id="80902-134">Is there a file with the path and name of */a/b/c.cshtml*?</span></span> <span data-ttu-id="80902-135">場合は、そのページを実行し、情報を渡したりありません。</span><span class="sxs-lookup"><span data-stu-id="80902-135">If so, run that page and pass no information to it.</span></span> <span data-ttu-id="80902-136">それ以外の場合.</span><span class="sxs-lookup"><span data-stu-id="80902-136">Otherwise ...</span></span>
-2. <span data-ttu-id="80902-137">名前とパスを持つファイルがある*/a/b.cshtml*しますか?</span><span class="sxs-lookup"><span data-stu-id="80902-137">Is there a file with the path and name of */a/b.cshtml*?</span></span> <span data-ttu-id="80902-138">そのため、そのページを実行し、値を渡す場合`c`にします。</span><span class="sxs-lookup"><span data-stu-id="80902-138">If so, run that page and pass the value `c` to it.</span></span> <span data-ttu-id="80902-139">それ以外の場合.</span><span class="sxs-lookup"><span data-stu-id="80902-139">Otherwise …</span></span>
-3. <span data-ttu-id="80902-140">名前とパスを持つファイルがある*/a.cshtml*しますか?</span><span class="sxs-lookup"><span data-stu-id="80902-140">Is there a file with the path and name of */a.cshtml*?</span></span> <span data-ttu-id="80902-141">そのため、そのページを実行し、値を渡す場合`b/c`にします。</span><span class="sxs-lookup"><span data-stu-id="80902-141">If so, run that page and pass the value `b/c` to it.</span></span>
+1. <span data-ttu-id="80902-134">名前とパスを持つファイルがある */a/b/c.cshtml*しますか?</span><span class="sxs-lookup"><span data-stu-id="80902-134">Is there a file with the path and name of */a/b/c.cshtml*?</span></span> <span data-ttu-id="80902-135">場合は、そのページを実行し、情報を渡したりありません。</span><span class="sxs-lookup"><span data-stu-id="80902-135">If so, run that page and pass no information to it.</span></span> <span data-ttu-id="80902-136">それ以外の場合.</span><span class="sxs-lookup"><span data-stu-id="80902-136">Otherwise ...</span></span>
+2. <span data-ttu-id="80902-137">名前とパスを持つファイルがある */a/b.cshtml*しますか?</span><span class="sxs-lookup"><span data-stu-id="80902-137">Is there a file with the path and name of */a/b.cshtml*?</span></span> <span data-ttu-id="80902-138">そのため、そのページを実行し、値を渡す場合`c`にします。</span><span class="sxs-lookup"><span data-stu-id="80902-138">If so, run that page and pass the value `c` to it.</span></span> <span data-ttu-id="80902-139">それ以外の場合.</span><span class="sxs-lookup"><span data-stu-id="80902-139">Otherwise …</span></span>
+3. <span data-ttu-id="80902-140">名前とパスを持つファイルがある */a.cshtml*しますか?</span><span class="sxs-lookup"><span data-stu-id="80902-140">Is there a file with the path and name of */a.cshtml*?</span></span> <span data-ttu-id="80902-141">そのため、そのページを実行し、値を渡す場合`b/c`にします。</span><span class="sxs-lookup"><span data-stu-id="80902-141">If so, run that page and pass the value `b/c` to it.</span></span>
 
-<span data-ttu-id="80902-142">正確ないいえ、検索に一致する場合*.cshtml*さらにこれらのファイルを探して、指定したフォルダーのファイルは、ASP.NET 継続します。</span><span class="sxs-lookup"><span data-stu-id="80902-142">If the search found no exact matches for *.cshtml* files in their specified folders, ASP.NET continues looking for these files in turn:</span></span>
+<span data-ttu-id="80902-142">正確ないいえ、検索に一致する場合 *.cshtml*さらにこれらのファイルを探して、指定したフォルダーのファイルは、ASP.NET 継続します。</span><span class="sxs-lookup"><span data-stu-id="80902-142">If the search found no exact matches for *.cshtml* files in their specified folders, ASP.NET continues looking for these files in turn:</span></span>
 
 1. <span data-ttu-id="80902-143">*/a/b/c/default.cshtml* (パス情報がない)。</span><span class="sxs-lookup"><span data-stu-id="80902-143">*/a/b/c/default.cshtml* (no path information).</span></span>
 2. <span data-ttu-id="80902-144">*/a/b/c/index.cshtml* (パス情報がない)。</span><span class="sxs-lookup"><span data-stu-id="80902-144">*/a/b/c/index.cshtml* (no path information).</span></span>

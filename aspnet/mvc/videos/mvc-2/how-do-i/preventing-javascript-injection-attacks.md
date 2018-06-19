@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872404"
 ---
 <a name="preventing-javascript-injection-attacks"></a><span data-ttu-id="5f9b7-104">JavaScript インジェクション攻撃の防止</span><span class="sxs-lookup"><span data-stu-id="5f9b7-104">Preventing JavaScript Injection Attacks</span></span>
 ====================

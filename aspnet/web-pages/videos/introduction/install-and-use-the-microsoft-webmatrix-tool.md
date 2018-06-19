@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/install-and-use-the-microsoft-webmatrix-tool
-title: "インストール ツールを使用して、Microsoft WebMatrix |Microsoft ドキュメント"
+title: インストール ツールを使用して、Microsoft WebMatrix |Microsoft ドキュメント
 author: rick-anderson
-description: "第 1 部では、WebMatrix をインストールし、それを使用する方法を紹介します。"
+description: 第 1 部では、WebMatrix をインストールし、それを使用する方法を紹介します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529721"
 ---
 <a name="install-and-use-the-microsoft-webmatrix-tool"></a><span data-ttu-id="4e823-103">インストールして、Microsoft WebMatrix のツールを使用</span><span class="sxs-lookup"><span data-stu-id="4e823-103">Install and Use the Microsoft WebMatrix Tool</span></span>
 ====================

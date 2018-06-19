@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/debugging
-title: "デバッグ |Microsoft ドキュメント"
+title: デバッグ |Microsoft ドキュメント
 author: JoeStagner
-description: "説明: Visual Web Developer は、初心者と専門的な開発者と同様の豊富なデバッグ機能を提供します。 このビデオでは Joe はツアーする、VW をしています."
+description: '説明: Visual Web Developer は、初心者と専門的な開発者と同様の豊富なデバッグ機能を提供します。 このビデオでは Joe はツアーする、VW をしています.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/30/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528151"
 ---
 <a name="debugging"></a><span data-ttu-id="42a58-104">デバッグ</span><span class="sxs-lookup"><span data-stu-id="42a58-104">Debugging</span></span>
 ====================

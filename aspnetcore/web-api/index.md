@@ -15,6 +15,7 @@ ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33972788"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a><span data-ttu-id="18a16-103">ASP.NET Core で Web API を構築する</span><span class="sxs-lookup"><span data-stu-id="18a16-103">Build web APIs with ASP.NET Core</span></span>
 

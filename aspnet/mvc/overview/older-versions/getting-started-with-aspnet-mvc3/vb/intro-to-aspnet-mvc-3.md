@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870376"
 ---
 <a name="intro-to-aspnet-mvc-3-vb"></a><span data-ttu-id="563ec-103">ASP.NET mvc 3 (VB)</span><span class="sxs-lookup"><span data-stu-id="563ec-103">Intro to ASP.NET MVC 3 (VB)</span></span>
 ====================
@@ -81,7 +82,7 @@ ms.lasthandoff: 04/06/2018
 
 ![1InternetAppRazor_SM](intro-to-aspnet-mvc-3/_static/image8.png)
 
-<span data-ttu-id="563ec-157">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="563ec-157">Click **OK**.</span></span> <span data-ttu-id="563ec-158">Visual Web Developer では、作成した ASP.NET MVC プロジェクトの既定のテンプレートが使用されるため、何もせず作業アプリケーションが現在ある!</span><span class="sxs-lookup"><span data-stu-id="563ec-158">Visual Web Developer used a default template for the ASP.NET MVC project you just created, so you have a working application right now without doing anything!</span></span> <span data-ttu-id="563ec-159">これは、単純です"Hello World!"</span><span class="sxs-lookup"><span data-stu-id="563ec-159">This is a simple "Hello World!"</span></span> <span data-ttu-id="563ec-160">プロジェクト、・ アプリケーションを起動するに適しています。</span><span class="sxs-lookup"><span data-stu-id="563ec-160">project, and it's a good place to start your application.</span></span>
+<span data-ttu-id="563ec-157">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="563ec-157">Click **OK**.</span></span> <span data-ttu-id="563ec-158">Visual Web Developer では、作成した ASP.NET MVC プロジェクトの既定のテンプレートが使用されるため、何もせず作業アプリケーションが現在ある!</span><span class="sxs-lookup"><span data-stu-id="563ec-158">Visual Web Developer used a default template for the ASP.NET MVC project you just created, so you have a working application right now without doing anything!</span></span> <span data-ttu-id="563ec-159">これは、単純です"Hello World!"</span><span class="sxs-lookup"><span data-stu-id="563ec-159">This is a simple "Hello World!"</span></span> <span data-ttu-id="563ec-160">プロジェクト、・ アプリケーションを起動するに適しています。</span><span class="sxs-lookup"><span data-stu-id="563ec-160">project, and it's a good place to start your application.</span></span>
 
 [![](intro-to-aspnet-mvc-3/_static/image10.png)](intro-to-aspnet-mvc-3/_static/image9.png)
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/index
-title: "操作方法 | Microsoft Docs"
+title: 操作方法 | Microsoft Docs
 author: rick-anderson
-description: "さまざまな一般的なタスクを実行する方法。"
+description: さまざまな一般的なタスクを実行する方法。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/how-do-i
 msc.type: chapter
 ms.openlocfilehash: 032183a08f05578c04af0fc2adac0d7535e95790
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526511"
 ---
 <a name="how-do-i"></a><span data-ttu-id="41288-104">操作方法</span><span class="sxs-lookup"><span data-stu-id="41288-104">How Do I?</span></span>
 ====================

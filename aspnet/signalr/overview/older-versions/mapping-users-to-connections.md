@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/mapping-users-to-connections
-title: "SignalR の接続 に SignalR ユーザーをマッピング 1.x |Microsoft ドキュメント"
+title: SignalR の接続 に SignalR ユーザーをマッピング 1.x |Microsoft ドキュメント
 author: pfletcher
-description: "このトピックでは、ユーザーとの接続に関する情報を保持する方法を示します。"
+description: このトピックでは、ユーザーとの接続に関する情報を保持する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28037017"
 ---
 <a name="mapping-signalr-users-to-connections-in-signalr-1x"></a><span data-ttu-id="50a4d-103">SignalR の接続 に SignalR ユーザーをマッピング 1.x</span><span class="sxs-lookup"><span data-stu-id="50a4d-103">Mapping SignalR Users to Connections in SignalR 1.x</span></span>
 ====================

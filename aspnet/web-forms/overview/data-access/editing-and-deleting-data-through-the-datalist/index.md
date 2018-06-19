@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/index
-title: "編集および DataList を使用してデータの削除 |Microsoft ドキュメント"
+title: 編集および DataList を使用してデータの削除 |Microsoft ドキュメント
 author: rick-anderson
-description: "これらのチュートリアルでは、これにより、使用してデータを変更できるように、DataList コントロールを調整する方法を示します。"
+description: これらのチュートリアルでは、これにより、使用してデータを変更できるように、DataList コントロールを調整する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through
 msc.type: chapter
 ms.openlocfilehash: f4056e4c88fd3e270de275dd7dd52e944cfc0862
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26513441"
 ---
 <a name="editing-and-deleting-data-through-the-datalist"></a><span data-ttu-id="18d9d-103">編集および DataList を使用してデータの削除</span><span class="sxs-lookup"><span data-stu-id="18d9d-103">Editing and Deleting Data Through the DataList</span></span>
 ====================

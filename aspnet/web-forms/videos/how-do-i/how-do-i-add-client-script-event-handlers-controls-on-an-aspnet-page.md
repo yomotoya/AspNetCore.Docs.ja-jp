@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-add-client-script-event-handlers-controls-on-an-aspnet-page
-title: "[操作方法]: ASP.NET ページで、スクリプトのイベント ハンドラー クライアント コントロールを追加しますか? | Microsoft Docs"
+title: '[操作方法]: ASP.NET ページで、スクリプトのイベント ハンドラー クライアント コントロールを追加しますか? | Microsoft Docs'
 author: rick-anderson
-description: "このビデオ Chris Pels では、ASP.NET ページ上のコントロールをクライアント スクリプトのイベントを追加する方法を示します。 最初に、いくつかの ASP.NET コントロール、ページ、および e に追加しています."
+description: このビデオ Chris Pels では、ASP.NET ページ上のコントロールをクライアント スクリプトのイベントを追加する方法を示します。 最初に、いくつかの ASP.NET コントロール、ページ、および e に追加しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -17,8 +17,10 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525161"
 ---
-<a name="how-do-i-add-client-script-event-handlers-controls-on-an-aspnet-page"></a><span data-ttu-id="c7950-105">[操作方法]: ASP.NET ページで、スクリプトのイベント ハンドラー クライアント コントロールを追加しますか?</span><span class="sxs-lookup"><span data-stu-id="c7950-105">[How Do I]: Add Client Script Event Handlers Controls on an ASP.NET Page?</span></span>
+<a name="how-do-i-add-client-script-event-handlers-controls-on-an-aspnet-page"></a>[操作方法]: ASP.NET ページで、スクリプトのイベント ハンドラー クライアント コントロールを追加しますか?
+[How Do I]: Add Client Script Event Handlers Controls on an ASP.NET Page?
 ====================
 <span data-ttu-id="c7950-106">によって[Chris Pels](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="c7950-106">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 

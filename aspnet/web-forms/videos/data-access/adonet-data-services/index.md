@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/data-access/adonet-data-services/index
-title: "ADO.NET Data Services |Microsoft ドキュメント"
+title: ADO.NET Data Services |Microsoft ドキュメント
 author: rick-anderson
-description: "これらのビデオでは、単純な ASP.NET アプリケーション用に型指定されたデータ セットを使用してデータ アクセス層を作成する方法を示します。"
+description: これらのビデオでは、単純な ASP.NET アプリケーション用に型指定されたデータ セットを使用してデータ アクセス層を作成する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/04/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/data-access/adonet-data-services
 msc.type: chapter
 ms.openlocfilehash: 07181564ee701c71ce74ac7cea3d8cfd0f9f4ffd
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525101"
 ---
 <a name="adonet-data-services"></a><span data-ttu-id="9d903-103">ADO.NET Data Services</span><span class="sxs-lookup"><span data-stu-id="9d903-103">ADO.NET Data Services</span></span>
 ====================

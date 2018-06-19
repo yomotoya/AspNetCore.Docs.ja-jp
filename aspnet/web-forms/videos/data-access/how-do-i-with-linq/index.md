@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/data-access/how-do-i-with-linq/index
-title: "LINQ での操作方法 |Microsoft ドキュメント"
+title: LINQ での操作方法 |Microsoft ドキュメント
 author: rick-anderson
-description: "このビデオ シリーズでは、身に LINQ を使用して、web 開発者のために知っておく必要がありますすべて使用について説明します。"
+description: このビデオ シリーズでは、身に LINQ を使用して、web 開発者のために知っておく必要がありますすべて使用について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/24/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq
 msc.type: chapter
 ms.openlocfilehash: aad424cd891aa0ca8e8179b3899f7c2e3330a11f
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526391"
 ---
 <a name="how-do-i-with-linq"></a><span data-ttu-id="1e8c5-103">LINQ での操作方法</span><span class="sxs-lookup"><span data-stu-id="1e8c5-103">How Do I with LINQ</span></span>
 ====================

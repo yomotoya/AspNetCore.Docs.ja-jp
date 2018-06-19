@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-skins-with-css-for-a-flexible-and-maintainable-aspnet-web-site
-title: "[How Do i:]柔軟性と保守が容易な ASP.NET Web サイトの css スキンを使用して |Microsoft ドキュメント"
+title: '[How Do i:]柔軟性と保守が容易な ASP.NET Web サイトの css スキンを使用して |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では、ASP.NET サーバー コントロールのスキンを作成し、スキン contr. の外観を制御する CSS スタイルを組み込む方法を示します."
+description: このビデオ Chris Pels では、ASP.NET サーバー コントロールのスキンを作成し、スキン contr. の外観を制御する CSS スタイルを組み込む方法を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/07/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521771"
 ---
 <a name="how-do-i-use-skins-with-css-for-a-flexible-and-maintainable-aspnet-web-site"></a><span data-ttu-id="a29ca-103">[How Do i:]柔軟性と保守が容易な ASP.NET Web サイトの css スキンの使用</span><span class="sxs-lookup"><span data-stu-id="a29ca-103">[How Do I:] Use Skins with CSS for a Flexible and Maintainable ASP.NET Web Site</span></span>
 ====================

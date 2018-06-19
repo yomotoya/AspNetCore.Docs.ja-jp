@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153574"
 ---
 # <a name="key-storage-format-in-aspnet-core"></a><span data-ttu-id="e8535-103">ASP.NET Core でのキー記憶域の形式</span><span class="sxs-lookup"><span data-stu-id="e8535-103">Key storage format in ASP.NET Core</span></span>
 

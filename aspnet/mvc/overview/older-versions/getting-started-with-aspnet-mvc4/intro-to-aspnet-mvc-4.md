@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869050"
 ---
 <a name="intro-to-aspnet-mvc-4"></a><span data-ttu-id="f39f2-104">ASP.NET mvc 4</span><span class="sxs-lookup"><span data-stu-id="f39f2-104">Intro to ASP.NET MVC 4</span></span>
 ====================
@@ -72,7 +73,7 @@ ms.lasthandoff: 04/06/2018
 
 ![](intro-to-aspnet-mvc-4/_static/image5.png)
 
-<span data-ttu-id="f39f2-148">**[OK]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="f39f2-148">Click **OK**.</span></span> <span data-ttu-id="f39f2-149">Visual Studio では、作成した ASP.NET MVC プロジェクトの既定のテンプレートが使用されるため、何もせず作業アプリケーションが現在ある!</span><span class="sxs-lookup"><span data-stu-id="f39f2-149">Visual Studio used a default template for the ASP.NET MVC project you just created, so you have a working application right now without doing anything!</span></span> <span data-ttu-id="f39f2-150">これは、単純な&quot;Hello World!&quot;プロジェクト、およびそのアプリケーションを起動するに適しています。</span><span class="sxs-lookup"><span data-stu-id="f39f2-150">This is a simple &quot;Hello World!&quot; project, and it's a good place to start your application.</span></span>
+<span data-ttu-id="f39f2-148">**[OK]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="f39f2-148">Click **OK**.</span></span> <span data-ttu-id="f39f2-149">Visual Studio では、作成した ASP.NET MVC プロジェクトの既定のテンプレートが使用されるため、何もせず作業アプリケーションが現在ある!</span><span class="sxs-lookup"><span data-stu-id="f39f2-149">Visual Studio used a default template for the ASP.NET MVC project you just created, so you have a working application right now without doing anything!</span></span> <span data-ttu-id="f39f2-150">これは、単純な&quot;Hello World!&quot;プロジェクト、およびそのアプリケーションを起動するに適しています。</span><span class="sxs-lookup"><span data-stu-id="f39f2-150">This is a simple &quot;Hello World!&quot; project, and it's a good place to start your application.</span></span>
 
 ![](intro-to-aspnet-mvc-4/_static/image6.png)
 

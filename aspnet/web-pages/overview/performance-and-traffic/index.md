@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/performance-and-traffic/index
-title: "パフォーマンス |Microsoft ドキュメント"
+title: パフォーマンス |Microsoft ドキュメント
 author: rick-anderson
-description: "サイトのトラフィックを測定する方法と、パフォーマンスを向上させるコンテンツをキャッシュする方法です。"
+description: サイトのトラフィックを測定する方法と、パフォーマンスを向上させるコンテンツをキャッシュする方法です。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview/performance-and-traffic
 msc.type: chapter
 ms.openlocfilehash: fffeb7c5b5a202a273bfd8b144ad1f63d5743087
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528521"
 ---
 <a name="performance"></a><span data-ttu-id="d20f7-103">パフォーマンス</span><span class="sxs-lookup"><span data-stu-id="d20f7-103">Performance</span></span>
 ====================

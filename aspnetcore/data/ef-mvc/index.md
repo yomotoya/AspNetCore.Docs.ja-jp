@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153466"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---tutorial-series"></a><span data-ttu-id="71f63-102">ASP.NET Core MVC と EF Core - チュートリアル シリーズ</span><span class="sxs-lookup"><span data-stu-id="71f63-102">ASP.NET Core MVC with EF Core - tutorial series</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870116"
 ---
 <a name="part-9-registration-and-checkout"></a><span data-ttu-id="1381e-104">手順 9: 登録とチェック アウト</span><span class="sxs-lookup"><span data-stu-id="1381e-104">Part 9: Registration and Checkout</span></span>
 ====================
@@ -91,9 +92,9 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="1381e-137">CheckoutController は、次のコント ローラーのアクションが適用されます。</span><span class="sxs-lookup"><span data-stu-id="1381e-137">The CheckoutController will have the following controller actions:</span></span>
 
-<span data-ttu-id="1381e-138">**AddressAndPayment (GET メソッド)**ユーザーに、それらの情報の入力を許可するフォームが表示されます。</span><span class="sxs-lookup"><span data-stu-id="1381e-138">**AddressAndPayment (GET method)** will display a form to allow the user to enter their information.</span></span>
+<span data-ttu-id="1381e-138">**AddressAndPayment (GET メソッド)** ユーザーに、それらの情報の入力を許可するフォームが表示されます。</span><span class="sxs-lookup"><span data-stu-id="1381e-138">**AddressAndPayment (GET method)** will display a form to allow the user to enter their information.</span></span>
 
-<span data-ttu-id="1381e-139">**AddressAndPayment (POST メソッド)**入力を検証し、注文を処理します。</span><span class="sxs-lookup"><span data-stu-id="1381e-139">**AddressAndPayment (POST method)** will validate the input and process the order.</span></span>
+<span data-ttu-id="1381e-139">**AddressAndPayment (POST メソッド)** 入力を検証し、注文を処理します。</span><span class="sxs-lookup"><span data-stu-id="1381e-139">**AddressAndPayment (POST method)** will validate the input and process the order.</span></span>
 
 <span data-ttu-id="1381e-140">**完全な**ユーザーには、チェック アウト処理が正常に完了した後に表示されます。</span><span class="sxs-lookup"><span data-stu-id="1381e-140">**Complete** will be shown after a user has successfully finished the checkout process.</span></span> <span data-ttu-id="1381e-141">このビューは、確認として、ユーザーの注文番号に含まれます。</span><span class="sxs-lookup"><span data-stu-id="1381e-141">This view will include the user's order number, as confirmation.</span></span>
 

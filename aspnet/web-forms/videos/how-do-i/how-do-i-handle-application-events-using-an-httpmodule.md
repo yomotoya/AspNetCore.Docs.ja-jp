@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-handle-application-events-using-an-httpmodule
-title: "[How Do i:]HttpModule を使用してアプリケーションのイベントを処理しますか。 | Microsoft Docs"
+title: '[How Do i:]HttpModule を使用してアプリケーションのイベントを処理しますか。 | Microsoft Docs'
 author: rick-anderson
-description: "ページ要求の処理中にアプリケーション イベントを処理する HttpModule を作成する方法を説明します。 サンプル モジュールは情報をログに書き込む."
+description: ページ要求の処理中にアプリケーション イベントを処理する HttpModule を作成する方法を説明します。 サンプル モジュールは情報をログに書き込む.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526181"
 ---
 <a name="how-do-i-handle-application-events-using-an-httpmodule"></a><span data-ttu-id="b4842-105">[How Do i:]HttpModule を使用してアプリケーションのイベントを処理しますか。</span><span class="sxs-lookup"><span data-stu-id="b4842-105">[How Do I:] Handle Application Events using an HttpModule?</span></span>
 ====================

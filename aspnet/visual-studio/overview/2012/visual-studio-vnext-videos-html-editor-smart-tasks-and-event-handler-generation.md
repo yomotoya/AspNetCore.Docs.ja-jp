@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2012/visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation
-title: "Visual Studio vNext ビデオ: HTML エディター スマート タスクとイベント ハンドラーの生成 |Microsoft ドキュメント"
+title: 'Visual Studio vNext ビデオ: HTML エディター スマート タスクとイベント ハンドラーの生成 |Microsoft ドキュメント'
 author: madskristensen
-description: "このビデオで Mads Kristensen は一般的なタスクの実行を簡略化される Visual Studio vNext HTML エディターの機能強化について説明します。"
+description: このビデオで Mads Kristensen は一般的なタスクの実行を簡略化される Visual Studio vNext HTML エディターの機能強化について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/30/2011
 ms.topic: article
 ms.assetid: 3aa5b073-1359-41ac-8f4f-b09c1c8cb4bd
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation
 msc.type: video
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506491"
 ---
 <a name="visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation"></a><span data-ttu-id="53df9-103">Visual Studio vNext ビデオ: HTML エディター スマート タスクとイベント ハンドラーの生成</span><span class="sxs-lookup"><span data-stu-id="53df9-103">Visual Studio vNext Videos: HTML Editor Smart Tasks and Event Handler Generation</span></span>
 ====================

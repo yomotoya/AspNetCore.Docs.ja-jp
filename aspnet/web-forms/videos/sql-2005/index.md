@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/sql-2005/index
-title: "SQL 2005 |Microsoft ドキュメント"
+title: SQL 2005 |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET アプリケーションにデータベースの機能を追加する SQL Server Express を使用する方法。"
+description: ASP.NET アプリケーションにデータベースの機能を追加する SQL Server Express を使用する方法。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/sql-2005
 msc.type: chapter
 ms.openlocfilehash: 42fc321b4d1d51ec2fe71e4c8873ae62da43c345
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26522251"
 ---
 <a name="sql-2005"></a><span data-ttu-id="557aa-103">SQL 2005</span><span class="sxs-lookup"><span data-stu-id="557aa-103">SQL 2005</span></span>
 ====================

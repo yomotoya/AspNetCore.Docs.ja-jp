@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869934"
 ---
 <a name="use-code-first-migrations-to-seed-the-database"></a><span data-ttu-id="c1e3b-102">Code First Migrations を使用して、データベースのシードを</span><span class="sxs-lookup"><span data-stu-id="c1e3b-102">Use Code First Migrations to Seed the Database</span></span>
 ====================
@@ -86,7 +87,7 @@ ms.lasthandoff: 04/06/2018
 
 ![](part-3/_static/image5.png)
 
-<span data-ttu-id="c1e3b-155">**サーバーへの接続**ダイアログで、**サーバー名**編集ボックスに、"(localdb) \v11.0"を入力します。</span><span class="sxs-lookup"><span data-stu-id="c1e3b-155">In the **Connect to Server** dialog, in the **Server Name** edit box, type "(localdb)\v11.0".</span></span> <span data-ttu-id="c1e3b-156">ままにして、**認証**「Windows 認証」では、オプションです。</span><span class="sxs-lookup"><span data-stu-id="c1e3b-156">Leave the **Authentication** option as "Windows Authentication".</span></span> <span data-ttu-id="c1e3b-157">**[接続]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="c1e3b-157">Click **Connect**.</span></span>
+<span data-ttu-id="c1e3b-155">**サーバーへの接続**ダイアログで、**サーバー名**編集ボックスに、"(localdb) \v11.0"を入力します。</span><span class="sxs-lookup"><span data-stu-id="c1e3b-155">In the **Connect to Server** dialog, in the **Server Name** edit box, type "(localdb)\v11.0".</span></span> <span data-ttu-id="c1e3b-156">ままにして、**認証**「Windows 認証」では、オプションです。</span><span class="sxs-lookup"><span data-stu-id="c1e3b-156">Leave the **Authentication** option as "Windows Authentication".</span></span> <span data-ttu-id="c1e3b-157">**[接続]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="c1e3b-157">Click **Connect**.</span></span>
 
 ![](part-3/_static/image6.png)
 

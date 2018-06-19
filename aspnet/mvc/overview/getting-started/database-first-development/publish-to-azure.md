@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869960"
 ---
 <a name="publish-mvc-database-first-site-to-azure"></a><span data-ttu-id="4724d-104">MVC データベースの最初のサイトを Azure に発行します。</span><span class="sxs-lookup"><span data-stu-id="4724d-104">Publish MVC Database First site to Azure</span></span>
 ====================
@@ -54,7 +55,7 @@ ms.lasthandoff: 04/06/2018
 
 ![connection](publish-to-azure/_static/image5.png)
 
-<span data-ttu-id="4724d-132">**[次へ]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="4724d-132">Click **Next**.</span></span>
+<span data-ttu-id="4724d-132">**[次へ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="4724d-132">Click **Next**.</span></span>
 
 <span data-ttu-id="4724d-133">設定については、2 つのデータベース接続であることに注意してくださいが指定された - ApplicationDBContext と ContosoUniversityDataEntities です。</span><span class="sxs-lookup"><span data-stu-id="4724d-133">For Settings, notice that two database connections are specified - ApplicationDBContext and ContosoUniversityDataEntities.</span></span> <span data-ttu-id="4724d-134">ApplicationDBContext は、ユーザー アカウントのテーブルの接続です。</span><span class="sxs-lookup"><span data-stu-id="4724d-134">ApplicationDBContext is the connection for user account tables.</span></span> <span data-ttu-id="4724d-135">これらの値は、データベースの接続文字列のみを表示します。</span><span class="sxs-lookup"><span data-stu-id="4724d-135">These values only show the connection strings for the databases.</span></span> <span data-ttu-id="4724d-136">サイトを発行するときに、これらのデータベースを公開することがありません。</span><span class="sxs-lookup"><span data-stu-id="4724d-136">It does not mean that these databases will be published when you publish your site.</span></span> <span data-ttu-id="4724d-137">Web アプリを発行した後は、データベース プロジェクトを発行します。</span><span class="sxs-lookup"><span data-stu-id="4724d-137">You will publish your database project after you have finished publishing the web app.</span></span>
 
@@ -74,7 +75,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="4724d-146">発行するファイルの一覧を表示するプレビューの開始をクリックすることができます。</span><span class="sxs-lookup"><span data-stu-id="4724d-146">You can click Start Preview to see a list of the files to publish.</span></span> <span data-ttu-id="4724d-147">これはこのサイトを発行した最初の時間であるため、プロジェクト内のすべての関連するファイルは表示されません。</span><span class="sxs-lookup"><span data-stu-id="4724d-147">Since this is the first time you have published this site, the list is every relevant file in the project.</span></span>
 
-<span data-ttu-id="4724d-148">**[発行]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="4724d-148">Click **Publish**.</span></span>
+<span data-ttu-id="4724d-148">**[発行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="4724d-148">Click **Publish**.</span></span>
 
 <span data-ttu-id="4724d-149">[出力] ペインのパブリケーションには、結果が表示されます。</span><span class="sxs-lookup"><span data-stu-id="4724d-149">The Output pane will display the result of your publication.</span></span>
 

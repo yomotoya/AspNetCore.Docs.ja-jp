@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/security/persistent-connection-authorization
-title: "SignalR 固定接続の認証と承認 |Microsoft ドキュメント"
+title: SignalR 固定接続の認証と承認 |Microsoft ドキュメント
 author: pfletcher
-description: "このトピックでは、永続的な接続の承認を適用する方法について説明します。 概要については、SignalR アプリケーションへのセキュリティの統合しています."
+description: このトピックでは、永続的な接続の承認を適用する方法について説明します。 概要については、SignalR アプリケーションへのセキュリティの統合しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28042200"
 ---
 <a name="authentication-and-authorization-for-signalr-persistent-connections"></a><span data-ttu-id="f8339-104">SignalR 固定接続の認証と承認</span><span class="sxs-lookup"><span data-stu-id="f8339-104">Authentication and Authorization for SignalR Persistent Connections</span></span>
 ====================

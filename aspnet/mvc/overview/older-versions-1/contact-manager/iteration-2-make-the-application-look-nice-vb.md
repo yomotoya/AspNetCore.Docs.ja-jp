@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872768"
 ---
 <a name="iteration-2--make-the-application-look-nice-vb"></a><span data-ttu-id="de21c-103">イテレーション 2 – nice (VB) を検索するアプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="de21c-103">Iteration #2 – Make the application look nice (VB)</span></span>
 ====================
@@ -83,7 +84,7 @@ ms.lasthandoff: 04/06/2018
 3. <span data-ttu-id="de21c-158">年 10 月をという名前のフォルダーにファイルを解凍します。</span><span class="sxs-lookup"><span data-stu-id="de21c-158">Unzip the file to a folder named October.</span></span>
 4. <span data-ttu-id="de21c-159">年 10 月フォルダーに含まれているレイアウト フォルダーからすべてのファイルを選択し、ファイルを右クリックし、メニュー オプションを選択**コピー**です。</span><span class="sxs-lookup"><span data-stu-id="de21c-159">Select all of the files from the DesignTemplate folder contained in the October folder, right-click the files, and select the menu option **Copy**.</span></span>
 5. <span data-ttu-id="de21c-160">Visual Studio ソリューション エクスプ ローラー ウィンドウで ContactManager プロジェクト ノードを右クリックし、メニュー オプションを選択**貼り付け**(図 4 を参照してください)。</span><span class="sxs-lookup"><span data-stu-id="de21c-160">Right-click the ContactManager project node in the Visual Studio Solution Explorer window and select the menu option **Paste** (see Figure 4).</span></span>
-6. <span data-ttu-id="de21c-161">Visual Studio のメニュー オプションを選択**編集、検索し、置換 クイック置換**と置換*[MyProjectName]*で*ContactManager* (図 5 を参照してください)。</span><span class="sxs-lookup"><span data-stu-id="de21c-161">Select the Visual Studio menu option **Edit, Find and Replace, Quick Replace** and replace *[MyProjectName]* with *ContactManager* (see Figure 5).</span></span>
+6. <span data-ttu-id="de21c-161">Visual Studio のメニュー オプションを選択**編集、検索し、置換 クイック置換**と置換 *[MyProjectName]* で*ContactManager* (図 5 を参照してください)。</span><span class="sxs-lookup"><span data-stu-id="de21c-161">Select the Visual Studio menu option **Edit, Find and Replace, Quick Replace** and replace *[MyProjectName]* with *ContactManager* (see Figure 5).</span></span>
 
 
 <span data-ttu-id="de21c-162">[![[新しいプロジェクト] ダイアログ ボックス](iteration-2-make-the-application-look-nice-vb/_static/image3.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image5.png)</span><span class="sxs-lookup"><span data-stu-id="de21c-162">[![The New Project dialog box](iteration-2-make-the-application-look-nice-vb/_static/image3.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image5.png)</span></span>

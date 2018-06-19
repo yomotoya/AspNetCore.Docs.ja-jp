@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869986"
 ---
 <a name="dynamically-populating-a-control-using-javascript-code-vb"></a><span data-ttu-id="3326d-103">JavaScript コード (VB) を使用してコントロールを動的に作成します。</span><span class="sxs-lookup"><span data-stu-id="3326d-103">Dynamically Populating a Control Using JavaScript Code (VB)</span></span>
 ====================

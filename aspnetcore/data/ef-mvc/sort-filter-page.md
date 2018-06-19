@@ -13,6 +13,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153723"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a><span data-ttu-id="f6ac7-103">ASP.NET Core MVC と EF Core - 並べ替え、フィルター、ページング - 3/10</span><span class="sxs-lookup"><span data-stu-id="f6ac7-103">ASP.NET Core MVC with EF Core - Sort, Filter, Paging - 3 of 10</span></span>
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/index
-title: "ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要 |Microsoft ドキュメント"
+title: ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルの系列では、ASP.NET 4.5 と Visual Studio 2013 Express Web を使用した ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。 Visua しています."
+description: このチュートリアルの系列では、ASP.NET 4.5 と Visual Studio 2013 Express Web を使用した ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。 Visua しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-4
 msc.type: chapter
 ms.openlocfilehash: 1c6e6f08c94d025c3643938de2c6ca2326402f90
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26516541"
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a><span data-ttu-id="4bace-104">ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要</span><span class="sxs-lookup"><span data-stu-id="4bace-104">Getting Started with ASP.NET 4.5 Web Forms and Visual Studio 2013</span></span>
 ====================

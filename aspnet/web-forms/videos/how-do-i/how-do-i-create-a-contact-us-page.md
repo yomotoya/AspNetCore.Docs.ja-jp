@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-contact-us-page
-title: "ページ Us 連絡先を作成する方法"
+title: ページ Us 連絡先を作成する方法
 author: microsoft
-description: "ウィザード コントロールにユーザー情報の収集、その情報を検証および System.Net.Mail クラスを使用して、確認を送信する web ページを構築してください."
+description: ウィザード コントロールにユーザー情報の収集、その情報を検証および System.Net.Mail クラスを使用して、確認を送信する web ページを構築してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/24/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525461"
 ---
 <a name="how-do-i-create-a-contact-us-page"></a><span data-ttu-id="7088f-103">[How Do i:]「問い合わせ」ページを作成しますか。</span><span class="sxs-lookup"><span data-stu-id="7088f-103">[How Do I:] Create a "Contact Us" Page?</span></span>
 ====================

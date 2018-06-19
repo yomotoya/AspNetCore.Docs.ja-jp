@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/performance/index
-title: "ASP.NET MVC のパフォーマンス |Microsoft ドキュメント"
+title: ASP.NET MVC のパフォーマンス |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET MVC アプリケーションのパフォーマンスを最適化するためのリソース。"
+description: ASP.NET MVC アプリケーションのパフォーマンスを最適化するためのリソース。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/09/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/performance
 msc.type: chapter
 ms.openlocfilehash: 9c0e41e7356dca788f4e144dd211fd1483da8465
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503181"
 ---
 <a name="aspnet-mvc-performance"></a><span data-ttu-id="546b8-103">ASP.NET MVC のパフォーマンス</span><span class="sxs-lookup"><span data-stu-id="546b8-103">ASP.NET MVC Performance</span></span>
 ====================

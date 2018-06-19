@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/read-write-and-delete-cookies-in-aspnet
-title: "読み取り、書き込み、および ASP.NET で Cookie を削除する |Microsoft ドキュメント"
+title: 読み取り、書き込み、および ASP.NET で Cookie を削除する |Microsoft ドキュメント
 author: rick-anderson
-description: "このビデオ Chris Pels では、読み取り、書き込み、および ASP.NET アプリケーションで cookie を削除する方法が表示されます。 まず、cooki を操作するための基本的な操作を学習してください."
+description: このビデオ Chris Pels では、読み取り、書き込み、および ASP.NET アプリケーションで cookie を削除する方法が表示されます。 まず、cooki を操作するための基本的な操作を学習してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/10/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526371"
 ---
 <a name="read-write-and-delete-cookies-in-aspnet"></a><span data-ttu-id="24321-104">読み取り、書き込み、および ASP.NET で Cookie を削除します。</span><span class="sxs-lookup"><span data-stu-id="24321-104">Read, Write, and Delete Cookies in ASP.NET</span></span>
 ====================

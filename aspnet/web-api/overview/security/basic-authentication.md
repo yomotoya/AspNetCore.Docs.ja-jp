@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/basic-authentication
-title: "ASP.NET Web API で基本認証 |Microsoft ドキュメント"
+title: ASP.NET Web API で基本認証 |Microsoft ドキュメント
 author: MikeWasson
-description: "ASP.NET Web API で基本認証の使用について説明します。"
+description: ASP.NET Web API で基本認証の使用について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/02/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508131"
 ---
 <a name="basic-authentication-in-aspnet-web-api"></a><span data-ttu-id="55547-103">ASP.NET Web API で基本認証</span><span class="sxs-lookup"><span data-stu-id="55547-103">Basic Authentication in ASP.NET Web API</span></span>
 ====================

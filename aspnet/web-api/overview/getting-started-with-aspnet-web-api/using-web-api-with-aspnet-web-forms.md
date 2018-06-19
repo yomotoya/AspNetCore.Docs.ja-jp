@@ -17,6 +17,7 @@ ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26536081"
 ---
 <a name="using-web-api-with-aspnet-web-forms"></a><span data-ttu-id="fe63c-102">ASP.NET Web フォームで Web API の使用</span><span class="sxs-lookup"><span data-stu-id="fe63c-102">Using Web API with ASP.NET Web Forms</span></span>
 ====================

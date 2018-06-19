@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/jquery/how-do-i-make-ajax-calls-using-jquery
-title: "操作方法: Make Ajax 呼び出し jQuery を使用しますか。 | Microsoft Docs"
+title: '操作方法: Make Ajax 呼び出し jQuery を使用しますか。 | Microsoft Docs'
 author: rick-anderson
-description: "このビデオ Chris Pels では、jQuery ライブラリを使用して Ajax 呼び出しを行う方法を示します。 返す単純な web サービスを含むサンプル web サイトを作成しています."
+description: このビデオ Chris Pels では、jQuery ライブラリを使用して Ajax 呼び出しを行う方法を示します。 返す単純な web サービスを含むサンプル web サイトを作成しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526421"
 ---
 <a name="how-do-i-make-ajax-calls-using-jquery"></a><span data-ttu-id="e7924-105">操作方法: Make Ajax 呼び出し jQuery を使用しますか。</span><span class="sxs-lookup"><span data-stu-id="e7924-105">How Do I: Make Ajax Calls Using jQuery?</span></span>
 ====================

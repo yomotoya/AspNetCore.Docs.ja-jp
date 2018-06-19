@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036545"
 ---
 <a name="working-with-groups-in-signalr-1x"></a><span data-ttu-id="eacad-103">SignalR でグループの操作 1.x</span><span class="sxs-lookup"><span data-stu-id="eacad-103">Working with Groups in SignalR 1.x</span></span>
 ====================

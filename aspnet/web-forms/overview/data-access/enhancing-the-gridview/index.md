@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/index
-title: "GridView の強化 |Microsoft ドキュメント"
+title: GridView の強化 |Microsoft ドキュメント
 author: rick-anderson
-description: "これらのチュートリアルでは、1 つの行を選択する直感的な方法を提供する GridView コントロールにラジオ ボタンの列を追加する方法を示します。"
+description: これらのチュートリアルでは、1 つの行を選択する直感的な方法を提供する GridView コントロールにラジオ ボタンの列を追加する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview
 msc.type: chapter
 ms.openlocfilehash: 04dbfe7fcc66e4e946b1807c3480d7c796af11df
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514081"
 ---
 <a name="enhancing-the-gridview"></a><span data-ttu-id="e5606-103">GridView の強化</span><span class="sxs-lookup"><span data-stu-id="e5606-103">Enhancing the GridView</span></span>
 ====================

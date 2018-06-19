@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/what-is-asp-net
-title: "ASP.NET とは何ですか? | Microsoft Docs"
+title: ASP.NET とは何ですか? | Microsoft Docs
 author: shanselman
-description: "Microsoft の Scott Hanselman には、ASP.NET の概要が示されています。"
+description: Microsoft の Scott Hanselman には、ASP.NET の概要が示されています。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521531"
 ---
 <a name="what-is-aspnet"></a><span data-ttu-id="30a8b-104">ASP.NET とは何ですか?</span><span class="sxs-lookup"><span data-stu-id="30a8b-104">What is ASP.NET?</span></span>
 ====================

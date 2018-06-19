@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/masterpages
-title: "MasterPages |Microsoft ドキュメント"
+title: MasterPages |Microsoft ドキュメント
 author: JoeStagner
-description: "ASP.NET MasterPages は、アジャイルの web アプリケーションの構築のキーの一部です。 このビデオは、マスター ページと 入れ子になった MasterPages を使用する基本方法を説明しています."
+description: ASP.NET MasterPages は、アジャイルの web アプリケーションの構築のキーの一部です。 このビデオは、マスター ページと 入れ子になった MasterPages を使用する基本方法を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520901"
 ---
 <a name="masterpages"></a><span data-ttu-id="4b543-104">MasterPages</span><span class="sxs-lookup"><span data-stu-id="4b543-104">MasterPages</span></span>
 ====================

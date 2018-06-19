@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879273"
 ---
 <a name="using-the-slider-control-with-auto-postback-vb"></a><span data-ttu-id="aad16-104">自動ポストバック (VB) でスライダー コントロールの使用</span><span class="sxs-lookup"><span data-stu-id="aad16-104">Using the Slider Control With Auto-Postback (VB)</span></span>
 ====================

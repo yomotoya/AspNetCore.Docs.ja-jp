@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/textboxwatermark/index
-title: "TextBoxWatermark |Microsoft ドキュメント"
+title: TextBoxWatermark |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、TextBoxWatermark コントロールを使用して、ユーザーがその中の入力を開始すると消えます、メッセージのテキスト ボックスを表示する方法を示します。"
+description: このチュートリアルでは、TextBoxWatermark コントロールを使用して、ユーザーがその中の入力を開始すると消えます、メッセージのテキスト ボックスを表示する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark
 msc.type: chapter
 ms.openlocfilehash: b1285b7f6e3b174a61d4c850c3b54c45da4f802e
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26511701"
 ---
 <a name="textboxwatermark"></a><span data-ttu-id="01070-103">TextBoxWatermark</span><span class="sxs-lookup"><span data-stu-id="01070-103">TextBoxWatermark</span></span>
 ====================

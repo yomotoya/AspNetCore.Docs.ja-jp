@@ -1,8 +1,8 @@
 ---
 uid: web-api/videos/index
-title: "ASP.NET Web API ビデオ |Microsoft ドキュメント"
+title: ASP.NET Web API ビデオ |Microsoft ドキュメント
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/videos
 msc.type: book
 ms.openlocfilehash: cd78a8d3849c80730c6820115944c429f86116df
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26509101"
 ---
 <a name="aspnet-web-api-videos"></a><span data-ttu-id="32a48-102">ASP.NET Web API のビデオ</span><span class="sxs-lookup"><span data-stu-id="32a48-102">ASP.NET Web API Videos</span></span>
 ====================

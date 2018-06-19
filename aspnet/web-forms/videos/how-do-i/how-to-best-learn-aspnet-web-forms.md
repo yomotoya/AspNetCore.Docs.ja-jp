@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-to-best-learn-aspnet-web-forms
-title: "ASP.NET Web フォームの最適な学習方法 |Microsoft ドキュメント"
+title: ASP.NET Web フォームの最適な学習方法 |Microsoft ドキュメント
 author: JoeStagner
-description: "Microsoft の行えるは ASP.NET Web フォームを使用して、web アプリケーションを開発する方法を学習する必要がありますを示しています。"
+description: Microsoft の行えるは ASP.NET Web フォームを使用して、web アプリケーションを開発する方法を学習する必要がありますを示しています。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/03/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521741"
 ---
 <a name="how-to-best-learn-aspnet-web-forms"></a><span data-ttu-id="9d3da-103">最適な ASP.NET Web フォームを学習する方法</span><span class="sxs-lookup"><span data-stu-id="9d3da-103">How to Best Learn ASP.NET Web Forms</span></span>
 ====================

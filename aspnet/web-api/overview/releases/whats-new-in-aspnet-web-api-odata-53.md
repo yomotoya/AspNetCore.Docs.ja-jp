@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508111"
 ---
 <a name="whats-new-in-aspnet-web-api-odata-53"></a><span data-ttu-id="d591a-102">ASP.NET Web API OData 5.3 の新機能</span><span class="sxs-lookup"><span data-stu-id="d591a-102">What's New in ASP.NET Web API OData 5.3</span></span>
 ====================

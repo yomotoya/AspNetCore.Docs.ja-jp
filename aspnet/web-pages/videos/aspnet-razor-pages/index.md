@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/index
-title: "ASP.NET Razor ページ |Microsoft ドキュメント"
+title: ASP.NET Razor ページ |Microsoft ドキュメント
 author: rick-anderson
-description: "どのビデオ Web ページおよび WebMatrix にドリル ダウンを表示できます。"
+description: どのビデオ Web ページおよび WebMatrix にドリル ダウンを表示できます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/videos/aspnet-razor-pages
 msc.type: chapter
 ms.openlocfilehash: c2656e666e3267895ced67562e0b3e6292d83d3d
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529931"
 ---
 <a name="aspnet-web-pages"></a><span data-ttu-id="57727-103">ASP.NET Web ページ</span><span class="sxs-lookup"><span data-stu-id="57727-103">ASP.NET Web Pages</span></span>
 =================

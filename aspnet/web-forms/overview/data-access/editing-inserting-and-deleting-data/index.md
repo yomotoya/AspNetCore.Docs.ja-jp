@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/index
-title: "編集、挿入、およびデータの削除 |Microsoft ドキュメント"
+title: 編集、挿入、およびデータの削除 |Microsoft ドキュメント
 author: rick-anderson
-description: "これらのチュートリアルでは、BLL メソッドに、ObjectDataSource コントロールのメソッドをマップする方法と、GridView、DetailsView、および FormView co を構成する方法を確認しています."
+description: これらのチュートリアルでは、BLL メソッドに、ObjectDataSource コントロールのメソッドをマップする方法と、GridView、DetailsView、および FormView co を構成する方法を確認しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-da
 msc.type: chapter
 ms.openlocfilehash: 424781d445443ff2df3b5fda359dadc5243e1ea9
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26513811"
 ---
 <a name="editing-inserting-and-deleting-data"></a><span data-ttu-id="e4a6a-103">編集、挿入、およびデータを削除します。</span><span class="sxs-lookup"><span data-stu-id="e4a6a-103">Editing, Inserting, and Deleting Data</span></span>
 ====================

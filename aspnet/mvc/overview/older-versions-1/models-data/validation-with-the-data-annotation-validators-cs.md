@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870194"
 ---
 <a name="validation-with-the-data-annotation-validators-c"></a><span data-ttu-id="b4192-104">データ注釈検証コントロール (c#) を使用した検証</span><span class="sxs-lookup"><span data-stu-id="b4192-104">Validation with the Data Annotation Validators (C#)</span></span>
 ====================

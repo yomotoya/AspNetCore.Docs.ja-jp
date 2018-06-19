@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869362"
 ---
 <a name="executing-several-animations-at-the-same-time-c"></a><span data-ttu-id="2e9fa-104">(C#) 同時に複数のアニメーションを実行します。</span><span class="sxs-lookup"><span data-stu-id="2e9fa-104">Executing Several Animations at The Same Time (C#)</span></span>
 ====================

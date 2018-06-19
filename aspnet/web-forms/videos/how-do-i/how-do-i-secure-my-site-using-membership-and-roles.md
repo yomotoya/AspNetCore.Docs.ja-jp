@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-secure-my-site-using-membership-and-roles
-title: "[How Do i:]メンバーシップとロールを使用して自分のサイトをセキュリティで保護しますか。 | Microsoft Docs"
+title: '[How Do i:]メンバーシップとロールを使用して自分のサイトをセキュリティで保護しますか。 | Microsoft Docs'
 author: microsoft
-description: "ASP.NET 2.0 の新しいメンバーシップとロール機能を使用して web サイトをセキュリティで保護する方法を説明します。 ここでは、ユーザー登録、パスワードの回復、および restricti しています."
+description: ASP.NET 2.0 の新しいメンバーシップとロール機能を使用して web サイトをセキュリティで保護する方法を説明します。 ここでは、ユーザー登録、パスワードの回復、および restricti しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/09/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526101"
 ---
 <a name="how-do-i-secure-my-site-using-membership-and-roles"></a><span data-ttu-id="9d6fd-105">[How Do i:]メンバーシップとロールを使用して自分のサイトをセキュリティで保護しますか。</span><span class="sxs-lookup"><span data-stu-id="9d6fd-105">[How Do I:] Secure my Site using Membership and Roles?</span></span>
 ====================

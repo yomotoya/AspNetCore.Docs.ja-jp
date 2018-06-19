@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869388"
 ---
 <a name="part-6-creating-product-and-order-controllers"></a><span data-ttu-id="226a6-102">パート 6: 製品の作成と順序コント ローラー</span><span class="sxs-lookup"><span data-stu-id="226a6-102">Part 6: Creating Product and Order Controllers</span></span>
 ====================

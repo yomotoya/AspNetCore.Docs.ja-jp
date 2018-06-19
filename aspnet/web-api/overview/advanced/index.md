@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/index
-title: "ASP.NET Web API のトピックを高度な |Microsoft ドキュメント"
+title: ASP.NET Web API のトピックを高度な |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET Web API の開発に関するトピックをより高度な後学んだ基本です。"
+description: ASP.NET Web API の開発に関するトピックをより高度な後学んだ基本です。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/23/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/advanced
 msc.type: chapter
 ms.openlocfilehash: dca812e1c88d1aa2692365711d71813199be9ca2
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506751"
 ---
 <a name="advanced-topics-for-aspnet-web-api"></a><span data-ttu-id="35d6f-103">ASP.NET Web API の詳細事項</span><span class="sxs-lookup"><span data-stu-id="35d6f-103">Advanced Topics for ASP.NET Web API</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/hub-authorization
-title: "SignalR ハブの認証と承認 (SignalR 1.x) |Microsoft ドキュメント"
+title: SignalR ハブの認証と承認 (SignalR 1.x) |Microsoft ドキュメント
 author: pfletcher
-description: "このトピックでは、どのユーザーまたはロールがハブ メソッドにアクセスできる制限する方法について説明します。"
+description: このトピックでは、どのユーザーまたはロールがハブ メソッドにアクセスできる制限する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28042876"
 ---
 <a name="authentication-and-authorization-for-signalr-hubs-signalr-1x"></a><span data-ttu-id="b2b58-103">SignalR ハブの認証と承認 (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="b2b58-103">Authentication and Authorization for SignalR Hubs (SignalR 1.x)</span></span>
 ====================

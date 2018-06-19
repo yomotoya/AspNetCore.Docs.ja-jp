@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-set-up-the-sql-membership-provider
-title: "[How Do i:]SQL メンバーシップ プロバイダーを設定 |Microsoft ドキュメント"
+title: '[How Do i:]SQL メンバーシップ プロバイダーを設定 |Microsoft ドキュメント'
 author: rick-anderson
-description: "フォーム認証を ASP.NET 2.0 Web サイトに追加する SQL メンバーシップ プロバイダーを設定する方法を示します彼 Patrick Hynds を結合します。 いくつかのヒントがある."
+description: フォーム認証を ASP.NET 2.0 Web サイトに追加する SQL メンバーシップ プロバイダーを設定する方法を示します彼 Patrick Hynds を結合します。 いくつかのヒントがある.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526091"
 ---
 <a name="how-do-i-set-up-the-sql-membership-provider"></a><span data-ttu-id="265df-104">[How Do i:]SQL メンバーシップ プロバイダーを設定します。</span><span class="sxs-lookup"><span data-stu-id="265df-104">[How Do I:] Set Up the SQL Membership Provider</span></span>
 ====================

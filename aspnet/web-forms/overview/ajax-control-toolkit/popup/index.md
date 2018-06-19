@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/popup/index
-title: "ポップアップ |Microsoft ドキュメント"
+title: ポップアップ |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、Popup コントロールを使用して、他のコントロールがアクティブになったときに、ポップアップを表示する方法を示します。"
+description: このチュートリアルでは、Popup コントロールを使用して、他のコントロールがアクティブになったときに、ポップアップを表示する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup
 msc.type: chapter
 ms.openlocfilehash: f0d9ab97c0d04b0fd6b8798d08676755bda43cdf
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26510581"
 ---
 <a name="popup"></a><span data-ttu-id="47fbe-103">ポップアップ</span><span class="sxs-lookup"><span data-stu-id="47fbe-103">Popup</span></span>
 ====================

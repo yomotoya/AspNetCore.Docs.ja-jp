@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873850"
 ---
 <a name="using-the-colorpicker-control-extender-c"></a><span data-ttu-id="5717a-104">ColorPicker コントロール エクステンダー (c#) を使用します。</span><span class="sxs-lookup"><span data-stu-id="5717a-104">Using the ColorPicker Control Extender (C#)</span></span>
 ====================

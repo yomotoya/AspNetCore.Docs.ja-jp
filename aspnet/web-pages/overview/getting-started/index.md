@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/index
-title: "ASP.NET Web Pages の概要 |Microsoft ドキュメント"
+title: ASP.NET Web Pages の概要 |Microsoft ドキュメント
 author: rick-anderson
-description: "学習の ASP.NET Web Pages ASP.NET Web Pages および新しい Razor 構文は、HTML t とサーバー コードを結合する高速、わかりやすく、かつ軽量な方法を提供しています."
+description: 学習の ASP.NET Web Pages ASP.NET Web Pages および新しい Razor 構文は、HTML t とサーバー コードを結合する高速、わかりやすく、かつ軽量な方法を提供しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: 879110bba5e3465dd413764816603bcdb56eac31
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528591"
 ---
 <a name="getting-started-with-aspnet-web-pages"></a><span data-ttu-id="2ec8e-103">ASP.NET Web ページの概要</span><span class="sxs-lookup"><span data-stu-id="2ec8e-103">Getting Started with ASP.NET Web Pages</span></span>
 ====================

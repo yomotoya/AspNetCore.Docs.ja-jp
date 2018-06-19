@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/scaleout-in-signalr
-title: "SignalR でスケール アウトの概要 |Microsoft ドキュメント"
+title: SignalR でスケール アウトの概要 |Microsoft ドキュメント
 author: MikeWasson
-description: "ここ Visual Studio 2013 .NET 4.5 SignalR で使用するソフトウェアのバージョンはの以前のバージョンについてはこのトピックの以前のバージョンをバージョン 2."
+description: ここ Visual Studio 2013 .NET 4.5 SignalR で使用するソフトウェアのバージョンはの以前のバージョンについてはこのトピックの以前のバージョンをバージョン 2.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28034595"
 ---
 <a name="introduction-to-scaleout-in-signalr"></a><span data-ttu-id="77cb8-103">SignalR でスケール アウトの概要</span><span class="sxs-lookup"><span data-stu-id="77cb8-103">Introduction to Scaleout in SignalR</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867815"
 ---
 <a name="publish-the-app-to-azure-azure-app-service"></a><span data-ttu-id="d5a89-102">Azure の Azure App Service にアプリを公開します。</span><span class="sxs-lookup"><span data-stu-id="d5a89-102">Publish the App to Azure Azure App Service</span></span>
 ====================
@@ -51,7 +52,7 @@ ms.lasthandoff: 04/06/2018
 
 ![](part-10/_static/image9.png)
 
-<span data-ttu-id="d5a89-122">サイト名を入力します。</span><span class="sxs-lookup"><span data-stu-id="d5a89-122">Enter a site name.</span></span> <span data-ttu-id="d5a89-123">Azure サブスクリプションと地域を選択します。</span><span class="sxs-lookup"><span data-stu-id="d5a89-123">Select your Azure subscription and the region.</span></span> <span data-ttu-id="d5a89-124">**データベース サーバー****新しいサーバーの作成**、または既存のサーバーを選択します。</span><span class="sxs-lookup"><span data-stu-id="d5a89-124">Under **Database server**, select **Create New Server**, or select an existing server.</span></span> <span data-ttu-id="d5a89-125">**[作成]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="d5a89-125">Click **Create**.</span></span>
+<span data-ttu-id="d5a89-122">サイト名を入力します。</span><span class="sxs-lookup"><span data-stu-id="d5a89-122">Enter a site name.</span></span> <span data-ttu-id="d5a89-123">Azure サブスクリプションと地域を選択します。</span><span class="sxs-lookup"><span data-stu-id="d5a89-123">Select your Azure subscription and the region.</span></span> <span data-ttu-id="d5a89-124">**データベース サーバー****新しいサーバーの作成**、または既存のサーバーを選択します。</span><span class="sxs-lookup"><span data-stu-id="d5a89-124">Under **Database server**, select **Create New Server**, or select an existing server.</span></span> <span data-ttu-id="d5a89-125">**[作成]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="d5a89-125">Click **Create**.</span></span>
 
 [![](part-10/_static/image11.png)](part-10/_static/image10.png)
 

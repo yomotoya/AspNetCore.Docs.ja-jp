@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/an-introduction-to-soap-based-web-services-with-visual-web-developer-2008
-title: "SOAP の概要については、Visual Web developer 2008 の Web サービスをベース |Microsoft ドキュメント"
+title: SOAP の概要については、Visual Web developer 2008 の Web サービスをベース |Microsoft ドキュメント
 author: JoeStagner
-description: "このビデオではどのようにクイックと SOAP に基づく分散アプリケーションの開発を開始することが簡単であるか/XML web サービスです。"
+description: このビデオではどのようにクイックと SOAP に基づく分散アプリケーションの開発を開始することが簡単であるか/XML web サービスです。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521641"
 ---
 <a name="an-introduction-to-soap-based-web-services-with-visual-web-developer-2008"></a><span data-ttu-id="6e729-103">SOAP の概要については Visual Web developer 2008 の Web サービスのベース</span><span class="sxs-lookup"><span data-stu-id="6e729-103">An Introduction to SOAP Based Web Services with Visual Web Developer 2008</span></span>
 ====================

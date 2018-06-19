@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/index
-title: "ASP.NET 4 - エンタープライズ展開シリーズ 1 |Microsoft ドキュメント"
+title: ASP.NET 4 - エンタープライズ展開シリーズ 1 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、developmen にエンタープライズ規模の web アプリケーションの展開を管理するときに発生する課題の多くを満たす方法について説明しています."
+description: このチュートリアルでは、developmen にエンタープライズ規模の web アプリケーションの展開を管理するときに発生する課題の多くを満たす方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise
 msc.type: chapter
 ms.openlocfilehash: 50918b1aef416a7b262e982bcf67607aa36933a3
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26515181"
 ---
 <a name="aspnet-4---enterprise-deployment-series-1"></a><span data-ttu-id="5ea78-103">ASP.NET 4 - エンタープライズ展開シリーズ 1</span><span class="sxs-lookup"><span data-stu-id="5ea78-103">ASP.NET 4 - Enterprise Deployment Series 1</span></span>
 ====================

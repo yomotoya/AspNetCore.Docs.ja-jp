@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/index
-title: "モデル (データ) |Microsoft ドキュメント"
+title: モデル (データ) |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルの系列では、Microsoft の Entity Framework での ASP.NET MVC を使用する方法を学習します。 このチュートリアルの過程で、web アプリケーションを構築しています."
+description: このチュートリアルの系列では、Microsoft の Entity Framework での ASP.NET MVC を使用する方法を学習します。 このチュートリアルの過程で、web アプリケーションを構築しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1/models-data
 msc.type: chapter
 ms.openlocfilehash: b531a5ad6924840487985a57c178d18d945a0b06
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26499981"
 ---
 <a name="models-data"></a><span data-ttu-id="e62d5-104">モデル (データ)</span><span class="sxs-lookup"><span data-stu-id="e62d5-104">Models (Data)</span></span>
 ====================

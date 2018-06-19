@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880389"
 ---
 <a name="basic-aspnet-authentication-in-an-ajax-enabled-application"></a><span data-ttu-id="7424d-103">対応アプリケーションで AJAX の基本的な ASP.NET 認証</span><span class="sxs-lookup"><span data-stu-id="7424d-103">Basic ASP.NET Authentication in an AJAX Enabled Application</span></span>
 ====================

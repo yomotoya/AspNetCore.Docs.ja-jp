@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-master-pages-and-site-navigation
-title: "[How Do i:]マスター ページを使用してサイトのナビゲーションですか。 | Microsoft Docs"
+title: '[How Do i:]マスター ページを使用してサイトのナビゲーションですか。 | Microsoft Docs'
 author: microsoft
-description: "ASP.NET 2.0 MasterPages を使用して、すべてのページにわたって一貫したレイアウトのデザインと web サイトを作成します。 Web サイトへのナビゲーションを追加することがいかに簡単を参照してください."
+description: ASP.NET 2.0 MasterPages を使用して、すべてのページにわたって一貫したレイアウトのデザインと web サイトを作成します。 Web サイトへのナビゲーションを追加することがいかに簡単を参照してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/11/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521501"
 ---
 <a name="how-do-i-use-master-pages-and-site-navigation"></a><span data-ttu-id="3902b-105">[How Do i:]マスター ページを使用してサイトのナビゲーションですか。</span><span class="sxs-lookup"><span data-stu-id="3902b-105">[How Do I:] Use Master Pages and Site Navigation?</span></span>
 ====================

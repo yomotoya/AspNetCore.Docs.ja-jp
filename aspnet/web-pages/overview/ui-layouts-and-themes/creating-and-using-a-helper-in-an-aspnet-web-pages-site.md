@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
-title: "作成して、ヘルパーを使用して ASP.NET web Pages (Razor) サイト |Microsoft ドキュメント"
+title: 作成して、ヘルパーを使用して ASP.NET web Pages (Razor) サイト |Microsoft ドキュメント
 author: tfitzmac
-description: "この記事では、ASP.NET Web Pages (Razor) の web サイトにヘルパーを作成する方法について説明します。 コードとパフォーマンスにマークアップを含む再使用可能なコンポーネントをヘルパーには."
+description: この記事では、ASP.NET Web Pages (Razor) の web サイトにヘルパーを作成する方法について説明します。 コードとパフォーマンスにマークアップを含む再使用可能なコンポーネントをヘルパーには.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26530001"
 ---
 <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a><span data-ttu-id="a212c-104">ASP.NET Web Pages (Razor) サイトで作成およびヘルパー</span><span class="sxs-lookup"><span data-stu-id="a212c-104">Creating and Using a Helper in an ASP.NET Web Pages (Razor) Site</span></span>
 ====================
@@ -55,7 +56,7 @@ ms.lasthandoff: 11/10/2017
 <span data-ttu-id="a212c-127">この手順では、上記のメモを作成するヘルパーを作成する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="a212c-127">This procedure shows you how to create the helper that creates the note, as just described.</span></span> <span data-ttu-id="a212c-128">これは単純な例ですが、カスタム ヘルパーは、マークアップとする必要がある ASP.NET コードを含めることができます。</span><span class="sxs-lookup"><span data-stu-id="a212c-128">This is a simple example, but the custom helper can include any markup and ASP.NET code that you need.</span></span>
 
 1. <span data-ttu-id="a212c-129">という名前のフォルダーを作成、web サイトのルート フォルダーに*アプリ\_コード*です。</span><span class="sxs-lookup"><span data-stu-id="a212c-129">In the root folder of the website, create a folder named *App\_Code*.</span></span> <span data-ttu-id="a212c-130">これは、ヘルパーなどのコンポーネントのコードを配置できる ASP.NET で予約されたフォルダーの名前です。</span><span class="sxs-lookup"><span data-stu-id="a212c-130">This is a reserved folder name in ASP.NET where you can put code for components like helpers.</span></span>
-2. <span data-ttu-id="a212c-131">*アプリ\_コード*フォルダーを作成、新しい*.cshtml*ファイルし、名前を付けます*MyHelpers.cshtml*です。</span><span class="sxs-lookup"><span data-stu-id="a212c-131">In the *App\_Code* folder create a new *.cshtml* file and name it *MyHelpers.cshtml*.</span></span>
+2. <span data-ttu-id="a212c-131">*アプリ\_コード*フォルダーを作成、新しい *.cshtml*ファイルし、名前を付けます*MyHelpers.cshtml*です。</span><span class="sxs-lookup"><span data-stu-id="a212c-131">In the *App\_Code* folder create a new *.cshtml* file and name it *MyHelpers.cshtml*.</span></span>
 3. <span data-ttu-id="a212c-132">次のように、既存のコンテンツを置き換えます。</span><span class="sxs-lookup"><span data-stu-id="a212c-132">Replace the existing content with the following:</span></span>
 
     [!code-cshtml[Main](creating-and-using-a-helper-in-an-aspnet-web-pages-site/samples/sample1.cshtml)]

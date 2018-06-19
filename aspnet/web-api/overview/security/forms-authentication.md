@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/forms-authentication
-title: "ASP.NET Web API でフォーム認証 |Microsoft ドキュメント"
+title: ASP.NET Web API でフォーム認証 |Microsoft ドキュメント
 author: MikeWasson
-description: "ASP.NET Web API でフォーム認証の使用について説明します。"
+description: ASP.NET Web API でフォーム認証の使用について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/12/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508311"
 ---
 <a name="forms-authentication-in-aspnet-web-api"></a><span data-ttu-id="23352-103">ASP.NET Web API でフォーム認証</span><span class="sxs-lookup"><span data-stu-id="23352-103">Forms Authentication in ASP.NET Web API</span></span>
 ====================

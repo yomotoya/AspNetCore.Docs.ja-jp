@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/index
-title: "ASP.NET Web フォームの概要 |Microsoft ドキュメント"
+title: ASP.NET Web フォームの概要 |Microsoft ドキュメント
 author: rick-anderson
-description: "学習の ASP.NET Web フォーム ASP.NET Web フォームでは、使い慣れたドラッグ アンド ドロップ、イベント ドリブン モデルを使用して動的な web サイトをビルドできます。 デザイン画面と hund しています."
+description: 学習の ASP.NET Web フォーム ASP.NET Web フォームでは、使い慣れたドラッグ アンド ドロップ、イベント ドリブン モデルを使用して動的な web サイトをビルドできます。 デザイン画面と hund しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: 219379b12e207755e8d27f0b5dae761527215519
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26516571"
 ---
 <a name="getting-started-with-aspnet-web-forms"></a><span data-ttu-id="33bb8-104">ASP.NET Web フォームの概要</span><span class="sxs-lookup"><span data-stu-id="33bb8-104">Getting Started with ASP.NET Web Forms</span></span>
 ====================

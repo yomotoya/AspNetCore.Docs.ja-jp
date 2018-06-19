@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles
-title: "操作方法: 作成、効率的かつ標準化された方法 CSS スタイルを実装するのですか。 | Microsoft Docs"
+title: '操作方法: 作成、効率的かつ標準化された方法 CSS スタイルを実装するのですか。 | Microsoft Docs'
 author: rick-anderson
-description: "このビデオ Chris Pels で整理して、web サイトに標準化されたルック アンド フィールを提供する CSS スタイルを実装する方法を示しています。 さらに、スタイルには."
+description: このビデオ Chris Pels で整理して、web サイトに標準化されたルック アンド フィールを提供する CSS スタイルを実装する方法を示しています。 さらに、スタイルには.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/15/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521901"
 ---
 <a name="how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles"></a><span data-ttu-id="6c756-105">操作方法: 作成、効率的かつ標準化された方法 CSS スタイルを実装するのですか。</span><span class="sxs-lookup"><span data-stu-id="6c756-105">How Do I: Create an Efficient and Standardized Approach for Implementing CSS Styles?</span></span>
 ====================

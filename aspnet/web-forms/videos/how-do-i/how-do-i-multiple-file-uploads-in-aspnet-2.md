@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-multiple-file-uploads-in-aspnet-2
-title: "[How Do i:] 複数のファイルのアップロードを asp.net 2 |Microsoft ドキュメント"
+title: '[How Do i:] 複数のファイルのアップロードを asp.net 2 |Microsoft ドキュメント'
 author: JoeStagner
-description: "このビデオでは、ASP.NET アプリケーションに動的に決定されるいくつかのファイルをアップロードするを示します。"
+description: このビデオでは、ASP.NET アプリケーションに動的に決定されるいくつかのファイルをアップロードするを示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/12/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521381"
 ---
 <a name="how-do-i--multiple-file-uploads-in-aspnet-2"></a><span data-ttu-id="6cded-103">[How Do i:] ASP.NET 2 で複数のファイルをアップロードします。</span><span class="sxs-lookup"><span data-stu-id="6cded-103">[How Do I:]  Multiple File Uploads in ASP.NET 2</span></span>
 ====================

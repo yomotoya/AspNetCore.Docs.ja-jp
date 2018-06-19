@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875940"
 ---
 <a name="declarative-parameters-c"></a><span data-ttu-id="31e26-103">宣言型のパラメーター (c#)</span><span class="sxs-lookup"><span data-stu-id="31e26-103">Declarative Parameters (C#)</span></span>
 ====================
@@ -127,7 +128,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="showing-all-suppliers-by-default"></a><span data-ttu-id="31e26-179">既定ですべてのサプライヤーの表示</span><span class="sxs-lookup"><span data-stu-id="31e26-179">Showing All Suppliers By Default</span></span>
 
-<span data-ttu-id="31e26-180">はなく最初のページを表示するときに表示なしサプライヤーのより可能性がありますを表示する*すべて* ボックスで、国の名前を入力して一覧を縮小するユーザーを許可するのには最初、suppliers です。</span><span class="sxs-lookup"><span data-stu-id="31e26-180">Rather than show none of the suppliers when first viewing the page we may want to show *all* suppliers at first, allowing the user to pare down the list by entering a country name in the TextBox.</span></span> <span data-ttu-id="31e26-181">テキスト ボックスが空で、ときに、`SuppliersBLL`クラスの`GetSuppliersByCountry(country)`メソッドが渡された、`null`値をその*`country`*入力パラメーターです。</span><span class="sxs-lookup"><span data-stu-id="31e26-181">When the TextBox is empty, the `SuppliersBLL` class's `GetSuppliersByCountry(country)` method is passed in a `null` value for its *`country`* input parameter.</span></span> <span data-ttu-id="31e26-182">これは、`null`値は、に、DAL の`GetSupplierByCountry(country)`メソッド、データベースに変換されます`NULL`値を`@Country`次のクエリ パラメーター。</span><span class="sxs-lookup"><span data-stu-id="31e26-182">This `null` value is then passed down into the DAL's `GetSupplierByCountry(country)` method, where it's translated to a database `NULL` value for the `@Country` parameter in the following query:</span></span>
+<span data-ttu-id="31e26-180">はなく最初のページを表示するときに表示なしサプライヤーのより可能性がありますを表示する*すべて* ボックスで、国の名前を入力して一覧を縮小するユーザーを許可するのには最初、suppliers です。</span><span class="sxs-lookup"><span data-stu-id="31e26-180">Rather than show none of the suppliers when first viewing the page we may want to show *all* suppliers at first, allowing the user to pare down the list by entering a country name in the TextBox.</span></span> <span data-ttu-id="31e26-181">テキスト ボックスが空で、ときに、`SuppliersBLL`クラスの`GetSuppliersByCountry(country)`メソッドが渡された、`null`値をその*`country`* 入力パラメーターです。</span><span class="sxs-lookup"><span data-stu-id="31e26-181">When the TextBox is empty, the `SuppliersBLL` class's `GetSuppliersByCountry(country)` method is passed in a `null` value for its *`country`* input parameter.</span></span> <span data-ttu-id="31e26-182">これは、`null`値は、に、DAL の`GetSupplierByCountry(country)`メソッド、データベースに変換されます`NULL`値を`@Country`次のクエリ パラメーター。</span><span class="sxs-lookup"><span data-stu-id="31e26-182">This `null` value is then passed down into the DAL's `GetSupplierByCountry(country)` method, where it's translated to a database `NULL` value for the `@Country` parameter in the following query:</span></span>
 
 [!code-sql[Main](declarative-parameters-cs/samples/sample3.sql)]
 

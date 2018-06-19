@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-data-driven-web-sites
-title: "[How Do i:]データ ドリブン Web サイトを作成しますか。 | Microsoft Docs"
+title: '[How Do i:]データ ドリブン Web サイトを作成しますか。 | Microsoft Docs'
 author: microsoft
-description: "ASP.NET 2.0、Visual Web Developer 2005 Express Edition、および SQL Server 2005 Express Edition を使用して、データ ドリブン web サイトを作成するは簡単な方法を参照してください。 について説明してください."
+description: ASP.NET 2.0、Visual Web Developer 2005 Express Edition、および SQL Server 2005 Express Edition を使用して、データ ドリブン web サイトを作成するは簡単な方法を参照してください。 について説明してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26524911"
 ---
 <a name="how-do-i-create-data-driven-web-sites"></a><span data-ttu-id="1d822-105">[How Do i:]データ ドリブン Web サイトを作成しますか。</span><span class="sxs-lookup"><span data-stu-id="1d822-105">[How Do I:] Create Data-Driven Web Sites?</span></span>
 ====================

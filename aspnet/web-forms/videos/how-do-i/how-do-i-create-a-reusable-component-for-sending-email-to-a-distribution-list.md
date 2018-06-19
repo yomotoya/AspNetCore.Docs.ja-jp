@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list
-title: "[How Do i:]同報リストに電子メールを送信するため、再利用可能なコンポーネントを作成 |Microsoft ドキュメント"
+title: '[How Do i:]同報リストに電子メールを送信するため、再利用可能なコンポーネントを作成 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では、受信者の一覧に電子メールを送信する複数の web ページや web サイトで使用できるコンポーネントを作成する方法を示します。 Firs しています."
+description: このビデオ Chris Pels では、受信者の一覧に電子メールを送信する複数の web ページや web サイトで使用できるコンポーネントを作成する方法を示します。 Firs しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/04/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525501"
 ---
 <a name="how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list"></a><span data-ttu-id="e1262-104">[How Do i:]同報リストに電子メールを送信するための再利用可能なコンポーネントを作成します。</span><span class="sxs-lookup"><span data-stu-id="e1262-104">[How Do I:] Create a Reusable Component for Sending Email to a Distribution List</span></span>
 ====================

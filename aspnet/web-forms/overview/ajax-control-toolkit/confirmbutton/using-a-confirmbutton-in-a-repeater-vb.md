@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869453"
 ---
 <a name="using-a-confirmbutton-in-a-repeater-vb"></a><span data-ttu-id="81c09-104">リピータ (VB) で、ConfirmButton の使用</span><span class="sxs-lookup"><span data-stu-id="81c09-104">Using a ConfirmButton In a Repeater (VB)</span></span>
 ====================

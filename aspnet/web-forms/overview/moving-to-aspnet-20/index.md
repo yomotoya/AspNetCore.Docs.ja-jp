@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/index
-title: "以前のバージョンの ASP.NET 2.0 |Microsoft ドキュメント"
+title: 以前のバージョンの ASP.NET 2.0 |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET 2.0 の ASP.NET 1.x アプリケーションを移行する方法です。"
+description: ASP.NET 2.0 の ASP.NET 1.x アプリケーションを移行する方法です。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/moving-to-aspnet-20
 msc.type: chapter
 ms.openlocfilehash: bccb47a23b4a43ccc02e1bbc8b5fb480c24fd0af
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26516691"
 ---
 <a name="older-versions---aspnet-20"></a><span data-ttu-id="88c99-103">以前のバージョンの ASP.NET 2.0</span><span class="sxs-lookup"><span data-stu-id="88c99-103">Older Versions - ASP.NET 2.0</span></span>
 ====================

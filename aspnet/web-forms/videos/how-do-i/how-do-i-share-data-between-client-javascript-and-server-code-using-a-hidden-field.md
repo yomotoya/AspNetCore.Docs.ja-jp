@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-share-data-between-client-javascript-and-server-code-using-a-hidden-field
-title: "[How Do i:]クライアントの JavaScript と非表示フィールドを使用してコードをサーバー間でデータを共有 |Microsoft ドキュメント"
+title: '[How Do i:]クライアントの JavaScript と非表示フィールドを使用してコードをサーバー間でデータを共有 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では、ASP.NET ページ内の隠しフィールドを使用して、JavaScript とサーバー側コード間のデータを共有する方法で表示されます。 次に、学習方法 t しています."
+description: このビデオ Chris Pels では、ASP.NET ページ内の隠しフィールドを使用して、JavaScript とサーバー側コード間のデータを共有する方法で表示されます。 次に、学習方法 t しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521581"
 ---
 <a name="how-do-i-share-data-between-client-javascript-and-server-code-using-a-hidden-field"></a><span data-ttu-id="d50d3-104">[How Do i:]クライアントの JavaScript と非表示フィールドを使用してコードをサーバー間でデータを共有します。</span><span class="sxs-lookup"><span data-stu-id="d50d3-104">[How Do I:] Share Data Between Client JavaScript and Server Code Using a Hidden Field</span></span>
 ====================

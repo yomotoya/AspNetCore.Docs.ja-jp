@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/getting-started/index
-title: "ASP.NET Id の概要 |Microsoft ドキュメント"
+title: ASP.NET Id の概要 |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET Identity システムは、以前の ASP.NET メンバーシップと簡易なメンバーシップ システムを置き換える設計されています。 これには、プロファイルのサポート、OAuth integrat が含まれます。"
+description: ASP.NET Identity システムは、以前の ASP.NET メンバーシップと簡易なメンバーシップ システムを置き換える設計されています。 これには、プロファイルのサポート、OAuth integrat が含まれます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/02/2013
 ms.topic: article
 ms.assetid: 72bb0051-a696-437e-a4e6-ca1225a6e271
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: c798b7fd79591ad4dffba21b4a3c110590edc7a5
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26497891"
 ---
 <a name="getting-started-with-aspnet-identity"></a><span data-ttu-id="de69f-104">ASP.NET Id の概要</span><span class="sxs-lookup"><span data-stu-id="de69f-104">Getting Started with ASP.NET Identity</span></span>
 ====================

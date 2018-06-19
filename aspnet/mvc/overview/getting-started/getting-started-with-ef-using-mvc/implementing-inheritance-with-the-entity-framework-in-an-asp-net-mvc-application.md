@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873405"
 ---
 <a name="implementing-inheritance-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-11-of-12"></a><span data-ttu-id="0fc49-103">ASP.NET MVC 5 アプリケーション (11/12) で Entity Framework 6 による継承の実装</span><span class="sxs-lookup"><span data-stu-id="0fc49-103">Implementing Inheritance with the Entity Framework 6 in an ASP.NET MVC 5 Application (11 of 12)</span></span>
 ====================
@@ -129,7 +130,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="0fc49-183">サイトを実行して、さまざまなページを再試行してください。</span><span class="sxs-lookup"><span data-stu-id="0fc49-183">Run the site and try various pages.</span></span> <span data-ttu-id="0fc49-184">すべてが前と同じように動作します。</span><span class="sxs-lookup"><span data-stu-id="0fc49-184">Everything works the same as it did before.</span></span>
 
-<span data-ttu-id="0fc49-185">**サーバー エクスプ ローラーで、**展開**データ Connections\SchoolContext**し**テーブル**、されたことを確認し、**学生**と**インストラクター**テーブルに置換された、 **Person**テーブル。</span><span class="sxs-lookup"><span data-stu-id="0fc49-185">In **Server Explorer,** expand **Data Connections\SchoolContext** and then **Tables**, and you see that the **Student** and **Instructor** tables have been replaced by a **Person** table.</span></span> <span data-ttu-id="0fc49-186">展開、 **Person**テーブルとしているときに存在するために使用される列のすべて、**学生**と**インストラクター**テーブル。</span><span class="sxs-lookup"><span data-stu-id="0fc49-186">Expand the **Person** table and you see that it has all of the columns that used to be in the **Student** and **Instructor** tables.</span></span>
+<span data-ttu-id="0fc49-185">**サーバー エクスプ ローラーで、** 展開**データ Connections\SchoolContext**し**テーブル**、されたことを確認し、**学生**と**インストラクター**テーブルに置換された、 **Person**テーブル。</span><span class="sxs-lookup"><span data-stu-id="0fc49-185">In **Server Explorer,** expand **Data Connections\SchoolContext** and then **Tables**, and you see that the **Student** and **Instructor** tables have been replaced by a **Person** table.</span></span> <span data-ttu-id="0fc49-186">展開、 **Person**テーブルとしているときに存在するために使用される列のすべて、**学生**と**インストラクター**テーブル。</span><span class="sxs-lookup"><span data-stu-id="0fc49-186">Expand the **Person** table and you see that it has all of the columns that used to be in the **Student** and **Instructor** tables.</span></span>
 
 ![Server_Explorer_showing_Person_table](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
 
@@ -148,7 +149,7 @@ ms.lasthandoff: 04/06/2018
 1. <span data-ttu-id="0fc49-194">Visual Studio でプロジェクトを右クリックして**ソリューション エクスプ ローラー**選択**発行**コンテキスト メニューからです。</span><span class="sxs-lookup"><span data-stu-id="0fc49-194">In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.</span></span>  
   
     ![プロジェクトのコンテキスト メニューを発行します。](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
-2. <span data-ttu-id="0fc49-196">**[発行]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="0fc49-196">Click **Publish**.</span></span>  
+2. <span data-ttu-id="0fc49-196">**[発行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="0fc49-196">Click **Publish**.</span></span>  
   
     ![publish](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)  
   

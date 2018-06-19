@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/advanced/dependency-injection
-title: "SignalR の依存関係の挿入 |Microsoft ドキュメント"
+title: SignalR の依存関係の挿入 |Microsoft ドキュメント
 author: MikeWasson
-description: "ここ Visual Studio 2013 .NET 4.5 SignalR で使用するソフトウェアのバージョンはの以前のバージョンについてはこのトピックの以前のバージョンをバージョン 2."
+description: ここ Visual Studio 2013 .NET 4.5 SignalR で使用するソフトウェアのバージョンはの以前のバージョンについてはこのトピックの以前のバージョンをバージョン 2.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26504181"
 ---
 <a name="dependency-injection-in-signalr"></a><span data-ttu-id="82f56-103">SignalR の依存関係の挿入</span><span class="sxs-lookup"><span data-stu-id="82f56-103">Dependency Injection in SignalR</span></span>
 ====================

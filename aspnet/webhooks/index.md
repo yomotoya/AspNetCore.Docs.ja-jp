@@ -1,20 +1,21 @@
 ---
 uid: webhooks/index
-title: "ASP.NET の Webhook の概要 |Microsoft ドキュメント"
+title: ASP.NET の Webhook の概要 |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET の Webhook の概要です。"
+description: ASP.NET の Webhook の概要です。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: 5e2843f0-f499-448f-a712-33d4e9858321
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: 52399c23cdf393a2f7f94661fd48098ced65948c
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26530051"
 ---
 # <a name="aspnet-webhooks-overview"></a><span data-ttu-id="e2a4b-103">ASP.NET の Webhook の概要</span><span class="sxs-lookup"><span data-stu-id="e2a4b-103">ASP.NET WebHooks overview</span></span>
 

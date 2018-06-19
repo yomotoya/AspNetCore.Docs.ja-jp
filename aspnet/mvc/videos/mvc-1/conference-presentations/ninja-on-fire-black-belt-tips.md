@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-1/conference-presentations/ninja-on-fire-black-belt-tips
-title: "Fire 黒ベルト ヒントの忍者 |Microsoft ドキュメント"
+title: Fire 黒ベルト ヒントの忍者 |Microsoft ドキュメント
 author: Haacked
-description: "いくつかのヒントと秘訣 ASP.NET MVC フレームワークを最大限に活用を取得するためのチュートリアルを参照してください。"
+description: いくつかのヒントと秘訣 ASP.NET MVC フレームワークを最大限に活用を取得するためのチュートリアルを参照してください。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503901"
 ---
 <a name="ninja-on-fire-black-belt-tips"></a><span data-ttu-id="48a8c-103">Fire 黒ベルト ヒントの忍者</span><span class="sxs-lookup"><span data-stu-id="48a8c-103">Ninja on Fire Black Belt Tips</span></span>
 ====================

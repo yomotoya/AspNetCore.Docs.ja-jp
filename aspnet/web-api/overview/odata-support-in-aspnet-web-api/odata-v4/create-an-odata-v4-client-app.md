@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app
-title: "OData v4 クライアント アプリ (c#) の作成 | Microsoft ドキュメント"
+title: OData v4 クライアント アプリ (c#) の作成 | Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036701"
 ---
 <a name="create-an-odata-v4-client-app-c"></a><span data-ttu-id="4f69c-102">OData v4 クライアント アプリ (c#) の作成</span><span class="sxs-lookup"><span data-stu-id="4f69c-102">Create an OData v4 Client App (C#)</span></span>
 ====================
@@ -24,7 +25,7 @@ ms.lasthandoff: 01/24/2018
 
 <span data-ttu-id="4f69c-104">前のチュートリアルでは、CRUD 操作をサポートする基本的な OData サービスを作成しました。</span><span class="sxs-lookup"><span data-stu-id="4f69c-104">In the previous tutorial, you created a basic OData service that supports CRUD operations.</span></span> <span data-ttu-id="4f69c-105">次はサービスのクライアントを作成しましょう。</span><span class="sxs-lookup"><span data-stu-id="4f69c-105">Now let's create a client for the service.</span></span>
 
-<span data-ttu-id="4f69c-106">Visual Studio の新しいインスタンスを開始し、新しいコンソール アプリケーション プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="4f69c-106">Start a new instance of Visual Studio and create a new console application project.</span></span> <span data-ttu-id="4f69c-107">**[新しいプロジェクト]** ダイアログで**[インストール済み]** &gt; **[テンプレート]** &gt; **[Visual C#]** &gt; **[Windows デスクトップ]** を選択し、**[コンソール アプリケーション]** テンプレートを選択します。</span><span class="sxs-lookup"><span data-stu-id="4f69c-107">In the **New Project** dialog, select **Installed** &gt; **Templates** &gt; **Visual C#** &gt; **Windows Desktop**, and select the **Console Application** template.</span></span> <span data-ttu-id="4f69c-108">プロジェクトには &quot;ProductsApp&quot; と名前をつけます。</span><span class="sxs-lookup"><span data-stu-id="4f69c-108">Name the project &quot;ProductsApp&quot;.</span></span>
+<span data-ttu-id="4f69c-106">Visual Studio の新しいインスタンスを開始し、新しいコンソール アプリケーション プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="4f69c-106">Start a new instance of Visual Studio and create a new console application project.</span></span> <span data-ttu-id="4f69c-107">**[新しいプロジェクト]** ダイアログで **[インストール済み]** &gt; **[テンプレート]** &gt; **[Visual C#]** &gt; **[Windows デスクトップ]** を選択し、**[コンソール アプリケーション]** テンプレートを選択します。</span><span class="sxs-lookup"><span data-stu-id="4f69c-107">In the **New Project** dialog, select **Installed** &gt; **Templates** &gt; **Visual C#** &gt; **Windows Desktop**, and select the **Console Application** template.</span></span> <span data-ttu-id="4f69c-108">プロジェクトには &quot;ProductsApp&quot; と名前をつけます。</span><span class="sxs-lookup"><span data-stu-id="4f69c-108">Name the project &quot;ProductsApp&quot;.</span></span>
 
 ![](create-an-odata-v4-client-app/_static/image1.png)
 

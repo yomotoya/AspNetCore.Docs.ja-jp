@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872378"
 ---
 <a name="aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design"></a><span data-ttu-id="8a5d7-104">ASP.NET MVC Storefront パート 23: ドメイン駆動設計の概要</span><span class="sxs-lookup"><span data-stu-id="8a5d7-104">ASP.NET MVC Storefront Part 23: Getting Started With Domain-Driven Design</span></span>
 ====================

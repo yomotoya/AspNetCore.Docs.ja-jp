@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-command-buttons-for-individual-items
-title: "[How Do i:]コマンド ボタンを実装して、個々 のアイテムの |Microsoft ドキュメント"
+title: '[How Do i:]コマンド ボタンを実装して、個々 のアイテムの |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオでは、Chris Pels は ListView コントロールと同様にデータ バインド コントロールの各項目でボタン コントロールに関連付けられているイベントを処理する方法を示します。 まずは。。。"
+description: このビデオでは、Chris Pels は ListView コントロールと同様にデータ バインド コントロールの各項目でボタン コントロールに関連付けられているイベントを処理する方法を示します。 まずは。。。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525561"
 ---
 <a name="how-do-i-implement-command-buttons-for-individual-items"></a><span data-ttu-id="37034-104">[How Do i:]個々 のアイテムのコマンド ボタンを実装します。</span><span class="sxs-lookup"><span data-stu-id="37034-104">[How Do I:] Implement Command Buttons for Individual Items</span></span>
 ====================

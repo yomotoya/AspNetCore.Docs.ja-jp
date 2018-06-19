@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873262"
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a><span data-ttu-id="62c29-103">Async および Entity Framework、ASP.NET MVC アプリケーションでのストアド プロシージャ</span><span class="sxs-lookup"><span data-stu-id="62c29-103">Async and Stored Procedures with the Entity Framework in an ASP.NET MVC Application</span></span>
 ====================
@@ -139,7 +140,7 @@ ms.lasthandoff: 04/06/2018
 <span data-ttu-id="62c29-178">このセクションでは、省略可能な完了している必要があります**Azure へのアプリの展開**」の「、[移行と配置](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)このシリーズ チュートリアルです。</span><span class="sxs-lookup"><span data-stu-id="62c29-178">This section requires you to have completed the optional **Deploying the app to Azure** section in the [Migrations and Deployment](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md) tutorial of this series.</span></span> <span data-ttu-id="62c29-179">ローカル プロジェクトでデータベースを削除することによって解決移行エラーがある場合は、このセクションをスキップします。</span><span class="sxs-lookup"><span data-stu-id="62c29-179">If you had migrations errors that you resolved by deleting the database in your local project, skip this section.</span></span>
 
 1. <span data-ttu-id="62c29-180">Visual Studio でプロジェクトを右クリックして**ソリューション エクスプ ローラー**選択**発行**コンテキスト メニューからです。</span><span class="sxs-lookup"><span data-stu-id="62c29-180">In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.</span></span>
-2. <span data-ttu-id="62c29-181">**[発行]**をクリックします。</span><span class="sxs-lookup"><span data-stu-id="62c29-181">Click **Publish**.</span></span>
+2. <span data-ttu-id="62c29-181">**[発行]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="62c29-181">Click **Publish**.</span></span>
 
     <span data-ttu-id="62c29-182">Visual Studio は、azure アプリケーションを展開し、アプリケーションを Azure で実行されている、既定のブラウザーで開きます。</span><span class="sxs-lookup"><span data-stu-id="62c29-182">Visual Studio deploys the application to Azure, and the application opens in your default browser, running in Azure.</span></span>
 3. <span data-ttu-id="62c29-183">アプリケーションをテストすることを確認して動作します。</span><span class="sxs-lookup"><span data-stu-id="62c29-183">Test the application to verify it's working.</span></span>

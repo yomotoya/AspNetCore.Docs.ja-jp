@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/intro-to-visual-web-developer
-title: "Visual Web Developer 入門 |Microsoft ドキュメント"
+title: Visual Web Developer 入門 |Microsoft ドキュメント
 author: JoeStagner
-description: "Microsoft Visual Web Developer は、ASP.NET アプリケーションを開発するための Visual Studio の無料バージョンです。 このビデオでは、取得し、それと t をインストールする方法を説明しています."
+description: Microsoft Visual Web Developer は、ASP.NET アプリケーションを開発するための Visual Studio の無料バージョンです。 このビデオでは、取得し、それと t をインストールする方法を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520861"
 ---
 <a name="intro-to-visual-web-developer"></a><span data-ttu-id="2326b-104">Visual Web Developer 入門</span><span class="sxs-lookup"><span data-stu-id="2326b-104">Intro to Visual Web Developer</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version
-title: "[How Do i:].NET Framework のバージョンの ASP.NET Web サイトを構成する |Microsoft ドキュメント"
+title: '[How Do i:].NET Framework のバージョンの ASP.NET Web サイトを構成する |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels で ASP.NET/.NET Framework の特定のバージョンを使用する ASP.NET web サイトを構成する方法が表示されます。 最初にどのような v を識別する方法を参照してください."
+description: このビデオ Chris Pels で ASP.NET/.NET Framework の特定のバージョンを使用する ASP.NET web サイトを構成する方法が表示されます。 最初にどのような v を識別する方法を参照してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/20/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525021"
 ---
 <a name="how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version"></a><span data-ttu-id="bf40f-104">[How Do i:].NET Framework のバージョンの ASP.NET Web サイトを構成します。</span><span class="sxs-lookup"><span data-stu-id="bf40f-104">[How Do I:] Configure an ASP.NET Web Site for a .NET Framework Version</span></span>
 ====================

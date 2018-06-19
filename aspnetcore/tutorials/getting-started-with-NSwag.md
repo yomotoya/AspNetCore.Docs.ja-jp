@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34094893"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a><span data-ttu-id="18042-103">NSwag と ASP.NET Core の概要</span><span class="sxs-lookup"><span data-stu-id="18042-103">Get started with NSwag and ASP.NET Core</span></span>
 

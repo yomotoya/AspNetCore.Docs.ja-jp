@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-containment-in-web-api-22
-title: "Web API 2.2 を使用して OData v4 でコンテインメント |Microsoft ドキュメント"
+title: Web API 2.2 を使用して OData v4 でコンテインメント |Microsoft ドキュメント
 author: rick-anderson
-description: "従来、エンティティは、エンティティ セット内にカプセル化された場合にのみアクセス可能性があります。 OData v4 には、単一予測クエリおよび Con 2 つの追加オプションを提供しています."
+description: 従来、エンティティは、エンティティ セット内にカプセル化された場合にのみアクセス可能性があります。 OData v4 には、単一予測クエリおよび Con 2 つの追加オプションを提供しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/27/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508001"
 ---
 <a name="containment-in-odata-v4-using-web-api-22"></a><span data-ttu-id="be52c-104">Web API 2.2 を使用して OData v4 の包含</span><span class="sxs-lookup"><span data-stu-id="be52c-104">Containment in OData v4 Using Web API 2.2</span></span>
 ====================

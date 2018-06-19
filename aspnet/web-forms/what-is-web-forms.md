@@ -1,8 +1,8 @@
 ---
 uid: web-forms/what-is-web-forms
-title: "Web フォームは、新機能 |Microsoft ドキュメント"
+title: Web フォームは、新機能 |Microsoft ドキュメント
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528611"
 ---
 <a name="what-is-web-forms"></a><span data-ttu-id="b72c6-102">Web フォームとは</span><span class="sxs-lookup"><span data-stu-id="b72c6-102">What is Web Forms</span></span>
 ====================

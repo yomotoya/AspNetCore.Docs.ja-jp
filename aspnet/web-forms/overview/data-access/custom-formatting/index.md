@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/index
-title: "カスタム書式 |Microsoft ドキュメント"
+title: カスタム書式 |Microsoft ドキュメント
 author: rick-anderson
-description: "これらのチュートリアルは、データ バインド中に、GridView、DetailsView、およびフォーム ビュー コントロールにイベント ハンドラーを使用してデータの表示をカスタマイズする方法を説明します。"
+description: これらのチュートリアルは、データ バインド中に、GridView、DetailsView、およびフォーム ビュー コントロールにイベント ハンドラーを使用してデータの表示をカスタマイズする方法を説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/custom-formatting
 msc.type: chapter
 ms.openlocfilehash: afced0e5c310d8843107dde48d97e55e5242dd13
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26513021"
 ---
 <a name="custom-formatting"></a><span data-ttu-id="03b6a-103">カスタム書式設定</span><span class="sxs-lookup"><span data-stu-id="03b6a-103">Custom Formatting</span></span>
 ====================

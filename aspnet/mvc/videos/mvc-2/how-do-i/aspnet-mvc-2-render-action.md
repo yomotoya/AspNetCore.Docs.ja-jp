@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871052"
 ---
 <a name="aspnet-mvc-2---render-action"></a><span data-ttu-id="d8cb0-104">ASP.NET MVC 2 - レンダリング処理</span><span class="sxs-lookup"><span data-stu-id="d8cb0-104">ASP.NET MVC 2 - Render Action</span></span>
 ====================

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072024"
 ---
 # <a name="limit-the-lifetime-of-protected-payloads-in-aspnet-core"></a><span data-ttu-id="be0e6-103">ASP.NET Core で保護されたペイロードの有効期間を制限します。</span><span class="sxs-lookup"><span data-stu-id="be0e6-103">Limit the lifetime of protected payloads in ASP.NET Core</span></span>
 

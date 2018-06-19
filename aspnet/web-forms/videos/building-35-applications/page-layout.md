@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/page-layout
-title: "ページのレイアウト |Microsoft ドキュメント"
+title: ページのレイアウト |Microsoft ドキュメント
 author: JoeStagner
-description: "テーブルまたはスタイル シートですか。 相対位置または絶対パスか。 このビデオではの使用による開発 yo をサポートする Visual Web developer の機能をデモンストレーションします."
+description: テーブルまたはスタイル シートですか。 相対位置または絶対パスか。 このビデオではの使用による開発 yo をサポートする Visual Web developer の機能をデモンストレーションします.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525401"
 ---
 <a name="page-layout"></a><span data-ttu-id="40a9f-105">ページ レイアウト</span><span class="sxs-lookup"><span data-stu-id="40a9f-105">Page Layout</span></span>
 ====================

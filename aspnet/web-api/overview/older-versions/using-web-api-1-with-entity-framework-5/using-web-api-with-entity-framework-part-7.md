@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30869869"
 ---
 <a name="part-7-creating-the-main-page"></a><span data-ttu-id="34a3e-102">手順 7: 作成、メイン ページ</span><span class="sxs-lookup"><span data-stu-id="34a3e-102">Part 7: Creating the Main Page</span></span>
 ====================

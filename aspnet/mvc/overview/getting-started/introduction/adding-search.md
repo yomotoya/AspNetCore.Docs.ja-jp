@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871832"
 ---
 <a name="search"></a><span data-ttu-id="34212-102">検索</span><span class="sxs-lookup"><span data-stu-id="34212-102">Search</span></span>
 ====================
@@ -51,7 +52,7 @@ ms.lasthandoff: 04/06/2018
 
 <span data-ttu-id="34212-120">これで、更新することができます、`Index`をユーザーに、フォームを表示するビュー。</span><span class="sxs-lookup"><span data-stu-id="34212-120">Now you can update the `Index` view that will display the form to the user.</span></span>
 
-<span data-ttu-id="34212-121">アプリケーションを実行しに移動*/ビデオ/インデックス*です。</span><span class="sxs-lookup"><span data-stu-id="34212-121">Run the application and navigate to */Movies/Index*.</span></span> <span data-ttu-id="34212-122">`?searchString=ghost` などのクエリ文字列を URL に追加します。</span><span class="sxs-lookup"><span data-stu-id="34212-122">Append a query string such as `?searchString=ghost` to the URL.</span></span> <span data-ttu-id="34212-123">フィルターされたムービーが表示されます。</span><span class="sxs-lookup"><span data-stu-id="34212-123">The filtered movies are displayed.</span></span>
+<span data-ttu-id="34212-121">アプリケーションを実行しに移動 */ビデオ/インデックス*です。</span><span class="sxs-lookup"><span data-stu-id="34212-121">Run the application and navigate to */Movies/Index*.</span></span> <span data-ttu-id="34212-122">`?searchString=ghost` などのクエリ文字列を URL に追加します。</span><span class="sxs-lookup"><span data-stu-id="34212-122">Append a query string such as `?searchString=ghost` to the URL.</span></span> <span data-ttu-id="34212-123">フィルターされたムービーが表示されます。</span><span class="sxs-lookup"><span data-stu-id="34212-123">The filtered movies are displayed.</span></span>
 
 ![SearchQryStr](adding-search/_static/image1.png)
 
@@ -151,7 +152,7 @@ ms.lasthandoff: 04/06/2018
 
 [!code-cshtml[Main](adding-search/samples/sample17.cshtml)]
 
-<span data-ttu-id="34212-179">アプリケーションを実行しを参照*/ビデオ/インデックス*です。</span><span class="sxs-lookup"><span data-stu-id="34212-179">Run the application and browse to */Movies/Index*.</span></span> <span data-ttu-id="34212-180">ジャンル、ムービーの名前、および両方の条件は、検索を再試行してください。</span><span class="sxs-lookup"><span data-stu-id="34212-180">Try a search by genre, by movie name, and by both criteria.</span></span>
+<span data-ttu-id="34212-179">アプリケーションを実行しを参照 */ビデオ/インデックス*です。</span><span class="sxs-lookup"><span data-stu-id="34212-179">Run the application and browse to */Movies/Index*.</span></span> <span data-ttu-id="34212-180">ジャンル、ムービーの名前、および両方の条件は、検索を再試行してください。</span><span class="sxs-lookup"><span data-stu-id="34212-180">Try a search by genre, by movie name, and by both criteria.</span></span>
 
 ![](adding-search/_static/image8.png)
 

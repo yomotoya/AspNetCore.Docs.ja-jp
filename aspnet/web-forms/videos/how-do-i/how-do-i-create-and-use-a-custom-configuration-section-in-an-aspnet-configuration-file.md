@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-and-use-a-custom-configuration-section-in-an-aspnet-configuration-file
-title: "[How Do i:]作成し、ASP.NET 構成ファイルのカスタム構成セクションを使用して |Microsoft ドキュメント"
+title: '[How Do i:]作成し、ASP.NET 構成ファイルのカスタム構成セクションを使用して |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオでは、Chris Pels としては、独自の XML 構成要素と ASP.NET の構成設定の標準セットを拡張する方法を示します。 まず、どのようにしています."
+description: このビデオでは、Chris Pels としては、独自の XML 構成要素と ASP.NET の構成設定の標準セットを拡張する方法を示します。 まず、どのようにしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/16/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528171"
 ---
 <a name="how-do-i-create-and-use-a-custom-configuration-section-in-an-aspnet-configuration-file"></a><span data-ttu-id="97cb1-104">[How Do i:]作成し、ASP.NET 構成ファイルでカスタム構成セクションを使用</span><span class="sxs-lookup"><span data-stu-id="97cb1-104">[How Do I:] Create and Use a Custom Configuration Section in an ASP.NET Configuration File</span></span>
 ====================

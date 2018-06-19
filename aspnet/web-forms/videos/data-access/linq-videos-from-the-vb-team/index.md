@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/data-access/linq-videos-from-the-vb-team/index
-title: "VB チームから LINQ ビデオ |Microsoft ドキュメント"
+title: VB チームから LINQ ビデオ |Microsoft ドキュメント
 author: rick-anderson
-description: "これらのビデオは、1 時間と Visual Studio 2008 に含まれる Visual Basic 9.0 の言語の LINQ の新機能に重点を置いてコンテンツの半分を提供します。"
+description: これらのビデオは、1 時間と Visual Studio 2008 に含まれる Visual Basic 9.0 の言語の LINQ の新機能に重点を置いてコンテンツの半分を提供します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/24/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team
 msc.type: chapter
 ms.openlocfilehash: a33cb02630be7ec688e4fce3d290f4a692f958ff
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525921"
 ---
 <a name="linq-videos-from-the-vb-team"></a><span data-ttu-id="48cf3-103">VB チームの LINQ のビデオ</span><span class="sxs-lookup"><span data-stu-id="48cf3-103">LINQ Videos from the VB Team</span></span>
 ====================

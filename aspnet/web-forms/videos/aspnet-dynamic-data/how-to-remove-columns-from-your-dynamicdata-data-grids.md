@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883678"
 ---
 <a name="how-to-remove-columns-from-your-dynamicdata-data-grids"></a><span data-ttu-id="05ba2-103">ダイナミック データ グリッドから列を削除する方法</span><span class="sxs-lookup"><span data-stu-id="05ba2-103">How to Remove Columns From Your DynamicData Data Grids</span></span>
 ====================
