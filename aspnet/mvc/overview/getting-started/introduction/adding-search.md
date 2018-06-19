@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871832"
 ---
 <a name="search"></a>検索
 ====================
@@ -51,7 +52,7 @@ ms.lasthandoff: 04/06/2018
 
 これで、更新することができます、`Index`をユーザーに、フォームを表示するビュー。
 
-アプリケーションを実行しに移動*/ビデオ/インデックス*です。 `?searchString=ghost` などのクエリ文字列を URL に追加します。 フィルターされたムービーが表示されます。
+アプリケーションを実行しに移動 */ビデオ/インデックス*です。 `?searchString=ghost` などのクエリ文字列を URL に追加します。 フィルターされたムービーが表示されます。
 
 ![SearchQryStr](adding-search/_static/image1.png)
 
@@ -151,7 +152,7 @@ Visual Studio 2013 では、表示およびファイルの表示を編集する�
 
 [!code-cshtml[Main](adding-search/samples/sample17.cshtml)]
 
-アプリケーションを実行しを参照*/ビデオ/インデックス*です。 ジャンル、ムービーの名前、および両方の条件は、検索を再試行してください。
+アプリケーションを実行しを参照 */ビデオ/インデックス*です。 ジャンル、ムービーの名前、および両方の条件は、検索を再試行してください。
 
 ![](adding-search/_static/image8.png)
 

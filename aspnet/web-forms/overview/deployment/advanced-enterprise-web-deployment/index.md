@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/index
-title: "ASP.NET 4 - エンタープライズ展開シリーズ 4 詳細事項 |Microsoft ドキュメント"
+title: ASP.NET 4 - エンタープライズ展開シリーズ 4 詳細事項 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、必要なまたは多数のエンタープライズ展開シナリオに適しているさまざまなタスクを実行する方法を示します。"
+description: このチュートリアルでは、必要なまたは多数のエンタープライズ展開シナリオに適しているさまざまなタスクを実行する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment
 msc.type: chapter
 ms.openlocfilehash: 42e80df6040dec0194bc1a5ba6ccc79c09c65ea6
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26515151"
 ---
 <a name="aspnet-4---enterprise-deployment-series-4-advanced-topics"></a>ASP.NET 4 - エンタープライズ展開シリーズ 4 詳細事項
 ====================

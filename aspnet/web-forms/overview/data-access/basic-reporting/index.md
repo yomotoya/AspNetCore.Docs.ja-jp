@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/basic-reporting/index
-title: "基本レポート |Microsoft ドキュメント"
+title: 基本レポート |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルのセット、ObjectDataSource コントロールを使用して、コードがなくてもすべて BLL から取得されたデータを操作する方法を見ます。"
+description: このチュートリアルのセット、ObjectDataSource コントロールを使用して、コードがなくてもすべて BLL から取得されたデータを操作する方法を見ます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/basic-reporting
 msc.type: chapter
 ms.openlocfilehash: 86c675e3618b1bc21ff05dcae3525aa3de725516
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26512601"
 ---
 <a name="basic-reporting"></a>基本的なレポート
 ====================

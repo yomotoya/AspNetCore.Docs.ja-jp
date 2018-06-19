@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-event-handlers-in-aspnet-web-pages-and-controls
-title: "[How Do i:]ASP.NET Web ページとコントロールのイベント ハンドラー |Microsoft ドキュメント"
+title: '[How Do i:]ASP.NET Web ページとコントロールのイベント ハンドラー |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では、ASP.NET web ページや web サーバー コントロールのイベント ハンドラーを作成する方法が表示されます。 最初に、ページ レベルのイベント f を作成する方法を説明してください."
+description: このビデオ Chris Pels では、ASP.NET web ページや web サーバー コントロールのイベント ハンドラーを作成する方法が表示されます。 最初に、ページ レベルのイベント f を作成する方法を説明してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/17/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526041"
 ---
 <a name="how-do-i-event-handlers-in-aspnet-web-pages-and-controls"></a>[How Do i:]ASP.NET Web ページとコントロールのイベント ハンドラー
 ====================

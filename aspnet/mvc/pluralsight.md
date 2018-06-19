@@ -1,8 +1,8 @@
 ---
 uid: mvc/pluralsight
-title: "Pluralsight によるビデオ トレーニングを MVC |Microsoft ドキュメント"
+title: Pluralsight によるビデオ トレーニングを MVC |Microsoft ドキュメント
 author: rick-anderson
-description: "この無料のビデオ トレーニング Pluralsight から MVC ビデオ トレーニングすれば立ち上がっており実行中と ASP.NET MVC です。 開発用の設定からすべての情報に対応しています."
+description: この無料のビデオ トレーニング Pluralsight から MVC ビデオ トレーニングすれば立ち上がっており実行中と ASP.NET MVC です。 開発用の設定からすべての情報に対応しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503891"
 ---
 <a name="mvc-video-training-from-pluralsight"></a>Pluralsight から MVC ビデオ トレーニング
 ====================

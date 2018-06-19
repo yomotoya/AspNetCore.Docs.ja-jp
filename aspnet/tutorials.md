@@ -1,20 +1,21 @@
 ---
 uid: aspnet/tutorials
-title: "ASP.NET チュートリアル |Microsoft ドキュメント"
+title: ASP.NET チュートリアル |Microsoft ドキュメント
 author: tdykstra
-description: "ASP.NET アプリケーションを開発するためのステップ バイ ステップ ガイドの一覧。"
+description: ASP.NET アプリケーションを開発するためのステップ バイ ステップ ガイドの一覧。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: 704285fe06e2ece0f6afdc117aedf98f6155ef87
 ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036766"
 ---
 # <a name="aspnet-tutorials"></a>ASP.NET のチュートリアル
 

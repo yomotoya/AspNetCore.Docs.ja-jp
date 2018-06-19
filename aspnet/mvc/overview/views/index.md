@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/views/index
-title: "ASP.NET MVC UI、レイアウト、およびテーマ |Microsoft ドキュメント"
+title: ASP.NET MVC UI、レイアウト、およびテーマ |Microsoft ドキュメント
 author: rick-anderson
-description: "Razor 構文は、情報を表示するビュー (V MVC で) で使用する方法。"
+description: Razor 構文は、情報を表示するビュー (V MVC で) で使用する方法。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/10/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/views
 msc.type: chapter
 ms.openlocfilehash: 914820b5d086f2f194881ec9d47da2e5db9732a7
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503281"
 ---
 <a name="aspnet-mvc-ui-layouts-and-themes"></a>ASP.NET MVC UI、レイアウト、およびテーマ
 ====================

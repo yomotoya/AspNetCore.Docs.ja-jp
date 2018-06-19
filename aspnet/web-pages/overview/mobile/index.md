@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/mobile/index
-title: "Mobile |Microsoft ドキュメント"
+title: Mobile |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET Web Pages アプリケーションでのモバイル デバイスを操作する方法です。"
+description: ASP.NET Web Pages アプリケーションでのモバイル デバイスを操作する方法です。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview/mobile
 msc.type: chapter
 ms.openlocfilehash: a972010a9b6bc041f2424de1da78f93fc67ae37f
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528631"
 ---
 <a name="mobile"></a>携帯
 ====================

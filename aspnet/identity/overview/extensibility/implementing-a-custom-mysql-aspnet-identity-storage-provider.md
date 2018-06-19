@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872739"
 ---
 <a name="implementing-a-custom-mysql-aspnet-identity-storage-provider"></a>カスタムの MySQL ASP.NET Identity の記憶域プロバイダーの実装
 ====================
@@ -77,7 +78,7 @@ MySQL の記憶域プロバイダーを作成するステップにジャンプ�
 ## <a name="create-a-mysql-database-instance-on-azure"></a>Azure の MySQL データベース インスタンスを作成します。
 
 1. ログインに、 [Azure ポータル](https://manage.windowsazure.com/)です。
-2. をクリックして**+ 新規**クリックし、ページの下部にある**ストア**です。  
+2. をクリックして **+ 新規**クリックし、ページの下部にある**ストア**です。  
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image1.png)
 3. **選択してアドオン**ウィザードで、 **ClearDB MySQL データベース** ダイアログ ボックスの右下にある次へ進む矢印をクリックします。  
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image2.png)
@@ -97,7 +98,7 @@ MySQL の記憶域プロバイダーを作成するステップにジャンプ�
 ### <a name="install-mysql-workbench-tool-to-connect-and-manage-mysql-database"></a>接続して MySQL データベースの管理の MySQL Workbench ツールをインストールします。
 
 1. インストール、 **MySQL Workbench**ツールから、 [MySQL がダウンロード ページ](http://dev.mysql.com/downloads/windows/installer/)
-2. アプリを起動し、をクリックを追加、 **MySQLConnections +**ボタンをクリックして新しい接続を追加します。 このチュートリアルで先ほど作成した Azure の MySQL データベースからコピーした接続文字列データを使用します。
+2. アプリを起動し、をクリックを追加、 **MySQLConnections +** ボタンをクリックして新しい接続を追加します。 このチュートリアルで先ほど作成した Azure の MySQL データベースからコピーした接続文字列データを使用します。
 3. 接続を確立した後、新しく開きます**クエリ**タブ; からのコマンドを貼り付ける[MySQLIdentity.sql](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/MySQLIdentity.sql)クエリにし、データベース テーブルを作成するために実行します。
 4. 次に示すように、Azure でホストされている MySQL データベースで作成されるすべての ASP.NET Identity 必要なテーブルがあるようになりました。  
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image1.jpg)
@@ -116,7 +117,7 @@ MySQL の記憶域プロバイダーを作成するステップにジャンプ�
 ### <a name="create-a-new-mvc-application-project-from-template"></a>テンプレートから新しい MVC アプリケーション プロジェクトを作成します。
 
 1. 右クリックして、 **AspNet.Identity.MySQL**ソリューションと**追加**、**新しいプロジェクト**
-2. **新しいプロジェクトの追加**ダイアログの  **Visual c#**し、左側の**Web**し、 **ASP.NET Web アプリケーション**です。 プロジェクトの名前を付けます**IdentityMySQLDemo**; [ok] をクリックします。  
+2. **新しいプロジェクトの追加**ダイアログの  **Visual c#** し、左側の**Web**し、 **ASP.NET Web アプリケーション**です。 プロジェクトの名前を付けます**IdentityMySQLDemo**; [ok] をクリックします。  
   
     ![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image2.jpg)
 3. **新しい ASP.NET プロジェクト**ダイアログ ボックスで、既定のオプションで MVC テンプレートを選択 (が含まれている**個々 のユーザー アカウント**認証方法として) をクリック**OK**.![](implementing-a-custom-mysql-aspnet-identity-storage-provider/_static/image3.jpg)

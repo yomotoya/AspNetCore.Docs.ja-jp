@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869674"
 ---
 <a name="creating-unit-tests-for-aspnet-mvc-applications-vb"></a>ASP.NET MVC アプリケーション (VB) の単体テストの作成
 ====================
@@ -74,7 +75,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="testing-the-view-data-returned-by-a-controller"></a>コント ローラーによって返されるデータの表示のテスト
 
-MVC のコント ローラーと呼ばれるものを使用してビューにデータを渡します *`View Data`*です。 たとえばを呼び出すときは、特定の製品の詳細を表示すること、`ProductController Details()`アクション。 インスタンスを作成する場合は、 `Product` (モデルで定義されている) クラスをインスタンスに渡すと、`Details`活用してビュー`View Data`です。
+MVC のコント ローラーと呼ばれるものを使用してビューにデータを渡します *`View Data`* です。 たとえばを呼び出すときは、特定の製品の詳細を表示すること、`ProductController Details()`アクション。 インスタンスを作成する場合は、 `Product` (モデルで定義されている) クラスをインスタンスに渡すと、`Details`活用してビュー`View Data`です。
 
 変更された`ProductController`リスト 3 の更新が含まれています`Details()`製品を返すアクションです。
 

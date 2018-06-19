@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/net-4/seo/aspnet-4-quick-hit-dynamic-metadata
-title: "動的メタデータ |Microsoft ドキュメント"
+title: 動的メタデータ |Microsoft ドキュメント
 author: JoeStagner
-description: "このビデオでは、実行の ti でページのメタデータを動的に設定することは Page.MetaKeywords と Page.MetaDescription プロパティについて学習しています."
+description: このビデオでは、実行の ti でページのメタデータを動的に設定することは Page.MetaKeywords と Page.MetaDescription プロパティについて学習しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/05/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521861"
 ---
 <a name="aspnet-4-quick-hit---dynamic-metadata"></a>ASP.NET 4「クイック ヒット」の動的メタデータ
 ====================

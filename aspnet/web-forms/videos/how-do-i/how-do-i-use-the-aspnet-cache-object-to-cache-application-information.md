@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet-cache-object-to-cache-application-information
-title: "[操作方法]: アプリケーションの情報をキャッシュする ASP.NET キャッシュ オブジェクトを使用して |Microsoft ドキュメント"
+title: '[操作方法]: アプリケーションの情報をキャッシュする ASP.NET キャッシュ オブジェクトを使用して |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels で ASP.NET キャッシュ オブジェクトを使用して、アプリケーション情報を格納する方法を示しています。 サンプルのページがシンプルなユーザー インターフェイスを作成する."
+description: このビデオ Chris Pels で ASP.NET キャッシュ オブジェクトを使用して、アプリケーション情報を格納する方法を示しています。 サンプルのページがシンプルなユーザー インターフェイスを作成する.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525981"
 ---
 <a name="how-do-i-use-the-aspnet-cache-object-to-cache-application-information"></a>[操作方法]: ASP.NET キャッシュ オブジェクトを使用して、アプリケーションの情報をキャッシュするには
 ====================

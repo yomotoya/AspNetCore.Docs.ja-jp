@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-3/mvc-3-razor-helpers
-title: "MVC 3 の Razor ヘルパー |Microsoft ドキュメント"
+title: MVC 3 の Razor ヘルパー |Microsoft ドキュメント
 author: jongalloway
-description: "このビデオでは、両方の拡張メソッドを使用する方法を学習して宣言@helperRazor ビュー内の構文。"
+description: このビデオでは、両方の拡張メソッドを使用する方法を学習して宣言@helperRazor ビュー内の構文。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/23/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503661"
 ---
 <a name="mvc-3---razor-helpers"></a>MVC 3 の Razor ヘルパー
 ====================

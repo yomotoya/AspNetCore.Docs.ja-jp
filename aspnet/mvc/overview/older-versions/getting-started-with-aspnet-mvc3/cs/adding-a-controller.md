@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868296"
 ---
 <a name="adding-a-controller-c"></a>コント ローラー (c#) の追加
 ====================
@@ -69,7 +70,7 @@ ASP.NET MVC では、着信 URL に応じて別のコント ローラー クラ�
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-URL の最初の部分を実行するコント ローラー クラスを決定します。 したがって*/HelloWorld*にマップ、`HelloWorldController`クラスです。 URL の 2 番目の部分では、実行するには、クラスにアクション メソッドを判断します。 したがって*HelloWorld/インデックス*が切り替わるところ、`Index`のメソッド、`HelloWorldController`を実行するクラス。 のみを参照しなければならなかったことを確認*/HelloWorld*と`Index`メソッドは、既定で使用されました。 これは、という名前のメソッドであるため`Index`いずれかが明示的に指定されていない場合に、コント ローラーで呼び出される既定の方法です。
+URL の最初の部分を実行するコント ローラー クラスを決定します。 したがって */HelloWorld*にマップ、`HelloWorldController`クラスです。 URL の 2 番目の部分では、実行するには、クラスにアクション メソッドを判断します。 したがって*HelloWorld/インデックス*が切り替わるところ、`Index`のメソッド、`HelloWorldController`を実行するクラス。 のみを参照しなければならなかったことを確認 */HelloWorld*と`Index`メソッドは、既定で使用されました。 これは、という名前のメソッドであるため`Index`いずれかが明示的に指定されていない場合に、コント ローラーで呼び出される既定の方法です。
 
 `http://localhost:xxxx/HelloWorld/Welcome` を参照します。 `Welcome` メソッドが実行され、"This is the Welcome action method..." という文字列を返します。 既定の MVC マッピングは`/[Controller]/[ActionName]/[Parameters]`します。 この URL では、コントローラーは `HelloWorld` で、`Welcome` がアクション メソッドです。 URL の `[Parameters]` の部分はまだ使っていません。
 

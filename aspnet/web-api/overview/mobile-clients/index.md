@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/mobile-clients/index
-title: "Web API、およびモバイル クライアント |Microsoft ドキュメント"
+title: Web API、およびモバイル クライアント |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET Web API を使用して、ネイティブのモバイル クライアントに到達します。"
+description: ASP.NET Web API を使用して、ネイティブのモバイル クライアントに到達します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/23/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/mobile-clients
 msc.type: chapter
 ms.openlocfilehash: c3415ce41bf47a50b46bf72951955a04c617bab7
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508271"
 ---
 <a name="web-api-and-mobile-clients"></a>Web API やモバイル クライアント
 ====================

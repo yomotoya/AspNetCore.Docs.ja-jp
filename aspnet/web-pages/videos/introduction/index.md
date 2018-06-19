@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/index
-title: "Web ページのビデオの概要 |Microsoft ドキュメント"
+title: Web ページのビデオの概要 |Microsoft ドキュメント
 author: rick-anderson
-description: "どのビデオ Web ページおよび WebMatrix の基本についての詳細を表示できます。"
+description: どのビデオ Web ページおよび WebMatrix の基本についての詳細を表示できます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/videos/introduction
 msc.type: chapter
 ms.openlocfilehash: d128715483de83125166d75988181e729d5207bf
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529971"
 ---
 <a name="introduction-to-web-pages-videos"></a>Web ページのビデオの概要
 ====================

@@ -1,6 +1,6 @@
 ---
 uid: mvc/videos/mvc-2/index
-title: "ASP.NET MVC 2 |Microsoft ドキュメント"
+title: ASP.NET MVC 2 |Microsoft ドキュメント
 author: rick-anderson
 description: ASP.NET MVC 2
 ms.author: aspnetcontent
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/videos/mvc-2
 msc.type: chapter
 ms.openlocfilehash: b9fb0a52431d93243c508278b526bc4931724cf4
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26504121"
 ---
 <a name="aspnet-mvc-2"></a>ASP.NET MVC 2
 ====================

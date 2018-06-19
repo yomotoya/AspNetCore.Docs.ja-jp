@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-work-with-nested-master-pages-to-create-standard-content-layouts
-title: "[How Do i:]標準のコンテンツのレイアウトを作成する入れ子になったマスター ページの操作 |Microsoft ドキュメント"
+title: '[How Do i:]標準のコンテンツのレイアウトを作成する入れ子になったマスター ページの操作 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では入れ子になったマスター ページを使用して、w のさまざまな標準のコンテンツのレイアウトを表す個々 のマスター ページを作成する方法を表示する."
+description: このビデオ Chris Pels では入れ子になったマスター ページを使用して、w のさまざまな標準のコンテンツのレイアウトを表す個々 のマスター ページを作成する方法を表示する.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525961"
 ---
 <a name="how-do-i-work-with-nested-master-pages-to-create-standard-content-layouts"></a>[How Do i:]標準のコンテンツのレイアウトを作成する入れ子になったマスター ページの操作します。
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-membership-provider
-title: "[How Do i:]カスタム メンバーシップ プロバイダーを作成しますか。 | Microsoft Docs"
+title: '[How Do i:]カスタム メンバーシップ プロバイダーを作成しますか。 | Microsoft Docs'
 author: rick-anderson
-description: "メンバーシップ プロバイダーが、web アプリケーションで、ユーザーのメンバーシップ データを格納および取得を許可して、標準の ASP.NET メンバーシップ プロバイダーを使用して事前に定義しています."
+description: メンバーシップ プロバイダーが、web アプリケーションで、ユーザーのメンバーシップ データを格納および取得を許可して、標準の ASP.NET メンバーシップ プロバイダーを使用して事前に定義しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525521"
 ---
 <a name="how-do-i-create-a-custom-membership-provider"></a>[How Do i:]カスタム メンバーシップ プロバイダーを作成しますか。
 ====================

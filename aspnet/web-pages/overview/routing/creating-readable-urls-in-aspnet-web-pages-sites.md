@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/routing/creating-readable-urls-in-aspnet-web-pages-sites
-title: "ページ (Razor) サイトの ASP.NET Web で読み取り可能な Url を作成する |Microsoft ドキュメント"
+title: ページ (Razor) サイトの ASP.NET Web で読み取り可能な Url を作成する |Microsoft ドキュメント
 author: tfitzmac
-description: "この記事では、ASP.NET Web Pages (Razor) の web サイト、およびこれを使用する方法を読みやすく、優れた SEO の Url を使用してルーティングについて説明します。 新機能を学習しています."
+description: この記事では、ASP.NET Web Pages (Razor) の web サイト、およびこれを使用する方法を読みやすく、優れた SEO の Url を使用してルーティングについて説明します。 新機能を学習しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529751"
 ---
 <a name="creating-readable-urls-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) のサイトで読み取り可能な Url を作成します。
 ====================
@@ -68,11 +69,11 @@ ASP.NET 要求を処理するときの宛先に転送する方法を決定する
 
 検索は、次のようになります。
 
-1. 名前とパスを持つファイルがある*/a/b/c.cshtml*しますか? 場合は、そのページを実行し、情報を渡したりありません。 それ以外の場合.
-2. 名前とパスを持つファイルがある*/a/b.cshtml*しますか? そのため、そのページを実行し、値を渡す場合`c`にします。 それ以外の場合.
-3. 名前とパスを持つファイルがある*/a.cshtml*しますか? そのため、そのページを実行し、値を渡す場合`b/c`にします。
+1. 名前とパスを持つファイルがある */a/b/c.cshtml*しますか? 場合は、そのページを実行し、情報を渡したりありません。 それ以外の場合.
+2. 名前とパスを持つファイルがある */a/b.cshtml*しますか? そのため、そのページを実行し、値を渡す場合`c`にします。 それ以外の場合.
+3. 名前とパスを持つファイルがある */a.cshtml*しますか? そのため、そのページを実行し、値を渡す場合`b/c`にします。
 
-正確ないいえ、検索に一致する場合*.cshtml*さらにこれらのファイルを探して、指定したフォルダーのファイルは、ASP.NET 継続します。
+正確ないいえ、検索に一致する場合 *.cshtml*さらにこれらのファイルを探して、指定したフォルダーのファイルは、ASP.NET 継続します。
 
 1. */a/b/c/default.cshtml* (パス情報がない)。
 2. */a/b/c/index.cshtml* (パス情報がない)。

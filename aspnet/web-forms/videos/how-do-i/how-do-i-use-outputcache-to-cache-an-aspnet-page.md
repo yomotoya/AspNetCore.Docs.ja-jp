@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-outputcache-to-cache-an-aspnet-page
-title: "[How Do i:]OutputCache キャッシュを使用する ASP.NET ページ |Microsoft ドキュメント"
+title: '[How Do i:]OutputCache キャッシュを使用する ASP.NET ページ |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels での ASP.NET を再表示があるないために、キャッシュにページを格納する組み込みのキャッシュを利用する方法を示しています。 最初に、."
+description: このビデオ Chris Pels での ASP.NET を再表示があるないために、キャッシュにページを格納する組み込みのキャッシュを利用する方法を示しています。 最初に、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/05/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526201"
 ---
 <a name="how-do-i-use-outputcache-to-cache-an-aspnet-page"></a>[How Do i:]OutputCache をキャッシュを使用する ASP.NET ページ
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873720"
 ---
 <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>チュートリアル: SignalR の概要 1.x と MVC 4
 ====================

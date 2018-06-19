@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-determine-whether-to-use-a-web-site-or-a-web-application-project
-title: "[How Do i:]Web サイトまたは Web アプリケーション プロジェクトを使用するかどうかを判断 |Microsoft ドキュメント"
+title: '[How Do i:]Web サイトまたは Web アプリケーション プロジェクトを使用するかどうかを判断 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では、ASP.NET web サイト プロジェクトと web アプリケーション プロジェクトの違いが対照的です。 使用するための考慮事項について説明してください."
+description: このビデオ Chris Pels では、ASP.NET web サイト プロジェクトと web アプリケーション プロジェクトの違いが対照的です。 使用するための考慮事項について説明してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/22/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26522201"
 ---
 <a name="how-do-i-determine-whether-to-use-a-web-site-or-a-web-application-project"></a>[How Do i:]Web サイトまたは Web アプリケーション プロジェクトを使用するかどうかを決定します。
 ====================

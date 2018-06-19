@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/index
-title: "ASP.NET 4 - エンタープライズ展開の概要 |Microsoft ドキュメント"
+title: ASP.NET 4 - エンタープライズ展開の概要 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルのセットは、ツールとさまざまなエンタープライズ シナリオで web アプリケーションの展開に使用できる手法について説明します。"
+description: このチュートリアルのセットは、ツールとさまざまなエンタープライズ シナリオで web アプリケーションの展開に使用できる手法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-ente
 msc.type: chapter
 ms.openlocfilehash: 049a7485473d53fb179d0d05f05c56e221a38ba8
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26515161"
 ---
 <a name="aspnet-4---enterprise-deployment-introduction"></a>ASP.NET 4 - エンタープライズ展開の概要
 ====================

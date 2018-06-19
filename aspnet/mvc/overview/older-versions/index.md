@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/index
-title: "以前のバージョンの MVC 3 と 4 |Microsoft ドキュメント"
+title: 以前のバージョンの MVC 3 と 4 |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET MVC の以前のバージョンを使用する方法を学習するためのリソースへのリンク。"
+description: ASP.NET MVC の以前のバージョンを使用する方法を学習するためのリソースへのリンク。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/09/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions
 msc.type: chapter
 ms.openlocfilehash: b017b33346c3d61741f2285896870002d61d3703
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26502571"
 ---
 <a name="older-versions---mvc-3-and-4"></a>以前のバージョンの MVC 3 と 4
 ====================

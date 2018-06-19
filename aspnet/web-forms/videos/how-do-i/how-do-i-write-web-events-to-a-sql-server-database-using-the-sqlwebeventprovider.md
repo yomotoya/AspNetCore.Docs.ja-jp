@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-write-web-events-to-a-sql-server-database-using-the-sqlwebeventprovider
-title: "[How Do i:]SqlWebEventProvider を使用して SQL Server データベースを Web イベントの書き込み |Microsoft ドキュメント"
+title: '[How Do i:]SqlWebEventProvider を使用して SQL Server データベースを Web イベントの書き込み |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では、エラーをログに SQL Server データベースへの web サイトで ASP.NET 状態 SqlWebEventProvider の監視を使用する方法を示します。 まず、リアしています."
+description: このビデオ Chris Pels では、エラーをログに SQL Server データベースへの web サイトで ASP.NET 状態 SqlWebEventProvider の監視を使用する方法を示します。 まず、リアしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526541"
 ---
 <a name="how-do-i-write-web-events-to-a-sql-server-database-using-the-sqlwebeventprovider"></a>[How Do i:]Web のイベント、SqlWebEventProvider を使用して SQL Server データベースに書き込みます
 ====================

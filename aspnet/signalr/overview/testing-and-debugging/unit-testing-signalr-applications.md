@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870844"
 ---
 <a name="unit-testing-signalr-applications"></a>単体テストの SignalR アプリケーション
 ====================
@@ -64,10 +65,10 @@ SignalR 2 で単体テスト機能を使用して SignalR アプリケーショ�
 3. はじめにアプリケーションのダウンロード版を使用している場合は開きます**パッケージ マネージャー コンソール** をクリック**復元**SignalR パッケージをプロジェクトに追加します。
 
     ![パッケージを復元します。](unit-testing-signalr-applications/_static/image1.png)
-4. 単体テストのソリューションにプロジェクトを追加します。 ソリューションを右クリックして**ソリューション エクスプ ローラー**選択**追加**、**新しいプロジェクト.**.下にある、 **c#**ノードで、選択、 **Windows**ノード。 選択**クラス ライブラリ**です。 新しいプロジェクトの名前**TestLibrary**  をクリック**OK**です。
+4. 単体テストのソリューションにプロジェクトを追加します。 ソリューションを右クリックして**ソリューション エクスプ ローラー**選択**追加**、**新しいプロジェクト.**.下にある、 **c#** ノードで、選択、 **Windows**ノード。 選択**クラス ライブラリ**です。 新しいプロジェクトの名前**TestLibrary**  をクリック**OK**です。
 
     ![テスト ライブラリを作成します。](unit-testing-signalr-applications/_static/image2.png)
-5. テスト ライブラリ プロジェクトで SignalRChat プロジェクトへの参照を追加します。 右クリックし、 **TestLibrary**プロジェクトし、選択**追加**、**参照しています.**.選択、**プロジェクト**ノードの下、**ソリューション**ノード、およびチェック**SignalRChat**です。 **[OK]**をクリックします。
+5. テスト ライブラリ プロジェクトで SignalRChat プロジェクトへの参照を追加します。 右クリックし、 **TestLibrary**プロジェクトし、選択**追加**、**参照しています.**.選択、**プロジェクト**ノードの下、**ソリューション**ノード、およびチェック**SignalRChat**です。 **[OK]** をクリックします。
 
     ![プロジェクト参照を追加します。](unit-testing-signalr-applications/_static/image3.png)
 6. SignalR、Moq、XUnit パッケージを追加、 **TestLibrary**プロジェクト。 **Package Manager Console**、設定、**プロジェクトの既定の**ドロップダウンを**TestLibrary**です。 コンソール ウィンドウで、次のコマンドを実行します。

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/index
-title: "DataList リピータとシナリオをフィルタ リング |Microsoft ドキュメント"
+title: DataList リピータとシナリオをフィルタ リング |Microsoft ドキュメント
 author: rick-anderson
-description: "これらのチュートリアルには、マスター レコードと詳細については、DataList コントロールのドロップダウン リストを使用してマスター/詳細レポートを表示する方法が表示されます。"
+description: これらのチュートリアルには、マスター レコードと詳細については、DataList コントロールのドロップダウン リストを使用してマスター/詳細レポートを表示する方法が表示されます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-data
 msc.type: chapter
 ms.openlocfilehash: a8a1c2301dc287b49149bc5afe85a7dedad54d58
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514101"
 ---
 <a name="filtering-scenarios-with-the-datalist-and-repeater"></a>DataList リピータとフィルター処理シナリオ
 ====================

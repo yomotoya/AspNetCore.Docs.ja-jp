@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/index
-title: "セキュリティ、認証、および ASP.NET Web API での承認 |Microsoft ドキュメント"
+title: セキュリティ、認証、および ASP.NET Web API での承認 |Microsoft ドキュメント
 author: rick-anderson
-description: "Web API のセキュリティの問題です。"
+description: Web API のセキュリティの問題です。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/11/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/security
 msc.type: chapter
 ms.openlocfilehash: 2006e672aab83a508bcaf44b6c7c276d4b1f3342
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508091"
 ---
 <a name="security-authentication-and-authorization-in-aspnet-web-api"></a>セキュリティ、認証、および ASP.NET Web API での承認
 ====================

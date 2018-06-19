@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869050"
 ---
 <a name="intro-to-aspnet-mvc-4"></a>ASP.NET mvc 4
 ====================
@@ -72,7 +73,7 @@ Visual Studio は、IDE、または統合開発環境です。 Microsoft Word �
 
 ![](intro-to-aspnet-mvc-4/_static/image5.png)
 
-**[OK]**をクリックします。 Visual Studio では、作成した ASP.NET MVC プロジェクトの既定のテンプレートが使用されるため、何もせず作業アプリケーションが現在ある! これは、単純な&quot;Hello World!&quot;プロジェクト、およびそのアプリケーションを起動するに適しています。
+**[OK]** をクリックします。 Visual Studio では、作成した ASP.NET MVC プロジェクトの既定のテンプレートが使用されるため、何もせず作業アプリケーションが現在ある! これは、単純な&quot;Hello World!&quot;プロジェクト、およびそのアプリケーションを起動するに適しています。
 
 ![](intro-to-aspnet-mvc-4/_static/image6.png)
 

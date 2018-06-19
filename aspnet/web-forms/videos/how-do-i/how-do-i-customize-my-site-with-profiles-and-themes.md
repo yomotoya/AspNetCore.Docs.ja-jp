@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-customize-my-site-with-profiles-and-themes
-title: "[How Do i:]自分のサイトにプロファイルとテーマをカスタマイズしますか。 | Microsoft Docs"
+title: '[How Do i:]自分のサイトにプロファイルとテーマをカスタマイズしますか。 | Microsoft Docs'
 author: microsoft
-description: "プロファイルを使用して、ユーザーごとの構成情報を収集し、一貫したのとの外観、Web サイト全体を拡張するテーマを適用する方法を説明します。"
+description: プロファイルを使用して、ユーザーごとの構成情報を収集し、一貫したのとの外観、Web サイト全体を拡張するテーマを適用する方法を説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/06/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526191"
 ---
 <a name="how-do-i-customize-my-site-with-profiles-and-themes"></a>[How Do i:]自分のサイトにプロファイルとテーマをカスタマイズしますか。
 ====================

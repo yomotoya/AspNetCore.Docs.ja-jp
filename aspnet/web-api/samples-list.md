@@ -1,8 +1,8 @@
 ---
 uid: web-api/samples-list
-title: "Web API のサンプル リスト |Microsoft ドキュメント"
+title: Web API のサンプル リスト |Microsoft ドキュメント
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28038989"
 ---
 <a name="web-api-samples-list"></a>Web API のサンプル一覧
 ====================

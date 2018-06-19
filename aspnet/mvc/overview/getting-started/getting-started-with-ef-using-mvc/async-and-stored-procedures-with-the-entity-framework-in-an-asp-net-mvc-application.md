@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873262"
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Async および Entity Framework、ASP.NET MVC アプリケーションでのストアド プロシージャ
 ====================
@@ -139,7 +140,7 @@ Entity framework 非同期プログラミングを使用する場合の注意す
 このセクションでは、省略可能な完了している必要があります**Azure へのアプリの展開**」の「、[移行と配置](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)このシリーズ チュートリアルです。 ローカル プロジェクトでデータベースを削除することによって解決移行エラーがある場合は、このセクションをスキップします。
 
 1. Visual Studio でプロジェクトを右クリックして**ソリューション エクスプ ローラー**選択**発行**コンテキスト メニューからです。
-2. **[発行]**をクリックします。
+2. **[発行]** をクリックします。
 
     Visual Studio は、azure アプリケーションを展開し、アプリケーションを Azure で実行されている、既定のブラウザーで開きます。
 3. アプリケーションをテストすることを確認して動作します。

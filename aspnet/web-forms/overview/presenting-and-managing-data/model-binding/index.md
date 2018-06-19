@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/index
-title: "バインディングと Visual Studio 2013 で Web フォーム モデル |Microsoft ドキュメント"
+title: バインディングと Visual Studio 2013 で Web フォーム モデル |Microsoft ドキュメント
 author: rick-anderson
-description: "モデル バインドおよび Web フォームを使用してデータを操作する方法。"
+description: モデル バインドおよび Web フォームを使用してデータを操作する方法。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2013
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding
 msc.type: chapter
 ms.openlocfilehash: f653a1394af8bfc562c244dad00ff35bc4744647
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519771"
 ---
 <a name="model-binding-and-web-forms-in-visual-studio-2013"></a>モデル バインディング機能と Visual Studio 2013 で Web フォーム
 ====================

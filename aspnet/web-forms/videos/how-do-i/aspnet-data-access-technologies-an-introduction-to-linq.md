@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/aspnet-data-access-technologies-an-introduction-to-linq
-title: "ASP.NET データ アクセス テクノロジ、LINQ の概要 |Microsoft ドキュメント"
+title: ASP.NET データ アクセス テクノロジ、LINQ の概要 |Microsoft ドキュメント
 author: JoeStagner
-description: "LINQ とは、ASP.NET 開発者は、データ アクセスのメカニズムを優先します。 このビデオでは、LINQ を使用したプログラミングの概要についてし、単純なデータ アクセス betwee を比較しています."
+description: LINQ とは、ASP.NET 開発者は、データ アクセスのメカニズムを優先します。 このビデオでは、LINQ を使用したプログラミングの概要についてし、単純なデータ アクセス betwee を比較しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525421"
 ---
 <a name="aspnet-data-access-technologies-an-introduction-to-linq"></a>ASP.NET データ アクセス テクノロジ、LINQ の概要
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/index
-title: "ASP.NET Web フォーム |Microsoft ドキュメント"
+title: ASP.NET Web フォーム |Microsoft ドキュメント
 author: rick-anderson
-description: "Visual Web Developer Express をダウンロードする (&) にすばやく簡単に理解コントロールを ASP.NET Web フォームのビジュアル デ ザインを使用するアプリの environ web をビルドする方法について説明してください."
+description: Visual Web Developer Express をダウンロードする (&) にすばやく簡単に理解コントロールを ASP.NET Web フォームのビジュアル デ ザインを使用するアプリの environ web をビルドする方法について説明してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms
 msc.type: categoryindex
 ms.openlocfilehash: f56ac2552017ad2b41debdea58d93c19c56268b9
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26509741"
 ---
 <a name="aspnet-web-forms"></a>ASP.NET Web フォーム
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-and-use-application-level-events-in-aspnet
-title: "[How Do i:] 作成し、ASP.NET のアプリケーション レベルのイベントを使用して |Microsoft ドキュメント"
+title: '[How Do i:] 作成し、ASP.NET のアプリケーション レベルのイベントを使用して |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では Application_S などのアプリケーション レベルのイベント ハンドラーを含むアプリケーション クラス ファイル (Global.asax) を作成する方法を説明しています."
+description: このビデオ Chris Pels では Application_S などのアプリケーション レベルのイベント ハンドラーを含むアプリケーション クラス ファイル (Global.asax) を作成する方法を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/28/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521181"
 ---
 <a name="how-do-i--create-and-use-application-level-events-in-aspnet"></a>[How Do i:] 作成し、ASP.NET でのアプリケーション レベルのイベントの使用
 ====================

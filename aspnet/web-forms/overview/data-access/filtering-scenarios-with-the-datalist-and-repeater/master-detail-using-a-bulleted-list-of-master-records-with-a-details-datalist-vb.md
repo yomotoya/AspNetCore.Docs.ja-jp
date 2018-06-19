@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889021"
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>マスター/詳細詳細 DataList (VB) でマスター レコードの箇条書きリストの使い方
 ====================
@@ -74,7 +75,7 @@ CSS クラスを追加して、内のマークアップを構成した後、 `Ca
 
 完全なマークアップを囲むリピータおよび DataList s、おリピータにカテゴリ データをバインドする準備ができたら、次の操作を制御します。 ただし、図 1 内のカテゴリの箇条書きリストでは、各カテゴリの名前だけでなくも必要がありますをカテゴリに関連付けられている製品の数を表示します。 この情報にアクセスできますか。
 
-- **ASP.NET ページの分離コード クラスのこの情報を決定します。** 指定された特定の*`categoryID`*ところを呼び出して関連付けられている製品の数を判断することができます、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドです。 このメソッドが戻る、`ProductsDataTable`オブジェクト`Count`プロパティを示します数`ProductsRow`%s に存在して、指定した製品の数は *`categoryID`*です。 作成できるよう、 `ItemDataBound` Repeater を呼び出し、リピータにバインドされている各カテゴリのイベント ハンドラー、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドの出力に、カウントが含まれています。
+- **ASP.NET ページの分離コード クラスのこの情報を決定します。** 指定された特定の*`categoryID`* ところを呼び出して関連付けられている製品の数を判断することができます、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドです。 このメソッドが戻る、`ProductsDataTable`オブジェクト`Count`プロパティを示します数`ProductsRow`%s に存在して、指定した製品の数は *`categoryID`* です。 作成できるよう、 `ItemDataBound` Repeater を呼び出し、リピータにバインドされている各カテゴリのイベント ハンドラー、`ProductsBLL`クラスの`GetProductsByCategoryID(categoryID)`メソッドの出力に、カウントが含まれています。
 - **更新プログラム、`CategoriesDataTable`に含める型指定されたデータセットで、`NumberOfProducts`列です。** 更新することが、`GetCategories()`メソッドで、`CategoriesDataTable`を含めることがこの情報、または、`GetCategories()`として-を新規作成は、`CategoriesDataTable`呼び出されるメソッド`GetCategoriesAndNumberOfProducts()`です。
 
 S、これらの手法の両方のシナリオを使用できます。 最初の方法は、データ アクセス層; を更新する必要ありませんので、実装に簡単です。ただし、データベースと複数の通信が必要です。 呼び出し、`ProductsBLL`クラス s`GetProductsByCategoryID(categoryID)`メソッドで、`ItemDataBound`リピータに表示されるカテゴリごとに、追加のデータベース呼び出しをイベント ハンドラーに追加します。 この手法では*N* + 1 つのデータベース呼び出し、ここで*N*リピータに表示されるカテゴリの数です。 各カテゴリに関する情報を 2 番目の方法で製品の数が返される、`CategoriesBLL`クラス s `GetCategories()` (または`GetCategoriesAndNumberOfProducts()`) メソッドを招き、1 つだけのトリップで結果としてデータベースにします。
@@ -233,7 +234,7 @@ LinkButton を`ID`のプロパティの値`ViewCategory`がその`Text`プロパ
 
 [![CategoryID パラメーターのパラメーターのソースを指定しないをしないでください。](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image35.png)
 
-**図 13**: パラメーターのソースを指定しない、 *`categoryID`*パラメーター ([フルサイズのイメージを表示するをクリックして](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image37.png))
+**図 13**: パラメーターのソースを指定しない、 *`categoryID`* パラメーター ([フルサイズのイメージを表示するをクリックして](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/_static/image37.png))
 
 
 データ ソース構成ウィザードを完了すると、Visual Studio 自動生成 DataList の`ItemTemplate`です。 この既定値を置き換える`ItemTemplate`テンプレートを使用して前のチュートリアルで使用されている以外の場合は DataList s を設定しても、`RepeatColumns`プロパティを 2 です。 これらの変更を行った後は、DataList および関連付けられている、ObjectDataSource の宣言型マークアップは、次のようになります。
@@ -241,7 +242,7 @@ LinkButton を`ID`のプロパティの値`ViewCategory`がその`Text`プロパ
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb/samples/sample10.aspx)]
 
-現時点では、 `CategoryProductsDataSource` ObjectDataSource s *`categoryID`*パラメーターは設定されません、ページを表示するときに製品が表示されないようにします。 このパラメーター値が設定されてに基づいて行う必要がありますが、`CategoryID`リピータでクリックしたカテゴリのです。 これにより、2 つの課題: 最初は方針ときリピータ s の LinkButton`ItemTemplate`が行われてクリックした 2 番目、どのように確認する、`CategoryID`の LinkButton がクリックされた、対応するカテゴリのですか?。
+現時点では、 `CategoryProductsDataSource` ObjectDataSource s *`categoryID`* パラメーターは設定されません、ページを表示するときに製品が表示されないようにします。 このパラメーター値が設定されてに基づいて行う必要がありますが、`CategoryID`リピータでクリックしたカテゴリのです。 これにより、2 つの課題: 最初は方針ときリピータ s の LinkButton`ItemTemplate`が行われてクリックした 2 番目、どのように確認する、`CategoryID`の LinkButton がクリックされた、対応するカテゴリのですか?。
 
 ボタンおよび ImageButton コントロールと同様の LinkButton が、`Click`イベントおよび[`Command`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.command.aspx)です。 `Click`イベントの目的だけの LinkButton がクリックしてされたことに注意してください。 ときに、ただし、に加えて、LinkButton がクリックしてされたことに注意してくださいもが必要な追加情報をイベント ハンドラーに渡します。 このような LinkButton s 場合[ `CommandName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandname.aspx)と[ `CommandArgument` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx)プロパティにこの追加情報を割り当てることができます。 LinkButton がクリックされたときにし、その`Command`イベントの起動 (の代わりにその`Click`イベント) でイベント ハンドラーには、値が渡され、`CommandName`と`CommandArgument`プロパティ。
 

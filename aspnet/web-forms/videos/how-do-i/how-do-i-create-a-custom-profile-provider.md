@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-profile-provider
-title: "[How Do i:]カスタム プロファイル プロバイダーを作成しますか。 | Microsoft Docs"
+title: '[How Do i:]カスタム プロファイル プロバイダーを作成しますか。 | Microsoft Docs'
 author: rick-anderson
-description: "このビデオでは、格納および SQL Server テーブル t から別のユーザー プロファイルに関連付けられているデータを取得するカスタム プロファイル プロバイダーを作成する方法を説明しています."
+description: このビデオでは、格納および SQL Server テーブル t から別のユーザー プロファイルに関連付けられているデータを取得するカスタム プロファイル プロバイダーを作成する方法を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526411"
 ---
 <a name="how-do-i-create-a-custom-profile-provider"></a>[How Do i:]カスタム プロファイル プロバイダーを作成しますか。
 ====================

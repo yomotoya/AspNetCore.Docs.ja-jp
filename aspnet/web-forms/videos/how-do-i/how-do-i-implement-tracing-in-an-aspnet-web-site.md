@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-tracing-in-an-aspnet-web-site
-title: "[How Do i:] ASP.NET Web サイトでトレースを実装しますか。 | Microsoft Docs"
+title: '[How Do i:] ASP.NET Web サイトでトレースを実装しますか。 | Microsoft Docs'
 author: rick-anderson
-description: "このビデオでは Chris Pels がわかりますを監視したり、パフォーマンスを測定し、エラーを診断する ASP.NET web サイトでトレースを実装する方法です。 学習リソースの選択."
+description: このビデオでは Chris Pels がわかりますを監視したり、パフォーマンスを測定し、エラーを診断する ASP.NET web サイトでトレースを実装する方法です。 学習リソースの選択.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526561"
 ---
 <a name="how-do-i--implement-tracing-in-an-aspnet-web-site"></a>[How Do i:] ASP.NET Web サイトでトレースを実装しますか。
 ====================

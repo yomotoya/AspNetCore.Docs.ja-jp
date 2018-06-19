@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/session-level-objects
-title: "セッション レベルのオブジェクト |Microsoft ドキュメント"
+title: セッション レベルのオブジェクト |Microsoft ドキュメント
 author: JoeStagner
-description: "このビデオは、セッション レベルのイベントとオブジェクトを紹介し、アプリケーションとページ レベルの同等の使用を比較します。"
+description: このビデオは、セッション レベルのイベントとオブジェクトを紹介し、アプリケーションとページ レベルの同等の使用を比較します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26524991"
 ---
 <a name="session-level-objects"></a>セッション レベルのオブジェクト
 ====================

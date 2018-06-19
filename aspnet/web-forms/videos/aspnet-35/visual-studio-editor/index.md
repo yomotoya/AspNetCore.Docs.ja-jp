@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-35/visual-studio-editor/index
-title: "Visual Studio エディター |Microsoft ドキュメント"
+title: Visual Studio エディター |Microsoft ドキュメント
 author: rick-anderson
-description: "このビデオ シリーズでは、JavaScript と CSS のサポートの強化を含め、Visual Studio 2008 エディターの新しい機能を示します。"
+description: このビデオ シリーズでは、JavaScript と CSS のサポートの強化を含め、Visual Studio 2008 エディターの新しい機能を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor
 msc.type: chapter
 ms.openlocfilehash: 651a5d0e8a61acfad286e4d5eeac3f42136ca97d
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520651"
 ---
 <a name="visual-studio-editor"></a>Visual Studio エディター
 ====================

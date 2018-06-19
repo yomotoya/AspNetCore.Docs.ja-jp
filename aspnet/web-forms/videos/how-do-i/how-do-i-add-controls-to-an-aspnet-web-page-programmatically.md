@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-add-controls-to-an-aspnet-web-page-programmatically
-title: "[How Do i:]ASP.NET Web ページにコントロールをプログラムで追加 |Microsoft ドキュメント"
+title: '[How Do i:]ASP.NET Web ページにコントロールをプログラムで追加 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では、実行時に ASP.NET サーバー コントロールをプログラムで作成し、ページに追加する方法が表示されます。 まず、基本的な概念と o を学習してください."
+description: このビデオ Chris Pels では、実行時に ASP.NET サーバー コントロールをプログラムで作成し、ページに追加する方法が表示されます。 まず、基本的な概念と o を学習してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525651"
 ---
 <a name="how-do-i-add-controls-to-an-aspnet-web-page-programmatically"></a>[How Do i:]ASP.NET Web ページにコントロールをプログラムで追加します。
 ====================

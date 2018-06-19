@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/performance-and-caching/index
-title: "パフォーマンス |Microsoft ドキュメント"
+title: パフォーマンス |Microsoft ドキュメント
 author: rick-anderson
-description: "パフォーマンスを向上させるサイトのコンテンツをキャッシュする方法です。"
+description: パフォーマンスを向上させるサイトのコンテンツをキャッシュする方法です。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/performance-and-caching
 msc.type: chapter
 ms.openlocfilehash: 1a7881ba937308ffe07aeeeaafd5e6422f9fcce9
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519481"
 ---
 <a name="performance"></a>パフォーマンス
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/intro-to-web-forms
-title: "Web フォーム (入門) |Microsoft ドキュメント"
+title: Web フォーム (入門) |Microsoft ドキュメント
 author: JoeStagner
-description: "ASP.NET アプリケーションの既定のユーザー インターフェイスのメカニズムを ASP.NET Web フォームには. このビデオでは、Web フォームの使用による開発の基本を示します。"
+description: ASP.NET アプリケーションの既定のユーザー インターフェイスのメカニズムを ASP.NET Web フォームには. このビデオでは、Web フォームの使用による開発の基本を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521021"
 ---
 <a name="intro-to-web-forms"></a>Web フォームの概要
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870103"
 ---
 <a name="how-do-i-create-a-custom-html-helper-for-an-mvc-application"></a>操作方法: 作成、MVC アプリケーション用のカスタム HTML ヘルパーですか。
 ====================

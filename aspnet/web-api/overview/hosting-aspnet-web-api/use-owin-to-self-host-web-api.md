@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
-title: "使用して OWIN セルフ ホスト ASP.NET Web API 2 |Microsoft ドキュメント"
+title: 使用して OWIN セルフ ホスト ASP.NET Web API 2 |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストするコンソール アプリケーションで ASP.NET Web API をホストする方法を示します。 .NET (OWIN) d 用 Web インターフェイスを開く."
+description: このチュートリアルでは、OWIN を使用して Web API フレームワークを自己ホストするコンソール アプリケーションで ASP.NET Web API をホストする方法を示します。 .NET (OWIN) d 用 Web インターフェイスを開く.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/09/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506971"
 ---
 <a name="use-owin-to-self-host-aspnet-web-api-2"></a>OWIN を使用して ASP.NET Web API 2 を自己ホスト
 ====================

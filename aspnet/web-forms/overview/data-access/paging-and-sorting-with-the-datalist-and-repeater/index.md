@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/index
-title: "ページングとリピータと DataList で並べ替え |Microsoft ドキュメント"
+title: ページングとリピータと DataList で並べ替え |Microsoft ドキュメント
 author: rick-anderson
-description: "これらのチュートリアルでは、ページングや並べ替えの非常に柔軟な UI を作成する DataList または Repeater コントロールにページング サポートを追加する方法を示します。"
+description: これらのチュートリアルでは、ページングや並べ替えの非常に柔軟な UI を作成する DataList または Repeater コントロールにページング サポートを追加する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datal
 msc.type: chapter
 ms.openlocfilehash: e05b1a691a3a6378859847d4530f11bbe4d8c1d3
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514421"
 ---
 <a name="paging-and-sorting-with-the-datalist-and-repeater"></a>ページングと DataList リピータと並べ替え
 ====================

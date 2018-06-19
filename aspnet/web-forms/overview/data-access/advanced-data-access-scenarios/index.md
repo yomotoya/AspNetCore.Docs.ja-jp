@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/index
-title: "データ アクセス シナリオの詳細 |Microsoft ドキュメント"
+title: データ アクセス シナリオの詳細 |Microsoft ドキュメント
 author: rick-anderson
-description: "これらのチュートリアルでは、ストアド プロシージャと計算列を操作する方法、データベース テーブルで結合を使用する方法、およびデータ接続情報を暗号化する方法について説明しています."
+description: これらのチュートリアルでは、ストアド プロシージャと計算列を操作する方法、データベース テーブルで結合を使用する方法、およびデータ接続情報を暗号化する方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios
 msc.type: chapter
 ms.openlocfilehash: e773ced66465ab99e9b662d84e1cdb8e607918e7
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26512291"
 ---
 <a name="advanced-data-access-scenarios"></a>高度なデータ アクセスのシナリオ
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/index
-title: "シリアル化と ASP.NET Web API でのモデル バインディング |Microsoft ドキュメント"
+title: シリアル化と ASP.NET Web API でのモデル バインディング |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET Web API が HTTP メッセージをドメイン モデルにバインドする方法と、Web API でメディアを操作する方法の書式します。"
+description: ASP.NET Web API が HTTP メッセージをドメイン モデルにバインドする方法と、Web API でメディアを操作する方法の書式します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/formats-and-model-binding
 msc.type: chapter
 ms.openlocfilehash: 8aa061c2cdf4c65a1e0718e2ab146a0220fd8ee6
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506771"
 ---
 <a name="serialization-and-model-binding-in-aspnet-web-api"></a>シリアル化と ASP.NET Web API でのモデル バインディング
 ====================

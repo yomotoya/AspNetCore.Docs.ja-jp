@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867815"
 ---
 <a name="publish-the-app-to-azure-azure-app-service"></a>Azure の Azure App Service にアプリを公開します。
 ====================
@@ -51,7 +52,7 @@ Visual Studio では、アプリケーションの展開が完了すると、既
 
 ![](part-10/_static/image9.png)
 
-サイト名を入力します。 Azure サブスクリプションと地域を選択します。 **データベース サーバー****新しいサーバーの作成**、または既存のサーバーを選択します。 **[作成]**をクリックします。
+サイト名を入力します。 Azure サブスクリプションと地域を選択します。 **データベース サーバー****新しいサーバーの作成**、または既存のサーバーを選択します。 **[作成]** をクリックします。
 
 [![](part-10/_static/image11.png)](part-10/_static/image10.png)
 

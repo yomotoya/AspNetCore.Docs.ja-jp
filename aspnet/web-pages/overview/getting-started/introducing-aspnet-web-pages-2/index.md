@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/index
-title: "ASP.NET Web Pages の概要 |Microsoft ドキュメント"
+title: ASP.NET Web Pages の概要 |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET Web ページ 2 の概要"
+description: ASP.NET Web ページ 2 の概要
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-
 msc.type: chapter
 ms.openlocfilehash: 03dd1be4651b95c8f7a496378af33e371cead64f
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528561"
 ---
 <a name="introducing-aspnet-web-pages"></a>ASP.NET Web ページの概要
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
-title: "作成して、ヘルパーを使用して ASP.NET web Pages (Razor) サイト |Microsoft ドキュメント"
+title: 作成して、ヘルパーを使用して ASP.NET web Pages (Razor) サイト |Microsoft ドキュメント
 author: tfitzmac
-description: "この記事では、ASP.NET Web Pages (Razor) の web サイトにヘルパーを作成する方法について説明します。 コードとパフォーマンスにマークアップを含む再使用可能なコンポーネントをヘルパーには."
+description: この記事では、ASP.NET Web Pages (Razor) の web サイトにヘルパーを作成する方法について説明します。 コードとパフォーマンスにマークアップを含む再使用可能なコンポーネントをヘルパーには.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26530001"
 ---
 <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトで作成およびヘルパー
 ====================
@@ -55,7 +56,7 @@ ms.lasthandoff: 11/10/2017
 この手順では、上記のメモを作成するヘルパーを作成する方法を示します。 これは単純な例ですが、カスタム ヘルパーは、マークアップとする必要がある ASP.NET コードを含めることができます。
 
 1. という名前のフォルダーを作成、web サイトのルート フォルダーに*アプリ\_コード*です。 これは、ヘルパーなどのコンポーネントのコードを配置できる ASP.NET で予約されたフォルダーの名前です。
-2. *アプリ\_コード*フォルダーを作成、新しい*.cshtml*ファイルし、名前を付けます*MyHelpers.cshtml*です。
+2. *アプリ\_コード*フォルダーを作成、新しい *.cshtml*ファイルし、名前を付けます*MyHelpers.cshtml*です。
 3. 次のように、既存のコンテンツを置き換えます。
 
     [!code-cshtml[Main](creating-and-using-a-helper-in-an-aspnet-web-pages-site/samples/sample1.cshtml)]

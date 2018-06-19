@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-persist-the-state-of-a-user-control-during-a-postback
-title: "[操作方法]: ポストバック時にユーザー コントロールの状態を永続化 |Microsoft ドキュメント"
+title: '[操作方法]: ポストバック時にユーザー コントロールの状態を永続化 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels では、ユーザー コントロールに 1 つまたは複数のオブジェクトの状態を維持する方法を示します。 最初に、ユーザー コントロールを表す、abilit が作成しています."
+description: このビデオ Chris Pels では、ユーザー コントロールに 1 つまたは複数のオブジェクトの状態を維持する方法を示します。 最初に、ユーザー コントロールを表す、abilit が作成しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/02/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525971"
 ---
 <a name="how-do-i-persist-the-state-of-a-user-control-during-a-postback"></a>[操作方法]: ポストバック時にユーザー コントロールの状態を維持
 ====================

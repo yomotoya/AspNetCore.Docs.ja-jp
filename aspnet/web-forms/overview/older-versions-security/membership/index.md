@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/index
-title: "ASP.NET 3.5 - メンバーシップ |Microsoft ドキュメント"
+title: ASP.NET 3.5 - メンバーシップ |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルの系列では、組み込みのメンバーシップ (セキュリティ) システムを使用してユーザー アカウントを作成し、承認規則を構成するための手法について説明します。"
+description: このチュートリアルの系列では、組み込みのメンバーシップ (セキュリティ) システムを使用してユーザー アカウントを作成し、承認規則を構成するための手法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-security/membership
 msc.type: chapter
 ms.openlocfilehash: bcd354111798d45c6207f0eead00647f6a031fcc
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519101"
 ---
 <a name="aspnet-35---membership"></a>ASP.NET 3.5 のメンバーシップ
 ====================

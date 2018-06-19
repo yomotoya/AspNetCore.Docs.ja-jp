@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/index
-title: "ASP.NET Web フォームにおけるデータの操作 |Microsoft ドキュメント"
+title: ASP.NET Web フォームにおけるデータの操作 |Microsoft ドキュメント
 author: rick-anderson
-description: "コントロールを使用してデータにアクセスする方法および要求間で情報を永続化する方法です。"
+description: コントロールを使用してデータにアクセスする方法および要求間で情報を永続化する方法です。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/presenting-and-managing-data
 msc.type: chapter
 ms.openlocfilehash: fcfe22a67a2d0876e25b867d43a3bc1535149110
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519761"
 ---
 <a name="working-with-data-in-aspnet-web-forms"></a>ASP.NET Web フォームにおけるデータの操作
 ====================

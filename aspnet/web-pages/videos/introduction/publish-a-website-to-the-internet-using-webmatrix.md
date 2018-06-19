@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/publish-a-website-to-the-internet-using-webmatrix
-title: "WebMatrix を使用したインターネットへの web サイトの発行 |Microsoft ドキュメント"
+title: WebMatrix を使用したインターネットへの web サイトの発行 |Microsoft ドキュメント
 author: rick-anderson
-description: "一部 9 する方法を示します、サイトをインターネットに公開 WebMatrix を使用しています。"
+description: 一部 9 する方法を示します、サイトをインターネットに公開 WebMatrix を使用しています。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529841"
 ---
 <a name="publish-a-website-to-the-internet-using-webmatrix"></a>WebMatrix を使用したインターネットへの web サイトを発行します。
 ====================

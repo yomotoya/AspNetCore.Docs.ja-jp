@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-a-visual-studio-2008-web-deployment-project
-title: "[How Do i:]Visual Studio 2008 Web デプロイ プロジェクトを使用して |Microsoft ドキュメント"
+title: '[How Do i:]Visual Studio 2008 Web デプロイ プロジェクトを使用して |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオでは、Chris Pels は、Visual Studio 2008 の Web 配置のアドオンを使用してをより細かく制御のデプロイ プロジェクトを作成する方法を示します."
+description: このビデオでは、Chris Pels は、Visual Studio 2008 の Web 配置のアドオンを使用してをより細かく制御のデプロイ プロジェクトを作成する方法を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/11/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521851"
 ---
 <a name="how-do-i-use-a-visual-studio-2008-web-deployment-project"></a>[How Do i:]Visual Studio 2008 Web デプロイ プロジェクトを使用します。
 ====================

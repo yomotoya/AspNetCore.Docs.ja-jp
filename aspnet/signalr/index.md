@@ -1,8 +1,8 @@
 ---
 uid: signalr/index
-title: "SignalR |Microsoft ドキュメント"
+title: SignalR |Microsoft ドキュメント
 author: rick-anderson
-description: "Microsoft ASP.NET SignalR は、ASP.NET 開発者向けのアプリケーションにリアルタイム web 機能を追加するプロセスを簡略化するライブラリです。"
+description: Microsoft ASP.NET SignalR は、ASP.NET 開発者向けのアプリケーションにリアルタイム web 機能を追加するプロセスを簡略化するライブラリです。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/24/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /signalr
 msc.type: categoryindex
 ms.openlocfilehash: 7c09eac2247891f872f77cc6395a54d8554e183b
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26504151"
 ---
 <a name="signalr"></a>SignalR
 ====================

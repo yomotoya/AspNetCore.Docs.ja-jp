@@ -1,8 +1,8 @@
 ---
 uid: web-api/videos/getting-started/paging-and-querying
-title: "ASP.NET Web API、パート 4: ページングと、クエリを実行する |Microsoft ドキュメント"
+title: 'ASP.NET Web API、パート 4: ページングと、クエリを実行する |Microsoft ドキュメント'
 author: jongalloway
-description: "注: このビデオに ASP.NET Web API のプレリリース版からの情報が含まれています"
+description: '注: このビデオに ASP.NET Web API のプレリリース版からの情報が含まれています'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26509111"
 ---
 <a name="aspnet-web-api-part-4-paging-and-querying"></a>ページングと、クエリを実行する ASP.NET Web API、パート 4:
 ====================

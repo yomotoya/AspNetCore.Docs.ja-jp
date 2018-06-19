@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/create-a-delete-data-page-in-webmatrix
-title: "WebMatrix で Delete データ ページを作成 |Microsoft ドキュメント"
+title: WebMatrix で Delete データ ページを作成 |Microsoft ドキュメント
 author: rick-anderson
-description: "8 の一部は、データの削除 ページを作成する方法を示すことで、アプリケーションをオフ終了します。"
+description: 8 の一部は、データの削除 ページを作成する方法を示すことで、アプリケーションをオフ終了します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529961"
 ---
 <a name="create-a-delete-data-page-in-webmatrix"></a>WebMatrix で Delete データ ページを作成します。
 ====================

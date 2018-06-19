@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/index
-title: "マスター/詳細 |Microsoft ドキュメント"
+title: マスター/詳細 |Microsoft ドキュメント
 author: rick-anderson
-description: "これらのチュートリアルでは、ドロップダウン リストと GridView コントロールの詳細のマスター レコードを表示する方法を示します。"
+description: これらのチュートリアルでは、ドロップダウン リストと GridView コントロールの詳細のマスター レコードを表示する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/masterdetail
 msc.type: chapter
 ms.openlocfilehash: d0e8193c008f5457a62cd009873883acc0c5c237
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514441"
 ---
 <a name="masterdetail"></a>マスター/詳細
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881764"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a>Visual Studio を使用した ASP.NET Web 展開: 余分なファイルの展開
 ====================
@@ -59,7 +60,7 @@ ms.lasthandoff: 04/06/2018
 
     `Include`属性を指定、ファイルを検索するためのフォルダーは、ある*ExtraFiles*プロジェクト フォルダーと同じレベルに配置されている。 MSBuild (2 つのアスタリスクを指定するサブフォルダーを再帰的な) すべてのサブフォルダーからを再帰的にそのフォルダーからすべてのファイルが収集されます。 このコードを持つでした配置する複数のファイル、およびファイル内のサブフォルダーに、 *ExtraFiles*フォルダー、およびそのすべてが展開されます。
 
-    `DestinationRelativePath`要素は、ファイルとフォルダーがで見つかった場合は、移動先 web サイトの同じファイルおよびフォルダー構造内のルート フォルダーにコピーする必要がありますを指定します、 *ExtraFiles*フォルダーです。 コピーする場合は、 *ExtraFiles*フォルダー自体、`DestinationRelativePath`値になります*ExtraFiles\%(RecursiveDir)%(Filename)%(Extension)*です。
+    `DestinationRelativePath`要素は、ファイルとフォルダーがで見つかった場合は、移動先 web サイトの同じファイルおよびフォルダー構造内のルート フォルダーにコピーする必要がありますを指定します、 *ExtraFiles*フォルダーです。 コピーする場合は、 *ExtraFiles*フォルダー自体、`DestinationRelativePath`値になります*ExtraFiles\%(RecursiveDir)%(Filename)%(Extension)* です。
 3. 終了する前に、ファイルの最後に`</Project>`タグは、新しいターゲットを実行するかを指定する次のマークアップを追加します。
 
     [!code-xml[Main](deploying-extra-files/samples/sample2.xml)]
@@ -83,7 +84,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="more-information"></a>詳細情報
 
-MSBuild ファイルを操作する方法がわかっている場合でコードを記述して他の展開タスクの多くを自動化できます*.pubxml* (プロファイルに固有のタスク) のファイルまたはプロジェクト*. wpp.targets*ファイル (のタスクプロファイルに適用されるすべて)。 詳細については*.pubxml*と*. wpp.targets*ファイルを参照してください[する方法: 発行プロファイル (.pubxml) ファイルでの展開設定の編集、および wpp.targets Visual Studio Web 内のファイル。プロジェクト](https://msdn.microsoft.com/library/ff398069)です。 MSBuild のコードに基本的な概要については、次を参照してください。**プロジェクト ファイルの構造**で[エンタープライズ展開シリーズ: プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)です。 タスク、独自のシナリオを実行する MSBuild ファイルを操作する方法については、このブックを参照してください。:[内の Microsoft Build Engine: MSBuild を使用して、Team Foundation ビルド](http://msbuildbook.com)Sayed Ibraham Hashimi して William Bartholomew です。
+MSBuild ファイルを操作する方法がわかっている場合でコードを記述して他の展開タスクの多くを自動化できます *.pubxml* (プロファイルに固有のタスク) のファイルまたはプロジェクト *. wpp.targets*ファイル (のタスクプロファイルに適用されるすべて)。 詳細については *.pubxml*と *. wpp.targets*ファイルを参照してください[する方法: 発行プロファイル (.pubxml) ファイルでの展開設定の編集、および wpp.targets Visual Studio Web 内のファイル。プロジェクト](https://msdn.microsoft.com/library/ff398069)です。 MSBuild のコードに基本的な概要については、次を参照してください。**プロジェクト ファイルの構造**で[エンタープライズ展開シリーズ: プロジェクト ファイルを理解する](../web-deployment-in-the-enterprise/understanding-the-project-file.md)です。 タスク、独自のシナリオを実行する MSBuild ファイルを操作する方法については、このブックを参照してください。:[内の Microsoft Build Engine: MSBuild を使用して、Team Foundation ビルド](http://msbuildbook.com)Sayed Ibraham Hashimi して William Bartholomew です。
 
 ## <a name="acknowledgements"></a>謝辞
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/intro-to-aspnet-controls
-title: "ASP.NET のコントロールの概要 |Microsoft ドキュメント"
+title: ASP.NET のコントロールの概要 |Microsoft ドキュメント
 author: JoeStagner
-description: "駆動開発のコントロールは、開発の生産性を増やす本当にできます。 このビデオでは、標準の ASP.NET コントロールの概要を提供します。"
+description: 駆動開発のコントロールは、開発の生産性を増やす本当にできます。 このビデオでは、標準の ASP.NET コントロールの概要を提供します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520961"
 ---
 <a name="intro-to-aspnet-controls"></a>ASP.NET のコントロールの概要
 ====================

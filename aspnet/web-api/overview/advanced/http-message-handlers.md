@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/http-message-handlers
-title: "ASP.NET web API HTTP メッセージ ハンドラー |Microsoft ドキュメント"
+title: ASP.NET web API HTTP メッセージ ハンドラー |Microsoft ドキュメント
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506951"
 ---
 <a name="http-message-handlers-in-aspnet-web-api"></a>ASP.NET web API HTTP メッセージ ハンドラー
 ====================

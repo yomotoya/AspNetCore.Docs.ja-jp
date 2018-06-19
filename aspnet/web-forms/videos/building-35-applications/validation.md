@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/validation
-title: "検証 |Microsoft ドキュメント"
+title: 検証 |Microsoft ドキュメント
 author: JoeStagner
-description: "このビデオ Joe で ASP.NET を使用して Microsoft Visual Web Developer で FormValidation コントロールの使用を示します。"
+description: このビデオ Joe で ASP.NET を使用して Microsoft Visual Web Developer で FormValidation コントロールの使用を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/04/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525001"
 ---
 <a name="validation"></a>検証
 ====================

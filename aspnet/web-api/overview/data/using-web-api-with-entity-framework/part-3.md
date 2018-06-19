@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869934"
 ---
 <a name="use-code-first-migrations-to-seed-the-database"></a>Code First Migrations を使用して、データベースのシードを
 ====================
@@ -86,7 +87,7 @@ EF がデータベースを作成しと呼ばれる Update-database コマンド
 
 ![](part-3/_static/image5.png)
 
-**サーバーへの接続**ダイアログで、**サーバー名**編集ボックスに、"(localdb) \v11.0"を入力します。 ままにして、**認証**「Windows 認証」では、オプションです。 **[接続]**をクリックします。
+**サーバーへの接続**ダイアログで、**サーバー名**編集ボックスに、"(localdb) \v11.0"を入力します。 ままにして、**認証**「Windows 認証」では、オプションです。 **[接続]** をクリックします。
 
 ![](part-3/_static/image6.png)
 

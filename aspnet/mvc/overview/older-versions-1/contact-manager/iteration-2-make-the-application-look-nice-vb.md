@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872768"
 ---
 <a name="iteration-2--make-the-application-look-nice-vb"></a>イテレーション 2 – nice (VB) を検索するアプリケーションを作成します。
 ====================
@@ -83,7 +84,7 @@ ASP.NET MVC デザイン ギャラリーは、ASP.NET MVC プロジェクトで�
 3. 年 10 月をという名前のフォルダーにファイルを解凍します。
 4. 年 10 月フォルダーに含まれているレイアウト フォルダーからすべてのファイルを選択し、ファイルを右クリックし、メニュー オプションを選択**コピー**です。
 5. Visual Studio ソリューション エクスプ ローラー ウィンドウで ContactManager プロジェクト ノードを右クリックし、メニュー オプションを選択**貼り付け**(図 4 を参照してください)。
-6. Visual Studio のメニュー オプションを選択**編集、検索し、置換 クイック置換**と置換*[MyProjectName]*で*ContactManager* (図 5 を参照してください)。
+6. Visual Studio のメニュー オプションを選択**編集、検索し、置換 クイック置換**と置換 *[MyProjectName]* で*ContactManager* (図 5 を参照してください)。
 
 
 [![[新しいプロジェクト] ダイアログ ボックス](iteration-2-make-the-application-look-nice-vb/_static/image3.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image5.png)

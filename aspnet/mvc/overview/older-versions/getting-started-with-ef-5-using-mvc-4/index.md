@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/index
-title: "MVC 4 を使用する EF 5 の概要 |Microsoft ドキュメント"
+title: MVC 4 を使用する EF 5 の概要 |Microsoft ドキュメント
 author: rick-anderson
-description: "Entity Framework 5 を使用して、ASP.NET MVC 4 アプリケーションでデータを表示および編集の基本。"
+description: Entity Framework 5 を使用して、ASP.NET MVC 4 アプリケーションでデータを表示および編集の基本。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/26/2013
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-
 msc.type: chapter
 ms.openlocfilehash: 45d58999934e1d4a3df144f1e5b0e108192f6588
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26502441"
 ---
 <a name="getting-started-with-ef-5-using-mvc-4"></a>MVC 4 を使用する EF 5 の概要
 ====================

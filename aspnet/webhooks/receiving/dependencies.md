@@ -1,20 +1,21 @@
 ---
 uid: webhooks/receiving/dependencies
-title: "ASP.NET の Webhook の受信者の依存関係 |Microsoft ドキュメント"
+title: ASP.NET の Webhook の受信者の依存関係 |Microsoft ドキュメント
 author: rick-anderson
-description: "受信者の依存関係と ASP.NET の Webhook の依存関係の挿入します。"
+description: 受信者の依存関係と ASP.NET の Webhook の依存関係の挿入します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: 5125e483-c2bb-435b-8cd1-21d3499bfaaf
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: f9726c746c8934594e26f2871f9b867c192374bb
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529911"
 ---
 # <a name="aspnet-webhooks-receiver-dependencies"></a>ASP.NET の Webhook の受信者の依存関係
 

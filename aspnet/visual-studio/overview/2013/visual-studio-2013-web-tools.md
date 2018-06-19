@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "26507131"
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a>ハンズ オン ラボ: Visual Studio 2013 の Web ツール
 ====================
@@ -106,7 +107,7 @@ ms.lasthandoff: 04/10/2018
 このタスクでは、クロス ブラウザー テスト用に便利ですが、一度に複数のブラウザーで実行する web アプリケーションを構成します。
 
 1. 開いている**Microsoft Visual Studio**です。
-2. **ファイル**メニューの**開く |プロジェクト/ソリューションしています.**を見つけて**Ex1 WorkingwithBrowserLinkandWebEssentials\Begin**で、**ソース**ラボ (C:\WebCampsTK\HOL\VSWebTooling\Source) のフォルダーです。 選択**Begin.sln**をクリック**開く**です。
+2. **ファイル**メニューの**開く |プロジェクト/ソリューションしています.** を見つけて**Ex1 WorkingwithBrowserLinkandWebEssentials\Begin**で、**ソース**ラボ (C:\WebCampsTK\HOL\VSWebTooling\Source) のフォルダーです。 選択**Begin.sln**をクリック**開く**です。
 3. Visual Studio ツールバーで、[ブラウザー] メニューを展開し、選択**を参照しています.**.
 
     ![メニュー オプション browse With](visual-studio-2013-web-tools/_static/image1.png "ブラウザー メニュー... 参照")
@@ -144,7 +145,7 @@ ms.lasthandoff: 04/10/2018
 
 1. Visual Studio に切り替えます。
 2. 開く、 **Index.cshtml**にあるファイル、**ビュー** | **ホーム**フォルダーです。
-3. 置換、  **&lt;!--TODO: ここでのオプションを追加&gt;**にコメントを次のコード、およびキーを押して**タブ**です。
+3. 置換、  **&lt;!--TODO: ここでのオプションを追加&gt;** にコメントを次のコード、およびキーを押して**タブ**です。
 
     [!code-css[Main](visual-studio-2013-web-tools/samples/sample1.css)]
 4. コードは、HTML を拡張する必要があります。
@@ -222,12 +223,12 @@ ms.lasthandoff: 04/10/2018
     ![Visual Studio HTML エディターで選択されている HTML 要素](visual-studio-2013-web-tools/_static/image15.png "Visual Studio HTML エディターで選択されている HTML 要素")
 
     *Visual Studio HTML エディターで選択されている HTML 要素*
-4. 今すぐ更新するが、**前面**選択した要素のスタイルを変更するために CSS クラス。 これを行うには、キーを押します。 **CTRL** + **、**を開くには、**へ移動**検索ボックス。 型**site.css**とキーを押します**ENTER**ファイルを開きます。
+4. 今すぐ更新するが、**前面**選択した要素のスタイルを変更するために CSS クラス。 これを行うには、キーを押します。 **CTRL** + **、** を開くには、**へ移動**検索ボックス。 型**site.css**とキーを押します**ENTER**ファイルを開きます。
 
     ![Site.css ファイルを開く](visual-studio-2013-web-tools/_static/image16.png "Site.css ファイルを開く")
 
     *Site.css ファイルを開く*
-5. キーを押して**CTRL** + **F**および種類**.flip コンテナー .front** CSS セレクターを検索します。
+5. キーを押して**CTRL** + **F**および種類 **.flip コンテナー .front** CSS セレクターを検索します。
 6. クラスを開くには、カラー ピッカーの枠線のプロパティで明るい青色の四角形をクリックします。
 
     ![カラー ピッカーを開いて](visual-studio-2013-web-tools/_static/image17.png "カラー ピッカーを開く")
@@ -257,7 +258,7 @@ ms.lasthandoff: 04/10/2018
 
     *btn セレクターの - webkit 罫線半径プロパティ*
 14. 内のキャレットを配置、 **- webkit 罫線半径**プロパティです。 プロパティの最初の単語の最初の文字の下にある青い線が表示されます。 これは、**スマート タグ**です。
-15. キーを押して**CTRL** + **です。** 提案メニューを開き、をクリックする**(境界線 radius) の標準的なプロパティがありません追加**です。
+15. キーを押して**CTRL** + **です。** 提案メニューを開き、をクリックする **(境界線 radius) の標準的なプロパティがありません追加**です。
 
     ![追加の標準的なプロパティの修正案がありません](visual-studio-2013-web-tools/_static/image22.png "追加の標準的なプロパティの修正案がありません")
 
@@ -307,7 +308,7 @@ ms.lasthandoff: 04/10/2018
     ![編集質問](visual-studio-2013-web-tools/_static/image29.png "質問の編集")
 
     *質問の編集*
-4. Visual Studio に戻り、開いているスイッチ**Index.cshtml**開いていない場合、します。 注意しての内部テキ スト、 **&lt;p&gt;**要素が更新されました。
+4. Visual Studio に戻り、開いているスイッチ**Index.cshtml**開いていない場合、します。 注意しての内部テキ スト、 **&lt;p&gt;** 要素が更新されました。
 
     ![HTML ページに更新された質問](visual-studio-2013-web-tools/_static/image30.png "HTML ページに最新の質問")
 
@@ -323,7 +324,7 @@ ms.lasthandoff: 04/10/2018
     ![エラーをビューに一覧表示メニューの](visual-studio-2013-web-tools/_static/image31.png "表示 メニューのエラー一覧")
 
     *エラーをビューに一覧表示メニュー*
-2. 通知を SEO 警告があることに注意してください、 **&lt;メタ&gt;**タグ ページの説明がありません。 これを修正する SEO 警告エントリをダブルクリックします。
+2. 通知を SEO 警告があることに注意してください、 **&lt;メタ&gt;** タグ ページの説明がありません。 これを修正する SEO 警告エントリをダブルクリックします。
 
     ![エラー一覧ウィンドウ](visual-studio-2013-web-tools/_static/image32.png "エラー一覧ウィンドウ")
 
@@ -333,7 +334,7 @@ ms.lasthandoff: 04/10/2018
     ![Web Essentials ダイアログ ボックス](visual-studio-2013-web-tools/_static/image33.png "Web Essentials ダイアログ ボックス")
 
     *Web Essentials ダイアログ ボックス*
-4. 用のエディター **\_Layout.cshtml**開きます、 **&lt;メタ&gt;**にタグが自動的に追加、**ヘッド**のセクション、HTML ファイルです。
+4. 用のエディター **\_Layout.cshtml**開きます、 **&lt;メタ&gt;** にタグが自動的に追加、**ヘッド**のセクション、HTML ファイルです。
 
     ![_Layout ページに自動的に追加のメタ タグ](visual-studio-2013-web-tools/_static/image34.png "_Layout ページに自動的に追加のメタ タグ")
 
@@ -354,7 +355,7 @@ Web Essentials の追加機能を持つ、HTML エディターが拡張されま
 
 1. 開いている**Visual Studio Express 2013 for Web**と**Begin.sln**にソリューションがある、**ソース/Ex2-TakingAdvantageofCodeSnippetsandIntelliSense/開始**フォルダーです。 代わりに、前の手順で取得した、ソリューションを続行できます。
 2. **ソリューション エクスプ ローラー**を開き、 **Index.cshtml**にあるファイル、**ビュー** | **ホーム**フォルダーです。
-3. 内の次の形式を追加、 **&lt;セクション&gt;**要素。
+3. 内の次の形式を追加、 **&lt;セクション&gt;** 要素。
 
     (コード スニペットの*VisualStudio2013WebTooling* - *Ex2* - *フォーム*)
 
@@ -362,19 +363,19 @@ Web Essentials の追加機能を持つ、HTML エディターが拡張されま
 4. 入力タグは、フィールドのいくつかの説明ラベルによって先行されなければなりません。 入力タグの前に次のラベルを追加します。
 
     [!code-html[Main](visual-studio-2013-web-tools/samples/sample5.html)]
-5. **の**の属性、 **&lt;ラベル&gt;**ラベルをフォーム要素の連結先を指定します。 属性の値は、関連する要素の id と同じにする必要があります。 追加、**の**属性を**&lt;ラベル&gt;**要素。 次の図に示すように、&quot;名前&quot;値がポップアップ、[IntelliSense] ボックスで、同じスコープ内の要素の id に基づいた (囲んでいる**&lt;フォーム&gt;**)。
+5. **の**の属性、 **&lt;ラベル&gt;** ラベルをフォーム要素の連結先を指定します。 属性の値は、関連する要素の id と同じにする必要があります。 追加、**の**属性を**&lt;ラベル&gt;** 要素。 次の図に示すように、&quot;名前&quot;値がポップアップ、[IntelliSense] ボックスで、同じスコープ内の要素の id に基づいた (囲んでいる**&lt;フォーム&gt;**)。
 
     ![IntelliSense で id を示す](visual-studio-2013-web-tools/_static/image35.png "IntelliSense での id を表示")
 
     *IntelliSense での id を表示*
-6. 削除、新しく追加された**&lt;フォーム&gt;**要素とそのコンテンツ。
+6. 削除、新しく追加された**&lt;フォーム&gt;** 要素とそのコンテンツ。
 
 <a id="Ex2Task2"></a>
 #### <a name="task-2---using-html-code-snippets"></a>作業 2: を使用して HTML コード スニペット
 
 HTML5 では、25 台を超える新しいセマンティック タグが導入されました。 Visual Studio は、これらのタグに対する IntelliSense サポートを既に持ってけれども、Visual Studio 2013 では、高速化し、新しいコード スニペットを追加することでマークアップを記述を簡単になります。 ただし、これらのタグは、複雑で、付属の正しいコーデック フォールバックを追加するなど、いくつかの小さな微妙な*オーディオ*タグ。 このタスクでは、オーディオのタグの HTML コード スニペットが表示されます。
 
-1. **Index.cshtml**ファイルに、入力 **&lt;aud**内、 **&lt;セクション&gt;**要素の次の図に示すようにします。
+1. **Index.cshtml**ファイルに、入力 **&lt;aud**内、 **&lt;セクション&gt;** 要素の次の図に示すようにします。
 
     ![Audio 要素を挿入する](visual-studio-2013-web-tools/_static/image36.png "audio 要素を挿入します。")
 
@@ -465,7 +466,7 @@ Web Essentials 2013 とスタイル シートおよび HTML ページは、Id �
     ![GetElementByTagName メソッドの IntelliSense を示す](visual-studio-2013-web-tools/_static/image45.png "getElementByTagName メソッド用の IntelliSense を表示")
 
     *GetElementsByTagName メソッドの IntelliSense を表示*
-13. 選択**&quot;オーディオ&quot;**キーを押して、一覧から**ENTER**です。 結果を次の例に示します。
+13. 選択**&quot;オーディオ&quot;** キーを押して、一覧から**ENTER**です。 結果を次の例に示します。
 
     ![オーディオの要素を取得する](visual-studio-2013-web-tools/_static/image46.png "オーディオ要素を取得します。")
 
@@ -497,7 +498,7 @@ Web Essentials 2013 とスタイル シートおよび HTML ページは、Id �
     (コード スニペットの*VisualStudio2013WebTooling* - *Ex2* - *PlayAudioElements*)
 
     [!code-csharp[Main](visual-studio-2013-web-tools/samples/sample12.cs)]
-18. をクリックして**CTRL** + **S**ファイルを保存します。 縮小されたファイルは既に開かれているため、ファイルがソース エディターの外部で変更されたことを示すダイアログ ボックスが表示されます。 **[はい]**をクリックします。
+18. をクリックして**CTRL** + **S**ファイルを保存します。 縮小されたファイルは既に開かれているため、ファイルがソース エディターの外部で変更されたことを示すダイアログ ボックスが表示されます。 **[はい]** をクリックします。
 
     ![Microsoft Visual Studio 警告](visual-studio-2013-web-tools/_static/image51.png "Microsoft Visual Studio の警告")
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/index
-title: "以前のバージョンの Ajax コントロール Toolkit |Microsoft ドキュメント"
+title: 以前のバージョンの Ajax コントロール Toolkit |Microsoft ドキュメント
 author: rick-anderson
-description: "ツールキットを使用して、Ajax コントロール、作業を開始する方法といくつかの最も一般的なコントロールを使用する方法。 DevExpress では、無料、オープン ソースの Ajax Contr. を保持."
+description: ツールキットを使用して、Ajax コントロール、作業を開始する方法といくつかの最も一般的なコントロールを使用する方法。 DevExpress では、無料、オープン ソースの Ajax Contr. を保持.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit
 msc.type: chapter
 ms.openlocfilehash: 75fef51d40352c4bd600bb63056f1d1d5c74cbd6
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26510851"
 ---
 <a name="older-versions---ajax-control-toolkit"></a>以前のバージョンの Ajax コントロールのツールキット
 ====================

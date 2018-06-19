@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-utilize-web-parts-and-personalization
-title: "[How Do i:]Web パーツとパーソナル化を利用しますか。 | Microsoft Docs"
+title: '[How Do i:]Web パーツとパーソナル化を利用しますか。 | Microsoft Docs'
 author: microsoft
-description: "新しい Web パーツとカスタマイズ機能を使用して、カスタマイズ可能な web ページの内容をビルドする方法について説明し、レイアウトは、ユーザーによって変更できます。"
+description: 新しい Web パーツとカスタマイズ機能を使用して、カスタマイズ可能な web ページの内容をビルドする方法について説明し、レイアウトは、ユーザーによって変更できます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526131"
 ---
 <a name="how-do-i-utilize-web-parts-and-personalization"></a>[How Do i:]Web パーツとパーソナル化を利用しますか。
 ====================

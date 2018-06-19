@@ -17,6 +17,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "28036896"
 ---
 <a name="single-page-application-knockoutjs-template"></a>Single Page Application: KnockoutJS テンプレート
 ====================

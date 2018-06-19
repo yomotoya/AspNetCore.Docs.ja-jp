@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-health-monitoring-for-an-aspnet-application
-title: "[How Do i:] ASP.NET アプリケーションの正常性の監視を実装しますか。 | Microsoft Docs"
+title: '[How Do i:] ASP.NET アプリケーションの正常性の監視を実装しますか。 | Microsoft Docs'
 author: rick-anderson
-description: "このビデオ Chris Pels では、ASP.NET アプリケーションの実行時の詳細な情報を取得する監視の正常性を実装する方法が表示されます。 について、強力なとしています."
+description: このビデオ Chris Pels では、ASP.NET アプリケーションの実行時の詳細な情報を取得する監視の正常性を実装する方法が表示されます。 について、強力なとしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526251"
 ---
 <a name="how-do-i--implement-health-monitoring-for-an-aspnet-application"></a>[How Do i:] ASP.NET アプリケーションの正常性の監視を実装しますか。
 ====================

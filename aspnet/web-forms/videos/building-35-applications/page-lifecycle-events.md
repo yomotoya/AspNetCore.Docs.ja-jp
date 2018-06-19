@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/page-lifecycle-events
-title: "ページのライフ サイクル イベント |Microsoft ドキュメント"
+title: ページのライフ サイクル イベント |Microsoft ドキュメント
 author: JoeStagner
-description: "ASP.NET では、ASP.NET ページ ライフ サイクルにおける重要なすべての時間においてこインスタンスにフック関数と非常に豊富なイベント処理メカニズムを提供します。 このビデオでは、列挙型をされます."
+description: ASP.NET では、ASP.NET ページ ライフ サイクルにおける重要なすべての時間においてこインスタンスにフック関数と非常に豊富なイベント処理メカニズムを提供します。 このビデオでは、列挙型をされます.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521601"
 ---
 <a name="page-lifecycle-events"></a>ページのライフ サイクル イベント
 ====================

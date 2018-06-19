@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869960"
 ---
 <a name="publish-mvc-database-first-site-to-azure"></a>MVC データベースの最初のサイトを Azure に発行します。
 ====================
@@ -54,7 +55,7 @@ Web アプリの一意の名前を作成します。 わかります名前が一
 
 ![connection](publish-to-azure/_static/image5.png)
 
-**[次へ]**をクリックします。
+**[次へ]** をクリックします。
 
 設定については、2 つのデータベース接続であることに注意してくださいが指定された - ApplicationDBContext と ContosoUniversityDataEntities です。 ApplicationDBContext は、ユーザー アカウントのテーブルの接続です。 これらの値は、データベースの接続文字列のみを表示します。 サイトを発行するときに、これらのデータベースを公開することがありません。 Web アプリを発行した後は、データベース プロジェクトを発行します。
 
@@ -74,7 +75,7 @@ Web アプリの一意の名前を作成します。 わかります名前が一
 
 発行するファイルの一覧を表示するプレビューの開始をクリックすることができます。 これはこのサイトを発行した最初の時間であるため、プロジェクト内のすべての関連するファイルは表示されません。
 
-**[発行]**をクリックします。
+**[発行]** をクリックします。
 
 [出力] ペインのパブリケーションには、結果が表示されます。
 

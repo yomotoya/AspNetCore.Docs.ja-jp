@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
-title: "[How Do i:]非表示フィールドを使用して格納し、クライアント側の情報の操作 |Microsoft ドキュメント"
+title: '[How Do i:]非表示フィールドを使用して格納し、クライアント側の情報の操作 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオでは、Chris Pels は簡単な状態の管理に、ASP.NET ページで、クライアント側の通信を行うための 1 つの方法として、隠しフィールドを使用する方法を示します."
+description: このビデオでは、Chris Pels は簡単な状態の管理に、ASP.NET ページで、クライアント側の通信を行うための 1 つの方法として、隠しフィールドを使用する方法を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525081"
 ---
 <a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[How Do i:]非表示フィールドを使用して格納し、クライアント側の情報を操作するには
 ====================

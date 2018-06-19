@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/index
-title: "作業の開始 |Microsoft ドキュメント"
+title: 作業の開始 |Microsoft ドキュメント
 author: rick-anderson
-description: "このページは、そのコントロールを Visual Studio または Visual Web Developer のツールボックスに追加する方法と、Ajax コントロール ツールキットをダウンロードする方法について説明します。"
+description: このページは、そのコントロールを Visual Studio または Visual Web Developer のツールボックスに追加する方法と、Ajax コントロール ツールキットをダウンロードする方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started
 msc.type: chapter
 ms.openlocfilehash: a2bee0fa190a0215546bd5ac72e14df23b2be87b
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26510501"
 ---
 <a name="getting-started"></a>作業の開始
 ====================

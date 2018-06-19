@@ -1,8 +1,8 @@
 ---
 uid: web-api/videos/getting-started/index
-title: "ASP.NET Web API の概要と取得は、ビデオを開始 |Microsoft ドキュメント"
+title: ASP.NET Web API の概要と取得は、ビデオを開始 |Microsoft ドキュメント
 author: rick-anderson
-description: "これは、一連の ASP.NET Web API の使用を開始するためのビデオです。"
+description: これは、一連の ASP.NET Web API の使用を開始するためのビデオです。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/videos/getting-started
 msc.type: chapter
 ms.openlocfilehash: c06a3e5670839af357a515331cd864521d260c0e
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508991"
 ---
 <a name="aspnet-web-api-overview-and-getting-started-videos"></a>ASP.NET Web API の概要と作業の開始のビデオ
 ====================

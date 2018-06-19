@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/signalr-connection-density-testing-with-crank
-title: "SignalR 接続の密度がクランクでのテスト |Microsoft ドキュメント"
+title: SignalR 接続の密度がクランクでのテスト |Microsoft ドキュメント
 author: tfitzmac
-description: "SignalR 接続の密度がクランクでテストします。"
+description: SignalR 接続の密度がクランクでテストします。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/22/2015
@@ -17,6 +17,7 @@ ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/21/2017
+ms.locfileid: "26535331"
 ---
 <a name="signalr-connection-density-testing-with-crank"></a>SignalR 接続の密度がクランクでテストします。
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/deployment/tutorial-signalr-self-host
-title: "チュートリアル: 自己ホスト SignalR |Microsoft ドキュメント"
+title: 'チュートリアル: 自己ホスト SignalR |Microsoft ドキュメント'
 author: pfletcher
-description: "このチュートリアルでは、自己ホスト型の SignalR 2 サーバーを作成する方法と、JavaScript クライアントでそれに接続する方法を説明します。 ソフトウェアのバージョンが V チュートリアルで使用しています."
+description: このチュートリアルでは、自己ホスト型の SignalR 2 サーバーを作成する方法と、JavaScript クライアントでそれに接続する方法を説明します。 ソフトウェアのバージョンが V チュートリアルで使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036779"
 ---
 <a name="tutorial-signalr-self-host"></a>チュートリアル: SignalR の自己ホスト
 ====================
@@ -74,7 +75,7 @@ IIS でホストしていない理由は次のとおりです。
 
 このチュートリアルでは、コンソール アプリケーションでホストされているサーバーを作成しますが、あらゆる種類の Windows サービスまたは Azure ワーカー ロールなどのプロセスで、サーバーをホストできます。 SignalR のサーバーに Windows サービスをホストするためのサンプル コードを参照してください。 [Windows サービスで Self-Hosting SignalR](https://code.msdn.microsoft.com/SignalR-self-hosted-in-6ff7e6c3)です。
 
-1. 管理者特権で Visual Studio 2013 を開きます。 選択**ファイル**、**新しいプロジェクト**です。 選択**Windows**下にある、 **Visual c#**内のノード、**テンプレート**ペイン、および選択、**コンソール アプリケーション**テンプレート。 新しいプロジェクトの名前を"SignalRSelfHost"し、をクリックして**OK**です。
+1. 管理者特権で Visual Studio 2013 を開きます。 選択**ファイル**、**新しいプロジェクト**です。 選択**Windows**下にある、 **Visual c#** 内のノード、**テンプレート**ペイン、および選択、**コンソール アプリケーション**テンプレート。 新しいプロジェクトの名前を"SignalRSelfHost"し、をクリックして**OK**です。
 
     ![](tutorial-signalr-self-host/_static/image1.png)
 2. 選択して、ライブラリ パッケージ マネージャー コンソールを開きます**ツール**、**ライブラリ パッケージ マネージャー**、 **Package Manager Console**です。

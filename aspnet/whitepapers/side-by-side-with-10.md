@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/side-by-side-with-10
-title: ".NET Framework 1.0 および 1.1 の ASP.NET サイド バイ サイド実行 |Microsoft ドキュメント"
+title: .NET Framework 1.0 および 1.1 の ASP.NET サイド バイ サイド実行 |Microsoft ドキュメント
 author: rick-anderson
-description: "このホワイト ペーパーでは、ASP.NET Web アプリケーションを fram のいずれかのバージョンで実行することにより、コンピューターに .NET 1.0 と .NET 1.1 の両方をインストールする方法について説明しています."
+description: このホワイト ペーパーでは、ASP.NET Web アプリケーションを fram のいずれかのバージョンで実行することにより、コンピューターに .NET 1.0 と .NET 1.1 の両方をインストールする方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: bdea2003-e964-4db5-9092-d56cc7560616
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/side-by-side-with-10
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26530181"
 ---
 <a name="aspnet-side-by-side-execution-of-net-framework-10-and-11"></a>.NET Framework 1.0 および 1.1 の ASP.NET サイド バイ サイド実行
 ====================
@@ -57,7 +58,7 @@ ASP.NET では、アプリケーションは、同じコンピューターにイ
 4. **[OK]** をクリックします。  
   
     ![](side-by-side-with-10/_static/image1.gif)
-5. コマンド プロンプトから、.NET Framework のインストールを開始する次の行を入力: **Dotnetfx.exe 展開/c"/noaspupgrade をインストールしますか?**です。  
+5. コマンド プロンプトから、.NET Framework のインストールを開始する次の行を入力: **Dotnetfx.exe 展開/c"/noaspupgrade をインストールしますか?** です。  
   
     ![](side-by-side-with-10/_static/image2.gif)
 6. をクリックして**はい**Microsoft .NET Framework 1.1 のセットアップにします。 これにより、.NET Framework 1.1 のセットアップ処理が開始されます。  
@@ -119,7 +120,7 @@ Aspnet\_regiis.exe には、スクリプト、Web アプリケーションのマ
 6. [プロパティ] ウィンドウで、選択**構成します。**  
   
     ![](side-by-side-with-10/_static/image10.gif)
-7. このアプリケーションのマッピング テーブルから選択**.aspx**、 をクリック**編集**です。  
+7. このアプリケーションのマッピング テーブルから選択 **.aspx**、 をクリック**編集**です。  
   
     ![](side-by-side-with-10/_static/image11.gif)
 8. **実行可能ファイル**テキスト ボックス、スクロールしてバージョンのディレクトリを確認します。 バージョンのディレクトリが v.1.1.4322 の場合は、アプリケーションが .NET Framework 1.1 にマップされます。 逆に、バージョンのディレクトリが v1.0.3705 の場合は、アプリケーションが .NET Framework 1.0 にマップされます。  

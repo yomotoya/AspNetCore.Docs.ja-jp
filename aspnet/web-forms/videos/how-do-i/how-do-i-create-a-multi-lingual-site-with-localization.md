@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-multi-lingual-site-with-localization
-title: "[How Do i:]ローカリゼーションには、多言語のサイトを作成しますか。 | Microsoft Docs"
+title: '[How Do i:]ローカリゼーションには、多言語のサイトを作成しますか。 | Microsoft Docs'
 author: microsoft
-description: "追加のコードを持たないカルチャを認識し、ロケール固有の web コンテンツを作成する方法を説明します。 リソース エディターを使用して、ページ レベルとアプリケーション レベルを作成してください."
+description: 追加のコードを持たないカルチャを認識し、ロケール固有の web コンテンツを作成する方法を説明します。 リソース エディターを使用して、ページ レベルとアプリケーション レベルを作成してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/06/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525111"
 ---
 <a name="how-do-i-create-a-multi-lingual-site-with-localization"></a>[How Do i:]ローカリゼーションには、多言語のサイトを作成しますか。
 ====================

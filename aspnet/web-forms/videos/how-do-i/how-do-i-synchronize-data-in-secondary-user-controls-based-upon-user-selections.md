@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections
-title: "[操作方法]: セカンダリ ユーザー コントロールをユーザーの選択に基づくデータの同期 |Microsoft ドキュメント"
+title: '[操作方法]: セカンダリ ユーザー コントロールをユーザーの選択に基づくデータの同期 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオ Chris Pels にここで、2 番目の一覧で項目を作成する最初の一覧で項目を選択する DropDownList の 2 つのコントロールを作成する方法を示します。 Firs しています."
+description: このビデオ Chris Pels にここで、2 番目の一覧で項目を作成する最初の一覧で項目を選択する DropDownList の 2 つのコントロールを作成する方法を示します。 Firs しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526441"
 ---
 <a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a>[操作方法]: セカンダリ ユーザー コントロールをユーザーの選択に基づくデータの同期
 ====================

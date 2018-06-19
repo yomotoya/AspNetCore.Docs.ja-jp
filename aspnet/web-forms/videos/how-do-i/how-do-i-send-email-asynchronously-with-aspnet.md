@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-send-email-asynchronously-with-aspnet
-title: "[How Do i:]ASP.NET で非同期的に電子メールを送信 |Microsoft ドキュメント"
+title: '[How Do i:]ASP.NET で非同期的に電子メールを送信 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオでは、Chris Pels は ASP.NET で System.Net.Mail クラスを使用して、非同期の電子メール メッセージを送信する方法を示します。 最初に、web si を構成する方法をについて説明してください."
+description: このビデオでは、Chris Pels は ASP.NET で System.Net.Mail クラスを使用して、非同期の電子メール メッセージを送信する方法を示します。 最初に、web si を構成する方法をについて説明してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/24/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525871"
 ---
 <a name="how-do-i-send-email-asynchronously-with-aspnet"></a>[How Do i:]ASP.NET で非同期的に電子メールを送信します。
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870116"
 ---
 <a name="part-9-registration-and-checkout"></a>手順 9: 登録とチェック アウト
 ====================
@@ -91,9 +92,9 @@ StoreController と同様に、storeDB をという名前の MusicStoreEntities 
 
 CheckoutController は、次のコント ローラーのアクションが適用されます。
 
-**AddressAndPayment (GET メソッド)**ユーザーに、それらの情報の入力を許可するフォームが表示されます。
+**AddressAndPayment (GET メソッド)** ユーザーに、それらの情報の入力を許可するフォームが表示されます。
 
-**AddressAndPayment (POST メソッド)**入力を検証し、注文を処理します。
+**AddressAndPayment (POST メソッド)** 入力を検証し、注文を処理します。
 
 **完全な**ユーザーには、チェック アウト処理が正常に完了した後に表示されます。 このビューは、確認として、ユーザーの注文番号に含まれます。
 

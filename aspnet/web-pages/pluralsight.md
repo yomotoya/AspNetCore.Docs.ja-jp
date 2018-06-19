@@ -1,8 +1,8 @@
 ---
 uid: web-pages/pluralsight
-title: "Pluralsight によるビデオ トレーニングを WebMatrix および Web ページ |Microsoft ドキュメント"
+title: Pluralsight によるビデオ トレーニングを WebMatrix および Web ページ |Microsoft ドキュメント
 author: rick-anderson
-description: "WebMatrix &amp; Pluralsight 詳細なこのコースから Web ページのトレーニングを入手して稼働 WebMatrix と ASP.NET Web Pages を使用します。 Everythi に対応しています."
+description: WebMatrix &amp; Pluralsight 詳細なこのコースから Web ページのトレーニングを入手して稼働 WebMatrix と ASP.NET Web Pages を使用します。 Everythi に対応しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529821"
 ---
 <a name="webmatrix-and-web-pages-video-training-from-pluralsight"></a>Pluralsight によるビデオ トレーニングを WebMatrix および Web ページ
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/index
-title: "Ajax コントロール Toolkit |Microsoft ドキュメント"
+title: Ajax コントロール Toolkit |Microsoft ドキュメント
 author: rick-anderson
-description: "非常に応答の ASP.NET Web ページの Ajax コントロール ツールキットを使用してを作成する方法。"
+description: 非常に応答の ASP.NET Web ページの Ajax コントロール ツールキットを使用してを作成する方法。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/ajax-control-toolkit
 msc.type: chapter
 ms.openlocfilehash: fad690c40cac7a344a445dae722ae2a1e89adf6b
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521831"
 ---
 <a name="ajax-control-toolkit"></a>Ajax Control Toolkit
 ====================

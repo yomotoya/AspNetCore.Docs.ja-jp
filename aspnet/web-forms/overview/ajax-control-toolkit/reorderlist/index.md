@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/reorderlist/index
-title: "ReorderList |Microsoft ドキュメント"
+title: ReorderList |Microsoft ドキュメント
 author: rick-anderson
-description: "このチュートリアルでは、ReorderList コントロールを使用して項目をドラッグして順序を変更できるユーザーを一覧表示する方法を示します。"
+description: このチュートリアルでは、ReorderList コントロールを使用して項目をドラッグして順序を変更できるユーザーを一覧表示する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist
 msc.type: chapter
 ms.openlocfilehash: 14ad3527a17b0853dd10a07aba28d60867f79169
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26511621"
 ---
 <a name="reorderlist"></a>ReorderList
 ====================

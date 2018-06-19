@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2012/visual-studio-vnext-videos-css-editor-hierarchical-indentation
-title: "Visual Studio vNext ビデオ: CSS エディターの階層インデント |Microsoft ドキュメント"
+title: 'Visual Studio vNext ビデオ: CSS エディターの階層インデント |Microsoft ドキュメント'
 author: madskristensen
-description: "このビデオで Mads Kristensen は自動的にインデントのスタイル設定、selecto に基づいて規則を Visual Studio vNext CSS エディターの機能強化について説明しています."
+description: このビデオで Mads Kristensen は自動的にインデントのスタイル設定、selecto に基づいて規則を Visual Studio vNext CSS エディターの機能強化について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/30/2011
 ms.topic: article
 ms.assetid: 6e34a1b0-4108-4524-b858-430e742abe44
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-vnext-videos-css-editor-hierarchical-indentation
 msc.type: video
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506501"
 ---
 <a name="visual-studio-vnext-videos-css-editor-hierarchical-indentation"></a>Visual Studio vNext ビデオ: CSS エディターの階層インデント
 ====================

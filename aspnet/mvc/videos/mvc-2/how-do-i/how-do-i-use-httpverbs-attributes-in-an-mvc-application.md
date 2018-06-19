@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869531"
 ---
 <a name="how-do-i-use-httpverbs-attributes-in-an-mvc-application"></a>操作方法: 使用 HttpVerbs 属性 MVC アプリケーションのですか。
 ====================

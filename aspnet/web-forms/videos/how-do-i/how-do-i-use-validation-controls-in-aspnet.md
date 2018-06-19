@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-validation-controls-in-aspnet
-title: "[How Do i:] ASP.NET での検証コントロールを使用しますか。 | Microsoft Docs"
+title: '[How Do i:] ASP.NET での検証コントロールを使用しますか。 | Microsoft Docs'
 author: rick-anderson
-description: "このビデオでは、ASP.NET で使用できる検証コントロールを使用して、web ページで検証を実装する方法を学習します。 主要なすべての検証コントロールなどをしています."
+description: このビデオでは、ASP.NET で使用できる検証コントロールを使用して、web ページで検証を実装する方法を学習します。 主要なすべての検証コントロールなどをしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/26/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525951"
 ---
 <a name="how-do-i--use-validation-controls-in-aspnet"></a>[How Do i:] ASP.NET での検証コントロールを使用しますか。
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site
-title: "[How Do i:]ロールを使用して ASP.NET Web サイトでの機能をセグメント化 |Microsoft ドキュメント"
+title: '[How Do i:]ロールを使用して ASP.NET Web サイトでの機能をセグメント化 |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオでは、Chris Pels は ASP.NET メンバーシップを設定した後で ASP.NET web サイト ロールの使用を最大化する方法を示します。 まず、ロールをセットアップする方法を学習してください."
+description: このビデオでは、Chris Pels は ASP.NET メンバーシップを設定した後で ASP.NET web サイト ロールの使用を最大化する方法を示します。 まず、ロールをセットアップする方法を学習してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/29/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526531"
 ---
 <a name="how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site"></a>[How Do i:]ロールを使用して ASP.NET Web サイトでの機能をセグメント化
 ====================

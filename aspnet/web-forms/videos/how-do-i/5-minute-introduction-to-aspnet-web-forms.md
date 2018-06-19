@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/5-minute-introduction-to-aspnet-web-forms
-title: "ASP.NET Web フォーム (入門) |Microsoft ドキュメント"
+title: ASP.NET Web フォーム (入門) |Microsoft ドキュメント
 author: shanselman
-description: "Scott Hanselman には、ASP.NET Web フォームを 5 分の概要が表示されます。"
+description: Scott Hanselman には、ASP.NET Web フォームを 5 分の概要が表示されます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525321"
 ---
 <a name="intro-to-aspnet-web-forms"></a>ASP.NET Web フォームの概要
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data
-title: "[How Do i:]別のデータの ListView コントロールを含むグループを作成する機能を使用して |Microsoft ドキュメント"
+title: '[How Do i:]別のデータの ListView コントロールを含むグループを作成する機能を使用して |Microsoft ドキュメント'
 author: rick-anderson
-description: "このビデオでは、Chris Pels は ListView コントロールにデータを表示するときに項目をグループ化する方法を示します。 最初に、ListView 制御で項目のレイアウトの基本を参照してください."
+description: このビデオでは、Chris Pels は ListView コントロールにデータを表示するときに項目をグループ化する方法を示します。 最初に、ListView 制御で項目のレイアウトの基本を参照してください.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/20/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525201"
 ---
 <a name="how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data"></a>[How Do i:]別のデータの ListView コントロールを含むグループを作成するのに機能を使用します。
 ====================

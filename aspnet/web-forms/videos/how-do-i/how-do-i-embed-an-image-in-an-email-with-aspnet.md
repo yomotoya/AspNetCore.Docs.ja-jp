@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-embed-an-image-in-an-email-with-aspnet
-title: "[How Do i:]ASP.NET で、電子メールで画像を埋め込む |Microsoft ドキュメント"
+title: '[How Do i:]ASP.NET で、電子メールで画像を埋め込む |Microsoft ドキュメント'
 author: rick-anderson
-description: "Chris Pels は、ASP.NET で、電子メールで画像を埋め込む方法を示します。 彼は、(宛先、差出人、件名、および本文のフィールド) の web フォームを作成、AlternateView を使用しています."
+description: Chris Pels は、ASP.NET で、電子メールで画像を埋め込む方法を示します。 彼は、(宛先、差出人、件名、および本文のフィールド) の web フォームを作成、AlternateView を使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/06/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525071"
 ---
 <a name="how-do-i-embed-an-image-in-an-email-with-aspnet"></a>[How Do i:]ASP.NET で、電子メールで画像を埋め込む
 ====================

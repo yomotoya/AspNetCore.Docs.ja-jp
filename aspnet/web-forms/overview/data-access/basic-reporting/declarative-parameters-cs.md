@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875940"
 ---
 <a name="declarative-parameters-c"></a>宣言型のパラメーター (c#)
 ====================
@@ -127,7 +128,7 @@ ObjectDataSource の宣言型マークアップと若干異なり、最初の例
 
 ## <a name="showing-all-suppliers-by-default"></a>既定ですべてのサプライヤーの表示
 
-はなく最初のページを表示するときに表示なしサプライヤーのより可能性がありますを表示する*すべて* ボックスで、国の名前を入力して一覧を縮小するユーザーを許可するのには最初、suppliers です。 テキスト ボックスが空で、ときに、`SuppliersBLL`クラスの`GetSuppliersByCountry(country)`メソッドが渡された、`null`値をその*`country`*入力パラメーターです。 これは、`null`値は、に、DAL の`GetSupplierByCountry(country)`メソッド、データベースに変換されます`NULL`値を`@Country`次のクエリ パラメーター。
+はなく最初のページを表示するときに表示なしサプライヤーのより可能性がありますを表示する*すべて* ボックスで、国の名前を入力して一覧を縮小するユーザーを許可するのには最初、suppliers です。 テキスト ボックスが空で、ときに、`SuppliersBLL`クラスの`GetSuppliersByCountry(country)`メソッドが渡された、`null`値をその*`country`* 入力パラメーターです。 これは、`null`値は、に、DAL の`GetSupplierByCountry(country)`メソッド、データベースに変換されます`NULL`値を`@Country`次のクエリ パラメーター。
 
 [!code-sql[Main](declarative-parameters-cs/samples/sample3.sql)]
 

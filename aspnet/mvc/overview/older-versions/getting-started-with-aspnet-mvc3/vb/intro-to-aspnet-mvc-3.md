@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870376"
 ---
 <a name="intro-to-aspnet-mvc-3-vb"></a>ASP.NET mvc 3 (VB)
 ====================
@@ -81,7 +82,7 @@ Visual Web Developer は、IDE、または統合開発環境です。 Microsoft 
 
 ![1InternetAppRazor_SM](intro-to-aspnet-mvc-3/_static/image8.png)
 
-**[OK]**をクリックします。 Visual Web Developer では、作成した ASP.NET MVC プロジェクトの既定のテンプレートが使用されるため、何もせず作業アプリケーションが現在ある! これは、単純です"Hello World!" プロジェクト、・ アプリケーションを起動するに適しています。
+**[OK]** をクリックします。 Visual Web Developer では、作成した ASP.NET MVC プロジェクトの既定のテンプレートが使用されるため、何もせず作業アプリケーションが現在ある! これは、単純です"Hello World!" プロジェクト、・ アプリケーションを起動するに適しています。
 
 [![](intro-to-aspnet-mvc-3/_static/image10.png)](intro-to-aspnet-mvc-3/_static/image9.png)
 

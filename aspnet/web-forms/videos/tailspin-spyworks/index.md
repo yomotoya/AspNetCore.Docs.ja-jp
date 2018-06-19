@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/tailspin-spyworks/index
-title: "Tailspin Spyworks |Microsoft ドキュメント"
+title: Tailspin Spyworks |Microsoft ドキュメント
 author: rick-anderson
-description: "ASP.NET 4 の新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアをビルドする方法。"
+description: ASP.NET 4 の新機能を使用して、ショッピング、チェック アウト、および管理を含む、オンライン ストアをビルドする方法。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/tailspin-spyworks
 msc.type: chapter
 ms.openlocfilehash: 28e504c3e1332d047ca7c4f1696eaaf5167cc145
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26522451"
 ---
 <a name="tailspin-spyworks"></a>Tailspin Spyworks
 ====================

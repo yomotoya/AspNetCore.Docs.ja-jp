@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871663"
 ---
 <a name="picking-one-animation-out-of-a-list-c"></a>選択リスト (c#) から 1 つのアニメーション
 ====================
