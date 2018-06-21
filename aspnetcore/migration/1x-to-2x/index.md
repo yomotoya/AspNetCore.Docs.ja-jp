@@ -2,25 +2,21 @@
 title: ASP.NET Core 1.x から 2.0 への移行
 author: scottaddie
 description: この記事では、ASP.NET Core 1.x プロジェクトを ASP.NET Core 2.0 に移行する前提条件と最も一般的な手順について説明します。
-manager: wpickett
 ms.author: scaddie
 ms.date: 10/03/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: f96b38e9f0368e04198c849bb3585674183a92b1
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: 1052b17b433f06162325db340cd53ee61b76a184
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/27/2018
-ms.locfileid: "34555236"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272505"
 ---
 # <a name="migrate-from-aspnet-core-1x-to-20"></a>ASP.NET Core 1.x から 2.0 への移行
 
 作成者: [Scott Addie](https://github.com/scottaddie)
 
-この記事では、既存の ASP.NET Core 1.x プロジェクトを ASP.NET Core 2.0 に更新する手順を説明します。 アプリケーションを ASP.NET Core 2.0 に移行すると、[多数の新機能を利用したり、パフォーマンスを向上させたりすることができます](xref:aspnetcore-2.0)。 
+この記事では、既存の ASP.NET Core 1.x プロジェクトを ASP.NET Core 2.0 に更新する手順を説明します。 アプリケーションを ASP.NET Core 2.0 に移行すると、[多数の新機能を利用したり、パフォーマンスを向上させたりすることができます](xref:aspnetcore-2.0)。
 
 既存の ASP.NET Core 1.x アプリケーションは、バージョン固有のプロジェクト テンプレートには基づいていません。 ASP.NET Core のフレームワークの進化に伴い、プロジェクト テンプレートと、それに含まれるスタート コードも進化しています。 ASP.NET Core のフレームワークを更新するだけでなく、アプリケーションのコードも更新する必要があります。
 
