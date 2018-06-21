@@ -1,5 +1,9 @@
 # [はじめに](index.md)
 
+# [新機能](xref:aspnetcore-2.1)
+# [新機能](xref:aspnetcore-2.0)
+# [新機能](xref:aspnetcore-1.1)
+
 # [開始するには](getting-started.md)
 ## [Web アプリの作成](xref:mvc/razor-pages/index)
 ## [Web API の作成](xref:tutorials/first-web-api)
@@ -104,6 +108,8 @@
 ### [Visual Studio for Mac での Web API](xref:tutorials/first-web-api-mac)
 ### [Visual Studio Code での Web API](xref:tutorials/web-api-vsc)
 
+## [ファイル監視を使用したアプリ開発](xref:tutorials/dotnet-watch)
+
 ## [モバイル アプリのバックエンド サービスの作成](mobile/native-mobile-backend.md)
 
 # [ASP.NET Core の基礎の概要](fundamentals/index.md)
@@ -198,15 +204,15 @@
 ### [カスタム フォーマッタ](xref:web-api/advanced/custom-formatters)
 ### [応答データの書式設定](xref:web-api/advanced/formatting)
 
-# [テスト、デバッグ、およびトラブルシューティング](xref:testing/index)
+# [テスト、デバッグ、およびトラブルシューティング](xref:test/index)
 ## [単体テスト](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-## [統合テスト](xref:testing/integration-testing)
-## [Razor ページのテスト](xref:testing/razor-pages-testing)
+## [統合テスト](xref:test/integration-tests)
+## [Razor ページの単体テスト](xref:test/razor-pages-tests)
 ## [テスト コントローラー](xref:mvc/controllers/testing)
 ## [リモート デバッグ](/visualstudio/debugger/remote-debugging-azure)
 ## [スナップショットのデバッグ](/azure/application-insights/app-insights-snapshot-debugger)
 ## [Visual Studio のスナップショットのデバッグ](/visualstudio/debugger/debug-live-azure-applications)
-## [トラブルシューティング](xref:testing/troubleshoot)
+## [トラブルシューティング](xref:test/troubleshoot)
 
 # [EF Core と Azure でのデータ アクセス](data/index.md)
 ## [Visual Studio を使用した Razor ページと EF Core の概要](xref:data/ef-rp/intro)
@@ -240,7 +246,11 @@
 ## [ハブ](xref:signalr/hubs)
 ## [JavaScript クライアント](xref:signalr/javascript-client)
 ## [.NET クライアント](xref:signalr/dotnet-client)
+## [HubContext](xref:signalr/hubcontext)
+## [ユーザーおよびグループ](xref:signalr/groups)
+## [MessagePack ハブ プロトコル](xref:signalr/messagepackhubprotocol)
 ## [Azure に発行する](xref:signalr/publish-to-azure-web-app)
+## [ストリーミング](xref:signalr/streaming)
 ## [サポートされているプラットフォーム](xref:signalr/supported-platforms)
 
 # [モバイル](xref:mobile/index)
@@ -274,6 +284,7 @@
 ## [認証](xref:security/authentication/index)
 ### [Identity の概要](xref:security/authentication/identity)
 ### [Identity のスキャフォールディング](xref:security/authentication/scaffold-identity)
+### [ID へのカスタム ユーザー データの追加](xref:security/authentication/add-user-data)
 ### [コミュニティ OSS 認証オプション](xref:security/authentication/community)
 ### [Identity の構成](xref:security/authentication/identity-configuration)
 ### [Windows 認証の構成](xref:security/authentication/windowsauth)
@@ -361,6 +372,7 @@
 ## [応答圧縮ミドルウェア](xref:performance/response-compression)
 
 # [移行](xref:migration/index)
+## [ASP.NET Core 2.0 から 2.1 へ](xref:migration/20_21)
 ## [ASP.NET から ASP.NET Core へ](xref:migration/proper-to-2x/index)
 ### [MVC](xref:migration/mvc)
 ### [Web API](xref:migration/webapi)
@@ -373,10 +385,5 @@
 ### [認証と ID](xref:migration/1x-to-2x/identity-2x)
 
 # [API リファレンス](/dotnet/api/?view=aspnetcore-2.0)
-
-# [2.0 リリース ノート](aspnetcore-2.0.md)
-## [1.1 リリース ノート](aspnetcore-1.1.md)
-## [以前のリリース ノート](https://github.com/aspnet/home/releases)
-## [VS 2015/project.json ドキュメント](https://docs.microsoft.com/dotnet/articles/project-json)
 
 # [寄稿](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md)

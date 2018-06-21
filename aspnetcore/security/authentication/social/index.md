@@ -9,15 +9,14 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/social/index
-ms.openlocfilehash: 93fa42be9c551f5bbdf3851aec1d9e01139fdb76
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: dc6ec61519c200901cc8af03853e7381c1d4cad0
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "35217325"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook、Google、ASP.NET Core での外部プロバイダーの認証
-
-<a name="security-authentication-social-logins"></a>
 
 作成者: [Valeriy Novytskyy](https://github.com/01binary)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -78,13 +77,15 @@ OAuth 2.0 では、HTTPS プロトコル経由での認証に SSL を使用す�
 * [Microsoft](xref:security/authentication/microsoft-logins) の手順
 * [その他のプロバイダー](xref:security/authentication/otherlogins)の手順
 
+[!INCLUDE[](~/includes/chain-auth-providers.md)]
+
 ## <a name="optionally-set-password"></a>必要に応じてパスワードを設定する
 
 外部ログイン プロバイダーに登録するときに、アプリケーションにパスワードは登録していません。 そのため、サイトのパスワードを作成し、記憶する作業は軽減されますが、外部ログイン プロバイダーに依存することにもなります。 外部ログイン プロバイダーを使用できない場合、Web サイトにログインすることができません。
 
 外部プロバイダーでのサインイン プロセス中に設定した電子メール アドレスを使用して、パスワードを作成し、サインインするには、次の手順を実行します。
 
-* 右上にある **[Hello]<email alias>** リンクをタップして**管理**ビューに移動します。
+* 右上にある **[Hello]&lt; 電子メール エイリアス&gt;** リンクをタップして**管理**ビューに移動します。
 
 ![Web アプリケーションの管理ビュー](index/_static/pass1a.png)
 

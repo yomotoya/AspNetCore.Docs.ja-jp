@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core の構成
 author: rick-anderson
-description: 構成 API を使用して、複数の方法で ASP.NET Core アプリを構成します。
+description: 構成 API を使用して、ASP.NET Core アプリを構成する方法を説明します。
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 1048554c78e3810206b1261371ae7c41485c436a
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: a146991945add3c1299633db2147edbc63d3bc40
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252127"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725979"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET Core の構成
 
@@ -102,7 +102,7 @@ ASP.NET Core 1.x アプリは、`AddJsonFile` および [AddEnvironmentVariables
 
 [!code-json[](index/sample/appsettings.Staging.json)]
 
-環境が `Staging` に設定されているとき、次の `Configure` メソッドは `MyConfig` の値を読み込みます。
+次のコードで、`Configure` は `MyConfig` の値を読み取ります。
 
 [!code-csharp[](index/sample/StartupConfig.cs?name=snippet&highlight=3,4)]
 

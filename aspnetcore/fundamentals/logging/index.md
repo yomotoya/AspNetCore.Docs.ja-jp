@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 8b53a19f4958e97198175d6acea4017d54f827bb
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: 5e7e0fe0744a8dc3f3dd6097a059d77f2c578f77
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652202"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET Core でのログ記録
 
@@ -33,7 +34,7 @@ ASP.NET Core は、さまざまなログ プロバイダーと連携するログ
 
 ## <a name="how-to-create-logs"></a>ログを作成する方法
 
-ログを作成するには、[依存関係の挿入](xref:fundamentals/dependency-injection)コンテナーから `ILogger` オブジェクトを取得します。
+ログを作成するには、[依存関係の挿入](xref:fundamentals/dependency-injection)コンテナーから [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) オブジェクトを実装します。
 
 [!code-csharp[](index/sample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
 
@@ -63,14 +64,14 @@ ASP.NET Core は、さまざまなログ プロバイダーと連携するログ
 
 `ILogger` オブジェクトで作成したメッセージはログ プロバイダーに受け取られ、表示または保存されます。 たとえば、Console プロバイダーでコンソールにメッセージが表示され、Azure App Service プロバイダーで Azure Blob Storage に保存されます。
 
-プロバイダーを使用するには、NuGet パッケージをインストールし、次の例のように `ILoggerFactory` のインスタンスに対してプロバイダーの拡張メソッドを呼び出します。
+プロバイダーを使用するには、NuGet パッケージをインストールし、次の例のように [ILoggerFactory](/dotnet/api/microsoft.extensions.logging.iloggerfactory) のインスタンスに対してプロバイダーの拡張メソッドを呼び出します。
 
 [!code-csharp[](index/sample//Startup.cs?name=snippet_AddConsoleAndDebug&highlight=3,5-7)]
 
 ASP.NET Core の[依存関係の挿入](xref:fundamentals/dependency-injection) (DI) には、`ILoggerFactory` インスタンスがあります。 `AddConsole` および `AddDebug` 拡張メソッドは、[Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) パッケージと [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) パッケージで定義されています。 各拡張メソッドで `ILoggerFactory.AddProvider` メソッドを呼び出し、プロバイダーのインスタンスで渡します。 
 
 > [!NOTE]
-> この記事のサンプル アプリケーションでは、`Startup` クラスの `Configure` メソッドでログ プロバイダーを追加します。 前の手順で実行したコードのログ出力を取得するには、代わりに `Startup` クラス コンストラクターにログ プロバイダーを追加します。 
+> [サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample)では、`Startup.Configure` メソッドにログ プロバイダーを追加しています。 前の手順で実行したコードのログ出力を取得するには、`Startup` クラス コンストラクターにログ プロバイダーを追加します。
 
 ---
 
@@ -372,7 +373,7 @@ System.Exception: Item not found exception.
 
 論理操作セットの一部として作成される各ログに同じデータをアタッチするために、*スコープ*内の論理操作セットをグループ化することができます。 たとえば、状況によっては、トランザクションの処理の一部として作成されるすべてのログにトランザクション ID を含める必要があります。
 
-スコープは `ILogger.BeginScope<TState>` メソッドから返される `IDisposable` の種類であり、破棄されるまで継続します。 スコープを使用するには、次のようにロガーの呼び出しを `using` ブロックでラップします。
+スコープは [ILogger.BeginScope&lt;TState&gt;](/dotnet/api/microsoft.extensions.logging.ilogger.beginscope) メソッドから返される `IDisposable` の種類であり、破棄されるまで継続します。 スコープを使用するには、次のようにロガーの呼び出しを `using` ブロックでラップします。
 
 [!code-csharp[](index/sample//Controllers/TodoController.cs?name=snippet_Scopes&highlight=4-5,13)]
 
@@ -410,15 +411,14 @@ warn: TodoApi.Controllers.TodoController[4000]
 
 ASP.NET Core には次のプロバイダーが付属しています。
 
-* [コンソール](#console)
-* [デバッグ](#debug)
-* [EventSource](#eventsource)
-* [EventLog](#eventlog)
-* [TraceSource](#tracesource)
-* [Azure App Service](#appservice)
+* [コンソール](#console-provider)
+* [デバッグ](#debug-provider)
+* [EventSource](#eventsource-provider)
+* [EventLog](#windows-eventlog-provider)
+* [TraceSource](#tracesource-provider)
+* [Azure App Service](#azure-app-service-provider)
 
-<a id="console"></a>
-### <a name="the-console-provider"></a>Console プロバイダー
+### <a name="console-provider"></a>Console プロバイダー
 
 [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) プロバイダー パッケージは、ログ出力をコンソールに送信します。 
 
@@ -452,8 +452,7 @@ loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 
 ---
 
-<a id="debug"></a>
-### <a name="the-debug-provider"></a>Debug プロバイダー
+### <a name="debug-provider"></a>Debug プロバイダー
 
 [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug) プロバイダー パッケージは、[System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) クラス (`Debug.WriteLine` メソッドの呼び出し) を使用してログの出力を書き込みます。
 
@@ -475,8 +474,7 @@ loggerFactory.AddDebug()
 
 ---
 
-<a id="eventsource"></a>
-### <a name="the-eventsource-provider"></a>EventSource プロバイダー
+### <a name="eventsource-provider"></a>EventSource プロバイダー
 
 ASP.NET Core 1.1.0 以降をターゲットとするアプリの場合、[Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) プロバイダー パッケージは、イベントのトレースを実装できます。 Windows では、[ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803) を使用します。 プロバイダーはクロスプラットフォームですが、Linux または macOS 用のイベント コレクションはまだ存在せず、ツールは表示されません。 
 
@@ -500,8 +498,7 @@ loggerFactory.AddEventSourceLogger()
 
 ![Perfview の追加プロバイダー](index/_static/perfview-additional-providers.png)
 
-<a id="eventlog"></a>
-### <a name="the-windows-eventlog-provider"></a>Windows EventLog プロバイダー
+### <a name="windows-eventlog-provider"></a>Windows EventLog プロバイダー
 
 [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog) プロバイダー パッケージは、ログ出力を Windows イベント ログに送信します。
 
@@ -521,8 +518,7 @@ loggerFactory.AddEventLog()
 
 ---
 
-<a id="tracesource"></a>
-### <a name="the-tracesource-provider"></a>TraceSource プロバイダー
+### <a name="tracesource-provider"></a>TraceSource プロバイダー
 
 [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) プロバイダー パッケージは、[System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) のライブラリとプロバイダーを使用します。
 
@@ -548,16 +544,15 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 
 [!code-csharp[](index/sample/Startup.cs?name=snippet_TraceSource&highlight=9-12)]
 
-<a id="appservice"></a>
-### <a name="the-azure-app-service-provider"></a>Azure App Service プロバイダー
+### <a name="azure-app-service-provider"></a>Azure App Service プロバイダー
 
-[Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) プロバイダー パッケージは、Azure App Service アプリのファイル システムのテキスト ファイルと、Azure Storage アカウントの [BLOB ストレージ](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage)にログを書き込みます。 このプロバイダーは、ASP.NET Core 1.1.0 以降をターゲットとするアプリでのみ使用できます。 
+[Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) プロバイダー パッケージは、Azure App Service アプリのファイル システムのテキスト ファイルと、Azure Storage アカウントの [BLOB ストレージ](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage)にログを書き込みます。 このプロバイダーは、ASP.NET Core 1.1 以降をターゲットとするアプリでのみ使用できます。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-.NET Core を対象にする場合は、プロバイダー パッケージをインストールしたり、`AddAzureWebAppDiagnostics` を明示的に呼び出したりする必要はありません。 アプリを Azure App Service にデプロイすると、プロバイダーはアプリで自動的に使用できるようになります。
+.NET Core をターゲットとする場合は、プロバイダー パッケージをインストールしたり、[AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) を明示的に呼び出したりしないでください。 アプリを Azure App Service にデプロイすると、プロバイダーはアプリで自動的に使用できるようになります。
 
-.NET Framework を対象にする場合は、プロバイダー パッケージをプロジェクトに追加して、`AddAzureWebAppDiagnostics` を呼び出します。
+.NET Framework ターゲットとする場合は、プロバイダー パッケージをプロジェクトに追加して、`AddAzureWebAppDiagnostics` を呼び出します。
 
 ```csharp
 logging.AddAzureWebAppDiagnostics();
@@ -569,23 +564,24 @@ logging.AddAzureWebAppDiagnostics();
 loggerFactory.AddAzureWebAppDiagnostics();
 ```
 
-`AddAzureWebAppDiagnostics` オーバーロードを使用すると、ログ記録出力テンプレート、BLOB 名、ファイル サイズの制限など、既定の設定をオーバーライドできる [AzureAppServicesDiagnosticsSettings](https://github.com/aspnet/Logging/blob/c7d0b1b88668ff4ef8a86ea7d2ebb5ca7f88d3e0/src/Microsoft.Extensions.Logging.AzureAppServices/AzureAppServicesDiagnosticsSettings.cs) を渡すことができます  (*出力テンプレート*は、`ILogger` メソッドを呼び出すときに指定するテンプレートに加え、すべてのログに適用されるメッセージ テンプレートです)。
+[AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) オーバーロードを使用すると、ログ記録出力テンプレート、BLOB 名、ファイル サイズの制限など、既定の設定をオーバーライドできる [AzureAppServicesDiagnosticsSettings](/dotnet/api/microsoft.extensions.logging.azureappservices.azureappservicesdiagnosticssettings) を渡すことができます  (*出力テンプレート*は、`ILogger` メソッドを呼び出すときに指定するテンプレートに加え、すべてのログに適用されるメッセージ テンプレートです)。
 
 ---
 
-App Service アプリにデプロイすると、アプリケーションは Azure Portal の **[App Service]** ページの [[診断ログ]](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/#enablediag) に指定された設定を適用します。 これらの設定を変更すると、変更は即時に反映されます。アプリの再起動や、コードの再デプロイは不要です。 
+App Service アプリにデプロイすると、アプリは Azure Portal の **[App Service]** ページの [[診断ログ]](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/#enablediag) セクションに指定された設定を適用します。 これらの設定が更新されると、アプリの再起動や再デプロイを必要とせずに、変更がすぐに有効になります。
 
 ![Azure のログ設定](index/_static/azure-logging-settings.png)
 
-ログ ファイルの既定の場所は、*D:\\home\\LogFiles\\Application* です。既定のファイル名は *diagnostics-yyyymmdd.txt* です。 既定のファイル サイズ制限は 10 MB です。保持されるファイルの既定の最大数は 2 です。 既定の BLOB 名は *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt* です。 既定の動作の詳細については、[AzureAppServicesDiagnosticsSettings](https://github.com/aspnet/Logging/blob/c7d0b1b88668ff4ef8a86ea7d2ebb5ca7f88d3e0/src/Microsoft.Extensions.Logging.AzureAppServices/AzureAppServicesDiagnosticsSettings.cs) を参照してください。
+ログ ファイルの既定の場所は、*D:\\home\\LogFiles\\Application* です。既定のファイル名は *diagnostics-yyyymmdd.txt* です。 既定のファイル サイズ制限は 10 MB です。保持されるファイルの既定の最大数は 2 です。 既定の BLOB 名は *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt* です。 既定の動作の詳細については、[AzureAppServicesDiagnosticsSettings](/dotnet/api/microsoft.extensions.logging.azureappservices.azureappservicesdiagnosticssettings) を参照してください。
 
-このプロバイダーは、プロジェクトが Azure 環境で実行される場合にのみ機能します。 BLOB のローカル ファイルまたはローカル開発ストレージに書き込まない &mdash; をローカルで実行しても、効果はありません。
+このプロバイダーは、プロジェクトが Azure 環境で実行される場合にのみ機能します。 プロジェクトをローカルで実行しても、効果はありません&mdash;BLOB のローカル ファイルまたはローカル開発ストレージへの書き込みは行われません。
 
 ## <a name="third-party-logging-providers"></a>サードパーティ製のログ プロバイダー
 
 ASP.NET Core で使用できるサードパーティ製のログ記録フレームワークをいくつか紹介します。
 
 * [elmah.io](https://elmah.io/) ([GitHub リポジトリ](https://github.com/elmahio/Elmah.Io.Extensions.Logging))
+* [Gelf](http://docs.graylog.org/en/2.3/pages/gelf.html) ([GitHub リポジトリ](https://github.com/mattwcole/gelf-extensions-logging))
 * [JSNLog](http://jsnlog.com/) ([GitHub リポジトリ](https://github.com/mperdeck/jsnlog))
 * [Loggr](http://loggr.net/) ([GitHub リポジトリ](https://github.com/imobile3/Loggr.Extensions.Logging))
 * [NLog](http://nlog-project.org/) ([GitHub リポジトリ](https://github.com/NLog/NLog.Extensions.Logging))
@@ -604,22 +600,21 @@ ASP.NET Core で使用できるサードパーティ製のログ記録フレー�
 
 Azure ログのストリーミングを使用すると、リアル タイムで以下のログ アクティビティを確認できます。 
 
-* アプリケーション サーバー 
+* アプリケーション サーバー
 * Web サーバー
-* 失敗した要求のトレース 
+* 失敗した要求のトレース
 
-Azure ログのストリーミングを構成するには 
+Azure ログのストリーミングを構成するには
 
 * アプリケーションのポータル ページから **[診断ログ]** ページに移動します。
-* **[アプリケーション ログ (ファイル システム)]** を [オン] に設定します。 
+* **[アプリケーション ログ (ファイル システム)]** を [オン] に設定します。
 
 ![Azure Portal の [診断ログ] ページ](index/_static/azure-diagnostic-logs.png)
 
-**[ログ ストリーミング]** ページに移動して、アプリケーション メッセージを確認します。 これらのメッセージは、アプリケーションで `ILogger` インターフェイスを介してログに記録されます。 
+**[ログ ストリーミング]** ページに移動して、アプリケーション メッセージを確認します。 これらのメッセージは、アプリケーションで `ILogger` インターフェイスを介してログに記録されます。
 
 ![Azure Portal のアプリケーション ログのストリーミング](index/_static/azure-log-streaming.png)
 
-
-## <a name="see-also"></a>関連項目
+## <a name="additional-resources"></a>その他の技術情報
 
 [LoggerMessage による高パフォーマンスのログ記録](xref:fundamentals/logging/loggermessage)

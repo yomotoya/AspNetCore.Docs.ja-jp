@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 016f15c13470db53252941acafa25a3c6caf8db5
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: c6d362cf15b5d4611f0e544c5092a18f32ed7dfc
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819046"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core のミドルウェア
 
@@ -196,10 +197,13 @@ ASP.NET Core には、次のミドルウェア コンポーネントおよびそ
 | [認証](xref:security/authentication/identity) | 認証のサポートを提供します。 | `HttpContext.User` が必要な場所の前。 OAuth コールバックの終端。 |
 | [CORS](xref:security/cors) | クロス オリジン リソース共有を構成します。 | CORS を使うコンポーネントの前。 |
 | [診断](xref:fundamentals/error-handling) | 診断を構成します。 | エラーを生成するコンポーネントの前。 |
-| [ForwardedHeaders/HttpOverrides](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | プロキシされたヘッダーを現在の要求に転送します。 | 更新されたフィールド (例: Scheme、Host、ClientIP、Method) を使うコンポーネントの前。 |
+| [転送されるヘッダー](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | プロキシされたヘッダーを現在の要求に転送します。 | 更新されたフィールド (例: scheme、host、clientIP、method) を使うコンポーネントの前。 |
+| [HTTP メソッドのオーバーライド](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | メソッドをオーバーライドする受信 POST 要求を許可します。 | 更新されたメソッドを使うコンポーネントの前。 |
+| [HTTPS リダイレクト](xref:security/enforcing-ssl#require-https) | すべての HTTP 要求を HTTPS (ASP.NET Core 2.1 以降) にリダイレクトします。 | URL を使うコンポーネントの前。 |
+| [HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | 特殊な応答ヘッダーを追加するセキュリティ拡張機能のミドルウェア (ASP.NET Core 2.1 以降)。 | 応答が送信される前、要求 (転送されるヘッダー、URL の書き換えなど) を変更するコンポーネントの後。 |
 | [応答キャッシュ](xref:performance/caching/middleware) | 応答のキャッシュのサポートを提供します。 | キャッシュが必要なコンポーネントの前。 |
 | [応答圧縮](xref:performance/response-compression) | 応答の圧縮のサポートを提供します。 | 圧縮が必要なコンポーネントの前。 |
-| [RequestLocalization](xref:fundamentals/localization) | ローカライズのサポートを提供します。 | ローカリゼーションが重要なコンポーネントの前。 |
+| [要求のローカライズ](xref:fundamentals/localization) | ローカライズのサポートを提供します。 | ローカリゼーションが重要なコンポーネントの前。 |
 | [ルーティング](xref:fundamentals/routing) | 要求のルートを定義および制約します。 | 一致するルートの終端。 |
 | [セッション](xref:fundamentals/app-state) | ユーザー セッションの管理のサポートを提供します。 | セッションが必要なコンポーネントの前。 |
 | [静的ファイル](xref:fundamentals/static-files) | 静的ファイルとディレクトリ参照に対応するサポートを提供します。 | 要求がファイルと一致した場合の終端。 |
