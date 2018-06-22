@@ -2,20 +2,16 @@
 title: ASP.NET Core でのポリシー ベースの承認
 author: rick-anderson
 description: 作成および ASP.NET Core アプリケーションの承認要件を適用するための承認ポリシーのハンドラーを使用する方法を説明します。
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/21/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authorization/policies
-ms.openlocfilehash: 411fee90bdccfb45c33f5d4ccd7864c83c614e70
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 81ca6ad9ddba3de094762f5608bb6a5719bca7a1
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072862"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277983"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>ASP.NET Core でのポリシー ベースの承認
 
@@ -31,7 +27,7 @@ ms.locfileid: "30072862"
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
 
-## <a name="requirements"></a>要件
+## <a name="requirements"></a>必要条件
 
 承認要件は、現在のユーザー プリンシパルを評価するポリシーで使用するデータのパラメーターのコレクションです。 当社"AtLeast21"ポリシーの要件が 1 つのパラメーター&mdash;最小経過期間。 要件を実装する[IAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement)、これは、空のマーカーのインターフェイスです。 パラメーター化の最低年齢の要件は、次のように実装可能性があります。
 

@@ -2,19 +2,15 @@
 title: ASP.NET Core での承認の概要
 author: rick-anderson
 description: 認証と承認が ASP.NET Core アプリケーションでどのように動作するかの基本について説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authorization/introduction
-ms.openlocfilehash: f969cb26d1fcddeac967b1e3d13e3c06ebc7631f
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 5465eb7875ebecd77b628376ef886db0ddd05025
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31483083"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276868"
 ---
 # <a name="introduction-to-authorization-in-aspnet-core"></a>ASP.NET Core での承認の概要
 

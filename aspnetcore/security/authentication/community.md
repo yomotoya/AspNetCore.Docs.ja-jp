@@ -2,19 +2,15 @@
 title: ASP.NET Core のコミュニティ OSS 認証オプション
 author: rick-anderson
 description: ASP.NET Core のオープン ソースの認証オプションを検出します。
-manager: wpickett
 ms.author: riande
 ms.date: 03/12/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/community
-ms.openlocfilehash: 8a46d00a7a70ed99d19a96e85aa48f2498defcc0
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 8b3800631cb71f6bd5120157c89765f6d72628ee
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729562"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276569"
 ---
 # <a name="community-oss-authentication-options-for-aspnet-core"></a>ASP.NET Core のコミュニティ OSS 認証オプション
 

@@ -2,19 +2,15 @@
 title: ASP.NET Core 2.0 への認証と Id を移行します。
 author: scottaddie
 description: この記事では、ASP.NET Core 2.0 に移行する ASP.NET Core 1.x 認証と Id の最も一般的な手順について説明します。
-manager: wpickett
 ms.author: scaddie
 ms.date: 10/26/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 0653906996f9f37d436ebefc6a738d2603788d53
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 0485b1bdf8be550de35a49803a24666c026b3d9b
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32741460"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276420"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>ASP.NET Core 2.0 への認証と Id を移行します。
 

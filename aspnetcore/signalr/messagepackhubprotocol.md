@@ -2,27 +2,23 @@
 title: ASP.NET Core 用 SignalR で MessagePack ハブ プロトコルを使用します。
 author: rachelappel
 description: ASP.NET Core SignalR を MessagePack ハブ プロトコルを追加します。
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
 ms.date: 06/04/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: signalr/messagepackhubprotocol
-ms.openlocfilehash: b6c33c4da47a19d67bffbaf84f54d59013edadbe
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 702c77502868d6666cb2634b6959f029e036d14e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252480"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274990"
 ---
 # <a name="use-messagepack-hub-protocol-in-signalr-for-aspnet-core"></a>ASP.NET Core 用 SignalR で MessagePack ハブ プロトコルを使用します。
 
 によって[真紀 Brennan](https://github.com/BrennanConroy)
 
-この記事で説明されているトピックを使い慣れているリーダーが前提としています[開始](xref:signalr/get-started)です。
+この記事で説明されているトピックを使い慣れているリーダーが前提としています[開始](xref:tutorials/signalr)です。
 
 ## <a name="what-is-messagepack"></a>MessagePack とは何ですか。
 
@@ -102,6 +98,6 @@ const connection = new signalR.HubConnectionBuilder()
 
 ## <a name="related-resources"></a>関連資料
 
-* [開始するには](xref:signalr/get-started)
+* [開始するには](xref:tutorials/signalr)
 * [.NET クライアント](xref:signalr/dotnet-client)
 * [JavaScript クライアント](xref:signalr/javascript-client)

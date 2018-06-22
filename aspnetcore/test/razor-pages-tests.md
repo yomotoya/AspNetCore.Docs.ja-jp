@@ -2,20 +2,16 @@
 title: ASP.NET Core で razor ページの単体テスト
 author: guardrex
 description: Razor ページのアプリの単体テストを作成する方法を説明します。
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: test/razor-pages-tests
-ms.openlocfilehash: df74d8e44b2dff00e76139edba47fd8a30ce33ef
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: bde1bef78fcc7ac1d570057d54636ea0f5490de8
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252306"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274408"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>ASP.NET Core で razor ページの単体テスト
 
@@ -30,7 +26,7 @@ ASP.NET Core では、Razor ページのアプリの単体テストをサポー�
 
 このトピックでは、Razor ページのアプリと単体テストの基本的な知識があることを前提としています。 Razor ページのアプリやテストの概念に習熟していない場合は、次のトピックを参照してください。
 
-* [Razor ページを始める](xref:mvc/razor-pages/index)
+* [Razor ページを始める](xref:razor-pages/index)
 * [Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)
 * [単体テスト c# dotnet テスト、xUnit を使用して .NET Core](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 

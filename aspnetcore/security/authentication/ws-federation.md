@@ -2,20 +2,16 @@
 title: ASP.NET Core では、Ws-federation でユーザーを認証します。
 author: chlowell
 description: このチュートリアルでは、ASP.NET Core アプリケーションで Ws-federation を使用する方法を示します。
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/27/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/ws-federation
-ms.openlocfilehash: d4621c7b97678903b9f2562e353da3883334b599
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 55504ed28cf8ef1095bf16c101c09a6f374f038c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30898805"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277440"
 ---
 # <a name="authenticate-users-with-ws-federation-in-aspnet-core"></a>ASP.NET Core では、Ws-federation でユーザーを認証します。
 
@@ -26,7 +22,7 @@ ASP.NET Core 2.0 アプリの場合、Ws-federation サポートがによって�
 既定では、新しいミドルウェア。
 
 * 要請されていないログインを許可されていません。 Ws-federation プロトコルのこの機能は、XSRF 攻撃に対して脆弱です。 ただし、これを有効にする、`AllowUnsolicitedLogins`オプション。
-* サインイン メッセージをすべてフォーム ポストをチェックしません。 要求のみ、`CallbackPath`チェックされます。 次の記号`CallbackPath`の既定値は`/signin-wsfed`が変更できます。 このパスは、有効にすると他の認証プロバイダーと共有できる、`SkipUnrecognizedRequests`オプション。
+* サインイン メッセージをすべてフォーム ポストをチェックしません。 要求のみ、`CallbackPath`チェックされます次の記号`CallbackPath`の既定値は`/signin-wsfed`変更することが、継承を使用して[RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath)のプロパティ、 [ 。WsFederationOptions](/dotnet/api/microsoft.aspnetcore.authentication.wsfederation.wsfederationoptions)クラスです。 このパスは、有効にすると他の認証プロバイダーと共有できる、 [SkipUnrecognizedRequests](/dotnet/api/microsoft.aspnetcore.authentication.wsfederation.wsfederationoptions.skipunrecognizedrequests)オプション。
 
 ## <a name="register-the-app-with-active-directory"></a>Active Directory にアプリを登録します。
 
@@ -42,7 +38,7 @@ ASP.NET Core 2.0 アプリの場合、Ws-federation サポートがによって�
 
 * 証明書利用者の表示名を入力します。 名前は、ASP.NET Core アプリケーションに重要です。
 
-* [Microsoft.AspNetCore.Authentication.WsFederation](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.WsFederation) lacks support for token encryption, so don't configure a token encryption certificate:
+* [Microsoft.AspNetCore.Authentication.WsFederation](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.WsFederation)トークン暗号化証明書が構成されていないため、トークンの暗号化のサポートがありません。
 
 ![証明書を構成する証明書利用者の信頼ウィザードを追加します。](ws-federation/_static/AdfsConfigureCert.png)
 

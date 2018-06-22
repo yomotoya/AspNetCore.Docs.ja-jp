@@ -2,20 +2,16 @@
 title: ASP.NET メンバーシップ認証から ASP.NET Core 2.0 Id への移行します。
 author: isaac2004
 description: ASP.NET Core 2.0 Id にメンバーシップの認証を使用して既存の ASP.NET アプリを移行する方法を説明します。
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/24/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/proper-to-2x/membership-to-core-identity
-ms.openlocfilehash: f0d1099bfda01d036831350e0888ae3830ad3d58
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 3ec22713997a74b587ef5d18e71a28668a5481e2
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33851544"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274106"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a>ASP.NET メンバーシップ認証から ASP.NET Core 2.0 Id への移行します。
 
@@ -42,7 +38,7 @@ ASP.NET Core 2.0 Identity のスキーマを表示する最も簡単な方法で
 
 * **[ファイル]** > **[新規作成]** > **[プロジェクト]** を順に選択します。
 * 新しい**ASP.NET Core Web アプリケーション**、プロジェクトの名前と*CoreIdentitySample*です。
-* ドロップダウン リストで **[ASP.NET Core 2.0]** を選択してから、**[Web アプリケーション]** を選択します。 このテンプレートを生成、 [Razor ページ](xref:mvc/razor-pages/index)アプリ。 クリックする前に**OK**をクリックして**認証の変更**です。
+* ドロップダウン リストで **[ASP.NET Core 2.0]** を選択してから、**[Web アプリケーション]** を選択します。 このテンプレートを生成、 [Razor ページ](xref:razor-pages/index)アプリ。 クリックする前に**OK**をクリックして**認証の変更**です。
 * 選択**個々 のユーザー アカウント**Identity テンプレート。 最後に、をクリックして**OK**、し**OK**です。 Visual Studio では、ASP.NET Core Id テンプレートを使用して、プロジェクトを作成します。
 
 ASP.NET Core 2.0 の Id を使用して[Entity Framework Core](/ef/core)認証データを格納するデータベースと対話します。 新しく作成されたアプリ動作するためは、このデータを格納するデータベースを指定する必要があります。 新しいアプリを作成した後は、データベース環境のスキーマを検査する最も簡単な方法は、Entity Framework migrations を使用してデータベースを作成します。 このプロセスを作成、データベース、他の場所で、またはいずれかのローカルでそのスキーマと同じ動作です。 詳細については、前のドキュメントを確認します。

@@ -2,19 +2,15 @@
 title: ASP.NET Core で保護されたペイロードの有効期間を制限します。
 author: rick-anderson
 description: ASP.NET Core データ保護 Api を使用して保護されているペイロードの有効期間を制限する方法を説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/consumer-apis/limited-lifetime-payloads
-ms.openlocfilehash: 324887b3d29de989ad855c4e78fd5a235fdb560e
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 8dc3b856ec67477ec8ae777749c9bf3107eb4eda
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072024"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278058"
 ---
 # <a name="limit-the-lifetime-of-protected-payloads-in-aspnet-core"></a>ASP.NET Core で保護されたペイロードの有効期間を制限します。
 
@@ -30,9 +26,9 @@ ms.locfileid: "30072024"
 
 * CreateProtector (文字列目的): ITimeLimitedDataProtector - この API は、既存のような`IDataProtectionProvider.CreateProtector`を作成するために使用できる点で[チェーンを目的](xref:security/data-protection/consumer-apis/purpose-strings)ルート期間限定の保護機能からです。
 
-* Protect(byte[] plaintext, DateTimeOffset expiration) : byte[]
+* (バイト:operator[] プレーン テキスト、DateTimeOffset の有効期限) を保護する: byte[]
 
-* Protect(byte[] plaintext, TimeSpan lifetime) : byte[]
+* 保護する (バイト:operator[] プレーン テキスト、TimeSpan の有効期間): byte[]
 
 * Protect(byte[] plaintext) : byte[]
 
@@ -44,7 +40,7 @@ ms.locfileid: "30072024"
 
 コアに加えて`Protect`プレーン テキストのみを実行するメソッド、ペイロードの有効期限の日付を指定することを許可する新しいオーバー ロードがあります。 絶対日付として有効期限の日付を指定することができます (を使用して、 `DateTimeOffset`) または相対時刻として (現在のシステムからを使用して、後で、 `TimeSpan`)。 有効期限を受け取らない指定できるオーバー ロードが呼び出されると、ペイロードが期限切れにしないと見なされます。
 
-* Unprotect(byte[] protectedData, out DateTimeOffset expiration) : byte[]
+* (バイト:operator[] protectedData、DateTimeOffset の有効期限アウト) の保護を解除: byte[]
 
 * Unprotect(byte[] protectedData) : byte[]
 

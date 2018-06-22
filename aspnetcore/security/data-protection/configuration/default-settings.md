@@ -2,19 +2,15 @@
 title: データ保護キーの管理および ASP.NET Core の有効期間
 author: rick-anderson
 description: データ保護キーの管理および ASP.NET Core の有効期間について説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/configuration/default-settings
-ms.openlocfilehash: b43c14af015d5e03f46200c51a1218a581b1de0c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 54259b1e2f37cdbbd551038e80f2b0fa1d77f196
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2018
-ms.locfileid: "28887291"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277813"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>データ保護キーの管理および ASP.NET Core の有効期間
 
@@ -24,10 +20,10 @@ ms.locfileid: "28887291"
 
 アプリは、運用環境を検出し、独自のキーの構成の処理を試行します。
 
-1. アプリがホストされている場合[Azure アプリ](https://azure.microsoft.com/services/app-service/)、キーに永続化、 *%HOME%\ASP.NET\DataProtection-Keys*フォルダーです。 このフォルダーはネットワーク ストレージによってバックアップされは、アプリをホストしているすべてのマシン間で同期します。
-   * キーは、残りの部分で保護されていません。
+1. アプリがホストされている場合[Azure アプリ](https://azure.microsoft.com/services/app-service/)、キーに永続化、 *%HOME%\ASP.NET\DataProtection-Keys*フォルダーです。 このフォルダーはネットワーク ストレージにバックアップされ、アプリをホストしているすべてのマシンで同期されています。
+   * 保存中のキーは保護されていません。
    * *データ保護キー*フォルダーは、1 つのデプロイ スロットで、アプリのすべてのインスタンスにキー リングを提供します。
-   * ステージングと運用環境などの別のデプロイ スロットには、キーのリングを共有しません。 たとえばステージング、実稼働のスワップまたは A を使用して、デプロイ スロット間で交換する場合に/テスト B、すべてのアプリ データ保護を使用して、前のスロット内のキーのリングを使用して格納されたデータの暗号化を解除することはできません。 これはそのクッキーを保護するデータの保護を使用するように、標準の ASP.NET Core の cookie 認証を使用するアプリからログアウトされているユーザーにつながります。 スロットに依存しないキーリングを希望する場合は、Azure Blob ストレージ、Azure Key Vault SQL ストアなど、外部キー リング プロバイダーを使用または Redis キャッシュします。
+   * ステージングや運用などの別のデプロイ スロットでは、キー リングが共有されません。 たとえばステージング、実稼働のスワップまたは A を使用して、デプロイ スロット間で交換する場合に/テスト B、すべてのアプリ データ保護を使用して、前のスロット内のキーのリングを使用して格納されたデータの暗号化を解除することはできません。 これはそのクッキーを保護するデータの保護を使用するように、標準の ASP.NET Core の cookie 認証を使用するアプリからログアウトされているユーザーにつながります。 スロットに依存しないキーリングを希望する場合は、Azure Blob ストレージ、Azure Key Vault SQL ストアなど、外部キー リング プロバイダーを使用または Redis キャッシュします。
 
 1. キーが永続化、ユーザー プロファイルを使用できる場合、 *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys*フォルダーです。 オペレーティング システムが Windows DPAPI を使用して、キーが暗号化されます。
 

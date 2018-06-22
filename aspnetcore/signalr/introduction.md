@@ -2,21 +2,17 @@
 title: ASP.NET Core SignalR の概要
 author: rachelappel
 description: ASP.NET Core SignalR ライブラリがリアルタイムの機能をアプリに追加する簡略化する方法について説明します。
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
 ms.date: 04/25/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: signalr/introduction
-ms.openlocfilehash: f05b7cbf05372dc5d5cdadaf5a534d7a9d9bfecc
-ms.sourcegitcommit: c867d7427bd4a88a78b2322e156367733b532730
+ms.openlocfilehash: 0c833acea139d22883a69a02c2357a71f3ac8db8
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/09/2018
-ms.locfileid: "33923356"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277905"
 ---
 # <a name="introduction-to-aspnet-core-signalr"></a>ASP.NET Core SignalR の概要
 
@@ -59,7 +55,7 @@ SignalR では、クライアントとサーバー間の通信にハブを使用
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [ASP.NET Core 用 SignalR を概要します。](xref:signalr/get-started)
+* [ASP.NET Core 用 SignalR を概要します。](xref:tutorials/signalr)
 * [サポートされているプラットフォーム](xref:signalr/supported-platforms)
 * [ハブ](xref:signalr/hubs)
 * [JavaScript クライアント](xref:signalr/javascript-client)

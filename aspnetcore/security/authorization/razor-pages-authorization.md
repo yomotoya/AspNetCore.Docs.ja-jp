@@ -2,20 +2,16 @@
 title: ASP.NET Core に razor ページの承認規則
 author: guardrex
 description: ユーザーを承認して、匿名ユーザーがページやページのフォルダーにアクセスできるようにする規則を含むページへのアクセスを制御する方法を説明します。
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/27/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authorization/razor-pages-authorization
-ms.openlocfilehash: cd1fa7957ca50db0de71f71234f84d3fbc631f45
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 8856520bf43f2f62cc12c7e883485babdb43fb3e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341744"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272676"
 ---
 # <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>ASP.NET Core に razor ページの承認規則
 
@@ -40,7 +36,7 @@ Razor ページ アプリのアクセスを制御する方法の 1 つは起動�
 ::: moniker range=">= aspnetcore-2.1"
 
 > [!NOTE]
-> `AuthorizeFilter`ページ モデル クラスに適用できる、`[Authorize]`フィルター属性。 詳細については、次を参照してください。[承認フィルター属性](xref:mvc/razor-pages/filter#authorize-filter-attribute)です。
+> `AuthorizeFilter`ページ モデル クラスに適用できる、`[Authorize]`フィルター属性。 詳細については、次を参照してください。[承認フィルター属性](xref:razor-pages/filter#authorize-filter-attribute)です。
 
 ::: moniker-end
 
@@ -90,5 +86,5 @@ Razor ページ アプリのアクセスを制御する方法の 1 つは起動�
 
 ## <a name="additional-resources"></a>その他の技術情報
 
-* [Razor ページのカスタム ルートとページ モデル プロバイダー](xref:mvc/razor-pages/razor-pages-conventions)
+* [Razor ページのカスタム ルートとページ モデル プロバイダー](xref:razor-pages/razor-pages-conventions)
 * [PageConventionCollection](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection)クラス

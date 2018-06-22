@@ -2,20 +2,16 @@
 title: 追加、ダウンロード、および ASP.NET Core プロジェクトの Id にカスタム ユーザー データの削除
 author: rick-anderson
 description: Id に、ASP.NET Core プロジェクトにカスタム ユーザー データを追加する方法を説明します。 GDPR ごとのデータを削除します。
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 6/16/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/add-user-data
-ms.openlocfilehash: 3ebb709cc40f6c2477ac57325d035b9b461e2eaf
-ms.sourcegitcommit: 0d6f151e69c159d776ed0142773279e645edbc0a
+ms.openlocfilehash: ecd0e6d1c71b24309fab70fbb06af7731463bb0e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35414995"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36271958"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>追加、ダウンロード、および ASP.NET Core プロジェクトの Id にカスタム ユーザー データの削除
 

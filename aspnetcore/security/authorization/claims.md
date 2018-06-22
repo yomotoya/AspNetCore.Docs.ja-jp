@@ -2,19 +2,15 @@
 title: ASP.NET Core でクレーム ベースの承認
 author: rick-anderson
 description: ASP.NET Core アプリケーションの承認の要求の確認を追加する方法を説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authorization/claims
-ms.openlocfilehash: 2464f8cac720dcf5de02f2679e9450e8b77de3ee
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: 6b60ae5515819b017ab577f655ed91ee4d8ed0dd
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34336305"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275228"
 ---
 # <a name="claims-based-authorization-in-aspnet-core"></a>ASP.NET Core でクレーム ベースの承認
 

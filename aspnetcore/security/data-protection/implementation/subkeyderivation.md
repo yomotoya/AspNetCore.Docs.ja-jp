@@ -2,19 +2,15 @@
 title: サブキーの派生と ASP.NET Core での認証済みの暗号化
 author: rick-anderson
 description: ASP.NET Core データ保護の実装の詳細はサブキーを派生し、暗号化の認証について説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 8c83da40a524896becc07c94c01d5e2b684e4386
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 37e7b01700e8a6b755b5ed16a9d7d75a9eeb970e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072640"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275724"
 ---
 # <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>サブキーの派生と ASP.NET Core での認証済みの暗号化
 
@@ -47,7 +43,7 @@ AAD は 3 つの要素のタプルに対して一意であるためを KM から
 
 * PRF = HMACSHA512
 
-* label = additionalAuthenticatedData
+* ラベル additionalAuthenticatedData を =
 
 * context = contextHeader || keyModifier
 
@@ -72,7 +68,7 @@ K_E が上記のメカニズムによって生成されるはランダムな初�
 
 ![GCM モードのプロセスと戻り値](subkeyderivation/_static/galoisprocess.png)
 
-*output := keyModifier || nonce || E_gcm (K_E,nonce,data) || authTag*
+*出力: keyModifier を = | |nonce | |E_gcm (K_E、nonce、データ) | |authTag*
 
 > [!NOTE]
 > GCM ネイティブにサポートされていますが、AAD の概念、おいるまだ給紙 AAD 元の KDF にのみ、AAD パラメーターに GCM に空の文字列を渡すを無効にします。 この理由は、2 つの面です。 最初に、[機敏性をサポートするために](xref:security/data-protection/implementation/context-headers#data-protection-implementation-context-headers)暗号化キーとして直接 K_M を使用することはありません。 さらに、GCM には、その入力に非常に厳格な一意性の要件が適用されます。 GCM 暗号化ルーチンが 2 つのこれまで呼び出されたかより明確である確率を設定 (キー、nonce) 同じ入力データのペアは以内で 2 ^32 です。 K_E も修正する場合実行できませんでした。 複数の 2 ^ 32 の暗号化操作は、2 への実行前に ^-32 を制限します。 これは非常に多数の操作と同様にですが、高トラフィックの web サーバーは、これらのキーの通常の有効期間の範囲内で、単なる日以内に 40億要求を通過できます。 2 の準拠を維持する ^128 ビット キーの修飾子と 96 ビット nonce は、任意指定 K_M の使用可能な操作の数を大幅に拡張を使用してまいります-32 確率制限します。 CBC と GCM 操作間 KDF コード パスを共有おわかりやすくするためのデザインと AAD は既に、KDF で考慮ためには、GCM ルーチンに転送する必要はありません。

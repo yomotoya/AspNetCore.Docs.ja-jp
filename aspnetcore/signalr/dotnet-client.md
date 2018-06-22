@@ -2,20 +2,17 @@
 title: ASP.NET Core SignalR の .NET クライアント
 author: rachelappel
 description: ASP.NET Core SignalR の .NET クライアントに関する情報
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
-ms.date: 05/18/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
+ms.date: 05/29/2018
 uid: signalr/dotnet-client
-ms.openlocfilehash: 412d2362575789f1fb4792940df6d3dd24dbdd5a
-ms.sourcegitcommit: 300a1127957dcdbce1b6ad79a7b9dc676f571510
+ms.openlocfilehash: faa4368988971a3e7fcdcd1b044971e16d70f19a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273296"
 ---
 # <a name="aspnet-core-signalr-net-client"></a>ASP.NET Core SignalR の .NET クライアント
 
@@ -27,7 +24,7 @@ ASP.NET Core SignalR の .NET クライアントは、Xamarin、WPF、Windows �
 
 この記事のサンプル コードは、ASP.NET Core SignalR の .NET クライアントを使用する WPF アプリです。
 
-## <a name="setup-client"></a>クライアントをセットアップします。
+## <a name="install-the-signalr-net-client-package"></a>SignalR の .NET クライアント パッケージをインストールします。
 
 `Microsoft.AspNetCore.SignalR.Client`パッケージは、.NET クライアントの SignalR ハブに接続するために必要です。 クライアント ライブラリをインストールする、次のコマンドを実行、 **Package Manager Console**ウィンドウ。
 

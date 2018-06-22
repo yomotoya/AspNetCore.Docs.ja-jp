@@ -2,19 +2,16 @@
 title: ASP.NET Core のブラウザー リンク
 author: ncarandini
 description: Browser Link は、Visual Studio の機能に 1 つまたは複数の web ブラウザーで、開発環境をリンクする方法について説明します。
-manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 09/22/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: client-side/using-browserlink
-ms.openlocfilehash: 0496f9df35956b8fe7ca9fcc7c03df33437d5a87
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 8808dc705ec87ebf6e7874ad69616ed5bbf61576
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274093"
 ---
 # <a name="browser-link-in-aspnet-core"></a>ASP.NET Core のブラウザー リンク
 
@@ -26,7 +23,13 @@ ms.lasthandoff: 05/07/2018
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-ASP.NET Core 2.x **Web アプリケーション**、**空**、および**Web API**テンプレート プロジェクトを使用して、 [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/)パッケージ リファレンスを含むメタパッケージ[Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/)です。 したがってを使用して、`Microsoft.AspNetCore.All`メタパッケージ Browser Link を使用できるようにする追加の操作は必要ありません。
+ASP.NET Core 2.0 **Web アプリケーション**、**空**、および**Web API**テンプレート プロジェクトを使用して、 [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) metapackage、のパッケージ リファレンスを含む[Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/)です。 したがってを使用して、 `Microsoft.AspNetCore.All` metapackage Browser Link を使用できるようにする追加の操作は必要ありません。
+
+::: moniker range=">= aspnetcore-2.1"
+
+ASP.NET Core 2.1 およびへの移行に ASP.NET Core 2.0 プロジェクトを変換する際、 [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) metapackage をインストールする必要がある、 [Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/)BrowserLink 機能を手動でパッケージです。
+
+::: moniker-end
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -66,7 +69,7 @@ if (env.IsDevelopment())
 }
 ```
 
-詳細については、次を参照してください。[複数の環境を使用して](xref:fundamentals/environments)です。
+詳細については、「[Use multiple environments](xref:fundamentals/environments)」(複数の環境の使用) を参照してください。
 
 ## <a name="how-to-use-browser-link"></a>Browser Link を使用する方法
 

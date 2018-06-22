@@ -2,19 +2,15 @@
 title: ASP.NET Core でコンテキスト ヘッダー
 author: rick-anderson
 description: ASP.NET Core データ保護コンテキスト ヘッダーの実装の詳細を説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 5ba247a74e11408145e1f6e87c7cfa251c66707f
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 2343e59898c024eba420390d7fb0bce2fc82a895
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077855"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274470"
 ---
 # <a name="context-headers-in-aspnet-core"></a>ASP.NET Core でコンテキスト ヘッダー
 
@@ -54,7 +50,7 @@ ms.locfileid: "30077855"
 
 代わりに、NIST SP800 108 KDF カウンター モードで使用 (を参照してください[NIST SP800 108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf)、秒 5.1) 長さ 0 キー、ラベル、およびコンテキストおよび基になる PRF として HMACSHA512 を使用します。 派生お |K_E |+ |K_H |出力のバイトし、結果に分解 K_E と K_H 自体です。 数学的に、これはように表されます。
 
-( K_E || K_H ) = SP800_108_CTR(prf = HMACSHA512, key = "", label = "", context = "")
+(K_E | |K_H) = SP800_108_CTR (prf = HMACSHA512、key =""、ラベル =""、コンテキスト ="")
 
 ### <a name="example-aes-192-cbc--hmacsha256"></a>例: AES、192-CBC + HMACSHA256
 
@@ -71,11 +67,11 @@ B7 92 3D BF 59 90 00 A9
 
 次に、コンピューティング Enc_CBC (K_E、IV、"") CBC 192 AES IV を指定された = 0 * と上と K_E です。
 
-result := F474B1872B3B53E4721DE19C0841DB6F
+結果: F474B1872B3B53E4721DE19C0841DB6F を =
 
 次に、MAC の計算 (K_H、"") HMACSHA256 K_H 上記として指定されているためです。
 
-result := D4791184B996092EE1202F36E8608FA8FBD98ABDFF5402F264B1D7211536220C
+結果: D4791184B996092EE1202F36E8608FA8FBD98ABDFF5402F264B1D7211536220C を =
 
 これには、以下の内容を含むヘッダーが生成されます。
 
@@ -118,11 +114,11 @@ D1 F7 5A 34 EB 28 3E D7 D4 67 B4 64
 
 次に、コンピューティング Enc_CBC (K_E、IV、"") CBC 192 3 des IV を指定された = 0 * と上と K_E です。
 
-result := ABB100F81E53E10E
+結果: ABB100F81E53E10E を =
 
 次に、MAC の計算 (K_H、"") HMACSHA1 K_H 上記として指定されているためです。
 
-result := 76EB189B35CF03461DDF877CD9F4B1B4D63A7555
+結果: 76EB189B35CF03461DDF877CD9F4B1B4D63A7555 を =
 
 これにより、認証の拇印である完全コンテキスト ヘッダーが生成されます。 暗号化アルゴリズムの組み合わせ (3 des 192-CBC 暗号化 + HMACSHA1 検証)、次に示します。
 
@@ -176,7 +172,7 @@ K_E: 22BC6F1B171C08C4AE2F27444AF8FC8B3087A90006CAEA91FDCFB47C1B8733B8 を =
 
 Enc_GCM の認証タグを次に、コンピューティング (K_E、nonce、"") GCM 256 AES nonce を指定された = 096 と K_E 上記と同じです。
 
-result := E7DCCE66DF855A323A6BB7BD7A59BE45
+結果: E7DCCE66DF855A323A6BB7BD7A59BE45 を =
 
 これには、以下の内容を含むヘッダーが生成されます。
 

@@ -2,19 +2,15 @@
 title: ASP.NET Core で ASP.NET machineKey を置き換えます
 author: rick-anderson
 description: 新しいデータとより安全なデータ保護システムの使用を許可する ASP.NET で machineKey を交換する方法を検出します。
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/compatibility/replacing-machinekey
-ms.openlocfilehash: 18d14099786929058b17bac2a653eaa1489de7d2
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 5f9e5cec02b66e1315548c4e7c18fe168ad161eb
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30071601"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278825"
 ---
 # <a name="replace-the-aspnet-machinekey-in-aspnet-core"></a>ASP.NET Core で ASP.NET machineKey を置き換えます
 
@@ -22,7 +18,7 @@ ms.locfileid: "30071601"
 
 実装、 `<machineKey>` ASP.NET 内の要素[交換](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/)です。 これにより、ほとんどの呼び出しを ASP.NET 暗号化ルーチン、新しいデータ保護システムを含む、交換用のデータ保護メカニズムを経由してルーティングされます。
 
-## <a name="package-installation"></a>パッケージのインストール
+## <a name="package-installation"></a>パッケージ インストール
 
 > [!NOTE]
 > 新しいデータ保護システムには、.NET 4.5.1 を対象とする既存の ASP.NET アプリケーションにインストールされている以上のみを指定できます。 インストールをアプリケーションが .NET 4.5 を対象とする場合は失敗または削減します。

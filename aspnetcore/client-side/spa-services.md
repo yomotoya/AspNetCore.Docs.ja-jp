@@ -2,20 +2,16 @@
 title: JavaScriptServices を使用して ASP.NET Core の単一ページ アプリケーションを作成するには
 author: scottaddie
 description: ASP.NET Core 裏付け単一ページ アプリケーション (SPA) を作成する JavaScriptServices を使用する利点について説明します。
-manager: wpickett
 ms.author: scaddie
 ms.custom: H1Hack27Feb2017
 ms.date: 08/02/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: fd893b7c62f38442bf5633a956786983763e6f9f
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: c3f454ddd91fadf94e4ee4faa8930d8a89d13833
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31483553"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279624"
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>JavaScriptServices を使用して ASP.NET Core の単一ページ アプリケーションを作成するには
 

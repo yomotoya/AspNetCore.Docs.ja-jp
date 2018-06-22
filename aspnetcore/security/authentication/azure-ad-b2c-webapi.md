@@ -3,19 +3,15 @@ title: Web Api を ASP.NET のコアでアクティブなディレクトリの B
 author: camsoper
 description: ASP.NET Core Web API と Azure Active Directory B2C の認証を設定する方法を検出します。 認証されている web API Postman をテストします。
 ms.author: casoper
-manager: wpickett
 ms.date: 01/25/2018
-ms.topic: tutorial
-ms.technology: aspnet
-ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 621290f7e303f9157577b5c1b32646b750ed5159
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 82179e52e2c292ec3b7e618b3c61eef6494abc7c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897805"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273419"
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web Api を ASP.NET のコアでアクティブなディレクトリの B2C を Azure クラウド認証
 
@@ -66,7 +62,7 @@ Azure AD B2C のドキュメントで手順を使用して[サインアップま
 | **暗黙のフローを許可します。**       | [はい]                 |                                                                                        |
 | **応答 URL**                 | `https://localhost` | 応答 Url は、エンドポイントが Azure AD B2C がアプリを要求するすべてのトークンを返します。 |
 | **アプリ ID URI**                | *api*               | URI は、物理アドレスに解決する必要はありません。 のみ一意である必要があります。     |
-| **ネイティブ クライアントは、します。**     | ×                  |                                                                                        |
+| **ネイティブ クライアントは、します。**     | いいえ                  |                                                                                        |
 
 この API は、登録後、テナントでアプリケーションと Api の一覧が表示されます。 だけに登録されている API を選択します。 選択、**コピー**の右側にあるアイコン、**アプリケーション ID**をクリップボードにコピーするフィールドです。 選択**スコープをパブリッシュ**既定値を確認してください*user_impersonation*スコープが存在します。
 
@@ -122,7 +118,7 @@ Postman は、Azure AD B2C テナントからトークンを入手できる、we
 | **暗黙のフローを許可します。**       | [はい]                              |                                 |
 | **応答 URL**                 | `https://getpostman.com/postman` |                                 |
 | **アプリ ID URI**                | *&lt;空白のままに&gt;*            | このチュートリアルでは必要ありません。 |
-| **ネイティブ クライアントは、します。**     | ×                               |                                 |
+| **ネイティブ クライアントは、します。**     | いいえ                               |                                 |
 
 新しく登録されている web アプリでは、ユーザーの代理で web API にアクセスする権限が必要です。  
 
@@ -177,7 +173,7 @@ Web API に認証された要求にベアラー トークンが必要です。 P
    |      <strong>トークン名</strong>       |                                  <em>&lt;token name&gt;</em>                                  |                                                                                                                   トークンのわかりやすい名前を入力します。                                                                                                                    |
    |      <strong>付与の種類</strong>       |                                           暗黙的                                            |                                                                                                                                                                                                                                                                              |
    |     <strong>コールバック URL</strong>      |                               `https://getpostman.com/postman`                                |                                                                                                                                                                                                                                                                              |
-   |       <strong>Auth URL</strong>        | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |                                                                                                  置き換える<em>&lt;テナントのドメイン名&gt;</em>テナントのドメイン名を使用します。                                                                                                  |
+   |       <strong>認証の URL</strong>        | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |                                                                                                  置き換える<em>&lt;テナントのドメイン名&gt;</em>テナントのドメイン名を使用します。                                                                                                  |
    |       <strong>クライアント ID</strong>       |                <em>&lt;Postman アプリケーションを入力して<b>アプリケーション ID</b>&gt;</em>                 |                                                                                                                                                                                                                                                                              |
    |     <strong>クライアント シークレット</strong>     |                                 <em>&lt;空白のままに&gt;</em>                                  |                                                                                                                                                                                                                                                                              |
    |         <strong>スコープ</strong>         |         `https://<tenant domain name>/<api>/user_impersonation openid offline_access`         | 置き換える<em>&lt;テナントのドメイン名&gt;</em>テナントのドメイン名を使用します。 置き換える<em>&lt;api&gt;</em>を Web API プロジェクト名です。 アプリケーションの id です。 使用することもできます。 URL のパターンは: <em>https://{tenant}.onmicrosoft.com/{app_name_or_id}/{scope 名}</em>です。 |

@@ -2,19 +2,15 @@
 title: キーの ASP.NET Core の不変性とキーの設定
 author: rick-anderson
 description: ASP.NET Core データ保護キー不変 Api の実装の詳細を説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/key-immutability
-ms.openlocfilehash: e918b00562aca9821de87c38f10242177517d8a5
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 45460e0bdf6ad0a978f984d55b64f562c13fb575
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30075636"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279455"
 ---
 # <a name="key-immutability-and-key-settings-in-aspnet-core"></a>キーの ASP.NET Core の不変性とキーの設定
 

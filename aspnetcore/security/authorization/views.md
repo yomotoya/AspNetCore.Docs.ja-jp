@@ -2,19 +2,15 @@
 title: ASP.NET Core MVC でのビューに基づく承認
 author: rick-anderson
 description: このドキュメントでは、挿入および ASP.NET Core Razor ビュー内で承認サービスを利用する方法を示します。
-manager: wpickett
 ms.author: riande
 ms.date: 10/30/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authorization/views
-ms.openlocfilehash: dad59a297efb4648755436fbd07742f95af97fb2
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: f25bab61afc93ff14bfd9c36d95a6d2e54b06dfb
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30076634"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277821"
 ---
 # <a name="view-based-authorization-in-aspnet-core-mvc"></a>ASP.NET Core MVC でのビューに基づく承認
 

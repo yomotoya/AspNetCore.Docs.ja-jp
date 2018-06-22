@@ -2,19 +2,15 @@
 title: ASP.NET Core でのクロス オリジン要求 (CORS) を有効にします。
 author: rick-anderson
 description: 学習方法を許可したり、ASP.NET のコア ・ アプリケーションの間の原点の要求を拒否しての標準として CORS。
-manager: wpickett
 ms.author: riande
 ms.date: 05/17/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/cors
-ms.openlocfilehash: 3c5d0840426c7ed52353a7832a1a1959027121de
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 2920917d0a488e72afb94d65bdc6d7034c6f66a9
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077549"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278662"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET Core でのクロス オリジン要求 (CORS) を有効にします。
 
@@ -163,7 +159,7 @@ CORS プレフライト要求がアプリケーションによって設定され
 
 既定では、ブラウザーはすべてのアプリケーションに応答ヘッダーを公開しません。 (を参照してください[ http://www.w3.org/TR/cors/#simple-response-header ](http://www.w3.org/TR/cors/#simple-response-header))。既定で利用できる応答ヘッダーは次のとおりです。
 
-* Cache-Control
+* キャッシュ制御
 
 * コンテンツの言語
 
@@ -269,7 +265,7 @@ Test message
 
   * マルチパート フォーム データ
 
-  * text/plain
+  * テキスト/プレーン
 
 アプリケーションで、XMLHttpRequest オブジェクトで setRequestHeader を呼び出すことによって設定されたヘッダーを要求ヘッダーについて規則が適用されます。 (CORS の仕様は、これら「作成者要求ヘッダー」を呼び出します)。ルールは、ユーザー エージェント、ホスト、またはコンテンツの長さなど、ブラウザーを設定できますヘッダーに適用されません。
 

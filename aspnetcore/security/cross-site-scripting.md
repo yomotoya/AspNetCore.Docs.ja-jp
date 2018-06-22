@@ -2,18 +2,15 @@
 title: クロス サイト スクリプト (XSS) ASP.NET Core を防ぐ
 author: rick-anderson
 description: クロス サイト スクリプト (XSS) と ASP.NET Core アプリケーションでこの脆弱性に対処する方法について説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/cross-site-scripting
-ms.openlocfilehash: d9263a2c1bb6a376008b7d8a55864e4d15e77cee
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ce6bb273034c56890e0cd98b890436602b5acc69
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272449"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>クロス サイト スクリプト (XSS) ASP.NET Core を防ぐ
 
@@ -37,7 +34,7 @@ ms.lasthandoff: 03/22/2018
 
 ## <a name="html-encoding-using-razor"></a>Razor を使用して HTML エンコード
 
-MVC で自動的に使用される、Razor エンジン エンコードすべて苦労して本当にそのようにしない限り、変数が出力に基づいています。 ルールのエンコードを使用するときに HTML 属性を使用して、 *@*ディレクティブです。 HTML 属性エンコードは HTML エンコード HTML エンコーディングまたは HTML 属性エンコードを使用するかどうかを意識する必要はありませんつまりのスーパー セットです。 使用することのみコンテキストでは、HTML、JavaScript に直接信頼されていない入力を挿入しようとしています。 ときではなくを確認する必要があります。 タグ ヘルパーは、タグのパラメーターで使用する入力もエンコードされます。
+MVC で自動的に使用される、Razor エンジン エンコードすべて苦労して本当にそのようにしない限り、変数が出力に基づいています。 ルールのエンコードを使用するときに HTML 属性を使用して、 *@* ディレクティブです。 HTML 属性エンコードは HTML エンコード HTML エンコーディングまたは HTML 属性エンコードを使用するかどうかを意識する必要はありませんつまりのスーパー セットです。 使用することのみコンテキストでは、HTML、JavaScript に直接信頼されていない入力を挿入しようとしています。 ときではなくを確認する必要があります。 タグ ヘルパーは、タグのパラメーターで使用する入力もエンコードされます。
 
 次の Razor ビュー; の実行します。
 
@@ -60,7 +57,7 @@ MVC で自動的に使用される、Razor エンジン エンコードすべて
 
 ## <a name="javascript-encoding-using-razor"></a>Razor を使用して Javascript のエンコード
 
-ビューで処理する JavaScript に値を挿入する回数である可能性があります。 これには、2 つの方法があります。 単純な値を挿入する最も安全な方法は、タグのデータの属性に値を設定し、JavaScript で取得します。 例えば:
+ビューで処理する JavaScript に値を挿入する回数である可能性があります。 これには、2 つの方法があります。 値を挿入するための最も安全な方法では、タグのデータの属性に値を配置し、JavaScript で取得します。 例えば:
 
 ```none
 @{
@@ -228,4 +225,4 @@ services.AddSingleton<HtmlEncoder>(
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>XSS 防止手法として検証
 
-検証は、XSS 攻撃を制限することで便利なツールを指定できます。 たとえば、文字 0 ~ 9 のみを含む単純な数値文字列では、XSS 攻撃をトリガーしません。 検証より複雑な - ユーザー入力に HTML をそのまま使用する場合は HTML 入力を解析できない場合は困難になります。 マークダウンとその他のテキスト形式では、豊富な入力をより安全なオプションはなります。 単独での検証に依存しないようにします。 どのような検証を実行しているに関係なく、出力する前に信頼されていない入力は常にエンコードします。
+検証は、XSS 攻撃を制限することで便利なツールを指定できます。 たとえば、文字 0 ~ 9 のみを含む数値文字列では、XSS 攻撃をトリガーしません。 検証より複雑な - ユーザー入力に HTML をそのまま使用する場合は HTML 入力を解析できない場合は困難になります。 マークダウンとその他のテキスト形式では、豊富な入力をより安全なオプションはなります。 単独での検証に依存しないようにします。 どのような検証を実行しているに関係なく、出力する前に信頼されていない入力は常にエンコードします。

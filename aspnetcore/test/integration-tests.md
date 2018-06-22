@@ -1,21 +1,17 @@
 ---
 title: ASP.NET Core での統合テスト
 author: guardrex
-description: 学習方法、統合テストでは、インフラストラクチャ レベル、データベース、ファイル システム、ネットワークなど、アプリのコンポーネントが正しく動作することを確認します。
-manager: wpickett
+description: 統合テストによってデータベース、ファイル システム、ネットワークなどのインフラストラクチャ レベルで、アプリのコンポーネントがどのように正しく機能するようになるかを説明します。
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: test/integration-tests
-ms.openlocfilehash: a402c3f5f6a75917eba4058e6cc6926f25b214d4
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 1895b06f1af9a9eb66c14aa5c7834497fc95d583
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35217685"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277697"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET Core での統合テスト
 
@@ -29,7 +25,7 @@ ms.locfileid: "35217685"
 
 サンプル アプリは、Razor ページのアプリで Razor ページの基本的な知識を前提としています。 Razor ページに慣れていないの場合は、次のトピックを参照してください。
 
-* [Razor ページを始める](xref:mvc/razor-pages/index)
+* [Razor ページを始める](xref:razor-pages/index)
 * [Razor ページの概要](xref:tutorials/razor-pages/razor-pages-start)
 * [Razor ページの単体テスト](xref:test/razor-pages-tests)
 
