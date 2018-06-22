@@ -181,7 +181,7 @@ ASP.NET MVC 4 は、安定したデザイン パターンと、ASP.NET と .NET 
 
        新しいテーマ マークアップを調べるにはテンプレート ビューを参照します。
 
-       ![Razor、HTML5 マークアップ About.cshtml を使用して新しいテンプレートです。] (whats-new-in-aspnet-mvc-4/_static/image10.png "Razor、HTML5 マークアップ About.cshtml を使用して、新しいテンプレート。")
+       ![Razor、HTML5 マークアップ About.cshtml を使用して新しいテンプレートです。](whats-new-in-aspnet-mvc-4/_static/image10.png "Razor、HTML5 マークアップ About.cshtml を使用して、新しいテンプレート。")
 
        *Razor、HTML5 のマークアップ (About.cshtml) を使用して新しいテンプレートです。*
    - **更新された JavaScript ライブラリ**
