@@ -1,16 +1,16 @@
 ---
 title: ASP.NET Web API から ASP.NET Core への移行します。
 author: ardalis
-description: ASP.NET Web API からの Web API の実装を ASP.NET のコアの MVC に移行する方法について説明します。
+description: ASP.NET Web API から ASP.NET Core mvc Web API の実装を移行する方法を説明します。
 ms.author: riande
 ms.date: 05/10/2018
 uid: migration/webapi
-ms.openlocfilehash: 9385805d548bc87f4a50b87f2c06aa74abdaf8af
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 4f4dc140bd60463037be0757176dcf7a619918bd
+ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272531"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36327510"
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>ASP.NET Web API から ASP.NET Core への移行します。
 
@@ -22,7 +22,7 @@ Web Api は、さまざまなブラウザーやモバイル デバイスを含�
 
 ## <a name="review-aspnet-web-api-project"></a>レビュー ASP.NET Web API プロジェクト
 
-この資料は、サンプル プロジェクトを使用して*ProductsApp*の記事で作成された、[基本 ASP.NET Web API の 2](/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)の開始点として。 そのプロジェクトで単純な ASP.NET Web API プロジェクトが次のように構成します。
+この記事は、サンプル プロジェクトを使用して*ProductsApp*アーティクルで作成された[ASP.NET Web API 2 の概要](/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)を基盤とします。 そのプロジェクトで単純な ASP.NET Web API プロジェクトが次のように構成します。
 
 *Global.asax.cs*への呼び出しが行われた`WebApiConfig.Register`:
 
@@ -131,7 +131,7 @@ Microsoft.AspNetCore.Mvc.WebApiCompatShim に含まれる互換性機能は次�
         * `CreateResponse<T>`
         * `CreateErrorResponse`
     * 結果のアクション メソッド。
-        * `BadResuestErrorMessageResult`
+        * `BadRequestErrorMessageResult`
         * `ExceptionResult`
         * `InternalServerErrorResult`
         * `InvalidModelStateResult`

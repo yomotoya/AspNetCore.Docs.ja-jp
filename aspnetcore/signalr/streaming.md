@@ -7,12 +7,12 @@ ms.author: rachelap
 ms.custom: mvc
 ms.date: 06/07/2018
 uid: signalr/streaming
-ms.openlocfilehash: ae0e733dddfb48db07d77ea73f4673cf8f783b88
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 08ddea4fb83150bab27a9e2685c75ff34565606b
+ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275851"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36327494"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>ASP.NET Core SignalR では、ストリーミングを使用します。
 
@@ -29,7 +29,7 @@ ASP.NET Core SignalR には、サーバーのメソッドの戻り値のスト�
 > [!NOTE]
 > 書き込み、`ChannelReader`バック グラウンド スレッドと戻り値の`ChannelReader`できるだけ早くです。 その他のハブ呼び出しをするまでブロックされます、`ChannelReader`が返されます。
 
-[!code-csharp[Streaming hub method](streaming/sample/hubs/streamhub.cs?range=10-34)]
+[!code-csharp[Streaming hub method](streaming/sample/Hubs/StreamHub.cs?range=10-34)]
 
 ## <a name="net-client"></a>.NET クライアント
 
