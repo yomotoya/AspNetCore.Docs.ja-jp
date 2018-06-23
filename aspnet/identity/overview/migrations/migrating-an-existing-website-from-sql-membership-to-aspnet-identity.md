@@ -12,12 +12,12 @@ ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 2790f32bc74cecf450f5a258fc1ff5b280a63923
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1766c11dabec3931ec2bfc4ae2e15332427d7855
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30874994"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314014"
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>SQL メンバーシップから ASP.NET Identity に既存の web サイトを移行します。
 ====================
@@ -90,7 +90,7 @@ ASP.NET Identity クラス、ボックスに、データの既存のユーザー
 | **IdentityUser** | **Type** | **IdentityRole** | **IdentityUserRole** | **IdentityUserLogin** | **IdentityUserClaim** |
 | --- | --- | --- | --- | --- | --- |
 | ID | string | ID | RoleId | ProviderKey | ID |
-| ユーザー名 | string | 名前 | UserId | UserId | ClaimType |
+| ユーザー名 | string | name | ユーザー Id | ユーザー Id | ClaimType |
 | PasswordHash | string |  |  | LoginProvider | ClaimValue |
 | SecurityStamp | string |  |  |  | ユーザー\_Id |
 | 電子メール | string |  |  |  |  |
@@ -108,14 +108,16 @@ ASP.NET Identity クラス、ボックスに、データの既存のユーザー
 | IdentityUser | AspnetUsers | ID |  |
 | IdentityRole | AspnetRoles | ID |  |
 | IdentityUserRole | AspnetUserRole | UserId + RoleId | ユーザー\_Id -&gt;AspnetUsers RoleId-&gt;AspnetRoles |
-| IdentityUserLogin | AspnetUserLogins | ProviderKey+UserId + LoginProvider | UserId-&gt;AspnetUsers |
-| IdentityUserClaim | AspnetUserClaims | ID | User\_Id-&gt;AspnetUsers |
+| IdentityUserLogin | AspnetUserLogins | ProviderKey + UserId + LoginProvider | UserId-&gt;AspnetUsers |
+| IdentityUserClaim | AspnetUserClaims | ID | ユーザー\_Id-&gt;AspnetUsers |
 
 この情報を含む新しいテーブルを作成する SQL ステートメントを作成できます。 各ステートメントを個別に入力おか、全体を必要に応じてし編集する EntityFramework PowerShell コマンドを使用してスクリプトを生成します。 これを行う、VS オープン、 **Package Manager Console**から、**ビュー**または**ツール**メニュー
 
 - EntityFramework 移行を有効にする"Enable-migrations"のコマンドを実行します。
 - コマンド「add-migration 初期」を作成する C# の場合、データベースを作成する初期セットアップ コードを実行/vb です。
 - 最後の手順が実行するには"データベースの更新 – スクリプト"モデル クラスに基づいて SQL スクリプトを生成するコマンド。
+
+[!INCLUDE[](../../../includes/identity/alter-command-exception.md)]
 
 このデータベースの生成のスクリプトは、開始場所お加えて追加の変更を新しい列を追加し、データをコピーとして使用できます。 これの利点は、生成する、`_MigrationHistory`モデル クラスの Id のリリースの将来のバージョンの変更時に、データベースのスキーマを変更する EntityFramework によって使用されるテーブル。 
 
@@ -146,11 +148,11 @@ SQL メンバーシップ ユーザーの情報は、その他のプロパティ
 
     以下には、新しい Id システムを SQL メンバーシップ テーブル内の情報をマップする方法を示します。
 
-    aspnet\_Roles --&gt; AspNetRoles
+    aspnet\_ロール--&gt; AspNetRoles
 
     asp\_netUsers および asp\_netMembership--&gt; AspNetUsers
 
-    aspnet\_UserInRoles --&gt; AspNetUserRoles
+    aspnet\_UserInRoles--&gt; AspNetUserRoles
 
     上記のセクションで説明、AspNetUserClaims と AspNetUserLogins テーブルが空です。 AspNetUser テーブルの '識別子' フィールドには、次の手順として定義されているモデルのクラス名と一致する必要があります。 PasswordHash 列がフォームでも '暗号化されたパスワード | パスワードの salt | パスワードの形式' です。 これにより、特別な SQL メンバーシップ暗号ロジックを使用して、古いパスワードを再利用できるようにすることができます。 操作は、記事の後半で説明します。
 
