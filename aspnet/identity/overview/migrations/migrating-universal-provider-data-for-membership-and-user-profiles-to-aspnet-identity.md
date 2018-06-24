@@ -12,12 +12,12 @@ ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: f65f93b20543d06ea70a9009b6921e297477c99e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 75d273d9fdb5d8ff0f7a910f42abe8bcce6e397d
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871572"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314001"
 ---
 <a name="migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity-c"></a>メンバーシップと ASP.NET Identity (c#) するユーザー プロファイル用のユニバーサル プロバイダー データの移行
 ====================
@@ -106,6 +106,8 @@ SQL スクリプトを貼り付けます[ https://raw.github.com/suhasj/Universa
    'ProfileInfo' が、ユーザー クラスのプロパティになったことに注意してください。 そのためのプロファイル データを直接操作するユーザー クラスを使用できます。
 
 内のファイルをコピー、 **IdentityModels**と**IdentityAccount**ダウンロード元のフォルダー ( [ https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations ](https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations) )。 これらは、残りのモデル クラスおよびユーザーと、ASP.NET Identity の Api を使用してロールの管理に必要な新しいページがあります。 使用されている方法は、SQL メンバーシップに似ており、詳細についてを参照して[ここ](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)です。
+
+[!INCLUDE[](../../../includes/identity/alter-command-exception.md)]
 
 ## <a name="copying-profile-data-to-the-new-tables"></a>新しいテーブルにプロファイル データのコピー
 
