@@ -2,19 +2,15 @@
 title: ASP.NET Core のビュー コンポーネント
 author: rick-anderson
 description: ASP.NET Core でのビュー コンポーネントの使用方法とそれらをアプリに追加する方法を説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: cdf44fc15ac64497b2589e8b7b289beb94c5b2c4
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 2b196d8d46942604d1c85eb5f2f073661e5acb30
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33962685"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278363"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET Core のビュー コンポーネント
 

@@ -2,19 +2,15 @@
 title: ASP.NET Core の Razor ページと EF Core - 移行 - 4/8
 author: rick-anderson
 description: このチュートリアルでは、ASP.NET Core MVC アプリでデータ モデルの変更を管理するための EF Core の移行機能の使用を開始します。
-manager: wpickett
 ms.author: riande
 ms.date: 10/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 690beaabeab098cf9b764730b1bf1bd04bf6b003
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: d39e1aa40ff97d5b335f2bde6170242e89f6189a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32740076"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272349"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>ASP.NET Core の Razor ページと EF Core - 移行 - 4/8
 
@@ -122,7 +118,7 @@ EF Core コマンド `migrations add` は、データベースの作成元のコ
 
 移行を削除するには、[dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) コマンドを使用します。 `dotnet ef migrations remove` によって移行が削除され、スナップショットが正しくリセットされたことが確認されます。
 
-スナップショット ファイルの使用方法の詳細については、「[EF Core Migrations in Team Environments](/ef/core/managing-schemas/migrations/teams)」 (チーム環境での EF Core 移行) を参照してください。
+スナップショット ファイルの使用方法の詳細については、[チーム環境での EF Core 移行](/ef/core/managing-schemas/migrations/teams)に関するページを参照してください。
 
 ## <a name="remove-ensurecreated"></a>Remove EnsureCreated
 

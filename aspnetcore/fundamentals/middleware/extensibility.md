@@ -3,19 +3,15 @@ title: ASP.NET Core でのファクトリ ベースのミドルウェアのア�
 author: guardrex
 description: ASP.NET Core で、ファクトリ ベースの厳密に型指定されたミドルウェアをアクティブ化する方法を説明します。
 ms.author: riande
-manager: wpickett
 ms.custom: mvc
 ms.date: 01/29/2018
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
 uid: fundamentals/middleware/extensibility
-ms.openlocfilehash: 8cec5b3b498f5a23463d8c3cd5901e14f22f6eab
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 44987dbc20b0419865a23e64b60a5dc3f436743a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729117"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277073"
 ---
 # <a name="factory-based-middleware-activation-in-aspnet-core"></a>ASP.NET Core でのファクトリ ベースのミドルウェアのアクティブ化
 

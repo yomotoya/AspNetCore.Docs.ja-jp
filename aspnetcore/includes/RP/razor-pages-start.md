@@ -9,11 +9,11 @@
 次の表に、プロジェクトのファイルとフォルダーをリストします。 このチュートリアルでは、*Startup.cs* ファイルを理解することが最も重要です。 以下に示す各リンクをレビューする必要はありません。 リンクは、プロジェクトのファイルまたはフォルダーについて詳しい情報が必要な場合の参照として提供されているものです。
 
 | ファイルまたはフォルダー              | 目的 |
-| ----------------- | ------------ | 
+| ----------------- | ------------ |
 | wwwroot | 静的ファイルが含まれています。 [静的ファイル](xref:fundamentals/static-files)に関するページを参照してください。 |
-| ページ数 | [Razor ページ](xref:mvc/razor-pages/index)のフォルダー。 | 
+| ページ数 | [Razor ページ](xref:razor-pages/index)のフォルダー。 |
 | *appsettings.json* | [構成](xref:fundamentals/configuration/index) |
-| *Program.cs* | ASP.NET Core アプリを[ホスト](xref:fundamentals/hosting)します。|
+| *Program.cs* | ASP.NET Core アプリを[ホスト](xref:fundamentals/host/index)します。|
 | *Startup.cs* | サービスと要求パイプラインを構成します。 [スタートアップ](xref:fundamentals/startup)に関するページを参照してください。|
 
 ### <a name="the-pages-folder"></a>Pages フォルダー

@@ -2,19 +2,15 @@
 title: ASP.NET Core のアプリケーション モデルの使用
 author: ardalis
 description: アプリケーションを読み、操作し、ASP.NET Core での MVC 要素の動作を変更する方法について説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/controllers/application-model
-ms.openlocfilehash: a0e38b041f428f8b519fd726643b3214761fb44e
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: 7a03f5eaa561557f3abe9c8dd8f4e46a57413a55
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/27/2018
-ms.locfileid: "34555353"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277593"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>ASP.NET Core のアプリケーション モデルの使用
 
@@ -102,7 +98,7 @@ ASP.NET Core MVC は、[IApplicationModelProvider](/dotnet/api/microsoft.aspnetc
 
 ### <a name="sample-modifying-the-controllermodel-description"></a>サンプル: ControllerModel の説明を変更する
 
-前の例のように、コントローラー モデルを変更して、カスタム プロパティを含めることもできます。 これらは、アプリケーション モデルで指定した同じ名前の既存のプロパティを上書きします。 次の規則属性では、コントローラー レベルで説明が追加されます。
+前の例のように、コントローラー モデルを変更して、カスタム プロパティを含めることもできます。 これらは、アプリケーション モデルで指定した同じ名前の既存のプロパティをオーバーライドします。 次の規則属性では、コントローラー レベルで説明が追加されます。
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/ControllerDescriptionAttribute.cs)]
 
@@ -118,7 +114,7 @@ ASP.NET Core MVC は、[IApplicationModelProvider](/dotnet/api/microsoft.aspnetc
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/ActionDescriptionAttribute.cs)]
 
-コントローラーのアクションにこれを適用している前の例は、コントローラー レベルで規則を上書きする方法を示しています。
+コントローラーのアクションにこれを適用している前の例は、コントローラー レベルで規則をオーバーライドする方法を示しています。
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/DescriptionAttributesController.cs?name=DescriptionAttributesController&highlight=9)]
 
@@ -142,7 +138,7 @@ ASP.NET Core MVC は、[IApplicationModelProvider](/dotnet/api/microsoft.aspnetc
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/HomeController.cs?name=ActionModelConvention&highlight=2)]
 
-メソッド名は `SomeName` ですが、このメソッド名を使用する MVC 規則をこの属性は上書きし、アクション名を `MyCoolAction` に置換します。 したがって、このアクションに到達するのに使用されるルートは、`/Home/MyCoolAction` です。
+メソッド名は `SomeName` ですが、このメソッド名を使用する MVC 規則をこの属性はオーバーライドし、アクション名を `MyCoolAction` に置換します。 したがって、このアクションに到達するのに使用されるルートは、`/Home/MyCoolAction` です。
 
 > [!NOTE]
 > この例は、基本的に、組み込みの [ActionName](/dotnet/api/microsoft.aspnetcore.mvc.actionnameattribute) 属性を使用するのと同じです。

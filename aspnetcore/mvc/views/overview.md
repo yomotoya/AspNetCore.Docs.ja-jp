@@ -2,25 +2,21 @@
 title: ASP.NET Core MVC のビュー
 author: ardalis
 description: ビューがアプリのデータ表示と、ASP.NET Core MVC でのユーザー操作を処理する方法について説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 12/12/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: b9947de03942bd71616e4bf12263befd9f784915
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 4d5cb6288711cdef145ebb0b52e4e645c535bdf2
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33965726"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278350"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC のビュー
 
 作成者: [Steve Smith](https://ardalis.com/)、[Luke Latham](https://github.com/guardrex)
 
-このドキュメントでは、ASP.NET Core MVC アプリケーションで使用されるビューについて説明します。 Razor ページについては、「[ASP.NET Core での Razor ページの概要](xref:mvc/razor-pages/index)」を参照してください。
+このドキュメントでは、ASP.NET Core MVC アプリケーションで使用されるビューについて説明します。 Razor ページについては、「[ASP.NET Core での Razor ページの概要](xref:razor-pages/index)」を参照してください。
 
 Model-View-Controller (MVC) パターンでは、*ビュー*がアプリのデータ表示とユーザー操作を処理します。 ビューは、[Razor マークアップ](xref:mvc/views/razor)が埋め込まれた HTML テンプレートてです。 Razor マークアップは、クライアントに送信する Web ページを生成するために HTML マークアップと対話するコードです。
 

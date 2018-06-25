@@ -2,19 +2,15 @@
 title: ASP.NET Core MVC と Entity Framework Core - チュートリアル 1 (全 10 回)
 author: rick-anderson
 description: ''
-manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 0eef084c656f68fb1cad9fc0f5cfeee31ff96a30
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 3c418cc4e331ad19b0ec1be3207fa2cc44bef041
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34153778"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275672"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>ASP.NET Core MVC と Entity Framework Core - チュートリアル 1 (全 10 回)
 
@@ -31,8 +27,7 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 EF Core 2.0 は EF の最新版ですが、EF 6.x の一部の機能にまだ対応していません。 EF 6.x と EF Core のどちらを選択するかについては、「[EF Core と EF 6.x を比較する](https://docs.microsoft.com/ef/efcore-and-ef6/)」を参照してください。 EF 6.x を選択する場合、[このチュートリアル シリーズの以前のバージョン](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)を参照してください。
 
 > [!NOTE]
-> * このチュートリアルの ASP.NET Core 1.1 バージョンについては、[このチュートリアルの VS 2017 Update 2 バージョン (PDF 形式)](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf) を参照してください。
-> * このチュートリアルの Visual Studio 2015 バージョンについては、[VS 2015 バージョンの ASP.NET Core ドキュメント (PDF 形式)](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf) を参照してください。
+> このチュートリアルの ASP.NET Core 1.1 バージョンについては、[このチュートリアルの VS 2017 Update 2 バージョン (PDF 形式)](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf) を参照してください。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -42,7 +37,7 @@ EF Core 2.0 は EF の最新版ですが、EF 6.x の一部の機能にまだ対
 
 解決できない問題に遭遇した場合、通常、[完成済みのプロジェクト](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)と自分のコードを比較することで解決策がわかります。 一般的なエラーとその解決方法の一覧については、[チュートリアル シリーズの後半に登場するトラブルシューティング セクション](advanced.md#common-errors)をご覧ください。 そこで必要な答えが見つからない場合、StackOverflow.com で [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) または [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core) に関する質問を投稿できます。
 
-> [!TIP] 
+> [!TIP]
 > これは 10 回のチュートリアルからなるシリーズであり、いずれの回も前のチュートリアルを基盤にしています。 チュートリアルが完了したら、毎回、プロジェクトのコピーを保存するようお勧めします。 問題に遭遇したとき、前のチュートリアルから始めることができます。シリーズ全体の始めまで戻る必要がありません。
 
 ## <a name="the-contoso-university-web-application"></a>Contoso University Web アプリケーション
@@ -147,7 +142,7 @@ Entity Framework Core で利用できるその他のデータベース プロバ
 
 `EnrollmentID` プロパティは主キーになります。このエンティティは、`Student` エンティティと同様に、`ID` ではなく `classnameID` パターンを使用します。 通常、パターンを 1 つ選択し、データ モデル全体でそれを使用します。 ここのバリエーションから、いずれのパターンも利用できることがわかります。 [後のチュートリアル](inheritance.md)では、クラス名なしの ID を利用し、データ モデルに継承を簡単に実装する方法を学習します。
 
-`Grade` プロパティは `enum` です。 型宣言 `Grade` の後の疑問符は、`Grade` プロパティが null 許容であることを示します。 null という成績は 0 点とは異なります。null は点数がわからないことか、まだ採点されていないことを意味します。
+`Grade` プロパティは `enum` です。 `Grade` の型宣言の後の疑問符は、`Grade` プロパティが null 許容であることを示します。 null という成績は、0 の成績とは異なります。null は成績がわからないことか、まだ評価されていないことを意味します。
 
 `StudentID` プロパティは外部キーです。それに対応するナビゲーション プロパティは `Student` です。 `Enrollment` エンティティは 1 つの `Student` エンティティに関連付けられており、1 つの `Student` エンティティだけを保持できます (先に見た、複数の `Enrollment` エンティティを保持できる `Student.Enrollments` ナビゲーション プロパティとは異なります)。
 
@@ -334,7 +329,7 @@ SSOX で **(localdb)\MSSQLLocalDB > Databases** をクリックし、*appsetting
 
 ASP.NET Core と EF Core では、非同期プログラミングが既定のモードです。
 
-Web サーバーでは、利用できるスレッド数に限りがあります。負荷が高い状況では、利用できるスレッドが全部使われる可能性があります。 その場合、スレッドが解放されるまでサーバーは新しい要求を処理できません。 同期コードの場合、たくさんのスレッドが関連付けられていても、I/O の完了を待っているため、実際には何の作業も行っていないということがあります。 非同期コードの場合、あるプロセスが I/O の完了を待っているとき、多の要求の処理にサーバーが利用できるようにそのスレッドが解放されます。 結果として、非同期コードの場合、サーバー リソースをより効率的に利用できます。サーバーは、より多くのトラフィックを遅延なく処理できます。
+Web サーバーでは、利用できるスレッド数に限りがあります。負荷が高い状況では、利用できるスレッドが全部使われる可能性があります。 その場合、スレッドが解放されるまでサーバーは新しい要求を処理できません。 同期コードの場合、たくさんのスレッドが関連付けられていても、I/O の完了を待っているため、実際には何の作業も行っていないということがあります。 非同期コードの場合、あるプロセスが I/O の完了を待っているとき、そのスレッドは解放され、サーバーによって他の要求の処理に利用できます。 結果として、非同期コードの場合、サーバー リソースをより効率的に利用できます。サーバーは、より多くのトラフィックを遅延なく処理できます。
 
 非同期コードは実行時に少量のオーバーヘッドを発生させるが、トラフィックが少ない場合、パフォーマンスに与える影響は無視して構わない程度です。トラフィックが多い場合、相当なパフォーマンス改善が見込まれます。
 

@@ -2,19 +2,15 @@
 title: ASP.NET Core の Razor ページと EF Core - CRUD - 2/8
 author: rick-anderson
 description: EF Core で作成、読み取り、更新、削除を行う方法を示します
-manager: wpickett
 ms.author: riande
 ms.date: 10/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: b3f170ad35bcff7c662fb0205b0bff2e98b4724c
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 17d48cae50745508a64a9fb8a153b7b891e64a23
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32741447"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278688"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>ASP.NET Core の Razor ページと EF Core - CRUD - 2/8
 
@@ -101,8 +97,7 @@ Students インデックス ページのスキャフォールディング コー
 
 *Pages/Students/Details.cshtml* を開きます。 登録の一覧を表示するために、次の強調表示されたコードを追加します。
 
- <!--2do ricka. if doesn't change, remove dup -->
-[!code-cshtml[](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
+ <!--2do ricka. if doesn't change, remove dup --> [!code-cshtml[](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
 
 コードを貼り付けた後でコードのインデントが乱れた場合は、CTRL + D + K キーを押してそれを修正します。
 

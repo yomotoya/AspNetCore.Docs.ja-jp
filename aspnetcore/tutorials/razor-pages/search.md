@@ -2,20 +2,16 @@
 title: ASP.NET Core Razor ページへの検索の追加
 author: rick-anderson
 description: ASP.NET Core Razor ページに検索を追加する方法を紹介します
-manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 5/30/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
+ms.date: 05/30/2018
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 849ebc1c9e661480f02f80078f2fdad02366b3a5
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: 14b3b501915a22aedbc10bd7bc8e5eef408f185c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34582844"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278149"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>ASP.NET Core Razor ページへの検索の追加
 

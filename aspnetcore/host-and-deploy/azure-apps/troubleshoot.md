@@ -2,20 +2,16 @@
 title: Azure App Service での ASP.NET Core のトラブルシューティング
 author: guardrex
 description: ASP.NET Core Azure App Service の配置に関する問題を診断する方法を学習します。
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/31/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 47056c80c7abf5dd5ad5ae96af7b821d31b21b8b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f9918e9162329f4c5dbd1ff18e30fce0db24e651
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897430"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272725"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のトラブルシューティング
 
@@ -37,7 +33,7 @@ ms.locfileid: "30897430"
 ![502.5 処理エラー ページが表示されているブラウザー ウィンドウ](troubleshoot/_static/process-failure-page.png)
 
 **500 内部サーバー エラー**  
-アプリは起動しますが、エラーのためにサーバーは要求を満たすことができません。
+アプリは起動しますが、エラーのためにサーバーは要求を実行できません。
 
 このエラーは、起動時または応答の作成中に、アプリのコード内で発生します。 応答にコンテンツが含まれていないか、またはブラウザーに "*500 内部サーバー エラー*" という応答が表示される可能性があります。 通常、アプリケーション イベント ログではアプリが正常に起動したことが示されます。 サーバーから見るとそれは正しいことです。 アプリは起動しましたが、有効な応答を生成できません。 問題のトラブルシューティングを行うには、[Kudu コンソールでアプリを実行する](#run-the-app-in-the-kudu-console)か、または [ASP.NET Core モジュールの stdout ログを有効にします](#aspnet-core-module-stdout-log)。
 
@@ -47,7 +43,7 @@ ms.locfileid: "30897430"
 
 ## <a name="default-startup-limits"></a>既定の起動制限
 
-ASP.NET Core モジュールの *startupTimeLimit* は、既定では 120 秒に構成されます。 既定値のままにした場合、モジュールで処理エラーが記録されるまでに、アプリは最大で 2 分を起動にかけることができます。 モジュールを構成について詳しくは、「[AspNetCore 要素の属性](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element)」をご覧ください。
+ASP.NET Core モジュールの *startupTimeLimit* は、既定では 120 秒に構成されます。 既定値のままにした場合、モジュールで処理エラーが記録されるまでに、アプリは最大で 2 分を起動にかけることができます。 モジュールの構成の詳細については、「[AspNetCore 要素の属性](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element)」を参照してください。
 
 ## <a name="troubleshoot-app-startup-errors"></a>アプリの起動エラーのトラブルシューティング
 
@@ -112,7 +108,7 @@ ASP.NET Core モジュールの stdout には、アプリケーション イベ�
 
 ## <a name="common-startup-errors"></a>起動時の一般的なエラー 
 
-[ASP.NET Core の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)に関するページをご覧ください。 このリファレンス トピックでは、アプリの起動を妨げる一般的な問題のほとんどが説明されています。
+[ASP.NET Core の一般的なエラーのリファレンス](xref:host-and-deploy/azure-iis-errors-reference)に関するページを参照してください。 このリファレンス トピックでは、アプリの起動を妨げる一般的な問題のほとんどが説明されています。
 
 ## <a name="slow-or-hanging-app"></a>アプリの速度低下またはハング
 
@@ -175,7 +171,7 @@ stdout ログが有効になっていない場合は、次の手順のように�
 > [!WARNING]
 > stdout ログを無効にしないと、アプリまたはサーバーで障害が発生する可能性があります。 ログ ファイルのサイズまたは作成されるログ ファイルの数に制限はありません。
 >
-> ASP.NET Core アプリでのルーチン ログの場合は、ログ ファイルのサイズを制限し、ログをローテーションするログ ライブラリを使います。 詳しくは、「[サードパーティ製のログ プロバイダー](xref:fundamentals/logging/index#third-party-logging-providers)」をご覧ください。
+> ASP.NET Core アプリでのルーチン ログの場合は、ログ ファイルのサイズを制限し、ログをローテーションするログ ライブラリを使います。 詳細については、「[サードパーティ製のログ プロバイダー](xref:fundamentals/logging/index#third-party-logging-providers)」を参照してください。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

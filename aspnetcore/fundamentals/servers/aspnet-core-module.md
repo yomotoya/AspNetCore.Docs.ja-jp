@@ -2,20 +2,16 @@
 title: ASP.NET Core モジュール
 author: rick-anderson
 description: Kestrel Web サーバーが IIS または IIS Express をリバース プロキシ サーバーとして使用できるようにするための ASP.NET Core モジュールについて説明します。
-manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 02/23/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: 789b0b2e74405256bb0e247ae5ea9697e3cb28e5
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 319ab80f20f3917dae921f43566e368b51c29f0b
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34153706"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272336"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core モジュール
 

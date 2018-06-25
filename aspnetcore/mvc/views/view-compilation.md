@@ -2,21 +2,17 @@
 title: ASP.NET Core での Razor ファイルのコンパイルとプリコンパイル
 author: rick-anderson
 description: Razor ファイルをプリコンパイルする利点と、ASP.NET Core アプリケーションで Razor ファイルのプリコンパイルを実行する方法について説明します。
-manager: wpickett
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 03b11116a15c291452acd878e32cd015dc553dcc
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: 6ef450a24f57c721021f77f6df5088574caa2645
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34336279"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274041"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>ASP.NET Core での Razor ファイルのコンパイル
 
@@ -29,7 +25,7 @@ ms.locfileid: "34336279"
 関連する Razor ページまたは MVC ビューが呼び出されたときに、Razor ファイルが実行時にコンパイルされます。 ビルド時の Razor ファイルの公開はサポートされていません。 Razor ファイルはオプションで発行時にコンパイルして、アプリ &mdash; でプリコンパイル ツールを使用して展開できます。
 ::: moniker-end
 ::: moniker range=">= aspnetcore-2.1"
-関連する Razor ページまたは MVC ビューが呼び出されたときに、Razor ファイルが実行時にコンパイルされます。 Razor ファイルは、[Razor SDK](xref:mvc/razor-pages/sdk) を使用してビルド時と公開時にコンパイルされます。
+関連する Razor ページまたは MVC ビューが呼び出されたときに、Razor ファイルが実行時にコンパイルされます。 Razor ファイルは、[Razor SDK](xref:razor-pages/sdk) を使用してビルド時と公開時にコンパイルされます。
 ::: moniker-end
 
 ## <a name="precompilation-considerations"></a>プリコンパイルに関する考慮事項
@@ -87,12 +83,12 @@ dotnet publish -c Release
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
-* <xref:mvc/razor-pages/index>
+* <xref:razor-pages/index>
 * <xref:mvc/views/overview>
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
-* <xref:mvc/razor-pages/index>
+* <xref:razor-pages/index>
 * <xref:mvc/views/overview>
-* <xref:mvc/razor-pages/sdk>
+* <xref:razor-pages/sdk>
 ::: moniker-end

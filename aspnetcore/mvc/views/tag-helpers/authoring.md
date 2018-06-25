@@ -2,20 +2,16 @@
 title: ASP.NET Core のタグ ヘルパー作成
 author: rick-anderson
 description: ASP.NET Core でのタグ ヘルパーの作成方法を説明します。
-manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 01/19/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 85809a0f7bfe0adcf535c2be7f5b77e8abd947fd
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 5873c6dbdeba1b5f2bf7ac85d8992480228b7125
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32740999"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275318"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパー作成
 
@@ -55,7 +51,7 @@ ms.locfileid: "32740999"
     
    **注:**
     
-   * タグ ヘルパーは、ルート クラス名の要素 (クラス名部分から *TagHelper* 部分を引いたもの) をターゲットとする名前付け規則です。 この例では、**Email**TagHelper のルート名は *email* となるため、`<email>` タグがターゲットとなります。 この命名規則は、ほとんどのタグ ヘルパーで機能します。上書きの方法については、後述します。
+   * タグ ヘルパーは、ルート クラス名の要素 (クラス名部分から *TagHelper* 部分を引いたもの) をターゲットとする名前付け規則です。 この例では、**Email**TagHelper のルート名は *email* となるため、`<email>` タグがターゲットとなります。 この命名規則は、ほとんどのタグ ヘルパーで機能します。オーバーライドの方法については、後述します。
     
    * `EmailTagHelper` クラスは `TagHelper` から派生したものです。 `TagHelper` クラスはタグ ヘルパーを記述するためのメソッドとプロパティを提供します。
     

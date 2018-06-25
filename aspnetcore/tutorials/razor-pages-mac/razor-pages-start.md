@@ -2,26 +2,22 @@
 title: Visual Studio for Mac を使用し、macOS で ASP.NET Core Razor ページを構築する方法の概要
 author: rick-anderson
 description: Visual Studio for Mac を使用して ASP.NET Core Razor ページを構築する方法の基本を説明します。
-manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 07/27/2017
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/razor-pages-mac/razor-pages-start
-ms.openlocfilehash: 29eb11d0195f483b144394e505dd63fb6016161b
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: c2d2038a77a67d4e955856756f73e18e31f13a5d
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252335"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272053"
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core-on-macos-with-visual-studio-for-mac"></a>Visual Studio for Mac を使用し、macOS で ASP.NET Core Razor ページを構築する方法の概要
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-このチュートリアルでは、ASP.NET Core の Razor ページ Web アプリの構築の基礎について説明します。 このチュートリアルを開始する前に、[Razor ページの概要](xref:mvc/razor-pages/index)に関するページを参照することをお勧めします。 ASP.NET Core で Web アプリケーション用の UI を構築する際に Razor ページを使用することをお勧めします。
+このチュートリアルでは、ASP.NET Core の Razor ページ Web アプリの構築の基礎について説明します。 このチュートリアルを開始する前に、[Razor ページの概要](xref:razor-pages/index)に関するページを参照することをお勧めします。 ASP.NET Core で Web アプリケーション用の UI を構築する際に Razor ページを使用することをお勧めします。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 

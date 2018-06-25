@@ -2,21 +2,16 @@
 title: ASP.NET Core の静的ファイル
 author: rick-anderson
 description: 静的ファイルを提供したり、それをセキュリティで保護したりする方法、および ASP.NET Core Web アプリで静的ファイルをホストするミドルウェアの動作を構成する方法について説明します。
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/18/2018
-ms.devlang: csharp
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/static-files
-ms.openlocfilehash: f0d34b5b64235d136f7df1b3ffdbb9fb10eca316
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 7ecbcc81423af20f8da79ebc026b1ac01a250b90
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34094542"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279218"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET Core の静的ファイル
 

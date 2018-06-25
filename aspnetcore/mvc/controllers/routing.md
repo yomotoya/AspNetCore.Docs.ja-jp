@@ -2,19 +2,15 @@
 title: ASP.NET Core でのコントローラー アクションへのルーティング
 author: rick-anderson
 description: ASP.NET Core MVC でルーティング ミドルウェアを使って、受信した要求の URL を照合し、アクションにマップする方法について説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 03/14/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/controllers/routing
-ms.openlocfilehash: 28fe62128d0a094fa08e866a270aed26080b1e51
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 795ca13674f85b6e8c1f84718c225613a7a7125a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
-ms.locfileid: "29905206"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278412"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>ASP.NET Core でのコントローラー アクションへのルーティング
 
@@ -626,7 +622,7 @@ app.UseMvc(routes =>
 
 <a name="routing-areas-ref-label"></a>
 
-## <a name="areas"></a>区分
+## <a name="areas"></a>Areas
 
 [区分](areas.md)は MVC の機能であり、関連する機能を独立したルーティング名前空間 (コントローラー アクションの場合) およびフォルダー構造 (ビューの場合) としてグループ化するために使われます。 区分を使うと、アプリケーションは同じ名前の複数のコントローラーを持つことができます (ただし、"*区分*" が異なる場合)。 区分を使い、別のルート パラメーター `area` を `controller` および `action` に追加することで、ルーティングのための階層を作成します。 このセクションでは、ルーティングと区分がどのように相互作用するのかについて説明します。ビューでの区分の使い方について詳しくは、「[区分](areas.md)」をご覧ください。
 

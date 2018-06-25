@@ -2,20 +2,16 @@
 title: ASP.NET Core アプリを配置するための Visual Studio 発行プロファイル
 author: rick-anderson
 description: Visual Studio で発行プロファイルを作成し、それらを使用してさまざまなターゲットへの ASP.NET Core アプリの配置を管理する方法を説明します。
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 04/10/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 3dc858793cd4ddb2630d05a5084f4b7caeaa30eb
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 280599ab4b4f0a70d154cc4408e7232aaf766d8e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31483371"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279559"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>ASP.NET Core アプリを配置するための Visual Studio 発行プロファイル
 
@@ -110,7 +106,7 @@ ASP.NET Core プロジェクトは、プロジェクト ファイルの `Microso
 
 ## <a name="basic-command-line-publishing"></a>基本的なコマンド ラインからの発行
 
-コマンド ラインからの発行は、.NET Core をサポートするすべてのプラットフォームで機能し、Visual Studio は必要ありません。 次の例では、プロジェクト ディレクトリ (*.csproj* ファイルが含まれているディレクトリ) から [dotnet publish](/dotnet/core/tools/dotnet-publish) コマンドが実行されます。 現在のフォルダーがプロジェクト フォルダーではない場合は、プロジェクト ファイル パスにパスを明示的に渡します。 次に例を示します。
+コマンド ラインからの発行は、.NET Core をサポートするすべてのプラットフォームで機能し、Visual Studio は必要ありません。 次の例では、プロジェクト ディレクトリ (*.csproj* ファイルが含まれているディレクトリ) から [dotnet publish](/dotnet/core/tools/dotnet-publish) コマンドが実行されます。 現在のフォルダーがプロジェクト フォルダーではない場合は、プロジェクト ファイル パスにパスを明示的に渡します。 例:
 
 ```console
 dotnet publish C:\Webs\Web1
@@ -291,7 +287,7 @@ MSBuild file.
 </Project>
 ```
 
-`<LastUsedBuildConfiguration>` は `Release` に設定されます。 Visual Studio から発行すると、発行プロセスが開始されたときの値を使用して、`<LastUsedBuildConfiguration>` 構成プロパティ値が設定されます。 `<LastUsedBuildConfiguration>` 構成プロパティは特別なプロパティなので、インポートされる MSBuild ファイルで上書きされないようにしてください。 このプロパティは、コマンド ラインから上書きできます。
+`<LastUsedBuildConfiguration>` は `Release` に設定されます。 Visual Studio から発行すると、発行プロセスが開始されたときの値を使用して、`<LastUsedBuildConfiguration>` 構成プロパティ値が設定されます。 `<LastUsedBuildConfiguration>` 構成プロパティは特別なプロパティなので、インポートされる MSBuild ファイルで上書きされないようにしてください。 このプロパティは、コマンド ラインからオーバーライドできます。
 
 .NET Core CLI の使用:
 
@@ -415,7 +411,7 @@ MSDeployPublish:
 Done Building Project "C:\Webs\Web1\Web1.csproj" (default targets).
 ```
 
-## <a name="include-files"></a>ファイルを含める
+## <a name="include-files"></a>インクルード ファイル
 
 次のマークアップは、プロジェクト ディレクトリの外部にある *images* フォルダーを、発行サイトの *wwwroot/images* フォルダーに含めます。
 

@@ -2,20 +2,16 @@
 title: ASP.NET Core でのモデル バインド
 author: rachelappel
 description: ASP.NET Core MVC のモデル バインドでは、HTTP 要求からアクション メソッドのパラメーターにデータをマップする方法について説明します。
-manager: wpickett
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: rachelap
 ms.date: 01/22/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/models/model-binding
-ms.openlocfilehash: f416bda1d7bccdfa922ba598a411ef1d150e3111
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4c1cfddf82e077e22e9069777393bc5e6086de83
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
-ms.locfileid: "29904561"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278386"
 ---
 # <a name="model-binding-in-aspnet-core"></a>ASP.NET Core でのモデル バインド
 
@@ -87,7 +83,7 @@ The link works but generates an error when building with DocFX
 
 ## <a name="customize-model-binding-behavior-with-attributes"></a>属性を使用してモデル バインドの動作をカスタマイズする
 
-MVC にはいくつかの属性が含まれています。これらを使用して、その既定のモデル バインドの動作を別のソースに指示することができます。 たとえば、プロパティでバインドが必要かどうかや、`[BindRequired]` または `[BindNever]` 属性を使用してまったくバインドしないようにするかを指定できます。 あるいは、既定のデータ ソースを上書きし、モデル バインダーのデータ ソースを指定することもできます。 モデル バインド属性のリストを以下に示します。
+MVC にはいくつかの属性が含まれています。これらを使用して、その既定のモデル バインドの動作を別のソースに指示することができます。 たとえば、プロパティでバインドが必要かどうかや、`[BindRequired]` または `[BindNever]` 属性を使用してまったくバインドしないようにするかを指定できます。 あるいは、既定のデータ ソースをオーバーライドし、モデル バインダーのデータ ソースを指定することもできます。 モデル バインド属性のリストを以下に示します。
 
 * `[BindRequired]`: この属性は、バインドできない場合のモデル状態エラーを追加します。
 
@@ -99,9 +95,10 @@ MVC にはいくつかの属性が含まれています。これらを使用し�
 
 * `[FromBody]`: 構成済みのフォーマッタを使用して、要求本文からデータをバインドします。 フォーマッタは、要求のコンテンツの種類に基づいて選択されます。
 
-* `[ModelBinder]`: 既定のモデル バインダー、バインディング ソースと名前を上書きする場合に使用します。
+* 
+  `[ModelBinder]`: 既定のモデル バインダー、バインディング ソースと名前をオーバーライドする場合に使用します。
 
-属性は、モデル バインドの既定の動作を上書きする必要がある場合にとても便利なツールです。
+属性は、モデル バインドの既定の動作をオーバーライドする必要がある場合にとても便利なツールです。
 
 ## <a name="bind-formatted-data-from-the-request-body"></a>書式付きデータを要求本文からバインドする
 

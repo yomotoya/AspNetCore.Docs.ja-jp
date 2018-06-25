@@ -2,19 +2,15 @@
 title: ASP.NET Core MVC と EF Core - データ モデル - 5/10
 author: rick-anderson
 description: このチュートリアルでは、エンティティとリレーションシップをさらに追加し、書式設定、検証、マッピングの規則を指定してデータ モデルをカスタマイズします。
-manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 8f7b0d45962e5ca04d8f4d32d9c80270fb1daa72
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: d89ca44917fac57febc2f8b0d632ae004ca7216c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34154544"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277388"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC と EF Core - データ モデル - 5/10
 

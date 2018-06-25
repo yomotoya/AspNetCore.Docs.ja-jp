@@ -2,20 +2,15 @@
 title: Visual Studio for Mac を使用して ASP.NET Core MVC アプリにモデルを追加する
 author: rick-anderson
 description: 単純な ASP.NET Core アプリケーションにモデルを追加します。
-manager: wpickett
 ms.author: riande
 ms.date: 09/22/2017
-ms.devlang: csharp
-ms.prod: .net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app-mac/adding-model
-ms.openlocfilehash: 6792dbc7c9ab063d85c0c4145481b8fd6b40da63
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 53d63cd554f6a3ec958f27ed35b0a30b1833f84c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30899526"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276114"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app-with-visual-studio-for-mac"></a>Visual Studio for Mac を使用して ASP.NET Core MVC アプリにモデルを追加する
 

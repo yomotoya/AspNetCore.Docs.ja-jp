@@ -2,20 +2,16 @@
 title: IIS での ASP.NET Core のトラブルシューティング
 author: guardrex
 description: ASP.NET Core アプリのインターネット インフォメーション サービス (IIS) の展開に関する問題を診断する方法について説明します。
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: e44892d2022ca1a176cee9d027e220e196c6572d
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: d57196693feb6413560ec25e09cf74e9babf93bf
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073894"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276166"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS での ASP.NET Core のトラブルシューティング
 
@@ -116,7 +112,7 @@ stdout ログを有効にして表示するには:
 
 ## <a name="enabling-the-developer-exception-page"></a>開発者例外ページを有効にする
 
-開発環境でアプリを実行するには、`ASPNETCORE_ENVIRONMENT` [環境変数を web.config](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) に追加することができます。 アプリの起動時にホスト ビルダー上で `UseEnvironment` によって環境が上書きされない限り、環境変数を設定すると、アプリの実行時に[開発者例外ページ](xref:fundamentals/error-handling)が表示されます。
+開発環境でアプリを実行するには、`ASPNETCORE_ENVIRONMENT` [環境変数を web.config](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) に追加することができます。 アプリの起動時にホスト ビルダー上で `UseEnvironment` によって環境がオーバーライドされない限り、環境変数を設定すると、アプリの実行時に[開発者例外ページ](xref:fundamentals/error-handling)が表示されます。
 
 ```xml
 <aspNetCore processPath="dotnet"

@@ -2,19 +2,15 @@
 title: ASP.NET Core への WebListener Web サーバーの実装
 author: rick-anderson
 description: IIS なしでインターネットに直接接続するために使用できる Windows 上の ASP.NET Core の Web サーバーである WebListener について説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 03/13/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 46871edb744ad152df8eb958b344068b7408dd1e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 68aea99d6ce6af12655ef5fdb13130e9279e448a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34248454"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274870"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET Core への WebListener Web サーバーの実装
 

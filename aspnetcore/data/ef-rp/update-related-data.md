@@ -2,19 +2,15 @@
 title: ASP.NET Core の Razor ページと EF Core - 関連データの更新 - 7/8
 author: rick-anderson
 description: このチュートリアルでは、外部キー フィールドとナビゲーション プロパティを更新することで関連データを更新します。
-manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 2eff6cd5f4bb737cb79875c9b04c889914376cd0
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: e987971f60e5c5a9fb79e30440c7c986df64447e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32740375"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275295"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>ASP.NET Core の Razor ページと EF Core - 関連データの更新 - 7/8
 
@@ -95,8 +91,6 @@ Create ページをテストします。 Create ページには、部門 ID で�
 * コース ID を表示します。 通常、エンティティの主キー (PK) は表示されません。 PK は通常、ユーザーにとっては意味がありません。 このケースでは、PK はコース番号です。
 * キャプションを **DepartmentID** から **Department** (部門) に変更します。
 * `"ViewBag.DepartmentID"` を `DepartmentNameSL` (基底クラスから) で置き換えます。
-* [Select Department]\(部門の選択\) オプションを追加します。 この変更により、最初の部門ではなく、[Select Department]\(部門の選択\) がレンダリングされます。
-* 部門が選択されていない場合に、検証メッセージを追加します。
 
 このページには、コース番号の隠しフィールド (`<input type="hidden">`) が含まれています。 `<label>` タグ ヘルパーと `asp-for="Course.CourseID"` を追加しても、隠しフィールドの必要性はなくなりません。 `<input type="hidden">` は、ユーザーが **[保存]** をクリックしたときに、ポストされたデータに含まれるコース番号にとって必要です。
 

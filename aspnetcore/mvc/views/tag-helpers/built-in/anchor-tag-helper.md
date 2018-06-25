@@ -2,20 +2,16 @@
 title: ASP.NET Core のアンカー タグ ヘルパー
 author: pkellner
 description: ASP.NET Core アンカー タグ ヘルパーの属性と、HTML アンカー タグの動作拡張時の各属性の役割を示します。
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/31/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 31ff62b6bedb5e577a51f341c89d241d06a83ad3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6bdf71eaf38f134cb15b5950d2cae6ab67f861a4
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30899409"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273885"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>ASP.NET Core のアンカー タグ ヘルパー
 
@@ -272,4 +268,4 @@ MVC ビューは、次のように、アクションによって提供される�
 ## <a name="additional-resources"></a>その他の技術情報
 
 * [領域](xref:mvc/controllers/areas)
-* [Razor ページの概要](xref:mvc/razor-pages/index)
+* [Razor ページの概要](xref:razor-pages/index)
