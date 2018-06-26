@@ -57,7 +57,9 @@ Pages/Movies を参照し、**[編集]** リンクをポイントしてターゲ
 
 ### <a name="posting-and-binding-review"></a>レビューの投稿とバインディング
 
-*Pages/Movies/Edit.cshtml.cs* ファイルを確認します。[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
+*Pages/Movies/Edit.cshtml.cs* ファイルを確認します。
+
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
 
 HTTP GET 要求が Movies/Edit ページに対して行われた場合 (例: `http://localhost:5000/Movies/Edit/2`):
 
