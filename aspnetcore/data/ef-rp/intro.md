@@ -2,19 +2,15 @@
 title: ASP.NET Core での Entity Framework Core を使用した Razor ページ - チュートリアル 1/8
 author: rick-anderson
 description: Entity Framework Core を使用して Razor ページ アプリを作成する方法について説明します
-manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/intro
-ms.openlocfilehash: d7cf4740f31f1e0ae56461efc4c1b3d91238270f
-ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
+ms.openlocfilehash: cadf36f4e1ff3776ad4139e1d7c4e9b73687bc5c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35726018"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279231"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core での Entity Framework Core を使用した Razor ページ - チュートリアル 1/8
 
@@ -30,7 +26,7 @@ Contoso University のサンプル Web アプリでは、Entity Framework (EF) C
 
 [!INCLUDE [](~/includes/net-core-prereqs.md)]
 
-[Razor ページ](xref:mvc/razor-pages/index)に関する知識。 Razor ページのプログラミングが初めての場合、このシリーズを始める前に[こちらの入門編](xref:tutorials/razor-pages/razor-pages-start)を完了してください。
+[Razor ページ](xref:razor-pages/index)に関する知識。 Razor ページのプログラミングが初めての場合、このシリーズを始める前に[こちらの入門編](xref:tutorials/razor-pages/razor-pages-start)を完了してください。
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
@@ -57,7 +53,7 @@ Contoso University のサンプル Web アプリでは、Entity Framework (EF) C
 * 新しい ASP.NET Core Web アプリケーションを作成します。 プロジェクトに **ContosoUniversity** という名前を付けます。 このプロジェクトに *ContosoUniversity* という名前を付けることは重要です。そうすることでコードをコピーしたり貼り付けるときに名前空間が一致します。
  ![新しい ASP.NET Core Web アプリケーション](intro/_static/np.png)
 * ドロップダウン リストで **[ASP.NET Core 2.0]** を選択してから、**[Web アプリケーション]** を選択します。
- ![Web アプリケーション (Razor ページ)](../../mvc/razor-pages/index/_static/np2.png)
+ ![Web アプリケーション (Razor ページ)](../../razor-pages/index/_static/np2.png)
 
 **F5** キーを押して、デバッグ モードでアプリを実行するか、**Ctrl + F5** キーを押して、デバッガーをアタッチせずに実行します。
 

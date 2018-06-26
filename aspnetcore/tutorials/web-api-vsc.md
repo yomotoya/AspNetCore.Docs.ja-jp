@@ -2,27 +2,20 @@
 title: ASP.NET Core と Visual Studio Code で Web API を作成する
 author: rick-anderson
 description: macOS、Linux、Windows で ASP.NET Core MVC と Visual Studio Code を利用して Web API を構築する
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/27/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
+ms.date: 05/08/2018
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: f991aeadbaa3f7696d6fd6b8791d26248e7560a6
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 4c41c949a9b5ca8db8928a0a53aff928fd7c8a4e
+ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36297251"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>ASP.NET Core と Visual Studio Code で Web API を作成する
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) と [Mike Wasson](https://github.com/mikewasson)
-
-::: moniker range="= aspnetcore-2.1"
-[!INCLUDE[](~/includes/2.1.md)]
-::: moniker-end
 
 このチュートリアルでは、"to-do" 項目の一覧を管理する Web API を構築します。 UI が構成されていません。
 
