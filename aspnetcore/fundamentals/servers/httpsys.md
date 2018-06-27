@@ -2,20 +2,16 @@
 title: ASP.NET Core での HTTP.sys Web サーバーの実装
 author: rick-anderson
 description: Windows 上の ASP.NET Core 用 Web サーバーである HTTP.sys について説明します。 HTTP.sys は、Http.sys カーネル モード ドライバーに基づいて構築された、IIS なしで直接インターネットに接続するために使用できる Kestrel の代替製品です。
-manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/13/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: dff798b19ad6d10a8ce93001ed4cebe732c54320
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: ae76c9d3adde524fd246b0228d74861ea2b81272
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729316"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278675"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core での HTTP.sys Web サーバーの実装
 
