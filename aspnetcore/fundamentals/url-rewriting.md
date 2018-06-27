@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 336a097c2186bc195854bd54211d4554a577ed14
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: a4ffa512825fedafdc58ade9929097e255593fa9
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652215"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>ASP.NET Core の URL リライト ミドルウェア
 
@@ -22,13 +23,14 @@ ms.lasthandoff: 05/12/2018
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
 URL の書き換えは、1 つまたは複数の事前定義された規則に基づいて URL 要求を変更する操作です。 URL 書き換えは、リソースの場所とそれらのアドレスの間の抽象化を作成し、場所とアドレスが緊密にリンクされていないようにします。 URL 書き換えが役に立ついくつかのシナリオがあります。
-* サーバー リソースの安定したロケーターを維持しながらそれらのリソースを一時的または永続的に移動するか置き換える
-* 要求処理を異なる複数のアプリまたは 1 つのアプリの複数の区分にわたって分割する
-* 受信した要求の URL セグメントを削除、追加、または再編成する
-* 検索エンジン最適化 (SEO) のためにパブリック URL を最適化する
-* リンクをたどることで見つかるコンテンツをユーザーが予測しやすくするフレンドリなパブリック URL の使用を許可する
-* セキュリティで保護されていない要求をセキュリティで保護されたエンドポイントにリダイレクトする
-* イメージのホットリンクを防止する
+
+* サーバー リソースの安定したロケーターを維持しながらそれらのリソースを一時的または永続的に移動するか置き換える。
+* 要求処理を異なる複数のアプリまたは 1 つのアプリの複数の区分にわたって分割する。
+* 受信した要求の URL セグメントを削除、追加、または再編成する。
+* 検索エンジン最適化 (SEO) のためにパブリック URL を最適化する。
+* リンクをたどることで見つかるコンテンツをユーザーが予測しやすくするフレンドリなパブリック URL の使用を許可する。
+* セキュリティで保護されていない要求をセキュリティで保護されたエンドポイントにリダイレクトする。
+* イメージのホットリンクを防止する。
 
 正規表現、Apache mod_rewrite モジュール ルール、IIS Rewrite Module ルール、カスタム ルール ロジックの使用など、いくつかの方法で URL を変更するルールを定義することができます。 このドキュメントでは、ASP.NET Core アプリの URL リライト ミドルウェアを使用して URL を書き換える手順について説明します。
 
@@ -127,8 +129,8 @@ public void Configure(IApplicationBuilder app)
 
 置換文字列では、キャプチャされたグループがドル記号 (`$`) を使用して文字列に挿入され、その後にキャプチャのシーケンス番号が続きます。 最初のキャプチャ グループ値は、`$1` で取得され、2 番目は `$2` で取得され、これらは正規表現内のキャプチャ グループの順序で続行されます。 サンプル アプリでは、リダイレクト ルールの正規表現内に 1 つのキャプチャ グループだけがあるので、置換文字列に 1 つの挿入されたグループ (`$1`) だけがあります。 ルールが適用されるときに、URL `/redirected/1234/5678` になります。
 
-<a name="url-redirect-to-secure-endpoint"></a>
 ### <a name="url-redirect-to-a-secure-endpoint"></a>セキュリティで保護されたエンドポイントへの URL リダイレクト
+
 `AddRedirectToHttps` を使用して HTTP 要求を、HTTPS (`https://`) を使用する同じホストとパスにリダイレクトします。 状態コードが指定されていない場合、ミドルウェアは既定で 302 (検出) に設定します。 ポートが指定されていない場合は、ミドルウェアは既定で `null` に設定します。つまり、プロトコルを `https://` に変更し、クライアントはポート 443 上でリソースにアクセスします。 この例では、状態コードを 301 (完全な移動) に設定し、ポートを 5001 に変更する方法を示します。
 
 ```csharp
@@ -153,13 +155,16 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-サンプル アプリは、`AddRedirectToHttps` または `AddRedirectToHttpsPermanent` の使用方法の例を示すことができます。 拡張メソッドを `RewriteOptions` に追加します。 任意の URL でセキュリティ保護されていない要求をアプリに対して行います。 自己署名証明書が信頼できないことを示すブラウザーのセキュリティ警告を消去します。
+> [!NOTE]
+> リダイレクト規則を追加せずに HTTPS にリダイレクトする場合、HTTPS Redirection Middleware を使用することをお勧めします。 詳細については、「[HTTPS の適用](xref:security/enforcing-ssl#require-https)」のトピックをご覧ください。
 
-`AddRedirectToHttps(301, 5001)`: `/secure` を使用する元の要求
+サンプル アプリは、`AddRedirectToHttps` または `AddRedirectToHttpsPermanent` の使用方法の例を示すことができます。 拡張メソッドを `RewriteOptions` に追加します。 任意の URL でセキュリティ保護されていない要求をアプリに対して行います。 自己署名証明書が信頼できないことを示すブラウザーのセキュリティ警告を消去するか、証明書を信頼する例外を作成します。
+
+`AddRedirectToHttps(301, 5001)`: `http://localhost:5000/secure` を使用する元の要求
 
 ![要求および応答を追跡する開発者ツールを備えたブラウザー ウィンドウ](url-rewriting/_static/add_redirect_to_https.png)
 
-`AddRedirectToHttpsPermanent`: `/secure` を使用する元の要求
+`AddRedirectToHttpsPermanent`: `http://localhost:5000/secure` を使用する元の要求
 
 ![要求および応答を追跡する開発者ツールを備えたブラウザー ウィンドウ](url-rewriting/_static/add_redirect_to_https_permanent.png)
 
@@ -254,6 +259,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 ##### <a name="supported-server-variables"></a>サポートされるサーバー変数
 
 ミドルウェアは、次の Apache mod_rewrite サーバー変数をサポートします。
+
 * CONN_REMOTE_ADDR
 * HTTP_ACCEPT
 * HTTP_CONNECTION
@@ -325,6 +331,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ASP.NET Core 2.x でリリースされたミドルウェアは、次の IIS URL リライト モジュールの機能をサポートしていません。
+
 * 送信ルール
 * カスタム サーバー変数
 * ワイルドカード
@@ -333,6 +340,7 @@ ASP.NET Core 2.x でリリースされたミドルウェアは、次の IIS URL 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ASP.NET Core 1.x でリリースされたミドルウェアは、次の IIS URL リライト モジュールの機能をサポートしていません。
+
 * グローバル ルール
 * 送信ルール
 * マップの書き直し
@@ -347,6 +355,7 @@ ASP.NET Core 1.x でリリースされたミドルウェアは、次の IIS URL 
 #### <a name="supported-server-variables"></a>サポートされるサーバー変数
 
 ミドルウェアは、次の IIS URL リライト モジュール サーバー変数をサポートします。
+
 * CONTENT_LENGTH
 * CONTENT_TYPE
 * HTTP_ACCEPT

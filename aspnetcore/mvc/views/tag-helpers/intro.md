@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 0c66b700f9bb3e6349fe2e0c8a7e254b8e7903a5
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: c8d5a63948aed0630d677ad3c0a40fb07ddc62af
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613126"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>ASP.NET Core のタグ ヘルパー
 
@@ -67,11 +68,11 @@ public class Movie
 
 ### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper` でタグ ヘルパーを使用可能にする
 
-*AuthoringTagHelpers* という名前の新しい ASP.NET Core Web アプリを作成する場合 (認証なし)、以下の *Views/_ViewImports.cshtml* ファイルがプロジェクトに追加されます。
+*AuthoringTagHelpers* という名前の新しい ASP.NET Core Web アプリを作成する場合、以下の *Views/_ViewImports.cshtml* ファイルがプロジェクトに追加されます。
 
 [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
-`@addTagHelper` ディレクティブにより、ビューでタグ ヘルパーが使用可能になります。 この場合、ビュー ファイルは *Views/_ViewImports.cshtml* であり、既定では *Views* フォルダーとサブディレクトリのすべてのビュー ファイルによって継承され、タグ ヘルパーが使用可能になります。 上記のコードではワイルドカード構文 ("\*") を使用して、指定されたアセンブリ (*Microsoft.AspNetCore.Mvc.TagHelpers*) 内のすべてのタグ ヘルパーが、*Views* ディレクトリまたはサブディレクトリ内のすべてのビュー ファイルで使用可能になるように指定します。 `@addTagHelper` の後の最初のパラメーターでは読み込むタグ ヘルパーを指定し (すべてのタグ ヘルパーに対して "\*" を使用)、2 番目のパラメーター "Microsoft.AspNetCore.Mvc.TagHelpers" ではタグ ヘルパーを含むアセンブリを指定します。 *Microsoft.AspNetCore.Mvc.TagHelpers* は、組み込み ASP.NET Core タグ ヘルパーのアセンブリです。
+`@addTagHelper` ディレクティブにより、ビューでタグ ヘルパーが使用可能になります。 この場合、ビュー ファイルは *Pages/_ViewImports.cshtml* であり、既定では *Pages* フォルダーとサブフォルダーのすべてのファイルによって継承され、タグ ヘルパーが使用可能になります。 上記のコードではワイルドカード構文 ("\*") を使用して、指定されたアセンブリ (*Microsoft.AspNetCore.Mvc.TagHelpers*) 内のすべてのタグ ヘルパーが、*Views* ディレクトリまたはサブディレクトリ内のすべてのビュー ファイルで使用可能になるように指定します。 `@addTagHelper` の後の最初のパラメーターでは読み込むタグ ヘルパーを指定し (すべてのタグ ヘルパーに対して "\*" を使用)、2 番目のパラメーター "Microsoft.AspNetCore.Mvc.TagHelpers" ではタグ ヘルパーを含むアセンブリを指定します。 *Microsoft.AspNetCore.Mvc.TagHelpers* は、組み込み ASP.NET Core タグ ヘルパーのアセンブリです。
 
 すべてのタグ ヘルパーをこのプロジェクト (*AuthoringTagHelpers* という名前のアセンブリを作成する) で公開するには、以下を使用します。
 

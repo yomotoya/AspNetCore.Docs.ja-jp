@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 06751e713fbd579a944333cc3c3b2c0c0ad51eba
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: d132747cb7c92ef5afac4664c91634a4ad290e5f
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734524"
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>ASP.NET Core で変更トークンを使用して変更を検出する
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/12/2018
 
 ## <a name="ichangetoken-interface"></a>IChangeToken インターフェイス
 
-[IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken) は、変更が発生したことの通知を伝達します。 `IChangeToken` は、[Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives) 名前空間に含まれています。 [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) メタパッケージを使用しないアプリケーションの場合、プロジェクト ファイル内の [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/) NuGet パッケージを参照します。
+[IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken) は、変更が発生したことの通知を伝達します。 `IChangeToken` は、[Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives) 名前空間に含まれています。 [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 以降) を使用しないアプリケーションの場合、プロジェクト ファイル内の [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/) NuGet パッケージを参照します。
 
 `IChangeToken` に次の 2 つのプロパティがあります。
 
@@ -37,9 +38,10 @@ ms.lasthandoff: 05/12/2018
 
 ## <a name="changetoken-class"></a>ChangeToken クラス
 
-`ChangeToken` は、変更が発生したことの通知を伝達するために使用される静的クラスです。 `ChangeToken` は、[Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives) 名前空間に含まれています。 [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) メタパッケージを使用しないアプリケーションの場合、プロジェクト ファイル内の [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/) NuGet パッケージを参照します。
+`ChangeToken` は、変更が発生したことの通知を伝達するために使用される静的クラスです。 `ChangeToken` は、[Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives) 名前空間に含まれています。 [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)を使用しないアプリケーションの場合、プロジェクト ファイル内の [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/) NuGet パッケージを参照します。
 
 `ChangeToken` [OnChange(Func&lt;IChangeToken&gt;, Action)](/dotnet/api/microsoft.extensions.primitives.changetoken.onchange?view=aspnetcore-2.0#Microsoft_Extensions_Primitives_ChangeToken_OnChange_System_Func_Microsoft_Extensions_Primitives_IChangeToken__System_Action_) メソッドは、トークンが変更されるたびに呼び出される `Action` を登録します。
+
 * `Func<IChangeToken>` はトークンを生成します。
 * `Action` は、トークンが変更されたときに呼び出されます。
 
@@ -196,7 +198,7 @@ var compositeChangeToken =
 
 複合トークンの `HasChanged` は、いずれかの表現されているトークン `HasChanged` が `true` である場合に、`true` を報告します。 複合トークンの `ActiveChangeCallbacks` は、いずれかの表現されているトークン `ActiveChangeCallbacks` が `true` である場合に、`true` を報告します。 複数の同時変更イベントが発生すると、複合変更コールバックが正確に 1 回呼び出されます。
 
-## <a name="see-also"></a>関連項目
+## <a name="additional-resources"></a>その他の技術情報
 
 * [メモリ内キャッシュ](xref:performance/caching/memory)
 * [分散キャッシュの使用](xref:performance/caching/distributed)

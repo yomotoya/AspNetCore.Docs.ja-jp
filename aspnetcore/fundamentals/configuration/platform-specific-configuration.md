@@ -11,12 +11,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 618cb4349dcff696db37012af3aee844b82974f2
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 47d3a64ce0cc543162a066eeeaa0aaaf7dc96a5f
+ms.sourcegitcommit: 0d6f151e69c159d776ed0142773279e645edbc0a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729052"
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35415009"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>IHostingStartup を使用して ASP.NET Core の外部アセンブリからアプリを拡張する
 
@@ -57,7 +57,7 @@ ms.locfileid: "34729052"
 
 [!code-csharp[](platform-specific-configuration/snapshot_sample/StartupEnhancement.cs?name=snippet1)]
 
-クラスは `IHostingStartup` を実装しています。 クラスの [Configure](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) メソッドでは、[IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) を使用してアプリに拡張機能を追加します。
+クラスは `IHostingStartup` を実装しています。 クラスの [Configure](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) メソッドでは、[IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) を使用してアプリに拡張機能を追加します。 ホスティング スタートアップ アセンブリでの `IHostingStartup.Configure` は、ユーザー コードの `Startup.Configure` よりも前にランタイムによって呼び出されます。これにより、ユーザー コードがホスティング スタートアップ アセンブリによって提供されるすべての構成を上書きすることができます。
 
 [!code-csharp[](platform-specific-configuration/snapshot_sample/StartupEnhancement.cs?name=snippet2&highlight=3,5)]
 
@@ -99,31 +99,33 @@ ms.locfileid: "34729052"
 
 実装の *\*.deps.json* ファイルは、アセンブリの場所に配置されている必要があります。
 
-ユーザーごとに使用する場合は、ユーザー プロファイルの `.dotnet` 設定の `additonalDeps` フォルダーにファイルを配置します。 
+ユーザーごとに使用する場合は、ユーザー プロファイルの `.dotnet` 設定の `additonalDeps` フォルダーにファイルを配置します。
 
 ```
-<DRIVE>\Users\<USER>\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.1.0\
+<DRIVE>\Users\<USER>\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\
 ```
 
 グローバルに使用する場合は、.NET Core インストールの `additonalDeps` フォルダーにファイルを配置します。
 
 ```
-<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.1.0\
+<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\
 ```
 
-バージョン (`2.1.0`) には、ターゲット アプリが使用する共有ランタイムのバージョンを反映することに注意してください。 共有ランタイムは、*\*.runtimeconfig.json* ファイルに示されます。 サンプル アプリでは、共有ランタイムは、*HostingStartupSample.runtimeconfig.json* ファイルで指定されます。
+共有フレームワークのバージョンには、ターゲット アプリが使用する共有ランタイムのバージョンが反映されます。 共有ランタイムは、*\*.runtimeconfig.json* ファイルに示されます。 サンプル アプリでは、共有ランタイムは、*HostingStartupSample.runtimeconfig.json* ファイルで指定されます。
 
 **環境変数の設定**
 
 拡張機能を使用するアプリのコンテキストで次の環境変数を設定します。
 
-ASPNETCORE\_HOSTINGSTARTUPASSEMBLIES
+ASPNETCORE_HOSTINGSTARTUPASSEMBLIES
 
 ホスティング スタートアップ アセンブリのみが、`HostingStartupAttribute` に対してスキャンされます。 実装のアセンブリ名は、この環境変数で提供されます。 サンプル アプリでは、この値を `StartupDiagnostics` に設定します。
 
 また、この値は「[Hosting Startup Assemblies](xref:fundamentals/host/web-host#hosting-startup-assemblies)」(ホスティング スタートアップ アセンブリ) のホスト構成設定を使用して設定することもできます。
 
-DOTNET\_ADDITIONAL\_DEPS
+複数のホスティング スタートアップ アセンブリがある場合、それらの [Configure](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) メソッドは、アセンブリが一覧表示されている順序で実行されます。
+
+DOTNET_ADDITIONAL_DEPS
 
 実装の *\*.deps.json* ファイルの場所。
 
@@ -136,7 +138,7 @@ DOTNET\_ADDITIONAL\_DEPS
 ファイルがグローバルに使用するために .NET Core インストールに配置される場合は、ファイルに完全なパスを指定します。
 
 ```
-<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.1.0\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
+<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
 ```
 
 サンプル アプリではこの値を次のように設定します。

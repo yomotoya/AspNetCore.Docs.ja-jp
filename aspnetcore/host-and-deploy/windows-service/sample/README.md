@@ -1,35 +1,37 @@
-# <a name="custom-webhost-service-sample"></a>カスタム web ホスト サービスのサンプル
+# <a name="custom-webhost-service-sample"></a>カスタム WebHost サービスのサンプル
 
-このサンプルでは、Windows サービスとして IIS を使用せずに Windows 上の ASP.NET Core アプリケーションをホストするための推奨方法を示します。 このサンプルで説明する機能[Windows サービスでの ASP.NET Core アプリ ホスト](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service)です。
+このサンプルは、IIS を使用せずに、Windows サービスとして ASP.NET Core アプリをホストする方法を示しています。 このサンプルでは、「[Windows サービスでの ASP.NET Core のホスト](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service)」で説明されているシナリオを紹介します。
 
 ## <a name="instructions"></a>手順
 
-サンプル アプリは単純な MVC web アプリの説明に従って変更[Windows サービスでの ASP.NET Core アプリ ホスト](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service)です。
+このサンプル アプリは、「[Windows サービスでの ASP.NET Core のホスト](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service)」の指示に従って変更した Razor Pages Web アプリです。
 
-でサービスを、アプリを実行するには、次の手順を実行します。
+サービスでこのアプリを実行するには、次の手順を実行します。
 
-1. フォルダーを作成*c:\svc*です。
+1. *c:\svc* にフォルダーを作成します。
 
-1. アプリのフォルダーを公開する`dotnet publish --configuration Release --output c:\\svc`です。 コマンドは、アプリのアセット フォルダーを移動など、必要な`appsettings.json`ファイルおよび`wwwroot`フォルダとその中身です。
+1. `dotnet publish --configuration Release --output c:\\svc` を使用してフォルダーにアプリを発行します。 このコマンドで、必要な `appsettings.json` ファイルと `wwwroot` フォルダーを含め、アプリの資産が *svc* フォルダーに移動されます。
 
-1. 開く、**管理者**コマンド シェル。
+1. **管理者**のコマンド プロンプトを開きます。
 
 1. 次のコマンドを実行します。
 
    ```console
-   sc create MyService binPath="c:\svc\aspnetcoreservice.exe"
+   sc create MyService binPath= "c:\svc\aspnetcoreservice.exe"
    sc start MyService
    ```
 
-1. ブラウザーに移動`http://localhost:5000`をサービスが実行されていることを確認します。
+  *等号記号 (=) とパス文字列の先頭の間にはスペースが必要です。*
 
-1. サービスを停止するには、コマンドを使用します。
+1. ブラウザーで `http://localhost:5000` に移動し、サービスが実行されていることを確認します。 アプリがセキュリティで保護されたエンドポイント `https://localhost:5001` にリダイレクトされます。
+
+1. サービスを停止するには、次のコマンドを使用します。
 
    ```console
    sc stop MyService
    ```
 
-エラー メッセージにアクセスできるようにする簡単な方法がなど、ログ プロバイダーを追加するには、アプリが、サービスで実行する場合を想定どおりに起動しない場合、 [Windows イベント ログ プロバイダー](https://docs.microsoft.com/aspnet/core/fundamentals/logging/index#eventlog)です。 別のオプションでは、システム上のイベント ビューアーを使用して、アプリケーション イベント ログを確認します。 たとえば、FileNotFound エラー アプリケーション イベント ログ内の未処理の例外を次に示します。
+アプリが正常に起動しない場合は、[Windows EventLog プロバイダー](https://docs.microsoft.com/aspnet/core/fundamentals/logging/index#eventlog)などのロギング プロバイダーを追加すると、エラー メッセージに簡単にアクセスできるようになります。 また、システムでイベント ビューアーを使用してアプリケーション イベント ログを確認する方法もあります。 たとえば、アプリケーション イベント ログには次のような FileNotFound エラーのハンドルされない例外があります。
 
 ```console
 Application: AspNetCoreService.exe

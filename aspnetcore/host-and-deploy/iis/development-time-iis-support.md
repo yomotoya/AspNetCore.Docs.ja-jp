@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 0bf4585d44e61c5e7e5b89ce9d8dfdfa10d5460e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: aeff8cd7da0637290d4edffaf183fc3c4f56f7f4
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34233080"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34555483"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Visual Studio for ASP.NET Core の開発時 IIS サポート
 
@@ -25,7 +25,10 @@ ms.locfileid: "34233080"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-[!INCLUDE[](~/includes/net-core-prereqs-windows.md)]
+* [Visual Studio (Windows 版)](https://www.microsoft.com/net/download/windows)。
+* **ASP.NET および Web の開発**ワークロード
+* **.NET Core クロスプラットフォームの開発**ワークロード
+* X.509 セキュリティ証明書
 
 ## <a name="enable-iis"></a>IIS を有効にする
 

@@ -5,26 +5,26 @@ description: Ubuntu 16.04 でリバース プロキシとして Nginx をセッ�
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2018
+ms.date: 05/22/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: d37aa25c712d715aa4134587a84e5923f9cb5b79
-ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
+ms.openlocfilehash: edef672ca809c560a3f9faa891586e5e255284b5
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34452556"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34566816"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Nginx 搭載の Linux で ASP.NET Core をホストする
 
 [Sourabh Shirhatti](https://twitter.com/sshirhatti) による投稿
 
-このガイドでは、Ubuntu 16.04 サーバーで本稼働対応の ASP.NET Core 環境をセットアップする方法について説明します。
+このガイドでは、Ubuntu 16.04 サーバーで本稼働対応の ASP.NET Core 環境をセットアップする方法について説明します。 これらの手順は、Ubuntu のより新しいバージョンで動作する可能性が高いですが、手順はまだ新しいバージョンでテストされていません。
 
 > [!NOTE]
-> Ubuntu 14.04 の場合、Kestrel プロセスを監視するためのソリューションとして *supervisord* が推奨されます。 *systemd* は Ubuntu 14.04 ではご利用いただけません。 [このドキュメントの前のバージョンをご覧ください](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md)。
+> Ubuntu 14.04 の場合、Kestrel プロセスを監視するためのソリューションとして *supervisord* が推奨されます。 *systemd* は Ubuntu 14.04 ではご利用いただけません。 Ubuntu 14.04 の手順については、[このトピックの前のバージョンを参照してください](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md)。
 
 このガイドでは:
 
@@ -35,31 +35,55 @@ ms.locfileid: "34452556"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-1. Ubuntu 16.04 サーバーへのアクセスと sudo 特権が与えられた標準ユーザー アカウント
-1. 既存の ASP.NET Core アプリ
+1. Ubuntu 16.04 サーバーへのアクセスと sudo 特権が与えられた標準ユーザー アカウント。
+1. サーバーへの .NET Core ランタイムのインストール。
+   1. [.NET の「All Downloads」 (すべてのダウンロード) ページ](https://www.microsoft.com/net/download/all)に移動します。
+   1. プレビューではない最新のランタイムを、**Runtime** (ランタイム) の一覧から選択します。
+   1. サーバーの Ubuntu のバージョンに一致する Ubuntu の説明を選択し、これに従います。
+1. 既存の ASP.NET Core アプリ。
 
-## <a name="copy-over-the-app"></a>アプリをコピーする
+## <a name="publish-and-copy-over-the-app"></a>アプリを介して発行およびコピーする
 
-開発環境から [dotnet publish](/dotnet/core/tools/dotnet-publish) を実行し、サーバーで実行可能な自己完結型ディレクトリにアプリをパッケージ化します。
+[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)用にアプリを構成します。
 
-組織のワークフローに統合されているツール (SCP や FTP など) を使用して、サーバーに ASP.NET Core アプリをコピーします。 次のようにアプリをテストします。
+開発環境から [dotnet publish](/dotnet/core/tools/dotnet-publish) を実行し、サーバー上で実行できるディレクトリ (たとえば、*bin/Release/&lt;target_framework_moniker&gt;/publish*) にアプリをパッケージします。
 
-* コマンド ラインから `dotnet <app_assembly>.dll` を実行します。
-* ブラウザーで、`http://<serveraddress>:<port>` に移動し、アプリが Linux で動作することを検証します。 
- 
+```console
+dotnet publish --configuration Release
+```
+
+サーバーで .NET Core ランタイムを管理しない場合、アプリは[独立した展開](/dotnet/core/deploying/#self-contained-deployments-scd)として発行することもできます。
+
+組織のワークフローに統合されているツール (SCP や SFTP など) を使用して、サーバーに ASP.NET Core アプリをコピーします。 Web アプリは一般的に *var* ディレクトリの下に配置されます (たとえば、*var/aspnetcore/hellomvc*)。
+
+> [!NOTE]
+> 運用展開シナリオの場合、継続的インテグレーション ワークフローが、アプリの発行処理とサーバーへの資産のコピーを行います。
+
+アプリをテストします。
+
+1. コマンド ラインから `dotnet <app_assembly>.dll` アプリを実行します。
+1. ブラウザーで、`http://<serveraddress>:<port>` に移動し、アプリが Linux のローカルで動作することを検証します。
+
 ## <a name="configure-a-reverse-proxy-server"></a>リバース プロキシ サーバーを構成する
 
 リバース プロキシは、動的 Web アプリを提供するための一般的な仕組みです。 リバース プロキシは HTTP 要求を終了させ、ASP.NET Core アプリに転送します。
 
-### <a name="why-use-a-reverse-proxy-server"></a>リバース プロキシ サーバーを利用する理由
+::: moniker range=">= aspnetcore-2.0"
+
+> [!NOTE]
+> リバース プロキシ サーバーの有無に関わらず、いずれの構成も有効で、ASP.NET Core 2.0 またはそれ以降のアプリ用にホスティング構成がサポートされている必要があります。 詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
+
+::: moniker-end
+
+### <a name="use-a-reverse-proxy-server"></a>リバース プロキシ サーバーを利用する
 
 Kestrel は、ASP.NET Core から動的なコンテンツを提供するのに役立ちます。 ただし、Web サーバーとしての機能は、IIS、Apache、Nginx などのサーバーと比べると制限されます。 リバース プロキシ サーバーは、静的コンテンツ サービス、要求のキャッシュ、要求の圧縮、HTTP サーバーからの SSL 終了などの作業の負荷を軽減します。 リバース プロキシ サーバーは専用コンピューター上に置かれることもあれば、HTTP サーバーと並んで展開されることもあります。
 
 このガイドの目的のために、単一インスタンスの Nginx が使用されます。 HTTP サーバーと並んで、同じサーバー上で実行されます。 要件に応じて、別のセットアップを選択することも可能です。
 
-要求はリバース プロキシによって転送されます。そのため、[Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) パッケージの Forwarded Headers Middleware を使用します。 リダイレクト URI とその他のセキュリティ ポリシーを正しく機能させるために、このミドルウェアは、`X-Forwarded-Proto` ヘッダーを利用して、`Request.Scheme` を更新します。
+要求はリバース プロキシによって転送されます。そのため、[Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) パッケージの [Forwarded Headers Middleware](xref:host-and-deploy/proxy-load-balancer) を使用します。 リダイレクト URI とその他のセキュリティ ポリシーを正しく機能させるために、このミドルウェアは、`X-Forwarded-Proto` ヘッダーを利用して、`Request.Scheme` を更新します。
 
-任意の認証ミドルウェアを使用する場合は、Forwarded Headers Middleware を最初に実行する必要があります。 この順序により、認証ミドルウェアはヘッダーの値を利用して、正しいリダイレクト URI を生成できます。
+認証、リンクの生成、リダイレクト、および地理的位置情報など、スキームに依存するすべてのコンポーネントは、Forwarded Headers Middleware の呼び出し後に配置する必要があります。 一般的な規則として、Forwarded Headers Middleware は、診断およびエラー処理ミドルウェアを除くその他のミドルウェアより前に実行される必要があります。 この順序により、転送されるヘッダー情報に依存するミドルウェアが処理にヘッダー値を使用できます。
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -100,20 +124,28 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 ### <a name="install-nginx"></a>Nginx をインストールする
 
+`apt-get` を利用し、Nginx をインストールします。 インストーラーにより *systemd* init スクリプトが作成されます。このスクリプトがシステム起動時に Nginx をデーモンとして実行します。 
+
 ```bash
-sudo apt-get install nginx
+sudo -s
+nginx=stable # use nginx=development for latest development version
+add-apt-repository ppa:nginx/$nginx
+apt-get update
+apt-get install nginx
 ```
 
-> [!NOTE]
-> オプションの Nginx モジュールをインストールする場合、Nginx をソースからビルドする必要がある場合があります。
+Ubuntu パーソナル パッケージ アーカイブ (PPA) は、ボランティアによって管理されており、[nginx.org](https://nginx.org/) が配布しているものではありません。詳細については、「[Nginx: Binary Releases: Official Debian/Ubuntu packages](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages)」 (Nginx: バイナリ リリース: 公式 Debian/Ubuntu パッケージ) を参照してください。
 
-`apt-get` を利用し、Nginx をインストールします。 インストーラーにより System V init スクリプトが作成されます。このスクリプトがシステム起動時に Nginx をデーモンとして実行します。 Nginx は初めてのインストールとなるので、次を実行して明示的に起動します。
+> [!NOTE]
+> オプションの Nginx モジュールが必要な場合、Nginx をソースからビルドする必要がある場合があります。
+
+Nginx は初めてのインストールとなるので、次を実行して明示的に起動します。
 
 ```bash
 sudo service nginx start
 ```
 
-ブラウザーで Nginx の既定のランディング ページが表示されることを確認します。
+ブラウザーで Nginx の既定のランディング ページが表示されることを確認します。 ランディング ページは `http://<server_IP_address>/index.nginx-debian.html` からアクセスできます。
 
 ### <a name="configure-nginx"></a>Nginx を構成する
 
@@ -128,8 +160,10 @@ server {
         proxy_http_version 1.1;
         proxy_set_header   Upgrade $http_upgrade;
         proxy_set_header   Connection keep-alive;
-        proxy_set_header   Host $http_host;
+        proxy_set_header   Host $host;
         proxy_cache_bypass $http_upgrade;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
     }
 }
 ```
@@ -150,6 +184,21 @@ server {
 > 適切な [server_name directive](https://nginx.org/docs/http/server_names.html) を指定しないと、アプリにセキュリティ上の脆弱性が生じます。 親ドメイン全体を制御する場合、サブドメイン ワイルドカード バインド (たとえば、`*.example.com`) にこのセキュリティ リスクはありません (脆弱である `*.com` とは対照的)。 詳細については、[rfc7230 セクション-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) を参照してください。
 
 Nginx の構成を確立したら、`sudo nginx -t` を実行して構成ファイルの構文を確認します。 構成ファイルがテストに合格したら、`sudo nginx -s reload` を実行することで、強制的に Nginx に変更を反映させます。
+
+アプリをサーバーで直接実行するには、次を実行します。
+
+1. アプリのディレクトリに移動します。
+1. アプリの実行可能ファイルである `./<app_executable>` を実行します。
+
+アクセス許可エラーが発生した場合は、アクセス許可を変更します。
+
+```console
+chmod u+x <app_executable>
+```
+
+アプリがサーバーで実行されているにも関わらず、インターネット上で応答がない場合、サーバーのファイアウォールを確認し、ポート 80 が開かれていることを確認します。 Azure Ubuntu VM を使用している場合、受信ポート 80 のトラフィックを有効にするネットワーク セキュリティ グループ (NSG) 規則を追加します。 送信トラフィックは、受信規則が有効になると自動的に生成されるので、送信ポート 80 規則を有効にする必要はありません。
+
+アプリのテストが終了したら、コマンド プロンプトで `Ctrl+C` を使用してアプリをシャットダウンします。
 
 ## <a name="monitoring-the-app"></a>アプリの監視
 
@@ -259,20 +308,6 @@ sudo ufw allow 443/tcp
 
 ### <a name="securing-nginx"></a>Nginx のセキュリティを強化する
 
-Nginx の既定のディストリビューションでは SSL が有効になっていません。 追加のセキュリティ機能を有効にするには、ソースからビルドします。
-
-#### <a name="download-the-source-and-install-the-build-dependencies"></a>ソースをダウンロードし、ビルド依存関係をインストールする
-
-```bash
-# Install the build dependencies
-sudo apt-get update
-sudo apt-get install build-essential zlib1g-dev libpcre3-dev libssl-dev libxslt1-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libgoogle-perftools-dev libperl-dev
-
-# Download Nginx 1.10.0 or latest
-wget http://www.nginx.org/download/nginx-1.10.0.tar.gz
-tar zxf nginx-1.10.0.tar.gz
-```
-
 #### <a name="change-the-nginx-response-name"></a>Nginx 応答名を変更する
 
 *src/http/ngx_http_header_filter_module.c* を編集します。
@@ -282,20 +317,9 @@ static char ngx_http_server_string[] = "Server: Web Server" CRLF;
 static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
 ```
 
-#### <a name="configure-the-options-and-build"></a>オプションを構成し、ビルドする
+#### <a name="configure-options"></a>構成オプション
 
-正規表現には PCRE ライブラリが必要です。 正規表現は、ngx_http_rewrite_module の場所ディレクティブで使用されます。 http_ssl_module により HTTPS プロトコル サポートが追加されます。
-
-アプリのセキュリティを強化するために、*ModSecurity* のような Web アプリのファイアウォールの使用を検討してください。
-
-```bash
-./configure
---with-pcre=../pcre-8.38
---with-zlib=../zlib-1.2.8
---with-http_ssl_module
---with-stream
---with-mail=dynamic
-```
+必要なその他のモジュールでサーバーを構成します。 アプリのセキュリティを強化するために、[ModSecurity](https://www.modsecurity.org/) のような Web アプリのファイアウォールの使用を検討してください。
 
 #### <a name="configure-ssl"></a>SSL を構成する
 
@@ -337,3 +361,9 @@ sudo nano /etc/nginx/nginx.conf
 ```
 
 行 `add_header X-Content-Type-Options "nosniff";` を追加し、ファイルを保存し、Nginx を再起動します。
+
+## <a name="additional-resources"></a>その他の技術情報
+
+* [Nginx: バイナリ リリース: 公式 Debian/Ubuntu パッケージ](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages)
+* [プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)
+* [NGINX: 転送されるヘッダーの使用](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/)

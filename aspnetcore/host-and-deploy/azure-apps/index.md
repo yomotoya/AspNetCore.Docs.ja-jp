@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 9e438cef9db61e725b5385da53e8aa2b407218c3
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 4cf81a3e269500a5108f280348fbddd172df10a0
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34687504"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Azure App Service での ASP.NET Core のホスト
 
@@ -103,25 +104,29 @@ ASP.NET Core プレビュー アプリは、次の方法で Azure App Service �
 
 ### <a name="install-the-preview-site-extension"></a>プレビュー サイト拡張機能をインストールする
 
-* Azure Portal から [App Service] ブレードに移動します。
-* 検索ボックスに「ex」と入力します。
-* **[拡張機能]** を選びます。
-* [追加] を選びます。
+1. Azure Portal から [App Service] ブレードに移動します。
+1. Web アプリを選択します。
+1. 検索ボックスに「ex」と入力するか、管理ウィンドウの一覧を **[開発ツール]** までスクロール ダウンします。
+1. **[開発ツール]** > 、**[拡張機能]** の順に選択します。
+1. **[追加]** を選びます。
 
-![前の手順の [Azure App] ブレード](index/_static/x1.png)
+   ![前の手順の [Azure App] ブレード](index/_static/x1.png)
 
-* **ASP.NET Core 2.1 (x86) ランタイム**または **ASP.NET Core 2.1 (x64) ランタイム**を選択します。
-* **[OK]** を選択します。 もう一度 **[OK]** を選択します。
+1. **[ASP.NET Core Extensions]\(ASP.NET Core 拡張機能\)** を選びます。
+1. **[OK]** を選んで法的条項に同意します。
+1. **[OK]** を選択し、拡張機能をインストールします。
 
-追加操作が完了すると、最新の .NET Core 2.1 プレビューがインストールされます。 コンソールで `dotnet --info` を実行してインストールを確認します。 **[App Service]** ブレードから: 
+追加操作が完了すると、最新の .NET Core プレビューがインストールされます。 コンソールで `dotnet --info` を実行してインストールを確認します。 **[App Service]** ブレードから: 
 
-* 検索ボックスに「con」と入力します。
-* **[コンソール]** を選びます。
-* コンソールに `dotnet --info` と入力します。
+1. 検索ボックスに「con」と入力するか、管理ウィンドウの一覧を **[開発ツール]** までスクロール ダウンします。
+1. **[開発ツール]** > 、**[コンソール]** の順に選択します。
+1. コンソールに `dotnet --info` と入力します。
+
+バージョン `2.1.300-preview1-008174` が最新のプレビュー リリースである場合、コマンド プロンプトで `dotnet --info` を実行すると、次が出力されます。
 
 ![前の手順の [Azure App] ブレード](index/_static/cons.png)
 
-前の画像は、これが書き込まれた時点での最新です。 別のバージョンが表示される可能性があります。
+上の図の ASP.NET Core のバージョン、`2.1.300-preview1-008174` は例です。 `dotnet --info` を実行すると、サイト拡張機能が構成されたときの最新の ASP.NET Core のプレビュー バージョンが表示されます。
 
 `dotnet --info` では、プレビューがインストールされているサイトの拡張機能へのパスが表示されます。 アプリが既定の *ProgramFiles* の場所ではなく、サイトの拡張機能から実行されていることが示されます。 *ProgramFiles* が表示される場合は、サイトを再起動して、`dotnet --info` を実行してください。
 
@@ -142,7 +147,7 @@ ARM テンプレートを使用してアプリを作成し、展開する場合�
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>コンテナー用の Web アプリで Docker を使用する
 
-[Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) には最新の 2.1 プレビュー Docker イメージが含まれています。 イメージを基本イメージとして使用できます。 通常は、イメージを使用して、Web App for Containers に展開します。
+[Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) には最新のプレビュー Docker イメージが含まれています。 イメージを基本イメージとして使用できます。 通常は、イメージを使用して、Web App for Containers に展開します。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/overview
-ms.openlocfilehash: 1cf48499d3bc0ba63e2f0667740668fad0b13c28
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 0ebf53e0d14ffb5d9ab969e3d6e038a292f913c1
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34566907"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC の概要
 
@@ -177,7 +178,7 @@ ASP.NET Core には、[依存関係の挿入 (DI)](../fundamentals/dependency-in
    {
 ```
 
-### <a name="areas"></a>区分
+### <a name="areas"></a>Areas
 
 [区分](controllers/areas.md)は、大きな ASP.NET Core MVC Web アプリを小さな機能グループに分割するための方法を提供します。 区分は、アプリケーション内の MVC 構造体となります。 MVC プロジェクトでは、モデル、コント ローラー、ビューなどの論理コンポーネントが異なるフォルダーに保持され、MVC では名前付け規則を使用して、これらのコンポーネントの関係を作成します。 大きなアプリでは、アプリを機能の個別の高レベル区分に分割すると便利な場合があります。 たとえば、チェックアウト、請求、検索などの複数のビジネス ユニットを持つ e コマース アプリの場合です。これらのユニットにはそれぞれ独自の論理コンポーネント ビュー、コントローラー、およびモデルがあります。
 
@@ -185,13 +186,13 @@ ASP.NET Core には、[依存関係の挿入 (DI)](../fundamentals/dependency-in
 
 Web サイトのビルドに最適なプラットフォームというだけでなく、ASP.NET Core MVC には Web API のビルドに適したサポートがあります。 ブラウザーやモバイル デバイスなど、さまざまなクライアントに提供されるサービスをビルドできます。
 
-フレームワークを組み込みサポートを備えた HTTP コンテンツ ネゴシエーションをサポートしています[データを書式設定](xref:web-api/advanced/formatting)JSON または XML として。 [カスタム フォーマッタ](xref:web-api/advanced/custom-formatters)を作成して、独自の書式のサポートを追加します。
+フレームワークには、JSON または XML として [書式のデータ](xref:web-api/advanced/formatting)の組み込みサポートと共に、HTTP コンテンツ ネゴシエーションのサポートが含まれます。 [カスタム フォーマッタ](xref:web-api/advanced/custom-formatters)を作成して、独自の書式のサポートを追加します。
 
 リンクの生成を使って、ハイパーメディアのサポートを有効にします。 自分の Web API を複数の Web アプリケーションで共有できるように、[クロス オリジン リソース共有 (CORS)](http://www.w3.org/TR/cors/) のサポートを簡単に有効にできます。
 
 ### <a name="testability"></a>テストの容易性
 
-インターフェイスと依存関係の挿入のフレームワークの使用に適してを単体テスト、行い、フレームワークには、構成する (Entity Framework の考えます、InMemory プロバイダー) のような機能が含まれています[統合テスト](../testing/integration-testing.md)クイックと。簡単にもします。 詳細については[コント ローラーのロジックをテストする方法](controllers/testing.md)です。
+フレームワークでインターフェイスと依存関係の挿入を使用して、単体テストに適するようにします。また、フレームワークには、[統合テスト](xref:test/integration-tests)もすばやく簡単にする機能 (Entity Framework の TestHost と InMemory プロバイダーなど) が含まれます。 詳細については、[コントローラー ロジックのテスト方法](controllers/testing.md)に関するページを参照してください。
 
 ### <a name="razor-view-engine"></a>Razor ビュー エンジン
 

@@ -12,11 +12,12 @@ ms.technology: aspnet
 ms.topic: get-started-article
 services: multiple
 uid: tutorials/publish-to-azure-webapp-using-cli
-ms.openlocfilehash: 0462a4cf18bba23643ed3b1b4e6b76bdbceb24a8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3fc068096a4b8696340787aa15120a2f97d10164
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252439"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-command-line-tools"></a>コマンド ライン ツールを使用して Azure に ASP.NET Core アプリを公開する
 
@@ -24,13 +25,13 @@ ms.lasthandoff: 04/06/2018
 
 [!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
-このチュートリアルでは、コマンド ライン ツールを使用して ASP.NET Core アプリケーションをビルドし、Microsoft Azure App Service に展開する方法について説明します。  このチュートリアルを終えると、Azure App Service の Web アプリとしてホストされる ASP.NET MVC Core でビルドした Web アプリケーションが完成します。  本チュートリアルは Windows コマンド ライン ツールを使用して作成されていますが、macOS や Linux の環境にも適用可能です。  
+このチュートリアルでは、コマンド ライン ツールを使用して ASP.NET Core アプリをビルドし、Microsoft Azure App Service に展開する方法について説明します。 このチュートリアルを終えると、Azure App Service の Web アプリとしてホストされる ASP.NET Core でビルドした Razor Pages Web アプリが完成します。 本チュートリアルは Windows コマンド ライン ツールを使用して作成されていますが、macOS や Linux の環境にも適用可能です。
 
 このチュートリアルでは、次の作業を行う方法について説明します。
 
 > [!div class="checklist"]
 > * Azure CLI を使用して Azure App Service を作成する
-> * Git コマンド ラインを使用して Azure App Service へ ASP.NET Core アプリケーションを展開する
+> * Git コマンド ライン ツールを使用して Azure App Service へ ASP.NET Core アプリを展開する
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -40,41 +41,85 @@ ms.lasthandoff: 04/06/2018
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 * [Git](https://www.git-scm.com/) コマンド ライン クライアント
 
-## <a name="create-a-web-application"></a>Web アプリケーションの作成
+## <a name="create-a-web-app"></a>Web アプリの作成
 
-Web アプリケーション用の新しいディレクトリを作成し、新しい ASP.NET Core MVC アプリケーションを作成してから Web サイトをローカルで実行します。
+Web アプリ用の新しいディレクトリを作成し、新しい ASP.NET Core Razor Pages アプリを作成してから Web サイトをローカルで実行します。
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-```cmd
-REM Create a new ASP.NET Core MVC application
+
+::: moniker range=">= aspnetcore-2.1"
+
+```console
+REM Create a new ASP.NET Core Razor Pages app
+dotnet new webapp -o MyApplication
+
+REM Change to the new directory that was just created
+cd MyApplication
+
+REM Run the app
+dotnet run
+```
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+```console
+REM Create a new ASP.NET Core Razor Pages app
 dotnet new razor -o MyApplication
 
 REM Change to the new directory that was just created
 cd MyApplication
 
-REM Run the application
+REM Run the app
 dotnet run
 ```
 
+::: moniker-end
+
 # <a name="othertabother"></a>[その他](#tab/other)
+
+::: moniker range=">= aspnetcore-2.1"
+
 ```bash
-# Create a new ASP.NET Core MVC application
+# Create a new ASP.NET Core Razor Pages app
+dotnet new webapp -o MyApplication
+
+# Change to the new directory that was just created
+cd MyApplication
+
+# Run the app
+dotnet run
+```
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+```bash
+# Create a new ASP.NET Core Razor Pages app
 dotnet new razor -o MyApplication
 
 # Change to the new directory that was just created
 cd MyApplication
 
-# Run the application
+# Run the app
 dotnet run
 ```
+
+::: moniker-end
+
 ---
 
 ![コマンド ライン出力](publish-to-azure-webapp-using-cli/_static/new_prj.png)
 
-http://localhost:5000 にアクセスしてアプリケーションをテストします。
+`http://localhost:5000` にアクセスしてアプリをテストします。
 
 ![ローカルで実行されている Web サイト](publish-to-azure-webapp-using-cli/_static/app_test.png)
-
 
 ## <a name="create-the-azure-app-service-instance"></a>Azure App Service インスタンスの作成
 
@@ -101,14 +146,15 @@ az webapp create --name $webappname --resource-group DotNetAzureTutorial --plan 
 az webapp deployment user set --user-name <desired user name> --password <desired password>
 ```
 
-Git を使用してアプリケーションを展開するには、展開 URL が必要です。  この URL は以下のようにして取得します。
+Git を使用してアプリを展開するには、展開 URL が必要です。 この URL は以下のようにして取得します。
 
 ```azurecli-interactive
 az webapp deployment source config-local-git -n $webappname -g DotNetAzureTutorial --query [url] -o tsv
 ```
+
 末尾が `.git` の表示された URL をメモします。 次の手順で使用します。
 
-## <a name="deploy-the-application-using-git"></a>Git を使用してアプリケーションを展開する
+## <a name="deploy-the-app-using-git"></a>Git を使用してアプリを展開する
 
 Git を使用してローカル コンピューターから展開する準備ができました。
 
@@ -116,6 +162,7 @@ Git を使用してローカル コンピューターから展開する準備が
 > 行の終わりに関する Git の警告は無視してかまいません。
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
 ```cmd
 REM Initialize the local Git repository
 git init
@@ -134,6 +181,7 @@ git push azure master
 ```
 
 # <a name="othertabother"></a>[その他](#tab/other)
+
 ```bash
 # Initialize the local Git repository
 git init
@@ -150,15 +198,16 @@ git remote add azure <THE GIT URL YOU NOTED EARLIER>
 # Push the local repository to the remote
 git push azure master
 ```
+
 ---
 
-Git から、先ほど設定した展開資格情報を求められます。 認証後、アプリケーションがリモートの展開先へプッシュされ、ビルドされて展開されます。
+Git から、先ほど設定した展開資格情報を求められます。 認証後、アプリがリモートの展開先へプッシュされ、ビルドされて展開されます。
 
 ![Git 展開の出力](publish-to-azure-webapp-using-cli/_static/post_deploy.png)
 
-## <a name="test-the-application"></a>アプリケーションをテストする
+## <a name="test-the-app"></a>アプリのテスト
 
-`https://<web app name>.azurewebsites.net` にアクセスしてアプリケーションをテストします。  Cloud Shell (または Azure CLI) でこのアドレスを表示するには、次を使用します。
+`https://<web app name>.azurewebsites.net` にアクセスしてアプリをテストします。 Cloud Shell (または Azure CLI) でこのアドレスを表示するには、次を使用します。
 
 ```azurecli-interactive
 az webapp show -n $webappname -g DotNetAzureTutorial --query defaultHostName -o tsv
@@ -180,7 +229,7 @@ az group delete -n DotNetAzureTutorial
 
 > [!div class="checklist"]
 > * Azure CLI を使用して Azure App Service を作成する
-> * Git コマンド ラインを使用して Azure App Service へ ASP.NET Core アプリケーションを展開する
+> * Git コマンド ライン ツールを使用して Azure App Service へ ASP.NET Core アプリを展開する
 
 次は、CosmosDB を使用する既存の Web アプリを、コマンド ラインを使用して展開する方法について学びます。
 

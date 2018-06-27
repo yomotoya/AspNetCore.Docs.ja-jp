@@ -9,17 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: 24a75cfacfa61ca66e78deeb743baa75718dfb76
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 5b5bd03b6cb5da693f046653a09ba400ee6ff585
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729195"
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>ASP.NET Core での LoggerMessage による高パフォーマンスのログ記録
 
 作成者: [Luke Latham](https://github.com/guardrex)
 
-[LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage) 機能では、`LogInformation`、`LogDebug`、`LogError` のような[ロガー拡張メソッド](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions)よりも、必要なオブジェクト割り当ての数が少なくコンピューティング オーバーヘッドが小さいキャッシュ可能なデリゲートを作成します。 高パフォーマンスのログ記録シナリオの場合は、`LoggerMessage` パターンを使用します。
+[LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage) 機能では、`LogInformation`、`LogDebug`、`LogError` のような[ロガー拡張メソッド](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions)と比較して、必要なオブジェクト割り当ての数が少なくコンピューティング オーバーヘッドが小さいキャッシュ可能なデリゲートを作成します。 高パフォーマンスのログ記録シナリオの場合は、`LoggerMessage` パターンを使用します。
 
 `LoggerMessage` には、ロガー拡張メソッドに比べて次のようなパフォーマンス上の利点があります。
 
@@ -143,13 +144,9 @@ Parameter name: entity
 
 サンプル アプリには、データベース内のすべての見積もりを削除するための **[すべてクリア]** ボタンがあります。 見積もりを削除するには、一度に 1 つ削除します。 見積もりを削除するたびに、ロガーで `QuoteDeleted` メソッドが呼び出されます。 ログ スコープは、これらのログ メッセージに追加されます。
 
-コンソール ロガー オプションの `IncludeScopes` を有効にします。
+*appsettings.json* のコンソール ロガーのセクションで、`IncludeScopes` を有効にします。
 
-[!code-csharp[](loggermessage/sample/Program.cs?name=snippet1&highlight=10)]
-
-ASP.NET Core 2.0 アプリではログ スコープを有効にするために、`IncludeScopes` を設定することが必要です。 ASP.NET Core 2.1 リリースでは、*appsettings* 構成ファイルを介して `IncludeScopes` を設定する機能が予定されています。
-
-サンプル アプリでは、その他のプロバイダーを削除し、ログ出力を削減するためのフィルターを追加します。 これにより、`LoggerMessage` 機能を実演するサンプルのログ メッセージを確認するのが容易になります。
+[!code-csharp[](loggermessage/sample/appsettings.json?highlight=3-5)]
 
 ログ スコープを作成するには、スコープに対して `Func` デリゲートを保持するフィールドを追加します。 サンプル アプリでは、`_allQuotesDeletedScope` と呼ばれるフィールドを作成します (*Internal/LoggerExtensions.cs*)。
 
@@ -181,6 +178,6 @@ info: LoggerMessageSample.Pages.IndexModel[4]
       Quote deleted (Quote = 'Quote 3' Id = 4)
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="additional-resources"></a>その他の技術情報
 
 * [ログ](xref:fundamentals/logging/index)

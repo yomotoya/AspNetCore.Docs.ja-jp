@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 89d9a51334bdd50b72213d32fa194808ac6a93b9
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: dff798b19ad6d10a8ce93001ed4cebe732c54320
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729316"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET Core での HTTP.sys Web サーバーの実装
 
@@ -63,7 +64,7 @@ HTTP.sys は、さまざまな種類の攻撃を防ぎ、フル機能の Web サ
 
 ### <a name="configure-the-aspnet-core-app-to-use-httpsys"></a>HTTP.sys を使用するように ASP.NET Core アプリを構成する
 
-1. [Microsoft.AspNetCore.All メタパッケージ](xref:fundamentals/metapackage) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.All/)) (ASP.NET Core 2.0 以降) を使用する場合は、プロジェクト ファイルのパッケージ参照は必要ありません。 `Microsoft.AspNetCore.All` メタパッケージを使用しない場合は、[Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/) にパッケージ参照を追加します。
+1. [Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)) (ASP.NET Core 2.1 以降) を使用する場合は、プロジェクト ファイルのパッケージ参照は必要ありません。 `Microsoft.AspNetCore.App` メタパッケージを使用しない場合は、[Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/) にパッケージ参照を追加します。
 
 2. Web ホストを構築するときに [UseHttpSys](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderhttpsysextensions.usehttpsys) 拡張メソッドを呼び出し、必要な [HTTP.sys オプション](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions)を指定します。
 
@@ -92,7 +93,7 @@ HTTP.sys は、さまざまな種類の攻撃を防ぎ、フル機能の Web サ
 
    要求本文の最大許容サイズ (バイト単位) です。 `null` に設定する場合、要求本文の最大サイズは制限されません。 この制限は、アップグレード済みの接続 (常に無制限) には影響しません。
 
-   1 つの `IActionResult` に対する ASP.NET Core MVC アプリの制限を上書きする方法としては、次のように、アクション メソッドに対して [RequestSizeLimitAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requestsizelimitattribute) 属性を使用することをお勧めします。
+   1 つの `IActionResult` に対する ASP.NET Core MVC アプリの制限をオーバーライドする方法としては、次のように、アクション メソッドに対して [RequestSizeLimitAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requestsizelimitattribute) 属性を使用することをお勧めします。
 
    ```csharp
    [RequestSizeLimit(100000000)]
@@ -101,7 +102,7 @@ HTTP.sys は、さまざまな種類の攻撃を防ぎ、フル機能の Web サ
 
    アプリが要求の読み取りを開始した後に、アプリが要求に対する制限を構成しようとすると、例外がスローされます。 `IsReadOnly` プロパティを使用して、`MaxRequestBodySize` プロパティが読み取り専用状態にあるかどうか、つまり制限を構成するには遅すぎるかどうかを示すことができます。
 
-   アプリで要求ごとに [MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.maxrequestbodysize) を上書きする必要がある場合は、次のように、[IHttpMaxRequestBodySizeFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttpmaxrequestbodysizefeature) を使用します。
+   アプリで要求ごとに [MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.maxrequestbodysize) をオーバーライドする必要がある場合は、次のように、[IHttpMaxRequestBodySizeFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttpmaxrequestbodysizefeature) を使用します。
 
    [!code-csharp[](httpsys/sample/Startup.cs?name=snippet1&highlight=6-7)]
 
@@ -133,7 +134,7 @@ HTTP.sys は、さまざまな種類の攻撃を防ぎ、フル機能の Web サ
 
    `UrlPrefixes` の利点は、プレフィックスの形式が正しくなかった場合、すぐにエラー メッセージが生成されることです。
 
-   `UrlPrefixes` の設定は `UseUrls`/`urls`/`ASPNETCORE_URLS` の設定を上書きします。 したがって、`UseUrls`、`urls`、および `ASPNETCORE_URLS` 環境変数の利点は、Kestrel と HTTP.sys を簡単に切り替えられることです。 `UseUrls`、`urls`、`ASPNETCORE_URLS` について詳しくは、「[ASP.NET Core でのホスティング](xref:fundamentals/host/index)」をご覧ください。
+   `UrlPrefixes` の設定は `UseUrls`/`urls`/`ASPNETCORE_URLS` の設定をオーバーライドします。 したがって、`UseUrls`、`urls`、および `ASPNETCORE_URLS` 環境変数の利点は、Kestrel と HTTP.sys を簡単に切り替えられることです。 `UseUrls`、`urls`、`ASPNETCORE_URLS` について詳しくは、「[ASP.NET Core でのホスティング](xref:fundamentals/host/index)」をご覧ください。
 
    HTTP.sys では、[HTTP サーバー API の UrlPrefix 文字列形式](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)が使用されます。
 
@@ -167,7 +168,6 @@ HTTP.sys は、さまざまな種類の攻撃を防ぎ、フル機能の Web サ
    2. 必要な場合は、自己署名 X.509 証明書を作成します。
 
       [!INCLUDE [How to make an X.509 cert](../../includes/make-x509-cert.md)]
-
 
 4. トラフィックが HTTP.sys に到達できるようにファイアウォールのポートを開きます。 *netsh.exe* または [PowerShell コマンドレット](https://technet.microsoft.com/library/jj554906) を使用します。
 

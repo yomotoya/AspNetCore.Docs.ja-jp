@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 473585f1be180645395c14a154c9c017ca50edab
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 38fcbb1b6691854eb6d5930fdcb789b1c67f4c70
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33962818"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652176"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Apache 搭載の Linux で ASP.NET Core をホストする
 
@@ -25,15 +25,29 @@ ms.locfileid: "33962818"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-1. CentOS 7 を実行しているサーバーと、sudo 特権を持つ標準ユーザー アカウント
-2. ASP.NET Core アプリ
+1. CentOS 7 を実行しているサーバーと、sudo 特権を持つ標準ユーザー アカウント。
+1. サーバーへの .NET Core ランタイムのインストール。
+   1. [.NET の「All Downloads」 (すべてのダウンロード) ページ](https://www.microsoft.com/net/download/all)に移動します。
+   1. プレビューではない最新のランタイムを、**Runtime** (ランタイム) の一覧から選択します。
+   1. CentOS/Oracle の手順を選択し、それに従います。
+1. 既存の ASP.NET Core アプリ。
 
-## <a name="publish-the-app"></a>アプリの発行
+## <a name="publish-and-copy-over-the-app"></a>アプリを介して発行およびコピーする
 
-リリース構成の[自己完結型の展開](/dotnet/core/deploying/#self-contained-deployments-scd)として CentOS 7 ランタイム (`centos.7-x64`) にアプリを発行します。 *bin/Release/netcoreapp2.0/centos.7-x64/publish* フォルダーの内容を、SCP、FTP、またはその他のファイル転送方法を使ってサーバーにコピーします。
+[フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd)用にアプリを構成します。
+
+開発環境から [dotnet publish](/dotnet/core/tools/dotnet-publish) を実行し、サーバー上で実行できるディレクトリ (たとえば、*bin/Release/&lt;target_framework_moniker&gt;/publish*) にアプリをパッケージします。
+
+```console
+dotnet publish --configuration Release
+```
+
+サーバーで .NET Core ランタイムを管理しない場合、アプリは[独立した展開](/dotnet/core/deploying/#self-contained-deployments-scd)として発行することもできます。
+
+組織のワークフローに統合されているツール (SCP や SFTP など) を使用して、サーバーに ASP.NET Core アプリをコピーします。 Web アプリは一般的に *var* ディレクトリの下に配置されます (たとえば、*var/aspnetcore/hellomvc*)。
 
 > [!NOTE]
-> 運用展開シナリオの場合、継続的インテグレーション ワークフローが、アプリの発行処理とサーバーへの資産のコピーを行います。 
+> 運用展開シナリオの場合、継続的インテグレーション ワークフローが、アプリの発行処理とサーバーへの資産のコピーを行います。
 
 ## <a name="configure-a-proxy-server"></a>プロキシ サーバーを構成する
 
@@ -41,9 +55,14 @@ ms.locfileid: "33962818"
 
 プロキシ サーバーは、クライアント要求を処理せずに他のサーバーに転送するサーバーです。 リバース プロキシは、一般的に任意のクライアントに代わって固定の送信先に転送します。 このガイドでは、Kestrel が ASP.NET Core アプリを提供しているものと同じサーバー上で実行されるリバース プロキシとして Apache を構成します。
 
-要求はリバース プロキシによって転送されます。そのため、[Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) パッケージの Forwarded Headers Middleware を使用します。 リダイレクト URI とその他のセキュリティ ポリシーを正しく機能させるために、このミドルウェアは、`X-Forwarded-Proto` ヘッダーを利用して、`Request.Scheme` を更新します。
+要求はリバース プロキシによって転送されます。そのため、[Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) パッケージの [Forwarded Headers Middleware](xref:host-and-deploy/proxy-load-balancer) を使用します。 リダイレクト URI とその他のセキュリティ ポリシーを正しく機能させるために、このミドルウェアは、`X-Forwarded-Proto` ヘッダーを利用して、`Request.Scheme` を更新します。
 
-任意の認証ミドルウェアを使用する場合は、Forwarded Headers Middleware を最初に実行する必要があります。 この順序により、認証ミドルウェアはヘッダーの値を利用して、正しいリダイレクト URI を生成できます。
+認証、リンクの生成、リダイレクト、および地理的位置情報など、スキームに依存するすべてのコンポーネントは、Forwarded Headers Middleware の呼び出し後に配置する必要があります。 一般的な規則として、Forwarded Headers Middleware は、診断およびエラー処理ミドルウェアを除くその他のミドルウェアより前に実行される必要があります。 この順序により、転送されるヘッダー情報に依存するミドルウェアが処理にヘッダー値を使用できます。
+
+::: moniker range=">= aspnetcore-2.0"
+> [!NOTE]
+> リバース プロキシ サーバーの有無に関わらず、いずれの構成も有効で、ASP.NET Core 2.0 またはそれ以降のアプリ用にホスティング構成がサポートされている必要があります。 詳細については、「[When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy)」 (Kestrel とリバース プロキシを使用するタイミング) を参照してください。
+::: moniker-end
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -117,13 +136,17 @@ Complete!
 > [!NOTE]
 > この例では、CentOS 7 のバージョンが 64 ビットなので、出力は httpd.86_64 を反映しています。 Apache がインストールされている場所を確認するには、コマンド プロンプトから `whereis httpd` を実行します。
 
-### <a name="configure-apache-for-reverse-proxy"></a>Apache をリバース プロキシとして構成する
+### <a name="configure-apache"></a>Apache を構成する
 
 Apache の構成ファイルは、`/etc/httpd/conf.d/` ディレクトリ内にあります。 `/etc/httpd/conf.modules.d/` 内のモジュール構成ファイルに加え、拡張子が *.conf* のファイルがアルファベット順で処理されます。このディレクトリには、モジュールの読み込みに必要な構成ファイルが含まれています。
 
 アプリ用に *hellomvc.conf* という名前の構成ファイルを作成します。
 
 ```
+<VirtualHost *:*>
+    RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+</VirtualHost>
+
 <VirtualHost *:80>
     ProxyPreserveHost On
     ProxyPass / http://127.0.0.1:5000/
@@ -158,7 +181,6 @@ sudo systemctl enable httpd
 ## <a name="monitoring-the-app"></a>アプリの監視
 
 これで、`http://localhost:80` に対して行われた要求を Kestrel で実行されている ASP.NET Core アプリ (`http://127.0.0.1:5000`) に転送するように Apache が設定されました。  ただし、Apache は Kestrel プロセスを管理するようには設定されていません。 *systemd* を使って、基礎 Web アプリを起動して監視するサービス ファイルを作成します。 *systemd* は init システムであり、プロセスを起動、停止、管理するためのさまざまな高性能機能を提供します。 
-
 
 ### <a name="create-the-service-file"></a>サービス ファイルを作成する
 
@@ -262,7 +284,7 @@ sudo firewall-cmd --add-port=443/tcp --permanent
 
 ファイアウォールの設定を再度読み込みます。 既定のゾーンで使用できるサービスとポートを確認します。 オプションは `firewall-cmd -h` を調べることで使用できます。
 
-```bash 
+```bash
 sudo firewall-cmd --reload
 sudo firewall-cmd --list-all
 ```
@@ -286,6 +308,7 @@ SSL 用に Apache を構成するには、*mod_ssl* モジュールを使いま�
 ```bash
 sudo yum install mod_ssl
 ```
+
 SSL を強制するには、`mod_rewrite` モジュールをインストールして URL の書き換えを有効にします。
 
 ```bash
@@ -295,10 +318,14 @@ sudo yum install mod_rewrite
 *hellomvc.conf* ファイルを変更して、URL の書き換えを有効にし、ポート 443 での通信をセキュリティで保護します。
 
 ```
+<VirtualHost *:*>
+    RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+</VirtualHost>
+
 <VirtualHost *:80>
     RewriteEngine On
     RewriteCond %{HTTPS} !=on
-    RewriteRule ^/?(.*) https://%{SERVER_NAME}/ [R,L]
+    RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 </VirtualHost>
 
 <VirtualHost *:443>
@@ -364,7 +391,7 @@ sudo nano /etc/httpd/conf/httpd.conf
 
 行 `Header set X-Content-Type-Options "nosniff"` を追加します。 ファイルを保存します。 Apache を再起動します。
 
-### <a name="load-balancing"></a>負荷分散 
+### <a name="load-balancing"></a>負荷分散
 
 この例では、同じインスタンス コンピューターに CentOS 7 と Kestrel をインストールし、Apache をセットアップおよび構成する方法を示します。 単一障害点を持たないように、*mod_proxy_balancer* を使い、**VirtualHost** を変更することで、Apache プロキシ サーバーの背後で複数インスタンスの Web アプを管理できるようにします。
 
@@ -375,10 +402,14 @@ sudo yum install mod_proxy_balancer
 次に示す構成ファイルでは、ポート 5001 上で実行するように `hellomvc` アプリの追加インスタンスを設定しています。 *Proxy* セクションは、2 メンバーのバランサー構成を使って *byrequests* を負荷分散するように設定されています。
 
 ```
+<VirtualHost *:*>
+    RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+</VirtualHost>
+
 <VirtualHost *:80>
     RewriteEngine On
     RewriteCond %{HTTPS} !=on
-    RewriteRule ^/?(.*) https://%{SERVER_NAME}/ [R,L]
+    RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 </VirtualHost>
 
 <VirtualHost *:443>
@@ -407,6 +438,7 @@ sudo yum install mod_proxy_balancer
 ```
 
 ### <a name="rate-limits"></a>速度の制限
+
 *httpd* モジュールに含まれる *mod_ratelimit* を使って、クライアントの帯域幅を制限できます。
 
 ```bash
@@ -422,3 +454,7 @@ sudo nano /etc/httpd/conf.d/ratelimit.conf
     </Location>
 </IfModule>
 ```
+
+## <a name="additional-resources"></a>その他の技術情報
+
+* [プロキシ サーバーとロード バランサーを使用するために ASP.NET Core を構成する](xref:host-and-deploy/proxy-load-balancer)
