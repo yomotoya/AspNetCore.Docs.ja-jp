@@ -84,7 +84,7 @@ ASP.NET Core で検証規則を自動的に適用すると、アプリをより�
    }
   ```
 
-次のコードは、以前のチュートリアルでスキャフォールディング処理した *Create.cshtml* ページの一部です。 [Create] または [Edit] ページで、最初のフォームを表示し、エラーのイベント時にフォームを再表示するために使用されます。
+次のコードは、以前のチュートリアルでスキャフォールディング処理した *Create.cshtml* ページの一部です。 これは、[Create] または [Edit] ページにおいて、最初のフォームの表示と、エラーイベント時におけるフォームの再表示のために使用されます。
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
