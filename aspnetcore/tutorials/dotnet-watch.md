@@ -1,37 +1,38 @@
 ---
-title: dotnet watch を使用した ASP.NET Core アプリの開発
+title: ファイル ウォッチャーを使用した ASP.NET Core アプリの開発
 author: rick-anderson
-description: このチュートリアルでは、.NET Core CLI のファイル ウォッチャー (dotnet watch) ツールをインストールし、ASP.NET Core アプリケーションで使用する方法について説明します。
+description: このチュートリアルでは、.NET Core CLI のファイル ウォッチャー (dotnet watch) ツールをインストールし、ASP.NET Core アプリで使用する方法について説明します。
 manager: wpickett
 ms.author: riande
-ms.date: 10/05/2017
+ms.date: 05/31/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: c3ece3a5b936b2ea7b7772eee10e598cb557b361
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 016ee107ae646ed43d8a98e97fd2d5b41356910e
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341848"
 ---
-# <a name="develop-aspnet-core-apps-using-dotnet-watch"></a><span data-ttu-id="09b70-103">dotnet watch を使用した ASP.NET Core アプリの開発</span><span class="sxs-lookup"><span data-stu-id="09b70-103">Develop ASP.NET Core apps using dotnet watch</span></span>
+# <a name="develop-aspnet-core-apps-using-a-file-watcher"></a><span data-ttu-id="cb6c1-103">ファイル ウォッチャーを使用した ASP.NET Core アプリの開発</span><span class="sxs-lookup"><span data-stu-id="cb6c1-103">Develop ASP.NET Core apps using a file watcher</span></span>
 
-<span data-ttu-id="09b70-104">作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) と [Victor Hurdugaci](https://twitter.com/victorhurdugaci)</span><span class="sxs-lookup"><span data-stu-id="09b70-104">By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Victor Hurdugaci](https://twitter.com/victorhurdugaci)</span></span>
+<span data-ttu-id="cb6c1-104">作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) と [Victor Hurdugaci](https://twitter.com/victorhurdugaci)</span><span class="sxs-lookup"><span data-stu-id="cb6c1-104">By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Victor Hurdugaci](https://twitter.com/victorhurdugaci)</span></span>
 
-<span data-ttu-id="09b70-105">`dotnet watch` は、ソース ファイルの変更時に [.NET Core CLI](/dotnet/core/tools) コマンドを実行するツールです。</span><span class="sxs-lookup"><span data-stu-id="09b70-105">`dotnet watch` is a tool that runs a [.NET Core CLI](/dotnet/core/tools) command when source files change.</span></span> <span data-ttu-id="09b70-106">たとえば、あるファイルを変更すると、コンパイル、テストの実行、展開が開始されます。</span><span class="sxs-lookup"><span data-stu-id="09b70-106">For example, a file change can trigger compilation, test execution, or deployment.</span></span>
+<span data-ttu-id="cb6c1-105">`dotnet watch` は、ソース ファイルの変更時に [.NET Core CLI](/dotnet/core/tools) コマンドを実行するツールです。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-105">`dotnet watch` is a tool that runs a [.NET Core CLI](/dotnet/core/tools) command when source files change.</span></span> <span data-ttu-id="cb6c1-106">たとえば、あるファイルを変更すると、コンパイル、テストの実行、展開が開始されます。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-106">For example, a file change can trigger compilation, test execution, or deployment.</span></span>
 
-<span data-ttu-id="09b70-107">このチュートリアルでは、エンドポイントが 2 つの既存の Web API アプリを利用します。合計を返すエンドポイントと積を返すエンドポイントです。</span><span class="sxs-lookup"><span data-stu-id="09b70-107">In this tutorial, we use an existing Web API app with two endpoints: one that returns a sum and one that returns a product.</span></span> <span data-ttu-id="09b70-108">積のメソッドにはバグが含まれますが、このチュートリアルで修正します。</span><span class="sxs-lookup"><span data-stu-id="09b70-108">The product method contains a bug that we'll fix as part of this tutorial.</span></span>
+<span data-ttu-id="cb6c1-107">このチュートリアルでは、エンドポイントが 2 つの既存の Web API を利用します。合計を返すエンドポイントと積を返すエンドポイントです。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-107">This tutorial uses an existing web API with two endpoints: one that returns a sum and one that returns a product.</span></span> <span data-ttu-id="cb6c1-108">積のメソッドにはバグがあり、このチュートリアルで修正します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-108">The product method has a bug, which is fixed in this tutorial.</span></span>
 
-<span data-ttu-id="09b70-109">[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample)をダウンロードしてください。</span><span class="sxs-lookup"><span data-stu-id="09b70-109">Download the [sample app](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample).</span></span> <span data-ttu-id="09b70-110">これには、*WebApp* (ASP.NET Core Web API) および *WebAppTests* (Web API の単体テスト) という 2 つのプロジェクトが含まれています。</span><span class="sxs-lookup"><span data-stu-id="09b70-110">It contains two projects: *WebApp* (an ASP.NET Core Web API) and *WebAppTests* (unit tests for the Web API).</span></span>
+<span data-ttu-id="cb6c1-109">[サンプル アプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample)をダウンロードしてください。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-109">Download the [sample app](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample).</span></span> <span data-ttu-id="cb6c1-110">これは、*WebApp* (ASP.NET Core Web API) と *WebAppTests* (Web API の単体テスト) という 2 つのプロジェクトで構成されます。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-110">It consists of two projects: *WebApp* (an ASP.NET Core web API) and *WebAppTests* (unit tests for the web API).</span></span>
 
-<span data-ttu-id="09b70-111">コマンド シェルで、*WebApp* フォルダーに移動し、次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="09b70-111">In a command shell, navigate to the *WebApp* folder and run the following command:</span></span>
+<span data-ttu-id="cb6c1-111">コマンド シェルで、*WebApp* フォルダーに移動します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-111">In a command shell, navigate to the *WebApp* folder.</span></span> <span data-ttu-id="cb6c1-112">次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-112">Run the following command:</span></span>
 
 ```console
 dotnet run
 ```
 
-<span data-ttu-id="09b70-112">コンソール出力に、次のようなメッセージが表示されます。アプリが実行中であり、要求を待っていることを示しています。</span><span class="sxs-lookup"><span data-stu-id="09b70-112">The console output shows messages similar to the following (indicating that the app is running and awaiting requests):</span></span>
+<span data-ttu-id="cb6c1-113">コンソール出力に、次のようなメッセージが表示されます。アプリが実行中であり、要求を待っていることを示しています。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-113">The console output shows messages similar to the following (indicating that the app is running and awaiting requests):</span></span>
 
 ```console
 $ dotnet run
@@ -41,74 +42,145 @@ Now listening on: http://localhost:5000
 Application started. Press Ctrl+C to shut down.
 ```
 
-<span data-ttu-id="09b70-113">Web ブラウザーで、`http://localhost:<port number>/api/math/sum?a=4&b=5` に移動します。</span><span class="sxs-lookup"><span data-stu-id="09b70-113">In a web browser, navigate to `http://localhost:<port number>/api/math/sum?a=4&b=5`.</span></span> <span data-ttu-id="09b70-114">結果として `9` が表示されます。</span><span class="sxs-lookup"><span data-stu-id="09b70-114">You should see the result of `9`.</span></span>
+<span data-ttu-id="cb6c1-114">Web ブラウザーで、`http://localhost:<port number>/api/math/sum?a=4&b=5` に移動します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-114">In a web browser, navigate to `http://localhost:<port number>/api/math/sum?a=4&b=5`.</span></span> <span data-ttu-id="cb6c1-115">結果として `9` が表示されます。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-115">You should see the result of `9`.</span></span>
 
-<span data-ttu-id="09b70-115">製品 API に移動します (`http://localhost:<port number>/api/math/product?a=4&b=5`)。</span><span class="sxs-lookup"><span data-stu-id="09b70-115">Navigate to the product API (`http://localhost:<port number>/api/math/product?a=4&b=5`).</span></span> <span data-ttu-id="09b70-116">予想していた `20` ではなく、`9` が返されます。</span><span class="sxs-lookup"><span data-stu-id="09b70-116">It returns `9`, not `20` as you'd expect.</span></span> <span data-ttu-id="09b70-117">これはチュートリアルの後半で修正します。</span><span class="sxs-lookup"><span data-stu-id="09b70-117">We'll fix that later in the tutorial.</span></span>
+<span data-ttu-id="cb6c1-116">製品 API に移動します (`http://localhost:<port number>/api/math/product?a=4&b=5`)。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-116">Navigate to the product API (`http://localhost:<port number>/api/math/product?a=4&b=5`).</span></span> <span data-ttu-id="cb6c1-117">予想していた `20` ではなく、`9` が返されます。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-117">It returns `9`, not `20` as you'd expect.</span></span> <span data-ttu-id="cb6c1-118">この問題は、チュートリアルで後ほど修正します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-118">That problem is fixed later in the tutorial.</span></span>
 
-## <a name="add-dotnet-watch-to-a-project"></a><span data-ttu-id="09b70-118">`dotnet watch` をプロジェクトに追加する</span><span class="sxs-lookup"><span data-stu-id="09b70-118">Add `dotnet watch` to a project</span></span>
+::: moniker range="<= aspnetcore-2.0"
 
-1. <span data-ttu-id="09b70-119">`Microsoft.DotNet.Watcher.Tools` パッケージ参照を *.csproj* ファイルに追加します。</span><span class="sxs-lookup"><span data-stu-id="09b70-119">Add a `Microsoft.DotNet.Watcher.Tools` package reference to the *.csproj* file:</span></span>
+## <a name="add-dotnet-watch-to-a-project"></a><span data-ttu-id="cb6c1-119">`dotnet watch` をプロジェクトに追加する</span><span class="sxs-lookup"><span data-stu-id="cb6c1-119">Add `dotnet watch` to a project</span></span>
+
+<span data-ttu-id="cb6c1-120">`dotnet watch` ファイル ウォッチャー ツールは、.NET Core SDK のバージョン 2.1.300 に付属しています。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-120">The `dotnet watch` file watcher tool is included with version 2.1.300 of the .NET Core SDK.</span></span> <span data-ttu-id="cb6c1-121">これより前のバージョンの .NET Core SDK を使用する場合は、次の手順が必要です。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-121">The following steps are required when using an earlier version of the .NET Core SDK.</span></span>
+
+1. <span data-ttu-id="cb6c1-122">`Microsoft.DotNet.Watcher.Tools` パッケージ参照を *.csproj* ファイルに追加します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-122">Add a `Microsoft.DotNet.Watcher.Tools` package reference to the *.csproj* file:</span></span>
 
     ```xml
     <ItemGroup>
         <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
-    </ItemGroup> 
+    </ItemGroup>
     ```
 
-1. <span data-ttu-id="09b70-120">次のコマンドを実行して `Microsoft.DotNet.Watcher.Tools` パッケージをインストールします。</span><span class="sxs-lookup"><span data-stu-id="09b70-120">Install the `Microsoft.DotNet.Watcher.Tools` package by running the following command:</span></span>
-    
+1. <span data-ttu-id="cb6c1-123">次のコマンドを実行して `Microsoft.DotNet.Watcher.Tools` パッケージをインストールします。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-123">Install the `Microsoft.DotNet.Watcher.Tools` package by running the following command:</span></span>
+
     ```console
     dotnet restore
     ```
 
-## <a name="running-net-core-cli-commands-using-dotnet-watch"></a><span data-ttu-id="09b70-121">`dotnet watch` を使用した .NET Core CLI コマンドの実行</span><span class="sxs-lookup"><span data-stu-id="09b70-121">Running .NET Core CLI commands using `dotnet watch`</span></span>
+::: moniker-end
 
-<span data-ttu-id="09b70-122">[.NET Core CLI コマンド](/dotnet/core/tools#cli-commands) はいずれも、`dotnet watch` との組み合わせで実行することができます。</span><span class="sxs-lookup"><span data-stu-id="09b70-122">Any [.NET Core CLI command](/dotnet/core/tools#cli-commands) can be run with `dotnet watch`.</span></span> <span data-ttu-id="09b70-123">例:</span><span class="sxs-lookup"><span data-stu-id="09b70-123">For example:</span></span>
+## <a name="run-net-core-cli-commands-using-dotnet-watch"></a><span data-ttu-id="cb6c1-124">`dotnet watch` を使用した .NET Core CLI コマンドの実行</span><span class="sxs-lookup"><span data-stu-id="cb6c1-124">Run .NET Core CLI commands using `dotnet watch`</span></span>
 
-| <span data-ttu-id="09b70-124">コマンド</span><span class="sxs-lookup"><span data-stu-id="09b70-124">Command</span></span> | <span data-ttu-id="09b70-125">コマンドと watch</span><span class="sxs-lookup"><span data-stu-id="09b70-125">Command with watch</span></span> |
+<span data-ttu-id="cb6c1-125">[.NET Core CLI コマンド](/dotnet/core/tools#cli-commands) はいずれも、`dotnet watch` との組み合わせで実行することができます。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-125">Any [.NET Core CLI command](/dotnet/core/tools#cli-commands) can be run with `dotnet watch`.</span></span> <span data-ttu-id="cb6c1-126">例:</span><span class="sxs-lookup"><span data-stu-id="cb6c1-126">For example:</span></span>
+
+| <span data-ttu-id="cb6c1-127">コマンド</span><span class="sxs-lookup"><span data-stu-id="cb6c1-127">Command</span></span> | <span data-ttu-id="cb6c1-128">コマンドと watch</span><span class="sxs-lookup"><span data-stu-id="cb6c1-128">Command with watch</span></span> |
 | ---- | ----- |
-| <span data-ttu-id="09b70-126">dotnet run</span><span class="sxs-lookup"><span data-stu-id="09b70-126">dotnet run</span></span> | <span data-ttu-id="09b70-127">dotnet watch run</span><span class="sxs-lookup"><span data-stu-id="09b70-127">dotnet watch run</span></span> |
-| <span data-ttu-id="09b70-128">dotnet run -f netcoreapp2.0</span><span class="sxs-lookup"><span data-stu-id="09b70-128">dotnet run -f netcoreapp2.0</span></span> | <span data-ttu-id="09b70-129">dotnet watch run -f netcoreapp2.0</span><span class="sxs-lookup"><span data-stu-id="09b70-129">dotnet watch run -f netcoreapp2.0</span></span> |
-| <span data-ttu-id="09b70-130">dotnet run -f netcoreapp2.0 -- --arg1</span><span class="sxs-lookup"><span data-stu-id="09b70-130">dotnet run -f netcoreapp2.0 -- --arg1</span></span> | <span data-ttu-id="09b70-131">dotnet watch run -f netcoreapp2.0 -- --arg1</span><span class="sxs-lookup"><span data-stu-id="09b70-131">dotnet watch run -f netcoreapp2.0 -- --arg1</span></span> |
-| <span data-ttu-id="09b70-132">dotnet test</span><span class="sxs-lookup"><span data-stu-id="09b70-132">dotnet test</span></span> | <span data-ttu-id="09b70-133">dotnet watch test</span><span class="sxs-lookup"><span data-stu-id="09b70-133">dotnet watch test</span></span> |
+| <span data-ttu-id="cb6c1-129">dotnet run</span><span class="sxs-lookup"><span data-stu-id="cb6c1-129">dotnet run</span></span> | <span data-ttu-id="cb6c1-130">dotnet watch run</span><span class="sxs-lookup"><span data-stu-id="cb6c1-130">dotnet watch run</span></span> |
+| <span data-ttu-id="cb6c1-131">dotnet run -f netcoreapp2.0</span><span class="sxs-lookup"><span data-stu-id="cb6c1-131">dotnet run -f netcoreapp2.0</span></span> | <span data-ttu-id="cb6c1-132">dotnet watch run -f netcoreapp2.0</span><span class="sxs-lookup"><span data-stu-id="cb6c1-132">dotnet watch run -f netcoreapp2.0</span></span> |
+| <span data-ttu-id="cb6c1-133">dotnet run -f netcoreapp2.0 -- --arg1</span><span class="sxs-lookup"><span data-stu-id="cb6c1-133">dotnet run -f netcoreapp2.0 -- --arg1</span></span> | <span data-ttu-id="cb6c1-134">dotnet watch run -f netcoreapp2.0 -- --arg1</span><span class="sxs-lookup"><span data-stu-id="cb6c1-134">dotnet watch run -f netcoreapp2.0 -- --arg1</span></span> |
+| <span data-ttu-id="cb6c1-135">dotnet test</span><span class="sxs-lookup"><span data-stu-id="cb6c1-135">dotnet test</span></span> | <span data-ttu-id="cb6c1-136">dotnet watch test</span><span class="sxs-lookup"><span data-stu-id="cb6c1-136">dotnet watch test</span></span> |
 
-<span data-ttu-id="09b70-134">*WebApp* フォルダーの `dotnet watch run` を実行します。</span><span class="sxs-lookup"><span data-stu-id="09b70-134">Run `dotnet watch run` in the *WebApp* folder.</span></span> <span data-ttu-id="09b70-135">コンソール出力に、`watch` が起動したことが示されます。</span><span class="sxs-lookup"><span data-stu-id="09b70-135">The console output indicates `watch` has started.</span></span>
+<span data-ttu-id="cb6c1-137">*WebApp* フォルダーの `dotnet watch run` を実行します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-137">Run `dotnet watch run` in the *WebApp* folder.</span></span> <span data-ttu-id="cb6c1-138">コンソール出力に、`watch` が起動したことが示されます。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-138">The console output indicates `watch` has started.</span></span>
 
-## <a name="making-changes-with-dotnet-watch"></a><span data-ttu-id="09b70-136">`dotnet watch` で変更する</span><span class="sxs-lookup"><span data-stu-id="09b70-136">Making changes with `dotnet watch`</span></span>
+## <a name="make-changes-with-dotnet-watch"></a><span data-ttu-id="cb6c1-139">`dotnet watch` で変更を行う</span><span class="sxs-lookup"><span data-stu-id="cb6c1-139">Make changes with `dotnet watch`</span></span>
 
-<span data-ttu-id="09b70-137">`dotnet watch` が実行されていることを確認します。</span><span class="sxs-lookup"><span data-stu-id="09b70-137">Make sure `dotnet watch` is running.</span></span>
+<span data-ttu-id="cb6c1-140">`dotnet watch` が実行されていることを確認します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-140">Make sure `dotnet watch` is running.</span></span>
 
-<span data-ttu-id="09b70-138">*MathController.cs* の `Product` メソッドのバグを修正して、合計ではなく積を返すようにします。</span><span class="sxs-lookup"><span data-stu-id="09b70-138">Fix the bug in the `Product` method of *MathController.cs* so it returns the product and not the sum:</span></span>
+<span data-ttu-id="cb6c1-141">*MathController.cs* の `Product` メソッドのバグを修正して、合計ではなく積を返すようにします。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-141">Fix the bug in the `Product` method of *MathController.cs* so it returns the product and not the sum:</span></span>
 
 ```csharp
 public static int Product(int a, int b)
 {
   return a * b;
-} 
+}
 ```
 
-<span data-ttu-id="09b70-139">ファイルを保存します。</span><span class="sxs-lookup"><span data-stu-id="09b70-139">Save the file.</span></span> <span data-ttu-id="09b70-140">コンソール出力により、`dotnet watch` がファイル変更を検出し、アプリを再起動したことが表示されます。</span><span class="sxs-lookup"><span data-stu-id="09b70-140">The console output indicates that `dotnet watch` detected a file change and restarted the app.</span></span>
+<span data-ttu-id="cb6c1-142">ファイルを保存します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-142">Save the file.</span></span> <span data-ttu-id="cb6c1-143">コンソール出力により、`dotnet watch` がファイル変更を検出し、アプリを再起動したことが表示されます。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-143">The console output indicates that `dotnet watch` detected a file change and restarted the app.</span></span>
 
-<span data-ttu-id="09b70-141">`http://localhost:<port number>/api/math/product?a=4&b=5` が正しい結果を返すことを確認します。</span><span class="sxs-lookup"><span data-stu-id="09b70-141">Verify `http://localhost:<port number>/api/math/product?a=4&b=5` returns the correct result.</span></span>
+<span data-ttu-id="cb6c1-144">`http://localhost:<port number>/api/math/product?a=4&b=5` が正しい結果を返すことを確認します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-144">Verify `http://localhost:<port number>/api/math/product?a=4&b=5` returns the correct result.</span></span>
 
-## <a name="running-tests-using-dotnet-watch"></a><span data-ttu-id="09b70-142">`dotnet watch` でテストを実行する</span><span class="sxs-lookup"><span data-stu-id="09b70-142">Running tests using `dotnet watch`</span></span>
+## <a name="run-tests-using-dotnet-watch"></a><span data-ttu-id="cb6c1-145">`dotnet watch` を使用してテストを実行する</span><span class="sxs-lookup"><span data-stu-id="cb6c1-145">Run tests using `dotnet watch`</span></span>
 
-1. <span data-ttu-id="09b70-143">*MathController.cs* の `Product` メソッドを元に戻して合計を返すようにし、ファイルを保存します。</span><span class="sxs-lookup"><span data-stu-id="09b70-143">Change the `Product` method of *MathController.cs* back to returning the sum and save the file.</span></span>
-1. <span data-ttu-id="09b70-144">コマンド シェルで、*WebAppTests* フォルダーに移動します。</span><span class="sxs-lookup"><span data-stu-id="09b70-144">In a command shell, navigate to the *WebAppTests* folder.</span></span>
-1. <span data-ttu-id="09b70-145">[dotnet restore](/dotnet/core/tools/dotnet-restore) を実行します。</span><span class="sxs-lookup"><span data-stu-id="09b70-145">Run [dotnet restore](/dotnet/core/tools/dotnet-restore).</span></span>
-1. <span data-ttu-id="09b70-146">`dotnet watch test` を実行します。</span><span class="sxs-lookup"><span data-stu-id="09b70-146">Run `dotnet watch test`.</span></span> <span data-ttu-id="09b70-147">テストに失敗し、ウォッチャーがファイル変更を待っていることが出力に示されます。</span><span class="sxs-lookup"><span data-stu-id="09b70-147">Its output indicates that a test failed and that watcher is awaiting file changes:</span></span>
+1. <span data-ttu-id="cb6c1-146">*MathController.cs* の `Product` メソッドを元に戻して合計を返すようにします。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-146">Change the `Product` method of *MathController.cs* back to returning the sum.</span></span> <span data-ttu-id="cb6c1-147">ファイルを保存します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-147">Save the file.</span></span>
+1. <span data-ttu-id="cb6c1-148">コマンド シェルで、*WebAppTests* フォルダーに移動します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-148">In a command shell, navigate to the *WebAppTests* folder.</span></span>
+1. <span data-ttu-id="cb6c1-149">[dotnet restore](/dotnet/core/tools/dotnet-restore) を実行します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-149">Run [dotnet restore](/dotnet/core/tools/dotnet-restore).</span></span>
+1. <span data-ttu-id="cb6c1-150">`dotnet watch test` を実行します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-150">Run `dotnet watch test`.</span></span> <span data-ttu-id="cb6c1-151">テストに失敗し、ウォッチャーがファイル変更を待っていることが出力に示されます。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-151">Its output indicates that a test failed and that the watcher is awaiting file changes:</span></span>
 
      ```console
      Total tests: 2. Passed: 1. Failed: 1. Skipped: 0.
      Test Run Failed.
      ```
 
-1. <span data-ttu-id="09b70-148">積を返すように `Product` メソッドのコードを修正します。</span><span class="sxs-lookup"><span data-stu-id="09b70-148">Fix the `Product` method code so it returns the product.</span></span> <span data-ttu-id="09b70-149">ファイルを保存します。</span><span class="sxs-lookup"><span data-stu-id="09b70-149">Save the file.</span></span>
+1. <span data-ttu-id="cb6c1-152">積を返すように `Product` メソッドのコードを修正します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-152">Fix the `Product` method code so it returns the product.</span></span> <span data-ttu-id="cb6c1-153">ファイルを保存します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-153">Save the file.</span></span>
 
-<span data-ttu-id="09b70-150">`dotnet watch` はファイル変更を検出し、テストを再実行します。</span><span class="sxs-lookup"><span data-stu-id="09b70-150">`dotnet watch` detects the file change and reruns the tests.</span></span> <span data-ttu-id="09b70-151">コンソール出力にテストの合格が示されます。</span><span class="sxs-lookup"><span data-stu-id="09b70-151">The console output indicates the tests passed.</span></span>
+<span data-ttu-id="cb6c1-154">`dotnet watch` はファイル変更を検出し、テストを再実行します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-154">`dotnet watch` detects the file change and reruns the tests.</span></span> <span data-ttu-id="cb6c1-155">コンソール出力にテストの合格が示されます。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-155">The console output indicates the tests passed.</span></span>
 
-## <a name="dotnet-watch-in-github"></a><span data-ttu-id="09b70-152">GitHub の dotnet-watch</span><span class="sxs-lookup"><span data-stu-id="09b70-152">dotnet-watch in GitHub</span></span>
+## <a name="customize-files-list-to-watch"></a><span data-ttu-id="cb6c1-156">監視するファイル リストのカスタマイズ</span><span class="sxs-lookup"><span data-stu-id="cb6c1-156">Customize files list to watch</span></span>
 
-<span data-ttu-id="09b70-153">dotnet-watch は GitHub [DotNetTools リポジトリ](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch)に含まれます。</span><span class="sxs-lookup"><span data-stu-id="09b70-153">dotnet-watch is part of the GitHub [DotNetTools repository](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch).</span></span>
+<span data-ttu-id="cb6c1-157">既定では、`dotnet-watch` は次の glob パターンに一致するすべてのファイルを追跡します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-157">By default, `dotnet-watch` tracks all files matching the following glob patterns:</span></span>
 
-<span data-ttu-id="09b70-154">[dotnet-watch ReadMe](https://github.com/aspnet/DotNetTools/blob/dev/src/dotnet-watch/README.md) の [MSBuild セクション](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch#msbuild)では、ウォッチされている MSBuild プロジェクト ファイルから dotnet-watch を構成する方法を説明しています。</span><span class="sxs-lookup"><span data-stu-id="09b70-154">The [MSBuild section](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch#msbuild) of the [dotnet-watch ReadMe](https://github.com/aspnet/DotNetTools/blob/dev/src/dotnet-watch/README.md) explains how dotnet-watch can be configured from the MSBuild project file being watched.</span></span> <span data-ttu-id="09b70-155">[dotnet-watch ReadMe](https://github.com/aspnet/DotNetTools/blob/dev/src/dotnet-watch/README.md) には、このチュートリアルで取り上げていない dotnet-watch に関する情報があります。</span><span class="sxs-lookup"><span data-stu-id="09b70-155">The [dotnet-watch ReadMe](https://github.com/aspnet/DotNetTools/blob/dev/src/dotnet-watch/README.md) contains information on dotnet-watch not covered in this tutorial.</span></span>
+* `**/*.cs`
+* `*.csproj`
+* `**/*.resx`
+
+<span data-ttu-id="cb6c1-158">ウォッチ リストに他の項目を追加するには、*.csproj* ファイルを編集します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-158">More items can be added to the watch list by editing the *.csproj* file.</span></span> <span data-ttu-id="cb6c1-159">項目は個別に指定することも、glob パターンを使用して指定することもできます。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-159">Items can be specified individually or by using glob patterns.</span></span>
+
+```xml
+<ItemGroup>
+    <!-- extends watching group to include *.js files -->
+    <Watch Include="**\*.js" Exclude="node_modules\**\*;**\*.js.map;obj\**\*;bin\**\*" />
+</ItemGroup>
+```
+
+## <a name="opt-out-of-files-to-be-watched"></a><span data-ttu-id="cb6c1-160">ウォッチするファイルのオプトアウト</span><span class="sxs-lookup"><span data-stu-id="cb6c1-160">Opt-out of files to be watched</span></span>
+
+<span data-ttu-id="cb6c1-161">既定の設定を無視するように `dotnet-watch` を構成することができます。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-161">`dotnet-watch` can be configured to ignore its default settings.</span></span> <span data-ttu-id="cb6c1-162">特定のファイルを無視するには、*.csproj* ファイルで項目の定義に `Watch="false"` 属性を追加します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-162">To ignore specific files, add the `Watch="false"` attribute to an item's definition in the *.csproj* file:</span></span>
+
+```xml
+<ItemGroup>
+    <!-- exclude Generated.cs from dotnet-watch -->
+    <Compile Include="Generated.cs" Watch="false" />
+
+    <!-- exclude Strings.resx from dotnet-watch -->
+    <EmbeddedResource Include="Strings.resx" Watch="false" />
+
+    <!-- exclude changes in this referenced project -->
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" Watch="false" />
+</ItemGroup>
+```
+
+## <a name="custom-watch-projects"></a><span data-ttu-id="cb6c1-163">カスタム ウォッチ プロジェクト</span><span class="sxs-lookup"><span data-stu-id="cb6c1-163">Custom watch projects</span></span>
+
+<span data-ttu-id="cb6c1-164">`dotnet-watch` は C# プロジェクトだけに限定されていません。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-164">`dotnet-watch` isn't restricted to C# projects.</span></span> <span data-ttu-id="cb6c1-165">カスタム ウォッチ プロジェクトは、さまざまなシナリオを処理するために作成できます。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-165">Custom watch projects can be created to handle different scenarios.</span></span> <span data-ttu-id="cb6c1-166">次のプロジェクト レイアウトを考えてみましょう。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-166">Consider the following project layout:</span></span>
+
+* <span data-ttu-id="cb6c1-167">**test/**</span><span class="sxs-lookup"><span data-stu-id="cb6c1-167">**test/**</span></span>
+  * <span data-ttu-id="cb6c1-168">*UnitTests/UnitTests.csproj*</span><span class="sxs-lookup"><span data-stu-id="cb6c1-168">*UnitTests/UnitTests.csproj*</span></span>
+  * <span data-ttu-id="cb6c1-169">*IntegrationTests/IntegrationTests.csproj*</span><span class="sxs-lookup"><span data-stu-id="cb6c1-169">*IntegrationTests/IntegrationTests.csproj*</span></span>
+
+<span data-ttu-id="cb6c1-170">両方のプロジェクトを監視するのが目的である場合、両方のプロジェクトを監視するように構成されたカスタム プロジェクト ファイルを作成します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-170">If the goal is to watch both projects, create a custom project file configured to watch both projects:</span></span>
+
+```xml
+<Project>
+    <ItemGroup>
+        <TestProjects Include="**\*.csproj" />
+        <Watch Include="**\*.cs" />
+    </ItemGroup>
+
+    <Target Name="Test">
+        <MSBuild Targets="VSTest" Projects="@(TestProjects)" />
+    </Target>
+
+    <Import Project="$(MSBuildExtensionsPath)\Microsoft.Common.targets" />
+</Project>
+```
+
+<span data-ttu-id="cb6c1-171">両方のプロジェクトでファイルの監視を開始するには、*test* フォルダーに変更します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-171">To start file watching on both projects, change to the *test* folder.</span></span> <span data-ttu-id="cb6c1-172">次のコマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-172">Execute the following command:</span></span>
+
+```console
+dotnet watch msbuild /t:Test
+```
+
+<span data-ttu-id="cb6c1-173">VSTest は、いずれかのテスト プロジェクトでファイルが変更されたときに実行されます。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-173">VSTest executes when any file changes in either test project.</span></span>
+
+## <a name="dotnet-watch-in-github"></a><span data-ttu-id="cb6c1-174">GitHub での `dotnet-watch`</span><span class="sxs-lookup"><span data-stu-id="cb6c1-174">`dotnet-watch` in GitHub</span></span>
+
+<span data-ttu-id="cb6c1-175">`dotnet-watch` は GitHub [DotNetTools リポジトリ](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch)に含まれます。</span><span class="sxs-lookup"><span data-stu-id="cb6c1-175">`dotnet-watch` is part of the GitHub [DotNetTools repository](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch).</span></span>
