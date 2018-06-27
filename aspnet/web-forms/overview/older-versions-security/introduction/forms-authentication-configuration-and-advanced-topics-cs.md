@@ -12,12 +12,12 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d6578737478fb86f64be261925becc3adec33247
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 58d87bd6211ae1b1eea227d34c001239efcf5f1d
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891781"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961400"
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-c"></a>フォーム認証の構成と高度なトピック (c#)
 ====================
@@ -47,7 +47,7 @@ Asp.net フォーム認証システムでは、多数のアプリケーション
 |----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |         cookie なし         |                                                                                                                この属性は、URL に埋め込まれている中ではなく、cookie にどのような条件下で、認証チケットが格納されているを指定します。 使用可能な値: 既定値です。UseUri です。自動検出します。および UseDeviceProfile (既定)。 手順 2 では、さらに詳しくは、この設定について説明します。                                                                                                                |
 |         defaultUrl         |                                                                                                                                                         ユーザーは、クエリ文字列で指定された RedirectUrl 値が存在しない場合、ログイン ページからサインインした後にリダイレクトされる URL を示します。 既定値は、default.aspx です。                                                                                                                                                         |
-|           ドメイン           | Cookie ベースの認証チケットを使用する場合、この設定は、cookie のドメイン値を指定します。 既定値は、ブラウザー (www.yourdomain.com) などから発行されたドメインを使用すると、空の文字列です。 この場合、cookie は<strong>されません</strong>admin.yourdomain.com などのサブドメインに要求を作成する場合に送信されます。すべてのサブドメインに渡される cookie をする場合は、ユーザーに設定すると、ドメイン属性をカスタマイズする必要があります。 |
+|           ドメイン           | Cookie ベースの認証チケットを使用する場合、この設定は、cookie のドメイン値を指定します。 既定値は、ブラウザー (www.yourdomain.com) などから発行されたドメインを使用すると、空の文字列です。 この場合、cookie は<strong>されません</strong>admin.yourdomain.com などのサブドメインに要求を作成する場合に送信されます。 すべてのサブドメインに渡される cookie をする場合は、ユーザーに設定すると、ドメイン属性をカスタマイズする必要があります。 |
 |  enableCrossAppRedirects   |                                                                                                                                                                   同じサーバー上の他の web アプリケーションの Url にリダイレクトされたときに認証されたユーザーを記憶するかどうかを示すブール値。 既定値は false です。                                                                                                                                                                   |
 |          loginUrl          |                                                                                                                                                                                                                      ログイン ページの URL です。 既定値は login.aspx です。                                                                                                                                                                                                                      |
 |            name            |                                                                                                                                                                                                   ときに、cookie ベースの認証チケット、cookie の名前を使用します。 既定値です。ASPXAUTH です。                                                                                                                                                                                                   |
@@ -168,7 +168,7 @@ Default.aspx に変更を保存し、ブラウザーを使用しを参照して�
 
 `http://localhost:2448/ASPNET\_Security\_Tutorial\_03\_CS/(F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2))/SomePage.aspx`
 
-リンクの URL SomePage.aspx が認証チケットに含まれている URL に自動的に変換されますが書き込むコードがまったくありませんでした。 Http:// で始まらないすべてのハイパーリンクの URL には、フォーム認証チケットが自動的に埋め込まれますまたは/です。 Response.Redirect への呼び出しで、ハイパーリンク コントロール、または HTML アンカー要素にハイパーリンクが表示される場合に重要ではありません (つまり、 &lt;、href =「...」&gt;.&lt;/a&gt;)。 URL のようなものでない限り、http://www.someserver.com/SomePage.aspxまたは/SomePage.aspx、フォーム認証チケットは、ご利用の米国埋め込まれます。
+リンクの URL SomePage.aspx が認証チケットに含まれている URL に自動的に変換されますが書き込むコードがまったくありませんでした。 始まらないすべてのハイパーリンクの URL には、フォーム認証チケットが自動的に埋め込まれます`http://`または`/`です。 Response.Redirect への呼び出しで、ハイパーリンク コントロール、または HTML アンカー要素にハイパーリンクが表示される場合に重要ではありません (つまり、 `<a href="...">...</a>`)。 URL のようなものでない限り、`http://www.someserver.com/SomePage.aspx`または`/SomePage.aspx`、フォーム認証チケットは、ご利用の米国埋め込まれます。
 
 > [!NOTE]
 > Cookie なしのフォーム認証チケットは、クッキー ベースの認証チケットとして同じタイムアウト ポリシーに準拠します。 ただし、cookie なしの認証チケットは、認証チケットが URL に直接埋め込まれているために、リプレイ攻撃を受けやすい。 Web サイトにアクセスでログインし、同僚に電子メールで URL を貼り付けますユーザーを想像してください。 仕事仲間は、有効期限に達する前にそのリンクをクリックすると、それらに記録されます、電子メールを送信したユーザーとして!
@@ -273,15 +273,15 @@ HttpCookie authCookie = FormsAuthentication.GetAuthCookie (UserName.Text、Remem
 
 Cookie に埋め込まれた FormAuthenticationTicket を使用するために必要がありますを呼び出して、FormAuthentication クラスの[メソッドを復号化](https://msdn.microsoft.com/library/system.web.security.formsauthentication.decrypt.aspx)cookie の値を渡して、します。
 
-FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
+所属チケット FormsAuthentication.Decrypt(authCookie.Value); を =
 
 作成し、*新しい*既存所属の値に基づいて所属インスタンス。 ただし、この新しいチケットには、ユーザーに固有の情報 (userDataString) が含まれています。
 
-FormsAuthenticationTicket newTicket = new FormsAuthenticationTicket(ticket.Version, ticket.Name, ticket.IssueDate, ticket.Expiration, ticket.IsPersistent, userDataString);
+所属 newTicket = 新しい所属 (チケット。チケットのバージョンです。チケットの名前。IssueDate、チケットします。有効期限、チケット。IsPersistent、userDataString) です。
 
 暗号化 (し検証) を呼び出して新しい所属インスタンス、[メソッドを暗号化](https://msdn.microsoft.com/library/system.web.security.formsauthentication.encrypt.aspx)authCookie にこの暗号化された (および検証済み) のデータを戻すとします。
 
-authCookie.Value = FormsAuthentication.Encrypt(newTicket);
+authCookie.Value FormsAuthentication.Encrypt(newTicket); を =
 
 最後に、authCookie が Response.Cookies コレクションに追加され、GetRedirectUrl メソッドをユーザーに送信する、適切なページを確認します。
 

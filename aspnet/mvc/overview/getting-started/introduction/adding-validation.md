@@ -12,12 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 946d4d5e5a506fb437232f9f4440c98e33a1a9b3
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 96dc6724b48daf77034c0741be970be11b81ab37
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33966560"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961517"
 ---
 <a name="adding-validation"></a>検証の追加
 ====================
@@ -57,7 +57,7 @@ ASP.NET MVC と Entity Framework Code First によって提供される検証の
 
 [!code-csharp[Main](adding-validation/samples/sample3.cs)]
 
-`Genre`フィールドは null 許容では不要になった (つまり、値を入力する必要があります)。 `Rating`フィールドが 5 の最大長を持つと`Title`60 の最大長であります。 上の 3 の最小の長さ`Title`上の範囲と`Price`スキーマの変更を作成できませんでした。
+`Genre`フィールド値が許容されなく (つまり、値を入力する必要があります)。 `Rating`フィールドが 5 の最大長を持つと`Title`60 の最大長であります。 上の 3 の最小の長さ`Title`上の範囲と`Price`スキーマの変更を作成できませんでした。
 
 ムービーのスキーマを確認してください。
 

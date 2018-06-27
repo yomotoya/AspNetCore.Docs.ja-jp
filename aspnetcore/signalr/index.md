@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.date: 06/21/2018
 uid: signalr/index
-ms.openlocfilehash: 6621488e68647516e9549af7c90631c363331bcc
-ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
+ms.openlocfilehash: b3839e5daf7f42ab0a4f26b07741708fd2cfc6c0
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314059"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961374"
 ---
 # <a name="aspnet-core-signalr"></a>ASP.NET Core SignalR
 
@@ -22,6 +22,7 @@ ms.locfileid: "36314059"
 * [.NET クライアント](xref:signalr/dotnet-client)
 * [HubContext](xref:signalr/hubcontext)
 * [ユーザーおよびグループ](xref:signalr/groups)
+* [構成](xref:signalr/configuration)
 * [MessagePack ハブ プロトコル](xref:signalr/messagepackhubprotocol)
 * [Azure に発行する](xref:signalr/publish-to-azure-web-app)
 * [ストリーミング](xref:signalr/streaming)

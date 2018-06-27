@@ -5,12 +5,12 @@ description: Authorize 属性を使用して ASP.NET Core コント ローラー
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/simple
-ms.openlocfilehash: 3c5e9d5dfd65ded40c9828a666143c1868f5562f
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 6409def0508b855d3d2a4a1f4d3a3d15bfe5dd32
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272066"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961124"
 ---
 # <a name="simple-authorization-in-aspnet-core"></a>ASP.NET Core での単純な承認
 
@@ -71,5 +71,5 @@ public class AccountController : Controller
 
 認証されたユーザーのみをこのようにすると、 `AccountController`、を除き、`Login`がその認証されたか、認証されていない/匿名の状態に関係なく、だれがアクセス可能なアクションです。
 
->[!WARNING]
-> `[AllowAnonymous]` 承認のすべてのステートメントをバイパスします。 結合を適用する場合`[AllowAnonymous]`と任意`[Authorize]`し、属性、Authorize 属性は常に無視されます。 適用する場合などは`[AllowAnonymous]`レベル、コント ローラーでいずれかの`[Authorize]`同じコント ローラーで、または、内の任意のアクションの属性は無視されます。
+> [!WARNING]
+> `[AllowAnonymous]` 承認のすべてのステートメントをバイパスします。 結合する場合`[AllowAnonymous]`と任意`[Authorize]`、属性、`[Authorize]`属性は無視されます。 適用する場合などは`[AllowAnonymous]`、コント ローラー レベル、`[Authorize]`同じコント ローラー (または、すべての操作) の属性は無視されます。

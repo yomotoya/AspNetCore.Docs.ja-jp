@@ -12,12 +12,12 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/releases/whats-new-in-aspnet-web-api-22
 msc.type: authoredcontent
-ms.openlocfilehash: 400329dd852ca3c527387ee45e3e902b725e771b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 89b065fccd0e4864f4a24c37b4caa29a1e127840
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26508401"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961300"
 ---
 <a name="whats-new-in-aspnet-web-api-22"></a>ASP.NET Web API 2.2 の新機能
 ====================
@@ -131,7 +131,7 @@ URL を含む文字列リテラルは、スラッシュ (%2f) をエンコード
 
 サービス ホストは解除エスケープこのような要求を受信するとき、エスケープ シーケンス、Web API のランタイムに渡す前にします。 これは、次のような攻撃から保護します。  
   
- http://www.contoso.com/..%2F..%2F/Windows/System32/cmd.exe?/c+dir+c:
+`http://www.contoso.com/..%2F..%2F/Windows/System32/cmd.exe?/c+dir+c:`
 
 これにより、Web API OData スタックは、404 (Not Found) エラーを返します。 このエラーを防ぐためには、クライアントは、スラッシュ (%252f) のダブル エスケープ シーケンスと円記号 (%255 C) を使用する必要があります。 これが動作しない/Employees などのクエリ文字列のですか? $filter = Name eq '名 %2f'
 
