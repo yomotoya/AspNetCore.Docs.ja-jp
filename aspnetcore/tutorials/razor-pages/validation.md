@@ -39,7 +39,7 @@ Razor ページと Entity Framework が提供している検証のサポート�
 検証属性で、モデルのプロパティに適用されている動作を指定します。
 
 * `Required` と `MinimumLength` の属性は、プロパティに値が必要なことを示します。 ただし、ユーザーが空白を入力することで null 許容型の妥当性制約を満たすことはできます。 null 非許容の[値の型](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (`decimal`、`int`、`float`、`DateTime` など) は本質的に必須ではなく、`Required` 属性を必要としません。
-* `RegularExpression` 属性は、ユーザーが入力できる文字を制限します。 上記のコードで、`Genre` と `Rating` は、文字のみを使用する必要があります (空白、数字、特殊文字は使用できません)。
+* `RegularExpression` 属性は、ユーザーが入力できる文字を制限します。 上記のコードで、`Genre` と `Rating` は、英字のみを使用する必要があります (空白、数字、特殊文字は使用できません)。
 * `Range` 属性は、指定した範囲に値を制限します。
 * `StringLength` 属性は文字列の最大長を設定します。必要に応じて、最短長も設定できます。 
 
