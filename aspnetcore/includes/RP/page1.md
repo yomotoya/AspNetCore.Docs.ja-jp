@@ -8,7 +8,16 @@
 
 ## <a name="the-create-delete-details-and-edit-pages"></a>[作成]、[削除]、[詳細]、および [編集] ページ
 
-次のように、*Pages/Movies/Index.cshtml.cs* ページ モデルを確認します。[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
+次のように、*Pages/Movies/Index.cshtml.cs* ページ モデルを確認します。
+
+::: moniker range="= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index21.cshtml.cs)]
+
+::: moniker-end
 
 Razor ページは `PageModel` から派生します。 慣例により、`PageModel` 派生クラスは `<PageName>Model` と呼ばれます。 コンストラクターは[依存性の注入](xref:fundamentals/dependency-injection)を使用して、`MovieContext` をページに追加します。 スキャフォールディングされたページではすべてこのパターンに従います。 Entity Framework での非同期プログラミングの詳細については、「[非同期コード](xref:data/ef-rp/intro#asynchronous-code)」を参照してください。
 
@@ -17,7 +26,7 @@ Razor ページは `PageModel` から派生します。 慣例により、`PageM
 `OnGet` が `void` を返す場合、または `OnGetAsync` が `Task` を返す場合、return メソッドは使用されません。 戻り値の型が `IActionResult` または `Task<IActionResult>` の場合は、return ステートメントを指定する必要があります。 たとえば、*Pages/Movies/Create.cshtml.cs* `OnPostAsync` メソッドでは、次のようになります。
 
 <!-- TODO - replace with snippet
-[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
  -->
 
 ```csharp
@@ -34,6 +43,7 @@ public async Task<IActionResult> OnPostAsync()
     return RedirectToPage("./Index");
 }
 ```
+
 次のように、*Pages/Movies/Index.cshtml* Razor ページを確認します。
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml)]
@@ -70,13 +80,28 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 
 上の強調表示されたコードは、Razor の C# への移行例です。 `{` 文字と `}` 文字で C# コードのブロックを囲みます。
 
-`PageModel` 基本クラスには `ViewData` 辞書プロパティがあり、これを使用して、ビューに渡すデータを追加できます。 キー/値のパターンを使用して、`ViewData` 辞書にオブジェクトを追加します。 上のサンプルでは、"Title" プロパティが `ViewData` 辞書に追加されます。 "Title" プロパティは *Pages/_Layout.cshtml* ファイルで使用されます。 次のマークアップは、*Pages/_Layout.cshtml* ファイルの最初の数行を示しています。
+`PageModel` 基本クラスには `ViewData` 辞書プロパティがあり、これを使用して、ビューに渡すデータを追加できます。 キー/値のパターンを使用して、`ViewData` 辞書にオブジェクトを追加します。 上のサンプルでは、"Title" プロパティが `ViewData` 辞書に追加されます。 
+
+::: moniker range="= aspnetcore-2.0"
+
+"Title" プロパティは *Pages/_Layout.cshtml* ファイルで使用されます。 次のマークアップは、*Pages/_Layout.cshtml* ファイルの最初の数行を示しています。
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+"Title" プロパティは *Pages/Shared/_Layout.cshtml* ファイルで使用されます。 次のマークアップは、*_Layout.cshtml* ファイルの最初の数行を示しています。
+
+::: moniker-end
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout1.cshtml?highlight=6-999)]
 
 `@*Markup removed for brevity.*@` 行は Razor コメントです。 HTML コメント (`<!-- -->`) とは異なり、Razor コメントはクライアントには送信されません。
 
 アプリを実行して、プロジェクトのリンク (**[ホーム]**、**[バージョン情報]**、**[連絡先]**、**[作成]**、**[編集]**、および **[削除]**) をテストします。 各ページで、ブラウザー タブで表示できるタイトルを設定します。ページをブックマークすると、ブックマークでタイトルが使用されます。 現在、*Pages/Index.cshtml* と *Pages/Movies/Index.cshtml* のタイトルは同じですが、変更して別の値を指定することができます。
+
+> [!NOTE]
+> `Price` フィールドに小数点のコンマを入力できない場合があります。 小数点にコンマ (",") を使い、英語 (米国) 以外の日付形式を使う英語以外のロケールの [jQuery 検証](https://jqueryvalidation.org/)をサポートするには、アプリをグローバル化する手順を行う必要があります。 小数点のコンマの追加方法については、[こちらの GitHub issue 4076](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420) を参照してください。
 
 `Layout` プロパティは *Pages/_ViewStart.cshtml* ファイルで設定されています。
 
@@ -109,15 +134,22 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 
 *Pages/Movies/Create.cshtml.cs* ページ モデルを確認します。
 
-[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+::: moniker range="= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+::: moniker-end
 
-`OnGet` メソッドは、ページに必要な状態を初期化します。 [作成] ページには初期化する状態はありません。 `Page` メソッドでは、*Create.cshtml* ページをレンダリングする `PageResult` オブジェクトが作成されます。
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create21.cshtml.cs?name=snippetALL)]
+::: moniker-end
+
+
+`OnGet` メソッドは、ページに必要な状態を初期化します。 [作成] ページには初期化する状態はないため、`Page` が返されます。 このチュートリアルで後ほど、`OnGet` メソッドの状態の初期化を確認できます。 `Page` メソッドでは、*Create.cshtml* ページをレンダリングする `PageResult` オブジェクトが作成されます。
 
 `Movie` プロパティは `[BindProperty]` 属性を使用して、[モデル バインド](xref:mvc/models/model-binding)にオプトインします。 [作成] フォームでフォーム値が投稿されると、ASP.NET Core ランタイムが投稿された値を `Movie` モデルにバインドします。
 
 `OnPostAsync` メソッドは、ページでフォーム データが投稿されたときに実行されます。
 
-[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetPost)]
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetPost)]
 
 モデル エラーがある場合は、投稿されたフォーム データと共にフォームが再表示されます。 ほとんどのモデル エラーは、フォームが投稿される前にクライアント側でキャッチできます。 モデル エラーの例では、日付に変換できない日付フィールドの値が投稿されています。 クライアント側の検証とモデルの検証については、チュートリアルの後半で詳しく説明します。
 
@@ -127,7 +159,7 @@ Razor では、HTML から C# または Razor 固有のマークアップに移�
 
 次のように、*Pages/Movies/Create.cshtml* Razor ページ ファイルを確認します。
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml)]
 
 <!--
 Visual Studio displays the `<form method="post">` tag in a distinctive font used for Tag Helpers. The `<form method="post">` element is a [Form Tag Helper](xref:mvc/views/working-with-forms#the-form-tag-helper). The Form Tag Helper automatically includes an [antiforgery token](xref:security/anti-request-forgery).

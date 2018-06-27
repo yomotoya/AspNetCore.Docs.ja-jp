@@ -2,20 +2,16 @@
 title: ASP.NET Core Web API のコントローラー アクションの戻り値の型
 author: scottaddie
 description: ASP.NET Core Web API でのさまざまなコントローラー アクション メソッドの戻り値の型の使用について説明します。
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/21/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: web-api/action-return-types
-ms.openlocfilehash: 6734153eab699bb951400baa5c40968019c35b2c
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 422db97da222fb5e742e1d8e6ae410edc90dbc18
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35217447"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273557"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>ASP.NET Core Web API のコントローラー アクションの戻り値の型
 

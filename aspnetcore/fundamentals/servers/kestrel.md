@@ -2,20 +2,16 @@
 title: ASP.NET Core への Kestrel Web サーバーの実装
 author: rick-anderson
 description: ASP.NET Core 用のクロスプラットフォーム Web サーバーである Kestrel について説明します。
-manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/02/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 39949585dc8fce10c31045ef3013c6bc166e45ba
-ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
+ms.openlocfilehash: 62649351271deebcf1ed9d2f8b2258bed3478989
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35613152"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276657"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core への Kestrel Web サーバーの実装
 
@@ -458,12 +454,12 @@ WebHost.CreateDefaultBuilder()
 
 ポート番号 `0` を指定すると、Kestrel は使用可能なポートに動的にバインドします。 次の例では、Kestrel が実行時に実際にバインドするポートを特定する方法を示します。
 
-[!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Port0&highlight=3)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Configure&highlight=3-4,15-21)]
 
 アプリを実行すると、コンソール ウィンドウの出力で、アプリがアクセスできる動的なポートが示されます。
 
 ```console
-Now listening on: http://127.0.0.1:48508
+Listening on the following addresses: http://127.0.0.1:48508
 ```
 
 **UseUrls、--url コマンド ライン引数、url ホスト構成キー、および ASPNETCORE_URLS 環境変数の制限事項**

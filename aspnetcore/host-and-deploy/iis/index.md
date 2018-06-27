@@ -2,20 +2,16 @@
 title: IIS を使用した Windows での ASP.NET Core のホスト
 author: guardrex
 description: Windows Server インターネット インフォメーション サービス (IIS) での ASP.NET Core アプリをホストする方法を説明します。
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/13/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 0cb9bc7d8bf415e5a0125c3798f2430c9e861c98
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: ea18c451c2f68dc389cc6dc30ede9a10e3d8e6ac
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729653"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275413"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
