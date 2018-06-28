@@ -106,7 +106,7 @@ ASP.NET Core で検証規則を自動的に適用すると、アプリをより�
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
-`DataType` 属性は、ビュー エンジンに対して、データの書式設定のヒントのみを提供します (また、URL の場合に `<a>`、電子メールの場合に `<a href="mailto:EmailAddress.com">` などの属性を提供します)。 `RegularExpression` 属性は、データの書式を検証するために使用されます。 `DataType` 属性は、データベースの組み込み型よりも具体的なデータ型を指定するために使用されます。 `DataType` 属性は、検証属性ではありません。 サンプル アプリケーションでは、日付のみが表示され、時刻は表示されません。
+`DataType` 属性は、ビュー エンジンに対して、データの書式設定のヒントのみを提供します (また、URL の場合に `<a>`、電子メールの場合に `<a href="mailto:EmailAddress.com">` などの属性を提供します)。 データの書式を検証するためには、`RegularExpression` 属性を使用してください。 `DataType` 属性は、データベースの組み込み型よりも具体的なデータ型を指定するために使用されます。 `DataType` 属性は、検証属性ではありません。 サンプル アプリケーションでは、日付のみが表示され、時刻は表示されません。
 
 `DataType` 列挙型は、Date、Time、PhoneNumber、Currency、EmailAddress など、多くの型のために用意されています。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 たとえば、`DataType.EmailAddress` に対して `mailto:` リンクを作成できます。 HTML 5 をサポートしているブラウザーでは、`DataType.Date` に日付セレクターを提供できます。 `DataType` 属性は、HTML 5 ブラウザーが使用する HTML 5 `data-` ("データ ダッシュ" と読みます) 属性を出力します。 `DataType` 属性は、検証を**提供していません**。
 
