@@ -2,19 +2,15 @@
 title: ASP.NET Core フィルター
 author: ardalis
 description: フィルターのしくみと ASP.NET Core MVC でそれを使用する方法について説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 4/10/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: d3b775116c126e4d6456b89b2c76ca9d9e1a004c
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 24551382847fee0896fe6620d52c30a03aca69d1
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252153"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275646"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core フィルター
 
@@ -23,10 +19,10 @@ ms.locfileid: "35252153"
 ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプラインの特定のステージの前または後にコードを実行できます。
 
 > [!IMPORTANT]
-> このトピックは Razor ページには適用**されません**。 ASP.NET Core 2.1 以降では、Razor ページの [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) と [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) に対応しています。 詳細については、[Razor ページのフィルター メソッド](xref:mvc/razor-pages/filter)に関するページを参照してください。
+> このトピックは Razor ページには適用**されません**。 ASP.NET Core 2.1 以降では、Razor ページの [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) と [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) に対応しています。 詳細については、[Razor ページのフィルター メソッド](xref:razor-pages/filter)に関するページを参照してください。
 
  組み込みのフィルターでは次のようなタスクが処理されます。
- 
+
  * 許可 (ユーザーに許可が与えられていないリソースの場合、アクセスを禁止する)。
  * すべての要求で HTTPS を使用する。
  * 応答キャッシュ (要求パイプラインを迂回し、キャッシュされている応答を返す)。 
@@ -74,7 +70,8 @@ ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプ�
 1 つのクラスで複数のフィルター ステージに対してインターフェイスを実装することができます。 たとえば、[ActionFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionfilterattribute?view=aspnetcore-2.0) クラスは、`IActionFilter` と `IResultFilter` と、それらの非同期バージョンを実装します。
 
 > [!NOTE]
-> フィルター インターフェイスの同期と非同期バージョンの両方ではなく、**いずれか**を実装します。 フレームワークは、最初にフィルターが非同期インターフェイスを実装しているかどうかをチェックして、している場合はそれを呼び出します。 していない場合は、同期インターフェイスのメソッドを呼び出します。 1 つのクラスに両方のインターフェイスを実装すると、非同期のメソッドのみが呼び出されます。 [ActionFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionfilterattribute?view=aspnetcore-2.0) などの抽象クラスを使用する場合は、同期メソッドのみを上書きするか、フィルターの種類ごとに非同期メソッドを上書きします。
+> フィルター インターフェイスの同期と非同期バージョンの両方ではなく、**いずれか**を実装します。 フレームワークは、最初にフィルターが非同期インターフェイスを実装しているかどうかをチェックして、している場合はそれを呼び出します。 していない場合は、同期インターフェイスのメソッドを呼び出します。 1 つのクラスに両方のインターフェイスを実装すると、非同期のメソッドのみが呼び出されます。 
+  [ActionFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionfilterattribute?view=aspnetcore-2.0) などの抽象クラスを使用する場合は、同期メソッドのみをオーバーライドするか、フィルターの種類ごとに非同期メソッドをオーバーライドします。
 
 ### <a name="ifilterfactory"></a>IFilterFactory
 
@@ -121,7 +118,7 @@ ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプ�
 
 ### <a name="default-order-of-execution"></a>実行の既定の順序
 
-パイプラインの特定のステージに対して複数のフィルターがある場合に、スコープがフィルターの実行の既定の順序を決定します。  グローバル フィルターがクラス フィルターを囲み、クラス フィルターがメソッド フィルターを囲みます。 これは、[入れ子人形](https://wikipedia.org/wiki/Matryoshka_doll)のように、スコープが前のスコープを囲むたびに大きくなることから、"マトリョーシカ人形" 入れ子と呼ばれることがあります。 通常は、明示的に順序を決定しなくても、目的の上書き動作が得られます。
+パイプラインの特定のステージに対して複数のフィルターがある場合に、スコープがフィルターの実行の既定の順序を決定します。  グローバル フィルターがクラス フィルターを囲み、クラス フィルターがメソッド フィルターを囲みます。 これは、[入れ子人形](https://wikipedia.org/wiki/Matryoshka_doll)のように、スコープが前のスコープを囲むたびに大きくなることから、"マトリョーシカ人形" 入れ子と呼ばれることがあります。 通常は、明示的に順序を決定しなくても、目的のオーバーライド動作が得られます。
 
 この入れ子の結果として、フィルターの *after* コードが *before* コードと逆の順序で実行されます。 シーケンスは次のようになります。
 
@@ -153,7 +150,7 @@ ASP.NET Core MVC で*フィルター*を使用すると、要求処理パイプ�
 > [!NOTE]
 > `Controller` 基底クラスから継承するすべてのコントローラーには、`OnActionExecuting` メソッドと `OnActionExecuted` メソッドが含まれます。 これらのメソッドは、特定のアクションに対して実行されるフィルターをラップします。`OnActionExecuting` はどのフィルターよりも前に呼び出され、`OnActionExecuted` はすべてのフィルターの後に呼び出されます。
 
-### <a name="overriding-the-default-order"></a>既定の順序の上書き
+### <a name="overriding-the-default-order"></a>既定の順序のオーバーライド
 
 `IOrderedFilter` を実装することで、実行の既定の順序を上書きできます。 このインターフェイスは、実行の順序を決定するために、スコープよりも優先される `Order` プロパティを公開します。 `Order` 値が低いフィルターがその *before* コードを、その `Order` の高い値よりも前に実行させます。 `Order` 値が低いフィルターがその *after* コードを、その高い `Order` の値よりも後に実行させます。 `Order` プロパティは、コンストラクター パラメーターを使用して設定できます。
 
