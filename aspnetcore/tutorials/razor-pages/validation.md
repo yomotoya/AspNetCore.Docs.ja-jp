@@ -25,7 +25,7 @@ ms.locfileid: "36277775"
 
 Razor ページと Entity Framework が提供している検証のサポートは、DRY 原則の好例です。 検証規則は、1 つの場所 (モデル クラス内) で宣言的に規定され、アプリの任意の場所で適用されます。
 
-### <a name="adding-validation-rules-to-the-movie-model"></a>検証規則をムービー モデルを追加する
+### <a name="adding-validation-rules-to-the-movie-model"></a>検証規則をムービー モデルに追加する
 
 *Movie.cs* ファイルを開きます。 [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) には、クラスまたはプロパティに宣言的に適用される組み込みの検証属性セットがあります。 また、DataAnnotations には、書式設定を支援し、検証を行わない `DataType` のような書式設定属性もあります。
 
