@@ -27,7 +27,7 @@ Razor ページと Entity Framework が提供している検証のサポート�
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>検証規則をムービー モデルを追加する
 
-*Movie.cs* ファイルを開きます。 [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) には、クラスまたはプロパティに宣言的に適用される組み込みの検証属性セットがあります。 また、DataAnnotations には、検証設定を支援し、検証を行わない `DataType` のような書式設定属性もあります。
+*Movie.cs* ファイルを開きます。 [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) には、クラスまたはプロパティに宣言的に適用される組み込みの検証属性セットがあります。 また、DataAnnotations には、書式設定を支援し、検証を行わない `DataType` のような書式設定属性もあります。
 
 `Required`、`StringLength`、`RegularExpression`、および `Range` 検証属性を利用するように `Movie` クラスを更新します。
 
