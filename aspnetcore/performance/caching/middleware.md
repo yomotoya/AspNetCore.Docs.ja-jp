@@ -2,20 +2,17 @@
 title: 応答の ASP.NET Core のミドルウェアのキャッシュ
 author: guardrex
 description: 構成および ASP.NET Core でのキャッシュ ミドルウェアの応答を使用する方法を説明します。
-manager: wpickett
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
-ms.prod: asp.net-core
-ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: abf07ec2d2692a8504caea243eacead6aa6e1a62
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 0b33e55acc6b3112349a2a5a791f7563dbd19fb5
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341705"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077648"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>応答の ASP.NET Core のミドルウェアのキャッシュ
 

@@ -6,18 +6,18 @@ monikerRange: < aspnetcore-2.0
 ms.author: riande
 ms.date: 08/15/2017
 uid: security/authentication/2fa
-ms.openlocfilehash: 335edfd5cd4dfbb9d223ba0ae888a6d2386cd4a5
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 0308b05ebcda1af7f6850549d7a33f1df1a912a0
+ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272310"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37089985"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>ASP.NET Core での SMS で 2 要素認証
 
 によって[Rick Anderson](https://twitter.com/RickAndMSFT)と[スイス開発者](https://github.com/Swiss-Devs)
 
-参照してください[ASP.NET Core でのアプリの認証子の QR コードを有効にする生成](xref:security/authentication/identity-enable-qrcodes)ASP.NET Core 2.0 以降。
+ 使用して、時間ベース ワンタイム パスワード アルゴリズム (TOTP)、2 要素認証 (2 fa) 認証アプリとは、2 fa のアプローチをお勧め業界です。 2 fa TOTP を使用してを SMS 2 fa をお勧めします。 詳細については、次を参照してください。 [ASP.NET Core で TOTP authenticator アプリの QR コードを有効にする生成](xref:security/authentication/identity-enable-qrcodes)ASP.NET Core 2.0 以降。
 
 このチュートリアルでは、SMS を使用した 2 要素認証 (2 fa) を設定する方法を示します。 手順が示されて[twilio](https://www.twilio.com/)と[ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/)、他の SMS プロバイダーを使用することができます。 完了したことをお勧め[アカウントの確認とパスワードの回復](xref:security/authentication/accconfirm)このチュートリアルを開始する前にします。
 
@@ -33,28 +33,24 @@ ms.locfileid: "36272310"
 
 #### <a name="figuring-out-sms-provider-credentials"></a>SMS プロバイダーの資格情報を見つけ出し
 
-**Twilio:**  
-Twilio アカウントの [ダッシュ ボード] タブから、コピー、**アカウント SID**と**認証トークン**です。
+**Twilio:** 、Twilio アカウントの [ダッシュ ボード] タブから、コピー、**アカウント SID**と**認証トークン**です。
 
-**ASPSMS:**  
-アカウントの設定に移動**ユーザー キー**コピーと共に使用して、**パスワード**です。
+**ASPSMS:** 、アカウントの設定に移動**ユーザー キー**コピーと共に使用して、**パスワード**です。
 
 キー内のシークレット マネージャー ツールを使用してこれらの値は後で格納`SMSAccountIdentification`と`SMSAccountPassword`です。
 
 #### <a name="specifying-senderid--originator"></a>SenderID を指定する/発信元
 
-**Twilio:**  
-数値 タブで、コピー、Twilio**電話番号**です。 
+**Twilio:** 番号 タブで、コピー、Twilio**電話番号**です。
 
-**ASPSMS:**  
-ロックを解除発信者メニュー内で 1 つまたは複数の発信者のロックを解除または発信元が英数字であることを (すべてのネットワークではサポートされていません) を選択します。 
+**ASPSMS:** のロックを解除発信者メニュー内で 1 つまたは複数の発信者のロックを解除または発信元が英数字であることを (すべてのネットワークではサポートされていません) を選択します。
 
 キー内のシークレット マネージャー ツールを使用してこの値は後で格納`SMSAccountFrom`です。
 
 
 ### <a name="provide-credentials-for-the-sms-service"></a>SMS サービスの資格を情報します。
 
-使用して、[オプション パターン](xref:fundamentals/configuration/options)ユーザー アカウントとキーの設定にアクセスします。 
+使用して、[オプション パターン](xref:fundamentals/configuration/options)ユーザー アカウントとキーの設定にアクセスします。
 
    * セキュリティで保護された SMS キーを取得するクラスを作成します。 このサンプルで、`SMSoptions`でクラスを作成、 *Services/SMSoptions.cs*ファイル。
 
@@ -68,21 +64,19 @@ info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 ```
 * SMS プロバイダーの NuGet パッケージを追加します。 パッケージ マネージャー コンソール (PMC) を実行します。
 
-**Twilio:**  
+**Twilio:**
 `Install-Package Twilio`
 
-**ASPSMS:**  
+**ASPSMS:**
 `Install-Package ASPSMS`
 
 
 * コードを追加、 *Services/MessageServices.cs* SMS を有効にするファイル。 Twilio または ASPSMS セクションのいずれかを使用します。
 
 
-**Twilio:**  
-[!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]
+**Twilio:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]
 
-**ASPSMS:**  
-[!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]
+**ASPSMS:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]
 
 ### <a name="configure-startup-to-use-smsoptions"></a>使用するスタートアップを構成します。 `SMSoptions`
 

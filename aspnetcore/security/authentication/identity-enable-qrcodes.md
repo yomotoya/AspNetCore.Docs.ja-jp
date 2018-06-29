@@ -1,20 +1,19 @@
 ---
-title: ASP.NET Core でのアプリの認証子の QR コード生成を有効にします。
+title: ASP.NET Core で TOTP authenticator アプリの QR コード生成を有効にします。
 author: rick-anderson
-description: ASP.NET Core 2 要素認証を使用する認証システム アプリの QR コードの生成を有効にする方法を検出します。
+description: ASP.NET Core 2 要素認証と連動する TOTP authenticator アプリの QR コードの生成を有効にする方法を検出します。
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/24/2017
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 7604371eef1e8dcf35a5c47ef11b66c0669cacc5
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b0d8f104119340b97bd65f1826bb921ca875acf8
+ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274730"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37089972"
 ---
-# <a name="enable-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>ASP.NET Core でのアプリの認証子の QR コード生成を有効にします。
-
-注: このトピックの対象は ASP.NET Core 2.x
+# <a name="enable-qr-code-generation-for-totp-authenticator-apps-in-aspnet-core"></a>ASP.NET Core で TOTP authenticator アプリの QR コード生成を有効にします。
 
 ASP.NET Core は、個別の認証の認証システム アプリケーションのサポートに付属します。 使用して、時間ベース ワンタイム パスワード アルゴリズム (TOTP)、2 要素認証 (2 fa) 認証アプリとは、2 fa のアプローチをお勧め業界です。 2 fa TOTP を使用してを SMS 2 fa をお勧めします。 認証アプリでは、ユーザー名とパスワードを確認した後どのユーザーが入力する必要があります、6 ~ 8 桁のコードを提供します。 通常、認証アプリがスマート フォンにインストールされます。
 
@@ -58,7 +57,7 @@ ASP.NET Core web アプリ テンプレートでは、認証のサポートが�
 
 ## <a name="change-the-site-name-in-the-qr-code"></a>QR コード内で、サイト名を変更します。
 
-QR コード内で、サイト名は、最初に、プロジェクトの作成時に選択したプロジェクト名から取得されます。 探して変更することができます、`GenerateQrCodeUri(string email, string unformattedKey)`メソッドで、 *Pages\Account\Manage\EnableAuthenticator.cshtml.cs* (Razor ページ) ファイルまたは*Controllers\ManageController.cs* (MVC) ファイル。 
+QR コード内で、サイト名は、最初に、プロジェクトの作成時に選択したプロジェクト名から取得されます。 探して変更することができます、`GenerateQrCodeUri(string email, string unformattedKey)`メソッドで、 *Pages\Account\Manage\EnableAuthenticator.cshtml.cs* (Razor ページ) ファイルまたは*Controllers\ManageController.cs* (MVC) ファイル。
 
 テンプレートから既定のコードは次のようになります。
 
@@ -82,7 +81,7 @@ QR コード ライブラリを優先されるライブラリと置き換える�
 QR コードを正しく書式設定された URL はで使用します。
 
 * `AuthenticatorUri` モデルのプロパティです。
-* `data-url` プロパティに、`qrCodeData`要素。 
+* `data-url` プロパティに、`qrCodeData`要素。
 
 ## <a name="totp-client-and-server-time-skew"></a>TOTP クライアントとサーバー時間のずれ
 

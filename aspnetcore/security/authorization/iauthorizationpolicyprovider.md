@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/02/2018
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: 524928a5b291e02556d11a762d86430a6dc94660
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 218d7a495655598046671093c0cfe7b9622aca5e
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277258"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077603"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>ASP.NET Core で IAuthorizationPolicyProvider を使用して、カスタム承認ポリシーのプロバイダー 
 
@@ -88,7 +88,7 @@ public IActionResult RequiresMinimumAge10()
 使用する場合`MinimumAgeAuthorizationAttribute`、承認ポリシーの名前は、パターンに従いますが`"MinimumAge" + Age`ため、カスタム`IAuthorizationPolicyProvider`によって承認ポリシーを生成する必要があります。
 
 * ポリシー名からの年齢を解析します。
-* 使用して`AuthorizationPolicyBuiler`を新規作成するには `AuthorizationPolicy`
+* 使用して`AuthorizationPolicyBuilder`を新規作成するには `AuthorizationPolicy`
 * ポリシーへの要件を追加、年齢に基づいて`AuthorizationPolicyBuilder.AddRequirements`です。 他のシナリオで使用する場合があります`RequireClaim`、 `RequireRole`、または`RequireUserName`代わりにします。
 
 ```CSharp
