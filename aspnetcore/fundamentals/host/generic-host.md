@@ -2,21 +2,17 @@
 title: .NET での汎用ホスト
 author: guardrex
 description: アプリの起動と有効期間の管理を行う .NET の汎用ホストについて説明します。
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: a851f2faf13792b2c232c124371d07710ae1fce3
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 33e5829ce4a09e132743b4174a588cf232a44775
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734472"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276262"
 ---
 # <a name="net-generic-host"></a>.NET での汎用ホスト
 
@@ -58,7 +54,13 @@ Visual Studio Code でコンソールを設定するには:
 
 ### <a name="configuration-builder"></a>構成ビルダー
 
-ホスト ビルダーの構成は、[IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder) の実装上で [ConfigureHostConfiguration](/dotnet/api/microsoft.extensions.hosting.ihostbuilder.configurehostconfiguration) を呼び出すことによって作成します。 `ConfigureHostConfiguration` は、[IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder) を使ってホストの [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) を作成します。 構成ビルダーは、アプリのビルド プロセスで使用するために [IHostingEnvironment](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment) を初期化します。 `ConfigureHostConfiguration` を複数回呼び出して結果を追加できます。 ホストは、最後に値を設定したオプションを使用します。
+ホスト ビルダーの構成は、[IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder) の実装上で [ConfigureHostConfiguration](/dotnet/api/microsoft.extensions.hosting.ihostbuilder.configurehostconfiguration) を呼び出すことによって作成します。 `ConfigureHostConfiguration` は、[IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder) を使ってホストの [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) を作成します。 構成ビルダーは、アプリのビルド プロセスで使用するために [IHostingEnvironment](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment) を初期化します。
+
+環境変数の構成は、既定では追加されません。 環境変数からホストを構成するには、ホスト ビルダーで [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables) を呼び出します。 `AddEnvironmentVariables` は、オプションのユーザー定義プレフィックスを受け入れます。 サンプル アプリは、`PREFIX_` のプレフィックスを使用します。 環境変数が読み取られると、プレフィックスは削除されます。 サンプル アプリのホストが構成されると、`PREFIX_ENVIRONMENT` の環境変数の値が `environment` キーのホスト構成値になります。
+
+開発中に [Visual Studio](https://www.visualstudio.com/) を使用している、または `dotnet run` を使用してアプリを実行している場合は、環境変数を *Properties/launchSettings.json* ファイルに設定することができます。 [Visual Studio Code](https://code.visualstudio.com/) では、開発中に環境変数を *.vscode/launch.json* ファイルに設定することができます。 詳細については、「[Use multiple environments](xref:fundamentals/environments)」(複数の環境の使用) を参照してください。
+
+`ConfigureHostConfiguration` を複数回呼び出して結果を追加できます。 ホストは、最後に値を設定したオプションを使用します。
 
 *hostsettings.json*:
 
@@ -83,7 +85,7 @@ Visual Studio Code でコンソールを設定するには:
 **型**: *文字列*  
 **既定値**: 既定でアプリ アセンブリが存在するフォルダーに設定されます。  
 **次を使用して設定**: `UseContentRoot`  
-**環境変数**: `ASPNETCORE_CONTENTROOT`
+**環境変数**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` は[オプションであり、ユーザー定義です](#configuration-builder))
 
 パスが存在しない場合は、ホストを起動できません。
 
@@ -97,9 +99,9 @@ Visual Studio Code でコンソールを設定するには:
 **型**: *文字列*  
 **既定値**: Production  
 **次を使用して設定**: `UseEnvironment`  
-**環境変数**: `ASPNETCORE_ENVIRONMENT`
+**環境変数**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` は[オプションであり、ユーザー定義です](#configuration-builder))
 
-環境は任意の値に設定することができます。 フレームワークで定義された値には `Development`、`Staging`、`Production` が含まれます。 値は大文字と小文字が区別されません。 既定では、*環境*は `ASPNETCORE_ENVIRONMENT` 環境変数から読み取られます。 [Visual Studio](https://www.visualstudio.com/) を使用する場合、環境変数は *launchSettings.json* ファイルで設定できます。 詳細については、「[Use multiple environments](xref:fundamentals/environments)」(複数の環境の使用) を参照してください。
+環境は任意の値に設定することができます。 フレームワークで定義された値には `Development`、`Staging`、`Production` が含まれます。 値は大文字と小文字が区別されません。
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_UseEnvironment)]
 
