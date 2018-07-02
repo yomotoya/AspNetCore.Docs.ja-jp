@@ -2,27 +2,23 @@
 title: HTTP 要求の開始
 author: stevejgordon
 description: IHttpClientFactory インターフェイスを使用して、ASP.NET Core の論理 HttpClient インスタンスを管理する方法について説明します。
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/02/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
+ms.date: 06/22/2018
 uid: fundamentals/http-requests
-ms.openlocfilehash: 1f2c7522a10220cd9520d78846d2e897115447c2
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: e56c7a3ed80cc08103f6178859a1a99f1a5ec068
+ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33838762"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36327523"
 ---
 # <a name="initiate-http-requests"></a>HTTP 要求の開始
 
 寄稿者: [Glenn Condron](https://github.com/glennc)、[Ryan Nowak](https://github.com/rynowak)、[Steve Gordon](https://github.com/stevejgordon)
 
-`IHttpClientFactory` を登録し、アプリ内で [HttpClient](/dotnet/api/system.net.http.httpclient) インスタンスを構成して作成するために使用できます。 次のような利点があります。
+[IHttpClientFactory](/dotnet/api/system.net.http.ihttpclientfactory) を登録し、アプリ内で [HttpClient](/dotnet/api/system.net.http.httpclient) インスタンスを構成して作成するために使用できます。 次のような利点があります。
 
 * 論理 `HttpClient` インスタンスの名前付けと構成を一元化します。 たとえば、"github" クライアントを登録して、GitHub にアクセスするように構成できます。 既定のクライアントは、他の目的に登録できます。
 * `HttpClient` でのハンドラーのデリゲートにより送信ミドルウェアの概念を体系化し、Polly ベースのミドルウェアでそれを利用するための拡張機能を提供します。
@@ -42,7 +38,7 @@ ms.locfileid: "33838762"
 
 ### <a name="basic-usage"></a>基本的な使用方法
 
-`IHttpClientFactory` は、Startup.cs の `ConfigureServices` メソッドの内部で `IServiceCollection` の `AddHttpClient` 拡張メソッドを呼び出すことによって登録できます。
+`IHttpClientFactory` は、`Startup.ConfigureServices` メソッドの内部で `IServiceCollection` の `AddHttpClient` 拡張メソッドを呼び出すことによって登録できます。
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet1)]
 
@@ -54,7 +50,7 @@ ms.locfileid: "33838762"
 
 ### <a name="named-clients"></a>名前付きクライアント
 
-それぞれ構成が異なる複数の `HttpClient` をアプリで個別に使用する必要がある場合のオプションは、**名前付きクライアント**を使用することです。 名前付き `HttpClient` の構成は、`ConfigureServices` での登録時に指定できます。
+それぞれ構成が異なる複数の `HttpClient` をアプリで個別に使用する必要がある場合のオプションは、**名前付きクライアント**を使用することです。 名前付き `HttpClient` の構成は、`Startup.ConfigureServices` での登録時に指定できます。
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet2)]
 
@@ -78,7 +74,7 @@ ms.locfileid: "33838762"
 
 上記のコードでは、構成が型指定されたクライアントに移動されています。 `HttpClient` オブジェクトは、パブリック プロパティとして公開されます。 `HttpClient` 機能を公開する API 固有のメソッドを定義することができます。 `GetAspNetDocsIssues` メソッドは、GitHub リポジトリで最新の未解決の問題をクエリして解析するために必要なコードをカプセル化します。
 
-型指定されたクライアントを登録するには、ジェネリック `AddHttpClient` 拡張メソッドを `ConfigureServices` 内で使用して、型指定されたクライアントのクラスを指定します。
+型指定されたクライアントを登録するには、ジェネリック `AddHttpClient` 拡張メソッドを `Startup.ConfigureServices` 内で使用して、型指定されたクライアントのクラスを指定します。
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet3)]
 
@@ -86,7 +82,7 @@ ms.locfileid: "33838762"
 
 [!code-csharp[](http-requests/samples/Pages/TypedClient.cshtml.cs?name=snippet1&highlight=11-14,20)]
 
-好みに応じて、型指定されたクライアントのコンストラクターではなく、`ConfigureServices` での登録時に型指定されたクライアントの構成を指定できます。
+好みに応じて、型指定されたクライアントのコンストラクターではなく、`Startup.ConfigureServices` での登録時に型指定されたクライアントの構成を指定できます。
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet4)]
 
@@ -175,7 +171,7 @@ public class ValuesController : ControllerBase
 
 `IHttpClientFactory` は、[Polly](https://github.com/App-vNext/Polly) という名前の人気のあるサードパーティ製ライブラリと統合します。 Polly は、.NET 用の包括的な回復力および一時的エラー処理ライブラリです。 開発者は、自然でスレッド セーフな方法を使用して、Retry、Circuit Breaker、Timeout、Bulkhead Isolation、Fallback などのポリシーを表現できます。
 
-構成されている `HttpClient` インスタンスで Polly ポリシーを使用できるようにするための、拡張メソッドが提供されています。 ポリー拡張機能は、"Microsoft.Extensions.Http.Polly" と呼ばれる NuGet パッケージで利用できます。 このパッケージは、"Microsoft.AspNetCore.App" メタパッケージには既定では含まれません。 この拡張機能を使用するには、プロジェクトに PackageReference を明示的に含める必要があります。
+構成されている `HttpClient` インスタンスで Polly ポリシーを使用できるようにするための、拡張メソッドが提供されています。 ポリー拡張機能は、"[Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/)" という NuGet パッケージで利用できます。 このパッケージは、[Microsoft.AspNetCore.App メタパッケージ](xref:fundamentals/metapackage-app)に含まれていません。 拡張を使用するには、プロジェクトに明示的な `<PackageReference />` を含める必要があります。
 
 [!code-csharp[](http-requests/samples/HttpClientFactorySample.csproj?highlight=9)]
 
@@ -185,7 +181,7 @@ public class ValuesController : ControllerBase
 
 外部 HTTP 呼び出しを行うときに発生する可能性のある最も一般的な障害は、一時的なものです。 `AddTransientHttpErrorPolicy` という便利な拡張メソッドが含まれており、一時的なエラーを処理するためのポリシーを定義できます。 この拡張メソッドで構成されたポリシーは、`HttpRequestException`、HTTP 5xx 応答、および HTTP 408 応答を処理します。
 
-`AddTransientHttpErrorPolicy` 拡張メソッドは、`ConfigureServices` 内で使用できます。 この拡張メソッドは、可能性のある一時的障害を表すエラーを処理するように構成された `PolicyBuilder` オブジェクトへのアクセスを提供します。
+`AddTransientHttpErrorPolicy` 拡張メソッドは、`Startup.ConfigureServices` 内で使用できます。 この拡張メソッドは、可能性のある一時的障害を表すエラーを処理するように構成された `PolicyBuilder` オブジェクトへのアクセスを提供します。
 
 [!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet7)]
 

@@ -2,19 +2,15 @@
 title: ASP.NET Core のルーティング
 author: ardalis
 description: ASP.NET Core のルーティング機能が受信要求をルート ハンドラーにマッピングするしくみについて説明します。
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: a23e2e1a1dd25a57e5d6189bbd5938c48078515b
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 4482c865671eb4f5decbd5f1cd6e26f2e68e5c25
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341783"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314137"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core のルーティング
 
@@ -154,7 +150,7 @@ routes.MapRoute(
     dataTokens: new { locale = "en-US" });
 ```
 
-このテンプレートは `/Products/5` のような URL パスを照合し、値 `{ controller = Products, action = Details, id = 5 }` とデータ トークン `{ locale = en-US }` を抽出します。
+このテンプレートは `/en-US/Products/5` のような URL パスを照合し、値 `{ controller = Products, action = Details, id = 5 }` とデータ トークン `{ locale = en-US }` を抽出します。
 
 ![ローカル変数ウィンドウ トークン](routing/_static/tokens.png)
 
@@ -285,6 +281,16 @@ URL パターンで任意のファイル拡張子が付いたファイル名を�
 一般的に、テンプレートの利用が最も簡単なルーティングの手法となります。 ルート テンプレート以外では、制約と既定値も指定できます。
 
 ヒント: [ログ](xref:fundamentals/logging/index) を有効にすると、`Route` など、組み込みのルーティング実装が要求を照合するしくみを確認できます。
+
+## <a name="reserved-routing-names"></a>ルーティングの予約名
+
+次のキーワードは予約名であり、ルート名やパラメーターとして使用できません。
+
+* `action`
+* `area`
+* `controller`
+* `handler`
+* `page`
 
 ## <a name="route-constraint-reference"></a>ルート制約参照
 

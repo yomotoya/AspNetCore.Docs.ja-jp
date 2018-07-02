@@ -5,12 +5,12 @@ description: ASP.NET Core でのログ記録フレームワークについて説
 ms.author: tdykstra
 ms.date: 12/15/2017
 uid: fundamentals/logging/index
-ms.openlocfilehash: 2307df3b4b571840f31808b86b48b0e6fb2de852
-ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
+ms.openlocfilehash: 4ceb7886cc9410c3b39beec68c2b11ea3578d851
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033314"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077778"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET Core でのログ記録
 
@@ -610,6 +610,10 @@ Azure ログのストリーミングを構成するには
 **[ログ ストリーミング]** ページに移動して、アプリケーション メッセージを確認します。 これらのメッセージは、アプリケーションで `ILogger` インターフェイスを介してログに記録されます。
 
 ![Azure Portal のアプリケーション ログのストリーミング](index/_static/azure-log-streaming.png)
+
+## <a name="azure-application-insights-trace-logging"></a>Azure Application Insights のトレース ログ
+
+[Application Insights](https://azure.microsoft.com/services/application-insights/) SDK では、ASP.NET Core ログ インフラストラクチャを介して生成されるログからトレース テレメトリを収集することができます。 詳細については、[Microsoft/ApplicationInsights-aspnetcore の Wiki のログ](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging)に関するページを参照してください。
 
 ## <a name="additional-resources"></a>その他の技術情報
 

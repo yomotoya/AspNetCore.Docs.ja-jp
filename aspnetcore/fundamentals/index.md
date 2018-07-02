@@ -2,20 +2,16 @@
 title: ASP.NET Core の基礎
 author: rick-anderson
 description: ASP.NET Core アプリケーションの構築に関する基本概念について説明します。
-manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 09/30/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: 97c0b289b259332d57f8175e05020fe03d505723
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: b51d7b62525944d9924ecb4ce5964312f30a7835
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34233311"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278870"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core の基礎
 
@@ -78,7 +74,7 @@ public class Startup
 
 ## <a name="content-root"></a>コンテンツ ルート
 
-コンテンツ ルートは、ビュー、[Razor ページ](xref:mvc/razor-pages/index)、および静的資産など、アプリで使用されるコンテンツへの基本パスです。 既定では、コンテンツ ルートは、アプリをホストする実行可能ファイルのアプリケーション基本パスと同じです。
+コンテンツ ルートは、ビュー、[Razor ページ](xref:razor-pages/index)、および静的資産など、アプリで使用されるコンテンツへの基本パスです。 既定では、コンテンツ ルートは、アプリをホストする実行可能ファイルのアプリケーション基本パスと同じです。
 
 ## <a name="web-root"></a>Web ルート
 
@@ -106,9 +102,13 @@ ASP.NET Core アプリで [OWIN](http://owin.org) ベースのミドルウェア
 
 詳細については、[ミドルウェア](xref:fundamentals/middleware/index)と [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin) に関するページを参照してください。
 
+::: moniker range=">= aspnetcore-2.1"
+
 ## <a name="initiate-http-requests"></a>HTTP 要求の開始
 
 `IHttpClientFactory` を使用して `HttpClient` インスタンスにアクセスし、HTTP 要求を行う方法については、[HTTP 要求の開始](xref:fundamentals/http-requests)に関する記事をご覧ください。
+
+::: moniker-end
 
 ## <a name="environments"></a>環境
 
@@ -126,7 +126,7 @@ ASP.NET Core は、名前と値のペアに基づく構成モデルを使用し�
 
 ASP.NET Core は、さまざまなログ プロバイダーと連携するログ API をサポートします。 組み込みプロバイダーは、1 つまたは複数の送信先へのログの送信をサポートします。 サード パーティ製のログ記録フレームワークを使用できます。
 
-[ログ](xref:fundamentals/logging/index)
+詳細については、[ログ記録](xref:fundamentals/logging/index)に関するページを参照してください
 
 ## <a name="error-handling"></a>エラー処理
 
@@ -158,11 +158,11 @@ ASP.NET Core アプリは、アプリの起動と有効期間の管理を担当�
 
 詳細については、「[Host in ASP.NET Core](xref:fundamentals/host/index)」(ASP.NET Core でのホスティング) を参照してください。
 
-## <a name="session-and-application-state"></a>セッションとアプリケーションの状態
+## <a name="session-and-app-state"></a>セッションとアプリの状態
 
-セッション状態は ASP.NET Core の機能で、これを使用することでユーザーが Web アプリを参照中にユーザー データを保存して格納することができます。
+ASP.NET Core では、ユーザーによる Web アプリの参照中にセッションとアプリの状態を保持するためのいくつかの方法を提供しています。
 
-詳細については、[セッションとアプリケーション状態](xref:fundamentals/app-state)に関するページを参照してください。
+詳細については、[セッションとアプリの状態](xref:fundamentals/app-state)に関するページを参照してください。
 
 ## <a name="servers"></a>サーバー
 

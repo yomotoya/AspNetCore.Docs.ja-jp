@@ -2,20 +2,16 @@
 title: ASP.NET Core 2.1 以降用 Microsoft.AspNetCore.App メタパッケージ
 author: Rick-Anderson
 description: Microsoft.AspNetCore.All メタパッケージには、サポートされているすべての ASP.NET Core および Entity Framework Core パッケージが含まれています。
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/20/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: 7c7f69a6176d3f7982a67106cb823ff42200b50e
-ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
+ms.openlocfilehash: 4840d0a7536b1e9d8da835690b285ac2074967f5
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306622"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277473"
 ---
 # <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>ASP.NET Core 2.1 用の Microsoft.AspNetCore.App メタパッケージ
 
@@ -63,5 +59,11 @@ ASP.NET Core 用の [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Mi
 `Microsoft.AspNetCore.App` 参照でバージョン番号を指定しても、共有フレームワークのバージョンが選択されることは保証**されません**。 たとえば、バージョン "2.1.1" が指定されているのに、インストールされているのは "2.1.3" であるものとします。 この場合、アプリは "2.1.3" を使います。 お勧めしませんが、ロールフォワード (パッチとマイナーの両方または一方) を無効にすることができます。 .NET ホストのロールフォワードに関する詳細、およびその動作を構成する方法については、[.NET ホストのロールフォワード](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md)に関するページをご覧ください。
 
 `Microsoft.AspNetCore.App` [メタパッケージ](/dotnet/core/packages#metapackages)は、NuGet から更新される従来型のパッケージではありません。 `Microsoft.NETCore.App` に似て、`Microsoft.AspNetCore.App` は共有ランタイムを表しており、NuGet の外部で処理される特殊なバージョン管理セマンティクスを持ちます。 詳しくは、「[パッケージ、メタパッケージ、フレームワーク](/dotnet/core/packages)」をご覧ください。
+
+`<Project Sdk` は、暗黙的バージョン `Microsoft.AspNetCore.App` を使用するように `Microsoft.NET.Sdk.Web` に設定する必要があります。  `<Project Sdk="Microsoft.NET.Sdk">` が使用されると、次の警告が表示されます。
+
+*Warning NU1604: Project dependency Microsoft.AspNetCore.App does not contain an inclusive lower bound.Include a lower bound in the dependency version to ensure consistent restore results.* (警告 NU1604: プロジェクト依存関係 Microsoft.AspNetCore.App には下限が含まれていません。復元結果に一貫性が与えられるように、依存関係バージョンに下限を追加してください。)
+
+*Warning NU1602: [Project Name] does not provide an inclusive lower bound for dependency Microsoft.AspNetCore.App.An approximate best match of Microsoft.AspNetCore.App 2.1.0 was resolved.* (警告 NU1602: [プロジェクト名] には、依存関係 Microsoft.AspNetCore.App の下限がありません。Microsoft.AspNetCore.App 2.1.0 に最もほぼ一致するものが解決されました。)
 
 アプリケーションで以前に `Microsoft.AspNetCore.All` を使っていた場合は、「[Microsoft.AspNetCore.All から Microsoft.AspNetCore.App への移行](xref:fundamentals/metapackage#migrate)」をご覧ください。
