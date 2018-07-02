@@ -5,14 +5,18 @@ description: このチュートリアルでは、ASP.NET Core アプリケーシ
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 818af711c23d37810b29eda8915b3c195a3e48f8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a71954297f44f936893a7f1e9d3b0685f81378b9
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272855"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37092998"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>ASP.NET Core MVC と EF Core - 継承 - 9/10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -50,7 +54,7 @@ TPC および TPH 継承パターンは、一般的に TPT 継承パターンよ
 
 このチュートリアルでは、TPH 継承の実装方法を示します。 TPH は、Entity Framework Core がサポートする唯一の継承パターンです。  実行する作業として、`Person` クラスを作成し、`Instructor` および `Student` クラスを `Person` から派生するように変更し、新しいクラスを `DbContext` に追加して、移行を作成します。
 
-> [!TIP] 
+> [!TIP]
 > 次の変更を加える前に、プロジェクトのコピーを保存することを検討してください。  問題が発生して最初からやり直す必要がある場合、このチュートリアルで実行した手順を逆に実行したり、すべてのシリーズの最初に戻ったりするよりも、保存したプロジェクトから開始する方が簡単です。
 
 ## <a name="create-the-person-class"></a>Person クラスの作成
@@ -121,7 +125,7 @@ dotnet ef database update
 
 (実稼働システムでは、以前のデータベースバージョンに戻すために `Down` メソッドを使用する必要があった場合、このメソッドに対応する変更を行います。 このチュートリアルでは、`Down` メソッドは使用しません)
 
-> [!NOTE] 
+> [!NOTE]
 > データが存在するデータベースでスキーマの変更を行うと、他のエラーが発生する場合があります。 解決できない移行エラーが発生した場合は、接続文字列のデータベース名を変更するか、データベースを削除できます。 新しいデータベースには移行するデータが存在しないため、update-database コマンドがエラーなしで完了する可能性が高くなります。 データベースを削除するには、SSOX を使用するか `database drop` CLI コマンドを実行します。
 
 ## <a name="test-with-inheritance-implemented"></a>継承を実装したテスト
@@ -140,6 +144,8 @@ Person テーブルを右クリックし、**[テーブル データの表示]**
 
 `Person`、`Student`、および `Instructor` クラスの Table-per-Hierarchy 継承を実装しました。 Entity Framework Core での継承の詳細については、「[継承](https://docs.microsoft.com/ef/core/modeling/inheritance)」を参照してください。 次のチュートリアルでは、比較的高度なさまざまな Entity Framework のシナリオを処理する方法を説明します。
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [前へ](concurrency.md)
-> [次へ](advanced.md)  
+> [次へ](advanced.md)

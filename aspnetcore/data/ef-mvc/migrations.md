@@ -5,14 +5,18 @@ description: このチュートリアルでは、ASP.NET Core MVC アプリケ�
 ms.author: tdykstra
 ms.date: 03/15/2018
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: d8b92aeedb252b93e1dc1aca424d26a377305da2
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: f710b33ac1a6017b0e3d7e8c3e528675a41424bb
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273586"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37092943"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>ASP.NET Core MVC と EF Core - 移行 - 4/10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -34,7 +38,7 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
 [!code-xml[](intro/samples/cu/ContosoUniversity.csproj?range=12-15&highlight=2)]
   
-(この例のバージョン番号は、チュートリアルが記述された時点で最新でした)。 
+(この例のバージョン番号は、チュートリアルが記述された時点で最新でした)。
 
 ## <a name="change-the-connection-string"></a>接続文字列を変更する
 
@@ -154,14 +158,15 @@ PMC コマンドの EF コマンドは、[Microsoft.EntityFrameworkCore.Tools](h
 
 **重要:** このパッケージは、*.csproj* ファイルを編集することで、CLI 用にインストールするパッケージと同じものではありません。 `Tools.DotNet` で終わる CLI パッケージ名とは異なり、このパッケージの名前は `Tools` で終わります。
 
-CLI コマンドの詳細については、「[.NET Core CLI](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet)」を参照してください。 
+CLI コマンドの詳細については、「[.NET Core CLI](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet)」を参照してください。
 
 PMC コマンドの詳細については、「[パッケージ マネージャー コンソール (Visual Studio)](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell)」を参照してください。
 
 ## <a name="summary"></a>まとめ
 
 このチュートリアルでは、最初の移行を作成して適用する方法が示されました。 次のチュートリアルでは、データ モデルを展開して、詳細なトピックについて確認します。 その途中で、追加の移行を作成して適用することになります。
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [前へ](sort-filter-page.md)
-> [次へ](complex-data-model.md)  
+> [次へ](complex-data-model.md)

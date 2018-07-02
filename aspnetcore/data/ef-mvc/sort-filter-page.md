@@ -5,14 +5,18 @@ description: このチュートリアルでは、ASP.NET Core および Entity F
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 34097eacad16c0ffb989efb3b6a8656be4a076cd
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 1f80faf0e36332c28e8337ddc331cc8b4c4970d7
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273651"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093089"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a>ASP.NET Core MVC と EF Core - 並べ替え、フィルター、ページング - 3/10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -228,7 +232,7 @@ Contoso 大学の Web サイトの **[About]** ページに、登録日付ごと
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 LINQ ステートメントは、登録日で受講者エンティティをグループ化し、各グループ内のエンティティの数を計算して、結果を `EnrollmentDateGroup` ビュー モデル オブジェクトのコレクションに格納します。
-> [!NOTE] 
+> [!NOTE]
 > 1.0 のバージョンの Entity Framework Core では、結果セット全体がクライアントに返され、クライアントでグループ化が行われます。 一部のシナリオでは、このためにパフォーマンスの問題が発生する可能性があります。 必ず実稼働時のデータ量でパフォーマンスをテストし、必要な場合、未加工の SQL を使用してサーバーのグループ化を行ってください。 未加工の SQL の使用方法については、[このシリーズの最後のチュートリアル](advanced.md)を参照してください。
 
 ### <a name="modify-the-about-view"></a>About ビューを変更する
@@ -245,6 +249,8 @@ LINQ ステートメントは、登録日で受講者エンティティをグル
 
 このチュートリアルでは、並べ替え、フィルター処理、ページング、およびグループ化を実行する方法を説明しました。 次のチュートリアルでは、移行を使用して、データ モデルの変更を処理する方法を学習します。
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [前へ](crud.md)
-> [次へ](migrations.md)  
+> [次へ](migrations.md)
