@@ -2,19 +2,15 @@
 title: ASP.NET Core での Razor ページ アプリへのモデルの追加
 author: rick-anderson
 description: Entity Framework Core (EF Core) を利用し、データベースでムービーを管理するためのクラスを追加する方法について説明します。
-manager: wpickett
 ms.author: riande
-ms.date: 5/30/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: get-started-article
+ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 50b1b01448ad870a2889db7dfe8367ab9e661840
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 508cca07fa96c20e228d2c55c9fb101f7fc3cb02
+ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729964"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36327553"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>ASP.NET Core での Razor ページ アプリへのモデルの追加
 
@@ -90,7 +86,7 @@ dotnet ef database update
 
       *No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.*
 
-`Add-Migration` コマンドによって最初のデータベース スキーマを作成するコードが生成されます。 このスキーマは、`DbContext` で指定されたモデルに基づきます (*Models/MovieContext.cs* ファイル内)。 `Initial` 引数は移行の命名に使用されます。 任意の名前を使用できますが、慣例により、移行を説明する名前を選択します。 詳細については、「[Introduction to migrations](xref:data/ef-mvc/migrations#introduction-to-migrations)」 (移行の概要) を参照してください。
+`Add-Migration` コマンドによって最初のデータベース スキーマを作成するコードが生成されます。 このスキーマは、`RazorPagesMovieContext` で指定されたモデルに基づきます (*Data/RazorPagesMovieContext.cs* ファイル内)。 `Initial` 引数は移行の命名に使用されます。 任意の名前を使用できますが、慣例により、移行を説明する名前を選択します。 詳細については、「[Introduction to migrations](xref:data/ef-mvc/migrations#introduction-to-migrations)」 (移行の概要) を参照してください。
 
 `Update-Database` コマンドは、データベースを作成する、*Migrations/{time-stamp}_InitialCreate.cs* ファイルの `Up` メソッドを実行します。
 
