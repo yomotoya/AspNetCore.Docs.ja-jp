@@ -1,93 +1,92 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs
-title: IIS と ASP.NET 開発サーバー (c#) の違いをコア |Microsoft ドキュメント
+title: IIS と ASP.NET 開発サーバー (c#) の違いをコア |Microsoft Docs
 author: rick-anderson
-description: ローカルで ASP.NET アプリケーションをテストする場合は、ASP.NET 開発 Web サーバーを使用している可能性があります。 ただし、実稼働 web サイトは、最も可能性の高い pow しています.
+description: ローカルでの ASP.NET アプリケーションをテストする場合は、ASP.NET 開発 Web サーバーを使用している可能性があります。 ただし、運用 web サイトは、最も可能性の高い pow です.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
 ms.topic: article
 ms.assetid: 13a5a423-9235-4dde-b408-2fd10f791d63
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e343a6eac39d7959718cb791012cfa3b931ae33f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 50f3115fd124cf058e70cab71b8c0168d242ff21
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30887523"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37363417"
 ---
-<a name="core-differences-between-iis-and-the-aspnet-development-server-c"></a>IIS と ASP.NET 開発サーバー (c#) のコア違い
+<a name="core-differences-between-iis-and-the-aspnet-development-server-c"></a>IIS と ASP.NET 開発サーバー (c#) の間の中心的違い
 ====================
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[コードをダウンロードする](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_06_CS.zip)または[PDF のダウンロード](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial06_WebServerDiff_cs.pdf)
+[コードのダウンロード](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_06_CS.zip)または[PDF のダウンロード](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial06_WebServerDiff_cs.pdf)
 
-> ローカルで ASP.NET アプリケーションをテストする場合は、ASP.NET 開発 Web サーバーを使用している可能性があります。 ただし、実稼働 web サイトでは、最も可能性の高い電源 IIS です。 これらの web サーバーが、要求を処理する方法のいくつか違いがあるし、これらの違いは重要な結果を持つことができます。 このチュートリアルより密接の違いの一部について説明します。
+> ローカルでの ASP.NET アプリケーションをテストする場合は、ASP.NET 開発 Web サーバーを使用している可能性があります。 ただし、運用 web サイトは、最も可能性の高い電源 IIS です。 これらの web サーバーが、要求を処理する方法のいくつか違いがあるし、これらの相違点が重要な影響を及ぼすことができます。 このチュートリアルより密接な相違点について説明します。
 
 
 ## <a name="introduction"></a>はじめに
 
-ユーザーが、ASP.NET アプリケーションにアクセスするたびに、ブラウザーは、web サイトに要求を送信します。 その要求が生成し、要求されたリソースの内容を取得するには、ASP.NET ランタイムと連携して、web サーバー ソフトウェアで取得します。 [**すれば**インターネット**すれば**情報**S** ervices (IIS)](http://en.wikipedia.org/wiki/Internet_Information_Services)を一般的なインターネット ベースの機能を提供するサービスのスイートにはWindows サーバー。 IIS は実稼働環境での ASP.NET アプリケーションの最も一般的に使用される web サーバーです。ASP.NET アプリケーションが機能するように、web ホスト プロバイダーによって使用されている web サーバー ソフトウェアではほとんどの場合です。 これは IIS をインストールする必要がありますが、IIS を開発環境で web サーバー ソフトウェアとして使用もことができ、それを正しく構成します。
+ユーザーが、ASP.NET アプリケーションにアクセスするたびに、ブラウザーは、web サイトに要求を送信します。 その要求を生成し、要求されたリソースのコンテンツを返す、ASP.NET ランタイムと連携して、web サーバー ソフトウェアによって取得されます。 [**は**インターネット**は**情報**S** ervices (IIS)](http://en.wikipedia.org/wiki/Internet_Information_Services)の一般的なインターネット ベースの機能を提供するサービスのスイートにはWindows サーバー。 IIS は運用環境以外での ASP.NET アプリケーションの最もよく使用される web サーバーです。ほとんどの場合は、ASP.NET アプリケーションをホストする web ホスト プロバイダーによって使用されている web サーバーのソフトウェアです。 IIS をインストールする必要がありますが、IIS を開発環境で web サーバーのソフトウェアとして使用もでき、適切に構成します。
 
 
-ASP.NET 開発サーバーは、代替 web サーバー オプションに、開発環境です。付属していて、Visual Studio に統合します。 Web アプリケーションは、IIS を使用するように構成されましたが、しない限り、ASP.NET 開発サーバーが自動的に開始および初めて Visual Studio 内から web ページにアクセスする web サーバーとして使用します。 バックアップで作成したデモ web アプリケーション、 [*を決定する必要のあるファイルを展開する*](determining-what-files-need-to-be-deployed-cs.md)チュートリアルが IIS を使用して構成されていない両方のファイル システム ベースの web アプリケーションです。 そのため、Visual Studio 内からこれらの web サイトのいずれかへのアクセス、ASP.NET 開発サーバーが使用されます。
+ASP.NET 開発サーバーは、開発環境用の代替 web サーバー オプションです。同梱され、Visual Studio に統合します。 IIS を使用する web アプリケーションが構成されている場合を除き、ASP.NET 開発サーバーが自動的に開始および web サーバーとして使用する初めての Visual Studio 内から web ページを参照してください。 バックアップで作成したデモ web アプリケーション、 [*を決定する必要のあるファイルを展開する*](determining-what-files-need-to-be-deployed-cs.md)チュートリアルが IIS を使用して構成されていない両方のファイル システム ベースの web アプリケーション。 そのため、Visual Studio 内からこれらの web サイトのいずれかにアクセスすると、ASP.NET 開発サーバーが使用されます。
 
-理想の世界で、開発環境と運用環境は同じです。 ただし、前のチュートリアルで説明したよう珍しくありませんの環境が異なる構成設定にします。 環境で別の web サーバーのソフトウェアを使用してアプリケーションを展開するときに考慮対象としてに考慮しなければならない別の変数を追加します。 このチュートリアルでは、IIS と ASP.NET 開発サーバーの主な違いについて説明します。 これらの相違点があるため、開発環境で問題なく実行されるコード、例外をスローまたは実稼働環境で実行されるときの動作が異なる場合。
+理想の世界では、開発および運用環境を同一になります。 ただし、前のチュートリアルで説明したように異なる構成設定が環境にとって珍しいことではありません。 別の web サーバー ソフトウェアを使用して、環境でアプリケーションを展開する際の考慮事項に考慮すべきもう 1 つの変数を追加します。 このチュートリアルでは、IIS と ASP.NET 開発サーバーの間の主な違いについて説明します。 これらの違いにより、開発環境で問題なく実行されるコードが例外をスローまたは実稼働環境で実行されるときの動作が異なるシナリオがあります。
 
 ## <a name="security-context-differences"></a>セキュリティ コンテキストの相違点
 
-Web サーバー ソフトウェアは、受信要求を処理するたびに、その要求を特定のセキュリティ コンテキストを関連付けます。 このセキュリティ コンテキスト情報は使用、オペレーティング システムによって、要求によってどのような操作は許容を決定します。 たとえば、ASP.NET ページには、ディスク上のファイルにいくつかのメッセージをログに記録するコードがあります。 エラーなしで実行するには、この ASP.NET ページで、セキュリティ コンテキストは、適切なファイル システム レベルの権限、つまりに対する書き込みアクセス許可ファイルが必要です。
+Web サーバー ソフトウェアは、受信要求を処理するたびに、特定のセキュリティ コンテキストをその要求を関連付けます。 オペレーティング システムによっては、このセキュリティ コンテキスト情報を使用して要求によってどのようなアクションは許容されます。 を決定します。 たとえば、ASP.NET ページには、ディスク上のファイルをいくつかのメッセージを記録するコードがあります。 エラーなしで実行するには、この ASP.NET ページで、セキュリティ コンテキストが適切なファイル システム レベルのアクセス許可、つまり書き込みでそのファイルのアクセス許可が必要です。
 
-ASP.NET 開発サーバーは、受信要求を現在ログオンしているユーザーのセキュリティ コンテキストに関連付けます。 管理者として、デスクトップにログオンしている場合、ASP.NET 開発サーバーによって処理される ASP.NET ページは、管理者と同じアクセス権があります。 ただし、IIS によって処理される ASP.NET 要求は、特定のマシン アカウントに関連付けられます。 既定では、web ホスト プロバイダーは、各顧客の一意のアカウント構成可能性がありますが、ネットワーク サービスのマシン アカウントが IIS バージョン 6 および 7 で使用します。 さらに、web ホスト プロバイダーがこのコンピューターのアカウントにアクセス許可が制限を指定する可能性があります。 最終的な結果は、開発環境ではエラーなく実行されますが、実稼働環境でホストされている場合、承認に関連する例外が生成される web ページがあります。
+ASP.NET 開発サーバーは、受信要求を現在ログオンしているユーザーのセキュリティ コンテキストに関連付けます。 管理者として、デスクトップにログオンしている場合、ASP.NET 開発サーバーによって処理される ASP.NET ページは、管理者と同じアクセス権があります。 ただし、IIS によって処理される ASP.NET 要求は、特定のマシン アカウントに関連付けられます。 既定では、web ホスト プロバイダーは、顧客ごとに一意のアカウント構成可能性がありますが IIS バージョン 6 および 7、によってネットワーク サービスのコンピューター アカウントが使用します。 さらに、web ホスト プロバイダーがこのコンピューター アカウントにアクセス許可が制限を指定する可能性があります。 最終的な結果は、開発環境でエラーなしで実行が、運用環境でホストされている場合の承認に関連する例外を生成する web ページがあります。
 
-ページのユーザーが最新の日付と時刻を格納するディスク上のファイルを作成する書評 web サイトに作成しましたアクションでこの種類のエラーを表示するには、表示、*学べる自分で ASP.NET 3.5 24 時間以内に*を確認します。 どうしたら、開く、`~/Tech/TYASP35.aspx`ページし、次のコードを追加、`Page_Load`イベントのハンドラー。
+ユーザーが最新の日付と時刻を格納するディスク上のファイルを作成する書籍レビューの web サイトでページを作成しましたアクションでこの種類のエラーを表示するには、表示、*教える自分で ASP.NET 3.5 in 24 時間*を確認します。 作業を進めるには、開く、`~/Tech/TYASP35.aspx`ページし、次のコードを追加、`Page_Load`イベント ハンドラー。
 
 [!code-csharp[Main](core-differences-between-iis-and-the-asp-net-development-server-cs/samples/sample1.cs)]
 
 > [!NOTE]
-> [ `File.WriteAllText`メソッド](https://msdn.microsoft.com/library/system.io.file.writealltext.aspx)存在しませんし、指定された内容を書き込む場合は、新しいファイルを作成します。 ファイルが既に存在する場合は、既存のコンテンツが上書きされます。
+> [ `File.WriteAllText`メソッド](https://msdn.microsoft.com/library/system.io.file.writealltext.aspx)に指定されたコンテンツを書き込みますが存在しない場合は、新しいファイルを作成します。 ファイルが既に存在する場合は、既存のコンテンツが上書きされます。
 
 
-次を参照してください、*学べる自分で ASP.NET 3.5 24 時間以内に*book ASP.NET 開発サーバーを使用して、開発環境での確認 ページ。 ログインするいると仮定するとを作成し、web でテキスト ファイルを変更するには、適切なアクセス権を持つアカウントを使用してコンピューターにログオン アプリケーションのルート ディレクトリ、book レビューが表示されますが、以前と同じ日付と時刻、ユーザーのたびに、ページが閲覧 IP アドレスが格納されている、`LastTYASP35Access.txt`ファイル。 このファイルに、ブラウザーをポイントします。図 1 に示すいずれかのようなメッセージが表示されます。
+次を参照してください、*教える自分で ASP.NET 3.5 in 24 時間*ASP.NET 開発サーバーを使用して開発環境で書籍の確認 ページ。 作成し、web でのテキスト ファイルを変更するには、適切なアクセス権を持つアカウントを使用してコンピューターにアプリケーションのルート ディレクトリ、書籍レビュー、以前と同じ表示されますが、ページが毎回アクセス日付と時刻、およびユーザーのログインするいると仮定 IP アドレスが格納されている、`LastTYASP35Access.txt`ファイル。 このファイルをお使いのブラウザーをポイントします。図 1 のようなメッセージが表示されます。
 
 
-[![テキスト ファイルには、最後の日付と時刻を Book レビューがアクセスされたが含まれています。](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image2.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image1.png)
+[![テキスト ファイルには、最後の日付と時刻の書籍レビューのアクセスが含まれています。](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image2.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image1.png)
 
-**図 1**: テキスト ファイルには、最後の日付と時刻を Book レビューがアクセスされたが含まれています ([フルサイズのイメージを表示するをクリックして](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image3.png))
-
-
-実稼働環境に web アプリケーションを展開し、ホストにアクセス*学べる自分で ASP.NET 3.5 24 時間以内に*書籍の確認 ページ。 この時点で書籍の確認 ページには、normal または図 2 に示すように、エラー メッセージとしてか表示されます。 一部の web ホスト プロバイダーは、エラーが発生せず、ページのケースが使用される、匿名 ASP.NET コンピューター アカウントに対する書き込みアクセス許可を付与します。 ただし、web ホスト プロバイダーが匿名アカウントへの書き込みアクセスを禁止する場合は、 [ `UnauthorizedAccessException`例外](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx)場合に発生するが、`TYASP35.aspx`ページが、現在の日付と時刻を作成しようとしています。、`LastTYASP35Access.txt`ファイル。
+**図 1**: テキスト ファイルには、最後の日付と時刻の書籍レビューのアクセスが含まれています ([フルサイズの画像を表示する をクリックします](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image3.png))。
 
 
-[![IIS によって使用される既定マシン アカウントには、ファイル システムに書き込むアクセス許可がありません。](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image4.png)
-
-**図 2**: の既定のマシン アカウントで使用される IIS はある許可ではなく、ファイル システムへの書き込みを ([フルサイズのイメージを表示するをクリックして](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image6.png))
+Web アプリケーションを運用環境にデプロイして、ホストされているアクセス*教える自分で ASP.NET 3.5 in 24 時間*書籍の確認 ページ。 この時点で書籍の確認 ページには、normal または図 2 に表示されるエラー メッセージとしても表示されます。 一部の web ホスト プロバイダーは、ASP.NET による匿名のコンピューター アカウントの場合、ページはエラーなしに書き込みアクセス許可を付与します。 ただし、web ホスト プロバイダーは匿名アカウントへの書き込みアクセスを禁止する場合は、 [ `UnauthorizedAccessException`例外](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx)発生する状況、`TYASP35.aspx`ページが、現在の日付と時刻を記述しようとしています。、`LastTYASP35Access.txt`ファイル。
 
 
-良いニュースは、ほとんどの web ホスト プロバイダーで、ある種の web サイトでファイル システム アクセス許可を指定できるようにするアクセス許可ツールです。 ルート ディレクトリに匿名の ASP.NET アカウント書き込みのアクセス権を付与し、書籍の確認 ページを再確認します。 (必要な場合は、web ホスト プロバイダーに問い合わせてくださいで既定の ASP.NET アカウントに対する書き込みアクセス許可を付与する方法です。)この時間がエラーなくページを読み込む必要があります、`LastTYASP35Access.txt`ファイルを正常に作成する必要があります。
+[![IIS によって使用される既定のマシン アカウントには、ファイル システムに書き込むアクセス許可がありません。](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image4.png)
 
-Take 離れたここでは、ASP.NET 開発サーバーは、IIS と異なるセキュリティ コンテキストで動作するためであること、ファイル システムに対する読み取りまたは書き込みする ASP.NET ページからの読み取りまたは Windows イベント ログに書き込むまたは読み取りや書き込みを Windows に考えられる レジストリでは、開発で期待どおりに機能が、実稼働環境で例外が生成されます。 Web アプリケーションを構築、共有 web ホスティング環境に、展開時にない読み取りまたは書き込み、イベント ログまたは Windows レジストリに。 また、ASP.NET ページからの読み取りまたは読み取りを許可し、実稼働環境で、適切なフォルダーに対する権限を記述する必要があります、ファイル システムに書き込むことを書き留めます。
+**図 2**: [既定のマシン アカウントによって使用 IIS がある許可ではなくファイル システムへの書き込みを ([フルサイズの画像を表示する] をクリックします](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image6.png))。
+
+
+良い知らせは、ほとんどの web ホスト プロバイダーが、web サイトのファイル システム権限を指定することを許可するアクセス許可ツールのいくつかの並べ替えがあることです。 ルート ディレクトリに匿名の ASP.NET アカウント書き込みのアクセス権を付与し、書籍の確認 ページを再検討します。 (必要な場合は、web ホスト プロバイダーに問い合わせてください既定の ASP.NET アカウントに対する書き込みアクセス許可を付与する方法です。)この時間のエラーが発生せず、ページを読み込む必要があります、`LastTYASP35Access.txt`ファイルを正常に作成する必要があります。
+
+とると、すぐここでは、ASP.NET 開発サーバーは、IIS 以外の別のセキュリティ コンテキストで動作するため、ファイル システムに対する読み取りまたは書き込みする ASP.NET ページからの読み取りまたは Windows イベント ログに書き込むまたは読み取るか、Windows への書き込み レジストリは、開発で期待どおりに動作が、運用環境での例外を生成します。 共有 web ホスト環境で web アプリケーションの構築がデプロイされるときに実行しない読み取りまたは書き込み、イベント ログまたは Windows レジストリに。 任意の ASP.NET ページからの読み取りまたは読み取りを許可し、運用環境で適切なフォルダーに対する権限を記述する必要があります、ファイル システムへの書き込みも書き留めます。
 
 ## <a name="differences-on-serving-static-content"></a>静的なコンテンツの違い
 
-IIS と ASP.NET 開発サーバーの間のもう 1 つの主要な違いは、静的なコンテンツの要求を処理する方法です。 ASP.NET ページ、画像、または JavaScript ファイルでは、ASP.NET 開発サーバーに付属しているすべての要求は、ASP.NET ランタイムによって処理されます。 既定では、IIS などが ASP.NET web ページ、Web サービスなど、ASP.NET リソースに対する要求を受信すると、ASP.NET ランタイムがのみ呼び出します。 -イメージ、CSS ファイル、JavaScript ファイル、PDF ファイル、ZIP ファイル、および、like - 静的なコンテンツの要求は、ASP.NET ランタイムの関与なしに IIS によって取得されます。 (、IIS が静的なコンテンツを提供するときに、ASP.NET のランタイムで動作するように指示することは。 詳細については、このチュートリアルでは、「実行フォーム ベース認証と IIS 7 での静的ファイルの URL の認証」セクションを参照してください)。
+IIS と ASP.NET 開発サーバーの間のもう 1 つの主要な違いは、静的コンテンツの要求を処理する方法です。 ASP.NET ページ、画像、または JavaScript ファイルを ASP.NET 開発サーバーに付属しているすべての要求は、ASP.NET ランタイムによって処理されます。 既定では、IIS では、ASP.NET web ページや Web サービスなどなど、ASP.NET リソースの要求を受信すると、ASP.NET ランタイムがのみ呼び出します。 イメージ、CSS ファイル、JavaScript ファイル、PDF ファイル、ZIP ファイル、およびなどの-静的コンテンツの要求は、IIS で ASP.NET ランタイムが関与しない取得されます。 (、IIS の静的コンテンツを提供するときに、ASP.NET ランタイムで動作するよう指示することができます。 詳細については、このチュートリアルでは、「フォーム ベース認証を実行して IIS 7 でファイルに静的 URL 認証」セクションを参照してください)。
 
-ASP.NET ランタイムでは、さまざまな (要求元を識別する) 認証と承認 (要求元に、要求されたコンテンツを表示するアクセス許可がある場合を決定する) など、要求されたコンテンツを生成する手順を実行します。 認証の一般的な形式は*フォーム ベース認証*、テキスト ボックスに、web ページ上の - 通常はユーザー名とパスワードの資格情報を入力することで識別される場合、ユーザーにします。 その資格情報の検証時に、web サイトを格納、*認証チケット*が後続の要求ごとに、web サイトに送信され、ユーザーを認証するために使用されるは、ユーザーのブラウザーの cookie。 さらを指定することは*URL 承認*のルールをどのようなユーザーまたはできますが、特定のフォルダーにアクセスできません。 多くの ASP.NET web サイトは、フォーム ベース認証をユーザー アカウントをサポートし、認証されたユーザーまたは特定のロールに属しているユーザーにアクセスできるサイトの部分を定義するには URL 承認を使用します。
+ASP.NET ランタイムは、さまざまな認証 (要求元を識別する)、承認 (要求元に要求されたコンテンツを表示するアクセス許可がある場合を決定する) など、要求されたコンテンツを生成する手順を実行します。 認証の一般的な形式は*フォーム ベース認証*、web ページ上のテキスト ボックスに - 通常はユーザー名とパスワードの資格情報を入力して、ユーザーが識別されるのです。 自分の資格情報の検証時に、web サイトを格納、*認証チケット*は、後続の要求ごとに、web サイトに送信されはユーザーの認証に使われますユーザーのブラウザーの cookie。 指定することはさらに、 *URL 承認*のルールをどのようなユーザーまたはできますが、特定のフォルダーにアクセスできません。 多くの ASP.NET web サイトは、ユーザー アカウントをサポートするために、認証されたユーザーまたは特定のロールに属しているユーザーにアクセスできるサイトの部分を定義したり、フォーム ベースの認証と承認の URL を使用します。
 
 > [!NOTE]
-> ASP の完全な検査します。NET のフォーム ベースの認証、URL の承認、およびその他のユーザー アカウントに関連する機能を必ずチェック アウト my [web サイトのセキュリティ チュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)です。
+> ASP の徹底的な調査できるようにします。NET のフォーム ベース認証、URL 承認、およびその他のユーザー アカウントに関連する機能は、チェック アウトすることを確認するマイ[web サイトのセキュリティのチュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)します。
 
 
-フォーム ベースの承認を使用してユーザー アカウントをサポートし、使用している URL の承認、認証されたユーザーのみを許可するように構成フォルダーが含まれる web サイトを検討してください。 このフォルダーには、ASP.NET ページが含まれています。 と PDF ファイルを表示できるの PDF ファイルと目的では、認証されたユーザーのみがあることを想像してください。
+フォーム ベースの承認を使用してユーザー アカウントをサポートし、フォルダー、URL の承認を使用して認証されたユーザーのみを許可するように構成する web サイトを検討してください。 このフォルダーには、ASP.NET ページが含まれています。 PDF ファイルを表示できるの PDF ファイルと目的は、認証されたユーザーのみが、想像してください。
 
-訪問者が自分のブラウザーのアドレス バーに直接 URL を入力してこれらの PDF ファイルのいずれかを表示しようとすると、どうなりますか。 を調べるにみましょう書評サイトに新しいフォルダーを作成、PDF ファイルをいくつかの追加および匿名ユーザーをこのフォルダーへのアクセスを禁止する URL 承認を使用するサイトを構成します。 デモ アプリケーションをダウンロードする場合と呼ばれるフォルダーを作成しましたが表示されます`PrivateDocs`から PDF を追加し、 [web サイトのセキュリティのチュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)(適切にどのように!)。 `PrivateDocs`フォルダーも含まれて、`Web.config`ファイルを匿名ユーザーを拒否する URL 承認規則を指定します。
+訪問者が自分のブラウザーのアドレス バーに直接 URL を入力してこれらの PDF ファイルのいずれかを表示しようとすると、どうなりますか。 確認するには、みましょう、書籍レビューのサイトに新しいフォルダーを作成、いくつかの PDF ファイルを追加および URL 承認を使用して、匿名ユーザーがこのフォルダーにアクセスすることを禁止するサイトを構成します。 デモ アプリケーションをダウンロードする場合という名前のフォルダーを作成することが表示されます`PrivateDocs`から PDF を追加し、 [web サイトのセキュリティのチュートリアル](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)(フィットする方法!)。 `PrivateDocs`フォルダーも含まれています、`Web.config`ファイルを匿名ユーザーを拒否する URL 承認規則を指定します。
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-cs/samples/sample2.xml)]
 
-最後に、更新することで、フォーム ベース認証を使用する web アプリケーションを構成しました、`Web.config`ルート ディレクトリにファイル置き換えます。
+最後に、更新することで、フォーム ベース認証を使用する web アプリケーションを構成しました、`Web.config`ルート ディレクトリ内のファイルを交換します。
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-cs/samples/sample3.xml)]
 
@@ -95,50 +94,50 @@ ASP.NET ランタイムでは、さまざまな (要求元を識別する) 認�
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-cs/samples/sample4.xml)]
 
-ASP.NET 開発サーバーを使用して、サイトにアクセスし、ブラウザーのアドレス バーで PDF ファイルのいずれかに直接の URL を入力します。 : URL ようになりますが、このチュートリアルに関連付けられている web サイトをダウンロードしている場合 `http://localhost:portNumber/PrivateDocs/aspnet_tutorial01_Basics_vb.pdf`
+ASP.NET 開発サーバーを使用して、サイトにアクセスし、ブラウザーのアドレス バーで PDF ファイルのいずれかに直接 URL を入力します。 : URL はようになりますが、このチュートリアルに関連付けられている web サイトをダウンロードしている場合 `http://localhost:portNumber/PrivateDocs/aspnet_tutorial01_Basics_vb.pdf`
 
-ファイルの ASP.NET 開発サーバーに要求を送信するブラウザーは、アドレス バーにこの URL を入力します。 ASP.NET 開発サーバーは要求を処理するため、ASP.NET ランタイムに渡します。 そのため、まだログインしていないこと、`Web.config`で、`PrivateDocs`フォルダーが匿名アクセスを拒否するように構成は、ASP.NET ランタイムに自動的にリダイレクト us ログイン ページに`Login.aspx`(図 3 を参照してください)。 ASP.NET には、ログイン ページにユーザーをリダイレクトするときに、 `ReturnUrl` querystring パラメーター ページを示す、ユーザーがしようとして表示します。 ユーザーが正常にログインした後は、このページに戻ってことができます。
-
-
-[![承認されていないユーザーがログイン ページに自動的にリダイレクト](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image8.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image7.png)
-
-**図 3**: 承認されていないユーザーがログイン ページに自動的にリダイレクト ([フルサイズのイメージを表示するをクリックして](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image9.png))
+ファイルの ASP.NET 開発サーバーに要求を送信するブラウザーは、アドレス バーにこの URL を入力します。 ASP.NET 開発サーバーは要求を処理するため、ASP.NET ランタイムに渡します。 では、まだログインしていないことがあるため、`Web.config`で、`PrivateDocs`フォルダーへの匿名アクセスを拒否するように構成を ASP.NET ランタイムに自動的にリダイレクトします私たち、ログイン ページに`Login.aspx`(図 3 を参照してください)。 ASP.NET には、ログイン ページにユーザーをリダイレクトしたときに、`ReturnUrl`ページを示すクエリ文字列パラメーター、ユーザーが表示しようとします。 ユーザーに正常にログインした後は、このページに戻ってことができます。
 
 
-これで実稼働環境でこの動作を確認してみましょう。 アプリケーションを配置しで Pdf のいずれかに直接の URL を入力、`PrivateDocs`実稼働環境でのフォルダーです。 これには、ブラウザー ファイルの IIS 要求を送信するように求められます。 静的ファイルが要求したため、IIS は取得し、ASP.NET ランタイムを呼び出すことがなく、ファイルを返します。 その結果、なかった URL 承認チェックを実行します。想定しているプライベート PDF の内容は、ファイルへの直接の URL を知っている人にアクセスできます。
+[![承認されていないユーザーがログイン ページに自動的にリダイレクトされます。](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image8.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image7.png)
+
+**図 3**: 承認されていないユーザーがログイン ページに自動的にリダイレクト ([フルサイズの画像を表示する をクリックします](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image9.png))。
 
 
-[![匿名ユーザーがファイルに直接 URL を入力してプライベート PDF ファイルをダウンロードできます。](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image11.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image10.png)
-
-**図 4**: 匿名ユーザーにダウンロードできるプライベート PDF ファイルで入力するダイレクト URL、ファイル ([フルサイズのイメージを表示するをクリックして](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image12.png))
+これで運用環境でこの動作を見てみましょう。 アプリケーションを配置しで Pdf のいずれかに直接 URL を入力、`PrivateDocs`実稼働環境でのフォルダー。 これは、ファイルの IIS 要求を送信するブラウザーを求めます。 静的ファイルが要求されるため、IIS は取得し、ASP.NET ランタイムを呼び出さずに、ファイルを返します。 その結果、URL 承認チェックが実行されます。 がありません。おそらくプライベート PDF の内容では、ファイルへの直接の URL を知っている人にアクセスできます。
 
 
-### <a name="performing-forms-based-authentication-and-url-authentication-on-static-files-with-iis-7"></a>IIS 7 での静的ファイルにフォーム ベースの認証と URL の認証を実行します。
+[![匿名ユーザーがファイルに直接 URL を入力して、プライベートの PDF ファイルをダウンロードできます。](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image11.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image10.png)
 
-承認されていないユーザーからの静的なコンテンツを保護に使用できる手法のいくつかあります。 IIS 7 が導入された、*統合パイプライン*IIS のワークフローと、ASP.NET ランタイムのワークフローを結婚します。 簡単に言うと、IIS、ASP.NET ランタイムの認証および承認モジュール (PDF ファイルと同様に、静的なコンテンツを含む) すべての着信要求を呼び出すために指示できます。 統合パイプラインを使用する web サイトを構成する方法を見つけて、web ホスト プロバイダーに問い合わせてください。
+**図 4**: 匿名ユーザーにダウンロードできる、プライベート PDF ファイルによって入力ダイレクト URL、ファイル ([フルサイズの画像を表示する をクリックします](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image12.png))。
 
-使用する IIS が構成されている統合パイプラインを追加する、次のマークアップ、`Web.config`ルート ディレクトリにファイル。
+
+### <a name="performing-forms-based-authentication-and-url-authentication-on-static-files-with-iis-7"></a>IIS 7 で静的ファイルにフォーム ベースの認証と URL の認証を実行します。
+
+承認されていないユーザーから静的コンテンツを保護するために使用できる手法のいくつかがあります。 IIS 7 の導入、*統合パイプライン*、ASP.NET ランタイムのワークフローで IIS のワークフローを結婚します。 簡単に言うと、IIS、ASP.NET ランタイムの認証と承認モジュール (PDF ファイルなどの静的コンテンツを含む) すべての着信要求を起動するように指示できます。 統合パイプラインを使用する web サイトを構成する方法については、web ホスト プロバイダーにお問い合わせください。
+
+統合パイプラインが次のマークアップを追加後、IIS が使用するよう構成されている、`Web.config`ルート ディレクトリ内のファイル。
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-cs/samples/sample5.xml)]
 
-このマークアップでは、IIS 7 ASP.NET ベースの認証と承認モジュールを使用するように指示します。 アプリケーションを再配置し、PDF ファイルを再アクセスしてください。 IIS が要求を処理するときに、この時間になります、ASP.NET ランタイムの認証と承認ロジックを要求を検査する機会です。 認証されたユーザーのみがで内容を表示する権限があるため、`PrivateDocs`フォルダー、匿名ユーザーは自動的にログイン ページにリダイレクト (戻るは図 3 を参照してください)。
+このマークアップでは、IIS 7 ASP.NET ベースの認証と承認モジュールを使用するように指示します。 アプリケーションを再デプロイして、PDF ファイルを再度参照してください。 IIS が要求を処理するときに、この時点では、ASP.NET ランタイムの認証と承認ロジックうなります要求を検査します。 認証されたユーザーのみがコンテンツを表示する権限があるため、`PrivateDocs`フォルダー、匿名の訪問者がログイン ページに自動的にリダイレクト (戻るは図 3 を参照してください)。
 
 > [!NOTE]
-> Web ホスト プロバイダーは、IIS 6 を使用している場合は、統合パイプラインの機能を使用することはできません。 1 つの回避策は、プライベート ドキュメントを HTTP アクセスを禁止するフォルダーに配置する (など`App_Data`)、これらのドキュメントを提供するページを作成します。 このページが呼び出された可能性がある`GetPDF.aspx`、され、クエリ文字列パラメーターを通じて PDF の名前が渡されます。 `GetPDF.aspx`ページが最初にいることを確認ユーザー ファイルを表示するアクセス許可を持つ場合は、使用、 [ `Response.WriteFile(filePath)` ](https://msdn.microsoft.com/library/system.web.httpresponse.writefile.aspx)要求されている PDF ファイルの内容を要求するクライアントに送信するメソッド。 この手法のように動作 IIS 7 の統合パイプラインを有効にするがない場合。
+> 場合は、web ホスト プロバイダーには、IIS 6 がまだ使用して、統合パイプライン機能を使用することはできません。 1 つの回避策は、プライベート ドキュメントを HTTP アクセスを禁止するフォルダーに配置する (など`App_Data`) し、これらのドキュメントを処理するためにページを作成します。 このページを呼び出すことがあります`GetPDF.aspx`、され、クエリ文字列パラメーターで PDF の名前が渡されます。 `GetPDF.aspx`ページは、ユーザーがファイルを表示するアクセス許可を持つし、そうである場合は使用しているに最初に確認しますが、 [ `Response.WriteFile(filePath)` ](https://msdn.microsoft.com/library/system.web.httpresponse.writefile.aspx)要求された PDF ファイルの内容を要求元のクライアントに送信するメソッド。 この手法は、統合パイプラインを有効にするたくはない場合も IIS 7 の機能。
 
 
 ## <a name="summary"></a>まとめ
 
-運用環境で web アプリケーションでは、Microsoft の IIS web サーバー ソフトウェアを使用してホストされています。 開発環境でただし、アプリケーションがホストする IIS または ASP.NET 開発サーバーを使用しています。 理想的には、ミックスで変数を追加する別のソフトウェアを使用しているために、両方の環境で、同じ web サーバー ソフトウェアを使用してください。 ただし、ASP.NET 開発サーバーの使いやすさは、魅力的な選択肢、開発環境でします。 良いニュースはことのみ IIS と ASP.NET 開発サーバーの間で、いくつかの基本的な違いがある場合、これらの違いを認識している手順を実行できますにより、アプリケーションの動作と同じ機能の方法に関係なく、環境。
+運用環境で web アプリケーションは、マイクロソフトの IIS web サーバー ソフトウェアを使用してホストされます。 開発環境でただし、アプリケーション ホストできます IIS または ASP.NET 開発サーバーを使用します。 理想的には、ミックスで変数を追加する別のソフトウェアを使用しているために、両方の環境で同じ web サーバーのソフトウェアを使用してください。 ただし、ASP.NET 開発サーバーの使いやすさは、有用な選択肢、開発環境でします。 良い知らせはことのみの IIS と ASP.NET 開発サーバーで、いくつかの基本的な違いがあるし、のこれらの違いに注意する場合は手順を実行できますアプリケーションが動作し、同じ機能を確保する方法に関係なく、環境。
 
-満足プログラミング!
+満足のプログラミングです。
 
 ### <a name="further-reading"></a>関連項目
 
 このチュートリアルで説明したトピックの詳細については、次の情報を参照してください。
 
-- [IIS 7.0 で ASP.NET 統合](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
-- [IIS 7 でのコンテンツのすべての種類で ASP.NET フォーラムの認証を使用して](https://blogs.iis.net/bills/archive/2007/05/19/using-asp-net-forms-authentication-with-all-types-of-content-with-iis7-video.aspx)(ビデオ)
+- [IIS 7.0 と ASP.NET の統合](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
+- [ASP.NET フォーラムの認証を使用して、IIS 7 のコンテンツのすべての種類で](https://blogs.iis.net/bills/archive/2007/05/19/using-asp-net-forms-authentication-with-all-types-of-content-with-iis7-video.aspx)(ビデオ)
 - [Visual Web Developer で web サーバー](https://msdn.microsoft.com/library/58wxa9w5.aspx)
 
 > [!div class="step-by-step"]

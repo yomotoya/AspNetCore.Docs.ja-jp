@@ -1,92 +1,91 @@
 ---
 uid: mvc/overview/security/preventing-open-redirection-attacks
-title: 開いているリダイレクト攻撃 (c#) |Microsoft ドキュメント
+title: オープン リダイレクト攻撃を防ぐ (c#) |Microsoft Docs
 author: jongalloway
-description: このチュートリアルでは、ASP.NET MVC アプリケーションで開いているリダイレクト攻撃を防止する方法について説明します。 このチュートリアルでは、加えられた変更について説明しています.
+description: このチュートリアルでは、ASP.NET MVC アプリケーションでオープン リダイレクト攻撃を防止する方法について説明します。 このチュートリアルでは、加えられた変更について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
 ms.topic: article
 ms.assetid: 69fb02e0-f5b7-4c35-878c-fa87164fc785
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: ec1cd1791eb6d32e7c1ea50bc6626929cad2960e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 27921e23d38d34332b81fb85dcc795c8f9ff0352
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879674"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37375471"
 ---
-<a name="preventing-open-redirection-attacks-c"></a>開いているリダイレクト攻撃 (c#)
+<a name="preventing-open-redirection-attacks-c"></a>オープン リダイレクト攻撃を防ぐ (c#)
 ====================
 によって[Jon Galloway](https://github.com/jongalloway)
 
-> このチュートリアルでは、ASP.NET MVC アプリケーションで開いているリダイレクト攻撃を防止する方法について説明します。 このチュートリアルでは、ASP.NET MVC 3 で AccountController で加えられた変更について説明し、既存の ASP.NET MVC 1.0 と 2 のアプリケーションでこれらの変更を適用する方法を示しています。
+> このチュートリアルでは、ASP.NET MVC アプリケーションでオープン リダイレクト攻撃を防止する方法について説明します。 このチュートリアルでは、ASP.NET MVC 3 で AccountController で加えられた変更について説明し、既存の ASP.NET MVC 1.0 と 2 つのアプリケーションでこれらの変更を適用する方法を示します。
 
 
-## <a name="what-is-an-open-redirection-attack"></a>開いているリダイレクト攻撃とは何ですか。
+## <a name="what-is-an-open-redirection-attack"></a>オープン リダイレクト攻撃とは何ですか。
 
-クエリ文字列またはフォームのデータなどの要求で指定されている URL にリダイレクトする任意の web アプリケーション可能性のある改ざんされるおそれがユーザーをリダイレクトする、悪意のある外部の url。 このによって改ざんされると、開いているリダイレクト攻撃が呼び出されます。
+悪意のある、外部 URL にユーザーをリダイレクトする任意の web アプリケーションなど、クエリ文字列またはフォーム データ要求で指定されている URL にリダイレクトすることができます改ざんされる可能性があります。 この改ざんは、オープン リダイレクト攻撃と呼ばれます。
 
-アプリケーション ロジックは、指定された URL へリダイレクトされるたびに、リダイレクト URL 改ざんされていないことを確認する必要があります。 ASP.NET MVC 1.0 と ASP.NET MVC 2 の両方の既定 AccountController で使用するログインを開くにはリダイレクト攻撃に対して脆弱です。 しかし、ASP.NET MVC 3 Preview からの修正を使用する既存のアプリケーションを更新する簡単です。
+アプリケーション ロジックは、指定された URL にリダイレクトされるたびに、リダイレクト URL 改ざんされていないことを確認する必要があります。 AccountController の既定の ASP.NET MVC 1.0 と ASP.NET MVC 2 の両方に使用されるログインは、開くリダイレクト攻撃に対して脆弱です。 さいわい、簡単に、修正の ASP.NET MVC 3 の Preview を使用する既存のアプリケーションを更新できますが。
 
-この脆弱性を理解するのには、ログインのリダイレクトが、既定の ASP.NET MVC 2 Web アプリケーション プロジェクトでどのように動作するかを見てみましょう。 このアプリケーションで [Authorize] 属性を持つコント ローラーのアクションにアクセスしようとしています。 リダイレクト承認されていないユーザー/Account/LogOn ビューにします。 このリダイレクト/Account/LogOn に、ログインに成功した後、ユーザーが最初に要求された URL に返されるようにする returnUrl querystring パラメーターが含まれます。
+この脆弱性を理解するのには、既定の ASP.NET MVC 2 Web アプリケーション プロジェクトでのログイン リダイレクトのしくみを見てみましょう。 このアプリケーションで [Authorize] 属性を持つコント ローラー アクションにアクセスしようとしてにリダイレクトされます承認されていないユーザー/Account/LogOn ビュー。 /Account/LogOn へのリダイレクトをこのユーザーが正常にログインした後、ユーザーが最初に要求された URL に返されるようにする returnUrl クエリ文字列パラメーターが含まれます。
 
-次のスクリーン ショット ログオンしていないとき、/Account/ChangePassword ビューにアクセスしようとすると、結果をするリダイレクト/Account/LogOn が確認できますか。ReturnUrl % 2faccount% 2fChangePassword %2f を = です。
+次のスクリーン ショット ログインしていない場合は、/Account/ChangePassword ビューにアクセスしようとすると、/Account/LogOn にリダイレクトでに結果ことがわかりますか。ReturnUrl % 2faccount% 2fChangePassword %2f を = です。
 
 [![](preventing-open-redirection-attacks/_static/image2.png)](preventing-open-redirection-attacks/_static/image1.png)
 
-**図 01**: 開いているリダイレクトとログイン ページ
+**図 01**: オープンのリダイレクトされたログイン ページ
 
-ReturnUrl querystring パラメーターが検証されていないため、攻撃者は、開いているリダイレクト攻撃を実行するためにパラメーターに任意の URL アドレスを挿入することを変更できます。 これを示すためには、ReturnUrl パラメーターを変更できる[ http://bing.com](http://bing.com)ので、結果として得られるログイン URL になります/アカウント/ログオンですか?ReturnUrl =<http://www.bing.com/>です。 ログインすると、サイトに、私たちにリダイレクト[ http://bing.com](http://bing.com)です。このリダイレクトが検証されていないため代わりに、ユーザーを騙そうしようとする悪意のあるサイトを指している可能性があります。
+ReturnUrl クエリ文字列パラメーターが検証されていないため、攻撃者は、オープン リダイレクト攻撃を実行するパラメーターに任意の URL アドレスを挿入することを変更できます。 これを示すためには、ReturnUrl のパラメーターを変更できます[ http://bing.com](http://bing.com)のため結果として得られるログイン URL になります/アカウント/ログオン、ですか?ReturnUrl =<http://www.bing.com/>します。 正常にサイトにログインをするとにリダイレクトされます。 [ http://bing.com](http://bing.com)します。 このリダイレクトが検証されていないため代わりに、ユーザーをだましてしようとする悪意のあるサイトを指している可能性があります。
 
 ### <a name="a-more-complex-open-redirection-attack"></a>複雑なオープン リダイレクト攻撃
 
-開いているリダイレクト攻撃は、攻撃者がに対する脆弱性と、お客様を特定の web サイトにログインしようとしていることを認識しているために、特に危険な[フィッシング攻撃](https://www.microsoft.com/protect/fraud/phishing/symptoms.aspx)です。 たとえば、攻撃者で、自分のパスワードをキャプチャするために、web サイトのユーザーに悪意のある電子メールを送信でしたできます。 これを NerdDinner サイトでは機能するしくみを見てみましょう。 (開いているリダイレクト攻撃を防ぐために、ライブ NerdDinner サイトが更新されたことに注意してください)。
+オープン リダイレクト攻撃は、攻撃者に対する脆弱性のおかげが特定の web サイトにログインしようとしていることを知っているために、特に危険を[フィッシング攻撃](https://www.microsoft.com/protect/fraud/phishing/symptoms.aspx)します。 たとえば、攻撃者は、自分のパスワードをキャプチャするために、web サイトのユーザーに悪意のある電子メールを送信でした。 NerdDinner サイトでどのように見てみましょう。 (オープン リダイレクト攻撃から保護するライブ NerdDinner サイトが更新されたことに注意してください)。
 
-最初に、攻撃者は、送信 us リンク NerdDinner が偽造ページへのリダイレクトを含む、ログイン ページにします。
+最初に、攻撃者リンクが送信私たちが偽造ページへのリダイレクトを含む NerdDinner にログイン ページ。
 
 [http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn](http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn)
 
-戻り先 URL が word dinner からは"n"のない nerddiner.com を指していることを注意してください。 この例では、これは、攻撃者を制御するドメインです。 上記のリンクにアクセスするときに、正当な NerdDinner.com ログイン ページが表示されるおです。
+戻り先 URL が word dinner から nerddiner.com で、"n"がありませんを指すことに注意してください。 この例では、これは、攻撃者によって制御されるドメインです。 上記のリンクにアクセスするときに正当な NerdDinner.com ログイン ページに移動します。
 
 [![](preventing-open-redirection-attacks/_static/image4.png)](preventing-open-redirection-attacks/_static/image3.png)
 
-**図 02**: 開いているリダイレクトと NerdDinner ログイン ページ
+**図 02**: オープンのリダイレクトで NerdDinner ログイン ページ
 
-ログイン時に正しく、ASP.NET MVC AccountController のログオン操作は私たちを returnUrl querystring パラメーターで指定された URL にリダイレクトします。 この場合、これは、攻撃者が入った URL は[ http://nerddiner.com/Account/LogOn](http://nerddiner.com/Account/LogOn)です。 私たちは、攻撃者ことを確認するように注意されているため特にお気付きませんこれには、多くの場合は、非常に高く万一しない限り、偽造ページは、正当なログイン ページと同じように検索します。 このログイン ページには、もう一度ログインして要求するエラー メッセージが含まれています。 扱いにくい、パスワードを間違ってお必要があります。
+誤ってログ、ASP.NET MVC AccountController のログオン操作は私たち returnUrl クエリ文字列パラメーターで指定された URL にリダイレクトします。 この場合、これは、攻撃者が入力すると、URL は[ http://nerddiner.com/Account/LogOn](http://nerddiner.com/Account/LogOn)します。 私たちは、攻撃者が必ず確認してくださいされているため特に、これを気付かない可能性がありますが、非常に常時しない限り、偽造ページは、正当なログイン ページとまったく同じように検索します。 このログイン ページには、もう一度ログイン要求するエラー メッセージが含まれています。 少しぎこちない、パスワードをタイプミスしましたする必要があります。
 
 [![](preventing-open-redirection-attacks/_static/image6.png)](preventing-open-redirection-attacks/_static/image5.png)
 
 **図 03**: 偽造 NerdDinner ログイン画面
 
-ユーザー名とパスワードを再入力してと偽造ログイン ページ情報を保存することを正当な NerdDinner.com サイトに送信します。 この時点では、NerdDinner.com サイトが既に認証 us, ため、そのページに直接偽造ログイン ページにリダイレクトできます。 最終的な結果は、攻撃者は、ユーザー名とパスワード、および、提供されていますがそれらに対応していないことです。
+ユーザー名とパスワードを再入力し、偽造のログイン ページ情報を保存します正当な NerdDinner.com サイトにマイクロソフトへ送信されます。 この時点で NerdDinner.com サイトが既に認証されて、偽造のログイン ページがそのページに直接リダイレクトできるようにします。 最終的な結果は、攻撃者が、ユーザー名とパスワード、そのことも紹介それに対応していません。
 
 ## <a name="looking-at-the-vulnerable-code-in-the-accountcontroller-logon-action"></a>AccountController ログオン アクションで脆弱なコードを見る
 
-ASP.NET MVC 2 アプリケーションのログオン操作のコードは、以下に示します。 ログインに成功すると、コント ローラーに返されるリダイレクト returnUrl に注意してください。 ReturnUrl パラメーターに対して検証を実行するないことを確認できます。
+ASP.NET MVC 2 アプリケーションでのログオン操作のコードは、以下に示します。 ログインに成功すると、コント ローラーに返されるリダイレクト、returnUrl に注意してください。 ReturnUrl パラメーターに対して検証を実行しないことを確認できます。
 
 **1 – で ASP.NET MVC 2 のログオン操作を一覧表示します。 `AccountController.cs`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample1.cs)]
 
-これで、ASP.NET MVC 3 のログオン操作への変更を見てみましょう。 このコードがという名前の System.Web.Mvc.Url ヘルパー クラスの新しいメソッドを呼び出すことによって returnUrl パラメーターの検証に変更された`IsLocalUrl()`です。
+これで、ASP.NET MVC 3 のログオン操作への変更内容を見てみましょう。 このコードがという名前の System.Web.Mvc.Url ヘルパー クラスの新しいメソッドを呼び出すことによって returnUrl パラメーターの検証に変更された`IsLocalUrl()`します。
 
 **2 – で ASP.NET MVC 3 のログオン操作を一覧表示します。 `AccountController.cs`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample2.cs)]
 
-これに変わりました System.Web.Mvc.Url ヘルパー クラスの新しいメソッドを呼び出すことによって、戻り値 URL パラメーターを検証する`IsLocalUrl()`です。
+これが、System.Web.Mvc.Url ヘルパー クラスの新しいメソッドを呼び出して、戻り値 URL パラメーターの検証に変更された`IsLocalUrl()`します。
 
 ## <a name="protecting-your-aspnet-mvc-10-and-mvc-2-applications"></a>ASP.NET MVC 1.0 と MVC 2 を保護するアプリケーション
 
-IsLocalUrl() ヘルパー メソッドを追加し、returnUrl パラメーターを検証するログオン操作を更新して、既存の ASP.NET MVC 1.0 と 2 のアプリケーションで ASP.NET MVC 3 の変更の利用できます。
+ReturnUrl パラメーターを検証するログオン アクションの更新を IsLocalUrl() のヘルパー メソッドを追加して、既存の ASP.NET MVC 1.0 と 2 つのアプリケーションで ASP.NET MVC 3 の変更の利用できます。
 
 この検証として、System.Web.WebPages 内のメソッドを呼び出す実際には、UrlHelper IsLocalUrl() メソッドは、ASP.NET Web Pages アプリケーションによっても使用されます。
 
-**3 – ASP.NET MVC 3 UrlHelper から IsLocalUrl() メソッドを一覧表示します。 `class`**
+**3 – ASP.NET MVC 3 の UrlHelper から IsLocalUrl() メソッドを一覧表示します。 `class`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample3.cs)]
 
@@ -96,30 +95,30 @@ IsUrlLocalToHost メソッドには、リスト 4 に示すように、実際の
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample4.cs)]
 
-ASP.NET MVC 1.0 または 2 つのアプリケーションでは IsLocalUrl() メソッドを追加、AccountController が可能であれば別のヘルパー クラスに追加することをお勧めします。 2 つの小さな変更、AccountController 内に動作するように IsLocalUrl() の ASP.NET MVC 3 バージョンに実行されます。 最初に変更しますが、パブリック メソッドからプライベート メソッド コント ローラー内のパブリック メソッドは、コント ローラーのアクションとしてアクセスできるためです。 次に、アプリケーションのホストに対して URL のホストを確認する呼び出しを変更します。 呼び出しがローカル RequestContext を使用すること、UrlHelper クラスのフィールドです。 代わりに、この設定を使用します。RequestContext.HttpContext.Request.Url.Host、これを使用します。Request.Url.Host です。 次のコードは、ASP.NET MVC 1.0 と 2 のアプリケーションで、コント ローラー クラスで使用するため、変更された IsLocalUrl() メソッドを示します。
+ASP.NET MVC 1.0 または 2 つのアプリケーションで、AccountController に IsLocalUrl() メソッドを追加しますが、可能であれば別のヘルパー クラスに追加することをお勧めしていること。 AccountController 内で動作するように IsLocalUrl() の ASP.NET MVC 3 バージョンに 2 つの小さな変更が行ったされます。 最初に、変更しますが、パブリック メソッドから、プライベート メソッドをコント ローラー内のパブリック メソッドをコント ローラー アクションとしてアクセスできますので。 次に、私たちに対してでは、アプリケーション ホスト URL のホストを確認する呼び出しを変更します。 呼び出しは、ローカル RequestContext の使用、UrlHelper クラスのフィールド。 代わりに、これを使用します。RequestContext.HttpContext.Request.Url.Host、これを使用します。Request.Url.Host します。 次のコードでは、ASP.NET MVC 1.0 と 2 つのアプリケーションでコント ローラー クラスで使用するための変更の IsLocalUrl() メソッドを示します。
 
-**5 – IsLocalUrl() メソッドを一覧表示するユーザーが変更、MVC コント ローラー クラスで使用します。**
+**この MVC コント ローラーのクラスを使用するため変更が 5 – IsLocalUrl() メソッドを一覧表示します。**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample5.cs)]
 
-IsLocalUrl() メソッドは、配置では、これでお呼び出すことができます、returnUrl パラメーターを検証する、ログオン アクションから次のコードに示すようにします。
+IsLocalUrl() メソッドが、これで呼び出せる returnUrl パラメーターを検証する、ログオン アクションから次のコードに示すように。
 
-**6 – returnUrl パラメーターを検証する方法で更新されたログオンを一覧表示します。**
+**6 – returnUrl パラメーターを検証する更新されたログオン メソッドを一覧表示します。**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample6.cs)]
 
-外部戻り先 URL を使用してログインしようとして、開いているリダイレクト攻撃をテストできます。 /Account/LogOn を利用してみましょう。ReturnUrl =<http://www.bing.com/>もう一度です。
+外部の戻り先 URL を使用してログインしようとして、オープン リダイレクト攻撃をテストできます。 /Account/LogOn を使用してみましょうか。ReturnUrl =<http://www.bing.com/>もう一度です。
 
 [![](preventing-open-redirection-attacks/_static/image8.png)](preventing-open-redirection-attacks/_static/image7.png)
 
-**図 04**: 更新済みのログオン操作のテスト
+**図 04**: 更新されたログオン操作をテストします。
 
-ログインすると、後に、外部 URL ではなく Home/index コント ローラーのアクションにリダイレクトされます。
+正常にログインした後には、私たちは、外部 URL ではなく Home/index コント ローラー アクションにリダイレクトされます。
 
 [![](preventing-open-redirection-attacks/_static/image10.png)](preventing-open-redirection-attacks/_static/image9.png)
 
-**図 05**: 開いているリダイレクト攻撃を阻止
+**図 05**: 敗北オープン リダイレクト攻撃
 
 ## <a name="summary"></a>まとめ
 
-リダイレクト Url は、アプリケーションの URL をパラメーターとして渡される、開いているリダイレクト攻撃が発生します。 テンプレートを防ぐためにコードが含まれています。 ASP.NET MVC 3 では、リダイレクト攻撃を開きます。 ASP.NET MVC 1.0 と 2 つのアプリケーションをいくつかの変更でこのコードを追加することができます。 ASP.NET 1.0 と 2 つのアプリケーションにログインするときにを開いているリダイレクト攻撃を防ぐためするには、IsLocalUrl() メソッドを追加し、ログオン アクションで returnUrl パラメーターを検証します。
+オープン リダイレクト攻撃は、リダイレクト Url は、アプリケーションの URL をパラメーターとして渡されるときに発生します。 テンプレートにはから保護するためのコードが含まれています、ASP.NET MVC 3 では、リダイレクト攻撃を開きます。 ASP.NET MVC 1.0 と 2 つのアプリケーションを一部変更してこのコードを追加することができます。 オープン リダイレクト攻撃に対する保護のため ASP.NET 1.0 と 2 つのアプリケーションにログインするとき、IsLocalUrl() メソッドを追加し、ログオン中 returnUrl パラメーターを検証します。

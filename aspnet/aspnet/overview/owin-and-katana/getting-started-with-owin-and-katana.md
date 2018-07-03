@@ -1,6 +1,6 @@
 ---
 uid: aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
-title: OWIN と Katana の概要 |Microsoft ドキュメント
+title: OWIN と Katana の概要 |Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,49 +9,48 @@ ms.date: 09/27/2013
 ms.topic: article
 ms.assetid: 6dae249f-5ac6-4f6e-bc49-13bcd5a54a70
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
 msc.type: authoredcontent
-ms.openlocfilehash: ac0302ef1a786f6b1eef8119b3134a965f01c533
-ms.sourcegitcommit: 5ab5c5f4bfdb0150f42ba84c2770eadf540cae48
+ms.openlocfilehash: fb3ff1d061fb89b3236a05326c1c08b0240d5a1e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30257679"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37377052"
 ---
 <a name="getting-started-with-owin-and-katana"></a>OWIN と Katana の概要
 ====================
-作成者 [Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
-[.NET (OWIN) の Web インターフェイスを開く](http://owin.org/).NET web サーバーと web アプリケーション間で抽象型を定義します。 アプリケーションから web サーバーを分離することにより OWIN やすく .NET web 開発用のミドルウェアを作成します。 また、OWIN やすく他のホストに web アプリケーションを移植する&#8212;たとえば、自己ホスト型 Windows サービスまたは他のプロセスにします。
+[Web Interface for .NET (OWIN) を開く](http://owin.org/).NET web サーバーおよび web アプリケーション間の抽象化を定義します。 OWIN は、アプリケーションから web サーバーを分離することで、簡単に .NET web 開発のためのミドルウェアを作成します。 また、OWIN 簡単に他のホストに web アプリケーションを移植&#8212;などの Windows サービスまたはその他のプロセスで自己ホストします。
 
-OWIN は、実装ではなく、コミュニティが所有する仕様です。 Katana プロジェクトは、Microsoft によって開発されたオープン ソース OWIN コンポーネントのセットです。 OWIN と Katana の両方の一般的な概要については、次を参照してください。[プロジェクト Katana の概要を、](an-overview-of-project-katana.md)です。 この記事ではすぐに作業を開始するコードです。
+OWIN は、実装ではなく、コミュニティが所有している仕様です。 Katana プロジェクトには、Microsoft によって開発されたオープン ソース OWIN コンポーネントのセットです。 OWIN と Katana の両方の一般的な概要については、次を参照してください。[プロジェクト Katana の概要を、](an-overview-of-project-katana.md)します。 この記事でが、右をジャンプを開始するコードにします。
 
-このチュートリアルでは使用[Visual Studio 2013 のリリース候補](https://go.microsoft.com/fwlink/?LinkId=306566)、Visual Studio 2012 を使用することもできます。 いくつかの手順は、Visual Studio 2012 では、下には注意してくださいで異なります。
+このチュートリアルでは[Visual Studio 2013 Release Candidate](https://go.microsoft.com/fwlink/?LinkId=306566)、Visual Studio 2012 を使用することもできます。 いくつかの手順は、Visual Studio 2012 では、下記のメモをここでは異なります。
 
-## <a name="host-owin-in-iis"></a>IIS で OWIN のホスト
+## <a name="host-owin-in-iis"></a>OWIN を IIS でホストします。
 
-ここでは、IIS の OWIN おをホストします。 このオプションでは、柔軟性と IIS の完成度の高い機能セットと共に OWIN パイプラインの構成可能性を提供します。 OWIN アプリケーションはこのオプションを使用して、ASP.NET の要求パイプラインで実行されます。
+このセクションでは、IIS で OWIN をホストされます。 このオプションは、IIS の完成度の高い機能セットと共に OWIN パイプラインの構成可能性と柔軟性を使用できます。 このオプションを使用して、OWIN アプリケーションは、ASP.NET の要求パイプラインで実行されます。
 
 最初に、新しい ASP.NET Web アプリケーション プロジェクトを作成します。 (Visual Studio 2012 では、空の ASP.NET Web アプリケーション プロジェクトの種類を使用します)。
 
 ![](getting-started-with-owin-and-katana/_static/image1.png)
 
-**新しい ASP.NET プロジェクト**ダイアログで、選択、**空**テンプレート。
+**新しい ASP.NET プロジェクト**ダイアログ ボックスで、**空**テンプレート。
 
 ![](getting-started-with-owin-and-katana/_static/image2.png)
 
 ### <a name="add-nuget-packages"></a>NuGet パッケージを追加します。
 
-次に、必要な NuGet パッケージを追加します。 **ツール**メニューの **ライブラリ パッケージ マネージャー**選択してから、 **Package Manager Console**です。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
+次に、必要な NuGet パッケージを追加します。 **ツール**メニューの **ライブラリ パッケージ マネージャー**を選択し、**パッケージ マネージャー コンソール**します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 `install-package Microsoft.Owin.Host.SystemWeb –Pre`
 
 ![](getting-started-with-owin-and-katana/_static/image3.png)
 
-### <a name="add-a-startup-class"></a>スタートアップ クラスを追加します。
+### <a name="add-a-startup-class"></a>Startup クラスを追加します。
 
-次に、OWIN スタートアップ クラスを追加します。 ソリューション エクスプ ローラーでプロジェクトを右クリックし、**追加**選択してから、**新しい項目の**します。 **新しい項目の追加**ダイアログで、 **Owin スタートアップ クラス**です。 スタートアップ クラスの構成の詳細については、次を参照してください。 [OWIN スタートアップ クラス検出](owin-startup-class-detection.md)です。
+次に、OWIN startup クラスを追加します。 ソリューション エクスプ ローラーでプロジェクトを右クリックし、選択**追加**を選択し、**新しい項目の**します。 **新しい項目の追加**ダイアログ ボックスで、 **Owin Startup クラス**します。 スタートアップ クラスの構成の詳細については、次を参照してください。 [OWIN スタートアップ クラス検出](owin-startup-class-detection.md)します。
 
 ![](getting-started-with-owin-and-katana/_static/image4.png)
 
@@ -59,56 +58,56 @@ OWIN は、実装ではなく、コミュニティが所有する仕様です。
 
 [!code-csharp[Main](getting-started-with-owin-and-katana/samples/sample1.cs?highlight=3)]
 
-このコードを受け取る関数として実装されている、OWIN パイプラインにミドルウェアの単純な部分を追加する、 **Microsoft.Owin.IOwinContext**インスタンス。 サーバーが HTTP 要求を受信すると、OWIN パイプラインにミドルウェアを呼び出されます。 ミドルウェアは、応答のコンテンツの種類を設定し、応答本文を書き込みます。
+このコードを受け取る関数として実装されている、OWIN パイプラインにミドルウェアの簡単なピースを追加します、 **Microsoft.Owin.IOwinContext**インスタンス。 サーバーは、HTTP 要求を受信すると、OWIN パイプラインは、ミドルウェアを呼び出します。 ミドルウェアは、応答のコンテンツの種類を設定し、応答本文を書き込みます。
 
 > [!NOTE]
-> OWIN 起動クラス テンプレートは、Visual Studio 2013 で使用します。 Visual Studio 2012 を使用している場合は、名前付き、新しい空のクラスを追加だけ`Startup1`、次のコードに貼り付けます。
+> OWIN Startup クラス テンプレートは、Visual Studio 2013 で使用できます。 Visual Studio 2012 を使用している場合は、という名前の新しい空のクラスを追加だけ`Startup1`、し、次のコードを貼り付けます。
 
 
 [!code-csharp[Main](getting-started-with-owin-and-katana/samples/sample2.cs)]
 
 ### <a name="run-the-application"></a>アプリケーションを実行する
 
-F5 キーを押してデバッグを開始します。 Visual Studio はブラウザー ウィンドウを開いて`http://localhost:*port*/`です。 ページは、次のようになります。
+F5 キーを押して、デバッグを開始します。 Visual Studio はブラウザー ウィンドウを開いて`http://localhost:*port*/`します。 ページは、次のようになります。
 
 ![](getting-started-with-owin-and-katana/_static/image5.png)
 
-## <a name="self-host-owin-in-a-console-application"></a>コンソール アプリケーションで自己ホストの OWIN
+## <a name="self-host-owin-in-a-console-application"></a>コンソール アプリケーションで OWIN を自己ホストします。
 
-カスタム プロセスにおける自己ホストをホストして IIS からこのアプリケーションに変換する簡単です。 IIS ホスティングでは、IIS は、HTTP サーバーとは、サービスをホストするプロセスとして動作します。 、自己ホスト型で、アプリケーションが、プロセスを作成し、を使用して、 **HttpListener** HTTP サーバーとしてのクラスです。
+カスタムのプロセスで自己ホストする IIS のホストからこのアプリケーションを変換する簡単です。 IIS ホスティングでは、IIS は、HTTP サーバーとは、サービスをホストするプロセスとして機能します。 、自己ホストによる、アプリケーションは、プロセスを作成し、使用、 **HttpListener** HTTP サーバーとしてのクラス。
 
 Visual Studio で、新しいコンソール アプリケーションを作成します。 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 `Install-Package Microsoft.Owin.SelfHost -Pre`
 
-追加、`Startup1`このチュートリアルのパート 1 からクラスをプロジェクトにします。 このクラスを変更する必要はありません。
+追加、`Startup1`このチュートリアルのパート 1 からクラスをプロジェクト。 このクラスを変更する必要はありません。
 
-アプリケーションの実装`Main`メソッドを次のようにします。
+アプリケーションの実装`Main`メソッドとして、次のとおりです。
 
 [!code-csharp[Main](getting-started-with-owin-and-katana/samples/sample3.cs)]
 
-コンソール アプリケーションを実行すると、サーバー起動をリッスンしている`http://localhost:9000`です。 Web ブラウザーでは、このアドレスに移動する場合は、"Hello world"ページが表示されます。
+サーバーでは、リッスンを開始、コンソール アプリケーションを実行すると`http://localhost:9000`します。 Web ブラウザーでこのアドレスに移動する場合は、"Hello world"ページが表示されます。
 
 ![](getting-started-with-owin-and-katana/_static/image6.png)
 
-## <a name="add-owin-diagnostics"></a>OWIN Diagnostics を追加します。
+## <a name="add-owin-diagnostics"></a>OWIN の診断を追加します。
 
-Microsoft.Owin.Diagnostics パッケージには、未処理の例外をキャッチし、エラーの詳細を HTML ページを表示するミドルウェアが含まれています。 このページの機能とほぼ同様に呼び出される場合があります ASP.NET エラー ページ、"[死亡の黄色の画面](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow)"(YSOD)。 YSOD などには、実稼働モードで無効にすることをお勧めは開発中は、Katana エラー ページが役立ちます。
+Microsoft.Owin.Diagnostics パッケージには、未処理の例外をキャッチし、エラーの詳細に HTML ページを表示するミドルウェアが含まれています。 このページの機能は、ASP.NET エラー ページとも呼ばれるよく似た、"[死の黄色い画面](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow)"(YSOD)。 YSOD と同様には、Katana のエラー ページは、開発中は、便利ですが、運用モードで無効にすることをお勧めします。
 
 プロジェクトで診断パッケージをインストールするには、パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 `install-package Microsoft.Owin.Diagnostics –Pre`
 
-コードを変更、`Startup1.Configuration`メソッドを次のようにします。
+コードを変更、`Startup1.Configuration`メソッドとして、次のとおりです。
 
 [!code-csharp[Main](getting-started-with-owin-and-katana/samples/sample4.cs?highlight=4,9-12)]
 
-これで Visual Studio が例外で中断されないようにアプリケーションを実行、デバッグなし ctrl キーを押しながら f5 キーを使用します。 アプリケーションの動作は、同じ以前と同様に移動するまで`http://localhost/fail`、この時点で、アプリケーションが例外をスローします。 エラー ページ ミドルウェアは例外をキャッチし、エラーに関する情報を使用する HTML ページを表示します。 スタック、クエリ文字列、cookie、要求ヘッダーおよび OWIN 環境変数を表示するタブをクリックします。
+今すぐ Visual Studio は、例外で中断しないように、デバッグを行わず、アプリケーションの実行に ctrl キーを押しながら f5 キーを使用します。 アプリケーションの動作と同じと同様に移動するまで`http://localhost/fail`、この時点では、アプリケーションは、例外をスローします。 エラー ページ ミドルウェアが例外をキャッチし、エラーに関する情報を HTML ページを表示します。 スタック、クエリ文字列、cookie、要求ヘッダー、および OWIN 環境変数を確認するには、タブをクリックすることができます。
 
 ![](getting-started-with-owin-and-katana/_static/image7.png)
 
 ## <a name="next-steps"></a>次の手順
 
 - [OWIN スタートアップ クラス検出](owin-startup-class-detection.md)
-- [OWIN を使用して ASP.NET Web API を自己ホスト](../../../web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)
-- [使用して OWIN セルフ ホスト SignalR](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)
+- [OWIN を使用して、ASP.NET Web API を自己ホスト](../../../web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)
+- [OWIN を使用して、SignalR セルフホスト](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)

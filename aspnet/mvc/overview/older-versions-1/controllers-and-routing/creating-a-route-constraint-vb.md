@@ -1,82 +1,81 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-vb
-title: ルート制約 (VB) を作成する |Microsoft ドキュメント
+title: ルート制約 (VB) を作成する |Microsoft Docs
 author: StephenWalther
-description: このチュートリアルでは、Stephen Walther は、正規表現によるルート制約を作成することで、ブラウザーが一致のルートを要求する方法を制御する方法について説明します。
+description: このチュートリアルでは、Stephen Walther は、正規表現のルート制約を作成して、ブラウザーが一致するルートを要求する方法を制御する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
 ms.topic: article
 ms.assetid: b7cce113-c82c-45bf-b97b-357e5d9f7f56
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2f50b371ac679218b06c4848e6d33516d29d3a82
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 74afb5653f01a5291b77da1bc672b362fec118a0
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871221"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364032"
 ---
 <a name="creating-a-route-constraint-vb"></a>ルート制約 (VB) を作成します。
 ====================
 によって[Stephen Walther](https://github.com/StephenWalther)
 
-> このチュートリアルでは、Stephen Walther は、正規表現によるルート制約を作成することで、ブラウザーが一致のルートを要求する方法を制御する方法について説明します。
+> このチュートリアルでは、Stephen Walther は、正規表現のルート制約を作成して、ブラウザーが一致するルートを要求する方法を制御する方法について説明します。
 
 
-ルート制約を使用すると、特定のルートに一致するブラウザーの要求を制限できます。 ルート制約を指定するのに正規表現を使用することができます。
+ルート制約を使用すると、特定のルートに一致するブラウザーの要求を制限できます。 正規表現を使用して、ルート制約を指定することができます。
 
-たとえば、ルート、Global.asax ファイルで一覧表示する 1 で定義したとします。
+たとえば、ルート、Global.asax ファイルでリスト 1 で定義したとします。
 
 **1 - Global.asax.vb を一覧表示します。**
 
 [!code-vb[Main](creating-a-route-constraint-vb/samples/sample1.vb)]
 
-1 を一覧表示するには、製品をという名前のルートが含まれます。 製品のルートを使用して、2 のリストに含まれている ProductController にブラウザーの要求をマップすることができます。
+1 を一覧表示するには、製品をという名前のルートが含まれています。 製品のルートを使用して、リスト 2 に含まれる「productcontroller」ブラウザー要求をマップすることができます。
 
 **2 - Controllers\ProductController.vb を一覧表示します。**
 
 [!code-vb[Main](creating-a-route-constraint-vb/samples/sample2.vb)]
 
-製品のコント ローラーによって公開される Details() アクションが productId という 1 つのパラメーターを受け入れることに注意してください。 このパラメーターは、整数値です。
+製品のコント ローラーによって公開される Details() アクションが productId という 1 つのパラメーターを受け入れることに注意してください。 このパラメーターは、整数パラメーターです。
 
-1 のリストで定義されたルートは、次の Url のいずれかと一致します。
+リスト 1 で定義されているルートは、次の Url のいずれかに一致します。
 
-- /Product/23
+- /製品/23
 - /製品/7
 
 残念ながら、ルートには、次の Url は一致も。
 
-- /Product/blah
-- /Product/apple
+- /製品/とおりです。
+- /製品/apple
 
-Details() アクションには、整数パラメーターが必要ですが、ためにの整数値以外のものを含む要求を行うとエラーが発生します。 など、ブラウザーに URL/Product/apple を入力する場合は、図 1 にエラー ページが取得されます。
+Details() アクションには、整数パラメーターが必要ですが、ため、整数値以外のものを含む要求を行うと、エラーが発生します。 たとえば、URL/Product/apple をお使いのブラウザーに入力した場合は、図 1 エラー ページを表示がされます。
 
 
 [![[新しいプロジェクト] ダイアログ ボックス](creating-a-route-constraint-vb/_static/image1.jpg)](creating-a-route-constraint-vb/_static/image1.png)
 
-**図 01**: 分解ページが表示されて ([フルサイズのイメージを表示するをクリックして](creating-a-route-constraint-vb/_static/image2.png))
+**図 01**: 展開のページが表示 ([フルサイズの画像を表示する をクリックします](creating-a-route-constraint-vb/_static/image2.png))。
 
 
-何かを行うには、適切な整数 productId を含んでいる Url とのみ一致です。 ルートに一致する Url を制限するのにルートを定義するときに制約を使用できます。 リスト 3 に変更された製品ルートには、整数とのみ一致する正規表現の制約が含まれています。
+本当にする内容は、のみ一致する適切な整数 productId を含む Url です。 ルートに一致する Url を制限するのにルートを定義するときに制約を使用できます。 リスト 3 で修正された製品のルートには、整数にのみ一致する正規表現の制約が含まれています。
 
 **3 - Global.asax.vb を一覧表示します。**
 
 [!code-vb[Main](creating-a-route-constraint-vb/samples/sample3.vb)]
 
-正規表現 \d+ では、1 つ以上の整数と一致します。 この制約により、次の Url に一致する製品ルート。
+正規表現 \d+ では、1 つまたは複数の整数と一致します。 この制約により、次の Url と一致する製品ルート。
 
-- /Product/3
-- /Product/8999
+- /製品/3
+- /製品/8999
 
-ただし、次の Url ではありません。
+次の Url ではないです。
 
-- /Product/apple
+- /製品/apple
 - /製品
 
-これらのブラウザーの要求を別のルートによって処理されますか、一致のルートがない場合、*リソースが見つかりませんでした*エラーが返されます。
+別のルートでこれらのブラウザー要求を処理します。 または、一致のルートがない場合、*リソースが見つかりませんでした*エラーが返されます。
 
 > [!div class="step-by-step"]
 > [前へ](creating-custom-routes-vb.md)

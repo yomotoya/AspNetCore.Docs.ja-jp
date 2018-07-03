@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/sql-2005/getting-started-with-reporting-services
-title: Reporting Services の概要 |Microsoft ドキュメント
+title: Reporting Services の概要 |Microsoft Docs
 author: microsoft
-description: SQL Server Reporting Services を使用すると、設計し、適切に書式設定されたレポートと対話型レポート、データの代表的なを展開できます。 印刷に適してまたは onl しています.
+description: SQL Server Reporting Services の設計し、適切に書式設定と対話型のデータの代表的なレポートを展開することができます。 印刷用の適切または onl の.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/21/2006
 ms.topic: article
 ms.assetid: f348a388-d3a2-4ea8-baf0-be2e6ef8efe1
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/sql-2005/getting-started-with-reporting-services
 msc.type: video
-ms.openlocfilehash: 187b40f53bad7d81bbeb0a3efb332568317aa162
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 75325dc3ae9e30a61b989ce2e8a7a18e1be98f25
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30892856"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37361527"
 ---
 <a name="getting-started-with-reporting-services"></a>Reporting Services の概要
 ====================
 によって[Microsoft](https://github.com/microsoft)
 
-SQL Server Reporting Services を使用すると、設計し、適切に書式設定されたレポートと対話型レポート、データの代表的なを展開できます。 印刷物またはオンラインの配布に適した、これらのレポートとすることができますプロフェッショナルな結果を非常に迅速に取得します。 このビデオでは、ウィザードとデザイナーを使用してレポートを作成するには、Reporting Services と Business Intelligence Development Studio を設定し、レポート サーバーに配置する方法を示します。
+SQL Server Reporting Services の設計し、適切に書式設定と対話型のデータの代表的なレポートを展開することができます。 印刷物またはオンラインの配布に適した、これらのレポートとそれが使用すると、プロフェッショナルな結果が非常にすばやくです。 このビデオでは、ウィザードとデザイナーを使用してレポートを作成するには、Reporting Services と、Business Intelligence Development Studio を設定し、レポート サーバーに配置する方法を示します。
 
-[&#9654;ビデオでは (32 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/getting-started-with-reporting-services)
+[&#9654;(32 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/getting-started-with-reporting-services)
 
 > [!div class="step-by-step"]
 > [前へ](using-sql-server-management-studio.md)

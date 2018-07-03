@@ -1,57 +1,56 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-model
-title: モデルを追加する |Microsoft ドキュメント
+title: モデルの追加 |Microsoft Docs
 author: Rick-Anderson
-description: '注: このチュートリアルの最新バージョンはここで ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全な非常に簡単に従い、デモをお勧めしています.'
+description: '注: このチュートリアルの最新バージョンは ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全なはるかに簡単に従い、デモをお勧めしています.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
 ms.topic: article
 ms.assetid: 53db72da-e0b9-44d9-b60b-6e6988c00b28
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 562a06e22aad62b6982aca3316a2dfe18a6eba2e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ea8700020c1cc4b8ca88f657bd46b82e61d6f40f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871962"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37388572"
 ---
-<a name="adding-a-model"></a>モデルを追加します。
+<a name="adding-a-model"></a>モデルの追加
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
-> > このチュートリアルの更新バージョンが利用可能な[ここ](../../getting-started/introduction/getting-started.md)ASP.NET MVC 5 と Visual Studio 2013 を使用します。 より安全な非常に簡単に従うしより多くの機能を示します。
+> > このチュートリアルの更新バージョンが利用可能な[ここ](../../getting-started/introduction/getting-started.md)ASP.NET MVC 5 と Visual Studio 2013 を使用します。 より安全ではるかに簡単に従うしより多くの機能を示します。
 
 
-このセクションでは、データベース内のムービーを管理するためのいくつかのクラスを追加します。 これらのクラスになります、&quot;モデル&quot;ASP.NET MVC アプリケーションの一部です。
+このセクションでは、データベースのムービーを管理するためのいくつかのクラスを追加します。 これらのクラスがありますが、&quot;モデル&quot;ASP.NET MVC アプリケーションの一部です。
 
-呼ばれる .NET Framework データ アクセス テクノロジを使用、 [Entity Framework](https://msdn.microsoft.com/library/bb399572(VS.110).aspx)を定義し、これらのモデル クラスを使用します。 開発パラダイムと呼ばれる、Entity Framework (EF とも呼ばれます) によってサポート*Code First*です。 最初のコードでは単純なクラスを作成してモデル オブジェクトを作成することができます。 (これらとも呼ばれる POCO クラスから&quot;従来の CLR オブジェクト&quot;)。これにより、非常にクリーン、迅速な開発ワークフローのクラスから実行時に作成されたデータベースを持つことができます。
+呼ばれる .NET Framework データ アクセス テクノロジを使用します、 [Entity Framework](https://msdn.microsoft.com/library/bb399572(VS.110).aspx)を定義し、これらのモデル クラスを使用します。 開発パラダイムと呼ばれる、(EF とも呼ばれます)、Entity Framework がサポート*Code First*します。 まず、コードを使用すると、単純なクラスを記述することで、モデル オブジェクトを作成できます。 (これらとも呼ばれる、POCO クラスから&quot;plain-old CLR object&quot;)。データベースが非常にクリーンで迅速な開発ワークフローを有効にするクラスからその場で作成することができます。
 
 ## <a name="adding-model-classes"></a>モデル クラスを追加します。
 
-**ソリューション エクスプ ローラー**を右クリックして、*モデル*フォルダーを選択**追加**、し、**クラス**です。
+**ソリューション エクスプ ローラー**を右クリックして、*モデル*フォルダーで、**追加**、し、**クラス**します。
 
 ![](adding-a-model/_static/image1.png)
 
-入力、*クラス*名前&quot;ムービー&quot;です。
+入力、*クラス*名前&quot;ムービー&quot;します。
 
 次の 5 つのプロパティを追加、`Movie`クラス。
 
 [!code-csharp[Main](adding-a-model/samples/sample1.cs)]
 
-使用して、`Movie`データベースでムービーを表すクラス。 各インスタンス、`Movie`オブジェクトは、データベース テーブルとの各プロパティ内の行に対応している、`Movie`クラスは、テーブル内の列にマップされます。
+使用して、`Movie`をデータベースのムービーを表すクラス。 各インスタンスを`Movie`オブジェクトは、データベース テーブルとの各プロパティ内の行に対応している、`Movie`クラスは、テーブル内の列にマップされます。
 
-同じファイルで次のコードを追加`MovieDBContext`クラス。
+同じファイルで次の追加`MovieDBContext`クラス。
 
 [!code-csharp[Main](adding-a-model/samples/sample2.cs)]
 
-`MovieDBContext`クラスを表します。 Entity Framework ムービーのデータベース コンテキストのフェッチ、保存、および更新を処理する`Movie`クラスのインスタンス、データベースにします。 `MovieDBContext`から派生した、`DbContext`基本 Entity Framework によって提供されるクラスです。
+`MovieDBContext`クラスは、フェッチ、格納、および更新を処理する Entity Framework ムービー データベース コンテキストを表します。`Movie`クラス、データベース内のインスタンス。 `MovieDBContext`から派生した、`DbContext`基本クラスを Entity Framework によって提供されます。
 
-参照できるように`DbContext`と`DbSet`、以下を追加する必要があります`using`ファイルの上部にあるステートメント。
+参照できるようにするためには`DbContext`と`DbSet`、以下を追加する必要がある`using`ファイルの上部にあるステートメント。
 
 [!code-csharp[Main](adding-a-model/samples/sample3.cs)]
 
@@ -59,11 +58,11 @@ ms.locfileid: "30871962"
 
 [!code-csharp[Main](adding-a-model/samples/sample4.cs)]
 
-## <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>接続文字列を作成し、SQL Server LocalDB 協力
+## <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>接続文字列を作成し、SQL Server LocalDB の使用
 
-`MovieDBContext`作成したクラスは、データベースに接続し、タスクのマッピングを処理`Movie`データベース レコードへのオブジェクト。 1 つに質問する可能性がありますには、接続先データベースを指定する方法です。 内の接続情報を追加することによって行うこと、 *Web.config*アプリケーションのファイルです。
+`MovieDBContext`クラスを作成したデータベースへの接続とマッピングのタスクを処理する`Movie`データベース レコードへのオブジェクト。 疑問に思うかもしれません質問の 1 つは、接続先データベースを指定する方法です。 内の接続情報を追加することによって行います、 *Web.config*アプリケーションのファイル。
 
-アプリケーションのルートを開く*Web.config*ファイル。 (されません、 *Web.config*ファイルで、*ビュー*フォルダーです)。開く、 *Web.config*赤に記載されているファイル。
+アプリケーションのルートを開く*Web.config*ファイル。 (いない、 *Web.config*ファイル、*ビュー*フォルダー)。開く、 *Web.config* red に記載されているファイル。
 
 ![](adding-a-model/_static/image2.png)
 
@@ -71,13 +70,13 @@ ms.locfileid: "30871962"
 
 [!code-xml[Main](adding-a-model/samples/sample5.xml)]
 
-次の例の一部を示しています、 *Web.config*新しい接続文字列を追加してファイル。
+次の例の一部を示しています、 *Web.config*ファイルが追加された新しい接続文字列に置き換えます。
 
 [!code-xml[Main](adding-a-model/samples/sample6.xml?highlight=6-9)]
 
-このような少量のコードおよび XML を表し、ムービー データをデータベースに格納するために記述する必要がありますすべてがあります。
+この少量のコードと XML は、すべてを表し、映画のデータをデータベースに格納するために記述する必要があります。
 
-新しいビルド次に、`MoviesController`ムービー データを表示し、新しいムービーの一覧を作成できるように使用できるクラスです。
+新しいを作成します次に、`MoviesController`ムービー データを表示し、新しいムービーの一覧の作成を許可するのに使用できるクラスです。
 
 > [!div class="step-by-step"]
 > [前へ](adding-a-view.md)

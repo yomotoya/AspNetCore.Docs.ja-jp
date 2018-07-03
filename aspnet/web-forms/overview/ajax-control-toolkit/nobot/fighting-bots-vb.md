@@ -1,77 +1,76 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-vb
-title: Bot (VB) の戦い |Microsoft ドキュメント
+title: (VB) のボットと戦う |Microsoft Docs
 author: wenz
-description: 自動のボット雇い迷惑メール、ユーザーが介入せずコメント フォームの送信と、web ログやその他の web サイトを設置します。 ASP.NET AJAX Con で NoBot 制御しています.
+description: 自動のボット雇いスパム、ユーザーが介入せずコメント フォームを送信すると、web ログやその他の web サイトを設置します。 ASP.NET AJAX の Con で NoBot コントロール.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: e9803150-452d-4521-97e3-d75d5599383c
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 35d5984ac7ff3422bab07a759c93fef3914a22f7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1f919d130cc97b5f892cc01d58a0bcba790a98e3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30874058"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362519"
 ---
-<a name="fighting-bots-vb"></a>戦闘 Bot (VB)
+<a name="fighting-bots-vb"></a>(VB) のボットと戦う
 ====================
 によって[Christian Wenz](https://github.com/wenz)
 
-[コードをダウンロードする](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/NoBot0.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/nobot0VB.pdf)
+[コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/NoBot0.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/nobot0VB.pdf)
 
-> 自動のボット雇い迷惑メール、ユーザーが介入せずコメント フォームの送信と、web ログやその他の web サイトを設置します。 ASP.NET AJAX コントロールのツールキットで NoBot 管理は、具体的には、bot 対策に役立ちます。
+> 自動のボット雇いスパム、ユーザーが介入せずコメント フォームを送信すると、web ログやその他の web サイトを設置します。 ASP.NET AJAX Control Toolkit で NoBot コントロールは、こうしたボットの対策に役立つことができます。
 
 
 ## <a name="overview"></a>概要
 
-自動のボット雇い迷惑メール、ユーザーが介入せずコメント フォームの送信と、web ログやその他の web サイトを設置します。 ASP.NET AJAX コントロールのツールキットで NoBot 管理は、具体的には、bot 対策に役立ちます。
+自動のボット雇いスパム、ユーザーが介入せずコメント フォームを送信すると、web ログやその他の web サイトを設置します。 ASP.NET AJAX Control Toolkit で NoBot コントロールは、こうしたボットの対策に役立つことができます。
 
 ## <a name="steps"></a>手順
 
-Bot を阻止する 1 つの一般的な方法では、コンピューターおよび人間間隔を通知するな Captcha 完全に自動化されたパブリック チューリング テストを使用します。 チューリング テストがもともとテスト通信パートナーは人間またはコンピューターがあるかどうかを決定する必要な他のユーザー場所です。 Web、CAPTCHA 通常構成一部ゆがんでの文字を使用してイメージをします。 概念は人間のみが、イメージ上の文字を読み取ることができますに対しです OCR アルゴリズムは失敗します。
+ボットを無効にする 1 つの一般的なアプローチでは、コンピューターと人間離れているかを知らせるな Captcha 完全に自動化されたパブリック チューリング テストを使用します。 チューリング テストがもともとテスト通信パートナーが、人間またはマシンかどうかを判断だれかが必要な場所。 Web、CAPTCHA は一部の歪んで表示される文字を使用してイメージの通常されています。 考え方としては OCR アルゴリズムは失敗しますが、人間だけが、イメージ上の文字を読み取ることができます。
 
-いくつかの長所と短所、この方法にが、これの詳細については、このチュートリアルの範囲を超えては。 ただしが、同様のアプローチを提供する ASP.NET AJAX コントロール Toolkit でコントロール:`NoBot`です。 場所と見なされます成功ほとんど迷惑メールの送信試行ブログなどの web サイトで、特によく運賃は行われず、し、CAPTCHA よりを克服する方が簡単ですがは非常に簡単に使用される、`NoBot`制御を行うことができます。
+いくつかの利点と、このアプローチに欠点があるが、これの詳細については、このチュートリアルの範囲外です。 ただしは同様のアプローチを提供する ASP.NET AJAX Control toolkit コントロール:`NoBot`します。 場所と見なされます成功最も迷惑メールの送信試行のブログなどの web サイトで非常に優れた運賃は行われず、および、CAPTCHA よりを克服する方が簡単ですが、非常に簡単に使用される、`NoBot`制御を行うことができます。
 
-`NoBot` これらの条件の少なくとも 1 つが満たされる場合は、現在の ASP.NET web フォームのポストバックを途中受信します。
+`NoBot` これらの条件の少なくとも 1 つが満たされる場合は、現在の ASP.NET web フォームのポストバックをインターセプトします。
 
-- ブラウザーが JavaScript パズルを解く失敗 (たとえば JavaScript が非アクティブ化時に)
+- ブラウザーが JavaScript パズルを解くに失敗した (たとえば JavaScript が非アクティブ化時に)
 - ユーザーには、高速にフォームが送信されました
-- クライアントの IP アドレスでは、一定期間で多くの場合、フォームが送信されます。
+- クライアントの IP アドレスは、一定期間で多くの場合、フォームを送信します。
 
-これらの条件を確認するために、`NoBot`コントロールには、これらの属性 (すべての省略可能) が必要です。
+これらの条件を確認するには、`NoBot`コントロールには、これらの属性 (すべての省略可能) が必要です。
 
 - `ResponseMinimumDelaySeconds` 最小限のポストバック間隔 (秒)
 - `CutoffWindowSeconds` 1 つの IP からのポストバックがメジャーとなる時間間隔の長さ
-- `CutoffMaximumInstances` 1 時間間隔の秒の最大量
+- `CutoffMaximumInstances` 最長 1 時間間隔 (秒)
 
-ポストバック間で次のマークアップ要求するには、少なくとも 2 秒が経過し、5 つのポストバックがあること、または 30 秒間隔に含まれる小さい。
+ポストバック間で、次のマークアップ要求するには少なくとも 2 秒が経過し、5 つのみのポストバックが 30 秒の間隔内で以下。
 
 [!code-aspx[Main](fighting-bots-vb/samples/sample1.aspx)]
 
-通常どおりを含めるように、 `ScriptManager`  ページで、ASP.NET AJAX ライブラリが読み込まれ、コントロール ツールキットを使用できるようにします。
+通常どおりを含めるように、 `ScriptManager`  ページで、ASP.NET AJAX ライブラリが読み込まれ、Control Toolkit を使用できるように。
 
 [!code-aspx[Main](fighting-bots-vb/samples/sample2.aspx)]
 
-ほとんどの確認のため`NoBot`を行ってこれらの検証の結果を確認する必要がありますが、サーバー側で発生します。 呼び出すことによってこれ行う`NoBot`の`IsValid()`メソッドです。 1 つの引数がある (として、`out`パラメーター/`ByRef`パラメーター) が型である`NoBotState`です。 チェックが失敗したときに、文字列形式には理由が含まれますと`Valid`それ以外の場合。 次のコードによるとメッセージを出力する`NoBot`'s が発生します。
+チェックの多く`NoBot`が行っている、サーバー側で発生する、これらの検証の結果を確認する必要があります。 これを行う呼び出し`NoBot`の`IsValid()`メソッド。 1 つの引数がある (として、`out`パラメーター/`ByRef`パラメーター) 型の`NoBotState`します。 チェックが失敗したときに、その文字列形式には理由が含まれますと`Valid`それ以外の場合。 次のコードによるのメッセージを出力する`NoBot`'s が発生します。
 
 [!code-aspx[Main](fighting-bots-vb/samples/sample3.aspx)]
 
-最後に、フォームを送信して、メッセージを出力する label 要素が必要し、し終わったら!
+最後に、フォームを送信して、メッセージを出力するラベル要素が必要ですし、完了したら!
 
 [!code-aspx[Main](fighting-bots-vb/samples/sample4.aspx)]
 
-このスクリプトを実行し、JavaScript を非アクティブ化または最初の 2 秒以内に、フォームを送信または送信する際、フォーム 30 秒以内に 7 回、エラー メッセージが表示されます。 ただし、このコントロールは慎重に使用すると、ユーザーの約 90 ~ 95% があるためアクティブ化された JavaScript、にしたがって 5 ~ 10% のユーザー失敗`NoBot`'s をテストします。
+このスクリプトを実行し、JavaScript を非アクティブ化または最初の 2 秒内で、フォームの送信や 7 回 30 秒以内にフォームを送信、ときに、エラー メッセージが表示されます。 このコントロールを使用して、賢明なただし、そのためユーザーの 5 ~ 10% が失敗ユーザーの約 90 ~ 95% の JavaScript のアクティブ化されるため、 `NoBot`'s をテストします。
 
 
-[![このエラー メッセージを bot によって発生する可能性があります。](fighting-bots-vb/_static/image2.png)](fighting-bots-vb/_static/image1.png)
+[![このエラー メッセージをボットで発生する可能性があります。](fighting-bots-vb/_static/image2.png)](fighting-bots-vb/_static/image1.png)
 
-このエラー メッセージを bot によって発生する可能性があります ([フルサイズのイメージを表示するをクリックして](fighting-bots-vb/_static/image3.png))
+このエラー メッセージをボットで発生する可能性があります ([フルサイズの画像を表示する をクリックします](fighting-bots-vb/_static/image3.png))。
 
 > [!div class="step-by-step"]
 > [前へ](fighting-bots-cs.md)

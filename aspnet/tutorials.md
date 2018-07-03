@@ -1,6 +1,6 @@
 ---
 uid: aspnet/tutorials
-title: ASP.NET チュートリアル |Microsoft ドキュメント
+title: ASP.NET のチュートリアル |Microsoft Docs
 author: tdykstra
 description: ASP.NET アプリケーションを開発するためのステップ バイ ステップ ガイドの一覧。
 ms.author: aspnetcontent
@@ -9,20 +9,19 @@ ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.technology: ''
-ms.prod: .net-framework
-ms.openlocfilehash: 704285fe06e2ece0f6afdc117aedf98f6155ef87
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7929a06fd7857237c2529aca34d36564c2a89f82
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036766"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389613"
 ---
 # <a name="aspnet-tutorials"></a>ASP.NET のチュートリアル
 
-ASP.NET アプリケーションを開発するため、次のステップ バイ ステップ ガイドのとおりです。
+ASP.NET アプリケーションを開発するための次のステップ バイ ステップ ガイドが利用できます。
 
 > [!NOTE]
-> ASP.NET Core のチュートリアルをお探しですか。  これらを見つけ[ここ](https://docs.microsoft.com/aspnet/core/tutorials/)です。
+> ASP.NET Core のチュートリアルを探しですか。  検索[ここ](https://docs.microsoft.com/aspnet/core/tutorials/)します。
 
 ## <a name="web-forms"></a>Web フォーム
 
@@ -48,7 +47,7 @@ ASP.NET アプリケーションを開発するため、次のステップ バ�
 
 ## <a name="mvc"></a>MVC
 
-* [ASP.NET MVC 5 の概要](mvc/overview/getting-started/introduction/index.md)
+* [ASP.NET MVC 5 の概要 ](mvc/overview/getting-started/introduction/index.md)
 * [EF 6 と MVC 5 の使用の概要](mvc/overview/getting-started/getting-started-with-ef-using-mvc/index.md)
 * [EF Database First と ASP.NET MVC](mvc/overview/getting-started/database-first-development/index.md)
 * [ASP.NET MVC で Page Inspector を使用する](mvc/overview/views/using-page-inspector-in-aspnet-mvc.md)

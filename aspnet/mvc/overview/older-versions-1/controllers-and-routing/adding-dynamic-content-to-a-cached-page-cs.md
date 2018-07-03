@@ -1,102 +1,101 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-cs
-title: キャッシュされたページ (c#) への動的なコンテンツの追加 |Microsoft ドキュメント
+title: キャッシュされたページ (c#) への動的なコンテンツの追加 |Microsoft Docs
 author: microsoft
-description: 同じページで、動的およびキャッシュされたコンテンツを混在させる方法を説明します。 キャッシュ後置換では、バナー広告 o などの動的なコンテンツを表示することができます。
+description: 同じページで、動的およびキャッシュ済みコンテンツを混在させる方法について説明します。 キャッシュ後置換では、バナー広告 o などの動的なコンテンツを表示することができます.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
 ms.topic: article
 ms.assetid: 2ddd4407-d143-4a94-877c-21771bfb97a6
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9f91cc07bc531cfb3edf577ab79e91fd94a57a3c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 08f680e8d057f47a3f2802b1136edfb00634637d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868582"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364146"
 ---
-<a name="adding-dynamic-content-to-a-cached-page-c"></a>動的なコンテンツをキャッシュされたページ (c#) に追加します。
+<a name="adding-dynamic-content-to-a-cached-page-c"></a>キャッシュされたページ (c#) への動的なコンテンツの追加
 ====================
 によって[Microsoft](https://github.com/microsoft)
 
-> 同じページで、動的およびキャッシュされたコンテンツを混在させる方法を説明します。 キャッシュ後置換では、バナー広告またはキャッシュされた出力されているページ内のニュース項目などの動的なコンテンツを表示することができます。
+> 同じページで、動的およびキャッシュ済みコンテンツを混在させる方法について説明します。 キャッシュ後置換では、バナー広告またはキャッシュされた出力されたページ内のニュース項目などの動的なコンテンツを表示することができます。
 
 
 出力キャッシュの利用して、ASP.NET MVC アプリケーションのパフォーマンスを大幅に向上できます。 ページ、ページが要求されるたびに、再生成するのではなくページを 1 回生成し、複数のユーザー用のメモリにキャッシュすることができます。
 
-問題があります。 場合、ページに動的なコンテンツを表示する必要がありますか。 たとえば、バナー広告をページに表示することを想像してください。 すべてのユーザーが非常に同じ提供情報を表示するようにキャッシュされるバナー広告をしたくありません。 このように、money を行うはありません!
+問題があります。 場合、ページに動的なコンテンツを表示する必要がありますか。 たとえば、バナー広告をページに表示することを想像してください。 すべてのユーザーがまったく同じ提供情報を認識するようにキャッシュするバナー広告は必要ありません。 その方法も収益を上げるはありません。
 
-幸いにも、簡単な解決策があります。 呼ばれる、ASP.NET フレームワークの機能の活用*キャッシュ後置換*です。 キャッシュ後置換では、メモリにキャッシュされているページの動的コンテンツを代用することができます。
-
-
-通常は、[OutputCache] 属性を使用してキャッシュ ページを出力すると、ページは、サーバーとクライアント (web ブラウザー) の両方でキャッシュされます。 キャッシュ後置換を使用すると、ページは、サーバー上でのみキャッシュされます。
+さいわい、簡単なソリューションがあります。 呼ばれる ASP.NET フレームワークの機能の利用*キャッシュ後の置換*します。 キャッシュ後の置換を使用すると、メモリにキャッシュされているページで動的なコンテンツを置き換えることができます。
 
 
-#### <a name="using-post-cache-substitution"></a>キャッシュ後置換を使用します。
+通常、[OutputCache] 属性を使用してキャッシュ ページを出力すると、ページは、サーバーとクライアント (web ブラウザー) の両方でキャッシュされます。 キャッシュ後の置換を使用すると、ページがサーバー上でのみキャッシュされます。
 
-キャッシュ後置換を使用するには、2 つの手順が必要です。 最初に、キャッシュされたページに表示する動的なコンテンツを表す文字列を返すメソッドを定義する必要があります。 次に、ページに動的なコンテンツを注入 HttpResponse.WriteSubstitution() メソッドを呼び出します。
 
-たとえば、キャッシュされたページの異なるニュース項目をランダムに表示することに想像してください。 リスト 1 のクラスは、ランダムに 3 つのニュース項目の一覧から 1 つのニュース項目を返す RenderNews() をという名前の 1 つのメソッドを公開します。
+#### <a name="using-post-cache-substitution"></a>キャッシュ後の置換を使用します。
+
+キャッシュ後の置換を使用するには、2 つの手順が必要です。 最初に、キャッシュされたページに表示する動的なコンテンツを表す文字列を返すメソッドを定義する必要があります。 次に、ページに動的なコンテンツを挿入する HttpResponse.WriteSubstitution() メソッドを呼び出します。
+
+たとえば、キャッシュされたページでさまざまなニュース項目をランダムに表示することに想像してください。 リスト 1 でクラスでは、3 つのニュース項目の一覧からランダムに 1 つのニュース項目を返す、RenderNews() という名前の 1 つのメソッドを公開します。
 
 **1 – Models\News.cs を一覧表示します。**
 
 [!code-csharp[Main](adding-dynamic-content-to-a-cached-page-cs/samples/sample1.cs)]
 
-キャッシュ後置換を利用するには、HttpResponse.WriteSubstitution() メソッドを呼び出します。 WriteSubstitution() メソッドでコードを設定すると、動的コンテンツを含む、キャッシュされたページの領域を置換します。 WriteSubstitution() メソッドがビューを一覧表示する 2 で、ランダムなニュース項目を表示するために使用します。
+キャッシュ後の置換を利用するには、HttpResponse.WriteSubstitution() メソッドを呼び出します。 WriteSubstitution() メソッドでコードを設定すると、動的コンテンツを含む、キャッシュされたページの領域を置換します。 WriteSubstitution() メソッドは、リスト 2 でのビューでランダムなニュース項目の表示に使用されます。
 
-**Listing 2 – Views\Home\Index.aspx**
+**2 – Views\Home\Index.aspx を一覧表示します。**
 
 [!code-aspx[Main](adding-dynamic-content-to-a-cached-page-cs/samples/sample2.aspx)]
 
-RenderNews メソッドは、WriteSubstitution() メソッドに渡されます。 RenderNews メソッドが呼び出されないことに注意してください (かっこはありません)。 代わりに、メソッドへの参照は、WriteSubstitution() に渡されます。
+RenderNews メソッドは、WriteSubstitution() メソッドに渡されます。 RenderNews メソッドが呼び出されない点に注意してください (かっこはありません)。 代わりに、メソッドへの参照は、WriteSubstitution() に渡されます。
 
-インデックス ビューがキャッシュされます。 ビューがリスト 3 のコント ローラーが返されます。 Index() アクションが 60 秒間キャッシュに保存するインデックス ビューの原因となる [OutputCache] 属性で修飾されたことに注意してください。
+インデックス ビューにキャッシュされます。 ビューは、リスト 3 のコント ローラーによって返されます。 Index() アクションが 60 秒間キャッシュされるように、インデックス ビューを原因となる [OutputCache] 属性で修飾されたことに注意してください。
 
 **3 – controllers \homecontroller.cs を一覧表示します。**
 
 [!code-csharp[Main](adding-dynamic-content-to-a-cached-page-cs/samples/sample3.cs)]
 
-場合でも、インデックス ビューをキャッシュすると、インデックス ページを要求するときに別のランダムなニュース項目が表示されます。 インデックス ページを要求するときにページが表示される時刻は 60 秒間の (図 1 を参照してください) は変更されません。 時刻が変更されないという事実は、ページがキャッシュされていることを証明します。 各要求と一緒に WriteSubstitution() メソッド – ランダムなニュース項目 – 変更によって、コンテンツが挿入ただし、します。
+インデックス ビューがキャッシュされている場合でも、インデックス ページを要求するときに異なるランダムなニュースの項目が表示されます。 インデックス ページを要求するときに、ページが表示される時刻は 60 秒間の (図 1 参照) は変わりません。 時刻が変更されないという事実は、ページがキャッシュされていることを証明します。 WriteSubstitution() メソッド – ランダム ニュース項目 – が変更された各要求によって、コンテンツを挿入するただし、します。
 
-**図 1 – キャッシュされたページ内の動的なニュース項目を挿入**
+**図 1 – キャッシュされたページで動的ニュース項目を挿入します。**
 
 ![clip_image002](adding-dynamic-content-to-a-cached-page-cs/_static/image1.jpg)
 
-#### <a name="using-post-cache-substitution-in-helper-methods"></a>ヘルパー メソッドでのキャッシュ後置換の使用
+#### <a name="using-post-cache-substitution-in-helper-methods"></a>キャッシュ後の置換を使用して、ヘルパー メソッド
 
-キャッシュ後置換を活用する簡単な方法では、カスタム ヘルパー メソッド内で WriteSubstitution() メソッドへの呼び出しをカプセル化します。 このアプローチは、ヘルパー メソッドを一覧表示する 4 で説明されています。
+キャッシュ後の置換を活用する簡単な方法では、カスタム ヘルパー メソッド内で WriteSubstitution() メソッドの呼び出しをカプセル化します。 このアプローチは、リスト 4 ヘルパー メソッドに示します。
 
 **4 – AdHelper.cs を一覧表示します。**
 
 [!code-csharp[Main](adding-dynamic-content-to-a-cached-page-cs/samples/sample4.cs)]
 
-4 を一覧表示するには、2 つのメソッドを公開する静的クラスが含まれます: RenderBanner() と RenderBannerInternal() です。 RenderBanner() メソッドは、実際のヘルパー メソッドを表します。 このメソッドは、他のヘルパー メソッドと同じようにビューで Html.RenderBanner() を呼び出すことができるように、標準の ASP.NET MVC の HtmlHelper クラスを拡張します。
+リスト 4 は、2 つのメソッドを公開する静的クラスが含まれています: RenderBanner() と RenderBannerInternal() します。 RenderBanner() メソッドでは、実際のヘルパー メソッドを表します。 このメソッドは、標準の ASP.NET MVC の HtmlHelper クラスを拡張するので、他のヘルパー メソッドと同様のビューで Html.RenderBanner() を呼び出すことができます。
 
-RenderBanner() メソッドは、RenderBannerInternal() メソッドを WriteSubsitution() メソッドに渡す HttpResponse.WriteSubstitution() メソッドを呼び出します。
+RenderBanner() メソッドを WriteSubsitution() メソッド RenderBannerInternal() メソッドに渡す HttpResponse.WriteSubstitution() メソッドを呼び出します。
 
-RenderBannerInternal() メソッドは、プライベート メソッドです。 このメソッドは、ヘルパー メソッドとして公開されません。 RenderBannerInternal() メソッドは、バナー広告の 3 つのイメージの一覧から、バナー広告の 1 つのイメージをランダムに返します。
+RenderBannerInternal() メソッドは、プライベート メソッドです。 このメソッドは、ヘルパー メソッドとして公開されません。 RenderBannerInternal() メソッドは、バナー広告の 3 つのイメージの一覧からランダムに 1 つのバナー広告イメージを返します。
 
-インデックス ビューを一覧表示する 5 では、RenderBanner() ヘルパー メソッドを使用する方法を示しています。 注意して、追加&lt;% @ インポート %&gt;ディレクティブは MvcApplication1.Helpers 名前空間をインポートするビューの上部に含まれます。 この名前空間をインポートした場合、RenderBanner() メソッドは Html プロパティのメソッドとして表示されません。
+変更したのインデックス ビュー リスト 5 では、RenderBanner() ヘルパー メソッドを使用する方法を示しています。 注意して、追加&lt;インポート % @ %&gt;ディレクティブは MvcApplication1.Helpers 名前空間をインポートするには、ビューの上部に含まれます。 この名前空間のインポートを怠ると、RenderBanner() メソッドは、Html プロパティのメソッドとして表示されません。
 
-**5 – Views\Home\Index.aspx で (RenderBanner() メソッド) を一覧表示します。**
+**5 – (RenderBanner() メソッド) を使用して Views\Home\Index.aspx を一覧表示します。**
 
 [!code-aspx[Main](adding-dynamic-content-to-a-cached-page-cs/samples/sample5.aspx)]
 
-5 の一覧表示するビューで表示されたページを要求すると、要求ごとに異なるバナー広告が表示されます (図 2 を参照してください)。 ページがキャッシュされるが、RenderBanner() ヘルパー メソッドによって、バナー広告が動的に挿入します。
+リスト 5 で、ビューによって表示されるページを要求すると、要求ごとに異なるバナー広告が表示されます (図 2 参照)。 ページ キャッシュされますが、RenderBanner() ヘルパー メソッドによって動的にバナー広告を挿入します。
 
-**図 2 – ランダム バナー広告を表示するインデックス ビュー**
+**図 2 – ランダムなバナー広告を表示するインデックス ビュー**
 
 ![clip_image004](adding-dynamic-content-to-a-cached-page-cs/_static/image2.jpg)
 
 #### <a name="summary"></a>まとめ
 
-このチュートリアルでは、キャッシュされたページのコンテンツを動的に更新する方法について説明します。 HttpResponse.WriteSubstitution() メソッドを使用して、キャッシュされたページに挿入する動的なコンテンツを有効にする方法を学習しました。 HTML ヘルパー メソッド内で WriteSubstitution() メソッドへの呼び出しをカプセル化する方法も学習しました。
+このチュートリアルでは、キャッシュされたページのコンテンツを動的に更新する方法について説明します。 HttpResponse.WriteSubstitution() メソッドを使用して、キャッシュされたページに挿入されるようにする動的なコンテンツを有効にする方法を学習しました。 HTML ヘルパー メソッド内で WriteSubstitution() メソッドの呼び出しをカプセル化する方法も学習しました。
 
-利用可能な限り – 持つ、web アプリケーションのパフォーマンスに大幅な影響を受けることができますをキャッシュします。 このチュートリアルで説明、キャッシュ、ページに動的なコンテンツを表示する必要がある場合にも利用できます。
+Web アプリケーションのパフォーマンスに大きな影響を及ぼすことができます: 可能な限りキャッシュを活用します。 前述のこのチュートリアルでは、ページに動的なコンテンツを表示する必要があるときにも、キャッシュの利用できます。
 
 ## 
 

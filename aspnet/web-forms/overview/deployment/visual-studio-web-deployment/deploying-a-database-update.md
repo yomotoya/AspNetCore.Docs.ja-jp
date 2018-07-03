@@ -1,175 +1,174 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
-title: 'Visual Studio を使用した ASP.NET Web 展開: データベース更新の展開 |Microsoft ドキュメント'
+title: 'Visual Studio を使用して ASP.NET Web 展開: データベース更新の展開 |Microsoft Docs'
 author: tdykstra
-description: この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにしています.
+description: このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを使用して、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
 ms.topic: article
 ms.assetid: 9cad0833-486a-4474-a7f3-7715542ec4ce
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 3020cfa19bf12f21c6d42a77ed257595431b4e86
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 37b996452dfa619ba1276a1aba562ed7efc579b5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30892622"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389190"
 ---
-<a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Visual Studio を使用した ASP.NET Web 展開: データベース更新の展開
+<a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Visual Studio を使用して ASP.NET Web 展開: データベース更新の展開
 ====================
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 [スタート プロジェクトをダウンロードします。](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
-> この一連のチュートリアルについては、展開する方法を示します (ASP.NET の発行) Visual Studio 2012 または Visual Studio 2010 を使用して web アプリケーションを Azure App Service Web Apps またはサード パーティのホスティング プロバイダーにします。 系列の詳細については、次を参照してください。[系列内の最初のチュートリアル](introduction.md)です。
+> このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを Visual Studio 2012 または Visual Studio 2010 を使用しています。 系列の詳細については、次を参照してください。[シリーズの最初のチュートリアル](introduction.md)します。
 
 
 ## <a name="overview"></a>概要
 
-このチュートリアルで行うデータベースの変更と関連するコードの変更、Visual Studio で、変更をテストし、テスト、ステージング、および運用環境を更新プログラムを展開します。
+このチュートリアルで行ったデータベースの変更と関連するコードの変更、Visual Studio での変更をテストし、テスト、ステージング、実稼働環境に更新を展開します。
 
 DbDacFx プロバイダーを使用してデータベースを更新する方法を示します後で、およびチュートリアルが最初に Code First Migrations で管理されているデータベースを更新する方法を示します。
 
-アラーム: エラー メッセージを取得する、または、チュートリアルを通過するとおりに機能しない、確認して、[トラブルシューティングのページ](troubleshooting.md)です。
+リマインダー: エラー メッセージを取得する、または、チュートリアルを進めるときに機能しないを必ず確認、[トラブルシューティング ページ](troubleshooting.md)します。
 
-## <a name="deploy-a-database-update-by-using-code-first-migrations"></a>Code First Migrations を使用して、データベースの更新を展開します。
+## <a name="deploy-a-database-update-by-using-code-first-migrations"></a>Code First Migrations を使用してデータベースの更新を展開します。
 
-このセクションで、生年月日に列を追加する、`Person`の基本クラス、`Student`と`Instructor`エンティティです。 新しい列を表示するように、インストラクター データを表示するページを更新します。 最後に、テスト、ステージング、および実稼働環境に変更を展開します。
+このセクションに生年月日の列を追加、`Person`の基本クラス、`Student`と`Instructor`エンティティ。 新しい列を表示するように、インストラクター データを表示するページを更新します。 最後に、テスト、ステージング、および運用環境に変更をデプロイします。
 
 ### <a name="add-a-column-to-a-table-in-the-application-database"></a>アプリケーション データベース内のテーブルに列を追加します。
 
-1. *ContosoUniversity.DAL*プロジェクトを開き、 *Person.cs*の末尾に次のプロパティを追加し、`Person`クラス (存在する必要があります終わり波かっこの後に続く 2)。
+1. *ContosoUniversity.DAL*プロジェクトを開き、 *Person.cs*の末尾に次のプロパティを追加し、`Person`クラス (あります終わり波かっこの後に 2 つ)。
 
     [!code-csharp[Main](deploying-a-database-update/samples/sample1.cs)]
 
-    次に、更新、`Seed`メソッドが新しい列の値を提供するようにします。 開いている*Migrations\Configuration.cs*が開始されるコード ブロックを置き換える`var instructors = new List<Instructor>`誕生日に関する情報を含む次のコード ブロックで。
+    次に、更新、`Seed`メソッドを新しい列の値を提供するようにします。 開いている*migrations \configuration.cs*と置換を開始するコード ブロック`var instructors = new List<Instructor>`誕生日に関する情報を含む次のコード ブロックで。
 
     [!code-csharp[Main](deploying-a-database-update/samples/sample2.cs)]
-2. ソリューションをビルドし、開きます、 **Package Manager Console**ウィンドウです。 ContosoUniversity.DAL として選択されていることを確認してください、**既定のプロジェクト**です。
-3. **Package Manager Console**ウィンドウで、 **ContosoUniversity.DAL**として、**既定のプロジェクト**、次のコマンドを入力します。
+2. ソリューションをビルドしを開き、**パッケージ マネージャー コンソール**ウィンドウ。 として ContosoUniversity.DAL がまだ選択されていることを確認、**既定のプロジェクト**します。
+3. **パッケージ マネージャー コンソール**ウィンドウで、 **ContosoUniversity.DAL**として、**既定のプロジェクト**、次のコマンドを入力します。
 
     [!code-powershell[Main](deploying-a-database-update/samples/sample3.ps1)]
 
-    このコマンドが完了すると、Visual Studio は新しいを定義するクラス ファイルを開きます`DbMIgration`クラス、および、`Up`方法、新しい列を作成するコードを確認することができます。 `Up`メソッドは、変更を実装しているときに、列を作成し、`Down`メソッドは、変更をロールバックするときに、列を削除します。
+    このコマンドが完了したら、Visual Studio は、新しいを定義するクラス ファイルを開きます`DbMIgration`クラス、および、`Up`メソッド、新しい列を作成するコードを表示できます。 `Up`メソッドは、変更を実装するときに、列を作成し、`Down`メソッドは、変更をロールバックするときに列を削除します。
 
     ![AddBirthDate_migration_code](deploying-a-database-update/_static/image1.png)
-4. ソリューションをビルドしに次のコマンドを入力、 **Package Manager Console**ウィンドウ (ContosoUniversity.DAL プロジェクトが選択されていることを確認してください)。
+4. ソリューションをビルドおよびでは、次のコマンドを入力し、**パッケージ マネージャー コンソール**ウィンドウ (ContosoUniversity.DAL プロジェクトが選択されていることを確認してください)。
 
     [!code-powershell[Main](deploying-a-database-update/samples/sample4.ps1)]
 
-    Entity Framework が実行される、`Up`メソッドとし、実行、`Seed`メソッドです。
+    Entity Framework の実行、`Up`メソッドとし、実行、`Seed`メソッド。
 
-### <a name="display-the-new-column-in-the-instructors-page"></a>講習においてインストラクター ページで、新しい列を表示します。
+### <a name="display-the-new-column-in-the-instructors-page"></a>Instructors ページに新しい列を表示します。
 
-1. ContosoUniversity プロジェクトで開きます*Instructors.aspx*生年月日を表示する新しいテンプレート フィールドを追加します。 雇用日とオフィス割り当てのためのものの間に追加します。
+1. ContosoUniversity プロジェクトで開きます*Instructors.aspx*し、誕生日を表示する新しいテンプレート フィールドを追加します。 雇用日とオフィスの割り当てのためのものの間に追加します。
 
     [!code-aspx[Main](deploying-a-database-update/samples/sample5.aspx?highlight=9-17)]
 
-    (場合はコードのインデントがとれていない状態を取得することができますキーを押して CTRL K し CTRL-D ファイルを自動的に書式設定を変更します。)
-2. アプリケーションを実行し、をクリックして、**講習においてインストラクター**リンクします。
+    (コードのインデントとれていない場合は、することができますキーを押して CTRL + K し CTRL-D ファイルを自動的に再フォーマットします。)
+2. アプリケーションを実行し、をクリックして、 **Instructors**リンク。
 
-    ページが読み込まれると、新しいがあるを参照してください。 生年月日フィールドです。
+    ページが読み込まれると、新しいがあるを参照してください。 生年月日フィールド。
 
-    ![講習においてインストラクター birthdate ページ](deploying-a-database-update/_static/image2.png)
+    ![Instructors ページには birthdate で](deploying-a-database-update/_static/image2.png)
 3. ブラウザーを閉じます。
 
 ### <a name="deploy-the-database-update"></a>データベースの更新を展開します。
 
 1. **ソリューション エクスプ ローラー** ContosoUniversity プロジェクトを選択します。
-2. **Web 1 つをクリックして 発行**ツールバーで、をクリックして、**テスト**発行プロファイルをクリックして**Web の発行**です。 (ツールバーを無効にした場合で ContosoUniversity プロジェクトを選択**ソリューション エクスプ ローラー**)。
+2. **Web の 1 クリックして発行**ツールバーで、をクリックして、**テスト**発行プロファイルをクリックして**Web の発行**します。 (ツールバーが無効になっている場合で ContosoUniversity プロジェクトを選択します**ソリューション エクスプ ローラー**。)。
 
-    Visual Studio は、更新済みのアプリケーションを配置し、ホーム ページにブラウザーを開きます。
-3. 実行、**講習においてインストラクター**ページを更新プログラムが正常に展開されたことを確認します。
+    Visual Studio が更新されたアプリケーションを配置し、ホーム ページにブラウザーを開きます。
+3. 実行、 **Instructors**ページを更新プログラムが正常にデプロイされたことを確認します。
 
-    Code First、アプリケーションは、このページのデータベースにアクセスする際に、データベース スキーマを更新して実行、`Seed`メソッドです。 予期される表示ページが表示されたら、**生年月日**で日付を含む列。
-4. **Web 1 つをクリックして 発行**ツールバーで、をクリックして、**ステージング**発行プロファイルをクリックして**Web の発行**です。
-5. 実行、**講習においてインストラクター**ステージング環境の更新プログラムが正常に展開されたことを確認するページ。
-6. **Web 1 つをクリックして 発行**ツールバーで、をクリックして、**運用**発行プロファイルをクリックして**Web の発行**です。
-7. 実行、**講習においてインストラクター**更新プログラムが正常に展開されたことを確認するには、実稼働環境でのページです。
+    Code First アプリケーションは、このページのデータベースにアクセスする際に、データベース スキーマを更新して実行、`Seed`メソッド。 予期される確認ページが表示されたら、**生年月日**で日付を含む列。
+4. **Web の 1 クリックして発行**ツールバーで、をクリックして、**ステージング**発行プロファイルをクリックして**Web の発行**します。
+5. 実行、 **Instructors**  ページで、ステージング、更新プログラムが正常にデプロイされたことを確認します。
+6. **Web の 1 クリックして発行**ツールバーで、をクリックして、**運用**発行プロファイルをクリックして**Web の発行**します。
+7. 実行、 **Instructors**更新プログラムが正常にデプロイされたことを確認するには、実稼働環境でのページ。
 
-    データベースの変更を含む実際の運用アプリケーションの更新プログラムの通常実行する配置時にアプリケーションをオフラインを使用して*アプリ\_offline.htm*前のチュートリアルで説明したとおり、します。
+    データベースの変更を含む実際の運用アプリケーションの更新プログラムを使用してデプロイ時にアプリケーションをオフラインをも通常取得するが*アプリ\_offline.htm*、前のチュートリアルで学習したようにします。
 
-## <a name="deploy-a-database-update-by-using-the-dbdacfx-provider"></a>DbDacFx プロバイダーを使用して、データベースの更新を展開します。
+## <a name="deploy-a-database-update-by-using-the-dbdacfx-provider"></a>DbDacFx プロバイダーを使用してデータベースの更新を展開します。
 
-このセクションでは追加、*コメント*列を*ユーザー*メンバーシップ データベースにテーブルが表示され、ページを表示し、各ユーザーのコメントを編集することができますを作成します。 その変更は、テスト、ステージング、および実稼働環境を展開します。
+このセクションでは追加、*コメント*列を*ユーザー*メンバーシップ データベース内のテーブルし、表示し、各ユーザーのコメントを編集することができます ページを作成します。 変更は、テスト、ステージング、および運用環境に配置します。
 
 ### <a name="add-a-column-to-a-table-in-the-membership-database"></a>メンバーシップ データベース内のテーブルに列を追加します。
 
-1. Visual Studio で開く**SQL Server オブジェクト エクスプ ローラー**です。
-2. 展開 **(localdb) \v11.0**、展開**データベース**、展開**aspnet ContosoUniversity** (いない**aspnet ContosoUniversity 本番**)展開し、**テーブル**です。
+1. Visual Studio で開く**SQL Server オブジェクト エクスプ ローラー**します。
+2. 展開 **(localdb) \v11.0**、展開**データベース**、展開**aspnet ContosoUniversity** (いない**aspnet-ContosoUniversity-運用**)順に展開**テーブル**します。
 
-    表示されない場合 **(localdb) \v11.0**下にある、 **SQL Server**  ノードを右クリックし、 **SQL Server**ノードをクリック**SQL Server の追加**です。 **サーバーへの接続** ダイアログ ボックスに「 *(localdb) \v11.0*として、**サーバー名**、クリックして**接続**です。
+    表示されない場合 **(localdb) \v11.0**下、 **SQL Server**ノードを右クリックし、 **SQL Server**ノードをクリックします**SQL Server の追加**します。 **サーバーへの接続**ダイアログ ボックスの入力 *(localdb) \v11.0*として、**サーバー名**、 をクリックし、 **Connect**。
 
-    表示されない場合**aspnet ContosoUniversity**、プロジェクトを実行しを使用してログイン、 *admin*資格情報 (パスワードが*devpwd*)、し、更新、 **SQL Server オブジェクト エクスプ ローラー**ウィンドウです。
-3. 右クリックし、**ユーザー**テーブル、およびクリックして**ビュー デザイナー**です。
+    表示されない場合**aspnet ContosoUniversity**、プロジェクトを実行しを使用してログイン、*管理者*資格情報 (パスワードが*devpwd*)、し、更新、 **SQL Server オブジェクト エクスプ ローラー**ウィンドウ。
+3. 右クリックし、**ユーザー**テーブル、およびクリックして**ビュー デザイナー**します。
 
-    ![SSOX ビュー デザイナー](deploying-a-database-update/_static/image3.png)
-4. デザイナーで、追加、*コメント*列、それを*nvarchar (128)* null を許可すると、をクリックし、**更新**です。
+    ![SSOX のビュー デザイナー](deploying-a-database-update/_static/image3.png)
+4. デザイナーで、追加、*コメント*列、それを*nvarchar (128)* と null を許容すると、順にクリックします**Update**します。
 
     ![Comments 列を追加します。](deploying-a-database-update/_static/image4.png)
-5. **データベース更新のプレビュー**ボックスで、クリックして**更新データベース**です。
+5. **データベース更新のプレビュー**ボックスで、 **Update Database**します。
 
     ![データベース更新のプレビュー](deploying-a-database-update/_static/image5.png)
 
-### <a name="create-a-page-to-display-and-edit-the-new-column"></a>表示および新しい列を編集するページを作成します。
+### <a name="create-a-page-to-display-and-edit-the-new-column"></a>表示し、新しい列を編集するページを作成します。
 
-1. **ソリューション エクスプ ローラー**を右クリックし、**アカウント**ContosoUniversity プロジェクト内のフォルダーをクリックして**追加**、クリックして**新しい項目の**.
-2. 新しい**Web フォームを使用してマスター ページ**し名前を付けます*UserInfo.aspx*です。 既定値を受け入れる*Site.Master*マスター ページとしてファイル。
-3. 次のマークアップをコピー、 `MainContent` `Content`要素 (3 の最後の`Content`要素)。
+1. **ソリューション エクスプ ローラー**を右クリックし、**アカウント**ContosoUniversity プロジェクトのフォルダーをクリックして**追加**、 をクリックし、**新しい項目の**.
+2. 新規作成**Web フォームを使用してマスター ページ**名前を付けます*UserInfo.aspx*します。 既定値を受け入れる*Site.Master*のマスター ページとしてファイル。
+3. 次のマークアップをコピー、 `MainContent` `Content`要素 (最後に、3`Content`要素)。
 
     [!code-aspx[Main](deploying-a-database-update/samples/sample6.aspx)]
-4. 右クリックし、 *UserInfo.aspx*ページし、をクリックして**ブラウザーで表示**です。
-5. ログインに使用、 *admin*ユーザーの資格情報 (パスワードが*devpwd*) し、ページが正しく動作することを確認するユーザーにいくつかのコメントを追加します。
+4. 右クリックし、 *UserInfo.aspx*ページし、クリックして**ブラウザーで表示**します。
+5. ログイン、*管理者*ユーザーの資格情報 (パスワードが*devpwd*) し、ユーザーは、ページが正しく動作することを確認するいくつかのコメントを追加します。
 
-    ![ユーザー情報 ページ](deploying-a-database-update/_static/image6.png)
+    ![UserInfo ページ](deploying-a-database-update/_static/image6.png)
 6. ブラウザーを閉じます。
 
 ## <a name="deploy-the-database-update"></a>データベースの更新を展開します。
 
-DbDacFx プロバイダーを使用して、展開するだけ選択する必要が、**更新データベース**発行プロファイルでオプションです。 ただし、最初の展開は、このオプションを使用したときにも構成したいくつか追加の SQL スクリプトを実行する: まだプロファイルであるものと、もう一度実行されないようにする必要があります。
+を dbDacFx プロバイダーを使用して展開するには、だけを選択する必要が、 **Update database** 、発行プロファイルのオプション。 ただし、初期のデプロイにこのオプションを使用したときにも構成したいくつか追加の SQL スクリプトを実行する: プロファイルにまだいるし、再び実行されないようにする必要があります。
 
-1. 開く、 **Web の発行**ContosoUniversity プロジェクトを右クリックしをクリックしてウィザード**発行**です。
+1. 開く、 **Web の発行**を ContosoUniversity プロジェクトを右クリックしてウィザード**発行**します。
 2. 選択、**テスト**プロファイル。
-3. クリックして、**設定**タブです。
-4. **DefaultConnection****更新データベース**です。
-5. 最初の展開を実行するように構成する追加のスクリプトを無効にします。
+3. をクリックして、**設定**タブ。
+4. **DefaultConnection**、 **Update database**。
+5. 初期デプロイを実行するように構成する追加のスクリプトを無効にします。
 
-    1. をクリックして**データベース更新を構成する**です。
-    2. **データベース更新を構成する**ダイアログ ボックスで、チェック ボックスをオフのチェック ボックス の横に*Grant.sql*と*aspnet データ-dev.sql*です。
+    1. クリックして**データベース更新を構成する**します。
+    2. **データベース更新を構成する**ダイアログ ボックスで、クリア、チェック ボックスを横に*Grant.sql*と*aspnet-データ-dev.sql*します。
     3. **[閉じる]** をクリックします。
-6. クリックして、**プレビュー**タブです。
-7. [**データベース**の右側および**DefaultConnection**、] をクリックして、**プレビューのデータベース**リンクします。
+6. をクリックして、**プレビュー**タブ。
+7. **データベース**の右側に**DefaultConnection**、クリックして、**プレビュー データベース**リンク。
 
     ![データベースのプレビュー](deploying-a-database-update/_static/image7.png)
 
-    プレビュー ウィンドウでは、ソース データベースのスキーマに一致するデータベース スキーマを作成する対象データベースで実行されるスクリプトを示します。 スクリプトには、新しい列を追加する ALTER TABLE コマンドが含まれています。
-8. 閉じる、**データベース プレビュー**クリックしてダイアログ ボックスで、**発行**です。
+    プレビュー ウィンドウには、ソース データベースのスキーマに一致するデータベース スキーマを転送先データベースで実行されるスクリプトが表示されます。 スクリプトには、新しい列を追加する ALTER TABLE コマンドが含まれています。
+8. 閉じる、**データベース プレビュー**クリックしてダイアログ ボックスで、**発行**します。
 
-    Visual Studio は、更新済みのアプリケーションを配置し、ホーム ページにブラウザーを開きます。
-9. ユーザー情報 ページの実行 (追加*Account/UserInfo.aspx*ホーム ページの URL を)、更新プログラムが正常に展開されたことを確認します。 入力してログインする必要があります*admin*と*devpwd*です。
+    Visual Studio が更新されたアプリケーションを配置し、ホーム ページにブラウザーを開きます。
+9. UserInfo ページの実行 (追加*Account/UserInfo.aspx*ホーム ページの URL に)、更新プログラムが正常にデプロイされたことを確認します。 入力してログインする必要があります*管理者*と*devpwd*します。
 
-    既定では、テーブル内のデータが展開されていないと、開発で追加したコメントを検索しないように、実行するには、データの配置スクリプトを構成しませんでした。 新しいコメントを今すぐ追加するにはステージング環境の変更がデータベースに配置され、ページが正しく動作することを確認します。
-10. ステージングと運用環境に展開する同じ手順に従います。
+    既定では、テーブル内のデータを展開していないと、開発で追加したコメントを検索しないように、実行するにはデータ デプロイ スクリプトを構成しませんでした。 新しいコメントを今すぐ追加するには、変更がデータベースに展開されたことと、ページが正常に機能を確認するステージングします。
+10. ステージングと運用環境に展開するのと同じ手順に従います。
 
-    余分なスクリプトを無効にしてください。 テストのプロファイルと比較して唯一の違いは、ステージング環境の 1 つだけのスクリプトを無効にするには、実稼働プロファイルのみを実行するように構成されたため*aspnet prod-data.sql*です。
+    忘れずに余分なスクリプトを無効にします。 テスト プロファイルに対する唯一の違いは、ステージング環境で 1 つだけのスクリプトを無効にするには、実稼働プロファイルのみを実行するように構成されたため、 *aspnet-prod-data.sql*します。
 
-    ステージングと運用環境の資格情報は、管理者、prodpwd がします。
+    ステージングと運用環境の資格情報は、管理者と prodpwd です。
 
-    データベースの変更を含む実際の運用アプリケーションの更新プログラムのも通常実行する配置時にアプリケーションをオフラインをアップロードして*アプリ\_offline.htm*発行を削除する前にその後で学習したよう[前のチュートリアル](deploying-a-code-update.md)です。
+    データベースの変更を含む実際の運用アプリケーションの更新プログラムをアップロードしてデプロイ時にアプリケーションをオフラインをも通常実行するは*アプリ\_offline.htm*発行を削除する前にその後で見たよう[、前のチュートリアル](deploying-a-code-update.md)します。
 
 ## <a name="summary"></a>まとめ
 
-Code First Migrations および dbDacFx プロバイダーの両方を使用してデータベースの変更が含まれているアプリケーションの更新プログラムを展開したようになりました。
+Code First Migrations と dbDacFx プロバイダーの両方を使用してデータベースの変更を含むアプリケーションの更新プログラムをデプロイしたようになりました。
 
-![講習においてインストラクター birthdate ページ](deploying-a-database-update/_static/image8.png)
+![Instructors ページには birthdate で](deploying-a-database-update/_static/image8.png)
 
-![ユーザー情報 ページ](deploying-a-database-update/_static/image9.png)
+![UserInfo ページ](deploying-a-database-update/_static/image9.png)
 
-次のチュートリアルでは、コマンドラインを使用して、展開を実行する方法を示します。
+次のチュートリアルでは、コマンドラインを使用してデプロイを実行する方法を示します。
 
 > [!div class="step-by-step"]
 > [前へ](deploying-a-code-update.md)

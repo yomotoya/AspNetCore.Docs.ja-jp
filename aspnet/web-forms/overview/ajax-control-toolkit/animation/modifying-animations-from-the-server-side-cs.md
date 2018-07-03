@@ -1,67 +1,66 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-cs
-title: 変更 (c#)、サーバー側からアニメーション |Microsoft ドキュメント
+title: サーバー側 (c#) からアニメーションを変更する |Microsoft Docs
 author: wenz
-description: アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 アニメーションも可能性があります.
+description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 アニメーションも可能性があります.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: b0abec39-a1c9-422d-ba9a-ef16f6185af8
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6946875552c885ffb1f2a2eb7e728b85d7dd3973
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 83ce54b1cd2c226db36be75f61321a0fb710e0ca
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869011"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37376663"
 ---
-<a name="modifying-animations-from-the-server-side-c"></a>(C#)、サーバー側からのアニメーションを変更します。
+<a name="modifying-animations-from-the-server-side-c"></a>サーバー側 (c#) からアニメーションを変更します。
 ====================
 によって[Christian Wenz](https://github.com/wenz)
 
-[コードをダウンロードする](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation9.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation9CS.pdf)
+[コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation9.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation9CS.pdf)
 
-> アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 サーバー側でのアニメーションを変更することも
+> アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 サーバー側で、アニメーションを変更することも
 
 
 ## <a name="overview"></a>概要
 
-アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 サーバー側でのアニメーションを変更することも
+アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 サーバー側で、アニメーションを変更することも
 
 ## <a name="steps"></a>手順
 
-まず、含める、 `ScriptManager` ; ページで次に、ASP.NET AJAX ライブラリが読み込まれるコントロール ツールキットを使用できるようにします。
+まず、含める、 `ScriptManager` ; ページで次に、ASP.NET AJAX ライブラリが読み込まれる Control Toolkit を使用すること。
 
 [!code-aspx[Main](modifying-animations-from-the-server-side-cs/samples/sample1.aspx)]
 
-アニメーションは、次のようなテキストのパネルに適用されます。
+次のようなテキストのパネルに、アニメーションが適用されます。
 
 [!code-aspx[Main](modifying-animations-from-the-server-side-cs/samples/sample2.aspx)]
 
-パネルの関連付けられている CSS クラス、nice の背景色を定義し、パネルの固定幅を設定します。
+パネルの関連付けられている CSS クラス、便利な背景色を定義し、パネルの固定幅の設定も。
 
 [!code-css[Main](modifying-animations-from-the-server-side-cs/samples/sample3.css)]
 
-コードの残りの部分がサーバー側で実行し、マークアップ; を使用しません代わりに、作成するコードを使用して、`AnimationExtender`コントロール。
+コードの残りの部分がサーバー側で実行され、マークアップ; は使用しません代わりに、作成するコードを使用、`AnimationExtender`コントロール。
 
 [!code-aspx[Main](modifying-animations-from-the-server-side-cs/samples/sample4.aspx)]
 
-ただし、コントロール Toolkit 現在は提供されません API アクセスを個々 のアニメーションを作成します。 ただし、これを設定すること、`AnimationExtender`のアニメーション プロパティを文字列には、アニメーションを宣言して割り当てる場合に使用する XML マークアップを含んでいます。 含めることはできませんが、XML を作成するために、 `<Animations>` .NET Framework の XML を使用する可能性があります要素は、サポートまたは、次のコードのようにだけを指定して、文字列。
+ただし、Control Toolkit 現在アクセスことはできません、API を個別にアニメーションを作成します。 ただしを設定すること、`AnimationExtender`アニメーションを宣言的に割り当てるときに使用する XML マークアップを含む文字列へのアニメーション プロパティ。 含めることはできませんが、XML を作成するには、 `<Animations>` .NET Framework の XML を使用する可能性があります要素は、サポートまたは、次のコードのように、文字列を指定だけです。
 
 [!code-css[Main](modifying-animations-from-the-server-side-cs/samples/sample5.css)]
 
-最後に、追加、`AnimationExtender`内で、現在のページを制御、`<form runat="server">`要素、アニメーションが含まれるして実行されることを確認します。
+最後に、追加、`AnimationExtender`内で現在のページにコントロール、`<form runat="server">`要素、アニメーションが含まれており、実行されることを確認します。
 
 [!code-html[Main](modifying-animations-from-the-server-side-cs/samples/sample6.html)]
 
 
-[![サーバー側の C #/vb のコードを使用して、アニメーションを作成します。](modifying-animations-from-the-server-side-cs/_static/image2.png)](modifying-animations-from-the-server-side-cs/_static/image1.png)
+[![サーバー側の C #/vb のコードを使用してアニメーションの作成します。](modifying-animations-from-the-server-side-cs/_static/image2.png)](modifying-animations-from-the-server-side-cs/_static/image1.png)
 
-サーバー側の C #/vb のコードを使用して、アニメーションを作成 ([フルサイズのイメージを表示するをクリックして](modifying-animations-from-the-server-side-cs/_static/image3.png))
+サーバー側の C #/vb のコードを使用してアニメーションの作成 ([フルサイズの画像を表示する をクリックします](modifying-animations-from-the-server-side-cs/_static/image3.png))。
 
 > [!div class="step-by-step"]
 > [前へ](triggering-an-animation-in-another-control-cs.md)

@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-15-public-code-review
-title: 'ASP.NET MVC Storefront パート 15: パブリック コード レビュー |Microsoft ドキュメント'
+title: 'ASP.NET MVC Storefront パート 15: パブリック コード レビュー |Microsoft Docs'
 author: robconery
-description: 今回は Rob Conery はユーザーからのフィードバックに基づいて、Storefront アプリケーションの公開コード レビューを行います。 Rob Conery は、開発の各ステップを文書化しています.
+description: このエピソードでは、Rob Conery は、ユーザーからのフィードバックに基づく Storefront アプリケーションのパブリック コード レビューが。 Rob Conery は、開発の各手順を文書化しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/10/2008
 ms.topic: article
 ms.assetid: c06b991f-b1d8-4315-9bc7-d17bc644cbd3
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-15-public-code-review
 msc.type: video
-ms.openlocfilehash: b29e718c2b7ca42cb603cc51a20f8fb38a56162b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1191b92176dc5b052a7cb7e107cab4be71bf32de
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30867828"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37363121"
 ---
 <a name="aspnet-mvc-storefront-part-15-public-code-review"></a>ASP.NET MVC Storefront パート 15: パブリック コード レビュー
 ====================
 によって[Rob Conery](https://github.com/robconery)
 
-今回は Rob Conery はユーザーからのフィードバックに基づいて、Storefront アプリケーションの公開コード レビューを行います。 Rob Conery には、自分の開発プロセスの各手順が記載されている[ブログ](http://blog.wekeroad.com/mvc-storefront/mvcstore-part-15/)です。
+このエピソードでは、Rob Conery は、ユーザーからのフィードバックに基づく Storefront アプリケーションのパブリック コード レビューが。 Rob Conery が彼の開発プロセスでは、各手順を文書化[ブログ](http://blog.wekeroad.com/mvc-storefront/mvcstore-part-15/)します。
 
-[&#9654;ビデオでは (37 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-15-public-code-review)
+[&#9654;ビデオ (37 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-15-public-code-review)
 
 > [!div class="step-by-step"]
 > [前へ](aspnet-mvc-storefront-part-14-rich-client-interaction.md)

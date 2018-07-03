@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-draggable-panel-extender
-title: '[How Do i:]ASP.NET AJAX ドラッグ可能なパネル Extender を使用しますか。 | Microsoft Docs'
+title: '[How Do i:]ASP.NET AJAX ドラッグ可能パネル エクステンダーを使用しますか。 | Microsoft Docs'
 author: JoeStagner
-description: ASP.NET AJAX ドラッグ可能なパネル Extender では、web ページの周りにパネルを移動するユーザーができるヘッダー領域を持つコンテンツ パネルを提供できます。
+description: ASP.NET AJAX ドラッグ可能パネル エクステンダーでは、web ページの周りにパネルを移動するユーザーを許可するヘッダー領域を持つコンテンツ パネルを行うことができます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/31/2007
 ms.topic: article
 ms.assetid: 6f93a786-93f3-4a48-8fd5-001016550619
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-draggable-panel-extender
 msc.type: video
-ms.openlocfilehash: 6bdcf825d8e8f4a0e24d0b8455bb5f8947085833
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6f276afcca6796ee39a344fc5cfd2e96e24f7098
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30880857"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362454"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-draggable-panel-extender"></a>[How Do i:]ASP.NET AJAX ドラッグ可能なパネル Extender を使用しますか。
+<a name="how-do-i-use-the-aspnet-ajax-draggable-panel-extender"></a>[How Do i:]ASP.NET AJAX ドラッグ可能パネル エクステンダーを使用しますか。
 ====================
-によって[行える](https://github.com/JoeStagner)
+によって[Joe Stagner](https://github.com/JoeStagner)
 
-ASP.NET AJAX ドラッグ可能なパネル Extender では、web ページの周りにパネルを移動するユーザーができるヘッダー領域を持つコンテンツ パネルを提供できます。
+ASP.NET AJAX ドラッグ可能パネル エクステンダーでは、web ページの周りにパネルを移動するユーザーを許可するヘッダー領域を持つコンテンツ パネルを行うことができます。
 
-[&#9654;ビデオでは (6 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-draggable-panel-extender)
+[&#9654;ビデオ (6 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-draggable-panel-extender)
 
 > [!div class="step-by-step"]
 > [前へ](how-do-i-use-the-aspnet-ajax-collapsable-panel-extender.md)

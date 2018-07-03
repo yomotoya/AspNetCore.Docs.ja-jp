@@ -1,48 +1,47 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
-title: 'パート 1: 概要と新しいプロジェクト]-> [ファイル |Microsoft ドキュメント'
+title: 'パート 1: 概要と新しいプロジェクト]-> [ファイル |Microsoft Docs'
 author: jongalloway
-description: このチュートリアルの系列では、すべての ASP.NET MVC Music Store サンプル アプリケーションをビルドする手順について説明します。 パート 1 カバーの概要とファイルには、新しいプロジェクト]-> [です。
+description: このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 第 1 部では概要とファイルには、新しいプロジェクト]-> [です。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
 ms.topic: article
 ms.assetid: bd356ca3-5bdb-4067-9dac-c9e9923a86e8
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 2082927d18c95563893da199d60347fa15952446
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c03b62db2227c167c68ca5cf8174e4322658d39d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868972"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37377890"
 ---
 <a name="part-1-overview-and-file-new-project"></a>パート 1: 概要と新しいプロジェクト]-> [ファイル
 ====================
 によって[Jon Galloway](https://github.com/jongalloway)
 
-> MVC Music Store は、チュートリアル アプリケーションを紹介し、ASP.NET MVC と Visual Studio web 開発を使用する方法の詳細な手順について説明します。  
+> MVC のミュージック ストアは、チュートリアル アプリケーションを紹介し、web 開発用の ASP.NET MVC と Visual Studio を使用する方法をステップ バイ ステップについて説明します。  
 >   
-> MVC 音楽ストアは、オンラインにして、音楽のアルバムを販売し、基本的なサイトの管理、ユーザー サインインおよび買い物カゴの機能を実装する軽量なサンプル ストアの実装です。  
+> MVC のミュージック ストアは、オンラインで音楽のアルバムを販売し、基本的なサイトの管理、ユーザー サインインし、買い物カゴの機能を実装する軽量サンプル ストア実装です。  
 >   
-> このチュートリアルの系列では、すべての ASP.NET MVC Music Store サンプル アプリケーションをビルドする手順について説明します。 第 1 部は、概要ファイル-&gt;新しいプロジェクト。
+> このチュートリアル シリーズでは、すべての ASP.NET MVC のミュージック ストア サンプル アプリケーションをビルドする手順について説明します。 パート 1 では、概要とファイルの&gt;新しいプロジェクト。
 
 
 ## <a name="overview"></a>概要
 
-MVC Music Store は、チュートリアル アプリケーションを紹介し、ASP.NET MVC と Visual Web Developer web 開発を使用する方法の詳細な手順について説明します。 お緩やかに変化を開始することを初級レベルの web 開発が発生するように問題ありません。
+MVC のミュージック ストアは、紹介し、web 開発用の ASP.NET MVC と Visual Web Developer を使用する方法を順を追って説明するチュートリアル アプリケーションです。 私たちはゆっくりと開始されます、初心者レベルの web 開発のエクスペリエンスは問題ありません。
 
-構築するアプリケーションは、単純な音楽ストアです。 アプリケーションに 3 つの主要な部分がある: ショッピング、チェック アウト、および管理します。
+ビルドするアプリケーションは、単純な音楽ストアです。 アプリケーションに 3 つの主要な部分がある: ショッピング、チェック アウト、および管理します。
 
 ![](mvc-music-store-part-1/_static/image1.jpg)
 
-閲覧者は、ジャンルのアルバムを参照できます。
+訪問者には、ジャンルのアルバムを参照できます。
 
 ![](mvc-music-store-part-1/_static/image2.jpg)
 
-1 枚のアルバムを表示し、カートに追加することができます。
+1 つのアルバムを表示およびカートに追加できます。
 
 ![](mvc-music-store-part-1/_static/image3.jpg)
 
@@ -50,21 +49,21 @@ MVC Music Store は、チュートリアル アプリケーションを紹介し
 
 ![](mvc-music-store-part-1/_static/image4.jpg)
 
-チェック アウトに進むには、ログインまたはユーザー アカウントの登録にそれらを求められます。
+チェック アウトに進むには、ログインまたはユーザー アカウントを登録することを求められます。
 
 ![](mvc-music-store-part-1/_static/image1.png)
 
 ![](mvc-music-store-part-1/_static/image2.png)
 
-アカウントを作成すると、配布と支払い情報を入力して、注文を完了することができます。 煩雑にならないように、驚くほどの昇格を実行している: すべての設定が「無料」のプロモーション コードを入力している場合は無料です。
+アカウントを作成すると、配布と支払い情報を入力して、注文を完了します。 すばらしい昇格実行をことをシンプルにする: すべてがプロモーション コード"FREE"を入力している場合は、無料!
 
 ![](mvc-music-store-part-1/_static/image5.jpg)
 
-、順序付けした後に、単純な確認画面が参照してください。
+、順序付けの後に、単純な確認画面が参照してください。
 
 ![](mvc-music-store-part-1/_static/image6.jpg)
 
-顧客 faceing ページだけでなくおをもアルバムの元の管理者を作成、編集の一覧を表示する管理者」セクションをビルドし、アルバムを削除します。
+だけでなく、顧客 faceing ページは、アルバムをから管理者を作成できます、編集の一覧を表示する管理者セクションを構築し、アルバムを削除しましたがも。
 
 ![](mvc-music-store-part-1/_static/image7.jpg)
 
@@ -72,11 +71,11 @@ MVC Music Store は、チュートリアル アプリケーションを紹介し
 
 ### <a name="installing-the-software"></a>ソフトウェアのインストール
 
-このチュートリアルは、空き Visual Web Developer 2010 Express (これは無料) を使用して新しい ASP.NET MVC 3 プロジェクトを作成することで開始され、おを増分追加機能を完全に機能しているアプリケーションを作成します。 その過程では、ここデータベースへのアクセス、フォーム ポスト シナリオ、データの検証、ページ更新し、検証、ユーザーのログイン、および AJAX を使用して一貫したページ レイアウトのマスター ページを使用します。
+このチュートリアルでは、無料 Visual Web Developer 2010 Express (これは無料) を使用して新しい ASP.NET MVC 3 プロジェクトの作成、まず、差分を追加してみます完全に機能しているアプリケーションを作成する機能。 その過程について説明しますデータベースへのアクセス、フォーム ポスト シナリオ、データの検証、ページ更新と検証、ユーザーのログイン、および AJAX を使用して、一貫性のあるページ レイアウトのマスター ページを使用します。
 
-順を追っていくことができますをまたはから完成したアプリケーションをダウンロードする[MVC Music Store](https://github.com/evilDave/MVC-Music-Store)です。
+ステップ バイ ステップに従うことができますか、完成したアプリケーションをダウンロードできます[MVC-ミュージック ストア](https://github.com/evilDave/MVC-Music-Store)します。
 
-Visual Studio 2010 SP1 または Visual Web Developer 2010 Express SP1 (無料版の Visual Studio 2010) のいずれかを使用するには、アプリケーションをビルドします。 使用する、SQL Server Compact (も無料) データベースをホストします。 開始する前に、以下に示す前提条件がインストールされていることを確認してください。
+Visual Studio 2010 SP1 または Visual Web Developer 2010 Express SP1 (Visual Studio 2010 の無料版) のいずれかを使用するには、アプリケーションをビルドします。 使用する、SQL Server Compact (も無料)、データベースをホストします。 始める前に、以下の前提条件がインストールされていることを確認します。
 
 
 - [Visual Studio Web Developer Express SP1 の前提条件]
@@ -86,27 +85,27 @@ Visual Studio 2010 SP1 または Visual Web Developer 2010 Express SP1 (無料�
 
 ### <a name="creating-a-new-aspnet-mvc-3-project"></a>新しい ASP.NET MVC 3 プロジェクトを作成します。
 
-まず、Visual Web Developer で [ファイル] メニューから新しいプロジェクトの""を選択します。 新しいプロジェクト ダイアログが表示されます。
+まず、Visual Web Developer で [ファイル] メニューから [新しいプロジェクト] を選択します。 新しいプロジェクト ダイアログが表示されます。
 
 ![](mvc-music-store-part-1/_static/image5.png)
 
-ここを選択すると、Visual c# で&gt;Web テンプレートは、左側のグループ化し、中央の列で、「ASP.NET MVC 3 Web アプリケーション」テンプレートを選択します。 MvcMusicStore、プロジェクトの名前を [ok] ボタンを押します。
+選択、Visual c# -&gt; Web テンプレートは、左側のグループ化し、中央の列で、「ASP.NET MVC 3 Web アプリケーション」テンプレートを選択します。 MvcMusicStore をプロジェクトに名前を [ok] ボタンを押します。
 
 ![](mvc-music-store-part-1/_static/image8.jpg)
 
 これにより、特定の MVC プロジェクトの設定を作成することが可能セカンダリ ダイアログが表示されます。 次を選択します。
 
-プロジェクト テンプレート-空の選択
+プロジェクト テンプレート - 空を選択します。
 
-エンジンの表示 - Razor を選択
+エンジンの表示 - Razor を選択します。
 
-HTML5 セマンティック マークアップのチェックを使用します。
+HTML5 セマンティック マークアップ - チェックの使用します。
 
-設定が、次のようには、し、[ok] ボタンを押すことを確認します。
+設定は、次に示すように、[ok] ボタンを押して確認します。
 
 ![](mvc-music-store-part-1/_static/image9.jpg)
 
-これにより、プロジェクトが作成されます。 ソリューション エクスプ ローラーの右側にあるアプリケーションに追加されているフォルダーを見てをみましょう。
+これにより、プロジェクトが作成されます。 右側にある ソリューション エクスプ ローラーで、アプリケーションに追加されたフォルダーを見ていきましょう。
 
 ![](mvc-music-store-part-1/_static/image10.jpg)
 
@@ -114,17 +113,17 @@ HTML5 セマンティック マークアップのチェックを使用します�
 
 ![](mvc-music-store-part-1/_static/image6.png)
 
-ASP.NET MVC フォルダー名をいくつかの基本的な名前付け規則を利用します。
+ASP.NET MVC フォルダー名をいくつかの基本的な名前付け規則の使用します。
 
-| **Folder** | **目的** |
+| **フォルダー** | **目的** |
 | --- | --- |
-| **/コント ローラー** | コント ローラーは、ブラウザーからの入力を操作を実行、およびユーザーへの応答を返すを決めてに応答します。 |
-| **/Views** | ビューは、UI のテンプレートを保持します。 |
-| **/Models** | モデルを保持およびデータの操作 |
-| **/Content** | このフォルダーは、イメージ、CSS、およびその他の静的なコンテンツを保持します。 |
-| **/Scripts** | このフォルダーの JavaScript ファイルを保存します。 |
+| **/コント ローラー** | コント ローラーは、ブラウザーからの入力を操作、およびユーザーへの応答を返す方法を決めるに応答します。 |
+| **/Views** | ビューは、UI テンプレートを保持します。 |
+| **/モデル** | モデルの保持し、データの操作 |
+| **/Content** | このフォルダーは、イメージ、CSS、およびその他の静的コンテンツを保持します。 |
+| **/Scripts** | このフォルダーは、JavaScript ファイルを保持します。 |
 
-既定では、ASP.NET MVC フレームワークは、「設定よりも規約」アプローチが使用され、いくつかのフォルダーの名前付け規則に基づく既定の前提条件ために、これらのフォルダーは空の ASP.NET MVC アプリケーションであっても含まれています。 たとえば、コント ローラーを検索ビュー フォルダー内のビュー既定では、コードでこれを明示的に指定する必要はありません。 書き込むには、必要なコードの量を削減する既定の規則に移れなくなることができますも容易にできるように、プロジェクトを理解するには、他の開発者とします。 これらのアプリケーションを構築するには、複数の規則を用いて説明します。
+既定では、ASP.NET MVC フレームワークは、「設定より規約」の手法を使用し、フォルダーの名前付け規則に基づくいくつかの既定の解釈は、ために、これらのフォルダーが空の ASP.NET MVC アプリケーションであっても含まれます。 たとえば、コント ローラーを検索、Views フォルダー内のビュー既定では、コードでこれを明示的に指定する必要がありません。 既定の規則を使用することでコードを記述する必要がある量を削減できますも容易にできるように、プロジェクトを理解するには、他の開発者とします。 これらの規則は、アプリケーションの構築に詳しく説明します。
 
 > [!div class="step-by-step"]
 > [次へ](mvc-music-store-part-2.md)
