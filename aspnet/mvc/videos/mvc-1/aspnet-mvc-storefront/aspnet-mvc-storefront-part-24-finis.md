@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis
-title: 'ASP.NET MVC Storefront パート 24: 自動 |Microsoft ドキュメント'
+title: 'ASP.NET MVC Storefront パート 24: 終わり |Microsoft Docs'
 author: robconery
-description: これは、MVC Storefront 系列の最後のエピソードであり、この、少々 変に見える可能性があります。 あるとは言えません ASP.NET に関してあっ最後スクリーン キャストしています.
+description: これは MVC Storefront シリーズの最後のエピソードであり、これは少々 奇妙に思えるかもしれません。 間違いなく行います。 ASP.NET に関して最後スクリーン キャストしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2009
 ms.topic: article
 ms.assetid: 160d6dde-1a19-4822-963b-cd936fb8afa0
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis
 msc.type: video
-ms.openlocfilehash: 69e6d6c068d8451eeb619967224f4aa4a209c7eb
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5c90b6aea21284bcdd07b283b4425a0569e41495
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868530"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389548"
 ---
-<a name="aspnet-mvc-storefront-part-24-finis"></a><span data-ttu-id="20987-104">ASP.NET MVC Storefront 一部 24: 自動</span><span class="sxs-lookup"><span data-stu-id="20987-104">ASP.NET MVC Storefront Part 24: Finis</span></span>
+<a name="aspnet-mvc-storefront-part-24-finis"></a><span data-ttu-id="c9131-104">ASP.NET MVC Storefront パート 24: 終わり</span><span class="sxs-lookup"><span data-stu-id="c9131-104">ASP.NET MVC Storefront Part 24: Finis</span></span>
 ====================
-<span data-ttu-id="20987-105">によって[Rob Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="20987-105">by [Rob Conery](https://github.com/robconery)</span></span>
+<span data-ttu-id="c9131-105">によって[Rob Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="c9131-105">by [Rob Conery](https://github.com/robconery)</span></span>
 
-<span data-ttu-id="20987-106">これは、MVC Storefront 系列の最後のエピソードであり、この、少々 変に見える可能性があります。</span><span class="sxs-lookup"><span data-stu-id="20987-106">This is the last episode in the MVC Storefront series and this might seem a bit odd.</span></span> <span data-ttu-id="20987-107">あるとは言えません ASP.NET MVC に関するあっ最後スクリーン キャストが、系列に選択できる限り出てしたと思われます。</span><span class="sxs-lookup"><span data-stu-id="20987-107">It's definitely not the last screencast I'll do with respect to ASP.NET MVC, but I think I've gone about as far as I can go with this series.</span></span>
+<span data-ttu-id="c9131-106">これは MVC Storefront シリーズの最後のエピソードであり、これは少々 奇妙に思えるかもしれません。</span><span class="sxs-lookup"><span data-stu-id="c9131-106">This is the last episode in the MVC Storefront series and this might seem a bit odd.</span></span> <span data-ttu-id="c9131-107">間違いなく行います。 ASP.NET MVC、に関して最後スクリーン キャストはありません突然このシリーズでもよいと思います。</span><span class="sxs-lookup"><span data-stu-id="c9131-107">It's definitely not the last screencast I'll do with respect to ASP.NET MVC, but I think I've gone about as far as I can go with this series.</span></span>
 
-[<span data-ttu-id="20987-108">&#9654;ビデオでは (27 分)</span><span class="sxs-lookup"><span data-stu-id="20987-108">&#9654; Watch video (27 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-24-finis)
+[<span data-ttu-id="c9131-108">&#9654;ビデオ (27 分)</span><span class="sxs-lookup"><span data-stu-id="c9131-108">&#9654; Watch video (27 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-24-finis)
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="20987-109">前へ</span><span class="sxs-lookup"><span data-stu-id="20987-109">Previous</span></span>](aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md)
+> [<span data-ttu-id="c9131-109">前へ</span><span class="sxs-lookup"><span data-stu-id="c9131-109">Previous</span></span>](aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md)
