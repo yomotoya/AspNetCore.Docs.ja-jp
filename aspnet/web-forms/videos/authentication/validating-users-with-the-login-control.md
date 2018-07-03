@@ -1,33 +1,32 @@
 ---
 uid: web-forms/videos/authentication/validating-users-with-the-login-control
-title: ログイン コントロールのあるユーザーを検証する |Microsoft ドキュメント
+title: Login コントロールでユーザーを検証 |Microsoft Docs
 author: JoeStagner
-description: このビデオでは、行えるは、ユーザーの認証ではなくカスタム フォームを作成し、認証を使用する API の呼び出しの代替方法を説明しています.
+description: このビデオでは、Joe Stagner はユーザーの認証ではなく、カスタム フォームを作成して、認証を使用する API 呼び出しの代替方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/22/2008
 ms.topic: article
 ms.assetid: 6c11816b-504a-4512-b67e-9bd15947a7f8
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication/validating-users-with-the-login-control
 msc.type: video
-ms.openlocfilehash: 10b692957ab2e634674df9b90dea0aad05c0a751
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9e08d09821f3c16c847a1a2d494b943f778cb2e7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30883240"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390664"
 ---
-<a name="validating-users-with-the-login-control"></a><span data-ttu-id="0e6cf-103">ログイン コントロールのあるユーザーを検証します。</span><span class="sxs-lookup"><span data-stu-id="0e6cf-103">Validating Users with the Login Control</span></span>
+<a name="validating-users-with-the-login-control"></a><span data-ttu-id="29892-103">ログイン コントロールでユーザーを検証します。</span><span class="sxs-lookup"><span data-stu-id="29892-103">Validating Users with the Login Control</span></span>
 ====================
-<span data-ttu-id="0e6cf-104">によって[行える](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="0e6cf-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="29892-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="29892-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="0e6cf-105">このビデオでは、行えるは、ユーザーの認証ではなくカスタム フォームを作成し、ユーザーを認証する API の呼び出しの代替方法を説明します。</span><span class="sxs-lookup"><span data-stu-id="0e6cf-105">In this video, Joe Stagner explores an alternative method of user authentication rather then creating a custom form and calling the API to authenticate a user.</span></span> <span data-ttu-id="0e6cf-106">以降で ASP.NET 2 は付属しているログイン コントロールを使用彼とします。</span><span class="sxs-lookup"><span data-stu-id="0e6cf-106">He uses the Login Control that ships with ASP.NET 2 and above.</span></span> <span data-ttu-id="0e6cf-107">このビデオについては、「"を検証するユーザーの資格情報に対してメンバーシップ ユーザー ストアとセキュリティのチュートリアル ([c#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md)、 [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md))。</span><span class="sxs-lookup"><span data-stu-id="0e6cf-107">For additional information about this video, read the "Validating User Credentials Against the Membership User Store" security tutorial ([C#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md), [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)).</span></span>
+<span data-ttu-id="29892-105">このビデオでは、Joe Stagner は、ユーザーの認証ではなく、カスタム フォームを作成して、ユーザーを認証する API 呼び出しの代替方法を説明します。</span><span class="sxs-lookup"><span data-stu-id="29892-105">In this video, Joe Stagner explores an alternative method of user authentication rather then creating a custom form and calling the API to authenticate a user.</span></span> <span data-ttu-id="29892-106">ASP.NET 2 以降に付属しているログイン コントロールを使用しました。</span><span class="sxs-lookup"><span data-stu-id="29892-106">He uses the Login Control that ships with ASP.NET 2 and above.</span></span> <span data-ttu-id="29892-107">このビデオについては、「を検証するユーザーの資格情報に対して、メンバーシップ ユーザー ストア」セキュリティのチュートリアルをお読みください ([c#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md)、 [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md))。</span><span class="sxs-lookup"><span data-stu-id="29892-107">For additional information about this video, read the "Validating User Credentials Against the Membership User Store" security tutorial ([C#](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs.md), [VB](../../overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb.md)).</span></span>
 
-[<span data-ttu-id="0e6cf-108">&#9654;ビデオでは (5 分)</span><span class="sxs-lookup"><span data-stu-id="0e6cf-108">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/validating-users-with-the-login-control)
+[<span data-ttu-id="29892-108">&#9654;ビデオ (5 分)</span><span class="sxs-lookup"><span data-stu-id="29892-108">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/validating-users-with-the-login-control)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="0e6cf-109">[前へ](validating-users-manually.md)
-> [次へ](adding-users-to-your-membership-system.md)</span><span class="sxs-lookup"><span data-stu-id="0e6cf-109">[Previous](validating-users-manually.md)
+> <span data-ttu-id="29892-109">[前へ](validating-users-manually.md)
+> [次へ](adding-users-to-your-membership-system.md)</span><span class="sxs-lookup"><span data-stu-id="29892-109">[Previous](validating-users-manually.md)
 [Next](adding-users-to-your-membership-system.md)</span></span>

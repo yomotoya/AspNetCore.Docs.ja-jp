@@ -1,33 +1,32 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components
-title: 'ASP.NET MVC Storefront 手順 11: フック、ショッピング カートとコンポーネントを使用して |Microsoft ドキュメント'
+title: 'ASP.NET MVC Storefront パート 11: ショッピング カートとコンポーネントを使用してフック |Microsoft Docs'
 author: robconery
-description: 今回は、ショッピング カートに、サイトをフックして、コント ローラーにいくつかのテストを実行します。 MVC、番目のあまり知られていない機能を持つコンポーネントを作成しています.
+description: このエピソードでは、ショッピング カートにサイトをフックし、コント ローラーでいくつかのテストを実行します。 MVC、番目のあまり知られていない機能を持つコンポーネントを作成しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
 ms.topic: article
 ms.assetid: 25cc35b4-601e-448b-abf1-bc253b30d232
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components
 msc.type: video
-ms.openlocfilehash: fb240b723960392515fe5be0e7b3ba51beb7cd01
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7b4edd7b75f94b57e55a93df120b09b49d131f07
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879110"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37376637"
 ---
-<a name="aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components"></a><span data-ttu-id="cea8f-104">ASP.NET MVC Storefront 手順 11: ショッピング カートをフックし、コンポーネントを使用します。</span><span class="sxs-lookup"><span data-stu-id="cea8f-104">ASP.NET MVC Storefront Part 11: Hooking Up The Shopping Cart and Using Components</span></span>
+<a name="aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components"></a><span data-ttu-id="393b0-104">ASP.NET MVC Storefront パート 11: ショッピング カートのフックとコンポーネントを使用します。</span><span class="sxs-lookup"><span data-stu-id="393b0-104">ASP.NET MVC Storefront Part 11: Hooking Up The Shopping Cart and Using Components</span></span>
 ====================
-<span data-ttu-id="cea8f-105">によって[Rob Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="cea8f-105">by [Rob Conery](https://github.com/robconery)</span></span>
+<span data-ttu-id="393b0-105">によって[Rob Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="393b0-105">by [Rob Conery](https://github.com/robconery)</span></span>
 
-<span data-ttu-id="cea8f-106">今回は、ショッピング カートに、サイトをフックして、コント ローラーにいくつかのテストを実行します。</span><span class="sxs-lookup"><span data-stu-id="cea8f-106">In this episode I hook the site up to the shopping cart and run some tests on my Controllers.</span></span> <span data-ttu-id="cea8f-107">MVC、System.Web.MVC.ComponentController のあまり知られていない機能を持つコンポーネントを作成します。</span><span class="sxs-lookup"><span data-stu-id="cea8f-107">I also build a Component with a little-known feature of MVC, the System.Web.MVC.ComponentController.</span></span>
+<span data-ttu-id="393b0-106">このエピソードでは、ショッピング カートにサイトをフックし、コント ローラーでいくつかのテストを実行します。</span><span class="sxs-lookup"><span data-stu-id="393b0-106">In this episode I hook the site up to the shopping cart and run some tests on my Controllers.</span></span> <span data-ttu-id="393b0-107">また、System.Web.MVC.ComponentController、MVC のあまり知られていない機能を持つコンポーネントを作成します。</span><span class="sxs-lookup"><span data-stu-id="393b0-107">I also build a Component with a little-known feature of MVC, the System.Web.MVC.ComponentController.</span></span>
 
-[<span data-ttu-id="cea8f-108">&#9654;ビデオでは (31 分)</span><span class="sxs-lookup"><span data-stu-id="cea8f-108">&#9654; Watch video (31 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components)
+[<span data-ttu-id="393b0-108">&#9654;ビデオ (31 分)</span><span class="sxs-lookup"><span data-stu-id="393b0-108">&#9654; Watch video (31 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="cea8f-109">[前へ](aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization.md)
-> [次へ](aspnet-mvc-storefront-part-12-mocking.md)</span><span class="sxs-lookup"><span data-stu-id="cea8f-109">[Previous](aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization.md)
+> <span data-ttu-id="393b0-109">[前へ](aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization.md)
+> [次へ](aspnet-mvc-storefront-part-12-mocking.md)</span><span class="sxs-lookup"><span data-stu-id="393b0-109">[Previous](aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization.md)
 [Next](aspnet-mvc-storefront-part-12-mocking.md)</span></span>
