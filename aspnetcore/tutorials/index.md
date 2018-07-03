@@ -5,12 +5,12 @@ description: ASP.NET Core アプリケーションの開発方法を学習する
 ms.author: riande
 ms.date: 10/14/2017
 uid: tutorials/index
-ms.openlocfilehash: 2ec362ea546d7bdb493665fe836bdf9ddb68b1b3
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d103c351595f0d61e5f0ee14492f9f46b8c17e86
+ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279520"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37144951"
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core チュートリアル
 
@@ -28,6 +28,7 @@ ASP.NET Core アプリケーションの開発に関する以下のステップ 
    * [VS Code での Razor ページ](xref:tutorials/razor-pages-vsc/index)  
 
 * [リアルタイムの SignalR Web アプリを作成する](xref:tutorials/signalr)
+* [TypeScript を使用して SignalR Web アプリを作成する](xref:tutorials/signalr-typescript-webpack)
 
 * ASP.NET Core MVC Web アプリを作成する
 
