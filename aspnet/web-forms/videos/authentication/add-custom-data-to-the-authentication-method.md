@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/authentication/add-custom-data-to-the-authentication-method
-title: 認証方法にカスタム データを追加 |Microsoft ドキュメント
+title: 認証メソッドにカスタム データを追加する |Microsoft Docs
 author: JoeStagner
-description: 行えるは認証チケットにカスタム データを追加する認証方法を構成することによって ASP.NET 認証の探索を続行しています.
+description: 認証チケットにカスタム データを追加する認証方法を構成することでは、Joe Stagner は ASP.NET の認証の探索を続行します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2008
 ms.topic: article
 ms.assetid: 940bdecc-ae0f-448f-a189-405efa614049
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication/add-custom-data-to-the-authentication-method
 msc.type: video
-ms.openlocfilehash: 1cc2328486da8d988271b5a609346b03b2d140d7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b86e3ef9d2fdf3b654ea41b175b4876d0ed65504
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30881371"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390706"
 ---
-<a name="add-custom-data-to-the-authentication-method"></a>認証方法にカスタム データを追加します。
+<a name="add-custom-data-to-the-authentication-method"></a>認証メソッドにカスタム データを追加します。
 ====================
-によって[行える](https://github.com/JoeStagner)
+によって[Joe Stagner](https://github.com/JoeStagner)
 
-行えるは、ASP.NET によって使用される認証チケットにカスタム データを追加する認証方法を構成することによって、ASP.NET 認証の探索が続行されます。 このデモの詳細については、チュートリアルがある[ここ](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md)です。
+Joe Stagner は、ASP.NET で使用される認証チケットにカスタム データを追加する認証方法を構成することによって ASP.NET 認証の探索を続けます。 このデモの詳細については、チュートリアルが配置されている[ここ](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md)します。
 
-[&#9654;ビデオでは (14 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/add-custom-data-to-the-authentication-method)
+[&#9654;ビデオ (14 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/add-custom-data-to-the-authentication-method)
 
 > [!div class="step-by-step"]
 > [前へ](forms-login-custom-key-configuration.md)

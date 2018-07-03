@@ -1,59 +1,58 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-vb
-title: ポストバックの併用 ReorderList (VB) |Microsoft ドキュメント
+title: (VB) ReorderList でポストバックを使用 |Microsoft Docs
 author: wenz
-description: AJAX コントロールのツールキットで ReorderList コントロール一覧に表示される、ユーザーがドラッグ アンド ドロップで並べ替えることができます。 一覧の順序が変更されるたびに、po しています.
+description: ReorderList コントロール、AJAX Control Toolkit では、ユーザーがドラッグ アンド ドロップを使用して並べ替えることができる一覧を提供します。 一覧の順序が変更されるたびに、po.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: e5b6ed70-19ed-4024-ba4f-6d78e8acdc0f
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ef43471f7d8cc94c1a82a368e27acef05f474f81
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c99d4dcbb884b15aadd6165871749939239e0a8b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879492"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401910"
 ---
-<a name="using-postbacks-with-reorderlist-vb"></a>ReorderList (VB) でのポストバックの使用
+<a name="using-postbacks-with-reorderlist-vb"></a>(VB) ReorderList でポストバックを使用
 ====================
 によって[Christian Wenz](https://github.com/wenz)
 
-[コードをダウンロードする](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/ReorderList4.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/reorderlist4VB.pdf)
+[コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/ReorderList4.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/reorderlist4VB.pdf)
 
-> AJAX コントロールのツールキットで ReorderList コントロール一覧に表示される、ユーザーがドラッグ アンド ドロップで並べ替えることができます。 一覧の順序が変更されるたびにポストバックの変更のサーバーに通知するものとします。
+> ReorderList コントロール、AJAX Control Toolkit では、ユーザーがドラッグ アンド ドロップを使用して並べ替えることができる一覧を提供します。 一覧の順序が変更されるたびにポストバックの変更のサーバーに通知する必要があります。
 
 
 ## <a name="overview"></a>概要
 
-`ReorderList` AJAX コントロール Toolkit でコントロール一覧に表示される、ユーザーがドラッグ アンド ドロップで並べ替えることができます。 一覧の順序が変更されるたびにポストバックの変更のサーバーに通知するものとします。
+`ReorderList` AJAX Control Toolkit でコントロールには、ユーザーがドラッグ アンド ドロップを使用して並べ替えることができる一覧が用意されています。 一覧の順序が変更されるたびにポストバックの変更のサーバーに通知する必要があります。
 
 ## <a name="steps"></a>手順
 
-いくつかの可能なデータ ソースが、`ReorderList`コントロール。 使用する 1 つは、`XmlDataSource`コントロール。
+いくつかのデータ ソースが、`ReorderList`コントロール。 1 つは、使用する、`XmlDataSource`コントロール。
 
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample1.aspx)]
 
-この XML をバインドするために、`ReorderList`コントロールと有効にするポストバックで、次の属性を設定する必要があります。
+この XML にバインドするために、`ReorderList`コントロールと有効にするポストバックでは、次の属性を設定する必要があります。
 
 - `DataSourceID`: データ ソースの ID
-- `SortOrderField`: プロパティを並べ替える
+- `SortOrderField`プロパティを並べ替えるには
 - `AllowReorder`: リストの要素の順序を変更するユーザーを許可するか
-- `PostBackOnReorder`: かどうかを、リストが再配置されるたびに、ポストバックを作成するには
+- `PostBackOnReorder`: リストが再配置されるたびに、ポストバックを作成するか
 
 コントロールの適切なマークアップを次に示します。
 
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample2.aspx)]
 
-内で、`ReorderList`を使用してコントロール、データ ソースから特定のデータをバインドすることがあります、`Eval()`メソッド。
+内で、`ReorderList`を使用して、コントロール、データ ソースから特定のデータを連結することも、`Eval()`メソッド。
 
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample3.aspx)]
 
-ページで任意の位置にあるラベルは最後の順番変更が発生したときに情報を保持します。
+ページで、任意の位置にラベルは最後の順序変更が発生したときに情報を保持します。
 
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample4.aspx)]
 
@@ -61,14 +60,14 @@ ms.locfileid: "30879492"
 
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample5.aspx)]
 
-最後に、ASP.NET AJAX とコントロール Toolkit の機能をアクティブ化するために、`ScriptManager`ページにコントロールを配置する必要があります。
+最後に、ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`ScriptManager`ページにコントロールを配置する必要があります。
 
 [!code-aspx[Main](using-postbacks-with-reorderlist-vb/samples/sample6.aspx)]
 
 
 [![ポストバックをトリガーするそれぞれの並べ替え](using-postbacks-with-reorderlist-vb/_static/image2.png)](using-postbacks-with-reorderlist-vb/_static/image1.png)
 
-ポストバックをトリガーするそれぞれの並べ替え ([フルサイズのイメージを表示するをクリックして](using-postbacks-with-reorderlist-vb/_static/image3.png))
+ポストバックをトリガーするそれぞれの並べ替え ([フルサイズの画像を表示する をクリックします](using-postbacks-with-reorderlist-vb/_static/image3.png))。
 
 > [!div class="step-by-step"]
 > [前へ](drag-and-drop-via-reorderlist-cs.md)

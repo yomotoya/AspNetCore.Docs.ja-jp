@@ -9,15 +9,14 @@ ms.date: 06/26/2014
 ms.topic: article
 ms.assetid: 47202362-3808-4add-9a69-c9d1f91d5e4e
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app
 msc.type: authoredcontent
-ms.openlocfilehash: 51a3c7b9c5b6525d6d82b9a45910f58b71268b7f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1ea6121db781c2d08bc8c76cd07be3c5a4f23f62
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036701"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37377393"
 ---
 <a name="create-an-odata-v4-client-app-c"></a>OData v4 クライアント アプリ (c#) の作成
 ====================
@@ -51,7 +50,7 @@ Visual Studio から ProductService プロジェクトを実行します。 既�
 
 ## <a name="generate-the-service-proxy"></a>サービス プロキシを生成する
 
-サービス プロキシは、OData サービスにアクセスするためのメソッドを定義する .NET クラスです。 プロキシは、HTTP 要求にメソッド呼び出しを変換します。 実行して、プロキシ クラスを作成するが、 [T4 テンプレート](https://msdn.microsoft.com/library/bb126445.aspx)です。
+サービス プロキシは、OData サービスにアクセスするためのメソッドを定義する .NET クラスです。 プロキシでは、メソッド呼び出しの HTTP 要求に変換します。 実行して、プロキシ クラスを作成するが、 [T4 テンプレート](https://msdn.microsoft.com/library/bb126445.aspx)します。
 
 プロジェクトで右クリックします。 **[追加]** &gt; **[新しい項目]** を選択します。
 

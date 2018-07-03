@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
-title: JQuery UI を使用した DropDownList に新しいカテゴリを追加する |Microsoft ドキュメント
+title: JQuery UI を使用した DropDownList に新しいカテゴリの追加 |Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,99 +9,98 @@ ms.date: 01/12/2012
 ms.topic: article
 ms.assetid: 44aa1ac4-6ea2-48a2-972d-52710c48eae5
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 16f7af1d679aace24fff86abb19740beebafe785
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5d23b1d41834d669bb8006ae0ac963fab60918dc
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871936"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402994"
 ---
 <a name="adding-a-new-category-to-the-dropdownlist-using-jquery-ui"></a>JQuery UI を使用した DropDownList に新しいカテゴリを追加します。
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-HTML`Select`タグが固定のカテゴリのデータの一覧を表示するのに適していますが、多くの場合、新しいカテゴリを追加する必要があります。 データベース内のカテゴリをジャンル"Opera"を追加する必要があるとしますか。 このセクションを使用して、新しいカテゴリを追加 ダイアログ ボックスを追加するのに、jQuery UI を使用します。 次の図は、ブラウザーで UI を提示する方法を示しています。
+HTML`Select`タグは、固定のカテゴリのデータの一覧を表示するのに最適ですが、新しいカテゴリを追加する必要があることがよくあります。 ジャンル"Opera"をデータベース内のカテゴリに追加することにしますか。 このセクションを使用して、新しいカテゴリの追加 ダイアログ ボックスを追加するのに、jQuery UI を使用します。 次の図は、ブラウザーで、UI を提示する方法を示します。
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image1.png)
 
-ユーザーが選択すると、**新しいジャンルの追加**リンク、ポップアップ ダイアログ ボックスは、新しいジャンル名前 (および必要に応じて説明) はユーザーを要求します。 次に示す、イメージ、**追加ジャンル**ポップアップ ダイアログ。
+ユーザーが選択すると、**新しいジャンルの追加**リンク、ポップアップ ダイアログ ボックスに新しいジャンル名 (および必要に応じて説明) のユーザー メッセージが表示されます。 次に示すイメージ、**追加ジャンル**ポップアップ ダイアログ。
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image2.png)
 
-新しいジャンル名が入力されている場合、**保存**ボタンが押されて、次の動作します。
+新しいジャンル名を入力するときに、**保存**ボタンが押されて、次の動作します。
 
-1. AJAX 呼び出しは、ジャンル コント ローラー、新しいジャンルをデータベースに保存し、JSON として、新しいジャンル情報 (ジャンルの名前と ID) を返しますの Create メソッドにデータを送信します。
-2. JavaScript では、選択リストに新しいジャンル データを追加します。
-3. JavaScript は、選択した項目を新しいジャンルになります。
+1. AJAX 呼び出しを新しいジャンルをデータベースに保存して、JSON として、新しいジャンル情報 (ジャンル名と ID) を返す、ジャンル コント ローラーの Create メソッドにデータを送信します。
+2. JavaScript では、選択リストに新しいジャンルのデータを追加します。
+3. JavaScript は、選択した項目に新しいジャンルにします。
 
-   下の画像で**Opera**データベースに追加されで選択されている、**ジャンル**ドロップ ダウン リスト。 
+   、次の図で**Opera**データベースに追加され、で選択されている、**ジャンル**ドロップダウン リスト。 
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image3.png)
 
-開く、 *Views\StoreManager\Create.cshtml*ファイルを開き、次のマークアップをジャンルを置き換えます次のコード。
+開く、 *Views\StoreManager\Create.cshtml*ファイルを開き、次のジャンルのマークアップに置き換えます次のコード。
 
 [!code-cshtml[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample1.cshtml)]
 
-`_ChooseGenre`部分ビューには、JavaScript と jQuery の新しいジャンルの追加 機能を実装するために使用をフックするために、すべてのロジックにが含まれます。 コードが完成した後は、アーティスト UI で同じ操作を実行する単純なことはできます。
+`_ChooseGenre`部分ビューには、すべてのロジック [JavaScript と jQuery の新しいジャンルの追加] 機能を実装するためのフックにはが含まれます。 コードが完成したアーティストの UI で同じ処理を実行する簡単なことになります。
 
-ソリューション エクスプ ローラーで右クリックし、 *Views\StoreManager*フォルダーと選択**追加**、し**ビュー**です。 **ビュー名**入力、入力`_ChooseGenre`を選択し、**追加**です。 内のマークアップを置き換える、 *Views\StoreManager\\_ChooseGenre.cshtml*を次のファイル。
+ソリューション エクスプ ローラーで右クリックし、 *Views\StoreManager*フォルダーと選択**追加**、し**ビュー**します。 **ビュー名**入力、入力`_ChooseGenre`選び**追加**します。 内のマークアップを置き換える、 *Views\StoreManager\\_ChooseGenre.cshtml*を次のファイル。
 
 [!code-cshtml[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample2.cshtml)]
 
-最初の行で渡していることを宣言、`Album`モデルとビューを作成するステートメントをモデルとまったく同じです。 次の数行、**ラベル**ヘルパー マークアップ。 次の行は、 **DropDownList**ヘルパーを呼び出すと、元のビューを作成するものとまったく同じです。 次の行の名前を持つリンクを追加`Add New Genre`、およびボタンのようなスタイルします。 行を含む`ValidationMessageFor`作成ビューから直接コピーされます。 次の行では:
+最初の行に渡していることを宣言して、`Album`私たちのモデルとして、作成ビューにあるステートメントをモデルとまったく同じです。 次の数行は、**ラベル**ヘルパーのマークアップ。 次の行が、 **DropDownList**ヘルパーが呼び出し元のビューを作成すると同じです。 次の行は、名前のリンクを追加します。 `Add New Genre`、およびボタンのように、スタイル。 行を含む`ValidationMessageFor`作成ビューから直接コピーされます。 次の行。
 
 [!code-html[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample3.html)]
 
-ID を持つ非表示の div を作成`genreDialog`です。 JQuery を使用してフック、**追加ジャンル**ID を持つ ダイアログ ボックス`genreDialog`この位置の div で 最後の 2 つのスクリプト タグには、追加新しいジャンル機能の実装を使用して、JavaScript ファイルへのリンクが含まれています。 */Scripts/chooseGenre.js*ファイルがプロジェクト内の見ていきますが、チュートリアルの後半で提供されています。
+ID を非表示の div を作成します。`genreDialog`します。 JQuery を使用してフック、**追加ジャンル**id ダイアログ ボックス`genreDialog`でこの div です。 最後の 2 つのスクリプト タグには、新しいジャンルの追加 機能を実装するために使用するサンプルの JavaScript ファイルへのリンクが含まれます。 */Scripts/chooseGenre.js*ファイルがプロジェクトを見ていきますが、チュートリアルの後半で指定します。
 
-アプリケーションを実行し、をクリックして、**新しいジャンルの追加**ボタンをクリックします。 **追加ジャンル** ダイアログ ボックスで、入力**Opera**で、**名前**入力ボックス。
+アプリケーションを実行し、をクリックして、**新しいジャンルの追加**ボタンをクリックします。 **追加ジャンル** ダイアログ ボックスに、入力**Opera**で、**名前**入力ボックス。
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image4.png)
 
-**[保存]** ボタンをクリックします。 AJAX 呼び出しは Opera カテゴリを作成およびし、Opera、ドロップダウン リストを設定し、選択したジャンルとして Opera を設定します。
+**[保存]** ボタンをクリックします。 AJAX 呼び出しは、Opera のカテゴリを作成し、Opera をドロップダウン リストを設定し、として選択されているジャンル Opera を設定します。
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image5.png)
 
-アーティスト、タイトル、および価格を入力し、選択、**作成**ボタンをクリックします。 8.99 ドル未満の価格を入力する場合は、新しいアルバムがインデックス ビューの上部に表示されます。 新しいアルバム エントリがデータベースに保存されたことを確認します。
+アーティスト、タイトル、および価格を入力し、選択、**作成**ボタンをクリックします。 8.99 ドル未満の価格を入力すると、インデックス ビューの上部にある新しいアルバムが表示されます。 新しいアルバム エントリがデータベースに保存されたことを確認します。
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image6.png)
 
-1 つだけの文字で新しいジャンルを作成してください。 次のコードで、 *Models\Genre.cs*ファイルはジャンル名の最小値と最大の長さを設定します。
+1 つだけの文字を持つ新しいジャンルを作成してください。 次のコードで、 *Models\Genre.cs*ファイルは、ジャンル名の最小値と最大の長さを設定します。
 
 [!code-csharp[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample4.cs)]
 
-クライアント側の検証は、2 ~ 20 文字、文字列を入力する必要がありますを報告します。
+クライアント側の検証では、2 ~ 20 文字の文字列を入力する必要がありますを報告します。
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image7.png)
 
-### <a name="examining-how-a-new-genre-is-added-to-the-database-and-the-select-list"></a>新しいジャンル方法を調べることが、データベースと、選択リストに追加されます。
+### <a name="examining-how-a-new-genre-is-added-to-the-database-and-the-select-list"></a>新しいジャンル方法を調べることは、データベースと選択リストに追加されます。
 
-開く、 *Scripts\chooseGenre.js*ファイルし、コードを調べます。
+開く、 *Scripts\chooseGenre.js*ファイルを開き、コードを確認します。
 
 [!code-javascript[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample5.js)]
 
-2 番目の行は、ID を使用して`genreDialog`の div タグのダイアログ ボックスを作成する、 *Views\StoreManager\\_ChooseGenre.cshtml*ファイル。 名前付きパラメーターのほとんどは自明です。 `autoOpen`パラメーターが false に設定を選択すると、**作成ジャンル**ボタンがダイアログ ボックスを明示的に開く (後者にこの説明は)。 ダイアログ ボックスが 2 つのボタン**保存**と**キャンセル**です。 **キャンセル**ボタンがダイアログを閉じます。 次のコードは、**保存**関数のボタンをクリックします。
+2 行目は、ID を使用して`genreDialog`の div タグにダイアログ ボックスを作成する、 *Views\StoreManager\\_ChooseGenre.cshtml*ファイル。 名前付きパラメーターのほとんどは、一目瞭然です。 `autoOpen`パラメーターが false に設定を選択すると、**作成ジャンル**ボタンがダイアログ ボックスを明示的に開く (後者にこの説明は)。 ダイアログに 2 つのボタンがあります**保存**と**キャンセル**します。 **キャンセル**ボタンがダイアログを閉じます。 次のコードは、**保存**関数のボタンをクリックします。
 
 [!code-javascript[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample6.js)]
 
-`var createGenreForm`からが選択されている、 `createGenreForm` id です。 `createGenreForm`で見つかった次のコードで ID が設定されて、 *Views\Genre\\_CreateGenre.cshtml*ファイル。
+`var createGenreForm`からが選択されている、 `createGenreForm` id。 `createGenreForm` ID は、次のコードで設定された、 *Views\Genre\\_CreateGenre.cshtml*ファイル。
 
 [!code-cshtml[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample7.cshtml)]
 
-[Html.BeginForm](https://msdn.microsoft.com/library/dd492714.aspx)ヘルパーのオーバー ロードで使用される、 *Views\Genre\\_CreateGenre.cshtml*ファイルは、フォームを送信する URL を含むアクション属性を持つ HTML を生成します。 これは、ブラウザーでアルバムの作成 ページを表示して、ブラウザーで表示するソースを選択して確認できます。 次のマークアップでは、生成された HTML フォーム タグを含むを示します。
+[Html.BeginForm](https://msdn.microsoft.com/library/dd492714.aspx)ヘルパーのオーバー ロードで使用される、 *Views\Genre\\_CreateGenre.cshtml*ファイル、フォームを送信する URL を含むアクション属性を持つ HTML が生成されます。 これは、ブラウザーでアルバムの作成 ページを表示して、ブラウザーで表示するソースの選択を確認できます。 次のマークアップは、生成される HTML フォーム タグを含むを示します。
 
 [!code-html[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample8.html)]
 
-JQuery`$.post`線は、action 属性への AJAX 呼び出しを作成 (`/StoreManager/Create`) からのデータで渡すと、**ジャンルの作成** ダイアログ ボックス。 データは、新しいジャンルとオプションの説明の名前で構成されます。 AJAX 呼び出しが成功した場合は、ジャンルの新しい名前と値は、Select のマークアップに追加され、新しいジャンルが選択した値に設定されています。 これは動的に生成されたマークアップであるため、ブラウザーで、ソースを表示して、新しいオプションを選択を参照してくださいことはできません。 IE 9 F12 開発者ツールを使用して新しい HTML を表示できます。 表示するには、新しいオプションを選択、Internet Explorer 9 では、F12 開発者ツールを起動する F12 キーを押します。 [作成] ページに移動し、新しいジャンルがジャンルの選択リストで選択されているために、新しいジャンルを追加します。 F12 開発者ツールで。
+JQuery`$.post`線は、action 属性への AJAX 呼び出しを作成する (`/StoreManager/Create`) からデータを渡すと、**ジャンルの作成** ダイアログ ボックス。 データは、新しいジャンルとオプションの説明の名前で構成されます。 AJAX 呼び出しが成功した場合は、新しいジャンル名と値は、Select のマークアップに追加され、新しいジャンルが、選択した値に設定されています。 これは動的に生成されたマークアップであるため、ブラウザーで、ソースを表示して、新しいオプションを選択を表示できません。 IE 9 F12 開発者ツールで新しい HTML を表示できます。 Internet Explorer 9 で、新しい選択オプションを表示するには、F12 開発者ツールを開始する F12 キーを押します。 [作成] ページに移動し、新しいジャンルがジャンルの選択リストで選択されているために、新しいジャンルを追加します。 F12 開発者ツール。
 
 1. [HTML] タブを選択します。
 2. 更新アイコンをクリックします。  
     ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image8.png)
-3. [検索] ボックスで、GenreID を入力します。
-4. [次へ] のアイコンを使用   
+3. 検索ボックスに、GenreID を入力します。
+4. [次へ] のアイコンを使用します。   
     ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image9.png)  
    次の select タグに移動します。
 
@@ -110,34 +109,34 @@ JQuery`$.post`線は、action 属性への AJAX 呼び出しを作成 (`/StoreMa
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image10.png)
 
-次のコードで、 *Scripts\chooseGenre.js*ファイル、方法を示します、**新しいジャンルの追加**ボタン クリック イベントに接続方法、および**新しいジャンルの追加** ダイアログ ボックスが作成されます。
+次のコードで、 *Scripts\chooseGenre.js*ファイルは、方法を示しています、**新しいジャンルの追加**ボタンは、click イベントに接続を取得する方法と、**新しいジャンルの追加** ダイアログ ボックスが作成されます。
 
 [!code-javascript[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample10.js)]
 
-最初の行にアタッチされているをクリックして関数を作成する、**新しいジャンルの追加**ボタンをクリックします。 Views\StoreManager から次のマークアップ\\_ChooseGenre.cshtml ファイルの表示方法、**新しいジャンルの追加** ボタンを作成します。
+最初の行にアタッチ をクリック関数を作成する、**新しいジャンルの追加**ボタンをクリックします。 Views\StoreManager から次のマークアップ\\_ChooseGenre.cshtml ファイルの表示方法、**新しいジャンルの追加**ボタンが作成されます。
 
 [!code-cshtml[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample11.cshtml)]
 
-Load メソッドの作成およびジャンルの追加 ダイアログを開く、し、jQuery を呼び出す`parse`メソッド、ダイアログ ボックスに入力されたデータにクライアントの検証が発生するようにします。
+Load メソッドを作成しますジャンルの追加 ダイアログを開くし、jQuery を呼び出す`parse`メソッド、ダイアログ ボックスに入力されたデータのクライアント検証が行われるようにします。
 
-このセクションでは、選択リストに新しいカテゴリのデータを追加するために使用するダイアログを作成する方法を学習しました。 新しいアーティストをアーティストの選択リストに追加するための UI を作成する同じ手順を実行できます。 このチュートリアルには、ASP.NET MVC の HTML ヘルパーの使用の概要から与えられた**DropDownList**です。 操作の詳細については、 **DropDownList**、以下の追加の参照セクションを参照してください。 お知らせかどうか、このチュートリアルは便利なされました。
+このセクションでは、選択リストに新しいカテゴリのデータを追加するために使用できるダイアログを作成する方法を説明しました。 アーティストの選択リストに新しいアーティストを追加する UI を作成する同じ手順を行うことができます。 このチュートリアルは、ASP.NET MVC の HTML ヘルパーの操作の概要を与え**DropDownList**します。 操作の詳細については、 **DropDownList**、以下の追加の参照セクションを参照してください。 ご連絡くださいかどうか、このチュートリアルは便利なされました。
 
 Rick.Anderson[at]Microsoft.com
 
-### <a name="additional-references"></a>その他のリファレンス
+### <a name="additional-references"></a>その他の参照
 
-- [ASP.NET MVC – カスケード ドロップダウン一覧チュートリアル](https://weblogs.asp.net/raduenuca/archive/2011/03/06/asp-net-mvc-cascading-dropdown-lists-tutorial-part-1-defining-the-problem-and-the-context.aspx)によって[Radu enuca が](https://weblogs.asp.net/raduenuca/default.aspx)
-- [選択した](http://harvesthq.github.com/chosen/)複数選択やフィルター処理をサポートする JavaScript プラグインします。
+- [ASP.NET MVC – カスケード ドロップダウンは、チュートリアルを一覧表示](https://weblogs.asp.net/raduenuca/archive/2011/03/06/asp-net-mvc-cascading-dropdown-lists-tutorial-part-1-defining-the-problem-and-the-context.aspx)によって[Radu enuca が](https://weblogs.asp.net/raduenuca/default.aspx)
+- [選択した](http://harvesthq.github.com/chosen/)複数選択やフィルター処理をサポートする JavaScript のプラグイン。
 
 ### <a name="contributors"></a>共同作成者
 
-- [Radu Enuca](https://weblogs.asp.net/raduenuca/default.aspx)
-- Jean-Sébastien Goupil
+- [Radu enuca が](https://weblogs.asp.net/raduenuca/default.aspx)
+- Jean Sébastien Goupil
 - [Brad Wilson](http://bradwilson.typepad.com/)
 
 ### <a name="reviewers"></a>校閲者
 
-- Jean-Sébastien Goupil
+- Jean Sébastien Goupil
 - [Brad Wilson](http://bradwilson.typepad.com/)
 - Mike 教皇
 - Tom Dykstra

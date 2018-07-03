@@ -7,16 +7,15 @@ author: BillWagner
 ms.author: wiwagn
 ms.date: 02/01/2017
 ms.topic: article
-ms.prod: .net-framework
 ms.technology: dotnet-mvc
 ms.devlang: dotnet
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: 7a580c6c6236b375ea54ef4e9978fff6993d885a
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: fa010e795878b26c79dbe04ef0017373283c4269
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2018
-ms.locfileid: "29143190"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37403020"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Windows コンテナーへの ASP.NET MVC アプリケーションの移行
 
@@ -43,7 +42,7 @@ Windows コンテナーで既存の .NET Framework ベース アプリケーシ�
 
 - [Windows 10 Anniversary Update](https://www.microsoft.com/software-download/windows10/) (以降) または [Windows Server 2016](https://www.microsoft.com/cloud-platform/windows-server) (以降)。
 - [Docker for Windows](https://docs.docker.com/docker-for-windows/) - バージョン Stable 1.13.0 または 1.12 Beta 26 (以降のバージョン)
-- [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)です。
+- [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)します。
 
 > [!IMPORTANT]
 > Windows Server 2016 を使用している場合は、「[コンテナー ホストの展開 - Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/deployment/deployment)」の指示に従ってください。
@@ -75,7 +74,7 @@ Docker イメージに読み込む必要があるすべての資産を 1 か所�
 Dockerfile に Docker イメージを定義します。 Dockerfile は、基本イメージ、追加のコンポーネント、実行するアプリ、その他の構成イメージに関する指示を含みます。  Dockerfile は、イメージを作成する `docker build` コマンドの入力です。
 
 [Docker Hub](https://hub.docker.com/r/microsoft/aspnet/) にある `microsoft/aspnet` イメージに基づいてイメージをビルドします。
-基本イメージである `microsoft/aspnet` は、Windows Server イメージです。 Windows Server Core、IIS および ASP.NET 4.6.2 が含まれています。 このイメージをコンテナー内で実行すると、IIS とインストールされている Web サイトが自動的に起動します。
+基本イメージである `microsoft/aspnet` は、Windows Server イメージです。 Windows Server Core、IIS と ASP.NET 4.6.2 が含まれています。 このイメージをコンテナー内で実行すると、IIS とインストールされている Web サイトが自動的に起動します。
 
 イメージを作成する Dockerfile は、次のようになります。
 
@@ -89,15 +88,15 @@ FROM microsoft/aspnet
 COPY ./bin/Release/PublishOutput/ /inetpub/wwwroot
 ```
 
-この Dockfile に `ENTRYPOINT` コマンドは使用されていません。 使用する必要はありません。 IIS と Windows Server を実行するときに、IIS プロセスは aspnet の基本イメージで起動するように構成がエントリ ポイントです。
+この Dockfile に `ENTRYPOINT` コマンドは使用されていません。 使用する必要はありません。 IIS と Windows Server を実行するときに、IIS プロセスは、aspnet の基本イメージで起動するように構成がエントリ ポイントになります。
 
-Docker ビルド コマンドを実行し、ASP.NET アプリを実行するイメージを作成します。 これを行うには、プロジェクトのディレクトリに、PowerShell ウィンドウを開くし、ソリューション ディレクトリに次のコマンドを入力します。
+Docker ビルド コマンドを実行し、ASP.NET アプリを実行するイメージを作成します。 これを行うには、プロジェクトのディレクトリで PowerShell ウィンドウを開くし、ソリューション ディレクトリで次のコマンドを入力します。
 
 ```console
 docker build -t mvcrandomanswers .
 ```
 
-このコマンドは、Dockerfile の手順に従って、新しいイメージを構築名前付け (・ t がタグ付け) mvcrandomanswers としてイメージ。 その手順には、[Docker Hub](http://hub.docker.com) から基本イメージをプルし、それからそのイメージにアプリを追加する作業が含まれることがあります。
+このコマンドは、Dockerfile の手順に従って、新しいイメージをビルドの名前付け (-t がタグ付け) mvcrandomanswers としてイメージ。 その手順には、[Docker Hub](http://hub.docker.com) から基本イメージをプルし、それからそのイメージにアプリを追加する作業が含まれることがあります。
 
 そのコマンドの完了後、`docker images` コマンドを実行して新しいイメージの情報を参照できます。
 
@@ -118,7 +117,7 @@ docker run -d --name randomanswers mvcrandomanswers
 
 `-d` 引数は、デタッチ モードでイメージを開始するよう Docker に指示します。 つまり、Docker イメージは現在のシェルから切断された状態で実行されます。
 
-Docker の多くの例では、コンテナーとホストのポートにマップする-p を参照してください可能性があります。 既定の aspnet イメージでは、既にポート 80 でリッスンし、それを公開するコンテナーを構成します。 
+多くの docker の例では、コンテナーとホストのポートにマップする-p を参照してください可能性があります。 既定の aspnet イメージでは、ポート 80 でリッスンし、それを公開するコンテナーが既に構成します。 
 
 `--name randomanswers` は、実行するコンテナーに名前を付けます。 この名前は、ほとんどのコマンドでコンテナー ID の代わりに使用できます。
 
@@ -127,7 +126,7 @@ Docker の多くの例では、コンテナーとホストのポートにマッ�
 ## <a name="verify-in-the-browser"></a>ブラウザーでの確認
 
 > [!NOTE]
-> 現在の Windows コンテナーのリリースを参照することはできません`http://localhost`です。
+> Windows コンテナーの現在のリリースを参照できない`http://localhost`します。
 > これは WinNAT での既知の動作によるものであり、将来のリリースで修正される予定です。 解決されるまでは、コンテナーの IP アドレスを使用する必要があります。
 
 コンテナーの開始後、実行中のコンテナーにブラウザーから接続できるように、コンテナーの IP アドレスを見つけます。
@@ -137,7 +136,7 @@ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" randomanswers
 172.31.194.61
 ```
 
-IPv4 アドレスを使用して、実行中のコンテナーに接続`http://172.31.194.61`に示す例です。 その URL をブラウザーに入力すると、実行中のサイトが表示されます。
+IPv4 アドレスを使用して、実行中のコンテナーに接続する`http://172.31.194.61`に示す例です。 その URL をブラウザーに入力すると、実行中のサイトが表示されます。
 
 > [!NOTE]
 > 一部の VPN またはプロキシ ソフトウェアが原因でサイトに移動できない場合があります。

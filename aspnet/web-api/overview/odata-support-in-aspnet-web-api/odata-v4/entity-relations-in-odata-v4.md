@@ -1,33 +1,32 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/entity-relations-in-odata-v4
-title: ASP.NET Web API 2.2 を使用して OData v4 でのエンティティ関係 |Microsoft ドキュメント
+title: ASP.NET Web API 2.2 を使用して OData v4 のエンティティ関係 |Microsoft Docs
 author: MikeWasson
-description: ほとんどのデータ セットは、エンティティ間のリレーションを定義します。 お客様が設定されている順序です。ブックがある作成者です。製品では、仕入先があります。 OData を使用すると、クライアントは、経由で移動することができます.
+description: ほとんどのデータ セットは、エンティティ間のリレーションシップを定義します。 顧客が設定されている順序。ブックの「複数の作者により;製品では、仕入先があります。 OData を使用して、クライアントは、経由で移動することができます.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2014
 ms.topic: article
 ms.assetid: 72657550-ec09-4779-9bfc-2fb15ecd51c7
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/entity-relations-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: 4127fb2fa83f513a4faeb222068ca99f234ece22
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 56cadbabaa7ca64ba39232495e25178849d5e3c2
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26508101"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37377647"
 ---
-<a name="entity-relations-in-odata-v4-using-aspnet-web-api-22"></a>ASP.NET Web API 2.2 を使用して OData v4 でのエンティティ関係
+<a name="entity-relations-in-odata-v4-using-aspnet-web-api-22"></a>ASP.NET Web API 2.2 を使用して OData v4 のエンティティ関係
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
-> ほとんどのデータ セットは、エンティティ間のリレーションを定義します。 お客様が設定されている順序です。ブックがある作成者です。製品では、仕入先があります。 クライアントは OData を使用すると、エンティティ関係経由で移動できます。 製品を指定するには、供給業者を検索できます。 作成または、リレーションシップを削除することができますも。 たとえば、製品の仕入先を設定できます。
+> ほとんどのデータ セットは、エンティティ間のリレーションシップを定義します。 顧客が設定されている順序。ブックの「複数の作者により;製品では、仕入先があります。 クライアントは OData を使用して、エンティティ関係を移動できます。 製品を指定するには、業者を検索できます。 作成またはのリレーションシップを削除することもできます。 たとえば、製品の仕入先を設定できます。
 > 
-> このチュートリアルでは、ASP.NET Web API を使用しての OData v4 でこれらの操作をサポートする方法を示します。 このチュートリアルは、チュートリアルに基づいて[OData v4 エンドポイントを使用する ASP.NET Web API 2 を作成する](create-an-odata-v4-endpoint.md)です。
+> このチュートリアルでは、ASP.NET Web API を使用しての OData v4 のこれらの操作をサポートする方法を示します。 チュートリアルは、チュートリアルに基づいて[OData v4 エンドポイントを使用して ASP.NET Web API 2 の作成](create-an-odata-v4-endpoint.md)です。
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
 > 
 > 
 > - Web API 2.1
@@ -39,13 +38,13 @@ ms.locfileid: "26508101"
 > 
 > ## <a name="tutorial-versions"></a>チュートリアルのバージョン
 > 
-> OData バージョン 3 を参照してください。 [OData v3 のエンティティ関係をサポートする](https://asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations)です。
+> OData バージョン 3 では、次を参照してください。 [OData v3 のエンティティ関係をサポートしている](https://asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations)します。
 
 
 ## <a name="add-a-supplier-entity"></a>Supplier エンティティを追加します。
 
 > [!NOTE]
-> このチュートリアルは、チュートリアルに基づいて[OData v4 エンドポイントを使用する ASP.NET Web API 2 を作成する](create-an-odata-v4-endpoint.md)です。
+> チュートリアルは、チュートリアルに基づいて[OData v4 エンドポイントを使用して ASP.NET Web API 2 の作成](create-an-odata-v4-endpoint.md)です。
 
 
 最初に、関連エンティティ必要があります。 という名前のクラスを追加`Supplier`Models フォルダーにします。
@@ -56,25 +55,25 @@ ms.locfileid: "26508101"
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample2.cs?highlight=13-15)]
 
-新しい**DbSet**を`ProductsContext`クラス、Entity Framework は、データベースに仕入先テーブルを含めるようにします。
+新しい追加**DbSet**を`ProductsContext`クラス、Entity Framework は、データベースの仕入先のテーブルを含めるようにします。
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample3.cs?highlight=10)]
 
-WebApiConfig.cs で追加、 &quot;Suppliers&quot;エンティティがエンティティ データ モデルに設定します。
+WebApiConfig.cs で追加、 &quot;Suppliers&quot;エンティティがエンティティ データ モデルに設定。
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample4.cs?highlight=6)]
 
-## <a name="add-a-suppliers-controller"></a>Suppliers コント ローラーを追加します。
+## <a name="add-a-suppliers-controller"></a>仕入先のコント ローラーを追加します。
 
-追加、`SuppliersController`コント ローラーのフォルダーへのクラスです。
+追加、`SuppliersController`コント ローラーのフォルダーにクラス。
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample5.cs)]
 
-このコント ローラーの CRUD 操作を追加する方法を表示しません。 手順は、Products コント ローラーと同じ (を参照してください[OData v4 エンドポイントを作成する](create-an-odata-v4-endpoint.md))。
+このコント ローラーに対する CRUD 操作を追加する方法は表示されません。 手順は、Products コント ローラーの場合と同じ (を参照してください[OData v4 エンドポイントを作成](create-an-odata-v4-endpoint.md))。
 
 ## <a name="getting-related-entities"></a>関連エンティティの取得
 
-に、製品の供給業者を取得するには、は、クライアントは、GET 要求を送信します。
+供給業者の製品を取得するには、クライアントは、GET 要求を送信します。
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample6.cmd)]
 
@@ -87,7 +86,7 @@ WebApiConfig.cs で追加、 &quot;Suppliers&quot;エンティティがエンテ
 - メソッド名: getx メソッド、X はナビゲーション プロパティ。
 - パラメーター名:*キー*
 
-この名前付け規則に従うと、Web API はコント ローラー メソッドへの HTTP 要求を自動的にマップします。
+この名前付け規則に従うと、コント ローラー メソッドに HTTP 要求は、Web API によって自動的にマップされます。
 
 要求の例 HTTP:
 
@@ -97,13 +96,13 @@ WebApiConfig.cs で追加、 &quot;Suppliers&quot;エンティティがエンテ
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample9.cmd)]
 
-### <a name="getting-a-related-collection"></a>関連するコレクションを取得します。
+### <a name="getting-a-related-collection"></a>関連コレクションを取得します。
 
-前の例では、製品は、1 つの仕入先がします。 ナビゲーション プロパティでは、コレクションを返すこともできます。 次のコードは、サプライヤーの製品を取得します。
+前の例では、製品には、1 つの仕入先があります。 ナビゲーション プロパティでは、コレクションを返すこともできます。 次のコードでは、サプライヤーの製品を取得します。
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample10.cs)]
 
-この場合、メソッドを返します、 **IQueryable**の代わりに、 **SingleResult&lt;T&gt;**
+この場合、メソッドが返されます、 **IQueryable**の代わりに、 **SingleResult&lt;T&gt;**
 
 要求の例 HTTP:
 
@@ -115,57 +114,57 @@ WebApiConfig.cs で追加、 &quot;Suppliers&quot;エンティティがエンテ
 
 ## <a name="creating-a-relationship-between-entities"></a>エンティティ間のリレーションシップを作成します。
 
-OData には、作成または既存の 2 つのエンティティ間のリレーションシップを削除するがサポートしています。 OData v4 の用語では、リレーションシップは、&quot;参照&quot;です。 (OData v3 のリレーションシップが呼び出された、*リンク*です。 プロトコルの相違点は関係ありませんチュートリアルではこの。)
+OData では、作成または既存の 2 つのエンティティ間のリレーションシップの削除をサポートします。 OData v4 用語では、リレーションシップは、&quot;参照&quot;します。 (OData v3 の場合は、リレーションシップが呼び出された、*リンク*します。 プロトコルの相違点は関係ありませんチュートリアルではこの。)
 
-参照が、独自の URI は、フォームの`/Entity/NavigationProperty/$ref`します。 たとえば、製品とその仕入先の間に参照のアドレスへの URI を次に示します。
+参照がフォームに、独自の URI`/Entity/NavigationProperty/$ref`します。 たとえば、製品とその供給業者間の参照に対応する URI を次に示します。
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample13.cmd)]
 
 リレーションシップを追加するには、クライアントは、このアドレスに POST または PUT 要求を送信します。
 
-- ナビゲーション プロパティが 1 つのエンティティなどに設定されている場合に PUT`Product.Supplier`です。
-- ナビゲーション プロパティが、コレクションなどに設定されている場合に投稿`Supplier.Products`です。
+- ナビゲーション プロパティが 1 つのエンティティなどに設定されている場合に PUT`Product.Supplier`します。
+- ナビゲーション プロパティが、コレクションなどに設定されている場合に投稿`Supplier.Products`します。
 
-要求の本文には、リレーションシップ内の他のエンティティの URI が含まれています。 要求の例を次に示します。
+要求の本文には、リレーションシップのもう一方のエンティティの URI が含まれています。 要求の例を次に示します。
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample14.cmd)]
 
-この例では、クライアントに PUT 要求を送信`/Products(6)/Supplier/$ref`の $ref URI は、`Supplier`プロダクトの product ID = 6。 要求が成功した場合、サーバーは、204 (No Content) 応答を送信します。
+この例では、クライアントが送信する PUT 要求を`/Products(6)/Supplier/$ref`、$ref URI である、 `Supplier` ID を持つ製品の 6 を =。 要求が成功すると、204 (No Content) 応答がサーバーに送信します。
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample15.cmd)]
 
-ここでは、コント ローラーを追加するメソッドへのリレーションシップ、 `Product`:
+リレーションシップを追加するコント ローラー メソッドを次に示します、 `Product`:
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample16.cs)]
 
-*NavigationProperty*パラメーターを設定するには、どのリレーションシップを指定します。 (1 つ以上のナビゲーション プロパティがエンティティを使用する場合は、他の追加できます`case`ステートメントです)。
+*NavigationProperty*パラメーターを設定するには、どのリレーションシップを指定します。 (エンティティには、複数のナビゲーション プロパティがある場合は、詳細を追加`case`ステートメントです)。
 
-*リンク*パラメーターには、業者の URI が含まれています。 Web API は、自動的にこのパラメーターの値を取得する要求本文を解析します。
+*リンク*パラメーターには、サプライヤーの URI が含まれています。 Web API には、このパラメーターの値を取得する要求本文に自動的に解析します。
 
-供給業者を調べる必要があります ID (またはキー) の一部では、*リンク*パラメーター。 これを行うには、次のヘルパー メソッドを使用します。
+供給業者を検索する必要があります ID (またはキー) の一部では、*リンク*パラメーター。 これを行うには、次のヘルパー メソッドを使用します。
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample17.cs)]
 
-基本的には、このメソッドは、URI のパスをセグメントに分割をキーを含むセグメントを見つけて、キーを正しい型に変換する OData ライブラリを使用します。
+基本的には、このメソッドでは、OData ライブラリを使用して、URI のパスをセグメントに分割、キーを含むセグメントを見つける、キーに適切な型変換をします。
 
 ## <a name="deleting-a-relationship-between-entities"></a>エンティティ間のリレーションシップを削除します。
 
-リレーションシップを削除するには、は、クライアントは、$ref URI に HTTP DELETE 要求を送信します。
+リレーションシップを削除するには、クライアントは $ref URI に HTTP DELETE 要求を送信します。
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample18.cmd)]
 
-製品と納入業者間のリレーションシップを削除するコント ローラーのメソッドを次に示します。
+製品と仕入先の間のリレーションシップを削除するコント ローラー メソッドを次に示します。
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample19.cs)]
 
-この場合、`Product.Supplier`は、 &quot;1&quot; 1 対多リレーションを設定するだけで、リレーションシップを削除するためのエンド`Product.Supplier`に`null`です。
+この場合、`Product.Supplier`は、 &quot;1&quot;設定するだけで、リレーションシップを削除できるように 1 対多のリレーションシップの終了`Product.Supplier`に`null`します。
 
-&quot;多く&quot;クライアント、リレーションシップの end がエンティティを削除する関連を指定する必要があります。 これを行うには、クライアントは、要求のクエリ文字列に関連エンティティの URI を送信します。 たとえば、「製品 1」から削除するため「業者 1"。
+&quot;多く&quot;を削除するエンティティに関連するリレーションシップ、クライアントの最後を指定する必要があります。 これを行うには、クライアントは、要求のクエリ文字列で、関連するエンティティの URI を送信します。 たとえば、「製品 1」から削除する"1" 仕入先。
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample20.cmd?highlight=1)]
 
-これをサポートする Web API で、含める必要は追加のパラメーターで、`DeleteRef`メソッドです。 製品を削除するコント ローラーのメソッドをここでは、`Supplier.Products`関係します。
+Web API でこれをサポートする必要がありますで追加のパラメーターを含める、`DeleteRef`メソッド。 製品を削除するコント ローラー メソッドを次に示します、`Supplier.Products`関係します。
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample21.cs)]
 
-*キー*パラメーターは、業者のキーと*relatedKey*パラメーターは、製品から削除するキー、`Products`リレーションシップです。 Web API が、クエリ文字列から、キーを自動的に取得することに注意してください。
+*キー*パラメーターは、業者のキーと*relatedKey*パラメーターは、製品から削除するキー、`Products`リレーションシップ。 Web API が、クエリ文字列から、キーを自動的に取得することに注意してください。

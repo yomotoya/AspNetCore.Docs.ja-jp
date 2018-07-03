@@ -1,37 +1,36 @@
 ---
 uid: web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
-title: 単体テストの ASP.NET Web API 2 |Microsoft ドキュメント
+title: 単体テストの ASP.NET Web API 2 |Microsoft Docs
 author: tfitzmac
-description: このガイダンスとアプリケーションは、単純な単体テスト、Web API 2 アプリケーションを作成する方法を説明します。 このチュートリアルでは、単体テスト プロジェクトを含める方法を説明しています.
+description: このガイダンスとアプリケーションは、単純な単体テスト、Web API 2 アプリケーションを作成する方法を説明します。 このチュートリアルでは、単体テストのプロジェクトを含める方法を使用しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/05/2014
 ms.topic: article
 ms.assetid: bf20f78d-ff91-48be-abd1-88e23dcc70ba
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 4d6102dd81589e41894d8ecd95bf9ddd761a65bd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: da56b38809faf760b7c390eb76ac9c4556d635c6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28042746"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37376175"
 ---
 <a name="unit-testing-aspnet-web-api-2"></a>単体テストの ASP.NET Web API 2
 ====================
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
-[完成したプロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-e2867d4d)
+[完成したプロジェクトのダウンロード](http://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-e2867d4d)
 
-> このガイダンスとアプリケーションは、単純な単体テスト、Web API 2 アプリケーションを作成する方法を説明します。 このチュートリアルでは、単体テスト プロジェクトをソリューションに含めるし、コント ローラー メソッドから返された値を確認するテスト メソッドを記述する方法を示します。
+> このガイダンスとアプリケーションは、単純な単体テスト、Web API 2 アプリケーションを作成する方法を説明します。 このチュートリアルでは、単体テスト プロジェクトをソリューションに含めるし、コント ローラー メソッドから返された値をチェックするテスト メソッドを記述する方法を示します。
 > 
-> このチュートリアルでは、ASP.NET Web API の基本概念を使い慣れて前提としています。 入門チュートリアルでは、次を参照してください。 [ASP.NET Web API 2 の概要](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)です。
+> このチュートリアルでは、ASP.NET Web API の基本的な概念に慣れてを前提としています。 入門チュートリアルについては、次を参照してください。 [ASP.NET Web API 2 の概要](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)します。
 > 
-> このトピックの単体テストは、単純なデータ シナリオに意図的に制限されます。 単体テスト データの高度なシナリオで次を参照してください。 [Entity Framework のモック作成時に ASP.NET Web API 2 の単体テスト](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)です。
+> このトピックの「単体テストは、単純なデータ シナリオに意図的に制限されます。 単体テストより高度なデータ シナリオで次を参照してください。 [Entity Framework のモック作成時に ASP.NET Web API 2 の単体テスト](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)します。
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
 > 
 > 
 > - [Visual Studio 2017](https://www.visualstudio.com/vs/)
@@ -44,38 +43,38 @@ ms.locfileid: "28042746"
 
 - [前提条件](#prereqs)
 - [コードをダウンロードします。](#download)
-- [単体テスト プロジェクトとアプリケーションを作成します。](#appwithunittest)
+- [単体テスト プロジェクトでアプリケーションを作成します。](#appwithunittest)
 
     - [アプリケーションを作成するときに、単体テスト プロジェクトを追加します。](#whencreate)
-    - [既存のアプリケーションの単体テスト プロジェクトを追加します。](#addtoexisting)
+    - [単体テスト プロジェクトを既存のアプリケーションに追加します。](#addtoexisting)
 - [Web API 2 アプリケーションを設定します。](#setupproject)
-- [テスト プロジェクトの NuGet パッケージをインストールします。](#testpackages)
+- [テスト プロジェクトで NuGet パッケージをインストールします。](#testpackages)
 - [テストを作成します。](#tests)
 - [テストを実行します。](#runtests)
 
 <a id="prereqs"></a>
 ## <a name="prerequisites"></a>必須コンポーネント
 
-Visual Studio 2017 Community、Professional edition または Enterprise edition
+Visual Studio 2017 Community、Professional または Enterprise edition
 
 <a id="download"></a>
 ## <a name="download-code"></a>コードをダウンロードします。
 
-ダウンロード、[完成したプロジェクト](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)です。 ダウンロード可能なプロジェクトには、このトピックと単体テスト コードが含まれています、 [Entity Framework のモック作成時に単体テストの ASP.NET Web API](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)トピックです。
+ダウンロード、[完成したプロジェクト](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)します。 ダウンロード可能なプロジェクトには、このトピックでは、単体テストのコードが含まれています、 [Entity Framework のモック作成時に単体テストの ASP.NET Web API](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)トピック。
 
 <a id="appwithunittest"></a>
-## <a name="create-application-with-unit-test-project"></a>単体テスト プロジェクトとアプリケーションを作成します。
+## <a name="create-application-with-unit-test-project"></a>単体テスト プロジェクトでアプリケーションを作成します。
 
-アプリケーションを作成するときに、単体テスト プロジェクトを作成するか、既存のアプリケーションに単体テスト プロジェクトを追加します。 このチュートリアルでは、単体テスト プロジェクトを作成するための両方のメソッドを使用します。 このチュートリアルを実行するには、いずれかの方法を使用できます。
+アプリケーションを作成するときに、単体テスト プロジェクトを作成するか、単体テスト プロジェクトを既存のアプリケーションに追加します。 このチュートリアルでは、2 つの単体テスト プロジェクトの作成方法を示します。 このチュートリアルを実行するには、どちらの方法を使用することができます。
 
 <a id="whencreate"></a>
 ### <a name="add-unit-test-project-when-creating-the-application"></a>アプリケーションを作成するときに、単体テスト プロジェクトを追加します。
 
-という名前の新しい ASP.NET Web アプリケーションを作成する**StoreApp**です。
+という名前の新しい ASP.NET Web アプリケーション作成**StoreApp**します。
 
 ![プロジェクトを作成します。](unit-testing-with-aspnet-web-api/_static/image1.png)
 
-Windows では、新しい ASP.NET プロジェクト、選択、**空**テンプレート フォルダーを追加し、Web API の参照をコアです。 選択、**単体テストを追加**オプション。 単体テスト プロジェクトの名前が自動的に**StoreApp.Tests**です。 この名前を保持することができます。
+新しい ASP.NET プロジェクト ウィンドウで選択、**空**テンプレート フォルダーを追加し、Web API の参照をコアしします。 選択、**単体テストを追加**オプション。 単体テスト プロジェクトが自動的に名前付き**StoreApp.Tests**します。 この名前を保持することができます。
 
 ![単体テスト プロジェクトを作成します。](unit-testing-with-aspnet-web-api/_static/image2.png)
 
@@ -84,13 +83,13 @@ Windows では、新しい ASP.NET プロジェクト、選択、**空**テン�
 ![2 つのプロジェクト](unit-testing-with-aspnet-web-api/_static/image3.png)
 
 <a id="addtoexisting"></a>
-### <a name="add-unit-test-project-to-an-existing-application"></a>既存のアプリケーションの単体テスト プロジェクトを追加します。
+### <a name="add-unit-test-project-to-an-existing-application"></a>単体テスト プロジェクトを既存のアプリケーションに追加します。
 
-アプリケーションを作成したときに、単体テスト プロジェクトを作成しなかった場合は、いつでも追加できます。 たとえば、StoreApp、という名前のアプリケーションが既にあるし、単体テストを追加します。 単体テスト プロジェクトを追加するには、ソリューションを右クリックして**追加**と**新しいプロジェクト**です。
+アプリケーションを作成したときに単体テスト プロジェクトを作成しなかった場合は、いつでも追加できます。 たとえば、StoreApp、という名前のアプリケーションが既にあるし、単体テストを追加したいとします。 単体テスト プロジェクトを追加するには、ソリューションを右クリックして**追加**と**新しいプロジェクト**します。
 
 ![新しいプロジェクトをソリューションに追加します。](unit-testing-with-aspnet-web-api/_static/image4.png)
 
-選択**テスト**クリックし、左側のウィンドウで**単体テスト プロジェクト**プロジェクトの種類。 プロジェクトに名前を**StoreApp.Tests**です。
+選択**テスト**クリックし、左側のウィンドウで**単体テスト プロジェクト**プロジェクトの種類。 プロジェクトに名前を**StoreApp.Tests**します。
 
 ![単体テスト プロジェクトを追加します。](unit-testing-with-aspnet-web-api/_static/image5.png)
 
@@ -101,49 +100,49 @@ Windows では、新しい ASP.NET プロジェクト、選択、**空**テン�
 <a id="setupproject"></a>
 ## <a name="set-up-the-web-api-2-application"></a>Web API 2 アプリケーションを設定します。
 
-StoreApp プロジェクトにクラス ファイルを追加、**モデル**という名前のフォルダー **Product.cs**です。 ファイルの内容を次のコードに置き換えます。
+StoreApp プロジェクトで、追加のクラス ファイルを**モデル**という名前のフォルダー **Product.cs**します。 ファイルの内容を次のコードに置き換えます。
 
 [!code-csharp[Main](unit-testing-with-aspnet-web-api/samples/sample1.cs)]
 
 ソリューションをビルドします。
 
-Controllers フォルダーを右クリックし **追加**と**スキャフォールディングされた新しい項目**です。 選択**Web API 2 コント ローラー - 空**です。
+Controllers フォルダーを右クリックして**追加**と**スキャフォールディングされた新しい項目**します。 選択**Web API 2 コント ローラー - 空**します。
 
 ![新しいコント ローラーを追加します。](unit-testing-with-aspnet-web-api/_static/image6.png)
 
-コント ローラー名を設定します**SimpleProductController**、 をクリック**追加**です。
+コント ローラー名を設定**SimpleProductController**、 をクリック**追加**します。
 
 ![コント ローラーを指定します。](unit-testing-with-aspnet-web-api/_static/image7.png)
 
-既存のコードを次のコードに置き換えます。 この例を簡略化、データは、データベースではなく、一覧に格納されます。 このクラスで定義されている一覧では、実稼働データを表します。 コント ローラーに製品オブジェクトのリストをパラメーターとして受け取るコンス トラクターが含まれることに注意してください。 このコンス トラクターを使用すると、テスト データを渡すときに単体テストします。 コント ローラーも含まれています 2 **async**メソッドを単体テストの非同期メソッドを示しています。 これらの非同期メソッドを呼び出すことによって実装された**Task.FromResult** 、余分なコードが、通常のメソッドを最小限に抑えるにリソースを消費する操作が含まれます。
+既存のコードを次のコードに置き換えます。 この例を簡略化するのには、データがデータベースではなく、リストに格納されます。 このクラスで定義されている一覧は、実稼働データを表します。 コント ローラーが Product オブジェクトの一覧をパラメーターとして受け取るコンス トラクターが含まれることに注意してください。 このコンス トラクターを使用すると、テスト データを渡すときに単体テストします。 2 つは、コント ローラーも含む**async**メソッドの単体テストの非同期メソッドを説明するためにします。 これらの非同期メソッドを呼び出すことによって実装された**Task.FromResult** 、余分なコードが、通常、メソッドを最小限に抑えるにリソースを消費する操作が含まれます。
 
 [!code-csharp[Main](unit-testing-with-aspnet-web-api/samples/sample2.cs)]
 
-GetProduct メソッドのインスタンスを返します、 **IHttpActionResult**インターフェイスです。 IHttpActionResult Web API 2 の新機能の 1 つは、単体テストの開発が簡単になります。 IHttpActionResult インターフェイスを実装するクラスは、 [System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)名前空間。 これらのクラスは、操作要求から応答できるを表し、HTTP ステータス コードに対応します。
+GetProduct メソッドのインスタンスを返します、 **IHttpActionResult**インターフェイス。 IHttpActionResult は、Web API 2 では、新機能の 1 つと、単体テストの開発が簡単になります。 IHttpActionResult インターフェイスを実装するクラスは、 [System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)名前空間。 これらのクラスは、操作要求からのような応答を表し、HTTP 状態コードに対応します。
 
 ソリューションをビルドします。
 
 テスト プロジェクトを設定する準備が整いました。
 
 <a id="testpackages"></a>
-## <a name="install-nuget-packages-in-test-project"></a>テスト プロジェクトの NuGet パッケージをインストールします。
+## <a name="install-nuget-packages-in-test-project"></a>テスト プロジェクトで NuGet パッケージをインストールします。
 
-空のテンプレートを使用してアプリケーションを作成するときに、単体テスト プロジェクト (StoreApp.Tests) は、インストールされている NuGet パッケージが含まれません。 Web API テンプレートなどの他のテンプレートには、単体テスト プロジェクトで一部の NuGet パッケージが含まれます。 このチュートリアルでは、テスト プロジェクトに、Microsoft ASP.NET Web API 2 Core パッケージを含める必要があります。
+空のテンプレートを使用してアプリケーションを作成するときに単体テスト プロジェクト (StoreApp.Tests) にインストールされている NuGet パッケージは含まれません。 Web API テンプレートなどの他のテンプレートには、単体テスト プロジェクトで NuGet パッケージ一部にはが含まれます。 このチュートリアルでは、Microsoft ASP.NET Web API 2 Core パッケージをテスト プロジェクトを含める必要があります。
 
-StoreApp.Tests プロジェクトを右クリックし  **NuGet パッケージの管理**です。 そのプロジェクトにパッケージを追加するプロジェクトを StoreApp.Tests を選択する必要があります。
+StoreApp.Tests プロジェクトを右クリックして**NuGet パッケージの管理**します。 そのプロジェクトにパッケージを追加する StoreApp.Tests プロジェクトを選択する必要があります。
 
 ![パッケージを管理します。](unit-testing-with-aspnet-web-api/_static/image8.png)
 
-検索し、Microsoft ASP.NET Web API 2 Core パッケージをインストールします。
+検索して、Microsoft ASP.NET Web API 2 コア パッケージをインストールします。
 
-![web api core パッケージをインストールします。](unit-testing-with-aspnet-web-api/_static/image9.png)
+![web api のコア パッケージをインストールします。](unit-testing-with-aspnet-web-api/_static/image9.png)
 
 NuGet パッケージの管理ウィンドウを閉じます。
 
 <a id="tests"></a>
 ## <a name="create-tests"></a>テストの作成
 
-既定では、テスト プロジェクトには、UnitTest1.cs をという名前の空のテスト ファイルが含まれています。 このファイルは、テスト メソッドの作成に使用する属性を示します。 単体テストの場合は、このファイルを使用するか、独自のファイルを作成することができます。
+既定では、テスト プロジェクトには、UnitTest1.cs をという名前を空のテスト ファイルが含まれています。 このファイルは、テスト メソッドの作成に使用する属性を示します。 単体テスト用には、このファイルを使用するか、独自のファイルを作成します。
 
 ![UnitTest1](unit-testing-with-aspnet-web-api/_static/image10.png)
 
@@ -154,14 +153,14 @@ NuGet パッケージの管理ウィンドウを閉じます。
 <a id="runtests"></a>
 ## <a name="run-tests"></a>テストの実行
 
-テストを実行する準備が整いました。 マークされたメソッドのすべての**TestMethod**属性がテストされます。 **テスト**メニュー項目、テストを実行します。
+テストを実行する準備が整いました。 マークされているメソッドはすべて、 **TestMethod**属性がテストされます。 **テスト**メニュー項目、テストを実行します。
 
 ![テストの実行](unit-testing-with-aspnet-web-api/_static/image11.png)
 
-開く、**テスト エクスプ ローラー**ウィンドウ、およびテストの結果に注意してください。
+開く、**テスト エクスプ ローラー**ウィンドウで、テストの結果を注意してください。
 
 ![テスト結果](unit-testing-with-aspnet-web-api/_static/image12.png)
 
 ## <a name="summary"></a>まとめ
 
-このチュートリアルを完了しました。 このチュートリアルでは、データは、単体テストの条件に焦点を絞る意図的に簡素化されます。 単体テスト データの高度なシナリオで次を参照してください。 [Entity Framework のモック作成時に ASP.NET Web API 2 の単体テスト](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)です。
+このチュートリアルを完了しました。 このチュートリアルでは、データは、単体テストの条件に重点を置く意図的に簡略化されました。 単体テストより高度なデータ シナリオで次を参照してください。 [Entity Framework のモック作成時に ASP.NET Web API 2 の単体テスト](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)します。

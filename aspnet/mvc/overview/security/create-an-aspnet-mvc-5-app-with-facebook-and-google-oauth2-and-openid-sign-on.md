@@ -1,70 +1,69 @@
 ---
 uid: mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
-title: 作成する MVC 5 アプリを Facebook、Twitter、LinkedIn および Google OAuth2 サイン オン (c#) |Microsoft ドキュメント
+title: 作成する MVC 5 アプリを Facebook、Twitter、LinkedIn、Google の OAuth2 サインオン (c#) |Microsoft Docs
 author: Rick-Anderson
-description: このチュートリアルでは、OAuth 2.0 を使用して認証を使用する外部からの資格情報でログインできるようにする ASP.NET MVC 5 web アプリケーションをビルドする方法を示します.
+description: このチュートリアルでは、ユーザー外部の認証から資格情報で OAuth 2.0 を使用してログインできるようにする ASP.NET MVC 5 web アプリケーションを構築する方法を紹介しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2015
 ms.topic: article
 ms.assetid: 81ee500f-fc37-40d6-8722-f1b64720fbb6
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: aa4c91865f7b720846a5e8deb4281c3ca6933c8e
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 8a9528f76b0166175f950543b4b8a7250bdf5100
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34819098"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37388767"
 ---
-<a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook、Twitter、LinkedIn および Google OAuth2 サイン オン (c#) で ASP.NET MVC 5 アプリを作成します。
+<a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook、Twitter、LinkedIn、Google の OAuth2 サインオン (c#) で ASP.NET MVC 5 アプリを作成します。
 ====================
 によって[Rick Anderson](https://github.com/Rick-Anderson)
 
-> このチュートリアルを使用してユーザーにログインできるようにする ASP.NET MVC 5 web アプリケーションを構築する方法を示します[OAuth 2.0](http://oauth.net/2/) Facebook、Twitter、LinkedIn、Microsoft、Google など、外部認証プロバイダーからの資格情報を使用します。 わかりやすくするため、このチュートリアルは、Facebook、Google からの資格情報の操作について説明します。
+> このチュートリアルで使用してユーザーにログインできるようにする ASP.NET MVC 5 web アプリケーションをビルドする方法は[OAuth 2.0](http://oauth.net/2/) Facebook、Twitter、LinkedIn、Microsoft、Google などの外部認証プロバイダーからの資格情報を使用します。 わかりやすくするため、このチュートリアルは Facebook や Google の資格情報の操作に焦点を当てます。
 > 
-> 数百万のユーザーでは、これらの外部プロバイダーを持つアカウントが既にあるために、大きな利点を提供して web サイトでこれらの資格情報を有効にします。 これらのユーザーを作成し、一連の資格情報を覚えていない場合、サイトにサインアップする傾向があります。
+> 数百万のユーザーでは、これらの外部プロバイダーを持つアカウントが既にあるため、大きな利点を提供して web サイトでこれらの資格情報を有効にするとします。 これらのユーザーを作成し、一連の資格情報を覚えていない場合、サイトにサインアップする傾向があります。
 > 
-> 関連項目[SMS と 2 要素認証の電子メールを使って ASP.NET MVC 5 アプリ](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)です。
+> 参照してください[SMS と電子メール 2 要素認証による ASP.NET MVC 5 アプリ](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)します。
 > 
-> このチュートリアルでは、メンバーシップ API を使用してロールを追加する方法と、ユーザーのプロファイル データを追加する方法も示します。 このチュートリアルは、によって書き込まれました[Rick Anderson](https://blogs.msdn.com/rickAndy) (Twitter me に従って操作してください: [ @RickAndMSFT ](https://twitter.com/RickAndMSFT) )。
+> メンバーシップ API を使用してロールを追加する方法と、ユーザーのプロファイル データを追加する方法についても説明します。 このチュートリアルの執筆者[Rick Anderson](https://blogs.msdn.com/rickAndy) (Twitter 私に従ってください: [ @RickAndMSFT ](https://twitter.com/RickAndMSFT) )。
 
 
 <a id="start"></a>
 ## <a name="getting-started"></a>作業の開始
 
-インストールと実行によって開始[Visual Studio Express 2013 for Web](https://go.microsoft.com/fwlink/?LinkId=299058)または[Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566)です。 Visual Studio のインストール[2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390521)またはそれ以降。 Dropbox、GitHub、Linkedin、Instagram、バッファー、Salesforce、ストリーム、スタック Exchange、Tripit、Twitch、Twitter、yahoo!、および詳細については、この参照してください。[サンプル プロジェクト](https://github.com/matthewdunsdon/oauthforaspnet)です。
+インストールと実行によって開始[Visual Studio Express 2013 for Web](https://go.microsoft.com/fwlink/?LinkId=299058)または[Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566)します。 Visual Studio のインストール[2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390521)またはそれ以降。 Dropbox、GitHub、Linkedin、Instagram、バッファー、Salesforce、ストリーム、Stack Exchange、Tripit、Twitch、Twitter、yahoo!、および詳細については、この参照してください。[サンプル プロジェクト](https://github.com/matthewdunsdon/oauthforaspnet)します。
 
 > [!NOTE]
-> Visual Studio をインストールする必要があります[2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390521)以上 Google OAuth 2 を使用して、SSL の警告せずにローカルでデバッグします。
+> Visual Studio をインストールする必要があります[2013 Update 3](https://go.microsoft.com/fwlink/?LinkId=390521)またはそれ以降は、Google OAuth 2 を使用して、SSL の警告せずにローカルでデバッグします。
 
 
-をクリックして**新しいプロジェクト**から、**開始** ページで、またはメニューを使用して選択、**ファイル**、し**新しいプロジェクト**です。
+クリックして**新しいプロジェクト**から、**開始** ページで、かすることができます、メニューを使用してを選択**ファイル**、し**新しいプロジェクト**します。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image1.png)  
  
 
 <a id="1st"></a>
-## <a name="creating-your-first-application"></a>初めてアプリケーションの作成
+## <a name="creating-your-first-application"></a>最初のアプリケーションを作成します。
 
-をクリックして**新しいプロジェクト**選択してから、 **Visual c#** し、左側の**Web**し、 **ASP.NET Web アプリケーション**です。 プロジェクト"MvcAuth"の名前を指定し、をクリックして**OK**です。
+をクリックして**新しいプロジェクト**を選択し、 **Visual c#** し、左側の**Web**選び**ASP.NET Web アプリケーション**します。 "MvcAuth"をプロジェクトに名前をクリックして**OK**します。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image2.png)
 
-**新しい ASP.NET プロジェクト**ダイアログ ボックスで、をクリックして**MVC**です。 認証がない場合**個々 のユーザー アカウント**をクリックして、**認証の変更**ボタンをクリックして**個々 のユーザー アカウント**です。 チェックして**クラウド内のホスト**アプリが非常に簡単に Azure でホストされます。
+**新しい ASP.NET プロジェクト**ダイアログ ボックスで、をクリックして**MVC**します。 認証がない場合**個々 のユーザー アカウント**、クリックして、**認証の変更**ボタンをクリックし、選択**個々 のユーザー アカウント**します。 チェックして**クラウドでホスト**アプリを Azure でホストする非常に簡単になります。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image3.png)
 
-選択した場合は**クラウド内のホスト**構成 ダイアログを完了します。
+選択した場合**クラウドでホスト**、[構成] ダイアログを完了します。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image4.png)
 
 
-### <a name="use-nuget-to-update-to-the-latest-owin-middleware"></a>NuGet を使用して、最新の OWIN ミドルウェアを更新
+### <a name="use-nuget-to-update-to-the-latest-owin-middleware"></a>NuGet を使用して、OWIN ミドルウェアを最新に更新するには
 
-更新する NuGet パッケージ マネージャーを使用して、 [OWIN ミドルウェア](../../../aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana.md)です。 選択**更新**左側のメニュー。 クリックすると、**すべて更新**(の次の図に示す) OWIN パッケージのみのボタンをクリックするかを検索できます。
+NuGet パッケージ マネージャーを使用して、更新、 [OWIN ミドルウェア](../../../aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana.md)します。 選択**更新**左側のメニュー。 クリックして、**すべて更新**OWIN パッケージのみが (の次の図に示す) のボタンをクリックを検索できます。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image5.png)
 
@@ -72,141 +71,141 @@ ms.locfileid: "34819098"
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image6.png)
 
-入力したパッケージ マネージャー コンソール (PMC) から、`Update-Package`コマンドでは、すべてのパッケージが更新されます。
+入力したパッケージ マネージャー コンソール (PMC) から、`Update-Package`コマンドで、すべてのパッケージを更新します。
 
-キーを押して**f5 キーを押して**または**ctrl キーを押しながら f5 キーを押して**アプリケーションを実行します。 次の図では、ポート番号は、1234 です。 アプリケーションを実行するときに、別のポート番号が表示されます。
+キーを押して**f5 キーを押して**または**Ctrl + F5**アプリケーションを実行します。 次の図では、ポート番号は、1234 です。 アプリケーションを実行するときに、別のポート番号を確認します。
 
-ブラウザー ウィンドウのサイズに応じて、ナビゲーション アイコンを表示する をクリックする必要があります、**ホーム**、**に関する**、**連絡先**、 **登録**と**ログイン**リンクします。
+ナビゲーション アイコンをクリックする必要があります、ブラウザー ウィンドウのサイズに応じて、**ホーム**、**について**、**にお問い合わせください**、 **登録**と**ログイン**リンク。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image7.png)  
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image8.png) 
 
 <a id="ssl"></a>
-## <a name="setting-up-ssl-in-the-project"></a>プロジェクトで SSL を設定します。
+## <a name="setting-up-ssl-in-the-project"></a>プロジェクトの SSL の設定
 
-Google、Facebook などの認証プロバイダーに接続するには、SSL を使用する IIS Express を設定する必要があります。 ユーザー名とパスワードと、ネットワーク経由でクリア テキストで送信する SSL を使用せずに、シークレットと同様、ログイン cookie が、引き続きログイン後に SSL を使用して、HTTP にバックアップを削除しないに重要です。 ハンドシェイクを実行し、(であるため、HTTPS HTTP よりも低速の一括) チャネルをセキュリティで保護する時間を既に撮影する以外にも、MVC パイプラインの実行前にログインしているために HTTP リダイレクトする行いません将来、現在の要求要求がはるかに高速です。
+Google や Facebook などの認証プロバイダーに接続するには SSL を使用する IIS Express を設定する必要があります。 ユーザー名とパスワードと、ネットワーク経由でクリア テキストで送信している SSL を使用せずに、シークレットと同様、ログイン cookie が、HTTP にバックアップを削除しないログイン後に SSL を使用して保持することは重要です。 ハンドシェイクを実行し、(つまり、HTTPS HTTP よりも低速の一括) チャネルをセキュリティで保護する時間を既に撮影する以外にも、MVC パイプラインを実行すると、前にログインしているために HTTP リダイレクトすることはありません、現在の要求または将来要求がはるかに高速です。
 
-1. **ソリューション エクスプ ローラー**をクリックして、 **MvcAuth**プロジェクト。
-2. プロジェクトのプロパティを表示する F4 キーを押します。 またから、**ビュー**メニューを選択できます**プロパティ ウィンドウ**します。
-3. 変更**SSL を有効に**True に設定します。  
+1. **ソリューション エクスプ ローラー**、クリックして、 **MvcAuth**プロジェクト。
+2. プロジェクトのプロパティを表示する F4 キーを押します。 またはから、**ビュー**メニューを選択できます**プロパティ ウィンドウ**します。
+3. 変更**SSL が有効になっている**を True にします。  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image9.png)
-4. SSL URL のコピー (されます`https://localhost:44300/`SSL の他のプロジェクトを作成した場合を除く)。
-5. **ソリューション エクスプ ローラー**を右クリックして、 **MvcAuth**プロジェクトし、選択**プロパティ**です。
-6. 選択、 **Web**タブをクリックしに SSL URL を貼り付け、**プロジェクト Url**ボックス。 (Ctl + S) ファイルを保存します。 この URL は、Facebook、Google の認証アプリを構成する必要があります。  
+4. SSL URL をコピー (になる`https://localhost:44300/`した SSL の他のプロジェクトを作成していない場合)。
+5. **ソリューション エクスプ ローラー**を右クリックして、 **MvcAuth**順に選択して**プロパティ**します。
+6. 選択、 **Web**タブをクリックしに SSL URL を貼り付けて、**プロジェクト Url**ボックス。 (Ctl + S) ファイルを保存します。 この URL を Facebook、Google の認証アプリを構成する必要があります。  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image10.png)
-7. 追加、 [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)属性を`Home`コント ローラーのすべての要求を要求するのには、HTTPS を使用する必要があります。 安全な方法は、追加する、 [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)アプリケーションをフィルターします。 セクションを参照して&quot;SSL および承認属性を持つアプリケーションを保護する&quot;my tutoral で[Azure App Service に認証と SQL DB の ASP.NET MVC アプリの作成し、展開](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)です。 Home コント ローラーの一部を次に示します。
+7. 追加、 [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)属性を`Home`すべての要求を必要とするコント ローラーは、HTTPS を使用する必要があります。 安全な方法は、 [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)フィルターがアプリケーションにします。 セクションを参照して&quot;SSL と承認属性を使用してアプリケーションを保護する&quot;マイ tutoral で[auth と SQL DB を使って、ASP.NET MVC アプリを作成し、Azure App Service にデプロイ](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)します。 Home コント ローラーの一部は、以下に示します。
 
     [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample1.cs?highlight=1)]
-8. Ctrl キーを押しながら F5 キーを押してアプリケーションを実行します。 過去の証明書をインストールしている場合は、このセクションの残りの部分をスキップし、ジャンプする[OAuth 2 では、Google のアプリを作成して、プロジェクトに、アプリを接続する](#goog)、それ以外の場合、手順については、自己署名を信頼するにはIIS Express が生成した証明書です。  
+8. Ctrl キーを押しながら F5 キーを押してアプリケーションを実行します。 過去の証明書をインストールしている場合は、このセクションの残りの部分を省略し、ジャンプ[OAuth 2 用の Google アプリを作成して、アプリ プロジェクトを接続する](#goog)、それ以外の場合、次の手順については、自己署名を信頼するにはIIS Express が生成した証明書。  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image11.png)
 9. 読み取り、**セキュリティ警告**クリックしてダイアログ**はい**を表す localhost 証明書をインストールする場合。  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image12.png)
-10. IE を示しています、*ホーム*ページし、SSL の警告はありません。  
+10. Ie、*ホーム*ページし、SSL の警告はありません。  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image13.png)
-11. Google Chrome も証明書を受け入れるし、警告を表示せずに HTTPS コンテンツが表示されます。 警告に表示されるように、Firefox は独自の証明書ストアを使用します。 アプリケーションを安全にクリックして、**リスクを理解しました**です。   
+11. Google Chrome も証明書を承認し、警告を表示せず、HTTPS コンテンツが表示されます。 警告に表示されるように、Firefox は独自の証明書ストアを使用します。 アプリケーションを安全にクリックして、**リスクを理解しました**します。   
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image14.png)
 
 <a id="goog"></a>
-## <a name="creating-a-google-app-for-oauth-2-and-connecting-the-app-to-the-project"></a>OAuth 2 では、Google のアプリを作成して、プロジェクトに、アプリを接続します。
+## <a name="creating-a-google-app-for-oauth-2-and-connecting-the-app-to-the-project"></a>OAuth 2 用の Google アプリを作成して、アプリ プロジェクトを接続します。
 
 > [!WARNING]
-> 現在の Google OAuth 手順では、次を参照してください。 [ASP.NET Core の構成の Google 認証](/aspnet/core/security/authentication/social/google-logins)です。
+> 現在 Google OAuth 手順については、次を参照してください。 [ASP.NET Core での構成の Google 認証](/aspnet/core/security/authentication/social/google-logins)します。
 
-1. 移動し、 [Google Developers Console](https://console.developers.google.com/)です。
-2. 前にプロジェクトを作成していない場合は、選択**資格情報**クリックし、左側のタブで**作成**です。
-3. 左側のタブをクリックして**資格情報**です。
-4. をクリックして**資格情報を作成する**し**OAuth クライアント ID**です。 
+1. 移動し、 [Google Developers Console](https://console.developers.google.com/)します。
+2. 前にプロジェクトを作成していない場合は、選択**資格情報**クリックして、左側のタブで**作成**です。
+3. 左側のタブで次のようにクリックします。**資格情報**します。
+4. クリックして**資格情報を作成**し**OAuth クライアント ID**します。 
 
-    1. **クライアント ID を作成**ダイアログ ボックスで、既定値を保持**Web アプリケーション**アプリケーションの種類。
-    2. 設定、**承認 JavaScript** SSL URL が上記で使用する配信元 (`https://localhost:44300/` SSL の他のプロジェクトを作成した場合を除く)
-    3. 設定、**承認されているリダイレクト URI**に。  
+    1. **Create Client ID**ダイアログ ボックスで、既定値を保持**Web アプリケーション**アプリケーションの種類。
+    2. 設定、**承認済みの JavaScript**オリジン上記で使用する SSL URL を (`https://localhost:44300/`した SSL の他のプロジェクトを作成していない場合)
+    3. 設定、 **Authorized リダイレクト URI**に。  
          `https://localhost:44300/signin-google`
-5. OAuth 同意画面のメニュー項目をクリックし、電子メール アドレスと製品名を設定します。 フォームのクリックを完了しているとき**保存**です。
-6. ライブラリのメニュー項目をクリックすると、検索**Google + API**、それをクリックし、有効にするキーを押します。
+5. OAuth 同意画面のメニュー項目をクリックし、電子メール アドレスと製品名を設定します。 フォームのクリックが完了したら**保存**します。
+6. ライブラリ メニュー項目をクリックし、検索、 **Google + API**、それをクリックし、有効にするキーを押します。
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image15.png)  
   
    次の図は、有効になっている Api を示します。  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image16.png)
-7. Google Api API マネージャーからアクセスして、**資格情報**を取得するには、タブ、**クライアント ID**です。 ダウンロードすると、アプリケーション シークレットの JSON ファイルを保存します。 コピーし、貼り付け、 **ClientId**と**ClientSecret**に、`UseGoogleAuthentication`については、メソッド、 *Startup.Auth.cs*ファイルを*App_Start*フォルダーです。 **ClientId**と**ClientSecret**の下に表示される値のサンプルし、動作しません。
+7. Google Api API マネージャーを参照してください、**資格情報**を取得するには、タブ、**クライアント ID**します。 ダウンロードすると、アプリケーション シークレットの JSON ファイルを保存します。 コピーして貼り付け、 **ClientId**と**ClientSecret**に、`UseGoogleAuthentication`メソッド、 *Startup.Auth.cs*ファイル、 *App_Start*フォルダー。 **ClientId**と**ClientSecret**の下に表示される値のサンプルし、動作しません。
 
     [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample2.cs?highlight=37-39)]
 
     > [!WARNING]
-    > セキュリティ - ソース コード内の機密データはストアことはありません。 アカウントと資格情報は、サンプルをシンプルにする上記のコードに追加されます。 参照してください[ASP.NET と Azure App Service へのパスワードなどの機密データの展開のベスト プラクティス](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)です。
-8. キーを押して**ctrl キーを押しながら f5 キーを押して**アプリケーションをビルドして実行します。 クリックして、**ログイン**リンクします。  
+    > セキュリティ - ソース コード内の機密データは store ことはありません。 アカウントと資格情報は、サンプルを単純に上記のコードに追加されます。 参照してください[ASP.NET と Azure App Service にパスワードやその他の機密データを展開するためのベスト プラクティス](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)します。
+8. キーを押して**CTRL + F5**をビルドして、アプリケーションを実行します。 をクリックして、**ログイン**リンク。  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image17.png)
-9. 下にある**のログインに別のサービスを使用して**をクリックして**Google**です。  
+9. [**別のサービスを使用してログイン**、] をクリックして**Google**します。  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image18.png)
 
     > [!NOTE]
-    > 上記の手順のいずれかがない場合は、HTTP 401 エラーが表示されます。 上記の手順を再確認します。 必要な設定がない場合 (たとえば**製品名**)、不足している項目を追加し、保存、以外の場合は認証が機能するまで、しばらく時間がかかることができます。
-10. 資格情報を入力する Google サイトにリダイレクトされます。   
+    > 上記の手順のいずれかがない場合は、HTTP 401 エラーが表示されます。 上記の手順を再確認します。 必要な設定がない場合 (たとえば**製品名**) は、不足している項目を追加し、保存、認証が機能するのに数分かかることができます。
+10. 資格情報を入力は Google のサイトにリダイレクトされます。   
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image19.png)
-11. 資格情報を入力すると後、は、作成した web アプリケーションへのアクセス許可を付与するよう求められます。
+11. 資格情報を入力した後は、作成した web アプリケーションへのアクセス許可を付与が求められます。
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image20.png)
-12. をクリックして**受け入れる**です。 今すぐにリダイレクトされます、**登録**Google アカウントを登録する MvcAuth アプリケーションのページです。 Gmail アカウントで使用するローカル電子メール登録名を変更することがあるが、通常、既定の電子メール エイリアス (つまり、認証に使用するもの) を保持します。 **[登録]** をクリックします。  
+12. クリックして**受け入れる**します。 今すぐにリダイレクトされます、**登録**Google アカウントを登録する MvcAuth アプリケーションのページ。 Gmail アカウントに使用されるローカルの電子メール登録名を変更するオプションがありますが、通常、既定の電子メール エイリアス (認証に使用するもの) を保持したいです。 **[登録]** をクリックします。  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image21.png)
 
 <a id="fb"></a>
-## <a name="creating-the-app-in-facebook-and-connecting-the-app-to-the-project"></a>Facebook でアプリを作成し、プロジェクトに、アプリを接続します。
+## <a name="creating-the-app-in-facebook-and-connecting-the-app-to-the-project"></a>Facebook でアプリを作成し、アプリ プロジェクトを接続します。
 
 > [!WARNING]
-> 現在の Facebook の OAuth2 認証手順では、次を参照してください[を構成する Facebook 認証。](/aspnet/core/security/authentication/social/facebook-logins)
+> 現在の Facebook OAuth2 認証の手順では、次を参照してください[構成の Facebook 認証。](/aspnet/core/security/authentication/social/facebook-logins)
 
-Facebook の OAuth2 認証では、Facebook で作成したアプリケーションから一部の設定をプロジェクトにコピーする必要があります。
+Facebook の OAuth2 認証の場合は、Facebook で作成したアプリケーションから一部の設定をプロジェクトにコピーする必要があります。
 
-1. ブラウザーでに移動します[ https://developers.facebook.com/apps ](https://developers.facebook.com/apps)して Facebook 資格情報を入力してログインします。
-2. 既に、Facebook 開発者として登録されていない場合にクリックして**開発者として登録**し登録するための指示に従います。
-3. **アプリ** タブで、をクリックして**Create New App**です。
+1. ブラウザーに移動します。 [ https://developers.facebook.com/apps ](https://developers.facebook.com/apps) Facebook の資格情報を入力してログインします。
+2. まだ、Facebook 開発者として登録されていない場合はクリックして**開発者として登録**を登録する指示に従います。
+3. **アプリ**] タブで [ **Create New App**します。
 
     ![新しいアプリを作成します。](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image22.png)
-4. 入力、**アプリ名**と**カテゴリ**、順にクリックして**のアプリの作成**です。
+4. 入力、**アプリ名**と**カテゴリ**、 をクリックし、**アプリの作成**。
 
-    <strong>アプリ Namespace</strong>アプリが認証に Facebook アプリケーションへのアクセスに使用する URL の一部である (たとえば https\://apps.facebook.com/{App Namespace})。 指定しない場合は、<strong>アプリ Namespace</strong>、<strong>アプリ ID</strong> URL に使用されます。 <strong>アプリ ID</strong>はシステムによって生成された時間の数が次の手順で表示されます。
+    <strong>アプリ Namespace</strong>は、アプリが認証に Facebook アプリケーションへのアクセスに使用する URL の一部です (たとえば、https\://apps.facebook.com/{App Namespace})。 指定しない場合、<strong>アプリ Namespace</strong>、<strong>アプリ ID</strong> URL に使用します。 <strong>アプリ ID</strong>はシステムによって生成された時間の数が次の手順で表示されます。
 
-    ![新しいアプリ ダイアログを作成します。](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image23.png)
+    ![新しいアプリのダイアログを作成します。](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image23.png)
 5. 標準的なセキュリティ チェックを送信します。
 
     ![セキュリティ チェック](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image24.png)
 6. 選択**設定**左側のメニュー バーの![Facebook 開発者のメニュー バー](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image25.png)
-7. **基本**ページの設定 セクションを選択**プラットフォームを追加**を web サイト アプリケーションを追加することを指定します。 ![基本設定](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image26.png)
-8. 選択**web サイト**のプラットフォームのいずれか。  
+7. **基本的な**ページの設定 セクションを選択**プラットフォームの追加**web サイト アプリケーションを追加することを指定します。 ![基本設定](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image26.png)
+8. 選択**web サイト**プラットフォームの選択肢から。  
   
     ![プラットフォームの選択肢](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image27.png)
-9. メモ、**アプリ ID**と**アプリ シークレット**できるように、このチュートリアルで後ほど、MVC アプリケーションに両方を追加することができます。 また、サイトの URL を追加 (`https://localhost:44300/`)、MVC アプリケーションをテストします。 また、追加、 **Contact Email**です。 次に、選択**Save Changes**です。   
+9. メモしておきます、**アプリ ID**と**アプリ シークレット**両方を MVC アプリケーションに、このチュートリアルの後半で追加できるようにします。 また、サイトの URL を追加 (`https://localhost:44300/`)、MVC アプリケーションをテストします。 また、追加、 **Contact Email**します。 次に、選択**変更の保存**します。   
 
-    ![基本的なアプリケーションの詳細 ページ](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image28.png)
+    ![基本的なアプリケーションの詳細ページ](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image28.png)
 
     > [!NOTE]
-    > 登録されている電子メールのエイリアスを使用して認証だけあることに注意してください。 その他のユーザーとテスト用のアカウントを登録することができなきます。 Facebook のアプリケーションにその他の Facebook アカウントのアクセスを許可できます**開発者ロール**タブです。
-10. Visual Studio で開く*アプリ\_Start\Startup.Auth.cs*です。
-11. コピーし、貼り付け、 **AppId**と**アプリ シークレット**に、`UseFacebookAuthentication`メソッドです。 **AppId**と**アプリ シークレット**の下に表示される値のサンプルし、は機能しません。
+    > 登録した電子メール エイリアスを使用して認証のみすることに注意してください。 他のユーザーとテスト用のアカウントを登録することができなきます。 その他の Facebook アカウント、Facebook 上のアプリケーションへのアクセスを付与する**開発者ロール**タブ。
+10. Visual Studio で開く*アプリ\_Start\Startup.Auth.cs*します。
+11. コピーして貼り付け、 **AppId**と**アプリ シークレット**に、`UseFacebookAuthentication`メソッド。 **AppId**と**アプリ シークレット**の下に表示される値のサンプルし、は機能しません。
 
     [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample3.cs?highlight=33-35,38-39)]
-12. をクリックして**変更を保存**です。
-13. キーを押して**ctrl キーを押しながら f5 キーを押して**アプリケーションを実行します。
+12. クリックして**変更を保存**します。
+13. キーを押して**CTRL + F5**アプリケーションを実行します。
 
 
-選択**ログイン**ログイン ページを表示します。 をクリックして**Facebook** **のログインに別のサービスを使用します。**
+選択**ログイン**ログイン ページを表示します。 クリックして**Facebook** **別のサービスを使用してログインします。**
 
-Facebook 資格情報を入力します。
+Facebook の資格情報を入力します。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image29.png)
 
-パブリック プロファイルと友人リストにアクセスするためにアプリケーションのアクセス許可を付与するように促されます。
+パブリック プロファイルや友達リストにアクセスするアプリケーションのアクセス許可を付与するように促されます。
 
 ![Facebook アプリの詳細](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image30.png)
 
@@ -214,65 +213,65 @@ Facebook 資格情報を入力します。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image31.png)
 
-エントリを追加登録するときに、*ユーザー*メンバーシップ データベースのテーブルです。
+エントリを追加登録するときに、*ユーザー*メンバーシップ データベースのテーブル。
 
 <a id="mdb"></a>
 ## <a name="examine-the-membership-data"></a>メンバーシップ データを調べる
 
-**ビュー**  メニューをクリックして**サーバー エクスプ ローラー**です。
+**ビュー**  メニューのをクリックして**サーバー エクスプ ローラー**します。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image32.png)
 
-展開**DefaultConnection (MvcAuth)**、展開**テーブル**を右クリックして**AspNetUsers**  をクリック**テーブル データの表示**です。
+展開**DefaultConnection (MvcAuth)**、展開**テーブル**を右クリックして**AspNetUsers**クリック**テーブル データの表示**。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image33.png)
 
-![aspnetusers テーブルのデータ](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image34.png)
+![aspnetusers テーブル データ](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image34.png)
 
 <a id="ap"></a>
-## <a name="adding-profile-data-to-the-user-class"></a>プロファイル データ、ユーザー クラスを追加します。
+## <a name="adding-profile-data-to-the-user-class"></a>プロファイル データをユーザー クラスに追加します。
 
-このセクションで追加の生年月日とホーム町のユーザー データを登録の際に次の図のようにします。
+このセクションで追加します生年月日とホーム町のユーザー データを登録時に、次の図のようにします。
 
-![ホーム町と Bday reg](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image35.png)
+![出身地と Bday reg](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image35.png)
 
-開く、 *Models\IdentityModels.cs*ファイル birth date とホーム町のプロパティを追加します。
+開く、 *Models\IdentityModels.cs*ファイルを開き生年月日の日付とホーム町のプロパティを追加します。
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample4.cs?highlight=3-4)]
 
-開く、 *Models\AccountViewModels.cs*ファイルとセット birth で日付とホームの町プロパティ`ExternalLoginConfirmationViewModel`です。
+開く、 *Models\AccountViewModels.cs*ファイルと、セットで日付とホームの町プロパティを birth`ExternalLoginConfirmationViewModel`します。
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample5.cs?highlight=8-9)]
 
-開く、 *Controllers\AccountController.cs*ファイルし、の生年月日の日付とホーム町にコードを追加、`ExternalLoginConfirmation`ようにアクション メソッド。
+開く、 *controllers \accountcontroller.cs*生年月日の日付とホーム町でのコードを追加するファイルを開き、`ExternalLoginConfirmation`に示すように、アクション メソッド。
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample6.cs?highlight=21-23)]
 
-生年月日と出身地に追加、 *Views\Account\ExternalLoginConfirmation.cshtml*ファイル。
+追加の生年月日とホームに町に来ました、 *Views\Account\ExternalLoginConfirmation.cshtml*ファイル。
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample7.cshtml?highlight=27-40)]
 
-もう一度アプリケーションを使用して、Facebook アカウントを登録し、新しい生年月日とホーム町プロファイル情報を追加することを確認できるように、メンバーシップ データベースを削除します。
+もう一度アプリケーションを自分の Facebook アカウントを登録し、新しい生年月日とホーム町プロファイル情報を追加することを確認できるように、メンバーシップ データベースを削除します。
 
-**ソリューション エクスプ ローラー**をクリックして、 **[すべてのファイル**アイコン、し、右クリック*追加\_Data\aspnet-MvcAuth -&lt;日付スタンプ&gt;.mdf* ] をクリック**削除**です。
+**ソリューション エクスプ ローラー**、クリックして、 **すべてのファイル**アイコン、し、右クリック*追加\_Data\aspnet-MvcAuth -&lt;日付スタンプ&gt;.mdf*クリック**削除**します。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image36.png)
 
-**ツール** メニューのをクリックして**NuGet パッケージ マネージャー**をクリックし、 **Package Manager Console** (PMC)。 PMC に次のコマンドを入力します。
+**ツール** メニューのをクリックして**NuGet パッケージ マネージャー**、 をクリックし、**パッケージ マネージャー コンソール**(PMC)。 PMC で、次のコマンドを入力します。
 
-1. 有効な移行
-2. 追加の移行の初期化
+1. Enable-migrations
+2. Add-migration Init
 3. データベースの更新
 
-アプリケーションを実行し、FaceBook、Google を使用してログインし、一部のユーザーを登録します。
+アプリケーションを実行し、FaceBook、Google を使用してにログインし、一部のユーザーを登録します。
 
 ## <a name="examine-the-membership-data"></a>メンバーシップ データを調べる
 
-**ビュー**  メニューをクリックして**サーバー エクスプ ローラー**です。
+**ビュー**  メニューのをクリックして**サーバー エクスプ ローラー**します。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image37.png)
 
-右クリックして**AspNetUsers**  をクリック**テーブル データの表示**です。
+右クリックして**AspNetUsers**クリック**テーブル データの表示**します。
 
 ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image38.png)
 
@@ -283,19 +282,19 @@ Facebook 資格情報を入力します。
 <a id="off"></a>
 ## <a name="logging-off-your-app-and-logging-in-with-another-account"></a>アプリからログオフして、別のアカウントでのログ記録
 
-Facebook、およびでのアプリへのログオンをログアウトしとにログインしようとしています。 もう一度 (同じブラウザーを使用)、別の Facebook アカウントではログインする必要がすぐに使用した前の Facebook アカウントにします。 別のアカウントを使用するのには、Facebook に移動し、Facebook にログアウトする必要があります。 その他のサード パーティ認証プロバイダーに、同じ規則が適用されます。 別のブラウザーを使用して、別のアカウントでログインすることができます。
+Facebook、およびを使用してアプリにログオンして、ログアウトするとログインしようとしています。 もう一度 (同じブラウザーを使用)、別の Facebook アカウントですぐにログインされます以前に使用した Facebook アカウントにします。 別のアカウントを使用するには、Facebook に移動し、Facebook にログアウトする必要があります。 その他のサード パーティの認証プロバイダーに同じ規則が適用されます。 または、別のブラウザーを使用して別のアカウントを使用してログインすることができます。
 
 ## <a name="next-steps"></a>次の手順
 
-参照してください[OWIN の Yahoo および LinkedIn OAuth のセキュリティ プロバイダーの導入](http://www.jerriepelser.com/blog/introducing-the-yahoo-linkedin-oauth-security-providers-for-owin/)Jerrie Pelser Yahoo および LinkedIn の手順でします。 Jerrie を参照してください。 非常に有効にするソーシャル ログイン ボタンを取得する ASP.NET MVC 5 のソーシャル ログイン ボタン。
+参照してください[owin Yahoo と LinkedIn OAuth のセキュリティ プロバイダーの概要](http://www.jerriepelser.com/blog/introducing-the-yahoo-linkedin-oauth-security-providers-for-owin/)Jerrie Pelser Yahoo と LinkedIn 手順については、します。 Jerrie を参照してください。 有効にするソーシャル ログイン ボタンを取得する ASP.NET MVC 5 用ソーシャル ログイン ボタン。
 
-チュートリアルに従って[Azure App Service に認証と SQL DB の ASP.NET MVC アプリの作成し、展開](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)、このチュートリアルを続行して、次に示します。
+拙著のチュートリアルに従ってください[auth と SQL DB を使って、ASP.NET MVC アプリを作成し、Azure App Service にデプロイ](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)、このチュートリアルを続行して、次に示します。
 
-1. アプリを Azure に配置する方法。
-2. 役割を持つアプリをセキュリティで保護する方法。
-3. 使用してアプリを保護する方法、 [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx)と[Authorize](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.100).aspx)フィルター。
-4. メンバーシップ API を使用して、ユーザーおよびロールを追加する方法。
+1. アプリを Azure にデプロイする方法。
+2. ロールを使用したアプリをセキュリティで保護する方法。
+3. 使用してアプリをセキュリティで保護する方法、 [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx)と[Authorize](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.100).aspx)フィルター。
+4. メンバーシップ API を使用して、ユーザーとロールを追加する方法。
 
-このチュートリアルをリンクする方法と、何を改善にフィードバックを送信してください。 新しいトピックを要求することもできます。 [Me 方法でコードの表示](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code)です。 要求し、ASP.NET に追加する新しい機能に投票もできます。 などのツールには、返信できます[を作成し、ユーザーおよびロールを管理します。](http://aspnet.uservoice.com/forums/41199-general-asp-net/suggestions/5646857-asp-net-identity-membership-db-tool-to-mangage-use)
+このチュートリアルの立った方法で改善できましたフィードバックを送信してください。 また、新しいトピックを要求することもできます。[表示 Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code)します。 要求し、ASP.NET に追加する新しい機能に投票できます。 ツールを投票するなど、[の作成し、ユーザーとロールを管理します。](http://aspnet.uservoice.com/forums/41199-general-asp-net/suggestions/5646857-asp-net-identity-membership-db-tool-to-mangage-use)
 
-ASP.NET の外部認証サービスの動作の適切な詳細については、Robert McMurray を参照してください。[外部認証サービス](https://asp.net/web-api/overview/security/external-authentication-services)です。 Robert の記事は、Microsoft および Twitter 認証を有効にする方法の詳細にも移動します。 Tom Dykstra の優れた[EF と MVC チュートリアル](../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)Entity Framework を使用する方法を示します。
+ASP.NET の外部認証サービスのしくみの良いについては、Robert McMurray を参照してください。[外部認証サービス](https://asp.net/web-api/overview/security/external-authentication-services)します。 Robert の記事では、Microsoft、Twitter の認証の有効化の詳細にもなります。 Tom Dykstra の優れた[EF と MVC チュートリアル](../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)Entity Framework を使用する方法を示しています。
