@@ -5,14 +5,18 @@ description: このチュートリアルでは、エンティティとリレー�
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: d89ca44917fac57febc2f8b0d632ae004ca7216c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 1d3c69c8c658b5ca2f0253b790b0dc75d44d3064
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277388"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093115"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC と EF Core - データ モデル - 5/10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -351,7 +355,7 @@ Student エンティティと Course エンティティの間には多対多リ�
 
 Enrollment テーブルに成績情報が含まれていなかった場合、含める必要があるのは 2 つの外部キー (CourseID と StudentID) のみです。 その場合、データベースにはペイロードがない多対多結合テーブル (純粋結合テーブル) が存在することになります。 Instructor および Course エンティティにはその種の多対多リレーションシップがあり、次の手順では、ペイロードがない結合テーブルとして機能するエンティティ クラスを作成します 
 
-(EF 6.x では多対多リレーションシップの暗黙の結合テーブルがサポートされますが、EF Core ではサポートされません。 詳細については、[GitHub リポジトリの EF Core に関する記述](https://github.com/aspnet/EntityFramework/issues/1368)を参照してください)。 
+(EF 6.x では多対多リレーションシップの暗黙の結合テーブルがサポートされますが、EF Core ではサポートされません。 詳細については、[GitHub リポジトリの EF Core に関する記述](https://github.com/aspnet/EntityFramework/issues/1368)を参照してください)。
 
 ## <a name="the-courseassignment-entity"></a>CourseAssignment エンティティ
 
@@ -437,7 +441,7 @@ Done. To undo this action, use 'ef migrations remove'
 
 既存のデータでこの移行を行うには、コードを変更して、新しい列に既定値を設定し、"Temp" という名前のスタブ学科を作成して、既定の学科として機能するようにする必要があります。 その結果、既存の Course 行が、`Up` メソッドの実行後に "Temp" 学科に関連付けられます。
 
-* *{timestamp}_ComplexDataModel.cs* ファイルを開きます。 
+* *{timestamp}_ComplexDataModel.cs* ファイルを開きます。
 
 * DepartmentID 列を Course テーブルに追加するコードの行をコメントアウトします。
 
@@ -491,7 +495,8 @@ dotnet ef database update
 ## <a name="summary"></a>まとめ
 
 これで、より複雑なデータ モデルと対応するデータベースの準備ができました。 次のチュートリアルでは、関連データへのアクセス方法について説明します。
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [前へ](migrations.md)
-> [次へ](read-related-data.md)  
+> [次へ](read-related-data.md)

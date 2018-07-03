@@ -5,14 +5,18 @@ description: このチュートリアルでは、Entity Framework Core を使用
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 2aced1126e3062835d9c35ef01fd3c1438f0af84
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: be44ef115ce72e1571bbdea2c609ea6c53792c59
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274370"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093076"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC と EF Core - 上級 - 10/10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -195,7 +199,7 @@ Web アプリの展開方法については、「[ASP.NET Core のホストと�
 
 チュートリアルを執筆してくださった、Tom Dykstra と Rick Anderson (twitter @RickAndMSFT)。 コードの確認をサポートし、チュートリアル用のコードの記述中に発生した問題のデバッグを支援してくれた、Rowan Miller、Diego Vega、およびその他の Entity Framework チームのメンバー。
 
-## <a name="common-errors"></a>一般的なエラー  
+## <a name="common-errors"></a>一般的なエラー
 
 ### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity.dll が別のプロセスによって使用されている
 
@@ -240,6 +244,7 @@ dotnet ef database drop
 解決方法 : 
 
 接続文字列を確認します。 データベース ファイルを手動で削除した場合は、構築文字列でデータベースの名前を変更して、新しいデータベースで最初からやり直します。
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [前へ](inheritance.md)

@@ -5,14 +5,18 @@ description: このチュートリアルでは、外部キー フィールドと
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 53f1607d96a9a1db98f4e80e9582c124cedf6c8d
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ef8cb3916e5d1542e4d36cad694351462b94ed32
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272651"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093060"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>ASP.NET Core MVC と EF Core - 関連データの更新 - 7/10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -134,7 +138,7 @@ HttpPost `Edit` メソッドを次のコードで置き換え、オフィスの�
         "",
         i => i.FirstMidName, i => i.LastName, i => i.HireDate, i => i.OfficeAssignment))
     ```
-    
+
 -   オフィスの場所が空白の場合は、OfficeAssignment テーブル内の関連する行が削除されるように、Instructor.OfficeAssignment プロパティを null に設定します。
 
     <!-- Snippets don't play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
@@ -213,7 +217,7 @@ Course エンティティと Instructor エンティティ間には、多対多�
 *Views/Instructors/Edit.cshtml* で、次のコードを **Office** フィールドの `div` 要素の直後、**Save** ボタンの `div` 要素の前に追加することで、チェック ボックスの配列を持つ **Courses** フィールドを追加します。
 
 <a id="notepad"></a>
-> [!NOTE] 
+> [!NOTE]
 > Visual Studio にコードを貼り付けると、改行がコードを分割するように変更されます。  Ctrl キーを押しながら Z キーを 1 回押して、オート フォーマットを元に戻します。  これにより、改行がここに示されているように修正されます。 インデントは完璧である必要はありませんが、`@</tr><tr>`、`@:<td>`、`@:</td>`、および `@:</tr>` の行は、示されているようにそれぞれ 1 行にする必要があります。そうしないと、ランタイム エラーが発生します。 新しいコードのブロックを選択して、Tab キーを 3 回押して、新しいコードと既存のコードを並べます。 この問題の状態は、[ここ](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html)で確認できます。
 
 [!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
@@ -228,7 +232,7 @@ Course エンティティと Instructor エンティティ間には、多対多�
 
 一部のコース割り当てを変更し、[Save]\(保存\) をクリックします。 行った変更が Index ページに反映されます。
 
-> [!NOTE] 
+> [!NOTE]
 > インストラクター コース データを編集するためにここで採用されている方法は、コースの数が限られている場合にはうまく機能します。 非常に大きいコレクションの場合、別の UI と別の更新方法が必要になる場合があります。
 
 ## <a name="update-the-delete-page"></a>Delete ページを更新する
@@ -282,7 +286,7 @@ public ICollection<CourseAssignment> CourseAssignments
 
 [!code-html[](intro/samples/cu/Views/Instructors/Create.cshtml?range=29-61)]
 
-アプリを実行し、インストラクターを作成して、テストします。 
+アプリを実行し、インストラクターを作成して、テストします。
 
 ## <a name="handling-transactions"></a>トランザクションの処理
 
@@ -292,6 +296,8 @@ public ICollection<CourseAssignment> CourseAssignments
 
 これで、関連データの概要が完了しました。 次のチュートリアルでは、同時実行の競合を処理する方法を説明します。
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [前へ](read-related-data.md)
-> [次へ](concurrency.md)  
+> [次へ](concurrency.md)

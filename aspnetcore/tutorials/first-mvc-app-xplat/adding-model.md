@@ -5,15 +5,13 @@ description: 単純な ASP.NET Core アプリケーションにモデルを追�
 ms.author: riande
 ms.date: 09/18/2017
 uid: tutorials/first-mvc-app-xplat/adding-model
-ms.openlocfilehash: a3b6f68acef748ab7d7703dd3e24a3766fda159c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 82b8338f10cb4d58ae06bdb70583e1563c2e6b64
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273322"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961426"
 ---
-# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>.ASP.NET Core MVC アプリへのモデルの追加
-
 [!INCLUDE [adding-model1](../../includes/mvc-intro/adding-model1.md)]
 
 * *Movie.cs* という名前の *Models* フォルダーにクラスを追加します。

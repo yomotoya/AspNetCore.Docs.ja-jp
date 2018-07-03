@@ -5,14 +5,18 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: e0d454ce4f2319b48b649d46c0878d6969acbc9f
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: bc02ee6933634cc5987dbc3fcf57b0cce5a93bef
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278558"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093102"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC と EF Core - CRUD - 2/10
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -20,7 +24,7 @@ Contoso University のサンプル Web アプリケーションでは、Entity F
 
 前のチュートリアルでは、Entity Framework と SQL Server LocalDB を使ってデータを保存して表示する MVC アプリケーションを作成しました。 このチュートリアルでは、MVC スキャフォールディングがコントローラーとビュー用に自動的に作成する CRUD (作成、読み取り、更新、削除) コードを確認およびカスタマイズします。
 
-> [!NOTE] 
+> [!NOTE]
 > コントローラーとデータ アクセス層の間に抽象化レイヤーを作成するためにリポジトリ パターンを実装することは、よく行われることです。 この一連のチュートリアルが複雑にならないようにし、Entity Framework 自体の使い方に集中できるように、チュートリアルではリポジトリは使われていません。 EF でのリポジトリについては、[このシリーズの最後のチュートリアル](advanced.md)をご覧ください。
 
 このチュートリアルでは、次の Web ページを使います。
@@ -183,7 +187,7 @@ HttpPost の Edit アクション メソッドを、次のコードに置き換�
 
 ### <a name="alternative-httppost-edit-code-create-and-attach"></a>代わりの HttpPost Edit コード: 作成とアタッチ
 
-HttpPost の Edit の推奨されるコードでは、変更された列のみが更新され、モデル バインドに含めたくないプロパティのデータは維持されます。 ただし、読み取り優先アプローチではデータベースの余分な読み取りが必要であり、同時実行の競合を処理するためのコードが複雑になる可能性があります。 代わりの方法としては、モデル バインダーによって作成されたエンティティを EF コンテキストにアタッチし、変更済みとしてマークします  (次のコードはオプションのアプローチを示すためだけに掲載してあるので、このコードでプロジェクトを更新しないでください)。 
+HttpPost の Edit の推奨されるコードでは、変更された列のみが更新され、モデル バインドに含めたくないプロパティのデータは維持されます。 ただし、読み取り優先アプローチではデータベースの余分な読み取りが必要であり、同時実行の競合を処理するためのコードが複雑になる可能性があります。 代わりの方法としては、モデル バインダーによって作成されたエンティティを EF コンテキストにアタッチし、変更済みとしてマークします  (次のコードはオプションのアプローチを示すためだけに掲載してあるので、このコードでプロジェクトを更新しないでください)。
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_CreateAndAttach)]
 
@@ -293,6 +297,8 @@ HttpPost の `Delete` アクション メソッド (名前は `DeleteConfirmed`)
 
 Student エンティティに対して簡単な CRUD 操作を実行するページの完全なセットができあがりました。 次のチュートリアルでは、並べ替え、フィルター処理、ページングを追加することにより、**[Index]** ページの機能を拡張します。
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [前へ](intro.md)
-> [次へ](sort-filter-page.md)  
+> [次へ](sort-filter-page.md)

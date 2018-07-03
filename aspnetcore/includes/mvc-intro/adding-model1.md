@@ -1,4 +1,4 @@
-# <a name="adding-a-model-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへのモデルの追加
+# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>.ASP.NET Core MVC アプリへのモデルの追加
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT) および [Tom Dykstra](https://github.com/tdykstra)
 
