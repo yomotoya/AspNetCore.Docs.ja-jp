@@ -1,142 +1,141 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
-title: 部分ページ更新 ASP.NET AJAX を理解する |Microsoft ドキュメント
+title: ASP.NET AJAX の部分的ページ更新を理解する |Microsoft Docs
 author: scottcate
-description: おそらく、最も可視機能、ASP.NET AJAX Extensions の機能を t に完全なポストバックを実行せず、または部分的な差分のページ更新を行うには.
+description: おそらく、ASP.NET AJAX Extensions の最も目につく機能は、t への完全なポストバックを実行しなくても、部分的なまたは増分ページの更新プログラムを実行する機能しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/28/2008
 ms.topic: article
 ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: 91a98bf1c9a71ae84c569f7ae40930422cb652e0
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3b3c53f046933f71ada23f13eba99b720b2e51ea
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891322"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366794"
 ---
-<a name="understanding-partial-page-updates-with-aspnet-ajax"></a>Understanding 部分ページは、ASP.NET AJAX と共に更新されます。
+<a name="understanding-partial-page-updates-with-aspnet-ajax"></a>ASP.NET AJAX の理解の部分的ページ更新します。
 ====================
-によって[Scott カテゴリ](https://github.com/scottcate)
+によって[Scott Cate](https://github.com/scottcate)
 
-[PDF をダウンロードします。](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial01_Partial_Page_Updates_cs.pdf)
+[PDF のダウンロード](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial01_Partial_Page_Updates_cs.pdf)
 
-> おそらく、ASP.NET AJAX Extensions の最も可視機能は、最小限のマークアップの変更とし、コードの変更を持たない、サーバーへの完全なポストバックを実行せず、または部分的な差分のページ更新プログラムを実行する機能。 利点は、広範な – (Adobe Flash や Windows Media) など、マルチ メディアの状態は変更されません、帯域幅のコストが少なくなり、クライアントでは、通常、ポストバックに関連付けられているちらつきは発生しません。
+> おそらく、ASP.NET AJAX Extensions の最も目につく機能はないコードの変更と最小限のマークアップの変更を使用して、サーバーに完全なポストバックを実行しなくても、部分的なまたは増分ページ更新プログラムを実行する機能です。 利点は、広範な – (Adobe Flash や Windows Media) など、マルチ メディアの状態は変更されません、帯域幅のコストが削減されます、およびクライアントでは、通常のポストバックに関連付けられているちらつきは発生しません。
 
 
 ## <a name="introduction"></a>はじめに
 
-ASP.NET の Microsoft のテクノロジは、オブジェクト指向し、イベント ドリブン プログラミング モデルによりに導入され、コンパイルされたコードのメリットと組み合わせたです。 ただし、そのサーバー側の処理モデルでは、テクノロジに固有のいくつかの欠点があります。
+マイクロソフトの ASP.NET テクノロジ オブジェクト指向し、イベント ドリブン プログラミング モデルとそれを組み合わせたのコンパイル済みコードの利点があります。 ただし、そのサーバー側の処理モデルでは、テクノロジに固有のいくつかの欠点があります。
 
-- ページの更新プログラムでは、ページの更新を必要とすると、サーバーへのラウンド トリップが必要です。
-- ラウンドト リップが Javascript またはその他のクライアント側などのテクノロジ (Adobe Flash) によって生成される任意の効果を保持されません。
-- ポストバック中に Microsoft Internet Explorer 以外のブラウザーはサポートされませんスクロール位置を自動的に復元します。 Internet Explorer であってもまだ、ちらつきを調整するページが更新されて。
-- ポストバックとして帯域幅の量が多い場合があります、 \_ \_VIEWSTATE フォーム フィールドのサイズが増加、GridView コントロールまたはリピータなどのコントロールを扱う場合に特にです。
-- JavaScript またはその他のクライアント側のテクノロジから Web サービスにアクセスするための統一されたモデルはありません。
+- ページの更新プログラムでは、ページの更新を必要とすると、サーバーへのラウンドト リップが必要です。
+- ラウンドト リップには、Javascript または他のクライアント側のテクノロジ (Adobe Flash) などによって生成されたすべての効果はありません。
+- ポストバック時に、Microsoft Internet Explorer 以外のブラウザーはサポートされませんスクロール位置を自動的に復元します。 および Internet Explorer であってもがありますが、ちらつき、ページが更新されるようにします。
+- ポストバックは、高帯域幅の量を必要があります、 \_ \_GridView コントロールまたはリピータなどのコントロールを扱う場合に特に、VIEWSTATE のフォーム フィールドを拡張可能性があります。
+- JavaScript または他のクライアント側のテクノロジを Web サービスにアクセスするための統一モデルはありません。
 
-Microsoft の ASP.NET AJAX 拡張機能を入力します。 AJAX **A**同期**J** avaScript **A** nd **X** ML、増分のページを提供するための統合のフレームワークではクロス プラットフォームの JavaScript を使用して更新プログラムは、Microsoft AJAX Framework および Microsoft AJAX スクリプト ライブラリと呼ばれるスクリプト コンポーネントで構成されるサーバー側コードで構成されます。 ASP.NET AJAX 拡張機能では、JavaScript を使用して ASP.NET Web サービスにアクセスするクロスプラット フォーム サポートも提供します。
+マイクロソフトの ASP.NET AJAX extensions を入力します。 AJAX の略**A**同期**J** avaScript **A** nd **X** ML では、差分ページを提供するための統合フレームワーククロスプラット フォームでの JavaScript を使用して更新プログラムは、Microsoft AJAX フレームワーク、および Microsoft AJAX スクリプト ライブラリと呼ばれるスクリプト コンポーネントで構成されるサーバー側コードで構成されます。 ASP.NET AJAX 拡張機能では、JavaScript を使用して ASP.NET Web サービスにアクセスするクロスプラット フォーム対応のサポートも提供します。
 
-このホワイト ペーパーでは、ScriptManager コンポーネント、UpdatePanel コントロールおよび UpdateProgress コントロールが含まれ、シナリオをする必要がありますまたはすることはできませんと見なします ASP.NET AJAX Extensions のページの部分的な更新機能を調べます使用率が低い。
+このホワイト ペーパーの検査を ScriptManager コンポーネント、UpdatePanel コントロール、および、UpdateProgress コントロールを含む考慮シナリオでの 必要がありますまたはすることはできませんが、ASP.NET AJAX Extensions のページの部分的な更新プログラムの機能使用されます。
 
-このホワイト ペーパーでは、Visual Studio 2008 の Beta 2 リリースされ、基底クラス ライブラリ (が以前 ASP.NET 2.0 の使用可能なアドオン コンポーネント) に ASP.NET AJAX 拡張機能を統合する .NET Framework 3.5 に基づいています。 このホワイト ペーパーが Visual Studio 2008 とない Visual Web Developer Express Edition; を使用していることを想定しても参照されている一部のプロジェクト テンプレートは、Visual Web Developer Express のユーザーにできない場合があります。
+このホワイト ペーパーでは、Visual Studio 2008 の Beta 2 リリースと、ASP.NET AJAX Extensions を (それが以前 ASP.NET 2.0 の使用可能なアドオン コンポーネント) の基本クラス ライブラリに統合された .NET Framework 3.5 に基づいています。 このホワイト ペーパーが Visual Studio 2008 としない Visual Web Developer Express Edition; を使用していることを想定しても参照されている一部のプロジェクト テンプレートは、Visual Web Developer Express のユーザーにできない場合があります。
 
-## <a name="partial-page-updates"></a>部分ページ更新
+## <a name="partial-page-updates"></a>ページの部分的な更新プログラム
 
-おそらく、ASP.NET AJAX Extensions の最も可視機能は、最小限のマークアップの変更とし、コードの変更を持たない、サーバーへの完全なポストバックを実行せず、または部分的な差分のページ更新プログラムを実行する機能。 利点は、広範な - (Adobe Flash や Windows Media) など、マルチ メディアの状態は変更されません、帯域幅のコストが少なくなり、クライアントでは、通常、ポストバックに関連付けられているちらつきは発生しません。
+おそらく、ASP.NET AJAX Extensions の最も目につく機能はないコードの変更と最小限のマークアップの変更を使用して、サーバーに完全なポストバックを実行しなくても、部分的なまたは増分ページ更新プログラムを実行する機能です。 利点は、広範な - (Adobe Flash や Windows Media) など、マルチ メディアの状態は変更されません、帯域幅のコストが削減、およびクライアントでは、通常のポストバックに関連付けられているちらつきは発生しません。
 
-部分ページ レンダリングを統合する機能は、プロジェクトに最小限の変更で ASP.NET に統合されます。
+ページの部分的なレンダリングを統合する機能は、プロジェクトに最小限の変更と ASP.NET に統合されます。
 
 ## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>チュートリアル: 既存のプロジェクトへの部分的なレンダリングの統合
 
 
-1. Microsoft Visual Studio 2008 でに移動して、新しい ASP.NET Web Site プロジェクトを作成<em>ファイル</em> <em>- &gt;新規</em> <em>- &gt; のWebサイト</em>ダイアログから ASP.NET Web サイトを選択します。 名前を付けることお好きなようとをファイル システムまたはインターネット インフォメーション サービス (IIS) にインストールすることがあります。
-2. 基本的な ASP.NET マークアップに空白の既定のページが表示されます (サーバー側フォームと`@Page`ディレクティブ)。 という名前のラベルにドロップ`Label1`ボタンと呼ばれると`Button1`form 要素内でページ上にします。 お好きなように、テキストのプロパティを設定することがあります。
-3. デザイン ビューでダブルクリック`Button1`分離コードのイベント ハンドラーを生成します。 このイベント ハンドラー内で次のように設定します`Label1.Text`にボタンをクリックしました!。 である必要があります。
+1. Microsoft Visual Studio 2008 では、新しい ASP.NET Web サイト プロジェクトを作成しようとして<em>ファイル</em> <em>- &gt;新規</em> <em>- &gt; のWebサイト</em>し、ダイアログ ボックスから ASP.NET Web サイトを選択します。 ことができます、どのような名前、およびファイル システムまたはインターネット インフォメーション サービス (IIS) にインストールすることがあります。
+2. 基本的な ASP.NET マークアップに空の既定のページが表示されます (サーバー側のフォームと`@Page`ディレクティブ)。 という名前のラベルにドロップ`Label1`ボタンと呼ばれると`Button1`フォーム要素内でページ上にします。 自由にそのテキスト プロパティを設定することがあります。
+3. デザイン ビューで、ダブルクリック`Button1`分離コードのイベント ハンドラーを生成します。 このイベント ハンドラー内で次のように設定します。 `Label1.Text` 、 をクリックします。 .
 
-**部分的なレンダリングを有効にする前に、default.aspx のマークアップを 1 の一覧を表示するには:**
+**部分的なレンダリングを有効にするには default.aspx のマークアップをリスト 1:**
 
 [!code-aspx[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample1.aspx)]
 
-**2 を一覧表示します。 分離コードが default.aspx.cs に (切り捨て)**
+**リスト 2: 分離コードが default.aspx.cs の (切り捨て)**
 
 [!code-csharp[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample2.cs)]
 
-1. F5 キーを押して、web サイトを起動します。 Visual Studio には、デバッグを有効にする web.config ファイルを追加するように求められますそのための操作を行います。 ボタンをクリックすると、ラベルのテキストを変更するページが更新され、ページが再描画されると、簡単なちらつきがあることに注意してください。
-2. ブラウザー ウィンドウを閉じると、Visual studio、およびマークアップのページを返します。 Visual Studio ツールボックスにスクロールし、[AJAX Extensions] タブを検索します。 ない場合はこのタブの AJAX 機能または地図の拡張機能の古いバージョンを使用しているため、このホワイト ペーパーの後半で、AJAX Extensions ツールボックス項目を登録するためのチュートリアルを参照してください (ダウンロード可能な Windows インストーラーで、現在のバージョンをインストールweb サイトから)。
+1. F5 キーを押して、web サイトを起動します。 Visual Studio には、デバッグを有効にする web.config ファイルを追加するように求められますそのためです。 ボタンをクリックするとは、ラベルのテキストを変更するにページが更新され、ページが再描画されるように簡単なちらつきがあることに注意してください。
+2. ブラウザー ウィンドウを閉じた後、Visual Studio には、マークアップのページを返します。 Visual Studio のツールボックスで下へスクロールし、[AJAX Extensions] タブを見つけてください。 (以前のバージョンの AJAX または Atlas 拡張機能を使用しているため、このタブがあるありません、このホワイト ペーパーの後半で AJAX の拡張機能のツールボックス項目を登録するためのチュートリアルを参照してください場合や、Windows インストーラーのダウンロード可能な最新バージョンをインストールweb サイトから)。
 
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image2.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image1.png)
 
-([フルサイズのイメージを表示するをクリックして](understanding-partial-page-updates-with-asp-net-ajax/_static/image3.png))
+([フルサイズの画像を表示する をクリックします](understanding-partial-page-updates-with-asp-net-ajax/_static/image3.png))。
 
 
-1. <em>既知の問題点:</em>Visual Studio 2008 が AJAX Extensions ツールボックス アイテムをインポート、ASP.NET 2.0 AJAX Extensions にインストールされている Visual Studio 2005 には既にコンピューターに Visual Studio 2008 をインストールする場合。 コンポーネントにツールヒントを確認するにはそうではあるかどうかを判断できます。バージョン 3.5.0.0 と記述する必要があります。 バージョン 2.0.0.0 と主張する場合、古いツールボックス アイテムをインポートし、それらを Visual Studio のツールボックス アイテムの選択 ダイアログを使用して手動でインポートする必要があります。 デザイナーを使用してバージョン 2 のコントロールを追加することはできません。
+1. <em>既知の問題:</em>Visual Studio 2008 が AJAX Extensions のツールボックス項目をインポート、ASP.NET 2.0 AJAX Extensions にインストールされている、Visual Studio 2005 が既にコンピューターに Visual Studio 2008 をインストールする場合。 コンポーネントにツールヒントを調べることで、大文字と小文字がこれかどうかを判断できます。バージョン 3.5.0.0 言わする必要があります。 バージョン 2.0.0.0 以降と言っているならが、古いツールボックス アイテムをインポートし、Visual Studio のツールボックス アイテムの選択 ダイアログを使用して手動でインポートする必要があります。 デザイナーを使用してバージョン 2 のコントロールを追加することはできません。
 
-2. 前に、`<asp:Label>`タグの開始、空白の行を作成し、ツールボックスで UpdatePanel コントロールをダブルクリックします。 なお、新しい`@Register`ディレクティブを使用して派生内のコントロールをインポートすることを示す、ページの上部に含まれる、`asp:`プレフィックス。
-3. 終了をドラッグして`</asp:UpdatePanel>`ボタン要素の末尾を越えたタグ付けしてことでラップされたコントロールのラベルおよびボタンのコントロール要素が適切な形式です。
-4. オープン後`<asp:UpdatePanel>`タグ、開始新しいタグを開始します。 IntelliSense 確認が求めるされる 2 つのオプションに注意してください。 この場合、作成、`<ContentTemplate>`タグ。 マークアップが整形式ようにラベルとボタンの周囲には、このタグをラップすることを確認します。
+2. 前に、`<asp:Label>`タグの開始、空白の行を作成し、ツールボックスの UpdatePanel コントロールをダブルクリックします。 なお、新しい`@Register`ディレクティブを使用して System.Web.UI 名前空間内のコントロールをインポートすることを示す、ページの上部に含まれる、`asp:`プレフィックス。
+3. ドラッグ終了`</asp:UpdatePanel>`ラップ ラベルとボタンのコントロールと、要素が整形式にようにボタンの要素の末尾を越えたタグします。
+4. オープン後`<asp:UpdatePanel>`タグ、開始新しいタグを開始します。 IntelliSense 確認が求めるされる 2 つのオプションに注意してください。 この場合、作成、`<ContentTemplate>`タグ。 マークアップが正しく構成されているように、ラベルとボタンの周囲には、このタグをラップしてください。
 
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image5.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image4.png)
 
-([フルサイズのイメージを表示するをクリックして](understanding-partial-page-updates-with-asp-net-ajax/_static/image6.png))
+([フルサイズの画像を表示する をクリックします](understanding-partial-page-updates-with-asp-net-ajax/_static/image6.png))。
 
 
-1. 任意の場所に、`<form>`要素をダブルクリックして ScriptManager コントロールを含める、`ScriptManager`ツールボックス内の項目。
-2. 編集、`<asp:ScriptManager>`属性が含まれるようにタグ付け`EnablePartialRendering= true`です。
+1. 任意の場所、`<form>`要素をダブルクリックして、ScriptManager コントロールを含める、`ScriptManager`ツールボックスの項目。
+2. 編集、`<asp:ScriptManager>`タグ、属性が含まれるように`EnablePartialRendering= true`します。
 
-**部分的なレンダリングを有効になっている default.aspx のマークアップを 3 の一覧を表示するには:**
+**部分的なレンダリングを有効になっている default.aspx のマークアップの 3 を一覧表示します。**
 
 [!code-aspx[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample3.aspx)]
 
 1. Web.config ファイルを開きます。 Visual Studio が System.Web.Extensions.dll への参照をコンパイルを自動的に追加することを確認します。
 
-1. Visual Studio 2008 の新: 自動的に ASP.NET Web サイト プロジェクト テンプレートに付属している web.config ファイルは、ASP.NET AJAX Extensions に必要なすべての参照が含まれています、使用可能な構成情報のセクションでにはコメントが含まれていますその他の機能を有効にされていないコメント。 Visual Studio 2005 では、ASP.NET 2.0 AJAX Extensions がインストールされたときのようなテンプレートがありました。 ただし、Visual Studio 2008 で AJAX 拡張機能は、オプトアウト既定で (つまりが既定では、参照されるが、参照として削除されることができます)。
+1. Visual Studio 2008 では新機能: ASP.NET Web サイト プロジェクトのテンプレートを自動的に付属する web.config、ASP.NET AJAX Extensions に必要なすべての参照が含まれていて、可能性のある構成情報のセクションでにはコメントが含まれています追加の機能を有効にされていないコメント。 Visual Studio 2005 では、ASP.NET 2.0 AJAX Extensions がインストールされたときのようなテンプレートがありました。 ただし、Visual Studio 2008 で AJAX の拡張機能は、オプトアウト既定で (つまり、既定では、参照されるが参照として削除されることができます)。
 
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image8.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image7.png)
 
-([フルサイズのイメージを表示するをクリックして](understanding-partial-page-updates-with-asp-net-ajax/_static/image9.png))
+([フルサイズの画像を表示する をクリックします](understanding-partial-page-updates-with-asp-net-ajax/_static/image9.png))。
 
 
-1. F5 キーを押して、web サイトを起動します。 ソース コードの変更の部分的なレンダリングをサポートする必要はありません - マークアップのみが変更された方法に注意してください。
+1. F5 キーを押して、web サイトを起動します。 部分的なレンダリングをサポートするために必要なソース コードの変更がなかった - マークアップのみが変更された方法に注意してください。
 
-Web サイトを起動するときに、部分的なレンダリングは をクリックする場合、ボタンがあります。 ちらつきはされませんまた (この例では示しませんを)、ページのスクロール位置を変更してもありますので、これで、有効になっていることが表示されます。 ボタンをクリックした後、ページのレンダリングのソースに検索する場合は、これはことを確認実際には、ポストバックが発生していない - 元のラベルのテキストは、まだソース マークアップの javascript ラベルが変更されました。
+Web サイトを起動するときに、部分的なレンダリングをクリックすると、ボタンがありますがちらつきはされませんも (この例を示していませんが)、ページのスクロール位置の変更があるため、有効になっているようになりましたが表示されます。 ボタンをクリックした後、ページのレンダリングされたソースを確認する場合は、これはことを確認実際には、ポストバックが発生していない - 元のラベル テキストは、ソース マークアップの一部ではまだ JavaScript を使用、ラベルが変更されました。
 
-Visual Studio 2008 は、ASP.NET AJAX 対応の web サイトの定義済みテンプレートに付属するは表示されません。 ただし、このようなテンプレートが Visual Studio 2005 内で使用できる、Visual Studio 2005 と ASP.NET 2.0 AJAX Extensions がインストールされた場合。 その結果、AJAX-Enabled Web サイト テンプレートで、web サイトを構成し、開始が場合があります。、さらに簡単にテンプレートをサポートしているすべての Web サービスのアクセスなど、ASP.NET AJAX Extensions 完全に構成された web.config ファイルを含める必要があります。および JSON のシリアル化の JavaScript Object Notation) と既定では、UpdatePanel と ContentTemplate をメインの Web フォーム ページ内に含まれています。 この既定のページで部分のレンダリングを有効にするはこのチュートリアルの手順 10 を見直す必要し、ページ上にコントロールを削除するように単純です。
+Visual Studio 2008 は、ASP.NET AJAX 対応の web サイトの定義済みのテンプレートが付属してには表示されません。 ただし、Visual Studio 2005 および ASP.NET 2.0 AJAX Extensions がインストールされた場合は、このようなテンプレートが Visual Studio 2005 内で使用できます。 その結果、AJAX-Enabled Web Site テンプレートで、web サイトを構成し、開始があります、さらに簡単にテンプレートが完全に構成された web.config ファイルが (Web サービスのアクセスなど、ASP.NET AJAX Extensions のすべてのサポートを含める必要があります。および JSON のシリアル化の JavaScript Object Notation) と、UpdatePanel と ContentTemplate を既定では、メインの Web フォーム ページ内に含まれています。 この既定のページの部分的なレンダリングを有効にすることは、このチュートリアルの手順 10 を再考し、ページ上にコントロールを削除する同じくらい簡単です。
 
 ## <a name="the-scriptmanager-control"></a>ScriptManager コントロール
 
-## <a name="scriptmanager-control-reference"></a>ScriptManager コントロールのリファレンス
+## <a name="scriptmanager-control-reference"></a>ScriptManager コントロールの参照
 
 マークアップが有効なプロパティ:
 
 | **プロパティ名** | **Type** | **説明** |
 | --- | --- | --- |
-| AllowCustomErrors-Redirect | Bool | エラーを処理する web.config ファイルのカスタム エラー セクションを使用するかどうかを指定します。 |
-| AsyncPostBackError-Message | String | 取得またはエラーが発生した場合、クライアントに送信するエラー メッセージを設定します。 |
-| AsyncPostBack-Timeout | Int32 | 取得またはクライアントが完了する非同期要求を待機する時間の既定値を設定します。 |
-| EnableScript-Globalization | Bool | 取得またはスクリプトのグローバリゼーションを有効にするかどうかを設定します。 |
+| AllowCustomErrors-Redirect | Bool | エラーを処理するために、web.config ファイルのカスタム エラー セクションを使用するかどうかを指定します。 |
+| AsyncPostBackError-Message | String | 取得または設定エラーが発生した場合、クライアントに送信するエラー メッセージ。 |
+| AsyncPostBack-Timeout | Int32 | 取得または既定のクライアントが完了する非同期要求を待機する時間の量を設定します。 |
+| EnableScript-Globalization | Bool | 取得またはスクリプトのグローバル化が有効になっているかどうかを設定します。 |
 | EnableScript-Localization | Bool | 取得またはスクリプトのローカライズが有効になっているかどうかを設定します。 |
-| ScriptLoadTimeout | Int32 | クライアントにスクリプトを読み込むためのできる秒数を決定します。 |
-| ScriptMode | 列挙型 (自動、デバッグ、リリース、継承) | 取得またはリリース バージョンのスクリプトをレンダリングするかどうかを設定 |
+| ScriptLoadTimeout | Int32 | クライアントにスクリプトを読み込むために許容される秒数を決定します。 |
+| ScriptMode | 列挙型 (Auto、デバッグ、リリース、継承) | 取得またはリリース バージョンのスクリプトをレンダリングするかどうかを設定します |
 | ScriptPath | String | 取得またはクライアントに送信するスクリプト ファイルの場所にルート パスを設定します。 |
 
-コード専用のプロパティ:
+コードのみのプロパティ:
 
 | **プロパティ名** | **Type** | **説明** |
 | --- | --- | --- |
-| AuthenticationService | AuthenticationService-Manager | 詳細については、クライアントに送信される ASP.NET 認証サービス プロキシを取得します。 |
-| IsDebuggingEnabled | Bool | 取得するかどうかスクリプトを作成し、コードのデバッグを有効にします。 |
-| IsInAsyncPostback | Bool | ページが現在非同期ポストバック要求であるかどうかを取得します。 |
-| ProfileService | ProfileService-Manager | 詳細については、クライアントに送信される ASP.NET プロファイリング サービス プロキシを取得します。 |
-| スクリプト | コレクション&lt;スクリプト リファレンス&gt; | クライアントに送信されるスクリプト参照のコレクションを取得します。 |
-| サービス | コレクション&lt;サービス参照&gt; | クライアントに送信される Web サービス プロキシの参照のコレクションを取得します。 |
-| SupportsPartialRendering | Bool | 現在のクライアントは、部分的なレンダリングをサポートしているかどうかを取得します。 このプロパティを返す場合**false**、すべてのページ要求は標準的なポストバックになります。 |
+| AuthenticationService | AuthenticationService-Manager | クライアントに送信される ASP.NET 認証サービス プロキシの詳細を取得します。 |
+| IsDebuggingEnabled | Bool | 取得するかどうかスクリプトを作成し、コードのデバッグが有効になっています。 |
+| IsInAsyncPostback | Bool | ページの非同期ポストバック要求が現在あるかどうかを取得します。 |
+| ProfileService | ProfileService-Manager | クライアントに送信される ASP.NET プロファイリング サービス プロキシの詳細を取得します。 |
+| スクリプト | コレクション&lt;スクリプト参照&gt; | クライアントに送信されるスクリプト参照のコレクションを取得します。 |
+| Services | コレクション&lt;サービス参照&gt; | クライアントに送信される Web サービス プロキシ参照のコレクションを取得します。 |
+| SupportsPartialRendering | Bool | 現在のクライアントは、部分的なレンダリングをサポートしているかどうかを取得します。 このプロパティを返す場合**false**、すべてのページ要求が標準的なポストバックになります。 |
 
 コードのパブリック メソッド:
 
@@ -144,7 +143,7 @@ Visual Studio 2008 は、ASP.NET AJAX 対応の web サイトの定義済みテ�
 | --- | --- | --- |
 | SetFocus(string) | Void | 要求が完了したときに、特定のコントロールに、クライアントのフォーカスを設定します。 |
 
-マークアップ子孫:
+マークアップの子孫。
 
 | **タグ** | **説明** |
 | --- | --- |
@@ -152,171 +151,171 @@ Visual Studio 2008 は、ASP.NET AJAX 対応の web サイトの定義済みテ�
 | &lt;ProfileService&gt; | ASP.NET のサービスをプロファイリングするプロキシの詳細を提供します。 |
 | &lt;スクリプト&gt; | その他のスクリプト参照を提供します。 |
 | &lt;asp:ScriptReference&gt; | 特定のスクリプト参照を表します。 |
-| &lt;サービス&gt; | 生成されたプロキシ クラスを持つその他の Web サービス参照を提供します。 |
+| &lt;サービス&gt; | 生成されるプロキシ クラスを持つその他の Web サービス参照を提供します。 |
 | &lt;asp:ServiceReference&gt; | 特定の Web サービス参照を表します。 |
 
-ScriptManager コントロールは、ASP.NET AJAX 拡張機能の必須コアです。 (広範なクライアント側-スクリプトの型システムを含む)、スクリプト ライブラリへのアクセスを提供、部分のレンダリングをサポートおよびその他の ASP.NET サービス (認証と、プロファイリングも他の Web サービス) などの広範なサポートを提供します。 ScriptManager コントロールは、グローバリゼーションとローカリゼーションは、クライアント スクリプトのサポートも提供します。
+ScriptManager コントロールは、ASP.NET AJAX 拡張機能の重要なコアです。 (広範なクライアント側スクリプトの型システムを含む)、スクリプト ライブラリにアクセスできるように、部分的なレンダリングをサポートし、(認証と、プロファイルも他の Web サービス) などの他の ASP.NET サービスの広範なサポートを提供します。 ScriptManager コントロールでは、クライアント スクリプトのグローバリゼーションおよびローカリゼーションのサポートも提供します。
 
-## <a name="providing-alterative-and-supplemental-scripts"></a>こうしたおよび補足的なスクリプトを提供します。
+## <a name="providing-alterative-and-supplemental-scripts"></a>こうしたと補足スクリプト
 
-Microsoft ASP.NET 2.0 AJAX Extensions では、両方のデバッグに全体のスクリプト コードを追加、参照されるアセンブリに埋め込まれたリソースとしてエディションを離すと、開発者は、ScriptManager をカスタマイズしたスクリプト ファイルにリダイレクトだけでなく登録するために解放必要なスクリプトを追加します。
+開発者が自由にカスタマイズしたスクリプト ファイルに、ScriptManager をリダイレクトしたり、登録中に、Microsoft ASP.NET 2.0 AJAX Extensions では、両方のデバッグに全体のスクリプト コードを追加、参照されたアセンブリに埋め込まれたリソースとしてエディションを離すと、必要なスクリプトを追加します。
 
-登録できます (Sys.WebForms 名前空間とカスタム入力システムをサポートするもの) などの通常含まれるスクリプトの既定のバインディングをオーバーライドする、 `ResolveScriptReference` ScriptManager クラスのイベントです。 イベント ハンドラーの問題; のスクリプト ファイルへのパスを変更することがこのメソッドが呼び出されると、スクリプト マネージャーは、異なるまたはカスタマイズされたコピーを送信するスクリプトのクライアントです。
+登録できます (Sys.WebForms 名前空間とカスタム入力システムをサポートするもの) などの通常が含まれているスクリプトの既定のバインディングを無効にする、 `ResolveScriptReference` ScriptManager クラスのイベント。 問題のスクリプト ファイルへのパスを変更する機会がイベント ハンドラーには、このメソッドが呼び出されると、します。スクリプト マネージャーは、クライアントに、スクリプトのさまざまなまたはカスタマイズされたコピーが送信されます。
 
-さらに、スクリプト参照 (によって表される、`ScriptReference`クラス) プログラムから、またはマークアップを使用して指定できます。 これを行うには、プログラムを変更するか、`ScriptManager.Scripts`コレクション、または含める`<asp:ScriptReference>`タグの下、 `<Scripts>` ScriptManager コントロールの最初のレベルの子であるタグ。
+さらに、スクリプト参照 (によって表される、`ScriptReference`クラス) マークアップを使用してプログラムから、または含めることができます。 これを行うには、プログラムで変更するか、`ScriptManager.Scripts`コレクション、または含める`<asp:ScriptReference>`タグの下、`<Scripts>`タグで、ScriptManager コントロールの最初のレベルの子です。
 
-## <a name="custom-error-handling-for-updatepanels"></a>カスタム エラー処理を抑えられる
+## <a name="custom-error-handling-for-updatepanels"></a>カスタム エラー処理を Updatepanel
 
-UpdatePanel コントロールで指定されたトリガーにより、更新プログラムの処理が、エラー処理とカスタム エラー メッセージのサポートは、ページの ScriptManager コントロールのインスタンスによって処理されます。 これには、イベントの公開を`AsyncPostBackError`がページにし、カスタム例外処理のロジックを提供します。
+UpdatePanel コントロールによって指定されたトリガーによって、更新プログラムの処理が、エラー処理とカスタム エラー メッセージのサポートは、ページの ScriptManager コントロールのインスタンスによって処理されます。 これには、イベントの公開を`AsyncPostBackError`できるページにし、カスタム例外処理ロジックを提供します。
 
-指定することによって、AsyncPostBackError イベントを使用するには、`AsyncPostBackErrorMessage`プロパティで、コールバックの完了時に発生するメッセージ ボックスを引き起こします。
+指定することがあります AsyncPostBackError イベントを消費することによって、`AsyncPostBackErrorMessage`プロパティで、コールバックの完了時に発生する警告ボックスが表示されます。
 
-クライアント側のカスタマイズも可能です。 既定のアラートのボックスを使用する代わりにです。インスタンスが表示する、カスタマイズされた`<div>`既定のブラウザーのモーダル ダイアログ ボックスではなく要素。 この場合、クライアント スクリプトでエラーを処理できます。
+クライアント側のカスタマイズが既定の警告ボックス; を使用する代わりにこともできます。たとえば、カスタマイズされた表示したい場合があります`<div>`既定のブラウザーのモーダル ダイアログ ボックスではなく要素。 この場合、クライアント スクリプトでエラーを処理できます。
 
-**カスタム エラーを表示するクライアント側スクリプトの 5 の一覧を表示するには:**
+**カスタム エラーを表示するクライアント側スクリプトの 5 を一覧表示します。**
 
 [!code-html[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample4.html)]
 
-簡単に言えば、前述のスクリプトは、非同期要求が完了したときとのクライアント側の AJAX ランタイムと、コールバックを登録します。 これは、後、エラーが報告されたかどうかを確認し、場合は、カスタム スクリプトでエラーが処理されたことをランタイムに最後に示すの詳細を処理します。
+簡単に言えば、上記のスクリプトは、非同期の要求が完了したときのクライアント側 AJAX ランタイムでコールバックを登録します。 これは、後でエラーが報告されたかどうかをチェックし、そうである場合でカスタム スクリプトでエラーが処理されたことをランタイムに最後に示すは、詳細を処理します。
 
-## <a name="globalization-and-localization-support"></a>グローバリゼーションとローカリゼーションのサポート
+## <a name="globalization-and-localization-support"></a>グローバリゼーションとローカライズのサポート
 
-ScriptManager コントロールのスクリプトの文字列とユーザー インターフェイス コンポーネント; ローカライズ広範なサポートを提供します。ただし、このトピックでは、このホワイト ペーパーの範囲外です。 詳細については、ASP.NET AJAX Extensions にグローバル化のサポートに関するホワイト ペーパーを参照してください。
+ScriptManager コントロールは、スクリプトの文字列とユーザー インターフェイス コンポーネントのローカリゼーションの広範なサポートを提供しますただし、このトピックでは、このホワイト ペーパーの範囲外です。 詳細については、ASP.NET AJAX extensions のグローバル化のサポートに関するホワイト ペーパーを参照してください。
 
 ## <a name="the-updatepanel-control"></a>UpdatePanel コントロール
 
-## <a name="updatepanel-control-reference"></a>UpdatePanel コントロールの参照
+## <a name="updatepanel-control-reference"></a>UpdatePanel コントロールのリファレンス
 
 マークアップが有効なプロパティ:
 
 | **プロパティ名** | **Type** | **説明** |
 | --- | --- | --- |
-| ChildrenAsTriggers | bool | 子コントロールがポストバック時に更新を自動的に起動するかどうかを指定します。 |
-| RenderMode | (ブロック、インライン) 列挙型 | コンテンツの方法は視覚的に表示されるかを指定します。 |
-| UpdateMode | enum (常に、条件付き) | UpdatePanel が部分的なレンダリング中に常に更新されるかどうか、またはトリガーにヒットしたときのみ更新されるかどうかを指定します。 |
+| ChildrenAsTriggers | bool | 子コントロールがポストバックで更新を自動的に起動するかどうかを指定します。 |
+| RenderMode | 列挙型 (ブロック、インライン) | 方法は、コンテンツを視覚的に表示されますを指定します。 |
+| UpdateMode | 列挙型 (常に、条件付き) | 部分的なレンダリング中に、UpdatePanel が常に更新されるかどうか、またはトリガーがヒットしたときにのみ更新されるかどうかを指定します。 |
 
-コード専用のプロパティ:
+コードのみのプロパティ:
 
 | **プロパティ名** | **Type** | **説明** |
 | --- | --- | --- |
-| IsInPartialRendering | bool | 現在の要求の UpdatePanel が部分的なレンダリングをサポートするかどうかを取得します。 |
+| IsInPartialRendering | bool | Updatepanel コントロールが現在の要求の部分的なレンダリングをサポートするかどうかを取得します。 |
 | ContentTemplate | ITemplate | 更新の要求のマークアップのテンプレートを取得します。 |
-| ContentTemplateContainer | コントロール | 更新の要求のプログラムでテンプレートを取得します。 |
-| トリガー | UpdatePanel の TriggerCollection | 現在の UpdatePanel に関連付けられているトリガーの一覧を取得します。 |
+| ContentTemplateContainer | コントロール | 更新の要求をプログラムでテンプレートを取得します。 |
+| トリガー | UpdatePanel の TriggerCollection | 現在の updatepanel コントロールに関連付けられているトリガーの一覧を取得します。 |
 
 コードのパブリック メソッド:
 
 | **メソッド名** | **Type** | **説明** |
 | --- | --- | --- |
-| Update() | Void | プログラムで指定された UpdatePanel を更新します。 それ以外の場合トリガーの UpdatePanel の部分的なレンダリングをトリガーするサーバーの要求を許可します。 |
+| Update() | Void | 指定した updatepanel コントロールをプログラムで更新します。 それ以外の場合いつ UpdatePanel の部分的なレンダリングをトリガーするサーバーの要求を許可します。 |
 
-マークアップ子孫:
+マークアップの子孫。
 
 | **タグ** | **説明** |
 | --- | --- |
-| &lt;ContentTemplate&gt; | 部分的なレンダリングの結果を表示するために使用するマークアップを指定します。 子&lt;asp: UpdatePanel&gt;です。 |
-| &lt;トリガー&gt; | コレクションを指定*n*この UpdatePanel の更新に関連するコントロール。 子&lt;asp: UpdatePanel&gt;です。 |
-| &lt;asp:AsyncPostBackTrigger&gt; | 特定の UpdatePanel の部分ページ レンダリングを起動するトリガーを指定します。 これは、問題の UpdatePanel の子として、コントロールができない可能性がありますもかまいません。 イベント名に細分化されました。子&lt;トリガー&gt;です。 |
-| &lt;asp:PostBackTrigger&gt; | 全体のページが更新を原因となるコントロールを指定します。 これは、問題の UpdatePanel の子として、コントロールができない可能性がありますもかまいません。 オブジェクトに細分化されました。 子&lt;トリガー&gt;です。 |
+| &lt;ContentTemplate&gt; | 部分的なレンダリングの結果を表示するために使用するマークアップを指定します。 子&lt;asp: UpdatePanel&gt;します。 |
+| &lt;トリガー&gt; | コレクションを指定します*n*この UpdatePanel の更新に関連するコントロール。 子&lt;asp: UpdatePanel&gt;します。 |
+| &lt;asp:AsyncPostBackTrigger&gt; | 特定の UpdatePanel の部分ページ レンダリングを起動するトリガーを指定します。 これは、問題の UpdatePanel の子としてコントロールができない可能性がありますもかまいません。 イベント名を管理できます。子&lt;トリガー&gt;します。 |
+| &lt;asp:PostBackTrigger&gt; | 全体のページが更新を実行するコントロールを指定します。 これは、問題の UpdatePanel の子としてコントロールができない可能性がありますもかまいません。 オブジェクトを管理できます。 子&lt;トリガー&gt;します。 |
 
-`UpdatePanel`コントロールはコントロールの AJAX 拡張機能の部分的なレンダリング機能に参加するサーバー側のコンテンツを取り出すためです。 ページでは、使用可能な UpdatePanel コントロールの数に制限はありませんし、入れ子にできます。 各 UpdatePanel は、それぞれは独立して動作できるように、分離性、(ページのさまざまな部分をページのポストバックに依存しないレンダリング、同時に実行されている 2 つ Updatepanel を持つことができます)。
+`UpdatePanel`コントロールがコントロールを AJAX Extensions の部分的なレンダリング機能に参加するサーバー側のコンテンツを区切る。 ページで、可能性のある UpdatePanel コントロールの数に制限はありませんし、入れ子にできます。 個別に各作業できるように、各 UpdatePanel が分離された、(ページのポストバックの独立した、ページのさまざまな部分のレンダリング、同時に実行されている 2 つ Updatepanel を保持できます)。
 
-UpdatePanel 中心的なトリガーがコントロール - 既定では、UpdatePanel の内に含まれる任意のコントロールを制御する`ContentTemplate`ポストバックを作成する、UpdatePanel のトリガーとして登録されます。 つまり、UpdatePanel は、ユーザー コントロール (、GridView など)、既定のデータ バインド コントロールを使用できるようにスクリプトでプログラミングできます。
+UpdatePanel コントロールのトリガーを使用して - 既定では、UpdatePanel の内に含まれる任意のコントロールを主に取引を制御する`ContentTemplate`ポストバックを作成する、UpdatePanel のトリガーとして登録されます。 つまりは、UpdatePanel は、ユーザー コントロールに GridView)、(既定のデータ バインド コントロールを使用できます、スクリプトのようにプログラミングできます。
 
-既定では、ページ上のすべての UpdatePanel コントロールが更新されます部分ページ レンダリングがトリガーされたときに、このようなアクションのトリガーが定義されている UpdatePanel を制御するかどうか。 たとえば、1 つの UpdatePanel ボタン コントロールの定義、そのボタン コントロールがクリックされた場合は、そのページ上のすべての UpdatePanel コントロールが既定では更新されます。 これは、理由は、既定では、 `UpdateMode` UpdatePanel のプロパティに設定されて`Always`です。 また UpdateMode プロパティを設定することがあります`Conditional`場合は、特定のトリガーがヒットは、UpdatePanel の更新されることのみを意味します。
+既定では、ページ上のすべての UpdatePanel コントロールが更新される部分ページ レンダリングがトリガーされたときに、このようなアクションのトリガーが定義されているかどうか、UpdatePanel を制御します。 たとえば、1 つの UpdatePanel ボタン コントロールの定義、そのボタン コントロールがクリックされた場合は、そのページ上のすべての UpdatePanel コントロールは既定で更新されます。 これは、既定で、 `UpdateMode` updatepanel コントロールのプロパティに設定されて`Always`します。 または、UpdateMode プロパティを設定できます`Conditional`、特定のトリガーがヒットした場合は、UpdatePanel の更新されることのみを意味します。
 
-## <a name="custom-control-notes"></a>カスタム コントロールの注意事項
+## <a name="custom-control-notes"></a>カスタム コントロールのノート
 
-UpdatePanel を任意のユーザー コントロールまたはカスタム コントロールを追加できます。ただし、これらのコントロールが含まれているページもあります EnablePartialRendering に設定されたプロパティを持つ ScriptManager コントロール**true**です。
+UpdatePanel をユーザー コントロールまたはカスタム コントロールに追加できます。ただし、これらのコントロールが含まれています ページには EnablePartialRendering に設定するプロパティを使用して ScriptManager コントロールが含める必要がありますも**true**します。
 
-1 つの方法がありますを考慮するこの Web カスタム コントロールを使用して、保護されたをオーバーライドするとき`CreateChildControls()`のメソッド、`CompositeControl`クラスです。 これにより、ページは、部分的なレンダリング; をサポートするいると判断した場合、コントロールの子と外部の間で UpdatePanel を挿入できます。コンテナー内に子コントロールを単にレイヤーをそれ以外の場合、`Control`インスタンス。
+1 つの方法がありますを考慮するこの Web カスタム コントロールを使用して、保護されたオーバーライドとすると`CreateChildControls()`のメソッド、`CompositeControl`クラス。 これにより、ページは、部分的なレンダリングは; をサポートするいると判断した場合、UpdatePanel コントロールの子と外部との間を挿入できます。コンテナー内に子コントロールを単にレイヤーをそれ以外の場合、`Control`インスタンス。
 
 ## <a name="updatepanel-considerations"></a>UpdatePanel の考慮事項
 
-UpdatePanel は ASP.NET ポストバック JavaScript XMLHttpRequest のコンテキスト内での折り返しの黒いボックス、ものとして動作します。 ただし、大幅なパフォーマンスの考慮事項に注意して、両方の面での動作と速度があります。 最適なときに使用することは適切なこともできます、UpdatePanel のしくみを理解するには、AJAX exchange を調べる必要があります。 次の例では、(Firebug は XMLHttpRequest データがキャプチャ) Firebug 拡張子を持つ既存のサイトと、Mozilla Firefox を使用します。
+UpdatePanel は、JavaScript の XMLHttpRequest のコンテキスト内での ASP.NET ポストバックのラッピング黒いボックスのものとして動作します。 ただし、両方の面での動作と速度の点に大幅なパフォーマンスの考慮事項があります。 使用が適切な場合に最適な決定できますは、UpdatePanel のしくみを理解するには、AJAX exchange を調べる必要があります。 次の例では、(Firebug は、XMLHttpRequest のデータをキャプチャ) Firebug 拡張機能で、既存のサイトと、Mozilla Firefox を使用します。
 
-ある、特に、郵便番号コード のテキスト ボックスは、フォームまたはコントロールの市区町村と都道府県のフィールドを設定する必要がありますフォームを検討してください。 このフォームは、最終的には、ユーザーの名前、アドレス、および連絡先情報を含む、メンバーシップ情報を収集します。 考慮するために、特定のプロジェクトの要件に基づく多くの設計の考慮事項があります。
+その他のものをフォームまたはコントロールの市区町村と都道府県のフィールドを設定することになっている postal code テキスト ボックスがあるフォームを検討してください。 このフォームは、最終的には、ユーザーの名前、アドレス、および連絡先情報を含む、メンバーシップ情報を収集します。 特定のプロジェクトの要件に基づいて、考慮に入れるさまざまな設計の考慮事項があります。
 
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image11.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image10.png)
 
-([フルサイズのイメージを表示するをクリックして](understanding-partial-page-updates-with-asp-net-ajax/_static/image12.png))
+([フルサイズの画像を表示する をクリックします](understanding-partial-page-updates-with-asp-net-ajax/_static/image12.png))。
 
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image14.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image13.png)
 
-([フルサイズのイメージを表示するをクリックして](understanding-partial-page-updates-with-asp-net-ajax/_static/image15.png))
+([フルサイズの画像を表示する をクリックします](understanding-partial-page-updates-with-asp-net-ajax/_static/image15.png))。
 
 
-このアプリケーションの元のイテレーションでは、コントロールは、郵便番号、市区町村、および状態を含む、ユーザー登録データの全体を組み込むことでビルドされました。 コントロール全体が UpdatePanel 内でラップし、Web フォームにドロップします。 ユーザーが郵便番号を入力すると、UpdatePanel イベント (バックエンド、トリガーを指定することによって、または true の場合、ChildrenAsTriggers プロパティ セットを使用してに対応する TextChanged イベント) が検出されます。 AJAX では、UpdatePanel 内のフィールドのすべてがポストされる firebug を使用してキャプチャ (右側の図を参照してください)。
+このアプリケーションの元のイテレーションでは、コントロールは、郵便番号、市区町村、および状態を含む、ユーザー登録データの全体を組み込むことでビルドされました。 コントロール全体が、UpdatePanel 内でラップし、Web フォームにドロップします。 ユーザーが郵便番号を入力すると、UpdatePanel は、イベント (バックエンド、トリガーを指定することで、または ChildrenAsTriggers プロパティが true に設定を使用して、いずれかに対応する TextChanged イベント) を検出します。 AJAX ポストバック、UpdatePanel 内のフィールドのすべて FireBug によってキャプチャされます (右側の図を参照してください)。
 
-画面のキャプチャが示されているように、UpdatePanel 内のすべてのコントロールからの値が配信されます (この場合はすべて空)、ViewState フィールドとします。 総じて、以上 9 kb のデータが送信される、実際には 5 バイトのデータのみがこの特定の要求を行うために必要なときにします。 応答はさらに高い肥大化: 合計 57 kb がクライアントに送信、ドロップダウン フィールドとテキスト フィールドを更新するためだけにします。
+画面キャプチャに示すよう、UpdatePanel 内のすべてのコントロールからの値が配信されます (ここではすべて空)、ViewState フィールドとします。 話を超える 9 kb のデータ送信、実際には 5 バイトのデータのみがこの特定の要求を行うために必要なときにされます。 応答は、さらに肥大化: 合計では、クライアントに 57 kb を送信テキスト フィールドおよびドロップダウン フィールドを更新するだけです。
 
-ASP.NET AJAX でプレゼンテーションを更新する方法を表示する目的の場合もあります。 UpdatePanel の更新要求の応答部分が左側に、Firebug コンソール画面に表示されます。これは、特別に策定パイプで区切られた文字列クライアント スクリプトによって分割され、ページで、再構築されます。 具体的には、ASP.NET AJAX の設定、 *innerHTML* UpdatePanel を表すクライアント上の HTML 要素のプロパティです。 ブラウザーは、DOM を再生成を処理する必要がある情報の量によって、多少の時間があります。
+ASP.NET AJAX がプレゼンテーションを更新する方法を確認する関心のあることもあります。 UpdatePanel の更新要求の応答部分に示した左側; Firebug コンソールの表示特別に作成パイプで区切られた文字列でクライアント スクリプトによって分割し、ページの再構築することをお勧めします。 具体的には、ASP.NET AJAX の設定、 *innerHTML* UpdatePanel を表すクライアント上の HTML 要素のプロパティ。 ブラウザーは、DOM を再生成、処理する必要がある情報の量によって、わずかに遅延があります。
 
-DOM の再生成には、その他の問題の数がトリガーされます。
+DOM の再生成には、さまざまなその他の問題がトリガーされます。
 
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image17.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image16.png)
 
-([フルサイズのイメージを表示するをクリックして](understanding-partial-page-updates-with-asp-net-ajax/_static/image18.png))
+([フルサイズの画像を表示する をクリックします](understanding-partial-page-updates-with-asp-net-ajax/_static/image18.png))。
 
 
-- フォーカスのある HTML 要素が、UpdatePanel 内にある場合は、フォーカスが失われます。 そのため、ユーザーの郵便番号コードのテキスト ボックスを終了するタブ キーを押した場合が次の宛先が、City テキスト ボックス。 ただし、UpdatePanel を更新されると、表示、フォーム不要になったがあります、フォーカスし、Tab キーを押してが開始した (リンク) などのフォーカス要素の強調表示します。
-- カスタムのクライアント側スクリプトの任意の型が使用される関数で DOM 要素をアクセス、参照が保持されている場合は機能しなくなります部分的なポストバック後に。
+- フォーカスがある HTML 要素は、UpdatePanel 内では、フォーカスが失われます。 そのため、郵便番号のテキスト ボックスを終了する Tab キーが押されたユーザーが次の宛先がでした都道府県のテキスト ボックス。 ただし、UpdatePanel には、表示が更新されるとは、フォームには、フォーカスがあったが不要になったし、Tab キーを押してが開始した (リンク) などのフォーカス要素の強調表示します。
+- カスタムのクライアント側スクリプトの任意の型が使用されて関数で DOM 要素をアクセス、参照が保持されている場合場合がありますが機能しなくなります部分ポストバック後にします。
 
-Updatepanel は、キャッチ オール ソリューションではありません。 代わりに、特定の状況は、プロトタイプを作成、小さなコントロールの更新プログラムを含むの簡単な解決策を提供およびする可能性がありますが DOM では低いのため、.NET オブジェクト モデルを使い慣れた ASP.NET 開発者にとって使い慣れたインターフェイスを提供 シナリオによっては、アプリケーションのパフォーマンスが向上につながる可能性のある選択肢の数があります。
+Updatepanel は、包括的なソリューションではありません。 代わりに、特定の状況は、プロトタイプ作成、更新プログラムの小規模な制御などの簡単な解決方法を提供し、使い慣れたインターフェイスを持つ可能性があるが DOM ではないのため、.NET オブジェクト モデルを使い慣れた ASP.NET 開発者に提供 アプリケーション シナリオによっては、パフォーマンスが向上につながる可能性のある選択肢を数多くあります。
 
-- 内容の使用を検討し、JSON (JavaScript Object Notation) には、ページ上の静的メソッドを呼び出す web サービスの呼び出しが呼び出されているかのようにできます。 のメソッドは静的ため、状態は必要ありません。スクリプトの呼び出し元には、パラメーターが指定されて、結果が非同期的に返されます。
-- 1 つのコントロールは、アプリケーション全体で複数の場所で使用する必要がある場合は、Web サービスと JSON を使用してください。 もう一度ほとんどの特殊な処理が要求され、非同期的に動作します。
+- PageMethods と JSON (JavaScript Object Notation) を使用してにより、開発者は、web サービス呼び出しが呼び出される場合、ページ上の静的メソッドを呼び出すことを検討してください。 メソッドは静的であるため状態必要はありません。スクリプトの呼び出し元は、パラメーターを提供し、非同期的に結果が返されます。
+- 1 つのコントロールは、アプリケーション全体で複数の場所で使用する必要がある場合は、Web サービスと JSON を使用してください。 これは再び、ほとんどの特殊な処理が必要ですし、非同期的に動作します。
 
-Web サービスまたはページ メソッドを使用して機能を組み込むことにも短所があります。 第一に、ユーザー コントロール (.ascx ファイル) に小規模コンポーネントの機能を構築する通常の ASP.NET 開発者傾向があります。 ページのメソッドは、これらのファイルでホストされることはできません。これらは、実際の .aspx ページ クラス内でホストする必要があります。 同様に、web サービスの場合は、.asmx クラス内でホストされる必要があります。 アプリケーションによっては、このアーキテクチャ違反する可能性が単一の責任の原則をほとんどまたはまったくないまとまり ties が可能性がある 2 つ以上の物理コンポーネントを 1 つのコンポーネントの機能に分散ようになりました。
+Web サービスまたはページ メソッドを介して機能を組み込むには、欠点もがあります。 第一に、ユーザー コントロール (.ascx ファイル) に小規模コンポーネントの機能を構築する通常の ASP.NET 開発者傾向があります。 ページ メソッドは、これらのファイルでホストされることはできません。これらは、実際の .aspx ページのクラス内でホストする必要があります。 同様に、web サービスの場合は、.asmx クラス内でホストする必要があります。 アプリケーションによっては、その 1 つのコンポーネントの機能がまとまりのある ties がほとんどまたはまったくないことがある 2 つ以上の物理コンポーネント間で分散ようになりましたこのアーキテクチャが単一責任の原則を侵害する可能性があります。
 
-最後に、アプリケーションでは、Updatepanel が使用されている必要がある場合は、次のガイドラインがトラブルシューティングやメンテナンスを支援する必要があります。
+最後に、アプリケーションでは、Updatepanel を使用する必要がある場合、次のガイドラインはトラブルシューティングやメンテナンスを支援する必要があります。
 
-- **入れ子にする Updatepanel が最小限に抑え、だけでなく内での単位もコードのユニット間で。** たとえば、UpdatePanel を制御するには、UpdatePanel を含む別のコントロールを含む、UpdatePanel も含まれていますが、コントロールをラップするページがクロス単位入れ子です。 これにより、どの要素を更新する必要がありますになり予期しない更新 Updatepanel の子を明確にします。
-- **保持、*場合、ChildrenAsTriggers*プロパティを false に設定し、イベントをトリガーするを明示的に設定します。** 使用して、`<Triggers>`コレクションはより明確イベントを処理する方法であり、メンテナンス タスクを支援し、開発者は、イベントのオプトインの強制、予期しない動作を防ぐことがあります。
-- **機能を実現するのにには、最小の可能な単位を使用します。** 前述の折り返し、郵便サービスの説明で最低限のものだけが、サーバー、合計処理、およびクライアントとサーバーの exchange の使用量を時間を短縮、パフォーマンスが向上します。
+- **コードの単位も Updatepanel が最小限に抑え、だけでなく内でユニット、入れ子にします。** たとえば、UpdatePanel を制御するには、UpdatePanel は、UpdatePanel を格納している別のコントロールが含まれているも含まれていますが、コントロールをラップするページでは間単位の入れ子。 これにより、どの要素が、更新する必要があり、Updatepanel の子に予期しない更新を防止を明確にします。
+- **保持、 *ChildrenAsTriggers*プロパティを false に設定し、イベントをトリガーするを明示的に設定します。** 使用して、`<Triggers>`コレクションのイベントを処理する方が明確な方法し、でのメンテナンス タスクを支援し、開発者は、イベントのオプトインを強制的に、予期しない動作ができない可能性があります。
+- **機能を実現するのにには、最小の可能な単位を使用します。** 最低限でのみ、サーバー、合計処理、およびクライアントとサーバーの exchange のフット プリントに時間が短縮の折り返し、郵便サービスの説明で説明したように、パフォーマンスの向上。
 
 ## <a name="the-updateprogress-control"></a>UpdateProgress コントロール
 
-## <a name="updateprogress-control-reference"></a>UpdateProgress の制御参照
+## <a name="updateprogress-control-reference"></a>UpdateProgress コントロールのリファレンス
 
 マークアップが有効なプロパティ:
 
 | **プロパティ名** | **Type** | **説明** |
 | --- | --- | --- |
-| AssociatedUpdate-PanelID | String | UpdateProgress を報告する必要がある UpdatePanel の ID を指定します。 |
-| DisplayAfter | Int | 非同期要求を開始した後、このコントロールが表示される前に、タイムアウト (ミリ秒単位) を指定します。 |
+| AssociatedUpdate-PanelID | String | この UpdateProgress を報告する必要がある updatepanel コントロールの ID を指定します。 |
+| DisplayAfter | Int | 非同期要求を開始した後、このコントロールが表示される前に、(ミリ秒単位)、タイムアウトを指定します。 |
 | DynamicLayout | bool | 進行状況を動的にレンダリングするかどうかを指定します。 |
 
-マークアップ子孫:
+マークアップの子孫。
 
 | **タグ** | **説明** |
 | --- | --- |
-| &lt;ProgressTemplate&gt; | コントロール テンプレートこのコントロールに表示されるコンテンツのセットにはが含まれています。 |
+| &lt;ProgressTemplate&gt; | このコントロールに表示されるコンテンツの設定、コントロール テンプレートが含まれています。 |
 
-UpdateProgress コントロールでは、サーバーへの転送に必要な作業を行う際に、ユーザーの関心を保持するためのフィードバックの測定できます。 これはユーザーに通知する作業をしている場合でも、そのわかりにくいかもしれません、ほとんどのユーザーがページを更新して、強調表示、ステータス バーの表示に使用されるために特に役立ちます。
+UpdateProgress コントロールは、サーバーへの転送に必要な処理を行う際に、ユーザーの関心を保持するフィードバックのメジャーを提供します。 ユーザーには、する作業をしている場合でも、そのわかりにくいかもしれません、更新、および強調表示、ステータス バーが表示されるページにほとんどのユーザーが使用されるために特に役立ちます。
 
-メモとして UpdateProgress コントロールに表示できる任意の場所ページ階層。 ただし、部分的なポストバックが子 UpdatePanel (UpdatePanel が別の UpdatePanel にネストされている) から開始される場合、そのトリガー UpdatePanel では、子の UpdateProgress テンプレートが表示されますが、子をポストバックします。UpdatePanel だけでなく、親 UpdatePanel です。 ただし、トリガーが親 UpdatePanel の直接の子の場合、親に関連付けられている UpdateProgress テンプレートのみが表示されます。
+UpdateProgress コントロールに表示できる任意の場所 ページの階層。 ただし、部分ポストバックが子 (UpdatePanel が別の UpdatePanel 内で入れ子になって) UpdatePanel からが開始した場合、ポストバック UpdatePanel では、子の UpdateProgress テンプレートが表示されますが、子をトリガーします。UpdatePanel と UpdatePanel の親。 ただし、トリガーが UpdatePanel、親の直接の子の場合、親に関連付けられている UpdateProgress テンプレートのみが表示されます。
 
 ## <a name="summary"></a>まとめ
 
-Microsoft ASP.NET AJAX 拡張機能は、高度な製品の web コンテンツにアクセスする際に支援するために、web アプリケーションに豊富なユーザー エクスペリエンスを提供するよう設計されています。 ASP.NET AJAX Extensions に、部分ページ レンダリング コントロールの一部としては、ScriptManager を UpdatePanel、および UpdateProgress コントロールを含むはツールキットの最も可視のコンポーネントの一部です。
+Microsoft ASP.NET AJAX 拡張機能は、web コンテンツをよりアクセスできるように支援するために、web アプリケーションに豊富なユーザー エクスペリエンスを提供する高度な製品です。 ASP.NET AJAX の拡張機能であり、ページの部分的なレンダリング コントロールの一部として ScriptManager、UpdatePanel、および UpdateProgress コントロールを含むいくつかのツールキットの最も目立つコンポーネント。
 
-ScriptManager コンポーネント、拡張機能の JavaScript のクライアントのプロビジョニングの統合だけでなく最小限の開発への投資と連携するさまざまなサーバー側とクライアント側コンポーネントを使用します。
+ScriptManager コンポーネントの拡張機能が、クライアントの JavaScript のプロビジョニングの統合だけでなく最小限の開発の投資と連動するさまざまなサーバー側とクライアント側コンポーネントを使用します。
 
-UpdatePanel コントロールは、明確なマジック ボックス - UpdatePanel 内のマークアップはサーバー側の分離コードがあるし、ページの更新はトリガーされません。 UpdatePanel コントロールは、入れ子にすることができ、その他の Updatepanel でのコントロールに依存することができます。 既定では、Updatepanel は、この機能細かくチューニングできる、宣言またはプログラムがその子孫のコントロールによって呼び出された任意のポストバックを処理します。
+UpdatePanel コントロールは、明らかなマジック ボックス - UpdatePanel 内のマークアップのサーバー側の分離コードがあるし、ページの更新がトリガーされないことができます。 UpdatePanel コントロールは、入れ子にすることができで他の Updatepanel コントロールに依存することができます。 既定では、Updatepanel は、この機能細かくチューニングできる、宣言またはプログラムがその子孫のコントロールによって呼び出されるすべてのポストバックを処理します。
 
-UpdatePanel コントロールを使用する場合は、開発者が問題の発生可能性のあるパフォーマンスに与える影響の注意してください。 潜在的な代替手段は、アプリケーションの設計を考慮する必要がありますが、web サービスおよびページ メソッドです。
+UpdatePanel コントロールを使用する場合は、開発者が潜在的に発生する可能性がパフォーマンスに与える影響に注意してくださかった。 必要があります。 潜在的な代替手段には、web サービスとページ メソッドが含まれますが、アプリケーションの設計を考慮する必要があります。
 
-UpdateProgress のコントロールで者が無視されていないと、ページの中に起こっているバック グラウンドの要求がそれ以外の場合のことを知っているユーザーは、何も、ユーザー入力に応答します。 部分的なレンダリングの結果を中止する機能も含まれています。
+コントロールで者を無視されてはいないは、ページの中にでバック グラウンドで要求が行われていることを知っているユーザーは、UpdateProgress は何ユーザー入力に応答します。 部分的なレンダリングの結果を中止する機能も含まれています。
 
-同時に、これらのツールは、リッチでシームレスなユーザー エクスペリエンスを作成するには、ユーザーに見えること server の作業を行うと、小さいワークフローに割り込むことを支援します。
+同時に、これらのツールは、server の作業をユーザーに見えることに作成し、小さいワークフローを中断することによって、リッチでシームレスなユーザー エクスペリエンスの作成を支援します。
 
-## <a name="bio"></a>略歴
+## <a name="bio"></a>自己紹介
 
-Scott カテゴリは、1997 年以降の Microsoft の Web テクノロジの使用されているがあり、myKB.com の代表者 ([www.myKB.com](http://www.myKB.com))、専門分野は、ASP.NET の書き込みの際にベースのアプリケーションのナレッジ ベースのソフトウェア ソリューションに重点を置きます。 Scott が接続時に電子メール[ scott.cate@myKB.com ](mailto:scott.cate@myKB.com)または彼のブログで[ScottCate.com](http://ScottCate.com)
+1997 年からマイクロソフトの Web テクノロジで働いてあり myKB.com プレジデント、Scott Cate ([www.myKB.com](http://www.myKB.com)) ベースのナレッジ ベースのソフトウェア ソリューションに重点を置いてアプリケーションを ASP.NET の記述を専門としています。 Scott は時に電子メールが接続可能[ scott.cate@myKB.com ](mailto:scott.cate@myKB.com)またはで彼のブログ[ScottCate.com](http://ScottCate.com)
 
 > [!div class="step-by-step"]
 > [次へ](understanding-asp-net-ajax-updatepanel-triggers.md)

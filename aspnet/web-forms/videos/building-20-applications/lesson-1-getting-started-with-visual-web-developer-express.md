@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/building-20-applications/lesson-1-getting-started-with-visual-web-developer-express
-title: '[レッスン 1:]入門 Visual Web Developer Express |Microsoft ドキュメント'
+title: '[レッスン 1:]概要 Visual Web Developer Express |Microsoft Docs'
 author: microsoft
-description: このレッスンでは、Visual Web Developer Express Edition、について理解し dyn を構築するプログラムを使用して関連するワークフローを見てを開始するがしています.
+description: このレッスンでは、Visual Web Developer Express Edition を理解し、プログラムを使用して、dyn のビルドに関連するワークフローについて開始しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2005
 ms.topic: article
 ms.assetid: e9341b0b-1f01-4371-bfe0-0fb7410916a4
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-1-getting-started-with-visual-web-developer-express
 msc.type: video
-ms.openlocfilehash: 273850d9d0605c70c366ba42b6d679a7c2be65e1
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 8d57f3b6b330892092517053a0eae348211ddea3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885322"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37380637"
 ---
-<a name="lesson-1-getting-started-with-visual-web-developer-express"></a>[レッスン 1:]入門 Visual Web Developer Express
+<a name="lesson-1-getting-started-with-visual-web-developer-express"></a>[レッスン 1:]概要 Visual Web Developer Express
 ====================
 によって[Microsoft](https://github.com/microsoft)
 
-このレッスンでは、Visual Web Developer Express Edition、について理解し動的 ASP.NET Web サイトを構築するプログラムを使用して関連するワークフローを見てに開始されます。
+このレッスンでは、Visual Web Developer Express Edition を理解し、プログラムを使用して動的な ASP.NET Web サイトの構築に関連するワークフローについて開始されます。
 
 [&#9654;ビデオでは (28 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/lesson-1-getting-started-with-visual-web-developer-express)
 

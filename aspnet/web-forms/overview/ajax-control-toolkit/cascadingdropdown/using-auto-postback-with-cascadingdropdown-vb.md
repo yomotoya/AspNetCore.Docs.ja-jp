@@ -1,69 +1,68 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-vb
-title: CascadingDropDown (VB) での自動ポストバックの使用 |Microsoft ドキュメント
+title: 自動ポストバックを使用する (VB) |Microsoft Docs
 author: wenz
-description: CascadingDropDown コントロール、AJAX コントロール Toolkit でコントロールを拡張する DropDownList anoth 内の値が 1 つの DropDownList 負荷の変更に関連付けられているようにしています.
+description: CascadingDropDown コントロール、AJAX Control Toolkit では、anoth 内の値が 1 つの DropDownList の読み込みの変更に関連付けられているように DropDownList コントロールを拡張しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: 0b34f7f6-a0cc-4b9f-9761-643fb0bb3ece
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e8a48692dd96ee6a647bfb57ce2915b4e85544fe
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 274189184b82734e89a30c9450079d7e07971f3c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871377"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37378162"
 ---
-<a name="using-auto-postback-with-cascadingdropdown-vb"></a>CascadingDropDown (VB) での自動ポストバックの使用
+<a name="using-auto-postback-with-cascadingdropdown-vb"></a>自動ポストバックを使用する (VB)
 ====================
 によって[Christian Wenz](https://github.com/wenz)
 
-[コードをダウンロードする](http://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown3.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown3VB.pdf)
+[コードのダウンロード](http://download.microsoft.com/download/9/0/7/907760b1-2c60-4f81-aeb6-ca416a573b0d/cascadingdropdown3.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/cascadingdropdown3VB.pdf)
 
-> AJAX コントロールのツールキットで CascadingDropDown コントロールは、別の DropDownList の値が 1 つの DropDownList 負荷の変更に関連付けられているように DropDownList コントロールを拡張します。 ただし、ASP CascadingDropDown コントロールを使用する場合。NET の DropDownList のコントロールの AutoPostBack 機能は動作しません、自体 (不要な) のポストバックを生成、一覧に非同期的にデータを読み込むためです。 一部の JavaScript コードでは、この特殊効果を回避できます。
+> CascadingDropDown コントロール、AJAX Control Toolkit では、もう 1 つの DropDownList の値が 1 つの DropDownList の読み込みの変更に関連付けられているように、DropDownList コントロールを拡張します。 ただし、ASP CascadingDropDown コントロールを使用する場合。NET の DropDownList コントロール AutoPostBack 機能が機能しませんので、リストにデータを非同期的に読み込む自体 (不要な)、ポストバックを生成します。 いくつかの JavaScript コードでは、この影響を回避できます。
 
 
 ## <a name="overview"></a>概要
 
-AJAX コントロールのツールキットで CascadingDropDown コントロールは、別の DropDownList の値が 1 つの DropDownList 負荷の変更に関連付けられているように DropDownList コントロールを拡張します。 (たとえば、1 つのリストが状態、私たちの一覧を提供し、[次へ] の一覧は状態にある主要都市で埋められます)。ただし、ASP CascadingDropDown コントロールを使用する場合。NET の DropDownList のコントロールの AutoPostBack 機能は動作しません、自体 (不要な) のポストバックを生成、一覧に非同期的にデータを読み込むためです。 一部の JavaScript コードでは、この特殊効果を回避できます。
+CascadingDropDown コントロール、AJAX Control Toolkit では、もう 1 つの DropDownList の値が 1 つの DropDownList の読み込みの変更に関連付けられているように、DropDownList コントロールを拡張します。 (たとえば、1 つのリストは、私たちの状態の一覧を提供します。 し、[次へ] の一覧は、その状態の主な都市で埋められます)。ただし、ASP CascadingDropDown コントロールを使用する場合。NET の DropDownList コントロール AutoPostBack 機能が機能しませんので、リストにデータを非同期的に読み込む自体 (不要な)、ポストバックを生成します。 いくつかの JavaScript コードでは、この影響を回避できます。
 
 ## <a name="steps"></a>手順
 
-ASP.NET AJAX とコントロール Toolkit の機能をアクティブ化するために、`ScriptManager`コントロールを任意の場所 ページで配置する必要があります (ただし内、 &lt; `form` &gt;要素)。
+ASP.NET AJAX Control Toolkit の機能をアクティブ化するために、`ScriptManager`コントロールは、ページのどこでも配置する必要があります (ただし内、 &lt; `form` &gt;要素)。
 
 [!code-aspx[Main](using-auto-postback-with-cascadingdropdown-vb/samples/sample1.aspx)]
 
-その後、DropDownList コントロールが必要です。
+次に、DropDownList コントロールが必要です。
 
 [!code-aspx[Main](using-auto-postback-with-cascadingdropdown-vb/samples/sample2.aspx)]
 
-このリストの CascadingDropDown extender が追加され、web サービスの URL とメソッドの情報。
+このリストの CascadingDropDown エクステンダーが追加になり、web サービスの URL とメソッドの情報を提供します。
 
 [!code-aspx[Main](using-auto-postback-with-cascadingdropdown-vb/samples/sample3.aspx)]
 
-CascadingDropDown extender し、非同期的に呼び出します次のメソッド シグネチャを持つ web サービス。
+CascadingDropDown エクステンダー非同期的に呼び出して、次のメソッド シグネチャを持つ web サービス。
 
 [!code-vb[Main](using-auto-postback-with-cascadingdropdown-vb/samples/sample4.vb)]
 
-メソッドは、型 CascadingDropDown 値の配列を返します。 リスト項目のキャプションとし、値型のコンス トラクターが最初に必要です (HTML`value`属性)。
+CascadingDropDown 値の型の配列を返します。 リスト項目のキャプションとし、値型のコンス トラクターが最初に必要です (HTML`value`属性)。
 
 [!code-aspx[Main](using-auto-postback-with-cascadingdropdown-vb/samples/sample5.aspx)]
 
-ブラウザーでページの読み込みがいっぱいに 3 つのベンダーと、ドロップダウン リスト、もう 1 つが既に選択されています。 また、ASP.NET、定義、 `__doPostBack()` JavaScript メソッドです。 ページが読み込まれると、この JavaScript の呼び出しがのみ内にある要素には、ドロップダウン リストに追加されます。 リスト内の要素がない場合、コントロール ツールキットが現在を読み込んで、JavaScript コードが、タイムアウト時間を使用し、0.5 秒でもう一度試みます。
+ブラウザーでページの読み込みが挿入されますをドロップダウン リストに 3 つのベンダーでは、あらかじめ選択されている 2 つ目。 また、ASP.NET の定義、 `__doPostBack()` JavaScript メソッド。 ページが読み込まれると、この JavaScript 呼び出しはのみにある場合の要素には、ドロップダウン リストに追加されます。 場合は、リスト内の要素がない、Control Toolkit が現在読み込んでいる、ため、JavaScript コードは、タイムアウトを使用し、0.5 秒後にもう一度試みます。
 
 [!code-html[Main](using-auto-postback-with-cascadingdropdown-vb/samples/sample6.html)]
 
-これにより、ポストバックは、一覧内に実際に要素が、ユーザーはエントリを選択するときにのみ実行されます。
+この方法では、ポストバックは、リスト内に実際に要素が、ユーザーがエントリを選択してにのみ実行されます。
 
 
-[![ポストバック リスト要素を選択すると、します。](using-auto-postback-with-cascadingdropdown-vb/_static/image2.png)](using-auto-postback-with-cascadingdropdown-vb/_static/image1.png)
+[![ポストバックを発生させるリスト要素の選択](using-auto-postback-with-cascadingdropdown-vb/_static/image2.png)](using-auto-postback-with-cascadingdropdown-vb/_static/image1.png)
 
-ポストバック リスト要素を選択すると、([フルサイズのイメージを表示するをクリックして](using-auto-postback-with-cascadingdropdown-vb/_static/image3.png))
+リスト要素を選択すると、ポストバックを発生させる ([フルサイズの画像を表示する をクリックします](using-auto-postback-with-cascadingdropdown-vb/_static/image3.png))。
 
 > [!div class="step-by-step"]
 > [前へ](presetting-list-entries-with-cascadingdropdown-vb.md)

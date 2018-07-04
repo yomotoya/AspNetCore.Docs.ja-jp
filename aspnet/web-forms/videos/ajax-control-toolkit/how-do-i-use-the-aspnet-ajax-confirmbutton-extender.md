@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-confirmbutton-extender
-title: '[How Do i:]ASP.NET AJAX ConfirmButton Extender を使用しますか。 | Microsoft Docs'
+title: '[How Do i:]ASP.NET AJAX ConfirmButton エクステンダーを使用しますか。 | Microsoft Docs'
 author: JoeStagner
-description: ASP.NET AJAX コントロールのツールキットで ConfirmButton extender が L. ボタンの click イベントに、確認ダイアログ ボックスを追加する簡単な方法を提供する方法について説明.
+description: ASP.NET AJAX Control Toolkit で ConfirmButton エクステンダーが L.、ボタンのクリック イベントを確認のダイアログ ボックスを追加する簡単な方法を提供する方法について説明します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/05/2007
 ms.topic: article
 ms.assetid: 40287d43-6e0d-47ec-881f-c4dff970d1b9
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-confirmbutton-extender
 msc.type: video
-ms.openlocfilehash: 49593b45de484e1eb1685502d23ff1c68c46d22a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1f5cdf209305e922692fe7f27c8253bee39067f7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30881533"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37392777"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-confirmbutton-extender"></a>[How Do i:]ASP.NET AJAX ConfirmButton Extender を使用しますか。
+<a name="how-do-i-use-the-aspnet-ajax-confirmbutton-extender"></a>[How Do i:]ASP.NET AJAX ConfirmButton エクステンダーを使用しますか。
 ====================
-によって[行える](https://github.com/JoeStagner)
+によって[Joe Stagner](https://github.com/JoeStagner)
 
-ASP.NET AJAX コントロールのツールキットで ConfirmButton extender が LinkButton、ボタン、ImageButton のコントロールの click イベントに、確認ダイアログ ボックスを追加する簡単な方法を提供する方法について説明します。 これにより、ユーザーが差し迫っている操作をキャンセルするオプションを使用します。
+ASP.NET AJAX Control Toolkit で ConfirmButton エクステンダーがボタン、LinkButton、ImageButton コントロールのクリック イベントを確認のダイアログ ボックスを追加する簡単な方法を提供する方法について説明します。 これにより、ユーザーが迫っているアクションをキャンセルするオプションを使用します。
 
-[&#9654;(3 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-confirmbutton-extender)
+[&#9654;ビデオ (3 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-confirmbutton-extender)
 
 > [!div class="step-by-step"]
 > [前へ](how-do-i-get-started-with-the-aspnet-ajax-animation-extender-control.md)

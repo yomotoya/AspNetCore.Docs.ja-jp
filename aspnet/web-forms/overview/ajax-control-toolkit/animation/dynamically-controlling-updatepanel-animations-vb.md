@@ -1,70 +1,69 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-vb
-title: UpdatePanel アニメーション (VB) を動的に制御する |Microsoft ドキュメント
+title: UpdatePanel アニメーション (VB) を動的に制御する |Microsoft Docs
 author: wenz
-description: アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 内容を.
+description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 内容として、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: bea66072-59b6-42b4-98fa-211812f5925f
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ff2853b4457a83a7367b4d1072d21929c40a3ed2
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 79a256f5d5c62123184beffce3365ade0ac13e46
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871546"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365942"
 ---
 <a name="dynamically-controlling-updatepanel-animations-vb"></a>UpdatePanel アニメーション (VB) を動的に制御します。
 ====================
 によって[Christian Wenz](https://github.com/wenz)
 
-[コードをダウンロードする](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation2.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation2VB.pdf)
+[コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation2.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation2VB.pdf)
 
-> アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 UpdatePanel の内容は、の特別な extender が存在し、アニメーション、フレームワークに大きく依存して: UpdatePanelAnimation です。 UpdatePanel トリガーと共にも使用できます。
+> アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 UpdatePanel の内容は、特別なエクステンダーが存在アニメーション フレームワークに大きく依存している: UpdatePanelAnimation します。 これは UpdatePanel トリガーと共にも使用できます。
 
 
 ## <a name="overview"></a>概要
 
-アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 内容を`UpdatePanel`、特別な extender が存在するアニメーション フレームワークに大きく依存している:`UpdatePanelAnimation`です。 と共に使用するも`UpdatePanel`トリガーします。
+アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 内容として、 `UpdatePanel`、アニメーション フレームワークに大きく依存している特別なエクステンダーが存在します:`UpdatePanelAnimation`します。 でも機能と共に`UpdatePanel`トリガーします。
 
 ## <a name="steps"></a>手順
 
-含めるには、まず通常どおり、 `ScriptManager`  ページで、ASP.NET AJAX ライブラリが読み込まれ、コントロール ツールキットを使用できるようにします。
+最初の手順は、通常どおりに含める、 `ScriptManager`  ページで、ASP.NET AJAX ライブラリが読み込まれ、Control Toolkit を使用できるようにします。
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-vb/samples/sample1.aspx)]
 
-このシナリオでは、アニメーションは、現在の時刻の表示に適用されます。 この情報を使用してラベルに書き込まれることができます、`Page_Load()`メソッド、または次のインライン コードの使用 (ここではわかりやすくするため)。
+このシナリオでは、アニメーションは、現在の時刻の表示に適用されます。 この情報を使用して、ラベルに書き込まれることができます、`Page_Load()`メソッド、または次のインライン コードの使用 (わかりやすくする)。
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-vb/samples/sample2.aspx)]
 
-また、時刻が更新をトリガーするボタンが作成されます。
+また、時間の更新をトリガーするボタンが作成されます。
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-vb/samples/sample3.aspx)]
 
-このコードに格納し、`<ContentTemplate>`のセクションで、`UpdatePanel`要素。 パネルの`UpdateMode`に属性を設定する必要があります`"Conditional"`トリガーのみはパネルの内容を更新するため、します。 `<Triggers>`のセクション、 `UpdatePanel`、非同期ポストバック トリガーが作成されに関連付けられている、`Click`ボタンのイベントです。 したがって、ユーザーが、ボタンをクリックした場合、`UpdatePanel`は更新します。 ここでは、マークアップを`UpdatePanel`コントロール。
+このコードに配置し、`<ContentTemplate>`のセクション、`UpdatePanel`要素。 パネルの`UpdateMode`に属性を設定する必要があります`"Conditional"`、トリガーのみがパネルの内容を更新します。 `<Triggers>`のセクション、 `UpdatePanel`、非同期ポストバックのトリガーが作成されに関連付けられている、`Click`ボタンのイベント。 したがって、ユーザーが、ボタンをクリックした場合、`UpdatePanel`が更新されます。 次のマークアップに示します、`UpdatePanel`コントロール。
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-vb/samples/sample4.aspx)]
 
-最後に、`UpdatePanelAnimationExtender`構成する必要があります。 設定、`TargetControlID`属性パネルの ID をおよびエクステンダー内でアニメーションを定義します。 フェードする意味で、優れた視覚的に重点を置いてが更新された時間を作成します。 Extender マークアップは可能性がありますし、次のようになります。
+最後に、`UpdatePanelAnimationExtender`構成する必要があります。 設定、 `TargetControlID` 、パネルの id 属性と、エクステンダー内でアニメーションを定義します。 フェードはある意味、更新された時間に優れた visual 重点を置いたを作成します。 エクステンダーのマークアップには可能性がありますし、このようになります。
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-vb/samples/sample5.aspx)]
 
-ブラウザーで、ファイルを実行します。 ボタンをクリックするたびに常に 1 秒の間のフェードインのパネルで、現在の時刻が表示されます。
+ブラウザーでファイルを実行します。 ボタンをクリックしたときに、常に 1 秒の間フェードのパネルで、現在の時刻が表示されます。
 
 
 [![現在の時刻がフェードインします。](dynamically-controlling-updatepanel-animations-vb/_static/image2.png)](dynamically-controlling-updatepanel-animations-vb/_static/image1.png)
 
-現在の時刻がフェードイン ([フルサイズのイメージを表示するをクリックして](dynamically-controlling-updatepanel-animations-vb/_static/image3.png))
+現在の時刻がフェードイン ([フルサイズの画像を表示する をクリックします](dynamically-controlling-updatepanel-animations-vb/_static/image3.png))。
 
 > [!div class="step-by-step"]
 > [前へ](animating-an-updatepanel-control-vb.md)

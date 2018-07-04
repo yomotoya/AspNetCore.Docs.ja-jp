@@ -1,31 +1,30 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/displaying-data-in-a-chart-part-2
-title: データを表示するグラフ (パート 2) |Microsoft ドキュメント
+title: グラフ (パート 2) でのデータの表示 |Microsoft Docs
 author: JoeStagner
-description: グラフ (パート 2) のチュートリアルでデータを表示するビデオ付き
+description: グラフ (パート 2) のチュートリアルではデータを表示するビデオ付き
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2011
 ms.topic: article
 ms.assetid: f28e8c8e-5e0f-4bc3-af69-2e6e18a6d100
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/displaying-data-in-a-chart-part-2
 msc.type: video
-ms.openlocfilehash: 90646cf8b9874f0a8ede1133eb2aa555bc417eac
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: d4f25606c155faa943910d1ef0ac869f39d8209c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30895852"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37391707"
 ---
-<a name="displaying-data-in-a-chart-part-2"></a>グラフ (パート 2) 内のデータの表示
+<a name="displaying-data-in-a-chart-part-2"></a>グラフ (パート 2) にデータを表示
 ====================
-によって[行える](https://github.com/JoeStagner)
+によって[Joe Stagner](https://github.com/JoeStagner)
 
-グラフ (パート 2) のチュートリアルでデータを表示するビデオ付き
+グラフ (パート 2) のチュートリアルではデータを表示するビデオ付き
 
-[&#9654;ビデオでは (9 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/displaying-data-in-a-chart-part-2)
+[&#9654;ビデオ (9 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/displaying-data-in-a-chart-part-2)
 
 > [!div class="step-by-step"]
 > [前へ](displaying-data-in-a-chart-part-1.md)

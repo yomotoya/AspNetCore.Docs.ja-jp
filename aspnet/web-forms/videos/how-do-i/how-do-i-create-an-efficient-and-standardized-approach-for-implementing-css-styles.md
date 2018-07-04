@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles
-title: '操作方法: 作成、効率的かつ標準化された方法 CSS スタイルを実装するのですか。 | Microsoft Docs'
+title: '操作方法: 作成、効率的で標準化されたアプローチの CSS スタイルを実装するのでしょうか。 | Microsoft Docs'
 author: rick-anderson
-description: このビデオ Chris Pels で整理して、web サイトに標準化されたルック アンド フィールを提供する CSS スタイルを実装する方法を示しています。 さらに、スタイルには.
+description: このビデオの Chris Pels で整理して、web サイトに標準化されたルック アンド フィールを提供する CSS スタイルを実装する方法を示しています。 さらに、スタイルは、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/15/2010
 ms.topic: article
 ms.assetid: 1d902492-c6a3-4ab8-8e3d-57384ac893d5
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles
 msc.type: video
-ms.openlocfilehash: be55f23b94dd014a049e7cbb3f70d3e7b194ae6c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1e2068bbf6e88182094c08b829ec00b0ff4c7749
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26521901"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379609"
 ---
-<a name="how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles"></a>操作方法: 作成、効率的かつ標準化された方法 CSS スタイルを実装するのですか。
+<a name="how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles"></a>操作方法: 作成、効率的で標準化されたアプローチの CSS スタイルを実装するのでしょうか。
 ====================
 によって[Chris Pels](https://twitter.com/chrispels)
 
-このビデオ Chris Pels で整理して、web サイトに標準化されたルック アンド フィールを提供する CSS スタイルを実装する方法を示しています。 さらに、最大限の柔軟性と再利用性を提供する、スタイルが整理されています。 サイトの外観に重点を置いた一連のスタイルが作成されます。 最初に、サンプルのページの CSS ファイルは、サンプル web サイトが作成されます。 作成したスタイルの最初のグループは、サイト全体のコンテンツのコンテナーを提供する指向です。 次に、一連のスタイルは、ユーザー インターフェイス要素の"state"を表示する機能を的を絞ったが追加されます。 最後に、ユーザーの相互作用のキューのスタイルのセットが作成されます。 各スタイルは、サンプルのページの HTML 要素と共に使用されます。 アプローチを使用して同じ実装のスタイルのコントロール要素のレイアウトをそのサイトについてもあります。
+このビデオの Chris Pels で整理して、web サイトに標準化されたルック アンド フィールを提供する CSS スタイルを実装する方法を示しています。 さらに、最大限の柔軟性と再利用性を提供するスタイルに整理されます。 サイトの外観について重点的にスタイルのセットが作成されます。 最初に、サンプル ページの CSS ファイルは、サンプルの web サイトが作成されます。 作成されたスタイルの最初のグループは、サイト全体のコンテンツのコンテナーを提供する指向です。 次に、スタイルのセットでは、ユーザー インターフェイス要素の「状態」を表示する処理に的を絞ったが追加されます。 最後に、ユーザーの相互作用の四角形のスタイルのセットが作成されます。 各スタイルは、サンプル ページの HTML 要素で使用されます。 使用して、同じ方法で実装スタイルのコントロール要素のレイアウトをサイトについてのディスカッションもあります。
 
-[&#9654;です。ビデオでは (27 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles)
+[&#9654;ビデオ (27 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles)

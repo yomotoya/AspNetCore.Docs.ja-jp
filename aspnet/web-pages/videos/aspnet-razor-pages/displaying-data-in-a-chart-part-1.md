@@ -1,6 +1,6 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/displaying-data-in-a-chart-part-1
-title: グラフ (パート 1) でのデータの表示 |Microsoft ドキュメント
+title: グラフ (パート 1) でのデータの表示 |Microsoft Docs
 author: JoeStagner
 description: グラフのチュートリアル (パート 1) でデータを表示するビデオ付き
 ms.author: aspnetcontent
@@ -9,19 +9,18 @@ ms.date: 02/25/2011
 ms.topic: article
 ms.assetid: 47b7f30e-ae86-46e4-b5a4-e7452093becc
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/displaying-data-in-a-chart-part-1
 msc.type: video
-ms.openlocfilehash: c069e5f88a9745a05b26d2f16ff395d763836953
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1f6492ce9b31c100621aac498ad5edfa74f7ddd4
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30899789"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379178"
 ---
-<a name="displaying-data-in-a-chart-part-1"></a>グラフ (パート 1) でデータを表示します。
+<a name="displaying-data-in-a-chart-part-1"></a>グラフ (パート 1) にデータを表示
 ====================
-によって[行える](https://github.com/JoeStagner)
+によって[Joe Stagner](https://github.com/JoeStagner)
 
 グラフのチュートリアル (パート 1) でデータを表示するビデオ付き
 

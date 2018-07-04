@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/aspnet-35/how-do-i/how-do-i-advance-cascading-style-sheet-features-and-management
-title: '[How Do i:]カスケード スタイル シートの機能と管理を進める |Microsoft ドキュメント'
+title: '[How Do i:]カスケード スタイル シートの機能と管理を進める |Microsoft Docs'
 author: rick-anderson
-description: このビデオでは、前のビデオから基本的なカスケード スタイル シートに構築します。 要素を作成した、基本機能を越えて進みますとしています.
+description: このビデオでは、前のビデオから基本的なカスケード スタイル シートに作成します。 要素を作成した基本の進みますとしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/14/2008
 ms.topic: article
 ms.assetid: 6a7e8bea-2a0d-4011-ad71-3f3b5f152fe4
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-advance-cascading-style-sheet-features-and-management
 msc.type: video
-ms.openlocfilehash: dd4ccfd06f71fbec93d0c83ce9f0d7bb5ad7b3da
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f5d2f8abe87a726a0dec3f098a0f37f582135e64
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30882658"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37392254"
 ---
-<a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a>[How Do i:]カスケード スタイル シートの機能と管理に進める
+<a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a>[How Do i:]カスケード スタイル シートの機能と管理を進める
 ====================
 Asli Bilgin によって
 
-このビデオでは、前のビデオから基本的なカスケード スタイル シートに構築します。 要素を作成したばかり、今すぐカスタム クラスを作成、基本機能を越えて進みます。 ビルド スタイル シート ウィザードの Visual Studio 2008 にクラスを管理する方法を学習します。
+このビデオでは、前のビデオから基本的なカスケード スタイル シートに作成します。 私たちは、先ほど作成した要素と、次に、カスタム クラスを作成しますが、基本機能を越えてページに進みます。 クラスは、ビルド スタイル シート ウィザードの Visual Studio 2008 を管理する方法を学習します。
 
-[&#9654;ビデオでは (9 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-advance-cascading-style-sheet-features-and-management)
+[&#9654;ビデオ (9 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-advance-cascading-style-sheet-features-and-management)
 
 > [!div class="step-by-step"]
 > [前へ](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
