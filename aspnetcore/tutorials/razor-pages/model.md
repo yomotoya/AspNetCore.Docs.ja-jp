@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) を利用し、データベース�
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 508cca07fa96c20e228d2c55c9fb101f7fc3cb02
-ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
+ms.openlocfilehash: ed8faf8b3049adc7bcc7953d63ad805b0a836bd9
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36327553"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961176"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>ASP.NET Core での Razor ページ アプリへのモデルの追加
 
@@ -49,10 +49,40 @@ ms.locfileid: "36327553"
 
 * **[モデル クラス]** ドロップ ダウンで、**[Movie (RazorPagesMovie.Models)]** を選択します。
 * **データ コンテキスト クラス**行で、**+** (プラス) 記号を選択し、生成された名前 **RazorPagesMovie.Models.RazorPagesMovieContext** を受け入れます。
-* **[データ コンテキスト クラス]** ドロップ ダウンで、**[RazorPagesMovie.Models.RazorPagesMovieContext]** を選択します。
+* **[データ コンテキスト クラス]** ドロップ ダウンで、**[RazorPagesMovie.Models.RazorPagesMovieContext]** を選択します
 * **[追加]** を選びます。
 
 ![前の手順からのイメージ。](model/_static/arp.png)
+
+スキャフォールディングのプロセスが作成され、次のファイルが変更されます。
+
+### <a name="files-created"></a>作成されたファイル
+
+* *Pages/Movies* 作成、削除、詳細、編集、インデックス。 これらのページを次のチュートリアルで詳しく説明します。
+* *Data/RazorPagesMovieContext.cs*
+
+### <a name="files-updates"></a>更新されたファイル
+
+* *Startup.cs*: このファイルに対しての変更を次のセクションで詳しく説明します。
+* *appsettings.json*: ローカル データベースへの接続に使用される接続文字列を追加します。
+
+## <a name="examine-the-context-registered-with-dependency-injection"></a>依存関係挿入に登録されるコンテキストを調べる
+
+ASP.NET Core は、[依存関係挿入](xref:fundamentals/dependency-injection)とビルドされます。 サービス (EF Core DB コンテキストなど) は、アプリケーションの起動時に依存関係挿入に登録されます。 これらのサービスを必要とするコンポーネント (Razor ページなど) には、コンストラクターのパラメーターを介してこれらのサービスが指定されます。 DB コンテキスト インスタンスを取得するコンストラクター コードは、チュートリアルの後半で示します。
+
+スキャフォールディング ツールが自動的に DB コンテキストを作成し、依存関係挿入コンテナーと共に登録します。
+
+`Startup.ConfigureServices` メソッドを調べます。 強調表示された行は、スキャフォールダーによって追加されました。
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Startup.cs?name=snippet_ConfigureServices&highlight=12-13)]
+
+所与のデータ モデルの EF Core 機能を調整するメイン クラスは、DB コンテキスト クラスです。 データ コンテキストは [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) から派生されます。 データ コンテキストによって、データ モデルに含めるエンティティが指定されます。 このプロジェクトでは、クラスに `RazorPagesMovieContext` という名前が付けられています。
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Data/RazorPagesMovieContext.cs)]
+
+上記のコードによって、エンティティ セットの [DbSet\<Movie>](/dotnet/api/microsoft.entityframeworkcore.dbset-1) プロパティが作成されます。 Entity Framework の用語では、エンティティ セットは通常はデータベース テーブルに対応します。 エンティティはテーブル内の行に対応します。
+
+[DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) オブジェクトでメソッドが呼び出され、接続文字列の名前がコンテキストに渡されます。 ローカル開発の場合、[ASP.NET Core 構成システム](xref:fundamentals/configuration/index)が *appsettings.json* ファイルから接続文字列を読み取ります。
 
 <a name="pmc"></a>
 ## <a name="perform-initial-migration"></a>最初の移行の実行
@@ -194,4 +224,4 @@ SQL の例外が発生した場合は、移行を実行済みであり、デー�
 
 > [!div class="step-by-step"]
 > [前: はじめに](xref:tutorials/razor-pages/razor-pages-start)
-> [次: Razor ページのスキャフォールディング](xref:tutorials/razor-pages/page)    
+> [次: Razor ページのスキャフォールディング](xref:tutorials/razor-pages/page)

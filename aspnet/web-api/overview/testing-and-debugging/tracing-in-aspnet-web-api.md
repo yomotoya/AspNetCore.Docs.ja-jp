@@ -1,41 +1,40 @@
 ---
 uid: web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
-title: ASP.NET Web API 2 のトレース |Microsoft ドキュメント
+title: ASP.NET Web API 2 でのトレース |Microsoft Docs
 author: MikeWasson
-description: ASP.NET Web API でのトレースを有効にする方法を示します。
+description: ASP.NET Web API でのトレースを有効にする方法を示しています。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2014
 ms.topic: article
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 7392ae5d9bc4c3aab45a9373099a0ee18e873a4f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f9c33e62a1d04bc7851be13560a2bd39e997448f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28044209"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366865"
 ---
-<a name="tracing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 のトレース
+<a name="tracing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 でのトレース
 ====================
-によって[Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
-> Web ベース アプリケーションをデバッグするときに、トレース ログの適切なセットを代わりにはありません。 このチュートリアルでは、ASP.NET Web API でのトレースを有効にする方法を示します。 この機能を使用すると、どのような Web API フレームワークは、コント ローラーを呼び出す前後にトレースされます。 また、独自のコードをトレースに使用することができます。
+> Web ベースのアプリケーションをデバッグするときは、適切な一連のトレース ログの代替はありません。 このチュートリアルでは、ASP.NET Web API でのトレースを有効にする方法を示します。 Web API フレームワークが、コント ローラーを呼び出す前後にはトレースには、この機能を使用することができます。 独自のコードをトレースに使用できます。
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されているソフトウェアのバージョン
+> ## <a name="software-versions-used-in-the-tutorial"></a>このチュートリアルで使用されるソフトウェアのバージョン
 > 
 > 
-> - [Visual Studio 2017](https://www.visualstudio.com/downloads/) (Visual Studio 2015 でも動作します)
+> - [Visual Studio 2017](https://www.visualstudio.com/downloads/) (Visual Studio 2015 でも機能します)
 > - Web API 2
 > - [Microsoft.AspNet.WebApi.Tracing](http://www.nuget.org/packages/Microsoft.AspNet.WebApi.Tracing)
 
 
-## <a name="enable-systemdiagnostics-tracing-in-web-api"></a>System.Diagnostics Web API のトレースを有効にします。
+## <a name="enable-systemdiagnostics-tracing-in-web-api"></a>System.Diagnostics Web API でのトレースを有効にします。
 
-最初に、新しい ASP.NET Web アプリケーション プロジェクトを作成します。 Visual Studio から、**ファイル**メニューの **新規**、し**プロジェクト**です。 **テンプレート**、 **Web** **ASP.NET Web アプリケーション**です。
+最初に新しい ASP.NET Web アプリケーション プロジェクトを作成します。 Visual Studio から、**ファイル**メニューの **新規**、し**プロジェクト**します。 **テンプレート**、 **Web**、 **ASP.NET Web アプリケーション**します。
 
 [![](tracing-in-aspnet-web-api/_static/image2.png)](tracing-in-aspnet-web-api/_static/image1.png)
 
@@ -43,33 +42,33 @@ Web API プロジェクト テンプレートを選択します。
 
 [![](tracing-in-aspnet-web-api/_static/image4.png)](tracing-in-aspnet-web-api/_static/image3.png)
 
-**ツール**メニューの **ライブラリ パッケージ マネージャー**、し**パッケージの管理コンソール**です。
+**ツール**メニューの **ライブラリ パッケージ マネージャー**、し**Package Manage Console**します。
 
 パッケージ マネージャー コンソール ウィンドウで、次のコマンドを入力します。
 
 [!code-console[Main](tracing-in-aspnet-web-api/samples/sample1.cmd)]
 
-最初のコマンドは、最新の Web API トレース パッケージをインストールします。 コア Web API パッケージも更新します。 2 番目のコマンドは、最新バージョンに WebApi.WebHost パッケージを更新します。
+最初のコマンドは、最新の Web API トレース パッケージをインストールします。 Core Web API のパッケージも更新されます。 2 番目のコマンドは、最新バージョンに WebApi.WebHost パッケージを更新します。
 
 > [!NOTE]
-> Web API の特定のバージョンを対象とする場合は、バージョン フラグは、トレースのパッケージをインストールするときにします。
+> Web API の特定のバージョンを対象とする場合を使用して、バージョン フラグは、トレースのパッケージをインストールするときにします。
 
 
-アプリで WebApiConfig.cs ファイルを開く\_開始フォルダーです。 次のコードを追加、**登録**メソッドです。
+アプリで WebApiConfig.cs ファイルを開く\_開始フォルダー。 次のコードを追加、**登録**メソッド。
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample2.cs?highlight=6)]
 
-このコードを追加、 [SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx)クラスが Web API パイプラインをします。 **SystemDiagnosticsTraceWriter**クラスをトレースに書き込みます[System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace)です。
+このコードを追加、 [SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx)クラスを Web API パイプライン。 **SystemDiagnosticsTraceWriter**クラスへのトレースを書き込みます[System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace)します。
 
-トレースを表示するには、デバッガーでアプリケーションを実行します。 ブラウザーに移動`/api/values`です。
+トレースを表示するには、デバッガーでアプリケーションを実行します。 ブラウザーに移動します。`/api/values`します。
 
 ![](tracing-in-aspnet-web-api/_static/image5.png)
 
-トレース ステートメントは、Visual Studio では、出力ウィンドウに書き込まれます。 (から、**ビュー**メニューの **出力**)。
+トレース ステートメントは、Visual Studio の [出力] ウィンドウに書き込まれます。 (から、**ビュー**メニューの **出力**)。
 
 [![](tracing-in-aspnet-web-api/_static/image7.png)](tracing-in-aspnet-web-api/_static/image6.png)
 
-**SystemDiagnosticsTraceWriter**トレースを書き込みます**System.Diagnostics.Trace**、別のトレース リスナーを登録することができます。 たとえば、書き込むトレース ログ ファイルにします。 トレース ライターの詳細については、次を参照してください。、[トレース リスナー](https://msdn.microsoft.com/library/4y5y10s7.aspx) MSDN のトピックです。
+**SystemDiagnosticsTraceWriter**トレースを書き込みます**System.Diagnostics.Trace**、別のトレース リスナーを登録することができます。 たとえば、書き込むトレース ログ ファイルにします。 トレース ライターの詳細については、次を参照してください。、[トレース リスナー](https://msdn.microsoft.com/library/4y5y10s7.aspx) msdn トピック。
 
 ### <a name="configuring-systemdiagnosticstracewriter"></a>SystemDiagnosticsTraceWriter を構成します。
 
@@ -77,60 +76,60 @@ Web API プロジェクト テンプレートを選択します。
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample3.cs)]
 
-制御できる 2 つの設定があります。
+制御可能な 2 つの設定があります。
 
-- IsVerbose: false の場合、各トレースは最小限の情報を格納します。 True の場合、トレースは、追加情報を含めます。
-- MinimumLevel: 最小トレース レベルを設定します。 順序でのトレース レベルは、デバッグ、Info、Warn、Error、および致命的なエラーです。
+- IsVerbose: false の場合、各トレースは最小限の情報を格納します。 True の場合、トレースには、詳細が含まれます。
+- MinimumLevel: 最小トレース レベルを設定します。 順序でのトレース レベルは、デバッグ、Info、Warn、エラー、および致命的なエラー。
 
 ## <a name="adding-traces-to-your-web-api-application"></a>トレースを Web API アプリケーションに追加します。
 
-トレース ライターを追加することにより、即時にアクセス Web API パイプラインによって作成されたトレースです。 独自のコードを追跡するのにトレース ライターを使用することもできます。
+トレース ライターを追加する即時にアクセス Web API パイプラインによって作成されたトレース。 独自のコードをトレースにトレース ライターを使用することもできます。
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample4.cs)]
 
-トレース ライターを取得する**HttpConfiguration.Services.GetTraceWriter**です。 このメソッドは、経由でアクセスできる、コント ローラーから、 **ApiController.Configuration**プロパティです。
+トレース ライターを取得する**HttpConfiguration.Services.GetTraceWriter**します。 コント ローラーからこのメソッドはからアクセスできる、 **ApiController.Configuration**プロパティ。
 
-トレースを作成するに呼び出せる、 **ITraceWriter.Trace**メソッドを直接、ですが、 [ITraceWriterExtensions](https://msdn.microsoft.com/library/system.web.http.tracing.itracewriterextensions.aspx)クラスは、わかりやすいは一部の拡張メソッドを定義します。 たとえば、**情報**前に示したメソッドは、トレース レベルでトレースを作成**情報**です。
+トレースを書き込むには、呼び出すことができます、 **ITraceWriter.Trace**メソッドを直接が、 [ITraceWriterExtensions](https://msdn.microsoft.com/library/system.web.http.tracing.itracewriterextensions.aspx)クラスのわかりやすいは一部の拡張メソッドを定義します。 たとえば、**情報**前に示したメソッドは、トレース レベルでトレースを作成します**情報**します。
 
 ## <a name="web-api-tracing-infrastructure"></a>Web API トレース インフラストラクチャ
 
 このセクションでは、Web API のカスタム トレース ライターを作成する方法について説明します。
 
-Microsoft.AspNet.WebApi.Tracing パッケージは、Web API の一般的なトレース インフラストラクチャに構築されます。 Microsoft.AspNet.WebApi.Tracing を使用する代わりにも接続できる他のトレース/ログイン ライブラリでなど[NLog](http://nlog-project.org/)または[log4net](http://logging.apache.org/log4net/)です。
+Microsoft.AspNet.WebApi.Tracing パッケージは、Web API で一般的なトレース インフラストラクチャ上に構築されます。 Microsoft.AspNet.WebApi.Tracing を使用せずに組み込むことも可能で他のトレース/ログイン ライブラリなど[NLog](http://nlog-project.org/)または[log4net](http://logging.apache.org/log4net/)します。
 
-トレースを収集するには、実装、 **ITraceWriter**インターフェイスです。 単純な例を次に示します。
+トレースを収集するには、実装、 **ITraceWriter**インターフェイス。 簡単な例を次に示します。
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample5.cs)]
 
-**ITraceWriter.Trace**メソッドは、トレースを作成します。 呼び出し元は、カテゴリおよびトレース レベルを指定します。 カテゴリは、任意のユーザー定義の文字列にすることができます。 実装**トレース**次を行う必要があります。
+**ITraceWriter.Trace**メソッドは、トレースを作成します。 呼び出し元には、カテゴリおよびトレース レベルを指定します。 カテゴリには、任意のユーザー定義文字列を指定できます。 実装**トレース**次を実行する必要があります。
 
-1. 新しい**TraceRecord**です。 ように、要求、カテゴリ、およびトレース レベルで初期化します。 これらの値は、呼び出し元によって提供されます。
-2. 呼び出す、 *traceAction*を委任します。 このデリゲート内の残りの部分を埋めるために、呼び出し元が必要、 **TraceRecord**です。
-3. 書き込み、 **TraceRecord**、したい任意のログ記録手法を使用します。 次に例を呼び出すだけ**System.Diagnostics.Trace**です。
+1. 新規作成**TraceRecord**します。 ように、要求、カテゴリ、およびトレースのレベルで初期化します。 これらの値は、呼び出し元によって提供されます。
+2. 呼び出す、 *traceAction*を委任します。 残りの部分を埋めるために、このデリゲート内で、呼び出し元が期待どおり、 **TraceRecord**します。
+3. 書き込み、 **TraceRecord**を任意のログ記録手法を使用します。 次に例を呼び出すだけです**System.Diagnostics.Trace**します。
 
 ## <a name="setting-the-trace-writer"></a>トレース ライターの設定
 
-トレースを有効にするには、Web API を使用するを構成する必要があります、 **ITraceWriter**実装します。 これを行う、 **HttpConfiguration**オブジェクトを次のコードに示すようにします。
+トレースを有効にするを使用する Web API を構成する必要があります、 **ITraceWriter**実装します。 これを行う、 **HttpConfiguration**オブジェクト、次のコードに示すようにします。
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample6.cs)]
 
-1 つだけのトレース ライターは、アクティブにできます。 既定では、Web API の設定、 &quot;、no-op&quot;は何もトレースします。 (、 &quot;、No-op&quot;トレース コードがトレース ライターがあるかどうかを確認する必要がないように、トレースが存在する**null**トレースを書き込む前にします)。
+1 つだけのトレース ライターはアクティブにすることはできます。 既定では、Web API の設定、&quot;は no-op&quot;は何もトレースします。 (、&quot;は no-op&quot;トレース コードがトレース ライターがあるかどうかを確認する必要がないように、トレースが存在する**null**トレースを書き込む前にします)。
 
-## <a name="how-web-api-tracing-works"></a>どのように Web API の動作をトレース
+## <a name="how-web-api-tracing-works"></a>Web API の動作をトレースの方法
 
-Web API の使用例の Web API を使用してトレースを*ファサード*パターン: トレースが有効になっている場合は、Web API は、trace の呼び出しを実行するクラスを持つ要求パイプラインのさまざまな部分で折り返されます。 します。
+Web API の使用例の Web API を使用してトレースを*ファサード*パターン: Web API トレースを有効にすると、トレースの呼び出しを実行するクラスを使用して、要求パイプラインのさまざまな部分が折り返されます。
 
-たとえば、コント ローラーを選択すると、パイプラインを使用して、 **IHttpControllerSelector**インターフェイスです。 実装するクラスを挿入する、pipleline トレースを有効になっているに**IHttpControllerSelector**が実際の実装を通じて呼び出し。
+たとえば、コント ローラーを選択するときに、パイプラインを使用して、 **IHttpControllerSelector**インターフェイス。 実装するクラスを挿入する、pipleline トレースが有効になっている、 **IHttpControllerSelector**が実際の実装を通じて呼び出し。
 
-![Web API トレースは、ファサード パターンを使用します。](tracing-in-aspnet-web-api/_static/image8.png)
+![Web API のトレースは、ファサード パターンを使用します。](tracing-in-aspnet-web-api/_static/image8.png)
 
-このデザインの利点は次のとおりです。
+この設計の利点は次のとおりです。
 
-- トレース ライターを追加しないと、トレースは、コンポーネントはインスタンス化されていないと、パフォーマンスの影響を与えるありません。
-- など、既定のサービスを置き換える場合は、 **IHttpControllerSelector**独自のカスタム実装とトレースは影響しません、トレースは、ラッパー オブジェクトによって行われるためです。
+- トレース ライターを追加しない場合、トレーシング コンポーネントはインスタンス化されませんをパフォーマンスに与える影響はありません。
+- など、既定のサービスを置き換える場合**IHttpControllerSelector**を独自のカスタム実装とトレースが影響を受けませんトレースはラッパー オブジェクトによって行われるためです。
 
-既定値に置き換えることで、独自のカスタム framework では、Web API トレース フレームワーク全体を置換することもできます**ITraceManager**サービス。
+既定値を置き換えることで、独自のカスタム フレームワークで Web API トレース フレームワーク全体を置換することもできます**ITraceManager**サービス。
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample7.cs)]
 
-実装**ITraceManager.Initialize**トレースは、システムを初期化します。 これが置き換えられるに注意してください、*全体*のすべての Web API に組み込まれているトレース コードを含むトレース フレームワークです。
+実装**ITraceManager.Initialize**トレース システムを初期化します。 これに置き換わることに注意してください、*全体*トレース フレームワーク、すべての Web API に組み込まれているトレース コードを含むです。
