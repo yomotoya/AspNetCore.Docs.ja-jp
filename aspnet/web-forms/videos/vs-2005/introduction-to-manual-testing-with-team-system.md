@@ -1,33 +1,32 @@
 ---
 uid: web-forms/videos/vs-2005/introduction-to-manual-testing-with-team-system
-title: Team System での手動テストの概要 |Microsoft ドキュメント
+title: Team System による手動テストの概要 |Microsoft Docs
 author: rick-anderson
-description: このビデオでは、作成および手動のテストの Visual Studio チーム システム機能を使用して、アプリケーションの手動テスト_ケースを実行する方法を確認しています.
+description: このビデオでは、作成および手動のテストの Visual Studio チーム システムの機能を使用して、アプリケーションの手動のテスト_ケースを実行する方法を見る.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/09/2007
 ms.topic: article
 ms.assetid: 28c752e0-a44c-468f-9dd8-2a98185d8f36
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/introduction-to-manual-testing-with-team-system
 msc.type: video
-ms.openlocfilehash: 9e48e7a2002d0283f7c6ea6bc02f7ef351e76dd9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: be2bdcf43eb1cd49bfda6201e8cbd9456d8f3250
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30894841"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37396017"
 ---
-<a name="introduction-to-manual-testing-with-team-system"></a><span data-ttu-id="ab374-103">Team System での手動テストの概要</span><span class="sxs-lookup"><span data-stu-id="ab374-103">Introduction to Manual Testing with Team System</span></span>
+<a name="introduction-to-manual-testing-with-team-system"></a><span data-ttu-id="8c14f-103">Team System による手動テストの概要</span><span class="sxs-lookup"><span data-stu-id="8c14f-103">Introduction to Manual Testing with Team System</span></span>
 ====================
-<span data-ttu-id="ab374-104">Eric Lee によって</span><span class="sxs-lookup"><span data-stu-id="ab374-104">by Eric Lee</span></span>
+<span data-ttu-id="8c14f-104">Eric Lee が</span><span class="sxs-lookup"><span data-stu-id="8c14f-104">by Eric Lee</span></span>
 
-<span data-ttu-id="ab374-105">このビデオで作成および手動のテスト Visual Studio Team System の機能を使用して、アプリケーションの手動テスト_ケースを実行する方法を確認します。</span><span class="sxs-lookup"><span data-stu-id="ab374-105">In this video we see how you can create and run your manual test cases for your applications by using the manual testing features of Visual Studio Team System.</span></span>
+<span data-ttu-id="8c14f-105">このビデオで作成および手動のテストの Visual Studio Team System の機能を使用して、アプリケーションの手動のテスト_ケースを実行する方法がわかります。</span><span class="sxs-lookup"><span data-stu-id="8c14f-105">In this video we see how you can create and run your manual test cases for your applications by using the manual testing features of Visual Studio Team System.</span></span>
 
-[<span data-ttu-id="ab374-106">&#9654;(8 分) のビデオを見る</span><span class="sxs-lookup"><span data-stu-id="ab374-106">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-manual-testing-with-team-system)
+[<span data-ttu-id="8c14f-106">&#9654;ビデオ (8 分)</span><span class="sxs-lookup"><span data-stu-id="8c14f-106">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-manual-testing-with-team-system)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="ab374-107">[前へ](introduction-to-load-testing-web-applications-with-team-system.md)
-> [次へ](introduction-to-managing-and-running-tests-with-team-system.md)</span><span class="sxs-lookup"><span data-stu-id="ab374-107">[Previous](introduction-to-load-testing-web-applications-with-team-system.md)
+> <span data-ttu-id="8c14f-107">[前へ](introduction-to-load-testing-web-applications-with-team-system.md)
+> [次へ](introduction-to-managing-and-running-tests-with-team-system.md)</span><span class="sxs-lookup"><span data-stu-id="8c14f-107">[Previous](introduction-to-load-testing-web-applications-with-team-system.md)
 [Next](introduction-to-managing-and-running-tests-with-team-system.md)</span></span>
