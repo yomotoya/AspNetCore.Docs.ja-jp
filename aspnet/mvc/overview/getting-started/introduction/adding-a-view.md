@@ -1,20 +1,19 @@
 ---
-title: MVC アプリケーションにビューの追加
+title: MVC アプリへのビューの追加
 author: Rick-Anderson
-description: MVC アプリケーションにビューの追加
+description: MVC アプリへのビューの追加
 ms.author: riande
 manager: wpickett
 ms.date: 09/1721/2017
 ms.topic: article
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: 21db97e635b5db580df31f46ca7f8b60a80d6f94
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: a6046d467dbd36f4f3ca5721a3b7c7424e18e00a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "30873431"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370284"
 ---
 <a name="adding-a-view"></a>ビューの追加
 ====================
@@ -22,63 +21,63 @@ ms.locfileid: "30873431"
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
-このセクションでしようとしている変更、`HelloWorldController`クリーンにするテンプレート ファイルは、クライアントに HTML 応答を生成するプロセスをカプセル化するビューを使用するクラス。 
+このセクションではしようとしている変更、`HelloWorldController`ビュー テンプレート ファイルを明確には、クライアントへの HTML 応答を生成するプロセスをカプセル化を使用するクラス。 
 
-使用してビュー テンプレート ファイルを作成、 [Razor ビュー エンジン](../../../../web-pages/overview/getting-started/introducing-razor-syntax-c.md)です。 Razor ベースのビューのテンプレートが、 *.cshtml*ファイル拡張子、および HTML を使用して C# の場合の出力を作成する簡潔な方法を提供します。 Razor 文字とビュー テンプレートの作成時に必要なキーの数を最小化され、ワークフローをコーディングする高速で、流体できます。
+使用してビュー テンプレート ファイルを作成します、 [Razor ビュー エンジン](../../../../web-pages/overview/getting-started/introducing-razor-syntax-c.md)します。 Razor ベースのビュー テンプレートが、 *.cshtml*ファイル拡張子、および HTML 出力を c# を使用して作成する洗練された方法を提供します。 Razor の文字と、ビュー テンプレートの作成時に必要なキーストローク数を最小化し、ワークフローのコーディングの高速で、流体できます。
 
-現在、`Index` メソッドは、コントローラー クラスでハード コーディングされるメッセージを含む文字列を返します。 変更、`Index`を返すメソッドを`View`オブジェクトを次のコードに示すようにします。
+現在、`Index` メソッドは、コントローラー クラスでハード コーディングされるメッセージを含む文字列を返します。 変更、`Index`を返すメソッドを`View`オブジェクト、次のコードに示すようにします。
 
 [!code-csharp[Main](adding-a-view/samples/sample1.cs?highlight=1,3)]
 
-`Index`上記のメソッドでは、ビュー テンプレートを使用して、ブラウザーに HTML 応答を生成します。 コント ローラーのメソッド (とも呼ばれる[アクション メソッド](http://rachelappel.com/asp.net-mvc-actionresults-explained))、ように、`Index`一般に、上記のメソッドが返す、 [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx) (から派生したクラスまたは[ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx)) などの文字列のないプリミティブ型。
+`Index`上記のメソッドでは、ビュー テンプレートを使用して、ブラウザーへの HTML 応答を生成します。 コント ローラー メソッド (とも呼ばれます[アクション メソッド](http://rachelappel.com/asp.net-mvc-actionresults-explained)) など、`Index`一般に、上記のメソッドが返す、 [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx) (から派生したクラスまたは[ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx))、string と同様にないプリミティブ型。
 
-右クリックして、 *Views\HelloWorld*フォルダーをクリック**追加**をクリックし、 **MVC 5 ビュー ページ (Razor) のレイアウト**です。
+右クリックして、 *Views\HelloWorld*フォルダーをクリックします**追加**、 をクリックし、**レイアウト (Razor) を使用する MVC 5 ビュー ページ**します。
   
 ![](adding-a-view/_static/image1.png)   
   
-**項目の名前を指定** ダイアログ ボックスに、入力*インデックス*、順にクリック**OK**です。  
+**項目の名前を指定** ダイアログ ボックスに、入力*インデックス*、順にクリックします**OK**します。  
   
 ![](adding-a-view/_static/image2.png)  
   
-**レイアウト ページの選択**ダイアログ ボックスで、既定値をそのまま使用 **\_Layout.cshtml**  をクリック**OK**です。  
+**レイアウト ページの選択**ダイアログ ボックスで、既定値をそのまま使用 **\_Layout.cshtml**  をクリック**OK**。  
   
 ![](adding-a-view/_static/image3.png)  
   
-上記のダイアログ ボックスで、 *\shared*左側のウィンドウでフォルダーを選択します。 別のフォルダーで、カスタム レイアウト ファイルをした場合を選択する可能性があります。 レイアウト ファイルは、チュートリアルの後半で取り上げます
+上記のダイアログ ボックスで、 *views \shared*左側のウィンドウでフォルダーを選択します。 カスタム レイアウト ファイルを別のフォルダーである場合は、選択する可能性があります。 チュートリアルの後半で、レイアウト ファイルについて説明します
 
-*MvcMovie\Views\HelloWorld\Index.cshtml*ファイルを作成します。
+*MvcMovie\Views\HelloWorld\Index.cshtml*ファイルが作成されます。
 
 ![](adding-a-view/_static/image4.png)
 
-次の強調表示されているマークアップを追加します。
+次の強調表示されたマークアップを追加します。
 
 [!code-cshtml[Main](adding-a-view/samples/sample2.cshtml?highlight=4-11)]
 
-右クリックして、 *Index.cshtml*ファイルおよび選択した**ブラウザーで表示**です。
+右クリックして、 *Index.cshtml*ファイルおよび選択**ブラウザーで表示**します。
 
 ![PI](adding-a-view/_static/image5.png)
 
-右クリック、 *Index.cshtml*ファイルおよび選択した**Page Inspector で表示します。** 参照してください、 [Page Inspector チュートリアル](../../views/using-page-inspector-in-aspnet-mvc.md)詳細についてはします。
+右クリック、 *Index.cshtml*ファイルおよび選択**Page Inspector で表示します。** 参照してください、 [Page Inspector チュートリアル](../../views/using-page-inspector-in-aspnet-mvc.md)詳細についてはします。
 
-また、アプリケーションを実行しを参照、`HelloWorld`コント ローラー (`http://localhost:xxxx/HelloWorld`)。 `Index`コント ローラーでメソッドが多くの作業を実行していない以外の場合は、ステートメントを単純に実行された`return View()`、指定されている、メソッドが、ブラウザーへの応答を表示するためにテンプレート ファイルの表示を使用する必要があります。 ASP.NET MVC の既定値を使用してに明示的に使用するビューのテンプレート ファイルの名前を指定しませんでしたので、 *Index.cshtml*でファイルの表示、 *\Views\HelloWorld*フォルダーです。 次の図は、文字列を示しています。 &quot;、ビュー テンプレートから Hello!&quot;ビューで、ハードコーディングします。
+また、アプリケーションを実行しを参照、`HelloWorld`コント ローラー (`http://localhost:xxxx/HelloWorld`)。 `Index`コント ローラーのメソッドは多くの作業を行わない; に単に、ステートメントを実行した`return View()`、指定されている、メソッドが応答をブラウザーにレンダリングするビュー テンプレート ファイルを使用する必要があります。 ASP.NET MVC の既定値を使用してに明示的に使用するビュー テンプレート ファイルの名前を指定していないので、 *Index.cshtml*でファイルの表示、 *\Views\HelloWorld*フォルダー。 次の図は、文字列&quot;こんにちは from our View Template!&quot;ビューにハードコーディングします。
 
 ![](adding-a-view/_static/image6.png)
 
-なかなか良いを検索します。 ただし、ブラウザーのタイトル バーが表示されていることを確認&quot;インデックス - マイ ASP.NET アプリケーション"とページの上部の大規模なリンクは、"Application name"を表示 によってどのように、ブラウザー ウィンドウを行うと、表示する右上の 3 つのバーをクリックする必要がありますに、**ホーム**、**に関する**、**連絡先**、 **登録**と**ログイン**リンクします。
+ように見えますね。 ただし、ブラウザーのタイトル バーが表示されることを確認&quot;インデックス - マイ ASP.NET アプリケーション"、ページ上部にあるビッグ リンクという"Application name"です。 によってどのようにブラウザー ウィンドウを作成、表示する右上にある 3 本の棒をクリックする必要がありますに、**ホーム**、**について**、**連絡先**、 **登録**と**ログイン**リンク。
 
 ## <a name="changing-views-and-layout-pages"></a>ビューとレイアウト ページを変更します。
 
-最初に、変更する、&quot;アプリケーション名&quot;ページの上部にリンクします。 テキストがすべてのページに共通します。 アプリケーション内の各ページに表示される場合でも、プロジェクト内の 1 か所で実際に実装されます。 移動して、 */ビュー/共有*フォルダー**ソリューション エクスプ ローラー**を開くと、  *\_Layout.cshtml*ファイル。 このファイルが呼び出され、*レイアウト ページ*他のすべてのページを使用する共有フォルダー内にあるとします。
+最初に、変更したい、&quot;アプリケーション名&quot;ページの上部にあるリンクです。 このテキストはすべてのページに共通です。 アプリケーション内の各ページに表示される場合でも、プロジェクト内の 1 か所で実際に実装されます。 移動して、 */ビュー/共有*フォルダー**ソリューション エクスプ ローラー**を開くと、  *\_Layout.cshtml*ファイル。 このファイルと呼ばれます、*レイアウト ページ*他のすべてのページを使用する共有フォルダー内にあるとします。
 
 ![_LayoutCshtml](adding-a-view/_static/image7.png)
 
-レイアウト テンプレートを使用すると、1 か所で、コンテナーの HTML レイアウトは、サイトを指定し、サイト内の複数のページにわたって適用できます。 `@RenderBody()` という行を見つけます。 `RenderBody` は、作成したビュー固有のページがすべて表示されるプレースホルダーで、レイアウト ページに&quot;ラップ&quot;されます。 たとえば、選択した場合、**に関する**リンク、 *Views\Home\About.cshtml*内部ビューが表示される、`RenderBody`メソッドです。
+レイアウト テンプレートを使用すると、1 つの場所で、サイトの HTML コンテナー レイアウトを指定し、そのサイト内の複数のページに適用できます。 `@RenderBody()` という行を見つけます。 `RenderBody` は、作成したビュー固有のページがすべて表示されるプレースホルダーで、レイアウト ページに&quot;ラップ&quot;されます。 たとえば、選択した場合、**について**リンクを*Views\Home\About.cshtml*内でビューが表示される、`RenderBody`メソッド。
 
-タイトル要素の内容を変更します。 変更、 [ActionLink](https://msdn.microsoft.com/library/dd504972(v=vs.108).aspx)からレイアウト テンプレートに&quot;アプリケーション名&quot;に&quot;MVC ムービー&quot;とコント ローラーから`Home`に`Movies`です。 完全なレイアウト ファイルは、次に示します。
+タイトル要素の内容を変更します。 変更、 [ActionLink](https://msdn.microsoft.com/library/dd504972(v=vs.108).aspx)からレイアウト テンプレート&quot;アプリケーション名&quot;に&quot;MVC ムービー&quot;とコント ローラーから`Home`に`Movies`します。 完全なレイアウト ファイルは、以下に示します。
 
 [!code-cshtml[Main](adding-a-view/samples/sample3.cshtml?highlight=6,20)]
 
-アプリケーションとに注意してください、今すぐ実行&quot;MVC ムービー&quot;です。 をクリックして、**に関する**リンク、およびするは、そのページに表示する方法を参照してください。 &quot;MVC ムービー&quot;、すぎます。 レイアウト テンプレートに 1 回、変更を行うことができましたが、サイトのすべてのページで、新しいタイトルを反映します.
+アプリケーションと、次のようになりました注意実行&quot;MVC ムービー&quot;します。 をクリックして、**について**リンク、およびするは、そのページの表示方法を参照してください。 &quot;MVC ムービー&quot;もします。 レイアウト テンプレートで 1 回、変更を行うことができましたが、サイトのすべてのページで、新しいタイトルを反映します.
 
 ![](adding-a-view/_static/image8.png)
 
@@ -86,7 +85,7 @@ ms.locfileid: "30873431"
 
 [!code-cshtml[Main](adding-a-view/samples/sample4.cshtml)]
 
-上記の Razor コードは、レイアウト ページを明示的に設定です。 確認、*ビュー\\は _viewstart.vbhtml*ファイル、正確な同じ Razor マークアップが含まれています。 *[ビュー\\は _viewstart.vbhtml](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)* ファイルは、すべてのビューを使用する一般的なレイアウトを定義、ためアウトまたは削除からそのコードをコメント、 *Views\HelloWorld\Index.cshtml*ファイル。
+上記の Razor コードでは、レイアウト ページを明示的に設定です。 確認、*ビュー\\_ViewStart.cshtml*ファイル、正確な同じ Razor マークアップが含まれています。 *[ビュー\\_ViewStart.cshtml](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)* ファイルは、すべてのビューを使用する一般的なレイアウトを定義、アウトまたは削除からそのコードをコメントするため、 *Views\HelloWorld\Index.cshtml*ファイル。
 
 [!code-cshtml[Main](adding-a-view/samples/sample5.cshtml?highlight=1-3)]
 
@@ -94,63 +93,63 @@ ms.locfileid: "30873431"
 
 ここで、インデックス ビューのタイトルを変更してみましょう。
 
-開いている*MvcMovie\Views\HelloWorld\Index.cshtml*です。 2 つの場所を変更する場合がある: 最初に、テキスト表示される、ブラウザーのタイトルにし、セカンダリのヘッダー (、`<h2>`要素)。 これを少し変えれば、コードのどの部分でアプリのどの部分が変更されるかを確認することができます。
+開いている*MvcMovie\Views\HelloWorld\Index.cshtml*します。 2 か所変更する場合: 最初に、テキスト表示される、ブラウザーのタイトルにおよび、セカンダリ ヘッダー (、`<h2>`要素)。 これを少し変えれば、コードのどの部分でアプリのどの部分が変更されるかを確認することができます。
 
 [!code-cshtml[Main](adding-a-view/samples/sample6.cshtml?highlight=2,5)]
 
-HTML 表示するタイトルをセットの上に、コードを示すために、`Title`のプロパティ、`ViewBag`オブジェクト (である、 *Index.cshtml*テンプレートの表示)。 注意してレイアウト テンプレート ( *\shared\\_Layout.cshtml* ) の値を使用して、`<title>`要素の一部として、`<head>`以前に変更した HTML の「します。
+セット上のコードを表示する HTML のタイトルを示すために、`Title`のプロパティ、`ViewBag`オブジェクト (これは、 *Index.cshtml*テンプレートの表示)。 注意してレイアウト テンプレート ( *views \shared\\_Layout.cshtml* ) では、この値を使用して、`<title>`要素の一部として、`<head>`セクション html で以前に変更します。
 
 [!code-cshtml[Main](adding-a-view/samples/sample7.cshtml?highlight=6)]
 
-これを使用して`ViewBag`アプローチでは、簡単に渡せる他のパラメーター、ビュー テンプレートと、レイアウト ファイルの間です。
+これを使用して`ViewBag`アプローチでは、渡すことができます簡単に他のパラメーター、テンプレートの表示と、レイアウト ファイルの間。
 
-アプリケーションを実行します。 ブラウザーのタイトル、プライマリ見出し、およびセカンダリ見出しが変更されていることに注意してください  (ブラウザーに変更内容が表示されない場合は、キャッシュされたコンテンツを表示している可能性があります。 ブラウザーで Ctrl + F5 キーを押して、サーバーからの応答が強制的に読み込まれるようにしてください)。ブラウザーのタイトルが作成、`ViewBag.Title`設定、 *Index.cshtml*テンプレートおよびその他の表示&quot;-ムービー アプリ&quot;レイアウト ファイルに追加します。
+アプリケーションを実行します。 ブラウザーのタイトル、プライマリ見出し、およびセカンダリ見出しが変更されていることに注意してください  (ブラウザーに変更内容が表示されない場合は、キャッシュされたコンテンツを表示している可能性があります。 ブラウザーで Ctrl + F5 キーを押して、サーバーからの応答が強制的に読み込まれるようにしてください)。ブラウザーのタイトルが作成された、`ViewBag.Title`設定します、 *Index.cshtml*テンプレートと追加表示&quot;-Movie App&quot;レイアウト ファイルに追加します。
 
-また方法でコンテンツ、 *Index.cshtml*ビュー テンプレートのトピックとマージされました、  *\_Layout.cshtml*ビュー テンプレートおよび 1 つの HTML 応答をブラウザーに送信されました。 レイアウト テンプレートを使用すれば、アプリケーションのすべてのページに適用される変更をとても簡単に行うことができます。
+また方法でコンテンツ、 *Index.cshtml*とテンプレートの表示がマージされた、  *\_Layout.cshtml*テンプレートの表示と 1 つの HTML 応答がブラウザーに送信されました。 レイアウト テンプレートを使用すれば、アプリケーションのすべてのページに適用される変更をとても簡単に行うことができます。
 
 ![](adding-a-view/_static/image9.png)
 
-ほんの少しの&quot;データ&quot;(ここでは、 &quot;、ビュー テンプレートからこんにちは!&quot;メッセージ) は、ハードコードです。 MVC アプリケーションには、 &quot;V&quot; (ビュー) を取得したら、 &quot;C&quot; (コント ローラー) が&quot;M&quot;まだ (モデル)。 間もなく、データベースを作成し、モデル データを取得する方法を説明します。
+ごく一部&quot;データ&quot;(この場合、&quot;こんにちは from our View Template!&quot;メッセージ) はハード コーディング、ただしします。 MVC アプリケーションには、 &quot;V&quot; (ビュー) があると、 &quot;C&quot; (コント ローラー) が&quot;M&quot;まだ (モデル)。 まもなく、データベースを作成し、モデル データを取得する方法について説明します。
 
 ## <a name="passing-data-from-the-controller-to-the-view"></a>コントローラーからビューへのデータの受け渡し
 
-データベースに移動し、モデルについて説明する前に、しましょう。 まずコント ローラーからビューに情報を渡す処理です。 受信 URL 要求に応答には、コント ローラー クラスが呼び出されます。 コント ローラー クラスでは、受信ブラウザーを処理するコードは、要求をデータベースからデータを取得し、最終的には、ブラウザーに返送する応答の種類を決定を記述します。 テンプレートの表示は、生成し、ブラウザーに HTML 応答の書式を設定するコント ローラーから使用できます。
+データベースに移動してモデルについて説明する前に、まずについて説明しましょうコント ローラーからビューに情報を渡します。 受信 URL 要求に応答には、コント ローラー クラスが呼び出されます。 コント ローラー クラスは、受信ブラウザーを処理するコードは、要求、データベースからデータを取得し、最終的には、ブラウザーに送信する応答の種類を決定を記述します。 テンプレートの表示は、生成し、ブラウザーへの HTML 応答を書式設定するコント ローラーから使用できます。
 
-コント ローラーは、ブラウザーへの応答をレンダリングするビュー テンプレートの順に必要なすべてのデータまたはオブジェクトを提供します。 ベスト プラクティス:**ビュー テンプレートのビジネス ロジックを実行またはデータベースと直接やり取りする必要がありますしない**です。 代わりに、ビュー テンプレートは、コント ローラーに設定されているデータのみを操作する必要があります。 これを維持する&quot;関心の分離&quot;完全テスト可能でありより優れたコードに保ちます。
+コント ローラーはどのようなデータまたはオブジェクトが応答をブラウザーにレンダリングするテンプレートの表示のために必要なを提供する責任を負います。 ベスト プラクティス:**ビュー テンプレートのビジネス ロジックを実行またはデータベースと直接やり取りする必要がありますしない**します。 代わりに、ビュー テンプレートは、コント ローラーによって提供されるデータのみを操作する必要があります。 この保守&quot;懸念事項の分離&quot;も利用できるコード クリーン、テストが容易な保守しやすくなります。
 
-現時点では、`Welcome`でアクション メソッド、`HelloWorldController`クラスは、`name`と`numTimes`パラメーターと、ブラウザーに直接値を出力します。 この応答を文字列としてのレンダリング コント ローラーがあるのではなくビュー テンプレートを代わりに使用するコント ローラーに変更してみましょう。 このビュー テンプレートでは動的応答が生成されます。これは、応答を生成するために、コントローラーからビューに適量のデータを渡す必要があることを意味します。 コント ローラーにテンプレートの表示に必要な動的なデータ (パラメーター) を置くことによってこれを行う、`ViewBag`ビュー テンプレートにアクセスできるオブジェクト。
+現時点では、`Welcome`内のアクション メソッド、`HelloWorldController`クラスは、`name`と`numTimes`パラメーターとし、ブラウザーに直接値を出力します。 この応答を文字列としてレンダリングするコント ローラーがあるのではなく、代わりにビュー テンプレートを使用するコント ローラーを変更してみましょう。 このビュー テンプレートでは動的応答が生成されます。これは、応答を生成するために、コントローラーからビューに適量のデータを渡す必要があることを意味します。 コント ローラーにビュー テンプレートに必要な動的データ (パラメーター) を配置することでこれを行う、`ViewBag`ビュー テンプレートでアクセスできるオブジェクト。
 
-戻り、 *HelloWorldController.cs*ファイルし、変更、`Welcome`を追加するメソッド、`Message`と`NumTimes`値を`ViewBag`オブジェクト。 `ViewBag` 動的なオブジェクトは、つまりに自由を配置する;`ViewBag`オブジェクトを持たないプロパティに定義されたものと、その内部に配置するまでです。 [ASP.NET MVC モデル バインド システム](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx)名前付きパラメーターが自動的にマップ (`name`と`numTimes`)、アドレス バーに、メソッドのパラメーターのクエリ文字列から。 完全な *HelloWorldController.cs* ファイルは次のようになります。
+戻り、 *HelloWorldController.cs*ファイルし、変更、`Welcome`を追加するメソッド、`Message`と`NumTimes`値を`ViewBag`オブジェクト。 `ViewBag` 動的オブジェクト、つまりに自由を配置します。`ViewBag`オブジェクトには定義されているプロパティがない内部に、何かを設定するまでです。 [ASP.NET MVC モデル バインド システム](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx)名前付きパラメーターを自動的にマップされます (`name`と`numTimes`)、メソッドのパラメーターのアドレス バーで、クエリ文字列から。 完全な *HelloWorldController.cs* ファイルは次のようになります。
 
 [!code-csharp[Main](adding-a-view/samples/sample8.cs)]
 
-これで、`ViewBag`オブジェクトには、自動的にビューに渡されるデータが含まれています。 次に、開始ビュー テンプレートする必要があります。 **ビルド**メニューの **ソリューションのビルド**(または Ctrl + Shift + B)、プロジェクトをコンパイルするかどうかを確認します。 右クリックして、 *Views\HelloWorld*フォルダーをクリック**追加**をクリックし、 **MVC 5 ビュー ページ (Razor) のレイアウト**です。
+これで、`ViewBag`オブジェクトに自動的にビューに渡されるデータが含まれています。 次に、[ようこそ] ビュー テンプレートをする必要があります。 **ビルド**メニューの **ソリューションのビルド**(または Ctrl + Shift + B)、プロジェクトがコンパイルされるかどうかを確認します。 右クリックして、 *Views\HelloWorld*フォルダーをクリックします**追加**、 をクリックし、**レイアウト (Razor) を使用する MVC 5 ビュー ページ**します。
   
 ![](adding-a-view/_static/image10.png)   
   
-**項目の名前を指定** ダイアログ ボックスに、入力*へようこそ*、順にクリック**OK**です。   
+**項目の名前を指定** ダイアログ ボックスに、入力*へようこそ*、順にクリックします**OK**します。   
   
-**レイアウト ページの選択**ダイアログ ボックスで、既定値をそのまま使用 **\_Layout.cshtml**  をクリック**OK**です。  
+**レイアウト ページの選択**ダイアログ ボックスで、既定値をそのまま使用 **\_Layout.cshtml**  をクリック**OK**。  
   
 ![](adding-a-view/_static/image11.png)   
 
-*MvcMovie\Views\HelloWorld\Welcome.cshtml*ファイルを作成します。
+*MvcMovie\Views\HelloWorld\Welcome.cshtml*ファイルが作成されます。
 
-内のマークアップを置き換える、 *Welcome.cshtml*ファイル。 表示されているループを作成します&quot;こんにちは&quot;として何度でも、ユーザーの質問にする必要があります。 完全な*Welcome.cshtml*ファイルを次に示します。
+内のマークアップを置き換える、 *Welcome.cshtml*ファイル。 というループを作成します&quot;こんにちは&quot;回数だけ、ユーザーの質問にする必要があります。 完全な*Welcome.cshtml*ファイルを次に示します。
 
 [!code-cshtml[Main](adding-a-view/samples/sample9.cshtml)]
 
-アプリケーションを実行し、次の URL を参照します。
+アプリケーションを実行して、次の URL を参照してください。
 
 `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
 
-データが URL から取得され、コント ローラーを使用して、渡されるようになりました、[モデル バインダー](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx)です。 コント ローラーへのデータをパッケージ化、`ViewBag`オブジェクトをビューにオブジェクトを渡します。 ビューは、データを HTML として、ユーザーにし、表示します。
+データは URL から取得され、コント ローラーを使用して、渡されるようになりました、[モデル バインダー](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx)します。 コント ローラーにデータをパッケージ化、`ViewBag`オブジェクトと、ビューにオブジェクトを渡します。 ビューはし、ユーザーに、HTML としてデータを表示します。
 
 ![](adding-a-view/_static/image12.png)
 
-上記のサンプルで使用して、`ViewBag`コント ローラーからビューにデータを渡すオブジェクト。 チュートリアルの後半で、ビュー モデルを使用して、コントローラーからビューにデータを渡します。 モデルの表示方法でデータを渡すには、ビュー バッグ アプローチ経由で一般にはるかに優先です。 ブログ記事を参照してください[動的 V 厳密に型指定されたビュー](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx)詳細についてはします。 
+上記のサンプルで使用して、`ViewBag`コント ローラーからビューにデータを渡すオブジェクト。 チュートリアルの後半で、ビュー モデルを使用して、コントローラーからビューにデータを渡します。 ビュー モデル アプローチは、データを渡すことは、ビュー バッグのアプローチで一般的に推奨です。 ブログ記事を参照してください。[動的 V 厳密に型指定されたビュー](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx)詳細についてはします。 
 
-種類もの&quot;M&quot;モデルがデータベースの種類ではありません。 学習したことを確認し、ムービーのデータベースを作成してみましょう。
+一種の&quot;M&quot;モデルがデータベースの種類ではありません。 学習したことを確認し、ムービーのデータベースを作成してみましょう。
 
 > [!div class="step-by-step"]
 > [前へ](adding-a-controller.md)
