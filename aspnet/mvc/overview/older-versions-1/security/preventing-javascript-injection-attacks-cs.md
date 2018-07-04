@@ -1,126 +1,125 @@
 ---
 uid: mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
-title: JavaScript インジェクション攻撃 (c#) |Microsoft ドキュメント
+title: JavaScript インジェクション攻撃を防ぐ (c#) |Microsoft Docs
 author: StephenWalther
-description: JavaScript インジェクション攻撃やクロスサイト スクリプティング攻撃が発生しないようにします。 このチュートリアルでは、Stephen Walther は、する方法に簡単に de について説明しています.
+description: JavaScript インジェクション攻撃およびクロス サイト スクリプティング攻撃が発生しないようにします。 このチュートリアルでは、Stephen Walther は、方法を簡単に de について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
 ms.topic: article
 ms.assetid: d0136da6-81a4-4815-b002-baa84744c09e
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fbec58c009640164d908db5a45557c9e50041173
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 2d307e1034dca4893cd45baf7d54edb7544829e3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871414"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37381891"
 ---
-<a name="preventing-javascript-injection-attacks-c"></a>JavaScript インジェクション攻撃の防止 (c#)
+<a name="preventing-javascript-injection-attacks-c"></a>JavaScript インジェクション攻撃を防ぐ (c#)
 ====================
 によって[Stephen Walther](https://github.com/StephenWalther)
 
-[PDF をダウンロードします。](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_CS.pdf)
+[PDF のダウンロード](http://download.microsoft.com/download/8/4/8/84843d8d-1575-426c-bcb5-9d0c42e51416/ASPNET_MVC_Tutorial_06_CS.pdf)
 
-> JavaScript インジェクション攻撃やクロスサイト スクリプティング攻撃が発生しないようにします。 このチュートリアルでは、Stephen Walther は、この種の攻撃、html エンコード、コンテンツを簡単に低下する方法について説明します。
+> JavaScript インジェクション攻撃およびクロス サイト スクリプティング攻撃が発生しないようにします。 このチュートリアルでは、Stephen Walther は、これらの種類の HTML コンテンツをエンコードして攻撃を簡単に倒す方法について説明します。
 
 
-このチュートリアルの目的では、ASP.NET MVC アプリケーションの JavaScript インジェクション攻撃を防止する方法について説明します。 このチュートリアルでは、JavaScript インジェクション攻撃から web サイトを保護することに 2 つの方法について説明します。 表示するデータをエンコードすることによって JavaScript インジェクション攻撃を防止する方法を学びます。 使用すること、データをエンコードすることによって JavaScript インジェクション攻撃を防止する方法についても説明します。
+このチュートリアルの目的では、ASP.NET MVC アプリケーションで JavaScript インジェクション攻撃を防止する方法について説明します。 このチュートリアルでは、web サイト、JavaScript インジェクション攻撃を防御する 2 つの方法について説明します。 表示データをエンコードすることによって JavaScript インジェクション攻撃を回避する方法について説明します。 そのまま使用するデータをエンコードすることによって JavaScript インジェクション攻撃を回避する方法を説明します。
 
-## <a name="what-is-a-javascript-injection-attack"></a>JavaScript インジェクション攻撃とは何ですか。
+## <a name="what-is-a-javascript-injection-attack"></a>JavaScript インジェクション攻撃を受けるとは何ですか。
 
-ユーザー入力をそのまま使用し、ユーザー入力を再表示すると、JavaScript インジェクション攻撃に対して、web サイトを開きます。 JavaScript インジェクション攻撃にさらされる具体的なアプリケーションを調べてみましょう。
+ユーザー入力をそのまま使用し、ユーザー入力を再表示すると、JavaScript インジェクション攻撃、web サイトを開きます。 JavaScript インジェクション攻撃にさらされる具体的なアプリケーションを調べてみましょう。
 
-カスタマー フィードバックの web サイトが作成されたことを想像してください (図 1 を参照してください)。 顧客では、web サイトにアクセスでき、製品を使用しての経験に関するフィードバックを入力することができます。 お客様のフィードバックを送信すると、フィードバックはフィードバック ページに再表示されます。
+顧客フィードバック web サイトを作成することを想像してください (図 1 参照)。 Web サイトにアクセスし、製品を使用した経験のフィードバックを入力できます。 顧客は、ユーザーのフィードバックを送信するときに、フィードバックはフィードバック ページに再表示されます。
 
 
 [![カスタマー フィードバックの web サイト](preventing-javascript-injection-attacks-cs/_static/image2.png)](preventing-javascript-injection-attacks-cs/_static/image1.png)
 
-**図 01**: カスタマー フィードバックの web サイト ([フルサイズのイメージを表示するをクリックして](preventing-javascript-injection-attacks-cs/_static/image3.png))
+**図 01**: カスタマー フィードバックの web サイト ([フルサイズの画像を表示する をクリックします](preventing-javascript-injection-attacks-cs/_static/image3.png))。
 
 
-カスタマー フィードバックの web サイトを使用して、`controller`リスト 1 にします。 これは、`controller`という 2 つのアクションを含む`Index()`と`Create()`です。
+顧客フィードバック web サイトを使用して、`controller`リスト 1 でします。 これは、`controller`という名前の 2 つのアクションを含む`Index()`と`Create()`します。
 
 **1 – を一覧表示します。 `HomeController.cs`**
 
 [!code-csharp[Main](preventing-javascript-injection-attacks-cs/samples/sample1.cs)]
 
-`Index()`メソッドが表示されます、`Index`ビュー。 このメソッドはすべてに、お客様からのフィードバックの前の`Index`(LINQ to SQL クエリを使用して) データベースからのフィードバックを取得して表示します。
+`Index()`メソッドが表示されます、`Index`ビュー。 このメソッドは以前、お客様のフィードバックにはすべて、 `Index` (LINQ to SQL クエリを使用して) データベースからのフィードバックを取得して表示します。
 
-`Create()`メソッドは、新しい項目のフィードバックを作成し、データベースに追加します。 顧客がフォームに入力するメッセージが渡される、`Create()`メッセージ パラメーターのメソッドです。 フィードバック項目が作成され、メッセージは、フィードバック項目に割り当てられる`Message`プロパティです。 フィードバック項目がデータベースに送信される、`DataContext.SubmitChanges()`メソッドの呼び出しです。 訪問者が最後に、リダイレクトは、`Index`ビューのすべてのフィードバックが表示されます。
+`Create()`メソッドは、新しいフィードバック項目を作成し、それをデータベースに追加します。 渡される、顧客がフォームに入力したメッセージ、`Create()`メッセージ パラメーターのメソッド。 フィードバック項目が作成され、メッセージは、フィードバック項目に割り当てられる`Message`プロパティ。 フィードバック項目が使用してデータベースに送信される、`DataContext.SubmitChanges()`メソッドの呼び出し。 最後に、訪問者にリダイレクトされる、`Index`ビューのすべてのフィードバックが表示されます。
 
-`Index`ビューが一覧表示する 2 に含まれています。
+`Index`リスト 2 でビューが含まれています。
 
 **2 – を一覧表示します。 `Index.aspx`**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-cs/samples/sample2.aspx)]
 
-`Index`ビューには 2 つのセクションです。 上部のセクションには、実際のお客様のフィードバック フォームが含まれています。 下部のセクションには、For が含まれています.すべての以前の顧客からのフィードバック項目をループし、フィードバックの各項目に対して EntryDate とメッセージ プロパティを表示する各ループします。
+`Index`ビューでは 2 つのセクション。 最上部のセクションには、実際の顧客のフィードバック フォームが含まれています。 下部のセクションには、For が含まれています.ループをすべての以前の顧客フィードバック項目をループし、各フィードバック項目の EntryDate とメッセージのプロパティが表示されます。
 
-カスタマー フィードバックの web サイトは、単純な web サイトです。 残念ながら、web サイトは、JavaScript インジェクション攻撃にさらさです。
+顧客フィードバック web サイトは、単純な web サイトです。 残念ながら、web サイトは JavaScript インジェクション攻撃を開いています。
 
-顧客フィードバック フォームに次のテキストを入力することを想像してください。
+お客様のフィードバック フォームに次のテキストを入力することを想像してください。
 
 [!code-html[Main](preventing-javascript-injection-attacks-cs/samples/sample3.html)]
 
-このテキストは、警告メッセージ ボックスを表示する JavaScript のスクリプトを表します。 このスクリプトを送信するフィードバックにユーザーが後のフォームのメッセージ<em>Boo!</em>すべてのユーザー、顧客フィードバック web サイトにアクセス、将来 (図 2 を参照) するたびに表示されます。
+このテキストは、警告メッセージ ボックスを表示する JavaScript スクリプトを表します。 このスクリプトを送信するフィードバックにだれかが後のフォームのメッセージ<em>Boo!</em>すべてのユーザー アクセス、カスタマー フィードバックの web サイト、将来 (図 2 参照) されるたびに表示されます。
 
 
 [![JavaScript インジェクション](preventing-javascript-injection-attacks-cs/_static/image5.png)](preventing-javascript-injection-attacks-cs/_static/image4.png)
 
-**図 02**: JavaScript インジェクション ([フルサイズのイメージを表示するをクリックして](preventing-javascript-injection-attacks-cs/_static/image6.png))
+**図 02**: JavaScript インジェクション ([フルサイズの画像を表示する をクリックします](preventing-javascript-injection-attacks-cs/_static/image6.png))。
 
 
-ここで、JavaScript インジェクション攻撃への初期応答には、apathy 可能性があります。 JavaScript インジェクション攻撃がの型だけであると思われる場合があります*改変*攻撃です。 いる誰は何でも実行できます evil 本当に JavaScript インジェクション攻撃をコミットすることによってと思われる場合があります。
+ここで、JavaScript インジェクション攻撃への初期応答には、無関心可能性があります。 JavaScript インジェクション攻撃がの型だけであると思うかもしれません*ねらい*攻撃です。 JavaScript インジェクション攻撃を受けるをコミットすることによってはだれ何か本当に有害なことができますと思われる場合があります。
 
-残念ながら、ハッカー行えるいくつか実際には、web サイトに JavaScript を挿入し、実に悪質なものです。 JavaScript インジェクション攻撃を使用して、クロスサイト スクリプト (XSS) 攻撃を実行することができます。 クロスサイト スクリプティング攻撃では、ユーザーの機密情報を盗むし、別の web サイトに情報を送信します。
+残念ながら、ハッカーはいくつか実行実際には、web サイトに JavaScript を挿入し、実に悪質なものです。 JavaScript インジェクション攻撃を受けるを使用して、クロスサイト スクリプティング (XSS) 攻撃を実行することができます。 クロスサイト スクリプティング攻撃では、ユーザーの機密情報を盗むし、別の web サイトに情報を送信します。
 
-たとえば、ハッカーは、他のユーザーからブラウザーの cookie の値を盗むために JavaScript インジェクション攻撃を使用できます。 -パスワード、クレジット_カード番号、または – の社会保障番号などの機密情報がブラウザーの cookie に格納されている場合、ハッカーはこの情報を盗むために JavaScript インジェクション攻撃を使用できます。 または、ユーザーが JavaScript 攻撃では、侵害された場合、ページ内にハッカーは、挿入された JavaScript を使用してフォーム データを取得し、別の web サイトに送信し、フォーム フィールドの機密情報を入力した場合。
+たとえば、ハッカーは、他のユーザーからのブラウザーの cookie の値を盗み出す JavaScript インジェクション攻撃を受けるを使用できます。 -パスワード、クレジット_カード番号、または – の社会保障番号などの機密情報がブラウザーの cookie に格納されている場合、ハッカーはこの情報の盗用、JavaScript インジェクション攻撃を使用できます。 または、ユーザーが JavaScript 攻撃では、侵害された場合のページに含まれる、ハッカーは、挿入された JavaScript を使用して、フォームのデータを取得し、別の web サイトに送信し、フォーム フィールドに機密情報を入力した場合。
 
-*心配お答えください*です。 JavaScript インジェクション攻撃を真剣にして、ユーザーの機密情報を保護します。 次の 2 つのセクションでは、ASP.NET MVC アプリケーションの JavaScript インジェクション攻撃を防御するために使用できる 2 つの方法について説明します。
+*怖くてお答えください*します。 JavaScript インジェクション攻撃を真剣に受け止めてし、ユーザーの機密情報を保護します。 次の 2 つのセクションでは、JavaScript インジェクション攻撃から ASP.NET MVC アプリケーションを保護するために使用できる 2 つの手法について説明します。
 
-## <a name="approach-1-html-encode-in-the-view"></a>アプローチ 1: ビューでの HTML エンコードします。
+## <a name="approach-1-html-encode-in-the-view"></a>方法 1: ビュー内の HTML エンコードします。
 
-1 つの JavaScript インジェクション攻撃を回避するという簡単な方法を HTML には、ビュー内のデータを再表示するときに、web サイトのユーザーが入力した任意のデータをエンコードします。 更新された`Index`ビューを一覧表示する 3 でこの方法に依存します。
+JavaScript インジェクション攻撃を防ぐの簡単な方法では HTML を 1 つは、ビュー内のデータを再表示するときに、web サイトのユーザーが入力した任意のデータをエンコードします。 更新された`Index`リスト 3 でビューがこの方法に従います。
 
-**3 – を一覧表示する`Index.aspx`(HTML エンコード)**
+**リスト 3. – `Index.aspx` (HTML でエンコードされた)**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-cs/samples/sample4.aspx)]
 
-注意して、値の`feedback.Message`HTML エンコードされる値が次のコードに表示される前に。
+注意の値`feedback.Message`html エンコード前に、次のコードで、値が表示されます。
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-cs/samples/sample5.aspx)]
 
-新機能の平均を HTML エンコード文字列ですか? 文字列をエンコードする HTML と危険ななどの文字`<`と`>`など、HTML エンティティの参照に置き換え`&lt;`と`&gt;`です。 ときに、文字列`<script>alert("Boo!")</script>`html エンコードされる場合に変換を取得`&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`です。 エンコードされた文字列は、ブラウザーによって解釈される場合は、JavaScript スクリプトとして実行されなくなります。 代わりに、図 3 に無害なページを取得します。
+これは平均値を HTML 文字列をエンコードするでしょうか。 文字列をエンコードする HTML と危険な文字など`<`と`>`など HTML エンティティ参照に置き換え`&lt;`と`&gt;`します。 したがって、文字列`<script>alert("Boo!")</script>`html エンコードされる場合に変換を取得`&lt;script&gt;alert(&quot;Boo!&quot;)&lt;/script&gt;`します。 エンコードされた文字列は、ブラウザーによって解釈される場合は、JavaScript スクリプトとして実行されなくなります。 代わりに、図 3 害のないページを取得します。
 
 
-[![敗北 JavaScript 攻撃](preventing-javascript-injection-attacks-cs/_static/image8.png)](preventing-javascript-injection-attacks-cs/_static/image7.png)
+[![JavaScript の敗北攻撃](preventing-javascript-injection-attacks-cs/_static/image8.png)](preventing-javascript-injection-attacks-cs/_static/image7.png)
 
-**図 03**: 敗北 JavaScript 攻撃 ([フルサイズのイメージを表示するをクリックして](preventing-javascript-injection-attacks-cs/_static/image9.png))
+**図 03**: 敗北 JavaScript 攻撃 ([フルサイズの画像を表示する をクリックします](preventing-javascript-injection-attacks-cs/_static/image9.png))。
 
 
-注意、`Index`リスト 3 での値のみを表示します。`feedback.Message`はエンコードされます。 値`feedback.EntryDate`がエンコードされていません。 のみ、ユーザーが入力したデータをエンコードする必要があります。 EntryDate の値が生成されるため、コント ローラーで、しない必要がありますを HTML エンコードしてこの値。
+インシデントを`Index`リスト 3 での値のみを表示します。`feedback.Message`はエンコードされます。 値`feedback.EntryDate`がエンコードされていません。 のみ、ユーザーによって入力されたデータをエンコードする必要があります。 EntryDate の値が、コント ローラーで生成されたためする必要がありますを HTML をエンコードしません。 この値。
 
 ## <a name="approach-2-html-encode-in-the-controller"></a>方法 2: コント ローラー内の HTML エンコードします。
 
-HTML のできる HTML ビューで、データを表示するには、データをエンコード、代わりに、データベースへのデータを送信する直前にデータをエンコードします。 場合、この 2 番目の方法が実行される、 `controller` 4 の一覧表示します。
+HTML のできる HTML ビューでデータを表示すると、データをエンコードではなく、データベースにデータを送信する直前にデータをエンコードします。 この 2 つ目のアプローチがの場合に行われています、`controller`リスト 4。
 
-**4 – を一覧表示する`HomeController.cs`(HTML エンコード)**
+**リスト 4 – `HomeController.cs` (HTML でエンコードされた)**
 
 [!code-csharp[Main](preventing-javascript-injection-attacks-cs/samples/sample6.cs)]
 
-メッセージの値が HTML エンコードされる値は内でデータベースに送信する前に、`Create()`アクション。 ビューでは、メッセージが再表示されますと、メッセージが HTML でエンコードされたメッセージに挿入された任意の JavaScript は実行されません。
+メッセージの値が HTML エンコード値がデータベースに送信される前に、`Create()`アクション。 ビューでは、メッセージが再表示されますと、メッセージが HTML エンコードされたメッセージに挿入された任意の JavaScript は実行されません。
 
-通常、この 2 番目の方法でこのチュートリアルで説明した最初の方法をお勧めします。 この 2 つ目の方法を使った問題は、最終的に HTML エンコードされたデータ、データベース内です。 つまり、データベースのデータは奇妙な探し求めている文字ダーティになった。
+通常、この 2 つ目の方法でこのチュートリアルで説明した最初のアプローチのどちらを優先する必要があります。 この 2 つ目のアプローチの問題は、最終的に HTML エンコードされたデータ、データベース内です。 つまり、データベースのデータには、奇妙な探し求めている文字ダーティになった。
 
-なぜこれが正しくないか。 Web ページ以外のもので、データベースのデータを表示する必要が生じた場合は、問題があります。 たとえば、データには、Windows フォーム アプリケーションで不要になった簡単に表示できます。
+なぜこれが正しくないでしょうか。 Web ページ以外の方法で、データベースのデータを表示する必要がある場合は、問題があります。 たとえば、Windows フォーム アプリケーションで、データを表示することができます簡単になります。
 
 ## <a name="summary"></a>まとめ
 
-このチュートリアルの目的は、JavaScript インジェクション攻撃の見込顧客のコンピューターを保護するにはでした。 このチュートリアルには、JavaScript インジェクション攻撃に対して、ASP.NET MVC アプリケーションを守るための 2 つの方法が説明されている: いずれかの HTML を作成することができます送信されたユーザーをエンコードするか、ビュー内のデータを HTML 送信されたユーザーをエンコード コント ローラー内のデータ。
+このチュートリアルの目的は、JavaScript インジェクション攻撃の取引関係に関する恐ろしいでした。 このチュートリアルには、JavaScript インジェクション攻撃に対して、ASP.NET MVC アプリケーションを守るための 2 つの方法が説明されている: いずれかの HTML を実行できます送信されたユーザーをエンコードするか、ビュー内のデータは HTML ユーザー送信のエンコード、コント ローラー内のデータ。
 
 > [!div class="step-by-step"]
 > [前へ](authenticating-users-with-windows-authentication-cs.md)

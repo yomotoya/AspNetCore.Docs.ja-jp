@@ -1,181 +1,180 @@
 ---
 uid: web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
-title: ASP.NET Web フォームの接続の回復とコマンド インターセプト |Microsoft ドキュメント
+title: ASP.NET Web フォームの接続復元性とコマンド傍受 |Microsoft Docs
 author: Erikre
-description: このチュートリアルでは、接続の回復とコマンドの途中受信をサポートするために、サンプル アプリケーションを変更する方法について説明します。
+description: このチュートリアルでは、接続の回復性とコマンド傍受をサポートするためにサンプル アプリケーションを変更する方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2014
 ms.topic: article
 ms.assetid: 6d497001-fa80-4765-b4cc-181fe90b894e
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: d5c4e46209e1b21a303fdf1fb16c6c868b3ca923
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 8b8f592c4e79cf9dbe1255c93fac2fe18f1d9409
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879700"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368322"
 ---
-<a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web フォームの接続の回復性とコマンドの途中受信
+<a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web フォームの接続復元性とコマンド傍受
 ====================
 によって[Erik Reitan](https://github.com/Erikre)
 
-このチュートリアルでは、接続の回復とコマンドの途中受信をサポートするために、Wingtip Toys サンプル アプリケーションを変更します。 接続の回復を有効にすると、Wingtip Toys のサンプル アプリケーションは自動的に再試行データ呼び出しクラウド環境の典型的な一時的なエラーが発生したときにします。 また、コマンドの傍受を実装すると、Wingtip Toys のサンプル アプリケーションはすべてキャッチ SQL クエリがログインするか、それらを変更するために、データベースに送信します。
+このチュートリアルでは、接続復元性とコマンド傍受をサポートするために、Wingtip Toys のサンプル アプリケーションを変更します。 接続の回復を有効にすると、Wingtip Toys のサンプル アプリケーションは自動的に再試行データ呼び出し、クラウド環境の一般的な一時的なエラーが発生します。 また、コマンド インターセプションを実装すると、Wingtip Toys のサンプル アプリケーションはキャッチ オール SQL クエリのログまたはそれらを変更するには、データベースに送信します。
 
 > [!NOTE] 
 > 
-> この Web フォームのチュートリアルは、Tom Dykstra の次の MVC チュートリアルに基づくされました。  
-> [接続の回復と Entity Framework、ASP.NET MVC アプリケーションでのコマンドの途中受信](../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> この Web フォームのチュートリアルが Tom Dykstra の次の MVC のチュートリアルに基づいています。  
+> [接続復元性と、ASP.NET MVC アプリケーションで Entity Framework とコマンド傍受](../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
 
-## <a name="what-youll-learn"></a>学習する内容。
+## <a name="what-youll-learn"></a>学習内容。
 
-- 接続の回復を提供する方法です。
-- コマンドの傍受を実装する方法です。
+- 接続の回復性を提供する方法。
+- コマンドのインターセプトを実装する方法。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-開始する前に、コンピューターにインストールされている次のソフトウェアがあることを確認します。
+開始する前に、コンピューターにインストールされている、次のソフトウェアがあることを確認します。
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs)または[Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web)です。 .NET Framework は、自動的にインストールされます。
-- Wingtip Toys Wingtip Toys プロジェクト内では、このチュートリアルで説明した機能を実装できるように、プロジェクトをサンプルします。 次のリンクは、ダウンロードの詳細を提供します。
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs)または[Microsoft Visual Studio Express 2013 for Web](https://www.microsoft.com/visualstudio/11/downloads#express-web)します。 .NET Framework は、自動的にインストールされます。
+- Wingtip Toys では、Wingtip Toys プロジェクト内では、このチュートリアルで説明されている機能を実装できるように、プロジェクトがサンプルです。 次のリンクは、ダウンロードの詳細を提供します。
 
-    - [Getting Started with ASP.NET 4.5.1 Web フォーム、Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409) (c#)
-- このチュートリアルを終了する前に、関連するチュートリアル シリーズを確認することを検討してください[ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要](../getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)です。 チュートリアル シリーズのヘルプについて理解するには、 **WingtipToys**プロジェクトとコード。
+    - [Getting Started with ASP.NET 4.5.1 Web フォームの Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409) (c#)
+- このチュートリアルを完了する前に、関連するチュートリアル シリーズの確認を検討する[ASP.NET 4.5 Web フォームと Visual Studio 2013 の概要](../getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md)します。 チュートリアルのシリーズはよく理解する際に役立つ、 **WingtipToys**プロジェクトとコード。
 
 ## <a name="connection-resiliency"></a>接続の復元性
 
-考慮すべき 1 つのオプションがデータベースを展開する Windows Azure にアプリケーションの配置を検討するときに**Windows** **Azure SQL Database**、クラウド データベース サービスです。 一時的な接続エラーは、ときに、web サーバーとデータベース サーバーは直接接続されている一緒に、同じデータ センターでよりクラウド データベース サービスに接続するときに通常より頻繁に発生します。 クラウドの web サーバーおよびデータベースのクラウド サービスが同じデータ センター内にホストされている場合でもはロード バランサーなどの問題があることができますをそれらの間のネットワーク接続の数。
+考慮すべき 1 つのオプションがデータベースを展開する Windows Azure にアプリケーションの配置を検討するときに**Windows** **Azure SQL Database**、クラウド データベース サービス。 一時的な接続エラーは、ときに、web サーバーとデータベース サーバーに直接接続されてまとめて、同じデータ センターでのクラウド データベース サービスに接続するときに通常より頻繁に。 クラウドの web サーバーとクラウド データベース サービスが同じデータ センターでホストされている場合でも、ロード バランサーなどの問題はそれらの間の以上のネットワーク接続があります。
 
-また、クラウド サービスは通常共有他のユーザーによってそれらにより、応答性が低下する可能性がありされます。 データベースへのアクセスが制限されるおそれがあります。 調整の手段データベース サービスが例外をスローで許可されるよりも頻繁にアクセスしようとすると、*サービス レベル アグリーメント*(SLA)。
+クラウド サービスを通常で共有されます他のユーザー、つまり、それらにより、応答性の影響を受けることができます。 調整の対象のデータベースにアクセスする場合があります。 手段を調整するデータベース サービスが例外をスローで許可されているより頻繁にアクセスしようとすると、*サービス レベル アグリーメント*(SLA)。
 
-クラウド サービスにアクセスしているときに発生する多くのやほとんどの接続に関する問題は一時的なもの、クライアントは、短時間で解決自体です。 データベース操作を再試行は通常、一時的エラーの種類を取得すると、短い待機、および、操作が成功する可能性があります後、操作を再試行可能性があります。 自動的に読み込もうとすると、一時的なエラーを処理する場合、ユーザーのエクスペリエンスが大幅に向上を提供できますを顧客にそれらのほとんどを非表示にします。 Entity Framework 6 の接続の復元機能は、SQL クエリが再試行中の処理に失敗したことを自動化します。
+クラウド サービスにアクセスするときに発生する多くのやほとんどの接続の問題は一時的なものには、短時間で解決自体。 したがって、データベース操作をやり直してくださいは通常、一時的エラーの種類を取得すると後、少し待つと、操作が成功する可能性があります、操作を再試行でした。 ここでも、自動的に試行することで一時的なエラーを処理する場合、ユーザーのエクスペリエンスが大幅に改善を行うことができます、顧客に、これらのほとんどを非表示にします。 Entity Framework 6 で、接続の回復性機能は、SQL クエリが再試行の処理に失敗したことを自動化します。
 
-特定のデータベースのサービスの接続の復元機能を適切に構成する必要があります。
+特定のデータベース サービスの接続の回復性機能を適切に構成する必要があります。
 
-1. 例外は一時的なものである可能性を知っておく必要があります。 ネットワーク接続の一時的に切断によって発生したエラーなどのプログラムのバグによって発生したエラーされませんを再試行するか。
-2. 失敗した操作の再試行の間の時間の適切な量を待機する必要があります。 待機できますになったバッチ プロセス用の再試行の間隔よりも、ユーザーが応答を待つオンラインの web ページのことができます。
-3. 適切な回数まで再試行する必要があるとします。 オンライン アプリケーションの場合のバッチ プロセスで複数回を再試行するか可能性があります。
+1. どの例外が一時的である可能性があります。 ネットワーク接続、一時的な損失によって発生したエラーなどのプログラムのバグによって発生したエラーいないを再試行するには。
+2. 失敗した操作の再試行の間隔を適切な時間待機する必要があります。 待機できますになったバッチ処理の再試行間隔よりも、応答をユーザーが待機しているオンラインの web ページのことができます。
+3. 再試行回数その前に、適切な数があります。 再試行回以上のオンライン アプリケーションで行う場合、バッチ処理する可能性があります。
 
-Entity Framework プロバイダーでサポートされている任意のデータベース環境に、手動でこれらの設定を構成することができます。
+これらの設定、Entity Framework プロバイダーでサポートされている任意のデータベース環境を手動で構成できます。
 
-接続の回復を有効にするために必要なのですから派生したアセンブリでクラスを作成、`DbConfiguration`クラス、およびそのクラスであり、Entity Framework での再試行ポリシーの他の語句は、SQL データベースの実行方法を設定します。
+必要な接続の回復を有効にするためには、アセンブリから派生したクラスを作成、`DbConfiguration`クラスし、そのクラスでは、Entity Framework では再試行ポリシーの別の用語ですが、SQL Database 実行戦略を設定します。
 
-### <a name="implementing-connection-resiliency"></a>接続の回復を実装します。
+### <a name="implementing-connection-resiliency"></a>接続の回復性を実装します。
 
-1. ダウンロードして開きます、 [WingtipToys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409)サンプルの Visual Studio で Web フォーム アプリケーションです。
-2. *ロジック*のフォルダー、 **WingtipToys**アプリケーションでは、という名前のクラス ファイルを追加*WingtipToysConfiguration.cs*です。
+1. ダウンロードして開きます、 [WingtipToys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409)サンプル Visual Studio で Web フォーム アプリケーションです。
+2. *ロジック*のフォルダー、 **WingtipToys**アプリケーション、という名前のクラス ファイルを追加*WingtipToysConfiguration.cs*します。
 3. 既存のコードを次のコードで置換します。  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample1.cs)]
 
-Entity Framework がから派生したクラス内で検出されたコードを自動的に実行`DbConfiguration`です。 使用することができます、`DbConfiguration`で行う場合はコードでの構成タスクを実行するクラス、 *Web.config*ファイル。 詳細については、次を参照してください。 [EntityFramework コード ベースの構成](https://msdn.microsoft.com/data/jj680699)です。
+Entity Framework から派生したクラス内で見つかったコードを自動的に実行する`DbConfiguration`します。 使用することができます、`DbConfiguration`で行う場合はコードでの構成タスクを実行するために、 *Web.config*ファイル。 詳細については、次を参照してください。 [EntityFramework コード ベースの構成](https://msdn.microsoft.com/data/jj680699)します。
 
 1. *ロジック*フォルダーを開き、 *AddProducts.cs*ファイル。
-2. 追加、`using`の声明`System.Data.Entity.Infrastructure`黄色で強調表示されています。  
+2. 追加、`using`ステートメント`System.Data.Entity.Infrastructure`黄色で強調表示されています。  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample2.cs?highlight=6)]
-3. 追加、`catch`へのブロック、`AddProduct`メソッドできるように、`RetryLimitExceededException`は黄色で強調表示されたとして記録されます。   
+3. 追加、`catch`へのブロック、`AddProduct`メソッドように、`RetryLimitExceededException`は黄色で強調表示されているとして記録されます。   
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample3.cs?highlight=14-15,17-22)]
 
-追加することによって、`RetryLimitExceededException`例外、ログ記録よりか場所を選択して、プロセスをもう一度やり直してください。 ユーザーにエラー メッセージを表示します。 キャッチすることにより、`RetryLimitExceededException`例外、エラーのみが一時的なする可能性がありますは既にが試行され、複数回失敗しました。 実際に返される例外でラップされます、`RetryLimitExceededException`例外。 さらに、汎用 catch ブロックも追加します。 詳細については、 `RetryLimitExceededException` 、例外を参照してください[Entity Framework 接続の回復/再試行ロジック](https://msdn.microsoft.com/data/dn456835)です。
+追加することで、`RetryLimitExceededException`例外、ログ記録より提供したり、プロセスをもう一度やり直してください。 選択できるユーザーにエラー メッセージが表示されます。 キャッチすることにより、`RetryLimitExceededException`例外、エラーのみが一時的である可能性がありますが既にしようとしたされ複数回失敗しました。 返される実際の例外にラップされます、`RetryLimitExceededException`例外。 さらに、汎用の catch ブロックも追加します。 詳細については、 `RetryLimitExceededException` 、例外を参照してください[Entity Framework 接続の回復/再試行ロジック](https://msdn.microsoft.com/data/dn456835)します。
 
-## <a name="command-interception"></a>コマンドの途中受信
+## <a name="command-interception"></a>コマンド傍受
 
-これで、再試行ポリシーを有効にした、方法をテストすること期待どおりに機能することを確認するか。 一時的なエラーが発生、特に、ローカルで実行しているし、自動化された単体テストに実際の一時的なエラーを統合することは特に困難を強制するために簡単ではありません。 接続の復元機能をテストするには、Entity Framework は SQL Server に送信されるクエリをインターセプトし、通常、一時的である例外の種類で SQL サーバーの応答を 手段が必要です。
+これで再試行ポリシーを有効にした、方法をテストすることが、正しく動作することを確認するでしょうか。 一時的なエラーが発生、特に、ローカルで実行しているし、特に自動化された単体テストに実際の一時的なエラーを統合することは困難を強制するために簡単ではありません。 接続の回復性機能をテストするには、Entity Framework は SQL Server に送信するクエリをインターセプトし、SQL Server の応答を置き換えますが、通常は一時的な例外の種類の方法が必要です。
 
-クラウド アプリケーションのためのベスト プラクティスを実装するために、クエリの途中受信を使用することもできます: データベース サービスなどのサービスの待機時間、成功または失敗のすべての呼び出しに外部ログ。
+クラウド アプリケーションのベスト プラクティスを実装するために、クエリのインターセプトを使用することもできます。 ログの待機時間と成功または失敗をすべての呼び出しを外部サービスのデータベース サービスなどです。
 
-Entity Framework のチュートリアルのこのセクションで使用する[*インターセプション機能*](https://msdn.microsoft.com/data/dn469464)のログ記録と一時的なエラーをシミュレートするための両方です。
+このチュートリアルのこのセクションでは、Entity Framework を使用します[*インターセプション機能*](https://msdn.microsoft.com/data/dn469464)のログ記録と一時的なエラーをシミュレートするための両方。
 
 ### <a name="create-a-logging-interface-and-class"></a>ログ記録のインターフェイスとクラスを作成します。
 
-使用して行うには、ログ記録のためのベスト プラクティス、 [ `interface` ](https://msdn.microsoft.com/library/ms173156.aspx)ハード コーディングの呼び出しではなく`System.Diagnostics.Trace`またはログ記録クラスです。 これによりを実行する必要が生じた場合は、後で、ログ記録メカニズムを変更します。 したがって、このセクションで、ログ記録のインターフェイスとそれを実装するクラスを作成します。
+ログ記録のためのベスト プラクティスを使用して行う、 [ `interface` ](https://msdn.microsoft.com/library/ms173156.aspx)への呼び出しをハード コーディングするのではなく`System.Diagnostics.Trace`またはログ記録クラス。 これによりを実行する必要が生じた場合、後で、ログ記録メカニズムを変更します。 したがって、このセクションで、ログ記録のインターフェイスとそれを実装するクラスを作成します。
 
-上記の手順に基づき、ダウンロードして開く、 **WingtipToys**サンプル Visual Studio でのアプリケーションです。
+上記の手順に基づいて、ダウンロードして開く、 **WingtipToys**サンプル Visual Studio でのアプリケーション。
 
-1. フォルダーを作成、 **WingtipToys**プロジェクトおよび名前を付けます*ログ*です。
-2. *ログ*フォルダー、という名前のクラス ファイルを作成する*ILogger.cs*し、既定のコードを次のコードに置き換えます。  
+1. フォルダーを作成、 **WingtipToys**プロジェクトし、名前を付けます*ログ*します。
+2. *ログ*フォルダー、という名前のクラス ファイルを作成*ILogger.cs*既定のコードを次のコードに置き換えます。  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample4.cs)]
 
-   インターフェイスは、ログの相対的な重要度を示すために次の 3 つのトレース レベルおよびデータベース クエリなどの外部サービス呼び出しの待機時間情報を提供する 1 つを提供します。 ログ作成メソッドで例外を渡すことのできるオーバー ロードがあります。 これは、スタック トレースと内部例外を含む例外情報は、アプリケーション全体で各ログ記録のメソッドの呼び出しで実行されていることに依存せずに、インターフェイスを実装するクラスによって確実に記録されるようにします。  
+   ログの相対的な重要度を示す 3 つのトレース レベルと 1 つのデータベースのクエリなどの外部サービスの呼び出しの待機時間情報を提供するインターフェイスを提供します。 ログ作成メソッドがあるオーバー ロードを例外で渡すことができます。 これは、スタック トレースと内部例外を含む例外情報は、アプリケーション全体でログ記録メソッド呼び出しのたびに実行されているではなく、インターフェイスを実装するクラスによって確実に記録されるようにします。  
   
-   `TraceApi`メソッドでは、SQL データベースなどの外部サービスへの各呼び出しの待機時間を追跡できます。
-3. *ログ*フォルダー、という名前のクラス ファイルを作成する*Logger.cs*し、既定のコードを次のコードに置き換えます。  
+   `TraceApi`メソッドでは、SQL Database などの外部サービスへの各呼び出しの待機時間を追跡できます。
+3. *ログ*フォルダー、という名前のクラス ファイルを作成*Logger.cs*既定のコードを次のコードに置き換えます。  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample5.cs)]
 
-実装を使用して`System.Diagnostics`トレースを行う。 これは、簡単に生成し、トレース情報を使用する .NET の組み込み機能です。 多数ある&quot;リスナー&quot;で使用できる`System.Diagnostics`トレース、ログ ファイルを書き込む、たとえば、または、Windows azure blob ストレージに書き込むことです。 いくつかのオプション、およびその他の詳細については、リソースへのリンクで[Visual Studio で Windows Azure Web サイトをトラブルシューティング](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio)です。 このチュートリアルでは、だけを見てみましょう Visual Studio でのログ**出力**ウィンドウです。
+実装を使用して`System.Diagnostics`トレースを実行します。 これは、簡単に生成して、トレース情報を使用する .NET の組み込み機能です。 たくさん&quot;リスナー&quot;で使用できる`System.Diagnostics`トレース、または Windows azure blob storage に書き込んだりするなど、ファイルにログを書き込む。 いくつかのオプション、およびその他の詳細については、リソースへのリンクを参照してください[Visual Studio で Windows Azure Web サイトをトラブルシューティング](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio)します。 このチュートリアルを見るだけで、Visual Studio でログ**出力**ウィンドウ。
 
-実稼働アプリケーションでトレース フレームワークを以外の使用を検討する可能性があります`System.Diagnostics`、および`ILogger`インターフェイスを使用、さまざまなトレース機構に切り替える場合はこれを行うには比較的簡単です。
+実稼働アプリケーションで他にもトレース フレームワークの使用を検討する可能性があります`System.Diagnostics`、および`ILogger`インターフェイスにより、さまざまなトレース メカニズムに切り替える場合はそのためには比較的簡単です。
 
 ### <a name="create-interceptor-classes"></a>インターセプターのクラスを作成します。
 
-次に、データベース、一時的なエラーをシミュレートして 1 つをログ記録を行うには、クエリを送信するたびに、Entity Framework が呼び出すクラスを作成します。 これらのインターセプターのクラスがから派生する必要があります、`DbCommandInterceptor`クラスです。 クエリが実行されると自動的に呼び出されるメソッドのオーバーライドを作成します。 これらのメソッドで確認またはログがデータベースに送信されるクエリ、およびデータベースに送信される前に、クエリを変更したり、何かを返す Entity Framework を自分であってもデータベースにクエリを渡さずにします。
+次に、これは一時的なエラーをシミュレートしてログ記録を行うのデータベースにクエリを送信するたびに、Entity Framework を呼び出すクラスを作成します。 これらのインターセプター クラスがから派生する必要があります、`DbCommandInterceptor`クラス。 それでは、クエリが実行されるときに自動的に呼び出されるメソッドのオーバーライドを作成します。 これらのメソッドで確認またはログ データベースに送信されるクエリ、およびデータベースに送信される前に、クエリを変更したり、何かを返す Entity Framework に自分でも、データベースにクエリを渡さずにします。
 
-1. データベースに送信される前にすべての SQL クエリがログオンするインターセプター クラスを作成するには、という名前のクラス ファイルを作成*InterceptorLogging.cs*で、*ロジック*フォルダーと置換、既定のコードを次のコード:  
+1. データベースに送信される前にすべての SQL クエリをログするインターセプター クラスを作成するには、という名前のクラス ファイルを作成*InterceptorLogging.cs*で、*ロジック*フォルダーと置換、既定のコードで、次のコード:  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample6.cs)]
 
-   成功したクエリまたはコマンドの場合は、このコードは、待機時間情報をログ記録する情報を書き込みます。 例外のエラー ログが作成されます。
-2. 入力するときに、ダミーの一時的なエラーを生成するインターセプター クラスを作成する&quot;スロー&quot;で、**名前**という名前のページのテキスト ボックス*AdminPage.aspx*クラスを作成という名前のファイル*InterceptorTransientErrors.cs*で、*ロジック*フォルダーと置換、既定のコードを次のコード。  
+   成功したクエリまたはコマンドの場合は、このコードは、待機時間情報と情報ログを書き込みます。 例外の場合は、エラー ログが作成されます。
+2. 入力すると、ダミーの一時的なエラーを生成するインターセプター クラスを作成する&quot;スロー&quot;で、**名前**という名前のページ上のテキスト ボックス*AdminPage.aspx*クラスを作成という名前のファイル*InterceptorTransientErrors.cs*で、*ロジック*フォルダーと置換、既定のコードを次のコード。  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample7.cs)]
 
-    オーバーライドのみです。 このコード、`ReaderExecuting`複数行のデータを返すことができるクエリに対して呼び出されるメソッド。 接続の回復の他の種類のクエリを確認する場合は、上書きすることでしたも、`NonQueryExecuting`と`ScalarExecuting`はログ記録インターセプターとしてメソッド、します。  
+    これは、コードでは唯一の上書き、`ReaderExecuting`メソッドで、複数行のデータを返すことができるクエリと呼びます。 オーバーライドも他の種類のクエリの接続の回復性を確認したい場合、`NonQueryExecuting`と`ScalarExecuting`はログ記録インターセプターとしてメソッド。  
   
-   "Admin"としてログオンした後で、しを選択するか、 **Admin**上部のナビゲーション バーでリンクします。 次に、 *AdminPage.aspx*という名前の製品を追加します ページ&quot;スロー&quot;です。 コードでは、エラー番号 20、通常、一時的である既知の型のダミー SQL データベースの例外を作成します。 現在一時的なものとして認識されているその他のエラー番号は、64、233、10053、10054、10060、10928、10929、40197、40501、および 40613 が、新しいバージョンの SQL データベースで変更される可能性があります。 製品の名前が"TransientErrorExample"は、次のコードで実行することができますに変更は、 *InterceptorTransientErrors.cs*ファイル。  
+   後で、"Admin"としてログインし、選択、**管理者**上部のナビゲーション バーのリンク。 次に、 *AdminPage.aspx*という製品を追加します ページ&quot;スロー&quot;します。 コードは、エラー番号 20、通常は一時的である既知の型のダミー SQL データベースの例外を作成します。 一時的なものとして認識されて、その他のエラー番号は、64、233、10053、10054、10060、10928、10929、40197、40501、および 40613 が、これらは新しいバージョンの SQL データベースで変更されます。 製品の名前が"TransientErrorExample"は、次のコードで実行することができますに変更は、 *InterceptorTransientErrors.cs*ファイル。  
   
-   コードは、クエリを実行して、結果の返送を渡すことではなく Entity Framework に例外を返します。 一時的な例外が返されます*4*時間、データベースにクエリを渡すことの通常のプロシージャにコードが戻されます。
+   コードでは、Entity framework クエリを実行して、結果の返送を渡すことではなく、例外を返します。 一時的な例外が返されます*4*回後、コードがデータベースにクエリを渡すことの通常のプロシージャに戻されます。
 
-    すべてのものが記録されるため、Entity Framework に成功すると、前に 4 回のクエリを実行しようとして、アプリケーションの唯一の違いはクエリ結果のページを表示するために長くかかることを確認することができます。  
+    すべてがログに記録するために成功すると、前に 4 回のクエリを実行しようとする Entity Framework をアプリケーションの唯一の違いはクエリ結果のページを表示するために時間がかかることを確認することができます。  
   
-   Entity Framework は再試行回数が構成可能です。コードは、SQL データベースの実行ポリシーの既定値であるために、4 回を指定します。 実行ポリシーを変更すると、しなければなりませんでしたも変更は、ここに、コードの一時的なエラーが生成される回数を指定します。 Entity Framework をスローするように、例外を生成するコードを変更することも、`RetryLimitExceededException`例外。
-3. *Global.asax*次の追加ステートメントを使用します。  
+   Entity Framework の再試行回数が構成可能です。コードを 4 回を指定します、SQL Database の実行ポリシーの既定値であるためです。 場合は、実行ポリシーを変更する必要がありましたも変更は、ここに、コードの一時的なエラーが生成される回数を指定します。 Entity Framework がスローされますのでより多くの例外を生成するコードを変更することも、`RetryLimitExceededException`例外。
+3. *Global.asax*次を追加するステートメントを使用します。  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample8.cs)]
 4. 強調表示された行を次に、追加、`Application_Start`メソッド。  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample9.cs?highlight=17-20)]
 
-次のコード行は、Entity Framework は、データベースにクエリを送信するときに実行するコードをインターセプターの原因です。 一時的なエラーのシミュレーションの個別のインターセプターのクラスを作成して、ログ記録を個別に有効または無効にするためすることを確認します。   
+これらの行のコードでは、Entity Framework がデータベースにクエリを送信するときに実行するインターセプター コードの原因は何です。 一時的なエラーのシミュレーションの個別のインターセプター クラスを作成したログ記録、個別に有効にして無効にするために注意します。   
   
- 使用してインターセプターを追加することができます、`DbInterception.Add`メソッド、コードで任意の場所である必要はありません、`Application_Start`メソッドです。 別のオプションでインターセプターを追加しなかった場合、`Application_Start`メソッドを更新またはという名前のクラスを追加すること*WingtipToysConfiguration.cs*のコンス トラクターの末尾には、上記のコードを配置し、`WingtipToysbConfiguration`クラスです。
+ 使用してインターセプターを追加することができます、`DbInterception.Add`メソッドは、コードで任意の場所である必要はありません、`Application_Start`メソッド。 別のオプションでインターセプターを追加しなかった場合、`Application_Start`方法は更新するかという名前のクラスを追加すること*WingtipToysConfiguration.cs*のコンス トラクターの末尾には、上記のコードを配置し、`WingtipToysbConfiguration`クラス。
 
-場所に配置するこのコードを実行しないように注意をする`DbInterception.Add`同じインターセプターは 1 回または複数追加インターセプター インスタンスが表示されます。 たとえば、2 回ログ記録のインターセプターを追加すると、すべての SQL クエリの 2 つのログが表示されます。
+場所に配置するこのコードは、実行しないように注意する`DbInterception.Add`または 1 回以上同じインターセプターの追加のインターセプター インスタンスが表示されます。 たとえば、ログ記録のインターセプターを 2 回追加すると、すべての SQL クエリの 2 つのログが表示されます。
 
-インターセプターは、登録の順序で実行されます (順序、`DbInterception.Add`メソッドが呼び出されます)。 順序は重要でによっては、インターセプターで何をしている可能性があります。 たとえば、インターセプターを変更、SQL コマンドでは、取得した、`CommandText`プロパティです。 SQL コマンドを変更するは、[次へ] のインターセプターが、変更された SQL コマンドを元の SQL コマンドではなくになります。
+インターセプターは、登録の順序で実行される (順序、`DbInterception.Add`メソッドが呼び出されます)。 順序は重要でによっては、インターセプターで何をしている可能性があります。 たとえば、インターセプターを変更 SQL コマンドで取得した、`CommandText`プロパティ。 SQL コマンドを変更するは、[次へ] のインターセプターにより、変更された SQL コマンド、元の SQL コマンドではありませんが表示されます。
 
-UI で別の値を入力することで一時的なエラーが発生するように一時的なエラー シミュレーション コードを記述しました。 代わりに、常に特定のパラメーター値をチェックすることがなく一時的な例外のシーケンスを生成するインターセプター コードを記述することもできます。 一時的なエラーを生成する場合にのみにし、インターセプターを追加できます。 これを行う場合、データベースの初期化が完了した後までインターセプター追加しないただし、します。 つまり、一時的なエラーの生成を開始する前に、エンティティ セットのいずれかのクエリなど、少なくとも 1 つのデータベース操作を実行します。 Entity Framework データベースの初期化中にいくつかのクエリを実行して、これらはトランザクションでは、ため、初期化中にエラーが発生する不整合な状態を取得するコンテキスト。
+UI で、別の値を入力して一時的なエラーが発生することができる方法では、一時的なエラーのシミュレーション コードを記述しました。 代わりには、常に特定のパラメーター値をチェックすることがなく一時的な例外のシーケンスを生成するインターセプター コードを記述する可能性があります。 一時的なエラーを生成する場合にのみ、インターセプターを追加できます。 これを行う場合、データベースの初期化が完了した後までインターセプター追加しないでください。 つまり、一時的なエラーの生成を開始する前に、クエリなど、エンティティ セットの 1 つ上の少なくとも 1 つのデータベースの操作を実行します。 Entity Framework がデータベースの初期化中にいくつかのクエリを実行し、ため、初期化中にエラーが発生する一貫性のない状態を取得するコンテキストのトランザクションでは実行されず。
 
 ## <a name="test-logging-and-connection-resiliency"></a>テストのログ記録と接続の回復性
 
-1. Visual Studio で、キーを押して**f5 キーを押して**のデバッグ モードでは、インストールとして"Admin"、パスワードとして"Pa$ $word"を使用してログインし、アプリケーションを実行します。
-2. 選択**Admin**のナビゲーション バー上部にあるからです。
-3. 適切な説明、価格、およびイメージ ファイルに新しい製品"の Throw"という名前を入力します。
-4. キーを押して、**製品の追加**ボタンをクリックします。  
-   ブラウザーは Entity Framework でも、クエリを何回か再試行は、数秒のハングことがわかります。 最初の再試行が非常に短時間発生し、各追加の再試行する前に待機時間が増加します。 このプロセスの再試行の間隔が呼び出される前に長時間待つ*指数バックオフ*です。
-5. ページが読み込む atttempting ではなくなるまで待機します。
-6. プロジェクトを停止し、Visual Studio を見て**出力**トレース出力を表示するウィンドウです。 検索することができます、**出力**ウィンドウを選択して**デバッグ** - &gt; **Windows**  - &gt; **出力**です。 以前のロガーによって書き込まれたその他のいくつかのログをスクロールする必要があります。  
+1. Visual Studio で、キーを押して**F5**のデバッグ モードでは、インストール"Admin"は"Pa$ $word"を使用して、パスワードとしてとしてログインし、アプリケーションを実行します。
+2. 選択**管理者**上部にあるナビゲーション バーから。
+3. 適切な説明、価格、およびイメージ ファイルを使用して、新しい製品を「スロー」という名前を入力します。
+4. キーを押して、**追加製品**ボタンをクリックします。  
+   ブラウザーが Entity Framework は、複数回に、クエリには再試行中の数秒間の停止していることがわかります。 最初の再試行は非常に迅速に発生し、各追加の再試行する前に、待機が増加します。 このプロセスの再試行の間隔が呼び出される前に長時間待つ*指数関数的バックオフ*します。
+5. ページが読み込む atttempting でされなくなるまで待ちます。
+6. プロジェクトを停止して、Visual Studio を見て**出力**トレース出力を表示するウィンドウ。 検索することができます、**出力**ウィンドウを選択して**デバッグ** - &gt; **Windows**  - &gt; **出力**します。 ロガーによって書き込まれたその他のいくつかのログをスクロールする必要があります。  
   
-   データベースに送信される実際の SQL クエリを表示できることに注意してください。 表示一部の最初のクエリと Entity Framework では、作業を開始するコマンド データベース バージョンと移行の履歴テーブルをチェックします。   
+   データベースに送信される実際の SQL クエリを表示できることに注意してください。 表示いくつかの最初のクエリと Entity Framework が開始するのにがコマンド データベース バージョンと移行履歴テーブルをチェックします。   
     ![[出力] ウィンドウ](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image1.png)   
-   アプリケーションを停止して再起動した場合を除き、このテストを繰り返すことはできませんに注意してください。 エラー カウンターをリセットするためのコードを記述することもできるように、1 つのアプリケーションに複数回接続の回復性をテストする場合は、`InterceptorTransientErrors`です。
-7. 違いを確認する (再試行ポリシー) の実行方法は、コメント、`SetExecutionStrategy`線*WingtipToysConfiguration.cs*ファイルで、*ロジック*実行、フォルダー、**管理者**デバッグ モードでページをもう一度、および名前付きの製品を追加&quot;スロー&quot;もう一度です。  
+   アプリケーションを停止して再起動した場合を除き、このテストを繰り返すことはできませんに注意してください。 エラー カウンターをリセットするコードを記述して、アプリケーションの 1 つの実行で複数回の接続の回復性をテストできる場合は、`InterceptorTransientErrors`します。
+7. 違いを確認する実行戦略 (再試行ポリシー) が、コメント、`SetExecutionStrategy`行*WingtipToysConfiguration.cs*ファイル、*ロジック*実行、フォルダー、**管理者**デバッグ モードでページをもう一度、および名前付きの製品を追加&quot;スロー&quot;もう一度です。  
   
-   今度は、デバッガーを停止最初の生成された例外を初めてクエリを実行しようとするとすぐにします。  
-    ![デバッグの詳細の表示](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image2.png)
-8. コメントを解除、`SetExecutionStrategy`線、 *WingtipToysConfiguration.cs*ファイル。
+   今回初めてクエリを実行するときにすぐに生成された最初の例外で、デバッガーが停止します。  
+    ![デバッグ-詳細の表示](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image2.png)
+8. コメントを解除、`SetExecutionStrategy`行、 *WingtipToysConfiguration.cs*ファイル。
 
 ## <a name="summary"></a>まとめ
 
-このチュートリアルでは、接続の回復とコマンドの途中受信をサポートするために、Web フォームのサンプル アプリケーションを変更する方法を説明しました。
+このチュートリアルでは、接続の回復性とコマンド傍受をサポートするために Web フォームのサンプル アプリケーションを変更する方法を説明しました。
 
 ## <a name="next-steps"></a>次の手順
 
-接続の回復と ASP.NET Web フォームのコマンドの途中受信を確認した後は、ASP.NET Web フォームのトピックを確認[ASP.NET 4.5 での非同期メソッド](../performance-and-caching/using-asynchronous-methods-in-aspnet-45.md)です。 このトピックでは、Visual Studio を使用して、非同期の ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。
+接続復元性と ASP.NET Web フォームで、コマンド インターセプションを確認してから、ASP.NET Web フォームのトピックを確認してください。 [ASP.NET 4.5 での非同期メソッド](../performance-and-caching/using-asynchronous-methods-in-aspnet-45.md)します。 トピックでは、Visual Studio を使用して非同期の ASP.NET Web フォーム アプリケーションの構築の基礎を説明します。

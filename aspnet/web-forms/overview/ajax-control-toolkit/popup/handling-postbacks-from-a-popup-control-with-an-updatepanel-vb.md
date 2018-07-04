@@ -1,66 +1,65 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-vb
-title: UpdatePanel (VB) でのポップアップ コントロールからのポストバックを処理する |Microsoft ドキュメント
+title: UpdatePanel (VB) によるポップアップ コントロールからポストバックを処理する |Microsoft Docs
 author: wenz
-description: AJAX コントロールのツールキットで PopupControl extender には、他のコントロールがアクティブになったときに、ポップアップをトリガーする簡単な方法が用意されています。 特別な注意は、する必要があります.
+description: AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。 特別な注意は、する必要があります.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: ec9db57c-9f68-402a-bf4c-0d63d5f6908e
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 312927e01911ea705d0614eac462cd034820c7b4
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cf17025219fbf24e749c172f2ddb47ec20980cdc
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868478"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395904"
 ---
-<a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-vb"></a>UpdatePanel (VB) でのポップアップ コントロールからのポストバックを処理します。
+<a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-vb"></a>UpdatePanel (VB) によるポップアップ コントロールからポストバックを処理します。
 ====================
 によって[Christian Wenz](https://github.com/wenz)
 
-[コードをダウンロードする](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl2.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol2VB.pdf)
+[コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/PopupControl2.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/2/d/c/2dc10e34-6983-41d4-9c08-f78f5387d32b/popupcontrol2VB.pdf)
 
-> AJAX コントロールのツールキットで PopupControl extender には、他のコントロールがアクティブになったときに、ポップアップをトリガーする簡単な方法が用意されています。 特別な注意は、このようなポップアップでポストバックが発生したときにする必要があります。
+> AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。 特別な注意は、このようなポップアップ内ポストバックが発生した場合に実行する必要があります。
 
 
 ## <a name="overview"></a>概要
 
-AJAX コントロールのツールキットで PopupControl extender には、他のコントロールがアクティブになったときに、ポップアップをトリガーする簡単な方法が用意されています。 特別な注意は、このようなポップアップでポストバックが発生したときにする必要があります。
+AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。 特別な注意は、このようなポップアップ内ポストバックが発生した場合に実行する必要があります。
 
 ## <a name="steps"></a>手順
 
-使用する場合、 `PopupControl` 、ポストバック時に、`UpdatePanel`ポストバックによるページの更新を防ぐことができます。 次のマークアップでは、いくつかの重要な要素を定義します。
+使用する場合、 `PopupControl` 、ポストバックに、`UpdatePanel`ポストバックの原因となったページの更新を防ぐことができます。 次のマークアップでは、いくつかの重要な要素を定義します。
 
-- A `ScriptManager` ASP.NET AJAX コントロール Toolkit が動作するように制御
-- 2 つ`TextBox`ポップアップがトリガーされます両方を管理します
-- A`Panel`ポップアップ画面として使用するコントロール
+- A `ScriptManager` ASP.NET AJAX Control Toolkit が動作するように制御
+- 2 つ`TextBox`ポップアップをトリガーする両方のコントロール
+- A`Panel`ポップアップとして機能するコントロール
 - パネル内で、`Calendar`内でコントロールが埋め込まれている、`UpdatePanel`コントロール
-- 2 つ`PopupControlExtender`コントロールのテキスト ボックスに、パネルを割り当てる
+- 2 つ`PopupControlExtender`コントロール、テキスト ボックスに、パネルを割り当てる
 
 [!code-aspx[Main](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/samples/sample1.aspx)]
 
-なお、`OnSelectionChanged`の属性、`Calendar`コントロールが設定されています。 ポストバックが発生した、ユーザーは、カレンダーで日付を選択するとき、およびサーバー側メソッド`c1_SelectionChanged()`を実行します。 このメソッドは、内には、現在の日付を取得し、テキスト ボックスに書き戻さして必要があります。
+なお、`OnSelectionChanged`の属性、`Calendar`コントロールを設定します。 ポストバックが発生したときに、ユーザーは、カレンダーで日付を選択するようにし、サーバー側メソッド`c1_SelectionChanged()`を実行します。 メソッド内には、現在の日付を取得し、テキスト ボックスに書き戻されるしてする必要があります。
 
-そのための構文は次のように、: まず、プロキシ オブジェクトを`PopupControlExtender` ページを生成する必要があります。 ASP.NET AJAX コントロール Toolkit には、`GetProxyForCurrentPopup()`メソッドです。 このメソッドが返すオブジェクトをサポートしている、`Commit()`ポップアップ (コントロールではなく、メソッドの呼び出しをトリガーした!) をトリガーしたコントロールに値を送信するメソッド。 次のコードは、選択した日付を引数として、`Commit()`メソッド、コードのテキスト ボックスに、選択した日付を書き戻しがします。
+そのための構文は次のように、: すべてのプロキシの最初のオブジェクト、 `PopupControlExtender`  ページを生成する必要があります。 ASP.NET AJAX Control Toolkit の提供、`GetProxyForCurrentPopup()`メソッド。 このメソッドが返すオブジェクトのサポート、`Commit()`メソッド (コントロールではなく、メソッドの呼び出しをトリガーした!) ポップアップをトリガーしたコントロールに値を送信します。 次のコードは、選択した日付を引数として、`Commit()`いるため、テキスト ボックスに、選択した日付を書き戻すコード メソッド。
 
 [!code-aspx[Main](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/samples/sample2.aspx)]
 
-今すぐ、関連付けられているテキスト ボックスに、選択した日付が表示されます、カレンダーの日付をクリックするたびに日付の選択コントロールを作成することができます現在に見つかりません多くの web サイト。
+カレンダーの日付では、関連付けられているテキスト ボックスで、選択した日付が表示されます をクリックするたびに日付の選択コントロールを作成することができます現在入手多くの web サイト。
 
 
 [![カレンダーは、テキスト ボックスに、ユーザーがクリックしたときに表示されます。](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image2.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image1.png)
 
-テキスト ボックスに、ユーザーがクリックしたときに、カレンダーが表示されます ([フルサイズのイメージを表示するをクリックして](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image3.png))
+テキスト ボックスに、ユーザーがクリックしたときに、カレンダーが表示されます ([フルサイズの画像を表示する をクリックします](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image3.png))。
 
 
-[![日付をクリックすると、テキスト ボックスに配置します。](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image5.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image4.png)
+[![テキスト ボックス内に配置する日付をクリックすると](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image5.png)](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image4.png)
 
-日付をクリックすると、テキスト ボックスに配置 ([フルサイズのイメージを表示するをクリックして](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image6.png))
+テキスト ボックス内に配置する日付をクリックすると ([フルサイズの画像を表示する をクリックします](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image6.png))。
 
 > [!div class="step-by-step"]
 > [前へ](using-multiple-popup-controls-vb.md)

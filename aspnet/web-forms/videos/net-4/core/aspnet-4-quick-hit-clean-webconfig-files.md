@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/net-4/core/aspnet-4-quick-hit-clean-webconfig-files
-title: Web.Config ファイルをクリーンアップ |Microsoft ドキュメント
+title: Web.Config ファイルのクリーニング |Microsoft Docs
 author: JoeStagner
-description: このビデオでは、主要な構成要素が machine.config ファイルに移動された方法がわかります。 これにより、ASP.NET 4 アプリケーションの Web.config ファイルです.
+description: このビデオでは、主要な構成要素が machine.config ファイルに移動された方法がわかります。 ASP.NET 4 アプリケーションの Web.config ファイルのことができます.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/11/2009
 ms.topic: article
 ms.assetid: 12aa35dd-16f7-408a-9a3b-a70c0aca791f
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/net-4/core/aspnet-4-quick-hit-clean-webconfig-files
 msc.type: video
-ms.openlocfilehash: b08482aaa8d485e1addaedb47dbe28fa4d0286ee
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cbbd06258f3de67193e61e3647edc5353f4a1f39
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30884504"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382060"
 ---
-<a name="aspnet-4-quick-hit---clean-webconfig-files"></a>ASP.NET 4 の Web.Config ファイルをクリーンアップ"クイック Hit"-
+<a name="aspnet-4-quick-hit---clean-webconfig-files"></a>ASP.NET 4「クイック ヒット」- Web.Config ファイルのクリーニング
 ====================
-によって[行える](https://github.com/JoeStagner)
+によって[Joe Stagner](https://github.com/JoeStagner)
 
-このビデオでは、主要な構成要素が machine.config ファイルに移動された方法がわかります。 これにより、ASP.NET 4 アプリケーションでは空にするか、行の最小数を含む Web.config ファイルです。
+このビデオでは、主要な構成要素が machine.config ファイルに移動された方法がわかります。 これにより、Web.config ファイルで ASP.NET 4 アプリケーションを空にするか、行の最小数を含めることができます。
 
-[&#9654;(2 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-clean-webconfig-files)
+[&#9654;ビデオ (2 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-clean-webconfig-files)
 
 > [!div class="step-by-step"]
 > [前へ](aspnet-4-quick-hit-auto-start.md)

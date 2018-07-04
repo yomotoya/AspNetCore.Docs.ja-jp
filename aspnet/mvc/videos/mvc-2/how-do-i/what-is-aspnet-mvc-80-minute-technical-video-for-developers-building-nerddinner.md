@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner
-title: ASP.NET MVC とは何ですか。 NerdDinner を構築する、開発者にとって 80 分間の技術的なビデオ |Microsoft ドキュメント
+title: ASP.NET MVC とは何ですか。 NerdDinner をビルドする開発者は、技術的な動画を 80 分 |Microsoft Docs
 author: robconery
-description: ASP.NET mvc アプリケーションの構築に関する詳細なチュートリアルです。 このビデオでは、単体テスト、Nerddinner.com とカバーの問題の基本を構築しています.
+description: ASP.NET mvc アプリケーションの構築の詳細なチュートリアルです。 このビデオでは、単体テスト、Nerddinner.com とカバーの問題の基本をビルドしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/21/2009
 ms.topic: article
 ms.assetid: a9f317b0-28c3-4838-bae0-cfa5ed5b3110
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner
 msc.type: video
-ms.openlocfilehash: 32a2f1c53ad2dcefbccd0d0a505c33f62a24f1f8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 19021e51cffa62a70edc0baa26a61f5d34598707
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868179"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369186"
 ---
-<a name="what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner"></a>ASP.NET MVC とは何ですか。 NerdDinner を構築する、開発者にとって 80 分間の技術的なビデオ
+<a name="what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner"></a>ASP.NET MVC とは何ですか。 NerdDinner をビルドする開発者は、80 分の技術的な動画
 ====================
 によって[Rob Conery](https://github.com/robconery)
 
-ASP.NET mvc アプリケーションの構築に関する詳細なチュートリアルです。 このビデオは、ASP.NET MVC プロジェクト テンプレートを使用してインストールされている Nerddinner.com とカバー問題の単体テスト、(jQuery を使用)、Javascript および Visual Studio 2008 のツールの新機能を使用する方法などの基本を構築します。
+ASP.NET mvc アプリケーションの構築の詳細なチュートリアルです。 このビデオでは、ASP.NET MVC プロジェクト テンプレートでインストールされる Nerddinner.com とカバー問題 Unit Testing、Javascript (jQuery を使用)、Visual Studio 2008 の新しいツール機能を使用する方法などの基本を構築します。
 
-[&#9654;ビデオでは (80 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner)
+[&#9654;ビデオ (80 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner)
 
 > [!div class="step-by-step"]
 > [前へ](displaying-a-table-of-database-data.md)

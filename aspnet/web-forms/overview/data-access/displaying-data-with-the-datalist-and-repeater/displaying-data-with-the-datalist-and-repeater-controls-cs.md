@@ -1,44 +1,43 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
-title: リピータ コントロール (c#) と DataList でのデータの表示 |Microsoft ドキュメント
+title: DataList と Repeater コントロール (c#) によるデータの表示 |Microsoft Docs
 author: rick-anderson
-description: 前のチュートリアルでは、データを表示するのに GridView コントロールを使用しています。 以降では、このチュートリアルを見てで共通のレポート パターンを構築しています.
+description: 上記のチュートリアルでは、データを表示する GridView コントロールを使いましたが。 以降このチュートリアルでは、一般的なレポートを使用してパターンを構築を見ています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
 ms.topic: article
 ms.assetid: 0591cacc-b34b-4cf6-885e-2c9953bb0946
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a329ff5d598156e613e3b5ef370d9d1147e4ea61
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ca585c51ae12be2395897044f6d0fd1857d3e357
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878283"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382703"
 ---
-<a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>リピータ コントロール (c#) と DataList でデータを表示します。
+<a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>DataList と Repeater コントロール (c#) によるデータの表示
 ====================
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_29_CS.exe)または[PDF のダウンロード](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/datatutorial29cs1.pdf)
 
-> 前のチュートリアルでは、データを表示するのに GridView コントロールを使用しています。 以降このチュートリアルでは、ここを見て、DataList とリピータ コントロールに共通のレポート パターンを構築の基本をこれらのコントロールでデータの表示の開始。
+> 上記のチュートリアルでは、データを表示する GridView コントロールを使いましたが。 以降このチュートリアルでは、説明、DataList と Repeater コントロールで共通のレポート パターンの構築これらのコントロールでデータの表示の基礎を開始します。
 
 
 ## <a name="introduction"></a>はじめに
 
-過去で説明する例のすべてのページで 28 チュートリアル、ここをオン GridView コントロールにデータ ソースから複数のレコードを表示する必要がある場合。 GridView は、レコードのデータ フィールドを列に表示する行をデータ ソース内の各レコードを表示します。 GridView ようには、スナップインの表示、使用、並べ替え、編集、およびデータを削除してページを外観が少し角張ったです。 さらに、マークアップ担当するには GridView の構造は固定されているが含まれています、HTML には`<table>`テーブル行を持つ (`<tr>`) の各レコードは、表のセル (`<td>`) フィールドごとにします。
+すべての全体にわたって過去の例で 28 チュートリアルでは、GridView コントロールをここになっているデータ ソースから複数のレコードを表示する必要がある場合。 GridView は、列に、レコードのデータ フィールドを表示する行をデータ ソース内の各レコードを表示します。 GridView により、表示、並べ替え、編集、およびデータの削除をページに、外観が少し角張ったです。 さらに、担当のマークアップ GridView s 構造体が容量固定を含む、HTML`<table>`テーブル行を持つ (`<tr>`) の各レコードは、表のセル (`<td>`) の各フィールド。
 
-複数のレコードを表示するときに、レンダリングされるマークアップと外観のカスタマイズの詳細を提供するには、ASP.NET 2.0 は、DataList およびリピータ コントロールを提供しています (これの両方で使用できたも ASP.NET バージョン 1.x)。 DataList リピータ コントロールでは、BoundFields、CheckBoxFields、ButtonFields ではなく、テンプレートを使用してコンテンツを表示およびなどです。 GridView のように、DataList は HTML としてレンダリング`<table>`が複数のデータのソース テーブルの行ごとに表示されるレコードを許可します。 リピータ、その一方で、マークアップなし追加よりも明示的に指定、および対象最適な候補は、出力されるマークアップを正確に制御が必要な場合です。
+複数のレコードを表示するときに、高いレベルで出力されるマークアップと外観のカスタマイズを提供するには、ASP.NET 2.0 は、DataList と Repeater コントロールを提供しています (どちらも ASP.NET のバージョンで使用できたも 1.x)。 DataList と Repeater コントロールでは、BoundFields CheckBoxFields、ButtonFields ではなく、テンプレートを使用して、コンテンツをレンダリングし、します。 HTML としてレンダリングを DataList、GridView のような`<table>`、一方を複数のデータ ソースのレコードをテーブルの行ごとに表示します。 その一方で、Repeater が何を明示的に指定、および最適な候補は、出力されるマークアップを正確に制御する必要がある場合よりもマークアップを追加レンダリングせずします。
 
-数十個が次のチュートリアルを見ていきます、DataList とリピータ コントロールに共通のレポート パターンを構築の基本をこれらのコントロール テンプレートを使用してデータを表示する開始します。 これらのコントロールの書式を設定する方法をお見せを編集し、データを削除するには、DataList、マスター/詳細の一般的なシナリオ、方法でデータ ソースのレコードのレイアウトを変更する方法、レコードを複数のページになどの方法です。
+次に数十個のチュートリアルを見て、DataList と Repeater コントロールで共通のレポート パターンの構築以降では、これらのコントロール テンプレートでデータの表示の基本です。 これらのコントロールを書式設定方法を見ていきますを編集し、データを削除するには、DataList、マスター/詳細の一般的なシナリオ、方法でデータ ソースのレコードのレイアウトを変更する方法、レコードを閲覧する方法。
 
-## <a name="step-1-adding-the-datalist-and-repeater-tutorial-web-pages"></a>手順 1: DataList およびリピータ チュートリアルの Web ページを追加します。
+## <a name="step-1-adding-the-datalist-and-repeater-tutorial-web-pages"></a>手順 1: DataList と Repeater チュートリアル Web ページの追加
 
-このチュートリアルを始める前に、まずこのチュートリアルおよび DataList および Repeater を使用してデータの表示を処理する次のいくつかチュートリアルが必要です、ASP.NET ページを追加する少し時間を取って s を使用できます。 という名前のプロジェクトに新しいフォルダーを作成して開始`DataListRepeaterBasics`です。 次に、すべてのマスター ページを使用するように構成して、このフォルダーに次の 5 つの ASP.NET ページを追加`Site.master`:
+このチュートリアルを始める前に、このチュートリアルと DataList と Repeater を使用してデータの表示を処理する次のいくつかのチュートリアルの必要があります、ASP.NET ページを追加する最初に少し s を使用できます。 という名前のプロジェクトで新しいフォルダーを作成して開始`DataListRepeaterBasics`します。 次に、次の 5 つの ASP.NET ページをこのフォルダーは、すべてのマスター ページを使用するように構成する追加`Site.master`:
 
 - `Default.aspx`
 - `Basics.aspx`
@@ -47,100 +46,100 @@ ms.locfileid: "30878283"
 - `NestedControls.aspx`
 
 
-![DataListRepeaterBasics フォルダーを作成し、チュートリアルの ASP.NET ページを追加](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image1.png)
+![DataListRepeaterBasics フォルダーを作成し、チュートリアルの ASP.NET ページを追加します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image1.png)
 
-**図 1**: 作成、`DataListRepeaterBasics`フォルダー チュートリアルの ASP.NET ページを追加
+**図 1**: 作成、`DataListRepeaterBasics`フォルダー チュートリアル ASP.NET ページを追加
 
 
-開く、`Default.aspx`ページし、ドラッグ、`SectionLevelTutorialListing.ascx`からユーザー コントロール、`UserControls`デザイン画面上のフォルダーです。 作成した、このユーザー コントロール、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)チュートリアルでは、サイト マップを列挙し、箇条書きリストの現在のセクションのチュートリアルが表示されます。
+開く、`Default.aspx`ページし、ドラッグ、`SectionLevelTutorialListing.ascx`からユーザー コントロール、`UserControls`デザイン サーフェイスにフォルダー。 作成した、このユーザー コントロール、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)チュートリアルでは、サイト マップの列挙し、箇条書きリストに現在のセクションから、チュートリアルを表示します。
 
 
 [![Default.aspx に SectionLevelTutorialListing.ascx ユーザー コントロールを追加します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image3.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image2.png)
 
-**図 2**: 追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image4.png))
+**図 2**: 追加、`SectionLevelTutorialListing.ascx`ユーザー コントロールを`Default.aspx`([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image4.png))。
 
 
-箇条書きリスト表示するために作成する、DataList とリピータ チュートリアル必要がありますサイト マップに追加します。 開く、`Web.sitemap`ファイルし、マークアップの後にカスタム ボタンの追加サイト マップ ノード、次のマークアップを追加します。
+箇条書きリストに表示するために作成します、DataList と Repeater チュートリアル必要がありますサイト マップに追加します。 開く、`Web.sitemap`ファイルを開き、カスタム ボタンの追加サイト マップ ノードのマークアップの後に、次のマークアップを追加します。
 
 
 [!code-xml[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample1.xml)]
 
 
-![マップを更新するサイトに新しい ASP.NET ページを含める](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image5.png)
+![新しい ASP.NET ページは、サイト マップを更新します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image5.png)
 
-**図 3**: 新規の ASP.NET ページを含むサイト マップを更新
-
-
-## <a name="step-2-displaying-product-information-with-the-datalist"></a>手順 2: DataList で情報が製品を表示します。
-
-テンプレートではなく BoundFields CheckBoxFields、やなどによって異なります DataList コントロール s が表示される出力をフォーム ビューと同様に。 FormView とは異なり、DataList は単独の 1 つではなく、レコードのセットを表示する設計されています。 S バインド DataList に製品情報を見るには、このチュートリアルを開始できるようにします。 開いて開始、 `Basics.aspx`  ページで、`DataListRepeaterBasics`フォルダーです。 次に、DataList をツールボックスからデザイナーにドラッグします。 DataList のテンプレートを指定する前に、図 4 に示すように、デザイナーは、灰色のボックスとして表示します。
+**図 3**: 新しい ASP.NET ページは、サイト マップを更新
 
 
-[![DataList をツールボックスからデザイナーにドラッグします。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image7.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image6.png)
+## <a name="step-2-displaying-product-information-with-the-datalist"></a>手順 2: DataList で製品情報を表示します。
 
-**図 4**: DataList から、[ツールボックス] に、デザイナーをドラッグして ([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image8.png))
+テンプレートではなく BoundFields、CheckBoxFields、具合に依存 DataList コントロールの出力にレンダリングされますをフォーム ビューと同様に、します。 FormView とは異なり、DataList は単独の 1 つではなく、レコードのセットを表示する設計されています。 S で製品情報を DataList にバインドを参照してください、このチュートリアルを開始することができます。 開いて開始、`Basics.aspx`ページで、`DataListRepeaterBasics`フォルダー。 次に、DataList をツールボックスからデザイナーにドラッグします。 DataList s のテンプレートを指定する前に、図 4 に示すように、デザイナーで、灰色のボックスとして表示にします。
 
 
-スマート タグの DataList 秒から、新しい ObjectDataSource を追加および使用するように構成、`ProductsBLL`クラスの`GetProducts`メソッドです。 お読み取り専用 DataList を作成するこのチュートリアルでは再設定されるので (なし) をドロップダウン リスト ウィザード s 挿入、更新、およびタブを削除します。
+[![DataList をツールボックスからデザイナーにドラッグします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image7.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image6.png)
+
+**図 4**: DataList から、ツールボックスに、デザイナーをドラッグします ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image8.png))。
+
+
+スマート タグの DataList s から、新しい ObjectDataSource を追加しを使用するように構成、`ProductsBLL`クラスの`GetProducts`メソッド。 ウィザード s INSERT (なし) をドロップダウン リストを設定では、このチュートリアルでは、読み取り専用 DataList を作成しますので、更新、およびタブを削除します。
 
 
 [![新しい ObjectDataSource を作成することを選択します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image10.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image9.png)
 
-**図 5**: 新しい ObjectDataSource を作成すること ([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image11.png))
+**図 5**: 新しい ObjectDataSource を作成すること ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image11.png))。
 
 
-[![構成、ObjectDataSource ProductsBLL クラスを使用するには](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image13.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image12.png)
+[![ProductsBLL クラスを使用する ObjectDataSource を構成します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image13.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image12.png)
 
-**図 6**: 構成を使用する ObjectDataSource、`ProductsBLL`クラス ([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image14.png))
+**図 6**: 構成に使用する ObjectDataSource、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image14.png))。
 
 
 [![すべての GetProducts メソッドを使用して製品に関する情報を取得します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image16.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image15.png)
 
-**図 7**: 取得情報に関するすべての製品を使用して、`GetProducts`メソッド ([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image17.png))
+**図 7**: 取得情報に関するすべての製品を使用して、`GetProducts`メソッド ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image17.png))。
 
 
-後、ObjectDataSource を構成して、そのスマート タグから DataList に関連付けることが、Visual Studio が自動的に作成、`ItemTemplate`名とデータ ソースによって返される各データ フィールドの値を表示する DataList で (を参照してください、マークアップ以下)。 この既定`ItemTemplate`の外観が FormView デザイナーを使用するデータ ソースをバインドするときに自動的に作成したテンプレートの場合と同じです。
+ObjectDataSource を構成すると、スマート タグを DataList に関連付ける、Visual Studio が自動的に作成、`ItemTemplate`名前とデータ ソースによって返される各データ フィールドの値を表示する DataList で (を参照してください、次のマークアップ)。 この既定`ItemTemplate`外観が自動的に作成、FormView、デザイナーを使用するデータ ソースをバインドするときにテンプレートの場合と同じです。
 
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample2.aspx)]
 
 > [!NOTE]
-> FormView s のスマート タグから FormView コントロールをデータ ソースをバインドするときに Visual Studio 作成されたことに注意してください、 `ItemTemplate`、 `InsertItemTemplate`、および`EditItemTemplate`です。 ただし、DataList でのみ、`ItemTemplate`を作成します。 これは、DataList に同じ組み込みの編集と FormView で提供されるサポートの挿入があるないためです。 DataList は編集および削除に関連するイベントは含まし、編集およびサポートを削除することができます追加ほんの少しのコードが含まれていますされなくなります FormView でとして、標準のサポートが単純なです。 編集、および今後のチュートリアルでは、DataList のサポートの削除をインクルードする方法を会いしましょう。
+> FormView s のスマート タグを FormView コントロールをデータ ソースをバインドするときに Visual Studio によって作成されたことを思い出してください、 `ItemTemplate`、 `InsertItemTemplate`、および`EditItemTemplate`します。 ただし、DataList でのみ、`ItemTemplate`が作成されます。 これは、DataList に同じ組み込み編集と、フォーム ビューで提供されるサポートの挿入があるないためにです。 DataList には編集および削除に関連のイベントにが含まれて編集および削除のサポートでく少しコードが存在 s のない単純なボックスのサポートを追加として、FormView で。 含める編集および今後のチュートリアルでは、DataList でサポートを削除する方法を見ていきます。
 
 
-このテンプレートの外観を向上させるために少し時間を取って s を使用できます。 すべてのデータ フィールドを表示するではなく s 製品の名前、供給業者、カテゴリ、単位、および単価ごとの数を表示のみを使用できます。 Let s がさらに、内の名前を表示、`<h4>`見出しと、その他のフィールドを使用してレイアウト、`<table>`見出しの下にします。
+このテンプレートの外観を向上させるために少し s を使用できます。 すべてのデータ フィールドを表示するのではなくのみ製品の名前、仕入先、カテゴリ、単位、および単価ごとの数を表示する秒を使用できます。 Let s がさらに、内の名前を表示、`<h4>`見出しし、その他のフィールドを使用して、レイアウト、`<table>`見出しの下にします。
 
-これらの変更することができます DataList s タグが、テンプレートの編集リンクをクリックするか、ページ s の宣言構文から手動でテンプレートを変更することができますスマートからデザイナーの機能を編集するテンプレートを使用するか。 デザイナーでテンプレートの編集オプションを使用する場合、結果として得られるマークアップで、次のマークアップを正確に、一致しない可能性がありますが、を通じて表示されるときに、ブラウザーは次のようにスクリーン ショット図 8 に示す。
+DataList タグは、テンプレートの編集リンクをクリックしてまたはページの宣言構文から手動でテンプレートを変更するにはスマート s から、デザイナーの機能を編集するテンプレートを使用するかを変更することができます。 デザイナーでテンプレートの編集オプションを使用する場合、結果として得られるマークアップで、次のマークアップを完全に一致しない可能性がありますが、ブラウザーのスクリーン ショット、図 8 に示すとよく似ていますはずで表示した場合。
 
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample3.aspx)]
 
 > [!NOTE]
-> 使用して上記の例ラベル Web コントロールが`Text`プロパティには、データ バインド構文の値が割り当てられます。 または、でしたを省略したラベル、databinding 構文だけを入力します。 つまり、使用する代わりに`<asp:Label ID="CategoryNameLabel" runat="server" Text='<%# Eval("CategoryName") %>' />`お代わりに使用することも、宣言構文`<%# Eval("CategoryName") %>`です。
+> 使用して上記の例のラベル Web コントロールが`Text`プロパティには、データ バインディング構文の値が割り当てられます。 または、でしたを省略したラベル、データ バインド構文だけを入力します。 つまり、使用する代わりに`<asp:Label ID="CategoryNameLabel" runat="server" Text='<%# Eval("CategoryName") %>' />`宣言の構文を代わりに使用`<%# Eval("CategoryName") %>`します。
 
 
-ラベルの Web コントロールのままにして、ただし、2 つの利点を提供します。 最初に、次のチュートリアルで後ほどお見せ同様に、データに基づくデータを書式設定の簡単な手段を提供します。 次に、デザイナーではありません t 表示データ バインドを宣言の構文では、テンプレートの編集オプション表示される一部の Web コントロールの外部でします。 代わりに、テンプレートの編集インターフェイスが static のマークアップでの作業を容易にするように設計し、Web コントロールを任意のデータ バインドは操作には、Web コントロールのスマート タグからアクセス可能な databindings の編集 ダイアログ ボックスを前提としています。
+ラベルの Web コントロールのままにして、ただし、2 つの利点を提供します。 最初に、次のチュートリアルで表示されるように、データに基づくデータを書式設定するための簡単な手段を提供します。 次に、デザイナーは t 表示宣言型データ バインディング構文で、テンプレートの編集オプション表示される一部の Web コントロールの外部でします。 代わりに、テンプレートの編集インターフェイスは作業 static のマークアップを容易に設計されていて、Web を制御し、任意のデータ バインディングを Web コントロールのスマート タグからアクセス可能である DataBindings の編集 ダイアログ ボックスで実行することを前提としています。
 
-そのため、デザイナーでテンプレートを編集するオプションを提供するには、DataList を使用する場合 (_n) ラベル Web コントロールを使用して、コンテンツは、テンプレートの編集インターフェイス経由でアクセスできるようにします。 思います間もなく、リピータでは、ソース ビューからテンプレートの内容を編集することが必要です。 その結果、書式を設定する必要がありますはわからないコントロール ラベル Web 多くの場合は省略しますリピータのテンプレートを作成するとき、データの外観には、プログラム ロジックに基づいて、テキストがバインドされます。
-
-
-[![各製品の出力は、DataList の ItemTemplate を使用して表示されます。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image19.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image18.png)
-
-**図 8**: 各製品の出力が DataList s を使用してレンダリング`ItemTemplate`([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image20.png))
+そのため、デザイナーを使用して、テンプレートの編集のオプションを提供すると、DataList を使用する場合は、コンテンツは、テンプレートの編集インターフェイスを通じてアクセスできるように、ラベルの Web コントロールを使用する優先します。 間もなく表示されるよう、Repeater は、ソース ビューから、テンプレート コンテンツを編集することが必要です。 そのため、書式設定する必要がありますがわからないコントロールを Label Web 多くの場合は省略します Repeater のテンプレートを作成する際に、データの外観はプログラム ロジックに基づくテキストにバインドされます。
 
 
-## <a name="step-3-improving-the-appearance-of-the-datalist"></a>手順 3: DataList の外観の向上
+[![各製品の出力は、DataList の ItemTemplate を使用してレンダリング](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image19.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image18.png)
 
-GridView のように、DataList は数多くのスタイル関連プロパティなど`Font`、 `ForeColor`、 `BackColor`、 `CssClass`、 `ItemStyle`、 `AlternatingItemStyle`、`SelectedItemStyle`のようにします。 内のスキン ファイルを作成した、GridView と DetailsView コントロールを使用する場合、`DataWebControls`事前定義のテーマ、`CssClass`これら 2 つのコントロールのプロパティと`CssClass`、サブプロパティのいくつかのプロパティ (`RowStyle`、`HeaderStyle`など)。 S DataList に対して同じ操作を実行できるようにします。
+**図 8**: 各製品の出力は、DataList s を使用してレンダリング`ItemTemplate`([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image20.png))。
 
-説明したように、 [、ObjectDataSource でデータを表示する](../basic-reporting/displaying-data-with-the-objectdatasource-cs.md)スキン ファイルは、Web コントロールの既定の外観に関連するプロパティを指定しますテーマを定義する、スキン、CSS、画像、および JavaScript ファイルのコレクションは、チュートリアル。web サイトの特定ルック アンド フィールです。 *、ObjectDataSource でデータを表示する*チュートリアルでは、作成した、`DataWebControls`テーマ (は内のフォルダーとして実装されている、`App_Themes`フォルダー) を持つ、現在のところ、2 つのスキン ファイル -`GridView.skin`と`DetailsView.skin`. S サードパーティ DataList の定義済みのスタイルの設定を指定するためのスキン ファイルを追加することができます。
 
-スキン ファイルを追加するを右クリックし、`App_Themes/DataWebControls`フォルダー、新しい項目の追加を選択し、一覧から、スキン ファイルのオプションを選択します。 そのファイルに `DataList.skin` という名前を付けます。
+## <a name="step-3-improving-the-appearance-of-the-datalist"></a>手順 3: DataList の外観を向上させる
+
+、GridView のような、DataList は数多くのスタイル関連のプロパティをなど`Font`、 `ForeColor`、 `BackColor`、 `CssClass`、 `ItemStyle`、 `AlternatingItemStyle`、`SelectedItemStyle`など。 内のスキン ファイルを作成した GridView および DetailsView コントロールを使用する場合、`DataWebControls`の定義済みテーマ、`CssClass`これら 2 つのコントロールのプロパティと`CssClass`そのサブプロパティのいくつかのプロパティ (`RowStyle`、`HeaderStyle`など)。 S、DataList に同じ処理を行うことができます。
+
+説明したように、 [、ObjectDataSource でデータを表示する](../basic-reporting/displaying-data-with-the-objectdatasource-cs.md)スキン ファイルを Web コントロールの既定の外観に関連するプロパティを指定しますテーマを定義する、スキン、CSS、イメージ、および JavaScript ファイルのコレクションは、チュートリアル。web サイトの特定ルック アンド フィールです。 *、ObjectDataSource でデータを表示する*チュートリアルでは、作成した、`DataWebControls`テーマ (は内のフォルダーとして実装されている、`App_Themes`フォルダー) を持つ、現時点では、2 つのスキン ファイル`GridView.skin`と`DetailsView.skin`. S サード DataList の事前定義されたスタイルの設定を指定する、スキン ファイルを追加することができます。
+
+スキン ファイルを追加するを右クリックし、`App_Themes/DataWebControls`フォルダーが、新しい項目の追加を選択し、一覧からスキン ファイル オプションを選択します。 そのファイルに `DataList.skin` という名前を付けます。
 
 
 [![DataList.skin をという名前の新しいスキン ファイルを作成します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image22.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image21.png)
 
-**図 9**: 新しいスキン ファイルの名前付き作成`DataList.skin`([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image23.png))
+**図 9**: 新しいスキン ファイルの名前付き作成`DataList.skin`([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image23.png))。
 
 
 次のマークアップを使用して、`DataList.skin`ファイル。
@@ -148,176 +147,176 @@ GridView のように、DataList は数多くのスタイル関連プロパテ�
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample4.aspx)]
 
-これらの設定は、as、GridView と DetailsView コントロールで使用された、適切なプロパティを同じの CSS クラスを割り当てます。 ここで使用される CSS クラス`DataWebControlStyle`、 `AlternatingRowStyle`、`RowStyle`などで定義されて、`Styles.css`ファイルし、前のチュートリアルで追加されました。
+これらの設定は、GridView および DetailsView コントロールで使用されていた同じ CSS クラスを適切なプロパティに割り当てます。 ここで使用される CSS クラス`DataWebControlStyle`、 `AlternatingRowStyle`、`RowStyle`などで定義されて、`Styles.css`ファイルし、前のチュートリアルが追加されました。
 
-このスキン ファイルの追加により、DataList の外観は、(;、表示 メニューから新しいスキン ファイルの効果を参照して、更新 を選択するデザイナー ビューを更新する必要があります)、デザイナーで更新されます。 図 10 では、交互の各製品が明るいピンクの背景色にします。
+このスキン ファイルの追加により、(; [表示] メニューから新しいスキン ファイルの効果を確認、更新を選択するデザイナー ビューを更新する必要があります)、デザイナー、DataList 外観が更新されます。 図 10 に示すよう各代替製品が薄いピンク色の背景色にします。
 
 
 [![DataList.skin をという名前の新しいスキン ファイルを作成します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image25.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image24.png)
 
-**図 10**: 新しいスキン ファイルの名前付き作成`DataList.skin`([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image26.png))
+**図 10**: 新しいスキン ファイルの名前付き作成`DataList.skin`([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image26.png))。
 
 
-## <a name="step-4-exploring-the-datalist-s-other-templates"></a>手順 4: 探索、DataList s 他のテンプレート
+## <a name="step-4-exploring-the-datalist-s-other-templates"></a>手順 4: DataList s 他のテンプレートの表示
 
-加え、 `ItemTemplate`DataList は、その他の 6 つの省略可能なテンプレートをサポートしています。
+加え、 `ItemTemplate`DataList は、その他の省略可能な 6 つのテンプレートをサポートしています。
 
-- `HeaderTemplate` 指定した場合、出力にヘッダー行を追加し、この行を表示するために使用します。
-- `AlternatingItemTemplate` 交互の項目を表示するために使用します。
-- `SelectedItemTemplate` 選択した項目を表示するために使用します。選択した項目は、DataList s に対応してインデックスを持つ項目[`SelectedIndex`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
-- `EditItemTemplate` 編集中の項目を表示するために使用します。
-- `SeparatorTemplate` 指定した場合、各項目間の区切り記号を追加し、この区切り記号を表示するために使用します。
-- `FooterTemplate` -指定した場合、出力にフッター行を追加し、この行を表示するために使用します。
+- `HeaderTemplate` 指定した場合、出力にヘッダー行を追加し、この行を表示するために使用
+- `AlternatingItemTemplate` 交互の項目を表示するために使用
+- `SelectedItemTemplate` 選択された項目を表示するために使用選択した項目は、DataList s にインデックスが対応項目[`SelectedIndex`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
+- `EditItemTemplate` 編集中の項目を表示するために使用
+- `SeparatorTemplate` 指定した場合、各項目間の区切り記号を追加し、この区切り記号を表示するために使用
+- `FooterTemplate` -指定した場合、出力にフッター行を追加し、この行を表示するために使用
 
-指定する場合、`HeaderTemplate`または`FooterTemplate`DataList、表示される出力に追加のヘッダーまたはフッター行を追加します。 ように GridView のヘッダーとフッター行のヘッダーとフッター、DataList にバインドされていないデータ。 そのため、すべてデータ バインドの構文で、`HeaderTemplate`または`FooterTemplate`にバインドされたデータにアクセスしようとは、空の文字列を返します。
+指定するときに、`HeaderTemplate`または`FooterTemplate`DataList、表示される出力に追加のヘッダーまたはフッター行を追加します。 ように GridView のヘッダーとフッターを行、ヘッダーおよびフッター datalist にバインドされていないデータ。 そのため、データ バインド構文で、`HeaderTemplate`または`FooterTemplate`にバインドされたデータにアクセスしようとは、空の文字列を返します。
 
 > [!NOTE]
-> 説明したとおり、 [GridView のフッターで概要情報を表示する](../custom-formatting/displaying-summary-information-in-the-gridview-s-footer-cs.md)からこれらの行に直接挿入できますチュートリアルでは、ヘッダーとフッター行 t サポート データ バインドの構文、データに固有の情報のないときに、GridView の`RowDataBound`イベント ハンドラー。 この手法に使用できる集計途中経過を計算両方またはその他の情報、データからコントロールにバインドされているだけでなく、フッターにその情報を割り当てます。 これと同じ考え方は、DataList とリピータ コントロールに適用できます。リピータ、DataList のイベント ハンドラーを作成する唯一の違いは、`ItemDataBound`イベント (の代わりの`RowDataBound`イベント)。
+> 説明したように、 [GridView のフッターに概要情報を表示する](../custom-formatting/displaying-summary-information-in-the-gridview-s-footer-cs.md)チュートリアルでは、ヘッダーとフッター行のない t サポート データ バインディング構文をデータに固有の情報からこれらの行に直接挿入することができます、GridView の`RowDataBound`イベント ハンドラー。 この手法に使用できる実行中の合計を計算する両方またはその他の情報、データから、コントロールにバインドされているだけでなく、フッターにその情報を割り当てます。 これと同じ考え方は、DataList と Repeater コントロールに適用できます。DataList と Repeater のイベント ハンドラーを作成する唯一の違いは、`ItemDataBound`イベント (の代わりの`RowDataBound`イベント)。
 
 
-たとえば、let s したタイトルが、DataList s の結果の上部に表示される製品情報、`<h3>`見出し。 これを実現するには追加、`HeaderTemplate`適切なマークアップ。 これは、デザイナーでは、DataList s スマート タグのテンプレートの編集リンクをクリックすると、ドロップダウン リストからヘッダーのテンプレートを選択して、テキスト スタイル ドロップダウンから見出し 3 オプションを選択した後に入力して実行できます (図 11 を参照してください) を一覧表示します。
+この例では let s したタイトルが DataList の結果の上部に表示される製品情報、`<h3>`見出し。 これを行うには、追加、`HeaderTemplate`を適切なマークアップ。 これは、デザイナーでは、DataList s のスマート タグのテンプレートの編集リンクをクリックすると、ドロップダウン リストからヘッダーのテンプレートを選択するスタイルのドロップダウン リストから 3 の見出しのオプションを選択した後のテキストを入力して実行できます (図 11 を参照してください) を一覧表示します。
 
 
-[![テキストの製品情報 HeaderTemplate を追加します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image28.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image27.png)
+[![テキストの製品情報を使って HeaderTemplate を追加します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image28.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image27.png)
 
-**図 11**: 追加、`HeaderTemplate`テキスト製品情報 ([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image29.png))
+**図 11**: 追加、`HeaderTemplate`テキストの製品情報 ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image29.png))。
 
 
-また、この追加できます宣言内で次のマークアップを入力して、`<asp:DataList>`タグ。
+また、これは追加できます宣言内で次のマークアップを入力して、`<asp:DataList>`タグ。
 
 
 [!code-html[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample5.html)]
 
-各製品の一覧項目間のスペースのビットを追加するにように追加 s、`SeparatorTemplate`各セクションの間に行が含まれています。 水平線タグ (`<hr>`)、このような区分線を追加します。 作成、`SeparatorTemplate`に、次のマークアップを持つようにします。
+各製品の一覧の間にスペースを追加するには、s を追加できるように、`SeparatorTemplate`各セクションの間に行が含まれます。 水平線タグ (`<hr>`)、このような区分線を追加します。 作成、`SeparatorTemplate`次のマークアップがあるようにします。
 
 
 [!code-html[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample6.html)]
 
 > [!NOTE]
-> 同様に、`HeaderTemplate`と`FooterTemplates`、`SeparatorTemplate`データ ソースからすべてのレコードにバインドされていないと、そのため、データ ソース、DataList にバインドされているレコードのアクセスを直接ことはできません。
+> ように、`HeaderTemplate`と`FooterTemplates`、`SeparatorTemplate`データ ソースから任意のレコードにバインドされていないと、そのため、データ ソース、DataList にバインドされているレコードへのアクセスを直接ことはできません。
 
 
-この追加を行った後、ブラウザーからページを表示するときに、ようになります図 12 です。 ヘッダー行および各製品の一覧項目の間の線に注意してください。
+この参照を追加したら、ブラウザーを使用してページを表示するときに図 12 ようなります。 ヘッダー行と各製品の一覧の間の線に注意してください。
 
 
-[![DataList には、ヘッダー行および各製品の一覧項目の間の区切り線が含まれています](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image31.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image30.png)
+[![DataList には、ヘッダー行と各製品の一覧の間で水平方向の規則が含まれます。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image31.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image30.png)
 
-**図 12**: ヘッダー行と、水平方向の規則の間で各製品を一覧表示する、DataList が含まれます ([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image32.png))
+**図 12**: DataList には、ヘッダー行と、水平方向の規則の間で各 Product Listing が含まれています ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image32.png))。
 
 
-## <a name="step-5-rendering-specific-markup-with-the-repeater-control"></a>手順 5: 特定のマークアップ Repeater コントロールでのレンダリング
+## <a name="step-5-rendering-specific-markup-with-the-repeater-control"></a>手順 5: Repeater コントロールで特定のマークアップのレンダリング
 
-図 12 から DataList の例にアクセスしたときに、お使いのブラウザーから/ソースの表示を行う場合、DataList が HTML を生成することが表示されます`<table>`テーブルの行を格納している (`<tr>`) に 1 つのテーブル セル (`<td>`) の各項目にバインドしますDataList です。 実際には、この出力は、単一 TemplateField GridView からどのような出力と同じです。 今後のチュートリアルで後ほどお見せ、DataList はこのように、出力をさらにカスタマイズ テーブルの各行につき複数のデータ ソースのレコードを表示することを有効にすることができます。
+図 12 から DataList 例にアクセスしたときに、お使いのブラウザーから/ソースの表示を行う場合、DataList が HTML を出力が表示されます`<table>`テーブルの行を格納している (`<tr>`) に 1 つのテーブル セル (`<td>`) にバインドされた各項目に対して、DataList します。 実際には、この出力は、単一 TemplateField に GridView からどのような出力と同じです。 今後のチュートリアルに表示されるよう、DataList でカスタマイズを許可さらに、出力のテーブルの行ごとの複数のデータ ソースのレコードを表示できるようになりました。
 
-HTML を生成したくない場合`<table>`が、ですか? データ Web コントロールによって生成されたマークアップの合計で、完全な制御は、Repeater コントロールは使用する必要があります。 DataList と同様にリピータがテンプレートに基づいて構築されます。 リピータ、ただし、のみには次の 5 つのテンプレート。
+HTML を生成したくない場合`<table>`できたでしょうか。 データ Web コントロールによって生成されたマークアップの合計で、完全な制御は、Repeater コントロールを使用して必要があります。 DataList のように、テンプレートに基づいて、Repeater が構築されます。 Repeater、ただし、のみには次の 5 つのテンプレート。
 
 - `HeaderTemplate` 指定した場合、項目の前に、指定したマークアップを追加します。
-- `ItemTemplate` 項目を表示するために使用します。
-- `AlternatingItemTemplate` 指定した場合、交互の項目を表示するために使用します。
+- `ItemTemplate` 項目を表示するために使用
+- `AlternatingItemTemplate` 交互の項目を表示するために使用される指定した場合、
 - `SeparatorTemplate` 指定した場合、各項目の間、指定したマークアップを追加します。
 - `FooterTemplate` -指定した場合、項目の後、指定したマークアップを追加します。
 
-ASP.NET で 1.x では、コントロールがいくつかのデータ ソースからデータを含むが付属して箇条書きリストの表示に使用されたよくリピータします。 このような場合は、`HeaderTemplate`と`FooterTemplates`開始タグと終了が含まれます`<ul>`タグはそれぞれ、while、`ItemTemplate`が含まれます`<li>`databinding 構文を持つ要素。 2 つの例で示したように、この方法を ASP.NET 2.0 の使用ができます、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)チュートリアル。
+Asp.net 1.x では、Repeater コントロールでは、いくつかのデータ ソースからデータが付属して箇条書きリストを表示するために使用が一般的です。 このような場合は、`HeaderTemplate`と`FooterTemplates`開始タグと終了が含まれます`<ul>`タグはそれぞれ、while、`ItemTemplate`が含まれます`<li>`データ バインディング構文を持つ要素。 2 つの例で説明したように、この方法を ASP.NET 2.0 の使用ができます、[マスター ページとサイト ナビゲーション](../introduction/master-pages-and-site-navigation-cs.md)チュートリアル。
 
-- `Site.master`マスター ページで、リピータが (基本レポート、レポートのフィルター処理、カスタマイズされた書式、およびなど) は、最上位サイト マップの内容の箇条書きリストの表示に使用された以外の場合は別に、入れ子になったリピータの子のセクションの表示に使用された、最上位セクション
-- `SectionLevelTutorialListing.ascx`リピータが、現在のサイト マップ セクションの子セクションの行頭文字付き一覧を表示する使用されました
+- `Site.master`マスター ページで、Repeater を使いました箇条書き (基本的なレポート、レポートのフィルター処理、カスタマイズされた書式設定、およびなど) は、最上位サイト マップの内容の一覧を表示する; 別、入れ子になった Repeater の子セクションでは、表示に使用された、最上位レベルのセクションでは
+- `SectionLevelTutorialListing.ascx`Repeater がの現在のサイト マップ セクションの子セクションでは、箇条書きリストを表示するために使用
 
 > [!NOTE]
-> ASP.NET 2.0 が導入されていますが、新しい[BulletedList コントロール](https://msdn.microsoft.com/library/ms228101.aspx)、する単純な箇条書きリストを表示するためにデータ ソース コントロールにバインドできます。 BulletedList コントロールには必要はありません; リストに関連する HTML のいずれかを指定するには代わりに、各リスト項目のテキストとして表示するデータ フィールドだけで指定します。
+> ASP.NET 2.0 が導入されていますが、新しい[BulletedList コントロール](https://msdn.microsoft.com/library/ms228101.aspx)、する単純な箇条書きリストを表示するためにデータ ソース コントロールにバインドできます。 BulletedList コントロールで必要はありません。 リストに関連する HTML のいずれかを指定するには代わりに、各リスト項目のテキストとして表示するデータ フィールド指定だけです。
 
 
-リピータは、Web コントロールのすべてのデータを catch として機能します。 必要なマークアップを生成する既存のコントロールがない場合は、Repeater コントロールを使用できます。 リピータの使用を示すためには、手順 2. で作成された製品情報 DataList 上に表示されるカテゴリの一覧がある s を使用できます。 Let s が単一行の HTML に表示されるカテゴリを持つ具体的には、`<table>`テーブル内の列として表示される各カテゴリを使用します。
+Repeater では、すべてのデータ Web コントロール catch として機能します。 必要なマークアップを生成する既存のコントロールがない場合は、Repeater コントロールを使用できます。 Repeater を使用して示すためには、s は手順 2. で作成した製品情報 DataList 上に表示されるカテゴリの一覧があることができます。 具体的には、let s が単一行の HTML で表示されるカテゴリをある`<table>`各カテゴリが、テーブル内の列として表示されます。
 
-これを実現するには、製品情報 DataList 上、デザイナーには、ツールボックスから Repeater コントロールをドラッグして開始します。 同様に、DataList リピータは最初に表示灰色のボックスとしてそのテンプレートが定義されるまでです。
-
-
-[![リピータをデザイナーに追加します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image34.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image33.png)
-
-**図 13**: リピータをデザイナーに追加 ([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image35.png))
+これを実現するには、Repeater コントロールをツールボックスから、デザイナーの 製品情報 DataList 上にドラッグして開始します。 DataList と Repeater 最初に表示されます灰色のボックスとしてそのテンプレートが定義されるまでです。
 
 
-リピータ s スマート タグのない s のみ 1 つのオプション: データ ソースを選択します。 新しい ObjectDataSource を作成および使用するように構成することを選択、`CategoriesBLL`クラスの`GetCategories`メソッドです。
+[![Repeater をデザイナーに追加します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image34.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image33.png)
+
+**図 13**: Repeater をデザイナーに追加 ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image35.png))。
+
+
+Repeater s のスマート タグのオプションを 1 つだけある s: データ ソースを選択します。 新しい ObjectDataSource を作成および使用するように構成することを選択、`CategoriesBLL`クラスの`GetCategories`メソッド。
 
 
 [![新しい ObjectDataSource を作成します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image37.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image36.png)
 
-**図 14**: 新しい ObjectDataSource を作成する ([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image38.png))
+**図 14**: 新しい ObjectDataSource を作成 ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image38.png))。
 
 
-[![構成、ObjectDataSource CategoriesBLL クラスを使用するには](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image40.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image39.png)
+[![CategoriesBLL クラスを使用する ObjectDataSource を構成します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image40.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image39.png)
 
-**図 15**: 構成を使用する ObjectDataSource、`CategoriesBLL`クラス ([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image41.png))
-
-
-[![すべてのメソッドを使用してカテゴリの情報を取得します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image43.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image42.png)
-
-**図 16**: 取得情報に関するすべてのカテゴリを使用して、`GetCategories`メソッド ([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image44.png))
+**図 15**: 構成に使用する ObjectDataSource、`CategoriesBLL`クラス ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image41.png))。
 
 
-DataList とは異なり Visual Studio は自動的に作成されません ItemTemplate リピータのデータ ソースにバインドした後。 さらに、リピータのテンプレートは、デザイナーでは構成できませんし、宣言によって指定する必要があります。
+[![すべてのメソッドを使用してカテゴリに関する情報を取得します。](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image43.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image42.png)
 
-単一行として、カテゴリを表示する`<table>`の各カテゴリの列に、次のようなマークアップを生成する中継ぎ局必要があります。
+**図 16**: 取得情報に関するすべてのカテゴリを使用して、`GetCategories`メソッド ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image44.png))。
+
+
+DataList とは異なり Visual Studio は自動的に作成されません、ItemTemplate、Repeater のデータ ソースにバインドした後。 さらに、Repeater のテンプレートは、デザイナーでは構成できず、宣言によって指定する必要があります。
+
+単一行として、カテゴリを表示する`<table>`の各カテゴリの列に、Repeater、次のようなマークアップを生成する必要があります。
 
 
 [!code-html[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample7.html)]
 
-以降、`<td>Category X</td>`テキストは、部分の繰り返し、リピータの ItemTemplate に表示されます。 前に、表示されるマークアップ`<table><tr>`-に配置されます、`HeaderTemplate`終了マークアップの中に`</tr></table>`-に配置されますが、`FooterTemplate`です。 これらのテンプレート設定を入力するには、左下隅の [ソース] ボタンをクリックし、次の構文で型をクリックすると、ASP.NET ページの宣言型の部分に移動します。
+以降、`<td>Category X</td>`テキストはこの Repeater の ItemTemplate に表示されます、繰り返される部分です。 その前に表示されるマークアップ`<table><tr>`-に配置されます、`HeaderTemplate`終了のマークアップの中に`</tr></table>`-に配置されますが、`FooterTemplate`します。 これらのテンプレート設定を入力してには、、次の構文型の左下隅の [ソース] ボタンでクリックして、ASP.NET ページの宣言型の部分に移動します。
 
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample8.aspx)]
 
-リピータは、そのテンプレート、詳細 nothing, nothing 以下で指定された正確なマークアップを生成します。 図 17 では、ブラウザーで表示したときにリピータの出力を示します。
+Repeater では、そのテンプレート、それ以上、何も以下で指定された正確なマークアップを出力します。 図 17 では、ブラウザーで表示したときに、Repeater s の出力を示します。
 
 
-[![単一行 HTML&lt;テーブル&gt;別の列の各カテゴリの一覧表示](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image46.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image45.png)
+[![単一行の HTML&lt;テーブル&gt;別の列に各カテゴリを一覧表示](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image46.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image45.png)
 
-**図 17**: A 単一行の HTML`<table>`別の列の各カテゴリの一覧 ([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image47.png))
+**図 17**: A 単一行の HTML`<table>`別の列の各カテゴリの一覧表示されます ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image47.png))。
 
 
-## <a name="step-6-improving-the-appearance-of-the-repeater"></a>手順 6: リピータの外観の向上
+## <a name="step-6-improving-the-appearance-of-the-repeater"></a>手順 6: Repeater の外観を向上させる
 
-リピータでは、そのテンプレートで指定されたマークアップを正確が出力、ために、当然となる必要があります、リピータのスタイル関連のプロパティがないことです。 リピータによって生成されるコンテンツの外観を変更するには、おには、手動でリピータのテンプレートに直接必要な HTML や CSS のコンテンツを追加する必要があります。
+Repeater では、そのテンプレートで指定されたマークアップを正確には出力、ために、信じない取得するように、Repeater のスタイル関連のプロパティはありません。 リピータによって生成されるコンテンツの外観を変更するには、ここには、手動で Repeater のテンプレートに直接必要な HTML や CSS のコンテンツを追加する必要があります。
 
-この例と同様に、背景色が交互 DataList で交互の行にカテゴリ列がある秒を使用できます。 これを実現する必要がありますを割り当てる、`RowStyle`リピータの各アイテムに CSS クラス、および`AlternatingRowStyle`CSS クラスを使用して各交互リピータ アイテムを`ItemTemplate`と`AlternatingItemTemplate`テンプレートでは、次のように。
+たとえば、s のように、DataList で交互の行の代わりに背景色、カテゴリ列があることができます。 これを実現する必要がありますを割り当てる、 `RowStyle` Repeater の各項目 CSS クラス、`AlternatingRowStyle`を通じて各代替 Repeater 項目 CSS クラス、`ItemTemplate`と`AlternatingItemTemplate`テンプレートでは、次のよう。
 
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample9.aspx)]
 
-秒も、ヘッダー行の出力に追加する製品カテゴリのテキストを使用できます。 たくないのでがわからない列の数、結果として得られる`<table>`で構成されていますのすべての列にまたがることが保証されているヘッダー行を生成する最も簡単な方法は、使用する*2 つ* `<table>` s。 最初の`<table>`、ヘッダー行と、2 番目の単一行を格納する行に 2 つの行を含む`<table>`システム内の各カテゴリ列を持ちます。 つまり、次のマークアップを生成します。
+ヘッダー行をテキストの製品カテゴリの出力に追加することも s を使用できます。 ありませんのでがわからない列の数、その結果`<table>`で構成されていますのすべての列にまたがることが保証されるヘッダー行を生成する最も簡単な方法は、使用する*2 つ*`<table>`秒。 最初の`<table>`ヘッダー行と 2 つ目は、単一行を含む行に 2 つの行を含む`<table>`システム内の各カテゴリ列を持ちます。 つまり、次のマークアップを生成します。
 
 
 [!code-html[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample10.html)]
 
-次`HeaderTemplate`と`FooterTemplate`目的のマークアップが発生します。
+次`HeaderTemplate`と`FooterTemplate`必要なマークアップが発生します。
 
 
 [!code-aspx[Main](displaying-data-with-the-datalist-and-repeater-controls-cs/samples/sample11.aspx)]
 
-図 18 は、これらの変更が加えられた後にリピータを示します。
+図 18 は、これらの変更が行われた後に、Repeater を示します。
 
 
-[![カテゴリ列が別の背景色でと、ヘッダー行が含まれています](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image49.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image48.png)
+[![カテゴリ列を選択し、背景色で交互にヘッダー行が含まれています](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image49.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image48.png)
 
-**図 18**:、カテゴリ列代替背景色と、ヘッダー行が含まれています ([フルサイズのイメージを表示するをクリックして](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image50.png))
+**図 18**:、カテゴリ列代替背景色でヘッダー行が含まれます ([フルサイズの画像を表示する をクリックします](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image50.png))。
 
 
 ## <a name="summary"></a>まとめ
 
-GridView コントロールでは、簡単に表示、編集、削除、並べ替え、および、データのページ、外観は非常に角張った、グリッドのようにします。 外観をより細かく制御には、DataList またはリピータのいずれかのコントロールを有効にする必要があります。 これらのコントロールは、一連の BoundFields CheckBoxFields、やなどの代わりにテンプレートを使用してレコードを表示します。
+GridView コントロールは、簡単に表示、編集、削除、並べ替え、および、データのページ、外観は非常に角張ったでグリッドのようにします。 外観をより細かく制御は、DataList または Repeater コントロールを有効にする必要があります。 これらのコントロールは、一連の BoundFields や CheckBoxFields、代わりにテンプレートを使用してレコードを表示します。
 
-DataList は HTML としてレンダリング`<table>`既定では、表示する各データ ソースのレコード単一 TemplateField GridView と同じように、1 つのテーブルの行にします。 ように今後のチュートリアルでは、DataList は許可されている複数のレコードをテーブルの行ごとに表示されます。 その一方で、リピータ、厳密に、そのテンプレートで指定されたマークアップを生成します。マークアップを追加は追加されませんし、一般的であるため以外の HTML 要素にデータを表示する、 `<table>` (箇条書きリストなど)。
+DataList は、HTML としてレンダリング`<table>`既定では、表示する各データ ソースのレコードで 1 つ TemplateField GridView と同様、1 つのテーブルの行にします。 今後のチュートリアルでわかる、ように、DataList ではテーブルの行ごとに表示する複数のレコードは許可ただし、します。 その一方で、Repeater、厳密に、そのテンプレートで指定されたマークアップを出力します。追加のマークアップを追加しませんし、したがって以外の HTML 要素にデータを表示する使用よく、 `<table>` (箇条書きリストなど)。
 
-DataList とリピータ柔軟性が高く、レンダリングされた出力で中が GridView での組み込み機能の多くが不足しています。 今後のチュートリアルで説明します、これらの機能の一部が多すぎる作成作業なしに接続できるようは引き続きことに注意を使用して、DataList またはリピータ GridView の代わりでは、これらの機能を実装することがなく使用できる機能を制限します。自分でします。
+DataList と Repeater、レンダリングされた出力に柔軟性が提供して、GridView で見つかった組み込み機能の多くがありません。 今後のチュートリアルで取り上げるようせず、非常に面倒に戻ってこれらの機能のいくつかプラグインできますがの操作を行います保持に注意してくださいをまたはを使用して DataList Repeater を代わりに、GridView では、これらの機能を実装することがなく使用できる機能を制限します。自分でします。
 
-満足プログラミング!
+満足のプログラミングです。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>執筆者紹介
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
 
-## <a name="special-thanks-to"></a>感謝の特別な
+## <a name="special-thanks-to"></a>特別なに感謝します。
 
-このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Yaakov Ellis、Liz Shulok、ものです。 Schmidt、Stacy 公園でした。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Yaakov Ellis、Liz Shulok、Randy Schmidt、および Stacy パークでした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [次へ](formatting-the-datalist-and-repeater-based-upon-data-cs.md)

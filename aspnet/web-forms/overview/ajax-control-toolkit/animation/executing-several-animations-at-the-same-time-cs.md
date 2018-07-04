@@ -1,67 +1,66 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-cs
-title: 複数のアニメーションを実行する、同時に (c#) |Microsoft ドキュメント
+title: 複数のアニメーションを実行すると同時に (c#) |Microsoft Docs
 author: wenz
-description: アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 これによりに落としたを実行しています.
+description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 これにより、落としたを実行する.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: 219149e1-3ee9-4b79-8fe4-7433f6b7d15b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6ecd822f7fa00a24e97b9aa14888798825624617
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 500971bb1bad101a165c8dda6f5fa3d5cfe3aba4
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869362"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382820"
 ---
-<a name="executing-several-animations-at-the-same-time-c"></a>(C#) 同時に複数のアニメーションを実行します。
+<a name="executing-several-animations-at-the-same-time-c"></a>(C#) と同時に複数のアニメーションを実行
 ====================
 によって[Christian Wenz](https://github.com/wenz)
 
-[コードをダウンロードする](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation2.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation2CS.pdf)
+[コードのダウンロード](http://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation2.cs.zip)または[PDF のダウンロード](http://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation2CS.pdf)
 
-> アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 並列的に複数のアニメーションを実行できます。
+> アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 並列的に複数のアニメーションを実行できます。
 
 
 ## <a name="overview"></a>概要
 
-アニメーション コントロール、ASP.NET AJAX コントロール Toolkit ではなくコントロールだけアニメーションをコントロールに追加するために全体のフレームワークです。 並列的に複数のアニメーションを実行できます。
+アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 並列的に複数のアニメーションを実行できます。
 
 ## <a name="steps"></a>手順
 
-まず、含める、 `ScriptManager` ; ページで次に、ASP.NET AJAX ライブラリが読み込まれるコントロール ツールキットを使用できるようにします。
+まず、含める、 `ScriptManager` ; ページで次に、ASP.NET AJAX ライブラリが読み込まれる Control Toolkit を使用すること。
 
 [!code-aspx[Main](executing-several-animations-at-the-same-time-cs/samples/sample1.aspx)]
 
-アニメーションは、次のようなテキストのパネルに適用されます。
+次のようなテキストのパネルに、アニメーションが適用されます。
 
 [!code-aspx[Main](executing-several-animations-at-the-same-time-cs/samples/sample2.aspx)]
 
-パネルの関連付けられている CSS クラス、nice の背景色を定義し、パネルの固定幅を設定します。
+パネルの関連付けられている CSS クラス、便利な背景色を定義し、パネルの固定幅の設定も。
 
 [!code-css[Main](executing-several-animations-at-the-same-time-cs/samples/sample3.css)]
 
-次に、追加、`AnimationExtender`のページを提供する、 `ID`、`TargetControlID`属性と、任意`runat="server"`:
+次に、追加、 `AnimationExtender` 、ページを提供する、 `ID`、`TargetControlID`属性と、変更を加える`runat="server"`:
 
 [!code-aspx[Main](executing-several-animations-at-the-same-time-cs/samples/sample4.aspx)]
 
-内で、`<Animations>`ノードを使用して`<OnLoad>`ページが完全に読み込まれた後に、アニメーションを実行します。 一般に、`<OnLoad>`使用できるアニメーションの 1 つだけです。 アニメーションのフレームワークでは、1 つを使用してにいくつかのアニメーションに参加することができます、`<Parallel>`要素。 内のすべてのアニメーション`<Parallel>`同時に実行されます。
+内で、`<Animations>`ノードを使用して`<OnLoad>`ページが完全に読み込まれた後に、アニメーションを実行します。 一般に、`<OnLoad>`アニメーションを 1 つのみを受け入れます。 アニメーション フレームワークを使用すると、複数のアニメーションを使用して 1 つに参加させる、`<Parallel>`要素。 内のすべてのアニメーション`<Parallel>`と同時に実行されます。
 
-ここでは、可能なマークアップを`AnimationExtender`フェードアウトと同時に、パネルのサイズを変更するときに、コントロール。
+ここでは、可能なマークアップを`AnimationExtender`フェードアウトし、同時に、パネルのサイズを変更するときに、コントロール。
 
 [!code-aspx[Main](executing-several-animations-at-the-same-time-cs/samples/sample5.aspx)]
 
-実際に: このスクリプトを実行すると、パネル が表示されたら、サイズ変更 (threefolding より幅と halfing height)、同時にオンにするとします。
+実際: パネルが表示されたら、サイズが変更されますこのスクリプトを実行すると (threefolding よりも詳細の幅と halfing 高さ) と同時にフェードアウトします。
 
 
-[![パネルがフェードアウトと、(ブラウザーのレンダリング エンジンにより、そのコンテンツを含む) のサイズ変更](executing-several-animations-at-the-same-time-cs/_static/image2.png)](executing-several-animations-at-the-same-time-cs/_static/image1.png)
+[![パネルをフェードアウトし、(ブラウザーのレンダリング エンジンに協力してくれた、そのコンテンツを含む) のサイズ変更](executing-several-animations-at-the-same-time-cs/_static/image2.png)](executing-several-animations-at-the-same-time-cs/_static/image1.png)
 
-パネルがフェードアウトと、(ブラウザーのレンダリング エンジンにより、そのコンテンツを含む) のサイズ変更 ([フルサイズのイメージを表示するをクリックして](executing-several-animations-at-the-same-time-cs/_static/image3.png))
+パネルをフェードアウトし、(ブラウザーのレンダリング エンジンに協力してくれた、そのコンテンツを含む) のサイズ変更 ([フルサイズの画像を表示する をクリックします](executing-several-animations-at-the-same-time-cs/_static/image3.png))。
 
 > [!div class="step-by-step"]
 > [前へ](adding-animation-to-a-control-cs.md)

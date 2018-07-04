@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-9
-title: データベースへの新しい項目の追加 |Microsoft ドキュメント
+title: データベースに新しい項目の追加 |Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,19 +9,18 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: 0967c29e-e124-4db0-a788-c45d0ff5aff2
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-9
 msc.type: authoredcontent
-ms.openlocfilehash: 5845c092c4d7aee12b33b3f0a49c0e944c0fb9aa
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b1f7935c70efcc3ee486e76fc356ff43716632dd
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868374"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368878"
 ---
 <a name="add-a-new-item-to-the-database"></a>データベースに新しい項目を追加します。
 ====================
-作成者 [Mike Wasson](https://github.com/MikeWasson)
+作成者[Mike Wasson](https://github.com/MikeWasson)
 
 [完成したプロジェクトのダウンロード](https://github.com/MikeWasson/BookService)
 
@@ -37,13 +36,13 @@ Index.cshtml、次のマークアップに置き換えます。
 
 [!code-html[Main](part-9/samples/sample3.html)]
 
-このマークアップでは、新しい著者を送信するためのフォームを作成します。 作成者のドロップダウン リストの値は、データ バインドを`authors`ビュー モデルで監視可能な。 他のフォーム入力の値がデータ バインドを`newBook`ビュー モデルのプロパティです。
+このマークアップは、新しい執筆者に送信するためのフォームを作成します。 作成者のドロップダウン リストの値は、データ バインドを`authors`ビュー モデルで監視可能な。 その他のフォーム入力では、値はデータ バインドを`newBook`ビュー モデルのプロパティ。
 
 フォームの送信ハンドラーにバインドされて、`addBook`関数。
 
 [!code-html[Main](part-9/samples/sample4.html)]
 
-`addBook`関数は、JSON オブジェクトを作成するデータ バインド フォームの入力の現在の値を読み取ります。 JSON オブジェクトをポストし、`/api/books`です。
+`addBook`関数は JSON オブジェクトを作成するデータ バインド フォームの入力の現在の値を読み取ります。 JSON オブジェクトを投稿し、`/api/books`します。
 
 > [!div class="step-by-step"]
 > [前へ](part-8.md)

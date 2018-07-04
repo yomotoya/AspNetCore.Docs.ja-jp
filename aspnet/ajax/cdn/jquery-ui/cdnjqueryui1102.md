@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-ui/cdnjqueryui1102
-title: jQuery UI 1.10.2 Microsoft Ajax CDN の |Microsoft ドキュメント
+title: jQuery UI 1.10.2 Microsoft Ajax CDN |Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,19 +9,18 @@ ms.date: 07/22/2014
 ms.topic: article
 ms.assetid: a11b68a0-8133-411d-a988-bcbdb29db745
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-ui/cdnjqueryui1102
 msc.type: content
-ms.openlocfilehash: f70cbde46e59adb0da34c6e30d8f4897b0c38c32
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: d2c2925d9cb59b7d91dc7a4d10f630485011e240
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30075916"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369329"
 ---
-<a name="jquery-ui-1102-on-the-microsoft-ajax-cdn"></a>jQuery UI 1.10.2 Microsoft Ajax CDN の
+<a name="jquery-ui-1102-on-the-microsoft-ajax-cdn"></a>jQuery UI 1.10.2 Microsoft Ajax CDN
 ====================
-JQuery 1.10.2 の UI ライブラリには、次のファイルが含まれています。
+JQuery UI 1.10.2 ライブラリには、次のファイルが含まれています。
 
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.2/jquery-ui.js
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.2/jquery-ui.min.js
@@ -30,9 +29,9 @@ JQuery 1.10.2 の UI ライブラリには、次のファイルが含まれて�
 
 すべての標準的な jQuery UI のテーマは、この CDN でホストされます。
 
-JQuery UI ThemeRoller でテーマを表示するテーマの画像をクリックします。
+JQuery UI ThemeRoller でテーマを表示するテーマのイメージのいずれかをクリックします。
 
-いずれかをクリックして、テーマ、完全な URL を選択する入力フィールドの CDN ホストされている CSS ファイル。
+いずれかをクリックして、テーマの完全な URL を選択する入力フィールドの CDN ホストされている CSS ファイル。
 
 **フォーマル**  
 [![イメージ](cdnjqueryui1102/_static/image1.png)](http://jqueryui.com/themeroller/#ffDefault=Verdana,+Arial,+sans-serif&amp;fwDefault=normal&amp;fsDefault=1.1em&amp;cornerRadius=4px&amp;bgColorHeader=333333&amp;bgTextureHeader=08_diagonals_thick.png&amp;bgImgOpacityHeader=8&amp;borderColorHeader=a3a3a3&amp;fcHeader=eeeeee&amp;iconColorHeader=bbbbbb&amp;bgColorContent=f9f9f9&amp;bgTextureContent=04_highlight_hard.png&amp;bgImgOpacityContent=100&amp;borderColorContent=cccccc&amp;fcContent=222222&amp;iconColorContent=222222&amp;bgColorDefault=111111&amp;bgTextureDefault=02_glass.png&amp;bgImgOpacityDefault=40&amp;borderColorDefault=777777&amp;fcDefault=e3e3e3&amp;iconColorDefault=ededed&amp;bgColorHover=1c1c1c&amp;bgTextureHover=02_glass.png&amp;bgImgOpacityHover=55&amp;borderColorHover=000000&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=ffffff&amp;bgTextureActive=01_flat.png&amp;bgImgOpacityActive=65&amp;borderColorActive=cccccc&amp;fcActive=222222&amp;iconColorActive=222222&amp;bgColorHighlight=ffeb80&amp;bgTextureHighlight=06_inset_hard.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=ffde2e&amp;fcHighlight=363636&amp;iconColorHighlight=4ca300&amp;bgColorError=cd0a0a&amp;bgTextureError=06_inset_hard.png&amp;bgImgOpacityError=45&amp;borderColorError=9e0505&amp;fcError=ffffff&amp;iconColorError=ffcf29&amp;bgColorOverlay=aaaaaa&amp;bgTextureOverlay=04_highlight_hard.png&amp;bgImgOpacityOverlay=40&amp;opacityOverlay=30&amp;bgColorShadow=aaaaaa&amp;bgTextureShadow=03_highlight_soft.png&amp;bgImgOpacityShadow=50&amp;opacityShadow=20&amp;thicknessShadow=8px&amp;offsetTopShadow=-8px&amp;offsetLeftShadow=-8px&amp;cornerRadiusShadow=8px)  
@@ -58,7 +57,7 @@ JQuery UI ThemeRoller でテーマを表示するテーマの画像をクリッ�
 [![イメージ](cdnjqueryui1102/_static/image5.png)](http://jqueryui.com/themeroller/#ffDefault=Arial,+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.3em&amp;cornerRadius=4px&amp;bgColorHeader=0b3e6f&amp;bgTextureHeader=08_diagonals_thick.png&amp;bgImgOpacityHeader=15&amp;borderColorHeader=0b3e6f&amp;fcHeader=f6f6f6&amp;iconColorHeader=98d2fb&amp;bgColorContent=111111&amp;bgTextureContent=12_gloss_wave.png&amp;bgImgOpacityContent=20&amp;borderColorContent=000000&amp;fcContent=d9d9d9&amp;iconColorContent=9ccdfc&amp;bgColorDefault=333333&amp;bgTextureDefault=09_dots_small.png&amp;bgImgOpacityDefault=20&amp;borderColorDefault=333333&amp;fcDefault=ffffff&amp;iconColorDefault=9ccdfc&amp;bgColorHover=00498f&amp;bgTextureHover=09_dots_small.png&amp;bgImgOpacityHover=40&amp;borderColorHover=222222&amp;fcHover=ffffff&amp;iconColorHover=ffffff&amp;bgColorActive=292929&amp;bgTextureActive=01_flat.png&amp;bgImgOpacityActive=40&amp;borderColorActive=096ac8&amp;fcActive=75abff&amp;iconColorActive=00498f&amp;bgColorHighlight=0b58a2&amp;bgTextureHighlight=10_dots_medium.png&amp;bgImgOpacityHighlight=30&amp;borderColorHighlight=052f57&amp;fcHighlight=ffffff&amp;iconColorHighlight=ffffff&amp;bgColorError=a32d00&amp;bgTextureError=09_dots_small.png&amp;bgImgOpacityError=30&amp;borderColorError=cd0a0a&amp;fcError=ffffff&amp;iconColorError=ffffff&amp;bgColorOverlay=aaaaaa&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=0&amp;opacityOverlay=30&amp;bgColorShadow=aaaaaa&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=0&amp;opacityShadow=30&amp;thicknessShadow=8px&amp;offsetTopShadow=-8px&amp;offsetLeftShadow=-8px&amp;cornerRadiusShadow=8px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.2/themes/dot-luv/jquery-ui.css
 
-**エッグ プラント**  
+**Eggplant**  
 [![イメージ](cdnjqueryui1102/_static/image6.png)](http://jqueryui.com/themeroller/#ffDefault=Lucida+Grande%2C+Lucida+Sans%2C+Arial%2C+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=6px&amp;bgColorHeader=30273a&amp;bgTextureHeader=03_highlight_soft.png&amp;bgImgOpacityHeader=25&amp;borderColorHeader=231d2b&amp;fcHeader=ffffff&amp;iconColorHeader=a8a3ae&amp;bgColorContent=3d3644&amp;bgTextureContent=12_gloss_wave.png&amp;bgImgOpacityContent=30&amp;borderColorContent=7e7783&amp;fcContent=ffffff&amp;iconColorContent=ffffff&amp;bgColorDefault=dcd9de&amp;bgTextureDefault=03_highlight_soft.png&amp;bgImgOpacityDefault=100&amp;borderColorDefault=dcd9de&amp;fcDefault=665874&amp;iconColorDefault=8d78a5&amp;bgColorHover=eae6ea&amp;bgTextureHover=03_highlight_soft.png&amp;bgImgOpacityHover=100&amp;borderColorHover=d1c5d8&amp;fcHover=734d99&amp;iconColorHover=734d99&amp;bgColorActive=5f5964&amp;bgTextureActive=03_highlight_soft.png&amp;bgImgOpacityActive=45&amp;borderColorActive=7e7783&amp;fcActive=ffffff&amp;iconColorActive=454545&amp;bgColorHighlight=fafafa&amp;bgTextureHighlight=01_flat.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=ffdb1f&amp;fcHighlight=333333&amp;iconColorHighlight=8d78a5&amp;bgColorError=994d53&amp;bgTextureError=01_flat.png&amp;bgImgOpacityError=55&amp;borderColorError=994d53&amp;fcError=ffffff&amp;iconColorError=ebccce&amp;bgColorOverlay=eeeeee&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=0&amp;opacityOverlay=80&amp;bgColorShadow=aaaaaa&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=0&amp;opacityShadow=60&amp;thicknessShadow=4px&amp;offsetTopShadow=-4px&amp;offsetLeftShadow=-4px&amp;cornerRadiusShadow=0px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.2/themes/eggplant/jquery-ui.css
   
@@ -82,7 +81,7 @@ JQuery UI ThemeRoller でテーマを表示するテーマの画像をクリッ�
 * * *
 
 
-**人類**  
+**Humanity**  
 [![イメージ](cdnjqueryui1102/_static/image10.png)](http://jqueryui.com/themeroller/#tr=ffDefault=Helvetica,Arial,sans-serif&amp;fwDefault=normal&amp;fsDefault=1.1em&amp;cornerRadius=6px&amp;bgColorHeader=cb842e&amp;bgTextureHeader=02_glass.png&amp;bgImgOpacityHeader=25&amp;borderColorHeader=d49768&amp;fcHeader=ffffff&amp;iconColorHeader=ffffff&amp;bgColorContent=f4f0ec&amp;bgTextureContent=05_inset_soft.png&amp;bgImgOpacityContent=100&amp;borderColorContent=e0cfc2&amp;fcContent=1e1b1d&amp;iconColorContent=c47a23&amp;bgColorDefault=ede4d4&amp;bgTextureDefault=02_glass.png&amp;bgImgOpacityDefault=70&amp;borderColorDefault=cdc3b7&amp;fcDefault=3f3731&amp;iconColorDefault=f08000&amp;bgColorHover=f5f0e5&amp;bgTextureHover=02_glass.png&amp;bgImgOpacityHover=100&amp;borderColorHover=f5ad66&amp;fcHover=a46313&amp;iconColorHover=f08000&amp;bgColorActive=f4f0ec&amp;bgTextureActive=04_highlight_hard.png&amp;bgImgOpacityActive=100&amp;borderColorActive=e0cfc2&amp;fcActive=b85700&amp;iconColorActive=f35f07&amp;bgColorHighlight=f5f5b5&amp;bgTextureHighlight=04_highlight_hard.png&amp;bgImgOpacityHighlight=75&amp;borderColorHighlight=d9bb73&amp;fcHighlight=060200&amp;iconColorHighlight=cb672b&amp;bgColorError=fee4bd&amp;bgTextureError=04_highlight_hard.png&amp;bgImgOpacityError=65&amp;borderColorError=f8893f&amp;fcError=592003&amp;iconColorError=ff7519&amp;bgColorOverlay=aaaaaa&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=75&amp;opacityOverlay=30&amp;bgColorShadow=aaaaaa&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=75&amp;opacityShadow=30&amp;thicknessShadow=8px&amp;offsetTopShadow=-8px&amp;offsetLeftShadow=-8px&amp;cornerRadiusShadow=8px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.2/themes/humanity/jquery-ui.css
 
@@ -130,11 +129,11 @@ JQuery UI ThemeRoller でテーマを表示するテーマの画像をクリッ�
 * * *
 
 
-**Sunny**  
+**晴れた日**  
 [![イメージ](cdnjqueryui1102/_static/image19.png)](http://jqueryui.com/themeroller/#ffDefault=Segoe+UI%2C+Arial%2C+sans-serif&amp;fwDefault=bold&amp;fsDefault=1.1em&amp;cornerRadius=8px&amp;bgColorHeader=817865&amp;bgTextureHeader=12_gloss_wave.png&amp;bgImgOpacityHeader=45&amp;borderColorHeader=494437&amp;fcHeader=ffffff&amp;iconColorHeader=fadc7a&amp;bgColorContent=feeebd&amp;bgTextureContent=03_highlight_soft.png&amp;bgImgOpacityContent=100&amp;borderColorContent=8e846b&amp;fcContent=383838&amp;iconColorContent=d19405&amp;bgColorDefault=fece2f&amp;bgTextureDefault=12_gloss_wave.png&amp;bgImgOpacityDefault=60&amp;borderColorDefault=d19405&amp;fcDefault=4c3000&amp;iconColorDefault=3d3d3d&amp;bgColorHover=ffdd57&amp;bgTextureHover=12_gloss_wave.png&amp;bgImgOpacityHover=70&amp;borderColorHover=a45b13&amp;fcHover=381f00&amp;iconColorHover=bd7b00&amp;bgColorActive=ffffff&amp;bgTextureActive=05_inset_soft.png&amp;bgImgOpacityActive=30&amp;borderColorActive=655e4e&amp;fcActive=0074c7&amp;iconColorActive=eb990f&amp;bgColorHighlight=fff9e5&amp;bgTextureHighlight=12_gloss_wave.png&amp;bgImgOpacityHighlight=90&amp;borderColorHighlight=eeb420&amp;fcHighlight=1f1f1f&amp;iconColorHighlight=ed9f26&amp;bgColorError=d34d17&amp;bgTextureError=07_diagonals_medium.png&amp;bgImgOpacityError=20&amp;borderColorError=ffb73d&amp;fcError=ffffff&amp;iconColorError=ffe180&amp;bgColorOverlay=5c5c5c&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=50&amp;opacityOverlay=80&amp;bgColorShadow=cccccc&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=30&amp;opacityShadow=60&amp;thicknessShadow=7px&amp;offsetTopShadow=-7px&amp;offsetLeftShadow=-7px&amp;cornerRadiusShadow=8px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.2/themes/sunny/jquery-ui.css
 
-**Swanky-Purse**  
+**財布 swanky**  
 [![イメージ](cdnjqueryui1102/_static/image20.png)](http://jqueryui.com/themeroller/#ffDefault=Georgia%2C+Verdana%2CArial%2Csans-serif&amp;fwDefault=bold&amp;fsDefault=1.2em&amp;cornerRadius=5px&amp;bgColorHeader=261803&amp;bgTextureHeader=13_diamond.png&amp;bgImgOpacityHeader=8&amp;borderColorHeader=baaa5a&amp;fcHeader=eacd86&amp;iconColorHeader=e9cd86&amp;bgColorContent=443113&amp;bgTextureContent=13_diamond.png&amp;bgImgOpacityContent=8&amp;borderColorContent=efec9f&amp;fcContent=efec9f&amp;iconColorContent=efec9f&amp;bgColorDefault=4f4221&amp;bgTextureDefault=13_diamond.png&amp;bgImgOpacityDefault=10&amp;borderColorDefault=362917&amp;fcDefault=f8eec9&amp;iconColorDefault=e8e2b5&amp;bgColorHover=675423&amp;bgTextureHover=13_diamond.png&amp;bgImgOpacityHover=25&amp;borderColorHover=362917&amp;fcHover=f8eec9&amp;iconColorHover=f2ec64&amp;bgColorActive=443113&amp;bgTextureActive=13_diamond.png&amp;bgImgOpacityActive=8&amp;borderColorActive=efec9f&amp;fcActive=f9f2bd&amp;iconColorActive=f9f2bd&amp;bgColorHighlight=d5ac5d&amp;bgTextureHighlight=13_diamond.png&amp;bgImgOpacityHighlight=25&amp;borderColorHighlight=362917&amp;fcHighlight=060200&amp;iconColorHighlight=070603&amp;bgColorError=fee4bd&amp;bgTextureError=04_highlight_hard.png&amp;bgImgOpacityError=65&amp;borderColorError=c26629&amp;fcError=803f1e&amp;iconColorError=ff7519&amp;bgColorOverlay=372806&amp;bgTextureOverlay=13_diamond.png&amp;bgImgOpacityOverlay=20&amp;opacityOverlay=80&amp;bgColorShadow=ddd4b0&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=75&amp;opacityShadow=30&amp;thicknessShadow=8px&amp;offsetTopShadow=-8px&amp;offsetLeftShadow=-8px&amp;cornerRadiusShadow=12px)  
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.2/themes/swanky-purse/jquery-ui.css
 
@@ -159,6 +158,6 @@ JQuery UI ThemeRoller でテーマを表示するテーマの画像をクリッ�
 - https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.2/themes/vader/jquery-ui.css
 
 
-## <a name="internationalizationlocalization"></a>国際化とローカリゼーション
+## <a name="internationalizationlocalization"></a>国際化/ローカライズ
 
-I18n フォルダーには、jQuery UI ライブラリのローカライズ情報が含まれています。
+I18n フォルダーには、jQuery UI ライブラリのローカリゼーションの情報が含まれています。

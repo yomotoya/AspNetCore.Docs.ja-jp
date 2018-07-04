@@ -1,85 +1,84 @@
 ---
 uid: web-api/overview/formats-and-model-binding/content-negotiation
-title: コンテンツの ASP.NET Web API でネゴシエーション |Microsoft ドキュメント
+title: コンテンツ ネゴシエーションを ASP.NET Web API の |Microsoft Docs
 author: MikeWasson
-description: ASP.NET Web API HTTP コンテンツ ネゴシエーションを実装する方法について説明します。
+description: ASP.NET Web API で HTTP コンテンツ ネゴシエーションの実装方法について説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/20/2012
 ms.topic: article
 ms.assetid: 0dd51b30-bf5a-419f-a1b7-2817ccca3c7d
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/content-negotiation
 msc.type: authoredcontent
-ms.openlocfilehash: ca373af6754e82889dc100b63f73b76aaa4e4f27
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: c4e7a0c2601ca60f081876e83757997a2e920298
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "26507021"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368930"
 ---
 <a name="content-negotiation-in-aspnet-web-api"></a>ASP.NET Web API でコンテンツ ネゴシエーション
 ====================
 作成者[Mike Wasson](https://github.com/MikeWasson)
 
-この記事では、ASP.NET Web API がコンテンツ ネゴシエーションを実装する方法について説明します。
+この記事では、ASP.NET Web API でコンテンツ ネゴシエーションの実装方法について説明します。
 
-HTTP の仕様 (RFC 2616)「使用可能な複数の表現が存在する場合は、指定された応答の最適な形式を選択した場合のプロセスです」としてコンテンツ ネゴシエーションを定義します。 HTTP でコンテンツ ネゴシエーションを主要なメカニズムは、これらの要求ヘッダーです。
+HTTP の仕様 (RFC 2616) は、「複数の表現が使用できる場合に、指定された応答の最適な表現を選択した場合のプロセスです。」とコンテンツ ネゴシエーションを定義します。 Http コンテンツ ネゴシエーションを主要なメカニズムは、これらの要求ヘッダーです。
 
-- **受信:** どのメディアの種類は"application/json に"など、応答として受け入れ可能な"application/xml、"またはカスタムのメディアの種類など、 &quot;application/vnd.example+xml&quot;
-- **受け入れる Charset:** どの文字セットは許容できますが、utf-8 または ISO 8859-1 などです。
-- **Accept-encoding:** コンテンツのエンコード方式は gzip など、許容されます。
-- **ブラウザーの言語:** 優先される自然言語など"en-us"です。
+- **受信:** するメディアの種類が"application/json に"など、応答として受け入れ可能な"application/xml、"またはカスタムのメディアの種類など、 &quot;application/vnd.example+xml&quot;
+- **受け入れる-文字セット:** 文字セットが utf-8 または ISO 8859-1 など、許容されます。
+- **Accept-encoding:** コンテンツのエンコード方式が受け入れ可能で gzip など。
+- **Accept Language:** 、使用する自然言語など"英語-米国"。
 
-サーバーは、HTTP 要求の他の部分にも確認できます。 たとえば、要求に X-要求-とヘッダーが含まれている場合、AJAX 要求を示すサーバーが既定値を JSON に Accept ヘッダーが存在しない場合。
+サーバーは、HTTP 要求の他の部分でも確認できます。 たとえば、要求に X-要求-でヘッダーが含まれている場合、AJAX 要求を示すサーバー可能性があります既定値を JSON に Accept ヘッダーがない場合。
 
-この記事では、Web API が Accept、Accept-charset ヘッダーを使用する方法を紹介します。 (この時点ではありません Accept-encoding、Accept-language の組み込みのサポート。)
+この記事では、Web API で Accept、Accept-charset ヘッダーを使用する方法を紹介します。 (この時点ではありません Accept-encoding、Accept-language の組み込みサポート。)
 
 ## <a name="serialization"></a>シリアル化
 
-Web API コント ローラーには、CLR 型として、リソースが返された場合、パイプラインは、戻り値をシリアル化し、HTTP 応答の本文に書き込みます。
+Web API コント ローラーには、CLR 型としてのリソースが返された場合、パイプラインは、戻り値をシリアル化し、HTTP 応答の本文に書き込みます。
 
-たとえば、次のコント ローラーのアクションがあるとします。
+たとえば、次のコント ローラー アクションがあるとします。
 
 [!code-csharp[Main](content-negotiation/samples/sample1.cs)]
 
-クライアントは、この HTTP 要求を送信可能性があります。
+クライアントでは、この HTTP 要求を送信可能性があります。
 
 [!code-console[Main](content-negotiation/samples/sample2.cmd)]
 
-応答として、サーバーが送信可能性があります。
+応答では、サーバーが送信可能性があります。
 
 [!code-console[Main](content-negotiation/samples/sample3.cmd)]
 
-この例で、クライアント要求、JSON、Javascript、または「すべて」(\*/\*)。 応答の JSON 表現のサーバー、`Product`オブジェクト。 応答の Content-type ヘッダーが設定されていることを確認&quot;アプリケーション/json&quot;です。
+JSON、Javascript、またはその「何も」この例では、クライアントが要求した (\*/\*)。 サーバー応答の JSON 表現の`Product`オブジェクト。 通知に応答の Content-type ヘッダーが設定されている&quot;、application/json&quot;します。
 
 コント ローラーを返すことも、 **HttpResponseMessage**オブジェクト。 応答本文の CLR オブジェクトを指定するには、呼び出し、 **CreateResponse**拡張メソッド。
 
 [!code-csharp[Main](content-negotiation/samples/sample4.cs)]
 
-このオプションでは、応答の詳細についてより詳細に制御をできます。 HTTP ヘッダーを追加、状態コードを設定するなどです。
+このオプションでは、応答の詳細についてより詳細に制御をできます。 ステータス コードを設定し、HTTP のヘッダーを追加するなどできます。
 
-リソースをシリアル化するオブジェクトが呼び出されると、*メディア フォーマッタ*です。 メディア フォーマッタから派生して、 **MediaTypeFormatter**クラスです。 Web API は、XML および JSON 用メディア フォーマッタを提供し、その他のメディアの種類をサポートするためにカスタム フォーマッタを作成することができます。 カスタム フォーマッタを記述する方法については、次を参照してください。[メディア フォーマッタ](media-formatters.md)です。
+リソースをシリアル化するオブジェクトが呼び出されると、*メディア フォーマッタ*します。 派生してメディア フォーマッタ、 **MediaTypeFormatter**クラス。 Web API は、XML および JSON 用メディア フォーマッタを提供し、その他のメディアの種類をサポートするために、カスタム フォーマッタを作成することができます。 カスタム フォーマッタを作成する方法の詳細については、次を参照してください。[メディア フォーマッタ](media-formatters.md)します。
 
 ## <a name="how-content-negotiation-works"></a>コンテンツ ネゴシエーションのしくみ
 
-最初に、パイプラインの取得、 **IContentNegotiator**からサービス、 **HttpConfiguration**オブジェクト。 メディアのフォーマッタの一覧も取得、 **HttpConfiguration.Formatters**コレクション。
+最初に、パイプラインの取得、 **IContentNegotiator**からサービス、 **HttpConfiguration**オブジェクト。 メディア フォーマッタの一覧を取得また、 **HttpConfiguration.Formatters**コレクション。
 
-次に、パイプラインを呼び出す**IContentNegotiatior.Negotiate**を渡して、します。
+次に、パイプラインを呼び出す**IContentNegotiatior.Negotiate**で渡し。
 
 - シリアル化するオブジェクトの種類
 - メディア フォーマッタのコレクション
 - HTTP 要求
 
-**Negotiate**メソッドは 2 つの情報を返します。
+**ネゴシエート**メソッドは 2 つの情報を返します。
 
 - どのフォーマッタを使用するには
 - 応答のメディアの種類
 
-フォーマッタが見つからなかった場合、 **Negotiate**メソッドを返します。 **null**、およびクライアント渡さ HTTP エラー 406 (受容不可)。
+フォーマッタが見つからない場合、**ネゴシエート**メソッドを返します。 **null**、およびクライアント渡さ HTTP エラー 406 (Not Acceptable)。
 
-次のコードは、コント ローラーを直接呼び出す方法コンテンツ ネゴシエーションを示しています。
+次のコードは、どのコント ローラーを直接呼び出すできますコンテンツ ネゴシエーションを示しています。
 
 [!code-csharp[Main](content-negotiation/samples/sample5.cs)]
 
@@ -87,25 +86,25 @@ Web API コント ローラーには、CLR 型として、リソースが返さ�
 
 ## <a name="default-content-negotiator"></a>既定のコンテンツ ネゴシエーター
 
-**DefaultContentNegotiator**クラスの既定の実装を提供する**IContentNegotiator**です。 いくつかの条件を使用したフォーマッタを選択します。
+**DefaultContentNegotiator**クラスの既定の実装を提供する**IContentNegotiator**します。 いくつかの条件を使用して、フォーマッタを選択します。
 
-最初に、フォーマッタは、型をシリアル化できる必要があります。 これは呼び出すことによって検証**MediaTypeFormatter.CanWriteType**です。
+最初に、フォーマッタは、型をシリアル化できる必要があります。 これは、呼び出すことによって確認が**MediaTypeFormatter.CanWriteType**します。
 
-次に、コンテンツ ネゴシエーターを使用して、各フォーマッタを調べ、どのようにに適合する HTTP 要求を評価します。 一致を評価するには、コンテンツ ネゴシエーター 2 つの点を調べ、フォーマッタ。
+次に、コンテンツ ネゴシエーターを使用して、各フォーマッタを調べ、HTTP 要求が一致する度合いを評価します。 一致を評価するには、コンテンツ ネゴシエーターを次に 2 つのことで、フォーマッタで
 
-- **SupportedMediaTypes**コレクションで、サポートされているメディアの種類の一覧が含まれています。 コンテンツ ネゴシエーターでは、この一覧に対して、要求の Accept ヘッダーを照合します。 Accept ヘッダーが範囲を含めることができますに注意してください。 たとえば、テキストと一致するは「テキスト/プレーン」/\*または\* /\*です。
-- **MediaTypeMappings**のリストを含むコレクション**MediaTypeMapping**オブジェクト。 **MediaTypeMapping**クラスには、メディアの種類が HTTP 要求を一致するように汎用的な方法が用意されています。 たとえば、カスタム HTTP ヘッダーを特定のメディアの種類にマップことでした。
+- **SupportedMediaTypes**コレクションで、サポートされているメディアの種類の一覧が含まれています。 コンテンツ ネゴシエーターは、要求の Accept ヘッダーに対しては、この一覧の一致を試みます。 Accept ヘッダーが範囲を含めることができますに注意してください。 たとえば、"text/plain"にはテキストと一致する/\*または\* /\*します。
+- **MediaTypeMappings**の一覧を含むコレクションを**MediaTypeMapping**オブジェクト。 **MediaTypeMapping**クラスには、メディアの種類が HTTP 要求を一致するように、一般的な方法が用意されています。 たとえば、カスタム HTTP ヘッダーを特定のメディアの種類にマップことでした。
 
-複数ある場合と一致する、最高品質係数 wins と一致します。 例えば:
+複数ある場合は一致すると、最高の品質ファクター wins と一致します。 例えば:
 
 [!code-console[Main](content-negotiation/samples/sample6.cmd)]
 
-この例では、アプリケーション/json に暗黙的な品質ファクター 1.0 がアプリケーションまたは xml 上で優先されるようにします。
+この例では、application/json は、application/xml が優先されるために暗黙の品質ファクター 1.0 が。
 
-一致が見つからない場合、コンテンツ ネゴシエーターは、存在する場合、要求本文のメディアの種類で一致を試みます。 たとえば、要求に JSON データが含まれている場合、コンテンツ ネゴシエーターを JSON フォーマッタを探します。
+一致が見つからない場合、コンテンツ ネゴシエーターは存在する場合、要求本文のメディアの種類に一致するように試みます。 たとえば、要求に JSON データが含まれている場合、コンテンツ ネゴシエーターは、JSON フォーマッタを探します。
 
-一致が見つからない、コンテンツ ネゴシエーターは単に型をシリアル化できる最初のフォーマッタを取得します。
+引き続き、一致がない、コンテンツ ネゴシエーターは単に型をシリアル化できる最初のフォーマッタを取得します。
 
 ## <a name="selecting-a-character-encoding"></a>文字エンコーディングを選択します。
 
-フォーマッタが選択されているコンテンツ ネゴシエーターが選択、最適な文字エン コードを見て、 **SupportedEncodings**プロパティをフォーマッタおよび (存在する場合)、要求で、Accept-charset ヘッダーと一致することです。
+コンテンツ ネゴシエーターが調べることで最適な文字エンコーディングを選択、フォーマッタを選択した後、 **SupportedEncodings**プロパティをフォーマッタおよび (存在する場合)、要求の Accept-charset ヘッダーに対して照合します。

@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging
-title: 'ASP.NET MVC Storefront パート 20: ログ |Microsoft ドキュメント'
+title: 'ASP.NET MVC Storefront パート 20: ログ記録 |Microsoft Docs'
 author: robconery
-description: 今回はログ記録 - ものを接続する可能性がありますする必要がありますが実装されて早く。
+description: このエピソードでは、ログ記録 - 何か接続でをおそらく必要がありますが実装されました早く。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
 ms.topic: article
 ms.assetid: aa7791dc-7310-43c5-a281-0b02c1216247
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging
 msc.type: video
-ms.openlocfilehash: f3fd55ed8819fe31e798a3abd523508533a53358
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5b2f111e22aefdb330aec78634c2626a8d335fdc
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30867841"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369225"
 ---
-<a name="aspnet-mvc-storefront-part-20-logging"></a>ASP.NET MVC Storefront 一部 20: ログ記録
+<a name="aspnet-mvc-storefront-part-20-logging"></a>ASP.NET MVC Storefront パート 20: ログ記録
 ====================
 によって[Rob Conery](https://github.com/robconery)
 
-今回はログ記録 - ものを接続する可能性がありますする必要がありますが実装されて早く。
+このエピソードでは、ログ記録 - 何か接続でをおそらく必要がありますが実装されました早く。
 
-[&#9654;ビデオでは (21 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-20-logging)
+[&#9654;ビデオ (21 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-20-logging)
 
 > [!div class="step-by-step"]
 > [前へ](aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
