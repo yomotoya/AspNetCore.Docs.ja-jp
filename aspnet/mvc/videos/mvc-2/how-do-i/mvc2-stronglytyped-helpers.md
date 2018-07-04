@@ -1,33 +1,32 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/mvc2-stronglytyped-helpers
-title: MVC2 - StronglyTyped ヘルパー |Microsoft ドキュメント
+title: MVC2 - StronglyTyped ヘルパー |Microsoft Docs
 author: microsoft
-description: このビデオは、する方法について学習を使用して厳密に型指定するコンパイルの種類の HTML UI の要素の作成時のチェックのために HTML ヘルパー。
+description: 方法について説明しますが、このビデオでは使用では、コンパイルの種類の HTML UI の要素を作成するときのチェックを取得する HTML ヘルパーが厳密に型指定します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/23/2010
 ms.topic: article
 ms.assetid: 017e87d7-a44e-423a-b3e9-ba44df99388b
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/mvc2-stronglytyped-helpers
 msc.type: video
-ms.openlocfilehash: 6bd074ae7b167cff780a1f5f0fd3d8934e317796
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6ca8ff386f98ab8c6a6d9aa89491bd732617b7ce
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30867607"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366973"
 ---
-<a name="mvc2---stronglytyped-helpers"></a><span data-ttu-id="d38bb-103">MVC2 - StronglyTyped ヘルパー</span><span class="sxs-lookup"><span data-stu-id="d38bb-103">MVC2 - StronglyTyped Helpers</span></span>
+<a name="mvc2---stronglytyped-helpers"></a><span data-ttu-id="441c1-103">MVC2 - StronglyTyped ヘルパー</span><span class="sxs-lookup"><span data-stu-id="441c1-103">MVC2 - StronglyTyped Helpers</span></span>
 ====================
-<span data-ttu-id="d38bb-104">によって[Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="d38bb-104">by [Microsoft](https://github.com/microsoft)</span></span>
+<span data-ttu-id="441c1-104">によって[Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="441c1-104">by [Microsoft](https://github.com/microsoft)</span></span>
 
-<span data-ttu-id="d38bb-105">このビデオは、する方法について学習を使用して厳密に型指定するコンパイルの種類の HTML UI の要素の作成時のチェックのために HTML ヘルパー。</span><span class="sxs-lookup"><span data-stu-id="d38bb-105">In this video you will learn about how you can use strongly typed HTML Helpers to gain compile-type checking when creating HTML UI Elements.</span></span>
+<span data-ttu-id="441c1-105">方法について説明しますが、このビデオでは使用では、コンパイルの種類の HTML UI の要素を作成するときのチェックを取得する HTML ヘルパーが厳密に型指定します。</span><span class="sxs-lookup"><span data-stu-id="441c1-105">In this video you will learn about how you can use strongly typed HTML Helpers to gain compile-type checking when creating HTML UI Elements.</span></span>
 
-[<span data-ttu-id="d38bb-106">&#9654;(2 分) のビデオを見る</span><span class="sxs-lookup"><span data-stu-id="d38bb-106">&#9654; Watch video (2 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/mvc2-stronglytyped-helpers)
+[<span data-ttu-id="441c1-106">&#9654;ビデオ (2 分)</span><span class="sxs-lookup"><span data-stu-id="441c1-106">&#9654; Watch video (2 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/mvc2-stronglytyped-helpers)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="d38bb-107">[前へ](mvc2-html-encoding.md)
-> [次へ](mvc2-model-validation.md)</span><span class="sxs-lookup"><span data-stu-id="d38bb-107">[Previous](mvc2-html-encoding.md)
+> <span data-ttu-id="441c1-107">[前へ](mvc2-html-encoding.md)
+> [次へ](mvc2-model-validation.md)</span><span class="sxs-lookup"><span data-stu-id="441c1-107">[Previous](mvc2-html-encoding.md)
 [Next](mvc2-model-validation.md)</span></span>

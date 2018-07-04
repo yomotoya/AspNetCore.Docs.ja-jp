@@ -1,33 +1,32 @@
 ---
 uid: web-forms/videos/aspnet-35/visual-studio-editor/javascript-intellisense-support-in-visual-studio-2008
-title: Visual Studio 2008 での JavaScript Intellisense のサポート |Microsoft ドキュメント
+title: Visual Studio 2008 の JavaScript Intellisense のサポート |Microsoft Docs
 author: JoeStagner
-description: 強調表示は、このビデオでは、Visual Studio 2008 に JavaScript Intellisense のいくつか組み込まれます。 Intellisense JavaScript featu を改善する方法を紹介しています.
+description: 強調表示は、このビデオでは JavaScript Intellisense の一部には、Visual Studio 2008 に組み込まれています。 JavaScript の Intellisense featu を改善する方法を紹介しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2007
 ms.topic: article
 ms.assetid: a4429553-d43e-4169-9fb3-086405ec9c93
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/javascript-intellisense-support-in-visual-studio-2008
 msc.type: video
-ms.openlocfilehash: 2cd5aad37e995836b37bc07842f9d94fd23f79b5
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 85876bb04c847fb512b68b6e8233477f5d2a8837
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30884900"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37381246"
 ---
-<a name="javascript-intellisense-support-in-visual-studio-2008"></a><span data-ttu-id="298e7-104">Visual Studio 2008 での JavaScript Intellisense のサポート</span><span class="sxs-lookup"><span data-stu-id="298e7-104">JavaScript Intellisense Support in Visual Studio 2008</span></span>
+<a name="javascript-intellisense-support-in-visual-studio-2008"></a><span data-ttu-id="7b912-104">Visual Studio 2008 の JavaScript Intellisense のサポート</span><span class="sxs-lookup"><span data-stu-id="7b912-104">JavaScript Intellisense Support in Visual Studio 2008</span></span>
 ====================
-<span data-ttu-id="298e7-105">によって[行える](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="298e7-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="7b912-105">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="7b912-105">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="298e7-106">強調表示は、このビデオでは、Visual Studio 2008 に JavaScript Intellisense のいくつか組み込まれます。</span><span class="sxs-lookup"><span data-stu-id="298e7-106">In this video I will highlight some of JavaScript Intellisense built into Visual Studio 2008.</span></span> <span data-ttu-id="298e7-107">JavaScript コードを記述することによって、Intellisense の JavaScript 機能を改善する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="298e7-107">I will show ways of improving the Intellisense JavaScript feature by the way you write your JavaScript code.</span></span>
+<span data-ttu-id="7b912-106">強調表示は、このビデオでは JavaScript Intellisense の一部には、Visual Studio 2008 に組み込まれています。</span><span class="sxs-lookup"><span data-stu-id="7b912-106">In this video I will highlight some of JavaScript Intellisense built into Visual Studio 2008.</span></span> <span data-ttu-id="7b912-107">JavaScript コードを記述することによって、JavaScript の Intellisense 機能を改善する方法を紹介します。</span><span class="sxs-lookup"><span data-stu-id="7b912-107">I will show ways of improving the Intellisense JavaScript feature by the way you write your JavaScript code.</span></span>
 
-[<span data-ttu-id="298e7-108">&#9654;ビデオでは (11 分)</span><span class="sxs-lookup"><span data-stu-id="298e7-108">&#9654; Watch video (11 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/javascript-intellisense-support-in-visual-studio-2008)
+[<span data-ttu-id="7b912-108">&#9654;(11 分) のビデオを見る</span><span class="sxs-lookup"><span data-stu-id="7b912-108">&#9654; Watch video (11 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/javascript-intellisense-support-in-visual-studio-2008)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="298e7-109">[前へ](new-designer-support-in-visual-studio-2008.md)
-> [次へ](javascript-debugging-in-visual-studio-2008.md)</span><span class="sxs-lookup"><span data-stu-id="298e7-109">[Previous](new-designer-support-in-visual-studio-2008.md)
+> <span data-ttu-id="7b912-109">[前へ](new-designer-support-in-visual-studio-2008.md)
+> [次へ](javascript-debugging-in-visual-studio-2008.md)</span><span class="sxs-lookup"><span data-stu-id="7b912-109">[Previous](new-designer-support-in-visual-studio-2008.md)
 [Next](javascript-debugging-in-visual-studio-2008.md)</span></span>

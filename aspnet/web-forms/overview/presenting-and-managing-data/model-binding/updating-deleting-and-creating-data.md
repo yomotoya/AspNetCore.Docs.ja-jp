@@ -1,140 +1,139 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
-title: 更新、削除、およびデータのモデル バインディングと web フォームを作成 |Microsoft ドキュメント
+title: 更新、削除、およびモデルのバインディングと web フォームでデータの作成 |Microsoft Docs
 author: tfitzmac
-description: このチュートリアルの系列では、モデル バインディングを使用して ASP.NET Web フォーム プロジェクトとの基本的な側面について説明します。 モデル バインドは、データの操作詳細直線-しています.
+description: このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデル バインドは、データの操作詳細直線にしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
 ms.topic: article
 ms.assetid: 602baa94-5a4f-46eb-a717-7a9e539c1db4
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
 msc.type: authoredcontent
-ms.openlocfilehash: e6536f7858afde5faf3aedd34f3cbe95c5ed0d53
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b6cafe29d1cb46061a8743cbee62a7ffec6be990
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885846"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393877"
 ---
-<a name="updating-deleting-and-creating-data-with-model-binding-and-web-forms"></a><span data-ttu-id="572b4-104">更新、削除、およびモデル バインディングと web フォームをデータの作成</span><span class="sxs-lookup"><span data-stu-id="572b4-104">Updating, deleting, and creating data with model binding and web forms</span></span>
+<a name="updating-deleting-and-creating-data-with-model-binding-and-web-forms"></a><span data-ttu-id="d543e-104">更新、削除、およびモデルのバインディングと web フォームでデータを作成します。</span><span class="sxs-lookup"><span data-stu-id="d543e-104">Updating, deleting, and creating data with model binding and web forms</span></span>
 ====================
-<span data-ttu-id="572b4-105">によって[Tom FitzMacken](https://github.com/tfitzmac)</span><span class="sxs-lookup"><span data-stu-id="572b4-105">by [Tom FitzMacken](https://github.com/tfitzmac)</span></span>
+<span data-ttu-id="d543e-105">によって[Tom FitzMacken](https://github.com/tfitzmac)</span><span class="sxs-lookup"><span data-stu-id="d543e-105">by [Tom FitzMacken](https://github.com/tfitzmac)</span></span>
 
-> <span data-ttu-id="572b4-106">このチュートリアルの系列では、モデル バインディングを使用して ASP.NET Web フォーム プロジェクトとの基本的な側面について説明します。</span><span class="sxs-lookup"><span data-stu-id="572b4-106">This tutorial series demonstrates basic aspects of using model binding with an ASP.NET Web Forms project.</span></span> <span data-ttu-id="572b4-107">モデル バインディングは、ObjectDataSource または SqlDataSource) などのソース オブジェクトにデータを処理するよりもより簡単にデータの操作にします。</span><span class="sxs-lookup"><span data-stu-id="572b4-107">Model binding makes data interaction more straight-forward than dealing with data source objects (such as ObjectDataSource or SqlDataSource).</span></span> <span data-ttu-id="572b4-108">この系列は入門資料で始まるし、後のチュートリアルより高度な概念に移動されます。</span><span class="sxs-lookup"><span data-stu-id="572b4-108">This series starts with introductory material and moves to more advanced concepts in later tutorials.</span></span>
+> <span data-ttu-id="d543e-106">このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。</span><span class="sxs-lookup"><span data-stu-id="d543e-106">This tutorial series demonstrates basic aspects of using model binding with an ASP.NET Web Forms project.</span></span> <span data-ttu-id="d543e-107">モデルのバインドは、(ObjectDataSource や SqlDataSource) などのソース オブジェクトにデータを処理するよりもより簡単にデータの操作を使用します。</span><span class="sxs-lookup"><span data-stu-id="d543e-107">Model binding makes data interaction more straight-forward than dealing with data source objects (such as ObjectDataSource or SqlDataSource).</span></span> <span data-ttu-id="d543e-108">このシリーズでは、入門用資料から開始して、後のチュートリアルで高度な概念に移動します。</span><span class="sxs-lookup"><span data-stu-id="d543e-108">This series starts with introductory material and moves to more advanced concepts in later tutorials.</span></span>
 > 
-> <span data-ttu-id="572b4-109">このチュートリアルでは、作成、更新、およびモデル バインディングでデータを削除する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="572b4-109">This tutorial shows how to create, update, and delete data with model binding.</span></span> <span data-ttu-id="572b4-110">次のプロパティが設定されます。</span><span class="sxs-lookup"><span data-stu-id="572b4-110">You will set the following properties:</span></span>
+> <span data-ttu-id="d543e-109">このチュートリアルでは、作成、更新、およびモデル バインドでデータを削除する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="d543e-109">This tutorial shows how to create, update, and delete data with model binding.</span></span> <span data-ttu-id="d543e-110">次のプロパティを設定します。</span><span class="sxs-lookup"><span data-stu-id="d543e-110">You will set the following properties:</span></span>
 > 
-> - <span data-ttu-id="572b4-111">DeleteMethod</span><span class="sxs-lookup"><span data-stu-id="572b4-111">DeleteMethod</span></span>
-> - <span data-ttu-id="572b4-112">InsertMethod</span><span class="sxs-lookup"><span data-stu-id="572b4-112">InsertMethod</span></span>
-> - <span data-ttu-id="572b4-113">UpdateMethod</span><span class="sxs-lookup"><span data-stu-id="572b4-113">UpdateMethod</span></span>
+> - <span data-ttu-id="d543e-111">DeleteMethod</span><span class="sxs-lookup"><span data-stu-id="d543e-111">DeleteMethod</span></span>
+> - <span data-ttu-id="d543e-112">InsertMethod</span><span class="sxs-lookup"><span data-stu-id="d543e-112">InsertMethod</span></span>
+> - <span data-ttu-id="d543e-113">UpdateMethod</span><span class="sxs-lookup"><span data-stu-id="d543e-113">UpdateMethod</span></span>
 > 
-> <span data-ttu-id="572b4-114">これらのプロパティは、対応する操作を処理するメソッドの名前を受信します。</span><span class="sxs-lookup"><span data-stu-id="572b4-114">These properties receive the name of the method that handles the corresponding operation.</span></span> <span data-ttu-id="572b4-115">メソッドは、内では、データと対話するため、ロジックを指定します。</span><span class="sxs-lookup"><span data-stu-id="572b4-115">Within that method, you provide the logic for interacting with the data.</span></span>
+> <span data-ttu-id="d543e-114">これらのプロパティは、対応する操作を処理するメソッドの名前を受信します。</span><span class="sxs-lookup"><span data-stu-id="d543e-114">These properties receive the name of the method that handles the corresponding operation.</span></span> <span data-ttu-id="d543e-115">そのメソッド内でデータを操作するロジックを提供します。</span><span class="sxs-lookup"><span data-stu-id="d543e-115">Within that method, you provide the logic for interacting with the data.</span></span>
 > 
-> <span data-ttu-id="572b4-116">このチュートリアルは、最初に作成されたプロジェクトに基づいて[一部](retrieving-data.md)シリーズのです。</span><span class="sxs-lookup"><span data-stu-id="572b4-116">This tutorial builds on the project created in the first [part](retrieving-data.md) of the series.</span></span>
+> <span data-ttu-id="d543e-116">このチュートリアルは、最初に作成されたプロジェクトでビルド[一部](retrieving-data.md)シリーズの。</span><span class="sxs-lookup"><span data-stu-id="d543e-116">This tutorial builds on the project created in the first [part](retrieving-data.md) of the series.</span></span>
 > 
-> <span data-ttu-id="572b4-117">実行できます[ダウンロード](https://go.microsoft.com/fwlink/?LinkId=286116)プロジェクト、完全な c# または vb です。</span><span class="sxs-lookup"><span data-stu-id="572b4-117">You can [download](https://go.microsoft.com/fwlink/?LinkId=286116) the complete project in C# or VB.</span></span> <span data-ttu-id="572b4-118">ダウンロード可能なコードは、Visual Studio 2012 または Visual Studio 2013 のいずれかで動作します。</span><span class="sxs-lookup"><span data-stu-id="572b4-118">The downloadable code works with either Visual Studio 2012 or Visual Studio 2013.</span></span> <span data-ttu-id="572b4-119">これは、このチュートリアルで示すように Visual Studio 2013 のテンプレートよりも若干異なる Visual Studio 2012 テンプレートを使用します。</span><span class="sxs-lookup"><span data-stu-id="572b4-119">It uses the Visual Studio 2012 template, which is slightly different than the Visual Studio 2013 template shown in this tutorial.</span></span>
+> <span data-ttu-id="d543e-117">できます[ダウンロード](https://go.microsoft.com/fwlink/?LinkId=286116)c# または VB. で完全なプロジェクト</span><span class="sxs-lookup"><span data-stu-id="d543e-117">You can [download](https://go.microsoft.com/fwlink/?LinkId=286116) the complete project in C# or VB.</span></span> <span data-ttu-id="d543e-118">ダウンロード可能なコードは、Visual Studio 2012 または Visual Studio 2013 のいずれかで動作します。</span><span class="sxs-lookup"><span data-stu-id="d543e-118">The downloadable code works with either Visual Studio 2012 or Visual Studio 2013.</span></span> <span data-ttu-id="d543e-119">これは、このチュートリアルで示すように Visual Studio 2013 テンプレートと若干異なる Visual Studio 2012 テンプレートを使用します。</span><span class="sxs-lookup"><span data-stu-id="d543e-119">It uses the Visual Studio 2012 template, which is slightly different than the Visual Studio 2013 template shown in this tutorial.</span></span>
 
 
-## <a name="what-youll-build"></a><span data-ttu-id="572b4-120">新機能のビルド</span><span class="sxs-lookup"><span data-stu-id="572b4-120">What you'll build</span></span>
+## <a name="what-youll-build"></a><span data-ttu-id="d543e-120">構築します</span><span class="sxs-lookup"><span data-stu-id="d543e-120">What you'll build</span></span>
 
-<span data-ttu-id="572b4-121">このチュートリアルでは、次の手順を。</span><span class="sxs-lookup"><span data-stu-id="572b4-121">In this tutorial, you'll:</span></span>
+<span data-ttu-id="d543e-121">このチュートリアルではあります。</span><span class="sxs-lookup"><span data-stu-id="d543e-121">In this tutorial, you'll:</span></span>
 
-1. <span data-ttu-id="572b4-122">動的なデータ テンプレートを追加します。</span><span class="sxs-lookup"><span data-stu-id="572b4-122">Add dynamic data templates</span></span>
-2. <span data-ttu-id="572b4-123">モデル バインド メソッドを介してデータを更新し、削除を有効にします。</span><span class="sxs-lookup"><span data-stu-id="572b4-123">Enable updating and deleting data through model binding methods</span></span>
-3. <span data-ttu-id="572b4-124">データ検証ルールを適用 - 新しいレコードを作成するデータベースで有効にします。</span><span class="sxs-lookup"><span data-stu-id="572b4-124">Apply data validation rules - Enable creating a new record in the database</span></span>
+1. <span data-ttu-id="d543e-122">動的なデータ テンプレートを追加します。</span><span class="sxs-lookup"><span data-stu-id="d543e-122">Add dynamic data templates</span></span>
+2. <span data-ttu-id="d543e-123">モデル バインド メソッドを介してデータを更新および削除を有効にします。</span><span class="sxs-lookup"><span data-stu-id="d543e-123">Enable updating and deleting data through model binding methods</span></span>
+3. <span data-ttu-id="d543e-124">データ検証規則を適用 - データベースに新しいレコードの作成を有効にします。</span><span class="sxs-lookup"><span data-stu-id="d543e-124">Apply data validation rules - Enable creating a new record in the database</span></span>
 
-## <a name="add-dynamic-data-templates"></a><span data-ttu-id="572b4-125">動的なデータ テンプレートを追加します。</span><span class="sxs-lookup"><span data-stu-id="572b4-125">Add dynamic data templates</span></span>
+## <a name="add-dynamic-data-templates"></a><span data-ttu-id="d543e-125">動的なデータ テンプレートを追加します。</span><span class="sxs-lookup"><span data-stu-id="d543e-125">Add dynamic data templates</span></span>
 
-<span data-ttu-id="572b4-126">最適なユーザー エクスペリエンスを提供し、コードの繰り返しを最小限に抑えるには、動的なデータ テンプレートを使用します。</span><span class="sxs-lookup"><span data-stu-id="572b4-126">To provide the best user experience and minimize code repetition, you will use dynamic data templates.</span></span> <span data-ttu-id="572b4-127">構築済みの動的なデータ テンプレートは、NuGet パッケージをインストールして、既存のサイトに簡単に統合できます。</span><span class="sxs-lookup"><span data-stu-id="572b4-127">You can easily integrate pre-built dynamic data templates into your existing site by installing a NuGet package.</span></span>
+<span data-ttu-id="d543e-126">最適なユーザー エクスペリエンスを提供し、コードの繰り返しを最小限に抑えるには、動的なデータ テンプレートを使用します。</span><span class="sxs-lookup"><span data-stu-id="d543e-126">To provide the best user experience and minimize code repetition, you will use dynamic data templates.</span></span> <span data-ttu-id="d543e-127">構築済みの動的なデータ テンプレートは、NuGet パッケージをインストールすることで、既存のサイトに簡単に統合できます。</span><span class="sxs-lookup"><span data-stu-id="d543e-127">You can easily integrate pre-built dynamic data templates into your existing site by installing a NuGet package.</span></span>
 
-<span data-ttu-id="572b4-128">**NuGet パッケージの管理**、インストール、 **DynamicDataTemplatesCS**です。</span><span class="sxs-lookup"><span data-stu-id="572b4-128">From the **Manage NuGet Packages**, install the **DynamicDataTemplatesCS**.</span></span>
+<span data-ttu-id="d543e-128">**NuGet パッケージの管理**、インストール、 **DynamicDataTemplatesCS**します。</span><span class="sxs-lookup"><span data-stu-id="d543e-128">From the **Manage NuGet Packages**, install the **DynamicDataTemplatesCS**.</span></span>
 
 ![動的なデータ テンプレート](updating-deleting-and-creating-data/_static/image1.png)
 
-<span data-ttu-id="572b4-130">プロジェクトに今すぐという名前のフォルダーが含まれることに注意してください**ダイナミック**です。</span><span class="sxs-lookup"><span data-stu-id="572b4-130">Notice that your project now includes a folder named **DynamicData**.</span></span> <span data-ttu-id="572b4-131">そのフォルダーでは、web フォームでのダイナミック コントロールに自動的に適用されているテンプレートが見つかります。</span><span class="sxs-lookup"><span data-stu-id="572b4-131">In that folder, you will find the templates that are automatically applied to dynamic controls in your web forms.</span></span>
+<span data-ttu-id="d543e-130">通知は、プロジェクトがという名前のフォルダーを今すぐに**DynamicData**します。</span><span class="sxs-lookup"><span data-stu-id="d543e-130">Notice that your project now includes a folder named **DynamicData**.</span></span> <span data-ttu-id="d543e-131">そのフォルダーでは、web フォームでのダイナミック コントロールに自動的に適用されているテンプレートが表示されます。</span><span class="sxs-lookup"><span data-stu-id="d543e-131">In that folder, you will find the templates that are automatically applied to dynamic controls in your web forms.</span></span>
 
 ![動的なデータ フォルダー](updating-deleting-and-creating-data/_static/image2.png)
 
-## <a name="enable-updating-and-deleting"></a><span data-ttu-id="572b4-133">有効にする更新および削除</span><span class="sxs-lookup"><span data-stu-id="572b4-133">Enable updating and deleting</span></span>
+## <a name="enable-updating-and-deleting"></a><span data-ttu-id="d543e-133">有効にする更新および削除</span><span class="sxs-lookup"><span data-stu-id="d543e-133">Enable updating and deleting</span></span>
 
-<span data-ttu-id="572b4-134">更新およびデータベース内のレコードを削除するユーザーの有効化は、データを取得するためのプロセスによく似ています。</span><span class="sxs-lookup"><span data-stu-id="572b4-134">Enabling users to update and delete records in the database is very similar to the process for retrieving data.</span></span> <span data-ttu-id="572b4-135">**UpdateMethod**と**DeleteMethod**プロパティ、これらの操作を実行するメソッドの名前を指定します。</span><span class="sxs-lookup"><span data-stu-id="572b4-135">In the **UpdateMethod** and **DeleteMethod** properties, you specify the names of the methods that perform those operations.</span></span> <span data-ttu-id="572b4-136">GridView コントロールにも編集の自動生成を指定し、ボタンを削除できます。</span><span class="sxs-lookup"><span data-stu-id="572b4-136">With a GridView control, you can also specify the automatic generation of edit and delete buttons.</span></span> <span data-ttu-id="572b4-137">次の強調表示されたコードでは、GridView コードの追加機能を示します。</span><span class="sxs-lookup"><span data-stu-id="572b4-137">The following highlighted code shows the additions to the GridView code.</span></span>
+<span data-ttu-id="d543e-134">ユーザーを更新し、データベース内のレコードを削除することは、データを取得するためのプロセスによく似ています。</span><span class="sxs-lookup"><span data-stu-id="d543e-134">Enabling users to update and delete records in the database is very similar to the process for retrieving data.</span></span> <span data-ttu-id="d543e-135">**UpdateMethod**と**DeleteMethod**プロパティ、これらの操作を実行するメソッドの名前を指定します。</span><span class="sxs-lookup"><span data-stu-id="d543e-135">In the **UpdateMethod** and **DeleteMethod** properties, you specify the names of the methods that perform those operations.</span></span> <span data-ttu-id="d543e-136">GridView コントロールとも編集の自動生成を指定し、ボタンを削除できます。</span><span class="sxs-lookup"><span data-stu-id="d543e-136">With a GridView control, you can also specify the automatic generation of edit and delete buttons.</span></span> <span data-ttu-id="d543e-137">次の強調表示されたコードでは、GridView コードへの追加を示します。</span><span class="sxs-lookup"><span data-stu-id="d543e-137">The following highlighted code shows the additions to the GridView code.</span></span>
 
 [!code-aspx[Main](updating-deleting-and-creating-data/samples/sample1.aspx?highlight=4-5)]
 
-<span data-ttu-id="572b4-138">分離コード ファイル内の追加を使用して、ステートメントの**System.Data.Entity.Infrastructure**です。</span><span class="sxs-lookup"><span data-stu-id="572b4-138">In the code-behind file, add a using statement for **System.Data.Entity.Infrastructure**.</span></span>
+<span data-ttu-id="d543e-138">分離コード ファイルに追加を使用して、ステートメントの**System.Data.Entity.Infrastructure**します。</span><span class="sxs-lookup"><span data-stu-id="d543e-138">In the code-behind file, add a using statement for **System.Data.Entity.Infrastructure**.</span></span>
 
 [!code-csharp[Main](updating-deleting-and-creating-data/samples/sample2.cs)]
 
-<span data-ttu-id="572b4-139">次の更新プログラムを追加し、メソッドを削除します。</span><span class="sxs-lookup"><span data-stu-id="572b4-139">Then, add the following update and delete methods.</span></span>
+<span data-ttu-id="d543e-139">次の更新プログラムを追加し、メソッドを削除します。</span><span class="sxs-lookup"><span data-stu-id="d543e-139">Then, add the following update and delete methods.</span></span>
 
 [!code-csharp[Main](updating-deleting-and-creating-data/samples/sample3.cs)]
 
-<span data-ttu-id="572b4-140">**TryUpdateModel**メソッドは、一致するデータ バインドされた値を web フォームからのデータ項目に適用します。</span><span class="sxs-lookup"><span data-stu-id="572b4-140">The **TryUpdateModel** method applies the matching data-bound values from the web form to the data item.</span></span> <span data-ttu-id="572b4-141">Id パラメーターの値に基づいて、データ項目が取得されます。</span><span class="sxs-lookup"><span data-stu-id="572b4-141">The data item is retrieved based on the value of the id parameter.</span></span>
+<span data-ttu-id="d543e-140">**Tryupdatemodel に渡します**メソッドが web フォームからのデータ項目に一致するデータ バインドされた値を適用します。</span><span class="sxs-lookup"><span data-stu-id="d543e-140">The **TryUpdateModel** method applies the matching data-bound values from the web form to the data item.</span></span> <span data-ttu-id="d543e-141">データ項目は、id パラメーターの値に基づいて取得されます。</span><span class="sxs-lookup"><span data-stu-id="d543e-141">The data item is retrieved based on the value of the id parameter.</span></span>
 
-## <a name="enforce-validation-requirements"></a><span data-ttu-id="572b4-142">検証要件を強制します。</span><span class="sxs-lookup"><span data-stu-id="572b4-142">Enforce validation requirements</span></span>
+## <a name="enforce-validation-requirements"></a><span data-ttu-id="d543e-142">検証の要件を適用します。</span><span class="sxs-lookup"><span data-stu-id="d543e-142">Enforce validation requirements</span></span>
 
-<span data-ttu-id="572b4-143">データを更新するときに、Student クラスでは、FirstName、LastName、および年のプロパティに適用される検証の属性が自動的に適用されます。</span><span class="sxs-lookup"><span data-stu-id="572b4-143">The validation attributes that you applied to the FirstName, LastName, and Year properties in the Student class are automatically enforced when updating the data.</span></span> <span data-ttu-id="572b4-144">DynamicField コントロールは、検証の属性に基づくクライアントとサーバーの検証コントロールを追加します。</span><span class="sxs-lookup"><span data-stu-id="572b4-144">The DynamicField controls add client and server validators based on the validation attributes.</span></span> <span data-ttu-id="572b4-145">FirstName および LastName から構成プロパティの両方が必要です。</span><span class="sxs-lookup"><span data-stu-id="572b4-145">The FirstName and LastName properties are both required.</span></span> <span data-ttu-id="572b4-146">FirstName が 20 文字を超えることはできませんし、LastName は 40 文字を超えることはできません。</span><span class="sxs-lookup"><span data-stu-id="572b4-146">FirstName cannot exceed 20 characters in length, and LastName cannot exceed 40 characters.</span></span> <span data-ttu-id="572b4-147">年は AcademicYear 列挙の有効な値である必要があります。</span><span class="sxs-lookup"><span data-stu-id="572b4-147">Year must be a valid value for the AcademicYear enumeration.</span></span>
+<span data-ttu-id="d543e-143">データを更新するときに、FirstName、LastName、および年の Student クラス プロパティに適用する検証属性が自動的に適用されます。</span><span class="sxs-lookup"><span data-stu-id="d543e-143">The validation attributes that you applied to the FirstName, LastName, and Year properties in the Student class are automatically enforced when updating the data.</span></span> <span data-ttu-id="d543e-144">DynamicField コントロールは、検証属性に基づくクライアントとサーバーの検証コントロールを追加します。</span><span class="sxs-lookup"><span data-stu-id="d543e-144">The DynamicField controls add client and server validators based on the validation attributes.</span></span> <span data-ttu-id="d543e-145">FirstName および LastName プロパティが両方とも必要です。</span><span class="sxs-lookup"><span data-stu-id="d543e-145">The FirstName and LastName properties are both required.</span></span> <span data-ttu-id="d543e-146">FirstName が 20 文字を超えることはできず、LastName は 40 文字を超えることはできません。</span><span class="sxs-lookup"><span data-stu-id="d543e-146">FirstName cannot exceed 20 characters in length, and LastName cannot exceed 40 characters.</span></span> <span data-ttu-id="d543e-147">年は AcademicYear 列挙体の有効な値である必要があります。</span><span class="sxs-lookup"><span data-stu-id="d543e-147">Year must be a valid value for the AcademicYear enumeration.</span></span>
 
-<span data-ttu-id="572b4-148">ユーザーは、検証の要件のいずれかに違反する場合、更新プログラムは続行されません。</span><span class="sxs-lookup"><span data-stu-id="572b4-148">If the user violates one of the validation requirements, the update does not proceed.</span></span> <span data-ttu-id="572b4-149">エラー メッセージを表示するには、GridView 上 ValidationSummary コントロールを追加します。</span><span class="sxs-lookup"><span data-stu-id="572b4-149">To see the error message, add a ValidationSummary control above the GridView.</span></span> <span data-ttu-id="572b4-150">モデル バインディングの検証エラーを表示する設定、 **ShowModelStateErrors**プロパティに設定**true**です。</span><span class="sxs-lookup"><span data-stu-id="572b4-150">To display the validation errors from model binding, set the **ShowModelStateErrors** property set to **true**.</span></span> 
+<span data-ttu-id="d543e-148">ユーザーは、検証の要件のいずれかに違反する場合、更新プログラムは続行されません。</span><span class="sxs-lookup"><span data-stu-id="d543e-148">If the user violates one of the validation requirements, the update does not proceed.</span></span> <span data-ttu-id="d543e-149">エラー メッセージを確認するには、GridView 上 ValidationSummary コントロールを追加します。</span><span class="sxs-lookup"><span data-stu-id="d543e-149">To see the error message, add a ValidationSummary control above the GridView.</span></span> <span data-ttu-id="d543e-150">モデル バインドからの検証エラーを表示するには、設定、 **ShowModelStateErrors**プロパティに設定**true**します。</span><span class="sxs-lookup"><span data-stu-id="d543e-150">To display the validation errors from model binding, set the **ShowModelStateErrors** property set to **true**.</span></span> 
 
 [!code-aspx[Main](updating-deleting-and-creating-data/samples/sample4.aspx)]
 
-<span data-ttu-id="572b4-151">Web アプリケーションを実行および更新し、任意のレコードを削除します。</span><span class="sxs-lookup"><span data-stu-id="572b4-151">Run the web application, and update and delete any of the records.</span></span>
+<span data-ttu-id="d543e-151">Web アプリケーションを実行および更新したレコードを削除します。</span><span class="sxs-lookup"><span data-stu-id="d543e-151">Run the web application, and update and delete any of the records.</span></span>
 
 ![データの更新](updating-deleting-and-creating-data/_static/image3.png)
 
-<span data-ttu-id="572b4-153">編集モードで年プロパティの値が自動的にドロップダウン リストとして表示する場合は、ことを確認します。</span><span class="sxs-lookup"><span data-stu-id="572b4-153">Notice that when in the edit mode the value for the Year property is automatically rendered as a drop down list.</span></span> <span data-ttu-id="572b4-154">年プロパティは、列挙値を列挙値の動的なデータ テンプレートは、ドロップダウン リストを編集するためを指定します。</span><span class="sxs-lookup"><span data-stu-id="572b4-154">The Year property is an enumeration value, and the dynamic data template for an enumeration value specifies a drop down list for editing.</span></span> <span data-ttu-id="572b4-155">そのテンプレートを検索するには、開く、**列挙\_Edit.ascx**ファイルを**ダイナミック**/**FieldTemplates**フォルダーです。</span><span class="sxs-lookup"><span data-stu-id="572b4-155">You can find that template by opening the **Enumeration\_Edit.ascx** file in the **DynamicData**/**FieldTemplates** folder.</span></span>
+<span data-ttu-id="d543e-153">編集モードで年のプロパティの値が自動的にドロップダウン リストとして表示する場合に注意します。</span><span class="sxs-lookup"><span data-stu-id="d543e-153">Notice that when in the edit mode the value for the Year property is automatically rendered as a drop down list.</span></span> <span data-ttu-id="d543e-154">Year プロパティは、列挙値を列挙値の動的なデータ テンプレートが、ドロップダウン リストの編集を指定します。</span><span class="sxs-lookup"><span data-stu-id="d543e-154">The Year property is an enumeration value, and the dynamic data template for an enumeration value specifies a drop down list for editing.</span></span> <span data-ttu-id="d543e-155">開いて、そのテンプレートを見つけることができます、**列挙\_Edit.ascx**ファイル、 **DynamicData**/**FieldTemplates**フォルダー。</span><span class="sxs-lookup"><span data-stu-id="d543e-155">You can find that template by opening the **Enumeration\_Edit.ascx** file in the **DynamicData**/**FieldTemplates** folder.</span></span>
 
-<span data-ttu-id="572b4-156">有効な値を指定する場合、更新プログラムが正常に完了します。</span><span class="sxs-lookup"><span data-stu-id="572b4-156">If you provide valid values, the update completes successfully.</span></span> <span data-ttu-id="572b4-157">検証の要件のいずれかに違反した場合、更新プログラムは続行されませんし、グリッドの上に、エラー メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="572b4-157">If you violate one of the validation requirements, the update does not proceed and an error message is displayed above the grid.</span></span>
+<span data-ttu-id="d543e-156">有効な値を指定する場合、更新プログラムが正常に完了します。</span><span class="sxs-lookup"><span data-stu-id="d543e-156">If you provide valid values, the update completes successfully.</span></span> <span data-ttu-id="d543e-157">検証の要件のいずれかに違反した場合、更新プログラムは続行されませんし、グリッドの上に、エラー メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="d543e-157">If you violate one of the validation requirements, the update does not proceed and an error message is displayed above the grid.</span></span>
 
 ![エラー メッセージ](updating-deleting-and-creating-data/_static/image4.png)
 
-## <a name="add-new-records"></a><span data-ttu-id="572b4-159">新しいレコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="572b4-159">Add new records</span></span>
+## <a name="add-new-records"></a><span data-ttu-id="d543e-159">新しいレコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="d543e-159">Add new records</span></span>
 
-<span data-ttu-id="572b4-160">GridView コントロールは含まれません、 **InsertMethod**プロパティ モデル バインディングで、新しいレコードを追加するため使用することはできません。</span><span class="sxs-lookup"><span data-stu-id="572b4-160">The GridView control does not include the **InsertMethod** property and therefore cannot be used for adding a new record with model binding.</span></span> <span data-ttu-id="572b4-161">InsertMethod のプロパティを見つけることができます、 **FormView**、 **DetailsView**、または**ListView**コントロール。</span><span class="sxs-lookup"><span data-stu-id="572b4-161">You can find the InsertMethod property in the **FormView**, **DetailsView**, or **ListView** controls.</span></span> <span data-ttu-id="572b4-162">このチュートリアルでは、FormView コントロールを使用して、新しいレコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="572b4-162">In this tutorial, you will use a FormView control to add a new record.</span></span>
+<span data-ttu-id="d543e-160">GridView コントロールは含まれません、 **InsertMethod**プロパティと、モデル バインドで新しいレコードを追加するため使用することはできません。</span><span class="sxs-lookup"><span data-stu-id="d543e-160">The GridView control does not include the **InsertMethod** property and therefore cannot be used for adding a new record with model binding.</span></span> <span data-ttu-id="d543e-161">InsertMethod プロパティを見つけることができます、 **FormView**、 **DetailsView**、または**ListView**コントロール。</span><span class="sxs-lookup"><span data-stu-id="d543e-161">You can find the InsertMethod property in the **FormView**, **DetailsView**, or **ListView** controls.</span></span> <span data-ttu-id="d543e-162">このチュートリアルでは、新しいレコードを追加するのに FormView コントロールを使用します。</span><span class="sxs-lookup"><span data-stu-id="d543e-162">In this tutorial, you will use a FormView control to add a new record.</span></span>
 
-<span data-ttu-id="572b4-163">最初に、新しいレコードを追加するを作成する新しいページにリンクを追加します。</span><span class="sxs-lookup"><span data-stu-id="572b4-163">First, add a link to the new page you will create for adding a new record.</span></span> <span data-ttu-id="572b4-164">ValidationSummary を追加します。</span><span class="sxs-lookup"><span data-stu-id="572b4-164">Above the ValidationSummary, add:</span></span>
+<span data-ttu-id="d543e-163">最初に、新しいレコードを追加用に作成する新しいページにリンクを追加します。</span><span class="sxs-lookup"><span data-stu-id="d543e-163">First, add a link to the new page you will create for adding a new record.</span></span> <span data-ttu-id="d543e-164">ValidationSummary を追加します。</span><span class="sxs-lookup"><span data-stu-id="d543e-164">Above the ValidationSummary, add:</span></span>
 
 [!code-aspx[Main](updating-deleting-and-creating-data/samples/sample5.aspx)]
 
-<span data-ttu-id="572b4-165">新しいリンクは、受講者 ページのコンテンツの上部に表示されます。</span><span class="sxs-lookup"><span data-stu-id="572b4-165">The new link will appear at the top of the content for the Students page.</span></span>
+<span data-ttu-id="d543e-165">新しいリンクは、学生のページのコンテンツの最上部に表示されます。</span><span class="sxs-lookup"><span data-stu-id="d543e-165">The new link will appear at the top of the content for the Students page.</span></span>
 
 ![新しいリンク](updating-deleting-and-creating-data/_static/image5.png)
 
-<span data-ttu-id="572b4-167">次に、マスター ページを使用して新しい web フォームを追加し、名前**AddStudent**です。</span><span class="sxs-lookup"><span data-stu-id="572b4-167">Then, add a new web form using a master page, and name it **AddStudent**.</span></span> <span data-ttu-id="572b4-168">マスター ページとして Site.Master を選択します。</span><span class="sxs-lookup"><span data-stu-id="572b4-168">Select Site.Master as the master page.</span></span>
+<span data-ttu-id="d543e-167">次に、マスター ページを使用して、新しい web フォームを追加し、名前**AddStudent**します。</span><span class="sxs-lookup"><span data-stu-id="d543e-167">Then, add a new web form using a master page, and name it **AddStudent**.</span></span> <span data-ttu-id="d543e-168">マスター ページとして Site.Master を選択します。</span><span class="sxs-lookup"><span data-stu-id="d543e-168">Select Site.Master as the master page.</span></span>
 
-<span data-ttu-id="572b4-169">使用して、新しい受講者を追加するためのフィールドを表示する、 **DynamicEntity**コントロール。</span><span class="sxs-lookup"><span data-stu-id="572b4-169">You will render the fields for adding a new student by using a **DynamicEntity** control.</span></span> <span data-ttu-id="572b4-170">DynamicEntity コントロールは、その ItemType プロパティで指定されたクラスの編集可能なプロパティを表示します。</span><span class="sxs-lookup"><span data-stu-id="572b4-170">The DynamicEntity control renders that editable properties in the class specified in the ItemType property.</span></span> <span data-ttu-id="572b4-171">学生 Id プロパティとして設定されていた、 **[ScaffoldColumn(false)]** 属性のためはレンダリングされません。</span><span class="sxs-lookup"><span data-stu-id="572b4-171">The StudentID property was marked with the **[ScaffoldColumn(false)]** attribute so it is not rendered.</span></span> <span data-ttu-id="572b4-172">メインのプレース ホルダー AddStudent ページのでは、次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="572b4-172">In the MainContent placeholder of the AddStudent page, add the following code.</span></span>
+<span data-ttu-id="d543e-169">使用して新しい受講者を追加するためのフィールドをレンダリングするが、 **DynamicEntity**コントロール。</span><span class="sxs-lookup"><span data-stu-id="d543e-169">You will render the fields for adding a new student by using a **DynamicEntity** control.</span></span> <span data-ttu-id="d543e-170">DynamicEntity コントロールは、ItemType プロパティで指定されたクラスでその編集可能なプロパティを表示します。</span><span class="sxs-lookup"><span data-stu-id="d543e-170">The DynamicEntity control renders that editable properties in the class specified in the ItemType property.</span></span> <span data-ttu-id="d543e-171">StudentID プロパティでマークを付けた、 **[ScaffoldColumn(false)]** 属性はレンダリングされませんので。</span><span class="sxs-lookup"><span data-stu-id="d543e-171">The StudentID property was marked with the **[ScaffoldColumn(false)]** attribute so it is not rendered.</span></span> <span data-ttu-id="d543e-172">AddStudent ページの MainContent プレース ホルダーでは、次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="d543e-172">In the MainContent placeholder of the AddStudent page, add the following code.</span></span>
 
 [!code-aspx[Main](updating-deleting-and-creating-data/samples/sample6.aspx)]
 
-<span data-ttu-id="572b4-173">分離コード ファイル (AddStudent.aspx.cs) で、追加、**を使用して**のステートメント、 **ContosoUniversityModelBinding.Models**名前空間。</span><span class="sxs-lookup"><span data-stu-id="572b4-173">In the code-behind file (AddStudent.aspx.cs), add a **using** statement for the **ContosoUniversityModelBinding.Models** namespace.</span></span>
+<span data-ttu-id="d543e-173">分離コード ファイル (AddStudent.aspx.cs) で、追加、**を使用して**のステートメント、 **ContosoUniversityModelBinding.Models**名前空間。</span><span class="sxs-lookup"><span data-stu-id="d543e-173">In the code-behind file (AddStudent.aspx.cs), add a **using** statement for the **ContosoUniversityModelBinding.Models** namespace.</span></span>
 
 [!code-csharp[Main](updating-deleting-and-creating-data/samples/sample7.cs)]
 
-<span data-ttu-id="572b4-174">次に、新しいレコード と キャンセル ボタンのイベント ハンドラーを挿入する方法を指定する次のメソッドを追加します。</span><span class="sxs-lookup"><span data-stu-id="572b4-174">Then, add the following methods to specify how to insert a new record and an event handler for the cancel button.</span></span>
+<span data-ttu-id="d543e-174">次に、新しいレコード と キャンセル ボタンのイベント ハンドラーを挿入する方法を指定する次のメソッドを追加します。</span><span class="sxs-lookup"><span data-stu-id="d543e-174">Then, add the following methods to specify how to insert a new record and an event handler for the cancel button.</span></span>
 
 [!code-csharp[Main](updating-deleting-and-creating-data/samples/sample8.cs)]
 
-<span data-ttu-id="572b4-175">すべての変更を保存します。</span><span class="sxs-lookup"><span data-stu-id="572b4-175">Save all of the changes.</span></span>
+<span data-ttu-id="d543e-175">すべての変更を保存します。</span><span class="sxs-lookup"><span data-stu-id="d543e-175">Save all of the changes.</span></span>
 
-<span data-ttu-id="572b4-176">Web アプリケーションを実行し、新しい学生を作成します。</span><span class="sxs-lookup"><span data-stu-id="572b4-176">Run the web application and create a new student.</span></span>
+<span data-ttu-id="d543e-176">Web アプリケーションを実行し、新しい学生を作成します。</span><span class="sxs-lookup"><span data-stu-id="d543e-176">Run the web application and create a new student.</span></span>
 
 ![新しい学生を追加します。](updating-deleting-and-creating-data/_static/image6.png)
 
-<span data-ttu-id="572b4-178">をクリックして**挿入**し新しい学生が作成されたことを確認します。</span><span class="sxs-lookup"><span data-stu-id="572b4-178">Click **Insert** and notice the new student has been created.</span></span>
+<span data-ttu-id="d543e-178">クリックして**挿入**し、新しい学生が作成されたことを確認します。</span><span class="sxs-lookup"><span data-stu-id="d543e-178">Click **Insert** and notice the new student has been created.</span></span>
 
 ![新しい学生を表示します。](updating-deleting-and-creating-data/_static/image7.png)
 
-## <a name="conclusion"></a><span data-ttu-id="572b4-180">まとめ</span><span class="sxs-lookup"><span data-stu-id="572b4-180">Conclusion</span></span>
+## <a name="conclusion"></a><span data-ttu-id="d543e-180">まとめ</span><span class="sxs-lookup"><span data-stu-id="d543e-180">Conclusion</span></span>
 
-<span data-ttu-id="572b4-181">このチュートリアルでは、更新、削除、およびデータを作成して有効になります。</span><span class="sxs-lookup"><span data-stu-id="572b4-181">In this tutorial, you enabled updating, deleting, and creating data.</span></span> <span data-ttu-id="572b4-182">データを操作するときに検証規則を適用することを確認します。</span><span class="sxs-lookup"><span data-stu-id="572b4-182">You ensured validation rules are applied when interacting with the data.</span></span>
+<span data-ttu-id="d543e-181">このチュートリアルでは、更新、削除、およびデータの作成を有効になります。</span><span class="sxs-lookup"><span data-stu-id="d543e-181">In this tutorial, you enabled updating, deleting, and creating data.</span></span> <span data-ttu-id="d543e-182">データを操作するときに検証規則が適用されることを確認します。</span><span class="sxs-lookup"><span data-stu-id="d543e-182">You ensured validation rules are applied when interacting with the data.</span></span>
 
-<span data-ttu-id="572b4-183">次の[チュートリアル](sorting-paging-and-filtering-data.md)この系列には有効にした並べ替え、ページング、およびデータのフィルター処理します。</span><span class="sxs-lookup"><span data-stu-id="572b4-183">In the next [tutorial](sorting-paging-and-filtering-data.md) in this series, you will enable sorting, paging, and filtering data.</span></span>
+<span data-ttu-id="d543e-183">次の[チュートリアル](sorting-paging-and-filtering-data.md)このシリーズでは有効にした並べ替え、ページング、およびデータのフィルター処理します。</span><span class="sxs-lookup"><span data-stu-id="d543e-183">In the next [tutorial](sorting-paging-and-filtering-data.md) in this series, you will enable sorting, paging, and filtering data.</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="572b4-184">[前へ](retrieving-data.md)
-> [次へ](sorting-paging-and-filtering-data.md)</span><span class="sxs-lookup"><span data-stu-id="572b4-184">[Previous](retrieving-data.md)
+> <span data-ttu-id="d543e-184">[前へ](retrieving-data.md)
+> [次へ](sorting-paging-and-filtering-data.md)</span><span class="sxs-lookup"><span data-stu-id="d543e-184">[Previous](retrieving-data.md)
 [Next](sorting-paging-and-filtering-data.md)</span></span>
