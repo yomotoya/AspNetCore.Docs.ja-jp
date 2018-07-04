@@ -1,33 +1,32 @@
 ---
 uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-display-the-product-list
-title: 製品の一覧を表示する tailspin Spyworks - |Microsoft ドキュメント
+title: Tailspin Spyworks - 製品一覧を表示する |Microsoft Docs
 author: JoeStagner
-description: 行えるは、Tailspin Spyworks サンプルの Web フォーム アプリケーションで製品の一覧を表示する方法を示します。
+description: Joe Stagner では、Tailspin Spyworks サンプルの Web フォーム アプリケーションで、製品リストを表示する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2010
 ms.topic: article
 ms.assetid: 4c0d920f-e80a-445d-a9da-b603e25d49c4
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-display-the-product-list
 msc.type: video
-ms.openlocfilehash: 47613ef606eebbf8fa29743ce8263d08c6cae148
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b11a8ad1be240eee433523d7c42dbea16f4fd171
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30894578"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37380481"
 ---
-<a name="tailspin-spyworks---display-the-product-list"></a><span data-ttu-id="f4266-103">Tailspin Spyworks - 製品の一覧を表示します。</span><span class="sxs-lookup"><span data-stu-id="f4266-103">Tailspin Spyworks - Display the Product List</span></span>
+<a name="tailspin-spyworks---display-the-product-list"></a><span data-ttu-id="8ac89-103">Tailspin Spyworks - 製品一覧を表示します。</span><span class="sxs-lookup"><span data-stu-id="8ac89-103">Tailspin Spyworks - Display the Product List</span></span>
 ====================
-<span data-ttu-id="f4266-104">によって[行える](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="f4266-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="8ac89-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="8ac89-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="f4266-105">行えるは、Tailspin Spyworks サンプルの Web フォーム アプリケーションで製品の一覧を表示する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="f4266-105">Joe Stagner shows how to display the product list in the Tailspin Spyworks sample Web Forms application.</span></span>
+<span data-ttu-id="8ac89-105">Joe Stagner では、Tailspin Spyworks サンプルの Web フォーム アプリケーションで、製品リストを表示する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="8ac89-105">Joe Stagner shows how to display the product list in the Tailspin Spyworks sample Web Forms application.</span></span>
 
-[<span data-ttu-id="f4266-106">&#9654;ビデオでは (9 分)</span><span class="sxs-lookup"><span data-stu-id="f4266-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-display-the-product-list)
+[<span data-ttu-id="8ac89-106">&#9654;ビデオ (9 分)</span><span class="sxs-lookup"><span data-stu-id="8ac89-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-display-the-product-list)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="f4266-107">[前へ](tailspin-spyworks-category-menu.md)
-> [次へ](tailspin-spyworks-display-per-product-details.md)</span><span class="sxs-lookup"><span data-stu-id="f4266-107">[Previous](tailspin-spyworks-category-menu.md)
+> <span data-ttu-id="8ac89-107">[前へ](tailspin-spyworks-category-menu.md)
+> [次へ](tailspin-spyworks-display-per-product-details.md)</span><span class="sxs-lookup"><span data-stu-id="8ac89-107">[Previous](tailspin-spyworks-category-menu.md)
 [Next](tailspin-spyworks-display-per-product-details.md)</span></span>

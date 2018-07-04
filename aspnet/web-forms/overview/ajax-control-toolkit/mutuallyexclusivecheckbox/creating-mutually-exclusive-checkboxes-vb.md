@@ -1,59 +1,58 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-vb
-title: 相互に排他的なチェック ボックス (VB) を作成 |Microsoft ドキュメント
+title: 相互に排他的なチェック ボックス (VB) を作成する |Microsoft Docs
 author: wenz
-description: '一連のオプションの 1 つのみが選択されるときに、オプション ボタンが通常使用されます。 ただし、欠点がある: グループ内の 1 つのオプション ボタンを選択すると、.'
+description: '一連のオプションの 1 つだけが選択されるときに、オプション ボタンが通常使用されます。 ただし、欠点がある: グループ内の 1 つのオプション ボタンを選択すると、.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: e9dd1d5a-a1db-4114-981d-6a91acb1d709
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cdb93a080fb62cfdc7e3ff0604a1447e2bb99071
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c71ba157a52335078a01dc8419370db33a37c43e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30874253"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37391380"
 ---
-<a name="creating-mutually-exclusive-checkboxes-vb"></a><span data-ttu-id="edaf2-104">相互に排他的なチェック ボックス (VB) を作成します。</span><span class="sxs-lookup"><span data-stu-id="edaf2-104">Creating Mutually Exclusive Checkboxes (VB)</span></span>
+<a name="creating-mutually-exclusive-checkboxes-vb"></a><span data-ttu-id="1f49e-104">相互に排他的なチェック ボックス (VB) を作成します。</span><span class="sxs-lookup"><span data-stu-id="1f49e-104">Creating Mutually Exclusive Checkboxes (VB)</span></span>
 ====================
-<span data-ttu-id="edaf2-105">によって[Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="edaf2-105">by [Christian Wenz](https://github.com/wenz)</span></span>
+<span data-ttu-id="1f49e-105">によって[Christian Wenz](https://github.com/wenz)</span><span class="sxs-lookup"><span data-stu-id="1f49e-105">by [Christian Wenz](https://github.com/wenz)</span></span>
 
-<span data-ttu-id="edaf2-106">[コードをダウンロードする](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/MutuallyExclusiveCheckBox0.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/mutuallyexclusivecheckbox0VB.pdf)</span><span class="sxs-lookup"><span data-stu-id="edaf2-106">[Download Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/MutuallyExclusiveCheckBox0.vb.zip) or [Download PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/mutuallyexclusivecheckbox0VB.pdf)</span></span>
+<span data-ttu-id="1f49e-106">[コードのダウンロード](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/MutuallyExclusiveCheckBox0.vb.zip)または[PDF のダウンロード](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/mutuallyexclusivecheckbox0VB.pdf)</span><span class="sxs-lookup"><span data-stu-id="1f49e-106">[Download Code](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/MutuallyExclusiveCheckBox0.vb.zip) or [Download PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/mutuallyexclusivecheckbox0VB.pdf)</span></span>
 
-> <span data-ttu-id="edaf2-107">一連のオプションの 1 つのみが選択されるときに、オプション ボタンが通常使用されます。</span><span class="sxs-lookup"><span data-stu-id="edaf2-107">When only one of a set of options may be selected, radio buttons are usually used.</span></span> <span data-ttu-id="edaf2-108">ただし、欠点がある: グループ内の 1 つのオプション ボタンを選択するはすべてのオプション ボタンをクリックしてオフにします。</span><span class="sxs-lookup"><span data-stu-id="edaf2-108">There is a drawback, though: Once one radio button in a group is selected, it is not possible to uncheck all radio buttons.</span></span> <span data-ttu-id="edaf2-109">チェック ボックスは、ただしは相互に排他的でない、いつでもチェックできます。</span><span class="sxs-lookup"><span data-stu-id="edaf2-109">Check boxes can be unchecked at any time, however are not mutually exclusive.</span></span> <span data-ttu-id="edaf2-110">このチュートリアルでは、両方のアプローチの最適な: チェック ボックスは相互に排他的です。</span><span class="sxs-lookup"><span data-stu-id="edaf2-110">This tutorial provides the best of both approaches: check boxes that are mutually exclusive.</span></span>
+> <span data-ttu-id="1f49e-107">一連のオプションの 1 つだけが選択されるときに、オプション ボタンが通常使用されます。</span><span class="sxs-lookup"><span data-stu-id="1f49e-107">When only one of a set of options may be selected, radio buttons are usually used.</span></span> <span data-ttu-id="1f49e-108">ただし、欠点がある: グループ内の 1 つのオプション ボタンを選択すると後、は、すべてのオプション ボタンをオフにすることはできません。</span><span class="sxs-lookup"><span data-stu-id="1f49e-108">There is a drawback, though: Once one radio button in a group is selected, it is not possible to uncheck all radio buttons.</span></span> <span data-ttu-id="1f49e-109">チェック ボックスは、ただし相互に排他的ではありません、いつでもチェックできます。</span><span class="sxs-lookup"><span data-stu-id="1f49e-109">Check boxes can be unchecked at any time, however are not mutually exclusive.</span></span> <span data-ttu-id="1f49e-110">このチュートリアルでは、両方のアプローチの最適な: チェック ボックスは相互に排他的です。</span><span class="sxs-lookup"><span data-stu-id="1f49e-110">This tutorial provides the best of both approaches: check boxes that are mutually exclusive.</span></span>
 
 
-## <a name="overview"></a><span data-ttu-id="edaf2-111">概要</span><span class="sxs-lookup"><span data-stu-id="edaf2-111">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="1f49e-111">概要</span><span class="sxs-lookup"><span data-stu-id="1f49e-111">Overview</span></span>
 
-<span data-ttu-id="edaf2-112">一連のオプションの 1 つのみが選択されるときに、オプション ボタンが通常使用されます。</span><span class="sxs-lookup"><span data-stu-id="edaf2-112">When only one of a set of options may be selected, radio buttons are usually used.</span></span> <span data-ttu-id="edaf2-113">ただし、欠点がある: グループ内の 1 つのオプション ボタンを選択するはすべてのオプション ボタンをクリックしてオフにします。</span><span class="sxs-lookup"><span data-stu-id="edaf2-113">There is a drawback, though: Once one radio button in a group is selected, it is not possible to uncheck all radio buttons.</span></span> <span data-ttu-id="edaf2-114">チェック ボックスは、ただしは相互に排他的でない、いつでもチェックできます。</span><span class="sxs-lookup"><span data-stu-id="edaf2-114">Check boxes can be unchecked at any time, however are not mutually exclusive.</span></span> <span data-ttu-id="edaf2-115">このチュートリアルでは、両方のアプローチの最適な: チェック ボックスは相互に排他的です。</span><span class="sxs-lookup"><span data-stu-id="edaf2-115">This tutorial provides the best of both approaches: check boxes that are mutually exclusive.</span></span>
+<span data-ttu-id="1f49e-112">一連のオプションの 1 つだけが選択されるときに、オプション ボタンが通常使用されます。</span><span class="sxs-lookup"><span data-stu-id="1f49e-112">When only one of a set of options may be selected, radio buttons are usually used.</span></span> <span data-ttu-id="1f49e-113">ただし、欠点がある: グループ内の 1 つのオプション ボタンを選択すると後、は、すべてのオプション ボタンをオフにすることはできません。</span><span class="sxs-lookup"><span data-stu-id="1f49e-113">There is a drawback, though: Once one radio button in a group is selected, it is not possible to uncheck all radio buttons.</span></span> <span data-ttu-id="1f49e-114">チェック ボックスは、ただし相互に排他的ではありません、いつでもチェックできます。</span><span class="sxs-lookup"><span data-stu-id="1f49e-114">Check boxes can be unchecked at any time, however are not mutually exclusive.</span></span> <span data-ttu-id="1f49e-115">このチュートリアルでは、両方のアプローチの最適な: チェック ボックスは相互に排他的です。</span><span class="sxs-lookup"><span data-stu-id="1f49e-115">This tutorial provides the best of both approaches: check boxes that are mutually exclusive.</span></span>
 
-## <a name="steps"></a><span data-ttu-id="edaf2-116">手順</span><span class="sxs-lookup"><span data-stu-id="edaf2-116">Steps</span></span>
+## <a name="steps"></a><span data-ttu-id="1f49e-116">手順</span><span class="sxs-lookup"><span data-stu-id="1f49e-116">Steps</span></span>
 
-<span data-ttu-id="edaf2-117">ASP.NET AJAX コントロール Toolkit には、MutuallyExclusiveCheckBox extender が含まれています。</span><span class="sxs-lookup"><span data-stu-id="edaf2-117">The ASP.NET AJAX Control Toolkit contains the MutuallyExclusiveCheckBox extender.</span></span> <span data-ttu-id="edaf2-118">これにより、プログラマは、グループ名にすべてのチェック ボックスを割り当てる (`Key`属性)。</span><span class="sxs-lookup"><span data-stu-id="edaf2-118">This enables programmers to assign any checkbox to a group name (`Key` attribute).</span></span> <span data-ttu-id="edaf2-119">同じグループ内のすべてのチェック ボックスは、1 つだけを一度に 1 つ選択する可能性があります。</span><span class="sxs-lookup"><span data-stu-id="edaf2-119">From all check boxes within the same group, only one may be selected at one time.</span></span>
+<span data-ttu-id="1f49e-117">ASP.NET AJAX Control Toolkit には、MutuallyExclusiveCheckBox エクステンダーが含まれています。</span><span class="sxs-lookup"><span data-stu-id="1f49e-117">The ASP.NET AJAX Control Toolkit contains the MutuallyExclusiveCheckBox extender.</span></span> <span data-ttu-id="1f49e-118">これにより、プログラマはグループ名にすべてのチェック ボックスを割り当てる (`Key`属性)。</span><span class="sxs-lookup"><span data-stu-id="1f49e-118">This enables programmers to assign any checkbox to a group name (`Key` attribute).</span></span> <span data-ttu-id="1f49e-119">同じグループ内のすべてのチェック ボックスは、1 つだけを一度に選択できます。</span><span class="sxs-lookup"><span data-stu-id="1f49e-119">From all check boxes within the same group, only one may be selected at one time.</span></span>
 
-<span data-ttu-id="edaf2-120">新しい ASP.NET ページ上の 2 つのチェック ボックスを配置することから始めましょう。</span><span class="sxs-lookup"><span data-stu-id="edaf2-120">Let's start with putting two check boxes on a new ASP.NET page.</span></span> <span data-ttu-id="edaf2-121">以上、存在することができますですが、プリンシパルを示すために十分 2 つの。</span><span class="sxs-lookup"><span data-stu-id="edaf2-121">There can be more, but two of them suffice to demonstrate the principle:</span></span>
+<span data-ttu-id="1f49e-120">新しい ASP.NET ページに 2 つのチェック ボックスを配置することから始めましょう。</span><span class="sxs-lookup"><span data-stu-id="1f49e-120">Let's start with putting two check boxes on a new ASP.NET page.</span></span> <span data-ttu-id="1f49e-121">以上、存在することができますが、原則を示すためにそのうち 2 つで十分です。</span><span class="sxs-lookup"><span data-stu-id="1f49e-121">There can be more, but two of them suffice to demonstrate the principle:</span></span>
 
 [!code-aspx[Main](creating-mutually-exclusive-checkboxes-vb/samples/sample1.aspx)]
 
-<span data-ttu-id="edaf2-122">両方のチェック ボックス、ページで MutuallyExclusiveCheckBoxExtender コントロールに配置されている必要があります。</span><span class="sxs-lookup"><span data-stu-id="edaf2-122">For both checkboxes, a MutuallyExclusiveCheckBoxExtender control must be put on the page.</span></span> <span data-ttu-id="edaf2-123">両方のキー属性は、HTML ラジオ ボタンの要素の属性は、所属するグループを示すと同じである必要があります値と同様に、同じ値を持つ必要があります。</span><span class="sxs-lookup"><span data-stu-id="edaf2-123">Both Key attributes need to have the same value, just as the value attributes of HTML radio button elements must be identical to denote the group they belong to.</span></span> <span data-ttu-id="edaf2-124">Extender の TargetControlID プロパティは、チェック ボックスの ID を指します。</span><span class="sxs-lookup"><span data-stu-id="edaf2-124">The TargetControlID property of the extender points to the ID of the check box.</span></span>
+<span data-ttu-id="1f49e-122">両方のチェック ボックスのページに MutuallyExclusiveCheckBoxExtender コントロールを配置する必要があります。</span><span class="sxs-lookup"><span data-stu-id="1f49e-122">For both checkboxes, a MutuallyExclusiveCheckBoxExtender control must be put on the page.</span></span> <span data-ttu-id="1f49e-123">両方のキー属性は、HTML ラジオ ボタンの要素の属性は、所属するグループを示すのと同じである必要があります値と同様、同じ値を指定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="1f49e-123">Both Key attributes need to have the same value, just as the value attributes of HTML radio button elements must be identical to denote the group they belong to.</span></span> <span data-ttu-id="1f49e-124">エクステンダーの TargetControlID プロパティは、チェック ボックスの ID を指します。</span><span class="sxs-lookup"><span data-stu-id="1f49e-124">The TargetControlID property of the extender points to the ID of the check box.</span></span>
 
 [!code-aspx[Main](creating-mutually-exclusive-checkboxes-vb/samples/sample2.aspx)]
 
-<span data-ttu-id="edaf2-125">最後に、ASP.NET AJAX を含める`ScriptManager`ASP.NET AJAX コントロール Toolkit のすべての要素で必要となります。</span><span class="sxs-lookup"><span data-stu-id="edaf2-125">Finally, include the ASP.NET AJAX `ScriptManager` which is required by all elements of the ASP.NET AJAX Control Toolkit:</span></span>
+<span data-ttu-id="1f49e-125">最後に、ASP.NET AJAX を含める`ScriptManager`ASP.NET AJAX Control Toolkit のすべての要素で必要です。</span><span class="sxs-lookup"><span data-stu-id="1f49e-125">Finally, include the ASP.NET AJAX `ScriptManager` which is required by all elements of the ASP.NET AJAX Control Toolkit:</span></span>
 
 [!code-aspx[Main](creating-mutually-exclusive-checkboxes-vb/samples/sample3.aspx)]
 
-<span data-ttu-id="edaf2-126">保存し、ページの実行: を確認し、両方のチェック ボックスをオフにただしない時に両方のチェック ボックス チェックできます。</span><span class="sxs-lookup"><span data-stu-id="edaf2-126">Save and run the page: You can check and uncheck both check boxes, however at no time can both check boxes be checked.</span></span>
+<span data-ttu-id="1f49e-126">保存し、ページの実行: を確認し、両方のチェック ボックスをオフにします。 ただしない時に両方のチェック ボックス チェックできます。</span><span class="sxs-lookup"><span data-stu-id="1f49e-126">Save and run the page: You can check and uncheck both check boxes, however at no time can both check boxes be checked.</span></span>
 
 
-<span data-ttu-id="edaf2-127">[![一度に 1 つだけのチェック ボックスを選択することができます。](creating-mutually-exclusive-checkboxes-vb/_static/image2.png)](creating-mutually-exclusive-checkboxes-vb/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="edaf2-127">[![Only one checkbox can be checked at a time](creating-mutually-exclusive-checkboxes-vb/_static/image2.png)](creating-mutually-exclusive-checkboxes-vb/_static/image1.png)</span></span>
+<span data-ttu-id="1f49e-127">[![一度に 1 つだけのチェック ボックスをオンすることができます。](creating-mutually-exclusive-checkboxes-vb/_static/image2.png)](creating-mutually-exclusive-checkboxes-vb/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="1f49e-127">[![Only one checkbox can be checked at a time](creating-mutually-exclusive-checkboxes-vb/_static/image2.png)](creating-mutually-exclusive-checkboxes-vb/_static/image1.png)</span></span>
 
-<span data-ttu-id="edaf2-128">一度に 1 つだけのチェック ボックスを選択することができます ([フルサイズのイメージを表示するをクリックして](creating-mutually-exclusive-checkboxes-vb/_static/image3.png))</span><span class="sxs-lookup"><span data-stu-id="edaf2-128">Only one checkbox can be checked at a time ([Click to view full-size image](creating-mutually-exclusive-checkboxes-vb/_static/image3.png))</span></span>
+<span data-ttu-id="1f49e-128">一度に 1 つだけのチェック ボックスをオンすることができます ([フルサイズの画像を表示する をクリックします](creating-mutually-exclusive-checkboxes-vb/_static/image3.png))。</span><span class="sxs-lookup"><span data-stu-id="1f49e-128">Only one checkbox can be checked at a time ([Click to view full-size image](creating-mutually-exclusive-checkboxes-vb/_static/image3.png))</span></span>
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="edaf2-129">前へ</span><span class="sxs-lookup"><span data-stu-id="edaf2-129">Previous</span></span>](creating-mutually-exclusive-checkboxes-cs.md)
+> [<span data-ttu-id="1f49e-129">前へ</span><span class="sxs-lookup"><span data-stu-id="1f49e-129">Previous</span></span>](creating-mutually-exclusive-checkboxes-cs.md)
