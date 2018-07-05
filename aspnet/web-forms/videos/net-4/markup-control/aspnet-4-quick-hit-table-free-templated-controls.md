@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/net-4/markup-control/aspnet-4-quick-hit-table-free-templated-controls
-title: テンプレート コントロールの空きをテーブル |Microsoft ドキュメント
+title: テーブルのないテンプレート コントロール |Microsoft Docs
 author: JoeStagner
-description: RenderOuterTable について学びますこのビデオでは、外部テーブルかどうかを制御することができますが、テンプレート コントロールのプロパティを表示しています.
+description: RenderOuterTable について説明しますが、このビデオでは、外部テーブルかどうかを制御することができます、template 宣言されたコントロールのプロパティをレンダリングしています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/16/2009
 ms.topic: article
 ms.assetid: 3d8c871d-7e00-4f13-937c-aa1f9b5a7dba
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/net-4/markup-control/aspnet-4-quick-hit-table-free-templated-controls
 msc.type: video
-ms.openlocfilehash: e33784785b170f32687720cf97bafbf881fe3e48
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 55e24fc59bac7ca0e926126d573f0e4db6c1e0e1
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885652"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385850"
 ---
-<a name="aspnet-4-quick-hit--table-free-templated-controls"></a>ASP.NET 4 空きテンプレート コントロール"クイック Hit"– テーブル
+<a name="aspnet-4-quick-hit--table-free-templated-controls"></a>ASP.NET 4 のないテンプレート コントロールにテーブル「クイック ヒット」–
 ====================
-によって[行える](https://github.com/JoeStagner)
+によって[Joe Stagner](https://github.com/JoeStagner)
 
-このビデオでは、外側のテーブルがページにレンダリングされるかどうかを制御することができますが、テンプレート コントロールの RenderOuterTable プロパティについて学習します。 
+このビデオでは、ページに、外部テーブルを表示するかどうかを制御することができますが、コントロールにテンプレート化された RenderOuterTable プロパティの詳細について学びます。 
 
-[&#9654;ビデオでは (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-table-free-templated-controls)
+[&#9654;ビデオ (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-table-free-templated-controls)
 
 > [!div class="step-by-step"]
 > [前へ](aspnet-4-quick-hit-new-rendering-option-for-check-box-lists-and-radio-button-lists.md)

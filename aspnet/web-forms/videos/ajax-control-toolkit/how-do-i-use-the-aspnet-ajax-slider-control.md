@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-slider-control
-title: '[How Do i:]ASP.NET AJAX のスライダー コントロールを使用しますか。 | Microsoft Docs'
+title: '[How Do i:]ASP.NET AJAX スライダー コントロールを使用しますか。 | Microsoft Docs'
 author: JoeStagner
-description: ASP.NET AJAX コントロール Toolkit のスライダー コントロールは、ユーザーが、数値を選択するための単純で簡潔な方法を提供します。 このビデオでは ad する方法.
+description: ASP.NET AJAX Control Toolkit からスライダー コントロールは、ユーザーが数値の値を選択するための単純で簡潔な方法を提供します。 このビデオでは ad 方法.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2007
 ms.topic: article
 ms.assetid: 958e1bc8-65a8-4fe0-ad2d-f98691d5fdf1
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-slider-control
 msc.type: video
-ms.openlocfilehash: e8959cedec283b852c63a4f70bdb532dbeed70fd
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f97142a44d3a925d08311a7d301d9bb8aa81a47d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30880051"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401728"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-slider-control"></a>[How Do i:]ASP.NET AJAX のスライダー コントロールを使用しますか。
+<a name="how-do-i-use-the-aspnet-ajax-slider-control"></a>[How Do i:]ASP.NET AJAX スライダー コントロールを使用しますか。
 ====================
-によって[行える](https://github.com/JoeStagner)
+によって[Joe Stagner](https://github.com/JoeStagner)
 
-ASP.NET AJAX コントロール Toolkit のスライダー コントロールは、ユーザーが、数値を選択するための単純で簡潔な方法を提供します。 このビデオでは、スライダー コントロール、Web ページを追加する方法と、印刷の向き、値の範囲、および単位のサイズを構成する方法を示します。
+ASP.NET AJAX Control Toolkit からスライダー コントロールは、ユーザーが数値の値を選択するための単純で簡潔な方法を提供します。 このビデオでは、Web ページにスライダー コントロールを追加する方法とその方向、範囲の値と単位のサイズを構成する方法を示します。
 
 [&#9654;ビデオでは (10 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-slider-control)
 

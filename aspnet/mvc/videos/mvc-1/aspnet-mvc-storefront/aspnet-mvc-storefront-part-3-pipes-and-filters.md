@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-3-pipes-and-filters
-title: 'ASP.NET MVC Storefront パート 3: パイプとフィルター |Microsoft ドキュメント'
+title: 'ASP.NET MVC Storefront パート 3: パイプとフィルター |Microsoft Docs'
 author: robconery
-description: Rob Conery には、パート 1 および 2、および IQueryable リポジトリのパイプとフィルターの実装に、知りからのフィードバックがについて説明します。
+description: Rob Conery は、パート 1 および 2、およびしにかけて IQueryable リポジトリのパイプとフィルターの実装からのフィードバックをについて説明します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/27/2008
 ms.topic: article
 ms.assetid: 69de22ba-0129-4bb9-b32a-e99319ee8021
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-3-pipes-and-filters
 msc.type: video
-ms.openlocfilehash: 3666acf556f49232f7e403a40ada08884694c611
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 574dd039a4266ef4ef235ace0b1480cfc7e13691
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878452"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37386850"
 ---
 <a name="aspnet-mvc-storefront-part-3-pipes-and-filters"></a>ASP.NET MVC Storefront パート 3: パイプとフィルター
 ====================
 によって[Rob Conery](https://github.com/robconery)
 
-Rob Conery には、パート 1 および 2、および IQueryable リポジトリのパイプとフィルターの実装に、知りからのフィードバックがについて説明します。
+Rob Conery は、パート 1 および 2、およびしにかけて IQueryable リポジトリのパイプとフィルターの実装からのフィードバックをについて説明します。
 
-[&#9654;ビデオでは (16 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-3-pipes-and-filters)
+[&#9654;ビデオ (16 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-3-pipes-and-filters)
 
 > [!div class="step-by-step"]
 > [前へ](aspnet-mvc-storefront-part-2-the-repository-pattern.md)

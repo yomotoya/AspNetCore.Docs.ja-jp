@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility
-title: '[How Do i:]コンパイラのユーティリティを使用して柔軟性を最大限に Fixednames オプションを使用して |Microsoft ドキュメント'
+title: '[How Do i:]コンパイラ ユーティリティで Fixednames オプションを使用して、最大限の柔軟性の |Microsoft Docs'
 author: rick-anderson
-description: このビデオ Chris Pels では aspnet_compiler.exe ユーティリティを使用して fixednames オプションを使用してコンパイル ou 内の一貫性のあるファイル名を生成する方法の表示.
+description: このビデオの Chris Pels で、コンパイルの ou で一貫性のあるファイルの名前を生成する aspnet_compiler.exe ユーティリティで fixednames オプションを使用する方法を紹介しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
 ms.topic: article
 ms.assetid: e332a1e0-226d-40ad-be99-96f13ecaec24
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility
 msc.type: video
-ms.openlocfilehash: 097f277f6f926b0db2f1ae7cb13bcdbed3d0b7dc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6a81cd195dcd2a884b6710f270f063f2431876a7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26525931"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37372661"
 ---
-<a name="how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility"></a>[How Do i:]コンパイラのユーティリティを使用して柔軟性を最大限に Fixednames オプションを使用してください。
+<a name="how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility"></a>[How Do i:]コンパイラ ユーティリティで Fixednames オプションを使用して、柔軟性を最大限に
 ====================
 によって[Chris Pels](https://twitter.com/chrispels)
 
-このビデオでは Chris Pels は aspnet、と共に fixednames オプションを使用する方法を示します\_compiler.exe ユーティリティ一貫性のあるファイルを生成するためには、コンパイルの出力の名前します。 最初に、aspnet のコンパイルの出力を参照してください\_compiler.exe ユーティリティには、サイト内のページ、テーマ、およびフォルダーを含む、さまざまなコンポーネントを表す、ASP.NET web サイト用の出力ファイルが生成されます。 コンポーネントの名前付け方法と、元の web サイトに関連してその内容を参照してください。 その後、fixednames オプションを使用して、基になるソース ファイルに基づいて、出力ファイル名を標準化する方法を参照してください。 次に、更新する最も可能性の高いなコンポーネントに焦点を当てたコンパイル済みの web サイトに更新プログラムを展開する場合の各コンパイル オプションを使用するための考慮事項について説明します。
+このビデオでは、Chris Pels が、aspnet で fixednames オプションを使用する方法を紹介は\_compiler.exe ユーティリティ一貫性のあるファイルを生成するためには、コンパイルの出力の名前します。 まず、aspnet のコンパイルの出力を参照してください\_compiler.exe ユーティリティには、ASP.NET web サイトのサイトのページ、テーマ、およびフォルダーを含むさまざまなコンポーネントを表す出力ファイルが生成されます。 コンポーネントの名前付け方法と、元の web サイトとの関連が含まれているを参照してください。 次に、fixednames オプションを使用して、基に基づいているソース ファイルの出力ファイル名を標準化する方法を参照してください。 次に、更新プログラムを更新する最も可能性の高い使用されているコンポーネントに重点を置いて、コンパイル済みの web サイトにデプロイするときに、各コンパイル オプションを使用するための考慮事項について説明します。
 
-[&#9654;です。ビデオでは (23 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility)
+[&#9654;ビデオ (23 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility)

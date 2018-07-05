@@ -1,23 +1,22 @@
 ---
 uid: mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3
-title: ASP.NET MVC - パート 3 での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用 |Microsoft ドキュメント
+title: ASP.NET MVC - パート 3 での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用 |Microsoft Docs
 author: Rick-Anderson
-description: このチュートリアルでは、エディターのテンプレート、画面テンプレート、および ASP.NET MV で jQuery UI datepicker ポップアップ カレンダーを使用する方法の基本を説明しています.
+description: このチュートリアルでは、エディターのテンプレート、表示のテンプレートと、ASP.NET MV の jQuery UI datepicker ポップアップ カレンダーを操作する方法の基本を説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/29/2011
 ms.topic: article
 ms.assetid: 8f5f91ae-12d7-4cf3-ac09-4bb53d07ee60
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: fd1ae746f4f134b779c7eee50cf6c840bbb7068e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 11f9e0a8602e9ee1feda9d0e7d0d319add7c440c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869466"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400772"
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-3"></a>ASP.NET MVC - パート 3 での HTML5 と jQuery UI Datepicker ポップアップ カレンダーの使用
 ====================
@@ -26,79 +25,79 @@ ms.locfileid: "30869466"
 > このチュートリアルでは、エディターのテンプレート、画面テンプレート、および ASP.NET MVC Web アプリケーションで jQuery UI datepicker ポップアップ カレンダーを使用する方法の基本を説明します。
 
 
-## <a name="working-with-complex-types"></a>複合型の使用
+## <a name="working-with-complex-types"></a>複雑な型の使用
 
-このセクションでは、アドレス クラスを作成し、表示するテンプレートを作成する方法について説明します。
+このセクションでは、address クラスを作成し、それを表示するテンプレートを作成する方法について説明します。
 
-*モデル*フォルダー、という新しいクラス ファイルを作成*Person.cs*を配置する 2 つの種類:`Person`クラスおよび`Address`クラスです。 `Person`クラスとして型指定されたプロパティに含まれる`Address`です。 `Address`型は複合型、つまりと同様に、組み込み型のいずれでもない`int`、 `string`、または`double`です。 代わりに、いくつかのプロパティがあります。 新しいクラスのコードは、次のようになります。
+*モデル*フォルダーという新しいクラス ファイルを作成*Person.cs* 2 つの型を配置します。`Person`クラスおよび`Address`クラス。 `Person`クラスとして型指定されたプロパティが含まれます`Address`します。 `Address`型が複合型のような組み込み型のいずれかがいない`int`、 `string`、または`double`します。 代わりに、いくつかのプロパティがあります。 新しいクラスのコードは、次のようになります。
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample1.cs)]
 
-`Movie`コント ローラーで、次のコードを追加する`PersonDetail`ユーザー インスタンスを表示するアクション。
+`Movie`コント ローラーで、次のコードを追加する`PersonDetail`person のインスタンスを表示するアクション。
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample2.cs)]
 
-次のコードを追加、`Movie`を設定するコント ローラー、`Person`サンプル データが含まれるモデル。
+次のコードを追加し、`Movie`を設定するコント ローラー、`Person`サンプル データ モデル。
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample3.cs)]
 
-開く、 *Views\Movies\PersonDetail.cshtml*ファイルし、次のマークアップを追加、`PersonDetail`ビュー。
+開く、 *Views\Movies\PersonDetail.cshtml*ファイルを開き、次のマークアップを追加、`PersonDetail`ビュー。
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample4.cshtml)]
 
-Ctrl キーを押しながら f5 キーを押してアプリケーションを実行しに移動*映画/PersonDetail*です。
+Ctrl + f5 キーを押してアプリケーションを実行しに移動します*映画/PersonDetail*します。
 
-`PersonDetail`ビューが含まれていない、`Address`複合型は、することができますを参照してくださいこのスクリーン ショット。 (アドレスは表示されません。)
+`PersonDetail`ビューが含まれていない、`Address`複合型は、ことがわかります。 このスクリーン ショット。 (アドレスは表示されません。)
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/_static/image1.png)
 
-`Address`複合型になっているために、モデル データは表示されません。 アドレス情報を表示、開く、 *Views\Movies\PersonDetail.cshtml*ファイルに追加され、次のマークアップを追加します。
+`Address`のため、複雑な型では、モデル データは表示されません。 アドレス情報を表示するには、開く、 *Views\Movies\PersonDetail.cshtml*もう一度ファイルを開き、次のマークアップを追加します。
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample5.cshtml)]
 
-完全なマークアップを`PersonDetail`次のように表示されるようになりました。
+完全なマークアップを`PersonDetail`ビューは次のようになりますようになりました。
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample6.cshtml)]
 
-アプリケーションを再実行し、表示、`PersonDetail`ビュー。 アドレス情報が表示されます。
+アプリケーションを再度実行し、表示、`PersonDetail`ビュー。 アドレス情報が表示されます。
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/_static/image2.png)
 
 ### <a name="creating-a-template-for-a-complex-type"></a>複合型のテンプレートの作成
 
-このセクションの内容を表示するために使用されるテンプレートを作成、`Address`複合型。 用のテンプレートを作成する場合、`Address`型、ASP.NET MVC に自動的にそのフォーマットに使用できるアプリケーションで任意の場所のアドレス モデル。 こうことのレンダリングを制御する方法、`Address`アプリケーション内の 1 つの場所からの型。
+このセクションでは、表示するために使用されるテンプレートを作成します、`Address`複合型。 テンプレートを作成する場合、`Address`型、ASP.NET MVC に自動的に使用できるアプリケーションで任意の場所のアドレス モデルの書式を設定します。 これによりのレンダリングを制御する方法、`Address`アプリケーション内の 1 つの場所からの型。
 
 *Views \shared\displaytemplates*フォルダー、という名前の厳密に型指定された部分ビューを作成する**アドレス**:
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/_static/image3.png)
 
-をクリックして**追加**を開き、新しい*Views\Shared\DisplayTemplates\Address.cshtml*ファイル。 新しいビューには、次の生成されたマークアップが含まれています。
+クリックして**追加**を開き、新しい*Views\Shared\DisplayTemplates\Address.cshtml*ファイル。 新しいビューには、次の生成されたマークアップが含まれています。
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample7.cshtml)]
 
-アプリケーションを実行し、表示、`PersonDetail`ビュー。 このとき、`Address`先ほど作成したテンプレートを使用して、表示、`Address`表示が次のようになるよう、複合型。
+アプリケーションを実行し、表示、`PersonDetail`ビュー。 今回は、`Address`作成したテンプレートを使用して、表示、`Address`複合型の表示は次の次のようになります。
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/_static/image4.png)
 
-### <a name="summary-ways-to-specify-the-model-display-format-and-template"></a>モデルの表示形式およびテンプレートを指定する方法は概要:
+### <a name="summary-ways-to-specify-the-model-display-format-and-template"></a>モデルの表示形式とテンプレートを指定する方法は概要:
 
-次のアプローチを使用して形式またはモデル プロパティのテンプレートを指定できますを見てきました。
+次の方法を使用して形式またはモデル プロパティのテンプレートを指定できますを見てきました。
 
-- 適用する、`DisplayFormat`属性をモデル内のプロパティです。 たとえば、次のコードでは、時間を除いた表示される日付が発生します。
+- 適用、`DisplayFormat`属性をモデルのプロパティ。 たとえば、次のコードは、時間を除いた表示される日付をなります。
 
     [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample8.cs)]
-- 適用する、 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性をモデルとデータ型の指定では、プロパティにします。 たとえば、次のコードが、日付、時刻なしで表示します。
+- 適用する、 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx)属性をモデルとデータ型を指定するプロパティ。 たとえば、次のコードでは、時間を除いた表示される日付がなります。
 
     [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample9.cs)]
 
-    アプリケーションが含まれている場合、 *date.cshtml*でテンプレート、 *views \shared\displaytemplates*フォルダーまたは*Views\Movies\DisplayTemplates*フォルダー、そのテンプレートレンダリングに使用される、`DateTime`プロパティです。 それ以外の場合、組み込みの ASP.NET テンプレート システムは、日付としてプロパティを表示します。
-- 画面テンプレートを作成する、 *views \shared\displaytemplates*フォルダーまたは*Views\Movies\DisplayTemplates*フォルダーの名前には、書式を設定するデータ型が一致します。 たとえば、ことを説明する、 *Views\Shared\DisplayTemplates\DateTime.cshtml*表示するために使用された`DateTime`モデルに属性を追加してビューをビューにすべてのマークアップを追加することがなく、モデルのプロパティです。
-- 使用して、 [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx)モデル プロパティを表示するテンプレートを指定するには、モデルの属性です。
-- 明示的に追加するテンプレート名を表示、 [Html.DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx)ビューで呼び出します。
+    アプリケーションが含まれている場合、 *date.cshtml*テンプレート、 *views \shared\displaytemplates*フォルダーまたは*Views\Movies\DisplayTemplates*フォルダー、そのテンプレートレンダリングに使用される、`DateTime`プロパティ。 それ以外の場合、組み込みの ASP.NET テンプレート システムでは、日付としてプロパティを表示します。
+- 表示テンプレートの作成、 *views \shared\displaytemplates*フォルダーまたは*Views\Movies\DisplayTemplates*フォルダーの名前には、書式を設定するデータ型が一致します。 たとえば、ことを説明する、 *Views\Shared\DisplayTemplates\DateTime.cshtml*表示するために使用された`DateTime`モデルに属性を追加して、マークアップをビューに追加することがなく、モデルのプロパティ。
+- 使用して、 [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx)モデルのプロパティを表示するテンプレートを指定するには、モデルの属性。
+- 表示テンプレート名を明示的に追加する、 [Html.DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx)ビューで呼び出します。
 
-使用するアプローチは、アプリケーションで実行する必要がありますに依存します。 必要な書式設定の種類だけを取得する方法を混在させることは珍しくことはできません。
+使用する方法によって異なります、アプリケーションで行う必要があります。 これらの必要な形式の種類だけを取得する方法を混在させることは珍しくありません。
 
-次のセクションでは少し変えて、入力する方法をカスタマイズするデータを表示する方法をカスタマイズから移動します。 日付を指定する便利な方法を提供するためにアプリケーションの編集ビューに jQuery datepicker フックされます。
+次のセクションで切り替えて少し変えて、入力する方法をカスタマイズするデータを表示する方法をカスタマイズから移動します。 編集ビューの日付を指定する優れた方法を提供するために、アプリケーションで jQuery datepicker フックします。
 
 > [!div class="step-by-step"]
 > [前へ](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2.md)

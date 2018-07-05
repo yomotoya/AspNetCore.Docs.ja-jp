@@ -1,100 +1,99 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
-title: DataList とリピータの書式設定データ (VB) に基づいて |Microsoft ドキュメント
+title: (VB) のデータに基づいて DataList と Repeater を書式設定 |Microsoft Docs
 author: rick-anderson
-description: このチュートリアルではおをステップ実行ことで、いずれかで書式設定関数を使用して、DataList およびリピータ コントロールの外観を書式設定方法の例を示します.
+description: このチュートリアルでは手順を説明しますと書式設定関数を使用して、DataList と Repeater コントロールの外観の形式を設定する方法の例を示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
 ms.topic: article
 ms.assetid: e2f401ae-37bb-4b19-aa97-d6b385d40f88
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 174a68cf0785b33c85139d57ede9717ce7e135e0
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 42a7861c4a9665d5c2596ba9bf3f5185bfaf043d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30876593"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37397682"
 ---
-<a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>DataList とデータ (VB) に基づいてリピータの書式設定
+<a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>DataList と Repeater データ (VB) に基づいて書式設定
 ====================
 によって[Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 [サンプル アプリをダウンロード](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_30_VB.exe)または[PDF のダウンロード](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/datatutorial30vb1.pdf)
 
-> このチュートリアルではおをステップ実行おで、テンプレート内で書式設定関数を使用するか、データ バインドされたイベントを処理することによって、DataList およびリピータ コントロールの外観を書式設定方法の例を示します。
+> このチュートリアルで、テンプレート内で書式設定関数を使用して、またはデータ バインド イベントを処理することによって、DataList と Repeater コントロールの外観の形式を設定する方法の例を手順説明します。
 
 
 ## <a name="introduction"></a>はじめに
 
-前のチュートリアルで説明したとおり、DataList は外観に影響を与えるのスタイル関連プロパティの数を提供します。 具体的には、DataList s に CSS クラスの既定値を割り当てる方法を説明しました`HeaderStyle`、 `ItemStyle`、 `AlternatingItemStyle`、および`SelectedItemStyle`プロパティです。 これら 4 つのプロパティに加えて、DataList などが含まれるその他のスタイル関連プロパティの数`Font`、 `ForeColor`、 `BackColor`、および`BorderWidth`、いくつかの例です。 リピータ コントロールにスタイルに関連するプロパティが含まれていません。 このようなスタイルの設定は、リピータのテンプレート内のマークアップ内で直接行う必要があります。
+前のチュートリアルで説明したように、DataList は、さまざまな外観に影響を与えるスタイル関連プロパティを提供します。 具体的には、DataList s に CSS クラスの既定値を割り当てる方法を説明しました`HeaderStyle`、 `ItemStyle`、 `AlternatingItemStyle`、および`SelectedItemStyle`プロパティ。 これら 4 つのプロパティに加えて、DataList にはなどが含まれます、多数他のスタイル関連プロパティには`Font`、 `ForeColor`、 `BackColor`、および`BorderWidth`があります。 Repeater コントロールでは、任意のスタイル関連プロパティは含まれません。 このようなスタイルの設定は、Repeater のテンプレートのマークアップ内で直接行う必要があります。
 
-多くの場合、ただし、データの書式設定方法によって異なります、データ自体。 たとえば、製品を一覧表示するときにお可能性があります情報を表示する、製品薄い灰色の色では廃止されました、または強調表示したい場合があります、`UnitsInStock`値の場合は 0 です。 前のチュートリアルで説明したとおり、GridView、DetailsView、およびフォーム ビューには、そのデータに基づいて外観の書式を設定する 2 つの異なる方法があります。
+多くの場合、ただし、データの書式設定方法によって異なります、データ自体。 たとえば、製品の一覧を表示するときにする可能性は、中止または強調したい場合に、明るい灰色のフォントの色で製品情報を表示、`UnitsInStock`値の場合は 0。 前のチュートリアルで説明したように、GridView、DetailsView と FormView データ データに基づいて外観は書式設定に 2 つの点があります。
 
-- **`DataBound`イベント**適切なイベント ハンドラーを作成`DataBound`データが各項目にバインドされた後に発生するイベント (が GridView の`RowDataBound`イベント; DataList とリピータは、 `ItemDataBound`イベント)。 イベントのハンドラー、バインドされたデータだけを検証することができ、行われた決定を書式設定します。 この手法を調べるお、[カスタム書式指定ベース時にデータ](../custom-formatting/custom-formatting-based-upon-data-vb.md)チュートリアルです。
-- **テンプレート内の関数の書式設定**TemplateFields、DetailsView または GridView コントロールまたはフォーム ビュー コントロール内にテンプレートを使用する場合、ASP.NET ページの分離コード クラス、ビジネス ロジック層、またはそのいずれかを書式設定関数を付け加えることが可能web アプリケーションからアクセス可能なその他のクラス ライブラリです。 この書式設定関数は、入力パラメーターの任意の数を受け入れることができますが、テンプレートに表示するために HTML を返す必要があります。 書式設定関数を最初に検査された、 [GridView コントロールを使用して TemplateFields](../custom-formatting/using-templatefields-in-the-gridview-control-vb.md)チュートリアルです。
+- **`DataBound`イベント**、適切なイベント ハンドラーを作成`DataBound`データが各項目にバインドされた後に発生するイベント (が GridView に、`RowDataBound`イベント; DataList と Repeater は、 `ItemDataBound`イベント)。 イベントのハンドラー、バインドされたデータだけを検証することができ、行われた意思決定を書式設定します。 この方法で調べる、[カスタム書式設定時にデータ](../custom-formatting/custom-formatting-based-upon-data-vb.md)チュートリアル。
+- **テンプレート内の関数の書式設定**を DetailsView または GridView コントロールまたはテンプレート FormView コントロールで TemplateFields を使用する場合、書式設定関数 ASP.NET ページの分離コード クラス、ビジネス ロジック層、またはそのいずれかに追加できますweb アプリケーションからアクセスできるその他のクラス ライブラリです。 この書式設定関数は、入力パラメーターの任意の数を受け入れることができますが、テンプレートに表示するために HTML を返す必要があります。 書式設定関数がで解説した最初の[GridView コントロールで TemplateFields を使用して](../custom-formatting/using-templatefields-in-the-gridview-control-vb.md)チュートリアル。
 
-両方のこれらの手法を書式指定は、DataList およびリピータ コントロールで使用できます。 このチュートリアルでは両方のコントロールの両方の手法の使用例の手順をおします。
+これらの手法を書式設定の両方は DataList と Repeater コントロールで使用できます。 このチュートリアルでは、両方のコントロールの両方の手法を使用する例を手順説明します。
 
 ## <a name="using-theitemdataboundevent-handler"></a>使用して、`ItemDataBound`イベント ハンドラー
 
-データは、バインド時、DataList s のコントロールにデータをプログラムによって割り当てまたはデータ ソース コントロールから`DataSource`プロパティと呼び出し元の`DataBind()`メソッド、DataList の`DataBinding`イベントを発生させる、列挙、データ ソース各データ レコードは、DataList にバインドします。 DataList の作成、データ ソース内の各レコードに対して、 [ `DataListItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.aspx)オブジェクトを現在のレコードにバインドします。 このプロセス中には、DataList は、2 つのイベントを発生します。
+データは、DataList にバインドされるデータ ソース コントロールからまたは s のコントロールにデータをプログラムで割り当てることで場合`DataSource`プロパティと呼び出し元の`DataBind()`メソッド、DataList の`DataBinding`イベントが発生、列挙、データ ソースデータの各レコードは、DataList にバインドされます。 DataList の各データ ソースのレコードの作成、 [ `DataListItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.aspx)オブジェクトを現在のレコードにバインドします。 このプロセス中には、DataList は、2 つのイベントを発生させます。
 
 - **`ItemCreated`** 後に起動、`DataListItem`が作成されました
 - **`ItemDataBound`** 現在のレコードにバインドされた後に発生します `DataListItem`
 
-次の手順では、DataList コントロール用のデータのバインディング プロセスを示します。
+次の手順では、DataList コントロール用のデータ バインド プロセスを説明します。
 
-1. DataList s [ `DataBinding`イベント](https://msdn.microsoft.com/library/system.web.ui.control.databinding.aspx)発生
-2. データは、DataList へのバインドします。  
+1. DataList s [ `DataBinding`イベント](https://msdn.microsoft.com/library/system.web.ui.control.databinding.aspx)起動
+2. データは、DataList にバインドされます。  
   
    データ ソース内の各レコード 
 
     1. 作成、`DataListItem`オブジェクト
-    2. Fire、 [ `ItemCreated`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
+    2. 火災、 [ `ItemCreated`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
     3. レコードにバインドします `DataListItem`
-    4. Fire、 [ `ItemDataBound`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
+    4. 火災、 [ `ItemDataBound`イベント](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
     5. 追加、`DataListItem`を`Items`コレクション
 
-Repeater コントロールにデータをバインドするときに進行状況に合わせて、正確な同じ一連の手順を通じてします。 代わりにする唯一の違いは`DataListItem`リピータを使用して作成されるインスタンス、 [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem(VS.80).aspx)s。
+Repeater コントロールにデータをバインドする場合は、正確な同じ一連の手順に従って進行します。 唯一の違いは、の代わりに`DataListItem`Repeater を使用して作成されるインスタンス、 [ `RepeaterItem`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem(VS.80).aspx)秒。
 
 > [!NOTE]
-> 絶好のリーダーは、DataList とリピータが GridView がデータにバインドされている場合とデータにバインドするまでに経過する手順のシーケンスとの間のわずかな異常を気付きかもしれません。 データ バインド プロセスの末尾に GridView を発生させます、`DataBound`イベントです。 ただし、このようなイベントのある DataList もリピータ コントロール。 これは、前と後のレベルのイベント ハンドラーのパターンが一般的になる必要がある前に、ASP.NET の 1.x 時間帯に戻り、DataList およびリピータ コントロールが作成されているためです。
+> 鋭い読者は、一連のデータにバインドする GridView と DataList と Repeater とデータにバインドされたときに発生する手順の間のわずかな異常で気付いたかもしれません。 GridView を発生させるデータ バインド プロセスの末尾に、`DataBound`イベントです。 ただし、このようなイベントのある DataList でも、Repeater コントロール。 前と後のレベルのイベント ハンドラーのパターンの普及が前に、ASP.NET 1.x タイム フレームに戻り、DataList と Repeater コントロールが作成されたためにです。
 
 
-データに基づく書式設定するための 1 つのオプションは、GridView のイベント ハンドラーを作成するように、`ItemDataBound`イベント。 このイベント ハンドラーがだけにバインドされているデータを検査すると、`DataListItem`または`RepeaterItem`し、必要に応じて、コントロールの書式に影響します。
+データに基づく書式設定するための 1 つのオプションは、GridView のイベント ハンドラーを作成するように、`ItemDataBound`イベント。 このイベント ハンドラーにバインドされていただけデータを検査すると、`DataListItem`または`RepeaterItem`し、必要に応じて、コントロールの書式に影響します。
 
-DataList コントロール用の書式設定の変更を使用して、アイテム全体を実装することができます、`DataListItem`など、標準のスタイル関連プロパティ、 `Font`、 `ForeColor`、 `BackColor`、`CssClass`のようにします。 DataList のテンプレート内の特定の Web コントロールの書式に影響を与えるには、プログラムでアクセスし、それらの Web コントロールのスタイルを変更する必要があります。 このチェックインを実行する方法を説明しました、*カスタム書式指定ベース時にデータ*チュートリアルです。 Repeater コントロールと同様に、`RepeaterItem`クラスのスタイル関連プロパティがありませんそのため、すべてのスタイルに関連する変更を、`RepeaterItem`で、`ItemDataBound`イベント ハンドラーは、プログラムでアクセスして、内の Web コントロールを更新して行う必要があります。テンプレートです。
+DataList コントロールの書式設定の変更項目全体の実装を使用して、`DataListItem`を含む、標準のスタイル関連プロパティを`Font`、 `ForeColor`、 `BackColor`、`CssClass`など。 DataList のテンプレート内の特定の Web コントロールの書式設定に影響を与えるには、プログラムからアクセスして、それらの Web コントロールのスタイルを変更する必要があります。 このチェックインを実行する方法を説明しました、*カスタム書式設定時にデータ*チュートリアル。 などの Repeater コントロール、`RepeaterItem`クラスのスタイル関連プロパティがありませんにそのため、すべてのスタイル関連の変更が行われた、`RepeaterItem`で、`ItemDataBound`へのアクセスと、Web コントロール内の更新プログラムを使用してイベント ハンドラーを実行する必要があります。テンプレートです。
 
-以降、 `ItemDataBound` DataList とリピータがほぼ同じですが、この例では、DataList の使用に焦点を当てますの手法を書式設定します。
+以降、 `ItemDataBound` DataList と Repeater は事実上同じで、この例では、DataList を使用して集中する手法の書式を設定します。
 
 ## <a name="step-1-displaying-product-information-in-the-datalist"></a>手順 1: DataList で製品情報を表示します。
 
-書式設定と心配、前に let s はまず、DataList を使用して製品情報を表示するページを作成します。 [前のチュートリアル](displaying-data-with-the-datalist-and-repeater-controls-vb.md)DataList を作成したが`ItemTemplate`各製品の名前、カテゴリ、供給業者、単位、および価格ごとの数が表示されます。 このチュートリアルではこの機能は、ここを繰り返して s を使用できます。 これを実現する、DataList とその ObjectDataSource 最初から再作成できますか、または前のチュートリアルで作成したページからそれらのコントロール経由でコピーすることができます (`Basics.aspx`) このチュートリアルでは、ページに貼り付けます (`Formatting.aspx`)。
+書式設定に関する気にし、前に let s はまず、DataList を使用して、製品情報を表示するページを作成します。 [前のチュートリアル](displaying-data-with-the-datalist-and-repeater-controls-vb.md)DataList を作成しましたが`ItemTemplate`各製品の名前、カテゴリ、供給業者、単位、および価格ごとの数が表示されます。 このチュートリアルでは、ここで、この機能を繰り返して s を使用できます。 これを実現する、DataList、およびその ObjectDataSource を最初から再作成できますか、またはそれらのコントロールを前のチュートリアルで作成したページからコピーできます (`Basics.aspx`) このチュートリアルでは、ページに貼り付けます (`Formatting.aspx`)。
 
-DataList および ObjectDataSource の機能がレプリケートされた後`Basics.aspx`に`Formatting.aspx`、DataList s を変更するのにはしばらく時間かかる`ID`プロパティから`DataList1`にわかりやすい`ItemDataBoundFormattingExample`です。 次に、DataList をブラウザーで表示します。 図 1 に示す各製品の唯一の書式設定の違いは、背景色が交互です。
-
-
-[![DataList コントロールでは、製品が一覧表示されます。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image2.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image1.png)
-
-**図 1**: DataList コントロールでは、製品が一覧表示されます ([フルサイズのイメージを表示するをクリックして](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image3.png))
+DataList コントロールと ObjectDataSource 機能をレプリケートしているときと`Basics.aspx`に`Formatting.aspx`、DataList s を変更する少し`ID`プロパティから`DataList1`にわかりやすい`ItemDataBoundFormattingExample`します。 次に、ブラウザーで、DataList を表示します。 図 1 は、各製品の唯一の書式設定の違いは、背景色が交互に設定することです。
 
 
-このチュートリアルでは、s ドル 2,000 未満の価格の任意の製品はその名の両方があり、unit price 黄色が強調表示されているように、DataList を書式設定を使用できます。
+[![DataList コントロールでは、製品が表示されています。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image2.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image1.png)
 
-## <a name="step-2-programmatically-determining-the-value-of-the-data-in-the-itemdatabound-event-handler"></a>手順 2: プログラムによって、ItemDataBound イベント ハンドラー内のデータの値の決定
+**図 1**: DataList コントロールでは、製品が表示されている ([フルサイズの画像を表示する をクリックします](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image3.png))。
 
-2,000 円が下の価格の製品だけがあるため適用されるカスタム書式設定、に各製品の価格を決定することは必要があります。 DataList にデータをバインドするときに DataList のデータ ソース内のレコードの列挙し、各レコードを作成、`DataListItem`をデータ ソースのレコードのバインド、インスタンス、`DataListItem`です。 特定のレコード秒後に、現在にデータがバインドされている`DataListItem`オブジェクト、DataList の`ItemDataBound`イベントが発生します。 現在のデータ値を確認するには、このイベントのイベント ハンドラーを作成できます`DataListItem`、それらの値に基づいて、書式設定を変更と、必要です。
 
-作成、 `ItemDataBound` DataList のイベントし、次のコードを追加します。
+このチュートリアルでは、s のすべての製品 20.00 ドル未満の価格には、両方の名前になり、単位価格黄色で強調表示するように、DataList を書式設定を使用できます。
+
+## <a name="step-2-programmatically-determining-the-value-of-the-data-in-the-itemdatabound-event-handler"></a>手順 2: ItemDataBound イベント ハンドラー内のデータの値をプログラムで判断します。
+
+20.00 ドルが下の価格の製品だけがある、適用されるカスタム書式設定、ために、各製品の価格を決定できる必要があります予定です。 DataList にデータをバインドするときに、DataList そのデータ ソース内のレコードの列挙し、レコードごとに、作成、`DataListItem`インスタンスをバインドするデータ ソースのレコード、`DataListItem`します。 現在、特定のレコードの後にデータがバインドされて`DataListItem`オブジェクト、DataList の`ItemDataBound`イベントが発生します。 現在のデータ値を検査するには、このイベントのイベント ハンドラーを作成します`DataListItem`と、それらの値に基づいて、書式設定の変更のために必要なことです。
+
+作成、 `ItemDataBound` DataList のイベントと、次のコードを追加。
 
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample1.vb)]
 
-概念と DataList s のセマンティクスを while`ItemDataBound`イベント ハンドラーは、GridView s が使用されるものと同じ`RowDataBound`内のイベント ハンドラー、*カスタム書式指定ベース時にデータ*チュートリアルでは、構文は異なります微妙に。 ときに、`ItemDataBound`イベントの起動、`DataListItem`だけを使用して対応するイベント ハンドラーに渡されるデータにバインド`e.Item`(の代わりに`e.Row`GridView s と同様、`RowDataBound`イベント ハンドラー)。 DataList s`ItemDataBound`に対してイベント ハンドラーが発生*各*行のヘッダー行、ページ フッター行、および行の区切り記号を含む、DataList に追加します。 ただし、製品の情報は、データ行にはバインドのみです。 そのためを使用する場合、`ItemDataBound`イベント データを検査するのには、DataList にバインドする必要がありますまずいることを確認するで、データ項目はします。 これには、チェックして、 `DataListItem` s [ `ItemType`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.itemtype.aspx)のいずれかである[8 つの値は次](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listitemtype.aspx):
+概念と DataList s の背後にあるセマンティクスを while`ItemDataBound`イベント ハンドラーは、GridView s で使用されるものと同じ`RowDataBound`内のイベント ハンドラー、*カスタム書式設定時にデータ*チュートリアルでは、構文は異なります微妙に。 ときに、`ItemDataBound`イベントの起動、`DataListItem`だけを使用して対応するイベント ハンドラーに渡されるデータにバインドされた`e.Item`(の代わりに`e.Row`GridView s と同様に、`RowDataBound`イベント ハンドラー)。 DataList s`ItemDataBound`を発生させるイベント ハンドラー*各*行のヘッダー行、フッター行、および行の区切り記号を含む、DataList に追加します。 ただし、製品の情報は、データ行にはバインドのみです。 そのためを使用する場合、`ItemDataBound`最初ことを確認する必要があります、データを検査するイベントは、DataList にバインドするデータ項目で作業しています。 これは、チェックを実行できます、 `DataListItem` s [ `ItemType`プロパティ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.itemtype.aspx)のいずれかである[次の 8 つの値](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listitemtype.aspx):
 
 - `AlternatingItem`
 - `EditItem`
@@ -105,107 +104,107 @@ DataList および ObjectDataSource の機能がレプリケートされた後`B
 - `SelectedItem`
 - `Separator`
 
-両方`Item`と`AlternatingItem``DataListItem`の構成 DataList のデータ項目。 作業すると仮定した場合は、`Item`または`AlternatingItem`、実際にアクセスして`ProductsRow`現在バインドされているインスタンス`DataListItem`です。 `DataListItem` S [ `DataItem`プロパティ](https://msdn.microsoft.com/system.web.ui.webcontrols.datalistitem.dataitem.aspx)への参照が含まれています、`DataRowView`オブジェクト、`Row`プロパティは、実際に参照を提供`ProductsRow`オブジェクト。
+両方`Item`と`AlternatingItem``DataListItem`の構成 DataList のデータ項目。 操作すると仮定しています、`Item`または`AlternatingItem`、実際にアクセスして`ProductsRow`インスタンスに現在バインドされていた`DataListItem`。 `DataListItem` S [ `DataItem`プロパティ](https://msdn.microsoft.com/system.web.ui.webcontrols.datalistitem.dataitem.aspx)への参照が含まれています、`DataRowView`オブジェクト、`Row`プロパティは、実際への参照を提供`ProductsRow`オブジェクト。
 
-次に、確認、`ProductsRow`インスタンスの`UnitPrice`プロパティです。 Products テーブル s 以降`UnitPrice`フィールドでは、`NULL`へのアクセスを試みる前に、値、`UnitPrice`プロパティは最初を確認するかどうかは、`NULL`値を使用して、`IsUnitPriceNull()`メソッドです。 場合、`UnitPrice`値がない`NULL`、その後、チェックかどうかを 2,000 ドル未満の秒。 2,000 円で実際に下にある場合、し、カスタム書式を適用する必要があります。
+次に、確認、`ProductsRow`インスタンス`UnitPrice`プロパティ。 Products テーブル s 以降`UnitPrice`フィールドでは、`NULL`へのアクセスを試みる前に、値、`UnitPrice`プロパティまずを確認するかどうかは、`NULL`値を使用して、`IsUnitPriceNull()`メソッド。 場合、`UnitPrice`値でない`NULL`、続いてチェックかどうかを 20.00 ドル未満の秒。 20.00 ドルで実際の場合、カスタムの書式を適用する必要があります。
 
 ## <a name="step-3-highlighting-the-product-s-name-and-price"></a>手順 3: 製品の名前と価格を強調表示
 
-製品の価格が 2,000 ドル未満であることがわかった後は、名前と価格を強調表示します。 これを実現する必要がありますまずプログラムで参照内のラベル コントロール、`ItemTemplate`製品の名前と価格を表示します。 次に、黄色の背景を表示するようにする必要があります。 ラベルを直接変更してこの書式情報を適用できる`BackColor`プロパティ (`LabelID.BackColor = Color.Yellow`); 理想的には、カスケード スタイル シートからは、すべてのディスプレイに関連する問題を表す必要があります。 実際で定義されている目的の書式を提供するスタイル シートがすでにある`Styles.css`  -  `AffordablePriceEmphasis`、これが作成されで説明した、*カスタム書式指定ベース時にデータ*チュートリアルです。
+製品の価格が 20.00 ドル未満であるがわかれば、残っているはその名前と価格を強調表示します。 これを実現する必要がありますまずプログラムで参照のラベル コントロール、`ItemTemplate`価格と製品の名前を表示します。 次に、黄色の背景を表示するようにする必要があります。 この書式設定情報は、ラベルを直接変更して適用できる`BackColor`プロパティ (`LabelID.BackColor = Color.Yellow`)。 理想的には、カスケード スタイル シートで、すべてのディスプレイに関連する問題を表す必要があります。 実際で定義されている目的の書式を提供するスタイル シートが既にある`Styles.css`  -  `AffordablePriceEmphasis`、これが作成されで説明した、*カスタム書式設定時にデータ*チュートリアル。
 
-書式設定を適用する 2 つの Label Web コントロールを設定するだけ`CssClass`プロパティ`AffordablePriceEmphasis`次のコードに示すように、します。
+書式設定を適用する 2 つのラベルの Web コントロール設定`CssClass`プロパティ`AffordablePriceEmphasis`次のコードに示すように。
 
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample2.vb)]
 
-`ItemDataBound`イベント ハンドラーが完了しましたが、再アクセス、`Formatting.aspx`ブラウザーのページです。 図 2 に示すように、両方の名前と価格が強調表示されます、2,000 円の下で、価格がこれらの製品があります。
+`ItemDataBound`イベント ハンドラーが完了すると、再アクセス、`Formatting.aspx`ブラウザーでページ。 図 2 に示すように、20.00 ドルで、価格がこれらの製品は、名前と強調表示されている価格があります。
 
 
-[![これらの製品よりも小さい 2,000 円が強調表示されます。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image5.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image4.png)
+[![これらの製品よりも小さい 20.00 ドルが強調表示されます。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image5.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image4.png)
 
-**図 2**: これらの製品よりも小さい 2,000 円が強調表示されます ([フルサイズのイメージを表示するをクリックして](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image6.png))
+**図 2**: これらの製品よりも小さい 20.00 ドルが強調表示されます ([フルサイズの画像を表示する をクリックします](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image6.png))。
 
 
 > [!NOTE]
-> DataList は HTML としてレンダリングされますので`<table>`、その`DataListItem`インスタンス全体の項目に特定のスタイルを適用する設定できるスタイル関連のプロパティがあります。 強調表示したい場合など、*全体*の価格が 2,000 ドル未満の場合は黄項目、でしたが置き換えましたラベルを参照するコードを設定し、`CssClass`次のコード行を持つプロパティ: `e.Item.CssClass = "AffordablePriceEmphasis"`(図 3 を参照してください。)
+> DataList は、HTML としてレンダリングされるので`<table>`その`DataListItem`インスタンス全体の項目に特定のスタイルを適用する設定可能なスタイルに関連するプロパティがあります。 強調表示したい場合など、*全体*の価格が 20.00 ドル未満の場合は黄項目、でしたに置き換えられましたラベルを参照するコードを設定し、`CssClass`次のコード行を持つプロパティ: `e.Item.CssClass = "AffordablePriceEmphasis"`(図 3 を参照してください。)
 
 
-`RepeaterItem` S ただし、don t Repeater コントロールを構成するは、このようなスタイル レベルのプロパティを提供します。 図 2 で行ったのと同じように、リピータのテンプレート内の Web コントロールにスタイル プロパティのアプリケーションがそのため、必要リピータに、カスタム書式します。
+`RepeaterItem`ただし、don t で、Repeater コントロールを構成するは、このようなスタイルのレベル プロパティを提供します。 図 2 で行ったのと同じよう、Repeater のテンプレート内での Web コントロールにスタイル プロパティのアプリケーションがそのため、必要に、Repeater のカスタム書式設定を適用します。
 
 
-[![製品 2,000 円の全体の製品品目が強調表示されます。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image8.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image7.png)
+[![製品 20.00 ドルの製品項目全体が強調表示されます。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image8.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image7.png)
 
-**図 3**: 製品 2,000 円の下の 全体の製品品目が強調表示されます ([フルサイズのイメージを表示するをクリックして](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image9.png))
-
-
-## <a name="using-formatting-functions-from-within-the-template"></a>テンプレート内の書式設定関数を使用します。
-
-*GridView コントロールを使用して TemplateFields* GridView の行にバインドされているチュートリアル GridView TemplateField 内で書式設定関数を使用してデータに基づくカスタム書式を適用する方法を説明しました。 書式設定関数は、テンプレートから呼び出すことができますし、その場所に出力する HTML を返す方法です。 書式設定機能が ASP.NET ページの分離コード クラス内に存在できますまたはにクラス ファイルに集中できます、`App_Code`フォルダーまたは別のクラス ライブラリ プロジェクト。 ASP.NET ページの分離コード クラス外の書式設定関数の移動は、または他の ASP.NET web アプリケーションで複数の ASP.NET ページで、同じ書式設定関数を使用するように計画する場合に最適です。
-
-書式設定関数を示すためには、let s がある場合、秒の製品名の横にある [生産中止] のテキストを記載する製品情報、s が廃止されました。 また、価格の強調表示された黄色場合のある let s、2,000 ドル未満の秒 (行ったように、`ItemDataBound`イベント ハンドラーの例) 以外の場合は、価格が 2,000 円または高い、使用すると、s に実際の価格が表示されませんが見積もり価格の代わりに、テキストをしてください。 図 4 は、適用されるこれらの書式設定規則を一覧表示する製品のスクリーン ショットを示します。
+**図 3**: 20.00 ドルで製品の製品項目を全体が強調表示されます ([フルサイズの画像を表示する をクリックします](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image9.png))。
 
 
-[![高価な製品は、価格は見積もり価格を呼び出してくださいをテキストに置き換えられます。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image11.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image10.png)
+## <a name="using-formatting-functions-from-within-the-template"></a>テンプレート内で書式設定関数を使用
 
-**図 4**: 高価な製品は、価格は見積もり価格を呼び出してくださいをテキストに置き換えられます ([フルサイズのイメージを表示するには、をクリックして](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image12.png))。
+*GridView コントロールで TemplateFields を使用して*GridView s の行にバインドされているチュートリアル GridView TemplateField 内で書式設定関数を使用して、データに基づくカスタム書式設定を適用する方法を説明しました。 書式設定関数は、テンプレートから呼び出すことができますし、その場所に出力する HTML を返すメソッドです。 書式設定関数の ASP.NET ページの分離コード クラスに存在できるまたは内のクラス ファイルに集中できます、`App_Code`フォルダーまたは別のクラス ライブラリ プロジェクト。 ASP.NET ページの分離コード クラスから書式設定関数の移動は、複数の ASP.NET ページで、またはその他の ASP.NET web アプリケーションでは、同じ書式設定関数を使用する予定の場合に最適です。
+
+書式設定関数を示すためには、let s がある場合は、s の製品名の横にある [DISCONTINUED] のテキストを含める製品情報、s が廃止されました。 また、価格の強調表示されている黄色場合のある let s、20.00 ドル未満の秒 (で行ったよう、`ItemDataBound`イベント ハンドラーの例) 場合は、価格は、20.00 ドルが、s が高いことができますに実際の料金が表示されないまたは見積もり価格の代わりに、テキストをしてください。 図 4 は、商品の書式指定規則が適用されたこれらの一覧のスクリーン ショットを示します。
 
 
-## <a name="step-1-create-the-formatting-functions"></a>手順 1: が書式設定関数を作成します。
+[![高価な製品は、価格はテキストを呼び出して見積もり価格にしてください、置き換えられます。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image11.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image10.png)
 
-この例で 2 つの書式設定関数、別および必要な場合は、[生産中止]、テキストと共に、製品名を表示する必要がある場合、いずれかの強調表示された価格を表示する、2,000 円、または、テキスト、それ以外の場合見積もり価格を呼び出してくださいを下回っています。 S、ASP.NET ページの分離コード クラスでこれらの関数を作成し、名前を付けるように`DisplayProductNameAndDiscontinuedStatus`と`DisplayPrice`です。 両方のメソッドを文字列として表示するために HTML を返す必要があるし、マークする必要はどちらも`Protected`(または`Public`) ASP.NET ページの宣言構文の部分から起動するためにします。 これら 2 つのメソッドのコードが次に示します。
+**図 4**: 高価な製品には、価格は、テキストを呼び出して見積もり価格にしてくださいに置き換えられます ([フルサイズの画像を表示する をクリックします](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image12.png))。
+
+
+## <a name="step-1-create-the-formatting-functions"></a>手順 1: 作成、書式設定関数
+
+この例では 2 つの書式設定関数、別および必要な場合は、[DISCONTINUED] のテキストと共に、製品名を表示する必要がある場合は、いずれかを強調表示されている価格を表示する、s よりも小さい、20.00 ドルまたはテキスト、それ以外の場合価格の見積もりを呼び出してください。 ASP.NET ページの分離コード クラスでこれらの関数を作成し、名前を付けます s をできるように`DisplayProductNameAndDiscontinuedStatus`と`DisplayPrice`します。 両方のメソッドを文字列として表示するために HTML を返す必要があるし、マークする必要があります`Protected`(または`Public`) ために、ASP.NET ページの宣言構文の部分から呼び出すことができます。 これら 2 つのメソッドのコードに従います。
 
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample3.vb)]
 
-注意してください、`DisplayProductNameAndDiscontinuedStatus`メソッドの値を受け入れる、`productName`と`discontinued`データ フィールドに対するスカラー値は、一方、`DisplayPrice`メソッドを受け入れる、`ProductsRow`インスタンス (ではなく、`unitPrice`スカラー値)。 どちらの方法を割り当てます。ただし、データベースを含めることができるスカラー値を持つかどうか、書式設定関数が動作して`NULL`値 (など`UnitPrice`以外の場合はどちらも`ProductName`も`Discontinued`許可`NULL`値)、特別な注意が必要で、これらの処理スカラーの入力。
+なお、`DisplayProductNameAndDiscontinuedStatus`メソッドの値を受け取ります、`productName`と`discontinued`一方にデータが、スカラー値としてフィールド、`DisplayPrice`メソッドは、`ProductsRow`インスタンス (ではなく`unitPrice`スカラー値)。 どちらの方法は機能します。ただし、データベースを含むことのできるスカラー値の書式設定関数が機能している`NULL`値 (など`UnitPrice`どちら;`ProductName`も`Discontinued`許可`NULL`値)、特別な注意が必要で、これらの処理スカラー入力します。
 
-具体的には、入力パラメーター型でなければなりません`Object`受信した値がある可能性がありますので、`DBNull`必要なデータ型ではなくインスタンス。 受信した値がデータベースであるかどうかを判断するさらに、チェックを作成する必要があります`NULL`値。 つまり、必要な場合、 `DisplayPrice` d は、スカラー値として、価格を受け入れるようにメソッドが次のコードを使用する必要があります。
+具体的には、入力パラメーターが型でなければなりません`Object`受信した値がある可能性がありますので、`DBNull`必要なデータ型ではなくインスタンス。 さらに、受信した値がデータベースかどうかを確認するチェックを行う必要があります`NULL`値。 つまり、必要な場合、 `DisplayPrice` d スカラー値として、価格をそのまま使用するメソッドは、次のコードを使用する必要があります。
 
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample4.vb)]
 
-注意してください、`unitPrice`入力パラメーターの型は`Object`場合を確認するために、条件付きステートメントが変更されたことと`unitPrice`は`DBNull`か。 さらに、以降、`unitPrice`入力パラメーターとして渡される、 `Object`、10 進値をキャストする必要があります。
+なお、`unitPrice`型の入力パラメーターが`Object`場合を確認するために、条件付きステートメントが変更されたと`unitPrice`は`DBNull`かどうか。 さらに、以降、`unitPrice`入力パラメーターとして渡される、`Object`が 10 進値にキャストする必要があります。
 
-## <a name="step-2-calling-the-formatting-function-from-the-datalist-s-itemtemplate"></a>手順 2: DataList の ItemTemplate から、書式設定関数の呼び出し
+## <a name="step-2-calling-the-formatting-function-from-the-datalist-s-itemtemplate"></a>手順 2: は、DataList の ItemTemplate から書式設定関数を呼び出す
 
-ASP.NET ページの分離コード クラスに追加され、書式設定関数ではこれらの書式指定 DataList s から関数を呼び出す`ItemTemplate`です。 テンプレートから書式設定関数を呼び出すには、データ バインド構文内に関数呼び出しを配置します。
+ASP.NET ページ分離コード クラスに追加の書式設定関数で残っているはこれらの関数から DataList s を書式指定を呼び出す`ItemTemplate`します。 テンプレートから書式設定関数を呼び出すには、データ バインド構文内の関数呼び出しを配置します。
 
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample5.aspx)]
 
-DataList s で`ItemTemplate`、 `ProductNameLabel` Label Web コントロールを割り当てることによって、s の製品名を表示する現在その`Text`プロパティ結果の`<%# Eval("ProductName") %>`します。 ために必要な場合は、名前と [生産中止]、テキストを表示、割り当てる代わりにするように宣言の構文を更新、`Text`プロパティ値の`DisplayProductNameAndDiscontinuedStatus`メソッドです。 使用して、提供が中止された値と製品の名前で渡す必要がありますこれを行うときに、`Eval("columnName")`構文です。 `Eval` 型の値を返します`Object`、ですが、`DisplayProductNameAndDiscontinuedStatus`メソッド型の入力パラメーターが必要ですが`String`と`Boolean`です。 そのため、おによって返される値をキャストする必要があります、`Eval`次のように必要な入力パラメーターの型、メソッド。
+DataList s で`ItemTemplate`、 `ProductNameLabel` Label Web コントロールが現在表示されて、s の製品名を割り当てることによってその`Text`プロパティ、結果の`<%# Eval("ProductName") %>`します。 必要な場合の名前とテキスト [DISCONTINUED] を表示させる代わりに ように宣言の構文を更新、`Text`プロパティ値の`DisplayProductNameAndDiscontinuedStatus`メソッド。 使用して、提供が中止された値と製品の名前で渡す必要がありますこれを行うときに、`Eval("columnName")`構文。 `Eval` 型の値を返します`Object`が、`DisplayProductNameAndDiscontinuedStatus`メソッド型の入力パラメーターが必要ですが`String`と`Boolean`。 したがって、によって返される値をキャストする必要があります、`Eval`次のように想定される入力パラメーターの型、メソッド。
 
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample6.aspx)]
 
-価格を表示するだけで設定できます、`UnitPriceLabel`ラベル s`Text`プロパティによって返される値を`DisplayPrice`メソッド、お s の製品名を表示するため、テキストを [廃止] と同様です。 ただしで渡す代わりに、`UnitPrice`スカラーの入力パラメーターとしては、代わりに渡す全体で`ProductsRow`インスタンス。
+価格を表示するには、単に設定できます、`UnitPriceLabel`ラベル s`Text`プロパティによって返される値を`DisplayPrice`メソッド、製品の名前を表示するためでしたし、テキストを [廃止] と同様です。 ただしではなく、`UnitPrice`スカラーの入力パラメーターとして代わりに渡す全体で`ProductsRow`インスタンス。
 
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample7.aspx)]
 
-同じ場所で書式設定関数を呼び出し、ブラウザーで作業の進行状況を表示するのにはしばらくかかる場合します。 画面のようになります図 5 [生産中止]、テキストなどの提供が中止された製品とし、ください見積もり価格の呼び出しのテキストと、これらの製品の価格を持つドル 2,000 以上のコストが置き換えします。
+配置で書式設定関数を呼び出し、ブラウザーで、進行状況を表示するのには少しをを。 [DISCONTINUED] のテキストを含む提供が中止された製品と図 5 のようになります、画面として見積もり価格の呼び出しのテキストと、コストを超える 20.00 ドルの価格を持つこれらの製品が置き換えします。
 
 
-[![高価な製品は、価格は見積もり価格を呼び出してくださいをテキストに置き換えられます。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image14.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image13.png)
+[![高価な製品は、価格はテキストを呼び出して見積もり価格にしてください、置き換えられます。](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image14.png)](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image13.png)
 
-**図 5**: 高価な製品は、価格は見積もり価格を呼び出してくださいをテキストに置き換えられます ([フルサイズのイメージを表示するには、をクリックして](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image15.png))。
+**図 5**: 高価な製品には、価格は、テキストを呼び出して見積もり価格にしてくださいに置き換えられます ([フルサイズの画像を表示する をクリックします](formatting-the-datalist-and-repeater-based-upon-data-vb/_static/image15.png))。
 
 
 ## <a name="summary"></a>まとめ
 
-データに基づいた DataList または Repeater コントロールの内容を書式設定行えます 2 つの手法を使用しています。 最初の手法がのイベント ハンドラーを作成するには、`ItemDataBound`を新しいデータ ソース内の各レコードがバインドされていると発生するイベント`DataListItem`または`RepeaterItem`です。 `ItemDataBound`イベント ハンドラーを現在のアイテム データを検証してテンプレートのか、内容に適用できる書式設定し、 `DataListItem` s、全体の項目自体にします。
+データに基づいて DataList または Repeater コントロールの内容を書式設定できます 2 つの手法を使用します。 最初の手法は、イベント ハンドラーを作成する、`ItemDataBound`を新しいデータ ソース内の各レコードがバインドされているように発生するイベント、`DataListItem`または`RepeaterItem`します。 `ItemDataBound`イベント ハンドラー、現在の項目のデータを検証およびテンプレートのか、内容に適用できる書式設定し、`DataListItem`全体、項目自体への秒。
 
-代わりに、カスタム書式設定は、関数の書式設定を通じて実現できます。 書式設定関数は、DataList から呼び出すことができるメソッドまたはその場所に出力する HTML を返すリピータのテンプレートです。 多くの場合、書式設定関数によって返される HTML は、現在の項目にバインドされている値によって決定されます。 これらの値は、スカラー値または項目にバインドされているオブジェクト全体を渡すことによって、書式設定関数に渡すことができます (など、`ProductsRow`インスタンス)。
+または、カスタム書式設定は、関数の書式設定を実現できます。 書式設定の関数は、DataList から呼び出すことができるメソッドまたは Repeater のテンプレートをその場所に出力する HTML を返します。 多くの場合、書式設定関数によって返される HTML は、現在の項目にバインドされている値によって決定されます。 これらの値は、スカラー値または項目にバインドされているオブジェクト全体を渡すことによって、書式設定の関数に渡すことができます (など、`ProductsRow`インスタンス)。
 
-満足プログラミング!
+満足のプログラミングです。
 
-## <a name="about-the-author"></a>作成者について
+## <a name="about-the-author"></a>執筆者紹介
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックとの創設者の作成者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、1998 年からマイクロソフトの Web テクノロジで取り組んできました。 Scott は、コンサルタント、トレーナー、ライターとして機能します。 最新の著書[ *Sam 学べる自分で ASP.NET 2.0 が 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)です。 彼に到達できる[ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)彼のブログを使用して含まれているのか[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)です。
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml)、7 つ受け取りますブックおよびの創設者の著者[4GuysFromRolla.com](http://www.4guysfromrolla.com)、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は[ *Sams 教える自分で ASP.NET 2.0 24 時間以内に*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)します。 彼に到達できる[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com) 彼のブログにあるでまたは[ http://ScottOnWriting.NET](http://ScottOnWriting.NET)します。
 
-## <a name="special-thanks-to"></a>感謝の特別な
+## <a name="special-thanks-to"></a>特別なに感謝します。
 
-このチュートリアルの系列は既に多くの便利なレビュー担当者によって確認済みです。 このチュートリアルの潜在顧客レビュー担当者は、Yaakov Ellis、ものです。 Schmidt、および Liz Shulok でした。 今後、MSDN の記事を確認することに関心のあるですか。 場合は、ドロップ me 一度に 1 行ずつ[mitchell@4GuysFromRolla.comです。](mailto:mitchell@4GuysFromRolla.com)
+このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。 このチュートリアルでは、潜在顧客レビュー担当者は、Yaakov Ellis、Randy Schmidt、Liz Shulok でした。 今後、MSDN の記事を確認したいですか。 場合は、筆者に[mitchell@4GuysFromRolla.comします。](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [前へ](displaying-data-with-the-datalist-and-repeater-controls-vb.md)

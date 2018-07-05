@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-mobile/cdnjquerymobile120
-title: jQuery Mobile 1.2.0 Microsoft Ajax CDN の |Microsoft ドキュメント
+title: jQuery Mobile 1.2.0 Microsoft Ajax CDN |Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,17 +9,16 @@ ms.date: 07/23/2014
 ms.topic: article
 ms.assetid: 62622f82-77e2-4e6c-b114-32d1674de7af
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile120
 msc.type: content
-ms.openlocfilehash: 2d718288ba89cf02470125fc944e365960a669f9
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 94658d250a736f261397e2c0d88f32be414b3df5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073605"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373452"
 ---
-<a name="jquery-mobile-120-on-the-microsoft-ajax-cdn"></a>jQuery Mobile 1.2.0 Microsoft Ajax CDN を
+<a name="jquery-mobile-120-on-the-microsoft-ajax-cdn"></a>jQuery Mobile 1.2.0 Microsoft Ajax CDN
 ====================
 JQuery Mobile 1.2.0 ライブラリには、次のファイルが含まれます。
 

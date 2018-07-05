@@ -1,74 +1,73 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/setting-up-database
-title: Entity Framework 6 Database First MVC 5 を使用すると作業の開始 |Microsoft ドキュメント
+title: Entity Framework 6 Database First と MVC 5 の使用の概要 |Microsoft Docs
 author: tfitzmac
-description: MVC、Entity Framework と ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアルの seri しています.
+description: MVC、Entity Framework、および ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアルの化しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2014
 ms.topic: article
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: ae60b5c808d2522c66dc17ccf7d16fefdc65d552
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 98deeb91dc2b9a1bad535be1bf1e2ec85dfe4028
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879336"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37371714"
 ---
-<a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a>Entity Framework 6 Database First MVC 5 を使用すると作業の開始
+<a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a>Entity Framework 6 Database First と MVC 5 の使用の概要
 ====================
 によって[Tom FitzMacken](https://github.com/tfitzmac)
 
-> MVC、Entity Framework と ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアルの系列では、自動的にユーザーを表示、編集、作成するにようにコードを生成し、データベース テーブルに存在するデータを削除する方法を示します。 生成されたコードは、データベース テーブルの列に対応します。 系列の最後の部分で、サイトとデータベースを Azure に配置します。
+> MVC、Entity Framework、および ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアル シリーズでは、自動的に表示、編集、作成、ユーザーを有効にするコードを生成し、データベース テーブルに存在するデータを削除する方法を示します。 生成されたコードは、データベース テーブル内の列に対応します。 シリーズの最後の部分では、Azure をサイトとデータベースをデプロイします。
 > 
-> 系列のこの部分は、データベースを作成し、データを使用して設定する方法について説明します。
+> シリーズのこの部分は、データベースを作成し、データを設定することについて説明します。
 > 
-> この系列は、Tom Dykstra と Rick Anderson のコントリビューションで記述されています。 コメント セクション内のユーザーからのフィードバックに基づいて、改良されました。
+> このシリーズは、Tom Dykstra と Rick Anderson の投稿で記述されています。 [コメント] セクションのユーザーからのフィードバックに基づいて、改良されました。
 
 
 ## <a name="introduction"></a>はじめに
 
-このトピックでは、最初に使用する方法、既存データベースし、ユーザー データと対話できるようにする web アプリケーションをすばやく作成を示します。 Web アプリケーションをビルドするのに MVC 5 の場合、Entity Framework 6 を使用します。 ASP.NET スキャフォールディング機能では、表示、更新、作成およびデータを削除するためのコードを自動的に生成することができます。 Visual Studio 内で、発行ツールを使用して、簡単に展開できます、サイトとデータベースを Azure に。
+このトピックでは最初に使用する方法、既存データベース ユーザー データと対話できるようにする web アプリケーションをすばやく作成します。 Entity Framework 6 と MVC 5 web アプリケーションの構築に使用します。 ASP.NET のスキャフォールディング機能では、表示、更新、作成およびデータを削除するためのコードを自動的に生成することができます。 Visual Studio 内で発行ツールを使用することができます簡単に、サイトとデータベース Azure にデプロイします。
 
-このトピックでは、ここで、データベースがありそのデータベースのフィールドに基づいて、web アプリケーションのコードを生成するような状況を説明します。 この方法は、Database First の開発と呼ばれます。 既存のデータベースがない場合は、データ クラスを定義し、クラスのプロパティからデータベースの生成が行われる Code First の開発と呼ばれる手法を代わりに使用できます。
+このトピックをデータベースがあり、そのデータベースのフィールドに基づく web アプリケーションのコードを生成するような状況を説明します。 このアプローチには、Database First の開発が呼び出されます。 既存のデータベースがあるまだない場合は、データ クラスを定義し、クラスのプロパティからデータベースを生成するには Code First の開発と呼ばれるアプローチを代わりに使用できます。
 
-Code First の開発の導入例は、次を参照してください。 [ASP.NET MVC 5 の概要](../introduction/getting-started.md)です。 高度な例では、次を参照してください。 [ASP.NET MVC 4 アプリケーションを Entity Framework データ モデルを作成する](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)です。
+Code First の開発の基本的な例を参照してください。 [ASP.NET MVC 5 の概要](../introduction/getting-started.md)します。 高度な例では、次を参照してください。 [ASP.NET MVC 4 アプリケーションの Entity Framework データ モデルを作成する](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)します。
 
-使用する Entity Framework 方法の選択に関するガイダンスについては、次を参照してください。 [Entity Framework 開発方法](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)です。
+Entity Framework を使用する方法の選択に関するガイダンスについては、次を参照してください。 [Entity Framework 開発方法](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf)します。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
 Visual Studio 2013 または Visual Studio Express 2013 for Web
 
-## <a name="set-up-the-database"></a>データベースをセットアップします。
+## <a name="set-up-the-database"></a>データベースを設定します。
 
-場合、既存のデータベース環境を模倣するためには最初にいくつか自動的に入力データをデータベースが作成され、データベースに接続する web アプリケーションを作成します。
+場合、既存のデータベース環境を模倣するためには最初に自動的に入力データ、データベースが作成され、データベースに接続する web アプリケーションを作成し。
 
-このチュートリアルは、LocalDB を Visual Studio 2013 または Visual Studio Express 2013 for Web を使用して開発されました。 LocalDB は、代わりに既存のデータベース サーバーを使用することができますが、バージョンによっては、Visual Studio とデータベースの種類のすべて Visual Studio でのデータ ツールのサポートされていません。 ツールが、データベースで使用可能でない場合は、データベースの管理のスイートに含まれるデータベース固有の手順の一部を実行する必要があります。
+このチュートリアルは、LocalDB を Visual Studio 2013 または Visual Studio Express 2013 for Web を使用して開発されました。 LocalDB は、代わりに既存のデータベース サーバーを使用することができますが、によって、バージョンの Visual Studio とデータベースの種類では、すべて Visual Studio でデータ ツールの可能性がありますがサポートされません。 ツールが、データベースの利用できない場合は、データベースの管理スイートに含まれるデータベース固有の手順の一部を実行する必要があります。
 
-Visual Studio のバージョンでデータベース ツールに関する問題があれば、データベース ツールの最新バージョンをインストールしたことを確認します。 更新や、データベース ツールのインストールについては、次を参照してください。 [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027)です。
+Visual Studio のバージョンのデータベース ツールの問題があれば、データベース ツールの最新バージョンをインストールしておくことを確認します。 更新またはデータベース ツールをインストールする方法については、次を参照してください。 [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027)します。
 
-Visual Studio を起動し、作成、 **SQL Server データベース プロジェクト**です。 プロジェクトに名前を**ContosoUniversityData**です。
+Visual Studio を起動し、作成、 **SQL Server データベース プロジェクト**します。 プロジェクトに名前を**ContosoUniversityData**します。
 
-![create database project](setting-up-database/_static/image1.png)
+![データベース プロジェクトを作成します。](setting-up-database/_static/image1.png)
 
-空のデータベース プロジェクトがあるようになりました。 プロジェクトのターゲット プラットフォームとして Azure SQL データベースを設定する必要がありますので、このチュートリアルの後半でを Azure にこのデータベースを配置します。 ターゲット プラットフォームの設定も実際に配置しないデータベースです。のみ、データベースの設計が、ターゲット プラットフォームと互換性があるデータベース プロジェクトを確認することを意味します。 ターゲット プラットフォームを設定するには、開く、**プロパティ**を選択してプロジェクト**Microsoft Azure SQL Database**ターゲット プラットフォーム。
+空のデータベース プロジェクトがあるようになりました。 プロジェクトのターゲット プラットフォームとして Azure SQL Database を設定する必要があります、このチュートリアルで後で Azure には、このデータベースはデプロイされます。 ターゲット プラットフォームの設定も、データベースは実際には配置しませんデータベースの設計が、ターゲット プラットフォームと互換性があるデータベース プロジェクトを確認するということです。 ターゲット プラットフォームを設定するには、開く、**プロパティ**を選択してプロジェクト**Microsoft Azure SQL Database**のターゲット プラットフォーム。
 
-![セットのターゲット プラットフォーム](setting-up-database/_static/image2.png)
+![ターゲット プラットフォームの設定](setting-up-database/_static/image2.png)
 
-テーブルを定義する SQL スクリプトを追加して、このチュートリアルに必要なテーブルを作成することができます。 プロジェクトを右クリックし、新しい項目を追加します。
+テーブルを定義する SQL スクリプトを追加することで、このチュートリアルに必要なテーブルを作成することができます。 プロジェクトを右クリックし、新しい項目を追加します。
 
 ![新しい項目を追加します。](setting-up-database/_static/image3.png)
 
-受講者をという名前の新しいテーブルを追加します。
+学生をという名前の新しいテーブルを追加します。
 
-![学生のテーブルを追加します。](setting-up-database/_static/image4.png)
+![student テーブルを追加します。](setting-up-database/_static/image4.png)
 
-テーブルのファイルでは、テーブルの作成に次のコードで T-SQL コマンドを置き換えます。
+テーブルのファイルでの T-SQL コマンドをテーブルを作成する次のコードに置き換えます。
 
 [!code-sql[Main](setting-up-database/samples/sample1.sql)]
 
@@ -76,41 +75,41 @@ Visual Studio を起動し、作成、 **SQL Server データベース プロジ
 
 ![コードと設計を表示します。](setting-up-database/_static/image5.png)
 
-別のテーブルを追加します。 現時点では、コースという名前を付けますし、次の T-SQL コマンドを使用します。
+別のテーブルを追加します。 この時点では、コースという名前を付けますし、次の T-SQL コマンドを使用します。
 
 [!code-sql[Main](setting-up-database/samples/sample2.sql)]
 
-もう一度登録をという名前のテーブルを作成するを繰り返します。
+1 つの登録をという名前のテーブルの作成に時間を繰り返します。
 
 [!code-sql[Main](setting-up-database/samples/sample3.sql)]
 
-データベースが配置された後に実行されるスクリプトを使用してデータを使用してデータベースを設定することができます。 配置後スクリプトをプロジェクトに追加します。 既定の名前を使用することができます。
+データベースを展開した後に実行されるスクリプトを使用してデータを使用してデータベースを設定することができます。 配置後スクリプトをプロジェクトに追加します。 既定の名前を使用することができます。
 
 ![配置後スクリプトを追加します。](setting-up-database/_static/image6.png)
 
-次の T-SQL コードを配置後スクリプトに追加します。 このスクリプトは、一致するレコードが見つからない場合は単にデータとデータベースに追加します。 データベースに入力したデータを削除や上書きにしません。
+次の T-SQL コードを配置後スクリプトに追加します。 このスクリプトは、一致するレコードが見つからない場合単データとデータベースに追加します。 上書きしたり、データベースに入力したデータを削除しません。
 
 [!code-sql[Main](setting-up-database/samples/sample4.sql)]
 
-配置後スクリプトが実行されること、データベース プロジェクトを配置するたびに重要です。 そのため、このスクリプトを作成するときに、要件を慎重に検討する必要があります。 場合によっては、プロジェクトを配置するたびに、既知のデータのセットから最初からやり直すを構成することが必要です。 それ以外の場合で、任意の方法で既存のデータを変更することがあります避けたいです。 要件に基づき、配置後スクリプトまたはスクリプトに含める必要がありますが必要かどうかを決定できます。 配置後スクリプトを使用して、データベースの設定の詳細については、次を参照してください。 [SQL Server データベース プロジェクト内のデータを含む](https://blogs.msdn.com/b/ssdt/archive/2012/02/02/including-data-in-an-sql-server-database-project.aspx)です。
+データベース プロジェクトをデプロイするたびに、配置後スクリプトが実行されるに注意してください。 そのため、このスクリプトを記述するときに、要件を慎重に検討する必要があります。 場合によっては、プロジェクトを配置するたびに既知のデータ セットから開始する可能性があります。 それ以外の場合、何らかの方法で既存のデータを変更することがありますしません。 お客様の要件に基づき、配置後スクリプトまたはスクリプトに含める必要がある必要があるかどうかを決定できます。 配置後スクリプトを使用してデータベースの作成についての詳細については、次を参照してください。[などのデータを SQL Server データベース プロジェクトで](https://blogs.msdn.com/b/ssdt/archive/2012/02/02/including-data-in-an-sql-server-database-project.aspx)します。
 
-4 つの SQL スクリプト ファイルがない実際のテーブルがあるようになりました。 Localdb にデータベース プロジェクトを配置する準備ができたらです。 Visual Studio でビルドして、データベース プロジェクトを配置する [スタート] ボタン (または f5 キー) をクリックします。 ビルドと配置が成功したことを確認する [出力] タブを確認してください。
+4 つの SQL スクリプト ファイルがない実際のテーブルがあるようになりました。 Localdb にデータベース プロジェクトをデプロイする準備が整いました。 Visual Studio で構築して、データベース プロジェクトをデプロイする [スタート] ボタン (または f5 キー) をクリックします。 ビルド、配置が成功したことを確認する [出力] タブを確認します。
 
-![出力を表示します。](setting-up-database/_static/image7.png)
+![出力の表示します。](setting-up-database/_static/image7.png)
 
-新しいデータベースが作成されたことを表示するには、開く**SQL Server オブジェクト エクスプ ローラー**し、適切なローカル データベース サーバーで、プロジェクトの名前を探します (ここでは **(localdb) \ProjectsV12**)。
+新しいデータベースが作成されたことを表示する**SQL Server オブジェクト エクスプ ローラー**し、適切なローカル データベース サーバーで、プロジェクトの名前を探します (この場合 **(localdb) \ProjectsV12**)。
 
 ![新しいデータベースを表示します。](setting-up-database/_static/image8.png)
 
-表示するテーブルにデータが設定されている、テーブルを右クリックし、選択**ビュー データ**です。
+テーブルにデータが設定されているを表示するには、テーブルを右クリックして**ビュー データ**します。
 
 ![テーブル データを表示します。](setting-up-database/_static/image9.png)
 
-テーブルのデータの編集可能なビューが表示されます。
+テーブル データの編集可能なビューが表示されます。
 
-![データのテーブルの結果を表示します。](setting-up-database/_static/image10.png)
+![テーブル データの結果を表示します。](setting-up-database/_static/image10.png)
 
-データベースは今すぐセットアップし、データを設定します。 次のチュートリアルでは、データベースの web アプリケーションを作成します。
+これで、データベースを設定して、データ設定されます。 次のチュートリアルでは、データベースの web アプリケーションを作成します。
 
 > [!div class="step-by-step"]
 > [次へ](creating-the-web-application.md)

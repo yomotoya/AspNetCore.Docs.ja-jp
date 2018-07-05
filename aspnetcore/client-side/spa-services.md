@@ -1,23 +1,23 @@
 ---
-title: JavaScriptServices を使用して ASP.NET Core の単一ページ アプリケーションを作成するには
+title: ASP.NET Core でのシングル ページ アプリケーションを作成するのに JavaScriptServices を使用します。
 author: scottaddie
-description: ASP.NET Core 裏付け単一ページ アプリケーション (SPA) を作成する JavaScriptServices を使用する利点について説明します。
+description: ASP.NET Core でサポートされるシングル ページ アプリケーション (SPA) を作成する JavaScriptServices の使用の利点について説明します。
 ms.author: scaddie
 ms.custom: H1Hack27Feb2017
 ms.date: 08/02/2017
 uid: client-side/spa-services
-ms.openlocfilehash: c3f454ddd91fadf94e4ee4faa8930d8a89d13833
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 6ac922d82e5c93343cd0e9df312719c6df121dcb
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279624"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434001"
 ---
-# <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>JavaScriptServices を使用して ASP.NET Core の単一ページ アプリケーションを作成するには
+# <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>ASP.NET Core でのシングル ページ アプリケーションを作成するのに JavaScriptServices を使用します。
 
 によって[Scott Addie](https://github.com/scottaddie)と[Fiyaz Hasan](http://fiyazhasan.me/)
 
-単一ページ アプリケーション (SPA) は、その固有の機能豊富なユーザー エクスペリエンスのための web アプリケーションの一般的な型です。 クライアント側 SPA フレームワークまたはライブラリを統合するよう[角](https://angular.io/)または[反応](https://facebook.github.io/react/)、ASP.NET Core を困難になる可能性と同じようにサーバー側フレームワークでします。 [JavaScriptServices](https://github.com/aspnet/JavaScriptServices)を統合プロセスで摩擦を減らすために開発されました。 異なるクライアント/サーバー テクノロジ スタックとの間のシームレスな操作を可能になります。
+シングル ページ アプリケーション (SPA) は、その固有の機能豊富なユーザー エクスペリエンスのための web アプリケーションの人気のある型です。 クライアント側 SPA フレームワークやライブラリの統合など[Angular](https://angular.io/)または[React](https://facebook.github.io/react/)、ASP.NET Core は難しいようにサーバー側のフレームワークを使用します。 [JavaScriptServices](https://github.com/aspnet/JavaScriptServices)統合プロセスの手間を削減するために開発されました。 これにより、別のクライアントおよびサーバー テクノロジ スタックとの間のシームレスな操作ができます。
 
 [サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
@@ -25,51 +25,51 @@ ms.locfileid: "36279624"
 
 ## <a name="what-is-javascriptservices"></a>JavaScriptServices とは何ですか。
 
-JavaScriptServices は、ASP.NET Core 用のクライアント側のテクノロジのコレクションです。 その目的は SPAs を構築するための開発者の推奨されるサーバー側のプラットフォームとして ASP.NET Core を配置します。
+JavaScriptServices は、ASP.NET Core 用のクライアント側のテクノロジのコレクションです。 その目的は、Spa を構築するための開発者の推奨されるサーバー側プラットフォームとしての ASP.NET Core の位置です。
 
-次の 3 つの個別の NuGet パッケージの JavaScriptServices で構成されます。
+JavaScriptServices は、次の 3 つの個別の NuGet パッケージで構成されます。
 * [Microsoft.AspNetCore.NodeServices](https://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) (SpaServices)
 * [Microsoft.AspNetCore.SpaTemplates](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaTemplates/) (SpaTemplates)
 
-これらのパッケージは役立つ場合します。
+これらのパッケージは便利な場合します。
 * サーバーでの JavaScript を実行します。
-* SPA フレームワークまたはライブラリを使用します。
-* Webpack 使用したアセットのクライアント側をビルドします。
+* SPA フレームワークやライブラリを使用します。
+* Webpack とクライアント側アセットをビルドします。
 
-この記事でフォーカスの多くは、SpaServices パッケージを使用してに配置されます。
+SpaServices パッケージを使用してこの記事内のフォーカスの多くは配置されます。
 
 <a name="what-is-spa-services"></a>
 
 ## <a name="what-is-spaservices"></a>SpaServices とは何ですか。
 
-SpaServices は SPAs を構築するための開発者の推奨されるサーバー側のプラットフォームとして ASP.NET Core の位置に作成されました。 SpaServices が ASP.NET Core と SPAs を開発するため必要はありませんし、特定のクライアント フレームワークに頼る必要ありません。
+SpaServices は、Spa を構築するための開発者の推奨されるサーバー側プラットフォームとしての ASP.NET Core の位置に作成されました。 SpaServices は ASP.NET core で Spa を開発する必要はありませんし、特定のクライアント フレームワークにロックしません。
 
-SpaServices は、次のような便利インフラストラクチャを提供します。
+SpaServices は、次のような便利なインフラストラクチャを提供します。
 * [サーバー側の事前](#server-prerendering)
-* [Webpack デベロッパー ミドルウェア](#webpack-dev-middleware)
-* [ホット モジュールの交換](#hot-module-replacement)
+* [Webpack 開発ミドルウェア](#webpack-dev-middleware)
+* [ホットなモジュールの交換](#hot-module-replacement)
 * [ルーティングのヘルパー](#routing-helpers)
 
-集合的に、これらのインフラストラクチャ コンポーネントは、開発ワークフローと、実行時のエクスペリエンスの両方を高めます。 コンポーネントを個別に適用することができます。
+総称して、これらのインフラストラクチャ コンポーネントは、開発ワークフローと、実行時のエクスペリエンスの両方を強化します。 コンポーネントを個別に採用することができます。
 
 <a name="spa-services-prereqs"></a>
 
 ## <a name="prerequisites-for-using-spaservices"></a>SpaServices を使用するための前提条件
 
-SpaServices を操作するには次のようにインストールします。
-* [Node.js](https://nodejs.org/) (version 6 以降) npm で
-  * これらのコンポーネントがインストールされているし、見つかることを確認するには、コマンドラインから、次を実行します。
+SpaServices を使用するには、次のようにインストールします。
+* [Node.js](https://nodejs.org/) (バージョン 6 以降) で npm
+  * これらのコンポーネントがインストールされを検出できることを確認するには、コマンドラインから、次を実行します。
 
     ```console
     node -v && npm -v
     ```
 
-注: を Azure の web サイトに配置する場合は、する必要はありませんここでは何も操作&mdash;Node.js がインストールされ、サーバー環境で使用できます。
+注: Azure の web サイトにデプロイする場合不要ここで何もする&mdash;Node.js がインストールされ、サーバー環境で使用できます。
 
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 
-  * 選択して、SDK がインストールされている Visual Studio 2017 を使用して Windows の場合は、 **.NET Core クロスプラット フォーム開発**ワークロード。
+  * Visual Studio 2017 を使用して Windows の場合は、SDK がインストールを選択して、 **.NET Core クロス プラットフォーム開発**ワークロード。
 
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) NuGet パッケージ
 
@@ -77,9 +77,9 @@ SpaServices を操作するには次のようにインストールします。
 
 ## <a name="server-side-prerendering"></a>サーバー側の事前
 
-ユニバーサル (型とも呼ばれる) アプリケーションは、JavaScript アプリケーションが実行されている両方のサーバーとクライアントの対応です。 角、対応、およびその他の一般的なフレームワークは、このアプリケーションの開発スタイルのユニバーサル プラットフォームを提供します。 つまり、まず、Node.js を使用してサーバー上のフレームワーク コンポーネントを表示し、さらに、クライアントを実行しを委任します。
+ユニバーサル (isomorphic とも呼ばれます) のアプリケーションは、サーバーとクライアントの両方で実行できる JavaScript アプリケーションです。 Angular、React、およびその他の一般的なフレームワークは、このアプリケーションの開発スタイルのユニバーサル プラットフォームを提供します。 考え方は、まず、Node.js を使用して、サーバー上のフレームワーク コンポーネントをレンダリングし、さらに、クライアントを実行しを委任します。
 
-ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって提供される SpaServices サーバーに使用する JavaScript 関数を呼び出すことによってサーバー側の事前の実装を簡素化します。
+ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって提供される SpaServices、サーバー上の JavaScript 関数を呼び出すことによってサーバー側の事前の実装を簡略化します。
 
 ### <a name="prerequisites"></a>必須コンポーネント
 
@@ -92,49 +92,49 @@ ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって�
 
 ### <a name="configuration"></a>構成
 
-タグ ヘルパーは、プロジェクトの名前空間登録を使用して探索可能にされて *_ViewImports.cshtml*ファイル。
+タグ ヘルパーは、プロジェクトの名前空間の登録を使用して探索可能にされて *_ViewImports.cshtml*ファイル。
 
 [!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/_ViewImports.cshtml?highlight=3)]
 
-これらのタグ ヘルパーは、Razor ビュー内の HTML に似た構文を活用することで、低レベルの Api と直接通信の複雑さを抽象します。
+これらのタグ ヘルパーは Razor ビュー内の HTML のような構文を活用することで、低レベルの Api と直接通信の複雑さで抽象化します。
 
 [!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=5)]
 
-### <a name="the-asp-prerender-module-tag-helper"></a>`asp-prerender-module`ヘルパーにタグ付け
+### <a name="the-asp-prerender-module-tag-helper"></a>`asp-prerender-module`タグ ヘルパー
 
-`asp-prerender-module`タグ ヘルパーに渡し、前のコード例で使用される実行*ClientApp/dist/main-server.js* Node.js を使用してサーバーにします。 わかりやすくするためのために、 *main server.js*ファイルが、TypeScript-JavaScript transpilation 内のタスクの成果物、 [Webpack](http://webpack.github.io/)プロセスをビルドします。 Webpack のエントリ ポイントのエイリアスを定義する`main-server`; でこのエイリアスの依存関係グラフの走査を開始し、 *ClientApp/ブート-server.ts*ファイル。
+`asp-prerender-module`タグ ヘルパーの前のコード例で使用される実行*ClientApp/dist/main-server.js* Node.js を使用してサーバーにします。 わかりやすくするためのために、 *main server.js*ファイルは、TypeScript、JavaScript にトランス パイルもタスクの成果物、 [Webpack](http://webpack.github.io/)プロセスを構築します。 Webpack のエントリ ポイントのエイリアスを定義します`main-server`; と、このエイリアスの依存関係グラフのトラバーサルが始まり、 *ClientApp/ブート-server.ts*ファイル。
 
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=53)]
 
-次の角度の例で、 *ClientApp/ブート-server.ts*ファイルを利用、`createServerRenderer`関数と`RenderResult`の入力、 `aspnet-prerendering` Node.js を使用してサーバーのレンダリングを構成する npm パッケージです。 サーバー側のレンダリングが厳密に型指定された JavaScript にラップされて解決関数の呼び出しに渡される宛ての HTML マークアップ`Promise`オブジェクト。 `Promise`オブジェクトの有意性がプレース ホルダーの DOM の要素でインジェクションのページに HTML マークアップを非同期的に提供します。
+次の Angular の例では、 *ClientApp/ブート-server.ts*ファイルを利用、`createServerRenderer`関数と`RenderResult`の入力、 `aspnet-prerendering` npm パッケージを Node.js を使用してサーバー レンダリングを構成します。 サーバー側のレンダリングが厳密に型指定された JavaScript にラップされて解決関数の呼び出しに渡される宛ての HTML マークアップ`Promise`オブジェクト。 `Promise`オブジェクトの重要性は、DOM のプレース ホルダー要素の挿入のページに HTML マークアップを非同期的に提供します。
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-34,79-)]
 
-### <a name="the-asp-prerender-data-tag-helper"></a>`asp-prerender-data`ヘルパーにタグ付け
+### <a name="the-asp-prerender-data-tag-helper"></a>`asp-prerender-data`タグ ヘルパー
 
-組み合わせると、`asp-prerender-module`タグ ヘルパーの`asp-prerender-data`タグ ヘルパーは、Razor ビューから、サーバー側 JavaScript にコンテキスト情報を渡すために使用できます。 たとえば、次のマークアップ合格とユーザー データを`main-server`モジュール。
+組み合わせると、`asp-prerender-module`タグ ヘルパーの`asp-prerender-data`タグ ヘルパーは、Razor ビューからサーバー側 JavaScript にコンテキスト情報を渡すために使用できます。 たとえば、次のマークアップは合格ユーザー データを`main-server`モジュール。
 
 [!code-cshtml[](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=9-12)]
 
-受信した`UserName`引数は、組み込みの JSON シリアライザーを使用してシリアル化されに格納されて、`params.data`オブジェクト。 内の個人用に設定された応答メッセージを構築するために次の角度の例では、データが使用される、`h1`要素。
+受信した`UserName`引数の組み込みの JSON シリアライザーを使用してシリアル化し、は、`params.data`オブジェクト。 次の例で Angular 内でパーソナライズされたあいさつ文を構築するデータの使用、`h1`要素。
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-21,38-52,79-)]
 
-注: タグ ヘルパーで渡されるプロパティ名で表される**PascalCase**表記します。 JavaScript に対して、同じプロパティ名がで表されるコントラストを**キャメル ケース**です。 既定の JSON シリアル化の構成は、この違いを担当します。
+注: タグ ヘルパーで渡されたプロパティの名前を付けて表されます**PascalCase**表記します。 同じプロパティ名で表現は JavaScript とは異なり**camelCase**します。 既定の JSON シリアル化の構成では、この違いを担当します。
 
-前のコード例に展開するにデータをサーバーからに渡せるビュー hydrating によって、`globals`プロパティに提供される、`resolve`関数。
+展開すると、上記のコード例に、データ渡し可能サーバーからビューに hydrating、`globals`プロパティに提供される、`resolve`関数。
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/boot-server.ts?range=6,10-21,57-77,79-)]
 
-`postList`配列内で定義された、`globals`オブジェクトがアタッチされるブラウザーのグローバル`window`オブジェクト。 このグローバル スコープの変数ホイスト サーバー上で実行し、もう一度クライアントでは、同じデータの読み込みに関連するように特に、作業の重複を除去します。
+`postList`配列内で定義されている、`globals`オブジェクトはグローバルで、ブラウザーにアタッチされて`window`オブジェクト。 グローバル スコープにこの変数のホイストでは、特に、サーバーで 1 回と、クライアントでは、同じデータの読み込みに関連している、作業の重複がなくなります。
 
-![ウィンドウ オブジェクトにアタッチされているグローバル postList 変数](spa-services/_static/global_variable.png)
+![ウィンドウ オブジェクトにアタッチされているグローバルの postList 変数](spa-services/_static/global_variable.png)
 
 <a name="webpack-dev-middleware"></a>
 
-## <a name="webpack-dev-middleware"></a>Webpack デベロッパー ミドルウェア
+## <a name="webpack-dev-middleware"></a>Webpack 開発ミドルウェア
 
-[Webpack デベロッパー ミドルウェア](https://webpack.github.io/docs/webpack-dev-middleware.html)Webpack が要求時にリソースをビルドするという合理的な開発ワークフローが導入されています。 ミドルウェアは自動的にコンパイルして、ページがブラウザーで再読み込みされるときに、クライアント側のリソースを提供します。 別の方法では、サード パーティの依存関係またはカスタム コードが変更されたときに、プロジェクトの npm ビルド スクリプトを使用して Webpack を手動で起動します。 スクリプトの作成、npm、 *package.json*ファイルを次の例に示します。
+[Webpack 開発ミドルウェア](https://webpack.github.io/docs/webpack-dev-middleware.html)Webpack がオンデマンドでリソースをビルドするための合理的な開発ワークフローが導入されています。 ミドルウェアが自動的にコンパイルし、ページがブラウザーに再読み込みする際、クライアント側のリソースの機能します。 別の方法では、サードパーティの依存関係またはカスタム コードが変更されたときに、プロジェクトの npm ビルド スクリプトを使用して Webpack を手動で起動します。 Npm スクリプトを作成する、 *package.json*ファイルは、次の例に示します。
 
 [!code-json[](../client-side/spa-services/sample/SpaServicesSampleApp/package.json?range=5)]
 
@@ -149,21 +149,21 @@ ASP.NET Core[タグ ヘルパー](xref:mvc/views/tag-helpers/intro)によって�
 
 ### <a name="configuration"></a>構成
 
-次のコードを使用して HTTP 要求パイプラインに Webpack デベロッパー ミドルウェアが登録されている、 *Startup.cs*ファイルの`Configure`メソッド。
+次のコードを使用して HTTP 要求パイプラインに Webpack 開発ミドルウェアが登録されている、 *Startup.cs*ファイルの`Configure`メソッド。
 
 [!code-csharp[](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=webpack-middleware-registration&highlight=4)]
 
-`UseWebpackDevMiddleware`する前に、拡張メソッドを呼び出す必要があります[静的ファイルをホストしている登録](xref:fundamentals/static-files)を介して、`UseStaticFiles`拡張メソッド。 セキュリティ上の理由には、開発モードでアプリを実行する場合にのみ、ミドルウェアを登録します。
+`UseWebpackDevMiddleware`する前に、拡張メソッドを呼び出す必要があります[静的ファイルをホストしている登録](xref:fundamentals/static-files)を使用して、`UseStaticFiles`拡張メソッド。 セキュリティ上の理由から、アプリは開発モードで実行時にのみ、ミドルウェアを登録します。
 
-*Webpack.config.js*ファイルの`output.publicPath`プロパティ、ミドルウェアを見るには、通知、`dist`フォルダーの変更。
+*Webpack.config.js*ファイルの`output.publicPath`プロパティに通知を監視するミドルウェア、`dist`フォルダーの変更。
 
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=6,13-16)]
 
 <a name="hot-module-replacement"></a>
 
-## <a name="hot-module-replacement"></a>ホット モジュールの交換
+## <a name="hot-module-replacement"></a>ホットなモジュールの交換
 
-Webpack を考えてみてください[ホット モジュールの交換](https://webpack.js.org/concepts/hot-module-replacement/)(HMR) 機能の発展として[Webpack デベロッパー ミドルウェア](#webpack-dev-middleware)です。 HMR で利点ではすべて同じしますが、変更をコンパイルした後、ページのコンテンツを自動的に更新することでさらに、開発ワークフローを合理化します。 現在のインメモリ状態と SPA のデバッグ セッションに影響するブラウザーの更新でこれを混同しないでください。 Webpack デベロッパー ミドルウェア サービスと、ブラウザーに変更をプッシュすることを意味すると、ブラウザーの間のライブ リンクがあります。
+Webpack の考える[ホット モジュールの交換](https://webpack.js.org/concepts/hot-module-replacement/)(HMR) 機能の進化したものとして[Webpack 開発ミドルウェア](#webpack-dev-middleware)します。 すべて同じメリットが導入されて HMR が自動的に変更をコンパイルした後、ページのコンテンツを更新することでさらに、開発ワークフローを効率化します。 メモリ内の現在の状態と、SPA のデバッグ セッションに支障をきたすのブラウザーの更新でこれを混同しないでください。 Webpack 開発ミドルウェア サービスと、ブラウザーに変更がプッシュされることを意味すると、ブラウザーの間のライブ リンクがあります。
 
 ### <a name="prerequisites"></a>必須コンポーネント
 
@@ -176,7 +176,7 @@ Webpack を考えてみてください[ホット モジュールの交換](https
 
 ### <a name="configuration"></a>構成
 
-MVC の HTTP 要求パイプライン内に HMR コンポーネントを登録する必要があります、`Configure`メソッド。
+MVC の HTTP 要求パイプラインに HMR コンポーネントを登録する必要があります、`Configure`メソッド。
 
 ```csharp
 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
@@ -184,28 +184,28 @@ app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
 });
 ```
 
-同様にも当てはまる[Webpack デベロッパー ミドルウェア](#webpack-dev-middleware)、`UseWebpackDevMiddleware`する前に、拡張メソッドを呼び出す必要があります、`UseStaticFiles`拡張メソッド。 セキュリティ上の理由には、開発モードでアプリを実行する場合にのみ、ミドルウェアを登録します。
+そうであったとして[Webpack 開発ミドルウェア](#webpack-dev-middleware)、`UseWebpackDevMiddleware`する前に、拡張メソッドを呼び出す必要があります、`UseStaticFiles`拡張メソッド。 セキュリティ上の理由から、アプリは開発モードで実行時にのみ、ミドルウェアを登録します。
 
-*Webpack.config.js*ファイルを定義する必要があります、`plugins`場合でも、そのまま空の配列。
+*Webpack.config.js*ファイルを定義する必要があります、`plugins`場合でも、それを空の配列。
 
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/webpack.config.js?range=6,25)]
 
-ブラウザーでアプリを読み込んだ後に、開発者ツールのコンソール タブは、HMR アクティブ化の確認を提供します。
+ブラウザーでアプリを読み込んだ後は、開発者ツールのコンソール タブは、HMR アクティブ化の確認を提供します。
 
-![ホット モジュールの交換接続メッセージ](spa-services/_static/hmr_connected.png)
+![ホットのモジュールの交換接続メッセージ](spa-services/_static/hmr_connected.png)
 
 <a name="routing-helpers"></a>
 
 ## <a name="routing-helpers"></a>ルーティングのヘルパー
 
-ほとんどの ASP.NET Core ベース SPAs では、サーバー側のルーティングだけでなくクライアント側のルーティングを必要があります。 SPA と MVC ルーティングのシステムは、干渉なし個別に操作できます。 課題ただし、1 つのエッジ ケース装って: 404 HTTP 応答を識別します。
+ほとんどの ASP.NET Core ベースの Spa では、サーバー側でルーティングだけでなくクライアント側でルーティングを必要があります。 SPA と MVC ルーティング システムは、競合することがなく個別に作業できます。 ただし、課題を 1 つエッジ ケース読んだり: 404 の HTTP 応答を識別します。
 
-シナリオを検討してください、拡張子のないルートの`/some/page`を使用します。 要求しないパターン一致がサーバー側のルートにはそのパターンがクライアント側のルートを一致と仮定します。 受信した要求を考えてみましょう`/images/user-512.png`が一般に、サーバー上の画像ファイルを検索するが必要です。 要求されたリソース、そのパスと一致していない任意のサーバー側のルートまたは静的ファイル場合可能性は高くありませんそれをクライアント側のアプリケーションで処理と — 通常 404 HTTP ステータス コードを取得します。
+シナリオの場合を検討してください、拡張子のないルートの`/some/page`使用されます。 要求がパターン一致、サーバー側ルートがそのパターンのクライアント側ルートが一致するものとします。 ここでの受信要求を考えてみます`/images/user-512.png`、一般に、サーバー上の画像ファイルを検索する要求。 クライアント側のアプリケーションは処理は、ほとんどありません任意のサーバー側のルートまたは静的ファイルにその要求されたリソースのパスが一致しない場合、一般に HTTP 404 状態コードを取得します。
 
 ### <a name="prerequisites"></a>必須コンポーネント
 
 以下をインストールします。
-* クライアント側ルーティング npm パッケージです。 例として角の使用。
+* クライアント側ルーティング npm パッケージです。 Angular を使用して、例として。
 
     ```console
     npm i -S @angular/router
@@ -213,19 +213,19 @@ app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
 
 ### <a name="configuration"></a>構成
 
-名前付き拡張メソッド`MapSpaFallbackRoute`で使用される、`Configure`メソッド。
+という名前の拡張メソッド`MapSpaFallbackRoute`で使用されて、`Configure`メソッド。
 
 [!code-csharp[](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=mvc-routing-table&highlight=7-9)]
 
-ヒント: ルートは、構成している順序で評価されます。 その結果、`default`パターンに一致する最初の前のコード例にルートが使用されます。
+ヒント: ルートは、構成されている順序で評価されます。 その結果、`default`パターン一致の前のコード例ではルートが最初に使用します。
 
 <a name="new-project-creation"></a>
 
 ## <a name="creating-a-new-project"></a>新しいプロジェクトを作成します。
 
-JavaScriptServices には、構成済みのアプリケーション テンプレートが用意されています。 SpaServices は、さまざまなフレームワークおよび角、対応、および Redux などのライブラリと連携して、これらのテンプレートで使用されます。
+JavaScriptServices には、事前構成済みのアプリケーション テンプレートが用意されています。 SpaServices は、さまざまなフレームワークおよびライブラリと、Angular、React、Redux などと連携して、これらのテンプレートで使用されます。
 
-これらのテンプレートは、次のコマンドを実行して、.NET Core CLI を使用してインストールできます。
+これらのテンプレートは、次のコマンドを実行して .NET Core CLI を使用してインストールできます。
 
 ```console
 dotnet new --install Microsoft.AspNetCore.SpaTemplates::*
@@ -235,11 +235,11 @@ dotnet new --install Microsoft.AspNetCore.SpaTemplates::*
 
 | テンプレート                                 | 短い形式の名前 | 言語 | Tags        |
 |:------------------------------------------|:-----------|:---------|:------------|
-| 角度の MVC の ASP.NET Core             | angular    | [C#]     | Web/MVC/SPA |
-| React.js で MVC の ASP.NET Core            | react      | [C#]     | Web/MVC/SPA |
-| MVC の ASP.NET Core React.js と (続編)  | reactredux | [C#]     | Web/MVC/SPA |
+| Angular と ASP.NET Core の MVC             | angular    | [C#]     | Web/MVC/SPA |
+| React.js 付きの ASP.NET Core の MVC            | react      | [C#]     | Web/MVC/SPA |
+| MVC の ASP.NET Core react.js と Redux  | reactredux | [C#]     | Web/MVC/SPA |
 
-SPA テンプレートのいずれかを使用して新しいプロジェクトを作成するには、**短い名前**でテンプレートの[dotnet 新しい](/dotnet/core/tools/dotnet-new)コマンド。 次のコマンドは、サーバー側用に構成された ASP.NET Core MVC と角運動のアプリケーションを作成します。
+SPA テンプレートのいずれかを使用して新しいプロジェクトを作成するには含める、**短い名前**内のテンプレートの[新しい dotnet](/dotnet/core/tools/dotnet-new)コマンド。 次のコマンドでは、サーバー側用に構成された ASP.NET Core MVC で Angular アプリケーションを作成します。
 
 ```console
 dotnet new angular
@@ -247,45 +247,45 @@ dotnet new angular
 
 <a name="runtime-config-mode"></a>
 
-### <a name="set-the-runtime-configuration-mode"></a>ランタイム構成モードを設定します。
+### <a name="set-the-runtime-configuration-mode"></a>ランタイムの構成モードを設定します。
 
-2 つのプライマリのランタイム構成モードがあります。
+2 つのプライマリのランタイム構成モードは次のとおりです。
 * **開発**:
-    * デバッグを容易にするソース マップが含まれます。
-    * パフォーマンスをクライアント側のコードを最適化しません。
+    * デバッグを容易にするソース マップが含まれています。
+    * パフォーマンスのクライアント側のコードを最適化しません。
 * **実稼働**:
     * ソース マップを除外します。
-    * バンドル化と縮小を使用してクライアント側のコードを最適化します。
+    * バンドルと縮小を使用してクライアント側のコードを最適化します。
 
-ASP.NET Core という環境変数を使用して`ASPNETCORE_ENVIRONMENT`構成モードを格納します。 参照してください**[環境の設定](xref:fundamentals/environments#setting-the-environment)** 詳細についてはします。
+ASP.NET Core という環境変数を使用して`ASPNETCORE_ENVIRONMENT`構成モードを格納します。 参照してください**[環境を設定](xref:fundamentals/environments#set-the-environment)** 詳細についてはします。
 
 ### <a name="running-with-net-core-cli"></a>.NET Core CLI で実行します。
 
-プロジェクトのルートに、次のコマンドを実行して、必要な NuGet と npm パッケージを復元します。
+プロジェクトのルートで、次のコマンドを実行してには、必要な NuGet と npm パッケージを復元します。
 
 ```console
 dotnet restore && npm i
 ```
 
-構築し、アプリケーションを実行します。
+ビルドし、アプリケーションを実行します。
 
 ```console
 dotnet run
 ```
 
-アプリケーションの起動時によると localhost 上、[ランタイム構成モード](#runtime-config-mode)です。 移動`http://localhost:5000`ブラウザーのランディング ページが表示されます。
+アプリケーションの起動時に従い、localhost 上で、[ランタイム構成モード](#runtime-config-mode)します。 移動する`http://localhost:5000`ブラウザーにランディング ページが表示されます。
 
-### <a name="running-with-visual-studio-2017"></a>Visual Studio 2017 で実行します。
+### <a name="running-with-visual-studio-2017"></a>Visual Studio 2017 での実行
 
-開く、 *.csproj*によって生成されたファイル、 [dotnet 新しい](/dotnet/core/tools/dotnet-new)コマンド。 必要な NuGet と npm パッケージは、プロジェクトを開く時に自動的に復元されます。 この復元処理は、数分かかる場合があります、アプリケーションが、完了時に実行できる状態にします。 実行緑のボタンまたはキーを押します`Ctrl + F5`、し、アプリケーションのランディング ページで、ブラウザーが開きます。 Localhost をに従ってでアプリケーションを実行、[ランタイム構成モード](#runtime-config-mode)です。 
+開く、 *.csproj*によって生成されたファイル、[新しい dotnet](/dotnet/core/tools/dotnet-new)コマンド。 必要な NuGet と npm パッケージは、プロジェクトを開くと自動的に復元されます。 この復元プロセスは、数分かかる場合があり、アプリケーションが完了するときに実行する準備ができます。 キーを押して、緑色の実行 ボタンをクリックします`Ctrl + F5`、し、アプリケーションのランディング ページで、ブラウザーが開かれます。 アプリケーションによる localhost で実行、[ランタイム構成モード](#runtime-config-mode)します。 
 
 <a name="app-testing"></a>
 
 ## <a name="testing-the-app"></a>アプリのテスト
 
-SpaServices テンプレートは、事前構成を使用してクライアント側のテストを実行して[Karma](https://karma-runner.github.io/1.0/index.html)と[Jasmine](https://jasmine.github.io/)です。 Jasmine に対し、Karma テスト ランナーはこれらのテストには、人気のある単体テスト フレームワークを JavaScript 用です。 Karma が使用するよう構成、 [Webpack デベロッパー ミドルウェア](#webpack-dev-middleware)を開発者が停止し、変更されるたびに、テストを実行するため必要はありません。 テスト_ケースまたはテスト ケース自体に対して実行されるコードであるかどうか、テストが自動的に実行されます。
+SpaServices テンプレートは、事前構成を使用してクライアント側のテストを実行して[Karma](https://karma-runner.github.io/1.0/index.html)と[Jasmine](https://jasmine.github.io/)します。 Jasmine は、Karma テスト ランナーはこれらのテストには、人気のある単位の JavaScript 用のテスト フレームワークです。 Karma を使用するように構成、 [Webpack 開発ミドルウェア](#webpack-dev-middleware)されるよう、開発者が停止し、変更されるたびにテストを実行するために必要はありません。 テスト_ケースまたはテスト ケース自体に対して実行されるコードであるかどうか、テストが自動的に実行されます。
 
-Angular アプリケーションを使用して、例として、2 つのジャスミン テスト_ケースが既に提供されている、`CounterComponent`で、 *counter.component.spec.ts*ファイル。
+Angular アプリケーションを使用して、例として、2 つの Jasmine テスト_ケースが既に提供されている、`CounterComponent`で、 *counter.component.spec.ts*ファイル。
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/app/components/counter/counter.component.spec.ts?range=15-28)]
 
@@ -295,7 +295,7 @@ Angular アプリケーションを使用して、例として、2 つのジャ�
 npm test
 ```
 
-スクリプトで定義された設定が読み取られます Karma テスト ランナーを起動する、 *karma.conf.js*ファイル。 その他の設定の間で、 *karma.conf.js*経由で実行するテスト ファイルを識別、`files`配列。
+スクリプトで定義されている設定を読み取り、Karma テスト ランナーを起動する、 *karma.conf.js*ファイル。 その他の設定の間で、 *karma.conf.js*経由で実行するテスト ファイルを識別します。 その`files`配列。
 
 [!code-javascript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/test/karma.conf.js?range=4-5,8-11)]
 
@@ -303,14 +303,14 @@ npm test
 
 ## <a name="publishing-the-application"></a>アプリケーションの発行
 
-展開の準備完了のパッケージに生成されたクライアント側資産と公開済みの ASP.NET Core 成果物を組み合わせることは面倒なことができます。 さいわい、SpaServices がという名前のカスタム MSBuild ターゲットとそのパブリケーション全体のプロセスを統制`RunWebpack`:
+デプロイの準備完了パッケージに生成されたクライアント側アセットと発行された ASP.NET Core の成果物を組み合わせることは面倒なことができます。 さいわいにも、SpaServices がという名前のカスタム MSBuild ターゲットとそのパブリケーション全体のプロセスを調整`RunWebpack`:
 
 [!code-xml[](../client-side/spa-services/sample/SpaServicesSampleApp/SpaServicesSampleApp.csproj?range=31-45)]
 
-MSBuild ターゲットには、次の責任があります。
+MSBuild ターゲットでは、次の責任があります。
 1. Npm パッケージを復元します。
-1. サード パーティではクライアント側の資産の実稼働と同等のビルドを作成します。
-1. カスタムのクライアント側の資産の実稼働と同等のビルドを作成します。
+1. サード パーティ製のクライアント側の資産の運用グレードのビルドを作成します。
+1. カスタムのクライアント側の資産の運用グレードのビルドを作成します。
 1. Webpack で生成された資産を発行フォルダーにコピーします。
 
 MSBuild ターゲットが実行するときに呼び出されます。

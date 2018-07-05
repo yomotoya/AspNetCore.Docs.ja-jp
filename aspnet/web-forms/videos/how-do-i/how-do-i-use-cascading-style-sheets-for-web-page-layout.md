@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-cascading-style-sheets-for-web-page-layout
-title: '[How Do i:]Web ページのレイアウトのカスケード スタイル シートを使用しますか。 | Microsoft Docs'
+title: '[How Do i:]カスケード スタイル シートを使用して、Web ページのレイアウトのでしょうか。 | Microsoft Docs'
 author: rick-anderson
-description: このビデオで使用する方法を学習お&amp;lt; div&amp;gt; 要素を web p、堅牢で高いパフォーマンスを作成する、カスケード スタイル シート (CSS) と組み合わせてしています.
+description: このビデオでは使用する方法を学習します&amp;lt; div&amp;gt; web p 堅牢で高いパフォーマンスを作成する、カスケード スタイル シート (CSS) と組み合わせて要素.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2007
 ms.topic: article
 ms.assetid: c812231d-e811-4048-9922-b34df1d0f300
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-cascading-style-sheets-for-web-page-layout
 msc.type: video
-ms.openlocfilehash: f40a174d2046f64cc98382df031cc2803a9a07db
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: ee4a7c8eb15a94de6a262e1c54f63b8553d3e0aa
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/05/2018
-ms.locfileid: "28988004"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401308"
 ---
-<a name="how-do-i-use-cascading-style-sheets-for-web-page-layout"></a>[How Do i:]Web ページのレイアウトのカスケード スタイル シートを使用しますか。
+<a name="how-do-i-use-cascading-style-sheets-for-web-page-layout"></a>[How Do i:]カスケード スタイル シートを使用して、Web ページのレイアウトのでしょうか。
 ====================
 によって[Chris Pels](https://twitter.com/chrispels)
 
-このビデオで使用する方法を学習お`<div>`堅牢で高いパフォーマンス web ページを作成する、カスケード スタイル シート (CSS) と組み合わせて内の要素。 `<div>`ベースのアプローチと比較されます、`<table>`過去数年間のほとんどの web サイトで使用されるレイアウト アプローチのベースします。 次に、いくつかの CSS ベースのアプローチが表示されます、要素を浮動小数点への絶対位置指定の範囲します。 私たちは、CSS の使用にデザインから構造的な HTML を分離することの利点も学習します。
+このビデオでは使用する方法を学習します`<div>`堅牢で高いパフォーマンスの web ページを作成する、カスケード スタイル シート (CSS) と組み合わせて内の要素。 `<div>`ベースのアプローチと比較されます、`<table>`ベースのレイアウト アプローチのほとんどの web サイトが近年経由で使用します。 次に、いくつかの CSS ベースのアプローチが表示されます、要素をフロートする絶対配置の範囲します。 CSS の使用量、設計から構造的な HTML を分離することのメリットも説明します。
 
-[&#9654;です。ビデオでは (29 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-cascading-style-sheets-for-web-page-layout)
+[&#9654;ビデオ (29 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-cascading-style-sheets-for-web-page-layout)

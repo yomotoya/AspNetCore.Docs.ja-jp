@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/sql-2005/creating-and-using-stored-procedures
-title: ストアド プロシージャの作成と使用 |Microsoft ドキュメント
+title: ストアド プロシージャの作成と使用 |Microsoft Docs
 author: microsoft
-description: このビデオは、前のいくつかのレッスンに導入されたストアド プロシージャのトピックに展開します。 このビデオでは、作成と更新の基本的な構文について説明しています.
+description: このビデオでは、ストアド プロシージャが導入されたいくつかのレッスンを前のトピックに展開します。 このビデオでは、作成および更新するには、基本的な構文について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2006
 ms.topic: article
 ms.assetid: 817bc763-7faa-4ac5-880b-b3f5531e9d07
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/sql-2005/creating-and-using-stored-procedures
 msc.type: video
-ms.openlocfilehash: 8de3579757e9b0be0fc8aafa91c987aca54b0700
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f066c0887c800b8cbfd27affa26e26f7ad4c743a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30893470"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384834"
 ---
 <a name="creating-and-using-stored-procedures"></a>ストアド プロシージャの作成と使用
 ====================
 によって[Microsoft](https://github.com/microsoft)
 
-このビデオは、前のいくつかのレッスンに導入されたストアド プロシージャのトピックに展開します。 このビデオでは、入力と出力パラメーターを使用して作成し、ストアド プロシージャを更新する基本的な構文を説明で、変数を宣言して、ストアド プロシージャの他の T-SQL でのプログラミング要素に追加する値を返す、ストアド プロシージャを実行する方法クエリ ウィンドウと最後に、独自のアプリケーション内のストアド プロシージャを利用するために必要な Visual Basic および c# の構文から。
+このビデオでは、ストアド プロシージャが導入されたいくつかのレッスンを前のトピックに展開します。 このビデオでは、入力と出力パラメーターを使用して作成し、ストアド プロシージャを更新するには、基本的な構文を説明で戻り値、変数の宣言を追加するには他の T-SQL プログラミング要素にストアド プロシージャ、ストアド プロシージャを実行する方法クエリ ウィンドウで、および最後に、独自のアプリケーションでストアド プロシージャを使用するために必要な Visual Basic および c# の構文。
 
-[&#9654;ビデオでは (42 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-and-using-stored-procedures)
+[&#9654;ビデオ (42 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-and-using-stored-procedures)
 
 > [!div class="step-by-step"]
 > [前へ](building-and-customizing-reports-in-business-intelligence-development-studio.md)

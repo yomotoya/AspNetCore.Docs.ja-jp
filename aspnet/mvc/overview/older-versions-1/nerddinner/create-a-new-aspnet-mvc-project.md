@@ -1,97 +1,96 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/create-a-new-aspnet-mvc-project
-title: 新しい ASP.NET MVC プロジェクトを作成 |Microsoft ドキュメント
+title: 新しい ASP.NET MVC プロジェクトの作成 |Microsoft Docs
 author: microsoft
-description: 手順 1 では、基本的な NerdDinner アプリケーション構造を導入する方法を示します。
+description: 手順 1 では、NerdDinner アプリケーションの基本的な構造を適切に配置する方法を示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
 ms.topic: article
 ms.assetid: 7e0e9928-8fdc-4b74-9882-55fac0976628
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-new-aspnet-mvc-project
 msc.type: authoredcontent
-ms.openlocfilehash: d15ca67f0ddd8db6842bc5112996ae2dee433536
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9f5e0b3f82d113fc72ab4002ec8d06ad8444dceb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869258"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374277"
 ---
 <a name="create-a-new-aspnet-mvc-project"></a>新しい ASP.NET MVC プロジェクトを作成します。
 ====================
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF をダウンロードします。](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF のダウンロード](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> これは、無料のステップ 1 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク-にする方法を小規模の構築が完了すると、ASP.NET MVC 1 を使用して web アプリケーションです。
+> これは、無料の手順 1 ["NerdDinner"アプリケーションのチュートリアル](introducing-the-nerddinner-tutorial.md)をウォーク スルーの小さなをビルドしても、ASP.NET MVC 1 を使用して web アプリケーションを実行する方法。
 > 
-> 手順 1 では、基本的な NerdDinner アプリケーション構造を導入する方法を示します。
+> 手順 1 では、NerdDinner アプリケーションの基本的な構造を適切に配置する方法を示します。
 > 
-> ASP.NET MVC 3 を使用している場合ことをお勧めする、 [MVC 3 の開始と取得](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)または[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)チュートリアルです。
+> 次のことをお勧め ASP.NET MVC 3 を使用している場合、 [MVC 3 の開始と取得](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)または[MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)チュートリアル。
 
 
 ## <a name="nerddinner-step-1-file-gtnew-project"></a>NerdDinner 手順 1: ファイル-&gt;新しいプロジェクト
 
-まず NerdDinner アプリケーションを選択すると、**ファイル -&gt;新しいプロジェクト**メニュー項目内で Visual Studio 2008 または、空き Visual Web Developer 2008 Express のいずれか。
+まず、NerdDinner アプリケーションを選択すると、**ファイル -&gt;新しいプロジェクト**内で Visual Studio 2008 または、無料の Visual Web Developer 2008 Express のいずれかのメニュー項目。
 
-これは、"新しいプロジェクト ダイアログ ボックスが表示されます。 新しい ASP.NET MVC アプリケーションを作成するには、ダイアログ ボックスの左側にある"Web"ノードを選択し、右側の「ASP.NET MVC Web アプリケーション」のプロジェクト テンプレートを選択しておします。
+[新しいプロジェクト] ダイアログ ボックスが表示されます。 新しい ASP.NET MVC アプリケーションを作成するには、ダイアログの左側にある"Web"ノードを選択し、右側の「ASP.NET MVC Web アプリケーション」プロジェクト テンプレートを選択しされます。
 
 ![](create-a-new-aspnet-mvc-project/_static/image1.png)
 
-*重要: ダウンロードし、ASP.NET MVC で、新しいプロジェクト ダイアログに表示されませんが、それ以外の場合をインストールしたことを確認してください。V2 を使用することができます、 [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)まだインストールしていない場合 (ASP.NET MVC は内で使用できる、"Web Platform の&gt;フレームワークおよびランタイム"セクション)。*
+*重要: ダウンロードして、ASP.NET MVC で、新しいプロジェクト ダイアログに表示されませんが、それ以外の場合にインストールされていることを確認してください。V2 を使用することができます、 [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx)まだインストールしていない場合 (ASP.NET MVC は内で使用できる、"Web プラットフォーム-&gt;フレームワークおよびランタイム"セクション)。*
 
-新しいプロジェクトの"NerdDinner"を作成し、それを作成する"ok"ボタンをクリックするという名前です。
+"NerdDinner"を作成し、クリックして [ok] ボタンを作成する新しいプロジェクトという名前です。
 
-[Ok] をクリックしたとき、Visual Studio は、必要に応じて、新しいアプリケーションの単体テスト プロジェクトを作成することを要求する追加のダイアログが表示されます。 アプリケーションの動作と機能を検証する自動テストを作成することにより、この単体テスト プロジェクト (で取り上げるもの方法このチュートリアルで後ほど to do)。
+[Ok] をクリックしたとき、Visual Studio は、必要に応じて、新しいアプリケーションの単体テスト プロジェクトを作成することを求める追加のダイアログが表示されます。 機能と、アプリケーションの動作を検証する自動テストを作成することにより、この単体テスト プロジェクト (何かについて説明する方法このチュートリアルの後半で to do)。
 
 ![](create-a-new-aspnet-mvc-project/_static/image2.png)
 
-上記のダイアログ ボックスで、「テスト フレームワーク」ドロップダウンには、すべて使用可能な ASP.NET MVC 単体テスト プロジェクト テンプレートがコンピューターにインストールが格納されます。 バージョンは、NUnit、XUnit、MBUnit、ダウンロードできます。 組み込みの Visual Studio 単体テスト フレームワークもサポートされます。
+上記のダイアログ ボックスで、「テスト フレームワーク」ドロップダウン リストには、すべて使用可能な ASP.NET MVC 単体テスト プロジェクト テンプレートがコンピューターにインストールが設定されます。 NUnit や MBUnit、XUnit のバージョンをダウンロードできます。 組み込みの Visual Studio 単体テスト フレームワークもサポートされます。
 
-*注意: Visual Studio の単体テスト フレームワークが Visual Studio 2008 Professional と以降のバージョンで使用可能ではのみです。VS 2008 Standard Edition または Visual Web Developer 2008 Express を使用している場合をダウンロードして、ASP.NET MVC のこのダイアログ ボックスに表示されるためには、NUnit、MBUnit、XUnit 拡張機能をインストールする必要があります。インストールされているすべてのテスト フレームワークがない場合は、ダイアログ ボックスは表示されません。*
+*注: Visual Studio の単体テスト フレームワークは、Visual Studio 2008 Professional および以降のバージョンで使用できるのみです。VS 2008 Standard Edition または Visual Web Developer 2008 Express を使用している場合は、ダウンロードしてこのダイアログ ボックスに表示するために、ASP.NET MVC の NUnit や MBUnit XUnit 拡張機能をインストールする必要があります。インストールされているすべてのテスト フレームワークがない場合は、ダイアログは表示されません。*
 
-おを名前を使用して、既定値"NerdDinner.Tests"を作成するテスト プロジェクトのオプションを使用「Visual Studio 単体テスト」フレームワークです。 クリックしたとき、"ok"ボタン Visual Studio で作成されますソリューションご利用の米国内の web アプリケーション用と、単体テストのための 2 つのプロジェクト。
+作成するテスト プロジェクトの既定の"NerdDinner.Tests"名前を使用して、「Visual Studio 単体テスト」フレームワーク オプションを使用しておします。 クリックしたとき、[ok] ボタンの Visual Studio はソリューションを単体テストのため、web アプリケーションのいずれかとその中の 2 つのプロジェクトの作成します。
 
 ![](create-a-new-aspnet-mvc-project/_static/image3.png)
 
 ### <a name="examining-the-nerddinner-directory-structure"></a>NerdDinner ディレクトリ構造の確認
 
-Visual Studio で新しい ASP.NET MVC アプリケーションを作成するときに自動的に、プロジェクトにいくつかのファイルとディレクトリを追加します。
+Visual Studio で新しい ASP.NET MVC アプリケーションを作成するときに自動的にさまざまなファイルとディレクトリをプロジェクトに追加します。
 
 ![](create-a-new-aspnet-mvc-project/_static/image4.png)
 
-既定では ASP.NET MVC プロジェクトでは、最上位 6 つのディレクトリがあります。
+既定では、ASP.NET MVC プロジェクトでは、6 つの最上位ディレクトリがあります。
 
 | **ディレクトリ** | **目的** |
 | --- | --- |
 | **/コント ローラー** | URL 要求を処理するコント ローラー クラスを配置します。 |
-| **/Models** | データの操作を表すクラスを配置します。 |
+| **/モデル** | データの操作を表すクラスを配置します。 |
 | **/Views** | 出力のレンダリングを担当する UI テンプレート ファイルを配置します。 |
 | **/Scripts** | JavaScript ライブラリのファイルとスクリプト (.js) を配置します。 |
-| **/Content** | CSS、画像ファイル、およびその他の非動的/非 JavaScript コンテンツを配置します。 |
-| **/App\_Data** | データ ファイルを保存する場合は、読み取り/書き込みします。 |
+| **/Content** | CSS とイメージ ファイル、およびその他の非動的または非 JavaScript コンテンツを配置します。 |
+| **/アプリ\_データ** | データ ファイルの格納先は、読み取り/書き込みします。 |
 
-ASP.NET MVC には、この構造体は不要です。 実際には、大規模なアプリケーションで作業する開発者は通常のパーティション、アプリケーションをより管理しやすいに複数のプロジェクト (例: データ モデル クラスは多くの場合、別のクラス ライブラリ プロジェクトで、web アプリケーションから移動) します。 ただし、既定のプロジェクト構造は、とらえてアプリケーションをクリーンして使用できる便利な既定のディレクトリ規約を提供しています。
+ASP.NET MVC では、この構造体は必要ありません。 実際には、大規模なアプリケーションで作業する開発者は通常、アプリケーションの間でパーティション分割より管理しやすいように複数のプロジェクト (例: データ モデル クラスは多くの場合、別のクラス ライブラリ プロジェクトで web アプリケーションから移動) します。 ただし、既定のプロジェクト構造は、アプリケーションの問題をクリーンに維持するために使用できる便利な既定のディレクトリ規則を提供しています。
 
-/Controllers ディレクトリを展開してときに Visual Studio が、プロジェクトに既定で – HomeController および AccountController – 2 つのコント ローラー クラスを追加するを検索します。
+/Controllers ディレクトリを展開している場合は、Visual Studio が、プロジェクトに既定で – HomeController と AccountController – 2 つのコント ローラー クラスを追加する分かります。
 
 ![](create-a-new-aspnet-mvc-project/_static/image5.png)
 
-/Views ディレクトリを展開して、ときに 3 つのサブ ディレクトリ –/Home、/Account/Shared – とそれらに含まれるファイルがプロジェクトに既定では追加もいくつかのテンプレートを検索します。
+/Views ディレクトリを展開しましたと – 内のファイルがプロジェクトに既定で追加もいくつかのテンプレートに加え、/Home、/Account および/Shared – 3 つのサブ ディレクトリを検索します。
 
 ![](create-a-new-aspnet-mvc-project/_static/image6.png)
 
-お展開と/Content と/Scripts ディレクトリ、サイトで、すべての HTML のスタイル設定に使用される Site.css ファイルだけでなく JavaScript ライブラリが ASP.NET AJAX と jQuery を有効にすることができるアプリケーション内でサポートを検索します。
+/Content と/Scripts ディレクトリを展開しますと、アプリケーション内でをサポートできるように ASP.NET AJAX と jQuery JavaScript ライブラリと同様に、サイトのすべての HTML のスタイル設定に使用される Site.css ファイルを検索します。
 
 ![](create-a-new-aspnet-mvc-project/_static/image7.png)
 
-NerdDinner.Tests プロジェクトを展開している場合、コント ローラー クラスの単体テストを含む 2 つのクラスを検索します。
+NerdDinner.Tests プロジェクトを展開している場合、コント ローラー クラスの単体テストが含まれている 2 つのクラスを検索します。
 
 ![](create-a-new-aspnet-mvc-project/_static/image8.png)
 
-Visual Studio によって追加されたこれらの既定のファイルでは、us 基本的な構造を持つ作業アプリケーションのホーム ページで、に関するページ、アカウントのログインとログアウト/登録ページ、および未処理のエラー ページ (すべてワイヤード (有線) し、すぐ作業) に完了しませんでした。
+Visual Studio によって追加されたこれらの既定のファイルの基本的な構造での作業アプリケーションのホーム ページで、ページ、アカウントのログイン/ログアウト/登録ページ (すべてワイヤード (有線) アップ動作し、ボックス外) のハンドルされないエラー ページについての完全な提供します。
 
 ### <a name="running-the-nerddinner-application"></a>NerdDinner アプリケーションを実行します。
 
@@ -99,11 +98,11 @@ Visual Studio によって追加されたこれらの既定のファイルでは
 
 ![](create-a-new-aspnet-mvc-project/_static/image9.png)
 
-これでは、組み込み ASP.NET Web サーバー、Visual Studio に付属しているを起動して、アプリケーションの実行します。
+組み込み ASP.NET Web サーバー、Visual Studio に付属する起動され、アプリケーションの実行します。
 
 ![](create-a-new-aspnet-mvc-project/_static/image10.png)
 
-新しいプロジェクトのホーム ページを次に示します (URL:「/」) 実行されるとき。
+新しいプロジェクトのホーム ページを以下に示します (URL:「/」) 実行されるとき。
 
 ![](create-a-new-aspnet-mvc-project/_static/image11.png)
 
@@ -111,31 +110,31 @@ Visual Studio によって追加されたこれらの既定のファイルでは
 
 ![](create-a-new-aspnet-mvc-project/_static/image12.png)
 
-右上の [ログオン] リンクをクリックして、ログイン ページに移動 (URL:「/アカウント/ログオン」)
+右上の [ログオン] リンクをクリックすると、ログイン ページに移動 (URL:「アカウント/ログオン」)
 
 ![](create-a-new-aspnet-mvc-project/_static/image13.png)
 
-かどうかレジスタ」リンクをクリックしてログイン アカウントがありません (URL:「/アカウント/レジスタ」) を作成します。
+かどうかログイン アカウントが登録リンクをクリックすることはありません (URL:「アカウント/登録」) を作成します。
 
 ![](create-a-new-aspnet-mvc-project/_static/image14.png)
 
-上記のホームを実装するコードとログアウトを登録/、新しいプロジェクトを作成した際、既定では機能が追加されました。 そのアプリケーションの開始点として使用されます。
+について、上記のホームを実装するコードとログアウト/を登録、新しいプロジェクトを作成したときに、既定では機能が追加されました。 そのアプリケーションの開始点として使用します。
 
 ### <a name="testing-the-nerddinner-application"></a>NerdDinner アプリケーションのテスト
 
-Professional Edition またはより新しいバージョンの Visual Studio 2008 を使用して場合プロジェクトをテストするテストの Visual Studio 内で IDE サポート組み込み単位を使用できます。
+Professional Edition または Visual Studio 2008 の新しいバージョンを使用している私たちは場合、プロジェクトをテストする組み込みの単体テストの Visual studio IDE のサポートを使用できます。
 
 ![](create-a-new-aspnet-mvc-project/_static/image15.png)
 
-上記のオプションのいずれかを選択する、IDE 内で"テスト結果 ウィンドウを開くし、組み込みの機能をカバーする新しいプロジェクトに含まれている 27 単体テストの成功/失敗ステータスをお聞かせ。
+上記のオプションのいずれかを選択する、IDE 内にある [テスト結果] ウィンドウを開くし、組み込みの機能をカバーする、新しいプロジェクトに含まれる 27 単体テストの合格/不合格の状態を提供します。
 
 ![](create-a-new-aspnet-mvc-project/_static/image16.png)
 
-このチュートリアルで後ほどおを自動テストについて詳しく説明し、実装のアプリケーションの機能に対応する追加の単体テストを追加します。
+このチュートリアルの後半で自動テストについては説明がされアプリケーションの機能の実装に対応する追加の単体テストを追加します。
 
 ### <a name="next-step"></a>次の手順
 
-場所にアプリケーションの基本構造を取得しました。 これにしましょう[、アプリケーションのデータを格納するデータベースを作成する](create-a-database.md)です。
+場所に基本的なアプリケーションの構造体を取得しました。 これにしましょう[、アプリケーションのデータを格納するデータベースを作成](create-a-database.md)です。
 
 > [!div class="step-by-step"]
 > [前へ](introducing-the-nerddinner-tutorial.md)

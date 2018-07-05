@@ -1,122 +1,121 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
-title: アクション フィルター (c#) を理解する |Microsoft ドキュメント
+title: アクション フィルター (c#) について理解する |Microsoft Docs
 author: microsoft
-description: このチュートリアルの目的では、アクション フィルターをについて説明します。 コント ローラーのアクションまたはコント ローラー全体に適用可能な属性をアクション フィルターには.
+description: このチュートリアルの目的では、アクション フィルターについて説明します。 コント ローラーのアクションまたはコント ローラー全体に適用できる属性をアクション フィルターには.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
 ms.topic: article
 ms.assetid: a94e4e81-40c1-47b7-8613-126a1a6cc93d
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d68933297329370e227f524c4b96ed7e259ef833
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b1294eb61164d9f5c71152a542daa673de37f4ca
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30870415"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37398233"
 ---
-<a name="understanding-action-filters-c"></a>アクション フィルター (c#) を理解します。
+<a name="understanding-action-filters-c"></a>アクション フィルター (c#) について理解します。
 ====================
 によって[Microsoft](https://github.com/microsoft)
 
-[PDF をダウンロードします。](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_14_CS.pdf)
+[PDF のダウンロード](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_14_CS.pdf)
 
-> このチュートリアルの目的では、アクション フィルターをについて説明します。 アクション フィルターは、コント ローラーのアクション--または全体コント ローラー--アクションを実行する方法を変更するに適用可能な属性です。
+> このチュートリアルの目的では、アクション フィルターについて説明します。 アクション フィルターは、コント ローラーのアクションまたは全体コント ローラー--アクションを実行する方法を変更するに適用できる属性です。
 
 
-## <a name="understanding-action-filters"></a>アクション フィルターを理解します。
+## <a name="understanding-action-filters"></a>アクション フィルターについて理解します。
 
-このチュートリアルの目的では、アクション フィルターをについて説明します。 アクション フィルターは、コント ローラーのアクション--または全体コント ローラー--アクションを実行する方法を変更するに適用可能な属性です。 ASP.NET MVC フレームワークには、いくつかのアクション フィルターが含まれています。
+このチュートリアルの目的では、アクション フィルターについて説明します。 アクション フィルターは、コント ローラーのアクションまたは全体コント ローラー--アクションを実行する方法を変更するに適用できる属性です。 ASP.NET MVC フレームワークには、いくつかのアクション フィルターが含まれます。
 
 - OutputCache – このアクション フィルターは、一定の時間のコント ローラー アクションの出力をキャッシュします。
 - HandleError – このアクション フィルターは、コント ローラーのアクションを実行するときに発生したエラーを処理します。
-- 承認: このアクション フィルターでは、特定のユーザーまたはロールにアクセスを制限することができます。
+- 承認-このアクション フィルターでは、特定のユーザーまたはロールのアクセスを制限することができます。
 
-また、独自のカスタム アクション フィルターを作成することもできます。 たとえば、カスタム認証システムを実装するためにカスタム アクション フィルターを作成することができます。 または、コント ローラーのアクションによって返されるデータの表示を変更するアクション フィルターを作成する場合があります。
+また、独自のカスタム アクション フィルターを作成することもできます。 たとえば、カスタム認証システムを実装するためにカスタム アクション フィルターを作成する可能性があります。 または、コント ローラーのアクションによって返されるデータの表示を変更するアクション フィルターを作成したい場合があります。
 
-このチュートリアルを最初からアクション フィルターを構築する方法を学習します。 Visual Studio の出力ウィンドウに、アクションの処理のさまざまな段階をログに記録するログ アクション フィルターを作成します。
+このチュートリアル ゼロからアクション フィルターを構築する方法について説明します。 Visual Studio の出力ウィンドウをアクションの処理のさまざまな段階に記録するログのアクション フィルターを作成します。
 
-### <a name="using-an-action-filter"></a>アクション フィルターを使用します。
+### <a name="using-an-action-filter"></a>アクション フィルターの使用
 
-アクション フィルターは、属性です。 個々 のコント ローラー アクションまたは全体のコント ローラーには、ほとんどのアクション フィルターを適用できます。
+アクション フィルターは、属性です。 ほとんどのアクション フィルターは、個々 のコント ローラー アクションまたはコント ローラー全体に適用できます。
 
-リスト 1 のデータのコント ローラーがという名前のアクションを公開するなど、`Index()`現在の時刻を返します。 この操作で装飾されて、`OutputCache`アクション フィルター。 このフィルターによって、10 秒間キャッシュに保存する操作によって返される値。
+たとえば、リスト 1 でのデータのコント ローラーはという名前のアクションを公開`Index()`現在の時刻を返します。 このアクションがで修飾された、`OutputCache`アクション フィルター。 このフィルターによって、10 秒間キャッシュされるアクションによって返される値。
 
 **1 – を一覧表示します。 `Controllers\DataController.cs`**
 
 [!code-csharp[Main](understanding-action-filters-cs/samples/sample1.cs)]
 
-繰り返し呼び出す場合、`Index()`お使いのブラウザーのアドレス バーに、URL データ/インデックスを入力して、更新のヒットのアクション ボタンは、同時に 10 秒間表示、複数回をクリックします。 出力、`Index()`アクションが (図 1 を参照してください) 10 秒間キャッシュします。
+繰り返しを起動する場合、`Index()`お使いのブラウザーのアドレス バーに URL データ/インデックスを入力して、更新操作ボタンを複数回同時には 10 秒間表示されます。 出力、`Index()`アクションが (図 1 参照)、10 秒間キャッシュされます。
 
 
-[![キャッシュ時間](understanding-action-filters-cs/_static/image2.png)](understanding-action-filters-cs/_static/image1.png)
+[![キャッシュされる時間](understanding-action-filters-cs/_static/image2.png)](understanding-action-filters-cs/_static/image1.png)
 
-**図 01**: キャッシュ時間 ([フルサイズのイメージを表示するをクリックして](understanding-action-filters-cs/_static/image3.png))
+**図 01**: キャッシュ時間 ([フルサイズの画像を表示する をクリックします](understanding-action-filters-cs/_static/image3.png))。
 
 
-1 では一覧表示する、1 つのアクション フィルター –、 `OutputCache` – アクション フィルターを適用、`Index()`メソッドです。 必要がある場合は、同じアクションに複数のアクション フィルターを適用できます。 両方を適用するなど、`OutputCache`と`HandleError`同じアクションにアクション フィルター。
+リスト 1、1 つのアクション フィルター – で、`OutputCache`アクション フィルター – に適用されます、`Index()`メソッド。 が必要な場合は、同じアクションに複数のアクション フィルターを適用できます。 両方を適用するなど、`OutputCache`と`HandleError`同じアクションにアクション フィルター。
 
-リストの 1 の`OutputCache`にアクション フィルターが適用される、`Index()`アクション。 この属性を適用でしたも、`DataController`クラス自体です。 その場合は、コント ローラーによって公開される何らかの操作によって返される結果は 10 秒間キャッシュされます。
+リストの 1 で、`OutputCache`にアクション フィルターを適用、`Index()`アクション。 この属性を適用できますも、`DataController`クラス自体。 その場合は、コント ローラーによって公開される何らかの操作によって返される結果は 10 秒間キャッシュされます。
 
 ### <a name="the-different-types-of-filters"></a>さまざまな種類のフィルター
 
 ASP.NET MVC フレームワークには、次の 4 つの異なる種類のフィルターがサポートされています。
 
-1. 承認フィルター – を実装して、`IAuthorizationFilter`属性。
-2. アクション フィルター – を実装して、`IActionFilter`属性。
-3. 結果フィルター-を実装して、`IResultFilter`属性。
-4. 例外フィルター – を実装して、`IExceptionFilter`属性。
+1. 承認フィルター – 実装、`IAuthorizationFilter`属性。
+2. アクション フィルター – 実装、`IActionFilter`属性。
+3. 結果フィルター – 実装、`IResultFilter`属性。
+4. 例外フィルター – 実装、`IExceptionFilter`属性。
 
-フィルターは、上に示した順序で実行されます。 たとえば、承認フィルターは、常にアクション フィルターの前に実行し、例外フィルターはフィルターの他のすべての型の後に常に実行します。
+フィルターは、上に示した順序で実行されます。 たとえば、承認フィルターは、常にアクション フィルターの前に実行し、例外フィルターは、常に他のすべての種類フィルターの後に実行します。
 
-承認フィルターは、コント ローラー アクションの認証と承認の実装に使用されます。 たとえば、承認フィルターは、承認フィルターの例です。
+承認フィルターは、コント ローラー アクションの認証と承認を実装するために使用されます。 たとえば、承認フィルターは、承認フィルターの例です。
 
-アクション フィルターには、コント ローラーのアクションが実行された前後に実行されるロジックが含まれます。 たとえば、アクション フィルターを使用するコント ローラーのアクションを返すビュー データを変更します。
+アクション フィルターには、コント ローラーのアクションが実行された前後に実行されるロジックが含まれます。 たとえば、コント ローラーのアクションが返すデータの表示を変更するアクション フィルターを使用できます。
 
-結果フィルターには、ビューの結果が実行された前後に実行されるロジックが含まれます。 ビューの結果を変更するなど、右、ビューがブラウザーに表示される前にします。
+結果フィルターには、ビューの結果が実行された前後に実行されるロジックが含まれます。 ビューの結果を変更するなど、ブラウザーにビューが表示される直前です。
 
-例外フィルターは、最後に実行するフィルターの種類です。 例外フィルターを使用して、コント ローラーのアクションまたはコント ローラー アクションの結果のいずれかによって発生したエラーを処理することができます。 また、例外フィルターをエラーをログに使用することもできます。
+例外フィルターは、最後に実行するフィルターの種類です。 コント ローラー アクションまたはコント ローラー アクションの結果のいずれかによって発生したエラーを処理するために、例外フィルターを使用することができます。 また、例外フィルターをエラーをログに使用することもできます。
 
-各フィルターの種類は、特定の順序で実行されます。 同じ種類のフィルターが実行される順序を制御する場合は、フィルターの順序のプロパティを設定できます。
+各フィルターの別の種類は、特定の順序で実行されます。 同じ種類のフィルターが実行される順序を制御する場合は、フィルターの順序のプロパティを設定できます。
 
-すべてのアクション フィルターの基本クラスは、`System.Web.Mvc.FilterAttribute`クラスです。 特定の種類のフィルターを実装するかどうかは、フィルターの基本クラスから継承し、1 つ以上を実装するクラスを作成する必要があります、 `IAuthorizationFilter`、 `IActionFilter`、 `IResultFilter`、または`IExceptionFilter`インターフェイスです。
+すべてのアクション フィルターの基本クラスは、`System.Web.Mvc.FilterAttribute`クラス。 特定の種類のフィルターを実装するかどうかは、フィルターの基本クラスから継承し、1 つ以上を実装するクラスを作成する必要がある、 `IAuthorizationFilter`、 `IActionFilter`、 `IResultFilter`、または`IExceptionFilter`インターフェイス。
 
 ### <a name="the-base-actionfilterattribute-class"></a>基本 ActionFilterAttribute クラス
 
-ASP.NET MVC フレームワークにはやすくためにカスタム アクション フィルターを実装するためには、ベースが含まれています`ActionFilterAttribute`クラスです。 このクラスでは両方とも、`IActionFilter`と`IResultFilter`インターフェイスから継承して、`Filter`クラスです。
+簡単なカスタム アクション フィルターを実装するために、ASP.NET MVC framework にはベースが含まれています`ActionFilterAttribute`クラス。 このクラスは、両方を実装、`IActionFilter`と`IResultFilter`インターフェイスから継承して、`Filter`クラス。
 
-用語をここでは、完全一致しません。 技術的には、ActionFilterAttribute クラスから継承するクラスは、アクション フィルターと結果フィルターの両方です。 ただし、緩やかな意味では、word のアクション フィルターは、ASP.NET MVC フレームワーク内のフィルターの任意の型を参照するで使用されます。
+用語をここでは、完全一致しません。 技術的には、ActionFilterAttribute クラスから継承するクラスは、アクション フィルターと結果フィルターの両方です。 ただし、loose の意味では、word のアクション フィルターは、ASP.NET MVC フレームワークでのフィルターの任意の型を参照する使用されます。
 
 基本`ActionFilterAttribute`クラスには次のメソッドをオーバーライドすることができます。
 
-- コント ローラーのアクションが実行される前に、OnActionExecuting – ときにこのメソッドが呼び出されます。
-- コント ローラーのアクションを実行した後、OnActionExecuted – ときにこのメソッドが呼び出されます。
-- コント ローラー アクションの結果が実行される前に、OnResultExecuting – ときにこのメソッドが呼び出されます。
-- コント ローラー アクションの結果が実行された後に、OnResultExecuted – ときにこのメソッドが呼び出されます。
+- OnActionExecuting – コント ローラーのアクションが実行される前に、このメソッドが呼び出されます。
+- OnActionExecuted – コント ローラーのアクションが実行された後、このメソッドが呼び出されます。
+- OnResultExecuting – コント ローラー アクションの結果が実行される前に、このメソッドが呼び出されます。
+- OnResultExecuted – コント ローラー アクションの結果が実行された後、このメソッドが呼び出されます。
 
-次のセクションでは、これらのさまざまなメソッドを実装する方法おを参照してください。
+次のセクションでそれぞれのさまざまな方法を実装する方法が表示されます。
 
 ### <a name="creating-a-log-action-filter"></a>ログのアクション フィルターを作成します。
 
-カスタム アクション フィルターを構築する方法がわかるようにするために、Visual Studio 出力ウィンドウをコント ローラーのアクションを処理の段階をログに記録するカスタム アクション フィルターを作成します。 当社`LogActionFilter`2 のリストに含まれています。
+カスタム アクション フィルターを作成する方法を示すためには、するには、Visual Studio 出力ウィンドウにコント ローラー アクションの処理のステージを記録するカスタム アクション フィルターを作成します。 この`LogActionFilter`リスト 2 に含まれています。
 
 **2 – を一覧表示します。 `ActionFilters\LogActionFilter.cs`**
 
 [!code-csharp[Main](understanding-action-filters-cs/samples/sample2.cs)]
 
-リストの 2 で、 `OnActionExecuting()`、 `OnActionExecuted()`、 `OnResultExecuting()`、および`OnResultExecuted()`すべてのメソッドを呼び出す、`Log()`メソッドです。 渡される、メソッドの名前、および現在のルート データ、`Log()`メソッドです。 `Log()`メソッドは、Visual Studio の出力ウィンドウにメッセージを書き込みます (図 2 を参照してください)。
+リストの 2 で、 `OnActionExecuting()`、 `OnActionExecuted()`、 `OnResultExecuting()`、および`OnResultExecuted()`すべてのメソッドを呼び出す、`Log()`メソッド。 メソッドと現在のルート データの名前に渡される、`Log()`メソッド。 `Log()`メソッドは、Visual Studio の出力ウィンドウにメッセージを書き込みます (図 2 参照)。
 
 
-[![Visual Studio の出力 ウィンドウへの書き込み](understanding-action-filters-cs/_static/image5.png)](understanding-action-filters-cs/_static/image4.png)
+[![Visual Studio の出力ウィンドウへの書き込み](understanding-action-filters-cs/_static/image5.png)](understanding-action-filters-cs/_static/image4.png)
 
-**図 02**: Visual Studio の出力 ウィンドウへの書き込み ([フルサイズのイメージを表示するをクリックして](understanding-action-filters-cs/_static/image6.png))
+**図 02**: Visual Studio の出力ウィンドウへの書き込み ([フルサイズの画像を表示する をクリックします](understanding-action-filters-cs/_static/image6.png))。
 
 
-3 の一覧で、Home コント ローラーは、全体のコント ローラー クラスに、ログのアクション フィルターを適用する方法を示しています。 ときに、Home コント ローラーによって公開される操作のいずれかが呼び出される – か、`Index()`メソッドまたは`About()`メソッド – アクションは、Visual Studio の出力ウィンドウにログ記録処理の段階です。
+リスト 3 の Home コント ローラーは、全体のコント ローラー クラスに、ログのアクション フィルターを適用する方法を示しています。 たびに、Home コント ローラーによって公開されるアクションのいずれかが呼び出される – か、`Index()`メソッドまたは`About()`メソッド – Visual Studio の出力ウィンドウに、アクションがログに記録する処理の段階です。
 
 **3 – を一覧表示します。 `Controllers\HomeController.cs`**
 
@@ -124,9 +123,9 @@ ASP.NET MVC フレームワークにはやすくためにカスタム アクシ�
 
 ### <a name="summary"></a>まとめ
 
-このチュートリアルでは、ASP.NET MVC アクション フィルターに導入されました。 次の 4 つの異なる種類のフィルターについて説明しました。 承認フィルター、アクション フィルター、結果フィルター、および例外フィルター。 基本についても学びました`ActionFilterAttribute`クラスです。
+このチュートリアルでは、ASP.NET MVC のアクション フィルターに導入されました。 4 つの異なる種類のフィルターについて説明しました。 承認フィルター、アクション フィルター、結果フィルター、および例外フィルター。 基本についても学習しました`ActionFilterAttribute`クラス。
 
-最後に、簡単なアクション フィルターを実装する方法を学習します。 Visual Studio の出力ウィンドウにコント ローラーのアクションを処理の段階をログに記録するログ アクション フィルターを作成しました。
+最後に、簡単なアクション フィルターを実装する方法を学習しました。 Visual Studio の出力ウィンドウにコント ローラー アクションの処理のステージを記録するログのアクション フィルターを作成しました。
 
 > [!div class="step-by-step"]
 > [前へ](asp-net-mvc-routing-overview-cs.md)

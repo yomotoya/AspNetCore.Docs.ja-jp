@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-snippets-intellisense
-title: Visual Studio 2010 クイック ヒット-スニペット IntelliSense |Microsoft ドキュメント
+title: Visual Studio 2010 クイック ヒット-スニペットの IntelliSense |Microsoft Docs
 author: JoeStagner
-description: このビデオは、HTML の Visual Studio のスニペットのサポートについて説明では ASP.NET マークアップおよび JavaScript。
+description: HTML の Visual Studio のスニペットのサポートについて学習するこのビデオでは ASP.NET マークアップおよび JavaScript。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/11/2009
 ms.topic: article
 ms.assetid: 142b51ae-0f6a-4433-8b92-f827ce9c209c
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-snippets-intellisense
 msc.type: video
-ms.openlocfilehash: 0b89c0b817df9cfe0dff36d728492736ab19bebe
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0b0d098f6ca5450faafa861a81cd4de4730252c9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30896954"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387232"
 ---
-<a name="visual-studio-2010-quick-hit---snippets-intellisense"></a>Visual Studio 2010 年「クイック ヒット」- スニペットの IntelliSense
+<a name="visual-studio-2010-quick-hit---snippets-intellisense"></a>ビジュアルの Studio 2010「クイック ヒット」- スニペット IntelliSense
 ====================
-によって[行える](https://github.com/JoeStagner)
+によって[Joe Stagner](https://github.com/JoeStagner)
 
-このビデオは、HTML の Visual Studio のスニペットのサポートについて説明では ASP.NET マークアップおよび JavaScript。
+HTML の Visual Studio のスニペットのサポートについて学習するこのビデオでは ASP.NET マークアップおよび JavaScript。
 
-[&#9654;ビデオでは (4 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-snippets-intellisense)
+[&#9654;ビデオ (4 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-snippets-intellisense)
 
 > [!div class="step-by-step"]
 > [前へ](visual-studio-2010-quick-hit-websites-instead-of-web-projects.md)

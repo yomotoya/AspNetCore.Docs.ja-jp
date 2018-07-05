@@ -1,31 +1,30 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-14-rich-client-interaction
-title: 'ASP.NET MVC Storefront パート 14: リッチ クライアントの相互作用 |Microsoft ドキュメント'
+title: 'ASP.NET MVC Storefront パート 14: リッチ クライアント相互作用 |Microsoft Docs'
 author: robconery
-description: AJAX に重点をリッチ クライアントの相互作用します。 Rob Conery は彼のブログで、開発プロセスでは、各ステップを文書化します。
+description: 具体的には、リッチ クライアント相互作用は、AJAX に重点を置いています。 Rob Conery は彼のブログで、開発プロセスでは、各ステップのドキュメントを作成します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/10/2008
 ms.topic: article
 ms.assetid: 28e3602f-34f8-4123-bf6d-235857202b5e
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-14-rich-client-interaction
 msc.type: video
-ms.openlocfilehash: 04cd19f499b22ee6272b45821d9dc7b313c60e56
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cdfcf0db0fd4773c0951e56038e1c3a75184744e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30872053"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387888"
 ---
-<a name="aspnet-mvc-storefront-part-14-rich-client-interaction"></a>ASP.NET MVC Storefront パート 14: リッチ クライアントの相互作用
+<a name="aspnet-mvc-storefront-part-14-rich-client-interaction"></a>ASP.NET MVC Storefront パート 14: リッチ クライアント相互作用
 ====================
 によって[Rob Conery](https://github.com/robconery)
 
-AJAX に重点をリッチ クライアントの相互作用します。 Rob Conery には、自分の開発プロセスの各手順が記載されている[ブログ](http://blog.wekeroad.com/mvc-storefront/mvcstore-part-14/)です。
+具体的には、リッチ クライアント相互作用は、AJAX に重点を置いています。 Rob Conery が彼の開発プロセスでは、各手順を文書化[ブログ](http://blog.wekeroad.com/mvc-storefront/mvcstore-part-14/)します。
 
-[&#9654;ビデオでは (33 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-14-rich-client-interaction)
+[&#9654;ビデオ (33 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-14-rich-client-interaction)
 
 > [!div class="step-by-step"]
 > [前へ](aspnet-mvc-storefront-part-13-dependency-injection.md)

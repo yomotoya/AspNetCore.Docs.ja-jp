@@ -1,135 +1,134 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
-title: 単純な検証 (VB) を実行する |Microsoft ドキュメント
+title: 単純な検証 (VB) を実行する |Microsoft Docs
 author: StephenWalther
-description: ASP.NET MVC アプリケーションで検証を実行する方法を説明します。 このチュートリアルでは、Stephen Walther は、モデルの状態にして検証 HTML ヘルパーを紹介しています.
+description: ASP.NET MVC アプリケーションで検証を実行する方法について説明します。 このチュートリアルでは、Stephen Walther は、モデルの状態にして検証 HTML ヘルパーについて説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
 ms.topic: article
 ms.assetid: df6cf4b7-0bb3-4c4e-b17a-bd78a759a6bc
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: efb98d87106e332fffb158e5f382d57fea778957
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 26900229630b25affe21a5bb801ef0247711d26b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869752"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37399462"
 ---
 <a name="performing-simple-validation-vb"></a>単純な検証 (VB) を実行します。
 ====================
 によって[Stephen Walther](https://github.com/StephenWalther)
 
-> ASP.NET MVC アプリケーションで検証を実行する方法を説明します。 このチュートリアルでは、Stephen Walther は、モデルの状態にして、検証 HTML ヘルパーを紹介します。
+> ASP.NET MVC アプリケーションで検証を実行する方法について説明します。 このチュートリアルでは、Stephen Walther は、モデルの状態にして、検証 HTML ヘルパーについて説明します。
 
 
-このチュートリアルの目的では、ASP.NET MVC アプリケーション内での検証を実行する方法について説明します。 たとえば、必要なフィールドの値を含まないフォームの送信を禁止する方法を説明します。 モデルの状態および検証する HTML ヘルパーを使用する方法を学びます。
+このチュートリアルの目的では、ASP.NET MVC アプリケーション内での検証を実行する方法について説明します。 たとえば、だれかが必要なフィールドの値を含まないフォームを送信するようにする方法について説明します。 モデルの状態と検証の HTML ヘルパーを使用する方法について説明します。
 
 ## <a name="understanding-model-state"></a>モデルの状態について
 
-検証エラーを表すモデルの状態、またはより正確には、モデル状態ディクショナリを使用するとします。 たとえば、リスト 1 の Create() アクションは、Product クラスをデータベースに追加する前に製品クラスのプロパティを検証します。
+モデルの状態、またはより正確には、モデル状態ディクショナリを使用する検証エラーを表します。 たとえば、リスト 1 で Create() アクションでは、Product クラスをデータベースに追加する前に Product クラスのプロパティを検証します。
 
 
-コント ローラーに、検証やデータベースのロジックを追加することを推奨してはしていません。 コント ローラーには、アプリケーションのフロー制御に関連するロジックのみを含める必要があります。 複雑にならないへのショートカットを実行しています。
+コント ローラーに、検証またはデータベース ロジックを追加することは推奨していませんいます。 コント ローラーには、アプリケーション フローの制御に関連するロジックのみを含める必要があります。 単純化へのショートカットを取得しています。
 
 
 **1 - Controllers\ProductController.vb を一覧表示します。**
 
 [!code-vb[Main](performing-simple-validation-vb/samples/sample1.vb)]
 
-リストの 1 では、Product クラスの名前、説明、および UnitsInStock プロパティを検証します。 これらのプロパティのいずれかの検証テストに失敗した場合、エラーは、(コント ローラー クラスの ModelState プロパティによって表される)、モデル状態ディクショナリに追加されます。
+リストの 1 では、Product クラスの名前、説明、および UnitsInStock プロパティが検証されます。 これらのプロパティのいずれかの検証テストが失敗した場合、エラーは、(コント ローラー クラスの ModelState プロパティによって表される)、モデル状態ディクショナリに追加されます。
 
 モデル状態エラーがある場合、ModelState.IsValid プロパティは false を返します。 その場合は、新しい製品を作成するための HTML フォームが再表示されます。 それ以外の場合、検証エラーがない場合は、新しい製品がデータベースに追加されます。
 
 ## <a name="using-the-validation-helpers"></a>検証ヘルパーの使用
 
-ASP.NET MVC フレームワークには、次の 2 つの検証ヘルパーが含まれています: Html.ValidationMessage() ヘルパーと Html.ValidationSummary() ヘルパー。 検証エラー メッセージを表示するのにには、ビューでこれら 2 つのヘルパーを使用します。
+ASP.NET MVC フレームワークには、2 つの検証ヘルパーが含まれています: Html.ValidationMessage() ヘルパーと Html.ValidationSummary() ヘルパー。 検証エラー メッセージを表示するのにには、ビューのこれら 2 つのヘルパーを使用します。
 
-Html.ValidationMessage() と Html.ValidationSummary() ヘルパーは、ASP.NET MVC のスキャフォールディングによって自動的に生成される作成および編集ビューで使用されます。 作成ビューを生成するこれらの手順に従います。
+Html.ValidationMessage() と Html.ValidationSummary() ヘルパーは、ASP.NET MVC のスキャフォールディングによって自動的に生成される Create と Edit ビューで使用されます。 作成ビューを生成するこれらの手順に従います。
 
-1. 製品のコント ローラーの Create() アクションを右クリックし、メニュー オプションを選択**ビューの追加**(図 1 を参照してください)。
-2. **ビューの追加**ダイアログ ボックスで、チェック ボックス ラベルの付いた**厳密に型指定されたビューを作成**(図 2 を参照してください)。
-3. **データ クラスを表示** ドロップダウン リストで、Product クラスを選択します。
-4. **コンテンツを表示**ドロップダウン リストで、選択を作成します。
+1. 製品のコント ローラーで Create() アクションを右クリックし、メニュー オプションを選択**ビューの追加**(図 1 参照)。
+2. **ビューの追加**ダイアログ ボックスで、というラベルの付いたチェック ボックスをオン**厳密に型指定されたビューを作成する**(図 2 参照)。
+3. **データ クラスを表示**ドロップダウン リストで、Product クラスを選択します。
+4. **コンテンツを表示**ドロップダウン リストで、作成を選択します。
 5. **[追加]** ボタンをクリックします。
 
 
-ビューを追加する前に、アプリケーションをビルドすることを確認します。 クラスの一覧には表示されませんそれ以外の場合、**データ クラスを表示**ボックスの一覧です。
+ビューを追加する前にアプリケーションをビルドすることを確認します。 それ以外の場合、クラスの一覧に表示されません、**データ クラスを表示**ドロップダウン リスト。
 
 
 [![[新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image1.jpg)](performing-simple-validation-vb/_static/image1.png)
 
-**図 01**: ビューの追加 ([フルサイズのイメージを表示するをクリックして](performing-simple-validation-vb/_static/image2.png))
+**図 01**: ビューの追加 ([フルサイズの画像を表示する をクリックします](performing-simple-validation-vb/_static/image2.png))。
 
 
 [![[新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image2.jpg)](performing-simple-validation-vb/_static/image3.png)
 
-**図 02**: 厳密に型指定されたビューを作成する ([フルサイズのイメージを表示するをクリックして](performing-simple-validation-vb/_static/image4.png))
+**図 02**: 厳密に型指定されたビューを作成する ([フルサイズの画像を表示する をクリックします](performing-simple-validation-vb/_static/image4.png))。
 
 
-次の手順を完了すると、リスト 2 で作成ビューが表示されます。
+次の手順を完了すると、リスト 2 でビューを作成するを取得します。
 
-**Listing 2 - Views\Product\Create.aspx**
+**2 - Views\Product\Create.aspx を一覧表示します。**
 
 [!code-aspx[Main](performing-simple-validation-vb/samples/sample2.aspx)]
 
-リストの 2 では、HTML フォームの上、Html.ValidationSummary() ヘルパーが直ちに呼び出さです。 このヘルパーを使用して、検証エラー メッセージの一覧を表示します。 Html.ValidationSummary() ヘルパーは、箇条書きリスト内のエラーを表示します。
+リストの 2 では、HTML フォームの上、Html.ValidationSummary() ヘルパーが直ちに呼び出さします。 このヘルパーを使用して、検証エラー メッセージの一覧を表示します。 Html.ValidationSummary() ヘルパーは、箇条書きリストにエラーを表示します。
 
-各 HTML フォーム フィールドの横にある Html.ValidationMessage() ヘルパーと呼びます。 このヘルパーを使用して、フォーム フィールドの横にエラー メッセージを表示します。 一覧表示する 2 の場合、Html.ValidationMessage() ヘルパーでは、エラーがある場合にアスタリスクが表示されます。
+Html.ValidationMessage() ヘルパーは HTML フォームのフィールドの横にある呼び出されます。 このヘルパーを使用して、フォーム フィールドのすぐ隣に、エラー メッセージを表示します。 リストの 2 の場合、Html.ValidationMessage() ヘルパーでは、エラーがある場合にアスタリスクが表示されます。
 
-図 3 に、ページは、不足しているフィールドと無効な値で、フォームが送信された場合、検証ヘルパーによって表示されるエラー メッセージを示しています。
+図 3 のページは、不足しているフィールドと無効な値で、フォームが送信されたときに、検証ヘルパーによって表示されるエラー メッセージを示しています。
 
 
 [![[新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image3.jpg)](performing-simple-validation-vb/_static/image5.png)
 
-**図 03**: 問題と共に送信される、Create view ([フルサイズのイメージを表示するをクリックして](performing-simple-validation-vb/_static/image6.png))
+**図 03**: 問題を含めて提出して、作成ビュー ([フルサイズの画像を表示する をクリックします](performing-simple-validation-vb/_static/image6.png))。
 
 
-HTML の外観入力フィールドは、検証エラーがある場合にも変更にすることに注意してください。 Html.TextBox() ヘルパー レンダリング、*クラス =「の入力の検証エラー」* Html.TextBox() ヘルパーによって表示されるプロパティに関連付けられている検証エラーが発生するときに属性。
+HTML の外観は、検証エラーがある場合にもフィールドが変更された入力に注意してください。 Html.TextBox() ヘルパーのレンダリングを*クラス =「の入力検証エラー」* Html.TextBox() ヘルパーによって表示されるプロパティに関連付けられている属性の検証エラーがある場合。
 
-検証エラーの外観の制御に使用される 3 つのカスケード スタイル シート クラスにがあります。
+検証エラーの外観の制御に使用される 3 つのカスケード スタイル シート クラスがあります。
 
-- 適用される入力の検証エラー -、&lt;入力&gt;Html.TextBox() ヘルパーによって表示されるタグ。
-- 適用されるフィールドの検証エラー -、 &lt;span&gt; Html.ValidationMessage() ヘルパーによって表示されるタグ。
-- 適用される検証の概要-エラー -、 &lt;ul&gt; Html.ValidationSumamry() ヘルパーによって表示されるタグ。
+- 適用される入力の検証エラー -、&lt;入力&gt;タグ Html.TextBox() ヘルパーによってレンダリングされます。
+- 適用されるフィールドの検証エラー -、 &lt;span&gt;タグ Html.ValidationMessage() ヘルパーによってレンダリングされます。
+- 適用される検証の概要-エラー -、 &lt;ul&gt;タグ Html.ValidationSumamry() ヘルパーによってレンダリングされます。
 
-これらカスケード スタイル シートのクラスを変更し、そのため、コンテンツ フォルダーにある Site.css ファイルを変更することによって検証エラーの外観を変更できます。
+これらカスケード スタイル シートのクラスを変更し、コンテンツのフォルダーにある Site.css ファイルを変更することでそのため、検証エラーの外観を変更できます。
 
 > [!NOTE] 
 > 
-> HtmlHelper クラスが含まれています読み取り専用の静的プロパティには検証の名前を取得して関連する CSS クラス。 これらの静的プロパティには、ValidationInputCssClassName、ValidationFieldCssClassName、ValidationSummaryCssClassName 名前です。
+> HtmlHelper クラスには、CSS を関連する検証の名前を取得する読み取り専用の静的プロパティが含まれますクラス。 これらの静的プロパティは、ValidationInputCssClassName、ValidationFieldCssClassName、および ValidationSummaryCssClassName 名前です。
 
 
-## <a name="prebinding-validation-and-postbinding-validation"></a>検証および Postbinding prebinding
+## <a name="prebinding-validation-and-postbinding-validation"></a>Prebinding 検証と Postbinding の検証
 
-場合は、製品を作成するための HTML フォームを送信する、price フィールドおよび UnitsInStock フィールドの値に無効な値を入力して、図 4 に表示される検証メッセージを取得します。 ここではこれらの検証エラー メッセージから取得されるか
+製品を作成するための HTML フォームを送信する、[price] フィールドと UnitsInStock フィールドの値に無効な値を入力すると、図 4 に表示される検証メッセージを取得します。 これらの検証エラー メッセージからどのようになるでしょうか。
 
 
 [![[新しいプロジェクト] ダイアログ ボックス](performing-simple-validation-vb/_static/image4.jpg)](performing-simple-validation-vb/_static/image7.png)
 
-**図 04**: Prebinding 妥当性確認エラー ([フルサイズのイメージを表示するをクリックして](performing-simple-validation-vb/_static/image8.png))
+**図 04**: Prebinding 検証エラー ([フルサイズの画像を表示する をクリックします](performing-simple-validation-vb/_static/image8.png))。
 
 
-実際には 2 種類の検証エラー メッセージは HTML フォームのフィールドは、クラスにバインドされはフォームのフィールドは、クラスにバインドされた後に生成される前に生成されるものがあります。 つまり、ある prebinding 検証エラーと検証エラーを postbinding です。
+実際に 2 種類の検証エラー メッセージの HTML フォームのフィールドは、クラスにバインドされ、フォームのフィールドがクラスにバインドされている後に生成された前に生成されたものがあります。 つまり、あるは検証エラーを prebinding と postbinding 検証エラー。
 
-1 の一覧で製品のコント ローラーによって公開される Create() アクションは、Product クラスのインスタンスを受け入れます。 Create メソッドのシグネチャは、このようになります。
+リスト 1 で製品のコント ローラーによって公開される Create() アクションは、Product クラスのインスタンスを受け入れます。 Create メソッドのシグネチャのようになります。
 
 [!code-vb[Main](performing-simple-validation-vb/samples/sample3.vb)]
 
-フォームの作成から HTML フォーム フィールドの値は、モデル バインダーと呼ばれるもので、productToCreate クラスにバインドされます。 既定のモデル バインダー エラー メッセージを追加モデルの状態を自動的に、フォーム フィールド、フォームのプロパティにバインドできないときにします。
+作成フォームから HTML フォーム フィールドの値は、モデル バインダーと呼ばれるもので、productToCreate クラスにバインドされます。 既定のモデル バインダー エラー メッセージに追加モデルの状態に自動的にフォーム フィールド、フォームのプロパティにバインドできないときにします。
 
-既定のモデル バインダーは、Product クラスの価格プロパティに文字列"apple"をバインドできません。 Decimal プロパティに文字列を割り当てることはできません。 そのため、モデル バインダーは、モデルの状態をエラーを追加します。
+既定のモデル バインダーは、Product クラスの価格のプロパティに文字列"apple"をバインドできません。 文字列は、10 進数のプロパティに割り当てることはできません。 そのため、モデル バインダーでは、モデルの状態をエラーを追加します。
 
-既定のモデル バインダーも値を代入できません、何も受け入れない値 Nothing プロパティにします。 具体的には、モデル バインダー値を代入できません、何も UnitsInStock プロパティにします。 もう一度、モデル バインダーを放棄し、モデルの状態をエラー メッセージを追加します。
+既定のモデル バインダーことはできませんを割り当てることも、値 Nothing はない値をそのまま何もするプロパティ。 具体的には、モデル バインダーに代入できません値 Nothing UnitsInStock プロパティ。 ここでも、モデル バインダーを放棄し、モデルの状態をエラー メッセージを追加します。
 
 エラー メッセージを prebinding これらの外観をカスタマイズする場合は、これらのメッセージのリソース文字列を作成する必要があります。
 
 ## <a name="summary"></a>まとめ
 
-このチュートリアルの目的は、ASP.NET MVC フレームワークでの検証の基本的なしくみを説明することでした。 モデルの状態および検証する HTML ヘルパーを使用する方法を学習しました。 私たちも prebinding と検証を postbinding の違いを説明します。 他のチュートリアルでは、コント ローラー アウトし、モデルのクラスに検証コードを移動するためのさまざまな方法について説明します。
+このチュートリアルの目的は、ASP.NET MVC フレームワークでの検証の基本的なしくみを説明することでした。 モデルの状態と検証の HTML ヘルパーを使用する方法を学習しました。 Prebinding と検証を postbinding の違いを説明します。 他のチュートリアルでは、コント ローラーからモデル クラスに検証コードを移動するためのさまざまな方法について説明します。
 
 > [!div class="step-by-step"]
 > [前へ](displaying-a-table-of-database-data-vb.md)

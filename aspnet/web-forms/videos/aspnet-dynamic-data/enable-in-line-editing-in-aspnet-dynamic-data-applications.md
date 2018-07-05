@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/enable-in-line-editing-in-aspnet-dynamic-data-applications
-title: ASP.NET 動的データ アプリケーションでインラインでの編集を有効にする |Microsoft ドキュメント
+title: ASP.NET 動的データ アプリケーションでのインライン編集を有効にする |Microsoft Docs
 author: JoeStagner
-description: このビデオでは、URL ルーティングを使用してインラインでは、ASP.NET 動的データ アプリケーションの編集を有効を示します。
+description: このビデオでは、ASP.NET 動的データ アプリケーションでのインライン編集を有効にする URL ルーティングを使用して示します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/23/2008
 ms.topic: article
 ms.assetid: a22201df-c031-4505-b3bf-9a0a9667d62b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/enable-in-line-editing-in-aspnet-dynamic-data-applications
 msc.type: video
-ms.openlocfilehash: 1e248df1f78c360f0d92633b5c14c523983c2966
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 16fc853e652f0235b1e669748b93981c4617bb1a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30884569"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387151"
 ---
-<a name="enable-in-line-editing-in-aspnet-dynamic-data-applications"></a>ASP.NET 動的データ アプリケーションでインラインでの編集を有効にします。
+<a name="enable-in-line-editing-in-aspnet-dynamic-data-applications"></a>ASP.NET 動的データ アプリケーションでのインライン編集を有効にします。
 ====================
-によって[行える](https://github.com/JoeStagner)
+によって[Joe Stagner](https://github.com/JoeStagner)
 
-このビデオでは、URL ルーティングを使用してインラインでは、ASP.NET 動的データ アプリケーションの編集を有効を示します。
+このビデオでは、ASP.NET 動的データ アプリケーションでのインライン編集を有効にする URL ルーティングを使用して示します。
 
 [&#9654;(13 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/enable-in-line-editing-in-aspnet-dynamic-data-applications)
 

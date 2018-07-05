@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/aspnet-35/aspnet-ajax/using-script-combining-to-improve-ajax-performance
-title: AJAX のパフォーマンスを向上させるためにスクリプトの結合を使用して |Microsoft ドキュメント
+title: AJAX のパフォーマンスを向上させるためにスクリプトを結合を使用して |Microsoft Docs
 author: rick-anderson
-description: Betrand Le 者を務める Roy で samp で単純なページを使用して、スクリプトを組み合わせてと呼ばれる新しい機能を使用して、Ajax アプリケーションのパフォーマンスを向上させる方法を説明しています.
+description: Betrand Le Roy では、スクリプトを組み合わせて、samp で単純なページを利用すると呼ばれる新しい機能を使用して Ajax アプリケーションのパフォーマンスを向上させる方法について説明しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2008
 ms.topic: article
 ms.assetid: f5445f4a-bc78-4950-b74f-de748bf8b0be
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/aspnet-ajax/using-script-combining-to-improve-ajax-performance
 msc.type: video
-ms.openlocfilehash: 5975ad9581b919107deff853d37c3b16283d575d
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 67188ff83350809944b41ea6572b996eaf969e5e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886798"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37398878"
 ---
-<a name="using-script-combining-to-improve-ajax-performance"></a>AJAX のパフォーマンスを向上させるためにスクリプトの結合を使用してください。
+<a name="using-script-combining-to-improve-ajax-performance"></a>スクリプトを結合を使用して、AJAX のパフォーマンスを改善するには
 ====================
-Betrand Le 者を務める Roy では、スクリプトを組み合わせると、Ajax toolkit のサンプル コードと、単純なページを利用すると呼ばれる新しい機能を使用して、Ajax アプリケーションのパフォーマンスを向上させる方法について説明します。
+Betrand Le Roy は、スクリプトを組み合わせると、Ajax toolkit のサンプル コードの単純なページを利用すると呼ばれる新しい機能を使用して Ajax アプリケーションのパフォーマンスを向上させる方法について説明します。
 
-[&#9654;ビデオでは (4 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-script-combining-to-improve-ajax-performance)
+[&#9654;ビデオ (4 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-script-combining-to-improve-ajax-performance)
 
 > [!div class="step-by-step"]
 > [前へ](introduction-to-aspnet-ajax-history.md)

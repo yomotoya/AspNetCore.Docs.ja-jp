@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-outputcache-to-cache-an-aspnet-page
-title: '[How Do i:]OutputCache キャッシュを使用する ASP.NET ページ |Microsoft ドキュメント'
+title: '[How Do i:]OutputCache を使用して、ASP.NET ページをキャッシュ |Microsoft Docs'
 author: rick-anderson
-description: このビデオ Chris Pels での ASP.NET を再表示があるないために、キャッシュにページを格納する組み込みのキャッシュを利用する方法を示しています。 最初に、.
+description: このビデオの Chris Pels で再表示することはありませんので、キャッシュにページを格納する ASP.NET の組み込みのキャッシュを利用する方法を示しています。 まず、.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/05/2009
 ms.topic: article
 ms.assetid: 651c54da-becb-467e-9076-d6ace7456351
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-outputcache-to-cache-an-aspnet-page
 msc.type: video
-ms.openlocfilehash: dee99ec6ca8796032a95e9915c684106ac418649
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6c7b2070c68636c3e109c1b6606e64fe297138d4
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26526201"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373875"
 ---
-<a name="how-do-i-use-outputcache-to-cache-an-aspnet-page"></a>[How Do i:]OutputCache をキャッシュを使用する ASP.NET ページ
+<a name="how-do-i-use-outputcache-to-cache-an-aspnet-page"></a>[How Do i:]OutputCache を使用して、ASP.NET ページをキャッシュするには
 ====================
 によって[Chris Pels](https://twitter.com/chrispels)
 
-このビデオ Chris Pels での ASP.NET を再表示があるないために、キャッシュにページを格納する組み込みのキャッシュを利用する方法を示しています。 ページ キャッシュの最も単純な形式は、最初に、指定した期間全体のページがキャッシュされているかを示すです。 次より詳細な方法では、ページのキャッシュのクエリ文字列変数の値が基礎として使用場所が取得されます。 最後に、ブラウザーの型である、基準にしてページをキャッシュする方法を参照してください。
+このビデオの Chris Pels で再表示することはありませんので、キャッシュにページを格納する ASP.NET の組み込みのキャッシュを利用する方法を示しています。 ページ キャッシュの最も単純な形式は、最初に、指定した期間全体のページがキャッシュされているかを説明します。 次より詳細な方法では、ページのキャッシュのクエリ文字列変数の値が基準として使用場所が実行されました。 最後に、ブラウザーの種類がある基にしてページをキャッシュする方法を参照してください。
 
-[&#9654;です。ビデオでは (14 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-outputcache-to-cache-an-aspnet-page)
+[&#9654;ビデオ (14 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-outputcache-to-cache-an-aspnet-page)

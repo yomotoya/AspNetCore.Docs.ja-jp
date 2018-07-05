@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/how-do-i-change-how-my-fields-render
-title: フィールドの表示方法を変更する方法 | Microsoft Docs
+title: フィールドのレンダリング方法を変更する方法 | Microsoft Docs
 author: shanselman
-description: このビデオでは、データ フィールドを表示する方法を変更する方法を学習します。 一部のフィールドのサード パーティ製コントロールを接続するされます。
+description: このビデオでは、データ フィールドを表示する方法を変更する方法について説明します。 一部のフィールドのサードパーティ製のコントロールが接続されます。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2008
 ms.topic: article
 ms.assetid: f99da654-2148-4e66-867c-6e837b84e9d0
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-change-how-my-fields-render
 msc.type: video
-ms.openlocfilehash: 57529627d54d5fc8d4db50b1d5b254e8811321e5
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 09c602f5a5de015e195731fb4f59082417892c74
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30882365"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37372914"
 ---
-<a name="how-do-i-change-how-my-fields-render"></a>フィールドの表示方法を変更する方法
+<a name="how-do-i-change-how-my-fields-render"></a>フィールドのレンダリング方法を変更する方法
 ====================
 によって[Scott Hanselman](https://github.com/shanselman)
 
-このビデオでは、データ フィールドを表示する方法を変更する方法を学習します。 一部のフィールドのサード パーティ製コントロールを接続するされます。
+このビデオでは、データ フィールドを表示する方法を変更する方法について説明します。 一部のフィールドのサードパーティ製のコントロールが接続されます。
 
 [&#9654;(13 分) のビデオを見る](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-change-how-my-fields-render)
 

@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/building-35-applications/masterpages
-title: MasterPages |Microsoft ドキュメント
+title: MasterPages |Microsoft Docs
 author: JoeStagner
-description: ASP.NET MasterPages は、アジャイルの web アプリケーションの構築のキーの一部です。 このビデオは、マスター ページと 入れ子になった MasterPages を使用する基本方法を説明しています.
+description: ASP.NET マスター ページは、アジャイルの web アプリケーションの構築の重要な部分です。 このビデオでは、マスター ページとで入れ子になったマスター ページを使用する基本的なを示します.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2009
 ms.topic: article
 ms.assetid: cd6890dd-02a5-48a7-bb05-f277c74a9cc3
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/building-35-applications/masterpages
 msc.type: video
-ms.openlocfilehash: 722e9526d8da60445cadfdc906dbe912f8b4964a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 15e0ea94d577e985b1557b52be053692625eb109
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26520901"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373894"
 ---
-<a name="masterpages"></a>MasterPages
+<a name="masterpages"></a>マスター ページ
 ====================
-によって[行える](https://github.com/JoeStagner)
+によって[Joe Stagner](https://github.com/JoeStagner)
 
-ASP.NET MasterPages は、アジャイルの web アプリケーションの構築のキーの一部です。 このビデオでは、入れ子になった MasterPages とマスター ページを使用して、ASP.NET アプリケーションでの基本事項を示します。
+ASP.NET マスター ページは、アジャイルの web アプリケーションの構築の重要な部分です。 このビデオでは、ASP.NET アプリケーションでマスター ページと入れ子になったマスター ページの基本的な使い方を示します。
 
-[&#9654;です。ビデオでは (16 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/masterpages)
+[&#9654;ビデオ (16 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/masterpages)

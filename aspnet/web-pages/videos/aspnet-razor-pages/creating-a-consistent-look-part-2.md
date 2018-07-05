@@ -1,31 +1,30 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/creating-a-consistent-look-part-2
-title: 作成 (パート 2) の一貫した外観 |Microsoft ドキュメント
+title: 一貫性のある外観 (パート 2) を作成する |Microsoft Docs
 author: JoeStagner
-description: 作成するビデオ付き一貫した検索のチュートリアル (パート 2)
+description: 作成するビデオの主役一貫性のある検索のチュートリアル (第 2 部)
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2011
 ms.topic: article
 ms.assetid: 0998df70-d53f-404b-800d-1384eea8f932
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/creating-a-consistent-look-part-2
 msc.type: video
-ms.openlocfilehash: 6528f07817f4f9ccaddb4d3e783b6109d4805722
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 40712bc26f85da43ad211632f31865e48c19e2e0
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30899072"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373553"
 ---
-<a name="creating-a-consistent-look-part-2"></a>一貫した外観 (パート 2) を作成します。
+<a name="creating-a-consistent-look-part-2"></a>一貫性のある外観 (パート 2) を作成します。
 ====================
-によって[行える](https://github.com/JoeStagner)
+によって[Joe Stagner](https://github.com/JoeStagner)
 
-作成するビデオ付き一貫した検索のチュートリアル (パート 2)
+作成するビデオの主役一貫性のある検索のチュートリアル (第 2 部)
 
-[&#9654;ビデオでは (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-a-consistent-look-part-2)
+[&#9654;ビデオ (5 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-a-consistent-look-part-2)
 
 > [!div class="step-by-step"]
 > [前へ](creating-a-consistent-look-part-1.md)
