@@ -1,33 +1,32 @@
 ---
 uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-directory-organization
-title: Tailspin Spyworks - Directory の組織 |Microsoft ドキュメント
+title: Tailspin Spyworks - 組織のディレクトリ |Microsoft Docs
 author: JoeStagner
-description: 行えるでは、Tailspin Spyworks サンプル Web フォーム アプリケーションの既定のディレクトリ構造を変更します。
+description: Joe Stagner は Tailspin Spyworks サンプルの Web フォーム アプリケーションの既定のディレクトリ構造を変更します。
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2010
 ms.topic: article
 ms.assetid: bec45728-da0d-4876-a92e-5eea3e52c868
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-directory-organization
 msc.type: video
-ms.openlocfilehash: bab21bbde27a11ca268eaed56bfd30023c1e6d34
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b27de4c8942405d28a6d41556f664be15117598a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30893031"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385798"
 ---
-<a name="tailspin-spyworks---directory-organization"></a><span data-ttu-id="47a67-103">Tailspin Spyworks - Directory の組織</span><span class="sxs-lookup"><span data-stu-id="47a67-103">Tailspin Spyworks - Directory Organization</span></span>
+<a name="tailspin-spyworks---directory-organization"></a><span data-ttu-id="4826b-103">Tailspin Spyworks - 組織のディレクトリ</span><span class="sxs-lookup"><span data-stu-id="4826b-103">Tailspin Spyworks - Directory Organization</span></span>
 ====================
-<span data-ttu-id="47a67-104">によって[行える](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="47a67-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="4826b-104">によって[Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="4826b-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="47a67-105">行えるでは、Tailspin Spyworks サンプル Web フォーム アプリケーションの既定のディレクトリ構造を変更します。</span><span class="sxs-lookup"><span data-stu-id="47a67-105">Joe Stagner modifies the default directory structure for the Tailspin Spyworks sample Web Forms application.</span></span>
+<span data-ttu-id="4826b-105">Joe Stagner は Tailspin Spyworks サンプルの Web フォーム アプリケーションの既定のディレクトリ構造を変更します。</span><span class="sxs-lookup"><span data-stu-id="4826b-105">Joe Stagner modifies the default directory structure for the Tailspin Spyworks sample Web Forms application.</span></span>
 
-[<span data-ttu-id="47a67-106">&#9654;ビデオでは (4 分)</span><span class="sxs-lookup"><span data-stu-id="47a67-106">&#9654; Watch video (4 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-directory-organization)
+[<span data-ttu-id="4826b-106">&#9654;ビデオ (4 分)</span><span class="sxs-lookup"><span data-stu-id="4826b-106">&#9654; Watch video (4 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-directory-organization)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="47a67-107">[前へ](tailspin-spyworks-intro-ui-and-edm.md)
-> [次へ](tailspin-spyworks-category-menu.md)</span><span class="sxs-lookup"><span data-stu-id="47a67-107">[Previous](tailspin-spyworks-intro-ui-and-edm.md)
+> <span data-ttu-id="4826b-107">[前へ](tailspin-spyworks-intro-ui-and-edm.md)
+> [次へ](tailspin-spyworks-category-menu.md)</span><span class="sxs-lookup"><span data-stu-id="4826b-107">[Previous](tailspin-spyworks-intro-ui-and-edm.md)
 [Next](tailspin-spyworks-category-menu.md)</span></span>
