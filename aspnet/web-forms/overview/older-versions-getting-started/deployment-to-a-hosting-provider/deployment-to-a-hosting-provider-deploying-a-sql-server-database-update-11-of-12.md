@@ -1,176 +1,175 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12
-title: SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します SQL Server データベースの更新 - 11/12 を展開する |。Microsoft ドキュメント
+title: 'SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: SQL Server データベースの更新 - 12 の 11 を展開する |Microsoft Docs'
 author: tdykstra
-description: この一連のチュートリアルは、展開する方法を示します (発行)、ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
+description: このチュートリアル シリーズには、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
 ms.topic: article
 ms.assetid: 5e2bb092-cb22-4511-ad0a-22ae12dd99b3
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: d8cc072c631900937f31c8f2637869b53d46cf54
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 866c871026709a7cccee5fc1c0937120a031d997
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30887331"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370945"
 ---
-<a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-sql-server-database-update---11-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションを配置します SQL Server データベースの更新 - 11/12 を展開する。
+<a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-sql-server-database-update---11-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: SQL Server データベースの更新 - 12 の 11 を展開します。
 ====================
 によって[Tom Dykstra](https://github.com/tdykstra)
 
 [スタート プロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> この一連のチュートリアルは、展開する方法を示します (発行)、ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC for Web を使用して SQL Server Compact データベースが含まれます。 Web 公開の更新プログラムをインストールする場合は、また Visual Studio 2010 を使用することができます。 系列の概要については、次を参照してください。[系列内の最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)です。
+> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。 シリーズの概要については、次を参照してください。[シリーズの最初のチュートリアル](deployment-to-a-hosting-provider-introduction-1-of-12.md)します。
 > 
-> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションを展開する方法を示しています、および Windows Azure Web サイトを展開する方法を示しますをチュートリアルでは、次を参照してください[ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)です。
+> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Windows Azure Web サイトをデプロイする方法を示しますチュートリアルでは、次を参照してください[ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
 
 
 ## <a name="overview"></a>概要
 
-このチュートリアルでは、SQL Server データベースの完全にデータベースの更新を展開する方法を示します。 Code First Migrations は、データベースの更新のすべての作業を行う、ため、プロセスは SQL Server Compact での作業した内容とほぼ同じ、[データベース更新の展開](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)チュートリアルです。
+このチュートリアルでは、完全な SQL Server データベースにデータベースの更新を展開する方法を示します。 Code First Migrations は、データベースの更新のすべての作業を行う、ため、プロセスの SQL Server Compact で行った場合とほぼ同じ、[データベース更新の展開](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)チュートリアル。
 
-アラーム: エラー メッセージを取得する、または、チュートリアルを通過するとおりに機能しない、確認して、[トラブルシューティングのページ](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)です。
+リマインダー: エラー メッセージを取得する、または、チュートリアルを進めるときに機能しないを必ず確認、[トラブルシューティング ページ](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)します。
 
-## <a name="adding-a-new-column-to-a-table"></a>テーブルに新しい列を追加します。
+## <a name="adding-a-new-column-to-a-table"></a>テーブルに新しい列の追加
 
-チュートリアルのこのセクションで、データベースの変更と対応するコードの変更、その後、テスト環境や実稼働環境に展開するための準備で Visual Studio でテストを作ります。 変更は、追加、`OfficeHours`列を`Instructor`エンティティとの新しい情報を表示する、**講習においてインストラクター** web ページ。
+このチュートリアルのこのセクションで変更をデータベースと対応するコードを変更し、テストおよび運用環境に展開するための準備で Visual Studio でテストを行います。 変更は、追加、`OfficeHours`列を`Instructor`エンティティとの新しい情報を表示する、 **Instructors** web ページ。
 
 ContosoUniversity.DAL プロジェクトで開きます*Instructor.cs*間で、次のプロパティを追加し、`HireDate`と`Courses`プロパティ。
 
 [!code-csharp[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample1.cs)]
 
-テスト データを含む新しい列のシードを設定するように、初期化子のクラスを更新します。 開いている*Migrations\Configuration.cs*が開始されるコード ブロックを置き換える`var instructors = new List<Instructor>`を新しい列を含む次のコード ブロックで。
+テスト データを含む新しい列のシードを設定するために、初期化子クラスを更新します。 開いている*migrations \configuration.cs*と置換を開始するコード ブロック`var instructors = new List<Instructor>`と新しい列を含む次のコード ブロック。
 
 [!code-csharp[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample2.cs)]
 
-ContosoUniversity プロジェクトで開きます*Instructors.aspx* office 時間の終了の直前に新しいテンプレート フィールドを追加および`</Columns>`、最初のタグ`GridView`コントロール。
+ContosoUniversity プロジェクトで開きます*Instructors.aspx*の業務時間終了直前に新しいテンプレート フィールドを追加および`</Columns>`最初のタグ`GridView`コントロール。
 
 [!code-aspx[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample3.aspx)]
 
 ソリューションをビルドします。
 
-開く、 **Package Manager Console**ウィンドウ、および select ContosoUniversity.DAL として、**既定のプロジェクト**です。
+開く、**パッケージ マネージャー コンソール**ウィンドウ、および select ContosoUniversity.DAL として、**既定のプロジェクト**します。
 
 次のコマンドを入力します。
 
 [!code-powershell[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample4.ps1)]
 
-アプリケーションの実行を選択して、**講習においてインストラクター**ページ。 ページが読み込むには、Entity Framework は、データベースを再作成され、テスト データのシードを設定するために通常よりも少し長くかかります。
+アプリケーションを実行し、選択、 **Instructors**ページ。 ページでは読み込むには、Entity Framework がデータベースを再作成し、テスト データのシードを設定するために通常より少し長くなります。
 
 [![Instructors_page_with_office_hours](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image2.png)](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image1.png)
 
 ## <a name="deploying-the-database-update-to-the-test-environment"></a>データベースの更新をテスト環境に展開します。
 
-Code First Migrations を使用して、SQL Server にデータベースの変更を展開するためのメソッドは、同じ SQL Server Compact です。 ただし、テストを変更する必要があるがまだ設定して SQL Server Compact から SQL Server に移行するために、プロファイルを発行します。
+Code First Migrations を使用する場合に SQL Server データベースの変更を展開するためのメソッドと同じ SQL Server Compact です。 ただし、テストを変更する必要があるため、SQL Server Compact から SQL Server に移行するよう設定されても、発行プロファイル。
 
-最初の手順では、前のチュートリアルで作成した接続文字列の変換を削除します。 これらは不要になったため、発行プロファイルで接続文字列の変換を指定ように構成する前に実行した方法で、**パッケージ化/発行 SQL** SQL Server への移行 タブ。
+最初の手順は、前のチュートリアルで作成した接続文字列の変換を削除します。 これらが不要になったため、発行プロファイルの接続文字列の変換を指定ように構成する前に行ったよう、**パッケージ化/発行 SQL** SQL Server への移行 タブ。
 
-開く、 *Web.Test.config*ファイルし、削除、`connectionStrings`要素。 内でのみの残りの変換、 *Web.Test.config*用のファイルは、`Environment`値で、`appSettings`要素。
+開く、 *Web.Test.config*ファイルし、削除、`connectionStrings`要素。 残り変換だけで、 *Web.Test.config*ファイルは、`Environment`値、`appSettings`要素。
 
-今すぐテスト環境に発行プロファイルと発行を更新できます。
+今すぐテスト環境には、発行プロファイルと発行を更新できます。
 
-開く、 **Web の発行**ウィザード、しに切り替えると、**プロファイル**タブです。
+開く、 **Web の発行**ウィザード、および、スイッチ、**プロファイル**タブ。
 
-選択、**テスト**プロファイルを発行します。
+選択、**テスト**プロファイルを公開します。
 
-選択、**設定**タブです。
+選択、**設定**タブ。
 
-をクリックして**の機能強化を公開する新しいデータベースを有効にする**です。
+クリックして**発行機能の向上、新しいデータベースを有効にする**します。
 
-接続文字列 ボックスで**SchoolContext**で使用したものと同じ値を入力、 *Web.Test.config*前のチュートリアルでの変換ファイル。
+接続文字列 ボックスで**SchoolContext**で使用した同じ値を入力、 *Web.Test.config*前のチュートリアルでは変換ファイル。
 
 [!code-console[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample5.cmd)]
 
-選択**実行 Code First Migrations (アプリケーション開始時に実行されます)** です。 (チェック ボックスにラベルを付けることがあります、バージョンの Visual Studio で**適用の Code First Migrations**)。
+選択**実行 Code First Migrations (アプリケーションの起動時に実行)** します。 (Visual Studio のバージョンによって、チェック ボックスをラベル可能性があります**適用の Code First Migrations**)。
 
-接続文字列 ボックスで**DefaultConnection**で使用したものと同じ値を入力、 *Web.Test.config*前のチュートリアルでの変換ファイル。
+接続文字列 ボックスで**DefaultConnection**で使用した同じ値を入力、 *Web.Test.config*前のチュートリアルでは変換ファイル。
 
 [!code-console[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample6.cmd)]
 
-ままにして**更新データベース**オフにします。
+ままに**Update database**オフにします。
 
 **[発行]** をクリックします。
 
-Visual Studio では、コードの変更をテスト環境に展開し、Contoso 大学のホーム ページにブラウザーを開きます。
+Visual Studio では、コードの変更をテスト環境に展開し、Contoso University のホーム ページをブラウザーで開きます。
 
-講習においてインストラクター ページを選択します。
+Instructors ページを選択します。
 
-アプリケーションがこのページを実行すると、データベースにアクセスしようとします。 Code First Migrations は、データベースが最新では、検索を最新の移行がまだ適用されていないかどうかを確認します。 Code First Migrations 最新の移行を適用する場合は、実行、`Seed`メソッド、し、ページが正常に実行します。 シードのデータの新しい勤務時間列を参照してください。
+アプリケーションは、このページを実行すると、データベースにアクセスしようとします。 Code First Migrations は、データベースが現在があり、最新の移行がまだ適用されていないいる検索かどうかを確認します。 Code First Migrations は、最新の移行を適用する、実行、`Seed`メソッド、し、ページが正常に実行します。 シードされたデータで新しい Office 時間列が参照してください。
 
 [![Instructors_page_with_OfficeHours_Test](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image4.png)](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image3.png)
 
-## <a name="deploying-the-database-update-to-the-production-environment"></a>データベースの更新を実稼働環境に展開します。
+## <a name="deploying-the-database-update-to-the-production-environment"></a>運用環境にデータベースの更新を展開します。
 
-また、運用環境の発行プロファイルを変更する必要があります。 ここでは、既存のプロファイルの削除を更新された .publishsettings ファイルをインポートして新しいものを作成します。 更新されたファイルには、Cytanium で SQL Server データベースの接続文字列が含まれます。
+また、運用環境の発行プロファイルを変更する必要があります。 この場合、既存のプロファイルを削除し、更新された .publishsettings ファイルをインポートして、新しく作成します。 更新されたファイルは、Cytanium で SQL Server データベースの接続文字列が含まれます。
 
-接続文字列の変換が不要になったテスト環境に展開したときに説明したとおり、 *Web.Production.config*変換ファイル。 ファイルし、削除を開く、`connectionStrings`要素。 残りの変換は、`Environment`値で、`appSettings`要素および`location`Elmah エラー レポートにアクセスを制限する要素。
+内の接続文字列の変換が不要になったテスト環境にデプロイしたときに、学習したように、 *Web.Production.config*変換ファイル。 開くファイルを削除、`connectionStrings`要素。 残りの変換は、`Environment`値、`appSettings`要素と`location`Elmah エラー レポートにアクセスを制限する要素。
 
-実稼働環境用の新しい発行プロファイルを作成する前に、更新された .publishsettings ファイルをダウンロード前に実行したのと同様、[実稼働環境に展開する](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)チュートリアルです。 (Cytanium コントロール パネル で、 **Web サイト**、をクリックし、 **contosouniversity.com** web サイトです。 Select、 **Web 公開** タブをクリックして**この web サイトの発行プロファイルのダウンロード**)。これを行う理由は、.publishsettings ファイル内のデータベース接続文字列を取得します。 まだを使用していた SQL Server Compact しておらず、SQL Server データベース Cytanium にまだ作成しているので、ファイルをダウンロードする最初の時間を使用可能な接続文字列がありませんでした。
+運用環境用の新しい発行プロファイルを作成する前に、更新された .publishsettings ファイルをダウンロード前に行ったのと同様、[実稼働環境に展開する](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)チュートリアル。 (Cytanium コントロール パネル で、 **Websites**、順にクリックします、 **contosouniversity.com** web サイト。 選択、 **Web 公開**タブをクリックし、をクリックし、**この web サイトの発行プロファイルのダウンロード**)。これを実行する理由は、.publishsettings ファイル内のデータベース接続文字列を取得します。 初めておらず、SQL Server データベース Cytanium にまだ作成して SQL Server Compact まだ使っていたため、ファイルのダウンロードを使用可能な接続文字列がありませんでした。
 
 今すぐ、運用環境に発行プロファイルと発行を更新できます。
 
-開く、 **Web の発行**ウィザード、しに切り替えると、**プロファイル**タブです。
+開く、 **Web の発行**ウィザード、および、スイッチ、**プロファイル**タブ。
 
-をクリックして**プロファイルの管理**、実稼働プロファイルを削除します。
+クリックして**プロファイルの管理**、実稼働プロファイルを削除します。
 
-閉じる、 **Web の発行**ウィザードにこの変更を保存します。
+閉じる、 **Web の発行**ウィザードでこの変更を保存します。
 
-開く、 **Web の発行**クリックしてウィザードをもう一度、**インポート**です。
+開く、 **Web の発行**クリックしてウィザードをもう一度、**インポート**します。
 
 **接続** タブで、変更**送信先 URL**一時的な URL を使用している場合は、適切な値にします。
 
 **[次へ]** をクリックします。
 
-**設定** タブで、をクリックして**の機能強化を公開する新しいデータベースを有効にする**です。
+**設定**] タブで [**発行機能の向上、新しいデータベースを有効にする**します。
 
-接続文字列 ドロップダウン リストに**SchoolContext**、Cytanium 接続文字列を選択します。
+接続文字列のドロップダウン リストで**SchoolContext**、Cytanium 接続文字列を選択します。
 
 ![Selecting_Cytanium_connection_string](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image5.png)
 
-選択**実行 Code First migrations (アプリケーション開始時に実行されます)** です。
+選択**実行 Code First migrations (アプリケーションの起動時に実行)** します。
 
-接続文字列 ドロップダウン リストに**DefaultConnection**、Cytanium 接続文字列を選択します。
+接続文字列のドロップダウン リストで**DefaultConnection**、Cytanium 接続文字列を選択します。
 
-選択、**プロファイル** タブで、をクリックして**プロファイルの管理**、"Production"に"contosouniversity.com - Web Deploy"から、プロファイルの名前を変更します。
+選択、**プロファイル** タブで、をクリックして**プロファイルの管理**、"Production"を"contosouniversity.com - Web Deploy"から、プロファイルの名前を変更します。
 
-発行プロファイルを変更を保存するを閉じてから、もう一度開きます。
+変更を保存する発行プロファイルを閉じてからもう一度開きます。
 
-**[発行]** をクリックします。 (コピーする実際の運用 web サイト、*アプリ\_offline.htm*と put の実稼働環境に発行する前に、プロジェクト フォルダーでを削除して、展開が完了するとします)。
+**[発行]** をクリックします。 (実際の運用 web サイトでコピーする*アプリ\_offline.htm*を本番環境と put、パブリッシュする前に、プロジェクト フォルダーで削除して、デプロイが完了します)。
 
-Visual Studio では、コードの変更をテスト環境に展開し、Contoso 大学のホーム ページにブラウザーを開きます。
+Visual Studio では、コードの変更をテスト環境に展開し、Contoso University のホーム ページをブラウザーで開きます。
 
-講習においてインストラクター ページを選択します。
+Instructors ページを選択します。
 
-Code First Migrations は、テスト環境で、同じ方法、データベースを更新します。 シードのデータの新しい勤務時間列を参照してください。
+Code First Migrations は、テスト環境では、データベースを更新します。 シードされたデータで新しい Office 時間列が参照してください。
 
 ![Instructors_page_with_OfficeHours_Prod](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/_static/image6.png)
 
-今すぐが正常に展開したデータベースの変更が含まれているアプリケーションの更新プログラム、SQL Server データベースを使用します。
+正常に配置されましたデータベースの変更を含むアプリケーションの更新プログラム、SQL Server データベースを使用しています。
 
 ## <a name="more-information"></a>説明
 
-これは、この一連のサード パーティのホスティング プロバイダーへの ASP.NET web アプリケーションの配置に関するチュートリアルを完了します。 これらのチュートリアルで説明されているトピックのいずれかの詳細については、次を参照してください。、 [ASP.NET 展開のコンテンツ マップ](https://msdn.microsoft.com/library/bb386521(v=vs.110).aspx)MSDN web サイトです。
+これは、この一連のサード パーティのホスティング プロバイダーへの ASP.NET web アプリケーションを展開する方法のチュートリアルを完了します。 これらのチュートリアルで取り上げるトピックのいずれかの詳細については、次を参照してください。、 [ASP.NET 配置コンテンツ マップ](https://msdn.microsoft.com/library/bb386521(v=vs.110).aspx)MSDN web サイト。
 
 ## <a name="acknowledgements"></a>謝辞
 
-このチュートリアル シリーズのコンテンツに多大な協力者次の方々 に感謝したいと思います。
+このチュートリアル シリーズのコンテンツに多大な貢献を行った以下の方々 に感謝したいと思います。
 
 - [Alberto Poblacion、MVP &amp; MCT、スペイン](https://mvp.support.microsoft.com/profile/Alberto)
-- Jarod Ferguson、データ プラットフォームの開発 MVP、United States
-- 過酷 Mittal、Microsoft
+- Jarod Ferguson、データ プラットフォームの開発の MVP、United States
+- Harsh Mittal、Microsoft
 - [Kristina Olson、Microsoft](https://blogs.iis.net/krolson/default.aspx)
 - [Mike 教皇、Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)
 - Mohit Srivastava、Microsoft
 - [Raffaele Rialdi (イタリア)](http://www.iamraf.net/)
 - [Rick Anderson、Microsoft](https://blogs.msdn.com/b/rickandy/)
-- [Sayed Hashimi、Microsoft](http://sedodream.com/default.aspx)(twitter: [ @sayedihashimi ](http://twitter.com/sayedihashimi))
+- [Sayed Hashimi, Microsoft](http://sedodream.com/default.aspx)(twitter: [ @sayedihashimi ](http://twitter.com/sayedihashimi))
 - [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](http://twitter.com/shanselman))
-- [Scott ハンター、Microsoft](https://blogs.msdn.com/b/scothu/) (twitter: [ @coolcsh ](http://twitter.com/coolcsh))
+- [Scott Hunter、Microsoft](https://blogs.msdn.com/b/scothu/) (twitter: [ @coolcsh ](http://twitter.com/coolcsh))
 - [Srđan Božović, Serbia](http://msforge.net/blogs/zmajcek/)
 - [Vishal Joshi、Microsoft](http://vishaljoshi.blogspot.com/) (twitter: [ @vishalrjoshi ](http://twitter.com/vishalrjoshi))
 
