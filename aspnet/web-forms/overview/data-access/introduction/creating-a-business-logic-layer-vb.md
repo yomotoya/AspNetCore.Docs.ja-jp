@@ -4,19 +4,16 @@ title: ビジネス ロジック層 (VB) を作成する |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは t 間のデータ交換の仲介役として機能するビジネス ロジック層 (BLL) に、ビジネス ルールを集中管理する方法を見ていきます。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 142e5181-29ce-4bb9-907b-2a0becf7928b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 06799205ca180ca504083a6e2e99faceb79b22fc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: eaa91cc46f0d043983c252c1d0adfc413f3b582d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375316"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832355"
 ---
 <a name="creating-a-business-logic-layer-vb"></a>ビジネス ロジック層 (VB) を作成します。
 ====================

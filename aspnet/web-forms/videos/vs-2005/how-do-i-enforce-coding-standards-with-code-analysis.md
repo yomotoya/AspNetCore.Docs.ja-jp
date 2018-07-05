@@ -4,19 +4,16 @@ title: '[How Do i:]コード分析でコーディング標準を適用します�
 author: rick-anderson
 description: Visual Studio Team system があるクラス ライブラリ プロジェクト、web サイトのプロジェクトおよびソース コード カバレッジに適用するコード分析規則を細かく制御しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/09/2007
-ms.topic: article
 ms.assetid: ab2eedbc-79b5-4b63-a1df-935940c1545b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-enforce-coding-standards-with-code-analysis
 msc.type: video
-ms.openlocfilehash: b8e68c88ae059e47ca3224adcb957ff745c7bf4d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6a3260c4427cb3f895da29a1b280c71333e87faa
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381969"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832273"
 ---
 <a name="how-do-i-enforce-coding-standards-with-code-analysis"></a>[How Do i:]コード分析でコーディング標準を適用しますか。
 ====================

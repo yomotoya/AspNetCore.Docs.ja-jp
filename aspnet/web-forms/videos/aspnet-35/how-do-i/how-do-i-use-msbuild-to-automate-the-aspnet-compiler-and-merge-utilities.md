@@ -4,19 +4,16 @@ title: '[How Do i:]MSBuild を使用して、ASP.NET コンパイラを自動化
 author: rick-anderson
 description: このビデオの Chris Pels では、ASP の aspnet_compiler と aspnet_merge ユーティリティの実行を調整する MSBuild プロジェクトを作成する方法を示します.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/07/2008
-ms.topic: article
 ms.assetid: 14f2b333-59f5-4ae4-88db-2a78f809cef3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities
 msc.type: video
-ms.openlocfilehash: b2803bbd9d63cb5e79ced227719e762eaf697aa6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8414489f495ae2b194a503bf3129467c3219ce8c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392112"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818192"
 ---
 <a name="how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities"></a>[How Do i:]MSBuild を使用して、ASP.NET コンパイラを自動化してマージ ユーティリティ
 ====================

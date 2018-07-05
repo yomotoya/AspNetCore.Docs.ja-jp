@@ -4,19 +4,16 @@ title: データ アクセス層の接続とコマンド レベルの設定 (VB)
 author: rick-anderson
 description: 型指定されたデータセット内で Tableadapter に自動的に自動的にデータベースへの接続のコマンドを発行および結果を含む DataTable を作成しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/03/2007
-ms.topic: article
 ms.assetid: d57dfa2b-d627-45cb-b5b1-abbf3159d770
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 85ec20795b337d5457becc5182b148b03e1554fa
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6d8f5aa0e114d22a3192b89f190baa83315bfa8c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402068"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818292"
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-vb"></a>データ アクセス層の接続とコマンド レベルの設定 (VB) を構成します。
 ====================
