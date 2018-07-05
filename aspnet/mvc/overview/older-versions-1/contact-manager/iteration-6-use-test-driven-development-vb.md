@@ -4,19 +4,16 @@ title: '繰り返し #6 – テスト駆動開発 (VB) を使用して、|Micros
 author: microsoft
 description: この 6 番目のイテレーションでは、アプリケーションに新しい機能を追加には、まず単体テストの記述、単体テストに対してコードを記述します。 このイテレーションにしています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: e1fd226f-3f8e-4575-a179-5c75b240333d
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3b55bb689a5a6dfdb07b02a7d595244f886f0fd2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f5ef03c76d1ecc72cffdeed6f8dcd1b5e39d859d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377247"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829272"
 ---
 <a name="iteration-6--use-test-driven-development-vb"></a>繰り返し #6 – テスト駆動開発 (VB) を使用します。
 ====================

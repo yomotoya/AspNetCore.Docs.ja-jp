@@ -4,19 +4,16 @@ title: 動的に追加する、アコーディオン ウィンドウ (c#) |Micro
 author: wenz
 description: AJAX Control Toolkit で、アコーディオン コントロールは、複数のペインを示し、うち 1 つを同時に表示できます。 パネルには、w を宣言は、通常は.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 66d88cfa-f26f-46b1-ad52-1c9e03c04a48
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 555a8a5cdd701bba3d41c3ff3313fe119a350e53
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 60bff8dd2d06356a1f2cc771cf5b7fa9c4e4eac5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381533"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803253"
 ---
 <a name="dynamically-adding-an-accordion-pane-c"></a>アコーディオン ウィンドウでは (c#) を動的に追加します。
 ====================

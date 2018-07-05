@@ -4,19 +4,16 @@ title: 計算列は (c#) を使用する |Microsoft Docs
 author: rick-anderson
 description: Microsoft SQL Server を使用すると、その値が式から計算されますが、計算列の定義、データベース テーブルを作成するときに通常、referen.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/03/2007
-ms.topic: article
 ms.assetid: 57459065-ed7c-4dfe-ac9c-54c093abc261
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 96a6411fe72e044b8f35091192ecaaac0d376349
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cde6b829bb8a4ac4a07ff5b5e519444a4cd99a01
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385717"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816668"
 ---
 <a name="working-with-computed-columns-c"></a>計算列は (c#) を使用します。
 ====================

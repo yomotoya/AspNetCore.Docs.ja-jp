@@ -4,19 +4,16 @@ title: マスター ページ (c#) を使用してサイト全体レイアウト
 author: rick-anderson
 description: このチュートリアルでは、マスター ページの基本を説明します。 つまり、マスター ページとはどのように 1 つのマスター ページを作成、1 つの cr はコンテンツのプレース ホルダーでは、どのようにしています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/21/2008
-ms.topic: article
 ms.assetid: 78f8d194-03b9-44a5-8255-90e7cd1c2ee1
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cea5894b269209326391de49003ec1d19c8e87f2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cf9264f6569fe1a5c0369b17a2358c5207cad6ad
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398551"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829280"
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-c"></a>マスター ページ (c#) を使用してサイト全体レイアウトを作成します。
 ====================

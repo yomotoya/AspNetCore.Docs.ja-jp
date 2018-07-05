@@ -4,19 +4,16 @@ title: フォーム認証構成と高度なトピック (VB) |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルはさまざまなフォーム認証の設定を確認し、フォーム要素を使用して変更する方法を参照してください。 これが、詳細なが必要.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/14/2008
-ms.topic: article
 ms.assetid: 829d2f56-5c48-445b-b826-3418a450c788
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 493cb81271ea1c0439f7b499c5b48e659d3589b5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d740694772b0fc5ad1c9c4eb5763004523586631
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390862"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831143"
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-vb"></a>フォーム認証構成と高度なトピック (VB)
 ====================

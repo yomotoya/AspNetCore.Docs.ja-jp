@@ -4,19 +4,16 @@ title: 型指定された DataSet の TableAdapters (c#) のストアド プロ�
 author: rick-anderson
 description: 前のチュートリアルでは、TableAdapter ウィザードを使用して、新しいストアド プロシージャを生成する方法について説明しました。 このチュートリアルで説明する方法と同じ TableAdapter.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/18/2007
-ms.topic: article
 ms.assetid: 440bef2a-1641-4238-99e3-8e2d44e7d94c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 74d52343f7840243cf48999b2729afb10e2610e3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3057b7c296c82b3db740d9fd345aaa222ca31328
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390035"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828871"
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>型指定された DataSet の TableAdapters (c#) のストアド プロシージャを既存の使用
 ====================

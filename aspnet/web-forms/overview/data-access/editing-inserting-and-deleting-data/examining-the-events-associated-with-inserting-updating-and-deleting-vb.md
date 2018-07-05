@@ -4,19 +4,16 @@ title: 挿入、更新、および削除 (VB) に関連付けられているイ�
 author: rick-anderson
 description: 検証する前に、実行時に、および挿入後に発生するイベントを使用してこのチュートリアルでは、更新、または ASP.NET データ Web コントロールの操作を削除します。 W..
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: c9bd10a7-eff8-4d8c-bec9-963c2aef2d6e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 483ff296bb6fcda14c224c085fc87209bb548700
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 548bfecc4215fbb2b36e0e2be42c7c08ee884270
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387911"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817163"
 ---
 <a name="examining-the-events-associated-with-inserting-updating-and-deleting-vb"></a>挿入、更新、および削除 (VB) に関連付けられているイベントを調べる
 ====================

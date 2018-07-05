@@ -4,19 +4,16 @@ title: ASP.NET 3.5 の開発環境のセットアップ |Microsoft Docs
 author: JoeStagner
 description: このビデオでは、ASP.NET 3.5 を対象としている場合は、ASP.NET AJAX アプリケーションを開発するため、開発環境を設定する方法を学習します。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/13/2009
-ms.topic: article
 ms.assetid: 00c0a4c9-5c25-413f-938c-8b77814ad2bd
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/set-up-your-development-environment-for-aspnet-35
 msc.type: video
-ms.openlocfilehash: 93f21ad063dfc2d7b45865377e5688af7dde66bb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 80ff1eb071d2b3fda4ffcca9b74804167f3d8080
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402708"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801756"
 ---
 <a name="set-up-your-development-environment-for-aspnet-35"></a>ASP.NET 3.5 の開発環境をセットアップします。
 ====================

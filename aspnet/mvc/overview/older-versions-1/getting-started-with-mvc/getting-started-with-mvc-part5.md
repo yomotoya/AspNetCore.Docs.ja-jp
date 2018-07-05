@@ -4,19 +4,16 @@ title: コント ローラーからモデルのデータへのアクセス |Micr
 author: shanselman
 description: これは、ASP.NET MVC の基本を紹介する初心者向けチュートリアルです。 読み取りと書き込みをデータベースから単純な web アプリケーションを作成します。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/14/2010
-ms.topic: article
 ms.assetid: 004703cd-e0e9-4ba7-9974-1b0475c71222
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 msc.type: authoredcontent
-ms.openlocfilehash: fe5111e2f103e9b20f27385421a1985062acaac1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 556eed77cbd9e81c0a2a1334bb0a8ee56abafd34
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371614"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815006"
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>コント ローラーからモデルのデータにアクセスします。
 ====================

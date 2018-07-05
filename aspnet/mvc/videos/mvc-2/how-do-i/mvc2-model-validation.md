@@ -4,19 +4,16 @@ title: MVC2 - モデルの検証 |Microsoft Docs
 author: microsoft
 description: このビデオでは、クライアント側 (AJAX) 検証を有効にする方法とデータ注釈属性を使用して、検証規則を定義する方法の詳細について説明します。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/23/2010
-ms.topic: article
 ms.assetid: fe3676fd-ecec-4756-8c8d-269da9754c31
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/mvc2-model-validation
 msc.type: video
-ms.openlocfilehash: bbe68e7295480751e2e796ff9676aa18f8b6d7ad
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 018e335d168312e50ecae245a02e2ad72a61bd3e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370906"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832303"
 ---
 <a name="mvc2---model-validation"></a>MVC2 - モデルの検証
 ====================

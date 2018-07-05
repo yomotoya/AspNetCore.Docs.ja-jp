@@ -4,19 +4,16 @@ title: (C#)、FormView で TextBoxWatermark を使用する |Microsoft Docs
 author: wenz
 description: AJAX Control Toolkit で TextBoxWatermark コントロールでは、テキスト ボックスを拡張するので、ボックス内でテキストが表示されます。 ボックスに、ユーザーがクリックしたときに.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: e6ee90bf-32a5-4987-a384-15cc7dd30c8a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-in-a-formview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 91f904637f7efd34cbe031d3f1695ba418c6932e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1e646b685680071501d45f7454920def2b15a7db
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368461"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817039"
 ---
 <a name="using-textboxwatermark-in-a-formview-c"></a>(C#)、FormView で TextBoxWatermark を使用します。
 ====================

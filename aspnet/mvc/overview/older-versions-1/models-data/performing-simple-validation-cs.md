@@ -4,19 +4,16 @@ title: 単純な検証 (c#) |Microsoft Docs
 author: StephenWalther
 description: ASP.NET MVC アプリケーションで検証を実行する方法について説明します。 このチュートリアルでは、Stephen Walther は、モデルの状態にして検証 HTML ヘルパーについて説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/02/2009
-ms.topic: article
 ms.assetid: 21383c9d-6aea-4bad-a99b-b5f2c9d6503f
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 622d4bc40b2f403c0a4efe0ee799a68f1adbe4fd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2a8f21a3950eb7793fd76458799ab4f6a6b5fa09
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377416"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816471"
 ---
 <a name="performing-simple-validation-c"></a>単純な検証 (c#) を実行します。
 ====================

@@ -4,19 +4,16 @@ title: バッチ更新 (VB) を実行する |Microsoft Docs
 author: rick-anderson
 description: 完全に編集を作成する方法について説明します DataList ですべての項目が編集モードとで、[すべて更新] ボタンをクリックして保存できる値を持つ、.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/30/2006
-ms.topic: article
 ms.assetid: 8dac22a7-91de-4e3b-888f-a4c438b03851
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a877bcc5b26965d59065aa17959643b66a5c4484
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6d6575e5f13441c38c5d7c74c8b5136a5206ffa9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388496"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803896"
 ---
 <a name="performing-batch-updates-vb"></a>バッチ更新 (VB) を実行します。
 ====================

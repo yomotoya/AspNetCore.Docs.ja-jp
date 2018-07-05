@@ -4,19 +4,16 @@ title: ObjectDataSource (VB) でデータをキャッシュ |Microsoft Docs
 author: rick-anderson
 description: キャッシュすると、低速と高速な Web アプリケーションの違いを意味します。 このチュートリアルでは、ASP.NET でのキャッシュで詳しく説明する 4 つの 1 つ目は.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/30/2007
-ms.topic: article
 ms.assetid: 2e56a733-5512-48a6-9276-70a65bbe4d5d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9db4811687af3b029b7011763f9b5af0a8c1daec
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: aa2af934a45ebd7e23d5d2ccf5a80f4949f1ec4f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364998"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817539"
 ---
 <a name="caching-data-with-the-objectdatasource-vb"></a>ObjectDataSource (VB) でデータをキャッシュ
 ====================

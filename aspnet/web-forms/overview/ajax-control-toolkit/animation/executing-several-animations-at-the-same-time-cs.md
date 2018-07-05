@@ -4,19 +4,16 @@ title: 複数のアニメーションを実行すると同時に (c#) |Microsoft
 author: wenz
 description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 これにより、落としたを実行する.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 219149e1-3ee9-4b79-8fe4-7433f6b7d15b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 500971bb1bad101a165c8dda6f5fa3d5cfe3aba4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 017a37533ab055ad149cf0de3a5892ae92741b84
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382820"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816851"
 ---
 <a name="executing-several-animations-at-the-same-time-c"></a>(C#) と同時に複数のアニメーションを実行
 ====================
