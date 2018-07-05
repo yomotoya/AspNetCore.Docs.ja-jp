@@ -4,22 +4,19 @@ title: Visual Studio 2012 JavaScript エディター |Microsoft Docs
 author: shanselman
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/15/2012
-ms.topic: article
 ms.assetid: b7c029cf-3fe0-4528-beb4-f577514b48ef
-ms.technology: ''
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-2012-javascript-editor
 msc.type: video
-ms.openlocfilehash: 4c526159427614ff59703486f9ab16169bab3a96
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 59c6c4d17f0b99f93660ba73e277848c37174f67
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369704"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816072"
 ---
-<a name="visual-studio-2012-javascript-editor"></a><span data-ttu-id="2f7a9-102">Visual Studio 2012 JavaScript エディター</span><span class="sxs-lookup"><span data-stu-id="2f7a9-102">Visual Studio 2012 JavaScript Editor</span></span>
+<a name="visual-studio-2012-javascript-editor"></a><span data-ttu-id="c2cf8-102">Visual Studio 2012 JavaScript エディター</span><span class="sxs-lookup"><span data-stu-id="c2cf8-102">Visual Studio 2012 JavaScript Editor</span></span>
 ====================
-<span data-ttu-id="2f7a9-103">によって[Scott Hanselman](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="2f7a9-103">by [Scott Hanselman](https://github.com/shanselman)</span></span>
+<span data-ttu-id="c2cf8-103">によって[Scott Hanselman](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="c2cf8-103">by [Scott Hanselman](https://github.com/shanselman)</span></span>
 
-[<span data-ttu-id="2f7a9-104">&#9654;ビデオ (5 分)</span><span class="sxs-lookup"><span data-stu-id="2f7a9-104">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2012-javascript-editor)
+[<span data-ttu-id="c2cf8-104">&#9654;ビデオ (5 分)</span><span class="sxs-lookup"><span data-stu-id="c2cf8-104">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2012-javascript-editor)
