@@ -4,19 +4,16 @@ title: 'SQL Server compact の Visual Studio または Visual Web Developer を�
 author: tdykstra
 description: このチュートリアル シリーズには、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/17/2011
-ms.topic: article
 ms.assetid: cd03a188-e947-4f55-9bda-b8bce201d8c6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 17910952e78418ef9e5b80efb04b5fe1e70c11bf
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 50b67c20ee374f1c7ab846446f836411132ddf78
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385312"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803682"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-setting-folder-permissions---6-of-12"></a>SQL Server compact の Visual Studio または Visual Web Developer を使用して ASP.NET Web アプリケーションの配置: フォルダー権限の設定 - 12 の 6
 ====================

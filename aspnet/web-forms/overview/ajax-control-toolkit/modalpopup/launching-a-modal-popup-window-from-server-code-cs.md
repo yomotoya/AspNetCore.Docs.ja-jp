@@ -4,19 +4,16 @@ title: サーバー コード (c#) からモーダル ポップアップ ウィ�
 author: wenz
 description: AJAX Control Toolkit の ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 ただし一部のシナリオでは、その t が必要としています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 2f67d8ef-73ca-447d-a0cc-6e3168431e6a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a13915f5748f8ad9b79fb787cc5e0682faa19388
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b7b486c4b99e5ddcb9bc244a9c5dcf193d33b696
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374092"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815305"
 ---
 <a name="launching-a-modal-popup-window-from-server-code-c"></a>サーバー コード (c#) からモーダル ポップアップ ウィンドウを起動します。
 ====================

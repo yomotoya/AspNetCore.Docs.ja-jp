@@ -4,19 +4,16 @@ title: '[How Do i:]操作マスター ページの宣言とプログラミング
 author: rick-anderson
 description: このビデオの Chris Pels でいくつかの側面を定義して、ASP.NET web サイトでマスター ページの使用が表示されます。 最初に、マスター ページ declarati を作成する方法を参照してください.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/21/2008
-ms.topic: article
 ms.assetid: 4f5f7805-373f-4dc3-b7f6-219edf7e66a3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-work-with-master-pages-declaratively-and-programmatically
 msc.type: video
-ms.openlocfilehash: 928f633372c3a65419dcf988c53f3b2ca73fe524
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: dc0569a457e2aea378a0fa49e80d9f1e794c256f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385876"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802423"
 ---
 <a name="how-do-i-work-with-master-pages-declaratively-and-programmatically"></a>[How Do i:]操作マスター ページの宣言とプログラミング
 ====================

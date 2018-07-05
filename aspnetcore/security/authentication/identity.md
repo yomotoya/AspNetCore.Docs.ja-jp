@@ -1,68 +1,68 @@
 ---
-title: ASP.NET Core での Id の概要
+title: ASP.NET core Identity の概要
 author: rick-anderson
-description: ASP.NET Core アプリケーションの Id を使用します。 含まれている (RequireDigit、RequiredLength、RequiredUniqueChars など) にパスワードの要件を設定します。
+description: ASP.NET Core アプリでは、Id を使用します。 含まれている (RequireDigit、RequiredLength、RequiredUniqueChars など) にパスワードの要件を設定します。
 ms.author: riande
 ms.date: 01/24/2018
 uid: security/authentication/identity
-ms.openlocfilehash: 57d9abbf82aedadd4d8c5eaabd21a5d31d5c6c61
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c231a7619a4433ce004342ce68564e4c3892e702
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272702"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829303"
 ---
-# <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core での Id の概要
+# <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET core Identity の概要
 
-によって[Pranav Rastogi](https://github.com/rustd)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)、Jon Galloway [Erik Reitan](https://github.com/Erikre)、および[Steve Smith](https://ardalis.com/)
+によって[Pranav Rastogi](https://github.com/rustd)、 [Rick Anderson](https://twitter.com/RickAndMSFT)、 [Tom Dykstra](https://github.com/tdykstra)、Jon Galloway、 [Erik Reitan](https://github.com/Erikre)、および[Steve Smith](https://ardalis.com/)
 
-ASP.NET Core Id は、アプリケーションにログイン機能を追加することができるメンバーシップ システムがします。 ユーザーは、ユーザー名でアカウントやログインを作成できます、パスワード、またはこれらには、Facebook、Google、Microsoft アカウント、Twitter またはなど、外部ログイン プロバイダーを使用できます。
+ASP.NET Core Identity は、メンバーシップ システム、アプリケーションにログイン機能を追加することができます。 ユーザーはユーザー名を持つアカウントとログインを作成でき、パスワード、またはこれらには、Facebook、Google、Microsoft アカウント、Twitter またはなど、外部ログイン プロバイダーを使用できます。
 
-ユーザー名、パスワード、およびプロファイル データを格納する SQL Server データベースを使用する ASP.NET Core Id を構成することができます。 代わりに、独自の永続的なストア、たとえば、Azure テーブル ストレージを使用することができます。 このドキュメントでは、Visual Studio と CLI を使用するための手順を説明します。
+ユーザー名、パスワード、およびプロファイル データを格納する SQL Server データベースを使用する ASP.NET Core Identity を構成することができます。 または、独自の永続的なストア、Azure Table Storage などを使用することができます。 このドキュメントでは、Visual Studio と CLI を使用するための手順を説明します。
 
-[表示または、サンプル コードをダウンロードします。](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(ダウンロードする方法)](xref:tutorials/index#how-to-download-a-sample)
+[表示またはサンプル コードをダウンロードします。](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(ダウンロードする方法)](xref:tutorials/index#how-to-download-a-sample)
 
 ## <a name="overview-of-identity"></a>Id の概要
 
-このトピックでを ASP.NET Core Id を使用して、ログインを登録する機能を追加する方法について説明し、ユーザーをログアウトします。 ASP.NET Core の Id を使用してアプリの作成に関する詳細な手順については、この記事の最後に次の手順を参照してください。
+このトピックでは、ASP.NET Core Identity を使用して、ログインを登録する機能を追加する方法について説明し、ユーザーをログアウトします。 ASP.NET Core Identity を使用してアプリの作成について詳細な手順については、この記事の最後に次の手順を参照してください。
 
-1. 個々 のユーザー アカウントを使って ASP.NET Core Web アプリケーション プロジェクトを作成します。
+1. 個々 のユーザー アカウントを使って、ASP.NET Core Web アプリケーション プロジェクトを作成します。
 
    # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-   Visual Studio で、次のように選択します。**ファイル** > **新規** > **プロジェクト**です。 選択**ASP.NET Core Web アプリケーション** をクリック**OK**です。
+   Visual Studio で、次のように選択します。**ファイル** > **新規** > **プロジェクト**します。 選択**ASP.NET Core Web アプリケーション** をクリック**OK**します。
 
    ![[新しいプロジェクト] ダイアログ](identity/_static/01-new-project.png)
 
-   ASP.NET Core の選択**Web アプリケーション (モデル-ビュー-コント ローラー)** for ASP.NET 2.x、コアし、選択**認証の変更**です。
+   ASP.NET Core を選択します。 **Web アプリケーション (モデル-ビュー-コント ローラー)** for ASP.NET Core 2.x、し、選択**認証の変更**します。
 
    ![[新しいプロジェクト] ダイアログ](identity/_static/02-new-project.png)
 
-   オファー、ダイアログを表示認証オプション。 選択**個々 のユーザー アカウント** をクリック**OK**前のダイアログに戻ります。
+   ダイアログがサービス認証の選択肢です。 選択**個々 のユーザー アカウント** をクリック**OK**前のダイアログに戻ります。
 
    ![[新しいプロジェクト] ダイアログ](identity/_static/03-new-project-auth.png)
 
-   選択すると**個々 のユーザー アカウント**モデル、ViewModels、ビュー、コント ローラー、およびプロジェクト テンプレートの一部として、認証に必要なその他のアセットを作成する Visual Studio に指示します。
+   選択**個々 のユーザー アカウント**モデル、ビューモデル、ビュー、コント ローラー、およびプロジェクト テンプレートの一部として、認証に必要なその他の資産を作成する Visual Studio に指示します。
 
    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-   .NET Core CLI を使用する場合を使用して新しいプロジェクトを作成`dotnet new mvc --auth Individual`です。 このコマンドは、Visual Studio によって作成された同じ Identity テンプレート コードを新しいプロジェクトを作成します。
+   .NET Core CLI を使用する場合を使用して新しいプロジェクトを作成`dotnet new mvc --auth Individual`です。 このコマンドは、同じ Id テンプレート コードが Visual Studio によって作成、新しいプロジェクトを作成します。
 
-   作成されたプロジェクトが含まれています、 `Microsoft.AspNetCore.Identity.EntityFrameworkCore` Id データおよび SQL Server を使用するスキーマが引き続き発生する、パッケージ[Entity Framework Core](https://docs.microsoft.com/ef/)です。
+   作成したプロジェクトが含まれています、`Microsoft.AspNetCore.Identity.EntityFrameworkCore`パッケージで、Id データと SQL Server を使用するスキーマが解決しない[Entity Framework Core](https://docs.microsoft.com/ef/)します。
 
    ---
 
-2. Id サービスを構成しのミドルウェアを追加`Startup`です。
+2. Id サービスを構成しでミドルウェアを追加`Startup`します。
 
-   Id サービスが、アプリケーションに追加されます、`ConfigureServices`メソッドで、`Startup`クラス。
+   Identity サービスでアプリケーションに追加されます、`ConfigureServices`メソッドで、`Startup`クラス。
 
    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
    [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-42)]
 
-   これらのサービスを使用して、アプリケーションで利用できる[依存性の注入](xref:fundamentals/dependency-injection)です。
+   これらのサービスを使用して、アプリケーションで利用できる[依存関係の注入](xref:fundamentals/dependency-injection)します。
 
-   呼び出して、アプリケーションの識別情報が有効になっている`UseAuthentication`で、`Configure`メソッドです。 `UseAuthentication` 認証を追加[ミドルウェア](xref:fundamentals/middleware/index)要求パイプラインにします。
+   呼び出すことによって、アプリケーションの id が有効に`UseAuthentication`で、`Configure`メソッド。 `UseAuthentication` 認証を追加します。[ミドルウェア](xref:fundamentals/middleware/index)要求パイプラインにします。
 
    [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
 
@@ -70,48 +70,48 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,13-33)]
 
-   これらのサービスを使用して、アプリケーションで利用できる[依存性の注入](xref:fundamentals/dependency-injection)です。
+   これらのサービスを使用して、アプリケーションで利用できる[依存関係の注入](xref:fundamentals/dependency-injection)します。
 
-   呼び出して、アプリケーションの識別情報が有効になっている`UseIdentity`で、`Configure`メソッドです。 `UseIdentity` cookie ベースの認証を追加[ミドルウェア](xref:fundamentals/middleware/index)要求パイプラインにします。
+   呼び出すことによって、アプリケーションの id が有効に`UseIdentity`で、`Configure`メソッド。 `UseIdentity` cookie ベースの認証を追加します。[ミドルウェア](xref:fundamentals/middleware/index)要求パイプラインにします。
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configure&highlight=21)]
 
    ---
 
-   アプリケーション起動プロセスの詳細については、次を参照してください。[アプリケーションの起動](xref:fundamentals/startup)です。
+   アプリケーション起動プロセスの詳細については、次を参照してください。[アプリケーションの起動](xref:fundamentals/startup)します。
 
 3. ユーザーを作成します。
 
-   アプリケーションを起動し、をクリックして、**登録**リンクします。
+   アプリケーションを起動し、をクリックして、**登録**リンク。
 
-   初めてこの操作を実行している場合は、移行を実行する必要はあります。 アプリケーションでは、するように求められます**適用移行**です。 必要な場合は、ページを更新します。
+   初めてこの操作を実行している場合は、移行を実行するために必要する必要があります。 アプリケーションでは、するように求められます**適用移行**します。 必要な場合は、ページを更新します。
 
    ![移行の Web ページを適用します。](identity/_static/apply-migrations.png)
 
-   代わりに、メモリ内データベースを使用してアプリを永続的なデータベースを使用しない ASP.NET Core の Id を使用してテストできます。 メモリ内のデータベースを使用するのには、追加、`Microsoft.EntityFrameworkCore.InMemory`アプリをパッケージ化し、アプリの呼び出しを変更`AddDbContext`で`ConfigureServices`次のようにします。
+   または、永続的なデータベースを使用せず、アプリでメモリ内データベースを使用して ASP.NET Core Identity を使用してテストできます。 メモリ内データベースを使用する追加、`Microsoft.EntityFrameworkCore.InMemory`をアプリにパッケージ化し、アプリの呼び出しを変更`AddDbContext`で`ConfigureServices`次のようにします。
 
    ```csharp
    services.AddDbContext<ApplicationDbContext>(options =>
        options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
    ```
 
-   ユーザーがクリックしたとき、**登録**、リンク、`Register`でアクションが呼び出される`AccountController`です。 `Register`アクションが呼び出すことによって、ユーザーを作成`CreateAsync`上、`_userManager`オブジェクト (に提供される`AccountController`依存関係の挿入によって)。
+   ユーザーがクリックすると、**登録**、リンク、`Register`でアクションが呼び出された`AccountController`。 `Register`アクションを呼び出して、ユーザーを作成します`CreateAsync`上、`_userManager`オブジェクト (に提供される`AccountController`依存関係の挿入によって)。
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_register&highlight=11)]
 
-   ユーザーが正常に作成されている場合、ユーザーがログインへの呼び出しによって`_signInManager.SignInAsync`です。
+   ユーザーが正常に作成された場合、ユーザーがログインへの呼び出しによって`_signInManager.SignInAsync`します。
 
-   **注:** を参照してください[アカウント確認](xref:security/authentication/accconfirm#prevent-login-at-registration)手順については、登録時に即時にログインできません。
+   **注:** を参照してください[アカウントの確認](xref:security/authentication/accconfirm#prevent-login-at-registration)登録時の即時のログインを防止する手順についてはします。
 
 4. ログイン。
 
-   をクリックしてユーザーがサインインできるよう、**ログイン**サイトの上部にあるリンクの承認を必要とするサイトの一部にアクセスする場合、ログイン ページに移動可能性がありますか。 ユーザーがログイン ページのフォームを送信するときに、 `AccountController` `Login`アクションが呼び出されます。
+   ユーザーがクリックしてサインインできる、**ログイン**サイトの上部にあるリンクまたは承認を必要とするサイトの一部にアクセスする場合、ログイン ページにナビゲート可能性があります。 ユーザーがログイン ページで、フォームを送信するときに、 `AccountController` `Login`アクションが呼び出されます。
 
    `Login`アクション呼び出し`PasswordSignInAsync`上、`_signInManager`オブジェクト (に提供される`AccountController`依存関係の挿入によって)。
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
 
-   基本`Controller`クラスが公開する`User`コント ローラーのメソッドからアクセスできるプロパティです。 インスタンスを列挙できます`User.Claims`承認決定を行うとします。 詳細については、次を参照してください。[承認](xref:security/authorization/index)です。
+   基本`Controller`クラスでは、`User`コント ローラー メソッドからアクセスできるプロパティです。 たとえば、列挙することができます`User.Claims`承認決定を行うとします。 詳細については、次を参照してください。[承認](xref:security/authorization/index)します。
 
 5. ログアウトします。
 
@@ -119,12 +119,12 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
 
    [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_logout&highlight=7)]
 
-   上記のコードの呼び出しの上、`_signInManager.SignOutAsync`メソッドです。 `SignOutAsync`メソッドは、cookie に格納されているユーザーの信頼性情報をクリアします。
+   上記のコードの呼び出しの上、`_signInManager.SignOutAsync`メソッド。 `SignOutAsync`メソッドは、cookie に格納されているユーザーの要求をクリアします。
 
 <a name="pw"></a>
 6. 構成します。
 
-   Id は、アプリのスタートアップ クラスでオーバーライドできるいくつかの既定の動作を持っています。 `IdentityOptions` 既定の動作を使用する場合に構成する必要はありません。 次のコードは、パスワードの強度のいくつかのオプションを設定します。
+   Id は、アプリのスタートアップ クラスでオーバーライドすることがいくつかの既定の動作を持っています。 `IdentityOptions` 既定の動作を使用する場合に構成する必要はありません。 次のコードは、パスワードの強度のいくつかのオプションを設定します。
 
    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
@@ -136,21 +136,21 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
 
    ---
 
-   Id を構成する方法の詳細については、次を参照してください。[構成 Identity](xref:security/authentication/identity-configuration)です。
+   Id を構成する方法の詳細については、次を参照してください。[構成 Identity](xref:security/authentication/identity-configuration)します。
 
-   構成することもできます、主キーのデータ型を参照してください[Id の構成の主キーのデータ型](xref:security/authentication/identity-primary-key-configuration)です。
+   構成することもできます、主キーのデータ型を参照してください[Id の構成の主キーのデータ型](xref:security/authentication/identity-primary-key-configuration)します。
 
 7. データベースを表示します。
 
-   アプリは、SQL Server データベース (既定の windows と Visual Studio ユーザー用) を使用している場合は、データベース作成されたアプリを表示できます。 使用することができます**SQL Server Management Studio**です。 または、Visual Studio から、次のように選択します。**ビュー** > **SQL Server オブジェクト エクスプ ローラー**です。 接続 **(localdb) \MSSQLLocalDB**です。 一致する名前を持つデータベース**aspnet - <*、プロジェクトの名前*>-<*日付文字列*>** が表示されます。
+   アプリは、SQL Server データベース (既定では、Windows と Visual Studio のユーザー) を使用している場合は、データベースに作成したアプリを表示できます。 使用することができます**SQL Server Management Studio**します。 または、Visual studio で、次のように選択します。**ビュー** > **SQL Server オブジェクト エクスプ ローラー**します。 接続する **(localdb) \MSSQLLocalDB**します。 一致する名前を持つデータベース`aspnet-<name of your project>-<guid>`が表示されます。
 
    ![AspNetUsers データベース テーブルのコンテキスト メニュー](identity/_static/04-db.png)
 
-   データベースを展開し、その**テーブル**を右クリックし、 **dbo します。AspNetUsers**テーブルを選択して**ビュー データ**です。
+   データベースを展開し、その**テーブル**、右クリックし、 **dbo します。AspNetUsers**テーブルを選択**ビュー データ**します。
 
-8. Identity 動作を確認します。
+8. Identity の動作を確認します
 
-    既定値*ASP.NET Core Web アプリケーション*プロジェクト テンプレートを使用してしなくても、アプリケーションでのアクションにアクセスするユーザーにログインします。 ASP.NET Identity が動作することを確認するには追加、`[Authorize]`属性を`About`のアクション、`Home`コント ローラー。
+    既定の*ASP.NET Core Web アプリケーション*プロジェクト テンプレートでは必要なく、アプリケーションで任意のアクションへのアクセスにログインします。 ASP.NET Identity が動作することを確認するには追加、`[Authorize]`属性を`About`のアクション、`Home`コント ローラー。
 
     ```csharp
     [Authorize]
@@ -163,35 +163,35 @@ ASP.NET Core Id は、アプリケーションにログイン機能を追加す�
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-    使用してプロジェクトを実行**Ctrl** + **f5 キーを押して**に移動し、**に関する**ページ。 認証されたユーザーのみがアクセス、**に関する** ページが表示、ASP.NET ログインまたは登録するには、ログイン ページにリダイレクトします。
+    使用してプロジェクトを実行**Ctrl** + **f5 キーを押して**に移動し、**について**ページ。 認証されたユーザーのみがアクセス可能性があります、**について**ASP.NET ログインまたは登録するには、ログイン ページにリダイレクトするため、ここで、ページします。
 
     # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-    コマンド ウィンドウを開き、プロジェクトのルートに移動ディレクトリを含む、`.csproj`ファイル。 実行、[実行 dotnet](/dotnet/core/tools/dotnet-run)アプリを実行するコマンド。
+    コマンド ウィンドウを開き、プロジェクトのルートに移動しますディレクトリを含む、`.csproj`ファイル。 実行、 [「dotnet run」](/dotnet/core/tools/dotnet-run)アプリを実行するコマンド。
 
     ```csharp
     dotnet run 
     ```
 
-    出力で指定された URL を参照、[実行 dotnet](/dotnet/core/tools/dotnet-run)コマンド。 URL を指す必要があります`localhost`生成されたポート番号。 移動し、**に関する**ページ。 認証されたユーザーのみがアクセス、**に関する** ページが表示、ASP.NET ログインまたは登録するには、ログイン ページにリダイレクトします。
+    参照からの出力で指定された URL、 [「dotnet run」](/dotnet/core/tools/dotnet-run)コマンド。 URL を指す必要があります`localhost`生成されたポート番号。 移動し、**について**ページ。 認証されたユーザーのみがアクセス可能性があります、**について**ASP.NET ログインまたは登録するには、ログイン ページにリダイレクトするため、ここで、ページします。
 
     ---
 
-## <a name="identity-components"></a>Identity コンポーネント
+## <a name="identity-components"></a>Id コンポーネント
 
-Id システムのプライマリ参照アセンブリが`Microsoft.AspNetCore.Identity`です。 ASP.NET Core Id のインターフェイスのコア セットを含む、このパッケージをによって含まれる`Microsoft.AspNetCore.Identity.EntityFrameworkCore`です。
+Id システムの主な参照アセンブリが`Microsoft.AspNetCore.Identity`します。 このパッケージは、ASP.NET Core Identity のインターフェイスのコア セットが含まれていてに含まれている`Microsoft.AspNetCore.Identity.EntityFrameworkCore`します。
 
-ASP.NET Core アプリケーションで Id システムを使用するには、これらの依存関係が必要です。
+ASP.NET Core アプリケーションで、Id システムを使用するには、これらの依存関係が必要です。
 
-* `Microsoft.AspNetCore.Identity.EntityFrameworkCore` -エンティティ フレームワークのコアで Id を使用する、必要な型が含まれています。
+* `Microsoft.AspNetCore.Identity.EntityFrameworkCore` -Entity Framework Core での Id を使用する必要な型が含まれています。
 
-* `Microsoft.EntityFrameworkCore.SqlServer` Entity Framework Core は、SQL Server などのリレーショナル データベースの Microsoft の推奨されるデータ アクセス テクノロジです。 使用することができます、テストは`Microsoft.EntityFrameworkCore.InMemory`します。
+* `Microsoft.EntityFrameworkCore.SqlServer` -Entity Framework Core は、SQL Server のようなリレーショナル データベース用の Microsoft の推奨されるデータ アクセス テクノロジです。 テストは、使用することができます`Microsoft.EntityFrameworkCore.InMemory`します。
 
-* `Microsoft.AspNetCore.Authentication.Cookies` -を cookie ベースの認証を使用するアプリを有効にするミドルウェア。
+* `Microsoft.AspNetCore.Authentication.Cookies` -Cookie ベースの認証を使用するアプリができるミドルウェア。
 
-## <a name="migrating-to-aspnet-core-identity"></a>ASP.NET Core の Id への移行
+## <a name="migrating-to-aspnet-core-identity"></a>ASP.NET Core Identity に移行します。
 
-ストアを参照の追加情報と、既存の Id の移行に関するガイダンスの[移行認証と Id](xref:migration/identity)です。
+追加情報と、既存の Id の移行のガイダンスについては、「」を参照をストア[移行の認証と Id](xref:migration/identity)します。
 
 ## <a name="setting-password-strength"></a>パスワードの強度を設定
 

@@ -4,19 +4,16 @@ title: (C#)、UpdatePanel のポップアップ コントロールからポス�
 author: wenz
 description: AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。 特別な注意は、する必要があります.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 1f68f59d-9c1e-4cf3-b304-c13ae6b7203e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 758ed5eef32be0fb596d8b9dbf903729816746bd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9fdf2821e005bfcb691134bb6994c01fa72b7abd
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377974"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815383"
 ---
 <a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-c"></a>(C#)、UpdatePanel のポップアップ コントロールからポストバックを処理します。
 ====================

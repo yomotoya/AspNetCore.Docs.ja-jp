@@ -4,19 +4,16 @@ title: テキスト ボックス (VB) で特定の文字のみを許可する |M
 author: wenz
 description: ASP.NET 検証コントロールは、ユーザー入力で特定の文字だけが許可されることを保証できます。 ただしこれができない無効な入力からユーザー.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 33af23f1-4016-4740-8fb2-37d1773452cd
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e44b69a4f7d46f1f1278f7de07a2e6c025f5c316
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e53d7282237c94b88c712e53bf607dcb94ccf1f2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386761"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830747"
 ---
 <a name="allowing-only-certain-characters-in-a-text-box-vb"></a>テキスト ボックス (VB) で特定の文字のみを許可します。
 ====================

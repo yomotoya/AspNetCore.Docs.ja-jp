@@ -4,19 +4,16 @@ title: Tailspin Spyworks - 人気製品コントロールの作成と |Microsoft
 author: JoeStagner
 description: Joe Stagner が作成し、Tailspin Spyworks サンプルの Web フォーム アプリケーションの人気製品コントロールを使用します。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/26/2010
-ms.topic: article
 ms.assetid: 66944300-804e-484d-8176-6cfe8c128cfc
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-creating-and-using-the-popular-products-control
 msc.type: video
-ms.openlocfilehash: 6660849e3814bf88286e06119519f22f5217bfc7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 42455c26ac1d5a6caa5e2263a95211b9a27fb7f7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390518"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802472"
 ---
 <a name="tailspin-spyworks---creating-and-using-the-popular-products-control"></a>Tailspin Spyworks - 人気製品コントロールの作成と
 ====================

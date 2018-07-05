@@ -4,19 +4,16 @@ title: (VB) DropShadow の Z インデックスを調整 |Microsoft Docs
 author: wenz
 description: DropShadow コントロール、AJAX Control Toolkit では、影付きのパネルを拡張します。 ただし場合がありますこのシャドウがインストールの他のコントロールと競合しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: ecb004b5-82c0-44fb-bcaf-233fffac6195
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-vb
 msc.type: authoredcontent
-ms.openlocfilehash: afc51c6e52a08f46ffc44cc462bdf9a9d5c8ef43
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 78697f51a09dfaad315255efa23120d4c456bfea
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397543"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829545"
 ---
 <a name="adjusting-the-z-index-of-a-dropshadow-vb"></a>(VB) DropShadow の Z インデックスを調整します。
 ====================

@@ -4,19 +4,16 @@ title: 'How Do i: を使用して ASP.NET Web フォームによるルーティ�
 author: rick-anderson
 description: このビデオでは、Chris Pels は ASP.NET 4 Web フォームのルーティングを実装する方法を示します。 最初に、URL ルーティングの概念は p に URL をマップに比較しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/15/2010
-ms.topic: article
 ms.assetid: a3ab6cd9-8f71-4b73-9336-21c0de078269
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/net-4/routing/how-do-i-use-routing-with-aspnet-web-forms
 msc.type: video
-ms.openlocfilehash: 8ef8edd68d9918817df564227d1f37716d49d132
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4b570df24b7a931b3853c5117a29d405ca8ecf24
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383452"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830203"
 ---
 <a name="how-do-i-use-routing-with-aspnet-web-forms"></a>How Do i: を使用して ASP.NET Web フォームによるルーティングでしょうか。
 ====================

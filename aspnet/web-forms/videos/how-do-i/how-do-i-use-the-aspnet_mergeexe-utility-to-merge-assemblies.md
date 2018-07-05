@@ -4,19 +4,16 @@ title: '[How Do i:]Aspnet_merge.exe ユーティリティを使用してアセ�
 author: rick-anderson
 description: このビデオで Chris Pels は aspnet_merge.exe ユーティリティを使用して、aspnet_compiler.exe ユーティリティを使用してコンパイルされたアセンブリを結合する方法を紹介しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/26/2008
-ms.topic: article
 ms.assetid: 2bfd5353-2a35-449e-aeff-0fb94cf10030
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies
 msc.type: video
-ms.openlocfilehash: f00c1b23ec907711fdaf0e24e4a4a20ff1d2f556
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2e5fc2e53518c0dcfe16842b7bd6eccec1d67e83
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378625"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829532"
 ---
 <a name="how-do-i-use-the-aspnetmergeexe-utility-to-merge-assemblies"></a>[How Do i:]Aspnet_merge.exe ユーティリティを使用してアセンブリをマージするには
 ====================

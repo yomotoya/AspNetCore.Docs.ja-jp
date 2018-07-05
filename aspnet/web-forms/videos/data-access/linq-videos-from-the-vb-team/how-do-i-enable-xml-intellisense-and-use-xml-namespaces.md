@@ -4,19 +4,16 @@ title: '[How Do i:]XML IntelliSense を有効にして、XML 名前空間を使�
 author: bethmassi
 description: Visual Basic 開発者は、スキーマを使用して XML IntelliSense を有効にする方法とクエリを実行して、XML ドキュメントを作成するときに XML 名前空間を使用する方法について説明します。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: cdccd601-c0fe-4e56-9c38-7ef027de3481
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team/how-do-i-enable-xml-intellisense-and-use-xml-namespaces
 msc.type: video
-ms.openlocfilehash: e4de1242f66791f71564272f6878c3b1fe849cab
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a4db10ded41fda6946df907ab5a89ab29cc59352
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398434"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801584"
 ---
 <a name="how-do-i-enable-xml-intellisense-and-use-xml-namespaces"></a>[How Do i:]XML IntelliSense を有効にして、XML 名前空間を使用しますか。
 ====================

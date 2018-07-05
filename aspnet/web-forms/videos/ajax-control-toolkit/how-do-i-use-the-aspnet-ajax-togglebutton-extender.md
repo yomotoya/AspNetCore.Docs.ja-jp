@@ -4,19 +4,16 @@ title: '[How Do i:]ASP.NET AJAX ToggleButton エクステンダーを使用し�
 author: JoeStagner
 description: ユーザーを強化するために標準の ASP.NET のチェック ボックス コントロールの外観と動作を変更する ToggleButton エクステンダー コントロール間を使用してについて説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/01/2007
-ms.topic: article
 ms.assetid: 3116e9bc-681c-48f9-813e-1bcfcec145da
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-togglebutton-extender
 msc.type: video
-ms.openlocfilehash: 89f8d1783e60ccad823ad58d3ca0d7542fca2e6b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bd1b58d843839a60b24513796359d0bd502e5e6f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386395"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802951"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-togglebutton-extender"></a>[How Do i:]ASP.NET AJAX ToggleButton エクステンダーを使用しますか。
 ====================

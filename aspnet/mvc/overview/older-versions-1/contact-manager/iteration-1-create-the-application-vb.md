@@ -4,19 +4,16 @@ title: '繰り返し #1 – アプリケーションを作成する (VB) |Micros
 author: microsoft
 description: '最初のイテレーションを作成、連絡先マネージャー最も簡単な方法で考えられるします。 基本的なデータベース操作のサポートを追加します: 作成、読み取り、更新、および D.'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: 5b033582-1646-42c2-b20d-7edc8814e970
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cf2fe15a0db8e3bd90a3bc8a7ef4f0367a047a33
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: aee177164293c178fa7d2d4acfb60f85dc98bb05
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367335"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803007"
 ---
 <a name="iteration-1--create-the-application-vb"></a>繰り返し #1 – アプリケーションを作成する (VB)
 ====================

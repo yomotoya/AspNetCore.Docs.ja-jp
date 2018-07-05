@@ -4,19 +4,16 @@ title: 'EF Database First と ASP.NET MVC: Web アプリケーションとデー
 author: tfitzmac
 description: MVC、Entity Framework、および ASP.NET のスキャフォールディングを使用して、既存のデータベースへのインターフェイスを提供する web アプリケーションを作成することができます。 このチュートリアルの化しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/01/2014
-ms.topic: article
 ms.assetid: bc8f2bd5-ff57-4dcd-8418-a5bd517d8953
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/creating-the-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: a1c4e3365d320ee54d378de33a77666558a854d2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b4c30b12d2b62b71c0f80546d8a537c80d514d79
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398246"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802897"
 ---
 <a name="ef-database-first-with-aspnet-mvc-creating-the-web-application-and-data-models"></a>EF Database First と ASP.NET MVC: Web アプリケーションとデータ モデルを作成します。
 ====================

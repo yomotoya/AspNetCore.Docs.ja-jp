@@ -4,19 +4,16 @@ title: ドラッグ アンド ドロップで ReorderList (c#) |Microsoft Docs
 author: wenz
 description: ReorderList コントロール、AJAX Control Toolkit では、ユーザーがドラッグ アンド ドロップを使用して並べ替えることができる一覧を提供します。 現在の注文リストのものとしています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 6350ee8e-11d6-4aff-b51c-942878014835
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/drag-and-drop-via-reorderlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 59f88787e7794e9c7bd391ae3e8cea538b446f7d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6c31e1e9b88d07fb4fe2881ac24b7c9c10126c96
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389112"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803720"
 ---
 <a name="drag-and-drop-via-reorderlist-c"></a>ドラッグ アンド ドロップで ReorderList (c#)
 ====================

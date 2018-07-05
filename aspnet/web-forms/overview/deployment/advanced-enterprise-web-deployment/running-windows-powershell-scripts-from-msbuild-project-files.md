@@ -4,19 +4,16 @@ title: MSBuild プロジェクト ファイルからの Windows PowerShell ス�
 author: jrjlee
 description: このトピックでは、ビルドおよび配置プロセスの一部として Windows PowerShell スクリプトを実行する方法について説明します。 スクリプトをローカルで実行することができます (つまり、b の..。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 55f1ae45-fcb5-43a9-8415-fa5b935fc9c9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: ddb658d8a8f224a7c417321df3e17ce0610d2473
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: faedcee480b6c50dc560055206fedbe7af4d5f67
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362896"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803150"
 ---
 <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>MSBuild プロジェクト ファイルからの Windows PowerShell スクリプトの実行
 ====================
@@ -59,7 +56,7 @@ ms.locfileid: "37362896"
 という名前のサンプル Windows PowerShell スクリプトを使用して、このトピックのタスクで**LogDeploy.ps1** MSBuild からスクリプトを実行する方法について説明します。 **LogDeploy.ps1**スクリプトには、ログ ファイルを単一行のエントリを書き込む単純な関数が含まれています。
 
 
-[!code-javascript[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.js)]
+[!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.ps1)]
 
 
 **LogDeploy.ps1**スクリプトは 2 つのパラメーターを受け取ります。 最初のパラメーターは、エントリを追加するログ ファイルに完全なパスを表すし、2 番目のパラメーターは、ログ ファイルに記録する、配置先を表します。 スクリプトを実行するときに、この形式でログ ファイルに行が追加されます。
