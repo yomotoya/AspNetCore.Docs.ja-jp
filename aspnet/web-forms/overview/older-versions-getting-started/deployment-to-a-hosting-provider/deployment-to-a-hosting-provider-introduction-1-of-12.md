@@ -1,23 +1,22 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
-title: 'SQL Server compact の Visual Studio を使用して ASP.NET Web アプリケーションの配置: 導入 - 1/12 |Microsoft ドキュメント'
+title: 'SQL Server compact の Visual Studio を使用して ASP.NET Web アプリケーションの配置: 12 の第 1 の概要 |Microsoft Docs'
 author: tdykstra
-description: この一連のチュートリアルは、展開する方法を示します (発行)、ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
+description: このチュートリアル シリーズには、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Stu を使用して、SQL Server Compact データベースが含まれています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
 ms.topic: article
 ms.assetid: a2d7f33b-8c4a-4b48-9fb1-9139cf9b9878
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 3f1572bb890ee136cdd746040a5efae2ce537116
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 4a790fa72568caafdb2fab5efd9f334919c23719
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30883285"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37398272"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>SQL Server compact の Visual Studio を使用して ASP.NET Web アプリケーションの配置: 12 の第 1 の概要
 ====================
@@ -25,101 +24,101 @@ ms.locfileid: "30883285"
 
 [スタート プロジェクトをダウンロードします。](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> この一連のチュートリアルは、展開する方法を示します (発行)、ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC for Web を使用して SQL Server Compact データベースが含まれます。 Web 公開の更新プログラムをインストールする場合は、また Visual Studio 2010 を使用することができます。
+> この一連のチュートリアルは、展開する方法を示します (発行) ASP.NET web アプリケーション プロジェクトを Visual Studio 2012 RC または Visual Studio Express 2012 RC を for Web を使用して、SQL Server Compact データベースが含まれています。 Web の発行の更新をインストールする場合は、Visual Studio 2010 を使用することもできます。
 > 
-> チュートリアルについては、RC のリリースの Visual Studio 2012 以降の展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションを展開する方法を示していますし、Azure App Service Web アプリを展開する方法を示しています、次を参照してください[ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)です。
+> Visual Studio 2012 RC のリリース後に導入された展開機能を示しています、SQL Server Compact 以外の SQL Server のエディションをデプロイする方法を示しています、および Azure App Service Web Apps にデプロイする方法を示していますチュートリアルでは、次を参照してください。 [ASP.NET Web 配置。Visual Studio を使用して](../../deployment/visual-studio-web-deployment/introduction.md)します。
 > 
-> これらのチュートリアルでは、テストは、ローカル開発用コンピューター上の IIS してから、サード パーティのホスティング プロバイダーに、最初に配置する方法を説明します。 展開するアプリケーションでは、アプリケーション データベースと、ASP.NET メンバーシップ データベースを使用します。 SQL Server Compact を使用して、SQL Server Compact への展開を開始して、後のチュートリアルを表示するデータベースの変更を展開する方法と SQL Server に移行する方法です。
+> これらのチュートリアルでは、テスト、ローカル開発用コンピューター上の iis とサード パーティのホスティング プロバイダーにし、最初に配置する方法を説明します。 デプロイするアプリケーションでは、アプリケーション データベースと、ASP.NET メンバーシップ データベースを使用します。 SQL Server Compact を使用して、SQL Server Compact への展開を開始して、以降のチュートリアルを表示するデータベースの変更をデプロイする方法と SQL Server に移行する方法。
 > 
-> チュートリアルでは、Visual Studio での ASP.NET の使用方法を知っていると仮定します。 開始するに適してがない場合は、[基本的な ASP.NET Web フォーム チュートリアル](../tailspin-spyworks/tailspin-spyworks-part-1.md)または[基本的な ASP.NET MVC のチュートリアル](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)です。
+> チュートリアルでは、Visual Studio で ASP.NET を使用する方法を理解すると仮定します。 ない場合は、開始点としてを[基本的な ASP.NET Web フォームのチュートリアル](../tailspin-spyworks/tailspin-spyworks-part-1.md)または[基本的な ASP.NET MVC チュートリアル](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md)します。
 > 
-> チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET 展開フォーラム](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment)です。
+> チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET 展開に関するフォーラム](https://forums.asp.net/26.aspx/1?Configuration+and+Deployment)します。
 
 
 ## <a name="overview"></a>概要
 
-これらのチュートリアルでは、テストは、ローカル開発用コンピューター上の IIS してから、サード パーティのホスティング プロバイダーに、最初に配置する方法を説明します。 展開するアプリケーションでは、アプリケーション データベースと、ASP.NET メンバーシップ データベースを使用します。 SQL Server Compact を使用して、SQL Server Compact への展開を開始して、後のチュートリアルを表示するデータベースの変更を展開する方法と SQL Server に移行する方法です。
+これらのチュートリアルでは、テスト、ローカル開発用コンピューター上の iis とサード パーティのホスティング プロバイダーにし、最初に配置する方法を説明します。 デプロイするアプリケーションでは、アプリケーション データベースと、ASP.NET メンバーシップ データベースを使用します。 SQL Server Compact を使用して、SQL Server Compact への展開を開始して、以降のチュートリアルを表示するデータベースの変更をデプロイする方法と SQL Server に移行する方法。
 
-数チュートリアル – のすべてのページで 11 とトラブルシューティングのページ – 可能性がありますように圧倒されて、展開プロセスです。 実際には、サイトを展開するための基本的な手順は、比較的小さいチュートリアルのセットの一部を構成します。 ただし、実際の状況では、多くの場合、情報が必要ないくつかの小さなが重要な余分な側面に関する展開の — たとえば、ターゲット サーバーでフォルダーのアクセス許可を設定します。 これらの他の手法の多くは、チュートリアルでは、チュートリアルの実際のアプリケーションを正常に展開を妨げる可能性のある情報を離れることを期待してに掲載されています。
+数のチュートリアル-すべて 11 とトラブルシューティングのページ – ことは一見大変な展開プロセス。 実際には、サイトの展開の基本的な手順は、比較的小さな、チュートリアル セットの一部を構成します。 ただし、実際の状況では、多くの場合、情報が必要ないくつかの小さいながらも重要な余分な側面に関する展開の — たとえば、対象サーバーでフォルダーのアクセス許可を設定します。 これらの他のテクニックの多くのチュートリアルは、実際のアプリケーションを正常に展開を妨げる可能性のある情報を忘れないでください期待して、チュートリアルで追加しました。
 
-チュートリアルが順番に実行するように設計し、各部分が、前のパートを上に構築します。 ただし、自分の状況に関連性のない部分をスキップすることができます。 (部分をスキップする必要があります後のチュートリアルの手順を調整します。)
+チュートリアルは順番に実行するように設計し、前のパートに各部分をビルドします。 ただし、状況に関連性のない部分をスキップできます。 (部分をスキップする必要があります以降のチュートリアルで手順を調整します。)
 
-## <a name="intended-audience"></a>想定読者
+## <a name="intended-audience"></a>対象読者
 
-チュートリアルでは、小規模な組織やその他の環境で作業する ASP.NET 開発者が目的で。
+小規模な組織やその他の環境で作業する ASP.NET 開発者が目的としたチュートリアルでは、場所。
 
 - 継続的インテグレーション プロセス (自動ビルドと配置) は使用されません。
 - 運用環境は、サード パーティのホスティング プロバイダーです。
-- 1 人のユーザーは、通常、複数の役割 (同一人物を開発、テスト、および展開) を設定します。
+- 通常、1 人のユーザーは、複数のロール (同一人物を開発、テスト、および展開) を設定します。
 
-エンタープライズ環境で継続的インテグレーション プロセスを実装する一般的なと運用環境は通常、会社のサーバーでホストします。 また通常、別のユーザーは、異なる役割を実行します。 エンタープライズ展開については、次を参照してください。[エンタープライズ シナリオで Web アプリケーションの配置](../../deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)です。
+エンタープライズ環境で継続的インテグレーションのプロセスを実装する方が一般的ですし、運用環境が、通常、会社のサーバーによってホストされています。 通常、さまざまな人々 は、異なる役割を実行します。 エンタープライズ展開方法については、次を参照してください。[エンタープライズ シナリオで Web アプリケーションの配置](../../deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)します。
 
-あらゆる規模の組織では、azure の web アプリケーションを展開できますもと、このチュートリアルで示す手順のほとんどは、Azure の App Services の Web アプリにも適用されます。 Azure の概要については、次を参照してください。 [ https://azure.microsoft.com](https://azure.microsoft.com)です。
+あらゆる規模の組織を Azure に web アプリケーションをデプロイもでき、このチュートリアルで示す手順のほとんどは、Azure App Services の Web Apps にも適用します。 Azure の概要については、次を参照してください。 [ https://azure.microsoft.com](https://azure.microsoft.com)します。
 
 ## <a name="the-hosting-provider-shown-in-the-tutorials"></a>チュートリアルで示すように、ホスティング プロバイダー
 
-チュートリアルでは、ホスティング プロバイダーを持つアカウントを設定して、そのホスティング プロバイダーへのアプリケーションの配置のプロセスを実行します。 チュートリアルでは、でしたライブ web サイトを展開する完全なエクスペリエンスを示すように、特定のホスティング企業が選択されました。 各ホスティング企業が、さまざまな機能を提供され、そのサーバーに展開する場合の動作が異なる多少です。ただし、このチュートリアルで説明するプロセスは通常、全体的なプロセスです。
+チュートリアルでは、ホスティング プロバイダーを持つアカウント設定とそのホスティング プロバイダーにアプリケーションを展開するプロセスを実行します。 特定のホスティング企業は、チュートリアルでは、ライブ web サイトへのデプロイの包括的なエクスペリエンスを示す可能性がありますように選択されました。 各ホスティング プロバイダーのさまざまな機能を提供して、サーバーへのデプロイの経験が少し; を異なるただし、このチュートリアルで説明されているプロセスは、全体的なプロセスの一般的なものです。
 
-Cytanium.com、このチュートリアルに使用されるホスティング プロバイダーは、使用可能な次のいずれかと、このチュートリアルで使用するにはなりません承認または推奨します。
+このチュートリアルでは、Cytanium.com で使用するホスティング プロバイダーは、使用可能な次のいずれかとを承認または推奨、このチュートリアルでは、その使用は構成されません。
 
 ## <a name="deploying-web-site-projects"></a>Web サイト プロジェクトの配置
 
-Contoso 大学は、Visual Studio web アプリケーション プロジェクトです。 このチュートリアルで示されているツールと展開方法のほとんどには適用されません[Web サイト プロジェクト](https://msdn.microsoft.com/library/dd547590.aspx)です。 Web サイト プロジェクトを展開する方法については、次を参照してください。 [ASP.NET 展開のコンテンツ マップ](https://msdn.microsoft.com/library/bb386521.aspx#deployment_for_web_site_projects)です。
+Contoso 大学は、Visual Studio web アプリケーション プロジェクトです。 ほとんどの展開方法とツールがこのチュートリアルで示すには適用されません[Web サイト プロジェクト](https://msdn.microsoft.com/library/dd547590.aspx)します。 Web サイト プロジェクトをデプロイする方法については、次を参照してください。 [ASP.NET 配置コンテンツ マップ](https://msdn.microsoft.com/library/bb386521.aspx#deployment_for_web_site_projects)します。
 
 ## <a name="deploying-aspnet-mvc-projects"></a>ASP.NET MVC プロジェクトの配置
 
-このチュートリアルでは、ASP.NET Web フォーム プロジェクトを展開するを行う方法を説明するすべてのものはも ASP.NET MVC には適用します。 Visual Studio の MVC プロジェクトは、web アプリケーション プロジェクトの単なる別の形式です。 唯一の違いは、ことを ASP.NET MVC またはこれのターゲット バージョンをサポートしていないホスティング プロバイダーに配置する場合は、する必要があります、適切なインストールしてください ([MVC 3](http://nuget.org/packages/AspNetMvc/3.0.20105.0)または[MVC 4](http://nuget.org/packages/aspnetmvc))、プロジェクトの NuGet パッケージです。
+このチュートリアルでは、ASP.NET Web フォーム プロジェクトを展開するも ASP.NET MVC に適用可能なすべてを行う方法について説明します。 Visual Studio MVC プロジェクトでは、web アプリケーション プロジェクトのもう 1 つの形式です。 唯一の違いは、ASP.NET MVC またはこれのターゲット バージョンをサポートしていないホスティング プロバイダーにデプロイする場合おく必要があります、適切なインストールしておきます ([MVC 3](http://nuget.org/packages/AspNetMvc/3.0.20105.0)または[MVC 4](http://nuget.org/packages/aspnetmvc)) プロジェクトに NuGet パッケージ。
 
 ## <a name="programming-language"></a>プログラミング言語
 
-C# サンプル アプリケーションを使用が、チュートリアルには、C# の場合の知識は不要し、チュートリアルで示すように展開方法は、言語固有ではないです。
+C# サンプル アプリケーションを使用が、チュートリアルには、c# の知識が必要としないと、チュートリアルで示すように、展開方法は、言語固有ではないです。
 
-## <a name="troubleshooting-during-this-tutorial"></a>このチュートリアルでのトラブルシューティング
+## <a name="troubleshooting-during-this-tutorial"></a>このチュートリアルの中のトラブルシューティング
 
-展開時に、エラーの発生時、または展開されたサイトが正しく実行されない場合は、エラー メッセージは常にソリューションを提供しません。 一般的な問題のシナリオで役立つ、[リファレンス ページのトラブルシューティング](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)は使用できます。 エラー メッセージを取得する、または、チュートリアルを通過するとおりに機能しない、トラブルシューティングのページを確認することを確認します。
+展開中にエラーが発生したとき、またはデプロイされたサイトが正しく実行されない場合は、エラー メッセージは、ソリューションを常に用意されていません。 問題の一般的なシナリオで役立つ、[トラブルシューティングのリファレンス ページ](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md)は使用できます。 エラー メッセージを取得する、または、チュートリアルを進めるときに機能しない、必ず、トラブルシューティングのページを確認してください。
 
-## <a name="comments-welcome"></a>コメントへようこそ
+## <a name="comments-welcome"></a>コメントの開始
 
-チュートリアルでは、上のコメントはへようこそ とチュートリアルが更新されたときにすべての作業量になりますチュートリアルのコメントに用意された機能強化に関するアカウントの修正または提案を考慮します。
+チュートリアルでは、コメントは、[ようこそ]、およびあらゆる努力をアカウントの修正または提案のコメントのチュートリアルに用意されている改善点を考慮できるように、チュートリアルが更新されたときにします。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-開始する前に、Windows 7 またはそれ以降があり、そのコンピューターにインストールされている製品は次のいずれかを確認します。
+開始する前に、Windows 7 以降があり、そのコンピューターにインストールされている製品は次のいずれかを確認します。
 
 - [Visual Studio 2010 SP1](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)
 - [Visual Web Developer Express 2010 SP1](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VWD2010SP1Pack)
-- [Visual Studio 2012 RC または Visual Studio Express 2012 RC for Web](https://go.microsoft.com/fwlink/?LinkId=240162)
+- [Visual Studio 2012 RC または Visual Studio Express の 2012 RC for Web](https://go.microsoft.com/fwlink/?LinkId=240162)
 
-Visual Studio 2010 SP1 または Visual Web Developer Express 2010 SP1 があれば、また、次の製品をインストールします。
+Visual Studio 2010 SP1 または Visual Web Developer Express 2010 SP1 がある場合も、次の製品をインストールします。
 
-- [Azure SDK for .NET (VS 2010 SP1)](https://go.microsoft.com/fwlink/?LinkID=208120) (Web 公開の更新プログラムが含まれています)
-- [Microsoft Visual Studio 2010 SP1 Tools for SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCEVSTools)
+- [Azure SDK for .NET (VS 2010 SP1)](https://go.microsoft.com/fwlink/?LinkID=208120) (Web 発行の更新を含む)
+- [SQL Server 用 Microsoft Visual Studio 2010 SP1 Tools Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCEVSTools)
 
-他のソフトウェアが、チュートリアルを完了するために必要な必要はありませんがまだ読み込まれています。 このチュートリアルでは必要なときにインストールするための手順を説明します。
+その他のソフトウェアが、チュートリアルを完了するために必要ですがまだ読み込まれている必要はありません。 このチュートリアルでは必要なときにインストールするための手順説明をします。
 
 ## <a name="downloading-the-sample-application"></a>サンプル アプリケーションのダウンロード
 
-展開するアプリケーションは Contoso 大学の名前はおよびを既に作成されています。 疎で説明されている Contoso 大学アプリケーションに基づいて、大学の web サイトの簡素化されたバージョンは、 [Entity Framework、ASP.NET サイトのチュートリアル](https://asp.net/entity-framework/tutorials)です。
+展開するアプリケーションでは、Contoso University の名前しが既に作成済み。 これは疎で説明されている Contoso University アプリケーションに基づいて、大学の web サイトの簡略化されたバージョン、 [ASP.NET サイト上の Entity Framework チュートリアル](https://asp.net/entity-framework/tutorials)。
 
-インストールの前提条件がある場合は、ダウンロード、 [Contoso 大学 web アプリケーション](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)です。 *.Zip*ファイルには、複数のバージョン プロジェクトと PDF ファイルを含むすべての 12 チュートリアルにはが含まれています。 チュートリアルの手順を使用するには、ContosoUniversity Begin で起動します。 チュートリアルの最後に、プロジェクトがどのようにについては、「ContosoUniversity 終了を開きます。 10 のチュートリアルでは、完全な SQL Server への移行前に、プロジェクトがどのようにを表示するには、ContosoUniversity AfterTutorial09 を開きます。
+前提条件のインストールがある場合は、ダウンロード、 [Contoso University web アプリケーション](https://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)します。 *.Zip*ファイルには、複数のバージョン プロジェクトと 12 のすべてのチュートリアルを含む PDF ファイルにはが含まれています。 チュートリアルの手順を使用するには、ContosoUniversity Begin を起動します。 チュートリアルの最後に、プロジェクトがどのようにして ContosoUniversity エンドを開きます。 10 のチュートリアルでは、完全な SQL Server への移行の前に、プロジェクトがどのようにを表示するには、ContosoUniversity AfterTutorial09 を開きます。
 
-チュートリアルの手順を実行する準備をするには、Visual Studio プロジェクトを操作するために使用する任意のフォルダーに ContosoUniversity Begin を保存します。 既定では、次のフォルダーを示します。
+チュートリアルの手順を実行する準備をするには、ContosoUniversity Begin を Visual Studio プロジェクトを操作するために使用する任意のフォルダーに保存します。 既定の設定では、次のフォルダーです。
 
 `C:\Users\<username>\Documents\Visual Studio 2012\Projects`
 
-(このチュートリアルのスクリーン ショットのプロジェクト フォルダーがルート ディレクトリ内にある、 `C`: ドライブです)。
+(このチュートリアルのスクリーン ショットでは、プロジェクト フォルダーに配置された、ルート ディレクトリで、 `C`: ドライブ)。
 
-Visual Studio を起動、プロジェクトを開くおよび CTRL-f5 キーを押して実行します。
+Visual Studio 起動プロジェクトを開きそれを実行する場合は ctrl キーを押し f5 キーを押します。
 
 [![Home_page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
 
-Web サイトのページは、メニュー バーからアクセスできる、次の関数を実行できます。
+Web サイトのページでは、メニュー バーからアクセスできるし、次の機能を実行することができます。
 
 - 学生の統計情報 (バージョン情報 ページ) を表示します。
-- 表示、編集、削除、および受講者を追加します。
-- 編集のコースを表示します。
-- 編集講習においてインストラクターを表示します。
-- 部門の編集を表示します。
+- 表示、編集、削除、および学生を追加します。
+- 表示し、コースを編集します。
+- 表示し、インストラクターを編集します。
+- 表示および部門を編集します。
 
 いくつかの代表的なページのスクリーン ショットを次に示します。
 
@@ -129,19 +128,19 @@ Web サイトのページは、メニュー バーからアクセスできる、
 
 ## <a name="reviewing-application-features-that-affect-deployment"></a>展開に影響するアプリケーション機能の確認
 
-アプリケーションの次の機能は、展開する方法、展開する必要があるかに影響します。 これらの各操作は、系列内の次のチュートリアルでさらに詳しく説明します。
+アプリケーションの次の機能は、展開する方法や、それをデプロイするのでは行う必要があるに影響します。 これらの各操作は、以下のチュートリアル シリーズでさらに詳しく説明します。
 
-- Contoso 大学では、SQL Server Compact データベースを使用して、受講者やインストラクター名などのアプリケーション データを格納します。 データベースには、テスト データと、実稼働データの両方が含まれているし、実稼働環境に展開するときにテスト データを除外する必要があります。 一連のチュートリアルで後で、SQL Server に SQL Server Compact から移行します。
-- アプリケーションでは、SQL Server Compact データベースにユーザー アカウント情報を格納、ASP.NET メンバーシップ システムを使用します。 アプリケーションでは、制限された情報へのアクセスを持つ管理者ユーザーを定義します。 テスト アカウントを持たないが、1 人の管理者アカウントを使用して、メンバーシップ データベースを展開する必要があります。
-- アプリケーション データベースと、メンバーシップ データベースを使用するため SQL Server Compact データベース エンジンとデータベース自体と同様に、ホスティング プロバイダーにデータベース エンジンを展開する必要があります。
+- Contoso University では、SQL Server Compact データベースを使用して、student および instructor 名などのアプリケーション データを格納します。 さまざまなテスト データ、および運用環境のデータを格納しているし、実稼働環境に展開するときにテスト データを除外する必要があります。 チュートリアル シリーズの後半で SQL Server への SQL Server Compact から移行します。
+- アプリケーションでは、SQL Server Compact データベース内のユーザー アカウント情報を格納する、ASP.NET メンバーシップ システムを使用します。 アプリケーションでは、制限された情報へのアクセスを持つ管理者ユーザーを定義します。 テスト アカウントを持たないが、1 人の管理者アカウントを使用して、メンバーシップ データベースをデプロイする必要があります。
+- アプリケーション データベースと、メンバーシップ データベースを使用して、SQL Server Compact データベース エンジンとして、ためには、データベース自体に加えて、ホスティング プロバイダーにデータベース エンジンを展開する必要があります。
 - アプリケーションは、メンバーシップ システムは、SQL Server Compact データベースにデータを格納できるように、ASP.NET ユニバーサル メンバーシップ プロバイダーを使用します。 ユニバーサル メンバーシップ プロバイダーを格納するアセンブリは、アプリケーションと共に配置する必要があります。
 - アプリケーションでは、Entity Framework 5.0 を使用して、アプリケーション データベースのデータにアクセスします。 Entity Framework 5.0 を含むアセンブリは、アプリケーションと共に配置する必要があります。
-- アプリケーションでは、サード パーティ製のエラー ログ機能およびユーティリティのレポートを使用します。 このユーティリティは、アプリケーションと共に配置する必要がありますアセンブリで提供されます。
-- エラーのログ記録ユーティリティは、ファイル フォルダーに、XML ファイルにエラー情報を書き込みます。 配置済みのサイトで ASP.NET を実行するアカウントが、このフォルダーの書き込みアクセス許可をこのフォルダーを展開から除外する必要があること確認する必要があります。 (それ以外の場合、テスト環境からのエラー ログのデータを実稼働環境に展開するとや、実稼働のエラー ログ ファイルを削除する可能性があります)。
-- アプリケーションに変更する必要がある設定が含まれています、展開済みで*Web.config*先の環境 (テストまたは実稼働)、およびその他の設定によっては、ビルドの変更が必要に応じてファイル(デバッグまたはリリース) を構成します。
-- Visual Studio ソリューションには、クラス ライブラリ プロジェクトが含まれています。 このプロジェクトで生成されるアセンブリのみを展開すると、プロジェクト自体ではありません。
+- アプリケーションでは、サード パーティ製のエラー ログとレポート ユーティリティを使用します。 このユーティリティは、アプリケーションと共に配置する必要がありますアセンブリで提供されます。
+- エラーのログ記録ユーティリティでは、ファイル フォルダーに XML ファイルにエラー情報を書き込みます。 ある、配置サイトで ASP.NET を実行するアカウントは、このフォルダーに書き込みアクセス許可を持つこと、およびデプロイからこのフォルダーを除外する必要があることを確認します。 (それ以外の場合、テスト環境からのエラー ログのデータを運用環境にデプロイする場合がありますや、運用環境のエラー ログ ファイルを削除する可能性があります)。
+- アプリケーションには、いくつかの設定の変更が必要で、デプロイされている*Web.config*先の環境 (テストまたは運用)、およびその他の設定によっては、ビルドの変更が必要に応じてファイル(デバッグまたはリリース) を構成します。
+- Visual Studio ソリューションには、クラス ライブラリ プロジェクトが含まれています。 このプロジェクトで生成されるアセンブリのみを配置する必要があります、プロジェクト自体ではありません。
 
-系列の最初のチュートリアルでは、サンプルの Visual Studio プロジェクトをダウンロードし、アプリケーションを展開する方法に影響するサイトの機能を確認しました。 次のチュートリアルでは、展開準備で自動的に処理するのには次の作業の一部を設定します。 他のユーザーを処理する手動でします。
+シリーズの最初のチュートリアルでは、サンプルの Visual Studio プロジェクトをダウンロードし、アプリケーションをデプロイする方法に影響するサイトの機能を確認しました。 以下のチュートリアルでの展開を準備を自動的に処理するような設定です。 その他の手動で注意します。
 
 > [!div class="step-by-step"]
 > [次へ](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

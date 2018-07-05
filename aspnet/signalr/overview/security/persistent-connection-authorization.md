@@ -1,54 +1,53 @@
 ---
 uid: signalr/overview/security/persistent-connection-authorization
-title: SignalR 固定接続の認証と承認 |Microsoft ドキュメント
+title: SignalR 永続的な接続の認証と承認 |Microsoft Docs
 author: pfletcher
-description: このトピックでは、永続的な接続の承認を適用する方法について説明します。 概要については、SignalR アプリケーションへのセキュリティの統合しています.
+description: このトピックでは、永続的な接続の承認を適用する方法を説明します。 概要については、SignalR アプリケーションでは、セキュリティと統合しています.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
 ms.topic: article
 ms.assetid: e264677b-9c01-47ec-94f9-3cd8f08f94af
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/security/persistent-connection-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: d559cfa21f6444b2361fd003b9ce3d2c9c6c57a4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d15ac6ec8b3bab041a13918a3577310c62e66b8f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28042200"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37372227"
 ---
-<a name="authentication-and-authorization-for-signalr-persistent-connections"></a>SignalR 固定接続の認証と承認
+<a name="authentication-and-authorization-for-signalr-persistent-connections"></a>SignalR 永続的な接続の認証と承認
 ====================
 によって[Patrick Fletcher](https://github.com/pfletcher)、 [Tom FitzMacken](https://github.com/tfitzmac)
 
-> このトピックでは、永続的な接続の承認を適用する方法について説明します。 SignalR アプリケーションへのセキュリティの統合の詳細については、次を参照してください。[セキュリティの概要](introduction-to-security.md)です。 
+> このトピックでは、永続的な接続の承認を適用する方法を説明します。 SignalR アプリケーションへのセキュリティの統合の詳細については、次を参照してください。[セキュリティの概要](introduction-to-security.md)します。 
 > 
-> ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されているソフトウェア バージョン
+> ## <a name="software-versions-used-in-this-topic"></a>このトピックで使用されるソフトウェアのバージョン
 > 
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
 > - .NET 4.5
-> - SignalR バージョン 2
+> - SignalR 2 のバージョン
 >   
 > 
 > 
 > ## <a name="previous-versions-of-this-topic"></a>このトピックの以前のバージョン
 > 
-> SignalR の以前のバージョンについては、次を参照してください。[古いバージョンの SignalR](../older-versions/index.md)です。
+> SignalR の以前のバージョンについては、次を参照してください。[以前のバージョンの SignalR](../older-versions/index.md)します。
 > 
-> ## <a name="questions-and-comments"></a>質問やコメント
+> ## <a name="questions-and-comments"></a>意見やご質問
 > 
-> このチュートリアルをリンクする方法と、ページの下部にあるコメントで改善新機能にフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)です。
+> このチュートリアルの立った方法と、ページの下部にあるコメントで改良できるフィードバックを送信してください。 チュートリアルに直接関連付けられていない質問がある場合を投稿、 [ASP.NET SignalR フォーラム](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR)または[StackOverflow.com](http://stackoverflow.com/)します。
 
 
 ## <a name="enforce-authorization"></a>承認を適用します。
 
-使用する場合は、承認規則を適用する、 [PersistentConnection](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.persistentconnection(v=vs.111).aspx)オーバーライドする必要があります、`AuthorizeRequest`メソッドです。 使用することはできません、`Authorize`永続的な接続の属性です。 `AuthorizeRequest`メソッドが要求された操作を実行するユーザーが許可されていることを確認するすべての要求の前に、SignalR フレームワークによって呼び出されます。 `AuthorizeRequest`メソッドは、クライアントからは呼び出されません以外の場合は、アプリケーションの標準の認証メカニズムにより、ユーザーを認証する代わりに、します。
+使用する場合は、承認規則を適用する、 [PersistentConnection](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.persistentconnection(v=vs.111).aspx)オーバーライドする必要があります、`AuthorizeRequest`メソッド。 使用することはできません、`Authorize`永続的な接続を持つ属性です。 `AuthorizeRequest`メソッドは要求ごとに、要求された操作を実行するユーザーが許可されていることを確認する前に SignalR フレームワークによって呼び出されます。 `AuthorizeRequest`メソッドは、クライアントからは呼び出されません。 代わりに、アプリケーションの標準的な認証メカニズムを通じてユーザーを認証します。
 
-次の例では、認証されたユーザーに要求を制限する方法を示します。
+次の例では、認証されたユーザーへの要求に制限する方法を示します。
 
 [!code-csharp[Main](persistent-connection-authorization/samples/sample1.cs)]
 
-AuthorizeRequest メソッドの任意のカスタマイズされた承認ロジックを追加することができます。など、ユーザーが特定のロールに属しているかどうかを確認しています。
+AuthorizeRequest メソッドで、カスタマイズされた承認ロジックを追加することができます。次のように、ユーザーが特定のロールに属しているかどうかを確認しています。
