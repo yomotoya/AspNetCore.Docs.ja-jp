@@ -1,18 +1,18 @@
 ---
-title: ASP.NET Core アプリに新しいフィールドを追加する
+title: ASP.NET Core MVC アプリへの新しいフィールドの追加
 author: rick-anderson
 description: Entity Framework Code First Migrations を利用し、新しいフィールドをモデルに追加し、その変更をデータベースに移行します。
 ms.author: riande
 ms.date: 10/14/2016
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: 0077205e0f10037c9b24eab80337cb76f027e688
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: eb98ebcde1086ad605127dddc055a18d4874c722
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278779"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961036"
 ---
-# <a name="add-a-new-field-to-an-aspnet-core-app"></a>ASP.NET Core アプリに新しいフィールドを追加する
+# <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへの新しいフィールドの追加
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 

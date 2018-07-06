@@ -1,4 +1,4 @@
-# <a name="adding-validation"></a>検証の追加
+# <a name="add-validation-to-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリへの検証の追加
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 

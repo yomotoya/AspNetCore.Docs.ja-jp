@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet-cache-object-to-cache-application-information
-title: '[操作方法]: アプリケーションの情報をキャッシュする ASP.NET キャッシュ オブジェクトを使用して |Microsoft ドキュメント'
+title: '[How Do I]: Use the ASP.NET Cache Object to Cache Application Information | Microsoft Docs'
 author: rick-anderson
-description: このビデオ Chris Pels で ASP.NET キャッシュ オブジェクトを使用して、アプリケーション情報を格納する方法を示しています。 サンプルのページがシンプルなユーザー インターフェイスを作成する.
+description: このビデオの Chris Pels では、ASP.NET キャッシュ オブジェクトを使用して、アプリケーションの情報を格納する方法を示します。 シンプルなユーザー インターフェイスでサンプル ページを作成する.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2009
 ms.topic: article
 ms.assetid: 098fc90c-6bc1-4de6-978d-8024495097a9
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-aspnet-cache-object-to-cache-application-information
 msc.type: video
-ms.openlocfilehash: bc06d55cd67f1de4f9d67aaee2bf34811c588dce
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.openlocfilehash: e84e526a4e7bcb91642ac6a983f99c15d6e6cd82
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26525981"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390450"
 ---
-<a name="how-do-i-use-the-aspnet-cache-object-to-cache-application-information"></a>[操作方法]: ASP.NET キャッシュ オブジェクトを使用して、アプリケーションの情報をキャッシュするには
+<a name="how-do-i-use-the-aspnet-cache-object-to-cache-application-information"></a>[操作方法]: ASP.NET キャッシュ オブジェクトを使用して、アプリケーションの情報をキャッシュします。
 ====================
 によって[Chris Pels](https://twitter.com/chrispels)
 
-このビデオ Chris Pels で ASP.NET キャッシュ オブジェクトを使用して、アプリケーション情報を格納する方法を示しています。 シンプルなユーザー インターフェイスでサンプルのページが作成され、ディスクの XML ファイルからデータをグリッドに適用するコードを追加します。 コードが改訂され、最初に取得され、後続の要求のキャッシュから読み取られた後にアプリケーション キャッシュ オブジェクトにデータをキャッシュします。 最後に、メソッドは、絶対パスを使用して、キャッシュされたオブジェクトの時間ベースの依存関係をスライドに追加されます。
+このビデオの Chris Pels では、ASP.NET キャッシュ オブジェクトを使用して、アプリケーションの情報を格納する方法を示します。 シンプルなユーザー インターフェイスでサンプル ページが作成され、グリッドにディスクの XML ファイルからデータを設定するコードを追加します。 コードが改訂され、最初に取得され、後続の要求、キャッシュから読み取られた後にアプリケーション キャッシュのオブジェクトのデータをキャッシュします。 最後に、メソッドは、絶対に使用して、キャッシュされたオブジェクトの時間ベースの依存関係をスライドに追加されます。
 
-[&#9654;です。ビデオでは (22 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-cache-object-to-cache-application-information)
+[&#9654;ビデオ (22 分)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-cache-object-to-cache-application-information)

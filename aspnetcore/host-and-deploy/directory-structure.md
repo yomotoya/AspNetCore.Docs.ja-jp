@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/09/2018
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: 06d3f097cd93ceb2a23b9f6516a9b7a1f3ca3089
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 8e2693397f826d0e9a36ff52aa1d1d623b31043d
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273674"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960828"
 ---
 # <a name="aspnet-core-directory-structure"></a>ASP.NET Core のディレクトリ構造
 
@@ -22,8 +22,8 @@ ASP.NET Core では、公開されるアプリケーション ディレクトリ
 
 | アプリの種類 | ディレクトリの構造 |
 | -------- | ------------------- |
-| [フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>publish&dagger;<ul><li>logs&dagger; (stdout ログを受け取るために必要な場合を除きオプション)</li><li>Views&dagger; (MVC アプリ、ビューがプリコンパイルされていない場合)</li><li>Pages&dagger; (MVC または Razor ページ アプリ、ページがプリコンパイルされていない場合)</li><li>wwwroot&dagger;</li><li>*\.dll ファイル</li><li>\<アセンブリ名>.deps.json</li><li>\<アセンブリ名>.dll</li><li>\<アセンブリ名>.pdb</li><li>\<アセンブリ名>.PrecompiledViews.dll</li><li>\<アセンブリ名>.PrecompiledViews.pdb</li><li>\<アセンブリ名>.runtimeconfig.json</li><li>web.config (IIS 展開)</li></ul></li></ul> |
-| [自己完結型の展開](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>publish&dagger;<ul><li>logs&dagger; (stdout ログを受け取るために必要な場合を除きオプション)</li><li>refs&dagger;</li><li>Views&dagger; (MVC アプリ、ビューがプリコンパイルされていない場合)</li><li>Pages&dagger; (MVC または Razor ページ アプリ、ページがプリコンパイルされていない場合)</li><li>wwwroot&dagger;</li><li>\*.dll ファイル</li><li>\<アセンブリ名>.deps.json</li><li>\<アセンブリ名>.exe</li><li>\<アセンブリ名>.pdb</li><li>\<アセンブリ名>.PrecompiledViews.dll</li><li>\<アセンブリ名>.PrecompiledViews.pdb</li><li>\<アセンブリ名>.runtimeconfig.json</li><li>web.config (IIS 展開)</li></ul></li></ul> |
+| [フレームワークに依存する展開](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>publish&dagger;<ul><li>Logs&dagger; (stdout ログを受け取るために必要な場合を除きオプション)</li><li>Views&dagger; (MVC アプリ、ビューがプリコンパイルされていない場合)</li><li>Pages&dagger; (MVC または Razor ページ アプリ、ページがプリコンパイルされていない場合)</li><li>wwwroot&dagger;</li><li>*\.dll ファイル</li><li>\<アセンブリ名>.deps.json</li><li>\<アセンブリ名>.dll</li><li>\<アセンブリ名>.pdb</li><li>\<アセンブリ名>.PrecompiledViews.dll</li><li>\<アセンブリ名>.PrecompiledViews.pdb</li><li>\<アセンブリ名>.runtimeconfig.json</li><li>web.config (IIS 展開)</li></ul></li></ul> |
+| [自己完結型の展開](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>publish&dagger;<ul><li>Logs&dagger; (stdout ログを受け取るために必要な場合を除きオプション)</li><li>refs&dagger;</li><li>Views&dagger; (MVC アプリ、ビューがプリコンパイルされていない場合)</li><li>Pages&dagger; (MVC または Razor ページ アプリ、ページがプリコンパイルされていない場合)</li><li>wwwroot&dagger;</li><li>\*.dll ファイル</li><li>\<アセンブリ名>.deps.json</li><li>\<アセンブリ名>.exe</li><li>\<アセンブリ名>.pdb</li><li>\<アセンブリ名>.PrecompiledViews.dll</li><li>\<アセンブリ名>.PrecompiledViews.pdb</li><li>\<アセンブリ名>.runtimeconfig.json</li><li>web.config (IIS 展開)</li></ul></li></ul> |
 
 &dagger; ディレクトリを示します
 
@@ -31,7 +31,7 @@ ASP.NET Core では、公開されるアプリケーション ディレクトリ
 
 *Wwwroot* ディレクトリが存在する場合は、静的資産のみが含まれます。
 
-stdout の *logs* ディレクトリは、次の 2 つの方法のいずれかを使って展開用に作成できます。
+stdout の *Logs* ディレクトリは、次の 2 つの方法のいずれかを使って展開用に作成できます。
 
 * プロジェクト ファイルに次の `<Target>` 要素を追加します。
 

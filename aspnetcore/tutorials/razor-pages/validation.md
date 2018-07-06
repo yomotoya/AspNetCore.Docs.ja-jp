@@ -1,4 +1,4 @@
-﻿---
+---
 title: ASP.NET Core Razor ページに検証を追加する
 author: rick-anderson
 description: ASP.NET Core で Razor ページに検証を追加する方法について説明します。
@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 569c5b977d832aec3657321cad8d0f9520aae031
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: cabf3d955ef2eb17b3bcb40170a9de7b53ffd107
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277775"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077632"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>ASP.NET Core Razor ページに検証を追加する
 
@@ -21,13 +21,13 @@ ms.locfileid: "36277775"
 
 ## <a name="validation"></a>検証
 
-ソフトウェア開発には、[DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("**D**on't **R**epeat **Y**ourself" (繰り返しを避けること)) という重要な理念があります。 Razor ページでは、機能を一度規定したら、それをアプリ全体に反映する開発を推奨しています。 DRY によって、アプリのコード量を減らすことができます。 DRY を実施すると、コードのエラーが発生する可能性が低くなり、テストと保守が簡単になります。
+ソフトウェア開発には、[DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("**D**on't **R**epeat **Y**ourself" (繰り返しを避けること)) という重要な理念があります。 Razor ページでは、機能を一度規定したら、アプリ全体に反映する開発を推奨しています。 DRY によって、アプリのコード量を減らすことができます。 DRY を実施すると、コードのエラーが発生する可能性が低くなり、テストと保守が簡単になります。
 
 Razor ページと Entity Framework が提供している検証のサポートは、DRY 原則の好例です。 検証規則は、1 つの場所 (モデル クラス内) で宣言的に規定され、アプリの任意の場所で適用されます。
 
-### <a name="adding-validation-rules-to-the-movie-model"></a>検証規則をムービー モデルに追加する
+### <a name="adding-validation-rules-to-the-movie-model"></a>検証規則をムービー モデルを追加する
 
-*Movie.cs* ファイルを開きます。 [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) には、クラスまたはプロパティに宣言的に適用される組み込みの検証属性セットがあります。 また、DataAnnotations には、書式設定を支援し、検証を行わない `DataType` のような書式設定属性もあります。
+*Movie.cs* ファイルを開きます。 [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) には、クラスまたはプロパティに宣言的に適用される組み込みの検証属性セットがあります。 また、DataAnnotations には、検証設定を支援し、検証を行わない `DataType` のような書式設定属性もあります。
 
 `Required`、`StringLength`、`RegularExpression`、および `Range` 検証属性を利用するように `Movie` クラスを更新します。
 
@@ -44,8 +44,8 @@ Razor ページと Entity Framework が提供している検証のサポート�
 
 検証属性で、モデルのプロパティに適用されている動作を指定します。
 
-* `Required` と `MinimumLength` の属性は、プロパティに値が必要なことを示します。 ただし、ユーザーがnull 許容型の妥当性制約を満たすために空白を入力することを防ぐことはできません。 null 非許容の[値の型](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (`decimal`、`int`、`float`、`DateTime` など) は本質的に必須ではなく、`Required` 属性を必要としません。
-* `RegularExpression` 属性は、ユーザーが入力できる文字を制限します。 上記のコードで、`Genre` と `Rating` は、英字のみを使用する必要があります (空白、数字、特殊文字は使用できません)。
+* `Required` と `MinimumLength` の属性は、プロパティに値が必要なことを示します。 ただし、ユーザーが空白を入力することで null 許容型の妥当性制約を満たすことはできます。 null 非許容の[値の型](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (`decimal`、`int`、`float`、`DateTime` など) は本質的に必須ではなく、`Required` 属性を必要としません。
+* `RegularExpression` 属性は、ユーザーが入力できる文字を制限します。 前のコードでは、`Genre` は 1 文字以上の大文字で始まり、0 文字以上の英字、一重引用符または二重引用符、空白文字、またはダッシュを続ける必要があります。 `Rating` は 1 文字以上の大文字で始まり、0 文字以上の英字、数字、一重引用符または二重引用符、空白文字、またはダッシュを続ける必要があります。
 * `Range` 属性は、指定した範囲に値を制限します。
 * `StringLength` 属性は文字列の最大長を設定します。必要に応じて、最短長も設定できます。 
 
@@ -64,7 +64,7 @@ ASP.NET Core で検証規則を自動的に適用すると、アプリをより�
 
 無効な値を含む各フィールドに、検証エラー メッセージが自動的に表示されることがわかります。 エラーは、(JavaScript と jQuery を使用している) クライアント側とサーバー側 (ユーザーが JavaScript を無効にしている場合) の両方に適用されます。
 
-大きな利点は、[Create]/(作成/) ページまたは [Edit]/(編集/) ページの変更が**必要ない**ことです。 一度 DataAnnotations がモデルに適用されると、検証 UI は有効化されます。 このチュートリアルで作成した Razor ページは、(`Movie` モデル クラスのプロパティの検証属性を使用して) 検証規則を自動的に抽出します。 [Edit]/(編集/) ページを使用して検証をテストすると、同じ検証が適用されます。
+大きな利点は、[Create]/(作成/) ページまたは [Edit]/(編集/) ページの変更が**必要ない**ことです。 DataAnnotations がモデルに適用されたときに、検証 UI は有効になっています。 このチュートリアルで作成した Razor ページでは、(`Movie` モデル クラスのプロパティで検証属性を使用して) 検証規則が自動的に選択されます。 [Edit]/(編集/) ページを使用して検証をテストします。同じ検証が適用されます。
 
 クライアント側の検証エラーがなくなるまで、フォーム データはサーバーにポストされません。 次のうち 1 つまたは複数の方法で、フォーム データがポストされていないことを確認します。
 
@@ -90,7 +90,7 @@ ASP.NET Core で検証規則を自動的に適用すると、アプリをより�
    }
   ```
 
-次のコードは、以前のチュートリアルでスキャフォールディング処理した *Create.cshtml* ページの一部です。 これは、[Create] または [Edit] ページにおいて、最初のフォームの表示と、エラーイベント時におけるフォームの再表示のために使用されます。
+次のコードは、以前のチュートリアルでスキャフォールディング処理した *Create.cshtml* ページの一部です。 [Create] または [Edit] ページで、最初のフォームを表示し、エラーのイベント時にフォームを再表示するために使用されます。
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
@@ -98,7 +98,7 @@ ASP.NET Core で検証規則を自動的に適用すると、アプリをより�
 
 [Create] ページと [Edit] ページ内に検証規則はありません。 検証規則とエラー文字列は、`Movie` クラスでのみ指定されています。 これらの検証規則は、`Movie` モデルを編集する Razor ページに自動的に適用されます。
 
-検証ロジックの変更が必要な場合は、モデルでのみ変更します。 検証は常にアプリケーション全体に適用されます (検証ロジックは 1 か所で定義されます)。 検証が 1 か所であることは、コードが整理された状態を保つことを助け、保守と更新を簡単にします。
+検証ロジックの変更が必要な場合は、モデルでのみ変更します。 検証は常にアプリケーション全体に適用されます (検証ロジックは 1 か所で定義されます)。 検証が 1 か所なので、コードが整理された状態を保ち、保守と更新が簡単になります。
 
 ## <a name="using-datatype-attributes"></a>DataType 属性の使用
 
@@ -106,7 +106,7 @@ ASP.NET Core で検証規則を自動的に適用すると、アプリをより�
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
-`DataType` 属性は、ビュー エンジンに対して、データの書式設定のヒントのみを提供します (また、URL の場合に `<a>`、電子メールの場合に `<a href="mailto:EmailAddress.com">` などの属性を提供します)。 データの書式を検証するためには、`RegularExpression` 属性を使用してください。 `DataType` 属性は、データベースの組み込み型よりも具体的なデータ型を指定するために使用されます。 `DataType` 属性は、検証属性ではありません。 サンプル アプリケーションでは、日付のみが表示され、時刻は表示されません。
+`DataType` 属性は、ビュー エンジンに対して、データの書式設定のヒントのみを提供します (また、URL の場合に `<a>`、電子メールの場合に `<a href="mailto:EmailAddress.com">` などの属性を提供します)。 `RegularExpression` 属性は、データの書式を検証するために使用されます。 `DataType` 属性は、データベースの組み込み型よりも具体的なデータ型を指定するために使用されます。 `DataType` 属性は、検証属性ではありません。 サンプル アプリケーションでは、日付のみが表示され、時刻は表示されません。
 
 `DataType` 列挙型は、Date、Time、PhoneNumber、Currency、EmailAddress など、多くの型のために用意されています。 また、`DataType` 属性を使用して、アプリケーションで型固有の機能を自動的に提供することもできます。 たとえば、`DataType.EmailAddress` に対して `mailto:` リンクを作成できます。 HTML 5 をサポートしているブラウザーでは、`DataType.Date` に日付セレクターを提供できます。 `DataType` 属性は、HTML 5 ブラウザーが使用する HTML 5 `data-` ("データ ダッシュ" と読みます) 属性を出力します。 `DataType` 属性は、検証を**提供していません**。
 

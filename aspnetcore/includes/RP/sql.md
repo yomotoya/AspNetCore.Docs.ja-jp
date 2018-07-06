@@ -1,4 +1,4 @@
-# <a name="working-with-sqlite-in-and-razor-pages"></a>Razor ページでの SQLite の使用
+# <a name="work-with-sqlite-in-an-aspnet-core-razor-pages-app"></a>ASP.NET Core Razor ページ アプリでの SQLite の操作
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 

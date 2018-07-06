@@ -1,4 +1,4 @@
-# <a name="working-with-sqlite-in-an-aspnet-core-mvc-project"></a>ASP.NET Core MVC プロジェクトでの SQLite の操作
+# <a name="work-with-sqlite-in-an-aspnet-core-mvc-app"></a>ASP.NET Core MVC アプリでの SQLite の操作
 
 作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)
 

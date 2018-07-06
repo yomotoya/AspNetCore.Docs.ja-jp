@@ -7,12 +7,12 @@ ms.author: rachelap
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 8762a4be1032d58014dd32dfdd3707197e14c6f9
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 62cef2d6f032caa2f048cfdd49a225d975dad10d
+ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36297201"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033343"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>ASP.NET Core の SignalR 概要
 
@@ -29,9 +29,9 @@ ms.locfileid: "36297201"
 > * クライアントにコンテンツをプッシュする SignalR ハブを作成します。
 > * `Startup` クラスを変更し、アプリを構成します。
 
-[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/get-started/sample/)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
+[サンプル コードを表示またはダウンロード](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample)します ([ダウンロード方法](xref:tutorials/index#how-to-download-a-sample))。
 
-# <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>必須コンポーネント
 
 以下のソフトウェアをインストールします。
 
@@ -100,7 +100,7 @@ Visual Studio には、その **ASP.NET Core Web アプリケーション** テ�
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-1. **[ファイル]** > **[新規]** > **[ファイル]**、**[Visual C# クラス]** の順に選択し、プロジェクトにクラスを追加します。 そのファイルに "*ChatHub*" という名前を付けます。
+1. **[ファイル]** > **[新規]** > **[ファイル]**、**[Visual C# クラス]** の順に選択し、プロジェクトにクラスを追加します。 クラスに `ChatHub`、ファイルに *ChatHub.cs* と名前を付けます。
 
 2. `Microsoft.AspNetCore.SignalR.Hub` から継承します。 `Hub` クラスには、接続とグループを管理し、データを送受信するためのプロパティとイベントが含まれています。
 
@@ -112,13 +112,13 @@ Visual Studio には、その **ASP.NET Core Web アプリケーション** テ�
 
 1. Visual Studio Code で *SignalRChat* フォルダーを開きます。
 
-2. メニューから **[ファイル]** > **[新しいファイル]** の順に選択し、プロジェクトにクラスを追加します。
+2. メニューから **[ファイル]** > **[新しいファイル]** の順に選択し、プロジェクトにクラスを追加します。 クラスに `ChatHub`、ファイルに *ChatHub.cs* と名前を付けます。
 
 3. `Microsoft.AspNetCore.SignalR.Hub` から継承します。 `Hub` クラスには、接続とグループを管理し、クライアントとの間でデータを送受信するためのプロパティとイベントが含まれています。
 
 4. `SendMessage` メソッドをクラスに追加します。 `SendMessage` メソッドは、接続されているすべてのチャット クライアントにメッセージを送信します。 SignalR は非同期であるため、[Task](/dotnet/api/system.threading.tasks.task) が返されます。 非同期コードは拡張性に優れています。
 
-   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs?range=6-12)]
+   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
 
 -----
 

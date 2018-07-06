@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 0149039f69539b7c69d7ba45efcf09d80ffcba79
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 718cc83bb29c0cff323853d22c107e00616b1dd1
+ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275099"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37126236"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Windows サービスでの ASP.NET Core のホスト
 
@@ -54,29 +54,39 @@ ASP.NET Core アプリは、IIS を [Windows サービス](/dotnet/framework/win
 
      ::: moniker-end
 
-1. アプリをフォルダーに発行します。 [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) またはフォルダーに発行する [Visual Studio 発行プロファイル](xref:host-and-deploy/visual-studio-publish-profiles)を使用します。
+1. アプリの発行 [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) または [Visual Studio 発行プロファイル](xref:host-and-deploy/visual-studio-publish-profiles)を使用します。
 
    コマンド ラインからサンプル アプリを発行する場合、コンソール ウィンドウでプロジェクト フォルダーから次のコマンドを実行します。
 
    ```console
-   dotnet publish --configuration Release --output c:\svc
+   dotnet publish --configuration Release
    ```
 
-1. [sc.exe](https://technet.microsoft.com/library/bb490995) コマンドライン ツールを使用し、サービス (`sc create <SERVICE_NAME> binPath= "<PATH_TO_SERVICE_EXECUTABLE>"`) を作成します。 `binPath` 値はアプリの実行可能ファイルへのパスです。これには、実行可能ファイルの名前が含まれます。 **等号 (=) とパスの開始の引用符文字の間にはスペースが必要です。**
+1. [sc.exe](https://technet.microsoft.com/library/bb490995) コマンドライン ツールを使用し、サービスを作成します。 `binPath` 値はアプリの実行可能ファイルへのパスです。これには、実行可能ファイルの名前が含まれます。 **等号 (=) とパスの開始の引用符文字の間にはスペースが必要です。**
 
-   サンプル アプリとそれ以降のコマンドに関し、サービスは次のとおりです。
+   ```console
+   sc create <SERVICE_NAME> binPath= "<PATH_TO_SERVICE_EXECUTABLE>"
+   ```
+
+   プロジェクト フォルダーに発行されるサービスの場合は、*publish* フォルダーへのパスを使用してサービスを作成します。 次に例では、サービスは次のようになります。
 
    * **MyService** という名前です。
-   * *c:\\svc* フォルダーに発行されます。
-   * *AspNetCoreService.exe* という名前のアプリの実行可能ファイルがあります。
+   * *c:\\my_services\\AspNetCoreService\\bin\\Release\\&lt;TARGET_FRAMEWORK&gt;\\publish* フォルダーに発行されます。
+   * *AspNetCoreService.exe* という名前のアプリの実行可能ファイルで表されます。
 
    管理者権限でコマンド シェルを開き、次のコマンドを実行します。
 
    ```console
-   sc create MyService binPath= "c:\svc\aspnetcoreservice.exe"
+   sc create MyService binPath= "c:\my_services\aspnetcoreservice\bin\release\<TARGET_FRAMEWORK>\publish\aspnetcoreservice.exe"
    ```
-
-   **`binPath=` 引数とその値の間には、空白を必ず含めてください。**
+   
+   > [!IMPORTANT]
+   > `binPath=` 引数とその値の間には、空白を必ず含めてください。
+   
+   別のフォルダーからサービスを発行および開始するには
+   
+   1. `dotnet publish` コマンドで [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) オプションを使用します。
+   1. 出力フォルダーのパスを使用し、`sc.exe` コマンドでサービスを作成します。 `binPath` に指定したパスに、サービスの実行可能ファイルの名前を含めます。
 
 1. サービスを `sc start <SERVICE_NAME>` コマンドで開始します。
 

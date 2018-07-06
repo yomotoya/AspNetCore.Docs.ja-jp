@@ -3,20 +3,24 @@ title: ASP.NET Core の Razor ページと EF Core - データ モデル - 5/8
 author: rick-anderson
 description: このチュートリアルでは、エンティティとリレーションシップをさらに追加し、書式設定、検証、マッピングの規則を指定してデータ モデルをカスタマイズします。
 ms.author: riande
-ms.date: 10/25/2017
+ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: a885809205f13e1090a957496710cc0d9c7257c0
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d96ce7a3f81c54d3c4c0fe26d3fb588d9ce2e0ce
+ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274542"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37089998"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET Core の Razor ページと EF Core - データ モデル - 5/8
 
+[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
+
+::: moniker range=">= aspnetcore-2.1"
+
 作成者: [Tom Dykstra](https://github.com/tdykstra)、[Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](~/includes/RP-EF/intro.md)]
 
 前のチュートリアルでは、3 つのエンティティで構成された基本的なデータ モデルを使用して作業を行いました。 このチュートリアルでは、次の作業を行います。
 
@@ -27,7 +31,8 @@ ms.locfileid: "36274542"
 
 ![エンティティ図](complex-data-model/_static/diagram.png)
 
-解決できない問題が発生した場合は、[このステージの完成したアプリ](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part5-complex)をダウンロードしてください。
+解決できない問題が発生した場合は、[完成したアプリ](
+https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples)をダウンロードしてください。
 
 ## <a name="customize-the-data-model-with-attributes"></a>属性を使用してデータ モデルをカスタマイズする
 
@@ -39,7 +44,7 @@ ms.locfileid: "36274542"
 
 以下の強調表示されているコードを使用して、*Models/Student.cs* を更新します。
 
-[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
+[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
 [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) 属性では、データベースの組み込み型よりも具体的なデータ型を指定します。 ここでは、日付と時刻ではなく、日付のみを表示する必要があります。 [DataType 列挙型](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1)は、Date、Time、PhoneNumber、Currency、EmailAddress など、多くのデータ型のために用意されています。また、`DataType` 属性を使用して、アプリで型固有の機能を自動的に提供することもできます。 例:
 
@@ -75,7 +80,7 @@ ms.locfileid: "36274542"
 
 `Student` モデルを次のコードで更新します。
 
-[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
+[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
 上のコードでは、名前で使用可能な文字数を 50 に制限します。 `StringLength` 属性では、ユーザーが名前に空白を入力しないようにすることはできません。 [RegularExpression](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) 属性は、入力に制限を適用するために使用されます。 たとえば、次のコードでは、最初の文字を大文字にし、残りの文字をアルファベット順にすることを要求します。
 
@@ -107,7 +112,7 @@ DB が作成されたときに、列名でモデルのプロパティ名が使�
 
 以下の強調表示されているコードを使用して、*Student.cs* ファイルを更新します。
 
-[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
+[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_Column&highlight=4,14)]
 
 前述の変更に伴い、アプリの `Student.FirstMidName` は `Student` テーブルの `FirstName` 列にマップされます。
 
@@ -121,12 +126,23 @@ DB を更新するには、次のようにします。
 * プロジェクトをビルドします。
 * プロジェクト フォルダーでコマンド ウィンドウを開きます。 以下のコマンドを入力し、新しい移行を作成して DB を更新します。
 
-    ```console
-    dotnet ef migrations add ColumnFirstName
-    dotnet ef database update
-    ```
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-`dotnet ef migrations add ColumnFirstName` コマンドでは、以下の警告メッセージが生成されます。
+```PMC
+Add-Migration ColumnFirstName
+Update-Database
+```
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+```console
+dotnet ef migrations add ColumnFirstName
+dotnet ef database update
+```
+
+------
+
+`migrations add ColumnFirstName` コマンドでは、以下の警告メッセージが生成されます。
 
 ```text
 An operation was scaffolded that may result in the loss of data.
@@ -152,7 +168,7 @@ SSOX で Student テーブルを開きます。
 
 以下のコードを使用して、*Models/Student.cs* を更新します。
 
-[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
+[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
 
 ### <a name="the-required-attribute"></a>Required 属性
 
@@ -180,9 +196,7 @@ public string LastName { get; set; }
 
 以下のコードを使用して、*Models/Instructor.cs* を作成します。
 
-[!code-csharp[](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
-
-`Student` エンティティと `Instructor` エンティティのいくつかのプロパティが同じであることに注目してください。 このシリーズ後半の継承の実装チュートリアルでは、冗長さをなくすため、このコードがリファクタリングされます。
+[!code-csharp[](intro/samples/cu21/Models/Instructor.cs)]
 
 複数の属性を 1 行に配置することができます。 `HireDate` 属性は次のように記述できます。
 
@@ -226,7 +240,7 @@ public OfficeAssignment OfficeAssignment { get; set; }
 
 以下のコードを使用して、*Models/OfficeAssignment.cs* を作成します。
 
-[!code-csharp[](intro/samples/cu/Models/OfficeAssignment.cs)]
+[!code-csharp[](intro/samples/cu21/Models/OfficeAssignment.cs)]
 
 ### <a name="the-key-attribute"></a>Key 属性
 
@@ -275,7 +289,7 @@ public Instructor Instructor { get; set; }
 
 以下のコードを使用して、*Models/Course.cs* を更新します。
 
-[!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
+[!code-csharp[](intro/samples/cu21/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
 
 `Course` エンティティには外部キー (FK) プロパティ `DepartmentID` があります。 `DepartmentID` は関連する `Department` エンティティを指します。 `Course` エンティティには `Department` ナビゲーション プロパティがあります。
 
@@ -333,7 +347,7 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 以下のコードを使用して、*Models/Department.cs* を作成します。
 
-[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
+[!code-csharp[](intro/samples/cu21/Models/Department.cs?name=snippet_Begin)]
 
 ### <a name="the-column-attribute"></a>Column 属性
 
@@ -386,7 +400,7 @@ public ICollection<Course> Courses { get; set; }
 
 上のコードでは、学科と講師のリレーションシップの連鎖削除が無効になります。
 
-## <a name="update-the-enrollment-entity"></a>Enrollment エンティティを更新する
+## <a name="update-the-enrollment-entityupdate-the-enrollment-entity"></a>Enrollment エンティティを更新する
 
 登録レコードは、1 人の学生が受講する 1 つのコースに対するものです。
 
@@ -394,7 +408,7 @@ public ICollection<Course> Courses { get; set; }
 
 以下のコードを使用して、*Models/Enrollment.cs* を更新します。
 
-[!code-csharp[](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
+[!code-csharp[](intro/samples/cu21/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
 
 ### <a name="foreign-key-and-navigation-properties"></a>外部キー プロパティとナビゲーション プロパティ
 
@@ -436,7 +450,7 @@ public Student Student { get; set; }
 
 以下のコードを使用して、*Models/CourseAssignment.cs* を作成します。
 
-[!code-csharp[](intro/samples/cu/Models/CourseAssignment.cs)]
+[!code-csharp[](intro/samples/cu21/Models/CourseAssignment.cs)]
 
 ### <a name="instructor-to-courses"></a>講師対コース
 
@@ -470,7 +484,7 @@ FK は null 非許容です。 `CourseAssignment` の 2 つの FK (`InstructorID
 
 次の強調表示されているコードを *Data/SchoolContext.cs* に追加します。
 
-[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
+[!code-csharp[](intro/samples/cu21/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
 
 上のコードでは新しいエンティティが追加され、`CourseAssignment` エンティティの複合 PK が構成されます。
 
@@ -520,7 +534,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 *Data/DbInitializer.cs* のコードを更新します。
 
-[!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
+[!code-csharp[](intro/samples/cu21/Data/DbInitializer.cs?name=snippet_Final)]
 
 上のコードでは、新しいエンティティのシード データが提供されます。 このコードのほとんどで新しいエンティティ オブジェクトが作成され、サンプル データが読み込まれます。 サンプル データはテストに使用されます。 上のコードでは、次の多対多リレーションシップが作成されます。
 
@@ -531,11 +545,21 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 ## <a name="add-a-migration"></a>移行を追加する
 
-プロジェクトをビルドします。 プロジェクト フォルダーでコマンド ウィンドウを開き、次のコマンドを入力します。
+プロジェクトをビルドします。
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+```PMC
+Add-Migration ComplexDataModel
+```
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 ```console
 dotnet ef migrations add ComplexDataModel
 ```
+
+------
 
 上のコマンドは、考えられるデータ損失に関する警告を表示します。
 
@@ -554,42 +578,40 @@ database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 
 既存のデータで移行が実行されている場合、既存のデータでは満たされない FK 制約が存在する可能性があります。 このチュートリアルの場合、新しい DB が作成されるため、FK 制約に違反することはありません。 現在の DB の FK 違反を修正する手順については、「[レガシ データでの外部キー制約の修正](#fk)」を参照してください。
 
-## <a name="change-the-connection-string-and-update-the-db"></a>接続文字列を変更して DB を更新する
+### <a name="drop-and-update-the-database"></a>データベースの削除と更新
 
-更新された `DbInitializer` のコードでは、新しいエンティティのシード データを追加します。 EF Core で新しい空の DB を強制的に作成するには、次のようにします。
+更新された `DbInitializer` のコードでは、新しいエンティティのシード データを追加します。 EF Core に新しい DB を強制的に作成させるには、DB を削除して更新します。
 
-* *appsettings.json* の DB 接続文字列名を ContosoUniversity3 に変更します。 新しい名前は、コンピューターで使用されていない名前にする必要があります。
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-    ```json
-    {
-      "ConnectionStrings": {
-        "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=ContosoUniversity3;Trusted_Connection=True;MultipleActiveResultSets=true"
-      },
-    ```
+**パッケージ マネージャー コンソール** (PMC) で、次のコマンドを実行します。
 
-* または、以下を使用して DB を削除します。
-
-  * **SQL Server オブジェクト エクスプローラー** (SSOX)。
-  * `database drop` CLI コマンド:
-
-    ```console
-    dotnet ef database drop
-    ```
-
-コマンド ウィンドウで `database update` を実行します。
-
-```console
-dotnet ef database update
+```PMC
+Drop-Database
+Update-Database
 ```
 
-上のコマンドではすべての移行が実行されます。
+PMC から `Get-Help about_EntityFrameworkCore` を実行してヘルプ情報を入手します。
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+コマンド ウィンドウを開き、プロジェクト フォルダーに移動します。 プロジェクト フォルダーには *Startup.cs* ファイルが含まれます。
+
+コマンド ウィンドウで次のコマンドを入力します。
+
+ ```console
+ dotnet ef database drop
+dotnet ef database update
+ ```
+
+------
 
 アプリを実行します。 アプリを実行すると `DbInitializer.Initialize` メソッドが実行されます。 `DbInitializer.Initialize` は新しい DB を設定します。
 
 SSOX で DB を開きます。
 
-* **Tables** ノードを展開します。 作成されたテーブルが表示されます。
 * SSOX が既に開いている場合は、**[更新]** ボタンをクリックします。
+* **[Tables]\(テーブル\)** ノードを展開します。 作成されたテーブルが表示されます。
 
 ![SSOX のテーブル](complex-data-model/_static/ssox-tables.png)
 
@@ -638,6 +660,8 @@ SSOX で DB を開きます。
 * `Course.DepartmentID` の既定値や "Temp" 学科は使用しません。
 
 次のチュートリアルでは関連するデータについて説明します。
+
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [前へ](xref:data/ef-rp/migrations)
