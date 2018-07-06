@@ -1,21 +1,21 @@
 ---
-title: ASP.NET Core Razor ページへの検索の追加
+title: ASP.NET Core Razor ページ アプリへの検索の追加
 author: rick-anderson
 description: ASP.NET Core Razor ページに検索を追加する方法を紹介します
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages-mac/search
-ms.openlocfilehash: 16248e5203bfa53ea03c756d9b6683f6fb24c5a3
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 6374a6aaac403a7bc4b637fe8cd5c14adcdd49db
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278032"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960780"
 ---
 [!INCLUDE [Search](../../includes/RP/search.md)]
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="afdf7-103">[前: ページの更新](xref:tutorials/razor-pages-mac/da1)
-> [次: 新しいフィールドの追加](xref:tutorials/razor-pages/new-field)</span><span class="sxs-lookup"><span data-stu-id="afdf7-103">[Previous: Updating the pages](xref:tutorials/razor-pages-mac/da1)
+> <span data-ttu-id="3a321-103">[前: ページの更新](xref:tutorials/razor-pages-mac/da1)
+> [次: 新しいフィールドの追加](xref:tutorials/razor-pages/new-field)</span><span class="sxs-lookup"><span data-stu-id="3a321-103">[Previous: Updating the pages](xref:tutorials/razor-pages-mac/da1)
 [Next: Adding a new field](xref:tutorials/razor-pages/new-field)</span></span>

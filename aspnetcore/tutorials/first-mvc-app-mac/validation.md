@@ -1,22 +1,22 @@
 ---
-title: ASP.NET Core アプリに検証を追加する
+title: ASP.NET Core アプリへの検証の追加
 author: rick-anderson
 description: 単純な ASP.NET Core アプリに検証を追加する方法
 ms.author: riande
 ms.date: 06/13/2017
 uid: tutorials/first-mvc-app-mac/validation
-ms.openlocfilehash: 7057eb71f497d8129bf213dc17b82aa05e0196be
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 8368e9f0994fbf907e7a4b6475acfbaa1eed1a46
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277710"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961085"
 ---
 [!INCLUDE [validation](../../includes/mvc-intro/validation.md)]
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="8dfa3-103">[前 - フィールドの追加](new-field.md)
-> [次 - Details メソッドと Delete メソッドの確認](xref:tutorials/first-mvc-app/details)</span><span class="sxs-lookup"><span data-stu-id="8dfa3-103">[Previous - Add a field](new-field.md)
+> <span data-ttu-id="ab31a-103">[前 - フィールドの追加](new-field.md)
+> [次 - Details メソッドと Delete メソッドの確認](xref:tutorials/first-mvc-app/details)</span><span class="sxs-lookup"><span data-stu-id="ab31a-103">[Previous - Add a field](new-field.md)
 [Next - Examine the Details and Delete methods](xref:tutorials/first-mvc-app/details)</span></span>
 
 
