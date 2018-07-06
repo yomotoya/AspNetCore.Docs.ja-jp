@@ -4,19 +4,16 @@ title: 更新、削除、およびモデルのバインディングと web フ�
 author: tfitzmac
 description: このチュートリアル シリーズでは、モデル バインドを使用して ASP.NET Web フォーム プロジェクトでの基本的な側面について説明します。 モデル バインドは、データの操作詳細直線にしています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/27/2014
-ms.topic: article
 ms.assetid: 602baa94-5a4f-46eb-a717-7a9e539c1db4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
 msc.type: authoredcontent
-ms.openlocfilehash: b6cafe29d1cb46061a8743cbee62a7ffec6be990
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1cf9873db177b67927b579def1eedd08e3e9a762
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393877"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821633"
 ---
 <a name="updating-deleting-and-creating-data-with-model-binding-and-web-forms"></a>更新、削除、およびモデルのバインディングと web フォームでデータを作成します。
 ====================

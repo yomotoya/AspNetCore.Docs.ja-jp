@@ -4,19 +4,16 @@ title: ロール (VB の) 作成と管理 |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、ロールのフレームワークを構成するために必要な手順について説明します。 次は、web ページを作成および削除するロールを作成します。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/24/2008
-ms.topic: article
 ms.assetid: 83af9f5f-9a00-4f83-8afc-e98bdd49014e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fbcd8613327ada581289ce613b5d0e0a09df4e19
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cbfa06ec50693f9640c813288e7c9175db670351
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386615"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819605"
 ---
 <a name="creating-and-managing-roles-vb"></a>作成と管理ロール (VB)
 ====================

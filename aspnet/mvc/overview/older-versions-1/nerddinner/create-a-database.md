@@ -4,19 +4,16 @@ title: データベースを作成する |Microsoft Docs
 author: microsoft
 description: 手順 2 では、dinner のすべてを保持しているデータベースを作成し、NerdDinner アプリケーションのデータを RSVP の手順を示します。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/27/2010
-ms.topic: article
 ms.assetid: 983f3ffa-08b8-4868-b8c9-aa34593fc683
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-database
 msc.type: authoredcontent
-ms.openlocfilehash: 01c6d3c63780e492b97aa54a92f3982d4c18f9e5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2a2ed8c91aa3ec0da63cd8e8686ff601f6e66374
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371750"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818967"
 ---
 <a name="create-a-database"></a>データベースを作成します。
 ====================

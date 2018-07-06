@@ -4,19 +4,16 @@ title: マスター ページと ASP.NET AJAX (c#) |Microsoft Docs
 author: rick-anderson
 description: ASP.NET AJAX とマスター ページを使用するためのオプションについて説明します。 ScriptManagerProxy クラスを使用して調べるさまざまな JS ファイルに dependi が読み込まれるしくみについて説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/11/2008
-ms.topic: article
 ms.assetid: 0c55eb66-ba44-4d49-98e8-5c87fd9b1111
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6fceed046ead6c8129d55aa4e4272cfef0ebe184
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e8a4f9780b41c5ff77b996894d9f91a532877245
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390909"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842485"
 ---
 <a name="master-pages-and-aspnet-ajax-c"></a>マスター ページと ASP.NET AJAX (c#)
 ====================

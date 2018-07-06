@@ -4,19 +4,16 @@ title: 'ASP.NET MVC Storefront パート 15: パブリック コード レビュ
 author: robconery
 description: このエピソードでは、Rob Conery は、ユーザーからのフィードバックに基づく Storefront アプリケーションのパブリック コード レビューが。 Rob Conery は、開発の各手順を文書化しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/10/2008
-ms.topic: article
 ms.assetid: c06b991f-b1d8-4315-9bc7-d17bc644cbd3
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-15-public-code-review
 msc.type: video
-ms.openlocfilehash: 1191b92176dc5b052a7cb7e107cab4be71bf32de
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 06253386aed8da4b487509e6893dd909fcb2266f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363121"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821811"
 ---
 <a name="aspnet-mvc-storefront-part-15-public-code-review"></a>ASP.NET MVC Storefront パート 15: パブリック コード レビュー
 ====================

@@ -4,19 +4,16 @@ title: スライダー コントロールを使用すると自動ポストバッ
 author: wenz
 description: スライダー コントロール、AJAX Control Toolkit では、マウスを使用して制御できるグラフィカルなスライダーを提供します。 スライダー自動転記を作成することはしています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 4d85e9fb-91e6-41f2-9c13-754549b19c27
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/using-the-slider-control-with-auto-postback-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8e855bebf557536b5f9e2b2730f828e54c63221e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b5cb3c041f2a8a499d27cbcbc2f8975eedcac12e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366833"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834152"
 ---
 <a name="using-the-slider-control-with-auto-postback-c"></a>自動ポストバック (c#) でスライダー コントロールの使用
 ====================

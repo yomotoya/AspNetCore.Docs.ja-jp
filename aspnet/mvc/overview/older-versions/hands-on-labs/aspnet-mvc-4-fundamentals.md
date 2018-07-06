@@ -4,19 +4,16 @@ title: ASP.NET MVC 4 の基礎 |Microsoft Docs
 author: rick-anderson
 description: このハンズオン ラボは、MVC (Model View Controller) ミュージック ストアが導入されています、ASP.NET の MV を使用する方法が順を追って説明されたチュートリアル アプリケーションに基づきます.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/18/2013
-ms.topic: article
 ms.assetid: b7dba543-73c3-4534-a9a0-ba70fa2c6a8a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: 3a282d02ba929eb86571e92f190550614962524d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 2b3f8916bdca1df0dd2855f02ae46f5e5d13311a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386576"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819972"
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 の基礎
 

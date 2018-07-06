@@ -4,19 +4,16 @@ title: モデルの追加 |Microsoft Docs
 author: Rick-Anderson
 description: '注: このチュートリアルの最新バージョンは ASP.NET MVC 5 と Visual Studio 2013 を使用します。 安全なはるかに簡単に従い、デモをお勧めしています.'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/28/2012
-ms.topic: article
 ms.assetid: 53db72da-e0b9-44d9-b60b-6e6988c00b28
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: ea8700020c1cc4b8ca88f657bd46b82e61d6f40f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e68b6d41c7880fb849bbefbedd4c4e25c6f47b0e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388572"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837760"
 ---
 <a name="adding-a-model"></a>モデルの追加
 ====================

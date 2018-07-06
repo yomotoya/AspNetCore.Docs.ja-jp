@@ -4,19 +4,16 @@ title: 'Visual Studio を使用して ASP.NET Web 展開: 余分なファイル�
 author: tdykstra
 description: このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを使用して、.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/23/2015
-ms.topic: article
 ms.assetid: 1cd91055-84bc-42c6-9d80-646f41429d4d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files
 msc.type: authoredcontent
-ms.openlocfilehash: 41bea625a53afbf7b39c03a2e8a92a03ce144289
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 609c0be968e8f38d7be6e5f5c96a569a9a35c2eb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371821"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820851"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a>Visual Studio を使用して ASP.NET Web 展開: Extra Files のデプロイ
 ====================

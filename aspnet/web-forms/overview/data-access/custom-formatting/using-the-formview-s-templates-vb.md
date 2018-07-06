@@ -4,19 +4,16 @@ title: FormView のテンプレート (VB) を使用して |Microsoft Docs
 author: rick-anderson
 description: DetailsView とは異なり、FormView いないフィールドで構成されます。 代わりに、テンプレートを使用して、フォーム ビューがレンダリングされます。 このチュートリアルでは、F. の使用について説明します.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 67b25f4c-2823-42b6-b07d-1d650b3fd711
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 66ad79c0c385afed75c1888b81328220ee048d19
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bb613158343e6845e583ed823e2a2c16f958b720
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389915"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838155"
 ---
 <a name="using-the-formviews-templates-vb"></a>FormView のテンプレート (VB) を使用します。
 ====================

@@ -4,19 +4,16 @@ title: データベース ロールのメンバーシップをテスト環境に
 author: jrjlee
 description: このトピックでは、テスト環境にデプロイするソリューションの一部として、データベース ロールにユーザー アカウントを追加する方法について説明します。 含むソリューションを展開するときにしています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 9b2af539-7ad9-47aa-b66e-873bd9906e79
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 42ceaa654c7f690f8455c0569e347cd5e9fccf7a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a690d99df7a19c422fb217544ec183c311d1796f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401861"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828034"
 ---
 <a name="deploying-database-role-memberships-to-test-environments"></a>データベース ロールのメンバーシップをテスト環境に展開します。
 ====================

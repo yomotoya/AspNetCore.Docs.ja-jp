@@ -4,19 +4,16 @@ title: UpdatePanel (VB) なしのポップアップ コントロールからポ�
 author: wenz
 description: AJAX Control Toolkit で PopupControl エクステンダーには、その他のコントロールがアクティブになったときにポップアップをトリガーする簡単な方法が用意されています。 Su でポストバックが発生する.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: a0b9186c-0912-4fff-916a-6d17e696a50b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-without-an-updatepanel-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5ef1d0300cba42eefb5f6cda77693aeafb93a31a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8530d62b931782af662cd6445db78d666b32e329
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363845"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808195"
 ---
 <a name="handling-postbacks-from-a-popup-control-without-an-updatepanel-vb"></a>UpdatePanel (VB) なしのポップアップ コントロールからポストバックを処理します。
 ====================

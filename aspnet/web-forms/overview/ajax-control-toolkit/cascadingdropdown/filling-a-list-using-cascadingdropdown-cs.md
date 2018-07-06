@@ -4,19 +4,16 @@ title: CascadingDropDown (c#) を使用するリスト |Microsoft Docs
 author: wenz
 description: CascadingDropDown コントロール、AJAX Control Toolkit では、anoth 内の値が 1 つの DropDownList の読み込みの変更に関連付けられているように DropDownList コントロールを拡張しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: f949aafa-fe57-43b0-b722-f0dd33a900be
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 12a4271b2697df8e24fca5f7ff30797b1e4e077a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f48343e811bd41a8fa8ba6965f1e53643bef7fcb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385422"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806639"
 ---
 <a name="filling-a-list-using-cascadingdropdown-c"></a>CascadingDropDown (c#) を使用して一覧に入力
 ====================

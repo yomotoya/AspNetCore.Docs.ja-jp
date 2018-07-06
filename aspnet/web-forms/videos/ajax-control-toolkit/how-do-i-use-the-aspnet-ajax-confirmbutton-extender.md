@@ -4,19 +4,16 @@ title: '[How Do i:]ASP.NET AJAX ConfirmButton エクステンダーを使用し�
 author: JoeStagner
 description: ASP.NET AJAX Control Toolkit で ConfirmButton エクステンダーが L.、ボタンのクリック イベントを確認のダイアログ ボックスを追加する簡単な方法を提供する方法について説明します.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/05/2007
-ms.topic: article
 ms.assetid: 40287d43-6e0d-47ec-881f-c4dff970d1b9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-confirmbutton-extender
 msc.type: video
-ms.openlocfilehash: 1f5cdf209305e922692fe7f27c8253bee39067f7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f70a00badf6bfb471f59b7e9d25548df11df2b94
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392777"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805439"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-confirmbutton-extender"></a>[How Do i:]ASP.NET AJAX ConfirmButton エクステンダーを使用しますか。
 ====================

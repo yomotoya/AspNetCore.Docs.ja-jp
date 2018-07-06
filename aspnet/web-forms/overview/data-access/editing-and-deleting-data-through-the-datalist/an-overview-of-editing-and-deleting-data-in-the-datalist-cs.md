@@ -4,19 +4,16 @@ title: (C#)、DataList でデータ編集と削除の概要 |Microsoft Docs
 author: rick-anderson
 description: DataList は、組み込みの編集と削除機能がない、中にこのチュートリアルでは方法について説明します、DataList の編集および削除の o をサポートするを作成する.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/30/2006
-ms.topic: article
 ms.assetid: c3b0c86e-fe98-41ee-b26f-ca38cddaa75e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7f1e8e542a72653879cd0ca6a6b4afeb481fda59
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a9be3e332ec19f78c4dcc2e78d3dd4609c27fddf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379807"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810486"
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-c"></a>(C#)、DataList でデータ編集と削除の概要
 ====================

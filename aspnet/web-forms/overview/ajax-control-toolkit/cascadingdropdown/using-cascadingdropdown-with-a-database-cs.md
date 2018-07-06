@@ -4,19 +4,16 @@ title: (C#) データベースで CascadingDropDown を使用する |Microsoft D
 author: wenz
 description: CascadingDropDown コントロール、AJAX Control Toolkit では、anoth 内の値が 1 つの DropDownList の読み込みの変更に関連付けられているように DropDownList コントロールを拡張しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 684f0c28-a490-4e5b-b5e5-5dfb77464b49
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-cascadingdropdown-with-a-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 06ba008740da7e9cb6a058465154a38b65ccb39a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9930319d2f9443ef3b50a87c7dd3d42b879168c9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381617"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818749"
 ---
 <a name="using-cascadingdropdown-with-a-database-c"></a>(C#) データベースで CascadingDropDown を使用します。
 ====================

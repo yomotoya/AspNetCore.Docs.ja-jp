@@ -4,19 +4,16 @@ title: Entity Framework (VB) でモデル クラスを作成 |Microsoft Docs
 author: microsoft
 description: このチュートリアルでは、Microsoft Entity Framework で ASP.NET MVC を使用する方法について説明します。 エンティティ ウィザードを使用して、ADO.NET エンティティ データを作成する方法を学習します.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/27/2009
-ms.topic: article
 ms.assetid: ff8322c9-12f3-4e24-aba6-a38046b9bb0d
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-vb
 msc.type: authoredcontent
-ms.openlocfilehash: efb8d7206cba2fd5d8db1817d57a4e2813cb5ace
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 15415547763cfcd48dc845827d8c6b12afd18d75
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377189"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810405"
 ---
 <a name="creating-model-classes-with-the-entity-framework-vb"></a>Entity Framework (VB) でモデル クラスを作成
 ====================

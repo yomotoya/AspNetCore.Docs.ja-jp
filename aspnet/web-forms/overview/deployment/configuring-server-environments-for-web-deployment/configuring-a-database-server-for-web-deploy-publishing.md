@@ -4,19 +4,16 @@ title: Web のデータベース サーバーを構成する配置の発行 |Mic
 author: jrjlee
 description: このトピックでは、web 配置および発行をサポートするために SQL Server 2008 R2 データベース サーバーを構成する方法について説明します。 このトピックで説明するタスクは、co.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: e7c447f9-eddf-4bbe-9f18-3326d965d093
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 5563b737e3fd200070951f8d281ed8015137ae35
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9ec938298ea63609c276aed807a67722bf9bd66d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384460"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841980"
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Web 配置発行のデータベース サーバーを構成します。
 ====================

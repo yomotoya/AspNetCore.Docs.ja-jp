@@ -4,19 +4,16 @@ title: Team System でテストを管理および実行の概要 |Microsoft Docs
 author: rick-anderson
 description: このビデオではすべてを管理できますまたはさまざまな Visual Studio Team System のテスト管理機能を使用してケースをテストする方法がわかります。 表示されます.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/09/2007
-ms.topic: article
 ms.assetid: e262ca69-55e5-4ec2-b278-78ee129b4649
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/introduction-to-managing-and-running-tests-with-team-system
 msc.type: video
-ms.openlocfilehash: c74f30d0577ada7d4fb939d1c52cd4b7249cca18
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9a3a4a2248ef9c350980c7cb4541749474b1299a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373739"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805954"
 ---
 <a name="introduction-to-managing-and-running-tests-with-team-system"></a>管理および Team System によるテストの実行の概要
 ====================

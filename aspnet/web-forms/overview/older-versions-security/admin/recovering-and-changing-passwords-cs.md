@@ -4,19 +4,16 @@ title: 回復およびパスワード (c#) の変更 |Microsoft Docs
 author: rick-anderson
 description: ASP.NET には、回復、およびパスワードの変更を支援するための 2 つの Web コントロールが含まれています。 PasswordRecovery コントロールを使用すると、彼の失われた pa を回復するビジターをしています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/01/2008
-ms.topic: article
 ms.assetid: 19c4d042-4e34-4b44-9f1d-6bf2253ba366
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-cs
 msc.type: authoredcontent
-ms.openlocfilehash: aaee217cb8bf4e970adf06ca29b4a3d0a90eb1cb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e63d3d1153c81c1bb54a1fb6bb242df032899511
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400471"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824339"
 ---
 <a name="recovering-and-changing-passwords-c"></a>回復およびパスワード (c#) の変更
 ====================

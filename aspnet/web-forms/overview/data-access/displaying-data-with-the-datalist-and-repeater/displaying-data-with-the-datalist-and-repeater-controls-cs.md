@@ -4,19 +4,16 @@ title: DataList と Repeater コントロール (c#) によるデータの表示
 author: rick-anderson
 description: 上記のチュートリアルでは、データを表示する GridView コントロールを使いましたが。 以降このチュートリアルでは、一般的なレポートを使用してパターンを構築を見ています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/13/2006
-ms.topic: article
 ms.assetid: 0591cacc-b34b-4cf6-885e-2c9953bb0946
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ca585c51ae12be2395897044f6d0fd1857d3e357
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6368580d43e6216ea75d3013fb13aa59d9eeb6ba
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382703"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805946"
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>DataList と Repeater コントロール (c#) によるデータの表示
 ====================

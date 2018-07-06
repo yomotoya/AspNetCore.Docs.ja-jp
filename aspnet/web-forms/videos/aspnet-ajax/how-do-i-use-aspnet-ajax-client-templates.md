@@ -4,19 +4,16 @@ title: 'How Do i: 使用して ASP.NET AJAX クライアントのテンプレー
 author: rick-anderson
 description: AJAX の相互作用をビルド、サービスの非同期呼び出し、および結果として得られるデータと、ページの更新は、2 つの主要な手順があります。 ASP.NET AJAX h.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/18/2009
-ms.topic: article
 ms.assetid: 2ab9d1eb-25b7-4bb6-b334-b83e45e9fcbb
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-aspnet-ajax-client-templates
 msc.type: video
-ms.openlocfilehash: f2873c9ec4ae57f34f7e41bdf7662d890df40d0f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6bbeaf163ddba014ece439e22a2aaae0831a3e43
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367523"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820176"
 ---
 <a name="how-do-i-use-aspnet-ajax-client-templates"></a>How Do i: ASP.NET AJAX クライアント テンプレートを使用
 ====================

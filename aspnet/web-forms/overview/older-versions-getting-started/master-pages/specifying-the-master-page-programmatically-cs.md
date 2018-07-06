@@ -4,19 +4,16 @@ title: プログラムでマスター ページを指定する (c#) |Microsoft D
 author: rick-anderson
 description: PreInit イベント ハンドラーを使用してプログラムでマスター ページのコンテンツ ページの設定を見ます。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/28/2008
-ms.topic: article
 ms.assetid: 7c4a3445-2440-4aee-b9fd-779c05e6abb2
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2b3fbd95a8088e20382c426fcdcc6a4b6e67d44b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fa5de936d3b515e5c60223002fe51dbc23fed66c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370391"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37809272"
 ---
 <a name="specifying-the-master-page-programmatically-c"></a>プログラムでマスター ページを指定する (c#)
 ====================

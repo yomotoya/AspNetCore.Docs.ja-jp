@@ -4,19 +4,16 @@ title: ASP.NET を構成する ASP.NET IIS 登録ツールを使用する方法 
 author: rick-anderson
 description: このビデオの Chris Pels では、ASP.NET IIS 登録ツールを使用して ASP.NET を構成する方法を示します。 最初に、ファイルの拡張機能を asp.net にマップする方法を参照してください、.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/01/2008
-ms.topic: article
 ms.assetid: 2565839b-30b8-45e1-946e-34fffe940c48
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet
 msc.type: video
-ms.openlocfilehash: 590fb504d1bf2b5e7a68b6898715c0c18c447025
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9e577901e04c9c92113f754cc5ef13ad21274afa
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395153"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818823"
 ---
 <a name="how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet"></a>ASP.NET を構成するのに ASP.NET IIS 登録ツールを使用する方法
 ====================

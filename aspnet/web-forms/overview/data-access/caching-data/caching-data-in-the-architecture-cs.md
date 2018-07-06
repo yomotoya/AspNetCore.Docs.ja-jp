@@ -4,19 +4,16 @@ title: アーキテクチャ (c#) でデータのキャッシュ |Microsoft Docs
 author: rick-anderson
 description: 前のチュートリアルでは、プレゼンテーション層でキャッシュを適用する方法について説明しました。 このチュートリアルでは、複数層の architectu を活用する方法を学習します.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/30/2007
-ms.topic: article
 ms.assetid: d29a7c41-0628-4a23-9dfc-bfea9c6c1054
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 20c3c0cb5f3d13e66fbbceab77083c89f3015c53
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 80805bae14654d6817328232453031384ceadad6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402910"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820459"
 ---
 <a name="caching-data-in-the-architecture-c"></a>データのキャッシュ アーキテクチャ (c#)
 ====================
