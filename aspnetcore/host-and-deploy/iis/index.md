@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: ea18c451c2f68dc389cc6dc30ede9a10e3d8e6ac
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: f35fbbbf7d04b041565e76d3cc6b9822f1056e50
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275413"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824540"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS を使用した Windows での ASP.NET Core のホスト
 
@@ -208,11 +208,13 @@ IIS と Kestrel サーバーの間にリバース プロキシを作成するに
 
 1. サイトのアプリケーション プールを右クリックし、コンテキスト メニューから **[基本設定]** を選択します。
 
-1. **[アプリケーション プールの編集]** ウィンドウで、**[.NET CLR バージョン]** を **[マネージ コードなし]** に設定します。
+1. 
+  **[アプリケーション プールの編集]** ウィンドウで、**[.NET CLR バージョン]** を **[マネージド コードなし]** に設定します。
 
-   ![.NET CLR バージョンとして [マネージ コードなし] を設定します。](index/_static/edit-apppool-ws2016.png)
+   ![.NET CLR バージョンとして [マネージド コードなし] を設定します。](index/_static/edit-apppool-ws2016.png)
 
-    ASP.NET Core は、別個のプロセスで実行され、ランタイムを管理します。 ASP.NET Core を使用するためにデスクトップ CLR を読み込む必要はありません。 **[.NET CLR バージョン]** の **[マネージ コードなし]** への設定は、任意です。
+    ASP.NET Core は、別個のプロセスで実行され、ランタイムを管理します。 ASP.NET Core を使用するためにデスクトップ CLR を読み込む必要はありません。 
+  **[.NET CLR バージョン]** の **[マネージド コードなし]** への設定は、任意です。
 
 1. プロセス モデル ID に適切なアクセス許可があることを確認します。
 
@@ -370,7 +372,7 @@ ASP.NET Core アプリは、他の構成プロバイダーを使用して構成�
 
 ## <a name="application-pools"></a>アプリケーション プール
 
-サーバーで複数の Web サイトをホストする場合は、アプリをそれぞれ専用のアプリ プールで実行して、アプリを相互に分離します。 IIS の **[Web サイトの追加]** ダイアログはこの構成の既定です。 **[サイト名]** を指定すると、入力したテキストが自動的に **[アプリケーション プール]** テキストボックスに設定されます。 サイトが追加されるときに、そのサイト名を使用して新しいアプリ プールが作成されます。
+サーバーで複数の Web サイトをホストする場合は、アプリをそれぞれ専用のアプリ プールで実行して、アプリを相互に分離することをお勧めします。 IIS の **[Web サイトの追加]** ダイアログはこの構成の既定です。 **[サイト名]** を指定すると、入力したテキストが自動的に **[アプリケーション プール]** テキストボックスに設定されます。 サイトが追加されるときに、そのサイト名を使用して新しいアプリ プールが作成されます。
 
 ## <a name="application-pool-identity"></a>アプリケーション プール ID
 
