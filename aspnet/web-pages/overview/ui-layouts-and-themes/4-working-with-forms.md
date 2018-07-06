@@ -4,19 +4,16 @@ title: ASP.NET Web Pages (Razor) サイトでの HTML フォームの操作 |Mic
 author: tfitzmac
 description: フォームは、テキスト ボックス、チェック ボックス、ラジオ ボタン、およびプルダウン リストなどのユーザー入力コントロールを配置する HTML ドキュメントのセクションです。 フォームを使用する値を下回った場合.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/10/2014
-ms.topic: article
 ms.assetid: f3f4b8c8-e8f6-4474-ad94-69228a6c01ee
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: 8d52cb6406859c77687622b7a101cf67781b863d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4658e80d63c9c3665f197071f3f3d1420362e4a3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380348"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820286"
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) サイトでの HTML フォームの操作
 ====================
