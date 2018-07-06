@@ -4,19 +4,16 @@ title: 複数のアニメーションを実行した後 (c#) 相互 |Microsoft D
 author: wenz
 description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 これにより、落としたを実行する.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 7dc02b18-2b5d-4844-b7c5-cbd818477163
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-after-each-other-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 49d33ee28984981c7757f14fe7c16fb2dc8f744e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2317a029d4b12ba66d2d06e5012bb0bf892086a3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362152"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807604"
 ---
 <a name="executing-several-animations-after-each-other-c"></a>(C#) の後に複数のアニメーションを実行
 ====================

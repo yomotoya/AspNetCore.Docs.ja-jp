@@ -4,19 +4,16 @@ title: '繰り返し #2 – アプリケーションの外観を便利な (c#) �
 author: microsoft
 description: このイテレーションで、アプリケーションの見た目を向上させる、既定の ASP.NET MVC ビュー マスター ページを変更し、カスケード スタイル シート。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: f1173feb-11ee-4017-8f3f-86599ea6ae13
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e78383516c752748da67f058c37aeb66d7004707
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7385756d6ae362f8e39d56bb3f0e68caa89329b2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377931"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826340"
 ---
 <a name="iteration-2--make-the-application-look-nice-c"></a>繰り返し #2 – アプリケーションの外観を便利な (c#) を作成します。
 ====================

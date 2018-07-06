@@ -4,19 +4,16 @@ title: Web API 2 OData v3 エンドポイントの作成 |Microsoft Docs
 author: MikeWasson
 description: Open Data Protocol (OData) は、web 用のデータ アクセス プロトコルです。 OData では、データを構造体、データのクエリをおよびデータを操作する方法を統一を提供しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/25/2014
-ms.topic: article
 ms.assetid: 262843d6-43a2-4f1c-82d9-0b90ae6df0cf
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: bcf089003cfb4233fd2aa70cf669972de46c27b1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 67a41f37a09d089336dc96d393f929e56661c4f8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362591"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813709"
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Web API 2 OData v3 エンドポイントの作成
 ====================

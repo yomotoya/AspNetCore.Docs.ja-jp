@@ -4,19 +4,16 @@ title: '[How Do i:]ASP.NET AJAX DropShadow エクステンダーを使用しま�
 author: JoeStagner
 description: 領域の o に不透明で丸められます、コーナーのドロップ シャドウを追加する AJAX DropShadow エクステンダー コントロールを使用して ASP.NET サイトの表示を向上させる方法を説明してください.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/01/2007
-ms.topic: article
 ms.assetid: bd700813-f302-4e42-a697-b8cab68cdb55
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-dropshadow-extender
 msc.type: video
-ms.openlocfilehash: 34f06c8f33d90477739a221a0eeef252de2c5395
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ef383b9a74c59b5aeec0f057dd454034a28d8194
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401780"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823185"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-dropshadow-extender"></a>[How Do i:]ASP.NET AJAX DropShadow エクステンダーを使用しますか。
 ====================

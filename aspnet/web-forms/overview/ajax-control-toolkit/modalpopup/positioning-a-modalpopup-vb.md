@@ -4,19 +4,16 @@ title: ModalPopup の位置 (VB) |Microsoft Docs
 author: wenz
 description: AJAX Control Toolkit の ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 ただし、制御は提供されませんをしています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 8a07210c-eb0e-485e-9ee8-82a101520e65
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/positioning-a-modalpopup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1578a1bd6d5e3b595eba526552b8723daefb2ba1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e36d22b5c2f503ed849f373153e263bdd9546452
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387833"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821762"
 ---
 <a name="positioning-a-modalpopup-vb"></a>ModalPopup の位置 (VB)
 ====================

@@ -4,19 +4,16 @@ title: Transient Fault Handling (Azure での実際のクラウド アプリの�
 author: MikeWasson
 description: Azure 電子書籍で構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンとプラクティスを彼がについて説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/03/2015
-ms.topic: article
 ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 13ed8c2373c22070d21519bc495161e956b0ac4d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e67f3106f060d52f90ba56d6684af64779009e39
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398415"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823379"
 ---
 <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Transient Fault Handling (Azure での実際のクラウド アプリの構築)
 ====================

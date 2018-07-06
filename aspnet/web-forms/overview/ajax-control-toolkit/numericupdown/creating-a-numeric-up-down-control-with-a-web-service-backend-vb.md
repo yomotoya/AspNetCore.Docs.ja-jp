@@ -4,19 +4,16 @@ title: Web サービス バックエンド (VB) で、数値のアップダウ�
 author: wenz
 description: チェック ボックスに値を入力するだけでなく、数値を上げ下げするコントロール (Windows と他のオペレーティング システムに存在) はより多くの c を生じる可能性があります.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: afa59dfa-fef1-43d3-8fdd-aea3be36ed3c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9e63c76a69002e7cc66f7a8a1bc28e36796eb42c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bebf70093dacb81331c009c6642c2f2d649b8567
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375487"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805374"
 ---
 <a name="creating-a-numeric-updown-control-with-a-web-service-backend-vb"></a>Web サービス バックエンド (VB) で数値を上げ下げするコントロールを作成します。
 ====================

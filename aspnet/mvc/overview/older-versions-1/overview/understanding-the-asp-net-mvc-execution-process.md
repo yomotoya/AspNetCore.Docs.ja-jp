@@ -4,19 +4,16 @@ title: ASP.NET MVC 実行プロセスの理解 |Microsoft Docs
 author: microsoft
 description: ASP.NET MVC フレームワークがステップ バイ ステップのブラウザー要求を処理する方法について説明します。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/27/2009
-ms.topic: article
 ms.assetid: d1608db3-660d-4079-8c15-f452ff01f1db
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-the-asp-net-mvc-execution-process
 msc.type: authoredcontent
-ms.openlocfilehash: d94fcedb6e0ec6134bdbd69729abf1f875fac420
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 34699c314eb862e91ecba8831c5092af9d47dc70
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378272"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823736"
 ---
 <a name="understanding-the-aspnet-mvc-execution-process"></a>ASP.NET MVC 実行プロセスを理解します。
 ====================

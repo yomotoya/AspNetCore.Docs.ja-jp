@@ -4,19 +4,16 @@ title: ASP.NET SignalR ハブ API ガイド - .NET クライアント (c#) |Micr
 author: pfletcher
 description: このドキュメントでは、Windows ストア (WinRT)、WPF、Silverlight、および短所など、.NET クライアントでは、バージョン 2 の SignalR のハブ API を使用して紹介しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2014
-ms.topic: article
 ms.assetid: 6d02d9f7-94e5-4140-9f51-5a6040f274f6
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 8ee3be32af6794dd352cdadb668fc0fbba70d815
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bcf105fee7dc37fa4aab35bcf989e7448692be32
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369290"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821710"
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-c"></a>ASP.NET SignalR ハブ API ガイド - .NET クライアント (c#)
 ====================

@@ -4,19 +4,16 @@ title: ASP.NET 4.5 で非同期メソッドの使用 |Microsoft Docs
 author: Rick-Anderson
 description: このチュートリアルでは、Web は、無料の Visual Studio Express 2012 を使用して非同期の ASP.NET Web フォーム アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/06/2012
-ms.topic: article
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 3e35365cb2307ed89ee423af8afdf9c4588fcd58
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 94adc03eeba61310d60ca88a0495c5a2e5dc4cf6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382635"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819303"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 で非同期メソッドの使用
 ====================

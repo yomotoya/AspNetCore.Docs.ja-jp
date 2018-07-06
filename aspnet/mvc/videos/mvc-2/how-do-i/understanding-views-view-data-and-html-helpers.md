@@ -4,19 +4,16 @@ title: ビューについて、データの表示、および HTML ヘルパー 
 author: microsoft
 description: ASP.NET MVC ビューし、HTML ページから違う方法でしょうか。 このチュートリアルでは、Stephen Walther がビューを紹介し、t を行う方法を示します.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/20/2008
-ms.topic: article
 ms.assetid: 81e8ee8e-00ea-4988-9f11-920c1728ee43
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/understanding-views-view-data-and-html-helpers
 msc.type: video
-ms.openlocfilehash: 75d3841ac025d851ac743c1fcde5588b612c1658
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cbed19f0127fafeae156be7da00caf7f4fe453b9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368499"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813429"
 ---
 <a name="understanding-views-view-data-and-html-helpers"></a>ビューについて、データの表示、および HTML ヘルパー
 ====================

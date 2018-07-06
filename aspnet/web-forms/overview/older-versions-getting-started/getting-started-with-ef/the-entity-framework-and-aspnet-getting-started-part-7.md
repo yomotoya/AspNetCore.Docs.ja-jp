@@ -4,19 +4,16 @@ title: Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web
 author: tdykstra
 description: Contoso University のサンプルの web アプリケーションでは、Entity Framework を使用して ASP.NET Web フォーム アプリケーションを作成する方法を示します。 サンプル アプリケーションは、.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/03/2010
-ms.topic: article
 ms.assetid: f8afb245-b705-419c-8790-0b295e90d5e2
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 14ec7a22e9e00ac793fa5a278243e6406a212903
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bb1abe52b913785f47b7f8ec9822ed9db5ee8a05
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401806"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823408"
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Entity Framework 4.0 Database でまず getting Started と ASP.NET 4 Web フォーム - パート 7
 ====================

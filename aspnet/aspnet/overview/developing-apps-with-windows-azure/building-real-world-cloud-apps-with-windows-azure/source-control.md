@@ -4,19 +4,16 @@ title: ソース管理 (Azure で現実世界のクラウド アプリの構築)
 author: MikeWasson
 description: Azure 電子書籍で構築実世界クラウド アプリは、Scott Guthrie が開発したプレゼンテーションに基づいています。 13 のパターンとプラクティスを彼がについて説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/23/2015
-ms.topic: article
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 12c695b65a21452fdc4a31e821854253bccec0d7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 045dc654057802be4ad96f5ecc3ed6c3d7a1ccb1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368976"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823314"
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>ソース管理 (Azure で現実世界のクラウド アプリの構築)
 ====================

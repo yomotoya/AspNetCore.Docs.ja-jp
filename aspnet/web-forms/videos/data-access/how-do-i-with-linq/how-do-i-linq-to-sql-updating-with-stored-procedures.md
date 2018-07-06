@@ -4,19 +4,16 @@ title: 'How Do i: LINQ to SQL: ストアド プロシージャによる更新 |M
 author: scottstanfield
 description: ストアド プロシージャを独自に生成された ORM 更新/削除/挿入ロジックをオーバーライドします。 ビデオの詳細する方法も示しますに SQL Profiler を使用しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/13/2008
-ms.topic: article
 ms.assetid: b041ea07-a174-4a57-b2a8-4ce64232bdae
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures
 msc.type: video
-ms.openlocfilehash: cc4a7ea1067ecb71cc9a6d862e37b4f5ab84080b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a8150937aff608c866b5fb8b0da1544f602594a3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384957"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825828"
 ---
 <a name="how-do-i-linq-to-sql-updating-with-stored-procedures"></a>How Do i: LINQ to SQL: ストアド プロシージャによる更新
 ====================

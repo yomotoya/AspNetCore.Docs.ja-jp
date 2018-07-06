@@ -4,19 +4,16 @@ title: ASP.NET IIS ディレクトリへのアクセスの拒否 |Microsoft Docs
 author: rick-anderson
 description: このホワイト ペーパーでは、必要な作業が、ASP.NET アプリケーションの要求は、"ディレクトリを拒否する このエラーを返した場合について説明します。 %S に失敗しました.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/10/2010
-ms.topic: article
 ms.assetid: 3cb27b8a-354f-4332-bfe0-232b13bbf8aa
-ms.technology: ''
 msc.legacyurl: /whitepapers/denied-access-to-iis-directories
 msc.type: content
-ms.openlocfilehash: 22868738e02472f5f433c729967ac324131a0fdc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4853ee29d2468c4b67375123c5b2ec15089fe09b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383063"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842411"
 ---
 <a name="aspnet-denied-access-to-iis-directories"></a>ASP.NET は、IIS ディレクトリへのアクセスを拒否します。
 ====================
