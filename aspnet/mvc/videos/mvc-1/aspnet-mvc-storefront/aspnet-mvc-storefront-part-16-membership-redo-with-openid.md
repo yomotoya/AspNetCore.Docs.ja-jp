@@ -4,19 +4,16 @@ title: 'ASP.NET MVC Storefront パート 16: メンバーシップ変更と Open
 author: robconery
 description: Rob は、メンバーシップ システムを変更し、3 つの独立したサービス/部分に分割して、サインアウトします。 Rob は OpenID についてお話し Jon Galloway とし、配置方法の概要としています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/16/2008
-ms.topic: article
 ms.assetid: afc038e6-555e-4dfa-ae45-f4d3d50e8f96
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid
 msc.type: video
-ms.openlocfilehash: 45bfe925229a0b283afb6c1a971f0660c95af98c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: efd2311a0d0d4165b94e4d26989d66f563181fa5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396644"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838777"
 ---
 <a name="aspnet-mvc-storefront-part-16-membership-redo-with-openid"></a>ASP.NET MVC Storefront パート 16: メンバーシップ変更と OpenID
 ====================

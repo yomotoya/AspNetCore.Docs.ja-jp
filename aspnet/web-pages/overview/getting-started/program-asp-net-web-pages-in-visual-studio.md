@@ -4,19 +4,16 @@ title: プログラミングの ASP.NET Web Pages (Razor) を使用して Visual
 author: tfitzmac
 description: この付録では、Visual Studio 2010 または Visual Web Developer 2010 Express を Razor 構文を使用して ASP.NET Web Pages をプログラムに使用する方法について説明します。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/13/2014
-ms.topic: article
 ms.assetid: 0acfec5a-48f2-4766-a801-a0f426966f0a
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: b7f9a6c2d55d31dc918d2b2e542e26639a54b39a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 46807b464499b2e60d995d37f161ca129d38f439
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380364"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834456"
 ---
 <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Visual Studio を使用して ASP.NET Web ページ (Razor) のプログラミング
 ====================

@@ -4,19 +4,16 @@ title: ASP.NET MVC 3 |Microsoft Docs
 author: rick-anderson
 description: (2011 年 4 月が含まれています Tools Update)安定したデザイン パターンを使用してスケーラブルな標準ベースの web アプリケーションを構築するためのフレームワークを ASP.NET MVC 3 には.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2010
-ms.topic: article
 ms.assetid: dddc8812-a0bc-49f9-aafb-caf2064c2b8c
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/mvc3
 msc.type: content
-ms.openlocfilehash: ed3bf81943ac2ffa143cf169c87b3012269d9e77
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2c2d53734cd62e59ee4f550713b0576a73b0e32b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375792"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834771"
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================

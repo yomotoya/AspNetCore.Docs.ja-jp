@@ -4,19 +4,16 @@ title: によるパフォーマンスの向上を出力キャッシュ (c#) |Mic
 author: microsoft
 description: このチュートリアルでは、出力キャッシュを活用して、ASP.NET MVC web アプリケーションのパフォーマンスを大幅に向上する方法を説明します。 あなたが。。。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/27/2009
-ms.topic: article
 ms.assetid: 521c9117-81cd-4d8d-9d96-0256dc7bf50f
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 81349f37d861e79ff4d95962c275a96576d0455b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 26e65cb5f0e256d4ca819dfde4a748f00d56f08e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372486"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832543"
 ---
 <a name="improving-performance-with-output-caching-c"></a>出力キャッシュ (c#) によるパフォーマンスの向上
 ====================

@@ -4,19 +4,16 @@ title: ASP.NET と Azure App Service にパスワードやその他の機密デ�
 author: Rick-Anderson
 description: このチュートリアルでは、どのようにコードに安全に格納してセキュリティで保護された情報にアクセスします。 最も重要な点は、パスワードやその他の送信を保存しないでください.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/21/2015
-ms.topic: article
 ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
-ms.technology: ''
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 8434c439cef7e30ddd45b78bb0bca5e4daeceaff
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 445e7c32baf4316273b0a5901a776684a6c5d73f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371010"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832456"
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>ASP.NET と Azure App Service にパスワードやその他の機密データを展開するためのベスト プラクティス
 ====================

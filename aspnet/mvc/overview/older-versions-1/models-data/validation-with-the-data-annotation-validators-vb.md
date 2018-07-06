@@ -4,19 +4,16 @@ title: データ注釈検証コントロール (VB) を使用した検証 |Micro
 author: microsoft
 description: ASP.NET MVC アプリケーション内の検証を実行するには、データ注釈モデル バインダーの活用します。 検証コントロールのさまざまな種類を使用する方法を説明してください.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/29/2009
-ms.topic: article
 ms.assetid: 0d23ff2b-f2ec-434a-be3b-1180beeccba3
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 94410d0e8ad132a4e7a31ac01163663b597c3225
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9d76596ede0763bde3c84dca4a545be250a3062c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391419"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837424"
 ---
 <a name="validation-with-the-data-annotation-validators-vb"></a>データ注釈検証コントロール (VB) を使用した検証
 ====================

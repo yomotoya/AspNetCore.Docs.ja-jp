@@ -4,19 +4,16 @@ title: 'どの i: 返されるは、ASP.NET MVC Web アプリケーションで 
 author: rick-anderson
 description: Chris Pels は、クラスのインスタンスを JSON として返す JsonResult と Json のクラスを使用する方法を示しています。 このビデオでは、データを書式設定。 最初に、MVC web アプリケーションのサンプル.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/22/2009
-ms.topic: article
 ms.assetid: 7ed06ca2-fab6-41a3-a1cc-a3ccebb639f6
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application
 msc.type: video
-ms.openlocfilehash: 3f52f4161ae6689a14ddac69149dfaad41a4d90e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5bb38259c1beda0059bf20aec5a4bac4901efbec
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363755"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825662"
 ---
 <a name="how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application"></a>どの i: 返されるは、ASP.NET MVC Web アプリケーションで AJAX 呼び出しの JSON 形式のデータか
 ====================
