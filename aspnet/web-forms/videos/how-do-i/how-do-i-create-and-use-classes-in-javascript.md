@@ -4,19 +4,16 @@ title: 操作を作成および JavaScript でクラスを使用する方法 | M
 author: rick-anderson
 description: このビデオでは、Chris Pels は、クラスを作成する JavaScript の機能を備えたオブジェクト指向 capabilitie で他のプログラミング言語のような方法を説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/08/2010
-ms.topic: article
 ms.assetid: 348d1bda-69e0-4cb5-a59f-a104133c2f93
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-and-use-classes-in-javascript
 msc.type: video
-ms.openlocfilehash: 763e715bb724c90a52ad7a23eaee90522fb8c95e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bc0ea2ab8aa61cc9855704b41031e602557fe8bd
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386421"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812467"
 ---
 <a name="how-do-i-create-and-use-classes-in-javascript"></a>操作を作成および JavaScript でクラスを使用する方法
 ====================

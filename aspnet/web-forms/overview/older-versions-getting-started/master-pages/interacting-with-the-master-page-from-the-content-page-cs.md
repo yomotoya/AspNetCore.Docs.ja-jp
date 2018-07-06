@@ -4,19 +4,16 @@ title: コンテンツ ページ (c#) からマスター ページと対話す�
 author: rick-anderson
 description: メソッドを呼び出して、コンテンツ ページのコードからのマスター ページなどのプロパティを設定する方法について説明します。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/11/2008
-ms.topic: article
 ms.assetid: 32d54638-71b2-491d-81f4-f7417a13a62f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c86014e2a6d6c8b451b9ad05eb401ba8f3fcaeaf
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2aa2ba4443a2bad248b0d2cd2a140dc828fd7747
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365030"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842877"
 ---
 <a name="interacting-with-the-master-page-from-the-content-page-c"></a>コンテンツ ページ (c#) からマスター ページと対話します。
 ====================

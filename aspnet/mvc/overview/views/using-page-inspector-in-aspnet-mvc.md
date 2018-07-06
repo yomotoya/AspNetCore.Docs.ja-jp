@@ -4,19 +4,16 @@ title: ASP.NET MVC で Page Inspector の使用 |Microsoft Docs
 author: rick-anderson
 description: Visual Studio 2012 での Page Inspector は、統合ブラウザーの web 開発ツールです。 統合のブラウザーと Page Inspector i で任意の要素を選択してください.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/15/2012
-ms.topic: article
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 032be78e744bdf2c74337c72afb4efb7471ae4f9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: e3a6b79811cae15ec69ba3c5babe38b117b697a5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399144"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806087"
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>ASP.NET MVC フォーム内での Page Inspector の使用
 ====================

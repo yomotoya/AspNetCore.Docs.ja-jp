@@ -4,19 +4,16 @@ title: '[How Do i:]完全な機能を備えたカスタマー ログイン ポ�
 author: microsoft
 description: マスター ページ、テーマ、メンバーシップ、ロール、サイト ナビゲーション、ユーザーのプロファイルの詳細については、架空のカスタマー ポータルを作成することによってとしています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/05/2006
-ms.topic: article
 ms.assetid: dfaffea8-c71c-4fa0-9f97-585c9ac95529
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-full-featured-customer-login-portal
 msc.type: video
-ms.openlocfilehash: 8875dc76961c274cf216d4bfa84ef401ac19fbe3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f6c1dedbac2c3b4679e53cd1979ef894a9a6b414
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378863"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842851"
 ---
 <a name="how-do-i-create-a-full-featured-customer-login-portal"></a>[How Do i:]完全な機能を備えたカスタマー ログイン ポータルを作成しますか。
 ====================

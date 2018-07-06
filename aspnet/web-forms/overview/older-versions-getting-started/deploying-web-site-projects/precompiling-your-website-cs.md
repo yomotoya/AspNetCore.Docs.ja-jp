@@ -4,19 +4,16 @@ title: プリコンパイルの web サイト (c#) |Microsoft Docs
 author: rick-anderson
 description: Visual Studio は 2 種類のプロジェクトを ASP.NET 開発者に提供します。 Web アプリケーション プロジェクト (Wap) と Web サイト プロジェクト (Wsp)。 主な相違点 betwe のいずれかを指定しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/09/2009
-ms.topic: article
 ms.assetid: ecd5a4de-beb7-4d1d-bbbb-e31003633267
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-cs
 msc.type: authoredcontent
-ms.openlocfilehash: abe2c3329129259b9d83cb202fe730eda6abc94d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1227c28600444ed1f2710ba1b5e021aae59fe098
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369435"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840301"
 ---
 <a name="precompiling-your-website-c"></a>Web サイト (c#) をプリコンパイルします。
 ====================

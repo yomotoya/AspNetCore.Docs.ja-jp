@@ -4,19 +4,16 @@ title: メンバーシップと ASP.NET identity (c#) のユーザー プロフ�
 author: rustd
 description: このチュートリアルでは、ユーザーとロールのデータと既存のアプリのユニバーサル プロバイダーを使用して作成されたユーザー プロファイル データを移行するために必要な手順について説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/13/2013
-ms.topic: article
 ms.assetid: 2e260430-d13c-4658-bd05-e256fc0d63b8
-ms.technology: ''
 msc.legacyurl: /identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: dce27af273adb45c1ad8f07790c98d2fa5862f67
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1f685e676d3ca4eeb64f48f0df7212402a9f6f5f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377961"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810035"
 ---
 <a name="migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity-c"></a>メンバーシップと ASP.NET identity (c#) のユーザー プロファイル用のユニバーサル プロバイダー データの移行
 ====================

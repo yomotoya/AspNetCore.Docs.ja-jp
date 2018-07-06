@@ -4,19 +4,16 @@ title: DynamicData データ グリッドから列を削除する方法 |Microso
 author: JoeStagner
 description: このビデオでは、完全な列のスキャフォールディングを活用が引き続きで、ユーザー インターフェイスを表示しないテーブルの列を除外する方法を確認します.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/11/2008
-ms.topic: article
 ms.assetid: 5fb54eb6-d1e1-4537-91ff-e1a9040c13ce
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-to-remove-columns-from-your-dynamicdata-data-grids
 msc.type: video
-ms.openlocfilehash: 8492f47fc850c79b9e60e43443b04a02c0a0a0a2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7b61b7ed92d49ce8206c6f522b1489ef5f60c047
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386488"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836218"
 ---
 <a name="how-to-remove-columns-from-your-dynamicdata-data-grids"></a>DynamicData データ グリッドから列を削除する方法
 ====================

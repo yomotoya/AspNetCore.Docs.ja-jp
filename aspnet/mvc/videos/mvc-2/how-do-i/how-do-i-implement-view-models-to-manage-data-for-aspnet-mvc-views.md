@@ -4,19 +4,16 @@ title: 'How Do i: 実装モデルの表示を ASP.NET MVC ビューのデータ�
 author: rick-anderson
 description: このビデオでは、Chris Pels がの概念を使用する方法を示しています、&quot;ビュー モデル&quot;ASP.NET MVC ビューのデータを管理するためです。 最初に、サンプルの MVC プロジェクトでは、資格情報が、.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/11/2009
-ms.topic: article
 ms.assetid: 22f55d63-78f7-44fd-9107-f74cbe16022b
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views
 msc.type: video
-ms.openlocfilehash: f0713b87dc6455016de921998a994f8bca7dd8bc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 30a02f4e9f277f54891fdc86c7ba2820a0d77e0b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378087"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819073"
 ---
 <a name="how-do-i-implement-view--models-to-manage-data-for-aspnet-mvc-views"></a>How Do i: 実装モデルの表示を ASP.NET MVC ビューのデータを管理しますか。
 ====================

@@ -4,19 +4,16 @@ title: 'ASP.NET MVC Storefront パート 21: 注文マネージャと個人用�
 author: robconery
 description: このエピソードでは注文マネージャ ページを作成し、注文調達に関連するさまざまな問題について説明します。 さらにパーソナル化機能を紹介しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/16/2008
-ms.topic: article
 ms.assetid: f1490fdc-ee7d-4fee-a4e5-25d141d88478
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization
 msc.type: video
-ms.openlocfilehash: c0f135fc677345d22be719e96d8e3083faf55915
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fc72b2c9c4a89b4b43aee15855a7c64ee4c8d6ac
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391461"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806973"
 ---
 <a name="aspnet-mvc-storefront-part-21-order-manager-and-personalization"></a>ASP.NET MVC Storefront パート 21: 注文マネージャと個人用設定
 ====================

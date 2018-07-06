@@ -4,19 +4,16 @@ title: Visual Studio 2010 クイック ヒット - コード最適化プロフ�
 author: JoeStagner
 description: このビデオでは、使用する方法について説明します、 &quot;(コードの最適化) の Web 開発&quot;プロファイル デザイナーのタブを非表示にする Visual Studio 2010 でのオプションとしています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/05/2009
-ms.topic: article
 ms.assetid: 8c1d1c73-9c04-49c2-b15f-3c95b80dfbf1
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-code-optimized-profile
 msc.type: video
-ms.openlocfilehash: 57a5244a91f2ad24a75a8e5ac464d0cf40d37444
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7820c4a46ba46fe083b2f7a1f47faaf2efa5da44
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362681"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833864"
 ---
 <a name="visual-studio-2010-quick-hit---code-optimized-profile"></a>Visual Studio 2010「クイック ヒット」- コード最適化のプロファイル
 ====================

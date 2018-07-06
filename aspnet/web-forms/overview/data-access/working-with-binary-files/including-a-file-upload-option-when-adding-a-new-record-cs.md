@@ -4,19 +4,16 @@ title: 新しいレコード (c#) を追加するときにオプションをア�
 author: rick-anderson
 description: このチュートリアルでは、ユーザーがテキスト データを入力して、バイナリ ファイルをアップロードできる Web インターフェイスを作成する方法を示します。 オプションの使用可能な t をについて説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/27/2007
-ms.topic: article
 ms.assetid: 362ade25-3965-4fb2-88d2-835c4786244f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c109c493875c08dc1057fc6a244f58806b6bae46
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5cc1db20a724c8a060e978e2360b977fb16f1e0c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366107"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842382"
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>新しいレコード (c#) を追加するときに、ファイル アップロード オプションを含める
 ====================

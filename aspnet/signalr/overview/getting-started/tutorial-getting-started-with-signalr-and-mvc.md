@@ -4,19 +4,16 @@ title: 'チュートリアル: SignalR 2 と MVC 5 の概要 |Microsoft Docs'
 author: pfletcher
 description: このチュートリアルでは、ASP.NET SignalR 2 を使用して、リアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を MVC 5 アプリケーションに追加され、チャットのビューを作成しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2014
-ms.topic: article
 ms.assetid: 80bfe5fb-bdfc-41fe-ac43-2132e5d69fac
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 903319040c9ac938cea5dce2e6579d88e0d80bb5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4a4c013ff047f18f9d9b88595af7951577f3f200
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384052"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838651"
 ---
 <a name="tutorial-getting-started-with-signalr-2-and-mvc-5"></a>チュートリアル: SignalR 2 と MVC 5 の概要
 ====================

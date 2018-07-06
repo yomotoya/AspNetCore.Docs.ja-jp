@@ -4,19 +4,16 @@ title: '[How Do i:]非表示フィールドを使用して格納し、クライ�
 author: rick-anderson
 description: このビデオで Chris Pels は単純な状態の管理に、ASP.NET ページで、クライアント側の通信を行うための 1 つの方法として、非表示フィールドを使用する方法を紹介しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/24/2008
-ms.topic: article
 ms.assetid: 576ede31-e83a-4222-8f82-0aabb1dafe6a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
 msc.type: video
-ms.openlocfilehash: 83aeef1b7331dfeab727139ca9031cb5b8305e31
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 84cb7ff3005eca8eaaed665d2a9cdcaa675a14d4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385931"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842180"
 ---
 <a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[How Do i:]非表示フィールドを使用して格納し、クライアント側の情報を操作するには
 ====================

@@ -4,19 +4,16 @@ title: アメリカ合衆国の最上位のモデル ビュー コント ロー�
 author: Haacked
 description: ASP.NET MVC の主な機能の一部を強調する単純なアプリケーションを構築する方法を参照してください。 またの一部を使用して生産性を向上させる方法について説明します、.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/12/2009
-ms.topic: article
 ms.assetid: 2ce3281d-dc92-4a43-9645-7e12ef6e72a6
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/conference-presentations/americas-next-top-model-view-controller-framework
 msc.type: video
-ms.openlocfilehash: 892df5be4742b40fc7025428fb70f39df454f453
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: be5c9b503cdf7c5650b55e73fd95b01864c03089
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385380"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804780"
 ---
 <a name="americas-next-top-model-view-controller-framework"></a>アメリカ合衆国の最上位のモデル ビュー コント ローラー フレームワーク
 ====================

@@ -4,19 +4,16 @@ title: マスター/詳細の選択可能なマスター GridView を使用す�
 author: rick-anderson
 description: このチュートリアルは、GridView 行選択ボタンと共に各製品の価格と名前を含める必要があります。 Particu の Select ボタンをクリックしています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 0f982827-f8f9-420d-b36b-57b23f5aa519
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e93461d566f827ff81dedf3651e7bd3d24c3583a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ea1bb03e2ea39198b70cf71c1105b3e6134e3971
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374938"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825757"
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-c"></a>詳細 DetailView (c#) で選択可能なマスター GridView を使用してマスター/詳細
 ====================

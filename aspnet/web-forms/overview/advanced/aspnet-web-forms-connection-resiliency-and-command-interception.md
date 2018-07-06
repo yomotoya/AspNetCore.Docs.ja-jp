@@ -4,19 +4,16 @@ title: ASP.NET Web フォームの接続復元性とコマンド傍受 |Microsof
 author: Erikre
 description: このチュートリアルでは、接続の回復性とコマンド傍受をサポートするためにサンプル アプリケーションを変更する方法について説明します。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2014
-ms.topic: article
 ms.assetid: 6d497001-fa80-4765-b4cc-181fe90b894e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: 8b8f592c4e79cf9dbe1255c93fac2fe18f1d9409
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9a66b297608a5a8cd536b9af2a9ae4bb600a6bbb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368322"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807090"
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web フォームの接続復元性とコマンド傍受
 ====================

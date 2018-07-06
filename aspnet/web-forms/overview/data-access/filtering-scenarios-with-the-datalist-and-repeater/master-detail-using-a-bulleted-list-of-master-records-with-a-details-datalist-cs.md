@@ -4,19 +4,16 @@ title: マスター/詳細のマスター レコードの箇条書きリスト�
 author: rick-anderson
 description: このチュートリアルでを前のチュートリアルの 2 ページのマスター/詳細レポートを 1 つのページに圧縮 t のカテゴリ名の箇条書きリストを表示.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/17/2006
-ms.topic: article
 ms.assetid: c727bb73-7b59-41a1-8dc3-623c6d69e7c2
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 52fd8d1f04b3082250d369b30b5be4db8eac738a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0be6a03b2fbbf71a1f1d1e13bd4b9118981d0715
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370407"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841064"
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-c"></a>マスター/詳細のマスター レコードの箇条書きリストを使用すると詳細 DataList (c#)
 ====================

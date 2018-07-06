@@ -4,19 +4,16 @@ title: (C#) を削除するときに、クライアント側の確認を追加�
 author: rick-anderson
 description: これまでに作成したインターフェイスで、ユーザーは編集ボタンをクリックするためのものと削除 ボタンをクリックしてデータを誤って削除できます。 この t.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: f6e2a12a-2b5e-48fd-8db3-1e94a500c19a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7ad66e24198a83d32edeb9fddf7a6b648b993fcc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6cf3bfed1b445e95f24aa31fe3948cf8eba375fa
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386563"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842235"
 ---
 <a name="adding-client-side-confirmation-when-deleting-c"></a>(C#) を削除するときに、クライアント側の確認を追加します。
 ====================

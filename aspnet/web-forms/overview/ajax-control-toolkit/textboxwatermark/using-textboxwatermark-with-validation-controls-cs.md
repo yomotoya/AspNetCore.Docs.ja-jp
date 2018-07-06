@@ -4,19 +4,16 @@ title: (C#) の検証コントロールと共に TextBoxWatermark を使用 |Mic
 author: wenz
 description: AJAX Control Toolkit で TextBoxWatermark コントロールでは、テキスト ボックスを拡張するので、ボックス内でテキストが表示されます。 ボックスに、ユーザーがクリックしたときに.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: d49940cb-d38c-456a-b800-5f0eb705d09f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fe28f169e5e714ba07d8a71bb33d0f62608d688b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 144e4ee8f8096076b4e498844429ebf96e6ea402
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380692"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836195"
 ---
 <a name="using-textboxwatermark-with-validation-controls-c"></a>(C#) の検証コントロールと共に TextBoxWatermark を使用
 ====================

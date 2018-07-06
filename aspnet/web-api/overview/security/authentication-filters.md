@@ -4,19 +4,16 @@ title: ASP.NET Web API 2 での認証フィルター |Microsoft Docs
 author: MikeWasson
 description: 認証フィルターは、HTTP 要求を認証するコンポーネントです。 認証フィルターを両方サポート web API 2 と MVC 5 がこれらとは若干.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/25/2014
-ms.topic: article
 ms.assetid: b9882e53-b3ca-4def-89b0-322846973ccb
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/security/authentication-filters
 msc.type: authoredcontent
-ms.openlocfilehash: be2dcb246597f90ed7f00b2cf647b92e44aa254c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6cad52e0454d685c6e96746524fbbad21e1c274d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385678"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839818"
 ---
 <a name="authentication-filters-in-aspnet-web-api-2"></a>ASP.NET Web API 2 での認証フィルター
 ====================

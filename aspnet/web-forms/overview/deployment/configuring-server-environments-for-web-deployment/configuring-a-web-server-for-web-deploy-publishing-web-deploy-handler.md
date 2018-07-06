@@ -4,19 +4,16 @@ title: Web サーバーを構成する web 配置発行 (Web 配置ハンドラ�
 author: jrjlee
 description: このトピックでは、web の発行および IIS Web 配置 Han を使用して配置をサポートするためにインターネット インフォメーション サービス (IIS) web サーバーを構成する方法について説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 90ebf911-1c46-4470-b876-1335bd0f590f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
-ms.openlocfilehash: 2d262aab8fd6e755330acbaffa6d18c29688666f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3296bb9b6460bbe80782746c9d398aa67815dcee
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394217"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833336"
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Web サーバーを構成する web 配置発行 (Web 配置ハンドラー)
 ====================

@@ -4,19 +4,16 @@ title: 入れ子になったデータ Web コントロール (c#) |Microsoft Doc
 author: rick-anderson
 description: について解説するこのチュートリアルでは、Repeater を使用する方法は、別の Repeater 内に入れ子にします。 例では、両方 d 内部 Repeater を設定する方法について説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/13/2006
-ms.topic: article
 ms.assetid: ad3cb0ec-26cf-42d7-b81b-184a34ec9f86
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fdac16f3f3460e75887aa0f4b4540da1d2227c88
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bed7d3772d86b897cafc38a424723da6adf08f97
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368380"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839384"
 ---
 <a name="nested-data-web-controls-c"></a>入れ子になったデータ Web コントロール (c#)
 ====================

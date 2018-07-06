@@ -4,19 +4,16 @@ title: Repeater コントロール (VB) で ModalPopup を使用する |Microsof
 author: wenz
 description: AJAX Control Toolkit の ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 この contr. を使用することも.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 0c8e74f1-b3ba-4ca9-a1c5-f5c4831a359a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/using-modalpopup-with-a-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2854cc8fcc9845cb4a4f97cfaf2f3c79ba031a93
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c51ddd4b2bcc17c7d8c5dee0926903bea6ac749f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384071"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826615"
 ---
 <a name="using-modalpopup-with-a-repeater-control-vb"></a>Repeater コントロール (VB) で ModalPopup を使用します。
 ====================

@@ -4,19 +4,16 @@ title: Tailspin Spyworks - を実装しても購入したコントロールの�
 author: JoeStagner
 description: Joe Stagner が実装し、Tailspin Spyworks サンプルの Web フォーム アプリケーションの購入もコントロールを使用します。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/26/2010
-ms.topic: article
 ms.assetid: a95daf2f-aae4-4ad5-a142-8c58cc7a056d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-implementing-and-using-the-also-purchased-control
 msc.type: video
-ms.openlocfilehash: 8fd43dfd4769ddfe2537fc4272227ad3e29e707b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3857b9eb2f9a603a7bd3fb30e1acf468cbbbe956
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364415"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840956"
 ---
 <a name="tailspin-spyworks---implementing-and-using-the-also-purchased-control"></a>Tailspin Spyworks - を実装しても購入したコントロールの使用
 ====================

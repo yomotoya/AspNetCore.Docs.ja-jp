@@ -4,19 +4,16 @@ title: ユーザー (c#) に基づいてデータ編集機能を制限 |Microsof
 author: rick-anderson
 description: ユーザー データを編集できるように web アプリケーションを別のユーザー アカウントは別のデータの編集の権限があります。 このチュートリアルではについて説明しますか t.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: 2b251c82-77cf-4e36-baa9-b648eddaa394
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d8141a47bc7036641a93a0946b43e1f8086b9a93
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d011f57834ff27efd888a3f66342a7d0a2d70d8c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372243"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811394"
 ---
 <a name="limiting-data-modification-functionality-based-on-the-user-c"></a>ユーザー (c#) に基づいてデータ編集機能を制限
 ====================

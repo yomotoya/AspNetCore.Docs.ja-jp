@@ -4,19 +4,16 @@ title: 作成して、Web サイトで、AJAX 対応 Web サービスの使用 |
 author: rick-anderson
 description: Visual Studio 2008 では、クライアント スクリプトからアクセスできる ASP.NET カスタム Web サービスを作成できます。 このチュートリアルでは、AJ を作成する方法について説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: bfccf680-efc7-400e-ac16-104e288cd430
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/aspnet-ajax/creating-and-using-an-ajax-enabled-web-service-in-a-web-site
 msc.type: video
-ms.openlocfilehash: 354f2691f46841a7e278eac34e63b1a6dedcde66
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 99bc453a81a96d68071e89564dcd393b07557c27
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398865"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842864"
 ---
 <a name="creating-and-using-an-ajax-enabled-web-service-in-a-web-site"></a>作成して、Web サイトで、AJAX 対応 Web サービスの使用
 ====================

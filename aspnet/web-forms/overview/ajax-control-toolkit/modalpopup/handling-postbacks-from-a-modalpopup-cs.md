@@ -4,19 +4,16 @@ title: (C#)、ModalPopup からポストバックを処理する |Microsoft Docs
 author: wenz
 description: AJAX Control Toolkit の ModalPopup コントロールには、クライアント側の手段を使用してモーダル ポップアップを作成する簡単な方法が用意されています。 Pos ときに、特別な注意を実行する必要が.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 7963890b-4ea3-4a1c-b65d-6098a3d56f62
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/handling-postbacks-from-a-modalpopup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2c5c3b573b62d779ab09caad22b0c0e3a6995634
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0f27d28b9851f8e26c207a6bc495e98ad70577a2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399069"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838123"
 ---
 <a name="handling-postbacks-from-a-modalpopup-c"></a>(C#)、ModalPopup からポストバックを処理します。
 ====================

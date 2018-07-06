@@ -4,19 +4,16 @@ title: セットアップして、ASP.NET アプリケーションで Cookie な
 author: JoeStagner
 description: Joe Stagner が cookie なしの認証を使用する方法を示すために前のコード例を利用します。 このデモの詳細については、チュートリアルにある.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/16/2008
-ms.topic: article
 ms.assetid: 10ba9106-514c-4776-8277-9c31312ceed2
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/authentication/how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application
 msc.type: video
-ms.openlocfilehash: 7524055dc310c1ec845d8d838b785e255416d043
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e3966897996f52e086e8a8d6c3a0a1447cb18f04
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362292"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838816"
 ---
 <a name="how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application"></a>ASP.NET アプリケーションで Cookie なしの認証をセットアップおよび使用する方法
 ====================

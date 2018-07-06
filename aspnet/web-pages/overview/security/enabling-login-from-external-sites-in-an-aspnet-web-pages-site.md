@@ -4,19 +4,16 @@ title: ページ (Razor) サイトの外部の ASP.NET web サイトを使用し
 author: tfitzmac
 description: この記事は、Facebook、Google、Twitter、Yahoo、およびその他のサイトを使用して ASP.NET Web Pages (Razor) サイトにログインする方法を説明します-つまり、サポートする方法.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/21/2014
-ms.topic: article
 ms.assetid: ef852096-a5bf-47b3-9945-125cde065093
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/security/enabling-login-from-external-sites-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: b161a890d11b1c0bf86669b819b97255c075075f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e6c5b578b4c74fd04136d31751d51b59ba9197ba
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396891"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825438"
 ---
 <a name="logging-in-using-external-sites-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web ページ (Razor) サイトで外部のサイトを使用したログイン
 ====================

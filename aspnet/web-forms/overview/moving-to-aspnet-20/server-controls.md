@@ -4,19 +4,16 @@ title: サーバー コントロール |Microsoft Docs
 author: microsoft
 description: ASP.NET 2.0 では、さまざまな方法でサーバー コントロールを強化します。 このモジュールでいくつかの方法が ASP.NET 2.0 と Visual Studio 200 にアーキテクチャの変更について説明します.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2005
-ms.topic: article
 ms.assetid: 43f6ac47-76fc-4cf7-8e9f-c18ce673dfd8
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 989986c45e76a65582f35172c7d837a78484d09a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: da06429f3949a47a02fccef45666d1220781e473
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374225"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837070"
 ---
 <a name="server-controls"></a>サーバー コントロール
 ====================

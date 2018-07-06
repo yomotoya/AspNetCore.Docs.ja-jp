@@ -4,19 +4,16 @@ title: Visual Studio 2008 での ASP.NET AJAX のサポート |Microsoft Docs
 author: JoeStagner
 description: Visual Studio 2008 (Orcas) および .NET 3.5 に ASP.NET AJAX を含めることの簡単な概要が表示されます。 これは、Visual Studio を使用して示すことは.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: e18480cd-432c-47e5-bcfe-4cb86ebf73ab
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/aspnet-ajax/aspnet-ajax-support-in-visual-studio-2008
 msc.type: video
-ms.openlocfilehash: ac7daed48d74db0fb1818f125c205c2524a6b48a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3aa4db8353e45558379618abbdda4df39247d448
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399027"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841109"
 ---
 <a name="aspnet-ajax-support-in-visual-studio-2008"></a>Visual Studio 2008 での ASP.NET AJAX のサポート
 ====================

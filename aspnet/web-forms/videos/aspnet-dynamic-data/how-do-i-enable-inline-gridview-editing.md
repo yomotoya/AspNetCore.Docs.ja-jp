@@ -4,19 +4,16 @@ title: インライン GridView 編集を有効にする方法 | Microsoft Docs
 author: shanselman
 description: 編集し、詳細ビューでサイトを作成する方法は編集を有効にインライン GridView コントロールのでしょうか。 このビデオで説明する方法、およびも touc.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/08/2008
-ms.topic: article
 ms.assetid: 026e7932-aea4-42c9-8661-c1392407dc4f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-enable-inline-gridview-editing
 msc.type: video
-ms.openlocfilehash: 804203c7c1d8b739b58f02f74daf01a3aa4a5179
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2e8f5d48c4af7999b81eabfbd7c2c5ef7a3d1e57
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364657"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810959"
 ---
 <a name="how-do-i-enable-inline-gridview-editing"></a>インライン GridView 編集を有効にする方法
 ====================

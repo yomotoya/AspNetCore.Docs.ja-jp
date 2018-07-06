@@ -4,19 +4,16 @@ title: 'Visual Studio を使用して ASP.NET Web 配置: テストへのデプ�
 author: tdykstra
 description: このチュートリアル シリーズは、展開する方法を示します (発行) ASP.NET web アプリケーションを Azure App Service Web Apps、またはサード パーティのホスティング プロバイダーを使用して、.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/23/2015
-ms.topic: article
 ms.assetid: 8bf2c4fb-4ee5-4841-bfc2-03462c1f7a7a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: 8c5034dd4948d96c5722e2dcc960cc0349241a1a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6bfd1399c9e627839005fa27086c90bc0cc049e5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365686"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826369"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio を使用して ASP.NET Web 配置: テストへのデプロイ
 ====================

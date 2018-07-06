@@ -4,19 +4,16 @@ title: 一括更新 (VB) |Microsoft Docs
 author: rick-anderson
 description: 1 回の操作で複数のデータベース レコードを更新する方法について説明します。 ユーザー インターフェイス層では、各行が編集可能な GridView を構築します。 データにしています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/26/2007
-ms.topic: article
 ms.assetid: d191a204-d7ea-458d-b81c-0b9049ecb55f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7830e010ea8dbf6ce9bd59154c10eb4c30a3dceb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7e5062898ca683571df2929eba5d824f9d77accd
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363314"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833402"
 ---
 <a name="batch-updating-vb"></a>一括更新 (VB)
 ====================

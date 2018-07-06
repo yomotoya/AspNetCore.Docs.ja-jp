@@ -4,19 +4,16 @@ title: Jscript と ASP.NET AJAX の IntelliSense |Microsoft Docs
 author: rick-anderson
 description: このビデオで概要については、JavaScript の主要メソッドを含む、Visual Studio 2008 での JavaScript の新しい Intellisense 機能の外部 .js ファイルの i.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: 9d490341-f228-432e-a386-e6e51476c165
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/intellisense-for-jscript-and-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: 30b0bdd8f29b5230543914aabc8f83a6b1070457
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 762ff320e3db6d9f7f3dbad5911e419c0574bcb7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382447"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819927"
 ---
 <a name="intellisense-for-jscript-and-aspnet-ajax"></a>Jscript と ASP.NET AJAX の IntelliSense
 ====================

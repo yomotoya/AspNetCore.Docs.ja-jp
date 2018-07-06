@@ -4,19 +4,16 @@ title: ASP.NET MVC アプリケーションで Entity Framework での基本的�
 author: tdykstra
 description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/09/2015
-ms.topic: article
 ms.assetid: a2f70ba4-83d1-4002-9255-24732726c4f2
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: eeed2b572ddecb66c3b95926b57dd783c26d5f0f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 20c4ec6835f65c267245c5b37cdd5648e9787c71
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390218"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837702"
 ---
 <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application"></a>ASP.NET MVC アプリケーションで Entity Framework での基本的な CRUD 機能を実装します。
 ====================

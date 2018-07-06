@@ -4,19 +4,16 @@ title: '[How Do i:]マスター ページとコンテンツのページでイベ
 author: rick-anderson
 description: このビデオでは、マスターと個々 のコンテンツ ページ内のイベントの処理方法 Chris Pels が表示されます。 場合でも、マスターと個々 の conte の最終的な結果.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/21/2008
-ms.topic: article
 ms.assetid: 9b5f1ca6-b394-4b33-8b60-fd0587341482
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-handle-events-in-master-and-content-pages
 msc.type: video
-ms.openlocfilehash: 210c19f94a0a004ace459f67a6dd81bf284eeb97
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 97eb3aa4c02ec5cdaf2a401050ca9e9f3aff8cbf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372729"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37809211"
 ---
 <a name="how-do-i-handle-events-in-master-and-content-pages"></a>[How Do i:]マスター ページとコンテンツのページでイベントを処理します。
 ====================

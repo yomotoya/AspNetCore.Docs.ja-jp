@@ -4,19 +4,16 @@ title: コンテンツ ページ (VB) で ID の名前付けの制御 |Microsoft
 author: rick-anderson
 description: ContentPlaceHolder のコントロールの名前付けコンテナーとして機能し、(FindConrol) を使用して困難なコントロールのプログラムで操作を行うために示しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2008
-ms.topic: article
 ms.assetid: dbb024a6-f043-4fc5-ad66-56556711875b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1b922fb230169824659222da0b9504ec38c36d8a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 500f0e729ee73382ba05d38ed0a0bdba2c3c1e11
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387713"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808338"
 ---
 <a name="control-id-naming-in-content-pages-vb"></a>コントロール ID の名前付け (VB) のコンテンツ ページ
 ====================

@@ -4,19 +4,16 @@ title: '繰り返し #3 – フォーム検証を追加する (VB) |Microsoft Do
 author: microsoft
 description: 3 番目のイテレーションでは、基本的なフォーム検証を追加します。 ユーザーは、必要なフォームのフィールドを完了しなくても、フォームを送信できないようにようにします。 私たちも emai を検証しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: 4805e75a-7911-46e3-b11b-229a6eed245e
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3d4a1806742caf13f4778ef3588710136814c993
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e9099b669fd809d27a06f333345e7d6feb7b800d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368720"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824662"
 ---
 <a name="iteration-3--add-form-validation-vb"></a>繰り返し #3 – フォーム検証を追加する (VB)
 ====================

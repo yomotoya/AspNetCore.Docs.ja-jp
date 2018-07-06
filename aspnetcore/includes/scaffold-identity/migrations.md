@@ -1,8 +1,8 @@
-生成された Id のデータベース コードが必要です[Entity Framework の中核となる移行](/ef/core/managing-schemas/migrations/)です。 移行を作成し、データベースを更新します。 たとえば、次のコマンドを実行します。
+生成された Id のデータベース コードが必要です[Entity Framework Core Migrations](/ef/core/managing-schemas/migrations/)します。 移行を作成し、データベースを更新します。 たとえば、次のコマンドを実行します。
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Visual Studio で**Package Manager Console**:
+Visual Studio で**パッケージ マネージャー コンソール**:
 
 ```PMC
 Add-Migration CreateIdentitySchema

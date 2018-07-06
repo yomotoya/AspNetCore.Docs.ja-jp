@@ -4,19 +4,16 @@ title: クライアント側コード (VB) を使用してアニメーション�
 author: wenz
 description: アニメーション コントロール、ASP.NET AJAX Control Toolkit ではなくコントロールだけをコントロールにアニメーションを追加するために全体のフレームワークです。 アニメーションの実行.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: f7073f50-d765-456d-9957-926ce60f35f6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-animations-using-client-side-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5408c51c1330a0394b89281e4ddce00df455a418
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9b180ad17e0e3d2dffa6262d10a83a8353e0a1d0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371221"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811887"
 ---
 <a name="executing-animations-using-client-side-code-vb"></a>クライアント側コード (VB) を使用してアニメーションを実行します。
 ====================

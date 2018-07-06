@@ -4,19 +4,16 @@ title: 'ASP.NET MVC Storefront パート 1: アーキテクチャの説明と概
 author: robconery
 description: Rob Conery は、リポジトリ パターンについて説明します Ayende Rahien と Steve harman、所要時間は、パート 1 で、ここでは、初期アーキテクチャをについて説明します。 彼は、Phil も確認しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/27/2008
-ms.topic: article
 ms.assetid: 194a163b-2aad-4cad-bf1f-e9ce3f80add0
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-1-architectural-discussion-and-overview
 msc.type: video
-ms.openlocfilehash: 2ad286b9b0367e5c423cc4b88403bc0ee9a8dec1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 340bf6f5d5bb9c4a4737429c6518c959d18d2c87
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381878"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838142"
 ---
 <a name="aspnet-mvc-storefront-part-1-architectural-discussion-and-overview"></a>ASP.NET MVC Storefront パート 1: アーキテクチャの説明と概要
 ====================

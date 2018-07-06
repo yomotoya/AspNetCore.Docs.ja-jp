@@ -4,19 +4,16 @@ title: コント ローラー (c#) から、モデルのデータへのアクセ
 author: Rick-Anderson
 description: このチュートリアルでは、Microsoft Visual Web Developer 2010 Express Service Pack 1、これを使用して ASP.NET MVC Web アプリケーションの構築の基礎を説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/12/2011
-ms.topic: article
 ms.assetid: 002ada5c-f114-47ab-a441-57dbdb728ea0
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 9984e8dbe4485093dd0061895bc4308574f3aaea
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a1a39cf06b7ab9109117e89051c8adf47062a926
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380870"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805614"
 ---
 <a name="accessing-your-models-data-from-a-controller-c"></a>コント ローラー (c#) から、モデルのデータにアクセスします。
 ====================

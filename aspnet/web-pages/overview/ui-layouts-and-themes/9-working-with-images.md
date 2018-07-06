@@ -4,19 +4,16 @@ title: ASP.NET Web Pages (Razor) サイトに画像の操作 |Microsoft Docs
 author: tfitzmac
 description: この章は、追加、表示、およびイメージを操作する方法を示します (サイズ変更、反転、およびウォーターマークの追加)、web サイトにします。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2014
-ms.topic: article
 ms.assetid: 778c4e58-4372-4d25-bab9-aec4a8d8e38d
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/9-working-with-images
 msc.type: authoredcontent
-ms.openlocfilehash: 32cfb9cc3c3eabcd6d724e05b85c5bf1160a39f6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a091d942f60242748b0a1d78bf0654b222d1bdb3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362928"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840986"
 ---
 <a name="working-with-images-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) サイトに画像の操作
 ====================

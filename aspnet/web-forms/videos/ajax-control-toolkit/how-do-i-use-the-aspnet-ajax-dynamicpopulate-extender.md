@@ -4,19 +4,16 @@ title: '[How Do i:]ASP.NET AJAX DynamicPopulate エクステンダーを使用�
 author: JoeStagner
 description: ASP.NET AJAX DynamicPopulate エクステンダーを使用して、非同期の ca の結果を web ページの領域を動的に設定するのデモを見る.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/31/2007
-ms.topic: article
 ms.assetid: 1c83e543-3f56-42ed-9d10-ac3f8dd26093
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender
 msc.type: video
-ms.openlocfilehash: b7159fd80e7679a61fea114c592a87fb835db491
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 90980785b3c56fbe6a88396b7251fc52d6970805
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376222"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834823"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender"></a>[How Do i:]ASP.NET AJAX DynamicPopulate エクステンダーを使用しますか。
 ====================

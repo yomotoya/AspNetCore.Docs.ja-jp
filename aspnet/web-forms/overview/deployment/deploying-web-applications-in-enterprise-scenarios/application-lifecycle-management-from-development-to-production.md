@@ -4,19 +4,16 @@ title: 'アプリケーション ライフ サイクル管理: 開発運用か�
 author: jrjlee
 description: このトピックでは、架空の会社が par としてテスト、ステージング、実稼働環境での ASP.NET web アプリケーションの展開を管理する方法について説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: f97a1145-6470-4bca-8f15-ccfb25fb903c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: fdd51d2b6836c7fed04132f7c05bbede772d21e0
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 47af9504bdef294b987cdd23ab1bcefbeadd4681
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362811"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808980"
 ---
 <a name="application-lifecycle-management-from-development-to-production"></a>アプリケーション ライフ サイクル管理: 開発運用環境から
 ====================

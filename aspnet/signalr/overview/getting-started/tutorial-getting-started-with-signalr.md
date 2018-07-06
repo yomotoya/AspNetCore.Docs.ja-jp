@@ -4,19 +4,16 @@ title: 'チュートリアル: SignalR 2 の概要 |Microsoft Docs'
 author: pfletcher
 description: このチュートリアルでは、SignalR を使用してリアルタイムのチャット アプリケーションを作成する方法を示します。 SignalR を空の ASP.NET web アプリケーションに追加され、HTML pa を作成しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2014
-ms.topic: article
 ms.assetid: a8b3b778-f009-4369-85c7-e90f9878d8b4
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: fcd00419de77a380e004cbe306eb46910655a355
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 798838af099cceb12652b7c6c66633a03a73e538
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398185"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841843"
 ---
 <a name="tutorial-getting-started-with-signalr-2"></a>チュートリアル: SignalR 2 の概要
 ====================

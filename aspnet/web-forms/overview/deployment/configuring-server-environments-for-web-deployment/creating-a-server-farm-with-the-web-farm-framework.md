@@ -4,19 +4,16 @@ title: Web Farm Framework でサーバー ファームを作成する |Microsoft
 author: jrjlee
 description: このトピックでは、Web Farm Framework (WFF) 2.0 を使用して作成し、サーバーのコレクションからの web サーバー ファームを構成する方法について説明します。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 656dd06d-806c-467c-863d-9fc45e5ba3ab
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: ad557306cb4d3c62932c640b598f82d692bc74cf
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5fdd1088f1f4e21f5e79b8c8379b7865f825ad53
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388294"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808941"
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Web Farm Framework でサーバー ファームを作成します。
 ====================

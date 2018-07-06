@@ -4,19 +4,16 @@ title: ASP.NET データ アクセス - 推奨リソース |Microsoft Docs
 author: rick-anderson
 description: このトピックでは、Entity Framework および SQL Se を使用して主に ASP.NET web アプリケーションでデータにアクセスする方法に関するドキュメント リソースへのリンクを提供しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/25/2013
-ms.topic: article
 ms.assetid: f8157be1-4ab9-469e-ad3a-0ccc80b56c00
-ms.technology: ''
 msc.legacyurl: /whitepapers/aspnet-data-access-content-map
 msc.type: content
-ms.openlocfilehash: 3a8d7de622fd2d0b229dba3af31557a172b90df8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fb0cea94d82cc8f59ec56a5445ee84d38325995e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396365"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832501"
 ---
 <a name="aspnet-data-access---recommended-resources"></a>ASP.NET データ アクセス - 推奨リソース
 ====================
