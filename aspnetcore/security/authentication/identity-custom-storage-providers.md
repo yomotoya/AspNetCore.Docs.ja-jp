@@ -5,12 +5,12 @@ description: ASP.NET Core Identity 用のカスタム ストレージ プロバ�
 ms.author: riande
 ms.date: 05/24/2017
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: d7baa8ed142a7d3337adceff2dc93274604bde4c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: bdde9b93449c2f3f8d43cc4ff86472ed8a60ed1c
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831337"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889169"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core Identity 用のカスタム ストレージ プロバイダー
 
@@ -51,7 +51,7 @@ Web アプリと対話する方法、マネージャー ストアとデータ �
 
 新しいインスタンスを作成するときに`UserManager`または`RoleManager`ユーザー クラスの型を指定し、ストア クラスのインスタンスを引数として渡します。 このアプローチでは、ASP.NET Core に、カスタマイズしたクラスをプラグインすることができます。 
 
-[新しい記憶域プロバイダーを使用するアプリを再構成](#reconfigure-app-to-use-new-storage-provider)をインスタンス化する方法を示します`UserManager`と`RoleManager`カスタマイズされたストアとします。
+[新しい記憶域プロバイダーを使用するアプリを再構成](#reconfigure-app-to-use-a-new-storage-provider)をインスタンス化する方法を示します`UserManager`と`RoleManager`カスタマイズされたストアとします。
 
 ## <a name="aspnet-core-identity-stores-data-types"></a>ASP.NET Core Identity データ型を格納します。
 
