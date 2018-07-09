@@ -4,19 +4,16 @@ title: SqlDataSource (VB) によるオプティミスティック同時実行制
 author: rick-anderson
 description: このチュートリアルではオプティミスティック同時実行制御の基礎を確認し、SqlDataSource コントロールを使用して実装する方法を調べます。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2007
-ms.topic: article
 ms.assetid: a8fa72ee-8328-4854-a419-c1b271772303
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a71e5ee06e4a970e7e6d6c3b5b0351ad218e0253
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b1b5c16dcc504ef2ec8e7e8447d06cfacfa20ee8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391048"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824070"
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-vb"></a>SqlDataSource (VB) によるオプティミスティック同時実行制御を実装します。
 ====================

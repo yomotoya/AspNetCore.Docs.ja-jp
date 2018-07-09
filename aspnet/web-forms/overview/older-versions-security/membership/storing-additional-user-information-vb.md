@@ -4,19 +4,16 @@ title: 追加のユーザー情報 (VB) を格納する |Microsoft Docs
 author: rick-anderson
 description: このチュートリアルでは、非常に基本的なゲストブック アプリケーションを構築することによりこの質問に回答されます。 そのため、modeli のさまざまなオプションを紹介しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: ee4b924e-8002-4dc3-819f-695fca1ff867
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 06e28653b281461eff6548de6951f8463c827754
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 2ea731012f8c053d1e1eac293fdbeaec66db23bf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381871"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816039"
 ---
 <a name="storing-additional-user-information-vb"></a>ファイルを格納する追加のユーザー情報 (VB)
 ====================

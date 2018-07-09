@@ -4,19 +4,16 @@ title: トランザクション (VB) 内のデータベース変更のラッピ�
 author: rick-anderson
 description: このチュートリアルでは、更新、削除、およびデータのバッチを挿入するのには 4 つの 1 つ目です。 このチュートリアルではは、データベースのトランザクションを使用する方法について説明します.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/26/2007
-ms.topic: article
 ms.assetid: 7d821db5-6cbb-4b38-af14-198f9155fc82
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cf87dd0e677a73dc81cc430157be22b01ff0f7a8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 877174bad08970eed0cab52d0f1d8a521f7d2cc0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390163"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840746"
 ---
 <a name="wrapping-database-modifications-within-a-transaction-vb"></a>トランザクション (VB) 内で変更をラップするデータベース
 ====================

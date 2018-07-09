@@ -4,19 +4,16 @@ title: データベースの変更 (c#)、トランザクション内での折�
 author: rick-anderson
 description: このチュートリアルでは、更新、削除、およびデータのバッチを挿入するのには 4 つの 1 つ目です。 このチュートリアルではは、データベースのトランザクションを使用する方法について説明します.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/26/2007
-ms.topic: article
 ms.assetid: b45fede3-c53a-4ea1-824b-20200808dbae
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5bddf8aaee20b072e703ecc907aedfd5bb58450d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a87ba758abd6b3e89be4f5aa64d658b734f99d9e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363929"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810930"
 ---
 <a name="wrapping-database-modifications-within-a-transaction-c"></a>データベース変更をラップする (c#)、トランザクション内で
 ====================
