@@ -4,19 +4,16 @@ title: メンバーシップ ユーザー ストア (c#) に対してユーザ�
 author: rick-anderson
 description: このチュートリアルでは、プログラムによる方法と、ログイン コントロールの両方を使用して、メンバーシップ ユーザー ストアに対してユーザーの資格情報を検証する方法を説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: 61aa4e08-aa81-4aeb-8ebe-19ba7a65e04c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e0675bc814d293c6b7eff1789622158f907ebdff
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: e8c46d09a7ebab19204f7c439ec4333e0c36b73e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395280"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828956"
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-c"></a>メンバーシップ ユーザー ストア (c#) に対してユーザー資格情報を検証しています
 ====================
@@ -57,7 +54,7 @@ ms.locfileid: "37395280"
 
 このコードでは、非常に単純です。 まず、呼び出すことによって、`Membership.ValidateUser`メソッドを指定されたユーザー名とパスワードを渡します。 そのメソッドが true を返すかどうかは、ユーザーが経由でのサイトにサインインして、`FormsAuthentication`クラスの RedirectFromLoginPage メソッド。 (で説明したように、 <a id="Tutorial2"> </a> [*フォーム認証の概要を*](../introduction/an-overview-of-forms-authentication-cs.md)チュートリアルでは、`FormsAuthentication.RedirectFromLoginPage`フォーム認証チケットを作成し、ユーザーをリダイレクトします適切なページです。)資格情報が無効の場合、ただし、`InvalidCredentialsMessage`ラベルを表示すると、ユーザーに知らせることがユーザー名またはパスワードが間違っています。
 
-GridView を ObjectDataSource にバインドされているユーザーのブラウザーでページ上の空白の領域でどのマークアップもレンダリングしません。
+すべてです。
 
 ログイン ページが期待どおりに動作をテストするには、前のチュートリアルで作成したユーザー アカウントのいずれかでログインするしようとします。 または、いずれかから作成してください、アカウントをまだ作成がない場合、`~/Membership/CreatingUserAccounts.aspx`ページ。
 

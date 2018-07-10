@@ -8,5 +8,5 @@
 
 このサンプルでは、Web API コントローラー作成のバリエーションを示します。
 
-- [ControllerBase からクラスを派生する](https://docs.microsoft.com/en-us/aspnet/core/web-api/define-controller#derive-class-from-controllerbase)
-- [ApiControllerAttribute でクラスに注釈を付ける](https://docs.microsoft.com/en-us/aspnet/core/web-api/define-controller#annotate-class-with-apicontrollerattribute)
+- [ControllerBase からクラスを派生する](https://docs.microsoft.com/aspnet/core/web-api#derive-class-from-controllerbase)
+- [ApiControllerAttribute でクラスに注釈を付ける](https://docs.microsoft.com/aspnet/core/web-api#annotate-class-with-apicontrollerattribute)

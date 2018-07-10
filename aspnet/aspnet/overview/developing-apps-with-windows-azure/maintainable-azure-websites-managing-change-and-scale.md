@@ -336,7 +336,7 @@ ms.locfileid: "37824797"
     *Azure 管理ポータルで接続文字列*
 4. クリックして**SQL データベース**で、Azure SQL データベースの一覧を表示するには
 
-    ![SQL Database] メニューの [](maintainable-azure-websites-managing-change-and-scale/_static/image26.png "SQL Database のメニュー")
+    ![SQL Database メニューの ](maintainable-azure-websites-managing-change-and-scale/_static/image26.png "SQL Database のメニュー")
 
     *SQL Database のメニュー*
 5. 前のタスクで作成したデータベースを検索し、[サーバー] をクリックします。
@@ -856,9 +856,9 @@ Web アプリがステージング環境で正しく動作していることを�
     ![ブラウザーの種類を選択する](maintainable-azure-websites-managing-change-and-scale/_static/image95.png "ブラウザーの種類を選択します。")
 
     *ブラウザーの種類を選択します。*
-18. **カウンター セット**] ページで [**次**します。
+18. **カウンター セット** ページで **次**します。
 
-    ![カウンター セット ページで [次へ] をクリックすると](maintainable-azure-websites-managing-change-and-scale/_static/image96.png "カウンター セット] ページでは、[次をクリックすると")
+    ![カウンター セット ページで 次へ をクリックすると](maintainable-azure-websites-managing-change-and-scale/_static/image96.png "カウンター セット ページでは、次をクリックすると")
 
     *カウンター セット ページで 次へ をクリックして*
 19. **実行設定** ページで、設定、**ロード テストの継続時間**に**5 分** をクリック**完了**します。

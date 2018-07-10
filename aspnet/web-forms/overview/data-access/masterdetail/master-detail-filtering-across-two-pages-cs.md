@@ -4,19 +4,16 @@ title: マスター/詳細の 2 つのページ (c#) 間のフィルター処理
 author: rick-anderson
 description: このチュートリアルではこのパターンを仕入先データベースを一覧表示する GridView を使用して実装します。 GridView のサプライヤーの各行には、Vie が含まれます.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 552d2d50-fe73-4153-9a7f-2b379bec4625
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 48102f64b1ec832774d9b41258503937dae4f4d5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 13f5a13ac33ec9dfbff1952bc3bbb4dc951ab139
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373121"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823981"
 ---
 <a name="masterdetail-filtering-across-two-pages-c"></a>マスター/詳細の 2 つのページ (c#) 間のフィルター処理
 ====================
@@ -114,66 +111,66 @@ ms.locfileid: "37373121"
 
 ## <a name="step-3-listing-the-suppliers-products-inproductsforsupplierdetailsaspx"></a>手順 3: 供給業者の製品を一覧表示します。`ProductsForSupplierDetails.aspx`
 
-Scott Mitchell`ProductsForSupplierDetails.aspx`、7 つ受け取りますブックおよびの創設者の著者`SupplierID`4GuysFromRolla.com、Microsoft Web テクノロジと 1998 年から携わっています。 Scott は、フリーのコンサルタント、トレーナー、およびライターとして動作します。 最新の著書は`ProductsForSupplierDetails.aspx` `ProductsBySupplierDataSource`Sams 教える自分で ASP.NET 2.0 24 時間以内に`GetProductsBySupplierID(supplierID)``ProductsBLL`します。
+この時点で、`SupplierListMaster.aspx`ページがユーザーに送信して`ProductsForSupplierDetails.aspx`、選択した業者を渡す`SupplierID`クエリ文字列。 チュートリアルの最後の手順での GridView に製品を表示する`ProductsForSupplierDetails.aspx`が`SupplierID`equals、`SupplierID`クエリ文字列が渡されます。 GridView を追加することで、このスタートを実行する、`ProductsForSupplierDetails.aspx`という名前の新しい ObjectDataSource コントロールを使用して、ページ`ProductsBySupplierDataSource`を呼び出す、`GetProductsBySupplierID(supplierID)`からメソッド、`ProductsBLL`クラス。
 
 
-[![彼に到達できる[![します。](master-detail-filtering-across-two-pages-cs/_static/image21.png)](master-detail-filtering-across-two-pages-cs/_static/image20.png)
+[![ProductsBySupplierDataSource という名前の新しい ObjectDataSource を追加します。](master-detail-filtering-across-two-pages-cs/_static/image21.png)](master-detail-filtering-across-two-pages-cs/_static/image20.png)
 
-**彼のブログにあるでまたは**** `ProductsBySupplierDataSource`します。
-
-
-[![特別なに感謝します。](master-detail-filtering-across-two-pages-cs/_static/image24.png)](master-detail-filtering-across-two-pages-cs/_static/image23.png)
-
-**このチュートリアル シリーズは、多くの便利なレビュー担当者によってレビューされました。
+**図 8**: 新しい ObjectDataSource という追加`ProductsBySupplierDataSource`([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image22.png))。
 
 
-[![このチュートリアルでは、潜在顧客レビュー担当者が、Hilton Giesenow です。](master-detail-filtering-across-two-pages-cs/_static/image27.png)](master-detail-filtering-across-two-pages-cs/_static/image26.png)
+[![ProductsBLL クラスを選択します。](master-detail-filtering-across-two-pages-cs/_static/image24.png)](master-detail-filtering-across-two-pages-cs/_static/image23.png)
 
-**今後、MSDN の記事を確認したいですか。
+**図 9**: 選択、`ProductsBLL`クラス ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image25.png))。
 
 
-場合は、筆者に`GetProductsBySupplierID(supplierID)`*します。 クエリ文字列値を使用するパラメーターのソースをクエリ文字列に設定し、QueryStringField ボックスに、使用するクエリ文字列値の名前を入力します (`SupplierID`)。
+[![ObjectDataSource GetProductsBySupplierID(supplierID) メソッドの呼び出しがあります。](master-detail-filtering-across-two-pages-cs/_static/image27.png)](master-detail-filtering-across-two-pages-cs/_static/image26.png)
+
+**図 10**: ObjectDataSource 呼び出しがある、`GetProductsBySupplierID(supplierID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image28.png))。
+
+
+データ ソース構成ウィザードの最後の手順では、ソースを提供するよう求められます、`GetProductsBySupplierID(supplierID)`メソッドの*`supplierID`* パラメーター。 クエリ文字列値を使用するパラメーターのソースをクエリ文字列に設定し、QueryStringField ボックスに、使用するクエリ文字列値の名前を入力します (`SupplierID`)。
 
 
 [![SupplierID SupplierID クエリ文字列値からパラメーター値の設定します。](master-detail-filtering-across-two-pages-cs/_static/image30.png)](master-detail-filtering-across-two-pages-cs/_static/image29.png)
 
-**ユーザーが任意の製品がない業者の製品の表示リンクをクリックした場合、**で ObjectDataSource**結果が返されません。
+**図 11**: 設定、 *`supplierID`* からパラメーター値、`SupplierID`クエリ文字列値 ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image31.png))。
 
 
-GridView を ObjectDataSource にバインドされているユーザーのブラウザーでページ上の空白の領域でどのマークアップもレンダリングしません。 GridView のより明確に選択した供給業者に関連付けられている製品がないことをユーザーに通信するために設定できる`ProductsForSupplierDetails.aspx`プロパティを私たちは、このような状況が発生した場合に表示メッセージ。
+すべてです。 図 12 は、`ProductsForSupplierDetails.aspx`から東京 Traders リンクをクリックしてアクセスしたときにページ`SupplierListMaster.aspx`します。
 
 
-[![このプロパティはありません。"この業者によって提供される製品"を設定しました](master-detail-filtering-across-two-pages-cs/_static/image33.png)](master-detail-filtering-across-two-pages-cs/_static/image32.png)
+[![東京 Traders によって提供される製品が表示されます。](master-detail-filtering-across-two-pages-cs/_static/image33.png)](master-detail-filtering-across-two-pages-cs/_static/image32.png)
 
-**既定では、Northwinds データベース内のすべてのサプライヤーは、少なくとも 1 つの製品を提供します。
+**図 12**: 東京 Traders によって提供される、製品が表示されます ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image34.png))。
 
 
-## <a name="displaying-supplier-information-inproductsforsupplierdetailsaspx"></a>ただし、このチュートリアルでは手動で変更しました、`ProductsForSupplierDetails.aspx`テーブル Escargots Nouveaux 仕入先は任意の製品と関連付けられなくようにします。`ProductsForSupplierDetails.aspx`
+## <a name="displaying-supplier-information-inproductsforsupplierdetailsaspx"></a>仕入先情報を表示します。`ProductsForSupplierDetails.aspx`
 
-図 18 では、この変更が行われた後、Escargots Nouveaux 詳細ページを利用します。 供給業者がすべての製品を提供しないユーザーに通知されます。 図 18: 供給業者がすべての製品を提供しないユーザーに通知されます (フルサイズの画像を表示する をクリックします)。
+図 12 に示すよう、`ProductsForSupplierDetails.aspx`ページによって提供される製品を単純に一覧表示、`SupplierID`クエリ文字列で指定します。 このページに直接送信ただしはわからない図 12 に東京のトレーダーの製品が表示されています。 これを修正するもこのページで仕入先情報を表示することができます。
 
-マスター/詳細レポートは、1 ページにマスター/詳細の両方のレコードを表示することができます、多くの web サイトで区切られます 2 つの web ページ。 このチュートリアルでは、「マスター」の web ページで、GridView の仕入先と「詳細」ページに示される関連付けられている製品でこのようなマスター/詳細レポートを実装する方法を説明しました。
+まず上記製品 GridView、FormView を追加します。 という名前の新しい ObjectDataSource コントロールを作成`SuppliersDataSource`を呼び出す、`SuppliersBLL`クラスの`GetSupplierBySupplierID(supplierID)`メソッド。
 
 
 [![SuppliersBLL クラスを選択します。](master-detail-filtering-across-two-pages-cs/_static/image36.png)](master-detail-filtering-across-two-pages-cs/_static/image35.png)
 
-**マスター web ページのサプライヤーの各行に渡されます行の詳細ページへのリンクが含まれている**値。
+**図 13**: 選択、`SuppliersBLL`クラス ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image37.png))。
 
 
-[![このような行に固有のリンクは、GridView の内を使用して簡単に追加できます。](master-detail-filtering-across-two-pages-cs/_static/image39.png)](master-detail-filtering-across-two-pages-cs/_static/image38.png)
+[![ObjectDataSource GetSupplierBySupplierID(supplierID) メソッドの呼び出しがあります。](master-detail-filtering-across-two-pages-cs/_static/image39.png)](master-detail-filtering-across-two-pages-cs/_static/image38.png)
 
-**詳細ページで、指定された業者の製品を取得する呼び出すことによって実現されました、**クラスの**メソッド。
+**図 14**: ObjectDataSource 呼び出しがある、`GetSupplierBySupplierID(supplierID)`メソッド ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image40.png))。
 
 
-`ProductsBySupplierDataSource` * `supplierID`パラメーターのソースとして、クエリ文字列を使用して宣言パラメーターの値が指定されました。
+同様、`ProductsBySupplierDataSource`が、 *`supplierID`* パラメーターの値が割り当て、`SupplierID`クエリ文字列値。
 
 
 [![SupplierID SupplierID クエリ文字列値からパラメーター値の設定します。](master-detail-filtering-across-two-pages-cs/_static/image42.png)](master-detail-filtering-across-two-pages-cs/_static/image41.png)
 
-**FormView を使用して、詳細ページで、仕入先の詳細を表示する方法についても説明しました。
+**図 15**: 設定、 *`supplierID`* からパラメーター値、`SupplierID`クエリ文字列値 ([フルサイズの画像を表示する をクリックします](master-detail-filtering-across-two-pages-cs/_static/image43.png))。
 
 
-この`ItemTemplate`次のチュートリアル`InsertItemTemplate`マスター/詳細レポートの最終的なであります。 各行が Select ボタンの GridView に製品の一覧を表示する方法について説明します。 [選択] ボタンをクリックすると、同じページに DetailsView コントロールで製品の詳細が表示されます。 FormView を手動で設定する代わりに、`DataSourceID`を作成し、 `ItemTemplate` 、マークアップで行ったように、"[、ObjectDataSource でデータを表示する](../basic-reporting/displaying-data-with-the-objectdatasource-cs.md)"チュートリアル。
+FormView のデザイン ビューで ObjectDataSource をフォーム ビューをバインドするときに、自動的に Visual Studio を作成`ItemTemplate`、 `InsertItemTemplate`、および`EditItemTemplate`の各によって返されるデータ フィールドのラベルとテキスト ボックスに Web コントロールと、ObjectDataSource します。 仕入先情報を自由に削除を表示するだけですので、`InsertItemTemplate`と`EditItemTemplate`します。 次に、仕入先の会社名を表示するよう、ItemTemplate の編集、`<h3>`要素と、アドレス、市区町村、国、および会社名の下に電話番号。 FormView を手動で設定する代わりに、`DataSourceID`を作成し、 `ItemTemplate` 、マークアップで行ったように、"[、ObjectDataSource でデータを表示する](../basic-reporting/displaying-data-with-the-objectdatasource-cs.md)"チュートリアル。
 
 これらの編集後 FormView の宣言型マークアップは次のようになります。
 

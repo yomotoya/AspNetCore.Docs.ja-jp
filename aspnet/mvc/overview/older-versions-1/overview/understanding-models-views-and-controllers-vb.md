@@ -4,19 +4,16 @@ title: 理解のモデル、ビュー、およびコント ローラー (VB) |Mi
 author: StephenWalther
 description: モデル、ビュー、およびコント ローラーと混同するでしょうか。 このチュートリアルで Stephen Walther がわかる ASP.NET MVC アプリケーションのさまざまな部分。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/19/2008
-ms.topic: article
 ms.assetid: a106374a-5e74-4fd0-9ac0-1a32280e5d0d
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c651201a34b9ab6b459d0f2ecf491b49feb64434
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 1c751972b0f59a3988e15eed0c6cff3bc566de0e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399900"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838729"
 ---
 <a name="understanding-models-views-and-controllers-vb"></a>理解のモデル、ビュー、およびコント ローラー (VB)
 ====================
@@ -113,7 +110,7 @@ ASP.NET アプリケーションを最初の起動時、アプリケーション
 
 アクションの詳細を =
 
-id = 3
+Id = 3
 
 Global.asax ファイルで定義されている既定のルートには、次の 3 つすべてのパラメーターの既定値が含まれています。 既定のコント ローラーはホーム、既定のアクションは、インデックス、および既定の Id が空の文字列。 これらの既定値に注意してくださいには、次の URL を解析する方法を検討してください。
 

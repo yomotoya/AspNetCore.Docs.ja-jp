@@ -4,19 +4,16 @@ title: ASP.NET MVC ビュー概要 (c#) |Microsoft Docs
 author: StephenWalther
 description: ASP.NET MVC ビューし、HTML ページから違う方法でしょうか。 このチュートリアルでは、Stephen Walther がビューを紹介し、t を行う方法を示します.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/16/2008
-ms.topic: article
 ms.assetid: 152ab1e5-aec2-4ea7-b8cc-27a24dd9acb8
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: adf995529b34c84969125adcc6249ba8e22a7af4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: d2fc96f7e991dd7c4e0b3e9ff5c589c1075010ac
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387791"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833660"
 ---
 <a name="aspnet-mvc-views-overview-c"></a>ASP.NET MVC ビュー概要 (c#)
 ====================
