@@ -4,19 +4,16 @@ title: 入れ子になったマスター ページ (c#) |Microsoft Docs
 author: rick-anderson
 description: 別の 1 つのマスター ページを入れ子にする方法を示します。
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/28/2008
-ms.topic: article
 ms.assetid: 32b7fb6e-d74b-4048-91f8-70631b2523ee
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1a93f8a0dc829f45eaa08a356f01f51df5443e29
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 71cefa603d1b54e8dbbeb0f6e7e3ef8e0c0a93f8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379074"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840646"
 ---
 <a name="nested-master-pages-c"></a>入れ子になったマスター ページ (c#)
 ====================
@@ -258,14 +255,14 @@ Visual Studio 4 が加算されますので、入れ子になったマスター 
 
 新しいコンテンツ ページにバインドする必要があります。 [管理] セクションに追加するたび、`AdminNested.master`マスター ページを作成しました。 しかし、コンテンツ ページで、既存のものでしょうか。 現時点から派生して、サイト内のすべてのコンテンツ ページ、`BasePage`クラスは、プログラムによって実行時にコンテンツ ページのマスター ページを設定します。 これは、[管理] セクションのコンテンツ ページの動作ではありません。 代わりに、これらのコンテンツ ページを常に使用する、`AdminNested.master`ページ。 実行時に右最上位レベルのコンテンツ ページを選択する入れ子になったマスター ページの責任になります。
 
-動作がという名前の新しいベース ページのカスタム クラスを作成するにはこの目的を達成する最善の方法を`AdminBasePage`まで、`BasePage`クラス。 `AdminBasePage` オーバーライドし、`SetMasterPageFile`設定と、`Page`オブジェクトの`MasterPageFile`ハード コーディングされた値に"~/Admin/AdminNested.master"。 ご覧のように、ページには、管理手順ボックスで、入れ子になったマスター ページで定義されているが含まれます。
+動作がという名前の新しいベース ページのカスタム クラスを作成するにはこの目的を達成する最善の方法を`AdminBasePage`まで、`BasePage`クラス。 `AdminBasePage` オーバーライドし、`SetMasterPageFile`設定と、`Page`オブジェクトの`MasterPageFile`ハード コーディングされた値に"~/Admin/AdminNested.master"。 これにより、任意のページから派生した`AdminBasePage`が使用されます`AdminNested.master`から派生した任意のページは、`BasePage`がその`MasterPageFile`いずれかに動的にプロパティが設定"~/Site.master"または"~/Alternate.master"の値に基づいて、`MyMasterPage`セッション変数。
 
-[管理] セクションのコンテンツ ページが各ページの上部にある手順を含める 図 12`BasePage`: 各ページの上部にある管理セクションを含める手順では、コンテンツのページ (`SetMasterPageFile`フルサイズの画像を表示する をクリックします)。 手順 7: 実行時に適切な最上位マスター ページを使用します。 すべてが同じ最上位マスター ページを使用しでユーザーが選択したマスター ページを無視の管理セクションのすべてのコンテンツ ページは完全に機能が、します。
+新しいクラス ファイルを追加して、開始、`App_Code`という名前のフォルダー`AdminBasePage.cs`します。 `AdminBasePage`拡張`BasePage`をオーバーライドし、`SetMasterPageFile`メソッド。 そのメソッドで割り当てる、`MasterPageFile`値"~/Admin/AdminNested.master"。 クラスのこれらの変更を行った後、次のようなファイルにする必要がありますなります。
 
 
 [!code-csharp[Main](nested-master-pages-cs/samples/sample11.cs)]
 
-この動作は、入れ子になったマスター ページがあるという事実のその`AdminBasePage`プロパティが静的に設定`BasePage`でそのディレクティブ。 設定する必要があります、エンドユーザーが選択した最上位マスター ページを使用する、`~/Admin`のプロパティの値をセッション変数。 コンテンツ ページの設定するため`~/Admin/Default.aspx`プロパティ、入れ子になったマスター ページの設定はことが考えられますプロパティまたは、の分離コード クラス。
+派生してセクションの管理で、既存のコンテンツ ページに今すぐ必要があります`AdminBasePage`の代わりに`BasePage`します。 内の各コンテンツ ページの分離コード クラス ファイルに移動して、`~/Admin`フォルダーこの変更を加えます。 たとえば、`~/Admin/Default.aspx`から分離コード クラスの宣言を変更する場合します。
 
 
 [!code-csharp[Main](nested-master-pages-cs/samples/sample12.cs)]
@@ -275,21 +272,21 @@ Visual Studio 4 が加算されますので、入れ子になったマスター 
 
 [!code-csharp[Main](nested-master-pages-cs/samples/sample13.cs)]
 
-これは、ために、機能しません、ただし、設定する必要があります、 `Site.master` PreInit ステージの終わりまでのプロパティ。
+図 11 を示して 方法最上位マスター ページ (`Site.master`または`Alternate.master`)、入れ子になったマスター ページ (`AdminNested.master`)、および管理セクションのコンテンツ ページが互いに関連します。
 
 
 [![入れ子になったマスター ページ、[管理] ページに特定のコンテンツを定義します](nested-master-pages-cs/_static/image32.png)](nested-master-pages-cs/_static/image31.png)
 
-**マスター ページからページのライフ サイクルにをタップできますプログラムを使用した最初の時刻は、Init ステージ (これは、PreInit 段階の後に発生します)。
+**図 11**:、入れ子になったマスター ページを定義コンテンツに固有の管理セクションのページ ([フルサイズの画像を表示する をクリックします](nested-master-pages-cs/_static/image33.png))。
 
 
-## <a name="step-6-mirroring-the-master-pages-public-methods-and-properties"></a>そのため、入れ子になったのマスター ページを設定する必要がありますコンテンツ ページのプロパティ。
+## <a name="step-6-mirroring-the-master-pages-public-methods-and-properties"></a>手順 6: マスター ページのパブリック メソッドとプロパティのミラーリング
 
-唯一のコンテンツ ページを使用する、`~/Admin/AddProduct.aspx`からマスター ページを派生`~/Admin/Products.aspx`します。 そのためがこのロジックを格納することができます。
+いることを思い出してください、`~/Admin/AddProduct.aspx`と`~/Admin/Products.aspx`ページは、マスター ページをプログラムで操作:`~/Admin/AddProduct.aspx`呼び出しマスター ページの公開`RefreshRecentProductsGrid`メソッドとセットの`GridMessageText`プロパティです。`~/Admin/Products.aspx`のイベント ハンドラーを持って、`PricesDoubled`イベント。 前のチュートリアルでは、抽象を作成した`BaseMasterPage`クラスが、これらのパブリック メンバーを定義します。
 
-手順 5 でオーバーライドされました、`~/Admin/AddProduct.aspx`メソッド、設定、`~/Admin/Products.aspx`オブジェクトの`BaseMasterPage`プロパティを"~/Admin/AdminNested.master"。 Update`AdminNested.master`も、マスター ページを設定する`System.Web.UI.MasterPage`プロパティをセッションに保存された結果。 `~/Admin/Products.aspx`メソッドを追加しました、`InvalidCastException`クラスでは、前のチュートリアルでは、セッション変数の値に基づいて、適切なマスター ページのファイル パスを返します。
+`~/Admin/AddProduct.aspx`と`~/Admin/Products.aspx`ページ、マスター ページから派生したことを想定しています、`BaseMasterPage`クラス。 `AdminNested.master`  ページで、ただし、現在拡張、`System.Web.UI.MasterPage`クラス。 アクセスすると、結果として`~/Admin/Products.aspx`、`InvalidCastException`がスローされ、メッセージ:"型のオブジェクトをキャストできません 'ASP.admin\_adminnested\_マスター' 'BaseMasterPage' を入力します"。
 
-この変更、ユーザーのマスター ページの選択は、[管理] セクションに持ち越します。 図 13 では図 12、形式が、ユーザーがそのマスター ページの選択範囲を変更した後、同じページします。
+させる必要があります。 これを解決する、`AdminNested.master`分離コード クラスを拡張`BaseMasterPage`します。 入れ子になったマスター ページの分離コード クラスの宣言を更新します。
 
 
 [!code-csharp[Main](nested-master-pages-cs/samples/sample14.cs)]
@@ -299,16 +296,16 @@ Visual Studio 4 が加算されますので、入れ子になったマスター 
 
 [!code-csharp[Main](nested-master-pages-cs/samples/sample15.cs)]
 
-入れ子になった管理ページが、ユーザーが選択した最上位マスター ページを使用します。 図 13`abstract`: 入れ子になったの管理 ページは、最上位マスター ページで選択されて、ユーザーを使用して (`RefreshRecentProductsGrid`フルサイズの画像を表示する をクリックします`GridMessageText`)。 Like 程度コンテンツ ページは、マスター ページにバインドできますが作成することは入れ子になった子マスター ページ、マスター ページが親マスター ページにバインドします。 子のマスター ページは、親の ContentPlaceHolders; の各コンテンツ コントロールを定義することがあります。これらのコンテンツ コントロールに独自のプレース ホルダー コントロール (およびその他のマークアップ) し、追加できます。
+まだ終わっていません。 `BaseMasterPage`クラスが抽象クラスでオーバーライドする必要があります、`abstract`メンバー、`RefreshRecentProductsGrid`と`GridMessageText`します。 これらのメンバーは、そのユーザー インターフェイスを更新する最上位マスター ページで使用されます。 (実際には、専用、`Site.master`マスター ページには、これらのメソッドが使用されますが、両方の最上位マスター ページは、両方を拡張するために、これらのメソッドを実装`BaseMasterPage`)。
 
-入れ子になったマスター ページでは、大規模な web アプリケーションをすべてのページが、包括的なルック アンド フィールを共有しながら特定のセクションでは、サイトの一意のカスタマイズが必要では、非常に便利です。 入れ子になった ASP.NET マスター ページ
+これらのメンバーを実装する必要があります、 `AdminNested.master`、これらの実装を行う必要があるは入れ子になったマスター ページで使用される最上位マスター ページで、同じメンバーを呼び出すだけです。 たとえば、[管理] セクションのコンテンツ ページが、入れ子になったマスター ページを呼び出すときに`RefreshRecentProductsGrid`メソッド、入れ子になったマスター ページを行う必要があるすべてが、さらに、呼び出す`Site.master`または`Alternate.master`の`RefreshRecentProductsGrid`メソッド。
 
-入れ子になったマスター ページと VS 2005 のデザイン時のためのヒント
+これを実現する、次を追加することで開始`@MasterType`の先頭にディレクティブ`AdminNested.master`:
 
 
 [!code-aspx[Main](nested-master-pages-cs/samples/sample16.aspx)]
 
-VS 2008 には、マスター ページのサポートが入れ子になった オーバーライドして、`RefreshRecentProductsGrid`と`GridMessageText`メンバーへの呼び出しを委任して、`Master`メソッドの対応します。
+いることを思い出してください、`@MasterType`ディレクティブでは、厳密に型指定されたプロパティをという名前の分離コード クラスに追加`Master`します。 オーバーライドして、`RefreshRecentProductsGrid`と`GridMessageText`メンバーへの呼び出しを委任して、`Master`メソッドの対応します。
 
 
 [!code-csharp[Main](nested-master-pages-cs/samples/sample17.cs)]

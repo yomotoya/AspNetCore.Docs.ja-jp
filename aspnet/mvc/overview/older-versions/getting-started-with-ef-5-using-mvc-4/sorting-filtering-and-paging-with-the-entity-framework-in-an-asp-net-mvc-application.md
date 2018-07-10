@@ -4,19 +4,16 @@ title: 並べ替え、フィルター処理、および ASP.NET MVC アプリケ
 author: tdykstra
 description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 5 Code First と Visual Studio を使用して ASP.NET MVC 4 アプリケーションを作成する方法について説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/30/2013
-ms.topic: article
 ms.assetid: 8af630e0-fffa-4110-9eca-c96e201b2724
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c2b53c5f35b0d7cd519ab3fdcb57c39463c40a8a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: f5ce5f926021a53a5dd96e578b26b8c186c9a83c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401225"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841035"
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>並べ替え、フィルター処理、および ASP.NET MVC アプリケーション (3/10) で Entity Framework でのページング
 ====================
@@ -130,9 +127,9 @@ NuGet **PagedList.Mvc**パッケージが自動的にインストール、 **Pag
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
-### <a name="add-paging-functionality-to-the-index-method"></a>このチュートリアルでは、データ モデルを作成して、基本的な CRUD、並べ替え、フィルター、ページング、および機能をグループ化を実装する方法を説明しました。
+### <a name="add-paging-functionality-to-the-index-method"></a>Index メソッドにページング機能を追加します。
 
-次のチュートリアルでは、データ モデルを展開してより高度なトピックを見てが始めます。
+*Controllers\StudentController.cs*、追加、`using`のステートメント、`PagedList`名前空間。
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs)]
 
@@ -144,7 +141,7 @@ NuGet **PagedList.Mvc**パッケージが自動的にインストール、 **Pag
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
 
-最初にページが表示されるとき、またはユーザーがページングや並べ替えのリンクをクリックしていない場合、すべてのパラメーターは null になります。 また、新しいトピックを要求することもできます。`page`表示 Me How With Codeします。
+最初にページが表示されるとき、またはユーザーがページングや並べ替えのリンクをクリックしていない場合、すべてのパラメーターは null になります。 ページングのリンクがクリックされた場合、`page`変数を表示するページ番号が含まれます。
 
 `A ViewBag` プロパティは、このページングの中に同じ並べ替え順序を維持するために、ページング リンクに含める必要があるため、ビューで、現在の並べ替え順序を提供します。
 

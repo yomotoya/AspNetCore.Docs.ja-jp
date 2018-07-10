@@ -4,19 +4,16 @@ title: 並べ替え、フィルター処理、および ASP.NET MVC アプリケ
 author: tdykstra
 description: Contoso University のサンプルの web アプリケーションでは、Entity Framework 6 Code First と Visual Studio を使用して ASP.NET MVC 5 アプリケーションを作成する方法について説明しています.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/01/2015
-ms.topic: article
 ms.assetid: d5723e46-41fe-4d09-850a-e03b9e285bfa
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 3cd7d5e7ea97dd4defa5e609de70beda7dfccf77
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 231dd6bc9892d855a12289fde681d3f210494af9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375413"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839714"
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application"></a>並べ替え、フィルター処理、および ASP.NET MVC アプリケーションで Entity Framework でのページング
 ====================
@@ -124,17 +121,17 @@ NuGet **PagedList.Mvc**パッケージが自動的にインストール、 **Pag
 
 **ツール**メニューの **ライブラリ パッケージ マネージャー**し**パッケージ マネージャー コンソール**します。
 
-アプリを実行し、をクリックして、**について**リンク。
+**パッケージ マネージャー コンソール**ウィンドウで、ことを確認、**パッケージ ソース**は**nuget.org**と**既定のプロジェクト**は**ContosoUniversity**、次のコマンドを入力します。
 
 `Install-Package PagedList.Mvc`
 
-![About_page](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
+![PagedList.Mvc をインストールします。](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
 プロジェクトをビルドします。 
 
-### <a name="add-paging-functionality-to-the-index-method"></a>このチュートリアルでは、データ モデルを作成して、基本的な CRUD、並べ替え、フィルター、ページング、および機能をグループ化を実装する方法を説明しました。
+### <a name="add-paging-functionality-to-the-index-method"></a>Index メソッドにページング機能を追加します。
 
-次のチュートリアルでは、データ モデルを展開してより高度なトピックを見てが始めます。
+*Controllers\StudentController.cs*、追加、`using`のステートメント、`PagedList`名前空間。
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs)]
 
@@ -142,13 +139,13 @@ NuGet **PagedList.Mvc**パッケージが自動的にインストール、 **Pag
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs?highlight=1,3,7-16,41-43)]
 
-このチュートリアルの立った方法で改善できましたフィードバックを送信してください。
+このコードを追加、`page`パラメーター、現在の並べ替え順序パラメーター、およびメソッド シグネチャに、現在のフィルター パラメーター。
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
 
-最初にページが表示されるとき、またはユーザーがページングや並べ替えのリンクをクリックしていない場合、すべてのパラメーターは null になります。 また、新しいトピックを要求することもできます。`page`表示 Me How With Codeします。
+最初にページが表示されるとき、またはユーザーがページングや並べ替えのリンクをクリックしていない場合、すべてのパラメーターは null になります。 ページングのリンクがクリックされた場合、`page`変数を表示するページ番号が含まれます。
 
-その他の Entity Framework リソースへのリンクが記載`ViewBag`ASP.NET データ アクセス - 推奨リソースします。
+A`ViewBag`このページングの中に同じ並べ替え順序を維持するために、ページング リンクに含める必要があるために、プロパティは、ビューで、現在の並べ替え順序を提供します。
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs)]
 
