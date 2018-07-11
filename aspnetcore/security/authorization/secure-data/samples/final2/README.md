@@ -1,6 +1,6 @@
-# <a name="how-to-buildrun-secure-user-data-sample"></a>ユーザーのセキュリティで保護されたデータ サンプルをビルド/実行する方法
+# <a name="how-to-buildrun-secure-user-data-sample"></a>セキュリティで保護されたユーザー データのサンプルをビルド/実行する方法
 
-* シークレット マネージャー ツールを使用してパスワードを設定します。
+* Secret Manager ツールを使用したパスワードを設定します。
 
   `dotnet user-secrets set SeedUserPW <pw>`
 

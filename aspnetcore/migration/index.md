@@ -5,12 +5,12 @@ description: ASP.NET Core 4.x のさまざまな側面を ASP.NET Core に移行
 ms.author: riande
 ms.date: 05/04/2018
 uid: migration/index
-ms.openlocfilehash: 0d622e47f2031d9e473819af52d387c7e01838cb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 709e6434e4b3083d4262bc1f89748ca163474888
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275711"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938156"
 ---
 # <a name="migration-to-aspnet-core"></a>ASP.NET Core への移行
 
