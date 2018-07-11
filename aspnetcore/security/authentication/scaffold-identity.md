@@ -1,37 +1,37 @@
 ---
-title: ASP.NET Core プロジェクトに scaffold Id
+title: ASP.NET Core プロジェクトでスキャフォールディング Id
 author: rick-anderson
-description: ASP.NET Core プロジェクト内の Id をスキャフォールディングする方法を説明します。
+description: ASP.NET Core プロジェクトでの Id をスキャフォールディングする方法について説明します。
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 5/16/2018
 uid: security/authentication/scaffold-identity
 ms.openlocfilehash: cf6544d8b671f026c8466fa8dff506027b64cf1f
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276319"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38217683"
 ---
-# <a name="scaffold-identity-in-aspnet-core-projects"></a><span data-ttu-id="7cf6d-103">ASP.NET Core プロジェクトに scaffold Id</span><span class="sxs-lookup"><span data-stu-id="7cf6d-103">Scaffold Identity in ASP.NET Core projects</span></span>
+# <a name="scaffold-identity-in-aspnet-core-projects"></a><span data-ttu-id="6392d-103">ASP.NET Core プロジェクトでスキャフォールディング Id</span><span class="sxs-lookup"><span data-stu-id="6392d-103">Scaffold Identity in ASP.NET Core projects</span></span>
 
-<span data-ttu-id="7cf6d-104">作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="7cf6d-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="6392d-104">作成者: [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="6392d-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="7cf6d-105">ASP.NET Core 2.1 以降提供[ASP.NET Core Id](xref:security/authentication/identity)として、 [Razor クラス ライブラリ](xref:razor-pages/ui-class)です。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-105">ASP.NET Core 2.1 and later provides [ASP.NET Core Identity](xref:security/authentication/identity) as a [Razor Class Library](xref:razor-pages/ui-class).</span></span> <span data-ttu-id="7cf6d-106">Id を含むアプリケーションでは、選択的に Identity Razor クラス ライブラリ (RCL) に含まれるソース コードを追加する scaffolder を適用できます。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-106">Applications that include Identity can apply the scaffolder to selectively add the source code contained in the Identity Razor Class Library (RCL).</span></span> <span data-ttu-id="7cf6d-107">コードを変更して、動作を変更できるように、ソース コードを生成する可能性があります。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-107">You might want to generate source code so you can modify the code and change the behavior.</span></span> <span data-ttu-id="7cf6d-108">たとえば、scaffolder 登録で使用するコードを生成するように指示できます。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-108">For example, you could instruct the scaffolder to generate the code used in registration.</span></span> <span data-ttu-id="7cf6d-109">生成されたコードは、Identity RCL で同じコードよりも優先されます。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-109">Generated code takes precedence over the same code in the Identity RCL.</span></span> <span data-ttu-id="7cf6d-110">既定の RCL 使用しないと、UI のフル コントロールが得、セクションを参照して[完全な id UI ソースの作成](#full)です。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-110">To gain full control of the UI and not use the default RCL, see the section [Create full identity UI source](#full).</span></span>
+<span data-ttu-id="6392d-105">ASP.NET Core 2.1 以降では[ASP.NET Core Identity](xref:security/authentication/identity)として、 [Razor クラス ライブラリ](xref:razor-pages/ui-class)します。</span><span class="sxs-lookup"><span data-stu-id="6392d-105">ASP.NET Core 2.1 and later provides [ASP.NET Core Identity](xref:security/authentication/identity) as a [Razor Class Library](xref:razor-pages/ui-class).</span></span> <span data-ttu-id="6392d-106">Id を含むアプリケーションでは、選択的に Identity Razor クラス ライブラリ (RCL) に含まれているソース コードを追加する scaffolder を適用できます。</span><span class="sxs-lookup"><span data-stu-id="6392d-106">Applications that include Identity can apply the scaffolder to selectively add the source code contained in the Identity Razor Class Library (RCL).</span></span> <span data-ttu-id="6392d-107">コードを変更して動作を変更できるように、ソース コードを生成できます。</span><span class="sxs-lookup"><span data-stu-id="6392d-107">You might want to generate source code so you can modify the code and change the behavior.</span></span> <span data-ttu-id="6392d-108">たとえば、登録で使用するコードを生成するようにスキャフォルダーに指示できます。</span><span class="sxs-lookup"><span data-stu-id="6392d-108">For example, you could instruct the scaffolder to generate the code used in registration.</span></span> <span data-ttu-id="6392d-109">生成されたコードは、Identity RCL の同じコードよりも優先されます。</span><span class="sxs-lookup"><span data-stu-id="6392d-109">Generated code takes precedence over the same code in the Identity RCL.</span></span> <span data-ttu-id="6392d-110">UI のフル コントロールを取得し、既定 RCL を使用しない、セクションをご覧ください。 [UI のソースの完全な id 作成](#full)です。</span><span class="sxs-lookup"><span data-stu-id="6392d-110">To gain full control of the UI and not use the default RCL, see the section [Create full identity UI source](#full).</span></span>
 
-<span data-ttu-id="7cf6d-111">実行するアプリケーション**いない**含める認証 RCL Identity パッケージを追加する scaffolder を適用できます。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-111">Applications that do **not** include authentication can apply the scaffolder to add the RCL Identity package.</span></span> <span data-ttu-id="7cf6d-112">生成される Id コードを選択した場合のオプションがあります。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-112">You have the option of selecting Identity code to be generated.</span></span>
+<span data-ttu-id="6392d-111">実行するアプリケーション**いない**含める認証 RCL Identity パッケージを追加する scaffolder を適用できます。</span><span class="sxs-lookup"><span data-stu-id="6392d-111">Applications that do **not** include authentication can apply the scaffolder to add the RCL Identity package.</span></span> <span data-ttu-id="6392d-112">生成される Identity コードの選択オプションがあります。</span><span class="sxs-lookup"><span data-stu-id="6392d-112">You have the option of selecting Identity code to be generated.</span></span>
 
-<span data-ttu-id="7cf6d-113">Scaffolder に必要なコードのほとんどが生成されますが、プロセスを完了するようにプロジェクトを更新する必要があります。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-113">Although the scaffolder generates most of the necessary code, you'll have to update your project to complete the process.</span></span> <span data-ttu-id="7cf6d-114">このドキュメントでは、Identity スキャフォールディング更新を完了するために必要な手順について説明します。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-114">This document explains the steps needed to complete an Identity scaffolding update.</span></span>
+<span data-ttu-id="6392d-113">スキャフォルダーは、必要なコードの大部分を生成するが、プロセスを完了するプロジェクトを更新する必要があります。</span><span class="sxs-lookup"><span data-stu-id="6392d-113">Although the scaffolder generates most of the necessary code, you'll have to update your project to complete the process.</span></span> <span data-ttu-id="6392d-114">このドキュメントでは、Id のスキャフォールディング更新の完了に必要な手順について説明します。</span><span class="sxs-lookup"><span data-stu-id="6392d-114">This document explains the steps needed to complete an Identity scaffolding update.</span></span>
 
-<span data-ttu-id="7cf6d-115">Identity scaffolder を実行すると、 *ScaffoldingReadme.txt*プロジェクト ディレクトリにファイルを作成します。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-115">When the Identity scaffolder is run, a *ScaffoldingReadme.txt* file is created in the project directory.</span></span> <span data-ttu-id="7cf6d-116">*ScaffoldingReadme.txt*ファイルには、Id のスキャフォールディング更新を完了に必要な条件での一般的な手順が含まれています。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-116">The *ScaffoldingReadme.txt* file contains general instructions on what's needed to complete the Identity scaffolding update.</span></span> <span data-ttu-id="7cf6d-117">このドキュメントより詳細な手順が含まれています、 *ScaffoldingReadme.txt*ファイル。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-117">This document contains more complete instructions than the *ScaffoldingReadme.txt* file.</span></span>
+<span data-ttu-id="6392d-115">Identity scaffolder が実行される、 *ScaffoldingReadme.txt*プロジェクト ディレクトリにファイルが作成されます。</span><span class="sxs-lookup"><span data-stu-id="6392d-115">When the Identity scaffolder is run, a *ScaffoldingReadme.txt* file is created in the project directory.</span></span> <span data-ttu-id="6392d-116">*ScaffoldingReadme.txt*ファイルには、一般的な手順について Id スキャフォールディングの更新の完了に必要なものが含まれています。</span><span class="sxs-lookup"><span data-stu-id="6392d-116">The *ScaffoldingReadme.txt* file contains general instructions on what's needed to complete the Identity scaffolding update.</span></span> <span data-ttu-id="6392d-117">このドキュメントより詳細な手順が含まれています、 *ScaffoldingReadme.txt*ファイル。</span><span class="sxs-lookup"><span data-stu-id="6392d-117">This document contains more complete instructions than the *ScaffoldingReadme.txt* file.</span></span>
 
-<span data-ttu-id="7cf6d-118">ファイルの相違点を表示し、変更を取り消すには、ソース管理システムを使用することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-118">We recommend using a source control system that shows file differences and allows you to back out of changes.</span></span> <span data-ttu-id="7cf6d-119">Identity scaffolder を実行した後、変更を検査します。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-119">Inspect the changes after running the Identity scaffolder.</span></span>
+<span data-ttu-id="6392d-118">ファイルの相違点を示し、変更をバックアップすることができますをソース管理システムを使用することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="6392d-118">We recommend using a source control system that shows file differences and allows you to back out of changes.</span></span> <span data-ttu-id="6392d-119">Identity scaffolder を実行した後、変更を検査します。</span><span class="sxs-lookup"><span data-stu-id="6392d-119">Inspect the changes after running the Identity scaffolder.</span></span>
 
-## <a name="scaffold-identity-into-an-empty-project"></a><span data-ttu-id="7cf6d-120">空のプロジェクトに scaffold identity</span><span class="sxs-lookup"><span data-stu-id="7cf6d-120">Scaffold identity into an empty project</span></span>
+## <a name="scaffold-identity-into-an-empty-project"></a><span data-ttu-id="6392d-120">空のプロジェクトにスキャフォールディング identity</span><span class="sxs-lookup"><span data-stu-id="6392d-120">Scaffold identity into an empty project</span></span>
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-<span data-ttu-id="7cf6d-121">次の強調表示されている呼び出しを追加、`Startup`クラス。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-121">Add the following highlighted calls to the `Startup` class:</span></span>
+<span data-ttu-id="6392d-121">次の強調表示されている呼び出しを追加、`Startup`クラス。</span><span class="sxs-lookup"><span data-stu-id="6392d-121">Add the following highlighted calls to the `Startup` class:</span></span>
 
 [!code-csharp[](scaffold-identity/sample/StartupEmpty.cs?name=snippet1&highlight=5,20-23)]
 
@@ -39,7 +39,7 @@ ms.locfileid: "36276319"
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
-## <a name="scaffold-identity-into-a-razor-project-without-existing-authorization"></a><span data-ttu-id="7cf6d-122">既存の承認はしない Razor プロジェクトに scaffold identity</span><span class="sxs-lookup"><span data-stu-id="7cf6d-122">Scaffold identity into a Razor project without existing authorization</span></span>
+## <a name="scaffold-identity-into-a-razor-project-without-existing-authorization"></a><span data-ttu-id="6392d-122">既存の承認なし Razor プロジェクトにスキャフォールディング identity</span><span class="sxs-lookup"><span data-stu-id="6392d-122">Scaffold identity into a Razor project without existing authorization</span></span>
 
 <!--
 set projNam=RPnoAuth
@@ -57,27 +57,27 @@ dotnet ef database update
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-<span data-ttu-id="7cf6d-123">ように構成された id *Areas/Identity/IdentityHostingStartup.cs*です。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-123">Identity is configured in *Areas/Identity/IdentityHostingStartup.cs*.</span></span> <span data-ttu-id="7cf6d-124">詳細については、次を参照してください。 [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)です。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-124">for more information, see [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).</span></span>
+<span data-ttu-id="6392d-123">Id が構成されて*Areas/Identity/IdentityHostingStartup.cs*します。</span><span class="sxs-lookup"><span data-stu-id="6392d-123">Identity is configured in *Areas/Identity/IdentityHostingStartup.cs*.</span></span> <span data-ttu-id="6392d-124">詳細については、次を参照してください。 [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)します。</span><span class="sxs-lookup"><span data-stu-id="6392d-124">for more information, see [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).</span></span>
 
 <a name="efm"></a>
 
-### <a name="migrations-useauthentication-and-layout"></a><span data-ttu-id="7cf6d-125">移行、UseAuthentication、およびレイアウト</span><span class="sxs-lookup"><span data-stu-id="7cf6d-125">Migrations, UseAuthentication, and layout</span></span>
+### <a name="migrations-useauthentication-and-layout"></a><span data-ttu-id="6392d-125">移行、UseAuthentication、およびレイアウト</span><span class="sxs-lookup"><span data-stu-id="6392d-125">Migrations, UseAuthentication, and layout</span></span>
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
-<span data-ttu-id="7cf6d-126">`Configure`のメソッド、`Startup`クラス、呼び出し[UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_)後`UseStaticFiles`:</span><span class="sxs-lookup"><span data-stu-id="7cf6d-126">In the `Configure` method of the `Startup` class, call [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) after `UseStaticFiles`:</span></span>
+<span data-ttu-id="6392d-126">`Configure`のメソッド、`Startup`クラスを呼び出す[UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_)後`UseStaticFiles`:</span><span class="sxs-lookup"><span data-stu-id="6392d-126">In the `Configure` method of the `Startup` class, call [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) after `UseStaticFiles`:</span></span>
 
 [!code-csharp[](scaffold-identity/sample/StartupRPnoAuth.cs?name=snippet1&highlight=29)]
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
-### <a name="layout-changes"></a><span data-ttu-id="7cf6d-127">レイアウトの変更</span><span class="sxs-lookup"><span data-stu-id="7cf6d-127">Layout changes</span></span>
+### <a name="layout-changes"></a><span data-ttu-id="6392d-127">レイアウトの変更</span><span class="sxs-lookup"><span data-stu-id="6392d-127">Layout changes</span></span>
 
-<span data-ttu-id="7cf6d-128">省略可能: 部分のログインを追加する (`_LoginPartial`) をレイアウト ファイル。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-128">Optional: Add the login partial (`_LoginPartial`) to the layout file:</span></span>
+<span data-ttu-id="6392d-128">省略可能: 部分のログインを追加する (`_LoginPartial`)、レイアウト ファイルに。</span><span class="sxs-lookup"><span data-stu-id="6392d-128">Optional: Add the login partial (`_LoginPartial`) to the layout file:</span></span>
 
 [!code-html[Main](scaffold-identity/sample/_Layout.cshtml?highlight=37)]
 
-## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a><span data-ttu-id="7cf6d-129">権限を持つ Razor プロジェクトに scaffold identity</span><span class="sxs-lookup"><span data-stu-id="7cf6d-129">Scaffold identity into a Razor project with authorization</span></span>
+## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a><span data-ttu-id="6392d-129">権限を持つ Razor プロジェクトにスキャフォールディング identity</span><span class="sxs-lookup"><span data-stu-id="6392d-129">Scaffold identity into a Razor project with authorization</span></span>
 
 <!--
 Use >=2.1: dotnet new webapp -au Individual -o RPauth
@@ -90,10 +90,9 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 -->
 
-[!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
-<span data-ttu-id="7cf6d-130">いくつかの Id オプションを構成*Areas/Identity/IdentityHostingStartup.cs*です。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-130">Some Identity options are configured in *Areas/Identity/IdentityHostingStartup.cs*.</span></span> <span data-ttu-id="7cf6d-131">詳細については、次を参照してください。 [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)です。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-131">For more information, see [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).</span></span>
+[!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]<span data-ttu-id="6392d-130"> いくつかの Id オプションが構成されている*Areas/Identity/IdentityHostingStartup.cs*します。</span><span class="sxs-lookup"><span data-stu-id="6392d-130"> Some Identity options are configured in *Areas/Identity/IdentityHostingStartup.cs*.</span></span> <span data-ttu-id="6392d-131">詳細については、次を参照してください。 [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration)します。</span><span class="sxs-lookup"><span data-stu-id="6392d-131">For more information, see [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).</span></span>
 
-## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a><span data-ttu-id="7cf6d-132">既存の承認はしない MVC プロジェクトに scaffold identity</span><span class="sxs-lookup"><span data-stu-id="7cf6d-132">Scaffold identity into an MVC project without existing authorization</span></span>
+## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a><span data-ttu-id="6392d-132">MVC プロジェクトの既存の承認なしにスキャフォールディング identity</span><span class="sxs-lookup"><span data-stu-id="6392d-132">Scaffold identity into an MVC project without existing authorization</span></span>
 
 <!--
 set projNam=MvcNoAuth
@@ -111,23 +110,23 @@ dotnet ef database update
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-<span data-ttu-id="7cf6d-133">省略可能: 部分のログインを追加する (`_LoginPartial`) に、 *Views/Shared/_Layout.cshtml*ファイル。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-133">Optional: Add the login partial (`_LoginPartial`) to the *Views/Shared/_Layout.cshtml* file:</span></span>
+<span data-ttu-id="6392d-133">省略可能: 部分のログインを追加する (`_LoginPartial`) に、 *Views/Shared/_Layout.cshtml*ファイル。</span><span class="sxs-lookup"><span data-stu-id="6392d-133">Optional: Add the login partial (`_LoginPartial`) to the *Views/Shared/_Layout.cshtml* file:</span></span>
 
 [!code-html[](scaffold-identity/sample/_LayoutMvc.cshtml?highlight=37)]
 
-* <span data-ttu-id="7cf6d-134">移動、 *Pages/Shared/_LoginPartial.cshtml*ファイルの名前を*Views/Shared/_LoginPartial.cshtml*</span><span class="sxs-lookup"><span data-stu-id="7cf6d-134">Move the *Pages/Shared/_LoginPartial.cshtml* file to *Views/Shared/_LoginPartial.cshtml*</span></span>
+* <span data-ttu-id="6392d-134">移動、 *Pages/Shared/_LoginPartial.cshtml*ファイルを*Views/Shared/_LoginPartial.cshtml*</span><span class="sxs-lookup"><span data-stu-id="6392d-134">Move the *Pages/Shared/_LoginPartial.cshtml* file to *Views/Shared/_LoginPartial.cshtml*</span></span>
 
-<span data-ttu-id="7cf6d-135">ように構成された id *Areas/Identity/IdentityHostingStartup.cs*です。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-135">Identity is configured in *Areas/Identity/IdentityHostingStartup.cs*.</span></span> <span data-ttu-id="7cf6d-136">詳細については、IHostingStartup を参照してください。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-136">For more information, see IHostingStartup.</span></span>
+<span data-ttu-id="6392d-135">Id が構成されて*Areas/Identity/IdentityHostingStartup.cs*します。</span><span class="sxs-lookup"><span data-stu-id="6392d-135">Identity is configured in *Areas/Identity/IdentityHostingStartup.cs*.</span></span> <span data-ttu-id="6392d-136">詳細については、IHostingStartup を参照してください。</span><span class="sxs-lookup"><span data-stu-id="6392d-136">For more information, see IHostingStartup.</span></span>
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
-<span data-ttu-id="7cf6d-137">呼び出す[UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_)後`UseStaticFiles`:</span><span class="sxs-lookup"><span data-stu-id="7cf6d-137">Call [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) after `UseStaticFiles`:</span></span>
+<span data-ttu-id="6392d-137">呼び出す[UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_)後`UseStaticFiles`:</span><span class="sxs-lookup"><span data-stu-id="6392d-137">Call [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) after `UseStaticFiles`:</span></span>
 
 [!code-csharp[](scaffold-identity/sample/StartupMvcNoAuth.cs?name=snippet1&highlight=23)]
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
-## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a><span data-ttu-id="7cf6d-138">権限を持つ MVC プロジェクトに scaffold identity</span><span class="sxs-lookup"><span data-stu-id="7cf6d-138">Scaffold identity into an MVC project with authorization</span></span>
+## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a><span data-ttu-id="6392d-138">MVC プロジェクトの承認にスキャフォールディング identity</span><span class="sxs-lookup"><span data-stu-id="6392d-138">Scaffold identity into an MVC project with authorization</span></span>
 
 <!--
 dotnet new mvc -au Individual -o MvcAuth
@@ -139,26 +138,26 @@ dotnet aspnet-codegenerator identity -dc MvcAuth.Data.ApplicationDbContext --fil
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
 
-<span data-ttu-id="7cf6d-139">削除、*ページ/共有*フォルダーとそのフォルダー内のファイルです。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-139">Delete the *Pages/Shared* folder and the files in that folder.</span></span>
+<span data-ttu-id="6392d-139">削除、*ページ/共有*フォルダーとそのフォルダー内のファイル。</span><span class="sxs-lookup"><span data-stu-id="6392d-139">Delete the *Pages/Shared* folder and the files in that folder.</span></span>
 
 <a name="full"></a>
 
-## <a name="create-full-identity-ui-source"></a><span data-ttu-id="7cf6d-140">完全な id UI ソースを作成します。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-140">Create full identity UI source</span></span>
+## <a name="create-full-identity-ui-source"></a><span data-ttu-id="6392d-140">完全な id の UI のソースを作成します。</span><span class="sxs-lookup"><span data-stu-id="6392d-140">Create full identity UI source</span></span>
 
-<span data-ttu-id="7cf6d-141">Identity UI を完全に制御を維持するには、Identity scaffolder の実行を選択して**すべてのファイルを上書き**です。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-141">To maintain full control of the Identity UI, run the Identity scaffolder and select **Override all files**.</span></span>
+<span data-ttu-id="6392d-141">Identity UI を完全に制御を維持するために、Identity scaffolder を実行して選択して**すべてのファイルを上書き**します。</span><span class="sxs-lookup"><span data-stu-id="6392d-141">To maintain full control of the Identity UI, run the Identity scaffolder and select **Override all files**.</span></span>
 
-<span data-ttu-id="7cf6d-142">ASP.NET Core 2.1 web app での Id を持つ既定の Identity の UI を置換する変更を次の強調表示されたコードに示します。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-142">The following highlighted code shows the changes to replace the default Identity UI with Identity in an ASP.NET Core 2.1 web app.</span></span> <span data-ttu-id="7cf6d-143">この Identity UI を完全に制御する可能性があります。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-143">You might want to do this to have full control of the Identity UI.</span></span>
+<span data-ttu-id="6392d-142">次の強調表示されたコードは、ASP.NET Core 2.1 の web アプリで Id を持つ既定の Identity の UI を置換する変更を示しています。</span><span class="sxs-lookup"><span data-stu-id="6392d-142">The following highlighted code shows the changes to replace the default Identity UI with Identity in an ASP.NET Core 2.1 web app.</span></span> <span data-ttu-id="6392d-143">これは、Identity UI の完全に制御をする可能性があります。</span><span class="sxs-lookup"><span data-stu-id="6392d-143">You might want to do this to have full control of the Identity UI.</span></span>
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet1&highlight=13-14,17-999)]
 
-<span data-ttu-id="7cf6d-144">既定の Id は、次のコードで置き換えられます。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-144">The default Identity is replaced in the following code:</span></span>
+<span data-ttu-id="6392d-144">既定の Id は、次のコードに置き換えられます。</span><span class="sxs-lookup"><span data-stu-id="6392d-144">The default Identity is replaced in the following code:</span></span>
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet2)]
 
-<span data-ttu-id="7cf6d-145">次のコード セット、 [LoginPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.loginpath)、 [LogoutPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.logoutpath)、および[AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath):</span><span class="sxs-lookup"><span data-stu-id="7cf6d-145">The following the code sets the [LoginPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.loginpath), [LogoutPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.logoutpath), and [AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath):</span></span>
+<span data-ttu-id="6392d-145">次のコード セット、 [LoginPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.loginpath)、 [LogoutPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.logoutpath)、および[AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath):</span><span class="sxs-lookup"><span data-stu-id="6392d-145">The following the code sets the [LoginPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.loginpath), [LogoutPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.logoutpath), and [AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath):</span></span>
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet3)]
 
-<span data-ttu-id="7cf6d-146">登録、`IEmailSender`例については、実装します。</span><span class="sxs-lookup"><span data-stu-id="7cf6d-146">Register an `IEmailSender` implementation, for example:</span></span>
+<span data-ttu-id="6392d-146">登録、`IEmailSender`例については、実装します。</span><span class="sxs-lookup"><span data-stu-id="6392d-146">Register an `IEmailSender` implementation, for example:</span></span>
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet4)]
